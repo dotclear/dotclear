@@ -19,7 +19,7 @@ $maintenance = new dcMaintenance($core);
 $tasks = $maintenance->getTasks();
 
 $headers = '';
-$p_url = 'plugin.php?p=maintenance';
+$p_url = $core->adminurl->get('admin.plugin.maintenance');
 $task = null;
 $expired = array();
 
@@ -116,7 +116,7 @@ $combo_ts = array(
 echo '<html><head>
 <title>'.__('Maintenance').'</title>'.
 dcPage::jsPageTabs($tab).
-dcPage::jsLoad('index.php?pf=maintenance/js/settings.js');
+dcPage::jsLoad(dcPage::getPF('maintenance/js/settings.js'));
 
 if ($task && $task->ajax()) {
 	echo
@@ -125,7 +125,7 @@ if ($task && $task->ajax()) {
 	dcPage::jsVar('dotclear.msg.wait', __('Please wait...')).
 	"//]]>\n".
 	'</script>'.
-	dcPage::jsLoad('index.php?pf=maintenance/js/dc.maintenance.js');
+	dcPage::jsLoad(dcPage::getPF('maintenance/js/dc.maintenance.js'));
 }
 
 echo
@@ -157,7 +157,7 @@ if ($task && ($res = $task->step()) !== null) {
 			'<a href="'.$p_url.'">'.__('Maintenance').'</a>' => '',
 			html::escapeHTML($task->name())=> ''
 		)
-	);
+	).dcPage::notices();
 
 	// content
 	if (substr($res, 0, 1) != '<') {
@@ -192,7 +192,7 @@ else {
 			__('Plugins') => '',
 			__('Maintenance') => ''
 		)
-	);
+	).dcPage::notices();
 
 	// Simple task (with only a button to start it)
 
@@ -298,7 +298,7 @@ else {
 
 	'<p class="info">'.sprintf(
 		__('You can place list of late tasks on your %s.'),
-		'<a href="preferences.php#user-favorites">'.__('Dashboard').'</a>'
+		'<a href="'.$core->adminurl->get('admin.user.preferences').'#user-favorites">'.__('Dashboard').'</a>'
 	).'</p>'.
 
 	'<h4 class="pretty-title vertical-separator">'.__('Frequency').'</h4>'.

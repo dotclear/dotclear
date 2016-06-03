@@ -3,13 +3,12 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2015 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
 
 class dcTemplate extends template
 {
@@ -74,6 +73,7 @@ class dcTemplate extends template
 		$this->addValue('BlogPublicURL',array($this,'BlogPublicURL'));
 		$this->addValue('BlogQmarkURL',array($this,'BlogQmarkURL'));
 		$this->addValue('BlogMetaRobots',array($this,'BlogMetaRobots'));
+		$this->addValue('BlogJsJQuery',array($this,'BlogJsJQuery'));
 
 		# Categories
 		$this->addBlock('Categories',array($this,'Categories'));
@@ -117,6 +117,7 @@ class dcTemplate extends template
 
 		# Comment preview
 		$this->addBlock('IfCommentPreview',array($this,'IfCommentPreview'));
+		$this->addBlock('IfCommentPreviewOptional',array($this,'IfCommentPreviewOptional'));
 		$this->addValue('CommentPreviewName',array($this,'CommentPreviewName'));
 		$this->addValue('CommentPreviewEmail',array($this,'CommentPreviewEmail'));
 		$this->addValue('CommentPreviewSite',array($this,'CommentPreviewSite'));
@@ -129,15 +130,16 @@ class dcTemplate extends template
 		$this->addBlock('Entries',array($this,'Entries'));
 		$this->addBlock('EntriesFooter',array($this,'EntriesFooter'));
 		$this->addBlock('EntriesHeader',array($this,'EntriesHeader'));
-		$this->addValue('EntryExcerpt',array($this,'EntryExcerpt'));
 		$this->addValue('EntryAuthorCommonName',array($this,'EntryAuthorCommonName'));
 		$this->addValue('EntryAuthorDisplayName',array($this,'EntryAuthorDisplayName'));
 		$this->addValue('EntryAuthorEmail',array($this,'EntryAuthorEmail'));
+		$this->addValue('EntryAuthorEmailMD5',array($this,'EntryAuthorEmailMD5'));
 		$this->addValue('EntryAuthorID',array($this,'EntryAuthorID'));
 		$this->addValue('EntryAuthorLink',array($this,'EntryAuthorLink'));
 		$this->addValue('EntryAuthorURL',array($this,'EntryAuthorURL'));
 		$this->addValue('EntryBasename',array($this,'EntryBasename'));
 		$this->addValue('EntryCategory',array($this,'EntryCategory'));
+		$this->addValue('EntryCategoryDescription',array($this,'EntryCategoryDescription'));
 		$this->addBlock('EntryCategoriesBreadcrumb',array($this,'EntryCategoriesBreadcrumb'));
 		$this->addValue('EntryCategoryID',array($this,'EntryCategoryID'));
 		$this->addValue('EntryCategoryURL',array($this,'EntryCategoryURL'));
@@ -145,10 +147,12 @@ class dcTemplate extends template
 		$this->addValue('EntryCommentCount',array($this,'EntryCommentCount'));
 		$this->addValue('EntryContent',array($this,'EntryContent'));
 		$this->addValue('EntryDate',array($this,'EntryDate'));
+		$this->addValue('EntryExcerpt',array($this,'EntryExcerpt'));
 		$this->addValue('EntryFeedID',array($this,'EntryFeedID'));
 		$this->addValue('EntryFirstImage',array($this,'EntryFirstImage'));
 		$this->addValue('EntryID',array($this,'EntryID'));
 		$this->addBlock('EntryIf',array($this,'EntryIf'));
+		$this->addBlock('EntryIfContentCut',array($this,'EntryIfContentCut'));
 		$this->addValue('EntryIfFirst',array($this,'EntryIfFirst'));
 		$this->addValue('EntryIfOdd',array($this,'EntryIfOdd'));
 		$this->addValue('EntryIfSelected',array($this,'EntryIfSelected'));
@@ -341,7 +345,7 @@ class dcTemplate extends template
 				if (!is_array($v)) {
 					$alias[$k] = array();
 				}
-				if (!is_array($v)) {
+				if (!isset($default_alias[$k]) || !is_array($default_alias[$k])) {
 					$default_alias[$k] = array();
 				}
 				$default_alias[$k] = array_merge($default_alias[$k],$alias[$k]);
@@ -431,13 +435,14 @@ class dcTemplate extends template
 		$start = isset($attr['start']) ? (integer) $attr['start'] : '0';
 		$length = isset($attr['length']) ? (integer) $attr['length'] : 'null';
 		$even = isset($attr['even']) ? (integer) (boolean) $attr['even'] : 'null';
+		$modulo = isset($attr['modulo']) ? (integer) $attr['modulo'] : 'null';
 
 		if ($start > 0) {
 			$start--;
 		}
 
 		return
-		'<?php if ($_ctx->loopPosition('.$start.','.$length.','.$even.')) : ?>'.
+		'<?php if ($_ctx->loopPosition('.$start.','.$length.','.$even.','.$modulo.')) : ?>'.
 		$content.
 		"<?php endif; ?>";
 	}
@@ -875,6 +880,15 @@ class dcTemplate extends template
 		return "<?php echo context::robotsPolicy(\$core->blog->settings->system->robots_policy,'".$robots."'); ?>";
 	}
 
+	/*dtd
+	<!ELEMENT gpl:BlogJsJQuery - 0 -- Blog Js jQuery version selected -->
+	*/
+	public function BlogJsJQuery($attr)
+	{
+		$f = $this->getFilters($attr);
+		return '<?php echo '.sprintf($f,'$core->blog->getJsJQuery()').'; ?>';
+	}
+
 	/* Categories ----------------------------------------- */
 
 	/*dtd
@@ -1105,14 +1119,24 @@ class dcTemplate extends template
 			if ($lastn > 0) {
 				// nb of entries per page specified in template -> regular pagination
 				$p .= "\$params['limit'] = ".$lastn.";\n";
+				$p .= "\$nb_entry_first_page = \$nb_entry_per_page = ".$lastn.";\n";
 			} else {
 				// nb of entries per page not specified -> use ctx settings
-				$p .= "\$params['limit'] = (\$_page_number == 1 ? \$_ctx->nb_entry_first_page : \$_ctx->nb_entry_per_page);\n";
+				$p .= "\$nb_entry_first_page=\$_ctx->nb_entry_first_page; \$nb_entry_per_page = \$_ctx->nb_entry_per_page;\n";
+				$p .= "if ((\$core->url->type == 'default') || (\$core->url->type == 'default-page')) {\n";
+				$p .= "    \$params['limit'] = (\$_page_number == 1 ? \$nb_entry_first_page : \$nb_entry_per_page);\n";
+				$p .= "} else {\n";
+				$p .= "    \$params['limit'] = \$nb_entry_per_page;\n";
+				$p .= "}\n";
 			}
 			// Set offset (aka index of first entry)
 			if (!isset($attr['ignore_pagination']) || $attr['ignore_pagination'] == "0") {
 				// standard pagination, set offset
-				$p .= "\$params['limit'] = array((\$_page_number == 1 ? 0 : (\$_page_number - 2) * \$_ctx->nb_entry_per_page + \$_ctx->nb_entry_first_page),\$params['limit']);\n";
+				$p .= "if ((\$core->url->type == 'default') || (\$core->url->type == 'default-page')) {\n";
+				$p .= "    \$params['limit'] = array((\$_page_number == 1 ? 0 : (\$_page_number - 2) * \$nb_entry_per_page + \$nb_entry_first_page),\$params['limit']);\n";
+				$p .= "} else {\n";
+				$p .= "    \$params['limit'] = array((\$_page_number - 1) * \$nb_entry_per_page,\$params['limit']);\n";
+				$p .= "}\n";
 			} else {
 				// no pagination, get all posts from 0 to limit
 				$p .= "\$params['limit'] = array(0, \$params['limit']);\n";
@@ -1411,7 +1435,7 @@ class dcTemplate extends template
 	}
 
 	/*dtd
-	<!ELEMENT tpl:EntryContent - O -- Entry content -->
+	<!ELEMENT tpl:EntryContent -  -- Entry content -->
 	<!ATTLIST tpl:EntryContent
 	absolute_urls	CDATA	#IMPLIED -- transforms local URLs to absolute one
 	full			(1|0)	#IMPLIED -- returns full content with excerpt
@@ -1432,6 +1456,36 @@ class dcTemplate extends template
 		} else {
 			return '<?php echo '.sprintf($f,'$_ctx->posts->getContent('.$urls.')').'; ?>';
 		}
+	}
+
+	/*dtd
+	<!ELEMENT tpl:EntryIfContentCut - - -- Test if Entry content has been cut -->
+	<!ATTLIST tpl:EntryIfContentCut
+	absolute_urls	CDATA	#IMPLIED -- transforms local URLs to absolute one
+	full			(1|0)	#IMPLIED -- test with full content and excerpt
+	>
+	*/
+	public function EntryIfContentCut($attr,$content)
+	{
+		if (empty($attr['cut_string']) || !empty($attr['full'])) {
+			return '';
+		}
+
+		$urls = '0';
+		if (!empty($attr['absolute_urls'])) {
+			$urls = '1';
+		}
+
+		$short = $this->getFilters($attr);
+		$cut = $attr['cut_string'];
+		$attr['cut_string'] = 0;
+		$full = $this->getFilters($attr);
+		$attr['cut_string'] = $cut;
+
+		return '<?php if (strlen('.sprintf($full,'$_ctx->posts->getContent('.$urls.')').') > '.
+			'strlen('.sprintf($short,'$_ctx->posts->getContent('.$urls.')').')) : ?>'.
+			$content.
+			'<?php endif; ?>';
 	}
 
 	/*dtd
@@ -1497,6 +1551,16 @@ class dcTemplate extends template
 	}
 
 	/*dtd
+	<!ELEMENT tpl:EntryAuthorEmailMD5 - O -- Entry author email MD5 sum -->
+	>
+	*/
+	public function EntryAuthorEmailMD5($attr)
+	{
+		$f = $this->getFilters($attr);
+		return '<?php echo '.sprintf($f,'md5($_ctx->posts->getAuthorEmail(false))').'; ?>';
+	}
+
+	/*dtd
 	<!ELEMENT tpl:EntryAuthorLink - O -- Entry author link -->
 	*/
 	public function EntryAuthorLink($attr)
@@ -1530,6 +1594,15 @@ class dcTemplate extends template
 	{
 		$f = $this->getFilters($attr);
 		return '<?php echo '.sprintf($f,'$_ctx->posts->cat_title').'; ?>';
+	}
+
+	/*dtd
+	<!ELEMENT tpl:EntryCategoryDescription - O -- Entry category description -->
+	*/
+	public function EntryCategoryDescription($attr)
+	{
+		$f = $this->getFilters($attr);
+		return '<?php echo '.sprintf($f,'$_ctx->posts->cat_desc').'; ?>';
 	}
 
 	/*dtd
@@ -1774,7 +1847,7 @@ class dcTemplate extends template
 	/*dtd
 	<!ELEMENT tpl:EntryCommentCount - O -- Number of comments for entry -->
 	<!ATTLIST tpl:EntryCommentCount
-	none		CDATA	#IMPLIED	-- text to display for "no comment" (default: no comment)
+	none		CDATA	#IMPLIED	-- text to display for "no comments" (default: no comments)
 	one		CDATA	#IMPLIED	-- text to display for "one comment" (default: one comment)
 	more		CDATA	#IMPLIED	-- text to display for "more comments" (default: %s comments, %s is replaced by the number of comment)
 	count_all	CDATA	#IMPLIED	-- count comments and trackbacks
@@ -1803,7 +1876,7 @@ class dcTemplate extends template
 	/*dtd
 	<!ELEMENT tpl:EntryPingCount - O -- Number of trackbacks for entry -->
 	<!ATTLIST tpl:EntryPingCount
-	none	CDATA	#IMPLIED	-- text to display for "no ping" (default: no ping)
+	none	CDATA	#IMPLIED	-- text to display for "no pings" (default: no pings)
 	one	CDATA	#IMPLIED	-- text to display for "one ping" (default: one ping)
 	more	CDATA	#IMPLIED	-- text to display for "more pings" (default: %s trackbacks, %s is replaced by the number of pings)
 	>
@@ -1813,7 +1886,7 @@ class dcTemplate extends template
 		return $this->displayCounter(
 			'$_ctx->posts->nb_trackback',
 			array(
-				'none' => 'no trackback',
+				'none' => 'no trackbacks',
 				'one'  => 'one trackback',
 				'more' => '%d trackbacks'
 				),
@@ -2407,6 +2480,17 @@ class dcTemplate extends template
 
 	/* Comment preview -------------------------------- */
 	/*dtd
+	<!ELEMENT tpl:IfCommentPreviewOptional - - -- Container displayed if comment preview is optional or currently previewed -->
+	*/
+	public function IfCommentPreviewOptional($attr,$content)
+	{
+		return
+		'<?php if ($core->blog->settings->system->comment_preview_optional || ($_ctx->comment_preview !== null && $_ctx->comment_preview["preview"])) : ?>'.
+		$content.
+		'<?php endif; ?>';
+	}
+
+	/*dtd
 	<!ELEMENT tpl:IfCommentPreview - - -- Container displayed if comment is being previewed -->
 	*/
 	public function IfCommentPreview($attr,$content)
@@ -2953,130 +3037,5 @@ class dcTemplate extends template
 	public function GenericElse($attr)
 	{
 		return '<?php else: ?>';
-	}
-}
-
-# Template nodes, for parsing purposes
-
-# Generic list node, this one may only be instanciated
-# once for root element
-class tplNode
-{
-	# Basic tree structure : links to parent, children forrest
-	protected $parentNode;
-	protected $children;
-
-	public function __construct() {
-		$this->children = array();
-		$this->parentNode = null;
-	}
-
-	// Returns compiled block
-	public function compile($tpl) {
-		$res='';
-		foreach ($this->children as $child) {
-			$res .= $child->compile($tpl);
-		}
-		return $res;
-	}
-
-	# Add a children to current node
-	public function addChild ($child) {
-		$this->children[] = $child;
-		$child->setParent($this);
-	}
-
-	# Defines parent for current node
-	protected function setParent($parent) {
-		$this->parentNode = $parent;
-	}
-
-	# Retrieves current node parent.
-	# If parent is root node, null is returned
-	public function getParent() {
-		return $this->parentNode;
-	}
-
-	# Current node tag
-	public function getTag() {
-		return "ROOT";
-	}
-}
-
-// Text node, for any non-tpl content
-class tplNodeText extends tplNode
-{
-	// Simple text node, only holds its content
-	protected $content;
-
-	public function __construct($text) {
-		parent::__construct();
-		$this->content=$text;
-	}
-
-	public function compile($tpl) {
-		return $this->content;
-	}
-
-	public function getTag() {
-		return "TEXT";
-	}
-}
-
-// Block node, for all <tpl:Tag>...</tpl:Tag>
-class tplNodeBlock extends tplNode
-{
-	protected $attr;
-	protected $tag;
-	protected $closed;
-
-	public function __construct($tag,$attr) {
-		parent::__construct();
-		$this->content='';
-		$this->tag = $tag;
-		$this->attr = $attr;
-		$this->closed=false;
-	}
-	public function setClosing() {
-		$this->closed = true;
-	}
-	public function isClosed() {
-		return $this->closed;
-	}
-	public function compile($tpl) {
-		if ($this->closed) {
-			$content = parent::compile($tpl);
-			return $tpl->compileBlockNode($this->tag,$this->attr,$content);
-		} else {
-			// if tag has not been closed, silently ignore its content...
-			return '';
-		}
-	}
-	public function getTag() {
-		return $this->tag;
-	}
-}
-
-// Value node, for all {{tpl:Tag}}
-class tplNodeValue extends tplNode
-{
-	protected $attr;
-	protected $str_attr;
-	protected $tag;
-
-	public function __construct($tag,$attr,$str_attr) {
-		parent::__construct();
-		$this->content='';
-		$this->tag = $tag;
-		$this->attr = $attr;
-		$this->str_attr = $str_attr;
-	}
-
-	public function compile($tpl) {
-		return $tpl->compileValueNode($this->tag,$this->attr,$this->str_attr);
-	}
-
-	public function getTag() {
-		return $this->tag;
 	}
 }

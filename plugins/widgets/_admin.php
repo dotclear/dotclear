@@ -17,12 +17,14 @@ function widgets_dashboard_favorites($core,$favs)
 {
 	$favs->register('widgets', array(
 		'title' => __('Presentation widgets'),
-		'url' => 'plugin.php?p=widgets',
-		'small-icon' => 'index.php?pf=widgets/icon.png',
-		'large-icon' => 'index.php?pf=widgets/icon-big.png',
+		'url' => $core->adminurl->get('admin.plugin.widgets'),
+		'small-icon' => dcPage::getPF('widgets/icon.png'),
+		'large-icon' => dcPage::getPF('widgets/icon-big.png'),
 	));
 }
 
-$_menu['Blog']->addItem(__('Presentation widgets'),'plugin.php?p=widgets','index.php?pf=widgets/icon.png',
-		preg_match('/plugin.php\?p=widgets(&.*)?$/',$_SERVER['REQUEST_URI']),
+$_menu['Blog']->addItem(__('Presentation widgets'),
+		$core->adminurl->get('admin.plugin.widgets'),
+		dcPage::getPF('widgets/icon.png'),
+		preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.widgets')).'(&.*)?$/',$_SERVER['REQUEST_URI']),
 		$core->auth->check('admin',$core->blog->id));

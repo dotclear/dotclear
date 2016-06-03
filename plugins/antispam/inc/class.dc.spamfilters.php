@@ -127,13 +127,13 @@ class dcSpamFilters
 		if ($global) {
 			$this->core->blog->settings->antispam->drop('antispam_filters');
 		}
-		$this->core->blog->settings->antispam->put('antispam_filters',serialize($opts),'string','Antispam Filters',true,$global);
+		$this->core->blog->settings->antispam->put('antispam_filters',$opts,'array','Antispam Filters',true,$global);
 	}
 
 	private function setFilterOpts()
 	{
 		if ($this->core->blog->settings->antispam->antispam_filters !== null) {
-			$this->filters_opt = @unserialize($this->core->blog->settings->antispam->antispam_filters);
+			$this->filters_opt = $this->core->blog->settings->antispam->antispam_filters;
 		}
 
 		# Create default options if needed

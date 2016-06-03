@@ -263,11 +263,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 	--------------------------------------------------- */
 	private function setUser($user_id,$pwd)
 	{
-		if ($this->core->auth->userID() == $user_id) {
-			return true;
-		}
-
-		if ($this->core->auth->checkUser($user_id,$pwd) !== true) {
+		if (empty($pwd) || $this->core->auth->checkUser($user_id,$pwd) !== true) {
 			throw new Exception('Login error');
 		}
 
@@ -785,7 +781,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 		}
 
 		$file_name = $file['name'];
-		$file_bits = base64_decode($file['bits']);
+		$file_bits = $file['bits'];
 
 		$this->setUser($user,$pwd);
 		$this->setBlog();

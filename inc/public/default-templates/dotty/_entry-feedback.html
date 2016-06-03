@@ -1,0 +1,117 @@
+<tpl:EntryIf operator="or" show_comments="1" show_pings="1">
+	<div class="post-feedback">
+</tpl:EntryIf>
+
+<!-- # Comments -->
+<tpl:EntryIf show_comments="1">
+	<tpl:Comments with_pings="1">
+		<tpl:CommentsHeader>
+			<div class="feedback__comments" id="comments">
+				<h3>{{tpl:EntryCommentCount count_all="1" none="no reactions" one="one reaction" more="%s reactions"}}</h3>
+				<tpl:EntryIf operator="or" comments_active="1" pings_active="1">
+					<p id="comments-feed"><a class="feed" href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}"
+						title="{{tpl:lang This post's comments Atom feed}}">{{tpl:lang This post's comments feed}}</a></p>
+				</tpl:EntryIf>
+				<ul class="comments-list">
+		</tpl:CommentsHeader>
+					<tpl:CommentIf is_ping="0">
+						<li id="c{{tpl:CommentID}}" class="comment {{tpl:CommentIfMe}} {{tpl:CommentIfOdd}} {{tpl:CommentIfFirst}}">
+					</tpl:CommentIf>
+					<tpl:CommentIf is_ping="1">
+						<li id="c{{tpl:PingID}}" class="ping {{tpl:PingIfOdd}} {{tpl:PingIfFirst}}">
+					</tpl:CommentIf>
+							<p class="comment-info"><a href="#c{{tpl:CommentID}}" class="comment-number">{{tpl:CommentOrderNumber}}</a>
+								{{tpl:lang From}} {{tpl:CommentAuthorLink}} - {{tpl:CommentDate format="%d"}}/{{tpl:CommentDate format="%m"}}/{{tpl:CommentDate format="%Y"}}, {{tpl:CommentTime}}
+							</p>
+							<div class="comment-content">
+								<!-- # --BEHAVIOR-- publicCommentBeforeContent -->
+								{{tpl:SysBehavior behavior="publicCommentBeforeContent"}}
+
+								{{tpl:CommentContent}}
+
+								<!-- # --BEHAVIOR-- publicCommentAfterContent -->
+								{{tpl:SysBehavior behavior="publicCommentAfterContent"}}
+							</div>
+						</li>
+		<tpl:CommentsFooter>
+					</ul>
+				</div>
+		</tpl:CommentsFooter>
+	</tpl:Comments>
+</tpl:EntryIf>
+
+<tpl:EntryIf comments_active="1">
+	<tpl:SysIfFormError>
+		<p class="error" id="pr">{{tpl:SysFormError}}</p>
+	</tpl:SysIfFormError>
+
+	<tpl:SysIfCommentPublished>
+		<p class="message" id="pr">{{tpl:lang Your comment has been published.}}</p>
+	</tpl:SysIfCommentPublished>
+
+	<tpl:SysIfCommentPending>
+		<p class="message" id="pr">{{tpl:lang Your comment has been submitted and will be reviewed for publication.}}</p>
+	</tpl:SysIfCommentPending>
+
+	<!-- # Comment form -->
+	<form class="comment-form" action="{{tpl:EntryURL}}#pr" method="post" id="comment-form" role="form">
+		<tpl:IfCommentPreview>
+			<div id="pr">
+				<h3>{{tpl:lang Your comment}}</h3>
+				<div class="comment-preview">{{tpl:CommentPreviewContent}}</div>
+				<p class="buttons"><button type="submit" class="submit" value="{{tpl:lang Send}}">{{tpl:lang Send}}</button></p>
+			</div>
+		</tpl:IfCommentPreview>
+
+		<h3>{{tpl:lang Add a comment}}</h3>
+			<!-- # --BEHAVIOR-- publicCommentFormBeforeContent -->
+			{{tpl:SysBehavior behavior="publicCommentFormBeforeContent"}}
+
+			<p class="field name-field"><label for="c_name">{{tpl:lang Name or nickname}}<abbr title="{{tpl:lang Required field}}">*</abbr>&nbsp;:</label>
+				<input name="c_name" id="c_name" type="text" size="30" maxlength="255"
+				 value="{{tpl:CommentPreviewName encode_html="1"}}" required />
+			</p>
+
+			<p class="field mail-field"><label for="c_mail">{{tpl:lang Email address}}<abbr title="{{tpl:lang Required field}}">*</abbr>&nbsp;:</label>
+				<input name="c_mail" id="c_mail" type="email" size="30" maxlength="255"
+				 value="{{tpl:CommentPreviewEmail encode_html="1"}}" required />
+			</p>
+
+			<p class="field site-field"><label for="c_site">{{tpl:lang Website}}&nbsp;:</label>
+				<input name="c_site" id="c_site" type="url" size="30" maxlength="255"
+				 value="{{tpl:CommentPreviewSite encode_html="1"}}" />
+			</p>
+
+			<p style="display:none">
+				<input name="f_mail" type="text" size="30" maxlength="255" value="" />
+			</p>
+
+			<p class="field field-content"><label for="c_content" aria-describedby="c_help">{{tpl:lang Comment}}<abbr title="{{tpl:lang Required field}}">*</abbr>&nbsp;:</label>
+				<textarea name="c_content" id="c_content" cols="35"
+				 rows="7" required>{{tpl:CommentPreviewContent raw="1" encode_html="1"}}</textarea>
+			</p>
+
+			<p class="form-help" id="c_help">{{tpl:CommentHelp}}</p>
+
+			<!-- # --BEHAVIOR-- publicCommentFormAfterContent -->
+			{{tpl:SysBehavior behavior="publicCommentFormAfterContent"}}
+
+			<p class="buttons">
+				<button type="submit" class="preview" name="preview" value="{{tpl:lang Preview}}">{{tpl:lang Preview}}</button>
+		        <tpl:IfCommentPreviewOptional>
+		        	<button type="submit" class="submit" value="{{tpl:lang Send}}">{{tpl:lang Send}}</button>
+		        </tpl:IfCommentPreviewOptional>
+			</p>
+	</form>
+</tpl:EntryIf>
+
+<tpl:EntryIf pings_active="1">
+	<div class="send-ping">
+		<h3>{{tpl:lang Add ping}}</h3>
+		<p id="ping-url">{{tpl:lang Trackback URL}}&nbsp;: {{tpl:EntryPingLink}}</p>
+	</div>
+</tpl:EntryIf>
+
+<tpl:EntryIf operator="or" show_comments="1" show_pings="1">
+	</div> <!-- end post-feedback -->
+</tpl:EntryIf>

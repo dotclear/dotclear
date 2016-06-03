@@ -535,34 +535,6 @@ select.l10n option {
 option.avail10n {
 	background: transparent url(../images/check-on.png) no-repeat 0 50%;
 	}
-option.sub-option1 {
-	margin-left: .5em;
-	}
-option.sub-option2 {
-	margin-left: 1.5em;
-	}
-option.sub-option3 {
-	margin-left: 2.5em;
-	}
-option.sub-option4 {
-	margin-left: 3.5em;
-	}
-option.sub-option5 {
-	margin-left: 4.5em;
-	}
-option.sub-option6 {
-	margin-left: 5.5em;
-	}
-option.sub-option7 {
-	margin-left: 6.5em;
-	}
-option.sub-option8 {
-	margin-left: 7.5em;
-	}
-option.sub-option1:before, option.sub-option2:before, option.sub-option3:before, option.sub-option4:before,
-option.sub-option5:before, option.sub-option6:before, option.sub-option7:before, option.sub-option8:before {
-	content: "\002022\0000a0";
-	}
 input.invalid, textarea.invalid, select.invalid {
 	border: 1px solid red;
 	background: #FFBABA;
@@ -1261,7 +1233,7 @@ span.tooltip {
 	}
 #footer a:hover span.tooltip {
 	padding: 10px 10px 0 40px;
-	color: #d30e60;
+	color: #910ed3;
 	height: auto;
 	width: auto;
 	right: 0;
@@ -1379,7 +1351,7 @@ a.form-control.open {
 	background: url(../images/hide.png) no-repeat 4px center;
 	}
 #filters-form {
-	border: 1px dashed #999;
+	border: 1px solid rgb(162, 203, 233);
 	border-radius: .3em;
 	margin-bottom: 2em;
 	padding: .5em 1em 0;
@@ -1844,6 +1816,15 @@ p.cat-title {
 	width: 100%;
 	}
 /* ------------------------------------------------------------------ media.php */
+span.media-file-mode {
+	margin-right: 1em;
+}
+.media-file-mode a {
+	border-bottom: none;
+}
+.media-file-mode img {
+	margin-right: 1em;
+}
 .media-item {
 	position: relative;
 	border: 1px solid #dfdfdf;
@@ -1867,6 +1848,10 @@ p.cat-title {
 	margin: 0;
 	padding: 0;
 	}
+.media-item audio {
+	width: 90%;
+	margin-top: .5em;
+	}
 a.media-icon {
 	display: block;
 	border-bottom: none;
@@ -1875,6 +1860,13 @@ a.media-icon {
 .media-icon img {
 	display: block;
 	}
+a.media-flag {
+	border-bottom: none;
+}
+.media-flag img {
+	float: left;
+	margin-right: .5em;
+}
 .media-link {
 	font-size: 1.1em;
 	}
@@ -1922,6 +1914,9 @@ li.media-action input {
 	background: transparent url(bg_menu.png) repeat-y;
 	border-color: #eee;
 	}
+tr.media-folder {
+	background: transparent;
+}
 .media-folder-up {
 	border-color: #fff;
 	padding-bottom: 6px;
@@ -1932,9 +1927,19 @@ li.media-action input {
 	color: #676e78;
 	border-bottom: none;
 	}
-.medias-delete {
+.medias-delete, .medias-select {
 	text-align: right;
 	}
+.media-recent {
+	float: left;
+	margin-right: 2em;
+}
+#media-fav-dir {
+	border-bottom: none;
+}
+#media-fav-dir img {
+	vertical-align: middle;
+}
 /* upload multiple */
 .enhanced_uploader .choose_files, .enhanced_uploader .cancel,
 .enhanced_uploader .clean, .enhanced_uploader .start {

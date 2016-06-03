@@ -367,7 +367,6 @@ class dcMedia extends filemanager
 			default:
 				return strcasecmp($a->basename,$b->basename);
 		}
-
 	}
 
 	/**
@@ -519,14 +518,66 @@ class dcMedia extends filemanager
 	}
 
 	/**
+	Search into media db (only).
+
+	@param	query		<b>string</b>		Search query
+	@return boolean 	true or false if nothing found
+	*/
+	public function searchMedia($query)
+	{
+		if ($query == '') {
+			return false;
+		}
+
+		$strReq =
+		'SELECT media_file, media_id, media_path, media_title, media_meta, media_dt, '.
+		'media_creadt, media_upddt, media_private, user_id '.
+		'FROM '.$this->table.' '.
+		"WHERE media_path = '".$this->path."' ".
+		"AND (media_title LIKE '%".$this->con->escape($query)."%' ".
+		"	OR media_file LIKE '%".$this->con->escape($query)."%' ".
+		"	OR media_meta LIKE '<Description>%".$this->con->escape($query)."%</Description>')";
+
+		if (!$this->core->auth->check('media_admin',$this->core->blog->id))
+		{
+			$strReq .= 'AND (media_private <> 1 ';
+
+			if ($this->core->auth->userID()) {
+				$strReq .= "OR user_id = '".$this->con->escape($this->core->auth->userID())."'";
+			}
+			$strReq .= ') ';
+		}
+
+		$rs = $this->con->select($strReq);
+
+		$this->dir = array('dirs' => array(),'files' => array());
+		$f_res = array();
+		while ($rs->fetch())
+		{
+			$fr = $this->fileRecord($rs);
+			if ($fr) {
+				$f_res[] = $fr;
+			}
+		}
+		$this->dir['files'] = $f_res;
+
+		try {
+			usort($this->dir['files'],array($this,'sortFileHandler'));
+		} catch (Exception $e) {}
+
+		return (count($f_res) > 0 ? true : false);
+	}
+
+	/**
 	Returns media items attached to a blog post. Result is an array containing
 	fileItems objects.
 
-	@param	post_id	<b>integer</b>		Post ID
+	@param	post_id		<b>integer</b>		Post ID
 	@param	media_id	<b>integer</b>		Optionnal media ID
+	@param	link_type	<b>string</b>		Optionnal link type
 	@return	<b>array</b> Array of fileItems
 	*/
-	public function getPostMedia($post_id,$media_id=null)
+	public function getPostMedia($post_id,$media_id=null,$link_type=null)
 	{
 		$params = array(
 			'post_id' => $post_id,
@@ -534,6 +585,9 @@ class dcMedia extends filemanager
 		);
 		if ($media_id) {
 			$params['media_id'] = (integer) $media_id;
+		}
+		if ($link_type) {
+			$params['link_type'] = $link_type;
 		}
 		$rs = $this->postmedia->getPostMedia($params);
 
@@ -553,18 +607,18 @@ class dcMedia extends filemanager
 	@deprecated since version 2.4
 	@see dcPostMedia::addPostMedia
 	*/
-	public function addPostMedia($post_id,$media_id)
+	public function addPostMedia($post_id,$media_id,$link_type='attachment')
 	{
-		$this->postmedia->addPostMedia($post_id,$media_id);
+		$this->postmedia->addPostMedia($post_id,$media_id,$link_type);
 	}
 
 	/**
 	@deprecated since version 2.4
 	@see dcPostMedia::removePostMedia
 	*/
-	public function removePostMedia($post_id,$media_id)
+	public function removePostMedia($post_id,$media_id,$link_type='attachment')
 	{
-		$this->postmedia->removePostMedia($post_id,$media_id,"attachment");
+		$this->postmedia->removePostMedia($post_id,$media_id,$link_type);
 	}
 
 	/**
@@ -1050,14 +1104,175 @@ class dcMedia extends filemanager
 	}
 
 	/**
-	Returns HTML code for MP3 player
+	Returns HTML code for audio player (HTML5 and if possible fallback Flash player)
 
-	@param	url		<b>string</b>		MP3 URL to play
-	@param	player	<b>string</b>		Player URL
-	@param	args		<b>array</b>		Player parameters
+	@param  type		<b>string</b> 		audio mime type
+	@param	url			<b>string</b>		audio URL to play
+	@param	player		<b>string</b>		Player URL (flash player fallback)
+	@param	args		<b>array</b>		Player parameters (flash player fallback)
+	@param  fallback 	<b>boolean</b>		Include Flash player fallback
+	@param 	preload		<b>boolean</b>		Add preload="auto" attribute if true, else preload="none"
 	@return	<b>string</b>
 	*/
-	public static function mp3player($url,$player=null,$args=null)
+	public static function audioPlayer($type,$url,$player=null,$args=null,$fallback=true,$preload=true)
+	{
+		$audio =
+			'<audio controls preload="'.($preload ? 'auto' : 'none').'">'.
+			'<source src="'.$url.'">';
+
+		if ($fallback && $type == 'audio/mpeg3') {
+			// Include Flash player fallback
+			if (!$player) {
+				$player = 'player_mp3.swf';
+			}
+
+			if (!is_array($args))
+			{
+				$args = array(
+					'showvolume' => 1,
+					'loadingcolor' => 'ff9900',
+					'bgcolor1' => 'eeeeee',
+					'bgcolor2' => 'cccccc',
+					'buttoncolor' => '0066cc',
+					'buttonovercolor' => 'ff9900',
+					'slidercolor1' => 'cccccc',
+					'slidercolor2' => '999999',
+					'sliderovercolor' => '0066cc'
+				);
+			}
+
+			$args['mp3'] = $url;
+
+			if (empty($args['width'])) {
+				$args['width'] = 200;
+			}
+			if (empty($args['height'])) {
+				$args['height'] = 20;
+			}
+
+			$vars = array();
+			foreach ($args as $k => $v) {
+				$vars[] = $k.'='.$v;
+			}
+
+			$audio .=
+				'<object type="application/x-shockwave-flash" '.
+				'data="'.$player.'" '.
+				'width="'.$args['width'].'" height="'.$args['height'].'">'.
+				'<param name="movie" value="'.$player.'" />'.
+				'<param name="wmode" value="transparent" />'.
+				'<param name="FlashVars" value="'.implode('&amp;',$vars).'" />'.
+				__('Embedded Audio Player').
+				'</object>';
+		}
+
+		$audio .=
+			'</audio>';
+
+		return $audio;
+	}
+
+	/**
+	Returns HTML code for video player (HTML5 and if possible fallback Flash player)
+
+	@param  type		<b>string</b> 		video mime type
+	@param	url			<b>string</b>		video URL to play
+	@param	player		<b>string</b>		Player URL (flash player fallback)
+	@param	args		<b>array</b>		Player parameters (flash player fallback)
+	@param  fallback 	<b>boolean</b>		Include Flash player fallback (if not .flv)
+	@param 	preload		<b>boolean</b>		Add preload="auto" attribute if true, else preload="none"
+	@return	<b>string</b>
+	*/
+	public static function videoPlayer($type,$url,$player=null,$args=null,$fallback=true,$preload=true)
+	{
+		$video = '';
+
+		// Cope with width and height, if given
+		$width = 400;
+		$height = 300;
+		if (is_array($args)) {
+			if (!empty($args['width']) && $args['width']) {
+				$width = (int) $args['width'];
+			}
+			if (!empty($args['height']) && $args['height']) {
+				$height = (int) $args['height'];
+			}
+		}
+
+		if ($type != 'video/x-flv') {
+			$video =
+				'<video controls preload="'.($preload ? 'auto' : 'none').'"'.
+				($width ? ' width="'.$width.'"' : '').
+				($height ? ' height="'.$height.'"' : '').'>'.
+				'<source src="'.$url.'">';
+		}
+
+		if ($type == 'video/x-flv' || ($fallback && ($type == 'video/mp4' || $type == 'video/x-m4v')))
+		{
+			// Include Flash player fallback
+			if (!$player) {
+				$player = 'player_flv.swf';
+			}
+
+			if (!is_array($args))
+			{
+				$args = array(
+					'margin' => 1,
+					'showvolume' => 1,
+					'showtime' => 1,
+					'showfullscreen' => 1,
+					'buttonovercolor' => 'ff9900',
+					'slidercolor1' => 'cccccc',
+					'slidercolor2' => '999999',
+					'sliderovercolor' => '0066cc'
+				);
+			}
+
+			$args['flv'] = $url;
+
+			if (empty($args['width'])) {
+				$args['width'] = 400;
+			}
+			if (empty($args['height'])) {
+				$args['height'] = 300;
+			}
+
+			$vars = array();
+			foreach ($args as $k => $v) {
+				$vars[] = $k.'='.$v;
+			}
+
+			$video .=
+				'<object type="application/x-shockwave-flash" '.
+				'data="'.$player.'" '.
+				'width="'.$args['width'].'" height="'.$args['height'].'">'.
+				'<param name="movie" value="'.$player.'" />'.
+				'<param name="wmode" value="transparent" />'.
+				'<param name="allowFullScreen" value="true" />'.
+				'<param name="FlashVars" value="'.implode('&amp;',$vars).'" />'.
+				__('Embedded Video Player').
+				'</object>';
+		}
+
+		if ($type != 'video/x-flv') {
+			$video .=
+				'</video>';
+		}
+
+		return $video;
+	}
+
+	/**
+	Returns HTML code for MP3 player
+
+	@param	url			<b>string</b>		MP3 URL to play
+	@param	player		<b>string</b>		Player URL
+	@param	args		<b>array</b>		Player parameters
+	@param  fallback 	<b>boolean</b>		Include Flash player fallback
+	@param 	preload		<b>boolean</b>		Add preload="auto" attribute if true, else preload="none"
+	@return	<b>string</b>
+	*/
+	public static function mp3player($url,$player=null,$args=null,$fallback=true,$preload=true)
 	{
 		if (!$player) {
 			$player = 'player_mp3.swf';
@@ -1093,16 +1308,28 @@ class dcMedia extends filemanager
 		}
 
 		return
-		'<object type="application/x-shockwave-flash" '.
-		'data="'.$player.'" '.
-		'width="'.$args['width'].'" height="'.$args['height'].'">'.
-		'<param name="movie" value="'.$player.'" />'.
-		'<param name="wmode" value="transparent" />'.
-		'<param name="FlashVars" value="'.implode('&amp;',$vars).'" />'.
-		__('Embedded Audio Player').
-		'</object>';
+		'<audio controls preload="'.($preload ? 'auto' : 'none').'">'.
+		'<source src="'.$url.'" type="audio/mpeg">'.
+		($fallback ?
+			'<object type="application/x-shockwave-flash" '.
+			'data="'.$player.'" '.
+			'width="'.$args['width'].'" height="'.$args['height'].'">'.
+			'<param name="movie" value="'.$player.'" />'.
+			'<param name="wmode" value="transparent" />'.
+			'<param name="FlashVars" value="'.implode('&amp;',$vars).'" />'.
+			__('Embedded Audio Player').
+			'</object>' : '').
+		'</audio>';
 	}
 
+	/**
+	Returns HTML code for FLV player
+
+	@param	url		<b>string</b>		FLV URL to play
+	@param	player	<b>string</b>		Player URL
+	@param	args		<b>array</b>		Player parameters
+	@return	<b>string</b>
+	*/
 	public static function flvplayer($url,$player=null,$args=null)
 	{
 		if (!$player) {

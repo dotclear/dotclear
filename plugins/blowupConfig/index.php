@@ -211,7 +211,7 @@ if (!empty($_POST))
 <html>
 <head>
   <title><?php echo __('Blowup configuration'); ?></title>
-  <?php echo dcPage::jsLoad('index.php?pf=blowupConfig/config.js'); ?>
+  <?php echo dcPage::jsLoad(dcPage::getPF('blowupConfig/config.js')); ?>
   <?php echo dcPage::jsColorPicker(); ?>
   <script type="text/javascript">
   //<![CDATA[
@@ -230,12 +230,12 @@ if (!empty($_POST))
 echo dcPage::breadcrumb(
 	array(
 		html::escapeHTML($core->blog->name) => '',
-		__('Blog appearance') => 'blog_theme.php',
+		__('Blog appearance') => $core->adminurl->get('admin.blog.theme'),
 		__('Blowup configuration') => ''
 	)).dcPage::notices();
 
 echo
-'<p><a class="back" href="blog_theme.php">'.__('Back to Blog appearance').'</a></p>';
+'<p><a class="back" href="'.$core->adminurl->get('admin.blog.theme').'">'.__('Back to Blog appearance').'</a></p>';
 
 
 if (!$can_write_images) {
@@ -311,7 +311,7 @@ if ($can_write_images) {
 	if ($blowup_user['top_image'] == 'custom' && $blowup_user['uploaded']) {
 		$preview_image = http::concatURL($core->blog->url,blowupConfig::imagesURL().'/page-t.png');
 	} else {
-		$preview_image = 'index.php?pf=blowupConfig/alpha-img/page-t/'.$blowup_user['top_image'].'.png';
+		$preview_image = dcPage::getPF('blowupConfig/alpha-img/page-t/'.$blowup_user['top_image'].'.png');
 	}
 
 	echo

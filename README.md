@@ -45,7 +45,7 @@ their technical skills.
 In order to run Dotclear you need:
 
  * A web server (Apache, Cherokee, Nginx, lighttpd, etc.)
- * PHP 5.2 with the following modules:
+ * PHP 5.3 with the following modules:
     * mbstring
     * iconv
     * simplexml

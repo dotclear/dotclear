@@ -1,7 +1,7 @@
 $(function() {
 	var f = $('#quick-entry');
 	if (f.length > 0) {
-		if ($.isFunction('jsToolBar')) {
+		if ($.isFunction(jsToolBar)) {
 			var contentTb = new jsToolBar($('#post_content',f)[0]);
 			contentTb.switchMode($('#post_format',f).val());
 		}
@@ -56,6 +56,7 @@ $(function() {
 					msg += '</p>';
 					$('#post_title',f).val('');
 					$('#post_content',f).val('');
+					$('#post_content',f).change();
 					if ($.isFunction('jsToolBar') &&  (contentTb.getMode() == 'wysiwyg')) {
 						contentTb.syncContents('textarea');
 					}

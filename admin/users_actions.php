@@ -48,12 +48,13 @@ if (!empty($_POST['action']) && !empty($_POST['users']))
 	}
 	else
 	{
-		$redir =
-		'users.php?q='.$_POST['q'].
-		'&sortby='.$_POST['sortby'].
-		'&order='.$_POST['order'].
-		'&page='.$_POST['page'].
-		'&nb='.$_POST['nb'];
+		$redir = $core->adminurl->get("admin.users", array(
+			'q'      => $_POST['q'],
+			'sortby' => $_POST['sortby'],
+			'order'  => $_POST['order'],
+			'page'   => $_POST['page'],
+			'nb'     => $_POST['nb']
+		));
 	}
 
 	if (empty($users)) {
@@ -95,7 +96,7 @@ if (!empty($_POST['action']) && !empty($_POST['users']))
 	{
 		try
 		{
-			if (empty($_POST['your_pwd']) || !$core->auth->checkPassword(crypt::hmac(DC_MASTER_KEY,$_POST['your_pwd']))) {
+			if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($core->auth->crypt($_POST['your_pwd']))) {
 				throw new Exception(__('Password verification failed'));
 			}
 
@@ -136,14 +137,14 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			__('System') => '',
-			__('Users') => 'users.php',
+			__('Users') => $core->adminurl->get("admin.users"),
 			__('Permissions') => ''
 		));
 } else {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
 			__('System') => '',
-			__('Users') => 'users.php',
+			__('Users') => $core->adminurl->get("admin.users"),
 			__('Actions') => ''
 		));
 }
@@ -194,7 +195,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 	} catch (Exception $e) { }
 
 	foreach ($users as $u) {
-		$user_list[] = '<a href="user.php?id='.$u.'">'.$u.'</a>';
+		$user_list[] = '<a href="'.$core->adminurl->get("admin.user",array('id' => $u)).'">'.$u.'</a>';
 	}
 
 	echo
@@ -210,18 +211,19 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 	else
 	{
 		echo
-		'<form action="users_actions.php" method="post" id="form-blogs">'.
+		'<form action="'.$core->adminurl->get("admin.user.actions").'" method="post" id="form-blogs">'.
 		'<div class="table-outer clear">'.
 		'<table><tr>'.
 		'<th class="nowrap" colspan="2">'.__('Blog ID').'</th>'.
 		'<th class="nowrap">'.__('Blog name').'</th>'.
+		'<th class="nowrap">'.__('URL').'</th>'.
 		'<th class="nowrap">'.__('Entries').'</th>'.
 		'<th class="nowrap">'.__('Status').'</th>'.
 		'</tr>';
 
 		while ($rs->fetch())
 		{
-			$img_status = $rs->blog_status == 1 ? 'check-on' : 'check-off';
+			$img_status = $rs->blog_status == 1 ? 'check-on' : ($rs->blog_status == 0 ? 'check-off' : 'check-wrn');
 			$txt_status = $core->getBlogStatus($rs->blog_status);
 			$img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',$img_status,$txt_status);
 
@@ -231,6 +233,8 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 			form::checkbox(array('blogs[]'),$rs->blog_id,'','','',false,'title="'.__('select').' '.$rs->blog_id.'"').'</td>'.
 			'<td class="nowrap">'.$rs->blog_id.'</td>'.
 			'<td class="maximal">'.html::escapeHTML($rs->blog_name).'</td>'.
+			'<td class="nowrap"><a class="outgoing" href="'.html::escapeHTML($rs->blog_url).'">'.html::escapeHTML($rs->blog_url).
+				' <img src="images/outgoing-blue.png" alt="" /></a></td>'.
 			'<td class="nowrap">'.$core->countBlogPosts($rs->blog_id).'</td>'.
 			'<td class="status">'.$img_status.'</td>'.
 			'</tr>';
@@ -239,7 +243,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs')
 		echo
 		'</table></div>'.
 		'<p class="checkboxes-helpers"></p>'.
-		'<p><input type="submit" value="'.__('Set permissions').'" />'.
+		'<p><input id="do-action" type="submit" value="'.__('Set permissions').'" />'.
 		$hidden_fields.
 		form::hidden(array('action'),'perms').
 		$core->formNonce().'</p>'.
@@ -255,7 +259,7 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 	}
 
 	foreach ($users as $u) {
-		$user_list[] = '<a href="user.php?id='.$u.'">'.$u.'</a>';
+		$user_list[] = '<a href="'.$core->adminurl->get("admin.user",array('id' => $u)).'">'.$u.'</a>';
 	}
 
 	echo
@@ -263,11 +267,11 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 		__('You are about to change permissions on the following blogs for users %s.'),
 		implode(', ',$user_list)
 	).'</p>'.
-	'<form id="permissions-form" action="users_actions.php" method="post">';
+	'<form id="permissions-form" action="'.$core->adminurl->get("admin.user.actions").'" method="post">';
 
 	foreach ($blogs as $b)
 	{
-		echo '<h3>'.('Blog:').' <a href="blog.php?id='.html::escapeHTML($b).'">'.html::escapeHTML($b).'</a>'.
+		echo '<h3>'.('Blog:').' <a href="'.$core->adminurl->get("admin.blog",array('id' => html::escapeHTML($b))).'">'.html::escapeHTML($b).'</a>'.
 		form::hidden(array('blogs[]'),$b).'</h3>';
 		$unknown_perms = $user_perm;
 		foreach ($core->auth->getPermissionsTypes() as $perm_id => $perm)
@@ -303,6 +307,7 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 	}
 
 	echo
+	'<p class="checkboxes-helpers"></p>'.
 	'<div class="fieldset">'.
 	'<h3>'.__('Validate permissions').'</h3>'.
 	'<p><label for="your_pwd" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label>'.

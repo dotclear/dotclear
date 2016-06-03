@@ -18,9 +18,11 @@ config: clean config-stamp
 	cp -pRf ./locales/README ./locales/en ./locales/fr ./$(DC)/locales/
 
 	## Remove tests directories and test stuff
-	rm -fr ./$(DC)/inc/libs/clearbricks/tests ./$(DC)/inc/libs/clearbricks/composer.* \
-	       ./$(DC)/inc/libs/clearbricks/.atoum.* ./$(DC)/inc/libs/clearbricks/vendor \
-	       ./$(DC)/inc/libs/clearbricks/bin ./$(DC)/inc/libs/clearbricks/_dist
+	rm -fr ./$(DC)/inc/libs/clearbricks/tests ./$(DC)/inc/libs/clearbricks/composer.*	\
+	       ./$(DC)/inc/libs/clearbricks/.atoum.* ./$(DC)/inc/libs/clearbricks/vendor	\
+	       ./$(DC)/inc/libs/clearbricks/bin ./$(DC)/inc/libs/clearbricks/_dist		\
+	       ./$(DC)/.atoum.* ./$(DC)/test ./$(DC)/travis					\
+	       ./$(DC)/features ./$(DC)/travis ./$(DC)/behat.yml.dist ./$(DC)/composer.*
 
 	## Create cache, db, plugins and public folders
 	mkdir ./$(DC)/cache ./$(DC)/db ./$(DC)/plugins ./$(DC)/public ./$(DC)/themes
@@ -56,6 +58,7 @@ config: clean config-stamp
 	find $(DC)/admin/js/jsUpload/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/plugins -name '*.js' -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/themes/default/js/*.js -exec ./build-tools/min-js.php \{\} \;
+	find $(DC)/inc/js -name '*.js' -exec ./build-tools/min-js.php \{\} \;
 
 	## Debug off
 	perl -pi -e "s|^//\*== DC_DEBUG|/*== DC_DEBUG|sgi;" $(DC)/inc/prepend.php $(DC)/inc/prepend.php
@@ -65,6 +68,7 @@ config: clean config-stamp
 	find ./$(DIST)/ -type d -name '.hg'  | xargs -r rm -rf
 	find ./$(DIST)/ -type d -name '.git' | xargs -r rm -rf
 	find ./$(DIST)/ -type f -name '.*ignore' | xargs -r rm -rf
+	find ./$(DIST)/ -type f -name '.flow' | xargs -r rm -rf
 
 	## Create digest
 	cd $(DC) && ( \

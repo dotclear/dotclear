@@ -72,8 +72,8 @@ if ($posts_actions_page->process()) {
 <html>
 <head>
   <title><?php echo __('Tags'); ?></title>
-  <link rel="stylesheet" type="text/css" href="index.php?pf=tags/style.css" />
-  <script type="text/javascript" src="js/_posts_list.js"></script>
+  <?php echo dcPage::cssLoad(dcPage::getPF('tags/style.css'));?>
+  <?php echo dcPage::jsLoad('js/_posts_list.js');?>
   <script type="text/javascript">
   //<![CDATA[
   dotclear.msg.confirm_tag_delete = '<?php echo html::escapeJS(sprintf(__('Are you sure you want to remove tag: “%s”?'),html::escapeHTML($tag))) ?>';
@@ -84,6 +84,7 @@ if ($posts_actions_page->process()) {
   });
   //]]>
   </script>
+  <?php echo dcPage::jsConfirmClose('tag_rename'); ?>
 </head>
 <body>
 
@@ -107,7 +108,7 @@ if (!$core->error->flag())
 		echo
 		'<div class="tag-actions vertical-separator">'.
 		'<h3>'.html::escapeHTML($tag).'</h3>'.
-		'<form action="'.$this_url.'" method="post">'.
+		'<form action="'.$this_url.'" method="post" id="tag_rename">'.
 		'<p><label for="new_tag_id" class="classic">'.__('Rename').'</label> '.
 		form::field('new_tag_id',20,255,html::escapeHTML($tag)).
 		'<input type="submit" value="'.__('OK').'" />'.
@@ -127,7 +128,7 @@ if (!$core->error->flag())
 	# Show posts
 	echo '<h4 class="vertical-separator pretty-title">'.sprintf(__('List of entries with the tag “%s”'),html::escapeHTML($tag)).'</h4>';
 	$post_list->display($page,$nb_per_page,
-	'<form action="plugin.php" method="post" id="form-entries">'.
+	'<form action="'.$core->adminurl->get('admin.plugin').'" method="post" id="form-entries">'.
 
 	'%s'.
 
@@ -136,7 +137,7 @@ if (!$core->error->flag())
 
 	'<p class="col right"><label for="action" class="classic">'.__('Selected entries action:').'</label> '.
 	form::combo('action',$posts_actions_page->getCombo()).
-	'<input type="submit" value="'.__('OK').'" /></p>'.
+	'<input id="do-action" type="submit" value="'.__('OK').'" /></p>'.
 	form::hidden('post_type','').
 	form::hidden('p','tags').
 	form::hidden('m','tag_posts').

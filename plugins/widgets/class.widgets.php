@@ -121,8 +121,8 @@ class dcWidgets
 
 	private static function sort($a,$b)
 	{
-		$c = $a->name();
-		$d = $b->name();
+		$c = dcUtils::removeDiacritics(mb_strtolower($a->name()));
+		$d = dcUtils::removeDiacritics(mb_strtolower($b->name()));
 		if ($c == $d) {
 			return 0;
 		}
@@ -268,7 +268,7 @@ class dcWidget
 
 	public function setting($name,$title,$value,$type='text')
 	{
-		if ($type == 'combo') {
+		if ($type == 'combo' || $type=='radio') {
 			$options = @func_get_arg(4);
 			if (!is_array($options)) {
 				return false;
@@ -319,7 +319,7 @@ class dcWidget
 			case 'textarea':
 				$res .=
 				'<p><label for="'.$wfid.'">'.$s['title'].'</label> '.
-				form::textarea(array($iname,$wfid),30,5,html::escapeHTML($s['value']),'maximal').
+				form::textarea(array($iname,$wfid),30,8,html::escapeHTML($s['value']),'maximal').
 				'</p>';
 				break;
 			case 'check':

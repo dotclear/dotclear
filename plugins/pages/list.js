@@ -1,5 +1,7 @@
 dotclear.viewPostContent = function(line,action) {
 	var action = action || 'toggle';
+	if ($(line).attr('id') == undefined) { return; }
+
 	var postId = $(line).attr('id').substr(1);
 	var tr = document.getElementById('pe'+postId);
 
@@ -58,9 +60,10 @@ $(function() {
 	$('.checkboxes-helpers').each(function() {
 		p = $('<p></p>');
 		$(this).prepend(p);
-		dotclear.checkboxesHelpers(p);
+		dotclear.checkboxesHelpers(p,undefined,'#pageslist td input[type=checkbox]','#form-entries #do-action');
 	});
 	$('#pageslist td input[type=checkbox]').enableShiftClick();
+	dotclear.condSubmit('#pageslist td input[type=checkbox]','#form-entries #do-action');
 
 	$("#pageslist tr.line td:not(.expander)").mousedown(function(){
 		$('#pageslist tr.line').each(function() {

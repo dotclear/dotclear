@@ -31,15 +31,6 @@ class dcError
 	protected $html_item = "<li>%s</li>\n";
 
 	/**
-	* Object constructor.
-	*/
-	public function __construct()
-	{
-		$this->code = 0;
-		$this->msg = '';
-	}
-
-	/**
 	* Object string representation. Returns errors stack.
 	*
 	* @return string

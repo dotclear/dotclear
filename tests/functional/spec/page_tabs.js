@@ -50,7 +50,7 @@ describe("tabs method (admin/js/pageTabs.js)", function() {
 		loadFixtures('tabs.html');
 		loadStyleFixtures('default.css');
 
-		spyOn(jQuery.pageTabs, 'getLocationHash').andReturn('user-favorites');
+		spyOn(jQuery.pageTabs, 'getLocationHash').and.returnValue('user-favorites');
 		$.pageTabs();
 		expect($('#part-user-options')).not.toBeVisible();
 		expect($('#part-user-profile')).not.toBeVisible();
@@ -62,7 +62,7 @@ describe("tabs method (admin/js/pageTabs.js)", function() {
 		loadStyleFixtures('default.css');
 
 		var user_option_count_call = user_profile_count_call = user_favorites_count_call = 0;
-		spyOn(jQuery.fn, 'onetabload').andCallThrough();
+		spyOn(jQuery.fn, 'onetabload').and.callThrough();
 		$('#user-options').onetabload(function() {user_option_count_call++;});
 		$('#user-profile').onetabload(function() {user_profile_count_call++;});
 		$('#user-favorites').onetabload(function() {user_favorites_count_call++;});
@@ -81,7 +81,7 @@ describe("tabs method (admin/js/pageTabs.js)", function() {
 		loadFixtures('tabs.html');
 		loadStyleFixtures('default.css');
 		
-		spyOn(jQuery.fn, 'tabload').andCallThrough();
+		spyOn(jQuery.fn, 'tabload').and.callThrough();
 
 		var user_option_count_call = user_profile_count_call = user_favorites_count_call = 0;
 		$('#user-options').tabload(function() {user_option_count_call++;});
@@ -123,7 +123,7 @@ describe("tabs method (admin/js/pageTabs.js)", function() {
 
 		// simulate back : window.history.back();
 		current_index--;
-		spyOn(jQuery.pageTabs, 'getLocationHash').andReturn(navigation[current_index]);
+		spyOn(jQuery.pageTabs, 'getLocationHash').and.returnValue(navigation[current_index]);
 		jQuery.event.trigger('hashchange');
 		
 		expect($('#part-user-options')).not.toBeVisible();
@@ -145,7 +145,7 @@ describe("tabs method (admin/js/pageTabs.js)", function() {
 
 		// simulate back : window.history.back();
 		current_index--;
-		spyOn(jQuery.pageTabs, 'getLocationHash').andReturn(navigation[current_index]);
+		spyOn(jQuery.pageTabs, 'getLocationHash').and.returnValue(navigation[current_index]);
 		jQuery.event.trigger('hashchange');
 
 		expect($('#part-user-options')).toBeVisible();
@@ -169,7 +169,7 @@ describe("tabs method (admin/js/pageTabs.js)", function() {
 		expect($('#part-user-profile')).toBeVisible();
 		expect($('#part-user-favorites')).not.toBeVisible();
 
-		spyOn(jQuery.pageTabs, 'getLocationHash').andReturn(anchor_name);
+		spyOn(jQuery.pageTabs, 'getLocationHash').and.returnValue(anchor_name);
 		jQuery.event.trigger('hashchange');
 		expect($('#part-user-options')).not.toBeVisible();
 		expect($('#part-user-profile')).not.toBeVisible();
@@ -180,7 +180,7 @@ describe("tabs method (admin/js/pageTabs.js)", function() {
 		loadFixtures('tabs.html');
 		loadStyleFixtures('default.css');
 
-		spyOn(jQuery.pageTabs, 'getLocationHash').andReturn('dummy');
+		spyOn(jQuery.pageTabs, 'getLocationHash').and.returnValue('dummy');
 		$.pageTabs();
 		expect($('#part-user-options')).toBeVisible();
 		expect($('#part-user-profile')).not.toBeVisible();

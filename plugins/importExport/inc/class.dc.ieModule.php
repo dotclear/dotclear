@@ -73,7 +73,7 @@ abstract class dcIeModule
 		return
 		'<h3>'.__('Congratulation!').'</h3>'.
 		'<p class="success">'.__('Your blog has been successfully imported. Welcome on Dotclear 2!').'</p>'.
-		'<ul><li><strong><a href="post.php">'.__('Why don\'t you blog this now?').'</a></strong></li>'.
-		'<li>'.__('or').' <a href="index.php">'.__('visit your dashboard').'</a></li></ul>';
+		'<ul><li><strong><a href="'.$this->core->decode('admin.post').'">'.__('Why don\'t you blog this now?').'</a></strong></li>'.
+		'<li>'.__('or').' <a href="'.$this->core->decode('admin.home').'">'.__('visit your dashboard').'</a></li></ul>';
 	}
 }

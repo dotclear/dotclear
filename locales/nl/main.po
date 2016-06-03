@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-06 18:10+0100\n"
+"POT-Creation-Date: 2014-11-20 19:48+0100\n"
 "PO-Revision-Date: 2009-11-01 16:30+0100\n"
 "Last-Translator: Joran Bosscher <joranbosscher@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,6 +57,10 @@ msgstr "Om in te loggen moet je nu je wachtwoord veranderen."
 
 msgid "Safe Mode can only be used for super administrators."
 msgstr ""
+
+#, fuzzy
+msgid "Insufficient permissions"
+msgstr "verander toestemmingen"
 
 msgid "Wrong username or password"
 msgstr "Verkeerde gebruikersnaam of wachtwoord"
@@ -116,8 +120,15 @@ msgstr "Ik ben mijn wachtwoord vergeten."
 msgid "I want to log in in safe mode"
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Blog \"%s\" successfully created"
+msgstr "Blog succesvol gemaakt."
+
 msgid "New blog"
 msgstr "Niewe blog"
+
+msgid "System"
+msgstr ""
 
 msgid "Blogs"
 msgstr "Blogs"
@@ -130,9 +141,6 @@ msgstr "Verplicht veld"
 
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Minimaal 2 karakter gebruiken."
-
-msgid "Please note that changing your blog ID may require changes in your public index.php file."
-msgstr "Bij het veranderen van je blog ID moet je misschien iets wijzigen in je index.php bestand."
 
 msgid "Blog name:"
 msgstr "Naam van blog:"
@@ -151,6 +159,10 @@ msgstr "Die blog ID bestaat niet."
 
 msgid "Password verification failed"
 msgstr "Wachtwoord verificatie mislukt"
+
+#, fuzzy, php-format
+msgid "Blog \"%s\" successfully deleted"
+msgstr "Blog succesvol gemaakt."
 
 msgid "Delete a blog"
 msgstr "Verwijder een blog"
@@ -189,6 +201,24 @@ msgstr "jaar/titel"
 msgid "title"
 msgstr "titel"
 
+msgid "post id/title"
+msgstr ""
+
+msgid "post id"
+msgstr ""
+
+msgid "H4"
+msgstr ""
+
+msgid "H3"
+msgstr ""
+
+msgid "P"
+msgstr ""
+
+msgid "(none)"
+msgstr ""
+
 msgid "Title"
 msgstr "Titel"
 
@@ -201,6 +231,21 @@ msgstr "Titel, land, datum"
 msgid "Title, City, Country, Date"
 msgstr "Titel, stad, land, datum"
 
+msgid "original"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Left"
+msgstr ""
+
+msgid "Right"
+msgstr ""
+
+msgid "Center"
+msgstr ""
+
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr "Zoekmachines mogen mijn blog indexeren en archiveren."
 
@@ -210,11 +255,17 @@ msgstr "Zoekmachines mogen mijn blog indexeren, maar niet archiveren."
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Zoekmachines mogen mijn blog niet indexeren en archiveren."
 
+msgid "Default"
+msgstr ""
+
 msgid "This blog ID is already used."
 msgstr ""
 
 msgid "Invalid language code"
 msgstr "Verkeerde taal code"
+
+msgid "Blog has been successfully updated."
+msgstr "Blog succesvol geupdate."
 
 msgid "Blog settings"
 msgstr "Blog instellingen"
@@ -228,17 +279,25 @@ msgstr ""
 msgid "Blog has been successfully created."
 msgstr "Blog succesvol gemaakt."
 
-msgid "Blog has been successfully updated."
-msgstr "Blog succesvol geupdate."
-
 msgid "Parameters"
 msgstr "Parameters"
 
 msgid "Blog details"
 msgstr "Blog details"
 
+msgid "Please note that changing your blog ID may require changes in your public index.php file."
+msgstr "Bij het veranderen van je blog ID moet je misschien iets wijzigen in je index.php bestand."
+
 msgid "URL scan method:"
 msgstr "URL scan methode:"
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
+msgstr ""
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
+msgstr ""
 
 msgid "Blog status:"
 msgstr "Blog status:"
@@ -261,11 +320,29 @@ msgstr "Copyright tekst:"
 msgid "New post URL format:"
 msgstr "URL formaat:"
 
+msgid "HTML tag for the title of the notes on the blog:"
+msgstr ""
+
 msgid "Enable XML/RPC interface"
 msgstr "Accepter XML/RPC interface"
 
-msgid "more information"
-msgstr "meer informatie"
+msgid "XML/RPC interface allows you to edit your blog with an external client."
+msgstr "Met deXML/RPC interface kun je je blog bewerken via een externe verbinding."
+
+msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+msgstr "XMl/RPC interface is actief. Je moet de volgende parameter in je XML/RPX client instellen: "
+
+msgid "Server URL:"
+msgstr "Server URL:"
+
+msgid "Blogging system:"
+msgstr "Blogsysteem:"
+
+msgid "User name:"
+msgstr "Gebruikersnaam:"
+
+msgid "your password"
+msgstr "je wachtwoord"
 
 msgid "Comments and trackbacks"
 msgstr "Comments en trackbacks"
@@ -280,11 +357,14 @@ msgstr "Beheer comments"
 msgid "Leave comments open for %s days"
 msgstr "Mensen kunnen reageren voor %s dagen"
 
-msgid "Leave blank to disable this feature."
-msgstr "Laat leeg om deze optie niet toe te passsen"
+msgid "No limit: leave blank."
+msgstr ""
 
 msgid "Wiki syntax for comments"
 msgstr "Wiki syntax voor comments"
+
+msgid "Preview of comment before submit is not mandatory"
+msgstr ""
 
 msgid "Accept trackbacks"
 msgstr "Accepteer trackbacks"
@@ -305,11 +385,24 @@ msgstr "Blog presentatie"
 msgid "Date format:"
 msgstr "Datum formaat:"
 
+msgid "Pattern of date"
+msgstr ""
+
+msgid "Sample:"
+msgstr ""
+
 msgid "Time format:"
 msgstr "Tijd formaat: "
 
+msgid "Pattern of time"
+msgstr ""
+
 msgid "Display smilies on entries and comments"
 msgstr "Geef smilies weer bij posts en bomments"
+
+#, fuzzy, php-format
+msgid "Display %s entries on home page"
+msgstr "Geef %s posts weer per pagina"
 
 #, php-format
 msgid "Display %s entries per page"
@@ -326,56 +419,70 @@ msgstr "Geef %s comments weer per feed"
 msgid "Truncate feeds"
 msgstr "Verklein feeds"
 
+msgid "Include sub-categories in category page and category posts feed"
+msgstr ""
+
 msgid "Media and images"
 msgstr "Media en afbeeldingen"
+
+msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
+msgstr ""
+
+msgid "Be carefull if you share it with other blogs in your installation."
+msgstr ""
 
 msgid "Generated image sizes (in pixels)"
 msgstr "Gegenereede afbeeldinggrootte in pixels"
 
-msgid "Thumbnails:"
-msgstr "Miniaturen"
-
-msgid "Small:"
-msgstr "Klein:"
-
-msgid "Medium:"
-msgstr "Medium:"
+msgid "Default image insertion attributes"
+msgstr ""
 
 msgid "Inserted image title"
 msgstr "Afbeelding titel ingevoerd"
 
-msgid "This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture's metadata."
-msgstr "Dit stelt de afbeeldingtag in wanneer je het invoegt in een post vanaf de media manager. Hij word gehaald van de metadata van de afbeelding."
+msgid "Use original media date if possible"
+msgstr ""
+
+msgid "Do not display date if alone in title"
+msgstr ""
+
+msgid "It is retrieved from the picture's metadata."
+msgstr ""
+
+#, fuzzy
+msgid "Size of inserted image:"
+msgstr "Afbeelding titel ingevoerd"
+
+msgid "Image alignment:"
+msgstr ""
+
+msgid "Insert a link to the original image"
+msgstr ""
 
 msgid "Search engines robots policy"
 msgstr "Zoekmachine robot instellingen"
 
+msgid "jQuery javascript library"
+msgstr ""
+
+msgid "jQuery version to be loaded for this blog:"
+msgstr ""
+
+#, fuzzy
+msgid "Blog security"
+msgstr "Blog beschrijving:"
+
+msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
+msgstr ""
+
 msgid "Save"
 msgstr "opslaan"
 
-msgid "XML/RPC interface"
-msgstr "XML/RPC interface"
+msgid "The current blog cannot be deleted."
+msgstr ""
 
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "Met deXML/RPC interface kun je je blog bewerken via een externe verbinding."
-
-msgid "XML/RPC interface is not active. Change settings to enable it."
-msgstr "XML/RPC interface is inactief. Verander de instellingen om het actief te maken."
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "XMl/RPC interface is actief. Je moet de volgende parameter in je XML/RPX client instellen: "
-
-msgid "Server URL:"
-msgstr "Server URL:"
-
-msgid "Blogging system:"
-msgstr "Blogsysteem:"
-
-msgid "User name:"
-msgstr "Gebruikersnaam:"
-
-msgid "your password"
-msgstr "je wachtwoord"
+msgid "Only superadmin can delete a blog."
+msgstr ""
 
 msgid "Users"
 msgstr "Gebruikers"
@@ -386,116 +493,88 @@ msgstr "Gebruikers op deze blog"
 msgid "No users"
 msgstr "Geen gebruikers"
 
-msgid "Change permissions"
+#, fuzzy
+msgid "Publications on this blog:"
+msgstr "Gebruikers op deze blog"
+
+#, php-format
+msgid "%1$s: %2$s"
+msgstr ""
+
+#, fuzzy
+msgid "Permissions:"
 msgstr "verander toestemmingen"
 
 msgid "Super administrator"
 msgstr "Super administrator"
 
-msgid "You can't remove default theme."
-msgstr "Je kan het standaard thema niet verwijderen."
-
-msgid "Theme does not exist."
-msgstr "Thema bestaat niet."
-
-msgid "Unable to move uploaded file."
-msgstr "Kan het gëuploade bestand niet verplaatsen."
-
-msgid "An error occurred while downloading the file."
-msgstr "Er was een error toen het bestand gedownload werd."
+msgid "All rights on all blogs."
+msgstr ""
 
 #, php-format
-msgid "by %s"
-msgstr "door %s"
-
-#, php-format
-msgid "version %s"
-msgstr "versie %s"
-
-#, php-format
-msgid "(built on \"%s\")"
-msgstr "(gemaakt met \"%s\")"
-
-#, php-format
-msgid "(requires \"%s\")"
-msgstr "(\"%s\" nodig)"
-
-msgid "Stylesheet"
-msgstr "Stylesheet"
+msgid "[%s] (unreferenced permission)"
+msgstr ""
 
 #, fuzzy
-msgid "Configure theme"
-msgstr "Blog instellingen"
+msgid "All rights on this blog."
+msgstr "Gebruikers op deze blog"
+
+msgid "Change permissions"
+msgstr "verander toestemmingen"
 
 msgid "Blog appearance"
 msgstr "Blog aanzien"
 
-msgid "Theme has been successfully changed."
-msgstr "Thema's succesvol gewijzigd."
-
-msgid "Theme has been successfully installed."
-msgstr "Thema succesvol geinstalleerd."
-
-msgid "Theme has been successfully upgraded"
-msgstr "Thema succesvol geupgrade"
-
-msgid "Theme has been successfully deleted."
-msgstr "Thema succesvol verwijderd."
-
-#, php-format
-msgid "You can find additional themes for your blog on %s."
-msgstr "Je kan andere thema's voor je blog vinden op %s."
-
-msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
-msgstr "Om een thema te installeren of te upgraden, moet je het uploaden in de \"Installeer of upgrade een theme\" sectie."
-
-msgid "Themes"
-msgstr "Thema's"
-
-#, php-format
-msgid "You are currently using <strong>%s</strong>"
-msgstr "Je gebruikt nu \"%s\""
-
-#, fuzzy
-msgid "Use selected theme"
-msgstr "gebruik geselecteerd thema"
-
-#, fuzzy
-msgid "Delete selected theme"
-msgstr "verwijder geselecteerd thema"
-
-msgid "Install or upgrade a theme"
-msgstr "Installeer of upgrade een thema."
-
-msgid "You can install themes by uploading or downloading zip files."
-msgstr "Je kan thema's instelleren door de zip-files te up- of downloaden."
-
-msgid "Upload a zip file"
-msgstr "Upload een zip file"
-
-msgid "Theme zip file:"
-msgstr "Thema zip file:"
-
-msgid "Upload theme"
-msgstr "Upload thema"
-
-msgid "Download a zip file"
-msgstr ""
-
-msgid "Theme zip file URL:"
-msgstr ""
-
-msgid "Download theme"
-msgstr ""
-
-msgid "To enable this function, please give write access to your themes directory."
-msgstr ""
-
 msgid "Theme configuration"
 msgstr "Thema instellingen"
 
-msgid "back"
+msgid "Themes management"
 msgstr ""
+
+#, fuzzy
+msgid "Update themes"
+msgstr "Upload thema"
+
+#, php-format
+msgid "There is one theme to update available from repository."
+msgid_plural "There are %s themes to update available from repository."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Visit %s repository, the resources center for Dotclear."
+msgstr ""
+
+#, fuzzy
+msgid "Installed themes"
+msgstr "Installeer of upgrade een thema."
+
+msgid "You can configure and manage installed themes from this list."
+msgstr ""
+
+#, fuzzy
+msgid "Deactivated themes"
+msgstr "verwijder geselecteerd thema"
+
+msgid "Deactivated themes are installed but not usable. You can activate them from here."
+msgstr ""
+
+#, fuzzy
+msgid "Add themes"
+msgstr "Upload thema"
+
+msgid "Add themes from repository"
+msgstr ""
+
+#, fuzzy
+msgid "Install or upgrade manually"
+msgstr "Installeer of upgrade een thema."
+
+msgid "Add themes from a package"
+msgstr ""
+
+msgid "You can install themes by uploading or downloading zip files."
+msgstr "Je kan thema's instelleren door de zip-files te up- of downloaden."
 
 msgid "Last update"
 msgstr ""
@@ -512,6 +591,12 @@ msgstr ""
 msgid "Ascending"
 msgstr ""
 
+msgid "Show filters and display options"
+msgstr ""
+
+msgid "Cancel filters and display options"
+msgstr ""
+
 msgid "List of blogs"
 msgstr ""
 
@@ -521,7 +606,16 @@ msgstr ""
 msgid "Create a new blog"
 msgstr ""
 
+msgid "Filter blogs list"
+msgstr ""
+
 msgid "Filters"
+msgstr ""
+
+msgid "Search:"
+msgstr ""
+
+msgid "Display options"
 msgstr ""
 
 msgid "Order by:"
@@ -530,33 +624,48 @@ msgstr ""
 msgid "Sort:"
 msgstr ""
 
-msgid "Search:"
+msgid "Show"
 msgstr ""
 
-msgid "Blogs per page"
+msgid "blogs per page"
 msgstr ""
 
-msgid "Apply filters"
+msgid "Apply filters and display options"
+msgstr ""
+
+msgid "No blog matches the filter"
 msgstr ""
 
 msgid "No blog"
 msgstr ""
 
-msgid "Page(s)"
-msgstr ""
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "Entries"
+#, fuzzy
+msgid "Blogs list"
+msgstr "Blogs"
+
+#, fuzzy
+msgid "Blog id"
+msgstr "Blog instellingen"
+
+msgid "Entries (all types)"
 msgstr ""
 
 msgid "Status"
 msgstr ""
 
-#, php-format
-msgid "Edit blog %s"
-msgstr ""
+#, fuzzy, php-format
+msgid "Edit blog settings for %s"
+msgstr "Blog instellingen"
 
-msgid "edit"
-msgstr ""
+#, fuzzy
+msgid "Edit blog settings"
+msgstr "Blog instellingen"
 
 #, php-format
 msgid "Switch to blog %s"
@@ -565,25 +674,40 @@ msgstr ""
 msgid "This category does not exist."
 msgstr ""
 
-msgid "Categories"
+#, fuzzy, php-format
+msgid "The category \"%s\" has been successfully deleted."
+msgstr "Thema succesvol verwijderd."
+
+msgid "Category where to move posts does not exist"
 msgstr ""
 
-msgid "The category has been successfully created."
-msgstr ""
-
-msgid "The category has been successfully removed."
-msgstr ""
+#, fuzzy, php-format
+msgid "The entries have been successfully moved to category \"%s\""
+msgstr "Blog succesvol gemaakt."
 
 msgid "Categories have been successfully reordered."
 msgstr ""
 
-msgid "The category has been successfully moved."
+#, fuzzy
+msgid "Categories order has been successfully reset."
+msgstr "Blog succesvol gemaakt."
+
+msgid "Categories"
+msgstr ""
+
+msgid "The category has been successfully removed."
+msgid_plural "The categories have been successfully removed."
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy
+msgid "Entries have been successfully moved to the category you choose."
+msgstr "Blog succesvol gemaakt."
+
+msgid "New category"
 msgstr ""
 
 msgid "No category so far."
-msgstr ""
-
-msgid "Categories list"
 msgstr ""
 
 #, php-format
@@ -592,7 +716,9 @@ msgstr ""
 
 #, php-format
 msgid "%d entry"
-msgstr ""
+msgid_plural "%d entries"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "total:"
 msgstr ""
@@ -600,43 +726,50 @@ msgstr ""
 msgid "URL:"
 msgstr ""
 
-msgid "Add a new category"
+msgid "Move entries to"
 msgstr ""
 
-msgid "Title:"
+msgid "OK"
 msgstr ""
 
-msgid "Parent:"
+#, fuzzy
+msgid "Delete category"
+msgstr "Verwijder een blog"
+
+msgid "To rearrange categories order, move items by drag and drop, then click on “Save categories order” button."
+msgstr ""
+
+msgid "Save categories order"
+msgstr ""
+
+msgid "Reorder all categories on the top level"
 msgstr ""
 
 msgid "Top level"
 msgstr ""
 
-msgid "Remove a category"
-msgstr ""
+#, fuzzy
+msgid "The category has been successfully moved"
+msgstr "Thema's succesvol gewijzigd."
 
-msgid "Choose a category to remove:"
-msgstr ""
+#, fuzzy
+msgid "The category has been successfully updated."
+msgstr "Blog succesvol geupdate."
 
-msgid "Delete"
-msgstr ""
-
-msgid "Reorder categories"
-msgstr ""
-
-msgid "This will relocate all categories on the top level"
-msgstr ""
-
-msgid "Reorder"
-msgstr ""
-
-msgid "New category"
-msgstr ""
+#, fuzzy, php-format
+msgid "The category \"%s\" has been successfully created."
+msgstr "Blog succesvol gemaakt."
 
 msgid "Category has been successfully updated."
 msgstr ""
 
 msgid "Category information"
+msgstr ""
+
+msgid "Name:"
+msgstr ""
+
+msgid "Parent:"
 msgstr ""
 
 msgid "Warning: If you set the URL manually, it may conflict with another category."
@@ -669,16 +802,23 @@ msgstr ""
 msgid "Entry does not exist."
 msgstr ""
 
+msgid "Comment has been successfully created."
+msgstr ""
+
 msgid "No comments"
 msgstr ""
+
+msgid "Comment has been successfully updated."
+msgstr ""
+
+#, fuzzy
+msgid "Comment has been successfully deleted."
+msgstr "Thema succesvol verwijderd."
 
 msgid "You can't edit this comment."
 msgstr ""
 
 msgid "Edit comment"
-msgstr ""
-
-msgid "Comment has been successfully updated."
 msgstr ""
 
 #, php-format
@@ -698,10 +838,16 @@ msgstr ""
 msgid "Send an e-mail"
 msgstr ""
 
+msgid "Information collected"
+msgstr ""
+
 msgid "IP address:"
 msgstr ""
 
 msgid "Date:"
+msgstr ""
+
+msgid "Comment submitted"
 msgstr ""
 
 msgid "Author:"
@@ -716,11 +862,15 @@ msgstr ""
 msgid "Comment:"
 msgstr ""
 
-msgid "comment"
+msgid "Delete"
 msgstr ""
 
-msgid "trackback"
+msgid "Comment"
 msgstr ""
+
+#, fuzzy
+msgid "Trackback"
+msgstr "Accepteer trackbacks"
 
 msgid "Date"
 msgstr ""
@@ -731,26 +881,17 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-msgid "publish"
-msgstr ""
+#, fuzzy
+msgid "Selected comments have been successfully updated."
+msgstr "Blog succesvol geupdate."
 
-msgid "unpublish"
-msgstr ""
+#, fuzzy
+msgid "Selected comments have been successfully deleted."
+msgstr "Thema succesvol verwijderd."
 
-msgid "mark as pending"
-msgstr ""
-
-msgid "mark as junk"
-msgstr ""
-
-msgid "Type:"
-msgstr ""
-
-msgid "Comments per page"
-msgstr ""
-
-msgid "Comment author:"
-msgstr ""
+#, fuzzy
+msgid "Spam comments have been successfully deleted."
+msgstr "Thema succesvol verwijderd."
 
 msgid "You have one spam comment."
 msgstr ""
@@ -765,57 +906,49 @@ msgstr ""
 msgid "Show them."
 msgstr ""
 
+#, fuzzy
+msgid "Delete all spams"
+msgstr "Verwijder een blog"
+
+#, fuzzy
+msgid "Filter comments and trackbacks list"
+msgstr "Comments en trackbacks"
+
+msgid "Type:"
+msgstr ""
+
+#, fuzzy
+msgid "comments per page"
+msgstr "Geef %s comments weer per feed"
+
 msgid "Selected comments action:"
 msgstr ""
 
-msgid "action: "
+msgid "Actions"
 msgstr ""
 
 msgid "ok"
 msgstr ""
 
-msgid "Comments"
+msgid "Global help"
 msgstr ""
 
 #, php-format
-msgid "%d comment"
+msgid "An update is available"
+msgid_plural "%s updates are available."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Dotclear news"
 msgstr ""
 
-#, php-format
-msgid "%d comments"
-msgstr ""
-
-msgid "New entry"
-msgstr ""
-
-msgid "My preferences"
+msgid "%d %B %Y:"
 msgstr ""
 
 msgid "Documentation and support"
 msgstr ""
 
-msgid "Latest news"
-msgstr ""
-
 msgid "Dashboard"
-msgstr ""
-
-msgid "Make this blog my default blog"
-msgstr ""
-
-msgid "This blog is offline"
-msgstr ""
-
-msgid "This blog is removed"
-msgstr ""
-
-msgid "is not defined, you should edit your configuration file."
-msgstr ""
-
-msgid "Following plugins have been installed:"
-msgstr ""
-
-msgid "Following plugins have not been installed:"
 msgstr ""
 
 #, php-format
@@ -828,19 +961,68 @@ msgstr ""
 msgid "Remind me later"
 msgstr ""
 
-msgid "<a href=\"%s\">Information about this version</a>."
+msgid "Information about this version"
 msgstr ""
 
-msgid "Some plugins are installed twice:"
+msgid "Make this blog my default blog"
+msgstr ""
+
+msgid "This blog is offline"
+msgstr ""
+
+msgid "This blog is removed"
+msgstr ""
+
+#, php-format
+msgid "%s is not defined, you should edit your configuration file."
+msgstr ""
+
+msgid "See <a href=\"http://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
+msgstr ""
+
+msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
+msgstr ""
+
+msgid "The cache directory does not exist or is not writable. You should contact your administrator."
+msgstr ""
+
+msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
+msgstr ""
+
+msgid "There is no writable root directory for the media manager. You should contact your administrator."
+msgstr ""
+
+msgid "Error:"
+msgstr ""
+
+msgid "Following plugins have been installed:"
+msgstr ""
+
+msgid "Following plugins have not been installed:"
+msgstr ""
+
+msgid "Errors have occured with following plugins:"
 msgstr ""
 
 msgid "Quick entry"
+msgstr ""
+
+msgid "New entry"
+msgstr ""
+
+msgid "Title:"
 msgstr ""
 
 msgid "Content:"
 msgstr ""
 
 msgid "Category:"
+msgstr ""
+
+msgid "Add a new category"
+msgstr ""
+
+msgid "This category will be created when you will save your post."
 msgstr ""
 
 msgid "Save and publish"
@@ -929,6 +1111,25 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Wachtwoord gewijzigd"
+
+msgid "very weak"
+msgstr ""
+
+msgid "weak"
+msgstr ""
+
+msgid "mediocre"
+msgstr ""
+
+msgid "strong"
+msgstr ""
+
+msgid "very strong"
+msgstr ""
+
 msgid "show"
 msgstr ""
 
@@ -988,6 +1189,13 @@ msgid "For the said reasons, Dotclear can not be installed. Please refer to <a h
 msgstr ""
 
 #, php-format
+msgid "Path <strong>%s</strong> is not writable."
+msgstr ""
+
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgstr ""
+
+#, php-format
 msgid "File %s does not exist."
 msgstr ""
 
@@ -1019,6 +1227,15 @@ msgstr ""
 msgid "Database type:"
 msgstr ""
 
+msgid "MySQL (deprecated)"
+msgstr ""
+
+msgid "MySQLi"
+msgstr ""
+
+msgid "PostgreSQL"
+msgstr ""
+
 msgid "Database Host Name:"
 msgstr ""
 
@@ -1046,19 +1263,22 @@ msgstr ""
 msgid "Permissions to delete language denied."
 msgstr ""
 
+msgid "Language has been successfully deleted."
+msgstr ""
+
 msgid "Invalid language file URL."
 msgstr ""
 
-msgid "Languages management"
-msgstr ""
-
-msgid "Language has been successfully deleted."
+msgid "Language has been successfully upgraded"
 msgstr ""
 
 msgid "Language has been successfully installed."
 msgstr ""
 
-msgid "Language has been successfully upgraded"
+msgid "Unable to move uploaded file."
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+msgid "Languages management"
 msgstr ""
 
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
@@ -1100,6 +1320,9 @@ msgstr ""
 msgid "Install language"
 msgstr ""
 
+msgid "Upload a zip file"
+msgstr "Upload een zip file"
+
 msgid "You can install languages by uploading zip files."
 msgstr ""
 
@@ -1118,9 +1341,6 @@ msgstr ""
 msgid "An error occurred during language upgrade."
 msgstr ""
 
-msgid "Error:"
-msgstr ""
-
 msgid "By names, in ascending order"
 msgstr ""
 
@@ -1132,6 +1352,29 @@ msgstr ""
 
 msgid "By dates, in descending order"
 msgstr ""
+
+#, fuzzy, php-format
+msgid "Directory \"%s\" has been successfully created."
+msgstr "Blog succesvol gemaakt."
+
+msgid "Files have been successfully uploaded."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Successfully delete one media."
+msgid_plural "Successfully delete %d medias."
+msgstr[0] "Thema succesvol verwijderd."
+msgstr[1] "Thema succesvol verwijderd."
+
+msgid "Directory has been successfully removed."
+msgstr ""
+
+msgid "File has been successfully removed."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Directory \"%s\" has been successfully rebuilt."
+msgstr "Blog succesvol gemaakt."
 
 msgid "Media manager"
 msgstr ""
@@ -1149,16 +1392,10 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
+msgid "You do not have sufficient permissions to write to this folder."
+msgstr ""
+
 msgid "Directory has been successfully created."
-msgstr ""
-
-msgid "Files have been successfully uploaded."
-msgstr ""
-
-msgid "File has been successfully removed."
-msgstr ""
-
-msgid "Directory has been successfully removed."
 msgstr ""
 
 msgid "Directory has been successfully rebuilt."
@@ -1178,14 +1415,36 @@ msgstr ""
 msgid "Choose a file to insert into entry by clicking on %s."
 msgstr ""
 
+#, fuzzy
+msgid "Remove selected medias"
+msgstr "verwijder geselecteerd thema"
+
 msgid "No file."
 msgstr ""
 
 msgid "Sort files:"
 msgstr ""
 
-msgid "Sort"
+msgid "Number of elements displayed per page:"
 msgstr ""
+
+#, php-format
+msgid "In %s:"
+msgstr ""
+
+msgid "Create new directory"
+msgstr ""
+
+msgid "Directory Name:"
+msgstr ""
+
+#, php-format
+msgid "Backup content of %s"
+msgstr ""
+
+#, fuzzy
+msgid "Download zip file"
+msgstr "Upload een zip file"
 
 msgid "Add files"
 msgstr ""
@@ -1193,11 +1452,13 @@ msgstr ""
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr ""
 
-msgid "Choose a file:"
+msgid "Choose file"
 msgstr ""
 
-#, php-format
-msgid "Maximum size %s"
+msgid "Choose files"
+msgstr ""
+
+msgid "Maximum file size allowed:"
 msgstr ""
 
 msgid "Private"
@@ -1206,17 +1467,25 @@ msgstr ""
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr ""
 
-msgid "Send"
+msgid "My preferences"
 msgstr ""
 
-msgid "New directory"
+msgid "Refresh"
 msgstr ""
 
-msgid "Directory Name:"
+msgid "Clear all"
 msgstr ""
 
-msgid "Download this directory as a zip file"
+msgid "Upload"
 msgstr ""
+
+#, php-format
+msgid "Current settings for medias and images are defined in %s"
+msgstr ""
+
+#, fuzzy
+msgid "Blog parameters"
+msgstr "Parameters"
 
 msgid "open"
 msgstr ""
@@ -1236,28 +1505,20 @@ msgstr ""
 msgid "Thumbnails have been successfully updated."
 msgstr ""
 
+#, fuzzy
+msgid "Default media insertion settings have been successfully updated."
+msgstr "Blog succesvol geupdate."
+
+msgid "Are you sure to delete this media?"
+msgstr ""
+
 msgid "Insert media item"
 msgstr ""
 
 msgid "Image size:"
 msgstr ""
 
-msgid "original"
-msgstr ""
-
 msgid "Image alignment"
-msgstr ""
-
-msgid "None"
-msgstr ""
-
-msgid "Left"
-msgstr ""
-
-msgid "Right"
-msgstr ""
-
-msgid "Center"
 msgstr ""
 
 msgid "Image insertion"
@@ -1266,7 +1527,7 @@ msgstr ""
 msgid "As a single image"
 msgstr ""
 
-msgid "As a link to original image"
+msgid "As a link to the original image"
 msgstr ""
 
 msgid "MP3 disposition"
@@ -1296,6 +1557,9 @@ msgstr ""
 msgid "Insert"
 msgstr ""
 
+msgid "Make current settings as default"
+msgstr ""
+
 msgid "Media details"
 msgstr ""
 
@@ -1323,10 +1587,25 @@ msgstr ""
 msgid "No entry seems contain this media."
 msgstr ""
 
+msgid "published"
+msgstr ""
+
+msgid "unpublished"
+msgstr ""
+
+msgid "scheduled"
+msgstr ""
+
+msgid "pending"
+msgstr ""
+
 msgid "Image details"
 msgstr ""
 
 msgid "No detail"
+msgstr ""
+
+msgid "Updates and modifications"
 msgstr ""
 
 msgid "Update thumbnails"
@@ -1374,44 +1653,19 @@ msgstr ""
 msgid "Change file"
 msgstr ""
 
-msgid "No blog or user given."
-msgstr ""
-
-msgid "permissions"
-msgstr ""
-
-msgid "Permissions"
-msgstr ""
-
-msgid "The permissions have been successfully updated."
+msgid "Choose a file:"
 msgstr ""
 
 #, php-format
-msgid "You are about to change permissions on the following blogs for users %s."
+msgid "Maximum size %s"
+msgstr ""
+
+msgid "Send"
 msgstr ""
 
 #, fuzzy
-msgid "Validate permissions"
-msgstr "verander toestemmingen"
-
-msgid "choose a blog"
-msgstr ""
-
-msgid "Choose a blog"
-msgstr ""
-
-msgid "Entries per page"
-msgstr ""
-
-#, php-format
-msgid "Choose one or more blogs to which you want to give permissions to users %s."
-msgstr ""
-
-msgid "Set permissions"
-msgstr ""
-
-msgid "select"
-msgstr ""
+msgid "Delete this media"
+msgstr "Verwijder dit blog"
 
 msgid "No content found on this plugin."
 msgstr ""
@@ -1422,92 +1676,53 @@ msgstr ""
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr ""
 
-msgid "No such plugin."
-msgstr ""
-
-msgid "You don't have permissions to delete this plugin."
-msgstr ""
-
-msgid "You don't have permissions to deactivate this plugin."
-msgstr ""
-
 msgid "Plugins management"
 msgstr ""
 
-msgid "Plugin has been successfully deleted."
-msgstr ""
+#, fuzzy
+msgid "Plugin configuration"
+msgstr "Blog configuratie"
 
-msgid "Plugin has been successfully installed."
-msgstr ""
-
-msgid "Plugin has been successfully upgraded"
-msgstr ""
-
-msgid "Plugins add new functionalities to Dotclear. Here you can activate or deactivate installed plugins."
+msgid "Update plugins"
 msgstr ""
 
 #, php-format
-msgid "You can find additional plugins for your blog on %s."
-msgstr ""
+msgid "There is one plugin to update available from repository."
+msgid_plural "There are %s plugins to update available from repository."
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "To install or upgrade a plugin you generally just need to upload it in \"Install or upgrade a plugin\" section."
-msgstr ""
-
-msgid "To install or upgrade a plugin you just need to extract it in your plugins directory."
-msgstr ""
-
-msgid "Plugins"
+msgid "Installed plugins"
 msgstr ""
 
 msgid "Activated plugins"
 msgstr ""
 
-msgid "Plugin"
-msgstr ""
-
-msgid "Version"
-msgstr ""
-
-msgid "Details"
-msgstr ""
-
-msgid "Deactivate"
+msgid "You can configure and manage installed plugins from this list."
 msgstr ""
 
 msgid "Deactivated plugins"
 msgstr ""
 
-msgid "Activate"
+msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr ""
 
-msgid "Install or upgrade a plugin"
+msgid "Add plugins"
+msgstr ""
+
+msgid "Add plugins from repository"
+msgstr ""
+
+msgid "Add plugins from a package"
 msgstr ""
 
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr ""
 
-msgid "Plugin zip file:"
-msgstr ""
-
-msgid "Upload plugin"
-msgstr ""
-
-msgid "Plugin zip file URL:"
-msgstr ""
-
-msgid "Download plugin"
-msgstr ""
-
-msgid "To enable this function, please give write access to your plugins directory."
+msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr ""
 
 msgid "Add a link"
-msgstr ""
-
-msgid "Available"
-msgstr ""
-
-msgid "Most used"
 msgstr ""
 
 msgid "Link URL:"
@@ -1523,6 +1738,12 @@ msgstr ""
 msgid "Add a link to an entry"
 msgstr ""
 
+msgid "Entry type:"
+msgstr ""
+
+msgid "Ok"
+msgstr ""
+
 msgid "Search entry:"
 msgstr ""
 
@@ -1532,22 +1753,52 @@ msgstr ""
 msgid "cancel"
 msgstr ""
 
-msgid "This entry does not exist."
-msgstr ""
-
 msgid "Edit entry"
 msgstr ""
 
-msgid "next entry"
+msgid "This entry does not exist."
 msgstr ""
 
-msgid "previous entry"
+msgid "Next entry"
+msgstr ""
+
+msgid "Previous entry"
+msgstr ""
+
+msgid "All pings sent."
+msgstr ""
+
+#, fuzzy
+msgid "Invalid publication date"
+msgstr "Verkeerde taal code"
+
+#, fuzzy, php-format
+msgid "The post \"%s\" has been successfully updated"
+msgstr "Blog succesvol geupdate."
+
+msgid "Entry has been successfully created."
+msgstr ""
+
+msgid "Published"
+msgstr ""
+
+msgid "Unpublished"
+msgstr ""
+
+msgid "Scheduled"
+msgstr ""
+
+msgid "Pending"
+msgstr ""
+
+#, php-format
+msgid "&ldquo;%s&rdquo;"
+msgstr ""
+
+msgid "Entries"
 msgstr ""
 
 msgid "Entry has been successfully updated."
-msgstr ""
-
-msgid "Entry has been successfully created."
 msgstr ""
 
 msgid "File has been successfully attached."
@@ -1556,82 +1807,126 @@ msgstr ""
 msgid "Attachment has been successfully removed."
 msgstr ""
 
-msgid "Comment has been successfully created."
-msgstr ""
-
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr ""
 
 msgid "Go to this entry on the site"
 msgstr ""
 
-msgid "new window"
+msgid "Entry status"
 msgstr ""
 
-msgid "Excerpt:"
+msgid "Publication date and hour"
 msgstr ""
 
-msgid "Notes:"
-msgstr ""
+#, fuzzy
+msgid "Entry language"
+msgstr "Standaard taal:"
 
-msgid "Preview"
-msgstr ""
-
-msgid "Entry status:"
-msgstr ""
-
-msgid "Published on:"
-msgstr ""
-
-msgid "Text formating:"
-msgstr ""
+#, fuzzy
+msgid "Text formatting"
+msgstr "Tijd formaat: "
 
 msgid "Convert to XHTML"
+msgstr ""
+
+msgid "Filing"
 msgstr ""
 
 msgid "Selected entry"
 msgstr ""
 
-msgid "Entry lang:"
+msgid "Category"
 msgstr ""
 
-msgid "Entry password:"
+msgid "Options"
 msgstr ""
 
-msgid "Basename:"
+#, fuzzy
+msgid "Comments and trackbacks list"
+msgstr "Comments en trackbacks"
+
+msgid "Warning: Comments are not more accepted for this entry."
+msgstr ""
+
+msgid "Comments are not accepted on this blog so far."
+msgstr ""
+
+msgid "Warning: Trackbacks are not more accepted for this entry."
+msgstr ""
+
+msgid "Trackbacks are not accepted on this blog so far."
+msgstr ""
+
+#, fuzzy
+msgid "Password"
+msgstr "Wachtwoord:"
+
+msgid "Edit basename"
 msgstr ""
 
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr ""
 
-msgid "Ping blogs"
+msgid "Excerpt:"
 msgstr ""
 
-msgid "Trackbacks"
+msgid "Introduction to the post."
 msgstr ""
 
-msgid "No trackback"
+msgid "Personal notes:"
+msgstr ""
+
+msgid "Unpublished notes."
+msgstr ""
+
+msgid "Edit post"
+msgstr ""
+
+msgid "Preview"
+msgstr ""
+
+msgid "Comments"
 msgstr ""
 
 msgid "Add a comment"
 msgstr ""
 
-msgid "Name:"
+msgid "Trackbacks"
+msgstr ""
+
+msgid "Trackbacks received"
+msgstr ""
+
+msgid "No trackback"
+msgstr ""
+
+#, fuzzy
+msgid "Selected trackbacks action:"
+msgstr "Accepteer trackbacks"
+
+msgid "Ping blogs"
+msgstr ""
+
+msgid "URLs to ping:"
+msgstr ""
+
+msgid "Excerpt to send:"
+msgstr ""
+
+msgid "Auto discover ping URLs"
+msgstr ""
+
+msgid "Previously sent pings"
 msgstr ""
 
 msgid "IP address"
 msgstr ""
 
-msgid "published"
+msgid "Edit"
 msgstr ""
 
-msgid "unpublished"
-msgstr ""
-
-msgid "pending"
-msgstr ""
-
-msgid "junk"
+msgid "Junk"
 msgstr ""
 
 #, fuzzy
@@ -1657,49 +1952,42 @@ msgstr ""
 msgid "Are you sure you want to remove this attachment?"
 msgstr ""
 
-msgid "selected"
-msgstr ""
-
-msgid "not selected"
-msgstr ""
-
-msgid "Category"
+msgid "(No cat)"
 msgstr ""
 
 msgid "Selected"
 msgstr ""
 
-msgid "Publish"
+#, fuzzy
+msgid "Not selected"
+msgstr "verwijder geselecteerd thema"
+
+msgid "With attachments"
 msgstr ""
 
-msgid "Unpublish"
+msgid "Without attachments"
 msgstr ""
 
-msgid "Schedule"
-msgstr ""
+#, fuzzy
+msgid "Number of comments"
+msgstr "Beheer comments"
 
-msgid "Mark as pending"
-msgstr ""
+#, fuzzy
+msgid "Number of trackbacks"
+msgstr "Beheer trackbacks"
 
-msgid "Mark"
-msgstr ""
+#, fuzzy
+msgid "Selected entries have been successfully updated."
+msgstr "Blog succesvol geupdate."
 
-msgid "Mark as selected"
-msgstr ""
-
-msgid "Mark as unselected"
-msgstr ""
-
-msgid "Change"
-msgstr ""
-
-msgid "Change category"
-msgstr ""
-
-msgid "Change author"
-msgstr ""
+#, fuzzy
+msgid "Selected entries have been successfully deleted."
+msgstr "Blog succesvol geupdate."
 
 msgid "Selected:"
+msgstr ""
+
+msgid "Attachments:"
 msgstr ""
 
 msgid "Month:"
@@ -1708,28 +1996,14 @@ msgstr ""
 msgid "Lang:"
 msgstr ""
 
+#, fuzzy
+msgid "entries per page"
+msgstr "Geef %s posts weer per pagina"
+
 msgid "Selected entries action:"
 msgstr ""
 
-msgid "This user does not exist"
-msgstr ""
-
-msgid "Change category for this selection"
-msgstr ""
-
-msgid "Change author for this selection"
-msgstr ""
-
-msgid "Author ID:"
-msgstr ""
-
-msgid "Default"
-msgstr ""
-
 msgid "If you want to change your email or password you must provide your current password."
-msgstr ""
-
-msgid "No favorite selected"
 msgstr ""
 
 msgid "Personal information has been successfully updated."
@@ -1740,16 +2014,23 @@ msgid "Personal options has been successfully updated."
 msgstr "Blog succesvol geupdate."
 
 #, fuzzy
+msgid "Dashboard options has been successfully updated."
+msgstr "Blog succesvol geupdate."
+
+msgid "No favorite selected"
+msgstr ""
+
+#, fuzzy
 msgid "Favorites have been successfully added."
+msgstr "Blog succesvol gemaakt."
+
+#, fuzzy
+msgid "Favorites have been successfully removed."
 msgstr "Blog succesvol gemaakt."
 
 #, fuzzy
 msgid "Favorites have been successfully updated."
 msgstr "Blog succesvol geupdate."
-
-#, fuzzy
-msgid "Favorites have been successfully removed."
-msgstr "Blog succesvol gemaakt."
 
 #, fuzzy
 msgid "Default favorites have been successfully updated."
@@ -1761,16 +2042,64 @@ msgstr ""
 msgid "Display name:"
 msgstr ""
 
-msgid "User language:"
+msgid "Language for my interface:"
 msgstr ""
 
-msgid "User timezone:"
+#, fuzzy
+msgid "My timezone:"
+msgstr "Tijdzone van blog:"
+
+#, fuzzy
+msgid "Change my password"
+msgstr "Verander je wachtwoord"
+
+#, fuzzy
+msgid "Confirm new password:"
+msgstr "Bevestig wachtwoord:"
+
+#, fuzzy
+msgid "Your current password:"
+msgstr "Je wachtwoord:"
+
+msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr ""
 
-msgid "If you have changed this user email or password you must provide your current password to save these modifications."
+msgid "Update my profile"
 msgstr ""
 
 msgid "My options"
+msgstr ""
+
+#, fuzzy
+msgid "Interface"
+msgstr "XML/RPC interface"
+
+msgid "Activate enhanced uploader in media manager"
+msgstr ""
+
+msgid "Disable javascript powered drag and drop for ordering items"
+msgstr ""
+
+msgid "If checked, numeric fields will allow to type the elements' ordering number."
+msgstr ""
+
+msgid "Number of elements displayed per page in media manager:"
+msgstr ""
+
+msgid "Do not use standard favicon"
+msgstr ""
+
+msgid "This will be applied for all users"
+msgstr ""
+
+msgid "Edition"
+msgstr ""
+
+#, php-format
+msgid "Preferred editor for %s:"
+msgstr ""
+
+msgid "Choose an editor"
 msgstr ""
 
 msgid "Preferred format:"
@@ -1785,37 +2114,13 @@ msgstr ""
 msgid "Enable WYSIWYG mode"
 msgstr ""
 
-msgid "Activate enhanced uploader in media manager"
+msgid "Other options"
 msgstr ""
 
-msgid "Iconset:"
+msgid "Save my options"
 msgstr ""
 
-msgid "Do not use standard favicon"
-msgstr ""
-
-msgid "This will be applied for all users"
-msgstr ""
-
-msgid "Accessibility options"
-msgstr ""
-
-msgid "Disable javascript powered drag and drop for ordering items"
-msgstr ""
-
-msgid "Numeric fields will allow to type the elements' ordering number."
-msgstr ""
-
-msgid "Dashboard modules"
-msgstr ""
-
-msgid "Display documentation links"
-msgstr ""
-
-msgid "Display Dotclear news"
-msgstr ""
-
-msgid "Display quick entry form"
+msgid "My dashboard"
 msgstr ""
 
 msgid "My favorites"
@@ -1835,7 +2140,7 @@ msgstr "verwijder geselecteerd thema"
 msgid "Are you sure you want to remove selected favorites?"
 msgstr ""
 
-msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation:"
+msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr ""
 
 msgid "Define as default favorites"
@@ -1844,16 +2149,41 @@ msgstr ""
 msgid "Currently no personal favorites."
 msgstr ""
 
-msgid "Default favorites"
-msgstr ""
+#, fuzzy
+msgid "Other available favorites"
+msgstr "verwijder geselecteerd thema"
 
-msgid "Those favorites are displayed when My Favorites list is empty."
-msgstr ""
-
-msgid "Available favorites"
+msgid "(default favorite)"
 msgstr ""
 
 msgid "Add to my favorites"
+msgstr ""
+
+msgid "Menu"
+msgstr ""
+
+msgid "Display favorites at the top of the menu"
+msgstr ""
+
+msgid "Dashboard icons"
+msgstr ""
+
+msgid "Iconset:"
+msgstr ""
+
+msgid "Dashboard modules"
+msgstr ""
+
+msgid "Display documentation links"
+msgstr ""
+
+msgid "Display Dotclear news"
+msgstr ""
+
+msgid "Display quick entry form"
+msgstr ""
+
+msgid "Save my dashboard options"
 msgstr ""
 
 msgid "Search options"
@@ -1862,21 +2192,13 @@ msgstr ""
 msgid "Query:"
 msgstr ""
 
-msgid "Search entries"
-msgstr ""
-
 #, fuzzy
-msgid "Search comments"
+msgid "Search in entries"
 msgstr "Beheer comments"
 
-msgid "schedule"
-msgstr ""
-
-msgid "change category"
-msgstr ""
-
-msgid "change author"
-msgstr ""
+#, fuzzy
+msgid "Search in comments"
+msgstr "Beheer comments"
 
 #, php-format
 msgid "%d entries found"
@@ -1894,28 +2216,6 @@ msgstr ""
 msgid "%d comments found"
 msgstr ""
 
-msgid "This entry does not exist or is not published"
-msgstr ""
-
-msgid "All pings sent."
-msgstr ""
-
-#, php-format
-msgid "Back to \"%s\""
-msgstr ""
-
-msgid "Auto discover ping URLs"
-msgstr ""
-
-msgid "URLs to ping:"
-msgstr ""
-
-msgid "Send excerpt:"
-msgstr ""
-
-msgid "Previously sent pings"
-msgstr ""
-
 msgid "Dotclear update"
 msgstr ""
 
@@ -1925,6 +2225,9 @@ msgstr ""
 
 #, php-format
 msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
+msgstr ""
+
+msgid "If this problem persists try to <a href=\"http://dotclear.org/download\">update manually</a>."
 msgstr ""
 
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"http://dotclear.org/download\">update manually</a>."
@@ -1937,7 +2240,13 @@ msgstr ""
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"http://dotclear.org/download\">update manually</a>."
 msgstr ""
 
+msgid "Manual checking of update done successfully."
+msgstr ""
+
 msgid "No newer Dotclear version available."
+msgstr ""
+
+msgid "Force checking update Dotclear"
 msgstr ""
 
 #, php-format
@@ -1948,6 +2257,9 @@ msgid "To upgrade your Dotclear installation simply click on the following butto
 msgstr ""
 
 msgid "Update Dotclear"
+msgstr ""
+
+msgid "Manage backup files"
 msgstr ""
 
 msgid "Update backup files"
@@ -1975,18 +2287,26 @@ msgstr ""
 msgid "Finish the update."
 msgstr ""
 
-msgid "new user"
+#, fuzzy
+msgid "New user"
+msgstr "Geen gebruikers"
+
+msgid "User has been successfully updated."
 msgstr ""
 
 #, php-format
 msgid "User \"%s\" already exists."
 msgstr ""
 
-msgid "User has been successfully updated."
-msgstr ""
-
 msgid "User has been successfully created."
 msgstr ""
+
+msgid "User profile"
+msgstr ""
+
+#, fuzzy
+msgid "User ID:"
+msgstr "Gebruikersnaam:"
 
 msgid "Warning:"
 msgstr ""
@@ -1994,19 +2314,34 @@ msgstr ""
 msgid "If you change your username, you will have to log in again."
 msgstr ""
 
+msgid "Password change required to connect"
+msgstr ""
+
 msgid "Mandatory for password recovering procedure."
 msgstr ""
 
-msgid "Password change required to connect"
-msgstr ""
+#, fuzzy
+msgid "Timezone:"
+msgstr "Tijdzone van blog:"
 
 msgid "Save and create another"
 msgstr ""
 
-msgid "No permissions."
+msgid "Permissions"
 msgstr ""
 
 msgid "Add new permissions"
+msgstr ""
+
+#, fuzzy
+msgid "No permissions so far."
+msgstr "verander toestemmingen"
+
+msgid "Blog:"
+msgstr ""
+
+#, php-format
+msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
 msgid "Username"
@@ -2024,23 +2359,185 @@ msgstr ""
 msgid "Number of entries"
 msgstr ""
 
-msgid "users"
+msgid "Set permissions"
 msgstr ""
 
 msgid "User has been successfully removed."
 msgstr ""
 
-msgid "Create a new user"
+msgid "The permissions have been successfully updated."
 msgstr ""
 
-msgid "Users per page"
-msgstr ""
+#, fuzzy
+msgid "users per page"
+msgstr "Geef %s posts weer per pagina"
 
 msgid "Selected users action:"
 msgstr ""
 
-msgid "Blog:"
+msgid "No blog or user given."
 msgstr ""
+
+msgid "You cannot delete yourself."
+msgstr ""
+
+#, fuzzy
+msgid "User has been successfully deleted."
+msgstr "Thema succesvol verwijderd."
+
+msgid "Back to user profile"
+msgstr ""
+
+#, php-format
+msgid "Choose one or more blogs to which you want to give permissions to users %s."
+msgstr ""
+
+msgid "select"
+msgstr ""
+
+#, php-format
+msgid "You are about to change permissions on the following blogs for users %s."
+msgstr ""
+
+#, fuzzy
+msgid "Validate permissions"
+msgstr "verander toestemmingen"
+
+#, fuzzy
+msgid "Back to comments list"
+msgstr "Accepteer comments"
+
+#, fuzzy
+msgid "Comments actions"
+msgstr "Comments en trackbacks"
+
+msgid "Publish"
+msgstr ""
+
+msgid "Unpublish"
+msgstr ""
+
+msgid "Mark as pending"
+msgstr ""
+
+msgid "Mark as junk"
+msgstr ""
+
+msgid "No comment selected"
+msgstr ""
+
+msgid "Back to entries list"
+msgstr ""
+
+msgid "Entries actions"
+msgstr ""
+
+msgid "Schedule"
+msgstr ""
+
+msgid "Mark"
+msgstr ""
+
+msgid "Mark as selected"
+msgstr ""
+
+msgid "Mark as unselected"
+msgstr ""
+
+msgid "Change"
+msgstr ""
+
+msgid "Change category"
+msgstr ""
+
+#, fuzzy
+msgid "Change language"
+msgstr "Standaard taal:"
+
+msgid "Change author"
+msgstr ""
+
+msgid "No entry selected"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully updated to status : \"%s\""
+msgid_plural "%d entries have been successfully updated to status : \"%s\""
+msgstr[0] "Blog succesvol geupdate."
+msgstr[1] "Blog succesvol geupdate."
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully marked as selected"
+msgid_plural "%d entries have been successfully marked as selected"
+msgstr[0] "Thema succesvol verwijderd."
+msgstr[1] "Thema succesvol verwijderd."
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully marked as unselected"
+msgid_plural "%d entries have been successfully marked as unselected"
+msgstr[0] "Thema succesvol verwijderd."
+msgstr[1] "Thema succesvol verwijderd."
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully deleted"
+msgid_plural "%d entries have been successfully deleted"
+msgstr[0] "Thema succesvol verwijderd."
+msgstr[1] "Thema succesvol verwijderd."
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully moved to category \"%s\""
+msgid_plural "%d entries have been successfully moved to category \"%s\""
+msgstr[0] "Blog succesvol gemaakt."
+msgstr[1] "Blog succesvol gemaakt."
+
+msgid "Change category for this selection"
+msgstr ""
+
+msgid "Create a new category for the post(s)"
+msgstr ""
+
+msgid "This user does not exist"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully set to user \"%s\""
+msgid_plural "%d entries have been successfully set to user \"%s\""
+msgstr[0] "Thema succesvol verwijderd."
+msgstr[1] "Thema succesvol verwijderd."
+
+msgid "Change author for this selection"
+msgstr ""
+
+msgid "New author (author ID):"
+msgstr ""
+
+#, fuzzy, php-format
+msgid "%d entry has been successfully set to language \"%s\""
+msgid_plural "%d entries have been successfully set to language \"%s\""
+msgstr[0] "Thema's succesvol gewijzigd."
+msgstr[1] "Thema's succesvol gewijzigd."
+
+msgid "Change language for this selection"
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
+msgid "Most used"
+msgstr ""
+
+#, fuzzy
+msgid "Entry language:"
+msgstr "Standaard taal:"
+
+msgid "Languages"
+msgstr ""
+
+#, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Change blog"
 msgstr ""
@@ -2048,14 +2545,29 @@ msgstr ""
 msgid "Blogs:"
 msgstr ""
 
-msgid "Go to site"
+msgid "Go to the content"
 msgstr ""
 
-msgid "My dashboard"
+msgid "Go to the menu"
+msgstr ""
+
+msgid "Go to search"
+msgstr ""
+
+msgid "Go to help"
+msgstr ""
+
+msgid "Go to site"
 msgstr ""
 
 #, php-format
 msgid "Logout %s"
+msgstr ""
+
+msgid "Hide main menu"
+msgstr ""
+
+msgid "Show main menu"
 msgstr ""
 
 msgid "Safe mode"
@@ -2064,11 +2576,24 @@ msgstr ""
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr ""
 
+msgid "[%H:%M:%S]"
+msgstr ""
+
 #, php-format
 msgid "Thank you for using %s."
 msgstr ""
 
-msgid "Help"
+msgid "Go to dashboard"
+msgstr ""
+
+msgid "Help about this page"
+msgstr ""
+
+#, php-format
+msgid "See also %s"
+msgstr ""
+
+msgid "the global help"
 msgstr ""
 
 msgid "uncover"
@@ -2077,7 +2602,16 @@ msgstr ""
 msgid "hide"
 msgstr ""
 
-msgid "help"
+msgid "Need help?"
+msgstr ""
+
+msgid "new window"
+msgstr ""
+
+msgid "Hide"
+msgstr ""
+
+msgid "Select:"
 msgstr ""
 
 msgid "no selection"
@@ -2096,7 +2630,21 @@ msgstr ""
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr ""
 
+#, php-format
+msgid "Are you sure you want to delete selected medias (%d)?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete selected categories (%s)?"
+msgstr ""
+
 msgid "Are you sure you want to delete this entry?"
+msgstr ""
+
+msgid "Click here to unlock the field"
+msgstr ""
+
+msgid "Are you sure you want to delete all spams?"
 msgstr ""
 
 #, php-format
@@ -2124,6 +2672,10 @@ msgstr ""
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr ""
 
+#, php-format
+msgid "Are you sure you want to remove directory \"%s\"?"
+msgstr ""
+
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr ""
 
@@ -2139,6 +2691,9 @@ msgstr ""
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr ""
 
+msgid "Are you sure you want to delete selected plugins?"
+msgstr ""
+
 msgid "Use this theme"
 msgstr ""
 
@@ -2147,6 +2702,15 @@ msgstr ""
 
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
+msgstr ""
+
+msgid "Are you sure you want to delete selected themes?"
+msgstr ""
+
+msgid "Are you sure you want to delete this backup?"
+msgstr ""
+
+msgid "Are you sure you want to revert to this backup?"
 msgstr ""
 
 msgid "Zip file content"
@@ -2161,13 +2725,37 @@ msgstr ""
 msgid "There are XHTML markup errors."
 msgstr ""
 
+msgid "Attention: an audit of a content not yet registered."
+msgstr ""
+
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
+
+msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr ""
 
 msgid "Loading enhanced uploader, please wait."
 msgstr ""
 
+msgid "Details"
+msgstr ""
+
+msgid "Support"
+msgstr ""
+
+msgid "Help:"
+msgstr ""
+
+msgid "Section:"
+msgstr ""
+
+msgid "Tags:"
+msgstr ""
+
 msgid "You have unsaved changes."
+msgstr ""
+
+msgid "Choose date"
 msgstr ""
 
 msgid "close"
@@ -2176,103 +2764,10 @@ msgstr ""
 msgid "now"
 msgstr ""
 
-msgid "visual"
-msgstr ""
-
-msgid "source"
-msgstr ""
-
-msgid "You can use the following shortcuts to format your text."
-msgstr ""
-
-msgid "-- none --"
-msgstr ""
-
-msgid "-- block format --"
-msgstr ""
-
-msgid "Paragraph"
-msgstr ""
-
-msgid "Level 1 header"
-msgstr ""
-
-msgid "Level 2 header"
-msgstr ""
-
-msgid "Level 3 header"
-msgstr ""
-
-msgid "Level 4 header"
-msgstr ""
-
-msgid "Level 5 header"
-msgstr ""
-
-msgid "Level 6 header"
-msgstr ""
-
-msgid "Strong emphasis"
-msgstr ""
-
-msgid "Emphasis"
-msgstr ""
-
-msgid "Inserted"
-msgstr ""
-
-msgid "Deleted"
-msgstr ""
-
-msgid "Inline quote"
-msgstr ""
-
-msgid "Code"
-msgstr ""
-
-msgid "Line break"
-msgstr ""
-
-msgid "Blockquote"
-msgstr ""
-
-msgid "Preformated text"
-msgstr ""
-
-msgid "Unordered list"
-msgstr ""
-
-msgid "Ordered list"
-msgstr ""
-
-msgid "Link"
-msgstr ""
-
-msgid "URL?"
-msgstr ""
-
-msgid "Language?"
-msgstr ""
-
-msgid "External image"
-msgstr ""
-
-msgid "Media chooser"
-msgstr ""
-
-msgid "Link to an entry"
-msgstr ""
-
 msgid "Temporarily activate enhanced uploader"
 msgstr ""
 
 msgid "Temporarily disable enhanced uploader"
-msgstr ""
-
-msgid "File successfully uploaded."
-msgstr ""
-
-msgid "Maximum file size allowed:"
 msgstr ""
 
 msgid "Limit exceeded."
@@ -2287,16 +2782,10 @@ msgstr ""
 msgid "HTTP Error:"
 msgstr ""
 
-msgid "Choose file"
-msgstr ""
-
-msgid "Choose files"
-msgstr ""
-
 msgid "Clean"
 msgstr ""
 
-msgid "Upload"
+msgid "File successfully uploaded."
 msgstr ""
 
 msgid "No file in queue."
@@ -2312,19 +2801,298 @@ msgstr ""
 msgid "Queue error:"
 msgstr ""
 
-msgid "&#171;prev."
+msgid "other"
 msgstr ""
 
-msgid "next&#187;"
+#, fuzzy
+msgid "Search in repository:"
+msgstr "Zoekmachine robot instellingen"
+
+msgid "Reset search"
+msgstr ""
+
+msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
+msgstr ""
+
+#, php-format
+msgid "Found %d result for search \"%s\":"
+msgid_plural "Found %d results for search \"%s\":"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "current selection"
+msgstr ""
+
+#, php-format
+msgid "%d result"
+msgid_plural "%d results"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "no results"
+msgstr ""
+
+msgid "Browse index:"
+msgstr ""
+
+msgid "Plugins list"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Score"
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
+msgid "Current version"
+msgstr ""
+
+msgid "Plugin from official distribution"
+msgstr ""
+
+#, fuzzy
+msgid "Configure plugin"
+msgstr "Blog instellingen"
+
+msgid "No plugins matched your search."
+msgstr ""
+
+msgid "Activate"
+msgstr ""
+
+msgid "Deactivate"
+msgstr ""
+
+msgid "Install"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "Activate selected plugins"
+msgstr ""
+
+msgid "Activate all plugins from this list"
+msgstr ""
+
+#, fuzzy
+msgid "Deactivate selected plugins"
+msgstr "verwijder geselecteerd thema"
+
+msgid "Deactivate all plugins from this list"
+msgstr ""
+
+msgid "Update selected plugins"
+msgstr ""
+
+msgid "Update all plugins from this list"
+msgstr ""
+
+msgid "No such plugin."
+msgstr ""
+
+msgid "You don't have permissions to delete this plugin."
+msgstr ""
+
+msgid "Some plugins have not been delete."
+msgstr ""
+
+msgid "Plugin has been successfully deleted."
+msgid_plural "Plugins have been successuflly deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Plugin has been successfully installed."
+msgid_plural "Plugins have been successuflly installed."
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy
+msgid "Plugin has been successfully activated."
+msgid_plural "Plugins have been successuflly activated."
+msgstr[0] "Blog succesvol gemaakt."
+msgstr[1] "Blog succesvol gemaakt."
+
+msgid "Some plugins have not been deactivated."
+msgstr ""
+
+#, fuzzy
+msgid "Plugin has been successfully deactivated."
+msgid_plural "Plugins have been successuflly deactivated."
+msgstr[0] "Blog succesvol gemaakt."
+msgstr[1] "Blog succesvol gemaakt."
+
+#, fuzzy
+msgid "Plugin has been successfully updated."
+msgid_plural "Plugins have been successuflly updated."
+msgstr[0] "Blog succesvol geupdate."
+msgstr[1] "Blog succesvol geupdate."
+
+msgid "Zip file path:"
+msgstr ""
+
+msgid "Download a zip file"
+msgstr ""
+
+msgid "Zip file URL:"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Unknow plugin ID"
+msgstr ""
+
+msgid "This plugin has no configuration file."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Configure \"%s\""
+msgstr "Blog instellingen"
+
+msgid "Back"
+msgstr ""
+
+#, php-format
+msgid "Score: %s"
+msgstr ""
+
+#, php-format
+msgid "%s screenshot."
+msgstr ""
+
+#, php-format
+msgid "by %s"
+msgstr "door %s"
+
+#, php-format
+msgid "version %s"
+msgstr "versie %s"
+
+#, fuzzy, php-format
+msgid "(current version %s)"
+msgstr "versie %s"
+
+#, php-format
+msgid "(built on \"%s\")"
+msgstr "(gemaakt met \"%s\")"
+
+#, php-format
+msgid "(requires \"%s\")"
+msgstr "(\"%s\" nodig)"
+
+#, fuzzy
+msgid "View stylesheet"
+msgstr "Stylesheet"
+
+#, fuzzy
+msgid "Configure theme"
+msgstr "Blog instellingen"
+
+msgid "No themes matched your search."
+msgstr ""
+
+#, fuzzy
+msgid "Use this one"
+msgstr "Gebruikers op deze blog"
+
+#, fuzzy
+msgid "Update selected themes"
+msgstr "gebruik geselecteerd thema"
+
+msgid "Update all themes from this list"
+msgstr ""
+
+#, fuzzy
+msgid "No such theme."
+msgstr "Die blog bestaat niet."
+
+#, fuzzy
+msgid "Theme has been successfully selected."
+msgstr "Thema succesvol verwijderd."
+
+#, fuzzy
+msgid "Theme has been successfully activated."
+msgid_plural "Themes have been successuflly activated."
+msgstr[0] "Thema's succesvol gewijzigd."
+msgstr[1] "Thema's succesvol gewijzigd."
+
+msgid "Some themes have not been deactivated."
+msgstr ""
+
+#, fuzzy
+msgid "Theme has been successfully deactivated."
+msgid_plural "Themes have been successuflly deactivated."
+msgstr[0] "Thema succesvol verwijderd."
+msgstr[1] "Thema succesvol verwijderd."
+
+msgid "You don't have permissions to delete this theme."
+msgstr ""
+
+msgid "Some themes have not been delete."
+msgstr ""
+
+#, fuzzy
+msgid "Theme has been successfully deleted."
+msgid_plural "Themes have been successuflly deleted."
+msgstr[0] "Thema succesvol verwijderd."
+msgstr[1] "Thema succesvol verwijderd."
+
+#, fuzzy
+msgid "Theme has been successfully installed."
+msgid_plural "Themes have been successuflly installed."
+msgstr[0] "Thema succesvol geinstalleerd."
+msgstr[1] "Thema succesvol geinstalleerd."
+
+#, fuzzy
+msgid "Theme has been successfully updated."
+msgid_plural "Themes have been successuflly updated."
+msgstr[0] "Thema succesvol geupgrade"
+msgstr[1] "Thema succesvol geupgrade"
+
+msgid "First page"
+msgstr ""
+
+msgid "Previous page"
+msgstr ""
+
+msgid "Next page"
+msgstr ""
+
+msgid "Last page"
+msgstr ""
+
+#, php-format
+msgid "Page %s / %s"
+msgstr ""
+
+#, php-format
+msgid "Direct access page %s"
+msgstr ""
+
+msgid "&#171; prev."
+msgstr ""
+
+msgid "next &#187;"
+msgstr ""
+
+msgid "No entry matches the filter"
 msgstr ""
 
 msgid "No entry"
 msgstr ""
 
-msgid "scheduled"
+#, php-format
+msgid "List of %s entries match the filter."
 msgstr ""
 
-msgid "protected"
+msgid "Entries list"
+msgstr ""
+
+msgid "Protected"
 msgstr ""
 
 #, php-format
@@ -2335,11 +3103,47 @@ msgstr ""
 msgid "%d attachments"
 msgstr ""
 
+msgid "No comments or trackbacks matches the filter"
+msgstr ""
+
+#, php-format
+msgid "Comment or trackback matching the filter."
+msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "Type"
+msgstr ""
+
+msgid "Entry"
+msgstr ""
+
+#, php-format
+msgid "Edit the %1$s from %2$s"
+msgstr ""
+
+msgid "comment"
+msgstr ""
+
+msgid "trackback"
+msgstr ""
+
+msgid "Type and author"
+msgstr ""
+
+msgid "No user matches the filter"
 msgstr ""
 
 msgid "No user"
 msgstr ""
+
+#, php-format
+msgid "List of %s users match the filter."
+msgstr ""
+
+#, fuzzy
+msgid "Users list"
+msgstr "Gebruikers"
 
 msgid "admin"
 msgstr ""
@@ -2348,22 +3152,75 @@ msgstr ""
 msgid "superadmin"
 msgstr "Super administrator"
 
+#, php-format
+msgid "ratio %.1f"
+msgstr ""
+
+#, php-format
+msgid "(%s)"
+msgstr ""
+
+#, fuzzy
+msgid "The 'public' directory does not exist."
+msgstr "Thema bestaat niet."
+
+#, php-format
+msgid "The '%s' directory cannot be modified."
+msgstr ""
+
+msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
+msgstr ""
+
+#, fuzzy
+msgid "Unable to create images."
+msgstr "Kan het gëuploade bestand niet verplaatsen."
+
+#, fuzzy
+msgid "Invalid file type."
+msgstr "Verkeerde taal code"
+
+msgid "An error occurred while writing the file."
+msgstr ""
+
+#, fuzzy, php-format
+msgid "Uploaded image is not %s pixels wide."
+msgstr "Gegenereede afbeeldinggrootte in pixels"
+
 msgid "Database error"
 msgstr ""
 
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
-msgid "System"
-msgstr ""
+#, fuzzy
+msgid "System settings"
+msgstr "Blog instellingen"
 
 msgid "Blog"
 msgstr ""
 
-msgid "Update"
+msgid "Plugins"
 msgstr ""
 
-msgid "Languages"
+#, fuzzy
+msgid "medium"
+msgstr "Medium:"
+
+#, fuzzy
+msgid "small"
+msgstr "Klein:"
+
+#, fuzzy
+msgid "thumbnail"
+msgstr "Miniaturen"
+
+msgid "square"
+msgstr ""
+
+msgid "Posts"
+msgstr ""
+
+msgid "Pages"
 msgstr ""
 
 msgid "administrator"
@@ -2408,7 +3265,10 @@ msgstr ""
 msgid "This category is not empty."
 msgstr ""
 
-msgid "Category URL must be unique."
+msgid "You are not allowed to reset categories order"
+msgstr ""
+
+msgid "Empty category URL"
 msgstr ""
 
 msgid "You must provide a category title"
@@ -2435,19 +3295,22 @@ msgstr ""
 msgid "You are not allowed to change this entry category"
 msgstr ""
 
-msgid "You are not allowed to mark this entry as selected"
+msgid "You are not allowed to change entries category"
 msgstr ""
 
 msgid "You are not allowed to delete entries"
-msgstr ""
-
-msgid "You are not allowed to delete this entry"
 msgstr ""
 
 msgid "No entry title"
 msgstr ""
 
 msgid "No entry content"
+msgstr ""
+
+msgid "Notes"
+msgstr ""
+
+msgid "Note"
 msgstr ""
 
 msgid "Empty entry URL"
@@ -2466,9 +3329,6 @@ msgid "You are not allowed to change this comment's status"
 msgstr ""
 
 msgid "You are not allowed to delete comments"
-msgstr ""
-
-msgid "You are not allowed to delete this comment"
 msgstr ""
 
 msgid "You must provide a comment"
@@ -2513,10 +3373,6 @@ msgstr ""
 msgid "No blog defined."
 msgstr ""
 
-#, php-format
-msgid "Directory %s does not exist."
-msgstr ""
-
 msgid "You are not a super administrator."
 msgstr ""
 
@@ -2546,7 +3402,11 @@ msgid "Embedded Video Player"
 msgstr ""
 
 #, php-format
-msgid "%s: in [%s] and [%s]"
+msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
+msgstr ""
+
+#, php-format
+msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
 msgstr ""
 
 msgid "Empty module zip file."
@@ -2601,6 +3461,16 @@ msgstr ""
 msgid "Invalid setting namespace: %s"
 msgstr ""
 
+msgid "Failed to read data feed"
+msgstr ""
+
+#, fuzzy
+msgid "Wrong data feed"
+msgstr "Verklein feeds"
+
+msgid "An error occurred while downloading the file."
+msgstr "Er was een error toen het bestand gedownload werd."
+
 #, php-format
 msgid "%s has still been pinged"
 msgstr ""
@@ -2614,6 +3484,33 @@ msgstr ""
 
 #, php-format
 msgid "%s, ping error:"
+msgstr ""
+
+msgid "Any chance you ping one of my contents? No? Really?"
+msgstr ""
+
+msgid "Sorry but you can not ping this type of content."
+msgstr ""
+
+msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
+msgstr ""
+
+msgid "Sorry, dude. This entry does not accept pingback at the moment."
+msgstr ""
+
+msgid "Don't repeat yourself, please."
+msgstr ""
+
+msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
+msgstr ""
+
+msgid "Where's your title?"
+msgstr ""
+
+msgid "Sorry, an internal problem has occured."
+msgstr ""
+
+msgid "Thanks, mate. It was a pleasure."
 msgstr ""
 
 msgid "Digests file not found."
@@ -2660,6 +3557,15 @@ msgstr ""
 msgid "No workspace specified"
 msgstr ""
 
+msgid "No valid source URL provided? Try again!"
+msgstr ""
+
+msgid "No valid target URL provided? Try again!"
+msgstr ""
+
+msgid "LOL!"
+msgstr ""
+
 msgid "SQLite Database Schema cannot be upgraded."
 msgstr ""
 
@@ -2694,6 +3600,9 @@ msgid "Missing a temporary folder."
 msgstr ""
 
 msgid "Failed to write file to disk."
+msgstr ""
+
+msgid "A PHP extension stopped the file upload."
 msgstr ""
 
 #, php-format
@@ -2735,9 +3644,6 @@ msgstr ""
 msgid "Cannot write in this directory."
 msgstr ""
 
-msgid "An error occurred while writing the file."
-msgstr ""
-
 msgid "Source file does not exist."
 msgstr ""
 
@@ -2761,6 +3667,22 @@ msgstr ""
 
 msgid "Not enough memory to open image."
 msgstr ""
+
+#, php-format
+msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+msgstr ""
+
+#, php-format
+msgid "Unexpected closing tag </tpl:%s> found."
+msgstr ""
+
+msgid "WARNING: the following errors have been found while parsing template file :"
+msgstr ""
+
+msgid "singular"
+msgid_plural "plural"
+msgstr[0] ""
+msgstr[1] ""
 
 #, php-format
 msgid "File %s is not compressed in the zip."
@@ -2791,6 +3713,12 @@ msgstr ""
 msgid "Cannot read directory"
 msgstr ""
 
+msgid "Site temporarily unavailable"
+msgstr ""
+
+msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
+msgstr ""
+
 msgid "Unable to connect to database"
 msgstr ""
 
@@ -2800,6 +3728,36 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "more information"
+#~ msgstr "meer informatie"
+
+#~ msgid "Leave blank to disable this feature."
+#~ msgstr "Laat leeg om deze optie niet toe te passsen"
+
+#~ msgid "This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture's metadata."
+#~ msgstr "Dit stelt de afbeeldingtag in wanneer je het invoegt in een post vanaf de media manager. Hij word gehaald van de metadata van de afbeelding."
+
+#~ msgid "XML/RPC interface is not active. Change settings to enable it."
+#~ msgstr "XML/RPC interface is inactief. Verander de instellingen om het actief te maken."
+
+#~ msgid "You can't remove default theme."
+#~ msgstr "Je kan het standaard thema niet verwijderen."
+
+#~ msgid "You can find additional themes for your blog on %s."
+#~ msgstr "Je kan andere thema's voor je blog vinden op %s."
+
+#~ msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
+#~ msgstr "Om een thema te installeren of te upgraden, moet je het uploaden in de \"Installeer of upgrade een theme\" sectie."
+
+#~ msgid "Themes"
+#~ msgstr "Thema's"
+
+#~ msgid "You are currently using <strong>%s</strong>"
+#~ msgstr "Je gebruikt nu \"%s\""
+
+#~ msgid "Theme zip file:"
+#~ msgstr "Thema zip file:"
 
 #, fuzzy
 #~ msgid "Blogroll"

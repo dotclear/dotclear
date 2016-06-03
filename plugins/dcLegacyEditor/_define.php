@@ -3,7 +3,7 @@
 #
 # This file is part of Dotclear 2.
 #
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
+# Copyright (c) 2003-2015 Olivier Meunier & Association Dotclear
 # Licensed under the GPL version 2.0 license.
 # See LICENSE file or
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -12,9 +12,12 @@
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
-	/* Name */			"dcLegacyEditor",
-	/* Description*/	"dotclear legacy editor",
-	/* Author */		"dotclear Team",
-	/* Version */		'0.1.0',
-	/* Options */       array('permissions' => 'admin', 'type' => 'plugin')
+	/* Name */				"dcLegacyEditor",
+	/* Description*/		"dotclear legacy editor",
+	/* Author */			"dotclear Team",
+	/* Version */			'0.1.3',
+	array(
+		'permissions' =>	'usage,contentadmin',
+		'type'		=>		'plugin'
+	)
 );

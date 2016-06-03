@@ -74,10 +74,14 @@ class dcNamespace
 			$value = $rs->f('setting_value');
 			$type = $rs->f('setting_type');
 
-			if ($type == 'float' || $type == 'double') {
-				$type = 'float';
-			} elseif ($type != 'boolean' && $type != 'integer') {
-				$type = 'string';
+			if ($type == 'array') {
+				$value = @json_decode($value,true);
+			} else {
+				if ($type == 'float' || $type == 'double') {
+					$type = 'float';
+				} elseif ($type != 'boolean' && $type != 'integer') {
+					$type = 'string';
+				}
 			}
 
 			settype($value,$type);
@@ -229,10 +233,14 @@ class dcNamespace
 			} elseif ($this->settingExists($id,true)) {
 				$type = $this->global_settings[$id]['type'];
 			} else {
-				$type = 'string';
+				if (is_array($value)) {
+					$type = 'array';
+				} else {
+					$type = 'string';
+				}
 			}
 		}
-		elseif ($type != 'boolean' && $type != 'integer' && $type != 'float')
+		elseif ($type != 'boolean' && $type != 'integer' && $type != 'float' && $type != 'array')
 		{
 			$type = 'string';
 		}
@@ -247,7 +255,11 @@ class dcNamespace
 			}
 		}
 
-		settype($value,$type);
+		if ($type != 'array') {
+			settype($value,$type);
+		} else {
+			$value = json_encode($value);
+		}
 
 		$cur = $this->con->openCursor($this->table);
 		$cur->setting_value = ($type == 'boolean') ? (string) (integer) $value : (string) $value;
@@ -378,6 +390,16 @@ class dcNamespace
 	}
 
 	/**
+	Returns $ns property content.
+
+	@return	<b>string</b>
+	*/
+	public function dumpNamespace()
+	{
+		return $this->ns;
+	}
+
+	/**
 	Returns $settings property content.
 
 	@return	<b>array</b>
@@ -385,6 +407,16 @@ class dcNamespace
 	public function dumpSettings()
 	{
 		return $this->settings;
+	}
+
+	/**
+	Returns $local_settings property content.
+
+	@return	<b>array</b>
+	*/
+	public function dumpLocalSettings()
+	{
+		return $this->local_settings;
 	}
 
 	/**

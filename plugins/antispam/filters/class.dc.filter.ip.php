@@ -221,7 +221,7 @@ class dcFilterIP extends dcSpamFilter
 		}
 	}
 
-	private function addIP($type,$pattern,$global)
+	public function addIP($type,$pattern,$global)
 	{
 		$this->ipmask($pattern,$ip,$mask);
 		$pattern = long2ip($ip).($mask != -1 ? '/'.long2ip($mask) : '');

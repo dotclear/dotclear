@@ -35,6 +35,7 @@ if (file_exists($p_file))
 	# Loading plugin
 	$p_info = $core->plugins->getModules($p);
 
+	$p_name = $p;
 	$p_url = 'plugin.php?p='.$p;
 
 	$p_title = 'no content - plugin';

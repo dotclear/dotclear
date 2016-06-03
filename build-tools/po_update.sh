@@ -25,6 +25,7 @@ antispam
 attachments
 blogroll
 blowupConfig
+breadcrumb
 dclegacy
 fairTrackbacks
 importExport
@@ -36,6 +37,8 @@ tags
 themeEditor
 userPref
 widgets
+dcLegacyEditor
+dcCKEditor
 _fake_plugin
 "
 

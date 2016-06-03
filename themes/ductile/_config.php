@@ -324,7 +324,8 @@ if (!$standalone_config) echo '</form>';
 echo '<div class="multi-part" id="themes-list'.($conf_tab == 'html' ? '' : '-html').'" title="'.__('Content').'">'.
 '<h3>'.__('Content').'</h3>';
 
-echo '<form id="theme_config" action="blog_theme.php?conf=1" method="post" enctype="multipart/form-data">';
+echo '<form id="theme_config" action="'.$core->adminurl->get('admin.blog.theme',array('conf' => '1')).
+'" method="post" enctype="multipart/form-data">';
 
 echo '<h4>'.__('Header').'</h4>'.
 '<p class="field"><label for="subtitle_hidden">'.__('Hide blog description:').'</label> '.
@@ -333,7 +334,8 @@ echo '<p class="field"><label for="logo_src">'.__('Logo URL:').'</label> '.
 	form::field('logo_src',40,255,$ductile_user['logo_src']).'</p>';
 if ($core->plugins->moduleExists('simpleMenu'))
 {
-	echo '<p>'.sprintf(__('To configure the top menu go to the <a href="%s">Simple Menu administration page</a>.'),'plugin.php?p=simpleMenu').'</p>';
+	echo '<p>'.sprintf(__('To configure the top menu go to the <a href="%s">Simple Menu administration page</a>.'),
+		$core->adminurl->get('admin.plugin.simpleMenu')).'</p>';
 }
 
 echo '<h4 class="border-top pretty-title">'.__('Stickers').'</h4>';
@@ -408,7 +410,8 @@ echo '</div>'; // Close tab
 
 echo '<div class="multi-part" id="themes-list'.($conf_tab == 'css' ? '' : '-css').'" title="'.__('Presentation').'">';
 
-echo '<form id="theme_config" action="blog_theme.php?conf=1" method="post" enctype="multipart/form-data">';
+echo '<form id="theme_config" action="'.$core->adminurl->get('admin.blog.theme',array('conf' => '1')).
+	'" method="post" enctype="multipart/form-data">';
 
 echo '<h3>'.__('General settings').'</h3>';
 

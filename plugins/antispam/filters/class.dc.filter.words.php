@@ -112,8 +112,8 @@ class dcFilterWords extends dcSpamFilter
 		'<p><label class="classic" for="swa">'.__('Add a word ').'</label> '.form::field('swa',20,128);
 
 		if ($core->auth->isSuperAdmin()) {
-			$res .= '<label class="classic" for="globalsw">'.form::checkbox('globalsw',1).'</label> '.
-			__('Global word (used for all blogs)');
+			$res .= '<label class="classic" for="globalsw">'.form::checkbox('globalsw',1).
+				__('Global word (used for all blogs)').'</label> ';
 		}
 
 		$res .=
@@ -166,7 +166,8 @@ class dcFilterWords extends dcSpamFilter
 					$res_global .= $item;
 				}
 			}
-			$res .= $res_local.$res_global;
+			$res .= '<div class="local">'.$res_local.'</div>';
+			$res .= '<div class="global">'.$res_global.'</div>';
 
 			$res .=
 			'</div>'.
@@ -207,17 +208,16 @@ class dcFilterWords extends dcSpamFilter
 		$strReq = 'SELECT rule_id FROM '.$this->table.' '.
 				"WHERE rule_type = 'word' ".
 				"AND rule_content = '".$this->con->escape($content)."' ";
+		if (!$general) {
+			$strReq .= ' AND blog_id = \''.$this->core->blog->id.'\'';
+		}
 		$rs = $this->con->select($strReq);
 
-		if (!$rs->isEmpty()) {
+		if (!$rs->isEmpty() && !$general) {
 			throw new Exception(__('This word exists'));
 		}
 
-		$rs = $this->con->select('SELECT MAX(rule_id) FROM '.$this->table);
-		$id = (integer) $rs->f(0) + 1;
-
 		$cur = $this->con->openCursor($this->table);
-		$cur->rule_id = $id;
 		$cur->rule_type = 'word';
 		$cur->rule_content = (string) $content;
 
@@ -227,7 +227,13 @@ class dcFilterWords extends dcSpamFilter
 			$cur->blog_id = $this->core->blog->id;
 		}
 
-		$cur->insert();
+		if (!$rs->isEmpty() && $general) {
+			$cur->update('WHERE rule_id = '.$rs->rule_id);
+		} else {
+			$rs_max = $this->con->select('SELECT MAX(rule_id) FROM '.$this->table);
+			$cur->rule_id = (integer) $rs_max->f(0) + 1;
+			$cur->insert();
+		}
 	}
 
 	private function removeRule($ids)

@@ -36,7 +36,8 @@ class dcAdminCombos {
 		}
 		while ($categories->fetch()) {
 			$categories_combo[] = new formSelectOption (
-				html::escapeHTML($categories->cat_title).' ('.$categories->nb_post.')',
+				str_repeat('&nbsp;',($categories->level-1)*4).
+                html::escapeHTML($categories->cat_title).' ('.$categories->nb_post.')',
 				($use_url ? $categories->cat_url : $categories->cat_id),
 				($categories->level-1 ? 'sub-option'.($categories->level-1) : '')
 			);
@@ -151,7 +152,7 @@ class dcAdminCombos {
 		foreach (self::$core->getEditors() as $v) {
 			$editors_combo[$v] = $v;
 		}
-		
+
 		return $editors_combo;
 	}
 

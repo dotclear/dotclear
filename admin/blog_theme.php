@@ -107,7 +107,7 @@ dcPage::open(__('Themes management'),
 );
 
 # -- Display modules lists --
-if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
+if ($core->auth->isSuperAdmin()) {
 
 	# Updated modules from repo
 	$modules = $list->store->get(true);
@@ -232,5 +232,12 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 
 # --BEHAVIOR-- themesToolsTabs
 $core->callBehavior('themesToolsTabs', $core);
+
+# -- Notice for super admin --
+if ($core->auth->isSuperAdmin() && !$list->isWritablePath()) {
+	echo
+	'<p class="warning">'.__('Some functions are disabled, please give write access to your themes directory to enable them.').'</p>';
+}
+
 dcPage::helpBlock('core_blog_theme');
 dcPage::close();

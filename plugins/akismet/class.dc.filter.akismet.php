@@ -105,6 +105,7 @@ class dcFilterAkismet extends dcSpamFilter
 	{
 		$blog =& $this->core->blog;
 
+		$blog->settings->addNamespace('akismet');
 		$ak_key = $blog->settings->akismet->ak_key;
 		$ak_verified = null;
 
@@ -114,7 +115,6 @@ class dcFilterAkismet extends dcSpamFilter
 			{
 				$ak_key = $_POST['ak_key'];
 
-				$blog->settings->addNamespace('akismet');
 				$blog->settings->akismet->put('ak_key',$ak_key,'string');
 
 				dcPage::addSuccessNotice(__('Filter configuration have been successfully saved.'));

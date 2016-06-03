@@ -14,39 +14,58 @@ class dcLegacyEditorBehaviors
 {
 	protected static $p_url = 'index.php?pf=dcLegacyEditor';
 
-	public static function adminPostEditor($editor='') {
-        global $core;
-
-		if (!$core->auth->getOption('editor') || $core->auth->getOption('editor')!='dcLegacyEditor') {return;}
+	/**
+	 * adminPostEditor add javascript to the DOM to load ckeditor depending on context
+	 *
+	 * @param editor   <b>string</b> wanted editor
+	 * @param context  <b>string</b> page context (post,page,comment,event,...)
+	 * @param tags     <b>array</b>  array of ids to inject editor
+	 * @param syntax   <b>string</b> wanted syntax (wiki,markdown,...)
+	 */
+	public static function adminPostEditor($editor='',$context='',array $tags=array(),$syntax='') {
+		if (empty($editor) || $editor!='dcLegacyEditor') {return;}
 
 		return
 			self::jsToolBar().
-			dcPage::jsLoad(self::$p_url.'/js/_post_editor.js');
+			dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/_post_editor.js')).
+			'<script type="text/javascript">'."\n".
+			"//<![CDATA[\n".
+			dcPage::jsVar('dotclear.legacy_editor_context', $context).
+			dcPage::jsVar('dotclear.legacy_editor_syntax', $syntax).
+			'dotclear.legacy_editor_tags_context = '.sprintf('{%s:["%s"]};'."\n", $context, implode('","', $tags)).
+			"\n//]]>\n".
+			"</script>\n";
 	}
 
-	public static function adminPopupMedia() {
-		return dcPage::jsLoad(self::$p_url.'/js/jsToolBar/popup_media.js');
+	public static function adminPopupMedia($editor='') {
+		if (empty($editor) || $editor!='dcLegacyEditor') {return;}
+
+		return dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/popup_media.js'));
 	}
 
-	public static function adminPopupLink() {
-		return dcPage::jsLoad(self::$p_url.'/js/jsToolBar/popup_link.js');
+	public static function adminPopupLink($editor='') {
+		if (empty($editor) || $editor!='dcLegacyEditor') {return;}
+
+		return dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/popup_link.js'));
 	}
 
-	public static function adminPopupPosts() {
-		return dcPage::jsLoad(self::$p_url.'/js/jsToolBar/popup_posts.js');
+	public static function adminPopupPosts($editor='') {
+		if (empty($editor) || $editor!='dcLegacyEditor') {return;}
+
+		return dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/popup_posts.js'));
 	}
 
 	protected static function jsToolBar() {
 		$res =
-		'<link rel="stylesheet" type="text/css" href="'.self::$p_url.'/css/jsToolBar/jsToolBar.css" />'.
-		'<script type="text/javascript" src="'.self::$p_url.'/js/jsToolBar/jsToolBar.js"></script>';
+		dcPage::cssLoad(dcPage::getPF('dcLegacyEditor/css/jsToolBar/jsToolBar.css')).
+		dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/jsToolBar.js'));
 
 		if (isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('enable_wysiwyg')) {
-			$res .= '<script type="text/javascript" src="'.self::$p_url.'/js/jsToolBar/jsToolBar.wysiwyg.js"></script>';
+			$res .= dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/jsToolBar.wysiwyg.js'));
 		}
 
 		$res .=
-		'<script type="text/javascript" src="'.self::$p_url.'/js/jsToolBar/jsToolBar.dotclear.js"></script>'.
+		dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/jsToolBar.dotclear.js')).
 		'<script type="text/javascript">'."\n".
 		"//<![CDATA[\n".
 		"jsToolBar.prototype.dialog_url = 'popup.php'; ".
@@ -113,6 +132,9 @@ class dcLegacyEditorBehaviors
 		if (!$GLOBALS['core']->auth->check('media,media_admin',$GLOBALS['core']->blog->id)) {
 			$res .= "jsToolBar.prototype.elements.img_select.disabled = true;\n";
 		}
+
+		$res .= "jsToolBar.prototype.toolbar_bottom = ".
+			(isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('toolbar_bottom') ? 'true' : 'false').";\n";
 
 		$res .=
 		"\n//]]>\n".

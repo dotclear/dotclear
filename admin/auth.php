@@ -15,7 +15,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 # If we have a session cookie, go to index.php
 if (isset($_SESSION['sess_user_id']))
 {
-	http::redirect('index.php');
+	$core->adminurl->redirect('admin.home');
 }
 
 # Loading locales for detected language
@@ -42,7 +42,7 @@ $err = $msg = null;
 if (empty($_GET) && empty($_POST)) {
 	require dirname(__FILE__).'/../inc/dbschema/upgrade.php';
 	try {
-		if (($changes = dotclearUpgrade($core)) !== false) {
+		if (($changes = dcUpgrade::dotclearUpgrade($core)) !== false) {
 			$msg = __('Dotclear has been upgraded.').'<!-- '.$changes.' -->';
 		}
 	} catch (Exception $e) {
@@ -64,7 +64,7 @@ elseif (isset($_COOKIE['dc_admin']) && strlen($_COOKIE['dc_admin']) == 104)
 	$user_id = @unpack('a32',@pack('H*',$user_id));
 	if (is_array($user_id))
 	{
-		$user_id = $user_id[1];
+		$user_id = trim($user_id[1]);
 		$user_key = substr($_COOKIE['dc_admin'],0,40);
 		$user_pwd = null;
 	}
@@ -143,19 +143,21 @@ elseif ($change_pwd)
 			throw new Exception();
 		}
 
-	# Check login informations
-	$check_user = false;
-	if (isset($data['cookie_admin']) && strlen($data['cookie_admin']) == 104)
-	{
-		$user_id = substr($data['cookie_admin'],40);
-		$user_id = @unpack('a32',@pack('H*',$user_id));
-		if (is_array($user_id))
+		# Check login informations
+		$check_user = false;
+		if (isset($data['cookie_admin']) && strlen($data['cookie_admin']) == 104)
 		{
-			$user_id = $user_id[1];
-			$user_key = substr($data['cookie_admin'],0,40);
-			$check_user = $core->auth->checkUser($user_id,null,$user_key) === true;
+			$user_id = substr($data['cookie_admin'],40);
+			$user_id = @unpack('a32',@pack('H*',$user_id));
+			if (is_array($user_id))
+			{
+				$user_id = trim($data['user_id']);
+				$user_key = substr($data['cookie_admin'],0,40);
+				$check_user = $core->auth->checkUser($user_id,null,$user_key) === true;
+			} else {
+				$user_id = trim($user_id);
+			}
 		}
-	}
 
 		if (!$core->auth->allowPassChange() || !$check_user) {
 			$change_pwd = false;
@@ -184,7 +186,7 @@ elseif ($change_pwd)
 			setcookie('dc_admin',$data['cookie_admin'],strtotime('+15 days'),'','',DC_ADMIN_SSL);
 		}
 
-		http::redirect('index.php');
+		$core->adminurl->redirect('admin.home');
 	}
 	catch (Exception $e)
 	{
@@ -203,7 +205,7 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null))
 	}
 
 	$cookie_admin = http::browserUID(DC_MASTER_KEY.$user_id.
-		crypt::hmac(DC_MASTER_KEY,$user_pwd)).bin2hex(pack('a32',$user_id));
+		$core->auth->crypt($user_pwd)).bin2hex(pack('a32',$user_id));
 
 	if ($check_perms && $core->auth->mustChangePassword())
 	{
@@ -242,7 +244,7 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null))
 			setcookie('dc_admin',$cookie_admin,strtotime('+15 days'),'','',DC_ADMIN_SSL);
 		}
 
-		http::redirect('index.php');
+		$core->adminurl->redirect('admin.home');
 	}
 	else
 	{
@@ -263,12 +265,15 @@ if (isset($_GET['user'])) {
 }
 
 header('Content-Type: text/html; charset=UTF-8');
+
+// Prevents Clickjacking as far as possible
+header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
+
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-xml:lang="<?php echo $dlang; ?>" lang="<?php echo $dlang; ?>">
+<!DOCTYPE html>
+<html lang="<?php echo $dlang; ?>">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="UTF-8" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta http-equiv="Content-Language" content="<?php echo $dlang; ?>" />
@@ -277,7 +282,7 @@ xml:lang="<?php echo $dlang; ?>" lang="<?php echo $dlang; ?>">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><?php echo html::escapeHTML(DC_VENDOR_NAME); ?></title>
   <link rel="icon" type="image/png" href="images/favicon96-logout.png" />
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
 
 
 <?php
@@ -325,25 +330,25 @@ echo dcPage::jsCommon();
 
 <body id="dotclear-admin" class="auth">
 
-<form action="auth.php" method="post" id="login-screen">
-<h1><?php echo html::escapeHTML(DC_VENDOR_NAME); ?></h1>
+<form action="<?php echo $core->adminurl->get('admin.auth'); ?>" method="post" id="login-screen">
+<h1 role="banner"><?php echo html::escapeHTML(DC_VENDOR_NAME); ?></h1>
 
 <?php
 if ($err) {
-	echo '<div class="error">'.$err.'</div>';
+	echo '<div class="error" role="alert">'.$err.'</div>';
 }
 if ($msg) {
-	echo '<p class="success">'.$msg.'</p>';
+	echo '<p class="success" role="alert">'.$msg.'</p>';
 }
 
 if ($akey)
 {
-	echo '<p><a href="auth.php">'.__('Back to login screen').'</a></p>';
+	echo '<p><a href="'.$core->adminurl->get('admin.auth').'">'.__('Back to login screen').'</a></p>';
 }
 elseif ($recover)
 {
 	echo
-	'<div class="fieldset"><h2>'.__('Request a new password').'</h2>'.
+	'<div class="fieldset" role="main"><h2>'.__('Request a new password').'</h2>'.
 	'<p><label for="user_id">'.__('Username:').'</label> '.
 	form::field(array('user_id','user_id'),20,32,html::escapeHTML($user_id)).'</p>'.
 
@@ -355,7 +360,7 @@ elseif ($recover)
 	'</div>'.
 
 	'<div id="issue">'.
-	'<p><a href="auth.php">'.__('Back to login screen').'</a></p>'.
+	'<p><a href="'.$core->adminurl->get('admin.auth').'">'.__('Back to login screen').'</a></p>'.
 	'</div>';
 }
 elseif ($change_pwd)
@@ -381,7 +386,7 @@ else
 	else
 	{
 		if ($safe_mode) {
-			echo '<div class="fieldset">';
+			echo '<div class="fieldset" role="main">';
 			echo '<h2>'.__('Safe mode login').'</h2>';
 			echo
 				'<p class="form-note">'.
@@ -390,7 +395,7 @@ else
 				'</p>';
 		}
 		else {
-			echo '<div class="fieldset">';
+			echo '<div class="fieldset" role="main">';
 		}
 
 		echo
@@ -425,13 +430,13 @@ else
 
 		if ($safe_mode) {
 			echo
-			'<p><a href="auth.php" id="normal_mode_link">'.__('Get back to normal authentication').'</a></p>';
+			'<p><a href="'.$core->adminurl->get('admin.auth').'" id="normal_mode_link">'.__('Get back to normal authentication').'</a></p>';
 		} else {
 			echo '<p id="more"><strong>'.__('Connection issue?').'</strong></p>';
 			if ($core->auth->allowPassChange()) {
-				echo '<p><a href="auth.php?recover=1">'.__('I forgot my password').'</a></p>';
+				echo '<p><a href="'.$core->adminurl->get('admin.auth',array('recover' => 1)).'">'.__('I forgot my password').'</a></p>';
 			}
-			echo '<p><a href="auth.php?safe_mode=1" id="safe_mode_link">'.__('I want to log in in safe mode').'</a></p>';
+			echo '<p><a href="'.$core->adminurl->get('admin.auth',array('safe_mode' => 1)).'" id="safe_mode_link">'.__('I want to log in in safe mode').'</a></p>';
 		}
 
 		echo '</div>';

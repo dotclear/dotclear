@@ -20,13 +20,17 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 if (!empty($_GET['default_blog'])) {
 	try {
 		$core->setUserDefaultBlog($core->auth->userID(),$core->blog->id);
-		http::redirect('index.php');
+		$core->adminurl->redirect("admin.home");
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
 }
 
 dcPage::check('usage,contentadmin');
+
+if ($core->plugins->disableDepModules($core->adminurl->get('admin.home',array()))) {
+	exit;
+}
 
 # Logout
 if (!empty($_GET['logout'])) {
@@ -35,7 +39,7 @@ if (!empty($_GET['logout'])) {
 		unset($_COOKIE['dc_admin']);
 		setcookie('dc_admin',false,-600,'','',DC_ADMIN_SSL);
 	}
-	http::redirect('auth.php');
+	$core->adminurl->redirect("admin.auth");
 	exit;
 }
 
@@ -167,11 +171,25 @@ $dashboardContents = '';
 $__dashboard_contents = new ArrayObject(array(new ArrayObject,new ArrayObject));
 $core->callBehavior('adminDashboardContents', $core, $__dashboard_contents);
 
+# Editor stuff
+$admin_post_behavior = '';
+if ($core->auth->user_prefs->dashboard->quickentry) {
+	if ($core->auth->check('usage,contentadmin',$core->blog->id))
+	{
+		$post_format = $core->auth->getOption('post_format');
+		$post_editor = $core->auth->getOption('editor');
+		if ($post_editor && !empty($post_editor[$post_format])) {
+			// context is not post because of tags not available
+			$admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', array('#post_content'),$post_format);
+		}
+	}
+}
+
 /* DISPLAY
 -------------------------------------------------------- */
 dcPage::open(__('Dashboard'),
 	dcPage::jsLoad('js/_index.js').
-	$core->callBehavior('adminPostEditor').
+	$admin_post_behavior.
 	# --BEHAVIOR-- adminDashboardHeaders
 	$core->callBehavior('adminDashboardHeaders'),
 	dcPage::breadcrumb(
@@ -183,7 +201,7 @@ dcPage::open(__('Dashboard'),
 );
 
 # Dotclear updates notifications
-if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
+if ($core->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS))
 {
 	$updater = new dcUpdate(DC_UPDATE_URL,'dotclear',DC_UPDATE_VERSION,DC_TPL_CACHE.'/versions');
 	$new_v = $updater->check(DC_VERSION);
@@ -192,8 +210,8 @@ if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
 	if ($updater->getNotify() && $new_v) {
 		echo
 		'<div class="dc-update"><h3>'.sprintf(__('Dotclear %s is available!'),$new_v).'</h3> '.
-		'<p><a class="button submit" href="update.php">'.sprintf(__('Upgrade now'),$new_v).'</a> '.
-		'<a class="button" href="update.php?hide_msg=1">'.__('Remind me later').'</a>'.
+		'<p><a class="button submit" href="'.$core->adminurl->get("admin.update").'">'.sprintf(__('Upgrade now'),$new_v).'</a> '.
+		'<a class="button" href="'.$core->adminurl->get("admin.update", array('hide_msg' => 1)).'">'.__('Remind me later').'</a>'.
 		($version_info ? ' </p>'.
 		'<p class="updt-info"><a href="'.$version_info.'">'.__('Information about this version').'</a>' : '').'</p>'.
 		'</div>';
@@ -202,7 +220,7 @@ if ($core->auth->isSuperAdmin() && is_readable(DC_DIGESTS))
 
 if ($core->auth->getInfo('user_default_blog') != $core->blog->id && $core->auth->getBlogCount() > 1) {
 	echo
-	'<p><a href="index.php?default_blog=1" class="button">'.__('Make this blog my default blog').'</a></p>';
+	'<p><a href="'.$core->adminurl->get("admin.home",array('default_blog' => 1)).'" class="button">'.__('Make this blog my default blog').'</a></p>';
 }
 
 if ($core->blog->status == 0) {
@@ -303,28 +321,30 @@ foreach ($__dashboard_items as $i)
 # Dashboard elements
 echo '<div id="dashboard-main">';
 
-# Dashboard icons
-echo '<div id="icons">';
-foreach ($__dashboard_icons as $i)
-{
-	echo
-	'<p><a href="'.$i[1].'"><img src="'.dc_admin_icon_url($i[2]).'" alt="" />'.
-	'<br /><span>'.$i[0].'</span></a></p>';
+if (!$core->auth->user_prefs->dashboard->nofavicons) {
+	# Dashboard icons
+	echo '<div id="icons">';
+	foreach ($__dashboard_icons as $i)
+	{
+		echo
+		'<p><a href="'.$i[1].'"><img src="'.dc_admin_icon_url($i[2]).'" alt="" />'.
+		'<br /><span>'.$i[0].'</span></a></p>';
+	}
+	echo '</div>';
 }
-echo '</div>';
 
 if ($core->auth->user_prefs->dashboard->quickentry) {
 	if ($core->auth->check('usage,contentadmin',$core->blog->id))
 	{
 		# Getting categories
 		$categories_combo = dcAdminCombos::getCategoriesCombo(
-			$core->blog->getCategories(array('post_type'=>'post'))
+			$core->blog->getCategories(array())
 		);
 
 		echo
 		'<div id="quick">'.
-		'<h3>'.__('Quick entry').'</h3>'.
-		'<form id="quick-entry" action="post.php" method="post" class="fieldset">'.
+		'<h3>'.__('Quick entry').sprintf(' &rsaquo; %s',$core->auth->getOption('post_format')).'</h3>'.
+		'<form id="quick-entry" action="'.$core->adminurl->get('admin.post').'" method="post" class="fieldset">'.
 		'<h4>'.__('New entry').'</h4>'.
 		'<p class="col"><label for="post_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
 		form::field('post_title',20,255,'','maximal').

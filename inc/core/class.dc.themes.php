@@ -41,7 +41,7 @@ class dcThemes extends dcModules
 	@param	author		<b>string</b>		Module author name
 	@param	version		<b>string</b>		Module version
 	@param	properties	<b>array</b>		extra properties
-	(currently available keys : parent, priority, standalone_config, type)
+	(currently available keys : parent, priority, standalone_config, type, tplset)
 	*/
 	public function registerModule($name,$desc,$author,$version,$properties = array())
 	{

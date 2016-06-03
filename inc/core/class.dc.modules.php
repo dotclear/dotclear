@@ -25,6 +25,10 @@ class dcModules
 	protected $disabled = array();
 	protected $errors = array();
 	protected $modules_names = array();
+	protected $all_modules = array();
+	protected $disabled_mode = false;
+	protected $disabled_meta = array();
+	protected $to_disable = array();
 
 	protected $id;
 	protected $mroot;
@@ -49,6 +53,98 @@ class dcModules
 	}
 
 	/**
+	 * Checks all modules dependencies
+	 * 	Fills in the following information in module :
+	 * 	  * cannot_enable : list reasons why module cannot be enabled. Not set if module can be enabled
+	 * 	  * cannot_disable : list reasons why module cannot be disabled. Not set if module can be disabled
+	 * 	  * implies : reverse dependencies
+	 * @return array list of enabled modules with unmet dependencies, and that must be disabled.
+	 */
+	public function checkDependencies()
+	{
+		$dc_version = preg_replace('/\-dev$/','',DC_VERSION);
+		$this->to_disable = array();
+		foreach ($this->all_modules as $k => &$m) {
+			if (isset($m['requires'])) {
+				$missing = array();
+				foreach ($m['requires'] as &$dep) {
+					if (!is_array($dep)) {
+						$dep = array($dep);
+					}
+					// grab missing dependencies
+					if (!isset($this->all_modules[$dep[0]]) && ($dep[0] != 'core')) {
+						// module not present
+						$missing[$dep[0]] = sprintf(__("Requires %s module which is not installed"), $dep[0]);
+					} elseif ((count($dep) > 1) &&
+						version_compare(($dep[0] == 'core' ? $dc_version : $this->all_modules[$dep[0]]['version']),$dep[1]) == -1)
+					{
+						// module present, but version missing
+						if ($dep[0] == 'core') {
+							$missing[$dep[0]] = sprintf(__("Requires Dotclear version %s, but version %s is installed"),
+							$dep[1],$dc_version);
+						} else {
+							$missing[$dep[0]] = sprintf(__("Requires %s module version %s, but version %s is installed"),
+							$dep[0],$dep[1],$this->all_modules[$dep[0]]['version']);
+						}
+					} elseif (($dep[0] != 'core') && !$this->all_modules[$dep[0]]['enabled']) {
+						// module disabled
+						$missing[$dep[0]] = sprintf(__("Requires %s module which is disabled"), $dep[0]);
+					}
+					$this->all_modules[$dep[0]]['implies'][]=$k;
+				}
+				if (count($missing)) {
+					$m['cannot_enable']=$missing;
+					if ($m['enabled']) {
+						$this->to_disable[]=array('name' => $k,'reason'=> $missing);
+					}
+				}
+			}
+		}
+		// Check modules that cannot be disabled
+		foreach ($this->modules as $k => &$m) {
+			if (isset($m['implies']) && $m['enabled']) {
+				foreach ($m['implies'] as $im) {
+					if (isset($this->all_modules[$im]) && $this->all_modules[$im]['enabled']) {
+						$m['cannot_disable'][]=$im;
+					}
+				}
+			}
+		}
+	}
+
+	/**
+	 * Checks all modules dependencies, and disable unmet dependencies
+	 * @param  string $redir_url URL to redirect if modules are to disable
+	 * @return boolean, true if a redirection has been performed
+	 */
+	public function disableDepModules($redir_url)
+	{
+		if (isset($_GET['dep'])) {
+			// Avoid infinite redirects
+			return false;
+		}
+		$reason = array();
+		foreach ($this->to_disable as $module) {
+			try{
+				$this->deactivateModule($module['name']);
+				$reason[] = sprintf("<li>%s : %s</li>",$module['name'],join(',',$module['reason']));
+			} catch (Exception $e) {
+			}
+		}
+		if (count($reason)) {
+			$message = sprintf ("<p>%s</p><ul>%s</ul>",
+				__('The following extensions have been disabled :'),
+				join('',$reason)
+			);
+			dcPage::addWarningNotice($message,array('divtag' => true,'with_ts' => false));
+			$url = $redir_url.(strpos($redir_url,"?") ? '&' : '?').'dep=1';
+			http::redirect($url);
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	Loads modules. <var>$path</var> could be a separated list of paths
 	(path separator depends on your OS).
 
@@ -68,6 +164,8 @@ class dcModules
 
 		$disabled = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
 		$disabled = $disabled && !get_parent_class($this) ? true : false;
+
+		$ignored = array();
 
 		foreach ($this->path as $root)
 		{
@@ -95,33 +193,42 @@ class dcModules
 						$this->id = $entry;
 						$this->mroot = $full_entry;
 						require $full_entry.'/_define.php';
+						$this->all_modules[$entry] =& $this->modules[$entry];
 						$this->id = null;
 						$this->mroot = null;
 					}
 					else
 					{
-						$this->disabled[$entry] = array(
-							'root' => $full_entry,
-							'root_writable' => is_writable($full_entry)
-						);
+						if (file_exists($full_entry.'/_define.php')) {
+							$this->id = $entry;
+							$this->mroot = $full_entry;
+							$this->disabled_mode=true;
+							require $full_entry.'/_define.php';
+							$this->disabled_mode=false;
+							$this->disabled[$entry] =  $this->disabled_meta;
+							$this->all_modules[$entry] =& $this->disabled[$entry];
+							$this->id = null;
+							$this->mroot = null;
+						}
 					}
 				}
 			}
 			$d->close();
 		}
-
+		$this->checkDependencies();
 		# Sort plugins
 		uasort($this->modules,array($this,'sortModules'));
 
-		# Load translation, _prepend and ns_file
 		foreach ($this->modules as $id => $m)
 		{
+			# Load translation and _prepend
 			if (file_exists($m['root'].'/_prepend.php'))
 			{
 				$r = $this->loadModuleFile($m['root'].'/_prepend.php');
 
 				# If _prepend.php file returns null (ie. it has a void return statement)
 				if (is_null($r)) {
+					$ignored[] = $id;
 					continue;
 				}
 				unset($r);
@@ -130,7 +237,20 @@ class dcModules
 			$this->loadModuleL10N($id,$lang,'main');
 			if ($ns == 'admin') {
 				$this->loadModuleL10Nresources($id,$lang);
+				$this->core->adminurl->register('admin.plugin.'.$id,'plugin.php',array('p'=>$id));
 			}
+		}
+
+		// Give opportunity to do something before loading context (admin,public,xmlrpc) files
+		$this->core->callBehavior('coreBeforeLoadingNsFiles',$this->core,$this,$lang);
+
+		foreach ($this->modules as $id => $m)
+		{
+			# If _prepend.php file returns null (ie. it has a void return statement)
+			if (in_array($id,$ignored)) {
+				continue;
+			}
+			# Load ns_file
 			$this->loadNsFile($id,$ns);
 		}
 	}
@@ -164,6 +284,21 @@ class dcModules
 	*/
 	public function registerModule($name,$desc,$author,$version, $properties = array())
 	{
+		if ($this->disabled_mode) {
+			$this->disabled_meta = array_merge(
+					$properties,
+					array(
+						'root' => $this->mroot,
+						'name' => $name,
+						'desc' => $desc,
+						'author' => $author,
+						'version' => $version,
+						'enabled' => false,
+						'root_writable' => is_writable($this->mroot)
+					)
+				);
+			return;
+		}
 		# Fallback to legacy registerModule parameters
 		if (!is_array($properties)) {
 			$args = func_get_args();
@@ -182,7 +317,9 @@ class dcModules
 				'permissions' => null,
 				'priority' => 1000,
 				'standalone_config' => false,
-				'type' => null
+				'type' => null,
+				'enabled' => true,
+				'requires' => array()
 			), $properties
 		);
 

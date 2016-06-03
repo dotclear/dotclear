@@ -26,14 +26,15 @@ $user_tz = $core->auth->getInfo('user_tz');
 $user_post_status = $core->auth->getInfo('user_post_status');
 
 $user_options = $core->auth->getOptions();
-if (empty($user_options['editor'])) {
-    $user_options['editor'] = '';
+if (empty($user_options['editor']) || !is_array($user_options['editor'])) {
+	$user_options['editor'] = array();
 }
 
 $core->auth->user_prefs->addWorkspace('dashboard');
 $user_dm_doclinks = $core->auth->user_prefs->dashboard->doclinks;
 $user_dm_dcnews = $core->auth->user_prefs->dashboard->dcnews;
 $user_dm_quickentry = $core->auth->user_prefs->dashboard->quickentry;
+$user_dm_nofavicons = $core->auth->user_prefs->dashboard->nofavicons;
 
 $core->auth->user_prefs->addWorkspace('accessibility');
 $user_acc_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
@@ -46,6 +47,7 @@ if ($core->auth->isSuperAdmin()) {
 $user_ui_iconset = @$core->auth->user_prefs->interface->iconset;
 $user_ui_nofavmenu = $core->auth->user_prefs->interface->nofavmenu;
 $user_ui_media_by_page = ($core->auth->user_prefs->interface->media_by_page ? $core->auth->user_prefs->interface->media_by_page : 30);
+$user_ui_media_nb_last_dirs = $core->auth->user_prefs->interface->media_nb_last_dirs;
 
 $default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'user-profile';
 
@@ -64,18 +66,21 @@ if (($default_tab != 'user-profile') && ($default_tab != 'user-options') && ($de
 $editors_combo = dcAdminCombos::getEditorsCombo();
 $editors = array_keys($editors_combo);
 
-# Formaters combo
-$formaters_combo = dcAdminCombos::getFormatersCombo();
-$formaters_combo_editor = array();
-
-if (!empty($user_options['editor']) && !empty($formaters_combo[$user_options['editor']])) {
-    $formaters_combo_editor = $formaters_combo[$user_options['editor']];
-} elseif (count($editors)!=0) {
-    $formaters_combo_editor = $formaters_combo[$editors[0]];
-} else {
-    $formaters_combo = array();
+# Format by editors
+$formaters = $core->getFormaters();
+$format_by_editors = array();
+foreach ($formaters as $editor => $formats) {
+	foreach ($formats as $format) {
+		$format_by_editors[$format][$editor] = $editor;
+	}
 }
-
+$available_formats = array('' => '');
+foreach (array_keys($format_by_editors) as $format) {
+	$available_formats[$format] = $format;
+	if (!isset($user_options['editor'][$format])) {
+		$user_options['editor'][$format] = '';
+	}
+}
 $status_combo = dcAdminCombos::getPostStatusescombo();
 
 $iconsets_combo = array(__('Default') => '');
@@ -98,7 +103,7 @@ if (isset($_POST['user_name']))
 {
 	try
 	{
-		$pwd_check = !empty($_POST['cur_pwd']) && $core->auth->checkPassword(crypt::hmac(DC_MASTER_KEY,$_POST['cur_pwd']));
+		$pwd_check = !empty($_POST['cur_pwd']) && $core->auth->checkPassword($core->auth->crypt($_POST['cur_pwd']));
 
 		if ($core->auth->allowPassChange() && !$pwd_check && $user_email != $_POST['user_email']) {
 			throw new Exception(__('If you want to change your email or password you must provide your current password.'));
@@ -140,7 +145,7 @@ if (isset($_POST['user_name']))
 
 		dcPage::addSuccessNotice(__('Personal information has been successfully updated.'));
 
-		http::redirect('preferences.php');
+		$core->adminurl->redirect("admin.user.preferences");
 	}
 	catch (Exception $e)
 	{
@@ -149,7 +154,7 @@ if (isset($_POST['user_name']))
 }
 
 # Update user options
-if (isset($_POST['user_post_format']))
+if (isset($_POST['user_editor']))
 {
 	try
 	{
@@ -172,6 +177,7 @@ if (isset($_POST['user_post_format']))
 		$user_options['post_format'] = $_POST['user_post_format'];
 		$user_options['editor'] = $_POST['user_editor'];
 		$user_options['enable_wysiwyg'] = !empty($_POST['user_wysiwyg']);
+		$user_options['toolbar_bottom'] = !empty($_POST['user_toolbar_bottom']);
 
 		$cur->user_options = new ArrayObject($user_options);
 
@@ -186,15 +192,18 @@ if (isset($_POST['user_post_format']))
 			$core->auth->user_prefs->interface->put('hide_std_favicon',!empty($_POST['user_ui_hide_std_favicon']),'boolean',null,true,true);
 		}
 		$core->auth->user_prefs->interface->put('media_by_page',(integer)$_POST['user_ui_media_by_page'],'integer');
+		$core->auth->user_prefs->interface->put('media_nb_last_dirs',(integer)$_POST['user_ui_media_nb_last_dirs'],'integer');
+		$core->auth->user_prefs->interface->put('media_last_dirs',array(),'array',null,false);
+		$core->auth->user_prefs->interface->put('media_fav_dirs',array(),'array',null,false);
 
-		# Udate user
+		# Update user
 		$core->updUser($core->auth->userID(),$cur);
 
 		# --BEHAVIOR-- adminAfterUserOptionsUpdate
 		$core->callBehavior('adminAfterUserOptionsUpdate',$cur,$core->auth->userID());
 
 		dcPage::addSuccessNotice(__('Personal options has been successfully updated.'));
-		http::redirect('preferences.php#user-options');
+		$core->adminurl->redirect("admin.user.preferences",array(),'#user-options');
 	}
 	catch (Exception $e)
 	{
@@ -213,6 +222,7 @@ if (isset($_POST['db-options'])) {
 		$core->auth->user_prefs->dashboard->put('doclinks',!empty($_POST['user_dm_doclinks']),'boolean');
 		$core->auth->user_prefs->dashboard->put('dcnews',!empty($_POST['user_dm_dcnews']),'boolean');
 		$core->auth->user_prefs->dashboard->put('quickentry',!empty($_POST['user_dm_quickentry']),'boolean');
+		$core->auth->user_prefs->dashboard->put('nofavicons',empty($_POST['user_dm_nofavicons']),'boolean');
 		$core->auth->user_prefs->interface->put('iconset',(!empty($_POST['user_ui_iconset']) ? $_POST['user_ui_iconset'] : ''));
 		$core->auth->user_prefs->interface->put('nofavmenu',empty($_POST['user_ui_nofavmenu']),'boolean');
 
@@ -220,7 +230,7 @@ if (isset($_POST['db-options'])) {
 		$core->callBehavior('adminAfterDashboardOptionsUpdate',$core->auth->userID());
 
 		dcPage::addSuccessNotice(__('Dashboard options has been successfully updated.'));
-		http::redirect('preferences.php#user-favorites');
+		$core->adminurl->redirect("admin.user.preferences",array(),'#user-favorites');
 	}
 	catch (Exception $e)
 	{
@@ -246,7 +256,7 @@ if (!empty($_POST['appendaction']))
 
 		if (!$core->error->flag()) {
 			dcPage::addSuccessNotice(__('Favorites have been successfully added.'));
-			http::redirect('preferences.php#user-favorites');
+			$core->adminurl->redirect("admin.user.preferences",array(),'#user-favorites');
 		}
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
@@ -273,7 +283,7 @@ if (!empty($_POST['removeaction']))
 		$core->favs->setFavoriteIDs(array_keys($user_fav_ids),false);
 		if (!$core->error->flag()) {
 			dcPage::addSuccessNotice(__('Favorites have been successfully removed.'));
-			http::redirect('preferences.php#user-favorites');
+			$core->adminurl->redirect("admin.user.preferences",array(),'#user-favorites');
 		}
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
@@ -300,7 +310,7 @@ if (!empty($_POST['saveorder']) && !empty($order))
 	$core->favs->setFavoriteIDs($order,false);
 	if (!$core->error->flag()) {
 		dcPage::addSuccessNotice(__('Favorites have been successfully updated.'));
-		http::redirect('preferences.php#user-favorites');
+		$core->adminurl->redirect("admin.user.preferences",array(),'#user-favorites');
 	}
 }
 
@@ -311,7 +321,7 @@ if (!empty($_POST['replace']) && $core->auth->isSuperAdmin()) {
 
 	if (!$core->error->flag()) {
 		dcPage::addSuccessNotice(__('Default favorites have been successfully updated.'));
-		http::redirect('preferences.php#user-favorites');
+		$core->adminurl->redirect("admin.user.preferences",array(),'#user-favorites');
 	}
 }
 
@@ -332,8 +342,7 @@ dcPage::open($page_title,
 				sprintf(__('Password strength: %s'),__('mediocre'))."', '".
 				sprintf(__('Password strength: %s'),__('strong'))."', '".
 				sprintf(__('Password strength: %s'),__('very strong'))."']});\n".
-		"});\n".
-        'var formats_by_editor = \''.json_encode($formaters_combo).'\';'.
+		"});".
 		"\n//]]>\n".
 		"</script>\n".
 	dcPage::jsPageTabs($default_tab).
@@ -349,34 +358,12 @@ dcPage::open($page_title,
 	))
 );
 
-if (!empty($_GET['upd'])) {
-	dcPage::success(__('Personal information has been successfully updated.'));
-}
-if (!empty($_GET['updated'])) {
-	dcPage::success(__('Personal options has been successfully updated.'));
-}
-if (!empty($_GET['db-updated'])) {
-	dcPage::success(__('Dashboard options has been successfully updated.'));
-}
-if (!empty($_GET['append'])) {
-	dcPage::success(__('Favorites have been successfully added.'));
-}
-if (!empty($_GET['neworder'])) {
-	dcPage::success(__('Favorites have been successfully updated.'));
-}
-if (!empty($_GET['removed'])) {
-	dcPage::success(__('Favorites have been successfully removed.'));
-}
-if (!empty($_GET['replaced'])) {
-	dcPage::success(__('Default favorites have been successfully updated.'));
-}
-
 # User profile
 echo '<div class="multi-part" id="user-profile" title="'.__('My profile').'">';
 
 echo
 '<h3>'.__('My profile').'</h3>'.
-'<form action="preferences.php" method="post" id="user-form">'.
+'<form action="'.$core->adminurl->get("admin.user.preferences").'" method="post" id="user-form">'.
 
 '<p><label for="user_name">'.__('Last Name:').'</label>'.
 form::field('user_name',20,255,html::escapeHTML($user_name)).'</p>'.
@@ -436,7 +423,7 @@ $core->formNonce().
 echo '<div class="multi-part" id="user-options" title="'.__('My options').'">';
 
 echo
-'<form action="preferences.php#user-options" method="post" id="opts-forms">'.
+'<form action="'.$core->adminurl->get("admin.user.preferences").'#user-options" method="post" id="opts-forms">'.
 '<h3>'.__('My options').'</h3>';
 
 echo
@@ -456,6 +443,11 @@ echo
 '<p><label for="user_ui_media_by_page" class="classic">'.__('Number of elements displayed per page in media manager:').'</label> '.
 form::field('user_ui_media_by_page',5,3,(integer) $user_ui_media_by_page).'</p>';
 
+echo
+'<p><label for="user_ui_media_nb_last_dirs" class="classic">'.__('Number of recent folders proposed in media manager:').'</label> '.
+form::field('user_ui_media_nb_last_dirs',5,3,(integer) $user_ui_media_nb_last_dirs).'</p>'.
+'<p class="clear form-note">'.__('Leave empty to ignore, displayed only if Javascript is enabled in your browser.').'</p>';
+
 if ($core->auth->isSuperAdmin()) {
 	echo
 	'<p><label for="user_ui_hide_std_favicon" class="classic">'.
@@ -470,14 +462,22 @@ echo
 
 echo
 '<div class="fieldset">'.
-'<h4>'.__('Edition').'</h4>'.
+'<h4>'.__('Edition').'</h4>';
 
-'<p class="field"><label for="user_editor">'.__('Preferred editor:').'</label>'.
-form::combo('user_editor',array_merge(array(__('Choose an editor') => ''),$editors_combo),$user_options['editor']).'</p>'.
-
+foreach ($format_by_editors as $format => $editors) {
+	echo
+	'<p class="field"><label for="user_editor_'.$format.'">'.sprintf(__('Preferred editor for %s:'),$format).'</label>'.
+	form::combo(
+		array('user_editor['.$format.']', 'user_editor_'.$format),
+		array_merge(array(__('Choose an editor') => ''),$editors),
+		$user_options['editor'][$format]
+	).'</p>';
+}
+echo
 '<p class="field"><label for="user_post_format">'.__('Preferred format:').'</label>'.
-form::combo('user_post_format',array_merge(array('' => ''), $formaters_combo_editor),$user_options['post_format']).'</p>'.
+form::combo('user_post_format',$available_formats,$user_options['post_format']).'</p>';
 
+echo
 '<p class="field"><label for="user_post_status">'.__('Default entry status:').'</label>'.
 form::combo('user_post_status',$status_combo,$user_post_status).'</p>'.
 
@@ -487,6 +487,10 @@ form::field('user_edit_size',5,4,(integer) $user_options['edit_size']).'</p>'.
 '<p><label for="user_wysiwyg" class="classic">'.
 form::checkbox('user_wysiwyg',1,$user_options['enable_wysiwyg']).' '.
 __('Enable WYSIWYG mode').'</label></p>'.
+
+'<p><label for="user_toolbar_bottom" class="classic">'.
+form::checkbox('user_toolbar_bottom',1,$user_options['toolbar_bottom']).' '.
+__('Display editor\'s toolbar at bottom of textarea (if possible)').'</label></p>'.
 
 '</div>';
 
@@ -509,7 +513,7 @@ echo '<div class="multi-part" id="user-favorites" title="'.__('My dashboard').'"
 $ws = $core->auth->user_prefs->addWorkspace('favorites');
 echo '<h3>'.__('My dashboard').'</h3>';
 
-echo '<form action="preferences.php" method="post" id="favs-form" class="two-boxes odd">';
+echo '<form action="'.$core->adminurl->get("admin.user.preferences").'" method="post" id="favs-form" class="two-boxes odd">';
 
 echo '<div id="my-favs" class="fieldset"><h4>'.__('My favorites').'</h4>';
 
@@ -601,7 +605,7 @@ echo '</div>'; # /available favorites
 echo '</form>';
 
 echo
-'<form action="preferences.php" method="post" id="db-forms" class="two-boxes even">'.
+'<form action="'.$core->adminurl->get("admin.user.preferences").'" method="post" id="db-forms" class="two-boxes even">'.
 
 '<div class="fieldset">'.
 '<h4>'.__('Menu').'</h4>'.
@@ -609,16 +613,22 @@ echo
 form::checkbox('user_ui_nofavmenu',1,!$user_ui_nofavmenu).' '.
 __('Display favorites at the top of the menu').'</label></p></div>';
 
+echo
+'<div class="fieldset">'.
+'<h4>'.__('Dashboard icons').'</h4>'.
+'<p><label for="user_dm_nofavicons" class="classic">'.
+form::checkbox('user_dm_nofavicons',1,!$user_dm_nofavicons).' '.
+__('Display dashboard icons').'</label></p>';
+
 if (count($iconsets_combo) > 1) {
 	echo
-		'<div class="fieldset">'.
-		'<h4>'.__('Dashboard icons').'</h4>'.
 		'<p><label for="user_ui_iconset" class="classic">'.__('Iconset:').'</label> '.
-		form::combo('user_ui_iconset',$iconsets_combo,$user_ui_iconset).'</p>'.
-		'</div>';
+		form::combo('user_ui_iconset',$iconsets_combo,$user_ui_iconset).'</p>';
 } else {
 	echo '<p class="hidden">'.form::hidden('user_ui_iconset','').'</p>';
 }
+echo
+'</div>';
 
 echo
 '<div class="fieldset">'.

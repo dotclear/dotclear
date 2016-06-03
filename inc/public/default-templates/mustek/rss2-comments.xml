@@ -9,7 +9,7 @@
   - {{tpl:lang Comments}}</title>
   <link>{{tpl:BlogURL}}</link>
   <atom:link href="{{tpl:SysSelfURI}}" rel="self" type="application/rss+xml"/>
-  <description>{{tpl:BlogDescription encode_xml="1"}}</description>
+  <description>{{tpl:BlogDescription remove_html="1" encode_xml="1"}}</description>
   <language>{{tpl:BlogLanguage}}</language>
   <pubDate>{{tpl:BlogUpdateDate rfc822="1"}}</pubDate>
   <copyright>{{tpl:BlogCopyrightNotice encode_xml="1"}}</copyright>

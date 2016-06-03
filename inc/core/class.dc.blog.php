@@ -120,6 +120,30 @@ class dcBlog
 	}
 
 	/**
+	Returns jQuery version selected for the blog.
+	 */
+	public function getJsJQuery()
+	{
+		$version = $this->settings->system->jquery_version;
+		if ($version == '') {
+			$version = DC_DEFAULT_JQUERY;	// defined in inc/prepend.php
+		}
+		return 'jquery/'.$version;
+	}
+
+	/**
+	Returns public URL of specified plugin file.
+	 */
+	public function getPF($pf, $strip_host=true)
+	{
+		$ret = $this->getQmarkURL().'pf='.$pf;
+		if ($strip_host) {
+			$ret = html::stripHostURL($ret);
+		}
+		return $ret;
+	}
+
+	/**
 	Returns an entry status name given to a code. Status are translated, never
 	use it for tests. If status code does not exist, returns <i>unpublished</i>.
 
@@ -951,6 +975,10 @@ class dcBlog
 			$strReq .= ")";
 		}
 
+		if (!empty($params['where'])) {
+			$strReq .= $params['where'].' ';
+		}
+
 		if (!empty($params['sql'])) {
 			$strReq .= $params['sql'].' ';
 		}
@@ -979,6 +1007,13 @@ class dcBlog
 
 		# --BEHAVIOR-- coreBlogGetPosts
 		$this->core->callBehavior('coreBlogGetPosts',$rs);
+
+		# --BEHAVIOR-- coreBlogAfterGetPosts
+		$alt = new arrayObject(array('rs' => null,'params' => $params,'count_only' => $count_only));
+		$this->core->callBehavior('coreBlogAfterGetPosts',$rs,$alt);
+		if ($alt['rs'] instanceof record) {
+			$rs = $alt['rs'];
+		}
 
 		return $rs;
 	}

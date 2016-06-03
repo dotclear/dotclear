@@ -24,6 +24,9 @@
 			{{tpl:EntryFirstImage size="t" class="post-icon"}}
 			<p>
 				{{tpl:EntryContent encode_html="1" remove_html="1" cut_string="300"}}
+				<tpl:EntryIfContentCut encode_html="1" remove_html="1" cut_string="300">
+					<span class="ellipsis">&nbsp;[&#8230;]</span>
+				</tpl:EntryIfContentCut>
 			</p>
 		</div>
 		<p class="post-read-it"><a href="{{tpl:EntryURL}}"

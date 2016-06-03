@@ -21,11 +21,16 @@ class tplSimpleMenu
 	# Template function
 	public static function simpleMenu($attr)
 	{
+		global $core;
+
+		if (!(boolean) $core->blog->settings->system->simpleMenu_active)
+			return '';
+
 		$class = isset($attr['class']) ? trim($attr['class']) : '';
 		$id = isset($attr['id']) ? trim($attr['id']) : '';
 		$description = isset($attr['description']) ? trim($attr['description']) : '';
 
-		if (!preg_match('#^(title|span)$#',$description)) {
+		if (!preg_match('#^(title|span|both|none)$#',$description)) {
 			$description = '';
 		}
 
@@ -41,12 +46,24 @@ class tplSimpleMenu
 	{
 		global $core, $_ctx;
 
+		$descr_type = array(0 => 'span',1 => 'title',2 => 'both',3 => 'none');
+
+		if (!(boolean) $core->blog->settings->system->simpleMenu_active)
+			return;
+
+		if ($w->offline)
+			return;
+
 		if (($w->homeonly == 1 && $core->url->type != 'default') ||
 			($w->homeonly == 2 && $core->url->type == 'default')) {
 			return;
 		}
 
-		$menu = tplSimpleMenu::displayMenu('','','title');
+		$description = 'title';
+		if (isset($descr_type[$w->description])) {
+			$description = $descr_type[$w->description];
+		}
+		$menu = tplSimpleMenu::displayMenu('','',$description);
 		if ($menu == '') {
 			return;
 		}
@@ -61,9 +78,10 @@ class tplSimpleMenu
 
 		$ret = '';
 
-		$menu = $GLOBALS['core']->blog->settings->system->get('simpleMenu');
-		$menu = @unserialize($menu);
+		if (!(boolean) $core->blog->settings->system->simpleMenu_active)
+			return $ret;
 
+		$menu = $core->blog->settings->system->simpleMenu;
 		if (is_array($menu))
 		{
 			// Current relative URL
@@ -71,7 +89,7 @@ class tplSimpleMenu
 			$abs_url = http::getHost().$url;
 
 			// Home recognition var
-			$home_url = html::stripHostURL($GLOBALS['core']->blog->url);
+			$home_url = html::stripHostURL($core->blog->url);
 			$home_directory = dirname($home_url);
 			if ($home_directory != '/')
 				$home_directory = $home_directory.'/';
@@ -92,9 +110,10 @@ class tplSimpleMenu
 				}
 				$title = $span = '';
 				if ($m['descr']) {
-					if ($description == 'title') {
+					if ($description == 'title' || $description == 'both') {
 						$title = ' title="'.html::escapeHTML(__($m['descr'])).'"';
-					} else {
+					}
+					if ($description == 'span' || $description == 'both') {
 						$span = ' <span>'.html::escapeHTML(__($m['descr'])).'</span>';
 					}
 				}
@@ -124,7 +143,7 @@ class tplSimpleMenu
 
 			// Final rendering
 			if ($ret) {
-				$ret = '<ul '.($id ? 'id="'.$id.'"' : '').' class="simple-menu'.($class ? ' '.$class : '').'" role="navigation">'."\n".$ret."\n".'</ul>';
+				$ret = '<nav role="navigation"><ul '.($id ? 'id="'.$id.'"' : '').' class="simple-menu'.($class ? ' '.$class : '').'">'."\n".$ret."\n".'</ul></nav>';
 			}
 		}
 

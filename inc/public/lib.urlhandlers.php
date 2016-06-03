@@ -109,6 +109,16 @@ class dcUrlHandlers extends urlHandler
 		}
 
 		header('Content-Type: '.$_ctx->content_type.'; charset=UTF-8');
+		if ($core->blog->settings->system->prevents_clickjacking) {
+			if ($_ctx->exists('xframeoption')) {
+				$url = parse_url($_ctx->xframeoption);
+				header(sprintf('X-Frame-Options: %s', is_array($url)?("ALLOW-FROM ".$url['scheme'].'://'.$url['host']):'SAMEORIGIN'));
+			} else {
+				// Prevents Clickjacking as far as possible
+				header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
+			}
+		}
+
 		$result['content'] = $core->tpl->getData($_ctx->current_tpl);
 		$result['content_type'] = $_ctx->content_type;
 		$result['tpl'] = $_ctx->current_tpl;
@@ -215,16 +225,24 @@ class dcUrlHandlers extends urlHandler
 		$_ctx =& $GLOBALS['_ctx'];
 		$core =& $GLOBALS['core'];
 
-		$core->url->type='search';
+		if ($core->blog->settings->system->no_search) {
 
-		$GLOBALS['_search'] = !empty($_GET['q']) ? rawurldecode($_GET['q']) : '';
-		if ($GLOBALS['_search']) {
-			$params = new ArrayObject(array('search' => $GLOBALS['_search']));
-			$core->callBehavior('publicBeforeSearchCount',$params);
-			$GLOBALS['_search_count'] = $core->blog->getPosts($params,true)->f(0);
+			# Search is disabled for this blog.
+			self::p404();
+
+		} else {
+
+			$core->url->type='search';
+
+			$GLOBALS['_search'] = !empty($_GET['q']) ? rawurldecode($_GET['q']) : '';
+			if ($GLOBALS['_search']) {
+				$params = new ArrayObject(array('search' => $GLOBALS['_search']));
+				$core->callBehavior('publicBeforeSearchCount',$params);
+				$GLOBALS['_search_count'] = $core->blog->getPosts($params,true)->f(0);
+			}
+
+			self::serveDocument('search.html');
 		}
-
-		self::serveDocument('search.html');
 	}
 
 	public static function lang($args)
@@ -384,10 +402,12 @@ class dcUrlHandlers extends urlHandler
 					}
 
 					# Check for match
+					# Note: We must prefix post_id key with '#'' in pwd_cookie array in order to avoid integer conversion
+					# because MyArray["12345"] is treated as MyArray[12345]
 					if ((!empty($_POST['password']) && $_POST['password'] == $post_password)
-					|| (isset($pwd_cookie[$post_id]) && $pwd_cookie[$post_id] == $post_password))
+					|| (isset($pwd_cookie['#'.$post_id]) && $pwd_cookie['#'.$post_id] == $post_password))
 					{
-						$pwd_cookie[$post_id] = $post_password;
+						$pwd_cookie['#'.$post_id] = $post_password;
 						setcookie('dc_passwd',json_encode($pwd_cookie),0,'/');
 					}
 					else
@@ -526,6 +546,9 @@ class dcUrlHandlers extends urlHandler
 			else
 			{
 				$_ctx->preview = true;
+				if (defined ("DC_ADMIN_URL")) {
+					$_ctx->xframeoption=DC_ADMIN_URL;
+				}
 				self::post($post_url);
 			}
 		}
