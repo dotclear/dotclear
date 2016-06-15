@@ -2015,6 +2015,9 @@ msgstr "Aucun mot-clé sur ce blog."
 msgid "Edit theme files"
 msgstr "Modifier les fichiers du thème"
 
+msgid "Syntax highlighting"
+msgstr "Coloration syntaxique"
+
 msgid "Syntax highlighting in theme editor"
 msgstr "Coloration syntaxique de l'éditeur de thème"
 

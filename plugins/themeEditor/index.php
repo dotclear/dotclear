@@ -18,6 +18,7 @@ $file_default = $file = array('c'=>null, 'w'=>false, 'type'=>null, 'f'=>null, 'd
 # Get interface setting
 $core->auth->user_prefs->addWorkspace('interface');
 $user_ui_colorsyntax = $core->auth->user_prefs->interface->colorsyntax;
+$user_ui_colorsyntax_theme = $core->auth->user_prefs->interface->colorsyntax_theme;
 
 # Loading themes
 $core->themes = new dcThemes($core);
@@ -82,15 +83,7 @@ catch (Exception $e)
   <?php echo dcPage::jsConfirmClose('file-form'); ?>
   <script type="text/javascript" src="<?php echo dcPage::getPF('themeEditor/script.js'); ?>"></script>
 <?php if ($user_ui_colorsyntax) { ?>
-  <?php echo dcPage::cssLoad(dcPage::getPF('themeEditor/codemirror/codemirror.css'));?>
-  <?php echo dcPage::cssLoad(dcPage::getPF('themeEditor/codemirror.css'));?>
-  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/codemirror.js'));?>
-  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/multiplex.js'));?>
-  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/xml.js'));?>
-  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/javascript.js'));?>
-  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/css.js'));?>
-  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/php.js'));?>
-  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/htmlmixed.js'));?>
+	<?php echo dcPage::jsCodeMirror($user_ui_colorsyntax_theme); ?>
 <?php } ?>
 </head>
 
@@ -170,7 +163,9 @@ else
 	       		tabMode: "indent",
 	       		lineWrapping: "true",
 	       		lineNumbers: "true",
-	   			matchBrackets: "true"
+	   			matchBrackets: "true",
+	   			autoCloseBrackets: "true"'.
+	   			($user_ui_colorsyntax_theme != '' ? ',theme: "'.$user_ui_colorsyntax_theme.'"' : '').'
 	   		});
 	    </script>';
 	}
