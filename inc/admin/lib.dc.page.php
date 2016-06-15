@@ -938,6 +938,42 @@ class dcPage
 		return self::jsLoad('js/meta-editor.js');
 	}
 
+	public static function jsCodeMirror($theme = '',$multi = true,$modes = array('css','htmlmixed','javascript','php','xml'))
+	{
+		$ret =
+			self::cssLoad('js/codemirror/lib/codemirror.css').
+			self::jsLoad('js/codemirror/lib/codemirror.js');
+		if ($multi) {
+			$ret .= self::jsLoad('js/codemirror/addon/mode/multiplex.js');
+		}
+		foreach ($modes as $mode) {
+			$ret .= self::jsLoad('js/codemirror/mode/'.$mode.'/'.$mode.'.js');
+		}
+		$ret .=
+			self::jsLoad('js/codemirror/addon/edit/closebrackets.js').
+			self::jsLoad('js/codemirror/addon/edit/matchbrackets.js');
+		if ($theme != '') {
+			$ret .= self::cssLoad('js/codemirror/theme/'.$theme.'.css');
+		}
+		return $ret;
+	}
+
+	public static function getCodeMirrorThemes()
+	{
+		$themes = array();
+		$themes_root = dirname(__FILE__).'/../../admin'.'/js/codemirror/theme/';
+		if (is_dir($themes_root) && is_readable($themes_root)) {
+			if (($d = @dir($themes_root)) !== false) {
+				while (($entry = $d->read()) !== false) {
+					if ($entry != '.' && $entry != '..' && substr($entry, 0, 1) != '.' && is_readable($themes_root.'/'.$entry)) {
+						$themes[] = substr($entry,0,-4); // remove .css extension
+					}
+				}
+			}
+		}
+		return $themes;
+	}
+
 	public static function getPF($file)
 	{
 		return $GLOBALS['core']->adminurl->get('load.plugin.file',array('pf' => $file));
