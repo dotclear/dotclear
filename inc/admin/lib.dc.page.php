@@ -951,7 +951,9 @@ class dcPage
 		}
 		$ret .=
 			self::jsLoad('js/codemirror/addon/edit/closebrackets.js').
-			self::jsLoad('js/codemirror/addon/edit/matchbrackets.js');
+			self::jsLoad('js/codemirror/addon/edit/matchbrackets.js').
+			self::cssLoad('js/codemirror/addon/display/fullscreen.css').
+			self::jsLoad('js/codemirror/addon/display/fullscreen.js');
 		if ($theme != '') {
 			$ret .= self::cssLoad('js/codemirror/theme/'.$theme.'.css');
 		}
