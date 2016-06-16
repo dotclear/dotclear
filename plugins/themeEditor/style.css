@@ -35,3 +35,6 @@
 textarea {
 	font: 1em Monaco,"Courier New",Courier,monospace;
 }
+.CodeMirror {
+	height: 30em !important;
+}
