@@ -266,3 +266,18 @@ msgstr "Lire"
 
 msgid "Page top"
 msgstr "Haut de page"
+
+msgid "toDay"
+msgstr "au"
+
+msgid "FromDay"
+msgstr "Du"
+
+msgid "By category"
+msgstr "Par catégorie"
+
+msgid "By date"
+msgstr "Par date"
+
+msgid "By tag"
+msgstr "Par tag"

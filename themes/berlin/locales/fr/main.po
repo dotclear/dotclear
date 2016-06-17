@@ -28,23 +28,8 @@ msgstr "Faire une recherche"
 msgid "Explore archives"
 msgstr "Explorer les archives"
 
-msgid "toDay"
-msgstr "au"
-
-msgid "FromDay"
-msgstr "Du"
-
 msgid "From"
 msgstr "De"
-
-msgid "By category"
-msgstr "Par catégorie"
-
-msgid "By date"
-msgstr "Par date"
-
-msgid "By tag"
-msgstr "Par tag"
 
 msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr "L'adresse URL est erronée ou bien la page a été supprimée ou déplacée."
