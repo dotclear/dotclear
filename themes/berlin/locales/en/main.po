@@ -1,5 +1,0 @@
-msgid "toDay"
-msgstr "to"
-
-msgid "FromDay"
-msgstr "From"
