@@ -82,7 +82,7 @@ catch (Exception $e)
 	<?php echo dcPage::jsConfirmClose('file-form'); ?>
 	<script type="text/javascript" src="<?php echo dcPage::getPF('themeEditor/script.js'); ?>"></script>
 	<?php if ($user_ui_colorsyntax) { ?>
-	<?php echo dcPage::jsCodeMirror($user_ui_colorsyntax_theme); ?>
+	<?php echo dcPage::jsLoadCodeMirror($user_ui_colorsyntax_theme); ?>
 	<?php } ?>
 	<?php echo dcPage::cssLoad(dcPage::getPF('themeEditor/style.css'));?>
 </head>
@@ -143,7 +143,8 @@ else
 			(!empty($_REQUEST['js']) ? "javascript" :
 			(!empty($_REQUEST['po']) ? "text/plain" : "text/html")));
 		echo
-		'<script>
+		'<script type="text/javascript">
+		//<![CDATA[
 			window.CodeMirror.defineMode("dotclear", function(config) {
 				return CodeMirror.multiplexingMode(
 					CodeMirror.getMode(config, "'.$editorMode.'"),
@@ -158,19 +159,9 @@ else
 					 delimStyle: "delimit"}
 					);
 			});
-	    	var editor = CodeMirror.fromTextArea(document.getElementById("file_content"), {
-	    		mode: "dotclear",
-	       		tabMode: "indent",
-	       		lineWrapping: "true",
-	       		lineNumbers: "true",
-	   			matchBrackets: "true",
-	   			autoCloseBrackets: "true",
-	   			extraKeys: {
-	   				"F11": function(cm) {cm.setOption("fullScreen",!cm.getOption("fullScreen"));}
-	   			}'.
-	   			($user_ui_colorsyntax_theme != '' ? ',theme: "'.$user_ui_colorsyntax_theme.'"' : '').'
-	   		});
+		//]]>
 	    </script>';
+	    echo dcPage::jsRunCodeMirror('editor','file_content','dotclear',$user_ui_colorsyntax_theme);
 	}
 }
 ?>

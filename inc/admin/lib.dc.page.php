@@ -938,7 +938,7 @@ class dcPage
 		return self::jsLoad('js/meta-editor.js');
 	}
 
-	public static function jsCodeMirror($theme = '',$multi = true,$modes = array('css','htmlmixed','javascript','php','xml'))
+	public static function jsLoadCodeMirror($theme = '',$multi = true,$modes = array('css','htmlmixed','javascript','php','xml'))
 	{
 		$ret =
 			self::cssLoad('js/codemirror/lib/codemirror.css').
@@ -957,6 +957,31 @@ class dcPage
 		if ($theme != '') {
 			$ret .= self::cssLoad('js/codemirror/theme/'.$theme.'.css');
 		}
+		return $ret;
+	}
+
+	public static function jsRunCodeMirror($name,$id,$mode,$theme = '')
+	{
+		$ret =
+			'<script type="text/javascript">'.
+			'//<![CDATA['."\n".
+			'var '.$name.' = CodeMirror.fromTextArea('.$id.',{'."\n".
+			'	mode: "'.$mode.'",'."\n".
+			'	tabMode: "indent",'."\n".
+			'	lineWrapping: "true",'."\n".
+			'	lineNumbers: "true",'."\n".
+			'	matchBrackets: "true",'."\n".
+			'	autoCloseBrackets: "true",'."\n".
+			'	extraKeys: {"F11": function(cm) {cm.setOption("fullScreen",!cm.getOption("fullScreen"));}}';
+			if ($theme) {
+				$ret .=
+					','."\n".
+					'	theme: "'.$theme.'"';
+			}
+		$ret .=
+			"\n".'});'."\n".
+			'//]]>'.
+			'</script>';
 		return $ret;
 	}
 
