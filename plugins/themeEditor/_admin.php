@@ -77,7 +77,7 @@ class themeEditorBehaviors
 		}
 		echo '</div>';
 		echo '<div class="col">';
-		echo dcPage::jsCodeMirror('',false,array('javascript'));
+		echo dcPage::jsLoadCodeMirror('',false,array('javascript'));
 		foreach ($themes_list as $theme) {
 			echo dcPage::cssLoad('js/codemirror/theme/'.$theme.'.css');
 		}
