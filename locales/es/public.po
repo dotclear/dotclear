@@ -245,3 +245,19 @@ msgstr "Debe proporcionar una dirección de correo electrónico válida."
 
 msgid "Read"
 msgstr "Leer"
+
+msgid "toDay"
+msgstr "al"
+
+msgid "FromDay"
+msgstr "Del"
+
+msgid "By category"
+msgstr "Por categoría"
+
+msgid "By date"
+msgstr "Por fecha"
+
+msgid "By tag"
+msgstr "Por tag"
+

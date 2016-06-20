@@ -18,6 +18,7 @@ $file_default = $file = array('c'=>null, 'w'=>false, 'type'=>null, 'f'=>null, 'd
 # Get interface setting
 $core->auth->user_prefs->addWorkspace('interface');
 $user_ui_colorsyntax = $core->auth->user_prefs->interface->colorsyntax;
+$user_ui_colorsyntax_theme = $core->auth->user_prefs->interface->colorsyntax_theme;
 
 # Loading themes
 $core->themes = new dcThemes($core);
@@ -68,30 +69,22 @@ catch (Exception $e)
 
 <html>
 <head>
-  <title><?php echo __('Edit theme files'); ?></title>
-  <?php echo dcPage::cssLoad(dcPage::getPF('themeEditor/style.css'));?>
-  <script type="text/javascript">
-  //<![CDATA[
-  <?php echo dcPage::jsVar('dotclear.msg.saving_document',__("Saving document...")); ?>
-  <?php echo dcPage::jsVar('dotclear.msg.document_saved',__("Document saved")); ?>
-  <?php echo dcPage::jsVar('dotclear.msg.error_occurred',__("An error occurred:")); ?>
-  <?php echo dcPage::jsVar('dotclear.msg.confirm_reset_file',__("Are you sure you want to reset this file?")); ?>
-  <?php echo dcPage::jsVar('dotclear.colorsyntax',$user_ui_colorsyntax); ?>
-  //]]>
-  </script>
-  <?php echo dcPage::jsConfirmClose('file-form'); ?>
-  <script type="text/javascript" src="<?php echo dcPage::getPF('themeEditor/script.js'); ?>"></script>
-<?php if ($user_ui_colorsyntax) { ?>
-  <?php echo dcPage::cssLoad(dcPage::getPF('themeEditor/codemirror/codemirror.css'));?>
-  <?php echo dcPage::cssLoad(dcPage::getPF('themeEditor/codemirror.css'));?>
-  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/codemirror.js'));?>
-  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/multiplex.js'));?>
-  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/xml.js'));?>
-  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/javascript.js'));?>
-  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/css.js'));?>
-  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/php.js'));?>
-  <?php echo dcPage::jsLoad(dcPage::getPF('themeEditor/codemirror/htmlmixed.js'));?>
-<?php } ?>
+	<title><?php echo __('Edit theme files'); ?></title>
+	<script type="text/javascript">
+	//<![CDATA[
+		<?php echo dcPage::jsVar('dotclear.msg.saving_document',__("Saving document...")); ?>
+		<?php echo dcPage::jsVar('dotclear.msg.document_saved',__("Document saved")); ?>
+		<?php echo dcPage::jsVar('dotclear.msg.error_occurred',__("An error occurred:")); ?>
+		<?php echo dcPage::jsVar('dotclear.msg.confirm_reset_file',__("Are you sure you want to reset this file?")); ?>
+		<?php echo dcPage::jsVar('dotclear.colorsyntax',$user_ui_colorsyntax); ?>
+	//]]>
+	</script>
+	<?php echo dcPage::jsConfirmClose('file-form'); ?>
+	<script type="text/javascript" src="<?php echo dcPage::getPF('themeEditor/script.js'); ?>"></script>
+	<?php if ($user_ui_colorsyntax) { ?>
+	<?php echo dcPage::jsLoadCodeMirror($user_ui_colorsyntax_theme); ?>
+	<?php } ?>
+	<?php echo dcPage::cssLoad(dcPage::getPF('themeEditor/style.css'));?>
 </head>
 
 <body>
@@ -150,7 +143,8 @@ else
 			(!empty($_REQUEST['js']) ? "javascript" :
 			(!empty($_REQUEST['po']) ? "text/plain" : "text/html")));
 		echo
-		'<script>
+		'<script type="text/javascript">
+		//<![CDATA[
 			window.CodeMirror.defineMode("dotclear", function(config) {
 				return CodeMirror.multiplexingMode(
 					CodeMirror.getMode(config, "'.$editorMode.'"),
@@ -165,14 +159,9 @@ else
 					 delimStyle: "delimit"}
 					);
 			});
-	    	var editor = CodeMirror.fromTextArea(document.getElementById("file_content"), {
-	    		mode: "dotclear",
-	       		tabMode: "indent",
-	       		lineWrapping: "true",
-	       		lineNumbers: "true",
-	   			matchBrackets: "true"
-	   		});
+		//]]>
 	    </script>';
+	    echo dcPage::jsRunCodeMirror('editor','file_content','dotclear',$user_ui_colorsyntax_theme);
 	}
 }
 ?>
