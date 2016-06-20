@@ -243,3 +243,18 @@ msgstr "Du mußt eine gültige E-Mail-Adresse verwenden."
 
 msgid "Read"
 msgstr "Lesen"
+
+msgid "By date"
+msgstr "Nach Datum"
+
+msgid "FromDay"
+msgstr "Von"
+
+msgid "toDay"
+msgstr "bis"
+
+msgid "By category"
+msgstr "Nach Kategorien"
+
+msgid "By tag"
+msgstr "Nach Tags"

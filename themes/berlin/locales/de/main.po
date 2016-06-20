@@ -44,24 +44,3 @@ msgstr "Senden"
 #: tpl/_simple-entry.html:175
 msgid "Add ping"
 msgstr "Ping hinzufügen"
-
-#: tpl/archive.html:37
-msgid "By date"
-msgstr "Nach Datum"
-
-#: tpl/archive.html:38
-msgid "FromDay"
-msgstr "Von"
-
-#: tpl/archive.html:38
-msgid "toDay"
-msgstr "bis"
-
-#: tpl/archive.html:59
-msgid "By category"
-msgstr "Nach Kategorien"
-
-#: tpl/archive.html:82
-msgid "By tag"
-msgstr "Nach Tags"
-

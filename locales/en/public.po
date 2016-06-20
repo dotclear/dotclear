@@ -242,3 +242,18 @@ msgstr ""
 
 msgid "Read"
 msgstr ""
+
+msgid "toDay"
+msgstr "to"
+
+msgid "FromDay"
+msgstr "From"
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
