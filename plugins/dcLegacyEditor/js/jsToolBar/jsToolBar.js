@@ -428,6 +428,16 @@ jsToolBar.prototype.elements.code = {
 	}
 };
 
+// code
+jsToolBar.prototype.elements.mark = {
+	type: 'button',
+	title: 'Mark',
+	fn: {
+		wiki: function() { this.singleTag('""') },
+		xhtml: function() { this.singleTag('<mark>','</mark>')}
+	}
+};
+
 // spacer
 jsToolBar.prototype.elements.space1 = {
 	type:'space',

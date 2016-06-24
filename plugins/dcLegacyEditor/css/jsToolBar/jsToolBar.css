@@ -115,6 +115,9 @@ button.jstb_quote {
 button.jstb_code {
 	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_code.png);
 }
+button.jstb_mark {
+	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_mark.png);
+}
 button.jstb_paragraph {
 	background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_paragraph.png);
 }
