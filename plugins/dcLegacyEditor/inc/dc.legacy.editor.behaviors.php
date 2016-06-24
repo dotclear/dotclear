@@ -111,6 +111,7 @@ class dcLegacyEditorBehaviors
 		"jsToolBar.prototype.elements.del.title = '".html::escapeJS(__('Deleted'))."'; ".
 		"jsToolBar.prototype.elements.quote.title = '".html::escapeJS(__('Inline quote'))."'; ".
 		"jsToolBar.prototype.elements.code.title = '".html::escapeJS(__('Code'))."'; ".
+		"jsToolBar.prototype.elements.mark.title = '".html::escapeJS(__('Mark'))."'; ".
 		"jsToolBar.prototype.elements.br.title = '".html::escapeJS(__('Line break'))."'; ".
 		"jsToolBar.prototype.elements.blockquote.title = '".html::escapeJS(__('Blockquote'))."'; ".
 		"jsToolBar.prototype.elements.pre.title = '".html::escapeJS(__('Preformated text'))."'; ".
