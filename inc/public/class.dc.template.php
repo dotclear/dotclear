@@ -1094,6 +1094,7 @@ class dcTemplate extends template
 	author	CDATA	#IMPLIED	-- get entries for a given user id
 	category	CDATA	#IMPLIED	-- get entries for specific categories only (multiple comma-separated categories can be specified. Use "!" as prefix to exclude a category)
 	no_category	CDATA	#IMPLIED	-- get entries without category
+	with_category	CDATA	#IMPLIED	-- get entries with category
 	no_context (1|0)	#IMPLIED  -- Override context information
 	sortby	(title|selected|author|date|id)	#IMPLIED	-- specify entries sort criteria (default : date) (multiple comma-separated sortby can be specified. Use "?asc" or "?desc" as suffix to provide an order for each sorby)
 	order	(desc|asc)	#IMPLIED	-- specify entries order (default : desc)
@@ -1150,6 +1151,10 @@ class dcTemplate extends template
 		if (isset($attr['category'])) {
 			$p .= "\$params['cat_url'] = '".addslashes($attr['category'])."';\n";
 			$p .= "context::categoryPostParam(\$params);\n";
+		}
+
+		if (isset($attr['with_category']) && $attr['with_category']) {
+			$p .= "@\$params['sql'] .= ' AND P.cat_id IS NOT NULL ';\n";
 		}
 
 		if (isset($attr['no_category']) && $attr['no_category']) {
