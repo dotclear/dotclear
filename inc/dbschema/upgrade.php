@@ -543,6 +543,9 @@ class dcUpgrade
 		{
 			@unlink(DC_ROOT.'/'.'admin/js/jsUpload/vendor/jquery.ui.widget.js');
 			@rmdir(DC_ROOT.'/'.'admin/js/jsUpload/vendor');
+
+			# Create new var directory
+			@files::makeDir(DC_VAR);
 		}
 
 		$core->setVersion('core',DC_VERSION);

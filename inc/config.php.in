@@ -51,6 +51,9 @@ define('DC_PLUGINS_ROOT',dirname(__FILE__).'/../plugins');
 // Template cache directory
 define('DC_TPL_CACHE',path::real(dirname(__FILE__).'/..').'/cache');
 
+// Var directory
+define('DC_VAR',path::real(dirname(__FILE__).'/..').'/var');
+
 
 // If you have PATH_INFO issue, uncomment following lines
 //if (!isset($_SERVER['ORIG_PATH_INFO'])) {
