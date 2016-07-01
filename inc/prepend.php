@@ -196,10 +196,29 @@ if (!defined('DC_CRYPT_ALGO')) {
 	// Check length of cryptographic algorithm result and exit if less than 40 characters long
 	if (strlen(crypt::hmac(DC_MASTER_KEY,DC_VENDOR_NAME,DC_CRYPT_ALGO)) < 40) {
 		if (!defined('DC_CONTEXT_ADMIN')) {
-			exit('Site temporarily unavailable');
+			__error('Server error','Site temporarily unavailable');
 		} else {
-			exit(DC_CRYPT_ALGO.' cryptographic algorithm configured is not strong enough, please change it.');
+			__error('Dotclear error',DC_CRYPT_ALGO.' cryptographic algorithm configured is not strong enough, please change it.');
 		}
+		exit;
+	}
+}
+
+if (!defined('DC_VAR')) {
+	define('DC_VAR',path::real(dirname(__FILE__).'/..').'/var');
+}
+// Check existence of var directory
+if (!is_dir(DC_VAR)) {
+	// Try to create it
+	@files::makeDir(DC_VAR);
+	if (!is_dir(DC_VAR)) {
+		// Admin must create it
+		if (!defined('DC_CONTEXT_ADMIN')) {
+			__error('Server error','Site temporarily unavailable');
+		} else {
+			__error('Dotclear error',DC_VAR.' directory does not exist. Please create it.');
+		}
+		exit;
 	}
 }
 

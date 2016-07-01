@@ -15,6 +15,11 @@ if (!empty($_GET['pf'])) {
 	exit;
 }
 
+if (!empty($_GET['vf'])) {
+	require dirname(__FILE__).'/../inc/load_var_file.php';
+	exit;
+}
+
 require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 if (!empty($_GET['default_blog'])) {
