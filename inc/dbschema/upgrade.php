@@ -544,8 +544,13 @@ class dcUpgrade
 			@unlink(DC_ROOT.'/'.'admin/js/jsUpload/vendor/jquery.ui.widget.js');
 			@rmdir(DC_ROOT.'/'.'admin/js/jsUpload/vendor');
 
-			# Create new var directory
+			# Create new var directory and its .htaccess file
 			@files::makeDir(DC_VAR);
+			$f = DC_VAR.'/.htaccess';
+			if (!file_exists($f))
+			{
+				@file_put_contents($f,'Require all denied'."\n".'Deny from all'."\n");
+			}
 		}
 
 		$core->setVersion('core',DC_VERSION);
