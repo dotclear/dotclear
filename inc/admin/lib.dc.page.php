@@ -1006,6 +1006,11 @@ class dcPage
 		return $GLOBALS['core']->adminurl->get('load.plugin.file',array('pf' => $file));
 	}
 
+	public static function getVF($file)
+	{
+		return $GLOBALS['core']->adminurl->get('load.var.file',array('vf' => $file));
+	}
+
 	public static function setXFrameOptions($origin = null)
 	{
 		if (self::$xframe_loaded) {
