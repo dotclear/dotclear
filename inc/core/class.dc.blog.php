@@ -144,6 +144,18 @@ class dcBlog
 	}
 
 	/**
+	Returns public URL of specified var file.
+	 */
+	public function getVF($vf, $strip_host=true)
+	{
+		$ret = $this->getQmarkURL().'vf='.$vf;
+		if ($strip_host) {
+			$ret = html::stripHostURL($ret);
+		}
+		return $ret;
+	}
+
+	/**
 	Returns an entry status name given to a code. Status are translated, never
 	use it for tests. If status code does not exist, returns <i>unpublished</i>.
 
