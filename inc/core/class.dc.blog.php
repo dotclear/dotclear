@@ -2038,6 +2038,11 @@ class dcBlog
 			$strReq .= 'AND comment_id '.$this->con->in($params['comment_id']);
 		}
 
+		if (isset($params['comment_email'])) {
+			$comment_email = $this->con->escape(str_replace('*','%',$params['comment_email']));
+			$strReq .= "AND comment_email LIKE '".$comment_email."' ";
+		}
+
 		if (isset($params['comment_site'])) {
 			$comment_site = $this->con->escape(str_replace('*','%',$params['comment_site']));
 			$strReq .= "AND comment_site LIKE '".$comment_site."' ";
