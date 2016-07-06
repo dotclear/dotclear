@@ -36,11 +36,16 @@ body {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 	}
+#dotclear-admin {
+    display: flex;
+    min-height: 100vh;
+	flex-direction: column;
+}
 #header {
 	background: #676e78;
 	color: #FFF;
 	border-bottom: 4px solid #A2CBE9;
-	width: 100%;
+	width: 99.99%;	/* Bugfix Chrome >= 49.0.2623.108 */
 	display: table;
 	position: relative;
 	}
@@ -51,6 +56,7 @@ body {
 	width: 100%;
 	z-index: 10;
 	background: #F7F7F7 url(bg_wrapper.png) repeat-y 15em;
+	flex: 1;
 	}
 .with-js #wrapper {
 	padding-top: 0;
