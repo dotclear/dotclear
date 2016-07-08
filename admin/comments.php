@@ -53,12 +53,14 @@ __('Ascending') => 'asc'
 
 /* Get comments
 -------------------------------------------------------- */
-$author = isset($_GET['author']) ?	$_GET['author'] : '';
-$status = isset($_GET['status']) ?		$_GET['status'] : '';
-$type = !empty($_GET['type']) ?		$_GET['type'] : '';
-$sortby = !empty($_GET['sortby']) ?	$_GET['sortby'] : 'comment_dt';
-$order = !empty($_GET['order']) ?		$_GET['order'] : 'desc';
-$ip = !empty($_GET['ip']) ?			$_GET['ip'] : '';
+$author = isset($_GET['author']) ? $_GET['author'] : '';
+$status = isset($_GET['status']) ? $_GET['status'] : '';
+$type   = !empty($_GET['type']) ? $_GET['type'] : '';
+$sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : 'comment_dt';
+$order  = !empty($_GET['order']) ? $_GET['order'] : 'desc';
+$ip     = !empty($_GET['ip']) ? $_GET['ip'] : '';
+$email  = !empty($_GET['email']) ? $_GET['email'] : '';
+$site   = !empty($_GET['site']) ? $_GET['site'] : '';
 
 $with_spam = $author || $status || $type || $sortby != 'comment_dt' || $order != 'desc' || $ip;
 
@@ -107,6 +109,18 @@ if ($status !== '' && in_array($status,$status_combo)) {
 # - IP filter
 if ($ip) {
 	$params['comment_ip'] = $ip;
+	$show_filters = true;
+}
+
+# - email filter
+if ($email) {
+	$params['comment_email'] = $email;
+	$show_filters = true;
+}
+
+# - site filter
+if ($site) {
+	$params['comment_site'] = $site;
 	$show_filters = true;
 }
 
@@ -236,6 +250,10 @@ if (!$core->error->flag())
 	form::field('author',20,255,html::escapeHTML($author)).'</p>'.
 	'<p><label for="ip" class="ib">'.__('IP address:').'</label> '.
 	form::field('ip',20,39,html::escapeHTML($ip)).'</p>'.
+	'<p><label for="email" class="ib">'.__('Email:').'</label> '.
+	form::field('email',20,255,html::escapeHTML($email)).'</p>'.
+	'<p><label for="site" class="ib">'.__('Web site:').'</label> '.
+	form::field('site',20,255,html::escapeHTML($site)).'</p>'.
 	'</div>'.
 
 	'<div class="cell filters-options">'.
@@ -275,6 +293,8 @@ if (!$core->error->flag())
 	form::hidden(array('ip'),preg_replace('/%/','%%',$ip)).
 	form::hidden(array('page'),$page).
 	form::hidden(array('nb'),$nb_per_page).
+	form::hidden(array('email'),html::escapeHTML(preg_replace('/%/','%%',$email))).
+	form::hidden(array('site'),html::escapeHTML(preg_replace('/%/','%%',$site))).
 	'</div>'.
 
 	'</form>',
