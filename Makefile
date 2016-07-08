@@ -24,9 +24,10 @@ config: clean config-stamp
 	       ./$(DC)/.atoum.* ./$(DC)/test ./$(DC)/travis					\
 	       ./$(DC)/features ./$(DC)/travis ./$(DC)/behat.yml.dist ./$(DC)/composer.*
 
-	## Create cache, db, plugins and public folders
-	mkdir ./$(DC)/cache ./$(DC)/db ./$(DC)/plugins ./$(DC)/public ./$(DC)/themes
+	## Create cache, var, db, plugins, themes and public folders
+	mkdir ./$(DC)/cache ./$(DC)/var ./$(DC)/db ./$(DC)/plugins ./$(DC)/themes ./$(DC)/public
 	cp -p inc/.htaccess ./$(DC)/cache/
+	cp -p inc/.htaccess ./$(DC)/var/
 	cp -p inc/.htaccess ./$(DC)/db/
 	cp -p inc/.htaccess ./$(DC)/plugins/
 
@@ -72,7 +73,7 @@ config: clean config-stamp
 
 	## Create digest
 	cd $(DC) && ( \
-		md5sum `find . -type f -not -path "./inc/digest" -not -path "./cache/*" -not -path "./db/*" -not -path ./CHANGELOG` \
+		md5sum `find . -type f -not -path "./inc/digest" -not -path "./cache/*" -not -path "./var/*" -not -path "./db/*" -not -path ./CHANGELOG` \
 		> inc/digests \
 	)
 

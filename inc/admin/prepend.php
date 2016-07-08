@@ -207,6 +207,7 @@ $core->adminurl->register('admin.help','help.php');
 $core->adminurl->register('admin.update','update.php');
 
 $core->adminurl->registercopy('load.plugin.file','admin.home',array('pf' => 'dummy.css'));
+$core->adminurl->registercopy('load.var.file','admin.home',array('vf' => 'dummy.json'));
 
 if ($core->auth->userID() && $core->blog !== null)
 {

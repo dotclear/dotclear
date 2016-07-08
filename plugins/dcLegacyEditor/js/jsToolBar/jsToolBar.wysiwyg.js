@@ -654,6 +654,13 @@ jsToolBar.prototype.elements.code.fn.wysiwyg = function() {
 	this.insertNode(code);
 };
 
+jsToolBar.prototype.elements.mark.fn.wysiwyg = function() {
+	var n = this.getSelectedNode();
+	var mark = this.iwin.document.createElement('mark');
+	mark.appendChild(n);
+	this.insertNode(mark);
+};
+
 jsToolBar.prototype.elements.br.fn.wysiwyg = function() {
 	var n = this.iwin.document.createElement('br');
 	this.insertNode(n);

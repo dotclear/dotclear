@@ -15,6 +15,11 @@ if (!empty($_GET['pf'])) {
 	exit;
 }
 
+if (!empty($_GET['vf'])) {
+	require dirname(__FILE__).'/../load_var_file.php';
+	exit;
+}
+
 if (!isset($_SERVER['PATH_INFO'])) {
 	$_SERVER['PATH_INFO'] = '';
 }
