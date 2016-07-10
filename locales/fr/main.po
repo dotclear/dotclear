@@ -2126,6 +2126,9 @@ msgstr "Ne pas utiliser le favicon standard de Dotclear"
 msgid "This will be applied for all users"
 msgstr "Ce choix sera appliqué pour tous les utilisateurs"
 
+msgid "Optional columns displayed in lists"
+msgstr "Colonnes optionnelles affichées dans les listes"
+
 msgid "Edition"
 msgstr "Édition"
 
