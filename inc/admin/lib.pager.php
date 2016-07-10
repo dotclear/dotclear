@@ -146,6 +146,20 @@ class adminGenericList
 		$this->html_prev = __('&#171; prev.');
 		$this->html_next = __('next &#187;');
 	}
+
+	public function userColumns($type,$cols)
+	{
+		$cols_user = @$this->core->auth->user_prefs->interface->cols;
+		if (is_array($cols_user)) {
+			if (isset($cols_user[$type])) {
+				foreach ($cols_user[$type] as $cn => $cd) {
+					if (!$cd && isset($cols[$cn])) {
+						unset($cols[$cn]);
+					}
+				}
+			}
+		}
+	}
 }
 
 class adminPostList extends adminGenericList
@@ -216,6 +230,9 @@ class adminPostList extends adminGenericList
 			);
 			$cols = new ArrayObject($cols);
 			$this->core->callBehavior('adminPostListHeader',$this->core,$this->rs,$cols);
+
+			// Cope with optional columns
+			$this->userColumns('posts',$cols);
 
 			$html_block .= '<tr>'.implode(iterator_to_array($cols)).'</tr>%s</table></div>';
 			if ($enclose_block) {
@@ -312,6 +329,9 @@ class adminPostList extends adminGenericList
 		$cols = new ArrayObject($cols);
 		$this->core->callBehavior('adminPostListValue',$this->core,$this->rs,$cols);
 
+		// Cope with optional columns
+		$this->userColumns('posts',$cols);
+
 		$res .= implode(iterator_to_array($cols));
 		$res .= '</tr>';
 
@@ -344,6 +364,9 @@ class adminPostMiniList extends adminGenericList
 
 			$cols = new ArrayObject($cols);
 			$this->core->callBehavior('adminPostMiniListHeader',$this->core,$this->rs,$cols);
+
+			// Cope with optional columns
+			$this->userColumns('posts',$cols);
 
 			$html_block .= '<tr>'.implode(iterator_to_array($cols)).'</tr>%s</table></div>';
 			if ($enclose_block) {
@@ -422,6 +445,9 @@ class adminPostMiniList extends adminGenericList
 
 		$cols = new ArrayObject($cols);
 		$this->core->callBehavior('adminPostMiniListValue',$this->core,$this->rs,$cols);
+
+		// Cope with optional columns
+		$this->userColumns('posts',$cols);
 
 		$res .= implode(iterator_to_array($cols));
 		$res .= '</tr>';

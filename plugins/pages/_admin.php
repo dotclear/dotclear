@@ -11,8 +11,23 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
+$core->addBehavior('adminColumnsLists',array('pagesColumnsLists','adminColumnsLists'));
 $core->addBehavior('adminDashboardFavorites',array('pagesDashboard','pagesDashboardFavs'));
 $core->addBehavior('adminUsersActionsHeaders','pages_users_actions_headers');
+
+class pagesColumnsLists
+{
+	public static function adminColumnsLists($core,$cols)
+	{
+		// Set optional columns in pages lists
+		$cols['pages'] = array(__('Pages'), array(
+			'date' => array(true,__('Date')),
+			'author' => array(true,__('Author')),
+			'comments' => array(true,__('Comments')),
+			'trackbacks' => array(true,__('Trackbacks'))
+		));
+	}
+}
 
 class pagesDashboard
 {
