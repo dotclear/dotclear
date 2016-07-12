@@ -551,6 +551,17 @@ class dcUpgrade
 			{
 				@file_put_contents($f,'Require all denied'."\n".'Deny from all'."\n");
 			}
+
+			# Update flie exclusion upload regex
+			$strReq = 'UPDATE '.$core->prefix.'setting '.
+					" SET setting_value = '/\\.(phps?|pht(ml)?|phl|s?html?|js|htaccess)[0-9]*\$/i' ".
+					" WHERE setting_id = 'media_exclusion' ".
+					" AND setting_ns = 'system' ".
+					" AND (setting_value = '/\\.php[0-9]*\$/i' ".
+					"   OR setting_value = '/\\.php\$/i') ".
+					"	OR setting_value = '/\\.(phps?|pht(ml)?|phl)[0-9]*\$/i' ".
+					"	OR setting_value = '/\\.(phps?|pht(ml)?|phl|s?html?|js)[0-9]*\$/i'";
+			$core->con->execute($strReq);
 		}
 
 		$core->setVersion('core',DC_VERSION);
