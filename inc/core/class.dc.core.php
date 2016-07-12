@@ -1225,6 +1225,7 @@ class dcCore
 			'active_footnotes' => 1,
 			'active_wikiwords' => 0,
 			'active_macros' => 1,
+			'active_mark' => 1,
 			'parse_pre' => 1,
 			'active_fr_syntax' => 0,
 			'first_title_level' => 3,
@@ -1272,6 +1273,7 @@ class dcCore
 			'active_footnotes' => 0,
 			'active_wikiwords' => 0,
 			'active_macros' => 0,
+			'active_mark' => 0,
 			'parse_pre' => 0,
 			'active_fr_syntax' => 0
 		));
@@ -1313,6 +1315,7 @@ class dcCore
 			'active_footnotes' => 0,
 			'active_wikiwords' => 0,
 			'active_macros' => 0,
+			'active_mark' => 1,
 			'parse_pre' => 0,
 			'active_fr_syntax' => 0
 		));
