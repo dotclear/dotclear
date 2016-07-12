@@ -98,6 +98,30 @@ if (is_dir($iconsets_root) && is_readable($iconsets_root)) {
 # Language codes
 $lang_combo = dcAdminCombos::getAdminLangsCombo();
 
+# Get default colums (admin lists)
+$cols = array(
+	'posts' => array(__('Posts'), array(
+		'date' => array(true,__('Date')),
+		'category' => array(true,__('Category')),
+		'author' => array(true,__('Author')),
+		'comments' => array(true,__('Comments')),
+		'trackbacks' => array(true,__('Trackbacks'))
+	))
+);
+$cols = new arrayObject($cols);
+$core->callBehavior('adminColumnsLists',$core,$cols);
+# Load user settings
+$cols_user = @$core->auth->user_prefs->interface->cols;
+if (is_array($cols_user)) {
+	foreach ($cols_user as $ct => $cv) {
+		foreach ($cv as $cn => $cd) {
+			if (isset($cols[$ct][1][$cn])) {
+				$cols[$ct][1][$cn][0] = $cd;
+			}
+		}
+	}
+}
+
 # Add or update user
 if (isset($_POST['user_name']))
 {
@@ -195,6 +219,19 @@ if (isset($_POST['user_editor']))
 		$core->auth->user_prefs->interface->put('media_nb_last_dirs',(integer)$_POST['user_ui_media_nb_last_dirs'],'integer');
 		$core->auth->user_prefs->interface->put('media_last_dirs',array(),'array',null,false);
 		$core->auth->user_prefs->interface->put('media_fav_dirs',array(),'array',null,false);
+
+		# Update user columns (lists)
+		$cu = array();
+		foreach ($cols as $col_type => $cols_list) {
+			$ct = array();
+			foreach ($cols_list[1] as $col_name => $col_data) {
+				$ct[$col_name] = isset($_POST['cols_'.$col_type]) && in_array($col_name,$_POST['cols_'.$col_type],true) ? true : false;
+			}
+			if (count($ct)) {
+				$cu[$col_type] = $ct;
+			}
+		}
+		$core->auth->user_prefs->interface->put('cols',$cu,'array');
 
 		# Update user
 		$core->updUser($core->auth->userID(),$cur);
@@ -459,6 +496,19 @@ if ($core->auth->isSuperAdmin()) {
 
 echo
 '</div>';
+
+echo
+'<div class="fieldset">'.
+'<h4>'.__('Optional columns displayed in lists').'</h4>';
+foreach ($cols as $col_type => $col_list) {
+	echo '<h5>'.$col_list[0].'</h5>';
+	foreach ($col_list[1] as $col_name => $col_data) {
+		echo
+		'<p><label for="cols_'.$col_type.'-"'.$col_name.'" class="classic">'.
+		form::checkbox(array('cols_'.$col_type.'[]','cols_'.$col_type.'-'.$col_name),$col_name,$col_data[0]).$col_data[1].'</label>';
+	}
+}
+echo '</div>';
 
 echo
 '<div class="fieldset">'.
