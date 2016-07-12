@@ -47,6 +47,9 @@ class adminPagesList extends adminGenericList
 			$cols = new ArrayObject($cols);
 			$this->core->callBehavior('adminPagesListHeader',$this->core,$this->rs,$cols);
 
+			// Cope with optional columns
+			$this->userColumns('pages',$cols);
+
 			$html_block .= '<tr>'.implode(iterator_to_array($cols)).
 				'</tr></thead><tbody id="pageslist">%s</tbody></table></div>';
 
@@ -133,6 +136,9 @@ class adminPagesList extends adminGenericList
 
 		$cols = new ArrayObject($cols);
 		$this->core->callBehavior('adminPagesListValue',$this->core,$this->rs,$cols);
+
+		// Cope with optional columns
+		$this->userColumns('pages',$cols);
 
 		$res .= implode(iterator_to_array($cols));
 		$res .= '</tr>';
