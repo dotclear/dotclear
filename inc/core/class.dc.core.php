@@ -1454,7 +1454,15 @@ class dcCore
 				array('inc_subcats','boolean',false,
 				'Include sub-categories in category page and category posts feed'),
 				array('wiki_comments','boolean',false,
-				'Allow commenters to use a subset of wiki syntax')
+				'Allow commenters to use a subset of wiki syntax'),
+				array('import_feed_url_control','boolean',true,
+				'Control feed URL before import'),
+				array('import_feed_no_private_ip','boolean',true,
+				'Prevent import feed from private IP'),
+				array('import_feed_ip_regexp','string','',
+				'Authorize import feed only from this IP regexp'),
+				array('import_feed_port_regexp','string','/^(80|443)$/',
+				'Authorize import feed only from this port regexp')
 			);
 		}
 
