@@ -562,6 +562,19 @@ class dcUpgrade
 					"	OR setting_value = '/\\.(phps?|pht(ml)?|phl)[0-9]*\$/i' ".
 					"	OR setting_value = '/\\.(phps?|pht(ml)?|phl|s?html?|js)[0-9]*\$/i'";
 			$core->con->execute($strReq);
+
+			# Some new settings should be initialized, prepare db queries
+			$strReq = 'INSERT INTO '.$core->prefix.'setting'.
+					' (setting_id,setting_ns,setting_value,setting_type,setting_label)'.
+					' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
+			$core->con->execute(
+				sprintf($strReq,'import_feed_url_control',true,'boolean','Control feed URL before import'));
+			$core->con->execute(
+				sprintf($strReq,'import_feed_no_private_ip',true,'boolean','Prevent import feed from private IP'));
+			$core->con->execute(
+				sprintf($strReq,'import_feed_ip_regexp','','string','Authorize import feed only from this IP regexp'));
+			$core->con->execute(
+				sprintf($strReq,'import_feed_port_regexp','/^(80|443)$/','string','Authorize import feed only from this port regexp'));
 		}
 
 		$core->setVersion('core',DC_VERSION);
