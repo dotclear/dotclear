@@ -9,14 +9,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:47+0100\n"
-"PO-Revision-Date: 2008-11-24 00:00+0900\n"
-"Last-Translator: Takafumi <jp.drupal@imagine **reverse order**>\n"
+"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"PO-Revision-Date: 2016-07-18 15:48+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
-"Language: \n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.8\n"
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear はアップグレードされました。"
@@ -332,6 +334,13 @@ msgstr "著作権情報："
 msgid "New post URL format:"
 msgstr "新規投稿のURL形式："
 
+#, fuzzy
+msgid "Dotclear"
+msgstr "Dotclear チーム"
+
+msgid "Sample:"
+msgstr ""
+
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
@@ -400,9 +409,6 @@ msgstr "日付の書式："
 msgid "Pattern of date"
 msgstr ""
 
-msgid "Sample:"
-msgstr ""
-
 msgid "Time format:"
 msgstr "時刻の書式："
 
@@ -411,6 +417,9 @@ msgstr ""
 
 msgid "Display smilies on entries and comments"
 msgstr "エントリとコメントでスマイリーを表示"
+
+msgid "Disable internal search system"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Display %s entries on home page"
@@ -445,6 +454,38 @@ msgstr ""
 
 msgid "Generated image sizes (in pixels)"
 msgstr "生成される画像サイズ（ピクセル単位）"
+
+#, fuzzy
+msgid "Thumbnail"
+msgstr "サムネイル："
+
+#, fuzzy
+msgid "Small"
+msgstr "スモール："
+
+#, fuzzy
+msgid "Medium"
+msgstr "ミディアム："
+
+msgid "Default size of the inserted video (in pixels)"
+msgstr ""
+
+#, fuzzy
+msgid "Width"
+msgstr "幅："
+
+#, fuzzy
+msgid "Height"
+msgstr "高さ："
+
+msgid "Flash player"
+msgstr ""
+
+msgid "Insert Flash player fallback for video (mp4 or m4v) and audio (mp3) media"
+msgstr ""
+
+msgid "For flv video, the Flash player will be anyway inserted."
+msgstr ""
 
 msgid "Default image insertion attributes"
 msgstr ""
@@ -555,7 +596,6 @@ msgstr "サムネイルの更新"
 msgid "There is one theme to update available from repository."
 msgid_plural "There are %s themes to update available from repository."
 msgstr[0] ""
-msgstr[1] ""
 
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
@@ -591,6 +631,10 @@ msgstr ""
 
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "zipファイルをアップロードかダウンロードすることで、テーマをインストールできます。"
+
+#, fuzzy
+msgid "Some functions are disabled, please give write access to your themes directory to enable them."
+msgstr "この機能を有効にするには、plugins ディレクトリに書き込み権限を与えてください。"
 
 msgid "Last update"
 msgstr "最終更新"
@@ -663,7 +707,6 @@ msgstr "ブログはありません"
 msgid "%d blog matches the filter."
 msgid_plural "%d blogs match the filter."
 msgstr[0] ""
-msgstr[1] ""
 
 #, fuzzy
 msgid "Blogs list"
@@ -672,6 +715,10 @@ msgstr "ブログ"
 #, fuzzy
 msgid "Blog id"
 msgstr "ブログ名"
+
+#, fuzzy
+msgid "URL"
+msgstr "URL："
 
 #, fuzzy
 msgid "Entries (all types)"
@@ -700,7 +747,7 @@ msgid "The category \"%s\" has been successfully deleted."
 msgstr "カテゴリは正常に作成されました。"
 
 #, fuzzy
-msgid "Category where to move posts does not exist"
+msgid "Category where to move entries does not exist"
 msgstr "このカテゴリは存在しません。"
 
 #, fuzzy, php-format
@@ -721,7 +768,6 @@ msgstr "カテゴリ"
 msgid "The category has been successfully removed."
 msgid_plural "The categories have been successfully removed."
 msgstr[0] "カテゴリは正常に削除されました。"
-msgstr[1] "カテゴリは正常に削除されました。"
 
 #, fuzzy
 msgid "Entries have been successfully moved to the category you choose."
@@ -741,7 +787,6 @@ msgstr "エントリ(%d)"
 msgid "%d entry"
 msgid_plural "%d entries"
 msgstr[0] "エントリ(%d)"
-msgstr[1] "エントリ(%d)"
 
 msgid "total:"
 msgstr "合計："
@@ -917,6 +962,13 @@ msgstr "エントリのタイトル"
 msgid "Author"
 msgstr "投稿者"
 
+msgid "IP"
+msgstr ""
+
+#, fuzzy
+msgid "Spam filter"
+msgstr "絞り込み"
+
 #, fuzzy
 msgid "Selected comments have been successfully updated."
 msgstr "コメントは正常に更新されました。"
@@ -974,7 +1026,6 @@ msgstr ""
 msgid "An update is available"
 msgid_plural "%s updates are available."
 msgstr[0] "Iconv モジュールが利用可能ではありません。"
-msgstr[1] "Iconv モジュールが利用可能ではありません。"
 
 #, fuzzy
 msgid "Dotclear news"
@@ -1068,8 +1119,8 @@ msgstr ""
 msgid "Save and publish"
 msgstr "保存して掲載"
 
-#, php-format
-msgid "PHP version is %s (5.0 or earlier needed)."
+#, fuzzy, php-format
+msgid "PHP version is %s (5.3 or earlier needed)."
 msgstr "PHP のバージョンが %s です。（5.0 以上が必須です）"
 
 msgid "Multibyte string module (mbstring) is not available."
@@ -1241,6 +1292,10 @@ msgstr "キャッシュディレクトリ %s が書き込み可能ではあり�
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "このディレクトリへの書き込みができません。"
+
 #, php-format
 msgid "File %s does not exist."
 msgstr "ファイル %s が存在しません。"
@@ -1281,6 +1336,9 @@ msgid "MySQLi"
 msgstr ""
 
 msgid "PostgreSQL"
+msgstr ""
+
+msgid "SQLite"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1401,6 +1459,10 @@ msgstr "日付 - 昇順"
 msgid "By dates, in descending order"
 msgstr "日付 - 降順"
 
+#, fuzzy
+msgid "Not a valid directory"
+msgstr "有効なファイルではありません"
+
 #, fuzzy, php-format
 msgid "Directory \"%s\" has been successfully created."
 msgstr "ディレクトリは正常に作成されました。"
@@ -1412,7 +1474,6 @@ msgstr "ファイルは正常にアップロードされました。"
 msgid "Successfully delete one media."
 msgid_plural "Successfully delete %d medias."
 msgstr[0] "ブログは正常に削除されました。"
-msgstr[1] "ブログは正常に削除されました。"
 
 msgid "Directory has been successfully removed."
 msgstr "ディレクトリは正常に削除されました。"
@@ -1440,6 +1501,20 @@ msgstr "キャンセル"
 msgid "Yes"
 msgstr "はい"
 
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%d エントリが見つかりました"
+
+msgid "Remove this folder from your favorites"
+msgstr ""
+
+msgid "Add this folder to your favorites"
+msgstr ""
+
+msgid "Goto recent folder:"
+msgstr ""
+
 #, fuzzy
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "このプラグインを削除するパーミッションがありません。"
@@ -1453,28 +1528,73 @@ msgstr "ディレクトは正常に再構築されました。"
 msgid "Zip file has been successfully extracted."
 msgstr "zipファイルは正常に展開されました。"
 
+#, fuzzy, php-format
+msgid "Select a file by clicking on %s"
+msgstr "エントリへ挿入するファイルを %s をクリックして選択してください。"
+
+#, fuzzy
+msgid "Select this file"
+msgstr "このブログを削除"
+
+#, fuzzy
+msgid "Choose selected medias"
+msgstr "選択したファイルへ戻す"
+
 #, php-format
-msgid "Choose a file to attach to entry %s by clicking on %s."
+msgid "Select files and click on <strong>%s</strong> button"
+msgstr ""
+
+#, fuzzy
+msgid "or"
+msgstr "並び替え："
+
+#, fuzzy
+msgid "upload a new file"
+msgstr "zipファイルのアップロード"
+
+#, fuzzy, php-format
+msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "エントリ %s に添付するファイルを %s をクリックして選択してください。"
 
 msgid "Attach this file to entry"
 msgstr "このファイルをエントリに添付"
 
-#, php-format
-msgid "Choose a file to insert into entry by clicking on %s."
+#, fuzzy, php-format
+msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "エントリへ挿入するファイルを %s をクリックして選択してください。"
 
 #, fuzzy
 msgid "Remove selected medias"
 msgstr "選択したファイルへ戻す"
 
+msgid "Will search into media filename (including path), title and description"
+msgstr ""
+
 msgid "No file."
 msgstr "ファイルはありません。"
+
+#, fuzzy
+msgid "Grid display mode"
+msgstr "表示名"
+
+#, fuzzy
+msgid "List display mode"
+msgstr "表示名"
 
 msgid "Sort files:"
 msgstr "ファイルの並び替え："
 
 msgid "Number of elements displayed per page:"
+msgstr ""
+
+#, fuzzy
+msgid "Media list"
+msgstr "メディアの詳細"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Size"
 msgstr ""
 
 #, php-format
@@ -1540,15 +1660,15 @@ msgstr ""
 msgid "Blog parameters"
 msgstr "パラメータ"
 
-msgid "open"
-msgstr "開く"
-
 msgid "Insert this file into entry"
 msgstr "このファイルをエントリへ挿入"
 
 #, fuzzy
 msgid "delete"
 msgstr "削除"
+
+msgid "open"
+msgstr "開く"
 
 msgid "Not a valid file"
 msgstr "有効なファイルではありません"
@@ -1567,11 +1687,19 @@ msgstr "サムネイルは正常に更新されました。"
 msgid "Are you sure to delete this media?"
 msgstr "本当に、このコメントを削除してもよろしいですか？"
 
-msgid "Insert media item"
+#, fuzzy
+msgid "Select media item"
 msgstr "メディアアイテムの挿入"
 
 msgid "Image size:"
 msgstr "画像サイズ："
+
+#, fuzzy
+msgid "Select"
+msgstr "イチ押し："
+
+msgid "Insert media item"
+msgstr "メディアアイテムの挿入"
 
 msgid "Image alignment"
 msgstr "画像の配置"
@@ -1622,17 +1750,29 @@ msgstr "メディアの詳細"
 msgid "Available sizes:"
 msgstr "利用可能なサイズ："
 
-msgid "File owner:"
-msgstr "ファイルの所有者："
+#, fuzzy
+msgid "Thumbnail details"
+msgstr "画像の詳細"
 
-msgid "File type:"
-msgstr "ファイルタイプ："
+#, fuzzy
+msgid "Image width:"
+msgstr "画像サイズ："
+
+#, fuzzy
+msgid "Image height:"
+msgstr "画像の配置"
 
 msgid "File size:"
 msgstr "ファイルサイズ："
 
 msgid "File URL:"
 msgstr "ファイルのURL："
+
+msgid "File owner:"
+msgstr "ファイルの所有者："
+
+msgid "File type:"
+msgstr "ファイルタイプ："
 
 msgid "Show entries containing this media"
 msgstr "このメディアを含んでいるエントリを表示"
@@ -1749,7 +1889,6 @@ msgstr "プラグインをアップロード"
 msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
-msgstr[1] ""
 
 #, fuzzy
 msgid "Installed plugins"
@@ -2040,6 +2179,13 @@ msgstr "イチ押し"
 msgid "Not selected"
 msgstr "非イチ押し"
 
+msgid "Opened"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "閉じる"
+
 #, fuzzy
 msgid "With attachments"
 msgstr "添付(%d)"
@@ -2047,6 +2193,14 @@ msgstr "添付(%d)"
 #, fuzzy
 msgid "Without attachments"
 msgstr "添付(%d)"
+
+#, fuzzy
+msgid "With password"
+msgstr "エントリのパスワード："
+
+#, fuzzy
+msgid "Without password"
+msgstr "あなたのパスワード"
 
 #, fuzzy
 msgid "Number of comments"
@@ -2064,6 +2218,10 @@ msgstr "サムネイルは正常に更新されました。"
 msgid "Selected entries have been successfully deleted."
 msgstr "サムネイルは正常に更新されました。"
 
+#, fuzzy
+msgid "Format:"
+msgstr "日付の書式："
+
 msgid "Selected:"
 msgstr "イチ押し："
 
@@ -2078,11 +2236,22 @@ msgid "Lang:"
 msgstr "言語："
 
 #, fuzzy
+msgid "Comments:"
+msgstr "コメント"
+
+#, fuzzy
+msgid "Trackbacks:"
+msgstr "トラックバック"
+
+#, fuzzy
 msgid "entries per page"
 msgstr "エントリ / ページ"
 
 msgid "Selected entries action:"
 msgstr "選択されたエントリに実行："
+
+msgid "Posts"
+msgstr ""
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "メールアドレスやパスワードを変更したい場合は、現在のパスワードを入力する必要があります。"
@@ -2172,10 +2341,19 @@ msgstr ""
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
+msgid "Number of recent folders proposed in media manager:"
+msgstr ""
+
+msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
+msgstr ""
+
 msgid "Do not use standard favicon"
 msgstr ""
 
 msgid "This will be applied for all users"
+msgstr ""
+
+msgid "Optional columns displayed in lists"
 msgstr ""
 
 #, fuzzy
@@ -2201,6 +2379,9 @@ msgstr "エントリ編集フィールドの高さ"
 
 msgid "Enable WYSIWYG mode"
 msgstr "WYSIWYG モードの有効化"
+
+msgid "Display editor's toolbar at bottom of textarea (if possible)"
+msgstr ""
 
 #, fuzzy
 msgid "Other options"
@@ -2260,6 +2441,10 @@ msgstr ""
 
 #, fuzzy
 msgid "Dashboard icons"
+msgstr "ダッシュボード"
+
+#, fuzzy
+msgid "Display dashboard icons"
 msgstr "ダッシュボード"
 
 msgid "Iconset:"
@@ -2534,9 +2719,19 @@ msgstr "保留に指定"
 msgid "Mark as junk"
 msgstr "ジャンクに指定"
 
+msgid "Blacklist IP"
+msgstr ""
+
+msgid "Blacklist IP (global)"
+msgstr ""
+
 #, fuzzy
 msgid "No comment selected"
 msgstr "コメントはありません"
+
+#, fuzzy
+msgid "IP addresses for selected comments have been blacklisted."
+msgstr "コメントは正常に更新されました。"
 
 #, fuzzy
 msgid "Back to entries list"
@@ -2585,31 +2780,26 @@ msgstr "非イチ押し"
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
 msgstr[0] "エントリは正常に更新されました。"
-msgstr[1] "エントリは正常に更新されました。"
 
 #, fuzzy, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
 msgstr[0] "エントリは正常に作成されました。"
-msgstr[1] "エントリは正常に作成されました。"
 
 #, fuzzy, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
 msgstr[0] "エントリは正常に作成されました。"
-msgstr[1] "エントリは正常に作成されました。"
 
 #, fuzzy, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "テーマは正常に削除されました。"
-msgstr[1] "テーマは正常に削除されました。"
 
 #, fuzzy, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
 msgstr[0] "エントリは正常に更新されました。"
-msgstr[1] "エントリは正常に更新されました。"
 
 msgid "Change category for this selection"
 msgstr "エントリのカテゴリを変更"
@@ -2625,7 +2815,6 @@ msgstr "このユーザは存在しません"
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
 msgstr[0] "エントリは正常に作成されました。"
-msgstr[1] "エントリは正常に作成されました。"
 
 msgid "Change author for this selection"
 msgstr "エントリの投稿者を変更"
@@ -2637,7 +2826,6 @@ msgstr ""
 msgid "%d entry has been successfully set to language \"%s\""
 msgid_plural "%d entries have been successfully set to language \"%s\""
 msgstr[0] "エントリは正常に更新されました。"
-msgstr[1] "エントリは正常に更新されました。"
 
 #, fuzzy
 msgid "Change language for this selection"
@@ -2660,7 +2848,6 @@ msgstr "言語"
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] "コメント(%d)"
-msgstr[1] "コメント(%d)"
 
 msgid "Change blog"
 msgstr "ブログの変更"
@@ -2954,7 +3141,6 @@ msgstr ""
 msgid "Found %d result for search \"%s\":"
 msgid_plural "Found %d results for search \"%s\":"
 msgstr[0] ""
-msgstr[1] ""
 
 #, fuzzy
 msgid "current selection"
@@ -2964,7 +3150,6 @@ msgstr "選択されていません"
 msgid "%d result"
 msgid_plural "%d results"
 msgstr[0] ""
-msgstr[1] ""
 
 msgid "no results"
 msgstr ""
@@ -2976,9 +3161,6 @@ msgstr ""
 msgid "Plugins list"
 msgstr "プラグイン"
 
-msgid "Name"
-msgstr "名前"
-
 msgid "Score"
 msgstr ""
 
@@ -2988,6 +3170,13 @@ msgstr "バージョン"
 #, fuzzy
 msgid "Current version"
 msgstr "パーミッションを設定"
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr ""
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr ""
 
 msgid "Plugin from official distribution"
 msgstr ""
@@ -3049,19 +3238,16 @@ msgstr "以下のプラグインはインストールされませんでした：
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "プラグインは正常に削除されました。"
-msgstr[1] "プラグインは正常に削除されました。"
 
 #, fuzzy
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successuflly installed."
 msgstr[0] "プラグインは正常にインストールされました。"
-msgstr[1] "プラグインは正常にインストールされました。"
 
 #, fuzzy
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "プラグインは正常にインストールされました。"
-msgstr[1] "プラグインは正常にインストールされました。"
 
 #, fuzzy
 msgid "Some plugins have not been deactivated."
@@ -3071,13 +3257,11 @@ msgstr "以下のプラグインはインストールされませんでした：
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "プラグインは正常に削除されました。"
-msgstr[1] "プラグインは正常に削除されました。"
 
 #, fuzzy
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successuflly updated."
 msgstr[0] "プラグインは正常にアップグレードされました。"
-msgstr[1] "プラグインは正常にアップグレードされました。"
 
 #, fuzzy
 msgid "Zip file path:"
@@ -3171,7 +3355,6 @@ msgstr "テーマは正常に削除されました。"
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "テーマは正常に変更されました。"
-msgstr[1] "テーマは正常に変更されました。"
 
 msgid "Some themes have not been deactivated."
 msgstr ""
@@ -3180,7 +3363,6 @@ msgstr ""
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "テーマは正常に削除されました。"
-msgstr[1] "テーマは正常に削除されました。"
 
 #, fuzzy
 msgid "You don't have permissions to delete this theme."
@@ -3193,19 +3375,16 @@ msgstr ""
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "テーマは正常に削除されました。"
-msgstr[1] "テーマは正常に削除されました。"
 
 #, fuzzy
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successuflly installed."
 msgstr[0] "テーマは正常にインストールされました。"
-msgstr[1] "テーマは正常にインストールされました。"
 
 #, fuzzy
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successuflly updated."
 msgstr[0] "テーマは正常にアップグレードされました。"
-msgstr[1] "テーマは正常にアップグレードされました。"
 
 #, fuzzy
 msgid "First page"
@@ -3245,13 +3424,33 @@ msgstr "エントリのタイトルがありません"
 msgid "No entry"
 msgstr "エントリ(0)"
 
-#, php-format
-msgid "List of %s entries match the filter."
-msgstr ""
+#, fuzzy, php-format
+msgid "List of %s entries matching the filter."
+msgstr "エントリのタイトルがありません"
 
-#, fuzzy
-msgid "Entries list"
+#, fuzzy, php-format
+msgid "List of entries (%s)"
 msgstr "カテゴリリスト"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ""
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ""
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ""
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ""
 
 #, fuzzy
 msgid "Protected"
@@ -3265,6 +3464,10 @@ msgstr "添付(%d)"
 msgid "%d attachments"
 msgstr "添付(%d)"
 
+#, fuzzy
+msgid "Entries list"
+msgstr "カテゴリリスト"
+
 msgid "No comments or trackbacks matches the filter"
 msgstr ""
 
@@ -3272,7 +3475,15 @@ msgstr ""
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
 msgstr[0] ""
-msgstr[1] ""
+
+#, fuzzy, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "コメントとトラックバック"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
+msgstr[0] ""
 
 msgid "Type"
 msgstr "タイプ"
@@ -3380,9 +3591,6 @@ msgid "thumbnail"
 msgstr "サムネイル："
 
 msgid "square"
-msgstr ""
-
-msgid "Posts"
 msgstr ""
 
 #, fuzzy
@@ -3576,6 +3784,26 @@ msgid "Embedded Video Player"
 msgstr ""
 
 #, php-format
+msgid "Requires %s module which is not installed"
+msgstr ""
+
+#, php-format
+msgid "Requires Dotclear version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr ""
+
+#, fuzzy
+msgid "The following extensions have been disabled :"
+msgstr "以下のプラグインがインストールされました："
+
+#, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
 msgstr ""
 
@@ -3746,9 +3974,6 @@ msgstr ""
 msgid "LOL!"
 msgstr ""
 
-msgid "SQLite Database Schema cannot be upgraded."
-msgstr "SQLite のデータベーススキーマはアップグレードすることができません。"
-
 msgid "Something went wrong with auto upgrade:"
 msgstr "自動アップグレードで何か誤りがありました："
 
@@ -3864,7 +4089,6 @@ msgstr ""
 msgid "singular"
 msgid_plural "plural"
 msgstr[0] ""
-msgstr[1] ""
 
 #, php-format
 msgid "File %s is not compressed in the zip."
@@ -3910,6 +4134,9 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "SQLite Database Schema cannot be upgraded."
+#~ msgstr "SQLite のデータベーススキーマはアップグレードすることができません。"
 
 #~ msgid "more information"
 #~ msgstr "詳細"
@@ -3998,10 +4225,6 @@ msgstr ""
 #~ msgid "Some plugins are installed twice:"
 #~ msgstr "以下のプラグインがインストールされました："
 
-#, fuzzy
-#~ msgid "Sort"
-#~ msgstr "並び替え："
-
 #~ msgid "New directory"
 #~ msgstr "新規ディレクトリ"
 
@@ -4046,9 +4269,6 @@ msgstr ""
 
 #~ msgid "Published on:"
 #~ msgstr "掲載の日時："
-
-#~ msgid "Entry password:"
-#~ msgstr "エントリのパスワード："
 
 #~ msgid "junk"
 #~ msgstr "ジャンク"
@@ -4221,9 +4441,6 @@ msgstr ""
 
 #~ msgid "login"
 #~ msgstr "ログイン"
-
-#~ msgid "filter"
-#~ msgstr "絞り込み"
 
 #~ msgid "View site"
 #~ msgstr "サイトを表示"

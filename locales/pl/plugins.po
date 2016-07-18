@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:49+0100\n"
-"PO-Revision-Date: 2011-06-26 14:10+0100\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2016-07-18 15:41+0200\n"
+"PO-Revision-Date: 2016-07-18 15:50+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Polish\n"
-"Language: \n"
+"Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Polish\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.8.8\n"
 
 msgid "Manage every blog configuration directive"
 msgstr ""
@@ -34,6 +35,9 @@ msgid "Manage your blogroll"
 msgstr "zarządzaj polecanymi odnośnikami"
 
 msgid "Configure your Blowup Theme"
+msgstr ""
+
+msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 msgid "Legacy modules for dotclear"
@@ -143,6 +147,10 @@ msgstr ""
 #, fuzzy, php-format
 msgid "Settings for %s"
 msgstr "Edycja pliku %s"
+
+#, fuzzy
+msgid "Setting ID"
+msgstr "Nazwa ustawienia:"
 
 msgid "Value"
 msgstr "Wartość"
@@ -582,9 +590,6 @@ msgstr "Elementy zostały pomyślnie usunięte."
 msgid "Items order has been successfully updated"
 msgstr "Kolejność elementów została pomyślnie zaktualizowana"
 
-msgid "URL"
-msgstr "URL"
-
 msgid "Lang"
 msgstr "Język"
 
@@ -848,6 +853,34 @@ msgstr "Nie można utworzyć obrazów."
 msgid "Unable to open image."
 msgstr "Nie można otworzyć obrazu."
 
+msgid "Breadcrumb"
+msgstr ""
+
+msgid "Enable breadcrumb for this blog"
+msgstr ""
+
+msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
+msgstr ""
+
+msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
+msgstr ""
+
+msgid "Home"
+msgstr "Strona główna"
+
+#, php-format
+msgid "page %d"
+msgstr ""
+
+msgid "Archives"
+msgstr "Archiwum"
+
+msgid "All tags"
+msgstr "Wszystkie tagi"
+
+msgid "404"
+msgstr ""
+
 #, fuzzy
 msgid "The configuration has been updated."
 msgstr "Konfiguracja motywu została pomyślnie zaktualizowana."
@@ -862,6 +895,13 @@ msgstr "Odnośnik do wszystkich tagów:"
 #, fuzzy
 msgid "Link"
 msgstr "Odnośniki"
+
+#, fuzzy
+msgid "External image"
+msgstr "Media zewnętrzne"
+
+msgid "URL field cannot be empty."
+msgstr ""
 
 msgid "visual"
 msgstr ""
@@ -947,10 +987,6 @@ msgid "Language?"
 msgstr "Język:"
 
 #, fuzzy
-msgid "External image"
-msgstr "Media zewnętrzne"
-
-#, fuzzy
 msgid "Remove text formating"
 msgstr "Usuń tagi"
 
@@ -1005,9 +1041,6 @@ msgstr "Twój blog został zaimportowany pomyślnie. Witaj w Dotclear 2!"
 
 msgid "Why don't you blog this now?"
 msgstr "A może umieściłbyś to teraz na blogu?"
-
-msgid "or"
-msgstr "lub"
 
 msgid "visit your dashboard"
 msgstr "odwiedź swój panel"
@@ -1272,6 +1305,7 @@ msgid "One task to execute"
 msgid_plural "%s tasks to execute"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "This task has never been executed."
 msgstr ""
@@ -1285,6 +1319,7 @@ msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 #, fuzzy
 msgid "Manage tasks"
@@ -1649,14 +1684,26 @@ msgid "Simple menu"
 msgstr ""
 
 #, fuzzy
+msgid "Item description"
+msgstr "Brak opisu"
+
+#, fuzzy
+msgid "Displayed in link"
+msgstr "wybierz ten odnośnik"
+
+#, fuzzy
+msgid "Used as link title"
+msgstr "Brak takiego odnośnika lub tytułu"
+
+msgid "Displayed in link and used as title"
+msgstr ""
+
+msgid "Not displayed nor used"
+msgstr ""
+
+#, fuzzy
 msgid "All months"
 msgstr "Wszystkie tagi"
-
-msgid "All tags"
-msgstr "Wszystkie tagi"
-
-msgid "Home"
-msgstr "Strona główna"
 
 #, fuzzy
 msgid "Archive"
@@ -1688,9 +1735,6 @@ msgstr ""
 
 msgid "Recent Posts from this category"
 msgstr ""
-
-msgid "Archives"
-msgstr "Archiwum"
 
 #, fuzzy, php-format
 msgid "Posts from %s"
@@ -1809,6 +1853,27 @@ msgstr "Jesteś pewien, że chcesz usunąć wybrane odnośniki?"
 msgid "No menu items so far."
 msgstr ""
 
+msgid "This tag's comments Atom feed"
+msgstr "Kanał Atom dla komentarzy z tym tagiem"
+
+msgid "This tag's entries Atom feed"
+msgstr "Kanał Atom dla wpisów z tym tagiem"
+
+msgid "Tag"
+msgstr "Tag"
+
+msgid "Limit (empty means no limit):"
+msgstr "Limit (puste oznacza brak limitu):"
+
+msgid "Entries count"
+msgstr "Liczba wpisów"
+
+msgid "Tag name"
+msgstr "Nazwa tagu"
+
+msgid "Link to all tags:"
+msgstr "Odnośnik do wszystkich tagów:"
+
 msgid "Add tags"
 msgstr "Dodaj tagi"
 
@@ -1820,6 +1885,7 @@ msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Tag został pomyślnie usunięty"
 msgstr[1] "Tag został pomyślnie usunięty"
+msgstr[2] ""
 
 #, fuzzy
 msgid "Add tags to this selection"
@@ -1859,6 +1925,7 @@ msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Tag został pomyślnie usunięty"
 msgstr[1] "Tag został pomyślnie usunięty"
+msgstr[2] ""
 
 msgid "No tags for selected entries"
 msgstr "Brak tagów dla wybranych wpisów"
@@ -1870,9 +1937,6 @@ msgstr "Usuń wybrane tagi z wpisów"
 msgid "Following tags have been found in selected entries:"
 msgstr "Następujące tagi zostały znalezione w wybranych wpisach:"
 
-msgid "Tag"
-msgstr "Tag"
-
 #, fuzzy
 msgid "Short"
 msgstr "krótki"
@@ -1883,24 +1947,6 @@ msgstr "rozszerzony"
 
 msgid "Tags list format:"
 msgstr "Format listy tagów:"
-
-msgid "This tag's comments Atom feed"
-msgstr "Kanał Atom dla komentarzy z tym tagiem"
-
-msgid "This tag's entries Atom feed"
-msgstr "Kanał Atom dla wpisów z tym tagiem"
-
-msgid "Limit (empty means no limit):"
-msgstr "Limit (puste oznacza brak limitu):"
-
-msgid "Entries count"
-msgstr "Liczba wpisów"
-
-msgid "Tag name"
-msgstr "Nazwa tagu"
-
-msgid "Link to all tags:"
-msgstr "Odnośnik do wszystkich tagów:"
 
 msgid "Tag has been successfully renamed"
 msgstr "Tag został pomyślnie zmieniony."
@@ -1933,7 +1979,13 @@ msgstr "Brak tagów w tym blogu."
 msgid "Edit theme files"
 msgstr "Edycja pliku %s"
 
+msgid "Syntax highlighting"
+msgstr ""
+
 msgid "Syntax highlighting in theme editor"
+msgstr ""
+
+msgid "Theme:"
 msgstr ""
 
 msgid "No file"
@@ -2035,6 +2087,9 @@ msgstr "Widgety prezentacji"
 
 msgid "Search engine"
 msgstr "Wyszukiwarka"
+
+msgid "Placeholder (HTML5 only, optional):"
+msgstr ""
 
 msgid "Navigation links"
 msgstr "Nawigacja"
@@ -2211,6 +2266,12 @@ msgstr "Usuń widget"
 msgid "Drag widgets here to remove."
 msgstr ""
 
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "or"
+#~ msgstr "lub"
+
 #~ msgid "Settings definition successfully updated"
 #~ msgstr "Definicja ustawień pomyślnie zaktualizowana"
 
@@ -2339,9 +2400,6 @@ msgstr ""
 
 #~ msgid "Widget ID"
 #~ msgstr "ID gadżetu"
-
-#~ msgid "Setting name"
-#~ msgstr "Nazwa ustawienia:"
 
 #~ msgid "Setting value"
 #~ msgstr "Wartość"

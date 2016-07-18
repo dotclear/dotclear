@@ -9,14 +9,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:47+0100\n"
-"PO-Revision-Date: 2008-11-24 00:00+0900\n"
-"Last-Translator: Takafumi <jp.drupal@imagine **reverse order**>\n"
+"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"PO-Revision-Date: 2016-07-18 15:48+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
-"Language: \n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.8\n"
 
 msgid "Manage every blog configuration directive"
 msgstr ""
@@ -35,6 +37,9 @@ msgid "Manage your blogroll"
 msgstr "ブログロールの管理"
 
 msgid "Configure your Blowup Theme"
+msgstr ""
+
+msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 msgid "Legacy modules for dotclear"
@@ -144,6 +149,10 @@ msgstr ""
 #, fuzzy, php-format
 msgid "Settings for %s"
 msgstr "ファイル %s の編集"
+
+#, fuzzy
+msgid "Setting ID"
+msgstr "設定名"
 
 msgid "Value"
 msgstr "値"
@@ -584,9 +593,6 @@ msgstr "アイテムは正常に削除されました。"
 msgid "Items order has been successfully updated"
 msgstr "アイテムの並び順は正常に更新されました"
 
-msgid "URL"
-msgstr "URL"
-
 msgid "Lang"
 msgstr "言語"
 
@@ -853,6 +859,34 @@ msgstr "画像が作成できません。"
 msgid "Unable to open image."
 msgstr "画像が開けません。"
 
+msgid "Breadcrumb"
+msgstr ""
+
+msgid "Enable breadcrumb for this blog"
+msgstr ""
+
+msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
+msgstr ""
+
+msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
+msgstr ""
+
+msgid "Home"
+msgstr "ホーム"
+
+#, php-format
+msgid "page %d"
+msgstr ""
+
+msgid "Archives"
+msgstr "アーカイブ"
+
+msgid "All tags"
+msgstr "すべてのタグ"
+
+msgid "404"
+msgstr ""
+
 #, fuzzy
 msgid "The configuration has been updated."
 msgstr "テーマの設定は正常に更新されました。"
@@ -866,6 +900,13 @@ msgstr ""
 #, fuzzy
 msgid "Link"
 msgstr "リンク"
+
+#, fuzzy
+msgid "External image"
+msgstr "外部メディア"
+
+msgid "URL field cannot be empty."
+msgstr ""
 
 msgid "visual"
 msgstr ""
@@ -950,10 +991,6 @@ msgid "Language?"
 msgstr "言語"
 
 #, fuzzy
-msgid "External image"
-msgstr "外部メディア"
-
-#, fuzzy
 msgid "Remove text formating"
 msgstr "タグの除去"
 
@@ -1008,9 +1045,6 @@ msgstr "あなたのブログは正常にインポートされました。 Dotcl
 
 msgid "Why don't you blog this now?"
 msgstr "すぐにブログしませんか？"
-
-msgid "or"
-msgstr "または"
 
 msgid "visit your dashboard"
 msgstr "ダッシュボードへアクセス"
@@ -1276,7 +1310,6 @@ msgstr ""
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
 msgstr[0] ""
-msgstr[1] ""
 
 msgid "This task has never been executed."
 msgstr ""
@@ -1289,7 +1322,6 @@ msgstr ""
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] ""
-msgstr[1] ""
 
 #, fuzzy
 msgid "Manage tasks"
@@ -1655,14 +1687,26 @@ msgid "Simple menu"
 msgstr ""
 
 #, fuzzy
+msgid "Item description"
+msgstr "説明はありません"
+
+#, fuzzy
+msgid "Displayed in link"
+msgstr "このタグを削除"
+
+#, fuzzy
+msgid "Used as link title"
+msgstr "指定されたリンクやタイトルはありません"
+
+msgid "Displayed in link and used as title"
+msgstr ""
+
+msgid "Not displayed nor used"
+msgstr ""
+
+#, fuzzy
 msgid "All months"
 msgstr "すべてのタグ"
-
-msgid "All tags"
-msgstr "すべてのタグ"
-
-msgid "Home"
-msgstr "ホーム"
 
 #, fuzzy
 msgid "Archive"
@@ -1694,9 +1738,6 @@ msgstr ""
 
 msgid "Recent Posts from this category"
 msgstr ""
-
-msgid "Archives"
-msgstr "アーカイブ"
 
 #, fuzzy, php-format
 msgid "Posts from %s"
@@ -1814,6 +1855,27 @@ msgstr "本当に、選択されたリンクを削除してもよろしいです
 msgid "No menu items so far."
 msgstr ""
 
+msgid "This tag's comments Atom feed"
+msgstr "このタグのコメントのAtomフィード"
+
+msgid "This tag's entries Atom feed"
+msgstr "このタグのエントリのAtomフィード"
+
+msgid "Tag"
+msgstr "タグ"
+
+msgid "Limit (empty means no limit):"
+msgstr "制限（空欄は無制限）"
+
+msgid "Entries count"
+msgstr "エントリ数"
+
+msgid "Tag name"
+msgstr "タグ名"
+
+msgid "Link to all tags:"
+msgstr ""
+
 #, fuzzy
 msgid "Add tags"
 msgstr "タグの追加"
@@ -1826,7 +1888,6 @@ msgstr "タグの除去"
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "タグは正常に削除されました"
-msgstr[1] "タグは正常に削除されました"
 
 #, fuzzy
 msgid "Add tags to this selection"
@@ -1866,7 +1927,6 @@ msgstr "追加するタグ："
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "タグは正常に削除されました"
-msgstr[1] "タグは正常に削除されました"
 
 msgid "No tags for selected entries"
 msgstr "選択されたエントリにはタグがありません"
@@ -1878,9 +1938,6 @@ msgstr "エントリから選択されたタグを除去"
 msgid "Following tags have been found in selected entries:"
 msgstr "以下のタグが選択されたエントリで見つかりました："
 
-msgid "Tag"
-msgstr "タグ"
-
 msgid "Short"
 msgstr ""
 
@@ -1891,24 +1948,6 @@ msgstr "外部メディア"
 #, fuzzy
 msgid "Tags list format:"
 msgstr "追加するタグ："
-
-msgid "This tag's comments Atom feed"
-msgstr "このタグのコメントのAtomフィード"
-
-msgid "This tag's entries Atom feed"
-msgstr "このタグのエントリのAtomフィード"
-
-msgid "Limit (empty means no limit):"
-msgstr "制限（空欄は無制限）"
-
-msgid "Entries count"
-msgstr "エントリ数"
-
-msgid "Tag name"
-msgstr "タグ名"
-
-msgid "Link to all tags:"
-msgstr ""
 
 msgid "Tag has been successfully renamed"
 msgstr "タグの名前は正常に変更されました"
@@ -1941,7 +1980,13 @@ msgstr "このブログでのタグはありません。"
 msgid "Edit theme files"
 msgstr "ファイル %s の編集"
 
+msgid "Syntax highlighting"
+msgstr ""
+
 msgid "Syntax highlighting in theme editor"
+msgstr ""
+
+msgid "Theme:"
 msgstr ""
 
 msgid "No file"
@@ -2044,6 +2089,9 @@ msgstr "プレゼンテーションウィジェット"
 
 msgid "Search engine"
 msgstr "検索エンジン"
+
+msgid "Placeholder (HTML5 only, optional):"
+msgstr ""
 
 msgid "Navigation links"
 msgstr "ナビゲーションリンク"
@@ -2220,6 +2268,12 @@ msgstr "ウィジェットの削除"
 msgid "Drag widgets here to remove."
 msgstr ""
 
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "or"
+#~ msgstr "または"
+
 #~ msgid "Settings definition successfully updated"
 #~ msgstr "設定の定義は正常に更新されました"
 
@@ -2335,9 +2389,6 @@ msgstr ""
 
 #~ msgid "Widget ID"
 #~ msgstr "ウィジェット ID"
-
-#~ msgid "Setting name"
-#~ msgstr "設定名"
 
 #~ msgid "Setting value"
 #~ msgstr "設定値"
