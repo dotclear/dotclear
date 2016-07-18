@@ -204,6 +204,7 @@ CKEDITOR.lang['fo'] = {
     	anchorName : 'Eftir navni á marknasteini',
     	charset : 'Atknýtt teknsett',
     	cssClasses : 'Typografi klassar',
+    	download : 'Force Download',
     	emailAddress : 'Teldupost-adressa',
     	emailBody : 'Breyðtekstur',
     	emailSubject : 'Evni',

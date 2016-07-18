@@ -204,6 +204,7 @@ CKEDITOR.lang['uk'] = {
     	anchorName : 'За ім\'ям елементу',
     	charset : 'Кодування',
     	cssClasses : 'Клас CSS',
+    	download : 'Force Download',
     	emailAddress : 'Адреса ел. пошти',
     	emailBody : 'Тіло повідомлення',
     	emailSubject : 'Тема листа',

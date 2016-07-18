@@ -204,6 +204,7 @@ CKEDITOR.lang['af'] = {
     	anchorName : 'Op ankernaam',
     	charset : 'Karakterstel van geskakelde bron',
     	cssClasses : 'CSS klasse',
+    	download : 'Force Download',
     	emailAddress : 'E-posadres',
     	emailBody : 'Berig-inhoud',
     	emailSubject : 'Berig-onderwerp',

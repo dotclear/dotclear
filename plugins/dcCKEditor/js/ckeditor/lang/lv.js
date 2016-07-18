@@ -204,6 +204,7 @@ CKEDITOR.lang['lv'] = {
     	anchorName : 'Pēc iezīmes nosaukuma',
     	charset : 'Pievienotā resursa kodējums',
     	cssClasses : 'Stilu saraksta klases',
+    	download : 'Force Download',
     	emailAddress : 'E-pasta adrese',
     	emailBody : 'Ziņas saturs',
     	emailSubject : 'Ziņas tēma',

@@ -204,6 +204,7 @@ CKEDITOR.lang['ar'] = {
     	anchorName : 'حسب إسم الإشارة المرجعية',
     	charset : 'ترميز المادة المطلوبة',
     	cssClasses : 'فئات التنسيق',
+    	download : 'Force Download',
     	emailAddress : 'البريد الإلكتروني',
     	emailBody : 'محتوى الرسالة',
     	emailSubject : 'موضوع الرسالة',

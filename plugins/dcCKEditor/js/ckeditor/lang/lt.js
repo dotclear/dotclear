@@ -204,6 +204,7 @@ CKEDITOR.lang['lt'] = {
     	anchorName : 'Pagal žymės vardą',
     	charset : 'Susietų išteklių simbolių lentelė',
     	cssClasses : 'Stilių lentelės klasės',
+    	download : 'Force Download',
     	emailAddress : 'El.pašto adresas',
     	emailBody : 'Žinutės turinys',
     	emailSubject : 'Žinutės tema',

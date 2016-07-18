@@ -204,6 +204,7 @@ CKEDITOR.lang['hu'] = {
     	anchorName : 'Horgony név szerint',
     	charset : 'Hivatkozott tartalom kódlapja',
     	cssClasses : 'Stíluskészlet',
+    	download : 'Force Download',
     	emailAddress : 'E-Mail cím',
     	emailBody : 'Üzenet',
     	emailSubject : 'Üzenet tárgya',
