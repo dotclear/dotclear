@@ -112,7 +112,7 @@ sup {
 	float: left;
 }
 
-#content {
+#breadcrumb, #content {
 	padding: 0 25px;
 }
 
