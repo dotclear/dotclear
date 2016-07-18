@@ -7,16 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:50+0100\n"
-"PO-Revision-Date: 2011-09-03 00:21+0000\n"
-"Last-Translator: transla73436 <Unknown>\n"
+"POT-Creation-Date: 2016-07-18 15:41+0200\n"
+"PO-Revision-Date: 2016-07-18 15:51+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2012-05-27 15:39+0000\n"
-"X-Generator: Launchpad (build 15288)\n"
+"X-Generator: Poedit 1.8.8\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 msgid "Manage every blog configuration directive"
 msgstr ""
@@ -35,6 +36,9 @@ msgid "Manage your blogroll"
 msgstr "administrare blogroll"
 
 msgid "Configure your Blowup Theme"
+msgstr ""
+
+msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 msgid "Legacy modules for dotclear"
@@ -136,6 +140,9 @@ msgstr ""
 
 #, php-format
 msgid "Settings for %s"
+msgstr ""
+
+msgid "Setting ID"
 msgstr ""
 
 msgid "Value"
@@ -574,9 +581,6 @@ msgstr "Elementele au fost eliminate"
 msgid "Items order has been successfully updated"
 msgstr "Lista de elements a fost actualizată"
 
-msgid "URL"
-msgstr "URL"
-
 msgid "Lang"
 msgstr "Limbă"
 
@@ -843,6 +847,34 @@ msgstr ""
 msgid "Unable to open image."
 msgstr ""
 
+msgid "Breadcrumb"
+msgstr ""
+
+msgid "Enable breadcrumb for this blog"
+msgstr ""
+
+msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
+msgstr ""
+
+msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+#, php-format
+msgid "page %d"
+msgstr ""
+
+msgid "Archives"
+msgstr ""
+
+msgid "All tags"
+msgstr ""
+
+msgid "404"
+msgstr ""
+
 #, fuzzy
 msgid "The configuration has been updated."
 msgstr "Configurația șablonului a fost actualizată."
@@ -856,6 +888,12 @@ msgstr ""
 #, fuzzy
 msgid "Link"
 msgstr "Legături"
+
+msgid "External image"
+msgstr ""
+
+msgid "URL field cannot be empty."
+msgstr ""
 
 msgid "visual"
 msgstr ""
@@ -933,9 +971,6 @@ msgstr ""
 msgid "Language?"
 msgstr "Limbă"
 
-msgid "External image"
-msgstr ""
-
 msgid "Remove text formating"
 msgstr ""
 
@@ -987,9 +1022,6 @@ msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
 msgstr ""
 
 msgid "Why don't you blog this now?"
-msgstr ""
-
-msgid "or"
 msgstr ""
 
 msgid "visit your dashboard"
@@ -1249,6 +1281,7 @@ msgid "One task to execute"
 msgid_plural "%s tasks to execute"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "This task has never been executed."
 msgstr ""
@@ -1262,6 +1295,7 @@ msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "Manage tasks"
 msgstr ""
@@ -1607,13 +1641,24 @@ msgstr ""
 msgid "Simple menu"
 msgstr ""
 
+#, fuzzy
+msgid "Item description"
+msgstr "Fără descriere"
+
+msgid "Displayed in link"
+msgstr ""
+
+#, fuzzy
+msgid "Used as link title"
+msgstr "Nu există legătura/titlul"
+
+msgid "Displayed in link and used as title"
+msgstr ""
+
+msgid "Not displayed nor used"
+msgstr ""
+
 msgid "All months"
-msgstr ""
-
-msgid "All tags"
-msgstr ""
-
-msgid "Home"
 msgstr ""
 
 msgid "Archive"
@@ -1644,9 +1689,6 @@ msgid "Switch to %s language"
 msgstr ""
 
 msgid "Recent Posts from this category"
-msgstr ""
-
-msgid "Archives"
 msgstr ""
 
 #, php-format
@@ -1759,6 +1801,27 @@ msgstr "Sigur dorești a șterge legăturile selectate?"
 msgid "No menu items so far."
 msgstr ""
 
+msgid "This tag's comments Atom feed"
+msgstr ""
+
+msgid "This tag's entries Atom feed"
+msgstr ""
+
+msgid "Tag"
+msgstr ""
+
+msgid "Limit (empty means no limit):"
+msgstr ""
+
+msgid "Entries count"
+msgstr ""
+
+msgid "Tag name"
+msgstr ""
+
+msgid "Link to all tags:"
+msgstr ""
+
 msgid "Add tags"
 msgstr ""
 
@@ -1770,6 +1833,7 @@ msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Cuvântul a fost adăugat cu succes."
 msgstr[1] "Cuvântul a fost adăugat cu succes."
+msgstr[2] ""
 
 msgid "Add tags to this selection"
 msgstr ""
@@ -1807,6 +1871,7 @@ msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "categoria a fost creată."
 msgstr[1] "categoria a fost creată."
+msgstr[2] ""
 
 msgid "No tags for selected entries"
 msgstr ""
@@ -1817,9 +1882,6 @@ msgstr ""
 msgid "Following tags have been found in selected entries:"
 msgstr ""
 
-msgid "Tag"
-msgstr ""
-
 msgid "Short"
 msgstr ""
 
@@ -1827,24 +1889,6 @@ msgid "Extended"
 msgstr ""
 
 msgid "Tags list format:"
-msgstr ""
-
-msgid "This tag's comments Atom feed"
-msgstr ""
-
-msgid "This tag's entries Atom feed"
-msgstr ""
-
-msgid "Limit (empty means no limit):"
-msgstr ""
-
-msgid "Entries count"
-msgstr ""
-
-msgid "Tag name"
-msgstr ""
-
-msgid "Link to all tags:"
 msgstr ""
 
 msgid "Tag has been successfully renamed"
@@ -1877,7 +1921,13 @@ msgstr ""
 msgid "Edit theme files"
 msgstr ""
 
+msgid "Syntax highlighting"
+msgstr ""
+
 msgid "Syntax highlighting in theme editor"
+msgstr ""
+
+msgid "Theme:"
 msgstr ""
 
 msgid "No file"
@@ -1978,6 +2028,9 @@ msgid "Presentation widgets"
 msgstr ""
 
 msgid "Search engine"
+msgstr ""
+
+msgid "Placeholder (HTML5 only, optional):"
 msgstr ""
 
 msgid "Navigation links"
@@ -2148,6 +2201,9 @@ msgstr ""
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
+#~ msgid "URL"
+#~ msgstr "URL"
 
 #~ msgid "Settings definition successfully updated"
 #~ msgstr "Definiția setărilor a fost actualizată cu succes"

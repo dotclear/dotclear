@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:46+0100\n"
-"PO-Revision-Date: 2008-06-29 18:39+0200\n"
-"Last-Translator: Benjamin Bank <benjaminbank@gmail.com> | Murancsik Sebestyen <dr.graf@lajt.hu>\n"
+"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"PO-Revision-Date: 2016-07-18 15:48+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
-"Language: \n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Hungarian\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.8\n"
 
 msgid "Dotclear has been upgraded."
 msgstr "A DotClear-t sikerrel frissítettem."
@@ -329,6 +330,13 @@ msgstr "Védjegy megjegyzései:"
 msgid "New post URL format:"
 msgstr "Az új bejegyzés URL formátuma:"
 
+#, fuzzy
+msgid "Dotclear"
+msgstr "DotClear csapat"
+
+msgid "Sample:"
+msgstr ""
+
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
@@ -398,9 +406,6 @@ msgstr "Dátumforma:"
 msgid "Pattern of date"
 msgstr ""
 
-msgid "Sample:"
-msgstr ""
-
 msgid "Time format:"
 msgstr "Időforma:"
 
@@ -409,6 +414,9 @@ msgstr ""
 
 msgid "Display smilies on entries and comments"
 msgstr "A smiley-k kikapcsolása a bejegyzésekben és a hozzásólásoknál"
+
+msgid "Disable internal search system"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Display %s entries on home page"
@@ -443,6 +451,38 @@ msgstr ""
 
 msgid "Generated image sizes (in pixels)"
 msgstr "Elkészített képméretek (pixelben)"
+
+#, fuzzy
+msgid "Thumbnail"
+msgstr "Előnézet:"
+
+#, fuzzy
+msgid "Small"
+msgstr "Kicsi:"
+
+#, fuzzy
+msgid "Medium"
+msgstr "Közepes:"
+
+msgid "Default size of the inserted video (in pixels)"
+msgstr ""
+
+#, fuzzy
+msgid "Width"
+msgstr "Szélesség:"
+
+#, fuzzy
+msgid "Height"
+msgstr "Magasság:"
+
+msgid "Flash player"
+msgstr ""
+
+msgid "Insert Flash player fallback for video (mp4 or m4v) and audio (mp3) media"
+msgstr ""
+
+msgid "For flv video, the Flash player will be anyway inserted."
+msgstr ""
 
 msgid "Default image insertion attributes"
 msgstr ""
@@ -591,6 +631,10 @@ msgstr ""
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Zip fájl fel- vagy letöltésével tudsz telepíteni témát."
 
+#, fuzzy
+msgid "Some functions are disabled, please give write access to your themes directory to enable them."
+msgstr "A funkció eléréséhez szükséges a plugins mapához írási jog!"
+
 msgid "Last update"
 msgstr "Legutóbbi frisítés"
 
@@ -673,6 +717,10 @@ msgid "Blog id"
 msgstr "Blognév"
 
 #, fuzzy
+msgid "URL"
+msgstr "URL ::"
+
+#, fuzzy
 msgid "Entries (all types)"
 msgstr "Bejegyzések oldalanként"
 
@@ -700,7 +748,7 @@ msgid "The category \"%s\" has been successfully deleted."
 msgstr "A kategória létrejött."
 
 #, fuzzy
-msgid "Category where to move posts does not exist"
+msgid "Category where to move entries does not exist"
 msgstr "A bejegyzés nem létezik."
 
 #, fuzzy, php-format
@@ -925,6 +973,13 @@ msgstr "Bejegyzés címe"
 msgid "Author"
 msgstr "Szerző"
 
+msgid "IP"
+msgstr ""
+
+#, fuzzy
+msgid "Spam filter"
+msgstr "szűrő"
+
 #, fuzzy
 msgid "Selected comments have been successfully updated."
 msgstr "A kommentár sikeresen frissült."
@@ -1078,8 +1133,8 @@ msgstr ""
 msgid "Save and publish"
 msgstr "mentsd és punlikáld"
 
-#, php-format
-msgid "PHP version is %s (5.0 or earlier needed)."
+#, fuzzy, php-format
+msgid "PHP version is %s (5.3 or earlier needed)."
 msgstr "PHP verzió %s (5.0 vagy korábbi kell)."
 
 msgid "Multibyte string module (mbstring) is not available."
@@ -1253,6 +1308,10 @@ msgstr "%s cache mappa nem írható."
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "Nem tudok a mappába írni."
+
 #, php-format
 msgid "File %s does not exist."
 msgstr "A %s nem létezik."
@@ -1293,6 +1352,9 @@ msgid "MySQLi"
 msgstr ""
 
 msgid "PostgreSQL"
+msgstr ""
+
+msgid "SQLite"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1418,6 +1480,10 @@ msgstr "Idő szerint növekvő"
 msgid "By dates, in descending order"
 msgstr "Idő szerint csökkenő"
 
+#, fuzzy
+msgid "Not a valid directory"
+msgstr "Nem érvényes fájl"
+
 #, fuzzy, php-format
 msgid "Directory \"%s\" has been successfully created."
 msgstr "A mappát létrehoztam."
@@ -1457,6 +1523,21 @@ msgstr "vissza"
 msgid "Yes"
 msgstr "igen"
 
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%d bejegyzést találtam"
+msgstr[1] "%d bejegyzést találtam"
+
+msgid "Remove this folder from your favorites"
+msgstr ""
+
+msgid "Add this folder to your favorites"
+msgstr ""
+
+msgid "Goto recent folder:"
+msgstr ""
+
 #, fuzzy
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "Nincs jogod törölni ezt a kiegészítőt."
@@ -1471,28 +1552,73 @@ msgstr "A mappa újraépült."
 msgid "Zip file has been successfully extracted."
 msgstr "A kategória adatai frissítve."
 
+#, fuzzy, php-format
+msgid "Select a file by clicking on %s"
+msgstr "Válassz egy fájlt, amelyet a bejegyzéshez szereznél csatolni, és katt a %s -re."
+
+#, fuzzy
+msgid "Select this file"
+msgstr "Töröld"
+
+#, fuzzy
+msgid "Choose selected medias"
+msgstr "Kijelölt fájl helyreállítása"
+
 #, php-format
-msgid "Choose a file to attach to entry %s by clicking on %s."
+msgid "Select files and click on <strong>%s</strong> button"
+msgstr ""
+
+#, fuzzy
+msgid "or"
+msgstr "Rendezés:"
+
+#, fuzzy
+msgid "upload a new file"
+msgstr "Zip fájl feltöltése"
+
+#, fuzzy, php-format
+msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Válassz egy fájlt ahhoz, hogy a %s bejegyzéshez csatold, majd katt a %s -re."
 
 msgid "Attach this file to entry"
 msgstr "Fájl csatolása a bejegyzéshez"
 
-#, php-format
-msgid "Choose a file to insert into entry by clicking on %s."
+#, fuzzy, php-format
+msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "Válassz egy fájlt, amelyet a bejegyzéshez szereznél csatolni, és katt a %s -re."
 
 #, fuzzy
 msgid "Remove selected medias"
 msgstr "Kijelölt fájl helyreállítása"
 
+msgid "Will search into media filename (including path), title and description"
+msgstr ""
+
 msgid "No file."
 msgstr "Nincs fájl."
+
+#, fuzzy
+msgid "Grid display mode"
+msgstr "Név"
+
+#, fuzzy
+msgid "List display mode"
+msgstr "Név"
 
 msgid "Sort files:"
 msgstr "Fájlok rendezése:"
 
 msgid "Number of elements displayed per page:"
+msgstr ""
+
+#, fuzzy
+msgid "Media list"
+msgstr "Média tulajdonságok"
+
+msgid "Name"
+msgstr "Név"
+
+msgid "Size"
 msgstr ""
 
 #, php-format
@@ -1558,15 +1684,15 @@ msgstr ""
 msgid "Blog parameters"
 msgstr "Beállítások"
 
-msgid "open"
-msgstr "megnyit"
-
 msgid "Insert this file into entry"
 msgstr "Fájl beillesztése a bejegyzésbe"
 
 #, fuzzy
 msgid "delete"
 msgstr "Törlés"
+
+msgid "open"
+msgstr "megnyit"
 
 msgid "Not a valid file"
 msgstr "Nem érvényes fájl"
@@ -1585,11 +1711,19 @@ msgstr "A kisképek sikeresen frissültek."
 msgid "Are you sure to delete this media?"
 msgstr "Biztosan szeretnéd törölni a hozzászólást?"
 
-msgid "Insert media item"
+#, fuzzy
+msgid "Select media item"
 msgstr "Médiaelem beszúrása"
 
 msgid "Image size:"
 msgstr "Képméret:"
+
+#, fuzzy
+msgid "Select"
+msgstr "Kiválasztott:"
+
+msgid "Insert media item"
+msgstr "Médiaelem beszúrása"
 
 msgid "Image alignment"
 msgstr "Kép igazítása"
@@ -1640,17 +1774,29 @@ msgstr "Média tulajdonságok"
 msgid "Available sizes:"
 msgstr "Elérhető méretek:"
 
-msgid "File owner:"
-msgstr "Fájl tulajdonosa:"
+#, fuzzy
+msgid "Thumbnail details"
+msgstr "Kép tulajdonságai"
 
-msgid "File type:"
-msgstr "Fájltípus:"
+#, fuzzy
+msgid "Image width:"
+msgstr "Képméret:"
+
+#, fuzzy
+msgid "Image height:"
+msgstr "Kép igazítása"
 
 msgid "File size:"
 msgstr "Fájlméret:"
 
 msgid "File URL:"
 msgstr "Fájl URL:"
+
+msgid "File owner:"
+msgstr "Fájl tulajdonosa:"
+
+msgid "File type:"
+msgstr "Fájltípus:"
 
 msgid "Show entries containing this media"
 msgstr "Azok a bejegyzések mutatása, amelyek tartalmazzák ezt"
@@ -2059,6 +2205,13 @@ msgstr "Kiválasztott"
 msgid "Not selected"
 msgstr "nem kiválasztott"
 
+msgid "Opened"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "bezár"
+
 #, fuzzy
 msgid "With attachments"
 msgstr "%d csatolt fájl"
@@ -2066,6 +2219,14 @@ msgstr "%d csatolt fájl"
 #, fuzzy
 msgid "Without attachments"
 msgstr "%d csatolt fájl"
+
+#, fuzzy
+msgid "With password"
+msgstr "Jelszó:"
+
+#, fuzzy
+msgid "Without password"
+msgstr "jelszavad"
 
 #, fuzzy
 msgid "Number of comments"
@@ -2083,6 +2244,10 @@ msgstr "A kisképek sikeresen frissültek."
 msgid "Selected entries have been successfully deleted."
 msgstr "A kisképek sikeresen frissültek."
 
+#, fuzzy
+msgid "Format:"
+msgstr "Dátumforma:"
+
 msgid "Selected:"
 msgstr "Kiválasztott:"
 
@@ -2097,11 +2262,22 @@ msgid "Lang:"
 msgstr "Nyelv:"
 
 #, fuzzy
+msgid "Comments:"
+msgstr "Hozzászólások"
+
+#, fuzzy
+msgid "Trackbacks:"
+msgstr "Trackbackek"
+
+#, fuzzy
 msgid "entries per page"
 msgstr "Bejegyzések oldalanként"
 
 msgid "Selected entries action:"
 msgstr "Teendő a kijelöltekkel:"
+
+msgid "Posts"
+msgstr ""
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Ha szeretnéd megváltoztatni az e-mail címedet vagy a jelszavadat, akkor add meg a régi jelszavadat!"
@@ -2191,10 +2367,19 @@ msgstr ""
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
+msgid "Number of recent folders proposed in media manager:"
+msgstr ""
+
+msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
+msgstr ""
+
 msgid "Do not use standard favicon"
 msgstr ""
 
 msgid "This will be applied for all users"
+msgstr ""
+
+msgid "Optional columns displayed in lists"
 msgstr ""
 
 #, fuzzy
@@ -2220,6 +2405,9 @@ msgstr "Szerkesztő magassága:"
 
 msgid "Enable WYSIWYG mode"
 msgstr "WYSIWYG mód"
+
+msgid "Display editor's toolbar at bottom of textarea (if possible)"
+msgstr ""
 
 #, fuzzy
 msgid "Other options"
@@ -2281,6 +2469,10 @@ msgstr ""
 msgid "Dashboard icons"
 msgstr "Beállítópanel"
 
+#, fuzzy
+msgid "Display dashboard icons"
+msgstr "Beállítópanel"
+
 msgid "Iconset:"
 msgstr ""
 
@@ -2331,7 +2523,7 @@ msgstr "%d megjegyzést találtam"
 
 #, php-format
 msgid "%d comments found"
-msgstr "d megjegyzést találtam"
+msgstr "%d megjegyzést találtam"
 
 #, fuzzy
 msgid "Dotclear update"
@@ -2555,9 +2747,19 @@ msgstr "függőként megjelöl"
 msgid "Mark as junk"
 msgstr "szemétként megjelöl"
 
+msgid "Blacklist IP"
+msgstr ""
+
+msgid "Blacklist IP (global)"
+msgstr ""
+
 #, fuzzy
 msgid "No comment selected"
 msgstr "Nincs hozzászólás"
+
+#, fuzzy
+msgid "IP addresses for selected comments have been blacklisted."
+msgstr "A kommentár sikeresen frissült."
 
 #, fuzzy
 msgid "Back to entries list"
@@ -2998,9 +3200,6 @@ msgstr ""
 msgid "Plugins list"
 msgstr "Kiegészítők"
 
-msgid "Name"
-msgstr "Név"
-
 msgid "Score"
 msgstr ""
 
@@ -3010,6 +3209,13 @@ msgstr "Verzió"
 #, fuzzy
 msgid "Current version"
 msgstr "jogok beállítása"
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr ""
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr ""
 
 msgid "Plugin from official distribution"
 msgstr ""
@@ -3267,13 +3473,37 @@ msgstr "Nincs cím"
 msgid "No entry"
 msgstr "Nincs bejegyzés"
 
-#, php-format
-msgid "List of %s entries match the filter."
-msgstr ""
+#, fuzzy, php-format
+msgid "List of %s entries matching the filter."
+msgstr "Nincs cím"
 
-#, fuzzy
-msgid "Entries list"
+#, fuzzy, php-format
+msgid "List of entries (%s)"
 msgstr "Kategóriák"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
 
 #, fuzzy
 msgid "Protected"
@@ -3287,12 +3517,26 @@ msgstr "%d csatolt fájl"
 msgid "%d attachments"
 msgstr "%d csatolt fájl"
 
+#, fuzzy
+msgid "Entries list"
+msgstr "Kategóriák"
+
 msgid "No comments or trackbacks matches the filter"
 msgstr ""
 
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "Megjegyések és trackback-ek"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -3402,9 +3646,6 @@ msgid "thumbnail"
 msgstr "Előnézet:"
 
 msgid "square"
-msgstr ""
-
-msgid "Posts"
 msgstr ""
 
 #, fuzzy
@@ -3598,6 +3839,26 @@ msgid "Embedded Video Player"
 msgstr ""
 
 #, php-format
+msgid "Requires %s module which is not installed"
+msgstr ""
+
+#, php-format
+msgid "Requires Dotclear version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr ""
+
+#, fuzzy
+msgid "The following extensions have been disabled :"
+msgstr "A következő kiegészítőket telepítettem ::"
+
+#, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
 msgstr ""
 
@@ -3774,9 +4035,6 @@ msgstr ""
 msgid "LOL!"
 msgstr ""
 
-msgid "SQLite Database Schema cannot be upgraded."
-msgstr "SQLite Database Schema-t nem lehet frissíteni."
-
 msgid "Something went wrong with auto upgrade:"
 msgstr "Valami elszállt automata frissítés közben:"
 
@@ -3939,6 +4197,9 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+#~ msgid "SQLite Database Schema cannot be upgraded."
+#~ msgstr "SQLite Database Schema-t nem lehet frissíteni."
+
 #~ msgid "more information"
 #~ msgstr "több információ"
 
@@ -4025,10 +4286,6 @@ msgstr ""
 #~ msgid "Some plugins are installed twice:"
 #~ msgstr "A következő kiegészítőket telepítettem ::"
 
-#, fuzzy
-#~ msgid "Sort"
-#~ msgstr "Rendezés:"
-
 #~ msgid "New directory"
 #~ msgstr "Új mappa"
 
@@ -4073,9 +4330,6 @@ msgstr ""
 
 #~ msgid "Published on:"
 #~ msgstr "Punlikálva:"
-
-#~ msgid "Entry password:"
-#~ msgstr "Jelszó:"
 
 #~ msgid "junk"
 #~ msgstr "szemét"
@@ -4249,9 +4503,6 @@ msgstr ""
 
 #~ msgid "login"
 #~ msgstr "bejelentkezés"
-
-#~ msgid "filter"
-#~ msgstr "szűrő"
 
 #~ msgid "View site"
 #~ msgstr "Oldal megtekintése"

@@ -6,21 +6,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:42+0100\n"
-"PO-Revision-Date: 2009-09-16 12:33+0600\n"
-"Last-Translator: Adnan Shameem <needadnan@gmail.com>\n"
+"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"PO-Revision-Date: 2016-07-18 15:43+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Bengali\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.8\n"
 
 msgid "Dotclear has been upgraded."
-msgstr "ডটক্লিয়ার আপগ্রেড করা হয়েছে।"
+msgstr "ডটক্লিয়ার আপগ্রেড করা হয়েছে।"
 
 msgid "Password reset"
-msgstr "পাসওয়ার্ড রিসেট"
+msgstr "পাসওয়ার্ড রিসেট"
 
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr ""
@@ -36,27 +37,27 @@ msgid "The e-mail was sent successfully to %s."
 msgstr ""
 
 msgid "Your new password"
-msgstr "আপনার নতুন পাসওয়ার্ড"
+msgstr "আপনার নতুন পাসওয়ার্ড"
 
 msgid "Password:"
-msgstr "পাসওয়ার্ড:"
+msgstr "পাসওয়ার্ড:"
 
 msgid "Your new password is in your mailbox."
-msgstr "আপনার নতুন পাসওয়ার্ড আপনার মেইলবক্সে পাঠিয়ে দেয়া হয়েছে।"
+msgstr "আপনার নতুন পাসওয়ার্ড আপনার মেইলবক্সে পাঠিয়ে দেয়া হয়েছে।"
 
 msgid "Passwords don't match"
-msgstr "দুটো পাসওয়ার্ডে অমিল রয়েছে"
+msgstr "দুটো পাসওয়ার্ডে অমিল রয়েছে"
 
 msgid "You didn't change your password."
-msgstr "আপনি আপনার পাসওয়ার্ড পরিবর্তন করেন নি।"
+msgstr "আপনি আপনার পাসওয়ার্ড পরিবর্তন করেন নি।"
 
 #, fuzzy
 msgid "You have to change your password before you can login."
-msgstr "আপনি আপনার পাসওয়ার্ড পরিবর্তন করেন নি।"
+msgstr "আপনি আপনার পাসওয়ার্ড পরিবর্তন করেন নি।"
 
 #, fuzzy
 msgid "In order to login, you have to change your password now."
-msgstr "আপনি আপনার পাসওয়ার্ড পরিবর্তন করেন নি।"
+msgstr "আপনি আপনার পাসওয়ার্ড পরিবর্তন করেন নি।"
 
 msgid "Safe Mode can only be used for super administrators."
 msgstr ""
@@ -66,13 +67,13 @@ msgid "Insufficient permissions"
 msgstr "অনুমতি পরিবর্তন করুন"
 
 msgid "Wrong username or password"
-msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
+msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
 
 msgid "Back to login screen"
-msgstr "লগইন পাতায় ফিরে যাও"
+msgstr "লগইন পাতায় ফিরে যাও"
 
 msgid "Request a new password"
-msgstr "নতুন পাসওয়ার্ডের জন্য অনুরোধ করুন"
+msgstr "নতুন পাসওয়ার্ডের জন্য অনুরোধ করুন"
 
 msgid "Email:"
 msgstr "ইমেইল:"
@@ -81,13 +82,13 @@ msgid "recover"
 msgstr "উদ্ধার করুন"
 
 msgid "Change your password"
-msgstr "আপনার পাসওয়ার্ড পরিবর্তন"
+msgstr "আপনার পাসওয়ার্ড পরিবর্তন"
 
 msgid "New password:"
-msgstr "নতুন পাসওয়ার্ড:"
+msgstr "নতুন পাসওয়ার্ড:"
 
 msgid "Confirm password:"
-msgstr "আবার পাসওয়ার্ড:"
+msgstr "আবার পাসওয়ার্ড:"
 
 msgid "change"
 msgstr "পরিবর্তন করুন"
@@ -118,14 +119,14 @@ msgid "Connection issue?"
 msgstr ""
 
 msgid "I forgot my password"
-msgstr "আমার পাসওয়ার্ড ভুলে গেছি"
+msgstr "আমার পাসওয়ার্ড ভুলে গেছি"
 
 msgid "I want to log in in safe mode"
 msgstr ""
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully created"
-msgstr "ব্লগটি সফলভাবে তৈরী হয়েছে।"
+msgstr "ব্লগটি সফলভাবে তৈরী হয়েছে।"
 
 msgid "New blog"
 msgstr "নতুন ব্লগ"
@@ -140,7 +141,7 @@ msgid "Blog ID:"
 msgstr "ব্লগ আইডি:"
 
 msgid "Required field"
-msgstr "প্রয়োজনীয় ঘর"
+msgstr "প্রয়োজনীয় ঘর"
 
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "কমপক্ষে ২ অক্ষর লিখতে হবে - বর্ণ, সংখ্যা বা সিম্বল থাকতে পারবে।"
@@ -161,11 +162,11 @@ msgid "No such blog ID"
 msgstr "এরকম কোনো ব্লগ আইডি নেই"
 
 msgid "Password verification failed"
-msgstr "পাসওয়ার্ড নিশ্চিতকরণ সম্ভব হয় নি"
+msgstr "পাসওয়ার্ড নিশ্চিতকরণ সম্ভব হয় নি"
 
 #, fuzzy, php-format
 msgid "Blog \"%s\" successfully deleted"
-msgstr "ব্লগটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "ব্লগটি সফলভাবে মুছে ফেলা হয়েছে।"
 
 msgid "Delete a blog"
 msgstr "ব্লগ মুছে ফেলো"
@@ -181,13 +182,13 @@ msgid "Please give your password to confirm the blog deletion."
 msgstr ""
 
 msgid "Your password:"
-msgstr "আপনার পাসওয়ার্ড:"
+msgstr "আপনার পাসওয়ার্ড:"
 
 msgid "Delete this blog"
 msgstr "এই ব্লগ মুছে ফেলো"
 
 msgid "No given blog id."
-msgstr "ব্লগ আইডি দেয়া নেই।"
+msgstr "ব্লগ আইডি দেয়া নেই।"
 
 msgid "No such blog."
 msgstr "এরকম কোনো ব্লগ নেই।"
@@ -238,7 +239,7 @@ msgid "original"
 msgstr "আসল"
 
 msgid "None"
-msgstr "কোনটাই নয়"
+msgstr "কোনটাই নয়"
 
 msgid "Left"
 msgstr "বামে"
@@ -266,10 +267,10 @@ msgid "This blog ID is already used."
 msgstr "Dotclear ইতিমধ্যেই ইন্সটল করা আছে।"
 
 msgid "Invalid language code"
-msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
+msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
 
 msgid "Blog has been successfully updated."
-msgstr "ব্লগটি সফলভাবে আপডেট করা হয়েছে।"
+msgstr "ব্লগটি সফলভাবে আপডেট করা হয়েছে।"
 
 msgid "Blog settings"
 msgstr "ব্লগ সেটিংস"
@@ -281,7 +282,7 @@ msgid "Warning: except for special configurations, it is generally advised to ha
 msgstr ""
 
 msgid "Blog has been successfully created."
-msgstr "ব্লগটি সফলভাবে তৈরী হয়েছে।"
+msgstr "ব্লগটি সফলভাবে তৈরী হয়েছে।"
 
 msgid "Parameters"
 msgstr ""
@@ -324,6 +325,13 @@ msgstr "কপিরাইট নোটিস:"
 msgid "New post URL format:"
 msgstr "নতুন পোস্টের URL ফরম্যাট:"
 
+#, fuzzy
+msgid "Dotclear"
+msgstr "ডটক্লিয়ার টিম"
+
+msgid "Sample:"
+msgstr ""
+
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
@@ -346,7 +354,7 @@ msgid "User name:"
 msgstr "ইউজার নেম:"
 
 msgid "your password"
-msgstr "আপনার পাসওয়ার্ড"
+msgstr "আপনার পাসওয়ার্ড"
 
 msgid "Comments and trackbacks"
 msgstr "মন্তব্য এবং ট্র্যাকব্যাকসমূহ"
@@ -392,17 +400,17 @@ msgstr "তারিখের ফরম্যাট:"
 msgid "Pattern of date"
 msgstr ""
 
-msgid "Sample:"
-msgstr ""
-
 msgid "Time format:"
-msgstr "সময়ের ফরম্যাট:"
+msgstr "সময়ের ফরম্যাট:"
 
 msgid "Pattern of time"
 msgstr ""
 
 msgid "Display smilies on entries and comments"
 msgstr "এন্ট্রি এবং মন্তব্যে স্মাইলি দেখাবে"
+
+msgid "Disable internal search system"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Display %s entries on home page"
@@ -427,7 +435,7 @@ msgid "Include sub-categories in category page and category posts feed"
 msgstr ""
 
 msgid "Media and images"
-msgstr "মিডিয়া এবং ছবিসমূহ"
+msgstr "মিডিয়া এবং ছবিসমূহ"
 
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
 msgstr ""
@@ -436,6 +444,38 @@ msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
 msgid "Generated image sizes (in pixels)"
+msgstr ""
+
+#, fuzzy
+msgid "Thumbnail"
+msgstr "থাম্বনেইল:"
+
+#, fuzzy
+msgid "Small"
+msgstr "ছোট:"
+
+#, fuzzy
+msgid "Medium"
+msgstr "মাঝারি:"
+
+msgid "Default size of the inserted video (in pixels)"
+msgstr ""
+
+#, fuzzy
+msgid "Width"
+msgstr "দৈর্ঘ্য:"
+
+#, fuzzy
+msgid "Height"
+msgstr "প্রস্থ:"
+
+msgid "Flash player"
+msgstr ""
+
+msgid "Insert Flash player fallback for video (mp4 or m4v) and audio (mp3) media"
+msgstr ""
+
+msgid "For flv video, the Flash player will be anyway inserted."
 msgstr ""
 
 msgid "Default image insertion attributes"
@@ -464,7 +504,7 @@ msgid "Insert a link to the original image"
 msgstr ""
 
 msgid "Search engines robots policy"
-msgstr "সার্চ ইঞ্জিনের রোবটের জন্য নিয়ম"
+msgstr "সার্চ ইঞ্জিনের রোবটের জন্য নিয়ম"
 
 msgid "jQuery javascript library"
 msgstr ""
@@ -559,7 +599,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Deactivated themes"
-msgstr "নিস্ক্রিয়"
+msgstr "নিস্ক্রিয়"
 
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr ""
@@ -581,6 +621,9 @@ msgstr ""
 msgid "You can install themes by uploading or downloading zip files."
 msgstr ""
 
+msgid "Some functions are disabled, please give write access to your themes directory to enable them."
+msgstr ""
+
 msgid "Last update"
 msgstr "সর্বশেষ আপডেট"
 
@@ -591,10 +634,10 @@ msgid "Blog ID"
 msgstr "ব্লগ আইডি"
 
 msgid "Descending"
-msgstr "বড় থেকে ছোট"
+msgstr "বড় থেকে ছোট"
 
 msgid "Ascending"
-msgstr "ছোট থেকে বড়"
+msgstr "ছোট থেকে বড়"
 
 msgid "Show filters and display options"
 msgstr ""
@@ -606,7 +649,7 @@ msgid "List of blogs"
 msgstr "ব্লগের লিস্ট"
 
 msgid "Blog has been successfully deleted."
-msgstr "ব্লগটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "ব্লগটি সফলভাবে মুছে ফেলা হয়েছে।"
 
 msgid "Create a new blog"
 msgstr "একটি নতুন ব্লগ তৈরি করুন"
@@ -663,6 +706,10 @@ msgid "Blog id"
 msgstr "ব্লগের নাম"
 
 #, fuzzy
+msgid "URL"
+msgstr "URL:"
+
+#, fuzzy
 msgid "Entries (all types)"
 msgstr "প্রতি পেজে এন্ট্রি"
 
@@ -686,22 +733,22 @@ msgstr "এই ক্যাটাগরির কোনো অস্তিত্
 
 #, fuzzy, php-format
 msgid "The category \"%s\" has been successfully deleted."
-msgstr "ক্যাটাগরিটি সফলভাবে তৈরি হয়েছে।"
+msgstr "ক্যাটাগরিটি সফলভাবে তৈরি হয়েছে।"
 
 #, fuzzy
-msgid "Category where to move posts does not exist"
+msgid "Category where to move entries does not exist"
 msgstr "এই ক্যাটাগরির কোনো অস্তিত্ব নেই।"
 
 #, fuzzy, php-format
 msgid "The entries have been successfully moved to category \"%s\""
-msgstr "ক্যাটাগরিটি সফলভাবে সরানো হয়েছে।"
+msgstr "ক্যাটাগরিটি সফলভাবে সরানো হয়েছে।"
 
 msgid "Categories have been successfully reordered."
-msgstr "ক্যাটাগরিটি সফলভাবে পুনর্বিন্যাস করা হয়েছে।"
+msgstr "ক্যাটাগরিটি সফলভাবে পুনর্বিন্যাস করা হয়েছে।"
 
 #, fuzzy
 msgid "Categories order has been successfully reset."
-msgstr "ক্যাটাগরিটি সফলভাবে পুনর্বিন্যাস করা হয়েছে।"
+msgstr "ক্যাটাগরিটি সফলভাবে পুনর্বিন্যাস করা হয়েছে।"
 
 msgid "Categories"
 msgstr "ক্যাটাগরিসমূহ"
@@ -709,12 +756,12 @@ msgstr "ক্যাটাগরিসমূহ"
 #, fuzzy
 msgid "The category has been successfully removed."
 msgid_plural "The categories have been successfully removed."
-msgstr[0] "ক্যাটাগরিটি সফলভাবে মুছে ফেলা হয়েছে।"
-msgstr[1] "ক্যাটাগরিটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[0] "ক্যাটাগরিটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[1] "ক্যাটাগরিটি সফলভাবে মুছে ফেলা হয়েছে।"
 
 #, fuzzy
 msgid "Entries have been successfully moved to the category you choose."
-msgstr "ক্যাটাগরিটি সফলভাবে পুনর্বিন্যাস করা হয়েছে।"
+msgstr "ক্যাটাগরিটি সফলভাবে পুনর্বিন্যাস করা হয়েছে।"
 
 msgid "New category"
 msgstr "নতুন ক্যাটাগরি"
@@ -740,7 +787,7 @@ msgstr "URL:"
 
 #, fuzzy
 msgid "Move entries to"
-msgstr "এই ক্যাটাগরিকে সরিয়ে নিন"
+msgstr "এই ক্যাটাগরিকে সরিয়ে নিন"
 
 msgid "OK"
 msgstr ""
@@ -764,18 +811,18 @@ msgstr ""
 
 #, fuzzy
 msgid "The category has been successfully moved"
-msgstr "ক্যাটাগরিটি সফলভাবে সরানো হয়েছে।"
+msgstr "ক্যাটাগরিটি সফলভাবে সরানো হয়েছে।"
 
 #, fuzzy
 msgid "The category has been successfully updated."
-msgstr "ক্যাটাগরিটি সফলভাবে তৈরি হয়েছে।"
+msgstr "ক্যাটাগরিটি সফলভাবে তৈরি হয়েছে।"
 
 #, fuzzy, php-format
 msgid "The category \"%s\" has been successfully created."
-msgstr "ক্যাটাগরিটি সফলভাবে তৈরি হয়েছে।"
+msgstr "ক্যাটাগরিটি সফলভাবে তৈরি হয়েছে।"
 
 msgid "Category has been successfully updated."
-msgstr "ক্যাটাগরি সফলভাবে আপডেট করা হয়েছে।"
+msgstr "ক্যাটাগরি সফলভাবে আপডেট করা হয়েছে।"
 
 msgid "Category information"
 msgstr "ক্যাটাগরির তথ্য"
@@ -793,7 +840,7 @@ msgid "Description:"
 msgstr "বিবরণ:"
 
 msgid "Move this category"
-msgstr "এই ক্যাটাগরিকে সরিয়ে নিন"
+msgstr "এই ক্যাটাগরিকে সরিয়ে নিন"
 
 msgid "Category parent"
 msgstr ""
@@ -824,11 +871,11 @@ msgid "No comments"
 msgstr "শূণ্য মন্তব্য"
 
 msgid "Comment has been successfully updated."
-msgstr "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
+msgstr "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
 
 #, fuzzy
 msgid "Comment has been successfully deleted."
-msgstr "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
+msgstr "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
 
 msgid "You can't edit this comment."
 msgstr "আপনি এই মন্তব্যটি এডিট করতে পারবেন না।"
@@ -870,7 +917,7 @@ msgid "Author:"
 msgstr "লেখক:"
 
 msgid "Web site:"
-msgstr "ওয়েব সাইট:"
+msgstr "ওয়েব সাইট:"
 
 msgid "Status:"
 msgstr "অবস্থা:"
@@ -898,17 +945,24 @@ msgstr "এন্ট্রির টাইটেল"
 msgid "Author"
 msgstr "লেখক"
 
+msgid "IP"
+msgstr ""
+
+#, fuzzy
+msgid "Spam filter"
+msgstr "ফিল্টার"
+
 #, fuzzy
 msgid "Selected comments have been successfully updated."
-msgstr "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
+msgstr "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
 
 #, fuzzy
 msgid "Selected comments have been successfully deleted."
-msgstr "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
 
 #, fuzzy
 msgid "Spam comments have been successfully deleted."
-msgstr "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
+msgstr "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
 
 msgid "You have one spam comment."
 msgstr "আপনার একটি স্প্যাম মন্তব্য আছে।"
@@ -959,7 +1013,7 @@ msgstr[1] "Dotclear %s এসে গেছে!"
 
 #, fuzzy
 msgid "Dotclear news"
-msgstr "ডটক্লিয়ার টিম"
+msgstr "ডটক্লিয়ার টিম"
 
 msgid "%d %B %Y:"
 msgstr ""
@@ -978,7 +1032,7 @@ msgid "Upgrade now"
 msgstr "আপগ্রেড করুন"
 
 msgid "Remind me later"
-msgstr "পড়ে মনে করিয়ে দিও"
+msgstr "পড়ে মনে করিয়ে দিও"
 
 msgid "Information about this version"
 msgstr ""
@@ -990,7 +1044,7 @@ msgid "This blog is offline"
 msgstr "এই ব্লগটি অফলাইনে আছে"
 
 msgid "This blog is removed"
-msgstr "এই ব্লগটি মুছে ফেলা হয়েছে"
+msgstr "এই ব্লগটি মুছে ফেলা হয়েছে"
 
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
@@ -1015,10 +1069,10 @@ msgid "Error:"
 msgstr ""
 
 msgid "Following plugins have been installed:"
-msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয়েছে:"
+msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয়েছে:"
 
 msgid "Following plugins have not been installed:"
-msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয় নি:"
+msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয় নি:"
 
 msgid "Errors have occured with following plugins:"
 msgstr ""
@@ -1048,8 +1102,8 @@ msgstr ""
 msgid "Save and publish"
 msgstr "সেভ ও প্রকাশ করুন"
 
-#, php-format
-msgid "PHP version is %s (5.0 or earlier needed)."
+#, fuzzy, php-format
+msgid "PHP version is %s (5.3 or earlier needed)."
 msgstr "PHP সংস্করণ আছে %s (5.0 অথবা পূর্বের লাগবে)."
 
 msgid "Multibyte string module (mbstring) is not available."
@@ -1091,10 +1145,10 @@ msgid "Dotclear is already installed."
 msgstr "Dotclear ইতিমধ্যেই ইন্সটল করা আছে।"
 
 msgid "Dotclear cannot be installed."
-msgstr "Dotclear ইন্সটল করা সম্ভব নয়।"
+msgstr "Dotclear ইন্সটল করা সম্ভব নয়।"
 
 msgid "No user ID given"
-msgstr "কোনো ইউজার আইডি দেয়া হয় নি"
+msgstr "কোনো ইউজার আইডি দেয়া হয় নি"
 
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "ইউজার আইডিতে কমপক্ষে ২টি অক্ষর থাকতে হবে, যাতে বর্ণ, সংখ্যা বা সিম্বল থাকতে পারবে।"
@@ -1103,10 +1157,10 @@ msgid "Invalid email address"
 msgstr "অবৈধ ইমেইল এড্রেস"
 
 msgid "No password given"
-msgstr "কোনো পাসওয়ার্ড দেয়া হয় নি"
+msgstr "কোনো পাসওয়ার্ড দেয়া হয় নি"
 
 msgid "Password must contain at least 6 characters."
-msgstr "পাসওয়ার্ডে কমপক্ষে ৬টি অক্ষর থাকতে হবে।"
+msgstr "পাসওয়ার্ডে কমপক্ষে ৬টি অক্ষর থাকতে হবে।"
 
 msgid "My first blog"
 msgstr "আমার প্রথম ব্লগ"
@@ -1115,13 +1169,13 @@ msgid "%A, %B %e %Y"
 msgstr ""
 
 msgid "Welcome to Dotclear!"
-msgstr "ডটক্লিয়ারে স্বাগতম!"
+msgstr "ডটক্লিয়ারে স্বাগতম!"
 
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
 msgstr "এটি আপনার প্রথম এন্ট্রি। আপনি ব্লগ লেখার জন্য প্রস্তুত হলে, লগইন করে এটিকে এডিট করতে বা মুছে ফেলতে পারবেন।"
 
 msgid "Dotclear Team"
-msgstr "ডটক্লিয়ার টিম"
+msgstr "ডটক্লিয়ার টিম"
 
 msgid ""
 "<p>This is a comment.</p>\n"
@@ -1136,7 +1190,7 @@ msgstr "Dotclear ইন্সটলেশন"
 
 #, fuzzy, php-format
 msgid "Password strength: %s"
-msgstr "পাসওয়ার্ড রিসেট"
+msgstr "পাসওয়ার্ড রিসেট"
 
 msgid "very weak"
 msgstr ""
@@ -1167,7 +1221,7 @@ msgid "Errors:"
 msgstr ""
 
 msgid "Configuration file has been successfully created."
-msgstr "কনফিগারেশন ফাইল সফলভাবে তৈরি হয়েছে।"
+msgstr "কনফিগারেশন ফাইল সফলভাবে তৈরি হয়েছে।"
 
 msgid "User information"
 msgstr "ইউজারের তথ্য"
@@ -1185,14 +1239,14 @@ msgstr "সর্বশেষ আপডেট"
 
 #, fuzzy
 msgid "Username and password"
-msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
+msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
 
 msgid "All done!"
 msgstr "কাজ শেষ!"
 
 #, fuzzy
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
-msgstr "ডটক্লিয়ার সফলভাবে ইন্সটল করা হয়েছে। এখানে কিছু তথ্য আছে যেগুলো সংরক্ষণ করে রাখা উচিত হবে।"
+msgstr "ডটক্লিয়ার সফলভাবে ইন্সটল করা হয়েছে। এখানে কিছু তথ্য আছে যেগুলো সংরক্ষণ করে রাখা উচিত হবে।"
 
 msgid "Your account"
 msgstr "আপনার এ্যাকাউন্ট"
@@ -1222,6 +1276,10 @@ msgstr ""
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "নতুন ডিরেক্টরি"
+
 #, php-format
 msgid "File %s does not exist."
 msgstr "%s ফাইলটি নেই।"
@@ -1231,7 +1289,7 @@ msgid "Cannot write %s file."
 msgstr ""
 
 msgid "Dotclear installation wizard"
-msgstr "ডটক্লিয়ার ইন্সটলেশন উইজার্ড"
+msgstr "ডটক্লিয়ার ইন্সটলেশন উইজার্ড"
 
 msgid "Welcome"
 msgstr ""
@@ -1250,7 +1308,7 @@ msgid "System information"
 msgstr "সিস্টেমের তথ্য"
 
 msgid "Please provide the following information needed to create your configuration file."
-msgstr "অনুগ্রহ করে নিচের তথ্যগুলো দিন যাতে কনফিগারেশন ফাইল প্রস্তুত করা যায়।"
+msgstr "অনুগ্রহ করে নিচের তথ্যগুলো দিন যাতে কনফিগারেশন ফাইল প্রস্তুত করা যায়।"
 
 msgid "Database type:"
 msgstr "ডাটাবেজের ধরণ:"
@@ -1264,6 +1322,9 @@ msgstr ""
 msgid "PostgreSQL"
 msgstr ""
 
+msgid "SQLite"
+msgstr ""
+
 msgid "Database Host Name:"
 msgstr "ডাটাবেজের হোস্টের নাম:"
 
@@ -1274,7 +1335,7 @@ msgid "Database User Name:"
 msgstr "ডাটাবেজের ইউজারনেম:"
 
 msgid "Database Password:"
-msgstr "ডাটাবেজ পাসওয়ার্ড:"
+msgstr "ডাটাবেজ পাসওয়ার্ড:"
 
 msgid "Database Tables Prefix:"
 msgstr "ডাটাবেজের টেবিল প্রেফিক্স:"
@@ -1284,7 +1345,7 @@ msgid "Continue"
 msgstr "কন্টেন্ট:"
 
 msgid "No such installed language"
-msgstr "এরকম কোনো ভাষা পাওয়া যায় নি"
+msgstr "এরকম কোনো ভাষা পাওয়া যায় নি"
 
 msgid "You can't remove English language."
 msgstr "আপনি ইংরেজি ভাষা মুছতে পারবেন না।"
@@ -1293,25 +1354,25 @@ msgid "Permissions to delete language denied."
 msgstr "ভাষা মোছার জন্য আপনার অনুমতি নেই।"
 
 msgid "Language has been successfully deleted."
-msgstr "ভাষাটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "ভাষাটি সফলভাবে মুছে ফেলা হয়েছে।"
 
 msgid "Invalid language file URL."
-msgstr "অবৈধ ল্যাঙ্গুয়েজ ফাইল URL।"
+msgstr "অবৈধ ল্যাঙ্গুয়েজ ফাইল URL।"
 
 msgid "Language has been successfully upgraded"
-msgstr "ভাষাটি সফলভাবে আপগ্রেড করা হয়েছে।"
+msgstr "ভাষাটি সফলভাবে আপগ্রেড করা হয়েছে।"
 
 msgid "Language has been successfully installed."
-msgstr "ভাষাটি সফলভাবে ইন্সটল করা হয়েছে।"
+msgstr "ভাষাটি সফলভাবে ইন্সটল করা হয়েছে।"
 
 msgid "Unable to move uploaded file."
-msgstr "আপলোড করা ফাইল সরানো যায় নি।"
+msgstr "আপলোড করা ফাইল সরানো যায় নি।"
 
 msgid "Languages management"
 msgstr "ভাষা ম্যানেজমেন্ট"
 
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
-msgstr "আপনি এখান থেকে ডটক্লিয়ারের জন্য ভাষা ইন্সটল, আপগ্রেড বা মুছে ফেলতে পারবেন।"
+msgstr "আপনি এখান থেকে ডটক্লিয়ারের জন্য ভাষা ইন্সটল, আপগ্রেড বা মুছে ফেলতে পারবেন।"
 
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
@@ -1365,10 +1426,10 @@ msgid "Invalid language zip file."
 msgstr "অবৈধ ভাষার zip ফাইল।"
 
 msgid "The zip file does not appear to be a valid Dotclear language pack."
-msgstr "Zip ফাইলটি বৈধ ডটক্লিয়ার ল্যাঙ্গুয়েজ প্যাক বলে মনে হচ্ছে না।"
+msgstr "Zip ফাইলটি বৈধ ডটক্লিয়ার ল্যাঙ্গুয়েজ প্যাক বলে মনে হচ্ছে না।"
 
 msgid "An error occurred during language upgrade."
-msgstr "ভাষা আপগ্রেড করার সময় এরর দেখা দিয়েছে।"
+msgstr "ভাষা আপগ্রেড করার সময় এরর দেখা দিয়েছে।"
 
 msgid "By names, in ascending order"
 msgstr ""
@@ -1382,31 +1443,35 @@ msgstr ""
 msgid "By dates, in descending order"
 msgstr ""
 
+#, fuzzy
+msgid "Not a valid directory"
+msgstr "ফাইলটি বৈধ নয়"
+
 #, fuzzy, php-format
 msgid "Directory \"%s\" has been successfully created."
-msgstr "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
+msgstr "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
 
 msgid "Files have been successfully uploaded."
-msgstr "ফাইলগুলো সফলভাবে আপলোড করা হয়েছে।"
+msgstr "ফাইলগুলো সফলভাবে আপলোড করা হয়েছে।"
 
 #, fuzzy, php-format
 msgid "Successfully delete one media."
 msgid_plural "Successfully delete %d medias."
-msgstr[0] "ব্লগটি সফলভাবে মুছে ফেলা হয়েছে।"
-msgstr[1] "ব্লগটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[0] "ব্লগটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[1] "ব্লগটি সফলভাবে মুছে ফেলা হয়েছে।"
 
 msgid "Directory has been successfully removed."
-msgstr "ডিরেক্টরি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "ডিরেক্টরি সফলভাবে মুছে ফেলা হয়েছে।"
 
 msgid "File has been successfully removed."
-msgstr "ফাইলগুলো সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "ফাইলগুলো সফলভাবে মুছে ফেলা হয়েছে।"
 
 #, fuzzy, php-format
 msgid "Directory \"%s\" has been successfully rebuilt."
-msgstr "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
+msgstr "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
 
 msgid "Media manager"
-msgstr "মিডিয়া ম্যানেজার"
+msgstr "মিডিয়া ম্যানেজার"
 
 msgid "confirm removal"
 msgstr ""
@@ -1421,40 +1486,97 @@ msgstr "বাতিল"
 msgid "Yes"
 msgstr "হ্যাঁ"
 
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%d টি এন্ট্রি পাওয়া গেছে"
+msgstr[1] "%d টি এন্ট্রি পাওয়া গেছে"
+
+msgid "Remove this folder from your favorites"
+msgstr ""
+
+msgid "Add this folder to your favorites"
+msgstr ""
+
+msgid "Goto recent folder:"
+msgstr ""
+
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr ""
 
 msgid "Directory has been successfully created."
-msgstr "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
+msgstr "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
 
 msgid "Directory has been successfully rebuilt."
 msgstr ""
 
 msgid "Zip file has been successfully extracted."
-msgstr "Zip ফাইল সফলভাবে এক্সট্রাক্ট করা হয়েছে।"
+msgstr "Zip ফাইল সফলভাবে এক্সট্রাক্ট করা হয়েছে।"
+
+#, fuzzy, php-format
+msgid "Select a file by clicking on %s"
+msgstr "এন্ট্রিতে ফাইল লাগানোর জন্য %s তে ক্লিক করুন।"
+
+#, fuzzy
+msgid "Select this file"
+msgstr "এই ব্লগ মুছে ফেলো"
+
+#, fuzzy
+msgid "Choose selected medias"
+msgstr "থিম আপলোড করুন"
 
 #, php-format
-msgid "Choose a file to attach to entry %s by clicking on %s."
+msgid "Select files and click on <strong>%s</strong> button"
+msgstr ""
+
+msgid "or"
+msgstr ""
+
+#, fuzzy
+msgid "upload a new file"
+msgstr "Zip ফাইল আপলোড করুন"
+
+#, fuzzy, php-format
+msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "%s এন্ট্রির সাথে যে ফাইল সংযুক্ত করতে চান তা %s তে ক্লিক করুন।"
 
 msgid "Attach this file to entry"
 msgstr "এন্ট্রির সাথে এই ফাইলটি সংযুক্ত করুন"
 
-#, php-format
-msgid "Choose a file to insert into entry by clicking on %s."
+#, fuzzy, php-format
+msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "এন্ট্রিতে ফাইল লাগানোর জন্য %s তে ক্লিক করুন।"
 
 #, fuzzy
 msgid "Remove selected medias"
 msgstr "থিম আপলোড করুন"
 
+msgid "Will search into media filename (including path), title and description"
+msgstr ""
+
 msgid "No file."
 msgstr "কোনো ফাইল নেই।"
+
+msgid "Grid display mode"
+msgstr ""
+
+msgid "List display mode"
+msgstr ""
 
 msgid "Sort files:"
 msgstr ""
 
 msgid "Number of elements displayed per page:"
+msgstr ""
+
+#, fuzzy
+msgid "Media list"
+msgstr "মিডিয়ার বিবরণ"
+
+msgid "Name"
+msgstr "নাম"
+
+msgid "Size"
 msgstr ""
 
 #, php-format
@@ -1519,9 +1641,6 @@ msgstr ""
 msgid "Blog parameters"
 msgstr "ব্লগের নাম"
 
-msgid "open"
-msgstr ""
-
 msgid "Insert this file into entry"
 msgstr "এন্ট্রিতে এই ফাইলটি লাগাও"
 
@@ -1529,28 +1648,39 @@ msgstr "এন্ট্রিতে এই ফাইলটি লাগাও"
 msgid "delete"
 msgstr "মুছে ফেলুন"
 
+msgid "open"
+msgstr ""
+
 msgid "Not a valid file"
-msgstr "ফাইলটি বৈধ নয়"
+msgstr "ফাইলটি বৈধ নয়"
 
 msgid "File has been successfully updated."
-msgstr "ফাইলটি সফলভাবে আপডেট করা হয়েছে।"
+msgstr "ফাইলটি সফলভাবে আপডেট করা হয়েছে।"
 
 msgid "Thumbnails have been successfully updated."
-msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
+msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
 
 #, fuzzy
 msgid "Default media insertion settings have been successfully updated."
-msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
+msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
 
 #, fuzzy
 msgid "Are you sure to delete this media?"
 msgstr "আপনি কি আসলেই এই সংযুক্ত ফাইলটি মুছে ফেলতে চান?"
 
-msgid "Insert media item"
-msgstr "মিডিয়া আইটেম লাগান"
+#, fuzzy
+msgid "Select media item"
+msgstr "মিডিয়া আইটেম লাগান"
 
 msgid "Image size:"
 msgstr "ইমেজ সাইজ:"
+
+#, fuzzy
+msgid "Select"
+msgstr "সব সিলেক্ট করুন"
+
+msgid "Insert media item"
+msgstr "মিডিয়া আইটেম লাগান"
 
 msgid "Image alignment"
 msgstr ""
@@ -1586,7 +1716,7 @@ msgid "Video disposition"
 msgstr ""
 
 msgid "Media item will be inserted as a link."
-msgstr "মিডিয়া আইটেমটি লিংক হিসেবে লাগানো হবে।"
+msgstr "মিডিয়া আইটেমটি লিংক হিসেবে লাগানো হবে।"
 
 msgid "Insert"
 msgstr "লাগান"
@@ -1595,16 +1725,22 @@ msgid "Make current settings as default"
 msgstr ""
 
 msgid "Media details"
-msgstr "মিডিয়ার বিবরণ"
+msgstr "মিডিয়ার বিবরণ"
 
 msgid "Available sizes:"
 msgstr ""
 
-msgid "File owner:"
-msgstr "ফাইলের মালিক:"
+#, fuzzy
+msgid "Thumbnail details"
+msgstr "ইমেজের বিবরণ"
 
-msgid "File type:"
-msgstr "ফাইলের ধরণ:"
+#, fuzzy
+msgid "Image width:"
+msgstr "ইমেজ সাইজ:"
+
+#, fuzzy
+msgid "Image height:"
+msgstr "ইমেজ সাইজ:"
 
 msgid "File size:"
 msgstr "ফাইল সাইজ:"
@@ -1612,14 +1748,20 @@ msgstr "ফাইল সাইজ:"
 msgid "File URL:"
 msgstr "ফাইল URL:"
 
+msgid "File owner:"
+msgstr "ফাইলের মালিক:"
+
+msgid "File type:"
+msgstr "ফাইলের ধরণ:"
+
 msgid "Show entries containing this media"
-msgstr "যেসব এন্ট্রিতে এই মিডিয়াটি আছে সেগুলো দেখাও"
+msgstr "যেসব এন্ট্রিতে এই মিডিয়াটি আছে সেগুলো দেখাও"
 
 msgid "Entries containing this media"
-msgstr "যেসব এন্ট্রিতে এই মিডিয়া আছে"
+msgstr "যেসব এন্ট্রিতে এই মিডিয়া আছে"
 
 msgid "No entry seems contain this media."
-msgstr "এই মিডিয়াটি কোনো এন্ট্রিতে নেই।"
+msgstr "এই মিডিয়াটি কোনো এন্ট্রিতে নেই।"
 
 msgid "published"
 msgstr "প্রকাশিত"
@@ -1670,7 +1812,7 @@ msgid "Extract"
 msgstr ""
 
 msgid "Change media properties"
-msgstr "মিডিয়া প্রোপার্টিজ পরিবর্তন"
+msgstr "মিডিয়া প্রোপার্টিজ পরিবর্তন"
 
 msgid "File name:"
 msgstr "ফাইলের নাম:"
@@ -1705,7 +1847,7 @@ msgid "No content found on this plugin."
 msgstr "এই প্লাগইনে কোনো কন্টেন্ট নেই।"
 
 msgid "Plugin not found"
-msgstr "প্লাগইন পাওয়া যায় নি"
+msgstr "প্লাগইন পাওয়া যায় নি"
 
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr ""
@@ -1732,20 +1874,20 @@ msgid "Installed plugins"
 msgstr "ইন্সটলকৃত ভাষা"
 
 msgid "Activated plugins"
-msgstr "সক্রিয় প্লাগইনসমূহ"
+msgstr "সক্রিয় প্লাগইনসমূহ"
 
 msgid "You can configure and manage installed plugins from this list."
 msgstr ""
 
 msgid "Deactivated plugins"
-msgstr "নিস্ক্রিয় প্লাগইনসমূহ"
+msgstr "নিস্ক্রিয় প্লাগইনসমূহ"
 
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr ""
 
 #, fuzzy
 msgid "Add plugins"
-msgstr "সক্রিয় প্লাগইনসমূহ"
+msgstr "সক্রিয় প্লাগইনসমূহ"
 
 msgid "Add plugins from repository"
 msgstr ""
@@ -1811,11 +1953,11 @@ msgstr ""
 
 #, fuzzy
 msgid "Invalid publication date"
-msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
+msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
 
 #, fuzzy, php-format
 msgid "The post \"%s\" has been successfully updated"
-msgstr "ব্লগটি সফলভাবে আপডেট করা হয়েছে।"
+msgstr "ব্লগটি সফলভাবে আপডেট করা হয়েছে।"
 
 msgid "Entry has been successfully created."
 msgstr ""
@@ -1906,7 +2048,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Password"
-msgstr "পাসওয়ার্ড:"
+msgstr "পাসওয়ার্ড:"
 
 #, fuzzy
 msgid "Edit basename"
@@ -1992,7 +2134,7 @@ msgid "Edit this comment"
 msgstr "এই মন্তব্য এডিট করুন"
 
 msgid "This attachment does not exist"
-msgstr "এই সংযুক্ত ফাইলটি খুঁজে পাওয়া যাচ্ছে না"
+msgstr "এই সংযুক্ত ফাইলটি খুঁজে পাওয়া যাচ্ছে না"
 
 msgid "Remove attachment"
 msgstr "সংযুক্ত ফাইলটি মুছে ফেলো"
@@ -2013,6 +2155,12 @@ msgstr ""
 msgid "Not selected"
 msgstr "অপেক্ষমান হিসেবে চিহ্নিত করুন"
 
+msgid "Opened"
+msgstr ""
+
+msgid "Closed"
+msgstr ""
+
 #, fuzzy
 msgid "With attachments"
 msgstr "সংযুক্ত ফাইলসমূহ"
@@ -2020,6 +2168,14 @@ msgstr "সংযুক্ত ফাইলসমূহ"
 #, fuzzy
 msgid "Without attachments"
 msgstr "সংযুক্ত ফাইল নেই।"
+
+#, fuzzy
+msgid "With password"
+msgstr "নতুন পাসওয়ার্ড:"
+
+#, fuzzy
+msgid "Without password"
+msgstr "আপনার পাসওয়ার্ড"
 
 #, fuzzy
 msgid "Number of comments"
@@ -2031,11 +2187,15 @@ msgstr "শূণ্য ট্র্যাকব্যাক"
 
 #, fuzzy
 msgid "Selected entries have been successfully updated."
-msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
+msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
 
 #, fuzzy
 msgid "Selected entries have been successfully deleted."
-msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
+msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
+
+#, fuzzy
+msgid "Format:"
+msgstr "তারিখের ফরম্যাট:"
 
 msgid "Selected:"
 msgstr ""
@@ -2051,10 +2211,21 @@ msgid "Lang:"
 msgstr "ভাষা:"
 
 #, fuzzy
+msgid "Comments:"
+msgstr "মন্তব্য"
+
+#, fuzzy
+msgid "Trackbacks:"
+msgstr "ট্র্যাকব্যাক"
+
+#, fuzzy
 msgid "entries per page"
 msgstr "প্রতি পেজে এন্ট্রি"
 
 msgid "Selected entries action:"
+msgstr ""
+
+msgid "Posts"
 msgstr ""
 
 msgid "If you want to change your email or password you must provide your current password."
@@ -2065,11 +2236,11 @@ msgstr ""
 
 #, fuzzy
 msgid "Personal options has been successfully updated."
-msgstr "ব্লগটি সফলভাবে আপডেট করা হয়েছে।"
+msgstr "ব্লগটি সফলভাবে আপডেট করা হয়েছে।"
 
 #, fuzzy
 msgid "Dashboard options has been successfully updated."
-msgstr "ব্লগটি সফলভাবে আপডেট করা হয়েছে।"
+msgstr "ব্লগটি সফলভাবে আপডেট করা হয়েছে।"
 
 #, fuzzy
 msgid "No favorite selected"
@@ -2077,19 +2248,19 @@ msgstr "অপেক্ষমান হিসেবে চিহ্নিত ক
 
 #, fuzzy
 msgid "Favorites have been successfully added."
-msgstr "ফাইলগুলো সফলভাবে আপলোড করা হয়েছে।"
+msgstr "ফাইলগুলো সফলভাবে আপলোড করা হয়েছে।"
 
 #, fuzzy
 msgid "Favorites have been successfully removed."
-msgstr "ফাইলগুলো সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "ফাইলগুলো সফলভাবে মুছে ফেলা হয়েছে।"
 
 #, fuzzy
 msgid "Favorites have been successfully updated."
-msgstr "ফাইলটি সফলভাবে আপডেট করা হয়েছে।"
+msgstr "ফাইলটি সফলভাবে আপডেট করা হয়েছে।"
 
 #, fuzzy
 msgid "Default favorites have been successfully updated."
-msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
+msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
 
 msgid "My profile"
 msgstr ""
@@ -2106,15 +2277,15 @@ msgstr "ব্লগের টাইমজোন:"
 
 #, fuzzy
 msgid "Change my password"
-msgstr "আপনার পাসওয়ার্ড পরিবর্তন"
+msgstr "আপনার পাসওয়ার্ড পরিবর্তন"
 
 #, fuzzy
 msgid "Confirm new password:"
-msgstr "আবার পাসওয়ার্ড:"
+msgstr "আবার পাসওয়ার্ড:"
 
 #, fuzzy
 msgid "Your current password:"
-msgstr "আপনার পাসওয়ার্ড:"
+msgstr "আপনার পাসওয়ার্ড:"
 
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr ""
@@ -2143,10 +2314,19 @@ msgstr ""
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
+msgid "Number of recent folders proposed in media manager:"
+msgstr ""
+
+msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
+msgstr ""
+
 msgid "Do not use standard favicon"
 msgstr ""
 
 msgid "This will be applied for all users"
+msgstr ""
+
+msgid "Optional columns displayed in lists"
 msgstr ""
 
 #, fuzzy
@@ -2170,6 +2350,9 @@ msgid "Entry edit field height:"
 msgstr ""
 
 msgid "Enable WYSIWYG mode"
+msgstr ""
+
+msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr ""
 
 #, fuzzy
@@ -2230,6 +2413,10 @@ msgstr ""
 msgid "Dashboard icons"
 msgstr "ড্যাশবোর্ড"
 
+#, fuzzy
+msgid "Display dashboard icons"
+msgstr "ড্যাশবোর্ড"
+
 msgid "Iconset:"
 msgstr ""
 
@@ -2267,19 +2454,19 @@ msgstr "মন্তব্যতে সার্চ"
 
 #, php-format
 msgid "%d entries found"
-msgstr "%d টি এন্ট্রি পাওয়া গেছে"
+msgstr "%d টি এন্ট্রি পাওয়া গেছে"
 
 #, php-format
 msgid "%d entry found"
-msgstr "%d টি এন্ট্রি পাওয়া গেছে"
+msgstr "%d টি এন্ট্রি পাওয়া গেছে"
 
 #, php-format
 msgid "%d comment found"
-msgstr "%d টি মন্তব্য পাওয়া গেছে"
+msgstr "%d টি মন্তব্য পাওয়া গেছে"
 
 #, php-format
 msgid "%d comments found"
-msgstr "%d টি মন্তব্য পাওয়া গেছে"
+msgstr "%d টি মন্তব্য পাওয়া গেছে"
 
 msgid "Dotclear update"
 msgstr "Dotclear আপডেট"
@@ -2309,7 +2496,7 @@ msgid "Manual checking of update done successfully."
 msgstr ""
 
 msgid "No newer Dotclear version available."
-msgstr "ডটক্লিয়ারের কোনো নতুন ভার্সন বের হয় নি।"
+msgstr "ডটক্লিয়ারের কোনো নতুন ভার্সন বের হয় নি।"
 
 #, fuzzy
 msgid "Force checking update Dotclear"
@@ -2317,7 +2504,7 @@ msgstr "আপডেট Dotclear"
 
 #, php-format
 msgid "Dotclear %s is available."
-msgstr "Dotclear %s বের হয়েছে।"
+msgstr "Dotclear %s বের হয়েছে।"
 
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr ""
@@ -2434,7 +2621,7 @@ msgid "Set permissions"
 msgstr ""
 
 msgid "User has been successfully removed."
-msgstr "ইউজার সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "ইউজার সফলভাবে মুছে ফেলা হয়েছে।"
 
 msgid "The permissions have been successfully updated."
 msgstr ""
@@ -2454,7 +2641,7 @@ msgstr ""
 
 #, fuzzy
 msgid "User has been successfully deleted."
-msgstr "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
 
 msgid "Back to user profile"
 msgstr ""
@@ -2496,9 +2683,19 @@ msgstr "অপেক্ষমান হিসেবে চিহ্নিত ক
 msgid "Mark as junk"
 msgstr "অপেক্ষমান হিসেবে চিহ্নিত করুন"
 
+msgid "Blacklist IP"
+msgstr ""
+
+msgid "Blacklist IP (global)"
+msgstr ""
+
 #, fuzzy
 msgid "No comment selected"
 msgstr "শূণ্য মন্তব্য"
+
+#, fuzzy
+msgid "IP addresses for selected comments have been blacklisted."
+msgstr "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
 
 #, fuzzy
 msgid "Back to entries list"
@@ -2542,32 +2739,32 @@ msgstr "এন্ট্রির কোনো কন্টেন্ট নেই
 #, fuzzy, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
-msgstr[0] "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
-msgstr[1] "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
+msgstr[0] "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
+msgstr[1] "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
 
 #, fuzzy, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
-msgstr[0] "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
-msgstr[1] "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
+msgstr[0] "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
+msgstr[1] "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
 
 #, fuzzy, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
-msgstr[0] "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
-msgstr[1] "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
+msgstr[0] "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
+msgstr[1] "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
 
 #, fuzzy, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
-msgstr[0] "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
-msgstr[1] "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[0] "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[1] "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
 
 #, fuzzy, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
-msgstr[0] "ডিরেক্টরি সফলভাবে মুছে ফেলা হয়েছে।"
-msgstr[1] "ডিরেক্টরি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[0] "ডিরেক্টরি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[1] "ডিরেক্টরি সফলভাবে মুছে ফেলা হয়েছে।"
 
 msgid "Change category for this selection"
 msgstr ""
@@ -2581,8 +2778,8 @@ msgstr "এধরণের কোনো ইউজার নেই"
 #, fuzzy, php-format
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
-msgstr[0] "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
-msgstr[1] "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
+msgstr[0] "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
+msgstr[1] "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
 
 msgid "Change author for this selection"
 msgstr ""
@@ -2593,8 +2790,8 @@ msgstr ""
 #, fuzzy, php-format
 msgid "%d entry has been successfully set to language \"%s\""
 msgid_plural "%d entries have been successfully set to language \"%s\""
-msgstr[0] "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
-msgstr[1] "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
+msgstr[0] "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
+msgstr[1] "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
 
 msgid "Change language for this selection"
 msgstr ""
@@ -2929,9 +3126,6 @@ msgstr ""
 msgid "Plugins list"
 msgstr "প্লাগইনসমূহ"
 
-msgid "Name"
-msgstr "নাম"
-
 msgid "Score"
 msgstr ""
 
@@ -2939,6 +3133,13 @@ msgid "Version"
 msgstr "ভার্সন"
 
 msgid "Current version"
+msgstr ""
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr ""
+
+msgid "This module cannot be enabled, because of the following reasons :"
 msgstr ""
 
 msgid "Plugin from official distribution"
@@ -2952,10 +3153,10 @@ msgid "No plugins matched your search."
 msgstr ""
 
 msgid "Activate"
-msgstr "সক্রিয়"
+msgstr "সক্রিয়"
 
 msgid "Deactivate"
-msgstr "নিস্ক্রিয়"
+msgstr "নিস্ক্রিয়"
 
 #, fuzzy
 msgid "Install"
@@ -2966,23 +3167,23 @@ msgstr ""
 
 #, fuzzy
 msgid "Activate selected plugins"
-msgstr "সক্রিয় প্লাগইনসমূহ"
+msgstr "সক্রিয় প্লাগইনসমূহ"
 
 #, fuzzy
 msgid "Activate all plugins from this list"
-msgstr "সক্রিয় প্লাগইনসমূহ"
+msgstr "সক্রিয় প্লাগইনসমূহ"
 
 #, fuzzy
 msgid "Deactivate selected plugins"
-msgstr "নিস্ক্রিয় প্লাগইনসমূহ"
+msgstr "নিস্ক্রিয় প্লাগইনসমূহ"
 
 #, fuzzy
 msgid "Deactivate all plugins from this list"
-msgstr "নিস্ক্রিয় প্লাগইনসমূহ"
+msgstr "নিস্ক্রিয় প্লাগইনসমূহ"
 
 #, fuzzy
 msgid "Update selected plugins"
-msgstr "নিস্ক্রিয় প্লাগইনসমূহ"
+msgstr "নিস্ক্রিয় প্লাগইনসমূহ"
 
 msgid "Update all plugins from this list"
 msgstr ""
@@ -2995,7 +3196,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Some plugins have not been delete."
-msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয় নি:"
+msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয় নি:"
 
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
@@ -3010,24 +3211,24 @@ msgstr[1] ""
 #, fuzzy
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
-msgstr[0] "ব্লগটি সফলভাবে তৈরী হয়েছে।"
-msgstr[1] "ব্লগটি সফলভাবে তৈরী হয়েছে।"
+msgstr[0] "ব্লগটি সফলভাবে তৈরী হয়েছে।"
+msgstr[1] "ব্লগটি সফলভাবে তৈরী হয়েছে।"
 
 #, fuzzy
 msgid "Some plugins have not been deactivated."
-msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয় নি:"
+msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয় নি:"
 
 #, fuzzy
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
-msgstr[0] "ব্লগটি সফলভাবে মুছে ফেলা হয়েছে।"
-msgstr[1] "ব্লগটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[0] "ব্লগটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[1] "ব্লগটি সফলভাবে মুছে ফেলা হয়েছে।"
 
 #, fuzzy
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successuflly updated."
-msgstr[0] "ব্লগটি সফলভাবে আপডেট করা হয়েছে।"
-msgstr[1] "ব্লগটি সফলভাবে আপডেট করা হয়েছে।"
+msgstr[0] "ব্লগটি সফলভাবে আপডেট করা হয়েছে।"
+msgstr[1] "ব্লগটি সফলভাবে আপডেট করা হয়েছে।"
 
 msgid "Zip file path:"
 msgstr ""
@@ -3113,13 +3314,13 @@ msgstr "এরকম কোনো ব্লগ নেই।"
 
 #, fuzzy
 msgid "Theme has been successfully selected."
-msgstr "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
 
 #, fuzzy
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
-msgstr[0] "থিম সফলভাবে পরিবর্তন করা হয়েছে।"
-msgstr[1] "থিম সফলভাবে পরিবর্তন করা হয়েছে।"
+msgstr[0] "থিম সফলভাবে পরিবর্তন করা হয়েছে।"
+msgstr[1] "থিম সফলভাবে পরিবর্তন করা হয়েছে।"
 
 msgid "Some themes have not been deactivated."
 msgstr ""
@@ -3127,8 +3328,8 @@ msgstr ""
 #, fuzzy
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
-msgstr[0] "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
-msgstr[1] "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[0] "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[1] "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
 
 msgid "You don't have permissions to delete this theme."
 msgstr ""
@@ -3139,20 +3340,20 @@ msgstr ""
 #, fuzzy
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
-msgstr[0] "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
-msgstr[1] "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[0] "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[1] "থিমটি সফলভাবে মুছে ফেলা হয়েছে।"
 
 #, fuzzy
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successuflly installed."
-msgstr[0] "থিমটি সফলভাবে ইন্সটল করা হয়েছে।"
-msgstr[1] "থিমটি সফলভাবে ইন্সটল করা হয়েছে।"
+msgstr[0] "থিমটি সফলভাবে ইন্সটল করা হয়েছে।"
+msgstr[1] "থিমটি সফলভাবে ইন্সটল করা হয়েছে।"
 
 #, fuzzy
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successuflly updated."
-msgstr[0] "থিমটি সফলভাবে আপগ্রেড করা হয়েছে।"
-msgstr[1] "থিমটি সফলভাবে আপগ্রেড করা হয়েছে।"
+msgstr[0] "থিমটি সফলভাবে আপগ্রেড করা হয়েছে।"
+msgstr[1] "থিমটি সফলভাবে আপগ্রেড করা হয়েছে।"
 
 #, fuzzy
 msgid "First page"
@@ -3190,13 +3391,37 @@ msgstr "এন্ট্রির কোনো টাইটেল নেই"
 msgid "No entry"
 msgstr ""
 
-#, php-format
-msgid "List of %s entries match the filter."
-msgstr ""
+#, fuzzy, php-format
+msgid "List of %s entries matching the filter."
+msgstr "এন্ট্রির কোনো টাইটেল নেই"
 
-#, fuzzy
-msgid "Entries list"
+#, fuzzy, php-format
+msgid "List of entries (%s)"
 msgstr "ক্যাটাগরির লিস্ট"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Protected"
 msgstr ""
@@ -3209,12 +3434,26 @@ msgstr ""
 msgid "%d attachments"
 msgstr ""
 
+#, fuzzy
+msgid "Entries list"
+msgstr "ক্যাটাগরির লিস্ট"
+
 msgid "No comments or trackbacks matches the filter"
 msgstr ""
 
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "মন্তব্য এবং ট্র্যাকব্যাকসমূহ"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -3280,11 +3519,11 @@ msgstr ""
 
 #, fuzzy
 msgid "Unable to create images."
-msgstr "আপলোড করা ফাইল সরানো যায় নি।"
+msgstr "আপলোড করা ফাইল সরানো যায় নি।"
 
 #, fuzzy
 msgid "Invalid file type."
-msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
+msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
 
 msgid "An error occurred while writing the file."
 msgstr ""
@@ -3323,9 +3562,6 @@ msgid "thumbnail"
 msgstr "থাম্বনেইল:"
 
 msgid "square"
-msgstr ""
-
-msgid "Posts"
 msgstr ""
 
 #, fuzzy
@@ -3513,6 +3749,26 @@ msgid "Embedded Video Player"
 msgstr ""
 
 #, php-format
+msgid "Requires %s module which is not installed"
+msgstr ""
+
+#, php-format
+msgid "Requires Dotclear version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr ""
+
+#, fuzzy
+msgid "The following extensions have been disabled :"
+msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয়েছে:"
+
+#, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
 msgstr ""
 
@@ -3643,7 +3899,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Downloaded file does not seem to be a valid archive."
-msgstr "Zip ফাইলটি বৈধ ডটক্লিয়ার ল্যাঙ্গুয়েজ প্যাক বলে মনে হচ্ছে না।"
+msgstr "Zip ফাইলটি বৈধ ডটক্লিয়ার ল্যাঙ্গুয়েজ প্যাক বলে মনে হচ্ছে না।"
 
 msgid "Incomplete archive."
 msgstr ""
@@ -3663,7 +3919,7 @@ msgstr ""
 
 #, fuzzy, php-format
 msgid "%s is not a valid pref id"
-msgstr "ফাইলটি বৈধ নয়"
+msgstr "ফাইলটি বৈধ নয়"
 
 msgid "No workspace specified"
 msgstr ""
@@ -3675,9 +3931,6 @@ msgid "No valid target URL provided? Try again!"
 msgstr ""
 
 msgid "LOL!"
-msgstr ""
-
-msgid "SQLite Database Schema cannot be upgraded."
 msgstr ""
 
 msgid "Something went wrong with auto upgrade:"
@@ -3725,11 +3978,11 @@ msgstr ""
 
 #, fuzzy
 msgid "Invalid range"
-msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
+msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
 
 #, fuzzy
 msgid "Invalid line number"
-msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
+msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
 
 msgid "Chunk is out of range"
 msgstr ""
@@ -3852,7 +4105,7 @@ msgstr ""
 #~ msgstr "You can't remove default theme."
 
 #~ msgid "Theme does not exist."
-#~ msgstr "থিমটি খুঁজে পাওয়া যায় নি"
+#~ msgstr "থিমটি খুঁজে পাওয়া যায় নি"
 
 #~ msgid "Themes"
 #~ msgstr "থিমসমূহ"
@@ -3862,10 +4115,6 @@ msgstr ""
 
 #~ msgid "Theme zip file:"
 #~ msgstr "থিমের zip ফাইল:"
-
-#, fuzzy
-#~ msgid "Apply filters"
-#~ msgstr "ফিল্টার"
 
 #~ msgid "Page(s)"
 #~ msgstr "পেজ(সমূহ)"
@@ -3893,7 +4142,7 @@ msgstr ""
 
 #, fuzzy
 #~ msgid "Some plugins are installed twice:"
-#~ msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয়েছে:"
+#~ msgstr "নিচের প্লাগইনগুলো ইন্সটল করা হয়েছে:"
 
 #~ msgid "Download this directory as a zip file"
 #~ msgstr "এই ডিরেক্টরিকে একটি zip ফাইল হিসেবে ডাউনলোড করুন"
@@ -3911,7 +4160,7 @@ msgstr ""
 #~ msgstr "প্লাগইন ডাউনলোড"
 
 #~ msgid "Published on:"
-#~ msgstr "প্রকাশিত হয়েছে:"
+#~ msgstr "প্রকাশিত হয়েছে:"
 
 #~ msgid "junk"
 #~ msgstr "জাঙ্ক"
@@ -3978,4 +4227,4 @@ msgstr ""
 #~ msgstr "লগইন:"
 
 #~ msgid "Login and password"
-#~ msgstr "লগইন ও পাসওয়ার্ড"
+#~ msgstr "লগইন ও পাসওয়ার্ড"

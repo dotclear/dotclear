@@ -6,15 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:42+0100\n"
-"PO-Revision-Date: 2009-09-16 11:17+0600\n"
-"Last-Translator: Adnan Shameem <needadnan@gmail.com>\n"
+"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"PO-Revision-Date: 2016-07-18 15:43+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Bengali\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.8\n"
 
 msgid "Manage every blog configuration directive"
 msgstr ""
@@ -32,6 +33,9 @@ msgid "Manage your blogroll"
 msgstr ""
 
 msgid "Configure your Blowup Theme"
+msgstr ""
+
+msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 msgid "Legacy modules for dotclear"
@@ -117,7 +121,7 @@ msgid "List of simple menu items"
 msgstr ""
 
 msgid "Configuration successfully updated"
-msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
+msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
 
 msgid "no"
 msgstr "না"
@@ -130,6 +134,9 @@ msgstr ""
 
 #, php-format
 msgid "Settings for %s"
+msgstr ""
+
+msgid "Setting ID"
 msgstr ""
 
 msgid "Value"
@@ -154,7 +161,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Filter configuration have been successfully saved."
-msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
+msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
 
 msgid "Akismet API key:"
 msgstr ""
@@ -197,10 +204,10 @@ msgid "Filtered by %1$s with rule %2$s."
 msgstr ""
 
 msgid "IP address has been successfully added."
-msgstr "IP এড্রেস সফলভাবে যোগ করা হয়েছে।"
+msgstr "IP এড্রেস সফলভাবে যোগ করা হয়েছে।"
 
 msgid "IP addresses have been successfully removed."
-msgstr "IP এড্রেসসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "IP এড্রেসসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
 
 msgid "Blacklist"
 msgstr "কালোতালিকা"
@@ -239,7 +246,7 @@ msgstr ""
 
 #, fuzzy
 msgid "The list of DNSBL servers has been succesfully updated."
-msgstr "স্প্যাম মন্তব্যসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "স্প্যাম মন্তব্যসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
 
 msgid "IP Lookup servers"
 msgstr ""
@@ -566,9 +573,6 @@ msgstr ""
 msgid "Items order has been successfully updated"
 msgstr ""
 
-msgid "URL"
-msgstr ""
-
 msgid "Lang"
 msgstr ""
 
@@ -616,7 +620,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Theme configuration has been successfully updated."
-msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
+msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
 
 msgid "Blowup configuration"
 msgstr ""
@@ -832,9 +836,37 @@ msgstr ""
 msgid "Unable to open image."
 msgstr ""
 
+msgid "Breadcrumb"
+msgstr ""
+
+msgid "Enable breadcrumb for this blog"
+msgstr ""
+
+msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
+msgstr ""
+
+msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+#, php-format
+msgid "page %d"
+msgstr ""
+
+msgid "Archives"
+msgstr ""
+
+msgid "All tags"
+msgstr ""
+
+msgid "404"
+msgstr ""
+
 #, fuzzy
 msgid "The configuration has been updated."
-msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
+msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
 
 msgid "Media chooser"
 msgstr ""
@@ -845,6 +877,12 @@ msgstr ""
 #, fuzzy
 msgid "Link"
 msgstr "লিংকসমূহ"
+
+msgid "External image"
+msgstr ""
+
+msgid "URL field cannot be empty."
+msgstr ""
 
 msgid "visual"
 msgstr ""
@@ -921,9 +959,6 @@ msgstr ""
 msgid "Language?"
 msgstr ""
 
-msgid "External image"
-msgstr ""
-
 msgid "Remove text formating"
 msgstr ""
 
@@ -974,9 +1009,6 @@ msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
 msgstr ""
 
 msgid "Why don't you blog this now?"
-msgstr ""
-
-msgid "or"
 msgstr ""
 
 msgid "visit your dashboard"
@@ -1262,7 +1294,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Task successfully executed."
-msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
+msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
 
 msgid "Empty templates cache directory"
 msgstr ""
@@ -1387,7 +1419,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Maintenance plugin has been successfully configured."
-msgstr "IP এড্রেস সফলভাবে যোগ করা হয়েছে।"
+msgstr "IP এড্রেস সফলভাবে যোগ করা হয়েছে।"
 
 msgid "Never"
 msgstr ""
@@ -1488,7 +1520,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Selected pages have been successfully reordered."
-msgstr "IP এড্রেসসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "IP এড্রেসসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
 
 msgid "No page"
 msgstr ""
@@ -1504,11 +1536,11 @@ msgstr ""
 
 #, fuzzy
 msgid "Selected pages have been successfully updated."
-msgstr "স্প্যাম মন্তব্যসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "স্প্যাম মন্তব্যসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
 
 #, fuzzy
 msgid "Selected pages have been successfully deleted."
-msgstr "স্প্যাম মন্তব্যসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "স্প্যাম মন্তব্যসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
 
 msgid "Selected pages action:"
 msgstr ""
@@ -1588,13 +1620,24 @@ msgstr ""
 msgid "Simple menu"
 msgstr ""
 
+#, fuzzy
+msgid "Item description"
+msgstr "বিবরণ"
+
+msgid "Displayed in link"
+msgstr ""
+
+#, fuzzy
+msgid "Used as link title"
+msgstr "আপনাকে অবশ্যই লিংকের শিরোনাম দিতে হবে"
+
+msgid "Displayed in link and used as title"
+msgstr ""
+
+msgid "Not displayed nor used"
+msgstr ""
+
 msgid "All months"
-msgstr ""
-
-msgid "All tags"
-msgstr ""
-
-msgid "Home"
 msgstr ""
 
 msgid "Archive"
@@ -1611,7 +1654,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Configuration successfully updated."
-msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
+msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
 
 msgid "Label"
 msgstr ""
@@ -1626,9 +1669,6 @@ msgstr ""
 msgid "Recent Posts from this category"
 msgstr ""
 
-msgid "Archives"
-msgstr ""
-
 #, php-format
 msgid "Posts from %s"
 msgstr ""
@@ -1639,14 +1679,14 @@ msgstr ""
 
 #, fuzzy
 msgid "Menu item has been successfully added."
-msgstr "IP এড্রেস সফলভাবে যোগ করা হয়েছে।"
+msgstr "IP এড্রেস সফলভাবে যোগ করা হয়েছে।"
 
 msgid "Label and URL of menu item are mandatory."
 msgstr ""
 
 #, fuzzy
 msgid "Menu items have been successfully removed."
-msgstr "IP এড্রেসসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "IP এড্রেসসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
 
 msgid "No menu items selected."
 msgstr ""
@@ -1659,7 +1699,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Menu items have been successfully updated."
-msgstr "স্প্যাম মন্তব্যসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "স্প্যাম মন্তব্যসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
 
 msgid "Step #1"
 msgstr ""
@@ -1735,6 +1775,27 @@ msgstr ""
 msgid "No menu items so far."
 msgstr ""
 
+msgid "This tag's comments Atom feed"
+msgstr ""
+
+msgid "This tag's entries Atom feed"
+msgstr ""
+
+msgid "Tag"
+msgstr ""
+
+msgid "Limit (empty means no limit):"
+msgstr ""
+
+msgid "Entries count"
+msgstr ""
+
+msgid "Tag name"
+msgstr ""
+
+msgid "Link to all tags:"
+msgstr ""
+
 msgid "Add tags"
 msgstr ""
 
@@ -1744,8 +1805,8 @@ msgstr ""
 #, fuzzy
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
-msgstr[0] "IP এড্রেস সফলভাবে যোগ করা হয়েছে।"
-msgstr[1] "IP এড্রেস সফলভাবে যোগ করা হয়েছে।"
+msgstr[0] "IP এড্রেস সফলভাবে যোগ করা হয়েছে।"
+msgstr[1] "IP এড্রেস সফলভাবে যোগ করা হয়েছে।"
 
 msgid "Add tags to this selection"
 msgstr ""
@@ -1780,8 +1841,8 @@ msgstr ""
 #, fuzzy
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
-msgstr[0] "IP এড্রেসসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
-msgstr[1] "IP এড্রেসসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[0] "IP এড্রেসসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[1] "IP এড্রেসসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
 
 msgid "No tags for selected entries"
 msgstr ""
@@ -1792,9 +1853,6 @@ msgstr ""
 msgid "Following tags have been found in selected entries:"
 msgstr ""
 
-msgid "Tag"
-msgstr ""
-
 msgid "Short"
 msgstr ""
 
@@ -1802,24 +1860,6 @@ msgid "Extended"
 msgstr ""
 
 msgid "Tags list format:"
-msgstr ""
-
-msgid "This tag's comments Atom feed"
-msgstr ""
-
-msgid "This tag's entries Atom feed"
-msgstr ""
-
-msgid "Limit (empty means no limit):"
-msgstr ""
-
-msgid "Entries count"
-msgstr ""
-
-msgid "Tag name"
-msgstr ""
-
-msgid "Link to all tags:"
 msgstr ""
 
 msgid "Tag has been successfully renamed"
@@ -1852,7 +1892,13 @@ msgstr ""
 msgid "Edit theme files"
 msgstr ""
 
+msgid "Syntax highlighting"
+msgstr ""
+
 msgid "Syntax highlighting in theme editor"
+msgstr ""
+
+msgid "Theme:"
 msgstr ""
 
 msgid "No file"
@@ -1934,7 +1980,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Preferences successfully updated"
-msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
+msgstr "কনফিগারেশন সফলভাবে আপডেট করা হয়েছে"
 
 msgid "user:preferences"
 msgstr ""
@@ -1949,6 +1995,9 @@ msgid "Presentation widgets"
 msgstr ""
 
 msgid "Search engine"
+msgstr ""
+
+msgid "Placeholder (HTML5 only, optional):"
 msgstr ""
 
 msgid "Navigation links"
@@ -2120,14 +2169,14 @@ msgid "Drag widgets here to remove."
 msgstr ""
 
 #~ msgid "Settings definition successfully updated"
-#~ msgstr "সেটিংস ডেফিনিশন সফলভাবে আপডেট করা হয়েছে"
+#~ msgstr "সেটিংস ডেফিনিশন সফলভাবে আপডেট করা হয়েছে"
 
 #~ msgid "Delete all spams"
 #~ msgstr "সব স্প্যাম মুছে ফেলুন"
 
 #, fuzzy
 #~ msgid "Preferences definition successfully updated"
-#~ msgstr "সেটিংস ডেফিনিশন সফলভাবে আপডেট করা হয়েছে"
+#~ msgstr "সেটিংস ডেফিনিশন সফলভাবে আপডেট করা হয়েছে"
 
 #~ msgid "List"
 #~ msgstr "লিস্ট"

@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:51+0100\n"
-"PO-Revision-Date: 2010-01-16 19:14+0800\n"
-"Last-Translator: lainme <lainme993@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2016-07-18 15:41+0200\n"
+"PO-Revision-Date: 2016-07-18 15:55+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Chinese\n"
-"X-Poedit-Country: CHINA\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.8\n"
 
 msgid "Manage every blog configuration directive"
 msgstr ""
@@ -34,6 +34,9 @@ msgid "Manage your blogroll"
 msgstr "管理博客链接"
 
 msgid "Configure your Blowup Theme"
+msgstr ""
+
+msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 msgid "Legacy modules for dotclear"
@@ -143,6 +146,10 @@ msgstr ""
 #, fuzzy, php-format
 msgid "Settings for %s"
 msgstr "编辑文件 %s"
+
+#, fuzzy
+msgid "Setting ID"
+msgstr "设置名称"
 
 msgid "Value"
 msgstr "值"
@@ -584,9 +591,6 @@ msgstr "成功删除项目。"
 msgid "Items order has been successfully updated"
 msgstr "成功更新项目顺序"
 
-msgid "URL"
-msgstr "URL"
-
 msgid "Lang"
 msgstr "语言"
 
@@ -854,6 +858,34 @@ msgstr "无法创建图片。"
 msgid "Unable to open image."
 msgstr "无法打开图片。"
 
+msgid "Breadcrumb"
+msgstr ""
+
+msgid "Enable breadcrumb for this blog"
+msgstr ""
+
+msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
+msgstr ""
+
+msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
+msgstr ""
+
+msgid "Home"
+msgstr "主页"
+
+#, php-format
+msgid "page %d"
+msgstr ""
+
+msgid "Archives"
+msgstr "归档"
+
+msgid "All tags"
+msgstr "所有标签"
+
+msgid "404"
+msgstr ""
+
 #, fuzzy
 msgid "The configuration has been updated."
 msgstr "成功更新主题配置。"
@@ -867,6 +899,13 @@ msgstr ""
 #, fuzzy
 msgid "Link"
 msgstr "链接"
+
+#, fuzzy
+msgid "External image"
+msgstr "外部媒体"
+
+msgid "URL field cannot be empty."
+msgstr ""
 
 msgid "visual"
 msgstr ""
@@ -951,10 +990,6 @@ msgid "Language?"
 msgstr "语言"
 
 #, fuzzy
-msgid "External image"
-msgstr "外部媒体"
-
-#, fuzzy
 msgid "Remove text formating"
 msgstr "移除标签"
 
@@ -1009,9 +1044,6 @@ msgstr "您的博客已被成功导入。欢迎来到 Dotclear 2！"
 
 msgid "Why don't you blog this now?"
 msgstr "为什么不立刻开始写博客呢？"
-
-msgid "or"
-msgstr "或者"
 
 msgid "visit your dashboard"
 msgstr "浏览您的控制板"
@@ -1275,7 +1307,6 @@ msgstr ""
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
 msgstr[0] ""
-msgstr[1] ""
 
 msgid "This task has never been executed."
 msgstr ""
@@ -1288,7 +1319,6 @@ msgstr ""
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] ""
-msgstr[1] ""
 
 #, fuzzy
 msgid "Manage tasks"
@@ -1654,14 +1684,26 @@ msgid "Simple menu"
 msgstr ""
 
 #, fuzzy
+msgid "Item description"
+msgstr "没有描述"
+
+#, fuzzy
+msgid "Displayed in link"
+msgstr "删除此标签"
+
+#, fuzzy
+msgid "Used as link title"
+msgstr "没有这样的链接或者标题"
+
+msgid "Displayed in link and used as title"
+msgstr ""
+
+msgid "Not displayed nor used"
+msgstr ""
+
+#, fuzzy
 msgid "All months"
 msgstr "所有标签"
-
-msgid "All tags"
-msgstr "所有标签"
-
-msgid "Home"
-msgstr "主页"
 
 #, fuzzy
 msgid "Archive"
@@ -1693,9 +1735,6 @@ msgstr ""
 
 msgid "Recent Posts from this category"
 msgstr ""
-
-msgid "Archives"
-msgstr "归档"
 
 #, fuzzy, php-format
 msgid "Posts from %s"
@@ -1813,6 +1852,27 @@ msgstr "您确定您要删除选定的链接吗？"
 msgid "No menu items so far."
 msgstr ""
 
+msgid "This tag's comments Atom feed"
+msgstr "此标签的评论 Atom feed"
+
+msgid "This tag's entries Atom feed"
+msgstr "此标签的文章 Atom feed"
+
+msgid "Tag"
+msgstr "标签"
+
+msgid "Limit (empty means no limit):"
+msgstr "限制(留空表示不限制)："
+
+msgid "Entries count"
+msgstr "文章计数"
+
+msgid "Tag name"
+msgstr "标签名称"
+
+msgid "Link to all tags:"
+msgstr ""
+
 msgid "Add tags"
 msgstr "添加标签"
 
@@ -1823,7 +1883,6 @@ msgstr "移除标签"
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "成功移除标签"
-msgstr[1] "成功移除标签"
 
 #, fuzzy
 msgid "Add tags to this selection"
@@ -1863,7 +1922,6 @@ msgstr "要添加的标签："
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "成功移除标签"
-msgstr[1] "成功移除标签"
 
 msgid "No tags for selected entries"
 msgstr "所选文章没有标签"
@@ -1875,9 +1933,6 @@ msgstr "从文章中移除选择的标签"
 msgid "Following tags have been found in selected entries:"
 msgstr "所选文章中发现下列标签："
 
-msgid "Tag"
-msgstr "标签"
-
 msgid "Short"
 msgstr ""
 
@@ -1888,24 +1943,6 @@ msgstr "外部媒体"
 #, fuzzy
 msgid "Tags list format:"
 msgstr "要添加的标签："
-
-msgid "This tag's comments Atom feed"
-msgstr "此标签的评论 Atom feed"
-
-msgid "This tag's entries Atom feed"
-msgstr "此标签的文章 Atom feed"
-
-msgid "Limit (empty means no limit):"
-msgstr "限制(留空表示不限制)："
-
-msgid "Entries count"
-msgstr "文章计数"
-
-msgid "Tag name"
-msgstr "标签名称"
-
-msgid "Link to all tags:"
-msgstr ""
 
 msgid "Tag has been successfully renamed"
 msgstr "成功重命名标签"
@@ -1938,7 +1975,13 @@ msgstr "此博客上没有标签"
 msgid "Edit theme files"
 msgstr "编辑文件 %s"
 
+msgid "Syntax highlighting"
+msgstr ""
+
 msgid "Syntax highlighting in theme editor"
+msgstr ""
+
+msgid "Theme:"
 msgstr ""
 
 msgid "No file"
@@ -2042,6 +2085,9 @@ msgstr "展示小工具"
 msgid "Search engine"
 msgstr "搜索引擎"
 
+msgid "Placeholder (HTML5 only, optional):"
+msgstr ""
+
 msgid "Navigation links"
 msgstr "导航链接"
 
@@ -2105,7 +2151,7 @@ msgstr "评论限制："
 
 #, php-format
 msgid "This blog's entries %s feed"
-msgstr "此博客的文章 %d feed"
+msgstr "此博客的文章 %s feed"
 
 #, php-format
 msgid "This blog's comments %s feed"
@@ -2216,6 +2262,12 @@ msgstr "移除小工具"
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "or"
+#~ msgstr "或者"
 
 #~ msgid "Settings definition successfully updated"
 #~ msgstr "成功更新设置定义"
@@ -2332,9 +2384,6 @@ msgstr ""
 
 #~ msgid "Widget ID"
 #~ msgstr "小工具 ID"
-
-#~ msgid "Setting name"
-#~ msgstr "设置名称"
 
 #~ msgid "Setting value"
 #~ msgstr "设置值"

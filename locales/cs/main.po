@@ -5,17 +5,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:44+0100\n"
-"PO-Revision-Date: 2010-06-02 01:21+0100\n"
-"Last-Translator: Jan Skrasek <hrach.cz@gmail.com>\n"
+"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"PO-Revision-Date: 2016-07-18 15:44+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
-"Language: \n"
+"Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Poedit-Language: Czech\n"
-"X-Poedit-Country: CZECH REPUBLIC\n"
+"X-Generator: Poedit 1.8.8\n"
 
 msgid "Dotclear has been upgraded."
 msgstr "DotClear byl aktualizován."
@@ -324,6 +323,13 @@ msgstr "Copyright poznámka:"
 msgid "New post URL format:"
 msgstr "Formát URL článků:"
 
+#, fuzzy
+msgid "Dotclear"
+msgstr "Dotclear tým"
+
+msgid "Sample:"
+msgstr ""
+
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
@@ -392,9 +398,6 @@ msgstr "Formát data:"
 msgid "Pattern of date"
 msgstr ""
 
-msgid "Sample:"
-msgstr ""
-
 msgid "Time format:"
 msgstr "Formát času:"
 
@@ -403,6 +406,9 @@ msgstr ""
 
 msgid "Display smilies on entries and comments"
 msgstr "Zobrazit smajlíky ve článcích a komentářích"
+
+msgid "Disable internal search system"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Display %s entries on home page"
@@ -437,6 +443,38 @@ msgstr ""
 
 msgid "Generated image sizes (in pixels)"
 msgstr "Vygenerované velikosti obrázků (v pixelech)"
+
+#, fuzzy
+msgid "Thumbnail"
+msgstr "Náhledy:"
+
+#, fuzzy
+msgid "Small"
+msgstr "Malý:"
+
+#, fuzzy
+msgid "Medium"
+msgstr "Střední:"
+
+msgid "Default size of the inserted video (in pixels)"
+msgstr ""
+
+#, fuzzy
+msgid "Width"
+msgstr "Šířka:"
+
+#, fuzzy
+msgid "Height"
+msgstr "Výška:"
+
+msgid "Flash player"
+msgstr ""
+
+msgid "Insert Flash player fallback for video (mp4 or m4v) and audio (mp3) media"
+msgstr ""
+
+msgid "For flv video, the Flash player will be anyway inserted."
+msgstr ""
 
 msgid "Default image insertion attributes"
 msgstr ""
@@ -585,6 +623,10 @@ msgstr ""
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Pomocí nahrání nebo stáhnutí zip souboru můžete nainstalovat vzhled."
 
+#, fuzzy
+msgid "Some functions are disabled, please give write access to your themes directory to enable them."
+msgstr "Pro správnou funkčnost nastavte správná práva pro zápis vašemu plugins adresáři."
+
 msgid "Last update"
 msgstr "Poslední aktualizace"
 
@@ -668,6 +710,10 @@ msgid "Blog id"
 msgstr "Jméno blogu"
 
 #, fuzzy
+msgid "URL"
+msgstr "URL:"
+
+#, fuzzy
 msgid "Entries (all types)"
 msgstr "článku na stranu"
 
@@ -694,7 +740,7 @@ msgid "The category \"%s\" has been successfully deleted."
 msgstr "Kategorie byla úspěšně vytvořena."
 
 #, fuzzy
-msgid "Category where to move posts does not exist"
+msgid "Category where to move entries does not exist"
 msgstr "Tato kategorie neexistuje."
 
 #, fuzzy, php-format
@@ -913,6 +959,13 @@ msgstr "Název položky"
 msgid "Author"
 msgstr "Autor"
 
+msgid "IP"
+msgstr ""
+
+#, fuzzy
+msgid "Spam filter"
+msgstr "Filtrovat"
+
 #, fuzzy
 msgid "Selected comments have been successfully updated."
 msgstr "Komentář byl úspěšně upraven."
@@ -1066,8 +1119,8 @@ msgstr ""
 msgid "Save and publish"
 msgstr "uložit a publikovat"
 
-#, php-format
-msgid "PHP version is %s (5.0 or earlier needed)."
+#, fuzzy, php-format
+msgid "PHP version is %s (5.3 or earlier needed)."
 msgstr "PHP verze je %s (je třeba verze 5.0 a vyšší.)"
 
 msgid "Multibyte string module (mbstring) is not available."
@@ -1237,6 +1290,10 @@ msgstr "Cachovací adresář %s nemá právo zápisu"
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
 msgstr "Pro dané důvody nemůže být Dotclear nainstalován. Prosím navštivte <a href=\"http://dotclear.org/documentation/2.0/admin/install\">dokumentaci</a>, kde je popsáno jak opravit problém."
 
+#, fuzzy, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "Nelze zapisovat do tohoto adresáře."
+
 #, php-format
 msgid "File %s does not exist."
 msgstr "Soubor %s neexistuje."
@@ -1276,6 +1333,9 @@ msgid "MySQLi"
 msgstr ""
 
 msgid "PostgreSQL"
+msgstr ""
+
+msgid "SQLite"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1396,6 +1456,10 @@ msgstr "Dle data, vzestupně"
 msgid "By dates, in descending order"
 msgstr "Dle data, sestupně"
 
+#, fuzzy
+msgid "Not a valid directory"
+msgstr "Neplatný soubor"
+
 #, fuzzy, php-format
 msgid "Directory \"%s\" has been successfully created."
 msgstr "Adresář byl úspěšně vytvořen."
@@ -1436,6 +1500,22 @@ msgstr "zrušit"
 msgid "Yes"
 msgstr "ano"
 
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "nalezeno %d článků"
+msgstr[1] "nalezeno %d článků"
+msgstr[2] "nalezeno %d článků"
+
+msgid "Remove this folder from your favorites"
+msgstr ""
+
+msgid "Add this folder to your favorites"
+msgstr ""
+
+msgid "Goto recent folder:"
+msgstr ""
+
 #, fuzzy
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "Nemáte oprávnění smazat tento plugin."
@@ -1449,28 +1529,74 @@ msgstr "Adresář byl úspěšně obnoven."
 msgid "Zip file has been successfully extracted."
 msgstr "Zip archív byl úspěšně rozbalen."
 
+#, fuzzy, php-format
+msgid "Select a file by clicking on %s"
+msgstr "Vyberte soubor pro vložení do článku kliknutím na %s"
+
+#, fuzzy
+msgid "Select this file"
+msgstr "Smazat tento blog"
+
+#, fuzzy
+msgid "Choose selected medias"
+msgstr "Vrátit vybrané soubory do původního stavu"
+
 #, php-format
-msgid "Choose a file to attach to entry %s by clicking on %s."
+msgid "Select files and click on <strong>%s</strong> button"
+msgstr ""
+
+#, fuzzy
+msgid "or"
+msgstr "Setřídit:"
+
+#, fuzzy
+msgid "upload a new file"
+msgstr "Nahrát zip soubor"
+
+#, fuzzy, php-format
+msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Vyber soubor pro připojení k článku %s kliknutím na %s."
 
 msgid "Attach this file to entry"
 msgstr "Připojit tento soubor k článku"
 
-#, php-format
-msgid "Choose a file to insert into entry by clicking on %s."
+#, fuzzy, php-format
+msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "Vyberte soubor pro vložení do článku kliknutím na %s"
 
 #, fuzzy
 msgid "Remove selected medias"
 msgstr "Vrátit vybrané soubory do původního stavu"
 
+msgid "Will search into media filename (including path), title and description"
+msgstr ""
+
 msgid "No file."
 msgstr "Žádný soubor."
+
+#, fuzzy
+msgid "Grid display mode"
+msgstr "Zobrazené jméno"
+
+#, fuzzy
+msgid "List display mode"
+msgstr "Zobrazené jméno"
 
 msgid "Sort files:"
 msgstr "Setřídit soubory:"
 
 msgid "Number of elements displayed per page:"
+msgstr ""
+
+#, fuzzy
+msgid "Media list"
+msgstr "Detaily média"
+
+#, fuzzy
+msgid "Name"
+msgstr "Jméno:"
+
+msgid "Size"
 msgstr ""
 
 #, php-format
@@ -1535,15 +1661,15 @@ msgstr ""
 msgid "Blog parameters"
 msgstr "Parametry"
 
-msgid "open"
-msgstr "otevřít"
-
 msgid "Insert this file into entry"
 msgstr "Vložit tento soubor do článku"
 
 #, fuzzy
 msgid "delete"
 msgstr "Smazat"
+
+msgid "open"
+msgstr "otevřít"
 
 msgid "Not a valid file"
 msgstr "Neplatný soubor"
@@ -1562,11 +1688,19 @@ msgstr "Náhledy byly úspěšně aktualizovány."
 msgid "Are you sure to delete this media?"
 msgstr "Jste si jisti, že chcete smazat tento komentář?"
 
-msgid "Insert media item"
+#, fuzzy
+msgid "Select media item"
 msgstr "Vložit multimediální soubor"
 
 msgid "Image size:"
 msgstr "Velikost obrázku:"
+
+#, fuzzy
+msgid "Select"
+msgstr "Vybrané:"
+
+msgid "Insert media item"
+msgstr "Vložit multimediální soubor"
 
 msgid "Image alignment"
 msgstr "Zarovnání obrázku"
@@ -1617,17 +1751,29 @@ msgstr "Detaily média"
 msgid "Available sizes:"
 msgstr "Dostupná velikost:"
 
-msgid "File owner:"
-msgstr "Vlasník:"
+#, fuzzy
+msgid "Thumbnail details"
+msgstr "Detaily obrázku"
 
-msgid "File type:"
-msgstr "Typ souboru:"
+#, fuzzy
+msgid "Image width:"
+msgstr "Velikost obrázku:"
+
+#, fuzzy
+msgid "Image height:"
+msgstr "Zarovnání obrázku"
 
 msgid "File size:"
 msgstr "Velikost souboru:"
 
 msgid "File URL:"
 msgstr "URL souboru:"
+
+msgid "File owner:"
+msgstr "Vlasník:"
+
+msgid "File type:"
+msgstr "Typ souboru:"
 
 msgid "Show entries containing this media"
 msgstr "Zobrazit články, které obsahují tento soubor"
@@ -2035,6 +2181,13 @@ msgstr "Vybrané"
 msgid "Not selected"
 msgstr "nevybrané"
 
+msgid "Opened"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "zavřít"
+
 #, fuzzy
 msgid "With attachments"
 msgstr "%d přílohy"
@@ -2042,6 +2195,14 @@ msgstr "%d přílohy"
 #, fuzzy
 msgid "Without attachments"
 msgstr "%d přílohy"
+
+#, fuzzy
+msgid "With password"
+msgstr "Heslo:"
+
+#, fuzzy
+msgid "Without password"
+msgstr "vaše heslo"
 
 #, fuzzy
 msgid "Number of comments"
@@ -2059,6 +2220,10 @@ msgstr "Náhledy byly úspěšně aktualizovány."
 msgid "Selected entries have been successfully deleted."
 msgstr "Náhledy byly úspěšně aktualizovány."
 
+#, fuzzy
+msgid "Format:"
+msgstr "Formát data:"
+
 msgid "Selected:"
 msgstr "Vybrané:"
 
@@ -2073,11 +2238,22 @@ msgid "Lang:"
 msgstr "Jazyk:"
 
 #, fuzzy
+msgid "Comments:"
+msgstr "Komentáře"
+
+#, fuzzy
+msgid "Trackbacks:"
+msgstr "Trackbacky"
+
+#, fuzzy
 msgid "entries per page"
 msgstr "článku na stranu"
 
 msgid "Selected entries action:"
 msgstr "Vybrané články:"
+
+msgid "Posts"
+msgstr ""
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Pokud chcete změnit svůj email nebo heslo, musíte zadat svoje aktuální heslo."
@@ -2167,10 +2343,19 @@ msgstr ""
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
+msgid "Number of recent folders proposed in media manager:"
+msgstr ""
+
+msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
+msgstr ""
+
 msgid "Do not use standard favicon"
 msgstr ""
 
 msgid "This will be applied for all users"
+msgstr ""
+
+msgid "Optional columns displayed in lists"
 msgstr ""
 
 #, fuzzy
@@ -2196,6 +2381,9 @@ msgstr "Upravit výšku pole:"
 
 msgid "Enable WYSIWYG mode"
 msgstr "Zapnout WYSIWYG mód"
+
+msgid "Display editor's toolbar at bottom of textarea (if possible)"
+msgstr ""
 
 #, fuzzy
 msgid "Other options"
@@ -2255,6 +2443,10 @@ msgstr ""
 
 #, fuzzy
 msgid "Dashboard icons"
+msgstr "Nástěnka"
+
+#, fuzzy
+msgid "Display dashboard icons"
 msgstr "Nástěnka"
 
 msgid "Iconset:"
@@ -2522,9 +2714,19 @@ msgstr "Označit za nedokončený"
 msgid "Mark as junk"
 msgstr "označit jako podezřelé"
 
+msgid "Blacklist IP"
+msgstr ""
+
+msgid "Blacklist IP (global)"
+msgstr ""
+
 #, fuzzy
 msgid "No comment selected"
 msgstr "Žádné komentáře"
+
+#, fuzzy
+msgid "IP addresses for selected comments have been blacklisted."
+msgstr "Komentář byl úspěšně upraven."
 
 #, fuzzy
 msgid "Back to entries list"
@@ -2967,10 +3169,6 @@ msgstr ""
 msgid "Plugins list"
 msgstr "Pluginy"
 
-#, fuzzy
-msgid "Name"
-msgstr "Jméno:"
-
 msgid "Score"
 msgstr ""
 
@@ -2980,6 +3178,13 @@ msgstr "Verze"
 #, fuzzy
 msgid "Current version"
 msgstr "Nastavit oprávnění"
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr ""
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr ""
 
 msgid "Plugin from official distribution"
 msgstr ""
@@ -3248,13 +3453,41 @@ msgstr "Žádný titulek článku"
 msgid "No entry"
 msgstr "Žádný článek"
 
-#, php-format
-msgid "List of %s entries match the filter."
-msgstr ""
+#, fuzzy, php-format
+msgid "List of %s entries matching the filter."
+msgstr "Žádný titulek článku"
 
-#, fuzzy
-msgid "Entries list"
+#, fuzzy, php-format
+msgid "List of entries (%s)"
 msgstr "Seznam kategorií"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #, fuzzy
 msgid "Protected"
@@ -3268,12 +3501,27 @@ msgstr "%d příloha"
 msgid "%d attachments"
 msgstr "%d přílohy"
 
+#, fuzzy
+msgid "Entries list"
+msgstr "Seznam kategorií"
+
 msgid "No comments or trackbacks matches the filter"
 msgstr ""
 
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, fuzzy, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "Komentáře a trackbacky"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -3382,9 +3630,6 @@ msgid "thumbnail"
 msgstr "Náhledy:"
 
 msgid "square"
-msgstr ""
-
-msgid "Posts"
 msgstr ""
 
 #, fuzzy
@@ -3576,6 +3821,26 @@ msgid "Embedded Video Player"
 msgstr "Vestavěný video přehrávač"
 
 #, php-format
+msgid "Requires %s module which is not installed"
+msgstr ""
+
+#, php-format
+msgid "Requires Dotclear version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr ""
+
+#, fuzzy
+msgid "The following extensions have been disabled :"
+msgstr "Následující pluginy byly nainstalovány:"
+
+#, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
 msgstr ""
 
@@ -3744,9 +4009,6 @@ msgstr ""
 msgid "LOL!"
 msgstr ""
 
-msgid "SQLite Database Schema cannot be upgraded."
-msgstr "SQLite schéma databáze nemůže být aktualizováno"
-
 msgid "Something went wrong with auto upgrade:"
 msgstr "Něco se stalo špatně při automatické aktualizaci:"
 
@@ -3910,6 +4172,9 @@ msgstr "<p>Tato situace může znamenat, že uživatelské jméno a heslo ulože
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Nastaly následujíci chyby při čtení z databáze:"
 
+#~ msgid "SQLite Database Schema cannot be upgraded."
+#~ msgstr "SQLite schéma databáze nemůže být aktualizováno"
+
 #~ msgid "more information"
 #~ msgstr "více informací"
 
@@ -3996,10 +4261,6 @@ msgstr "Nastaly následujíci chyby při čtení z databáze:"
 #~ msgid "Some plugins are installed twice:"
 #~ msgstr "Některé pluginy jsou nainstalovány dvakrát:"
 
-#, fuzzy
-#~ msgid "Sort"
-#~ msgstr "Setřídit:"
-
 #~ msgid "New directory"
 #~ msgstr "Nový adresář"
 
@@ -4044,9 +4305,6 @@ msgstr "Nastaly následujíci chyby při čtení z databáze:"
 
 #~ msgid "Published on:"
 #~ msgstr "Poblikováno dne:"
-
-#~ msgid "Entry password:"
-#~ msgstr "Heslo:"
 
 #~ msgid "junk"
 #~ msgstr "podezřelý"
@@ -4219,9 +4477,6 @@ msgstr "Nastaly následujíci chyby při čtení z databáze:"
 
 #~ msgid "login"
 #~ msgstr "Přihlásit"
-
-#~ msgid "filter"
-#~ msgstr "Filtrovat"
 
 #~ msgid "View site"
 #~ msgstr "přejít na blog"

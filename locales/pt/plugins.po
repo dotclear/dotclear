@@ -5,20 +5,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:49+0100\n"
-"PO-Revision-Date: 2009-10-02 21:54+0100\n"
-"Last-Translator: Luis Correia <luis.f.correia@gmail.com>\n"
+"POT-Creation-Date: 2016-07-18 15:41+0200\n"
+"PO-Revision-Date: 2016-07-18 15:51+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Portuguese\n"
-"Language: \n"
+"Language: pt_PT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Portuguese\n"
-"X-Generator: KBabel 1.11.4\n"
-"X-Poedit-Country: PORTUGAL\n"
+"X-Generator: Poedit 1.8.8\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Basepath: /home/pil/.poedit/pt\n"
 "X-Poedit-KeywordsList: msgstr\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: /home/pil/Documents/TRAD/pt\n"
 
 msgid "Manage every blog configuration directive"
@@ -38,6 +37,9 @@ msgid "Manage your blogroll"
 msgstr "Gerir os blogroll"
 
 msgid "Configure your Blowup Theme"
+msgstr ""
+
+msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 msgid "Legacy modules for dotclear"
@@ -147,6 +149,10 @@ msgstr ""
 #, fuzzy, php-format
 msgid "Settings for %s"
 msgstr "Editar ficheiro %s"
+
+#, fuzzy
+msgid "Setting ID"
+msgstr "Nome do parâmetro"
 
 msgid "Value"
 msgstr "Valor"
@@ -587,9 +593,6 @@ msgstr "Os itens foram removidos com sucesso."
 msgid "Items order has been successfully updated"
 msgstr "A ordem dos itens foi actualizada com sucesso."
 
-msgid "URL"
-msgstr "URL"
-
 msgid "Lang"
 msgstr "Língua"
 
@@ -856,6 +859,34 @@ msgstr "Não é possível criar imagens."
 msgid "Unable to open image."
 msgstr "Não é possível abrir imagem."
 
+msgid "Breadcrumb"
+msgstr ""
+
+msgid "Enable breadcrumb for this blog"
+msgstr ""
+
+msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
+msgstr ""
+
+msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
+msgstr ""
+
+msgid "Home"
+msgstr "Página inicial"
+
+#, php-format
+msgid "page %d"
+msgstr ""
+
+msgid "Archives"
+msgstr "Arquivos"
+
+msgid "All tags"
+msgstr "Todas as etiquetas"
+
+msgid "404"
+msgstr ""
+
 #, fuzzy
 msgid "The configuration has been updated."
 msgstr "A configuração do tema foi actualizado com sucesso."
@@ -869,6 +900,13 @@ msgstr ""
 #, fuzzy
 msgid "Link"
 msgstr "Links"
+
+#, fuzzy
+msgid "External image"
+msgstr "Média externa"
+
+msgid "URL field cannot be empty."
+msgstr ""
 
 msgid "visual"
 msgstr ""
@@ -953,10 +991,6 @@ msgid "Language?"
 msgstr "Língua"
 
 #, fuzzy
-msgid "External image"
-msgstr "Média externa"
-
-#, fuzzy
 msgid "Remove text formating"
 msgstr "Remover etiquetas"
 
@@ -1011,9 +1045,6 @@ msgstr "Blog foi importado com êxito. Bemvindo ao Dotclear 2!"
 
 msgid "Why don't you blog this now?"
 msgstr "Why don't you blog this now?"
-
-msgid "or"
-msgstr "ou"
 
 msgid "visit your dashboard"
 msgstr "Visite o seu painel de ferramentas"
@@ -1656,14 +1687,26 @@ msgid "Simple menu"
 msgstr ""
 
 #, fuzzy
+msgid "Item description"
+msgstr "Nenhuma descrição"
+
+#, fuzzy
+msgid "Displayed in link"
+msgstr "Apagar esta etiqueta"
+
+#, fuzzy
+msgid "Used as link title"
+msgstr "Nada como link ou título"
+
+msgid "Displayed in link and used as title"
+msgstr ""
+
+msgid "Not displayed nor used"
+msgstr ""
+
+#, fuzzy
 msgid "All months"
 msgstr "Todas as etiquetas"
-
-msgid "All tags"
-msgstr "Todas as etiquetas"
-
-msgid "Home"
-msgstr "Página inicial"
 
 #, fuzzy
 msgid "Archive"
@@ -1695,9 +1738,6 @@ msgstr ""
 
 msgid "Recent Posts from this category"
 msgstr ""
-
-msgid "Archives"
-msgstr "Arquivos"
 
 #, fuzzy, php-format
 msgid "Posts from %s"
@@ -1816,6 +1856,27 @@ msgstr "Tem a certeza que pretende suprimir os links seleccionados?"
 msgid "No menu items so far."
 msgstr ""
 
+msgid "This tag's comments Atom feed"
+msgstr "Feed ATOM para os comentários desta etiqueta"
+
+msgid "This tag's entries Atom feed"
+msgstr "Feed ATOM para as entradas desta etiqueta"
+
+msgid "Tag"
+msgstr "Etiqueta"
+
+msgid "Limit (empty means no limit):"
+msgstr "Limite (se vazio não há limite);"
+
+msgid "Entries count"
+msgstr "Contador de entradas"
+
+msgid "Tag name"
+msgstr "Nome da etiqueta"
+
+msgid "Link to all tags:"
+msgstr ""
+
 msgid "Add tags"
 msgstr "Acrescentar etiquetas"
 
@@ -1878,9 +1939,6 @@ msgstr "Remover etiquetas seleccionadas das entradas"
 msgid "Following tags have been found in selected entries:"
 msgstr "As seguintes etiquetas foram encontradas nas entradas seleccionadas:"
 
-msgid "Tag"
-msgstr "Etiqueta"
-
 msgid "Short"
 msgstr ""
 
@@ -1891,24 +1949,6 @@ msgstr "Média externa"
 #, fuzzy
 msgid "Tags list format:"
 msgstr "Etiquetas a acrescentar:"
-
-msgid "This tag's comments Atom feed"
-msgstr "Feed ATOM para os comentários desta etiqueta"
-
-msgid "This tag's entries Atom feed"
-msgstr "Feed ATOM para as entradas desta etiqueta"
-
-msgid "Limit (empty means no limit):"
-msgstr "Limite (se vazio não há limite);"
-
-msgid "Entries count"
-msgstr "Contador de entradas"
-
-msgid "Tag name"
-msgstr "Nome da etiqueta"
-
-msgid "Link to all tags:"
-msgstr ""
 
 msgid "Tag has been successfully renamed"
 msgstr "A etiqueta foi alterada com sucesso"
@@ -1941,7 +1981,13 @@ msgstr "Nenhuma etiqueta neste blog"
 msgid "Edit theme files"
 msgstr "Editar ficheiro %s"
 
+msgid "Syntax highlighting"
+msgstr ""
+
 msgid "Syntax highlighting in theme editor"
+msgstr ""
+
+msgid "Theme:"
 msgstr ""
 
 msgid "No file"
@@ -2044,6 +2090,9 @@ msgstr "Widget de apresentação"
 
 msgid "Search engine"
 msgstr "Motor de pesquisa"
+
+msgid "Placeholder (HTML5 only, optional):"
+msgstr ""
 
 msgid "Navigation links"
 msgstr "Links de navegação"
@@ -2220,6 +2269,12 @@ msgstr "Remover widget"
 msgid "Drag widgets here to remove."
 msgstr ""
 
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "or"
+#~ msgstr "ou"
+
 #~ msgid "Settings definition successfully updated"
 #~ msgstr "Definição dos parâmetros actualizada com sucesso"
 
@@ -2335,9 +2390,6 @@ msgstr ""
 
 #~ msgid "Widget ID"
 #~ msgstr "ID do Widgets"
-
-#~ msgid "Setting name"
-#~ msgstr "Nome do parâmetro"
 
 #~ msgid "Setting value"
 #~ msgstr "Parâmetros"
