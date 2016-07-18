@@ -204,6 +204,7 @@ CKEDITOR.lang['fa'] = {
     	anchorName : 'با نام لنگر',
     	charset : 'نویسه\u200bگان منبع پیوند شده',
     	cssClasses : 'کلاس\u200bهای شیوه\u200bنامه(Stylesheet)',
+    	download : 'Force Download',
     	emailAddress : 'نشانی پست الکترونیکی',
     	emailBody : 'متن پیام',
     	emailSubject : 'موضوع پیام',

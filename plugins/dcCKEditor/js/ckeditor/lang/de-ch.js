@@ -246,7 +246,8 @@ CKEDITOR.lang['de-ch'] = {
     	toolbar : 'Link einfügen/editieren',
     	type : 'Link-Typ',
     	unlink : 'Link entfernen',
-    	upload : 'Hochladen'
+    	upload : 'Hochladen',
+    	download : 'Force Download'
     },
     justify : 
     {

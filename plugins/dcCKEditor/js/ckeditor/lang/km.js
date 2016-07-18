@@ -204,6 +204,7 @@ CKEDITOR.lang['km'] = {
     	anchorName : 'តាម\u200bឈ្មោះ\u200bយុថ្កា',
     	charset : 'លេខកូតអក្សររបស់ឈ្នាប់',
     	cssClasses : 'Stylesheet Classes',
+    	download : 'Force Download',
     	emailAddress : 'អាសយដ្ឋាន\u200bអ៊ីមែល',
     	emailBody : 'តួ\u200bអត្ថបទ',
     	emailSubject : 'ប្រធានបទ\u200bសារ',

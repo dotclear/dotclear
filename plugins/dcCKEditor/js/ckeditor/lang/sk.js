@@ -204,6 +204,7 @@ CKEDITOR.lang['sk'] = {
     	anchorName : 'Podľa mena kotvy',
     	charset : 'Priradená znaková sada',
     	cssClasses : 'Triedy štýlu',
+    	download : 'Force Download',
     	emailAddress : 'E-Mailová adresa',
     	emailBody : 'Telo správy',
     	emailSubject : 'Predmet správy',

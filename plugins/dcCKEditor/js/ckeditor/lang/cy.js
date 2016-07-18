@@ -204,6 +204,7 @@ CKEDITOR.lang['cy'] = {
     	anchorName : 'Gan Enw\'r Angor',
     	charset : 'Set Nodau\'r Adnodd Cysylltiedig',
     	cssClasses : 'Dosbarthiadau Dalen Arddull',
+    	download : 'Force Download',
     	emailAddress : 'Cyfeiriad E-Bost',
     	emailBody : 'Corff y Neges',
     	emailSubject : 'Testun y Neges',

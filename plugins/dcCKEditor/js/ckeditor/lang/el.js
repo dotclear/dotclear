@@ -204,6 +204,7 @@ CKEDITOR.lang['el'] = {
     	anchorName : 'Βάσει του Ονόματος Άγκυρας',
     	charset : 'Κωδικοποίηση Χαρακτήρων Προσαρτημένης Πηγής',
     	cssClasses : 'Κλάσεις Φύλλων Στυλ',
+    	download : 'Force Download',
     	emailAddress : 'Διεύθυνση E-mail',
     	emailBody : 'Κείμενο Μηνύματος',
     	emailSubject : 'Θέμα Μηνύματος',

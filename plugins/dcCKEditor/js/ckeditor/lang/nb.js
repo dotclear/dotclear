@@ -204,6 +204,7 @@ CKEDITOR.lang['nb'] = {
     	anchorName : 'Anker etter navn',
     	charset : 'Lenket tegnsett',
     	cssClasses : 'Stilarkklasser',
+    	download : 'Force Download',
     	emailAddress : 'E-postadresse',
     	emailBody : 'Melding',
     	emailSubject : 'Meldingsemne',

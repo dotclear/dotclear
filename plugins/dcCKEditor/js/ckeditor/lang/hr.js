@@ -204,6 +204,7 @@ CKEDITOR.lang['hr'] = {
     	anchorName : 'Po nazivu sidra',
     	charset : 'Kodna stranica povezanih resursa',
     	cssClasses : 'Stylesheet klase',
+    	download : 'Force Download',
     	emailAddress : 'E-Mail adresa',
     	emailBody : 'Sadržaj poruke',
     	emailSubject : 'Naslov',
