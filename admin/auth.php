@@ -408,7 +408,7 @@ else
 		'<p>'.
 		form::checkbox(array('user_remember','user_remember'),1).
 		'<label for="user_remember" class="classic">'.
-		__('Remember my ID on this computer').'</label></p>'.
+		__('Remember my ID on this device').'</label></p>'.
 
 		'<p><input type="submit" value="'.__('log in').'" class="login" /></p>';
 

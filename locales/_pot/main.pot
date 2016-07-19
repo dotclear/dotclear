@@ -134,7 +134,7 @@ msgid "Disable or delete any plugin suspected to cause trouble, then log out and
 msgstr ""
 
 #: admin/auth.php:411
-msgid "Remember my ID on this computer"
+msgid "Remember my ID on this device"
 msgstr ""
 
 #: admin/auth.php:413
