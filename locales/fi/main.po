@@ -97,7 +97,7 @@ msgstr "Tässä tilassa voit kirjautua ilman liitännäisten käynnistämistä. 
 msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "Ota pois käytöstä tai poista liittännäinen, jota epäilet ongelman aiheuttajaksi, kirjaudu ulos ja kirjaudu sitten uudelleen sisään normaalisti."
 
-msgid "Remember my ID on this computer"
+msgid "Remember my ID on this device"
 msgstr "Muista minut tällä tietokoneella"
 
 msgid "log in"

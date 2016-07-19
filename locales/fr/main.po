@@ -103,8 +103,8 @@ msgstr "Ce mode vous permet de vous connecter sans activer de plugins. Il peut �
 msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "Désactivez ou supprimez les plugins semblant en être la cause, puis déconnectez-vous et connectez-vous à nouveau normalement."
 
-msgid "Remember my ID on this computer"
-msgstr "Se souvenir de mon identifiant sur cet ordinateur"
+msgid "Remember my ID on this device"
+msgstr "Se souvenir de mon identifiant sur cet appareil"
 
 msgid "log in"
 msgstr "Se connecter"
