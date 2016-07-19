@@ -245,9 +245,12 @@ if ($core->auth->allowPassChange()) {
 }
 
 $super_disabled = $user_super && $user_id == $core->auth->userID();
+
 echo
-'<p><label for="user_super" class="classic">'.form::checkbox('user_super','1',$user_super,'','',$super_disabled).' '.
-__('Super administrator').'</label></p>'.
+'<p><label for="user_super" class="classic">'.
+form::checkbox(($super_disabled ? 'user_super_off' : 'user_super'),'1',$user_super,'','',$super_disabled).
+' '.__('Super administrator').'</label></p>'.
+($super_disabled ? form::hidden(array('user_super'),$user_super) : '').
 
 '<p><label for="user_name">'.__('Last Name:').'</label> '.
 form::field('user_name',20,255,html::escapeHTML($user_name)).
