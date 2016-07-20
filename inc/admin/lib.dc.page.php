@@ -97,6 +97,17 @@ class dcPage
 		} else {
 			self::setXFrameOptions();
 		}
+
+		# Content-Security-Policy (report only up to now)
+		header(
+			"Content-Security-Policy: ".
+				"default-src 'self' ; ".
+				"script-src 'self' 'unsafe-inline' 'unsafe-eval' ; ".
+				"style-src 'self' 'unsafe-inline' ; ".
+				"img-src 'self' data:".
+				(version_compare(phpversion(),'5.4','>=') ? " ; report-uri ".DC_ADMIN_URL."csp_report.php" : '')
+			);
+
 		echo
 		'<!DOCTYPE html>'.
 		'<html lang="'.$core->auth->getInfo('user_lang').'">'."\n".
