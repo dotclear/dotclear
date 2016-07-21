@@ -104,7 +104,7 @@ class dcPage
 				"default-src 'self' ; ".
 				"script-src 'self' 'unsafe-inline' 'unsafe-eval' ; ".
 				"style-src 'self' 'unsafe-inline' ; ".
-				"img-src 'self' data:".
+				"img-src 'self' data: media.dotaddict.org".
 				(version_compare(phpversion(),'5.4','>=') ? " ; report-uri ".DC_ADMIN_URL."csp_report.php" : '')
 			);
 
