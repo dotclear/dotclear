@@ -4,15 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:20+0100\n"
-"PO-Revision-Date: 2015-09-09 10:32+0300\n"
-"Last-Translator: Kari Eveli <lexitec@lexitec.fi>\n"
+"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"PO-Revision-Date: 2016-07-18 15:47+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Manage every blog configuration directive"
@@ -32,6 +32,9 @@ msgstr "Blogroll-linkkilistan ylläpito"
 
 msgid "Configure your Blowup Theme"
 msgstr "Blowup-teeman asetukset"
+
+msgid "Breadcrumb for Dotclear"
+msgstr "Leivänmurut Dotclearia varten"
 
 msgid "Legacy modules for dotclear"
 msgstr "Dotclearin yhteensopivuusmodulit"
@@ -129,6 +132,9 @@ msgstr "about:config"
 #, php-format
 msgid "Settings for %s"
 msgstr "%s-asetukset"
+
+msgid "Setting ID"
+msgstr "Asetuksen tunniste"
 
 msgid "Value"
 msgstr "Arvo"
@@ -556,9 +562,6 @@ msgstr "Kohdat on poistettu."
 msgid "Items order has been successfully updated"
 msgstr "Kohtien järjestys on päivitetty."
 
-msgid "URL"
-msgstr "URL"
-
 msgid "Lang"
 msgstr "Kieli"
 
@@ -807,9 +810,7 @@ msgid "Configuration import / export"
 msgstr "Asetusten tuonti / vienti"
 
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
-msgstr ""
-"Voit siirtää asetuksesi toiseen asennukseen seuraavan koodin avulla. Voit ottaa asetukset käyttöön, liittämällä koodin ja painamalla \"Käytä koodia\" ja "
-"tallentamalla."
+msgstr "Voit siirtää asetuksesi toiseen asennukseen seuraavan koodin avulla. Voit ottaa asetukset käyttöön, liittämällä koodin ja painamalla \"Käytä koodia\" ja tallentamalla."
 
 msgid "Copy this code:"
 msgstr "Kopioi tämä koodi:"
@@ -823,6 +824,34 @@ msgstr "CSS-tiedostoa ei voi luoda."
 msgid "Unable to open image."
 msgstr "Kuvaa ei voi avata."
 
+msgid "Breadcrumb"
+msgstr "Leivänmurut"
+
+msgid "Enable breadcrumb for this blog"
+msgstr "Käytä leivänmuruja tässä blogissa"
+
+msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
+msgstr "Leivänmurukoodi {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tulisi olla mallissa tai lisätä malliin, jos sitä ei ole."
+
+msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
+msgstr "Älä upota leivänmurua &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; -koodiin."
+
+msgid "Home"
+msgstr "Etusivu"
+
+#, php-format
+msgid "page %d"
+msgstr "sivu %d"
+
+msgid "Archives"
+msgstr "Arkistot"
+
+msgid "All tags"
+msgstr "Kaikki avainsanat"
+
+msgid "404"
+msgstr "404"
+
 msgid "The configuration has been updated."
 msgstr "Asetukset on päivitetty."
 
@@ -834,6 +863,12 @@ msgstr "Linkki blogimerkintään"
 
 msgid "Link"
 msgstr "Linkki"
+
+msgid "External image"
+msgstr "Ulkoinen kuva"
+
+msgid "URL field cannot be empty."
+msgstr ""
 
 msgid "visual"
 msgstr "visuaalinen"
@@ -910,9 +945,6 @@ msgstr "URL?"
 msgid "Language?"
 msgstr "Kieli?"
 
-msgid "External image"
-msgstr "Ulkoinen kuva"
-
 msgid "Remove text formating"
 msgstr "Poista tekstinmuotoilu"
 
@@ -965,9 +997,6 @@ msgstr "Blogisi on tuotu järjestelmään. Tervetuloa Dotclear 2:n käyttäjäks
 msgid "Why don't you blog this now?"
 msgstr "Miksi et bloggaisi tästä nyt?"
 
-msgid "or"
-msgstr "tai"
-
 msgid "visit your dashboard"
 msgstr "siirtyisi ohjaustauluusi"
 
@@ -1015,20 +1044,12 @@ msgstr "Tuodaan merkintöjä %d - %d / %d"
 msgid "Please read carefully"
 msgstr "Lue huolellisesti"
 
-msgid ""
-"Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page "
-"(Their registered email address has to be valid.)"
-msgstr ""
-"Jokainen juuri tuotu käyttäjä on saanut satunnaisen salasanan ja joutuu pyytämään uutta seuraamalla \"Unohdin sanasanani\" -linkkiä kirjautumissivulla (edellyttää "
-"sitä, että rekisteröity sähköpostiosoite on voimassa)."
+msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
+msgstr "Jokainen juuri tuotu käyttäjä on saanut satunnaisen salasanan ja joutuu pyytämään uutta seuraamalla \"Unohdin sanasanani\" -linkkiä kirjautumissivulla (edellyttää sitä, että rekisteröity sähköpostiosoite on voimassa)."
 
 #, php-format
-msgid ""
-"Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog "
-"configuration."
-msgstr ""
-"Huomaa, että Dotclear 2:ssa on uusi verkko-osoitteiden muodostamistapa. Voit välttyä rikki menneiltä linkeiltä asentamalla <a href=\"%s\">DC1 redirect -"
-"liitännäisen</a> ja ottamalla sen käyttöön blogisi asetuksissa."
+msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
+msgstr "Huomaa, että Dotclear 2:ssa on uusi verkko-osoitteiden muodostamistapa. Voit välttyä rikki menneiltä linkeiltä asentamalla <a href=\"%s\">DC1 redirect -liitännäisen</a> ja ottamalla sen käyttöön blogisi asetuksissa."
 
 msgid "next step"
 msgstr "seuraava vaihe"
@@ -1112,21 +1133,11 @@ msgstr "Tämä tuo WordPress-sisältösi uutena sisältönä tähän blogiin: %s
 msgid "We first need some information about your old WordPress installation."
 msgstr "Joitain tietoja aiemmasta WordPress-asennuksestasi tarvitaan ensiksi."
 
-msgid ""
-"WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we "
-"see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to "
-"keep a trace of every category, you can import them as tags, with an optional prefix."
-msgstr ""
-"WordPressin ja Dotclearin kategoriat toimivat eri tavalla. Voit kiinnittää useita kategorioita yhteen blogimerkintään WordPressissä. Dotclearin tapa on \"yksi "
-"kategoria, monta avainsanaa\". Näin ollen Dotclear voi tuoda vain yhden kategorian blogimerkintää kohti ja valitse sen, jonka numero on pienin. Jos haluat "
-"säilyttää muutkin kategoriat, voit tuoda ne avainsanoina, varustettuna valinnaisella etuliitteellä."
+msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
+msgstr "WordPressin ja Dotclearin kategoriat toimivat eri tavalla. Voit kiinnittää useita kategorioita yhteen blogimerkintään WordPressissä. Dotclearin tapa on \"yksi kategoria, monta avainsanaa\". Näin ollen Dotclear voi tuoda vain yhden kategorian blogimerkintää kohti ja valitse sen, jonka numero on pienin. Jos haluat säilyttää muutkin kategoriat, voit tuoda ne avainsanoina, varustettuna valinnaisella etuliitteellä."
 
-msgid ""
-"On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>.If you did "
-"not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
-msgstr ""
-"Toisaalta WordPressissä blogimerkintä ei voi olla ilman kategoriaa ja asennuksen oletusarvona on ensimmäinen kategoria, joka nimi on <i>\"Ei kategoriaa\"</i>. "
-"Mikäli et ole muuttanut tätä kategoriaa, voit jättää sen huomiotta blogia tuodessasi, koska Dotclear sallii merkinnät, joilla ei ole kategoriaa."
+msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>.If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
+msgstr "Toisaalta WordPressissä blogimerkintä ei voi olla ilman kategoriaa ja asennuksen oletusarvona on ensimmäinen kategoria, joka nimi on <i>\"Ei kategoriaa\"</i>. Mikäli et ole muuttanut tätä kategoriaa, voit jättää sen huomiotta blogia tuodessasi, koska Dotclear sallii merkinnät, joilla ei ole kategoriaa."
 
 msgid "Ignore the first category:"
 msgstr "Jätä ensimmäinen kategoria huomiotta:"
@@ -1279,13 +1290,8 @@ msgstr "Mallitiedostojen välimuistihakemisto tyhjennetty."
 msgid "Failed to empty templates cache directory."
 msgstr "Mallitiedostojen välimuistihakemiston tyhjennys epäonnistui."
 
-msgid ""
-"It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates "
-"cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
-msgstr ""
-"Voi olla tarpeen tyhjentää mallitiedostojen välimuisti, kun muutat teeman .html tai .css -tiedostoja (tai kun päivität teeman tai liitännäisen). Huomaa, että "
-"tyhjennys tämän liitännäisen avulla ei ehkä toimi joidenkin palveluntarjoajien järjestelmissä, vaan joudut poistamaan <strong>/cbtpl/</strong> -hakemiston, joka "
-"sijaitsee oletusarvoisesti dotclear/cache -hakemistossa, palvelimelta FTP-ohjelmiston avulla."
+msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
+msgstr "Voi olla tarpeen tyhjentää mallitiedostojen välimuisti, kun muutat teeman .html tai .css -tiedostoja (tai kun päivität teeman tai liitännäisen). Huomaa, että tyhjennys tämän liitännäisen avulla ei ehkä toimi joidenkin palveluntarjoajien järjestelmissä, vaan joudut poistamaan <strong>/cbtpl/</strong> -hakemiston, joka sijaitsee oletusarvoisesti dotclear/cache -hakemistossa, palvelimelta FTP-ohjelmiston avulla."
 
 msgid "Count again comments and trackbacks"
 msgstr "Laske kommentit ja takaisinviittaukset uudelleen"
@@ -1296,12 +1302,8 @@ msgstr "Kommentit ja takaisinviittaukset on laskettu."
 msgid "Failed to count comments and trackbacks."
 msgstr "Kommentteja ja takaisinviittauksia ei saatu lasketuksi."
 
-msgid ""
-"Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating "
-"from dotclear 1 to dotclear 2)."
-msgstr ""
-"Laskemalla uudelleen kommentit ja takaisinviittaukset voit tarkistaa niiden tarkan lukumäärän. Tämä voi olla tarpeen, kun tuodaan sisältöjä toiselta "
-"blogialustalta (tai päivitettäessä dotclear 1 versioon dotclear 2)."
+msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
+msgstr "Laskemalla uudelleen kommentit ja takaisinviittaukset voit tarkistaa niiden tarkan lukumäärän. Tämä voi olla tarpeen, kun tuodaan sisältöjä toiselta blogialustalta (tai päivitettäessä dotclear 1 versioon dotclear 2)."
 
 msgid "Search engine index"
 msgstr "Hakukoneindeksi"
@@ -1322,12 +1324,8 @@ msgstr "Kommenttien indeksointi valmis."
 msgid "Failed to index comments."
 msgstr "Kommenttien indeksointi epäonnistui."
 
-msgid ""
-"Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on "
-"public and private pages."
-msgstr ""
-"Kaikkien kommenttien ja takaisinviittausten indeksointi hakukoneindeksiin. Tämä on tarpeen, kun sisältöä on tuotu blogiin, sisäistä hakukonetta varten blogin "
-"julkisella ja admin-puolella."
+msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
+msgstr "Kaikkien kommenttien ja takaisinviittausten indeksointi hakukoneindeksiin. Tämä on tarpeen, kun sisältöä on tuotu blogiin, sisäistä hakukonetta varten blogin julkisella ja admin-puolella."
 
 msgid "Index all entries for search engine"
 msgstr "Indeksoi kaikki blogimerkinnät hakukonetta varten"
@@ -1342,12 +1340,8 @@ msgstr "Merkintöjen indeksointi valmis."
 msgid "Failed to index entries."
 msgstr "Blogimerkintöjä ei saatu indeksoiduksi."
 
-msgid ""
-"Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private "
-"pages."
-msgstr ""
-"Kaikkien blogimerkintöjen indeksointi hakukoneindeksiin. Tämä on tarpeen, kun sisältöä on tuotu blogiin, sisäistä hakukonetta varten blogin julkisella ja admin-"
-"puolella."
+msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
+msgstr "Kaikkien blogimerkintöjen indeksointi hakukoneindeksiin. Tämä on tarpeen, kun sisältöä on tuotu blogiin, sisäistä hakukonetta varten blogin julkisella ja admin-puolella."
 
 msgid "Delete all logs"
 msgstr "Poista kaikki lokitiedostot"
@@ -1359,9 +1353,7 @@ msgid "Failed to delete logs."
 msgstr "Lokitiedostoja ei saatu poistettua."
 
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
-msgstr ""
-"Koska lokitiedostot tallentavat tiedot kaikista yhteydenotoista blogiin sekä kaiken admin-puolen toiminnan, nämä tiedot kannattaa poistaa aika ajoin, jollei "
-"niiden säilyttämiseen ole erityistä syytä."
+msgstr "Koska lokitiedostot tallentavat tiedot kaikista yhteydenotoista blogiin sekä kaiken admin-puolen toiminnan, nämä tiedot kannattaa poistaa aika ajoin, jollei niiden säilyttämiseen ole erityistä syytä."
 
 msgid "Entries metadata"
 msgstr "Merkintöjen metatiedot"
@@ -1394,22 +1386,14 @@ msgstr "Optimointi onnistui."
 msgid "Failed to optimize tables."
 msgstr "Optimointi ei onnistunut."
 
-msgid ""
-"After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's "
-"integrity. It is recommended to optimize before any blog export."
-msgstr ""
-"Monien Dotclearin tietokantaan kohdistuneiden poisto- tai päivitysoperaatioiden jälkeen tietokanta voi tulla hajanaiseksi. Optimointi poistaa hajanaisuuden "
-"vaikuttamatta mitenkään tiedon ehjyyteen. On suositeltavaa optimoida tietokanta ennen jokaista blogin vientioperaatiota."
+msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
+msgstr "Monien Dotclearin tietokantaan kohdistuneiden poisto- tai päivitysoperaatioiden jälkeen tietokanta voi tulla hajanaiseksi. Optimointi poistaa hajanaisuuden vaikuttamatta mitenkään tiedon ehjyyteen. On suositeltavaa optimoida tietokanta ennen jokaista blogin vientioperaatiota."
 
 msgid "Download media folder of current blog"
 msgstr "Lataa tämän blogin media-aineistokansio"
 
-msgid ""
-"It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder "
-"cannot be compressed with this plugin if it is too big."
-msgstr ""
-"Media-aineistokansion varmistaminen voi kannattaa. Tämä toimenpide pakkaa kansion yhdeksi zip-tiedostoksi. Huom.: joidenkin palveluntarjoajien järjestelmissä "
-"isohkoa kansiota ei voi pakata tällä liitännäisellä."
+msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
+msgstr "Media-aineistokansion varmistaminen voi kannattaa. Tämä toimenpide pakkaa kansion yhdeksi zip-tiedostoksi. Huom.: joidenkin palveluntarjoajien järjestelmissä isohkoa kansiota ei voi pakata tällä liitännäisellä."
 
 msgid "Download active theme of current blog"
 msgstr "Lataa tämän blogin käytössä oleva teema kotikoneellesi"
@@ -1615,14 +1599,23 @@ msgstr "Valitse kaikki"
 msgid "Simple menu"
 msgstr "Yksinkertainen valikko"
 
+msgid "Item description"
+msgstr "Valikon kohdan kuvaus"
+
+msgid "Displayed in link"
+msgstr "Näytetään linkissä"
+
+msgid "Used as link title"
+msgstr "Käytetään linkin otsikkona"
+
+msgid "Displayed in link and used as title"
+msgstr "Näytetään linkissä ja käytetään linkin otsikkona"
+
+msgid "Not displayed nor used"
+msgstr "Ei näytetä eikä käytetä"
+
 msgid "All months"
 msgstr "Kaikki kuukaudet"
-
-msgid "All tags"
-msgstr "Kaikki avainsanat"
-
-msgid "Home"
-msgstr "Etusivu"
 
 msgid "Archive"
 msgstr "Arkisto"
@@ -1651,9 +1644,6 @@ msgstr "Vaihda kieleen %s"
 
 msgid "Recent Posts from this category"
 msgstr "Viimeisimmät merkinnät tässä kategoriassa"
-
-msgid "Archives"
-msgstr "Arkistot"
 
 #, php-format
 msgid "Posts from %s"
@@ -1756,20 +1746,26 @@ msgstr "Oletko varma, että haluat poistaa valitut valikon kohdat?"
 msgid "No menu items so far."
 msgstr "Valikon kohdat puuttuvat vielä."
 
-msgid "Item description"
-msgstr "Valikon kohdan kuvaus"
+msgid "This tag's comments Atom feed"
+msgstr "Tämän avainsanan kommenttien Atom-syöte"
 
-msgid "Displayed in link"
-msgstr "Näytetään linkissä"
+msgid "This tag's entries Atom feed"
+msgstr "Tämän avainsanan blogimerkintöjen Atom-syöte"
 
-msgid "Used as link title"
-msgstr "Käytetään linkin otsikkona"
+msgid "Tag"
+msgstr "Avainsana"
 
-msgid "Displayed in link and used as title"
-msgstr "Näytetään linkissä ja käytetään linkin otsikkona"
+msgid "Limit (empty means no limit):"
+msgstr "Yläraja (tyhjä kenttä = ei ylärajaa):"
 
-msgid "Not displayed nor used"
-msgstr "Ei näytetä eikä käytetä"
+msgid "Entries count"
+msgstr "Blogimerkintöjen lukumäärä"
+
+msgid "Tag name"
+msgstr "Avainsanan nimi"
+
+msgid "Link to all tags:"
+msgstr "Linkki kaikkiin avainsanoihin:"
 
 msgid "Add tags"
 msgstr "Lisää avainsanoja"
@@ -1826,9 +1822,6 @@ msgstr "Poista valitut avainsanat valinnasta"
 msgid "Following tags have been found in selected entries:"
 msgstr "Seuraavat avainsanat ovat löytyneet valituista blogimerkinnöistä:"
 
-msgid "Tag"
-msgstr "Avainsana"
-
 msgid "Short"
 msgstr "Lyhyt"
 
@@ -1837,24 +1830,6 @@ msgstr "Laajempi"
 
 msgid "Tags list format:"
 msgstr "Avainsanaluettelon muoto:"
-
-msgid "This tag's comments Atom feed"
-msgstr "Tämän avainsanan kommenttien Atom-syöte"
-
-msgid "This tag's entries Atom feed"
-msgstr "Tämän avainsanan blogimerkintöjen Atom-syöte"
-
-msgid "Limit (empty means no limit):"
-msgstr "Yläraja (tyhjä kenttä = ei ylärajaa):"
-
-msgid "Entries count"
-msgstr "Blogimerkintöjen lukumäärä"
-
-msgid "Tag name"
-msgstr "Avainsanan nimi"
-
-msgid "Link to all tags:"
-msgstr "Linkki kaikkiin avainsanoihin:"
 
 msgid "Tag has been successfully renamed"
 msgstr "Avainsanan nimi on vaihdettu"
@@ -1885,8 +1860,15 @@ msgstr "Tähän blogiin ei ole liitetty avainsanoja."
 msgid "Edit theme files"
 msgstr "Muokkaa teematiedostoja"
 
+#, fuzzy
+msgid "Syntax highlighting"
+msgstr "Teemojen muokkausohjelman syntaksiväritys"
+
 msgid "Syntax highlighting in theme editor"
 msgstr "Teemojen muokkausohjelman syntaksiväritys"
+
+msgid "Theme:"
+msgstr ""
 
 msgid "No file"
 msgstr "Ei tiedostoja"
@@ -1982,6 +1964,9 @@ msgstr "Esitysvimpaimet"
 
 msgid "Search engine"
 msgstr "Hakumoottori"
+
+msgid "Placeholder (HTML5 only, optional):"
+msgstr ""
 
 msgid "Navigation links"
 msgstr "Navigointilinkit"
@@ -2150,30 +2135,11 @@ msgstr "Poista vimpain"
 msgid "Drag widgets here to remove."
 msgstr "Vedä vimpaimet tähän poistaaksesi."
 
-msgid "Breadcrumb"
-msgstr "Leivänmurut"
+#~ msgid "URL"
+#~ msgstr "URL"
 
-msgid "Breadcrumb for Dotclear"
-msgstr "Leivänmurut Dotclearia varten"
+#~ msgid "or"
+#~ msgstr "tai"
 
-#, php-format
-msgid "page %d"
-msgstr "sivu %d"
-
-msgid "404"
-msgstr "404"
-
-msgid "Enable breadcrumb for this blog"
-msgstr "Käytä leivänmuruja tässä blogissa"
-
-msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
-msgstr "Leivänmurukoodi {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tulisi olla mallissa tai lisätä malliin, jos sitä ei ole."
-
-msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
-msgstr "Älä upota leivänmurua &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; -koodiin."
-
-msgid "Search:"
-msgstr "Haku:"
-
-msgid "Setting ID"
-msgstr "Asetuksen tunniste"
+#~ msgid "Search:"
+#~ msgstr "Haku:"

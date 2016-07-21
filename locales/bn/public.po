@@ -7,14 +7,14 @@ msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-10-13 05:22+0200\n"
-"PO-Revision-Date: 2009-09-05 21:03+0600\n"
-"Last-Translator: Adnan Shameem <needadnan@gmail.com>\n"
+"PO-Revision-Date: 2016-07-18 15:42+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
-"Language: \n"
+"Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Bengali\n"
+"X-Generator: Poedit 1.8.8\n"
 
 # Not found strings
 msgid "To content"
@@ -85,22 +85,22 @@ msgid "Search"
 msgstr "সার্চ"
 
 msgid "Your search for <em>%1$s</em> returned no result."
-msgstr "<em>%1$s</em> সার্চ করে কোনো ফলাফল পাওয়া যায় নি।"
+msgstr "<em>%1$s</em> সার্চ করে কোনো ফলাফল পাওয়া যায় নি।"
 
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
-msgstr "<em>%1$s</em> সার্চ করে <strong>%2$s</strong>টি ফলাফল পাওয়া গেছে।"
+msgstr "<em>%1$s</em> সার্চ করে <strong>%2$s</strong>টি ফলাফল পাওয়া গেছে।"
 
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
-msgstr "<em>%1$s</em> সার্চ করে <strong>%2$s</strong>টি ফলাফল পাওয়া গেছে।"
+msgstr "<em>%1$s</em> সার্চ করে <strong>%2$s</strong>টি ফলাফল পাওয়া গেছে।"
 
 msgid "Home"
 msgstr "হোম"
 
 msgid "All keywords"
-msgstr "সব কিওয়ার্ড"
+msgstr "সব কিওয়ার্ড"
 
 msgid "Best of me"
-msgstr "আমার সবচেয়ে ভালগুলো"
+msgstr "আমার সবচেয়ে ভালগুলো"
 
 msgid "Languages"
 msgstr "ভাষাসমূহ"
@@ -154,10 +154,10 @@ msgid "Your comment"
 msgstr "আপনার মন্তব্য"
 
 msgid "Your comment has been published."
-msgstr "আপনার মন্তব্য প্রকাশিত হয়েছে"
+msgstr "আপনার মন্তব্য প্রকাশিত হয়েছে"
 
 msgid "Your comment has been submitted and will be reviewed for publication."
-msgstr "আপনার মন্তব্য জমা পড়েছে এবং রিভিউয়ের পর প্রকাশিত হবে।"
+msgstr "আপনার মন্তব্য জমা পড়েছে এবং রিভিউয়ের পর প্রকাশিত হবে।"
 
 msgid "Add a comment"
 msgstr "মন্তব্য করুন"
@@ -169,7 +169,7 @@ msgid "Email address"
 msgstr "ইমেইল এড্রেস"
 
 msgid "Website"
-msgstr "ওয়েবসাইট"
+msgstr "ওয়েবসাইট"
 
 msgid "optional"
 msgstr "যদি থাকে"
@@ -205,10 +205,10 @@ msgid "You must provide a comment"
 msgstr "আপনাকে অবশ্যই মন্তব্য লিখতে হবে"
 
 msgid "Email address is not valid"
-msgstr "ইমেইল এড্রেসটি বৈধ নয়"
+msgstr "ইমেইল এড্রেসটি বৈধ নয়"
 
 msgid "Document not found"
-msgstr "ডকুমেন্ট পাওয়া যায় নি"
+msgstr "ডকুমেন্ট পাওয়া যায় নি"
 
 msgid "The document you are looking for does not exist."
 msgstr "আপনি যে ডকুমেন্ট খুঁজছেন তার অস্তিত্ব নেই।"
@@ -223,22 +223,22 @@ msgid "What is an RSS feed?"
 msgstr "RSS ফিড কি?"
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
-msgstr "RSS ফিড হলো একটি ফ্রি ব্লগ সামারি। এতে কন্টেন্ট থাকে (পোস্ট অথবা মন্তব্য) বা কন্টেন্টের সামারি আর সঙ্গে থাকে সম্পূর্ণ কন্টেন্টের লিংক এবং অন্যান্য মেটাডাটা। সর্বশেষ প্রকাশিত আইটেমগুলো আপনার প্রিয় RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a> দিয়ে পড়তে পারবেন।"
+msgstr "RSS ফিড হলো একটি ফ্রি ব্লগ সামারি। এতে কন্টেন্ট থাকে (পোস্ট অথবা মন্তব্য) বা কন্টেন্টের সামারি আর সঙ্গে থাকে সম্পূর্ণ কন্টেন্টের লিংক এবং অন্যান্য মেটাডাটা। সর্বশেষ প্রকাশিত আইটেমগুলো আপনার প্রিয় RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a> দিয়ে পড়তে পারবেন।"
 
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "নিচের URLটি আপনার aggregator-এ কপি করুন:"
 
 msgid "Password needed"
-msgstr "পাসওয়ার্ড লাগবে"
+msgstr "পাসওয়ার্ড লাগবে"
 
 msgid "You must give a password to access this area."
-msgstr "এই জায়গাটিতে প্রবেশ করতে হলে আপনাকে পাসওয়ার্ড দিতে হবে।"
+msgstr "এই জায়গাটিতে প্রবেশ করতে হলে আপনাকে পাসওয়ার্ড দিতে হবে।"
 
 msgid "Password:"
-msgstr "পাসওয়ার্ড:"
+msgstr "পাসওয়ার্ড:"
 
 msgid "You must provide a valid email address."
 msgstr "আপনাকে অবশ্যই একটি বৈধ ইমেইল এড্রেস দিতে হবে।"
 
 msgid "Read"
-msgstr "পড়ুন"
+msgstr "পড়ুন"

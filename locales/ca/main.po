@@ -6,15 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:43+0100\n"
-"PO-Revision-Date: 2008-06-03 17:03+0200\n"
-"Last-Translator: Aina Chabert Ramon <ainachabert@gmail.com>\n"
+"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"PO-Revision-Date: 2016-07-18 15:43+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Catalan\n"
-"Language: \n"
+"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Catalan\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.8\n"
 
 #, fuzzy
 msgid "Dotclear has been upgraded."
@@ -103,7 +104,7 @@ msgstr ""
 msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr ""
 
-msgid "Remember my ID on this computer"
+msgid "Remember my ID on this device"
 msgstr "Recordar el meu Identificador en aquest ordinador"
 
 #, fuzzy
@@ -328,6 +329,13 @@ msgstr "Nota de copyright:"
 msgid "New post URL format:"
 msgstr ""
 
+#, fuzzy
+msgid "Dotclear"
+msgstr "Pseudònim"
+
+msgid "Sample:"
+msgstr ""
+
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
@@ -398,9 +406,6 @@ msgstr "Format de la data:"
 msgid "Pattern of date"
 msgstr ""
 
-msgid "Sample:"
-msgstr ""
-
 msgid "Time format:"
 msgstr "Format de les hores:"
 
@@ -409,6 +414,9 @@ msgstr ""
 
 msgid "Display smilies on entries and comments"
 msgstr "Mostrar emoticons en entrades i comentaris"
+
+msgid "Disable internal search system"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Display %s entries on home page"
@@ -443,6 +451,35 @@ msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
 msgid "Generated image sizes (in pixels)"
+msgstr ""
+
+msgid "Thumbnail"
+msgstr ""
+
+#, fuzzy
+msgid "Small"
+msgstr "Correu electrònic:"
+
+msgid "Medium"
+msgstr ""
+
+msgid "Default size of the inserted video (in pixels)"
+msgstr ""
+
+msgid "Width"
+msgstr ""
+
+#, fuzzy
+msgid "Height"
+msgstr "Dreta"
+
+msgid "Flash player"
+msgstr ""
+
+msgid "Insert Flash player fallback for video (mp4 or m4v) and audio (mp3) media"
+msgstr ""
+
+msgid "For flv video, the Flash player will be anyway inserted."
 msgstr ""
 
 msgid "Default image insertion attributes"
@@ -589,6 +626,9 @@ msgstr ""
 msgid "You can install themes by uploading or downloading zip files."
 msgstr ""
 
+msgid "Some functions are disabled, please give write access to your themes directory to enable them."
+msgstr ""
+
 msgid "Last update"
 msgstr "Última actualització"
 
@@ -671,6 +711,10 @@ msgid "Blog id"
 msgstr "Nom del blog"
 
 #, fuzzy
+msgid "URL"
+msgstr "URL:"
+
+#, fuzzy
 msgid "Entries (all types)"
 msgstr "Entrades per pàgina"
 
@@ -698,7 +742,7 @@ msgid "The category \"%s\" has been successfully deleted."
 msgstr "La categoria s'ha creat amb èxit."
 
 #, fuzzy
-msgid "Category where to move posts does not exist"
+msgid "Category where to move entries does not exist"
 msgstr "Aquesta entrada no existeix."
 
 #, fuzzy, php-format
@@ -919,6 +963,13 @@ msgstr "Títol de l'entrada"
 msgid "Author"
 msgstr "Autor"
 
+msgid "IP"
+msgstr ""
+
+#, fuzzy
+msgid "Spam filter"
+msgstr "filtre"
+
 #, fuzzy
 msgid "Selected comments have been successfully updated."
 msgstr "L'entrada s'ha actualitzat amb èxit."
@@ -1072,8 +1123,8 @@ msgstr ""
 msgid "Save and publish"
 msgstr "no publicat"
 
-#, php-format
-msgid "PHP version is %s (5.0 or earlier needed)."
+#, fuzzy, php-format
+msgid "PHP version is %s (5.3 or earlier needed)."
 msgstr "La versió PHP és %s (5.0 o més recent és necessaria)"
 
 msgid "Multibyte string module (mbstring) is not available."
@@ -1249,6 +1300,10 @@ msgstr "El directori cache %s no es pot gravar."
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "Impossible gravar res en aquest directori."
+
 #, php-format
 msgid "File %s does not exist."
 msgstr "El fitxer %s no existeix."
@@ -1289,6 +1344,9 @@ msgid "MySQLi"
 msgstr ""
 
 msgid "PostgreSQL"
+msgstr ""
+
+msgid "SQLite"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1422,6 +1480,10 @@ msgstr ""
 msgid "By dates, in descending order"
 msgstr ""
 
+#, fuzzy
+msgid "Not a valid directory"
+msgstr "Fitxer invàlid"
+
 #, fuzzy, php-format
 msgid "Directory \"%s\" has been successfully created."
 msgstr "El directori s'ha creat amb èxit."
@@ -1461,6 +1523,21 @@ msgstr "Anul·lar"
 msgid "Yes"
 msgstr "Sí"
 
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "Extensió no trobada"
+msgstr[1] "Extensió no trobada"
+
+msgid "Remove this folder from your favorites"
+msgstr ""
+
+msgid "Add this folder to your favorites"
+msgstr ""
+
+msgid "Goto recent folder:"
+msgstr ""
+
 #, fuzzy
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "No té permisos per suprimir aquesta extensió."
@@ -1475,28 +1552,73 @@ msgstr "El directori s'ha reconstruït amb èxit."
 msgid "Zip file has been successfully extracted."
 msgstr "El fitxer s'ha adjuntat amb èxit."
 
+#, fuzzy, php-format
+msgid "Select a file by clicking on %s"
+msgstr "Esculli un fitxer per a ser inserit a l'entrada fent clic a %s."
+
+#, fuzzy
+msgid "Select this file"
+msgstr "Suprimir aquest blog"
+
+#, fuzzy
+msgid "Choose selected medias"
+msgstr "Suprimir les extensions seleccionades"
+
 #, php-format
-msgid "Choose a file to attach to entry %s by clicking on %s."
+msgid "Select files and click on <strong>%s</strong> button"
+msgstr ""
+
+#, fuzzy
+msgid "or"
+msgstr "Classe:"
+
+#, fuzzy
+msgid "upload a new file"
+msgstr "afegir altres fitxers"
+
+#, fuzzy, php-format
+msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Esculli un fitxer per adjuntar a l'entrada %s un cop es faci click a %s."
 
 msgid "Attach this file to entry"
 msgstr "Adjuntar aquest fitxer a l'entrada"
 
-#, php-format
-msgid "Choose a file to insert into entry by clicking on %s."
+#, fuzzy, php-format
+msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "Esculli un fitxer per a ser inserit a l'entrada fent clic a %s."
 
 #, fuzzy
 msgid "Remove selected medias"
 msgstr "Suprimir les extensions seleccionades"
 
+msgid "Will search into media filename (including path), title and description"
+msgstr ""
+
 msgid "No file."
 msgstr "Cap fitxer."
+
+#, fuzzy
+msgid "Grid display mode"
+msgstr "Pseudònim"
+
+#, fuzzy
+msgid "List display mode"
+msgstr "Pseudònim"
 
 msgid "Sort files:"
 msgstr ""
 
 msgid "Number of elements displayed per page:"
+msgstr ""
+
+#, fuzzy
+msgid "Media list"
+msgstr "Detalls de media"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Size"
 msgstr ""
 
 #, php-format
@@ -1562,15 +1684,15 @@ msgstr ""
 msgid "Blog parameters"
 msgstr "Paràmetres"
 
-msgid "open"
-msgstr "Obrir"
-
 msgid "Insert this file into entry"
 msgstr "Inserir aquest fitxer en l'entrada"
 
 #, fuzzy
 msgid "delete"
 msgstr "Suprimir"
+
+msgid "open"
+msgstr "Obrir"
 
 msgid "Not a valid file"
 msgstr "Fitxer invàlid"
@@ -1589,11 +1711,19 @@ msgstr "La categoria s'ha actualitzat amb èxit."
 msgid "Are you sure to delete this media?"
 msgstr "Està segur que vol suprimir aquest comentari?"
 
-msgid "Insert media item"
-msgstr ""
+#, fuzzy
+msgid "Select media item"
+msgstr "gestionar tots els elements media"
 
 msgid "Image size:"
 msgstr "Mida de la imatge:"
+
+#, fuzzy
+msgid "Select"
+msgstr "Seleccionat:"
+
+msgid "Insert media item"
+msgstr ""
 
 msgid "Image alignment"
 msgstr "Alineació de la imatge:"
@@ -1646,17 +1776,29 @@ msgstr "Detalls de media"
 msgid "Available sizes:"
 msgstr "Mides disponibles:"
 
-msgid "File owner:"
-msgstr "Propietari del Fitxer:"
+#, fuzzy
+msgid "Thumbnail details"
+msgstr "Detalls de la imatge"
 
-msgid "File type:"
-msgstr "Tipus de fitxer:"
+#, fuzzy
+msgid "Image width:"
+msgstr "Mida de la imatge:"
+
+#, fuzzy
+msgid "Image height:"
+msgstr "Alineació de la imatge:"
 
 msgid "File size:"
 msgstr "Mida del fitxer:"
 
 msgid "File URL:"
 msgstr "Fitxer URL:"
+
+msgid "File owner:"
+msgstr "Propietari del Fitxer:"
+
+msgid "File type:"
+msgstr "Tipus de fitxer:"
 
 msgid "Show entries containing this media"
 msgstr ""
@@ -2064,6 +2206,13 @@ msgstr "Seleccionat"
 msgid "Not selected"
 msgstr "no seleccionat"
 
+msgid "Opened"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "tancar"
+
 #, fuzzy
 msgid "With attachments"
 msgstr "%d annexos"
@@ -2071,6 +2220,14 @@ msgstr "%d annexos"
 #, fuzzy
 msgid "Without attachments"
 msgstr "%d annexos"
+
+#, fuzzy
+msgid "With password"
+msgstr "Contrasenya de l'entrada:"
+
+#, fuzzy
+msgid "Without password"
+msgstr "La seva contrasenya"
 
 #, fuzzy
 msgid "Number of comments"
@@ -2088,6 +2245,10 @@ msgstr "La categoria s'ha actualitzat amb èxit."
 msgid "Selected entries have been successfully deleted."
 msgstr "La categoria s'ha actualitzat amb èxit."
 
+#, fuzzy
+msgid "Format:"
+msgstr "Format de la data:"
+
 msgid "Selected:"
 msgstr "Seleccionat:"
 
@@ -2102,11 +2263,22 @@ msgid "Lang:"
 msgstr "Idioma:"
 
 #, fuzzy
+msgid "Comments:"
+msgstr "Comentaris"
+
+#, fuzzy
+msgid "Trackbacks:"
+msgstr "Respostes"
+
+#, fuzzy
 msgid "entries per page"
 msgstr "Entrades per pàgina"
 
 msgid "Selected entries action:"
 msgstr "Acció en les entrades seleccionades:"
+
+msgid "Posts"
+msgstr ""
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr ""
@@ -2192,10 +2364,19 @@ msgstr ""
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
+msgid "Number of recent folders proposed in media manager:"
+msgstr ""
+
+msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
+msgstr ""
+
 msgid "Do not use standard favicon"
 msgstr ""
 
 msgid "This will be applied for all users"
+msgstr ""
+
+msgid "Optional columns displayed in lists"
 msgstr ""
 
 #, fuzzy
@@ -2221,6 +2402,9 @@ msgstr "Mida del camp d'edició d'entrades:"
 
 msgid "Enable WYSIWYG mode"
 msgstr "Activar la modalitat WYSIWYG"
+
+msgid "Display editor's toolbar at bottom of textarea (if possible)"
+msgstr ""
 
 msgid "Other options"
 msgstr ""
@@ -2278,6 +2462,10 @@ msgstr ""
 
 #, fuzzy
 msgid "Dashboard icons"
+msgstr "Quadre de comandament"
+
+#, fuzzy
+msgid "Display dashboard icons"
 msgstr "Quadre de comandament"
 
 msgid "Iconset:"
@@ -2554,9 +2742,19 @@ msgstr "marcar com a pendent"
 msgid "Mark as junk"
 msgstr "marca com a no desitjat"
 
+msgid "Blacklist IP"
+msgstr ""
+
+msgid "Blacklist IP (global)"
+msgstr ""
+
 #, fuzzy
 msgid "No comment selected"
 msgstr "Sense comentaris"
+
+#, fuzzy
+msgid "IP addresses for selected comments have been blacklisted."
+msgstr "L'entrada s'ha actualitzat amb èxit."
 
 #, fuzzy
 msgid "Back to entries list"
@@ -2999,9 +3197,6 @@ msgstr ""
 msgid "Plugins list"
 msgstr "Extensions"
 
-msgid "Name"
-msgstr "Nom"
-
 msgid "Score"
 msgstr ""
 
@@ -3011,6 +3206,13 @@ msgstr "Versió"
 #, fuzzy
 msgid "Current version"
 msgstr "definir els permisos"
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr ""
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr ""
 
 msgid "Plugin from official distribution"
 msgstr ""
@@ -3261,13 +3463,37 @@ msgstr "L'entrada no te títol."
 msgid "No entry"
 msgstr "Cap entrada"
 
-#, php-format
-msgid "List of %s entries match the filter."
-msgstr ""
+#, fuzzy, php-format
+msgid "List of %s entries matching the filter."
+msgstr "L'entrada no te títol."
 
-#, fuzzy
-msgid "Entries list"
+#, fuzzy, php-format
+msgid "List of entries (%s)"
 msgstr "Categories"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
 
 #, fuzzy
 msgid "Protected"
@@ -3281,12 +3507,26 @@ msgstr "%d annex"
 msgid "%d attachments"
 msgstr "%d annexos"
 
+#, fuzzy
+msgid "Entries list"
+msgstr "Categories"
+
 msgid "No comments or trackbacks matches the filter"
 msgstr ""
 
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "Acceptar les respostes"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -3395,9 +3635,6 @@ msgid "thumbnail"
 msgstr ""
 
 msgid "square"
-msgstr ""
-
-msgid "Posts"
 msgstr ""
 
 #, fuzzy
@@ -3592,6 +3829,25 @@ msgid "Embedded Video Player"
 msgstr ""
 
 #, php-format
+msgid "Requires %s module which is not installed"
+msgstr ""
+
+#, php-format
+msgid "Requires Dotclear version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr ""
+
+msgid "The following extensions have been disabled :"
+msgstr ""
+
+#, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
 msgstr ""
 
@@ -3767,9 +4023,6 @@ msgid "No valid target URL provided? Try again!"
 msgstr ""
 
 msgid "LOL!"
-msgstr ""
-
-msgid "SQLite Database Schema cannot be upgraded."
 msgstr ""
 
 msgid "Something went wrong with auto upgrade:"
@@ -3989,10 +4242,6 @@ msgstr ""
 #~ msgid "Latest news"
 #~ msgstr "Últimes noticies"
 
-#, fuzzy
-#~ msgid "Sort"
-#~ msgstr "Classe:"
-
 #~ msgid "New directory"
 #~ msgstr "Directori nou"
 
@@ -4011,9 +4260,6 @@ msgstr ""
 
 #~ msgid "Published on:"
 #~ msgstr "Publicat a:"
-
-#~ msgid "Entry password:"
-#~ msgstr "Contrasenya de l'entrada:"
 
 #~ msgid "junk"
 #~ msgstr "indesitjable"
@@ -4155,9 +4401,6 @@ msgstr ""
 #~ msgid "login"
 #~ msgstr "Connexió"
 
-#~ msgid "filter"
-#~ msgstr "filtre"
-
 #~ msgid "The file <strong>%s</strong> already exists. If you need to reset any of the configuration items in this file, please delete it first or you may <a href=\"%s\">continue to install</a>."
 #~ msgstr "L'arxiu <strong>%s</strong> ja existeix. Si necessita restaurar qualsevol dels elements de configuració en aquest arxiu, si us plau suprimeixi'l primer o bé pot <a href=\"%s\">continuar la instal·lació</a>."
 
@@ -4196,6 +4439,3 @@ msgstr ""
 
 #~ msgid "Entry preview"
 #~ msgstr "Vista prèvia de l'entrada"
-
-#~ msgid "add another files"
-#~ msgstr "afegir altres fitxers"

@@ -204,6 +204,7 @@ CKEDITOR.lang['mn'] = {
     	anchorName : 'Зангуугийн нэрээр',
     	charset : 'Тэмдэгт оноох нөөцөд холбогдсон',
     	cssClasses : 'Stylesheet классууд',
+    	download : 'Force Download',
     	emailAddress : 'Э-шуудангийн хаяг',
     	emailBody : 'Зурвасны их бие',
     	emailSubject : 'Зурвасны гарчиг',

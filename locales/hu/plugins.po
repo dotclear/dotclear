@@ -6,15 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:46+0100\n"
-"PO-Revision-Date: 2008-06-27 17:39+0200\n"
-"Last-Translator: Muráncsik Sebestyén <dr.graf@lajt.hu>\n"
+"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"PO-Revision-Date: 2016-07-18 15:47+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
-"Language: \n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Hungarian\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.8\n"
 
 msgid "Manage every blog configuration directive"
 msgstr ""
@@ -33,6 +34,9 @@ msgid "Manage your blogroll"
 msgstr "blogroll kezelése"
 
 msgid "Configure your Blowup Theme"
+msgstr ""
+
+msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 msgid "Legacy modules for dotclear"
@@ -142,6 +146,10 @@ msgstr ""
 #, php-format
 msgid "Settings for %s"
 msgstr ""
+
+#, fuzzy
+msgid "Setting ID"
+msgstr "Beálíltás neve"
 
 msgid "Value"
 msgstr "Érték"
@@ -581,9 +589,6 @@ msgstr "Az elemeket sikeresen eltávolítottam."
 msgid "Items order has been successfully updated"
 msgstr "Az elemek sorrendjét sikerresen frissítettem."
 
-msgid "URL"
-msgstr "URL"
-
 msgid "Lang"
 msgstr "Nyelv"
 
@@ -850,6 +855,34 @@ msgstr "Nem lehet a képet létrehozni."
 msgid "Unable to open image."
 msgstr "Nem lehet a fájlt megnyitni."
 
+msgid "Breadcrumb"
+msgstr ""
+
+msgid "Enable breadcrumb for this blog"
+msgstr ""
+
+msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
+msgstr ""
+
+msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
+msgstr ""
+
+msgid "Home"
+msgstr "Otthon"
+
+#, php-format
+msgid "page %d"
+msgstr ""
+
+msgid "Archives"
+msgstr "Archívum"
+
+msgid "All tags"
+msgstr "Mindegyik címke"
+
+msgid "404"
+msgstr ""
+
 #, fuzzy
 msgid "The configuration has been updated."
 msgstr "A témabeállítás sikeresen frissült."
@@ -863,6 +896,13 @@ msgstr ""
 #, fuzzy
 msgid "Link"
 msgstr "Hivatkozások"
+
+#, fuzzy
+msgid "External image"
+msgstr "Külső média"
+
+msgid "URL field cannot be empty."
+msgstr ""
 
 msgid "visual"
 msgstr ""
@@ -947,10 +987,6 @@ msgid "Language?"
 msgstr "Nyelv"
 
 #, fuzzy
-msgid "External image"
-msgstr "Külső média"
-
-#, fuzzy
 msgid "Remove text formating"
 msgstr "címke eltávolítása"
 
@@ -1004,9 +1040,6 @@ msgstr "A blogot sikeresen importáltad! Üdvözöllek a Dotclear 2-n!"
 
 msgid "Why don't you blog this now?"
 msgstr "Miért nem blogolsz most?"
-
-msgid "or"
-msgstr "vagy"
 
 msgid "visit your dashboard"
 msgstr "nézd meg a vezérlőközpontot"
@@ -1657,14 +1690,26 @@ msgid "Simple menu"
 msgstr ""
 
 #, fuzzy
+msgid "Item description"
+msgstr "Nincs megnevezés"
+
+#, fuzzy
+msgid "Displayed in link"
+msgstr "Címke törlése"
+
+#, fuzzy
+msgid "Used as link title"
+msgstr "Nincs ilyen hivatkozás vagy cím"
+
+msgid "Displayed in link and used as title"
+msgstr ""
+
+msgid "Not displayed nor used"
+msgstr ""
+
+#, fuzzy
 msgid "All months"
 msgstr "Mindegyik címke"
-
-msgid "All tags"
-msgstr "Mindegyik címke"
-
-msgid "Home"
-msgstr "Otthon"
 
 #, fuzzy
 msgid "Archive"
@@ -1696,9 +1741,6 @@ msgstr ""
 
 msgid "Recent Posts from this category"
 msgstr ""
-
-msgid "Archives"
-msgstr "Archívum"
 
 #, fuzzy, php-format
 msgid "Posts from %s"
@@ -1816,6 +1858,27 @@ msgstr "Biztosan törölni szerenéd a kiválasztott hivatkozásokat?"
 msgid "No menu items so far."
 msgstr ""
 
+msgid "This tag's comments Atom feed"
+msgstr "A címke megjegyzéseinek Atom feed-je"
+
+msgid "This tag's entries Atom feed"
+msgstr "A címke bejegyzéseinek Atom feed-je"
+
+msgid "Tag"
+msgstr "Címke:"
+
+msgid "Limit (empty means no limit):"
+msgstr "Korlát (ha üresen hagyod, akkor nincs határ)"
+
+msgid "Entries count"
+msgstr "Bejegyzések száma"
+
+msgid "Tag name"
+msgstr "Címke neve"
+
+msgid "Link to all tags:"
+msgstr ""
+
 #, fuzzy
 msgid "Add tags"
 msgstr "címke hozzáadása"
@@ -1880,9 +1943,6 @@ msgstr "A kijelölt címkék eltávolítása a bejegyzéstől"
 msgid "Following tags have been found in selected entries:"
 msgstr "A következp címkéket találtam a kiválastott bejegyzésekhez:"
 
-msgid "Tag"
-msgstr "Címke:"
-
 msgid "Short"
 msgstr ""
 
@@ -1893,24 +1953,6 @@ msgstr "Külső média"
 #, fuzzy
 msgid "Tags list format:"
 msgstr "Hozzáadandó címkék:"
-
-msgid "This tag's comments Atom feed"
-msgstr "A címke megjegyzéseinek Atom feed-je"
-
-msgid "This tag's entries Atom feed"
-msgstr "A címke bejegyzéseinek Atom feed-je"
-
-msgid "Limit (empty means no limit):"
-msgstr "Korlát (ha üresen hagyod, akkor nincs határ)"
-
-msgid "Entries count"
-msgstr "Bejegyzések száma"
-
-msgid "Tag name"
-msgstr "Címke neve"
-
-msgid "Link to all tags:"
-msgstr ""
 
 msgid "Tag has been successfully renamed"
 msgstr "A címkét sikeresen átneveztem"
@@ -1942,7 +1984,13 @@ msgstr "Nincs címke ezen a blogon"
 msgid "Edit theme files"
 msgstr ""
 
+msgid "Syntax highlighting"
+msgstr ""
+
 msgid "Syntax highlighting in theme editor"
+msgstr ""
+
+msgid "Theme:"
 msgstr ""
 
 msgid "No file"
@@ -2044,6 +2092,9 @@ msgstr "Bemutató kütyük"
 
 msgid "Search engine"
 msgstr "Keresőmotor"
+
+msgid "Placeholder (HTML5 only, optional):"
+msgstr ""
 
 msgid "Navigation links"
 msgstr "Navigációs hivatkozások"
@@ -2221,6 +2272,12 @@ msgstr "Kütyü eltávolítása"
 msgid "Drag widgets here to remove."
 msgstr ""
 
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "or"
+#~ msgstr "vagy"
+
 #~ msgid "Settings definition successfully updated"
 #~ msgstr "A beállítások definícióit sikeresen frissítettem."
 
@@ -2336,9 +2393,6 @@ msgstr ""
 
 #~ msgid "Widget ID"
 #~ msgstr "Widget ID"
-
-#~ msgid "Setting name"
-#~ msgstr "Beálíltás neve"
 
 #~ msgid "Setting value"
 #~ msgstr "Beállítás értéke"

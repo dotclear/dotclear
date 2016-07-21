@@ -204,6 +204,7 @@ CKEDITOR.lang['pt-br'] = {
     	anchorName : 'Nome da âncora',
     	charset : 'Charset do Link',
     	cssClasses : 'Classe de CSS',
+    	download : 'Force Download',
     	emailAddress : 'Endereço E-Mail',
     	emailBody : 'Corpo da Mensagem',
     	emailSubject : 'Assunto da Mensagem',

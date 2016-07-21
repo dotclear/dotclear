@@ -6,16 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:51+0100\n"
-"PO-Revision-Date: 2010-01-16 19:07+0800\n"
-"Last-Translator: lainme <lainme993@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2016-07-18 15:41+0200\n"
+"PO-Revision-Date: 2016-07-18 15:55+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Chinese\n"
-"X-Poedit-Country: CHINA\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.8\n"
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear 己被升级。"
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr ""
 
-msgid "Remember my ID on this computer"
+msgid "Remember my ID on this device"
 msgstr "在这台计算机上记住我的 ID"
 
 #, fuzzy
@@ -325,6 +325,13 @@ msgstr "版权声明："
 msgid "New post URL format:"
 msgstr "新文章的 URL 格式："
 
+#, fuzzy
+msgid "Dotclear"
+msgstr "Dotclear 团队"
+
+msgid "Sample:"
+msgstr ""
+
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
@@ -393,9 +400,6 @@ msgstr "日期格式："
 msgid "Pattern of date"
 msgstr ""
 
-msgid "Sample:"
-msgstr ""
-
 msgid "Time format:"
 msgstr "时间格式："
 
@@ -404,6 +408,9 @@ msgstr ""
 
 msgid "Display smilies on entries and comments"
 msgstr "在文章和评论上显示表情"
+
+msgid "Disable internal search system"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Display %s entries on home page"
@@ -438,6 +445,38 @@ msgstr ""
 
 msgid "Generated image sizes (in pixels)"
 msgstr "产生的图片大小(用像素)"
+
+#, fuzzy
+msgid "Thumbnail"
+msgstr "缩略图："
+
+#, fuzzy
+msgid "Small"
+msgstr "小："
+
+#, fuzzy
+msgid "Medium"
+msgstr "中："
+
+msgid "Default size of the inserted video (in pixels)"
+msgstr ""
+
+#, fuzzy
+msgid "Width"
+msgstr "宽度："
+
+#, fuzzy
+msgid "Height"
+msgstr "高度："
+
+msgid "Flash player"
+msgstr ""
+
+msgid "Insert Flash player fallback for video (mp4 or m4v) and audio (mp3) media"
+msgstr ""
+
+msgid "For flv video, the Flash player will be anyway inserted."
+msgstr ""
 
 msgid "Default image insertion attributes"
 msgstr ""
@@ -548,7 +587,6 @@ msgstr "更新缩略图"
 msgid "There is one theme to update available from repository."
 msgid_plural "There are %s themes to update available from repository."
 msgstr[0] ""
-msgstr[1] ""
 
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
@@ -584,6 +622,10 @@ msgstr ""
 
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "您可以通过上传或下载 zip 文件安装主题。"
+
+#, fuzzy
+msgid "Some functions are disabled, please give write access to your themes directory to enable them."
+msgstr "要激活这个功能，请赋予您的插件目录写权限。"
 
 msgid "Last update"
 msgstr "最后更新"
@@ -656,7 +698,6 @@ msgstr "没有博客"
 msgid "%d blog matches the filter."
 msgid_plural "%d blogs match the filter."
 msgstr[0] ""
-msgstr[1] ""
 
 #, fuzzy
 msgid "Blogs list"
@@ -665,6 +706,10 @@ msgstr "博客"
 #, fuzzy
 msgid "Blog id"
 msgstr "博客名称"
+
+#, fuzzy
+msgid "URL"
+msgstr "URL："
 
 #, fuzzy
 msgid "Entries (all types)"
@@ -693,7 +738,7 @@ msgid "The category \"%s\" has been successfully deleted."
 msgstr "成功创建分类目录。"
 
 #, fuzzy
-msgid "Category where to move posts does not exist"
+msgid "Category where to move entries does not exist"
 msgstr "这个分类目录不存在。"
 
 #, fuzzy, php-format
@@ -714,7 +759,6 @@ msgstr "分类目录"
 msgid "The category has been successfully removed."
 msgid_plural "The categories have been successfully removed."
 msgstr[0] "成功移除分类目录。"
-msgstr[1] "成功移除分类目录。"
 
 #, fuzzy
 msgid "Entries have been successfully moved to the category you choose."
@@ -734,7 +778,6 @@ msgstr "%d 篇文章"
 msgid "%d entry"
 msgid_plural "%d entries"
 msgstr[0] "%d 篇文章"
-msgstr[1] "%d 篇文章"
 
 msgid "total:"
 msgstr "总共："
@@ -910,6 +953,13 @@ msgstr "文章标题"
 msgid "Author"
 msgstr "作者"
 
+msgid "IP"
+msgstr ""
+
+#, fuzzy
+msgid "Spam filter"
+msgstr "过滤"
+
 #, fuzzy
 msgid "Selected comments have been successfully updated."
 msgstr "成功更新评论。"
@@ -967,7 +1017,6 @@ msgstr ""
 msgid "An update is available"
 msgid_plural "%s updates are available."
 msgstr[0] "Iconv 模块不可用。"
-msgstr[1] "Iconv 模块不可用。"
 
 #, fuzzy
 msgid "Dotclear news"
@@ -1061,8 +1110,8 @@ msgstr ""
 msgid "Save and publish"
 msgstr "保存并发布"
 
-#, php-format
-msgid "PHP version is %s (5.0 or earlier needed)."
+#, fuzzy, php-format
+msgid "PHP version is %s (5.3 or earlier needed)."
 msgstr "PHP 版本是 %s (需要 5.0 或更早)。"
 
 msgid "Multibyte string module (mbstring) is not available."
@@ -1231,6 +1280,10 @@ msgstr "缓存目录 %s 不可写。"
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "无法在这个目录写入。"
+
 #, php-format
 msgid "File %s does not exist."
 msgstr "%s 文件不存在。"
@@ -1271,6 +1324,9 @@ msgid "MySQLi"
 msgstr ""
 
 msgid "PostgreSQL"
+msgstr ""
+
+msgid "SQLite"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1391,6 +1447,10 @@ msgstr "按日期，升序"
 msgid "By dates, in descending order"
 msgstr "按日期，降序"
 
+#, fuzzy
+msgid "Not a valid directory"
+msgstr "不是一个有效的文件"
+
 #, fuzzy, php-format
 msgid "Directory \"%s\" has been successfully created."
 msgstr "成功创建目录。"
@@ -1402,7 +1462,6 @@ msgstr "成功上传文件。"
 msgid "Successfully delete one media."
 msgid_plural "Successfully delete %d medias."
 msgstr[0] "博客已被成功删除。"
-msgstr[1] "博客已被成功删除。"
 
 msgid "Directory has been successfully removed."
 msgstr "成功移除目录。"
@@ -1430,6 +1489,20 @@ msgstr "取消"
 msgid "Yes"
 msgstr "是"
 
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "找到 %d 篇文章"
+
+msgid "Remove this folder from your favorites"
+msgstr ""
+
+msgid "Add this folder to your favorites"
+msgstr ""
+
+msgid "Goto recent folder:"
+msgstr ""
+
 #, fuzzy
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "您没有删除这个插件的权限。"
@@ -1443,28 +1516,74 @@ msgstr "成功重建目录。"
 msgid "Zip file has been successfully extracted."
 msgstr "成功解压缩 zip 文件。"
 
+#, fuzzy, php-format
+msgid "Select a file by clicking on %s"
+msgstr "通过点击 %s 将选择的文件插入到文章。"
+
+#, fuzzy
+msgid "Select this file"
+msgstr "删除这个博客"
+
+#, fuzzy
+msgid "Choose selected medias"
+msgstr "恢复到选择的文件"
+
 #, php-format
-msgid "Choose a file to attach to entry %s by clicking on %s."
+msgid "Select files and click on <strong>%s</strong> button"
+msgstr ""
+
+#, fuzzy
+msgid "or"
+msgstr "排序："
+
+#, fuzzy
+msgid "upload a new file"
+msgstr "上传一个 zip 文件"
+
+#, fuzzy, php-format
+msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "选择一个文件附加到文章 %s，通过点击 %s。"
 
 msgid "Attach this file to entry"
 msgstr "附加这个文件到文章"
 
-#, php-format
-msgid "Choose a file to insert into entry by clicking on %s."
+#, fuzzy, php-format
+msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "通过点击 %s 将选择的文件插入到文章。"
 
 #, fuzzy
 msgid "Remove selected medias"
 msgstr "恢复到选择的文件"
 
+msgid "Will search into media filename (including path), title and description"
+msgstr ""
+
 msgid "No file."
 msgstr "没有文件。"
+
+#, fuzzy
+msgid "Grid display mode"
+msgstr "显示的名字"
+
+#, fuzzy
+msgid "List display mode"
+msgstr "显示的名字"
 
 msgid "Sort files:"
 msgstr "排序文件："
 
 msgid "Number of elements displayed per page:"
+msgstr ""
+
+#, fuzzy
+msgid "Media list"
+msgstr "媒体详情"
+
+#, fuzzy
+msgid "Name"
+msgstr "名字："
+
+msgid "Size"
 msgstr ""
 
 #, php-format
@@ -1529,15 +1648,15 @@ msgstr ""
 msgid "Blog parameters"
 msgstr "参数"
 
-msgid "open"
-msgstr "打开"
-
 msgid "Insert this file into entry"
 msgstr "插入这个文件到文章中"
 
 #, fuzzy
 msgid "delete"
 msgstr "删除"
+
+msgid "open"
+msgstr "打开"
 
 msgid "Not a valid file"
 msgstr "不是一个有效的文件"
@@ -1556,11 +1675,19 @@ msgstr "成功更新缩略图。"
 msgid "Are you sure to delete this media?"
 msgstr "您确定您要删除这个评论吗？"
 
-msgid "Insert media item"
+#, fuzzy
+msgid "Select media item"
 msgstr "插入媒体条目"
 
 msgid "Image size:"
 msgstr "图片大小："
+
+#, fuzzy
+msgid "Select"
+msgstr "精选的："
+
+msgid "Insert media item"
+msgstr "插入媒体条目"
 
 msgid "Image alignment"
 msgstr "图片对齐"
@@ -1611,17 +1738,29 @@ msgstr "媒体详情"
 msgid "Available sizes:"
 msgstr "可用的大小："
 
-msgid "File owner:"
-msgstr "文件拥有者："
+#, fuzzy
+msgid "Thumbnail details"
+msgstr "图片详情"
 
-msgid "File type:"
-msgstr "文件类型："
+#, fuzzy
+msgid "Image width:"
+msgstr "图片大小："
+
+#, fuzzy
+msgid "Image height:"
+msgstr "图片对齐"
 
 msgid "File size:"
 msgstr "文件大小："
 
 msgid "File URL:"
 msgstr "文件 URL："
+
+msgid "File owner:"
+msgstr "文件拥有者："
+
+msgid "File type:"
+msgstr "文件类型："
 
 msgid "Show entries containing this media"
 msgstr "显示包含这个媒体的文章"
@@ -1738,7 +1877,6 @@ msgstr "上传插件"
 msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
-msgstr[1] ""
 
 #, fuzzy
 msgid "Installed plugins"
@@ -2029,6 +2167,13 @@ msgstr "精选的"
 msgid "Not selected"
 msgstr "非精选的"
 
+msgid "Opened"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "关闭"
+
 #, fuzzy
 msgid "With attachments"
 msgstr "%d 个附件"
@@ -2036,6 +2181,14 @@ msgstr "%d 个附件"
 #, fuzzy
 msgid "Without attachments"
 msgstr "%d 个附件"
+
+#, fuzzy
+msgid "With password"
+msgstr "文章密码："
+
+#, fuzzy
+msgid "Without password"
+msgstr "您的密码"
 
 #, fuzzy
 msgid "Number of comments"
@@ -2053,6 +2206,10 @@ msgstr "成功更新缩略图。"
 msgid "Selected entries have been successfully deleted."
 msgstr "成功更新缩略图。"
 
+#, fuzzy
+msgid "Format:"
+msgstr "日期格式："
+
 msgid "Selected:"
 msgstr "精选的："
 
@@ -2067,11 +2224,22 @@ msgid "Lang:"
 msgstr "语言："
 
 #, fuzzy
+msgid "Comments:"
+msgstr "评论"
+
+#, fuzzy
+msgid "Trackbacks:"
+msgstr "Trackbacks"
+
+#, fuzzy
 msgid "entries per page"
 msgstr "每页文章数"
 
 msgid "Selected entries action:"
 msgstr "已选择的文章的动作："
+
+msgid "Posts"
+msgstr ""
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "如果您想要改变您的邮箱或者密码，您必须提供当前的密码。"
@@ -2161,10 +2329,19 @@ msgstr ""
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
+msgid "Number of recent folders proposed in media manager:"
+msgstr ""
+
+msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
+msgstr ""
+
 msgid "Do not use standard favicon"
 msgstr ""
 
 msgid "This will be applied for all users"
+msgstr ""
+
+msgid "Optional columns displayed in lists"
 msgstr ""
 
 #, fuzzy
@@ -2190,6 +2367,9 @@ msgstr "文章编辑区域高度："
 
 msgid "Enable WYSIWYG mode"
 msgstr "激活所见即所得模式"
+
+msgid "Display editor's toolbar at bottom of textarea (if possible)"
+msgstr ""
 
 #, fuzzy
 msgid "Other options"
@@ -2249,6 +2429,10 @@ msgstr ""
 
 #, fuzzy
 msgid "Dashboard icons"
+msgstr "控制板"
+
+#, fuzzy
+msgid "Display dashboard icons"
 msgstr "控制板"
 
 msgid "Iconset:"
@@ -2517,9 +2701,19 @@ msgstr "标记为待审核"
 msgid "Mark as junk"
 msgstr "标记为垃圾评论"
 
+msgid "Blacklist IP"
+msgstr ""
+
+msgid "Blacklist IP (global)"
+msgstr ""
+
 #, fuzzy
 msgid "No comment selected"
 msgstr "没有评论"
+
+#, fuzzy
+msgid "IP addresses for selected comments have been blacklisted."
+msgstr "成功更新评论。"
 
 #, fuzzy
 msgid "Back to entries list"
@@ -2562,31 +2756,26 @@ msgstr "非精选的"
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
 msgstr[0] "成功更新文章。"
-msgstr[1] "成功更新文章。"
 
 #, fuzzy, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
 msgstr[0] "成功创建文章。"
-msgstr[1] "成功创建文章。"
 
 #, fuzzy, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
 msgstr[0] "成功创建文章。"
-msgstr[1] "成功创建文章。"
 
 #, fuzzy, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "成功删除主题。"
-msgstr[1] "成功删除主题。"
 
 #, fuzzy, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
 msgstr[0] "成功更新文章。"
-msgstr[1] "成功更新文章。"
 
 msgid "Change category for this selection"
 msgstr "改变文章的分类目录"
@@ -2602,7 +2791,6 @@ msgstr "用户不存在"
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
 msgstr[0] "成功创建文章。"
-msgstr[1] "成功创建文章。"
 
 msgid "Change author for this selection"
 msgstr "改变文章的作者"
@@ -2614,7 +2802,6 @@ msgstr ""
 msgid "%d entry has been successfully set to language \"%s\""
 msgid_plural "%d entries have been successfully set to language \"%s\""
 msgstr[0] "成功更新文章。"
-msgstr[1] "成功更新文章。"
 
 #, fuzzy
 msgid "Change language for this selection"
@@ -2637,7 +2824,6 @@ msgstr "语言"
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] "%d 个评论"
-msgstr[1] "%d 个评论"
 
 msgid "Change blog"
 msgstr "改变博客"
@@ -2931,7 +3117,6 @@ msgstr ""
 msgid "Found %d result for search \"%s\":"
 msgid_plural "Found %d results for search \"%s\":"
 msgstr[0] ""
-msgstr[1] ""
 
 #, fuzzy
 msgid "current selection"
@@ -2941,7 +3126,6 @@ msgstr "取消全部选择"
 msgid "%d result"
 msgid_plural "%d results"
 msgstr[0] ""
-msgstr[1] ""
 
 msgid "no results"
 msgstr ""
@@ -2953,10 +3137,6 @@ msgstr ""
 msgid "Plugins list"
 msgstr "插件"
 
-#, fuzzy
-msgid "Name"
-msgstr "名字："
-
 msgid "Score"
 msgstr ""
 
@@ -2966,6 +3146,13 @@ msgstr "版本"
 #, fuzzy
 msgid "Current version"
 msgstr "设置权限"
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr ""
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr ""
 
 msgid "Plugin from official distribution"
 msgstr ""
@@ -3027,19 +3214,16 @@ msgstr "下列插件还没有安装："
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "成功删除插件。"
-msgstr[1] "成功删除插件。"
 
 #, fuzzy
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successuflly installed."
 msgstr[0] "成功安装插件。"
-msgstr[1] "成功安装插件。"
 
 #, fuzzy
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "成功安装插件。"
-msgstr[1] "成功安装插件。"
 
 #, fuzzy
 msgid "Some plugins have not been deactivated."
@@ -3049,13 +3233,11 @@ msgstr "下列插件还没有安装："
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "成功删除插件。"
-msgstr[1] "成功删除插件。"
 
 #, fuzzy
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successuflly updated."
 msgstr[0] "成功升级插件"
-msgstr[1] "成功升级插件"
 
 #, fuzzy
 msgid "Zip file path:"
@@ -3149,7 +3331,6 @@ msgstr "成功删除主题。"
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "成功改变主题。"
-msgstr[1] "成功改变主题。"
 
 msgid "Some themes have not been deactivated."
 msgstr ""
@@ -3158,7 +3339,6 @@ msgstr ""
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "成功删除主题。"
-msgstr[1] "成功删除主题。"
 
 #, fuzzy
 msgid "You don't have permissions to delete this theme."
@@ -3172,19 +3352,16 @@ msgstr "有文章的用户无法被删除。"
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "成功删除主题。"
-msgstr[1] "成功删除主题。"
 
 #, fuzzy
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successuflly installed."
 msgstr[0] "成功安装主题。"
-msgstr[1] "成功安装主题。"
 
 #, fuzzy
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successuflly updated."
 msgstr[0] "成功升级主题。"
-msgstr[1] "成功升级主题。"
 
 #, fuzzy
 msgid "First page"
@@ -3224,13 +3401,33 @@ msgstr "没有文章标题"
 msgid "No entry"
 msgstr "没有文章"
 
-#, php-format
-msgid "List of %s entries match the filter."
-msgstr ""
+#, fuzzy, php-format
+msgid "List of %s entries matching the filter."
+msgstr "没有文章标题"
 
-#, fuzzy
-msgid "Entries list"
+#, fuzzy, php-format
+msgid "List of entries (%s)"
 msgstr "分类目录列表"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ""
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ""
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ""
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ""
 
 #, fuzzy
 msgid "Protected"
@@ -3244,6 +3441,10 @@ msgstr "%d 个附件"
 msgid "%d attachments"
 msgstr "%d 个附件"
 
+#, fuzzy
+msgid "Entries list"
+msgstr "分类目录列表"
+
 msgid "No comments or trackbacks matches the filter"
 msgstr ""
 
@@ -3251,7 +3452,15 @@ msgstr ""
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
 msgstr[0] ""
-msgstr[1] ""
+
+#, fuzzy, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "评论和 trackbacks"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
+msgstr[0] ""
 
 msgid "Type"
 msgstr "类型"
@@ -3359,9 +3568,6 @@ msgid "thumbnail"
 msgstr "缩略图："
 
 msgid "square"
-msgstr ""
-
-msgid "Posts"
 msgstr ""
 
 #, fuzzy
@@ -3556,6 +3762,26 @@ msgid "Embedded Video Player"
 msgstr ""
 
 #, php-format
+msgid "Requires %s module which is not installed"
+msgstr ""
+
+#, php-format
+msgid "Requires Dotclear version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr ""
+
+#, fuzzy
+msgid "The following extensions have been disabled :"
+msgstr "下列插件已被安装："
+
+#, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
 msgstr ""
 
@@ -3726,9 +3952,6 @@ msgstr ""
 msgid "LOL!"
 msgstr ""
 
-msgid "SQLite Database Schema cannot be upgraded."
-msgstr "SQLite 数据库模式无法被升级。"
-
 msgid "Something went wrong with auto upgrade:"
 msgstr "自动升级时出现错误："
 
@@ -3846,7 +4069,6 @@ msgstr ""
 msgid "singular"
 msgid_plural "plural"
 msgstr[0] ""
-msgstr[1] ""
 
 #, php-format
 msgid "File %s is not compressed in the zip."
@@ -3892,6 +4114,9 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "SQLite Database Schema cannot be upgraded."
+#~ msgstr "SQLite 数据库模式无法被升级。"
 
 #~ msgid "more information"
 #~ msgstr "更多信息"
@@ -3980,10 +4205,6 @@ msgstr ""
 #~ msgid "Some plugins are installed twice:"
 #~ msgstr "下列插件已被安装："
 
-#, fuzzy
-#~ msgid "Sort"
-#~ msgstr "排序："
-
 #~ msgid "New directory"
 #~ msgstr "新目录"
 
@@ -4028,9 +4249,6 @@ msgstr ""
 
 #~ msgid "Published on:"
 #~ msgstr "发布于："
-
-#~ msgid "Entry password:"
-#~ msgstr "文章密码："
 
 #~ msgid "junk"
 #~ msgstr "垃圾评论"
@@ -4200,9 +4418,6 @@ msgstr ""
 
 #~ msgid "login"
 #~ msgstr "登录"
-
-#~ msgid "filter"
-#~ msgstr "过滤"
 
 #~ msgid "View site"
 #~ msgstr "浏览网站"

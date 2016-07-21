@@ -204,6 +204,7 @@ CKEDITOR.lang['sv'] = {
     	anchorName : 'Efter ankarnamn',
     	charset : 'Teckenuppställning',
     	cssClasses : 'Stilmall',
+    	download : 'Force Download',
     	emailAddress : 'E-postadress',
     	emailBody : 'Innehåll',
     	emailSubject : 'Ämne',

@@ -2,19 +2,20 @@
 # Work under Creative Commons license attribution-share alike 3.0 unported, please see http://creativecommons.org/licenses/by-sa/3.0/ for details.
 # ThecaTTony <thecattony@thecattony.com.ar>, 2009.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.1.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:45+0100\n"
-"PO-Revision-Date: 2009-10-03 04:00-0300\n"
-"Last-Translator: ThecaTTony <thecattony@thecattony.com.ar>\n"
+"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"PO-Revision-Date: 2016-07-18 15:47+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Español Argentino <thecattony@thecattony.com.ar>\n"
-"Language: \n"
+"Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.8\n"
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear ha sido actualizado."
@@ -103,7 +104,7 @@ msgstr ""
 msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr ""
 
-msgid "Remember my ID on this computer"
+msgid "Remember my ID on this device"
 msgstr "Recordar mi ID en este equipo"
 
 #, fuzzy
@@ -327,6 +328,13 @@ msgstr "Aviso de derecho de copia:"
 msgid "New post URL format:"
 msgstr "Formato de URL de nuevas entradas:"
 
+#, fuzzy
+msgid "Dotclear"
+msgstr "Equipo de Dotclear"
+
+msgid "Sample:"
+msgstr ""
+
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
 
@@ -395,9 +403,6 @@ msgstr "Formato de fecha:"
 msgid "Pattern of date"
 msgstr ""
 
-msgid "Sample:"
-msgstr ""
-
 msgid "Time format:"
 msgstr "Formato de hora:"
 
@@ -406,6 +411,9 @@ msgstr ""
 
 msgid "Display smilies on entries and comments"
 msgstr "Mostrar emoticones en las entradas y comentarios"
+
+msgid "Disable internal search system"
+msgstr ""
 
 #, fuzzy, php-format
 msgid "Display %s entries on home page"
@@ -440,6 +448,38 @@ msgstr ""
 
 msgid "Generated image sizes (in pixels)"
 msgstr "Tamaño de imagen generada (en pixeles)"
+
+#, fuzzy
+msgid "Thumbnail"
+msgstr "Vistas previas:"
+
+#, fuzzy
+msgid "Small"
+msgstr "Pequeño:"
+
+#, fuzzy
+msgid "Medium"
+msgstr "Mediano:"
+
+msgid "Default size of the inserted video (in pixels)"
+msgstr ""
+
+#, fuzzy
+msgid "Width"
+msgstr "Ancho:"
+
+#, fuzzy
+msgid "Height"
+msgstr "Alto:"
+
+msgid "Flash player"
+msgstr ""
+
+msgid "Insert Flash player fallback for video (mp4 or m4v) and audio (mp3) media"
+msgstr ""
+
+msgid "For flv video, the Flash player will be anyway inserted."
+msgstr ""
 
 msgid "Default image insertion attributes"
 msgstr ""
@@ -587,6 +627,10 @@ msgstr ""
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Puedes instalar temas subiendo o descargando archivos zip."
 
+#, fuzzy
+msgid "Some functions are disabled, please give write access to your themes directory to enable them."
+msgstr "Para habilitar esta función, por favor de permisos de acceso y escritura a su directorio de agregados."
+
 msgid "Last update"
 msgstr "Última actualización"
 
@@ -669,6 +713,10 @@ msgid "Blog id"
 msgstr "Nombre del blog"
 
 #, fuzzy
+msgid "URL"
+msgstr "URL:"
+
+#, fuzzy
 msgid "Entries (all types)"
 msgstr "Entradas por página"
 
@@ -695,7 +743,7 @@ msgid "The category \"%s\" has been successfully deleted."
 msgstr "La categoría ha sido creada con éxito."
 
 #, fuzzy
-msgid "Category where to move posts does not exist"
+msgid "Category where to move entries does not exist"
 msgstr "Esta categoría no existe."
 
 #, fuzzy, php-format
@@ -912,6 +960,13 @@ msgstr "Título de la entrada"
 msgid "Author"
 msgstr "Autor"
 
+msgid "IP"
+msgstr ""
+
+#, fuzzy
+msgid "Spam filter"
+msgstr "filtro"
+
 #, fuzzy
 msgid "Selected comments have been successfully updated."
 msgstr "Comentario actualizado con éxito."
@@ -1063,8 +1118,8 @@ msgstr ""
 msgid "Save and publish"
 msgstr "guardar y publicar"
 
-#, php-format
-msgid "PHP version is %s (5.0 or earlier needed)."
+#, fuzzy, php-format
+msgid "PHP version is %s (5.3 or earlier needed)."
 msgstr "La versión de PHP es %s (5.0 o más reciente es necesaria.)"
 
 msgid "Multibyte string module (mbstring) is not available."
@@ -1233,6 +1288,10 @@ msgstr "El directorio de cache %s no se puede escribir."
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
 msgstr ""
 
+#, fuzzy, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "No se puede escribir en este directorio."
+
 #, php-format
 msgid "File %s does not exist."
 msgstr "El archivo %s no existe."
@@ -1273,6 +1332,9 @@ msgid "MySQLi"
 msgstr ""
 
 msgid "PostgreSQL"
+msgstr ""
+
+msgid "SQLite"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1393,6 +1455,10 @@ msgstr "Por fecha, ascendente"
 msgid "By dates, in descending order"
 msgstr "Por fecha, descendente"
 
+#, fuzzy
+msgid "Not a valid directory"
+msgstr "Archivo no válido"
+
 #, fuzzy, php-format
 msgid "Directory \"%s\" has been successfully created."
 msgstr "Directorio creado con éxito."
@@ -1432,6 +1498,21 @@ msgstr "cancelar"
 msgid "Yes"
 msgstr "sí"
 
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%d entradas encontradas"
+msgstr[1] "%d entradas encontradas"
+
+msgid "Remove this folder from your favorites"
+msgstr ""
+
+msgid "Add this folder to your favorites"
+msgstr ""
+
+msgid "Goto recent folder:"
+msgstr ""
+
 #, fuzzy
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "No tiene permisos para eliminar este agregado."
@@ -1445,28 +1526,74 @@ msgstr "Directorio reconstruido con éxito."
 msgid "Zip file has been successfully extracted."
 msgstr "Archivo zip extraído con éxito."
 
+#, fuzzy, php-format
+msgid "Select a file by clicking on %s"
+msgstr "Elija un archivo para insertarlo en la entrada haciendo clic en %s."
+
+#, fuzzy
+msgid "Select this file"
+msgstr "Borrar este blog"
+
+#, fuzzy
+msgid "Choose selected medias"
+msgstr "Revertir al archivo seleccionado"
+
 #, php-format
-msgid "Choose a file to attach to entry %s by clicking on %s."
+msgid "Select files and click on <strong>%s</strong> button"
+msgstr ""
+
+#, fuzzy
+msgid "or"
+msgstr "Clasificar:"
+
+#, fuzzy
+msgid "upload a new file"
+msgstr "Subir un archivo zip"
+
+#, fuzzy, php-format
+msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Elija un archivo para adjuntar a la entrada %s haciendo clic en %s."
 
 msgid "Attach this file to entry"
 msgstr "Adjuntar el archivo a la entrada"
 
-#, php-format
-msgid "Choose a file to insert into entry by clicking on %s."
+#, fuzzy, php-format
+msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "Elija un archivo para insertarlo en la entrada haciendo clic en %s."
 
 #, fuzzy
 msgid "Remove selected medias"
 msgstr "Revertir al archivo seleccionado"
 
+msgid "Will search into media filename (including path), title and description"
+msgstr ""
+
 msgid "No file."
 msgstr "Ningún archivo."
+
+#, fuzzy
+msgid "Grid display mode"
+msgstr "Nombre mostrado"
+
+#, fuzzy
+msgid "List display mode"
+msgstr "Nombre mostrado"
 
 msgid "Sort files:"
 msgstr "Ordenar archivos:"
 
 msgid "Number of elements displayed per page:"
+msgstr ""
+
+#, fuzzy
+msgid "Media list"
+msgstr "Detalles del medio"
+
+#, fuzzy
+msgid "Name"
+msgstr "Nombre:"
+
+msgid "Size"
 msgstr ""
 
 #, php-format
@@ -1531,15 +1658,15 @@ msgstr ""
 msgid "Blog parameters"
 msgstr "Parámetros"
 
-msgid "open"
-msgstr "abrir"
-
 msgid "Insert this file into entry"
 msgstr "Insertar este archivo en la entrada"
 
 #, fuzzy
 msgid "delete"
 msgstr "Eliminar"
+
+msgid "open"
+msgstr "abrir"
 
 msgid "Not a valid file"
 msgstr "Archivo no válido"
@@ -1558,11 +1685,19 @@ msgstr "Vistas previas actualizadas con éxito."
 msgid "Are you sure to delete this media?"
 msgstr "¿Está seguro de que quiere eliminar este comentario?"
 
-msgid "Insert media item"
+#, fuzzy
+msgid "Select media item"
 msgstr "Insertar medio"
 
 msgid "Image size:"
 msgstr "Tamaño de la imagen:"
+
+#, fuzzy
+msgid "Select"
+msgstr "Seleccionado:"
+
+msgid "Insert media item"
+msgstr "Insertar medio"
 
 msgid "Image alignment"
 msgstr "Alineación de la imagen"
@@ -1613,17 +1748,29 @@ msgstr "Detalles del medio"
 msgid "Available sizes:"
 msgstr "Tamaños disponibles:"
 
-msgid "File owner:"
-msgstr "Propietario del archivo:"
+#, fuzzy
+msgid "Thumbnail details"
+msgstr "Detalles de imagen"
 
-msgid "File type:"
-msgstr "Tipo de archivo:"
+#, fuzzy
+msgid "Image width:"
+msgstr "Tamaño de la imagen:"
+
+#, fuzzy
+msgid "Image height:"
+msgstr "Alineación de la imagen"
 
 msgid "File size:"
 msgstr "Tamaño del archivo:"
 
 msgid "File URL:"
 msgstr "URL del archivo:"
+
+msgid "File owner:"
+msgstr "Propietario del archivo:"
+
+msgid "File type:"
+msgstr "Tipo de archivo:"
 
 msgid "Show entries containing this media"
 msgstr "Mostrar entradas conteniendo este medio"
@@ -2031,6 +2178,13 @@ msgstr "Seleccionado"
 msgid "Not selected"
 msgstr "no seleccionado"
 
+msgid "Opened"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "cerrar"
+
 #, fuzzy
 msgid "With attachments"
 msgstr "%d adjuntos"
@@ -2038,6 +2192,14 @@ msgstr "%d adjuntos"
 #, fuzzy
 msgid "Without attachments"
 msgstr "%d adjuntos"
+
+#, fuzzy
+msgid "With password"
+msgstr "Ingrese la contraseña:"
+
+#, fuzzy
+msgid "Without password"
+msgstr "contraseña"
 
 #, fuzzy
 msgid "Number of comments"
@@ -2055,6 +2217,10 @@ msgstr "Vistas previas actualizadas con éxito."
 msgid "Selected entries have been successfully deleted."
 msgstr "Vistas previas actualizadas con éxito."
 
+#, fuzzy
+msgid "Format:"
+msgstr "Formato de fecha:"
+
 msgid "Selected:"
 msgstr "Seleccionado:"
 
@@ -2069,11 +2235,22 @@ msgid "Lang:"
 msgstr "Idioma:"
 
 #, fuzzy
+msgid "Comments:"
+msgstr "Comentarios"
+
+#, fuzzy
+msgid "Trackbacks:"
+msgstr "Enlaces inversos"
+
+#, fuzzy
 msgid "entries per page"
 msgstr "Entradas por página"
 
 msgid "Selected entries action:"
 msgstr "Acción de las entradas seleccionadas:"
+
+msgid "Posts"
+msgstr ""
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Si usted desea cambiar su dirección de e-mail o contraseña debe proporcionar su actual contraseña."
@@ -2163,10 +2340,19 @@ msgstr ""
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
+msgid "Number of recent folders proposed in media manager:"
+msgstr ""
+
+msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
+msgstr ""
+
 msgid "Do not use standard favicon"
 msgstr ""
 
 msgid "This will be applied for all users"
+msgstr ""
+
+msgid "Optional columns displayed in lists"
 msgstr ""
 
 #, fuzzy
@@ -2192,6 +2378,9 @@ msgstr "Alto del campo de edición de entradas:"
 
 msgid "Enable WYSIWYG mode"
 msgstr "Activar el modo WYSIWYG"
+
+msgid "Display editor's toolbar at bottom of textarea (if possible)"
+msgstr ""
 
 #, fuzzy
 msgid "Other options"
@@ -2251,6 +2440,10 @@ msgstr ""
 
 #, fuzzy
 msgid "Dashboard icons"
+msgstr "Panel principal"
+
+#, fuzzy
+msgid "Display dashboard icons"
 msgstr "Panel principal"
 
 msgid "Iconset:"
@@ -2521,9 +2714,19 @@ msgstr "pendiente"
 msgid "Mark as junk"
 msgstr "no deseado"
 
+msgid "Blacklist IP"
+msgstr ""
+
+msgid "Blacklist IP (global)"
+msgstr ""
+
 #, fuzzy
 msgid "No comment selected"
 msgstr "Ningún comentario"
+
+#, fuzzy
+msgid "IP addresses for selected comments have been blacklisted."
+msgstr "Comentario actualizado con éxito."
 
 #, fuzzy
 msgid "Back to entries list"
@@ -2962,10 +3165,6 @@ msgstr ""
 msgid "Plugins list"
 msgstr "Agregados"
 
-#, fuzzy
-msgid "Name"
-msgstr "Nombre:"
-
 msgid "Score"
 msgstr ""
 
@@ -2975,6 +3174,13 @@ msgstr "Versión"
 #, fuzzy
 msgid "Current version"
 msgstr "establecer permisos"
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr ""
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr ""
 
 msgid "Plugin from official distribution"
 msgstr ""
@@ -3233,13 +3439,37 @@ msgstr "La entrada no tiene título"
 msgid "No entry"
 msgstr "No hay entrada"
 
-#, php-format
-msgid "List of %s entries match the filter."
-msgstr ""
+#, fuzzy, php-format
+msgid "List of %s entries matching the filter."
+msgstr "La entrada no tiene título"
 
-#, fuzzy
-msgid "Entries list"
+#, fuzzy, php-format
+msgid "List of entries (%s)"
 msgstr "Lista de categorías"
+
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ""
+msgstr[1] ""
 
 #, fuzzy
 msgid "Protected"
@@ -3253,12 +3483,26 @@ msgstr "%d adjunto"
 msgid "%d attachments"
 msgstr "%d adjuntos"
 
+#, fuzzy
+msgid "Entries list"
+msgstr "Lista de categorías"
+
 msgid "No comments or trackbacks matches the filter"
 msgstr ""
 
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy, php-format
+msgid "List of comments and trackbacks (%s)"
+msgstr "Comentarios y enlaces inversos"
+
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -3368,9 +3612,6 @@ msgid "thumbnail"
 msgstr "Vistas previas:"
 
 msgid "square"
-msgstr ""
-
-msgid "Posts"
 msgstr ""
 
 #, fuzzy
@@ -3564,6 +3805,26 @@ msgid "Embedded Video Player"
 msgstr ""
 
 #, php-format
+msgid "Requires %s module which is not installed"
+msgstr ""
+
+#, php-format
+msgid "Requires Dotclear version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module version %s, but version %s is installed"
+msgstr ""
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr ""
+
+#, fuzzy
+msgid "The following extensions have been disabled :"
+msgstr "Los siguientes agregados han sido instalados:"
+
+#, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
 msgstr ""
 
@@ -3734,9 +3995,6 @@ msgstr ""
 msgid "LOL!"
 msgstr ""
 
-msgid "SQLite Database Schema cannot be upgraded."
-msgstr "No se puede actualizar el esquema de base de datos SQLite."
-
 msgid "Something went wrong with auto upgrade:"
 msgstr "Algo ha sido erróneo con la actualización automática:"
 
@@ -3898,6 +4156,9 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+#~ msgid "SQLite Database Schema cannot be upgraded."
+#~ msgstr "No se puede actualizar el esquema de base de datos SQLite."
+
 #~ msgid "more information"
 #~ msgstr "más información"
 
@@ -3985,10 +4246,6 @@ msgstr ""
 #~ msgid "Some plugins are installed twice:"
 #~ msgstr "Los siguientes agregados han sido instalados:"
 
-#, fuzzy
-#~ msgid "Sort"
-#~ msgstr "Clasificar:"
-
 #~ msgid "New directory"
 #~ msgstr "Nuevo directorio"
 
@@ -4033,9 +4290,6 @@ msgstr ""
 
 #~ msgid "Published on:"
 #~ msgstr "Publicado el:"
-
-#~ msgid "Entry password:"
-#~ msgstr "Ingrese la contraseña:"
 
 #~ msgid "junk"
 #~ msgstr "no deseado"
@@ -4205,9 +4459,6 @@ msgstr ""
 
 #~ msgid "login"
 #~ msgstr "ingresar"
-
-#~ msgid "filter"
-#~ msgstr "filtro"
 
 #~ msgid "View site"
 #~ msgstr "Ver el sitio"

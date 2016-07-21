@@ -458,6 +458,8 @@ if ($blog_id)
 	'<p><label for="post_url_format">'.__('New post URL format:').'</label>'.
 	form::combo('post_url_format',$post_url_combo,html::escapeHTML($blog_settings->system->post_url_format)).
 	'</p>'.
+	'<p class="chosen form-note">'.__('Sample:').' '.$core->blog->getPostURL('',date('Y-m-d H:i:00',$now),__('Dotclear'),42).'</p>'.
+	'</p>'.
 
 	'<p><label for="note_title_tag">'.__('HTML tag for the title of the notes on the blog:').'</label>'.
 	form::combo('note_title_tag',$note_title_tag_combo,$blog_settings->system->note_title_tag).

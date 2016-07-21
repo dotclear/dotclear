@@ -204,6 +204,7 @@ CKEDITOR.lang['es'] = {
     	anchorName : 'Por Nombre de Referencia',
     	charset : 'Fuente de caracteres vinculado',
     	cssClasses : 'Clases de hojas de estilo',
+    	download : 'Force Download',
     	emailAddress : 'Dirección de E-Mail',
     	emailBody : 'Cuerpo del Mensaje',
     	emailSubject : 'Título del Mensaje',

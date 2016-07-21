@@ -7,18 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:45+0100\n"
-"PO-Revision-Date: 2009-10-02 16:06+0200\n"
-"Last-Translator: Quique <cronopios@gmail.com>\n"
+"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"PO-Revision-Date: 2016-07-18 15:47+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Poedit 1.8.8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Manage every blog configuration directive"
@@ -38,6 +36,9 @@ msgid "Manage your blogroll"
 msgstr "Gestión de la lista de enlaces"
 
 msgid "Configure your Blowup Theme"
+msgstr ""
+
+msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 msgid "Legacy modules for dotclear"
@@ -147,6 +148,10 @@ msgstr ""
 #, fuzzy, php-format
 msgid "Settings for %s"
 msgstr "Modificación del fichero %s"
+
+#, fuzzy
+msgid "Setting ID"
+msgstr "Nombre del ajuste"
 
 msgid "Value"
 msgstr "Valor"
@@ -587,9 +592,6 @@ msgstr "Los elementos han sido suprimidos con éxito."
 msgid "Items order has been successfully updated"
 msgstr "El orden de los elementos ha sido actualizado con éxito"
 
-msgid "URL"
-msgstr "URL"
-
 msgid "Lang"
 msgstr "Idioma"
 
@@ -856,6 +858,34 @@ msgstr "No es posible crear la imágenes."
 msgid "Unable to open image."
 msgstr "No es posible abrir la imagen."
 
+msgid "Breadcrumb"
+msgstr ""
+
+msgid "Enable breadcrumb for this blog"
+msgstr ""
+
+msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
+msgstr ""
+
+msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
+msgstr ""
+
+msgid "Home"
+msgstr "Inicio"
+
+#, php-format
+msgid "page %d"
+msgstr ""
+
+msgid "Archives"
+msgstr "Archivos"
+
+msgid "All tags"
+msgstr "Todas las etiquetas"
+
+msgid "404"
+msgstr ""
+
 #, fuzzy
 msgid "The configuration has been updated."
 msgstr "La configuración del tema ha sido actualizada con éxito."
@@ -869,6 +899,13 @@ msgstr ""
 #, fuzzy
 msgid "Link"
 msgstr "Enlaces"
+
+#, fuzzy
+msgid "External image"
+msgstr "Media externo"
+
+msgid "URL field cannot be empty."
+msgstr ""
 
 msgid "visual"
 msgstr ""
@@ -953,10 +990,6 @@ msgid "Language?"
 msgstr "Idioma"
 
 #, fuzzy
-msgid "External image"
-msgstr "Media externo"
-
-#, fuzzy
 msgid "Remove text formating"
 msgstr "Eliminar etiquetas"
 
@@ -1011,9 +1044,6 @@ msgstr "Su blog ha sido importado con éxito. ¡Bienvenido a Dotclear 2!"
 
 msgid "Why don't you blog this now?"
 msgstr "¿Por qué no bloguearlo ahora?"
-
-msgid "or"
-msgstr "o"
 
 msgid "visit your dashboard"
 msgstr "ir al tablero de mandos"
@@ -1657,14 +1687,26 @@ msgid "Simple menu"
 msgstr ""
 
 #, fuzzy
+msgid "Item description"
+msgstr "Ninguna descripción"
+
+#, fuzzy
+msgid "Displayed in link"
+msgstr "Borrar esta etiqueta"
+
+#, fuzzy
+msgid "Used as link title"
+msgstr "El enlace o el título no existe"
+
+msgid "Displayed in link and used as title"
+msgstr ""
+
+msgid "Not displayed nor used"
+msgstr ""
+
+#, fuzzy
 msgid "All months"
 msgstr "Todas las etiquetas"
-
-msgid "All tags"
-msgstr "Todas las etiquetas"
-
-msgid "Home"
-msgstr "Inicio"
 
 #, fuzzy
 msgid "Archive"
@@ -1696,9 +1738,6 @@ msgstr ""
 
 msgid "Recent Posts from this category"
 msgstr ""
-
-msgid "Archives"
-msgstr "Archivos"
 
 #, fuzzy, php-format
 msgid "Posts from %s"
@@ -1816,6 +1855,27 @@ msgstr "¿Seguro que desea borrar los enlaces seleccionados?"
 msgid "No menu items so far."
 msgstr ""
 
+msgid "This tag's comments Atom feed"
+msgstr "Fuente Atom de los comentarios asociados a esta etiqueta"
+
+msgid "This tag's entries Atom feed"
+msgstr "Fuente Atom de las entradas asociadas a esta etiqueta"
+
+msgid "Tag"
+msgstr "Etiqueta"
+
+msgid "Limit (empty means no limit):"
+msgstr "Límite (dejar vacío significa que no hay límite):"
+
+msgid "Entries count"
+msgstr "Número de entradas"
+
+msgid "Tag name"
+msgstr "Nombre de la etiqueta"
+
+msgid "Link to all tags:"
+msgstr ""
+
 msgid "Add tags"
 msgstr "Añadir etiquetas"
 
@@ -1878,9 +1938,6 @@ msgstr "Eliminar las etiquetas seleccionadas de las entradas"
 msgid "Following tags have been found in selected entries:"
 msgstr "Se han encontrado las siguientes etiquetas en las entradas seleccionadas:"
 
-msgid "Tag"
-msgstr "Etiqueta"
-
 msgid "Short"
 msgstr ""
 
@@ -1891,24 +1948,6 @@ msgstr "Media externo"
 #, fuzzy
 msgid "Tags list format:"
 msgstr "Etiquetas a añadir:"
-
-msgid "This tag's comments Atom feed"
-msgstr "Fuente Atom de los comentarios asociados a esta etiqueta"
-
-msgid "This tag's entries Atom feed"
-msgstr "Fuente Atom de las entradas asociadas a esta etiqueta"
-
-msgid "Limit (empty means no limit):"
-msgstr "Límite (dejar vacío significa que no hay límite):"
-
-msgid "Entries count"
-msgstr "Número de entradas"
-
-msgid "Tag name"
-msgstr "Nombre de la etiqueta"
-
-msgid "Link to all tags:"
-msgstr ""
 
 msgid "Tag has been successfully renamed"
 msgstr "La etiqueta ha sido renombrada con éxito"
@@ -1941,7 +1980,13 @@ msgstr "Ninguna etiqueta en este blog."
 msgid "Edit theme files"
 msgstr "Modificación del fichero %s"
 
+msgid "Syntax highlighting"
+msgstr ""
+
 msgid "Syntax highlighting in theme editor"
+msgstr ""
+
+msgid "Theme:"
 msgstr ""
 
 msgid "No file"
@@ -2044,6 +2089,9 @@ msgstr "Componentes de presentación"
 
 msgid "Search engine"
 msgstr "Motor de búsqueda"
+
+msgid "Placeholder (HTML5 only, optional):"
+msgstr ""
 
 msgid "Navigation links"
 msgstr "Enlaces de navegación"
@@ -2220,6 +2268,12 @@ msgstr "Eliminar el componente"
 msgid "Drag widgets here to remove."
 msgstr ""
 
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "or"
+#~ msgstr "o"
+
 #~ msgid "Settings definition successfully updated"
 #~ msgstr "Definición de ajustes actualizada con éxito"
 
@@ -2335,9 +2389,6 @@ msgstr ""
 
 #~ msgid "Widget ID"
 #~ msgstr "Identificador del componente"
-
-#~ msgid "Setting name"
-#~ msgstr "Nombre del ajuste"
 
 #~ msgid "Setting value"
 #~ msgstr "Valor del ajuste"

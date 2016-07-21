@@ -204,6 +204,7 @@ CKEDITOR.lang['ja'] = {
     	anchorName : 'アンカー名',
     	charset : 'リンク先のcharset',
     	cssClasses : 'スタイルシートクラス',
+    	download : 'Force Download',
     	emailAddress : 'E-Mail アドレス',
     	emailBody : '本文',
     	emailSubject : '件名',

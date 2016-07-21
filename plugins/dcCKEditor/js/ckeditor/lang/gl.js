@@ -204,6 +204,7 @@ CKEDITOR.lang['gl'] = {
     	anchorName : 'Polo nome da ancoraxe',
     	charset : 'Codificación do recurso ligado',
     	cssClasses : 'Clases da folla de estilos',
+    	download : 'Force Download',
     	emailAddress : 'Enderezo de correo',
     	emailBody : 'Corpo da mensaxe',
     	emailSubject : 'Asunto da mensaxe',

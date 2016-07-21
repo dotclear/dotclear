@@ -204,6 +204,7 @@ CKEDITOR.lang['ru'] = {
     	anchorName : 'По имени',
     	charset : 'Кодировка ресурса',
     	cssClasses : 'Классы CSS',
+    	download : 'Force Download',
     	emailAddress : 'Email адрес',
     	emailBody : 'Текст сообщения',
     	emailSubject : 'Тема сообщения',
