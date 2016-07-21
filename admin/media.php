@@ -141,6 +141,36 @@ try {
 	$core->error->add($e->getMessage());
 }
 
+# Zip download
+if (!empty($_GET['zipdl']) && $core->auth->check('media_admin',$core->blog->id))
+{
+	try
+	{
+		if (strpos(realpath($core->media->root.'/'.$d),realpath($core->media->root)) === 0) {
+			// Media folder or one of it's sub-folder(s)
+			@set_time_limit(300);
+			$fp = fopen('php://output','wb');
+			$zip = new fileZip($fp);
+			$zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).jpg$#');
+			$zip->addDirectory($core->media->root.'/'.$d,'',true);
+
+			header('Content-Disposition: attachment;filename='.date('Y-m-d').'-'.$core->blog->id.'-'.($d ? $d : 'media').'.zip');
+			header('Content-Type: application/x-zip');
+			$zip->write();
+			unset($zip);
+			exit;
+		} else {
+			$d = null;
+			$core->media->chdir($d);
+			throw new Exception(__('Not a valid directory'));
+		}
+	}
+	catch (Exception $e)
+	{
+		$core->error->add($e->getMessage());
+	}
+}
+
 # Cope with fav/unfav dir
 $fav_dirs = null;
 if (!empty($_GET['fav'])) {
@@ -192,29 +222,6 @@ if (!$q) {	// Ignore search results
 		}
 		// Store new list
 		$core->auth->user_prefs->interface->put('media_last_dirs',$last_dirs,'array');
-	}
-}
-
-# Zip download
-if (!empty($_GET['zipdl']) && $core->auth->check('media_admin',$core->blog->id))
-{
-	try
-	{
-		@set_time_limit(300);
-		$fp = fopen('php://output','wb');
-		$zip = new fileZip($fp);
-		$zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).jpg$#');
-		$zip->addDirectory($core->media->root.'/'.$d,'',true);
-
-		header('Content-Disposition: attachment;filename='.date('Y-m-d').'-'.$core->blog->id.'-'.($d ? $d : 'media').'.zip');
-		header('Content-Type: application/x-zip');
-		$zip->write();
-		unset($zip);
-		exit;
-	}
-	catch (Exception $e)
-	{
-		$core->error->add($e->getMessage());
 	}
 }
 

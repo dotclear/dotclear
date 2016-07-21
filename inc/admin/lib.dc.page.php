@@ -89,14 +89,33 @@ class dcPage
 		$safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
 
 		# Display
-		header('Content-Type: text/html; charset=UTF-8');
+		$headers = new arrayobject(array());
 
-		// Prevents Clickjacking as far as possible
+		# Content-Type
+		$headers['content-type'] = 'Content-Type: text/html; charset=UTF-8';
+
+		# Prevents Clickjacking as far as possible
 		if (isset($options['x-frame-allow'])) {
-			self::setXFrameOptions($options['x-frame-allow']);
+			self::setXFrameOptions($headers,$options['x-frame-allow']);
 		} else {
-			self::setXFrameOptions();
+			self::setXFrameOptions($headers);
 		}
+
+		# Content-Security-Policy (report only up to now)
+		$headers['csp'] =
+			"Content-Security-Policy: ".
+				"default-src 'self' ; ".
+				"script-src 'self' 'unsafe-inline' 'unsafe-eval' ; ".
+				"style-src 'self' 'unsafe-inline' ; ".
+				"img-src 'self' data: media.dotaddict.org".
+				(version_compare(phpversion(),'5.4','>=') ? " ; report-uri ".DC_ADMIN_URL."csp_report.php" : '');
+
+		# --BEHAVIOR-- adminPageHTTPHeaders
+		$core->callBehavior('adminPageHTTPHeaders',$headers);
+		foreach ($headers as $key => $value) {
+			header($value);
+		}
+
 		echo
 		'<!DOCTYPE html>'.
 		'<html lang="'.$core->auth->getInfo('user_lang').'">'."\n".
@@ -1011,18 +1030,18 @@ class dcPage
 		return $GLOBALS['core']->adminurl->get('load.var.file',array('vf' => $file));
 	}
 
-	public static function setXFrameOptions($origin = null)
+	public static function setXFrameOptions($headers,$origin = null)
 	{
 		if (self::$xframe_loaded) {
 			return;
 		}
 		if ($origin !== null) {
 			$url = parse_url($origin);
-			header(sprintf('X-Frame-Options: %s',is_array($url) ?
+			$headers['x-frame-options'] = sprintf('X-Frame-Options: %s',is_array($url) ?
 				("ALLOW-FROM ".(isset($url['scheme']) ? $url['scheme'].':' : '' ).'//'.$url['host']) :
-				'SAMEORIGIN'));
+				'SAMEORIGIN');
 		} else {
-			header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
+			$headers['x-frame-options'] = 'X-Frame-Options: SAMEORIGIN'; // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
 		}
 		self::$xframe_loaded = true;
 	}

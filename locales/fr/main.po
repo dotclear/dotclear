@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:20+0100\n"
-"PO-Revision-Date: 2014-11-20 19:12+0100\n"
+"POT-Creation-Date: 2016-07-18 15:02+0200\n"
+"PO-Revision-Date: 2016-07-18 15:01+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
 "Language: fr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Poedit 1.8.8\n"
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear a été mis à jour."
@@ -103,8 +103,8 @@ msgstr "Ce mode vous permet de vous connecter sans activer de plugins. Il peut �
 msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "Désactivez ou supprimez les plugins semblant en être la cause, puis déconnectez-vous et connectez-vous à nouveau normalement."
 
-msgid "Remember my ID on this computer"
-msgstr "Se souvenir de mon identifiant sur cet ordinateur"
+msgid "Remember my ID on this device"
+msgstr "Se souvenir de mon identifiant sur cet appareil"
 
 msgid "log in"
 msgstr "Se connecter"
@@ -324,6 +324,12 @@ msgstr "Note de copyright :"
 msgid "New post URL format:"
 msgstr "Format d'URL des nouveaux billets :"
 
+msgid "Dotclear"
+msgstr "Dotclear"
+
+msgid "Sample:"
+msgstr "Exemple :"
+
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "Balise HTML pour le titre des notes sur le blog :"
 
@@ -392,9 +398,6 @@ msgstr "Format des dates :"
 msgid "Pattern of date"
 msgstr "Modèle de date"
 
-msgid "Sample:"
-msgstr "Exemple :"
-
 msgid "Time format:"
 msgstr "Format des heures :"
 
@@ -441,8 +444,23 @@ msgstr "Soyez prudent si plusieurs blogs de l'installation partagent la même m�
 msgid "Generated image sizes (in pixels)"
 msgstr "Tailles des miniatures générées (largeur en pixels)"
 
+msgid "Thumbnail"
+msgstr "Vignette"
+
+msgid "Small"
+msgstr "Petite"
+
+msgid "Medium"
+msgstr "Moyenne"
+
 msgid "Default size of the inserted video (in pixels)"
 msgstr "Taille par defaut des vidéos insérées (en pixels)"
+
+msgid "Width"
+msgstr "Largeur"
+
+msgid "Height"
+msgstr "Hauteur"
 
 msgid "Flash player"
 msgstr "Lecteur Flash"
@@ -585,6 +603,9 @@ msgstr "Ajouter des thèmes depuis un package"
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Vous pouvez installer des thèmes en déposant ou téléchargeant des fichiers zip."
 
+msgid "Some functions are disabled, please give write access to your themes directory to enable them."
+msgstr "Certaines fonctions sont désactivées, donnez un accès en écriture à votre répertoire de thèmes pour les activer."
+
 msgid "Last update"
 msgstr "Dernière mise à jour"
 
@@ -648,7 +669,6 @@ msgstr "Aucun blog correspondant au filtre"
 msgid "No blog"
 msgstr "Pas de blog"
 
-# php-format
 #, php-format
 msgid "%d blog matches the filter."
 msgid_plural "%d blogs match the filter."
@@ -660,6 +680,9 @@ msgstr "Liste des blogs"
 
 msgid "Blog id"
 msgstr "Identifiant du blog"
+
+msgid "URL"
+msgstr "URL"
 
 msgid "Entries (all types)"
 msgstr "Entrées"
@@ -685,7 +708,7 @@ msgstr "Cette catégorie n'existe pas."
 msgid "The category \"%s\" has been successfully deleted."
 msgstr "La catégorie \"%s\" a été supprimée."
 
-msgid "Category where to move posts does not exist"
+msgid "Category where to move entries does not exist"
 msgstr "La catégorie où les entrées seront déplacées n'existe pas."
 
 #, php-format
@@ -887,6 +910,12 @@ msgstr "Titre de l'entrée"
 msgid "Author"
 msgstr "Auteur"
 
+msgid "IP"
+msgstr "IP"
+
+msgid "Spam filter"
+msgstr "Filtre antispam"
+
 msgid "Selected comments have been successfully updated."
 msgstr "Les entrées sélectionnées ont été modifiées."
 
@@ -895,15 +924,6 @@ msgstr "Les commentaires sélectionnés ont été supprimés."
 
 msgid "Spam comments have been successfully deleted."
 msgstr "Les commentaires indésirables ont été supprimés."
-
-msgid "IP addresses for selected comments have been blacklisted."
-msgstr "Les adresses IP des commentaires sélectionnés ont été ajoutées en liste noire."
-
-msgid "Blacklist IP"
-msgstr "Ajouter en liste noire"
-
-msgid "Blacklist IP (global)"
-msgstr "Ajouter en liste noire (pour tous les blogs)"
 
 msgid "You have one spam comment."
 msgstr "Vous avez un commentaire indésirable."
@@ -926,9 +946,6 @@ msgstr "Filtrer la liste des commentaires et rétroliens"
 
 msgid "Type:"
 msgstr "Type :"
-
-msgid "Spam filter"
-msgstr "Filtre antispam"
 
 msgid "comments per page"
 msgstr "commentaires par page"
@@ -1041,8 +1058,8 @@ msgid "Save and publish"
 msgstr "Enregister et publier"
 
 #, php-format
-msgid "PHP version is %s (5.0 or earlier needed)."
-msgstr "La version de PHP est %s (5.0 ou plus récente nécessaire.)"
+msgid "PHP version is %s (5.3 or earlier needed)."
+msgstr "La version de PHP est %s (5.3 ou plus récente nécessaire)."
 
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "Le support des chaînes multi-octets (mbstring) n'est pas disponible."
@@ -1210,6 +1227,10 @@ msgid "Dotclear installation wizard could not create configuration file for you.
 msgstr "L'assistant d'installation Dotclear n'a pas pu créer le fichier de configuration à votre place. Vous devez changer les droits du répertoire ou créer le fichier <strong>config.php</strong> manuellement. Référez-vous à <a href=\"http://fr.dotclear.org/documentation/2.0/admin/install\">la documentation</a> pour voir comment procéder."
 
 #, php-format
+msgid "Cannot write \"%s\" directory."
+msgstr "Impossible d'écrire dans le répertoire \"%s\"."
+
+#, php-format
 msgid "File %s does not exist."
 msgstr "Le fichier %s n'existe pas."
 
@@ -1249,6 +1270,9 @@ msgstr "MySQLi"
 
 msgid "PostgreSQL"
 msgstr "PostgreSQL"
+
+msgid "SQLite"
+msgstr "SQLite"
 
 msgid "Database Host Name:"
 msgstr "Nom d'hôte de la base de données :"
@@ -1367,6 +1391,9 @@ msgstr "Par dates croissantes"
 msgid "By dates, in descending order"
 msgstr "Par dates décroissantes"
 
+msgid "Not a valid directory"
+msgstr "Répertoire invalide"
+
 #, php-format
 msgid "Directory \"%s\" has been successfully created."
 msgstr "Le répertoire \"%s\" a été créé."
@@ -1406,6 +1433,21 @@ msgstr "Annuler"
 msgid "Yes"
 msgstr "oui"
 
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%s fichier trouvé"
+msgstr[1] "%s fichiers trouvés"
+
+msgid "Remove this folder from your favorites"
+msgstr "Retirer ce dossier de vos favoris"
+
+msgid "Add this folder to your favorites"
+msgstr "Ajouter ce dossier à vos favoris"
+
+msgid "Goto recent folder:"
+msgstr "Aller au dossier récent :"
+
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "Vous n'avez pas les droits suffisants pour écrire dans ce répertoire."
 
@@ -1419,6 +1461,26 @@ msgid "Zip file has been successfully extracted."
 msgstr "Le fichier zip a été extrait."
 
 #, php-format
+msgid "Select a file by clicking on %s"
+msgstr "Choisissez un fichier en cliquant sur %s"
+
+msgid "Select this file"
+msgstr "Sélectionner ce fichier"
+
+msgid "Choose selected medias"
+msgstr "Choisir les médias sélectionnés"
+
+#, php-format
+msgid "Select files and click on <strong>%s</strong> button"
+msgstr ""
+
+msgid "or"
+msgstr "ou"
+
+msgid "upload a new file"
+msgstr "envoyez un nouveau fichier"
+
+#, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Choisissez un fichier à attacher au billet %s en cliquant sur %s"
 
@@ -1429,11 +1491,11 @@ msgstr "Attacher ce fichier au billet"
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "Choisissez un fichier à insérer dans le billet en cliquant sur %s"
 
-msgid "upload a new file"
-msgstr "envoyez un nouveau fichier"
-
 msgid "Remove selected medias"
 msgstr "Supprimer les médias sélectionnés"
+
+msgid "Will search into media filename (including path), title and description"
+msgstr "Recherche parmi les noms des fichiers (incluant leur chemin), les titres et descriptions"
 
 msgid "No file."
 msgstr "Aucun fichier."
@@ -1450,14 +1512,14 @@ msgstr "Trier les fichiers :"
 msgid "Number of elements displayed per page:"
 msgstr "Nombre d'éléments affichés par page :"
 
-msgid "Goto recent folder:"
-msgstr "Aller au dossier récent :"
+msgid "Media list"
+msgstr "Liste des médias"
 
-msgid "Add this folder to your favorites"
-msgstr "Ajouter ce dossier à vos favoris"
+msgid "Name"
+msgstr "Nom :"
 
-msgid "Remove this folder from your favorites"
-msgstr "Retirer ce dossier de vos favoris"
+msgid "Size"
+msgstr "Taille"
 
 #, php-format
 msgid "In %s:"
@@ -1469,7 +1531,6 @@ msgstr "Créer un répertoire"
 msgid "Directory Name:"
 msgstr "Nom du répertoire :"
 
-# php-format
 #, php-format
 msgid "Backup content of %s"
 msgstr "Sauvegarder le contenu de %s"
@@ -1514,26 +1575,17 @@ msgstr "Envoyer"
 msgid "Current settings for medias and images are defined in %s"
 msgstr "Les réglages actuels pour les médias et les images sont définis dans les %s"
 
-#, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%s fichier trouvé"
-msgstr[1] "%s fichiers trouvés"
-
-msgid "Will search into media filename (including path), title and description"
-msgstr "Recherche parmi les noms des fichiers (incluant leur chemin), les titres et descriptions"
-
 msgid "Blog parameters"
 msgstr "Paramètres du blog"
-
-msgid "open"
-msgstr "ouvrir"
 
 msgid "Insert this file into entry"
 msgstr "Insérer ce fichier dans le billet"
 
 msgid "delete"
 msgstr "supprimer"
+
+msgid "open"
+msgstr "ouvrir"
 
 msgid "Not a valid file"
 msgstr "Fichier invalide"
@@ -1550,14 +1602,17 @@ msgstr "Les paramètres par défaut d'insertion des médias ont été mis à jou
 msgid "Are you sure to delete this media?"
 msgstr "Êtes-vous sûr de vouloir supprimer ce média ?"
 
-msgid "Size"
-msgstr "Taille"
-
-msgid "Insert media item"
+msgid "Select media item"
 msgstr "Insérer un média"
 
 msgid "Image size:"
 msgstr "Taille de l'image :"
+
+msgid "Select"
+msgstr "Sélectionner"
+
+msgid "Insert media item"
+msgstr "Insérer un média"
 
 msgid "Image alignment"
 msgstr "Alignement de l'image"
@@ -1607,17 +1662,26 @@ msgstr "Détails du média"
 msgid "Available sizes:"
 msgstr "Tailles disponibles :"
 
-msgid "File owner:"
-msgstr "Propriétaire du fichier :"
+msgid "Thumbnail details"
+msgstr "Détails de la miniature"
 
-msgid "File type:"
-msgstr "Type de fichier :"
+msgid "Image width:"
+msgstr "Largeur de l'image :"
+
+msgid "Image height:"
+msgstr "Hauteur de l'image :"
 
 msgid "File size:"
 msgstr "Taille du fichier :"
 
 msgid "File URL:"
 msgstr "URL du fichier :"
+
+msgid "File owner:"
+msgstr "Propriétaire du fichier :"
+
+msgid "File type:"
+msgstr "Type de fichier :"
 
 msgid "Show entries containing this media"
 msgstr "Afficher les entrées contenant ce média"
@@ -1760,9 +1824,6 @@ msgstr "Vous pouvez installer des plugins en déposant ou téléchargeant des fi
 
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Certaines fonctions sont désactivées, donnez un accès en écriture à votre répertoire de plugins pour les activer."
-
-msgid "Some functions are disabled, please give write access to your themes directory to enable them."
-msgstr "Certaines fonctions sont désactivées, donnez un accès en écriture à votre répertoire de thèmes pour les activer."
 
 msgid "Add a link"
 msgstr "Ajouter un lien"
@@ -1994,12 +2055,6 @@ msgstr "Sélectionné"
 msgid "Not selected"
 msgstr "Non sélectionné"
 
-msgid "Comments:"
-msgstr "Commentaires :"
-
-msgid "Trackbacks:"
-msgstr "Rétroliens :"
-
 msgid "Opened"
 msgstr "Ouverts"
 
@@ -2011,6 +2066,12 @@ msgstr "Avec annexe(s)"
 
 msgid "Without attachments"
 msgstr "Sans annexes"
+
+msgid "With password"
+msgstr "Avec mot de passe"
+
+msgid "Without password"
+msgstr "Sans mot de passe"
 
 msgid "Number of comments"
 msgstr "Nombre de commentaires"
@@ -2024,6 +2085,9 @@ msgstr "Les entrées sélectionnées ont été modifiées."
 msgid "Selected entries have been successfully deleted."
 msgstr "Les entrées sélectionnées ont été supprimées."
 
+msgid "Format:"
+msgstr "Format :"
+
 msgid "Selected:"
 msgstr "Sélectionné :"
 
@@ -2036,11 +2100,20 @@ msgstr "Mois :"
 msgid "Lang:"
 msgstr "Langue :"
 
+msgid "Comments:"
+msgstr "Commentaires :"
+
+msgid "Trackbacks:"
+msgstr "Rétroliens :"
+
 msgid "entries per page"
 msgstr "billets par page"
 
 msgid "Selected entries action:"
 msgstr "Action sur les billets sélectionnés :"
+
+msgid "Posts"
+msgstr "Billets"
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Si vous voulez modifier votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe actuel."
@@ -2453,8 +2526,17 @@ msgstr "Mettre en attente"
 msgid "Mark as junk"
 msgstr "Mettre en indésirable"
 
+msgid "Blacklist IP"
+msgstr "Ajouter en liste noire"
+
+msgid "Blacklist IP (global)"
+msgstr "Ajouter en liste noire (pour tous les blogs)"
+
 msgid "No comment selected"
 msgstr "Aucun commentaire sélectionné."
+
+msgid "IP addresses for selected comments have been blacklisted."
+msgstr "Les adresses IP des commentaires sélectionnés ont été ajoutées en liste noire."
 
 msgid "Back to entries list"
 msgstr "Retour à la liste des billets"
@@ -2492,32 +2574,32 @@ msgstr "Aucune entrée sélectionnée"
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
-msgstr[0] "%s billet a été positionné au statut \"%s\"."
-msgstr[1] "%s billets ont été positionnés au statut \"%s\"."
+msgstr[0] "%d billet a été positionné au statut \"%s\"."
+msgstr[1] "%d billets ont été positionnés au statut \"%s\"."
 
 #, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
-msgstr[0] "%s billet a été marqué sélectionné."
-msgstr[1] "%s billets ont été marqués sélectionnés."
+msgstr[0] "%d billet a été marqué sélectionné."
+msgstr[1] "%d billets ont été marqués sélectionnés."
 
 #, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
-msgstr[0] "%s billet a été marqué désélectionné."
-msgstr[1] "%s billets ont été marqués désélectionnés."
+msgstr[0] "%d billet a été marqué désélectionné."
+msgstr[1] "%d billets ont été marqués désélectionnés."
 
 #, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
-msgstr[0] "%s entrée a été supprimée."
-msgstr[1] "%s entrées ont été supprimées."
+msgstr[0] "%d entrée a été supprimée."
+msgstr[1] "%d entrées ont été supprimées."
 
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
-msgstr[0] "%s billet a été déplacé dans la catégorie \"%s\"."
-msgstr[1] "%s billets ont été déplacés dans la catégorie \"%s\"."
+msgstr[0] "%d billet a été déplacé dans la catégorie \"%s\"."
+msgstr[1] "%d billets ont été déplacés dans la catégorie \"%s\"."
 
 msgid "Change category for this selection"
 msgstr "Changer la catégorie pour cette sélection"
@@ -2531,8 +2613,8 @@ msgstr "Cet utilisateur n'existe pas"
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
-msgstr[0] "%s billet a été affecté à l'utilisateur \"%s\"."
-msgstr[1] "%s billets ont été affectés à l'utilisateur \"%s\"."
+msgstr[0] "%d billet a été affecté à l'utilisateur \"%s\"."
+msgstr[1] "%d billets ont été affectés à l'utilisateur \"%s\"."
 
 msgid "Change author for this selection"
 msgstr "Changer l'auteur pour cette sélection"
@@ -2543,8 +2625,8 @@ msgstr "Nouvel auteur (identifiant utilisateur) :"
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\""
 msgid_plural "%d entries have been successfully set to language \"%s\""
-msgstr[0] "%s billet mis à jour avec la langue \"%s\"."
-msgstr[1] "%s billets mis à jour avec la langue \"%s\"."
+msgstr[0] "%d billet mis à jour avec la langue \"%s\"."
+msgstr[1] "%d billets mis à jour avec la langue \"%s\"."
 
 msgid "Change language for this selection"
 msgstr "Changer la langue de cette sélection"
@@ -2865,9 +2947,6 @@ msgstr "Parcourir l'index :"
 msgid "Plugins list"
 msgstr "Liste des plugins"
 
-msgid "Name"
-msgstr "Nom :"
-
 msgid "Score"
 msgstr "Score"
 
@@ -2876,6 +2955,13 @@ msgstr "Version"
 
 msgid "Current version"
 msgstr "Version courante"
+
+#, php-format
+msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
+msgstr "Ce module ne peut être désactivé ou supprimé car les modules suivants sont actifs : %s"
+
+msgid "This module cannot be enabled, because of the following reasons :"
+msgstr "Ce module ne peut activé pour les raisons suivantes :"
 
 msgid "Plugin from official distribution"
 msgstr "Plugin de la distribution officielle"
@@ -3100,31 +3186,33 @@ msgstr "Pas de billet"
 msgid "List of %s entries matching the filter."
 msgstr "Liste des %s billets correspondant au filtre"
 
-msgid "Entries list"
-msgstr "Liste des entrées"
-
+#, php-format
 msgid "List of entries (%s)"
 msgstr "Liste des billets (%s)"
 
-msgid ", <a href="%s">published</a> (1)"
-msgid_plural ", <a href="%s">published</a> (%s)"
-msgstr[0] ", <a href="%s">publié</a> (1)"
-msgstr[1] ", <a href="%s">publiés</a> (%s)"
+#, php-format
+msgid ", <a href=\"%s\">published</a> (1)"
+msgid_plural ", <a href=\"%s\">published</a> (%s)"
+msgstr[0] ", <a href=\"%s\">publié</a> (1)"
+msgstr[1] ", <a href=\"%s\">publiés</a> (%s)"
 
-msgid ", <a href="%s">pending</a> (1)"
-msgid_plural ", <a href="%s">pending</a> (%s)"
-msgstr[0] ", <a href="%s">en attente</a> (1)"
-msgstr[1] ", <a href="%s">en attente</a> (%s)"
+#, php-format
+msgid ", <a href=\"%s\">pending</a> (1)"
+msgid_plural ", <a href=\"%s\">pending</a> (%s)"
+msgstr[0] ", <a href=\"%s\">en attente</a> (1)"
+msgstr[1] ", <a href=\"%s\">en attente</a> (%s)"
 
-msgid ", <a href="%s">programmed</a> (1)"
-msgid_plural ", <a href="%s">programmed</a> (%s)"
-msgstr[0] ", <a href="%s">programmé</a> (1)"
-msgstr[1] ", <a href="%s">programmés</a> (%s)"
+#, php-format
+msgid ", <a href=\"%s\">programmed</a> (1)"
+msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
+msgstr[0] ", <a href=\"%s\">programmé</a> (1)"
+msgstr[1] ", <a href=\"%s\">programmés</a> (%s)"
 
-msgid ", <a href="%s">unpublished</a> (1)"
-msgid_plural ", <a href="%s">unpublished</a> (%s)"
-msgstr[0] ", <a href="%s">non publié</a> (1)"
-msgstr[1] ", <a href="%s">non publiés</a> (%s)"
+#, php-format
+msgid ", <a href=\"%s\">unpublished</a> (1)"
+msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
+msgstr[0] ", <a href=\"%s\">non publié</a> (1)"
+msgstr[1] ", <a href=\"%s\">non publiés</a> (%s)"
 
 msgid "Protected"
 msgstr "Protégé"
@@ -3137,6 +3225,9 @@ msgstr "%d annexe"
 msgid "%d attachments"
 msgstr "%d annexes"
 
+msgid "Entries list"
+msgstr "Liste des entrées"
+
 msgid "No comments or trackbacks matches the filter"
 msgstr "aucun commentaire ou rétrolien ne correspond au filtre"
 
@@ -3146,13 +3237,15 @@ msgid_plural "List of %s comments or trackbacks matching the filter."
 msgstr[0] "Commentaire ou rétrolien correspondant au filtre."
 msgstr[1] "Liste des %s commentaires ou rétroliens correspondants au filtre."
 
+#, php-format
 msgid "List of comments and trackbacks (%s)"
 msgstr "Liste des commentaires et rétroliens (%s)"
 
-msgid ", <a href="%s">spam</a> (1)"
-msgid_plural ", <a href="%s">spam</a> (%s)"
-msgstr[0] ", <a href="%s">indésirable</a> (1)"
-msgstr[1] ", <a href="%s">indésirables</a> (%s)"
+#, php-format
+msgid ", <a href=\"%s\">spam</a> (1)"
+msgid_plural ", <a href=\"%s\">spam</a> (%s)"
+msgstr[0] ", <a href=\"%s\">indésirable</a> (1)"
+msgstr[1] ", <a href=\"%s\">indésirables</a> (%s)"
 
 msgid "Type"
 msgstr "Type"
@@ -3249,15 +3342,6 @@ msgstr "vignette"
 
 msgid "square"
 msgstr "carrée"
-
-msgid "Width"
-msgstr "Largeur"
-
-msgid "Height"
-msgstr "Hauteur"
-
-msgid "Posts"
-msgstr "Billets"
 
 msgid "Pages"
 msgstr "Pages"
@@ -3441,6 +3525,25 @@ msgid "Embedded Video Player"
 msgstr "Lecteur vidéo intégré"
 
 #, php-format
+msgid "Requires %s module which is not installed"
+msgstr "Requiert le module %s qui n'est pas installé"
+
+#, php-format
+msgid "Requires Dotclear version %s, but version %s is installed"
+msgstr "Requiert la version %s de Dotclear alors que la version %s est installée"
+
+#, php-format
+msgid "Requires %s module version %s, but version %s is installed"
+msgstr "Requiert le module %s version %s alors que la version %s est installée"
+
+#, php-format
+msgid "Requires %s module which is disabled"
+msgstr "Requiert le module %s qui est désactivé"
+
+msgid "The following extensions have been disabled :"
+msgstr "Les plugins suivants ont été désactivés :"
+
+#, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
 msgstr "Le module \"%s\" est de type \"%s\" incompatible avec \"%s\"."
 
@@ -3475,24 +3578,6 @@ msgstr "Le plugin ne peut pas être désactivé."
 
 msgid "Cannot activate plugin."
 msgstr "Le plugin ne peut pas être activé."
-
-msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
-msgstr "Ce module ne peut être désactivé ou supprimé car les modules suivants sont actifs : %s"
-
-msgid "This module cannot be enabled, because of the following reasons :"
-msgstr "Ce module ne peut activé pour les raisons suivantes :"
-
-msgid "Requires %s module which is not installed"
-msgstr "Requiert le module %s qui n'est pas installé"
-
-msgid "Requires Dotclear version %s, but version %s is installed"
-msgstr "Requiert la version %s de Dotclear alors que la version %s est installée"
-
-msgid "Requires %s module version %s, but version %s is installed"
-msgstr "Requiert le module %s version %s alors que la version %s est installée"
-
-msgid "Requires %s module which is disabled"
-msgstr "Requiert le module %s qui est désactivé"
 
 #, php-format
 msgid "Invalid setting dcNamespace: %s"
@@ -3621,9 +3706,6 @@ msgstr "Aucune URL destinataire valide fournie ? Essayez encore !"
 
 msgid "LOL!"
 msgstr "MDR !"
-
-msgid "SQLite Database Schema cannot be upgraded."
-msgstr "Le schema de base de données SQLite ne peut pas être mis à jour."
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "Une erreur est survenue durant la mise à jour automatique :"
@@ -3783,23 +3865,8 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
 
-msgid "With password"
-msgstr "Avec mot de passe"
-
-msgid "Without password"
-msgstr "Sans mot de passe"
-
-msgid "Format:"
-msgstr "Format :"
-
-msgid "Thumbnail details"
-msgstr "Détails de la miniature"
-
-msgid "Image width:"
-msgstr "Largeur de l'image :"
-
-msgid "Image height:"
-msgstr "Hauteur de l'image :"
+#~ msgid "SQLite Database Schema cannot be upgraded."
+#~ msgstr "Le schema de base de données SQLite ne peut pas être mis à jour."
 
 #~ msgid "visual"
 #~ msgstr "visuel"
@@ -4082,9 +4149,6 @@ msgstr "Hauteur de l'image :"
 #~ msgid "Some plugins are installed twice:"
 #~ msgstr "Ces plugins sont installés en double :"
 
-#~ msgid "Sort"
-#~ msgstr "Trier"
-
 #~ msgid "Filter posts list"
 #~ msgstr "Filtrer la liste des billets"
 
@@ -4334,9 +4398,6 @@ msgstr "Hauteur de l'image :"
 #~ msgid "Protect with password"
 #~ msgstr "Protéger par un mot de passe"
 
-#~ msgid "Select this comment"
-#~ msgstr "Sélectionner ce commentaire"
-
 #~ msgid "Add an introduction to the page."
 #~ msgstr "Ajoute une introduction à la page."
 
@@ -4355,9 +4416,6 @@ msgstr "Hauteur de l'image :"
 
 #~ msgid "comment from"
 #~ msgstr "commentaire de"
-
-#~ msgid "Select"
-#~ msgstr "Sélectionner"
 
 #~ msgid "Accessibility"
 #~ msgstr "Accessibilité"

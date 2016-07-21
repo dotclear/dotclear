@@ -1225,6 +1225,7 @@ class dcCore
 			'active_footnotes' => 1,
 			'active_wikiwords' => 0,
 			'active_macros' => 1,
+			'active_mark' => 1,
 			'parse_pre' => 1,
 			'active_fr_syntax' => 0,
 			'first_title_level' => 3,
@@ -1272,6 +1273,7 @@ class dcCore
 			'active_footnotes' => 0,
 			'active_wikiwords' => 0,
 			'active_macros' => 0,
+			'active_mark' => 0,
 			'parse_pre' => 0,
 			'active_fr_syntax' => 0
 		));
@@ -1313,6 +1315,7 @@ class dcCore
 			'active_footnotes' => 0,
 			'active_wikiwords' => 0,
 			'active_macros' => 0,
+			'active_mark' => 1,
 			'parse_pre' => 0,
 			'active_fr_syntax' => 0
 		));
@@ -1392,7 +1395,7 @@ class dcCore
 				'Enable XML/RPC interface'),
 				array('lang','string','en',
 				'Default blog language'),
-				array('media_exclusion','string','/\.(phps?|pht(ml)?|phl|s?html?|js)[0-9]*$/i',
+				array('media_exclusion','string','/\.(phps?|pht(ml)?|phl|s?html?|js|htaccess)[0-9]*$/i',
 				'File name exclusion pattern in media manager. (PCRE value)'),
 				array('media_img_m_size','integer',448,
 				'Image medium size in media manager'),
@@ -1451,7 +1454,15 @@ class dcCore
 				array('inc_subcats','boolean',false,
 				'Include sub-categories in category page and category posts feed'),
 				array('wiki_comments','boolean',false,
-				'Allow commenters to use a subset of wiki syntax')
+				'Allow commenters to use a subset of wiki syntax'),
+				array('import_feed_url_control','boolean',true,
+				'Control feed URL before import'),
+				array('import_feed_no_private_ip','boolean',true,
+				'Prevent import feed from private IP'),
+				array('import_feed_ip_regexp','string','',
+				'Authorize import feed only from this IP regexp'),
+				array('import_feed_port_regexp','string','/^(80|443)$/',
+				'Authorize import feed only from this port regexp')
 			);
 		}
 

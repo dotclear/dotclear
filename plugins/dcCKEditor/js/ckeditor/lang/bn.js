@@ -5,7 +5,7 @@ For licensing, see LICENSE.md or http://ckeditor.com/license
 CKEDITOR.lang['bn'] = {
     undo : 
     {
-    	redo : 'রি-ডু',
+    	redo : 'পুনরায়  করি',
     	undo : 'আনডু'
     },
     toolbar : 
@@ -39,7 +39,7 @@ CKEDITOR.lang['bn'] = {
     },
     table : 
     {
-    	border : 'বর্ডার সাইজ',
+    	border : 'বর্ডারের সাইজ',
     	caption : 'শীর্ষক',
     	cell : 
     	{
@@ -60,7 +60,7 @@ CKEDITOR.lang['bn'] = {
     		hAlign : 'Horizontal Alignment',
     		vAlign : 'Vertical Alignment',
     		alignBaseline : 'Baseline',
-    		bgColor : 'Background Color',
+    		bgColor : 'পৃষ্ঠতলের রং',
     		borderColor : 'Border Color',
     		data : 'Data',
     		header : 'Header',
@@ -113,7 +113,7 @@ CKEDITOR.lang['bn'] = {
     },
     stylescombo : 
     {
-    	label : 'স্টাইল',
+    	label : 'ধরন',
     	panelTitle : 'Formatting Styles',
     	panelTitle1 : 'Block Styles',
     	panelTitle2 : 'Inline Styles',
@@ -127,19 +127,19 @@ CKEDITOR.lang['bn'] = {
     },
     sourcearea : 
     {
-    	toolbar : 'সোর্স'
+    	toolbar : 'উৎস'
     },
     removeformat : 
     {
-    	toolbar : 'ফরমেট সরাও'
+    	toolbar : 'ধরন-প্রকৃতি অপসারণ করি'
     },
     print : 
     {
-    	toolbar : 'প্রিন্ট'
+    	toolbar : 'প্রিন্ট করি'
     },
     pastetext : 
     {
-    	button : 'সাদা টেক্সট হিসেবে পেস্ট কর',
+    	button : 'সাধারণ টেক্সট হিসেবে পেইস্ট করি',
     	title : 'সাদা টেক্সট হিসেবে পেস্ট কর'
     },
     pastefromword : 
@@ -160,7 +160,7 @@ CKEDITOR.lang['bn'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armenian numbering',
+    	armenian : 'আর্মেনিয়ান সংখ্যাক্রমে বিন্যাস',
     	bulletedTitle : 'Bulleted List Properties',
     	circle : 'Circle',
     	decimal : 'Decimal (1, 2, 3, etc.)',
@@ -182,12 +182,12 @@ CKEDITOR.lang['bn'] = {
     },
     list : 
     {
-    	bulletedlist : 'বুলেট লিস্ট লেবেল',
+    	bulletedlist : 'বুলেটেড তালিকা প্রবেশ/অপসারন করি',
     	numberedlist : 'সাংখ্যিক লিস্টের লেবেল'
     },
     link : 
     {
-    	acccessKey : 'এক্সেস কী',
+    	acccessKey : 'প্রবেশ কী',
     	advanced : 'এডভান্সড',
     	advisoryContentType : 'পরামর্শ কন্টেন্টের প্রকার',
     	advisoryTitle : 'পরামর্শ শীর্ষক',
@@ -204,6 +204,7 @@ CKEDITOR.lang['bn'] = {
     	anchorName : 'নোঙরের নাম দিয়ে',
     	charset : 'লিংক রিসোর্স ক্যারেক্টর সেট',
     	cssClasses : 'স্টাইল-শীট ক্লাস',
+    	download : 'Force Download',
     	emailAddress : 'ইমেইল ঠিকানা',
     	emailBody : 'মেসেজের দেহ',
     	emailSubject : 'মেসেজের বিষয়',
@@ -250,14 +251,14 @@ CKEDITOR.lang['bn'] = {
     },
     justify : 
     {
-    	block : 'ব্লক জাস্টিফাই',
+    	block : 'যাচাই করি',
     	center : 'মাঝ বরাবর ঘেষা',
     	left : 'বা দিকে ঘেঁষা',
     	right : 'ডান দিকে ঘেঁষা'
     },
     indent : 
     {
-    	indent : 'ইনডেন্ট বাড়াও',
+    	indent : 'ইনডেন্ট বাড়াই',
     	outdent : 'ইনডেন্ট কমাও'
     },
     image : 
@@ -274,7 +275,7 @@ CKEDITOR.lang['bn'] = {
     	menu : 'ছবির প্রোপার্টি',
     	resetSize : 'সাইজ পূর্বাবস্থায় ফিরিয়ে দাও',
     	title : 'ছবির প্রোপার্টি',
-    	titleButton : 'ছবি বাটন প্রোপার্টি',
+    	titleButton : 'ছবির বাটন সম্বন্ধীয়',
     	upload : 'আপলোড',
     	urlMissing : 'Image source URL is missing.',
     	vSpace : 'ভার্টিকেল স্পেস',
@@ -284,11 +285,11 @@ CKEDITOR.lang['bn'] = {
     },
     horizontalrule : 
     {
-    	toolbar : 'রেখা যুক্ত কর'
+    	toolbar : 'অনুভূমিক লাইন যোগ করি'
     },
     format : 
     {
-    	label : 'ফন্ট ফরমেট',
+    	label : 'ধরন-প্রকৃতি',
     	panelTitle : 'ফন্ট ফরমেট',
     	tag_address : 'ঠিকানা',
     	tag_div : 'শীর্ষক (DIV)',
@@ -336,8 +337,8 @@ CKEDITOR.lang['bn'] = {
     },
     colorbutton : 
     {
-    	auto : 'অটোমেটিক',
-    	bgColorTitle : 'বেকগ্রাউন্ড রং',
+    	auto : 'স্বয়ংক্রিয়ভাবে',
+    	bgColorTitle : 'পৃষ্ঠতলের রং',
     	colors : 
     	{
     		'000' : 'Black',
@@ -388,7 +389,7 @@ CKEDITOR.lang['bn'] = {
     clipboard : 
     {
     	copy : 'কপি',
-    	copyError : 'আপনার ব্রাউজারের সুরক্ষা সেটিংস এডিটরকে অটোমেটিক কপি করার অনুমতি দেয়নি। দয়া করে এই কাজের জন্য কিবোর্ড ব্যবহার করুন (Ctrl/Cmd+C)।',
+    	copyError : 'আপনার ব্রাউজারের নিরাপত্তা সেটিংসমূহ এডিটরকে স্বয়ংক্রিয়ভাবে কপি করার প্রক্রিয়া চালনা করার অনুমতি দেয় না। অনুগ্রহপূর্বক এই কাজের জন্য কিবোর্ড ব্যবহার করুন (Ctrl/Cmd+C)।',
     	cut : 'কাট',
     	cutError : 'আপনার ব্রাউজারের সুরক্ষা সেটিংস এডিটরকে অটোমেটিক কাট করার অনুমতি দেয়নি। দয়া করে এই কাজের জন্য কিবোর্ড ব্যবহার করুন (Ctrl/Cmd+X)।',
     	paste : 'পেস্ট',
@@ -408,7 +409,7 @@ CKEDITOR.lang['bn'] = {
     basicstyles : 
     {
     	bold : 'বোল্ড',
-    	italic : 'ইটালিক',
+    	italic : 'বাঁকা',
     	strike : 'স্ট্রাইক থ্রু',
     	subscript : 'অধোলেখ',
     	superscript : 'অভিলেখ',

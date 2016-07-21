@@ -5,17 +5,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-20 19:44+0100\n"
-"PO-Revision-Date: 2010-06-02 01:31+0100\n"
-"Last-Translator: Jan Skrasek <hrach.cz@gmail.com>\n"
+"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"PO-Revision-Date: 2016-07-18 15:44+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
-"Language: \n"
+"Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
-"X-Poedit-Language: Czech\n"
-"X-Poedit-Country: CZECH REPUBLIC\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Poedit 1.8.8\n"
 
 msgid "Manage every blog configuration directive"
 msgstr ""
@@ -34,6 +33,9 @@ msgid "Manage your blogroll"
 msgstr "spravovat odkazy"
 
 msgid "Configure your Blowup Theme"
+msgstr ""
+
+msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 msgid "Legacy modules for dotclear"
@@ -143,6 +145,10 @@ msgstr ""
 #, fuzzy, php-format
 msgid "Settings for %s"
 msgstr "Edituji soubor %s"
+
+#, fuzzy
+msgid "Setting ID"
+msgstr "Klíč nastavené"
 
 msgid "Value"
 msgstr "Hodnota"
@@ -583,9 +589,6 @@ msgstr "Položky byly úspěšně odstraněny."
 msgid "Items order has been successfully updated"
 msgstr "Položky byly úspěšně upraveny."
 
-msgid "URL"
-msgstr "URL"
-
 msgid "Lang"
 msgstr "Jazyk"
 
@@ -851,6 +854,34 @@ msgstr "Nelze vytvořit obrázky."
 msgid "Unable to open image."
 msgstr "Obrázek nelze otevřít."
 
+msgid "Breadcrumb"
+msgstr ""
+
+msgid "Enable breadcrumb for this blog"
+msgstr ""
+
+msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
+msgstr ""
+
+msgid "Do not encapsulate breadcrumb in a &lt;p id=\"breadcrumb\"&gt;...&lt;/p&gt; tag."
+msgstr ""
+
+msgid "Home"
+msgstr "Úvod"
+
+#, php-format
+msgid "page %d"
+msgstr ""
+
+msgid "Archives"
+msgstr "Archívy"
+
+msgid "All tags"
+msgstr "Všechny štítky"
+
+msgid "404"
+msgstr ""
+
 #, fuzzy
 msgid "The configuration has been updated."
 msgstr "Konfigurace vzhledu byla úspěšně upravena."
@@ -865,6 +896,13 @@ msgstr "Odkaz na všechny štítky:"
 #, fuzzy
 msgid "Link"
 msgstr "Odkazy"
+
+#, fuzzy
+msgid "External image"
+msgstr "Externí média"
+
+msgid "URL field cannot be empty."
+msgstr ""
 
 msgid "visual"
 msgstr ""
@@ -950,10 +988,6 @@ msgid "Language?"
 msgstr "Jazyk"
 
 #, fuzzy
-msgid "External image"
-msgstr "Externí média"
-
-#, fuzzy
 msgid "Remove text formating"
 msgstr "Odstranit štítek"
 
@@ -1008,9 +1042,6 @@ msgstr "Váš blog byl úspěšně importován. Vítejte v Dotclearu 2!"
 
 msgid "Why don't you blog this now?"
 msgstr "Proč o tom nenapsat článek na blog?"
-
-msgid "or"
-msgstr "nebo"
 
 msgid "visit your dashboard"
 msgstr "podívejte se na svoji nástěnku"
@@ -1654,14 +1685,26 @@ msgid "Simple menu"
 msgstr ""
 
 #, fuzzy
+msgid "Item description"
+msgstr "Žádný popis"
+
+#, fuzzy
+msgid "Displayed in link"
+msgstr "Smazat tento štítek"
+
+#, fuzzy
+msgid "Used as link title"
+msgstr "Žádný takový odkaz nebo název"
+
+msgid "Displayed in link and used as title"
+msgstr ""
+
+msgid "Not displayed nor used"
+msgstr ""
+
+#, fuzzy
 msgid "All months"
 msgstr "Všechny štítky"
-
-msgid "All tags"
-msgstr "Všechny štítky"
-
-msgid "Home"
-msgstr "Úvod"
 
 #, fuzzy
 msgid "Archive"
@@ -1693,9 +1736,6 @@ msgstr ""
 
 msgid "Recent Posts from this category"
 msgstr ""
-
-msgid "Archives"
-msgstr "Archívy"
 
 #, fuzzy, php-format
 msgid "Posts from %s"
@@ -1813,6 +1853,27 @@ msgstr "Jste si jisti, že chcete smazat vybrané odkazy?"
 msgid "No menu items so far."
 msgstr ""
 
+msgid "This tag's comments Atom feed"
+msgstr "Atom zdroj komentářů tohoto štítku"
+
+msgid "This tag's entries Atom feed"
+msgstr "Atom zdroj článků tohoto štítku"
+
+msgid "Tag"
+msgstr "Štítek"
+
+msgid "Limit (empty means no limit):"
+msgstr "Limit (prázný znamený bez limitu):"
+
+msgid "Entries count"
+msgstr "Počet článků"
+
+msgid "Tag name"
+msgstr "Jméno štítku"
+
+msgid "Link to all tags:"
+msgstr "Odkaz na všechny štítky:"
+
 msgid "Add tags"
 msgstr "Přidat štítek"
 
@@ -1876,9 +1937,6 @@ msgstr "Odstranit vybrané štítky z článků"
 msgid "Following tags have been found in selected entries:"
 msgstr "Následující štítky byly nalezeny ve vybraných článcích:"
 
-msgid "Tag"
-msgstr "Štítek"
-
 #, fuzzy
 msgid "Short"
 msgstr "zkrácený"
@@ -1889,24 +1947,6 @@ msgstr "rozšířený"
 
 msgid "Tags list format:"
 msgstr "Formát štítků:"
-
-msgid "This tag's comments Atom feed"
-msgstr "Atom zdroj komentářů tohoto štítku"
-
-msgid "This tag's entries Atom feed"
-msgstr "Atom zdroj článků tohoto štítku"
-
-msgid "Limit (empty means no limit):"
-msgstr "Limit (prázný znamený bez limitu):"
-
-msgid "Entries count"
-msgstr "Počet článků"
-
-msgid "Tag name"
-msgstr "Jméno štítku"
-
-msgid "Link to all tags:"
-msgstr "Odkaz na všechny štítky:"
 
 msgid "Tag has been successfully renamed"
 msgstr "Štítěk byl úspěšně přejmenován"
@@ -1939,7 +1979,13 @@ msgstr "Tento blog nemá žádné štítky."
 msgid "Edit theme files"
 msgstr "Edituji soubor %s"
 
+msgid "Syntax highlighting"
+msgstr ""
+
 msgid "Syntax highlighting in theme editor"
+msgstr ""
+
+msgid "Theme:"
 msgstr ""
 
 msgid "No file"
@@ -2042,6 +2088,9 @@ msgstr "Widgety"
 
 msgid "Search engine"
 msgstr "Vyhledávání"
+
+msgid "Placeholder (HTML5 only, optional):"
+msgstr ""
 
 msgid "Navigation links"
 msgstr "Navigace"
@@ -2218,6 +2267,12 @@ msgstr "Odebrat widget"
 msgid "Drag widgets here to remove."
 msgstr ""
 
+#~ msgid "URL"
+#~ msgstr "URL"
+
+#~ msgid "or"
+#~ msgstr "nebo"
+
 #~ msgid "Settings definition successfully updated"
 #~ msgstr "Konfigurační direktivy byly úspěšně aktualizovány"
 
@@ -2343,9 +2398,6 @@ msgstr ""
 
 #~ msgid "Widget ID"
 #~ msgstr "Widget ID"
-
-#~ msgid "Setting name"
-#~ msgstr "Klíč nastavené"
 
 #~ msgid "Setting value"
 #~ msgstr "Hodnota nastavení"

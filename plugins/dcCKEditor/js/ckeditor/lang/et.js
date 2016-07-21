@@ -204,6 +204,7 @@ CKEDITOR.lang['et'] = {
     	anchorName : 'Ankru nime järgi',
     	charset : 'Lingitud ressursi märgistik',
     	cssClasses : 'Stiilistiku klassid',
+    	download : 'Force Download',
     	emailAddress : 'E-posti aadress',
     	emailBody : 'Sõnumi tekst',
     	emailSubject : 'Sõnumi teema',
