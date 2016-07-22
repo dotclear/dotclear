@@ -22,6 +22,9 @@ msgstr "Suggestions :"
 msgid "Go to homepage"
 msgstr "Aller à l'accueil"
 
+msgid "To top"
+msgstr "Haut de page"
+
 msgid "Use search form"
 msgstr "Faire une recherche"
 
