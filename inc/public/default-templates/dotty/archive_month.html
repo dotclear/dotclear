@@ -37,7 +37,9 @@
 	</nav>
 
 	<header id="content-info">
-		<h2>{{tpl:ArchiveDate}} <span>({{tpl:ArchiveEntriesCount}})</span></h2>
+		<h2>
+			<time datetime="{{tpl:ArchiveDate format="%Y-%m"}}">{{tpl:ArchiveDate}}</time> <span>({{tpl:ArchiveEntriesCount}})</span>
+		</h2>
 	</header>
 
 	<div class="content-inner">

@@ -5,7 +5,7 @@
 		<div class="post-meta">
 			<p class="post-info">
 				<span class="post-author">{{tpl:lang By}} {{tpl:EntryAuthorLink}}, </span>
-				<span class="post-date">{{tpl:EntryDate}}. </span>
+				<span class="post-date"><time datetime="{{tpl:EntryDate iso8601="1"}}" pubdate>{{tpl:EntryDate}}</time>. </span>
 				<span class="post-permalink"><a href="{{tpl:EntryURL}}">{{tpl:lang Permalink}}</a></span>
 				<tpl:EntryIf has_category="1">
 					<span class="post-cat"><tpl:EntryCategoriesBreadcrumb><a

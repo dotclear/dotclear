@@ -21,7 +21,7 @@
 						<li id="c{{tpl:PingID}}" class="ping {{tpl:PingIfOdd}} {{tpl:PingIfFirst}}">
 					</tpl:CommentIf>
 							<p class="comment-info"><a href="#c{{tpl:CommentID}}" class="comment-number">{{tpl:CommentOrderNumber}}</a>
-								{{tpl:lang From}} {{tpl:CommentAuthorLink}} - {{tpl:CommentDate format="%d"}}/{{tpl:CommentDate format="%m"}}/{{tpl:CommentDate format="%Y"}}, {{tpl:CommentTime}}
+								{{tpl:lang From}} {{tpl:CommentAuthorLink}} - <time datetime="{{tpl:CommentDate iso8601="1"}}">{{tpl:CommentDate format="%d"}}/{{tpl:CommentDate format="%m"}}/{{tpl:CommentDate format="%Y"}}, {{tpl:CommentTime}}</time>
 							</p>
 							<div class="comment-content">
 								<!-- # --BEHAVIOR-- publicCommentBeforeContent -->
