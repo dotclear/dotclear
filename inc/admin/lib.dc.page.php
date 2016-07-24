@@ -101,14 +101,16 @@ class dcPage
 			self::setXFrameOptions($headers);
 		}
 
-		# Content-Security-Policy (report only up to now)
-		$headers['csp'] =
-			"Content-Security-Policy: ".
-				"default-src 'self' ; ".
-				"script-src 'self' 'unsafe-inline' 'unsafe-eval' ; ".
-				"style-src 'self' 'unsafe-inline' ; ".
-				"img-src 'self' data: media.dotaddict.org".
-				(version_compare(phpversion(),'5.4','>=') ? " ; report-uri ".DC_ADMIN_URL."csp_report.php" : '');
+		# Content-Security-Policy
+		if ($core->blog->settings->system->csp_admin_on) {
+			$headers['csp'] =
+				"Content-Security-Policy: ".
+					"default-src ".($core->blog->settings->system->csp_admin_default ? $core->blog->settings->system->csp_admin_default : 'self')." ; ".
+					"script-src ".($core->blog->settings->system->csp_admin_script ? $core->blog->settings->system->csp_admin_script : "'self' 'unsafe-inline' 'unsafe-eval'")." ; ".
+					"style-src ".($core->blog->settings->system->csp_admin_style ? $core->blog->settings->system->csp_admin_style : "'self' 'unsafe-inline'")." ; ".
+					"img-src ".($core->blog->settings->system->csp_admin_img ? $core->blog->settings->system->csp_admin_img : "'self' data: media.dotaddict.org").
+					(version_compare(phpversion(),'5.4','>=') ? " ; report-uri ".DC_ADMIN_URL."csp_report.php" : '');
+		}
 
 		# --BEHAVIOR-- adminPageHTTPHeaders
 		$core->callBehavior('adminPageHTTPHeaders',$headers);
