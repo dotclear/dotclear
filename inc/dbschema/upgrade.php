@@ -567,6 +567,7 @@ class dcUpgrade
 			$strReq = 'INSERT INTO '.$core->prefix.'setting'.
 					' (setting_id,setting_ns,setting_value,setting_type,setting_label)'.
 					' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
+			# Import feed control
 			$core->con->execute(
 				sprintf($strReq,'import_feed_url_control',true,'boolean','Control feed URL before import'));
 			$core->con->execute(
@@ -575,6 +576,17 @@ class dcUpgrade
 				sprintf($strReq,'import_feed_ip_regexp','','string','Authorize import feed only from this IP regexp'));
 			$core->con->execute(
 				sprintf($strReq,'import_feed_port_regexp','/^(80|443)$/','string','Authorize import feed only from this port regexp'));
+			# CSP directive (admin part)
+			$core->con->execute(
+				sprintf($strReq,'csp_admin_on',true,'boolean','Send CSP header (admin)'));
+			$core->con->execute(
+				sprintf($strReq,'csp_admin_default',"\'self\'",'string','CSP default-src directive'));
+			$core->con->execute(
+				sprintf($strReq,'csp_admin_script',"\'self\' \'unsafe-inline\' \'unsafe-eval\'",'string','CSP script-src directive'));
+			$core->con->execute(
+				sprintf($strReq,'csp_admin_style',"\'self\' \'unsafe-inline\'",'string','CSP style-src directive'));
+			$core->con->execute(
+				sprintf($strReq,'csp_admin_img',"\'self\' data: media.dotaddict.org",'string','CSP img-src directive'));
 		}
 
 		$core->setVersion('core',DC_VERSION);
