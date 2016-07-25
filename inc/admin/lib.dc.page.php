@@ -89,7 +89,7 @@ class dcPage
 		$safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
 
 		# Display
-		$headers = new arrayobject(array());
+		$headers = new ArrayObject(array());
 
 		# Content-Type
 		$headers['content-type'] = 'Content-Type: text/html; charset=UTF-8';
@@ -103,13 +103,30 @@ class dcPage
 
 		# Content-Security-Policy
 		if ($core->blog->settings->system->csp_admin_on) {
-			$headers['csp'] =
-				"Content-Security-Policy: ".
-					"default-src ".($core->blog->settings->system->csp_admin_default ? $core->blog->settings->system->csp_admin_default : 'self')." ; ".
-					"script-src ".($core->blog->settings->system->csp_admin_script ? $core->blog->settings->system->csp_admin_script : "'self' 'unsafe-inline' 'unsafe-eval'")." ; ".
-					"style-src ".($core->blog->settings->system->csp_admin_style ? $core->blog->settings->system->csp_admin_style : "'self' 'unsafe-inline'")." ; ".
-					"img-src ".($core->blog->settings->system->csp_admin_img ? $core->blog->settings->system->csp_admin_img : "'self' data: media.dotaddict.org").
-					(version_compare(phpversion(),'5.4','>=') ? " ; report-uri ".DC_ADMIN_URL."csp_report.php" : '');
+			// Get directives from settings if exist, else set defaults
+			$csp = new ArrayObject(array());
+			$csp['default-src'] = $core->blog->settings->system->csp_admin_default ? $core->blog->settings->system->csp_admin_default : "'self'";
+			$csp['script-src'] = $core->blog->settings->system->csp_admin_script ? $core->blog->settings->system->csp_admin_script : "'self' 'unsafe-inline' 'unsafe-eval'";
+			$csp['style-src'] = $core->blog->settings->system->csp_admin_style ? $core->blog->settings->system->csp_admin_style : "'self' 'unsafe-inline'";
+			$csp['img-src'] = $core->blog->settings->system->csp_admin_img ? $core->blog->settings->system->csp_admin_img : "'self' data: media.dotaddict.org";
+
+			# --BEHAVIOR-- adminPageHTTPHeaderCSP
+			$core->callBehavior('adminPageHTTPHeaderCSP',$csp);
+
+			// Construct CSP header
+			$directives = array();
+			foreach ($csp as $key => $value) {
+				if ($value) {
+					$directives[] = $key.' '.$value;
+				}
+			}
+			if (count($directives)) {
+				if (version_compare(phpversion(),'5.4','>=')) {
+					// csp_report.php needs PHP ≥ 5.4
+					$directives[] = "report-uri ".DC_ADMIN_URL."csp_report.php";
+				}
+				$headers['csp'] = "Content-Security-Policy: ".implode(" ; ",$directives);
+			}
 		}
 
 		# --BEHAVIOR-- adminPageHTTPHeaders
