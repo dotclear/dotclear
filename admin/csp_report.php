@@ -43,7 +43,7 @@ if ($data = json_decode($data, true)) {
 					JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES
 					);
 
-			if (!($fp = fopen(LOGFILE,'a'))) {
+			if (!($fp = @fopen(LOGFILE,'a'))) {
 				return;
 			}
 			fprintf($fp,'%s',$data);
