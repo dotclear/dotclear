@@ -84,8 +84,8 @@ body {
 #footer {
 	clear: both;
 	position: relative;
-	padding: .5em 1em .5em 0;
-	text-align: right;
+	padding: .5em 0 .5em 1em;
+	text-align: left;
 	border-top: 1px solid #ccc;
 	background-color: #fff;
 	}
@@ -1220,6 +1220,25 @@ h1 a:hover, h1 a:focus {
 	padding: 0 0 0 .5em;
 	}
 /* ------------------------------------------------------------------ FOOTER ELEMENTS */
+#gototop {
+  display: none;
+  z-index: 1000;
+  position: fixed;
+  bottom: 0;
+  right: .5em;
+  width: 10em;
+  padding: .25em;
+  border: 1px solid #636363;
+  border-radius: .25em;
+  background-color: #fff;
+  color: #333;
+  font-size: .875em;
+  text-align: center; }
+  #gototop a, #gototop a:link, #gototop a:hover, #gototop a:active {
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    color: #636363; }
 #footer p {
 	margin: 0;
 	padding: 0 1em;
@@ -1238,11 +1257,11 @@ span.tooltip {
 	overflow: hidden;
 	}
 #footer a:hover span.tooltip {
-	padding: 10px 10px 0 40px;
+	padding: 10px 40px 0 10px;
 	color: #910ed3;
 	height: auto;
 	width: auto;
-	right: 0;
+	left: 0;
 	bottom: 0;
 	background: #FFF;
 	z-index: 99;

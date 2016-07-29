@@ -594,4 +594,16 @@ $(function() {
 	} else {
 		objMain.removeClass('hide-mm');
 	}
+    // totop scroll
+    $(window).scroll(function() {
+            if($(this).scrollTop() != 0) {
+                $('#gototop').fadeIn();
+            } else {
+                $('#gototop').fadeOut();
+            }
+        });
+
+        $('#gototop').click(function() {
+            $('body,html').animate({scrollTop:0},800);
+        });
 });
