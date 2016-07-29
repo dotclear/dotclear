@@ -334,6 +334,8 @@ class dcPage
 		'</div>'."\n".		// End of #main-menu
 		"</div>\n";		// End of #wrapper
 
+		echo '<p id="gototop"><a href="#wrapper">'.__('Page top').'</a></p>'."\n";
+
 		$figure = "
    /\_/\
   (='.'=)
@@ -347,6 +349,8 @@ class dcPage
 		"<!-- "."\n".
 		$figure.
 		" -->"."\n";
+
+
 
 		if (defined('DC_DEV') && DC_DEV === true) {
 			echo self::debugInfo();
@@ -415,6 +419,9 @@ class dcPage
 		"</div>\n".		// End of #content
 		"</div>\n".		// End of #main
 		"</div>\n".		// End of #wrapper
+
+		'<p id="gototop"><a href="#wrapper">'.__('Page top').'</a></p>'."\n".
+
 		'<div id="footer" role="contentinfo"><p>&nbsp;</p></div>'."\n".
 		'</body></html>';
 	}
