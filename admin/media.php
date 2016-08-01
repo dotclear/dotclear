@@ -31,7 +31,7 @@ $plugin_id = isset($_REQUEST['plugin_id']) ? html::sanitizeURL($_REQUEST['plugin
 $dir = null;
 
 // Attachement type if any
-$link_type = !empty($_REQUEST['link_type']) ? $_REQUEST['link_type'] : null;
+$link_type = !empty($_REQUEST['link_type']) ? html::escapeHTML($_REQUEST['link_type']) : null;
 
 $page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
 $nb_per_page = ((integer) $core->auth->user_prefs->interface->media_by_page ? (integer) $core->auth->user_prefs->interface->media_by_page : 30);
@@ -59,7 +59,7 @@ if ($page != 1) {
 }
 
 # Get query if any
-$q = isset($_REQUEST['q']) ? $_REQUEST['q'] : null;
+$q = isset($_REQUEST['q']) ? html::escapeHTML($_REQUEST['q']) : null;
 
 # Sort combo
 $sort_combo = array(
