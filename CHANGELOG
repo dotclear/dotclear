@@ -1,6 +1,46 @@
+Dotclear 2.10 - 2016-08-13
+===========================================================
+* Security: Prevents .htaccess upload, thanks wiswat
+* Security: Prevents download of a zip media folder outside root media folder, thanks wiswat
+* Security: Prevents sort of SSRF/XSPA vulnerability in feed import, thanks wiswat
+* Security: Prevents reflected XSS in meda manager, thanks Chen Ruiqi
+* Fix mix-content preview
+* Pure CSS3 sticky footer for admin pages (aka « footer de merde »)
+* Add missing breadcrumb styles for blowup theme
+* Currently logged super-admin may now change it's id wihtout loosing access at next login
+* The favorites icons may now be hidden from dashboard in user preferences
+* Number of posts/pages/comments are now displayed at top of lists, including quick filters depending on their status
+* Search widget has now a placeholder option (HTML5 only)
+* Add Apache 2.4+ directives in .htaccess
+* New favorites media folders (displayed at the top of recent folder list) in media manager
+* New pure HTML5 template set named dotty cloned from currywurst templateset
+* Codemirror lib updated (2.35.0 → 5.15.2) and moved to core:
+  * 40+ Codemirror themes are available — set in user preferences
+  * Fullscreen mode has been added (F11 switching key)
+  * 3rd party plugins may now load and run it with dcPage::jsLoadCodeMirror() and dcPage::jsRunCodeMirror(), see themeEditor plugin for example
+* New mark button for legacy editor (HTML5 only)
+* New with_category attribute for tpl:Entries
+* Add a /var directory:
+  * Set with DC_VAR constant in inc/config.php
+  * Admin URL of a var file should be retrieve with dcPage::getVF()
+  * Public URL of a var file should be retrieve with dcBlog::getVF()
+  * 3rd party plugins should create their own folder inside /var (aka DC_VAR) to keep it correctly organized
+* Emails and web site have been added to the comments filters' list
+* Some columns for posts and pages lists are now optional — set in user preferences
+* Add Post URL sample in blog parameters
+* CKEditor lib update (4.5.8 → 4.6.0)
+* CSP (Content Security Policies) have been implemented on admin pages:
+  * settings may be adjusted in system settings / about:config → system (see csp_admin… values)
+  * violation reports will be stored in admin/csp_report.txt (PHP 5.4+ only)
+  * new behaviour adminPageHTTPHeaderCSP may be used by 3rd party to adjust CSP directives
+* New behaviour adminPageHTTPheaders
+* New "Go Top" button displayed for long admin pages
+* 🐛 → Various bugs and typos fixes
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.9.1 - 2016-03-27
 ===========================================================
-* Security: Add shtml extension to default media exclusion extension control, thank's Nitin Venkatesh for report
+* Security: Add shtml extension to default media exclusion extension control, thanks Nitin Venkatesh for report
 * Changing theme is now allowed even with read-only theme folder
 * Audio media are not more preloaded in media manager pages
 * Array settings/prefs are stored with 'array' type rather than 'string'
