@@ -4,6 +4,7 @@ Dotclear 2.10 - 2016-08-13
 * Security: Prevents download of a zip media folder outside root media folder, thanks wiswat
 * Security: Prevents sort of SSRF/XSPA vulnerability in feed import, thanks wiswat
 * Security: Prevents reflected XSS in meda manager, thanks Chen Ruiqi
+* Security: Fix somes vulnerabilities in blogroll plugin, thanks Onur Yılmaz - Netsparker (https://www.netsparker.com)
 * Fix mix-content preview
 * Pure CSS3 sticky footer for admin pages (aka « footer de merde »)
 * Add missing breadcrumb styles for blowup theme

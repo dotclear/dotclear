@@ -11,7 +11,7 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) { return; }
 
-$id = $_REQUEST['id'];
+$id = html::escapeHTML($_REQUEST['id']);
 
 try {
 	$rs = $blogroll->getLink($id);
@@ -32,10 +32,10 @@ if (!$core->error->flag() && $rs->isEmpty()) {
 # Update a link
 if (isset($rs) && !$rs->is_cat && !empty($_POST['edit_link']))
 {
-	$link_title = $_POST['link_title'];
-	$link_href = $_POST['link_href'];
-	$link_desc = $_POST['link_desc'];
-	$link_lang = $_POST['link_lang'];
+	$link_title = html::escapeHTML($_POST['link_title']);
+	$link_href = html::escapeHTML($_POST['link_href']);
+	$link_desc = html::escapeHTML($_POST['link_desc']);
+	$link_lang = html::escapeHTML($_POST['link_lang']);
 
 	$link_xfn = '';
 
@@ -78,7 +78,7 @@ if (isset($rs) && !$rs->is_cat && !empty($_POST['edit_link']))
 # Update a category
 if (isset($rs) && $rs->is_cat && !empty($_POST['edit_cat']))
 {
-	$link_desc = $_POST['link_desc'];
+	$link_desc = html::escapeHTML($_POST['link_desc']);
 
 	try {
 		$blogroll->updateCategory($id,$link_desc);

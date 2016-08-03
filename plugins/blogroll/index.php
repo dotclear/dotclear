@@ -58,9 +58,9 @@ if (!empty($_POST['import_links']) && !empty($_FILES['links_file']))
 
 if (!empty($_POST['import_links_do'])) {
 	foreach ($_POST['entries'] as $idx) {
-		$link_title = $_POST['title'][$idx];
-		$link_href  = $_POST['url'][$idx];
-		$link_desc  = $_POST['desc'][$idx];
+		$link_title = html::escapeHTML($_POST['title'][$idx]);
+		$link_href  = html::escapeHTML($_POST['url'][$idx]);
+		$link_desc  = html::escapeHTML($_POST['desc'][$idx]);
 		try {
 			$blogroll->addLink($link_title,$link_href,$link_desc,'');
 		} catch (Exception $e) {
@@ -81,10 +81,10 @@ if (!empty($_POST['cancel_import'])) {
 # Add link
 if (!empty($_POST['add_link']))
 {
-	$link_title = $_POST['link_title'];
-	$link_href = $_POST['link_href'];
-	$link_desc = $_POST['link_desc'];
-	$link_lang = $_POST['link_lang'];
+	$link_title = html::escapeHTML($_POST['link_title']);
+	$link_href = html::escapeHTML($_POST['link_href']);
+	$link_desc = html::escapeHTML($_POST['link_desc']);
+	$link_lang = html::escapeHTML($_POST['link_lang']);
 
 	try {
 		$blogroll->addLink($link_title,$link_href,$link_desc,$link_lang);
@@ -100,7 +100,7 @@ if (!empty($_POST['add_link']))
 # Add category
 if (!empty($_POST['add_cat']))
 {
-	$cat_title = $_POST['cat_title'];
+	$cat_title = html::escapeHTML($_POST['cat_title']);
 
 	try {
 		$blogroll->addCategory($cat_title);
