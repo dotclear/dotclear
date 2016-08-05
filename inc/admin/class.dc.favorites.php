@@ -440,7 +440,7 @@ class defaultFavorites
 				'url' => $core->adminurl->get("admin.media"),
 				'small-icon' => 'images/menu/media.png',
 				'large-icon' => 'images/menu/media-b.png',
-				'permissions' => 'media, media_admin'),
+				'permissions' => 'media,media_admin'),
 			'blog_pref' => array(
 				'title' => __('Blog settings'),
 				'url' => $core->adminurl->get("admin.blog.pref"),
