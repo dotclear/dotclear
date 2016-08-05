@@ -36,7 +36,7 @@ Dotclear 2.10 - 2016-08-13
   * new behaviour adminPageHTTPHeaderCSP may be used by 3rd party to adjust CSP directives
 * New behaviour adminPageHTTPheaders
 * New "Go Top" button displayed for long admin pages
-* 🐛 → Various bugs and typos fixes
+* 🐛 → Various bugs and typos fixed
 * 🌼 → Some locales and cosmetic adjustments
 
 Dotclear 2.9.1 - 2016-03-27

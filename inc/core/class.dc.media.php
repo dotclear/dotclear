@@ -349,6 +349,9 @@ class dcMedia extends filemanager
 
 	protected function sortFileHandler($a,$b)
 	{
+		if (is_null($a) || is_null($b)) {
+			return (is_null($a) ? 1 : -1);
+		}
 		switch ($this->file_sort)
 		{
 			case 'date-asc':
@@ -484,7 +487,9 @@ class dcMedia extends filemanager
 				}
 			}
 		}
-		usort($this->dir['files'],array($this,'sortFileHandler'));
+		try {
+			usort($this->dir['files'],array($this,'sortFileHandler'));
+		} catch (Exception $e) {}
 	}
 
 	/**
