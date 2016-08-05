@@ -263,7 +263,7 @@ class dcAuth
 			return true;
 		}
 
-		$p = explode(',',$permissions);
+		$p = array_map('trim',explode(',',$permissions));
 		$b = $this->getPermissions($blog_id);
 
 		if ($b != false)
