@@ -30,6 +30,7 @@ Dotclear 2.10 - 2016-08-13
 * Some columns for posts and pages lists are now optional — set in user preferences
 * Add Post URL sample in blog parameters
 * CKEditor lib update (4.5.8 → 4.6.0)
+* Wiki syntax: new ") <text>" mark to generate aside blocks
 * CSP (Content Security Policies) have been implemented on admin pages:
   * settings may be adjusted in system settings / about:config → system (see csp_admin… values)
   * violation reports will be stored in admin/csp_report.txt (PHP 5.4+ only)
