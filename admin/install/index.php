@@ -171,10 +171,10 @@ if ($can_install && !empty($_POST))
 
 		# CSP directive (admin part)
 		$blog_settings->system->put('csp_admin_on',true,'boolean','Send CSP header (admin)',true,true);
-		$blog_settings->system->put('csp_admin_default',"\'self\'",'string','CSP default-src directive',true,true);
-		$blog_settings->system->put('csp_admin_script',"\'self\' \'unsafe-inline\' \'unsafe-eval\'",'string','CSP script-src directive',true,true);
-		$blog_settings->system->put('csp_admin_style',"\'self\' \'unsafe-inline\'",'string','CSP style-src directive',true,true);
-		$blog_settings->system->put('csp_admin_img',"\'self\' data: media.dotaddict.org",'string','CSP img-src directive',true,true);
+		$blog_settings->system->put('csp_admin_default',"'self'",'string','CSP default-src directive',true,true);
+		$blog_settings->system->put('csp_admin_script',"'self' 'unsafe-inline' 'unsafe-eval'",'string','CSP script-src directive',true,true);
+		$blog_settings->system->put('csp_admin_style',"'self' 'unsafe-inline'",'string','CSP style-src directive',true,true);
+		$blog_settings->system->put('csp_admin_img',"'self' data: media.dotaddict.org",'string','CSP img-src directive',true,true);
 
 		# Add Dotclear version
 		$cur = $core->con->openCursor($core->prefix.'version');
