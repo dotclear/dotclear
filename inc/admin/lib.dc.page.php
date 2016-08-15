@@ -1050,6 +1050,7 @@ class dcPage
 						$themes[] = substr($entry,0,-4); // remove .css extension
 					}
 				}
+				ksort($themes);
 			}
 		}
 		return $themes;
