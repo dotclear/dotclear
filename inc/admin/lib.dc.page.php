@@ -110,6 +110,15 @@ class dcPage
 			$csp['style-src'] = $core->blog->settings->system->csp_admin_style ? $core->blog->settings->system->csp_admin_style : "'self' 'unsafe-inline'";
 			$csp['img-src'] = $core->blog->settings->system->csp_admin_img ? $core->blog->settings->system->csp_admin_img : "'self' data: media.dotaddict.org";
 
+			# Cope with blog post preview (via public URL in iframe)
+			if (!is_null($core->blog->host)) {
+				$csp['default-src'] .= ' '.parse_url($core->blog->host,PHP_URL_HOST);
+			}
+			# Cope with media display in media manager (via public URL)
+			if (!is_null($core->media)) {
+				$csp['img-src'] .= ' '.parse_url($core->media->root_url,PHP_URL_HOST);
+			}
+
 			# --BEHAVIOR-- adminPageHTTPHeaderCSP
 			$core->callBehavior('adminPageHTTPHeaderCSP',$csp);
 
