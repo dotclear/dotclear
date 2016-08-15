@@ -1,3 +1,11 @@
+Dotclear 2.10.1 - 2016-08-15
+===========================================================
+* CSP (Content-Security-Policies) :
+  * Fix default directive for new installation
+  * Cope with media public URL for media manager
+  * Cope with blog public URL for post/page preview
+* Codemirror lib is now packed as the other Javascript lib are
+
 Dotclear 2.10 - 2016-08-13
 ===========================================================
 * Security: Prevents .htaccess upload, thanks wiswat
