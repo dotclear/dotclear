@@ -118,6 +118,8 @@ class dcPage
 			if (!is_null($core->media)) {
 				$csp['img-src'] .= ' '.parse_url($core->media->root_url,PHP_URL_HOST);
 			}
+			# Allow everything in iframe (used by editors to preview public content)
+			$csp['child-src'] = "*";
 
 			# --BEHAVIOR-- adminPageHTTPHeaderCSP
 			$core->callBehavior('adminPageHTTPHeaderCSP',$csp);
