@@ -264,3 +264,12 @@ msgstr "Par date"
 
 msgid "By tag"
 msgstr "Par tag"
+
+msgid "Blog menu"
+msgstr "Menu"
+
+msgid "Etra menu"
+msgstr "Extra"
+
+msgid "Blog info"
+msgstr "Informations"
