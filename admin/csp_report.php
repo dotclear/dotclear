@@ -7,8 +7,10 @@
 // Dareboost wants it? Not a problem.
 header('X-Content-Type-Options: "nosniff"');
 
+require dirname(__FILE__).'/../inc/admin/prepend.php';
+
 // Specify log file
-define('LOGFILE',dirname(__FILE__).'/csp_report.txt');
+define('LOGFILE',path::real(DC_TPL_CACHE).'/csp_report.txt');
 
 // Get the raw POST data
 $data = file_get_contents('php://input');
