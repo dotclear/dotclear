@@ -60,6 +60,7 @@ class dcMaintenanceAdmin
 		->addGroup('l10n', __('Translations'), array('summary' => __('Maintain translations')))
 
 		->addTask('dcMaintenanceCache')
+		->addTask('dcMaintenanceCSP')
 		->addTask('dcMaintenanceIndexposts')
 		->addTask('dcMaintenanceIndexcomments')
 		->addTask('dcMaintenanceCountcomments')

@@ -539,7 +539,7 @@ class dcUpgrade
 			$core->con->execute($strReq);
 		}
 
-		if (version_compare($version,'2.10','<='))
+		if (version_compare($version,'2.10','<'))
 		{
 			@unlink(DC_ROOT.'/'.'admin/js/jsUpload/vendor/jquery.ui.widget.js');
 			@rmdir(DC_ROOT.'/'.'admin/js/jsUpload/vendor');
@@ -587,6 +587,12 @@ class dcUpgrade
 				sprintf($strReq,'csp_admin_style',"''self'' ''unsafe-inline''",'string','CSP style-src directive'));
 			$core->con->execute(
 				sprintf($strReq,'csp_admin_img',"''self'' data: media.dotaddict.org",'string','CSP img-src directive'));
+		}
+
+		if (version_compare($version,'2.11','<'))
+		{
+			// Remove the CSP report file from it's old place
+			@unlink(DC_ROOT.'/admin/csp_report.txt');
 		}
 
 		$core->setVersion('core',DC_VERSION);

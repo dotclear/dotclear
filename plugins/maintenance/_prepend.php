@@ -18,6 +18,7 @@ $__autoload['dcMaintenanceRest'] = dirname(__FILE__).'/_services.php';
 
 
 $__autoload['dcMaintenanceCache'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.cache.php';
+$__autoload['dcMaintenanceCSP'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.csp.php';
 $__autoload['dcMaintenanceCountcomments'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.countcomments.php';
 $__autoload['dcMaintenanceIndexcomments'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.indexcomments.php';
 $__autoload['dcMaintenanceIndexposts'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.indexposts.php';
