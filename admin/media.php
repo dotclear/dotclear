@@ -74,10 +74,16 @@ if (!empty($_GET['file_mode'])) {
 }
 $file_mode = !empty($_SESSION['media_file_mode']) ? $_SESSION['media_file_mode'] : 'grid';
 
-if (!empty($_GET['file_sort']) && in_array($_GET['file_sort'],$sort_combo)) {
-	$_SESSION['media_file_sort'] = $_GET['file_sort'];
+$file_sort = null;
+if (!empty($_GET['file_sort'])) {
+	$file_sort = $_SESSION['media_file_sort'] = $_GET['file_sort'];
+	setcookie('dc_media_sort',json_encode($file_sort));
+} elseif (isset($_COOKIE['dc_media_sort'])) {
+	$file_sort = json_decode($_COOKIE['dc_media_sort']);
+} elseif (!empty($_SESSION['media_file_sort'])) {
+	$file_sort = $_SESSION['media_file_sort'];
 }
-$file_sort = !empty($_SESSION['media_file_sort']) ? $_SESSION['media_file_sort'] : null;
+$file_sort =  in_array($file_sort,$sort_combo) ? $file_sort : null;
 
 $nb_per_page = !empty($_SESSION['nb_per_page']) ? (integer)$_SESSION['nb_per_page'] : $nb_per_page;
 if (!empty($_GET['nb_per_page']) && (integer)$_GET['nb_per_page'] > 0) {
