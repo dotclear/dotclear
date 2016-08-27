@@ -136,7 +136,8 @@ class dcPage
 					// csp_report.php needs PHP ≥ 5.4
 					$directives[] = "report-uri ".DC_ADMIN_URL."csp_report.php";
 				}
-				$headers['csp'] = "Content-Security-Policy: ".implode(" ; ",$directives);
+				$report_only = ($core->blog->settings->system->csp_admin_report_only) ? '-Report-Only' : '';
+				$headers['csp'] = "Content-Security-Policy".$report_only.": ".implode(" ; ",$directives);
 			}
 		}
 

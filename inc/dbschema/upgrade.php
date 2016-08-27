@@ -593,6 +593,13 @@ class dcUpgrade
 		{
 			// Remove the CSP report file from it's old place
 			@unlink(DC_ROOT.'/admin/csp_report.txt');
+
+			# Some new settings should be initialized, prepare db queries
+			$strReq = 'INSERT INTO '.$core->prefix.'setting'.
+					' (setting_id,setting_ns,setting_value,setting_type,setting_label)'.
+					' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
+			$core->con->execute(
+				sprintf($strReq,'csp_admin_report_only',false,'boolean','CSP Report only violations (admin)'));
 		}
 
 		$core->setVersion('core',DC_VERSION);
