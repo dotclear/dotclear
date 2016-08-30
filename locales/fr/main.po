@@ -2227,6 +2227,15 @@ msgstr "Activer l'éditeur visuel"
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Afficher la barre d'outil des éditeurs en bas de la zone de saisie (si possible)"
 
+msgid "Use xhtml editor for:"
+msgstr "Utiliser l'éditeur xhtml pour :"
+
+msgid "Blog description (in blog parameters)"
+msgstr "La description du blog (paramètres du blog)"
+
+msgid "Category description"
+msgstr "La description des catégories"
+
 msgid "Other options"
 msgstr "Autres options"
 
