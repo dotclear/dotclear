@@ -1680,7 +1680,7 @@ class adminThemesList extends adminModulesList
 					'<input type="submit" name="update" value="'.($with_selection ?
 						__('Update selected themes') :
 						__('Update all themes from this list')
-					).'" />';
+					).'" />'.$this->core->formNonce();
 				} break;
 
 				# Behavior
