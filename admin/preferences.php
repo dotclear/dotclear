@@ -98,6 +98,23 @@ if (is_dir($iconsets_root) && is_readable($iconsets_root)) {
 # Language codes
 $lang_combo = dcAdminCombos::getAdminLangsCombo();
 
+# Get 3rd parts xhtml editor flags
+$rte = array(
+	'blog_descr' => array(true,__('Blog description (in blog parameters)')),
+	'cat_descr' => array(true,__('Category description'))
+);
+$rte = new ArrayObject($rte);
+$core->callBehavior('adminRteFlags',$core,$rte);
+# Load user settings
+$rte_flags = @$core->auth->user_prefs->interface->rte_flags;
+if (is_array($rte_flags)) {
+	foreach ($rte_flags as $fk => $fv) {
+		if (isset($rte[$fk])) {
+			$rte[$fk][0] = $fv;
+		}
+	}
+}
+
 # Get default colums (admin lists)
 $cols = array(
 	'posts' => array(__('Posts'), array(
@@ -232,6 +249,13 @@ if (isset($_POST['user_editor']))
 			}
 		}
 		$core->auth->user_prefs->interface->put('cols',$cu,'array');
+
+		# Update user xhtml editor flags
+		$rf = array();
+		foreach ($rte as $rk => $rv) {
+			$rf[$rk] = isset($_POST['rte_flags']) && in_array($rk,$_POST['rte_flags'],true) ? true : false;
+		}
+		$core->auth->user_prefs->interface->put('rte_flags',$rf,'array');
 
 		# Update user
 		$core->updUser($core->auth->userID(),$cur);
@@ -500,13 +524,17 @@ echo
 echo
 '<div class="fieldset">'.
 '<h4>'.__('Optional columns displayed in lists').'</h4>';
+$odd = true;
 foreach ($cols as $col_type => $col_list) {
+	echo '<div class="two-boxes '.($odd ? 'odd' : 'even').'">';
 	echo '<h5>'.$col_list[0].'</h5>';
 	foreach ($col_list[1] as $col_name => $col_data) {
 		echo
-		'<p><label for="cols_'.$col_type.'-"'.$col_name.'" class="classic">'.
+		'<p><label for="cols_'.$col_type.'-'.$col_name.'" class="classic">'.
 		form::checkbox(array('cols_'.$col_type.'[]','cols_'.$col_type.'-'.$col_name),$col_name,$col_data[0]).$col_data[1].'</label>';
 	}
+	echo '</div>';
+	$odd = !$odd;
 }
 echo '</div>';
 
@@ -514,6 +542,7 @@ echo
 '<div class="fieldset">'.
 '<h4>'.__('Edition').'</h4>';
 
+echo '<div class="two-boxes odd">';
 foreach ($format_by_editors as $format => $editors) {
 	echo
 	'<p class="field"><label for="user_editor_'.$format.'">'.sprintf(__('Preferred editor for %s:'),$format).'</label>'.
@@ -543,6 +572,17 @@ form::checkbox('user_toolbar_bottom',1,$user_options['toolbar_bottom']).' '.
 __('Display editor\'s toolbar at bottom of textarea (if possible)').'</label></p>'.
 
 '</div>';
+
+echo '<div class="two-boxes even">';
+echo '<h5>'.__('Use xhtml editor for:').'</h5>';
+foreach ($rte as $rk => $rv) {
+	echo
+		'<p><label for="rte_'.$rk.'" class="classic">'.
+		form::checkbox(array('rte_flags[]','rte_'.$rk),$rk,$rv[0]).$rv[1].'</label>';
+}
+echo '</div>';
+
+echo '</div>';	// fieldset
 
 echo
 '<h4 class="pretty-title">'.__('Other options').'</h4>';

@@ -312,6 +312,11 @@ if ($standalone) {
 }
 
 $desc_editor = $core->auth->getOption('editor');
+$rte_flag = true;
+$rte_flags  = @$core->auth->user_prefs->interface->rte_flags;
+if (is_array($rte_flags) && in_array('blog_descr',$rte_flags)) {
+	$rte_flag = $rte_flags['blog_descr'];
+}
 
 dcPage::open(__('Blog settings'),
 	'<script type="text/javascript">'."\n".
@@ -323,9 +328,8 @@ dcPage::open(__('Blog settings'),
 	"//]]>".
 	"</script>".
 	dcPage::jsConfirmClose('blog-form').
-	$core->callBehavior('adminPostEditor',$desc_editor['xhtml'],'blog_desc',array('#blog_desc'),'xhtml').
+	($rte_flag ? $core->callBehavior('adminPostEditor',$desc_editor['xhtml'],'blog_desc',array('#blog_desc'),'xhtml') : '').
 	dcPage::jsLoad('js/_blog_pref.js').
-
 
 	# --BEHAVIOR-- adminBlogPreferencesHeaders
 	$core->callBehavior('adminBlogPreferencesHeaders').

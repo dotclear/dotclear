@@ -235,7 +235,14 @@ elseif (!empty($_POST['wreset']))
   </script>
   <?php
   		$widget_editor = $core->auth->getOption('editor');
-  		echo $core->callBehavior('adminPostEditor',$widget_editor['xhtml'],'widget',array('#sidebarsWidgets textarea'),'xhtml');
+		$rte_flag = true;
+		$rte_flags  = @$core->auth->user_prefs->interface->rte_flags;
+		if (is_array($rte_flags) && in_array('widgets_text',$rte_flags)) {
+			$rte_flag = $rte_flags['widgets_text'];
+		}
+		if ($rte_flag) {
+	  		echo $core->callBehavior('adminPostEditor',$widget_editor['xhtml'],'widget',array('#sidebarsWidgets textarea'),'xhtml');
+		}
   ?>
   <?php echo(dcPage::jsConfirmClose('sidebarsWidgets')); ?>
 </head>

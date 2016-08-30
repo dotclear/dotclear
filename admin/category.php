@@ -174,11 +174,16 @@ if ($cat_id) {
 $elements[$title] = '';
 
 $category_editor = $core->auth->getOption('editor');
+$rte_flag = true;
+$rte_flags  = @$core->auth->user_prefs->interface->rte_flags;
+if (is_array($rte_flags) && in_array('cat_descr',$rte_flags)) {
+	$rte_flag = $rte_flags['cat_descr'];
+}
 
 dcPage::open($title,
 	dcPage::jsConfirmClose('category-form').
 	dcPage::jsLoad('js/_category.js').
-	$core->callBehavior('adminPostEditor',$category_editor['xhtml'],'category',array('#cat_desc'),'xhtml'),
+	($rte_flag ? $core->callBehavior('adminPostEditor',$category_editor['xhtml'],'category',array('#cat_desc'),'xhtml') : ''),
 	dcPage::breadcrumb($elements)
 );
 
