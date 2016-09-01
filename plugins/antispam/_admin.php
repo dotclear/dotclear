@@ -90,7 +90,7 @@ class antispamBehaviors
 	{
 		$ttl = $settings->antispam->antispam_moderation_ttl;
 		echo
-		'<div class="fieldset"><h4>Antispam</h4>'.
+		'<div class="fieldset"><h4 id="antispam_params">Antispam</h4>'.
 		'<p><label for="antispam_moderation_ttl" class="classic">'.__('Delete junk comments older than').' '.
 		form::field('antispam_moderation_ttl', 3, 3, $ttl).
 		' '.__('days').

@@ -18,6 +18,10 @@ $this->registerModule(
 	/* Version */			'1.4.1',
 	array(
 		'permissions' =>	'usage,contentadmin',
-		'priority' =>		10
+		'priority' =>		10,
+		'settings'	=>		array(
+								'self' => '',
+								'blog' => '#params.antispam_params'
+							)
 	)
 );

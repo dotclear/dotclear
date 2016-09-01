@@ -465,7 +465,9 @@ class adminModulesList
 				'details' 			=> '',
 				'sshot' 			=> '',
 				'score'				=> 0,
-				'type' 				=> null
+				'type' 				=> null,
+				'require'			=> array(),
+				'settings'			=> array()
 			),
 			# Module's values
 			$module,
@@ -743,7 +745,7 @@ class adminModulesList
 
 					if (!empty($more)) {
 						echo
-						'<li>'.implode(' - ', $more).'</li>';
+						'<li>'.implode(' - ',$more).'</li>';
 					}
 
 					echo
@@ -752,13 +754,13 @@ class adminModulesList
 
 				$config = !empty($module['root']) && file_exists(path::real($module['root'].'/_config.php'));
 
-				if ($config || !empty($module['section']) || !empty($module['tags'])) {
+				if ($config || !empty($module['section']) || !empty($module['tags']) || !empty($module['settings'])) {
 					echo
 					'<div><ul class="mod-more">';
 
-					if ($config) {
-						echo
-						'<li><a class="module-config" href="'.$this->getURL('module='.$id.'&amp;conf=1').'">'.__('Configure plugin').'</a></li>';
+					$settings = $this->getSettingsUrls($this->core,$id);
+					if (!empty($settings)) {
+						echo '<li>'.implode(' - ',$settings).'</li>';
 					}
 
 					if (!empty($module['section'])) {
@@ -805,6 +807,65 @@ class adminModulesList
 		'</form>';
 
 		return $this;
+	}
+
+	/**
+	 * Get settings URLs if any
+	 *
+	 * @param object $core
+	 * @param string $id module ID
+	 * @param boolean $check check permission
+	 * @param boolean $self include self URL (→ plugin index.php URL)
+	 * @return Array of settings URLs
+	 */
+	public static function getSettingsUrls($core,$id,$check=false,$self=true)
+	{
+		$st = array();
+
+		$config = !empty($core->plugins->moduleRoot($id)) &&
+			file_exists(path::real($core->plugins->moduleRoot($id).'/_config.php'));
+		$settings = $core->plugins->moduleInfo($id,'settings');
+		if ($config || !empty($settings)) {
+			if ($config) {
+				$st[] = '<a class="module-config" href="'.
+					$core->adminurl->get('admin.plugins',array('module' => $id,'conf' => '1')).
+					'">'.__('Configure plugin').'</a>';
+			}
+			if (is_array($settings)) {
+				foreach ($settings as $sk => $sv) {
+					switch ($sk) {
+						case 'blog':
+							if ((!$check) ||
+								($check && $core->auth->check('admin',$core->blog->id))) {
+								$st[] = '<a class="module-config" href="'.
+									$core->adminurl->get('admin.blog.pref').$sv.
+									'">'.__('Plugin settings (in blog parameters)').'</a>';
+							}
+							break;
+						case 'pref':
+							if ((!$check) ||
+								($check && $core->auth->check('usage,contentadmin',$core->blog->id))) {
+								$st[] = '<a class="module-config" href="'.
+									$core->adminurl->get('admin.user.preferences').$sv.
+									'">'.__('Plugin settings (in user preferences)').'</a>';
+							}
+							break;
+						case 'self':
+							if ($self) {
+								if ((!$check) ||
+									($check && $core->auth->check($core->plugins->moduleInfo($id,'permissions'),$core->blog->id))) {
+									$st[] = '<a class="module-config" href="'.
+										$core->adminurl->get('admin.plugin.'.$id).$sv.
+										'">'.__('Plugin settings').'</a>';
+								}
+							}
+							break;
+					}
+				}
+			}
+		}
+
+		return $st;
 	}
 
 	/**

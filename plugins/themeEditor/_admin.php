@@ -59,7 +59,7 @@ class themeEditorBehaviors
 
 		echo
 			'<div class="fieldset two-cols clearfix">'.
-			'<h5>'.__('Syntax highlighting').'</h5>';
+			'<h5 id="themeEditor_prefs">'.__('Syntax highlighting').'</h5>';
 		echo
 			'<div class="col">'.
 			'<p><label for="colorsyntax" class="classic">'.

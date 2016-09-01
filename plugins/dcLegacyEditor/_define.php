@@ -18,6 +18,10 @@ $this->registerModule(
 	/* Version */			'0.1.4',
 	array(
 		'permissions' =>	'usage,contentadmin',
-		'type'		=>		'plugin'
+		'type'		=>		'plugin',
+		'settings'	=>		array(
+								'self' => '',
+								'pref' => '#user-options.user_options_edition'
+							)
 	)
 );

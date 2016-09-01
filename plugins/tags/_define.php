@@ -19,6 +19,9 @@ $this->registerModule(
 	array(
 		'permissions' =>	'usage,contentadmin',
 		'priority' =>		1001,	// Must be higher than dcLegacyEditor/dcCKEditor priority (ie 1000)
-		'type'		=>		'plugin'
+		'type'		=>		'plugin',
+		'settings'	=>		array(
+								'pref' => '#user-options.tags_prefs'
+							)
 	)
 );

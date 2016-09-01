@@ -17,6 +17,9 @@ $this->registerModule(
 	/* Author */			"Olivier Meunier",
 	/* Version */			'1.3',
 	array(
-		'type'		=>		'plugin'
+		'type'		=>		'plugin',
+		'settings'	=>		array(
+								'pref' => '#user-options.themeEditor_prefs'
+							)
 	)
 );

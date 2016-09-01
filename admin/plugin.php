@@ -77,6 +77,13 @@ if (file_exists($p_file))
 
 	call_user_func($open_f,$p_title,$p_head);
 	echo $p_content;
+	if (!$popup) {
+		// Add direct links to plugin settings if any
+		$settings = adminModulesList::getSettingsUrls($core,$p,true,false);
+		if (!empty($settings)) {
+			echo '<hr class="clear"/><p class="right modules">'.implode(' - ',$settings).'</p>';
+		}
+	}
 	call_user_func($close_f);
 }
 else
