@@ -2975,6 +2975,9 @@ msgstr "Ce module ne peut activé pour les raisons suivantes :"
 msgid "Plugin from official distribution"
 msgstr "Plugin de la distribution officielle"
 
+msgid "Manage plugin"
+msgstr "Gérer le plugin"
+
 msgid "Configure plugin"
 msgstr "Configurer le plugin"
 
