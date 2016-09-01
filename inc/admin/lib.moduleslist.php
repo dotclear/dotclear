@@ -753,13 +753,18 @@ class adminModulesList
 				}
 
 				$config = !empty($module['root']) && file_exists(path::real($module['root'].'/_config.php'));
+				$index = !empty($module['root']) && file_exists(path::real($module['root'].'/index.php'));
 
-				if ($config || !empty($module['section']) || !empty($module['tags']) || !empty($module['settings'])) {
+				if ($config || $index || !empty($module['section']) || !empty($module['tags']) || !empty($module['settings'])) {
 					echo
 					'<div><ul class="mod-more">';
 
+					if ($index && $module['enabled']) {
+						echo '<li><a href="'.$this->core->adminurl->get('admin.plugin.'.$id).'">'.__('Manage plugin').'</a></li>';
+					}
+
 					$settings = $this->getSettingsUrls($this->core,$id);
-					if (!empty($settings)) {
+					if (!empty($settings) && $module['enabled']) {
 						echo '<li>'.implode(' - ',$settings).'</li>';
 					}
 
