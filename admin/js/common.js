@@ -603,7 +603,8 @@ $(function() {
             }
         });
 
-        $('#gototop').click(function() {
+        $('#gototop').click(function(e) {
             $('body,html').animate({scrollTop:0},800);
+            e.preventDefault();
         });
 });
