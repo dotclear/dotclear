@@ -63,13 +63,13 @@ function dc_admin_icon_url($img)
 	return $img;
 }
 
-function addMenuItem($section,$desc,$adminurl,$icon,$perm)
+function addMenuItem($section,$desc,$adminurl,$icon,$perm,$pinned=false)
 {
 	global $core,$_menu;
 
 	$url = $core->adminurl->get($adminurl);
 	$_menu[$section]->prependItem($desc,$url,$icon,
-		preg_match('/'.preg_quote($url).'(\?.*)?$/',$_SERVER['REQUEST_URI']),$perm,null,null,true);
+		preg_match('/'.preg_quote($url).'(\?.*)?$/',$_SERVER['REQUEST_URI']),$perm,null,null,$pinned);
 }
 
 if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID'))
@@ -277,7 +277,7 @@ if ($core->auth->userID() && $core->blog !== null)
 	addMenuItem('Blog',__('Entries'),'admin.posts','images/menu/entries.png',
 		$core->auth->check('usage,contentadmin',$core->blog->id));
 	addMenuItem('Blog',__('New entry'),'admin.post','images/menu/edit.png',
-		$core->auth->check('usage,contentadmin',$core->blog->id));
+		$core->auth->check('usage,contentadmin',$core->blog->id),true);
 
 	addMenuItem('System',__('Update'),'admin.update','images/menu/update.png',
 		$core->auth->isSuperAdmin() && is_readable(DC_DIGESTS));
