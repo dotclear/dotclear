@@ -18,6 +18,9 @@ $this->registerModule(
 	/* Version */			'1.3',
 	array(
 		'permissions' =>	'admin',
-		'type'		=>		'plugin'
+		'type'		=>		'plugin',
+		'settings'	=>		array(
+								'self' => ''
+							)
 	)
 );

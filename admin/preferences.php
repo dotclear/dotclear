@@ -489,7 +489,7 @@ echo
 
 echo
 '<div class="fieldset">'.
-'<h4>'.__('Interface').'</h4>'.
+'<h4 id="user_options_interface">'.__('Interface').'</h4>'.
 
 '<p><label for="user_ui_enhanceduploader" class="classic">'.
 form::checkbox('user_ui_enhanceduploader',1,$user_ui_enhanceduploader).' '.
@@ -523,7 +523,7 @@ echo
 
 echo
 '<div class="fieldset">'.
-'<h4>'.__('Optional columns displayed in lists').'</h4>';
+'<h4 id="user_options_columns">'.__('Optional columns displayed in lists').'</h4>';
 $odd = true;
 foreach ($cols as $col_type => $col_list) {
 	echo '<div class="two-boxes '.($odd ? 'odd' : 'even').'">';
@@ -540,7 +540,7 @@ echo '</div>';
 
 echo
 '<div class="fieldset">'.
-'<h4>'.__('Edition').'</h4>';
+'<h4 id="user_options_edition">'.__('Edition').'</h4>';
 
 echo '<div class="two-boxes odd">';
 foreach ($format_by_editors as $format => $editors) {

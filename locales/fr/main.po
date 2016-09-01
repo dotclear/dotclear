@@ -2978,6 +2978,15 @@ msgstr "Plugin de la distribution officielle"
 msgid "Configure plugin"
 msgstr "Configurer le plugin"
 
+msgid "Plugin settings (in blog parameters)"
+msgstr "Réglages du plugin (paramètres du blog)"
+
+msgid "Plugin settings (in user preferences)"
+msgstr "Réglages du plugin (mes préférences)"
+
+msgid "Plugin settings"
+msgstr "Réglages du plugin"
+
 msgid "No plugins matched your search."
 msgstr "Aucun plugin ne correspond à votre recherche."
 

@@ -19,6 +19,9 @@ $this->registerModule(
 	/* Version */			'0.7',
 	array(
 		/* Permissions */	'permissions' =>	'usage,contentadmin',
-		/* Type */			'type' =>			'plugin'
+		/* Type */			'type' =>			'plugin',
+		'settings'	=>		array(
+								'blog' => '#params.breadcrumb_params'
+							)
 	)
 );

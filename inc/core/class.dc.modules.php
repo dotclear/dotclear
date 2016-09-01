@@ -282,7 +282,7 @@ class dcModules
 	@param	properties	<b>array</b>		extra properties
 	(currently available keys : permissions, priority, type)
 	*/
-	public function registerModule($name,$desc,$author,$version, $properties = array())
+	public function registerModule($name,$desc,$author,$version,$properties = array())
 	{
 		if ($this->disabled_mode) {
 			$this->disabled_meta = array_merge(
@@ -319,7 +319,8 @@ class dcModules
 				'standalone_config' => false,
 				'type' => null,
 				'enabled' => true,
-				'requires' => array()
+				'requires' => array(),
+				'settings' => array()
 			), $properties
 		);
 
