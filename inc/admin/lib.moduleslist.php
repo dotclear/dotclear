@@ -832,27 +832,33 @@ class adminModulesList
 		$settings = $core->plugins->moduleInfo($id,'settings');
 		if ($config || !empty($settings)) {
 			if ($config) {
-				if ((!$check) || ($core->auth->isSuperAdmin()) ||
-					($check && $core->auth->check($core->plugins->moduleInfo($id,'permissions'),$core->blog->id))) {
-						$st[] = '<a class="module-config" href="'.
-							$core->adminurl->get('admin.plugins',array('module' => $id,'conf' => '1')).
-							'">'.__('Configure plugin').'</a>';
+				if (!$check ||
+					$core->auth->isSuperAdmin() ||
+					$core->auth->check($core->plugins->moduleInfo($id,'permissions'),$core->blog->id))
+				{
+					$st[] = '<a class="module-config" href="'.
+						$core->adminurl->get('admin.plugins',array('module' => $id,'conf' => '1')).
+						'">'.__('Configure plugin').'</a>';
 				}
 			}
 			if (is_array($settings)) {
 				foreach ($settings as $sk => $sv) {
 					switch ($sk) {
 						case 'blog':
-							if ((!$check) || ($core->auth->isSuperAdmin()) ||
-								($check && $core->auth->check('admin',$core->blog->id))) {
+							if (!$check ||
+								$core->auth->isSuperAdmin() ||
+								$core->auth->check('admin',$core->blog->id))
+							{
 								$st[] = '<a class="module-config" href="'.
 									$core->adminurl->get('admin.blog.pref').$sv.
 									'">'.__('Plugin settings (in blog parameters)').'</a>';
 							}
 							break;
 						case 'pref':
-							if ((!$check) || ($core->auth->isSuperAdmin()) ||
-								($check && $core->auth->check('usage,contentadmin',$core->blog->id))) {
+							if (!$check ||
+								$core->auth->isSuperAdmin() ||
+								$core->auth->check('usage,contentadmin',$core->blog->id))
+							{
 								$st[] = '<a class="module-config" href="'.
 									$core->adminurl->get('admin.user.preferences').$sv.
 									'">'.__('Plugin settings (in user preferences)').'</a>';
@@ -860,8 +866,10 @@ class adminModulesList
 							break;
 						case 'self':
 							if ($self) {
-								if ((!$check) || ($core->auth->isSuperAdmin()) ||
-									($check && $core->auth->check($core->plugins->moduleInfo($id,'permissions'),$core->blog->id))) {
+								if (!$check ||
+									$core->auth->isSuperAdmin() ||
+									$core->auth->check($core->plugins->moduleInfo($id,'permissions'),$core->blog->id))
+								{
 									$st[] = '<a class="module-config" href="'.
 										$core->adminurl->get('admin.plugin.'.$id).$sv.
 										'">'.__('Plugin settings').'</a>';
