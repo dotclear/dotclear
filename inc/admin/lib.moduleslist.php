@@ -836,8 +836,12 @@ class adminModulesList
 					$core->auth->isSuperAdmin() ||
 					$core->auth->check($core->plugins->moduleInfo($id,'permissions'),$core->blog->id))
 				{
+					$params = array('module' => $id,'conf' => '1');
+					if (!$core->plugins->moduleInfo($id,'standalone_config') && !$self) {
+						$params['redir'] = $core->adminurl->get('admin.plugin.'.$id);
+					}
 					$st[] = '<a class="module-config" href="'.
-						$core->adminurl->get('admin.plugins',array('module' => $id,'conf' => '1')).
+						$core->adminurl->get('admin.plugins',$params).
 						'">'.__('Configure plugin').'</a>';
 				}
 			}
