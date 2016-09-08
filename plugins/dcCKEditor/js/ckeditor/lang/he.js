@@ -204,7 +204,7 @@ CKEDITOR.lang['he'] = {
     	anchorName : 'עפ"י שם העוגן',
     	charset : 'קידוד המשאב המקושר',
     	cssClasses : 'גיליונות עיצוב קבוצות',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'כתובת הדוא"ל',
     	emailBody : 'גוף ההודעה',
     	emailSubject : 'נושא ההודעה',

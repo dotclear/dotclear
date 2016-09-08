@@ -204,7 +204,7 @@ CKEDITOR.lang['si'] = {
     	anchorName : 'By Anchor Name',
     	charset : 'Linked Resource Charset',
     	cssClasses : 'විලාසපත්‍ර පන්තිය',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'E-Mail Address',
     	emailBody : 'Message Body',
     	emailSubject : 'Message Subject',

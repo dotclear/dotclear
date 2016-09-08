@@ -204,7 +204,7 @@ CKEDITOR.lang['eu'] = {
     	anchorName : 'Aingura-izenaren arabera',
     	charset : 'Estekatutako baliabide karaktere-jokoa',
     	cssClasses : 'Estilo-orriko klaseak',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'E-posta helbidea',
     	emailBody : 'Mezuaren gorputza',
     	emailSubject : 'Mezuaren gaia',

@@ -204,7 +204,7 @@ CKEDITOR.lang['ms'] = {
     	anchorName : 'dengan menggunakan nama pautan',
     	charset : 'Linked Resource Charset',
     	cssClasses : 'Kelas-kelas Stylesheet',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'Alamat E-Mail',
     	emailBody : 'Isi Kandungan Mesej',
     	emailSubject : 'Subjek Mesej',

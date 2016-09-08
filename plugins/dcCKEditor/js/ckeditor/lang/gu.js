@@ -204,7 +204,7 @@ CKEDITOR.lang['gu'] = {
     	anchorName : 'ઍંકર નામથી પસંદ કરો',
     	charset : 'લિંક રિસૉર્સ કૅરિક્ટર સેટ',
     	cssClasses : 'સ્ટાઇલ-શીટ ક્લાસ',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'ઈ-મેલ સરનામું',
     	emailBody : 'સંદેશ',
     	emailSubject : 'ઈ-મેલ વિષય',

@@ -204,7 +204,7 @@ CKEDITOR.lang['en-ca'] = {
     	anchorName : 'By Anchor Name',
     	charset : 'Linked Resource Charset',
     	cssClasses : 'Stylesheet Classes',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'E-Mail Address',
     	emailBody : 'Message Body',
     	emailSubject : 'Message Subject',

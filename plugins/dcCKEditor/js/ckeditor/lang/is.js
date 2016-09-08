@@ -204,7 +204,7 @@ CKEDITOR.lang['is'] = {
     	anchorName : 'Eftir akkerisnafni',
     	charset : 'Táknróf',
     	cssClasses : 'Stílsniðsflokkur',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'Netfang',
     	emailBody : 'Meginmál',
     	emailSubject : 'Efni',

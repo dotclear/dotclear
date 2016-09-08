@@ -204,7 +204,7 @@ CKEDITOR.lang['bn'] = {
     	anchorName : 'নোঙরের নাম দিয়ে',
     	charset : 'লিংক রিসোর্স ক্যারেক্টর সেট',
     	cssClasses : 'স্টাইল-শীট ক্লাস',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'ইমেইল ঠিকানা',
     	emailBody : 'মেসেজের দেহ',
     	emailSubject : 'মেসেজের বিষয়',

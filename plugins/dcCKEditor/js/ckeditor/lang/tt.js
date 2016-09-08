@@ -204,7 +204,7 @@ CKEDITOR.lang['tt'] = {
     	anchorName : 'Якорь исеме буенча',
     	charset : 'Linked Resource Charset',
     	cssClasses : 'Стильләр класслары',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'Электрон почта адресы',
     	emailBody : 'Хат эчтәлеге',
     	emailSubject : 'Хат темасы',

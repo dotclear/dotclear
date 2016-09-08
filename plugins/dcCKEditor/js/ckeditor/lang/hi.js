@@ -204,7 +204,7 @@ CKEDITOR.lang['hi'] = {
     	anchorName : 'ऐंकर नाम से',
     	charset : 'लिंक रिसोर्स करॅक्टर सॅट',
     	cssClasses : 'स्टाइल-शीट क्लास',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'ई-मेल पता',
     	emailBody : 'संदेश',
     	emailSubject : 'संदेश विषय',

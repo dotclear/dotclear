@@ -204,7 +204,7 @@ CKEDITOR.lang['id'] = {
     	anchorName : 'By Anchor Name',
     	charset : 'Linked Resource Charset',
     	cssClasses : 'Kelas Stylesheet',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'Alamat E-mail',
     	emailBody : 'Message Body',
     	emailSubject : 'Judul Pesan',

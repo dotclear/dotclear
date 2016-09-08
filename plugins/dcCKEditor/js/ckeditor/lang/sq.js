@@ -204,7 +204,7 @@ CKEDITOR.lang['sq'] = {
     	anchorName : 'Sipas Emrit të Spirancës',
     	charset : 'Seti i Karaktereve të Burimeve të Nëdlidhura',
     	cssClasses : 'Klasa stili CSS',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'Posta Elektronike',
     	emailBody : 'Trupi i Porosisë',
     	emailSubject : 'Titulli i Porosisë',

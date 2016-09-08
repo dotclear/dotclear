@@ -204,7 +204,7 @@ CKEDITOR.lang['bg'] = {
     	anchorName : 'По име на котва',
     	charset : 'Тип на свързания ресурс',
     	cssClasses : 'Класове за CSS',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'E-mail aдрес',
     	emailBody : 'Съдържание',
     	emailSubject : 'Тема',

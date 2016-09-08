@@ -204,7 +204,7 @@ CKEDITOR.lang['ka'] = {
     	anchorName : 'ღუზის სახელით',
     	charset : 'კოდირება',
     	cssClasses : 'CSS კლასი',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'ელფოსტის მისამართები',
     	emailBody : 'წერილის ტექსტი',
     	emailSubject : 'წერილის სათაური',

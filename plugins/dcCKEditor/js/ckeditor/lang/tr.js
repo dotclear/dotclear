@@ -204,7 +204,7 @@ CKEDITOR.lang['tr'] = {
     	anchorName : 'Bağlantı Adı ile',
     	charset : 'Bağlı Kaynak Karakter Gurubu',
     	cssClasses : 'Biçem Sayfası Sınıfları',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'E-Posta Adresi',
     	emailBody : 'İleti Gövdesi',
     	emailSubject : 'İleti Konusu',

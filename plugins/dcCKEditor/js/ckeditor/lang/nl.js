@@ -204,7 +204,7 @@ CKEDITOR.lang['nl'] = {
     	anchorName : 'Op naam interne link',
     	charset : 'Karakterset van gelinkte bron',
     	cssClasses : 'Stylesheet-klassen',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'E-mailadres',
     	emailBody : 'Inhoud bericht',
     	emailSubject : 'Onderwerp bericht',
