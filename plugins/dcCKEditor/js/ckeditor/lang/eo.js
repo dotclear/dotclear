@@ -204,7 +204,7 @@ CKEDITOR.lang['eo'] = {
     	anchorName : 'Per Ankronomo',
     	charset : 'Signaro de la Ligita Rimedo',
     	cssClasses : 'Klasoj de Stilfolioj',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'Retpoŝto',
     	emailBody : 'Mesaĝa korpo',
     	emailSubject : 'Mesaĝa Temo',

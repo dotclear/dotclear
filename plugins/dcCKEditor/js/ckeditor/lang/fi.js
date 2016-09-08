@@ -204,7 +204,7 @@ CKEDITOR.lang['fi'] = {
     	anchorName : 'Ankkurin nimen mukaan',
     	charset : 'Linkitetty kirjaimisto',
     	cssClasses : 'Tyyliluokat',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'Sähköpostiosoite',
     	emailBody : 'Viesti',
     	emailSubject : 'Aihe',

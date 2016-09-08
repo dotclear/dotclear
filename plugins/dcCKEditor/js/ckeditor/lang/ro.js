@@ -204,7 +204,7 @@ CKEDITOR.lang['ro'] = {
     	anchorName : 'după numele ancorei',
     	charset : 'Setul de caractere al resursei legate',
     	cssClasses : 'Clasele cu stilul paginii (CSS)',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'Adresă de e-mail',
     	emailBody : 'Opțiuni Meniu Contextual',
     	emailSubject : 'Subiectul mesajului',

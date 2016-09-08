@@ -204,7 +204,7 @@ CKEDITOR.lang['ku'] = {
     	anchorName : 'بەپێی ناوی لەنگەر',
     	charset : 'بەستەری سەرچاوەی نووسە',
     	cssClasses : 'شێوازی چینی پەڕه',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'ناونیشانی ئیمەیل',
     	emailBody : 'ناوەڕۆکی نامە',
     	emailSubject : 'بابەتی نامە',

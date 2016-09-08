@@ -204,7 +204,7 @@ CKEDITOR.lang['de'] = {
     	anchorName : 'Nach Ankername',
     	charset : 'Verknüpfter Ressourcenzeichensatz',
     	cssClasses : 'Formatvorlagenklasse',
-    	download : 'Download erzwingen',
+    	displayText : 'Anzeigetext',
     	emailAddress : 'E-Mail-Adresse',
     	emailBody : 'Nachrichtentext',
     	emailSubject : 'Betreffzeile',

@@ -204,7 +204,7 @@ CKEDITOR.lang['ug'] = {
     	anchorName : 'لەڭگەرلىك نۇقتا ئاتى بويىچە',
     	charset : 'ھەرپ كودلىنىشى',
     	cssClasses : 'ئۇسلۇب خىلى ئاتى',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'ئادرېس',
     	emailBody : 'مەزمۇن',
     	emailSubject : 'ماۋزۇ',

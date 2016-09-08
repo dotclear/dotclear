@@ -204,6 +204,7 @@ CKEDITOR.lang['de-ch'] = {
     	anchorName : 'Nach Ankername',
     	charset : 'Verknüpfter Ressourcenzeichensatz',
     	cssClasses : 'Formatvorlagenklasse',
+    	displayText : 'Display Text',
     	emailAddress : 'E-Mail-Adresse',
     	emailBody : 'Nachrichtentext',
     	emailSubject : 'Betreffzeile',
@@ -246,8 +247,7 @@ CKEDITOR.lang['de-ch'] = {
     	toolbar : 'Link einfügen/editieren',
     	type : 'Link-Typ',
     	unlink : 'Link entfernen',
-    	upload : 'Hochladen',
-    	download : 'Force Download'
+    	upload : 'Hochladen'
     },
     justify : 
     {

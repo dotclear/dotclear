@@ -204,7 +204,7 @@ CKEDITOR.lang['th'] = {
     	anchorName : 'ชื่อ',
     	charset : 'ลิงค์เชื่อมโยงไปยังชุดตัวอักษร',
     	cssClasses : 'คลาสของไฟล์กำหนดลักษณะการแสดงผล',
-    	download : 'Force Download',
+    	displayText : 'Display Text',
     	emailAddress : 'อีเมล์ (E-Mail)',
     	emailBody : 'ข้อความ',
     	emailSubject : 'หัวเรื่อง',

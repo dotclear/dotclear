@@ -16,7 +16,7 @@ CKEDITOR.lang['fr'] = {
     	{
     		document : 'Document',
     		clipboard : 'Presse-papier/Défaire',
-    		editing : 'Editer',
+    		editing : 'Édition',
     		forms : 'Formulaires',
     		basicstyles : 'Styles de base',
     		paragraph : 'Paragraphe',
@@ -26,7 +26,7 @@ CKEDITOR.lang['fr'] = {
     		colors : 'Couleurs',
     		tools : 'Outils'
     	},
-    	toolbars : 'Barre d\'outils de l\'éditeur'
+    	toolbars : 'Barres d\'outils de l\'éditeur'
     },
     templates : 
     {
@@ -34,7 +34,7 @@ CKEDITOR.lang['fr'] = {
     	emptyListMsg : '(Aucun modèle disponible)',
     	insertOption : 'Remplacer le contenu actuel',
     	options : 'Options des modèles',
-    	selectPromptMsg : 'Veuillez sélectionner le modèle pour l\'ouvrir dans l\'éditeur',
+    	selectPromptMsg : 'Veuillez sélectionner le modèle à ouvrir dans l\'éditeur',
     	title : 'Contenu des modèles'
     },
     table : 
@@ -48,49 +48,49 @@ CKEDITOR.lang['fr'] = {
     		insertAfter : 'Insérer une cellule après',
     		deleteCell : 'Supprimer les cellules',
     		merge : 'Fusionner les cellules',
-    		mergeRight : 'Fusionner à droite',
-    		mergeDown : 'Fusionner en bas',
-    		splitHorizontal : 'Fractionner horizontalement',
-    		splitVertical : 'Fractionner verticalement',
+    		mergeRight : 'Fusionner vers la droite',
+    		mergeDown : 'Fusionner vers le bas',
+    		splitHorizontal : 'Scinder la cellule horizontalement',
+    		splitVertical : 'Scinder la cellule verticalement',
     		title : 'Propriétés de la cellule',
     		cellType : 'Type de cellule',
-    		rowSpan : 'Fusion de lignes',
-    		colSpan : 'Fusion de colonnes',
+    		rowSpan : 'Lignes occupées',
+    		colSpan : 'Colonnes occupées',
     		wordWrap : 'Césure',
-    		hAlign : 'Alignement Horizontal',
-    		vAlign : 'Alignement Vertical',
-    		alignBaseline : 'Bas du texte',
+    		hAlign : 'Alignement horizontal',
+    		vAlign : 'Alignement vertical',
+    		alignBaseline : 'Ligne de base',
     		bgColor : 'Couleur d\'arrière-plan',
-    		borderColor : 'Couleur de Bordure',
+    		borderColor : 'Couleur de bordure',
     		data : 'Données',
-    		header : 'Entête',
+    		header : 'En-tête',
     		yes : 'Oui',
     		no : 'Non',
-    		invalidWidth : 'La Largeur de Cellule doit être un nombre.',
-    		invalidHeight : 'La Hauteur de Cellule doit être un nombre.',
-    		invalidRowSpan : 'La fusion de lignes doit être un nombre entier.',
-    		invalidColSpan : 'La fusion de colonnes doit être un nombre entier.',
-    		chooseColor : 'Choisissez'
+    		invalidWidth : 'La largeur de la cellule doit être un nombre.',
+    		invalidHeight : 'La hauteur de la cellule doit être un nombre.',
+    		invalidRowSpan : 'Le nombre de colonnes occupées doit être un nombre entier.',
+    		invalidColSpan : 'Le nombre de colonnes occupées doit être un nombre entier.',
+    		chooseColor : 'Choisir'
     	},
     	cellPad : 'Marge interne des cellules',
-    	cellSpace : 'Espacement des cellules',
+    	cellSpace : 'Espacement entre les cellules',
     	column : 
     	{
-    		menu : 'Colonnes',
+    		menu : 'Colonne',
     		insertBefore : 'Insérer une colonne avant',
     		insertAfter : 'Insérer une colonne après',
     		deleteColumn : 'Supprimer les colonnes'
     	},
     	columns : 'Colonnes',
     	deleteTable : 'Supprimer le tableau',
-    	headers : 'En-Têtes',
+    	headers : 'En-têtes',
     	headersBoth : 'Les deux',
     	headersColumn : 'Première colonne',
-    	headersNone : 'Aucunes',
+    	headersNone : 'Aucun',
     	headersRow : 'Première ligne',
     	invalidBorder : 'La taille de la bordure doit être un nombre.',
-    	invalidCellPadding : 'La marge intérieure des cellules doit être un nombre positif.',
-    	invalidCellSpacing : 'L\'espacement des cellules doit être un nombre positif.',
+    	invalidCellPadding : 'La marge interne des cellules doit être un nombre positif.',
+    	invalidCellSpacing : 'L\'espacement entre les cellules doit être un nombre positif.',
     	invalidCols : 'Le nombre de colonnes doit être supérieur à 0.',
     	invalidHeight : 'La hauteur du tableau doit être un nombre.',
     	invalidRows : 'Le nombre de lignes doit être supérieur à 0.',
@@ -107,22 +107,22 @@ CKEDITOR.lang['fr'] = {
     	summary : 'Résumé (description)',
     	title : 'Propriétés du tableau',
     	toolbar : 'Tableau',
-    	widthPc : '% pourcents',
+    	widthPc : 'pour cent',
     	widthPx : 'pixels',
     	widthUnit : 'unité de largeur'
     },
     stylescombo : 
     {
     	label : 'Styles',
-    	panelTitle : 'Styles de mise en page',
-    	panelTitle1 : 'Styles de blocs',
+    	panelTitle : 'Styles de mise en forme',
+    	panelTitle1 : 'Styles de bloc',
     	panelTitle2 : 'Styles en ligne',
     	panelTitle3 : 'Styles d\'objet'
     },
     specialchar : 
     {
     	options : 'Options des caractères spéciaux',
-    	title : 'Sélectionnez un caractère',
+    	title : 'Sélectionner un caractère',
     	toolbar : 'Insérer un caractère spécial'
     },
     sourcearea : 
@@ -139,24 +139,24 @@ CKEDITOR.lang['fr'] = {
     },
     pastetext : 
     {
-    	button : 'Coller comme texte sans mise en forme',
-    	title : 'Coller comme texte sans mise en forme'
+    	button : 'Coller comme texte brut',
+    	title : 'Coller comme texte brut'
     },
     pastefromword : 
     {
-    	confirmCleanup : 'Le texte à coller semble provenir de Word. Désirez-vous le nettoyer avant de coller?',
-    	error : 'Il n\'a pas été possible de nettoyer les données collées à la suite d\'une erreur interne.',
+    	confirmCleanup : 'Le texte à coller semble provenir de Word. Désirez-vous le nettoyer avant de coller ?',
+    	error : 'Les données collées n\'ont pas pu être nettoyées à cause d\'une erreur interne',
     	title : 'Coller depuis Word',
     	toolbar : 'Coller depuis Word'
     },
     maximize : 
     {
     	maximize : 'Agrandir',
-    	minimize : 'Minimiser'
+    	minimize : 'Réduire'
     },
     magicline : 
     {
-    	title : 'Insérez un paragraphe ici'
+    	title : 'Insérer un paragraphe ici'
     },
     liststyle : 
     {
@@ -167,34 +167,34 @@ CKEDITOR.lang['fr'] = {
     	decimalLeadingZero : 'Décimal précédé par un 0 (01, 02, 03, etc.)',
     	disc : 'Disque',
     	georgian : 'Numération géorgienne (an, ban, gan, etc.)',
-    	lowerAlpha : 'Alphabétique minuscules (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Grec minuscule (alpha, beta, gamma, etc.)',
-    	lowerRoman : 'Nombres romains minuscules (i, ii, iii, iv, v, etc.)',
+    	lowerAlpha : 'Lettres minuscules (a, b, c, d, e, etc.)',
+    	lowerGreek : 'Grec minuscule (alpha, bêta, gamma, etc.)',
+    	lowerRoman : 'Chiffres romains minuscules (i, ii, iii, iv, v, etc.)',
     	none : 'Aucun',
-    	notset : '<Non défini>',
+    	notset : '<indéfini>',
     	numberedTitle : 'Propriétés de la liste numérotée',
     	square : 'Carré',
     	start : 'Début',
     	type : 'Type',
-    	upperAlpha : 'Alphabétique majuscules (A, B, C, D, E, etc.)',
-    	upperRoman : 'Nombres romains majuscules (I, II, III, IV, V, etc.)',
+    	upperAlpha : 'Lettres majuscules (A, B, C, D, E, etc.)',
+    	upperRoman : 'Chiffres romains majuscules (I, II, III, IV, V, etc.)',
     	validateStartNumber : 'Le premier élément de la liste doit être un nombre entier.'
     },
     list : 
     {
-    	bulletedlist : 'Insérer/Supprimer la liste à puces',
-    	numberedlist : 'Insérer/Supprimer la liste numérotée'
+    	bulletedlist : 'Insérer/Supprimer une liste à puces',
+    	numberedlist : 'Insérer/Supprimer une liste numérotée'
     },
     link : 
     {
     	acccessKey : 'Touche d\'accessibilité',
     	advanced : 'Avancé',
-    	advisoryContentType : 'Type de contenu (ex: text/html)',
-    	advisoryTitle : 'Description (title)',
+    	advisoryContentType : 'Type de contenu (indicatif)',
+    	advisoryTitle : 'Infobulle',
     	anchor : 
     	{
     		toolbar : 'Ancre',
-    		menu : 'Editer l\'ancre',
+    		menu : 'Modifier l\'ancre',
     		title : 'Propriétés de l\'ancre',
     		name : 'Nom de l\'ancre',
     		errorName : 'Veuillez entrer le nom de l\'ancre.',
@@ -202,52 +202,52 @@ CKEDITOR.lang['fr'] = {
     	},
     	anchorId : 'Par ID d\'élément',
     	anchorName : 'Par nom d\'ancre',
-    	charset : 'Charset de la cible',
-    	cssClasses : 'Classe CSS',
-    	download : 'Force Download',
-    	emailAddress : 'Adresse E-Mail',
+    	charset : 'Encodage de la ressource liée',
+    	cssClasses : 'Classes de style',
+    	displayText : 'Display Text',
+    	emailAddress : 'Adresse électronique',
     	emailBody : 'Corps du message',
     	emailSubject : 'Sujet du message',
-    	id : 'Id',
-    	info : 'Infos sur le lien',
+    	id : 'ID',
+    	info : 'Informations sur le lien',
     	langCode : 'Code de langue',
     	langDir : 'Sens d\'écriture',
     	langDirLTR : 'Gauche à droite',
-    	langDirRTL : 'Droite à gauche',
-    	menu : 'Editer le lien',
+    	langDirRTL : 'Droite à gauche (RTL)',
+    	menu : 'Modifier le lien',
     	name : 'Nom',
     	noAnchors : '(Aucune ancre disponible dans ce document)',
-    	noEmail : 'Veuillez entrer l\'adresse e-mail',
-    	noUrl : 'Veuillez entrer l\'adresse du lien',
+    	noEmail : 'Veuillez entrer l\'adresse électronique',
+    	noUrl : 'Veuillez entrer l\'URL du lien',
     	other : '<autre>',
     	popupDependent : 'Dépendante (Netscape)',
-    	popupFeatures : 'Options de la fenêtre popup',
+    	popupFeatures : 'Caractéristiques de la fenêtre surgissante',
     	popupFullScreen : 'Plein écran (IE)',
-    	popupLeft : 'Position gauche',
+    	popupLeft : 'À gauche',
     	popupLocationBar : 'Barre d\'adresse',
     	popupMenuBar : 'Barre de menu',
     	popupResizable : 'Redimensionnable',
     	popupScrollBars : 'Barres de défilement',
-    	popupStatusBar : 'Barre de status',
+    	popupStatusBar : 'Barre d\'état',
     	popupToolbar : 'Barre d\'outils',
-    	popupTop : 'Position haute',
+    	popupTop : 'En haut',
     	rel : 'Relation',
-    	selectAnchor : 'Sélectionner l\'ancre',
+    	selectAnchor : 'Sélectionner une ancre',
     	styles : 'Style',
-    	tabIndex : 'Index de tabulation',
+    	tabIndex : 'Indice de tabulation',
     	target : 'Cible',
     	targetFrame : '<cadre>',
-    	targetFrameName : 'Nom du Cadre destination',
-    	targetPopup : '<fenêtre popup>',
-    	targetPopupName : 'Nom de la fenêtre popup',
+    	targetFrameName : 'Nom du cadre affecté',
+    	targetPopup : '<fenêtre surgissante>',
+    	targetPopupName : 'Nom de la fenêtre surgissante',
     	title : 'Lien',
     	toAnchor : 'Ancre',
-    	toEmail : 'E-mail',
+    	toEmail : 'Courriel',
     	toUrl : 'URL',
     	toolbar : 'Lien',
     	type : 'Type de lien',
     	unlink : 'Supprimer le lien',
-    	upload : 'Envoyer'
+    	upload : 'Téléverser'
     },
     justify : 
     {
@@ -258,30 +258,30 @@ CKEDITOR.lang['fr'] = {
     },
     indent : 
     {
-    	indent : 'Augmenter le retrait (tabulation)',
-    	outdent : 'Diminuer le retrait (tabulation)'
+    	indent : 'Augmenter le retrait',
+    	outdent : 'Diminuer le retrait'
     },
     image : 
     {
-    	alt : 'Texte de remplacement',
+    	alt : 'Texte alternatif',
     	border : 'Bordure',
     	btnUpload : 'Envoyer sur le serveur',
-    	button2Img : 'Voulez-vous transformer le bouton image sélectionné en simple image?',
+    	button2Img : 'Voulez-vous transformer le bouton avec image sélectionné en simple image ?',
     	hSpace : 'Espacement horizontal',
-    	img2Button : 'Voulez-vous transformer l\'image en bouton image?',
+    	img2Button : 'Voulez-vous transformer l\'image sélectionnée en bouton avec image ?',
     	infoTab : 'Informations sur l\'image',
     	linkTab : 'Lien',
     	lockRatio : 'Conserver les proportions',
     	menu : 'Propriétés de l\'image',
-    	resetSize : 'Taille d\'origine',
+    	resetSize : 'Réinitialiser la taille',
     	title : 'Propriétés de l\'image',
-    	titleButton : 'Propriétés du bouton image',
-    	upload : 'Envoyer',
-    	urlMissing : 'L\'adresse source de l\'image est manquante.',
+    	titleButton : 'Propriétés du bouton avec image',
+    	upload : 'Téléverser',
+    	urlMissing : 'L\'URL source de l\'image est manquante.',
     	vSpace : 'Espacement vertical',
-    	validateBorder : 'Bordure doit être un entier.',
-    	validateHSpace : 'HSpace doit être un entier.',
-    	validateVSpace : 'VSpace doit être un entier.'
+    	validateBorder : 'La bordure doit être un nombre entier.',
+    	validateHSpace : 'L\'espacement horizontal doit être un nombre entier.',
+    	validateVSpace : 'L\'espacement vertical doit être un nombre entier.'
     },
     horizontalrule : 
     {
@@ -292,7 +292,7 @@ CKEDITOR.lang['fr'] = {
     	label : 'Format',
     	panelTitle : 'Format de paragraphe',
     	tag_address : 'Adresse',
-    	tag_div : 'Normal (DIV)',
+    	tag_div : 'Division',
     	tag_h1 : 'Titre 1',
     	tag_h2 : 'Titre 2',
     	tag_h3 : 'Titre 3',
@@ -300,36 +300,36 @@ CKEDITOR.lang['fr'] = {
     	tag_h5 : 'Titre 5',
     	tag_h6 : 'Titre 6',
     	tag_p : 'Normal',
-    	tag_pre : 'Formaté'
+    	tag_pre : 'Préformaté'
     },
     fakeobjects : 
     {
     	anchor : 'Ancre',
     	flash : 'Animation Flash',
-    	hiddenfield : 'Champ caché',
-    	iframe : 'IFrame',
+    	hiddenfield : 'Champ invisible',
+    	iframe : 'Cadre de contenu incorporé',
     	unknown : 'Objet inconnu'
     },
     elementspath : 
     {
-    	eleLabel : 'Elements path',
-    	eleTitle : '%1 éléments'
+    	eleLabel : 'Chemin des éléments',
+    	eleTitle : 'Élément %1'
     },
     div : 
     {
-    	IdInputLabel : 'Id',
-    	advisoryTitleInputLabel : 'Advisory Title',
-    	cssClassInputLabel : 'Classe CSS',
-    	edit : 'Éditer la DIV',
+    	IdInputLabel : 'ID',
+    	advisoryTitleInputLabel : 'Infobulle',
+    	cssClassInputLabel : 'Classes de style',
+    	edit : 'Modifier la division',
     	inlineStyleInputLabel : 'Style en ligne',
     	langDirLTRLabel : 'Gauche à droite (LTR)',
     	langDirLabel : 'Sens d\'écriture',
     	langDirRTLLabel : 'Droite à gauche (RTL)',
     	languageCodeInputLabel : 'Code de langue',
-    	remove : 'Enlever la DIV',
+    	remove : 'Enlever la division',
     	styleSelectLabel : 'Style',
-    	title : 'Créer un container DIV',
-    	toolbar : 'Créer un container DIV'
+    	title : 'Créer une division',
+    	toolbar : 'Créer une division'
     },
     contextmenu : 
     {
@@ -338,13 +338,13 @@ CKEDITOR.lang['fr'] = {
     colorbutton : 
     {
     	auto : 'Automatique',
-    	bgColorTitle : 'Couleur d\'arrière plan',
+    	bgColorTitle : 'Couleur d\'arrière-plan',
     	colors : 
     	{
     		'000' : 'Noir',
     		'800000' : 'Marron',
-    		'8B4513' : 'Brun moyen',
-    		'2F4F4F' : 'Vert sombre',
+    		'8B4513' : 'Brun de selle',
+    		'2F4F4F' : 'Gris sombre d\'ardoise',
     		'008080' : 'Canard',
     		'000080' : 'Bleu marine',
     		'4B0082' : 'Indigo',
@@ -355,7 +355,7 @@ CKEDITOR.lang['fr'] = {
     		'006400' : 'Vert foncé',
     		'40E0D0' : 'Turquoise',
     		'0000CD' : 'Bleu royal',
-    		'800080' : 'Pourpre',
+    		'800080' : 'Violet',
     		'808080' : 'Gris',
     		F00 : 'Rouge',
     		FF8C00 : 'Orange foncé',
@@ -364,8 +364,8 @@ CKEDITOR.lang['fr'] = {
     		'0FF' : 'Cyan',
     		'00F' : 'Bleu',
     		EE82EE : 'Violet',
-    		A9A9A9 : 'Gris moyen',
-    		FFA07A : 'Saumon',
+    		A9A9A9 : 'Gris tamisé',
+    		FFA07A : 'Saumon clair',
     		FFA500 : 'Orange',
     		FFFF00 : 'Jaune',
     		'00FF00' : 'Lime',
@@ -373,10 +373,10 @@ CKEDITOR.lang['fr'] = {
     		ADD8E6 : 'Bleu clair',
     		DDA0DD : 'Prune',
     		D3D3D3 : 'Gris clair',
-    		FFF0F5 : 'Fard Lavande',
+    		FFF0F5 : 'Fard lavande',
     		FAEBD7 : 'Blanc antique',
     		FFFFE0 : 'Jaune clair',
-    		F0FFF0 : 'Honeydew',
+    		F0FFF0 : 'Vert rosée',
     		F0FFFF : 'Azur',
     		F0F8FF : 'Bleu Alice',
     		E6E6FA : 'Lavande',
@@ -384,18 +384,18 @@ CKEDITOR.lang['fr'] = {
     	},
     	more : 'Plus de couleurs...',
     	panelTitle : 'Couleurs',
-    	textColorTitle : 'Couleur de texte'
+    	textColorTitle : 'Couleur du texte'
     },
     clipboard : 
     {
     	copy : 'Copier',
-    	copyError : 'Les paramètres de sécurité de votre navigateur ne permettent pas à l\'éditeur d\'exécuter automatiquement des opérations de copie. Veuillez utiliser le raccourci clavier (Ctrl/Cmd+C).',
+    	copyError : 'Les paramètres de sécurité de votre navigateur n\'autorisent pas l\'éditeur à exécuter automatiquement l\'opération « Copier ». Veuillez utiliser le raccourci clavier à cet effet (Ctrl/Cmd+C).',
     	cut : 'Couper',
-    	cutError : 'Les paramètres de sécurité de votre navigateur ne permettent pas à l\'éditeur d\'exécuter automatiquement l\'opération "couper". Veuillez utiliser le raccourci clavier (Ctrl/Cmd+X).',
+    	cutError : 'Les paramètres de sécurité de votre navigateur n\'autorisent pas l\'éditeur à exécuter automatiquement l\'opération « Couper ». Veuillez utiliser le raccourci clavier à cet effet (Ctrl/Cmd+X).',
     	paste : 'Coller',
     	pasteArea : 'Coller la zone',
     	pasteMsg : 'Veuillez coller le texte dans la zone suivante en utilisant le raccourci clavier (<strong>Ctrl/Cmd+V</strong>) et cliquez sur OK.',
-    	securityMsg : 'A cause des paramètres de sécurité de votre navigateur, l\'éditeur n\'est pas en mesure d\'accéder directement à vos données contenues dans le presse-papier. Vous devriez réessayer de coller les données dans la fenêtre.',
+    	securityMsg : 'Les paramètres de sécurité de votre navigateur empêchent l\'éditeur d\'accéder directement aux données du presse-papier. Vous devez les coller à nouveau dans cette fenêtre.',
     	title : 'Coller'
     },
     button : 
@@ -419,61 +419,61 @@ CKEDITOR.lang['fr'] = {
     {
     	copy : 'Copyright &copy; $1. Tous droits réservés.',
     	dlgTitle : 'À propos de CKEditor',
-    	help : 'Consulter $1 pour l\'aide.',
-    	moreInfo : 'Pour les informations de licence, veuillez visiter notre site web:',
+    	help : 'Consulter $1 pour obtenir de l\'aide.',
+    	moreInfo : 'Pour les informations de licence, veuillez visiter notre site web :',
     	title : 'À propos de CKEditor',
-    	userGuide : 'Guide de l\'utilisateur CKEditor en anglais'
+    	userGuide : 'Guide de l\'utilisateur CKEditor (en anglais)'
     },
-    editor : 'Éditeur de Texte Enrichi',
+    editor : 'Éditeur de texte enrichi',
     editorPanel : 'Tableau de bord de l\'éditeur de texte enrichi',
     common : 
     {
-    	editorHelp : 'Appuyez sur ALT-0 pour l\'aide',
-    	browseServer : 'Explorer le serveur',
+    	editorHelp : 'Utilisez le raccourci Alt-0 pour obtenir de l\'aide',
+    	browseServer : 'Parcourir le serveur',
     	url : 'URL',
     	protocol : 'Protocole',
-    	upload : 'Télécharger',
+    	upload : 'Téléverser',
     	uploadSubmit : 'Envoyer sur le serveur',
     	image : 'Image',
     	flash : 'Flash',
     	form : 'Formulaire',
     	checkbox : 'Case à cocher',
-    	radio : 'Bouton Radio',
+    	radio : 'Bouton radio',
     	textField : 'Champ texte',
     	textarea : 'Zone de texte',
-    	hiddenField : 'Champ caché',
+    	hiddenField : 'Champ invisible',
     	button : 'Bouton',
     	select : 'Liste déroulante',
-    	imageButton : 'Bouton image',
-    	notSet : '<non défini>',
-    	id : 'Id',
+    	imageButton : 'Bouton avec image',
+    	notSet : '<indéfini>',
+    	id : 'ID',
     	name : 'Nom',
     	langDir : 'Sens d\'écriture',
     	langDirLtr : 'Gauche à droite (LTR)',
     	langDirRtl : 'Droite à gauche (RTL)',
     	langCode : 'Code de langue',
-    	longDescr : 'URL de description longue (longdesc => malvoyant)',
-    	cssClass : 'Classe CSS',
-    	advisoryTitle : 'Description (title)',
+    	longDescr : 'URL de description longue',
+    	cssClass : 'Classes de style',
+    	advisoryTitle : 'Infobulle',
     	cssStyle : 'Style',
     	ok : 'OK',
     	cancel : 'Annuler',
     	close : 'Fermer',
     	preview : 'Aperçu',
-    	resize : 'Déplacer pour modifier la taille',
+    	resize : 'Redimensionner',
     	generalTab : 'Général',
     	advancedTab : 'Avancé',
     	validateNumberFailed : 'Cette valeur n\'est pas un nombre.',
-    	confirmNewPage : 'Les changements non sauvegardés seront perdus. Êtes-vous sûr de vouloir charger une nouvelle page?',
-    	confirmCancel : 'Certaines options ont été modifiées. Êtes-vous sûr de vouloir fermer?',
+    	confirmNewPage : 'Les changements non sauvegardés seront perdus. Êtes-vous sûr de vouloir charger une nouvelle page ?',
+    	confirmCancel : 'Certaines options ont été modifiées. Êtes-vous sûr de vouloir fermer ?',
     	options : 'Options',
-    	target : 'Cible (Target)',
+    	target : 'Cible',
     	targetNew : 'Nouvelle fenêtre (_blank)',
     	targetTop : 'Fenêtre supérieure (_top)',
     	targetSelf : 'Même fenêtre (_self)',
     	targetParent : 'Fenêtre parent (_parent)',
-    	langDirLTR : 'Gauche à Droite (LTR)',
-    	langDirRTL : 'Droite à Gauche (RTL)',
+    	langDirLTR : 'Gauche à droite (LTR)',
+    	langDirRTL : 'Droite à gauche (RTL)',
     	styles : 'Style',
     	cssClasses : 'Classes de style',
     	width : 'Largeur',
@@ -481,18 +481,18 @@ CKEDITOR.lang['fr'] = {
     	align : 'Alignement',
     	alignLeft : 'Gauche',
     	alignRight : 'Droite',
-    	alignCenter : 'Centré',
+    	alignCenter : 'Centrer',
     	alignJustify : 'Justifier',
     	alignTop : 'Haut',
     	alignMiddle : 'Milieu',
     	alignBottom : 'Bas',
     	alignNone : 'Aucun',
-    	invalidValue : 'Valeur incorrecte.',
+    	invalidValue : 'Valeur invalide.',
     	invalidHeight : 'La hauteur doit être un nombre.',
     	invalidWidth : 'La largeur doit être un nombre.',
-    	invalidCssLength : 'La valeur spécifiée pour le champ "%1" doit être un nombre positif avec ou sans unité de mesure CSS valide (px, %, in, cm, mm, em, ex, pt, ou pc).',
-    	invalidHtmlLength : 'La valeur spécifiée pour le champ "%1" doit être un nombre positif avec ou sans unité de mesure HTML valide (px ou %).',
-    	invalidInlineStyle : 'La valeur spécifiée pour le style inline doit être composée d\'un ou plusieurs couples de valeur au format "nom : valeur", separés par des points-virgules.',
+    	invalidCssLength : 'La valeur spécifiée pour le champ « %1 » doit être un nombre positif avec ou sans unité de mesure CSS valide (px, %, in, cm, mm, em, ex, pt, ou pc).',
+    	invalidHtmlLength : 'La valeur spécifiée pour le champ « %1 » doit être un nombre positif avec ou sans unité de mesure HTML valide (px ou %).',
+    	invalidInlineStyle : 'La valeur spécifiée pour le style en ligne doit être composée d\'un ou plusieurs couples au format « nom : valeur », séparés par des points-virgules.',
     	cssLengthTooltip : 'Entrer un nombre pour une valeur en pixels ou un nombre avec une unité de mesure CSS valide (px, %, in, cm, mm, em, ex, pt, ou pc).',
-    	unavailable : '%1<span class="cke_accessibility">, Indisponible</span>'
+    	unavailable : '%1<span class="cke_accessibility">, indisponible</span>'
     } }; 
