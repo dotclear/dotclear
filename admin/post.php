@@ -271,7 +271,7 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt)
 	$cur = $core->con->openCursor($core->prefix.'post');
 
 	$cur->post_title = $post_title;
-	$cur->cat_id = ($cat_id ? $cat_id : null);
+	$cur->cat_id = ($cat_id ?: null);
 	$cur->post_dt = $post_dt ? date('Y-m-d H:i:00',strtotime($post_dt)) : '';
 	$cur->post_format = $post_format;
 	$cur->post_password = $post_password;

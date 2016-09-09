@@ -143,8 +143,8 @@ class dcImportFeed extends dcIeModule
 		{
 			$cur->clean();
 			$cur->user_id = $this->core->auth->userID();
-			$cur->post_content = $item->content ? $item->content : $item->description;
-			$cur->post_title = $item->title ? $item->title : text::cutString(html::clean($cur->post_content),60);
+			$cur->post_content = $item->content ?: $item->description;
+			$cur->post_title = $item->title ?: text::cutString(html::clean($cur->post_content),60);
 			$cur->post_format = 'xhtml';
 			$cur->post_status = -2;
 			$cur->post_dt = strftime('%Y-%m-%d %H:%M:%S',$item->TS);

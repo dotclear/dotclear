@@ -105,10 +105,10 @@ class dcPage
 		if ($core->blog->settings->system->csp_admin_on) {
 			// Get directives from settings if exist, else set defaults
 			$csp = new ArrayObject(array());
-			$csp['default-src'] = $core->blog->settings->system->csp_admin_default ? $core->blog->settings->system->csp_admin_default : "'self'";
-			$csp['script-src'] = $core->blog->settings->system->csp_admin_script ? $core->blog->settings->system->csp_admin_script : "'self' 'unsafe-inline' 'unsafe-eval'";
-			$csp['style-src'] = $core->blog->settings->system->csp_admin_style ? $core->blog->settings->system->csp_admin_style : "'self' 'unsafe-inline'";
-			$csp['img-src'] = $core->blog->settings->system->csp_admin_img ? $core->blog->settings->system->csp_admin_img : "'self' data: media.dotaddict.org";
+			$csp['default-src'] = $core->blog->settings->system->csp_admin_default ?: "'self'";
+			$csp['script-src'] = $core->blog->settings->system->csp_admin_script ?: "'self' 'unsafe-inline' 'unsafe-eval'";
+			$csp['style-src'] = $core->blog->settings->system->csp_admin_style ?: "'self' 'unsafe-inline'";
+			$csp['img-src'] = $core->blog->settings->system->csp_admin_img ?: "'self' data: media.dotaddict.org";
 
 			# Cope with blog post preview (via public URL in iframe)
 			if (!is_null($core->blog->host)) {
@@ -297,7 +297,7 @@ class dcPage
 	protected static function getNotification($n)
 	{
 		global $core;
-		$tag = (isset($n['divtag'])&& $n['divtag'])?'div':'p';
+		$tag = (isset($n['divtag']) && $n['divtag']) ? 'div' : 'p';
 		$ts = '';
 		if (!isset($n['with_ts']) || ($n['with_ts'] == true)) {
 			$ts = dt::str(__('[%H:%M:%S]'),$n['ts'],$core->auth->getInfo('user_tz')).' ';
@@ -441,9 +441,9 @@ class dcPage
 	public static function breadcrumb($elements=null,$options=array())
 	{
 		global $core;
-		$with_home_link = isset($options['home_link'])?$options['home_link']:true;
-		$hl = isset($options['hl'])?$options['hl']:true;
-		$hl_pos = isset($options['hl_pos'])?$options['hl_pos']:-1;
+		$with_home_link = isset($options['home_link']) ? $options['home_link'] : true;
+		$hl = isset($options['hl']) ? $options['hl'] : true;
+		$hl_pos = isset($options['hl_pos']) ? $options['hl_pos'] : -1;
 		// First item of array elements should be blog's name, System or Plugins
 		$res = '<h2>'.($with_home_link ?
 			'<a class="go_home" href="'.$core->adminurl->get("admin.home").'"><img src="style/dashboard.png" alt="'.__('Go to dashboard').'" /></a>' :

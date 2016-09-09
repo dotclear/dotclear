@@ -170,7 +170,7 @@ class dcTrackback
 
 		$comment =
 		"<!-- TB -->\n".
-		'<p><strong>'.($title ? $title : $blog_name)."</strong></p>\n".
+		'<p><strong>'.($title ?: $blog_name)."</strong></p>\n".
 		'<p>'.$excerpt.'</p>';
 
 		$cur = $this->core->con->openCursor($this->core->prefix.'comment');

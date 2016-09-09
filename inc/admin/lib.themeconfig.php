@@ -70,7 +70,7 @@ class dcThemeConfig
 		}
 
 		// Eval font size in em (assume base font size in pixels equal to 16)
-		if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex)?$/',$size,$m)) {
+		if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem)?$/',$size,$m)) {
 			if (empty($m[2])) {
 				$m[2] = 'em';
 			}
@@ -143,7 +143,7 @@ class dcThemeConfig
  */
 	public static function adjustFontSize($s)
 	{
-		if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex)?$/',$s,$m)) {
+		if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem)?$/',$s,$m)) {
 			if (empty($m[2])) {
 				$m[2] = 'em';
 			}

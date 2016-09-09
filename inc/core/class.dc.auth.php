@@ -216,7 +216,7 @@ class dcAuth
 
 		# Check here for user and IP address
 		$this->checkUser($_SESSION['sess_user_id']);
-		$uid = $uid ? $uid : http::browserUID(DC_MASTER_KEY);
+		$uid = $uid ?: http::browserUID(DC_MASTER_KEY);
 
 		$user_can_log = $this->userID() !== null && $uid == $_SESSION['sess_browser_uid'];
 

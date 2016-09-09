@@ -46,7 +46,7 @@ if (!empty($_POST['mov']) && !empty($_POST['mov_cat'])) {
 		$cat_id = (int) $keys[0];
 		$mov_cat = (int) $_POST['mov_cat'][$cat_id];
 
-		$mov_cat = $mov_cat ? $mov_cat : null;
+		$mov_cat = $mov_cat ?: null;
 		if ($mov_cat !== null) {
 			$c = $core->blog->getCategory($mov_cat);
 			if ($c->isEmpty()) {
