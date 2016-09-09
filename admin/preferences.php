@@ -46,7 +46,7 @@ if ($core->auth->isSuperAdmin()) {
 }
 $user_ui_iconset = @$core->auth->user_prefs->interface->iconset;
 $user_ui_nofavmenu = $core->auth->user_prefs->interface->nofavmenu;
-$user_ui_media_by_page = ($core->auth->user_prefs->interface->media_by_page ? $core->auth->user_prefs->interface->media_by_page : 30);
+$user_ui_media_by_page = ($core->auth->user_prefs->interface->media_by_page ?: 30);
 $user_ui_media_nb_last_dirs = $core->auth->user_prefs->interface->media_nb_last_dirs;
 
 $default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'user-profile';

@@ -276,7 +276,7 @@ class dcMaintenanceAdmin
 					}
 				}
 				if (!empty($res_task)) {
-					$desc = $group_obj->description ? $group_obj->description : $group_obj->summary;
+					$desc = $group_obj->description ?: $group_obj->summary;
 
 					$res_group .=
 					'<h5>'.$group_obj->name().'</h5>'.
@@ -285,7 +285,7 @@ class dcMaintenanceAdmin
 				}
 			}
 			if (!empty($res_group)) {
-				$desc = $tab_obj->description ? $tab_obj->description : $tab_obj->summary;
+				$desc = $tab_obj->description ?: $tab_obj->summary;
 
 				$res_tab .=
 				'<h4>'.$tab_obj->name().'</h4>'.

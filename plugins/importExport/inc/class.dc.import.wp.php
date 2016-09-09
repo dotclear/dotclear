@@ -657,7 +657,7 @@ class dcImportWP extends dcIeModule
 				$cur->post_status = -2;
 		}
 		$cur->post_type         = $rs->post_type;
-		$cur->post_password     = $rs->post_password ? $rs->post_password : NULL;
+		$cur->post_password     = $rs->post_password ?: NULL;
 		$cur->post_open_comment = $rs->comment_status == 'open' ? 1 : 0;
 		$cur->post_open_tb      = $rs->ping_status == 'open' ? 1 : 0;
 

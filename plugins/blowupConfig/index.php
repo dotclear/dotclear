@@ -317,7 +317,7 @@ if ($can_write_images) {
 	echo
 	'<h5 class="pretty-title">'.__('Top image').'</h5>'.
 	'<p class="field"><label for="top_image">'.__('Top image').'</label> '.
-	form::combo('top_image',$top_images,($blowup_user['top_image'] ? $blowup_user['top_image'] : 'default')).'</p>'.
+	form::combo('top_image',$top_images,($blowup_user['top_image'] ?: 'default')).'</p>'.
 	'<p>'.__('Choose "Custom..." to upload your own image.').'</p>'.
 
 	'<p id="uploader"><label for="upfile">'.__('Add your image:').'</label> '.

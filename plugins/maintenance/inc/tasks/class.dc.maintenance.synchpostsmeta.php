@@ -34,7 +34,7 @@ class dcMaintenanceSynchpostsmeta extends dcMaintenanceTask
 	{
 		$this->code = $this->synchronizeAllPostsmeta($this->code, $this->limit);
 
-		return $this->code ? $this->code : true;
+		return $this->code ?: true;
 	}
 
 	public function task()

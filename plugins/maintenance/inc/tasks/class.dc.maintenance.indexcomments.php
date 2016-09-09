@@ -34,7 +34,7 @@ class dcMaintenanceIndexcomments extends dcMaintenanceTask
 	{
 		$this->code = $this->core->indexAllComments($this->code, $this->limit);
 
-		return $this->code ? $this->code : true;
+		return $this->code ?: true;
 	}
 
 	public function task()

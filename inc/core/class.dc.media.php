@@ -392,7 +392,7 @@ class dcMedia extends filemanager
 			$this->type = $type;
 		}
 
-		$media_dir = $this->relpwd ? $this->relpwd : '.';
+		$media_dir = $this->relpwd ?: '.';
 
 		$strReq =
 		'SELECT media_file, media_id, media_path, media_title, media_meta, media_dt, '.
@@ -659,7 +659,7 @@ class dcMedia extends filemanager
 
 	protected function rebuildDB($pwd)
 	{
-		$media_dir = $pwd ? $pwd : '.';
+		$media_dir = $pwd ?: '.';
 
 		$strReq =
 		'SELECT media_file, media_id '.
@@ -918,7 +918,7 @@ class dcMedia extends filemanager
 	*/
 	public function getDBDirs()
 	{
-		$media_dir = $this->relpwd ? $this->relpwd : '.';
+		$media_dir = $this->relpwd ?: '.';
 
 		$strReq =
 		'SELECT distinct media_dir '.

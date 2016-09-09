@@ -1505,7 +1505,7 @@ class dcBlog
 
 		$cur = $this->con->openCursor($this->prefix.'post');
 
-		$cur->cat_id = ($cat_id ? $cat_id : null);
+		$cur->cat_id = ($cat_id ?: null);
 		$cur->post_upddt = date('Y-m-d H:i:s');
 
 		$cur->update($strReq);
@@ -1529,7 +1529,7 @@ class dcBlog
 
 		$cur = $this->con->openCursor($this->prefix.'post');
 
-		$cur->cat_id = ($new_cat_id ? $new_cat_id : null);
+		$cur->cat_id = ($new_cat_id ?: null);
 		$cur->post_upddt = date('Y-m-d H:i:s');
 
 		$cur->update(

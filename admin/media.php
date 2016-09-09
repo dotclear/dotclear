@@ -34,7 +34,7 @@ $dir = null;
 $link_type = !empty($_REQUEST['link_type']) ? html::escapeHTML($_REQUEST['link_type']) : null;
 
 $page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
-$nb_per_page = ((integer) $core->auth->user_prefs->interface->media_by_page ? (integer) $core->auth->user_prefs->interface->media_by_page : 30);
+$nb_per_page = ((integer) $core->auth->user_prefs->interface->media_by_page ?: 30);
 
 # We are on home not comming from media manager
 if ($d === null && isset($_SESSION['media_manager_dir'])) {
@@ -160,7 +160,7 @@ if (!empty($_GET['zipdl']) && $core->auth->check('media_admin',$core->blog->id))
 			$zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).jpg$#');
 			$zip->addDirectory($core->media->root.'/'.$d,'',true);
 
-			header('Content-Disposition: attachment;filename='.date('Y-m-d').'-'.$core->blog->id.'-'.($d ? $d : 'media').'.zip');
+			header('Content-Disposition: attachment;filename='.date('Y-m-d').'-'.$core->blog->id.'-'.($d ?: 'media').'.zip');
 			header('Content-Type: application/x-zip');
 			$zip->write();
 			unset($zip);
