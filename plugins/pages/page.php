@@ -303,7 +303,6 @@ if ($post_editor) {
 	}
 }
 
-dcPage::setXFrameOptions($core->blog->url);
 ?>
 <html>
 <head>
