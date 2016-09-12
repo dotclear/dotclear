@@ -907,6 +907,9 @@ msgstr "Date"
 msgid "Entry title"
 msgstr "Titre de l'entrée"
 
+msgid "Entry date"
+msgstr "Date de l'entrée"
+
 msgid "Author"
 msgstr "Auteur"
 

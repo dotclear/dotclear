@@ -42,6 +42,7 @@ __('Trackback') => 'tb'
 $sortby_combo = array(
 __('Date') => 'comment_dt',
 __('Entry title') => 'post_title',
+__('Entry date') => 'post_dt',
 __('Author') => 'comment_author',
 __('Status') => 'comment_status'
 );
