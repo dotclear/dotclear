@@ -108,7 +108,29 @@ class dcUpdate
 				$client->setTimeout(4);
 				$client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
 				$client->get($path);
+				$status = (int) $client->getStatus();
 
+				if ($status >= 400) {
+					// If original URL uses HTTPS, try with HTTP
+					$url_parts = parse_url($client->getRequestURL());
+					if (isset($url_parts['scheme']) && $url_parts['scheme'] == 'https') {
+
+						// Replace https by http in url
+						$this->url = preg_replace('/^https(?=:\/\/)/i','http',$this->url);
+
+						$client = netHttp::initClient($this->url,$path);
+						if ($client !== false) {
+							$client->setTimeout(4);
+							$client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
+							$client->get($path);
+							$status = (int) $client->getStatus();
+						}
+					}
+				}
+
+				if (!$status || $status >= 400) {
+					return;
+				}
 				$this->readVersion($client->getContent());
 			}
 		}
@@ -208,8 +230,28 @@ class dcUpdate
 			$client->setPersistReferers(false);
 			$client->setOutput($dest);
 			$client->get($path);
+			$status = (int) $client->getStatus();
 
-			if ($client->getStatus() != 200) {
+			if ($status >= 400) {
+				// If original URL uses HTTPS, try with HTTP
+				$url_parts = parse_url($client->getRequestURL());
+				if (isset($url_parts['scheme']) && $url_parts['scheme'] == 'https') {
+
+					// Replace https by http in url
+					$url = preg_replace('/^https(?=:\/\/)/i','http',$url);
+
+					$client = netHttp::initClient($url,$path);
+					$client->setTimeout(4);
+					$client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
+					$client->useGzip(false);
+					$client->setPersistReferers(false);
+					$client->setOutput($dest);
+					$client->get($path);
+					$status = (int) $client->getStatus();
+				}
+			}
+
+			if ($status != 200) {
 				@unlink($dest);
 				throw new Exception();
 			}
