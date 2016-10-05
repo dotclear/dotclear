@@ -942,7 +942,7 @@ class dcMedia extends filemanager
 	{
 		$zip = new fileUnzip($f->file);
 		$zip->setExcludePattern($this->exclude_pattern);
-		$zip->getList(false,'#(^|/)(__MACOSX|\.svn|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
+		$list = $zip->getList(false,'#(^|/)(__MACOSX|\.svn|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 
 		if ($create_dir)
 		{
@@ -967,6 +967,24 @@ class dcMedia extends filemanager
 
 		$zip->unzipAll($target);
 		$zip->close();
+
+		// Clean-up all extracted filenames
+		$clean = function ($name) {
+			$n = text::deaccent($name);
+			$n = preg_replace('/^[.]/u','',$n);
+			return preg_replace('/[^A-Za-z0-9._\-\/]/u','_',$n);
+		};
+		foreach ($list as $zk => $zv) {
+			// Check if extracted file exists
+			$zf = $target.'/'.$zk;
+			if (!$zv['is_dir'] && file_exists($zf)) {
+				$zt = $clean($zf);
+				if ($zt != $zf) {
+					rename($zf,$zt);
+				}
+			}
+		}
+
 		return dirname($f->relname).'/'.$destination;
 	}
 
