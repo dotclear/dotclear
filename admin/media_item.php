@@ -184,7 +184,7 @@ if (!empty($_POST['save_blog_prefs']))
 }
 
 # Function to get image title based on meta
-function dcGetImageTitle($file,$pattern,$dto_first=false,$no_date_alone=false)
+$get_img_title = function ($file,$pattern,$dto_first=false,$no_date_alone=false)
 {
 	$res = array();
 	$pattern = preg_split('/\s*;;\s*/',$pattern);
@@ -224,7 +224,7 @@ function dcGetImageTitle($file,$pattern,$dto_first=false,$no_date_alone=false)
 		return '';
 	}
 	return implode($sep,$res);
-}
+};
 
 /* DISPLAY Main page
 -------------------------------------------------------- */
@@ -306,7 +306,7 @@ if ($select) {
 	if ($file->media_type == 'image')
 	{
 		$media_type = 'image';
-		$media_desc = dcGetImageTitle($file,
+		$media_desc = $get_img_title($file,
 			$core->blog->settings->system->media_img_title_pattern,
 			$core->blog->settings->system->media_img_use_dto_first,
 			$core->blog->settings->system->media_img_no_date_alone);
@@ -375,7 +375,7 @@ if ($popup && !$select)
 	if ($file->media_type == 'image')
 	{
 		$media_type = 'image';
-		$media_desc = dcGetImageTitle($file,
+		$media_desc = $get_img_title($file,
 			$core->blog->settings->system->media_img_title_pattern,
 			$core->blog->settings->system->media_img_use_dto_first,
 			$core->blog->settings->system->media_img_no_date_alone);
