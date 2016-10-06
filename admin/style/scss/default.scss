@@ -1,0 +1,71 @@
+/*
+# -- BEGIN LICENSE BLOCK --------------------------------------------------
+# This file is part of Dotclear 2.
+# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
+# Licensed under the GPL version 2.0 license.
+# See LICENSE file or http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+# -- END LICENSE BLOCK ----------------------------------------------------
+*/
+
+@charset "UTF-8";
+
+/** --------------------------------------------------
+    Start
+--------------------------------------------------- */
+@import "init/mixins-functions";    // mixins, fonctions
+@import "init/rebase";              // init html tags
+@import "init/config";              // theme variables
+
+/** --------------------------------------------------
+    Common rules
+--------------------------------------------------- */
+@import "partials/common";          // headings, links
+
+/** --------------------------------------------------
+    Layout
+--------------------------------------------------- */
+@import "partials/layout";
+
+/** --------------------------------------------------
+    Elements
+--------------------------------------------------- */
+@import "partials/markup";
+@import "partials/forms";
+@import "partials/buttons";
+@import "partials/messages";
+
+/** --------------------------------------------------
+    Components
+--------------------------------------------------- */
+@import "partials/header";
+@import "partials/main-menu";
+@import "partials/content";
+@import "partials/footer";
+
+/** --------------------------------------------------
+    Tables and Filters
+--------------------------------------------------- */
+@import "partials/tables";
+@import "partials/filters";
+
+/** --------------------------------------------------
+    Pages
+--------------------------------------------------- */
+@import "partials/auth";
+@import "partials/index";
+@import "partials/blog_pref";
+@import "partials/blog_theme";
+@import "partials/categories";
+@import "partials/media";
+@import "partials/media_item";
+@import "partials/plugins";
+@import "partials/entry";
+@import "partials/preferences";
+@import "partials/user";
+@import "partials/charte";
+
+/** --------------------------------------------------
+    Misc
+--------------------------------------------------- */
+@import "partials/classes";
+@import "partials/utils";

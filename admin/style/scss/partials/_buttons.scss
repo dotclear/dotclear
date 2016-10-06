@@ -1,0 +1,197 @@
+/* Removes inner padding and border in FF3+  - Knacss */
+
+button::-moz-focus-inner,
+input[type=button]::-moz-focus-inner,
+input[type=reset]::-moz-focus-inner,
+input[type=submit]::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+
+/* tous les boutons */
+
+button,
+a.button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+    border: 1px solid #ccc;
+    font-family: $sans-serif-input;
+    padding: 3px 10px;
+    line-height: normal !important;
+    display: inline-block;
+    font-size: 100%;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border-style: solid;
+    border-width: 1px;
+}
+
+button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+    -webkit-appearance: button;
+}
+
+
+/* validation */
+
+input[type=submit],
+a.button.submit,
+input.button.start {
+    color: #fff;
+    background-color: #25A6E1;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#25A6E1), to(#188BC0));
+    background-image: linear-gradient(#25A6E1, #188BC0);
+    border-color: #25A6E1;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+input[type=submit]:hover,
+input[type=submit]:focus,
+input.button.start:hover,
+input.button.start:focus,
+a.button.submit:hover,
+a.button.submit:focus {
+    background-color: #188BC0;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#188BC0), to(#25A6E1));
+    background-image: linear-gradient(#188BC0, #25A6E1);
+    border-color: #188BC0;
+}
+
+
+/* suppression, reset, "neutres" fond gris */
+
+button,
+input[type=button],
+input.button,
+input[type=reset],
+input[type=submit].reset,
+input.reset,
+input[type=submit].delete,
+input.delete,
+a.button,
+a.button.delete,
+a.button.reset {
+    color: #000;
+    background-color: #EAEAEA;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#EAEAEA));
+    background-image: linear-gradient(#f9f9f9, #EAEAEA);
+    background-repeat: repeat-x;
+    border-color: #dfdfdf #dfdfdf #C5C5C5;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+button:hover,
+input[type=button]:hover,
+input.button:hover,
+button:focus,
+input[type=button]:focus,
+input.button:focus,
+input[type=reset]:hover,
+input[type=submit].reset:hover,
+input.reset:hover,
+input[type=reset]:focus,
+input[type=submit].reset:focus,
+input.reset:focus,
+input[type=submit].delete:hover,
+input.delete:hover,
+input[type=submit].delete:focus,
+input.delete:focus,
+a.button.delete:hover,
+a.button.reset:hover,
+a.button:hover,
+a.button.delete:focus,
+a.button.reset:focus,
+a.button:focus {
+    background-color: #DADADA;
+    background-image: -webkit-gradient( linear, left top, left bottom, from(#EAEAEA), to(#DADADA));
+    background-image: linear-gradient(#EAEAEA, #DADADA);
+    background-repeat: repeat-x;
+    border-color: #CCCCCC #CCCCCC #B5B5B5;
+}
+
+
+/* suppression */
+
+input[type=submit].delete,
+input.delete,
+a.button.delete {
+    color: #900;
+}
+
+input[type=submit].delete:hover,
+input.delete:hover,
+a.button.delete:hover,
+input[type=submit].delete:focus,
+input.delete:focus,
+a.button.delete:focus {
+    color: #FFFFFF;
+    background-color: #B33630;
+    background-image: -webkit-gradient( linear, left top, left bottom, from(#DC5F59), to(#B33630));
+    background-image: linear-gradient(#DC5F59, #B33630);
+    background-repeat: repeat-x;
+    border-color: #CD504A;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+#info-box a.button {
+    padding: 0 .5em;
+    margin-left: 2em;
+}
+
+.button.add {
+    color: #000;
+    background-color: #bee74b;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#bee74b), to(#9BCA1C));
+    background-image: linear-gradient(#bee74b, #9BCA1C);
+    border-color: #bee74b;
+    padding: .33em 1.33em .5em;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+    font-weight: normal;
+    font-size: 1.16em;
+}
+
+.button.add:hover,
+.button.add:active,
+.button.add:focus {
+    background-color: #9BCA1C;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#9BCA1C), to(#bee74b));
+    background-image: linear-gradient(#9BCA1C, #bee74b);
+    border-color: #9BCA1C;
+}
+
+.button-add:focus {
+    outline: dotted 1px;
+}
+
+
+/* paragraphe pour bouton Nouveau bidule */
+
+p.top-add {
+    text-align: right;
+    margin: 0;
+}
+
+
+/* disabled */
+
+input.disabled,
+input[type=submit].disabled {
+    text-shadow: none;
+    color: #676e78;
+    background: #F5F5F5;
+    border: 1px solid #CCC;
+}
+
+input.disabled:hover,
+input[type=submit].disabled:hover {
+    color: #676e78;
+    background: #eee;
+    border: 1px solid #CCC;
+}

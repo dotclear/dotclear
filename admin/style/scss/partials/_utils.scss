@@ -1,0 +1,103 @@
+/* debug */
+
+#debug {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    background: #ffd478;
+}
+
+#debug div {
+    display: none;
+    padding: 3px 0.5em 2px;
+}
+
+#debug p {
+    margin: 0.5em 0;
+}
+
+#debug:hover {
+    height: auto;
+    padding: 2px 1em;
+    z-index: 100;
+}
+
+#debug:hover div {
+    display: block;
+}
+
+.debug {
+    background: #ffd478;
+    padding: 3px 0.5em 2px;
+}
+
+input[type=submit].delete.debug,
+a.delete.debug {
+    border-color: #ffd478;
+}
+
+input[type=submit].delete.debug:hover,
+a.delete.debug:hover {
+    background: #ffd478;
+    color: #900;
+    border-color: #ffd478;
+}
+
+
+/* ---------------------------------------------- Couleurs ajoutées via javascript
+/* color-picker.js */
+
+.color-color-picker {
+    border: 1px solid #000;
+    width: 195px;
+    background: #fff;
+}
+
+
+/* _media_item.js */
+
+.color-div {
+    border: 1px solid #ccc;
+}
+
+
+/* fadings ('color' est utilisé comme variable, pas comme text color) */
+
+.colorBeginPassword,
+.colorBeginValidatorErr,
+.colorBeginUserMail {
+    color: #fff;
+}
+
+.colorEndPassword,
+.colorEndError,
+.colorEndValidatorErr,
+.colorEndUserMail {
+    color: #ffbaba;
+}
+
+.colorBeginMessage {
+    color: #ccc;
+}
+
+.colorEndMessage,
+.colorBeginValidatorMsg {
+    color: #676e78;
+}
+
+.colorBeginError {
+    color: #fefacd;
+}
+
+.colorBeginSuccess {
+    color: #9BCA1C;
+}
+
+.colorEndSuccess {
+    color: #bee74b;
+}
+
+.colorEndValidatorMsg {
+    color: #ffcc00;
+}

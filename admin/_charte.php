@@ -78,8 +78,8 @@ dcPage::check('usage,contentadmin');
 
 	<div id="wrapper" class="clearfix">
 		<div class="hidden-if-no-js collapser-box"><a href="#" id="collapser">
-		<img class="collapse-mm" src="images/collapser-hide.png" alt="Cacher le menu" />
-		<img class="expand-mm" src="images/collapser-show.png" alt="Montrer le menu" />
+		<img class="collapse-mm visually-hidden" src="images/collapser-hide.png" alt="Cacher le menu" />
+		<img class="expand-mm visually-hidden" src="images/collapser-show.png" alt="Montrer le menu" />
 		</a></div>
 		<div id="main">
 			<div id="content" class="clearfix">

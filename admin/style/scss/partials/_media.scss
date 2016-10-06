@@ -1,0 +1,298 @@
+span.media-file-mode {
+    margin-right: 1em;
+}
+
+.media-file-mode a {
+    border-bottom: none;
+}
+
+.media-file-mode img {
+    margin-right: 1em;
+}
+
+.media-item {
+    position: relative;
+    border: 1px solid #dfdfdf;
+    margin: 9px;
+    padding: 10px 12px 6px;
+    width: 320px;
+    display: inline-block;
+    vertical-align: top;
+    min-height: 140px;
+    word-wrap: break-word;
+}
+
+.media-item p {
+    margin: 0 0 .5em;
+}
+
+.media-item object {
+    margin-top: .5em;
+}
+
+.media-item ul {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.media-item audio {
+    width: 90%;
+    margin-top: .5em;
+}
+
+a.media-icon {
+    display: block;
+    border-bottom: none;
+    margin: 0 auto;
+}
+
+.media-icon img {
+    display: block;
+}
+
+a.media-flag {
+    border-bottom: none;
+}
+
+.media-flag img {
+    float: left;
+    margin-right: .5em;
+}
+
+.media-link {
+    font-size: 1.1em;
+}
+
+.media-action-box {
+    position: relative;
+    margin: 3em 3em 1em 1em;
+    display: inline-block;
+    vertical-align: top;
+}
+
+li.media-action {
+    display: block;
+    position: absolute;
+    bottom: 4px;
+    right: 8px;
+    height: 16px;
+}
+
+li.media-action a {
+    border: none;
+}
+
+li.media-action a.attach-media {
+    margin-right: 5px;
+}
+
+li.media-action form {
+    display: inline;
+}
+
+li.media-action input {
+    border: none;
+}
+
+#entry-sidebar .media-item {
+    width: 100%;
+    min-height: 0;
+    padding: 4px;
+    margin: .33em 0;
+}
+
+#entry-sidebar li.media-action {
+    top: 4px;
+}
+
+.folders-group .media-item {
+    min-height: 70px;
+}
+
+.folders-group .media-item p {
+    margin-bottom: 0;
+}
+
+.media-folder {
+    background: transparent url(bg_menu.png) repeat-y;
+    border-color: #eee;
+}
+
+tr.media-folder {
+    background: transparent;
+}
+
+.media-folder-up {
+    border-color: #fff;
+    padding-bottom: 6px;
+}
+
+.media-folder .media-link {
+    font-size: 1.25em;
+    margin-left: 2em;
+    color: #676e78;
+    border-bottom: none;
+}
+
+.medias-delete,
+.medias-select {
+    text-align: right;
+}
+
+.media-recent {
+    float: left;
+    margin-right: 2em;
+}
+
+#media-fav-dir {
+    border-bottom: none;
+}
+
+#media-fav-dir img {
+    vertical-align: middle;
+}
+
+
+/* upload multiple */
+
+.enhanced_uploader .choose_files,
+.enhanced_uploader .cancel,
+.enhanced_uploader .clean,
+.enhanced_uploader .start {
+    margin-right: .4em;
+}
+
+.enhanced_uploader #upfile {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    margin: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+}
+
+.button.clean,
+.button.cancel,
+.button.choose_files {
+    display: none;
+}
+
+.enhanced_uploader .button.choose_files {
+    display: inline-block;
+}
+
+.enhanced_uploader .max-size {
+    display: block;
+}
+
+.enhanced_uploader .one-file {
+    display: none;
+}
+
+label span.one-file {
+    display: inline;
+}
+
+.enhanced_uploader p.clear {
+    padding-top: 1em;
+    margin-bottom: 1em;
+}
+
+#add-file-f p.clear {
+    margin-top: 1em;
+    margin-bottom: 0;
+    clear: both;
+}
+
+.files {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.files li {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.upload-msg {
+    font-weight: bold;
+}
+
+.upload-msg.upload-error {
+    color: #900;
+}
+
+.upload-files {
+    padding: 0 0.5em;
+    margin: 1em 0;
+}
+
+.upload-file {
+    margin: 0;
+    padding: .3em 0;
+    border-top: 1px solid #dfdfdf;
+    position: relative;
+}
+
+.upload-fileinfo {
+    margin-left: 0;
+}
+
+.upload-fileinfo input {
+    position: absolute;
+    top: .5em;
+    right: .5em;
+}
+
+.upload-fileinfo span {
+    padding-right: 8px;
+}
+
+.upload-fileinfo .upload-filecancel {
+    display: block;
+    padding-right: 0;
+    margin-top: 3px;
+    width: 20px;
+    height: 20px;
+    background: transparent url("cancel.png") no-repeat left top;
+    text-indent: -1000px;
+    cursor: pointer;
+    float: left;
+}
+
+.upload-filemsg {
+    font-weight: bold;
+    color: green;
+}
+
+.upload-filemsg.upload-error {
+    color: #900;
+}
+
+.upload-progress {
+    padding: .3em 0;
+}
+
+.upload-progress div {
+    width: 0;
+    height: 1.2em;
+    font-weight: bold;
+    line-height: 1.2em;
+    text-align: right;
+    background: green url(loader.png) repeat-x left top;
+    color: white;
+    border-radius: 3px;
+}
+
+div.template-upload {
+    clear: both;
+}
+
+.queue-message {
+    font-weight: bold;
+}

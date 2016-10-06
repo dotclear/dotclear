@@ -1,0 +1,78 @@
+/* Typographie */
+// base //
+html {
+	font-size: $html-font-size;
+}
+body {
+	font-size: $body-font-size;
+	line-height: 1.5;
+	@media screen and(max-width: $small-screen) {
+		font-size: $body-font-size-small;
+		line-height: 1.3;
+	}
+	@media screen and(min-width: $large-screen) {
+		font-size: $body-font-size-large;
+		line-height: 1.5;
+	}
+	@media screen and(min-width: $small-screen) and (max-width: $large-screen) {
+		font-size: calc(
+				#{$body-font-size-small} +
+				#{strip-unit($body-font-size-large - $body-font-size-small)} *
+				(100vw - #{strip-unit(relative-to-screen($small-screen,$html-font-size))}rem) /
+				(#{strip-unit(relative-to-screen($large-screen,$html-font-size))} -
+					#{strip-unit(relative-to-screen($small-screen,$html-font-size))})
+			);
+		line-height: calc(
+				1.3em +
+				(1.5 - 1.3) *
+				(100vw - #{strip-unit(relative-to-screen($small-screen,$html-font-size))}rem) /
+				(#{strip-unit(relative-to-screen($large-screen,$html-font-size))} -
+					#{strip-unit(relative-to-screen($small-screen,$html-font-size))})
+			);
+	}
+	font-family: $sans-serif;
+	color: $primary-color;
+	background: $primary-background;
+}
+#wrapper {
+	@media screen and (max-width: $small-screen) {
+        font-size: 1.4em;
+	}
+}
+
+// titres //
+h2, h3, .as_h3, h4, .as_h4, h5, h6 {
+	margin-top: 0;
+	margin-bottom: 1em;
+}
+h2 {
+	font-size: 1.5em;
+	font-weight: normal;
+	line-height: 1.25;
+	padding: 0 0 1.5em;
+	color: $ternary-color;
+}
+h3, .as_h3 {
+	font-size: 1.34em;
+	font-weight: normal;
+	line-height: 1.5;
+	margin-top: 1em;
+	color: $secondary-color;
+}
+h4, .as_h4 {
+	font-size: 1.16em;
+	line-height: 1.5;
+	color: $ternary-color;
+}
+h5 {
+	font-size: 1em;
+	line-height: 1.5;
+	font-weight: bold;
+	color: $ternary-color;
+}
+h6 {
+	font-size: 1em;
+	line-height: 1.5;
+	color: $ternary-color;
+}
+
