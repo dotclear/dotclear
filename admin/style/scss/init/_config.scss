@@ -1,0 +1,85 @@
+// ----------------- LIBRAIRIES ------------------- //
+
+// ----------------- Compass config --------------- //
+// Do not support IE less than IE9
+$browser-minimum-versions: (
+  "ie": "9"
+);
+$graceful-usage-threshold: 100;
+$critical-usage-threshold: 100;
+@import "compass";                    // gem
+
+// ========================================================================== //
+// =Typographie
+// ========================================================================== //
+
+$sans-serif:		-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+
+$sans-serif-input:	inherit;	// Use OS default font for input fields
+
+$monospace:			"Andale Mono",AndaleMono,Consolas,Monaco,"Courier New",monospace;
+
+$html-font-size:			62.5%;		// Basically 10px (16px ⁄x 0.625) — Must be in %
+
+$body-font-size-small:		1.2rem;		// For screen smaller than $small-screen (see below)
+$body-font-size:			1.4rem;
+$body-font-size-large:		1.6rem;		// For screen larger or equal than $large-screen (see below)
+
+// ========================================================================== //
+// =Couleurs
+// ========================================================================== //
+
+// Palette de base
+$blue: 				#137bbb;
+$green: 			#9ac123;
+$red: 				#c44d58;
+$light-blue: 		#a2cbe9;
+$orange:			#d33800;
+
+$gray: 				#b2b2b2;
+$gray-dark:			#676e78;
+
+$gray-very-dark:	shade($gray, 72%);		// #323232 (near to #333 used before)
+$gray-light:		tint($gray, 30%);		// #c9c9c9 (near to #ccc used before)
+$gray-very-light:	tint($gray, 85%);		// #f3f3f3 (near to #f7f7f7 used before)
+
+$white:				#fff;
+$black:				#000;
+
+// Application
+
+$primary-color:			$gray-very-dark;		// #323232 : Texte courant
+$secondary-color:		$orange;				// #d33800 : Titres
+$ternary-color:			$gray-dark;				// #676e78 : Titres (secondaires)
+$link: 					$blue;					// #137bbb : Liens
+$primary-background:	$white;					// #fff : Fond courant
+$secondary-background:	$gray-very-light;		// #c9c9c9 : Fond secondaire
+$ternary-background:	$gray-dark;				// #676e78 : Fond tertiaire
+
+$button-base:		$light-blue;
+$button-dark:		shade($button-base, 10%);
+$button-light:		tint($button-base, 10%);
+
+// Autres
+$css-img-path: 'img'; // utile pour le mixin de fallback svg
+
+// ========================================================================== //
+// =Breakpoints
+// ========================================================================== //
+
+$xxs-screen: 	26.5em;		// 424 px
+$xs-screen:  	38em;		// 608 px
+$s-screen:  	44em;		// 704 px
+$m-screen:   	48em;		// 768 px
+$l-screen:  	61em;		// 976 px
+$xl-screen:		80em;		// 1280 px
+$xxl-screen:	120em;		// 1920 px
+
+$small-screen:	$xxs-screen;
+$large-screen:	$xxl-screen;
+
+// =========================================================================== //
+// =Various dimensions
+// =========================================================================== //
+
+$collapser-width:	12px;

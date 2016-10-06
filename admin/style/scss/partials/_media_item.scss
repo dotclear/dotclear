@@ -1,0 +1,28 @@
+#media-icon {
+    float: left;
+}
+
+.near-icon {
+    margin-left: 70px;
+    margin-bottom: 3em;
+}
+
+#media-details ul {
+    display: block;
+    margin-left: 0;
+    padding: 0;
+}
+
+#media-details li {
+    list-style: square inside;
+    margin: 0;
+    padding: 0;
+}
+
+#media-original-image {
+    overflow: auto;
+}
+
+#media-original-image.overheight {
+    height: 500px;
+}

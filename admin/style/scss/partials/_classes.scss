@@ -1,0 +1,367 @@
+/* jQuery Autocomplete plugin */
+
+.ac_results {
+    padding: 0px;
+    border: 1px dotted #f90;
+    background-color: white;
+    overflow: hidden;
+    z-index: 99999;
+}
+
+.ac_results ul {
+    width: 100%;
+    list-style-position: outside;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ac_results li {
+    margin: 0px;
+    padding: 2px 5px;
+    cursor: default;
+    display: block;
+    font-size: 1em;
+    line-height: 16px;
+    overflow: hidden;
+}
+
+.ac_loading {
+    background: transparent url('loader.gif') right center no-repeat;
+}
+
+.ac_over {
+    background-color: #2373A8;
+    color: white;
+}
+
+
+/* password indicator */
+
+.pw-table {
+    display: table;
+    margin-bottom: 1em;
+}
+
+.pw-cell {
+    display: table-cell;
+    margin-bottom: 1em;
+}
+
+#pwindicator {
+    display: table-cell;
+    vertical-align: bottom;
+    padding-left: 1.5em;
+    height: 3.8em;
+}
+
+#pwindicator .bar {
+    height: 6px;
+    margin-bottom: 4px;
+}
+
+.pw-very-weak .bar {
+    background: #b33630;
+    width: 30px;
+}
+
+.pw-weak .bar {
+    background: #b33630;
+    width: 60px;
+}
+
+.pw-mediocre .bar {
+    background: #f90;
+    width: 90px;
+}
+
+.pw-strong .bar {
+    background: #9bca1c;
+    width: 120px;
+}
+
+.pw-very-strong .bar {
+    background: #9bca1c;
+    width: 150px;
+}
+
+
+/* ------------------------------------------------------------------ navigation */
+
+
+/* selects accès rapide */
+
+.anchor-nav {
+    background: #ecf0f1;
+    color: #000;
+    padding: 4px 1em;
+}
+
+.anchor-nav label {
+    vertical-align: bottom;
+}
+
+
+/* nav links */
+
+.nav_prevnext {
+    margin-bottom: 2em;
+    color: #fff;
+}
+
+.nav_prevnext a,
+a.back {
+    color: #2373A8;
+    border: 1px solid #dfdfdf;
+    padding: 2px 1.5em;
+    border-radius: .75em;
+    background-color: #f3f3f3;
+}
+
+a.back:before {
+    content: "\ab\a0";
+}
+
+a.onblog_link {
+    color: #333;
+    float: right;
+    border: 1px solid #eee;
+    padding: 2px 1.5em;
+    border-radius: .75em;
+    background-color: #ECF0F1;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Pagination */
+
+.pager {
+    margin: 2em 0 1em 0;
+    clear: left;
+}
+
+.pager ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pager li,
+.pager input {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 .33em 0 0;
+    padding: 0;
+    text-align: center;
+}
+
+.pager .btn {
+    border: 1px solid #dfdfdf;
+    background-color: #fcfcfc;
+    color: #676e78;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.btn.no-link {
+    border-color: #dfdfdf;
+    background-color: #f9f9f9;
+    padding: 1px 3px 0;
+}
+
+.pager .active {
+    padding: 4px 12px;
+    color: #676e78;
+}
+
+.pager .direct-access {
+    margin-left: 2em;
+}
+
+.direct-access input[type=text] {
+    border: 1px solid #dfdfdf;
+    padding: 3px 8px;
+    margin-left: .25em;
+    background-color: #fff;
+}
+
+.direct-access input[type=submit] {
+    padding: 3px 6px;
+}
+
+.pager a {
+    display: block;
+    padding: 1px 3px 0;
+    border: none;
+}
+
+.pager a:hover,
+.pager a:focus {
+    background-color: #ecf0f1;
+}
+
+.index .btn.no-link,
+.index a {
+    padding: 2px 8px 3px;
+    font-variant: small-caps;
+}
+
+.index li {
+    margin-bottom: 3px;
+}
+
+.index a {
+    font-weight: bold;
+}
+
+.index .btn.no-link {
+    color: #ccc;
+}
+
+.index .active {
+    padding: 4px 8px;
+    color: #fff;
+    background: #676e78;
+    border-radius: 3px;
+    font-variant: small-caps;
+}
+
+
+/* Etapes */
+
+.step {
+    display: inline-block;
+    float: left;
+    margin: 3px 10px 2px 0;
+    padding: 5px .5em;
+    background: #ecf0f1;
+    border-radius: 3px;
+    font-weight: bold;
+    border: 1px solid #c5c5c5;
+    color: #676e78;
+}
+
+
+/* ---------------------------------------------------------------- utilisables partout  */
+
+.legible {
+    font-size: 1.16em;
+    max-width: 62em;
+}
+
+.fieldset {
+    background: #fff;
+    border: 1px solid #c5c5c5;
+    border-radius: 3px;
+    padding: 1em .7em .5em;
+    margin-bottom: 1em;
+}
+
+.fieldset h3 {
+    margin-top: 0;
+}
+
+.right,
+.txt-right {
+    text-align: right;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+.txt-left {
+    text-align: left;
+}
+
+.no-margin,
+label.no-margin {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.vertical-separator {
+    margin-top: 2em;
+}
+
+p.clear.vertical-separator {
+    padding-top: 2em;
+}
+
+.border-top {
+    border-top: 1px solid #999;
+    padding-top: 1em;
+    margin-top: 1em;
+}
+
+.grid {
+    background: transparent repeat url('grid.png') 0 0;
+}
+
+ul.nice {
+    margin: 1em 0;
+    padding: 0 0 0 2em;
+    list-style: square;
+}
+
+ul.nice li {
+    margin: 0;
+    padding: 0;
+}
+
+ul.from-left {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 1em 0;
+}
+
+ul.from-left > li {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+ul.from-left ul {
+    list-style-type: square;
+}
+
+.offline {
+    color: #676e78;
+}
+
+
+/* caché pour tout le monde */
+
+.hide,
+.button.hide {
+    display: none !important;
+}
+
+
+/* Caché sauf pour les revues d'écran */
+
+.hidden,
+.with-js .out-of-screen-if-js {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+}
+
+
+/* caché si js est inactif */
+
+.no-js .hidden-if-no-js {
+    display: none;
+}
+
+
+/* caché si js est actif */
+
+.with-js .hidden-if-js {
+    display: none;
+}

@@ -1,0 +1,59 @@
+#gototop {
+    display: none;
+    z-index: 1000;
+    position: fixed;
+    bottom: 0;
+    right: .5em;
+    width: 10em;
+    padding: .25em;
+    border: 1px solid #636363;
+    border-radius: .25em;
+    background-color: #fff;
+    color: #333;
+    font-size: .875em;
+    text-align: center;
+}
+
+#gototop a,
+#gototop a:link,
+#gototop a:hover,
+#gototop a:active {
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    color: #636363;
+}
+
+#footer p {
+    margin: 0;
+    padding: 0 1em;
+    font-size: 1em;
+}
+
+span.credit {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+span.tooltip {
+    position: absolute;
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+#footer a:hover span.tooltip {
+    padding: 10px 40px 0 10px;
+    color: #910ed3;
+    height: auto;
+    width: auto;
+    left: 0;
+    bottom: 0;
+    background: #FFF;
+    z-index: 99;
+    font-family: monospace;
+    border: none;
+    text-align: left;
+}

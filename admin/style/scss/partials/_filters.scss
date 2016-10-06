@@ -1,0 +1,58 @@
+a.form-control {
+    display: none;
+    background: url(../images/expand.png) no-repeat 4px center;
+    padding-left: 20px;
+    color: #000;
+}
+
+a.form-control.open {
+    background: url(../images/hide.png) no-repeat 4px center;
+}
+
+#filters-form {
+    border: 1px solid rgb(162, 203, 233);
+    border-radius: .3em;
+    margin-bottom: 2em;
+    padding: .5em 1em 0;
+}
+
+#filters-form .table {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 1em;
+    margin-top: .5em;
+}
+
+#filters-form .cell {
+    padding: 0 2em 0 0;
+}
+
+#filters-form .filters-sibling-cell {
+    padding-top: 3.8em;
+}
+
+#filters-form .filters-options {
+    padding-left: 2em;
+    border-left: 1px solid #ccc;
+}
+
+#filters-form label.ib,
+span.ib {
+    width: 7em;
+}
+
+#filters-form label.ibw,
+span.ibw {
+    width: 9em;
+    display: inline-block;
+}
+
+#filters-form select {
+    width: 14em;
+    vertical-align: middle;
+}
+
+#filters-form h4 {
+    margin-top: 0;
+    margin-bottom: 2em;
+}

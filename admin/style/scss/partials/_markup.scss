@@ -1,0 +1,221 @@
+/* ------------------------------------------------------------------ titres */
+
+
+/* fil d'ariane */
+
+#content > h2 {
+    padding: 0 1em .5em 1em;
+    margin: 0 -1em 1em -1em;
+    background: #fff url(bg_h2.png) repeat-x center bottom;
+}
+
+h2 a:link,
+h2 a:visited {
+    color: #676e78;
+    border-color: #000;
+}
+
+
+/* page courante dans le fil d'ariane */
+
+.page-title {
+    color: #d30e60;
+}
+
+.page-title img {
+    padding-left: .5em;
+    vertical-align: middle;
+}
+
+
+/* autres titres */
+
+#main-menu h3 {
+    font-weight: bold;
+}
+
+.fieldset h3,
+.fieldset h4,
+.pretty-title {
+    color: #D33800;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.fieldset h3 {
+    font-size: 1.17em;
+}
+
+.fieldset h3.smart-title,
+.fieldset h4.smart-title,
+.smart-title {
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #333;
+    text-shadow: 0 1px 0 rgba(200, 200, 200, 0.6)
+}
+
+#entry-sidebar h5 {
+    font-weight: normal;
+    color: #333;
+}
+
+.entry-status img.img_select_option {
+    padding-left: 4px;
+    vertical-align: text-top;
+}
+
+h4 label,
+h5 label {
+    color: #333;
+}
+
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+ul:first-child,
+p:first-child {
+    margin-top: 0;
+}
+
+
+/* ---------------------------------------------------------------- tableaux */
+
+
+/* 	Pour autoriser le scroll sur les petites largeurs
+	envelopper les tableaux dans une div.table-outer */
+
+.table-outer {
+    width: 100%;
+    overflow: auto;
+}
+
+table {
+    font-size: 1em;
+    border-collapse: collapse;
+    margin: 0 0 1em 0;
+    width: 100%;
+}
+
+caption {
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: .5em;
+}
+
+th {
+    border-width: 1px 0 1px 0;
+    border-style: solid;
+    border-color: #dfdfdf;
+    background: #eef1ec;
+    padding: .4em 1em .4em .5em;
+    vertical-align: top;
+    text-align: left;
+}
+
+td {
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #e3e3e3;
+    padding: .4em 1em .4em .5em;
+    vertical-align: top;
+}
+
+
+/* ---------------------------------------------------------- autres balises */
+
+p {
+    margin: 0 0 1em 0;
+}
+
+hr {
+    height: 1px;
+    border-width: 1px 0 0;
+    border-color: #dfdfdf;
+    background: #dfdfdf;
+    border-style: solid;
+}
+
+hr.clearer {
+    clear: both;
+}
+
+pre,
+code,
+#debug {
+    font: 100% $monospace;
+}
+
+code {
+    background: #fefacd;
+}
+
+pre {
+    white-space: pre;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+    white-space: pre-line;
+    word-wrap: break-word;
+}
+
+abbr {
+    cursor: help;
+}
+
+input,
+textarea,
+select,
+option,
+optgroup,
+legend,
+label {
+    font-size: 1em;
+}
+
+
+/* ------------------------------------------------------------------ liens */
+
+a,
+a:link,
+a:visited {
+    color: #2373A8;
+    text-decoration: none;
+    border-bottom: 1px dotted #999;
+    background-color: inherit;
+    outline: 0;
+}
+
+a:hover,
+a:active {
+    border-bottom-style: solid;
+}
+
+a img,
+a:link img,
+a:visited img {
+    border: none;
+    background: inherit;
+}
+
+h1 a:link,
+h1 a:visited {
+    border: none;
+}
+
+.discrete a {
+    color: #333;
+}
+
+a:link {
+    transition: .5s;
+}
+
+a:focus,
+a:focus img {
+    outline: 2px solid #bee74b;
+    border-bottom: none;
+    text-decoration: none;
+}
