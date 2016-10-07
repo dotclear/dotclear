@@ -87,7 +87,7 @@ if ($recover && !empty($_POST['user_id']) && !empty($_POST['user_email']))
 	{
 		$recover_key = $core->auth->setRecoverKey($user_id,$user_email);
 
-		$subject = mail::B64Header('DotClear '.__('Password reset'));
+		$subject = mail::B64Header('Dotclear '.__('Password reset'));
 		$message =
 		__('Someone has requested to reset the password for the following site and username.')."\n\n".
 		$page_url."\n".__('Username:').' '.$user_id."\n\n".
@@ -112,13 +112,13 @@ elseif ($akey)
 	{
 		$recover_res = $core->auth->recoverUserPassword($akey);
 
-		$subject = mb_encode_mimeheader('DotClear '.__('Your new password'),'UTF-8','B');
+		$subject = mb_encode_mimeheader('Dotclear '.__('Your new password'),'UTF-8','B');
 		$message =
 		__('Username:').' '.$recover_res['user_id']."\n".
 		__('Password:').' '.$recover_res['new_pass']."\n\n".
 		preg_replace('/\?(.*)$/','',$page_url);
 
-		$headers[] = 'From: dotclear@'.$_SERVER['HTTP_HOST'];
+		$headers[] = 'From: '.(defined('DC_ADMIN_MAILFROM') && DC_ADMIN_MAILFROM ? DC_ADMIN_MAILFROM : 'dotclear@local');
 		$headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 
 		mail::sendMail($recover_res['user_email'],$subject,$message,$headers);
