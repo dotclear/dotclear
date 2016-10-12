@@ -136,6 +136,12 @@ if (!$core->error->flag())
 	__('Number of trackbacks') => 'nb_trackback'
 	);
 
+	$sortby_lex = array(
+		// key in sorty_combo (see above) => field in SQL request
+		'post_title' => 'post_title',
+		'cat_title' => 'cat_title',
+		'user_id' => 'P.user_id');
+
 	$order_combo = array(
 	__('Descending') => 'desc',
 	__('Ascending') => 'asc'
@@ -274,8 +280,13 @@ if ($format !== '' && in_array($format,$format_combo)) {
 
 # - Sortby and order filter
 if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
+	if (array_key_exists($sortby,$sortby_lex)) {
+		$params['order'] = $core->con->lexFields($sortby_lex[$sortby]);
+	} else {
+		$params['order'] = $sortby;
+	}
 	if ($order !== '' && in_array($order,$order_combo)) {
-		$params['order'] = $sortby.' '.$order;
+		$params['order'] .= ' '.$order;
 	} else {
 		$order='desc';
 	}

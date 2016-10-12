@@ -23,6 +23,13 @@ __('Display name') => 'user_displayname',
 __('Number of entries') => 'nb_post'
 );
 
+$sortby_lex = array(
+	// key in sorty_combo (see above) => field in SQL request
+	'user_id' => 'U.user_id',
+	'user_name' => 'user_name',
+	'user_firstname' => 'user_firstname',
+	'user_displayname' => 'user_displayname');
+
 $order_combo = array(
 __('Descending') => 'desc',
 __('Ascending') => 'asc'
@@ -65,8 +72,13 @@ if ($q) {
 
 # - Sortby and order filter
 if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
+	if (array_key_exists($sortby,$sortby_lex)) {
+		$params['order'] = $core->con->lexFields($sortby_lex[$sortby]);
+	} else {
+		$params['order'] = $sortby;
+	}
 	if ($order !== '' && in_array($order,$order_combo)) {
-		$params['order'] = $sortby.' '.$order;
+		$params['order'] .= ' '.$order;
 	} else {
 		$order='asc';
 	}
