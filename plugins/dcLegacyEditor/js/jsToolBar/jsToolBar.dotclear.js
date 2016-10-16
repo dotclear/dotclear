@@ -152,6 +152,7 @@ jsToolBar.prototype.getAncestor = function() {
 jsToolBar.prototype.elements.img_select = {
 	type: 'button',
 	title: 'Image chooser',
+	accesskey: 'm',
 	fn: {},
 	fncall: {},
 	open_url: 'media.php?popup=1&plugin_id=dcLegacyEditor',

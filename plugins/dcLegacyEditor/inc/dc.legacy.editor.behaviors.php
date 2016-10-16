@@ -119,6 +119,7 @@ class dcLegacyEditorBehaviors
 		"jsToolBar.prototype.elements.ol.title = '".html::escapeJS(__('Ordered list'))."'; ".
 
 		"jsToolBar.prototype.elements.link.title = '".html::escapeJS(__('Link'))."'; ".
+		"jsToolBar.prototype.elements.link.accesskey = '".html::escapeJS(__('l'))."'; ".
 		"jsToolBar.prototype.elements.link.href_prompt = '".html::escapeJS(__('URL?'))."'; ".
 		"jsToolBar.prototype.elements.link.hreflang_prompt = '".html::escapeJS(__('Language?'))."'; ".
 
@@ -126,6 +127,7 @@ class dcLegacyEditorBehaviors
 		"jsToolBar.prototype.elements.img.src_prompt = '".html::escapeJS(__('URL?'))."'; ".
 
 		"jsToolBar.prototype.elements.img_select.title = '".html::escapeJS(__('Media chooser'))."'; ".
+		"jsToolBar.prototype.elements.img_select.accesskey = '".html::escapeJS(__('m'))."'; ".
 		"jsToolBar.prototype.elements.post_link.title = '".html::escapeJS(__('Link to an entry'))."'; ".
 		"jsToolBar.prototype.elements.removeFormat = jsToolBar.prototype.elements.removeFormat || {}; ".
 		"jsToolBar.prototype.elements.removeFormat.title = '".html::escapeJS(__('Remove text formating'))."'; ";
