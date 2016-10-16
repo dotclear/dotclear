@@ -120,6 +120,13 @@ if (!empty($extraPlugins) && count($extraPlugins)>0) {
 ?>
 		extraPlugins: '<?php echo $defautExtraPlugins;?>',
 
+		keystrokes: [
+			[ CKEDITOR.CTRL + (CKEDITOR.env.mac ? CKEDITOR.ALT : CKEDITOR.SHIFT) +
+				dotclear.msg.link_accesskey.toUpperCase().charCodeAt(0), 'dcLinkCommand' ],    // Ctrl+Alt+l
+			[ CKEDITOR.CTRL + (CKEDITOR.env.mac ? CKEDITOR.ALT : CKEDITOR.SHIFT) +
+				dotclear.msg.img_select_accesskey.toUpperCase().charCodeAt(0), 'mediaCommand' ],    // Ctrl+Alt+m
+		],
+
 		<?php if (!empty($dcckeditor_format_select)):?>
 		// format tags
 <?php if (!empty($dcckeditor_format_tags)):?>
