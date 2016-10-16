@@ -66,11 +66,12 @@ function jsToolBar(textarea) {
 					// de raccourcis vers les éléments DOM correspondants aux outils.
 };
 
-function jsButton(title, fn, scope, className) {
+function jsButton(title, fn, scope, className, accesskey) {
 	this.title = title || null;
 	this.fn = fn || function(){};
 	this.scope = scope || null;
 	this.className = className || null;
+	this.accesskey = accesskey || null;
 };
 jsButton.prototype.draw = function() {
 	if (!this.scope) return null;
@@ -79,6 +80,7 @@ jsButton.prototype.draw = function() {
 	button.setAttribute('type','button');
 	if (this.className) button.className = this.className;
 	button.title = this.title;
+	if (this.accesskey) button.accessKey = this.accesskey;
 	var span = document.createElement('span');
 	span.appendChild(document.createTextNode(this.title));
 	button.appendChild(span);
@@ -164,7 +166,7 @@ jsToolBar.prototype = {
 	button: function(toolName) {
 		var tool = this.elements[toolName];
 		if (typeof tool.fn[this.mode] != 'function') return null;
-		var b = new jsButton(tool.title, tool.fn[this.mode], this, 'jstb_'+toolName);
+		var b = new jsButton(tool.title, tool.fn[this.mode], this, 'jstb_'+toolName, tool.accesskey);
 		if (tool.icon != undefined) {
 			b.icon = tool.icon;
 		}
@@ -551,6 +553,7 @@ jsToolBar.prototype.elements.link = {
 	type: 'button',
 	title: 'Link',
 	fn: {},
+	accesskey: 'l',
 	href_prompt: 'Please give page URL:',
 	hreflang_prompt: 'Language of this page:',
 	default_hreflang: '',
