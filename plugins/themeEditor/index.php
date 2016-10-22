@@ -116,7 +116,7 @@ else
 {
 	echo
 	'<form id="file-form" action="'.$p_url.'" method="post">'.
-	'<div class="fieldset"><h4>'.__('File editor').'</h4>'.
+	'<div class="fieldset"><h3>'.__('File editor').'</h3>'.
 	'<p><label for="file_content">'.sprintf(__('Editing file %s'),'<strong>'.$file['f']).'</strong></label></p>'.
 	'<p>'.form::textarea('file_content',72,25,html::escapeHTML($file['c']),'maximal','',!$file['w']).'</p>';
 
