@@ -64,7 +64,8 @@
 				uploadTemplate: template_upload,
 				downloadTemplate: template_download
 			}).bind('fileuploadadd', function(e, data) {
-				$('.button.cancel','#fileupload .fileupload-buttonbar').show();
+				$('.button.cancel').css('display','inline-block');
+				$('#fileupload .fileupload-buttonbar').show();
 				enableButton($('.button.start','#fileupload .fileupload-buttonbar'));
 			}).bind('fileuploadadded', function(e, data) {
 				displayMessageInQueue($('.files .template-upload',me).length);
@@ -73,7 +74,8 @@
 					$('.media-list .files-group').append(data.result.files[0].html);
 					$('#form-medias .hide').removeClass('hide');
 				}
-				$('.button.clean',me).show();
+				$('.button.clean').css('display','inline-block');
+				$(me).show();
 			}).bind('fileuploadalways', function(e, data) {
 				displayMessageInQueue($('.files .template-upload',me).length);
 				if ($('.fileupload-ctrl .files .template-upload',me).length==0) {
@@ -112,9 +114,12 @@
 					$msg = dotclear.msg.enhanced_uploader_disable;
 					label = dotclear.jsUpload.msg.choose_files;
 					$('#upfile').attr('multiple', true);
-					var startButton = $('.button.start','#fileupload .fileupload-buttonbar');
+					var startButton = $('.button.start');
+					var buttonBar = $('#fileupload .fileupload-buttonbar');
 					disableButton(startButton);
-					startButton.show();
+					disableButton(buttonBar);
+					startButton.css('display','inline-block');
+					buttonBar.show();
 					$(me).fileupload({disabled:false});
 					$('.queue-message',me).show();
 					displayMessageInQueue(0);
