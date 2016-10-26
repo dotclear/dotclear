@@ -1,16 +1,16 @@
 #file-box {
 	width: 100%;
 	float: left;
-	margin-right: -180px;
+	margin-right: -15em; /* was -180px; */
 }
 
 #file-editor {
-	margin-right: 180px;
+	margin-right: 15em; /* was 180px; */
 }
 
 #file-chooser {
 	float: right;
-	width: 170px;
+	width: 14em; /* was 170px; */
 }
 #file-chooser ul {
 	padding-left: 0;

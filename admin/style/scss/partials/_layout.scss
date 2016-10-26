@@ -1,3 +1,4 @@
+// Admin layout
 #dotclear-admin {
     display: flex;
     min-height: 100vh;
@@ -5,11 +6,7 @@
 }
 
 #header {
-    background: $ternary-background;
-    color: $white;
-    border-bottom: 4px solid $light-blue;
-    width: 99.99%;
-    /* Bugfix Chrome >= 49.0.2623.108 */
+    width: 99.99%; /* Bugfix Chrome >= 49.0.2623.108 */
     display: table;
     position: relative;
 }
@@ -30,7 +27,6 @@ h1,
     float: left;
     width: 100%;
     z-index: 10;
-    background: $secondary-background url(bg_wrapper.png) repeat-y 14em;
     flex: 1;
 }
 
@@ -48,7 +44,6 @@ h1,
 #content {
     margin: 0 0 0 14em;
     padding: .5em 1.5em .75em 2.5em;
-    background: $white;
 }
 
 #main-menu {
@@ -58,7 +53,6 @@ h1,
     padding-top: .5em;
     padding-bottom: 1em;
     overflow: hidden;
-    background: $secondary-background;
 }
 
 #footer {
@@ -66,8 +60,6 @@ h1,
     position: relative;
     padding: .5em 0 .5em 1em;
     text-align: left;
-    border-top: 1px solid $gray-light; // #ccc;
-    background-color: $white;
 }
 
 
@@ -81,7 +73,6 @@ h1,
     height: 100%;
     overflow: hidden;
     display: block;
-    background: $light-blue; // #f3f3f3 url(../images/collapser-hide.png) no-repeat center bottom;
     border-right: 0; // 1px solid #999;
     border-bottom: 0;
     z-index: 1;
@@ -92,12 +83,7 @@ h1,
     display: none;
 }
 
-
 /* if main-menu is hidden */
-
-#wrapper.hide-mm {
-    background: $white;
-}
 
 .hide-mm #main {
     margin-left: 0;
@@ -117,7 +103,6 @@ h1,
 
 .hide-mm #collapser {
     left: 0;
-    //	background: #e3e3e3 url(../images/collapser-show.png) no-repeat center bottom;
 }
 
 .hide-mm .collapse-mm {
@@ -127,7 +112,6 @@ h1,
 .hide-mm .expand-mm {
     display: block;
 }
-
 
 /* -------------------------------------------------------------- layout: two-cols */
 
@@ -226,12 +210,10 @@ h1,
     display: block;
     width: 100%;
     margin: 0;
-    background: $ternary-background;
     font-size: 1.5em;
     text-indent: 1em;
     line-height: 1.5em;
     font-weight: normal;
-    color: $white;
 }
 
 .popup #wrapper {
@@ -307,7 +289,6 @@ h1,
     clear: both;
 }
 
-
 /*
 .frame-shrink {
 	border: 1px solid #676e78;
@@ -345,15 +326,11 @@ h1,
     margin-right: 0;
 }
 
-
 /* ------------------------------------------------------------------------------------
-															UN POIL DE MEDIA QUERIES
+                                                            UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
 
-@media screen and (min-width: $xl-screen) {
-    #wrapper {
-        background: $secondary-background url(bg_wrapper.png) repeat-y 17em;
-    }
+@media screen and (max-width: $xl-screen) {
     #main {
         margin-left: -17em;
     }
@@ -369,9 +346,6 @@ h1,
     h1 {
         width: 19.5em;
     }
-}
-
-@media screen and (max-width: $l-screen) {
     #top-info-blog #switchblog {
         max-width: 16em;
     }
@@ -382,12 +356,10 @@ h1,
         display: block;
         width: 100%;
         text-align: right;
-        background: $gray-very-dark;
     }
     #header h1,
     #header h1 a {
         width: 120px;
-        padding: 0;
         margin: 0;
     }
     h1,
@@ -399,18 +371,6 @@ h1,
     #top-info-user {
         display: block;
         width: 100%;
-        background: $ternary-background;
-        padding-right: 0;
-    }
-    #top-info-user li:last-child {
-        padding-right: 1em;
-    }
-    #top-info-user a.active {
-        padding: 2px 8px;
-        background: #999;
-        color: #FFF;
-        border-width: 0;
-        border-radius: 6px;
     }
     .three-boxes,
     .three-boxes .box,
@@ -438,11 +398,7 @@ h1,
     #help-button {
         height: 26px;
         width: 26px;
-        background-color: $light-blue;
-        padding: 0;
         margin: 0;
-        font-size: .83em;
-        line-height: 68px;
         overflow: hidden;
     }
     #content.with-help #help-button {
@@ -477,15 +433,6 @@ h1,
         width: 42px !important;
         height: 42px;
     }
-    h1 a:link {
-        background: transparent url(dc_logos/b-dotclear120.png) no-repeat -270px 6px;
-        border-right: 1px solid $gray-light;
-    }
-    h1 a:hover,
-    h1 a:focus {
-        background: url(dc_logos/b-dotclear120.png) no-repeat -270px -94px;
-        border-right: 1px solid $light-blue;
-    }
     #wrapper,
     #main,
     #main-menu {
@@ -493,9 +440,6 @@ h1,
         float: none;
         width: 100%;
         margin: 0;
-    }
-    #dashboard-main {
-        padding: 0;
     }
     #main-menu a {
         display: block;
@@ -507,14 +451,12 @@ h1,
     #content,
     .hide-mm #content {
         margin: 0;
-        padding: 0 .5em !important;
     }
     #collapser {
         display: none;
     }
     #main #content > h2 {
         margin: 0 -.25em 1em;
-        padding: 6px 30px 4px .5em;
     }
     #dashboard-boxes .box.medium,
     .box.medium,
@@ -528,29 +470,16 @@ h1,
     .cell,
     #filters-form .cell {
         display: inline-block;
-        border: none;
-        padding: 1em;
         vertical-align: bottom;
     }
     .pseudo-tabs li {
         display: block;
         float: left;
         width: 50%;
-        border-top: 1px solid #ddd;
-        padding: .25em;
-    }
-    .pseudo-tabs li:first-child,
-    .pseudo-tabs li:nth-of-type(2) {
-        border-top: none;
     }
 }
 
 @media screen and (max-width: $xxs-screen) {
-    h1,
-    h1 a {
-        padding: 0;
-        border-right: $gray-very-dark !important;
-    }
     #top-info-blog label,
     .nomobile {
         display: none;
@@ -568,18 +497,12 @@ h1,
     }
     #content.with-help #help {
         width: 28rem;
-        font-size: 1.2rem // 12px;
     }
     p.top-add {
         margin-bottom: .5em;
-        text-align: center;
-    }
-    .multi-part {
-        padding-left: 0;
     }
     .part-tabs ul {
         margin: 1em 0;
-        padding: 0 .5em;
     }
     .part-tabs li a {
         display: block;
@@ -587,7 +510,6 @@ h1,
     }
     #icons p {
         width: 9em;
-        padding: 1em .25em;
     }
     .media-item {
         width: 90%;
@@ -600,7 +522,6 @@ h1,
     }
     .box.current-theme {
         margin: 5px;
-        padding: 10px;
         width: 100%;
     }
     .current-theme .module-sshot img {
@@ -611,17 +532,9 @@ h1,
     table .maximal {
         min-width: 14em;
     }
-    th,
-    td {
-        padding: 0.3em 1em 0.3em 0;
-    }
     .pseudo-tabs li {
         display: block;
         width: 100%;
         float: none;
-        border-top: 1px solid #ddd !important;
-    }
-    .pseudo-tabs li:first-child {
-        border-top: none;
     }
 }

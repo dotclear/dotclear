@@ -3,7 +3,7 @@
 // ----------------- Compass config --------------- //
 // Do not support IE less than IE9
 $browser-minimum-versions: (
-  "ie": "9"
+  "ie": "10"
 );
 $graceful-usage-threshold: 100;
 $critical-usage-threshold: 100;
@@ -30,6 +30,7 @@ $body-font-size-large:		1.6rem;		// For screen larger or equal than $large-scree
 // ========================================================================== //
 
 // Palette de base
+
 $blue: 				#137bbb;
 $green: 			#9ac123;
 $red: 				#c44d58;
@@ -40,11 +41,16 @@ $gray: 				#b2b2b2;
 $gray-dark:			#676e78;
 
 $gray-very-dark:	shade($gray, 72%);		// #323232 (near to #333 used before)
+$gray-semi-dark:	shade($gray, 25%);		// #868686 (near to #999 used before)
 $gray-light:		tint($gray, 30%);		// #c9c9c9 (near to #ccc used before)
 $gray-very-light:	tint($gray, 85%);		// #f3f3f3 (near to #f7f7f7 used before)
 
 $white:				#fff;
 $black:				#000;
+
+// Couleurs secondaires
+
+
 
 // Application
 
@@ -61,6 +67,7 @@ $button-dark:		shade($button-base, 10%);
 $button-light:		tint($button-base, 10%);
 
 // Autres
+
 $css-img-path: 'img'; // utile pour le mixin de fallback svg
 
 // ========================================================================== //

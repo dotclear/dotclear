@@ -153,7 +153,12 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 	margin: 0;
 }
-/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+
+/* Screen-reader only */
 .visually-hidden {
 	@include visually-hidden;
+	&:focus,
+	&:active {
+		@include visually-hidden-focus;
+	}
 }

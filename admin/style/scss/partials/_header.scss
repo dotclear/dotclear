@@ -1,142 +1,162 @@
 /* prelude */
 
 #prelude {
-    line-height: 1.5;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    position: absolute;
-    top: 3em;
-    left: 0;
-    background: #A2CBE9;
-    width: 100%;
-    z-index: 100;
+	line-height: 1.5;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 3em;
+	left: 0;
+	background: $light-blue;
+	width: 100%;
+	z-index: 100;
+	li {
+		list-style-type: none;
+		margin: 0;
+		background: transparent;
+		display: inline;
+		a {
+			padding: 3px 16px 3px 8px;
+			background: $light-blue;
+			color: $black;
+			text-decoration: underline;
+			&:hover, &:focus {
+				background: $white;
+			}
+		}
+	}
 }
-
-#prelude li {
-    list-style-type: none;
-    margin: 0;
-    background: transparent;
-    display: inline;
-}
-
-#prelude li a {
-    padding: 3px 16px 3px 8px;
-    background: #A2CBE9;
-    color: #000;
-    text-decoration: underline;
-}
-
-#prelude li a:hover,
-#prelude li a:focus {
-    background: #FFF;
-}
-
 
 /* si le prélude est affiché on repousse les trucs dessous */
 
 #wrapper.with-prelude {
-    padding-top: 1em;
+	padding-top: 1em;
 }
 
 #help-button.with-prelude,
 #collapser.with-prelude {
-    top: 1em;
+	top: 1em;
 }
-
 
 /* header global h1, form#top-info-blog, ul#top-info-user */
 
 #header a {
-    color: #FFF;
+	color: $white;
 }
 
 #header img {
-    vertical-align: middle;
-    padding-left: .5em;
+	vertical-align: middle;
+	padding-left: .5em;
 }
-
 
 /* h1 */
 
 h1 {
-    text-indent: 100%;
-    width: 16.5em;
+	text-indent: 100%;
+	width: 16.5em;
+	a {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 150px;
+		height: 3em;
+		color: $white;
+		background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
+		transition: none;
+		&:hover,
+		&:focus {
+			background-position: 0 -94px;
+			background-color: transparent;
+			transition: none;
+		}
+		&:link {
+			transition-timing-function: ease-in-out;
+		}
+	}
 }
-
-h1 a {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 150px;
-    height: 3em;
-    color: #fff;
-    background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
-    transition: none;
-}
-
-h1 a:hover,
-h1 a:focus {
-    background-position: 0 -94px;
-    background-color: transparent;
-    transition: none;
-}
-
-h1 a:link {
-    transition-timing-function: ease-in-out;
-}
-
 
 /* top-info-blog */
 
 #top-info-blog select {
-    max-width: 20em;
+	max-width: 20em;
 }
 
 #top-info-blog a {
-    margin-left: 1.5em;
+	margin-left: 1.5em;
 }
 
 #top-info-blog input[type=submit] {
-    background: #000;
-    border-color: #999;
-    margin-left: .33em;
+	background: $black;
+	border-color: $gray-semi-dark;
+	margin-left: .33em;
 }
 
 #top-info-blog input[type=submit]:hover {
-    background: #999;
+	background: $gray-semi-dark;
 }
 
 #top-info-blog p {
-    display: inline-block;
-    margin: 0;
+	display: inline-block;
+	margin: 0;
 }
-
 
 /* top-info-user */
 
 #top-info-user {
-    padding-right: 18px;
-    list-style-type: none;
-    text-align: right;
+	padding-right: 18px;
+	list-style-type: none;
+	text-align: right;
 }
 
 #top-info-user li {
-    display: inline-block;
-    margin-left: .5em;
-    padding-left: .5em;
-    border-left: 1px solid #999;
+	display: inline-block;
+	margin-left: .5em;
+	padding-left: .5em;
+	border-left: 1px solid $gray-semi-dark;
 }
 
 #top-info-user li:first-child {
-    border-left: none;
+	border-left: none;
 }
 
 #top-info-user a.active {
-    border-bottom-color: #fff;
-    margin: 0;
-    padding: 18px .5em;
-    background-color: #fff;
-    color: #333;
-    font-weight: bold;
+	border-bottom-color: $white;
+	margin: 0;
+	padding: 18px .5em;
+	background-color: $white;
+	color: $primary-color;
+	font-weight: bold;
+}
+
+/* ------------------------------------------------------------------------------------
+                                                            UN POIL DE MEDIA QUERIES
+------------------------------------------------------------------------------------ */
+
+@media screen and (max-width: $xl-screen) {
+	#top-info-user {
+		padding-right: .5em;
+	}
+	#top-info-user a.active {
+		padding: 2px 8px;
+		border-width: 0;
+		border-radius: 6px;
+	}
+}
+
+@media screen and (max-width: $xxs-screen) {
+	h1,
+	h1 a {
+		padding: 0;
+	}
+}
+
+@media screen and (max-width: $xs-screen) {
+	h1 a:link {
+		background: transparent url(dc_logos/b-dotclear120.png) no-repeat -270px 6px;
+	}
+	h1 a:hover,
+	h1 a:focus {
+		background: url(dc_logos/b-dotclear120.png) no-repeat -270px -94px;
+	}
 }

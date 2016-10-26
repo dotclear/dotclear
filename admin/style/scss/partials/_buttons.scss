@@ -45,10 +45,9 @@ input[type=submit],
 a.button.submit,
 input.button.start {
     color: #fff;
-    background-color: #25A6E1;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#25A6E1), to(#188BC0));
-    background-image: linear-gradient(#25A6E1, #188BC0);
-    border-color: #25A6E1;
+    background-color: #25a6e1;
+    @include background-image(linear-gradient(to bottom, #25a6e1, #188bc0));
+    border-color: #25a6e1;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
@@ -58,10 +57,9 @@ input.button.start:hover,
 input.button.start:focus,
 a.button.submit:hover,
 a.button.submit:focus {
-    background-color: #188BC0;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#188BC0), to(#25A6E1));
-    background-image: linear-gradient(#188BC0, #25A6E1);
-    border-color: #188BC0;
+    background-color: #188bc0;
+    @include background-image(linear-gradient(to bottom, #188bc0, #25a6e1));
+    border-color: #188bc0;
 }
 
 
@@ -79,11 +77,10 @@ a.button,
 a.button.delete,
 a.button.reset {
     color: #000;
-    background-color: #EAEAEA;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#EAEAEA));
-    background-image: linear-gradient(#f9f9f9, #EAEAEA);
+    background-color: #eaeaea;
+    @include background-image(linear-gradient(to bottom, #f9f9f9, #eaeaea));
     background-repeat: repeat-x;
-    border-color: #dfdfdf #dfdfdf #C5C5C5;
+    border-color: #dfdfdf #dfdfdf #c5c5c5;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
@@ -109,11 +106,10 @@ a.button:hover,
 a.button.delete:focus,
 a.button.reset:focus,
 a.button:focus {
-    background-color: #DADADA;
-    background-image: -webkit-gradient( linear, left top, left bottom, from(#EAEAEA), to(#DADADA));
-    background-image: linear-gradient(#EAEAEA, #DADADA);
+    background-color: #dadada;
+    @include background-image(linear-gradient(to bottom, #eaeaea, #dadada));
     background-repeat: repeat-x;
-    border-color: #CCCCCC #CCCCCC #B5B5B5;
+    border-color: #cccccc #cccccc #b5b5b5;
 }
 
 
@@ -131,12 +127,11 @@ a.button.delete:hover,
 input[type=submit].delete:focus,
 input.delete:focus,
 a.button.delete:focus {
-    color: #FFFFFF;
-    background-color: #B33630;
-    background-image: -webkit-gradient( linear, left top, left bottom, from(#DC5F59), to(#B33630));
-    background-image: linear-gradient(#DC5F59, #B33630);
+    color: #ffffff;
+    background-color: #b33630;
+    @include background-image(linear-gradient(to bottom, #dc5f59, #b33630));
     background-repeat: repeat-x;
-    border-color: #CD504A;
+    border-color: #cd504a;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
@@ -148,22 +143,20 @@ a.button.delete:focus {
 .button.add {
     color: #000;
     background-color: #bee74b;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#bee74b), to(#9BCA1C));
-    background-image: linear-gradient(#bee74b, #9BCA1C);
+    @include background-image(linear-gradient(to bottom, #bee74b, #9bca1c));
     border-color: #bee74b;
     padding: .33em 1.33em .5em;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
-    font-weight: normal;
-    font-size: 1.16em;
+//    font-weight: normal;
+//    font-size: 1.16em;
 }
 
 .button.add:hover,
 .button.add:active,
 .button.add:focus {
-    background-color: #9BCA1C;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#9BCA1C), to(#bee74b));
-    background-image: linear-gradient(#9BCA1C, #bee74b);
-    border-color: #9BCA1C;
+    background-color: #9bca1c;
+    @include background-image(linear-gradient(to bottom, #9bca1c, #bee74b));
+    border-color: #9bca1c;
 }
 
 .button-add:focus {
