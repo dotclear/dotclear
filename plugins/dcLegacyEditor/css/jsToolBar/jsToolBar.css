@@ -57,6 +57,7 @@
 	background-color : #f7f7f7;
 	background-position : 50% 50%;
 	background-repeat: no-repeat;
+	background-size: inherit;
 }
 .jstElements button:hover, .jstElements button:focus {
 	border-color : #ddd;

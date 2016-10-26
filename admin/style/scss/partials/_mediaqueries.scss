@@ -1,0 +1,64 @@
+/* ------------------------------------------------------------------------------------
+															UN POIL DE MEDIA QUERIES
+------------------------------------------------------------------------------------ */
+
+@media screen and (max-width: $s-screen) {
+	#help-button {
+		padding: 0;
+		font-size: .83em;
+		line-height: 68px;
+	}
+}
+
+@media screen and (max-width: $xs-screen) {
+	#dashboard-main {
+		padding: 0;
+	}
+	#content,
+	.hide-mm #content {
+		padding: 0 .5em !important;
+	}
+	#main #content > h2 {
+		padding: 6px 30px 4px .5em;
+	}
+	.cell,
+	#filters-form .cell {
+		border: none;
+		padding: 1em;
+	}
+	.pseudo-tabs li {
+		padding: .25em;
+	}
+	.pseudo-tabs li:first-child,
+	.pseudo-tabs li:nth-of-type(2) {
+		border-top: none;
+	}
+}
+
+@media screen and (max-width: $xxs-screen) {
+	#content.with-help #help {
+		font-size: 1.2rem // 12px;
+	}
+	p.top-add {
+		text-align: center;
+	}
+	.multi-part {
+		padding-left: 0;
+	}
+	.part-tabs ul {
+		padding: 0 .5em;
+	}
+	#icons p {
+		padding: 1em .25em;
+	}
+	.box.current-theme {
+		padding: 10px;
+	}
+	th,
+	td {
+		padding: 0.3em 1em 0.3em 0;
+	}
+	.pseudo-tabs li:first-child {
+		border-top: none;
+	}
+}
