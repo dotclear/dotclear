@@ -1266,6 +1266,7 @@ class dcTemplate extends template
 	<!ATTLIST tpl:EntryIf
 	type	CDATA	#IMPLIED	-- post has a given type (default: "post")
 	category	CDATA	#IMPLIED	-- post has a given category
+	categories	CDATA	#IMPLIED	-- post has a one of given categories
 	first	(0|1)	#IMPLIED	-- post is the first post from list (value : 1) or not (value : 0)
 	odd	(0|1)	#IMPLIED	-- post is in an odd position (value : 1) or not (value : 0)
 	even	(0|1)	#IMPLIED	-- post is in an even position (value : 1) or not (value : 0)
@@ -1313,6 +1314,20 @@ class dcTemplate extends template
 				$if[] = '($_ctx->posts->cat_url != "'.$category.'")';
 			} else {
 				$if[] = '($_ctx->posts->cat_url == "'.$category.'")';
+			}
+		}
+
+		if (isset($attr['categories'])) {
+			$categories = explode(',',addslashes(trim($attr['categories'])));
+			if (is_array($categories) && count($categories)) {
+				foreach ($categories as $category) {
+					if (substr($category,0,1) == '!') {
+						$category = substr($category,1);
+						$if[] = '($_ctx->posts->cat_url != "'.$category.'")';
+					} else {
+						$if[] = '($_ctx->posts->cat_url == "'.$category.'")';
+					}
+				}
 			}
 		}
 
