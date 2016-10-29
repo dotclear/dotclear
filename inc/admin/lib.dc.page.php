@@ -864,14 +864,7 @@ class dcPage
 	public static function jsModal()
 	{
 		return
-		self::cssLoad('style/modal/modal.css').
-		self::jsLoad('js/jquery/jquery.modal.js').
-		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
-		self::jsVar('$.modal.prototype.params.loader_img','style/modal/loader.gif').
-		self::jsVar('$.modal.prototype.params.close_img','style/modal/close.png').
-		"\n//]]>\n".
-		"</script>\n";
+		self::jsLoad('js/jquery/jquery.magnific-popup.js');
 	}
 
 	public static function jsColorPicker()

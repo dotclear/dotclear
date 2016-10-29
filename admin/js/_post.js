@@ -62,7 +62,18 @@ $(function() {
 		// Check if admin and blog have same protocol (ie not mixed-content)
 		if (window.location.protocol == $preview_url.substring(0,window.location.protocol.length)) {
 			// Open preview in a modal iframe
-			$('#post-preview').modalWeb($(window).width()-40,$(window).height()-40);
+			$('#post-preview').magnificPopup({
+				type:'iframe',
+				iframe: {
+					patterns: {
+						dotclear: {
+							index: $preview_url,
+							id: 1,
+							src: $preview_url
+						}
+					}
+				}
+			});
 		} else {
 			// Open preview on antother window
 			$('#post-preview').click(function(e) {
