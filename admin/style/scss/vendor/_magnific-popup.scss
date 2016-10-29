@@ -1,25 +1,105 @@
 /* Magnific Popup CSS */
+
+////////////////////////
+//      Settings      //
+////////////////////////
+
+// overlay
+$mfp-overlay-color:                   #0b0b0b !default;                    // Color of overlay screen
+$mfp-overlay-opacity:                 0.8 !default;                        // Opacity of overlay screen
+$mfp-shadow:                          0 0 8px rgba(0, 0, 0, 0.6) !default; // Shadow on image or iframe
+
+// spacing
+$mfp-popup-padding-left:              8px !default;                        // Padding from left and from right side
+$mfp-popup-padding-left-mobile:       6px !default;                        // Same as above, but is applied when width of window is less than 800px
+
+$mfp-z-index-base:                    1040 !default;                       // Base z-index of popup
+
+// controls
+$mfp-include-arrows:                  true !default;                       // Include styles for nav arrows
+$mfp-controls-opacity:                0.65 !default;                       // Opacity of controls
+$mfp-controls-color:                  #FFF !default;                       // Color of controls
+$mfp-controls-border-color:           #3F3F3F !default;                    // Border color of controls
+$mfp-inner-close-icon-color:          #333 !default;                       // Color of close button when inside
+$mfp-controls-text-color:             #CCC !default;                       // Color of preloader and "1 of X" indicator
+$mfp-controls-text-color-hover:       #FFF !default;                       // Hover color of preloader and "1 of X" indicator
+
+// Iframe-type options
+$mfp-include-iframe-type:             true !default;                       // Enable Iframe-type popups
+$mfp-iframe-padding-top:              40px !default;                       // Iframe padding top
+$mfp-iframe-background:               #000 !default;                       // Background color of iframes
+$mfp-iframe-max-width:                98%; // 900px !default;                      // Maximum width of iframes
+$mfp-iframe-ratio:                    9/16 !default;                       // Ratio of iframe (9/16 = widescreen, 3/4 = standard, etc.)
+
+// Image-type options
+$mfp-include-image-type:              true !default;                       // Enable Image-type popups
+$mfp-image-background:                #444 !default;
+$mfp-image-padding-top:               40px !default;                       // Image padding top
+$mfp-image-padding-bottom:            40px !default;                       // Image padding bottom
+$mfp-include-mobile-layout-for-image: true !default;                       // Removes paddings from top and bottom
+
+// Image caption options
+$mfp-caption-title-color:             #F3F3F3 !default;                    // Caption title color
+$mfp-caption-subtitle-color:          #BDBDBD !default;                    // Caption subtitle color
+
+// A11y
+$mfp-use-visuallyhidden:              false !default;                      // Hide content from browsers, but make it available for screen readers
+
+////////////////////////
+//
+// Contents:
+//
+// 1. General styles
+//    - Transluscent overlay
+//    - Containers, wrappers
+//    - Cursors
+//    - Helper classes
+// 2. Appearance
+//    - Preloader & text that displays error messages
+//    - CSS reset for buttons
+//    - Close icon
+//    - "1 of X" counter
+//    - Navigation (left/right) arrows
+//    - Iframe content type styles
+//    - Image content type styles
+//    - Media query where size of arrows is reduced
+//    - IE7 support
+//
+////////////////////////
+
+
+
+////////////////////////
+// 1. General styles
+////////////////////////
+
+// Transluscent overlay
 .mfp-bg {
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1042;
+  z-index: $mfp-z-index-base + 2;
   overflow: hidden;
   position: fixed;
-  background: #0b0b0b;
-  opacity: 0.8; }
 
+  background: $mfp-overlay-color;
+  opacity: $mfp-overlay-opacity;
+}
+
+// Wrapper for popup
 .mfp-wrap {
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1043;
+  z-index: $mfp-z-index-base + 3;
   position: fixed;
   outline: none !important;
-  -webkit-backface-visibility: hidden; }
+  -webkit-backface-visibility: hidden; // fixes webkit bug that can cause "false" scrollbar
+}
 
+// Root container
 .mfp-container {
   text-align: center;
   position: absolute;
@@ -27,64 +107,112 @@
   height: 100%;
   left: 0;
   top: 0;
-  padding: 0 8px;
-  box-sizing: border-box; }
+  padding: 0 $mfp-popup-padding-left;
+  box-sizing: border-box;
+}
 
-.mfp-container:before {
-  content: '';
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle; }
+// Vertical centerer helper
+.mfp-container {
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
 
-.mfp-align-top .mfp-container:before {
-  display: none; }
+// Remove vertical centering when popup has class `mfp-align-top`
+.mfp-align-top {
+  .mfp-container {
+    &:before {
+      display: none;
+    }
+  }
+}
 
+// Popup content holder
 .mfp-content {
   position: relative;
   display: inline-block;
   vertical-align: middle;
   margin: 0 auto;
   text-align: left;
-  z-index: 1045; }
+  z-index: $mfp-z-index-base + 5;
+}
+.mfp-inline-holder,
+.mfp-ajax-holder {
+  .mfp-content {
+    width: 100%;
+    cursor: auto;
+  }
+}
 
-.mfp-inline-holder .mfp-content,
-.mfp-ajax-holder .mfp-content {
-  width: 100%;
-  cursor: auto; }
-
+// Cursors
 .mfp-ajax-cur {
-  cursor: progress; }
-
-.mfp-zoom-out-cur, .mfp-zoom-out-cur .mfp-image-holder .mfp-close {
-  cursor: -moz-zoom-out;
-  cursor: -webkit-zoom-out;
-  cursor: zoom-out; }
-
+  cursor: progress;
+}
+.mfp-zoom-out-cur {
+  &, .mfp-image-holder .mfp-close {
+    cursor: -moz-zoom-out;
+    cursor: -webkit-zoom-out;
+    cursor: zoom-out;
+  }
+}
 .mfp-zoom {
   cursor: pointer;
   cursor: -webkit-zoom-in;
   cursor: -moz-zoom-in;
-  cursor: zoom-in; }
-
-.mfp-auto-cursor .mfp-content {
-  cursor: auto; }
+  cursor: zoom-in;
+}
+.mfp-auto-cursor {
+  .mfp-content {
+    cursor: auto;
+  }
+}
 
 .mfp-close,
 .mfp-arrow,
 .mfp-preloader,
 .mfp-counter {
-  -webkit-user-select: none;
+  -webkit-user-select:none;
   -moz-user-select: none;
-  user-select: none; }
+  user-select: none;
+}
 
-.mfp-loading.mfp-figure {
-  display: none; }
+// Hide the image during the loading
+.mfp-loading {
+  &.mfp-figure {
+    display: none;
+  }
+}
 
-.mfp-hide {
-  display: none !important; }
+// Helper class that hides stuff
+@if $mfp-use-visuallyhidden {
+  // From HTML5 Boilerplate https://github.com/h5bp/html5-boilerplate/blob/v4.2.0/doc/css.md#visuallyhidden
+  .mfp-hide {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+  }
+} @else {
+  .mfp-hide {
+    display: none !important;
+  }
+}
 
+
+////////////////////////
+// 2. Appearance
+////////////////////////
+
+// Preloader and text that displays error messages
 .mfp-preloader {
-  color: #CCC;
+  color: $mfp-controls-text-color;
   position: absolute;
   top: 50%;
   width: auto;
@@ -92,260 +220,366 @@
   margin-top: -0.8em;
   left: 8px;
   right: 8px;
-  z-index: 1044; }
-  .mfp-preloader a {
-    color: #CCC; }
-    .mfp-preloader a:hover {
-      color: #FFF; }
+  z-index: $mfp-z-index-base + 4;
+  a {
+    color: $mfp-controls-text-color;
+    &:hover {
+      color: $mfp-controls-text-color-hover;
+    }
+  }
+}
 
-.mfp-s-ready .mfp-preloader {
-  display: none; }
+// Hide preloader when content successfully loaded
+.mfp-s-ready {
+  .mfp-preloader {
+    display: none;
+  }
+}
 
-.mfp-s-error .mfp-content {
-  display: none; }
+// Hide content when it was not loaded
+.mfp-s-error {
+  .mfp-content {
+    display: none;
+  }
+}
 
-button.mfp-close,
-button.mfp-arrow {
-  overflow: visible;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
-  -webkit-appearance: none;
-  display: block;
-  outline: none;
-  padding: 0;
-  z-index: 1046;
-  box-shadow: none;
-  touch-action: manipulation; }
+// CSS-reset for buttons
+button {
+  &.mfp-close,
+  &.mfp-arrow {
+    overflow: visible;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    display: block;
+    outline: none;
+    padding: 0;
+    z-index: $mfp-z-index-base + 6;
+    box-shadow: none;
+    touch-action: manipulation;
+  }
+  &::-moz-focus-inner {
+      padding: 0;
+      border: 0
+  }
+}
 
-button::-moz-focus-inner {
-  padding: 0;
-  border: 0; }
 
+// Close icon
 .mfp-close {
   width: 44px;
   height: 44px;
   line-height: 44px;
+
   position: absolute;
   right: 0;
   top: 0;
   text-decoration: none;
   text-align: center;
-  opacity: 0.65;
+  opacity: $mfp-controls-opacity;
   padding: 0 0 18px 10px;
-  color: #FFF;
+  color: $mfp-controls-color;
+
   font-style: normal;
   font-size: 28px;
-  font-family: Arial, Baskerville, monospace; }
-  .mfp-close:hover,
-  .mfp-close:focus {
-    opacity: 1; }
-  .mfp-close:active {
-    top: 1px; }
+  font-family: Arial, Baskerville, monospace;
 
-.mfp-close-btn-in .mfp-close {
-  color: #333; }
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
 
-.mfp-image-holder .mfp-close,
-.mfp-iframe-holder .mfp-close {
-  color: #FFF;
-  right: -6px;
-  text-align: right;
-  padding-right: 6px;
-  width: 100%; }
+  &:active {
+    top: 1px;
+  }
+}
+.mfp-close-btn-in {
+  .mfp-close {
+    color: $mfp-inner-close-icon-color;
+  }
+}
+.mfp-image-holder,
+.mfp-iframe-holder {
+  .mfp-close {
+    color: $mfp-controls-color;
+    right: -6px;
+    text-align: right;
+    padding-right: 6px;
+    width: 100%;
+  }
+}
 
+// "1 of X" counter
 .mfp-counter {
   position: absolute;
   top: 0;
   right: 0;
-  color: #CCC;
+  color: $mfp-controls-text-color;
   font-size: 12px;
   line-height: 18px;
-  white-space: nowrap; }
+  white-space: nowrap;
+}
 
-.mfp-arrow {
-  position: absolute;
-  opacity: 0.65;
-  margin: 0;
-  top: 50%;
-  margin-top: -55px;
-  padding: 0;
-  width: 90px;
-  height: 110px;
-  -webkit-tap-highlight-color: transparent; }
-  .mfp-arrow:active {
-    margin-top: -54px; }
-  .mfp-arrow:hover,
-  .mfp-arrow:focus {
-    opacity: 1; }
-  .mfp-arrow:before,
-  .mfp-arrow:after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 0;
+// Navigation arrows
+@if $mfp-include-arrows {
+  .mfp-arrow {
     position: absolute;
+    opacity: $mfp-controls-opacity;
+    margin: 0;
+    top: 50%;
+    margin-top: -55px;
+    padding: 0;
+    width: 90px;
+    height: 110px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    &:active {
+      margin-top: -54px;
+    }
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin-top: 35px;
+      margin-left: 35px;
+      border: medium inset transparent;
+    }
+
+    &:after {
+
+      border-top-width: 13px;
+      border-bottom-width: 13px;
+      top:8px;
+    }
+
+    &:before {
+      border-top-width: 21px;
+      border-bottom-width: 21px;
+      opacity: 0.7;
+    }
+
+  }
+
+  .mfp-arrow-left {
     left: 0;
-    top: 0;
-    margin-top: 35px;
-    margin-left: 35px;
-    border: medium inset transparent; }
-  .mfp-arrow:after {
-    border-top-width: 13px;
-    border-bottom-width: 13px;
-    top: 8px; }
-  .mfp-arrow:before {
-    border-top-width: 21px;
-    border-bottom-width: 21px;
-    opacity: 0.7; }
+    &:after {
+      border-right: 17px solid $mfp-controls-color;
+      margin-left: 31px;
+    }
+    &:before {
+      margin-left: 25px;
+      border-right: 27px solid $mfp-controls-border-color;
+    }
+  }
 
-.mfp-arrow-left {
-  left: 0; }
-  .mfp-arrow-left:after {
-    border-right: 17px solid #FFF;
-    margin-left: 31px; }
-  .mfp-arrow-left:before {
-    margin-left: 25px;
-    border-right: 27px solid #3F3F3F; }
-
-.mfp-arrow-right {
-  right: 0; }
-  .mfp-arrow-right:after {
-    border-left: 17px solid #FFF;
-    margin-left: 39px; }
-  .mfp-arrow-right:before {
-    border-left: 27px solid #3F3F3F; }
-
-.mfp-iframe-holder {
-  padding-top: 40px;
-  padding-bottom: 40px; }
-  .mfp-iframe-holder .mfp-content {
-    line-height: 0;
-    width: 100%;
-    max-width: 98% /* was 900px; */ }
-  .mfp-iframe-holder .mfp-close {
-    top: -40px; }
-
-.mfp-iframe-scaler {
-  width: 100%;
-  height: 0;
-  overflow: hidden;
-  padding-top: 56.25%; }
-  .mfp-iframe-scaler iframe {
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-    background: #000; }
-
-/* Main image in popup */
-img.mfp-img {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  line-height: 0;
-  box-sizing: border-box;
-  padding: 40px 0 40px;
-  margin: 0 auto; }
-
-/* The shadow behind the image */
-.mfp-figure {
-  line-height: 0; }
-  .mfp-figure:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 40px;
-    bottom: 40px;
-    display: block;
+  .mfp-arrow-right {
     right: 0;
-    width: auto;
-    height: auto;
-    z-index: -1;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-    background: #444; }
-  .mfp-figure small {
-    color: #BDBDBD;
-    display: block;
-    font-size: 12px;
-    line-height: 14px; }
-  .mfp-figure figure {
-    margin: 0; }
+    &:after {
+      border-left: 17px solid $mfp-controls-color;
+      margin-left: 39px
+    }
+    &:before {
+      border-left: 27px solid $mfp-controls-border-color;
+    }
+  }
+}
 
-.mfp-bottom-bar {
-  margin-top: -36px;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  cursor: auto; }
 
-.mfp-title {
-  text-align: left;
-  line-height: 18px;
-  color: #F3F3F3;
-  word-wrap: break-word;
-  padding-right: 36px; }
 
-.mfp-image-holder .mfp-content {
-  max-width: 100%; }
+// Iframe content type
+@if $mfp-include-iframe-type {
+  .mfp-iframe-holder {
+    padding-top: $mfp-iframe-padding-top;
+    padding-bottom: $mfp-iframe-padding-top;
+    .mfp-content {
+      line-height: 0;
+      width: 100%;
+      max-width: $mfp-iframe-max-width;
+    }
+    .mfp-close {
+      top: -40px;
+    }
+  }
+  .mfp-iframe-scaler {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    padding-top: $mfp-iframe-ratio * 100%;
+    iframe {
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      box-shadow: $mfp-shadow;
+      background: $mfp-iframe-background;
+    }
+  }
+}
 
-.mfp-gallery .mfp-image-holder .mfp-figure {
-  cursor: pointer; }
 
-@media screen and (max-width: 800px) and (orientation: landscape), screen and (max-height: 300px) {
-  /**
+
+// Image content type
+@if $mfp-include-image-type {
+
+  /* Main image in popup */
+  img {
+    &.mfp-img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      line-height: 0;
+      box-sizing: border-box;
+      padding: $mfp-image-padding-top 0 $mfp-image-padding-bottom;
+      margin: 0 auto;
+    }
+  }
+
+  /* The shadow behind the image */
+  .mfp-figure {
+    line-height: 0;
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: $mfp-image-padding-top;
+      bottom: $mfp-image-padding-bottom;
+      display: block;
+      right: 0;
+      width: auto;
+      height: auto;
+      z-index: -1;
+      box-shadow: $mfp-shadow;
+      background: $mfp-image-background;
+    }
+    small {
+      color: $mfp-caption-subtitle-color;
+      display: block;
+      font-size: 12px;
+      line-height: 14px;
+    }
+    figure {
+      margin: 0;
+    }
+  }
+  .mfp-bottom-bar {
+    margin-top: -$mfp-image-padding-bottom + 4;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    cursor: auto;
+  }
+  .mfp-title {
+    text-align: left;
+    line-height: 18px;
+    color: $mfp-caption-title-color;
+    word-wrap: break-word;
+    padding-right: 36px; // leave some space for counter at right side
+  }
+
+  .mfp-image-holder {
+    .mfp-content {
+      max-width: 100%;
+    }
+  }
+
+  .mfp-gallery {
+    .mfp-image-holder {
+      .mfp-figure {
+        cursor: pointer;
+      }
+    }
+  }
+
+
+  @if $mfp-include-mobile-layout-for-image {
+    @media screen and (max-width: 800px) and (orientation:landscape), screen and (max-height: 300px) {
+      /**
        * Remove all paddings around the image on small screen
        */
-  .mfp-img-mobile .mfp-image-holder {
-    padding-left: 0;
-    padding-right: 0; }
-  .mfp-img-mobile img.mfp-img {
-    padding: 0; }
-  .mfp-img-mobile .mfp-figure:after {
-    top: 0;
-    bottom: 0; }
-  .mfp-img-mobile .mfp-figure small {
-    display: inline;
-    margin-left: 5px; }
-  .mfp-img-mobile .mfp-bottom-bar {
-    background: rgba(0, 0, 0, 0.6);
-    bottom: 0;
-    margin: 0;
-    top: auto;
-    padding: 3px 5px;
-    position: fixed;
-    box-sizing: border-box; }
-    .mfp-img-mobile .mfp-bottom-bar:empty {
-      padding: 0; }
-  .mfp-img-mobile .mfp-counter {
-    right: 5px;
-    top: 3px; }
-  .mfp-img-mobile .mfp-close {
-    top: 0;
-    right: 0;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    background: rgba(0, 0, 0, 0.6);
-    position: fixed;
-    text-align: center;
-    padding: 0; } }
+      .mfp-img-mobile {
+        .mfp-image-holder {
+          padding-left: 0;
+          padding-right: 0;
+        }
+        img {
+          &.mfp-img {
+            padding: 0;
+          }
+        }
+        .mfp-figure {
+          // The shadow behind the image
+          &:after {
+            top: 0;
+            bottom: 0;
+          }
+          small {
+            display: inline;
+            margin-left: 5px;
+          }
+        }
+        .mfp-bottom-bar {
+          background: rgba(0,0,0,0.6);
+          bottom: 0;
+          margin: 0;
+          top: auto;
+          padding: 3px 5px;
+          position: fixed;
+          box-sizing: border-box;
+          &:empty {
+            padding: 0;
+          }
+        }
+        .mfp-counter {
+          right: 5px;
+          top: 3px;
+        }
+        .mfp-close {
+          top: 0;
+          right: 0;
+          width: 35px;
+          height: 35px;
+          line-height: 35px;
+          background: rgba(0, 0, 0, 0.6);
+          position: fixed;
+          text-align: center;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
 
+
+
+// Scale navigation arrows and reduce padding from sides
 @media all and (max-width: 900px) {
   .mfp-arrow {
     -webkit-transform: scale(0.75);
-    transform: scale(0.75); }
+    transform: scale(0.75);
+  }
   .mfp-arrow-left {
     -webkit-transform-origin: 0;
-    transform-origin: 0; }
+    transform-origin: 0;
+  }
   .mfp-arrow-right {
     -webkit-transform-origin: 100%;
-    transform-origin: 100%; }
+    transform-origin: 100%;
+  }
   .mfp-container {
-    padding-left: 6px;
-    padding-right: 6px; } }
+    padding-left: $mfp-popup-padding-left-mobile;
+    padding-right: $mfp-popup-padding-left-mobile;
+  }
+}
