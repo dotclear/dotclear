@@ -515,6 +515,7 @@ if ($nb_last_dirs > 0) {
 }
 
 call_user_func($open_f,__('Media manager'),
+	dcPage::jsModal().
 	dcPage::jsLoad('js/_media.js').
 	($core_media_writable ? dcPage::jsUpload(array('d='.$d)) : ''),
 	$breadcrumb
@@ -965,6 +966,9 @@ function mediaItemLine($f,$i,$query,$table=false)
 		}
 	}
 
+	$file_type = explode('/',$f->type);
+	$class_open = 'class="modal-'.$file_type[0].'" ';
+
 	// Render markup
 	if (!$table) {
 		$res =
@@ -978,13 +982,12 @@ function mediaItemLine($f,$i,$query,$table=false)
 			'<li>'.
 			$f->media_dtstr.' - '.
 			files::size($f->size).' - '.
-			'<a href="'.$f->file_url.'">'.__('open').'</a>'.
+			'<a '.$class_open.'href="'.$f->file_url.'">'.__('open').'</a>'.
 			'</li>';
 		}
 		$lst .= ($act != '' ? '<li class="media-action">&nbsp;'.$act.'</li>' : '');
 
 		// Show player if relevant
-		$file_type = explode('/',$f->type);
 		if ($file_type[0] == 'audio')
 		{
 			$lst .= '<li>'.dcMedia::audioPlayer($f->type,$f->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_mp3.swf')),null,$core->blog->settings->system->media_flash_fallback,false).'</li>';
@@ -999,7 +1002,8 @@ function mediaItemLine($f,$i,$query,$table=false)
 				'<img src="'.$f->media_icon.'" alt="" />'.($query ? $file : $fname).'</a>'.
 				'<br />'.($f->d ? '' : $f->media_title).'</td>';
 		$res .= '<td class="nowrap count">'.($f->d ? '' : $f->media_dtstr).'</td>';
-		$res .= '<td class="nowrap count">'.($f->d ? '' : files::size($f->size).' - '.'<a href="'.$f->file_url.'">'.__('open').'</a>').'</td>';
+		$res .= '<td class="nowrap count">'.($f->d ? '' : files::size($f->size).' - '.
+			'<a '.$class_open.'href="'.$f->file_url.'">'.__('open').'</a>').'</td>';
 		$res .= '</tr>';
 	}
 

@@ -152,6 +152,9 @@ $(function() {
 		return window.confirm(dotclear.msg.confirm_delete_medias.replace('%d',count_checked));
 	});
 
+	// Preview media
+	$('.modal-image').magnificPopup({ type:'image' });
+
 	// attach media
 	$('#form-medias').on('click', '.media-item .attach-media', function(e) {
 		var parts = $(this).prop('href').split('?');

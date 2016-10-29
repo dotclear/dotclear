@@ -234,6 +234,7 @@ $starting_scripts =
 	dcPage::jsVar('dotclear.msg.confirm_delete_media',__('Are you sure to delete this media?'))."\n".
 	"//]]>".
 	"</script>".
+	dcPage::jsModal().
 	dcPage::jsLoad('js/_media_item.js');
 if ($popup && !empty($plugin_id)) {
 	$starting_scripts .= $core->callBehavior('adminPopupMedia', $plugin_id);
@@ -553,12 +554,16 @@ if ($file->media_image)
 	}
 
 	if (isset($file->media_thumb[$thumb_size])) {
-		echo '<p><img src="'.$file->media_thumb[$thumb_size].'?'.time()*rand().'" alt="" /></p>';
+		echo '<p><a class="modal-image" href="'.$file->file_url.'">'.
+			'<img src="'.$file->media_thumb[$thumb_size].'?'.time()*rand().'" alt="" />'.
+			'</a></p>';
 	} elseif ($thumb_size == 'o') {
 		$S = getimagesize($file->file);
 		$class = ($S[1] > 500) ? ' class="overheight"' : '';
 		unset($S);
-		echo '<p id="media-original-image"'.$class.'><img src="'.$file->file_url.'?'.time()*rand().'" alt="" /></p>';
+		echo '<p id="media-original-image"'.$class.'><a class="modal-image" href="'.$file->file_url.'">'.
+			'<img src="'.$file->file_url.'?'.time()*rand().'" alt="" />'.
+			'</a></p>';
 	}
 
 	echo '<p>'.__('Available sizes:').' ';
