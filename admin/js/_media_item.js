@@ -7,6 +7,9 @@ $(function() {
 		post_dtPick.draw();
 	}
 
+	// Preview media
+	$('.modal-image').magnificPopup({ type:'image' });
+
 	// Display zip file content
 	$('#file-unzip').each(function() {
 		var a = document.createElement('a');
