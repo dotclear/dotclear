@@ -8,12 +8,6 @@
 	<meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX"}}" />
 </tpl:Block>
 
-<tpl:Block name="dc-entry">
-	<meta property="dc.title" lang="{{tpl:BlogLanguage}}" content="{{tpl:lang Archives}} - {{tpl:ArchiveDate}} - {{tpl:BlogName encode_html="1"}}" />
-	<meta property="dc.language" content="{{tpl:BlogLanguage}}" />
-	<meta property="dc.date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
-</tpl:Block>
-
 <tpl:Block name="head-linkrel">
 	<link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
 	<link rel="up" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
