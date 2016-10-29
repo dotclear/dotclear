@@ -600,6 +600,24 @@ class dcUpgrade
 					' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
 			$core->con->execute(
 				sprintf($strReq,'csp_admin_report_only',false,'boolean','CSP Report only violations (admin)'));
+
+			# A bit of housecleaning for no longer needed files
+			$remfiles = array (
+				'admin/js/jquery/jquery.modal.js',
+				'admin/style/modal/close.png',
+				'admin/style/modal/loader.gif',
+				'admin/style/modal/modal.css'
+			);
+			$remfolders = array (
+				'admin/style/modal'
+			);
+
+			foreach ($remfiles as $f) {
+				@unlink(DC_ROOT.'/'.$f);
+			}
+			foreach ($remfolders as $f) {
+				@rmdir(DC_ROOT.'/'.$f);
+			}
 		}
 
 		$core->setVersion('core',DC_VERSION);
