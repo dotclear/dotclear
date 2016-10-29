@@ -606,10 +606,19 @@ class dcUpgrade
 				'admin/js/jquery/jquery.modal.js',
 				'admin/style/modal/close.png',
 				'admin/style/modal/loader.gif',
-				'admin/style/modal/modal.css'
+				'admin/style/modal/modal.css',
+				'admin/js/dragsort-tablerows.js',
+				'admin/js/tool-man/cookies.js',
+				'admin/js/tool-man/coordinates.js',
+				'admin/js/tool-man/core.js',
+				'admin/js/tool-man/css.js',
+				'admin/js/tool-man/drag.js',
+				'admin/js/tool-man/dragsort.js',
+				'admin/js/tool-man/events.js'
 			);
 			$remfolders = array (
-				'admin/style/modal'
+				'admin/style/modal',
+				'admin/js/tool-man',
 			);
 
 			foreach ($remfiles as $f) {

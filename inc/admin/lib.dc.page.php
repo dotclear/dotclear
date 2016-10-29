@@ -971,18 +971,6 @@ class dcPage
 		self::jsLoad('js/jsUpload/jquery.fileupload-ui.js');
 	}
 
-	public static function jsToolMan()
-	{
-		return
-		self::jsLoad('js/tool-man/core.js').
-		self::jsLoad('js/tool-man/events.js').
-		self::jsLoad('js/tool-man/css.js').
-		self::jsLoad('js/tool-man/coordinates.js').
-		self::jsLoad('js/tool-man/drag.js').
-		self::jsLoad('js/tool-man/dragsort.js').
-		self::jsLoad('js/dragsort-tablerows.js');
-	}
-
 	public static function jsMetaEditor()
 	{
 		return self::jsLoad('js/meta-editor.js');
