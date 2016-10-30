@@ -179,6 +179,7 @@ elseif ($core->auth->sessionExists())
 $core->adminurl = new dcAdminURL($core);
 
 $core->adminurl->register('admin.posts','posts.php');
+$core->adminurl->register('admin.popup_posts','popup_posts.php');
 $core->adminurl->register('admin.post','post.php');
 $core->adminurl->register('admin.post.media','post_media.php');
 $core->adminurl->register('admin.blog.theme','blog_theme.php');

@@ -49,13 +49,13 @@ dcPage::openPopup(__('Add a link to an entry'),
 
 echo '<h2 class="page-title">'.__('Add a link to an entry').'</h2>';
 
-echo '<form action="popup_posts.php" method="get">'.
+echo '<form action="'.$core->adminurl->get('admin.popup_posts').'" method="get">'.
 	'<p><label for="type" class="classic">'.__('Entry type:').'</label> '.form::combo('type',$type_combo,$type).''.
 	'<noscript><div><input type="submit" value="'.__('Ok').'" /></div></noscript>'.
 	form::hidden('plugin_id',html::escapeHTML($plugin_id)).'</p>'.
 	'</form>';
 
-echo '<form action="popup_posts.php" method="get">'.
+echo '<form action="'.$core->adminurl->get('admin.popup_posts').'" method="get">'.
 	'<p><label for="q" class="classic">'.__('Search entry:').'</label> '.form::field('q',30,255,html::escapeHTML($q)).
 	' <input type="submit" value="'.__('Search').'" />'.
 	form::hidden('plugin_id',html::escapeHTML($plugin_id)).
