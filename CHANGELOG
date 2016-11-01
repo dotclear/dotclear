@@ -1,3 +1,15 @@
+Dotclear 2.10.3 - 2016-11-01
+===========================================================
+* Security: Fix CVE-2016-7903: Password Reset Address Spoof — Thank's Hongkun Zeng for report
+* Security: Fix CVE-2016-7902: Media Manager, unrestricted File Upload — Thank's Hongkun Zeng for report
+* CSP: Cope with external sources used in editor's iframe to preview public external content
+* Fix: Cope with post.post_position field during flat import
+* Fix: Prevents precondition failed during currently activated theme update
+* Fix: Remove unecessary header (cope by dotclear) in page plugin
+* Fix: Let some proxies playing with standard http and https ports
+* Fix: Let SSL runs through a proxy, it may be ok, sometimes
+* 🐛 → Various bugs and typos fixed
+
 Dotclear 2.10.2 - 2016-08-17
 ===========================================================
 * Update fails with PostgreSQL db support → fixed
