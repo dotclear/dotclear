@@ -1,3 +1,7 @@
+Dotclear 2.10.4 - 2016-11-02
+===========================================================
+* PostgreSQL < 9.1 fix
+
 Dotclear 2.10.3 - 2016-11-01
 ===========================================================
 * Security: Fix CVE-2016-7903: Password Reset Address Spoof — Thank's Hongkun Zeng for report
