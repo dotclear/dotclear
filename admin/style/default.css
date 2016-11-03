@@ -319,7 +319,7 @@ h1,
   position: absolute;
   top: 0;
   left: 14em;
-  width: 12px;
+  width: 10px;
   height: 100%;
   overflow: hidden;
   display: block;
@@ -336,10 +336,10 @@ h1,
   margin-left: 0; }
 
 .hide-mm #content {
-  margin-left: 12px; }
+  margin-left: 10px; }
 
 .hide-mm #content > h2 {
-  margin-left: calc(-1em - 12px); }
+  margin-left: calc(-1em - 10px); }
 
 .hide-mm #main-menu {
   display: none; }
@@ -3243,43 +3243,6 @@ ul.from-left ul {
 .with-js .hidden-if-js {
   display: none; }
 
-/* debug */
-#debug {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 4px;
-  background: #ffd478; }
-
-#debug div {
-  display: none;
-  padding: 3px 0.5em 2px; }
-
-#debug p {
-  margin: 0.5em 0; }
-
-#debug:hover {
-  height: auto;
-  padding: 2px 1em;
-  z-index: 100; }
-
-#debug:hover div {
-  display: block; }
-
-.debug {
-  background: #ffd478;
-  padding: 3px 0.5em 2px; }
-
-input[type=submit].delete.debug,
-a.delete.debug {
-  border-color: #ffd478; }
-
-input[type=submit].delete.debug:hover,
-a.delete.debug:hover {
-  background: #ffd478;
-  color: #900;
-  border-color: #ffd478; }
-
 /* ---------------------------------------------- Couleurs ajoutées via javascript
 /* color-picker.js */
 .color-color-picker {
@@ -3728,3 +3691,42 @@ img.mfp-img {
   .mfp-container {
     padding-left: 6px;
     padding-right: 6px; } }
+/** --------------------------------------------------
+    Debug
+--------------------------------------------------- */
+/* debug */
+#debug {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 4px;
+  background: #ffd478; }
+
+#debug div {
+  display: none;
+  padding: 3px 0.5em 2px; }
+
+#debug p {
+  margin: 0.5em 0; }
+
+#debug:hover {
+  height: auto;
+  padding: 2px 1em;
+  z-index: 100; }
+
+#debug:hover div {
+  display: block; }
+
+.debug {
+  background: #ffd478;
+  padding: 3px 0.5em 2px; }
+
+input[type=submit].delete.debug,
+a.delete.debug {
+  border-color: #ffd478; }
+
+input[type=submit].delete.debug:hover,
+a.delete.debug:hover {
+  background: #ffd478;
+  color: #900;
+  border-color: #ffd478; }
