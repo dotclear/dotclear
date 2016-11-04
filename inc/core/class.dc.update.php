@@ -27,6 +27,7 @@ class dcUpdate
 		'href' => null,
 		'checksum' => null,
 		'info' => null,
+		'php' => '5.3',
 		'notify' => true
 	);
 
@@ -57,7 +58,7 @@ class dcUpdate
 	 * @param nocache        boolean   Force checking
 	 * @return string				Latest version if available
 	 */
-	public function check($version, $nocache=false)
+	public function check($version,$nocache=false)
 	{
 		$this->getVersionInfo($nocache);
 		$v = $this->getVersion();
@@ -157,6 +158,11 @@ class dcUpdate
 	public function getChecksum()
 	{
 		return $this->version_info['checksum'];
+	}
+
+	public function getPHPVersion()
+	{
+		return $this->version_info['php'];
 	}
 
 	public function getNotify()
@@ -452,6 +458,7 @@ class dcUpdate
 				$this->version_info['href'] = isset($r['href']) ? (string) $r['href'] : null;
 				$this->version_info['checksum'] = isset($r['checksum']) ? (string) $r['checksum'] : null;
 				$this->version_info['info'] = isset($r['info']) ? (string) $r['info'] : null;
+				$this->version_info['php'] = isset($r['php']) ? (string) $r['php'] : null;
 			}
 		}
 		catch (Exception $e)

@@ -213,13 +213,16 @@ if ($core->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS))
 	$version_info = $new_v ? $updater->getInfoURL() : '';
 
 	if ($updater->getNotify() && $new_v) {
-		echo
-		'<div class="dc-update"><h3>'.sprintf(__('Dotclear %s is available!'),$new_v).'</h3> '.
-		'<p><a class="button submit" href="'.$core->adminurl->get("admin.update").'">'.sprintf(__('Upgrade now'),$new_v).'</a> '.
-		'<a class="button" href="'.$core->adminurl->get("admin.update", array('hide_msg' => 1)).'">'.__('Remind me later').'</a>'.
-		($version_info ? ' </p>'.
-		'<p class="updt-info"><a href="'.$version_info.'">'.__('Information about this version').'</a>' : '').'</p>'.
-		'</div>';
+		// Check PHP version required
+		if (version_compare(phpversion(),$updater->getPHPVersion()) >= 0) {
+			echo
+			'<div class="dc-update"><h3>'.sprintf(__('Dotclear %s is available!'),$new_v).'</h3> '.
+			'<p><a class="button submit" href="'.$core->adminurl->get("admin.update").'">'.sprintf(__('Upgrade now'),$new_v).'</a> '.
+			'<a class="button" href="'.$core->adminurl->get("admin.update", array('hide_msg' => 1)).'">'.__('Remind me later').'</a>'.
+			($version_info ? ' </p>'.
+			'<p class="updt-info"><a href="'.$version_info.'">'.__('Information about this version').'</a>' : '').'</p>'.
+			'</div>';
+		}
 	}
 }
 

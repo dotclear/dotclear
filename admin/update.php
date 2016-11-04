@@ -202,16 +202,21 @@ if (!$step)
 	{
 		echo
 			'<p class="static-msg">'.sprintf(__('Dotclear %s is available.'),$new_v).
-				($version_info ? ' <a href="'.$version_info.'" class="outgoing" title="'.__('Information about this version').'">('.
-					__('Information about this version').')&nbsp;<img src="images/outgoing.png" alt=""/></a>' : '').
-				'</p>'.
-
-		'<p>'.__('To upgrade your Dotclear installation simply click on the following button. '.
-			'A backup file of your current installation will be created in your root directory.').'</p>'.
-		'<form action="'.$p_url.'" method="get">'.
-		'<p><input type="hidden" name="step" value="check" />'.
-		'<input type="submit" value="'.__('Update Dotclear').'" /></p>'.
-		'</form>';
+			($version_info ? ' <a href="'.$version_info.'" class="outgoing" title="'.__('Information about this version').'">('.
+			__('Information about this version').')&nbsp;<img src="images/outgoing.png" alt=""/></a>' : '').
+			'</p>';
+		if (version_compare(phpversion(),$updater->getPHPVersion()) < 0) {
+			echo
+			'<p class="warning-msg">'.sprintf(__('PHP version is %s (%s or earlier needed).'),phpversion(),$updater->getPHPVersion()).'</p>';
+		} else {
+			echo
+			'<p>'.__('To upgrade your Dotclear installation simply click on the following button. '.
+				'A backup file of your current installation will be created in your root directory.').'</p>'.
+			'<form action="'.$p_url.'" method="get">'.
+			'<p><input type="hidden" name="step" value="check" />'.
+			'<input type="submit" value="'.__('Update Dotclear').'" /></p>'.
+			'</form>';
+		}
 	}
 	echo '</div>';
 
