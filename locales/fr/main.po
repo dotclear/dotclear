@@ -1064,6 +1064,10 @@ msgstr "Enregister et publier"
 msgid "PHP version is %s (5.3 or earlier needed)."
 msgstr "La version de PHP est %s (5.3 ou plus récente nécessaire)."
 
+#, php-format
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "La version de PHP est %s (%s ou plus récente nécessaire)."
+
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "Le support des chaînes multi-octets (mbstring) n'est pas disponible."
 
