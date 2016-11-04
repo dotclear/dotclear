@@ -88,7 +88,7 @@ if (isset($_POST['user_name']))
 		$cur->user_tz = $user_tz = $_POST['user_tz'];
 		$cur->user_post_status = $user_post_status = $_POST['user_post_status'];
 
-		if ($cur->user_id == $core->auth->userID() && $core->auth->isSuperAdmin()) {
+		if ($user_id && $cur->user_id == $core->auth->userID() && $core->auth->isSuperAdmin()) {
 			// force super_user to true if current user
 			$cur->user_super = $user_super = true;
 		}
