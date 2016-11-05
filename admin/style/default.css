@@ -758,7 +758,13 @@ h6 {
 
 /* to hide main-menu */
 #collapser {
-  background: #a2cbe9; }
+  background: #c9c9c9; }
+  #collapser:hover, #collapser:focus {
+    background: #a2cbe9; }
+  .hide-mm #collapser {
+    background: #a2cbe9; }
+    .hide-mm #collapser:hover, .hide-mm #collapser:focus {
+      background: #c9c9c9; }
 
 /* if main-menu is hidden */
 #wrapper.hide-mm {

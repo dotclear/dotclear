@@ -48,11 +48,21 @@ h6 {
 
 /* to hide main-menu */
 #collapser {
-	background: $light-blue; // #f3f3f3 url(../images/collapser-hide.png) no-repeat center bottom;
-}
-
-.hide-mm #collapser {
-    //	background: #e3e3e3 url(../images/collapser-show.png) no-repeat center bottom;
+//	background: $light-blue;
+	background: $gray-light;
+	// background: $light-blue url(../images/collapser-hide.png) no-repeat center bottom;
+	&:hover, &:focus {
+		// background: $gray-dark;
+		background: $light-blue;
+	}
+	.hide-mm & {
+		// background: $gray-dark;
+		background: $light-blue;
+		// background: $light-blue url(../images/collapser-show.png) no-repeat center bottom;
+		&:hover, &:focus {
+			background: $gray-light;
+		}
+	}
 }
 
 /* if main-menu is hidden */
