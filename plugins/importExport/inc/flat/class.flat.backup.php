@@ -38,7 +38,7 @@ class flatBackup
 	public function __destruct()
 	{
 		if ($this->fp) {
-			fclose($this->fp);
+			@fclose($this->fp);
 		}
 	}
 
