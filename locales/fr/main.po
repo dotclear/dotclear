@@ -441,8 +441,8 @@ msgstr "Veuillez noter que si vous changez ces réglages, ils s'appliqueront dé
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "Soyez prudent si plusieurs blogs de l'installation partagent la même médiathèque."
 
-msgid "Generated image sizes (in pixels)"
-msgstr "Tailles des miniatures générées (largeur en pixels)"
+msgid "Generated image sizes (max dimension in pixels)"
+msgstr "Tailles des miniatures générées (dimension maximum en pixels)"
 
 msgid "Thumbnail"
 msgstr "Vignette"
@@ -747,6 +747,15 @@ msgid "%d entry"
 msgid_plural "%d entries"
 msgstr[0] "%d entrée"
 msgstr[1] "%d entrées"
+
+#, php-format
+msgid "%d posts"
+msgstr "%d billets"
+
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%d billet"
+msgstr[1] "%d billets"
 
 msgid "total:"
 msgstr "total :"

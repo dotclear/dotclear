@@ -602,7 +602,7 @@ if ($blog_id)
 
 	'<div class="two-cols">'.
 	'<div class="col">'.
-	'<h5>'.__('Generated image sizes (in pixels)').'</h5>'.
+	'<h5>'.__('Generated image sizes (max dimension in pixels)').'</h5>'.
 	'<p class="field"><label for="media_img_t_size">'.__('Thumbnail').'</label> '.
 	form::field('media_img_t_size',3,3,$blog_settings->system->media_img_t_size).'</p>'.
 
