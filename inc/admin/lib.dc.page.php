@@ -976,6 +976,19 @@ class dcPage
 		return self::jsLoad('js/meta-editor.js');
 	}
 
+	public static function jsFilterControl($show=true)
+	{
+		return
+		self::jsLoad('js/filter-controls.js').
+		'<script type="text/javascript">'."\n".
+		"//<![CDATA["."\n".
+		self::jsVar('dotclear.msg.show_filters', $show ? 'true':'false')."\n".
+		self::jsVar('dotclear.msg.filter_posts_list',__('Show filters and display options'))."\n".
+		self::jsVar('dotclear.msg.cancel_the_filter',__('Cancel filters and display options'))."\n".
+		"//]]>".
+		"</script>";
+	}
+
 	public static function jsLoadCodeMirror($theme = '',$multi = true,$modes = array('css','htmlmixed','javascript','php','xml'))
 	{
 		$ret =

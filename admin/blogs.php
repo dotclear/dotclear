@@ -79,18 +79,8 @@ try {
 /* DISPLAY
 -------------------------------------------------------- */
 
-$form_filter_title = __('Show filters and display options');
-$starting_script  = dcPage::jsLoad('js/filter-controls.js');
-$starting_script .=
-	'<script type="text/javascript">'."\n".
-	"//<![CDATA["."\n".
-	dcPage::jsVar('dotclear.msg.show_filters', $show_filters ? 'true':'false')."\n".
-	dcPage::jsVar('dotclear.msg.filter_posts_list',$form_filter_title)."\n".
-	dcPage::jsVar('dotclear.msg.cancel_the_filter',__('Cancel filters and display options'))."\n".
-	"//]]>".
-	"</script>";
-
-dcPage::open(__('List of blogs'),$starting_script,
+dcPage::open(__('List of blogs'),
+	dcPage::jsFilterControl($show_filters),
 	dcPage::breadcrumb(
 		array(
 			__('System') => '',
@@ -110,7 +100,7 @@ if (!$core->error->flag())
 
 	echo
 	'<form action="'.$core->adminurl->get("admin.blogs").'" method="get" id="filters-form">'.
-	'<h3 class="hidden">'.__('Filter blogs list').'</h3>'.
+	'<h3 class="out-of-screen-if-js">'.__('Show filters and display options').'</h3>'.
 
 	'<div class="table">'.
 	'<div class="cell">'.
