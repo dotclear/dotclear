@@ -410,7 +410,7 @@ class defaultFavorites
 				'large-icon' => 'images/menu/edit-b.png',
 				'permissions' =>'usage,contentadmin'),
 			'posts' => array(
-				'title' => __('Entries'),
+				'title' => __('Posts'),
 				'url' => $core->adminurl->get("admin.posts"),
 				'small-icon' => 'images/menu/entries.png',
 				'large-icon' => 'images/menu/entries-b.png',
@@ -485,7 +485,7 @@ class defaultFavorites
 	public static function postsDashboard($core,$v)
 	{
 		$post_count = $core->blog->getPosts(array(),true)->f(0);
-		$str_entries = __('%d entry', '%d entries',$post_count);
+		$str_entries = __('%d post', '%d posts',$post_count);
 		$v['title'] = sprintf($str_entries,$post_count);
 	}
 
