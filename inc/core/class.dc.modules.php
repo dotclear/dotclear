@@ -192,7 +192,9 @@ class dcModules
 					{
 						$this->id = $entry;
 						$this->mroot = $full_entry;
+						ob_start();
 						require $full_entry.'/_define.php';
+						ob_end_clean();
 						$this->all_modules[$entry] =& $this->modules[$entry];
 						$this->id = null;
 						$this->mroot = null;
@@ -202,9 +204,11 @@ class dcModules
 						if (file_exists($full_entry.'/_define.php')) {
 							$this->id = $entry;
 							$this->mroot = $full_entry;
-							$this->disabled_mode=true;
+							$this->disabled_mode = true;
+							ob_start();
 							require $full_entry.'/_define.php';
-							$this->disabled_mode=false;
+							ob_end_clean();
+							$this->disabled_mode = false;
 							$this->disabled[$entry] =  $this->disabled_meta;
 							$this->all_modules[$entry] =& $this->disabled[$entry];
 							$this->id = null;
@@ -259,7 +263,9 @@ class dcModules
 	{
 		if (file_exists($dir.'/_define.php')) {
 			$this->id = $id;
+			ob_start();
 			require $dir.'/_define.php';
+			ob_end_clean();
 			$this->id = null;
 		}
 	}
@@ -721,7 +727,7 @@ class dcModules
 		return $this->errors;
 	}
 
-	protected function loadModuleFile($________)
+	protected function loadModuleFile($________,$catch = true)
 	{
 		if (!file_exists($________)) {
 			return;
@@ -733,6 +739,14 @@ class dcModules
 			if (!in_array(self::$_n,self::$superglobals)) {
 				global ${self::$_n};
 			}
+		}
+
+		if ($catch) {
+			// Catch ouput to prevents hacked or corrupted modules
+			ob_start();
+			$ret = require $________;
+			ob_end_clean();
+			return $ret;
 		}
 
 		return require $________;
