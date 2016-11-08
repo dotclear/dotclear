@@ -185,19 +185,8 @@ try {
 /* DISPLAY
 -------------------------------------------------------- */
 
-$form_filter_title = __('Show filters and display options');
-$starting_script  = dcPage::jsLoad('js/_comments.js');
-$starting_script .= dcPage::jsLoad('js/filter-controls.js');
-$starting_script .=
-	'<script type="text/javascript">'."\n".
-	"//<![CDATA["."\n".
-	dcPage::jsVar('dotclear.msg.show_filters', $show_filters ? 'true':'false')."\n".
-	dcPage::jsVar('dotclear.msg.filter_posts_list',$form_filter_title)."\n".
-	dcPage::jsVar('dotclear.msg.cancel_the_filter',__('Cancel filters and display options'))."\n".
-	"//]]>".
-	"</script>";
-
-dcPage::open(__('Comments and trackbacks'),$starting_script,
+dcPage::open(__('Comments and trackbacks'),
+	dcPage::jsLoad('js/_comments.js').dcPage::jsFilterControl($show_filters),
 	dcPage::breadcrumb(
 		array(
 			html::escapeHTML($core->blog->name) => '',
@@ -246,9 +235,9 @@ if (!$core->error->flag())
 
 	echo
 	'<form action="'.$core->adminurl->get("admin.comments").'" method="get" id="filters-form">'.
-	'<h3 class="hidden">'.__('Filter comments and trackbacks list').'</h3>'.
-	'<div class="table">'.
+	'<h3 class="out-of-screen-if-js">'.__('Show filters and display options').'</h3>'.
 
+	'<div class="table">'.
 	'<div class="cell">'.
 	'<h4>'.__('Filters').'</h4>'.
 	'<p><label for="type" class="ib">'.__('Type:').'</label> '.
