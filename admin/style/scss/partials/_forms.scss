@@ -207,3 +207,10 @@ p.form-note {
 span.form-note {
     text-transform: none;
 }
+
+// .more-info Additional information on fieldset, field, … (may be hide from user-prefs)
+.more-info {
+}
+.no-more-info {
+    display: none;
+}

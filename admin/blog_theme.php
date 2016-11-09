@@ -147,7 +147,7 @@ if (!empty($modules)) {
 	echo
 	'<div class="multi-part" id="themes" title="'.__('Installed themes').'">'.
 	'<h3>'.__('Installed themes').'</h3>'.
-	'<p>'.__('You can configure and manage installed themes from this list.').'</p>';
+	'<p class="more-info">'.__('You can configure and manage installed themes from this list.').'</p>';
 
 	$list
 		->setList('theme-activate')
@@ -169,7 +169,7 @@ if (!empty($modules)) {
 	echo
 	'<div class="multi-part" id="deactivate" title="'.__('Deactivated themes').'">'.
 	'<h3>'.__('Deactivated themes').'</h3>'.
-	'<p>'.__('Deactivated themes are installed but not usable. You can activate them from here.').'</p>';
+	'<p class="more-info">'.__('Deactivated themes are installed but not usable. You can activate them from here.').'</p>';
 
 	$list
 		->setList('theme-deactivate')
@@ -222,7 +222,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 	echo
 	'<div class="multi-part" id="addtheme" title="'.__('Install or upgrade manually').'">'.
 	'<h3>'.__('Add themes from a package').'</h3>'.
-	'<p>'.__('You can install themes by uploading or downloading zip files.').'</p>';
+	'<p class="more-info">'.__('You can install themes by uploading or downloading zip files.').'</p>';
 
 	$list->displayManualForm();
 

@@ -725,7 +725,7 @@ if ($file->editable && $core_media_writable)
 		echo
 		'<form class="clear fieldset" action="'.$core->adminurl->get("admin.media.item").'" method="post">'.
 		'<h4>'.__('Update thumbnails').'</h4>'.
-		'<p>'.__('This will create or update thumbnails for this image.').'</p>'.
+		'<p class="more-info">'.__('This will create or update thumbnails for this image.').'</p>'.
 		'<p><input type="submit" name="thumbs" value="'.__('Update thumbnails').'" />'.
 		$core->adminurl->getHiddenFormFields('admin.media',$page_url_params).
 		$core->formNonce().'</p>'.

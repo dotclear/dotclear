@@ -564,6 +564,10 @@ $(function() {
 		return true;
 	});
 
+	if (dotclear.hideMoreInfo) {
+		$('.more-info,.form-note:not(.warn,.warning,.info)').addClass('no-more-info');
+	}
+
 	// Main menu collapser
     var objMain = $('#wrapper');
     function showSidebar(){

@@ -176,6 +176,15 @@ class dcPage
 		self::jsToggles().
 		$head;
 
+		if ($core->auth->user_prefs->interface->hidemoreinfo) {
+			echo
+			'<script type="text/javascript">'."\n".
+			"//<![CDATA[\n".
+			'dotclear.hideMoreInfo = true;'.
+			"\n//]]>\n".
+			"</script>\n";
+		}
+
 		# --BEHAVIOR-- adminPageHTMLHead
 		$core->callBehavior('adminPageHTMLHead');
 
@@ -403,6 +412,16 @@ class dcPage
 		self::jsCommon().
 		self::jsToggles().
 		$head;
+
+		$core->auth->user_prefs->addWorkspace('interface');
+		if ($core->auth->user_prefs->interface->hidemoreinfo) {
+			echo
+			'<script type="text/javascript">'."\n".
+			"//<![CDATA[\n".
+			'dotclear.hideMoreInfo = true;'.
+			"\n//]]>\n".
+			"</script>\n";
+		}
 
 		# --BEHAVIOR-- adminPageHTMLHead
 		$core->callBehavior('adminPageHTMLHead');
