@@ -437,11 +437,13 @@ class dcAuth
 			}
 			else
 			{
-				$strReq = 'SELECT blog_id '.
-						'FROM '.$this->perm_table.' '.
+				$strReq = 'SELECT P.blog_id '.
+						'FROM '.$this->perm_table.' P, '.$this->blog_table.' B '.
 						"WHERE user_id = '".$this->con->escape($this->user_id)."' ".
+						"AND P.blog_id = B.blog_id ".
 						"AND (permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%') ".
-						'ORDER BY blog_id ASC '.
+						"AND blog_status >= 0 ".
+						'ORDER BY P.blog_id ASC '.
 						$this->con->limit(1);
 			}
 
