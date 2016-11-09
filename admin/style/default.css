@@ -1164,6 +1164,9 @@ p.form-note {
 span.form-note {
   text-transform: none; }
 
+.no-more-info {
+  display: none; }
+
 /* Removes inner padding and border in FF3+  - Knacss */
 button::-moz-focus-inner,
 input[type=button]::-moz-focus-inner,
@@ -2090,15 +2093,14 @@ span.ibw {
 
 /* raccourcis */
 #icons {
-  overflow: hidden;
-  text-align: center; }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
 
 #icons p {
   width: 13em;
   text-align: center;
-  margin: 1em 0 2em;
-  display: inline-block;
-  vertical-align: top; }
+  margin: 1em 0 2em; }
 
 #icons a,
 #icons a:link,
@@ -2173,12 +2175,10 @@ span.ibw {
 /* modules additionnels */
 #dashboard-boxes {
   margin: 1em auto 1em;
-  padding-top: 2em; }
-
-.db-items,
-.db-contents {
-  display: inline-block;
-  text-align: center; }
+  padding-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
 
 .no-js .outgoing img {
   display: none; }

@@ -41,6 +41,7 @@ $user_acc_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
 
 $core->auth->user_prefs->addWorkspace('interface');
 $user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
+$user_ui_hidemoreinfo = $core->auth->user_prefs->interface->hidemoreinfo;
 if ($core->auth->isSuperAdmin()) {
 	$user_ui_hide_std_favicon = $core->auth->user_prefs->interface->hide_std_favicon;
 }
@@ -228,6 +229,7 @@ if (isset($_POST['user_editor']))
 		# Update user prefs
 		$core->auth->user_prefs->accessibility->put('nodragdrop',!empty($_POST['user_acc_nodragdrop']),'boolean');
 		$core->auth->user_prefs->interface->put('enhanceduploader',!empty($_POST['user_ui_enhanceduploader']),'boolean');
+		$core->auth->user_prefs->interface->put('hidemoreinfo',!empty($_POST['user_ui_hidemoreinfo']),'boolean');
 		if ($core->auth->isSuperAdmin()) {
 			# Applied to all users
 			$core->auth->user_prefs->interface->put('hide_std_favicon',!empty($_POST['user_ui_hide_std_favicon']),'boolean',null,true,true);
@@ -498,7 +500,11 @@ __('Activate enhanced uploader in media manager').'</label></p>'.
 '<p><label for="user_acc_nodragdrop" class="classic">'.
 form::checkbox('user_acc_nodragdrop',1,$user_acc_nodragdrop).' '.
 __('Disable javascript powered drag and drop for ordering items').'</label></p>'.
-'<p class="clear form-note">'.__('If checked, numeric fields will allow to type the elements\' ordering number.').'</p>';
+'<p class="clear form-note">'.__('If checked, numeric fields will allow to type the elements\' ordering number.').'</p>'.
+
+'<p><label for="user_ui_hidemoreinfo" class="classic">'.
+form::checkbox('user_ui_hidemoreinfo',1,$user_ui_hidemoreinfo).' '.
+__('Hide all secondary information and notes').'</label></p>';
 
 echo
 '<p><label for="user_ui_media_by_page" class="classic">'.__('Number of elements displayed per page in media manager:').'</label> '.

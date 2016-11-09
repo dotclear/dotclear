@@ -797,7 +797,7 @@ if (!$query && $core_media_writable)
 
 	echo
 	'<h4>'.__('Add files').'</h4>'.
-	'<p>'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
+	'<p class="more-info">'.__('Please take care to publish media that you own and that are not protected by copyright.').'</p>'.
 	'<form id="fileupload" action="'.html::escapeURL($core->adminurl->get('admin.media',$page_url_params)).'" method="post" enctype="multipart/form-data" aria-disabled="false">'.
 	'<p>'.form::hidden(array('MAX_FILE_SIZE'),DC_MAX_UPLOAD_SIZE).
 	$core->formNonce().'</p>'.

@@ -159,7 +159,7 @@ if (!empty($modules)) {
 
 	echo
 	'<h3>'.($core->auth->isSuperAdmin() ?__('Activated plugins') : __('Installed plugins')).'</h3>'.
-	'<p>'.__('You can configure and manage installed plugins from this list.').'</p>';
+	'<p class="more-info">'.__('You can configure and manage installed plugins from this list.').'</p>';
 
 	$list
 		->setList('plugin-activate')
@@ -177,7 +177,7 @@ if ($core->auth->isSuperAdmin()) {
 	if (!empty($modules)) {
 		echo
 		'<h3>'.__('Deactivated plugins').'</h3>'.
-		'<p>'.__('Deactivated plugins are installed but not usable. You can activate them from here.').'</p>';
+		'<p class="more-info">'.__('Deactivated plugins are installed but not usable. You can activate them from here.').'</p>';
 
 		$list
 			->setList('plugin-deactivate')
@@ -203,7 +203,6 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 		echo
 		'<div class="multi-part" id="new" title="'.__('Add plugins').'">'.
 		'<h3>'.__('Add plugins from repository').'</h3>';
-//		'<p>'.__('Search and install plugins directly from repository.').'</p>';
 
 		$list
 			->setList('plugin-new')
@@ -231,7 +230,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 	echo
 	'<div class="multi-part" id="addplugin" title="'.__('Install or upgrade manually').'">'.
 	'<h3>'.__('Add plugins from a package').'</h3>'.
-	'<p>'.__('You can install plugins by uploading or downloading zip files.').'</p>';
+	'<p class="more-info">'.__('You can install plugins by uploading or downloading zip files.').'</p>';
 
 	$list->displayManualForm();
 

@@ -2191,6 +2191,9 @@ msgstr "Mes options"
 msgid "Interface"
 msgstr "Interface"
 
+msgid "Hide all secondary information and notes"
+msgstr "Cacher les informations secondaires et les notes"
+
 msgid "Activate enhanced uploader in media manager"
 msgstr "Activer l'interface avancée de la médiathèque"
 

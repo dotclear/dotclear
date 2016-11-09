@@ -1,21 +1,24 @@
 #dashboard-main {
-    text-align: center;
+	text-align: center;
 }
 
 
 /* raccourcis */
 
 #icons {
-    overflow: hidden;
-    text-align: center;
+//    overflow: hidden;
+//    text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 #icons p {
-    width: 13em;
-    text-align: center;
-    margin: 1em 0 2em;
-    display: inline-block;
-    vertical-align: top;
+	width: 13em;
+	text-align: center;
+	margin: 1em 0 2em;
+//    display: inline-block;
+//    vertical-align: top;
 }
 
 #icons a,
@@ -23,154 +26,157 @@
 #icons a:visited,
 #icons a:hover,
 #icons a:focus {
-    border-bottom-width: 0;
-    text-decoration: none;
+	border-bottom-width: 0;
+	text-decoration: none;
 }
 
 #icons a span {
-    border-bottom: 1px dotted #999;
-    color: #333;
+	border-bottom: 1px dotted #999;
+	color: #333;
 }
 
 #icons a img {
-    padding: 1.5em;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    border: 1px solid #dadada;
-    display: inline-block;
+	padding: 1.5em;
+	background-color: #f9f9f9;
+	border-radius: 8px;
+	border: 1px solid #dadada;
+	display: inline-block;
 }
 
 #icons a:focus img,
 #icons a:hover img {
-    background: #bee74b;
-    outline: 0;
-    border-color: #dadada;
+	background: #bee74b;
+	outline: 0;
+	border-color: #dadada;
 }
 
 #icons a:focus {
-    outline: 0;
-    border-color: #fff;
+	outline: 0;
+	border-color: #fff;
 }
 
 #icons a:hover span,
 #icons a:focus span {
-    border-bottom-style: solid;
+	border-bottom-style: solid;
 }
 
 #icons a:focus span {
-    border: 2px solid #bee74b;
+	border: 2px solid #bee74b;
 }
 
 
 /* billet rapide */
 
 #quick {
-    padding: 1em;
-    max-width: 976px;
-    margin: 0 auto;
-    background: #f5f5f5;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-    text-align: left;
+	padding: 1em;
+	max-width: 976px;
+	margin: 0 auto;
+	background: #f5f5f5;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+	text-align: left;
 }
 
 #quick h3 {
-    margin-bottom: 0.2em;
-    font-size: 1.2em;
+	margin-bottom: 0.2em;
+	font-size: 1.2em;
 }
 
 #quick p.qinfo {
-    margin: -.7em -1em 1em;
-    background: #D9EDF7 url(info.png) no-repeat .2em .2em;
-    border: 1px solid #BCE8F1;
-    padding: .2em 1em .1em 24px;
-    color: #000;
+	margin: -.7em -1em 1em;
+	background: #D9EDF7 url(info.png) no-repeat .2em .2em;
+	border: 1px solid #BCE8F1;
+	padding: .2em 1em .1em 24px;
+	color: #000;
 }
 
 #quick #new_cat,
 .q-cat,
 .q-cat label {
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 1em;
-    margin-top: 0;
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 1em;
+	margin-top: 0;
 }
 
 .q-cat label {
-    margin-right: .3em;
+	margin-right: .3em;
 }
 
 #quick #new_cat {
-    margin-bottom: 2em;
+	margin-bottom: 2em;
 }
 
 
 /* modules additionnels */
 
 #dashboard-boxes {
-    margin: 1em auto 1em;
-    padding-top: 2em;
+	margin: 1em auto 1em;
+	padding-top: 2em;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .db-items,
 .db-contents {
-    display: inline-block;
-    text-align: center;
+//	display: inline-block;
+//	text-align: center;
 }
 
 .no-js .outgoing img {
-    display: none;
+	display: none;
 }
 
 #dashboard-boxes .box {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    min-height: 200px;
-    margin: 10px;
-    text-align: left;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	min-height: 200px;
+	margin: 10px;
+	text-align: left;
 }
 
 .dc-box {
-    background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right;
+	background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right;
 }
 
 .db-items img,
 .db-contents img {
-    vertical-align: middle;
+	vertical-align: middle;
 }
 
 .db-items ul,
 .db-contents ul {
-    display: block;
-    padding-left: 1.5em;
-    list-style: square;
+	display: block;
+	padding-left: 1.5em;
+	list-style: square;
 }
 
 .db-items li,
 .db-contents li {
-    margin: 0.25em 0 0 0;
+	margin: 0.25em 0 0 0;
 }
 
 #news dt {
-    font-weight: bold;
-    margin: 0 0 0.4em 0;
+	font-weight: bold;
+	margin: 0 0 0.4em 0;
 }
 
 #news dd {
-    margin: 0 0 1em 0;
+	margin: 0 0 1em 0;
 }
 
 #news dd p {
-    margin: 0.2em 0 0 0;
+	margin: 0.2em 0 0 0;
 }
 
 
 /* message de mise à jour */
 
 #upg-notify ul {
-    padding-left: 1.5em;
+	padding-left: 1.5em;
 }
 
 #upg-notify li {
-    color: #fff;
+	color: #fff;
 }

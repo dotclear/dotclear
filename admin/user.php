@@ -209,7 +209,7 @@ echo
 '<p><label for="user_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('User ID:').'</label> '.
 form::field('user_id',20,255,html::escapeHTML($user_id)).
 '</p>'.
-'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p>';
+'<p class="form-note info">'.__('At least 2 characters using letters, numbers or symbols.').'</p>';
 
 if ($user_id == $core->auth->userID()) {
 	echo
@@ -230,7 +230,7 @@ echo
     '    <p class="label no-margin"></p>'.
     '</div>'.
 '</div>'.
-'<p class="form-note">'.__('Password must contain at least 6 characters.').'</p>'.
+'<p class="form-note info">'.__('Password must contain at least 6 characters.').'</p>'.
 
 '<p><label for="new_pwd_c" '.($user_id != '' ? '' : 'class="required"').'>'.
 ($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').__('Confirm password:').'</label> '.
