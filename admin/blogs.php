@@ -15,10 +15,16 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 dcPage::check('usage,contentadmin');
 
 # Filters
+$status_combo = array_merge(
+	array('-' => ''),
+	dcAdminCombos::getBlogStatusesCombo()
+);
+
 $sortby_combo = array(
 __('Last update') => 'blog_upddt',
 __('Blog name') => 'UPPER(blog_name)',
-__('Blog ID') => 'B.blog_id'
+__('Blog ID') => 'B.blog_id',
+__('Status') => 'blog_status'
 );
 
 $order_combo = array(
@@ -27,6 +33,7 @@ __('Ascending') => 'asc'
 );
 
 $q = !empty($_GET['q']) ? $_GET['q'] : '';
+$status = isset($_GET['status']) ? $_GET['status'] : '';
 $sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : 'blog_upddt';
 $order = !empty($_GET['order']) ? $_GET['order'] : 'desc';
 
@@ -46,6 +53,14 @@ if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
 if ($q) {
 	$params['q'] = $q;
 	$show_filters = true;
+}
+
+# - Status filter
+if ($status !== '' && in_array($status,$status_combo)) {
+	$params['blog_status'] = $status;
+	$show_filters = true;
+} else {
+	$status='';
 }
 
 # - Sortby and order filter
@@ -107,6 +122,8 @@ if (!$core->error->flag())
 	'<h4>'.__('Filters').'</h4>'.
 	'<p><label for="q" class="ib">'.__('Search:').'</label> '.
 	form::field('q',20,255,html::escapeHTML($q)).'</p>'.
+	'<p><label for="status" class="ib">'.__('Status:').'</label> '.
+	form::combo('status',$status_combo,$status).'</p>'.
 	'</div>'.
 
 	'<div class="cell filters-options">'.
