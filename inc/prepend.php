@@ -67,6 +67,7 @@ $__autoload['adminGenericList']  	 = dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminPostList']     	 = dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminPostMiniList'] 	 = dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminCommentList']  	 = dirname(__FILE__).'/admin/lib.pager.php';
+$__autoload['adminBlogList']  	 = dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['adminUserList']     	 = dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['dcPager']           	 = dirname(__FILE__).'/admin/lib.pager.php';
 $__autoload['dcAdminCombos']     	 = dirname(__FILE__).'/admin/lib.admincombos.php';
@@ -76,6 +77,7 @@ $__autoload['dcThemeConfig']     	 = dirname(__FILE__).'/admin/lib.themeconfig.p
 $__autoload['dcAdminURL']            = dirname(__FILE__).'/admin/lib.dc.adminurl.php';
 $__autoload['dcPostsActionsPage']    = dirname(__FILE__).'/admin/actions/class.dcactionposts.php';
 $__autoload['dcCommentsActionsPage'] = dirname(__FILE__).'/admin/actions/class.dcactioncomments.php';
+$__autoload['dcBlogsActionsPage'] = dirname(__FILE__).'/admin/actions/class.dcactionblogs.php';
 $__autoload['dcActionsPage']         = dirname(__FILE__).'/admin/actions/class.dcaction.php';
 
 $__autoload['dcTemplate']            = dirname(__FILE__).'/public/class.dc.template.php';

@@ -1016,12 +1016,15 @@ class dcCore
 			$where = 'AND blog_status IN (1,0) ';
 		}
 
-		if (!empty($params['blog_status']) && $this->auth->isSuperAdmin()) {
-			$where = 'AND blog_status = '.(integer) $params['blog_status'].' ';
+		if (isset($params['blog_status']) && $params['blog_status'] !== '' && $this->auth->isSuperAdmin()) {
+			$where .= 'AND blog_status = '.(integer) $params['blog_status'].' ';
 		}
 
-		if (!empty($params['blog_id'])) {
-			$where .= "AND B.blog_id = '".$this->con->escape($params['blog_id'])."' ";
+		if (isset($params['blog_id']) && $params['blog_id'] !== '') {
+			if (!is_array($params['blog_id'])) {
+				$params['blog_id'] = array($params['blog_id']);
+			}
+			$where .= 'AND B.blog_id '.$this->con->in($params['blog_id']);
 		}
 
 		if (!empty($params['q'])) {

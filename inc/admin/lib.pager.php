@@ -661,6 +661,126 @@ class adminCommentList extends adminGenericList
 	}
 }
 
+class adminBlogList extends adminGenericList
+{
+	public function display($page,$nb_per_page,$enclose_block='',$filter=false)
+	{
+		if ($this->rs->isEmpty())
+		{
+			if($filter) {
+				echo '<p><strong>'.__('No blog matches the filter').'</strong></p>';
+			} else {
+				echo '<p><strong>'.__('No blog').'</strong></p>';
+			}
+		}
+		else
+		{
+			$blogs = array();
+			if (isset($_REQUEST['blogs'])) {
+				foreach ($_REQUEST['blogs'] as $v) {
+					$blogs[$v]=true;
+				}
+			}
+
+			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
+
+			$cols = array(
+				'blog' =>	'<th colspan="2" scope="col" abbr="comm" class="first nowrap">'.__('Blog id').'</th>',
+				'name' => '<th scope="col" abbr="name">'.__('Blog name').'</th>',
+				'url' => '<th scope="col" class="nowrap">'.__('URL').'</th>',
+				'posts' => '<th scope="col" class="nowrap">'.__('Entries (all types)').'</th>',
+				'upddt' => '<th scope="col" class="nowrap">'.__('Last update').'</th>',
+				'status' => '<th scope="col" class="txt-center">'.__('Status').'</th>'
+			);
+
+			$cols = new ArrayObject($cols);
+			$this->core->callBehavior('adminBlogListHeader',$this->core,$this->rs,$cols);
+
+			$html_block =
+			'<div class="table-outer"><table>'.
+			($filter ?
+				'<caption>'.
+				sprintf(__('%d blog matches the filter.','%d blogs match the filter.',$this->rs_count),$this->rs_count).
+				'</caption>'
+			:
+				'<caption class="hidden">'.__('Blogs list').'</caption>'
+			).
+			'<tr>'.implode(iterator_to_array($cols)).'</tr>%s</table></div>';
+
+			if ($enclose_block) {
+				$html_block = sprintf($enclose_block,$html_block);
+			}
+
+			$blocks = explode('%s',$html_block);
+
+			echo $pager->getLinks();
+
+			echo $blocks[0];
+
+			while ($this->rs->fetch()) {
+				echo $this->blogLine(isset($blogs[$this->rs->blog_id]));
+			}
+
+			echo $blocks[1];
+
+			echo $pager->getLinks();
+		}
+	}
+
+	private function blogLine($checked=false)
+	{
+		$blog_id = html::escapeHTML($this->rs->blog_id);
+
+		$cols = array(
+			'check' => 
+				'<td class="nowrap">'.
+				form::checkbox(array('blogs[]'),$this->rs->blog_id,$checked,'','',0).
+				'</td>',
+			'blog' => 
+				'<td class="nowrap">'.
+				'<a href="'.$this->core->adminurl->get("admin.blog",array('id' => $blog_id)).'"  '.
+				'title="'.sprintf(__('Edit blog settings for %s'),$blog_id).'">'.
+				'<img src="images/edit-mini.png" alt="'.__('Edit blog settings').'" /> '.$blog_id.'</a> '.
+				'</td>',
+			'name' => 
+				'<td class="maximal">'.
+				'<a href="'.$this->core->adminurl->get("admin.home",array('switchblog' => $this->rs->blog_id)).'" '.
+				'title="'.sprintf(__('Switch to blog %s'),$this->rs->blog_id).'">'.
+				html::escapeHTML($this->rs->blog_name).'</a>'.
+				'</td>',
+			'url' =>
+				'<td class="nowrap">'.
+				'<a class="outgoing" href="'.
+				html::escapeHTML($this->rs->blog_url).'">'.html::escapeHTML($this->rs->blog_url).
+				' <img src="images/outgoing-blue.png" alt="" /></a></td>',
+			'posts' => 
+				'<td class="nowrap count">'.
+				$this->core->countBlogPosts($this->rs->blog_id).
+				'</td>',
+			'upddt' => 
+				'<td class="nowrap count">'.
+				dt::str(__('%Y-%m-%d %H:%M'),strtotime($this->rs->blog_upddt) + dt::getTimeOffset($this->core->auth->getInfo('user_tz'))).
+				'</td>',
+			'status' => 
+				'<td class="nowrap status txt-center">'.
+				sprintf(
+					'<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',
+					($this->rs->blog_status == 1 ? 'check-on' : ($this->rs->blog_status == 0 ? 'check-off' : 'check-wrn')),
+					$this->core->getBlogStatus($this->rs->blog_status)
+				).
+				'</td>'
+		);
+
+		$cols = new ArrayObject($cols);
+		$this->core->callBehavior('adminBlogListValue',$this->core,$this->rs,$cols);
+
+		return 
+		'<tr class="line" id="b'.$blog_id.'">'.
+		implode(iterator_to_array($cols)).
+		'</tr>';
+	}
+}
+
 class adminUserList extends adminGenericList
 {
 	public function display($page,$nb_per_page,$enclose_block='',$filter=false)

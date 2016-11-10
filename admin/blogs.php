@@ -12,7 +12,7 @@
 
 require dirname(__FILE__).'/../inc/admin/prepend.php';
 
-dcPage::check('usage,contentadmin');
+dcPage::checkSuper();
 
 # Filters
 $status_combo = array_merge(
@@ -21,17 +21,25 @@ $status_combo = array_merge(
 );
 
 $sortby_combo = array(
-__('Last update') => 'blog_upddt',
-__('Blog name') => 'UPPER(blog_name)',
-__('Blog ID') => 'B.blog_id',
-__('Status') => 'blog_status'
+	__('Last update') => 'blog_upddt',
+	__('Blog name') => 'UPPER(blog_name)',
+	__('Blog ID') => 'B.blog_id',
+	__('Status') => 'blog_status'
 );
 
 $order_combo = array(
-__('Descending') => 'desc',
-__('Ascending') => 'asc'
+	__('Descending') => 'desc',
+	__('Ascending') => 'asc'
 );
 
+# Actions
+$blogs_actions_page = new dcBlogsActionsPage($core,$core->adminurl->get("admin.blogs"));
+
+if ($blogs_actions_page->process()) {
+	return;
+}
+
+# Requests
 $q = !empty($_GET['q']) ? $_GET['q'] : '';
 $status = isset($_GET['status']) ? $_GET['status'] : '';
 $sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : 'blog_upddt';
@@ -87,6 +95,7 @@ try {
 		$rsStatic = $rsStatic->toExtStatic();
 		$rsStatic->lexicalSort(($sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'),$order);
 	}
+	$blog_list = new adminBlogList($core,$rs,$counter->f(0));
 } catch (Exception $e) {
 	$core->error->add($e->getMessage());
 }
@@ -95,17 +104,13 @@ try {
 -------------------------------------------------------- */
 
 dcPage::open(__('List of blogs'),
-	dcPage::jsFilterControl($show_filters),
+	dcPage::jsLoad('js/_blogs.js').dcPage::jsFilterControl($show_filters),
 	dcPage::breadcrumb(
 		array(
 			__('System') => '',
 			__('List of blogs') => ''
 		))
 );
-
-if (!empty($_GET['del'])) {
-	dcPage::success(__('Blog has been successfully deleted.'));
-}
 
 if (!$core->error->flag())
 {
@@ -142,83 +147,35 @@ if (!$core->error->flag())
 	'</form>';
 
 	# Show blogs
-	if ($nb_blog == 0)
-	{
-		if( $show_filters ) {
-			echo '<p><strong>'.__('No blog matches the filter').'</strong></p>';
-		} else {
-			echo '<p><strong>'.__('No blog').'</strong></p>';
-		}
-	}
-	else
-	{
-		$pager = new dcPager($page,$nb_blog,$nb_per_page,10);
+	$blog_list->display($page,$nb_per_page,
+	'<form action="'.$core->adminurl->get("admin.blogs").'" method="post" id="form-blogs">'.
 
-		echo $pager->getLinks();
+	'%s'.
 
-		echo
-		'<div class="table-outer">'.
-		'<table class="clear">';
+	'<div class="two-cols">'.
+	'<p class="col checkboxes-helpers"></p>'.
 
-		if( $show_filters ) {
-			echo '<caption>'.sprintf(__('%d blog matches the filter.','%d blogs match the filter.',$nb_blog),$nb_blog).'</caption>';
-		} else {
-			echo '<caption class="hidden">'.__('Blogs list').'</caption>';
-		}
+	'<p class="col right"><label for="action" class="classic">'.__('Selected blogs action:').'</label> '.
+	form::combo('action',$blogs_actions_page->getCombo(),'online','','','','title="'.__('Actions').'"').
+	$core->formNonce().
+	'<input id="do-action" type="submit" value="'.__('ok').'" /></p>'.
+	form::hidden(array('sortby'),$sortby).
+	form::hidden(array('order'),$order).
+	form::hidden(array('status'),$status).
+	form::hidden(array('page'),$page).
+	form::hidden(array('nb'),$nb_per_page).
+	'</div>'.
 
-		echo
-		'<tr>'.
-		'<th scope="col" class="nowrap">'.__('Blog id').'</th>'.
-		'<th scope="col">'.__('Blog name').'</th>'.
-		'<th scope="col" class="nowrap">'.__('URL').'</th>'.
-		'<th scope="col" class="nowrap">'.__('Entries (all types)').'</th>'.
-		'<th scope="col" class="nowrap">'.__('Last update').'</th>'.
-		'<th scope="col" class="nowrap">'.__('Status').'</th>'.
-		'</tr>';
+	'<div>'.
+	'<p>'.__('Please give your password to confirm the blog deletion.').'</p>'.
+	'<p><label for="pwd">'.__('Your password:').'</label> '.
+	form::password('pwd',20,255).'</p>'.
+	'</div>'.
 
-		while ($rsStatic->fetch()) {
-			echo blogLine($rsStatic);
-		}
-
-		echo '</table></div>';
-
-		echo $pager->getLinks();
-	}
+	'</form>',
+	$show_filters
+	);
 }
+
 dcPage::helpBlock('core_blogs');
 dcPage::close();
-
-function blogLine($rs)
-{
-	global $core;
-
-	$blog_id = html::escapeHTML($rs->blog_id);
-	$edit_link = '';
-
-	if ($GLOBALS['core']->auth->isSuperAdmin()) {
-		$edit_link =
-		'<a href="'.$core->adminurl->get("admin.blog",array('id' => $blog_id)).'"  title="'.sprintf(__('Edit blog settings for %s'),$blog_id).'">'.
-		'<img src="images/edit-mini.png" alt="'.__('Edit blog settings').'" /> '.$blog_id.'</a> ';
-	} else {
-		$edit_link = $blog_id;
-	}
-
-	$img_status = $rs->blog_status == 1 ? 'check-on' : ($rs->blog_status == 0 ? 'check-off' : 'check-wrn');
-	$txt_status = $GLOBALS['core']->getBlogStatus($rs->blog_status);
-	$img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',$img_status,$txt_status);
-	$offset = dt::getTimeOffset($core->auth->getInfo('user_tz'));
-	$blog_upddt = dt::str(__('%Y-%m-%d %H:%M'),strtotime($rs->blog_upddt) + $offset);
-
-	return
-	'<tr class="line">'.
-	'<td class="nowrap">'.$edit_link.'</td>'.
-	'<td class="maximal"><a href="'.$core->adminurl->get("admin.home",array('switchblog' => $rs->blog_id)).'" '.
-	'title="'.sprintf(__('Switch to blog %s'),$rs->blog_id).'">'.
-	html::escapeHTML($rs->blog_name).'</a></td>'.
-	'<td class="nowrap"><a class="outgoing" href="'.html::escapeHTML($rs->blog_url).'">'.html::escapeHTML($rs->blog_url).
-	' <img src="images/outgoing-blue.png" alt="" /></a></td>'.
-	'<td class="nowrap count">'.$core->countBlogPosts($rs->blog_id).'</td>'.
-	'<td class="nowrap count">'.$blog_upddt.'</td>'.
-	'<td class="status">'.$img_status.'</td>'.
-	'</tr>';
-}
