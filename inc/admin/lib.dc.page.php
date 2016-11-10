@@ -108,7 +108,7 @@ class dcPage
 			$csp['default-src'] = $core->blog->settings->system->csp_admin_default ?: "'self'";
 			$csp['script-src'] = $core->blog->settings->system->csp_admin_script ?: "'self' 'unsafe-inline' 'unsafe-eval'";
 			$csp['style-src'] = $core->blog->settings->system->csp_admin_style ?: "'self' 'unsafe-inline'";
-			$csp['img-src'] = $core->blog->settings->system->csp_admin_img ?: "'self' data: media.dotaddict.org";
+			$csp['img-src'] = $core->blog->settings->system->csp_admin_img ?: "'self' data: media.dotaddict.org blob:";
 
 			# Cope with blog post preview (via public URL in iframe)
 			if (!is_null($core->blog->host)) {

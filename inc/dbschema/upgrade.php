@@ -601,6 +601,14 @@ class dcUpgrade
 			$core->con->execute(
 				sprintf($strReq,'csp_admin_report_only',false,'boolean','CSP Report only violations (admin)'));
 
+			# Update CSP img-src default directive
+			$strReq = 'UPDATE '.$core->prefix.'setting '.
+					" SET setting_value = '\'self\' data: media.dotaddict.org blob:' ".
+					" WHERE setting_id = 'csp_admin_img' ".
+					" AND setting_ns = 'system' ".
+					" AND setting_value = '\'self\' data: media.dotaddict.org' ";
+			$core->con->execute($strReq);
+
 			# A bit of housecleaning for no longer needed files
 			$remfiles = array (
 				'admin/js/jquery/jquery.modal.js',
