@@ -89,7 +89,7 @@ try {
 	$rs = $core->getBlogs($params);
 	$nb_blog = $counter->f(0);
 	$rsStatic = $rs->toStatic();
-	if ($sortby != 'blog_upddt') {
+	if (($sortby != 'blog_upddt') && ($sortby != 'blog_status')) {
 		// Sort blog list using lexical order if necessary
 		$rsStatic->extend('rsExtUser');
 		$rsStatic = $rsStatic->toExtStatic();
@@ -167,8 +167,7 @@ if (!$core->error->flag())
 	'</div>'.
 
 	'<div>'.
-	'<p>'.__('Please give your password to confirm the blog deletion.').'</p>'.
-	'<p><label for="pwd">'.__('Your password:').'</label> '.
+	'<p><label for="pwd">'.__('Please give your password to confirm blog(s) deletion:').'</label> '.
 	form::password('pwd',20,255).'</p>'.
 	'</div>'.
 

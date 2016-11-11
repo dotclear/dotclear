@@ -732,17 +732,17 @@ class adminBlogList extends adminGenericList
 		$blog_id = html::escapeHTML($this->rs->blog_id);
 
 		$cols = array(
-			'check' => 
+			'check' =>
 				'<td class="nowrap">'.
 				form::checkbox(array('blogs[]'),$this->rs->blog_id,$checked,'','',0).
 				'</td>',
-			'blog' => 
+			'blog' =>
 				'<td class="nowrap">'.
 				'<a href="'.$this->core->adminurl->get("admin.blog",array('id' => $blog_id)).'"  '.
 				'title="'.sprintf(__('Edit blog settings for %s'),$blog_id).'">'.
 				'<img src="images/edit-mini.png" alt="'.__('Edit blog settings').'" /> '.$blog_id.'</a> '.
 				'</td>',
-			'name' => 
+			'name' =>
 				'<td class="maximal">'.
 				'<a href="'.$this->core->adminurl->get("admin.home",array('switchblog' => $this->rs->blog_id)).'" '.
 				'title="'.sprintf(__('Switch to blog %s'),$this->rs->blog_id).'">'.
@@ -753,15 +753,15 @@ class adminBlogList extends adminGenericList
 				'<a class="outgoing" href="'.
 				html::escapeHTML($this->rs->blog_url).'">'.html::escapeHTML($this->rs->blog_url).
 				' <img src="images/outgoing-blue.png" alt="" /></a></td>',
-			'posts' => 
+			'posts' =>
 				'<td class="nowrap count">'.
 				$this->core->countBlogPosts($this->rs->blog_id).
 				'</td>',
-			'upddt' => 
+			'upddt' =>
 				'<td class="nowrap count">'.
 				dt::str(__('%Y-%m-%d %H:%M'),strtotime($this->rs->blog_upddt) + dt::getTimeOffset($this->core->auth->getInfo('user_tz'))).
 				'</td>',
-			'status' => 
+			'status' =>
 				'<td class="nowrap status txt-center">'.
 				sprintf(
 					'<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',
@@ -774,7 +774,7 @@ class adminBlogList extends adminGenericList
 		$cols = new ArrayObject($cols);
 		$this->core->callBehavior('adminBlogListValue',$this->core,$this->rs,$cols);
 
-		return 
+		return
 		'<tr class="line" id="b'.$blog_id.'">'.
 		implode(iterator_to_array($cols)).
 		'</tr>';

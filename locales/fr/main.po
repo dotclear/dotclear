@@ -639,6 +639,24 @@ msgstr "Créer un nouveau blog"
 msgid "Filter blogs list"
 msgstr "Filtrer la liste des blogs"
 
+msgid "Selected blogs action:"
+msgstr "Action sur les blogs sélectionnés :"
+
+msgid "Please give your password to confirm blog(s) deletion:"
+msgstr "Veuillez indiquer votre mot de passe pour confirmer la suppression du ou des blogs :"
+
+msgid "Are you sure you want to delete selected blogs (%s)?"
+msgstr "Êtes-vous sûr de vouloir supprimer les blogs sélectionnés (%s) ?"
+
+msgid "Set online"
+msgstr "Mettre en ligne"
+
+msgid "Set offline"
+msgstr "Mettre hors-ligne"
+
+msgid "Set as removed"
+msgstr "Mettre à l'état retiré"
+
 msgid "Filters"
 msgstr "Filtres"
 
