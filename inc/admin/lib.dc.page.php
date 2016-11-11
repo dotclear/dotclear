@@ -761,6 +761,8 @@ class dcPage
 			__('Users with posts cannot be deleted.')).
 		self::jsVar('dotclear.msg.confirm_delete_user',
 			__('Are you sure you want to delete selected users (%s)?')).
+		self::jsVar('dotclear.msg.confirm_delete_blog',
+			__('Are you sure you want to delete selected blogs (%s)?')).
 		self::jsVar('dotclear.msg.confirm_delete_category',
 			__('Are you sure you want to delete category "%s"?')).
 		self::jsVar('dotclear.msg.confirm_reorder_categories',

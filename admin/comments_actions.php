@@ -15,6 +15,8 @@
 
 require dirname(__FILE__).'/../inc/admin/prepend.php';
 
+dcPage::check('usage,contentadmin');
+
 if (isset($_REQUEST['redir'])) {
 	$u = explode('?',$_REQUEST['redir']);
 	$uri = $u[0];
@@ -27,9 +29,6 @@ if (isset($_REQUEST['redir'])) {
 	$args=array();
 }
 
-dcPage::check('usage,contentadmin');
-
 $comments_actions_page = new dcCommentsActionsPage($core,$uri,$args);
 $comments_actions_page->setEnableRedirSelection(false);
-
 $comments_actions_page->process();

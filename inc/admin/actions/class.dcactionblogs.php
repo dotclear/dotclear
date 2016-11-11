@@ -73,8 +73,8 @@ class dcBlogsActionsPage extends dcActionsPage
 			'</tr>';
 		}
 
-		return 
-		'<table class="posts-list"><tr>'.
+		return
+		'<table class="blogs-list"><tr>'.
 		'<th colspan="2">'.__('Blog id').'</th><th>'.__('Blog name').'</th>'.
 		'</tr>'.$ret.'</table>';
 	}
@@ -107,7 +107,7 @@ class dcDefaultBlogActions
 			array(__('Status') => array(
 				__('Set online') => 'online',
 				__('Set offline') => 'offline',
-				__('Remove') => 'remove'
+				__('Set as removed') => 'remove'
 			)),
 			array('dcDefaultBlogActions','doChangeBlogStatus')
 		);
