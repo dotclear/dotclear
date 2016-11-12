@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:02+0200\n"
+"POT-Creation-Date: 2016-11-12 11:28+0100\n"
 "PO-Revision-Date: 2016-07-18 15:01+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -615,53 +615,32 @@ msgstr "Nom du blog"
 msgid "Blog ID"
 msgstr "Identifiant du blog"
 
+msgid "Status"
+msgstr "État"
+
 msgid "Descending"
 msgstr "Décroissant"
 
 msgid "Ascending"
 msgstr "Croissant"
 
-msgid "Show filters and display options"
-msgstr "Afficher les filtres et options d'affichage"
-
-msgid "Cancel filters and display options"
-msgstr "Annuler les filtres et options d'affichage"
-
 msgid "List of blogs"
 msgstr "Liste des blogs"
-
-msgid "Blog has been successfully deleted."
-msgstr "Le blog a été supprimé."
 
 msgid "Create a new blog"
 msgstr "Créer un nouveau blog"
 
-msgid "Filter blogs list"
-msgstr "Filtrer la liste des blogs"
-
-msgid "Selected blogs action:"
-msgstr "Action sur les blogs sélectionnés :"
-
-msgid "Please give your password to confirm blog(s) deletion:"
-msgstr "Veuillez indiquer votre mot de passe pour confirmer la suppression du ou des blogs :"
-
-msgid "Are you sure you want to delete selected blogs (%s)?"
-msgstr "Êtes-vous sûr de vouloir supprimer les blogs sélectionnés (%s) ?"
-
-msgid "Set online"
-msgstr "Mettre en ligne"
-
-msgid "Set offline"
-msgstr "Mettre hors-ligne"
-
-msgid "Set as removed"
-msgstr "Mettre à l'état retiré"
+msgid "Show filters and display options"
+msgstr "Afficher les filtres et options d'affichage"
 
 msgid "Filters"
 msgstr "Filtres"
 
 msgid "Search:"
 msgstr "Chercher :"
+
+msgid "Status:"
+msgstr "État :"
 
 msgid "Display options"
 msgstr "Options d'affichage"
@@ -681,43 +660,17 @@ msgstr "blogs par page"
 msgid "Apply filters and display options"
 msgstr "Appliquer les filtres et options d'affichage"
 
-msgid "No blog matches the filter"
-msgstr "Aucun blog correspondant au filtre"
+msgid "Selected blogs action:"
+msgstr "Action sur les blogs sélectionnés :"
 
-msgid "No blog"
-msgstr "Pas de blog"
+msgid "Actions"
+msgstr "Actions"
 
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] "%d blog correspondant au filtre"
-msgstr[1] "%d blogs correspondants au filtre"
+msgid "ok"
+msgstr "ok"
 
-msgid "Blogs list"
-msgstr "Liste des blogs"
-
-msgid "Blog id"
-msgstr "Identifiant du blog"
-
-msgid "URL"
-msgstr "URL"
-
-msgid "Entries (all types)"
-msgstr "Entrées"
-
-msgid "Status"
-msgstr "État"
-
-#, php-format
-msgid "Edit blog settings for %s"
-msgstr "Modifier les paramètres de %s"
-
-msgid "Edit blog settings"
-msgstr "Modifier les paramètres du blog"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "Passer au blog %s"
+msgid "Please give your password to confirm blog(s) deletion:"
+msgstr "Veuillez indiquer votre mot de passe pour confirmer la suppression du ou des blogs :"
 
 msgid "This category does not exist."
 msgstr "Cette catégorie n'existe pas."
@@ -762,18 +715,7 @@ msgstr "%d entrées"
 
 #, php-format
 msgid "%d entry"
-msgid_plural "%d entries"
-msgstr[0] "%d entrée"
-msgstr[1] "%d entrées"
-
-#, php-format
-msgid "%d posts"
-msgstr "%d billets"
-
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "%d billet"
-msgstr[1] "%d billets"
+msgstr "%d entrée"
 
 msgid "total:"
 msgstr "total :"
@@ -913,9 +855,6 @@ msgstr "Auteur :"
 msgid "Web site:"
 msgstr "Site web :"
 
-msgid "Status:"
-msgstr "État :"
-
 msgid "Comment:"
 msgstr "Commentaire :"
 
@@ -971,9 +910,6 @@ msgstr "Les afficher."
 msgid "Delete all spams"
 msgstr "Supprimer tous les indésirables"
 
-msgid "Filter comments and trackbacks list"
-msgstr "Filtrer la liste des commentaires et rétroliens"
-
 msgid "Type:"
 msgstr "Type :"
 
@@ -982,12 +918,6 @@ msgstr "commentaires par page"
 
 msgid "Selected comments action:"
 msgstr "Action sur les commentaires sélectionnés :"
-
-msgid "Actions"
-msgstr "Actions"
-
-msgid "ok"
-msgstr "ok"
 
 msgid "Global help"
 msgstr "Aide générale"
@@ -1091,10 +1021,6 @@ msgstr "Enregister et publier"
 msgid "PHP version is %s (5.3 or earlier needed)."
 msgstr "La version de PHP est %s (5.3 ou plus récente nécessaire)."
 
-#, php-format
-msgid "PHP version is %s (%s or earlier needed)."
-msgstr "La version de PHP est %s (%s ou plus récente nécessaire)."
-
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "Le support des chaînes multi-octets (mbstring) n'est pas disponible."
 
@@ -1132,9 +1058,6 @@ msgstr "Veuillez indiquer une clé de référence (DC_MASTER_KEY) dans le fichie
 
 msgid "Dotclear is already installed."
 msgstr "Dotclear est déjà installé."
-
-msgid "Master email is not valid."
-msgstr "Adresse email principale incorrecte."
 
 msgid "Dotclear cannot be installed."
 msgstr "Dotclear ne peut pas être installé."
@@ -1266,6 +1189,9 @@ msgstr "L'assistant d'installation Dotclear n'a pas pu créer le fichier de conf
 #, php-format
 msgid "Cannot write \"%s\" directory."
 msgstr "Impossible d'écrire dans le répertoire \"%s\"."
+
+msgid "Master email is not valid."
+msgstr "Adresse email principale incorrecte."
 
 #, php-format
 msgid "File %s does not exist."
@@ -2152,6 +2078,12 @@ msgstr "billets par page"
 msgid "Selected entries action:"
 msgstr "Action sur les billets sélectionnés :"
 
+msgid "Blog description (in blog parameters)"
+msgstr "La description du blog (paramètres du blog)"
+
+msgid "Category description"
+msgstr "La description des catégories"
+
 msgid "Posts"
 msgstr "Billets"
 
@@ -2215,9 +2147,6 @@ msgstr "Mes options"
 msgid "Interface"
 msgstr "Interface"
 
-msgid "Hide all secondary information and notes"
-msgstr "Cacher les informations secondaires et les notes"
-
 msgid "Activate enhanced uploader in media manager"
 msgstr "Activer l'interface avancée de la médiathèque"
 
@@ -2226,6 +2155,9 @@ msgstr "Désactiver le glisser-déposer pour ordonnancer les éléments"
 
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Si cette option est cochée, des champs numériques permettront d'indiquer la position des éléments."
+
+msgid "Hide all secondary information and notes"
+msgstr "Cacher les informations secondaires et les notes"
 
 msgid "Number of elements displayed per page in media manager:"
 msgstr "Nombre d'éléments affichés par page dans la médiathèque :"
@@ -2272,12 +2204,6 @@ msgstr "Afficher la barre d'outil des éditeurs en bas de la zone de saisie (si 
 
 msgid "Use xhtml editor for:"
 msgstr "Utiliser l'éditeur xhtml pour :"
-
-msgid "Blog description (in blog parameters)"
-msgstr "La description du blog (paramètres du blog)"
-
-msgid "Category description"
-msgstr "La description des catégories"
 
 msgid "Other options"
 msgstr "Autres options"
@@ -2417,6 +2343,10 @@ msgstr "Forcer la vérification de mise à jour de Dotclear"
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s est disponible."
 
+#, php-format
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "La version de PHP est %s (%s ou plus récente nécessaire)."
+
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "Pour mettre à jour votre installation de Dotclear, cliquez sur le bouton suivant. Un fichier de sauvegarde de votre installation actuelle sera créé dans votre répertoire principal."
 
@@ -2550,6 +2480,12 @@ msgstr "Retour au profil utilisateur"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Choisissez un ou plusieurs blogs pour lesquels les utilisateurs suivants auront des permissions : %s."
 
+msgid "No blog"
+msgstr "Pas de blog"
+
+msgid "URL"
+msgstr "URL"
+
 msgid "select"
 msgstr "sélectionner"
 
@@ -2559,6 +2495,36 @@ msgstr "Vous allez changer les permissions des utilisateurs %s pour ces blogs."
 
 msgid "Validate permissions"
 msgstr "Valider les permissions"
+
+msgid "Back to blogs list"
+msgstr "Retour à la liste des blogs"
+
+msgid "Blogs actions"
+msgstr "Actions sur les blogs"
+
+msgid "Blog id"
+msgstr "Identifiant du blog"
+
+msgid "Set online"
+msgstr "Mettre en ligne"
+
+msgid "Set offline"
+msgstr "Mettre hors-ligne"
+
+msgid "Set as removed"
+msgstr "Mettre à l'état retiré"
+
+msgid "No blog selected"
+msgstr "Pas de blog sélectionné"
+
+msgid "Selected blogs have been successfully updated."
+msgstr "Les blogs sélectionnés ont été modifiées."
+
+#, php-format
+msgid "%d blog has been successfully deleted"
+msgid_plural "%d blogs have been successfully deleted"
+msgstr[0] "%d blog a été supprimé."
+msgstr[1] "Les %d blog ont été supprimés."
 
 msgid "Back to comments list"
 msgstr "Retour à la liste des commentaires"
@@ -2696,6 +2662,12 @@ msgid "Languages"
 msgstr "Langues"
 
 #, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%d billet"
+msgstr[1] "%d billets"
+
+#, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] "%d commentaire"
@@ -2744,6 +2716,9 @@ msgstr "[%H:%M:%S]"
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Merci d'utiliser %s."
+
+msgid "Page top"
+msgstr "Haut de page"
 
 msgid "Go to dashboard"
 msgstr "Tableau de bord"
@@ -2822,6 +2797,10 @@ msgstr "Les utilisateurs ayant écrit des entrées ne peuvent être supprimés."
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Êtes-vous certain de vouloir supprimer les utilisateurs sélectionnés (%s) ?"
+
+#, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
+msgstr "Êtes-vous sûr de vouloir supprimer les blogs sélectionnés (%s) ?"
 
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
@@ -2963,6 +2942,9 @@ msgstr "%d fichiers en attente."
 msgid "Queue error:"
 msgstr "Erreur de file d'attente :"
 
+msgid "Cancel filters and display options"
+msgstr "Annuler les filtres et options d'affichage"
+
 msgid "other"
 msgstr "autres"
 
@@ -3021,6 +3003,9 @@ msgstr "Plugin de la distribution officielle"
 msgid "Manage plugin"
 msgstr "Gérer le plugin"
 
+msgid "No plugins matched your search."
+msgstr "Aucun plugin ne correspond à votre recherche."
+
 msgid "Configure plugin"
 msgstr "Configurer le plugin"
 
@@ -3032,9 +3017,6 @@ msgstr "Réglages du plugin (mes préférences)"
 
 msgid "Plugin settings"
 msgstr "Réglages du plugin"
-
-msgid "No plugins matched your search."
-msgstr "Aucun plugin ne correspond à votre recherche."
 
 msgid "Activate"
 msgstr "Activer"
@@ -3329,6 +3311,32 @@ msgstr "rétrolien"
 
 msgid "Type and author"
 msgstr "Type et auteur"
+
+msgid "No blog matches the filter"
+msgstr "Aucun blog correspondant au filtre"
+
+msgid "Entries (all types)"
+msgstr "Entrées"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] "%d blog correspondant au filtre"
+msgstr[1] "%d blogs correspondants au filtre"
+
+msgid "Blogs list"
+msgstr "Liste des blogs"
+
+#, php-format
+msgid "Edit blog settings for %s"
+msgstr "Modifier les paramètres de %s"
+
+msgid "Edit blog settings"
+msgstr "Modifier les paramètres du blog"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "Passer au blog %s"
 
 msgid "No user matches the filter"
 msgstr "Aucun utilisateur correspondant au filtre"
@@ -3928,6 +3936,15 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
+
+#~ msgid "Filter blogs list"
+#~ msgstr "Filtrer la liste des blogs"
+
+#~ msgid "%d posts"
+#~ msgstr "%d billets"
+
+#~ msgid "Filter comments and trackbacks list"
+#~ msgstr "Filtrer la liste des commentaires et rétroliens"
 
 #~ msgid "SQLite Database Schema cannot be upgraded."
 #~ msgstr "Le schema de base de données SQLite ne peut pas être mis à jour."
