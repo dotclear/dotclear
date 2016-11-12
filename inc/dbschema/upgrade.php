@@ -603,10 +603,10 @@ class dcUpgrade
 
 			# Update CSP img-src default directive
 			$strReq = 'UPDATE '.$core->prefix.'setting '.
-					" SET setting_value = '\'self\' data: media.dotaddict.org blob:' ".
+					" SET setting_value = '''self'' data: media.dotaddict.org blob:' ".
 					" WHERE setting_id = 'csp_admin_img' ".
 					" AND setting_ns = 'system' ".
-					" AND setting_value = '\'self\' data: media.dotaddict.org' ";
+					" AND setting_value = '''self'' data: media.dotaddict.org' ";
 			$core->con->execute($strReq);
 
 			# A bit of housecleaning for no longer needed files
