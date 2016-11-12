@@ -60,6 +60,7 @@ $DBNAME = !empty($_POST['DBNAME']) ? $_POST['DBNAME'] : '';
 $DBUSER = !empty($_POST['DBUSER']) ? $_POST['DBUSER'] : '';
 $DBPASSWORD = !empty($_POST['DBPASSWORD']) ? $_POST['DBPASSWORD'] : '';
 $DBPREFIX = !empty($_POST['DBPREFIX']) ? $_POST['DBPREFIX'] : 'dc_';
+$ADMINMAILFROM = !empty($_POST['ADMINMAILFROM']) ? $_POST['ADMINMAILFROM'] : '';
 
 if (!empty($_POST))
 {
@@ -97,6 +98,10 @@ if (!empty($_POST))
 		if (in_array($DBPREFIX.'version',$schema->getTables())) {
 			throw new Exception(__('Dotclear is already installed.'));
 		}
+		# Check master email
+		if (!text::isEmail($ADMINMAILFROM)) {
+			throw new Exception(__('Master email is not valid.'));
+		}
 
 		# Does config.php.in exist?
 		$config_in = dirname(__FILE__).'/../../inc/config.php.in';
@@ -121,7 +126,8 @@ if (!empty($_POST))
 
 		$admin_url = preg_replace('%install/wizard.php$%','',$_SERVER['REQUEST_URI']);
 		writeConfigValue('DC_ADMIN_URL',http::getHost().$admin_url,$full_conf);
-		writeConfigValue('DC_ADMIN_MAILFROM','dotclear@'.$_SERVER['HTTP_HOST'],$full_conf);
+		$admin_email = !empty($ADMINMAILFROM) ? $ADMINMAILFROM : 'dotclear@'.$_SERVER['HTTP_HOST'];
+		writeConfigValue('DC_ADMIN_MAILFROM',$admin_email,$full_conf);
 		writeConfigValue('DC_MASTER_KEY',md5(uniqid()),$full_conf);
 
 		$fp = @fopen(DC_RC_PATH,'wb');
@@ -205,6 +211,8 @@ form::field('DBUSER',30,255,html::escapeHTML($DBUSER)).'</p>'.
 form::password('DBPASSWORD',30,255).'</p>'.
 '<p><label for="DBPREFIX" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Database Tables Prefix:').'</label> '.
 form::field('DBPREFIX',30,255,html::escapeHTML($DBPREFIX)).'</p>'.
+'<p><label for="ADMINMAILFROM">'.__('Master Email: (used as sender for password recovery)').'</label> '.
+form::field('ADMINMAILFROM',30,255,html::escapeHTML($ADMINMAILFROM)).'</p>'.
 
 '<p><input type="submit" value="'.__('Continue').'" /></p>'.
 '</form>';
