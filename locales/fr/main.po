@@ -1133,6 +1133,9 @@ msgstr "Veuillez indiquer une clé de référence (DC_MASTER_KEY) dans le fichie
 msgid "Dotclear is already installed."
 msgstr "Dotclear est déjà installé."
 
+msgid "Master email is not valid."
+msgstr "Adresse email principale incorrecte."
+
 msgid "Dotclear cannot be installed."
 msgstr "Dotclear ne peut pas être installé."
 
@@ -1322,6 +1325,9 @@ msgstr "Mot de passe de la base de données :"
 
 msgid "Database Tables Prefix:"
 msgstr "Préfixe des tables de la base de données :"
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr "Email principal : (utilisé pour l'envoi pour la récupération de mot de passe)"
 
 msgid "Continue"
 msgstr "Continuer"
