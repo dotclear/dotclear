@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:02+0200\n"
+"POT-Creation-Date: 2016-11-12 11:28+0100\n"
 "PO-Revision-Date: 2016-07-18 15:16+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -667,9 +667,6 @@ msgstr "Couleur des liens visités :"
 msgid "Focus links color:"
 msgstr "Couleur des liens ayant le focus :"
 
-msgid "Page top"
-msgstr "Haut de page"
-
 msgid "Prelude color:"
 msgstr "Couleur du prélude :"
 
@@ -864,11 +861,17 @@ msgstr "La configuration a été enregistrée."
 msgid "Media chooser"
 msgstr "Sélecteur de média"
 
+msgid "m"
+msgstr ""
+
 msgid "Link to an entry"
 msgstr "Lien vers une entrée"
 
 msgid "Link"
 msgstr "Lien"
+
+msgid "l"
+msgstr ""
 
 msgid "External image"
 msgstr "Image externe"
@@ -1299,18 +1302,6 @@ msgstr "Impossible de vider le répertoire de cache des « templates »."
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
 msgstr "La suppression du répertoire du cache des templates peut se révéler nécessaire lors de modifications dans les fichiers .html ou .css d'un thème (voire lors d'un changement de thème ou de mise à jour de plugin). Attention : chez certains hébergeurs (Free par exemple), le cache du répertoire des templates ne peut pas être vidé grâce à l'extension Maintenance, il faut supprimer le répertoire <strong>cbtpl</strong> situé dans le répertoire cache (dotclear/cache par défaut) avec un logiciel FTP."
 
-msgid "Delete the Content-Security-Policy report file"
-msgstr "Supprimer le rapport de violation des Content-Security-Policy"
-
-msgid "Content-Security-Policy report file has been deleted."
-msgstr "Le rapport de violation des Content-Security-Policy a été supprimé."
-
-msgid "Failed to delete the Content-Security-Policy report file."
-msgstr "Impossible de supprimer le rapport de violation des Content-Security-Policy."
-
-msgid "Remove the Content-Security-Policy report file."
-msgstr "Supprime le rapport de violation des Content-Security-Policy."
-
 msgid "Count again comments and trackbacks"
 msgstr "Recompter les commentaires et rétroliens"
 
@@ -1322,6 +1313,18 @@ msgstr "Impossible de recompter les commentaires et rétroliens."
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "Recompter commentaires et des rétroliens a pour effet de donner le nombre exact de ceux-ci pour chaque billet. Cette opération peut se révéler utile lors de l'import d'un blog d'une autre plateforme (ou d'une migration de Dotclear 1 vers Dotclear 2)."
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr "Supprimer le rapport de violation des Content-Security-Policy"
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr "Le rapport de violation des Content-Security-Policy a été supprimé."
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr "Impossible de supprimer le rapport de violation des Content-Security-Policy."
+
+msgid "Remove the Content-Security-Policy report file."
+msgstr "Supprime le rapport de violation des Content-Security-Policy."
 
 msgid "Search engine index"
 msgstr "Index du moteur de recherche"
@@ -1979,6 +1982,9 @@ msgstr "Préférences globales"
 msgid "Presentation widgets"
 msgstr "Widgets de présentation"
 
+msgid "Widget's textareas"
+msgstr "Les zones de texte multilignes des widgets"
+
 msgid "Search engine"
 msgstr "Moteur de recherche"
 
@@ -2151,12 +2157,6 @@ msgstr "Retirer le widget"
 
 msgid "Drag widgets here to remove."
 msgstr "Glisser les widgets ici pour les retirer du volet."
-
-msgid "URL"
-msgstr "URL"
-
-msgid "or"
-msgstr "ou"
 
 #~ msgid "The 'public' directory does not exist."
 #~ msgstr "Le répertoire ‘public’ n'existe pas."
@@ -2434,11 +2434,5 @@ msgstr "ou"
 #~ msgid "The backup file does not appear to be well formed."
 #~ msgstr "Le fichier de sauvegarde semble mal formaté."
 
-#~ msgid "Blog settings"
-#~ msgstr "Paramètres du blog"
-
-msgid "Search:"
-msgstr "Recherche :"
-
-msgid "Widget's textareas"
-msgstr "Les zones de texte multilignes des widgets"
+#~ msgid "Search:"
+#~ msgstr "Recherche :"
