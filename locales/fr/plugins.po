@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-12 11:28+0100\n"
+"POT-Creation-Date: 2016-11-13 16:31+0100\n"
 "PO-Revision-Date: 2016-07-18 15:16+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -38,9 +38,6 @@ msgstr "Gestion de votre liste de liens"
 
 msgid "Configure your Blowup Theme"
 msgstr "Configurer votre thème Blowup"
-
-msgid "Breadcrumb for Dotclear"
-msgstr "Fil d'Ariane pour Dotclear"
 
 msgid "Legacy modules for dotclear"
 msgstr "Plugin de compatibilité pour Dotclear"
@@ -81,6 +78,9 @@ msgstr "éditeur historique de Dotclear"
 msgid "dotclear CKEditor integration"
 msgstr "éditeur CKEditor pour Dotclear"
 
+msgid "Breadcrumb for Dotclear"
+msgstr "Fil d'Ariane pour Dotclear"
+
 msgid "Search engine form"
 msgstr "Formulaire de recherche"
 
@@ -111,9 +111,6 @@ msgstr "Liste des derniers billets publiés"
 msgid "List of last comments published"
 msgstr "Liste des derniers commentaires publiés"
 
-msgid "Tags cloud"
-msgstr "Nuage de mots-clés"
-
 msgid "List of published pages"
 msgstr "Liste des pages publiées"
 
@@ -122,6 +119,9 @@ msgstr "Liste de liens"
 
 msgid "List of simple menu items"
 msgstr "Liste des éléments de menu simple"
+
+msgid "Tags cloud"
+msgstr "Nuage de mots-clés"
 
 msgid "Configuration successfully updated"
 msgstr "La configuration a été mise à jour"

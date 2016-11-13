@@ -203,8 +203,12 @@ h1, h2, h3, h4, h5, h6 {
     Common rules
 --------------------------------------------------- */
 /* Typographie */
+:root {
+  --html-font-size: 62.5%; }
+
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  font-size: var(--html-font-size); }
 
 body {
   font-size: 1.4rem;

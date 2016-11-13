@@ -171,6 +171,16 @@ class dcPage
 			'<link rel="icon" type="image/png" href="images/favicon96-login.png" />'."\n".
 			'<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />'."\n";
 		}
+
+		if ($core->auth->user_prefs->interface->htmlfontsize) {
+			echo
+			'<script type="text/javascript">'."\n".
+			"//<![CDATA[\n".
+			self::jsVar('dotclear_htmlFontSize',$core->auth->user_prefs->interface->htmlfontsize).
+			"\n//]]>\n".
+			"</script>\n";
+		}
+
 		echo
 		self::jsCommon().
 		self::jsToggles().
@@ -408,12 +418,21 @@ class dcPage
 			echo self::cssLoad('style/default-rtl.css');
 		}
 
+		$core->auth->user_prefs->addWorkspace('interface');
+		if ($core->auth->user_prefs->interface->htmlfontsize) {
+			echo
+			'<script type="text/javascript">'."\n".
+			"//<![CDATA[\n".
+			self::jsVar('dotclear_htmlFontSize',$core->auth->user_prefs->interface->htmlfontsize).
+			"\n//]]>\n".
+			"</script>\n";
+		}
+
 		echo
 		self::jsCommon().
 		self::jsToggles().
 		$head;
 
-		$core->auth->user_prefs->addWorkspace('interface');
 		if ($core->auth->user_prefs->interface->hidemoreinfo) {
 			echo
 			'<script type="text/javascript">'."\n".

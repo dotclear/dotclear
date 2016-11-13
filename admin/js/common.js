@@ -1,3 +1,10 @@
+/* Set some CSS variables here
+-------------------------------------------------------- */
+// set base font-size of body (62.5% default, usually : 50% to 75%)
+if (typeof dotclear_htmlFontSize !== 'undefined') {
+	document.documentElement.style.setProperty('--html-font-size',dotclear_htmlFontSize);
+}
+
 /* ChainHandler, py Peter van der Beken
 -------------------------------------------------------- */
 function chainHandler(obj, handlerName, handler) {

@@ -28,6 +28,17 @@ dcPage::check('usage,contentadmin');
 	<link rel="stylesheet" type="text/css" href="style/iesucks.css" />
 	<![endif]-->
 	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
+	<?php
+		$core->auth->user_prefs->addWorkspace('interface');
+		if ($core->auth->user_prefs->interface->htmlfontsize) {
+			echo
+			'<script type="text/javascript">'."\n".
+			"//<![CDATA[\n".
+			dcPage::jsVar('dotclear_htmlFontSize',$core->auth->user_prefs->interface->htmlfontsize).
+			"\n//]]>\n".
+			"</script>\n";
+		}
+	?>
 	<script type="text/javascript" src="js/jquery/jquery.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery-ui.custom.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery.ui.touch-punch.js"></script>

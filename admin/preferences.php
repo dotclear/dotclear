@@ -42,6 +42,7 @@ $user_acc_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
 $core->auth->user_prefs->addWorkspace('interface');
 $user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
 $user_ui_hidemoreinfo = $core->auth->user_prefs->interface->hidemoreinfo;
+$user_ui_htmlfontsize = $core->auth->user_prefs->interface->htmlfontsize;
 if ($core->auth->isSuperAdmin()) {
 	$user_ui_hide_std_favicon = $core->auth->user_prefs->interface->hide_std_favicon;
 }
@@ -95,6 +96,13 @@ if (is_dir($iconsets_root) && is_readable($iconsets_root)) {
 		}
 	}
 }
+
+# Base font size (50% = 8px, 62.5% = 10px, 75% = 12px)
+$htmlfontsize_combo = array(
+	__('Smaller') => '50%',
+	__('Default') => '62.5%',
+	__('Larger') => '75%'
+);
 
 # Language codes
 $lang_combo = dcAdminCombos::getAdminLangsCombo();
@@ -230,6 +238,7 @@ if (isset($_POST['user_editor']))
 		$core->auth->user_prefs->accessibility->put('nodragdrop',!empty($_POST['user_acc_nodragdrop']),'boolean');
 		$core->auth->user_prefs->interface->put('enhanceduploader',!empty($_POST['user_ui_enhanceduploader']),'boolean');
 		$core->auth->user_prefs->interface->put('hidemoreinfo',!empty($_POST['user_ui_hidemoreinfo']),'boolean');
+		$core->auth->user_prefs->interface->put('htmlfontsize',$_POST['user_ui_htmlfontsize'],'string');
 		if ($core->auth->isSuperAdmin()) {
 			# Applied to all users
 			$core->auth->user_prefs->interface->put('hide_std_favicon',!empty($_POST['user_ui_hide_std_favicon']),'boolean',null,true,true);
@@ -504,7 +513,10 @@ __('Disable javascript powered drag and drop for ordering items').'</label></p>'
 
 '<p><label for="user_ui_hidemoreinfo" class="classic">'.
 form::checkbox('user_ui_hidemoreinfo',1,$user_ui_hidemoreinfo).' '.
-__('Hide all secondary information and notes').'</label></p>';
+__('Hide all secondary information and notes').'</label></p>'.
+
+'<p><label for="user_ui_htmlfontsize">'.__('Font size:').'</label>'.
+form::combo('user_ui_htmlfontsize',$htmlfontsize_combo,$user_ui_htmlfontsize).'</p>';
 
 echo
 '<p><label for="user_ui_media_by_page" class="classic">'.__('Number of elements displayed per page in media manager:').'</label> '.
