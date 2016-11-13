@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-12 11:28+0100\n"
+"POT-Creation-Date: 2016-11-13 16:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,60 +41,60 @@ msgstr ""
 msgid "Configure your Blowup Theme"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/breadcrumb/_admin.php:16
-msgid "Breadcrumb for Dotclear"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:12
+#: plugins/_fake_plugin/_fake_l10n.php:11
 msgid "Legacy modules for dotclear"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:13
+#: plugins/_fake_plugin/_fake_l10n.php:12
 msgid "Trackback validity check"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:14
+#: plugins/_fake_plugin/_fake_l10n.php:13
 msgid "Import and Export your blog"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:15
+#: plugins/_fake_plugin/_fake_l10n.php:14
 msgid "Maintain your installation"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:16
+#: plugins/_fake_plugin/_fake_l10n.php:15
 msgid "Serve entries as simple web pages"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:17
+#: plugins/_fake_plugin/_fake_l10n.php:16
 msgid "Ping services"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:18
+#: plugins/_fake_plugin/_fake_l10n.php:17
 msgid "Simple menu for Dotclear"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:19
+#: plugins/_fake_plugin/_fake_l10n.php:18
 msgid "Tags for posts"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:20
+#: plugins/_fake_plugin/_fake_l10n.php:19
 msgid "Theme Editor"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:21
+#: plugins/_fake_plugin/_fake_l10n.php:20
 msgid "Manage every user preference directive"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:22
+#: plugins/_fake_plugin/_fake_l10n.php:21
 msgid "Widgets for your blog sidebars"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:23
+#: plugins/_fake_plugin/_fake_l10n.php:22
 msgid "dotclear legacy editor"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:24
+#: plugins/_fake_plugin/_fake_l10n.php:23
 msgid "dotclear CKEditor integration"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/breadcrumb/_admin.php:16
+msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:28
@@ -139,19 +139,19 @@ msgid "List of last comments published"
 msgstr ""
 
 #: plugins/_fake_plugin/_fake_l10n.php:38
-msgid "Tags cloud"
-msgstr ""
-
-#: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "List of published pages"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:40
+#: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "Blogroll list"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:41
+#: plugins/_fake_plugin/_fake_l10n.php:40
 msgid "List of simple menu items"
+msgstr ""
+
+#: plugins/_fake_plugin/_fake_l10n.php:41
+msgid "Tags cloud"
 msgstr ""
 
 #: plugins/aboutConfig/index.php:40 plugins/aboutConfig/index.php:65

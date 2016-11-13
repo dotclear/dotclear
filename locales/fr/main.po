@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-12 11:28+0100\n"
+"POT-Creation-Date: 2016-11-13 16:31+0100\n"
 "PO-Revision-Date: 2016-07-18 15:01+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -1438,7 +1438,7 @@ msgstr "Choisir les médias sélectionnés"
 
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
-msgstr ""
+msgstr "Selectionnez les fichiers et cliquez sur le bouton <strong>%s</strong>"
 
 msgid "or"
 msgstr "ou"
@@ -2078,6 +2078,12 @@ msgstr "billets par page"
 msgid "Selected entries action:"
 msgstr "Action sur les billets sélectionnés :"
 
+msgid "Smaller"
+msgstr "Petite"
+
+msgid "Larger"
+msgstr "Grande"
+
 msgid "Blog description (in blog parameters)"
 msgstr "La description du blog (paramètres du blog)"
 
@@ -2158,6 +2164,9 @@ msgstr "Si cette option est cochée, des champs numériques permettront d'indiqu
 
 msgid "Hide all secondary information and notes"
 msgstr "Cacher les informations secondaires et les notes"
+
+msgid "Font size:"
+msgstr "Taille de police de caractère :"
 
 msgid "Number of elements displayed per page in media manager:"
 msgstr "Nombre d'éléments affichés par page dans la médiathèque :"
