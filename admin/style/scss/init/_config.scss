@@ -82,11 +82,15 @@ $l-screen:  	61em;		// 976 px
 $xl-screen:		80em;		// 1280 px
 $xxl-screen:	120em;		// 1920 px
 
-$small-screen:	$xxs-screen;
-$large-screen:	$xxl-screen;
-
 // =========================================================================== //
 // =Various dimensions
 // =========================================================================== //
+
+// screens sizes
+
+$small-screen:	$xxs-screen;
+$large-screen:	$xxl-screen;
+
+// collapser width
 
 $collapser-width:	10px;

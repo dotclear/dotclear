@@ -1532,7 +1532,7 @@ h1 {
 
 /* top-info-user */
 #top-info-user {
-  padding-right: 18px;
+  padding-right: .5em;
   list-style-type: none;
   text-align: right; }
 
@@ -1546,24 +1546,17 @@ h1 {
   border-left: none; }
 
 #top-info-user a.active {
-  border-bottom-color: #fff;
+  border-width: 0;
+  border-radius: 4px;
   margin: 0;
-  padding: 18px .5em;
-  background-color: #fff;
-  color: #323232;
+  padding: 2px 8px 3px;
+  background-color: #f3f3f3;
+  color: #d33800;
   font-weight: bold; }
 
 /* ------------------------------------------------------------------------------------
                                                             UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
-@media screen and (max-width: 80em) {
-  #top-info-user {
-    padding-right: .5em; }
-
-  #top-info-user a.active {
-    padding: 2px 8px;
-    border-width: 0;
-    border-radius: 6px; } }
 @media screen and (max-width: 26.5em) {
   h1,
   h1 a {
