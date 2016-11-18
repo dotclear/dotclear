@@ -204,6 +204,7 @@ CKEDITOR.lang['gu'] = {
     	anchorName : 'ઍંકર નામથી પસંદ કરો',
     	charset : 'લિંક રિસૉર્સ કૅરિક્ટર સેટ',
     	cssClasses : 'સ્ટાઇલ-શીટ ક્લાસ',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'ઈ-મેલ સરનામું',
     	emailBody : 'સંદેશ',
@@ -494,5 +495,19 @@ CKEDITOR.lang['gu'] = {
     	invalidHtmlLength : '"%1" ની વેલ્યુ એક પોસીટીવ આંકડો હોવો જોઈએ અથવા HTML measurement unit (px or %) વગર.',
     	invalidInlineStyle : 'ઈનલાઈન  સ્ટાઈલ ની વેલ્યુ  "name : value" ના ફોર્મેટ માં હોવી જોઈએ, વચ્ચે સેમી-કોલોન જોઈએ.',
     	cssLengthTooltip : 'પિક્ષ્લ્ નો આંકડો CSS unit (px, %, in, cm, mm, em, ex, pt, or pc) માં નાખો.',
-    	unavailable : '%1<span class="cke_accessibility">, નથી મળતું</span>'
+    	unavailable : '%1<span class="cke_accessibility">, નથી મળતું</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

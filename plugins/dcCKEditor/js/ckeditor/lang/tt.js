@@ -204,6 +204,7 @@ CKEDITOR.lang['tt'] = {
     	anchorName : 'Якорь исеме буенча',
     	charset : 'Linked Resource Charset',
     	cssClasses : 'Стильләр класслары',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'Электрон почта адресы',
     	emailBody : 'Хат эчтәлеге',
@@ -494,5 +495,19 @@ CKEDITOR.lang['tt'] = {
     	invalidHtmlLength : 'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
     	cssLengthTooltip : 'Enter a number for a value in pixels or a number with a valid CSS unit (px, %, in, cm, mm, em, ex, pt, or pc).',
-    	unavailable : '%1<span class="cke_accessibility">, unavailable</span>'
+    	unavailable : '%1<span class="cke_accessibility">, unavailable</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Кайтару',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Бетерү',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

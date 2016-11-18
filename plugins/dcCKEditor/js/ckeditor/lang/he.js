@@ -204,6 +204,7 @@ CKEDITOR.lang['he'] = {
     	anchorName : 'עפ"י שם העוגן',
     	charset : 'קידוד המשאב המקושר',
     	cssClasses : 'גיליונות עיצוב קבוצות',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'כתובת הדוא"ל',
     	emailBody : 'גוף ההודעה',
@@ -494,5 +495,19 @@ CKEDITOR.lang['he'] = {
     	invalidHtmlLength : 'הערך שצוין לשדה "%1" חייב להיות מספר חיובי עם או ללא יחידת מידה חוקית של HTML (px או %).',
     	invalidInlineStyle : 'הערך שצויין לשדה הסגנון חייב להכיל זוג ערכים אחד או יותר בפורמט "שם : ערך", מופרדים על ידי נקודה-פסיק.',
     	cssLengthTooltip : 'יש להכניס מספר המייצג פיקסלים או מספר עם יחידת גליונות סגנון תקינה (px, %, in, cm, mm, em, ex, pt, או pc).',
-    	unavailable : '%1<span class="cke_accessibility">, לא זמין</span>'
+    	unavailable : '%1<span class="cke_accessibility">, לא זמין</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'מחק',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

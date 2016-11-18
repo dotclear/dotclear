@@ -204,6 +204,7 @@ CKEDITOR.lang['es'] = {
     	anchorName : 'Por Nombre de Referencia',
     	charset : 'Fuente de caracteres vinculado',
     	cssClasses : 'Clases de hojas de estilo',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'Dirección de E-Mail',
     	emailBody : 'Cuerpo del Mensaje',
@@ -494,5 +495,19 @@ CKEDITOR.lang['es'] = {
     	invalidHtmlLength : 'El valor especificado para el campo "%1" debe ser un número positivo, incluyendo optionalmente una unidad de medida HTML válida (px o %).',
     	invalidInlineStyle : 'El valor especificado para el estilo debe consistir en uno o más pares con el formato "nombre: valor", separados por punto y coma.',
     	cssLengthTooltip : 'Introduca un número para el valor en pixels o un número con una unidad de medida CSS válida (px, %, in, cm, mm, em, ex, pt, o pc).',
-    	unavailable : '%1<span class="cke_accessibility">, no disponible</span>'
+    	unavailable : '%1<span class="cke_accessibility">, no disponible</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Retroceso',
+    		'13' : 'Ingresar',
+    		'16' : 'Mayús.',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'Fin',
+    		'36' : 'Inicio',
+    		'46' : 'Suprimir',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

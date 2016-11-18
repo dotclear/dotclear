@@ -204,6 +204,7 @@ CKEDITOR.lang['lt'] = {
     	anchorName : 'Pagal žymės vardą',
     	charset : 'Susietų išteklių simbolių lentelė',
     	cssClasses : 'Stilių lentelės klasės',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'El.pašto adresas',
     	emailBody : 'Žinutės turinys',
@@ -494,5 +495,19 @@ CKEDITOR.lang['lt'] = {
     	invalidHtmlLength : 'Reikšmė nurodyta "%1" laukui, turi būti teigiamas skaičius su arba be tinkamo HTML matavimo vieneto (px arba %).',
     	invalidInlineStyle : 'Reikšmė nurodyta vidiniame stiliuje turi būti sudaryta iš vieno šių reikšmių "vardas : reikšmė", atskirta kabliataškiais.',
     	cssLengthTooltip : 'Įveskite reikšmę pikseliais arba skaičiais su tinkamu CSS vienetu (px, %, in, cm, mm, em, ex, pt arba pc).',
-    	unavailable : '%1<span class="cke_accessibility">, netinkamas</span>'
+    	unavailable : '%1<span class="cke_accessibility">, netinkamas</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

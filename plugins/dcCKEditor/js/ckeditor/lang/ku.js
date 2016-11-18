@@ -204,6 +204,7 @@ CKEDITOR.lang['ku'] = {
     	anchorName : 'بەپێی ناوی لەنگەر',
     	charset : 'بەستەری سەرچاوەی نووسە',
     	cssClasses : 'شێوازی چینی پەڕه',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'ناونیشانی ئیمەیل',
     	emailBody : 'ناوەڕۆکی نامە',
@@ -494,5 +495,19 @@ CKEDITOR.lang['ku'] = {
     	invalidHtmlLength : 'ئەم نرخەی دراوە بۆ خانەی "%1" دەبێت ژمارەکی درووست بێت یان بێ ناونیشانی ئامرازی HTML (px یان %).',
     	invalidInlineStyle : 'دانەی نرخی شێوازی ناوهێڵ دەبێت پێکهاتبێت لەیەك یان زیاتری داڕشتە "ناو : نرخ", جیاکردنەوەی بە فاریزە و خاڵ',
     	cssLengthTooltip : 'ژمارەیەك بنووسه‌ بۆ نرخی piksel یان ئامرازێکی درووستی CSS (px, %, in, cm, mm, em, ex, pt, یان pc).',
-    	unavailable : '%1<span class="cke_accessibility">, ئامادە نیە</span>'
+    	unavailable : '%1<span class="cke_accessibility">, ئامادە نیە</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

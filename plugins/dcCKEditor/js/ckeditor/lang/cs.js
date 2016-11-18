@@ -204,6 +204,7 @@ CKEDITOR.lang['cs'] = {
     	anchorName : 'Podle jména kotvy',
     	charset : 'Přiřazená znaková sada',
     	cssClasses : 'Třída stylu',
+    	download : 'Force Download',
     	displayText : 'Zobrazit text',
     	emailAddress : 'E-mailová adresa',
     	emailBody : 'Tělo zprávy',
@@ -494,5 +495,19 @@ CKEDITOR.lang['cs'] = {
     	invalidHtmlLength : 'Hodnota určená pro pole "%1" musí být kladné číslo bez nebo s platnou jednotkou míry HTML (px nebo %).',
     	invalidInlineStyle : 'Hodnota určená pro řádkový styl se musí skládat z jedné nebo více n-tic ve formátu "název : hodnota", oddělené středníky',
     	cssLengthTooltip : 'Zadejte číslo jako hodnotu v pixelech nebo číslo s platnou jednotkou CSS (px, %, v cm, mm, em, ex, pt, nebo pc).',
-    	unavailable : '%1<span class="cke_accessibility">, nedostupné</span>'
+    	unavailable : '%1<span class="cke_accessibility">, nedostupné</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'Konec',
+    		'36' : 'Domů',
+    		'46' : 'Smazat',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

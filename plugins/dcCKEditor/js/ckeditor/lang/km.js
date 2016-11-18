@@ -204,6 +204,7 @@ CKEDITOR.lang['km'] = {
     	anchorName : 'តាម\u200bឈ្មោះ\u200bយុថ្កា',
     	charset : 'លេខកូតអក្សររបស់ឈ្នាប់',
     	cssClasses : 'Stylesheet Classes',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'អាសយដ្ឋាន\u200bអ៊ីមែល',
     	emailBody : 'តួ\u200bអត្ថបទ',
@@ -494,5 +495,19 @@ CKEDITOR.lang['km'] = {
     	invalidHtmlLength : 'តម្លៃ\u200bកំណត់\u200bសម្រាប់\u200bវាល "%1" ត្រូវ\u200bតែ\u200bជា\u200bលេខ\u200bវិជ្ជមាន ដោយ\u200bភ្ជាប់\u200bឬ\u200bមិន\u200bភ្ជាប់\u200bជាមួយ\u200bនឹង\u200bឯកតា\u200bរង្វាស់\u200bរបស់ HTML (px ឬ %) ។',
     	invalidInlineStyle : 'តម្លៃ\u200bកំណត់\u200bសម្រាប់\u200bរចនាបថ\u200bក្នុង\u200bតួ ត្រូវ\u200bតែ\u200bមាន\u200bមួយ\u200bឬ\u200bធាតុ\u200bច្រើន\u200bដោយ\u200bមាន\u200bទ្រង់ទ្រាយ\u200bជា "ឈ្មោះ : តម្លៃ" ហើយ\u200bញែក\u200bចេញ\u200bពី\u200bគ្នា\u200bដោយ\u200bចុច\u200bក្បៀស។',
     	cssLengthTooltip : 'បញ្ចូល\u200bលេខ\u200bសម្រាប់\u200bតម្លៃ\u200bជា\u200bភិចសែល ឬ\u200bលេខ\u200bដែល\u200bមាន\u200bឯកតា\u200bត្រឹមត្រូវ\u200bរបស់ CSS (px, %, in, cm, mm, em, ex, pt ឬ pc) ។',
-    	unavailable : '%1<span class="cke_accessibility">, មិន\u200bមាន</span>'
+    	unavailable : '%1<span class="cke_accessibility">, មិន\u200bមាន</span>',
+    	keyboard : 
+    	{
+    		'8' : 'លុបថយក្រោយ',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'ចុង',
+    		'36' : 'ផ្ទះ',
+    		'46' : 'លុប',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

@@ -204,6 +204,7 @@ CKEDITOR.lang['da'] = {
     	anchorName : 'Efter ankernavn',
     	charset : 'Tegnsæt',
     	cssClasses : 'Typografiark',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'E-mailadresse',
     	emailBody : 'Besked',
@@ -494,5 +495,19 @@ CKEDITOR.lang['da'] = {
     	invalidHtmlLength : 'Værdien specificeret for "%1" feltet skal være et positivt nummer med eller uden en CSS måleenhed  (px eller %).',
     	invalidInlineStyle : 'Værdien specificeret for inline style skal indeholde en eller flere elementer med et format som "name:value", separeret af semikoloner',
     	cssLengthTooltip : 'Indsæt en numerisk værdi i pixel eller nummer med en gyldig CSS værdi (px, %, in, cm, mm, em, ex, pt, eller pc).',
-    	unavailable : '%1<span class="cke_accessibility">, ikke tilgængelig</span>'
+    	unavailable : '%1<span class="cke_accessibility">, ikke tilgængelig</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

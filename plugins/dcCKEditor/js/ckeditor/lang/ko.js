@@ -204,6 +204,7 @@ CKEDITOR.lang['ko'] = {
     	anchorName : '책갈피 이름',
     	charset : '링크된 자료 문자열 인코딩',
     	cssClasses : '스타일시트 클래스',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : '이메일 주소',
     	emailBody : '메시지 내용',
@@ -494,5 +495,19 @@ CKEDITOR.lang['ko'] = {
     	invalidHtmlLength : '"%1" 값은 유효한 HTML 측정 단위(px or %)를 포함하거나 포함하지 않은 양수여야 합니다.',
     	invalidInlineStyle : '인라인 스타일에 설정된 값은 "name : value" 형식을 가진 하나 이상의 투플(tuples)이 세미콜론(;)으로 구분되어 구성되어야 합니다.',
     	cssLengthTooltip : '픽셀 단위의 숫자만 입력하시거나 유효한 CSS 단위(px, %, in, cm, mm, em, ex, pt, or pc)와 함께 숫자를 입력해주세요.',
-    	unavailable : '%1<span class="cke_accessibility">, 사용불가</span>'
+    	unavailable : '%1<span class="cke_accessibility">, 사용불가</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

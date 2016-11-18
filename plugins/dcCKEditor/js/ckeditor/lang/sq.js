@@ -204,6 +204,7 @@ CKEDITOR.lang['sq'] = {
     	anchorName : 'Sipas Emrit të Spirancës',
     	charset : 'Seti i Karaktereve të Burimeve të Nëdlidhura',
     	cssClasses : 'Klasa stili CSS',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'Posta Elektronike',
     	emailBody : 'Trupi i Porosisë',
@@ -494,5 +495,19 @@ CKEDITOR.lang['sq'] = {
     	invalidHtmlLength : 'Vlera e fushës "%1" duhet të jetë një numër pozitiv me apo pa njësi matëse të vlefshme HTML (px ose %)',
     	invalidInlineStyle : 'Stili inline duhet të jetë një apo disa vlera të formatit "emër: vlerë", ndarë nga pikëpresje.',
     	cssLengthTooltip : 'Fut një numër për vlerën në pixel apo një numër me një njësi të vlefshme CSS (px, %, in, cm, mm, ex, pt, ose pc).',
-    	unavailable : '%1<span class="cke_accessibility">, i padisponueshëm</span>'
+    	unavailable : '%1<span class="cke_accessibility">, i padisponueshëm</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Prapa',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Grise',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

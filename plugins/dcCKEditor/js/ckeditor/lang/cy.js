@@ -204,6 +204,7 @@ CKEDITOR.lang['cy'] = {
     	anchorName : 'Gan Enw\'r Angor',
     	charset : 'Set Nodau\'r Adnodd Cysylltiedig',
     	cssClasses : 'Dosbarthiadau Dalen Arddull',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'Cyfeiriad E-Bost',
     	emailBody : 'Corff y Neges',
@@ -494,5 +495,19 @@ CKEDITOR.lang['cy'] = {
     	invalidHtmlLength : 'Mae\'n rhaid i\'r gwerth ar gyfer maes "%1" fod yn rhif positif gyda neu heb uned fesuriad HTML dilys (px neu %).',
     	invalidInlineStyle : 'Mae\'n rhaid i\'r gwerth ar gyfer arddull mewn-llinell gynnwys un set neu fwy ar y fformat "enw : gwerth", wedi\'u gwahanu gyda hanner colon.',
     	cssLengthTooltip : 'Rhowch rif am werth mewn picsel neu rhif gydag uned CSS dilys (px, %, in, cm, mm, em, pt neu pc).',
-    	unavailable : '%1<span class="cke_accessibility">, ddim ar gael</span>'
+    	unavailable : '%1<span class="cke_accessibility">, ddim ar gael</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

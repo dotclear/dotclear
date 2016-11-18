@@ -204,6 +204,7 @@ CKEDITOR.lang['el'] = {
     	anchorName : 'Βάσει του Ονόματος Άγκυρας',
     	charset : 'Κωδικοποίηση Χαρακτήρων Προσαρτημένης Πηγής',
     	cssClasses : 'Κλάσεις Φύλλων Στυλ',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'Διεύθυνση E-mail',
     	emailBody : 'Κείμενο Μηνύματος',
@@ -494,5 +495,19 @@ CKEDITOR.lang['el'] = {
     	invalidHtmlLength : 'Η τιμή που ορίζεται για το πεδίο "%1" πρέπει να είναι ένας θετικός αριθμός με ή χωρίς μια έγκυρη μονάδα μέτρησης HTML (px ή %).',
     	invalidInlineStyle : 'Η τιμή για το εν σειρά στυλ πρέπει να περιέχει ένα ή περισσότερα ζεύγη με την μορφή "όνομα: τιμή" διαχωρισμένα με Ελληνικό ερωτηματικό.',
     	cssLengthTooltip : 'Εισάγεται μια τιμή σε pixel ή έναν αριθμό μαζί με μια έγκυρη μονάδα μέτρησης CSS (px, %, in, cm, mm, em, ex, pt, ή pc).',
-    	unavailable : '%1<span class="cke_accessibility">, δεν είναι διαθέσιμο</span>'
+    	unavailable : '%1<span class="cke_accessibility">, δεν είναι διαθέσιμο</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

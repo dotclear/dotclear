@@ -204,6 +204,7 @@ CKEDITOR.lang['si'] = {
     	anchorName : 'By Anchor Name',
     	charset : 'Linked Resource Charset',
     	cssClasses : 'විලාසපත්‍ර පන්තිය',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'E-Mail Address',
     	emailBody : 'Message Body',
@@ -494,5 +495,19 @@ CKEDITOR.lang['si'] = {
     	invalidHtmlLength : 'වටිනාකමක් නිරූපණය කිරීම "%1" ප්‍රදේශය ධන සංක්‍යාත්මක වටිනාකමක් හෝ  නිවරදි නොවන  HTML මිනුම් එකක (px හෝ %).',
     	invalidInlineStyle : 'වටිනාකමක් නිරූපණය කිරීම  පේළි විලාසයයට ආකෘතිය  අනතර්ග විය යුතය  "නම : වටිනාකම", තිත් කොමාවකින් වෙන් වෙන ලද.',
     	cssLengthTooltip : 'සංක්‍යා ඇතුලත් කිරීමේදී වටිනාකම තිත් ප්‍රමාණය නිවරදි CSS  ඒකක(තිත්, %, අඟල්,සෙමි, mm, em, ex, pt, pc)',
-    	unavailable : '%1<span පන්තිය="ළඟා වියහැකි ද බලන්න">, නොමැතිනම්</span>'
+    	unavailable : '%1<span පන්තිය="ළඟා වියහැකි ද බලන්න">, නොමැතිනම්</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

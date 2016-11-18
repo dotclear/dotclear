@@ -204,7 +204,8 @@ CKEDITOR.lang['ru'] = {
     	anchorName : 'По имени',
     	charset : 'Кодировка ресурса',
     	cssClasses : 'Классы CSS',
-    	displayText : 'Display Text',
+    	download : 'Force Download',
+    	displayText : 'Отображаемый текст',
     	emailAddress : 'Email адрес',
     	emailBody : 'Текст сообщения',
     	emailSubject : 'Тема сообщения',
@@ -494,5 +495,19 @@ CKEDITOR.lang['ru'] = {
     	invalidHtmlLength : 'Значение, указанное в поле "%1", должно быть положительным целым числом. Допускается указание единиц меры HTML (px или %).',
     	invalidInlineStyle : 'Значение, указанное для стиля элемента, должно состоять из одной или нескольких пар данных в формате "параметр : значение", разделённых точкой с запятой.',
     	cssLengthTooltip : 'Введите значение в пикселях, либо число с корректной единицей меры CSS (px, %, in, cm, mm, em, ex, pt или pc).',
-    	unavailable : '%1<span class="cke_accessibility">, недоступно</span>'
+    	unavailable : '%1<span class="cke_accessibility">, недоступно</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

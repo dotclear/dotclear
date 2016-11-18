@@ -204,6 +204,7 @@ CKEDITOR.lang['sv'] = {
     	anchorName : 'Efter ankarnamn',
     	charset : 'Teckenuppställning',
     	cssClasses : 'Stilmall',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'E-postadress',
     	emailBody : 'Innehåll',
@@ -494,5 +495,19 @@ CKEDITOR.lang['sv'] = {
     	invalidHtmlLength : 'Värdet för fältet "%1" måste vara ett positivt nummer med eller utan godkända HTML-mätenheter (px eller %).',
     	invalidInlineStyle : 'Det angivna värdet för style måste innehålla en eller flera tupler separerade med semikolon i följande format: "name : value"',
     	cssLengthTooltip : 'Ange ett nummer i pixlar eller ett nummer men godkänd CSS-mätenhet (px, %, in, cm, mm, em, ex, pt, eller pc).',
-    	unavailable : '%1<span class="cke_accessibility">, Ej tillgänglig</span>'
+    	unavailable : '%1<span class="cke_accessibility">, Ej tillgänglig</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backsteg',
+    		'13' : 'Retur',
+    		'16' : 'Skift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Mellanslag',
+    		'35' : 'Slut',
+    		'36' : 'Hem',
+    		'46' : 'Radera',
+    		'224' : 'Kommando'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

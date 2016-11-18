@@ -204,6 +204,7 @@ CKEDITOR.lang['lv'] = {
     	anchorName : 'Pēc iezīmes nosaukuma',
     	charset : 'Pievienotā resursa kodējums',
     	cssClasses : 'Stilu saraksta klases',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'E-pasta adrese',
     	emailBody : 'Ziņas saturs',
@@ -494,5 +495,19 @@ CKEDITOR.lang['lv'] = {
     	invalidHtmlLength : 'Laukam "%1" norādītajai vērtībai jābūt pozitīvam skaitlim ar vai bez korektām HTML mērvienībām (px vai %).',
     	invalidInlineStyle : 'Iekļautajā stilā norādītajai vērtībai jāsastāv no viena vai vairākiem pāriem pēc forma\'ta "nosaukums: vērtība", atdalītiem ar semikolu.',
     	cssLengthTooltip : 'Ievadiet vērtību pikseļos vai skaitli ar derīgu CSS mērvienību (px, %, in, cm, mm, em, ex, pt, vai pc).',
-    	unavailable : '%1<span class="cke_accessibility">, nav pieejams</span>'
+    	unavailable : '%1<span class="cke_accessibility">, nav pieejams</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

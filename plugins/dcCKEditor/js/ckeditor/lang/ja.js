@@ -204,6 +204,7 @@ CKEDITOR.lang['ja'] = {
     	anchorName : 'アンカー名',
     	charset : 'リンク先のcharset',
     	cssClasses : 'スタイルシートクラス',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'E-Mail アドレス',
     	emailBody : '本文',
@@ -494,5 +495,19 @@ CKEDITOR.lang['ja'] = {
     	invalidHtmlLength : '入力された "%1" 項目の値は、HTMLの大きさ(px または %)が正しいものである/ないに関わらず、正の値である必要があります。',
     	invalidInlineStyle : '入力されたインラインスタイルの値は、"名前 : 値" のフォーマットのセットで、複数の場合はセミコロンで区切られている形式である必要があります。',
     	cssLengthTooltip : 'ピクセル数もしくはCSSにセットできる数値を入力してください。(px,%,in,cm,mm,em,ex,pt,or pc)',
-    	unavailable : '%1<span class="cke_accessibility">, 利用不可能</span>'
+    	unavailable : '%1<span class="cke_accessibility">, 利用不可能</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 
