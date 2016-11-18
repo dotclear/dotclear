@@ -204,6 +204,7 @@ CKEDITOR.lang['fa'] = {
     	anchorName : 'با نام لنگر',
     	charset : 'نویسه\u200bگان منبع پیوند شده',
     	cssClasses : 'کلاس\u200bهای شیوه\u200bنامه(Stylesheet)',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'نشانی پست الکترونیکی',
     	emailBody : 'متن پیام',
@@ -494,5 +495,19 @@ CKEDITOR.lang['fa'] = {
     	invalidHtmlLength : 'عدد تعیین شده برای فیلد "%1" باید یک عدد مثبت با یا بدون یک واحد اندازه گیری HTML معتبر باشد (px or %).',
     	invalidInlineStyle : 'عدد تعیین شده برای سبک درون\u200bخطی -Inline Style- باید دارای یک یا چند چندتایی با شکلی شبیه "name : value" که باید با یک ";" از هم جدا شوند.',
     	cssLengthTooltip : 'یک عدد برای یک مقدار بر حسب پیکسل و یا یک عدد با یک واحد CSS معتبر وارد کنید (px, %, in, cm, mm, em, ex, pt, or pc).',
-    	unavailable : '%1<span class="cke_accessibility">، غیر قابل دسترس</span>'
+    	unavailable : '%1<span class="cke_accessibility">، غیر قابل دسترس</span>',
+    	keyboard : 
+    	{
+    		'8' : 'عقبگرد',
+    		'13' : 'ورود',
+    		'16' : 'تعویض',
+    		'17' : 'کنترل',
+    		'18' : 'دگرساز',
+    		'32' : 'Space',
+    		'35' : 'پایان',
+    		'36' : 'خانه',
+    		'46' : 'حذف',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

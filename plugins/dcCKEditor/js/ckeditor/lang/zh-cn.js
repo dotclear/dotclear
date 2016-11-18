@@ -204,6 +204,7 @@ CKEDITOR.lang['zh-cn'] = {
     	anchorName : '按锚点名称',
     	charset : '字符编码',
     	cssClasses : '样式类名称',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : '地址',
     	emailBody : '内容',
@@ -494,5 +495,19 @@ CKEDITOR.lang['zh-cn'] = {
     	invalidHtmlLength : '此“%1”字段的值必须为正数，可以包含或不包含一个有效的 HTML 长度单位(px 或 %)',
     	invalidInlineStyle : '内联样式必须为格式是以分号分隔的一个或多个“属性名 : 属性值”。',
     	cssLengthTooltip : '输入一个表示像素值的数字，或加上一个有效的 CSS 长度单位(px, %, in, cm, mm, em, ex, pt 或 pc)。',
-    	unavailable : '%1<span class="cke_accessibility">，不可用</span>'
+    	unavailable : '%1<span class="cke_accessibility">，不可用</span>',
+    	keyboard : 
+    	{
+    		'8' : '退格键',
+    		'13' : '回车键',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : '行尾键',
+    		'36' : '行首键',
+    		'46' : '删除键',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

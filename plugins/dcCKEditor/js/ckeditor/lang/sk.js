@@ -204,6 +204,7 @@ CKEDITOR.lang['sk'] = {
     	anchorName : 'Podľa mena kotvy',
     	charset : 'Priradená znaková sada',
     	cssClasses : 'Triedy štýlu',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'E-Mailová adresa',
     	emailBody : 'Telo správy',
@@ -494,5 +495,19 @@ CKEDITOR.lang['sk'] = {
     	invalidHtmlLength : 'Špecifikovaná hodnota pre pole "%1" musí byť kladné číslo s alebo bez platnej HTML mernej jednotky (px alebo %).',
     	invalidInlineStyle : 'Zadaná hodnota pre inline štýl musí pozostávať s jedného, alebo viac dvojíc formátu "názov: hodnota", oddelených bodkočiarkou.',
     	cssLengthTooltip : 'Vložte číslo pre hodnotu v pixeloch alebo číslo so správnou CSS jednotou (px, %, in, cm, mm, em, ex, pt alebo pc).',
-    	unavailable : '%1<span class="cke_accessibility">, nedostupný</span>'
+    	unavailable : '%1<span class="cke_accessibility">, nedostupný</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Medzerník',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Klávesová skratka'
     } }; 

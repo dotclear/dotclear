@@ -204,6 +204,7 @@ CKEDITOR.lang['eo'] = {
     	anchorName : 'Per Ankronomo',
     	charset : 'Signaro de la Ligita Rimedo',
     	cssClasses : 'Klasoj de Stilfolioj',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'Retpoŝto',
     	emailBody : 'Mesaĝa korpo',
@@ -494,5 +495,19 @@ CKEDITOR.lang['eo'] = {
     	invalidHtmlLength : 'La valoro indikita por la "%1" kampo devas esti pozitiva nombro kun aŭ sen valida HTMLmezurunuo (px or %).',
     	invalidInlineStyle : 'La valoro indikita por la enlinia stilo devas konsisti el unu aŭ pluraj elementoj kun la formato de "nomo : valoro", apartigitaj per punktokomoj.',
     	cssLengthTooltip : 'Entajpu nombron por rastrumera valoro aŭ nombron kun valida CSSunuo (px, %, in, cm, mm, em, ex, pt, or pc).',
-    	unavailable : '%1<span class="cke_accessibility">, nehavebla</span>'
+    	unavailable : '%1<span class="cke_accessibility">, nehavebla</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Retropaŝo',
+    		'13' : 'Enigi',
+    		'16' : 'Registrumo',
+    		'17' : 'Stirklavo',
+    		'18' : 'Alt-klavo',
+    		'32' : 'Space',
+    		'35' : 'Fino',
+    		'36' : 'Hejmo',
+    		'46' : 'Forigi',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

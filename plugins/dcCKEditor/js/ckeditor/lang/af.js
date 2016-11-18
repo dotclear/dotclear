@@ -204,6 +204,7 @@ CKEDITOR.lang['af'] = {
     	anchorName : 'Op ankernaam',
     	charset : 'Karakterstel van geskakelde bron',
     	cssClasses : 'CSS klasse',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'E-posadres',
     	emailBody : 'Berig-inhoud',
@@ -494,5 +495,19 @@ CKEDITOR.lang['af'] = {
     	invalidHtmlLength : 'Die waarde vir die  "%1" veld moet \'n posetiewe getal wees met of sonder \'n geldige HTML eenheid (px of %).',
     	invalidInlineStyle : 'Ongeldige CSS. Formaat is een of meer sleutel-wert paare, "naam : wert" met kommapunte gesky.',
     	cssLengthTooltip : 'Voeg \'n getal wert in pixel in, of \'n waarde met geldige CSS eenheid (px, %, in, cm, mm, em, ex, pt, of pc).',
-    	unavailable : '%1<span class="cke_accessibility">, nie beskikbaar nie</span>'
+    	unavailable : '%1<span class="cke_accessibility">, nie beskikbaar nie</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'Einde',
+    		'36' : 'Tuis',
+    		'46' : 'Verwyder',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

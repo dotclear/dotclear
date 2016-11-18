@@ -204,6 +204,7 @@ CKEDITOR.lang['ar'] = {
     	anchorName : 'حسب إسم الإشارة المرجعية',
     	charset : 'ترميز المادة المطلوبة',
     	cssClasses : 'فئات التنسيق',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'البريد الإلكتروني',
     	emailBody : 'محتوى الرسالة',
@@ -494,5 +495,19 @@ CKEDITOR.lang['ar'] = {
     	invalidHtmlLength : 'قيمة الخانة المخصصة لـ "%1" يجب أن تكون رقما موجبا، باستخدام أو من غير استخدام وحدة HTML قياس مقبولة (px or %).',
     	invalidInlineStyle : 'قيمة الخانة المخصصة لـ  Inline Style يجب أن تختوي على مجموع واحد أو أكثر بالشكل التالي: "name : value", مفصولة بفاصلة منقزطة.',
     	cssLengthTooltip : 'أدخل رقما للقيمة بالبكسل أو رقما بوحدة CSS مقبولة (px, %, in, cm, mm, em, ex, pt, or pc).',
-    	unavailable : '%1<span class="cke_accessibility">, غير متاح</span>'
+    	unavailable : '%1<span class="cke_accessibility">, غير متاح</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

@@ -204,7 +204,8 @@ CKEDITOR.lang['nb'] = {
     	anchorName : 'Anker etter navn',
     	charset : 'Lenket tegnsett',
     	cssClasses : 'Stilarkklasser',
-    	displayText : 'Display Text',
+    	download : 'Force Download',
+    	displayText : 'Tekst som skal vises',
     	emailAddress : 'E-postadresse',
     	emailBody : 'Melding',
     	emailSubject : 'Meldingsemne',
@@ -494,5 +495,19 @@ CKEDITOR.lang['nb'] = {
     	invalidHtmlLength : 'Den angitte verdien for feltet "%1" må være et positivt tall med eller uten en gyldig HTML-målingsenhet (px eller %).',
     	invalidInlineStyle : 'Verdi angitt for inline stil må bestå av en eller flere sett med formatet "navn : verdi", separert med semikolon',
     	cssLengthTooltip : 'Skriv inn et tall for en piksel-verdi eller et tall med en gyldig CSS-enhet (px, %, in, cm, mm, em, ex, pt, eller pc).',
-    	unavailable : '%1<span class="cke_accessibility">, utilgjenglig</span>'
+    	unavailable : '%1<span class="cke_accessibility">, utilgjenglig</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

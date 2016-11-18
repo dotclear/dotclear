@@ -204,7 +204,8 @@ CKEDITOR.lang['zh'] = {
     	anchorName : '依錨點名稱',
     	charset : '連結資源的字元集',
     	cssClasses : '樣式表類別',
-    	displayText : 'Display Text',
+    	download : 'Force Download',
+    	displayText : '顯示文字',
     	emailAddress : '電子郵件地址',
     	emailBody : '郵件本文',
     	emailSubject : '郵件主旨',
@@ -494,5 +495,19 @@ CKEDITOR.lang['zh'] = {
     	invalidHtmlLength : '「%1」的值應為正數，並可包含有效的 HTML 單位 (px 或 %)。',
     	invalidInlineStyle : '行內樣式的值應包含一個以上的變數值組，其格式如「名稱:值」，並以分號區隔之。',
     	cssLengthTooltip : '請輸入數值，單位是像素或有效的 CSS 單位 (px, %, in, cm, mm, em, ex, pt, 或 pc)。',
-    	unavailable : '%1<span class="cke_accessibility">，無法使用</span>'
+    	unavailable : '%1<span class="cke_accessibility">，無法使用</span>',
+    	keyboard : 
+    	{
+    		'8' : '退格鍵',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : '空白鍵',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : '刪除',
+    		'224' : 'Command 鍵'
+    	},
+    	keyboardShortcut : '鍵盤快捷鍵'
     } }; 

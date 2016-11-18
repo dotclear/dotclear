@@ -204,6 +204,7 @@ CKEDITOR.lang['fi'] = {
     	anchorName : 'Ankkurin nimen mukaan',
     	charset : 'Linkitetty kirjaimisto',
     	cssClasses : 'Tyyliluokat',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'Sähköpostiosoite',
     	emailBody : 'Viesti',
@@ -494,5 +495,19 @@ CKEDITOR.lang['fi'] = {
     	invalidHtmlLength : 'Kentän "%1" arvon täytyy olla positiivinen luku HTML mittayksikön (px tai %) kanssa tai ilman.',
     	invalidInlineStyle : 'Tyylille annetun arvon täytyy koostua yhdestä tai useammasta "nimi : arvo" parista, jotka ovat eroteltuna toisistaan puolipisteillä.',
     	cssLengthTooltip : 'Anna numeroarvo pikseleinä tai numeroarvo CSS mittayksikön kanssa (px, %, in, cm, mm, em, ex, pt, tai pc).',
-    	unavailable : '%1<span class="cke_accessibility">, ei saatavissa</span>'
+    	unavailable : '%1<span class="cke_accessibility">, ei saatavissa</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

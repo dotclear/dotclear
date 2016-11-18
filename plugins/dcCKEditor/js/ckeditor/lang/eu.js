@@ -204,7 +204,8 @@ CKEDITOR.lang['eu'] = {
     	anchorName : 'Aingura-izenaren arabera',
     	charset : 'Estekatutako baliabide karaktere-jokoa',
     	cssClasses : 'Estilo-orriko klaseak',
-    	displayText : 'Display Text',
+    	download : 'Force Download',
+    	displayText : 'Bistaratu testua',
     	emailAddress : 'E-posta helbidea',
     	emailBody : 'Mezuaren gorputza',
     	emailSubject : 'Mezuaren gaia',
@@ -494,5 +495,19 @@ CKEDITOR.lang['eu'] = {
     	invalidHtmlLength : '"%1" eremurako zehaztutako balioak zenbaki positibo bat izan behar du, HTML neurri unitate batekin edo gabe (px edo %).',
     	invalidInlineStyle : 'Lineako estiloan zehaztutako balioak "izen : balio" formatuko tupla bat edo gehiago izan behar dira, komaz bereiztuak.',
     	cssLengthTooltip : 'Sartu zenbaki bat edo zenbaki bat baliozko CSS unitate batekin (px, %, in, cm, mm, em, ex, pt, edo pc).',
-    	unavailable : '%1<span class="cke_accessibility">, erabilezina</span>'
+    	unavailable : '%1<span class="cke_accessibility">, erabilezina</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Sartu',
+    		'16' : 'Maius',
+    		'17' : 'Ktrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'Buka',
+    		'36' : 'Etxea',
+    		'46' : 'Ezabatu',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

@@ -204,6 +204,7 @@ CKEDITOR.lang['ug'] = {
     	anchorName : 'لەڭگەرلىك نۇقتا ئاتى بويىچە',
     	charset : 'ھەرپ كودلىنىشى',
     	cssClasses : 'ئۇسلۇب خىلى ئاتى',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'ئادرېس',
     	emailBody : 'مەزمۇن',
@@ -494,5 +495,19 @@ CKEDITOR.lang['ug'] = {
     	invalidHtmlLength : 'بۇ سۆز بۆلىكى چوقۇم بىرىكمە HTML ئۇزۇنلۇق قىممىتى بولۇشى كېرەك. ئۆز ئىچىگە ئالىدىغان بىرلىك (px ياكى %)',
     	invalidInlineStyle : 'ئىچكى باغلانما ئۇسلۇبى چوقۇم چېكىتلىك پەش بىلەن ئايرىلغان بىر ياكى كۆپ «خاسلىق ئاتى:خاسلىق قىممىتى» پىچىمىدا بولۇشى لازىم',
     	cssLengthTooltip : 'بۇ سۆز بۆلىكى بىرىكمە CSS ئۇزۇنلۇق قىممىتى بولۇشى كېرەك. ئۆز ئىچىگە ئالىدىغان بىرلىك (px, %, in, cm, mm, em, ex, pt ياكى pc)',
-    	unavailable : '%1<span class=\\\\"cke_accessibility\\\\">، ئىشلەتكىلى بولمايدۇ</span>'
+    	unavailable : '%1<span class=\\\\"cke_accessibility\\\\">، ئىشلەتكىلى بولمايدۇ</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'ئۆچۈر',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

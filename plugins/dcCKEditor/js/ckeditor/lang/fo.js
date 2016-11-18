@@ -204,6 +204,7 @@ CKEDITOR.lang['fo'] = {
     	anchorName : 'Eftir navni á marknasteini',
     	charset : 'Atknýtt teknsett',
     	cssClasses : 'Typografi klassar',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'Teldupost-adressa',
     	emailBody : 'Breyðtekstur',
@@ -494,5 +495,19 @@ CKEDITOR.lang['fo'] = {
     	invalidHtmlLength : 'Virðið sett í "%1" feltiðield má vera eitt positivt tal, við ella uttan gyldugum CSS mátieind (px ella %).',
     	invalidInlineStyle : 'Virði specifiserað fyri inline style má hava eitt ella fleiri pør (tuples) skrivað sum "name : value", hvørt parið sundurskilt við semi-colon.',
     	cssLengthTooltip : 'Skriva eitt tal fyri eitt virði í pixels ella eitt tal við gyldigum CSS eind (px, %, in, cm, mm, em, ex, pt, ella pc).',
-    	unavailable : '%1<span class="cke_accessibility">, ikki tøkt</span>'
+    	unavailable : '%1<span class="cke_accessibility">, ikki tøkt</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

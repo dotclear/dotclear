@@ -204,7 +204,8 @@ CKEDITOR.lang['ca'] = {
     	anchorName : 'Per nom d\'àncora',
     	charset : 'Conjunt de caràcters font enllaçat',
     	cssClasses : 'Classes del full d\'estil',
-    	displayText : 'Display Text',
+    	download : 'Force Download',
+    	displayText : 'Text a mostrar',
     	emailAddress : 'Adreça de correu electrònic',
     	emailBody : 'Cos del missatge',
     	emailSubject : 'Assumpte del missatge',
@@ -486,7 +487,7 @@ CKEDITOR.lang['ca'] = {
     	alignTop : 'Superior',
     	alignMiddle : 'Centre',
     	alignBottom : 'Inferior',
-    	alignNone : 'None',
+    	alignNone : 'Cap',
     	invalidValue : 'Valor no vàlid.',
     	invalidHeight : 'L\'alçada ha de ser un número.',
     	invalidWidth : 'L\'amplada ha de ser un número.',
@@ -494,5 +495,19 @@ CKEDITOR.lang['ca'] = {
     	invalidHtmlLength : 'El valor especificat per als "%1" camps ha de ser un número positiu amb o sense unitat de mesura vàlida d\'HTML (px o %).',
     	invalidInlineStyle : 'El valor especificat per l\'estil en línia ha de constar d\'una o més tuples amb el format "name: value", separats per punt i coma.',
     	cssLengthTooltip : 'Introduïu un número per un valor en píxels o un número amb una unitat vàlida de CSS (px, %, in, cm, mm, em, ex, pt o pc).',
-    	unavailable : '%1<span class="cke_accessibility">, no disponible</span>'
+    	unavailable : '%1<span class="cke_accessibility">, no disponible</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Retrocés',
+    		'13' : 'Intro',
+    		'16' : 'Majúscules',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'Fi',
+    		'36' : 'Inici',
+    		'46' : 'Eliminar',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

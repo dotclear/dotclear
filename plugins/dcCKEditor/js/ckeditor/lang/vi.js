@@ -204,6 +204,7 @@ CKEDITOR.lang['vi'] = {
     	anchorName : 'Theo tên điểm neo',
     	charset : 'Bảng mã của tài nguyên được liên kết đến',
     	cssClasses : 'Lớp Stylesheet',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'Thư điện tử',
     	emailBody : 'Nội dung thông điệp',
@@ -494,5 +495,19 @@ CKEDITOR.lang['vi'] = {
     	invalidHtmlLength : 'Giá trị quy định cho trường "%1" phải là một số dương có hoặc không có một đơn vị đo HTML hợp lệ (px hoặc %).',
     	invalidInlineStyle : 'Giá trị quy định cho kiểu nội tuyến phải bao gồm một hoặc nhiều dữ liệu với định dạng "tên:giá trị", cách nhau bằng dấu chấm phẩy.',
     	cssLengthTooltip : 'Nhập một giá trị theo pixel hoặc một số với một đơn vị CSS hợp lệ (px, %, in, cm, mm, em, ex, pt, hoặc pc).',
-    	unavailable : '%1<span class="cke_accessibility">, không có</span>'
+    	unavailable : '%1<span class="cke_accessibility">, không có</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Xóa',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

@@ -204,6 +204,7 @@ CKEDITOR.lang['uk'] = {
     	anchorName : 'За ім\'ям елементу',
     	charset : 'Кодування',
     	cssClasses : 'Клас CSS',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'Адреса ел. пошти',
     	emailBody : 'Тіло повідомлення',
@@ -494,5 +495,19 @@ CKEDITOR.lang['uk'] = {
     	invalidHtmlLength : 'Значення, вказане для "%1" в полі повинно бути позитивним числом або без дійсного виміру HTML блоку (px або %).',
     	invalidInlineStyle : 'Значення, вказане для вбудованого стилю повинне складатися з одного чи кількох кортежів у форматі "ім\'я : значення", розділених крапкою з комою.',
     	cssLengthTooltip : 'Введіть номер значення в пікселях або число з дійсною одиниці CSS (px, %, in, cm, mm, em, ex, pt або pc).',
-    	unavailable : '%1<span class="cke_accessibility">, не доступне</span>'
+    	unavailable : '%1<span class="cke_accessibility">, не доступне</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Видалити',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

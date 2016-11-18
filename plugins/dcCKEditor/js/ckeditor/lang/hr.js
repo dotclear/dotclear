@@ -204,6 +204,7 @@ CKEDITOR.lang['hr'] = {
     	anchorName : 'Po nazivu sidra',
     	charset : 'Kodna stranica povezanih resursa',
     	cssClasses : 'Stylesheet klase',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'E-Mail adresa',
     	emailBody : 'Sadržaj poruke',
@@ -494,5 +495,19 @@ CKEDITOR.lang['hr'] = {
     	invalidHtmlLength : 'Vrijednost određena za "%1" polje mora biti pozitivni broj sa ili bez važećih HTML mjernih jedinica (px ili %).',
     	invalidInlineStyle : 'Vrijednost za linijski stil mora sadržavati jednu ili više definicija s formatom "naziv:vrijednost", odvojenih točka-zarezom.',
     	cssLengthTooltip : 'Unesite broj za vrijednost u pikselima ili broj s važećim CSS mjernim jedinicama (px, %, in, cm, mm, em, ex, pt ili pc).',
-    	unavailable : '%1<span class="cke_accessibility">, nedostupno</span>'
+    	unavailable : '%1<span class="cke_accessibility">, nedostupno</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

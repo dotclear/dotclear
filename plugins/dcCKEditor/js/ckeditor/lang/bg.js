@@ -204,6 +204,7 @@ CKEDITOR.lang['bg'] = {
     	anchorName : 'По име на котва',
     	charset : 'Тип на свързания ресурс',
     	cssClasses : 'Класове за CSS',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'E-mail aдрес',
     	emailBody : 'Съдържание',
@@ -494,5 +495,19 @@ CKEDITOR.lang['bg'] = {
     	invalidHtmlLength : 'Стойността на полето "%1" трябва да бъде положително число с или без валидна HTML измервателна единица (px или %).',
     	invalidInlineStyle : 'Стойността на стилa трябва да съдържат една или повече двойки във формат "name : value", разделени с двоеточие.',
     	cssLengthTooltip : 'Въведете числена стойност в пиксели или друга валидна CSS единица (px, %, in, cm, mm, em, ex, pt, или pc).',
-    	unavailable : '%1<span class="cke_accessibility">, недостъпно</span>'
+    	unavailable : '%1<span class="cke_accessibility">, недостъпно</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

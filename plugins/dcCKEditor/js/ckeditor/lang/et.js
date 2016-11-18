@@ -204,6 +204,7 @@ CKEDITOR.lang['et'] = {
     	anchorName : 'Ankru nime järgi',
     	charset : 'Lingitud ressursi märgistik',
     	cssClasses : 'Stiilistiku klassid',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'E-posti aadress',
     	emailBody : 'Sõnumi tekst',
@@ -494,5 +495,19 @@ CKEDITOR.lang['et'] = {
     	invalidHtmlLength : '"%1" välja jaoks määratud väärtus peab olema positiivne täisarv HTML ühikuga (px või %) või ilma.',
     	invalidInlineStyle : 'Reasisese stiili määrangud peavad koosnema paarisväärtustest (tuples), mis on semikoolonitega eraldatult järgnevas vormingus: "nimi : väärtus".',
     	cssLengthTooltip : 'Sisesta väärtus pikslites või number koos sobiva CSS-i ühikuga (px, %, in, cm, mm, em, ex, pt või pc).',
-    	unavailable : '%1<span class="cke_accessibility">, pole saadaval</span>'
+    	unavailable : '%1<span class="cke_accessibility">, pole saadaval</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

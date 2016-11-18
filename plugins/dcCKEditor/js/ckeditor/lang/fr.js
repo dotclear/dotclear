@@ -204,6 +204,7 @@ CKEDITOR.lang['fr'] = {
     	anchorName : 'Par nom d\'ancre',
     	charset : 'Encodage de la ressource liée',
     	cssClasses : 'Classes de style',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'Adresse électronique',
     	emailBody : 'Corps du message',
@@ -494,5 +495,19 @@ CKEDITOR.lang['fr'] = {
     	invalidHtmlLength : 'La valeur spécifiée pour le champ « %1 » doit être un nombre positif avec ou sans unité de mesure HTML valide (px ou %).',
     	invalidInlineStyle : 'La valeur spécifiée pour le style en ligne doit être composée d\'un ou plusieurs couples au format « nom : valeur », séparés par des points-virgules.',
     	cssLengthTooltip : 'Entrer un nombre pour une valeur en pixels ou un nombre avec une unité de mesure CSS valide (px, %, in, cm, mm, em, ex, pt, ou pc).',
-    	unavailable : '%1<span class="cke_accessibility">, indisponible</span>'
+    	unavailable : '%1<span class="cke_accessibility">, indisponible</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Entrée',
+    		'16' : 'Majuscule',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'Fin',
+    		'36' : 'Origine',
+    		'46' : 'Supprimer',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

@@ -204,7 +204,8 @@ CKEDITOR.lang['tr'] = {
     	anchorName : 'Bağlantı Adı ile',
     	charset : 'Bağlı Kaynak Karakter Gurubu',
     	cssClasses : 'Biçem Sayfası Sınıfları',
-    	displayText : 'Display Text',
+    	download : 'İndirmeye Zorla',
+    	displayText : 'Gösterim Metni',
     	emailAddress : 'E-Posta Adresi',
     	emailBody : 'İleti Gövdesi',
     	emailSubject : 'İleti Konusu',
@@ -494,5 +495,19 @@ CKEDITOR.lang['tr'] = {
     	invalidHtmlLength : 'Belirttiğiniz sayı "%1" alanı için pozitif bir sayı HTML birim değeri olmalıdır (px veya %).',
     	invalidInlineStyle : 'Satıriçi biçem için verilen değer, "isim : değer" biçiminde birbirinden noktalı virgüllerle ayrılan bir veya daha fazla değişkenler grubundan oluşmalıdır.',
     	cssLengthTooltip : 'Piksel türünde bir sayı veya geçerli bir CSS ölçü birimi (px, %, in, cm, mm, em, ex, pt veya pc) içeren bir sayı girin.',
-    	unavailable : '%1<span class="cke_accessibility">, kullanılamaz</span>'
+    	unavailable : '%1<span class="cke_accessibility">, kullanılamaz</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Silme Tuşu',
+    		'13' : 'Giriş Tuşu',
+    		'16' : 'Üst Karater Tuşu',
+    		'17' : 'Kontrol Tuşu',
+    		'18' : 'Alt Tuşu',
+    		'32' : 'Boşluk Tuşu',
+    		'35' : 'En Sona Tuşu',
+    		'36' : 'En Başa Tuşu',
+    		'46' : 'Silme Tuşu',
+    		'224' : 'Komut Tuşu'
+    	},
+    	keyboardShortcut : 'Klavye Kısayolu'
     } }; 

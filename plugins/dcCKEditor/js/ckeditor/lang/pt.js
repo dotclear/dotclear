@@ -204,7 +204,8 @@ CKEDITOR.lang['pt'] = {
     	anchorName : 'Por Nome de Referência',
     	charset : 'Fonte de caracteres vinculado',
     	cssClasses : 'Classes de Estilo',
-    	displayText : 'Display Text',
+    	download : 'Force Download',
+    	displayText : 'Mostrar texto',
     	emailAddress : 'Endereço de email',
     	emailBody : 'Corpo da mensagem',
     	emailSubject : 'Título de mensagem',
@@ -494,5 +495,19 @@ CKEDITOR.lang['pt'] = {
     	invalidHtmlLength : 'O valor especificado para o campo "1%" deve ser um número positivo, com ou sem uma unidade de medida HTML válida (px ou %).',
     	invalidInlineStyle : 'O valor especificado para o estilo em linha deve constituir um ou mais conjuntos de valores com o formato de "nome : valor", separados por ponto e vírgula.',
     	cssLengthTooltip : 'Insira um número para um valor em pontos ou um número com uma unidade CSS válida (px, %, in, cm, mm, em, ex, pt, ou pc).',
-    	unavailable : '%1<span class="cke_accessibility">, indisponível</span>'
+    	unavailable : '%1<span class="cke_accessibility">, indisponível</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'Fim',
+    		'36' : 'Entrada',
+    		'46' : 'Eliminar',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

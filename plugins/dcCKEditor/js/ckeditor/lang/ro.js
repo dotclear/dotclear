@@ -204,6 +204,7 @@ CKEDITOR.lang['ro'] = {
     	anchorName : 'după numele ancorei',
     	charset : 'Setul de caractere al resursei legate',
     	cssClasses : 'Clasele cu stilul paginii (CSS)',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'Adresă de e-mail',
     	emailBody : 'Opțiuni Meniu Contextual',
@@ -494,5 +495,19 @@ CKEDITOR.lang['ro'] = {
     	invalidHtmlLength : 'Valoarea specificată pentru câmpul "%1" trebuie să fie un număr pozitiv cu sau fără o unitate de măsură HTML (px sau %).',
     	invalidInlineStyle : 'Valoarea specificată pentru stil trebuie să conțină una sau mai multe construcții de tipul "name : value", separate prin punct și virgulă.',
     	cssLengthTooltip : 'Introduceți un număr în pixeli sau un număr cu o unitate de măsură CSS (px, %, in, cm, mm, em, ex, pt, sau pc).',
-    	unavailable : '%1<span class="cke_accessibility">, nu este disponibil</span>'
+    	unavailable : '%1<span class="cke_accessibility">, nu este disponibil</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Delete',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 

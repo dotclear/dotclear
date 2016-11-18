@@ -204,6 +204,7 @@ CKEDITOR.lang['nl'] = {
     	anchorName : 'Op naam interne link',
     	charset : 'Karakterset van gelinkte bron',
     	cssClasses : 'Stylesheet-klassen',
+    	download : 'Force Download',
     	displayText : 'Display Text',
     	emailAddress : 'E-mailadres',
     	emailBody : 'Inhoud bericht',
@@ -494,5 +495,19 @@ CKEDITOR.lang['nl'] = {
     	invalidHtmlLength : 'Waarde in veld "%1" moet een positief nummer zijn, met of zonder een geldige HTML meeteenheid (px of %).',
     	invalidInlineStyle : 'Waarde voor de online stijl moet bestaan uit een of meerdere tupels met het formaat "naam : waarde", gescheiden door puntkomma\'s.',
     	cssLengthTooltip : 'Geef een nummer in voor een waarde in pixels of geef een nummer in met een geldige CSS eenheid (px, %, in, cm, mm, em, ex, pt, of pc).',
-    	unavailable : '%1<span class="cke_accessibility">, niet beschikbaar</span>'
+    	unavailable : '%1<span class="cke_accessibility">, niet beschikbaar</span>',
+    	keyboard : 
+    	{
+    		'8' : 'Backspace',
+    		'13' : 'Enter',
+    		'16' : 'Shift',
+    		'17' : 'Ctrl',
+    		'18' : 'Alt',
+    		'32' : 'Space',
+    		'35' : 'End',
+    		'36' : 'Home',
+    		'46' : 'Verwijderen',
+    		'224' : 'Command'
+    	},
+    	keyboardShortcut : 'Keyboard shortcut'
     } }; 
