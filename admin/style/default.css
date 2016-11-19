@@ -505,13 +505,14 @@ h1,
   display: inline-block;
   vertical-align: top;
   margin: 0 10px 10px;
-  text-align: left; }
+  text-align: left;
+  flex: 1 1 auto; }
 
 .box.small {
-  width: 312px; }
+  flex-basis: 312px; }
 
 .box.medium {
-  width: 644px; }
+  flex-basis: 644px; }
 
 .box.large {
   width: 100%; }
@@ -523,7 +524,7 @@ h1,
   margin-right: 0; }
 
 /* ------------------------------------------------------------------------------------
-                                                            UN POIL DE MEDIA QUERIES
+															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
 @media screen and (max-width: 80em) {
   #main {
@@ -2176,6 +2177,13 @@ span.ibw {
   display: flex;
   flex-wrap: wrap;
   justify-content: center; }
+
+.db-items,
+.db-contents {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex: 1 1 auto; }
 
 .no-js .outgoing img {
   display: none; }

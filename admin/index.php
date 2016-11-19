@@ -172,7 +172,6 @@ if ($core->auth->user_prefs->dashboard->doclinks) {
 $core->callBehavior('adminDashboardItems', $core, $__dashboard_items);
 
 # Dashboard content
-$dashboardContents = '';
 $__dashboard_contents = new ArrayObject(array(new ArrayObject,new ArrayObject));
 $core->callBehavior('adminDashboardContents', $core, $__dashboard_contents);
 
@@ -311,22 +310,23 @@ if ($core->auth->isSuperAdmin())
 	}
 }
 
-# Dashboard columns (processed first, as we need to know the result before displaying the icons.)
+# Dashboard items and contents (processed first, as we need to know the result before displaying the icons.)
 $dashboardItems = '';
-
 foreach ($__dashboard_items as $i)
 {
-	if ($i->count() > 0)
-	{
-		$dashboardItems .= '';
-		foreach ($i as $v) {
-			$dashboardItems .= $v;
-		}
-		$dashboardItems .= '';
+	foreach ($i as $v) {
+		$dashboardItems .= $v;
+	}
+}
+$dashboardContents = '';
+foreach ($__dashboard_contents as $i)
+{
+	foreach ($i as $v) {
+		$dashboardContents .= $v;
 	}
 }
 
-# Dashboard elements
+# Dashboard elements: icons then boxes (items then contents)
 echo '<div id="dashboard-main">';
 
 if (!$core->auth->user_prefs->dashboard->nofavicons) {
@@ -390,22 +390,11 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 	}
 }
 
-foreach ($__dashboard_contents as $i)
-{
-	if ($i->count() > 0)
-	{
-		$dashboardContents .= '';
-		foreach ($i as $v) {
-			$dashboardContents .= $v;
-		}
-		$dashboardContents .= '';
-	}
-}
-
 if ($dashboardContents != '' || $dashboardItems != '') {
 	echo
 	'<div id="dashboard-boxes">'.
-	'<div class="db-items">'.$dashboardItems.$dashboardContents.'</div>'.
+	'<div class="db-items">'.$dashboardItems.'</div>'.
+	'<div class="db-contents">'.$dashboardContents.'</div>'.
 	'</div>';
 }
 
