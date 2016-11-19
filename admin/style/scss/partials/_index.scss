@@ -121,6 +121,10 @@
 .db-contents {
 //	display: inline-block;
 //	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	flex: 1 1 auto;
 }
 
 .no-js .outgoing img {
