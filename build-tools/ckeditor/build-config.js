@@ -26,7 +26,8 @@ var CKBUILDER_CONFIG = {
 		'node_modules',
 		'package.json',
 		'README.md',
-		'tests'
+		'tests',
+		'samples'
 	],
 	plugins: {
 		a11yhelp: 1,
