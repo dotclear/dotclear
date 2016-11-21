@@ -56,7 +56,7 @@ class dcPostMedia
 			$strReq .= $params['from'].' ';
 		}
 
-		$where='';
+		$where=[];
 		if (isset($params['post_id'])) {
 			$where[]="PM.post_id ".$this->con->in($params['post_id']);
 		}
