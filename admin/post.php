@@ -168,6 +168,9 @@ if (!empty($_POST['ping']))
 		foreach (explode("\n", $tb_urls) as $tb_url)
 		{
 			try {
+				# --BEHAVIOR-- adminBeforePingTrackback
+				$core->callBehavior('adminBeforePingTrackback',$tb_url,$post_id,$tb_post_title,$tb_excerpt,$tb_post_url);
+
 				$TB->ping($tb_url, $post_id, $tb_post_title, $tb_excerpt, $tb_post_url);
 			} catch (Exception $e) {
 				$core->error->add($e->getMessage());

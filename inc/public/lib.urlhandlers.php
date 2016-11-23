@@ -519,6 +519,7 @@ class dcUrlHandlers extends urlHandler
 				# The entry
 				if ($_ctx->posts->trackbacksActive()) {
 					header('X-Pingback: '.$core->blog->url.$core->url->getURLFor("xmlrpc",$core->blog->id));
+					header('Link: <'.$core->blog->url.$core->url->getURLFor('webmention').'>; rel="webmention"');
 				}
 				self::serveDocument('post.html');
 			}
@@ -680,9 +681,29 @@ class dcUrlHandlers extends urlHandler
 			# The specified trackback URL is not an number
 			self::p404();
 		} else {
+			$core =& $GLOBALS['core'];
+			if (!is_array($args)) $args = array();
+			$args['type'] = 'trackback';
+
+			# --BEHAVIOR-- publicBeforeReceiveTrackback
+			$core->callBehavior('publicBeforeReceiveTrackback',$core,$args);
+
 			$tb = new dcTrackback($GLOBALS['core']);
-			$tb->receive($args);
+			$tb->receiveTrackback($args);
 		}
+	}
+
+	public static function webmention($args)
+	{
+		$core =& $GLOBALS['core'];
+		if (!is_array($args)) $args = array();
+		$args['type'] = 'webmention';
+
+		# --BEHAVIOR-- publicBeforeReceiveTrackback
+		$core->callBehavior('publicBeforeReceiveTrackback',$core,$args);
+
+		$tb = new dcTrackback($core);
+		$tb->receiveWebmention();
 	}
 
 	public static function rsd($args)
