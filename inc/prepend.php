@@ -285,6 +285,7 @@ $core->url->register('archive','archive','^archive(/.+)?$',array('dcUrlHandlers'
 
 $core->url->register('feed','feed','^feed/(.+)$',array('dcUrlHandlers','feed'));
 $core->url->register('trackback','trackback','^trackback/(.+)$',array('dcUrlHandlers','trackback'));
+$core->url->register('webmention','webmention','^webmention(/.+)?$',array('dcUrlHandlers','webmention'));
 $core->url->register('rsd','rsd','^rsd$',array('dcUrlHandlers','rsd'));
 $core->url->register('xmlrpc','xmlrpc','^xmlrpc/(.+)$',array('dcUrlHandlers','xmlrpc'));
 
