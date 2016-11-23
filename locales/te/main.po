@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:41+0200\n"
+"POT-Creation-Date: 2016-11-23 10:19+0100\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
+"Language-Team: \n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language-Team: \n"
 "X-Generator: Poedit 1.8.8\n"
 
 msgid "Dotclear has been upgraded."
@@ -443,7 +443,7 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
-msgid "Generated image sizes (in pixels)"
+msgid "Generated image sizes (max dimension in pixels)"
 msgstr ""
 
 #, fuzzy
@@ -632,36 +632,32 @@ msgstr "బ్లాగు పేరు"
 msgid "Blog ID"
 msgstr "బ్లాగు ఐడీ"
 
+msgid "Status"
+msgstr "స్థితి"
+
 msgid "Descending"
 msgstr "అవరోహణ"
 
 msgid "Ascending"
 msgstr "ఆరోహణ"
 
-msgid "Show filters and display options"
-msgstr ""
-
-msgid "Cancel filters and display options"
-msgstr ""
-
 msgid "List of blogs"
 msgstr "బ్లాగుల జాబితా"
-
-msgid "Blog has been successfully deleted."
-msgstr "బ్లాగుని విజయవంతంగా తొలగించాం."
 
 msgid "Create a new blog"
 msgstr "కొత్త బ్లాగుని సృష్టించండి"
 
-#, fuzzy
-msgid "Filter blogs list"
-msgstr "%s బ్లాగుని మార్చండి"
+msgid "Show filters and display options"
+msgstr ""
 
 msgid "Filters"
 msgstr "వడపోతలు"
 
 msgid "Search:"
 msgstr "అన్వేషణ:"
+
+msgid "Status:"
+msgstr "స్థితి:"
 
 #, fuzzy
 msgid "Display options"
@@ -684,48 +680,20 @@ msgstr "బ్లాగులు (ఒక పేజీకి)"
 msgid "Apply filters and display options"
 msgstr ""
 
-msgid "No blog matches the filter"
-msgstr ""
-
-msgid "No blog"
-msgstr "బ్లాగులు లేవు"
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] ""
-msgstr[1] ""
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "ఎంచుకున్న వాడుకరులపై చర్య:"
 
 #, fuzzy
-msgid "Blogs list"
-msgstr "బ్లాగులు"
+msgid "Actions"
+msgstr "చర్య"
+
+msgid "ok"
+msgstr "సరే"
 
 #, fuzzy
-msgid "Blog id"
-msgstr "బ్లాగు పేరు"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL?"
-
-#, fuzzy
-msgid "Entries (all types)"
-msgstr "టపాలు (ఒక పేజీకి)"
-
-msgid "Status"
-msgstr "స్థితి"
-
-#, fuzzy, php-format
-msgid "Edit blog settings for %s"
-msgstr "%s బ్లాగుని మార్చండి"
-
-#, fuzzy
-msgid "Edit blog settings"
-msgstr "బ్లాగు అమరికలు"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "%s బ్లాగుకి మారండి"
+msgid "Please give your password to confirm blog(s) deletion:"
+msgstr "బ్లాగు తొలగింపుని నిర్ధారించడానికి మీ సంకేతపదాన్ని ఇవ్వండి."
 
 #, fuzzy
 msgid "This category does not exist."
@@ -777,9 +745,7 @@ msgstr "%d టపాలు"
 
 #, fuzzy, php-format
 msgid "%d entry"
-msgid_plural "%d entries"
-msgstr[0] "%d టపా"
-msgstr[1] "%d టపా"
+msgstr "%d టపా"
 
 msgid "total:"
 msgstr ""
@@ -928,9 +894,6 @@ msgstr "రచయిత:"
 msgid "Web site:"
 msgstr "వెబ్ సైటు:"
 
-msgid "Status:"
-msgstr "స్థితి:"
-
 msgid "Comment:"
 msgstr "వ్యాఖ్య:"
 
@@ -949,6 +912,10 @@ msgid "Date"
 msgstr "తేదీ"
 
 msgid "Entry title"
+msgstr "టపా శీర్షిక"
+
+#, fuzzy
+msgid "Entry date"
 msgstr "టపా శీర్షిక"
 
 msgid "Author"
@@ -990,10 +957,6 @@ msgstr "వాటిని చూపించు."
 msgid "Delete all spams"
 msgstr "ఓ బ్లాగుని తొలగించండి"
 
-#, fuzzy
-msgid "Filter comments and trackbacks list"
-msgstr "వ్యాఖ్యలు మరియు ట్రాకుబ్యాకులు"
-
 msgid "Type:"
 msgstr "రకం:"
 
@@ -1003,13 +966,6 @@ msgstr "వ్యాఖ్యలు (ఒక పేజీకి)"
 
 msgid "Selected comments action:"
 msgstr "ఎంచుకున్న వ్యాఖ్యలపై చర్య:"
-
-#, fuzzy
-msgid "Actions"
-msgstr "చర్య"
-
-msgid "ok"
-msgstr "సరే"
 
 msgid "Global help"
 msgstr ""
@@ -1290,6 +1246,10 @@ msgstr ""
 msgid "Cannot write \"%s\" directory."
 msgstr "కొత్త వాడుకరిని సృష్టించండి"
 
+#, fuzzy
+msgid "Master email is not valid."
+msgstr "ఈమెయిలు చిరునామా సరైనది కాదు."
+
 #, php-format
 msgid "File %s does not exist."
 msgstr "%s అనే ఫైలు లేనే లేదు."
@@ -1348,6 +1308,9 @@ msgid "Database Password:"
 msgstr "డాటాబేసు సంకేతపదం:"
 
 msgid "Database Tables Prefix:"
+msgstr ""
+
+msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
 
 #, fuzzy
@@ -2241,6 +2204,20 @@ msgstr "టపాలు (ఒక పేజీకి)"
 msgid "Selected entries action:"
 msgstr "ఎంచుకున్న వాటిపై చర్య:"
 
+#, fuzzy
+msgid "Smaller"
+msgstr "చిన్న:"
+
+msgid "Larger"
+msgstr ""
+
+msgid "Blog description (in blog parameters)"
+msgstr ""
+
+#, fuzzy
+msgid "Category description"
+msgstr "వర్గం"
+
 msgid "Posts"
 msgstr ""
 
@@ -2324,6 +2301,13 @@ msgstr ""
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr ""
 
+msgid "Hide all secondary information and notes"
+msgstr ""
+
+#, fuzzy
+msgid "Font size:"
+msgstr "ఫైలు పరిమాణం:"
+
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
@@ -2367,6 +2351,9 @@ msgid "Enable WYSIWYG mode"
 msgstr ""
 
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
+msgstr ""
+
+msgid "Use xhtml editor for:"
 msgstr ""
 
 #, fuzzy
@@ -2520,6 +2507,10 @@ msgstr ""
 msgid "Dotclear %s is available."
 msgstr "డాట్‌క్లియర్ ఇప్పటికే స్థాపితమైవుంది."
 
+#, php-format
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr ""
+
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr ""
 
@@ -2667,6 +2658,13 @@ msgstr ""
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr ""
 
+msgid "No blog"
+msgstr "బ్లాగులు లేవు"
+
+#, fuzzy
+msgid "URL"
+msgstr "URL?"
+
 #, fuzzy
 msgid "select"
 msgstr "అన్నీ ఎంచుకోండి"
@@ -2678,6 +2676,44 @@ msgstr ""
 #, fuzzy
 msgid "Validate permissions"
 msgstr "అనుమతులు ఇవ్వండి"
+
+#, fuzzy
+msgid "Back to blogs list"
+msgstr "వ్యాఖ్యలు లేవు"
+
+#, fuzzy
+msgid "Blogs actions"
+msgstr "బ్లాగులు"
+
+#, fuzzy
+msgid "Blog id"
+msgstr "బ్లాగు పేరు"
+
+#, fuzzy
+msgid "Set online"
+msgstr "ఆన్‌లైన్"
+
+#, fuzzy
+msgid "Set offline"
+msgstr "ఆఫ్‌లైన్"
+
+#, fuzzy
+msgid "Set as removed"
+msgstr "తొలగించారు"
+
+#, fuzzy
+msgid "No blog selected"
+msgstr "ఎంపికలు లేవు"
+
+#, fuzzy
+msgid "Selected blogs have been successfully updated."
+msgstr "వ్యాఖ్యని విజయవంతంగా తాజాకరించాం."
+
+#, fuzzy, php-format
+msgid "%d blog has been successfully deleted"
+msgid_plural "%d blogs have been successfully deleted"
+msgstr[0] "బ్లాగుని విజయవంతంగా తొలగించాం."
+msgstr[1] "బ్లాగుని విజయవంతంగా తొలగించాం."
 
 #, fuzzy
 msgid "Back to comments list"
@@ -2832,6 +2868,12 @@ msgid "Languages"
 msgstr "భాషలు"
 
 #, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%s బ్లాగుని మార్చండి"
+msgstr[1] "%s బ్లాగుని మార్చండి"
+
+#, fuzzy, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] "%d వ్యాఖ్య"
@@ -2881,6 +2923,10 @@ msgstr ""
 #, php-format
 msgid "Thank you for using %s."
 msgstr "%s వాడుతున్నందుకు ధన్యవాదాలు."
+
+#, fuzzy
+msgid "Page top"
+msgstr "పేజీ(లు)"
 
 msgid "Go to dashboard"
 msgstr ""
@@ -2961,6 +3007,10 @@ msgstr ""
 
 #, fuzzy, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "ఎంచుకున్న వాడుకరులను నిజంగానే తొలగించాలా?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "ఎంచుకున్న వాడుకరులను నిజంగానే తొలగించాలా?"
 
 #, fuzzy, php-format
@@ -3111,6 +3161,9 @@ msgstr ""
 msgid "Queue error:"
 msgstr ""
 
+msgid "Cancel filters and display options"
+msgstr ""
+
 msgid "other"
 msgstr ""
 
@@ -3171,11 +3224,25 @@ msgid "Plugin from official distribution"
 msgstr ""
 
 #, fuzzy
-msgid "Configure plugin"
+msgid "Manage plugin"
 msgstr "బ్లాగు అలంకారాలు"
 
 msgid "No plugins matched your search."
 msgstr ""
+
+#, fuzzy
+msgid "Configure plugin"
+msgstr "బ్లాగు అలంకారాలు"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr ""
+
+msgid "Plugin settings (in user preferences)"
+msgstr ""
+
+#, fuzzy
+msgid "Plugin settings"
+msgstr "బ్లాగు అమరికలు"
 
 msgid "Activate"
 msgstr "చేతనంచేయి"
@@ -3504,6 +3571,35 @@ msgstr "ట్రాకుబ్యాకు"
 #, fuzzy
 msgid "Type and author"
 msgstr "రచయితని మార్చండి"
+
+msgid "No blog matches the filter"
+msgstr ""
+
+#, fuzzy
+msgid "Entries (all types)"
+msgstr "టపాలు (ఒక పేజీకి)"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy
+msgid "Blogs list"
+msgstr "బ్లాగులు"
+
+#, fuzzy, php-format
+msgid "Edit blog settings for %s"
+msgstr "%s బ్లాగుని మార్చండి"
+
+#, fuzzy
+msgid "Edit blog settings"
+msgstr "బ్లాగు అమరికలు"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "%s బ్లాగుకి మారండి"
 
 msgid "No user matches the filter"
 msgstr ""
@@ -3879,6 +3975,9 @@ msgstr ""
 msgid "Unable to ping URL"
 msgstr ""
 
+msgid "Bad server response code"
+msgstr ""
+
 #, php-format
 msgid "%s is not a ping URL"
 msgstr ""
@@ -3886,6 +3985,22 @@ msgstr ""
 #, php-format
 msgid "%s, ping error:"
 msgstr ""
+
+msgid "Don't repeat yourself, please."
+msgstr ""
+
+msgid "Where's your title?"
+msgstr ""
+
+msgid "Sorry, an internal problem has occured."
+msgstr ""
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr ""
+
+#, fuzzy
+msgid "A website mention this entry."
+msgstr "ఈ టపాకి ఫైళ్ళు చేర్చండి"
 
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
@@ -3899,19 +4014,16 @@ msgstr ""
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
 msgstr ""
 
-msgid "Don't repeat yourself, please."
-msgstr ""
-
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
 msgstr ""
 
-msgid "Where's your title?"
+msgid "No valid source URL provided? Try again!"
 msgstr ""
 
-msgid "Sorry, an internal problem has occured."
+msgid "No valid target URL provided? Try again!"
 msgstr ""
 
-msgid "Thanks, mate. It was a pleasure."
+msgid "LOL!"
 msgstr ""
 
 #, fuzzy
@@ -3961,15 +4073,6 @@ msgid "%s is not a valid pref id"
 msgstr "సరైన ఫైలు కాదు"
 
 msgid "No workspace specified"
-msgstr ""
-
-msgid "No valid source URL provided? Try again!"
-msgstr ""
-
-msgid "No valid target URL provided? Try again!"
-msgstr ""
-
-msgid "LOL!"
 msgstr ""
 
 msgid "Something went wrong with auto upgrade:"
@@ -4134,6 +4237,14 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+#, fuzzy
+#~ msgid "Filter blogs list"
+#~ msgstr "%s బ్లాగుని మార్చండి"
+
+#, fuzzy
+#~ msgid "Filter comments and trackbacks list"
+#~ msgstr "వ్యాఖ్యలు మరియు ట్రాకుబ్యాకులు"
+
 #~ msgid "more information"
 #~ msgstr "మరింత సమాచారం"
 
@@ -4287,9 +4398,6 @@ msgstr ""
 
 #~ msgid "No attachment."
 #~ msgstr "జోడింపులు లేవు."
-
-#~ msgid "Add files to this entry"
-#~ msgstr "ఈ టపాకి ఫైళ్ళు చేర్చండి"
 
 #~ msgid "User:"
 #~ msgstr "వాడుకరి:"

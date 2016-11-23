@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:41+0200\n"
+"POT-Creation-Date: 2016-11-23 10:19+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -34,9 +34,6 @@ msgid "Manage your blogroll"
 msgstr "링크모음 관리"
 
 msgid "Configure your Blowup Theme"
-msgstr ""
-
-msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 msgid "Legacy modules for dotclear"
@@ -81,6 +78,9 @@ msgstr ""
 msgid "dotclear CKEditor integration"
 msgstr ""
 
+msgid "Breadcrumb for Dotclear"
+msgstr ""
+
 #, fuzzy
 msgid "Search engine form"
 msgstr "찾기 엔진"
@@ -116,10 +116,6 @@ msgstr ""
 msgid "List of last comments published"
 msgstr "이 블로그의 %s 댓글 타래소식"
 
-#, fuzzy
-msgid "Tags cloud"
-msgstr "추가할 분류딱지들 :"
-
 msgid "List of published pages"
 msgstr ""
 
@@ -130,6 +126,10 @@ msgstr "링크모음"
 #, fuzzy
 msgid "List of simple menu items"
 msgstr "선택된 링크들 삭제"
+
+#, fuzzy
+msgid "Tags cloud"
+msgstr "추가할 분류딱지들 :"
 
 msgid "Configuration successfully updated"
 msgstr "설정사항 갱신 성공"
@@ -693,9 +693,6 @@ msgstr "방문한 링크 색상 :"
 msgid "Focus links color:"
 msgstr "마우스가 놓일 때 링크 색상 :"
 
-msgid "Page top"
-msgstr "페이지 높이 :"
-
 msgid "Prelude color:"
 msgstr "도입부 색상 :"
 
@@ -892,12 +889,18 @@ msgstr "테마 설정이 성공적으로 갱신되었습니다."
 msgid "Media chooser"
 msgstr ""
 
+msgid "m"
+msgstr ""
+
 msgid "Link to an entry"
 msgstr ""
 
 #, fuzzy
 msgid "Link"
 msgstr "링크모음"
+
+msgid "l"
+msgstr ""
 
 #, fuzzy
 msgid "External image"
@@ -1369,6 +1372,18 @@ msgid "Failed to count comments and trackbacks."
 msgstr "댓글과 글걸기댓글 수가 재계산되었습니다."
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
+msgstr ""
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr ""
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr ""
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr ""
+
+msgid "Remove the Content-Security-Policy report file."
 msgstr ""
 
 msgid "Search engine index"
@@ -2091,6 +2106,10 @@ msgstr "글로벌 설정"
 msgid "Presentation widgets"
 msgstr "화면구성 위젯"
 
+#, fuzzy
+msgid "Widget's textareas"
+msgstr "위젯 템플릿 태그들"
+
 msgid "Search engine"
 msgstr "찾기 엔진"
 
@@ -2272,6 +2291,9 @@ msgstr "위젯 삭제"
 msgid "Drag widgets here to remove."
 msgstr ""
 
+#~ msgid "Page top"
+#~ msgstr "페이지 높이 :"
+
 #~ msgid "URL"
 #~ msgstr "URL"
 
@@ -2381,9 +2403,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Preferences definition successfully updated"
 #~ msgstr "설정 정의내용 갱신 성공"
-
-#~ msgid "Widget templates tags"
-#~ msgstr "위젯 템플릿 태그들"
 
 #~ msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
 #~ msgstr "위젯은 화면구성을 쉽게 바꿀 수 있도록 준비된 뭉치요소입니다. 당신이 테마를 편집할 권한이 있다면, 템플릿 태그와 그에 고유한 설정을 이용해 위젯을 테마에 직접 추가할 수있습니다."

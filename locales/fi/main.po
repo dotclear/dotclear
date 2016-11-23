@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"POT-Creation-Date: 2016-11-23 10:18+0100\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -436,7 +436,8 @@ msgstr "Huomaa, että jos muutat allaolevia nykyasetuksia, muutokset vaikuttavat
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "Ole varovainen, jos asetuksia käyttää useampi kuin yksi luomasi blogi."
 
-msgid "Generated image sizes (in pixels)"
+#, fuzzy
+msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Luotujen pienoiskuvien koot (pikseleinä)"
 
 msgid "Thumbnail"
@@ -613,35 +614,32 @@ msgstr "Blogin nimi"
 msgid "Blog ID"
 msgstr "Blogin tunniste"
 
+msgid "Status"
+msgstr "Tila"
+
 msgid "Descending"
 msgstr "Laskeva"
 
 msgid "Ascending"
 msgstr "Nouseva"
 
-msgid "Show filters and display options"
-msgstr "Näytä suodattimet ja näyttövaihtoehdot"
-
-msgid "Cancel filters and display options"
-msgstr "Sulje suodattimet ja näyttövaihtoehdot"
-
 msgid "List of blogs"
 msgstr "Blogien luettelo"
-
-msgid "Blog has been successfully deleted."
-msgstr "Blogin poisto onnistui."
 
 msgid "Create a new blog"
 msgstr "Luo uusi blogi"
 
-msgid "Filter blogs list"
-msgstr "Suodata blogiluetteloa"
+msgid "Show filters and display options"
+msgstr "Näytä suodattimet ja näyttövaihtoehdot"
 
 msgid "Filters"
 msgstr "Suodattimet"
 
 msgid "Search:"
 msgstr "Haku:"
+
+msgid "Status:"
+msgstr "Tila:"
 
 msgid "Display options"
 msgstr "Näyttövaihtoehdot"
@@ -661,45 +659,19 @@ msgstr "blogia sivua kohti"
 msgid "Apply filters and display options"
 msgstr "Käytä näitä suodattimia ja näyttövaihtoehtoja"
 
-msgid "No blog matches the filter"
-msgstr "Mikään blogi ei vastaa suodatinta"
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "Valittuihin käyttäjiin kohdistuva toimi:"
 
-msgid "No blog"
-msgstr "Ei blogia"
+msgid "Actions"
+msgstr "Toimet"
 
-# php-format
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] "%d blogi vastaa suodatinta."
-msgstr[1] "%d blogia vastaa suodatinta."
-
-msgid "Blogs list"
-msgstr "Blogien luettelo"
-
-msgid "Blog id"
-msgstr "Blogin tunniste"
+msgid "ok"
+msgstr "ok"
 
 #, fuzzy
-msgid "URL"
-msgstr "URL:"
-
-msgid "Entries (all types)"
-msgstr "Merkinnät (kaikki lajit)"
-
-msgid "Status"
-msgstr "Tila"
-
-#, php-format
-msgid "Edit blog settings for %s"
-msgstr "Muuta %s-blogin asetuksia"
-
-msgid "Edit blog settings"
-msgstr "Muuta blogin asetuksia"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "Siirry blogiin %s"
+msgid "Please give your password to confirm blog(s) deletion:"
+msgstr "Anna sanasana blogin poistamisen vahvistamiseksi."
 
 msgid "This category does not exist."
 msgstr "Asianomaista kategoriaa ei ole."
@@ -743,11 +715,9 @@ msgstr "Ei vielä kategorioita."
 msgid "%d entries"
 msgstr "%d merkintää"
 
-#, php-format
+#, fuzzy, php-format
 msgid "%d entry"
-msgid_plural "%d entries"
-msgstr[0] "%d merkintä"
-msgstr[1] "%d merkintää"
+msgstr "%d merkintä"
 
 msgid "total:"
 msgstr "yhteensä:"
@@ -887,9 +857,6 @@ msgstr "Kirjoittanut:"
 msgid "Web site:"
 msgstr "Sivusto:"
 
-msgid "Status:"
-msgstr "Tila:"
-
 msgid "Comment:"
 msgstr "Kommentti:"
 
@@ -906,6 +873,10 @@ msgid "Date"
 msgstr "Päiväys"
 
 msgid "Entry title"
+msgstr "Blogimerkinnän otsikko"
+
+#, fuzzy
+msgid "Entry date"
 msgstr "Blogimerkinnän otsikko"
 
 msgid "Author"
@@ -943,9 +914,6 @@ msgstr "Näytä ne!"
 msgid "Delete all spams"
 msgstr "Poista kaikki spämmit"
 
-msgid "Filter comments and trackbacks list"
-msgstr "Kommenttien ja takaisinviittausten luettelon suodatus"
-
 msgid "Type:"
 msgstr "Tyyppi:"
 
@@ -954,12 +922,6 @@ msgstr "kommenttia sivua kohti"
 
 msgid "Selected comments action:"
 msgstr "Tee valituille kommenteille:"
-
-msgid "Actions"
-msgstr "Toimet"
-
-msgid "ok"
-msgstr "ok"
 
 msgid "Global help"
 msgstr "Yleisohje"
@@ -1232,6 +1194,10 @@ msgstr "Dotclear-asennusvelho ei kyennyt luomaan asetustiedostoa puolestasi. Muu
 msgid "Cannot write \"%s\" directory."
 msgstr "Tähän hakemistoon ei voi kirjoittaa."
 
+#, fuzzy
+msgid "Master email is not valid."
+msgstr "Sähköpostiosoite ei kelpaa."
+
 #, php-format
 msgid "File %s does not exist."
 msgstr "Tiedostoa %s ei ole."
@@ -1291,6 +1257,9 @@ msgstr "Tietokannan salasana:"
 
 msgid "Database Tables Prefix:"
 msgstr "Tietokantataulujen etuliite:"
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
 
 msgid "Continue"
 msgstr "Jatka"
@@ -2132,6 +2101,20 @@ msgstr "merkintää sivua kohti"
 msgid "Selected entries action:"
 msgstr "Tee valituille merkinnöille:"
 
+#, fuzzy
+msgid "Smaller"
+msgstr "Pieni"
+
+msgid "Larger"
+msgstr ""
+
+msgid "Blog description (in blog parameters)"
+msgstr ""
+
+#, fuzzy
+msgid "Category description"
+msgstr "Sukulaiskategoria"
+
 msgid "Posts"
 msgstr "Blogimerkinnät"
 
@@ -2204,6 +2187,13 @@ msgstr "Poista javascriptilla toteutettu vedä-ja-pudota -toiminto käytöstä h
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Tämän valitsemalla voi kirjoittaa elementin järjestysnumeron numeerisiin kenttiin."
 
+msgid "Hide all secondary information and notes"
+msgstr ""
+
+#, fuzzy
+msgid "Font size:"
+msgstr "Tiedoston koko:"
+
 msgid "Number of elements displayed per page in media manager:"
 msgstr "Näytettävien elementtien määrä sivua kohti medianhallinnassa:"
 
@@ -2247,6 +2237,9 @@ msgstr "Käytä WYSIWYG-muokkausta"
 
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Näytä muokkaimen työkalupalkki tekstialueen alapuolella (jos mahdollista)"
+
+msgid "Use xhtml editor for:"
+msgstr ""
 
 msgid "Other options"
 msgstr "Muut asetukset"
@@ -2387,6 +2380,10 @@ msgstr "Pakota Dotclearin päivityksen tarkistus"
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s on saatavilla."
 
+#, fuzzy, php-format
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "PHP-versio on %s (tarvitaan 5.0 tai uudempi)."
+
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "Dotclear-asennuksesi päivittämiseksi paina seuraavaa nappia. Nykyinen asennuksesi varmistetaan juurihakemistoosi luotavaan tiedostoon."
 
@@ -2520,6 +2517,13 @@ msgstr "Paluu käyttäjäprofiiliin"
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Valitse yksi tai useampi blogi, joihin seuraavilla käyttäjillä on käyttöoikeudet: %s."
 
+msgid "No blog"
+msgstr "Ei blogia"
+
+#, fuzzy
+msgid "URL"
+msgstr "URL:"
+
 msgid "select"
 msgstr "valitse"
 
@@ -2529,6 +2533,43 @@ msgstr "Olet muuttamassa käyttäjien %s käyttöoikeuksia näiden blogien suhte
 
 msgid "Validate permissions"
 msgstr "Käyttöoikeuksien tarkistus"
+
+#, fuzzy
+msgid "Back to blogs list"
+msgstr "Paluu kommenttien luetteloon"
+
+#, fuzzy
+msgid "Blogs actions"
+msgstr "Blogien luettelo"
+
+msgid "Blog id"
+msgstr "Blogin tunniste"
+
+#, fuzzy
+msgid "Set online"
+msgstr "verkossa"
+
+#, fuzzy
+msgid "Set offline"
+msgstr "ei verkossa"
+
+#, fuzzy
+msgid "Set as removed"
+msgstr "poistettu"
+
+#, fuzzy
+msgid "No blog selected"
+msgstr "Ei valittu"
+
+#, fuzzy
+msgid "Selected blogs have been successfully updated."
+msgstr "Valitut kommentit on päivitetty."
+
+#, fuzzy, php-format
+msgid "%d blog has been successfully deleted"
+msgid_plural "%d blogs have been successfully deleted"
+msgstr[0] "Blogin poisto onnistui."
+msgstr[1] "Blogin poisto onnistui."
 
 msgid "Back to comments list"
 msgstr "Paluu kommenttien luetteloon"
@@ -2665,6 +2706,12 @@ msgstr "Merkinnän kieli:"
 msgid "Languages"
 msgstr "Kielet"
 
+#, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "Muokkaa merkintää"
+msgstr[1] "Muokkaa merkintää"
+
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
@@ -2717,6 +2764,10 @@ msgstr ""
 "Dotclear.org kiittää siitä, \n"
 "että käytät versiota:\n"
 "%s"
+
+#, fuzzy
+msgid "Page top"
+msgstr "Sivut"
 
 msgid "Go to dashboard"
 msgstr "Ohjaustauluun"
@@ -2794,6 +2845,10 @@ msgstr "Käyttäjiä, joilla on blogimerkintöjä, ei voi poistaa."
 
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "Oletko varma, että haluat poistaa valitut käyttäjät (%s) ?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Oletko varma, että haluat poistaa valitut käyttäjät (%s) ?"
 
 #, php-format
@@ -2936,6 +2991,9 @@ msgstr "%d tiedostoa jonossa."
 msgid "Queue error:"
 msgstr "Jonovirhe:"
 
+msgid "Cancel filters and display options"
+msgstr "Sulje suodattimet ja näyttövaihtoehdot"
+
 msgid "other"
 msgstr "muut"
 
@@ -2991,11 +3049,25 @@ msgstr ""
 msgid "Plugin from official distribution"
 msgstr "Viralliseen jakeluun kuuluva liitännäinen"
 
-msgid "Configure plugin"
+#, fuzzy
+msgid "Manage plugin"
 msgstr "Määritä liitännäisen asetukset"
 
 msgid "No plugins matched your search."
 msgstr "Mikään liitännäinen ei vastaa hakuasi."
+
+msgid "Configure plugin"
+msgstr "Määritä liitännäisen asetukset"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr ""
+
+msgid "Plugin settings (in user preferences)"
+msgstr ""
+
+#, fuzzy
+msgid "Plugin settings"
+msgstr "Blogin asetukset"
 
 msgid "Activate"
 msgstr "Ota käyttöön"
@@ -3290,6 +3362,33 @@ msgstr "takaisinviittaus"
 
 msgid "Type and author"
 msgstr "Tyyppi ja kirjoittaja"
+
+msgid "No blog matches the filter"
+msgstr "Mikään blogi ei vastaa suodatinta"
+
+msgid "Entries (all types)"
+msgstr "Merkinnät (kaikki lajit)"
+
+# php-format
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] "%d blogi vastaa suodatinta."
+msgstr[1] "%d blogia vastaa suodatinta."
+
+msgid "Blogs list"
+msgstr "Blogien luettelo"
+
+#, php-format
+msgid "Edit blog settings for %s"
+msgstr "Muuta %s-blogin asetuksia"
+
+msgid "Edit blog settings"
+msgstr "Muuta blogin asetuksia"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "Siirry blogiin %s"
 
 msgid "No user matches the filter"
 msgstr "Suodatinta ei vastaa mikään käyttäjä"
@@ -3645,6 +3744,9 @@ msgstr "Takaisinviittaus kohteeseen %s on jo suoritettu"
 msgid "Unable to ping URL"
 msgstr "Takaisinviittaus ei onnistu"
 
+msgid "Bad server response code"
+msgstr ""
+
 #, php-format
 msgid "%s is not a ping URL"
 msgstr "%s ei ole takaisinviittausverkkoosoite"
@@ -3652,6 +3754,22 @@ msgstr "%s ei ole takaisinviittausverkkoosoite"
 #, php-format
 msgid "%s, ping error:"
 msgstr "%s, takaisinviittausvirhe:"
+
+msgid "Don't repeat yourself, please."
+msgstr "Turha jankata. Asia on loppuun käsitelty."
+
+msgid "Where's your title?"
+msgstr "Otsikko puuttuu?"
+
+msgid "Sorry, an internal problem has occured."
+msgstr "Valitan, sisäinen ongelma."
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr "Kiitos. Ilo on minun puolellani."
+
+#, fuzzy
+msgid "A website mention this entry."
+msgstr "Tähän hakemistoon ei voi kirjoittaa."
 
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr "Etkö haluaisi takaisinviitata sisältöihini? Eikö tosiaankaan?"
@@ -3665,20 +3783,17 @@ msgstr "Oho, ei löytynyt. Tarkista kohdeverkko-osoite uudestaan."
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
 msgstr "Valitan, tähän blogimerkintään ei voi tällä hetkellä takaisinviitata."
 
-msgid "Don't repeat yourself, please."
-msgstr "Turha jankata. Asia on loppuun käsitelty."
-
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
 msgstr "Lähdeverkko-osoitteesi ei tunnu olevan tuettua tyyppiä. Ei mahda mitään!"
 
-msgid "Where's your title?"
-msgstr "Otsikko puuttuu?"
+msgid "No valid source URL provided? Try again!"
+msgstr "Ei kelvollista lähdeverkko-osoitetta? Yritä uudestaan!"
 
-msgid "Sorry, an internal problem has occured."
-msgstr "Valitan, sisäinen ongelma."
+msgid "No valid target URL provided? Try again!"
+msgstr "Ei kelvollista kohdeverkko-osoitetta? Yritä uudestaan!"
 
-msgid "Thanks, mate. It was a pleasure."
-msgstr "Kiitos. Ilo on minun puolellani."
+msgid "LOL!"
+msgstr "LOL!"
 
 msgid "Digests file not found."
 msgstr "Ei tiivistelmätiedostoa."
@@ -3723,15 +3838,6 @@ msgstr "%s ei ole käypä pref-tunniste"
 
 msgid "No workspace specified"
 msgstr "Ei määriteltyä työavaruutta"
-
-msgid "No valid source URL provided? Try again!"
-msgstr "Ei kelvollista lähdeverkko-osoitetta? Yritä uudestaan!"
-
-msgid "No valid target URL provided? Try again!"
-msgstr "Ei kelvollista kohdeverkko-osoitetta? Yritä uudestaan!"
-
-msgid "LOL!"
-msgstr "LOL!"
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "Automaattinen päivitys ei onnistunut:"
@@ -3890,6 +3996,12 @@ msgstr "<p>Tämä tarkoittaa joko sitä, että käyttäjänimi- ja salasanatieto
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
+
+#~ msgid "Filter blogs list"
+#~ msgstr "Suodata blogiluetteloa"
+
+#~ msgid "Filter comments and trackbacks list"
+#~ msgstr "Kommenttien ja takaisinviittausten luettelon suodatus"
 
 #~ msgid "SQLite Database Schema cannot be upgraded."
 #~ msgstr "SQLite-tietokantarakennetta ei voi päivittää."

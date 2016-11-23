@@ -240,3 +240,38 @@ msgstr "올바른 이메일 주소를 쓰셔야합니다."
 
 msgid "Read"
 msgstr "읽기"
+
+msgid "in"
+msgstr ""
+
+msgid "In"
+msgstr ""
+
+msgid "Page top"
+msgstr ""
+
+msgid "toDay"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
+
+#, fuzzy
+msgid "Blog menu"
+msgstr "메뉴로"
+
+#, fuzzy
+msgid "Etra menu"
+msgstr "메뉴로"
+
+msgid "Blog info"
+msgstr ""

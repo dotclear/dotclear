@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"POT-Creation-Date: 2016-11-23 10:18+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -449,7 +449,8 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
-msgid "Generated image sizes (in pixels)"
+#, fuzzy
+msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Elkészített képméretek (pixelben)"
 
 #, fuzzy
@@ -644,36 +645,32 @@ msgstr "Blognév"
 msgid "Blog ID"
 msgstr "Blog ID"
 
+msgid "Status"
+msgstr "Állapot"
+
 msgid "Descending"
 msgstr "Csökkenő"
 
 msgid "Ascending"
 msgstr "Növekvő"
 
-msgid "Show filters and display options"
-msgstr ""
-
-msgid "Cancel filters and display options"
-msgstr ""
-
 msgid "List of blogs"
 msgstr "Blogok listája"
-
-msgid "Blog has been successfully deleted."
-msgstr "A blogot sikeresen töröltem."
 
 msgid "Create a new blog"
 msgstr "Új blog készítése"
 
-#, fuzzy
-msgid "Filter blogs list"
-msgstr "A %s blog szerkesztése"
+msgid "Show filters and display options"
+msgstr ""
 
 msgid "Filters"
 msgstr "Szűrők"
 
 msgid "Search:"
 msgstr "Keresés:"
+
+msgid "Status:"
+msgstr "Állapot:"
 
 #, fuzzy
 msgid "Display options"
@@ -696,48 +693,20 @@ msgstr "Blogok oldalanként"
 msgid "Apply filters and display options"
 msgstr ""
 
-msgid "No blog matches the filter"
-msgstr ""
-
-msgid "No blog"
-msgstr "Nincs blog"
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] ""
-msgstr[1] ""
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "Feladat a kijelölt felhasználókkal"
 
 #, fuzzy
-msgid "Blogs list"
-msgstr "Blogok"
+msgid "Actions"
+msgstr "Feladat"
+
+msgid "ok"
+msgstr "ok"
 
 #, fuzzy
-msgid "Blog id"
-msgstr "Blognév"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL ::"
-
-#, fuzzy
-msgid "Entries (all types)"
-msgstr "Bejegyzések oldalanként"
-
-msgid "Status"
-msgstr "Állapot"
-
-#, fuzzy, php-format
-msgid "Edit blog settings for %s"
-msgstr "A %s blog szerkesztése"
-
-#, fuzzy
-msgid "Edit blog settings"
-msgstr "Blog beállításai"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "%s blogra ugrás"
+msgid "Please give your password to confirm blog(s) deletion:"
+msgstr "Add meg a jelszavadat a megerősítéshez."
 
 #, fuzzy
 msgid "This category does not exist."
@@ -789,9 +758,7 @@ msgstr "%d bejegyzés"
 
 #, fuzzy, php-format
 msgid "%d entry"
-msgid_plural "%d entries"
-msgstr[0] "%d bejegyzés"
-msgstr[1] "%d bejegyzés"
+msgstr "%d bejegyzés"
 
 msgid "total:"
 msgstr "összes ::"
@@ -947,9 +914,6 @@ msgstr "Szerző:"
 msgid "Web site:"
 msgstr "Honlap:"
 
-msgid "Status:"
-msgstr "Állapot:"
-
 msgid "Comment:"
 msgstr "Hozzászólás:"
 
@@ -968,6 +932,10 @@ msgid "Date"
 msgstr "Dátum"
 
 msgid "Entry title"
+msgstr "Bejegyzés címe"
+
+#, fuzzy
+msgid "Entry date"
 msgstr "Bejegyzés címe"
 
 msgid "Author"
@@ -1009,10 +977,6 @@ msgstr "Megmutat"
 msgid "Delete all spams"
 msgstr "Blog törlése"
 
-#, fuzzy
-msgid "Filter comments and trackbacks list"
-msgstr "Megjegyések és trackback-ek"
-
 msgid "Type:"
 msgstr "Típus:"
 
@@ -1022,13 +986,6 @@ msgstr "Megjegyések oldalanként"
 
 msgid "Selected comments action:"
 msgstr "Teendő a kiválasztott hozzászólásokkal"
-
-#, fuzzy
-msgid "Actions"
-msgstr "Feladat"
-
-msgid "ok"
-msgstr "ok"
 
 msgid "Global help"
 msgstr ""
@@ -1312,6 +1269,10 @@ msgstr ""
 msgid "Cannot write \"%s\" directory."
 msgstr "Nem tudok a mappába írni."
 
+#, fuzzy
+msgid "Master email is not valid."
+msgstr "Az e-mail cím nem érvényes."
+
 #, php-format
 msgid "File %s does not exist."
 msgstr "A %s nem létezik."
@@ -1371,6 +1332,9 @@ msgstr "Adatbázis jelszava:"
 
 msgid "Database Tables Prefix:"
 msgstr "Adatbázis tábláinak prefixuma:"
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
 
 #, fuzzy
 msgid "Continue"
@@ -2276,6 +2240,20 @@ msgstr "Bejegyzések oldalanként"
 msgid "Selected entries action:"
 msgstr "Teendő a kijelöltekkel:"
 
+#, fuzzy
+msgid "Smaller"
+msgstr "Kicsi:"
+
+msgid "Larger"
+msgstr ""
+
+msgid "Blog description (in blog parameters)"
+msgstr ""
+
+#, fuzzy
+msgid "Category description"
+msgstr "Kategória:"
+
 msgid "Posts"
 msgstr ""
 
@@ -2364,6 +2342,13 @@ msgstr ""
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr ""
 
+msgid "Hide all secondary information and notes"
+msgstr ""
+
+#, fuzzy
+msgid "Font size:"
+msgstr "Fájlméret:"
+
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
@@ -2407,6 +2392,9 @@ msgid "Enable WYSIWYG mode"
 msgstr "WYSIWYG mód"
 
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
+msgstr ""
+
+msgid "Use xhtml editor for:"
 msgstr ""
 
 #, fuzzy
@@ -2566,6 +2554,10 @@ msgstr "Dotclear frissítés"
 msgid "Dotclear %s is available."
 msgstr "DotClear %s elérhető."
 
+#, fuzzy, php-format
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "PHP verzió %s (5.0 vagy korábbi kell)."
+
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "Ahhoz, hogy a Dotclear telepítésedet frissítsd, egyszerűen csak kattints a következőre. A biztonsági mentés automatikusan létrejön a gyökérkönyvtárba."
 
@@ -2711,6 +2703,13 @@ msgstr ""
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Válassz legalább egy blogot, hogy melyikhez szeretnéd a(z) %s jogait megváltoztatni."
 
+msgid "No blog"
+msgstr "Nincs blog"
+
+#, fuzzy
+msgid "URL"
+msgstr "URL ::"
+
 #, fuzzy
 msgid "select"
 msgstr "kiválasztott"
@@ -2722,6 +2721,44 @@ msgstr "A(z) %s felhasználó jogait fogod módosítani...."
 #, fuzzy
 msgid "Validate permissions"
 msgstr "jogok beállítása"
+
+#, fuzzy
+msgid "Back to blogs list"
+msgstr "Nincs hozzászólás"
+
+#, fuzzy
+msgid "Blogs actions"
+msgstr "Blogok"
+
+#, fuzzy
+msgid "Blog id"
+msgstr "Blognév"
+
+#, fuzzy
+msgid "Set online"
+msgstr "elérhető"
+
+#, fuzzy
+msgid "Set offline"
+msgstr "láthatatlan"
+
+#, fuzzy
+msgid "Set as removed"
+msgstr "törölt"
+
+#, fuzzy
+msgid "No blog selected"
+msgstr "nem kiválasztott"
+
+#, fuzzy
+msgid "Selected blogs have been successfully updated."
+msgstr "A kommentár sikeresen frissült."
+
+#, fuzzy, php-format
+msgid "%d blog has been successfully deleted"
+msgid_plural "%d blogs have been successfully deleted"
+msgstr[0] "A blogot sikeresen töröltem."
+msgstr[1] "A blogot sikeresen töröltem."
 
 #, fuzzy
 msgid "Back to comments list"
@@ -2881,6 +2918,12 @@ msgid "Languages"
 msgstr "Nyelv?"
 
 #, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "A %s blog szerkesztése"
+msgstr[1] "A %s blog szerkesztése"
+
+#, fuzzy, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] "%d megjegyzés"
@@ -2930,6 +2973,10 @@ msgstr ""
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Köszönjük, hogy a %s -t használta."
+
+#, fuzzy
+msgid "Page top"
+msgstr "Oldal"
 
 #, fuzzy
 msgid "Go to dashboard"
@@ -3011,6 +3058,10 @@ msgstr ""
 
 #, fuzzy, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "Biztosan szeretnéd törölni a kijelölt felhasználókat?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Biztosan szeretnéd törölni a kijelölt felhasználókat?"
 
 #, php-format
@@ -3161,6 +3212,9 @@ msgstr "%d fájl a várakozási sorban."
 msgid "Queue error:"
 msgstr "Várakozási hiba:"
 
+msgid "Cancel filters and display options"
+msgstr ""
+
 msgid "other"
 msgstr ""
 
@@ -3221,11 +3275,25 @@ msgid "Plugin from official distribution"
 msgstr ""
 
 #, fuzzy
-msgid "Configure plugin"
+msgid "Manage plugin"
 msgstr "Blog témái"
 
 msgid "No plugins matched your search."
 msgstr ""
+
+#, fuzzy
+msgid "Configure plugin"
+msgstr "Blog témái"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr ""
+
+msgid "Plugin settings (in user preferences)"
+msgstr ""
+
+#, fuzzy
+msgid "Plugin settings"
+msgstr "Blog beállításai"
 
 msgid "Activate"
 msgstr "Bekapcsol"
@@ -3560,6 +3628,35 @@ msgstr "trackback"
 #, fuzzy
 msgid "Type and author"
 msgstr "szerző megváltoztatása"
+
+msgid "No blog matches the filter"
+msgstr ""
+
+#, fuzzy
+msgid "Entries (all types)"
+msgstr "Bejegyzések oldalanként"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy
+msgid "Blogs list"
+msgstr "Blogok"
+
+#, fuzzy, php-format
+msgid "Edit blog settings for %s"
+msgstr "A %s blog szerkesztése"
+
+#, fuzzy
+msgid "Edit blog settings"
+msgstr "Blog beállításai"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "%s blogra ugrás"
 
 msgid "No user matches the filter"
 msgstr ""
@@ -3939,6 +4036,9 @@ msgstr "A(z) %s -t már megpingeltem."
 msgid "Unable to ping URL"
 msgstr "Nem lehet megpingelni az URL-t."
 
+msgid "Bad server response code"
+msgstr ""
+
 #, php-format
 msgid "%s is not a ping URL"
 msgstr "A(z) %s nem egy URL-ping."
@@ -3946,6 +4046,22 @@ msgstr "A(z) %s nem egy URL-ping."
 #, php-format
 msgid "%s, ping error:"
 msgstr "%s, ping hiba:"
+
+msgid "Don't repeat yourself, please."
+msgstr ""
+
+msgid "Where's your title?"
+msgstr ""
+
+msgid "Sorry, an internal problem has occured."
+msgstr ""
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr ""
+
+#, fuzzy
+msgid "A website mention this entry."
+msgstr "Fájl hozzáadása"
 
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
@@ -3959,19 +4075,16 @@ msgstr ""
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
 msgstr ""
 
-msgid "Don't repeat yourself, please."
-msgstr ""
-
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
 msgstr ""
 
-msgid "Where's your title?"
+msgid "No valid source URL provided? Try again!"
 msgstr ""
 
-msgid "Sorry, an internal problem has occured."
+msgid "No valid target URL provided? Try again!"
 msgstr ""
 
-msgid "Thanks, mate. It was a pleasure."
+msgid "LOL!"
 msgstr ""
 
 msgid "Digests file not found."
@@ -4025,15 +4138,6 @@ msgstr "A(z) %s nem érvényes beállítókulcs"
 #, fuzzy
 msgid "No workspace specified"
 msgstr "Nincs meghatározva név"
-
-msgid "No valid source URL provided? Try again!"
-msgstr ""
-
-msgid "No valid target URL provided? Try again!"
-msgstr ""
-
-msgid "LOL!"
-msgstr ""
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "Valami elszállt automata frissítés közben:"
@@ -4196,6 +4300,14 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Filter blogs list"
+#~ msgstr "A %s blog szerkesztése"
+
+#, fuzzy
+#~ msgid "Filter comments and trackbacks list"
+#~ msgstr "Megjegyések és trackback-ek"
 
 #~ msgid "SQLite Database Schema cannot be upgraded."
 #~ msgstr "SQLite Database Schema-t nem lehet frissíteni."
@@ -4494,9 +4606,6 @@ msgstr ""
 
 #~ msgid "No attachment."
 #~ msgstr "Nincs melléklet."
-
-#~ msgid "Add files to this entry"
-#~ msgstr "Fájl hozzáadása"
 
 #~ msgid "User:"
 #~ msgstr "Felhasználó"

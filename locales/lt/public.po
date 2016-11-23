@@ -242,3 +242,38 @@ msgstr "Turite nurodyti teisingą el. pašto adresą."
 
 msgid "Read"
 msgstr "Skaityti"
+
+msgid "in"
+msgstr ""
+
+msgid "In"
+msgstr ""
+
+msgid "Page top"
+msgstr ""
+
+msgid "toDay"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
+
+#, fuzzy
+msgid "Blog menu"
+msgstr "Į meniu"
+
+#, fuzzy
+msgid "Etra menu"
+msgstr "Į meniu"
+
+msgid "Blog info"
+msgstr ""

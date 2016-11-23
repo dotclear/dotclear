@@ -241,3 +241,38 @@ msgstr "È necessario fornire un indirizzo email valido."
 
 msgid "Read"
 msgstr "Leggi"
+
+msgid "in"
+msgstr ""
+
+msgid "In"
+msgstr ""
+
+msgid "Page top"
+msgstr ""
+
+msgid "toDay"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
+
+#, fuzzy
+msgid "Blog menu"
+msgstr "Al menu"
+
+#, fuzzy
+msgid "Etra menu"
+msgstr "Al menu"
+
+msgid "Blog info"
+msgstr ""

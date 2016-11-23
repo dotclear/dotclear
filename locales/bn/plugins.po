@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"POT-Creation-Date: 2016-11-23 10:18+0100\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -33,9 +33,6 @@ msgid "Manage your blogroll"
 msgstr ""
 
 msgid "Configure your Blowup Theme"
-msgstr ""
-
-msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 msgid "Legacy modules for dotclear"
@@ -77,6 +74,9 @@ msgstr ""
 msgid "dotclear CKEditor integration"
 msgstr ""
 
+msgid "Breadcrumb for Dotclear"
+msgstr ""
+
 msgid "Search engine form"
 msgstr ""
 
@@ -108,9 +108,6 @@ msgstr ""
 msgid "List of last comments published"
 msgstr ""
 
-msgid "Tags cloud"
-msgstr ""
-
 msgid "List of published pages"
 msgstr ""
 
@@ -118,6 +115,9 @@ msgid "Blogroll list"
 msgstr ""
 
 msgid "List of simple menu items"
+msgstr ""
+
+msgid "Tags cloud"
 msgstr ""
 
 msgid "Configuration successfully updated"
@@ -673,9 +673,6 @@ msgstr ""
 msgid "Focus links color:"
 msgstr ""
 
-msgid "Page top"
-msgstr ""
-
 msgid "Prelude color:"
 msgstr ""
 
@@ -871,12 +868,18 @@ msgstr "কনফিগারেশন সফলভাবে আপডেট ক
 msgid "Media chooser"
 msgstr ""
 
+msgid "m"
+msgstr ""
+
 msgid "Link to an entry"
 msgstr ""
 
 #, fuzzy
 msgid "Link"
 msgstr "লিংকসমূহ"
+
+msgid "l"
+msgstr ""
 
 msgid "External image"
 msgstr ""
@@ -1318,6 +1321,18 @@ msgid "Failed to count comments and trackbacks."
 msgstr ""
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
+msgstr ""
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr ""
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr ""
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr ""
+
+msgid "Remove the Content-Security-Policy report file."
 msgstr ""
 
 msgid "Search engine index"
@@ -1992,6 +2007,9 @@ msgid "Global preferences"
 msgstr ""
 
 msgid "Presentation widgets"
+msgstr ""
+
+msgid "Widget's textareas"
 msgstr ""
 
 msgid "Search engine"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"POT-Creation-Date: 2016-11-23 10:18+0100\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Catalan\n"
@@ -450,7 +450,7 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
-msgid "Generated image sizes (in pixels)"
+msgid "Generated image sizes (max dimension in pixels)"
 msgstr ""
 
 msgid "Thumbnail"
@@ -638,36 +638,32 @@ msgstr "Nom del blog"
 msgid "Blog ID"
 msgstr "Identificador del blog"
 
+msgid "Status"
+msgstr "Estat"
+
 msgid "Descending"
 msgstr "Descendent"
 
 msgid "Ascending"
 msgstr "Ascendent"
 
-msgid "Show filters and display options"
-msgstr ""
-
-msgid "Cancel filters and display options"
-msgstr ""
-
 msgid "List of blogs"
 msgstr "Llistat de blogs"
-
-msgid "Blog has been successfully deleted."
-msgstr "El blog s'ha suprimit amb èxit."
 
 msgid "Create a new blog"
 msgstr "Crear un blog nou"
 
-#, fuzzy
-msgid "Filter blogs list"
-msgstr "Editar el blog %s"
+msgid "Show filters and display options"
+msgstr ""
 
 msgid "Filters"
 msgstr "Filtres"
 
 msgid "Search:"
 msgstr "Cercar:"
+
+msgid "Status:"
+msgstr "Estat :"
 
 #, fuzzy
 msgid "Display options"
@@ -690,48 +686,20 @@ msgstr "Blogs per pàgina"
 msgid "Apply filters and display options"
 msgstr ""
 
-msgid "No blog matches the filter"
-msgstr ""
-
-msgid "No blog"
-msgstr "Cap Blog"
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] ""
-msgstr[1] ""
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "Acció d'usuaris seleccionada:"
 
 #, fuzzy
-msgid "Blogs list"
-msgstr "Blogs"
+msgid "Actions"
+msgstr "Descripció:"
+
+msgid "ok"
+msgstr "ok"
 
 #, fuzzy
-msgid "Blog id"
-msgstr "Nom del blog"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL:"
-
-#, fuzzy
-msgid "Entries (all types)"
-msgstr "Entrades per pàgina"
-
-msgid "Status"
-msgstr "Estat"
-
-#, fuzzy, php-format
-msgid "Edit blog settings for %s"
-msgstr "Editar el blog %s"
-
-#, fuzzy
-msgid "Edit blog settings"
-msgstr "Paràmetres del blog"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "Passar al blog %s"
+msgid "Please give your password to confirm blog(s) deletion:"
+msgstr "Si us plau, introdueixi la seva contrasenya per tal de confirmar la supressió del blog."
 
 #, fuzzy
 msgid "This category does not exist."
@@ -783,9 +751,7 @@ msgstr "%d entrades"
 
 #, fuzzy, php-format
 msgid "%d entry"
-msgid_plural "%d entries"
-msgstr[0] "%d entrada"
-msgstr[1] "%d entrada"
+msgstr "%d entrada"
 
 msgid "total:"
 msgstr ""
@@ -937,9 +903,6 @@ msgstr "Autor :"
 msgid "Web site:"
 msgstr "Lloc Web :"
 
-msgid "Status:"
-msgstr "Estat :"
-
 msgid "Comment:"
 msgstr "Comentari :"
 
@@ -958,6 +921,10 @@ msgid "Date"
 msgstr "Data"
 
 msgid "Entry title"
+msgstr "Títol de l'entrada"
+
+#, fuzzy
+msgid "Entry date"
 msgstr "Títol de l'entrada"
 
 msgid "Author"
@@ -999,10 +966,6 @@ msgstr "Mostra'ls."
 msgid "Delete all spams"
 msgstr "Suprimir un blog"
 
-#, fuzzy
-msgid "Filter comments and trackbacks list"
-msgstr "Acceptar les respostes"
-
 msgid "Type:"
 msgstr "Tipus:"
 
@@ -1012,13 +975,6 @@ msgstr "Comentaris per pàgina"
 
 msgid "Selected comments action:"
 msgstr "Acció de comentaris seleccionada :"
-
-#, fuzzy
-msgid "Actions"
-msgstr "Descripció:"
-
-msgid "ok"
-msgstr "ok"
 
 msgid "Global help"
 msgstr ""
@@ -1304,6 +1260,10 @@ msgstr ""
 msgid "Cannot write \"%s\" directory."
 msgstr "Impossible gravar res en aquest directori."
 
+#, fuzzy
+msgid "Master email is not valid."
+msgstr "L'adreça de correu elect`ronic no és vàlida."
+
 #, php-format
 msgid "File %s does not exist."
 msgstr "El fitxer %s no existeix."
@@ -1363,6 +1323,9 @@ msgstr "Contrasenya de la base de dades:"
 
 msgid "Database Tables Prefix:"
 msgstr "Prefix de les taules de la base de dades:"
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
 
 #, fuzzy
 msgid "Continue"
@@ -2277,6 +2240,20 @@ msgstr "Entrades per pàgina"
 msgid "Selected entries action:"
 msgstr "Acció en les entrades seleccionades:"
 
+#, fuzzy
+msgid "Smaller"
+msgstr "Correu electrònic:"
+
+msgid "Larger"
+msgstr ""
+
+msgid "Blog description (in blog parameters)"
+msgstr ""
+
+#, fuzzy
+msgid "Category description"
+msgstr "Categoria"
+
 msgid "Posts"
 msgstr ""
 
@@ -2361,6 +2338,13 @@ msgstr ""
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr ""
 
+msgid "Hide all secondary information and notes"
+msgstr ""
+
+#, fuzzy
+msgid "Font size:"
+msgstr "Mida del fitxer:"
+
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
@@ -2404,6 +2388,9 @@ msgid "Enable WYSIWYG mode"
 msgstr "Activar la modalitat WYSIWYG"
 
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
+msgstr ""
+
+msgid "Use xhtml editor for:"
 msgstr ""
 
 msgid "Other options"
@@ -2558,6 +2545,10 @@ msgstr ""
 msgid "Dotclear %s is available."
 msgstr "DotClear esta instal·lat."
 
+#, fuzzy, php-format
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "La versió PHP és %s (5.0 o més recent és necessaria)"
+
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr ""
 
@@ -2706,6 +2697,13 @@ msgstr ""
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Esculli un o més blogs en els quals vulgui atribuir permisos als usuaris %s."
 
+msgid "No blog"
+msgstr "Cap Blog"
+
+#, fuzzy
+msgid "URL"
+msgstr "URL:"
+
 #, fuzzy
 msgid "select"
 msgstr "seleccionat"
@@ -2717,6 +2715,44 @@ msgstr "Està a punt de canviar els permisos en els següents blogs pels usuaris
 #, fuzzy
 msgid "Validate permissions"
 msgstr "definir els permisos"
+
+#, fuzzy
+msgid "Back to blogs list"
+msgstr "Sense comentaris"
+
+#, fuzzy
+msgid "Blogs actions"
+msgstr "Blogs"
+
+#, fuzzy
+msgid "Blog id"
+msgstr "Nom del blog"
+
+#, fuzzy
+msgid "Set online"
+msgstr "en línia"
+
+#, fuzzy
+msgid "Set offline"
+msgstr "fora de línia"
+
+#, fuzzy
+msgid "Set as removed"
+msgstr "suprimit"
+
+#, fuzzy
+msgid "No blog selected"
+msgstr "no seleccionat"
+
+#, fuzzy
+msgid "Selected blogs have been successfully updated."
+msgstr "L'entrada s'ha actualitzat amb èxit."
+
+#, fuzzy, php-format
+msgid "%d blog has been successfully deleted"
+msgid_plural "%d blogs have been successfully deleted"
+msgstr[0] "El blog s'ha suprimit amb èxit."
+msgstr[1] "El blog s'ha suprimit amb èxit."
 
 #, fuzzy
 msgid "Back to comments list"
@@ -2876,6 +2912,12 @@ msgid "Languages"
 msgstr "Idioma?"
 
 #, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "Editar el blog %s"
+msgstr[1] "Editar el blog %s"
+
+#, fuzzy, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] "%d comentari"
@@ -2925,6 +2967,10 @@ msgstr ""
 #, php-format
 msgid "Thank you for using %s."
 msgstr ""
+
+#, fuzzy
+msgid "Page top"
+msgstr "Pàgina(es)"
 
 #, fuzzy
 msgid "Go to dashboard"
@@ -3006,6 +3052,10 @@ msgstr ""
 
 #, fuzzy, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "Està segur que vol suprimir els usuaris seleccionats?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Està segur que vol suprimir els usuaris seleccionats?"
 
 #, fuzzy, php-format
@@ -3158,6 +3208,9 @@ msgstr ""
 msgid "Queue error:"
 msgstr ""
 
+msgid "Cancel filters and display options"
+msgstr ""
+
 msgid "other"
 msgstr ""
 
@@ -3218,11 +3271,25 @@ msgid "Plugin from official distribution"
 msgstr ""
 
 #, fuzzy
-msgid "Configure plugin"
+msgid "Manage plugin"
 msgstr "Temes del blog"
 
 msgid "No plugins matched your search."
 msgstr ""
+
+#, fuzzy
+msgid "Configure plugin"
+msgstr "Temes del blog"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr ""
+
+msgid "Plugin settings (in user preferences)"
+msgstr ""
+
+#, fuzzy
+msgid "Plugin settings"
+msgstr "Paràmetres del blog"
 
 #, fuzzy
 msgid "Activate"
@@ -3550,6 +3617,35 @@ msgstr "resposta"
 #, fuzzy
 msgid "Type and author"
 msgstr "canviar l'autor"
+
+msgid "No blog matches the filter"
+msgstr ""
+
+#, fuzzy
+msgid "Entries (all types)"
+msgstr "Entrades per pàgina"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy
+msgid "Blogs list"
+msgstr "Blogs"
+
+#, fuzzy, php-format
+msgid "Edit blog settings for %s"
+msgstr "Editar el blog %s"
+
+#, fuzzy
+msgid "Edit blog settings"
+msgstr "Paràmetres del blog"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "Passar al blog %s"
 
 msgid "No user matches the filter"
 msgstr ""
@@ -3928,6 +4024,9 @@ msgstr "Un ping %s ja ha estat realitzat"
 msgid "Unable to ping URL"
 msgstr "No es pot realitzar el trackback"
 
+msgid "Bad server response code"
+msgstr ""
+
 #, php-format
 msgid "%s is not a ping URL"
 msgstr "%s no és pas un ping URL"
@@ -3935,6 +4034,22 @@ msgstr "%s no és pas un ping URL"
 #, php-format
 msgid "%s, ping error:"
 msgstr "%s, error de ping :"
+
+msgid "Don't repeat yourself, please."
+msgstr ""
+
+msgid "Where's your title?"
+msgstr ""
+
+msgid "Sorry, an internal problem has occured."
+msgstr ""
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr ""
+
+#, fuzzy
+msgid "A website mention this entry."
+msgstr "Adjunta fitxers a aquesta entrada"
 
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
@@ -3948,19 +4063,16 @@ msgstr ""
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
 msgstr ""
 
-msgid "Don't repeat yourself, please."
-msgstr ""
-
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
 msgstr ""
 
-msgid "Where's your title?"
+msgid "No valid source URL provided? Try again!"
 msgstr ""
 
-msgid "Sorry, an internal problem has occured."
+msgid "No valid target URL provided? Try again!"
 msgstr ""
 
-msgid "Thanks, mate. It was a pleasure."
+msgid "LOL!"
 msgstr ""
 
 #, fuzzy
@@ -4015,15 +4127,6 @@ msgstr "%s no es un identificador de paràmetre vàlid"
 #, fuzzy
 msgid "No workspace specified"
 msgstr "Cap espai de nom especificat"
-
-msgid "No valid source URL provided? Try again!"
-msgstr ""
-
-msgid "No valid target URL provided? Try again!"
-msgstr ""
-
-msgid "LOL!"
-msgstr ""
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "Quelcom ha anat malament amb l'auto actualització:"
@@ -4185,6 +4288,14 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Filter blogs list"
+#~ msgstr "Editar el blog %s"
+
+#, fuzzy
+#~ msgid "Filter comments and trackbacks list"
+#~ msgstr "Acceptar les respostes"
 
 #~ msgid "more information"
 #~ msgstr "Més informació"
@@ -4391,9 +4502,6 @@ msgstr ""
 
 #~ msgid "No attachment."
 #~ msgstr "Cap annex."
-
-#~ msgid "Add files to this entry"
-#~ msgstr "Adjunta fitxers a aquesta entrada"
 
 #~ msgid "User:"
 #~ msgstr "Usuari:"

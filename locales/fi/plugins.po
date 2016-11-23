@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"POT-Creation-Date: 2016-11-23 10:18+0100\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -32,9 +32,6 @@ msgstr "Blogroll-linkkilistan ylläpito"
 
 msgid "Configure your Blowup Theme"
 msgstr "Blowup-teeman asetukset"
-
-msgid "Breadcrumb for Dotclear"
-msgstr "Leivänmurut Dotclearia varten"
 
 msgid "Legacy modules for dotclear"
 msgstr "Dotclearin yhteensopivuusmodulit"
@@ -75,6 +72,9 @@ msgstr "Perinteinen Dotclear-editori"
 msgid "dotclear CKEditor integration"
 msgstr "Dotclear CKEditor-integraatio"
 
+msgid "Breadcrumb for Dotclear"
+msgstr "Leivänmurut Dotclearia varten"
+
 msgid "Search engine form"
 msgstr "Hakukonelomake"
 
@@ -105,9 +105,6 @@ msgstr "Viimeisimpien julkaistujen merkintöjen luettelo"
 msgid "List of last comments published"
 msgstr "Viimeisimpien julkaistujen kommenttien luettelo"
 
-msgid "Tags cloud"
-msgstr "Avainsanapilvi"
-
 msgid "List of published pages"
 msgstr "Luettelo julkaistuista sivuista"
 
@@ -116,6 +113,9 @@ msgstr "Blogroll-linkkiluettelo"
 
 msgid "List of simple menu items"
 msgstr "Luettelo yksinkertaisen valikon kohdista"
+
+msgid "Tags cloud"
+msgstr "Avainsanapilvi"
 
 msgid "Configuration successfully updated"
 msgstr "Asetukset päivitetty"
@@ -661,9 +661,6 @@ msgstr "Käytyjen linkkien väri:"
 msgid "Focus links color:"
 msgstr "Kohdistettujen linkkien väri:"
 
-msgid "Page top"
-msgstr "Sivun ylälaitaan"
-
 msgid "Prelude color:"
 msgstr "Prelude-osan väri:"
 
@@ -858,11 +855,17 @@ msgstr "Asetukset on päivitetty."
 msgid "Media chooser"
 msgstr "Media-aineistojen valitsin"
 
+msgid "m"
+msgstr ""
+
 msgid "Link to an entry"
 msgstr "Linkki blogimerkintään"
 
 msgid "Link"
 msgstr "Linkki"
+
+msgid "l"
+msgstr ""
 
 msgid "External image"
 msgstr "Ulkoinen kuva"
@@ -1304,6 +1307,18 @@ msgstr "Kommentteja ja takaisinviittauksia ei saatu lasketuksi."
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "Laskemalla uudelleen kommentit ja takaisinviittaukset voit tarkistaa niiden tarkan lukumäärän. Tämä voi olla tarpeen, kun tuodaan sisältöjä toiselta blogialustalta (tai päivitettäessä dotclear 1 versioon dotclear 2)."
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr ""
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr ""
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr ""
+
+msgid "Remove the Content-Security-Policy report file."
+msgstr ""
 
 msgid "Search engine index"
 msgstr "Hakukoneindeksi"
@@ -1962,6 +1977,9 @@ msgstr "Yleiset asetukset "
 msgid "Presentation widgets"
 msgstr "Esitysvimpaimet"
 
+msgid "Widget's textareas"
+msgstr ""
+
 msgid "Search engine"
 msgstr "Hakumoottori"
 
@@ -2134,6 +2152,9 @@ msgstr "Poista vimpain"
 
 msgid "Drag widgets here to remove."
 msgstr "Vedä vimpaimet tähän poistaaksesi."
+
+#~ msgid "Page top"
+#~ msgstr "Sivun ylälaitaan"
 
 #~ msgid "URL"
 #~ msgstr "URL"

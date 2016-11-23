@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:41+0200\n"
+"POT-Creation-Date: 2016-11-23 10:19+0100\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -34,9 +34,6 @@ msgid "Manage your blogroll"
 msgstr "tvarkyti Bogroll"
 
 msgid "Configure your Blowup Theme"
-msgstr ""
-
-msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 msgid "Legacy modules for dotclear"
@@ -81,6 +78,9 @@ msgstr ""
 msgid "dotclear CKEditor integration"
 msgstr ""
 
+msgid "Breadcrumb for Dotclear"
+msgstr ""
+
 #, fuzzy
 msgid "Search engine form"
 msgstr "Paie.kos variklis"
@@ -116,10 +116,6 @@ msgstr ""
 msgid "List of last comments published"
 msgstr "Šio blogo komentarų %s rss"
 
-#, fuzzy
-msgid "Tags cloud"
-msgstr "Pridedamos žymos:"
-
 msgid "List of published pages"
 msgstr ""
 
@@ -129,6 +125,10 @@ msgstr "Blogroll"
 
 msgid "List of simple menu items"
 msgstr ""
+
+#, fuzzy
+msgid "Tags cloud"
+msgstr "Pridedamos žymos:"
 
 msgid "Configuration successfully updated"
 msgstr "Nustatymai sėkmingai atnaujinti"
@@ -690,9 +690,6 @@ msgstr "Aplankytų nuorodų spalva:"
 msgid "Focus links color:"
 msgstr "Fokusuotų nuorodų spalva:"
 
-msgid "Page top"
-msgstr "Puslapio viršus"
-
 msgid "Prelude color:"
 msgstr "Įžangos spalva:"
 
@@ -889,6 +886,9 @@ msgstr "Nustatymai sėkmingai atnaujiti."
 msgid "Media chooser"
 msgstr ""
 
+msgid "m"
+msgstr ""
+
 #, fuzzy
 msgid "Link to an entry"
 msgstr "Nuoroda į visas žymas:"
@@ -896,6 +896,9 @@ msgstr "Nuoroda į visas žymas:"
 #, fuzzy
 msgid "Link"
 msgstr "Nuorodos"
+
+msgid "l"
+msgstr ""
 
 #, fuzzy
 msgid "External image"
@@ -1362,6 +1365,18 @@ msgid "Failed to count comments and trackbacks."
 msgstr "Komentarai ir trackback suskaičiuoti."
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
+msgstr ""
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr ""
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr ""
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr ""
+
+msgid "Remove the Content-Security-Policy report file."
 msgstr ""
 
 msgid "Search engine index"
@@ -2078,6 +2093,10 @@ msgstr ""
 msgid "Presentation widgets"
 msgstr "Vaizdavimo valdikliai"
 
+#, fuzzy
+msgid "Widget's textareas"
+msgstr "Valdiklių šablonų žymės"
+
 msgid "Search engine"
 msgstr "Paie.kos variklis"
 
@@ -2261,6 +2280,9 @@ msgstr "Pašalinti valdiklį"
 msgid "Drag widgets here to remove."
 msgstr ""
 
+#~ msgid "Page top"
+#~ msgstr "Puslapio viršus"
+
 #~ msgid "URL"
 #~ msgstr "URL"
 
@@ -2386,9 +2408,6 @@ msgstr ""
 
 #~ msgid "Rename this tag:"
 #~ msgstr "Pervadinti šią žymą:"
-
-#~ msgid "Widget templates tags"
-#~ msgstr "Valdiklių šablonų žymės"
 
 #~ msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
 #~ msgstr "Jei jums leidžiama redaguoti savo temos šablonus, valdiklius galite pridėti tiesiogiai kaip šablonų žymas su savais nustatymais."

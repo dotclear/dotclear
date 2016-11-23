@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"POT-Creation-Date: 2016-11-23 10:18+0100\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -443,7 +443,7 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
-msgid "Generated image sizes (in pixels)"
+msgid "Generated image sizes (max dimension in pixels)"
 msgstr ""
 
 #, fuzzy
@@ -633,36 +633,32 @@ msgstr "ব্লগের নাম"
 msgid "Blog ID"
 msgstr "ব্লগ আইডি"
 
+msgid "Status"
+msgstr "অবস্থা"
+
 msgid "Descending"
 msgstr "বড় থেকে ছোট"
 
 msgid "Ascending"
 msgstr "ছোট থেকে বড়"
 
-msgid "Show filters and display options"
-msgstr ""
-
-msgid "Cancel filters and display options"
-msgstr ""
-
 msgid "List of blogs"
 msgstr "ব্লগের লিস্ট"
-
-msgid "Blog has been successfully deleted."
-msgstr "ব্লগটি সফলভাবে মুছে ফেলা হয়েছে।"
 
 msgid "Create a new blog"
 msgstr "একটি নতুন ব্লগ তৈরি করুন"
 
-#, fuzzy
-msgid "Filter blogs list"
-msgstr "%s ব্লগ এডিট করুন"
+msgid "Show filters and display options"
+msgstr ""
 
 msgid "Filters"
 msgstr ""
 
 msgid "Search:"
 msgstr ""
+
+msgid "Status:"
+msgstr "অবস্থা:"
 
 #, fuzzy
 msgid "Display options"
@@ -685,47 +681,18 @@ msgstr "প্রতি পেজে ইউজারের সংখ্যা"
 msgid "Apply filters and display options"
 msgstr ""
 
-msgid "No blog matches the filter"
-msgstr ""
-
-msgid "No blog"
-msgstr ""
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] ""
-msgstr[1] ""
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "শূণ্য ট্র্যাকব্যাক"
 
 #, fuzzy
-msgid "Blogs list"
-msgstr "ব্লগসমূহ"
+msgid "Actions"
+msgstr "বিবরণ:"
 
-#, fuzzy
-msgid "Blog id"
-msgstr "ব্লগের নাম"
+msgid "ok"
+msgstr "ঠিক আছে"
 
-#, fuzzy
-msgid "URL"
-msgstr "URL:"
-
-#, fuzzy
-msgid "Entries (all types)"
-msgstr "প্রতি পেজে এন্ট্রি"
-
-msgid "Status"
-msgstr "অবস্থা"
-
-#, fuzzy, php-format
-msgid "Edit blog settings for %s"
-msgstr "%s ব্লগ এডিট করুন"
-
-#, fuzzy
-msgid "Edit blog settings"
-msgstr "ব্লগ সেটিংস"
-
-#, php-format
-msgid "Switch to blog %s"
+msgid "Please give your password to confirm blog(s) deletion:"
 msgstr ""
 
 msgid "This category does not exist."
@@ -775,9 +742,7 @@ msgstr "%d টি এন্ট্রি"
 
 #, fuzzy, php-format
 msgid "%d entry"
-msgid_plural "%d entries"
-msgstr[0] "%d টি এন্ট্রি"
-msgstr[1] "%d টি এন্ট্রি"
+msgstr "%d টি এন্ট্রি"
 
 msgid "total:"
 msgstr "মোট:"
@@ -919,9 +884,6 @@ msgstr "লেখক:"
 msgid "Web site:"
 msgstr "ওয়েব সাইট:"
 
-msgid "Status:"
-msgstr "অবস্থা:"
-
 msgid "Comment:"
 msgstr "মন্তব্য"
 
@@ -940,6 +902,10 @@ msgid "Date"
 msgstr "তারিখ"
 
 msgid "Entry title"
+msgstr "এন্ট্রির টাইটেল"
+
+#, fuzzy
+msgid "Entry date"
 msgstr "এন্ট্রির টাইটেল"
 
 msgid "Author"
@@ -981,10 +947,6 @@ msgstr "সেগুলো দেখাও।"
 msgid "Delete all spams"
 msgstr "ব্লগ মুছে ফেলো"
 
-#, fuzzy
-msgid "Filter comments and trackbacks list"
-msgstr "মন্তব্য এবং ট্র্যাকব্যাকসমূহ"
-
 msgid "Type:"
 msgstr "ধরণ:"
 
@@ -994,13 +956,6 @@ msgstr "প্রতি পেজে মন্তব্য"
 
 msgid "Selected comments action:"
 msgstr ""
-
-#, fuzzy
-msgid "Actions"
-msgstr "বিবরণ:"
-
-msgid "ok"
-msgstr "ঠিক আছে"
 
 msgid "Global help"
 msgstr ""
@@ -1280,6 +1235,9 @@ msgstr ""
 msgid "Cannot write \"%s\" directory."
 msgstr "নতুন ডিরেক্টরি"
 
+msgid "Master email is not valid."
+msgstr ""
+
 #, php-format
 msgid "File %s does not exist."
 msgstr "%s ফাইলটি নেই।"
@@ -1339,6 +1297,9 @@ msgstr "ডাটাবেজ পাসওয়ার্ড:"
 
 msgid "Database Tables Prefix:"
 msgstr "ডাটাবেজের টেবিল প্রেফিক্স:"
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
 
 #, fuzzy
 msgid "Continue"
@@ -2225,6 +2186,20 @@ msgstr "প্রতি পেজে এন্ট্রি"
 msgid "Selected entries action:"
 msgstr ""
 
+#, fuzzy
+msgid "Smaller"
+msgstr "ছোট:"
+
+msgid "Larger"
+msgstr ""
+
+msgid "Blog description (in blog parameters)"
+msgstr ""
+
+#, fuzzy
+msgid "Category description"
+msgstr "ব্লগের বিবরণ:"
+
 msgid "Posts"
 msgstr ""
 
@@ -2311,6 +2286,13 @@ msgstr ""
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr ""
 
+msgid "Hide all secondary information and notes"
+msgstr ""
+
+#, fuzzy
+msgid "Font size:"
+msgstr "ফাইল সাইজ:"
+
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
@@ -2353,6 +2335,9 @@ msgid "Enable WYSIWYG mode"
 msgstr ""
 
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
+msgstr ""
+
+msgid "Use xhtml editor for:"
 msgstr ""
 
 #, fuzzy
@@ -2506,6 +2491,10 @@ msgstr "আপডেট Dotclear"
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s বের হয়েছে।"
 
+#, fuzzy, php-format
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "PHP সংস্করণ আছে %s (5.0 অথবা পূর্বের লাগবে)."
+
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr ""
 
@@ -2650,6 +2639,13 @@ msgstr ""
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr ""
 
+msgid "No blog"
+msgstr ""
+
+#, fuzzy
+msgid "URL"
+msgstr "URL:"
+
 #, fuzzy
 msgid "select"
 msgstr "সব সিলেক্ট করুন"
@@ -2661,6 +2657,44 @@ msgstr ""
 #, fuzzy
 msgid "Validate permissions"
 msgstr "অনুমতি পরিবর্তন করুন"
+
+#, fuzzy
+msgid "Back to blogs list"
+msgstr "শূণ্য মন্তব্য"
+
+#, fuzzy
+msgid "Blogs actions"
+msgstr "ব্লগসমূহ"
+
+#, fuzzy
+msgid "Blog id"
+msgstr "ব্লগের নাম"
+
+#, fuzzy
+msgid "Set online"
+msgstr "অনলাইন"
+
+#, fuzzy
+msgid "Set offline"
+msgstr "অফলাইন"
+
+#, fuzzy
+msgid "Set as removed"
+msgstr "মুছে ফেলো"
+
+#, fuzzy
+msgid "No blog selected"
+msgstr "অপেক্ষমান হিসেবে চিহ্নিত করুন"
+
+#, fuzzy
+msgid "Selected blogs have been successfully updated."
+msgstr "মন্তব্যটি সফলভাবে আপডেট করা হয়েছে।"
+
+#, fuzzy, php-format
+msgid "%d blog has been successfully deleted"
+msgid_plural "%d blogs have been successfully deleted"
+msgstr[0] "ব্লগটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr[1] "ব্লগটি সফলভাবে মুছে ফেলা হয়েছে।"
 
 #, fuzzy
 msgid "Back to comments list"
@@ -2810,6 +2844,12 @@ msgid "Languages"
 msgstr "ভাষাসমূহ"
 
 #, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%s ব্লগ এডিট করুন"
+msgstr[1] "%s ব্লগ এডিট করুন"
+
+#, fuzzy, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] "%d টি মন্তব্য"
@@ -2859,6 +2899,10 @@ msgstr ""
 #, php-format
 msgid "Thank you for using %s."
 msgstr "%s ব্যবহার করার জন্য ধন্যবাদ।"
+
+#, fuzzy
+msgid "Page top"
+msgstr "পেজ(সমূহ)"
 
 #, fuzzy
 msgid "Go to dashboard"
@@ -2939,6 +2983,10 @@ msgstr ""
 
 #, fuzzy, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "আপনি কি আসলেই %s মুছে ফেলতে চান?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "আপনি কি আসলেই %s মুছে ফেলতে চান?"
 
 #, php-format
@@ -3088,6 +3136,9 @@ msgstr ""
 msgid "Queue error:"
 msgstr ""
 
+msgid "Cancel filters and display options"
+msgstr ""
+
 msgid "other"
 msgstr ""
 
@@ -3146,11 +3197,25 @@ msgid "Plugin from official distribution"
 msgstr ""
 
 #, fuzzy
-msgid "Configure plugin"
+msgid "Manage plugin"
 msgstr "ব্লগের থিমসমূহ"
 
 msgid "No plugins matched your search."
 msgstr ""
+
+#, fuzzy
+msgid "Configure plugin"
+msgstr "ব্লগের থিমসমূহ"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr ""
+
+msgid "Plugin settings (in user preferences)"
+msgstr ""
+
+#, fuzzy
+msgid "Plugin settings"
+msgstr "ব্লগ সেটিংস"
 
 msgid "Activate"
 msgstr "সক্রিয়"
@@ -3477,6 +3542,35 @@ msgstr "ট্র্যাকব্যাক"
 #, fuzzy
 msgid "Type and author"
 msgstr "লেখক পরিবর্তন"
+
+msgid "No blog matches the filter"
+msgstr ""
+
+#, fuzzy
+msgid "Entries (all types)"
+msgstr "প্রতি পেজে এন্ট্রি"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy
+msgid "Blogs list"
+msgstr "ব্লগসমূহ"
+
+#, fuzzy, php-format
+msgid "Edit blog settings for %s"
+msgstr "%s ব্লগ এডিট করুন"
+
+#, fuzzy
+msgid "Edit blog settings"
+msgstr "ব্লগ সেটিংস"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr ""
 
 msgid "No user matches the filter"
 msgstr ""
@@ -3844,12 +3938,30 @@ msgstr ""
 msgid "Unable to ping URL"
 msgstr ""
 
+msgid "Bad server response code"
+msgstr ""
+
 #, php-format
 msgid "%s is not a ping URL"
 msgstr ""
 
 #, php-format
 msgid "%s, ping error:"
+msgstr ""
+
+msgid "Don't repeat yourself, please."
+msgstr ""
+
+msgid "Where's your title?"
+msgstr ""
+
+msgid "Sorry, an internal problem has occured."
+msgstr ""
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr ""
+
+msgid "A website mention this entry."
 msgstr ""
 
 msgid "Any chance you ping one of my contents? No? Really?"
@@ -3864,19 +3976,16 @@ msgstr ""
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
 msgstr ""
 
-msgid "Don't repeat yourself, please."
-msgstr ""
-
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
 msgstr ""
 
-msgid "Where's your title?"
+msgid "No valid source URL provided? Try again!"
 msgstr ""
 
-msgid "Sorry, an internal problem has occured."
+msgid "No valid target URL provided? Try again!"
 msgstr ""
 
-msgid "Thanks, mate. It was a pleasure."
+msgid "LOL!"
 msgstr ""
 
 msgid "Digests file not found."
@@ -3922,15 +4031,6 @@ msgid "%s is not a valid pref id"
 msgstr "ফাইলটি বৈধ নয়"
 
 msgid "No workspace specified"
-msgstr ""
-
-msgid "No valid source URL provided? Try again!"
-msgstr ""
-
-msgid "No valid target URL provided? Try again!"
-msgstr ""
-
-msgid "LOL!"
 msgstr ""
 
 msgid "Something went wrong with auto upgrade:"
@@ -4094,6 +4194,14 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+#, fuzzy
+#~ msgid "Filter blogs list"
+#~ msgstr "%s ব্লগ এডিট করুন"
+
+#, fuzzy
+#~ msgid "Filter comments and trackbacks list"
+#~ msgstr "মন্তব্য এবং ট্র্যাকব্যাকসমূহ"
+
 #~ msgid "more information"
 #~ msgstr "আরো তথ্য"
 
@@ -4213,9 +4321,6 @@ msgstr ""
 
 #~ msgid "View entry"
 #~ msgstr "এন্ট্রি দেখাও"
-
-#~ msgid "remove"
-#~ msgstr "মুছে ফেলো"
 
 #~ msgid "login"
 #~ msgstr "লগইন"

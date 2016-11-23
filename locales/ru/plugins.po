@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:41+0200\n"
+"POT-Creation-Date: 2016-11-23 10:19+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -33,9 +33,6 @@ msgid "Manage your blogroll"
 msgstr "управление ссылками"
 
 msgid "Configure your Blowup Theme"
-msgstr ""
-
-msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 msgid "Legacy modules for dotclear"
@@ -80,6 +77,9 @@ msgstr ""
 msgid "dotclear CKEditor integration"
 msgstr ""
 
+msgid "Breadcrumb for Dotclear"
+msgstr ""
+
 #, fuzzy
 msgid "Search engine form"
 msgstr "Поиск"
@@ -115,10 +115,6 @@ msgstr ""
 msgid "List of last comments published"
 msgstr "Лента новостей %s комментариев блога"
 
-#, fuzzy
-msgid "Tags cloud"
-msgstr "Теги для добавления:"
-
 msgid "List of published pages"
 msgstr ""
 
@@ -129,6 +125,10 @@ msgstr "Ссылки"
 #, fuzzy
 msgid "List of simple menu items"
 msgstr "Удалить выбранные ссылки"
+
+#, fuzzy
+msgid "Tags cloud"
+msgstr "Теги для добавления:"
 
 msgid "Configuration successfully updated"
 msgstr "Конфигурация успешно обновлена"
@@ -690,9 +690,6 @@ msgstr "Цвет посещенных ссылок:"
 msgid "Focus links color:"
 msgstr "Цвет ссылок в фокусе:"
 
-msgid "Page top"
-msgstr "Верх страницы"
-
 msgid "Prelude color:"
 msgstr "Цвет вводной части:"
 
@@ -889,6 +886,9 @@ msgstr "Настройки темы были успешно обновлены."
 msgid "Media chooser"
 msgstr ""
 
+msgid "m"
+msgstr ""
+
 #, fuzzy
 msgid "Link to an entry"
 msgstr "Ссылка на все теги"
@@ -896,6 +896,9 @@ msgstr "Ссылка на все теги"
 #, fuzzy
 msgid "Link"
 msgstr "Ссылки"
+
+msgid "l"
+msgstr ""
 
 #, fuzzy
 msgid "External image"
@@ -1365,6 +1368,18 @@ msgid "Failed to count comments and trackbacks."
 msgstr "Комментарии и пинги посчитаны."
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
+msgstr ""
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr ""
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr ""
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr ""
+
+msgid "Remove the Content-Security-Policy report file."
 msgstr ""
 
 msgid "Search engine index"
@@ -2088,6 +2103,10 @@ msgstr "глобальные настройки"
 msgid "Presentation widgets"
 msgstr "Виджеты оформления"
 
+#, fuzzy
+msgid "Widget's textareas"
+msgstr "Теги шаблонов виджетов"
+
 msgid "Search engine"
 msgstr "Поиск"
 
@@ -2269,6 +2288,9 @@ msgstr "Удалить виджет"
 msgid "Drag widgets here to remove."
 msgstr ""
 
+#~ msgid "Page top"
+#~ msgstr "Верх страницы"
+
 #~ msgid "URL"
 #~ msgstr "URL"
 
@@ -2388,9 +2410,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Preferences definition successfully updated"
 #~ msgstr "Настройки успешно обновлены"
-
-#~ msgid "Widget templates tags"
-#~ msgstr "Теги шаблонов виджетов"
 
 #~ msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
 #~ msgstr "Если Вы способны редактировать ваши шаблоны темы, Вы можете непосредственно добавить виджеты как теги шаблонов, со своей собственной конфигурацией."

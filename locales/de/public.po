@@ -243,17 +243,37 @@ msgstr "Du mußt eine gültige E-Mail-Adresse verwenden."
 msgid "Read"
 msgstr "Lesen"
 
-#~ msgid "By date"
-#~ msgstr "Nach Datum"
+msgid "in"
+msgstr ""
 
-#~ msgid "FromDay"
-#~ msgstr "Von"
+msgid "In"
+msgstr ""
 
-#~ msgid "toDay"
-#~ msgstr "bis"
+msgid "Page top"
+msgstr ""
 
-#~ msgid "By category"
-#~ msgstr "Nach Kategorien"
+msgid "toDay"
+msgstr "bis"
 
-#~ msgid "By tag"
-#~ msgstr "Nach Tags"
+msgid "FromDay"
+msgstr "Von"
+
+msgid "By category"
+msgstr "Nach Kategorien"
+
+msgid "By date"
+msgstr "Nach Datum"
+
+msgid "By tag"
+msgstr "Nach Tags"
+
+#, fuzzy
+msgid "Blog menu"
+msgstr "Zum Menü"
+
+#, fuzzy
+msgid "Etra menu"
+msgstr "Zum Menü"
+
+msgid "Blog info"
+msgstr ""

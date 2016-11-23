@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"POT-Creation-Date: 2016-11-23 10:19+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -452,7 +452,8 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
-msgid "Generated image sizes (in pixels)"
+#, fuzzy
+msgid "Generated image sizes (max dimension in pixels)"
 msgstr "生成される画像サイズ（ピクセル単位）"
 
 #, fuzzy
@@ -645,36 +646,32 @@ msgstr "ブログ名"
 msgid "Blog ID"
 msgstr "ブログID"
 
+msgid "Status"
+msgstr "状態"
+
 msgid "Descending"
 msgstr "降順"
 
 msgid "Ascending"
 msgstr "昇順"
 
-msgid "Show filters and display options"
-msgstr ""
-
-msgid "Cancel filters and display options"
-msgstr ""
-
 msgid "List of blogs"
 msgstr "ブログ一覧"
-
-msgid "Blog has been successfully deleted."
-msgstr "ブログは正常に削除されました。"
 
 msgid "Create a new blog"
 msgstr "新しいブログを作成"
 
-#, fuzzy
-msgid "Filter blogs list"
-msgstr "ブログ %s を編集"
+msgid "Show filters and display options"
+msgstr ""
 
 msgid "Filters"
 msgstr "絞り込み"
 
 msgid "Search:"
 msgstr "検索："
+
+msgid "Status:"
+msgstr "状態："
 
 #, fuzzy
 msgid "Display options"
@@ -697,47 +694,20 @@ msgstr "ブログ / ページ"
 msgid "Apply filters and display options"
 msgstr ""
 
-msgid "No blog matches the filter"
-msgstr ""
-
-msgid "No blog"
-msgstr "ブログはありません"
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] ""
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "選択されたユーザに実行："
 
 #, fuzzy
-msgid "Blogs list"
-msgstr "ブログ"
+msgid "Actions"
+msgstr "操作"
+
+msgid "ok"
+msgstr "OK"
 
 #, fuzzy
-msgid "Blog id"
-msgstr "ブログ名"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL："
-
-#, fuzzy
-msgid "Entries (all types)"
-msgstr "エントリ / ページ"
-
-msgid "Status"
-msgstr "状態"
-
-#, fuzzy, php-format
-msgid "Edit blog settings for %s"
-msgstr "ブログ %s を編集"
-
-#, fuzzy
-msgid "Edit blog settings"
-msgstr "ブログの設定"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "ブログ %s に切り替える"
+msgid "Please give your password to confirm blog(s) deletion:"
+msgstr "ブログの削除を確認するために、あなたのパスワードを入力してください。"
 
 msgid "This category does not exist."
 msgstr "このカテゴリは存在しません。"
@@ -785,8 +755,7 @@ msgstr "エントリ(%d)"
 
 #, fuzzy, php-format
 msgid "%d entry"
-msgid_plural "%d entries"
-msgstr[0] "エントリ(%d)"
+msgstr "エントリ(%d)"
 
 msgid "total:"
 msgstr "合計："
@@ -936,9 +905,6 @@ msgstr "投稿者："
 msgid "Web site:"
 msgstr "ウェブサイト："
 
-msgid "Status:"
-msgstr "状態："
-
 msgid "Comment:"
 msgstr "コメント："
 
@@ -957,6 +923,10 @@ msgid "Date"
 msgstr "日付"
 
 msgid "Entry title"
+msgstr "エントリのタイトル"
+
+#, fuzzy
+msgid "Entry date"
 msgstr "エントリのタイトル"
 
 msgid "Author"
@@ -998,10 +968,6 @@ msgstr "それらを表示する。"
 msgid "Delete all spams"
 msgstr "ブログを削除"
 
-#, fuzzy
-msgid "Filter comments and trackbacks list"
-msgstr "コメントとトラックバック"
-
 msgid "Type:"
 msgstr "タイプ："
 
@@ -1011,13 +977,6 @@ msgstr "コメント / ページ"
 
 msgid "Selected comments action:"
 msgstr "選択されたコメントに実行："
-
-#, fuzzy
-msgid "Actions"
-msgstr "操作"
-
-msgid "ok"
-msgstr "OK"
 
 msgid "Global help"
 msgstr ""
@@ -1296,6 +1255,10 @@ msgstr ""
 msgid "Cannot write \"%s\" directory."
 msgstr "このディレクトリへの書き込みができません。"
 
+#, fuzzy
+msgid "Master email is not valid."
+msgstr "メールアドレスが有効ではありません。"
+
 #, php-format
 msgid "File %s does not exist."
 msgstr "ファイル %s が存在しません。"
@@ -1355,6 +1318,9 @@ msgstr "データベースのパスワード："
 
 msgid "Database Tables Prefix:"
 msgstr "データベーステーブルのプレフィックス："
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
 
 #, fuzzy
 msgid "Continue"
@@ -2250,6 +2216,20 @@ msgstr "エントリ / ページ"
 msgid "Selected entries action:"
 msgstr "選択されたエントリに実行："
 
+#, fuzzy
+msgid "Smaller"
+msgstr "スモール："
+
+msgid "Larger"
+msgstr ""
+
+msgid "Blog description (in blog parameters)"
+msgstr ""
+
+#, fuzzy
+msgid "Category description"
+msgstr "カテゴリの兄弟"
+
 msgid "Posts"
 msgstr ""
 
@@ -2338,6 +2318,13 @@ msgstr ""
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr ""
 
+msgid "Hide all secondary information and notes"
+msgstr ""
+
+#, fuzzy
+msgid "Font size:"
+msgstr "ファイルサイズ："
+
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
@@ -2381,6 +2368,9 @@ msgid "Enable WYSIWYG mode"
 msgstr "WYSIWYG モードの有効化"
 
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
+msgstr ""
+
+msgid "Use xhtml editor for:"
 msgstr ""
 
 #, fuzzy
@@ -2538,6 +2528,10 @@ msgstr "Dotclear をアップデート"
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s が入手可能です。"
 
+#, fuzzy, php-format
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "PHP のバージョンが %s です。（5.0 以上が必須です）"
+
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "インストールされた Dotclear をアップグレードするには、単に次のボタンをクリックしてください。 現在のインストールのバックアップファイルが、ルートディレクトリに作成されます。"
 
@@ -2683,6 +2677,13 @@ msgstr ""
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "ユーザ %s さんにパーミッションを与えたいブログを、1つ以上選択してください。"
 
+msgid "No blog"
+msgstr "ブログはありません"
+
+#, fuzzy
+msgid "URL"
+msgstr "URL："
+
 #, fuzzy
 msgid "select"
 msgstr "イチ押し"
@@ -2694,6 +2695,43 @@ msgstr "ユーザ %s さんの以下のブログでのパーミッションを�
 #, fuzzy
 msgid "Validate permissions"
 msgstr "パーミッションを設定"
+
+#, fuzzy
+msgid "Back to blogs list"
+msgstr "コメントはありません"
+
+#, fuzzy
+msgid "Blogs actions"
+msgstr "ブログ"
+
+#, fuzzy
+msgid "Blog id"
+msgstr "ブログ名"
+
+#, fuzzy
+msgid "Set online"
+msgstr "オンライン"
+
+#, fuzzy
+msgid "Set offline"
+msgstr "オフライン"
+
+#, fuzzy
+msgid "Set as removed"
+msgstr "撤去"
+
+#, fuzzy
+msgid "No blog selected"
+msgstr "非イチ押し"
+
+#, fuzzy
+msgid "Selected blogs have been successfully updated."
+msgstr "コメントは正常に更新されました。"
+
+#, fuzzy, php-format
+msgid "%d blog has been successfully deleted"
+msgid_plural "%d blogs have been successfully deleted"
+msgstr[0] "ブログは正常に削除されました。"
 
 #, fuzzy
 msgid "Back to comments list"
@@ -2845,6 +2883,11 @@ msgid "Languages"
 msgstr "言語"
 
 #, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "ブログ %s を編集"
+
+#, fuzzy, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] "コメント(%d)"
@@ -2893,6 +2936,10 @@ msgstr ""
 #, php-format
 msgid "Thank you for using %s."
 msgstr "%s をご利用いただき誠にありがとうございます。"
+
+#, fuzzy
+msgid "Page top"
+msgstr "ページ"
 
 #, fuzzy
 msgid "Go to dashboard"
@@ -2974,6 +3021,10 @@ msgstr ""
 
 #, fuzzy, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "本当に、選択されたユーザを削除してもよろしいですか？"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "本当に、選択されたユーザを削除してもよろしいですか？"
 
 #, php-format
@@ -3124,6 +3175,9 @@ msgstr "キューに %d のファイルがあります。"
 msgid "Queue error:"
 msgstr "キューエラー："
 
+msgid "Cancel filters and display options"
+msgstr ""
+
 msgid "other"
 msgstr ""
 
@@ -3182,11 +3236,25 @@ msgid "Plugin from official distribution"
 msgstr ""
 
 #, fuzzy
-msgid "Configure plugin"
+msgid "Manage plugin"
 msgstr "ブログのテーマ"
 
 msgid "No plugins matched your search."
 msgstr ""
+
+#, fuzzy
+msgid "Configure plugin"
+msgstr "ブログのテーマ"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr ""
+
+msgid "Plugin settings (in user preferences)"
+msgstr ""
+
+#, fuzzy
+msgid "Plugin settings"
+msgstr "ブログの設定"
 
 msgid "Activate"
 msgstr "有効化"
@@ -3505,6 +3573,34 @@ msgstr "トラックバック"
 #, fuzzy
 msgid "Type and author"
 msgstr "投稿者の変更"
+
+msgid "No blog matches the filter"
+msgstr ""
+
+#, fuzzy
+msgid "Entries (all types)"
+msgstr "エントリ / ページ"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] ""
+
+#, fuzzy
+msgid "Blogs list"
+msgstr "ブログ"
+
+#, fuzzy, php-format
+msgid "Edit blog settings for %s"
+msgstr "ブログ %s を編集"
+
+#, fuzzy
+msgid "Edit blog settings"
+msgstr "ブログの設定"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "ブログ %s に切り替える"
 
 msgid "No user matches the filter"
 msgstr ""
@@ -3883,6 +3979,9 @@ msgstr "%s はまだPingの送信中です"
 msgid "Unable to ping URL"
 msgstr "URLにPingを送信できません"
 
+msgid "Bad server response code"
+msgstr ""
+
 #, php-format
 msgid "%s is not a ping URL"
 msgstr "%s はPing URLではありません"
@@ -3890,6 +3989,22 @@ msgstr "%s はPing URLではありません"
 #, php-format
 msgid "%s, ping error:"
 msgstr "%s へのPing送信エラー："
+
+msgid "Don't repeat yourself, please."
+msgstr ""
+
+msgid "Where's your title?"
+msgstr ""
+
+msgid "Sorry, an internal problem has occured."
+msgstr ""
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr ""
+
+#, fuzzy
+msgid "A website mention this entry."
+msgstr "このエントリにファイルを追加"
 
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
@@ -3903,19 +4018,16 @@ msgstr ""
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
 msgstr ""
 
-msgid "Don't repeat yourself, please."
-msgstr ""
-
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
 msgstr ""
 
-msgid "Where's your title?"
+msgid "No valid source URL provided? Try again!"
 msgstr ""
 
-msgid "Sorry, an internal problem has occured."
+msgid "No valid target URL provided? Try again!"
 msgstr ""
 
-msgid "Thanks, mate. It was a pleasure."
+msgid "LOL!"
 msgstr ""
 
 msgid "Digests file not found."
@@ -3964,15 +4076,6 @@ msgstr "%s は不正な設定IDです"
 #, fuzzy
 msgid "No workspace specified"
 msgstr "ネームスペースが指定されていません"
-
-msgid "No valid source URL provided? Try again!"
-msgstr ""
-
-msgid "No valid target URL provided? Try again!"
-msgstr ""
-
-msgid "LOL!"
-msgstr ""
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "自動アップグレードで何か誤りがありました："
@@ -4134,6 +4237,14 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Filter blogs list"
+#~ msgstr "ブログ %s を編集"
+
+#, fuzzy
+#~ msgid "Filter comments and trackbacks list"
+#~ msgstr "コメントとトラックバック"
 
 #~ msgid "SQLite Database Schema cannot be upgraded."
 #~ msgstr "SQLite のデータベーススキーマはアップグレードすることができません。"
@@ -4432,9 +4543,6 @@ msgstr ""
 
 #~ msgid "No attachment."
 #~ msgstr "添付ファイルはありません。"
-
-#~ msgid "Add files to this entry"
-#~ msgstr "このエントリにファイルを追加"
 
 #~ msgid "User:"
 #~ msgstr "ユーザ："

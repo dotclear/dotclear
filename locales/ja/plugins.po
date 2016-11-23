@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"POT-Creation-Date: 2016-11-23 10:19+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -37,9 +37,6 @@ msgid "Manage your blogroll"
 msgstr "ブログロールの管理"
 
 msgid "Configure your Blowup Theme"
-msgstr ""
-
-msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 msgid "Legacy modules for dotclear"
@@ -84,6 +81,9 @@ msgstr ""
 msgid "dotclear CKEditor integration"
 msgstr ""
 
+msgid "Breadcrumb for Dotclear"
+msgstr ""
+
 #, fuzzy
 msgid "Search engine form"
 msgstr "検索エンジン"
@@ -119,10 +119,6 @@ msgstr ""
 msgid "List of last comments published"
 msgstr "このブログのコメント %s のフィード"
 
-#, fuzzy
-msgid "Tags cloud"
-msgstr "追加するタグ："
-
 msgid "List of published pages"
 msgstr ""
 
@@ -133,6 +129,10 @@ msgstr "ブログロール"
 #, fuzzy
 msgid "List of simple menu items"
 msgstr "選択されたリンクを削除"
+
+#, fuzzy
+msgid "Tags cloud"
+msgstr "追加するタグ："
 
 msgid "Configuration successfully updated"
 msgstr "設定は正常に更新されました"
@@ -695,9 +695,6 @@ msgstr "訪問済みリンクの色："
 msgid "Focus links color:"
 msgstr "フォーカスリンクの色："
 
-msgid "Page top"
-msgstr "ページトップ"
-
 msgid "Prelude color:"
 msgstr "ヘッダの色："
 
@@ -894,12 +891,18 @@ msgstr "テーマの設定は正常に更新されました。"
 msgid "Media chooser"
 msgstr ""
 
+msgid "m"
+msgstr ""
+
 msgid "Link to an entry"
 msgstr ""
 
 #, fuzzy
 msgid "Link"
 msgstr "リンク"
+
+msgid "l"
+msgstr ""
 
 #, fuzzy
 msgid "External image"
@@ -1365,6 +1368,18 @@ msgid "Failed to count comments and trackbacks."
 msgstr "コメントとトラックバックがカウントされました。"
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
+msgstr ""
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr ""
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr ""
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr ""
+
+msgid "Remove the Content-Security-Policy report file."
 msgstr ""
 
 msgid "Search engine index"
@@ -2087,6 +2102,10 @@ msgstr "全般の設定"
 msgid "Presentation widgets"
 msgstr "プレゼンテーションウィジェット"
 
+#, fuzzy
+msgid "Widget's textareas"
+msgstr "ウィジェットテンプレートのタグ"
+
 msgid "Search engine"
 msgstr "検索エンジン"
 
@@ -2268,6 +2287,9 @@ msgstr "ウィジェットの削除"
 msgid "Drag widgets here to remove."
 msgstr ""
 
+#~ msgid "Page top"
+#~ msgstr "ページトップ"
+
 #~ msgid "URL"
 #~ msgstr "URL"
 
@@ -2377,9 +2399,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Preferences definition successfully updated"
 #~ msgstr "設定の定義は正常に更新されました"
-
-#~ msgid "Widget templates tags"
-#~ msgstr "ウィジェットテンプレートのタグ"
 
 #~ msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
 #~ msgstr "あなたのテーマテンプレートの編集が許可されている場合、それら自身の設定で、テンプレートタグとしてウィジェットを直接加えることができます。"
