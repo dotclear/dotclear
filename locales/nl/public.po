@@ -242,3 +242,38 @@ msgstr "Vul een geldig emailadres in."
 
 msgid "Read"
 msgstr "Lees"
+
+msgid "in"
+msgstr ""
+
+msgid "In"
+msgstr ""
+
+msgid "Page top"
+msgstr ""
+
+msgid "toDay"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
+
+#, fuzzy
+msgid "Blog menu"
+msgstr "Naar menu"
+
+#, fuzzy
+msgid "Etra menu"
+msgstr "Naar menu"
+
+msgid "Blog info"
+msgstr ""

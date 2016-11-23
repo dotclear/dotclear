@@ -243,3 +243,38 @@ msgstr "Trebuie să furnizați o adresă email validă."
 
 msgid "Read"
 msgstr "Citeşte"
+
+msgid "in"
+msgstr ""
+
+msgid "In"
+msgstr ""
+
+msgid "Page top"
+msgstr ""
+
+msgid "toDay"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
+
+#, fuzzy
+msgid "Blog menu"
+msgstr "Mergi la meniu"
+
+#, fuzzy
+msgid "Etra menu"
+msgstr "Mergi la meniu"
+
+msgid "Blog info"
+msgstr ""

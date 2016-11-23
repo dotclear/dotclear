@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"POT-Creation-Date: 2016-11-23 10:18+0100\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -34,9 +34,6 @@ msgid "Manage your blogroll"
 msgstr "blogroll kezelése"
 
 msgid "Configure your Blowup Theme"
-msgstr ""
-
-msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 msgid "Legacy modules for dotclear"
@@ -81,6 +78,9 @@ msgstr ""
 msgid "dotclear CKEditor integration"
 msgstr ""
 
+msgid "Breadcrumb for Dotclear"
+msgstr ""
+
 #, fuzzy
 msgid "Search engine form"
 msgstr "Keresőmotor"
@@ -116,10 +116,6 @@ msgstr ""
 msgid "List of last comments published"
 msgstr "A blog hozzászólásainak %s feedje"
 
-#, fuzzy
-msgid "Tags cloud"
-msgstr "Hozzáadandó címkék:"
-
 msgid "List of published pages"
 msgstr ""
 
@@ -130,6 +126,10 @@ msgstr "Blogroll"
 #, fuzzy
 msgid "List of simple menu items"
 msgstr "Kiválasztott hivatkozások törlése"
+
+#, fuzzy
+msgid "Tags cloud"
+msgstr "Hozzáadandó címkék:"
 
 msgid "Configuration successfully updated"
 msgstr "A konfigurációt sikeresen frissítettem."
@@ -691,9 +691,6 @@ msgstr "Látogatott hivatkozások színe:"
 msgid "Focus links color:"
 msgstr "Fókuszhivatkozások színe:"
 
-msgid "Page top"
-msgstr "Lap teteje"
-
 msgid "Prelude color:"
 msgstr "Bevezető színe:"
 
@@ -890,12 +887,18 @@ msgstr "A témabeállítás sikeresen frissült."
 msgid "Media chooser"
 msgstr ""
 
+msgid "m"
+msgstr ""
+
 msgid "Link to an entry"
 msgstr ""
 
 #, fuzzy
 msgid "Link"
 msgstr "Hivatkozások"
+
+msgid "l"
+msgstr ""
 
 #, fuzzy
 msgid "External image"
@@ -1368,6 +1371,18 @@ msgid "Failed to count comments and trackbacks."
 msgstr "A hozzászólásokat és a trackbackeket megszámoltam."
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
+msgstr ""
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr ""
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr ""
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr ""
+
+msgid "Remove the Content-Security-Policy report file."
 msgstr ""
 
 msgid "Search engine index"
@@ -2090,6 +2105,10 @@ msgstr "általános beállítások"
 msgid "Presentation widgets"
 msgstr "Bemutató kütyük"
 
+#, fuzzy
+msgid "Widget's textareas"
+msgstr "Kütyüsablon-címkék"
+
 msgid "Search engine"
 msgstr "Keresőmotor"
 
@@ -2272,6 +2291,9 @@ msgstr "Kütyü eltávolítása"
 msgid "Drag widgets here to remove."
 msgstr ""
 
+#~ msgid "Page top"
+#~ msgstr "Lap teteje"
+
 #~ msgid "URL"
 #~ msgstr "URL"
 
@@ -2381,9 +2403,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Preferences definition successfully updated"
 #~ msgstr "A beállítások definícióit sikeresen frissítettem."
-
-#~ msgid "Widget templates tags"
-#~ msgstr "Kütyüsablon-címkék"
 
 #~ msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
 #~ msgstr "Ha szerkesztheted a kinézeted sablonját, akkor közvetlenül be is illesztheted a kütyüt a sablonba, saját beállításaival együtt."

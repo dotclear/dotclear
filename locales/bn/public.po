@@ -242,3 +242,38 @@ msgstr "আপনাকে অবশ্যই একটি বৈধ ইমে�
 
 msgid "Read"
 msgstr "পড়ুন"
+
+msgid "in"
+msgstr ""
+
+msgid "In"
+msgstr ""
+
+msgid "Page top"
+msgstr ""
+
+msgid "toDay"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
+
+#, fuzzy
+msgid "Blog menu"
+msgstr "মেনুতে যাও"
+
+#, fuzzy
+msgid "Etra menu"
+msgstr "মেনুতে যাও"
+
+msgid "Blog info"
+msgstr ""

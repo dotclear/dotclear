@@ -248,6 +248,41 @@ msgstr "Ha d'indicar una adreça de correu electrònic vàlida"
 msgid "Read"
 msgstr "Llegir"
 
+msgid "in"
+msgstr ""
+
+msgid "In"
+msgstr ""
+
+msgid "Page top"
+msgstr ""
+
+msgid "toDay"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
+
+#, fuzzy
+msgid "Blog menu"
+msgstr "Anar al menú"
+
+#, fuzzy
+msgid "Etra menu"
+msgstr "Anar al menú"
+
+msgid "Blog info"
+msgstr ""
+
 #~ msgid "This blog's entries RSS feed"
 #~ msgstr "Fitxers RSS dels registres d'entrada"
 

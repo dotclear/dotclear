@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-13 16:31+0100\n"
+"POT-Creation-Date: 2016-11-23 10:13+0100\n"
 "PO-Revision-Date: 2016-07-18 15:01+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -3700,6 +3700,9 @@ msgstr "Un rétrolien vers %s a déjà été fait"
 msgid "Unable to ping URL"
 msgstr "Impossible de réaliser le rétrolien"
 
+msgid "Bad server response code"
+msgstr "Code de réponse du serveur incorrect"
+
 #, php-format
 msgid "%s is not a ping URL"
 msgstr "%s n'est pas une URL de rétrolien"
@@ -3707,6 +3710,21 @@ msgstr "%s n'est pas une URL de rétrolien"
 #, php-format
 msgid "%s, ping error:"
 msgstr "%s, erreur de rétrolien :"
+
+msgid "Don't repeat yourself, please."
+msgstr "Ne vous répêtez pas, s'il vous plait."
+
+msgid "Where's your title?"
+msgstr "Où est votre titre ?"
+
+msgid "Sorry, an internal problem has occured."
+msgstr "Désolé, une erreur interne est survenue."
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr "Merci, c'était un plaisir."
+
+msgid "A website mention this entry."
+msgstr "Un site web mentionne cette entrée."
 
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr "Aucune chance que vous pinguiez un de mes contenus ? Non ? Vraiment ?"
@@ -3720,20 +3738,17 @@ msgstr "Oops, non trouvé. Vérifiez à nouveau l'URL cible."
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
 msgstr "Désolé, cette entrée n'accepte pas les pingback pour le moment."
 
-msgid "Don't repeat yourself, please."
-msgstr "Ne vous répêtez pas, s'il vous plait."
-
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
 msgstr "Votre URL source ne semble pas être un contenu supporté. Désolé."
 
-msgid "Where's your title?"
-msgstr "Où est votre titre ?"
+msgid "No valid source URL provided? Try again!"
+msgstr "Aucune URL source valide fournie ? Essayez encore !"
 
-msgid "Sorry, an internal problem has occured."
-msgstr "Désolé, une erreur interne est survenue."
+msgid "No valid target URL provided? Try again!"
+msgstr "Aucune URL destinataire valide fournie ? Essayez encore !"
 
-msgid "Thanks, mate. It was a pleasure."
-msgstr "Merci, c'était un plaisir."
+msgid "LOL!"
+msgstr "MDR !"
 
 msgid "Digests file not found."
 msgstr "Fichier de contrôle introuvable."
@@ -3778,15 +3793,6 @@ msgstr "%s n'est pas un identifiant de préférence valide"
 
 msgid "No workspace specified"
 msgstr "Aucun espace de travail spécifié"
-
-msgid "No valid source URL provided? Try again!"
-msgstr "Aucune URL source valide fournie ? Essayez encore !"
-
-msgid "No valid target URL provided? Try again!"
-msgstr "Aucune URL destinataire valide fournie ? Essayez encore !"
-
-msgid "LOL!"
-msgstr "MDR !"
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "Une erreur est survenue durant la mise à jour automatique :"

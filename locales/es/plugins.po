@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:40+0200\n"
+"POT-Creation-Date: 2016-11-23 10:18+0100\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -36,9 +36,6 @@ msgid "Manage your blogroll"
 msgstr "Gestión de la lista de enlaces"
 
 msgid "Configure your Blowup Theme"
-msgstr ""
-
-msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 msgid "Legacy modules for dotclear"
@@ -83,6 +80,9 @@ msgstr ""
 msgid "dotclear CKEditor integration"
 msgstr ""
 
+msgid "Breadcrumb for Dotclear"
+msgstr ""
+
 #, fuzzy
 msgid "Search engine form"
 msgstr "Motor de búsqueda"
@@ -118,10 +118,6 @@ msgstr ""
 msgid "List of last comments published"
 msgstr "Fuente web %s de los comentarios del blog"
 
-#, fuzzy
-msgid "Tags cloud"
-msgstr "Etiquetas a añadir:"
-
 msgid "List of published pages"
 msgstr ""
 
@@ -132,6 +128,10 @@ msgstr "Enlaces"
 #, fuzzy
 msgid "List of simple menu items"
 msgstr "Borrar los enlaces seleccionados"
+
+#, fuzzy
+msgid "Tags cloud"
+msgstr "Etiquetas a añadir:"
 
 msgid "Configuration successfully updated"
 msgstr "Configuración actualizada con éxito"
@@ -694,9 +694,6 @@ msgstr "Color de los enlaces visitados:"
 msgid "Focus links color:"
 msgstr "Color de los enlaces con foco:"
 
-msgid "Page top"
-msgstr "Arriba"
-
 msgid "Prelude color:"
 msgstr "Color del preludio:"
 
@@ -893,12 +890,18 @@ msgstr "La configuración del tema ha sido actualizada con éxito."
 msgid "Media chooser"
 msgstr ""
 
+msgid "m"
+msgstr ""
+
 msgid "Link to an entry"
 msgstr ""
 
 #, fuzzy
 msgid "Link"
 msgstr "Enlaces"
+
+msgid "l"
+msgstr ""
 
 #, fuzzy
 msgid "External image"
@@ -1365,6 +1368,18 @@ msgid "Failed to count comments and trackbacks."
 msgstr "Comentarios y retroenlaces contabilizados."
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
+msgstr ""
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr ""
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr ""
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr ""
+
+msgid "Remove the Content-Security-Policy report file."
 msgstr ""
 
 msgid "Search engine index"
@@ -2087,6 +2102,10 @@ msgstr "ajustes globales"
 msgid "Presentation widgets"
 msgstr "Componentes de presentación"
 
+#, fuzzy
+msgid "Widget's textareas"
+msgstr "Etiquetas de plantilla de los componentes"
+
 msgid "Search engine"
 msgstr "Motor de búsqueda"
 
@@ -2268,6 +2287,9 @@ msgstr "Eliminar el componente"
 msgid "Drag widgets here to remove."
 msgstr ""
 
+#~ msgid "Page top"
+#~ msgstr "Arriba"
+
 #~ msgid "URL"
 #~ msgstr "URL"
 
@@ -2377,9 +2399,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Preferences definition successfully updated"
 #~ msgstr "Definición de ajustes actualizada con éxito"
-
-#~ msgid "Widget templates tags"
-#~ msgstr "Etiquetas de plantilla de los componentes"
 
 #~ msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
 #~ msgstr "Si está autorizado a modificar las plantillas del tema, puede añadir componentes directamente gracias a las etiquetas de plantilla, con su propia configuración."

@@ -9,11 +9,11 @@ msgstr ""
 "POT-Creation-Date: 2008-10-13 05:22+0200\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
+"Language-Team: \n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language-Team: \n"
 "X-Generator: Poedit 1.8.8\n"
 
 # Not found strings
@@ -244,3 +244,38 @@ msgstr "మీరు తప్పనిసరిగా ఓ సరైన ఈమ�
 
 msgid "Read"
 msgstr "చదవండి"
+
+msgid "in"
+msgstr ""
+
+msgid "In"
+msgstr ""
+
+msgid "Page top"
+msgstr ""
+
+msgid "toDay"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
+
+#, fuzzy
+msgid "Blog menu"
+msgstr "మెనూకి"
+
+#, fuzzy
+msgid "Etra menu"
+msgstr "మెనూకి"
+
+msgid "Blog info"
+msgstr ""

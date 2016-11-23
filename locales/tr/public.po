@@ -238,3 +238,38 @@ msgstr "Geçerli bir email adresi girin"
 
 msgid "Read"
 msgstr "Oku"
+
+msgid "in"
+msgstr ""
+
+msgid "In"
+msgstr ""
+
+msgid "Page top"
+msgstr ""
+
+msgid "toDay"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
+
+#, fuzzy
+msgid "Blog menu"
+msgstr "Menüye git"
+
+#, fuzzy
+msgid "Etra menu"
+msgstr "Menüye git"
+
+msgid "Blog info"
+msgstr ""

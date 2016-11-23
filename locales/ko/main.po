@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:41+0200\n"
+"POT-Creation-Date: 2016-11-23 10:19+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -448,7 +448,8 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
-msgid "Generated image sizes (in pixels)"
+#, fuzzy
+msgid "Generated image sizes (max dimension in pixels)"
 msgstr "생성된 이미지 크기 (픽셀단위)"
 
 #, fuzzy
@@ -641,36 +642,32 @@ msgstr "블로그 이름"
 msgid "Blog ID"
 msgstr "블로그 아이디"
 
+msgid "Status"
+msgstr "공개상태"
+
 msgid "Descending"
 msgstr "내림순"
 
 msgid "Ascending"
 msgstr "오름순"
 
-msgid "Show filters and display options"
-msgstr ""
-
-msgid "Cancel filters and display options"
-msgstr ""
-
 msgid "List of blogs"
 msgstr "블로그 목록"
-
-msgid "Blog has been successfully deleted."
-msgstr "블로그가 성공적으로 삭제되었습니다."
 
 msgid "Create a new blog"
 msgstr "새 블로그 만들기"
 
-#, fuzzy
-msgid "Filter blogs list"
-msgstr "%s 블로그 설정 수정"
+msgid "Show filters and display options"
+msgstr ""
 
 msgid "Filters"
 msgstr "필터"
 
 msgid "Search:"
 msgstr "찾기 :"
+
+msgid "Status:"
+msgstr "공개상태 :"
 
 #, fuzzy
 msgid "Display options"
@@ -693,47 +690,20 @@ msgstr "페이지당 블로그수"
 msgid "Apply filters and display options"
 msgstr ""
 
-msgid "No blog matches the filter"
-msgstr ""
-
-msgid "No blog"
-msgstr "블로그가 없습니다."
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] ""
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "선택된 사용자들에 대한 작업 :"
 
 #, fuzzy
-msgid "Blogs list"
-msgstr "블로그"
+msgid "Actions"
+msgstr "작업"
+
+msgid "ok"
+msgstr "실행"
 
 #, fuzzy
-msgid "Blog id"
-msgstr "블로그 이름"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL :"
-
-#, fuzzy
-msgid "Entries (all types)"
-msgstr "페이지당 글꼭지수"
-
-msgid "Status"
-msgstr "공개상태"
-
-#, fuzzy, php-format
-msgid "Edit blog settings for %s"
-msgstr "%s 블로그 설정 수정"
-
-#, fuzzy
-msgid "Edit blog settings"
-msgstr "블로그 설정"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "%s 블로그로 전환"
+msgid "Please give your password to confirm blog(s) deletion:"
+msgstr "블로그 삭제를 확정하려면 비밀번호를 입력하세요."
 
 msgid "This category does not exist."
 msgstr "이 분류는 존재하지 않습니다."
@@ -781,8 +751,7 @@ msgstr "글꼭지 %d 개"
 
 #, fuzzy, php-format
 msgid "%d entry"
-msgid_plural "%d entries"
-msgstr[0] "글꼭지 %d 개"
+msgstr "글꼭지 %d 개"
 
 msgid "total:"
 msgstr "합계 :"
@@ -932,9 +901,6 @@ msgstr "글쓴이 :"
 msgid "Web site:"
 msgstr "웹사이트 :"
 
-msgid "Status:"
-msgstr "공개상태 :"
-
 msgid "Comment:"
 msgstr "댓글 :"
 
@@ -953,6 +919,10 @@ msgid "Date"
 msgstr "날짜"
 
 msgid "Entry title"
+msgstr "글꼭지 제목"
+
+#, fuzzy
+msgid "Entry date"
 msgstr "글꼭지 제목"
 
 msgid "Author"
@@ -994,10 +964,6 @@ msgstr "모두 보이기."
 msgid "Delete all spams"
 msgstr "블로그 삭제"
 
-#, fuzzy
-msgid "Filter comments and trackbacks list"
-msgstr "댓글과 글걸이"
-
 msgid "Type:"
 msgstr "종류 :"
 
@@ -1007,13 +973,6 @@ msgstr "페이지당 댓글 수"
 
 msgid "Selected comments action:"
 msgstr "선택된 댓글에 대한 작업 :"
-
-#, fuzzy
-msgid "Actions"
-msgstr "작업"
-
-msgid "ok"
-msgstr "실행"
 
 msgid "Global help"
 msgstr ""
@@ -1293,6 +1252,10 @@ msgstr ""
 msgid "Cannot write \"%s\" directory."
 msgstr "이 폴더에 쓰기를 할 수 없습니다."
 
+#, fuzzy
+msgid "Master email is not valid."
+msgstr "이메일 주소가 바르지 않습니다."
+
 #, php-format
 msgid "File %s does not exist."
 msgstr "%s 파일이 존재하지 않습니다."
@@ -1352,6 +1315,9 @@ msgstr "데이터베이스 비밀번호 :"
 
 msgid "Database Tables Prefix:"
 msgstr "데이터베이스 테이블이름 머리씨 :"
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
 
 #, fuzzy
 msgid "Continue"
@@ -2247,6 +2213,20 @@ msgstr "페이지당 글꼭지수"
 msgid "Selected entries action:"
 msgstr "선택된 글꼭지들에 대한 작업 :"
 
+#, fuzzy
+msgid "Smaller"
+msgstr "작은 크기 :"
+
+msgid "Larger"
+msgstr ""
+
+msgid "Blog description (in blog parameters)"
+msgstr ""
+
+#, fuzzy
+msgid "Category description"
+msgstr "동위 분류"
+
 msgid "Posts"
 msgstr ""
 
@@ -2335,6 +2315,13 @@ msgstr ""
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr ""
 
+msgid "Hide all secondary information and notes"
+msgstr ""
+
+#, fuzzy
+msgid "Font size:"
+msgstr "파일 크기 :"
+
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
@@ -2378,6 +2365,9 @@ msgid "Enable WYSIWYG mode"
 msgstr "위지윅모드 사용가능"
 
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
+msgstr ""
+
+msgid "Use xhtml editor for:"
 msgstr ""
 
 #, fuzzy
@@ -2535,6 +2525,10 @@ msgstr "Dotclear 갱신"
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s 버전이 출시되었습니다."
 
+#, fuzzy, php-format
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "PHP 버전은 %s 입니다 (5.0 또는 이후 버전 요구됨.)"
+
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "Dotclear를 갱신하려면, 다음 단추를 눌러주세요. 현재 설치된 버전의 백업파일이 최상위폴더(루트디렉토리)에 자동으로 생성됩니다."
 
@@ -2680,6 +2674,13 @@ msgstr ""
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "사용자 %s가 권한을 가지게될 블로그들을 선택해주세요."
 
+msgid "No blog"
+msgstr "블로그가 없습니다."
+
+#, fuzzy
+msgid "URL"
+msgstr "URL :"
+
 #, fuzzy
 msgid "select"
 msgstr "선택됨"
@@ -2691,6 +2692,43 @@ msgstr "지금 %s 사용자(들)의 다음 블로그(들)에 대한 권한들을
 #, fuzzy
 msgid "Validate permissions"
 msgstr "권한 설정"
+
+#, fuzzy
+msgid "Back to blogs list"
+msgstr "댓글이 없습니다."
+
+#, fuzzy
+msgid "Blogs actions"
+msgstr "블로그"
+
+#, fuzzy
+msgid "Blog id"
+msgstr "블로그 이름"
+
+#, fuzzy
+msgid "Set online"
+msgstr "공개"
+
+#, fuzzy
+msgid "Set offline"
+msgstr "비공개"
+
+#, fuzzy
+msgid "Set as removed"
+msgstr "폐쇄"
+
+#, fuzzy
+msgid "No blog selected"
+msgstr "선택 안됨"
+
+#, fuzzy
+msgid "Selected blogs have been successfully updated."
+msgstr "댓글이 성공적으로 갱신되었습니다."
+
+#, fuzzy, php-format
+msgid "%d blog has been successfully deleted"
+msgid_plural "%d blogs have been successfully deleted"
+msgstr[0] "블로그가 성공적으로 삭제되었습니다."
 
 #, fuzzy
 msgid "Back to comments list"
@@ -2842,6 +2880,11 @@ msgid "Languages"
 msgstr "언어"
 
 #, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%s 블로그 설정 수정"
+
+#, fuzzy, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] "댓글 %d 개"
@@ -2890,6 +2933,10 @@ msgstr ""
 #, php-format
 msgid "Thank you for using %s."
 msgstr "%s를 이용해주셔서 고맙습니다."
+
+#, fuzzy
+msgid "Page top"
+msgstr "페이지"
 
 #, fuzzy
 msgid "Go to dashboard"
@@ -2971,6 +3018,10 @@ msgstr ""
 
 #, fuzzy, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "선택된 사용자들을 삭제하시려는 게 확실합니까 ?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "선택된 사용자들을 삭제하시려는 게 확실합니까 ?"
 
 #, php-format
@@ -3121,6 +3172,9 @@ msgstr "%d 파일 올릴 준비됨."
 msgid "Queue error:"
 msgstr "준비중 오류 :"
 
+msgid "Cancel filters and display options"
+msgstr ""
+
 msgid "other"
 msgstr ""
 
@@ -3179,11 +3233,25 @@ msgid "Plugin from official distribution"
 msgstr ""
 
 #, fuzzy
-msgid "Configure plugin"
+msgid "Manage plugin"
 msgstr "테마"
 
 msgid "No plugins matched your search."
 msgstr ""
+
+#, fuzzy
+msgid "Configure plugin"
+msgstr "테마"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr ""
+
+msgid "Plugin settings (in user preferences)"
+msgstr ""
+
+#, fuzzy
+msgid "Plugin settings"
+msgstr "블로그 설정"
 
 msgid "Activate"
 msgstr "작동켜기"
@@ -3502,6 +3570,34 @@ msgstr "글걸이"
 #, fuzzy
 msgid "Type and author"
 msgstr "글쓴이 변경"
+
+msgid "No blog matches the filter"
+msgstr ""
+
+#, fuzzy
+msgid "Entries (all types)"
+msgstr "페이지당 글꼭지수"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] ""
+
+#, fuzzy
+msgid "Blogs list"
+msgstr "블로그"
+
+#, fuzzy, php-format
+msgid "Edit blog settings for %s"
+msgstr "%s 블로그 설정 수정"
+
+#, fuzzy
+msgid "Edit blog settings"
+msgstr "블로그 설정"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "%s 블로그로 전환"
 
 msgid "No user matches the filter"
 msgstr ""
@@ -3880,6 +3976,9 @@ msgstr "%s에 글걸이는 이미 이루어진 상태입니다."
 msgid "Unable to ping URL"
 msgstr "글걸기를 할 수 없습니다.(URL 오류 ?)"
 
+msgid "Bad server response code"
+msgstr ""
+
 #, php-format
 msgid "%s is not a ping URL"
 msgstr "%s 는 글걸기용 URL이 아닙니다."
@@ -3887,6 +3986,22 @@ msgstr "%s 는 글걸기용 URL이 아닙니다."
 #, php-format
 msgid "%s, ping error:"
 msgstr "%s, 글걸기 오류 :"
+
+msgid "Don't repeat yourself, please."
+msgstr ""
+
+msgid "Where's your title?"
+msgstr ""
+
+msgid "Sorry, an internal problem has occured."
+msgstr ""
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr ""
+
+#, fuzzy
+msgid "A website mention this entry."
+msgstr "글꼭지에 파일 첨부하기"
 
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
@@ -3900,19 +4015,16 @@ msgstr ""
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
 msgstr ""
 
-msgid "Don't repeat yourself, please."
-msgstr ""
-
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
 msgstr ""
 
-msgid "Where's your title?"
+msgid "No valid source URL provided? Try again!"
 msgstr ""
 
-msgid "Sorry, an internal problem has occured."
+msgid "No valid target URL provided? Try again!"
 msgstr ""
 
-msgid "Thanks, mate. It was a pleasure."
+msgid "LOL!"
 msgstr ""
 
 msgid "Digests file not found."
@@ -3961,15 +4073,6 @@ msgstr "%s는 바르지않은 설정 ID입니다."
 #, fuzzy
 msgid "No workspace specified"
 msgstr "정해진 영역이름이 없습니다"
-
-msgid "No valid source URL provided? Try again!"
-msgstr ""
-
-msgid "No valid target URL provided? Try again!"
-msgstr ""
-
-msgid "LOL!"
-msgstr ""
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "자동 갱신 중 오류가 발생했습니다 :"
@@ -4132,6 +4235,14 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Filter blogs list"
+#~ msgstr "%s 블로그 설정 수정"
+
+#, fuzzy
+#~ msgid "Filter comments and trackbacks list"
+#~ msgstr "댓글과 글걸이"
 
 #~ msgid "SQLite Database Schema cannot be upgraded."
 #~ msgstr "SQLite 데이터베이스 스키마를 갱신할 수 없습니다."
@@ -4432,9 +4543,6 @@ msgstr ""
 
 #~ msgid "No attachment."
 #~ msgstr "첨부파일 없음"
-
-#~ msgid "Add files to this entry"
-#~ msgstr "글꼭지에 파일 첨부하기"
 
 #~ msgid "User:"
 #~ msgstr "사용자 :"

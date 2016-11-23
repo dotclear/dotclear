@@ -7,8 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:41+0200\n"
+"POT-Creation-Date: 2016-11-23 10:19+0100\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +18,6 @@ msgstr ""
 "X-Launchpad-Export-Date: 2012-05-27 15:39+0000\n"
 "X-Generator: Poedit 1.8.8\n"
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
-"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 
 msgid "Dotclear has been upgraded."
 msgstr ""
@@ -439,7 +439,7 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
-msgid "Generated image sizes (in pixels)"
+msgid "Generated image sizes (max dimension in pixels)"
 msgstr ""
 
 msgid "Thumbnail"
@@ -614,34 +614,31 @@ msgstr ""
 msgid "Blog ID"
 msgstr ""
 
+msgid "Status"
+msgstr ""
+
 msgid "Descending"
 msgstr ""
 
 msgid "Ascending"
 msgstr ""
 
-msgid "Show filters and display options"
-msgstr ""
-
-msgid "Cancel filters and display options"
-msgstr ""
-
 msgid "List of blogs"
-msgstr ""
-
-msgid "Blog has been successfully deleted."
 msgstr ""
 
 msgid "Create a new blog"
 msgstr ""
 
-msgid "Filter blogs list"
+msgid "Show filters and display options"
 msgstr ""
 
 msgid "Filters"
 msgstr ""
 
 msgid "Search:"
+msgstr ""
+
+msgid "Status:"
 msgstr ""
 
 msgid "Display options"
@@ -662,43 +659,16 @@ msgstr ""
 msgid "Apply filters and display options"
 msgstr ""
 
-msgid "No blog matches the filter"
+msgid "Selected blogs action:"
 msgstr ""
 
-msgid "No blog"
+msgid "Actions"
 msgstr ""
 
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-msgid "Blogs list"
+msgid "ok"
 msgstr ""
 
-msgid "Blog id"
-msgstr ""
-
-msgid "URL"
-msgstr ""
-
-msgid "Entries (all types)"
-msgstr ""
-
-msgid "Status"
-msgstr ""
-
-#, php-format
-msgid "Edit blog settings for %s"
-msgstr ""
-
-msgid "Edit blog settings"
-msgstr ""
-
-#, php-format
-msgid "Switch to blog %s"
+msgid "Please give your password to confirm blog(s) deletion:"
 msgstr ""
 
 msgid "This category does not exist."
@@ -745,10 +715,7 @@ msgstr ""
 
 #, php-format
 msgid "%d entry"
-msgid_plural "%d entries"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr ""
 
 msgid "total:"
 msgstr ""
@@ -882,9 +849,6 @@ msgstr ""
 msgid "Web site:"
 msgstr ""
 
-msgid "Status:"
-msgstr ""
-
 msgid "Comment:"
 msgstr ""
 
@@ -901,6 +865,9 @@ msgid "Date"
 msgstr ""
 
 msgid "Entry title"
+msgstr ""
+
+msgid "Entry date"
 msgstr ""
 
 msgid "Author"
@@ -937,9 +904,6 @@ msgstr ""
 msgid "Delete all spams"
 msgstr ""
 
-msgid "Filter comments and trackbacks list"
-msgstr ""
-
 msgid "Type:"
 msgstr ""
 
@@ -947,12 +911,6 @@ msgid "comments per page"
 msgstr ""
 
 msgid "Selected comments action:"
-msgstr ""
-
-msgid "Actions"
-msgstr ""
-
-msgid "ok"
 msgstr ""
 
 msgid "Global help"
@@ -1225,6 +1183,9 @@ msgstr ""
 msgid "Cannot write \"%s\" directory."
 msgstr ""
 
+msgid "Master email is not valid."
+msgstr ""
+
 #, php-format
 msgid "File %s does not exist."
 msgstr ""
@@ -1282,6 +1243,9 @@ msgid "Database Password:"
 msgstr ""
 
 msgid "Database Tables Prefix:"
+msgstr ""
+
+msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
 
 msgid "Continue"
@@ -2110,6 +2074,18 @@ msgstr ""
 msgid "Selected entries action:"
 msgstr ""
 
+msgid "Smaller"
+msgstr ""
+
+msgid "Larger"
+msgstr ""
+
+msgid "Blog description (in blog parameters)"
+msgstr ""
+
+msgid "Category description"
+msgstr ""
+
 msgid "Posts"
 msgstr ""
 
@@ -2182,6 +2158,12 @@ msgstr ""
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr ""
 
+msgid "Hide all secondary information and notes"
+msgstr ""
+
+msgid "Font size:"
+msgstr ""
+
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
@@ -2223,6 +2205,9 @@ msgid "Enable WYSIWYG mode"
 msgstr ""
 
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
+msgstr ""
+
+msgid "Use xhtml editor for:"
 msgstr ""
 
 msgid "Other options"
@@ -2363,6 +2348,10 @@ msgstr ""
 msgid "Dotclear %s is available."
 msgstr ""
 
+#, php-format
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr ""
+
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr ""
 
@@ -2496,6 +2485,12 @@ msgstr ""
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr ""
 
+msgid "No blog"
+msgstr ""
+
+msgid "URL"
+msgstr ""
+
 msgid "select"
 msgstr ""
 
@@ -2505,6 +2500,37 @@ msgstr ""
 
 msgid "Validate permissions"
 msgstr ""
+
+msgid "Back to blogs list"
+msgstr ""
+
+msgid "Blogs actions"
+msgstr ""
+
+msgid "Blog id"
+msgstr ""
+
+msgid "Set online"
+msgstr ""
+
+msgid "Set offline"
+msgstr ""
+
+msgid "Set as removed"
+msgstr ""
+
+msgid "No blog selected"
+msgstr ""
+
+msgid "Selected blogs have been successfully updated."
+msgstr ""
+
+#, php-format
+msgid "%d blog has been successfully deleted"
+msgid_plural "%d blogs have been successfully deleted"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "Back to comments list"
 msgstr ""
@@ -2649,6 +2675,13 @@ msgid "Languages"
 msgstr ""
 
 #, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] ""
@@ -2697,6 +2730,9 @@ msgstr ""
 
 #, php-format
 msgid "Thank you for using %s."
+msgstr ""
+
+msgid "Page top"
 msgstr ""
 
 msgid "Go to dashboard"
@@ -2775,6 +2811,10 @@ msgstr ""
 
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr ""
 
 #, php-format
@@ -2917,6 +2957,9 @@ msgstr ""
 msgid "Queue error:"
 msgstr ""
 
+msgid "Cancel filters and display options"
+msgstr ""
+
 msgid "other"
 msgstr ""
 
@@ -2974,10 +3017,22 @@ msgstr ""
 msgid "Plugin from official distribution"
 msgstr ""
 
-msgid "Configure plugin"
+msgid "Manage plugin"
 msgstr ""
 
 msgid "No plugins matched your search."
+msgstr ""
+
+msgid "Configure plugin"
+msgstr ""
+
+msgid "Plugin settings (in blog parameters)"
+msgstr ""
+
+msgid "Plugin settings (in user preferences)"
+msgstr ""
+
+msgid "Plugin settings"
 msgstr ""
 
 msgid "Activate"
@@ -3288,6 +3343,33 @@ msgid "trackback"
 msgstr ""
 
 msgid "Type and author"
+msgstr ""
+
+msgid "No blog matches the filter"
+msgstr ""
+
+msgid "Entries (all types)"
+msgstr ""
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "Blogs list"
+msgstr ""
+
+#, php-format
+msgid "Edit blog settings for %s"
+msgstr ""
+
+msgid "Edit blog settings"
+msgstr ""
+
+#, php-format
+msgid "Switch to blog %s"
 msgstr ""
 
 msgid "No user matches the filter"
@@ -3643,12 +3725,30 @@ msgstr ""
 msgid "Unable to ping URL"
 msgstr ""
 
+msgid "Bad server response code"
+msgstr ""
+
 #, php-format
 msgid "%s is not a ping URL"
 msgstr ""
 
 #, php-format
 msgid "%s, ping error:"
+msgstr ""
+
+msgid "Don't repeat yourself, please."
+msgstr ""
+
+msgid "Where's your title?"
+msgstr ""
+
+msgid "Sorry, an internal problem has occured."
+msgstr ""
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr ""
+
+msgid "A website mention this entry."
 msgstr ""
 
 msgid "Any chance you ping one of my contents? No? Really?"
@@ -3663,19 +3763,16 @@ msgstr ""
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
 msgstr ""
 
-msgid "Don't repeat yourself, please."
-msgstr ""
-
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
 msgstr ""
 
-msgid "Where's your title?"
+msgid "No valid source URL provided? Try again!"
 msgstr ""
 
-msgid "Sorry, an internal problem has occured."
+msgid "No valid target URL provided? Try again!"
 msgstr ""
 
-msgid "Thanks, mate. It was a pleasure."
+msgid "LOL!"
 msgstr ""
 
 msgid "Digests file not found."
@@ -3720,15 +3817,6 @@ msgid "%s is not a valid pref id"
 msgstr ""
 
 msgid "No workspace specified"
-msgstr ""
-
-msgid "No valid source URL provided? Try again!"
-msgstr ""
-
-msgid "No valid target URL provided? Try again!"
-msgstr ""
-
-msgid "LOL!"
 msgstr ""
 
 msgid "Something went wrong with auto upgrade:"

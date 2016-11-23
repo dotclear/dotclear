@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC1-1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:41+0200\n"
+"POT-Creation-Date: 2016-11-23 10:19+0100\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
@@ -451,7 +451,7 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
-msgid "Generated image sizes (in pixels)"
+msgid "Generated image sizes (max dimension in pixels)"
 msgstr ""
 
 #, fuzzy
@@ -645,36 +645,32 @@ msgstr "Nome do blog"
 msgid "Blog ID"
 msgstr "ID do blog"
 
+msgid "Status"
+msgstr "Status"
+
 msgid "Descending"
 msgstr "Descendente"
 
 msgid "Ascending"
 msgstr "Ascendente"
 
-msgid "Show filters and display options"
-msgstr ""
-
-msgid "Cancel filters and display options"
-msgstr ""
-
 msgid "List of blogs"
 msgstr "Lista dos blogs"
-
-msgid "Blog has been successfully deleted."
-msgstr "Blog suprimido com sucesso."
 
 msgid "Create a new blog"
 msgstr "Criar um novo blog"
 
-#, fuzzy
-msgid "Filter blogs list"
-msgstr "Modificar o blog %s"
+msgid "Show filters and display options"
+msgstr ""
 
 msgid "Filters"
 msgstr "Filtros"
 
 msgid "Search:"
 msgstr "Pesquisar:"
+
+msgid "Status:"
+msgstr "Status:"
 
 #, fuzzy
 msgid "Display options"
@@ -697,48 +693,20 @@ msgstr "Blogs por página"
 msgid "Apply filters and display options"
 msgstr ""
 
-msgid "No blog matches the filter"
-msgstr ""
-
-msgid "No blog"
-msgstr "Nenhum blog"
-
-#, php-format
-msgid "%d blog matches the filter."
-msgid_plural "%d blogs match the filter."
-msgstr[0] ""
-msgstr[1] ""
+#, fuzzy
+msgid "Selected blogs action:"
+msgstr "Ação sobre os usuários selecionados:"
 
 #, fuzzy
-msgid "Blogs list"
-msgstr "Blogs"
+msgid "Actions"
+msgstr "Descrição:"
+
+msgid "ok"
+msgstr "ok"
 
 #, fuzzy
-msgid "Blog id"
-msgstr "Nome do blog"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL:"
-
-#, fuzzy
-msgid "Entries (all types)"
-msgstr "Posts por página"
-
-msgid "Status"
-msgstr "Status"
-
-#, fuzzy, php-format
-msgid "Edit blog settings for %s"
-msgstr "Modificar o blog %s"
-
-#, fuzzy
-msgid "Edit blog settings"
-msgstr "Parâmetros do blog"
-
-#, php-format
-msgid "Switch to blog %s"
-msgstr "Mudar para o blog %s"
+msgid "Please give your password to confirm blog(s) deletion:"
+msgstr "Por favor digite a sua senha para confirmar a supressão do blog."
 
 #, fuzzy
 msgid "This category does not exist."
@@ -790,9 +758,7 @@ msgstr "%d posts"
 
 #, fuzzy, php-format
 msgid "%d entry"
-msgid_plural "%d entries"
-msgstr[0] "%d post"
-msgstr[1] "%d post"
+msgstr "%d post"
 
 msgid "total:"
 msgstr ""
@@ -945,9 +911,6 @@ msgstr "Autor:"
 msgid "Web site:"
 msgstr "Saite web:"
 
-msgid "Status:"
-msgstr "Status:"
-
 msgid "Comment:"
 msgstr "Comentário:"
 
@@ -966,6 +929,10 @@ msgid "Date"
 msgstr "Data"
 
 msgid "Entry title"
+msgstr "Título do post"
+
+#, fuzzy
+msgid "Entry date"
 msgstr "Título do post"
 
 msgid "Author"
@@ -1007,10 +974,6 @@ msgstr "Mostrá-os."
 msgid "Delete all spams"
 msgstr "Suprimir um blog"
 
-#, fuzzy
-msgid "Filter comments and trackbacks list"
-msgstr "Moderar os trackbacks"
-
 msgid "Type:"
 msgstr "Tipo:"
 
@@ -1020,13 +983,6 @@ msgstr "Comentários por página"
 
 msgid "Selected comments action:"
 msgstr "Ação sobre comentários selecionados:"
-
-#, fuzzy
-msgid "Actions"
-msgstr "Descrição:"
-
-msgid "ok"
-msgstr "ok"
 
 msgid "Global help"
 msgstr ""
@@ -1313,6 +1269,10 @@ msgstr ""
 msgid "Cannot write \"%s\" directory."
 msgstr "Impossível escrever neste diretório."
 
+#, fuzzy
+msgid "Master email is not valid."
+msgstr "Endereço de email inválido."
+
 #, php-format
 msgid "File %s does not exist."
 msgstr "O arquivo %s não existe."
@@ -1372,6 +1332,9 @@ msgstr "Senha do banco de dados:"
 
 msgid "Database Tables Prefix:"
 msgstr "Prefixo das tabelas do banco de dados:"
+
+msgid "Master Email: (used as sender for password recovery)"
+msgstr ""
 
 #, fuzzy
 msgid "Continue"
@@ -2301,6 +2264,20 @@ msgstr "Posts por página"
 msgid "Selected entries action:"
 msgstr "Ação sobre os posts selecionados:"
 
+#, fuzzy
+msgid "Smaller"
+msgstr "Email:"
+
+msgid "Larger"
+msgstr ""
+
+msgid "Blog description (in blog parameters)"
+msgstr ""
+
+#, fuzzy
+msgid "Category description"
+msgstr "Categoria"
+
 msgid "Posts"
 msgstr ""
 
@@ -2388,6 +2365,13 @@ msgstr ""
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr ""
 
+msgid "Hide all secondary information and notes"
+msgstr ""
+
+#, fuzzy
+msgid "Font size:"
+msgstr "Tamanho do arquivo:"
+
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
@@ -2431,6 +2415,9 @@ msgid "Enable WYSIWYG mode"
 msgstr "Ativar o editor visual"
 
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
+msgstr ""
+
+msgid "Use xhtml editor for:"
 msgstr ""
 
 #, fuzzy
@@ -2588,6 +2575,10 @@ msgstr ""
 msgid "Dotclear %s is available."
 msgstr "DotClear já está instalado."
 
+#, fuzzy, php-format
+msgid "PHP version is %s (%s or earlier needed)."
+msgstr "A versão de PHP é %s (5.0 ou mais recente necessário)."
+
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr ""
 
@@ -2737,6 +2728,13 @@ msgstr ""
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Escolha um ou vários blogs pelos quais os usuários seguintes vão ter permissões: %s."
 
+msgid "No blog"
+msgstr "Nenhum blog"
+
+#, fuzzy
+msgid "URL"
+msgstr "URL:"
+
 #, fuzzy
 msgid "select"
 msgstr "selecionado"
@@ -2748,6 +2746,44 @@ msgstr "Você vai mudar as permissões dos usuários %s para os blogs seguintes.
 #, fuzzy
 msgid "Validate permissions"
 msgstr "definir as permissões"
+
+#, fuzzy
+msgid "Back to blogs list"
+msgstr "Nenhum comentário"
+
+#, fuzzy
+msgid "Blogs actions"
+msgstr "Blogs"
+
+#, fuzzy
+msgid "Blog id"
+msgstr "Nome do blog"
+
+#, fuzzy
+msgid "Set online"
+msgstr "online"
+
+#, fuzzy
+msgid "Set offline"
+msgstr "offline"
+
+#, fuzzy
+msgid "Set as removed"
+msgstr "suprimido"
+
+#, fuzzy
+msgid "No blog selected"
+msgstr "não selecionado"
+
+#, fuzzy
+msgid "Selected blogs have been successfully updated."
+msgstr "Post atualizado com sucesso."
+
+#, fuzzy, php-format
+msgid "%d blog has been successfully deleted"
+msgid_plural "%d blogs have been successfully deleted"
+msgstr[0] "Blog suprimido com sucesso."
+msgstr[1] "Blog suprimido com sucesso."
 
 #, fuzzy
 msgid "Back to comments list"
@@ -2907,6 +2943,12 @@ msgid "Languages"
 msgstr "Idioma?"
 
 #, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "Modificar o blog %s"
+msgstr[1] "Modificar o blog %s"
+
+#, fuzzy, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] "%d comentário"
@@ -2956,6 +2998,10 @@ msgstr ""
 #, php-format
 msgid "Thank you for using %s."
 msgstr ""
+
+#, fuzzy
+msgid "Page top"
+msgstr "Página(s)"
 
 #, fuzzy
 msgid "Go to dashboard"
@@ -3037,6 +3083,10 @@ msgstr ""
 
 #, fuzzy, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "Tem certeza de que você deseja suprimir os usuários selecionados?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Tem certeza de que você deseja suprimir os usuários selecionados?"
 
 #, fuzzy, php-format
@@ -3191,6 +3241,9 @@ msgstr ""
 msgid "Queue error:"
 msgstr ""
 
+msgid "Cancel filters and display options"
+msgstr ""
+
 msgid "other"
 msgstr ""
 
@@ -3251,11 +3304,25 @@ msgid "Plugin from official distribution"
 msgstr ""
 
 #, fuzzy
-msgid "Configure plugin"
+msgid "Manage plugin"
 msgstr "Tema atual"
 
 msgid "No plugins matched your search."
 msgstr ""
+
+#, fuzzy
+msgid "Configure plugin"
+msgstr "Tema atual"
+
+msgid "Plugin settings (in blog parameters)"
+msgstr ""
+
+msgid "Plugin settings (in user preferences)"
+msgstr ""
+
+#, fuzzy
+msgid "Plugin settings"
+msgstr "Parâmetros do blog"
 
 #, fuzzy
 msgid "Activate"
@@ -3591,6 +3658,35 @@ msgstr "trackback"
 #, fuzzy
 msgid "Type and author"
 msgstr "mudar o autor"
+
+msgid "No blog matches the filter"
+msgstr ""
+
+#, fuzzy
+msgid "Entries (all types)"
+msgstr "Posts por página"
+
+#, php-format
+msgid "%d blog matches the filter."
+msgid_plural "%d blogs match the filter."
+msgstr[0] ""
+msgstr[1] ""
+
+#, fuzzy
+msgid "Blogs list"
+msgstr "Blogs"
+
+#, fuzzy, php-format
+msgid "Edit blog settings for %s"
+msgstr "Modificar o blog %s"
+
+#, fuzzy
+msgid "Edit blog settings"
+msgstr "Parâmetros do blog"
+
+#, php-format
+msgid "Switch to blog %s"
+msgstr "Mudar para o blog %s"
 
 msgid "No user matches the filter"
 msgstr ""
@@ -3971,6 +4067,9 @@ msgstr "Um trackback para %s foi realizado"
 msgid "Unable to ping URL"
 msgstr "Impossível realizar o trackback"
 
+msgid "Bad server response code"
+msgstr ""
+
 #, php-format
 msgid "%s is not a ping URL"
 msgstr "%s não é uma URL de trackback"
@@ -3978,6 +4077,22 @@ msgstr "%s não é uma URL de trackback"
 #, php-format
 msgid "%s, ping error:"
 msgstr "%s, erro de trackback:"
+
+msgid "Don't repeat yourself, please."
+msgstr ""
+
+msgid "Where's your title?"
+msgstr ""
+
+msgid "Sorry, an internal problem has occured."
+msgstr ""
+
+msgid "Thanks, mate. It was a pleasure."
+msgstr ""
+
+#, fuzzy
+msgid "A website mention this entry."
+msgstr "Anexar arquivos ao post"
 
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
@@ -3991,19 +4106,16 @@ msgstr ""
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
 msgstr ""
 
-msgid "Don't repeat yourself, please."
-msgstr ""
-
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
 msgstr ""
 
-msgid "Where's your title?"
+msgid "No valid source URL provided? Try again!"
 msgstr ""
 
-msgid "Sorry, an internal problem has occured."
+msgid "No valid target URL provided? Try again!"
 msgstr ""
 
-msgid "Thanks, mate. It was a pleasure."
+msgid "LOL!"
 msgstr ""
 
 #, fuzzy
@@ -4060,15 +4172,6 @@ msgstr "%s não é um ID de parâmetro válido"
 #, fuzzy
 msgid "No workspace specified"
 msgstr "Nenhum espaço de nomes especificado"
-
-msgid "No valid source URL provided? Try again!"
-msgstr ""
-
-msgid "No valid target URL provided? Try again!"
-msgstr ""
-
-msgid "LOL!"
-msgstr ""
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "Um erro aconteceu durante a atualização automática:"
@@ -4231,6 +4334,14 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Filter blogs list"
+#~ msgstr "Modificar o blog %s"
+
+#, fuzzy
+#~ msgid "Filter comments and trackbacks list"
+#~ msgstr "Moderar os trackbacks"
 
 #~ msgid "SQLite Database Schema cannot be upgraded."
 #~ msgstr "O esquema de banco de dados SQLite não pode ser atualizado."
@@ -4516,9 +4627,6 @@ msgstr ""
 
 #~ msgid "No attachment."
 #~ msgstr "Nenhum anexo."
-
-#~ msgid "Add files to this entry"
-#~ msgstr "Anexar arquivos ao post"
 
 #~ msgid "User:"
 #~ msgstr "Usuário:"

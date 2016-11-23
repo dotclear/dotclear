@@ -240,11 +240,37 @@ msgstr "Antakaa kelvollinen sähköpostiosoite."
 msgid "Read"
 msgstr "Lue"
 
-#~ msgid "Page top"
-#~ msgstr "Sivun ylälaitaan"
+msgid "in"
+msgstr "dans"
 
-#~ msgid "in"
-#~ msgstr "dans"
+msgid "In"
+msgstr "Dans"
 
-#~ msgid "In"
-#~ msgstr "Dans"
+msgid "Page top"
+msgstr "Sivun ylälaitaan"
+
+msgid "toDay"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
+
+#, fuzzy
+msgid "Blog menu"
+msgstr "Mene valikkoon"
+
+#, fuzzy
+msgid "Etra menu"
+msgstr "Mene valikkoon"
+
+msgid "Blog info"
+msgstr ""

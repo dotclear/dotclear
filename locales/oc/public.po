@@ -242,3 +242,36 @@ msgstr ""
 
 msgid "Read"
 msgstr "Legir"
+
+msgid "in"
+msgstr ""
+
+msgid "In"
+msgstr ""
+
+msgid "Page top"
+msgstr ""
+
+msgid "toDay"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
+
+msgid "Blog menu"
+msgstr ""
+
+msgid "Etra menu"
+msgstr ""
+
+msgid "Blog info"
+msgstr ""

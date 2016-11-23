@@ -241,3 +241,38 @@ msgstr "Введите правильный email адрес."
 
 msgid "Read"
 msgstr "Читать"
+
+msgid "in"
+msgstr ""
+
+msgid "In"
+msgstr ""
+
+msgid "Page top"
+msgstr ""
+
+msgid "toDay"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
+
+#, fuzzy
+msgid "Blog menu"
+msgstr "К меню"
+
+#, fuzzy
+msgid "Etra menu"
+msgstr "К меню"
+
+msgid "Blog info"
+msgstr ""

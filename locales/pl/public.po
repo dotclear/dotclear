@@ -243,6 +243,41 @@ msgstr "Musisz podać poprawny adres e-mail."
 msgid "Read"
 msgstr "Czytaj"
 
+msgid "in"
+msgstr ""
+
+msgid "In"
+msgstr ""
+
+msgid "Page top"
+msgstr ""
+
+msgid "toDay"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
+
+#, fuzzy
+msgid "Blog menu"
+msgstr "Do menu"
+
+#, fuzzy
+msgid "Etra menu"
+msgstr "Do menu"
+
+msgid "Blog info"
+msgstr ""
+
 #~ msgid "Keywords"
 #~ msgstr "Słowa kluczowe"
 

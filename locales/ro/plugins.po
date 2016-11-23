@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 15:41+0200\n"
+"POT-Creation-Date: 2016-11-23 10:19+0100\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
@@ -36,9 +36,6 @@ msgid "Manage your blogroll"
 msgstr "administrare blogroll"
 
 msgid "Configure your Blowup Theme"
-msgstr ""
-
-msgid "Breadcrumb for Dotclear"
 msgstr ""
 
 msgid "Legacy modules for dotclear"
@@ -80,6 +77,9 @@ msgstr ""
 msgid "dotclear CKEditor integration"
 msgstr ""
 
+msgid "Breadcrumb for Dotclear"
+msgstr ""
+
 msgid "Search engine form"
 msgstr ""
 
@@ -112,9 +112,6 @@ msgstr ""
 msgid "List of last comments published"
 msgstr ""
 
-msgid "Tags cloud"
-msgstr ""
-
 msgid "List of published pages"
 msgstr ""
 
@@ -125,6 +122,9 @@ msgstr "Blogroll"
 #, fuzzy
 msgid "List of simple menu items"
 msgstr "Șterge legăturile selectate"
+
+msgid "Tags cloud"
+msgstr ""
 
 msgid "Configuration successfully updated"
 msgstr "Configurație actualizată cu succes"
@@ -684,9 +684,6 @@ msgstr "Culoarea legăturilor vizitate:"
 msgid "Focus links color:"
 msgstr ""
 
-msgid "Page top"
-msgstr "Începutul paginii"
-
 msgid "Prelude color:"
 msgstr ""
 
@@ -882,12 +879,18 @@ msgstr "Configurația șablonului a fost actualizată."
 msgid "Media chooser"
 msgstr ""
 
+msgid "m"
+msgstr ""
+
 msgid "Link to an entry"
 msgstr ""
 
 #, fuzzy
 msgid "Link"
 msgstr "Legături"
+
+msgid "l"
+msgstr ""
 
 msgid "External image"
 msgstr ""
@@ -1335,6 +1338,18 @@ msgid "Failed to count comments and trackbacks."
 msgstr ""
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
+msgstr ""
+
+msgid "Delete the Content-Security-Policy report file"
+msgstr ""
+
+msgid "Content-Security-Policy report file has been deleted."
+msgstr ""
+
+msgid "Failed to delete the Content-Security-Policy report file."
+msgstr ""
+
+msgid "Remove the Content-Security-Policy report file."
 msgstr ""
 
 msgid "Search engine index"
@@ -2027,6 +2042,9 @@ msgstr "setări globale"
 msgid "Presentation widgets"
 msgstr ""
 
+msgid "Widget's textareas"
+msgstr ""
+
 msgid "Search engine"
 msgstr ""
 
@@ -2201,6 +2219,9 @@ msgstr ""
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
+#~ msgid "Page top"
+#~ msgstr "Începutul paginii"
 
 #~ msgid "URL"
 #~ msgstr "URL"

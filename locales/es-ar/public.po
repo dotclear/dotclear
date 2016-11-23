@@ -242,3 +242,38 @@ msgstr "Debes indicar una dirección de e-mail válida."
 
 msgid "Read"
 msgstr "Leer"
+
+msgid "in"
+msgstr ""
+
+msgid "In"
+msgstr ""
+
+msgid "Page top"
+msgstr ""
+
+msgid "toDay"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
+
+#, fuzzy
+msgid "Blog menu"
+msgstr "Ir al menú"
+
+#, fuzzy
+msgid "Etra menu"
+msgstr "Ir al menú"
+
+msgid "Blog info"
+msgstr ""
