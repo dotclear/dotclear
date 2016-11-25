@@ -630,7 +630,8 @@ class dcUpgrade
 				'admin/js/ie7/ie7-hashchange.js',
 				'admin/js/ie7/ie7-recalc.js',
 				'admin/js/ie7/ie7-squish.js',
-				'admin/style/iesucks.css'
+				'admin/style/iesucks.css',
+				'theme/ductile/ie.css'
 			);
 			$remfolders = array (
 				'admin/style/modal',
