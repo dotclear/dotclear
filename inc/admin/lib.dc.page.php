@@ -158,7 +158,6 @@ class dcPage
 		'  <title>'.$title.' - '.html::escapeHTML($core->blog->name).' - '.html::escapeHTML(DC_VENDOR_NAME).' - '.DC_VERSION.'</title>'."\n".
 
 
-		self::jsLoadIE7().
 		self::cssLoad('style/default.css');
 		if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
 			echo self::cssLoad('style/default-rtl.css');
@@ -412,7 +411,6 @@ class dcPage
 		'  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />'."\n".
 		'  <meta name="GOOGLEBOT" content="NOSNIPPET" />'."\n".
 
-		self::jsLoadIE7().
 		self::cssLoad('style/default.css');
 		if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
 			echo self::cssLoad('style/default-rtl.css');
@@ -845,13 +843,12 @@ class dcPage
 		"</script>\n";
 	}
 
+	/**
+	@deprecated since version 2.11
+	*/
 	public static function jsLoadIE7()
 	{
-		return
-		'<!--[if lt IE 9]>'."\n".
-		self::jsLoad('js/ie7/IE9.js').
-		self::cssLoad('style/iesucks.css').
-		'<![endif]-->'."\n";
+		return '';
 	}
 
 	public static function jsConfirmClose()
@@ -890,15 +887,7 @@ class dcPage
 		'$.pageTabs('.$default.');'."\n".
 		'});'.
 		"\n//]]>\n".
-		"</script>\n".
-		'<!--[if lt IE 8]>'."\n".
-		self::jsLoad('js/ie7/ie7-hashchange.js').
-		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
-		'$(window).hashchange();'.
-		"\n//]]>\n".
-		"</script>\n".
-		'<![endif]-->'."\n";
+		"</script>\n";
 	}
 
 	public static function jsModal()

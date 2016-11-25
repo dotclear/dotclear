@@ -622,11 +622,20 @@ class dcUpgrade
 				'admin/js/tool-man/css.js',
 				'admin/js/tool-man/drag.js',
 				'admin/js/tool-man/dragsort.js',
-				'admin/js/tool-man/events.js'
+				'admin/js/tool-man/events.js',
+				'admin/js/ie7/IE7.js',
+				'admin/js/ie7/IE8.js',
+				'admin/js/ie7/IE9.js',
+				'admin/js/ie7/blank.gif',
+				'admin/js/ie7/ie7-hashchange.js',
+				'admin/js/ie7/ie7-recalc.js',
+				'admin/js/ie7/ie7-squish.js',
+				'admin/style/iesucks.css'
 			);
 			$remfolders = array (
 				'admin/style/modal',
 				'admin/js/tool-man',
+				'admin/js/ie7'
 			);
 
 			foreach ($remfiles as $f) {
