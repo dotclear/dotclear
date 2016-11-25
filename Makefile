@@ -55,7 +55,6 @@ config: clean config-stamp
 	## Pack javascript files
 	find $(DC)/admin/js/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/admin/js/codemirror -name '*.js' -exec ./build-tools/min-js.php \{\} \;
-	find $(DC)/admin/js/ie7/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/admin/js/jquery/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/admin/js/jsUpload/*.js -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/plugins -name '*.js' -exec ./build-tools/min-js.php \{\} \;

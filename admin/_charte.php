@@ -23,10 +23,6 @@ dcPage::check('usage,contentadmin');
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Bibliothèque de styles - Dotclear - 2.7</title>
 	<link rel="icon" type="image/png" href="images/favicon96-login.png" />
-	<!--[if lt IE 9]>
-	<script type="text/javascript" src="js/ie7/IE9.js"></script>
-	<link rel="stylesheet" type="text/css" href="style/iesucks.css" />
-	<![endif]-->
 	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
 	<?php
 		$core->auth->user_prefs->addWorkspace('interface');
