@@ -831,7 +831,8 @@ class dcBlog
 			'SELECT P.post_id, P.blog_id, P.user_id, P.cat_id, post_dt, '.
 			'post_tz, post_creadt, post_upddt, post_format, post_password, '.
 			'post_url, post_lang, post_title, '.$content_req.
-			'post_type, post_meta, post_status, post_selected, post_position, '.
+			'post_type, post_meta, '.
+			'post_status, post_firstpub, post_selected, post_position, '.
 			'post_open_comment, post_open_tb, nb_comment, nb_trackback, '.
 			'U.user_name, U.user_firstname, U.user_displayname, U.user_email, '.
 			'U.user_url, '.
@@ -927,6 +928,10 @@ class dcBlog
 		/* Other filters */
 		if (isset($params['post_status'])) {
 			$strReq .= 'AND post_status = '.(integer) $params['post_status'].' ';
+		}
+
+		if (isset($params['post_firstpub'])) {
+			$strReq .= 'AND post_firstpub = '.(integer) $params['post_firstpub'].' ';
 		}
 
 		if (isset($params['post_selected'])) {
@@ -1318,6 +1323,8 @@ class dcBlog
 
 		$this->triggerBlog();
 
+		$this->firstPublicationEntries($cur->post_id);
+
 		return $cur->post_id;
 	}
 
@@ -1378,6 +1385,8 @@ class dcBlog
 		$this->core->callBehavior('coreAfterPostUpdate',$this,$cur);
 
 		$this->triggerBlog();
+
+		$this->firstPublicationEntries($id);
 	}
 
 	/**
@@ -1422,6 +1431,8 @@ class dcBlog
 
 		$cur->update($strReq);
 		$this->triggerBlog();
+
+		$this->firstPublicationEntries($posts_ids);
 	}
 
 	/**
@@ -1627,8 +1638,42 @@ class dcBlog
 
 			# --BEHAVIOR-- coreAfterScheduledEntriesPublish
 			$this->core->callBehavior('coreAfterScheduledEntriesPublish',$this,$to_change);
+
+			$this->firstPublicationEntries($to_change);
+		}
+	}
+
+	/**
+	First publication mecanism (on post create, update, publish, status)
+
+	@param	ids		<b>mixed</b>		Post(s) ID(s)
+	*/
+	public function firstPublicationEntries($ids)
+	{
+		$posts = $this->getPosts(array(
+			'post_id' => dcUtils::cleanIds($ids),
+			'post_status' => 1,
+			'post_firstpub' => 0
+		));
+
+		$to_change = array();
+		while($posts->fetch()) {
+
+			$to_change[] = $posts->post_id; 
 		}
 
+		if (count($to_change)) {
+
+			$strReq =
+			'UPDATE '.$this->prefix.'post '.
+			'SET post_firstpub = 1 '.
+			"WHERE blog_id = '".$this->con->escape($this->id)."' ".
+			'AND post_id '.$this->con->in((array)$to_change).' ';
+			$this->con->execute($strReq);
+
+			# --BEHAVIOR-- coreFirstPublicationEntries
+			$this->core->callBehavior('coreFirstPublicationEntries',$this,$to_change);
+		}
 	}
 
 	/**
@@ -1759,6 +1804,10 @@ class dcBlog
 			$cur->post_content_xhtml;
 
 			$cur->post_words = implode(' ',text::splitWords($words));
+		}
+
+		if ($cur->isField('post_firstpub')) {
+			$cur->unsetField('post_firstpub');
 		}
 	}
 
