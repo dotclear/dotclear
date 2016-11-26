@@ -120,6 +120,7 @@ $_s->post
 	->post_meta				('text',		0,		true,	null)
 	->post_words			('text',		0,		true,	null)
 	->post_status			('smallint',	0,		false,	0)
+	->post_firstpub			('smallint',	0,		false,	0)
 	->post_selected			('smallint',	0,		false,	0)
 	->post_position			('integer',		0,		false,	0)
 	->post_open_comment		('smallint',	0,		false,	0)

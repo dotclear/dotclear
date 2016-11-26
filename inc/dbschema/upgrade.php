@@ -609,6 +609,12 @@ class dcUpgrade
 					" AND setting_value = '''self'' data: media.dotaddict.org' ";
 			$core->con->execute($strReq);
 
+			# Update first publication on published posts
+			$strReq = 'UPDATE '.$core->prefix.'post '.
+					'SET post_firstpub = 1 '.
+					'WHERE post_status = 1 ';
+			$core->con->execute($strReq);
+
 			# A bit of housecleaning for no longer needed files
 			$remfiles = array (
 				'admin/js/jquery/jquery.modal.js',
