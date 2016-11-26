@@ -320,12 +320,10 @@ if (is_array($rte_flags) && in_array('blog_descr',$rte_flags)) {
 
 dcPage::open(__('Blog settings'),
 	'<script type="text/javascript">'."\n".
-	"//<![CDATA["."\n".
 	dcPage::jsVar('dotclear.msg.warning_path_info',
 		__('Warning: except for special configurations, it is generally advised to have a trailing "/" in your blog URL in PATH_INFO mode.'))."\n".
 	dcPage::jsVar('dotclear.msg.warning_query_string',
 		__('Warning: except for special configurations, it is generally advised to have a trailing "?" in your blog URL in QUERY_STRING mode.'))."\n".
-	"//]]>".
 	"</script>".
 	dcPage::jsConfirmClose('blog-form').
 	($rte_flag ? $core->callBehavior('adminPostEditor',$desc_editor['xhtml'],'blog_desc',array('#blog_desc'),'xhtml') : '').

@@ -71,13 +71,11 @@ catch (Exception $e)
 <head>
 	<title><?php echo __('Edit theme files'); ?></title>
 	<script type="text/javascript">
-	//<![CDATA[
 		<?php echo dcPage::jsVar('dotclear.msg.saving_document',__("Saving document...")); ?>
 		<?php echo dcPage::jsVar('dotclear.msg.document_saved',__("Document saved")); ?>
 		<?php echo dcPage::jsVar('dotclear.msg.error_occurred',__("An error occurred:")); ?>
 		<?php echo dcPage::jsVar('dotclear.msg.confirm_reset_file',__("Are you sure you want to reset this file?")); ?>
 		<?php echo dcPage::jsVar('dotclear.colorsyntax',$user_ui_colorsyntax); ?>
-	//]]>
 	</script>
 	<?php echo dcPage::jsConfirmClose('file-form'); ?>
 	<script type="text/javascript" src="<?php echo dcPage::getPF('themeEditor/script.js'); ?>"></script>
@@ -144,7 +142,6 @@ else
 			(!empty($_REQUEST['po']) ? "text/plain" : "text/html")));
 		echo
 		'<script type="text/javascript">
-		//<![CDATA[
 			window.CodeMirror.defineMode("dotclear", function(config) {
 				return CodeMirror.multiplexingMode(
 					CodeMirror.getMode(config, "'.$editorMode.'"),
@@ -159,7 +156,6 @@ else
 					 delimStyle: "delimit"}
 					);
 			});
-		//]]>
 	    </script>';
 	    echo dcPage::jsRunCodeMirror('editor','file_content','dotclear',$user_ui_colorsyntax_theme);
 	}

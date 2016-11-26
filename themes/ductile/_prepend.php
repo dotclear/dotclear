@@ -33,7 +33,6 @@ class tplDuctileThemeAdmin
 				dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
 				echo <<<EOT
 <script type="text/javascript">
-//<![CDATA[
 $(function() {
 	$("#stickerslist").sortable({'cursor':'move'});
 	$("#stickerslist tr").hover(function () {
@@ -52,7 +51,6 @@ $(function() {
 	$("#stickerslist tr td input.position").hide();
 	$("#stickerslist tr td.handle").addClass('handler');
 });
-//]]>
 </script>
 EOT;
 		}

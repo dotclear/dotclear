@@ -29,9 +29,7 @@ dcPage::check('usage,contentadmin');
 		if ($core->auth->user_prefs->interface->htmlfontsize) {
 			echo
 			'<script type="text/javascript">'."\n".
-			"//<![CDATA[\n".
 			dcPage::jsVar('dotclear_htmlFontSize',$core->auth->user_prefs->interface->htmlfontsize).
-			"\n//]]>\n".
 			"</script>\n";
 		}
 	?>
@@ -44,16 +42,13 @@ dcPage::check('usage,contentadmin');
 	<script type="text/javascript" src="js/common.js"></script>
 	<script type="text/javascript" src="js/prelude.js"></script>
 	<script type="text/javascript">
-	//<![CDATA[
 		dotclear.img_plus_alt = 'dévoiler';
 		dotclear.img_minus_alt = 'cacher';
 		dotclear.img_menu_on = 'images/menu_on.png';
 		dotclear.img_menu_off = 'images/menu_off.png';
 		dotclear.msg.new_window = 'nouvelle fenêtre';
-	//]]>
 	</script>
 	<script type="text/javascript">
-	//<![CDATA[
 		$(function() {
 			$.pageTabs('two-boxes');
 			$('#pageslist').sortable({'cursor':'move'});
@@ -65,7 +60,6 @@ dcPage::check('usage,contentadmin');
 			$('#pageslist tr td input.position').hide();
 			$('#pageslist tr td.handle').addClass('handler');
 		});
-	//]]>
 	</script>
 </head>
 

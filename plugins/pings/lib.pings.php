@@ -35,9 +35,10 @@ class pingsBehaviors
 		global $core;
 
 		$res =
-		"<script type=\"text/javascript\">\n//<![CDATA[\n".
+		"<script type=\"text/javascript\">\n".
 		dcPage::jsVar('dotclear.msg.check_all',__('Check all'))."\n".
-		"</script>\n".dcPage::jsLoad(dcPage::getPF('pings/post.js'));
+		"</script>\n".
+		dcPage::jsLoad(dcPage::getPF('pings/post.js'));
 
 		return $res;
 	}

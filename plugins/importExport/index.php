@@ -65,9 +65,7 @@ echo '
 	dcPage::cssLoad(dcPage::getPF('importExport/style.css')).
 	dcPage::jsLoad(dcPage::getPF('importExport/js/script.js')).
 	'<script type="text/javascript">
-	//<![CDATA[
 	'.dcPage::jsVar('dotclear.msg.please_wait',__('Please wait...')).'
-	//]]>
 	</script>
 </head>
 <body>';

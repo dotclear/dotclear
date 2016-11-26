@@ -214,14 +214,12 @@ if (!empty($_POST))
   <?php echo dcPage::jsLoad(dcPage::getPF('blowupConfig/config.js')); ?>
   <?php echo dcPage::jsColorPicker(); ?>
   <script type="text/javascript">
-  //<![CDATA[
   <?php
   echo dcPage::jsVar('dotclear.blowup_public_url',blowupConfig::imagesURL());
   echo dcPage::jsVar('dotclear.msg.predefined_styles',__('Predefined styles'));
   echo dcPage::jsVar('dotclear.msg.apply_code',__('Apply code'));
   echo dcPage::jsVar('dotclear.msg.predefined_style_title',__('Choose a predefined style'));
   ?>
-  //]]>
   </script>
 </head>
 

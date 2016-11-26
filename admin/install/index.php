@@ -267,34 +267,32 @@ header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ 
   <script type="text/javascript" src="../js/jquery/jquery.js"></script>
   <?php echo dcPage::jsLoad('../js/jquery/jquery.pwstrength.js'); ?>
   <script type="text/javascript">
-  //<![CDATA[
-  $(function() {
-    var login_re = new RegExp('[^A-Za-z0-9@._-]+','g');
-    $('#u_firstname').keyup(function() {
-      var login = this.value.toLowerCase().replace(login_re,'').substring(0,32);
-	 $('#u_login').val(login);
-    });
-    $('#u_login').keyup(function() {
-      $(this).val(this.value.replace(login_re,''));
-    });
-
-	<?php echo "\$('#u_pwd').pwstrength({texts: ['".
-				sprintf(__('Password strength: %s'),__('very weak'))."', '".
-				sprintf(__('Password strength: %s'),__('weak'))."', '".
-				sprintf(__('Password strength: %s'),__('mediocre'))."', '".
-				sprintf(__('Password strength: %s'),__('strong'))."', '".
-				sprintf(__('Password strength: %s'),__('very strong'))."']});\n"; ?>
-
-    $('#u_login').parent().after($('<input type="hidden" name="u_date" value="' + Date().toLocaleString() + '" />'));
-
-    var password_link = $('<a href="#" id="obfus"><?php echo(__('show')); ?></a>').click(function() {
-			$('#password').show();
-			$(this).remove();
-			return false;
+	  $(function() {
+		var login_re = new RegExp('[^A-Za-z0-9@._-]+','g');
+		$('#u_firstname').keyup(function() {
+			var login = this.value.toLowerCase().replace(login_re,'').substring(0,32);
+			$('#u_login').val(login);
 		});
-    $('#password').hide().before(password_link);
-  });
-  //]]>
+		$('#u_login').keyup(function() {
+			$(this).val(this.value.replace(login_re,''));
+		});
+
+		<?php echo "\$('#u_pwd').pwstrength({texts: ['".
+					sprintf(__('Password strength: %s'),__('very weak'))."', '".
+					sprintf(__('Password strength: %s'),__('weak'))."', '".
+					sprintf(__('Password strength: %s'),__('mediocre'))."', '".
+					sprintf(__('Password strength: %s'),__('strong'))."', '".
+					sprintf(__('Password strength: %s'),__('very strong'))."']});\n"; ?>
+
+		$('#u_login').parent().after($('<input type="hidden" name="u_date" value="' + Date().toLocaleString() + '" />'));
+
+		var password_link = $('<a href="#" id="obfus"><?php echo(__('show')); ?></a>').click(function() {
+				$('#password').show();
+				$(this).remove();
+				return false;
+			});
+		$('#password').hide().before(password_link);
+	  });
   </script>
 </head>
 

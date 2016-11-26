@@ -71,20 +71,18 @@ if ($posts_actions_page->process()) {
 ?>
 <html>
 <head>
-  <title><?php echo __('Tags'); ?></title>
-  <?php echo dcPage::cssLoad(dcPage::getPF('tags/style.css'));?>
-  <?php echo dcPage::jsLoad('js/_posts_list.js');?>
-  <script type="text/javascript">
-  //<![CDATA[
-  dotclear.msg.confirm_tag_delete = '<?php echo html::escapeJS(sprintf(__('Are you sure you want to remove tag: “%s”?'),html::escapeHTML($tag))) ?>';
-  $(function() {
-    $('#tag_delete').submit(function() {
-      return window.confirm(dotclear.msg.confirm_tag_delete);
-    });
-  });
-  //]]>
-  </script>
-  <?php echo dcPage::jsConfirmClose('tag_rename'); ?>
+	<title><?php echo __('Tags'); ?></title>
+	<?php echo dcPage::cssLoad(dcPage::getPF('tags/style.css'));?>
+	<?php echo dcPage::jsLoad('js/_posts_list.js');?>
+	<script type="text/javascript">
+		dotclear.msg.confirm_tag_delete = '<?php echo html::escapeJS(sprintf(__('Are you sure you want to remove tag: “%s”?'),html::escapeHTML($tag))) ?>';
+		$(function() {
+			$('#tag_delete').submit(function() {
+				return window.confirm(dotclear.msg.confirm_tag_delete);
+			});
+		});
+	</script>
+	<?php echo dcPage::jsConfirmClose('tag_rename'); ?>
 </head>
 <body>
 
