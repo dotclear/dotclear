@@ -155,7 +155,6 @@ class dcImportFlat extends dcIeModule
 
 		echo
 		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
 		dcPage::jsVar('dotclear.msg.confirm_full_import',
 			__('Are you sure you want to import a full backup file?')).
 		"$(function() {".
@@ -175,7 +174,6 @@ class dcImportFlat extends dcIeModule
 				"return window.confirm(dotclear.msg.confirm_full_import); ".
 			"}); ".
 		"});\n".
-		"//]]>\n".
 		"</script>\n";
 
 		echo

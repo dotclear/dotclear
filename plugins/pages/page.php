@@ -308,9 +308,7 @@ if ($post_editor) {
 <head>
   <title><?php echo $page_title.' - '.__('Pages'); ?></title>
   <script type="text/javascript">
-  //<![CDATA[
   <?php echo dcPage::jsVar('dotclear.msg.confirm_delete_post',__("Are you sure you want to delete this page?")); ?>
-  //]]>
   </script>
   <?php echo
   dcPage::jsDatePicker().

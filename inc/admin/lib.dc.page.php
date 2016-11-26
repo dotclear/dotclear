@@ -174,9 +174,7 @@ class dcPage
 		if ($core->auth->user_prefs->interface->htmlfontsize) {
 			echo
 			'<script type="text/javascript">'."\n".
-			"//<![CDATA[\n".
-			self::jsVar('dotclear_htmlFontSize',$core->auth->user_prefs->interface->htmlfontsize).
-			"\n//]]>\n".
+			self::jsVar('dotclear_htmlFontSize',$core->auth->user_prefs->interface->htmlfontsize)."\n".
 			"</script>\n";
 		}
 
@@ -188,9 +186,7 @@ class dcPage
 		if ($core->auth->user_prefs->interface->hidemoreinfo) {
 			echo
 			'<script type="text/javascript">'."\n".
-			"//<![CDATA[\n".
-			'dotclear.hideMoreInfo = true;'.
-			"\n//]]>\n".
+			'dotclear.hideMoreInfo = true;'."\n".
 			"</script>\n";
 		}
 
@@ -420,9 +416,7 @@ class dcPage
 		if ($core->auth->user_prefs->interface->htmlfontsize) {
 			echo
 			'<script type="text/javascript">'."\n".
-			"//<![CDATA[\n".
-			self::jsVar('dotclear_htmlFontSize',$core->auth->user_prefs->interface->htmlfontsize).
-			"\n//]]>\n".
+			self::jsVar('dotclear_htmlFontSize',$core->auth->user_prefs->interface->htmlfontsize)."\n".
 			"</script>\n";
 		}
 
@@ -434,9 +428,7 @@ class dcPage
 		if ($core->auth->user_prefs->interface->hidemoreinfo) {
 			echo
 			'<script type="text/javascript">'."\n".
-			"//<![CDATA[\n".
-			'dotclear.hideMoreInfo = true;'.
-			"\n//]]>\n".
+			'dotclear.hideMoreInfo = true;'."\n".
 			"</script>\n";
 		}
 
@@ -687,9 +679,7 @@ class dcPage
 			$unfolded_sections=array();
 		}
 		return '<script type="text/javascript">'."\n".
-					"//<![CDATA[\n".
-					'dotclear.unfolded_sections = {'.join(",",$unfolded_sections)."};\n".
-					"\n//]]>\n".
+				'dotclear.unfolded_sections = {'.join(",",$unfolded_sections)."};\n".
 				"</script>\n";
 	}
 
@@ -699,9 +689,7 @@ class dcPage
 		if (empty($GLOBALS['core']->blog) || $GLOBALS['core']->blog->settings->system->jquery_migrate_mute) {
 			$mute_or_no .=
 				'<script type="text/javascript">'."\n".
-				"//<![CDATA[\n".
-				'jQuery.migrateMute = true;'.
-				"\n//]]>\n".
+				'jQuery.migrateMute = true;'."\n".
 				"</script>\n";
 		}
 
@@ -715,7 +703,6 @@ class dcPage
 		self::jsLoad('js/prelude.js').
 
 		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
 		'jsToolBar = {}, jsToolBar.prototype = { elements : {} };'."\n".
 		self::jsVar('dotclear.nonce',$GLOBALS['core']->getNonce()).
 		self::jsVar('dotclear.img_plus_src','images/expand.png').
@@ -839,7 +826,7 @@ class dcPage
 			__('Section:')).
 		self::jsVar('dotclear.msg.module_tags',
 			__('Tags:')).
-			"\n//]]>\n".
+			"\n".
 		"</script>\n";
 	}
 
@@ -866,10 +853,8 @@ class dcPage
 		return
 		self::jsLoad('js/confirm-close.js').
 		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
 		"confirmClosePage = new confirmClose(".$args."); ".
 		"confirmClose.prototype.prompt = '".html::escapeJS(__('You have unsaved changes.'))."'; ".
-		"\n//]]>\n".
 		"</script>\n";
 	}
 
@@ -882,11 +867,9 @@ class dcPage
 		return
 		self::jsLoad('js/jquery/jquery.pageTabs.js').
 		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
 		'$(function() {'."\n".
-		'$.pageTabs('.$default.');'."\n".
+		'	$.pageTabs('.$default.');'."\n".
 		'});'.
-		"\n//]]>\n".
 		"</script>\n";
 	}
 
@@ -910,7 +893,6 @@ class dcPage
 		self::cssLoad('style/date-picker.css').
 		self::jsLoad('js/date-picker.js').
 		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
 
 		"datePicker.prototype.months[0] = '".html::escapeJS(__('January'))."'; ".
 		"datePicker.prototype.months[1] = '".html::escapeJS(__('February'))."'; ".
@@ -939,7 +921,6 @@ class dcPage
 		"datePicker.prototype.close_msg = '".html::escapeJS(__('close'))."'; ".
 		"datePicker.prototype.now_msg = '".html::escapeJS(__('now'))."'; ".
 
-		"\n//]]>\n".
 		"</script>\n";
 	}
 
@@ -963,7 +944,6 @@ class dcPage
 
 		return
 		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
 		"dotclear.jsUpload = {};\n".
 		"dotclear.jsUpload.msg = {};\n".
 		self::jsVar('dotclear.msg.enhanced_uploader_activate',__('Temporarily activate enhanced uploader')).
@@ -985,7 +965,6 @@ class dcPage
 		self::jsVar('dotclear.jsUpload.msg.files_in_queue',__('%d files in queue.')).
 		self::jsVar('dotclear.jsUpload.msg.queue_error',__('Queue error:')).
 		self::jsVar('dotclear.jsUpload.base_url',$base_url).
-		"\n//]]>\n".
 		"</script>\n".
 
 		self::jsLoad('js/jquery/jquery-ui.custom.js').
@@ -1010,11 +989,9 @@ class dcPage
 		return
 		self::jsLoad('js/filter-controls.js').
 		'<script type="text/javascript">'."\n".
-		"//<![CDATA["."\n".
 		self::jsVar('dotclear.msg.show_filters', $show ? 'true':'false')."\n".
 		self::jsVar('dotclear.msg.filter_posts_list',__('Show filters and display options'))."\n".
 		self::jsVar('dotclear.msg.cancel_the_filter',__('Cancel filters and display options'))."\n".
-		"//]]>".
 		"</script>";
 	}
 
@@ -1043,8 +1020,7 @@ class dcPage
 	public static function jsRunCodeMirror($name,$id,$mode,$theme = '')
 	{
 		$ret =
-			'<script type="text/javascript">'.
-			'//<![CDATA['."\n".
+			'<script type="text/javascript">'."\n".
 			'var '.$name.' = CodeMirror.fromTextArea('.$id.',{'."\n".
 			'	mode: "'.$mode.'",'."\n".
 			'	tabMode: "indent",'."\n".
@@ -1053,14 +1029,13 @@ class dcPage
 			'	matchBrackets: "true",'."\n".
 			'	autoCloseBrackets: "true",'."\n".
 			'	extraKeys: {"F11": function(cm) {cm.setOption("fullScreen",!cm.getOption("fullScreen"));}}';
-			if ($theme) {
-				$ret .=
-					','."\n".
-					'	theme: "'.$theme.'"';
-			}
-		$ret .=
-			"\n".'});'."\n".
-			'//]]>'.
+		if ($theme) {
+			$ret .=
+				','."\n".
+				'	theme: "'.$theme.'"';
+		}
+		$ret .= "\n".
+			'});'."\n".
 			'</script>';
 		return $ret;
 	}

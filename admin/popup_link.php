@@ -43,9 +43,7 @@ form::combo('hreflang',$lang_combo,$hreflang).
 '<strong><a class="button" href="#" id="link-insert-ok">'.__('Insert').'</a></strong></p>'."\n".
 
 '<script type="text/javascript">'."\n".
-'//<![CDATA['."\n".
 '$(\'input[name="href"]\').get(0).focus();'."\n".
-'//]]>'."\n".
 '</script>'."\n";
 
 dcPage::closePopup();

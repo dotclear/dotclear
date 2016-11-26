@@ -121,9 +121,7 @@ dcPage::jsLoad(dcPage::getPF('maintenance/js/settings.js'));
 if ($task && $task->ajax()) {
 	echo
 	'<script type="text/javascript">'."\n".
-	"//<![CDATA[\n".
 	dcPage::jsVar('dotclear.msg.wait', __('Please wait...')).
-	"//]]>\n".
 	'</script>'.
 	dcPage::jsLoad(dcPage::getPF('maintenance/js/dc.maintenance.js'));
 }

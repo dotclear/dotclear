@@ -104,7 +104,6 @@ function prefLine($id,$s,$ws,$field_name,$strong_label)
   <title>user:preferences</title>
   <?php echo dcPage::jsPageTabs($part); ?>
 	<script type="text/javascript">
-	//<![CDATA[
 	$(function() {
 		$("#gp_submit,#lp_submit").hide();
 		$('#part-local,#part-global').tabload(function() {
@@ -117,7 +116,6 @@ function prefLine($id,$s,$ws,$field_name,$strong_label)
 			window.location = $("#lp_nav option:selected").val();
 		});
 	});
-	//]]>
 	</script>
 </head>
 

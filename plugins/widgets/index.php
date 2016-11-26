@@ -228,10 +228,8 @@ elseif (!empty($_POST['wreset']))
   <?php echo dcPage::jsLoad(dcPage::getPF('widgets/dragdrop.js'));?>
   <?php endif; ?>
   <script type="text/javascript">
-  //<![CDATA[
   <?php echo dcPage::jsVar('dotclear.msg.confirm_widgets_reset',
   	__('Are you sure you want to reset sidebars?')); ?>
-  //]]>
   </script>
   <?php
   		$widget_editor = $core->auth->getOption('editor');

@@ -33,7 +33,6 @@ class dcCKEditorBehaviors
 
         return
             '<script type="text/javascript">'."\n".
-            "//<![CDATA[\n".
             dcPage::jsVar('dotclear.ckeditor_context', $context).
             'dotclear.ckeditor_tags_context = '.sprintf('{%s:["%s"]};'."\n", $context, implode('","', $tags)).
             'var CKEDITOR_BASEPATH = "'.DC_ADMIN_URL.self::$p_url.'/js/ckeditor/";'."\n".
@@ -46,15 +45,14 @@ class dcCKEditorBehaviors
 		            resource = this.basePath + resource;
 	            }
 	            return resource;
-             };'.
-            "dotclear.msg.img_select_title = '".html::escapeJS(__('Media chooser'))."'; ".
-            "dotclear.msg.img_select_accesskey = '".html::escapeJS(__('m'))."'; ".
-            "dotclear.msg.post_link_title = '".html::escapeJS(__('Link to an entry'))."'; ".
-            "dotclear.msg.link_title = '".html::escapeJS(__('Link'))."'; ".
-            "dotclear.msg.link_accesskey = '".html::escapeJS(__('l'))."'; ".
-            "dotclear.msg.img_title = '".html::escapeJS(__('External image'))."'; ".
-            "dotclear.msg.url_cannot_be_empty = '".html::escapeJS(__('URL field cannot be empty.'))."';".
-            "\n//]]>\n".
+             };'."\n".
+            "dotclear.msg.img_select_title = '".html::escapeJS(__('Media chooser'))."'; "."\n".
+            "dotclear.msg.img_select_accesskey = '".html::escapeJS(__('m'))."'; "."\n".
+            "dotclear.msg.post_link_title = '".html::escapeJS(__('Link to an entry'))."'; "."\n".
+            "dotclear.msg.link_title = '".html::escapeJS(__('Link'))."'; "."\n".
+            "dotclear.msg.link_accesskey = '".html::escapeJS(__('l'))."'; "."\n".
+            "dotclear.msg.img_title = '".html::escapeJS(__('External image'))."'; "."\n".
+            "dotclear.msg.url_cannot_be_empty = '".html::escapeJS(__('URL field cannot be empty.'))."';"."\n".
             "</script>\n".
             dcPage::jsLoad(self::$p_url.'/js/ckeditor/ckeditor.js').
             dcPage::jsLoad(self::$p_url.'/js/ckeditor/adapters/jquery.js').

@@ -168,7 +168,6 @@ dcPage::open($page_title,
 	dcPage::jsConfirmClose('user-form').
 	dcPage::jsLoad('js/jquery/jquery.pwstrength.js').
 		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
 		"\$(function() {\n".
 		"	\$('#new_pwd').pwstrength({texts: ['".
 				sprintf(__('Password strength: %s'),__('very weak'))."', '".
@@ -177,7 +176,6 @@ dcPage::open($page_title,
 				sprintf(__('Password strength: %s'),__('strong'))."', '".
 				sprintf(__('Password strength: %s'),__('very strong'))."']});\n".
 		"});\n".
-		"\n//]]>\n".
 		"</script>\n".
 
 	# --BEHAVIOR-- adminUserHeaders

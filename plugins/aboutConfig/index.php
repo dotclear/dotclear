@@ -106,7 +106,6 @@ function settingLine($id,$s,$ns,$field_name,$strong_label)
   <title>about:config</title>
   <?php echo dcPage::jsPageTabs($part); ?>
   <script type="text/javascript">
-	//<![CDATA[
 	$(function() {
 		$("#gs_submit").hide();
 		$("#ls_submit").hide();
@@ -117,7 +116,6 @@ function settingLine($id,$s,$ns,$field_name,$strong_label)
 			window.location = $("#ls_nav option:selected").val();
 		})
 	});
-	//]]>
 	</script>
 </head>
 

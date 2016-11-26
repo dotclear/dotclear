@@ -361,9 +361,7 @@ class dcDefaultPostActions
 						__('Change author for this selection') => '')),
 					dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
 					'<script type="text/javascript">'."\n".
-					"//<![CDATA[\n".
 					'usersList = ['.$usersList.']'."\n".
-					"\n//]]>\n".
 					"</script>\n"
 			);
 

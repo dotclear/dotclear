@@ -153,8 +153,7 @@ elseif ($change_pwd)
 		{
 			$user_id = substr($data['cookie_admin'],40);
 			$user_id = @unpack('a32',@pack('H*',$user_id));
-			if (is_array($user_id))
-			{
+			if (is_array($user_id)) {
 				$user_id = trim($data['user_id']);
 				$user_key = substr($data['cookie_admin'],0,40);
 				$check_user = $core->auth->checkUser($user_id,null,$user_key) === true;
@@ -295,40 +294,38 @@ echo dcPage::jsCommon();
 
 	<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
 
-  <?php
-  # --BEHAVIOR-- loginPageHTMLHead
-  $core->callBehavior('loginPageHTMLHead');
-  ?>
+<?php
+# --BEHAVIOR-- loginPageHTMLHead
+$core->callBehavior('loginPageHTMLHead');
+?>
 
-  <script type="text/javascript">
-  //<![CDATA[
-  $(window).load(function() {
-    var uid = $('input[name=user_id]');
-    var upw = $('input[name=user_pwd]');
-    uid.focus();
+	<script type="text/javascript">
+		$(window).load(function() {
+			var uid = $('input[name=user_id]');
+			var upw = $('input[name=user_pwd]');
+			uid.focus();
 
-    if (upw.length == 0) { return; }
+			if (upw.length == 0) { return; }
 
-    uid.keypress(processKey);
+			uid.keypress(processKey);
 
-    function processKey(evt) {
-      if (evt.which == 13 && upw.val() == '') {
-         upw.focus();
-	    return false;
-      }
-	 return true;
-    };
-    $.cookie('dc_admin_test_cookie',true);
-    if ($.cookie('dc_admin_test_cookie')) {
-      $('#cookie_help').hide();
-      $.cookie('dc_admin_test_cookie', '', {'expires': -1});
-    } else {
-      $('#cookie_help').show();
-    }
-    $('#issue #more').toggleWithLegend($('#issue').children().not('#more'));
-  });
-  //]]>
-  </script>
+			function processKey(evt) {
+				if (evt.which == 13 && upw.val() == '') {
+					upw.focus();
+					return false;
+				}
+				return true;
+			};
+			$.cookie('dc_admin_test_cookie',true);
+			if ($.cookie('dc_admin_test_cookie')) {
+				$('#cookie_help').hide();
+				$.cookie('dc_admin_test_cookie', '', {'expires': -1});
+			} else {
+				$('#cookie_help').show();
+			}
+			$('#issue #more').toggleWithLegend($('#issue').children().not('#more'));
+		});
+	</script>
 </head>
 
 <body id="dotclear-admin" class="auth">

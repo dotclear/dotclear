@@ -230,9 +230,7 @@ $get_img_title = function ($file,$pattern,$dto_first=false,$no_date_alone=false)
 -------------------------------------------------------- */
 $starting_scripts =
 	'<script type="text/javascript">'."\n".
-	"//<![CDATA["."\n".
 	dcPage::jsVar('dotclear.msg.confirm_delete_media',__('Are you sure to delete this media?'))."\n".
-	"//]]>".
 	"</script>".
 	dcPage::jsModal().
 	dcPage::jsLoad('js/_media_item.js');

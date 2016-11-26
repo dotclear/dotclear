@@ -128,13 +128,11 @@ class dcUtils
 
 	public static function jsVars($vars)
 	{
-		$ret = '<script type="text/javascript">'."\n".
-				"//<![CDATA[\n";
+		$ret = '<script type="text/javascript">'."\n";
 		foreach ($vars as $var => $value) {
 			$ret .= 'var '.$var.' = '.(is_string($value) ? '"'.html::escapeJS($value).'"' : $value).';'."\n";
 		}
-		$ret .= "\n//]]>\n".
-				"</script>\n";
+		$ret .= "</script>\n";
 
 		return $ret;
 	}

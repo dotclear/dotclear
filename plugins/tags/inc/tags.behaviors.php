@@ -23,18 +23,14 @@ class tagsBehaviors
 			return
 			dcPage::jsLoad(dcPage::getPF('tags/js/legacy-post.js')).
 			'<script type="text/javascript">'."\n".
-			"//<![CDATA[\n".
 			"jsToolBar.prototype.elements.tag.title = '".html::escapeJS(__('Tag'))."';\n".
 			"jsToolBar.prototype.elements.tag.url = '".html::escapeJS($tag_url)."';\n".
-			"\n//]]>\n".
 			"</script>\n";
 		} elseif ($editor == 'dcCKEditor') {
 			return
 			'<script type="text/javascript">'."\n".
-			"//<![CDATA[\n".
 			"dotclear.msg.tag_title = '".html::escapeJS(__('Tag'))."';\n".
 			"dotclear.msg.tag_url = '".html::escapeJS($tag_url)."';\n".
-			"\n//]]>\n".
 			"</script>\n";
 		}
 		return;
@@ -194,7 +190,6 @@ class tagsBehaviors
 				)),
 				dcPage::jsMetaEditor().
 				'<script type="text/javascript">'."\n".
-				"//<![CDATA[\n".
 				"var editor_tags_options = {\n".
 					"meta_url : 'plugin.php?p=tags&m=tag_posts&amp;tag=',\n".
 					"list_type : '".html::escapeJS($type)."',\n".
@@ -204,16 +199,13 @@ class tagsBehaviors
 					"text_all : '".html::escapeJS(__('all'))."',\n".
 					"text_separation : '".html::escapeJS(__('Enter tags separated by coma'))."',\n".
 				"};\n".
-				"\n//]]>\n".
 				"</script>\n".
 				dcPage::jsLoad(dcPage::getPF('tags/js/jquery.autocomplete.js')).
 				dcPage::jsLoad(dcPage::getPF('tags/js/posts_actions.js')).
 				'<script type="text/javascript">'."\n".
-				"//<![CDATA[\n".
 				"dotclear.msg.tags_autocomplete = '".html::escapeJS(__('used in %e - frequency %p%'))."';\n".
 				"dotclear.msg.entry = '".html::escapeJS(__('entry'))."';\n".
 				"dotclear.msg.entries = '".html::escapeJS(__('entries'))."';\n".
-				"\n//]]>\n".
 				"</script>\n".
 				dcPage::cssLoad(dcPage::getPF('tags/style.css'))
 			);
@@ -319,7 +311,6 @@ class tagsBehaviors
 
 		return
 		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
 		"var editor_tags_options = {\n".
 			"meta_url : 'plugin.php?p=tags&m=tag_posts&amp;tag=',\n".
 			"list_type : '".html::escapeJS($type)."',\n".
@@ -329,16 +320,13 @@ class tagsBehaviors
 			"text_all : '".html::escapeJS(__('all'))."',\n".
 			"text_separation : '".html::escapeJS(__('Enter tags separated by coma'))."',\n".
 		"};\n".
-		"\n//]]>\n".
 		"</script>\n".
 		dcPage::jsLoad(dcPage::getPF('tags/js/jquery.autocomplete.js')).
 		dcPage::jsLoad(dcPage::getPF('tags/js/post.js')).
 		'<script type="text/javascript">'."\n".
-		"//<![CDATA[\n".
 		"dotclear.msg.tags_autocomplete = '".html::escapeJS(__('used in %e - frequency %p%'))."';\n".
 		"dotclear.msg.entry = '".html::escapeJS(__('entry'))."';\n".
 		"dotclear.msg.entries = '".html::escapeJS(__('entries'))."';\n".
-		"\n//]]>\n".
 		"</script>\n".
 		dcPage::cssLoad(dcPage::getPF('tags/style.css'));
 	}
