@@ -378,11 +378,11 @@ class rsExtPost
 	@param	rs	Invisible parameter
 	@return	<b>string</b>
 	*/
-	public static function getTrackbackData($rs)
+	public static function getTrackbackData($rs,$format='html')
 	{
 		return
-		"<![CDATA[>\n".
-		"<!--[\n".
+		($format == 'xml' ? "<![CDATA[>\n" : '').
+		"<!--\n".
 		'<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"'."\n".
 		'  xmlns:dc="http://purl.org/dc/elements/1.1/"'."\n".
 		'  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">'."\n".
@@ -392,7 +392,8 @@ class rsExtPost
 		'  dc:title="'.htmlspecialchars($rs->post_title,ENT_COMPAT,'UTF-8').'"'."\n".
 		'  trackback:ping="'.$rs->getTrackbackLink().'" />'."\n".
 		"</rdf:RDF>\n".
-		"<!]]><!---->\n";
+		($format == 'xml' ? "<!]]><!--" : '').
+		"-->\n";
 	}
 
 	/**

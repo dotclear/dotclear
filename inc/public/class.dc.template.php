@@ -1920,7 +1920,8 @@ class dcTemplate extends template
 	*/
 	public function EntryPingData($attr)
 	{
-		return "<?php if (\$_ctx->posts->trackbacksActive()) { echo \$_ctx->posts->getTrackbackData(); } ?>\n";
+		$format = !empty($attr['format']) && $attr['format'] == 'xml' ? 'xml' : 'html';
+		return "<?php if (\$_ctx->posts->trackbacksActive()) { echo \$_ctx->posts->getTrackbackData('".$format."'); } ?>\n";
 	}
 
 	/*dtd
