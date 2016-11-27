@@ -18,6 +18,7 @@ $this->registerModule(
 	/* Version */			'1.0',
 	/* Properties */		array(
 								'type' => 'theme',
-								'tplset' => 'currywurst'
+//								'tplset' => 'currywurst'
+								'tplset' => 'dotty'
 							)
 );
