@@ -114,7 +114,7 @@ class tplSimpleMenu
 						$title = ' title="'.html::escapeHTML(__($m['descr'])).'"';
 					}
 					if ($description == 'span' || $description == 'both') {
-						$span = ' <span>'.html::escapeHTML(__($m['descr'])).'</span>';
+						$span = ' <span class="simple-menu-descr">'.html::escapeHTML(__($m['descr'])).'</span>';
 					}
 				}
 				$label = html::escapeHTML(__($m['label']));
@@ -137,7 +137,9 @@ class tplSimpleMenu
 							($i == count($menu)-1 ? ' li-last' : '').
 							($item['class'] ? $item['class'] : '').
 						'">'.
-						'<a href="'.$href.'"'.$item['title'].'>'.$item['label'].$item['span'].'</a>'.
+						'<a href="'.$href.'"'.$item['title'].'>'.
+						'<span class="simple-menu-label">'.$item['label'].'</span>'.
+						$item['span'].'</a>'.
 						'</li>';
 			}
 

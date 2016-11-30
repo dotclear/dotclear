@@ -537,7 +537,7 @@ a.site-title__link:visited {
     padding-top: .25em;
     padding-bottom: .25em;
     text-align: center; }
-    .header__nav li span {
+    .header__nav li span:not(.simple-menu-label) {
       font-size: 0.875em;
       line-height: 1.7142857em;
       font-family: "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;

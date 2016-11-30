@@ -1550,7 +1550,7 @@ $scut-whitecircle: "\25cb";
 // http://davidtheclark.github.io/scut/#reverse-italics
 
 @mixin scut-reverse-italics (
-  $elements: false
+  $elements: null
 ) {
 
   $element-list: em, cite, i;
