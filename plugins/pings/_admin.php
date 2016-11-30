@@ -17,26 +17,12 @@ $_menu['Blog']->addItem(__('Pings'),
 		preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.pings')).'/',$_SERVER['REQUEST_URI']),
 		$core->auth->isSuperAdmin());
 
-$__autoload['pingsAPI'] = dirname(__FILE__).'/lib.pings.php';
-$__autoload['pingsBehaviors'] = dirname(__FILE__).'/lib.pings.php';
+$__autoload['pingsAdminBehaviors'] = dirname(__FILE__).'/lib.pings.php';
 
-# Create settings if they don't exist
-if (!array_key_exists('pings',$core->blog->settings->dumpNamespaces()))
-{
-	$default_pings_uris = array(
-		'Ping-o-Matic!' => 'http://rpc.pingomatic.com/',
-		'Google Blog Search' => 'http://blogsearch.google.com/ping/RPC2'
-	);
-
-	$core->blog->settings->addNamespace('pings');
-	$core->blog->settings->pings->put('pings_active',1,'boolean','Activate pings plugin',true,true);
-	$core->blog->settings->pings->put('pings_uris',$default_pings_uris,'array','Pings services URIs',true,true);
-}
-
-$core->addBehavior('adminPostHeaders',array('pingsBehaviors','pingJS'));
-$core->addBehavior('adminPostFormItems',array('pingsBehaviors','pingsFormItems'));
-$core->addBehavior('adminAfterPostCreate',array('pingsBehaviors','doPings'));
-$core->addBehavior('adminAfterPostUpdate',array('pingsBehaviors','doPings'));
+$core->addBehavior('adminPostHeaders',array('pingsAdminBehaviors','pingJS'));
+$core->addBehavior('adminPostFormItems',array('pingsAdminBehaviors','pingsFormItems'));
+$core->addBehavior('adminAfterPostCreate',array('pingsAdminBehaviors','doPings'));
+$core->addBehavior('adminAfterPostUpdate',array('pingsAdminBehaviors','doPings'));
 
 $core->addBehavior('adminDashboardFavorites','pingDashboardFavorites');
 
