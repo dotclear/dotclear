@@ -39,3 +39,12 @@ msgstr "Prévisualiser"
 
 msgid "Send"
 msgstr "Envoyer"
+
+msgid "Show menu"
+msgstr "Montrer le menu"
+
+msgid "Hide menu"
+msgstr "Cacher le menu"
+
+msgid "Navigation"
+msgstr "Navigation"

@@ -1,6 +1,6 @@
 <?php
 # -- BEGIN LICENSE BLOCK ---------------------------------------
-# This file is part of Currywurst, a theme for Dotclear
+# This file is part of Berlin, a theme for Dotclear
 #
 # Copyright (c) Association Dotclear
 # Licensed under the GPL version 2.0 license.
@@ -8,17 +8,15 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-
 if (!defined('DC_RC_PATH')) { return; }
 
 $this->registerModule(
 	/* Name */				"Berlin",
-	/* Description*/		"Dotclear > 2.7 default theme",
+	/* Description*/		"Dotclear 2.7+ default theme",
 	/* Author */			"Dotclear Team",
-	/* Version */			'1.0',
+	/* Version */			'1.1',
 	/* Properties */		array(
 								'type' => 'theme',
-//								'tplset' => 'currywurst'
 								'tplset' => 'dotty'
 							)
 );

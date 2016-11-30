@@ -67,7 +67,7 @@ a.site-title__link:visited {
         padding-top: .25em;
         padding-bottom: .25em;
         text-align: center;
-        span {
+        span:not(.simple-menu-label) {
             @include adjust-font-size-to(14px);
             font-family: $serif;
             font-style: italic;
