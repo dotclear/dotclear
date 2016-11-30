@@ -102,40 +102,46 @@ class context
 		return $test;
 	}
 
-    # Static methods
+	/**
+	@deprecated since version 2.11 , use tpl_context::global_filters instead
+	*/
 	public static function global_filter($str,
 		$encode_xml, $remove_html, $cut_string, $lower_case, $upper_case ,$encode_url ,$tag='')
 	{
-		$args = func_get_args();
-		array_pop($args);
+		return $str;
+	}
+
+	public static function global_filters($str,$args,$tag='')
+	{
 		$args[0] =& $str;
 
 		# --BEHAVIOR-- publicBeforeContentFilter
 		$res = $GLOBALS['core']->callBehavior('publicBeforeContentFilter',$GLOBALS['core'],$tag,$args);
 
-		if ($remove_html) {
+		if ($args['strip_tags']) {
+			$str = self::strip_tags($str);
+		}
+		elseif ($args['remove_html']) {
 			$str = self::remove_html($str);
 			$str = preg_replace('/\s+/',' ',$str);
 		}
-
-		if ($encode_xml) {
+		elseif ($args['encode_xml'] || $args['encode_html']) {
 			$str = self::encode_xml($str);
 		}
 
-		if ($cut_string) {
-			$str = self::cut_string($str,(integer) $cut_string);
+		if ($args['cut_string'] > 0) {
+			$str = self::cut_string($str,(integer) $args['cut_string']);
 		}
 
-		if ($lower_case) {
+		if ($args['lower_case']) {
 			$str = self::lower_case($str);
-		} elseif ($upper_case) {
-			if ($upper_case == 2) {
-				$str = self::capitalize($str);
-			} else {
-				$str = self::upper_case($str);
-			}
+		} elseif ($args['capitalize']) {
+			$str = self::capitalize($str);
+		} elseif ($args['upper_case']) {
+			$str = self::upper_case($str);
 		}
-		if ($encode_url) {
+
+		if ($args['encode_url']) {
 			$str = self::encode_url($str);
 		}
 
@@ -163,6 +169,11 @@ class context
 	public static function remove_html($str)
 	{
 		return html::decodeEntities(html::clean($str));
+	}
+
+	public static function strip_tags($str)
+	{
+		return trim(preg_replace('/ {2,}/',' ',str_replace(array("\r","\n","\t"),' ',html::clean($str))));
 	}
 
 	public static function lower_case($str)
