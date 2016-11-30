@@ -11,16 +11,7 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-$this->registerModule(
-	/* Name */			"Pings",
-	/* Description*/		"Ping services",
-	/* Author */			"Olivier Meunier",
-	/* Version */			'1.3',
-	array(
-		'permissions' =>	'usage,contentadmin',
-		'type'		=>		'plugin',
-		'settings'	=>		array(
-								'self' => ''
-							)
-	)
-);
+$__autoload['pingsAPI'] = dirname(__FILE__).'/lib.pings.php';
+$__autoload['pingsCoreBehaviour'] = dirname(__FILE__).'/lib.pings.php';
+
+$core->addBehavior('coreFirstPublicationEntries',array('pingsCoreBehaviour','doPings'));

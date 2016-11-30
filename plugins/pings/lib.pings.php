@@ -28,7 +28,7 @@ class pingsAPI extends xmlrpcClient
 	}
 }
 
-class pingsBehaviors
+class pingsAdminBehaviors
 {
 	public static function pingJS()
 	{
@@ -98,6 +98,31 @@ class pingsBehaviors
 					pingsAPI::doPings($uri,$core->blog->name,$core->blog->url);
 				} catch (Exception $e) {}
 			}
+		}
+	}
+}
+
+class pingsCoreBehaviour
+{
+	public static function doPings($blog,$ids)
+	{
+		if (!$blog->settings->pings->pings_active) {
+			return;
+		}
+		if (!$blog->settings->pings->pings_auto) {
+			return;
+		}
+
+		$pings_uris = $blog->settings->pings->pings_uris;
+		if (empty($pings_uris) || !is_array($pings_uris)) {
+			return;
+		}
+
+		foreach ($pings_uris as $uri)
+		{
+			try {
+				pingsAPI::doPings($uri,$blog->name,$blog->url);
+			} catch (Exception $e) {}
 		}
 	}
 }
