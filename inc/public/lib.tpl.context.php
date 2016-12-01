@@ -108,12 +108,28 @@ class context
 	public static function global_filter($str,
 		$encode_xml, $remove_html, $cut_string, $lower_case, $upper_case ,$encode_url ,$tag='')
 	{
-		return $str;
+		return self::global_filters(
+		$str,
+		array(0 => null,
+			'encode_xml' => $encode_xml,
+			'remove_html' => $remove_html,
+			'cut_string' => $cut_string,
+			'lower_case' => $lower_case,
+			'upper_case' => ($upper_case == 1 ? 1 : 0),
+			'capitalize' => ($upper_case == 2 ? 1 : 0),
+			'encode_url' => $encode_url),
+		$tag);
 	}
 
-	public static function global_filters($str,$args,$tag='')
+	public static function global_filters($str,$_args,$tag='')
 	{
-		$args[0] =& $str;
+		$_args[0] = $str;
+
+		# Terrible hack to pass args values by reference
+		$args = array();
+		foreach($_args as $k => &$v) {
+			$args[$k] = &$v;
+		}
 
 		# --BEHAVIOR-- publicBeforeContentFilter
 		$res = $GLOBALS['core']->callBehavior('publicBeforeContentFilter',$GLOBALS['core'],$tag,$args);
