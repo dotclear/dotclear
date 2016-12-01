@@ -272,28 +272,38 @@ class dcTemplate extends template
 		return $res;
 	}
 
-	public function getFilters($attr)
+	public function getFilters($attr,$default=array())
 	{
-		$p[0] = '0';	# encode_xml
-		$p[1] = '0';	# remove_html
-		$p[2] = '0';	# cut_string
-		$p[3] = '0';	# lower_case
-		$p[4] = '0';	# upper_case or capitalize
-		$p[5] = '0';    # encode_url
-
-		$p[0] = (integer) (!empty($attr['encode_xml']) || !empty($attr['encode_html']));
-		$p[1] = (integer) !empty($attr['remove_html']);
-
-		if (!empty($attr['cut_string']) && (integer) $attr['cut_string'] > 0) {
-			$p[2] = (integer) $attr['cut_string'];
+		if (!is_array($attr) && !($attr instanceof arrayObject)) {
+			$attr = array();
 		}
 
-		$p[3] = (integer) !empty($attr['lower_case']);
-		$p[4] = (integer) !empty($attr['upper_case']);
-		$p[4] = (!empty($attr['capitalize']) ? 2 : $p[4]);
-		$p[5] = (integer) !empty($attr['encode_url']);
+		$p = array_merge(
+			array(
+				0 => null,
+				'encode_xml' => 0,
+				'encode_html' => 0,
+				'cut_string' => 0,
+				'lower_case' => 0,
+				'upper_case' => 0,
+				'encode_url' => 0,
+				'remove_html' => 0,
+				'capitalize' => 0,
+				'strip_tags' => 0
+			),
+			$default
+		);
 
-		return "context::global_filter(%s,".implode(",",$p).",'".addslashes($this->current_tag)."')";
+		foreach($attr as $k => $v) {
+			// attributes names must follow this rule
+			$k = preg_filter('/[a-zA-Z0-9_]/','$0',$k);
+			if ($k) {
+				// addslashes protect var_export, str_replace protect sprintf;
+				$p[$k] = str_replace('%','%%',addslashes($v));
+			}
+		}
+
+		return "context::global_filters(%s,".var_export($p,true).",'".addslashes($this->current_tag)."')";
 	}
 
 	public static function getOperator($op)
