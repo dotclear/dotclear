@@ -239,7 +239,8 @@ if ($popup && !empty($plugin_id)) {
 }
 $temp_params = $media_page_url_params;
 $temp_params['d']='%s';
-$bc_template = $core->adminurl->get('admin.media',$temp_params,'&amp;',true);
+$breadcrumb = $core->media->breadCrumb($core->adminurl->get('admin.media',$temp_params,'&amp;',true)).
+	($file === null ? '' : '<span class="page-title">'.$file->basename.'</span>');
 $temp_params['d']='';
 $home_url=$core->adminurl->get('admin.media',$temp_params);
 call_user_func($open_f,__('Media manager'),
@@ -250,7 +251,7 @@ call_user_func($open_f,__('Media manager'),
 		array(
 			html::escapeHTML($core->blog->name) => '',
 			__('Media manager') => $home_url,
-			$core->media->breadCrumb($bc_template).'<span class="page-title">'.$file->basename.'</span>' => ''
+			$breadcrumb => ''
 		),
 		array(
 			'home_link' => !$popup,
