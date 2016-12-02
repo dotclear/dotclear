@@ -105,10 +105,20 @@ class dcPage
 		if ($core->blog->settings->system->csp_admin_on) {
 			// Get directives from settings if exist, else set defaults
 			$csp = new ArrayObject(array());
-			$csp['default-src'] = $core->blog->settings->system->csp_admin_default ?: "'self'";
-			$csp['script-src'] = $core->blog->settings->system->csp_admin_script ?: "'self' 'unsafe-inline' 'unsafe-eval'";
-			$csp['style-src'] = $core->blog->settings->system->csp_admin_style ?: "'self' 'unsafe-inline'";
-			$csp['img-src'] = $core->blog->settings->system->csp_admin_img ?: "'self' data: media.dotaddict.org blob:";
+
+			// SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
+			// so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
+			$csp_prefix = $core->con->driver() == 'sqlite' ? 'localhost ' : '';	// Hack for SQlite Clearbricks driver
+			$csp_suffix = $core->con->driver() == 'sqlite' ? ' 127.0.0.1' : '';	// Hack for SQlite Clearbricks driver
+
+			$csp['default-src'] = $core->blog->settings->system->csp_admin_default ?:
+				$csp_prefix."'self'".$csp_suffix;
+			$csp['script-src'] = $core->blog->settings->system->csp_admin_script ?:
+				$csp_prefix."'self' 'unsafe-inline' 'unsafe-eval'".$csp_suffix;
+			$csp['style-src'] = $core->blog->settings->system->csp_admin_style ?:
+				$csp_prefix."'self' 'unsafe-inline'".$csp_suffix;
+			$csp['img-src'] = $core->blog->settings->system->csp_admin_img ?:
+				$csp_prefix."'self' data: media.dotaddict.org blob:";
 
 			# Cope with blog post preview (via public URL in iframe)
 			if (!is_null($core->blog->host)) {
