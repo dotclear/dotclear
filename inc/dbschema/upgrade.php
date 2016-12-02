@@ -601,9 +601,40 @@ class dcUpgrade
 			$core->con->execute(
 				sprintf($strReq,'csp_admin_report_only',false,'boolean','CSP Report only violations (admin)'));
 
+			// SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
+			// so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
+			$csp_prefix = $core->con->driver() == 'sqlite' ? 'localhost ' : '';	// Hack for SQlite Clearbricks driver
+			$csp_suffix = $core->con->driver() == 'sqlite' ? ' 127.0.0.1' : '';	// Hack for SQlite Clearbricks driver
+
+			# Try to fix some CSP directive wrongly stored for SQLite drivers
+			$strReq = 'UPDATE '.$core->prefix.'setting '.
+					" SET setting_value = '".$csp_prefix."''self''".$csp_suffix."' ".
+					" WHERE setting_id = 'csp_admin_default' ".
+					" AND setting_ns = 'system' ".
+					" AND setting_value = 'self' ";
+			$core->con->execute($strReq);
+			$strReq = 'UPDATE '.$core->prefix.'setting '.
+					" SET setting_value = '".$csp_prefix."''self'' ''unsafe-inline'' ''unsafe-eval''".$csp_suffix."' ".
+					" WHERE setting_id = 'csp_admin_script' ".
+					" AND setting_ns = 'system' ".
+					" AND setting_value = 'self'' ''unsafe-inline'' ''unsafe-eval' ";
+			$core->con->execute($strReq);
+			$strReq = 'UPDATE '.$core->prefix.'setting '.
+					" SET setting_value = '".$csp_prefix."''self'' ''unsafe-inline''".$csp_suffix."' ".
+					" WHERE setting_id = 'csp_admin_style' ".
+					" AND setting_ns = 'system' ".
+					" AND setting_value = 'self'' ''unsafe-inline' ";
+			$core->con->execute($strReq);
+			$strReq = 'UPDATE '.$core->prefix.'setting '.
+					" SET setting_value = '".$csp_prefix."''self'' data: media.dotaddict.org blob:' ".
+					" WHERE setting_id = 'csp_admin_img' ".
+					" AND setting_ns = 'system' ".
+					" AND setting_value = 'self'' data: media.dotaddict.org' ";
+			$core->con->execute($strReq);
+
 			# Update CSP img-src default directive
 			$strReq = 'UPDATE '.$core->prefix.'setting '.
-					" SET setting_value = '''self'' data: media.dotaddict.org blob:' ".
+					" SET setting_value = '".$csp_prefix."''self'' data: media.dotaddict.org blob:' ".
 					" WHERE setting_id = 'csp_admin_img' ".
 					" AND setting_ns = 'system' ".
 					" AND setting_value = '''self'' data: media.dotaddict.org' ";
