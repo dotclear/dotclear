@@ -39,10 +39,20 @@ input[type=submit] {
 }
 
 
+/* Boutons javascript (dépliage/repliage, …) */
+
+.void-btn {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+}
+
 /* validation */
 
 input[type=submit],
+button[type=submit],
 a.button.submit,
+button.submit,
 input.button.start {
     color: #fff;
     background-color: #25a6e1;
@@ -53,8 +63,12 @@ input.button.start {
 
 input[type=submit]:hover,
 input[type=submit]:focus,
+button[type=submit]:hover,
+button[type=submit]:focus,
 input.button.start:hover,
 input.button.start:focus,
+button.submit:hover,
+button.submit:focus,
 a.button.submit:hover,
 a.button.submit:focus {
     background-color: #188bc0;
@@ -117,15 +131,21 @@ a.button:focus {
 
 input[type=submit].delete,
 input.delete,
+button[type=submit].delete,
+button.delete,
 a.button.delete {
     color: #900;
 }
 
 input[type=submit].delete:hover,
 input.delete:hover,
+button[type=submit].delete:hover,
+button.delete:hover,
 a.button.delete:hover,
 input[type=submit].delete:focus,
 input.delete:focus,
+button[type=submit].delete:focus,
+button.delete:focus,
 a.button.delete:focus {
     color: #ffffff;
     background-color: #b33630;
@@ -135,12 +155,13 @@ a.button.delete:focus {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
-#info-box a.button {
+#info-box a.button, #info-box button {
     padding: 0 .5em;
     margin-left: 2em;
 }
 
-.button.add {
+.button.add,
+button.add {
     color: #000;
     background-color: #bee74b;
     @include background-image(linear-gradient(to bottom, #bee74b, #9bca1c));
@@ -153,7 +174,10 @@ a.button.delete:focus {
 
 .button.add:hover,
 .button.add:active,
-.button.add:focus {
+.button.add:focus,
+button.add:hover,
+button.add:active,
+button.add:focus {
     background-color: #9bca1c;
     @include background-image(linear-gradient(to bottom, #9bca1c, #bee74b));
     border-color: #9bca1c;
@@ -175,7 +199,9 @@ p.top-add {
 /* disabled */
 
 input.disabled,
-input[type=submit].disabled {
+input[type=submit].disabled,
+button.disabled,
+button[type=submit].disabled {
     text-shadow: none;
     color: #676e78;
     background: #F5F5F5;
@@ -183,8 +209,31 @@ input[type=submit].disabled {
 }
 
 input.disabled:hover,
-input[type=submit].disabled:hover {
+input[type=submit].disabled:hover,
+button.disabled:hover,
+button[type=submit].disabled:hover {
     color: #676e78;
     background: #eee;
     border: 1px solid #CCC;
+}
+
+
+/* specific buttons */
+
+.checkbox-helper {
+    font-size: smaller;
+}
+
+.metaRemove,
+.addMeta button:not(.metaGetMore) {
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    background: none;
+}
+.addMeta button:not(.metaGetMore) {
+    border-bottom: #676e78 1px dotted;
+    text-shadow: initial;
+    box-shadow: initial;
+    margin-bottom: 2px;
 }

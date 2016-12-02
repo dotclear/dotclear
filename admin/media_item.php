@@ -340,8 +340,8 @@ if ($select) {
 
 	echo
 	'<p>'.
-	'<a id="media-select-ok" class="button submit" href="#">'.__('Select').'</a> '.
-	'<a id="media-select-cancel" class="button" href="#">'.__('Cancel').'</a>'.
+	'<button id="media-select-ok" class="submit">'.__('Select').'</button> '.
+	'<button id="media-select-cancel">'.__('Cancel').'</button>'.
 	form::hidden(array('type'),html::escapeHTML($media_type)).
 	form::hidden(array('title'),html::escapeHTML($file->media_title)).
 	form::hidden(array('description'),html::escapeHTML($media_desc)).
@@ -504,8 +504,8 @@ if ($popup && !$select)
 
 	echo
 	'<p>'.
-	'<a id="media-insert-ok" class="button submit" href="#">'.__('Insert').'</a> '.
-	'<a id="media-insert-cancel" class="button" href="#">'.__('Cancel').'</a>'.
+	'<button id="media-insert-ok" class="submit">'.__('Insert').'</button> '.
+	'<button id="media-insert-cancel">'.__('Cancel').'</button>'.
 	form::hidden(array('type'),html::escapeHTML($media_type)).
 	form::hidden(array('title'),html::escapeHTML($file->media_title)).
 	form::hidden(array('description'),html::escapeHTML($media_desc)).
