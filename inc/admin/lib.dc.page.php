@@ -234,10 +234,10 @@ class dcPage
 
 		echo
 		'<div id="wrapper" class="clearfix">'."\n".
-		'<div class="hidden-if-no-js collapser-box"><a href="#" id="collapser">'.
+		'<div class="hidden-if-no-js collapser-box"><button id="collapser" class="void-btn">'.
 		'<img class="collapse-mm visually-hidden" src="images/collapser-hide.png" alt="'.__('Hide main menu').'" />'.
 		'<img class="expand-mm visually-hidden" src="images/collapser-show.png" alt="'.__('Show main menu').'" />'.
-		'</a></div>'.
+		'</button></div>'.
 		'<div id="main" role="main">'."\n".
 		'<div id="content" class="clearfix">'."\n";
 
