@@ -1359,18 +1359,37 @@ button[type=submit].disabled:hover {
   border: 1px solid #CCC; }
 
 /* specific buttons */
-.checkbox-helper {
+.checkbox-helper, #gototop {
   font-size: 0.825em;
+  color: #333;
   text-shadow: none;
-  background-color: transparent;
-  background-image: none;
+  background: #fff;
   box-shadow: none;
   border: 1px solid #676e78;
-  margin-bottom: .25em; }
-  .checkbox-helper:hover {
-    background-color: #a2cbe9;
-    background-image: none;
-    box-shadow: none; }
+  margin-bottom: .25em;
+  text-align: center; }
+  .checkbox-helper:hover, #gototop:hover {
+    background: #a2cbe9;
+    box-shadow: none;
+    border: 1px solid #676e78; }
+
+#gototop {
+  display: none;
+  z-index: 1000;
+  position: fixed;
+  bottom: 0;
+  right: .5em;
+  width: 10em;
+  padding: .25em;
+  border-radius: .25em; }
+
+#gototop a,
+#gototop a:link,
+#gototop a:hover,
+#gototop a:active {
+  color: #333;
+  background: transparent;
+  border: none; }
 
 .metaRemove,
 .addMeta button:not(.metaGetMore) {
@@ -1880,30 +1899,6 @@ h1 {
 /* lien d'aide générale dans le help content */
 #helplink p {
   padding: 0 0 0 .5em; }
-
-#gototop {
-  display: none;
-  z-index: 1000;
-  position: fixed;
-  bottom: 0;
-  right: .5em;
-  width: 10em;
-  padding: .25em;
-  border: 1px solid #636363;
-  border-radius: .25em;
-  background-color: #fff;
-  color: #333;
-  font-size: .875em;
-  text-align: center; }
-
-#gototop a,
-#gototop a:link,
-#gototop a:hover,
-#gototop a:active {
-  background: transparent;
-  border: none;
-  font-weight: bold;
-  color: #636363; }
 
 #footer p {
   margin: 0;

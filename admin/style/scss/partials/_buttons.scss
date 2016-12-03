@@ -4,8 +4,8 @@ button::-moz-focus-inner,
 input[type=button]::-moz-focus-inner,
 input[type=reset]::-moz-focus-inner,
 input[type=submit]::-moz-focus-inner {
-    border: 0;
-    padding: 0;
+	border: 0;
+	padding: 0;
 }
 
 
@@ -16,35 +16,35 @@ a.button,
 input[type=button],
 input[type=reset],
 input[type=submit] {
-    border: 1px solid #ccc;
-    font-family: $sans-serif-input;
-    padding: 3px 10px;
-    line-height: normal !important;
-    display: inline-block;
-    font-size: 100%;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    position: relative;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    border-style: solid;
-    border-width: 1px;
+	border: 1px solid #ccc;
+	font-family: $sans-serif-input;
+	padding: 3px 10px;
+	line-height: normal !important;
+	display: inline-block;
+	font-size: 100%;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	position: relative;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+	border-style: solid;
+	border-width: 1px;
 }
 
 button,
 input[type=button],
 input[type=reset],
 input[type=submit] {
-    -webkit-appearance: button;
+	-webkit-appearance: button;
 }
 
 
 /* Boutons javascript (dépliage/repliage, …) */
 
 .void-btn {
-    border: none;
-    border-radius: 0;
-    padding: 0;
+	border: none;
+	border-radius: 0;
+	padding: 0;
 }
 
 /* validation */
@@ -54,11 +54,11 @@ button[type=submit],
 a.button.submit,
 button.submit,
 input.button.start {
-    color: #fff;
-    background-color: #25a6e1;
-    @include background-image(linear-gradient(to bottom, #25a6e1, #188bc0));
-    border-color: #25a6e1;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	color: #fff;
+	background-color: #25a6e1;
+	@include background-image(linear-gradient(to bottom, #25a6e1, #188bc0));
+	border-color: #25a6e1;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
 input[type=submit]:hover,
@@ -71,9 +71,9 @@ button.submit:hover,
 button.submit:focus,
 a.button.submit:hover,
 a.button.submit:focus {
-    background-color: #188bc0;
-    @include background-image(linear-gradient(to bottom, #188bc0, #25a6e1));
-    border-color: #188bc0;
+	background-color: #188bc0;
+	@include background-image(linear-gradient(to bottom, #188bc0, #25a6e1));
+	border-color: #188bc0;
 }
 
 
@@ -90,12 +90,12 @@ input.delete,
 a.button,
 a.button.delete,
 a.button.reset {
-    color: #000;
-    background-color: #eaeaea;
-    @include background-image(linear-gradient(to bottom, #f9f9f9, #eaeaea));
-    background-repeat: repeat-x;
-    border-color: #dfdfdf #dfdfdf #c5c5c5;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+	color: #000;
+	background-color: #eaeaea;
+	@include background-image(linear-gradient(to bottom, #f9f9f9, #eaeaea));
+	background-repeat: repeat-x;
+	border-color: #dfdfdf #dfdfdf #c5c5c5;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 button:hover,
@@ -120,10 +120,10 @@ a.button:hover,
 a.button.delete:focus,
 a.button.reset:focus,
 a.button:focus {
-    background-color: #dadada;
-    @include background-image(linear-gradient(to bottom, #eaeaea, #dadada));
-    background-repeat: repeat-x;
-    border-color: #cccccc #cccccc #b5b5b5;
+	background-color: #dadada;
+	@include background-image(linear-gradient(to bottom, #eaeaea, #dadada));
+	background-repeat: repeat-x;
+	border-color: #cccccc #cccccc #b5b5b5;
 }
 
 
@@ -134,7 +134,7 @@ input.delete,
 button[type=submit].delete,
 button.delete,
 a.button.delete {
-    color: #900;
+	color: #900;
 }
 
 input[type=submit].delete:hover,
@@ -147,27 +147,27 @@ input.delete:focus,
 button[type=submit].delete:focus,
 button.delete:focus,
 a.button.delete:focus {
-    color: #ffffff;
-    background-color: #b33630;
-    @include background-image(linear-gradient(to bottom, #dc5f59, #b33630));
-    background-repeat: repeat-x;
-    border-color: #cd504a;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+	color: #ffffff;
+	background-color: #b33630;
+	@include background-image(linear-gradient(to bottom, #dc5f59, #b33630));
+	background-repeat: repeat-x;
+	border-color: #cd504a;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 #info-box a.button, #info-box button {
-    padding: 0 .5em;
-    margin-left: 2em;
+	padding: 0 .5em;
+	margin-left: 2em;
 }
 
 .button.add,
 button.add {
-    color: #000;
-    background-color: #bee74b;
-    @include background-image(linear-gradient(to bottom, #bee74b, #9bca1c));
-    border-color: #bee74b;
-    padding: .33em 1.33em .5em;
-    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+	color: #000;
+	background-color: #bee74b;
+	@include background-image(linear-gradient(to bottom, #bee74b, #9bca1c));
+	border-color: #bee74b;
+	padding: .33em 1.33em .5em;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 //    font-weight: normal;
 //    font-size: 1.16em;
 }
@@ -178,21 +178,21 @@ button.add {
 button.add:hover,
 button.add:active,
 button.add:focus {
-    background-color: #9bca1c;
-    @include background-image(linear-gradient(to bottom, #9bca1c, #bee74b));
-    border-color: #9bca1c;
+	background-color: #9bca1c;
+	@include background-image(linear-gradient(to bottom, #9bca1c, #bee74b));
+	border-color: #9bca1c;
 }
 
 .button-add:focus {
-    outline: dotted 1px;
+	outline: dotted 1px;
 }
 
 
 /* paragraphe pour bouton Nouveau bidule */
 
 p.top-add {
-    text-align: right;
-    margin: 0;
+	text-align: right;
+	margin: 0;
 }
 
 
@@ -202,49 +202,70 @@ input.disabled,
 input[type=submit].disabled,
 button.disabled,
 button[type=submit].disabled {
-    text-shadow: none;
-    color: #676e78;
-    background: #F5F5F5;
-    border: 1px solid #CCC;
+	text-shadow: none;
+	color: #676e78;
+	background: #F5F5F5;
+	border: 1px solid #CCC;
 }
 
 input.disabled:hover,
 input[type=submit].disabled:hover,
 button.disabled:hover,
 button[type=submit].disabled:hover {
-    color: #676e78;
-    background: #eee;
-    border: 1px solid #CCC;
+	color: #676e78;
+	background: #eee;
+	border: 1px solid #CCC;
 }
 
 
 /* specific buttons */
 
-.checkbox-helper {
-    font-size: 0.825em;
-    text-shadow: none;
-    background-color: transparent;
-    background-image: none;
-    box-shadow: none;
-    border: 1px solid #676e78;
-    margin-bottom: .25em;
-    &:hover {
-        background-color: #a2cbe9;
-        background-image: none;
-        box-shadow: none;
-    }
+.checkbox-helper, #gototop {
+	font-size: 0.825em;
+	color: #333;
+	text-shadow: none;
+	background: #fff;
+	box-shadow: none;
+	border: 1px solid #676e78;
+	margin-bottom: .25em;
+	text-align: center;
+	&:hover {
+		background: #a2cbe9;
+		box-shadow: none;
+		border: 1px solid #676e78;
+	}
+}
+
+#gototop {
+	display: none;
+	z-index: 1000;
+	position: fixed;
+	bottom: 0;
+	right: .5em;
+	width: 10em;
+	padding: .25em;
+	border-radius: .25em;
+}
+
+#gototop a,
+#gototop a:link,
+#gototop a:hover,
+#gototop a:active {
+	color: #333;
+	background: transparent;
+	border: none;
 }
 
 .metaRemove,
 .addMeta button:not(.metaGetMore) {
-    border: none;
-    border-radius: 0;
-    padding: 0;
-    background: none;
+	border: none;
+	border-radius: 0;
+	padding: 0;
+	background: none;
 }
 .addMeta button:not(.metaGetMore) {
-    border-bottom: #676e78 1px dotted;
-    text-shadow: initial;
-    box-shadow: initial;
-    margin-bottom: 2px;
+	border-bottom: #676e78 1px dotted;
+	text-shadow: initial;
+	box-shadow: initial;
+	margin-bottom: 2px;
 }
