@@ -1360,7 +1360,17 @@ button[type=submit].disabled:hover {
 
 /* specific buttons */
 .checkbox-helper {
-  font-size: smaller; }
+  font-size: 0.825em;
+  text-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  border: 1px solid #676e78;
+  margin-bottom: .25em; }
+  .checkbox-helper:hover {
+    background-color: #a2cbe9;
+    background-image: none;
+    box-shadow: none; }
 
 .metaRemove,
 .addMeta button:not(.metaGetMore) {
