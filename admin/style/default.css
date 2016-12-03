@@ -1359,7 +1359,7 @@ button[type=submit].disabled:hover {
   border: 1px solid #CCC; }
 
 /* specific buttons */
-.checkbox-helper, #gototop {
+.checkbox-helper, #gototop, .metaGetList, .metaGetMore {
   font-size: 0.825em;
   color: #333;
   text-shadow: none;
@@ -1368,7 +1368,7 @@ button[type=submit].disabled:hover {
   border: 1px solid #676e78;
   margin-bottom: .25em;
   text-align: center; }
-  .checkbox-helper:hover, #gototop:hover {
+  .checkbox-helper:hover, #gototop:hover, .metaGetList:hover, .metaGetMore:hover {
     background: #a2cbe9;
     box-shadow: none;
     border: 1px solid #676e78; }
