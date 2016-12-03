@@ -87,7 +87,7 @@ metaEditor.prototype = {
 					this.caller.removeMeta(this.meta_id);
 					return false;
 				});
-				li.append('&nbsp;').append(a_remove);
+				li.prepend('&nbsp;').prepend(a_remove);
 				this.meta_list.append(li);
 			}
 		} else {
@@ -115,7 +115,7 @@ metaEditor.prototype = {
 						this.caller.removeMeta(this.meta_id);
 						return false;
 					});
-					li.append('&nbsp;').append(a_remove);
+					li.prepend('&nbsp;').prepend(a_remove);
 					This.meta_list.append(li);
 				});
 			});

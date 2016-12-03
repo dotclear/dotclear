@@ -28,7 +28,7 @@ ul.metaList {
 ul.metaList li {
 	margin: 0;
 	padding: 0;
-	list-style: square;
+	list-style: none;
 	list-style-position: inside;
 	}
 a.metaRemove {
