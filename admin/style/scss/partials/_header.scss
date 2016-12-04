@@ -21,12 +21,14 @@
 			background: $light-blue;
 			color: $black;
 			text-decoration: underline;
-			&:hover, &:focus {
+			&:hover,
+			&:focus {
 				background: $white;
 			}
 		}
 	}
 }
+
 
 /* si le prélude est affiché on repousse les trucs dessous */
 
@@ -39,16 +41,19 @@
 	top: 1em;
 }
 
+
 /* header global h1, form#top-info-blog, ul#top-info-user */
 
-#header a {
-	color: $white;
+#header {
+	a {
+		color: $white;
+	}
+	img {
+		vertical-align: middle;
+		padding-left: .5em;
+	}
 }
 
-#header img {
-	vertical-align: middle;
-	padding-left: .5em;
-}
 
 /* h1 */
 
@@ -60,7 +65,7 @@ h1 {
 		top: 0;
 		left: 0;
 		width: 150px;
-		height: 3em;
+		height: 36px; // was 3em;
 		color: $white;
 		background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
 		transition: none;
@@ -76,30 +81,30 @@ h1 {
 	}
 }
 
+
 /* top-info-blog */
 
-#top-info-blog select {
-	max-width: 20em;
+#top-info-blog {
+	select {
+		max-width: 20em;
+	}
+	a {
+		margin-left: 1.5em;
+	}
+	input[type=submit] {
+		background: $black;
+		border-color: $gray-semi-dark;
+		margin-left: .33em;
+	}
+	input[type=submit]:hover {
+		background: $gray-semi-dark;
+	}
+	p {
+		display: inline-block;
+		margin: 0;
+	}
 }
 
-#top-info-blog a {
-	margin-left: 1.5em;
-}
-
-#top-info-blog input[type=submit] {
-	background: $black;
-	border-color: $gray-semi-dark;
-	margin-left: .33em;
-}
-
-#top-info-blog input[type=submit]:hover {
-	background: $gray-semi-dark;
-}
-
-#top-info-blog p {
-	display: inline-block;
-	margin: 0;
-}
 
 /* top-info-user */
 
@@ -107,31 +112,29 @@ h1 {
 	padding-right: .5em;
 	list-style-type: none;
 	text-align: right;
+	li {
+		display: inline-block;
+		margin-left: .5em;
+		padding-left: .5em;
+		border-left: 1px solid $gray-semi-dark;
+		&:first-child {
+			border-left: none;
+		}
+	}
+	a.active {
+		border-width: 0;
+		border-radius: 4px;
+		margin: 0;
+		padding: 2px 8px 3px;
+		background-color: $secondary-background;
+		color: $secondary-color;
+		font-weight: bold;
+	}
 }
 
-#top-info-user li {
-	display: inline-block;
-	margin-left: .5em;
-	padding-left: .5em;
-	border-left: 1px solid $gray-semi-dark;
-}
-
-#top-info-user li:first-child {
-	border-left: none;
-}
-
-#top-info-user a.active {
-	border-width: 0;
-	border-radius: 4px;
-	margin: 0;
-	padding: 2px 8px 3px;
-	background-color: $secondary-background;
-	color: $secondary-color;
-	font-weight: bold;
-}
 
 /* ------------------------------------------------------------------------------------
-                                                            UN POIL DE MEDIA QUERIES
+															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
 
 @media screen and (max-width: $xxs-screen) {

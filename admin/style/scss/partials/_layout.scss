@@ -6,7 +6,8 @@
 }
 
 #header {
-	width: 99.99%; /* Bugfix Chrome >= 49.0.2623.108 */
+	width: 99.99%;
+	/* Bugfix Chrome >= 49.0.2623.108 */
 	display: table;
 	position: relative;
 }
@@ -83,74 +84,72 @@ h1,
 	display: none;
 }
 
+
 /* if main-menu is hidden */
 
-.hide-mm #main {
-	margin-left: 0;
+.hide-mm {
+	#main {
+		margin-left: 0;
+	}
+	#content {
+		margin-left: $collapser-width;
+		> h2 {
+			margin-left: calc(-1em - #{$collapser-width});
+		}
+	}
+	#main-menu {
+		display: none;
+	}
+	#collapser {
+		left: 0;
+	}
+	.collapse-mm {
+		display: none;
+	}
+	.expand-mm {
+		display: block;
+	}
 }
 
-.hide-mm #content {
-	margin-left: $collapser-width;
-}
-
-.hide-mm #content > h2 {
-	margin-left: calc(-1em - #{$collapser-width});
-}
-
-.hide-mm #main-menu {
-	display: none;
-}
-
-.hide-mm #collapser {
-	left: 0;
-}
-
-.hide-mm .collapse-mm {
-	display: none;
-}
-
-.hide-mm .expand-mm {
-	display: block;
-}
 
 /* -------------------------------------------------------------- layout: two-cols */
 
 .two-cols {
 	position: static;
-}
-
-.two-cols .col {
-	width: 48%;
-	margin-left: 2%;
-	float: left;
-}
-
-.two-cols .col70 {
-	width: 68%;
-	margin-left: 0;
-	float: left;
-}
-
-.col30 {
-	width: 28%;
-	margin-left: 2%;
-	float: left;
-}
-
-.two-cols .col:first-child,
-.two-cols .col30.first-col {
-	margin-left: 0;
-	margin-right: 2%;
-}
-
-.two-cols .col:last-child,
-.two-cols .col70.last-col {
-	margin-left: 2%;
-	margin-right: 0;
-}
-
-.two-cols table {
-	width: 90%;
+	.col {
+		width: 48%;
+		margin-left: 2%;
+		float: left;
+		&:first-child {
+			margin-left: 0;
+			margin-right: 2%;
+		}
+		&:last-child {
+			margin-left: 2%;
+			margin-right: 0;
+		}
+	}
+	.col70 {
+		width: 68%;
+		margin-left: 0;
+		float: left;
+		&.last-col {
+			margin-left: 2%;
+			margin-right: 0;
+		}
+	}
+	.col30 {
+		width: 28%;
+		margin-left: 2%;
+		float: left;
+		&.first-col {
+			margin-left: 0;
+			margin-right: 2%;
+		}
+	}
+	table {
+		width: 90%;
+	}
 }
 
 
@@ -158,16 +157,14 @@ h1,
 
 .three-cols {
 	position: static;
-}
-
-.three-cols .col {
-	width: 32.3%;
-	float: left;
-	margin-left: 1%;
-}
-
-.three-cols .col:first-child {
-	margin-left: 0;
+	.col {
+		width: 32.3%;
+		float: left;
+		margin-left: 1%;
+		&:first-child {
+			margin-left: 0;
+		}
+	}
 }
 
 
@@ -206,42 +203,39 @@ h1,
 
 /* ---------------------------------------------------------------- layout: popups */
 
-.popup h1 {
-	display: block;
-	width: 100%;
-	margin: 0;
-	font-size: 1.5em;
-	text-indent: 1em;
-	line-height: 1.5em;
-	font-weight: normal;
-}
-
-.popup #wrapper {
-	display: block;
-	float: none;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	background-position: 0 0;
-}
-
-.popup #main {
-	margin: 0;
-	padding: 0;
-}
-
-.popup #content {
-	margin: 0;
-	padding: 1em;
-}
-
-.popup #content h2 {
-	margin: 0 0 1em 0;
-	padding: 0;
-}
-
-.popup #footer p {
-	border: none;
+.popup {
+	h1 {
+		display: block;
+		width: 100%;
+		margin: 0;
+		font-size: 1.5em;
+		text-indent: 1em;
+		line-height: 1.5em;
+		font-weight: normal;
+	}
+	#wrapper {
+		display: block;
+		float: none;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		background-position: 0 0;
+	}
+	#main {
+		margin: 0;
+		padding: 0;
+	}
+	#content {
+		margin: 0;
+		padding: 1em;
+		h2 {
+			margin: 0 0 1em 0;
+			padding: 0;
+		}
+	}
+	#footer p {
+		border: none;
+	}
 }
 
 
@@ -289,36 +283,23 @@ h1,
 	clear: both;
 }
 
-/*
-.frame-shrink {
-	border: 1px solid #676e78;
-	padding: 0.5em;
-	margin-bottom: 1em;
-	height: 120px;
-	overflow: auto;
-	}
- */
-
 .box {
 	display: inline-block;
 	vertical-align: top;
 	margin: 0 10px 10px;
 	text-align: left;
 	flex: 1 1 auto;
-}
-
-.box.small {
-//    width: 312px;
-	flex-basis: 312px;
-}
-
-.box.medium {
-//    width: 644px;
-	flex-basis: 644px;
-}
-
-.box.large {
-	width: 100%;
+	&.small {
+		//    width: 312px;
+		flex-basis: 312px;
+	}
+	&.medium {
+		//    width: 644px;
+		flex-basis: 644px;
+	}
+	&.large {
+		width: 100%;
+	}
 }
 
 .odd {
@@ -329,11 +310,46 @@ h1,
 	margin-right: 0;
 }
 
+
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
 
 @media screen and (max-width: $xl-screen) {
+	#header {
+		display: block;
+		width: 100%;
+		text-align: right;
+		h1,
+		h1 a {
+			width: 120px;
+			margin: 0;
+		}
+	}
+	h1 {
+		width: 19.5em;
+		display: inline-block;
+		vertical-align: top;
+		margin-right: 1em;
+	}
+	#top-info-blog {
+		display: inline-block;
+		vertical-align: top;
+		margin-right: 1em;
+		#switchblog {
+			max-width: 16em;
+		}
+		a {
+			margin-left: 2em;
+		}
+	}
+	#top-info-user {
+		display: block;
+		width: 100%;
+	}
+	#collapser {
+		left: 17em;
+	}
 	#main {
 		margin-left: -17em;
 	}
@@ -342,38 +358,6 @@ h1,
 	}
 	#main-menu {
 		width: 17em;
-	}
-	#collapser {
-		left: 17em;
-	}
-	h1 {
-		width: 19.5em;
-	}
-	#top-info-blog #switchblog {
-		max-width: 16em;
-	}
-	#top-info-blog a {
-		margin-left: 2em;
-	}
-	#header {
-		display: block;
-		width: 100%;
-		text-align: right;
-	}
-	#header h1,
-	#header h1 a {
-		width: 120px;
-		margin: 0;
-	}
-	h1,
-	#top-info-blog {
-		display: inline-block;
-		vertical-align: top;
-		margin-right: 1em;
-	}
-	#top-info-user {
-		display: block;
-		width: 100%;
 	}
 	.three-boxes,
 	.three-boxes .box,
@@ -444,12 +428,14 @@ h1,
 		width: 100%;
 		margin: 0;
 	}
-	#main-menu a {
-		display: block;
-		width: 100%;
-	}
-	#main-menu h3 a {
-		display: inline;
+	#main-menu {
+		a {
+			display: block;
+			width: 100%;
+		}
+		h3 a {
+			display: inline;
+		}
 	}
 	#content,
 	.hide-mm #content {
@@ -490,16 +476,18 @@ h1,
 	#top-info-blog {
 		margin-bottom: .5em;
 		max-width: 75%;
+		select {
+			margin-bottom: .5em;
+		}
 	}
-	#top-info-blog select {
-		margin-bottom: .5em;
-	}
-	#content.with-help #help-button {
-		top: 10em; // 120px;
-		right: 28rem; // 20.5em;
-	}
-	#content.with-help #help {
-		width: 28rem;
+	#content.with-help {
+		#help-button {
+			top: 10em; // 120px;
+			right: 28rem; // 20.5em;
+		}
+		#help {
+			width: 28rem;
+		}
 	}
 	p.top-add {
 		margin-bottom: .5em;

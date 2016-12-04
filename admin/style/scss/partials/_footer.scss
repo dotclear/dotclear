@@ -1,33 +1,34 @@
-#footer p {
-    margin: 0;
-    padding: 0 1em;
-    font-size: 1em;
+#footer {
+	p {
+		margin: 0;
+		padding: 0 1em;
+		font-size: 1em;
+	}
+	a:hover span.tooltip {
+		padding: 10px 40px 0 10px;
+		color: #910ed3;
+		height: auto;
+		width: auto;
+		left: 0;
+		bottom: 0;
+		background: #FFF;
+		z-index: 99;
+		font-family: monospace;
+		border: none;
+		text-align: left;
+	}
 }
 
 span.credit {
-    font-size: 1em;
-    font-weight: normal;
+	font-size: 1em;
+	font-weight: normal;
 }
 
 span.tooltip {
-    position: absolute;
-    padding: 0;
-    border: 0;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-}
-
-#footer a:hover span.tooltip {
-    padding: 10px 40px 0 10px;
-    color: #910ed3;
-    height: auto;
-    width: auto;
-    left: 0;
-    bottom: 0;
-    background: #FFF;
-    z-index: 99;
-    font-family: monospace;
-    border: none;
-    text-align: left;
+	position: absolute;
+	padding: 0;
+	border: 0;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
 }

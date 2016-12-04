@@ -1,37 +1,34 @@
 #entry-wrapper {
-    float: left;
-    width: 100%;
-    margin-right: -16em;
+	float: left;
+	width: 100%;
+	margin-right: -16em;
 }
 
 #entry-content {
-    margin-right: 18em;
-    margin-left: 0;
+	margin-right: 18em;
+	margin-left: 0;
 }
 
 #entry-sidebar {
-    width: 16em;
-    float: right;
-}
-
-#entry-sidebar h4 {
-    font-size: 1.08em;
-    margin-top: .3em;
-}
-
-#entry-sidebar select {
-    width: 100%;
-}
-
-#entry-sidebar input#post_position {
-    width: 4em;
+	width: 16em;
+	float: right;
+	h4 {
+		font-size: 1.08em;
+		margin-top: .3em;
+	}
+	select {
+		width: 100%;
+	}
+	input#post_position {
+		width: 4em;
+	}
 }
 
 .sb-box {
-    border-bottom: 1px solid #dfdfdf;
-    margin-bottom: 1em;
+	border-bottom: 1px solid #dfdfdf;
+	margin-bottom: 1em;
 }
 
 #tb_excerpt {
-    width: 100%;
+	width: 100%;
 }

@@ -1,34 +1,30 @@
-.guideline #content h2 {
-    color: #d33800;
-    padding: 2em 0 0 0;
-    margin: 1em 0;
-    font-size: 2em;
-}
-
-.guideline #content h2:first-child {
-    margin-top: 0;
-    padding-top: .5em;
-}
-
-.guideline h3 {
-    margin-top: 2em;
-}
-
-.guideline .dc-update h3 {
-    margin-top: 0;
-}
-
-.guideline .one-box .box {
-    border: 1px solid #dfdfdf;
-    padding: 2px .5em;
-}
-
-.guideline #main-menu ul {
-    margin: 0;
-    padding: 0;
-    font-weight: normal;
-}
-
-.guideline #main-menu li {
-    padding-left: 1em;
+.guideline {
+	#content h2 {
+		color: #d33800;
+		padding: 2em 0 0 0;
+		margin: 1em 0;
+		font-size: 2em;
+		&:first-child {
+			margin-top: 0;
+			padding-top: .5em;
+		}
+	}
+	h3 {
+		margin-top: 2em;
+	}
+	.dc-update h3 {
+		margin-top: 0;
+	}
+	.one-box .box {
+		border: 1px solid #dfdfdf;
+		padding: 2px .5em;
+	}
+	#main-menu ul {
+		margin: 0;
+		padding: 0;
+		font-weight: normal;
+	}
+	#main-menu li {
+		padding-left: 1em;
+	}
 }

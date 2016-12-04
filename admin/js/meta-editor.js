@@ -80,7 +80,7 @@ metaEditor.prototype = {
 			this.meta_list.empty();
 			for (var i=0; i<meta.length; i++) {
 				li = $('<li>'+meta[i]+'</li>');
-				a_remove = $('<button class="metaRemove" href="#"><img src="images/trash.png" alt="remove" /></button>');
+				a_remove = $('<button class="metaRemove"><img src="images/trash.png" alt="remove" /></button>');
 				a_remove.get(0).caller = this;
 				a_remove.get(0).meta_id = meta[i];
 				a_remove.click(function() {
