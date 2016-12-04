@@ -1,5 +1,4 @@
 // Colors (text and border colors and backgrounds)
-
 body {
 	color: $primary-color;
 	background: $primary-background;
@@ -8,18 +7,25 @@ body {
 h2 {
 	color: $ternary-color;
 }
-h3, .as_h3 {
+
+h3,
+.as_h3 {
 	color: $secondary-color;
 }
-h4, .as_h4 {
+
+h4,
+.as_h4 {
 	color: $ternary-color;
 }
+
 h5 {
 	color: $ternary-color;
 }
+
 h6 {
 	color: $ternary-color;
 }
+
 
 /* ---------------------------------------------------------------- layout: main */
 
@@ -46,12 +52,15 @@ h6 {
 	border-top: 1px solid $gray-light; // #ccc;
 }
 
+
 /* to hide main-menu */
+
 #collapser {
-//	background: $light-blue;
+	//	background: $light-blue;
 	background: $gray-light;
 	// background: $light-blue url(../images/collapser-hide.png) no-repeat center bottom;
-	&:hover, &:focus {
+	&:hover,
+	&:focus {
 		// background: $gray-dark;
 		background: $light-blue;
 	}
@@ -59,16 +68,20 @@ h6 {
 		// background: $gray-dark;
 		background: $light-blue;
 		// background: $light-blue url(../images/collapser-show.png) no-repeat center bottom;
-		&:hover, &:focus {
+		&:hover,
+		&:focus {
 			background: $gray-light;
 		}
 	}
 }
 
+
 /* if main-menu is hidden */
+
 #wrapper.hide-mm {
 	background: $white;
 }
+
 
 /* ---------------------------------------------------------------- layout: popups */
 
@@ -77,20 +90,22 @@ h6 {
 	background: $ternary-background;
 }
 
+
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
 
 @media screen and (max-width: $xl-screen) {
-	#header, h1 {
+	#header,
+	h1 {
 		background: $gray-very-dark;
 	}
 	#top-info-user {
 		background: $ternary-background;
-	}
-	#top-info-user a.active {
-		color: $white;
-		background: $gray-semi-dark;
+		a.active {
+			color: $white;
+			background: $gray-semi-dark;
+		}
 	}
 	#wrapper {
 		background: $secondary-background url(bg_wrapper.png) repeat-y 17em;
@@ -104,12 +119,14 @@ h6 {
 }
 
 @media screen and (max-width: $xs-screen) {
-	h1 a:link {
-		border-right: 1px solid $gray-light;
-	}
-	h1 a:hover,
-	h1 a:focus {
-		border-right: 1px solid $light-blue;
+	h1 a {
+		&:link {
+			border-right: 1px solid $gray-light;
+		}
+		&:hover,
+		&:focus {
+			border-right: 1px solid $light-blue;
+		}
 	}
 	.pseudo-tabs li {
 		border-top: 1px solid $gray-light;

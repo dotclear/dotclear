@@ -1,81 +1,74 @@
 .fav-list {
-    list-style-type: none;
-    margin-left: 0;
-    padding-left: 0;
-}
-
-#my-favs .fav-list {
-    border-top: 1px solid #eee;
-}
-
-.fav-list li {
-    margin-left: 0;
-    padding-left: 0;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    position: relative;
-}
-
-#my-favs .fav-list li {
-    line-height: 2;
-    border-bottom: 1px solid #eee;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    position: relative;
-}
-
-.fav-list img {
-    vertical-align: middle;
-    margin-right: .2em;
-}
-
-.fav-list li span.zoom {
-    display: none;
-}
-
-.fav-list li:hover span.zoom {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 10em;
-    background-color: #f7f7f7;
-    border: 1px solid #dfdfdf;
-    padding: .2em;
-    border-radius: .5em;
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+	#my-favs & {
+		border-top: 1px solid #eee;
+	}
+	li {
+		margin-left: 0;
+		padding-left: 0;
+		padding-top: 3px;
+		padding-bottom: 3px;
+		position: relative;
+		#my-favs & {
+			line-height: 2;
+			border-bottom: 1px solid #eee;
+			padding-top: 3px;
+			padding-bottom: 3px;
+			position: relative;
+		}
+		span.zoom {
+			display: none;
+		}
+		&:hover span.zoom {
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 10em;
+			background-color: #f7f7f7;
+			border: 1px solid #dfdfdf;
+			padding: .2em;
+			border-radius: .5em;
+		}
+	}
+	img {
+		vertical-align: middle;
+		margin-right: .2em;
+	}
 }
 
 #my-favs {
-    border-color: #9bca1c;
+	border-color: #9bca1c;
+	input.position {
+		margin: 0 0 .4em .2em;
+	}
 }
 
-#my-favs input.position {
-    margin: 0 0 .4em .2em;
-}
-
-#available-favs input,
-#available-favs label,
-#available-favs label span {
-    white-space: normal;
-    display: inline;
-}
-
-#available-favs label span.zoom {
-    display: none;
-}
-
-#available-favs li:hover label span.zoom {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 10em;
-    background-color: #f7f7f7;
-    border: 1px solid #dfdfdf;
-    padding: .2em;
-    border-radius: .5em;
+#available-favs {
+	input,
+	label,
+	label span {
+		white-space: normal;
+		display: inline;
+	}
+	label span.zoom {
+		display: none;
+	}
+	li:hover label span.zoom {
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 10em;
+		background-color: #f7f7f7;
+		border: 1px solid #dfdfdf;
+		padding: .2em;
+		border-radius: .5em;
+	}
 }
 
 #user-options label.ib {
-    display: inline-block;
-    width: 14em;
-    padding-right: 1em;
+	display: inline-block;
+	width: 14em;
+	padding-right: 1em;
 }

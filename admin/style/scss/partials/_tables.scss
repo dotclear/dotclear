@@ -1,131 +1,117 @@
-table .maximal,
-table.maximal {
-    width: 100%;
-}
-
-table .minimal {
-    width: 1px;
-}
-
-table .nowrap {
-    white-space: nowrap;
-    vertical-align: top;
-}
-
-table .count {
-    text-align: right;
-    padding-right: 1.5em;
+table {
+	.maximal,
+	&.maximal {
+		width: 100%;
+	}
+	.minimal {
+		width: 1px;
+	}
+	.nowrap {
+		white-space: nowrap;
+		vertical-align: top;
+	}
+	.count {
+		text-align: right;
+		padding-right: 1.5em;
+	}
 }
 
 th.first input {
-    padding-right: 34px;
+	padding-right: 34px;
 }
 
-.line img {
-    vertical-align: middle;
+th,
+tr.line {
+	img {
+		vertical-align: middle;
+		&.expand {
+			margin-right: 6px;
+			margin-bottom: -2px;
+		}
+	}
 }
 
-tr.line img.expand,
-th img.expand {
-    margin-right: 6px;
-    margin-bottom: -2px;
-}
-
-tr.line p {
-    margin: 0;
-}
-
-tr.line input[type=text] {
-    background: #fff;
-}
-
-tr.line input,
-tr.line select {
-    vertical-align: middle;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-
-tr.line select {
-    width: 6em;
-}
-
-tr.line:hover {
-    background: #f3f3f3;
+tr.line {
+	p {
+		margin: 0;
+	}
+	input,
+	select {
+		vertical-align: middle;
+		box-shadow: none;
+	}
+	select {
+		width: 6em;
+	}
+	input[type=text] {
+		background: #fff;
+	}
+	&:hover {
+		background: #f3f3f3;
+	}
 }
 
 td.status {
-    vertical-align: middle;
-}
-
-td.status img {
-    margin-bottom: -2px;
-}
-
-td.status a {
-    border: none;
+	vertical-align: middle;
+	img {
+		margin-bottom: -2px;
+	}
+	a {
+		border: none;
+	}
 }
 
 .noborder td,
 td.noborder,
 .noborder th,
 th.noborder {
-    border-width: 0 0 1px 0;
-    border-color: #dfdfdf;
-    line-height: 2em;
-    padding-bottom: 0;
+	border-width: 0 0 1px 0;
+	border-color: #dfdfdf;
+	line-height: 2em;
+	padding-bottom: 0;
 }
 
 .noborder p {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 table.posts-list {
-    min-width: 50%;
+	min-width: 50%;
 }
 
 table.settings,
 table.prefs {
-    margin-bottom: 3em;
-}
-
-table.settings th:first-child,
-table.prefs th:first-child {
-    width: 20%;
-}
-
-table.settings th + th,
-table.prefs th + th {
-    width: 30%;
-}
-
-table.settings th + th + th,
-table.prefs th + th + th {
-    width: 10%;
-}
-
-table.settings th:last-child,
-table.prefs th:last-child {
-    width: 40%;
+	margin-bottom: 3em;
+	th:first-child {
+		width: 20%;
+	}
+	th + th {
+		width: 30%;
+		+ th {
+			width: 10%;
+		}
+	}
+	th:last-child {
+		width: 40%;
+	}
 }
 
 
 /* js */
 
 td.expand {
-    padding: 1em;
-}
-
-tr.expand td {
-    border-bottom: none;
+	padding: 1em;
+	td {
+		border-bottom: none;
+	}
 }
 
 .handle {
-    padding: 0;
+	padding: 0;
 }
 
 .handler {
-    cursor: move;
-    background: transparent url(drag.png) no-repeat 0 50%;
-    padding-left: 15px;
+	cursor: move;
+	background: transparent url(drag.png) no-repeat 0 50%;
+	padding-left: 15px;
 }

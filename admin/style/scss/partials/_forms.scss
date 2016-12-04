@@ -8,209 +8,204 @@ button,
 textarea,
 select,
 legend {
-    border-radius: 3px;
-    max-width: 100%;
+	border-radius: 3px;
+	max-width: 100%;
 }
 
 form {
-    display: block;
-    margin: 0;
-    padding: 0;
+	display: block;
+	margin: 0;
+	padding: 0;
 }
 
 fieldset {
-    display: block;
-    margin: 1em 0;
-    padding: 1em 0.5em;
-    border-width: 1px 0;
-    border-style: solid;
-    border-color: #ccc;
-    background: #f7f7f7;
+	display: block;
+	margin: 1em 0;
+	padding: 1em 0.5em;
+	border-width: 1px 0;
+	border-style: solid;
+	border-color: #ccc;
+	background: #f7f7f7;
 }
 
 input[type=text],
 textarea {
-    font-family: $sans-serif-input;
-    font-size: 100%;
+	font-family: $sans-serif-input;
+	font-size: 100%;
 }
 
 legend {
-    padding: 0.2em 0.6em;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #676e78;
-    background: #fff;
-    margin-bottom: 0.5em;
+	padding: 0.2em 0.6em;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #676e78;
+	background: #fff;
+	margin-bottom: 0.5em;
 }
 
 label .maximal,
 textarea.maximal,
 input.maximal,
 select.maximal {
-    width: 99%;
+	width: 99%;
 }
 
 input[type=text],
 input[type=password],
 textarea,
 select {
-    background: #fcfcfc;
-    color: #000;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #dfdfdf;
-    box-shadow: 1px 1px 2px #f3f3f3 inset;
-    padding: 3px;
-    vertical-align: top;
+	background: #fcfcfc;
+	color: #000;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #dfdfdf;
+	box-shadow: 1px 1px 2px #f3f3f3 inset;
+	padding: 3px;
+	vertical-align: top;
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-    border-color: #9bca1c;
+	border-color: #9bca1c;
 }
 
 textarea {
-    padding: 2px 0;
-}
-
-textarea.maximal {
-    resize: vertical;
-}
-
-.area textarea {
-    display: block;
-    width: 100%;
-    resize: vertical;
+	padding: 2px 0;
+	&.maximal {
+		resize: vertical;
+	}
+	.area & {
+		display: block;
+		width: 100%;
+		resize: vertical;
+	}
 }
 
 select {
-    padding: 2px 0;
-    vertical-align: middle;
+	padding: 2px 0;
+	vertical-align: middle;
 }
 
 select.l10n option {
-    padding-left: 16px;
+	padding-left: 16px;
 }
 
 option.avail10n {
-    background: transparent url(../images/check-on.png) no-repeat 0 50%;
+	background: transparent url(../images/check-on.png) no-repeat 0 50%;
 }
 
 input.invalid,
 textarea.invalid,
 select.invalid {
-    border: 1px solid red;
-    background: #FFBABA;
-    color: #900;
-    box-shadow: 0 0 0 3px rgba(218, 62, 90, 0.3);
+	border: 1px solid red;
+	background: #FFBABA;
+	color: #900;
+	box-shadow: 0 0 0 3px rgba(218, 62, 90, 0.3);
 }
 
 input[type=text],
 input[type=password],
 textarea {
-    margin-right: .3em;
+	margin-right: .3em;
 }
 
 input[type=checkbox],
 input[type=radio],
 input[type=file] {
-    border: none;
-    margin: 0 .33em 0 0;
-    padding: 0;
-    background: transparent;
+	border: none;
+	margin: 0 .33em 0 0;
+	padding: 0;
+	background: transparent;
 }
 
 input[type=file] {
-    margin-top: .3em;
-    margin-bottom: .3em;
+	margin-top: .3em;
+	margin-bottom: .3em;
 }
 
 optgroup {
-    font-weight: bold;
-    font-style: normal;
+	font-weight: bold;
+	font-style: normal;
 }
 
 option {
-    font-weight: normal;
+	font-weight: normal;
 }
 
 label,
 label span {
-    display: block;
+	display: block;
 }
 
 label.ib,
 input.ib {
-    display: inline-block;
+	display: inline-block;
 }
 
 label.classic {
-    display: inline;
+	display: inline;
 }
 
 label.classic input,
 label span input,
 label.classic select,
 label span select {
-    display: inline;
+	display: inline;
 }
 
 label.required {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 label.required abbr {
-    color: #900;
-    font-size: 1.3em;
+	color: #900;
+	font-size: 1.3em;
 }
 
 label.bold {
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-top: 2em;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-top: 2em;
 }
 
 label.area,
 p.area {
-    width: inherit !important;
+	width: inherit !important;
 }
 
 p.field {
-    position: relative;
-}
-
-p.field label {
-    display: inline-block;
-    width: 14em;
-}
-
-p.field.wide label {
-    width: 21em;
-}
-
-p.field input,
-p.field select {
-    display: inline-block;
+	position: relative;
+	label {
+		display: inline-block;
+		width: 14em;
+	}
+	&.wide label {
+		width: 21em;
+	}
+	input,
+	select {
+		display: inline-block;
+	}
 }
 
 .form-note {
-    font-style: italic;
-    font-weight: normal;
-    color: #676e78;
+	font-style: italic;
+	font-weight: normal;
+	color: #676e78;
 }
 
 p.form-note {
-    margin-top: -.7em;
+	margin-top: -.7em;
 }
 
 span.form-note {
-    text-transform: none;
+	text-transform: none;
 }
 
 // .more-info Additional information on fieldset, field, … (may be hide from user-prefs)
-.more-info {
-}
+.more-info {}
+
 .no-more-info {
-    display: none;
+	display: none;
 }

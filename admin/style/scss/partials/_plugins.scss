@@ -1,79 +1,78 @@
-.modules td.module-actions,
-.modules td.module-icon {
-    vertical-align: middle;
-}
-
-.modules td.module-icon img:last-child {
-    width: 16px;
-    height: 16px;
-}
-
-.modules td.module-icon img.expand {
-    margin-bottom: 3px;
-}
-
-.modules td.module-distrib img {
-    display: block;
-    float: right;
-}
-
-.modules dt {
-    font-weight: bold;
-}
-
-.modules a.module-details {
-    background: transparent url(search.png) no-repeat 2px center;
-    padding: 4px 4px 0 20px;
-}
-
-.modules a.module-support {
-    background: transparent url(help12.png) no-repeat 2px center;
-    padding: 4px 4px 0 20px;
-}
-
-.modules a.module-config {
-    background: transparent url(settings.png) no-repeat 2px 6px;
-    padding: 4px 4px 0 18px;
-}
-
-#m_search {
-    background: transparent url(search.png) no-repeat 4px center;
-    padding-left: 20px;
+.modules td {
+	&.module-actions,
+	&.module-icon {
+		vertical-align: middle;
+	}
+	&.module-icon img {
+		&:last-child {
+			width: 16px;
+			height: 16px;
+		}
+		&.expand {
+			margin-bottom: 3px;
+		}
+	}
+	&.module-distrib img {
+		display: block;
+		float: right;
+	}
 }
 
 .modules tr.expand,
 .modules td.expand {
-    background: #f7f7f7;
-    border-color: #bee74b;
+	background: #f7f7f7;
+	border-color: #bee74b;
 }
 
 .modules tr.expand td:first-child {
-    font-weight: bold;
-    background: #dfe5e7;
+	font-weight: bold;
+	background: #dfe5e7;
 }
 
 .modules td.expand {
-    padding: 0 0 1em;
-    border-top: 1px solid #eaeaea;
+	padding: 0 0 1em;
+	border-top: 1px solid #eaeaea;
+	div {
+		display: inline-block;
+		vertical-align: top;
+		margin-right: 3em;
+	}
 }
 
-.modules td.expand div {
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 3em;
+.modules dt {
+	font-weight: bold;
 }
 
-.mod-more,
-.mod-more li {
-    margin: .25em 0 0 1em;
-    padding: 0;
-    list-style-type: none;
+.modules a {
+	&.module-details {
+		background: transparent url(search.png) no-repeat 2px center;
+		padding: 4px 4px 0 20px;
+	}
+	&.module-support {
+		background: transparent url(help12.png) no-repeat 2px center;
+		padding: 4px 4px 0 20px;
+	}
+	&.module-config {
+		background: transparent url(settings.png) no-repeat 2px 6px;
+		padding: 4px 4px 0 18px;
+	}
+}
+
+#m_search {
+	background: transparent url(search.png) no-repeat 4px center;
+	padding-left: 20px;
 }
 
 .mod-more {
-    padding-top: .5em;
+	padding-top: .5em;
+	&,
+	li {
+		margin: .25em 0 0 1em;
+		padding: 0;
+		list-style-type: none;
+	}
 }
 
 #plugin-update td {
-    vertical-align: baseline;
+	vertical-align: baseline;
 }

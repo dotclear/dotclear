@@ -47,6 +47,7 @@ input[type=submit] {
 	padding: 0;
 }
 
+
 /* validation */
 
 input[type=submit],
@@ -155,7 +156,8 @@ a.button.delete:focus {
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
-#info-box a.button, #info-box button {
+#info-box a.button,
+#info-box button {
 	padding: 0 .5em;
 	margin-left: 2em;
 }
@@ -168,8 +170,8 @@ button.add {
 	border-color: #bee74b;
 	padding: .33em 1.33em .5em;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
-//    font-weight: normal;
-//    font-size: 1.16em;
+	//    font-weight: normal;
+	//    font-size: 1.16em;
 }
 
 .button.add:hover,
@@ -220,7 +222,10 @@ button[type=submit].disabled:hover {
 
 /* specific buttons */
 
-.checkbox-helper, #gototop, .metaGetList, .metaGetMore {
+.checkbox-helper,
+#gototop,
+.metaGetList,
+.metaGetMore {
 	font-size: 0.825em;
 	color: #333;
 	text-shadow: none;
@@ -245,15 +250,14 @@ button[type=submit].disabled:hover {
 	width: 10em;
 	padding: .25em;
 	border-radius: .25em;
-}
-
-#gototop a,
-#gototop a:link,
-#gototop a:hover,
-#gototop a:active {
-	color: #333;
-	background: transparent;
-	border: none;
+	a,
+	a:link,
+	a:hover,
+	a:active {
+		color: #333;
+		background: transparent;
+		border: none;
+	}
 }
 
 .metaRemove,
@@ -263,6 +267,7 @@ button[type=submit].disabled:hover {
 	padding: 0;
 	background: none;
 }
+
 .addMeta button:not(.metaGetMore) {
 	border-bottom: #676e78 1px dotted;
 	text-shadow: initial;

@@ -28,10 +28,10 @@
 	}
 	.pseudo-tabs li {
 		padding: .25em;
-	}
-	.pseudo-tabs li:first-child,
-	.pseudo-tabs li:nth-of-type(2) {
-		border-top: none;
+		&:first-child,
+		&:nth-of-type(2) {
+			border-top: none;
+		}
 	}
 }
 
