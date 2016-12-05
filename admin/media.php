@@ -281,7 +281,7 @@ if ($dir && !empty($_FILES['upfile'])) {
 		try {
 			files::uploadStatus($upfile);
 
-			$f_title = (isset($_POST['upfiletitle']) ? $_POST['upfiletitle'] : '');
+			$f_title = (isset($_POST['upfiletitle']) ? html::escapeHTML($_POST['upfiletitle']) : '');
 			$f_private = (isset($_POST['upfilepriv']) ? $_POST['upfilepriv'] : false);
 
 			$core->media->uploadFile($upfile['tmp_name'],$upfile['name'],$f_title,$f_private);
