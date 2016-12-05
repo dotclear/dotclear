@@ -116,7 +116,7 @@ if ($file && !empty($_POST['media_file']) && $file->editable && $core_media_writ
 		$newFile->dir = '';
 		$newFile->relname = $newFile->basename;
 	}
-	$newFile->media_title = $_POST['media_title'];
+	$newFile->media_title = html::escapeHTML($_POST['media_title']);
 	$newFile->media_dt = strtotime($_POST['media_dt']);
 	$newFile->media_dtstr = $_POST['media_dt'];
 	$newFile->media_priv = !empty($_POST['media_private']);
