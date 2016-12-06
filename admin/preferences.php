@@ -416,7 +416,7 @@ dcPage::open($page_title,
 		"});\n".
 		"</script>\n".
 	dcPage::jsPageTabs($default_tab).
-	dcPage::jsConfirmClose('user-form').
+	dcPage::jsConfirmClose('user-form','opts-forms','favs-form').
 
 	# --BEHAVIOR-- adminPreferencesHeaders
 	$core->callBehavior('adminPreferencesHeaders'),
@@ -513,7 +513,7 @@ __('Disable javascript powered drag and drop for ordering items').'</label></p>'
 form::checkbox('user_ui_hidemoreinfo',1,$user_ui_hidemoreinfo).' '.
 __('Hide all secondary information and notes').'</label></p>'.
 
-'<p><label for="user_ui_htmlfontsize">'.__('Font size:').'</label>'.
+'<p><label for="user_ui_htmlfontsize" class="classic">'.__('Font size:').'</label>'.' '.
 form::combo('user_ui_htmlfontsize',$htmlfontsize_combo,$user_ui_htmlfontsize).'</p>';
 
 echo
