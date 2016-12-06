@@ -1403,10 +1403,11 @@ button[type=submit].disabled:hover {
   background: none; }
 
 .addMeta button:not(.metaGetMore) {
-  border-bottom: #676e78 1px dotted;
   text-shadow: initial;
   box-shadow: initial;
   margin-bottom: 2px; }
+  .addMeta button:not(.metaGetMore):hover, .addMeta button:not(.metaGetMore):focus {
+    background: #fc0; }
 
 .warn,
 .warning,
