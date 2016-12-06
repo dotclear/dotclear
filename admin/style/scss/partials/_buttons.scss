@@ -222,6 +222,7 @@ button[type=submit].disabled:hover {
 
 /* specific buttons */
 
+// Ajax or js buttons (action do not reload current page)
 .checkbox-helper,
 #gototop,
 .metaGetList,
@@ -269,8 +270,11 @@ button[type=submit].disabled:hover {
 }
 
 .addMeta button:not(.metaGetMore) {
-	border-bottom: #676e78 1px dotted;
 	text-shadow: initial;
 	box-shadow: initial;
 	margin-bottom: 2px;
+	&:hover,
+	&:focus {
+		background: #fc0;
+	}
 }

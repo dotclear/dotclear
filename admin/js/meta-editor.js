@@ -78,7 +78,7 @@ metaEditor.prototype = {
 			var meta = this.splitMetaValues(this.meta_field.val());
 
 			this.meta_list.empty();
-			for (var i=0; i<meta.length; i++) {
+			for (var i=0; i < meta.length; i++) {
 				li = $('<li>'+meta[i]+'</li>');
 				a_remove = $('<button class="metaRemove"><img src="images/trash.png" alt="remove" /></button>');
 				a_remove.get(0).caller = this;
