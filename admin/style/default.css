@@ -2186,12 +2186,18 @@ span.ibw {
 #media_img_title_pattern {
   margin-right: 1em; }
 
+#part-users > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left; }
+
 .user-perm {
-  margin: 2em 0px;
-  background: transparent url(user.png) no-repeat left top;
-  width: 320px;
-  display: inline-block;
-  vertical-align: top; }
+  margin: 0 1em 1em 0;
+  background: transparent url(user.png) no-repeat 0.5em 0.5em;
+  width: 20em;
+  border: 1px solid #ccc;
+  border-radius: .5em;
+  padding: 0 1em .5em; }
   .user-perm h4,
   .user-perm h5,
   .user-perm p,
@@ -2203,11 +2209,11 @@ span.ibw {
     padding-left: 28px; }
   .user-perm h5 {
     margin: 1em 0 0 0; }
-  .user-perm ul {
-    list-style-type: inside; }
   .user-perm li {
     margin-left: 1em;
     padding-left: 0; }
+  .user-perm.user_super {
+    background-color: rgba(153, 197, 255, 0.25); }
 
 li.user_super,
 li.user_admin {
