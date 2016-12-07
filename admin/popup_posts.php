@@ -74,6 +74,6 @@ echo '<div id="form-entries">'; # I know it's not a form but we just need the ID
 $post_list->display($page,$nb_per_page);
 echo '</div>';
 
-echo '<p><button id="link-insert-cancel">'.__('cancel').'</button></p>';
+echo '<p><button type="button" id="link-insert-cancel">'.__('cancel').'</button></p>';
 
 dcPage::closePopup();

@@ -41,7 +41,7 @@ confirmClose.prototype = {
 		var f;
 		for (var i=0; i<formsInPage.length; i++) {
 			f = formsInPage[i];
-			for (var j=0; j<f.elements.length; j++) {
+			for (var j=0; j < Math.min(f.elements.length,this.forms[i].length); j++) {
 				if (this.forms[i][j] != this.getFormElementValue(f[j])) {
 					return false;
 				}
@@ -74,6 +74,9 @@ confirmClose.prototype = {
 	},
 
 	getFormElementValue: function(e) {
+		if (e == undefined || e.classList.contains('meta-helper') || e.classList.contains('checkbox-helper')) {
+			return null;
+		}
 		if (e.type != undefined && e.type == 'radio') {
 			return this.getFormRadioValue(e);
 		} else if (e.type != undefined && e.type == 'checkbox') {
