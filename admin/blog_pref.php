@@ -295,6 +295,8 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 	}
 }
 
+// Display
+
 if ($standalone) {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
@@ -355,13 +357,20 @@ if ($blog_id)
 	'<div class="fieldset"><h4>'.__('Blog details').'</h4>'.
 	$core->formNonce();
 
+	echo
+	'<p><label for="blog_name" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog name:').'</label>'.
+	form::field('blog_name',30,255,html::escapeHTML($blog_name)).'</p>';
+
+	echo
+	'<p class="area"><label for="blog_desc">'.__('Blog description:').'</label>'.
+	form::textarea('blog_desc',60,5,html::escapeHTML($blog_desc)).'</p>';
+
 	if ($core->auth->isSuperAdmin())
 	{
 		echo
-		'<p><label for="blog_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog ID:').'</label>'.
-		form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</p>'.
-		'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p> '.
-		'<p class="form-note warn">'.__('Please note that changing your blog ID may require changes in your public index.php file.').'</p>';
+		'<p><label for="blog_status">'.__('Blog status:').'</label>'.
+		form::combo('blog_status',$status_combo,$blog_status).'</p>';
+
 	} else {
 		/*
 		Only super admins can change the blog ID and URL, but we need to pass
@@ -373,72 +382,11 @@ if ($blog_id)
 		echo form::field('blog_url', 50, 255, html::escapeHTML($blog_url), '', '', false, 'hidden="hidden"');
 	}
 
-	echo
-	'<p><label for="blog_name" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog name:').'</label>'.
-	form::field('blog_name',30,255,html::escapeHTML($blog_name)).'</p>';
-
-	if ($core->auth->isSuperAdmin())
-	{
-		echo
-		'<p><label for="blog_url" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog URL:').'</label>'.
-		form::field('blog_url',50,255,html::escapeHTML($blog_url)).'</p>'.
-
-		'<p><label for="url_scan">'.__('URL scan method:').'</label>'.
-		form::combo('url_scan',$url_scan_combo,$blog_settings->system->url_scan).'</p>';
-
-		try
-		{
-			# Test URL of blog by testing it's ATOM feed
-			$file = $blog_url.$core->url->getURLFor('feed','atom');
-			$path = '';
-			$status = '404';
-			$content = '';
-
-			$client = netHttp::initClient($file,$path);
-			if ($client !== false) {
-				$client->setTimeout(4);
-				$client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
-				$client->get($path);
-				$status = $client->getStatus();
-				$content = $client->getContent();
-			}
-			if ($status != '200') {
-				// Might be 404 (URL not found), 670 (blog not online), ...
-				echo
-				'<p class="form-note warn">'.
-				sprintf(__('The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status).'),
-						$file,$status).
-				'</p>';
-			} else {
-				if (substr($content,0,6) != '<?xml ') {
-					// Not well formed XML feed
-					echo
-					'<p class="form-note warn">'.
-					sprintf(__('The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed).'),
-							$file).
-					'</p>';
-				}
-			}
-		}
-		catch (Exception $e)
-		{
-			$core->error->add($e->getMessage());
-		}
-		echo
-		'<p><label for="blog_status">'.__('Blog status:').'</label>'.
-		form::combo('blog_status',$status_combo,$blog_status).'</p>';
-	}
-
-	echo
-	'<p class="area"><label for="blog_desc">'.__('Blog description:').'</label>'.
-	form::textarea('blog_desc',60,5,html::escapeHTML($blog_desc)).'</p>'.
-	'</div>';
-
+	echo '</div>';
 
 	echo
 	'<div class="fieldset"><h4>'.__('Blog configuration').'</h4>'.
-	'<div class="two-cols">'.
-	'<div class="col">'.
+
 	'<p><label for="editor">'.__('Blog editor name:').'</label>'.
 	form::field('editor',30,255,html::escapeHTML($blog_settings->system->editor)).
 	'</p>'.
@@ -454,44 +402,7 @@ if ($blog_id)
 	'<p><label for="copyright_notice">'.__('Copyright notice:').'</label>'.
 	form::field('copyright_notice',30,255,html::escapeHTML($blog_settings->system->copyright_notice)).
 	'</p>'.
-	'</div>'.
 
-	'<div class="col">'.
-	'<p><label for="post_url_format">'.__('New post URL format:').'</label>'.
-	form::combo('post_url_format',$post_url_combo,html::escapeHTML($blog_settings->system->post_url_format)).
-	'</p>'.
-	'<p class="chosen form-note">'.__('Sample:').' '.$core->blog->getPostURL('',date('Y-m-d H:i:00',$now),__('Dotclear'),42).'</p>'.
-	'</p>'.
-
-	'<p><label for="note_title_tag">'.__('HTML tag for the title of the notes on the blog:').'</label>'.
-	form::combo('note_title_tag',$note_title_tag_combo,$blog_settings->system->note_title_tag).
-	'</p>'.
-
-	'<p><label for="enable_xmlrpc" class="classic">'.
-	form::checkbox('enable_xmlrpc','1',$blog_settings->system->enable_xmlrpc).
-	__('Enable XML/RPC interface').'</label>'.'</p>';
-
-	echo
-		'<p class="form-note info">'.__('XML/RPC interface allows you to edit your blog with an external client.').'</p>';
-
-	if ($blog_settings->system->enable_xmlrpc) {
-		echo
-		'<p>'.__('XML/RPC interface is active. You should set the following parameters on your XML/RPC client:').'</p>'.
-		'<ul>'.
-		'<li>'.__('Server URL:').' <strong><code>'.
-		sprintf(DC_XMLRPC_URL,$core->blog->url,$core->blog->id).
-		'</code></strong></li>'.
-		'<li>'.__('Blogging system:').' <strong><code>Movable Type</code></strong></li>'.
-		'<li>'.__('User name:').' <strong><code>'.$core->auth->userID().'</code></strong></li>'.
-		'<li>'.__('Password:').' <strong><code>&lt;'.__('your password').'&gt;</code></strong></li>'.
-		'<li>'.__('Blog ID:').' <strong><code>1</code></strong></li>'.
-		'</ul>';
-	}
-
-	echo
-	'</div>'.
-	'</div>'.
-	'<br class="clear" />'. //Opera sucks
 	'</div>';
 
 	echo
@@ -652,8 +563,102 @@ if ($blog_id)
 
 	'</div>';
 
+	echo '<div id="advanced-pref"><h3>'.__('Advanced parameters').'</h3>';
+
+	if ($core->auth->isSuperAdmin())
+	{
+		echo '<div class="fieldset"><h4>'.__('Blog details').'</h4>';
+		echo
+		'<p><label for="blog_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog ID:').'</label>'.
+		form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</p>'.
+		'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p> '.
+		'<p class="form-note warn">'.__('Please note that changing your blog ID may require changes in your public index.php file.').'</p>';
+
+		echo
+		'<p><label for="blog_url" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog URL:').'</label>'.
+		form::field('blog_url',50,255,html::escapeHTML($blog_url)).'</p>'.
+
+		'<p><label for="url_scan">'.__('URL scan method:').'</label>'.
+		form::combo('url_scan',$url_scan_combo,$blog_settings->system->url_scan).'</p>';
+
+		try
+		{
+			# Test URL of blog by testing it's ATOM feed
+			$file = $blog_url.$core->url->getURLFor('feed','atom');
+			$path = '';
+			$status = '404';
+			$content = '';
+
+			$client = netHttp::initClient($file,$path);
+			if ($client !== false) {
+				$client->setTimeout(4);
+				$client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
+				$client->get($path);
+				$status = $client->getStatus();
+				$content = $client->getContent();
+			}
+			if ($status != '200') {
+				// Might be 404 (URL not found), 670 (blog not online), ...
+				echo
+				'<p class="form-note warn">'.
+				sprintf(__('The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status).'),
+						$file,$status).
+				'</p>';
+			} else {
+				if (substr($content,0,6) != '<?xml ') {
+					// Not well formed XML feed
+					echo
+					'<p class="form-note warn">'.
+					sprintf(__('The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed).'),
+							$file).
+					'</p>';
+				}
+			}
+		}
+		catch (Exception $e)
+		{
+			$core->error->add($e->getMessage());
+		}
+		echo '</div>';
+	}
+
 	echo
-	'<div class="fieldset"><h4>'.__('Search engines robots policy').'</h4>';
+	'<div class="fieldset"><h4>'.__('Blog configuration').'</h4>'.
+
+	'<p><label for="post_url_format">'.__('New post URL format:').'</label>'.
+	form::combo('post_url_format',$post_url_combo,html::escapeHTML($blog_settings->system->post_url_format)).
+	'</p>'.
+	'<p class="chosen form-note">'.__('Sample:').' '.$core->blog->getPostURL('',date('Y-m-d H:i:00',$now),__('Dotclear'),42).'</p>'.
+	'</p>'.
+
+	'<p><label for="note_title_tag">'.__('HTML tag for the title of the notes on the blog:').'</label>'.
+	form::combo('note_title_tag',$note_title_tag_combo,$blog_settings->system->note_title_tag).
+	'</p>'.
+
+	'<p><label for="enable_xmlrpc" class="classic">'.
+	form::checkbox('enable_xmlrpc','1',$blog_settings->system->enable_xmlrpc).
+	__('Enable XML/RPC interface').'</label>'.'</p>'.
+	'<p class="form-note info">'.__('XML/RPC interface allows you to edit your blog with an external client.').'</p>';
+
+	if ($blog_settings->system->enable_xmlrpc) {
+		echo
+		'<p>'.__('XML/RPC interface is active. You should set the following parameters on your XML/RPC client:').'</p>'.
+		'<ul>'.
+		'<li>'.__('Server URL:').' <strong><code>'.
+		sprintf(DC_XMLRPC_URL,$core->blog->url,$core->blog->id).
+		'</code></strong></li>'.
+		'<li>'.__('Blogging system:').' <strong><code>Movable Type</code></strong></li>'.
+		'<li>'.__('User name:').' <strong><code>'.$core->auth->userID().'</code></strong></li>'.
+		'<li>'.__('Password:').' <strong><code>&lt;'.__('your password').'&gt;</code></strong></li>'.
+		'<li>'.__('Blog ID:').' <strong><code>1</code></strong></li>'.
+		'</ul>';
+	}
+
+	echo
+	'</div>';
+
+	// Search engines policies
+	echo '<div class="fieldset"><h4>'.__('Search engines robots policy').'</h4>';
 
 	$i = 0;
 	foreach ($robots_policy_options as $k => $v)
@@ -665,24 +670,32 @@ if ($blog_id)
 
 	echo '</div>';
 
-	echo
-	'<div class="fieldset"><h4>'.__('jQuery javascript library').'</h4>'.
+	echo '<div class="fieldset"><h4>'.__('jQuery javascript library').'</h4>'.
+
 	'<p><label for="jquery_version" class="classic">'.__('jQuery version to be loaded for this blog:').'</label>'.' '.
 	form::combo('jquery_version',$jquery_versions_combo,$blog_settings->system->jquery_version).
 	'</p>'.
 	'<br class="clear" />'. //Opera sucks
+
 	'</div>';
 
-	echo
-	'<div class="fieldset"><h4>'.__('Blog security').'</h4>'.
+	echo '<div class="fieldset"><h4>'.__('Blog security').'</h4>'.
+
 	'<p><label for="prevents_clickjacking" class="classic">'.
 	form::checkbox('prevents_clickjacking','1',$blog_settings->system->prevents_clickjacking).
 	__('Protect the blog from Clickjacking (see <a href="https://en.wikipedia.org/wiki/Clickjacking">Wikipedia</a>)').'</label></p>'.
 	'<br class="clear" />'. //Opera sucks
+
 	'</div>';
+
+	echo '</div>';	// End advanced
+
+	echo '<div id="plugins-pref"><h3>'.__('Plugins parameters').'</h3>';
 
 	# --BEHAVIOR-- adminBlogPreferencesForm
 	$core->callBehavior('adminBlogPreferencesForm',$core,$blog_settings);
+
+	echo '</div>';	// End 3rd party, aka plugins
 
 	echo
 	'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
@@ -739,12 +752,13 @@ if ($blog_id)
 			$core->setBlog($blog_id);
 		}
 
+		echo '<div>';
 		foreach ($blog_users as $k => $v)
 		{
 			if (count($v['p']) > 0)
 			{
 				echo
-				'<div class="user-perm">'.
+				'<div class="user-perm'.($v['super'] ? ' user_super' : '').'">'.
 				'<h4>'.sprintf($user_url_p,html::escapeHTML($k)).
 				' ('.html::escapeHTML(dcUtils::getUserCN(
 					$k, $v['name'], $v['firstname'], $v['displayname']
@@ -808,6 +822,7 @@ if ($blog_id)
 				echo '</div>';
 			}
 		}
+		echo '</div>';
 		if ($current_blog_id != $core->blog->id) {
 			$core->setBlog($current_blog_id);
 		}

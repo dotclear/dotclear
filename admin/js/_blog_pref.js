@@ -38,4 +38,13 @@ $(function() {
 		});
 	}
 
+	// Hide advanced and plugins prefs sections
+	$('#advanced-pref h3').toggleWithLegend($('#advanced-pref').children().not('h3'),{
+		legend_click: true,
+		user_pref: 'dcx_blog_pref_adv'
+	});
+	$('#plugins-pref h3').toggleWithLegend($('#plugins-pref').children().not('h3'),{
+		legend_click: true,
+		user_pref: 'dcx_blog_pref_plg'
+	});
 });
