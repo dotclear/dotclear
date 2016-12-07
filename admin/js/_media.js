@@ -97,7 +97,7 @@
 				label = dotclear.jsUpload.msg.choose_file;
 			}
 
-			$('<p class="clear"><button class="enhanced-toggle">' + $msg + '</button></p>').click(function(e) {
+			$('<p class="clear"><button type="button" class="enhanced-toggle">' + $msg + '</button></p>').click(function(e) {
 				if ($container.hasClass('enhanced_uploader')) {
 					$msg = dotclear.msg.enhanced_uploader_activate;
 					label = dotclear.jsUpload.msg.choose_file;

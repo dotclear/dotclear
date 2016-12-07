@@ -39,8 +39,8 @@ form::combo('hreflang',$lang_combo,$hreflang).
 
 '</form>'.
 
-'<p><button class="reset" id="link-insert-cancel">'.__('Cancel').'</button> - '.
-'<button id="link-insert-ok"><strong>'.__('Insert').'</strong></button></p>'."\n".
+'<p><button type="button" class="reset" id="link-insert-cancel">'.__('Cancel').'</button> - '.
+'<button type="button" id="link-insert-ok"><strong>'.__('Insert').'</strong></button></p>'."\n".
 
 '<script type="text/javascript">'."\n".
 '$(\'input[name="href"]\').get(0).focus();'."\n".

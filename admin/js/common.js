@@ -379,7 +379,7 @@ var dotclear = {
 		$(e).append(document.createTextNode(dotclear.msg.to_select));
 		$(e).append(document.createTextNode(' '));
 
-		$('<button class="checkbox-helper select-all">'+dotclear.msg.select_all+'</button>').click(function() {
+		$('<button type="button" class="checkbox-helper select-all">'+dotclear.msg.select_all+'</button>').click(function() {
 			if (target !== undefined) {
 				target.check();
 			} else {
@@ -392,7 +392,7 @@ var dotclear = {
 		}).appendTo($(e));
 		$(e).append(document.createTextNode(' '));
 
-		$('<button class="checkbox-helper select-none">'+dotclear.msg.no_selection+'</button>').click(function() {
+		$('<button type="button" class="checkbox-helper select-none">'+dotclear.msg.no_selection+'</button>').click(function() {
 			if (target !== undefined) {
 				target.unCheck();
 			} else {
@@ -405,7 +405,7 @@ var dotclear = {
 		}).appendTo($(e));
 		$(e).append(document.createTextNode(' '));
 
-		$('<button class="checkbox-helper select-reverse">'+dotclear.msg.invert_sel+'</button>').click(function() {
+		$('<button type="button" class="checkbox-helper select-reverse">'+dotclear.msg.invert_sel+'</button>').click(function() {
 			if (target !== undefined) {
 				target.toggleCheck();
 			} else {
