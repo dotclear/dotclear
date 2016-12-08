@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-07 13:03+0100\n"
+"POT-Creation-Date: 2016-12-08 11:45+0100\n"
 "PO-Revision-Date: 2016-07-18 15:01+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -250,6 +250,9 @@ msgstr "Droite"
 msgid "Center"
 msgstr "Centre"
 
+msgid "Legend and title"
+msgstr "Légende et titre"
+
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr "Je souhaite que mon blog soit indexé et archivé par les moteurs de recherche et archiveurs."
 
@@ -450,6 +453,9 @@ msgstr "Alignement de l'image :"
 
 msgid "Insert a link to the original image"
 msgstr "Insérer le lien vers l'image originale"
+
+msgid "Image legend and title:"
+msgstr "Insertion des légende et titre de l'image :"
 
 msgid "Advanced parameters"
 msgstr "Paramètres avancés du blog"
@@ -1585,6 +1591,9 @@ msgstr "Sélectionner"
 
 msgid "Insert media item"
 msgstr "Insérer un média"
+
+msgid "Image legend and title"
+msgstr "Légende et titre de l'image"
 
 msgid "Image alignment"
 msgstr "Alignement de l'image"

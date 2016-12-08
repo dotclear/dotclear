@@ -34,6 +34,18 @@ $(function() {
 			tb.elements.img_select.data.title = insert_form.elements.title.value;
 			tb.elements.img_select.data.description = $('input[name="description"]',insert_form).val();
 			tb.elements.img_select.data.url = tb.stripBaseURL(insert_form.elements.url.value);
+
+			var media_legend = $('input[name="legend"]:checked',insert_form).val();
+			if (media_legend != '' && media_legend != 'title' && media_legend != 'none') {
+				media_legend = 'legend';
+			}
+			if (media_legend != 'legend') {
+				tb.elements.img_select.data.description = '';
+			}
+			if (media_legend == 'none') {
+				tb.elements.img_select.data.title = '';
+			}
+
 			tb.elements.img_select.fncall[tb.mode].call(tb);
 		}
 		else if (type == 'mp3')

@@ -136,6 +136,13 @@ $img_default_alignment_combo = array(
 	__('Center') => 'center'
 );
 
+# Image default legend and title combo
+$img_default_legend_combo = array(
+	__('Legend and title') => 'legend',
+	__('Title') => 'title',
+	__('None') => 'none'
+);
+
 # Robots policy options
 $robots_policy_options = array(
 	'INDEX,FOLLOW' => __("I would like search engines and archivers to index and archive my blog's content."),
@@ -270,6 +277,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin',$blog_id))
 		$blog_settings->system->put('media_img_default_size',$_POST['media_img_default_size']);
 		$blog_settings->system->put('media_img_default_alignment',$_POST['media_img_default_alignment']);
 		$blog_settings->system->put('media_img_default_link',!empty($_POST['media_img_default_link']));
+		$blog_settings->system->put('media_img_default_legend',$_POST['media_img_default_legend']);
 		$blog_settings->system->put('nb_post_per_feed',$nb_post_per_feed);
 		$blog_settings->system->put('nb_comment_per_feed',$nb_comment_per_feed);
 		$blog_settings->system->put('short_feed_items',!empty($_POST['short_feed_items']));
@@ -557,6 +565,9 @@ if ($blog_id)
 	'<p><label for="media_img_default_link">'.
 	form::checkbox('media_img_default_link','1',$blog_settings->system->media_img_default_link).
 	__('Insert a link to the original image').'</label></p>'.
+	'<p class="field"><label for="media_img_default_legend">'.__('Image legend and title:').'</label>'.
+	form::combo('media_img_default_legend',$img_default_legend_combo,html::escapeHTML($blog_settings->system->media_img_default_legend)).
+	'</p>'.
 	'</div>'.
 	'</div>'.
 	'<br class="clear" />'. //Opera sucks

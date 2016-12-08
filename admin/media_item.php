@@ -178,6 +178,9 @@ if (!empty($_POST['save_blog_prefs']))
 	if (!empty($_POST['pref_insertion'])) {
 		$core->blog->settings->system->put('media_img_default_link',($_POST['pref_insertion'] == 'link'));
 	}
+	if (!empty($_POST['pref_legend'])) {
+		$core->blog->settings->system->put('media_img_default_legend',$_POST['pref_legend']);
+	}
 
 	dcPage::addSuccessNotice(__('Default media insertion settings have been successfully updated.'));
 	$core->adminurl->redirect('admin.media.item',$page_url_params);
@@ -302,6 +305,10 @@ if ($select) {
 		$media_img_default_alignment = 'none';
 	}
 	$media_img_default_link = (boolean)$core->blog->settings->system->media_img_default_link;
+	$media_img_default_legend = $core->blog->settings->system->media_img_default_legend;
+	if ($media_img_default_legend == '') {
+		$media_img_default_legend = 'legend';
+	}
 
 	if ($file->media_type == 'image')
 	{
@@ -371,6 +378,10 @@ if ($popup && !$select)
 		$media_img_default_alignment = 'none';
 	}
 	$media_img_default_link = (boolean)$core->blog->settings->system->media_img_default_link;
+	$media_img_default_legend = $core->blog->settings->system->media_img_default_legend;
+	if ($media_img_default_legend == '') {
+		$media_img_default_legend = 'legend';
+	}
 
 	if ($file->media_type == 'image')
 	{
@@ -384,8 +395,8 @@ if ($popup && !$select)
 		}
 
 		echo
+		'<div class="two-boxes">'.
 		'<h3>'.__('Image size:').'</h3> ';
-
 		$s_checked = false;
 		echo '<p>';
 		foreach (array_reverse($file->media_thumb) as $s => $v) {
@@ -398,6 +409,23 @@ if ($popup && !$select)
 		echo '<label class="classic">'.
 		form::radio(array('src'),$file->file_url,$s_checked).' '.__('original').'</label><br /> ';
 		echo '</p>';
+		echo '</div>';
+
+		echo
+		'<div class="two-boxes">'.
+		'<h3>'.__('Image legend and title').'</h3>'.
+		'<p>'.
+		'<label for="legend1" class="classic">'.form::radio(array('legend','legend1'),'legend',
+			($media_img_default_legend == 'legend')).
+		__('Legend and title').'</label><br />'.
+		'<label for="legend2" class="classic">'.form::radio(array('legend','legend2'),'title',
+			($media_img_default_legend == 'title')).
+		__('Title').'</label><br />'.
+		'<label for="legend3" class="classic">'.form::radio(array('legend','legend3'),'none',
+			($media_img_default_legend == 'none')).
+		__('None').'</label>'.
+		'</p>'.
+		'</div>';
 
 		echo
 		'<div class="two-boxes">'.
@@ -523,6 +551,7 @@ if ($popup && !$select)
 		form::hidden(array('pref_src'),'').
 		form::hidden(array('pref_alignment'),'').
 		form::hidden(array('pref_insertion'),'').
+		form::hidden(array('pref_legend'),'').
 		$core->adminurl->getHiddenFormFields('admin.media.item',$page_url_params).
 		$core->formNonce().'</p>'.
 		'</form>'.'</div>';
