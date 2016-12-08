@@ -226,7 +226,11 @@ button[type=submit].disabled:hover {
 .checkbox-helper,
 #gototop,
 .metaGetList,
-.metaGetMore {
+.metaGetMore,
+a.checkbox-helper,
+a#gototop,
+a.metaGetList,
+a.metaGetMore {
 	font-size: 0.825em;
 	color: #333;
 	text-shadow: none;
@@ -262,14 +266,16 @@ button[type=submit].disabled:hover {
 }
 
 .metaRemove,
-.addMeta button:not(.metaGetMore) {
+.addMeta button:not(.metaGetMore),
+.addMeta a:not(.metaGetMore) {
 	border: none;
 	border-radius: 0;
 	padding: 0;
 	background: none;
 }
 
-.addMeta button:not(.metaGetMore) {
+.addMeta button:not(.metaGetMore),
+.addMeta a:not(.metaGetMore) {
 	text-shadow: initial;
 	box-shadow: initial;
 	margin-bottom: 2px;

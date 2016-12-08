@@ -1361,7 +1361,11 @@ button[type=submit].disabled:hover {
 .checkbox-helper,
 #gototop,
 .metaGetList,
-.metaGetMore {
+.metaGetMore,
+a.checkbox-helper,
+a#gototop,
+a.metaGetList,
+a.metaGetMore {
   font-size: 0.825em;
   color: #333;
   text-shadow: none;
@@ -1373,7 +1377,11 @@ button[type=submit].disabled:hover {
   .checkbox-helper:hover,
   #gototop:hover,
   .metaGetList:hover,
-  .metaGetMore:hover {
+  .metaGetMore:hover,
+  a.checkbox-helper:hover,
+  a#gototop:hover,
+  a.metaGetList:hover,
+  a.metaGetMore:hover {
     background: #a2cbe9;
     box-shadow: none;
     border: 1px solid #676e78; }
@@ -1396,17 +1404,21 @@ button[type=submit].disabled:hover {
     border: none; }
 
 .metaRemove,
-.addMeta button:not(.metaGetMore) {
+.addMeta button:not(.metaGetMore),
+.addMeta a:not(.metaGetMore) {
   border: none;
   border-radius: 0;
   padding: 0;
   background: none; }
 
-.addMeta button:not(.metaGetMore) {
+.addMeta button:not(.metaGetMore),
+.addMeta a:not(.metaGetMore) {
   text-shadow: initial;
   box-shadow: initial;
   margin-bottom: 2px; }
-  .addMeta button:not(.metaGetMore):hover, .addMeta button:not(.metaGetMore):focus {
+  .addMeta button:not(.metaGetMore):hover, .addMeta button:not(.metaGetMore):focus,
+  .addMeta a:not(.metaGetMore):hover,
+  .addMeta a:not(.metaGetMore):focus {
     background: #fc0; }
 
 .warn,
