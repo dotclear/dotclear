@@ -18,11 +18,23 @@ $(function() {
 			    center: 'margin: 0 auto; display: table;'
 		    };
 
-		if (type=='image') {
-			if (editor.mode=='wysiwyg') {
-				var figure_template = '<figure style="{figureStyle}"><img class="media" src="{imgSrc}" alt="{imgAlt}"/><figcaption>{figCaption}</figcaption></figure>',
-				    a_figure_template = '<figure style="{figureStyle}"><a class="media-link" href="{aHref}"><img class="media" src="{imgSrc}" alt="{imgAlt}"/></a><figcaption>{figCaption}</figcaption></figure>',
-				    figure_block = new window.opener.CKEDITOR.template(figure_template),
+		if (type == 'image') {
+			if (editor.mode == 'wysiwyg') {
+				var media_legend = $('input[name="legend"]:checked',insert_form).val();
+				if (media_legend != '' && media_legend != 'title' && media_legend != 'none') {
+					media_legend = 'legend';
+				}
+				if (media_legend == 'legend') {
+					var figure_template = '<figure style="{figureStyle}"><img class="media" src="{imgSrc}" alt="{imgAlt}"/><figcaption>{figCaption}</figcaption></figure>',
+					    a_figure_template = '<figure style="{figureStyle}"><a class="media-link" href="{aHref}"><img class="media" src="{imgSrc}" alt="{imgAlt}"/></a><figcaption>{figCaption}</figcaption></figure>';
+				} else if (media_legend == 'title') {
+					var figure_template = '<img style="{figureStyle}" class="media" src="{imgSrc}" alt="{imgAlt}"/>',
+					    a_figure_template = '<a class="media-link" href="{aHref}"><img class="media" style="{figureStyle}" src="{imgSrc}" alt="{imgAlt}"/></a>';
+				} else {
+					var figure_template = '<img style="{figureStyle}" class="media" src="{imgSrc}" alt=""/>',
+					    a_figure_template = '<a class="media-link" href="{aHref}"><img class="media" style="{figureStyle}" src="{imgSrc}" alt=""/></a>';
+				}
+				var figure_block = new window.opener.CKEDITOR.template(figure_template),
 				    a_figure_block = new window.opener.CKEDITOR.template(a_figure_template),
 				    params = {},
 				    templateBlock = null;

@@ -74,6 +74,7 @@ $(function() {
 		$('input[name="pref_src"]').val($('input[name="src"][type=radio]:checked').attr('value'));
 		$('input[name="pref_alignment"]').val($('input[name="alignment"][type=radio]:checked').attr('value'));
 		$('input[name="pref_insertion"]').val($('input[name="insertion"][type=radio]:checked').attr('value'));
+		$('input[name="pref_legend"]').val($('input[name="legend"][type=radio]:checked').attr('value'));
 	});
 
 });
