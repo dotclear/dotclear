@@ -1,7 +1,7 @@
 function confirmClose() {
 
 	if (arguments.length > 0) {
-		for (var i=0; i<arguments.length; i++) {
+		for (var i = 0; i < arguments.length; i++) {
 			this.forms_id.push(arguments[i]);
 		}
 	}
@@ -14,35 +14,50 @@ confirmClose.prototype = {
 	formSubmit: false,
 
 	getCurrentForms: function() {
+		// Store current form's element's values
+
 		var formsInPage = this.getForms();
-		var f;
+		var f, e;
 		var This = this;
-		this.forms=new Array();
-		for (var i=0; i<formsInPage.length; i++) {
+		this.forms = new Array();
+		for (var i = 0; i < formsInPage.length; i++) {
 			f = formsInPage[i];
 			var tmpForm = new Array();
-			for (var j=0; j<f.elements.length; j++) {
-				tmpForm.push(this.getFormElementValue(f[j]));
+			for (var j = 0; j < f.elements.length; j++) {
+				e = this.getFormElementValue(f[j]);
+				if (e != undefined) {
+					tmpForm.push(e);
+				}
 			}
 			this.forms.push(tmpForm);
 
-			chainHandler(f,'onsubmit',function() {
+			chainHandler(f, 'onsubmit', function() {
 				This.formSubmit = true;
 			});
 		}
 	},
 
 	compareForms: function() {
+		// Compare current form's element's values to their original values
+		// Return false if any difference, else true
+
 		if (this.forms.length == 0) {
 			return true;
 		}
 
 		var formsInPage = this.getForms();
-		var f;
-		for (var i=0; i<formsInPage.length; i++) {
+		var f, e;
+		for (var i = 0; i < formsInPage.length; i++) {
 			f = formsInPage[i];
-			for (var j=0; j < Math.min(f.elements.length,this.forms[i].length); j++) {
-				if (this.forms[i][j] != this.getFormElementValue(f[j])) {
+			var tmpForm = new Array();
+			for (var j = 0; j < f.elements.length; j++) {
+				e = this.getFormElementValue(f[j]);
+				if (e != undefined) {
+					tmpForm.push(e);
+				}
+			}
+			for (var j = 0; j < this.forms[i].length; j++) {
+				if (this.forms[i][j] != tmpForm[j]) {
 					return false;
 				}
 			}
@@ -52,6 +67,8 @@ confirmClose.prototype = {
 	},
 
 	getForms: function() {
+		// Get current list of forms as HTMLCollection(s)
+
 		if (!document.getElementsByTagName || !document.getElementById) {
 			return new Array();
 		}
@@ -59,7 +76,7 @@ confirmClose.prototype = {
 		if (this.forms_id.length > 0) {
 			var res = new Array();
 			var f;
-			for (var i=0; i<this.forms_id.length; i++) {
+			for (var i = 0; i < this.forms_id.length; i++) {
 				f = document.getElementById(this.forms_id[i]);
 				if (f != undefined) {
 					res.push(f);
@@ -74,18 +91,34 @@ confirmClose.prototype = {
 	},
 
 	getFormElementValue: function(e) {
-		if (e == undefined || e.classList.contains('meta-helper') || e.classList.contains('checkbox-helper')) {
-			return null;
+		// Return current value of an form element
+
+		if (e == undefined) {
+			// Unknown object
+			return undefined;
+		}
+		if (e.type != undefined && e.type == 'button') {
+			// Ignore button element
+			return undefined;
+		}
+		if (e.classList.contains('meta-helper') || e.classList.contains('checkbox-helper')) {
+			// Ignore some application helper element
+			return undefined;
 		}
 		if (e.type != undefined && e.type == 'radio') {
+			// Return actual radio button value if selected, else null
 			return this.getFormRadioValue(e);
 		} else if (e.type != undefined && e.type == 'checkbox') {
+			// Return actual checkbox button value if checked, else null
 			return this.getFormCheckValue(e);
-		} else if (e.type == 'password') {
+		} else if (e.type != undefined && e.type == 'password') {
+			// Ignore password element
 			return null;
 		} else if (e.value != undefined) {
+			// Return element value if not undefined
 			return e.value;
 		} else {
+			// Every other case, return null
 			return null;
 		}
 	},
@@ -98,7 +131,7 @@ confirmClose.prototype = {
 	},
 
 	getFormRadioValue: function(e) {
-		for (var i=0; i <e.length; i++) {
+		for (var i = 0; i < e.length; i++) {
 			if (e[i].checked) {
 				return e[i].value;
 			} else {
@@ -111,11 +144,11 @@ confirmClose.prototype = {
 
 var confirmClosePage = new confirmClose();
 
-chainHandler(window,'onload',function() {
+chainHandler(window, 'onload', function() {
 	confirmClosePage.getCurrentForms();
 });
 
-chainHandler(window,'onbeforeunload',function(event_) {
+chainHandler(window, 'onbeforeunload', function(event_) {
 	if (event_ == undefined && window.event) {
 		event_ = window.event;
 	}
