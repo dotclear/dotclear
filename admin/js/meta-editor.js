@@ -80,7 +80,7 @@ metaEditor.prototype = {
 			this.meta_list.empty();
 			for (var i=0; i < meta.length; i++) {
 				li = $('<li>'+meta[i]+'</li>');
-				a_remove = $('<a href="#" type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></a>');
+				a_remove = $('<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>');
 				a_remove.get(0).caller = this;
 				a_remove.get(0).meta_id = meta[i];
 				a_remove.click(function() {
@@ -108,7 +108,7 @@ metaEditor.prototype = {
 				data.find('meta').each(function() {
 					var meta_id = $(this).text();
 					li = $('<li><a href="' + This.meta_url + $(this).attr('uri') + '">'+meta_id+'</a></li>');
-					a_remove = $('<a href="#" type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></a>');
+					a_remove = $('<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>');
 					a_remove.get(0).caller = This;
 					a_remove.get(0).meta_id = meta_id;
 					a_remove.click(function() {
@@ -162,7 +162,7 @@ metaEditor.prototype = {
 				var meta_link;
 
 				$(data).find('meta').each(function(i) {
-					meta_link = $('<a href="#" type="button" class="metaItem meta-helper">' + $(this).text() + '</a>');
+					meta_link = $('<button type="button" class="metaItem meta-helper">' + $(this).text() + '</button>');
 					meta_link.get(0).meta_id = $(this).text();
 					meta_link.click(function() {
 						var v = This.splitMetaValues(This.meta_dialog.val() + ',' + this.meta_id);
@@ -177,7 +177,7 @@ metaEditor.prototype = {
 				});
 
 				if (list_type == 'more') {
-					var a_more = $('<a href="#" type="button" class="button metaGetMore meta-helper"></a>');
+					var a_more = $('<button type="button" class="button metaGetMore meta-helper"></button>');
 					a_more.append(This.text_all + String.fromCharCode(160)+String.fromCharCode(187));
 					a_more.click(function() {
 						This.showMetaList('more-all',target);
@@ -192,7 +192,7 @@ metaEditor.prototype = {
 					var pa = $('<p></p>');
 					target.append(pa);
 
-					var a = $('<a href="#" type="button" class="button metaGetList meta-helper">' + This.text_choose + '</a>');
+					var a = $('<button type="button" class="button metaGetList meta-helper">' + This.text_choose + '</button>');
 					a.click(function() {
 						$(this).parent().next().removeClass('hide');
 						$(this).remove();
