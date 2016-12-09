@@ -200,7 +200,7 @@ class tagsBehaviors
 					"text_separation : '".html::escapeJS(__('Enter tags separated by coma'))."',\n".
 				"};\n".
 				"</script>\n".
-				dcPage::jsLoad(dcPage::getPF('tags/js/jquery.autocomplete.js')).
+				dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
 				dcPage::jsLoad(dcPage::getPF('tags/js/posts_actions.js')).
 				'<script type="text/javascript">'."\n".
 				"dotclear.msg.tags_autocomplete = '".html::escapeJS(__('used in %e - frequency %p%'))."';\n".
@@ -321,7 +321,7 @@ class tagsBehaviors
 			"text_separation : '".html::escapeJS(__('Enter tags separated by coma'))."',\n".
 		"};\n".
 		"</script>\n".
-		dcPage::jsLoad(dcPage::getPF('tags/js/jquery.autocomplete.js')).
+		dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
 		dcPage::jsLoad(dcPage::getPF('tags/js/post.js')).
 		'<script type="text/javascript">'."\n".
 		"dotclear.msg.tags_autocomplete = '".html::escapeJS(__('used in %e - frequency %p%'))."';\n".

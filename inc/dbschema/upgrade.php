@@ -668,6 +668,7 @@ class dcUpgrade
 				'admin/js/ie7/ie7-recalc.js',
 				'admin/js/ie7/ie7-squish.js',
 				'admin/style/iesucks.css',
+				'plugins/tags/js/jquery.autocomplete.js',
 				'theme/ductile/ie.css'
 			);
 			$remfolders = array (
