@@ -56,7 +56,9 @@ if ($data = json_decode($data, true)) {
 				if (!($fp = @fopen(LOGFILE,'a'))) {
 					return;
 				}
-				fprintf($fp,'%s',$data);
+				// Add an ending comma to JSon encoding data
+				// The file content should be enclosed in brackets [] before beeing decoded
+				fprintf($fp,'%s,',$data);
 			}  catch (Exception $e) {
 				return;
 			}
