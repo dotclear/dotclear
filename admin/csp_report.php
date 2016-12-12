@@ -10,7 +10,7 @@ header('X-Content-Type-Options: "nosniff"');
 require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 // Specify log file
-define('LOGFILE',path::real(DC_TPL_CACHE).'/csp_report.txt');
+define('LOGFILE',path::real(DC_VAR).'/csp/csp_report.json');
 
 // Get the raw POST data
 $data = file_get_contents('php://input');
@@ -31,6 +31,7 @@ if ($data = json_decode($data, true)) {
 
     	// avoid false positives notifications coming from Safari extensions (diigo, evernote, etc.)
     	&& strpos($source_file, 'safari-extension://') === false
+		&& strpos($blocked_uri, 'safari-extension://') === false
 
     	// search engine extensions ?
     	&& strpos($source_file, 'se-extension://') === false
@@ -38,16 +39,26 @@ if ($data = json_decode($data, true)) {
     	// added by browsers in webviews
     	&& strpos($blocked_uri, 'webviewprogressproxy://') === false
 
-	 ) {
+		// Google Search App see for details https://github.com/nico3333fr/CSP-useful/commit/ecc8f9b0b379ae643bc754d2db33c8b47e185fd1
+		&& strpos($blocked_uri, 'gsa://onpageload') === false
+
+	) {
 			// Prettify the JSON-formatted data
 			$data = json_encode(
 					$data,
 					JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES
 					);
 
-			if (!($fp = @fopen(LOGFILE,'a'))) {
+			try {
+				// Check report dir (create it if necessary)
+				files::makeDir(dirname(LOGFILE),true);
+
+				if (!($fp = @fopen(LOGFILE,'a'))) {
+					return;
+				}
+				fprintf($fp,'%s',$data);
+			}  catch (Exception $e) {
 				return;
 			}
-			fprintf($fp,'%s',$data);
 		}
 }
