@@ -375,8 +375,7 @@ class dcPage
 		$figure = "
    /\_/\
   (='.'=)
-  (\")-(\")
-  		";
+  (\")-(\")";
 
 		echo
 		'<div id="footer" role="contentinfo">'.

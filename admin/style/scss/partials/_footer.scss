@@ -5,17 +5,19 @@
 		font-size: 1em;
 	}
 	a:hover span.tooltip {
-		padding: 10px 40px 0 10px;
+		padding: 10px;
 		color: #910ed3;
 		height: auto;
 		width: auto;
 		left: 0;
 		bottom: 0;
-		background: #FFF;
+		background: rgba(255,255,255,.9);
 		z-index: 99;
 		font-family: monospace;
-		border: none;
 		text-align: left;
+		border-top: 1px solid #910ed3;
+		border-right: 1px solid #910ed3;
+		border-radius: 0 2em 0 0;
 	}
 }
 
