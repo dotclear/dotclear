@@ -24,7 +24,7 @@
 
 	<div class="content-inner">
 
-		<article id="time-criteria"><!-- entries sorted by date -->
+		<article id="time-criteria"><!-- # entries sorted by date -->
 			<div id="arch-by-year" class="arch-block arch-by-year">
 				<h3>{{tpl:lang By date}}</h3>
 				<p class="fromto">{{tpl:lang FromDay}} <tpl:Entries no_content="1" order="asc" lastn="1"><a href="{{tpl:EntryURL}}"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate format="%e %B %Y"}}</time></a></tpl:Entries> {{tpl:lang toDay}} <tpl:Entries no_content="1" order="desc" lastn="1"><a href="{{tpl:EntryURL}}"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate format="%e %B %Y"}}</time></a></tpl:Entries></p>
@@ -44,7 +44,7 @@
 			</div>
 		</article>
 
-		<article id="other-criteria"><!-- entries sorted by others criterias -->
+		<article id="other-criteria"><!-- # entries sorted by others criterias -->
 			<tpl:Categories level="1">
 				<tpl:CategoriesHeader>
 					<div id="arch-by-cat" class="arch-block arch-by-cat">
@@ -82,7 +82,7 @@
 			</tpl:Tags>
 		</article>
 
-		<article id="more-arch"><!-- others things -->
+		<article id="more-arch"><!-- # others things -->
 			<div id="arch-by-page" class="arch-block arch-by-page">
 				<tpl:Entries type="page" no_content="1" lastn="0" selected="0">
 					<tpl:EntriesHeader>
@@ -97,7 +97,7 @@
 			</div>
 		</article>
 
-	</div> <!-- End .content-inner -->
+	</div> <!-- # End .content-inner -->
 </tpl:Block>
 
 <tpl:Block name="wrapper-sidebar">
@@ -105,13 +105,13 @@
 		<div class="widgets blognav__widgets" id="blognav">
 			<tpl:Widget id="search">
 			</tpl:Widget>
-		</div> <!-- End #blognav -->
+		</div> <!-- # End #blognav -->
 
 		<tpl:IfWidgets type="extra">
 			<div class="widgets blogextra__widgets" id="blogextra">
 		        <h2 class="blogextra__title">{{tpl:lang Extra menu}}</h2>
 				{{tpl:Widgets type="extra"}}
-			</div> <!-- End #blogextra -->
+			</div> <!-- # End #blogextra -->
 		</tpl:IfWidgets>
-	</aside> <!-- End #sidebar -->
+	</aside> <!-- # End #sidebar -->
 </tpl:Block>
