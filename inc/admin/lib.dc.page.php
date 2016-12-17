@@ -261,20 +261,33 @@ class dcPage
 	{
 		global $core;
 		static $error_displayed = false;
+
 		$res = '';
 
 		// return error messages if any
 		if ($core->error->flag() && !$error_displayed) {
-			$res .= '<div class="error"><p><strong>'.(count($core->error->getErrors()) > 1 ? __('Errors:') : __('Error:')).'</strong></p>'.
-			$core->error->toHTML().
-			'</div>';
+
+			# --BEHAVIOR-- adminPageNotificationError
+			$notice_error = $core->callBehavior('adminPageNotificationError',$core->error);
+
+			if (!empty($notice_error)) {
+				$res .= $notice_error;
+			} else {
+				$res .= '<div class="error"><p>'.
+					'<strong>'.(count($core->error->getErrors()) > 1 ? __('Errors:') : __('Error:')).'</strong>'.
+					'</p>'.$core->error->toHTML().'</div>';
+			}
 			$error_displayed = true;
 		}
 
 		// return notices if any
 		if (isset($_SESSION['notifications'])) {
 			foreach ($_SESSION['notifications'] as $notification) {
-				$res .= self::getNotification($notification);
+
+				# --BEHAVIOR-- adminPageNotification
+				$notice = $core->callBehavior('adminPageNotification',$notification);
+
+				$res = (!empty($notice) ? $notice : self::getNotification($notification));
 			}
 			unset($_SESSION['notifications']);
 		}
