@@ -270,7 +270,7 @@ class dcPage
 			# --BEHAVIOR-- adminPageNotificationError
 			$notice_error = $core->callBehavior('adminPageNotificationError',$core->error);
 
-			if (!empty($notice_error)) {
+			if (isset($notice_error) && !empty($notice_error)) {
 				$res .= $notice_error;
 			} else {
 				$res .= '<div class="error"><p>'.
@@ -287,7 +287,7 @@ class dcPage
 				# --BEHAVIOR-- adminPageNotification
 				$notice = $core->callBehavior('adminPageNotification',$notification);
 
-				$res = (!empty($notice) ? $notice : self::getNotification($notification));
+				$res .= (isset($notice) && !empty($notice) ? $notice : self::getNotification($notification));
 			}
 			unset($_SESSION['notifications']);
 		}
