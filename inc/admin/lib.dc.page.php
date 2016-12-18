@@ -268,7 +268,7 @@ class dcPage
 		if ($core->error->flag() && !$error_displayed) {
 
 			# --BEHAVIOR-- adminPageNotificationError
-			$notice_error = $core->callBehavior('adminPageNotificationError',$core->error);
+			$notice_error = $core->callBehavior('adminPageNotificationError',$core,$core->error);
 
 			if (isset($notice_error) && !empty($notice_error)) {
 				$res .= $notice_error;
@@ -285,7 +285,7 @@ class dcPage
 			foreach ($_SESSION['notifications'] as $notification) {
 
 				# --BEHAVIOR-- adminPageNotification
-				$notice = $core->callBehavior('adminPageNotification',$notification);
+				$notice = $core->callBehavior('adminPageNotification',$core,$notification);
 
 				$res .= (isset($notice) && !empty($notice) ? $notice : self::getNotification($notification));
 			}
