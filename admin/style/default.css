@@ -1508,6 +1508,24 @@ p.warning-msg {
 .info a {
   color: #333; }
 
+.close-notice {
+  float: right;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding-left: 1em; }
+  .close-notice:hover, .close-notice:focus {
+    background: none; }
+
+div.error {
+  position: relative; }
+  div.error .close-notice {
+    display: block;
+    position: absolute;
+    top: 1em;
+    right: 1em; }
+
 .dc-update {
   padding: 1em 48px 0.5em 48px;
   margin-bottom: 1em;

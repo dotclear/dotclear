@@ -555,10 +555,24 @@ $(function() {
 
 	$('#help').helpViewer();
 
+	// Notices
 	$('.message').backgroundFade({sColor: dotclear.fadeColor.beginMessage, eColor: dotclear.fadeColor.endMessage, steps:20});
 	$('.error').backgroundFade({sColor: dotclear.fadeColor.beginError, eColor: dotclear.fadeColor.endError, steps:20});
 	$('.success').backgroundFade({sColor: dotclear.fadeColor.beginSuccess, eColor: dotclear.fadeColor.endSuccess, steps:20});
 
+	$('p.success,p.warning,p.error,div.error').each(function () {
+		$(this).append('<button class="close-notice" type="button"><img src="images/close.png" alt="'+dotclear.msg.close_notice+'" /></button>');
+	});
+	$('button.close-notice').click(function (e) {
+		e.preventDefault();
+		$(this).parent().hide();
+	});
+	$('p.success,p.warning,p.error,div.error').click(function(e) {
+	    e.preventDefault();
+		$(this).hide();
+	});
+
+	// Password
 	$('form:has(input[type=password][name=your_pwd])').submit(function() {
 		var e = this.elements['your_pwd'];
 		if (e.value == '') {
@@ -571,6 +585,7 @@ $(function() {
 		return true;
 	});
 
+	// Advanced users
 	if (dotclear.hideMoreInfo) {
 		$('.more-info,.form-note:not(.warn,.warning,.info)').addClass('no-more-info');
 	}
