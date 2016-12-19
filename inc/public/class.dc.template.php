@@ -962,6 +962,7 @@ class dcTemplate extends template
 	<!ELEMENT tpl:CategoryIf - - -- tests on current entry -->
 	<!ATTLIST tpl:CategoryIf
 	url		CDATA	#IMPLIED	-- category has given url
+	urls	CDATA	#IMPLIED	-- category has one of given urls
 	has_entries	(0|1)	#IMPLIED	-- post is the first post from list (value : 1) or not (value : 0)
 	has_description     (0|1)     #IMPLIED  -- category has description (value : 1) or not (value : 0)
 	>
@@ -978,6 +979,20 @@ class dcTemplate extends template
 				$if[] = '($_ctx->categories->cat_url != "'.$url.'")';
 			} else {
 				$if[] = '($_ctx->categories->cat_url == "'.$url.'")';
+			}
+		}
+
+		if (isset($attr['urls'])) {
+			$urls = explode(',',addslashes(trim($attr['urls'])));
+			if (is_array($urls) && count($urls)) {
+				foreach ($urls as $url) {
+					if (substr($url,0,1) == '!') {
+						$url = substr($url,1);
+						$if[] = '($_ctx->categories->cat_url != "'.$url.'")';
+					} else {
+						$if[] = '($_ctx->categories->cat_url == "'.$url.'")';
+					}
+				}
 			}
 		}
 
