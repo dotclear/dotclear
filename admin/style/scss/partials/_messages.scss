@@ -99,6 +99,27 @@ p.warning-msg {
 	color: #333;
 }
 
+.close-notice {
+	float: right;
+	background: none;
+	border:	none;
+	border-radius: 0;
+	box-shadow: none;
+	padding-left: 1em;
+	&:hover, &:focus {
+		background: none;
+	}
+}
+div.error {
+	position: relative;
+	.close-notice {
+		display: block;
+		position: absolute;
+		top: 1em;
+		right: 1em;
+	}
+}
+
 .dc-update {
 	padding: 1em 48px 0.5em 48px;
 	margin-bottom: 1em;

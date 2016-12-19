@@ -726,7 +726,9 @@ class dcPage
 
 		'<script type="text/javascript">'."\n".
 		'jsToolBar = {}, jsToolBar.prototype = { elements : {} };'."\n".
+
 		self::jsVar('dotclear.nonce',$GLOBALS['core']->getNonce()).
+
 		self::jsVar('dotclear.img_plus_src','images/expand.png').
 		self::jsVar('dotclear.img_plus_alt',__('uncover')).
 		self::jsVar('dotclear.img_minus_src','images/hide.png').
@@ -848,6 +850,10 @@ class dcPage
 			__('Section:')).
 		self::jsVar('dotclear.msg.module_tags',
 			__('Tags:')).
+
+		self::jsVar('dotclear.msg.close_notice',
+			__('Hide this notice')).
+
 			"\n".
 		"</script>\n";
 	}
