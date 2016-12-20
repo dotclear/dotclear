@@ -137,11 +137,11 @@ class context
 		if ($args['strip_tags']) {
 			$str = self::strip_tags($str);
 		}
-		elseif ($args['remove_html']) {
+		if ($args['remove_html']) {
 			$str = self::remove_html($str);
 			$str = preg_replace('/\s+/',' ',$str);
 		}
-		elseif ($args['encode_xml'] || $args['encode_html']) {
+		if ($args['encode_xml'] || $args['encode_html']) {
 			$str = self::encode_xml($str);
 		}
 
