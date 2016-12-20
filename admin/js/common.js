@@ -563,7 +563,7 @@ $(function() {
 	$('p.success,p.warning,p.error,div.error').each(function () {
 		$(this).append('<button class="close-notice" type="button"><img src="images/close.png" alt="'+dotclear.msg.close_notice+'" /></button>');
 	});
-	$('button.close-notice').click(function (e) {
+	$('button.close-notice').click(function(e) {
 		e.preventDefault();
 		$(this).parent().hide();
 	});
