@@ -2483,7 +2483,7 @@ span.media-file-mode {
     margin: 0;
     padding: 0; }
   .media-item audio {
-    width: 90%;
+    width: 100%;
     margin-top: .5em; }
 
 a.media-icon {
@@ -2513,7 +2513,7 @@ a.media-flag {
 li.media-action {
   display: block;
   position: absolute;
-  bottom: 4px;
+  top: 4px;
   right: 8px;
   height: 16px; }
   li.media-action a {
@@ -2530,9 +2530,6 @@ li.media-action {
   min-height: 0;
   padding: 4px;
   margin: .33em 0; }
-
-#entry-sidebar li.media-action {
-  top: 4px; }
 
 .folders-group .media-item {
   min-height: 70px; }
