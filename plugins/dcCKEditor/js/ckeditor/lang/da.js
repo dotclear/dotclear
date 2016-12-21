@@ -499,15 +499,15 @@ CKEDITOR.lang['da'] = {
     	keyboard : 
     	{
     		'8' : 'Backspace',
-    		'13' : 'Enter',
+    		'13' : 'Retur',
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Mellemrum',
     		'35' : 'End',
     		'36' : 'Home',
-    		'46' : 'Delete',
+    		'46' : 'Slet',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Tastatur genvej'
     } }; 

@@ -204,8 +204,8 @@ CKEDITOR.lang['nl'] = {
     	anchorName : 'Op naam interne link',
     	charset : 'Karakterset van gelinkte bron',
     	cssClasses : 'Stylesheet-klassen',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Download forceren',
+    	displayText : 'Weergavetekst',
     	emailAddress : 'E-mailadres',
     	emailBody : 'Inhoud bericht',
     	emailSubject : 'Onderwerp bericht',
@@ -503,11 +503,11 @@ CKEDITOR.lang['nl'] = {
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Spatie',
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Verwijderen',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Sneltoets'
     } }; 

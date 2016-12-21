@@ -509,5 +509,5 @@ CKEDITOR.lang['ru'] = {
     		'46' : 'Delete',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Комбинация клавиш'
     } }; 
