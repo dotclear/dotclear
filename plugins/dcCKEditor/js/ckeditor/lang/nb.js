@@ -161,7 +161,7 @@ CKEDITOR.lang['nb'] = {
     liststyle : 
     {
     	armenian : 'Armensk nummerering',
-    	bulletedTitle : 'Egenskaper for punktmerket liste',
+    	bulletedTitle : 'Egenskaper for punktliste',
     	circle : 'Sirkel',
     	decimal : 'Tall (1, 2, 3, osv.)',
     	decimalLeadingZero : 'Tall, med førstesiffer null (01, 02, 03, osv.)',
@@ -182,7 +182,7 @@ CKEDITOR.lang['nb'] = {
     },
     list : 
     {
-    	bulletedlist : 'Legg til / fjern punktmerket liste',
+    	bulletedlist : 'Legg til / fjern punktliste',
     	numberedlist : 'Legg til / fjern nummerert liste'
     },
     link : 
@@ -193,8 +193,8 @@ CKEDITOR.lang['nb'] = {
     	advisoryTitle : 'Tittel',
     	anchor : 
     	{
-    		toolbar : 'Sett inn/Rediger anker',
-    		menu : 'Egenskaper for anker',
+    		toolbar : 'Anker',
+    		menu : 'Rediger anker',
     		title : 'Egenskaper for anker',
     		name : 'Ankernavn',
     		errorName : 'Vennligst skriv inn ankernavnet',
@@ -204,7 +204,7 @@ CKEDITOR.lang['nb'] = {
     	anchorName : 'Anker etter navn',
     	charset : 'Lenket tegnsett',
     	cssClasses : 'Stilarkklasser',
-    	download : 'Force Download',
+    	download : 'Tving nedlasting',
     	displayText : 'Tekst som skal vises',
     	emailAddress : 'E-postadresse',
     	emailBody : 'Melding',
@@ -213,8 +213,8 @@ CKEDITOR.lang['nb'] = {
     	info : 'Lenkeinfo',
     	langCode : 'Språkkode',
     	langDir : 'Språkretning',
-    	langDirLTR : 'Venstre til høyre (VTH)',
-    	langDirRTL : 'Høyre til venstre (HTV)',
+    	langDirLTR : 'Venstre til høyre (LTR)',
+    	langDirRTL : 'Høyre til venstre (RTL)',
     	menu : 'Rediger lenke',
     	name : 'Navn',
     	noAnchors : '(Ingen anker i dokumentet)',
@@ -245,7 +245,7 @@ CKEDITOR.lang['nb'] = {
     	toAnchor : 'Lenke til anker i teksten',
     	toEmail : 'E-post',
     	toUrl : 'URL',
-    	toolbar : 'Sett inn/Rediger lenke',
+    	toolbar : 'Lenke',
     	type : 'Lenketype',
     	unlink : 'Fjern lenke',
     	upload : 'Last opp'
@@ -323,9 +323,9 @@ CKEDITOR.lang['nb'] = {
     	cssClassInputLabel : 'Stilark-klasser',
     	edit : 'Rediger Div',
     	inlineStyleInputLabel : 'Inlinestiler',
-    	langDirLTRLabel : 'Venstre til høyre (VTH)',
+    	langDirLTRLabel : 'Venstre til høyre (LTR)',
     	langDirLabel : 'Språkretning',
-    	langDirRTLLabel : 'Høyre til venstre (HTV)',
+    	langDirRTLLabel : 'Høyre til venstre (RTL)',
     	languageCodeInputLabel : ' Språkkode',
     	remove : 'Fjern Div',
     	styleSelectLabel : 'Stil',
@@ -347,7 +347,7 @@ CKEDITOR.lang['nb'] = {
     		'8B4513' : 'Salbrun',
     		'2F4F4F' : 'Grønnsvart',
     		'008080' : 'Blågrønn',
-    		'000080' : 'Marineblått',
+    		'000080' : 'Marineblå',
     		'4B0082' : 'Indigo',
     		'696969' : 'Mørk grå',
     		B22222 : 'Mørkerød',
@@ -371,14 +371,14 @@ CKEDITOR.lang['nb'] = {
     		FFFF00 : 'Gul',
     		'00FF00' : 'Lime',
     		AFEEEE : 'Svak turkis',
-    		ADD8E6 : 'Lys Blå',
+    		ADD8E6 : 'Lys blå',
     		DDA0DD : 'Plomme',
     		D3D3D3 : 'Lys grå',
     		FFF0F5 : 'Svak lavendelrosa',
     		FAEBD7 : 'Antikk-hvit',
     		FFFFE0 : 'Lys gul',
     		F0FFF0 : 'Honningmelon',
-    		F0FFFF : 'Svakt asurblått',
+    		F0FFFF : 'Svak asurblå',
     		F0F8FF : 'Svak cyan',
     		E6E6FA : 'Lavendel',
     		FFF : 'Hvit'
@@ -450,8 +450,8 @@ CKEDITOR.lang['nb'] = {
     	id : 'Id',
     	name : 'Navn',
     	langDir : 'Språkretning',
-    	langDirLtr : 'Venstre til høyre (VTH)',
-    	langDirRtl : 'Høyre til venstre (HTV)',
+    	langDirLtr : 'Venstre til høyre (LTR)',
+    	langDirRtl : 'Høyre til venstre (RTL)',
     	langCode : 'Språkkode',
     	longDescr : 'Utvidet beskrivelse',
     	cssClass : 'Stilarkklasser',
@@ -470,7 +470,7 @@ CKEDITOR.lang['nb'] = {
     	options : 'Valg',
     	target : 'Mål',
     	targetNew : 'Nytt vindu (_blank)',
-    	targetTop : 'Hele vindu (_top)',
+    	targetTop : 'Hele vinduet (_top)',
     	targetSelf : 'Samme vindu (_self)',
     	targetParent : 'Foreldrevindu (_parent)',
     	langDirLTR : 'Venstre til høyre (VTH)',
@@ -503,11 +503,11 @@ CKEDITOR.lang['nb'] = {
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Mellomrom',
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Tastatursnarvei'
     } }; 

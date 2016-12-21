@@ -204,8 +204,8 @@ CKEDITOR.lang['pt-br'] = {
     	anchorName : 'Nome da âncora',
     	charset : 'Charset do Link',
     	cssClasses : 'Classe de CSS',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Forçar Download',
+    	displayText : 'Exibir Texto',
     	emailAddress : 'Endereço E-Mail',
     	emailBody : 'Corpo da Mensagem',
     	emailSubject : 'Assunto da Mensagem',
@@ -498,16 +498,16 @@ CKEDITOR.lang['pt-br'] = {
     	unavailable : '%1<span class="cke_accessibility">, indisponível</span>',
     	keyboard : 
     	{
-    		'8' : 'Backspace',
+    		'8' : 'Tecla Retroceder',
     		'13' : 'Enter',
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Tecla Espaço',
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
-    		'224' : 'Command'
+    		'224' : 'Comando'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Atalho do teclado'
     } }; 

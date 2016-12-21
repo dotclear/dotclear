@@ -26,7 +26,7 @@ CKEDITOR.lang['sv'] = {
     		colors : 'Färger',
     		tools : 'Verktyg'
     	},
-    	toolbars : 'Redigera verktygsfält'
+    	toolbars : 'Editorns verktygsfält'
     },
     templates : 
     {
@@ -113,11 +113,11 @@ CKEDITOR.lang['sv'] = {
     },
     stylescombo : 
     {
-    	label : 'Anpassad stil',
-    	panelTitle : 'Formatmallar',
-    	panelTitle1 : 'Blockstil',
-    	panelTitle2 : 'Inbäddad stil',
-    	panelTitle3 : 'Objektets stil'
+    	label : 'Stilar',
+    	panelTitle : 'Formateringsstilar',
+    	panelTitle1 : 'Blockstilar',
+    	panelTitle2 : 'Inbäddade stilar',
+    	panelTitle3 : 'Objektstilar'
     },
     specialchar : 
     {
@@ -204,8 +204,8 @@ CKEDITOR.lang['sv'] = {
     	anchorName : 'Efter ankarnamn',
     	charset : 'Teckenuppställning',
     	cssClasses : 'Stilmall',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Tvinga nerladdning',
+    	displayText : 'Visningstext',
     	emailAddress : 'E-postadress',
     	emailBody : 'Innehåll',
     	emailSubject : 'Ämne',
@@ -227,7 +227,7 @@ CKEDITOR.lang['sv'] = {
     	popupLeft : 'Position från vänster',
     	popupLocationBar : 'Adressfält',
     	popupMenuBar : 'Menyfält',
-    	popupResizable : 'Resizable',
+    	popupResizable : 'Skalbart',
     	popupScrollBars : 'Scrolllista',
     	popupStatusBar : 'Statusfält',
     	popupToolbar : 'Verktygsfält',
@@ -421,12 +421,12 @@ CKEDITOR.lang['sv'] = {
     	copy : 'Copyright &copy; $1. Alla rättigheter reserverade.',
     	dlgTitle : 'Om CKEditor',
     	help : 'Se $1 för hjälp.',
-    	moreInfo : 'För information av licensiering besök vår hemsida:',
+    	moreInfo : 'För information om licensiering besök vår hemsida:',
     	title : 'Om CKEditor',
-    	userGuide : 'CKEditor User\'s Guide'
+    	userGuide : 'CKEditor användarmanual'
     },
-    editor : 'Rich Text Editor',
-    editorPanel : 'Rich Text Editor panel',
+    editor : 'Rich Text-editor',
+    editorPanel : 'Panel till Rich Text-editor',
     common : 
     {
     	editorHelp : 'Tryck ALT 0 för hjälp',
@@ -509,5 +509,5 @@ CKEDITOR.lang['sv'] = {
     		'46' : 'Radera',
     		'224' : 'Kommando'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Kortkommando'
     } }; 
