@@ -107,7 +107,7 @@ li.media-action {
 	background: transparent url(bg_menu.png) repeat-y;
 	border-color: #eee;
 	.media-link {
-		font-size: 1.25em;
+		font-size: 1.125em;
 		margin-left: 2em;
 		color: #676e78;
 		border-bottom: none;
@@ -116,6 +116,9 @@ li.media-action {
 
 tr.media-folder {
 	background: transparent;
+	.media-link {
+		margin-left: 0;
+	}
 }
 
 .media-folder-up {
