@@ -1198,6 +1198,9 @@ input[type=submit] {
   border-style: solid;
   border-width: 1px; }
 
+a.button {
+  vertical-align: middle; }
+
 button,
 input[type=button],
 input[type=reset],
