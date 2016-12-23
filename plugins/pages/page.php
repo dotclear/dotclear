@@ -547,7 +547,7 @@ if ($can_edit_page)
 	}
 
 	echo
-	($can_delete ? '<input type="submit" class="delete" value="'.__('Delete').'" name="delete" />' : '').
+	($can_delete ? ' <input type="submit" class="delete" value="'.__('Delete').'" name="delete" />' : '').
 	$core->formNonce().
 	'</p>';
 
