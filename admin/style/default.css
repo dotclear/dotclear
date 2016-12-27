@@ -2390,17 +2390,15 @@ On adapte largeur et hauteur en fonction
     color: #D33800;
     font-size: 1.5em;
     margin-bottom: 1em; }
+  .box.current-theme .module-actions {
+    display: flex;
+    flex-wrap: wrap; }
 
 .current-actions {
   width: auto;
   overflow: hidden;
   padding-top: 2em;
-  margin: 1.5em 0 2em;
   background: transparent url(../images/minus-theme.png) no-repeat left top; }
-  .current-theme .current-actions {
-    position: absolute;
-    bottom: 0;
-    right: 18px; }
 
 #categories {
   margin: 1em 0; }
