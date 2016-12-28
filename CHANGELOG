@@ -1,3 +1,37 @@
+Dotclear 2.11 - 2016-12-28
+===========================================================
+* 🐘 PHP 5.3+ is required
+* 🛡 Security : Prevents XSS injection in media title, thanks smarterbitbybit for report
+* Cope with locale for sorting order if possible (work in progress)
+* Rich-text-editor (xhtml) may be disabled for Blog/Category description, widget's textareas, …
+* Add direct access to module's settings from plugins management page (depends on _define.php of modules)
+* Menus (except favorites) are now lexically sorted (except "new post" item)
+* Add Entry date as sort order in comments list
+* Switch admin CSS to Sass/Compass (work in progress)
+* Add 'l' and 'm' accesskey for editor toolbars, respectively for 'insert link' and 'select media' buttons
+* Add new categories attribute to EntryIf template tag
+* Remove Dublin-core metadata from <head> in template-sets
+* ToolMan (js) not more used, thank's Tim Taylor for all this years together!
+* Soft redesign of administration pages using responsive font-size and OS system fonts (IE 10+)
+* Add a user preference to hide additional/secondary information
+* Add actions on blog list, new sort order: blog status
+* Update CKEditor to 4.6.1
+* Open trackbacks with behaviors and add basic Webmention support
+* Add First Publication mecanism and an option to auto-ping when fired
+* Berlin theme is now based on Dotty template-set
+* Move advanced and plugins blog’s prefs in two separate foldable sections
+* Add legend and title insertion option for image insertion in entry
+* Some notices and messages may be hidden
+* Add urls attribute to CategoryIf template tag
+* CSP: Move admin CSP admin/csp_report.txt to DC_VAR/csp/csp_report.json
+* CSP: Violations are now stored only once in report if repeated
+* a11y: Remove empty link (href=#) from admin
+* Fix: Proxies may use standard HTTP(S) ports and SSL may now run through a proxy
+* Fix: Prevents precondition failed during activated theme update
+* 🐛 → Various bugs and typos fixed
+* 🌼 → A lot of locales and cosmetic adjustments
+* 🚽 → Housecleaning of no more used scripts, images, resources, IE 9- :-)
+
 Dotclear 2.10.4 - 2016-11-02
 ===========================================================
 * PostgreSQL < 9.1 fix
