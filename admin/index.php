@@ -393,8 +393,8 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 if ($dashboardContents != '' || $dashboardItems != '') {
 	echo
 	'<div id="dashboard-boxes">'.
-	'<div class="db-items">'.$dashboardItems.'</div>'.
-	'<div class="db-contents">'.$dashboardContents.'</div>'.
+	($dashboardItems != '' ? '<div class="db-items">'.$dashboardItems.'</div>' : '').
+	($dashboardContents != '' ? '<div class="db-contents">'.$dashboardContents.'</div>' : '').
 	'</div>';
 }
 
