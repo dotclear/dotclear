@@ -827,8 +827,8 @@ class adminModulesList
 	{
 		$st = array();
 
-		$config = !empty($core->plugins->moduleRoot($id)) &&
-			file_exists(path::real($core->plugins->moduleRoot($id).'/_config.php'));
+		$mr = $core->plugins->moduleRoot($id);
+		$config = !empty($mr) && file_exists(path::real($mr.'/_config.php'));
 		$settings = $core->plugins->moduleInfo($id,'settings');
 		if ($config || !empty($settings)) {
 			if ($config) {
