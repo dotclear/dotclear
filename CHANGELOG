@@ -1,3 +1,7 @@
+Dotclear 2.11.1 - 2016-12-28
+===========================================================
+* Fix: admin menu not visible and some plugin admin not accessible with PHP < 5.5
+
 Dotclear 2.11 - 2016-12-28
 ===========================================================
 * 🐘 PHP 5.3+ is required
