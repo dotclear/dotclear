@@ -2929,7 +2929,8 @@ class dcTemplate extends template
 		}
 
 		if (isset($attr['blog_lang'])) {
-			$if[] = "\$core->blog->settings->system->lang == '".addslashes($attr['blog_lang'])."'";
+			$sign = (boolean) $attr['blog_lang'] ? '!' : '=';
+			$if[] = "\$core->blog->settings->system->lang ".$sign."= '".addslashes($attr['blog_lang'])."'";
 		}
 
 		if (isset($attr['current_tpl'])) {
