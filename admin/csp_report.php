@@ -22,8 +22,8 @@ $data = file_get_contents('php://input');
 if ($data = json_decode($data,true)) {
 
 	// get source-file and blocked-URI to perform some tests
-	$source_file = $data['csp-report']['source-file'];
-	$blocked_uri = $data['csp-report']['blocked-uri'];
+	$source_file = isset($data['csp-report']['source-file']) ? $data['csp-report']['source-file'] : '';
+	$blocked_uri = isset($data['csp-report']['blocked-uri']) ? $data['csp-report']['blocked-uri'] : '';
 
 	if (
 		// avoid false positives notifications coming from Chrome extensions (Wappalyzer, MuteTab, etc.)
@@ -46,11 +46,11 @@ if ($data = json_decode($data,true)) {
 	) {
 		// Prepare report data (hash => info)
 		$hash = hash('md5',
-			$data['csp-report']['blocked-uri'].
-			$data['csp-report']['document-uri'].
-			$data['csp-report']['source-file'].
-			$data['csp-report']['line-number'].
-			$data['csp-report']['violated-directive']);
+			$blocked_uri.
+			isset($data['csp-report']['document-uri']) ? $data['csp-report']['document-uri'] : ''.
+			$source_file.
+			isset($data['csp-report']['line-number']) ? $data['csp-report']['line-number'] : ''.
+			isset($data['csp-report']['violated-directive']) ? $data['csp-report']['violated-directive'] : '');
 
 		try {
 			// Check report dir (create it if necessary)
