@@ -26,7 +26,7 @@ class dcMaintenanceCSP extends dcMaintenanceTask
 
 	public function execute()
 	{
-		$csp_file = path::real(DC_TPL_CACHE).'/csp_report.txt';
+		$csp_file = path::real(DC_VAR).'/csp/csp_report.json';
 		if (file_exists($csp_file)) {
 			unlink($csp_file);
 		}
