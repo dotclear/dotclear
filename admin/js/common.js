@@ -517,7 +517,8 @@ $(function() {
 
 	// manage outgoing links
 	$('a').filter(function() {
-		return ((this.hostname && this.hostname!=location.hostname && !$(this).hasClass('modal'))
+		return ((this.hostname && this.hostname!=location.hostname
+				&& !$(this).hasClass('modal') && !$(this).hasClass('modal-image'))
 			|| $(this).hasClass('outgoing'));
 	}).each(function() {
 		$(this).prop('title',$(this).prop('title')+' ('+dotclear.msg.new_window+')');

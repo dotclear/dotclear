@@ -56,20 +56,20 @@ class dcPostMedia
 			$strReq .= $params['from'].' ';
 		}
 
-		$where=[];
+		$where = array();
 		if (isset($params['post_id'])) {
-			$where[]="PM.post_id ".$this->con->in($params['post_id']);
+			$where[] = "PM.post_id ".$this->con->in($params['post_id']);
 		}
 		if (isset($params['media_id'])) {
-			$where[]="M.media_id ".$this->con->in($params['media_id']);
+			$where[] = "M.media_id ".$this->con->in($params['media_id']);
 		}
 		if (isset($params['media_path'])) {
-			$where[]="M.media_path ".$this->con->in($params['media_path']);
+			$where[] = "M.media_path ".$this->con->in($params['media_path']);
 		}
 		if (isset($params['link_type'])) {
-			$where[]="PM.link_type ".$this->con->in($params['link_type']);
+			$where[] = "PM.link_type ".$this->con->in($params['link_type']);
 		} else {
-			$where[]="PM.link_type='attachment'";
+			$where[] = "PM.link_type='attachment'";
 		}
 
 		$strReq .= 'WHERE '.join('AND ',$where).' ';
