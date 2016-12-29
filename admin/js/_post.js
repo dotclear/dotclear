@@ -66,9 +66,8 @@ $(function() {
 				type:'iframe',
 				iframe: {
 					patterns: {
-						dotclear: {
+						dotclear_preview: {
 							index: $preview_url,
-							id: 1,
 							src: $preview_url
 						}
 					}
