@@ -1920,7 +1920,7 @@ msgstr "Vybrat ze seznamu"
 msgid "all"
 msgstr "všechny"
 
-msgid "Enter tags separated by coma"
+msgid "Enter tags separated by comma"
 msgstr "Vložte štítky oddělené čárkou"
 
 msgid "used in %e - frequency %p%"

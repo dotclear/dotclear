@@ -1920,7 +1920,7 @@ msgstr "Elegir de la lista"
 msgid "all"
 msgstr "todo"
 
-msgid "Enter tags separated by coma"
+msgid "Enter tags separated by comma"
 msgstr ""
 
 msgid "used in %e - frequency %p%"

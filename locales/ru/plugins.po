@@ -1922,7 +1922,7 @@ msgstr "Выбрать из списка"
 msgid "all"
 msgstr "все"
 
-msgid "Enter tags separated by coma"
+msgid "Enter tags separated by comma"
 msgstr "Введите теги, разделяя запятыми"
 
 msgid "used in %e - frequency %p%"

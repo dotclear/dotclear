@@ -1917,7 +1917,7 @@ msgstr "Pasirinkite iš sąrašo"
 msgid "all"
 msgstr "visi"
 
-msgid "Enter tags separated by coma"
+msgid "Enter tags separated by comma"
 msgstr "Įveslite žymas atskirtas kableliais"
 
 msgid "used in %e - frequency %p%"

@@ -197,7 +197,7 @@ class tagsBehaviors
 					"text_add_meta : '".html::escapeJS(__('Add a tag to this entry'))."',\n".
 					"text_choose : '".html::escapeJS(__('Choose from list'))."',\n".
 					"text_all : '".html::escapeJS(__('all'))."',\n".
-					"text_separation : '".html::escapeJS(__('Enter tags separated by coma'))."',\n".
+					"text_separation : '".html::escapeJS(__('Enter tags separated by comma'))."',\n".
 				"};\n".
 				"</script>\n".
 				dcPage::jsLoad('js/jquery/jquery.autocomplete.js').
@@ -318,7 +318,7 @@ class tagsBehaviors
 			"text_add_meta : '".html::escapeJS(__('Add a tag to this entry'))."',\n".
 			"text_choose : '".html::escapeJS(__('Choose from list'))."',\n".
 			"text_all : '".html::escapeJS(__('all'))."',\n".
-			"text_separation : '".html::escapeJS(__('Enter tags separated by coma'))."',\n".
+			"text_separation : '".html::escapeJS(__('Enter tags separated by comma'))."',\n".
 		"};\n".
 		"</script>\n".
 		dcPage::jsLoad('js/jquery/jquery.autocomplete.js').

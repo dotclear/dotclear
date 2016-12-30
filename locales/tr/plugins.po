@@ -1840,7 +1840,7 @@ msgstr ""
 msgid "all"
 msgstr "tümü"
 
-msgid "Enter tags separated by coma"
+msgid "Enter tags separated by comma"
 msgstr ""
 
 msgid "used in %e - frequency %p%"

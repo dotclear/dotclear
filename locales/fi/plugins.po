@@ -1808,7 +1808,7 @@ msgstr "Valitse luettelosta"
 msgid "all"
 msgstr "kaikki"
 
-msgid "Enter tags separated by coma"
+msgid "Enter tags separated by comma"
 msgstr "Syötä avainsanat pilkulla eroteltuina"
 
 msgid "used in %e - frequency %p%"

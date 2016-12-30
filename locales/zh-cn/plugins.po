@@ -1917,7 +1917,7 @@ msgstr "从列表中选择"
 msgid "all"
 msgstr "所有"
 
-msgid "Enter tags separated by coma"
+msgid "Enter tags separated by comma"
 msgstr ""
 
 msgid "used in %e - frequency %p%"
