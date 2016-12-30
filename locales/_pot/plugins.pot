@@ -2584,7 +2584,7 @@ msgstr ""
 
 #: plugins/tags/inc/tags.behaviors.php:200
 #: plugins/tags/inc/tags.behaviors.php:321
-msgid "Enter tags separated by coma"
+msgid "Enter tags separated by comma"
 msgstr ""
 
 #: plugins/tags/inc/tags.behaviors.php:206
