@@ -1100,9 +1100,10 @@ class dcPage
 		if (self::$xframe_loaded) {
 			return;
 		}
+
 		if ($origin !== null) {
 			$url = parse_url($origin);
-			$headers['x-frame-options'] = sprintf('X-Frame-Options: %s',is_array($url) ?
+			$headers['x-frame-options'] = sprintf('X-Frame-Options: %s',is_array($url) && isset($url['host']) ?
 				("ALLOW-FROM ".(isset($url['scheme']) ? $url['scheme'].':' : '' ).'//'.$url['host']) :
 				'SAMEORIGIN');
 		} else {
