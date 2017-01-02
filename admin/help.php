@@ -14,7 +14,7 @@ require dirname(__FILE__).'/../inc/admin/prepend.php';
 
 dcPage::check('usage');
 
-function helpPage()
+$helpPage = function()
 {
 	$ret = array('content' => '', 'title' => '');
 
@@ -65,12 +65,12 @@ function helpPage()
 		$ret['title'] = $title;
 	}
 	return $ret;
-}
+};
 
 $help_page = !empty($_GET['page']) ? html::escapeHTML($_GET['page']) : 'index';
-$content_array = helpPage($help_page);
+$content_array = $helpPage($help_page);
 if (($content_array['content'] == '') || ($help_page == 'index')) {
-	$content_array = helpPage('index');
+	$content_array = $helpPage('index');
 }
 if ($content_array['title'] != '') {
 	$breadcrumb = dcPage::breadcrumb(

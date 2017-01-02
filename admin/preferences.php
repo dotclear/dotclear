@@ -677,13 +677,11 @@ echo '<div class="fieldset" id="available-favs">';
 # Available favorites
 echo '<h5 class="pretty-title">'.__('Other available favorites').'</h5>';
 $count = 0;
-function cmp($a,$b) {
-    if ($a['title'] == $b['title']) {
-        return 0;
-    }
-    return ($a['title'] < $b['title']) ? -1 : 1;
-}
-uasort($avail_fav,'cmp');
+uasort($avail_fav,function($a,$b) {
+	return strcoll(
+		strtolower(dcUtils::removeDiacritics($a['title'])),
+		strtolower(dcUtils::removeDiacritics($b['title'])));
+});
 
 foreach ($avail_fav as $k => $v) {
 	if (in_array($k,$user_fav)) {

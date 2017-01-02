@@ -470,6 +470,88 @@ if (!$can_view_page) {
 	dcPage::close();
 	exit;
 }
+
+# Controls comments or trakbacks capabilities
+$isContributionAllowed = function ($id,$dt,$com=true)
+{
+	global $core;
+
+	if (!$id) {
+		return true;
+	}
+	if ($com) {
+		if (($core->blog->settings->system->comments_ttl == 0) ||
+			(time() - $core->blog->settings->system->comments_ttl*86400 < $dt)) {
+			return true;
+		}
+	} else {
+		if (($core->blog->settings->system->trackbacks_ttl == 0) ||
+			(time() - $core->blog->settings->system->trackbacks_ttl*86400 < $dt)) {
+			return true;
+		}
+	}
+	return false;
+};
+
+# Show comments or trackbacks
+$showComments = function($rs,$has_action,$tb=false)
+{
+	global $core;
+	echo
+	'<div class="table-outer">'.
+	'<table class="comments-list"><tr>'.
+	'<th colspan="2" class="first">'.__('Author').'</th>'.
+	'<th>'.__('Date').'</th>'.
+	'<th class="nowrap">'.__('IP address').'</th>'.
+	'<th>'.__('Status').'</th>'.
+	'<th>'.__('Edit').'</th>'.
+	'</tr>';
+	$comments = array();
+	if (isset($_REQUEST['comments'])) {
+		foreach ($_REQUEST['comments'] as $v) {
+			$comments[(integer)$v]=true;
+		}
+	}
+
+	while($rs->fetch())
+	{
+		$comment_url = $core->adminurl->get("admin.comment",array('id' => $rs->comment_id));
+
+		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
+		switch ($rs->comment_status) {
+			case 1:
+				$img_status = sprintf($img,__('Published'),'check-on.png');
+				break;
+			case 0:
+				$img_status = sprintf($img,__('Unpublished'),'check-off.png');
+				break;
+			case -1:
+				$img_status = sprintf($img,__('Pending'),'check-wrn.png');
+				break;
+			case -2:
+				$img_status = sprintf($img,__('Junk'),'junk.png');
+				break;
+		}
+
+		echo
+		'<tr class="line'.($rs->comment_status != 1 ? ' offline' : '').'"'.
+		' id="c'.$rs->comment_id.'">'.
+
+		'<td class="nowrap">'.
+		($has_action ? form::checkbox(array('comments[]'),$rs->comment_id,isset($comments[$rs->comment_id]),'','',0,'title="'.($tb ? __('select this trackback') : __('select this comment')).'"') : '').'</td>'.
+		'<td class="maximal">'.html::escapeHTML($rs->comment_author).'</td>'.
+		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$rs->comment_dt).'</td>'.
+		'<td class="nowrap"><a href="'.$core->adminurl->get("admin.comments",array('ip' => $rs->comment_ip)).'">'.$rs->comment_ip.'</a></td>'.
+		'<td class="nowrap status">'.$img_status.'</td>'.
+		'<td class="nowrap status"><a href="'.$comment_url.'">'.
+		'<img src="images/edit-mini.png" alt="" title="'.__('Edit this comment').'" /> '.__('Edit').'</a></td>'.
+
+		'</tr>';
+	}
+
+	echo '</table></div>';
+};
+
 /* Post form if we can edit post
 -------------------------------------------------------- */
 if ($can_edit_post) {
@@ -532,7 +614,7 @@ if ($can_edit_post) {
 					form::checkbox('post_open_comment',1,$post_open_comment).' '.
 					__('Accept comments').'</label></p>'.
 					($core->blog->settings->system->allow_comments ?
-						(isContributionAllowed($post_id,strtotime($post_dt),true) ?
+						($isContributionAllowed($post_id,strtotime($post_dt),true) ?
 							'' :
 							'<p class="form-note warn">'.
 							__('Warning: Comments are not more accepted for this entry.').'</p>') :
@@ -542,7 +624,7 @@ if ($can_edit_post) {
 					form::checkbox('post_open_tb',1,$post_open_tb).' '.
 					__('Accept trackbacks').'</label></p>'.
 					($core->blog->settings->system->allow_trackbacks ?
-						(isContributionAllowed($post_id,strtotime($post_dt),false) ?
+						($isContributionAllowed($post_id,strtotime($post_dt),false) ?
 							'' :
 							'<p class="form-note warn">'.
 							__('Warning: Trackbacks are not more accepted for this entry.').'</p>') :
@@ -677,7 +759,7 @@ if ($post_id)
 
 	echo '<h3>'.__('Comments').'</h3>';
 	if (!$comments->isEmpty()) {
-		showComments($comments,$has_action);
+		$showComments($comments,$has_action);
 	} else {
 		echo '<p>'.__('No comments').'</p>';
 	}
@@ -761,7 +843,7 @@ if ($post_id && $post_status == 1)
 	echo '<h3>'.__('Trackbacks received').'</h3>';
 
 	if (!$trackbacks->isEmpty()) {
-		showComments($trackbacks, $has_action, true);
+		$showComments($trackbacks, $has_action, true);
 	} else {
 		echo '<p>'.__('No trackback').'</p>';
 	}
@@ -827,87 +909,6 @@ if ($post_id && $post_status == 1)
 	}
 
 	echo '</div>'; #trackbacks
-}
-
-# Controls comments or trakbacks capabilities
-function isContributionAllowed($id,$dt,$com=true)
-{
-	global $core;
-
-	if (!$id) {
-		return true;
-	}
-	if ($com) {
-		if (($core->blog->settings->system->comments_ttl == 0) ||
-			(time() - $core->blog->settings->system->comments_ttl*86400 < $dt)) {
-			return true;
-		}
-	} else {
-		if (($core->blog->settings->system->trackbacks_ttl == 0) ||
-			(time() - $core->blog->settings->system->trackbacks_ttl*86400 < $dt)) {
-			return true;
-		}
-	}
-	return false;
-}
-
-# Show comments or trackbacks
-function showComments($rs,$has_action,$tb=false)
-{
-	global $core;
-	echo
-	'<div class="table-outer">'.
-	'<table class="comments-list"><tr>'.
-	'<th colspan="2" class="first">'.__('Author').'</th>'.
-	'<th>'.__('Date').'</th>'.
-	'<th class="nowrap">'.__('IP address').'</th>'.
-	'<th>'.__('Status').'</th>'.
-	'<th>'.__('Edit').'</th>'.
-	'</tr>';
-	$comments = array();
-	if (isset($_REQUEST['comments'])) {
-		foreach ($_REQUEST['comments'] as $v) {
-			$comments[(integer)$v]=true;
-		}
-	}
-
-	while($rs->fetch())
-	{
-		$comment_url = $core->adminurl->get("admin.comment",array('id' => $rs->comment_id));
-
-		$img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
-		switch ($rs->comment_status) {
-			case 1:
-				$img_status = sprintf($img,__('Published'),'check-on.png');
-				break;
-			case 0:
-				$img_status = sprintf($img,__('Unpublished'),'check-off.png');
-				break;
-			case -1:
-				$img_status = sprintf($img,__('Pending'),'check-wrn.png');
-				break;
-			case -2:
-				$img_status = sprintf($img,__('Junk'),'junk.png');
-				break;
-		}
-
-		echo
-		'<tr class="line'.($rs->comment_status != 1 ? ' offline' : '').'"'.
-		' id="c'.$rs->comment_id.'">'.
-
-		'<td class="nowrap">'.
-		($has_action ? form::checkbox(array('comments[]'),$rs->comment_id,isset($comments[$rs->comment_id]),'','',0,'title="'.($tb ? __('select this trackback') : __('select this comment')).'"') : '').'</td>'.
-		'<td class="maximal">'.html::escapeHTML($rs->comment_author).'</td>'.
-		'<td class="nowrap">'.dt::dt2str(__('%Y-%m-%d %H:%M'),$rs->comment_dt).'</td>'.
-		'<td class="nowrap"><a href="'.$core->adminurl->get("admin.comments",array('ip' => $rs->comment_ip)).'">'.$rs->comment_ip.'</a></td>'.
-		'<td class="nowrap status">'.$img_status.'</td>'.
-		'<td class="nowrap status"><a href="'.$comment_url.'">'.
-		'<img src="images/edit-mini.png" alt="" title="'.__('Edit this comment').'" /> '.__('Edit').'</a></td>'.
-
-		'</tr>';
-	}
-
-	echo '</table></div>';
 }
 
 dcPage::helpBlock('core_post','core_trackbacks','core_wiki');

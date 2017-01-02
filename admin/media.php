@@ -385,6 +385,140 @@ if ($dir && !empty($_GET['remove']) && empty($_GET['noconfirm']))
 $core->auth->user_prefs->addWorkspace('interface');
 $user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
 
+$mediaItemLine = function($f,$i,$query,$table=false)
+{
+	global $core, $page_url, $popup, $select, $post_id, $plugin_id, $page_url_params, $link_type;
+
+	$fname = $f->basename;
+	$file = $query ? $f->relname : $f->basename;
+
+	$class = $table ? '' : 'media-item media-col-'.($i%2);
+
+	if ($f->d) {
+		// Folder
+		$link = $core->adminurl->get('admin.media',array_merge($page_url_params,array('d' => html::sanitizeURL($f->relname) )));
+		if ($f->parent) {
+			$fname = '..';
+			$class .= ' media-folder-up';
+		} else {
+			$class .= ' media-folder';
+		}
+	} else {
+		// Item
+		$params = new ArrayObject(
+			array(
+				'id' => $f->media_id,
+				'plugin_id' => $plugin_id,
+				'popup' => $popup,
+				'select' => $select,
+				'post_id' => $post_id,
+				'link_type' => $link_type
+			)
+		);
+		$core->callBehavior('adminMediaURLParams',$params);
+		$params = (array) $params;
+		$link = $core->adminurl->get(
+			'admin.media.item', $params
+		);
+	}
+
+	$maxchars = 36;
+	if (strlen($fname) > $maxchars) {
+		$fname = substr($fname, 0, $maxchars-4).'...'.($f->d ? '' : files::getExtension($fname));
+	}
+
+	$act = '';
+	if (!$f->d) {
+		if ($select > 0) {
+			if ($select == 1) {
+				// Single media selection button
+				$act .= '<a href="'.$link.'"><img src="images/plus.png" alt="'.__('Select this file').'" '.
+				'title="'.__('Select this file').'" /></a> ';
+			} else {
+				// Multiple media selection checkbox
+				$act .= form::checkbox(array('medias[]', 'media_'.rawurlencode($file)),$file);
+			}
+		} else {
+			// Item
+			if ($post_id) {
+				// Media attachment button
+				$act .=
+				'<a class="attach-media" title="'.__('Attach this file to entry').'" href="'.
+				$core->adminurl->get("admin.post.media",
+					array('media_id' => $f->media_id, 'post_id' => $post_id,'attach' => 1,'link_type' => $link_type)).
+				'">'.
+				'<img src="images/plus.png" alt="'.__('Attach this file to entry').'"/>'.
+				'</a>';
+			}
+			if ($popup) {
+				// Media insertion button
+				$act .= '<a href="'.$link.'"><img src="images/plus.png" alt="'.__('Insert this file into entry').'" '.
+				'title="'.__('Insert this file into entry').'" /></a> ';
+			}
+		}
+	}
+	if ($f->del) {
+		// Deletion button or checkbox
+		if (!$popup && !$f->d) {
+			if ($select < 2) {
+				// Already set for multiple media selection
+				$act .= form::checkbox(array('medias[]', 'media_'.rawurlencode($file)),$file);
+			}
+		} else {
+			$act .= '<a class="media-remove" '.
+			'href="'.html::escapeURL($page_url).
+			'&amp;plugin_id='.$plugin_id.
+			'&amp;d='.rawurlencode($GLOBALS['d']).
+			'&amp;q='.rawurlencode($GLOBALS['q']).
+			'&amp;remove='.rawurlencode($file).'">'.
+			'<img src="images/trash.png" alt="'.__('Delete').'" title="'.__('delete').'" /></a>';
+		}
+	}
+
+	$file_type = explode('/',$f->type);
+	$class_open = 'class="modal-'.$file_type[0].'" ';
+
+	// Render markup
+	if (!$table) {
+		$res =
+		'<div class="'.$class.'"><p><a class="media-icon media-link" href="'.rawurldecode($link).'">'.
+		'<img src="'.$f->media_icon.'" alt="" />'.($query ? $file : $fname).'</a></p>';
+
+		$lst = '';
+		if (!$f->d) {
+			$lst .=
+			'<li>'.$f->media_title.'</li>'.
+			'<li>'.
+			$f->media_dtstr.' - '.
+			files::size($f->size).' - '.
+			'<a '.$class_open.'href="'.$f->file_url.'">'.__('open').'</a>'.
+			'</li>';
+		}
+		$lst .= ($act != '' ? '<li class="media-action">&nbsp;'.$act.'</li>' : '');
+
+		// Show player if relevant
+		if ($file_type[0] == 'audio')
+		{
+			$lst .= '<li>'.dcMedia::audioPlayer($f->type,$f->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_mp3.swf')),null,$core->blog->settings->system->media_flash_fallback,false).'</li>';
+		}
+
+		$res .=	($lst != '' ? '<ul>'.$lst.'</ul>' : '');
+		$res .= '</div>';
+	} else {
+		$res = '<tr class="'.$class.'">';
+		$res .= '<td class="media-action">'.$act.'</td>';
+		$res .= '<td class="maximal" scope="row"><a class="media-flag media-link" href="'.rawurldecode($link).'">'.
+				'<img src="'.$f->media_icon.'" alt="" />'.($query ? $file : $fname).'</a>'.
+				'<br />'.($f->d ? '' : $f->media_title).'</td>';
+		$res .= '<td class="nowrap count">'.($f->d ? '' : $f->media_dtstr).'</td>';
+		$res .= '<td class="nowrap count">'.($f->d ? '' : files::size($f->size).' - '.
+			'<a '.$class_open.'href="'.$f->file_url.'">'.__('open').'</a>').'</td>';
+		$res .= '</tr>';
+	}
+
+	return $res;
+};
+
 if (!isset($core->media)) {
 	$breadcrumb = dcPage::breadcrumb(
 		array(
@@ -703,9 +837,9 @@ else
 		for ($i=$pager->index_start, $j=0; $i<=$pager->index_end; $i++,$j++)
 		{
 			if ($items[$i]->d) {
-				$dlist .= mediaItemLine($items[$i],$j,$query,true);
+				$dlist .= $mediaItemLine($items[$i],$j,$query,true);
 			} else {
-				$flist .= mediaItemLine($items[$i],$j,$query,true);
+				$flist .= $mediaItemLine($items[$i],$j,$query,true);
 			}
 		}
 		$table .= $dlist.$flist;
@@ -719,9 +853,9 @@ else
 		for ($i=$pager->index_start, $j=0; $i<=$pager->index_end; $i++,$j++)
 		{
 			if ($items[$i]->d) {
-				$dgroup .= mediaItemLine($items[$i],$j,$query);
+				$dgroup .= $mediaItemLine($items[$i],$j,$query);
 			} else {
-				$fgroup .= mediaItemLine($items[$i],$j,$query);
+				$fgroup .= $mediaItemLine($items[$i],$j,$query);
 			}
 		}
 		echo
@@ -874,138 +1008,3 @@ if (!$popup) {
 }
 
 call_user_func($close_f);
-
-/* ----------------------------------------------------- */
-function mediaItemLine($f,$i,$query,$table=false)
-{
-	global $core, $page_url, $popup, $select, $post_id, $plugin_id, $page_url_params, $link_type;
-
-	$fname = $f->basename;
-	$file = $query ? $f->relname : $f->basename;
-
-	$class = $table ? '' : 'media-item media-col-'.($i%2);
-
-	if ($f->d) {
-		// Folder
-		$link = $core->adminurl->get('admin.media',array_merge($page_url_params,array('d' => html::sanitizeURL($f->relname) )));
-		if ($f->parent) {
-			$fname = '..';
-			$class .= ' media-folder-up';
-		} else {
-			$class .= ' media-folder';
-		}
-	} else {
-		// Item
-		$params = new ArrayObject(
-			array(
-				'id' => $f->media_id,
-				'plugin_id' => $plugin_id,
-				'popup' => $popup,
-				'select' => $select,
-				'post_id' => $post_id,
-				'link_type' => $link_type
-			)
-		);
-		$core->callBehavior('adminMediaURLParams',$params);
-		$params = (array) $params;
-		$link = $core->adminurl->get(
-			'admin.media.item', $params
-		);
-	}
-
-	$maxchars = 36;
-	if (strlen($fname) > $maxchars) {
-		$fname = substr($fname, 0, $maxchars-4).'...'.($f->d ? '' : files::getExtension($fname));
-	}
-
-	$act = '';
-	if (!$f->d) {
-		if ($select > 0) {
-			if ($select == 1) {
-				// Single media selection button
-				$act .= '<a href="'.$link.'"><img src="images/plus.png" alt="'.__('Select this file').'" '.
-				'title="'.__('Select this file').'" /></a> ';
-			} else {
-				// Multiple media selection checkbox
-				$act .= form::checkbox(array('medias[]', 'media_'.rawurlencode($file)),$file);
-			}
-		} else {
-			// Item
-			if ($post_id) {
-				// Media attachment button
-				$act .=
-				'<a class="attach-media" title="'.__('Attach this file to entry').'" href="'.
-				$core->adminurl->get("admin.post.media",
-					array('media_id' => $f->media_id, 'post_id' => $post_id,'attach' => 1,'link_type' => $link_type)).
-				'">'.
-				'<img src="images/plus.png" alt="'.__('Attach this file to entry').'"/>'.
-				'</a>';
-			}
-			if ($popup) {
-				// Media insertion button
-				$act .= '<a href="'.$link.'"><img src="images/plus.png" alt="'.__('Insert this file into entry').'" '.
-				'title="'.__('Insert this file into entry').'" /></a> ';
-			}
-		}
-	}
-	if ($f->del) {
-		// Deletion button or checkbox
-		if (!$popup && !$f->d) {
-			if ($select < 2) {
-				// Already set for multiple media selection
-				$act .= form::checkbox(array('medias[]', 'media_'.rawurlencode($file)),$file);
-			}
-		} else {
-			$act .= '<a class="media-remove" '.
-			'href="'.html::escapeURL($page_url).
-			'&amp;plugin_id='.$plugin_id.
-			'&amp;d='.rawurlencode($GLOBALS['d']).
-			'&amp;q='.rawurlencode($GLOBALS['q']).
-			'&amp;remove='.rawurlencode($file).'">'.
-			'<img src="images/trash.png" alt="'.__('Delete').'" title="'.__('delete').'" /></a>';
-		}
-	}
-
-	$file_type = explode('/',$f->type);
-	$class_open = 'class="modal-'.$file_type[0].'" ';
-
-	// Render markup
-	if (!$table) {
-		$res =
-		'<div class="'.$class.'"><p><a class="media-icon media-link" href="'.rawurldecode($link).'">'.
-		'<img src="'.$f->media_icon.'" alt="" />'.($query ? $file : $fname).'</a></p>';
-
-		$lst = '';
-		if (!$f->d) {
-			$lst .=
-			'<li>'.$f->media_title.'</li>'.
-			'<li>'.
-			$f->media_dtstr.' - '.
-			files::size($f->size).' - '.
-			'<a '.$class_open.'href="'.$f->file_url.'">'.__('open').'</a>'.
-			'</li>';
-		}
-		$lst .= ($act != '' ? '<li class="media-action">&nbsp;'.$act.'</li>' : '');
-
-		// Show player if relevant
-		if ($file_type[0] == 'audio')
-		{
-			$lst .= '<li>'.dcMedia::audioPlayer($f->type,$f->file_url,$core->adminurl->get("admin.home",array('pf' => 'player_mp3.swf')),null,$core->blog->settings->system->media_flash_fallback,false).'</li>';
-		}
-
-		$res .=	($lst != '' ? '<ul>'.$lst.'</ul>' : '');
-		$res .= '</div>';
-	} else {
-		$res = '<tr class="'.$class.'">';
-		$res .= '<td class="media-action">'.$act.'</td>';
-		$res .= '<td class="maximal" scope="row"><a class="media-flag media-link" href="'.rawurldecode($link).'">'.
-				'<img src="'.$f->media_icon.'" alt="" />'.($query ? $file : $fname).'</a>'.
-				'<br />'.($f->d ? '' : $f->media_title).'</td>';
-		$res .= '<td class="nowrap count">'.($f->d ? '' : $f->media_dtstr).'</td>';
-		$res .= '<td class="nowrap count">'.($f->d ? '' : files::size($f->size).' - '.
-			'<a '.$class_open.'href="'.$f->file_url.'">'.__('open').'</a>').'</td>';
-		$res .= '</tr>';
-	}
-
-	return $res;
-}

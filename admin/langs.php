@@ -30,6 +30,36 @@ try {
 	}
 } catch (Exception $e) {}
 
+# Language installation function
+$lang_install = function($file)
+{
+	$zip = new fileUnzip($file);
+	$zip->getList(false,'#(^|/)(__MACOSX|\.svn|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
+
+	if (!preg_match('/^[a-z]{2,3}(-[a-z]{2})?$/',$zip->getRootDir())) {
+		throw new Exception(__('Invalid language zip file.'));
+	}
+
+	if ($zip->isEmpty() || !$zip->hasFile($zip->getRootDir().'/main.po')) {
+		throw new Exception(__('The zip file does not appear to be a valid Dotclear language pack.'));
+	}
+
+
+	$target = dirname($file);
+	$destination = $target.'/'.$zip->getRootDir();
+	$res = 1;
+
+	if (is_dir($destination)) {
+		if (!files::deltree($destination)) {
+			throw new Exception(__('An error occurred during language upgrade.'));
+		}
+		$res = 2;
+	}
+
+	$zip->unzipAll($target);
+	return $res;
+};
+
 # Delete a language pack
 if ($is_writable && !empty($_POST['delete']) && !empty($_POST['locale_id']))
 {
@@ -80,7 +110,7 @@ if ($is_writable && !empty($_POST['pkg_url']))
 		$client->get($path);
 
 		try {
-			$ret_code = dc_lang_install($dest);
+			$ret_code = $lang_install($dest);
 		} catch (Exception $e) {
 			@unlink($dest);
 			throw $e;
@@ -116,7 +146,7 @@ if ($is_writable && !empty($_POST['upload_pkg']))
 		}
 
 		try {
-			$ret_code = dc_lang_install($dest);
+			$ret_code = $lang_install($dest);
 		} catch (Exception $e) {
 			@unlink($dest);
 			throw $e;
@@ -265,33 +295,3 @@ if ($is_writable)
 }
 dcPage::helpBlock('core_langs');
 dcPage::close();
-
-# Language installation function
-function dc_lang_install($file)
-{
-	$zip = new fileUnzip($file);
-	$zip->getList(false,'#(^|/)(__MACOSX|\.svn|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
-
-	if (!preg_match('/^[a-z]{2,3}(-[a-z]{2})?$/',$zip->getRootDir())) {
-		throw new Exception(__('Invalid language zip file.'));
-	}
-
-	if ($zip->isEmpty() || !$zip->hasFile($zip->getRootDir().'/main.po')) {
-		throw new Exception(__('The zip file does not appear to be a valid Dotclear language pack.'));
-	}
-
-
-	$target = dirname($file);
-	$destination = $target.'/'.$zip->getRootDir();
-	$res = 1;
-
-	if (is_dir($destination)) {
-		if (!files::deltree($destination)) {
-			throw new Exception(__('An error occurred during language upgrade.'));
-		}
-		$res = 2;
-	}
-
-	$zip->unzipAll($target);
-	return $res;
-}
