@@ -374,7 +374,7 @@ class context
 			$v = trim($v);
 			if (preg_match('|^([^\t]*)[\t]+(.*)$|',$v,$matches))
 			{
-				$r = '/(\A|[\s]+|>)('.preg_quote($matches[1],'/').')([\s]+|[<]|\Z)/ms';
+				$r = '/(\G|[\s]+|>)('.preg_quote($matches[1],'/').')([\s]+|[<]|\Z)/ms';
 				$s = '$1<img src="'.$url.$matches[2].'" '.
 				'alt="$2" class="smiley" />$3';
 				$res[$r] = $s;
