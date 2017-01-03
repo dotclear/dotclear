@@ -97,11 +97,13 @@ if (is_dir($iconsets_root) && is_readable($iconsets_root)) {
 	}
 }
 
-# Base font size (50% = 8px, 62.5% = 10px, 75% = 12px)
+# Body base font size (37.5% = 6px, 50% = 8px, 62.5% = 10px, 75% = 12px, 87.5% = 14px)
 $htmlfontsize_combo = array(
+	__('Smallest') => '37.5%',
 	__('Smaller') => '50%',
 	__('Default') => '62.5%',
-	__('Larger') => '75%'
+	__('Larger') => '75%',
+	__('Largest') => '87,5%'
 );
 
 # Language codes
