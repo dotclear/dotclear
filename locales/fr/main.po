@@ -2093,11 +2093,17 @@ msgstr "billets par page"
 msgid "Selected entries action:"
 msgstr "Action sur les billets sélectionnés :"
 
+msgid "Smallest"
+msgstr "Très petite"
+
 msgid "Smaller"
 msgstr "Petite"
 
 msgid "Larger"
 msgstr "Grande"
+
+msgid "Largest"
+msgstr "Très grande"
 
 msgid "Blog description (in blog parameters)"
 msgstr "La description du blog (paramètres du blog)"
