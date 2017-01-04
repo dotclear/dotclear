@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-23 10:19+0100\n"
+"POT-Creation-Date: 2017-01-04 10:19+0100\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
@@ -248,6 +248,9 @@ msgstr ""
 msgid "Center"
 msgstr ""
 
+msgid "Legend and title"
+msgstr ""
+
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr ""
 
@@ -287,20 +290,6 @@ msgstr ""
 msgid "Blog details"
 msgstr ""
 
-msgid "Please note that changing your blog ID may require changes in your public index.php file."
-msgstr ""
-
-msgid "URL scan method:"
-msgstr ""
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
-msgstr ""
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
-msgstr ""
-
 msgid "Blog status:"
 msgstr ""
 
@@ -317,39 +306,6 @@ msgid "Blog timezone:"
 msgstr ""
 
 msgid "Copyright notice:"
-msgstr ""
-
-msgid "New post URL format:"
-msgstr ""
-
-msgid "Dotclear"
-msgstr ""
-
-msgid "Sample:"
-msgstr ""
-
-msgid "HTML tag for the title of the notes on the blog:"
-msgstr ""
-
-msgid "Enable XML/RPC interface"
-msgstr ""
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr ""
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr ""
-
-msgid "Server URL:"
-msgstr ""
-
-msgid "Blogging system:"
-msgstr ""
-
-msgid "User name:"
-msgstr ""
-
-msgid "your password"
 msgstr ""
 
 msgid "Comments and trackbacks"
@@ -394,6 +350,9 @@ msgid "Date format:"
 msgstr ""
 
 msgid "Pattern of date"
+msgstr ""
+
+msgid "Sample:"
 msgstr ""
 
 msgid "Time format:"
@@ -493,6 +452,56 @@ msgstr ""
 msgid "Insert a link to the original image"
 msgstr ""
 
+msgid "Image legend and title:"
+msgstr ""
+
+msgid "Advanced parameters"
+msgstr ""
+
+msgid "Please note that changing your blog ID may require changes in your public index.php file."
+msgstr ""
+
+msgid "URL scan method:"
+msgstr ""
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
+msgstr ""
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
+msgstr ""
+
+msgid "New post URL format:"
+msgstr ""
+
+msgid "Dotclear"
+msgstr ""
+
+msgid "HTML tag for the title of the notes on the blog:"
+msgstr ""
+
+msgid "Enable XML/RPC interface"
+msgstr ""
+
+msgid "XML/RPC interface allows you to edit your blog with an external client."
+msgstr ""
+
+msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+msgstr ""
+
+msgid "Server URL:"
+msgstr ""
+
+msgid "Blogging system:"
+msgstr ""
+
+msgid "User name:"
+msgstr ""
+
+msgid "your password"
+msgstr ""
+
 msgid "Search engines robots policy"
 msgstr ""
 
@@ -506,6 +515,9 @@ msgid "Blog security"
 msgstr ""
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
+msgstr ""
+
+msgid "Plugins parameters"
 msgstr ""
 
 msgid "Save"
@@ -1251,6 +1263,15 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
+msgid "Invalid language zip file."
+msgstr ""
+
+msgid "The zip file does not appear to be a valid Dotclear language pack."
+msgstr ""
+
+msgid "An error occurred during language upgrade."
+msgstr ""
+
 msgid "No such installed language"
 msgstr ""
 
@@ -1329,15 +1350,6 @@ msgstr ""
 msgid "Upload language"
 msgstr ""
 
-msgid "Invalid language zip file."
-msgstr ""
-
-msgid "The zip file does not appear to be a valid Dotclear language pack."
-msgstr ""
-
-msgid "An error occurred during language upgrade."
-msgstr ""
-
 msgid "By names, in ascending order"
 msgstr ""
 
@@ -1393,6 +1405,21 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
+msgid "Select this file"
+msgstr ""
+
+msgid "Attach this file to entry"
+msgstr ""
+
+msgid "Insert this file into entry"
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "open"
+msgstr ""
+
 #, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
@@ -1425,9 +1452,6 @@ msgstr ""
 msgid "Select a file by clicking on %s"
 msgstr ""
 
-msgid "Select this file"
-msgstr ""
-
 msgid "Choose selected medias"
 msgstr ""
 
@@ -1443,9 +1467,6 @@ msgstr ""
 
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
-msgstr ""
-
-msgid "Attach this file to entry"
 msgstr ""
 
 #, php-format
@@ -1539,15 +1560,6 @@ msgstr ""
 msgid "Blog parameters"
 msgstr ""
 
-msgid "Insert this file into entry"
-msgstr ""
-
-msgid "delete"
-msgstr ""
-
-msgid "open"
-msgstr ""
-
 msgid "Not a valid file"
 msgstr ""
 
@@ -1573,6 +1585,9 @@ msgid "Select"
 msgstr ""
 
 msgid "Insert media item"
+msgstr ""
+
+msgid "Image legend and title"
 msgstr ""
 
 msgid "Image alignment"
@@ -1876,6 +1891,24 @@ msgstr ""
 msgid "Go to this entry on the site"
 msgstr ""
 
+msgid "IP address"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+msgid "select this comment"
+msgstr ""
+
+msgid "select this trackback"
+msgstr ""
+
+msgid "Edit this comment"
+msgstr ""
+
 msgid "Entry status"
 msgstr ""
 
@@ -1978,24 +2011,6 @@ msgstr ""
 msgid "Previously sent pings"
 msgstr ""
 
-msgid "IP address"
-msgstr ""
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-msgid "select this comment"
-msgstr ""
-
-msgid "select this trackback"
-msgstr ""
-
-msgid "Edit this comment"
-msgstr ""
-
 msgid "This attachment does not exist"
 msgstr ""
 
@@ -2074,10 +2089,16 @@ msgstr ""
 msgid "Selected entries action:"
 msgstr ""
 
+msgid "Smallest"
+msgstr ""
+
 msgid "Smaller"
 msgstr ""
 
 msgid "Larger"
+msgstr ""
+
+msgid "Largest"
 msgstr ""
 
 msgid "Blog description (in blog parameters)"
@@ -2162,6 +2183,12 @@ msgid "Hide all secondary information and notes"
 msgstr ""
 
 msgid "Font size:"
+msgstr ""
+
+msgid "Activate adpative font size"
+msgstr ""
+
+msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
 msgstr ""
 
 msgid "Number of elements displayed per page in media manager:"
@@ -2906,6 +2933,9 @@ msgid "Section:"
 msgstr ""
 
 msgid "Tags:"
+msgstr ""
+
+msgid "Hide this notice"
 msgstr ""
 
 msgid "You have unsaved changes."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC1-1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-23 10:19+0100\n"
+"POT-Creation-Date: 2017-01-04 10:18+0100\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
@@ -255,6 +255,10 @@ msgstr "Direita"
 msgid "Center"
 msgstr "Centro"
 
+#, fuzzy
+msgid "Legend and title"
+msgstr "Insertar uma mídia"
+
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr ""
 
@@ -295,20 +299,6 @@ msgstr "Parâmetros"
 msgid "Blog details"
 msgstr "Detalhes do blog"
 
-msgid "Please note that changing your blog ID may require changes in your public index.php file."
-msgstr ""
-
-msgid "URL scan method:"
-msgstr "Método de leitura da URL"
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
-msgstr ""
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
-msgstr ""
-
 msgid "Blog status:"
 msgstr "Status do blog"
 
@@ -326,41 +316,6 @@ msgstr "Fuso horário do blog:"
 
 msgid "Copyright notice:"
 msgstr "Nota de copyright:"
-
-msgid "New post URL format:"
-msgstr ""
-
-#, fuzzy
-msgid "Dotclear"
-msgstr "Apelido"
-
-msgid "Sample:"
-msgstr ""
-
-msgid "HTML tag for the title of the notes on the blog:"
-msgstr ""
-
-msgid "Enable XML/RPC interface"
-msgstr "Ativar a interface XML/RPC"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "A interface XML/RPC lhe permite editar o seu blog com um cliente externo."
-
-#, fuzzy
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "A interface XML/RPC está ativa. Você deveria indicar os parâmetros seguintes no seu cliente XML/RPC:"
-
-msgid "Server URL:"
-msgstr "URL do servidor:"
-
-msgid "Blogging system:"
-msgstr "Sistema de blog:"
-
-msgid "User name:"
-msgstr "Nome de usuário:"
-
-msgid "your password"
-msgstr "sua senha"
 
 #, fuzzy
 msgid "Comments and trackbacks"
@@ -405,6 +360,9 @@ msgid "Date format:"
 msgstr "Formato das datas:"
 
 msgid "Pattern of date"
+msgstr ""
+
+msgid "Sample:"
 msgstr ""
 
 msgid "Time format:"
@@ -512,6 +470,60 @@ msgstr "Alinhamento da imagem"
 msgid "Insert a link to the original image"
 msgstr "Como link para a imagem original"
 
+#, fuzzy
+msgid "Image legend and title:"
+msgstr "Alinhamento da imagem"
+
+#, fuzzy
+msgid "Advanced parameters"
+msgstr "Parâmetros"
+
+msgid "Please note that changing your blog ID may require changes in your public index.php file."
+msgstr ""
+
+msgid "URL scan method:"
+msgstr "Método de leitura da URL"
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
+msgstr ""
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
+msgstr ""
+
+msgid "New post URL format:"
+msgstr ""
+
+#, fuzzy
+msgid "Dotclear"
+msgstr "Apelido"
+
+msgid "HTML tag for the title of the notes on the blog:"
+msgstr ""
+
+msgid "Enable XML/RPC interface"
+msgstr "Ativar a interface XML/RPC"
+
+msgid "XML/RPC interface allows you to edit your blog with an external client."
+msgstr "A interface XML/RPC lhe permite editar o seu blog com um cliente externo."
+
+#, fuzzy
+msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+msgstr "A interface XML/RPC está ativa. Você deveria indicar os parâmetros seguintes no seu cliente XML/RPC:"
+
+msgid "Server URL:"
+msgstr "URL do servidor:"
+
+msgid "Blogging system:"
+msgstr "Sistema de blog:"
+
+msgid "User name:"
+msgstr "Nome de usuário:"
+
+msgid "your password"
+msgstr "sua senha"
+
 msgid "Search engines robots policy"
 msgstr ""
 
@@ -527,6 +539,10 @@ msgstr "Descrição do blog:"
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr ""
+
+#, fuzzy
+msgid "Plugins parameters"
+msgstr "Parâmetros"
 
 msgid "Save"
 msgstr "Salvar"
@@ -1340,6 +1356,18 @@ msgstr ""
 msgid "Continue"
 msgstr "Conteúdo:"
 
+#, fuzzy
+msgid "Invalid language zip file."
+msgstr "Código de idioma inválido"
+
+#, fuzzy
+msgid "The zip file does not appear to be a valid Dotclear language pack."
+msgstr "O arquivo zip não parece ser um arquivo válido de módulo Dotclear."
+
+#, fuzzy
+msgid "An error occurred during language upgrade."
+msgstr "Um erro aconteceu durante a supressão do módulo."
+
 msgid "No such installed language"
 msgstr ""
 
@@ -1434,18 +1462,6 @@ msgstr "Arquivo zip do plugin:"
 msgid "Upload language"
 msgstr "Enviar o plugin"
 
-#, fuzzy
-msgid "Invalid language zip file."
-msgstr "Código de idioma inválido"
-
-#, fuzzy
-msgid "The zip file does not appear to be a valid Dotclear language pack."
-msgstr "O arquivo zip não parece ser um arquivo válido de módulo Dotclear."
-
-#, fuzzy
-msgid "An error occurred during language upgrade."
-msgstr "Um erro aconteceu durante a supressão do módulo."
-
 msgid "By names, in ascending order"
 msgstr ""
 
@@ -1501,6 +1517,23 @@ msgstr "cancelar"
 msgid "Yes"
 msgstr "sim"
 
+#, fuzzy
+msgid "Select this file"
+msgstr "Suprimir este blog"
+
+msgid "Attach this file to entry"
+msgstr "Anexar este arquivo ao post"
+
+msgid "Insert this file into entry"
+msgstr "Insertar este arquivo no post"
+
+#, fuzzy
+msgid "delete"
+msgstr "Suprimir"
+
+msgid "open"
+msgstr "abrir"
+
 #, fuzzy, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
@@ -1535,10 +1568,6 @@ msgid "Select a file by clicking on %s"
 msgstr "Escolha um arquivo para insertar no post clicando em %s."
 
 #, fuzzy
-msgid "Select this file"
-msgstr "Suprimir este blog"
-
-#, fuzzy
 msgid "Choose selected medias"
 msgstr "Suprimir os plugins selecionados"
 
@@ -1557,9 +1586,6 @@ msgstr "Enviar um arquivo zip"
 #, fuzzy, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Escolha um arquivo para anexar ao post %s clicando em %s."
-
-msgid "Attach this file to entry"
-msgstr "Anexar este arquivo ao post"
 
 #, fuzzy, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
@@ -1662,16 +1688,6 @@ msgstr ""
 msgid "Blog parameters"
 msgstr "Parâmetros"
 
-msgid "Insert this file into entry"
-msgstr "Insertar este arquivo no post"
-
-#, fuzzy
-msgid "delete"
-msgstr "Suprimir"
-
-msgid "open"
-msgstr "abrir"
-
 msgid "Not a valid file"
 msgstr "Arquivo inválido"
 
@@ -1702,6 +1718,9 @@ msgstr "Selecionado:"
 
 msgid "Insert media item"
 msgstr "Insertar uma mídia"
+
+msgid "Image legend and title"
+msgstr ""
 
 msgid "Image alignment"
 msgstr "Alinhamento da imagem"
@@ -2036,6 +2055,26 @@ msgstr "Salve o seu post para validar a transformação em XHTML."
 msgid "Go to this entry on the site"
 msgstr ""
 
+msgid "IP address"
+msgstr "Endereço IP"
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "Modificar esse comentário"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "Aceitar os trackbacks"
+
+msgid "Edit this comment"
+msgstr "Modificar esse comentário"
+
 #, fuzzy
 msgid "Entry status"
 msgstr "Status do post:"
@@ -2151,26 +2190,6 @@ msgstr "Descobrimento automático das URLs para trackbacks"
 msgid "Previously sent pings"
 msgstr "Trackbacks já enviados"
 
-msgid "IP address"
-msgstr "Endereço IP"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "Modificar esse comentário"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "Aceitar os trackbacks"
-
-msgid "Edit this comment"
-msgstr "Modificar esse comentário"
-
 msgid "This attachment does not exist"
 msgstr "Esse anexo não existe"
 
@@ -2265,10 +2284,17 @@ msgid "Selected entries action:"
 msgstr "Ação sobre os posts selecionados:"
 
 #, fuzzy
+msgid "Smallest"
+msgstr "Email:"
+
+#, fuzzy
 msgid "Smaller"
 msgstr "Email:"
 
 msgid "Larger"
+msgstr ""
+
+msgid "Largest"
 msgstr ""
 
 msgid "Blog description (in blog parameters)"
@@ -2371,6 +2397,12 @@ msgstr ""
 #, fuzzy
 msgid "Font size:"
 msgstr "Tamanho do arquivo:"
+
+msgid "Activate adpative font size"
+msgstr ""
+
+msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
+msgstr ""
 
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
@@ -3190,6 +3222,10 @@ msgstr "Descrição:"
 
 msgid "Tags:"
 msgstr ""
+
+#, fuzzy
+msgid "Hide this notice"
+msgstr "utilizar o tema selecionado"
 
 msgid "You have unsaved changes."
 msgstr "Você não salvou as suas modificações."

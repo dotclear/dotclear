@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-23 10:19+0100\n"
+"POT-Creation-Date: 2017-01-04 10:19+0100\n"
 "PO-Revision-Date: 2016-07-18 15:55+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -1688,6 +1688,9 @@ msgstr "服务器 URL："
 #, fuzzy
 msgid "Error"
 msgstr "错误"
+
+msgid "Auto pings all services on first publication of entry (current blog only)"
+msgstr ""
 
 msgid "Test ping services"
 msgstr "测试 ping 服务器"

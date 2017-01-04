@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-23 10:19+0100\n"
+"POT-Creation-Date: 2017-01-04 10:18+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -254,6 +254,10 @@ msgstr "오른쪽"
 msgid "Center"
 msgstr "가운데"
 
+#, fuzzy
+msgid "Legend and title"
+msgstr "삽입사진 제목"
+
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr "검색 및 축적 엔진들에게 블로그 내용물에 대한 검색목록화작업과 아카이브(시차별 축적)작업을 모두 허락함."
 
@@ -295,20 +299,6 @@ msgstr "설정사항"
 msgid "Blog details"
 msgstr "블로그 상세설정"
 
-msgid "Please note that changing your blog ID may require changes in your public index.php file."
-msgstr "블로그 아이디를 바꾸시면, 공개 index.php 파일내용을 수정해야할 수도 있습니다."
-
-msgid "URL scan method:"
-msgstr "URL 읽기 방식:"
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
-msgstr ""
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
-msgstr ""
-
 msgid "Blog status:"
 msgstr "블로그 공개상태:"
 
@@ -326,40 +316,6 @@ msgstr "블로그 시간대:"
 
 msgid "Copyright notice:"
 msgstr "저작권관련 표시사항:"
-
-msgid "New post URL format:"
-msgstr "새 글꼭지 URL 형식"
-
-#, fuzzy
-msgid "Dotclear"
-msgstr "Dotclear 팀"
-
-msgid "Sample:"
-msgstr ""
-
-msgid "HTML tag for the title of the notes on the blog:"
-msgstr ""
-
-msgid "Enable XML/RPC interface"
-msgstr "XML/RPC 인터페이스 작동켜키"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "XML/RPC 인터페이스는 외부클라이언트 프로그램에서 당신의 블로그를 편집할 수 있도록 해줍니다."
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "XML/RPC 인터페이스 작동이 켜졌습니다. 당신의 XML/RPC 클라이언트에서 다음 설정값들을 조정하여야 할 것입니다 :"
-
-msgid "Server URL:"
-msgstr "서버 URL :"
-
-msgid "Blogging system:"
-msgstr "블로그 시스템 :"
-
-msgid "User name:"
-msgstr "사용자이름 :"
-
-msgid "your password"
-msgstr "비밀번호 :"
 
 msgid "Comments and trackbacks"
 msgstr "댓글과 글걸이"
@@ -403,6 +359,9 @@ msgid "Date format:"
 msgstr "날짜 형식:"
 
 msgid "Pattern of date"
+msgstr ""
+
+msgid "Sample:"
 msgstr ""
 
 msgid "Time format:"
@@ -511,6 +470,59 @@ msgstr "이미지 배치방식"
 msgid "Insert a link to the original image"
 msgstr "원본이미지에 대한 링크로서"
 
+#, fuzzy
+msgid "Image legend and title:"
+msgstr "이미지 배치방식"
+
+#, fuzzy
+msgid "Advanced parameters"
+msgstr "설정사항"
+
+msgid "Please note that changing your blog ID may require changes in your public index.php file."
+msgstr "블로그 아이디를 바꾸시면, 공개 index.php 파일내용을 수정해야할 수도 있습니다."
+
+msgid "URL scan method:"
+msgstr "URL 읽기 방식:"
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
+msgstr ""
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
+msgstr ""
+
+msgid "New post URL format:"
+msgstr "새 글꼭지 URL 형식"
+
+#, fuzzy
+msgid "Dotclear"
+msgstr "Dotclear 팀"
+
+msgid "HTML tag for the title of the notes on the blog:"
+msgstr ""
+
+msgid "Enable XML/RPC interface"
+msgstr "XML/RPC 인터페이스 작동켜키"
+
+msgid "XML/RPC interface allows you to edit your blog with an external client."
+msgstr "XML/RPC 인터페이스는 외부클라이언트 프로그램에서 당신의 블로그를 편집할 수 있도록 해줍니다."
+
+msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+msgstr "XML/RPC 인터페이스 작동이 켜졌습니다. 당신의 XML/RPC 클라이언트에서 다음 설정값들을 조정하여야 할 것입니다 :"
+
+msgid "Server URL:"
+msgstr "서버 URL :"
+
+msgid "Blogging system:"
+msgstr "블로그 시스템 :"
+
+msgid "User name:"
+msgstr "사용자이름 :"
+
+msgid "your password"
+msgstr "비밀번호 :"
+
 msgid "Search engines robots policy"
 msgstr "검색엔진에 대한 정책 설정"
 
@@ -526,6 +538,10 @@ msgstr "블로그 간략 소개:"
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr ""
+
+#, fuzzy
+msgid "Plugins parameters"
+msgstr "설정사항"
 
 msgid "Save"
 msgstr "저장"
@@ -1323,6 +1339,15 @@ msgstr ""
 msgid "Continue"
 msgstr "내용 :"
 
+msgid "Invalid language zip file."
+msgstr "잘못된 언어 zip 파일입니다."
+
+msgid "The zip file does not appear to be a valid Dotclear language pack."
+msgstr "정상적인 Dotclear 언어 zip파일이 아닙니다."
+
+msgid "An error occurred during language upgrade."
+msgstr "언어 갱신과정에서 오류가 발생했습니다."
+
 msgid "No such installed language"
 msgstr "선택한 언어는 설치되어있지 않습니다"
 
@@ -1401,15 +1426,6 @@ msgstr "언어 zip 파일 :"
 msgid "Upload language"
 msgstr "언어 올리기"
 
-msgid "Invalid language zip file."
-msgstr "잘못된 언어 zip 파일입니다."
-
-msgid "The zip file does not appear to be a valid Dotclear language pack."
-msgstr "정상적인 Dotclear 언어 zip파일이 아닙니다."
-
-msgid "An error occurred during language upgrade."
-msgstr "언어 갱신과정에서 오류가 발생했습니다."
-
 msgid "By names, in ascending order"
 msgstr "이름, 오름순"
 
@@ -1464,6 +1480,23 @@ msgstr "취소"
 msgid "Yes"
 msgstr "예"
 
+#, fuzzy
+msgid "Select this file"
+msgstr "이 블로그를 삭제하기"
+
+msgid "Attach this file to entry"
+msgstr "글꼭지에 이 파일을 첨부"
+
+msgid "Insert this file into entry"
+msgstr "이 파일을 글꼭지에 삽입하기"
+
+#, fuzzy
+msgid "delete"
+msgstr "삭제"
+
+msgid "open"
+msgstr "열기"
+
 #, fuzzy, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
@@ -1496,10 +1529,6 @@ msgid "Select a file by clicking on %s"
 msgstr "글꼭지에 삽입할 파일은 %s을 눌러 선택해주세요."
 
 #, fuzzy
-msgid "Select this file"
-msgstr "이 블로그를 삭제하기"
-
-#, fuzzy
 msgid "Choose selected medias"
 msgstr "선택된 파일로 되돌리기"
 
@@ -1518,9 +1547,6 @@ msgstr "테마 zip 파일 올리기"
 #, fuzzy, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "%s 글꼭지에 첨부할 파일은 %s을 눌러 선택해주세요."
-
-msgid "Attach this file to entry"
-msgstr "글꼭지에 이 파일을 첨부"
 
 #, fuzzy, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
@@ -1623,16 +1649,6 @@ msgstr ""
 msgid "Blog parameters"
 msgstr "설정사항"
 
-msgid "Insert this file into entry"
-msgstr "이 파일을 글꼭지에 삽입하기"
-
-#, fuzzy
-msgid "delete"
-msgstr "삭제"
-
-msgid "open"
-msgstr "열기"
-
 msgid "Not a valid file"
 msgstr "바르지않은 파일"
 
@@ -1663,6 +1679,9 @@ msgstr "선택됨 :"
 
 msgid "Insert media item"
 msgstr "미디어 삽입"
+
+msgid "Image legend and title"
+msgstr ""
 
 msgid "Image alignment"
 msgstr "이미지 배치방식"
@@ -1985,6 +2004,26 @@ msgstr "XHTML로의 변환을 확정하려면 글꼭지를 저장하는 일을 �
 msgid "Go to this entry on the site"
 msgstr ""
 
+msgid "IP address"
+msgstr "IP 주소"
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "이 댓글 편집하기"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "글걸이 허용"
+
+msgid "Edit this comment"
+msgstr "이 댓글 편집하기"
+
 #, fuzzy
 msgid "Entry status"
 msgstr "글꼭지 공개상태 :"
@@ -2100,26 +2139,6 @@ msgstr "글걸기주소 자동 추출"
 msgid "Previously sent pings"
 msgstr "이전에 전송된 글걸이"
 
-msgid "IP address"
-msgstr "IP 주소"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "이 댓글 편집하기"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "글걸이 허용"
-
-msgid "Edit this comment"
-msgstr "이 댓글 편집하기"
-
 msgid "This attachment does not exist"
 msgstr "이 첨부파일은 존재하지 않습니다."
 
@@ -2214,10 +2233,17 @@ msgid "Selected entries action:"
 msgstr "선택된 글꼭지들에 대한 작업 :"
 
 #, fuzzy
+msgid "Smallest"
+msgstr "작은 크기 :"
+
+#, fuzzy
 msgid "Smaller"
 msgstr "작은 크기 :"
 
 msgid "Larger"
+msgstr ""
+
+msgid "Largest"
 msgstr ""
 
 msgid "Blog description (in blog parameters)"
@@ -2321,6 +2347,12 @@ msgstr ""
 #, fuzzy
 msgid "Font size:"
 msgstr "파일 크기 :"
+
+msgid "Activate adpative font size"
+msgstr ""
+
+msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
+msgstr ""
 
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
@@ -3121,6 +3153,10 @@ msgstr "작업"
 
 msgid "Tags:"
 msgstr ""
+
+#, fuzzy
+msgid "Hide this notice"
+msgstr "이 테마를 사용"
 
 msgid "You have unsaved changes."
 msgstr "변경하신 내용을 저장하지 않았습니다."

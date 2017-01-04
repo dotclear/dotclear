@@ -43,6 +43,7 @@ $core->auth->user_prefs->addWorkspace('interface');
 $user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
 $user_ui_hidemoreinfo = $core->auth->user_prefs->interface->hidemoreinfo;
 $user_ui_htmlfontsize = $core->auth->user_prefs->interface->htmlfontsize;
+$user_ui_dynfontsize = $core->auth->user_prefs->interface->dynfontsize;
 if ($core->auth->isSuperAdmin()) {
 	$user_ui_hide_std_favicon = $core->auth->user_prefs->interface->hide_std_favicon;
 }
@@ -241,6 +242,7 @@ if (isset($_POST['user_editor']))
 		$core->auth->user_prefs->interface->put('enhanceduploader',!empty($_POST['user_ui_enhanceduploader']),'boolean');
 		$core->auth->user_prefs->interface->put('hidemoreinfo',!empty($_POST['user_ui_hidemoreinfo']),'boolean');
 		$core->auth->user_prefs->interface->put('htmlfontsize',$_POST['user_ui_htmlfontsize'],'string');
+		$core->auth->user_prefs->interface->put('dynfontsize',!empty($_POST['user_ui_dynfontsize']),'boolean');
 		if ($core->auth->isSuperAdmin()) {
 			# Applied to all users
 			$core->auth->user_prefs->interface->put('hide_std_favicon',!empty($_POST['user_ui_hide_std_favicon']),'boolean',null,true,true);
@@ -516,7 +518,12 @@ form::checkbox('user_ui_hidemoreinfo',1,$user_ui_hidemoreinfo).' '.
 __('Hide all secondary information and notes').'</label></p>'.
 
 '<p><label for="user_ui_htmlfontsize" class="classic">'.__('Font size:').'</label>'.' '.
-form::combo('user_ui_htmlfontsize',$htmlfontsize_combo,$user_ui_htmlfontsize).'</p>';
+form::combo('user_ui_htmlfontsize',$htmlfontsize_combo,$user_ui_htmlfontsize).'</p>'.
+
+'<p><label for="user_ui_dynfontsize" class="classic">'.
+form::checkbox('user_ui_dynfontsize',1,$user_ui_dynfontsize).' '.
+__('Activate adpative font size').'</label></p>'.
+'<p class="clear form-note">'.__('If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected).').'</p>';
 
 echo
 '<p><label for="user_ui_media_by_page" class="classic">'.__('Number of elements displayed per page in media manager:').'</label> '.

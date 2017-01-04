@@ -63,7 +63,7 @@ dcPage::check('usage,contentadmin');
 	</script>
 </head>
 
-<body id="dotclear-admin" class="no-js guideline">
+<body id="dotclear-admin" class="no-js guideline<?php $core->auth->user_prefs->interface->dynfontsize ? ' responsive-font' : ''; ?>">
 	<ul id="prelude">
 		<li><a href="#content">Aller au contenu</a></li>
 		<li><a href="#main-menu">Aller au menu</a></li>

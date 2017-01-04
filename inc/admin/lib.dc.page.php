@@ -206,7 +206,8 @@ class dcPage
 		echo
 		"</head>\n".
 		'<body id="dotclear-admin'.
-		($safe_mode ? ' safe-mode' : '').'" class="no-js">'."\n".
+		($safe_mode ? ' safe-mode' : '').'" class="no-js'.
+		($core->auth->user_prefs->interface->dynfontsize ? ' responsive-font' : '').'">'."\n".
 
 		'<ul id="prelude">'.
 		'<li><a href="#content">'.__('Go to the content').'</a></li>'.
@@ -459,7 +460,8 @@ class dcPage
 
 		echo
 		"</head>\n".
-		'<body id="dotclear-admin" class="popup">'."\n".
+		'<body id="dotclear-admin" class="popup'.
+		($core->auth->user_prefs->interface->dynfontsize ? ' responsive-font' : '').'">'."\n".
 
 		'<h1>'.DC_VENDOR_NAME.'</h1>'."\n";
 

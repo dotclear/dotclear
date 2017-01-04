@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-23 10:19+0100\n"
+"POT-Creation-Date: 2017-01-04 10:18+0100\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: crm <admin@craftmerkezi.com>\n"
@@ -252,6 +252,10 @@ msgstr "Sağ"
 msgid "Center"
 msgstr "Orta"
 
+#, fuzzy
+msgid "Legend and title"
+msgstr "Katılmış görüntü başlığı"
+
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr ""
 
@@ -292,20 +296,6 @@ msgstr ""
 msgid "Blog details"
 msgstr "Blog ayrıntıları"
 
-msgid "Please note that changing your blog ID may require changes in your public index.php file."
-msgstr ""
-
-msgid "URL scan method:"
-msgstr "URL tarama yöntemi"
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
-msgstr ""
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
-msgstr ""
-
 msgid "Blog status:"
 msgstr "Blog durumu:"
 
@@ -323,40 +313,6 @@ msgstr "Blog zamandilimi"
 
 msgid "Copyright notice:"
 msgstr "Telif hakkı uyarısı:"
-
-msgid "New post URL format:"
-msgstr ""
-
-#, fuzzy
-msgid "Dotclear"
-msgstr "Dotclear Ekibi"
-
-msgid "Sample:"
-msgstr ""
-
-msgid "HTML tag for the title of the notes on the blog:"
-msgstr ""
-
-msgid "Enable XML/RPC interface"
-msgstr "XML/RPC arayüzünü mümkün kıl."
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr ""
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr ""
-
-msgid "Server URL:"
-msgstr "Sunucu URL'si"
-
-msgid "Blogging system:"
-msgstr "Bloglama sistemi:"
-
-msgid "User name:"
-msgstr "Kullanıcı adı:"
-
-msgid "your password"
-msgstr "parolanız"
 
 msgid "Comments and trackbacks"
 msgstr "Ahkamlar ve gerizlemeler"
@@ -400,6 +356,9 @@ msgid "Date format:"
 msgstr "Tarih biçimi:"
 
 msgid "Pattern of date"
+msgstr ""
+
+msgid "Sample:"
 msgstr ""
 
 msgid "Time format:"
@@ -506,6 +465,59 @@ msgstr "Görüntü hizalaması"
 msgid "Insert a link to the original image"
 msgstr ""
 
+#, fuzzy
+msgid "Image legend and title:"
+msgstr "Görüntü hizalaması"
+
+#, fuzzy
+msgid "Advanced parameters"
+msgstr "Blog görünüşü"
+
+msgid "Please note that changing your blog ID may require changes in your public index.php file."
+msgstr ""
+
+msgid "URL scan method:"
+msgstr "URL tarama yöntemi"
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
+msgstr ""
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
+msgstr ""
+
+msgid "New post URL format:"
+msgstr ""
+
+#, fuzzy
+msgid "Dotclear"
+msgstr "Dotclear Ekibi"
+
+msgid "HTML tag for the title of the notes on the blog:"
+msgstr ""
+
+msgid "Enable XML/RPC interface"
+msgstr "XML/RPC arayüzünü mümkün kıl."
+
+msgid "XML/RPC interface allows you to edit your blog with an external client."
+msgstr ""
+
+msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+msgstr ""
+
+msgid "Server URL:"
+msgstr "Sunucu URL'si"
+
+msgid "Blogging system:"
+msgstr "Bloglama sistemi:"
+
+msgid "User name:"
+msgstr "Kullanıcı adı:"
+
+msgid "your password"
+msgstr "parolanız"
+
 msgid "Search engines robots policy"
 msgstr "Arama motoru robotları politikası"
 
@@ -521,6 +533,10 @@ msgstr "Blog açıklaması"
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr ""
+
+#, fuzzy
+msgid "Plugins parameters"
+msgstr "Blog görünüşü"
 
 msgid "Save"
 msgstr "Kaydet"
@@ -1306,6 +1322,15 @@ msgstr ""
 msgid "Continue"
 msgstr "İçerik:"
 
+msgid "Invalid language zip file."
+msgstr "Geçersiz dil zip dosyası."
+
+msgid "The zip file does not appear to be a valid Dotclear language pack."
+msgstr ""
+
+msgid "An error occurred during language upgrade."
+msgstr ""
+
 msgid "No such installed language"
 msgstr "Böyle kurulu dil yok"
 
@@ -1384,15 +1409,6 @@ msgstr "Dil zip dosyası:"
 msgid "Upload language"
 msgstr "Dil yükle"
 
-msgid "Invalid language zip file."
-msgstr "Geçersiz dil zip dosyası."
-
-msgid "The zip file does not appear to be a valid Dotclear language pack."
-msgstr ""
-
-msgid "An error occurred during language upgrade."
-msgstr ""
-
 msgid "By names, in ascending order"
 msgstr ""
 
@@ -1448,6 +1464,23 @@ msgstr "iptal"
 msgid "Yes"
 msgstr "evet"
 
+#, fuzzy
+msgid "Select this file"
+msgstr "Bu bloğu sil"
+
+msgid "Attach this file to entry"
+msgstr "Bu dosyayı yazıya ekle"
+
+msgid "Insert this file into entry"
+msgstr "Bu dosyayı yazıya kat"
+
+#, fuzzy
+msgid "delete"
+msgstr "Sil"
+
+msgid "open"
+msgstr "aç"
+
 #, fuzzy, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
@@ -1480,10 +1513,6 @@ msgid "Select a file by clicking on %s"
 msgstr ""
 
 #, fuzzy
-msgid "Select this file"
-msgstr "Bu bloğu sil"
-
-#, fuzzy
 msgid "Choose selected medias"
 msgstr "Seçili dosyaya geri dön"
 
@@ -1502,9 +1531,6 @@ msgstr "Zip dosyası"
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr ""
-
-msgid "Attach this file to entry"
-msgstr "Bu dosyayı yazıya ekle"
 
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
@@ -1606,16 +1632,6 @@ msgstr ""
 msgid "Blog parameters"
 msgstr "Blog görünüşü"
 
-msgid "Insert this file into entry"
-msgstr "Bu dosyayı yazıya kat"
-
-#, fuzzy
-msgid "delete"
-msgstr "Sil"
-
-msgid "open"
-msgstr "aç"
-
 msgid "Not a valid file"
 msgstr "Geçerli bir dosya değil"
 
@@ -1645,6 +1661,9 @@ msgstr "Seçili:"
 
 msgid "Insert media item"
 msgstr "Medya parçası ekle"
+
+msgid "Image legend and title"
+msgstr ""
 
 msgid "Image alignment"
 msgstr "Görüntü hizalaması"
@@ -1966,6 +1985,26 @@ msgstr ""
 msgid "Go to this entry on the site"
 msgstr ""
 
+msgid "IP address"
+msgstr "IP adresi"
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "Bu ahkamı düzenle"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "Gerizlemeler kabul"
+
+msgid "Edit this comment"
+msgstr "Bu ahkamı düzenle"
+
 #, fuzzy
 msgid "Entry status"
 msgstr "Yazı durumu:"
@@ -2081,26 +2120,6 @@ msgstr ""
 msgid "Previously sent pings"
 msgstr ""
 
-msgid "IP address"
-msgstr "IP adresi"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "Bu ahkamı düzenle"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "Gerizlemeler kabul"
-
-msgid "Edit this comment"
-msgstr "Bu ahkamı düzenle"
-
 msgid "This attachment does not exist"
 msgstr "Bu ek mevcut değil"
 
@@ -2195,10 +2214,17 @@ msgid "Selected entries action:"
 msgstr "Seçilmiş yazılara yap:"
 
 #, fuzzy
+msgid "Smallest"
+msgstr "Küçük:"
+
+#, fuzzy
 msgid "Smaller"
 msgstr "Küçük:"
 
 msgid "Larger"
+msgstr ""
+
+msgid "Largest"
 msgstr ""
 
 msgid "Blog description (in blog parameters)"
@@ -2300,6 +2326,12 @@ msgstr ""
 #, fuzzy
 msgid "Font size:"
 msgstr "Dosya boyutu:"
+
+msgid "Activate adpative font size"
+msgstr ""
+
+msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
+msgstr ""
 
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
@@ -3098,6 +3130,10 @@ msgstr "Eylem"
 
 msgid "Tags:"
 msgstr ""
+
+#, fuzzy
+msgid "Hide this notice"
+msgstr "Bu temayı kullan"
 
 msgid "You have unsaved changes."
 msgstr "Kaydedilmemiş değişiklikler var."

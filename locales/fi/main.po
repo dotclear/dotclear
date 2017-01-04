@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-23 10:18+0100\n"
+"POT-Creation-Date: 2017-01-04 10:19+0100\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -244,6 +244,10 @@ msgstr "Oikealla"
 msgid "Center"
 msgstr "Keskellä"
 
+#, fuzzy
+msgid "Legend and title"
+msgstr "Lisätyn kuvan otsikko"
+
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr "Haluan, että hakukoneet ja arkistointiohjelmat indeksoivat ja tallettavat blogini sisällön."
 
@@ -283,20 +287,6 @@ msgstr "Parametrit"
 msgid "Blog details"
 msgstr "Blogin tiedot"
 
-msgid "Please note that changing your blog ID may require changes in your public index.php file."
-msgstr "Huomaa, että blogin tunnisteeen muuttaminen voi edellyttää muutoksia verkossa näkyvään index.php-tiedostoosi."
-
-msgid "URL scan method:"
-msgstr "URL-osoitteen lukutapa:"
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
-msgstr "Blogin URL tai sen lukutapa ei tunnu olevan kunnossa (<code>%s</code> antaa tulokseksi <strong>%s-tilan</strong>)."
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
-msgstr "Blogin URL tai sen lukutapa ei tunnu olevan kunnossa (<code>%s</code> ei anna tulokseksi ATOM-syötettä)."
-
 msgid "Blog status:"
 msgstr "Blogin tila:"
 
@@ -314,40 +304,6 @@ msgstr "Blogin aikavyöhyke:"
 
 msgid "Copyright notice:"
 msgstr "Copyright-merkintä:"
-
-msgid "New post URL format:"
-msgstr "Uusien blogimerkintöjen URL-muoto:"
-
-#, fuzzy
-msgid "Dotclear"
-msgstr "Dotclear news"
-
-msgid "Sample:"
-msgstr "Esimerkki:"
-
-msgid "HTML tag for the title of the notes on the blog:"
-msgstr "Blogia koskevien merkintöjen otsikon HTML-koodi:"
-
-msgid "Enable XML/RPC interface"
-msgstr "Ota käyttöön XML/RPC"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "XML/RPC mahdollistaa blogin muokkauksen ulkopuolisella asiakassovelluksella."
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "XML/RPC on käytössä. Aseta seuraavat parametrit XML/RPC-asiakassovelluksessa:"
-
-msgid "Server URL:"
-msgstr "Palvelimen osoite:"
-
-msgid "Blogging system:"
-msgstr "Blogijärjestelmä:"
-
-msgid "User name:"
-msgstr "Käyttäjä:"
-
-msgid "your password"
-msgstr "salasanasi"
 
 msgid "Comments and trackbacks"
 msgstr "Kommentit ja takaisinviittaukset"
@@ -392,6 +348,9 @@ msgstr "Päiväysten muoto:"
 
 msgid "Pattern of date"
 msgstr "Päiväyskaava"
+
+msgid "Sample:"
+msgstr "Esimerkki:"
 
 msgid "Time format:"
 msgstr "Ajan esitysmuoto:"
@@ -494,6 +453,59 @@ msgstr "Kuvan kohdistus:"
 msgid "Insert a link to the original image"
 msgstr "Lisää linkki alkuperäiseen kuvaan"
 
+#, fuzzy
+msgid "Image legend and title:"
+msgstr "Kuvan kohdistus:"
+
+#, fuzzy
+msgid "Advanced parameters"
+msgstr "Blogin asetukset"
+
+msgid "Please note that changing your blog ID may require changes in your public index.php file."
+msgstr "Huomaa, että blogin tunnisteeen muuttaminen voi edellyttää muutoksia verkossa näkyvään index.php-tiedostoosi."
+
+msgid "URL scan method:"
+msgstr "URL-osoitteen lukutapa:"
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
+msgstr "Blogin URL tai sen lukutapa ei tunnu olevan kunnossa (<code>%s</code> antaa tulokseksi <strong>%s-tilan</strong>)."
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
+msgstr "Blogin URL tai sen lukutapa ei tunnu olevan kunnossa (<code>%s</code> ei anna tulokseksi ATOM-syötettä)."
+
+msgid "New post URL format:"
+msgstr "Uusien blogimerkintöjen URL-muoto:"
+
+#, fuzzy
+msgid "Dotclear"
+msgstr "Dotclear news"
+
+msgid "HTML tag for the title of the notes on the blog:"
+msgstr "Blogia koskevien merkintöjen otsikon HTML-koodi:"
+
+msgid "Enable XML/RPC interface"
+msgstr "Ota käyttöön XML/RPC"
+
+msgid "XML/RPC interface allows you to edit your blog with an external client."
+msgstr "XML/RPC mahdollistaa blogin muokkauksen ulkopuolisella asiakassovelluksella."
+
+msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+msgstr "XML/RPC on käytössä. Aseta seuraavat parametrit XML/RPC-asiakassovelluksessa:"
+
+msgid "Server URL:"
+msgstr "Palvelimen osoite:"
+
+msgid "Blogging system:"
+msgstr "Blogijärjestelmä:"
+
+msgid "User name:"
+msgstr "Käyttäjä:"
+
+msgid "your password"
+msgstr "salasanasi"
+
 msgid "Search engines robots policy"
 msgstr "Hakukoneiden hakurobottien ohjaus"
 
@@ -508,6 +520,10 @@ msgstr "Blogin turvallisuus"
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr "Suojaa blogia klikkaustenkaappaamiselta (katso <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
+
+#, fuzzy
+msgid "Plugins parameters"
+msgstr "Blogin asetukset"
 
 msgid "Save"
 msgstr "Tallenna"
@@ -1264,6 +1280,15 @@ msgstr ""
 msgid "Continue"
 msgstr "Jatka"
 
+msgid "Invalid language zip file."
+msgstr "Virheellinen kielen zip-tiedosto."
+
+msgid "The zip file does not appear to be a valid Dotclear language pack."
+msgstr "Zip-tiedosto ei liene kelvollinen Dotclear-kielitiedosto."
+
+msgid "An error occurred during language upgrade."
+msgstr "Kielen päivittäminen epäonnistui."
+
 msgid "No such installed language"
 msgstr "Kyseistä kieltä ei ole asennettu"
 
@@ -1342,15 +1367,6 @@ msgstr "Kielen zip-tiedosto:"
 msgid "Upload language"
 msgstr "Lataa kieli palvelimelle"
 
-msgid "Invalid language zip file."
-msgstr "Virheellinen kielen zip-tiedosto."
-
-msgid "The zip file does not appear to be a valid Dotclear language pack."
-msgstr "Zip-tiedosto ei liene kelvollinen Dotclear-kielitiedosto."
-
-msgid "An error occurred during language upgrade."
-msgstr "Kielen päivittäminen epäonnistui."
-
 msgid "By names, in ascending order"
 msgstr "Nimien mukaan nousevassa järjestyksessä"
 
@@ -1406,6 +1422,22 @@ msgstr "Peruuta"
 msgid "Yes"
 msgstr "Kyllä"
 
+#, fuzzy
+msgid "Select this file"
+msgstr "Poista tämä blogi"
+
+msgid "Attach this file to entry"
+msgstr "Liitä tämä tiedosto merkintään"
+
+msgid "Insert this file into entry"
+msgstr "Liitä tämä tiedosto merkintään"
+
+msgid "delete"
+msgstr "poista"
+
+msgid "open"
+msgstr "avaa"
+
 #, fuzzy, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
@@ -1439,10 +1471,6 @@ msgid "Select a file by clicking on %s"
 msgstr "Valitse merkintään liitettävä tiedosto painamalla %s."
 
 #, fuzzy
-msgid "Select this file"
-msgstr "Poista tämä blogi"
-
-#, fuzzy
 msgid "Choose selected medias"
 msgstr "Poista valitut media-aineistot"
 
@@ -1460,9 +1488,6 @@ msgstr "Lataa zip-tiedosto palvelimelle"
 #, fuzzy, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Valitse tiedosto, joka liitetään blogimerkintään %s painamalla %s."
-
-msgid "Attach this file to entry"
-msgstr "Liitä tämä tiedosto merkintään"
 
 #, fuzzy, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
@@ -1559,15 +1584,6 @@ msgstr "Media-aineistojen ja kuvien nykyasetukset on määritelty kohdassa %s"
 msgid "Blog parameters"
 msgstr "Blogin asetukset"
 
-msgid "Insert this file into entry"
-msgstr "Liitä tämä tiedosto merkintään"
-
-msgid "delete"
-msgstr "poista"
-
-msgid "open"
-msgstr "avaa"
-
 msgid "Not a valid file"
 msgstr "Kelpaamaton tiedosto"
 
@@ -1596,6 +1612,9 @@ msgstr "Valitse:"
 
 msgid "Insert media item"
 msgstr "Liitä tämä mediatiedosto"
+
+msgid "Image legend and title"
+msgstr ""
 
 msgid "Image alignment"
 msgstr "Kuvan kohdistus"
@@ -1900,6 +1919,24 @@ msgstr "Talleta merkintä XHTML-muunnoksen oikeellisuuden tarkistamiseksi."
 msgid "Go to this entry on the site"
 msgstr "Hyppää tähän merkintää verkkosivustossa"
 
+msgid "IP address"
+msgstr "IP-osoite"
+
+msgid "Edit"
+msgstr "Muokkaa"
+
+msgid "Junk"
+msgstr "Roska"
+
+msgid "select this comment"
+msgstr "Valitse tämä kommentti"
+
+msgid "select this trackback"
+msgstr "Valitse tämä takaisinviittaus"
+
+msgid "Edit this comment"
+msgstr "Muokkaa tätä kommenttia"
+
 msgid "Entry status"
 msgstr "Merkinnän tila"
 
@@ -2002,24 +2039,6 @@ msgstr "Takaisinviittausosoitteiden automaattinen tunnistus"
 msgid "Previously sent pings"
 msgstr "Aiemmin lähetetyt takaisinviittaukset"
 
-msgid "IP address"
-msgstr "IP-osoite"
-
-msgid "Edit"
-msgstr "Muokkaa"
-
-msgid "Junk"
-msgstr "Roska"
-
-msgid "select this comment"
-msgstr "Valitse tämä kommentti"
-
-msgid "select this trackback"
-msgstr "Valitse tämä takaisinviittaus"
-
-msgid "Edit this comment"
-msgstr "Muokkaa tätä kommenttia"
-
 msgid "This attachment does not exist"
 msgstr "Tätä liitettä ei ole"
 
@@ -2102,10 +2121,17 @@ msgid "Selected entries action:"
 msgstr "Tee valituille merkinnöille:"
 
 #, fuzzy
+msgid "Smallest"
+msgstr "Pieni"
+
+#, fuzzy
 msgid "Smaller"
 msgstr "Pieni"
 
 msgid "Larger"
+msgstr ""
+
+msgid "Largest"
 msgstr ""
 
 msgid "Blog description (in blog parameters)"
@@ -2193,6 +2219,12 @@ msgstr ""
 #, fuzzy
 msgid "Font size:"
 msgstr "Tiedoston koko:"
+
+msgid "Activate adpative font size"
+msgstr ""
+
+msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
+msgstr ""
 
 msgid "Number of elements displayed per page in media manager:"
 msgstr "Näytettävien elementtien määrä sivua kohti medianhallinnassa:"
@@ -2941,6 +2973,10 @@ msgstr "Osa:"
 
 msgid "Tags:"
 msgstr "Avainsanat:"
+
+#, fuzzy
+msgid "Hide this notice"
+msgstr "Käytä tätä"
 
 msgid "You have unsaved changes."
 msgstr "Et ole tallentanut muutoksia."

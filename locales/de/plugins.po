@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-23 10:18+0100\n"
+"POT-Creation-Date: 2017-01-04 10:18+0100\n"
 "PO-Revision-Date: 2016-07-18 15:45+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -1688,6 +1688,9 @@ msgstr "URI des Dienstes:"
 #, fuzzy
 msgid "Error"
 msgstr "Fehler"
+
+msgid "Auto pings all services on first publication of entry (current blog only)"
+msgstr ""
 
 msgid "Test ping services"
 msgstr "Teste den Ping-Dienst"

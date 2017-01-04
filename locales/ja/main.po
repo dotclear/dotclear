@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-23 10:19+0100\n"
+"POT-Creation-Date: 2017-01-04 10:19+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -258,6 +258,10 @@ msgstr "右"
 msgid "Center"
 msgstr "中央"
 
+#, fuzzy
+msgid "Legend and title"
+msgstr "挿入される画像タイトル"
+
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr "検索エンジンとアーカイバに、ブログのコンテンツの索引付けとアーカイブをしてもらいたい"
 
@@ -299,20 +303,6 @@ msgstr "パラメータ"
 msgid "Blog details"
 msgstr "ブログの詳細"
 
-msgid "Please note that changing your blog ID may require changes in your public index.php file."
-msgstr "ブログIDを変更した場合、index.php ファイル内にも変更が必要となることに注意してください。"
-
-msgid "URL scan method:"
-msgstr "URLのスキャン方法："
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
-msgstr ""
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
-msgstr ""
-
 msgid "Blog status:"
 msgstr "ブログの状態："
 
@@ -330,40 +320,6 @@ msgstr "ブログのタイムゾーン："
 
 msgid "Copyright notice:"
 msgstr "著作権情報："
-
-msgid "New post URL format:"
-msgstr "新規投稿のURL形式："
-
-#, fuzzy
-msgid "Dotclear"
-msgstr "Dotclear チーム"
-
-msgid "Sample:"
-msgstr ""
-
-msgid "HTML tag for the title of the notes on the blog:"
-msgstr ""
-
-msgid "Enable XML/RPC interface"
-msgstr "XML/RPC インターフェイスを有効化"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "XML/RPC インターフェイスは外部クライアントでブログを編集できるようにします。"
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "XML/RPC インターフェイスは有効です。 XML/RPC クライアントで以下のパラメータを設定する必要があります。"
-
-msgid "Server URL:"
-msgstr "サーバURL："
-
-msgid "Blogging system:"
-msgstr "ブログシステム："
-
-msgid "User name:"
-msgstr "ユーザ名："
-
-msgid "your password"
-msgstr "あなたのパスワード"
 
 msgid "Comments and trackbacks"
 msgstr "コメントとトラックバック"
@@ -407,6 +363,9 @@ msgid "Date format:"
 msgstr "日付の書式："
 
 msgid "Pattern of date"
+msgstr ""
+
+msgid "Sample:"
 msgstr ""
 
 msgid "Time format:"
@@ -515,6 +474,59 @@ msgstr "画像の配置"
 msgid "Insert a link to the original image"
 msgstr "オリジナル画像へのリンクとして"
 
+#, fuzzy
+msgid "Image legend and title:"
+msgstr "画像の配置"
+
+#, fuzzy
+msgid "Advanced parameters"
+msgstr "パラメータ"
+
+msgid "Please note that changing your blog ID may require changes in your public index.php file."
+msgstr "ブログIDを変更した場合、index.php ファイル内にも変更が必要となることに注意してください。"
+
+msgid "URL scan method:"
+msgstr "URLのスキャン方法："
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
+msgstr ""
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
+msgstr ""
+
+msgid "New post URL format:"
+msgstr "新規投稿のURL形式："
+
+#, fuzzy
+msgid "Dotclear"
+msgstr "Dotclear チーム"
+
+msgid "HTML tag for the title of the notes on the blog:"
+msgstr ""
+
+msgid "Enable XML/RPC interface"
+msgstr "XML/RPC インターフェイスを有効化"
+
+msgid "XML/RPC interface allows you to edit your blog with an external client."
+msgstr "XML/RPC インターフェイスは外部クライアントでブログを編集できるようにします。"
+
+msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+msgstr "XML/RPC インターフェイスは有効です。 XML/RPC クライアントで以下のパラメータを設定する必要があります。"
+
+msgid "Server URL:"
+msgstr "サーバURL："
+
+msgid "Blogging system:"
+msgstr "ブログシステム："
+
+msgid "User name:"
+msgstr "ユーザ名："
+
+msgid "your password"
+msgstr "あなたのパスワード"
+
 msgid "Search engines robots policy"
 msgstr "検索エンジンロボットのポリシー"
 
@@ -530,6 +542,10 @@ msgstr "ブログの説明："
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr ""
+
+#, fuzzy
+msgid "Plugins parameters"
+msgstr "パラメータ"
 
 msgid "Save"
 msgstr "保存"
@@ -1326,6 +1342,15 @@ msgstr ""
 msgid "Continue"
 msgstr "内容："
 
+msgid "Invalid language zip file."
+msgstr "無効な言語zipファイルです。"
+
+msgid "The zip file does not appear to be a valid Dotclear language pack."
+msgstr "zipファイルは正当なDotclear言語パックではないようです。"
+
+msgid "An error occurred during language upgrade."
+msgstr "言語のアップグレード中にエラーが発生しました。"
+
 msgid "No such installed language"
 msgstr "指定されたインストール済み言語はありません"
 
@@ -1404,15 +1429,6 @@ msgstr "言語のzipファイル："
 msgid "Upload language"
 msgstr "言語をアップロード"
 
-msgid "Invalid language zip file."
-msgstr "無効な言語zipファイルです。"
-
-msgid "The zip file does not appear to be a valid Dotclear language pack."
-msgstr "zipファイルは正当なDotclear言語パックではないようです。"
-
-msgid "An error occurred during language upgrade."
-msgstr "言語のアップグレード中にエラーが発生しました。"
-
 msgid "By names, in ascending order"
 msgstr "名前 - 昇順"
 
@@ -1467,6 +1483,23 @@ msgstr "キャンセル"
 msgid "Yes"
 msgstr "はい"
 
+#, fuzzy
+msgid "Select this file"
+msgstr "このブログを削除"
+
+msgid "Attach this file to entry"
+msgstr "このファイルをエントリに添付"
+
+msgid "Insert this file into entry"
+msgstr "このファイルをエントリへ挿入"
+
+#, fuzzy
+msgid "delete"
+msgstr "削除"
+
+msgid "open"
+msgstr "開く"
+
 #, fuzzy, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
@@ -1499,10 +1532,6 @@ msgid "Select a file by clicking on %s"
 msgstr "エントリへ挿入するファイルを %s をクリックして選択してください。"
 
 #, fuzzy
-msgid "Select this file"
-msgstr "このブログを削除"
-
-#, fuzzy
 msgid "Choose selected medias"
 msgstr "選択したファイルへ戻す"
 
@@ -1521,9 +1550,6 @@ msgstr "zipファイルのアップロード"
 #, fuzzy, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "エントリ %s に添付するファイルを %s をクリックして選択してください。"
-
-msgid "Attach this file to entry"
-msgstr "このファイルをエントリに添付"
 
 #, fuzzy, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
@@ -1626,16 +1652,6 @@ msgstr ""
 msgid "Blog parameters"
 msgstr "パラメータ"
 
-msgid "Insert this file into entry"
-msgstr "このファイルをエントリへ挿入"
-
-#, fuzzy
-msgid "delete"
-msgstr "削除"
-
-msgid "open"
-msgstr "開く"
-
 msgid "Not a valid file"
 msgstr "有効なファイルではありません"
 
@@ -1666,6 +1682,9 @@ msgstr "イチ押し："
 
 msgid "Insert media item"
 msgstr "メディアアイテムの挿入"
+
+msgid "Image legend and title"
+msgstr ""
 
 msgid "Image alignment"
 msgstr "画像の配置"
@@ -1988,6 +2007,26 @@ msgstr "投稿を保存することによって、XHTML 変換を有効にする
 msgid "Go to this entry on the site"
 msgstr ""
 
+msgid "IP address"
+msgstr "IPアドレス"
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "このコメントを編集"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "トラックバックを許可"
+
+msgid "Edit this comment"
+msgstr "このコメントを編集"
+
 #, fuzzy
 msgid "Entry status"
 msgstr "エントリの状態："
@@ -2103,26 +2142,6 @@ msgstr "Ping URLを自動検出"
 msgid "Previously sent pings"
 msgstr "以前に送信されたPing"
 
-msgid "IP address"
-msgstr "IPアドレス"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "このコメントを編集"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "トラックバックを許可"
-
-msgid "Edit this comment"
-msgstr "このコメントを編集"
-
 msgid "This attachment does not exist"
 msgstr "この添付ファイルは存在しません"
 
@@ -2217,10 +2236,17 @@ msgid "Selected entries action:"
 msgstr "選択されたエントリに実行："
 
 #, fuzzy
+msgid "Smallest"
+msgstr "スモール："
+
+#, fuzzy
 msgid "Smaller"
 msgstr "スモール："
 
 msgid "Larger"
+msgstr ""
+
+msgid "Largest"
 msgstr ""
 
 msgid "Blog description (in blog parameters)"
@@ -2324,6 +2350,12 @@ msgstr ""
 #, fuzzy
 msgid "Font size:"
 msgstr "ファイルサイズ："
+
+msgid "Activate adpative font size"
+msgstr ""
+
+msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
+msgstr ""
 
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
@@ -3124,6 +3156,10 @@ msgstr "操作"
 
 msgid "Tags:"
 msgstr ""
+
+#, fuzzy
+msgid "Hide this notice"
+msgstr "このテーマを使用"
 
 msgid "You have unsaved changes."
 msgstr "保存されていない変更があります。"

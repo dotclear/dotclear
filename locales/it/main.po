@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-23 10:18+0100\n"
+"POT-Creation-Date: 2017-01-04 10:19+0100\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -250,6 +250,10 @@ msgstr "Destra"
 msgid "Center"
 msgstr "Centro"
 
+#, fuzzy
+msgid "Legend and title"
+msgstr "Titolo inserito per l'immagine"
+
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr "Permetti ai motori di ricerca e ai sistemi di archiviazione di indicizzare o salvare il contenuto del blog."
 
@@ -290,20 +294,6 @@ msgstr "Parametri"
 msgid "Blog details"
 msgstr "Dettagli del blog"
 
-msgid "Please note that changing your blog ID may require changes in your public index.php file."
-msgstr "Modificando l'ID del blog potrebbe essere necessario effettuare modifiche nel file pubblico index.php."
-
-msgid "URL scan method:"
-msgstr "Metodo scansione URL:"
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
-msgstr ""
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
-msgstr ""
-
 msgid "Blog status:"
 msgstr "Stato del blog:"
 
@@ -321,40 +311,6 @@ msgstr "Fuso orario del blog:"
 
 msgid "Copyright notice:"
 msgstr "Informazioni sul copyright:"
-
-msgid "New post URL format:"
-msgstr "Formato URL per i nuovi articoli:"
-
-#, fuzzy
-msgid "Dotclear"
-msgstr "Il team di Dotclear"
-
-msgid "Sample:"
-msgstr ""
-
-msgid "HTML tag for the title of the notes on the blog:"
-msgstr ""
-
-msgid "Enable XML/RPC interface"
-msgstr "Attivare l'interfaccia XML/RPC"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "L'interfaccia XML/RPC permette di publicare articoli sul blog con un programma esterno."
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "L'interfaccia XML/RPC è attiva. È necessario inserire questi valori nel proprio programma XML/RPC:"
-
-msgid "Server URL:"
-msgstr "URL del server:"
-
-msgid "Blogging system:"
-msgstr "Sistema del blog:"
-
-msgid "User name:"
-msgstr "Nome utilizzatore:"
-
-msgid "your password"
-msgstr "la propria password"
 
 msgid "Comments and trackbacks"
 msgstr "Commenti e trackback"
@@ -398,6 +354,9 @@ msgid "Date format:"
 msgstr "Formato data:"
 
 msgid "Pattern of date"
+msgstr ""
+
+msgid "Sample:"
 msgstr ""
 
 msgid "Time format:"
@@ -506,6 +465,59 @@ msgstr "Allineamento immagine"
 msgid "Insert a link to the original image"
 msgstr "Come collegamento all'immagine originale"
 
+#, fuzzy
+msgid "Image legend and title:"
+msgstr "Allineamento immagine"
+
+#, fuzzy
+msgid "Advanced parameters"
+msgstr "Parametri"
+
+msgid "Please note that changing your blog ID may require changes in your public index.php file."
+msgstr "Modificando l'ID del blog potrebbe essere necessario effettuare modifiche nel file pubblico index.php."
+
+msgid "URL scan method:"
+msgstr "Metodo scansione URL:"
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
+msgstr ""
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
+msgstr ""
+
+msgid "New post URL format:"
+msgstr "Formato URL per i nuovi articoli:"
+
+#, fuzzy
+msgid "Dotclear"
+msgstr "Il team di Dotclear"
+
+msgid "HTML tag for the title of the notes on the blog:"
+msgstr ""
+
+msgid "Enable XML/RPC interface"
+msgstr "Attivare l'interfaccia XML/RPC"
+
+msgid "XML/RPC interface allows you to edit your blog with an external client."
+msgstr "L'interfaccia XML/RPC permette di publicare articoli sul blog con un programma esterno."
+
+msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+msgstr "L'interfaccia XML/RPC è attiva. È necessario inserire questi valori nel proprio programma XML/RPC:"
+
+msgid "Server URL:"
+msgstr "URL del server:"
+
+msgid "Blogging system:"
+msgstr "Sistema del blog:"
+
+msgid "User name:"
+msgstr "Nome utilizzatore:"
+
+msgid "your password"
+msgstr "la propria password"
+
 msgid "Search engines robots policy"
 msgstr "Comportamento per i robot di scansione dei motori di ricerca"
 
@@ -521,6 +533,10 @@ msgstr "Descrizione del blog:"
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr ""
+
+#, fuzzy
+msgid "Plugins parameters"
+msgstr "Parametri"
 
 msgid "Save"
 msgstr "Salva"
@@ -1318,6 +1334,15 @@ msgstr ""
 msgid "Continue"
 msgstr "Contenuto:"
 
+msgid "Invalid language zip file."
+msgstr "File zip della lingua non valido."
+
+msgid "The zip file does not appear to be a valid Dotclear language pack."
+msgstr "Il file zip non è un pacchetto di lingua Dotclear valido."
+
+msgid "An error occurred during language upgrade."
+msgstr "Si è verificato un errore durante l'aggiornamento della lingua."
+
 msgid "No such installed language"
 msgstr "La lingua selezionata non è installata"
 
@@ -1396,15 +1421,6 @@ msgstr "File zip della lingua:"
 msgid "Upload language"
 msgstr "Carica lingua"
 
-msgid "Invalid language zip file."
-msgstr "File zip della lingua non valido."
-
-msgid "The zip file does not appear to be a valid Dotclear language pack."
-msgstr "Il file zip non è un pacchetto di lingua Dotclear valido."
-
-msgid "An error occurred during language upgrade."
-msgstr "Si è verificato un errore durante l'aggiornamento della lingua."
-
 msgid "By names, in ascending order"
 msgstr "Per nomi, crescenti"
 
@@ -1460,6 +1476,23 @@ msgstr "annulla"
 msgid "Yes"
 msgstr "sì"
 
+#, fuzzy
+msgid "Select this file"
+msgstr "Elimina questo blog"
+
+msgid "Attach this file to entry"
+msgstr "Allega questo file all'articolo"
+
+msgid "Insert this file into entry"
+msgstr "Inserisci questo file nell'articolo"
+
+#, fuzzy
+msgid "delete"
+msgstr "Elimina"
+
+msgid "open"
+msgstr "apri"
+
 #, fuzzy, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
@@ -1493,10 +1526,6 @@ msgid "Select a file by clicking on %s"
 msgstr "Selezionare un file da inserire facendo clic su %s."
 
 #, fuzzy
-msgid "Select this file"
-msgstr "Elimina questo blog"
-
-#, fuzzy
 msgid "Choose selected medias"
 msgstr "Ripristina file selezionati"
 
@@ -1515,9 +1544,6 @@ msgstr "Carica un file zip:"
 #, fuzzy, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Selezionare un file da allegare all'articolo %s facendo clic su %s."
-
-msgid "Attach this file to entry"
-msgstr "Allega questo file all'articolo"
 
 #, fuzzy, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
@@ -1619,16 +1645,6 @@ msgstr ""
 msgid "Blog parameters"
 msgstr "Parametri"
 
-msgid "Insert this file into entry"
-msgstr "Inserisci questo file nell'articolo"
-
-#, fuzzy
-msgid "delete"
-msgstr "Elimina"
-
-msgid "open"
-msgstr "apri"
-
 msgid "Not a valid file"
 msgstr "File non valido"
 
@@ -1659,6 +1675,9 @@ msgstr "Selezionato:"
 
 msgid "Insert media item"
 msgstr "Inserire un contenuto media"
+
+msgid "Image legend and title"
+msgstr ""
 
 msgid "Image alignment"
 msgstr "Allineamento immagine"
@@ -1981,6 +2000,26 @@ msgstr "Validare la conversione XHTML salvando l'articolo."
 msgid "Go to this entry on the site"
 msgstr ""
 
+msgid "IP address"
+msgstr "Indirizzo IP"
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "Modifica questo commento"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "Accettare i trackback"
+
+msgid "Edit this comment"
+msgstr "Modifica questo commento"
+
 #, fuzzy
 msgid "Entry status"
 msgstr "Stato articolo:"
@@ -2096,26 +2135,6 @@ msgstr "Cerca automaticamente gli URL a cui inviare i ping"
 msgid "Previously sent pings"
 msgstr "Ping già inviati"
 
-msgid "IP address"
-msgstr "Indirizzo IP"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "Modifica questo commento"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "Accettare i trackback"
-
-msgid "Edit this comment"
-msgstr "Modifica questo commento"
-
 msgid "This attachment does not exist"
 msgstr "Questo allegato non esiste"
 
@@ -2210,10 +2229,17 @@ msgid "Selected entries action:"
 msgstr "Azione sui post selezionati:"
 
 #, fuzzy
+msgid "Smallest"
+msgstr "Piccola:"
+
+#, fuzzy
 msgid "Smaller"
 msgstr "Piccola:"
 
 msgid "Larger"
+msgstr ""
+
+msgid "Largest"
 msgstr ""
 
 msgid "Blog description (in blog parameters)"
@@ -2317,6 +2343,12 @@ msgstr ""
 #, fuzzy
 msgid "Font size:"
 msgstr "Dimensione file:"
+
+msgid "Activate adpative font size"
+msgstr ""
+
+msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
+msgstr ""
 
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
@@ -3113,6 +3145,10 @@ msgstr "Azione"
 
 msgid "Tags:"
 msgstr ""
+
+#, fuzzy
+msgid "Hide this notice"
+msgstr "Usa questo tema"
 
 msgid "You have unsaved changes."
 msgstr "Sono presenti delle modifiche non salvate."
