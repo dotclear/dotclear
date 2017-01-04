@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-19 11:33+0100\n"
+"POT-Creation-Date: 2017-01-04 10:19+0100\n"
 "PO-Revision-Date: 2016-07-18 15:01+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -1270,6 +1270,15 @@ msgstr "Email principal : (utilisé pour l'envoi pour la récupération de mot 
 msgid "Continue"
 msgstr "Continuer"
 
+msgid "Invalid language zip file."
+msgstr "Fichier zip de langue invalide."
+
+msgid "The zip file does not appear to be a valid Dotclear language pack."
+msgstr "Le fichier zip ne semble pas être un fichier de langue Dotclear valide."
+
+msgid "An error occurred during language upgrade."
+msgstr "Une erreur est survenue durant la mise à jour de la langue."
+
 msgid "No such installed language"
 msgstr "Cette langue n'est pas installée"
 
@@ -1348,15 +1357,6 @@ msgstr "Fichier zip de la langue :"
 msgid "Upload language"
 msgstr "Déposer la langue"
 
-msgid "Invalid language zip file."
-msgstr "Fichier zip de langue invalide."
-
-msgid "The zip file does not appear to be a valid Dotclear language pack."
-msgstr "Le fichier zip ne semble pas être un fichier de langue Dotclear valide."
-
-msgid "An error occurred during language upgrade."
-msgstr "Une erreur est survenue durant la mise à jour de la langue."
-
 msgid "By names, in ascending order"
 msgstr "Par noms croissants"
 
@@ -1411,6 +1411,21 @@ msgstr "Annuler"
 msgid "Yes"
 msgstr "oui"
 
+msgid "Select this file"
+msgstr "Sélectionner ce fichier"
+
+msgid "Attach this file to entry"
+msgstr "Attacher ce fichier au billet"
+
+msgid "Insert this file into entry"
+msgstr "Insérer ce fichier dans le billet"
+
+msgid "delete"
+msgstr "supprimer"
+
+msgid "open"
+msgstr "ouvrir"
+
 #, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
@@ -1442,9 +1457,6 @@ msgstr "Le fichier zip a été extrait."
 msgid "Select a file by clicking on %s"
 msgstr "Choisissez un fichier en cliquant sur %s"
 
-msgid "Select this file"
-msgstr "Sélectionner ce fichier"
-
 msgid "Choose selected medias"
 msgstr "Choisir les médias sélectionnés"
 
@@ -1461,9 +1473,6 @@ msgstr "envoyez un nouveau fichier"
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Choisissez un fichier à attacher au billet %s en cliquant sur %s"
-
-msgid "Attach this file to entry"
-msgstr "Attacher ce fichier au billet"
 
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
@@ -1555,15 +1564,6 @@ msgstr "Les réglages actuels pour les médias et les images sont définis dans 
 
 msgid "Blog parameters"
 msgstr "Paramètres du blog"
-
-msgid "Insert this file into entry"
-msgstr "Insérer ce fichier dans le billet"
-
-msgid "delete"
-msgstr "supprimer"
-
-msgid "open"
-msgstr "ouvrir"
 
 msgid "Not a valid file"
 msgstr "Fichier invalide"
@@ -1895,6 +1895,24 @@ msgstr "Enregistrez votre billet pour valider la transformation en XHTML."
 msgid "Go to this entry on the site"
 msgstr "Voir ce billet sur le site"
 
+msgid "IP address"
+msgstr "Adresse IP"
+
+msgid "Edit"
+msgstr "Modifier"
+
+msgid "Junk"
+msgstr "Indésirable"
+
+msgid "select this comment"
+msgstr "Sélectionner ce commentaire"
+
+msgid "select this trackback"
+msgstr "Sélectionner ce rétrolien"
+
+msgid "Edit this comment"
+msgstr "Modifier ce commentaire"
+
 msgid "Entry status"
 msgstr "État du billet"
 
@@ -1996,24 +2014,6 @@ msgstr "Découverte automatique des URL à rétrolier"
 
 msgid "Previously sent pings"
 msgstr "Rétroliens déjà envoyés"
-
-msgid "IP address"
-msgstr "Adresse IP"
-
-msgid "Edit"
-msgstr "Modifier"
-
-msgid "Junk"
-msgstr "Indésirable"
-
-msgid "select this comment"
-msgstr "Sélectionner ce commentaire"
-
-msgid "select this trackback"
-msgstr "Sélectionner ce rétrolien"
-
-msgid "Edit this comment"
-msgstr "Modifier ce commentaire"
 
 msgid "This attachment does not exist"
 msgstr "Cette annexe n'existe pas"
@@ -2188,6 +2188,12 @@ msgstr "Cacher les informations secondaires et les notes"
 
 msgid "Font size:"
 msgstr "Taille de police de caractère :"
+
+msgid "Activate adpative font size"
+msgstr "Activer les tailles de polices adaptatives"
+
+msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
+msgstr "Si cette option est cochée, la taille de la police variera, en fonction de la taille de l'affichage (de 12px à 16px avec la taille défaut sélectionnée)."
 
 msgid "Number of elements displayed per page in media manager:"
 msgstr "Nombre d'éléments affichés par page dans la médiathèque :"

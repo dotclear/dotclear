@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-23 10:18+0100\n"
+"POT-Creation-Date: 2017-01-04 10:19+0100\n"
 "PO-Revision-Date: 2016-07-18 15:45+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Team DSLJ <maniactor@gmail.com>\n"
@@ -248,6 +248,10 @@ msgstr ""
 msgid "Center"
 msgstr ""
 
+#, fuzzy
+msgid "Legend and title"
+msgstr "Indsat billede titel"
+
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr "Jeg vil gerne have søgemaskiner og arkiver til at indeksere og arkivere min blogs indhold."
 
@@ -289,20 +293,6 @@ msgstr "Parametre"
 msgid "Blog details"
 msgstr "Blog detaljer"
 
-msgid "Please note that changing your blog ID may require changes in your public index.php file."
-msgstr "Bemærk at skifte dit blog ID måske kræver ændringer i din offentlige index.php fil."
-
-msgid "URL scan method:"
-msgstr "URL skan metode:"
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
-msgstr ""
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
-msgstr ""
-
 msgid "Blog status:"
 msgstr "Blog status:"
 
@@ -320,40 +310,6 @@ msgstr "Blog tidszone:"
 
 msgid "Copyright notice:"
 msgstr "Copyright note:"
-
-msgid "New post URL format:"
-msgstr "Ny post URL format:"
-
-#, fuzzy
-msgid "Dotclear"
-msgstr "Dotclear holdet"
-
-msgid "Sample:"
-msgstr ""
-
-msgid "HTML tag for the title of the notes on the blog:"
-msgstr ""
-
-msgid "Enable XML/RPC interface"
-msgstr "Slå XML/RPC interfacet til"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "XML/RPC interfacetillader dig at redigere din blog med en ekstern klient."
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "XML/RPC interface er aktivt. Du skal sætte de følgende parametre i din XML/RPC klient:"
-
-msgid "Server URL:"
-msgstr "Server URL:"
-
-msgid "Blogging system:"
-msgstr "Blog system:"
-
-msgid "User name:"
-msgstr "Brugernavn:"
-
-msgid "your password"
-msgstr "Dit kodeord"
 
 msgid "Comments and trackbacks"
 msgstr "Kommentarer og tilbagelinks"
@@ -397,6 +353,9 @@ msgid "Date format:"
 msgstr "Dato format:"
 
 msgid "Pattern of date"
+msgstr ""
+
+msgid "Sample:"
 msgstr ""
 
 msgid "Time format:"
@@ -501,6 +460,58 @@ msgstr ""
 msgid "Insert a link to the original image"
 msgstr ""
 
+msgid "Image legend and title:"
+msgstr ""
+
+#, fuzzy
+msgid "Advanced parameters"
+msgstr "Parametre"
+
+msgid "Please note that changing your blog ID may require changes in your public index.php file."
+msgstr "Bemærk at skifte dit blog ID måske kræver ændringer i din offentlige index.php fil."
+
+msgid "URL scan method:"
+msgstr "URL skan metode:"
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
+msgstr ""
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
+msgstr ""
+
+msgid "New post URL format:"
+msgstr "Ny post URL format:"
+
+#, fuzzy
+msgid "Dotclear"
+msgstr "Dotclear holdet"
+
+msgid "HTML tag for the title of the notes on the blog:"
+msgstr ""
+
+msgid "Enable XML/RPC interface"
+msgstr "Slå XML/RPC interfacet til"
+
+msgid "XML/RPC interface allows you to edit your blog with an external client."
+msgstr "XML/RPC interfacetillader dig at redigere din blog med en ekstern klient."
+
+msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+msgstr "XML/RPC interface er aktivt. Du skal sætte de følgende parametre i din XML/RPC klient:"
+
+msgid "Server URL:"
+msgstr "Server URL:"
+
+msgid "Blogging system:"
+msgstr "Blog system:"
+
+msgid "User name:"
+msgstr "Brugernavn:"
+
+msgid "your password"
+msgstr "Dit kodeord"
+
 msgid "Search engines robots policy"
 msgstr "Søgemaskinerobotter politik"
 
@@ -516,6 +527,10 @@ msgstr "Blog beskrivelse:"
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr ""
+
+#, fuzzy
+msgid "Plugins parameters"
+msgstr "Parametre"
 
 msgid "Save"
 msgstr "Gem"
@@ -1314,6 +1329,15 @@ msgstr ""
 msgid "Continue"
 msgstr "Indhold:"
 
+msgid "Invalid language zip file."
+msgstr ""
+
+msgid "The zip file does not appear to be a valid Dotclear language pack."
+msgstr ""
+
+msgid "An error occurred during language upgrade."
+msgstr ""
+
 msgid "No such installed language"
 msgstr "Intet sådant installeret sprog"
 
@@ -1392,15 +1416,6 @@ msgstr "Sprog zip fil:"
 msgid "Upload language"
 msgstr "Opload sprog"
 
-msgid "Invalid language zip file."
-msgstr ""
-
-msgid "The zip file does not appear to be a valid Dotclear language pack."
-msgstr ""
-
-msgid "An error occurred during language upgrade."
-msgstr ""
-
 msgid "By names, in ascending order"
 msgstr ""
 
@@ -1455,6 +1470,23 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
+#, fuzzy
+msgid "Select this file"
+msgstr "Slet denne blog"
+
+msgid "Attach this file to entry"
+msgstr ""
+
+msgid "Insert this file into entry"
+msgstr ""
+
+#, fuzzy
+msgid "delete"
+msgstr "Slet"
+
+msgid "open"
+msgstr ""
+
 #, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
@@ -1487,10 +1519,6 @@ msgid "Select a file by clicking on %s"
 msgstr ""
 
 #, fuzzy
-msgid "Select this file"
-msgstr "Slet denne blog"
-
-#, fuzzy
 msgid "Choose selected medias"
 msgstr "Slet valgte tema"
 
@@ -1508,9 +1536,6 @@ msgstr "Opload en zip fil"
 
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
-msgstr ""
-
-msgid "Attach this file to entry"
 msgstr ""
 
 #, php-format
@@ -1612,16 +1637,6 @@ msgstr ""
 msgid "Blog parameters"
 msgstr "Parametre"
 
-msgid "Insert this file into entry"
-msgstr ""
-
-#, fuzzy
-msgid "delete"
-msgstr "Slet"
-
-msgid "open"
-msgstr ""
-
 msgid "Not a valid file"
 msgstr ""
 
@@ -1648,6 +1663,9 @@ msgid "Select"
 msgstr ""
 
 msgid "Insert media item"
+msgstr ""
+
+msgid "Image legend and title"
 msgstr ""
 
 msgid "Image alignment"
@@ -1963,6 +1981,26 @@ msgstr ""
 msgid "Go to this entry on the site"
 msgstr ""
 
+msgid "IP address"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "Du kan ikke redigere denne kommentar."
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "Accepter tilbagelinks"
+
+msgid "Edit this comment"
+msgstr ""
+
 #, fuzzy
 msgid "Entry status"
 msgstr "Indlæg titel"
@@ -2074,26 +2112,6 @@ msgstr ""
 msgid "Previously sent pings"
 msgstr ""
 
-msgid "IP address"
-msgstr ""
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "Du kan ikke redigere denne kommentar."
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "Accepter tilbagelinks"
-
-msgid "Edit this comment"
-msgstr ""
-
 msgid "This attachment does not exist"
 msgstr ""
 
@@ -2184,10 +2202,17 @@ msgid "Selected entries action:"
 msgstr ""
 
 #, fuzzy
+msgid "Smallest"
+msgstr "Small:"
+
+#, fuzzy
 msgid "Smaller"
 msgstr "Small:"
 
 msgid "Larger"
+msgstr ""
+
+msgid "Largest"
 msgstr ""
 
 msgid "Blog description (in blog parameters)"
@@ -2285,6 +2310,12 @@ msgid "Hide all secondary information and notes"
 msgstr ""
 
 msgid "Font size:"
+msgstr ""
+
+msgid "Activate adpative font size"
+msgstr ""
+
+msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
 msgstr ""
 
 msgid "Number of elements displayed per page in media manager:"
@@ -3069,6 +3100,10 @@ msgstr "Handling"
 
 msgid "Tags:"
 msgstr ""
+
+#, fuzzy
+msgid "Hide this notice"
+msgstr "Brugere på denne blog"
 
 msgid "You have unsaved changes."
 msgstr ""

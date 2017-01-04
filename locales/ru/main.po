@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-23 10:19+0100\n"
+"POT-Creation-Date: 2017-01-04 10:19+0100\n"
 "PO-Revision-Date: 2016-07-18 15:53+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: ru_RU <en@li.org>\n"
@@ -251,6 +251,10 @@ msgstr "Правый"
 msgid "Center"
 msgstr "По центру"
 
+#, fuzzy
+msgid "Legend and title"
+msgstr "Заголовок вставленного изображения"
+
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr "Я хочу, чтобы поисковые машины и архиваторы проиндексировали и заархивировали содержимое моего блога."
 
@@ -291,20 +295,6 @@ msgstr "Настройки"
 msgid "Blog details"
 msgstr "Информация о блоге"
 
-msgid "Please note that changing your blog ID may require changes in your public index.php file."
-msgstr "Заметьте, что изменение ID вашего блога может потребовать изменение в файле index.php."
-
-msgid "URL scan method:"
-msgstr "Метод сканирования URL:"
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
-msgstr ""
-
-#, php-format
-msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
-msgstr ""
-
 msgid "Blog status:"
 msgstr "Статус блога:"
 
@@ -322,40 +312,6 @@ msgstr "Часовой пояс блога:"
 
 msgid "Copyright notice:"
 msgstr "Копирайт:"
-
-msgid "New post URL format:"
-msgstr "Формат URL новых записей:"
-
-#, fuzzy
-msgid "Dotclear"
-msgstr "Команда разработчиков DotClear"
-
-msgid "Sample:"
-msgstr ""
-
-msgid "HTML tag for the title of the notes on the blog:"
-msgstr ""
-
-msgid "Enable XML/RPC interface"
-msgstr "Активировать интерфейс XML/RPC"
-
-msgid "XML/RPC interface allows you to edit your blog with an external client."
-msgstr "Интерфейс XML/RPC позволяет вам публиковать записи в блог используя внешний клиент."
-
-msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "Интерфейс XML/RPC активен. Вам нужно установить следующие параметры в вашем  XML/RPC клиенте:"
-
-msgid "Server URL:"
-msgstr "URL сервера:"
-
-msgid "Blogging system:"
-msgstr "Платформа блога:"
-
-msgid "User name:"
-msgstr "Имя пользователя:"
-
-msgid "your password"
-msgstr "ваш пароль"
 
 msgid "Comments and trackbacks"
 msgstr "Комментарии и пинги"
@@ -399,6 +355,9 @@ msgid "Date format:"
 msgstr "Формат дат:"
 
 msgid "Pattern of date"
+msgstr ""
+
+msgid "Sample:"
 msgstr ""
 
 msgid "Time format:"
@@ -507,6 +466,59 @@ msgstr "Выравнивание изображения"
 msgid "Insert a link to the original image"
 msgstr "Как ссылку на изображение оригинал"
 
+#, fuzzy
+msgid "Image legend and title:"
+msgstr "Выравнивание изображения"
+
+#, fuzzy
+msgid "Advanced parameters"
+msgstr "Настройки"
+
+msgid "Please note that changing your blog ID may require changes in your public index.php file."
+msgstr "Заметьте, что изменение ID вашего блога может потребовать изменение в файле index.php."
+
+msgid "URL scan method:"
+msgstr "Метод сканирования URL:"
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
+msgstr ""
+
+#, php-format
+msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
+msgstr ""
+
+msgid "New post URL format:"
+msgstr "Формат URL новых записей:"
+
+#, fuzzy
+msgid "Dotclear"
+msgstr "Команда разработчиков DotClear"
+
+msgid "HTML tag for the title of the notes on the blog:"
+msgstr ""
+
+msgid "Enable XML/RPC interface"
+msgstr "Активировать интерфейс XML/RPC"
+
+msgid "XML/RPC interface allows you to edit your blog with an external client."
+msgstr "Интерфейс XML/RPC позволяет вам публиковать записи в блог используя внешний клиент."
+
+msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
+msgstr "Интерфейс XML/RPC активен. Вам нужно установить следующие параметры в вашем  XML/RPC клиенте:"
+
+msgid "Server URL:"
+msgstr "URL сервера:"
+
+msgid "Blogging system:"
+msgstr "Платформа блога:"
+
+msgid "User name:"
+msgstr "Имя пользователя:"
+
+msgid "your password"
+msgstr "ваш пароль"
+
 msgid "Search engines robots policy"
 msgstr "Параметры индексации поисковыми машинами."
 
@@ -522,6 +534,10 @@ msgstr "Описание блога :"
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr ""
+
+#, fuzzy
+msgid "Plugins parameters"
+msgstr "Настройки"
 
 msgid "Save"
 msgstr "Сохранить"
@@ -1321,6 +1337,15 @@ msgstr ""
 msgid "Continue"
 msgstr "Содержание:"
 
+msgid "Invalid language zip file."
+msgstr "Неверный zip файл языкового пакета."
+
+msgid "The zip file does not appear to be a valid Dotclear language pack."
+msgstr "Файл zip не является действительным языковым пакетом Dotclear."
+
+msgid "An error occurred during language upgrade."
+msgstr "При обновлении языкового пакета возникла ошибка."
+
 msgid "No such installed language"
 msgstr "Такой язык не установлен"
 
@@ -1399,15 +1424,6 @@ msgstr "zip файлы:"
 msgid "Upload language"
 msgstr "Загрузить языковые файлы"
 
-msgid "Invalid language zip file."
-msgstr "Неверный zip файл языкового пакета."
-
-msgid "The zip file does not appear to be a valid Dotclear language pack."
-msgstr "Файл zip не является действительным языковым пакетом Dotclear."
-
-msgid "An error occurred during language upgrade."
-msgstr "При обновлении языкового пакета возникла ошибка."
-
 msgid "By names, in ascending order"
 msgstr "По имени, в порядке возрастания"
 
@@ -1464,6 +1480,23 @@ msgstr "отмена"
 msgid "Yes"
 msgstr "да"
 
+#, fuzzy
+msgid "Select this file"
+msgstr "Удалить этот блог"
+
+msgid "Attach this file to entry"
+msgstr "Прикрепить этот файл к записи"
+
+msgid "Insert this file into entry"
+msgstr "Вставить этот файл в запись"
+
+#, fuzzy
+msgid "delete"
+msgstr "Удалить"
+
+msgid "open"
+msgstr "открыть"
+
 #, fuzzy, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
@@ -1498,10 +1531,6 @@ msgid "Select a file by clicking on %s"
 msgstr "Выберите файл для добавления к записи, кликнув по %s."
 
 #, fuzzy
-msgid "Select this file"
-msgstr "Удалить этот блог"
-
-#, fuzzy
 msgid "Choose selected medias"
 msgstr "Откатить к выбранному файлу"
 
@@ -1520,9 +1549,6 @@ msgstr "Загрузить файл zip"
 #, fuzzy, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Выберите файл для добавления к записи %s кликнув по %s."
-
-msgid "Attach this file to entry"
-msgstr "Прикрепить этот файл к записи"
 
 #, fuzzy, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
@@ -1624,16 +1650,6 @@ msgstr ""
 msgid "Blog parameters"
 msgstr "Настройки"
 
-msgid "Insert this file into entry"
-msgstr "Вставить этот файл в запись"
-
-#, fuzzy
-msgid "delete"
-msgstr "Удалить"
-
-msgid "open"
-msgstr "открыть"
-
 msgid "Not a valid file"
 msgstr "Неверный файл"
 
@@ -1664,6 +1680,9 @@ msgstr "Выбранный:"
 
 msgid "Insert media item"
 msgstr "Добавить медиа"
+
+msgid "Image legend and title"
+msgstr ""
 
 msgid "Image alignment"
 msgstr "Выравнивание изображения"
@@ -1986,6 +2005,26 @@ msgstr "Не забудьте проверить правильность пре
 msgid "Go to this entry on the site"
 msgstr ""
 
+msgid "IP address"
+msgstr "IP адрес"
+
+msgid "Edit"
+msgstr ""
+
+msgid "Junk"
+msgstr ""
+
+#, fuzzy
+msgid "select this comment"
+msgstr "Редактировать комментарий"
+
+#, fuzzy
+msgid "select this trackback"
+msgstr "Принимать пинги"
+
+msgid "Edit this comment"
+msgstr "Редактировать комментарий"
+
 #, fuzzy
 msgid "Entry status"
 msgstr "Статус записи:"
@@ -2101,26 +2140,6 @@ msgstr "Автоматическое обнаружение URL пингов"
 msgid "Previously sent pings"
 msgstr "Ранее отправленные пинги"
 
-msgid "IP address"
-msgstr "IP адрес"
-
-msgid "Edit"
-msgstr ""
-
-msgid "Junk"
-msgstr ""
-
-#, fuzzy
-msgid "select this comment"
-msgstr "Редактировать комментарий"
-
-#, fuzzy
-msgid "select this trackback"
-msgstr "Принимать пинги"
-
-msgid "Edit this comment"
-msgstr "Редактировать комментарий"
-
 msgid "This attachment does not exist"
 msgstr "Этот прикрепленный файл не существует"
 
@@ -2215,10 +2234,17 @@ msgid "Selected entries action:"
 msgstr "Действия над выбранными записями:"
 
 #, fuzzy
+msgid "Smallest"
+msgstr "Маленький:"
+
+#, fuzzy
 msgid "Smaller"
 msgstr "Маленький:"
 
 msgid "Larger"
+msgstr ""
+
+msgid "Largest"
 msgstr ""
 
 msgid "Blog description (in blog parameters)"
@@ -2322,6 +2348,12 @@ msgstr ""
 #, fuzzy
 msgid "Font size:"
 msgstr "Размер файла:"
+
+msgid "Activate adpative font size"
+msgstr ""
+
+msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
+msgstr ""
 
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
@@ -3127,6 +3159,10 @@ msgstr "Действие"
 
 msgid "Tags:"
 msgstr ""
+
+#, fuzzy
+msgid "Hide this notice"
+msgstr "Использовать  эту тему"
 
 msgid "You have unsaved changes."
 msgstr "Вы не сохранили изменения."
