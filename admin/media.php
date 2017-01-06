@@ -147,243 +147,7 @@ try {
 	$core->error->add($e->getMessage());
 }
 
-# Zip download
-if (!empty($_GET['zipdl']) && $core->auth->check('media_admin',$core->blog->id))
-{
-	try
-	{
-		if (strpos(realpath($core->media->root.'/'.$d),realpath($core->media->root)) === 0) {
-			// Media folder or one of it's sub-folder(s)
-			@set_time_limit(300);
-			$fp = fopen('php://output','wb');
-			$zip = new fileZip($fp);
-			$zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).jpg$#');
-			$zip->addDirectory($core->media->root.'/'.$d,'',true);
-
-			header('Content-Disposition: attachment;filename='.date('Y-m-d').'-'.$core->blog->id.'-'.($d ?: 'media').'.zip');
-			header('Content-Type: application/x-zip');
-			$zip->write();
-			unset($zip);
-			exit;
-		} else {
-			$d = null;
-			$core->media->chdir($d);
-			throw new Exception(__('Not a valid directory'));
-		}
-	}
-	catch (Exception $e)
-	{
-		$core->error->add($e->getMessage());
-	}
-}
-
-# Cope with fav/unfav dir
-$fav_dirs = null;
-if (!empty($_GET['fav'])) {
-	if (!$q) { // Ignore search results
-		$fav_dir = rtrim($d,'/');
-		$core->auth->user_prefs->addWorkspace('interface');
-		$nb_last_dirs = (integer)($core->auth->user_prefs->interface->media_nb_last_dirs);
-		if ($nb_last_dirs > 0) {
-			$fav_dirs = $core->auth->user_prefs->interface->media_fav_dirs;
-			if (!is_array($fav_dirs)) {
-				$fav_dirs = array();
-			}
-			if (!in_array($fav_dir,$fav_dirs) && $_GET['fav'] == 'y') {
-				// Add directory in favorites
-				array_unshift($fav_dirs,$fav_dir);
-			} elseif (in_array($fav_dir,$fav_dirs) && $_GET['fav'] == 'n') {
-				// Remove directory from favorites
-				unset($fav_dirs[array_search($fav_dir,$fav_dirs)]);
-			}
-			// Store new list
-			$core->auth->user_prefs->interface->put('media_fav_dirs',$fav_dirs,'array');
-			$core->adminurl->redirect('admin.media',$page_url_params);
-		}
-	}
-}
-
-# Recent media dirs
-$last_dirs = null;
-if (!$q) {	// Ignore search results
-	$recent_dir = rtrim($d,'/');
-	$core->auth->user_prefs->addWorkspace('interface');
-	$nb_last_dirs = (integer)($core->auth->user_prefs->interface->media_nb_last_dirs);
-	if ($nb_last_dirs > 0) {
-		$last_dirs = $core->auth->user_prefs->interface->media_last_dirs;
-		if (!is_array($last_dirs)) {
-			$last_dirs = array();
-		}
-		if (!in_array($recent_dir,$last_dirs)) {
-			// Add new dir at the top of the list
-			array_unshift($last_dirs,$recent_dir);
-			// Remove oldest dir(s)
-			while (count($last_dirs) > $nb_last_dirs) {
-				array_pop($last_dirs);
-			}
-		} else {
-			// Move current dir at the top of list
-			unset($last_dirs[array_search($recent_dir,$last_dirs)]);
-			array_unshift($last_dirs,$recent_dir);
-		}
-		// Store new list
-		$core->auth->user_prefs->interface->put('media_last_dirs',$last_dirs,'array');
-	}
-}
-
-# New directory
-if ($dir && !empty($_POST['newdir']))
-{
-	try {
-		$core->media->makeDir($_POST['newdir']);
-		dcPage::addSuccessNotice(sprintf(
-			__('Directory "%s" has been successfully created.'),
-			html::escapeHTML($_POST['newdir']))
-		);
-		$core->adminurl->redirect('admin.media',$page_url_params);
-	} catch (Exception $e) {
-		$core->error->add($e->getMessage());
-	}
-}
-
-# Adding a file
-if ($dir && !empty($_FILES['upfile'])) {
-	// only one file per request : @see option singleFileUploads in admin/js/jsUpload/jquery.fileupload
-	$upfile = array('name' => $_FILES['upfile']['name'][0],
-		'type' => $_FILES['upfile']['type'][0],
-		'tmp_name' => $_FILES['upfile']['tmp_name'][0],
-		'error' => $_FILES['upfile']['error'][0],
-		'size' => $_FILES['upfile']['size'][0]
-		);
-
-	if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
-		header('Content-type: application/json');
-		$message = array();
-
-		try {
-			files::uploadStatus($upfile);
-			$new_file_id = $core->media->uploadFile($upfile['tmp_name'], $upfile['name']);
-
-			$message['files'][] = array(
-				'name' => $upfile['name'],
-				'size' => $upfile['size'],
-				'html' => mediaItemLine($core->media->getFile($new_file_id),1,$query)
-			);
-		} catch (Exception $e) {
-			$message['files'][] = array('name' => $upfile['name'],
-				'size' => $upfile['size'],
-				'error' => $e->getMessage()
-				);
-		}
-		echo json_encode($message);
-		exit();
-	} else {
-		try {
-			files::uploadStatus($upfile);
-
-			$f_title = (isset($_POST['upfiletitle']) ? html::escapeHTML($_POST['upfiletitle']) : '');
-			$f_private = (isset($_POST['upfilepriv']) ? $_POST['upfilepriv'] : false);
-
-			$core->media->uploadFile($upfile['tmp_name'],$upfile['name'],$f_title,$f_private);
-
-			dcPage::addSuccessNotice(__('Files have been successfully uploaded.'));
-			$core->adminurl->redirect('admin.media',$page_url_params);
-		} catch (Exception $e) {
-			$core->error->add($e->getMessage());
-		}
-	}
-}
-
-# Removing items
-if ($dir && !empty($_POST['medias']) && !empty($_POST['delete_medias'])) {
-	try {
-		foreach ($_POST['medias'] as $media) {
-			$core->media->removeItem(rawurldecode($media));
-		}
-		dcPage::addSuccessNotice(
-			sprintf(__('Successfully delete one media.',
-					   'Successfully delete %d medias.',
-					   count($_POST['medias'])
-					   ),
-					   count($_POST['medias'])
-			)
-		);
-		$core->adminurl->redirect('admin.media',$page_url_params);
-	} catch (Exception $e) {
-		$core->error->add($e->getMessage());
-	}
-}
-
-# Removing item from popup only
-if ($dir && !empty($_POST['rmyes']) && !empty($_POST['remove']))
-{
-	$_POST['remove'] = rawurldecode($_POST['remove']);
-
-	try {
-		if (is_dir(path::real($core->media->getPwd().'/'.path::clean($_POST['remove'])))) {
-			$msg = __('Directory has been successfully removed.');
-		} else {
-			$msg = __('File has been successfully removed.');
-		}
-		$core->media->removeItem($_POST['remove']);
-		dcPage::addSuccessNotice($msg);
-		$core->adminurl->redirect('admin.media',$page_url_params);
-	} catch (Exception $e) {
-		$core->error->add($e->getMessage());
-	}
-}
-
-# Rebuild directory
-if ($dir && $core->auth->isSuperAdmin() && !empty($_POST['rebuild']))
-{
-	try {
-		$core->media->rebuild($d);
-
-		dcPage::success(sprintf(
-			__('Directory "%s" has been successfully rebuilt.'),
-			html::escapeHTML($d))
-		);
-		$core->adminurl->redirect('admin.media',$page_url_params);
-	} catch (Exception $e) {
-		$core->error->add($e->getMessage());
-	}
-}
-
-# DISPLAY confirm page for rmdir & rmfile
-if ($dir && !empty($_GET['remove']) && empty($_GET['noconfirm']))
-{
-	call_user_func($open_f,__('Media manager'),'',
-		dcPage::breadcrumb(
-			array(
-				html::escapeHTML($core->blog->name) => '',
-				__('Media manager') => '',
-				__('confirm removal') => ''
-			),
-			array('home_link' => !$popup)
-		)
-	);
-
-	echo
-	'<form action="'.html::escapeURL($core->adminurl->get('admin.media')).'" method="post">'.
-	'<p>'.sprintf(__('Are you sure you want to remove %s?'),
-		html::escapeHTML($_GET['remove'])).'</p>'.
-	'<p><input type="submit" value="'.__('Cancel').'" /> '.
-	' &nbsp; <input type="submit" name="rmyes" value="'.__('Yes').'" />'.
-	form::hidden('d',$d).
-	form::hidden('q',$q).
-	$core->adminurl->getHiddenFormFields('admin.media',$page_url_params).
-	$core->formNonce().
-	form::hidden('remove',html::escapeHTML($_GET['remove'])).'</p>'.
-	'</form>';
-
-	call_user_func($close_f);
-	exit;
-}
-
-/* DISPLAY Main page
--------------------------------------------------------- */
-$core->auth->user_prefs->addWorkspace('interface');
-$user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
+// Local functions
 
 $mediaItemLine = function($f,$i,$query,$table=false)
 {
@@ -518,6 +282,246 @@ $mediaItemLine = function($f,$i,$query,$table=false)
 
 	return $res;
 };
+
+// Actions
+
+# Zip download
+if (!empty($_GET['zipdl']) && $core->auth->check('media_admin',$core->blog->id))
+{
+	try
+	{
+		if (strpos(realpath($core->media->root.'/'.$d),realpath($core->media->root)) === 0) {
+			// Media folder or one of it's sub-folder(s)
+			@set_time_limit(300);
+			$fp = fopen('php://output','wb');
+			$zip = new fileZip($fp);
+			$zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).jpg$#');
+			$zip->addDirectory($core->media->root.'/'.$d,'',true);
+
+			header('Content-Disposition: attachment;filename='.date('Y-m-d').'-'.$core->blog->id.'-'.($d ?: 'media').'.zip');
+			header('Content-Type: application/x-zip');
+			$zip->write();
+			unset($zip);
+			exit;
+		} else {
+			$d = null;
+			$core->media->chdir($d);
+			throw new Exception(__('Not a valid directory'));
+		}
+	}
+	catch (Exception $e)
+	{
+		$core->error->add($e->getMessage());
+	}
+}
+
+# Cope with fav/unfav dir
+$fav_dirs = null;
+if (!empty($_GET['fav'])) {
+	if (!$q) { // Ignore search results
+		$fav_dir = rtrim($d,'/');
+		$core->auth->user_prefs->addWorkspace('interface');
+		$nb_last_dirs = (integer)($core->auth->user_prefs->interface->media_nb_last_dirs);
+		if ($nb_last_dirs > 0) {
+			$fav_dirs = $core->auth->user_prefs->interface->media_fav_dirs;
+			if (!is_array($fav_dirs)) {
+				$fav_dirs = array();
+			}
+			if (!in_array($fav_dir,$fav_dirs) && $_GET['fav'] == 'y') {
+				// Add directory in favorites
+				array_unshift($fav_dirs,$fav_dir);
+			} elseif (in_array($fav_dir,$fav_dirs) && $_GET['fav'] == 'n') {
+				// Remove directory from favorites
+				unset($fav_dirs[array_search($fav_dir,$fav_dirs)]);
+			}
+			// Store new list
+			$core->auth->user_prefs->interface->put('media_fav_dirs',$fav_dirs,'array');
+			$core->adminurl->redirect('admin.media',$page_url_params);
+		}
+	}
+}
+
+# Recent media dirs
+$last_dirs = null;
+if (!$q) {	// Ignore search results
+	$recent_dir = rtrim($d,'/');
+	$core->auth->user_prefs->addWorkspace('interface');
+	$nb_last_dirs = (integer)($core->auth->user_prefs->interface->media_nb_last_dirs);
+	if ($nb_last_dirs > 0) {
+		$last_dirs = $core->auth->user_prefs->interface->media_last_dirs;
+		if (!is_array($last_dirs)) {
+			$last_dirs = array();
+		}
+		if (!in_array($recent_dir,$last_dirs)) {
+			// Add new dir at the top of the list
+			array_unshift($last_dirs,$recent_dir);
+			// Remove oldest dir(s)
+			while (count($last_dirs) > $nb_last_dirs) {
+				array_pop($last_dirs);
+			}
+		} else {
+			// Move current dir at the top of list
+			unset($last_dirs[array_search($recent_dir,$last_dirs)]);
+			array_unshift($last_dirs,$recent_dir);
+		}
+		// Store new list
+		$core->auth->user_prefs->interface->put('media_last_dirs',$last_dirs,'array');
+	}
+}
+
+# New directory
+if ($dir && !empty($_POST['newdir']))
+{
+	try {
+		$core->media->makeDir($_POST['newdir']);
+		dcPage::addSuccessNotice(sprintf(
+			__('Directory "%s" has been successfully created.'),
+			html::escapeHTML($_POST['newdir']))
+		);
+		$core->adminurl->redirect('admin.media',$page_url_params);
+	} catch (Exception $e) {
+		$core->error->add($e->getMessage());
+	}
+}
+
+# Adding a file
+if ($dir && !empty($_FILES['upfile'])) {
+	// only one file per request : @see option singleFileUploads in admin/js/jsUpload/jquery.fileupload
+	$upfile = array('name' => $_FILES['upfile']['name'][0],
+		'type' => $_FILES['upfile']['type'][0],
+		'tmp_name' => $_FILES['upfile']['tmp_name'][0],
+		'error' => $_FILES['upfile']['error'][0],
+		'size' => $_FILES['upfile']['size'][0]
+		);
+
+	if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
+		header('Content-type: application/json');
+		$message = array();
+
+		try {
+			files::uploadStatus($upfile);
+			$new_file_id = $core->media->uploadFile($upfile['tmp_name'], $upfile['name']);
+
+			$message['files'][] = array(
+				'name' => $upfile['name'],
+				'size' => $upfile['size'],
+				'html' => $mediaItemLine($core->media->getFile($new_file_id),1,$query)
+			);
+		} catch (Exception $e) {
+			$message['files'][] = array('name' => $upfile['name'],
+				'size' => $upfile['size'],
+				'error' => $e->getMessage()
+				);
+		}
+		echo json_encode($message);
+		exit();
+	} else {
+		try {
+			files::uploadStatus($upfile);
+
+			$f_title = (isset($_POST['upfiletitle']) ? html::escapeHTML($_POST['upfiletitle']) : '');
+			$f_private = (isset($_POST['upfilepriv']) ? $_POST['upfilepriv'] : false);
+
+			$core->media->uploadFile($upfile['tmp_name'],$upfile['name'],$f_title,$f_private);
+
+			dcPage::addSuccessNotice(__('Files have been successfully uploaded.'));
+			$core->adminurl->redirect('admin.media',$page_url_params);
+		} catch (Exception $e) {
+			$core->error->add($e->getMessage());
+		}
+	}
+}
+
+# Removing items
+if ($dir && !empty($_POST['medias']) && !empty($_POST['delete_medias'])) {
+	try {
+		foreach ($_POST['medias'] as $media) {
+			$core->media->removeItem(rawurldecode($media));
+		}
+		dcPage::addSuccessNotice(
+			sprintf(__('Successfully delete one media.',
+					   'Successfully delete %d medias.',
+					   count($_POST['medias'])
+					   ),
+					   count($_POST['medias'])
+			)
+		);
+		$core->adminurl->redirect('admin.media',$page_url_params);
+	} catch (Exception $e) {
+		$core->error->add($e->getMessage());
+	}
+}
+
+# Removing item from popup only
+if ($dir && !empty($_POST['rmyes']) && !empty($_POST['remove']))
+{
+	$_POST['remove'] = rawurldecode($_POST['remove']);
+
+	try {
+		if (is_dir(path::real($core->media->getPwd().'/'.path::clean($_POST['remove'])))) {
+			$msg = __('Directory has been successfully removed.');
+		} else {
+			$msg = __('File has been successfully removed.');
+		}
+		$core->media->removeItem($_POST['remove']);
+		dcPage::addSuccessNotice($msg);
+		$core->adminurl->redirect('admin.media',$page_url_params);
+	} catch (Exception $e) {
+		$core->error->add($e->getMessage());
+	}
+}
+
+# Rebuild directory
+if ($dir && $core->auth->isSuperAdmin() && !empty($_POST['rebuild']))
+{
+	try {
+		$core->media->rebuild($d);
+
+		dcPage::success(sprintf(
+			__('Directory "%s" has been successfully rebuilt.'),
+			html::escapeHTML($d))
+		);
+		$core->adminurl->redirect('admin.media',$page_url_params);
+	} catch (Exception $e) {
+		$core->error->add($e->getMessage());
+	}
+}
+
+# DISPLAY confirm page for rmdir & rmfile
+if ($dir && !empty($_GET['remove']) && empty($_GET['noconfirm']))
+{
+	call_user_func($open_f,__('Media manager'),'',
+		dcPage::breadcrumb(
+			array(
+				html::escapeHTML($core->blog->name) => '',
+				__('Media manager') => '',
+				__('confirm removal') => ''
+			),
+			array('home_link' => !$popup)
+		)
+	);
+
+	echo
+	'<form action="'.html::escapeURL($core->adminurl->get('admin.media')).'" method="post">'.
+	'<p>'.sprintf(__('Are you sure you want to remove %s?'),
+		html::escapeHTML($_GET['remove'])).'</p>'.
+	'<p><input type="submit" value="'.__('Cancel').'" /> '.
+	' &nbsp; <input type="submit" name="rmyes" value="'.__('Yes').'" />'.
+	form::hidden('d',$d).
+	form::hidden('q',$q).
+	$core->adminurl->getHiddenFormFields('admin.media',$page_url_params).
+	$core->formNonce().
+	form::hidden('remove',html::escapeHTML($_GET['remove'])).'</p>'.
+	'</form>';
+
+	call_user_func($close_f);
+	exit;
+}
+
+/* DISPLAY Main page
+-------------------------------------------------------- */
+$core->auth->user_prefs->addWorkspace('interface');
+$user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
 
 if (!isset($core->media)) {
 	$breadcrumb = dcPage::breadcrumb(
