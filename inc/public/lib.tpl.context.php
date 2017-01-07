@@ -123,7 +123,7 @@ class context
 
 	public static function global_filters($str,$_args,$tag='')
 	{
-		$_args[0] = $str;
+		$_args[0] = &$str;
 
 		# Terrible hack to pass args values by reference
 		$args = array();
