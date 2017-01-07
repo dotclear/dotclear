@@ -126,13 +126,14 @@ class context
 		$_args[0] = &$str;
 
 		# Terrible hack to pass args values by reference
-		$args = array();
+		$args = new ArrayObject();
 		foreach($_args as $k => &$v) {
 			$args[$k] = &$v;
 		}
 
 		# --BEHAVIOR-- publicBeforeContentFilter
 		$res = $GLOBALS['core']->callBehavior('publicBeforeContentFilter',$GLOBALS['core'],$tag,$args);
+		$str = $args[0];
 
 		if ($args['strip_tags']) {
 			$str = self::strip_tags($str);
@@ -163,6 +164,7 @@ class context
 
 		# --BEHAVIOR-- publicAfterContentFilter
 		$res = $GLOBALS['core']->callBehavior('publicAfterContentFilter',$GLOBALS['core'],$tag,$args);
+		$str = $args[0];
 
 		return $str;
 	}
