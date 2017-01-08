@@ -123,6 +123,8 @@ class dcPage
 			# Cope with blog post preview (via public URL in iframe)
 			if (!is_null($core->blog->host)) {
 				$csp['default-src'] .= ' '.parse_url($core->blog->host,PHP_URL_HOST);
+				$csp['script-src'] .= ' '.parse_url($core->blog->host,PHP_URL_HOST);
+				$csp['style-src'] .= ' '.parse_url($core->blog->host,PHP_URL_HOST);
 			}
 			# Cope with media display in media manager (via public URL)
 			if (!is_null($core->media)) {
