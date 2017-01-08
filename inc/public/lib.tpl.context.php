@@ -126,10 +126,7 @@ class context
 		$_args[0] = &$str;
 
 		# Terrible hack to pass args values by reference
-		$args = new ArrayObject();
-		foreach($_args as $k => &$v) {
-			$args[$k] = &$v;
-		}
+		$args = new ArrayObject($_args);
 
 		# --BEHAVIOR-- publicBeforeContentFilter
 		$res = $GLOBALS['core']->callBehavior('publicBeforeContentFilter',$GLOBALS['core'],$tag,$args);
