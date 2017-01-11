@@ -571,7 +571,7 @@ class dcAuth
 			throw new Exception(__('That user does not exist in the database.'));
 		}
 
-		$key = md5(uniqid());
+		$key = md5(uniqid('',true));
 
 		$cur = $this->con->openCursor($this->user_table);
 		$cur->user_recover_key = $key;
