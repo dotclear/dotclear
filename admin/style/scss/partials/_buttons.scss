@@ -63,7 +63,6 @@ input.button.start {
 	background-color: #25a6e1;
 	@include background-image(linear-gradient(to bottom, #25a6e1, #188bc0));
 	border-color: #25a6e1;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
 input[type=submit]:hover,
@@ -100,7 +99,6 @@ a.button.reset {
 	@include background-image(linear-gradient(to bottom, #f9f9f9, #eaeaea));
 	background-repeat: repeat-x;
 	border-color: #dfdfdf #dfdfdf #c5c5c5;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 button:hover,
@@ -157,7 +155,6 @@ a.button.delete:focus {
 	@include background-image(linear-gradient(to bottom, #dc5f59, #b33630));
 	background-repeat: repeat-x;
 	border-color: #cd504a;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 #info-box a.button,
@@ -173,9 +170,6 @@ button.add {
 	@include background-image(linear-gradient(to bottom, #bee74b, #9bca1c));
 	border-color: #bee74b;
 	padding: .33em 1.33em .5em;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
-	//    font-weight: normal;
-	//    font-size: 1.16em;
 }
 
 .button.add:hover,
@@ -208,7 +202,6 @@ input.disabled,
 input[type=submit].disabled,
 button.disabled,
 button[type=submit].disabled {
-	text-shadow: none;
 	color: #676e78;
 	background: #F5F5F5;
 	border: 1px solid #CCC;
@@ -237,7 +230,6 @@ a.metaGetList,
 a.metaGetMore {
 	font-size: 0.825em;
 	color: #333;
-	text-shadow: none;
 	background: #fff;
 	box-shadow: none;
 	border: 1px solid #676e78;
@@ -280,7 +272,6 @@ a.metaGetMore {
 
 .addMeta button:not(.metaGetMore),
 .addMeta a:not(.metaGetMore) {
-	text-shadow: initial;
 	box-shadow: initial;
 	margin-bottom: 2px;
 	&:hover,
