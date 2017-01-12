@@ -1,17 +1,35 @@
+#entry-form {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 #entry-wrapper {
-	float: left;
-	width: 100%;
-	margin-right: -16em;
+	flex-grow: 1;
+	width: calc(100% - 19em);
+	@media screen and (max-width: $xl-screen) {
+		width: 100%;
+	}
 }
 
 #entry-content {
-	margin-right: 18em;
 	margin-left: 0;
+	padding-right: 3em;
+	@media screen and (max-width: $xs-screen) {
+		padding-right: 1em;
+	}
 }
 
 #entry-sidebar {
-	width: 16em;
-	float: right;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	@media screen and (max-width: $xl-screen) {
+		flex-direction: row;
+	}
+	@media screen and (max-width: $xs-screen) {
+		padding-right: 1em;
+	}
+
 	h4 {
 		font-size: 1.08em;
 		margin-top: .3em;
@@ -25,8 +43,11 @@
 }
 
 .sb-box {
-	border-bottom: 1px solid #dfdfdf;
+	width: 18em;
 	margin-bottom: 1em;
+	margin-right: 1em;
+	padding: .5em 1em;
+	background-color: $secondary-background;
 }
 
 #tb_excerpt {
