@@ -2753,7 +2753,8 @@ div.template-upload {
       padding-right: 1em; } }
   #entry-sidebar h4 {
     font-size: 1.08em;
-    margin-top: .3em; }
+    margin-top: .3em;
+    border-bottom: 1px solid #676e78; }
   #entry-sidebar select {
     width: 100%; }
   #entry-sidebar input#post_position {
