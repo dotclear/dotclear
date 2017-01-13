@@ -2735,11 +2735,16 @@ div.template-upload {
       width: 100%; } }
 
 #entry-content {
-  margin-left: 0;
-  padding-right: 3em; }
+  margin-left: 0; }
+  @media screen and (min-width: 80.01em) {
+    #entry-content {
+      padding-right: 3em; } }
   @media screen and (max-width: 38em) {
     #entry-content {
       padding-right: 1em; } }
+  @media screen and (max-width: 26.5em) {
+    #entry-content {
+      padding-right: 0; } }
 
 #entry-sidebar {
   display: flex;
