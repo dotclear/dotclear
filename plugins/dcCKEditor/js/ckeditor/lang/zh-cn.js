@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['zh-cn'] = {
@@ -204,8 +204,8 @@ CKEDITOR.lang['zh-cn'] = {
     	anchorName : '按锚点名称',
     	charset : '字符编码',
     	cssClasses : '样式类名称',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : '强制下载',
+    	displayText : '显示文本',
     	emailAddress : '地址',
     	emailBody : '内容',
     	emailSubject : '主题',
@@ -381,7 +381,29 @@ CKEDITOR.lang['zh-cn'] = {
     		F0FFFF : '天蓝',
     		F0F8FF : '淡蓝',
     		E6E6FA : '淡紫',
-    		FFF : '白'
+    		FFF : '白',
+    		'1ABC9C' : 'Strong Cyan',
+    		'2ECC71' : 'Emerald',
+    		'3498DB' : 'Bright Blue',
+    		'9B59B6' : 'Amethyst',
+    		'4E5F70' : 'Grayish Blue',
+    		F1C40F : 'Vivid Yellow',
+    		'16A085' : 'Dark Cyan',
+    		'27AE60' : 'Dark Emerald',
+    		'2980B9' : 'Strong Blue',
+    		'8E44AD' : 'Dark Violet',
+    		'2C3E50' : 'Desaturated Blue',
+    		F39C12 : 'Orange',
+    		E67E22 : 'Carrot',
+    		E74C3C : 'Pale Red',
+    		ECF0F1 : 'Bright Silver',
+    		'95A5A6' : 'Light Grayish Cyan',
+    		DDD : 'Light Gray',
+    		D35400 : 'Pumpkin',
+    		C0392B : 'Strong Red',
+    		BDC3C7 : 'Silver',
+    		'7F8C8D' : 'Grayish Cyan',
+    		'999' : 'Dark Gray'
     	},
     	more : '其它颜色...',
     	panelTitle : '颜色',
@@ -503,11 +525,11 @@ CKEDITOR.lang['zh-cn'] = {
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : '空格键',
     		'35' : '行尾键',
     		'36' : '行首键',
     		'46' : '删除键',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : '快捷键'
     } }; 
