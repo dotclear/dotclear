@@ -859,7 +859,7 @@ h2 a:visited {
 
 .entry-status img.img_select_option {
   padding-left: 4px;
-  vertical-align: text-top; }
+  vertical-align: -1px; }
 
 h4 label,
 h5 label {
@@ -1087,6 +1087,12 @@ input[type=file] {
   padding: 0;
   background: transparent; }
 
+input + input[type=checkbox] {
+  margin-left: .33em; }
+
+a input {
+  margin-right: .33em; }
+
 input[type=file] {
   margin-top: .3em;
   margin-bottom: .3em; }
@@ -1186,12 +1192,6 @@ input[type=submit] {
 
 a.button {
   vertical-align: middle; }
-
-button,
-input[type=button],
-input[type=reset],
-input[type=submit] {
-  -webkit-appearance: button; }
 
 /* Boutons javascript (dépliage/repliage, …) */
 .void-btn {
@@ -1935,8 +1935,6 @@ tr.line:hover {
 
 td.status {
   vertical-align: middle; }
-  td.status img {
-    margin-bottom: -2px; }
   td.status a {
     border: none; }
 
@@ -2924,11 +2922,11 @@ div.template-upload {
     margin-bottom: 4px; }
 
 .pw-very-weak .bar {
-  background: #b33630;
+  background: #c44d58;
   width: 30px; }
 
 .pw-weak .bar {
-  background: #b33630;
+  background: #e1732c;
   width: 60px; }
 
 .pw-mediocre .bar {
@@ -2936,11 +2934,11 @@ div.template-upload {
   width: 90px; }
 
 .pw-strong .bar {
-  background: #9bca1c;
+  background: #cdad12;
   width: 120px; }
 
 .pw-very-strong .bar {
-  background: #9bca1c;
+  background: #9ac123;
   width: 150px; }
 
 /* ------------------------------------------------------------------ navigation */

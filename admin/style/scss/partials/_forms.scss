@@ -118,6 +118,14 @@ input[type=file] {
 	padding: 0;
 	background: transparent;
 }
+input + input[type=checkbox] {
+	// Used for js expand/hide (lists, options, ...)
+	margin-left: .33em;
+}
+a input {
+	// Used for js expand/hide (lists, options, ...)
+	margin-right: .33em;
+}
 
 input[type=file] {
 	margin-top: .3em;
