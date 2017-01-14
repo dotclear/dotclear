@@ -355,8 +355,8 @@ var dotclear = {
 				var imgE = document.createElement('img');
 				imgE.src = 'images/locker.png';
 				imgE.style.position = 'absolute';
-				imgE.style.top = '1.7em';
-				imgE.style.left = ($(this).width()+12)+'px';
+				imgE.style.top = '1.8em';
+				imgE.style.left = ($(this).width()+14)+'px';
 				imgE.alt=dotclear.msg.click_to_unlock;
 				$(imgE).css('cursor','pointer');
 
