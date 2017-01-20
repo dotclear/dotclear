@@ -12,7 +12,7 @@
 
 require dirname(__FILE__).'/../inc/admin/prepend.php';
 
-dcPage::checkSuper();
+dcPage::check('usage,contentadmin');
 
 # Filters
 $status_combo = array_merge(
@@ -33,10 +33,12 @@ $order_combo = array(
 );
 
 # Actions
-$blogs_actions_page = new dcBlogsActionsPage($core,$core->adminurl->get("admin.blogs"));
 
-if ($blogs_actions_page->process()) {
-	return;
+if ($core->auth->isSuperAdmin()) {
+	$blogs_actions_page = new dcBlogsActionsPage($core,$core->adminurl->get("admin.blogs"));
+	if ($blogs_actions_page->process()) {
+		return;
+	}
 }
 
 # Requests
@@ -127,8 +129,9 @@ if (!$core->error->flag())
 	'<h4>'.__('Filters').'</h4>'.
 	'<p><label for="q" class="ib">'.__('Search:').'</label> '.
 	form::field('q',20,255,html::escapeHTML($q)).'</p>'.
-	'<p><label for="status" class="ib">'.__('Status:').'</label> '.
-	form::combo('status',$status_combo,$status).'</p>'.
+	($core->auth->isSuperAdmin() ?
+		'<p><label for="status" class="ib">'.__('Status:').'</label> '.
+		form::combo('status',$status_combo,$status).'</p>' : '').
 	'</div>'.
 
 	'<div class="cell filters-options">'.
@@ -148,30 +151,33 @@ if (!$core->error->flag())
 
 	# Show blogs
 	$blog_list->display($page,$nb_per_page,
-	'<form action="'.$core->adminurl->get("admin.blogs").'" method="post" id="form-blogs">'.
+	($core->auth->isSuperAdmin() ?
+		'<form action="'.$core->adminurl->get("admin.blogs").'" method="post" id="form-blogs">' : '').
 
 	'%s'.
 
-	'<div class="two-cols">'.
-	'<p class="col checkboxes-helpers"></p>'.
+	($core->auth->isSuperAdmin() ?
+		'<div class="two-cols">'.
+		'<p class="col checkboxes-helpers"></p>'.
 
-	'<p class="col right"><label for="action" class="classic">'.__('Selected blogs action:').'</label> '.
-	form::combo('action',$blogs_actions_page->getCombo(),'online','','','','title="'.__('Actions').'"').
-	$core->formNonce().
-	'<input id="do-action" type="submit" value="'.__('ok').'" /></p>'.
-	form::hidden(array('sortby'),$sortby).
-	form::hidden(array('order'),$order).
-	form::hidden(array('status'),$status).
-	form::hidden(array('page'),$page).
-	form::hidden(array('nb'),$nb_per_page).
-	'</div>'.
+		'<p class="col right"><label for="action" class="classic">'.__('Selected blogs action:').'</label> '.
+		form::combo('action',$blogs_actions_page->getCombo(),'online','','','','title="'.__('Actions').'"').
+		$core->formNonce().
+		'<input id="do-action" type="submit" value="'.__('ok').'" /></p>'.
+		'</div>'.
 
-	'<div>'.
-	'<p><label for="pwd">'.__('Please give your password to confirm blog(s) deletion:').'</label> '.
-	form::password('pwd',20,255).'</p>'.
-	'</div>'.
+		'<div>'.
+		'<p><label for="pwd">'.__('Please give your password to confirm blog(s) deletion:').'</label> '.
+		form::password('pwd',20,255).'</p>'.
+		'</div>'.
 
-	'</form>',
+		form::hidden(array('sortby'),$sortby).
+		form::hidden(array('order'),$order).
+		form::hidden(array('status'),$status).
+		form::hidden(array('page'),$page).
+		form::hidden(array('nb'),$nb_per_page).
+
+		'</form>' : ''),
 	$show_filters
 	);
 }
