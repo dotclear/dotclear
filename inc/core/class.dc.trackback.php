@@ -355,7 +355,7 @@ class dcTrackback
 
 	/**
 	Receives a webmention and insert it as a comment of given post.
-	
+
 	NB: plugin Fair Trackback check source content to find url.
 
 	@return	<b>null</b>	Null on success, else throw an exception
@@ -386,10 +386,40 @@ class dcTrackback
 			}
 
 			# Create a comment for received webmention
-			// maybe better to try to fetch a title from the source ?...
-			$title = __('A website mention this entry.');
-			$comment = '';
-			$excerpt = sprintf('<a href="%s" rel="nofollow">%s</a>',$from_url,$from_url);
+			$remote_content = $this->getRemoteContent($from_url);
+
+			# We want a title...
+			if (!preg_match('!<title>([^<].*?)</title>!mis',$remote_content,$m)) {
+				throw new Exception(__('Where\'s your title?'), 0);
+			}
+			$title = trim(html::clean($m[1]));
+			$title = html::decodeEntities($title);
+			$title = html::escapeHTML($title);
+			$title = text::cutString($title,60);
+
+			preg_match('!<body[^>]*?>(.*)?</body>!msi',$remote_content,$m);
+			$source = $m[1];
+			$source = preg_replace('![\r\n\s]+!ms',' ',$source);
+			$source = preg_replace( "/<\/*(h\d|p|th|td|li|dt|dd|pre|caption|input|textarea|button)[^>]*>/","\n\n",$source );
+			$source = strip_tags($source,'<a>');
+			$source = explode("\n\n",$source);
+
+			$excerpt = '';
+			foreach ($source as $line) {
+				if (strpos($line, $to_url) !== false) {
+					if (preg_match("!<a[^>]+?".$to_url."[^>]*>([^>]+?)</a>!",$line,$m)) {
+						$excerpt = strip_tags($line);
+						break;
+					}
+				}
+			}
+			if ($excerpt) {
+				$excerpt = '(&#8230;) '.text::cutString(html::escapeHTML($excerpt),200).' (&#8230;)';
+			}
+			else {
+				$excerpt = '(&#8230;)';
+			}
+
 			$this->addBacklink($post_id,$from_url,'',$title,$excerpt,$comment);
 
 			# All done, thanks
@@ -442,7 +472,8 @@ class dcTrackback
 	private function addBacklink($post_id,$url,$blog_name,$title,$excerpt,&$comment)
 	{
 		if (empty($blog_name)) {
-			$blog_name = 'Anonymous blog';
+			// Let use title as text link for this backlink
+			$blog_name = ($title ?: 'Anonymous blog');
 		}
 
 		$comment =
@@ -521,7 +552,7 @@ class dcTrackback
 	}
 
 	/**
-	Retreive local post from a given IRL
+	Retreive local post from a given URL
 
 	@param	to_url		<b>string</b>		Target URL
 	@return	<b>string</b>
@@ -691,22 +722,7 @@ class dcTrackback
 			return false;
 		}
 
-		# If we've got a X-Pingback header and it's a valid URL, it will be enough
-		if ($pb_url && filter_var($pb_url,FILTER_VALIDATE_URL) && preg_match('!^https?:!',$pb_url)) {
-			return $pb_url.'|'.$url;
-		}
-
-		# No X-Pingback header. A link rel=pingback, maybe ?
-		$pattern_pingback = '!<link rel="pingback" href="(.*?)"( /)?>!msi';
-
-		if (preg_match($pattern_pingback,$page_content,$m)) {
-			$pb_url = $m[1];
-			if (filter_var($pb_url,FILTER_VALIDATE_URL) && preg_match('!^https?:!',$pb_url)) {
-				return $pb_url.'|'.$url;
-			}
-		}
-
-		# No pingback ? OK, let's check for a trackback data chunk...
+		# Let's check for an elderly trackback data chunk...
 		$pattern_rdf =
 		'/<rdf:RDF.*?>.*?'.
 		'<rdf:Description\s+(.*?)\/>'.
@@ -726,6 +742,21 @@ class dcTrackback
 				if (preg_match('/trackback:ping="(.*?)"/msi',$rdf,$tb_link)) {
 					return $tb_link[1];
 				}
+			}
+		}
+
+		# No trackback ? OK, let see if we've got a X-Pingback header and it's a valid URL, it will be enough
+		if ($pb_url && filter_var($pb_url,FILTER_VALIDATE_URL) && preg_match('!^https?:!',$pb_url)) {
+			return $pb_url.'|'.$url;
+		}
+
+		# No X-Pingback header. A link rel=pingback, maybe ?
+		$pattern_pingback = '!<link rel="pingback" href="(.*?)"( /)?>!msi';
+
+		if (preg_match($pattern_pingback,$page_content,$m)) {
+			$pb_url = $m[1];
+			if (filter_var($pb_url,FILTER_VALIDATE_URL) && preg_match('!^https?:!',$pb_url)) {
+				return $pb_url.'|'.$url;
 			}
 		}
 
@@ -791,11 +822,11 @@ class dcTrackback
 	*/
 	public static function checkURLs($from_url,$to_url)
 	{
-		if (!(filter_var($from_url, FILTER_VALIDATE_URL) && preg_match('!^https?://!',$from_url))) {
+		if (!(filter_var($from_url,FILTER_VALIDATE_URL) && preg_match('!^https?://!',$from_url))) {
 			throw new Exception(__('No valid source URL provided? Try again!'), 0);
 		}
 
-		if (!(filter_var($to_url, FILTER_VALIDATE_URL) && preg_match('!^https?://!',$to_url))) {
+		if (!(filter_var($to_url,FILTER_VALIDATE_URL) && preg_match('!^https?://!',$to_url))) {
 			throw new Exception(__('No valid target URL provided? Try again!'), 0);
 		}
 
