@@ -682,14 +682,19 @@ class dcUrlHandlers extends urlHandler
 			self::p404();
 		} else {
 			$core =& $GLOBALS['core'];
+
+			// Save locally post_id from args
+			$post_id = (integer) $args;
+
 			if (!is_array($args)) $args = array();
+			$args['post_id'] = $post_id;
 			$args['type'] = 'trackback';
 
 			# --BEHAVIOR-- publicBeforeReceiveTrackback
 			$core->callBehavior('publicBeforeReceiveTrackback',$core,$args);
 
-			$tb = new dcTrackback($GLOBALS['core']);
-			$tb->receiveTrackback($args);
+			$tb = new dcTrackback($core);
+			$tb->receiveTrackback($post_id);
 		}
 	}
 
