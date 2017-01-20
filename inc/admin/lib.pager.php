@@ -685,7 +685,9 @@ class adminBlogList extends adminGenericList
 			$pager = new dcPager($page,$this->rs_count,$nb_per_page,10);
 
 			$cols = array(
-				'blog' =>	'<th colspan="2" scope="col" abbr="comm" class="first nowrap">'.__('Blog id').'</th>',
+				'blog' =>	'<th'.
+					($this->core->auth->isSuperAdmin() ? ' colspan="2"' : '').
+					' scope="col" abbr="comm" class="first nowrap">'.__('Blog id').'</th>',
 				'name' => '<th scope="col" abbr="name">'.__('Blog name').'</th>',
 				'url' => '<th scope="col" class="nowrap">'.__('URL').'</th>',
 				'posts' => '<th scope="col" class="nowrap">'.__('Entries (all types)').'</th>',
@@ -733,14 +735,17 @@ class adminBlogList extends adminGenericList
 
 		$cols = array(
 			'check' =>
+				($this->core->auth->isSuperAdmin() ?
 				'<td class="nowrap">'.
 				form::checkbox(array('blogs[]'),$this->rs->blog_id,$checked,'','',0).
-				'</td>',
+				'</td>' : ''),
 			'blog' =>
 				'<td class="nowrap">'.
-				'<a href="'.$this->core->adminurl->get("admin.blog",array('id' => $blog_id)).'"  '.
-				'title="'.sprintf(__('Edit blog settings for %s'),$blog_id).'">'.
-				'<img src="images/edit-mini.png" alt="'.__('Edit blog settings').'" /> '.$blog_id.'</a> '.
+				($this->core->auth->isSuperAdmin() ?
+					'<a href="'.$this->core->adminurl->get("admin.blog",array('id' => $blog_id)).'"  '.
+						'title="'.sprintf(__('Edit blog settings for %s'),$blog_id).'">'.
+						'<img src="images/edit-mini.png" alt="'.__('Edit blog settings').'" /> '.$blog_id.'</a> ' :
+					$blog_id.' ').
 				'</td>',
 			'name' =>
 				'<td class="maximal">'.
