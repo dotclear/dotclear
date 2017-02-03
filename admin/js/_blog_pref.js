@@ -34,6 +34,7 @@ $(function() {
 	if ($.isFunction(jsToolBar)) {
 		$('#blog_desc').each(function() {
 			var tbWidgetText = new jsToolBar(this);
+			tbWidgetText.context = 'blog_desc';
 			tbWidgetText.draw('xhtml');
 		});
 	}
