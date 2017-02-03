@@ -143,12 +143,12 @@ function datePicker(target)
 	oHeading.appendChild(oSpan);
 	oHeading.appendChild(document.createTextNode(String.fromCharCode(160)));
 
-	this.oHour.size = 3;
+	this.oHour.size = 2;
 	oHeading.appendChild(this.oHour);
 
 	oHeading.appendChild(document.createTextNode(' : '));
 
-	this.oMinute.size = 3;
+	this.oMinute.size = 2;
 	oHeading.appendChild(this.oMinute);
 
 	oHeading.appendChild(document.createTextNode(String.fromCharCode(160)));
