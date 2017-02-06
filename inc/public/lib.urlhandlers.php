@@ -109,20 +109,33 @@ class dcUrlHandlers extends urlHandler
 		}
 
 		header('Content-Type: '.$_ctx->content_type.'; charset=UTF-8');
+
+		// Additional headers
+		$headers = new ArrayObject;
 		if ($core->blog->settings->system->prevents_clickjacking) {
 			if ($_ctx->exists('xframeoption')) {
 				$url = parse_url($_ctx->xframeoption);
-				header(sprintf('X-Frame-Options: %s', is_array($url)?("ALLOW-FROM ".$url['scheme'].'://'.$url['host']):'SAMEORIGIN'));
+				$header = sprintf('X-Frame-Options: %s',
+					is_array($url)?("ALLOW-FROM ".$url['scheme'].'://'.$url['host']):'SAMEORIGIN');
 			} else {
 				// Prevents Clickjacking as far as possible
-				header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
+				$header = 'X-Frame-Options: SAMEORIGIN'; // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
 			}
+			$headers[] = $header;
+		}
+		# --BEHAVIOR-- urlHandlerServeDocumentHeaders
+		$core->callBehavior('urlHandlerServeDocumentHeaders',$headers);
+
+		// Send additional headers if any
+		foreach ($headers as $header) {
+			header($header);
 		}
 
 		$result['content'] = $core->tpl->getData($_ctx->current_tpl);
 		$result['content_type'] = $_ctx->content_type;
 		$result['tpl'] = $_ctx->current_tpl;
 		$result['blogupddt'] = $core->blog->upddt;
+		$result['headers'] = $headers;
 
 		# --BEHAVIOR-- urlHandlerServeDocument
 		$core->callBehavior('urlHandlerServeDocument',$result);
