@@ -685,6 +685,17 @@ class dcUpgrade
 			}
 		}
 
+		if (version_compare($version,'2.12','<'))
+		{
+			# switch from jQuery 2.2.0 to 2.2.4
+			$strReq = 'UPDATE '.$core->prefix.'setting '.
+					" SET setting_value = '2.2.4' ".
+					" WHERE setting_id = 'jquery_version' ".
+					" AND setting_ns = 'system' ".
+					" AND setting_value = '2.2.0' ";
+			$core->con->execute($strReq);
+		}
+
 		$core->setVersion('core',DC_VERSION);
 		$core->blogDefaults();
 
