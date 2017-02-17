@@ -1,4 +1,6 @@
 <?php
+namespace themes\berlin;
+
 # -- BEGIN LICENSE BLOCK ---------------------------------------
 # This file is part of Berlin, a theme for Dotclear
 #
@@ -10,18 +12,16 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-l10n::set(dirname(__FILE__).'/locales/'.$_lang.'/main');
+\l10n::set(dirname(__FILE__).'/locales/'.$_lang.'/main');
 //__('Show menu').__('Hide menu').__('Navigation');
 
-$core->addBehavior('publicHeadContent',array('behaviorBerlinTheme','publicHeadContent'));
+$core->addBehavior('publicHeadContent',array(__NAMESPACE__.'\behaviorBerlinTheme','publicHeadContent'));
 
 class behaviorBerlinTheme
 {
 	public static function publicHeadContent()
 	{
-//		global $core,$_ctx;
-
-		echo dcUtils::jsVars(array(
+		echo \dcUtils::jsVars(array(
 			'dotclear_berlin_show_menu' => __('Show menu'),
 			'dotclear_berlin_hide_menu' => __('Hide menu'),
 			'dotclear_berlin_navigation' => __('Navigation')
