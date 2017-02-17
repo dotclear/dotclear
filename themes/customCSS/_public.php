@@ -1,4 +1,6 @@
 <?php
+namespace themes\customcss;
+
 # -- BEGIN LICENSE BLOCK ---------------------------------------
 #
 # This file is part of Dotclear 2.
@@ -11,7 +13,7 @@
 # -- END LICENSE BLOCK -----------------------------------------
 if (!defined('DC_RC_PATH')) { return; }
 
-$core->addBehavior('publicHeadContent',array('tplCustomTheme','publicHeadContent'));
+$core->addBehavior('publicHeadContent',array(__NAMESPACE__.'\tplCustomTheme','publicHeadContent'));
 
 class tplCustomTheme
 {
