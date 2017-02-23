@@ -54,6 +54,8 @@ define('DC_TPL_CACHE',path::real(dirname(__FILE__).'/..').'/cache');
 // Var directory
 define('DC_VAR',path::real(dirname(__FILE__).'/..').'/var');
 
+// Cryptographic algorithm
+define('DC_CRYPT_ALGO','sha512');
 
 // If you have PATH_INFO issue, uncomment following lines
 //if (!isset($_SERVER['ORIG_PATH_INFO'])) {
