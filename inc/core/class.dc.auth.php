@@ -608,6 +608,7 @@ class dcAuth
 		$cur = $this->con->openCursor($this->user_table);
 		$cur->user_pwd = $this->crypt($new_pass);
 		$cur->user_recover_key = null;
+		$cur->user_change_pwd = 1;		// User will have to change this temporary password at next login
 
 		$cur->update("WHERE user_recover_key = '".$this->con->escape($recover_key)."'");
 
