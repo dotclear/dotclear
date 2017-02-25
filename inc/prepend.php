@@ -151,6 +151,7 @@ define('DC_DISTRIB_PLUGINS','aboutConfig,akismet,antispam,attachments,blogroll,b
 define('DC_DISTRIB_THEMES','berlin,blueSilence,blowupConfig,customCSS,default,ductile');
 define('DC_DEFAULT_TPLSET','mustek');
 define('DC_DEFAULT_JQUERY','1.4.2');
+define('DC_NEXT_REQUIRED_PHP','5.5');	// Announced in 2.12, will be required in 2.13
 
 if (!defined('DC_VENDOR_NAME')) {
 	define('DC_VENDOR_NAME','Dotclear');

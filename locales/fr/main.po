@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 10:19+0100\n"
+"POT-Creation-Date: 2017-02-25 13:09+0100\n"
 "PO-Revision-Date: 2016-07-18 15:01+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -965,6 +965,14 @@ msgstr "Me le rappeler plus tard"
 msgid "Information about this version"
 msgstr "Informations sur cette version"
 
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr "Une nouvelle version de Dotclear est disponible mais nécessite une version de PHP ≥ %s, la votre est actuellement la %s"
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < 5.5, your's is currently %s"
+msgstr "Les prochaines versions de Dotclear ne supporteront par les versions de PHP < 5.5, la votre est actuellement la %s"
+
 msgid "Make this blog my default blog"
 msgstr "Définir comme blog par défaut"
 
@@ -1369,6 +1377,21 @@ msgstr "Par dates croissantes"
 msgid "By dates, in descending order"
 msgstr "Par dates décroissantes"
 
+msgid "Select this file"
+msgstr "Sélectionner ce fichier"
+
+msgid "Attach this file to entry"
+msgstr "Attacher ce fichier au billet"
+
+msgid "Insert this file into entry"
+msgstr "Insérer ce fichier dans le billet"
+
+msgid "delete"
+msgstr "supprimer"
+
+msgid "open"
+msgstr "ouvrir"
+
 msgid "Not a valid directory"
 msgstr "Répertoire invalide"
 
@@ -1410,21 +1433,6 @@ msgstr "Annuler"
 
 msgid "Yes"
 msgstr "oui"
-
-msgid "Select this file"
-msgstr "Sélectionner ce fichier"
-
-msgid "Attach this file to entry"
-msgstr "Attacher ce fichier au billet"
-
-msgid "Insert this file into entry"
-msgstr "Insérer ce fichier dans le billet"
-
-msgid "delete"
-msgstr "supprimer"
-
-msgid "open"
-msgstr "ouvrir"
 
 #, php-format
 msgid "%s file found"
@@ -3753,9 +3761,6 @@ msgstr "Désolé, une erreur interne est survenue."
 msgid "Thanks, mate. It was a pleasure."
 msgstr "Merci, c'était un plaisir."
 
-msgid "A website mention this entry."
-msgstr "Un site web mentionne cette entrée."
-
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr "Aucune chance que vous pinguiez un de mes contenus ? Non ? Vraiment ?"
 
@@ -3981,6 +3986,9 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
+
+#~ msgid "A website mention this entry."
+#~ msgstr "Un site web mentionne cette entrée."
 
 #~ msgid "Filter blogs list"
 #~ msgstr "Filtrer la liste des blogs"

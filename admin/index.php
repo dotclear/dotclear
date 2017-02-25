@@ -221,6 +221,17 @@ if ($core->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS))
 			($version_info ? ' </p>'.
 			'<p class="updt-info"><a href="'.$version_info.'">'.__('Information about this version').'</a>' : '').'</p>'.
 			'</div>';
+		} else {
+			echo '<p class="info">'.
+				sprintf(__('A new version of Dotclear is available but needs PHP version ≥ %s, your\'s is currently %s'),
+					$updater->getPHPVersion(),phpversion()).
+				'</p>';
+		}
+	} else {
+		if (version_compare(phpversion(),DC_NEXT_REQUIRED_PHP,'<')) {
+			echo '<p class="info">'.
+				sprintf(__('The next versions of Dotclear will not support PHP version < 5.5, your\'s is currently %s'),phpversion()).
+				'</p>';
 		}
 	}
 }
