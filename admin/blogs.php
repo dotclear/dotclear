@@ -66,7 +66,7 @@ if ($q) {
 }
 
 # - Status filter
-if ($status !== '' && in_array($status,$status_combo)) {
+if ($status !== '' && in_array($status,$status_combo,true)) {
 	$params['blog_status'] = $status;
 	$show_filters = true;
 } else {
@@ -74,14 +74,16 @@ if ($status !== '' && in_array($status,$status_combo)) {
 }
 
 # - Sortby and order filter
-if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
-	if ($order !== '' && in_array($order,$order_combo)) {
+if ($sortby !== '' && in_array($sortby,$sortby_combo,true)) {
+	if ($order !== '' && in_array($order,$order_combo,true)) {
 		$params['order'] = $sortby.' '.$order;
 	}
-
-	if ($sortby != 'blog_upddt' || $order != 'desc') {
-		$show_filters = true;
-	}
+} else {
+	$sortby = 'blog_upddt';
+	$order = 'desc';
+}
+if ($sortby != 'blog_upddt' || $order != 'desc') {
+	$show_filters = true;
 }
 
 $params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
@@ -157,7 +159,7 @@ if (!$core->error->flag())
 	'%s'.
 
 	($core->auth->isSuperAdmin() ?
-		'<div class="two-cols">'.
+		'<div class="two-cols clearfix">'.
 		'<p class="col checkboxes-helpers"></p>'.
 
 		'<p class="col right"><label for="action" class="classic">'.__('Selected blogs action:').'</label> '.
@@ -166,10 +168,8 @@ if (!$core->error->flag())
 		'<input id="do-action" type="submit" value="'.__('ok').'" /></p>'.
 		'</div>'.
 
-		'<div>'.
-		'<p><label for="pwd">'.__('Please give your password to confirm blog(s) deletion:').'</label> '.
+		'<p><label for="pwd" class="classic">'.__('Please give your password to confirm blog(s) deletion:').'</label> '.
 		form::password('pwd',20,255).'</p>'.
-		'</div>'.
 
 		form::hidden(array('sortby'),$sortby).
 		form::hidden(array('order'),$order).
