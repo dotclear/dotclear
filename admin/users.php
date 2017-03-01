@@ -59,7 +59,7 @@ if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
 
 $q = !empty($_GET['q']) ? $_GET['q'] : '';
 $sortby = !empty($_GET['sortby']) ?	$_GET['sortby'] : 'user_id';
-$order = !empty($_GET['order']) ?		$_GET['order'] : 'asc';
+$order = !empty($_GET['order']) ? $_GET['order'] : 'asc';
 
 $params['limit'] = array((($page-1)*$nb_per_page),$nb_per_page);
 
@@ -71,24 +71,23 @@ if ($q) {
 }
 
 # - Sortby and order filter
-if ($sortby !== '' && in_array($sortby,$sortby_combo)) {
+if ($sortby !== '' && in_array($sortby,$sortby_combo,true)) {
 	if (array_key_exists($sortby,$sortby_lex)) {
 		$params['order'] = $core->con->lexFields($sortby_lex[$sortby]);
 	} else {
 		$params['order'] = $sortby;
 	}
-	if ($order !== '' && in_array($order,$order_combo)) {
+	if ($order !== '' && in_array($order,$order_combo,true)) {
 		$params['order'] .= ' '.$order;
 	} else {
 		$order='asc';
 	}
-
-	if ($sortby != 'user_id' || $order != 'asc') {
-		$show_filters = true;
-	}
 } else {
 	$sortby = 'user_id';
 	$order = 'asc';
+}
+if ($sortby != 'user_id' || $order != 'asc') {
+	$show_filters = true;
 }
 
 # Get users
