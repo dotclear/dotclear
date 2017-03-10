@@ -62,12 +62,12 @@ class tplBreadcrumb
 				$ret = '<a id="bc-home" href="'.$core->blog->url.'">'.__('Home').'</a>';
 				$categories = $core->blog->getCategoryParents($_ctx->categories->cat_id);
 				while ($categories->fetch()) {
-					$ret .= $separator.'<a href="'.$core->blog->url.$core->url->getBase('category')."/".$categories->cat_url.'">'.$categories->cat_title.'</a>';
+					$ret .= $separator.'<a href="'.$core->blog->url.$core->url->getURLFor('category')."/".$categories->cat_url.'">'.$categories->cat_title.'</a>';
 				}
 				if ($page == 0) {
 					$ret .= $separator.$_ctx->categories->cat_title;
 				} else {
-					$ret .= $separator.'<a href="'.$core->blog->url.$core->url->getBase('category')."/".$_ctx->categories->cat_url.'">'.$_ctx->categories->cat_title.'</a>';
+					$ret .= $separator.'<a href="'.$core->blog->url.$core->url->getURLFor('category')."/".$_ctx->categories->cat_url.'">'.$_ctx->categories->cat_title.'</a>';
 					$ret .= $separator.sprintf(__('page %d'),$page);
 				}
 				break;
@@ -79,11 +79,11 @@ class tplBreadcrumb
 					// Parents cats of post's cat
 					$categories = $core->blog->getCategoryParents($_ctx->posts->cat_id);
 					while ($categories->fetch()) {
-						$ret .= $separator.'<a href="'.$core->blog->url.$core->url->getBase('category')."/".$categories->cat_url.'">'.$categories->cat_title.'</a>';
+						$ret .= $separator.'<a href="'.$core->blog->url.$core->url->getURLFor('category')."/".$categories->cat_url.'">'.$categories->cat_title.'</a>';
 					}
 					// Post's cat
 					$categories = $core->blog->getCategory($_ctx->posts->cat_id);
-					$ret .= $separator.'<a href="'.$core->blog->url.$core->url->getBase('category')."/".$categories->cat_url.'">'.$categories->cat_title.'</a>';
+					$ret .= $separator.'<a href="'.$core->blog->url.$core->url->getURLFor('category')."/".$categories->cat_url.'">'.$categories->cat_title.'</a>';
 				}
 				$ret .= $separator.$_ctx->posts->post_title;
 				break;
@@ -103,7 +103,7 @@ class tplBreadcrumb
 					$ret .= $separator.__('Archives');
 				} else {
 					// Month archive
-					$ret .= $separator.'<a href="'.$core->blog->url.$core->url->getBase("archive").'">'.__('Archives').'</a>';
+					$ret .= $separator.'<a href="'.$core->blog->url.$core->url->getURLFor("archive").'">'.__('Archives').'</a>';
 					$ret .= $separator.dt::dt2str('%B %Y',$_ctx->archives->dt);
 				}
 				break;
@@ -123,11 +123,11 @@ class tplBreadcrumb
 			case 'tag':
 				// Tag
 				$ret = '<a id="bc-home" href="'.$core->blog->url.'">'.__('Home').'</a>';
-				$ret .= $separator.'<a href="'.$core->blog->url.$core->url->getBase("tags").'">'.__('All tags').'</a>';
+				$ret .= $separator.'<a href="'.$core->blog->url.$core->url->getURLFor("tags").'">'.__('All tags').'</a>';
 				if ($page == 0) {
 					$ret .= $separator.$_ctx->meta->meta_id;
 				} else {
-					$ret .= $separator.'<a href="'.$core->blog->url.$core->url->getBase("tag").'/'.rawurlencode($_ctx->meta->meta_id).'">'.$_ctx->meta->meta_id.'</a>';
+					$ret .= $separator.'<a href="'.$core->blog->url.$core->url->getURLFor("tag").'/'.rawurlencode($_ctx->meta->meta_id).'">'.$_ctx->meta->meta_id.'</a>';
 					$ret .= $separator.sprintf(__('page %d'),$page);
 				}
 				break;
