@@ -294,7 +294,7 @@ class tplTags
 
 		$res .= '</ul>';
 
-		if ($core->url->getBase('tags') && !is_null($w->alltagslinktitle) && $w->alltagslinktitle !== '')
+		if ($core->url->getURLFor('tags') && !is_null($w->alltagslinktitle) && $w->alltagslinktitle !== '')
 		{
 			$res .=
 			'<p><strong><a href="'.$core->blog->url.$core->url->getURLFor("tags").'">'.
