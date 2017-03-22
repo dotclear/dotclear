@@ -365,11 +365,6 @@ class rsExtPost
 	public static function getFeedID($rs)
 	{
 		return 'urn:md5:'.md5($rs->core->blog->uid.$rs->post_id);
-
-		$url = parse_url($rs->core->blog->url);
-		$date_part = date('Y-m-d',strtotime($rs->post_creadt));
-
-		return 'tag:'.$url['host'].','.$date_part.':'.$rs->post_id;
 	}
 
 	/**
@@ -709,11 +704,6 @@ class rsExtComment
 	public static function getFeedID($rs)
 	{
 		return 'urn:md5:'.md5($rs->core->blog->uid.$rs->comment_id);
-
-		$url = parse_url($rs->core->blog->url);
-		$date_part = date('Y-m-d',strtotime($rs->comment_dt));
-
-		return 'tag:'.$url['host'].','.$date_part.':'.$rs->comment_id;
 	}
 
 	/**
