@@ -1487,8 +1487,11 @@ p.warning-msg {
 .info a {
   color: #333; }
 
+.close-notice-parent {
+  display: flex;
+  justify-content: space-between; }
+
 .close-notice {
-  float: right;
   background: none;
   border: none;
   border-radius: 0;
@@ -1496,14 +1499,6 @@ p.warning-msg {
   padding-left: 1em; }
   .close-notice:hover, .close-notice:focus {
     background: none; }
-
-div.error {
-  position: relative; }
-  div.error .close-notice {
-    display: block;
-    position: absolute;
-    top: 1em;
-    right: 1em; }
 
 .dc-update {
   padding: 1em 48px 0.5em 48px;

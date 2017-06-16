@@ -562,6 +562,7 @@ $(function() {
 	$('.success').backgroundFade({sColor: dotclear.fadeColor.beginSuccess, eColor: dotclear.fadeColor.endSuccess, steps:20});
 
 	$('p.success,p.warning,p.error,div.error').each(function () {
+		$(this).addClass('close-notice-parent');
 		$(this).append('<button class="close-notice" type="button"><img src="images/close.png" alt="'+dotclear.msg.close_notice+'" /></button>');
 	});
 	$('button.close-notice').click(function(e) {
