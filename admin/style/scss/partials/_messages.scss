@@ -96,8 +96,11 @@ p.warning-msg {
 	color: #333;
 }
 
+.close-notice-parent {
+	display: flex;
+	justify-content: space-between;
+}
 .close-notice {
-	float: right;
 	background: none;
 	border:	none;
 	border-radius: 0;
@@ -105,15 +108,6 @@ p.warning-msg {
 	padding-left: 1em;
 	&:hover, &:focus {
 		background: none;
-	}
-}
-div.error {
-	position: relative;
-	.close-notice {
-		display: block;
-		position: absolute;
-		top: 1em;
-		right: 1em;
 	}
 }
 
