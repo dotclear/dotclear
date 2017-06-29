@@ -613,7 +613,7 @@ if ($blog_id)
 				echo
 				'<p class="form-note warn">'.
 				sprintf(__('The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status).'),
-						$file,$status).
+						html::escapeHTML($file),$status).
 				'</p>';
 			} else {
 				if (substr($content,0,6) != '<?xml ') {
@@ -621,7 +621,7 @@ if ($blog_id)
 					echo
 					'<p class="form-note warn">'.
 					sprintf(__('The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed).'),
-							$file).
+							html::escapeHTML($file)).
 					'</p>';
 				}
 			}
