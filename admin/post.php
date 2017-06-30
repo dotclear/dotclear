@@ -459,7 +459,7 @@ if ($post_id)
 	if ($next_link) { echo $next_link; }
 
 	# --BEHAVIOR-- adminPostNavLinks
-	$core->callBehavior('adminPostNavLinks',isset($post) ? $post : null);
+	$core->callBehavior('adminPostNavLinks',isset($post) ? $post : null,'post');
 
 	echo '</p>';
 }
@@ -672,7 +672,7 @@ if ($can_edit_post) {
 	);
 
 	# --BEHAVIOR-- adminPostFormItems
-	$core->callBehavior('adminPostFormItems',$main_items,$sidebar_items, isset($post) ? $post : null);
+	$core->callBehavior('adminPostFormItems',$main_items,$sidebar_items,isset($post) ? $post : null,'post');
 
 	echo '<div class="multi-part" title="'.($post_id ? __('Edit entry') : __('New entry')).
 		sprintf(' &rsaquo; %s',$post_format).'" id="edit-entry">';
@@ -687,7 +687,7 @@ if ($can_edit_post) {
 	}
 
 	# --BEHAVIOR-- adminPostForm (may be deprecated)
-	$core->callBehavior('adminPostForm',isset($post) ? $post : null);
+	$core->callBehavior('adminPostForm',isset($post) ? $post : null,'post');
 
 	echo
 	'<p class="border-top">'.
@@ -726,13 +726,13 @@ if ($can_edit_post) {
 
 
 	# --BEHAVIOR-- adminPostFormSidebar (may be deprecated)
-	$core->callBehavior('adminPostFormSidebar',isset($post) ? $post : null);
+	$core->callBehavior('adminPostFormSidebar',isset($post) ? $post : null,'post');
 	echo '</div>';		// End #entry-sidebar
 
 	echo '</form>';
 
 	# --BEHAVIOR-- adminPostForm
-	$core->callBehavior('adminPostAfterForm',isset($post) ? $post : null);
+	$core->callBehavior('adminPostAfterForm',isset($post) ? $post : null,'post');
 
 	echo '</div>';
 }
