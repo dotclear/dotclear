@@ -391,7 +391,8 @@ if ($dir && !empty($_FILES['upfile'])) {
 		'type' => $_FILES['upfile']['type'][0],
 		'tmp_name' => $_FILES['upfile']['tmp_name'][0],
 		'error' => $_FILES['upfile']['error'][0],
-		'size' => $_FILES['upfile']['size'][0]
+		'size' => $_FILES['upfile']['size'][0],
+		'title' => html::escapeHTML($_FILES['upfile']['name'][0])
 		);
 
 	if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
@@ -400,7 +401,7 @@ if ($dir && !empty($_FILES['upfile'])) {
 
 		try {
 			files::uploadStatus($upfile);
-			$new_file_id = $core->media->uploadFile($upfile['tmp_name'], $upfile['name']);
+			$new_file_id = $core->media->uploadFile($upfile['tmp_name'],$upfile['name'],$upfile['title']);
 
 			$message['files'][] = array(
 				'name' => $upfile['name'],
