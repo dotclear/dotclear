@@ -1,3 +1,40 @@
+Dotclear 2.12 - 2017-07-27
+===========================================================
+* 🛡 Security: Fix potential XSS
+* 🛡 Security: Enforce uniqness of the recovery key
+* 🛡 Security: Switch hash method from sha1 to sha512 (new installation only)
+* Two new values for base font size (37.5% and 87.5%)
+* Adaptive admin font size is now optional
+* Reduce base font size on very small devices
+* Refactor some functions to closures
+* No CSP directives in safe mode
+* Add current blog domain for script and style CSP directives
+* Backlinks:
+  * Retrieving ping URLs, let trackback first, then pingback, then finally webmention
+  * Get source post content to compose webmention excerpt and retrieve title
+  * Use source post title as blog name if this one is unknown (Anonymous blog is used if neither title nor blog name are known)
+* Datepicker's look refreshed
+* Allow 3rd party additional headers (URL handler)
+* Dublin core metadata removed
+* Using theme\<theme_name> namespace for _public.php and _prepend.php, in order to simplify theme copy and hack
+* Temporary password will have to be changed at first login (after resetting password)
+* Add ukrainian language
+* French help updated for theme editor
+* Fix: Blogs’ admin (ie not super-admin) got back their blogs’ list but only super-admin may do actions
+* Fix: Post/page edition layout on different screen sizes
+* Fix: x-frame-options URL in admin
+* Fix: Cope with several copies of a same smiley in content
+* Fix: Allow 3rd party filters for template tags
+* Fix: Use getURLFor instead of old getBase function for breadcrumb
+* Fix: Give mysql/mysqli driver choice for DC 1.2 import
+* Clearbricks lib update from 0.9 to 1.0
+* jQuery lib update from 2.2.0 to 2.2.4 (last release of jQuery 2.n branch)
+* CKEditor lib update from 4.6.1 to 4.6.2
+* CodeMirror lib update from 5.15.3 to 5.25.1
+* 🐛 → Various bugs and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
+
 Dotclear 2.11.2 - 2016-12-29
 ===========================================================
 * Fix: Ensure compatibility with old version of PHP (5.3, 5.4)
