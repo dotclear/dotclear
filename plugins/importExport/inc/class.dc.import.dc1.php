@@ -28,6 +28,7 @@ class dcImportDC1 extends dcIeModule
 
 	protected $vars;
 	protected $base_vars = array(
+		'db_driver' => 'mysql',
 		'db_host' => '',
 		'db_name' => '',
 		'db_user' => '',
@@ -78,6 +79,7 @@ class dcImportDC1 extends dcIeModule
 		switch ($do)
 		{
 			case 'step1':
+				$this->vars['db_driver'] = $_POST['db_driver'];
 				$this->vars['db_host'] = $_POST['db_host'];
 				$this->vars['db_name'] = $_POST['db_name'];
 				$this->vars['db_user'] = $_POST['db_user'];
@@ -138,6 +140,12 @@ class dcImportDC1 extends dcIeModule
 			$this->error($e);
 		}
 
+		# db drivers
+		$db_drivers = array(
+			'mysql' => 'mysql',
+			'mysqli' => 'mysqli'
+		);
+
 		switch ($this->step)
 		{
 			case 1:
@@ -149,6 +157,8 @@ class dcImportDC1 extends dcIeModule
 
 				printf($this->imForm(1,__('General information'),__('Import my blog now')),
 				'<p>'.__('We first need some information about your old Dotclear 1.2 installation.').'</p>'.
+				'<p><label for="db_driver">'.__('Database driver (must be mysqli if PHP 7 or higher):').'</label> '.
+				form::combo('db_driver',$db_drivers,html::escapeHTML($this->vars['db_driver'])).'</p>'.
 				'<p><label for="db_host">'.__('Database Host Name:').'</label> '.
 				form::field('db_host',30,255,html::escapeHTML($this->vars['db_host'])).'</p>'.
 				'<p><label for="db_name">'.__('Database Name:',html::escapeHTML($this->vars['db_name'])).'</label> '.
@@ -234,7 +244,7 @@ class dcImportDC1 extends dcIeModule
 	# Database init
 	protected function db()
 	{
-		$db = dbLayer::init('mysql',$this->vars['db_host'],$this->vars['db_name'],$this->vars['db_user'],$this->vars['db_pwd']);
+		$db = dbLayer::init($this->vars['db_driver'],$this->vars['db_host'],$this->vars['db_name'],$this->vars['db_user'],$this->vars['db_pwd']);
 
 		$rs = $db->select("SHOW TABLES LIKE '".$this->vars['db_prefix']."%'");
 		if ($rs->isEmpty()) {
