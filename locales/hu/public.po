@@ -180,7 +180,7 @@ msgid "Comment"
 msgstr "Megjegyzés"
 
 msgid "Comments can be formatted using a simple wiki syntax."
-msgstr ""
+msgstr "A megjegyzés szimpla wiki-szintaxissal is formázható."
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
 msgstr "A HTML kódot szövegként fogja megjeleníteni és a webcímeket automatikusan átkonvertálja a rendszer!"
