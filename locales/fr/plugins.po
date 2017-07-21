@@ -1031,6 +1031,9 @@ msgstr "Importer mon blog maintenant"
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Nous avons besoin au préalable de quelques informations à propos de votre installation Dotclear 1.2."
 
+msgid "Database driver (must be mysqli if PHP 7 or higher):"
+msgstr "Driver de base de données (doit être mysqli si PHP 7 ou supérieur) :"
+
 msgid "Entries import options"
 msgstr "Options d'importation des billets"
 
