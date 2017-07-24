@@ -35,6 +35,9 @@ $user_dm_doclinks = $core->auth->user_prefs->dashboard->doclinks;
 $user_dm_dcnews = $core->auth->user_prefs->dashboard->dcnews;
 $user_dm_quickentry = $core->auth->user_prefs->dashboard->quickentry;
 $user_dm_nofavicons = $core->auth->user_prefs->dashboard->nofavicons;
+if ($core->auth->isSuperAdmin()) {
+	$user_dm_nodcupdate = $core->auth->user_prefs->dashboard->nodcupdate;
+}
 
 $core->auth->user_prefs->addWorkspace('accessibility');
 $user_acc_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
@@ -299,6 +302,9 @@ if (isset($_POST['db-options'])) {
 		$core->auth->user_prefs->dashboard->put('dcnews',!empty($_POST['user_dm_dcnews']),'boolean');
 		$core->auth->user_prefs->dashboard->put('quickentry',!empty($_POST['user_dm_quickentry']),'boolean');
 		$core->auth->user_prefs->dashboard->put('nofavicons',empty($_POST['user_dm_nofavicons']),'boolean');
+		if ($core->auth->isSuperAdmin()) {
+			$core->auth->user_prefs->dashboard->put('nodcupdate',!empty($_POST['user_dm_nodcupdate']),'boolean');
+		}
 		$core->auth->user_prefs->interface->put('iconset',(!empty($_POST['user_ui_iconset']) ? $_POST['user_ui_iconset'] : ''));
 		$core->auth->user_prefs->interface->put('nofavmenu',empty($_POST['user_ui_nofavmenu']),'boolean');
 
@@ -757,8 +763,15 @@ __('Display Dotclear news').'</label></p>'.
 
 '<p><label for="user_dm_quickentry" class="classic">'.
 form::checkbox('user_dm_quickentry',1,$user_dm_quickentry).' '.
-__('Display quick entry form').'</label><br class="clear" />'. //Opera sucks
-'</p>';
+__('Display quick entry form').'</label></p>';
+
+if ($core->auth->isSuperAdmin()) {
+	echo
+	'<p><label for="user_dm_nodcupdate" class="classic">'.
+	form::checkbox('user_dm_nodcupdate',1,$user_dm_nodcupdate).' '.
+	__('Do not display Dotclear updates').'</label></p>';
+}
+
 echo '</div>';
 
 # --BEHAVIOR-- adminDashboardOptionsForm

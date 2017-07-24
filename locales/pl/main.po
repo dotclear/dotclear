@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 10:19+0100\n"
+"POT-Creation-Date: 2017-07-24 11:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -1024,6 +1024,14 @@ msgstr "Przypomnij mi później"
 msgid "Information about this version"
 msgstr "informacje o tej wersji"
 
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Make this blog my default blog"
 msgstr "Ustaw ten blog jako domyślny"
 
@@ -1434,6 +1442,23 @@ msgid "By dates, in descending order"
 msgstr "Wg dat, malejąco"
 
 #, fuzzy
+msgid "Select this file"
+msgstr "Usuń ten blog"
+
+msgid "Attach this file to entry"
+msgstr "Załącz ten plik do wpisu"
+
+msgid "Insert this file into entry"
+msgstr "Wstaw ten plik do wpisu"
+
+#, fuzzy
+msgid "delete"
+msgstr "Usuń"
+
+msgid "open"
+msgstr "otwórz"
+
+#, fuzzy
 msgid "Not a valid directory"
 msgstr "Niepoprawny plik"
 
@@ -1476,23 +1501,6 @@ msgstr "anuluj"
 
 msgid "Yes"
 msgstr "tak"
-
-#, fuzzy
-msgid "Select this file"
-msgstr "Usuń ten blog"
-
-msgid "Attach this file to entry"
-msgstr "Załącz ten plik do wpisu"
-
-msgid "Insert this file into entry"
-msgstr "Wstaw ten plik do wpisu"
-
-#, fuzzy
-msgid "delete"
-msgstr "Usuń"
-
-msgid "open"
-msgstr "otwórz"
 
 #, fuzzy, php-format
 msgid "%s file found"
@@ -2469,6 +2477,10 @@ msgstr "Wyświetl wiadomości Dotclear-a"
 
 msgid "Display quick entry form"
 msgstr "Wyświetl formularz szybkiego wpisu w panelu głównym"
+
+#, fuzzy
+msgid "Do not display Dotclear updates"
+msgstr "Wyświetl wiadomości Dotclear-a"
 
 #, fuzzy
 msgid "Save my dashboard options"
@@ -4059,10 +4071,6 @@ msgstr ""
 msgid "Thanks, mate. It was a pleasure."
 msgstr ""
 
-#, fuzzy
-msgid "A website mention this entry."
-msgstr "Dodaj pliki do wpisu"
-
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
 
@@ -4293,6 +4301,10 @@ msgstr "<p>To oznacza że nazwa użytkownika i hasło w Twoim pliku <strong>conf
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Podczas odczytu z bazy danych wystąpił następujący błąd:"
+
+#, fuzzy
+#~ msgid "A website mention this entry."
+#~ msgstr "Dodaj pliki do wpisu"
 
 #, fuzzy
 #~ msgid "Filter blogs list"

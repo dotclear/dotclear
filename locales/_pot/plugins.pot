@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-08 15:38+0100\n"
+"POT-Creation-Date: 2017-07-24 11:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1465,94 +1465,98 @@ msgstr ""
 msgid "visit your dashboard"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:43
+#: plugins/importExport/inc/class.dc.import.dc1.php:44
 msgid "Dotclear 1.2 import"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:44
+#: plugins/importExport/inc/class.dc.import.dc1.php:45
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:145
+#: plugins/importExport/inc/class.dc.import.dc1.php:153
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:147
+#: plugins/importExport/inc/class.dc.import.dc1.php:155
 #: plugins/importExport/inc/class.dc.import.wp.php:176
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:150
+#: plugins/importExport/inc/class.dc.import.dc1.php:158
 #: plugins/importExport/inc/class.dc.import.wp.php:179
 msgid "General information"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:150
+#: plugins/importExport/inc/class.dc.import.dc1.php:158
 #: plugins/importExport/inc/class.dc.import.wp.php:179
 msgid "Import my blog now"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:151
+#: plugins/importExport/inc/class.dc.import.dc1.php:159
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:162
+#: plugins/importExport/inc/class.dc.import.dc1.php:160
+msgid "Database driver (must be mysqli if PHP 7 or higher):"
+msgstr ""
+
+#: plugins/importExport/inc/class.dc.import.dc1.php:172
 #: plugins/importExport/inc/class.dc.import.wp.php:192
 msgid "Entries import options"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:163
+#: plugins/importExport/inc/class.dc.import.dc1.php:173
 #: plugins/importExport/inc/class.dc.import.wp.php:217
 msgid "Number of entries to import at once:"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:168
+#: plugins/importExport/inc/class.dc.import.dc1.php:178
 #: plugins/importExport/inc/class.dc.import.wp.php:232
 msgid "Importing users"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:173
+#: plugins/importExport/inc/class.dc.import.dc1.php:183
 #: plugins/importExport/inc/class.dc.import.wp.php:237
 msgid "Importing categories"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:178
+#: plugins/importExport/inc/class.dc.import.dc1.php:188
 #: plugins/importExport/inc/class.dc.import.wp.php:242
 msgid "Importing blogroll"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:183
+#: plugins/importExport/inc/class.dc.import.dc1.php:193
 #: plugins/importExport/inc/class.dc.import.wp.php:247
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:192
+#: plugins/importExport/inc/class.dc.import.dc1.php:202
 msgid "Please read carefully"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:194
+#: plugins/importExport/inc/class.dc.import.dc1.php:204
 #: plugins/importExport/inc/class.dc.import.wp.php:256
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:198
+#: plugins/importExport/inc/class.dc.import.dc1.php:208
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:213
+#: plugins/importExport/inc/class.dc.import.dc1.php:223
 #: plugins/importExport/inc/class.dc.import.wp.php:268
 msgid "next step"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:223
+#: plugins/importExport/inc/class.dc.import.dc1.php:233
 #: plugins/importExport/inc/class.dc.import.wp.php:278
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:241
+#: plugins/importExport/inc/class.dc.import.dc1.php:251
 msgid "Dotclear tables not found"
 msgstr ""
 

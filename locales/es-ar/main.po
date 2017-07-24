@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.1.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 10:19+0100\n"
+"POT-Creation-Date: 2017-07-24 11:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Español Argentino <thecattony@thecattony.com.ar>\n"
@@ -1026,6 +1026,14 @@ msgstr "Recordar mas tarde"
 msgid "Information about this version"
 msgstr ""
 
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Make this blog my default blog"
 msgstr "Definir este blog como predeterminado"
 
@@ -1436,6 +1444,23 @@ msgid "By dates, in descending order"
 msgstr "Por fecha, descendente"
 
 #, fuzzy
+msgid "Select this file"
+msgstr "Borrar este blog"
+
+msgid "Attach this file to entry"
+msgstr "Adjuntar el archivo a la entrada"
+
+msgid "Insert this file into entry"
+msgstr "Insertar este archivo en la entrada"
+
+#, fuzzy
+msgid "delete"
+msgstr "Eliminar"
+
+msgid "open"
+msgstr "abrir"
+
+#, fuzzy
 msgid "Not a valid directory"
 msgstr "Archivo no válido"
 
@@ -1477,23 +1502,6 @@ msgstr "cancelar"
 
 msgid "Yes"
 msgstr "sí"
-
-#, fuzzy
-msgid "Select this file"
-msgstr "Borrar este blog"
-
-msgid "Attach this file to entry"
-msgstr "Adjuntar el archivo a la entrada"
-
-msgid "Insert this file into entry"
-msgstr "Insertar este archivo en la entrada"
-
-#, fuzzy
-msgid "delete"
-msgstr "Eliminar"
-
-msgid "open"
-msgstr "abrir"
 
 #, fuzzy, php-format
 msgid "%s file found"
@@ -2483,6 +2491,10 @@ msgstr "Actualizar Dotclear"
 
 msgid "Display quick entry form"
 msgstr ""
+
+#, fuzzy
+msgid "Do not display Dotclear updates"
+msgstr "Actualizar Dotclear"
 
 #, fuzzy
 msgid "Save my dashboard options"
@@ -4060,10 +4072,6 @@ msgstr ""
 msgid "Thanks, mate. It was a pleasure."
 msgstr ""
 
-#, fuzzy
-msgid "A website mention this entry."
-msgstr "Añadir un archivo a esta entrada"
-
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
 
@@ -4295,6 +4303,10 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "A website mention this entry."
+#~ msgstr "Añadir un archivo a esta entrada"
 
 #, fuzzy
 #~ msgid "Filter blogs list"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 10:19+0100\n"
+"POT-Creation-Date: 2017-07-24 11:25+0200\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -1018,6 +1018,14 @@ msgstr ""
 msgid "Information about this version"
 msgstr ""
 
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Make this blog my default blog"
 msgstr ""
 
@@ -1432,6 +1440,23 @@ msgid "By dates, in descending order"
 msgstr ""
 
 #, fuzzy
+msgid "Select this file"
+msgstr "ఈ బ్లాగుని తొలగించండి"
+
+msgid "Attach this file to entry"
+msgstr ""
+
+msgid "Insert this file into entry"
+msgstr ""
+
+#, fuzzy
+msgid "delete"
+msgstr "తొలగించు"
+
+msgid "open"
+msgstr ""
+
+#, fuzzy
 msgid "Not a valid directory"
 msgstr "సరైన ఫైలు కాదు"
 
@@ -1473,23 +1498,6 @@ msgstr "రద్దుచేయి"
 
 msgid "Yes"
 msgstr "అవును"
-
-#, fuzzy
-msgid "Select this file"
-msgstr "ఈ బ్లాగుని తొలగించండి"
-
-msgid "Attach this file to entry"
-msgstr ""
-
-msgid "Insert this file into entry"
-msgstr ""
-
-#, fuzzy
-msgid "delete"
-msgstr "తొలగించు"
-
-msgid "open"
-msgstr ""
 
 #, fuzzy, php-format
 msgid "%s file found"
@@ -2465,6 +2473,10 @@ msgstr "చూపించే పేరు"
 
 msgid "Display quick entry form"
 msgstr ""
+
+#, fuzzy
+msgid "Do not display Dotclear updates"
+msgstr "చూపించే పేరు"
 
 #, fuzzy
 msgid "Save my dashboard options"
@@ -4033,10 +4045,6 @@ msgstr ""
 msgid "Thanks, mate. It was a pleasure."
 msgstr ""
 
-#, fuzzy
-msgid "A website mention this entry."
-msgstr "ఈ టపాకి ఫైళ్ళు చేర్చండి"
-
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
 
@@ -4271,6 +4279,10 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "A website mention this entry."
+#~ msgstr "ఈ టపాకి ఫైళ్ళు చేర్చండి"
 
 #, fuzzy
 #~ msgid "Filter blogs list"

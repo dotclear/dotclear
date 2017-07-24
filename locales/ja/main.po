@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 10:19+0100\n"
+"POT-Creation-Date: 2017-07-24 11:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -1029,6 +1029,14 @@ msgstr "後で再度知らせる"
 msgid "Information about this version"
 msgstr ""
 
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Make this blog my default blog"
 msgstr "このブログをデフォルトブログにする"
 
@@ -1442,6 +1450,23 @@ msgid "By dates, in descending order"
 msgstr "日付 - 降順"
 
 #, fuzzy
+msgid "Select this file"
+msgstr "このブログを削除"
+
+msgid "Attach this file to entry"
+msgstr "このファイルをエントリに添付"
+
+msgid "Insert this file into entry"
+msgstr "このファイルをエントリへ挿入"
+
+#, fuzzy
+msgid "delete"
+msgstr "削除"
+
+msgid "open"
+msgstr "開く"
+
+#, fuzzy
 msgid "Not a valid directory"
 msgstr "有効なファイルではありません"
 
@@ -1482,23 +1507,6 @@ msgstr "キャンセル"
 
 msgid "Yes"
 msgstr "はい"
-
-#, fuzzy
-msgid "Select this file"
-msgstr "このブログを削除"
-
-msgid "Attach this file to entry"
-msgstr "このファイルをエントリに添付"
-
-msgid "Insert this file into entry"
-msgstr "このファイルをエントリへ挿入"
-
-#, fuzzy
-msgid "delete"
-msgstr "削除"
-
-msgid "open"
-msgstr "開く"
 
 #, fuzzy, php-format
 msgid "%s file found"
@@ -2486,6 +2494,10 @@ msgstr "Dotclear をアップデート"
 
 msgid "Display quick entry form"
 msgstr ""
+
+#, fuzzy
+msgid "Do not display Dotclear updates"
+msgstr "Dotclear をアップデート"
 
 #, fuzzy
 msgid "Save my dashboard options"
@@ -4038,10 +4050,6 @@ msgstr ""
 msgid "Thanks, mate. It was a pleasure."
 msgstr ""
 
-#, fuzzy
-msgid "A website mention this entry."
-msgstr "このエントリにファイルを追加"
-
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
 
@@ -4273,6 +4281,10 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "A website mention this entry."
+#~ msgstr "このエントリにファイルを追加"
 
 #, fuzzy
 #~ msgid "Filter blogs list"

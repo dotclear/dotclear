@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-08 15:38+0100\n"
+"POT-Creation-Date: 2017-07-24 11:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgid "Someone has requested to reset the password for the following site and us
 msgstr ""
 
 #: admin/auth.php:93 admin/auth.php:117 admin/auth.php:352 admin/auth.php:402
-#: admin/install/index.php:346 admin/install/index.php:395
+#: admin/install/index.php:347 admin/install/index.php:396
 msgid "Username:"
 msgstr ""
 
@@ -49,7 +49,7 @@ msgid "Your new password"
 msgstr ""
 
 #: admin/auth.php:118 admin/auth.php:405 admin/blog_pref.php:663
-#: admin/install/index.php:396 admin/posts.php:345 admin/user.php:223
+#: admin/install/index.php:397 admin/posts.php:345 admin/user.php:223
 msgid "Password:"
 msgstr ""
 
@@ -57,7 +57,7 @@ msgstr ""
 msgid "Your new password is in your mailbox."
 msgstr ""
 
-#: admin/auth.php:171 admin/install/index.php:84 admin/preferences.php:184
+#: admin/auth.php:171 admin/install/index.php:84 admin/preferences.php:187
 #: admin/user.php:101
 msgid "Passwords don't match"
 msgstr ""
@@ -95,8 +95,8 @@ msgid "Request a new password"
 msgstr ""
 
 #: admin/auth.php:355 admin/blog_pref.php:780 admin/comment.php:223
-#: admin/comments.php:254 admin/install/index.php:341 admin/post.php:794
-#: admin/preferences.php:451 admin/user.php:265 inc/admin/lib.dc.page.php:765
+#: admin/comments.php:254 admin/install/index.php:342 admin/post.php:794
+#: admin/preferences.php:457 admin/user.php:265 inc/admin/lib.dc.page.php:765
 msgid "Email:"
 msgstr ""
 
@@ -108,12 +108,12 @@ msgstr ""
 msgid "Change your password"
 msgstr ""
 
-#: admin/auth.php:370 admin/install/index.php:350 admin/preferences.php:470
+#: admin/auth.php:370 admin/install/index.php:351 admin/preferences.php:476
 #: admin/user.php:223
 msgid "New password:"
 msgstr ""
 
-#: admin/auth.php:373 admin/install/index.php:358 admin/user.php:234
+#: admin/auth.php:373 admin/install/index.php:359 admin/user.php:234
 msgid "Confirm password:"
 msgstr ""
 
@@ -192,9 +192,9 @@ msgstr ""
 
 #: admin/blog.php:82 admin/blog.php:87 admin/blog.php:90
 #: admin/blog_pref.php:369 admin/blog_pref.php:583 admin/blog_pref.php:589
-#: admin/category.php:197 admin/comment.php:219 admin/index.php:368
-#: admin/index.php:372 admin/install/index.php:346 admin/install/index.php:350
-#: admin/install/index.php:358 admin/install/wizard.php:202
+#: admin/category.php:197 admin/comment.php:219 admin/index.php:375
+#: admin/index.php:379 admin/install/index.php:347 admin/install/index.php:351
+#: admin/install/index.php:359 admin/install/wizard.php:202
 #: admin/install/wizard.php:212 admin/langs.php:272 admin/langs.php:287
 #: admin/langs.php:289 admin/popup_link.php:32 admin/post.php:650
 #: admin/post.php:662 admin/post.php:790 admin/post.php:802 admin/user.php:207
@@ -376,7 +376,7 @@ msgstr ""
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr ""
 
-#: admin/blog_pref.php:155 admin/preferences.php:89 admin/preferences.php:105
+#: admin/blog_pref.php:155 admin/preferences.php:92 admin/preferences.php:108
 msgid "Default"
 msgstr ""
 
@@ -722,8 +722,8 @@ msgid "Plugins parameters"
 msgstr ""
 
 #: admin/blog_pref.php:712 admin/category.php:228 admin/category.php:245
-#: admin/category.php:258 admin/comment.php:245 admin/index.php:388
-#: admin/install/index.php:362 admin/media_item.php:800 admin/post.php:695
+#: admin/category.php:258 admin/comment.php:245 admin/index.php:395
+#: admin/install/index.php:363 admin/media_item.php:800 admin/post.php:695
 #: admin/post.php:810 admin/user.php:311 admin/users_actions.php:315
 #: inc/admin/actions/class.dcactionposts.php:306
 #: inc/admin/actions/class.dcactionposts.php:377
@@ -1037,7 +1037,7 @@ msgstr ""
 msgid "total:"
 msgstr ""
 
-#: admin/categories.php:174 admin/category.php:217 admin/preferences.php:454
+#: admin/categories.php:174 admin/category.php:217 admin/preferences.php:460
 #: admin/user.php:270
 msgid "URL:"
 msgstr ""
@@ -1097,7 +1097,7 @@ msgstr ""
 msgid "Name:"
 msgstr ""
 
-#: admin/category.php:204 admin/category.php:243 admin/index.php:382
+#: admin/category.php:204 admin/category.php:243 admin/index.php:389
 #: admin/post.php:601 inc/admin/actions/class.dcactionposts.php:296
 msgid "Parent:"
 msgstr ""
@@ -1237,7 +1237,7 @@ msgid "Trackback"
 msgstr ""
 
 #: admin/comments.php:43 admin/media.php:835 admin/post.php:504
-#: admin/posts.php:129 admin/preferences.php:133 inc/admin/lib.pager.php:222
+#: admin/posts.php:129 admin/preferences.php:136 inc/admin/lib.pager.php:222
 #: inc/admin/lib.pager.php:360 inc/admin/lib.pager.php:536
 msgid "Date"
 msgstr ""
@@ -1251,7 +1251,7 @@ msgid "Entry date"
 msgstr ""
 
 #: admin/comments.php:46 admin/post.php:503 admin/posts.php:132
-#: admin/preferences.php:135 inc/admin/actions/class.dcactioncomments.php:78
+#: admin/preferences.php:138 inc/admin/actions/class.dcactioncomments.php:78
 #: inc/admin/lib.pager.php:224 inc/admin/lib.pager.php:361
 #: inc/admin/lib.pager.php:535
 msgid "Author"
@@ -1315,143 +1315,143 @@ msgstr ""
 msgid "Global help"
 msgstr ""
 
-#: admin/index.php:94
+#: admin/index.php:100
 #, php-format
 msgid "An update is available"
 msgid_plural "%s updates are available."
 msgstr[0] ""
 msgstr[1] ""
 
-#: admin/index.php:127
+#: admin/index.php:133
 msgid "Dotclear news"
 msgstr ""
 
-#: admin/index.php:137 admin/index.php:142
+#: admin/index.php:143 admin/index.php:148
 msgid "%d %B %Y:"
 msgstr ""
 
-#: admin/index.php:159
+#: admin/index.php:165
 msgid "Documentation and support"
 msgstr ""
 
-#: admin/index.php:194 admin/index.php:201
+#: admin/index.php:200 admin/index.php:207
 msgid "Dashboard"
 msgstr ""
 
-#: admin/index.php:218
+#: admin/index.php:224
 #, php-format
 msgid "Dotclear %s is available!"
 msgstr ""
 
-#: admin/index.php:219
+#: admin/index.php:225
 msgid "Upgrade now"
 msgstr ""
 
-#: admin/index.php:220
+#: admin/index.php:226
 msgid "Remind me later"
 msgstr ""
 
-#: admin/index.php:222 admin/update.php:205 admin/update.php:206
+#: admin/index.php:228 admin/update.php:205 admin/update.php:206
 msgid "Information about this version"
 msgstr ""
 
-#: admin/index.php:226
+#: admin/index.php:232
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
 msgstr ""
 
-#: admin/index.php:233
+#: admin/index.php:239
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr ""
 
-#: admin/index.php:241
+#: admin/index.php:248
 msgid "Make this blog my default blog"
 msgstr ""
 
-#: admin/index.php:245
+#: admin/index.php:252
 msgid "This blog is offline"
 msgstr ""
 
-#: admin/index.php:247
+#: admin/index.php:254
 msgid "This blog is removed"
 msgstr ""
 
-#: admin/index.php:253 admin/index.php:261
+#: admin/index.php:260 admin/index.php:268
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr ""
 
-#: admin/index.php:254 admin/index.php:262
+#: admin/index.php:261 admin/index.php:269
 msgid "See <a href=\"http://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr ""
 
-#: admin/index.php:271
+#: admin/index.php:278
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr ""
 
-#: admin/index.php:275
+#: admin/index.php:282
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr ""
 
-#: admin/index.php:282 inc/core/class.dc.media.php:78
+#: admin/index.php:289 inc/core/class.dc.media.php:78
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr ""
 
-#: admin/index.php:286 inc/core/class.dc.media.php:80
+#: admin/index.php:293 inc/core/class.dc.media.php:80
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr ""
 
-#: admin/index.php:292 inc/admin/lib.dc.page.php:280
+#: admin/index.php:299 inc/admin/lib.dc.page.php:280
 #: inc/admin/lib.dc.page.php:769 inc/admin/lib.dc.page.php:987
 msgid "Error:"
 msgstr ""
 
-#: admin/index.php:299 admin/install/index.php:371 admin/plugins.php:96
+#: admin/index.php:306 admin/install/index.php:372 admin/plugins.php:96
 msgid "Following plugins have been installed:"
 msgstr ""
 
-#: admin/index.php:307 admin/install/index.php:379 admin/plugins.php:108
+#: admin/index.php:314 admin/install/index.php:380 admin/plugins.php:108
 msgid "Following plugins have not been installed:"
 msgstr ""
 
-#: admin/index.php:319
+#: admin/index.php:326
 msgid "Errors have occured with following plugins:"
 msgstr ""
 
-#: admin/index.php:365
+#: admin/index.php:372
 msgid "Quick entry"
 msgstr ""
 
-#: admin/index.php:367 admin/post.php:36 admin/post.php:677 admin/posts.php:330
+#: admin/index.php:374 admin/post.php:36 admin/post.php:677 admin/posts.php:330
 #: inc/admin/class.dc.favorites.php:407 inc/admin/prepend.php:280
 msgid "New entry"
 msgstr ""
 
-#: admin/index.php:368 admin/index.php:380 admin/media.php:956
+#: admin/index.php:375 admin/index.php:387 admin/media.php:956
 #: admin/post.php:599 admin/post.php:650
 #: inc/admin/actions/class.dcactionposts.php:294
 msgid "Title:"
 msgstr ""
 
-#: admin/index.php:372 admin/post.php:662
+#: admin/index.php:379 admin/post.php:662
 msgid "Content:"
 msgstr ""
 
-#: admin/index.php:375 admin/post.php:593 admin/posts.php:339
+#: admin/index.php:382 admin/post.php:593 admin/posts.php:339
 #: inc/admin/actions/class.dcactionposts.php:287
 msgid "Category:"
 msgstr ""
 
-#: admin/index.php:379 admin/post.php:598
+#: admin/index.php:386 admin/post.php:598
 msgid "Add a new category"
 msgstr ""
 
-#: admin/index.php:385
+#: admin/index.php:392
 msgid "This category will be created when you will save your post."
 msgstr ""
 
-#: admin/index.php:390
+#: admin/index.php:397
 msgid "Save and publish"
 msgstr ""
 
@@ -1560,115 +1560,115 @@ msgid ""
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr ""
 
-#: admin/install/index.php:273
+#: admin/install/index.php:274
 msgid "Dotclear Install"
 msgstr ""
 
-#: admin/install/index.php:291 admin/install/index.php:292
-#: admin/install/index.php:293 admin/install/index.php:294
-#: admin/install/index.php:295 admin/preferences.php:415
-#: admin/preferences.php:416 admin/preferences.php:417
-#: admin/preferences.php:418 admin/preferences.php:419 admin/user.php:173
+#: admin/install/index.php:292 admin/install/index.php:293
+#: admin/install/index.php:294 admin/install/index.php:295
+#: admin/install/index.php:296 admin/preferences.php:421
+#: admin/preferences.php:422 admin/preferences.php:423
+#: admin/preferences.php:424 admin/preferences.php:425 admin/user.php:173
 #: admin/user.php:174 admin/user.php:175 admin/user.php:176 admin/user.php:177
 #, php-format
 msgid "Password strength: %s"
 msgstr ""
 
-#: admin/install/index.php:291 admin/preferences.php:415 admin/user.php:173
+#: admin/install/index.php:292 admin/preferences.php:421 admin/user.php:173
 msgid "very weak"
 msgstr ""
 
-#: admin/install/index.php:292 admin/preferences.php:416 admin/user.php:174
+#: admin/install/index.php:293 admin/preferences.php:422 admin/user.php:174
 msgid "weak"
 msgstr ""
 
-#: admin/install/index.php:293 admin/preferences.php:417 admin/user.php:175
+#: admin/install/index.php:294 admin/preferences.php:423 admin/user.php:175
 msgid "mediocre"
 msgstr ""
 
-#: admin/install/index.php:294 admin/preferences.php:418 admin/user.php:176
+#: admin/install/index.php:295 admin/preferences.php:424 admin/user.php:176
 msgid "strong"
 msgstr ""
 
-#: admin/install/index.php:295 admin/preferences.php:419 admin/user.php:177
+#: admin/install/index.php:296 admin/preferences.php:425 admin/user.php:177
 msgid "very strong"
 msgstr ""
 
-#: admin/install/index.php:299
+#: admin/install/index.php:300
 msgid "show"
 msgstr ""
 
-#: admin/install/index.php:313
+#: admin/install/index.php:314
 msgid "Dotclear installation"
 msgstr ""
 
-#: admin/install/index.php:317
+#: admin/install/index.php:318
 #, php-format
 msgid "Cache directory %s is not writable."
 msgstr ""
 
-#: admin/install/index.php:321 admin/install/index.php:415
+#: admin/install/index.php:322 admin/install/index.php:416
 #: admin/install/wizard.php:183 inc/admin/lib.dc.page.php:280
 msgid "Errors:"
 msgstr ""
 
-#: admin/install/index.php:325
+#: admin/install/index.php:326
 msgid "Configuration file has been successfully created."
 msgstr ""
 
-#: admin/install/index.php:331 admin/install/index.php:336
+#: admin/install/index.php:332 admin/install/index.php:337
 msgid "User information"
 msgstr ""
 
-#: admin/install/index.php:333
+#: admin/install/index.php:334
 msgid "Please provide the following information needed to create the first user."
 msgstr ""
 
-#: admin/install/index.php:337 admin/preferences.php:445 admin/user.php:257
+#: admin/install/index.php:338 admin/preferences.php:451 admin/user.php:257
 msgid "First Name:"
 msgstr ""
 
-#: admin/install/index.php:339 admin/preferences.php:442 admin/user.php:253
+#: admin/install/index.php:340 admin/preferences.php:448 admin/user.php:253
 msgid "Last Name:"
 msgstr ""
 
-#: admin/install/index.php:345
+#: admin/install/index.php:346
 msgid "Username and password"
 msgstr ""
 
-#: admin/install/index.php:387
+#: admin/install/index.php:388
 msgid "All done!"
 msgstr ""
 
-#: admin/install/index.php:391
+#: admin/install/index.php:392
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr ""
 
-#: admin/install/index.php:393
+#: admin/install/index.php:394
 msgid "Your account"
 msgstr ""
 
-#: admin/install/index.php:399
+#: admin/install/index.php:400
 msgid "Your blog"
 msgstr ""
 
-#: admin/install/index.php:401
+#: admin/install/index.php:402
 msgid "Blog address:"
 msgstr ""
 
-#: admin/install/index.php:402
+#: admin/install/index.php:403
 msgid "Administration interface:"
 msgstr ""
 
-#: admin/install/index.php:406
+#: admin/install/index.php:407
 msgid "Manage your blog now"
 msgstr ""
 
-#: admin/install/index.php:414
+#: admin/install/index.php:415
 msgid "Installation can not be completed"
 msgstr ""
 
-#: admin/install/index.php:416
+#: admin/install/index.php:417
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr ""
 
@@ -2678,7 +2678,7 @@ msgstr ""
 msgid "Selected entry"
 msgstr ""
 
-#: admin/post.php:592 admin/posts.php:131 admin/preferences.php:134
+#: admin/post.php:592 admin/posts.php:131 admin/preferences.php:137
 #: inc/admin/lib.pager.php:223
 msgid "Category"
 msgstr ""
@@ -2743,7 +2743,7 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
-#: admin/post.php:750 admin/post.php:760 admin/preferences.php:136
+#: admin/post.php:750 admin/post.php:760 admin/preferences.php:139
 #: inc/admin/actions/class.dcactioncomments.php:21
 #: inc/admin/actions/class.dcactioncomments.php:34
 #: inc/admin/actions/class.dcactioncomments.php:41
@@ -2757,7 +2757,7 @@ msgstr ""
 msgid "Add a comment"
 msgstr ""
 
-#: admin/post.php:836 admin/preferences.php:137 inc/admin/lib.pager.php:227
+#: admin/post.php:836 admin/preferences.php:140 inc/admin/lib.pager.php:227
 #: inc/admin/lib.pager.php:228
 msgid "Trackbacks"
 msgstr ""
@@ -2900,299 +2900,303 @@ msgstr ""
 msgid "Selected entries action:"
 msgstr ""
 
-#: admin/preferences.php:103
+#: admin/preferences.php:106
 msgid "Smallest"
 msgstr ""
 
-#: admin/preferences.php:104
+#: admin/preferences.php:107
 msgid "Smaller"
 msgstr ""
 
-#: admin/preferences.php:106
+#: admin/preferences.php:109
 msgid "Larger"
 msgstr ""
 
-#: admin/preferences.php:107
+#: admin/preferences.php:110
 msgid "Largest"
 msgstr ""
 
-#: admin/preferences.php:115
+#: admin/preferences.php:118
 msgid "Blog description (in blog parameters)"
 msgstr ""
 
-#: admin/preferences.php:116
+#: admin/preferences.php:119
 msgid "Category description"
 msgstr ""
 
-#: admin/preferences.php:132 inc/admin/class.dc.favorites.php:413
+#: admin/preferences.php:135 inc/admin/class.dc.favorites.php:413
 #: inc/core/_fake_l10n.php:11
 msgid "Posts"
 msgstr ""
 
-#: admin/preferences.php:162 admin/preferences.php:180
+#: admin/preferences.php:165 admin/preferences.php:183
 msgid "If you want to change your email or password you must provide your current password."
 msgstr ""
 
-#: admin/preferences.php:199
+#: admin/preferences.php:202
 msgid "Personal information has been successfully updated."
 msgstr ""
 
-#: admin/preferences.php:281
+#: admin/preferences.php:284
 msgid "Personal options has been successfully updated."
 msgstr ""
 
-#: admin/preferences.php:308
+#: admin/preferences.php:314
 msgid "Dashboard options has been successfully updated."
 msgstr ""
 
-#: admin/preferences.php:322 admin/preferences.php:347
+#: admin/preferences.php:328 admin/preferences.php:353
 msgid "No favorite selected"
 msgstr ""
 
-#: admin/preferences.php:334
+#: admin/preferences.php:340
 msgid "Favorites have been successfully added."
 msgstr ""
 
-#: admin/preferences.php:361
+#: admin/preferences.php:367
 msgid "Favorites have been successfully removed."
 msgstr ""
 
-#: admin/preferences.php:388
+#: admin/preferences.php:394
 msgid "Favorites have been successfully updated."
 msgstr ""
 
-#: admin/preferences.php:399
+#: admin/preferences.php:405
 msgid "Default favorites have been successfully updated."
 msgstr ""
 
-#: admin/preferences.php:436 admin/preferences.php:439
+#: admin/preferences.php:442 admin/preferences.php:445
 msgid "My profile"
 msgstr ""
 
-#: admin/preferences.php:448 admin/user.php:261
+#: admin/preferences.php:454 admin/user.php:261
 msgid "Display name:"
 msgstr ""
 
-#: admin/preferences.php:457
+#: admin/preferences.php:463
 msgid "Language for my interface:"
 msgstr ""
 
-#: admin/preferences.php:460
+#: admin/preferences.php:466
 msgid "My timezone:"
 msgstr ""
 
-#: admin/preferences.php:467
+#: admin/preferences.php:473
 msgid "Change my password"
 msgstr ""
 
-#: admin/preferences.php:478
+#: admin/preferences.php:484
 msgid "Confirm new password:"
 msgstr ""
 
-#: admin/preferences.php:481
+#: admin/preferences.php:487
 msgid "Your current password:"
 msgstr ""
 
-#: admin/preferences.php:484
+#: admin/preferences.php:490
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr ""
 
-#: admin/preferences.php:491
+#: admin/preferences.php:497
 msgid "Update my profile"
 msgstr ""
 
-#: admin/preferences.php:497 admin/preferences.php:501
+#: admin/preferences.php:503 admin/preferences.php:507
 msgid "My options"
 msgstr ""
 
-#: admin/preferences.php:505 admin/user.php:277
+#: admin/preferences.php:511 admin/user.php:277
 msgid "Interface"
 msgstr ""
 
-#: admin/preferences.php:509
+#: admin/preferences.php:515
 msgid "Activate enhanced uploader in media manager"
 msgstr ""
 
-#: admin/preferences.php:513
+#: admin/preferences.php:519
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr ""
 
-#: admin/preferences.php:514
+#: admin/preferences.php:520
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr ""
 
-#: admin/preferences.php:518
+#: admin/preferences.php:524
 msgid "Hide all secondary information and notes"
 msgstr ""
 
-#: admin/preferences.php:520
+#: admin/preferences.php:526
 msgid "Font size:"
 msgstr ""
 
-#: admin/preferences.php:525
+#: admin/preferences.php:531
 msgid "Activate adpative font size"
 msgstr ""
 
-#: admin/preferences.php:526
+#: admin/preferences.php:532
 msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
 msgstr ""
 
-#: admin/preferences.php:529
+#: admin/preferences.php:535
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
-#: admin/preferences.php:533
+#: admin/preferences.php:539
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
 
-#: admin/preferences.php:535
+#: admin/preferences.php:541
 msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
 msgstr ""
 
-#: admin/preferences.php:541
+#: admin/preferences.php:547
 msgid "Do not use standard favicon"
 msgstr ""
 
-#: admin/preferences.php:542
+#: admin/preferences.php:548
 msgid "This will be applied for all users"
 msgstr ""
 
-#: admin/preferences.php:551
+#: admin/preferences.php:557
 msgid "Optional columns displayed in lists"
 msgstr ""
 
-#: admin/preferences.php:568 admin/user.php:286
+#: admin/preferences.php:574 admin/user.php:286
 msgid "Edition"
 msgstr ""
 
-#: admin/preferences.php:573
+#: admin/preferences.php:579
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr ""
 
-#: admin/preferences.php:576
+#: admin/preferences.php:582
 msgid "Choose an editor"
 msgstr ""
 
-#: admin/preferences.php:581 admin/user.php:287
+#: admin/preferences.php:587 admin/user.php:287
 msgid "Preferred format:"
 msgstr ""
 
-#: admin/preferences.php:585 admin/user.php:291
+#: admin/preferences.php:591 admin/user.php:291
 msgid "Default entry status:"
 msgstr ""
 
-#: admin/preferences.php:588 admin/user.php:295
+#: admin/preferences.php:594 admin/user.php:295
 msgid "Entry edit field height:"
 msgstr ""
 
-#: admin/preferences.php:593
+#: admin/preferences.php:599
 msgid "Enable WYSIWYG mode"
 msgstr ""
 
-#: admin/preferences.php:597
+#: admin/preferences.php:603
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr ""
 
-#: admin/preferences.php:602
+#: admin/preferences.php:608
 msgid "Use xhtml editor for:"
 msgstr ""
 
-#: admin/preferences.php:613
+#: admin/preferences.php:619
 msgid "Other options"
 msgstr ""
 
-#: admin/preferences.php:621
+#: admin/preferences.php:627
 msgid "Save my options"
 msgstr ""
 
-#: admin/preferences.php:627 admin/preferences.php:629
+#: admin/preferences.php:633 admin/preferences.php:635
 #: inc/admin/lib.dc.page.php:230
 msgid "My dashboard"
 msgstr ""
 
-#: admin/preferences.php:633 inc/admin/class.dc.favorites.php:297
+#: admin/preferences.php:639 inc/admin/class.dc.favorites.php:297
 msgid "My favorites"
 msgstr ""
 
-#: admin/preferences.php:645
+#: admin/preferences.php:651
 #, php-format
 msgid "position of %s"
 msgstr ""
 
-#: admin/preferences.php:657
+#: admin/preferences.php:663
 msgid "Save order"
 msgstr ""
 
-#: admin/preferences.php:660
+#: admin/preferences.php:666
 msgid "Delete selected favorites"
 msgstr ""
 
-#: admin/preferences.php:662
+#: admin/preferences.php:668
 msgid "Are you sure you want to remove selected favorites?"
 msgstr ""
 
-#: admin/preferences.php:666
+#: admin/preferences.php:672
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr ""
 
-#: admin/preferences.php:667
+#: admin/preferences.php:673
 msgid "Define as default favorites"
 msgstr ""
 
-#: admin/preferences.php:675
+#: admin/preferences.php:681
 msgid "Currently no personal favorites."
 msgstr ""
 
-#: admin/preferences.php:687
+#: admin/preferences.php:693
 msgid "Other available favorites"
 msgstr ""
 
-#: admin/preferences.php:708
+#: admin/preferences.php:714
 msgid "(default favorite)"
 msgstr ""
 
-#: admin/preferences.php:715
+#: admin/preferences.php:721
 msgid "Add to my favorites"
 msgstr ""
 
-#: admin/preferences.php:724
+#: admin/preferences.php:730
 msgid "Menu"
 msgstr ""
 
-#: admin/preferences.php:727
+#: admin/preferences.php:733
 msgid "Display favorites at the top of the menu"
 msgstr ""
 
-#: admin/preferences.php:731
+#: admin/preferences.php:737
 msgid "Dashboard icons"
 msgstr ""
 
-#: admin/preferences.php:734
+#: admin/preferences.php:740
 msgid "Display dashboard icons"
 msgstr ""
 
-#: admin/preferences.php:738
+#: admin/preferences.php:744
 msgid "Iconset:"
 msgstr ""
 
-#: admin/preferences.php:748
+#: admin/preferences.php:754
 msgid "Dashboard modules"
 msgstr ""
 
-#: admin/preferences.php:752
+#: admin/preferences.php:758
 msgid "Display documentation links"
 msgstr ""
 
-#: admin/preferences.php:756
+#: admin/preferences.php:762
 msgid "Display Dotclear news"
 msgstr ""
 
-#: admin/preferences.php:760
+#: admin/preferences.php:766
 msgid "Display quick entry form"
 msgstr ""
 
-#: admin/preferences.php:771
+#: admin/preferences.php:772
+msgid "Do not display Dotclear updates"
+msgstr ""
+
+#: admin/preferences.php:784
 msgid "Save my dashboard options"
 msgstr ""
 
@@ -5400,23 +5404,23 @@ msgstr ""
 msgid "Cannot read directory"
 msgstr ""
 
-#: inc/prepend.php:235
+#: inc/prepend.php:238
 msgid "Site temporarily unavailable"
 msgstr ""
 
-#: inc/prepend.php:236
+#: inc/prepend.php:239
 msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
 msgstr ""
 
-#: inc/prepend.php:240
+#: inc/prepend.php:243
 msgid "Unable to connect to database"
 msgstr ""
 
-#: inc/prepend.php:242
+#: inc/prepend.php:245
 #, php-format
 msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"http://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
 msgstr ""
 
-#: inc/prepend.php:253
+#: inc/prepend.php:256
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""

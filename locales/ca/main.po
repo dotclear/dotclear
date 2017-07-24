@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 10:18+0100\n"
+"POT-Creation-Date: 2017-07-24 11:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Catalan\n"
@@ -1027,6 +1027,14 @@ msgstr ""
 msgid "Information about this version"
 msgstr ""
 
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Make this blog my default blog"
 msgstr "Definir aquest blog com el meu blog per defecte"
 
@@ -1459,6 +1467,23 @@ msgid "By dates, in descending order"
 msgstr ""
 
 #, fuzzy
+msgid "Select this file"
+msgstr "Suprimir aquest blog"
+
+msgid "Attach this file to entry"
+msgstr "Adjuntar aquest fitxer a l'entrada"
+
+msgid "Insert this file into entry"
+msgstr "Inserir aquest fitxer en l'entrada"
+
+#, fuzzy
+msgid "delete"
+msgstr "Suprimir"
+
+msgid "open"
+msgstr "Obrir"
+
+#, fuzzy
 msgid "Not a valid directory"
 msgstr "Fitxer invàlid"
 
@@ -1500,23 +1525,6 @@ msgstr "Anul·lar"
 
 msgid "Yes"
 msgstr "Sí"
-
-#, fuzzy
-msgid "Select this file"
-msgstr "Suprimir aquest blog"
-
-msgid "Attach this file to entry"
-msgstr "Adjuntar aquest fitxer a l'entrada"
-
-msgid "Insert this file into entry"
-msgstr "Inserir aquest fitxer en l'entrada"
-
-#, fuzzy
-msgid "delete"
-msgstr "Suprimir"
-
-msgid "open"
-msgstr "Obrir"
 
 #, fuzzy, php-format
 msgid "%s file found"
@@ -2503,6 +2511,10 @@ msgstr "Pseudònim"
 
 msgid "Display quick entry form"
 msgstr ""
+
+#, fuzzy
+msgid "Do not display Dotclear updates"
+msgstr "Pseudònim"
 
 msgid "Save my dashboard options"
 msgstr ""
@@ -4082,10 +4094,6 @@ msgstr ""
 msgid "Thanks, mate. It was a pleasure."
 msgstr ""
 
-#, fuzzy
-msgid "A website mention this entry."
-msgstr "Adjunta fitxers a aquesta entrada"
-
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
 
@@ -4323,6 +4331,10 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "A website mention this entry."
+#~ msgstr "Adjunta fitxers a aquesta entrada"
 
 #, fuzzy
 #~ msgid "Filter blogs list"

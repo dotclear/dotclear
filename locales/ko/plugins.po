@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 10:18+0100\n"
+"POT-Creation-Date: 2017-07-24 11:24+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -1071,6 +1071,9 @@ msgstr "내 블로그를 지금 가져오기"
 
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "먼저, 당신이 쓰던 Dotclear 1.2 실행본에 대한 몇 가지 정보가 필요합니다."
+
+msgid "Database driver (must be mysqli if PHP 7 or higher):"
+msgstr ""
 
 msgid "Entries import options"
 msgstr "글꼭지 가져오기 선택사항"

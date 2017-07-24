@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 10:19+0100\n"
+"POT-Creation-Date: 2017-07-24 11:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -973,6 +973,14 @@ msgstr "Muista myöhemmin"
 msgid "Information about this version"
 msgstr "Tietoja tästä versiosta"
 
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Make this blog my default blog"
 msgstr "Tee tästä blogista oletusblogini"
 
@@ -1380,6 +1388,22 @@ msgid "By dates, in descending order"
 msgstr "Päiväysten mukaan laskevassa järjestyksessä"
 
 #, fuzzy
+msgid "Select this file"
+msgstr "Poista tämä blogi"
+
+msgid "Attach this file to entry"
+msgstr "Liitä tämä tiedosto merkintään"
+
+msgid "Insert this file into entry"
+msgstr "Liitä tämä tiedosto merkintään"
+
+msgid "delete"
+msgstr "poista"
+
+msgid "open"
+msgstr "avaa"
+
+#, fuzzy
 msgid "Not a valid directory"
 msgstr "Kelpaamaton tiedosto"
 
@@ -1421,22 +1445,6 @@ msgstr "Peruuta"
 
 msgid "Yes"
 msgstr "Kyllä"
-
-#, fuzzy
-msgid "Select this file"
-msgstr "Poista tämä blogi"
-
-msgid "Attach this file to entry"
-msgstr "Liitä tämä tiedosto merkintään"
-
-msgid "Insert this file into entry"
-msgstr "Liitä tämä tiedosto merkintään"
-
-msgid "delete"
-msgstr "poista"
-
-msgid "open"
-msgstr "avaa"
 
 #, fuzzy, php-format
 msgid "%s file found"
@@ -2343,6 +2351,10 @@ msgstr "Näytä Dotclear news"
 
 msgid "Display quick entry form"
 msgstr "Näytä pikasyöttölomake"
+
+#, fuzzy
+msgid "Do not display Dotclear updates"
+msgstr "Näytä Dotclear news"
 
 msgid "Save my dashboard options"
 msgstr "Tallenna ohjaustauluasetukseni"
@@ -3803,10 +3815,6 @@ msgstr "Valitan, sisäinen ongelma."
 msgid "Thanks, mate. It was a pleasure."
 msgstr "Kiitos. Ilo on minun puolellani."
 
-#, fuzzy
-msgid "A website mention this entry."
-msgstr "Tähän hakemistoon ei voi kirjoittaa."
-
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr "Etkö haluaisi takaisinviitata sisältöihini? Eikö tosiaankaan?"
 
@@ -4032,6 +4040,10 @@ msgstr "<p>Tämä tarkoittaa joko sitä, että käyttäjänimi- ja salasanatieto
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
+
+#, fuzzy
+#~ msgid "A website mention this entry."
+#~ msgstr "Tähän hakemistoon ei voi kirjoittaa."
 
 #~ msgid "Filter blogs list"
 #~ msgstr "Suodata blogiluetteloa"

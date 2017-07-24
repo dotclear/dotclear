@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 10:19+0100\n"
+"POT-Creation-Date: 2017-07-24 11:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -989,6 +989,14 @@ msgstr ""
 msgid "Information about this version"
 msgstr ""
 
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Make this blog my default blog"
 msgstr ""
 
@@ -1391,6 +1399,22 @@ msgstr ""
 msgid "By dates, in descending order"
 msgstr ""
 
+#, fuzzy
+msgid "Select this file"
+msgstr "Verwijder dit blog"
+
+msgid "Attach this file to entry"
+msgstr ""
+
+msgid "Insert this file into entry"
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "open"
+msgstr ""
+
 msgid "Not a valid directory"
 msgstr ""
 
@@ -1431,22 +1455,6 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Yes"
-msgstr ""
-
-#, fuzzy
-msgid "Select this file"
-msgstr "Verwijder dit blog"
-
-msgid "Attach this file to entry"
-msgstr ""
-
-msgid "Insert this file into entry"
-msgstr ""
-
-msgid "delete"
-msgstr ""
-
-msgid "open"
 msgstr ""
 
 #, php-format
@@ -2378,6 +2386,9 @@ msgid "Display Dotclear news"
 msgstr ""
 
 msgid "Display quick entry form"
+msgstr ""
+
+msgid "Do not display Dotclear updates"
 msgstr ""
 
 msgid "Save my dashboard options"
@@ -3871,9 +3882,6 @@ msgid "Sorry, an internal problem has occured."
 msgstr ""
 
 msgid "Thanks, mate. It was a pleasure."
-msgstr ""
-
-msgid "A website mention this entry."
 msgstr ""
 
 msgid "Any chance you ping one of my contents? No? Really?"
