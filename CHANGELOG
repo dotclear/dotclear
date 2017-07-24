@@ -20,6 +20,7 @@ Dotclear 2.12 - 2017-07-27
 * Temporary password will have to be changed at first login (after resetting password)
 * Add ukrainian language
 * French help updated for theme editor
+* Add an option to disable Dotclear updates check (super-admin only)
 * Fix: Blogs’ admin (ie not super-admin) got back their blogs’ list but only super-admin may do actions
 * Fix: Post/page edition layout on different screen sizes
 * Fix: x-frame-options URL in admin
@@ -33,7 +34,7 @@ Dotclear 2.12 - 2017-07-27
 * CodeMirror lib update from 5.15.3 to 5.25.1
 * 🐛 → Various bugs and typos fixed
 * 🌼 → Some locales and cosmetic adjustments
-
+* 📣 Warning: Next major release (2.13) will require PHP 5.5+
 
 Dotclear 2.11.2 - 2016-12-29
 ===========================================================
