@@ -151,8 +151,7 @@ if (!$core->error->flag())
 	'</div>'.
 	'</div>'.
 
-	'<p><input type="submit" value="'.__('Apply filters and display options').'" />'.
-	'<br class="clear" /></p>'. //Opera sucks
+	'<p><input type="submit" value="'.__('Apply filters and display options').'" /></p>'.
 	'</form>';
 
 	# Show users

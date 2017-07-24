@@ -545,8 +545,7 @@ if ($core->auth->isSuperAdmin()) {
 	'<p><label for="user_ui_hide_std_favicon" class="classic">'.
 	form::checkbox('user_ui_hide_std_favicon',1,$user_ui_hide_std_favicon).' '.
 	__('Do not use standard favicon').'</label> '.
-	'<span class="clear form-note warn">'.__('This will be applied for all users').'.</span>'.
-	'</p>';//Opera sucks;
+	'<span class="clear form-note warn">'.__('This will be applied for all users').'.</span>'.'</p>';
 }
 
 echo

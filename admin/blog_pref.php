@@ -451,10 +451,8 @@ if ($blog_id)
 	form::checkbox('comments_nofollow','1',$blog_settings->system->comments_nofollow).
 	__('Add "nofollow" relation on comments and trackbacks links').'</label></p>'.
 	'</div>'.
-	'<br class="clear" />'. //Opera sucks
 
 	'</div>'.
-	'<br class="clear" />'. //Opera sucks
 	'</div>';
 
 	echo
@@ -508,7 +506,6 @@ if ($blog_id)
 	__('Include sub-categories in category page and category posts feed').'</label></p>'.
 	'</div>'.
     '</div>'.
-	'<br class="clear" />'. //Opera sucks
 	'</div>';
 
 	echo
@@ -570,7 +567,6 @@ if ($blog_id)
 	'</p>'.
 	'</div>'.
 	'</div>'.
-	'<br class="clear" />'. //Opera sucks
 
 	'</div>';
 
@@ -686,7 +682,6 @@ if ($blog_id)
 	'<p><label for="jquery_version" class="classic">'.__('jQuery version to be loaded for this blog:').'</label>'.' '.
 	form::combo('jquery_version',$jquery_versions_combo,$blog_settings->system->jquery_version).
 	'</p>'.
-	'<br class="clear" />'. //Opera sucks
 
 	'</div>';
 
@@ -695,7 +690,6 @@ if ($blog_id)
 	'<p><label for="prevents_clickjacking" class="classic">'.
 	form::checkbox('prevents_clickjacking','1',$blog_settings->system->prevents_clickjacking).
 	__('Protect the blog from Clickjacking (see <a href="https://en.wikipedia.org/wiki/Clickjacking">Wikipedia</a>)').'</label></p>'.
-	'<br class="clear" />'. //Opera sucks
 
 	'</div>';
 
