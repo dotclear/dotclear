@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 10:18+0100\n"
+"POT-Creation-Date: 2017-07-24 11:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:45+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -1070,6 +1070,9 @@ msgstr "Jetzt den Blog importieren"
 
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Wir brauchen erst einige Informationen über deine alte Dotclear 1.2-Installation."
+
+msgid "Database driver (must be mysqli if PHP 7 or higher):"
+msgstr ""
 
 msgid "Entries import options"
 msgstr "Import-Optionen der Einträge"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 10:19+0100\n"
+"POT-Creation-Date: 2017-07-24 11:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -1008,6 +1008,14 @@ msgstr "পড়ে মনে করিয়ে দিও"
 msgid "Information about this version"
 msgstr ""
 
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Make this blog my default blog"
 msgstr "এই ব্লগটিকে আমার ডিফল্ট ব্লগ বানাও"
 
@@ -1421,6 +1429,23 @@ msgid "By dates, in descending order"
 msgstr ""
 
 #, fuzzy
+msgid "Select this file"
+msgstr "এই ব্লগ মুছে ফেলো"
+
+msgid "Attach this file to entry"
+msgstr "এন্ট্রির সাথে এই ফাইলটি সংযুক্ত করুন"
+
+msgid "Insert this file into entry"
+msgstr "এন্ট্রিতে এই ফাইলটি লাগাও"
+
+#, fuzzy
+msgid "delete"
+msgstr "মুছে ফেলুন"
+
+msgid "open"
+msgstr ""
+
+#, fuzzy
 msgid "Not a valid directory"
 msgstr "ফাইলটি বৈধ নয়"
 
@@ -1462,23 +1487,6 @@ msgstr "বাতিল"
 
 msgid "Yes"
 msgstr "হ্যাঁ"
-
-#, fuzzy
-msgid "Select this file"
-msgstr "এই ব্লগ মুছে ফেলো"
-
-msgid "Attach this file to entry"
-msgstr "এন্ট্রির সাথে এই ফাইলটি সংযুক্ত করুন"
-
-msgid "Insert this file into entry"
-msgstr "এন্ট্রিতে এই ফাইলটি লাগাও"
-
-#, fuzzy
-msgid "delete"
-msgstr "মুছে ফেলুন"
-
-msgid "open"
-msgstr ""
 
 #, fuzzy, php-format
 msgid "%s file found"
@@ -2450,6 +2458,10 @@ msgstr "আপডেট Dotclear"
 
 msgid "Display quick entry form"
 msgstr ""
+
+#, fuzzy
+msgid "Do not display Dotclear updates"
+msgstr "আপডেট Dotclear"
 
 #, fuzzy
 msgid "Save my dashboard options"
@@ -3995,9 +4007,6 @@ msgid "Sorry, an internal problem has occured."
 msgstr ""
 
 msgid "Thanks, mate. It was a pleasure."
-msgstr ""
-
-msgid "A website mention this entry."
 msgstr ""
 
 msgid "Any chance you ping one of my contents? No? Really?"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 10:19+0100\n"
+"POT-Creation-Date: 2017-07-24 11:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -1028,6 +1028,14 @@ msgstr "Priminti vėliau"
 msgid "Information about this version"
 msgstr ""
 
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Make this blog my default blog"
 msgstr "Padaryti šitą dlogą pagrindiniu"
 
@@ -1437,6 +1445,22 @@ msgid "By dates, in descending order"
 msgstr "Pagal datas, mažėjančia tvarka"
 
 #, fuzzy
+msgid "Select this file"
+msgstr "Trinti šį blogą."
+
+msgid "Attach this file to entry"
+msgstr "Prisegti šį failą prie įrašo"
+
+msgid "Insert this file into entry"
+msgstr "Pridėti šį failą prie įrašo"
+
+msgid "delete"
+msgstr "trinti"
+
+msgid "open"
+msgstr "atidaryti"
+
+#, fuzzy
 msgid "Not a valid directory"
 msgstr "Netinkamas failas"
 
@@ -1480,22 +1504,6 @@ msgstr "Atšaukti"
 #, fuzzy
 msgid "Yes"
 msgstr "taip"
-
-#, fuzzy
-msgid "Select this file"
-msgstr "Trinti šį blogą."
-
-msgid "Attach this file to entry"
-msgstr "Prisegti šį failą prie įrašo"
-
-msgid "Insert this file into entry"
-msgstr "Pridėti šį failą prie įrašo"
-
-msgid "delete"
-msgstr "trinti"
-
-msgid "open"
-msgstr "atidaryti"
 
 #, fuzzy, php-format
 msgid "%s file found"
@@ -2481,6 +2489,10 @@ msgstr "Atnaujinti Dotclear"
 
 msgid "Display quick entry form"
 msgstr ""
+
+#, fuzzy
+msgid "Do not display Dotclear updates"
+msgstr "Atnaujinti Dotclear"
 
 #, fuzzy
 msgid "Save my dashboard options"
@@ -4067,10 +4079,6 @@ msgstr ""
 msgid "Thanks, mate. It was a pleasure."
 msgstr ""
 
-#, fuzzy
-msgid "A website mention this entry."
-msgstr "Pridėti failus prie šio įrašo"
-
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
 
@@ -4303,6 +4311,10 @@ msgstr "<p>Tai reiškia, kad arba username ir slaptažodis jūsų <strong>config
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
+
+#, fuzzy
+#~ msgid "A website mention this entry."
+#~ msgstr "Pridėti failus prie šio įrašo"
 
 #, fuzzy
 #~ msgid "Filter blogs list"

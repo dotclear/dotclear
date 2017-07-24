@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 10:18+0100\n"
+"POT-Creation-Date: 2017-07-24 11:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -1025,6 +1025,14 @@ msgstr "나중에 다시 알려줌"
 msgid "Information about this version"
 msgstr ""
 
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Make this blog my default blog"
 msgstr "이 블로그를 기본 블로그로 설정"
 
@@ -1439,6 +1447,23 @@ msgid "By dates, in descending order"
 msgstr "날짜, 내림순"
 
 #, fuzzy
+msgid "Select this file"
+msgstr "이 블로그를 삭제하기"
+
+msgid "Attach this file to entry"
+msgstr "글꼭지에 이 파일을 첨부"
+
+msgid "Insert this file into entry"
+msgstr "이 파일을 글꼭지에 삽입하기"
+
+#, fuzzy
+msgid "delete"
+msgstr "삭제"
+
+msgid "open"
+msgstr "열기"
+
+#, fuzzy
 msgid "Not a valid directory"
 msgstr "바르지않은 파일"
 
@@ -1479,23 +1504,6 @@ msgstr "취소"
 
 msgid "Yes"
 msgstr "예"
-
-#, fuzzy
-msgid "Select this file"
-msgstr "이 블로그를 삭제하기"
-
-msgid "Attach this file to entry"
-msgstr "글꼭지에 이 파일을 첨부"
-
-msgid "Insert this file into entry"
-msgstr "이 파일을 글꼭지에 삽입하기"
-
-#, fuzzy
-msgid "delete"
-msgstr "삭제"
-
-msgid "open"
-msgstr "열기"
 
 #, fuzzy, php-format
 msgid "%s file found"
@@ -2483,6 +2491,10 @@ msgstr "Dotclear 갱신"
 
 msgid "Display quick entry form"
 msgstr ""
+
+#, fuzzy
+msgid "Do not display Dotclear updates"
+msgstr "Dotclear 갱신"
 
 #, fuzzy
 msgid "Save my dashboard options"
@@ -4035,10 +4047,6 @@ msgstr ""
 msgid "Thanks, mate. It was a pleasure."
 msgstr ""
 
-#, fuzzy
-msgid "A website mention this entry."
-msgstr "글꼭지에 파일 첨부하기"
-
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
 
@@ -4271,6 +4279,10 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "A website mention this entry."
+#~ msgstr "글꼭지에 파일 첨부하기"
 
 #, fuzzy
 #~ msgid "Filter blogs list"

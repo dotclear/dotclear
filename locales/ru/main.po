@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 10:19+0100\n"
+"POT-Creation-Date: 2017-07-24 11:25+0200\n"
 "PO-Revision-Date: 2016-07-18 15:53+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: ru_RU <en@li.org>\n"
@@ -1028,6 +1028,14 @@ msgstr "Напомнить мне позже"
 msgid "Information about this version"
 msgstr ""
 
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Make this blog my default blog"
 msgstr "Сделать этот блог моим блогом по умолчанию."
 
@@ -1437,6 +1445,23 @@ msgid "By dates, in descending order"
 msgstr "По дате, в порядке убывания"
 
 #, fuzzy
+msgid "Select this file"
+msgstr "Удалить этот блог"
+
+msgid "Attach this file to entry"
+msgstr "Прикрепить этот файл к записи"
+
+msgid "Insert this file into entry"
+msgstr "Вставить этот файл в запись"
+
+#, fuzzy
+msgid "delete"
+msgstr "Удалить"
+
+msgid "open"
+msgstr "открыть"
+
+#, fuzzy
 msgid "Not a valid directory"
 msgstr "Неверный файл"
 
@@ -1479,23 +1504,6 @@ msgstr "отмена"
 
 msgid "Yes"
 msgstr "да"
-
-#, fuzzy
-msgid "Select this file"
-msgstr "Удалить этот блог"
-
-msgid "Attach this file to entry"
-msgstr "Прикрепить этот файл к записи"
-
-msgid "Insert this file into entry"
-msgstr "Вставить этот файл в запись"
-
-#, fuzzy
-msgid "delete"
-msgstr "Удалить"
-
-msgid "open"
-msgstr "открыть"
 
 #, fuzzy, php-format
 msgid "%s file found"
@@ -2484,6 +2492,10 @@ msgstr "Обновить Dotclear"
 
 msgid "Display quick entry form"
 msgstr ""
+
+#, fuzzy
+msgid "Do not display Dotclear updates"
+msgstr "Обновить Dotclear"
 
 #, fuzzy
 msgid "Save my dashboard options"
@@ -4072,10 +4084,6 @@ msgstr ""
 msgid "Thanks, mate. It was a pleasure."
 msgstr ""
 
-#, fuzzy
-msgid "A website mention this entry."
-msgstr "Добавить файлы к записи"
-
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
 
@@ -4312,6 +4320,10 @@ msgstr "<p>Это может означать, что имя пользоват�
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "При попытке чтения базы данных обнаружена следующая ошибка:"
+
+#, fuzzy
+#~ msgid "A website mention this entry."
+#~ msgstr "Добавить файлы к записи"
 
 #, fuzzy
 #~ msgid "Filter blogs list"

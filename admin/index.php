@@ -71,6 +71,12 @@ if (!$core->auth->user_prefs->dashboard->prefExists('quickentry')) {
 	}
 	$core->auth->user_prefs->dashboard->put('quickentry',false,'boolean');
 }
+if (!$core->auth->user_prefs->dashboard->prefExists('nodcupdate')) {
+	if (!$core->auth->user_prefs->dashboard->prefExists('nodcupdate',true)) {
+		$core->auth->user_prefs->dashboard->put('nodcupdate',false,'boolean','',null,true);
+	}
+	$core->auth->user_prefs->dashboard->put('nodcupdate',false,'boolean');
+}
 
 // Handle folded/unfolded sections in admin from user preferences
 $ws = $core->auth->user_prefs->addWorkspace('toggles');
@@ -205,7 +211,7 @@ dcPage::open(__('Dashboard'),
 );
 
 # Dotclear updates notifications
-if ($core->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS))
+if ($core->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) && !$core->auth->user_prefs->dashboard->nodcupdate)
 {
 	$updater = new dcUpdate(DC_UPDATE_URL,'dotclear',DC_UPDATE_VERSION,DC_TPL_CACHE.'/versions');
 	$new_v = $updater->check(DC_VERSION);

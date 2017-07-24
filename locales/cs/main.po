@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 10:18+0100\n"
+"POT-Creation-Date: 2017-07-24 11:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:44+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -1025,6 +1025,14 @@ msgstr "Připomenout později"
 msgid "Information about this version"
 msgstr ""
 
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Make this blog my default blog"
 msgstr "Nastavit tento blog jako výchozí"
 
@@ -1435,6 +1443,23 @@ msgid "By dates, in descending order"
 msgstr "Dle data, sestupně"
 
 #, fuzzy
+msgid "Select this file"
+msgstr "Smazat tento blog"
+
+msgid "Attach this file to entry"
+msgstr "Připojit tento soubor k článku"
+
+msgid "Insert this file into entry"
+msgstr "Vložit tento soubor do článku"
+
+#, fuzzy
+msgid "delete"
+msgstr "Smazat"
+
+msgid "open"
+msgstr "otevřít"
+
+#, fuzzy
 msgid "Not a valid directory"
 msgstr "Neplatný soubor"
 
@@ -1477,23 +1502,6 @@ msgstr "zrušit"
 
 msgid "Yes"
 msgstr "ano"
-
-#, fuzzy
-msgid "Select this file"
-msgstr "Smazat tento blog"
-
-msgid "Attach this file to entry"
-msgstr "Připojit tento soubor k článku"
-
-msgid "Insert this file into entry"
-msgstr "Vložit tento soubor do článku"
-
-#, fuzzy
-msgid "delete"
-msgstr "Smazat"
-
-msgid "open"
-msgstr "otevřít"
 
 #, fuzzy, php-format
 msgid "%s file found"
@@ -2484,6 +2492,10 @@ msgstr "Aktualizovat Dotclear"
 
 msgid "Display quick entry form"
 msgstr ""
+
+#, fuzzy
+msgid "Do not display Dotclear updates"
+msgstr "Aktualizovat Dotclear"
 
 #, fuzzy
 msgid "Save my dashboard options"
@@ -4076,10 +4088,6 @@ msgstr ""
 msgid "Thanks, mate. It was a pleasure."
 msgstr ""
 
-#, fuzzy
-msgid "A website mention this entry."
-msgstr "Přidat soubor ke článku"
-
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
 
@@ -4312,6 +4320,10 @@ msgstr "<p>Tato situace může znamenat, že uživatelské jméno a heslo ulože
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Nastaly následujíci chyby při čtení z databáze:"
+
+#, fuzzy
+#~ msgid "A website mention this entry."
+#~ msgstr "Přidat soubor ke článku"
 
 #, fuzzy
 #~ msgid "Filter blogs list"

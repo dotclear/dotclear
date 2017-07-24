@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 10:19+0100\n"
+"POT-Creation-Date: 2017-07-24 11:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -1026,6 +1026,14 @@ msgstr "Lembrar-me mais tarde"
 msgid "Information about this version"
 msgstr ""
 
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Make this blog my default blog"
 msgstr "Configurar como o blog principal"
 
@@ -1436,6 +1444,23 @@ msgid "By dates, in descending order"
 msgstr "Por datas, descendente"
 
 #, fuzzy
+msgid "Select this file"
+msgstr "Apagar este blog"
+
+msgid "Attach this file to entry"
+msgstr "Anexar este ficheiro à entrada"
+
+msgid "Insert this file into entry"
+msgstr "Inserir este ficheiro na entrada"
+
+#, fuzzy
+msgid "delete"
+msgstr "Apagar"
+
+msgid "open"
+msgstr "abrir"
+
+#, fuzzy
 msgid "Not a valid directory"
 msgstr "O ficheiro não é válido"
 
@@ -1477,23 +1502,6 @@ msgstr "cancelar"
 
 msgid "Yes"
 msgstr "sim"
-
-#, fuzzy
-msgid "Select this file"
-msgstr "Apagar este blog"
-
-msgid "Attach this file to entry"
-msgstr "Anexar este ficheiro à entrada"
-
-msgid "Insert this file into entry"
-msgstr "Inserir este ficheiro na entrada"
-
-#, fuzzy
-msgid "delete"
-msgstr "Apagar"
-
-msgid "open"
-msgstr "abrir"
 
 #, fuzzy, php-format
 msgid "%s file found"
@@ -2482,6 +2490,10 @@ msgstr "Actualizar Dotclear"
 
 msgid "Display quick entry form"
 msgstr ""
+
+#, fuzzy
+msgid "Do not display Dotclear updates"
+msgstr "Actualizar Dotclear"
 
 #, fuzzy
 msgid "Save my dashboard options"
@@ -4050,10 +4062,6 @@ msgstr ""
 msgid "Thanks, mate. It was a pleasure."
 msgstr ""
 
-#, fuzzy
-msgid "A website mention this entry."
-msgstr "Adicionar ficheiros nesta entrada"
-
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
 
@@ -4285,6 +4293,10 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "A website mention this entry."
+#~ msgstr "Adicionar ficheiros nesta entrada"
 
 #, fuzzy
 #~ msgid "Filter blogs list"

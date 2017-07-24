@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-04 10:18+0100\n"
+"POT-Creation-Date: 2017-07-24 11:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -1068,6 +1068,9 @@ msgstr "Blog importálása most"
 
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Először is szükségünk van néhány információra a régi Dotclear 1.2 telepítésedről."
+
+msgid "Database driver (must be mysqli if PHP 7 or higher):"
+msgstr ""
 
 msgid "Entries import options"
 msgstr "Bejegyzés importálásának beállításai"
