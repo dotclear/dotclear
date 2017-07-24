@@ -1362,7 +1362,7 @@ msgstr ""
 
 #: admin/index.php:233
 #, php-format
-msgid "The next versions of Dotclear will not support PHP version < 5.5, your's is currently %s"
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr ""
 
 #: admin/index.php:241

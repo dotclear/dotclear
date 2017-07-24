@@ -230,7 +230,8 @@ if ($core->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS))
 	} else {
 		if (version_compare(phpversion(),DC_NEXT_REQUIRED_PHP,'<')) {
 			echo '<p class="info">'.
-				sprintf(__('The next versions of Dotclear will not support PHP version < 5.5, your\'s is currently %s'),phpversion()).
+				sprintf(__('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
+					DC_NEXT_REQUIRED_PHP,phpversion()).
 				'</p>';
 		}
 	}

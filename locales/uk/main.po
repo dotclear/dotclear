@@ -960,7 +960,7 @@ msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your
 msgstr ""
 
 #, php-format
-msgid "The next versions of Dotclear will not support PHP version < 5.5, your's is currently %s"
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr ""
 
 msgid "Make this blog my default blog"
