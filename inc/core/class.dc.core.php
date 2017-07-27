@@ -71,6 +71,8 @@ class dcCore
 			mysqlConnection::$weak_locks = true;
 		} elseif ($this->con instanceof mysqliConnection) {
 			mysqliConnection::$weak_locks = true;
+		} elseif ($this->con instanceof mysqlimb4Connection) {
+			mysqlimb4Connection::$weak_locks = true;
 		}
 
 		# define searchpath for postgresql
