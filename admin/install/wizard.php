@@ -200,7 +200,7 @@ echo
 
 '<form action="wizard.php" method="post">'.
 '<p><label class="required" for="DBDRIVER"><abbr title="'.__('Required field').'">*</abbr> '.__('Database type:').'</label> '.
-    form::combo('DBDRIVER',array(__('MySQL (deprecated)')=>'mysql',__('MySQLi')=>'mysqli',__('PostgreSQL')=>'pgsql',__('SQLite')=>'sqlite'),$DBDRIVER).'</p>'.
+    form::combo('DBDRIVER',array(__('MySQL (deprecated)')=>'mysql',__('MySQLi')=>'mysqli',__('MySQLi (full UTF-8)')=>'mysqlimb4',__('PostgreSQL')=>'pgsql',__('SQLite')=>'sqlite'),$DBDRIVER).'</p>'.
 '<p><label for="DBHOST">'.__('Database Host Name:').'</label> '.
 form::field('DBHOST',30,255,html::escapeHTML($DBHOST)).'</p>'.
 '<p><label for="DBNAME">'.__('Database Name:').'</label> '.
