@@ -351,9 +351,11 @@ class dcPage
 		global $core;
 
 		if (!$GLOBALS['__resources']['ctxhelp']) {
-			echo
-			'<p id="help-button"><a href="'.$core->adminurl->get("admin.help").'" class="outgoing" title="'.
-			__('Global help').'">'.__('Global help').'</a></p>';
+			if (!$core->auth->user_prefs->interface->hidehelpbutton) {
+				echo
+				'<p id="help-button"><a href="'.$core->adminurl->get("admin.help").'" class="outgoing" title="'.
+				__('Global help').'">'.__('Global help').'</a></p>';
+			}
 		}
 
 		$menu =& $GLOBALS['_menu'];
@@ -595,8 +597,12 @@ class dcPage
 	public static function helpBlock()
 	{
 		global $core;
-		$args = func_get_args();
 
+		if ($core->auth->user_prefs->interface->hidehelpbutton) {
+			return;
+		}
+
+		$args = func_get_args();
 		$args = new ArrayObject($args);
 
 		# --BEHAVIOR-- adminPageHelpBlock

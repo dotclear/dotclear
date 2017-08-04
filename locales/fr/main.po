@@ -2194,6 +2194,9 @@ msgstr "Si cette option est cochée, des champs numériques permettront d'indiqu
 msgid "Hide all secondary information and notes"
 msgstr "Cacher les informations secondaires et les notes"
 
+msgid "Hide help button"
+msgstr "Cacher le bouton d'aide"
+
 msgid "Font size:"
 msgstr "Taille de police de caractère :"
 
