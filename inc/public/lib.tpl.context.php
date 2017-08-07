@@ -121,12 +121,9 @@ class context
 		$tag);
 	}
 
-	public static function global_filters($str,$_args,$tag='')
+	public static function global_filters($str,$args,$tag='')
 	{
-		$_args[0] = &$str;
-
-		# Terrible hack to pass args values by reference
-		$args = new ArrayObject($_args);
+		$args[0] = &$str;
 
 		# --BEHAVIOR-- publicBeforeContentFilter
 		$res = $GLOBALS['core']->callBehavior('publicBeforeContentFilter',$GLOBALS['core'],$tag,$args);
