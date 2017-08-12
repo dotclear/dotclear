@@ -488,7 +488,7 @@ class dcImportDC1 extends dcIeModule
 		$cur->post_title  = html::decodeEntities($this->cleanStr($rs->post_titre));
 
 		$cur->post_url = date('Y/m/d/',strtotime($cur->post_dt)).$rs->post_id.'-'.$rs->post_titre_url;
-		$cur->post_url = substr($cur->post_url,0,255);
+		$cur->post_url = substr($cur->post_url,0,191);
 
 		$cur->post_format        = $rs->post_content_wiki == '' ? 'xhtml' : 'wiki';
 		$cur->post_content_xhtml = $this->cleanStr($rs->post_content);
