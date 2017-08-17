@@ -99,6 +99,9 @@ p.warning-msg {
 .close-notice-parent {
 	display: flex;
 	justify-content: space-between;
+	ul {
+		flex: 1;
+	}
 }
 .close-notice {
 	background: none;

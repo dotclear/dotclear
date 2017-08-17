@@ -1490,6 +1490,8 @@ p.warning-msg {
 .close-notice-parent {
   display: flex;
   justify-content: space-between; }
+  .close-notice-parent ul {
+    flex: 1; }
 
 .close-notice {
   background: none;
