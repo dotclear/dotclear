@@ -1,0 +1,2 @@
+msgid "Open URL on a new tab"
+msgstr "S'ouvre dans un nouvel onglet"
