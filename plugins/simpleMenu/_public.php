@@ -137,7 +137,8 @@ class tplSimpleMenu
 							($i == count($menu)-1 ? ' li-last' : '').
 							($item['class'] ? $item['class'] : '').
 						'">'.
-						'<a href="'.$href.'"'.$item['title'].'>'.
+						'<a href="'.$href.'"'.$item['title'].
+						(($m['targetBlank']) ? 'target="_blank"' : '').'>'.
 						'<span class="simple-menu-label">'.$item['label'].'</span>'.
 						$item['span'].'</a>'.
 						'</li>';

@@ -135,7 +135,7 @@ if (!empty($_POST['saveconfig'])) {
 	$item_label = isset($_POST['item_label']) ? $_POST['item_label'] : '';
 	$item_descr = isset($_POST['item_descr']) ? $_POST['item_descr'] : '';
 	$item_url = isset($_POST['item_url']) ? $_POST['item_url'] : '';
-
+	$item_targetBlank  = isset($_POST['item_targetBlank']) ?  (empty($_POST['item_targetBlank'])) ? false : true : false;
 	# Traitement
 	$step = (!empty($_GET['add']) ? (integer) $_GET['add'] : 0);
 	if (($step > 4) || ($step < 0)) $step = 0;
@@ -228,8 +228,10 @@ if (!empty($_POST['saveconfig'])) {
 						$menu[] = array(
 							'label' => $item_label,
 							'descr' => $item_descr,
-							'url' => $item_url
+							'url' => $item_url,
+							'targetBlank'	=> $item_targetBlank 
 						);
+						
 						// Save menu in blog settings
 						$core->blog->settings->system->put('simpleMenu',$menu);
 						$core->blog->triggerBlog();
@@ -264,7 +266,9 @@ if (!empty($_POST['saveconfig'])) {
 							$newmenu[] = array(
 								'label' => $v['label'],
 								'descr' => $v['descr'],
-								'url' => $v['url']);
+								'url' => $v['url'],
+								'targetBlank'	=> $v['targetBlank']
+								);
 						}
 					}
 					$menu = $newmenu;
@@ -300,7 +304,9 @@ if (!empty($_POST['saveconfig'])) {
 					$newmenu[] = array(
 						'label' => $_POST['items_label'][$i],
 						'descr' => $_POST['items_descr'][$i],
-						'url' => $_POST['items_url'][$i]);
+						'url' => $_POST['items_url'][$i],
+						'targetBlank'	=> (empty($_POST['items_targetBlank'.$i])) ? false : true
+						);
 				}
 				$menu = $newmenu;
 				// Save menu in blog settings
@@ -479,6 +485,8 @@ if ($step)
 			echo '<p class="field"><label for="item_url" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.
 				__('URL of item menu:').'</label>'.form::field('item_url',40,255,$item_url).'</p>';
 			echo form::hidden('item_type',$item_type).form::hidden('item_select',$item_select);
+			echo '<p class="field"><label for="item_descr" class="classic">'.
+				__('Open URL on a new tab').':</label>'.form::checkbox('item_targetBlank','blank').'</p>';
 			echo '<p>'.$core->formNonce().'<input type="submit" name="appendaction" value="'.__('Add this item').'" /></p>';
 			echo '</fieldset>';
 			echo '</form>';
@@ -521,12 +529,23 @@ if (count($menu)) {
 		'<th scope="col">'.__('Label').'</th>'.
 		'<th scope="col">'.__('Description').'</th>'.
 		'<th scope="col">'.__('URL').'</th>'.
+		'<th scope="col">'.__('Open URL on a new tab').'</th>'.
 		'</tr>'.
 		'</thead>'.
 		'<tbody'.(!$step ? ' id="menuitemslist"' : '').'>';
 	$count = 0;
 	foreach ($menu as $i => $m) {
 		echo '<tr class="line" id="l_'.$i.'">';
+		
+		//because targetBlank can not exists. This value has been added after this plugin creation.
+		if((isset($m['targetBlank'])) && ($m['targetBlank'])) {
+			$targetBlank = true;
+			$targetBlankStr ='X';
+		}else{
+			$targetBlank = false;
+			$targetBlankStr ='';
+		}
+		
 		if (!$step) {
 			$count++;
 			echo '<td class="handle minimal">'.
@@ -536,10 +555,13 @@ if (count($menu)) {
 			echo '<td class="nowrap" scope="row">'.form::field(array('items_label[]','iml-'.$i),'',255,html::escapeHTML(__($m['label']))).'</td>';
 			echo '<td class="nowrap">'.form::field(array('items_descr[]','imd-'.$i),'30',255,html::escapeHTML(__($m['descr']))).'</td>';
 			echo '<td class="nowrap">'.form::field(array('items_url[]','imu-'.$i),'30',255,html::escapeHTML($m['url'])).'</td>';
+			echo '<td class="nowrap">'.form::checkbox('items_targetBlank'.$i,'blank',$targetBlank).'</td>';
 		} else {
 			echo '<td class="nowrap" scope="row">'.html::escapeHTML(__($m['label'])).'</td>';
 			echo '<td class="nowrap">'.html::escapeHTML(__($m['descr'])).'</td>';
 			echo '<td class="nowrap">'.html::escapeHTML($m['url']).'</td>';
+			echo '<td class="nowrap">'.$targetBlankStr.'</td>';
+ 
 		}
 		echo '</tr>';
 	}
