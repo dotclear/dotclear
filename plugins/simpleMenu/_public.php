@@ -138,12 +138,11 @@ class tplSimpleMenu
 							($item['class'] ? $item['class'] : '').
 						'">'.
 						'<a href="'.$href.'"'.$item['title'].
-						(($m['targetBlank']) ? 'target="_blank"' : '').'>'.
+						((isset($m['targetBlank']) && ($m['targetBlank'])) ? 'target="_blank"' : '').'>'.
 						'<span class="simple-menu-label">'.$item['label'].'</span>'.
 						$item['span'].'</a>'.
 						'</li>';
 			}
-
 			// Final rendering
 			if ($ret) {
 				$ret = '<nav role="navigation"><ul '.($id ? 'id="'.$id.'"' : '').' class="simple-menu'.($class ? ' '.$class : '').'">'."\n".$ret."\n".'</ul></nav>';
@@ -153,3 +152,4 @@ class tplSimpleMenu
 		return $ret;
 	}
 }
+
