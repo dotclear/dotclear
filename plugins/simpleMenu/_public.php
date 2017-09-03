@@ -138,7 +138,9 @@ class tplSimpleMenu
 							($item['class'] ? $item['class'] : '').
 						'">'.
 						'<a href="'.$href.'"'.$item['title'].
-						((isset($m['targetBlank']) && ($m['targetBlank'])) ? 'target="_blank"' : '').'>'.
+						((isset($m['targetBlank']) && ($m['targetBlank'])) ? 
+              'target="_blank" title="'.__("the link will open a new window").'"' 
+              : '').'>'.
 						'<span class="simple-menu-label">'.$item['label'].'</span>'.
 						$item['span'].'</a>'.
 						'</li>';
@@ -152,4 +154,3 @@ class tplSimpleMenu
 		return $ret;
 	}
 }
-
