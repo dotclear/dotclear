@@ -2000,6 +2000,12 @@ msgstr "Texte indicatif (HTML5 seulement, optionnel) :"
 msgid "Navigation links"
 msgstr "Liens de navigation"
 
+msgid "Open URL on a new tab"
+msgstr "S'ouvre dans un nouvel onglet"
+
+msgid "the link will open a new window"
+msgstr "Ce lien s'ouvrira dans une nouvelle fenêtre"
+
 msgid "Selected entries"
 msgstr "Billets sélectionnés"
 

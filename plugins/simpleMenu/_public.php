@@ -100,6 +100,8 @@ class tplSimpleMenu
 				$href = $m['url'];
 				$href = html::escapeHTML($href);
 
+				$targetBlank = ((isset($m['targetBlank'])) && ($m['targetBlank']))? true:false;
+				
 				# Active item test
 				$active = false;
 				if (($url == $href) ||
@@ -109,14 +111,23 @@ class tplSimpleMenu
 					$active = true;
 				}
 				$title = $span = '';
+				
 				if ($m['descr']) {
-					if ($description == 'title' || $description == 'both') {
+					if (($description == 'title' || $description == 'both') && $targetBlank) {
+						$title = ' title="'.html::escapeHTML(__($m['descr'])).' ('.
+						__("the link will open a new window").')"';
+					}elseif($description == 'title' || $description == 'both'){
 						$title = ' title="'.html::escapeHTML(__($m['descr'])).'"';
 					}
 					if ($description == 'span' || $description == 'both') {
 						$span = ' <span class="simple-menu-descr">'.html::escapeHTML(__($m['descr'])).'</span>';
 					}
 				}
+				
+				if( empty($title) && $targetBlank){
+					$title = ' title="'.__("the link will open a new window").'"';
+				}
+						
 				$label = html::escapeHTML(__($m['label']));
 
 				$item = new ArrayObject(array(
@@ -137,12 +148,12 @@ class tplSimpleMenu
 							($i == count($menu)-1 ? ' li-last' : '').
 							($item['class'] ? $item['class'] : '').
 						'">'.
-						'<a href="'.$href.'"'.$item['title'].'>'.
+						'<a href="'.$href.'"'.$item['title'].
+						(($targetBlank) ? 'target="_blank"': '').'>'.
 						'<span class="simple-menu-label">'.$item['label'].'</span>'.
 						$item['span'].'</a>'.
 						'</li>';
 			}
-
 			// Final rendering
 			if ($ret) {
 				$ret = '<nav role="navigation"><ul '.($id ? 'id="'.$id.'"' : '').' class="simple-menu'.($class ? ' '.$class : '').'">'."\n".$ret."\n".'</ul></nav>';
