@@ -1,5 +1,0 @@
-msgid "Open URL on a new tab"
-msgstr "S'ouvre dans un nouvel onglet"
-
-msgid "the link will open a new window"
-msgstr "Ce lien s'ouvrira dans une nouvelle fenêtre"
