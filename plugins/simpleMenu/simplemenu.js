@@ -15,5 +15,5 @@ $(function() {
 	});
 	$("#menuitemslist tr td input.position").hide();
 	$("#menuitemslist tr td.handle").addClass('handler');
-	dotclear.condSubmit('#menuitems tr td input[type="checkbox"]','#menuitems #remove-action');
+	dotclear.condSubmit('#menuitems tr td input[name^=items_selected]','#menuitems #remove-action');
 });
