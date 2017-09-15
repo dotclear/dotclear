@@ -2929,7 +2929,11 @@ class dcTemplate extends template
 		}
 
 		if (isset($attr['blog_lang'])) {
-			$sign = (boolean) $attr['blog_lang'] ? '!' : '=';
+			$sign = '=';
+			if (substr($attr['blog_lang'],0,1) == '!') {
+				$sign = '!';
+				$attr['blog_lang'] = substr($attr['blog_lang'],1);
+			}
 			$if[] = "\$core->blog->settings->system->lang ".$sign."= '".addslashes($attr['blog_lang'])."'";
 		}
 
