@@ -24,6 +24,7 @@ $__autoload['dcMaintenanceIndexcomments'] = dirname(__FILE__).'/inc/tasks/class.
 $__autoload['dcMaintenanceIndexposts'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.indexposts.php';
 $__autoload['dcMaintenanceSynchpostsmeta'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.synchpostsmeta.php';
 $__autoload['dcMaintenanceLogs'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.logs.php';
+$__autoload['dcMaintenanceUtf8mb4'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.utf8mb4.php';
 $__autoload['dcMaintenanceVacuum'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.vacuum.php';
 $__autoload['dcMaintenanceZipmedia'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.zipmedia.php';
 $__autoload['dcMaintenanceZiptheme'] = dirname(__FILE__).'/inc/tasks/class.dc.maintenance.ziptheme.php';

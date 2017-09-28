@@ -1413,6 +1413,90 @@ msgstr "Impossible d'optimiser les tables."
 msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
 msgstr "Au fur at à mesure des suppressions ou modifications dans vos billets, les tables de la base de données se fragmentent. L'opération d'optimisation permet de compacter celles-ci. Cette opération n'a aucun impact sur l'intégrité de vos données. Il est fortement conseillé d'optimiser la base de données avant tout export de blog."
 
+msgid "UTF8-mb4 check"
+msgstr "Contrôle UTF8-mb4"
+
+msgid "UTF8-mb4 compatibility check"
+msgstr "Contrôle de compatibilité UTF8-mb4"
+
+msgid "Next: %s"
+msgstr "Suivant : %s"
+
+msgid "Next"
+msgstr "Suivant"
+
+msgid "Check end"
+msgstr "Fin du contrôle"
+
+msgid "Some data will not be fully importable in a UTF8-mb4 database. You need to reduce them before."
+msgstr "Certaines données ne seront pas complètement importables dans une base de données au format UTF8-mb4. Vous devrez d'abord les réduire."
+
+msgid "Check various data for compatibility with UTF8-mb4 (full UTF8 encoding storage) before exporting and importing them in a new UTF8-mb4 MySQL database."
+msgstr "Contrôle la compatibilité de certaines données avec le format UTF8-mb4 (encodage complet de l'UTF8) avant un export et un import dans une nouvelle base de données au format UTF8-mb4."
+
+msgid "All post URLs are importable in UTF8-mb4 database"
+msgstr "Toutes les URLs des entrées sont importables dans une base données UTF8-mb4"
+
+msgid "%s post URLs are longer than %d characters:"
+msgstr "%s URLs d'entrée sont plus longues que les %d caractères max :"
+
+msgid "URL Length"
+msgstr "Longueur d'URL"
+
+msgid "All ping URLs are importable in UTF8-mb4 database"
+msgstr "Toutes les URLs de ping sont importables dans une base de données UTF8-mb4"
+
+msgid "%s ping URLs are longer than %d characters:"
+msgstr "%s URLs de ping sont plus longues que les %d caractères max :"
+
+msgid "Ping URL"
+msgstr "URL de ping"
+
+msgid "All meta IDs are importable in UTF8-mb4 database"
+msgstr "Tous les identifiants de métadonnée sont importables dans une base de données UTF8-mb4"
+
+msgid "%s meta IDs are longer than %d characters:"
+msgstr "%s identifiants de métadonnée sont plus longs que les %d caractères max :"
+
+msgid "Meta ID"
+msgstr "Identifiant de métadonnée"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Length"
+msgstr "Longueur"
+
+msgid "All Category URLs are importable in UTF8-mb4 database"
+msgstr "Toutes les URLs de catégorie sont importables dans une base de données UTF8-mb4"
+
+msgid "%s category URLs are longer than %d characters:"
+msgstr "%s URLs de catégorie sont plus longues que les %d caractères max :"
+
+msgid "All User preferences are importable in UTF8-mb4 database"
+msgstr "Toutes les préférences utilisateur sont importables dans une base de données UTF8-mb4"
+
+msgid "%s User preference IDs are longer than %d characters:"
+msgstr "%s identifiants de préférence utilisateur sont plus longs que les %d caractères max :"
+
+msgid "Preference ID"
+msgstr "Identifiant de préférence utilisateur"
+
+msgid "Workspace"
+msgstr "Espace de travail"
+
+msgid "All Blog settings are importable in UTF8-mb4 database"
+msgstr "Tous les identifiants de réglage de blog sont importables dans une base de données UTF8-mb4"
+
+msgid "%s Blog setting IDs are longer than %d characters:"
+msgstr "%s identifiants de réglage de blog sont plus longs que les %d caractères max :"
+
+msgid "Setting ID"
+msgstr "Identifiant de réglage de blog"
+
+msgid "Namespace"
+msgstr "Espace de noms"
+
 msgid "Download media folder of current blog"
 msgstr "Télécharger la médiathèque du blog courant"
 
