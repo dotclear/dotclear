@@ -993,8 +993,18 @@ button,
 textarea,
 select,
 legend {
-  border-radius: 3px;
   max-width: 100%; }
+
+input[type=text],
+input[type=password],
+input[type=submit],
+input[type=button],
+input[type=reset],
+a.button,
+button,
+textarea,
+legend {
+  border-radius: 3px; }
 
 form {
   display: block;
@@ -1033,18 +1043,21 @@ input[type=text],
 input[type=password],
 textarea,
 select {
-  background: #fcfcfc;
   color: #000;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #dfdfdf;
   box-shadow: 1px 1px 2px #f3f3f3 inset;
   padding: 3px;
   vertical-align: top; }
 
+input[type=text],
+input[type=password],
+textarea {
+  background: #fcfcfc;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #dfdfdf; }
+
 input:focus,
-textarea:focus,
-select:focus {
+textarea:focus {
   border-color: #9bca1c; }
 
 textarea {
@@ -1060,6 +1073,11 @@ select {
   padding: 2px 0;
   vertical-align: middle; }
 
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    /* Safari 10.1+ only (https://browserstrangeness.bitbucket.io/css_hacks.html#webkit) */
+    select {
+      font-size: initial; } } }
 select.l10n option {
   padding-left: 16px; }
 
@@ -1069,10 +1087,13 @@ option.avail10n {
 input.invalid,
 textarea.invalid,
 select.invalid {
-  border: 1px solid red;
-  background: #FFBABA;
   color: #900;
   box-shadow: 0 0 0 3px rgba(218, 62, 90, 0.3); }
+
+input.invalid,
+textarea.invalid {
+  border: 1px solid red;
+  background: #FFBABA; }
 
 input[type=text],
 input[type=password],

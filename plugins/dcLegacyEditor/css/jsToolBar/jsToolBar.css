@@ -44,7 +44,6 @@
 .jstElements select {
 	width: 12em;
 	margin-right: .6rem;
-	border: 1px solid #ddd;
 }
 .jstElements button {
 	width: 30px;
