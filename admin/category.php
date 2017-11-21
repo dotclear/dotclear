@@ -215,7 +215,7 @@ if (!$cat_id)
 echo
 '<div class="lockable">'.
 '<p><label for="cat_url">'.__('URL:').'</label> '
-.form::field('cat_url',40,191,html::escapeHTML($cat_url)).
+.form::field('cat_url',40,255,html::escapeHTML($cat_url)).
 '</p>'.
 '<p class="form-note warn" id="note-cat-url">'.
 __('Warning: If you set the URL manually, it may conflict with another category.').'</p>'.

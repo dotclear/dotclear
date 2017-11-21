@@ -74,7 +74,7 @@ foreach ($pings_uris as $n => $u)
 	'<p><label for="pings_srv_name-'.$i.'" class="classic">'.__('Service name:').'</label> '.
 	form::field(array('pings_srv_name[]','pings_srv_name-'.$i),20,128,html::escapeHTML($n)).' '.
 	'<label for="pings_srv_uri-'.$i.'" class="classic">'.__('Service URI:').'</label> '.
-	form::field(array('pings_srv_uri[]','pings_srv_uri-'.$i),40,191,html::escapeHTML($u));
+	form::field(array('pings_srv_uri[]','pings_srv_uri-'.$i),40,255,html::escapeHTML($u));
 
 	if (!empty($_GET['test']))
 	{
@@ -94,7 +94,7 @@ echo
 '<p><label for="pings_srv_name2" class="classic">'.__('Service name:').'</label> '.
 form::field(array('pings_srv_name[]','pings_srv_name2'),20,128).' '.
 '<label for="pings_srv_uri2" class="classic">'.__('Service URI:').'</label> '.
-form::field(array('pings_srv_uri[]','pings_srv_uri2'),40,191).
+form::field(array('pings_srv_uri[]','pings_srv_uri2'),40,255).
 '</p>'.
 
 '<p><label for="pings_auto" class="classic">'.form::checkbox('pings_auto',1,$core->blog->settings->pings->pings_auto).

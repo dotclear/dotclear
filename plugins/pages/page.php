@@ -476,7 +476,7 @@ if ($can_edit_page)
 				'post_url' =>
 					'<div class="lockable">'.
 					'<p><label for="post_url">'.__('Edit basename').'</label>'.
-					form::field('post_url',10,191,html::escapeHTML($post_url),'maximal').
+					form::field('post_url',10,255,html::escapeHTML($post_url),'maximal').
 					'</p>'.
 					'<p class="form-note warn">'.
 					__('Warning: If you set the URL manually, it may conflict with another page.').
