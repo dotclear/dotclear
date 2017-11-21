@@ -623,7 +623,7 @@ class dcImportWP extends dcIeModule
 			$permalink_infos,
 			$rs->post_type== 'post' ? $this->vars['permalink_template'] : '%postname%'
 		);
-		$cur->post_url = substr($cur->post_url,0,191);
+		$cur->post_url = substr($cur->post_url,0,255);
 
 		if (!$cur->post_url) {
 			$cur->post_url = $rs->ID;

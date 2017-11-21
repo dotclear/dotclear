@@ -34,7 +34,7 @@ $_s->category
 	->cat_id				('bigint',		0,		false)
 	->blog_id				('varchar',		32,		false)
 	->cat_title				('varchar',		255,	false)
-	->cat_url				('varchar',		191,	false)
+	->cat_url				('varchar',		255,	false)
 	->cat_desc				('text',		0,		true)
 	->cat_position			('integer',		0,		true,	0)
 	->cat_lft				('integer',		0,		true)
@@ -55,7 +55,7 @@ $_s->session
 	;
 
 $_s->setting
-	->setting_id			('varchar',		191,	false)
+	->setting_id			('varchar',		255,	false)
 	->blog_id				('varchar',		32,		true)
 	->setting_ns			('varchar',		32,		false,	"'system'")
 	->setting_value			('text',		0,		true,	null)
@@ -109,7 +109,7 @@ $_s->post
 	->post_password			('varchar',		32,		true,	null)
 	->post_type				('varchar',		32,		false,	"'post'")
 	->post_format			('varchar',		32,		false,	"'xhtml'")
-	->post_url				('varchar',		191,	false)
+	->post_url				('varchar',		255,	false)
 	->post_lang				('varchar',		5,		true,	null)
 	->post_title			('varchar',		255,	true,	null)
 	->post_excerpt			('text',		0,		true,	null)
@@ -178,7 +178,7 @@ $_s->version
 
 $_s->ping
 	->post_id				('bigint',		0,		false)
-	->ping_url				('varchar',		191,	false)
+	->ping_url				('varchar',		255,	false)
 	->ping_dt				('timestamp',	0,		false,	'now()')
 
 	->primary('pk_ping','post_id','ping_url')
@@ -205,7 +205,7 @@ $_s->comment
 	;
 
 $_s->meta
-	->meta_id				('varchar',		191,	false)
+	->meta_id				('varchar',		255,	false)
 	->meta_type				('varchar',		64,		false)
 	->post_id				('bigint',		0,		false)
 
@@ -213,7 +213,7 @@ $_s->meta
 	;
 
 $_s->pref
-	->pref_id				('varchar',		191,	false)
+	->pref_id				('varchar',		255,	false)
 	->user_id				('varchar',		32,		true)
 	->pref_ws				('varchar',		32,		false,	"'system'")
 	->pref_value			('text',		0,		true,	null)
