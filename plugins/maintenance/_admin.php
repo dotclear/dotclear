@@ -66,7 +66,6 @@ class dcMaintenanceAdmin
 		->addTask('dcMaintenanceCountcomments')
 		->addTask('dcMaintenanceSynchpostsmeta')
 		->addTask('dcMaintenanceLogs')
-		->addTask('dcMaintenanceUtf8mb4')
 		->addTask('dcMaintenanceVacuum')
 		->addTask('dcMaintenanceZipmedia')
 		->addTask('dcMaintenanceZiptheme')
