@@ -1,0 +1,23 @@
+# EditorConfig is awesome: http://EditorConfig.org
+
+# Recommended for Dotclear developments and contribution
+# See https://dotclear.org/documentation/2.0/resources/coding-standards
+
+# Revisions
+#
+# 1. Franck: creation (2017-12-04)
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+indent_style = tab
+trim_trailing_whitespace = true
+
+# Markdown
+[*.md]
+trim_trailing_whitespace = false
