@@ -16,6 +16,7 @@
 
 require dirname(__FILE__).'/../inc/admin/prepend.php';
 
+$core->rest->addFunction('checkCoreUpdate',array('dcRestMethods','checkCoreUpdate'));
 $core->rest->addFunction('getPostById',array('dcRestMethods','getPostById'));
 $core->rest->addFunction('getCommentById',array('dcRestMethods','getCommentById'));
 $core->rest->addFunction('quickPost',array('dcRestMethods','quickPost'));
@@ -33,6 +34,52 @@ $core->rest->serve();
 /* Common REST methods */
 class dcRestMethods
 {
+	public static function checkCoreUpdate($core,$get)
+	{
+		# Dotclear updates notifications
+
+		$rsp = new xmlTag('update');
+		$rsp->check = false;
+		$ret = __('Dotclear update not avalaible');
+
+		if ($core->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) &&
+			!$core->auth->user_prefs->dashboard->nodcupdate)
+		{
+			$updater = new dcUpdate(DC_UPDATE_URL,'dotclear',DC_UPDATE_VERSION,DC_TPL_CACHE.'/versions');
+			$new_v = $updater->check(DC_VERSION);
+			$version_info = $new_v ? $updater->getInfoURL() : '';
+
+			if ($updater->getNotify() && $new_v) {
+				// Check PHP version required
+				if (version_compare(phpversion(),$updater->getPHPVersion()) >= 0) {
+					$ret =
+					'<div class="dc-update"><h3>'.sprintf(__('Dotclear %s is available!'),$new_v).'</h3> '.
+					'<p><a class="button submit" href="'.$core->adminurl->get("admin.update").'">'.sprintf(__('Upgrade now'),$new_v).'</a> '.
+					'<a class="button" href="'.$core->adminurl->get("admin.update", array('hide_msg' => 1)).'">'.__('Remind me later').'</a>'.
+					($version_info ? ' </p>'.
+					'<p class="updt-info"><a href="'.$version_info.'">'.__('Information about this version').'</a>' : '').'</p>'.
+					'</div>';
+				} else {
+					$ret = '<p class="info">'.
+						sprintf(__('A new version of Dotclear is available but needs PHP version ≥ %s, your\'s is currently %s'),
+							$updater->getPHPVersion(),phpversion()).
+						'</p>';
+				}
+				$rsp->check = true;
+			} else {
+				if (version_compare(phpversion(),DC_NEXT_REQUIRED_PHP,'<')) {
+					$ret = '<p class="info">'.
+						sprintf(__('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
+							DC_NEXT_REQUIRED_PHP,phpversion()).
+						'</p>';
+					$rsp->check = true;
+				}
+			}
+		}
+		$rsp->ret = $ret;
+		return $rsp;
+	}
+
 	public static function getPostById($core,$get)
 	{
 		if (empty($get['id'])) {

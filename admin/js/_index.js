@@ -79,4 +79,22 @@ $(function() {
 		legend_click: true,
 		user_pref: 'dcx_quick_entry'
 	});
+
+	// check if core update available
+	var params = {
+		f: 'checkCoreUpdate',
+		xd_check: dotclear.nonce
+	};
+	$.post('services.php',params,function(data) {
+		if ($('rsp[status=failed]',data).length > 0) {
+			// Silently fail as a forced checked my be done with admin update page
+		} else {
+			if ($('rsp>update',data).attr('check') == 1) {
+				// Something has to be displayed
+				xml = $('rsp>update',data).attr('ret');
+				$('#content h2').after(xml);
+			}
+		}
+	});
+
 });
