@@ -16,6 +16,7 @@
 
 require dirname(__FILE__).'/../inc/admin/prepend.php';
 
+$core->rest->addFunction('checkNewsUpdate',array('dcRestMethods','checkNewsUpdate'));
 $core->rest->addFunction('checkCoreUpdate',array('dcRestMethods','checkCoreUpdate'));
 $core->rest->addFunction('getPostById',array('dcRestMethods','getPostById'));
 $core->rest->addFunction('getCommentById',array('dcRestMethods','getCommentById'));
@@ -34,13 +35,65 @@ $core->rest->serve();
 /* Common REST methods */
 class dcRestMethods
 {
+	public static function checkNewsUpdate($core,$get)
+	{
+		# Dotclear news
+
+		$rsp = new xmlTag('news');
+		$rsp->check = false;
+		$ret = __('Dotclear news not available');
+
+		if ($core->auth->user_prefs->dashboard->dcnews) {
+			try
+			{
+
+				if (empty($GLOBALS['__resources']['rss_news'])) {
+					throw new Exception();
+				}
+				$feed_reader = new feedReader;
+				$feed_reader->setCacheDir(DC_TPL_CACHE);
+				$feed_reader->setTimeout(2);
+				$feed_reader->setUserAgent('Dotclear - http://www.dotclear.org/');
+				$feed = $feed_reader->parse($GLOBALS['__resources']['rss_news']);
+				if ($feed)
+				{
+					$ret = '<div class="box medium dc-box"><h3>'.__('Dotclear news').'</h3><dl id="news">';
+					$i = 1;
+					foreach ($feed->items as $item)
+					{
+						$dt = isset($item->link) ? '<a href="'.$item->link.'" class="outgoing" title="'.$item->title.'">'.
+							$item->title.' <img src="images/outgoing-blue.png" alt="" /></a>' : $item->title;
+
+						if ($i < 3) {
+							$ret .=
+							'<dt>'.$dt.'</dt>'.
+							'<dd><p><strong>'.dt::dt2str(__('%d %B %Y:'),$item->pubdate,'Europe/Paris').'</strong> '.
+							'<em>'.text::cutString(html::clean($item->content),120).'...</em></p></dd>';
+						} else {
+							$ret .=
+							'<dt>'.$dt.'</dt>'.
+							'<dd>'.dt::dt2str(__('%d %B %Y:'),$item->pubdate,'Europe/Paris').'</dd>';
+						}
+						$i++;
+						if ($i > 2) { break; }
+					}
+					$ret .= '</dl></div>';
+					$rsp->check = true;
+				}
+			}
+			catch (Exception $e) {}
+		}
+		$rsp->ret = $ret;
+		return $rsp;
+	}
+
 	public static function checkCoreUpdate($core,$get)
 	{
 		# Dotclear updates notifications
 
 		$rsp = new xmlTag('update');
 		$rsp->check = false;
-		$ret = __('Dotclear update not avalaible');
+		$ret = __('Dotclear update not available');
 
 		if ($core->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) &&
 			!$core->auth->user_prefs->dashboard->nodcupdate)
