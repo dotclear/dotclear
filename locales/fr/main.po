@@ -965,6 +965,12 @@ msgstr "Me le rappeler plus tard"
 msgid "Information about this version"
 msgstr "Informations sur cette version"
 
+msgid "Dotclear news not available"
+msgstr "Nouvelles de Dotclear non disponibles"
+
+msgid "Dotclear update not available"
+msgstr "Mise à jour de Dotclear non disponible"
+
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
 msgstr "Une nouvelle version de Dotclear est disponible mais nécessite une version de PHP ≥ %s, la votre est actuellement la %s"

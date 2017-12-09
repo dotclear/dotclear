@@ -116,48 +116,6 @@ $__dashboard_items = new ArrayObject(array(new ArrayObject(),new ArrayObject()))
 
 $dashboardItem = 0;
 
-if ($core->auth->user_prefs->dashboard->dcnews) {
-	try
-	{
-		if (empty($__resources['rss_news'])) {
-			throw new Exception();
-		}
-
-		$feed_reader = new feedReader;
-		$feed_reader->setCacheDir(DC_TPL_CACHE);
-		$feed_reader->setTimeout(2);
-		$feed_reader->setUserAgent('Dotclear - http://www.dotclear.org/');
-		$feed = $feed_reader->parse($__resources['rss_news']);
-		if ($feed)
-		{
-			$latest_news = '<div class="box medium dc-box"><h3>'.__('Dotclear news').'</h3><dl id="news">';
-			$i = 1;
-			foreach ($feed->items as $item)
-			{
-				$dt = isset($item->link) ? '<a href="'.$item->link.'" class="outgoing" title="'.$item->title.'">'.
-					$item->title.' <img src="images/outgoing-blue.png" alt="" /></a>' : $item->title;
-
-				if ($i < 3) {
-					$latest_news .=
-					'<dt>'.$dt.'</dt>'.
-					'<dd><p><strong>'.dt::dt2str(__('%d %B %Y:'),$item->pubdate,'Europe/Paris').'</strong> '.
-					'<em>'.text::cutString(html::clean($item->content),120).'...</em></p></dd>';
-				} else {
-					$latest_news .=
-					'<dt>'.$dt.'</dt>'.
-					'<dd>'.dt::dt2str(__('%d %B %Y:'),$item->pubdate,'Europe/Paris').'</dd>';
-				}
-				$i++;
-				if ($i > 2) { break; }
-			}
-			$latest_news .= '</dl></div>';
-			$__dashboard_items[$dashboardItem][] = $latest_news;
-			$dashboardItem++;
-		}
-	}
-	catch (Exception $e) {}
-}
-
 # Documentation links
 if ($core->auth->user_prefs->dashboard->doclinks) {
 	if (!empty($__resources['doc']))
