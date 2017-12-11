@@ -1511,8 +1511,10 @@ p.warning-msg {
 .close-notice-parent {
   display: flex;
   justify-content: space-between; }
-  .close-notice-parent ul {
+  .close-notice-parent ul, .close-notice-parent p + p {
     flex: 1; }
+  .close-notice-parent p + p {
+    padding-left: .25em; }
 
 .close-notice {
   background: none;

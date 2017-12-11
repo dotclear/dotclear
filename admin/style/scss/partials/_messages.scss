@@ -99,8 +99,11 @@ p.warning-msg {
 .close-notice-parent {
 	display: flex;
 	justify-content: space-between;
-	ul {
+	ul, p + p {
 		flex: 1;
+	}
+	p + p {
+		padding-left: .25em;
 	}
 }
 .close-notice {

@@ -569,10 +569,6 @@ $(function() {
 		e.preventDefault();
 		$(this).parent().hide();
 	});
-	$('p.success,p.warning,p.error,div.error').click(function(e) {
-	    e.preventDefault();
-		$(this).hide();
-	});
 
 	// Password
 	$('form:has(input[type=password][name=your_pwd])').submit(function() {
