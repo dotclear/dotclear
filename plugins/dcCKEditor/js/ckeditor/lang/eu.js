@@ -140,7 +140,7 @@ CKEDITOR.lang['eu'] = {
     pastetext : 
     {
     	button : 'Itsatsi testu arrunta bezala',
-    	title : 'Itsatsi testu arrunta bezala'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['eu'] = {
     	error : 'Barne-errore bat dela eta ezin izan da itsatsitako testua garbitu',
     	title : 'Itsatsi Word-etik',
     	toolbar : 'Itsatsi Word-etik'
+    },
+    notification : 
+    {
+    	closed : 'Jakinarazpena itxita.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['eu'] = {
     	cut : 'Ebaki',
     	cutError : 'Zure web nabigatzailearen segurtasun ezarpenek ez dute baimentzen testuak automatikoki moztea. Mesedez teklatua erabil ezazu (Ctrl/Cmd+X).',
     	paste : 'Itsatsi',
-    	pasteArea : 'Itsasteko area',
-    	pasteMsg : 'Mesedez teklatua erabiliz (<strong>Ctrl/Cmd+V</strong>) ondorengo eremuan testua itsatsi eta sakatu <strong>Ados</strong>.',
-    	securityMsg : 'Nabigatzailearen segurtasun ezarpenak direla eta, editoreak ezin du arbela zuzenean erabili. Leiho honetan berriro itsatsi behar duzu.',
-    	title : 'Itsatsi'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

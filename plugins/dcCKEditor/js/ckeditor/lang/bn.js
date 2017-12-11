@@ -140,7 +140,7 @@ CKEDITOR.lang['bn'] = {
     pastetext : 
     {
     	button : 'সাধারণ টেক্সট হিসেবে পেইস্ট করি',
-    	title : 'সাদা টেক্সট হিসেবে পেস্ট কর'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['bn'] = {
     	error : 'It was not possible to clean up the pasted data due to an internal error',
     	title : 'পেস্ট (শব্দ)',
     	toolbar : 'পেস্ট (শব্দ)'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['bn'] = {
     	cut : 'কাট',
     	cutError : 'আপনার ব্রাউজারের সুরক্ষা সেটিংস এডিটরকে অটোমেটিক কাট করার অনুমতি দেয়নি। দয়া করে এই কাজের জন্য কিবোর্ড ব্যবহার করুন (Ctrl/Cmd+X)।',
     	paste : 'পেস্ট',
-    	pasteArea : 'Paste Area',
-    	pasteMsg : 'অনুগ্রহ করে নীচের বাক্সে কিবোর্ড ব্যবহার করে (<STRONG>Ctrl/Cmd+V</STRONG>) পেস্ট করুন এবং <STRONG>OK</STRONG> চাপ দিন',
-    	securityMsg : 'Because of your browser security settings, the editor is not able to access your clipboard data directly. You are required to paste it again in this window.',
-    	title : 'পেস্ট'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

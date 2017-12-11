@@ -140,7 +140,7 @@ CKEDITOR.lang['zh'] = {
     pastetext : 
     {
     	button : '貼成純文字',
-    	title : '貼成純文字'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['zh'] = {
     	error : '由於發生內部錯誤，無法清除清除 Word 的格式。',
     	title : '自 Word 貼上',
     	toolbar : '自 Word 貼上'
+    },
+    notification : 
+    {
+    	closed : '通知已關閉。'
     },
     maximize : 
     {
@@ -204,7 +208,7 @@ CKEDITOR.lang['zh'] = {
     	anchorName : '依錨點名稱',
     	charset : '連結資源的字元集',
     	cssClasses : '樣式表類別',
-    	download : 'Force Download',
+    	download : '強制下載',
     	displayText : '顯示文字',
     	emailAddress : '電子郵件地址',
     	emailBody : '郵件本文',
@@ -362,7 +366,7 @@ CKEDITOR.lang['zh'] = {
     		FF8C00 : '深橘色',
     		FFD700 : '金色',
     		'008000' : '綠色',
-    		'0FF' : '藍綠色',
+    		'0FF' : '青色',
     		'00F' : '藍色',
     		EE82EE : '紫色',
     		A9A9A9 : '暗灰色',
@@ -382,28 +386,28 @@ CKEDITOR.lang['zh'] = {
     		F0F8FF : '愛麗斯蘭',
     		E6E6FA : '淺紫色',
     		FFF : '白色',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'1ABC9C' : '深青色',
+    		'2ECC71' : '翠綠色',
+    		'3498DB' : '亮藍色',
+    		'9B59B6' : '紫色',
+    		'4E5F70' : '藍灰色',
+    		F1C40F : '鮮黃色',
+    		'16A085' : '暗青色',
+    		'27AE60' : '暗綠色',
+    		'2980B9' : '深藍色',
+    		'8E44AD' : '暗紫色',
+    		'2C3E50' : '不飽和藍色',
+    		F39C12 : '橘色',
+    		E67E22 : '胡蘿蔔色',
+    		E74C3C : '淡紅色',
+    		ECF0F1 : '亮銀色',
+    		'95A5A6' : '淺灰青色',
+    		DDD : '淺灰色',
+    		D35400 : '南瓜色',
+    		C0392B : '深紅色',
+    		BDC3C7 : '銀色',
+    		'7F8C8D' : '灰青色',
+    		'999' : '深灰色'
     	},
     	more : '更多顏色',
     	panelTitle : '顏色',
@@ -416,10 +420,7 @@ CKEDITOR.lang['zh'] = {
     	cut : '剪下',
     	cutError : '瀏覽器的安全性設定不允許編輯器自動執行剪下動作。請使用鏐盤快捷鍵 (Ctrl/Cmd+X) 剪下。',
     	paste : '貼上',
-    	pasteArea : '貼上區',
-    	pasteMsg : '請使用鍵盤快捷鍵 (<strong>Ctrl/Cmd+V</strong>) 貼到下方區域中並按下「確定」。',
-    	securityMsg : '因為瀏覽器的安全性設定，本編輯器無法直接存取您的剪貼簿資料，請您自行在本視窗進行貼上動作。',
-    	title : '貼上'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

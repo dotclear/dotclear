@@ -140,7 +140,7 @@ CKEDITOR.lang['id'] = {
     pastetext : 
     {
     	button : 'Tempel sebagai teks polos',
-    	title : 'Tempel sebagai Teks Polos'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['id'] = {
     	error : 'Tidak mungkin membersihkan data yang ditempel dikerenakan kesalahan internal',
     	title : 'Tempel dari Word',
     	toolbar : 'Tempel dari Word'
+    },
+    notification : 
+    {
+    	closed : 'Pemberitahuan ditutup'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['id'] = {
     	cut : 'Potong',
     	cutError : 'Your browser security settings don\'t permit the editor to automatically execute cutting operations. Please use the keyboard for that (Ctrl/Cmd+X).',
     	paste : 'Tempel',
-    	pasteArea : 'Area Tempel',
-    	pasteMsg : 'Please paste inside the following box using the keyboard (<strong>Ctrl/Cmd+V</strong>) and hit OK',
-    	securityMsg : 'Karena pengaturan keamanan peramban anda, editor tida dapat mengakses data clipboard anda secara langsung. Anda harus mem-paste kembali pada halaman ini',
-    	title : 'Tempel'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

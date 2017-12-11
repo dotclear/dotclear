@@ -34,7 +34,7 @@ CKEDITOR.lang['hr'] = {
     	emptyListMsg : '(Nema definiranih predložaka)',
     	insertOption : 'Zamijeni trenutne sadržaje',
     	options : 'Opcije predložaka',
-    	selectPromptMsg : 'Molimo odaberite predložak koji želite otvoriti<br>(stvarni sadržaj će biti izgubljen):',
+    	selectPromptMsg : 'Molimo odaberite predložak koji želite otvoriti',
     	title : 'Predlošci sadržaja'
     },
     table : 
@@ -65,7 +65,7 @@ CKEDITOR.lang['hr'] = {
     		data : 'Podatak',
     		header : 'Zaglavlje',
     		yes : 'Da',
-    		no : 'ne',
+    		no : 'Ne',
     		invalidWidth : 'Širina ćelije mora biti broj.',
     		invalidHeight : 'Visina ćelije mora biti broj.',
     		invalidRowSpan : 'Rows span mora biti cijeli broj.',
@@ -123,7 +123,7 @@ CKEDITOR.lang['hr'] = {
     {
     	options : 'Opcije specijalnih znakova',
     	title : 'Odaberite posebni karakter',
-    	toolbar : 'Ubaci posebne znakove'
+    	toolbar : 'Ubaci posebni znak'
     },
     sourcearea : 
     {
@@ -140,7 +140,7 @@ CKEDITOR.lang['hr'] = {
     pastetext : 
     {
     	button : 'Zalijepi kao čisti tekst',
-    	title : 'Zalijepi kao čisti tekst'
+    	pasteNotification : 'Vaš preglednik Vam ne dozvoljava lijepljenje običnog teksta na ovaj način. Za lijepljenje, pritisnite %1.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['hr'] = {
     	error : 'Nije moguće očistiti podatke za ljepljenje zbog interne greške',
     	title : 'Zalijepi iz Worda',
     	toolbar : 'Zalijepi iz Worda'
+    },
+    notification : 
+    {
+    	closed : 'Obavijest zatvorena.'
     },
     maximize : 
     {
@@ -189,8 +193,8 @@ CKEDITOR.lang['hr'] = {
     {
     	acccessKey : 'Pristupna tipka',
     	advanced : 'Napredno',
-    	advisoryContentType : 'Advisory vrsta sadržaja',
-    	advisoryTitle : 'Advisory naslov',
+    	advisoryContentType : 'Savjetodavna vrsta sadržaja',
+    	advisoryTitle : 'Savjetodavni naslov',
     	anchor : 
     	{
     		toolbar : 'Ubaci/promijeni sidro',
@@ -204,8 +208,8 @@ CKEDITOR.lang['hr'] = {
     	anchorName : 'Po nazivu sidra',
     	charset : 'Kodna stranica povezanih resursa',
     	cssClasses : 'Stylesheet klase',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Preuzmi na silu',
+    	displayText : 'Prikaži tekst',
     	emailAddress : 'E-Mail adresa',
     	emailBody : 'Sadržaj poruke',
     	emailSubject : 'Naslov',
@@ -241,13 +245,13 @@ CKEDITOR.lang['hr'] = {
     	targetFrameName : 'Ime ciljnog okvira',
     	targetPopup : '<popup prozor>',
     	targetPopupName : 'Naziv popup prozora',
-    	title : 'Link',
+    	title : 'Veza',
     	toAnchor : 'Sidro na ovoj stranici',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
-    	toolbar : 'Ubaci/promijeni link',
-    	type : 'Link vrsta',
-    	unlink : 'Ukloni link',
+    	toolbar : 'Ubaci/promijeni vezu',
+    	type : 'Vrsta veze',
+    	unlink : 'Ukloni vezu',
     	upload : 'Pošalji'
     },
     justify : 
@@ -271,7 +275,7 @@ CKEDITOR.lang['hr'] = {
     	hSpace : 'HSpace',
     	img2Button : 'Želite li promijeniti odabranu sliku u gumb?',
     	infoTab : 'Info slike',
-    	linkTab : 'Link',
+    	linkTab : 'Veza',
     	lockRatio : 'Zaključaj odnos',
     	menu : 'Svojstva slika',
     	resetSize : 'Obriši veličinu',
@@ -291,16 +295,16 @@ CKEDITOR.lang['hr'] = {
     format : 
     {
     	label : 'Format',
-    	panelTitle : 'Format',
-    	tag_address : 'Address',
-    	tag_div : 'Normal (DIV)',
-    	tag_h1 : 'Heading 1',
-    	tag_h2 : 'Heading 2',
-    	tag_h3 : 'Heading 3',
-    	tag_h4 : 'Heading 4',
-    	tag_h5 : 'Heading 5',
-    	tag_h6 : 'Heading 6',
-    	tag_p : 'Normal',
+    	panelTitle : 'Format paragrafa',
+    	tag_address : 'Adresa',
+    	tag_div : 'Normalno (DIV)',
+    	tag_h1 : 'Naslov 1',
+    	tag_h2 : 'Naslov 2',
+    	tag_h3 : 'Naslov 3',
+    	tag_h4 : 'Naslov 4',
+    	tag_h5 : 'Naslov 5',
+    	tag_h6 : 'Naslov 6',
+    	tag_p : 'Normalno',
     	tag_pre : 'Formatirano'
     },
     fakeobjects : 
@@ -313,7 +317,7 @@ CKEDITOR.lang['hr'] = {
     },
     elementspath : 
     {
-    	eleLabel : 'Putanja elemenata',
+    	eleLabel : 'Putanje elemenata',
     	eleTitle : '%1 element'
     },
     div : 
@@ -382,28 +386,28 @@ CKEDITOR.lang['hr'] = {
     		F0F8FF : 'Alice plava',
     		E6E6FA : 'Lavanda',
     		FFF : 'Bijela',
-    		'1ABC9C' : 'Strong Cyan',
+    		'1ABC9C' : 'Jaka cijan',
     		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'3498DB' : 'Svijetlo plava',
+    		'9B59B6' : 'Ametist',
+    		'4E5F70' : 'Sivkasto plava',
+    		F1C40F : 'Žarka žuta',
+    		'16A085' : 'Tamna cijan',
+    		'27AE60' : 'Tamna emerald',
+    		'2980B9' : 'Jaka plava',
+    		'8E44AD' : 'Tamno ljubičasta',
+    		'2C3E50' : 'Desatuirarana plava',
+    		F39C12 : 'Narančasta',
+    		E67E22 : 'Mrkva',
+    		E74C3C : 'Blijedo crvena',
+    		ECF0F1 : 'Sjana srebrna',
+    		'95A5A6' : 'Svijetlo sivkasta cijan',
+    		DDD : 'Svijetlo siva',
+    		D35400 : 'Tikva',
+    		C0392B : 'Jaka crvena',
+    		BDC3C7 : 'Srebrna',
+    		'7F8C8D' : 'Sivkasto cijan',
+    		'999' : 'Tamno siva'
     	},
     	more : 'Više boja...',
     	panelTitle : 'Boje',
@@ -416,23 +420,20 @@ CKEDITOR.lang['hr'] = {
     	cut : 'Izreži',
     	cutError : 'Sigurnosne postavke Vašeg pretraživača ne dozvoljavaju operacije automatskog izrezivanja. Molimo koristite kraticu na tipkovnici (Ctrl/Cmd+X).',
     	paste : 'Zalijepi',
-    	pasteArea : 'Prostor za ljepljenje',
-    	pasteMsg : 'Molimo zaljepite unutar doljnjeg okvira koristeći tipkovnicu (<STRONG>Ctrl/Cmd+V</STRONG>) i kliknite <STRONG>OK</STRONG>.',
-    	securityMsg : 'Zbog sigurnosnih postavki Vašeg pretraživača, editor nema direktan pristup Vašem međuspremniku. Potrebno je ponovno zalijepiti tekst u ovaj prozor.',
-    	title : 'Zalijepi'
+    	pasteNotification : 'Vaš preglednik Vam ne dozvoljava lijepljenje na ovaj način. Za lijepljenje, pritisnite %1.'
     },
     button : 
     {
-    	selectedLabel : '%1 (Selected)'
+    	selectedLabel : '%1 (Odabrano)'
     },
     blockquote : 
     {
-    	toolbar : 'Blockquote'
+    	toolbar : 'Citat'
     },
     basicstyles : 
     {
-    	bold : 'Podebljaj',
-    	italic : 'Ukosi',
+    	bold : 'Podebljano',
+    	italic : 'Ukošeno',
     	strike : 'Precrtano',
     	subscript : 'Subscript',
     	superscript : 'Superscript',
@@ -440,7 +441,7 @@ CKEDITOR.lang['hr'] = {
     },
     about : 
     {
-    	copy : 'Copyright &copy; $1. All rights reserved.',
+    	copy : 'Autorsko pravo &copy; $1. Sva prava pridržana.',
     	dlgTitle : 'O CKEditoru',
     	help : 'Provjeri $1 za pomoć.',
     	moreInfo : 'Za informacije o licencama posjetite našu web stranicu:',
@@ -509,7 +510,7 @@ CKEDITOR.lang['hr'] = {
     	alignTop : 'Vrh',
     	alignMiddle : 'Sredina',
     	alignBottom : 'Dolje',
-    	alignNone : 'None',
+    	alignNone : 'Bez poravnanja',
     	invalidValue : 'Neispravna vrijednost.',
     	invalidHeight : 'Visina mora biti broj.',
     	invalidWidth : 'Širina mora biti broj.',
@@ -531,5 +532,5 @@ CKEDITOR.lang['hr'] = {
     		'46' : 'Delete',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Prečica na tipkovnici'
     } }; 

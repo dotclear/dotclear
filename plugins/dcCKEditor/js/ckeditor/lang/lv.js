@@ -140,7 +140,7 @@ CKEDITOR.lang['lv'] = {
     pastetext : 
     {
     	button : 'Ievietot kā vienkāršu tekstu',
-    	title : 'Ievietot kā vienkāršu tekstu'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['lv'] = {
     	error : 'Iekšējas kļūdas dēļ, neizdevās iztīrīt ielīmētos datus.',
     	title : 'Ievietot no Worda',
     	toolbar : 'Ievietot no Worda'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['lv'] = {
     	cut : 'Izgriezt',
     	cutError : 'Jūsu pārlūkprogrammas drošības iestatījumi nepieļauj redaktoram automātiski veikt izgriezšanas darbību.  Lūdzu, izmantojiet (Ctrl/Cmd+X), lai veiktu šo darbību.',
     	paste : 'Ielīmēt',
-    	pasteArea : 'Ielīmēšanas zona',
-    	pasteMsg : 'Lūdzu, ievietojiet tekstu šajā laukumā, izmantojot klaviatūru (<STRONG>Ctrl/Cmd+V</STRONG>) un apstipriniet ar <STRONG>Darīts!</STRONG>.',
-    	securityMsg : 'Jūsu pārlūka drošības uzstādījumu dēļ, nav iespējams tieši piekļūt jūsu starpliktuvei. Jums jāielīmē atkārtoti šajā logā.',
-    	title : 'Ievietot'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

@@ -140,7 +140,7 @@ CKEDITOR.lang['de'] = {
     pastetext : 
     {
     	button : 'Als Klartext einfügen',
-    	title : 'Als Klartext einfügen'
+    	pasteNotification : 'Ihr Browser verhindert das Einfügen von Text über diesen Weg. Zum einfügen drücken Sie %1.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['de'] = {
     	error : 'Aufgrund eines internen Fehlers war es nicht möglich die eingefügten Daten zu bereinigen',
     	title : 'Aus Word einfügen',
     	toolbar : 'Aus Word einfügen'
+    },
+    notification : 
+    {
+    	closed : 'Benachrichtigung geschlossen.'
     },
     maximize : 
     {
@@ -383,27 +387,27 @@ CKEDITOR.lang['de'] = {
     		E6E6FA : 'Lavendel',
     		FFF : 'Weiß',
     		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
+    		'2ECC71' : 'Smaragdgrün',
     		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
+    		'9B59B6' : 'Amethystblau',
+    		'4E5F70' : 'Graublau',
     		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
+    		'16A085' : 'Dunkelcyan',
+    		'27AE60' : 'Dunkelsmaragdgrün',
     		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
+    		'8E44AD' : 'Dunkelviolett',
+    		'2C3E50' : 'Entsättigtes blau',
     		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
+    		E67E22 : 'Möhrenfarben',
+    		E74C3C : 'Blassrot',
+    		ECF0F1 : 'Glänzendes Silber',
+    		'95A5A6' : 'Helles Graublau',
+    		DDD : 'Hellgrau',
+    		D35400 : 'Kürbisfarben',
     		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		BDC3C7 : 'Silber',
+    		'7F8C8D' : 'Graucyan',
+    		'999' : 'Dunkelgrau'
     	},
     	more : 'Weitere Farben...',
     	panelTitle : 'Farben',
@@ -416,10 +420,7 @@ CKEDITOR.lang['de'] = {
     	cut : 'Ausschneiden',
     	cutError : 'Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch auszuschneiden. Bitte benutzen Sie die System-Zwischenablage über STRG-X (ausschneiden) und STRG-V (einfügen).',
     	paste : 'Einfügen',
-    	pasteArea : 'Einfügebereich',
-    	pasteMsg : 'Bitte fügen Sie den Text in der folgenden Box über die Tastatur (mit <STRONG>Strg+V</STRONG>) ein und bestätigen Sie mit <STRONG>OK</STRONG>.',
-    	securityMsg : 'Aufgrund von Sicherheitsbeschränkungen Ihres Browsers kann der Editor nicht direkt auf die Zwischenablage zugreifen. Bitte fügen Sie den Inhalt erneut in diesem Fenster ein.',
-    	title : 'Einfügen'
+    	pasteNotification : 'Ihr Browser verhindert das Einfügen über diesen Weg. Zum einfügen drücken Sie %1.'
     },
     button : 
     {
@@ -487,7 +488,7 @@ CKEDITOR.lang['de'] = {
     	generalTab : 'Allgemein',
     	advancedTab : 'Erweitert',
     	validateNumberFailed : 'Dieser Wert ist keine Nummer.',
-    	confirmNewPage : 'Alle nicht gespeicherten Änderungen gehen verlohren. Sind Sie sicher die neue Seite zu laden?',
+    	confirmNewPage : 'Alle nicht gespeicherten Änderungen gehen verloren. Sind Sie sicher die neue Seite zu laden?',
     	confirmCancel : 'Einige Optionen wurden geändert. Wollen Sie den Dialog dennoch schließen?',
     	options : 'Optionen',
     	target : 'Zielseite',

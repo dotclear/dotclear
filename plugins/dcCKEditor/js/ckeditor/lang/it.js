@@ -140,7 +140,7 @@ CKEDITOR.lang['it'] = {
     pastetext : 
     {
     	button : 'Incolla come testo semplice',
-    	title : 'Incolla come testo semplice'
+    	pasteNotification : 'Il browser non permette di incollare il testo semplice in questo modo. Premere %1 per incollare.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['it'] = {
     	error : 'Non è stato possibile eliminare il testo incollato a causa di un errore interno.',
     	title : 'Incolla da Word',
     	toolbar : 'Incolla da Word'
+    },
+    notification : 
+    {
+    	closed : 'Notifica chiusa.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['it'] = {
     	cut : 'Taglia',
     	cutError : 'Le impostazioni di sicurezza del browser non permettono di tagliare automaticamente il testo. Usa la tastiera (Ctrl/Cmd+X).',
     	paste : 'Incolla',
-    	pasteArea : 'Incolla',
-    	pasteMsg : 'Incolla il testo all\'interno dell\'area sottostante usando la scorciatoia di tastiere (<STRONG>Ctrl/Cmd+V</STRONG>) e premi <STRONG>OK</STRONG>.',
-    	securityMsg : 'A causa delle impostazioni di sicurezza del browser,l\'editor non è in grado di accedere direttamente agli appunti. E\' pertanto necessario incollarli di nuovo in questa finestra.',
-    	title : 'Incolla'
+    	pasteNotification : 'Il browser non permette di incollare in questo modo. Premere %1 per incollare.'
     },
     button : 
     {

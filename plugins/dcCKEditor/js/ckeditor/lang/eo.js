@@ -140,7 +140,7 @@ CKEDITOR.lang['eo'] = {
     pastetext : 
     {
     	button : 'Interglui kiel platan tekston',
-    	title : 'Interglui kiel platan tekston'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['eo'] = {
     	error : 'Ne eblis purigi la intergluitajn datenojn pro interna eraro',
     	title : 'Interglui el Word',
     	toolbar : 'Interglui el Word'
+    },
+    notification : 
+    {
+    	closed : 'Sciigo fermita'
     },
     maximize : 
     {
@@ -204,8 +208,8 @@ CKEDITOR.lang['eo'] = {
     	anchorName : 'Per Ankronomo',
     	charset : 'Signaro de la Ligita Rimedo',
     	cssClasses : 'Klasoj de Stilfolioj',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Altrudi Elŝuton',
+    	displayText : 'Vidigi Tekston',
     	emailAddress : 'Retpoŝto',
     	emailBody : 'Mesaĝa korpo',
     	emailSubject : 'Mesaĝa Temo',
@@ -382,28 +386,28 @@ CKEDITOR.lang['eo'] = {
     		F0F8FF : 'Aliceblua',
     		E6E6FA : 'Lavendkolora',
     		FFF : 'Blanka',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'1ABC9C' : 'Fortverdblua',
+    		'2ECC71' : 'Smeraldkolora',
+    		'3498DB' : 'Brilblua',
+    		'9B59B6' : 'Ametistkolora',
+    		'4E5F70' : 'Grizblua',
+    		F1C40F : 'Brilflava',
+    		'16A085' : 'Malhelverdblua',
+    		'27AE60' : 'Malhelsmeraldkolora',
+    		'2980B9' : 'Fortblua',
+    		'8E44AD' : 'Malhelviola',
+    		'2C3E50' : 'Malsaturita Bluo',
+    		F39C12 : 'Oranĝkolora',
+    		E67E22 : 'Karotkolora',
+    		E74C3C : 'Pale Ruĝa',
+    		ECF0F1 : 'Brile Arĝenta',
+    		'95A5A6' : 'Helgrizverdblua',
+    		DDD : 'Helgriza',
+    		D35400 : 'Kukurbokolora',
+    		C0392B : 'Forte ruĝa',
+    		BDC3C7 : 'Arĝenta',
+    		'7F8C8D' : 'Grizverdblua',
+    		'999' : 'Malhelgriza'
     	},
     	more : 'Pli da Koloroj...',
     	panelTitle : 'Koloroj',
@@ -416,10 +420,7 @@ CKEDITOR.lang['eo'] = {
     	cut : 'Eltondi',
     	cutError : 'La sekurecagordo de via TTT-legilo ne permesas, ke la redaktilo faras eltondajn operaciojn. Bonvolu uzi la klavaron por tio (Ctrl/Cmd-X).',
     	paste : 'Interglui',
-    	pasteArea : 'Intergluoareo',
-    	pasteMsg : 'Bonvolu glui la tekston en la jenan areon per uzado de la klavaro (<strong>Ctrl/Cmd+V</strong>) kaj premu OK',
-    	securityMsg : 'Pro la sekurecagordo de via TTT-legilo, la redaktilo ne povas rekte atingi viajn datenojn en la poŝo. Bonvolu denove interglui la datenojn en tiun fenestron.',
-    	title : 'Interglui'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {
@@ -525,11 +526,11 @@ CKEDITOR.lang['eo'] = {
     		'16' : 'Registrumo',
     		'17' : 'Stirklavo',
     		'18' : 'Alt-klavo',
-    		'32' : 'Space',
+    		'32' : 'Spaco',
     		'35' : 'Fino',
     		'36' : 'Hejmo',
     		'46' : 'Forigi',
-    		'224' : 'Command'
+    		'224' : 'Komando'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Fulmoklavo'
     } }; 

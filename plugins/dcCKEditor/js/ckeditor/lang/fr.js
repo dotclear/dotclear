@@ -140,7 +140,7 @@ CKEDITOR.lang['fr'] = {
     pastetext : 
     {
     	button : 'Coller comme texte brut',
-    	title : 'Coller comme texte brut'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['fr'] = {
     	error : 'Les données collées n\'ont pas pu être nettoyées à cause d\'une erreur interne',
     	title : 'Coller depuis Word',
     	toolbar : 'Coller depuis Word'
+    },
+    notification : 
+    {
+    	closed : 'Notification fermée.'
     },
     maximize : 
     {
@@ -204,8 +208,8 @@ CKEDITOR.lang['fr'] = {
     	anchorName : 'Par nom d\'ancre',
     	charset : 'Encodage de la ressource liée',
     	cssClasses : 'Classes de style',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Forcer le téléchargement',
+    	displayText : 'Afficher le texte',
     	emailAddress : 'Adresse électronique',
     	emailBody : 'Corps du message',
     	emailSubject : 'Sujet du message',
@@ -382,28 +386,28 @@ CKEDITOR.lang['fr'] = {
     		F0F8FF : 'Bleu Alice',
     		E6E6FA : 'Lavande',
     		FFF : 'Blanc',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
+    		'1ABC9C' : 'Cyan dur',
+    		'2ECC71' : 'Émeraude',
+    		'3498DB' : 'Bleu brillant',
+    		'9B59B6' : 'Améthyste',
+    		'4E5F70' : 'Bleu-gris',
+    		F1C40F : 'Jaune vif',
+    		'16A085' : 'Cyan foncé',
+    		'27AE60' : 'Émeraude foncée',
+    		'2980B9' : 'Bleu dur',
+    		'8E44AD' : 'Violet foncé',
+    		'2C3E50' : 'Bleu désaturé',
     		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		E67E22 : 'Carotte',
+    		E74C3C : 'Rouge pâle',
+    		ECF0F1 : 'Argent brillant',
+    		'95A5A6' : 'Cyan-gris clair',
+    		DDD : 'Gris clair',
+    		D35400 : 'Citrouille',
+    		C0392B : 'Rouge dur',
+    		BDC3C7 : 'Argent',
+    		'7F8C8D' : 'Cyan-gris',
+    		'999' : 'Gris foncé'
     	},
     	more : 'Plus de couleurs...',
     	panelTitle : 'Couleurs',
@@ -416,10 +420,7 @@ CKEDITOR.lang['fr'] = {
     	cut : 'Couper',
     	cutError : 'Les paramètres de sécurité de votre navigateur n\'autorisent pas l\'éditeur à exécuter automatiquement l\'opération « Couper ». Veuillez utiliser le raccourci clavier à cet effet (Ctrl/Cmd+X).',
     	paste : 'Coller',
-    	pasteArea : 'Coller la zone',
-    	pasteMsg : 'Veuillez coller le texte dans la zone suivante en utilisant le raccourci clavier (<strong>Ctrl/Cmd+V</strong>) et cliquez sur OK.',
-    	securityMsg : 'Les paramètres de sécurité de votre navigateur empêchent l\'éditeur d\'accéder directement aux données du presse-papier. Vous devez les coller à nouveau dans cette fenêtre.',
-    	title : 'Coller'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {
@@ -455,7 +456,7 @@ CKEDITOR.lang['fr'] = {
     	browseServer : 'Parcourir le serveur',
     	url : 'URL',
     	protocol : 'Protocole',
-    	upload : 'Téléverser',
+    	upload : 'Télécharger',
     	uploadSubmit : 'Envoyer sur le serveur',
     	image : 'Image',
     	flash : 'Flash',
@@ -520,16 +521,16 @@ CKEDITOR.lang['fr'] = {
     	unavailable : '%1<span class="cke_accessibility">, indisponible</span>',
     	keyboard : 
     	{
-    		'8' : 'Backspace',
+    		'8' : 'Retour arrière',
     		'13' : 'Entrée',
     		'16' : 'Majuscule',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Espace',
     		'35' : 'Fin',
     		'36' : 'Origine',
     		'46' : 'Supprimer',
-    		'224' : 'Command'
+    		'224' : 'Commande'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Raccourci clavier'
     } }; 

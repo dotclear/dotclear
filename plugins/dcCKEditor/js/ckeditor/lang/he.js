@@ -140,7 +140,7 @@ CKEDITOR.lang['he'] = {
     pastetext : 
     {
     	button : 'הדבקה כטקסט פשוט',
-    	title : 'הדבקה כטקסט פשוט'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['he'] = {
     	error : 'לא ניתן היה לנקות את המידע בשל תקלה פנימית.',
     	title : 'הדבקה מ-Word',
     	toolbar : 'הדבקה מ-Word'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['he'] = {
     	cut : 'גזירה',
     	cutError : 'הגדרות האבטחה בדפדפן שלך לא מאפשרות לעורך לבצע פעולות גזירה אוטומטיות. יש להשתמש במקלדת לשם כך (Ctrl/Cmd+X).',
     	paste : 'הדבקה',
-    	pasteArea : 'איזור הדבקה',
-    	pasteMsg : 'נא להדביק בתוך הקופסה באמצעות (<b>Ctrl/Cmd+V</b>) וללחוץ על <b>אישור</b>.',
-    	securityMsg : 'עקב הגדרות אבטחה בדפדפן, לא ניתן לגשת אל לוח הגזירים (Clipboard) בצורה ישירה. נא להדביק שוב בחלון זה.',
-    	title : 'הדבקה'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

@@ -140,7 +140,7 @@ CKEDITOR.lang['ar'] = {
     pastetext : 
     {
     	button : 'لصق كنص بسيط',
-    	title : 'لصق كنص بسيط'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['ar'] = {
     	error : 'لم يتم مسح المعلومات الملصقة لخلل داخلي',
     	title : 'لصق من وورد',
     	toolbar : 'لصق من وورد'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['ar'] = {
     	cut : 'قص',
     	cutError : 'الإعدادات الأمنية للمتصفح الذي تستخدمه تمنع القص التلقائي. فضلاً إستخدم لوحة المفاتيح لفعل ذلك (Ctrl/Cmd+X).',
     	paste : 'لصق',
-    	pasteArea : 'منطقة اللصق',
-    	pasteMsg : 'الصق داخل الصندوق بإستخدام زرائر (<STRONG>Ctrl/Cmd+V</STRONG>) في لوحة المفاتيح، ثم اضغط زر  <STRONG>موافق</STRONG>.',
-    	securityMsg : 'نظراً لإعدادات الأمان الخاصة بمتصفحك، لن يتمكن هذا المحرر من الوصول لمحتوى حافظتك، لذلك يجب عليك لصق المحتوى مرة أخرى في هذه النافذة.',
-    	title : 'لصق'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

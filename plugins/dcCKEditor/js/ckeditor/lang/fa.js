@@ -140,7 +140,7 @@ CKEDITOR.lang['fa'] = {
     pastetext : 
     {
     	button : 'چسباندن به عنوان متن ساده',
-    	title : 'چسباندن به عنوان متن ساده'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['fa'] = {
     	error : 'به دلیل بروز خطای داخلی امکان پاکسازی اطلاعات بازنشانی شده وجود ندارد.',
     	title : 'چسباندن از Word',
     	toolbar : 'چسباندن از Word'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['fa'] = {
     	cut : 'برش',
     	cutError : 'تنظیمات امنیتی مرورگر شما اجازه نمیدهد که ویرایشگر به طور خودکار عملکردهای برش را انجام دهد. لطفا با دکمههای صفحه کلید این کار را انجام دهید (Ctrl/Cmd+X).',
     	paste : 'چسباندن',
-    	pasteArea : 'محل چسباندن',
-    	pasteMsg : 'لطفا متن را با کلیدهای (<STRONG>Ctrl/Cmd+V</STRONG>) در این جعبهٴ متنی بچسبانید و <STRONG>پذیرش</STRONG> را بزنید.',
-    	securityMsg : 'به خاطر تنظیمات امنیتی مرورگر شما، ویرایشگر نمیتواند دسترسی مستقیم به دادههای clipboard داشته باشد. شما باید دوباره آنرا در این پنجره بچسبانید.',
-    	title : 'چسباندن'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

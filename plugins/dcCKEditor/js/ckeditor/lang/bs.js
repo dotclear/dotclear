@@ -140,7 +140,7 @@ CKEDITOR.lang['bs'] = {
     pastetext : 
     {
     	button : 'Zalijepi kao obièan tekst',
-    	title : 'Zalijepi kao obièan tekst'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['bs'] = {
     	error : 'It was not possible to clean up the pasted data due to an internal error',
     	title : 'Zalijepi iz Word-a',
     	toolbar : 'Zalijepi iz Word-a'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['bs'] = {
     	cut : 'Izreži',
     	cutError : 'Sigurnosne postavke vašeg pretraživaèa ne dozvoljavaju operacije automatskog rezanja. Molimo koristite kraticu na tastaturi (Ctrl/Cmd+X).',
     	paste : 'Zalijepi',
-    	pasteArea : 'Paste Area',
-    	pasteMsg : 'Please paste inside the following box using the keyboard (<strong>Ctrl/Cmd+V</strong>) and hit OK',
-    	securityMsg : 'Because of your browser security settings, the editor is not able to access your clipboard data directly. You are required to paste it again in this window.',
-    	title : 'Zalijepi'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

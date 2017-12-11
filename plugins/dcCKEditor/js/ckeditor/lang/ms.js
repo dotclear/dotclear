@@ -140,7 +140,7 @@ CKEDITOR.lang['ms'] = {
     pastetext : 
     {
     	button : 'Tampal sebagai text biasa',
-    	title : 'Tampal sebagai text biasa'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['ms'] = {
     	error : 'It was not possible to clean up the pasted data due to an internal error',
     	title : 'Tampal dari Word',
     	toolbar : 'Tampal dari Word'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['ms'] = {
     	cut : 'Potong',
     	cutError : 'Keselamatan perisian browser anda tidak membenarkan operasi suntingan text/imej. Sila gunakan papan kekunci (Ctrl/Cmd+X).',
     	paste : 'Tampal',
-    	pasteArea : 'Paste Area',
-    	pasteMsg : 'Please paste inside the following box using the keyboard (<strong>Ctrl/Cmd+V</strong>) and hit OK',
-    	securityMsg : 'Because of your browser security settings, the editor is not able to access your clipboard data directly. You are required to paste it again in this window.',
-    	title : 'Tampal'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

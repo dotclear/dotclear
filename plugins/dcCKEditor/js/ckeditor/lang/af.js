@@ -140,7 +140,7 @@ CKEDITOR.lang['af'] = {
     pastetext : 
     {
     	button : 'Plak as eenvoudige teks',
-    	title : 'Plak as eenvoudige teks'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['af'] = {
     	error : 'Die geplakte teks kon nie skoongemaak word nie, weens \'n interne fout',
     	title : 'Plak vanuit Word',
     	toolbar : 'Plak vanuit Word'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['af'] = {
     	cut : 'Knip',
     	cutError : 'U blaaier se sekuriteitsinstelling belet die outomatiese knip-aksie. Gebruik die sleutelbordkombinasie (Ctrl/Cmd+X).',
     	paste : 'Plak',
-    	pasteArea : 'Plak-area',
-    	pasteMsg : 'Plak die teks in die volgende teks-area met die sleutelbordkombinasie (<STRONG>Ctrl/Cmd+V</STRONG>) en druk <STRONG>OK</STRONG>.',
-    	securityMsg : 'Weens u blaaier se sekuriteitsinstelling is data op die knipbord nie toeganklik nie. U kan dit eers weer in hierdie venster plak.',
-    	title : 'Byvoeg'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {
@@ -522,14 +523,14 @@ CKEDITOR.lang['af'] = {
     	{
     		'8' : 'Backspace',
     		'13' : 'Enter',
-    		'16' : 'Shift',
+    		'16' : 'Skuif',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Spasie',
     		'35' : 'Einde',
     		'36' : 'Tuis',
     		'46' : 'Verwyder',
-    		'224' : 'Command'
+    		'224' : 'Bevel'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Sleutel kombenasie'
     } }; 

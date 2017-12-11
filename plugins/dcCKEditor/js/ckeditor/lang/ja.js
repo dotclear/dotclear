@@ -140,7 +140,7 @@ CKEDITOR.lang['ja'] = {
     pastetext : 
     {
     	button : 'プレーンテキストとして貼り付け',
-    	title : 'プレーンテキストとして貼り付け'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['ja'] = {
     	error : '内部エラーにより貼り付けたデータをクリアできませんでした',
     	title : 'ワード文章から貼り付け',
     	toolbar : 'ワード文章から貼り付け'
+    },
+    notification : 
+    {
+    	closed : '通知を閉じました。'
     },
     maximize : 
     {
@@ -204,8 +208,8 @@ CKEDITOR.lang['ja'] = {
     	anchorName : 'アンカー名',
     	charset : 'リンク先のcharset',
     	cssClasses : 'スタイルシートクラス',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : '強制的にダウンロード',
+    	displayText : '表示文字',
     	emailAddress : 'E-Mail アドレス',
     	emailBody : '本文',
     	emailSubject : '件名',
@@ -329,8 +333,8 @@ CKEDITOR.lang['ja'] = {
     	languageCodeInputLabel : ' 言語コード',
     	remove : 'Divコンテナを削除',
     	styleSelectLabel : 'スタイル',
-    	title : 'Divコンテナ',
-    	toolbar : 'Divコンテナ'
+    	title : 'Divコンテナを作成',
+    	toolbar : 'Divコンテナを作成'
     },
     contextmenu : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['ja'] = {
     	cut : '切り取り',
     	cutError : 'ブラウザーのセキュリティ設定によりエディタの切り取り操作を自動で実行することができません。実行するには手動でキーボードの(Ctrl/Cmd+X)を使用してください。',
     	paste : '貼り付け',
-    	pasteArea : '貼り付け場所',
-    	pasteMsg : 'キーボード(<STRONG>Ctrl/Cmd+V</STRONG>)を使用して、次の入力エリア内で貼り付けて、<STRONG>OK</STRONG>を押してください。',
-    	securityMsg : 'ブラウザのセキュリティ設定により、エディタはクリップボードデータに直接アクセスすることができません。このウィンドウは貼り付け操作を行う度に表示されます。',
-    	title : '貼り付け'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {
@@ -486,7 +487,7 @@ CKEDITOR.lang['ja'] = {
     	resize : 'ドラッグしてリサイズ',
     	generalTab : '全般',
     	advancedTab : '高度な設定',
-    	validateNumberFailed : '値が数ではありません',
+    	validateNumberFailed : '値が数値ではありません',
     	confirmNewPage : '変更内容を保存せず、 新しいページを開いてもよろしいでしょうか？',
     	confirmCancel : 'オプション設定を変更しました。ダイアログを閉じてもよろしいでしょうか？',
     	options : 'オプション',

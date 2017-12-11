@@ -140,7 +140,7 @@ CKEDITOR.lang['ru'] = {
     pastetext : 
     {
     	button : 'Вставить только текст',
-    	title : 'Вставить только текст'
+    	pasteNotification : 'Ваш браузер не поддерживает данный метод вставки. Для вставки нажмите %1'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['ru'] = {
     	error : 'Невозможно очистить вставленные данные из-за внутренней ошибки',
     	title : 'Вставить из Word',
     	toolbar : 'Вставить из Word'
+    },
+    notification : 
+    {
+    	closed : 'Уведомление закрыто'
     },
     maximize : 
     {
@@ -204,7 +208,7 @@ CKEDITOR.lang['ru'] = {
     	anchorName : 'По имени',
     	charset : 'Кодировка ресурса',
     	cssClasses : 'Классы CSS',
-    	download : 'Force Download',
+    	download : 'Скачать как файл',
     	displayText : 'Отображаемый текст',
     	emailAddress : 'Email адрес',
     	emailBody : 'Текст сообщения',
@@ -383,27 +387,27 @@ CKEDITOR.lang['ru'] = {
     		E6E6FA : 'Лавандовый',
     		FFF : 'Белый',
     		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
+    		'2ECC71' : 'Изумрудный',
     		'3498DB' : 'Bright Blue',
     		'9B59B6' : 'Amethyst',
     		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
+    		F1C40F : 'Ярко-желтый',
     		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
+    		'27AE60' : 'Тёмно-изумрудный',
     		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
+    		'8E44AD' : 'Тёмно-фиолетовый',
     		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
+    		F39C12 : 'Оранжевый',
+    		E67E22 : 'Морковный',
     		E74C3C : 'Pale Red',
     		ECF0F1 : 'Bright Silver',
     		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
+    		DDD : 'Светло-серый',
     		D35400 : 'Pumpkin',
     		C0392B : 'Strong Red',
     		BDC3C7 : 'Silver',
     		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'999' : 'Тёмно-серый'
     	},
     	more : 'Ещё цвета...',
     	panelTitle : 'Цвета',
@@ -416,10 +420,7 @@ CKEDITOR.lang['ru'] = {
     	cut : 'Вырезать',
     	cutError : 'Настройки безопасности вашего браузера не разрешают редактору выполнять операции по вырезке текста. Пожалуйста, используйте для этого клавиатуру (Ctrl/Cmd+X).',
     	paste : 'Вставить',
-    	pasteArea : 'Зона для вставки',
-    	pasteMsg : 'Пожалуйста, вставьте текст в зону ниже, используя клавиатуру (<strong>Ctrl/Cmd+V</strong>) и нажмите кнопку "OK".',
-    	securityMsg : 'Настройки безопасности вашего браузера не разрешают редактору напрямую обращаться к буферу обмена. Вы должны вставить текст снова в это окно.',
-    	title : 'Вставить'
+    	pasteNotification : 'Ваш браузер не поддерживает данный метод вставки. Для вставки нажмите %1'
     },
     button : 
     {

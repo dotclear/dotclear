@@ -140,7 +140,7 @@ CKEDITOR.lang['km'] = {
     pastetext : 
     {
     	button : 'បិទ\u200bភ្ជាប់\u200bជា\u200bអត្ថបទ\u200bធម្មតា',
-    	title : 'បិទ\u200bភ្ជាប់\u200bជា\u200bអត្ថបទ\u200bធម្មតា'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['km'] = {
     	error : 'ដោយ\u200bសារ\u200bមាន\u200bបញ្ហា\u200bផ្នែក\u200bក្នុង\u200bធ្វើ\u200bឲ្យ\u200bមិន\u200bអាច\u200bសម្អាត\u200bទិន្នន័យ\u200bដែល\u200bបាន\u200bបិទ\u200bភ្ជាប់',
     	title : 'បិទ\u200bភ្ជាប់\u200bពី Word',
     	toolbar : 'បិទ\u200bភ្ជាប់\u200bពី Word'
+    },
+    notification : 
+    {
+    	closed : 'បាន\u200bបិទ\u200bការ\u200bផ្ដល់\u200bដំណឹង។'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['km'] = {
     	cut : 'កាត់យក',
     	cutError : 'ការកំណត់សុវត្ថភាពរបស់កម្មវិធីរុករករបស់លោកអ្នក នេះ\u200bមិនអាចធ្វើកម្មវិធីតាក់តែងអត្ថបទ កាត់អត្ថបទយកដោយស្វ័យប្រវត្តបានឡើយ ។ សូមប្រើប្រាស់បន្សំ ឃីដូចនេះ  (Ctrl/Cmd+X) ។',
     	paste : 'បិទ\u200bភ្ជាប់',
-    	pasteArea : 'តំបន់\u200bបិទ\u200bភ្ជាប់',
-    	pasteMsg : 'សូមចំលងអត្ថបទទៅដាក់ក្នុងប្រអប់ដូចខាងក្រោមដោយប្រើប្រាស់ ឃី \u200b(<STRONG>Ctrl/Cmd+V</STRONG>) ហើយចុច <STRONG>OK</STRONG> ។',
-    	securityMsg : 'ព្រោះតែ\u200bការកំណត់\u200bសុវត្ថិភាព ប្រអប់សរសេរ\u200bមិន\u200bអាចចាប់\u200bយកទិន្នន័យពីក្តារតម្បៀតខ្ទាស់\u200bអ្នក\u200b\u200bដោយផ្ទាល់\u200bបានទេ។ អ្នក\u200bត្រូវចំលង\u200bដាក់វាម្តង\u200bទៀត ក្នុងផ្ទាំងនេះ។',
-    	title : 'បិទ\u200bភ្ជាប់'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

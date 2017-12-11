@@ -140,7 +140,7 @@ CKEDITOR.lang['mn'] = {
     pastetext : 
     {
     	button : 'Энгийн бичвэрээр буулгах',
-    	title : 'Энгийн бичвэрээр буулгах'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['mn'] = {
     	error : 'It was not possible to clean up the pasted data due to an internal error',
     	title : 'Word-оос буулгах',
     	toolbar : 'Word-оос буулгах'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['mn'] = {
     	cut : 'Хайчлах',
     	cutError : 'Таны browser-ын хамгаалалтын тохиргоо editor-д автоматаар хайчлах үйлдэлийг зөвшөөрөхгүй байна. (Ctrl/Cmd+X) товчны хослолыг ашиглана уу.',
     	paste : 'Буулгах',
-    	pasteArea : 'Paste Area',
-    	pasteMsg : '(<strong>Ctrl/Cmd+V</strong>) товчийг ашиглан paste хийнэ үү. Мөн <strong>OK</strong> дар.',
-    	securityMsg : 'Таны үзүүлэгч/browser/-н хамгаалалтын тохиргооноос болоод editor clipboard өгөгдөлрүү шууд хандах боломжгүй. Энэ цонход дахин paste хийхийг оролд.',
-    	title : 'Буулгах'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

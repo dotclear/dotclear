@@ -140,7 +140,7 @@ CKEDITOR.lang['th'] = {
     pastetext : 
     {
     	button : 'วางแบบตัวอักษรธรรมดา',
-    	title : 'วางแบบตัวอักษรธรรมดา'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['th'] = {
     	error : 'ไม่สามารถล้างข้อมูลที่ต้องการวางได้เนื่องจากเกิดข้อผิดพลาดภายในระบบ',
     	title : 'วางสำเนาจากตัวอักษรเวิร์ด',
     	toolbar : 'วางสำเนาจากตัวอักษรเวิร์ด'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['th'] = {
     	cut : 'ตัด',
     	cutError : 'ไม่สามารถตัดข้อความที่เลือกไว้ได้เนื่องจากการกำหนดค่าระดับความปลอดภัย. กรุณาใช้ปุ่มลัดเพื่อวางข้อความแทน (กดปุ่ม Ctrl/Cmd และตัว X พร้อมกัน).',
     	paste : 'วาง',
-    	pasteArea : 'Paste Area',
-    	pasteMsg : 'กรุณาใช้คีย์บอร์ดเท่านั้น โดยกดปุ๋ม (<strong>Ctrl/Cmd และ V</strong>)พร้อมๆกัน และกด <strong>OK</strong>.',
-    	securityMsg : 'Because of your browser security settings, the editor is not able to access your clipboard data directly. You are required to paste it again in this window.',
-    	title : 'วาง'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

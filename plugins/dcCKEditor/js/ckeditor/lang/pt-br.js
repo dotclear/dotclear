@@ -140,7 +140,7 @@ CKEDITOR.lang['pt-br'] = {
     pastetext : 
     {
     	button : 'Colar como Texto sem Formatação',
-    	title : 'Colar como Texto sem Formatação'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['pt-br'] = {
     	error : 'Não foi possível limpar os dados colados devido a um erro interno',
     	title : 'Colar do Word',
     	toolbar : 'Colar do Word'
+    },
+    notification : 
+    {
+    	closed : 'Notificação fechada.'
     },
     maximize : 
     {
@@ -382,28 +386,28 @@ CKEDITOR.lang['pt-br'] = {
     		F0F8FF : 'Azul Alice',
     		E6E6FA : 'Lavanda 2',
     		FFF : 'Branco',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'1ABC9C' : 'Ciano Forte',
+    		'2ECC71' : 'Esmeralda',
+    		'3498DB' : 'Azul Brilhante',
+    		'9B59B6' : 'Ametista',
+    		'4E5F70' : 'Azul acinzentado',
+    		F1C40F : 'Amarelo Vívido',
+    		'16A085' : 'Ciano Escuro',
+    		'27AE60' : 'Esmeralda Escura',
+    		'2980B9' : 'Azul Forte',
+    		'8E44AD' : 'Violeta Escura',
+    		'2C3E50' : 'Azul Dessaturado',
+    		F39C12 : 'Laranja',
+    		E67E22 : 'Laranja Cenoura',
+    		E74C3C : 'Vermelho Pálido',
+    		ECF0F1 : 'Prata Brilhante',
+    		'95A5A6' : 'Ciano Acinzentado Claro ',
+    		DDD : 'Cinza Claro',
+    		D35400 : 'Abóbora',
+    		C0392B : 'Vermelho Forte',
+    		BDC3C7 : 'Prata',
+    		'7F8C8D' : 'Ciano Acinzentado',
+    		'999' : 'Cinza Escuro'
     	},
     	more : 'Mais Cores...',
     	panelTitle : 'Cores',
@@ -416,10 +420,7 @@ CKEDITOR.lang['pt-br'] = {
     	cut : 'Recortar',
     	cutError : 'As configurações de segurança do seu navegador não permitem que o editor execute operações de recortar automaticamente. Por favor, utilize o teclado para recortar (Ctrl/Cmd+X).',
     	paste : 'Colar',
-    	pasteArea : 'Área para Colar',
-    	pasteMsg : 'Transfira o link usado na caixa usando o teclado com (<STRONG>Ctrl/Cmd+V</STRONG>) e <STRONG>OK</STRONG>.',
-    	securityMsg : 'As configurações de segurança do seu navegador não permitem que o editor acesse os dados da área de transferência diretamente. Por favor cole o conteúdo manualmente nesta janela.',
-    	title : 'Colar'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

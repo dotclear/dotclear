@@ -140,7 +140,7 @@ CKEDITOR.lang['ug'] = {
     pastetext : 
     {
     	button : 'پىچىمى يوق تېكىست سۈپىتىدە چاپلا',
-    	title : 'پىچىمى يوق تېكىست سۈپىتىدە چاپلا'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['ug'] = {
     	error : 'ئىچكى خاتالىق سەۋەبىدىن چاپلايدىغان سانلىق مەلۇماتنى تازىلىيالمايدۇ',
     	title : 'MS Word تىن چاپلا',
     	toolbar : 'MS Word تىن چاپلا'
+    },
+    notification : 
+    {
+    	closed : 'ئوقتۇرۇش تاقالدى.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['ug'] = {
     	cut : 'كەس',
     	cutError : 'تور كۆرگۈڭىزنىڭ بىخەتەرلىك تەڭشىكى تەھرىرلىگۈچنىڭ كەس مەشغۇلاتىنى ئۆزلۈكىدىن ئىجرا قىلىشىغا يول قويمايدۇ، ھەرپتاختا تېز كۇنۇپكا (Ctrl/Cmd+X) ئارقىلىق تاماملاڭ',
     	paste : 'چاپلا',
-    	pasteArea : 'چاپلاش دائىرىسى',
-    	pasteMsg : 'ھەرپتاختا تېز كۇنۇپكا (<STRONG>Ctrl/Cmd+V</STRONG>) نى ئىشلىتىپ مەزمۇننى تۆۋەندىكى رامكىغا كۆچۈرۈڭ، ئاندىن <STRONG>جەزملە</STRONG>نى بېسىڭ',
-    	securityMsg : 'توركۆرگۈڭىزنىڭ بىخەتەرلىك تەڭشىكى سەۋەبىدىن بۇ تەھرىرلىگۈچ چاپلاش تاختىسىدىكى مەزمۇننى بىۋاستە زىيارەت قىلالمايدۇ، بۇ كۆزنەكتە قايتا بىر قېتىم چاپلىشىڭىز كېرەك.',
-    	title : 'چاپلا'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

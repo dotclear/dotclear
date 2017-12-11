@@ -140,7 +140,7 @@ CKEDITOR.lang['ku'] = {
     pastetext : 
     {
     	button : 'لکاندنی وەك دەقی ڕوون',
-    	title : 'لکاندنی وەك دەقی ڕوون'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['ku'] = {
     	error : 'هیچ ڕێگەیەك نەبوو لەلکاندنی دەقەکه بەهۆی هەڵەیەکی ناوەخۆیی',
     	title : 'لکاندنی لەلایەن Word',
     	toolbar : 'لکاندنی لەڕێی Word'
+    },
+    notification : 
+    {
+    	closed : 'ئاگادارکەرەوەکە داخرا.'
     },
     maximize : 
     {
@@ -204,8 +208,8 @@ CKEDITOR.lang['ku'] = {
     	anchorName : 'بەپێی ناوی لەنگەر',
     	charset : 'بەستەری سەرچاوەی نووسە',
     	cssClasses : 'شێوازی چینی پەڕه',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'داگرتنی بەهێز',
+    	displayText : 'پیشاندانی دەق',
     	emailAddress : 'ناونیشانی ئیمەیل',
     	emailBody : 'ناوەڕۆکی نامە',
     	emailSubject : 'بابەتی نامە',
@@ -384,26 +388,26 @@ CKEDITOR.lang['ku'] = {
     		FFF : 'سپی',
     		'1ABC9C' : 'Strong Cyan',
     		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
+    		'3498DB' : 'شینی ناتۆخ',
     		'9B59B6' : 'Amethyst',
     		'4E5F70' : 'Grayish Blue',
     		F1C40F : 'Vivid Yellow',
     		'16A085' : 'Dark Cyan',
     		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
+    		'2980B9' : 'شینی تۆخ',
+    		'8E44AD' : 'پەمەیی تاریک',
     		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
+    		F39C12 : 'نارنجی',
+    		E67E22 : 'گێزەر',
     		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
+    		ECF0F1 : 'زیوی ڕووناک',
     		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
+    		DDD : 'ڕەساسی بریسکەدار',
+    		D35400 : 'کولەکەی شیرین',
+    		C0392B : 'سوری بەهێز',
+    		BDC3C7 : 'زیوی',
     		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'999' : 'ڕەساسی تۆخ'
     	},
     	more : 'ڕەنگی زیاتر...',
     	panelTitle : 'ڕەنگەکان',
@@ -416,10 +420,7 @@ CKEDITOR.lang['ku'] = {
     	cut : 'بڕین',
     	cutError : 'پارێزی وێبگەڕەکەت ڕێگەنادات بە سەرنووسەکە لەبڕینی خۆکارانە. تکایە لەبری ئەمە ئەم فەرمانە بەکاربهێنە بەداگرتنی کلیلی (Ctrl/Cmd+X).',
     	paste : 'لکاندن',
-    	pasteArea : 'ناوچەی لکاندن',
-    	pasteMsg : 'تکایە بیلکێنە لەناوەوەی ئەم سنوقە لەڕێی تەختەکلیلەکەت بە بەکارهێنانی کلیلی (<STRONG>Ctrl/Cmd+V</STRONG>) دووای کلیکی باشە بکە.',
-    	securityMsg : 'بەهۆی شێوەپێدانی پارێزی وێبگەڕەکەت، سەرنووسەکه ناتوانێت دەستبگەیەنێت بەهەڵگیراوەکە ڕاستەوخۆ. بۆیه پێویسته دووباره بیلکێنیت لەم پەنجەرەیه.',
-    	title : 'لکاندن'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {
@@ -529,7 +530,7 @@ CKEDITOR.lang['ku'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
-    		'224' : 'Command'
+    		'224' : 'فەرمان'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'کورتبڕی تەختەکلیل'
     } }; 

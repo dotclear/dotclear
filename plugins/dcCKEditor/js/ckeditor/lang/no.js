@@ -140,7 +140,7 @@ CKEDITOR.lang['no'] = {
     pastetext : 
     {
     	button : 'Lim inn som ren tekst',
-    	title : 'Lim inn som ren tekst'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['no'] = {
     	error : 'Det var ikke mulig å renske den innlimte teksten på grunn av en intern feil',
     	title : 'Lim inn fra Word',
     	toolbar : 'Lim inn fra Word'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['no'] = {
     	cut : 'Klipp ut',
     	cutError : 'Din nettlesers sikkerhetsinstillinger tillater ikke automatisk utklipping av tekst. Vennligst bruk snarveien (Ctrl/Cmd+X).',
     	paste : 'Lim inn',
-    	pasteArea : 'Innlimingsområde',
-    	pasteMsg : 'Vennligst lim inn i følgende boks med tastaturet (<STRONG>Ctrl/Cmd+V</STRONG>) og trykk <STRONG>OK</STRONG>.',
-    	securityMsg : 'Din nettlesers sikkerhetsinstillinger gir ikke redigeringsverktøyet direkte tilgang til utklippstavlen. Du må derfor lime det inn på nytt i dette vinduet.',
-    	title : 'Lim inn'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

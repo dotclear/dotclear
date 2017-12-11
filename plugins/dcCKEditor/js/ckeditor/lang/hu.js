@@ -140,7 +140,7 @@ CKEDITOR.lang['hu'] = {
     pastetext : 
     {
     	button : 'Beillesztés formázatlan szövegként',
-    	title : 'Beillesztés formázatlan szövegként'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['hu'] = {
     	error : 'Egy belső hiba miatt nem sikerült megtisztítani a szöveget',
     	title : 'Beillesztés Word-ből',
     	toolbar : 'Beillesztés Word-ből'
+    },
+    notification : 
+    {
+    	closed : 'Értesítés bezárva.'
     },
     maximize : 
     {
@@ -204,8 +208,8 @@ CKEDITOR.lang['hu'] = {
     	anchorName : 'Horgony név szerint',
     	charset : 'Hivatkozott tartalom kódlapja',
     	cssClasses : 'Stíluskészlet',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Kötelező letöltés',
+    	displayText : 'Megjelenített szöveg',
     	emailAddress : 'E-Mail cím',
     	emailBody : 'Üzenet',
     	emailSubject : 'Üzenet tárgya',
@@ -382,28 +386,28 @@ CKEDITOR.lang['hu'] = {
     		F0F8FF : 'Halvány kék',
     		E6E6FA : 'Lavender',
     		FFF : 'Fehér',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'1ABC9C' : 'Erős cián',
+    		'2ECC71' : 'Smaragd',
+    		'3498DB' : 'Fényes kék',
+    		'9B59B6' : 'Ametiszt',
+    		'4E5F70' : 'Szürkéskék',
+    		F1C40F : 'Világossárga',
+    		'16A085' : 'Sötét cián',
+    		'27AE60' : 'Sötét smaragd',
+    		'2980B9' : 'Erős kék',
+    		'8E44AD' : 'Sötétlila',
+    		'2C3E50' : 'Világoskék',
+    		F39C12 : 'Narancs',
+    		E67E22 : 'Répa',
+    		E74C3C : 'Sápadt vörös',
+    		ECF0F1 : 'Fényes ezüst',
+    		'95A5A6' : 'Világos szürkés cián',
+    		DDD : 'Világosszürke',
+    		D35400 : 'Tök',
+    		C0392B : 'Erős vörös',
+    		BDC3C7 : 'Ezüst',
+    		'7F8C8D' : 'Szürkés cián',
+    		'999' : 'Sötétszürke'
     	},
     	more : 'További színek...',
     	panelTitle : 'Színek',
@@ -416,10 +420,7 @@ CKEDITOR.lang['hu'] = {
     	cut : 'Kivágás',
     	cutError : 'A böngésző biztonsági beállításai nem engedélyezik a szerkesztőnek, hogy végrehajtsa a kivágás műveletet. Használja az alábbi billentyűkombinációt (Ctrl/Cmd+X).',
     	paste : 'Beillesztés',
-    	pasteArea : 'Beszúrás mező',
-    	pasteMsg : 'Másolja be az alábbi mezőbe a <STRONG>Ctrl/Cmd+V</STRONG> billentyűk lenyomásával, majd nyomjon <STRONG>Rendben</STRONG>-t.',
-    	securityMsg : 'A böngésző biztonsági beállításai miatt a szerkesztő nem képes hozzáférni a vágólap adataihoz. Illeszd be újra ebben az ablakban.',
-    	title : 'Beillesztés'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {
@@ -509,7 +510,7 @@ CKEDITOR.lang['hu'] = {
     	alignTop : 'Tetejére',
     	alignMiddle : 'Középre',
     	alignBottom : 'Aljára',
-    	alignNone : 'None',
+    	alignNone : 'Semmi',
     	invalidValue : 'Érvénytelen érték.',
     	invalidHeight : 'A magasság mezőbe csak számokat írhat.',
     	invalidWidth : 'A szélesség mezőbe csak számokat írhat.',
@@ -531,5 +532,5 @@ CKEDITOR.lang['hu'] = {
     		'46' : 'Delete',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Gyorsbillentyű'
     } }; 

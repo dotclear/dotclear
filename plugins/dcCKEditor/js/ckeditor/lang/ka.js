@@ -140,7 +140,7 @@ CKEDITOR.lang['ka'] = {
     pastetext : 
     {
     	button : 'მხოლოდ ტექსტის ჩასმა',
-    	title : 'მხოლოდ ტექსტის ჩასმა'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['ka'] = {
     	error : 'შიდა შეცდომის გამო ვერ მოხერხდა ტექსტის გაწმენდა',
     	title : 'ვორდიდან ჩასმა',
     	toolbar : 'ვორდიდან ჩასმა'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['ka'] = {
     	cut : 'ამოჭრა',
     	cutError : 'თქვენი ბროუზერის უსაფრთხოების პარამეტრები არ იძლევა ამოჭრის ოპერაციის ავტომატურად განხორციელების საშუალებას. გამოიყენეთ კლავიატურა ამისთვის (Ctrl/Cmd+X).',
     	paste : 'ჩასმა',
-    	pasteArea : 'ჩასმის არე',
-    	pasteMsg : 'ჩასვით ამ არის შიგნით კლავიატურის გამოყენებით (<strong>Ctrl/Cmd+V</strong>) და დააჭირეთ OK-ს',
-    	securityMsg : 'თქვენი ბროუზერის უსაფრთხოების პარამეტრები არ იძლევა clipboard-ის მონაცემების წვდომის უფლებას. კიდევ უნდა ჩასვათ ტექსტი ამ ფანჯარაში.',
-    	title : 'ჩასმა'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {
