@@ -29,6 +29,8 @@ class dcError
 	protected $html_list = "<ul>\n%s</ul>\n";
 	/** @var string HTML error item pattern */
 	protected $html_item = "<li>%s</li>\n";
+	/** @var string HTML error single pattern */
+	protected $html_single = "<p>%s</p>\n";
 
 	/**
 	* Object string representation. Returns errors stack.
@@ -93,10 +95,13 @@ class dcError
 	* @param string	$list		HTML errors list pattern
 	* @param string	$item		HTML error item pattern
 	*/
-	public function setHTMLFormat($list,$item)
+	public function setHTMLFormat($list,$item,$single=null)
 	{
 		$this->html_list = $list;
 		$this->html_item = $item;
+		if ($single) {
+			$this->html_single = $single;
+		}
 	}
 
 	/**
@@ -110,12 +115,14 @@ class dcError
 
 		if ($this->flag)
 		{
-			foreach ($this->errors as $msg)
-			{
-				$res .= sprintf($this->html_item,$msg);
+			if (count($this->errors == 1)) {
+				$res = sprintf($this->html_single,$this->errors[0]);
+			} else {
+				foreach ($this->errors as $msg) {
+					$res .= sprintf($this->html_item,$msg);
+				}
+				$res = sprintf($this->html_list,$res);
 			}
-
-			$res = sprintf($this->html_list,$res);
 		}
 
 		return $res;
