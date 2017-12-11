@@ -140,7 +140,7 @@ CKEDITOR.lang['sv'] = {
     pastetext : 
     {
     	button : 'Klistra in som vanlig text',
-    	title : 'Klistra in som vanlig text'
+    	pasteNotification : 'Din webbläsare tillåter dig inte att klistra in vanlig text på detta vis. Tryck på %1 för att klistra in.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['sv'] = {
     	error : 'Det var inte möjligt att städa upp den inklistrade data på grund av ett internt fel',
     	title : 'Klistra in från Word',
     	toolbar : 'Klistra in från Word'
+    },
+    notification : 
+    {
+    	closed : 'Notifiering stängd.'
     },
     maximize : 
     {
@@ -382,28 +386,28 @@ CKEDITOR.lang['sv'] = {
     		F0F8FF : 'Aliceblå',
     		E6E6FA : 'Lavendel',
     		FFF : 'Vit',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
+    		'1ABC9C' : 'Stark turkos',
+    		'2ECC71' : 'Smaragd',
+    		'3498DB' : 'Klarblå',
+    		'9B59B6' : 'Ametist',
+    		'4E5F70' : 'Gråblå',
+    		F1C40F : 'Klargul',
+    		'16A085' : 'Mörk turkos',
+    		'27AE60' : 'Mörk smaragd',
+    		'2980B9' : 'Stark blå',
+    		'8E44AD' : 'Mörk violett',
+    		'2C3E50' : 'Blek blå',
     		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
+    		E67E22 : 'Morot',
+    		E74C3C : 'Blekröd',
+    		ECF0F1 : 'Stark silver',
+    		'95A5A6' : 'Ljus gråaktig turkos',
+    		DDD : 'Ljusgrå',
+    		D35400 : 'Pumpa',
+    		C0392B : 'Stark röd',
     		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'7F8C8D' : 'Gråaktig turkos',
+    		'999' : 'Mörkgrå'
     	},
     	more : 'Fler färger...',
     	panelTitle : 'Färger',
@@ -412,14 +416,11 @@ CKEDITOR.lang['sv'] = {
     clipboard : 
     {
     	copy : 'Kopiera',
-    	copyError : 'Säkerhetsinställningar i Er webbläsare tillåter inte åtgärden kopiera. Använd (Ctrl/Cmd+C) istället.',
+    	copyError : 'Säkerhetsinställningar i din webbläsare tillåter inte åtgärden kopiera. Använd (Ctrl/Cmd+C) istället.',
     	cut : 'Klipp ut',
-    	cutError : 'Säkerhetsinställningar i Er webbläsare tillåter inte åtgärden klipp ut. Använd (Ctrl/Cmd+X) istället.',
+    	cutError : 'Säkerhetsinställningar i din webbläsare tillåter inte åtgärden klipp ut. Använd (Ctrl/Cmd+X) istället.',
     	paste : 'Klistra in',
-    	pasteArea : 'Paste Area',
-    	pasteMsg : 'Var god och klistra in Er text i rutan nedan genom att använda (<strong>Ctrl/Cmd+V</strong>) klicka sen på OK.',
-    	securityMsg : 'På grund av din webbläsares säkerhetsinställningar kan verktyget inte få åtkomst till urklippsdatan. Var god och använd detta fönster istället.',
-    	title : 'Klistra in'
+    	pasteNotification : 'Din webbläsare tillåter dig inte att klistra in på detta vis. Tryck på %1 för att klistra in.'
     },
     button : 
     {

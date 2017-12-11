@@ -140,7 +140,7 @@ CKEDITOR.lang['fi'] = {
     pastetext : 
     {
     	button : 'Liitä tekstinä',
-    	title : 'Liitä tekstinä'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['fi'] = {
     	error : 'Liitetyn tiedon siivoaminen ei onnistunut sisäisen virheen takia',
     	title : 'Liitä Word-dokumentista',
     	toolbar : 'Liitä Word-dokumentista'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['fi'] = {
     	cut : 'Leikkaa',
     	cutError : 'Selaimesi turva-asetukset eivät salli editorin toteuttaa leikkaamista. Käytä näppäimistöä leikkaamiseen (Ctrl+X).',
     	paste : 'Liitä',
-    	pasteArea : 'Leikealue',
-    	pasteMsg : 'Liitä painamalla (<STRONG>Ctrl+V</STRONG>) ja painamalla <STRONG>OK</STRONG>.',
-    	securityMsg : 'Selaimesi turva-asetukset eivät salli editorin käyttää leikepöytää suoraan. Sinun pitää suorittaa liittäminen tässä ikkunassa.',
-    	title : 'Liitä'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

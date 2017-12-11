@@ -140,7 +140,7 @@ CKEDITOR.lang['cs'] = {
     pastetext : 
     {
     	button : 'Vložit jako čistý text',
-    	title : 'Vložit jako čistý text'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['cs'] = {
     	error : 'Z důvodu vnitřní chyby nebylo možné provést vyčištění vkládaného textu.',
     	title : 'Vložit z Wordu',
     	toolbar : 'Vložit z Wordu'
+    },
+    notification : 
+    {
+    	closed : 'Oznámení zavřeno.'
     },
     maximize : 
     {
@@ -383,9 +387,9 @@ CKEDITOR.lang['cs'] = {
     		E6E6FA : 'Levandulová',
     		FFF : 'Bílá',
     		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
+    		'2ECC71' : 'Emeraldová',
+    		'3498DB' : 'Jasně modrá',
+    		'9B59B6' : 'Ametystová',
     		'4E5F70' : 'Grayish Blue',
     		F1C40F : 'Vivid Yellow',
     		'16A085' : 'Dark Cyan',
@@ -393,15 +397,15 @@ CKEDITOR.lang['cs'] = {
     		'2980B9' : 'Strong Blue',
     		'8E44AD' : 'Dark Violet',
     		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
+    		F39C12 : 'Oranžová',
+    		E67E22 : 'Mrkvová',
     		E74C3C : 'Pale Red',
     		ECF0F1 : 'Bright Silver',
     		'95A5A6' : 'Light Grayish Cyan',
     		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
+    		D35400 : 'Dýňová',
     		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
+    		BDC3C7 : 'Stříbrná',
     		'7F8C8D' : 'Grayish Cyan',
     		'999' : 'Dark Gray'
     	},
@@ -416,10 +420,7 @@ CKEDITOR.lang['cs'] = {
     	cut : 'Vyjmout',
     	cutError : 'Bezpečnostní nastavení vašeho prohlížeče nedovolují editoru spustit funkci pro vyjmutí zvoleného textu do schránky. Prosím vyjměte zvolený text do schránky pomocí klávesnice (Ctrl/Cmd+X).',
     	paste : 'Vložit',
-    	pasteArea : 'Oblast vkládání',
-    	pasteMsg : 'Do následujícího pole vložte požadovaný obsah pomocí klávesnice (<STRONG>Ctrl/Cmd+V</STRONG>) a stiskněte <STRONG>OK</STRONG>.',
-    	securityMsg : 'Z důvodů nastavení bezpečnosti vašeho prohlížeče nemůže editor přistupovat přímo do schránky. Obsah schránky prosím vložte znovu do tohoto okna.',
-    	title : 'Vložit'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {
@@ -525,11 +526,11 @@ CKEDITOR.lang['cs'] = {
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Mezerník',
     		'35' : 'Konec',
     		'36' : 'Domů',
     		'46' : 'Smazat',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Klávesová zkratka'
     } }; 

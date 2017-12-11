@@ -140,7 +140,7 @@ CKEDITOR.lang['gu'] = {
     pastetext : 
     {
     	button : 'પેસ્ટ (ટેક્સ્ટ)',
-    	title : 'પેસ્ટ (ટેક્સ્ટ)'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['gu'] = {
     	error : 'પેસ્ટ કરેલો ડેટા ઇન્ટરનલ એરર ના લીથે સાફ કરી શકાયો નથી.',
     	title : 'પેસ્ટ (વડૅ ટેક્સ્ટ)',
     	toolbar : 'પેસ્ટ (વડૅ ટેક્સ્ટ)'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['gu'] = {
     	cut : 'કાપવું',
     	cutError : 'તમારા બ્રાઉઝર ની સુરક્ષિત સેટિંગસ કટ કરવાની પરવાનગી નથી આપતી. (Ctrl/Cmd+X) નો ઉપયોગ કરો.',
     	paste : 'પેસ્ટ',
-    	pasteArea : 'પેસ્ટ કરવાની જગ્યા',
-    	pasteMsg : 'Ctrl/Cmd+V નો પ્રયોગ કરી પેસ્ટ કરો',
-    	securityMsg : 'તમારા બ્રાઉઝર ની સુરક્ષિત સેટિંગસના કારણે,એડિટર તમારા કિલ્પબોર્ડ ડેટા ને કોપી નથી કરી શકતો. તમારે આ વિન્ડોમાં ફરીથી પેસ્ટ કરવું પડશે.',
-    	title : 'પેસ્ટ'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

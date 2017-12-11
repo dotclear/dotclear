@@ -140,7 +140,7 @@ CKEDITOR.lang['de-ch'] = {
     pastetext : 
     {
     	button : 'Als Klartext einfügen',
-    	title : 'Als Klartext einfügen'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['de-ch'] = {
     	error : 'Aufgrund eines internen Fehlers war es nicht möglich die eingefügten Daten zu bereinigen',
     	title : 'Aus Word einfügen',
     	toolbar : 'Aus Word einfügen'
+    },
+    notification : 
+    {
+    	closed : 'Benachrichtigung geschlossen.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['de-ch'] = {
     	cut : 'Ausschneiden',
     	cutError : 'Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch auszuschneiden. Bitte benutzen Sie die System-Zwischenablage über STRG-X (ausschneiden) und STRG-V (einfügen).',
     	paste : 'Einfügen',
-    	pasteArea : 'Einfügebereich',
-    	pasteMsg : 'Bitte fügen Sie den Text in der folgenden Box über die Tastatur (mit <STRONG>Strg+V</STRONG>) ein und bestätigen Sie mit <STRONG>OK</STRONG>.',
-    	securityMsg : 'Aufgrund von Sicherheitsbeschränkungen Ihres Browsers kann der Editor nicht direkt auf die Zwischenablage zugreifen. Bitte fügen Sie den Inhalt erneut in diesem Fenster ein.',
-    	title : 'Einfügen'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

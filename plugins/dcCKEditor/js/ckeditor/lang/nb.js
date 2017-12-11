@@ -140,7 +140,7 @@ CKEDITOR.lang['nb'] = {
     pastetext : 
     {
     	button : 'Lim inn som ren tekst',
-    	title : 'Lim inn som ren tekst'
+    	pasteNotification : 'Nettleseren din lar deg ikke lime inn ren tekst på denne måten. Trykk %1 for å lime inn.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['nb'] = {
     	error : 'Det var ikke mulig å renske den innlimte teksten på grunn av en intern feil',
     	title : 'Lim inn fra Word',
     	toolbar : 'Lim inn fra Word'
+    },
+    notification : 
+    {
+    	closed : 'Varsling lukket.'
     },
     maximize : 
     {
@@ -382,28 +386,28 @@ CKEDITOR.lang['nb'] = {
     		F0F8FF : 'Svak cyan',
     		E6E6FA : 'Lavendel',
     		FFF : 'Hvit',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'1ABC9C' : 'Sterk cyan',
+    		'2ECC71' : 'Smaragd',
+    		'3498DB' : 'Lys blå',
+    		'9B59B6' : 'Ametyst',
+    		'4E5F70' : 'Gråaktig blå',
+    		F1C40F : 'Livaktig gul',
+    		'16A085' : 'Mørk cyan',
+    		'27AE60' : 'Mørk smaragd',
+    		'2980B9' : 'Sterk blå',
+    		'8E44AD' : 'Mørk fiolett',
+    		'2C3E50' : 'Desaturert blå',
+    		F39C12 : 'Oransje',
+    		E67E22 : 'Gulrot',
+    		E74C3C : 'Blek rød',
+    		ECF0F1 : 'Klar sølv',
+    		'95A5A6' : 'Lys gråaktig cyan',
+    		DDD : 'Lys grå',
+    		D35400 : 'Gresskar',
+    		C0392B : 'Sterk rød',
+    		BDC3C7 : 'Sølv',
+    		'7F8C8D' : 'Gråaktig cyan',
+    		'999' : 'Mørk grå'
     	},
     	more : 'Flere farger...',
     	panelTitle : 'Farger',
@@ -416,10 +420,7 @@ CKEDITOR.lang['nb'] = {
     	cut : 'Klipp ut',
     	cutError : 'Din nettlesers sikkerhetsinstillinger tillater ikke automatisk utklipping av tekst. Vennligst bruk tastatursnarveien (Ctrl/Cmd+X).',
     	paste : 'Lim inn',
-    	pasteArea : 'Innlimingsområde',
-    	pasteMsg : 'Vennligst lim inn i følgende boks med tastaturet (<strong>Ctrl/Cmd+V</strong>) og trykk <strong>OK</strong>.',
-    	securityMsg : 'Din nettlesers sikkerhetsinstillinger gir ikke redigeringsverktøyet direkte tilgang til utklippstavlen. Du må derfor lime det inn på nytt i dette vinduet.',
-    	title : 'Lim inn'
+    	pasteNotification : 'Nettleseren din lar deg ikke lime inn på denne måten. Trykk %1 for å lime inn.'
     },
     button : 
     {

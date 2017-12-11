@@ -140,7 +140,7 @@ CKEDITOR.lang['uk'] = {
     pastetext : 
     {
     	button : 'Вставити тільки текст',
-    	title : 'Вставити тільки текст'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['uk'] = {
     	error : 'Неможливо очистити форматування через внутрішню помилку.',
     	title : 'Вставити з Word',
     	toolbar : 'Вставити з Word'
+    },
+    notification : 
+    {
+    	closed : 'Сповіщення закрито.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['uk'] = {
     	cut : 'Вирізати',
     	cutError : 'Налаштування безпеки Вашого браузера не дозволяють редактору автоматично виконувати операції вирізування. Будь ласка, використовуйте клавіатуру для цього (Ctrl/Cmd+X)',
     	paste : 'Вставити',
-    	pasteArea : 'Область вставки',
-    	pasteMsg : 'Будь ласка, вставте інформацію з буфера обміну в цю область, користуючись комбінацією клавіш (<STRONG>Ctrl/Cmd+V</STRONG>), та натисніть <STRONG>OK</STRONG>.',
-    	securityMsg : 'Редактор не може отримати прямий доступ до буферу обміну у зв\'язку з налаштуваннями Вашого браузера. Вам потрібно вставити інформацію в це вікно.',
-    	title : 'Вставити'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {
@@ -448,7 +449,7 @@ CKEDITOR.lang['uk'] = {
     	userGuide : 'Інструкція Користувача для CKEditor'
     },
     editor : 'Текстовий редактор',
-    editorPanel : 'Панель текстового редактора',
+    editorPanel : 'Панель розширеного текстового редактора',
     common : 
     {
     	editorHelp : 'натисніть ALT 0 для довідки',

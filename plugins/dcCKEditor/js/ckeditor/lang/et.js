@@ -140,7 +140,7 @@ CKEDITOR.lang['et'] = {
     pastetext : 
     {
     	button : 'Asetamine tavalise tekstina',
-    	title : 'Asetamine tavalise tekstina'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['et'] = {
     	error : 'Asetatud andmete puhastamine ei olnud sisemise vea tõttu võimalik',
     	title : 'Asetamine Wordist',
     	toolbar : 'Asetamine Wordist'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['et'] = {
     	cut : 'Lõika',
     	cutError : 'Sinu veebisirvija turvaseaded ei luba redaktoril automaatselt lõigata. Palun kasutage selleks klaviatuuri klahvikombinatsiooni (Ctrl/Cmd+X).',
     	paste : 'Aseta',
-    	pasteArea : 'Asetamise ala',
-    	pasteMsg : 'Palun aseta tekst järgnevasse kasti kasutades klaviatuuri klahvikombinatsiooni (<STRONG>Ctrl/Cmd+V</STRONG>) ja vajuta seejärel <STRONG>OK</STRONG>.',
-    	securityMsg : 'Sinu veebisirvija turvaseadete tõttu ei oma redaktor otsest ligipääsu lõikelaua andmetele. Sa pead asetama need uuesti siia aknasse.',
-    	title : 'Asetamine'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

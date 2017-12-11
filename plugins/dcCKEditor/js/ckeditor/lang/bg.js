@@ -140,7 +140,7 @@ CKEDITOR.lang['bg'] = {
     pastetext : 
     {
     	button : 'Вмъкни като чист текст',
-    	title : 'Вмъкни като чист текст'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['bg'] = {
     	error : 'It was not possible to clean up the pasted data due to an internal error',
     	title : 'Вмъкни от MS Word',
     	toolbar : 'Вмъкни от MS Word'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['bg'] = {
     	cut : 'Отрежи',
     	cutError : 'Настройките за сигурност на Вашия браузър не позволяват на редактора автоматично да изъплни действията за отрязване. Моля ползвайте клавиатурните команди за целта (ctrl+x).',
     	paste : 'Вмъкни',
-    	pasteArea : 'Зона за вмъкване',
-    	pasteMsg : 'Вмъкнете тук съдъжанието с клавиатуарата (<STRONG>Ctrl/Cmd+V</STRONG>) и натиснете <STRONG>OK</STRONG>.',
-    	securityMsg : 'Заради настройките за сигурност на Вашия браузър, редакторът не може да прочете данните от клипборда коректно.',
-    	title : 'Вмъкни'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

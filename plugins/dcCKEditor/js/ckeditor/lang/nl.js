@@ -140,7 +140,7 @@ CKEDITOR.lang['nl'] = {
     pastetext : 
     {
     	button : 'Plakken als platte tekst',
-    	title : 'Plakken als platte tekst'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['nl'] = {
     	error : 'Het was niet mogelijk om de geplakte tekst op te schonen door een interne fout',
     	title : 'Plakken vanuit Word',
     	toolbar : 'Plakken vanuit Word'
+    },
+    notification : 
+    {
+    	closed : 'Melding gesloten.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['nl'] = {
     	cut : 'Knippen',
     	cutError : 'De beveiligingsinstelling van de browser verhinderen het automatisch knippen. Gebruik de sneltoets Ctrl/Cmd+X van het toetsenbord.',
     	paste : 'Plakken',
-    	pasteArea : 'Plakgebied',
-    	pasteMsg : 'Plak de tekst in het volgende vak gebruikmakend van uw toetsenbord (<strong>Ctrl/Cmd+V</strong>) en klik op OK.',
-    	securityMsg : 'Door de beveiligingsinstellingen van uw browser is het niet mogelijk om direct vanuit het klembord in de editor te plakken. Middels opnieuw plakken in dit venster kunt u de tekst alsnog plakken in de editor.',
-    	title : 'Plakken'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

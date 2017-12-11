@@ -140,7 +140,7 @@ CKEDITOR.lang['ko'] = {
     pastetext : 
     {
     	button : '텍스트로 붙여넣기',
-    	title : '텍스트로 붙여넣기'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['ko'] = {
     	error : '내부 오류로 붙여 넣은 데이터를 정리 할 수 없습니다.',
     	title : 'MS Word 에서 붙여넣기',
     	toolbar : 'MS Word 에서 붙여넣기'
+    },
+    notification : 
+    {
+    	closed : '알림이 닫힘.'
     },
     maximize : 
     {
@@ -204,8 +208,8 @@ CKEDITOR.lang['ko'] = {
     	anchorName : '책갈피 이름',
     	charset : '링크된 자료 문자열 인코딩',
     	cssClasses : '스타일시트 클래스',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : '강제 다운로드',
+    	displayText : '보이는 글자',
     	emailAddress : '이메일 주소',
     	emailBody : '메시지 내용',
     	emailSubject : '메시지 제목',
@@ -382,28 +386,28 @@ CKEDITOR.lang['ko'] = {
     		F0F8FF : '앨리스 블루',
     		E6E6FA : '라벤더',
     		FFF : '흰색',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'1ABC9C' : '진한 청록색',
+    		'2ECC71' : '에메랄드',
+    		'3498DB' : '밝은 파랑',
+    		'9B59B6' : '자수정',
+    		'4E5F70' : '회청색',
+    		F1C40F : '선명한 노랑',
+    		'16A085' : '다크 시안',
+    		'27AE60' : '다크 에메랄드',
+    		'2980B9' : '진한 파랑',
+    		'8E44AD' : '다크 바이올렛',
+    		'2C3E50' : '탁한 파랑',
+    		F39C12 : '주황',
+    		E67E22 : '당근',
+    		E74C3C : '창백한 빨강',
+    		ECF0F1 : '밝은 은색',
+    		'95A5A6' : '밝은 회청록',
+    		DDD : '밝은 회색',
+    		D35400 : '호박',
+    		C0392B : '진한 빨강',
+    		BDC3C7 : '은색',
+    		'7F8C8D' : '회청록',
+    		'999' : '암회색'
     	},
     	more : '색상 선택...',
     	panelTitle : '색상',
@@ -416,10 +420,7 @@ CKEDITOR.lang['ko'] = {
     	cut : '잘라내기',
     	cutError : '브라우저의 보안설정 때문에 잘라내기 기능을 실행할 수 없습니다. 키보드(Ctrl/Cmd+X)를 이용해서 잘라내기 하십시오',
     	paste : '붙여넣기',
-    	pasteArea : '붙여넣기 범위',
-    	pasteMsg : '키보드(<strong>Ctrl/Cmd+V</strong>)를 이용해서 상자안에 붙여넣고 <strong>확인</strong> 를 누르세요.',
-    	securityMsg : '브라우저 보안 설정으로 인해, 클립보드에 직접 접근할 수 없습니다. 이 창에 다시 붙여넣기 하십시오.',
-    	title : '붙여넣기'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {
@@ -452,7 +453,7 @@ CKEDITOR.lang['ko'] = {
     common : 
     {
     	editorHelp : '도움이 필요하면 ALT 0 을 누르세요',
-    	browseServer : '서버 보기',
+    	browseServer : '서버 탐색',
     	url : 'URL',
     	protocol : '프로토콜',
     	upload : '업로드',
@@ -520,16 +521,16 @@ CKEDITOR.lang['ko'] = {
     	unavailable : '%1<span class="cke_accessibility">, 사용불가</span>',
     	keyboard : 
     	{
-    		'8' : 'Backspace',
-    		'13' : 'Enter',
-    		'16' : 'Shift',
-    		'17' : 'Ctrl',
-    		'18' : 'Alt',
-    		'32' : 'Space',
-    		'35' : 'End',
-    		'36' : 'Home',
-    		'46' : 'Delete',
-    		'224' : 'Command'
+    		'8' : '백스페이스',
+    		'13' : '엔터',
+    		'16' : '시프트',
+    		'17' : '컨트롤',
+    		'18' : '알트',
+    		'32' : '간격',
+    		'35' : '엔드',
+    		'36' : '홈',
+    		'46' : '딜리트',
+    		'224' : '커맨드'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : '키보드 단축키'
     } }; 

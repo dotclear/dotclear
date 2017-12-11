@@ -140,7 +140,7 @@ CKEDITOR.lang['fo'] = {
     pastetext : 
     {
     	button : 'Innrita som reinan tekst',
-    	title : 'Innrita som reinan tekst'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['fo'] = {
     	error : 'Tað eydnaðist ikki at reinsa tekstin vegna ein internan feil',
     	title : 'Innrita frá Word',
     	toolbar : 'Innrita frá Word'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['fo'] = {
     	cut : 'Kvett',
     	cutError : 'Trygdaruppseting alnótskagans forðar tekstviðgeranum í at kvetta tekstin. Vinarliga nýt knappaborðið til at kvetta tekstin (Ctrl/Cmd+X).',
     	paste : 'Innrita',
-    	pasteArea : 'Avritingarumráði',
-    	pasteMsg : 'Vinarliga koyr tekstin í hendan rútin við knappaborðinum (<strong>Ctrl/Cmd+V</strong>) og klikk á <strong>Góðtak</strong>.',
-    	securityMsg : 'Trygdaruppseting alnótskagans forðar tekstviðgeranum í beinleiðis atgongd til avritingarminnið. Tygum mugu royna aftur í hesum rútinum.',
-    	title : 'Innrita'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

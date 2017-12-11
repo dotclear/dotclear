@@ -59,7 +59,7 @@ CKEDITOR.lang['pt'] = {
     		wordWrap : 'Moldar texto',
     		hAlign : 'Alinhamento horizontal',
     		vAlign : 'Alinhamento vertical',
-    		alignBaseline : 'Base',
+    		alignBaseline : 'Linha base',
     		bgColor : 'Cor de fundo',
     		borderColor : 'Cor da margem',
     		data : 'Dados',
@@ -68,7 +68,7 @@ CKEDITOR.lang['pt'] = {
     		no : 'Não',
     		invalidWidth : 'A largura da célula deve ser um número.',
     		invalidHeight : 'A altura da célula deve ser um número.',
-    		invalidRowSpan : 'As filas da célula deve ter um número inteiro.',
+    		invalidRowSpan : 'As linhas da célula devem ser um número inteiro.',
     		invalidColSpan : 'As colunas da célula devem ter um número inteiro.',
     		chooseColor : 'Escolher'
     	},
@@ -114,10 +114,10 @@ CKEDITOR.lang['pt'] = {
     stylescombo : 
     {
     	label : 'Estilos',
-    	panelTitle : 'Estilos de Formatação',
+    	panelTitle : 'Estilos de formatação',
     	panelTitle1 : 'Estilos de bloco',
-    	panelTitle2 : 'Estilos de Linha',
-    	panelTitle3 : 'Estilos de Objeto'
+    	panelTitle2 : 'Estilos nas etiquetas',
+    	panelTitle3 : 'Estilos em objeto'
     },
     specialchar : 
     {
@@ -140,14 +140,18 @@ CKEDITOR.lang['pt'] = {
     pastetext : 
     {
     	button : 'Colar como texto simples',
-    	title : 'Colar como texto simples'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
-    	confirmCleanup : 'O texto que pretende colar parece ter sido copiado do Word. Deseja limpá-lo antes de colar?',
-    	error : 'Não foi possivel limpar a informação colada decido a um erro interno.',
+    	confirmCleanup : 'O texto que pretende colar parece ter sido copiado do Word. Deseja limpar o código antes de o colar?',
+    	error : 'Não foi possível limpar a informação colada devido a um erro interno.',
     	title : 'Colar do Word',
     	toolbar : 'Colar do Word'
+    },
+    notification : 
+    {
+    	closed : 'Notificação encerrada.'
     },
     maximize : 
     {
@@ -156,7 +160,7 @@ CKEDITOR.lang['pt'] = {
     },
     magicline : 
     {
-    	title : 'Insira aqui o parágrafo'
+    	title : 'Inserir parágrafo aqui'
     },
     liststyle : 
     {
@@ -267,9 +271,9 @@ CKEDITOR.lang['pt'] = {
     	alt : 'Texto alternativo',
     	border : 'Limite',
     	btnUpload : 'Enviar para o servidor',
-    	button2Img : 'Deseja transformar o botão com imagem selecionado em uma imagem?',
+    	button2Img : 'Deseja transformar o botão com imagem selecionado numa imagem simples?',
     	hSpace : 'Esp. Horiz',
-    	img2Button : 'Deseja transformar a imagem selecionada em um botão com imagem?',
+    	img2Button : 'Deseja transformar a imagem selecionada num botão com imagem?',
     	infoTab : 'Informação da imagem',
     	linkTab : 'Hiperligação',
     	lockRatio : 'Proporcional',
@@ -278,9 +282,9 @@ CKEDITOR.lang['pt'] = {
     	title : 'Propriedades da imagem',
     	titleButton : 'Propriedades do botão de imagem',
     	upload : 'Carregar',
-    	urlMissing : 'O URL da fonte da imagem está em falta.',
+    	urlMissing : 'O URL de origem da imagem está em falta.',
     	vSpace : 'Esp. Vert',
-    	validateBorder : 'A borda tem de ser um numero.',
+    	validateBorder : 'A borda tem de ser um número inteiro.',
     	validateHSpace : 'HSpace tem de ser um numero.',
     	validateVSpace : 'VSpace tem de ser um numero.'
     },
@@ -322,11 +326,11 @@ CKEDITOR.lang['pt'] = {
     	advisoryTitleInputLabel : 'Título',
     	cssClassInputLabel : 'Classes de folhas de estilo',
     	edit : 'Editar Div',
-    	inlineStyleInputLabel : 'Estilho em Linha',
+    	inlineStyleInputLabel : 'Estilo na etiqueta',
     	langDirLTRLabel : 'Esquerda para a direita (EPD)',
     	langDirLabel : 'Orientação de idioma',
     	langDirRTLLabel : 'Direita para a Esquerda (DPE)',
-    	languageCodeInputLabel : 'Codigo do Idioma',
+    	languageCodeInputLabel : 'Código do idioma',
     	remove : 'Remover Div',
     	styleSelectLabel : 'Estilo',
     	title : 'Criar Div',
@@ -345,7 +349,7 @@ CKEDITOR.lang['pt'] = {
     		'000' : 'Black',
     		'800000' : 'Castanho',
     		'8B4513' : 'Saddle Brown',
-    		'2F4F4F' : 'Dark Slate Gray',
+    		'2F4F4F' : 'Cinza lousa escuro',
     		'008080' : 'Teal',
     		'000080' : 'Azul naval',
     		'4B0082' : 'Indigo',
@@ -382,28 +386,28 @@ CKEDITOR.lang['pt'] = {
     		F0F8FF : 'Azul Alice (f0f8ff)',
     		E6E6FA : 'Lavanda',
     		FFF : 'Branco',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
+    		'1ABC9C' : 'Ciano forte',
+    		'2ECC71' : 'Esmeralda',
+    		'3498DB' : 'Azul brilhante',
     		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
+    		'4E5F70' : 'Azul acinzentado',
+    		F1C40F : 'Amarelo vívido',
+    		'16A085' : 'Ciano escuro',
+    		'27AE60' : 'Esmeralda escuro',
+    		'2980B9' : 'Azul forte',
+    		'8E44AD' : 'Violeta escuro',
     		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
+    		F39C12 : 'Laranja',
+    		E67E22 : 'Cenoura',
+    		E74C3C : 'Vermelho claro',
+    		ECF0F1 : 'Prateado brilhante',
+    		'95A5A6' : 'Ciano acinzentado claro',
+    		DDD : 'Cinza claro',
+    		D35400 : 'Abóbora',
     		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		BDC3C7 : 'Prateado',
+    		'7F8C8D' : 'Ciano acinzentado',
+    		'999' : 'Cinza escuro'
     	},
     	more : 'Mais cores...',
     	panelTitle : 'Cores',
@@ -416,10 +420,7 @@ CKEDITOR.lang['pt'] = {
     	cut : 'Cortar',
     	cutError : 'A configuração de segurança do navegador não permite a execução automática de operações de cortar. Por favor use o teclado (Ctrl/Cmd+X).',
     	paste : 'Colar',
-    	pasteArea : 'Colar área',
-    	pasteMsg : 'Por favor, cole dentro da seguinte caixa usando o teclado (<STRONG>Ctrl/Cmd+V</STRONG>) e carregue em <STRONG>OK</STRONG>.',
-    	securityMsg : 'Devido ás definições de segurança do teu browser, o editor não pode aceder ao clipboard diretamente. É necessário que voltes a colar as informações nesta janela.',
-    	title : 'Colar'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {
@@ -525,11 +526,11 @@ CKEDITOR.lang['pt'] = {
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Espaço',
     		'35' : 'Fim',
     		'36' : 'Entrada',
     		'46' : 'Eliminar',
-    		'224' : 'Command'
+    		'224' : 'Comando'
     	},
     	keyboardShortcut : 'Keyboard shortcut'
     } }; 

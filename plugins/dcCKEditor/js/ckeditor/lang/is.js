@@ -140,7 +140,7 @@ CKEDITOR.lang['is'] = {
     pastetext : 
     {
     	button : 'Líma sem ósniðinn texta',
-    	title : 'Líma sem ósniðinn texta'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['is'] = {
     	error : 'It was not possible to clean up the pasted data due to an internal error',
     	title : 'Líma úr Word',
     	toolbar : 'Líma úr Word'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['is'] = {
     	cut : 'Klippa',
     	cutError : 'Öryggisstillingar vafrans þíns leyfa ekki klippingu texta með músaraðgerð. Notaðu lyklaborðið í klippa (Ctrl/Cmd+X).',
     	paste : 'Líma',
-    	pasteArea : 'Paste Area',
-    	pasteMsg : 'Límdu í svæðið hér að neðan og (<STRONG>Ctrl/Cmd+V</STRONG>) og smelltu á <STRONG>OK</STRONG>.',
-    	securityMsg : 'Vegna öryggisstillinga í vafranum þínum fær ritillinn ekki beinan aðgang að klippuborðinu. Þú verður að líma innihaldið aftur inn í þennan glugga.',
-    	title : 'Líma'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

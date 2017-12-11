@@ -140,7 +140,7 @@ CKEDITOR.lang['hi'] = {
     pastetext : 
     {
     	button : 'पेस्ट (सादा टॅक्स्ट)',
-    	title : 'पेस्ट (सादा टॅक्स्ट)'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['hi'] = {
     	error : 'It was not possible to clean up the pasted data due to an internal error',
     	title : 'पेस्ट (वर्ड से)',
     	toolbar : 'पेस्ट (वर्ड से)'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['hi'] = {
     	cut : 'कट',
     	cutError : 'आपके ब्राउज़र की सुरक्षा सॅटिन्ग्स ने कट करने की अनुमति नहीं प्रदान की है। (Ctrl/Cmd+X) का प्रयोग करें।',
     	paste : 'पेस्ट',
-    	pasteArea : 'Paste Area',
-    	pasteMsg : 'Ctrl/Cmd+V का प्रयोग करके पेस्ट करें और ठीक है करें.',
-    	securityMsg : 'आपके ब्राउज़र की सुरक्षा आपके ब्राउज़र की सुरKश सैटिंग के कारण, एडिटर आपके क्लिपबोर्ड डेटा को नहीं पा सकता है. आपको उसे इस विन्डो में दोबारा पेस्ट करना होगा.',
-    	title : 'पेस्ट'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

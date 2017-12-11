@@ -140,7 +140,7 @@ CKEDITOR.lang['gl'] = {
     pastetext : 
     {
     	button : 'Pegar como texto simple',
-    	title : 'Pegar como texto simple'
+    	pasteNotification : 'O seu navegador non permite pegar texto simple deste xeito. Prema %1 para pegar.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['gl'] = {
     	error : 'Non foi posíbel depurar os datos pegados por mor dun erro interno',
     	title : 'Pegar desde Word',
     	toolbar : 'Pegar desde Word'
+    },
+    notification : 
+    {
+    	closed : 'Notificación pechada.'
     },
     maximize : 
     {
@@ -204,8 +208,8 @@ CKEDITOR.lang['gl'] = {
     	anchorName : 'Polo nome da ancoraxe',
     	charset : 'Codificación do recurso ligado',
     	cssClasses : 'Clases da folla de estilos',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Forzar a descarga',
+    	displayText : 'Amosar o texto',
     	emailAddress : 'Enderezo de correo',
     	emailBody : 'Corpo da mensaxe',
     	emailSubject : 'Asunto da mensaxe',
@@ -382,28 +386,28 @@ CKEDITOR.lang['gl'] = {
     		F0F8FF : 'Azul pálido',
     		E6E6FA : 'Lavanda',
     		FFF : 'Branco',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'1ABC9C' : 'Cian forte',
+    		'2ECC71' : 'Esmeralda',
+    		'3498DB' : 'Azul brillante',
+    		'9B59B6' : 'Amatista',
+    		'4E5F70' : 'Azul agrisado',
+    		F1C40F : 'Amarelo vívido',
+    		'16A085' : 'Cian escuro',
+    		'27AE60' : 'Esmeralda escuro',
+    		'2980B9' : 'Azul forte',
+    		'8E44AD' : 'Violeta escuro',
+    		'2C3E50' : 'Azul desaturado',
+    		F39C12 : 'Laranxa',
+    		E67E22 : 'Cenoria',
+    		E74C3C : 'Vermello pálido',
+    		ECF0F1 : 'Plata brillante',
+    		'95A5A6' : 'Cian agrisado claro',
+    		DDD : 'Gris claro',
+    		D35400 : 'Cabaza',
+    		C0392B : 'Vermello forte',
+    		BDC3C7 : 'Plata',
+    		'7F8C8D' : 'Cian agrisado',
+    		'999' : 'Gris escuro'
     	},
     	more : 'Máis cores...',
     	panelTitle : 'Cores',
@@ -416,10 +420,7 @@ CKEDITOR.lang['gl'] = {
     	cut : 'Cortar',
     	cutError : 'Os axustes de seguranza do seu navegador non permiten que o editor realice automaticamente as tarefas de corte. Use o teclado para iso (Ctrl/Cmd+X).',
     	paste : 'Pegar',
-    	pasteArea : 'Zona de pegado',
-    	pasteMsg : 'Pegue dentro do seguinte cadro usando o teclado (<STRONG>Ctrl/Cmd+V</STRONG>) e prema en Aceptar',
-    	securityMsg : 'Por mor da configuración de seguranza do seu navegador, o editor non ten acceso ao portapapeis. É necesario pegalo novamente nesta xanela.',
-    	title : 'Pegar'
+    	pasteNotification : 'O seu navegador non permite pegar deste xeito. Prema %1 para pegar.'
     },
     button : 
     {
@@ -520,16 +521,16 @@ CKEDITOR.lang['gl'] = {
     	unavailable : '%1<span class="cke_accessibility">, non dispoñíbel</span>',
     	keyboard : 
     	{
-    		'8' : 'Backspace',
+    		'8' : 'Ir atrás',
     		'13' : 'Intro',
     		'16' : 'Maiús',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Espazo',
     		'35' : 'Fin',
     		'36' : 'Inicio',
     		'46' : 'Supr',
-    		'224' : 'Command'
+    		'224' : 'Orde'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Atallo de teclado'
     } }; 

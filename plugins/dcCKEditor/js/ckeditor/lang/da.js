@@ -140,7 +140,7 @@ CKEDITOR.lang['da'] = {
     pastetext : 
     {
     	button : 'Indsæt som ikke-formateret tekst',
-    	title : 'Indsæt som ikke-formateret tekst'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['da'] = {
     	error : 'Det var ikke muligt at fjerne formatteringen på den indsatte tekst grundet en intern fejl',
     	title : 'Indsæt fra Word',
     	toolbar : 'Indsæt fra Word'
+    },
+    notification : 
+    {
+    	closed : 'Notefikation lukket.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['da'] = {
     	cut : 'Klip',
     	cutError : 'Din browsers sikkerhedsindstillinger tillader ikke editoren at få automatisk adgang til udklipsholderen.<br><br>Brug i stedet tastaturet til at klippe teksten (Ctrl/Cmd+X).',
     	paste : 'Indsæt',
-    	pasteArea : 'Indsæt område',
-    	pasteMsg : 'Indsæt i feltet herunder (<STRONG>Ctrl/Cmd+V</STRONG>) og klik på <STRONG>OK</STRONG>.',
-    	securityMsg : 'Din browsers sikkerhedsindstillinger tillader ikke editoren at få automatisk adgang til udklipsholderen.<br><br>Du skal indsætte udklipsholderens indhold i dette vindue igen.',
-    	title : 'Indsæt'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

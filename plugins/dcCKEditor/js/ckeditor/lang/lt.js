@@ -140,7 +140,7 @@ CKEDITOR.lang['lt'] = {
     pastetext : 
     {
     	button : 'Įdėti kaip gryną tekstą',
-    	title : 'Įdėti kaip gryną tekstą'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['lt'] = {
     	error : 'Dėl vidinių sutrikimų, nepavyko išvalyti įkeliamo teksto',
     	title : 'Įdėti iš Word',
     	toolbar : 'Įdėti iš Word'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['lt'] = {
     	cut : 'Iškirpti',
     	cutError : 'Jūsų naršyklės saugumo nustatymai neleidžia redaktoriui automatiškai įvykdyti iškirpimo operacijų. Tam prašome naudoti klaviatūrą (Ctrl/Cmd+X).',
     	paste : 'Įdėti',
-    	pasteArea : 'Įkelti dalį',
-    	pasteMsg : 'Žemiau esančiame įvedimo lauke įdėkite tekstą, naudodami klaviatūrą (<STRONG>Ctrl/Cmd+V</STRONG>) ir paspauskite mygtuką <STRONG>OK</STRONG>.',
-    	securityMsg : 'Dėl jūsų naršyklės saugumo nustatymų, redaktorius negali tiesiogiai pasiekti laikinosios atminties. Jums reikia nukopijuoti dar kartą į šį langą.',
-    	title : 'Įdėti'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

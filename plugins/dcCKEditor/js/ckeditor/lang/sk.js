@@ -140,7 +140,7 @@ CKEDITOR.lang['sk'] = {
     pastetext : 
     {
     	button : 'Vložiť ako čistý text',
-    	title : 'Vložiť ako čistý text'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['sk'] = {
     	error : 'Kvôli internej chybe nebolo možné vložené dáta vyčistiť',
     	title : 'Vložiť z Wordu',
     	toolbar : 'Vložiť z Wordu'
+    },
+    notification : 
+    {
+    	closed : 'Notifikácia zatvorená.'
     },
     maximize : 
     {
@@ -204,8 +208,8 @@ CKEDITOR.lang['sk'] = {
     	anchorName : 'Podľa mena kotvy',
     	charset : 'Priradená znaková sada',
     	cssClasses : 'Triedy štýlu',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Vynútené sťahovanie.',
+    	displayText : 'Zobraziť text',
     	emailAddress : 'E-Mailová adresa',
     	emailBody : 'Telo správy',
     	emailSubject : 'Predmet správy',
@@ -382,28 +386,28 @@ CKEDITOR.lang['sk'] = {
     		F0F8FF : 'Alicovo modrá',
     		E6E6FA : 'Levanduľová',
     		FFF : 'Biela',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'1ABC9C' : 'Silno tyrkysová',
+    		'2ECC71' : 'Smaragdová',
+    		'3498DB' : 'Svetlo modrá',
+    		'9B59B6' : 'Ametystová',
+    		'4E5F70' : 'Sivo modrá',
+    		F1C40F : 'Sýto žltá',
+    		'16A085' : 'Tmavo tyrkysová',
+    		'27AE60' : 'Tmavo smaragdová',
+    		'2980B9' : 'Silno modrá',
+    		'8E44AD' : 'Tmavo fialová',
+    		'2C3E50' : 'Nesýto modrá',
+    		F39C12 : 'Oranžová',
+    		E67E22 : 'Mrkvová',
+    		E74C3C : 'Bledo červená',
+    		ECF0F1 : 'Svetlá bronzová',
+    		'95A5A6' : 'Svetlá sivo-tyrkysová',
+    		DDD : 'Svetlo sivá',
+    		D35400 : 'Tekvicová',
+    		C0392B : 'Silno červená',
+    		BDC3C7 : 'Strieborná',
+    		'7F8C8D' : 'Sivo tyrkysová',
+    		'999' : 'Tmavo sivá'
     	},
     	more : 'Viac farieb...',
     	panelTitle : 'Farby',
@@ -416,10 +420,7 @@ CKEDITOR.lang['sk'] = {
     	cut : 'Vystrihnúť',
     	cutError : 'Bezpečnostné nastavenia vášho prehliadača nedovoľujú editoru automaticky spustiť operáciu vystrihnutia. Použite na to klávesnicu (Ctrl/Cmd+X).',
     	paste : 'Vložiť',
-    	pasteArea : 'Miesto na vloženie',
-    	pasteMsg : 'Použitím klávesnice (<STRONG>Ctrl/Cmd+V</STRONG>) vložte text do rámčeka a stlačte OK.',
-    	securityMsg : 'Kvôli bezpečnostným nastaveniam vášho prehliadača editor nemôže pristupovať k schránke na kopírovanie priamo. Vložte to preto do tohto okna.',
-    	title : 'Vložiť'
+    	pasteNotification : 'Váš prehliadač nepovoľuje prilepiť text takýmto spôsobom. Pre prilepenie stlačte %1.'
     },
     button : 
     {

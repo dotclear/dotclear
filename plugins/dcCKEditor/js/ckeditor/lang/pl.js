@@ -140,7 +140,7 @@ CKEDITOR.lang['pl'] = {
     pastetext : 
     {
     	button : 'Wklej jako czysty tekst',
-    	title : 'Wklej jako czysty tekst'
+    	pasteNotification : 'Twoja przeglądarka nie pozwala na wklejanie treści w ten sposób. Naciśnij %1 by wkleić tekst.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['pl'] = {
     	error : 'Wyczyszczenie wklejonych danych nie było możliwe z powodu wystąpienia błędu.',
     	title : 'Wklej z programu MS Word',
     	toolbar : 'Wklej z programu MS Word'
+    },
+    notification : 
+    {
+    	closed : 'Powiadomienie zostało zamknięte.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['pl'] = {
     	cut : 'Wytnij',
     	cutError : 'Ustawienia bezpieczeństwa Twojej przeglądarki nie pozwalają na automatyczne wycinanie tekstu. Użyj skrótu klawiszowego Ctrl/Cmd+X.',
     	paste : 'Wklej',
-    	pasteArea : 'Obszar wklejania',
-    	pasteMsg : 'Wklej tekst w poniższym polu, używając skrótu klawiaturowego (<STRONG>Ctrl/Cmd+V</STRONG>), i kliknij <STRONG>OK</STRONG>.',
-    	securityMsg : 'Zabezpieczenia przeglądarki uniemożliwiają wklejenie danych bezpośrednio do edytora. Proszę ponownie wkleić dane w tym oknie.',
-    	title : 'Wklej'
+    	pasteNotification : 'Twoja przeglądarka nie pozwala na wklejanie treści w ten sposób. Naciśnij %1 by wkleić tekst.'
     },
     button : 
     {

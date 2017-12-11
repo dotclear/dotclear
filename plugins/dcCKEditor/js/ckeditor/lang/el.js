@@ -140,7 +140,7 @@ CKEDITOR.lang['el'] = {
     pastetext : 
     {
     	button : 'Επικόλληση ως απλό κείμενο',
-    	title : 'Επικόλληση ως απλό κείμενο'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['el'] = {
     	error : 'Δεν ήταν δυνατό να καθαριστούν τα δεδομένα λόγω ενός εσωτερικού σφάλματος',
     	title : 'Επικόλληση από το Word',
     	toolbar : 'Επικόλληση από το Word'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -393,15 +397,15 @@ CKEDITOR.lang['el'] = {
     		'2980B9' : 'Strong Blue',
     		'8E44AD' : 'Dark Violet',
     		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
+    		F39C12 : 'Πορτοκαλί',
+    		E67E22 : 'Καροτί',
     		E74C3C : 'Pale Red',
     		ECF0F1 : 'Bright Silver',
     		'95A5A6' : 'Light Grayish Cyan',
     		DDD : 'Light Gray',
     		D35400 : 'Pumpkin',
     		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
+    		BDC3C7 : 'Αργυρό',
     		'7F8C8D' : 'Grayish Cyan',
     		'999' : 'Dark Gray'
     	},
@@ -416,10 +420,7 @@ CKEDITOR.lang['el'] = {
     	cut : 'Αποκοπή',
     	cutError : 'Οι ρυθμίσεις ασφαλείας του περιηγητή σας δεν επιτρέπουν την επιλεγμένη εργασία αποκοπής. Παρακαλώ χρησιμοποιείστε το πληκτρολόγιο (Ctrl/Cmd+X).',
     	paste : 'Επικόλληση',
-    	pasteArea : 'Περιοχή Επικόλλησης',
-    	pasteMsg : 'Παρακαλώ επικολλήστε στο ακόλουθο κουτί χρησιμοποιώντας το πληκτρολόγιο (<strong>Ctrl/Cmd+V</strong>) και πατήστε OK.',
-    	securityMsg : 'Λόγων των ρυθμίσεων ασφάλειας του περιηγητή σας, ο επεξεργαστής δεν μπορεί να έχει πρόσβαση στην μνήμη επικόλλησης. Χρειάζεται να επικολλήσετε ξανά σε αυτό το παράθυρο.',
-    	title : 'Επικόλληση'
+    	pasteNotification : 'Ο περιηγητής σας δεν σας επιτρέπει να επικολλήσετε με αυτόν τον τρόπο. Πατήστε %1 για επικόλληση.'
     },
     button : 
     {
@@ -531,5 +532,5 @@ CKEDITOR.lang['el'] = {
     		'46' : 'Delete',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Συντόμευση πληκτρολογίου'
     } }; 

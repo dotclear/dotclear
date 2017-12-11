@@ -140,7 +140,7 @@ CKEDITOR.lang['az'] = {
     pastetext : 
     {
     	button : 'Yalnız mətni saxla',
-    	title : 'Adi mətn kimi əlavə et'
+    	pasteNotification : 'Sizin İnternet bələdçiniz bu cür mətnin köçürməsini dəstəklənmir. Əlavə etmək üçün %1 basın.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['az'] = {
     	error : 'Daxili səhvə görə əlavə edilən məlumatların təmizlənməsi mümkün deyil',
     	title : 'Word-dan əlavəetmə',
     	toolbar : 'Word-dan əlavəetmə'
+    },
+    notification : 
+    {
+    	closed : 'Xəbərdarlıq pəncərəsi bağlanıb'
     },
     maximize : 
     {
@@ -360,7 +364,7 @@ CKEDITOR.lang['az'] = {
     		'808080' : 'Boz',
     		F00 : 'Qırmızı',
     		FF8C00 : 'Tünd narıncı',
-    		FFD700 : 'Qızıl',
+    		FFD700 : 'Qızılı',
     		'008000' : 'Yaşıl',
     		'0FF' : 'Mavi',
     		'00F' : 'Göy',
@@ -377,33 +381,33 @@ CKEDITOR.lang['az'] = {
     		FFF0F5 : 'Yasəmən',
     		FAEBD7 : 'Kağız',
     		FFFFE0 : 'Acıq sarı',
-    		F0FFF0 : 'Bal',
+    		F0FFF0 : 'Yemişi',
     		F0FFFF : 'Gömgöy',
     		F0F8FF : 'Solğun göy',
     		E6E6FA : 'Lavanda',
     		FFF : 'Ağ',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'1ABC9C' : 'Güclü mavi',
+    		'2ECC71' : 'Zümrüd',
+    		'3498DB' : 'Parlaq göy',
+    		'9B59B6' : 'Ametist',
+    		'4E5F70' : 'Bozlu göy',
+    		F1C40F : 'Sapsarı',
+    		'16A085' : 'Tünd mavi',
+    		'27AE60' : 'Tünd zümrüd',
+    		'2980B9' : 'Güclü göy',
+    		'8E44AD' : 'Tünd bənövşəyi',
+    		'2C3E50' : 'Rəngsiz göy',
+    		F39C12 : 'Narıncı',
+    		E67E22 : 'Yerkökülü',
+    		E74C3C : 'Solğun qırmızı',
+    		ECF0F1 : 'Parlaq gümüşü',
+    		'95A5A6' : 'Acıq bozlu mavi',
+    		DDD : 'Acıq boz',
+    		D35400 : 'Balqabaqlı',
+    		C0392B : 'Güclü qırmızı',
+    		BDC3C7 : 'Gümüşü',
+    		'7F8C8D' : 'Bozlu mavi',
+    		'999' : 'Tünd boz'
     	},
     	more : 'Digər rənglər...',
     	panelTitle : 'Rənglər',
@@ -416,10 +420,7 @@ CKEDITOR.lang['az'] = {
     	cut : 'Kəs',
     	cutError : 'Avtomatik kəsmə mümkün deyil. Ctrl+X basın.',
     	paste : 'Əlavə et',
-    	pasteArea : 'Əlavəetmə sahəsi',
-    	pasteMsg : 'Bu sahəyə əlavə edin (<strong>Ctrl+V</strong>)',
-    	securityMsg : 'Mübadilə buferi açmaq mümkün deyil. Bu pəncərədə yenidən əlavə edin.',
-    	title : 'Əlavə et'
+    	pasteNotification : 'Sizin İnternet bələdçisi bu cür mətnin köçürməsi dəstəklənmir. Əlavə etmək üçün %1 basın.'
     },
     button : 
     {

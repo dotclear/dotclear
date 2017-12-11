@@ -140,7 +140,7 @@ CKEDITOR.lang['sr'] = {
     pastetext : 
     {
     	button : 'Залепи као чист текст',
-    	title : 'Залепи као чист текст'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['sr'] = {
     	error : 'It was not possible to clean up the pasted data due to an internal error',
     	title : 'Залепи из Worda',
     	toolbar : 'Залепи из Worda'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['sr'] = {
     	cut : 'Исеци',
     	cutError : 'Сигурносна подешавања Вашег претраживача не дозвољавају операције аутоматског исецања текста. Молимо Вас да користите пречицу са тастатуре (Ctrl/Cmd+X).',
     	paste : 'Залепи',
-    	pasteArea : 'Залепи зону',
-    	pasteMsg : 'Молимо Вас да залепите унутар доње површине користећи тастатурну пречицу (<STRONG>Ctrl/Cmd+V</STRONG>) и да притиснете <STRONG>OK</STRONG>.',
-    	securityMsg : 'Због сигурносних подешавања претраживача, едитор не може да приступи оставу. Требате да га поново залепите у овом прозору.',
-    	title : 'Залепи'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

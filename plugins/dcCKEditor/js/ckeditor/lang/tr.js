@@ -140,7 +140,7 @@ CKEDITOR.lang['tr'] = {
     pastetext : 
     {
     	button : 'Düz Metin Olarak Yapıştır',
-    	title : 'Düz Metin Olarak Yapıştır'
+    	pasteNotification : 'Web tarayıcınız bu şekilde düz metni yapıştırmanıza izin vermiyor. Yapıştırmak için %1 basınız.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['tr'] = {
     	error : 'Yapıştırmadaki veri bilgisi hata düzelene kadar silinmeyecektir',
     	title : 'Word\'den Yapıştır',
     	toolbar : 'Word\'den Yapıştır'
+    },
+    notification : 
+    {
+    	closed : 'Uyarılar kapatıldı.'
     },
     maximize : 
     {
@@ -382,28 +386,28 @@ CKEDITOR.lang['tr'] = {
     		F0F8FF : 'Reha Mavi',
     		E6E6FA : 'Eflatun',
     		FFF : 'Beyaz',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'1ABC9C' : 'Koyu Camgöbeği',
+    		'2ECC71' : 'Zümrüt Yeşili',
+    		'3498DB' : 'Parlak Mavi',
+    		'9B59B6' : 'Ametist Moru',
+    		'4E5F70' : 'Kirli Gri Mavi',
+    		F1C40F : 'Canlı Sarı',
+    		'16A085' : 'Koyu Camgöbeği',
+    		'27AE60' : 'Koyu Zümrüt Yeşili',
+    		'2980B9' : 'Koyu Mavi',
+    		'8E44AD' : 'Koyu Menekşe',
+    		'2C3E50' : 'Koyu Lacivert',
+    		F39C12 : 'Turuncu',
+    		E67E22 : 'Havuç Turuncusu',
+    		E74C3C : 'Soluk Kırmızı',
+    		ECF0F1 : 'Parlak Gümüş',
+    		'95A5A6' : 'Açık Kirli Gri Camgöbeği',
+    		DDD : 'Açık Gri',
+    		D35400 : 'Balkabağı Turuncusu',
+    		C0392B : 'Kan Kırmızı',
+    		BDC3C7 : 'Gümüş',
+    		'7F8C8D' : 'Kirli Gri Camgöbeği',
+    		'999' : 'Koyu Gri'
     	},
     	more : 'Diğer renkler...',
     	panelTitle : 'Renkler',
@@ -416,10 +420,7 @@ CKEDITOR.lang['tr'] = {
     	cut : 'Kes',
     	cutError : 'Gezgin yazılımınızın güvenlik ayarları düzenleyicinin otomatik kesme işlemine izin vermiyor. İşlem için (Ctrl/Cmd+X) tuşlarını kullanın.',
     	paste : 'Yapıştır',
-    	pasteArea : 'Yapıştırma Alanı',
-    	pasteMsg : 'Lütfen aşağıdaki kutunun içine yapıştırın. (<STRONG>Ctrl/Cmd+V</STRONG>) ve <STRONG>Tamam</STRONG> butonunu tıklayın.',
-    	securityMsg : 'Gezgin yazılımınızın güvenlik ayarları düzenleyicinin direkt olarak panoya erişimine izin vermiyor. Bu pencere içine tekrar yapıştırmalısınız..',
-    	title : 'Yapıştır'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

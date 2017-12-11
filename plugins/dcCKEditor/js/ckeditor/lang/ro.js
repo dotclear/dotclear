@@ -140,7 +140,7 @@ CKEDITOR.lang['ro'] = {
     pastetext : 
     {
     	button : 'Adaugă ca text simplu (Plain Text)',
-    	title : 'Adaugă ca text simplu (Plain Text)'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['ro'] = {
     	error : 'Nu a fost posibilă curățarea datelor adăugate datorită unei erori interne',
     	title : 'Adaugă din Word',
     	toolbar : 'Adaugă din Word'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['ro'] = {
     	cut : 'Taie',
     	cutError : 'Setările de securitate ale navigatorului (browser) pe care îl folosiţi nu permit editorului să execute automat operaţiunea de tăiere. Vă rugăm folosiţi tastatura (Ctrl/Cmd+X).',
     	paste : 'Adaugă',
-    	pasteArea : 'Suprafața de adăugare',
-    	pasteMsg : 'Vă rugăm adăugaţi în căsuţa următoare folosind tastatura (<strong>Ctrl/Cmd+V</strong>) şi apăsaţi OK',
-    	securityMsg : 'Din cauza setărilor de securitate ale programului dvs. cu care navigaţi pe internet (browser), editorul nu poate accesa direct datele din clipboard. Va trebui să adăugaţi din nou datele în această fereastră.',
-    	title : 'Adaugă'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

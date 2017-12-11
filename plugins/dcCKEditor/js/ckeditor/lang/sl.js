@@ -140,7 +140,7 @@ CKEDITOR.lang['sl'] = {
     pastetext : 
     {
     	button : 'Prilepi kot golo besedilo',
-    	title : 'Prilepi kot golo besedilo'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['sl'] = {
     	error : 'Ni bilo mogoče očistiti prilepljenih podatkov zaradi notranje napake',
     	title : 'Prilepi iz Worda',
     	toolbar : 'Prilepi iz Worda'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['sl'] = {
     	cut : 'Izreži',
     	cutError : 'Varnostne nastavitve brskalnika ne dopuščajo samodejnega izrezovanja. Uporabite kombinacijo tipk na tipkovnici (Ctrl/Cmd+X).',
     	paste : 'Prilepi',
-    	pasteArea : 'Prilepi območje',
-    	pasteMsg : 'Prosimo, prilepite v sleči okvir s pomočjo tipkovnice (<strong>Ctrl/Cmd+V</strong>) in pritisnite V redu.',
-    	securityMsg : 'Zaradi varnostnih nastavitev vašega brskalnika urejevalnik ne more neposredno dostopati do odložišča. Vsebino odložišča ponovno prilepite v to okno.',
-    	title : 'Prilepi'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {

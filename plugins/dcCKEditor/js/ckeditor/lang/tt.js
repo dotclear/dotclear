@@ -140,7 +140,7 @@ CKEDITOR.lang['tt'] = {
     pastetext : 
     {
     	button : 'Форматлаусыз текст өстәү',
-    	title : 'Форматлаусыз текст өстәү'
+    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
     },
     pastefromword : 
     {
@@ -148,6 +148,10 @@ CKEDITOR.lang['tt'] = {
     	error : 'It was not possible to clean up the pasted data due to an internal error',
     	title : 'Word\'тан өстәү',
     	toolbar : 'Word\'тан өстәү'
+    },
+    notification : 
+    {
+    	closed : 'Notification closed.'
     },
     maximize : 
     {
@@ -416,10 +420,7 @@ CKEDITOR.lang['tt'] = {
     	cut : 'Кисеп алу',
     	cutError : 'Браузерыгызның иминлек үзлекләре автоматик рәвештә күчермәләү үтәүне тыя. Тиз төймәләрне (Ctrl/Cmd+C) кулланыгыз.',
     	paste : 'Өстәү',
-    	pasteArea : 'Өстәү мәйданы',
-    	pasteMsg : 'Please paste inside the following box using the keyboard (<strong>Ctrl/Cmd+V</strong>) and hit OK',
-    	securityMsg : 'Because of your browser security settings, the editor is not able to access your clipboard data directly. You are required to paste it again in this window.',
-    	title : 'Өстәү'
+    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
     },
     button : 
     {
