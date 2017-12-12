@@ -94,6 +94,9 @@ class dcPage
 		# Content-Type
 		$headers['content-type'] = 'Content-Type: text/html; charset=UTF-8';
 
+		# Referrer Policy for admin pages
+		$headers['referrer'] = 'Referrer-Policy: strict-origin';
+
 		# Prevents Clickjacking as far as possible
 		if (isset($options['x-frame-allow'])) {
 			self::setXFrameOptions($headers,$options['x-frame-allow']);
@@ -420,7 +423,10 @@ class dcPage
 		# Display
 		header('Content-Type: text/html; charset=UTF-8');
 
-		// Prevents Clickjacking as far as possible
+		# Referrer Policy for admin pages
+		header('Referrer-Policy: strict-origin');
+
+		# Prevents Clickjacking as far as possible
 		header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
 
 		echo
