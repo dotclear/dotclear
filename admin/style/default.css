@@ -1918,6 +1918,10 @@ span.tooltip {
 /** --------------------------------------------------
     Tables and Filters
 --------------------------------------------------- */
+table .maximal {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 1px; }
 table .maximal, table.maximal {
   width: 100%; }
 table .minimal {

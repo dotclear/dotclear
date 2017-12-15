@@ -1,4 +1,9 @@
 table {
+	.maximal {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		max-width: 1px;
+	}
 	.maximal,
 	&.maximal {
 		width: 100%;
