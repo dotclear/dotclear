@@ -1019,6 +1019,8 @@ fieldset {
   border-style: solid;
   border-color: #ccc;
   background: #f7f7f7; }
+  fieldset:focus-within {
+    background-color: #eee; }
 
 input[type=text],
 textarea {
@@ -1956,6 +1958,8 @@ tr.line input[type=text] {
   background: #fff; }
 tr.line:hover {
   background: #f3f3f3; }
+tr.line:focus-within {
+  background-color: #eee; }
 
 td.status {
   vertical-align: middle; }
@@ -2045,6 +2049,8 @@ a.form-control {
   #filters-form span.ibw {
     width: 9em;
     display: inline-block; }
+  #filters-form:focus-within {
+    background-color: #eee; }
 
 span.ib {
   width: 7em; }
@@ -2793,6 +2799,8 @@ div.template-upload {
   margin-right: 1em;
   padding: .5em 1em;
   background-color: #f3f3f3; }
+  .sb-box:focus-within {
+    background-color: #eee; }
 
 #tb_excerpt {
   width: 100%; }
@@ -3085,6 +3093,8 @@ a.onblog_link {
   margin-bottom: 1em; }
   .fieldset h3 {
     margin-top: 0; }
+  .fieldset:focus-within {
+    background-color: #eee; }
 
 .right,
 .txt-right {

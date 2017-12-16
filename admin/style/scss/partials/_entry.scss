@@ -57,6 +57,9 @@
 	margin-right: 1em;
 	padding: .5em 1em;
 	background-color: $secondary-background;
+	&:focus-within {
+		background-color: #eee;
+	}
 }
 
 #tb_excerpt {

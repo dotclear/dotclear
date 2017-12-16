@@ -37,6 +37,9 @@ fieldset {
 	border-style: solid;
 	border-color: #ccc;
 	background: #f7f7f7;
+	&:focus-within {
+		background-color: #eee;
+	}
 }
 
 input[type=text],
