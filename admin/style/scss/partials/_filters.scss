@@ -46,6 +46,9 @@ a.form-control {
 		width: 9em;
 		display: inline-block;
 	}
+	&:focus-within {
+		background-color: #eee;
+	}
 }
 
 span.ib {

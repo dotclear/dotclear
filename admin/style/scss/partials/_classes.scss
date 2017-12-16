@@ -242,6 +242,9 @@ a.onblog_link {
 	h3 {
 		margin-top: 0;
 	}
+	&:focus-within {
+		background-color: #eee;
+	}
 }
 
 .right,

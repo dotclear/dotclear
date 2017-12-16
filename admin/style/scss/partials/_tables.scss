@@ -54,6 +54,9 @@ tr.line {
 	&:hover {
 		background: #f3f3f3;
 	}
+	&:focus-within {
+		background-color: #eee;
+	}
 }
 
 td.status {
