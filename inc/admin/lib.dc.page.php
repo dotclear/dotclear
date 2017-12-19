@@ -121,7 +121,7 @@ class dcPage
 			$csp['style-src'] = $core->blog->settings->system->csp_admin_style ?:
 				$csp_prefix."'self' 'unsafe-inline'".$csp_suffix;
 			$csp['img-src'] = $core->blog->settings->system->csp_admin_img ?:
-				$csp_prefix."'self' data: media.dotaddict.org blob:";
+				$csp_prefix."'self' data: http://media.dotaddict.org blob:";
 
 			# Cope with blog post preview (via public URL in iframe)
 			if (!is_null($core->blog->host)) {

@@ -1939,11 +1939,13 @@ class dcBlog
 		if (!$rs->isEmpty())
 		{
 			if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli' || $this->con->driver() == 'mysqlimb4') {
-				$clause = "REGEXP '^".$this->con->escape($url)."[0-9]+$'";
+				$clause = "REGEXP '^".$this->con->escape(preg_quote($url))."[0-9]+$'";
 			} elseif ($this->con->driver() == 'pgsql') {
-				$clause = "~ '^".$this->con->escape($url)."[0-9]+$'";
+				$clause = "~ '^".$this->con->escape(preg_quote($url))."[0-9]+$'";
 			} else {
-				$clause = "LIKE '".$this->con->escape($url)."%'";
+				$clause = "LIKE '".
+						$this->con->escape(preg_replace(array('%','_','!'),array('!%','!_','!!'),$url)).
+						"%' ESCAPE '!'";
 			}
 			$strReq = 'SELECT post_url FROM '.$this->prefix.'post '.
 					"WHERE post_url ".$clause.' '.
