@@ -1115,8 +1115,8 @@ msgid "Save and publish"
 msgstr "mentsd és punlikáld"
 
 #, fuzzy, php-format
-msgid "PHP version is %s (5.3 or earlier needed)."
-msgstr "PHP verzió %s (5.0 vagy korábbi kell)."
+msgid "PHP version is %s (5.5 or earlier needed)."
+msgstr "PHP verzió %s (5.5 vagy korábbi kell)."
 
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "Multibyte string modul (mbstring) nem elérhető."
