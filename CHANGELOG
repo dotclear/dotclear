@@ -1,3 +1,13 @@
+Dotclear 2.12.2 - yyyy-mm-dd
+===========================================================
+* Fix: lang attribute was missing on entry alone contexts for currywurst and dotty templatesets
+* Fix: Add http:// protocol before media.dotaddict.org for csp_admin_img
+* Fix: tpl:sysIf blog_lang generated code
+* Fix: Duplicate auto-generated URI (entries)
+* Fix: Do not use border and background on select to use the system aspect of them in Firefox.
+* Fix: For select element, target Safari to cope with font-size select/option problem.
+* Fix: Error messages styling
+
 Dotclear 2.12.1 - 2017-08-13
 ===========================================================
 * Fix: 3rd party filters for template tags (std filters are not more modifiable)
