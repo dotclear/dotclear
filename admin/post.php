@@ -697,7 +697,7 @@ if ($can_edit_post) {
 	if ($post_id) {
 		$preview_url =
 		$core->blog->url.$core->url->getURLFor('preview',$core->auth->userID().'/'.
-		http::browserUID(DC_MASTER_KEY.$core->auth->userID().$core->auth->getInfo('user_pwd')).
+		http::browserUID(DC_MASTER_KEY.$core->auth->userID().$core->auth->cryptLegacy($core->auth->userID())).
 		'/'.$post->post_url);
 		echo '<a id="post-preview" href="'.$preview_url.'" class="button modal" accesskey="p">'.__('Preview').' (p)'.'</a>';
 	} else {

@@ -36,7 +36,7 @@ if (!empty($_POST['blog_id']))
 # Delete the blog
 if (!$core->error->flag() && $blog_id && !empty($_POST['del']))
 {
-	if (!$core->auth->checkPassword($core->auth->crypt($_POST['pwd']))) {
+	if (!$core->auth->checkPassword($_POST['pwd'])) {
 		$core->error->add(__('Password verification failed'));
 	} else {
 		try {

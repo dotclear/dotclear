@@ -120,14 +120,43 @@ class dcAuth
 
 		if ($pwd != '')
 		{
-			if ($this->crypt($pwd) != $rs->user_pwd) {
-				sleep(rand(2,5));
-				return false;
+			$rehash = false;
+			if (password_verify($pwd,$rs->user_pwd)) {
+				// User password ok
+				if (password_needs_rehash($rs->user_pwd,PASSWORD_DEFAULT)) {
+					$rs->user_pwd = $this->crypt($pwd);
+					$rehash = true;
+				}
+			} else {
+				// Check if pwd still stored in old fashion way
+				$ret = password_get_info($rs->user_pwd);
+				if (is_array($ret) && isset($ret['algo']) && $ret['algo'] == 0) {
+					// hash not done with password_hash() function, check by old fashion way
+					if (crypt::hmac(DC_MASTER_KEY,$pwd,DC_CRYPT_ALGO) == $rs->user_pwd) {
+						// Password Ok, need to store it in new fashion way
+						$rs->user_pwd = $this->crypt($pwd);
+						$rehash = true;
+					} else {
+						// Password KO
+						sleep(rand(2,5));
+						return false;
+					}
+				} else {
+					// Password KO
+					sleep(rand(2,5));
+					return false;
+				}
+			}
+			if ($rehash) {
+				// Store new hash in DB
+				$cur = $this->con->openCursor($this->user_table);
+				$cur->user_pwd = (string) $rs->user_pwd;
+				$cur->update("WHERE user_id = '".$rs->user_id."'");
 			}
 		}
 		elseif ($user_key != '')
 		{
-			if (http::browserUID(DC_MASTER_KEY.$rs->user_id.$rs->user_pwd) != $user_key) {
+			if (http::browserUID(DC_MASTER_KEY.$rs->user_id.$this->cryptLegacy($rs->user_id)) != $user_key) {
 				return false;
 			}
 		}
@@ -171,6 +200,17 @@ class dcAuth
 	 */
 	public function crypt($pwd)
 	{
+		return password_hash($pwd,PASSWORD_DEFAULT);
+	}
+
+	/**
+	 * This method crypt given string (password, session_id, …).
+	 *
+	 * @param string $pwd string to be crypted
+	 * @return string crypted value
+	 */
+	public function cryptLegacy($pwd)
+	{
 		return crypt::hmac(DC_MASTER_KEY,$pwd,DC_CRYPT_ALGO);
 	}
 
@@ -183,7 +223,7 @@ class dcAuth
 	public function checkPassword($pwd)
 	{
 		if (!empty($this->user_info['user_pwd'])) {
-			return $pwd == $this->user_info['user_pwd'];
+			return password_verify($pwd,$this->user_info['user_pwd']);
 		}
 
 		return false;

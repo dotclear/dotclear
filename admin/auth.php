@@ -208,7 +208,7 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null))
 	}
 
 	$cookie_admin = http::browserUID(DC_MASTER_KEY.$user_id.
-		$core->auth->crypt($user_pwd)).bin2hex(pack('a32',$user_id));
+		$core->auth->cryptLegacy($user_id)).bin2hex(pack('a32',$user_id));
 
 	if ($check_perms && $core->auth->mustChangePassword())
 	{

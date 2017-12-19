@@ -194,7 +194,7 @@ class dcCore
 
 	public function getNonce()
 	{
-		return $this->auth->crypt(session_id());
+		return $this->auth->cryptLegacy(session_id());
 	}
 
 	public function checkNonce($secret)
@@ -204,7 +204,7 @@ class dcCore
 			return false;
 		}
 
-		return $secret == $this->auth->crypt(session_id());
+		return $secret == $this->auth->cryptLegacy(session_id());
 	}
 
 	public function formNonce()
