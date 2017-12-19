@@ -154,7 +154,7 @@ class dcDefaultBlogActions
 			throw new Exception(__('No blog selected'));
 		}
 
-		if (!$core->auth->checkPassword($core->auth->crypt($_POST['pwd']))) {
+		if (!$core->auth->checkPassword($_POST['pwd'])) {
 			throw new Exception(__('Password verification failed'));
 		}
 
