@@ -1,3 +1,19 @@
+Dotclear 2.13 - yyyy-mm-dd
+===========================================================
+* 🐘 PHP 5.5+ is required
+* 🛡 Security: Add Referrer-Policy header in admin pages
+* Dotclear news are now displayed in async way by js
+* Dotclear core update check is now done by async js - a forced check may still be done on <admin>/update.php page
+* Add utf8mb4 driver (MySQL server 5.7.7+)
+* Add target="blank" option in simpleMenu
+* Update CKEditor from 4.6.2 to 4.7.3
+* Update CodeMirror from 5.25.1 to 5.32.1
+* Fix: Avoid horizontal scrolling table when longest comment's usernames in list of comments
+* Fix: Cope with MySQLi connection via socket
+* Fix: Error messages markup and styling
+* 🐛 → Various bugs and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.12.1 - 2017-08-13
 ===========================================================
 * Fix: 3rd party filters for template tags (std filters are not more modifiable)
