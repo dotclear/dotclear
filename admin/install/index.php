@@ -185,7 +185,7 @@ if ($can_install && !empty($_POST))
 		$blog_settings->system->put('csp_admin_style',
 			$csp_prefix."'self' 'unsafe-inline'".$csp_suffix,'string','CSP style-src directive',true,true);
 		$blog_settings->system->put('csp_admin_img',
-			$csp_prefix."'self' data: media.dotaddict.org blob:",'string','CSP img-src directive',true,true);
+			$csp_prefix."'self' data: http://media.dotaddict.org blob:",'string','CSP img-src directive',true,true);
 
 		# Add Dotclear version
 		$cur = $core->con->openCursor($core->prefix.'version');

@@ -696,6 +696,21 @@ class dcUpgrade
 			$core->con->execute($strReq);
 		}
 
+		if (version_compare($version,'2.12.2','<'))
+		{
+			// SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
+			// so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
+			$csp_prefix = $core->con->driver() == 'sqlite' ? 'localhost ' : '';	// Hack for SQlite Clearbricks driver
+
+			# Update CSP img-src default directive
+			$strReq = 'UPDATE '.$core->prefix.'setting '.
+					" SET setting_value = '".$csp_prefix."''self'' data: http://media.dotaddict.org blob:' ".
+					" WHERE setting_id = 'csp_admin_img' ".
+					" AND setting_ns = 'system' ".
+					" AND setting_value = '".$csp_prefix."''self'' data: media.dotaddict.org blob:' ";
+			$core->con->execute($strReq);
+		}
+
 		$core->setVersion('core',DC_VERSION);
 		$core->blogDefaults();
 
