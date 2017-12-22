@@ -6,15 +6,15 @@ msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-10-13 05:22+0200\n"
-"PO-Revision-Date: 2016-07-18 15:45+0200\n"
-"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
+"PO-Revision-Date: 2017-12-22 18:21+0100\n"
+"Last-Translator: Tin2 <sort300-blog@yahoo.com>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.0.5\n"
 
 # Not found strings
 msgid "To content"
@@ -41,9 +41,8 @@ msgstr "Am"
 msgid "Continue reading"
 msgstr "Weiterlesen"
 
-#, fuzzy
 msgid "no comments"
-msgstr "Kein Kommentar"
+msgstr "keine Kommentare"
 
 msgid "one comment"
 msgstr "Ein Kommentar"
@@ -112,13 +111,13 @@ msgid "Subcategories"
 msgstr "Unterkategorien"
 
 msgid "Archives"
-msgstr "Archiv"
+msgstr "Archive"
 
 msgid "Links"
 msgstr "Links"
 
 msgid "Subscribe"
-msgstr "Abonnements"
+msgstr "Abnonnieren"
 
 msgid "Entries feed"
 msgstr "Feed für Einträge"
@@ -154,13 +153,13 @@ msgid "Your comment"
 msgstr "Dein Kommentar"
 
 msgid "Your comment has been published."
-msgstr "Dein Kommentar wurde erfolgreich veröffentlicht."
+msgstr "Ihr Kommentar wurde veröffentlicht."
 
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "Dein Kommentar wurde gespeichert und wird nach Überprüfung veröffentlicht."
 
 msgid "Add a comment"
-msgstr "Kommentar eintragen"
+msgstr "Kommentar hinzufügen"
 
 msgid "Name or nickname"
 msgstr "Name oder Nickname"
@@ -172,7 +171,7 @@ msgid "Website"
 msgstr "Website"
 
 msgid "optional"
-msgstr "freiwillig"
+msgstr "optional"
 
 msgid "Comment"
 msgstr "Kommentar"
@@ -190,7 +189,7 @@ msgid "preview"
 msgstr "Vorschau"
 
 msgid "send"
-msgstr "Senden"
+msgstr "senden"
 
 msgid "They posted on the same topic"
 msgstr "Folgende haben zum gleichen Thema veröffentlicht"
@@ -223,7 +222,7 @@ msgid "What is an RSS feed?"
 msgstr "Was ist ein RSS-Feed?"
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
-msgstr "<abbr xml:lang=\"en\" lang=\"en\" title=\"Really Simple Syndication\">RSS</abbr> ist eine kostenlose Inhaltsübersicht für den Blog. Man kann Inhalte (z.B. Einträge oder Kommentare) oder auch Auszüge von Inhalten mit Links und anderen Metadaten abonnieren. Diese kannst du dann in einem beliebigen <a href=\"http://de.wikipedia.org/wiki/Feedreader\">Feedreader</a>. lesen."
+msgstr "<abbr xml:lang=\"de\" lang=\"de\" title=\"Really Simple Syndication\">RSS</abbr> ist eine kostenlose Inhaltsübersicht für den Blog. Man kann Inhalte (z.B. Einträge oder Kommentare) oder auch Auszüge von Inhalten mit Links und anderen Metadaten abonnieren. Diese kannst du dann in einem beliebigen <a href=\"http://de.wikipedia.org/wiki/Feedreader\">Feedreader</a>. lesen."
 
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "Kopiere einfach den folgenden URL in deinen Feedreader:"
@@ -244,13 +243,13 @@ msgid "Read"
 msgstr "Lesen"
 
 msgid "in"
-msgstr ""
+msgstr "in"
 
 msgid "In"
-msgstr ""
+msgstr "In"
 
 msgid "Page top"
-msgstr ""
+msgstr "Nach oben"
 
 msgid "toDay"
 msgstr "bis"
@@ -267,13 +266,11 @@ msgstr "Nach Datum"
 msgid "By tag"
 msgstr "Nach Tags"
 
-#, fuzzy
 msgid "Blog menu"
-msgstr "Zum Menü"
+msgstr "Blog Menü"
 
-#, fuzzy
 msgid "Etra menu"
-msgstr "Zum Menü"
+msgstr "Extra Menü"
 
 msgid "Blog info"
-msgstr ""
+msgstr "Blog Information"
