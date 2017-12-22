@@ -1523,8 +1523,12 @@ msgid "Size"
 msgstr "Taille"
 
 #, php-format
-msgid "In %s:"
-msgstr "Dans %s :"
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr "Nb d'éléments : %d → %d dossier(s) + %d fichier(s)"
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr "Nb d'éléments : %d"
 
 msgid "Create new directory"
 msgstr "Créer un répertoire"

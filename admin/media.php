@@ -800,6 +800,9 @@ if (count($items) == 0)
 else
 {
 	$pager = new dcPager($page,count($items),$nb_per_page,10);
+	$nbItems = count($items) - ($d ? 1 : 0);
+	$nbFolders = count(array_filter($items,function($i) {return ($i->d);})) - ($d ? 1 : 0);
+	$nbFiles = $nbItems - $nbFolders;
 
 	echo
 	'<form action="'.$core->adminurl->get("admin.media").'" method="get" id="filters-form">'.
@@ -869,6 +872,13 @@ else
 	}
 
 	echo $pager->getLinks();
+
+	// Statistics
+	echo '<div class="media-stats"><p class="form-note">'.
+		($nbFiles && $nbFolders ?
+			sprintf(__('Nb of items: %d → %d folder(s) + %d file(s)'),$nbItems,$nbFolders,$nbFiles) :
+			sprintf(__('Nb of items: %d'),$nbItems)).
+		'</p></div>';
 }
 if (!isset($pager)) {
 	echo
