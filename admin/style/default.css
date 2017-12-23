@@ -1171,15 +1171,15 @@ p.field {
   p.field select {
     display: inline-block; }
 
-.form-note {
+.form-note, .form-stats {
   font-style: italic;
   font-weight: normal;
   color: #676e78; }
 
-p.form-note {
+p.form-note, p.form-stats {
   margin-top: -.7em; }
 
-span.form-note {
+span.form-note, span.form-stats {
   text-transform: none; }
 
 .no-more-info {

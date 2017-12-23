@@ -874,7 +874,7 @@ else
 	echo $pager->getLinks();
 
 	// Statistics
-	echo '<div class="media-stats"><p class="form-note">'.
+	echo '<div class="media-stats"><p class="form-stats">'.
 		($nbFiles && $nbFolders ?
 			sprintf(__('Nb of items: %d → %d folder(s) + %d file(s)'),$nbItems,$nbFolders,$nbFiles) :
 			sprintf(__('Nb of items: %d'),$nbItems)).
