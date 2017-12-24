@@ -1,6 +1,7 @@
 Dotclear 2.13 - yyyy-mm-dd
 ===========================================================
 * 🐘 PHP 5.5+ is required
+* 🛡 Security: New password management system (including silent migration)
 * 🛡 Security: Add Referrer-Policy header in admin pages
 * Dotclear news are now displayed in async way by js
 * Dotclear core update check is now done by async js - a forced check may still be done on <admin>/update.php page
