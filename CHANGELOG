@@ -15,7 +15,7 @@ Dotclear 2.13 - yyyy-mm-dd
 * 🐛 → Various bugs and typos fixed
 * 🌼 → Some locales and cosmetic adjustments
 
-Dotclear 2.12.2 - yyyy-mm-dd
+Dotclear 2.12.2 - merged in 2.13
 ===========================================================
 * Fix: lang attribute was missing on entry alone contexts for currywurst and dotty templatesets
 * Fix: Add http:// protocol before media.dotaddict.org for csp_admin_img
