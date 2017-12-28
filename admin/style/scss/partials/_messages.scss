@@ -146,3 +146,14 @@ p.warning-msg {
 	border-color: #000;
 	font-weight: bold;
 }
+
+body.ajax-loader {
+	#header {
+		border-bottom-color: #137bbb;
+		transition: border-bottom-color .3s ease;
+	}
+	#collapser {
+		background-color: #137bbb;
+		transition: background-color .3s ease;
+	}
+}
