@@ -588,6 +588,18 @@ $(function() {
 		$('.more-info,.form-note:not(.warn,.warning,.info)').addClass('no-more-info');
 	}
 
+	// Ajax loader activity indicator
+	if (dotclear.showAjaxLoader) {
+		$(document).ajaxStart(function() {
+			$('body').addClass('ajax-loader');
+			$('div.ajax-loader').show();
+		});
+		$(document).ajaxStop(function() {
+			$('body').removeClass('ajax-loader');
+			$('div.ajax-loader').hide();
+		});
+	}
+
 	// Main menu collapser
     var objMain = $('#wrapper');
     function showSidebar(){

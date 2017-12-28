@@ -2207,6 +2207,9 @@ msgstr "Cacher les informations secondaires et les notes"
 msgid "Hide help button"
 msgstr "Cacher le bouton d'aide"
 
+msgid "Show asynchronous requests indicator"
+msgstr "Afficher l'indicateur de requête asynchrone"
+
 msgid "Font size:"
 msgstr "Taille de police de caractère :"
 

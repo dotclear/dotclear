@@ -204,6 +204,12 @@ class dcPage
 			'dotclear.hideMoreInfo = true;'."\n".
 			"</script>\n";
 		}
+		if ($core->auth->user_prefs->interface->showajaxloader) {
+			echo
+			'<script type="text/javascript">'."\n".
+			'dotclear.showAjaxLoader = true;'."\n".
+			"</script>\n";
+		}
 
 		# --BEHAVIOR-- adminPageHTMLHead
 		$core->callBehavior('adminPageHTMLHead');
@@ -406,8 +412,6 @@ class dcPage
 		$figure.
 		" -->"."\n";
 
-
-
 		if (defined('DC_DEV') && DC_DEV === true) {
 			echo self::debugInfo();
 		}
@@ -462,6 +466,12 @@ class dcPage
 			echo
 			'<script type="text/javascript">'."\n".
 			'dotclear.hideMoreInfo = true;'."\n".
+			"</script>\n";
+		}
+		if ($core->auth->user_prefs->interface->showajaxloader) {
+			echo
+			'<script type="text/javascript">'."\n".
+			'dotclear.showAjaxLoader = true;'."\n".
 			"</script>\n";
 		}
 
