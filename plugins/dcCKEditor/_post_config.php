@@ -263,6 +263,17 @@ $(function() {
 		$('#excerpt-area label').click(function() {
 			$('#cke_post_excerpt').toggleClass('hide',$('#post_excerpt').hasClass('hide'));
 		});
+
+	    $('form textarea').attr('required', '');
+	    $.each(CKEDITOR.instances, function (instance) {
+	        CKEDITOR.instances[instance].on("change", function (e) {
+	            for (instance in CKEDITOR.instances) {
+	                CKEDITOR.instances[instance].updateElement();
+	                $('form').parsley().validate();
+	            }
+	        });
+	    });
+
 	});
 
 	// @TODO: find a better way to retrieve active editor
