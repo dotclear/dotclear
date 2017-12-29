@@ -345,11 +345,11 @@ if ($can_install && $step == 0)
 
 	'<fieldset><legend>'.__('Username and password').'</legend>'.
 	'<p><label for="u_login" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Username:').' '.
-	form::field('u_login',30,32,html::escapeHTML($u_login)).'</label></p>'.
+	form::field('u_login',30,32,html::escapeHTML($u_login),'','',false,'required placeholder="'.__('Username').'"').'</label></p>'.
 	'<div class="pw-table">'.
 		'<p class="pw-cell">'.
 			'<label for="u_pwd" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('New password:').'</label>'.
-			form::password('u_pwd',30,255,'','','',false,' data-indicator="pwindicator" ').
+			form::password('u_pwd',30,255,'','','',false,' data-indicator="pwindicator" required placeholder="'.__('Password').'"').
 		'</p>'.
 		'<div id="pwindicator">'.
 		'    <div class="bar"></div>'.
@@ -357,7 +357,7 @@ if ($can_install && $step == 0)
 		'</div>'.
 	'</div>'.
 	'<p><label for="u_pwd2" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Confirm password:').' '.
-	form::password('u_pwd2',30,255).'</label></p>'.
+	form::password('u_pwd2',30,255,'','','',false,'required placeholder="'.__('Password').'"').'</label></p>'.
 	'</fieldset>'.
 
 	'<p><input type="submit" value="'.__('Save').'" /></p>'.

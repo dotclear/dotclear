@@ -270,7 +270,7 @@ if (!empty($dc_langs) && $is_writable)
 	'<p class="field"><label for="pkg_url" class="classic">'.__('Language:').'</label> '.
 	form::combo(array('pkg_url'),$dc_langs_combo).'</p>'.
 	'<p class="field"><label for="your_pwd1" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label> '.
-	form::password(array('your_pwd','your_pwd1'),20,255).'</p>'.
+	form::password(array('your_pwd','your_pwd1'),20,255,'','','',false,'required placeholder="'.__('Password').'"').'</p>'.
 	'<p><input type="submit" value="'.__('Install language').'" />'.
 	$core->formNonce().
 	'</p>'.
@@ -285,9 +285,9 @@ if ($is_writable)
 	'<h4>'.__('Upload a zip file').'</h4>'.
 	'<p>'.__('You can install languages by uploading zip files.').'</p>'.
 	'<p class="field"><label for="pkg_file" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Language zip file:').'</label> '.
-	'<input type="file" id="pkg_file" name="pkg_file" /></p>'.
+	'<input type="file" id="pkg_file" name="pkg_file" required /></p>'.
 	'<p class="field"><label for="your_pwd2" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label> '.
-	form::password(array('your_pwd','your_pwd2'),20,255).'</p>'.
+	form::password(array('your_pwd','your_pwd2'),20,255,'','','',false,'required placeholder="'.__('Password').'"').'</p>'.
 	'<p><input type="submit" name="upload_pkg" value="'.__('Upload language').'" />'.
 	$core->formNonce().
 	'</p>'.

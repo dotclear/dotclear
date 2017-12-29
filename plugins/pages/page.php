@@ -486,7 +486,7 @@ if ($can_edit_page)
 		"post_title" =>
 			'<p class="col">'.
 			'<label class="required no-margin bold" for="post_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
-			form::field('post_title',20,255,html::escapeHTML($post_title),'maximal').
+			form::field('post_title',20,255,html::escapeHTML($post_title),'maximal','',false,'required placeholder="'.__('Title').'"').
 			'</p>',
 
 		"post_excerpt" =>
@@ -498,7 +498,7 @@ if ($can_edit_page)
 		"post_content" =>
 			'<p class="area" id="content-area"><label class="required bold" '.
 			'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
-			form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content)).
+			form::textarea('post_content',50,$core->auth->getOption('edit_size'),html::escapeHTML($post_content),'','',false,'required placeholder="'.__('Content').'"').
 			'</p>',
 
 		"post_notes" =>
@@ -663,7 +663,7 @@ if ($post_id)
 	'<form action="'.$core->adminurl->get('admin.comment').'" method="post" id="comment-form">'.
 	'<div class="constrained">'.
 	'<p><label for="comment_author" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Name:').'</label>'.
-	form::field('comment_author',30,255,html::escapeHTML($core->auth->getInfo('user_cn'))).
+	form::field('comment_author',30,255,html::escapeHTML($core->auth->getInfo('user_cn')),'','',false,'required placeholder="'.__('Author').'"').
 	'</p>'.
 
 	'<p><label for="comment_email">'.__('Email:').'</label>'.
@@ -676,7 +676,7 @@ if ($post_id)
 
 	'<p class="area"><label for="comment_content" class="required"><abbr title="'.__('Required field').'">*</abbr> '.
 	__('Comment:').'</label> '.
-	form::textarea('comment_content',50,8,html::escapeHTML('')).
+	form::textarea('comment_content',50,8,'','','',false,'required placeholder="'.__('Comment').'"').
 	'</p>'.
 
 	'<p>'.form::hidden('post_id',$post_id).

@@ -115,7 +115,7 @@ if (isset($rs) && $rs->is_cat)
 	'<h3>'.__('Edit category').'</h3>'.
 
 	'<p><label for="link_desc" class="required classic"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label> '.
-	form::field('link_desc',30,255,html::escapeHTML($link_desc)).
+	form::field('link_desc',30,255,html::escapeHTML($link_desc),'','',false,'required placeholder="'.__('Title').'"').
 
 	form::hidden('edit',1).
 	form::hidden('id',$id).
@@ -133,10 +133,10 @@ if (isset($rs) && !$rs->is_cat)
 	'<h3>'.__('Edit link').'</h3>'.
 
 	'<p><label for="link_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label> '.
-	form::field('link_title',30,255,html::escapeHTML($link_title)).'</p>'.
+	form::field('link_title',30,255,html::escapeHTML($link_title),'','',false,'required placeholder="'.__('Title').'"').'</p>'.
 
 	'<p><label for="link_href" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('URL:').'</label> '.
-	form::field('link_href',30,255,html::escapeHTML($link_href)).'</p>'.
+	form::field('link_href',30,255,html::escapeHTML($link_href),'','',false,'required placeholder="'.__('URL').'"').'</p>'.
 
 	'<p><label for="link_desc">'.__('Description:').'</label> '.
 	form::field('link_desc',30,255,html::escapeHTML($link_desc)).'</p>'.

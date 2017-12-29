@@ -298,11 +298,11 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 		'<form id="quick-entry" action="'.$core->adminurl->get('admin.post').'" method="post" class="fieldset">'.
 		'<h4>'.__('New entry').'</h4>'.
 		'<p class="col"><label for="post_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label>'.
-		form::field('post_title',20,255,'','maximal').
+		form::field('post_title',20,255,'','maximal','',false,'required placeholder="'.__('Title').'"').
 		'</p>'.
 		'<p class="area"><label class="required" '.
 		'for="post_content"><abbr title="'.__('Required field').'">*</abbr> '.__('Content:').'</label> '.
-		form::textarea('post_content',50,10).
+		form::textarea('post_content',50,10,'','','',false,'required placeholder="'.__('Content').'"').
 		'</p>'.
 		'<p><label for="cat_id" class="classic">'.__('Category:').'</label> '.
 		form::combo('cat_id',$categories_combo).'</p>'.

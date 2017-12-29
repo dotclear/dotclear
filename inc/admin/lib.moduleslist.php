@@ -1311,9 +1311,9 @@ class adminModulesList
 		'<form method="post" action="'.$this->getURL().'" id="uploadpkg" enctype="multipart/form-data" class="fieldset">'.
 		'<h4>'.__('Upload a zip file').'</h4>'.
 		'<p class="field"><label for="pkg_file" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Zip file path:').'</label> '.
-		'<input type="file" name="pkg_file" id="pkg_file" /></p>'.
+		'<input type="file" name="pkg_file" id="pkg_file" required /></p>'.
 		'<p class="field"><label for="your_pwd1" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label> '.
-		form::password(array('your_pwd','your_pwd1'),20,255).'</p>'.
+		form::password(array('your_pwd','your_pwd1'),20,255,'','','',false,'required placeholder="'.__('Password').'"').'</p>'.
 		'<p><input type="submit" name="upload_pkg" value="'.__('Upload').'" />'.
 		$this->core->formNonce().'</p>'.
 		'</form>';
@@ -1323,9 +1323,9 @@ class adminModulesList
 		'<form method="post" action="'.$this->getURL().'" id="fetchpkg" class="fieldset">'.
 		'<h4>'.__('Download a zip file').'</h4>'.
 		'<p class="field"><label for="pkg_url" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Zip file URL:').'</label> '.
-		form::field(array('pkg_url','pkg_url'),40,255).'</p>'.
+		form::field(array('pkg_url','pkg_url'),40,255,'','','',false,'required placeholder="'.__('URL').'"').'</p>'.
 		'<p class="field"><label for="your_pwd2" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label> '.
-		form::password(array('your_pwd','your_pwd2'),20,255).'</p>'.
+		form::password(array('your_pwd','your_pwd2'),20,255,'','','',false,'required placeholder="'.__('Password').'"').'</p>'.
 		'<p><input type="submit" name="fetch_pkg" value="'.__('Download').'" />'.
 		$this->core->formNonce().'</p>'.
 		'</form>';

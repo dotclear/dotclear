@@ -80,15 +80,15 @@ else
 
 	'<div>'.$core->formNonce().'</div>'.
 	'<p><label class="required" for="blog_id"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog ID:').'</label> '.
-	form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</p>'.
+	form::field('blog_id',30,32,html::escapeHTML($blog_id),'','',false,'required placeholder="'.__('Blog ID').'"').'</p>'.
 	'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p> ';
 
 	echo
 	'<p><label class="required" for="blog_name"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog name:').'</label> '.
-	form::field('blog_name',30,255,html::escapeHTML($blog_name)).'</p>'.
+	form::field('blog_name',30,255,html::escapeHTML($blog_name),'','',false,'required placeholder="'.__('Blog name').'"').'</p>'.
 
 	'<p><label class="required" for="blog_url"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog URL:').'</label> '.
-	form::field('blog_url',30,255,html::escapeHTML($blog_url)).'</p>'.
+	form::field('blog_url',30,255,html::escapeHTML($blog_url),'','',false,'required placeholder="'.__('Blog URL').'"').'</p>'.
 
 	'<p class="area"><label for="blog_desc">'.__('Blog description:').'</label> '.
 	form::textarea('blog_desc',60,5,html::escapeHTML($blog_desc)).'</p>'.

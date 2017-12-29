@@ -229,9 +229,9 @@ if (!empty($_POST['saveconfig'])) {
 							'label' => $item_label,
 							'descr' => $item_descr,
 							'url' => $item_url,
-							'targetBlank'	=> $item_targetBlank 
+							'targetBlank'	=> $item_targetBlank
 						);
-						
+
 						// Save menu in blog settings
 						$core->blog->settings->system->put('simpleMenu',$menu);
 						$core->blog->triggerBlog();
@@ -479,11 +479,15 @@ if ($step)
 			echo '<form id="additem" action="'.$p_url.'&amp;add=4" method="post">';
 			echo '<fieldset><legend>'.$item_type_label.($item_select_label != '' ? ' ('.$item_select_label.')' : '').'</legend>';
 			echo '<p class="field"><label for="item_label" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.
-				__('Label of item menu:').'</label>'.form::field('item_label',20,255,$item_label).'</p>';
+				__('Label of item menu:').'</label>'.
+				form::field('item_label',20,255,$item_label,'','',false,'required placeholder="'.__('Label').'"').
+				'</p>';
 			echo '<p class="field"><label for="item_descr" class="classic">'.
 				__('Description of item menu:').'</label>'.form::field('item_descr',30,255,$item_descr).'</p>';
 			echo '<p class="field"><label for="item_url" class="classic required"><abbr title="'.__('Required field').'">*</abbr> '.
-				__('URL of item menu:').'</label>'.form::field('item_url',40,255,$item_url).'</p>';
+				__('URL of item menu:').'</label>'.
+				form::field('item_url',40,255,$item_url,'','',false,'required placeholder="'.__('URL').'"').
+				'</p>';
 			echo form::hidden('item_type',$item_type).form::hidden('item_select',$item_select);
 			echo '<p class="field"><label for="item_descr" class="classic">'.
 				__('Open URL on a new tab').':</label>'.form::checkbox('item_targetBlank','blank').'</p>';
@@ -536,7 +540,7 @@ if (count($menu)) {
 	$count = 0;
 	foreach ($menu as $i => $m) {
 		echo '<tr class="line" id="l_'.$i.'">';
-		
+
 		//because targetBlank can not exists. This value has been added after this plugin creation.
 		if((isset($m['targetBlank'])) && ($m['targetBlank'])) {
 			$targetBlank = true;
@@ -545,7 +549,7 @@ if (count($menu)) {
 			$targetBlank = false;
 			$targetBlankStr ='';
 		}
-		
+
 		if (!$step) {
 			$count++;
 			echo '<td class="handle minimal">'.
@@ -561,7 +565,7 @@ if (count($menu)) {
 			echo '<td class="nowrap">'.html::escapeHTML(__($m['descr'])).'</td>';
 			echo '<td class="nowrap">'.html::escapeHTML($m['url']).'</td>';
 			echo '<td class="nowrap">'.$targetBlankStr.'</td>';
- 
+
 		}
 		echo '</tr>';
 	}

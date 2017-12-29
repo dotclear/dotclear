@@ -30,7 +30,7 @@ $comment_editor = $core->auth->getOption('editor');
 # Status combo
 $status_combo = dcAdminCombos::getCommentStatusescombo();
 
-# Adding comment
+# Adding comment (comming from post form, comments tab)
 if (!empty($_POST['add']) && !empty($_POST['post_id']))
 {
 	try
@@ -58,10 +58,10 @@ if (!empty($_POST['add']) && !empty($_POST['post_id']))
 		$core->callBehavior('adminAfterCommentCreate',$cur,$comment_id);
 
 		dcPage::addSuccessNotice(__('Comment has been successfully created.'));
-		http::redirect($core->getPostAdminURL($rs->post_type,$rs->post_id,false).'&co=1');
 	} catch (Exception $e) {
 		$core->error->add($e->getMessage());
 	}
+	http::redirect($core->getPostAdminURL($rs->post_type,$rs->post_id,false).'&co=1');
 }
 
 if (!empty($_REQUEST['id']))
@@ -217,7 +217,7 @@ if ($comment_id)
 
 	'<h3>'.__('Comment submitted').'</h3>'.
 	'<p><label for="comment_author" class="required"><abbr title="'.__('Required field').'">*</abbr>'.__('Author:').'</label>'.
-	form::field('comment_author',30,255,html::escapeHTML($comment_author)).
+	form::field('comment_author',30,255,html::escapeHTML($comment_author),'','',false,'required placeholder="'.__('Author').'"').
 	'</p>'.
 
 	'<p><label for="comment_email">'.__('Email:').'</label>'.
