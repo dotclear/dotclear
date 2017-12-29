@@ -149,11 +149,11 @@ p.warning-msg {
 
 body.ajax-loader {
 	#header {
-		border-bottom-color: #137bbb;
+		border-bottom-color: shade($light-blue, 10%);
 		transition: border-bottom-color .3s ease;
 	}
 	#collapser {
-		background-color: #137bbb;
+		background-color: shade($light-blue, 10%);
 		transition: background-color .3s ease;
 	}
 }

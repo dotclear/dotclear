@@ -1552,10 +1552,10 @@ p.warning-msg {
   font-weight: bold; }
 
 body.ajax-loader #header {
-  border-bottom-color: #137bbb;
+  border-bottom-color: #92b7d2;
   transition: border-bottom-color .3s ease; }
 body.ajax-loader #collapser {
-  background-color: #137bbb;
+  background-color: #92b7d2;
   transition: background-color .3s ease; }
 
 /** --------------------------------------------------
