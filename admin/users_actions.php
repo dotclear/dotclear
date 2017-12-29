@@ -311,7 +311,7 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms')
 	'<div class="fieldset">'.
 	'<h3>'.__('Validate permissions').'</h3>'.
 	'<p><label for="your_pwd" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label>'.
-	form::password('your_pwd',20,255).'</p>'.
+	form::password('your_pwd',20,255,'','','',false,'required placeholder="'.__('Password').'"').'</p>'.
 	'<p><input type="submit" accesskey="s" value="'.__('Save').'" />'.
 	$hidden_fields.
 	form::hidden(array('action'),'updateperm').

@@ -243,7 +243,7 @@ dcPage::check('usage,contentadmin');
 							<p><label for="ex1">Label simple + input text :</label><input id="ex1" type="text" /></p>
 							<p class="form-note">p class="form-note".</p>
 							<p><label for="ex4" class="classic">Label class="classic" + input text :</label> <input id="ex4" type="text" /></p>
-							<p><label for="ex2" class="required"><abbr title="'.__('Required field').'">*</abbr> Label class="required" :</label> <input id="ex2" type="text" /><span class="form-note">span class="form-note"</span></p>
+							<p><label for="ex2" class="required"><abbr title="Champ obligatoire">*</abbr> Label class="required" :</label> <input id="ex2" type="text" required placeholder="exemple" /><span class="form-note">span class="form-note"</span></p>
 							<p><label for="ex11" class="bold">Label class="bold" :</label> <input id="ex11" type="text" /></p>
 							<p class="form-note">La class="bold" est bien sûr à écrire en minuscules.</p>
 							<p><label for="ex3">Input class="maximal" :</label> <input id="ex3" type="text" class="maximal" /></p>

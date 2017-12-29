@@ -272,11 +272,11 @@ echo
 '<form action="'.$core->adminurl->get('admin.plugin').'" method="post" id="add-link-form">'.
 '<h3>'.__('Add a new link').'</h3>'.
 '<p class="col"><label for="link_title" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label> '.
-form::field('link_title',30,255,$link_title).
+form::field('link_title',30,255,$link_title,'','',false,'required placeholder="'.__('Title').'"').
 '</p>'.
 
 '<p class="col"><label for="link_href" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('URL:').'</label> '.
-form::field('link_href',30,255,$link_href).
+form::field('link_href',30,255,$link_href,'','',false,'required placeholder="'.__('URL').'"').
 '</p>'.
 
 '<p class="col"><label for="link_desc">'.__('Description:').'</label> '.
@@ -297,7 +297,7 @@ echo
 '<form action="'.$core->adminurl->get('admin.plugin').'" method="post" id="add-category-form">'.
 '<h3>'.__('Add a new category').'</h3>'.
 '<p><label for="cat_title" class=" classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('Title:').'</label> '.
-form::field('cat_title',30,255,$cat_title).' '.
+form::field('cat_title',30,255,$cat_title,'','',false,'required placeholder="'.__('Title').'"').' '.
 form::hidden(array('p'),'blogroll').
 $core->formNonce().
 '<input type="submit" name="add_cat" value="'.__('Save').'" /></p>'.
@@ -311,7 +311,7 @@ if (!isset($imported)) {
 	'<form action="'.$core->adminurl->get('admin.plugin').'" method="post" id="import-links-form" enctype="multipart/form-data">'.
 	'<h3>'.__('Import links').'</h3>'.
 	'<p><label for="links_file" class=" classic required"><abbr title="'.__('Required field').'">*</abbr> '.__('OPML or XBEL File:').'</label> '.
-	'<input type="file" id="links_file" name="links_file" /></p>'.
+	'<input type="file" id="links_file" name="links_file" required /></p>'.
 	'<p>'.form::hidden(array('p'),'blogroll').
 	$core->formNonce().
 	'<input type="submit" name="import_links" value="'.__('Import').'" /></p>'.

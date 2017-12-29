@@ -9,6 +9,7 @@ Dotclear 2.13 - yyyy-mm-dd
 * Add target="blank" option in simpleMenu
 * Update CKEditor from 4.6.2 to 4.7.3
 * Update CodeMirror from 5.25.1 to 5.32.1
+* Add required attribute for mandatory fields
 * Fix: Avoid horizontal scrolling table when longest comment's usernames in list of comments
 * Fix: Cope with MySQLi connection via socket
 * Fix: Error messages markup and styling

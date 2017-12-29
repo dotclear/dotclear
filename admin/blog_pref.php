@@ -367,7 +367,7 @@ if ($blog_id)
 
 	echo
 	'<p><label for="blog_name" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog name:').'</label>'.
-	form::field('blog_name',30,255,html::escapeHTML($blog_name)).'</p>';
+	form::field('blog_name',30,255,html::escapeHTML($blog_name),'','',false,'required placeholder="'.__('Blog name').'"').'</p>';
 
 	echo
 	'<p class="area"><label for="blog_desc">'.__('Blog description:').'</label>'.
@@ -581,13 +581,13 @@ if ($blog_id)
 		echo '<div class="fieldset"><h4>'.__('Blog details').'</h4>';
 		echo
 		'<p><label for="blog_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog ID:').'</label>'.
-		form::field('blog_id',30,32,html::escapeHTML($blog_id)).'</p>'.
+		form::field('blog_id',30,32,html::escapeHTML($blog_id),'','',false,'required placeholder="'.__('Blog ID').'"').'</p>'.
 		'<p class="form-note">'.__('At least 2 characters using letters, numbers or symbols.').'</p> '.
 		'<p class="form-note warn">'.__('Please note that changing your blog ID may require changes in your public index.php file.').'</p>';
 
 		echo
 		'<p><label for="blog_url" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('Blog URL:').'</label>'.
-		form::field('blog_url',50,255,html::escapeHTML($blog_url)).'</p>'.
+		form::field('blog_url',50,255,html::escapeHTML($blog_url),'','',false,'required placeholder="'.__('Blog URL').'"').'</p>'.
 
 		'<p><label for="url_scan">'.__('URL scan method:').'</label>'.
 		form::combo('url_scan',$url_scan_combo,$blog_settings->system->url_scan).'</p>';

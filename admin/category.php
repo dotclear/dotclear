@@ -195,7 +195,7 @@ echo
 '<form action="'.$core->adminurl->get("admin.category").'" method="post" id="category-form">'.
 '<h3>'.__('Category information').'</h3>'.
 '<p><label class="required" for="cat_title"><abbr title="'.__('Required field').'">*</abbr> '.__('Name:').'</label> '.
-form::field('cat_title',40,255,html::escapeHTML($cat_title)).
+form::field('cat_title',40,255,html::escapeHTML($cat_title),'','',false,'required placeholder="'.__('Name').'"').
 '</p>';
 if (!$cat_id)
 {

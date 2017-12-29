@@ -205,7 +205,7 @@ echo
 '<h3>'.__('User profile').'</h3>'.
 
 '<p><label for="user_id" class="required"><abbr title="'.__('Required field').'">*</abbr> '.__('User ID:').'</label> '.
-form::field('user_id',20,255,html::escapeHTML($user_id)).
+form::field('user_id',20,255,html::escapeHTML($user_id),'','',false,'required placeholder="'.__('Login').'"').
 '</p>'.
 '<p class="form-note info">'.__('At least 2 characters using letters, numbers or symbols.').'</p>';
 
@@ -221,7 +221,8 @@ echo
 		'<label for="new_pwd" '.($user_id != '' ? '' : 'class="required"').'>'.
 		($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').
 		($user_id != '' ? __('New password:') : __('Password:')).'</label>'.
-		form::password('new_pwd',20,255,'','','',false,' data-indicator="pwindicator" ').
+		form::password('new_pwd',20,255,'','','',false,' data-indicator="pwindicator" '.
+			($user_id != '' ? '' : 'required placeholder="'.__('Password').'"')).
 	'</p>'.
 	'<div id="pwindicator">'.
 	'    <div class="bar"></div>'.
@@ -232,7 +233,7 @@ echo
 
 '<p><label for="new_pwd_c" '.($user_id != '' ? '' : 'class="required"').'>'.
 ($user_id != '' ? '' : '<abbr title="'.__('Required field').'">*</abbr> ').__('Confirm password:').'</label> '.
-form::password('new_pwd_c',20,255).
+form::password('new_pwd_c',20,255,'','','',false,($user_id != '' ? '' : 'required placeholder="'.__('Password').'"')).
 '</p>';
 
 if ($core->auth->allowPassChange()) {
@@ -307,7 +308,7 @@ echo
 echo
 '<p class="clear vertical-separator"><label for="your_pwd" class="required">'.
 '<abbr title="'.__('Required field').'">*</abbr> '.__('Your password:').'</label>'.
-form::password('your_pwd',20,255).'</p>'.
+form::password('your_pwd',20,255,'','','',false,'required placeholder="'.__('Password').'"').'</p>'.
 '<p class="clear"><input type="submit" name="save" accesskey="s" value="'.__('Save').'" />'.
 ($user_id != '' ? '' : ' <input type="submit" name="saveplus" value="'.__('Save and create another').'" />').
 ($user_id != '' ? form::hidden('id',$user_id) : '').
