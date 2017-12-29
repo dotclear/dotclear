@@ -632,18 +632,18 @@ class adminModulesList
 			if (in_array('checkbox', $cols)) {
 				if (in_array('expander', $cols)) {
 					echo
-					html::escapeHTML($module['name']);
+					html::escapeHTML($module['name']).($id != $module['name'] ? sprintf(__(' (%s)'),$id) : '');
 				}
 				else {
 					echo
 					'<label for="'.html::escapeHTML($this->list_id).'_modules_'.html::escapeHTML($id).'">'.
-					html::escapeHTML($module['name']).
+					html::escapeHTML($module['name']).($id != $module['name'] ? sprintf(__(' (%s)'),$id) : '').
 					'</label>';
 				}
 			}
 			else {
 				echo
-				html::escapeHTML($module['name']).
+				html::escapeHTML($module['name']).($id != $module['name'] ? sprintf(__(' (%s)'),$id) : '').
 				form::hidden(array('modules['.$count.']'), html::escapeHTML($id));
 			}
 			echo

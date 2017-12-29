@@ -803,7 +803,7 @@ if ($post_id)
 
 	'<p class="area"><label for="comment_content" class="required"><abbr title="'.__('Required field').'">*</abbr> '.
 	__('Comment:').'</label> '.
-	form::textarea('comment_content',50,8,html::escapeHTML(''),'','',false,'required placeholder="'.__('Comment').'"').
+	form::textarea('comment_content',50,8,'','','',false,'required placeholder="'.__('Comment').'"').
 	'</p>'.
 
 	'<p>'.
