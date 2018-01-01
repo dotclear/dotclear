@@ -280,9 +280,7 @@ jsToolBar.prototype = {
 			if (sel) {
 				this.textarea.setSelectionRange(start + subst.length, start + subst.length);
 			} else {
-				if (typeof(fn) == 'function') {
-					this.textarea.caretPos -= start + subst.length;
-				} else {
+				if (typeof(fn) != 'function') {
 					this.textarea.setSelectionRange(start + prefix.length, start + prefix.length);
 				}
 			}
