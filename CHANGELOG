@@ -13,7 +13,7 @@ Dotclear 2.13 - yyyy-mm-dd
 * Fix: Avoid horizontal scrolling table when longest comment's usernames in list of comments
 * Fix: Cope with MySQLi connection via socket
 * Fix: Error messages markup and styling
-* Fix: Set caret et the end of the inserted thing (img, url, blockquote, …) in Legacy editor if current selection is empty
+* Fix: Set caret at the end of the inserted thing (img, url, blockquote, …) in Legacy editor if current selection is empty
 * 🐛 → Various bugs and typos fixed
 * 🌼 → Some locales and cosmetic adjustments
 
