@@ -46,7 +46,7 @@ $(function() {
 		var name = $('#c_name').val();
 		var mail = $('#c_mail').val();
 		var site = $('#c_site').val();
-		var cpath = $('link[rel=top]').attr('href');
+		var cpath = $('h1 a').attr('href');
 		if (!cpath) {
 			cpath = "/";
 		} else {
