@@ -100,6 +100,12 @@ class tplSimpleMenu
 				$href = $m['url'];
 				$href = html::escapeHTML($href);
 
+				# Cope with request only URL (ie ?query_part)
+				$href_part = '';
+				if ($href != '' && substr($href,0,1) == '?') {
+					$href_part = substr($href,1);
+				}
+
 				$targetBlank = ((isset($m['targetBlank'])) && ($m['targetBlank']))? true:false;
 
 				# Active item test
@@ -107,6 +113,7 @@ class tplSimpleMenu
 				if (($url == $href) ||
 					($abs_url == $href) ||
 					($_SERVER['URL_REQUEST_PART'] == $href) ||
+					(($href_part != '') && ($_SERVER['URL_REQUEST_PART'] == $href_part)) ||
 					(($_SERVER['URL_REQUEST_PART'] == '') && (($href == $home_url) || ($href == $home_directory)))) {
 					$active = true;
 				}

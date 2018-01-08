@@ -1,4 +1,4 @@
-Dotclear 2.13 - yyyy-mm-dd
+Dotclear 2.13 - 2018-01-13
 ===========================================================
 * 🐘 PHP 5.5+ is required
 * 🛡 Security: New password management system (including silent migration)
@@ -14,6 +14,7 @@ Dotclear 2.13 - yyyy-mm-dd
 * Fix: Cope with MySQLi connection via socket
 * Fix: Error messages markup and styling
 * Fix: Set caret at the end of the inserted thing (img, url, blockquote, …) in Legacy editor if current selection is empty
+* Fix: Cope with query part only in SimpleMenu URLs
 * 🐛 → Various bugs and typos fixed
 * 🌼 → Some locales and cosmetic adjustments
 
