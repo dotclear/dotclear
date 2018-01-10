@@ -12,7 +12,7 @@
 
 require dirname(__FILE__).'/../inc/admin/prepend.php';
 
-dcPage::check('usage');
+dcPage::check('usage,contentadmin');
 
 $helpPage = function()
 {
