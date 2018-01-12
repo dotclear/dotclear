@@ -178,7 +178,7 @@ $page = !empty($_GET['page']) ? max(1,(integer) $_GET['page']) : 1;
 $nb_per_page =  30;
 
 if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
-	if ($nb_per_page != $_GET['nb']) {
+	if ($nb_per_page !=  (integer) $_GET['nb']) {
 		$show_filters = true;
 	}
 	$nb_per_page = (integer) $_GET['nb'];

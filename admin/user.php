@@ -79,14 +79,14 @@ if (isset($_POST['user_name']))
 
 		$cur->user_id = $_POST['user_id'];
 		$cur->user_super = $user_super = !empty($_POST['user_super']) ? 1 : 0;
-		$cur->user_name = $user_name = $_POST['user_name'];
-		$cur->user_firstname = $user_firstname = $_POST['user_firstname'];
-		$cur->user_displayname = $user_displayname = $_POST['user_displayname'];
-		$cur->user_email = $user_email = $_POST['user_email'];
-		$cur->user_url = $user_url = $_POST['user_url'];
-		$cur->user_lang = $user_lang = $_POST['user_lang'];
-		$cur->user_tz = $user_tz = $_POST['user_tz'];
-		$cur->user_post_status = $user_post_status = $_POST['user_post_status'];
+		$cur->user_name = $user_name = html::escapeHTML($_POST['user_name']);
+		$cur->user_firstname = $user_firstname = html::escapeHTML($_POST['user_firstname']);
+		$cur->user_displayname = $user_displayname = html::escapeHTML($_POST['user_displayname']);
+		$cur->user_email = $user_email = html::escapeHTML($_POST['user_email']);
+		$cur->user_url = $user_url = html::escapeHTML($_POST['user_url']);
+		$cur->user_lang = $user_lang = html::escapeHTML($_POST['user_lang']);
+		$cur->user_tz = $user_tz = html::escapeHTML($_POST['user_tz']);
+		$cur->user_post_status = $user_post_status = html::escapeHTML($_POST['user_post_status']);
 
 		if ($user_id && $cur->user_id == $core->auth->userID() && $core->auth->isSuperAdmin()) {
 			// force super_user to true if current user
@@ -104,7 +104,7 @@ if (isset($_POST['user_name']))
 			}
 		}
 
-		$user_options['post_format'] = $_POST['user_post_format'];
+		$user_options['post_format'] = html::escapeHTML($_POST['user_post_format']);
 		$user_options['edit_size'] = (integer) $_POST['user_edit_size'];
 
 		if ($user_options['edit_size'] < 1) {
