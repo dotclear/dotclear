@@ -82,7 +82,7 @@ elseif (isset($_COOKIE['dc_admin']) && strlen($_COOKIE['dc_admin']) == 104)
 if ($recover && !empty($_POST['user_id']) && !empty($_POST['user_email']))
 {
 	$user_id = !empty($_POST['user_id']) ? $_POST['user_id'] : null;
-	$user_email = !empty($_POST['user_email']) ? $_POST['user_email'] : '';
+	$user_email = !empty($_POST['user_email']) ? html::escapeHTML($_POST['user_email']) : '';
 	try
 	{
 		$recover_key = $core->auth->setRecoverKey($user_id,$user_email);
