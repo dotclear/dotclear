@@ -46,6 +46,11 @@ $(function() {
 
 	$('#edit-entry').onetabload(function() {
 
+		// Remove required attribut from #post_content in XHTML mode as textarea is not more focusable
+		if (formatField.value == 'xhtml') {
+			$('#post_content').removeAttr('required');
+		}
+
 		// Load toolbars
 		if (contentTb!==undefined && excerptTb!==undefined) {
 			contentTb.switchMode(formatField.value);
