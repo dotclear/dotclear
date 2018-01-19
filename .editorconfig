@@ -6,6 +6,7 @@
 # Revisions
 #
 # 1. Franck: creation (2017-12-04)
+# 2. Franck: PSR-2 for PHP, add specific extension settings (2018-01-19)
 
 # top-most EditorConfig file
 root = true
@@ -16,8 +17,24 @@ end_of_line = lf
 insert_final_newline = true
 charset = utf-8
 indent_style = tab
+indent_size = 4
 trim_trailing_whitespace = true
+
+# PHP
+[*.php,*.tpl]
+indent_style = space
+indent_size = 4
+
+# Javascript/JSon
+[*.js,*.json]
+indent_style = space
+indent_size = 2
 
 # Markdown
 [*.md]
 trim_trailing_whitespace = false
+
+# XML
+[*.xml]
+indent_style = space
+indent_size = 2
