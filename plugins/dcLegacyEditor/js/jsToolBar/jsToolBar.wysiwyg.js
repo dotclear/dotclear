@@ -164,6 +164,7 @@ jsToolBar.prototype.initWindow = function() {
 		var html =
 		'<html>\n'+
 		'<head>\n'+
+		'<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />'
 		'<style type="text/css">'+This.iframe_css+'</style>\n'+
 		(This.base_url != '' ? '<base href="'+This.base_url+'" />' : '')+
 		'</head>\n'+
@@ -176,6 +177,10 @@ jsToolBar.prototype.initWindow = function() {
 		if (document.all) { // for IE
 			doc.designMode = 'on';
 			// warning : doc is now inaccessible for IE6 sp1
+		}
+
+		if (typeof dotclear_htmlFontSize !== 'undefined') {
+			doc.documentElement.style.setProperty('--html-font-size',dotclear_htmlFontSize);
 		}
 
 		This.iwin = This.iframe.contentWindow;

@@ -250,6 +250,10 @@ $(function() {
 				e.editor.resize('100%',ta_height,true);
 			}
 		}
+
+		if (typeof dotclear_htmlFontSize !== 'undefined') {
+			e.editor.document.$.documentElement.style.setProperty('--html-font-size',dotclear_htmlFontSize);
+		}
 	});
 
 	CKEDITOR.on('instanceReady',function(e) {

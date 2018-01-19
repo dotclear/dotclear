@@ -1,0 +1,16 @@
+/* dcLegacyEditor */
+
+/* WYSIWYG Document */
+body.wysiwygDoc {
+	font-family: $sans-serif;
+}
+.wysiwygDoc pre, .wysiwygDoc code, .wysiwygDoc kbd, .wysiwygDoc samp {
+	font-family: $monospace;
+}
+
+/* dcCKEditor */
+
+.cke textarea.cke_source {
+	font-family: $monospace;
+	font-size: 100%;
+}
