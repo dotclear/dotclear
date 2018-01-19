@@ -31,7 +31,7 @@ class dcCKEditorBehaviors
             $config_js .= '&context='.$context;
         }
 
-        return
+        $res =
             '<script type="text/javascript">'."\n".
             dcPage::jsVar('dotclear.ckeditor_context', $context).
             'dotclear.ckeditor_tags_context = '.sprintf('{%s:["%s"]};'."\n", $context, implode('","', $tags)).
@@ -57,6 +57,15 @@ class dcCKEditorBehaviors
             dcPage::jsLoad(self::$p_url.'/js/ckeditor/ckeditor.js').
             dcPage::jsLoad(self::$p_url.'/js/ckeditor/adapters/jquery.js').
             dcPage::jsLoad($config_js);
+
+		if ($GLOBALS['core']->auth->user_prefs->interface->htmlfontsize) {
+			$res .=
+			'<script type="text/javascript">'."\n".
+			dcPage::jsVar('dotclear_htmlFontSize',$GLOBALS['core']->auth->user_prefs->interface->htmlfontsize)."\n".
+			"</script>\n";
+		}
+
+		return $res;
 	}
 
     public static function adminPopupMedia($editor='') {

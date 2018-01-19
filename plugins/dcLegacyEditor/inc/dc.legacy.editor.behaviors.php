@@ -68,17 +68,12 @@ class dcLegacyEditorBehaviors
 		"jsToolBar.prototype.dialog_url = 'popup.php'; "."\n".
 		"jsToolBar.prototype.iframe_css = '".
 		'body {'.
-		'	font: 12px "DejaVu Sans","Lucida Grande","Lucida Sans Unicode",Arial,sans-serif;'.
 		'	color: #000;'.
 		'	background: #f9f9f9;'.
 		'	margin: 0;'.
 		'	padding: 2px;'.
 		'	border: none;'.
 		(l10n::getTextDirection($GLOBALS['_lang']) == 'rtl' ? '	direction: rtl;' : '').
-		'}'.
-		'pre, code, kbd, samp {'.
-		'	font-family: "Courier New",Courier,monospace;'.
-		'	font-size: 1.1em;'.
 		'}'.
 		'code {'.
 		'	color: #666;'.
@@ -138,6 +133,13 @@ class dcLegacyEditorBehaviors
 
 		$res .=
 		"</script>\n";
+
+		if ($GLOBALS['core']->auth->user_prefs->interface->htmlfontsize) {
+			$res .=
+			'<script type="text/javascript">'."\n".
+			dcPage::jsVar('dotclear_htmlFontSize',$GLOBALS['core']->auth->user_prefs->interface->htmlfontsize)."\n".
+			"</script>\n";
+		}
 
 		return $res;
 	}
