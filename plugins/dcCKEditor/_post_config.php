@@ -251,12 +251,12 @@ $(function() {
 			}
 		}
 
-		if (typeof dotclear_htmlFontSize !== 'undefined') {
-			e.editor.document.$.documentElement.style.setProperty('--html-font-size',dotclear_htmlFontSize);
-		}
 	});
 
 	CKEDITOR.on('instanceReady',function(e) {
+		if (typeof dotclear_htmlFontSize !== 'undefined') {
+			e.editor.document.$.documentElement.style.setProperty('--html-font-size',dotclear_htmlFontSize);
+		}
 
 		if ($('label[for="post_excerpt"] a img').attr('src') == dotclear.img_minus_src) {
 			$('#cke_post_excerpt').removeClass('hide');
