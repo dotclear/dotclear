@@ -1,7 +1,7 @@
 {
 	"name": "dotclear/dotclear",
 	"description": "Dotclear is an open-source web publishing software.",
-	"license": "GPL-V2",
+	"license": "GPL-2.0-or-later",
 	"authors": [
 		{
 			"name": "Dotclear Team",
