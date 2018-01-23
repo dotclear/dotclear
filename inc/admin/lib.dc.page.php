@@ -1077,10 +1077,10 @@ class dcPage
 			'var '.$name.' = CodeMirror.fromTextArea('.$id.',{'."\n".
 			'	mode: "'.$mode.'",'."\n".
 			'	tabMode: "indent",'."\n".
-			'	lineWrapping: "true",'."\n".
-			'	lineNumbers: "true",'."\n".
-			'	matchBrackets: "true",'."\n".
-			'	autoCloseBrackets: "true",'."\n".
+			'	lineWrapping: 1,'."\n".
+			'	lineNumbers: 1,'."\n".
+			'	matchBrackets: 1,'."\n".
+			'	autoCloseBrackets: 1,'."\n".
 			'	extraKeys: {"F11": function(cm) {cm.setOption("fullScreen",!cm.getOption("fullScreen"));}}';
 		if ($theme) {
 			$ret .=
