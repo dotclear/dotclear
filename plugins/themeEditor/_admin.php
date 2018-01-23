@@ -102,10 +102,10 @@ function findSequence(goal) {
 	    	var editor = CodeMirror.fromTextArea(document.getElementById("codemirror"), {
 	    		mode: "javascript",
 	       		tabMode: "indent",
-	       		lineWrapping: "true",
-	       		lineNumbers: "true",
-	   			matchBrackets: "true",
-	   			autoCloseBrackets: "true",
+	       		lineWrapping: 1,
+	       		lineNumbers: 1,
+	   			matchBrackets: 1,
+	   			autoCloseBrackets: 1,
 	   			theme: "'.($core->auth->user_prefs->interface->colorsyntax_theme != '' ? $core->auth->user_prefs->interface->colorsyntax_theme : 'default').'"
 	   		});
 			function selectTheme() {
