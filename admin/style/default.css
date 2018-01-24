@@ -1790,6 +1790,8 @@ h1 {
       color: #000;
       background: #fff;
       border-bottom-color: #fff; }
+    .part-tabs li a:link {
+      transition: unset; }
   .part-tabs li.part-tabs-active a {
     background: #fff;
     font-weight: bold;

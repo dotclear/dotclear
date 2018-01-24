@@ -29,6 +29,9 @@
 				background: #fff;
 				border-bottom-color: #fff;
 			}
+      &:link {
+        transition: unset;
+      }
 		}
 		&.part-tabs-active a {
 			background: #fff;
