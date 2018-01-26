@@ -1,3 +1,8 @@
+Dotclear 2.13.1 - 2018-01-27
+===========================================================
+* Fix: Weird behaviour of theme editor when typing any of "t", "r", "u" and "e" characters
+* Fix: Unable to save an entry with dcLegacyEditor in XHTML mode, visual pane
+
 Dotclear 2.13 - 2018-01-13
 ===========================================================
 * 🐘 PHP 5.5+ is required
