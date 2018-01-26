@@ -211,6 +211,21 @@ msgstr "Document non trouvé"
 msgid "The document you are looking for does not exist."
 msgstr "Le document que vous cherchez n'existe pas."
 
+msgid "URL you've tried has typos, or the page has been deleted or moved."
+msgstr "L'adresse URL que vous avez essayée comporte des erreurs, ou la page a été supprimée ou a bougé."
+
+msgid "Suggestions:"
+msgstr "Suggestions :"
+
+msgid "Go to homepage"
+msgstr "Aller à la page d'accueil"
+
+msgid "Use search form"
+msgstr "Utiliser le formulaire de recherche"
+
+msgid "Explore archives"
+msgstr "Explorer les archives"
+
 msgid "Powered by %s"
 msgstr "Propulsé par %s"
 
