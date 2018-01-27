@@ -213,6 +213,21 @@ msgstr ""
 msgid "The document you are looking for does not exist."
 msgstr ""
 
+msgid "URL you've tried has typos, or the page has been deleted or moved."
+msgstr ""
+
+msgid "Suggestions:"
+msgstr ""
+
+msgid "Go to homepage"
+msgstr ""
+
+msgid "Use search form"
+msgstr ""
+
+msgid "Explore archives"
+msgstr ""
+
 msgid "Powered by %s"
 msgstr ""
 
