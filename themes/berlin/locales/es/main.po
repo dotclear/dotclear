@@ -7,20 +7,5 @@ msgstr "reacciones"
 msgid "Add ping"
 msgstr "Agregar un retroenlace"
 
-msgid "Suggestions:"
-msgstr "Sugerencias:"
-
-msgid "Go to homepage"
-msgstr "Regresar al inicio"
-
-msgid "Use search form"
-msgstr "Buscar"
-
-msgid "Explore archives"
-msgstr "Explorar los archivos"
-
 msgid "From"
 msgstr "Del"
-
-msgid "URL you've tried has typos, or the page has been deleted or moved."
-msgstr "Su URL está equivocada o la página fue borrada o desplazada."

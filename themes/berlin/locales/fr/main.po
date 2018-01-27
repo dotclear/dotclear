@@ -16,23 +16,8 @@ msgstr "%s réactions"
 msgid "Add ping"
 msgstr "Ajouter un rétrolien"
 
-msgid "Suggestions:"
-msgstr "Suggestions :"
-
-msgid "Go to homepage"
-msgstr "Aller à l'accueil"
-
-msgid "Use search form"
-msgstr "Faire une recherche"
-
-msgid "Explore archives"
-msgstr "Explorer les archives"
-
 msgid "From"
 msgstr "De"
-
-msgid "URL you've tried has typos, or the page has been deleted or moved."
-msgstr "L'adresse URL est erronée ou bien la page a été supprimée ou déplacée."
 
 msgid "Preview"
 msgstr "Prévisualiser"
