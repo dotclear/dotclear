@@ -274,3 +274,15 @@ msgstr "Extra Menü"
 
 msgid "Blog info"
 msgstr "Blog Information"
+
+msgid "URL you've tried has typos, or the page has been deleted or moved."
+msgstr "Die URL die Sie gesucht haben, wurde entweder gelöscht, verschoben oder es hat sich ein Tippfehler eingeschlichen.."
+
+msgid "Suggestions:"
+msgstr "Vorschläge:"
+
+msgid "Go to homepage"
+msgstr "Zur Homepage"
+
+msgid "Use search form"
+msgstr "Verwende die Suche"

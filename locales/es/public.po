@@ -279,3 +279,18 @@ msgstr "Ir al menú"
 
 msgid "Blog info"
 msgstr ""
+
+msgid "URL you've tried has typos, or the page has been deleted or moved."
+msgstr "Su URL está equivocada o la página fue borrada o desplazada."
+
+msgid "Suggestions:"
+msgstr "Sugerencias:"
+
+msgid "Go to homepage"
+msgstr "Regresar al inicio"
+
+msgid "Use search form"
+msgstr "Buscar"
+
+msgid "Explore archives"
+msgstr "Explorar los archivos"
