@@ -244,6 +244,23 @@ span.form-note, span.form-stats {
 	text-transform: none;
 }
 
+.missing {
+  background-color: inherit;
+  animation-name: kf-missing;
+  animation-duration: 1s;
+}
+@keyframes kf-missing {
+  0% {
+    background-color: inherit;
+  }
+  50% {
+    background-color: #ffbaba;
+  }
+  100% {
+    background-color: inherit;
+  }
+}
+
 // .more-info Additional information on fieldset, field, … (may be hide from user-prefs)
 .more-info {}
 

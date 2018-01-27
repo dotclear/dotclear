@@ -1188,6 +1188,18 @@ p.form-note, p.form-stats {
 span.form-note, span.form-stats {
   text-transform: none; }
 
+.missing {
+  background-color: inherit;
+  animation-name: kf-missing;
+  animation-duration: 1s; }
+
+@keyframes kf-missing {
+  0% {
+    background-color: inherit; }
+  50% {
+    background-color: #ffbaba; }
+  100% {
+    background-color: inherit; } }
 .no-more-info {
   display: none; }
 
@@ -1486,14 +1498,30 @@ p.warning-msg {
   margin-top: .5em; }
 
 .error {
-  background: #FFBABA url(msg-error.png) no-repeat 0.7em 0.7em;
-  color: #000; }
+  background: #ffbaba url(msg-error.png) no-repeat 0.7em 0.7em;
+  color: #000;
+  animation-name: kf-error;
+  animation-duration: .5s; }
 
+@keyframes kf-error {
+  0% {
+    background-color: #fefacd; }
+  100% {
+    background-color: #ffbaba; } }
 .message,
 .static-msg {
   background: #676e78 url(msg-std.png) no-repeat 0.7em 0.7em;
   color: #fff; }
 
+.message {
+  animation-name: kf-message;
+  animation-duration: .5s; }
+
+@keyframes kf-message {
+  0% {
+    background-color: #ccc; }
+  100% {
+    background-color: #676e78; } }
 .message a,
 .static-msg a,
 .message h3,
@@ -1505,12 +1533,26 @@ p.warning-msg {
   color: #000; }
 
 .success {
-  background: #9bca1c url(msg-success.png) no-repeat 0.7em 0.7em; }
+  background: #bee74b url(msg-success.png) no-repeat 0.7em 0.7em;
+  animation-name: kf-success;
+  animation-duration: .5s; }
 
+@keyframes kf-success {
+  0% {
+    background-color: #9bca1c; }
+  100% {
+    background-color: #bee74b; } }
 .warning-msg {
   background: #ffd478 url(msg-warning.png) no-repeat 0.7em 0.7em;
-  border: 1px solid #ffd478; }
+  border: 1px solid #ffd478;
+  animation-name: kf-warning;
+  animation-duration: .5s; }
 
+@keyframes kf-warning {
+  0% {
+    background-color: #fefacd; }
+  100% {
+    background-color: #ffd478; } }
 .success a,
 .warning-msg a,
 .info a {
@@ -3197,37 +3239,6 @@ ul.from-left {
 /* _media_item.js */
 .color-div {
   border: 1px solid #ccc; }
-
-/* fadings ('color' est utilisé comme variable, pas comme text color) */
-.colorBeginPassword,
-.colorBeginValidatorErr,
-.colorBeginUserMail {
-  color: #fff; }
-
-.colorEndPassword,
-.colorEndError,
-.colorEndValidatorErr,
-.colorEndUserMail {
-  color: #ffbaba; }
-
-.colorBeginMessage {
-  color: #ccc; }
-
-.colorEndMessage,
-.colorBeginValidatorMsg {
-  color: #676e78; }
-
-.colorBeginError {
-  color: #fefacd; }
-
-.colorBeginSuccess {
-  color: #9BCA1C; }
-
-.colorEndSuccess {
-  color: #bee74b; }
-
-.colorEndValidatorMsg {
-  color: #ffcc00; }
 
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES

@@ -38,7 +38,6 @@ dcPage::check('usage,contentadmin');
 	<script type="text/javascript" src="js/jquery/jquery.ui.touch-punch.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery.pageTabs.js"></script>
 	<script type="text/javascript" src="js/jquery/jquery.biscuit.js"></script>
-	<script type="text/javascript" src="js/jquery/jquery.bgFade.js"></script>
 	<script type="text/javascript" src="js/common.js"></script>
 	<script type="text/javascript" src="js/prelude.js"></script>
 	<script type="text/javascript">

@@ -59,14 +59,36 @@ p.warning-msg {
 }
 
 .error {
-	background: #FFBABA url(msg-error.png) no-repeat .7em .7em;
+	background: #ffbaba url(msg-error.png) no-repeat .7em .7em;
 	color: #000;
+  animation-name: kf-error;
+  animation-duration: .5s;
+}
+@keyframes kf-error {
+  0% {
+    background-color: #fefacd;
+  }
+  100% {
+    background-color: #ffbaba;
+  }
 }
 
 .message,
 .static-msg {
 	background: #676e78 url(msg-std.png) no-repeat .7em .7em;
 	color: #fff;
+}
+.message {
+  animation-name: kf-message;
+  animation-duration: .5s;
+}
+@keyframes kf-message {
+  0% {
+    background-color: #ccc;
+  }
+  100% {
+    background-color: #676e78;
+  }
 }
 
 .message a,
@@ -82,12 +104,32 @@ p.warning-msg {
 }
 
 .success {
-	background: #9bca1c url(msg-success.png) no-repeat .7em .7em;
+	background: #bee74b url(msg-success.png) no-repeat .7em .7em;
+  animation-name: kf-success;
+  animation-duration: .5s;
+}
+@keyframes kf-success {
+  0% {
+    background-color: #9bca1c;
+  }
+  100% {
+    background-color: #bee74b;
+  }
 }
 
 .warning-msg {
 	background: #ffd478 url(msg-warning.png) no-repeat .7em .7em;
 	border: 1px solid #ffd478;
+  animation-name: kf-warning;
+  animation-duration: .5s;
+}
+@keyframes kf-warning {
+  0% {
+    background-color: #fefacd;
+  }
+  100% {
+    background-color: #ffd478;
+  }
 }
 
 .success a,

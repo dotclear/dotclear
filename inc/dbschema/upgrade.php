@@ -711,6 +711,12 @@ class dcUpgrade
 			$core->con->execute($strReq);
 		}
 
+        if (version_compare($version,'2.14','<'))
+        {
+            // File not more needed
+            @unlink(DC_ROOT.'/'.'admin/js/jquery/jquery.bgFade.js');
+        }
+
 		$core->setVersion('core',DC_VERSION);
 		$core->blogDefaults();
 
