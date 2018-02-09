@@ -29,10 +29,16 @@ body {
         max-width: $xlarge-screen;
     }
     #main {
-        @include zen-grid-item(9,1)
+        @include zen-grid-item(9,1);
+        pre {
+          word-wrap: normal;
+        }
     }
     #sidebar {
-        @include zen-grid-item(3,10)
+        @include zen-grid-item(3,10);
+        pre {
+          word-wrap: normal;
+        }
     }
 }
 @media screen and(min-width: 110.1em) {
