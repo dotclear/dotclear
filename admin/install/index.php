@@ -346,15 +346,24 @@ if ($can_install && $step == 0) {
     '<div class="pw-table">' .
     '<p class="pw-cell">' .
     '<label for="u_pwd" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('New password:') . '</label>' .
-    form::password('u_pwd', 30, 255, '', '', '', false, ' data-indicator="pwindicator" required placeholder="' . __('Password') . '"') .
-    '</p>' .
+    form::password('u_pwd', 30, 255,
+        array(
+            'extra_html'   => 'data-indicator="pwindicator" required placeholder="' . __('Password') . '"',
+            'autocomplete' => 'new-password'
+        )
+    ) . '</p>' .
     '<div id="pwindicator">' .
     '    <div class="bar"></div>' .
     '    <p class="label no-margin"></p>' .
     '</div>' .
     '</div>' .
     '<p><label for="u_pwd2" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Confirm password:') . ' ' .
-    form::password('u_pwd2', 30, 255, '', '', '', false, 'required placeholder="' . __('Password') . '"') . '</label></p>' .
+    form::password('u_pwd2', 30, 255,
+        array(
+            'extra_html'   => 'required placeholder="' . __('Password') . '"',
+            'autocomplete' => 'new-password'
+        )
+    ) . '</label></p>' .
     '</fieldset>' .
 
     '<p><input type="submit" value="' . __('Save') . '" /></p>' .
