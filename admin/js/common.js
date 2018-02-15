@@ -449,6 +449,14 @@ $(function() {
     e.preventDefault();
     window.open($(this).attr('href'));
   });
+  // Popups: dealing with Escape key fired
+  $('#dotclear-admin.popup').keyup(function(e) {
+    if (e.key == 'Escape') {
+      e.preventDefault();
+      window.close();
+      return false;
+    }
+  });
   // Blog switcher
   $('#switchblog').change(function() {
     this.form.submit();
