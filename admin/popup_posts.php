@@ -45,6 +45,7 @@ if ($type) {
 
 dcPage::openPopup(__('Add a link to an entry'),
 	dcPage::jsLoad('js/_posts_list.js').
+    dcPage::jsLoad('js/_popup_posts.js').
 	$core->callBehavior('adminPopupPosts', $plugin_id));
 
 echo '<h2 class="page-title">'.__('Add a link to an entry').'</h2>';

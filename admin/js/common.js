@@ -296,6 +296,15 @@ jQuery.fn.helpViewer = function() {
 -------------------------------------------------------- */
 var dotclear = {
   msg: {},
+  enterKeyInForm: function(frm_id, ok_id, cancel_id) {
+    $(frm_id + ':not(' + cancel_id + ')').keyup(function(e) {
+      if (e.key == 'Enter') {
+        e.preventDefault();
+        e.stopPropagation();
+        $(ok_id).trigger('click');
+      }
+    });
+  },
   condSubmit: function(chkboxes, target) {
     var checkboxes = $(chkboxes),
       submitButt = $(target);
