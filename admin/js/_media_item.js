@@ -77,4 +77,9 @@ $(function() {
 		$('input[name="pref_legend"]').val($('input[name="legend"][type=radio]:checked').attr('value'));
 	});
 
+  // Set focus if in popup mode
+  $('#media-insert-form :input:visible:enabled:checked:first, #media-insert-form :input:visible:enabled:first').focus();
+
+  // Deal with enter key on media insert popup form : every form element will be filtered but Cancel button
+  dotclear.enterKeyInForm('#media-insert-form', '#media-insert-ok', '#media-insert-cancel');
 });
