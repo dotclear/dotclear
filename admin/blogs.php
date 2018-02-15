@@ -162,7 +162,8 @@ if (!$core->error->flag()) {
             '<p class="col checkboxes-helpers"></p>' .
 
             '<p class="col right"><label for="action" class="classic">' . __('Selected blogs action:') . '</label> ' .
-            form::combo('action', $blogs_actions_page->getCombo(), 'online', '', '', '', 'title="' . __('Actions') . '"') .
+            form::combo('action', $blogs_actions_page->getCombo(),
+                array('class' => 'online', 'extra_html' => 'title="' . __('Actions') . '"')) .
             $core->formNonce() .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
             '</div>' .
