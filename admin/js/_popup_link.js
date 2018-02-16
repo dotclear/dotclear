@@ -1,3 +1,6 @@
+/*global $, dotclear */
+'use strict';
+
 $(function() {
   // Set focus on #href input
   $('#href').focus();

@@ -1,3 +1,6 @@
+/*global $, dotclear, jsToolBar */
+'use strict';
+
 $(function() {
 	if ($.isFunction(jsToolBar)) {
 		var tbComment = new jsToolBar(document.getElementById('comment_content'));
