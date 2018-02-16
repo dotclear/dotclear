@@ -1,3 +1,5 @@
+/*global $ */
+'use strict';
 $(function() {
   $('#media-insert-cancel').click(function() {
     window.close();
@@ -89,19 +91,19 @@ $(function() {
       }
     } else if (type == 'mp3') {
       // Audio media
-      var player = $('#public_player').val();
-      var align = $('input[name="alignment"]:checked', insert_form).val();
+      var player_audio = $('#public_player').val();
+      var align_audio = $('input[name="alignment"]:checked', insert_form).val();
 
-      if (align != undefined && align != 'none') {
-        player = '<div style="' + media_align_grid[align] + '">' + player + '</div>';
+      if (align_audio != undefined && align_audio != 'none') {
+        player_audio = '<div style="' + media_align_grid[align_audio] + '">' + player_audio + '</div>';
       }
-      editor.insertElement(window.opener.CKEDITOR.dom.element.createFromHtml(player));
+      editor.insertElement(window.opener.CKEDITOR.dom.element.createFromHtml(player_audio));
     } else if (type == 'flv') {
       // Video media
       var oplayer = $('<div>' + $('#public_player').val() + '</div>');
-      var flashvars = $("[name=FlashVars]", oplayer).val();
+      var flashvars = $('[name=FlashVars]', oplayer).val();
 
-      var align = $('input[name="alignment"]:checked', insert_form).val();
+      var align_video = $('input[name="alignment"]:checked', insert_form).val();
       var title = insert_form.elements.title.value;
 
       $('video', oplayer).attr('width', $('#video_w').val());
@@ -115,19 +117,19 @@ $(function() {
       flashvars = flashvars.replace(/(width=\d*)/, 'width=' + $('#video_w').val());
       flashvars = flashvars.replace(/(height=\d*)/, 'height=' + $('#video_h').val());
 
-      $("[name=FlashVars]", oplayer).val(flashvars);
-      var player = oplayer.html();
+      $('[name=FlashVars]', oplayer).val(flashvars);
+      var player_video = oplayer.html();
 
-      if (align != undefined && align != 'none') {
-        player = '<div style="' + media_align_grid[align] + '">' + player + '</div>';
+      if (align_video != undefined && align_video != 'none') {
+        player_video = '<div style="' + media_align_grid[align_video] + '">' + player_video + '</div>';
       }
-      editor.insertElement(window.opener.CKEDITOR.dom.element.createFromHtml(player));
+      editor.insertElement(window.opener.CKEDITOR.dom.element.createFromHtml(player_video));
     } else {
       // Unknown media type
       var link = '<a href="';
       link += window.opener.$.stripBaseURL($('input[name="url"]', insert_form).val());
       link += '">' + window.opener.CKEDITOR.tools.htmlEncodeAttr(insert_form.elements.title.value) + '</a>';
-      element = window.opener.CKEDITOR.dom.element.createFromHtml(link);
+      var element = window.opener.CKEDITOR.dom.element.createFromHtml(link);
 
       editor.insertElement(element);
     }
