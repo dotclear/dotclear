@@ -1,3 +1,7 @@
+/*global $, jQuery, dotclear_htmlFontSize */
+/*exported chainHandler */
+'use strict';
+
 /* Set some CSS variables here
 -------------------------------------------------------- */
 // set base font-size of body (62.5% default, usually : 50% to 75%)
@@ -13,7 +17,7 @@ function chainHandler(obj, handlerName, handler) {
       if (existingFunction) existingFunction.apply(this, arguments);
     };
   })(handlerName in obj ? obj[handlerName] : null);
-};
+}
 /* jQuery extensions
 -------------------------------------------------------- */
 jQuery.fn.check = function() {
@@ -61,7 +65,7 @@ jQuery.fn.enableShiftClick = function() {
     }
     return true;
   });
-}
+};
 jQuery.fn.toggleWithLegend = function(target, s) {
   var defaults = {
     img_on_src: dotclear.img_plus_src,
@@ -140,14 +144,14 @@ jQuery.fn.toggleWithLegend = function(target, s) {
             'section': p.user_pref,
             'value': 1,
             xd_check: dotclear.nonce
-          }, function(data) {});
+          }, function() {});
         } else {
           jQuery.post('services.php', {
             'f': 'setSectionFold',
             'section': p.user_pref,
             'value': 0,
             xd_check: dotclear.nonce
-          }, function(data) {});
+          }, function() {});
         }
         jQuery.cookie(p.user_pref, '', {
           expires: -1
@@ -161,7 +165,6 @@ jQuery.fn.toggleWithLegend = function(target, s) {
   });
 };
 (function($) {
-  'use strict';
   $.expandContent = function(opts) {
     var defaults = {};
     $.expandContent.options = $.extend({}, defaults, opts);
@@ -174,7 +177,7 @@ jQuery.fn.toggleWithLegend = function(target, s) {
     opts.lines.each(function() {
       singleExpander(this);
     });
-  }
+  };
   var singleExpander = function singleExpander(line) {
     $('<input type="image" src="' + dotclear.img_plus_src + '" alt="' + dotclear.img_plus_alt + '"/>').click(function(e) {
       toggleArrow(this);
@@ -210,7 +213,7 @@ jQuery.fn.toggleWithLegend = function(target, s) {
       button.alt = dotclear.img_plus_alt;
     }
     return action;
-  }
+  };
 })(jQuery);
 jQuery.fn.helpViewer = function() {
   if (this.length < 1) {
@@ -280,14 +283,14 @@ jQuery.fn.helpViewer = function() {
   $('#content').append(img);
   // listen for scroll
   var peInPage = $('#help-button').offset().top;
-  $('#help-button').addClass("floatable");
+  $('#help-button').addClass('floatable');
   var peInFloat = $('#help-button').offset().top - $(window).scrollTop();
-  $('#help-button').removeClass("floatable");
+  $('#help-button').removeClass('floatable');
   $(window).scroll(function() {
     if ($(window).scrollTop() >= peInPage - peInFloat) {
-      $('#help-button').addClass("floatable");
+      $('#help-button').addClass('floatable');
     } else {
-      $('#help-button').removeClass("floatable");
+      $('#help-button').removeClass('floatable');
     }
   });
   return this;
@@ -312,16 +315,16 @@ var dotclear = {
       return;
     }
     // Set initial state
-    submitButt.attr("disabled", !checkboxes.is(":checked"));
-    if (!checkboxes.is(":checked")) {
+    submitButt.attr('disabled', !checkboxes.is(':checked'));
+    if (!checkboxes.is(':checked')) {
       submitButt.addClass('disabled');
     } else {
       submitButt.removeClass('disabled');
     }
     checkboxes.click(function() {
       // Update target state
-      submitButt.attr("disabled", !checkboxes.is(":checked"));
-      if (!checkboxes.is(":checked")) {
+      submitButt.attr('disabled', !checkboxes.is(':checked'));
+      if (!checkboxes.is(':checked')) {
         submitButt.addClass('disabled');
       } else {
         submitButt.removeClass('disabled');
@@ -475,7 +478,7 @@ $(function() {
     img_off_src: dotclear.img_menu_on,
     legend_click: true,
     speed: 100
-  }
+  };
   $('#blog-menu h3:first').toggleWithLegend($('#blog-menu ul:first'), $.extend({
     user_pref: 'dc_blog_menu'
   }, menu_settings));
@@ -502,10 +505,10 @@ $(function() {
   });
   // Password
   $('form:has(input[type=password][name=your_pwd])').submit(function() {
-    var e = this.elements['your_pwd'];
+    var e = this.elements.your_pwd;
     if (e.value == '') {
       $(e).addClass('missing').focusout(function() {
-        $(this).removeClass('missing')
+        $(this).removeClass('missing');
       });
       e.focus();
       return false;
@@ -525,7 +528,7 @@ $(function() {
     if (this.title == '') {
       this.title = this.innerText;
     }
-  })
+  });
   // Advanced users
   if (dotclear.hideMoreInfo) {
     $('.more-info,.form-note:not(.warn,.warning,.info)').addClass('no-more-info');

@@ -1,3 +1,6 @@
+/*global $, dotclear, datePicker */
+'use strict';
+
 $(function() {
   // Add datePicker if possible
   var media_dt = document.getElementById('media_dt');
@@ -56,7 +59,7 @@ $(function() {
             }
           });
         } else {
-          alert($(rsp).find('message').text());
+          window.alert($(rsp).find('message').text());
         }
       });
       return false;

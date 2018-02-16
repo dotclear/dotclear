@@ -1,3 +1,6 @@
+/*global $, post_remember_str */
+'use strict';
+
 $(function() {
 	$('#comment-form p:has(input[type=submit][name=preview],button[type=submit][name=preview])').
 		before(
@@ -48,9 +51,9 @@ $(function() {
 		var site = $('#c_site').val();
 		var cpath = $('h1 a').attr('href');
 		if (!cpath) {
-			cpath = "/";
+			cpath = '/';
 		} else {
-			cpath = cpath.replace(/.*:\/\/[^\/]*([^?]*).*/g,"$1");
+			cpath = cpath.replace(/.*:\/\/[^\/]*([^?]*).*/g,'$1');
 		}
 
 		$.cookie('comment_info', name + '\n' + mail + '\n' + site, {expires: 60, path: cpath});
