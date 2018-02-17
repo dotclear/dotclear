@@ -203,7 +203,11 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
             echo
             '<tr class="line">' .
             '<td class="nowrap">' .
-            form::checkbox(array('blogs[]'), $rs->blog_id, '', '', '', false, 'title="' . __('select') . ' ' . $rs->blog_id . '"') . '</td>' .
+            form::checkbox(array('blogs[]'), $rs->blog_id,
+                array(
+                    'extra_html' => 'title="' . __('select') . ' ' . $rs->blog_id . '"'
+                )) .
+            '</td>' .
             '<td class="nowrap">' . $rs->blog_id . '</td>' .
             '<td class="maximal">' . html::escapeHTML($rs->blog_name) . '</td>' .
             '<td class="nowrap"><a class="outgoing" href="' . html::escapeHTML($rs->blog_url) . '">' . html::escapeHTML($rs->blog_url) .

@@ -247,7 +247,11 @@ $super_disabled = $user_super && $user_id == $core->auth->userID();
 
 echo
 '<p><label for="user_super" class="classic">' .
-form::checkbox(($super_disabled ? 'user_super_off' : 'user_super'), '1', $user_super, '', '', $super_disabled) .
+form::checkbox(($super_disabled ? 'user_super_off' : 'user_super'), '1',
+    array(
+        'checked'  => $user_super,
+        'disabled' => $super_disabled
+    )) .
 ' ' . __('Super administrator') . '</label></p>' .
 ($super_disabled ? form::hidden(array('user_super'), $user_super) : '') .
 

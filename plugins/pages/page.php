@@ -721,7 +721,11 @@ function showComments($rs, $has_action)
         ' id="c' . $rs->comment_id . '">' .
 
         '<td class="nowrap">' .
-        ($has_action ? form::checkbox(array('comments[]'), $rs->comment_id, '', '', '', 0, 'title="' . __('Select this comment') . '"') : '') . '</td>' .
+        ($has_action ? form::checkbox(array('comments[]'), $rs->comment_id,
+            array(
+                'extra_html' => 'title="' . __('Select this comment') . '"'
+            )
+        ) : '') . '</td>' .
         '<td class="maximal">' . $rs->comment_author . '</td>' .
         '<td class="nowrap">' . dt::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) . '</td>' .
         '<td class="nowrap"><a href="' . $core->adminurl->get('admin.comment', array('ip' => $rs->comment_ip)) . '">' . $rs->comment_ip . '</a></td>' .
