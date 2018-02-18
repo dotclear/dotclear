@@ -1,5 +1,6 @@
 /*global $ */
 'use strict';
+
 $(function() {
   $('#link-insert-cancel').click(function() {
     window.close();

@@ -96,21 +96,7 @@ function prefLine($id, $s, $ws, $field_name, $strong_label)
 <html>
 <head>
   <title>user:preferences</title>
-  <?php echo dcPage::jsPageTabs($part); ?>
-    <script type="text/javascript">
-    $(function() {
-        $("#gp_submit,#lp_submit").hide();
-        $('#part-local,#part-global').tabload(function() {
-            $('.multi-part.active select.navigation option:first').attr('selected',true);
-        });
-        $("#gp_nav").change(function() {
-            window.location = $("#gp_nav option:selected").val();
-        });
-        $("#lp_nav").change(function() {
-            window.location = $("#lp_nav option:selected").val();
-        });
-    });
-    </script>
+  <?php echo dcPage::jsPageTabs($part) . dcPage::jsLoad(dcPage::getPF('userPref/js/index.js')); ?>
 </head>
 
 <body>

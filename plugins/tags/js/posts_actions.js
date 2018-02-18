@@ -1,3 +1,6 @@
+/*global $, dotclear, metaEditor, editor_tags_options */
+'use strict';
+
 $(function() {
 	var tag_field = $('#new_tags');
 
@@ -21,7 +24,7 @@ $(function() {
 
 	$('#post_meta_input').autocomplete(mEdit.service_uri, {
 		extraParams: {
-			'f': 'searchMeta',
+			'f':        'searchMeta',
 			'metaType': 'tag'
 		},
 		delay: 1000,
@@ -33,9 +36,9 @@ $(function() {
 			$(xml).find('meta').each(function(){
 				results[results.length] = {
 					data: {
-						"id": $(this).text(),
-						"count": $(this).attr("count"),
-						"percent":  $(this).attr("roundpercent")
+						'id':      $(this).text(),
+						'count':   $(this).attr('count'),
+						'percent': $(this).attr('roundpercent')
 					},
 					result: $(this).text()
 				};
