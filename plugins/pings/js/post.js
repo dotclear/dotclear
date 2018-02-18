@@ -1,7 +1,10 @@
+/*global $, dotclear */
+'use strict';
+
 $(function() {
 	$('#edit-entry').onetabload(function() {
 		if ($('p.ping-services').length > 0) {
-			p = $('<p></p>');
+			var p = $('<p></p>');
 			p.addClass('ping-services');
 			$('p.ping-services:last').after(p);
 			dotclear.checkboxesHelpers($('p.ping-services:last').get(0), $('.check-ping-services'));

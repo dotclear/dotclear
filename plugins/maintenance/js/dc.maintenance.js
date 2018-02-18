@@ -1,45 +1,48 @@
-$(function(){
-	$('.step-box').each(function(){
-		var code = $('input[name=code]',this).val();
+/*global $, dotclear */
+'use strict';
 
-		$('.step-submit',this).remove();
-		$('.step-back',this).hide();
-		$('.step-msg',this).after(
-			$('<p>').addClass('step-wait').text(
-				dotclear.msg.wait
-			)
-		);
+$(function() {
+  $('.step-box').each(function() {
+    var code = $('input[name=code]', this).val();
 
-		dcMaintenanceStep(this,code);
+    $('.step-submit', this).remove();
+    $('.step-back', this).hide();
+    $('.step-msg', this).after(
+      $('<p>').addClass('step-wait').text(
+        dotclear.msg.wait
+      )
+    );
 
-		function dcMaintenanceStep(box,code) {
-			var params = {
-				f: 'dcMaintenanceStep',
-				xd_check: dotclear.nonce,
-				task: $(box).attr('id'),
-				code: code
-			}
-			$.post('services.php',params,function(data) {
-				if ($('rsp[status=failed]',data).length > 0) {
-					$('.step-msg',box).text(
-						$('rsp',data).text()
-					);
-					$('.step-wait',box).remove();
-					$('.step-back',box).show();
-				} else {
-					$('.step-msg',box).text(
-						$('rsp>step',data).attr('title')
-					);
-					var code = $('rsp>step',data).attr('code');
-					if (code > 0){
-						dcMaintenanceStep(box,code);
-					} else {
-						$('#content h2').after($('<div/>').addClass('success').append($('.step-msg',box)));
-						$('.step-wait',box).remove();
-						$('.step-back',box).show();
-					}
-				}
-			});
-		}
-	});
+    dcMaintenanceStep(this, code);
+
+    function dcMaintenanceStep(box, code) {
+      var params = {
+        f: 'dcMaintenanceStep',
+        xd_check: dotclear.nonce,
+        task: $(box).attr('id'),
+        code: code
+      };
+      $.post('services.php', params, function(data) {
+        if ($('rsp[status=failed]', data).length > 0) {
+          $('.step-msg', box).text(
+            $('rsp', data).text()
+          );
+          $('.step-wait', box).remove();
+          $('.step-back', box).show();
+        } else {
+          $('.step-msg', box).text(
+            $('rsp>step', data).attr('title')
+          );
+          var code = $('rsp>step', data).attr('code');
+          if (code > 0) {
+            dcMaintenanceStep(box, code);
+          } else {
+            $('#content h2').after($('<div/>').addClass('success').append($('.step-msg', box)));
+            $('.step-wait', box).remove();
+            $('.step-back', box).show();
+          }
+        }
+      });
+    }
+  });
 });

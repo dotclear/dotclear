@@ -168,7 +168,7 @@ if (!$core->auth->user_prefs->accessibility->nodragdrop) {
     echo
     dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
     dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-    dcPage::jsLoad(dcPage::getPF('blogroll/blogroll.js'));
+    dcPage::jsLoad(dcPage::getPF('blogroll/js/blogroll.js'));
 }
 ?>
   <?php echo dcPage::jsPageTabs($default_tab); ?>
@@ -327,13 +327,13 @@ if (!isset($imported)) {
 
             echo
             '<tr><td>' . form::checkbox(array('entries[]'), $i) . '</td>' .
-            '<td nowrap><a href="' . $url . '">' . $title . '</a>' .
-            '<input type="hidden" name="url[' . $i . ']" value="' . $url . '" />' .
-            '<input type="hidden" name="title[' . $i . ']" value="' . $title . '" />' .
-            '</td>' .
-            '<td>' . $desc .
-            '<input type="hidden" name="desc[' . $i . ']" value="' . $desc . '" />' .
-            '</td></tr>' . "\n";
+                '<td nowrap><a href="' . $url . '">' . $title . '</a>' .
+                '<input type="hidden" name="url[' . $i . ']" value="' . $url . '" />' .
+                '<input type="hidden" name="title[' . $i . ']" value="' . $title . '" />' .
+                '</td>' .
+                '<td>' . $desc .
+                '<input type="hidden" name="desc[' . $i . ']" value="' . $desc . '" />' .
+                '</td></tr>' . "\n";
             $i++;
         }
         echo

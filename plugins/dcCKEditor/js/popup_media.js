@@ -1,5 +1,6 @@
 /*global $ */
 'use strict';
+
 $(function() {
   $('#media-insert-cancel').click(function() {
     window.close();
