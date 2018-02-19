@@ -421,7 +421,11 @@ form::field('footer_bg_c', 7, 7, $blowup_user['footer_bg_c'], 'colorpicker') . '
 echo
 '<h4 class="border-top">' . __('Additional CSS') . '</h4>' .
 '<p><label for="extra_css">' . __('Any additional CSS styles (must be written using the CSS syntax):') . '</label> ' .
-form::textarea('extra_css', 72, 5, html::escapeHTML($blowup_user['extra_css']), 'maximal', '', false, 'title="' . __('Additional CSS') . '"') .
+form::textarea('extra_css', 72, 5, array(
+    'default'    => html::escapeHTML($blowup_user['extra_css']),
+    'class'      => 'maximal',
+    'extra_html' => 'title="' . __('Additional CSS') . '"'
+)) .
     '</p>' .
     '</div>';
 
@@ -441,7 +445,11 @@ echo
 '<h3 id="bu_export">' . __('Configuration import / export') . '</h3>' .
 '<div id="bu_export_content">' .
 '<p>' . __('You can share your configuration using the following code. To apply a configuration, paste the code, click on "Apply code" and save.') . '</p>' .
-'<p>' . form::textarea('export_code', 72, 5, implode('; ', $tmp_array), 'maximal', '', false, 'title="' . __('Copy this code:') . '"') . '</p>' .
+'<p>' . form::textarea('export_code', 72, 5, array(
+    'default'    => implode('; ', $tmp_array),
+    'class'      => 'maximal',
+    'extra_html' => 'title="' . __('Copy this code:') . '"'
+)) . '</p>' .
     '</div>' .
     '</div>';
 

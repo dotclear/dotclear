@@ -476,7 +476,11 @@ if ($can_edit_page) {
         "post_content" =>
         '<p class="area" id="content-area"><label class="required bold" ' .
         'for="post_content"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Content:') . '</label> ' .
-        form::textarea('post_content', 50, $core->auth->getOption('edit_size'), html::escapeHTML($post_content), '', '', false, 'required placeholder="' . __('Content') . '"') .
+        form::textarea('post_content', 50, $core->auth->getOption('edit_size'),
+            array(
+                'default'    => html::escapeHTML($post_content),
+                'extra_html' => 'required placeholder="' . __('Content') . '"'
+            )) .
         '</p>',
 
         "post_notes"   =>
@@ -648,7 +652,7 @@ if ($post_id) {
 
     '<p class="area"><label for="comment_content" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' .
     __('Comment:') . '</label> ' .
-    form::textarea('comment_content', 50, 8, '', '', '', false, 'required placeholder="' . __('Comment') . '"') .
+    form::textarea('comment_content', 50, 8, array('extra_html' => 'required placeholder="' . __('Comment') . '"')) .
     '</p>' .
 
     '<p>' . form::hidden('post_id', $post_id) .
