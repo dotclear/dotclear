@@ -1174,7 +1174,8 @@ label.required {
 
 label.required abbr {
   color: #900;
-  font-size: 1.3em; }
+  font-size: 1.3em;
+  text-decoration: none; }
 
 label.bold {
   text-transform: uppercase;
