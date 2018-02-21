@@ -1,7 +1,33 @@
-input[type=text], input[type=password], input[type=submit], input[type=button], input[type=reset], a.button, button, textarea, select, legend {
+input[type=text],
+input[type=color],
+input[type=email],
+input[type=url],
+input[type=datetime],
+input[type=date],
+input[type=time],
+input[type=file],
+input[type=number],
+input[type=password],
+input[type=submit],
+input[type=button],
+input[type=reset],
+a.button, button, textarea, select, legend {
   max-width: 100%;
 }
-input[type=text], input[type=password], input[type=submit], input[type=button], input[type=reset], a.button, button, textarea, legend {
+input[type=text],
+input[type=color],
+input[type=email],
+input[type=url],
+input[type=datetime],
+input[type=date],
+input[type=time],
+input[type=file],
+input[type=number],
+input[type=password],
+input[type=submit],
+input[type=button],
+input[type=reset],
+a.button, button, textarea, legend {
   border-radius: 3px;
 }
 form {
@@ -21,7 +47,16 @@ fieldset {
     background-color: #eee;
   }
 }
-input[type=text], textarea {
+input[type=text],
+input[type=color],
+input[type=email],
+input[type=url],
+input[type=datetime],
+input[type=date],
+input[type=time],
+input[type=file],
+input[type=number],
+textarea {
   font-family: $sans-serif-input;
   font-size: 100%;
 }
@@ -44,13 +79,33 @@ input.invalid, textarea.invalid, input:not([type=file]):invalid:not(:focus) {
   border: 1px solid red;
   background: #FFBABA;
 }
-input[type=text], input[type=password], textarea, select, input:not([type=file]):invalid, input:not([type=file]):invalid:placeholder-shown {
+input[type=text],
+input[type=password],
+input[type=color],
+input[type=email],
+input[type=url],
+input[type=datetime],
+input[type=date],
+input[type=time],
+input[type=file],
+input[type=number],
+textarea, select, input:not([type=file]):invalid, input:not([type=file]):invalid:placeholder-shown {
   color: #000;
   box-shadow: 1px 1px 2px #f3f3f3 inset;
   padding: 3px;
   vertical-align: top;
 }
-input[type=text], input[type=password], textarea, input:not([type=file]):invalid, input:not([type=file]):invalid:placeholder-shown {
+input[type=text],
+input[type=password],
+input[type=color],
+input[type=email],
+input[type=url],
+input[type=datetime],
+input[type=date],
+input[type=time],
+input[type=file],
+input[type=number],
+textarea, input:not([type=file]):invalid, input:not([type=file]):invalid:placeholder-shown {
   background: #fcfcfc;
   border-width: 1px;
   border-style: solid;
@@ -88,7 +143,16 @@ select.l10n option {
 option.avail10n {
   background: transparent url(../images/check-on.png) no-repeat 0 50%;
 }
-input[type=text], input[type=password], textarea {
+input[type=text],
+input[type=color],
+input[type=email],
+input[type=url],
+input[type=datetime],
+input[type=date],
+input[type=time],
+input[type=number],
+input[type=password],
+textarea {
   margin-right: .3em;
 }
 input[type=checkbox], input[type=radio], input[type=file] {
