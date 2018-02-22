@@ -45,7 +45,7 @@ config: clean config-stamp
 
 	## Copy built-in plugins based on DC_DISTRIB_PLUGINS constant
 	cp -pRf $$(grep DC_DISTRIB_PLUGINS inc/prepend.php | \
-		sed -e "s/.*,'//" -e "s/'.*//" | \
+		sed -e "s/.*, *'//" -e "s/'.*//" | \
 		sed -e  's/\(^\|,\)/ .\/plugins\//g') \
 	./$(DC)/plugins/
 
