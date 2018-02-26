@@ -15,6 +15,7 @@
 	"require-dev": {
 		"atoum/atoum": "dev-master",
 		"fzaninotto/faker": "dev-master",
+    "atoum/reports-extension": "dev-master",
 		"behat/behat": "<3",
 		"behat/common-contexts": "1.2.*",
 		"behat/mink": ">=1.4,<1.5-dev",
