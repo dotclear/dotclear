@@ -204,9 +204,9 @@ if (!empty($_POST['wup']) || $removing || $move) {
   <title><?php echo __('Widgets'); ?></title>
 <?php
 echo dcPage::cssLoad(dcPage::getPF('widgets/style.css')) .
-    dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-    dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-    dcPage::jsLoad(dcPage::getPF('widgets/js/widgets.js'));
+dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
+dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+dcPage::jsLoad(dcPage::getPF('widgets/js/widgets.js'));
 
 $core->auth->user_prefs->addWorkspace('accessibility');
 $user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
@@ -247,7 +247,12 @@ $j = 0;
 foreach ($__widgets->elements(true) as $w) {
     echo
     '<li>' . form::hidden(array('w[void][0][id]'), html::escapeHTML($w->id())) .
-    '<p class="widget-name">' . form::field(array('w[void][0][order]'), 2, 3, 0, 'hide', '', 0, 'title="' . __('order') . '"') . ' ' . $w->name() .
+    '<p class="widget-name">' . form::number(array('w[void][0][order]'), array(
+        'default'    => 0,
+        'class'      => 'hide',
+        'extra_html' => 'title="' . __('order') . '"'
+    )) .
+    ' ' . $w->name() .
     ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') . '</p>' .
     '<p class="manual-move remove-if-drag"><label class="classic">' . __('Append to:') . '</label> ' .
     form::combo(array('addw[' . $w->id() . ']'), $append_combo) .
@@ -356,7 +361,11 @@ function sidebarWidgets($id, $title, $widgets, $pr, $default_widgets, &$j)
 
         $res .=
         '<li>' . form::hidden(array($iname . '[id]'), html::escapeHTML($w->id())) .
-        '<p class="widget-name">' . form::field(array($iname . '[order]'), 2, 3, (string) $i, 'hidden', '', 0, 'title="' . __('order') . '"') .
+        '<p class="widget-name">' . form::number(array($iname . '[order]'), array(
+            'default'    => $i,
+            'class'      => 'hidden',
+            'extra_html' => 'title="' . __('order') . '"'
+        )) .
         ' ' . $w->name() .
         ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') .
         '<span class="toolsWidget remove-if-drag">' .

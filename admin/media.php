@@ -34,7 +34,7 @@ $dir       = null;
 $link_type = !empty($_REQUEST['link_type']) ? html::escapeHTML($_REQUEST['link_type']) : null;
 
 $page        = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
-$nb_per_page = ((integer) $core->auth->user_prefs->interface->media_by_page ?: 30);
+$nb_per_page = (integer) ($core->auth->user_prefs->interface->media_by_page ?: 30);
 
 # We are on home not comming from media manager
 if ($d === null && isset($_SESSION['media_manager_dir'])) {
@@ -87,7 +87,8 @@ $file_sort = in_array($file_sort, $sort_combo) ? $file_sort : null;
 
 $nb_per_page = !empty($_SESSION['nb_per_page']) ? (integer) $_SESSION['nb_per_page'] : $nb_per_page;
 if (!empty($_GET['nb_per_page']) && (integer) $_GET['nb_per_page'] > 0) {
-    $nb_per_page = $_SESSION['nb_per_page'] = (integer) $_GET['nb_per_page'];
+    $nb_per_page             = (integer) $_GET['nb_per_page'];
+    $_SESSION['nb_per_page'] = $nb_per_page;
 }
 
 $popup  = (integer) !empty($_REQUEST['popup']);
@@ -810,7 +811,7 @@ if (count($items) == 0) {
     '<p class="three-boxes"><label for="file_sort" class="classic">' . __('Sort files:') . '</label> ' .
     form::combo('file_sort', $sort_combo, $file_sort) . '</p>' .
     '<p class="three-boxes"><label for="nb_per_page" class="classic">' . __('Number of elements displayed per page:') . '</label> ' .
-    form::field('nb_per_page', 5, 3, (integer) $nb_per_page) . ' ' .
+    form::number('nb_per_page', 0, 999, $nb_per_page) . ' ' .
     '<input type="submit" value="' . __('OK') . '" />' .
     form::hidden(array('popup'), $popup) .
     form::hidden(array('select'), $select) .
@@ -899,7 +900,7 @@ if ((!$query) && ($core_media_writable || $core_media_archivable)) {
         '<h4 class="pretty-title">' . __('Create new directory') . '</h4>' .
         $core->formNonce() .
         '<p><label for="newdir">' . __('Directory Name:') . '</label>' .
-        form::field(array('newdir', 'newdir'), 35, 255) . '</p>' .
+        form::field('newdir', 35, 255) . '</p>' .
         '<p><input type="submit" value="' . __('Create') . '" />' .
         $core->adminurl->getHiddenFormFields('admin.media', $page_url_params) .
             '</p>' .
@@ -952,9 +953,9 @@ if (!$query && $core_media_writable) {
     '<p class="max-sizer form-note">&nbsp;' . __('Maximum file size allowed:') . ' ' . files::size(DC_MAX_UPLOAD_SIZE) . '</p>';
 
     echo
-    '<p class="one-file"><label for="upfiletitle">' . __('Title:') . '</label>' . form::field(array('upfiletitle', 'upfiletitle'), 35, 255) . '</p>' .
+    '<p class="one-file"><label for="upfiletitle">' . __('Title:') . '</label>' . form::field('upfiletitle', 35, 255) . '</p>' .
     '<p class="one-file"><label for="upfilepriv" class="classic">' . __('Private') . '</label> ' .
-    form::checkbox(array('upfilepriv', 'upfilepriv'), 1) . '</p>';
+    form::checkbox('upfilepriv', 1) . '</p>';
 
     if (!$user_ui_enhanceduploader) {
         echo

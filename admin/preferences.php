@@ -436,19 +436,40 @@ echo
 '<form action="' . $core->adminurl->get("admin.user.preferences") . '" method="post" id="user-form">' .
 
 '<p><label for="user_name">' . __('Last Name:') . '</label>' .
-form::field('user_name', 20, 255, html::escapeHTML($user_name)) . '</p>' .
+form::field('user_name', 20, 255, array(
+    'default'      => html::escapeHTML($user_name),
+    'autocomplete' => 'family-name'
+)) .
+'</p>' .
 
 '<p><label for="user_firstname">' . __('First Name:') . '</label>' .
-form::field('user_firstname', 20, 255, html::escapeHTML($user_firstname)) . '</p>' .
+form::field('user_firstname', 20, 255, array(
+    'default'      => html::escapeHTML($user_firstname),
+    'autocomplete' => 'given-name'
+)) .
+'</p>' .
 
 '<p><label for="user_displayname">' . __('Display name:') . '</label>' .
-form::field('user_displayname', 20, 255, html::escapeHTML($user_displayname)) . '</p>' .
+form::field('user_displayname', 20, 255, array(
+    'default'      => html::escapeHTML($user_displayname),
+    'autocomplete' => 'nickname'
+)) .
+'</p>' .
 
 '<p><label for="user_email">' . __('Email:') . '</label>' .
-form::field('user_email', 20, 255, html::escapeHTML($user_email)) . '</p>' .
+form::email('user_email', array(
+    'default'      => html::escapeHTML($user_email),
+    'autocomplete' => 'email'
+)) .
+'</p>' .
 
 '<p><label for="user_url">' . __('URL:') . '</label>' .
-form::field('user_url', 30, 255, html::escapeHTML($user_url)) . '</p>' .
+form::url('user_url', array(
+    'size'         => 30,
+    'default'      => html::escapeHTML($user_url),
+    'autocomplete' => 'url'
+)) .
+'</p>' .
 
 '<p><label for="user_lang">' . __('Language for my interface:') . '</label>' .
 form::combo('user_lang', $lang_combo, $user_lang, 'l10n') . '</p>' .
@@ -539,11 +560,11 @@ __('Activate adpative font size') . '</label></p>' .
 
 echo
 '<p><label for="user_ui_media_by_page" class="classic">' . __('Number of elements displayed per page in media manager:') . '</label> ' .
-form::field('user_ui_media_by_page', 5, 3, (integer) $user_ui_media_by_page) . '</p>';
+form::number('user_ui_media_by_page', 0, 999, (integer) $user_ui_media_by_page) . '</p>';
 
 echo
 '<p><label for="user_ui_media_nb_last_dirs" class="classic">' . __('Number of recent folders proposed in media manager:') . '</label> ' .
-form::field('user_ui_media_nb_last_dirs', 5, 3, (integer) $user_ui_media_nb_last_dirs) . '</p>' .
+form::number('user_ui_media_nb_last_dirs', 0, 999, (integer) $user_ui_media_nb_last_dirs) . '</p>' .
 '<p class="clear form-note">' . __('Leave empty to ignore, displayed only if Javascript is enabled in your browser.') . '</p>';
 
 if ($core->auth->isSuperAdmin()) {
@@ -598,7 +619,7 @@ echo
 form::combo('user_post_status', $status_combo, $user_post_status) . '</p>' .
 
 '<p class="field"><label for="user_edit_size">' . __('Entry edit field height:') . '</label>' .
-form::field('user_edit_size', 5, 4, (integer) $user_options['edit_size']) . '</p>' .
+form::number('user_edit_size', 10, 999, (integer) $user_options['edit_size']) . '</p>' .
 
 '<p><label for="user_wysiwyg" class="classic">' .
 form::checkbox('user_wysiwyg', 1, $user_options['enable_wysiwyg']) . ' ' .
@@ -657,7 +678,11 @@ foreach ($user_fav as $id) {
         $count++;
         echo '<li id="fu-' . $id . '">' . '<label for="fuk-' . $id . '">' .
         '<img src="' . dc_admin_icon_url($fav['small-icon']) . '" alt="" /> ' . '<span class="zoom"><img src="' . dc_admin_icon_url($fav['large-icon']) . '" alt="" /></span>' .
-        form::field(array('order[' . $id . ']'), 2, 3, $count, 'position', '', false, 'title="' . sprintf(__('position of %s'), $fav['title']) . '"') .
+        form::field(array('order[' . $id . ']'), 2, 3, array(
+            'default'    => $count,
+            'class'      => 'position',
+            'extra_html' => 'title="' . sprintf(__('position of %s'), $fav['title']) . '"'
+        )) .
         form::hidden(array('dynorder[]', 'dynorder-' . $id . ''), $id) .
         form::checkbox(array('remove[]', 'fuk-' . $id), $id) . __($fav['title']) . '</label>' .
             '</li>';

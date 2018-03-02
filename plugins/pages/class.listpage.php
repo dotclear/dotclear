@@ -117,7 +117,13 @@ class adminPagesList extends adminGenericList
 
         $cols = array(
             'position'   => '<td class="nowrap handle minimal">' .
-            form::field(array('order[' . $this->rs->post_id . ']'), 2, 3, $count + 1, 'position', '', false, 'title="' . sprintf(__('position of %s'), html::escapeHTML($this->rs->post_title)) . '"') . '</td>',
+            form::number(array('order[' . $this->rs->post_id . ']'), array(
+                'min'        => 1,
+                'default'    => $count + 1,
+                'class'      => 'position',
+                'extra_html' => 'title="' . sprintf(__('position of %s'), html::escapeHTML($this->rs->post_title)) . '"'
+            )) .
+            '</td>',
             'check'      => '<td class="nowrap">' .
             form::checkbox(array('entries[]'), $this->rs->post_id,
                 array(

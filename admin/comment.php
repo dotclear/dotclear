@@ -208,16 +208,19 @@ if ($comment_id) {
 
     '<h3>' . __('Comment submitted') . '</h3>' .
     '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr>' . __('Author:') . '</label>' .
-    form::field('comment_author', 30, 255, html::escapeHTML($comment_author), '', '', false, 'required placeholder="' . __('Author') . '"') .
+    form::field('comment_author', 30, 255, array(
+        'default'    => html::escapeHTML($comment_author),
+        'extra_html' => 'required placeholder="' . __('Author') . '"'
+    )) .
     '</p>' .
 
     '<p><label for="comment_email">' . __('Email:') . '</label>' .
-    form::field('comment_email', 30, 255, html::escapeHTML($comment_email)) .
+    form::email('comment_email', 30, 255, html::escapeHTML($comment_email)) .
     '<span>' . $comment_mailto . '</span>' .
     '</p>' .
 
     '<p><label for="comment_site">' . __('Web site:') . '</label>' .
-    form::field('comment_site', 30, 255, html::escapeHTML($comment_site)) .
+    form::url('comment_site', 30, 255, html::escapeHTML($comment_site)) .
     '</p>' .
 
     '<p><label for="comment_status">' . __('Status:') . '</label>' .

@@ -287,7 +287,10 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
         '<form id="quick-entry" action="' . $core->adminurl->get('admin.post') . '" method="post" class="fieldset">' .
         '<h4>' . __('New entry') . '</h4>' .
         '<p class="col"><label for="post_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
-        form::field('post_title', 20, 255, '', 'maximal', '', false, 'required placeholder="' . __('Title') . '"') .
+        form::field('post_title', 20, 255, array(
+            'class'      => 'maximal',
+            'extra_html' => 'required placeholder="' . __('Title') . '"'
+        )) .
         '</p>' .
         '<p class="area"><label class="required" ' .
         'for="post_content"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Content:') . '</label> ' .
@@ -299,7 +302,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
             ? '<div>' .
             '<p id="new_cat" class="q-cat">' . __('Add a new category') . '</p>' .
             '<p class="q-cat"><label for="new_cat_title">' . __('Title:') . '</label> ' .
-            form::field('new_cat_title', 30, 255, '', '') . '</p>' .
+            form::field('new_cat_title', 30, 255) . '</p>' .
             '<p class="q-cat"><label for="new_cat_parent">' . __('Parent:') . '</label> ' .
             form::combo('new_cat_parent', $categories_combo) .
             '</p>' .
@@ -316,20 +319,20 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
         form::hidden('post_excerpt', '') .
         form::hidden('post_lang', $core->auth->getInfo('user_lang')) .
         form::hidden('post_notes', '') .
-            '</p>' .
-            '</form>' .
+        '</p>' .
+        '</form>' .
+        '</div>';
+        }
+    }
+
+    if ($dashboardContents != '' || $dashboardItems != '') {
+        echo
+            '<div id="dashboard-boxes">' .
+            ($dashboardItems != '' ? '<div class="db-items">' . $dashboardItems . '</div>' : '') .
+            ($dashboardContents != '' ? '<div class="db-contents">' . $dashboardContents . '</div>' : '') .
             '</div>';
     }
-}
 
-if ($dashboardContents != '' || $dashboardItems != '') {
-    echo
-        '<div id="dashboard-boxes">' .
-        ($dashboardItems != '' ? '<div class="db-items">' . $dashboardItems . '</div>' : '') .
-        ($dashboardContents != '' ? '<div class="db-contents">' . $dashboardContents . '</div>' : '') .
-        '</div>';
-}
-
-echo '</div>'; #end dashboard-main
-dcPage::helpBlock('core_dashboard');
-dcPage::close();
+    echo '</div>'; #end dashboard-main
+    dcPage::helpBlock('core_dashboard');
+    dcPage::close();

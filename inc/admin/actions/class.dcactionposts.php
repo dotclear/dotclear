@@ -303,7 +303,7 @@ class dcDefaultPostActions
                 '<div>' .
                 '<p id="new_cat">' . __('Create a new category for the post(s)') . '</p>' .
                 '<p><label for="new_cat_title">' . __('Title:') . '</label> ' .
-                form::field('new_cat_title', 30, 255, '', '') . '</p>' .
+                form::field('new_cat_title', 30, 255) . '</p>' .
                 '<p><label for="new_cat_parent">' . __('Parent:') . '</label> ' .
                 form::combo('new_cat_parent', $categories_combo) .
                     '</p>' .

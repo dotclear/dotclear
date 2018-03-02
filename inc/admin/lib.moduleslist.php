@@ -261,7 +261,7 @@ class adminModulesList
         '<div class="modules-search">' .
         '<form action="' . $this->getURL() . '" method="get">' .
         '<p><label for="m_search" class="classic">' . __('Search in repository:') . '&nbsp;</label><br />' .
-        form::field(array('m_search', 'm_search'), 30, 255, html::escapeHTML($query)) .
+        form::field('m_search', 30, 255, html::escapeHTML($query)) .
         '<input type="submit" value="' . __('OK') . '" /> ';
 
         if ($query) {
@@ -1301,7 +1301,10 @@ class adminModulesList
         '<form method="post" action="' . $this->getURL() . '" id="fetchpkg" class="fieldset">' .
         '<h4>' . __('Download a zip file') . '</h4>' .
         '<p class="field"><label for="pkg_url" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Zip file URL:') . '</label> ' .
-        form::field(array('pkg_url', 'pkg_url'), 40, 255, '', '', '', false, 'required placeholder="' . __('URL') . '"') . '</p>' .
+        form::field('pkg_url', 40, 255, array(
+            'extra_html' => 'required placeholder="' . __('URL') . '"'
+        )) .
+        '</p>' .
         '<p class="field"><label for="your_pwd2" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .
         form::password(array('your_pwd', 'your_pwd2'), 20, 255,
             array(

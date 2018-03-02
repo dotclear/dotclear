@@ -198,7 +198,11 @@ echo
 '<h3>' . __('User profile') . '</h3>' .
 
 '<p><label for="user_id" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('User ID:') . '</label> ' .
-form::field('user_id', 20, 255, html::escapeHTML($user_id), '', '', false, 'required placeholder="' . __('Login') . '"') .
+form::field('user_id', 20, 255, array(
+    'default'      => html::escapeHTML($user_id),
+    'extra_html'   => 'required placeholder="' . __('Login') . '"',
+    'autocomplete' => 'username'
+)) .
 '</p>' .
 '<p class="form-note info">' . __('At least 2 characters using letters, numbers or symbols.') . '</p>';
 
@@ -256,24 +260,40 @@ form::checkbox(($super_disabled ? 'user_super_off' : 'user_super'), '1',
 ($super_disabled ? form::hidden(array('user_super'), $user_super) : '') .
 
 '<p><label for="user_name">' . __('Last Name:') . '</label> ' .
-form::field('user_name', 20, 255, html::escapeHTML($user_name)) .
+form::field('user_name', 20, 255, array(
+    'default'      => html::escapeHTML($user_name),
+    'autocomplete' => 'family-name'
+)) .
 '</p>' .
 
 '<p><label for="user_firstname">' . __('First Name:') . '</label> ' .
-form::field('user_firstname', 20, 255, html::escapeHTML($user_firstname)) .
+form::field('user_firstname', 20, 255, array(
+    'default'      => html::escapeHTML($user_firstname),
+    'autocomplete' => 'given-name'
+)) .
 '</p>' .
 
 '<p><label for="user_displayname">' . __('Display name:') . '</label> ' .
-form::field('user_displayname', 20, 255, html::escapeHTML($user_displayname)) .
+form::field('user_displayname', 20, 255, array(
+    'default'      => html::escapeHTML($user_displayname),
+    'autocomplete' => 'nickname'
+)) .
 '</p>' .
 
 '<p><label for="user_email">' . __('Email:') . '</label> ' .
-form::field('user_email', 20, 255, html::escapeHTML($user_email)) .
+form::email('user_email', array(
+    'default'      => html::escapeHTML($user_email),
+    'autocomplete' => 'email'
+)) .
 '</p>' .
 '<p class="form-note">' . __('Mandatory for password recovering procedure.') . '</p>' .
 
 '<p><label for="user_url">' . __('URL:') . '</label> ' .
-form::field('user_url', 30, 255, html::escapeHTML($user_url)) .
+form::url('user_url', array(
+    'size'         => 30,
+    'default'      => html::escapeHTML($user_url),
+    'autocomplete' => 'url'
+)) .
 '</p>' .
 '</div>' .
 
@@ -298,8 +318,8 @@ form::combo('user_post_status', $status_combo, $user_post_status) .
 '</p>' .
 
 '<p><label for="user_edit_size">' . __('Entry edit field height:') . '</label> ' .
-form::field('user_edit_size', 5, 4, (integer) $user_options['edit_size']) .
-    '</p>';
+form::number('user_edit_size', 10, 999, (integer) $user_options['edit_size']) .
+'</p>';
 
 # --BEHAVIOR-- adminUserForm
 $core->callBehavior('adminUserForm', isset($rs) ? $rs : null);
