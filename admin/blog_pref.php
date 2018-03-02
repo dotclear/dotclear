@@ -171,32 +171,32 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin', $blog_id)) {
         $cur->blog_status = (int) $_POST['blog_status'];
     }
 
-    $media_img_t_size = abs((integer) $_POST['media_img_t_size']);
+    $media_img_t_size = (integer) $_POST['media_img_t_size'];
     if ($media_img_t_size < 0) {$media_img_t_size = 100;}
 
-    $media_img_s_size = abs((integer) $_POST['media_img_s_size']);
+    $media_img_s_size = (integer) $_POST['media_img_s_size'];
     if ($media_img_s_size < 0) {$media_img_s_size = 240;}
 
-    $media_img_m_size = abs((integer) $_POST['media_img_m_size']);
+    $media_img_m_size = (integer) $_POST['media_img_m_size'];
     if ($media_img_m_size < 0) {$media_img_m_size = 448;}
 
-    $media_video_width = abs((integer) $_POST['media_video_width']);
+    $media_video_width = (integer) $_POST['media_video_width'];
     if ($media_video_width < 0) {$media_video_width = 400;}
 
-    $media_video_height = abs((integer) $_POST['media_video_height']);
+    $media_video_height = (integer) $_POST['media_video_height'];
     if ($media_video_height < 0) {$media_video_height = 300;}
 
     $nb_post_for_home = abs((integer) $_POST['nb_post_for_home']);
-    if ($nb_post_for_home <= 1) {$nb_post_for_home = 1;}
+    if ($nb_post_for_home < 1) {$nb_post_for_home = 1;}
 
     $nb_post_per_page = abs((integer) $_POST['nb_post_per_page']);
-    if ($nb_post_per_page <= 1) {$nb_post_per_page = 1;}
+    if ($nb_post_per_page < 1) {$nb_post_per_page = 1;}
 
     $nb_post_per_feed = abs((integer) $_POST['nb_post_per_feed']);
-    if ($nb_post_per_feed <= 1) {$nb_post_per_feed = 1;}
+    if ($nb_post_per_feed < 1) {$nb_post_per_feed = 1;}
 
     $nb_comment_per_feed = abs((integer) $_POST['nb_comment_per_feed']);
-    if ($nb_comment_per_feed <= 1) {$nb_comment_per_feed = 1;}
+    if ($nb_comment_per_feed < 1) {$nb_comment_per_feed = 1;}
 
     try
     {
@@ -356,7 +356,12 @@ if ($blog_id) {
 
     echo
     '<p><label for="blog_name" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog name:') . '</label>' .
-    form::field('blog_name', 30, 255, html::escapeHTML($blog_name), '', '', false, 'required placeholder="' . __('Blog name') . '"') . '</p>';
+    form::field('blog_name', 30, 255,
+        array(
+            'default'    => html::escapeHTML($blog_name),
+            'extra_html' => 'required placeholder="' . __('Blog name') . '"'
+        )
+    ) . '</p>';
 
     echo
     '<p class="area"><label for="blog_desc">' . __('Blog description:') . '</label>' .
@@ -374,8 +379,9 @@ if ($blog_id) {
         to allow admins to update other settings.
         Otherwise dcCore::getBlogCursor() throws an exception.
          */
-        echo form::field('blog_id', 30, 32, html::escapeHTML($blog_id), '', '', false, 'hidden="hidden"');
-        echo form::field('blog_url', 50, 255, html::escapeHTML($blog_url), '', '', false, 'hidden="hidden"');
+        echo
+        form::hidden('blog_id', html::escapeHTML($blog_id)) .
+        form::hidden('blog_url', html::escapeHTML($blog_url));
     }
 
     echo '</div>';
@@ -414,7 +420,11 @@ if ($blog_id) {
     form::checkbox('comments_pub', '1', !$blog_settings->system->comments_pub) .
     __('Moderate comments') . '</label></p>' .
     '<p><label for="comments_ttl" class="classic">' . sprintf(__('Leave comments open for %s days') . '.',
-        form::field('comments_ttl', 2, 3, $blog_settings->system->comments_ttl)) .
+        form::number('comments_ttl', array(
+            'min'     => 0,
+            'max'     => 999,
+            'default' => $blog_settings->system->comments_ttl)
+        )) .
     '</label></p>' .
     '<p class="form-note">' . __('No limit: leave blank.') . '</p>' .
     '<p><label for="wiki_comments" class="classic">' .
@@ -433,7 +443,12 @@ if ($blog_id) {
     form::checkbox('trackbacks_pub', '1', !$blog_settings->system->trackbacks_pub) .
     __('Moderate trackbacks') . '</label></p>' .
     '<p><label for="trackbacks_ttl" class="classic">' . sprintf(__('Leave trackbacks open for %s days') . '.',
-        form::field('trackbacks_ttl', 2, 3, $blog_settings->system->trackbacks_ttl)) . '</label></p>' .
+        form::number('trackbacks_ttl', array(
+            'min'     => 0,
+            'max'     => 999,
+            'default' => $blog_settings->system->trackbacks_ttl)
+        )) .
+    '</label></p>' .
     '<p class="form-note">' . __('No limit: leave blank.') . '</p>' .
     '<p><label for="comments_nofollow" class="classic">' .
     form::checkbox('comments_nofollow', '1', $blog_settings->system->comments_nofollow) .
@@ -472,19 +487,35 @@ if ($blog_id) {
 
     '<div class="col">' .
     '<p><label for="nb_post_for_home" class="classic">' . sprintf(__('Display %s entries on home page'),
-        form::field('nb_post_for_home', 2, 3, $blog_settings->system->nb_post_for_home)) .
+        form::number('nb_post_for_home', array(
+            'min'     => 1,
+            'max'     => 999,
+            'default' => $blog_settings->system->nb_post_for_home)
+        )) .
     '</label></p>' .
 
     '<p><label for="nb_post_per_page" class="classic">' . sprintf(__('Display %s entries per page'),
-        form::field('nb_post_per_page', 2, 3, $blog_settings->system->nb_post_per_page)) .
+        form::number('nb_post_per_page', array(
+            'min'     => 1,
+            'max'     => 999,
+            'default' => $blog_settings->system->nb_post_per_page)
+        )) .
     '</label></p>' .
 
     '<p><label for="nb_post_per_feed" class="classic">' . sprintf(__('Display %s entries per feed'),
-        form::field('nb_post_per_feed', 2, 3, $blog_settings->system->nb_post_per_feed)) .
+        form::number('nb_post_per_feed', array(
+            'min'     => 1,
+            'max'     => 999,
+            'default' => $blog_settings->system->nb_post_per_feed)
+        )) .
     '</label></p>' .
 
     '<p><label for="nb_comment_per_feed" class="classic">' . sprintf(__('Display %s comments per feed'),
-        form::field('nb_comment_per_feed', 2, 3, $blog_settings->system->nb_comment_per_feed)) .
+        form::number('nb_comment_per_feed', array(
+            'min'     => 1,
+            'max'     => 999,
+            'default' => $blog_settings->system->nb_comment_per_feed)
+        )) .
     '</label></p>' .
 
     '<p><label for="short_feed_items" class="classic">' .
@@ -503,26 +534,52 @@ if ($blog_id) {
     '<div class="fieldset"><h4 id="medias-settings">' . __('Media and images') . '</h4>' .
     '<p class="form-note warning">' .
     __('Please note that if you change current settings bellow, they will now apply to all new images in the media manager.') .
-    ' ' . __('Be carefull if you share it with other blogs in your installation.') . '</p>' .
+    ' ' . __('Be carefull if you share it with other blogs in your installation.') . '<br />' .
+    __('Set -1 to use the default size, set 0 to ignore this thumbnail size (images only).') . '</p>' .
 
     '<div class="two-cols">' .
     '<div class="col">' .
     '<h5>' . __('Generated image sizes (max dimension in pixels)') . '</h5>' .
     '<p class="field"><label for="media_img_t_size">' . __('Thumbnail') . '</label> ' .
-    form::field('media_img_t_size', 3, 3, $blog_settings->system->media_img_t_size) . '</p>' .
+    form::number('media_img_t_size', array(
+        'min'     => -1,
+        'max'     => 999,
+        'default' => $blog_settings->system->media_img_t_size
+    )) .
+    '</p>' .
 
     '<p class="field"><label for="media_img_s_size">' . __('Small') . '</label> ' .
-    form::field('media_img_s_size', 3, 3, $blog_settings->system->media_img_s_size) . '</p>' .
+    form::number('media_img_s_size', array(
+        'min'     => -1,
+        'max'     => 999,
+        'default' => $blog_settings->system->media_img_s_size
+    )) .
+    '</p>' .
 
     '<p class="field"><label for="media_img_m_size">' . __('Medium') . '</label> ' .
-    form::field('media_img_m_size', 3, 3, $blog_settings->system->media_img_m_size) . '</p>' .
+    form::number('media_img_m_size', array(
+        'min'     => -1,
+        'max'     => 999,
+        'default' => $blog_settings->system->media_img_m_size
+    )) .
+    '</p>' .
 
     '<h5>' . __('Default size of the inserted video (in pixels)') . '</h5>' .
     '<p class="field"><label for="media_video_width">' . __('Width') . '</label> ' .
-    form::field('media_video_width', 3, 3, $blog_settings->system->media_video_width) . '</p>' .
+    form::number('media_video_width', array(
+        'min'     => -1,
+        'max'     => 999,
+        'default' => $blog_settings->system->media_video_width
+    )) .
+    '</p>' .
 
     '<p class="field"><label for="media_video_height">' . __('Height') . '</label> ' .
-    form::field('media_video_height', 3, 3, $blog_settings->system->media_video_height) . '</p>' .
+    form::number('media_video_height', array(
+        'min'     => -1,
+        'max'     => 999,
+        'default' => $blog_settings->system->media_video_height
+    )) .
+    '</p>' .
 
     '<h5>' . __('Flash player') . '</h5>' .
     '<p><label for="media_flash_fallback">' .
@@ -574,7 +631,13 @@ if ($blog_id) {
 
         echo
         '<p><label for="blog_url" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog URL:') . '</label>' .
-        form::field('blog_url', 50, 255, html::escapeHTML($blog_url), '', '', false, 'required placeholder="' . __('Blog URL') . '"') . '</p>' .
+        form::url('blog_url', array(
+            'size'       => 50,
+            'max'        => 255,
+            'default'    => html::escapeHTML($blog_url),
+            'extra_html' => 'required placeholder="' . __('Blog URL') . '"'
+        )) .
+        '</p>' .
 
         '<p><label for="url_scan">' . __('URL scan method:') . '</label>' .
         form::combo('url_scan', $url_scan_combo, $blog_settings->system->url_scan) . '</p>';

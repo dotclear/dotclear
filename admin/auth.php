@@ -271,35 +271,9 @@ echo dcPage::jsCommon();
 <?php
 # --BEHAVIOR-- loginPageHTMLHead
 $core->callBehavior('loginPageHTMLHead');
+
+echo dcPage::jsLoad('js/_auth.js');
 ?>
-
-    <script type="text/javascript">
-        $(window).load(function() {
-            var uid = $('input[name=user_id]');
-            var upw = $('input[name=user_pwd]');
-            uid.focus();
-
-            if (upw.length == 0) { return; }
-
-            uid.keypress(processKey);
-
-            function processKey(evt) {
-                if (evt.which == 13 && upw.val() == '') {
-                    upw.focus();
-                    return false;
-                }
-                return true;
-            };
-            $.cookie('dc_admin_test_cookie',true);
-            if ($.cookie('dc_admin_test_cookie')) {
-                $('#cookie_help').hide();
-                $.cookie('dc_admin_test_cookie', '', {'expires': -1});
-            } else {
-                $('#cookie_help').show();
-            }
-            $('#issue #more').toggleWithLegend($('#issue').children().not('#more'));
-        });
-    </script>
 </head>
 
 <body id="dotclear-admin" class="auth">
@@ -321,13 +295,25 @@ if ($akey) {
     echo
     '<div class="fieldset" role="main"><h2>' . __('Request a new password') . '</h2>' .
     '<p><label for="user_id">' . __('Username:') . '</label> ' .
-    form::field(array('user_id', 'user_id'), 20, 32, html::escapeHTML($user_id)) . '</p>' .
+    form::field('user_id', 20, 32,
+        array(
+            'default'      => html::escapeHTML($user_id),
+            'autocomplete' => 'username'
+        )
+    ) .
+    '</p>' .
 
     '<p><label for="user_email">' . __('Email:') . '</label> ' .
-    form::field(array('user_email', 'user_email'), 20, 255, html::escapeHTML($user_email)) . '</p>' .
+    form::email('user_email',
+        array(
+            'default'      => html::escapeHTML($user_email),
+            'autocomplete' => 'email'
+        )
+    ) .
+    '</p>' .
 
     '<p><input type="submit" value="' . __('recover') . '" />' .
-    form::hidden(array('recover'), 1) . '</p>' .
+    form::hidden('recover', 1) . '</p>' .
     '</div>' .
 
     '<div id="issue">' .
@@ -337,10 +323,18 @@ if ($akey) {
     echo
     '<div class="fieldset"><h2>' . __('Change your password') . '</h2>' .
     '<p><label for="new_pwd">' . __('New password:') . '</label> ' .
-    form::password(array('new_pwd', 'new_pwd'), 20, 255, array('autocomplete' => 'new-password')) . '</p>' .
+    form::password('new_pwd', 20, 255,
+        array(
+            'autocomplete' => 'new-password'
+        )
+    ) . '</p>' .
 
     '<p><label for="new_pwd_c">' . __('Confirm password:') . '</label> ' .
-    form::password(array('new_pwd_c', 'new_pwd_c'), 20, 255, array('autocomplete' => 'new-password')) . '</p>' .
+    form::password('new_pwd_c', 20, 255,
+        array(
+            'autocomplete' => 'new-password'
+        )
+    ) . '</p>' .
     '</div>' .
 
     '<p><input type="submit" value="' . __('change') . '" />' .
@@ -363,13 +357,22 @@ if ($akey) {
 
         echo
         '<p><label for="user_id">' . __('Username:') . '</label> ' .
-        form::field(array('user_id', 'user_id'), 20, 32, html::escapeHTML($user_id)) . '</p>' .
+        form::field('user_id', 20, 32,
+            array(
+                'default'      => html::escapeHTML($user_id),
+                'autocomplete' => 'username'
+            )
+        ) . '</p>' .
 
         '<p><label for="user_pwd">' . __('Password:') . '</label> ' .
-        form::password(array('user_pwd', 'user_pwd'), 20, 255, array('autocomplete' => 'current-password')) . '</p>' .
+        form::password('user_pwd', 20, 255,
+            array(
+                'autocomplete' => 'current-password'
+            )
+        ) . '</p>' .
 
         '<p>' .
-        form::checkbox(array('user_remember', 'user_remember'), 1) .
+        form::checkbox('user_remember', 1) .
         '<label for="user_remember" class="classic">' .
         __('Remember my ID on this device') . '</label></p>' .
 

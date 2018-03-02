@@ -482,9 +482,9 @@ if ($popup && !$select) {
         '<div class="two-boxes">' .
         '<h3>' . __('Video size') . '</h3>' .
         '<p><label for="video_w" class="classic">' . __('Width:') . '</label> ' .
-        form::field('video_w', 3, 4, $core->blog->settings->system->media_video_width) . '  ' .
+        form::number('video_w', 0, 9999, $core->blog->settings->system->media_video_width) . '  ' .
         '<label for="video_h" class="classic">' . __('Height:') . '</label> ' .
-        form::field('video_h', 3, 4, $core->blog->settings->system->media_video_height) .
+        form::number('video_h', 0, 9999, $core->blog->settings->system->media_video_height) .
             '</p>' .
             '</div>';
 
@@ -760,7 +760,14 @@ if ($file->editable && $core_media_writable) {
     '<p><label for="media_title">' . __('File title:') . '</label>' .
     form::field('media_title', 30, 255, html::escapeHTML($file->media_title)) . '</p>' .
     '<p><label for="media_dt">' . __('File date:') . '</label>' .
-    form::field('media_dt', 16, 16, html::escapeHTML($file->media_dtstr)) . '</p>' .
+    form::field('media_dt', 16, 16, html::escapeHTML($file->media_dtstr)) .
+    /*
+    Previous line will be replaced by this one as soon as every browser will support datetime-local input type
+    Dont forget to remove call to datepicker in media_item.js
+
+    form::datetime('media_dt', array('default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', $file->media_dt)))) .
+    */
+    '</p>' .
     '<p><label for="media_private" class="classic">' . form::checkbox('media_private', 1, $file->media_priv) . ' ' .
     __('Private') . '</label></p>' .
     '<p><label for="media_path">' . __('New directory:') . '</label>' .

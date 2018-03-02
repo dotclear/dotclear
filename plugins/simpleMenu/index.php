@@ -487,13 +487,19 @@ if ($step) {
             echo '<fieldset><legend>' . $item_type_label . ($item_select_label != '' ? ' (' . $item_select_label . ')' : '') . '</legend>';
             echo '<p class="field"><label for="item_label" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' .
             __('Label of item menu:') . '</label>' .
-            form::field('item_label', 20, 255, $item_label, '', '', false, 'required placeholder="' . __('Label') . '"') .
+            form::field('item_label', 20, 255, array(
+                'default'    => $item_label,
+                'extra_html' => 'required placeholder="' . __('Label') . '"'
+            )) .
                 '</p>';
             echo '<p class="field"><label for="item_descr" class="classic">' .
             __('Description of item menu:') . '</label>' . form::field('item_descr', 30, 255, $item_descr) . '</p>';
             echo '<p class="field"><label for="item_url" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' .
             __('URL of item menu:') . '</label>' .
-            form::field('item_url', 40, 255, $item_url, '', '', false, 'required placeholder="' . __('URL') . '"') .
+            form::field('item_url', 40, 255, array(
+                'default'    => $item_url,
+                'extra_html' => 'required placeholder="' . __('URL') . '"'
+            )) .
                 '</p>';
             echo form::hidden('item_type', $item_type) . form::hidden('item_select', $item_select);
             echo '<p class="field"><label for="item_descr" class="classic">' .
@@ -560,7 +566,12 @@ if (count($menu)) {
         if (!$step) {
             $count++;
             echo '<td class="handle minimal">' .
-            form::field(array('order[' . $i . ']'), 2, 3, $count, 'position', '', false, 'title="' . sprintf(__('position of %s'), html::escapeHTML(__($m['label']))) . '"') .
+            form::number(array('order[' . $i . ']'), array(
+                'min'        => 1,
+                'default'    => $count,
+                'class'      => 'position',
+                'extra_html' => 'title="' . sprintf(__('position of %s'), html::escapeHTML(__($m['label']))) . '"'
+            )) .
             form::hidden(array('dynorder[]', 'dynorder-' . $i), $i) . '</td>';
             echo '<td class="minimal">' . form::checkbox(array('items_selected[]', 'ims-' . $i), $i) . '</td>';
             echo '<td class="nowrap" scope="row">' . form::field(array('items_label[]', 'iml-' . $i), '', 255, html::escapeHTML(__($m['label']))) . '</td>';

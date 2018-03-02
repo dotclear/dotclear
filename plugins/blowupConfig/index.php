@@ -204,7 +204,6 @@ if (!empty($_POST)) {
   <title><?php echo __('Blowup configuration'); ?></title>
   <?php
 echo dcPage::jsLoad(dcPage::getPF('blowupConfig/js/config.js'));
-echo dcPage::jsColorPicker();
 echo dcPage::jsVars(array(
     'dotclear.blowup_public_url'          => blowupConfig::imagesURL(),
     'dotclear.msg.predefined_styles'      => __('Predefined styles'),
@@ -239,7 +238,7 @@ echo '<div class="fieldset"><h3>' . __('Customization') . '</h3>' .
 if ($can_write_images) {
     echo
     '<p class="field"><label for="body_bg_c">' . __('Background color:') . '</label> ' .
-    form::field('body_bg_c', 7, 7, $blowup_user['body_bg_c'], 'colorpicker') . '</p>' .
+    form::color('body_bg_c', array('default' => $blowup_user['body_bg_c'])) . '</p>' .
 
     '<p class="field"><label for="body_bg_g">' . __('Background color fill:') . '</label> ' .
     form::combo('body_bg_g', $gradient_types, $blowup_user['body_bg_g']) . '</p>';
@@ -253,27 +252,27 @@ form::combo('body_txt_f', blowupConfig::fontsList(), $blowup_user['body_txt_f'])
 form::field('body_txt_s', 7, 7, $blowup_user['body_txt_s']) . '</p>' .
 
 '<p class="field"><label for="body_txt_c">' . __('Main text color:') . '</label> ' .
-form::field('body_txt_c', 7, 7, $blowup_user['body_txt_c'], 'colorpicker') . '</p>' .
+form::color('body_txt_c', array('default' => $blowup_user['body_txt_c'])) . '</p>' .
 
 '<p class="field"><label for="body_line_height">' . __('Text line height:') . '</label> ' .
 form::field('body_line_height', 7, 7, $blowup_user['body_line_height']) . '</p>' .
 
 '<h4 class="border-top">' . __('Links') . '</h4>' .
 '<p class="field"><label for="body_link_c">' . __('Links color:') . '</label> ' .
-form::field('body_link_c', 7, 7, $blowup_user['body_link_c'], 'colorpicker') . '</p>' .
+form::color('body_link_c', array('default' => $blowup_user['body_link_c'])) . '</p>' .
 
 '<p class="field"><label for="body_link_v_c">' . __('Visited links color:') . '</label> ' .
-form::field('body_link_v_c', 7, 7, $blowup_user['body_link_v_c'], 'colorpicker') . '</p>' .
+form::color('body_link_v_c', array('default' => $blowup_user['body_link_v_c'])) . '</p>' .
 
 '<p class="field"><label for="body_link_f_c">' . __('Focus links color:') . '</label> ' .
-form::field('body_link_f_c', 7, 7, $blowup_user['body_link_f_c'], 'colorpicker') . '</p>' .
+form::color('body_link_f_c', array('default' => $blowup_user['body_link_f_c'])) . '</p>' .
 
 '<h4 class="border-top">' . __('Page top') . '</h4>';
 
 if ($can_write_images) {
     echo
     '<p class="field"><label for="prelude_c">' . __('Prelude color:') . '</label> ' .
-    form::field('prelude_c', 7, 7, $blowup_user['prelude_c'], 'colorpicker') . '</p>';
+    form::color('prelude_c', array('default' => $blowup_user['prelude_c'])) . '</p>';
 }
 
 echo
@@ -287,7 +286,7 @@ form::combo('blog_title_f', blowupConfig::fontsList(), $blowup_user['blog_title_
 form::field('blog_title_s', 7, 7, $blowup_user['blog_title_s']) . '</p>' .
 
 '<p class="field"><label for="blog_title_c">' . __('Main title color:') . '</label> ' .
-form::field('blog_title_c', 7, 7, $blowup_user['blog_title_c'], 'colorpicker') . '</p>' .
+form::color('blog_title_c', array('default' => $blowup_user['blog_title_c'])) . '</p>' .
 
 '<p class="field"><label for="blog_title_a">' . __('Main title alignment:') . '</label> ' .
 form::combo('blog_title_a', array(__('center') => 'center', __('left') => 'left', __('right') => 'right'), $blowup_user['blog_title_a']) . '</p>' .
@@ -331,7 +330,7 @@ form::combo('sidebar_text_f', blowupConfig::fontsList(), $blowup_user['sidebar_t
 form::field('sidebar_text_s', 7, 7, $blowup_user['sidebar_text_s']) . '</p>' .
 
 '<p class="field"><label for="sidebar_text_c">' . __('Sidebar text color:') . '</label> ' .
-form::field('sidebar_text_c', 7, 7, $blowup_user['sidebar_text_c'], 'colorpicker') . '</p>' .
+form::color('sidebar_text_c', array('default' => $blowup_user['sidebar_text_c'])) . '</p>' .
 
 '<p class="field"><label for="sidebar_title_f">' . __('Sidebar titles font:') . '</label> ' .
 form::combo('sidebar_title_f', blowupConfig::fontsList(), $blowup_user['sidebar_title_f']) . '</p>' .
@@ -340,7 +339,7 @@ form::combo('sidebar_title_f', blowupConfig::fontsList(), $blowup_user['sidebar_
 form::field('sidebar_title_s', 7, 7, $blowup_user['sidebar_title_s']) . '</p>' .
 
 '<p class="field"><label for="sidebar_title_c">' . __('Sidebar titles color:') . '</label> ' .
-form::field('sidebar_title_c', 7, 7, $blowup_user['sidebar_title_c'], 'colorpicker') . '</p>' .
+form::color('sidebar_title_c', array('default' => $blowup_user['sidebar_title_c'])) . '</p>' .
 
 '<p class="field"><label for="sidebar_title2_f">' . __('Sidebar 2nd level titles font:') . '</label> ' .
 form::combo('sidebar_title2_f', blowupConfig::fontsList(), $blowup_user['sidebar_title2_f']) . '</p>' .
@@ -349,19 +348,19 @@ form::combo('sidebar_title2_f', blowupConfig::fontsList(), $blowup_user['sidebar
 form::field('sidebar_title2_s', 7, 7, $blowup_user['sidebar_title2_s']) . '</p>' .
 
 '<p class="field"><label for="sidebar_title2_c">' . __('Sidebar 2nd level titles color:') . '</label> ' .
-form::field('sidebar_title2_c', 7, 7, $blowup_user['sidebar_title2_c'], 'colorpicker') . '</p>' .
+form::color('sidebar_title2_c', array('default' => $blowup_user['sidebar_title2_c'])) . '</p>' .
 
 '<p class="field"><label for="sidebar_line_c">' . __('Sidebar lines color:') . '</label> ' .
-form::field('sidebar_line_c', 7, 7, $blowup_user['sidebar_line_c'], 'colorpicker') . '</p>' .
+form::color('sidebar_line_c', array('default' => $blowup_user['sidebar_line_c'])) . '</p>' .
 
 '<p class="field"><label for="sidebar_link_c">' . __('Sidebar links color:') . '</label> ' .
-form::field('sidebar_link_c', 7, 7, $blowup_user['sidebar_link_c'], 'colorpicker') . '</p>' .
+form::color('sidebar_link_c', array('default' => $blowup_user['sidebar_link_c'])) . '</p>' .
 
 '<p class="field"><label for="sidebar_link_v_c">' . __('Sidebar visited links color:') . '</label> ' .
-form::field('sidebar_link_v_c', 7, 7, $blowup_user['sidebar_link_v_c'], 'colorpicker') . '</p>' .
+form::color('sidebar_link_v_c', array('default' => $blowup_user['sidebar_link_v_c'])) . '</p>' .
 
 '<p class="field"><label for="sidebar_link_f_c">' . __('Sidebar focus links color:') . '</label> ' .
-form::field('sidebar_link_f_c', 7, 7, $blowup_user['sidebar_link_f_c'], 'colorpicker') . '</p>' .
+form::color('sidebar_link_f_c', array('default' => $blowup_user['sidebar_link_f_c'])) . '</p>' .
 
 '<h4 class="border-top">' . __('Entries') . '</h4>' .
 '<p class="field"><label for="date_title_f">' . __('Date title font:') . '</label> ' .
@@ -371,7 +370,7 @@ form::combo('date_title_f', blowupConfig::fontsList(), $blowup_user['date_title_
 form::field('date_title_s', 7, 7, $blowup_user['date_title_s']) . '</p>' .
 
 '<p class="field"><label for="date_title_c">' . __('Date title color:') . '</label> ' .
-form::field('date_title_c', 7, 7, $blowup_user['date_title_c'], 'colorpicker') . '</p>' .
+form::color('date_title_c', array('default' => $blowup_user['date_title_c'])) . '</p>' .
 
 '<p class="field"><label for="post_title_f">' . __('Entry title font:') . '</label> ' .
 form::combo('post_title_f', blowupConfig::fontsList(), $blowup_user['post_title_f']) . '</p>' .
@@ -380,27 +379,27 @@ form::combo('post_title_f', blowupConfig::fontsList(), $blowup_user['post_title_
 form::field('post_title_s', 7, 7, $blowup_user['post_title_s']) . '</p>' .
 
 '<p class="field"><label for="post_title_c">' . __('Entry title color:') . '</label> ' .
-form::field('post_title_c', 7, 7, $blowup_user['post_title_c'], 'colorpicker') . '</p>';
+form::color('post_title_c', array('default' => $blowup_user['post_title_c'])) . '</p>';
 
 if ($can_write_images) {
     echo
     '<p class="field"><label for="post_comment_bg_c">' . __('Comment background color:') . '</label> ' .
-    form::field('post_comment_bg_c', 7, 7, $blowup_user['post_comment_bg_c'], 'colorpicker') . '</p>';
+    form::color('post_comment_bg_c', array('default' => $blowup_user['post_comment_bg_c'])) . '</p>';
 }
 
 echo
 '<p class="field"><label for="post_comment_c">' . __('Comment text color:') . '</label> ' .
-form::field('post_comment_c', 7, 7, $blowup_user['post_comment_c'], 'colorpicker') . '</p>';
+form::color('post_comment_c', array('default' => $blowup_user['post_comment_c'])) . '</p>';
 
 if ($can_write_images) {
     echo
     '<p class="field"><label for="post_commentmy_bg_c">' . __('My comment background color:') . '</label> ' .
-    form::field('post_commentmy_bg_c', 7, 7, $blowup_user['post_commentmy_bg_c'], 'colorpicker') . '</p>';
+    form::color('post_commentmy_bg_c', array('default' => $blowup_user['post_commentmy_bg_c'])) . '</p>';
 }
 
 echo
 '<p class="field"><label for="post_commentmy_c">' . __('My comment text color:') . '</label> ' .
-form::field('post_commentmy_c', 7, 7, $blowup_user['post_commentmy_c'], 'colorpicker') . '</p>' .
+form::color('post_commentmy_c', array('default' => $blowup_user['post_commentmy_c'])) . '</p>' .
 
 '<h4 class="border-top">' . __('Footer') . '</h4>' .
 '<p class="field"><label for="footer_f">' . __('Footer font:') . '</label> ' .
@@ -410,13 +409,13 @@ form::combo('footer_f', blowupConfig::fontsList(), $blowup_user['footer_f']) . '
 form::field('footer_s', 7, 7, $blowup_user['footer_s']) . '</p>' .
 
 '<p class="field"><label for="footer_c">' . __('Footer color:') . '</label> ' .
-form::field('footer_c', 7, 7, $blowup_user['footer_c'], 'colorpicker') . '</p>' .
+form::color('footer_c', array('default' => $blowup_user['footer_c'])) . '</p>' .
 
 '<p class="field"><label for="footer_l_c">' . __('Footer links color:') . '</label> ' .
-form::field('footer_l_c', 7, 7, $blowup_user['footer_l_c'], 'colorpicker') . '</p>' .
+form::color('footer_l_c', array('default' => $blowup_user['footer_l_c'])) . '</p>' .
 
 '<p class="field"><label for="footer_bg_c">' . __('Footer background color:') . '</label> ' .
-form::field('footer_bg_c', 7, 7, $blowup_user['footer_bg_c'], 'colorpicker') . '</p>';
+form::color('footer_bg_c', array('default' => $blowup_user['footer_bg_c'])) . '</p>';
 
 echo
 '<h4 class="border-top">' . __('Additional CSS') . '</h4>' .

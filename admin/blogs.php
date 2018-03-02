@@ -142,7 +142,7 @@ if (!$core->error->flag()) {
     '<p><label for="order" class="ib">' . __('Sort:') . '</label> ' .
     form::combo('order', $order_combo, html::escapeHTML($order)) . '</p>' .
     '<p><span class="label ib">' . __('Show') . '</span> <label for="nb" class="classic">' .
-    form::field('nb', 3, 3, $nb_per_page) . ' ' . __('blogs per page') . '</label></p>' .
+    form::number('nb', 0, 999, $nb_per_page) . ' ' . __('blogs per page') . '</label></p>' .
     '</div>' .
     '</div>' .
 

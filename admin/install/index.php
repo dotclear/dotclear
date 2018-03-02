@@ -333,37 +333,53 @@ if ($can_install && $step == 0) {
     '<form action="index.php" method="post">' .
     '<fieldset><legend>' . __('User information') . '</legend>' .
     '<p><label for="u_firstname">' . __('First Name:') . '</label> ' .
-    form::field('u_firstname', 30, 255, html::escapeHTML($u_firstname)) . '</p>' .
+    form::field('u_firstname', 30, 255, array(
+        'default'      => html::escapeHTML($u_firstname),
+        'autocomplete' => 'given-name'
+    )) .
+    '</p>' .
     '<p><label for="u_name">' . __('Last Name:') . '</label> ' .
-    form::field('u_name', 30, 255, html::escapeHTML($u_name)) . '</p>' .
+    form::field('u_name', 30, 255, array(
+        'default'      => html::escapeHTML($u_name),
+        'autocomplete' => 'family-name'
+    )) .
+    '</p>' .
     '<p><label for="u_email">' . __('Email:') . '</label> ' .
-    form::field('u_email', 30, 255, html::escapeHTML($u_email)) . '</p>' .
+    form::email('u_email', array(
+        'size'         => 30,
+        'default'      => html::escapeHTML($u_email),
+        'autocomplete' => 'email'
+    )) .
+    '</p>' .
     '</fieldset>' .
 
     '<fieldset><legend>' . __('Username and password') . '</legend>' .
     '<p><label for="u_login" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Username:') . ' ' .
-    form::field('u_login', 30, 32, html::escapeHTML($u_login), '', '', false, 'required placeholder="' . __('Username') . '"') . '</label></p>' .
+    form::field('u_login', 30, 32, array(
+        'default'      => html::escapeHTML($u_login),
+        'extra_html'   => 'required placeholder="' . __('Username') . '"',
+        'autocomplete' => 'username'
+    )) .
+    '</label></p>' .
     '<div class="pw-table">' .
     '<p class="pw-cell">' .
     '<label for="u_pwd" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('New password:') . '</label>' .
-    form::password('u_pwd', 30, 255,
-        array(
-            'extra_html'   => 'data-indicator="pwindicator" required placeholder="' . __('Password') . '"',
-            'autocomplete' => 'new-password'
-        )
-    ) . '</p>' .
+    form::password('u_pwd', 30, 255, array(
+        'extra_html'   => 'data-indicator="pwindicator" required placeholder="' . __('Password') . '"',
+        'autocomplete' => 'new-password'
+    )) .
+    '</p>' .
     '<div id="pwindicator">' .
     '    <div class="bar"></div>' .
     '    <p class="label no-margin"></p>' .
     '</div>' .
     '</div>' .
     '<p><label for="u_pwd2" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Confirm password:') . ' ' .
-    form::password('u_pwd2', 30, 255,
-        array(
-            'extra_html'   => 'required placeholder="' . __('Password') . '"',
-            'autocomplete' => 'new-password'
-        )
-    ) . '</label></p>' .
+    form::password('u_pwd2', 30, 255, array(
+        'extra_html'   => 'required placeholder="' . __('Password') . '"',
+        'autocomplete' => 'new-password'
+    )) .
+    '</label></p>' .
     '</fieldset>' .
 
     '<p><input type="submit" value="' . __('Save') . '" /></p>' .

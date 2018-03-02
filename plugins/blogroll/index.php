@@ -207,7 +207,12 @@ while ($rs->fetch()) {
 
         echo
         '<tr class="line" id="l_' . $rs->link_id . '">' .
-        '<td class="handle minimal">' . form::field(array('order[' . $rs->link_id . ']'), 2, 5, $position, 'position', '', false, 'title="' . __('position') . '"') . '</td>' .
+        '<td class="handle minimal">' . form::field(array('order[' . $rs->link_id . ']'), 2, 5, array(
+            'default'    => $position,
+            'class'      => 'position',
+            'extra_html' => 'title="' . __('position') . '"'
+        )) .
+        '</td>' .
         '<td class="minimal">' . form::checkbox(array('remove[]'), $rs->link_id,
             array(
                 'extra_html' => 'title="' . __('select this link') . '"'
@@ -262,11 +267,17 @@ echo
 '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" id="add-link-form">' .
 '<h3>' . __('Add a new link') . '</h3>' .
 '<p class="col"><label for="link_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
-form::field('link_title', 30, 255, $link_title, '', '', false, 'required placeholder="' . __('Title') . '"') .
+form::field('link_title', 30, 255, array(
+    'default'    => $link_title,
+    'extra_html' => 'required placeholder="' . __('Title') . '"'
+)) .
 '</p>' .
 
 '<p class="col"><label for="link_href" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('URL:') . '</label> ' .
-form::field('link_href', 30, 255, $link_href, '', '', false, 'required placeholder="' . __('URL') . '"') .
+form::field('link_href', 30, 255, array(
+    'default'    => $link_href,
+    'extra_html' => 'required placeholder="' . __('URL') . '"'
+)) .
 '</p>' .
 
 '<p class="col"><label for="link_desc">' . __('Description:') . '</label> ' .
@@ -287,7 +298,11 @@ echo
 '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" id="add-category-form">' .
 '<h3>' . __('Add a new category') . '</h3>' .
 '<p><label for="cat_title" class=" classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
-form::field('cat_title', 30, 255, $cat_title, '', '', false, 'required placeholder="' . __('Title') . '"') . ' ' .
+form::field('cat_title', 30, 255, array(
+    'default'    => $cat_title,
+    'extra_html' => 'required placeholder="' . __('Title') . '"'
+)) .
+' ' .
 form::hidden(array('p'), 'blogroll') .
 $core->formNonce() .
 '<input type="submit" name="add_cat" value="' . __('Save') . '" /></p>' .

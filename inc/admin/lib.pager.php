@@ -113,7 +113,7 @@ class dcPager extends pager
         $htmlDirect =
             ($this->nb_pages > 1 ?
             sprintf('<li class="direct-access">' . __('Direct access page %s'),
-                form::field(array($this->var_page), 3, 10)) .
+                form::number(array($this->var_page), 1, $this->nb_pages)) .
             '<input type="submit" value="' . __('ok') . '" class="reset" ' .
             'name="ok" />' . $this->form_hidden . '</li>' : '');
 

@@ -400,6 +400,9 @@ msgstr "Veuillez noter que si vous changez ces réglages, ils s'appliqueront dé
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "Soyez prudent si plusieurs blogs de l'installation partagent la même médiathèque."
 
+msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
+msgstr "Mettez -1 pour utiliser la taille par défaut, mettez 0 pour ignorer cette taille de miniature (images seulement)."
+
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Tailles des miniatures générées (dimension maximum en pixels)"
 

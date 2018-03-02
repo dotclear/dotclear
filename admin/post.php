@@ -555,6 +555,15 @@ if ($can_edit_post) {
                 'post_dt'     =>
                 '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
                 form::field('post_dt', 16, 16, $post_dt, ($bad_dt ? 'invalid' : '')) .
+                /*
+                Previous line will be replaced by this one as soon as every browser will support datetime-local input type
+                Dont forget to remove call to datepicker in post.js
+
+                form::datetime('post_dt', array(
+                    'default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', strtotime($post_dt))),
+                    'class' => ($bad_dt ? 'invalid' : '')
+                )) .
+                */
                 '</p>',
                 'post_lang'   =>
                 '<p><label for="post_lang">' . __('Entry language') . '</label>' .
@@ -586,7 +595,7 @@ if ($can_edit_post) {
                     '<div>' .
                     '<h5 id="create_cat">' . __('Add a new category') . '</h5>' .
                     '<p><label for="new_cat_title">' . __('Title:') . ' ' .
-                    form::field('new_cat_title', 30, 255, '', 'maximal') . '</label></p>' .
+                    form::field('new_cat_title', 30, 255, array('class' => 'maximal')) . '</label></p>' .
                     '<p><label for="new_cat_parent">' . __('Parent:') . ' ' .
                     form::combo('new_cat_parent', $categories_combo, '', 'maximal') .
                     '</label></p>' .
@@ -637,7 +646,11 @@ if ($can_edit_post) {
         "post_title"   =>
         '<p class="col">' .
         '<label class="required no-margin bold" for="post_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
-        form::field('post_title', 20, 255, html::escapeHTML($post_title), 'maximal', '', false, 'required placeholder="' . __('Title') . '"') .
+        form::field('post_title', 20, 255, array(
+            'default'    => html::escapeHTML($post_title),
+            'class'      => 'maximal',
+            'extra_html' => 'required placeholder="' . __('Title') . '"'
+        )) .
         '</p>',
 
         "post_excerpt" =>
@@ -779,16 +792,18 @@ if ($post_id) {
     '<form action="' . $core->adminurl->get("admin.comment") . '" method="post" id="comment-form">' .
     '<div class="constrained">' .
     '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label>' .
-    form::field('comment_author', 30, 255, html::escapeHTML($core->auth->getInfo('user_cn')),
-        '', '', false, 'required placeholder="' . __('Author') . '"') .
+    form::field('comment_author', 30, 255, array(
+        'default'    => html::escapeHTML($core->auth->getInfo('user_cn')),
+        'extra_html' => 'required placeholder="' . __('Author') . '"'
+    )) .
     '</p>' .
 
     '<p><label for="comment_email">' . __('Email:') . '</label>' .
-    form::field('comment_email', 30, 255, html::escapeHTML($core->auth->getInfo('user_email'))) .
+    form::email('comment_email', 30, 255, html::escapeHTML($core->auth->getInfo('user_email'))) .
     '</p>' .
 
     '<p><label for="comment_site">' . __('Web site:') . '</label>' .
-    form::field('comment_site', 30, 255, html::escapeHTML($core->auth->getInfo('user_url'))) .
+    form::url('comment_site', 30, 255, html::escapeHTML($core->auth->getInfo('user_url'))) .
     '</p>' .
 
     '<p class="area"><label for="comment_content" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' .

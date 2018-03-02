@@ -260,7 +260,7 @@ if (!$core->error->flag()) {
     '<p><label for="order" class="ib">' . __('Sort:') . '</label> ' .
     form::combo('order', $order_combo, $order) . '</p>' .
     '<p><span class="label ib">' . __('Show') . '</span> <label for="nb" class="classic">' .
-    form::field('nb', 3, 3, $nb_per_page) . ' ' .
+    form::number('nb', 0, 999, $nb_per_page) . ' ' .
     __('comments per page') . '</label></p>' .
     '</div>' .
 

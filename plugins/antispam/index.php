@@ -203,7 +203,13 @@ if ($filter_gui !== false) {
 
         echo
         '<tr class="line' . ($f->active ? '' : ' offline') . '" id="f_' . $fid . '">' .
-        '<td class="handle">' . form::field(array('f_order[' . $fid . ']'), 2, 5, (string) $i, 'position', '', false, 'title="' . __('position') . '"') . '</td>' .
+        '<td class="handle">' . form::number(array('f_order[' . $fid . ']'), array(
+            'min'        => 0,
+            'default'    => $i,
+            'class'      => 'position',
+            'extra_html' => 'title="' . __('position') . '"'
+        )) .
+        '</td>' .
         '<td class="nowrap">' . form::checkbox(array('filters_active[]'), $fid,
             array(
                 'checked'    => $f->active,

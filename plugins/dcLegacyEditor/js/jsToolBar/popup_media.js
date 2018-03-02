@@ -65,18 +65,33 @@ $(function() {
       var flashvars = $('[name=FlashVars]', oplayer).val();
 
       align = $('input[name="alignment"]:checked', insert_form).val();
+
       var title = insert_form.elements.title.value;
-
-      $('video', oplayer).attr('width', $('#video_w').val());
-      $('video', oplayer).attr('height', $('#video_h').val());
-
       if (title) {
         flashvars = 'title=' + encodeURI(title) + '&amp;' + flashvars;
       }
-      $('object', oplayer).attr('width', $('#video_w').val());
-      $('object', oplayer).attr('height', $('#video_h').val());
-      flashvars = flashvars.replace(/(width=\d*)/, 'width=' + $('#video_w').val());
-      flashvars = flashvars.replace(/(height=\d*)/, 'height=' + $('#video_h').val());
+
+      var vw = $('#video_w').val();
+      var vh = $('#video_h').val();
+
+      if (vw > 0) {
+        $('video', oplayer).attr('width', vw);
+        $('object', oplayer).attr('width', vw);
+        flashvars = flashvars.replace(/(width=\d*)/, 'width=' + vw);
+      } else {
+        $('video', oplayer).removeAttr('width');
+        $('object', oplayer).removeAttr('width');
+        flashvars = flashvars.replace(/(width=\d*)/, '');
+      }
+      if (vh > 0) {
+        $('video', oplayer).attr('height', vh);
+        $('object', oplayer).attr('height', vh);
+        flashvars = flashvars.replace(/(height=\d*)/, 'height=' + vh);
+      } else {
+        $('video', oplayer).removeAttr('height');
+        $('object', oplayer).removeAttr('height');
+        flashvars = flashvars.replace(/(height=\d*)/, '');
+      }
 
       $('[name=FlashVars]', oplayer).val(flashvars);
       player = oplayer.html();

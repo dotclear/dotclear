@@ -212,9 +212,18 @@ form::field('DBUSER', 30, 255, html::escapeHTML($DBUSER)) . '</p>' .
 '<p><label for="DBPASSWORD">' . __('Database Password:') . '</label> ' .
 form::password('DBPASSWORD', 30, 255) . '</p>' .
 '<p><label for="DBPREFIX" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Database Tables Prefix:') . '</label> ' .
-form::field('DBPREFIX', 30, 255, html::escapeHTML($DBPREFIX), '', '', false, 'required placeholder="' . __('Prefix') . '"') . '</p>' .
+form::field('DBPREFIX', 30, 255, array(
+    'default'    => html::escapeHTML($DBPREFIX),
+    'extra_html' => 'required placeholder="' . __('Prefix') . '"'
+)) .
+'</p>' .
 '<p><label for="ADMINMAILFROM">' . __('Master Email: (used as sender for password recovery)') . '</label> ' .
-form::field('ADMINMAILFROM', 30, 255, html::escapeHTML($ADMINMAILFROM)) . '</p>' .
+form::mail('ADMINMAILFROM', array(
+    'size'         => 30,
+    'default'      => html::escapeHTML($ADMINMAILFROM),
+    'autocomplete' => 'email'
+)) .
+'</p>' .
 
 '<p><input type="submit" value="' . __('Continue') . '" /></p>' .
     '</form>';
