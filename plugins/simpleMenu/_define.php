@@ -9,18 +9,18 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"simpleMenu",
-	/* Description*/		"Simple menu for Dotclear",
-	/* Author */			"Franck Paul",
-	/* Version */			'1.4',
-	array(
-		'permissions' =>	'admin',
-		'type'		=>		'plugin',
-		'settings'	=>		array(
-								'self' => ''
-							)
-	)
+    "simpleMenu",               // Name
+    "Simple menu for Dotclear", // Description
+    "Franck Paul",              // Author
+    '1.5',                      // Version
+    array(
+        'permissions' => 'admin',
+        'type'        => 'plugin',
+        'settings'    => array(
+            'self' => ''
+        )
+    )
 );

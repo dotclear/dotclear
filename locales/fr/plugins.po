@@ -2006,6 +2006,12 @@ msgstr "S'ouvre dans un nouvel onglet"
 msgid "the link will open a new window"
 msgstr "Ce lien s'ouvrira dans une nouvelle fenêtre"
 
+msgid "active page"
+msgstr "page active"
+
+msgid "Active page"
+msgstr "Page active"
+
 msgid "Selected entries"
 msgstr "Billets sélectionnés"
 
