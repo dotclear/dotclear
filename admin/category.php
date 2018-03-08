@@ -188,7 +188,7 @@ form::field('cat_title', 40, 255, array(
     'default'    => html::escapeHTML($cat_title),
     'extra_html' => 'required placeholder="' . __('Name') . '"'
 )) .
-'</p>';
+    '</p>';
 if (!$cat_id) {
     $rs = $core->blog->getCategories();
     echo

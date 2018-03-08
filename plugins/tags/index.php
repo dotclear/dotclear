@@ -9,13 +9,13 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_CONTEXT_ADMIN')) { return; }
+if (!defined('DC_CONTEXT_ADMIN')) {return;}
 
 if (!empty($_REQUEST['m'])) {
-	switch ($_REQUEST['m']) {
-		case 'tags' :
-		case 'tag_posts' :
-			require dirname(__FILE__).'/'.$_REQUEST['m'].'.php';
-			break;
-	}
+    switch ($_REQUEST['m']) {
+        case 'tags':
+        case 'tag_posts':
+            require dirname(__FILE__) . '/' . $_REQUEST['m'] . '.php';
+            break;
+    }
 }

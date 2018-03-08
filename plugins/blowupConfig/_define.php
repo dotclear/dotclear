@@ -9,15 +9,15 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"Blowup Config",
-	/* Description*/		"Configure your Blowup Theme",
-	/* Author */			"Olivier Meunier",
-	/* Version */			'1.2',
-	array(
-		'permissions' =>	'admin',
-		'type'		=>		'plugin'
-	)
+    "Blowup Config",               // Name
+    "Configure your Blowup Theme", // Description
+    "Olivier Meunier",             // Author
+    '1.2',                         // Version
+    array(
+        'permissions' => 'admin',
+        'type'        => 'plugin'
+    )
 );

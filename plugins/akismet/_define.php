@@ -9,16 +9,16 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"Akismet",
-	/* Description*/		"Akismet interface for Dotclear",
-	/* Author */			"Olivier Meunier",
-	/* Version */			'1.1',
-	array(
-		'permissions' =>	'usage,contentadmin',
-		'priority' =>		200,
-		'type'		=>		'plugin'
-	)
+    "Akismet",                        // Name
+    "Akismet interface for Dotclear", // Description
+    "Olivier Meunier",                // Author
+    '1.1',                            // Version
+    array(
+        'permissions' => 'usage,contentadmin',
+        'priority'    => 200,
+        'type'        => 'plugin'
+    )
 );

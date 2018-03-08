@@ -9,17 +9,17 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_CONTEXT_ADMIN')) { return; }
+if (!defined('DC_CONTEXT_ADMIN')) {return;}
 
-$core->addBehavior('adminCurrentThemeDetails','blowup_config_details');
+$core->addBehavior('adminCurrentThemeDetails', 'blowup_config_details');
 
 if (!isset($__resources['help']['blowupConfig'])) {
-	$__resources['help']['blowupConfig'] = dirname(__FILE__).'/help.html';
+    $__resources['help']['blowupConfig'] = dirname(__FILE__) . '/help.html';
 }
 
-function blowup_config_details($core,$id)
+function blowup_config_details($core, $id)
 {
-	if ($id == 'default' && $core->auth->check('admin',$core->blog->id)) {
-		return '<p><a href="'.$core->adminurl->get('admin.plugin.blowupConfig').'" class="button submit">'.__('Configure theme').'</a></p>';
-	}
+    if ($id == 'default' && $core->auth->check('admin', $core->blog->id)) {
+        return '<p><a href="' . $core->adminurl->get('admin.plugin.blowupConfig') . '" class="button submit">' . __('Configure theme') . '</a></p>';
+    }
 }

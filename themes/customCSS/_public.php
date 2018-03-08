@@ -11,17 +11,17 @@ namespace themes\customcss;
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
-$core->addBehavior('publicHeadContent',array(__NAMESPACE__.'\tplCustomTheme','publicHeadContent'));
+$core->addBehavior('publicHeadContent', array(__NAMESPACE__ . '\tplCustomTheme', 'publicHeadContent'));
 
 class tplCustomTheme
 {
-	public static function publicHeadContent($core)
-	{
-		echo
-		'<style type="text/css">'."\n".
-		'@import url('.$core->blog->settings->system->public_url.'/custom_style.css);'."\n".
-		"</style>\n";
-	}
+    public static function publicHeadContent($core)
+    {
+        echo
+        '<style type="text/css">' . "\n" .
+        '@import url(' . $core->blog->settings->system->public_url . '/custom_style.css);' . "\n" .
+            "</style>\n";
+    }
 }

@@ -361,8 +361,8 @@ abstract class dcActionsPage
             form::checkbox(array($this->field_entries . '[]'), $id, array(
                 'checked' => true
             )) .
-            '</td>' .
-            '<td>' . $title . '</td></tr>';
+                '</td>' .
+                '<td>' . $title . '</td></tr>';
         }
         $ret .= '</table>';
         return $ret;

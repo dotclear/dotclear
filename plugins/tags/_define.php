@@ -9,19 +9,19 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"Tags",
-	/* Description*/		"Tags for posts",
-	/* Author */			"Olivier Meunier",
-	/* Version */			'1.4',
-	array(
-		'permissions' =>	'usage,contentadmin',
-		'priority' =>		1001,	// Must be higher than dcLegacyEditor/dcCKEditor priority (ie 1000)
-		'type'		=>		'plugin',
-		'settings'	=>		array(
-								'pref' => '#user-options.tags_prefs'
-							)
-	)
+    "Tags",            // Name
+    "Tags for posts",  // Description
+    "Olivier Meunier", // Author
+    '1.4',             // Version
+    array(
+        'permissions' => 'usage,contentadmin',
+        'priority'    => 1001, // Must be higher than dcLegacyEditor/dcCKEditor priority (ie 1000)
+        'type'        => 'plugin',
+        'settings'    => array(
+            'pref' => '#user-options.tags_prefs'
+        )
+    )
 );

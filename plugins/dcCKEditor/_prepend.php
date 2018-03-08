@@ -10,6 +10,6 @@
 #
 # -- END LICENSE BLOCK -----------------------------------------
 
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
-$__autoload['dcCKEditorBehaviors'] = dirname(__FILE__).'/inc/dc.ckeditor.behaviors.php';
+$__autoload['dcCKEditorBehaviors'] = dirname(__FILE__) . '/inc/dc.ckeditor.behaviors.php';

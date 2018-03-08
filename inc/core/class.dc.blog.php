@@ -2032,7 +2032,7 @@ class dcBlog
 
         if (isset($params['comment_id']) && $params['comment_id'] !== '') {
             if (is_array($params['comment_id'])) {
-                array_walk($params['comment_id'],  function (&$v, $k) {if ($v !== null) {$v = (integer) $v;}});
+                array_walk($params['comment_id'], function (&$v, $k) {if ($v !== null) {$v = (integer) $v;}});
             } else {
                 $params['comment_id'] = array((integer) $params['comment_id']);
             }

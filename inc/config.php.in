@@ -9,65 +9,63 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 // Database driver (mysql (deprecated, disabled in PHP7), mysqli, mysqlimb4 (full UTF-8), pgsql, sqlite)
-define('DC_DBDRIVER','');
+define('DC_DBDRIVER', '');
 
 // Database hostname (usually "localhost")
-define('DC_DBHOST','');
+define('DC_DBHOST', '');
 
 // Database user
-define('DC_DBUSER','');
+define('DC_DBUSER', '');
 
 // Database password
-define('DC_DBPASSWORD','');
+define('DC_DBPASSWORD', '');
 
 // Database name
-define('DC_DBNAME','');
+define('DC_DBNAME', '');
 
 // Tables' prefix
-define('DC_DBPREFIX','dc_');
+define('DC_DBPREFIX', 'dc_');
 
 // Persistent database connection
-define('DC_DBPERSIST',false);
+define('DC_DBPERSIST', false);
 
 // Crypt key (password storage)
-define('DC_MASTER_KEY','');
-
+define('DC_MASTER_KEY', '');
 
 // Admin URL. You need to set it for some features.
-define('DC_ADMIN_URL','');
+define('DC_ADMIN_URL', '');
 
 // Admin mail from address. For password recovery and such.
-define('DC_ADMIN_MAILFROM','');
+define('DC_ADMIN_MAILFROM', '');
 
 // Cookie's name
-define('DC_SESSION_NAME','dcxd');
+define('DC_SESSION_NAME', 'dcxd');
 
 // Plugins root
-define('DC_PLUGINS_ROOT',dirname(__FILE__).'/../plugins');
+define('DC_PLUGINS_ROOT', dirname(__FILE__) . '/../plugins');
 
 // Template cache directory
-define('DC_TPL_CACHE',path::real(dirname(__FILE__).'/..').'/cache');
+define('DC_TPL_CACHE', path::real(dirname(__FILE__) . '/..') . '/cache');
 
 // Var directory
-define('DC_VAR',path::real(dirname(__FILE__).'/..').'/var');
+define('DC_VAR', path::real(dirname(__FILE__) . '/..') . '/var');
 
 // Cryptographic algorithm
-define('DC_CRYPT_ALGO','sha512');
+define('DC_CRYPT_ALGO', 'sha512');
 
 // If you have PATH_INFO issue, uncomment following lines
 //if (!isset($_SERVER['ORIG_PATH_INFO'])) {
-//	$_SERVER['ORIG_PATH_INFO'] = '';
+//    $_SERVER['ORIG_PATH_INFO'] = '';
 //}
 //$_SERVER['PATH_INFO'] = $_SERVER['ORIG_PATH_INFO'];
 
-
 // If you have mail problems, uncomment following lines and adapt it to your hosting configuration
 // For more information about this setting, please refer to http://doc.dotclear.net/2.0/admin/install/custom-sendmail
-//function _mail($to,$subject,$message,$headers)
+//function _mail($to, $subject, $message, $headers)
 //{
-//	socketMail::$smtp_relay = 'my.smtp.relay.org';
-//	socketMail::mail($to,$subject,$message,$headers);
+//    socketMail::$smtp_relay = 'my.smtp.relay.org';
+//    socketMail::mail($to, $subject, $message, $headers);
 //}

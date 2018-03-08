@@ -10,11 +10,11 @@
 #
 # -- END LICENSE BLOCK -----------------------------------------
 
-if (!defined('DC_CONTEXT_ADMIN')) { return; }
+if (!defined('DC_CONTEXT_ADMIN')) {return;}
 
 $version = $core->plugins->moduleInfo('dcLegacyEditor', 'version');
-if (version_compare($core->getVersion('dcLegacyEditor'), $version,'>=')) {
-  return;
+if (version_compare($core->getVersion('dcLegacyEditor'), $version, '>=')) {
+    return;
 }
 
 $settings = $core->blog->settings;

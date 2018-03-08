@@ -31,7 +31,7 @@ echo
 '<form id="link-insert-form" action="#" method="get">' .
 '<p><label class="required" for="href"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Link URL:') . '</label> ' .
 form::field('href', 35, 512, array(
-    'default' => html::escapeHTML($href),
+    'default'    => html::escapeHTML($href),
     'extra_html' => 'required placeholder="' . __('URL') . '"'
 )) .
 '</p>' .

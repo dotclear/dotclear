@@ -12,22 +12,22 @@ $license_block = <<<EOF
 # -- END LICENSE BLOCK -----------------------------------------
 EOF;
 
-$dc_base = dirname(__FILE__).'/..';
+$dc_base  = dirname(__FILE__) . '/..';
 $php_exec = $_SERVER['_'];
 
 $opts = array(
-	'http' => array()
+    'http' => array()
 );
 if (getenv('http_proxy') !== false) {
-	$opts['http']['proxy'] = 'tcp://'.getenv('http_proxy');
+    $opts['http']['proxy'] = 'tcp://' . getenv('http_proxy');
 }
 $context = stream_context_create($opts);
 
-if (!file_exists($dc_base.'/composer.phar')) {
-	echo "Downloading composer.phar\n";
-	$composer_installer = file_get_contents('https://getcomposer.org/composer.phar',false,$context);
-	file_put_contents($dc_base.'/composer.phar',$composer_installer);
+if (!file_exists($dc_base . '/composer.phar')) {
+    echo "Downloading composer.phar\n";
+    $composer_installer = file_get_contents('https://getcomposer.org/composer.phar', false, $context);
+    file_put_contents($dc_base . '/composer.phar', $composer_installer);
 }
 chdir($dc_base);
-echo 'Running '.$php_exec.' composer.phar install'."\n";
-passthru ($php_exec.' composer.phar install');
+echo 'Running ' . $php_exec . ' composer.phar install' . "\n";
+passthru($php_exec . ' composer.phar install');

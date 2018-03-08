@@ -319,20 +319,20 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
         form::hidden('post_excerpt', '') .
         form::hidden('post_lang', $core->auth->getInfo('user_lang')) .
         form::hidden('post_notes', '') .
-        '</p>' .
-        '</form>' .
-        '</div>';
-        }
-    }
-
-    if ($dashboardContents != '' || $dashboardItems != '') {
-        echo
-            '<div id="dashboard-boxes">' .
-            ($dashboardItems != '' ? '<div class="db-items">' . $dashboardItems . '</div>' : '') .
-            ($dashboardContents != '' ? '<div class="db-contents">' . $dashboardContents . '</div>' : '') .
+            '</p>' .
+            '</form>' .
             '</div>';
     }
+}
 
-    echo '</div>'; #end dashboard-main
-    dcPage::helpBlock('core_dashboard');
-    dcPage::close();
+if ($dashboardContents != '' || $dashboardItems != '') {
+    echo
+        '<div id="dashboard-boxes">' .
+        ($dashboardItems != '' ? '<div class="db-items">' . $dashboardItems . '</div>' : '') .
+        ($dashboardContents != '' ? '<div class="db-contents">' . $dashboardContents . '</div>' : '') .
+        '</div>';
+}
+
+echo '</div>'; #end dashboard-main
+dcPage::helpBlock('core_dashboard');
+dcPage::close();

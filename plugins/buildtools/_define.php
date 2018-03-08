@@ -9,14 +9,14 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"buildtools",
-	/* Description*/		"Internal build tools for dotclear team",
-	/* Author */			"dcTeam",
-	/* Version */			'1.0',
-	array(
-		'permissions' =>	'admin'
-	)
+    "buildtools",                             // Name
+    "Internal build tools for dotclear team", // Description
+    "dcTeam",                                 // Author
+    '1.0',                                    // Version
+    array(
+        'permissions' => 'admin'
+    )
 );

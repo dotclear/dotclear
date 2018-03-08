@@ -9,14 +9,14 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"Blue Silence",
-	/* Description*/		"Dotclear Theme",
-	/* Author */			"Marco / marcarea.com",
-	/* Version */			'1.0',
-	array(
-		'type'		=>		'theme'
-	)
+    "Blue Silence",         // Name
+    "Dotclear Theme",       // Description
+    "Marco / marcarea.com", // Author
+    '1.0',                  // Version
+    array(
+        'type' => 'theme'
+    )
 );

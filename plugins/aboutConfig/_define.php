@@ -9,15 +9,15 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"about:config",
-	/* Description*/		"Manage every blog configuration directive",
-	/* Author */			"Olivier Meunier",
-	/* Version */			'0.5',
-	array(
-		'type'		=>		'plugin'
-	)
+    "about:config",                              // Name
+    "Manage every blog configuration directive", // Description
+    "Olivier Meunier",                           // Author
+    '0.5',                                       // Version
+    array(
+        'type' => 'plugin'
+    )
 
 );

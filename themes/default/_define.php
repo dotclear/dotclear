@@ -9,14 +9,14 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"Blowup",
-	/* Description*/		"Default Dotclear theme, fully customizable",
-	/* Author */			"Marco & Olivier",
-	/* Version */			'1.0',
-	array(
-		'type'		=>		'theme'
-	)
+    "Blowup",                                     // Name
+    "Default Dotclear theme, fully customizable", // Description
+    "Marco & Olivier",                            // Author
+    '1.0',                                        // Version
+    array(
+        'type' => 'theme'
+    )
 );

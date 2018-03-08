@@ -77,10 +77,10 @@ class dcBlogsActionsPage extends dcActionsPage
                 array(
                     'checked' => true
                 )) .
-            '</td>' .
-            '<td>' . $res['blog'] . '</td>' .
-            '<td>' . $res['name'] . '</td>' .
-            '</tr>';
+                '</td>' .
+                '<td>' . $res['blog'] . '</td>' .
+                '<td>' . $res['name'] . '</td>' .
+                '</tr>';
         }
 
         return

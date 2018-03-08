@@ -10,25 +10,25 @@
 #
 # -- END LICENSE BLOCK -----------------------------------------
 
-/* ### THIS FILE IS DEPRECATED 					### */
+/* ### THIS FILE IS DEPRECATED                     ### */
 /* ### IT IS ONLY USED FOR PLUGINS COMPATIBILITY ### */
 
-require dirname(__FILE__).'/../inc/admin/prepend.php';
+require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
 if (isset($_REQUEST['redir'])) {
-	$u = explode('?',$_REQUEST['redir']);
-	$uri = $u[0];
-	if (isset($u[1])) {
-		parse_str($u[1],$args);
-	}
-	$args['redir'] = $_REQUEST['redir'];
+    $u   = explode('?', $_REQUEST['redir']);
+    $uri = $u[0];
+    if (isset($u[1])) {
+        parse_str($u[1], $args);
+    }
+    $args['redir'] = $_REQUEST['redir'];
 } else {
-	$uri = $core->adminurl->get("admin.comments");
-	$args=array();
+    $uri  = $core->adminurl->get("admin.comments");
+    $args = array();
 }
 
-$comments_actions_page = new dcCommentsActionsPage($core,$uri,$args);
+$comments_actions_page = new dcCommentsActionsPage($core, $uri, $args);
 $comments_actions_page->setEnableRedirSelection(false);
 $comments_actions_page->process();

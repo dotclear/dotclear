@@ -10,18 +10,18 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 # -- END LICENSE BLOCK ------------------------------------
 
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"Breadcrumb",
-	/* Description*/		"Breadcrumb for Dotclear",
-	/* Author */			"Franck Paul",
-	/* Version */			'0.7',
-	array(
-		/* Permissions */	'permissions' =>	'usage,contentadmin',
-		/* Type */			'type' =>			'plugin',
-		'settings'	=>		array(
-								'blog' => '#params.breadcrumb_params'
-							)
-	)
+    "Breadcrumb",              // Name
+    "Breadcrumb for Dotclear", // Description
+    "Franck Paul",             // Author
+    '0.7',                     // Version
+    array(
+        'permissions' => 'usage,contentadmin', // Permissions
+        'type'        => 'plugin',             // Type
+        'settings'    => array(
+            'blog' => '#params.breadcrumb_params'
+        )
+    )
 );
