@@ -9,8 +9,8 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
-$core->addBehavior('publicBeforeCommentCreate',array('dcAntispam','isSpam'));
-$core->addBehavior('publicBeforeTrackbackCreate',array('dcAntispam','isSpam'));
-$core->addBehavior('publicBeforeDocument',array('dcAntispam','purgeOldSpam'));
+$core->addBehavior('publicBeforeCommentCreate', array('dcAntispam', 'isSpam'));
+$core->addBehavior('publicBeforeTrackbackCreate', array('dcAntispam', 'isSpam'));
+$core->addBehavior('publicBeforeDocument', array('dcAntispam', 'purgeOldSpam'));

@@ -11,157 +11,144 @@
 # -- END LICENSE BLOCK -----------------------------------------
 */
 
-
 /* ------------------------------------------------------------- side bars */
+
 #sidebarsWidgets {
-	float: left;
-	width: 49%;
-	margin: 0 0 0 1%;
-	padding: 0 1%;
+  float: left;
+  width: 49%;
+  margin: 0 0 0 1%;
+  padding: 0 1%;
 }
 .widgets.fieldset {
-	margin-bottom: 2em;
+  margin-bottom: 2em;
 }
 .widgets.fieldset.if-drag {
-	padding-bottom: 0;
-	border-radius: .5em;
+  padding-bottom: 0;
+  border-radius: .5em;
 }
 #dndnav, #dndextra, #dndcustom {
-	padding: 1em 0;
-	margin: 1em 0 0;
+  padding: 1em 0;
+  margin: 1em 0 0;
 }
-#dndnav > li,
-#dndextra > li,
-#dndcustom > li {
-	padding: 0;
-	border: 1px solid #999;
-	margin-bottom: 1em;
-	list-style: none;
+#dndnav>li, #dndextra>li, #dndcustom>li {
+  padding: 0;
+  border: 1px solid #999;
+  margin-bottom: 1em;
+  list-style: none;
 }
-#dndnav > li.empty-widgets,
-#dndextra > li.empty-widgets,
-#dndcustom > li.empty-widgets {
-	border: 0;
+#dndnav>li.empty-widgets, #dndextra>li.empty-widgets, #dndcustom>li.empty-widgets {
+  border: 0;
 }
-#dndnav > li.ui-sortable-placeholder,
-#dndextra > li.ui-sortable-placeholder,
-#dndcustom > li.ui-sortable-placeholder,
-.sortable-delete > li.ui-sortable-placeholder {
-	border: 1px dashed #999;
-	height: 2em;
-	padding: .3em;
+#dndnav>li.ui-sortable-placeholder, #dndextra>li.ui-sortable-placeholder, #dndcustom>li.ui-sortable-placeholder, .sortable-delete>li.ui-sortable-placeholder {
+  border: 1px dashed #999;
+  height: 2em;
+  padding: .3em;
 }
-.sortable-delete > li.ui-sortable-placeholder {
-	border-width: 2px;
-	border-color: red;
+.sortable-delete>li.ui-sortable-placeholder {
+  border-width: 2px;
+  border-color: red;
 }
 .sortable-delete {
-	display: none;
+  display: none;
 }
 .sortable-delete.if-drag {
-    border: 1px dotted #999;
-    color: #000;
-    font-weight: bold;
-    list-style-type: none;
-    margin: 0 0 1em;
-    padding: .5em 1em;
-    display: block;
-    background: #fafafa;
+  border: 1px dotted #999;
+  color: #000;
+  font-weight: bold;
+  list-style-type: none;
+  margin: 0 0 1em;
+  padding: .5em 1em;
+  display: block;
+  background: #fafafa;
 }
-.sortable-delete > li {
-	margin-bottom: 3px;
+.sortable-delete>li {
+  margin-bottom: 3px;
 }
-.sortable-delete > li.sortable-delete-placeholder {
-    border: 0 none;
-    color: #aaa;
-    font-size: 1em;
-    font-weight: bold;
-    text-align: center;
+.sortable-delete>li.sortable-delete-placeholder {
+  border: 0 none;
+  color: #aaa;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
 }
 .widget-name {
-	background: #eef;
-	color: #000;
-	padding: 4px 6px;
-	margin: 0;
-	font-weight: bold;
+  background: #eef;
+  color: #000;
+  padding: 4px 6px;
+  margin: 0;
+  font-weight: bold;
 }
 .widget-name img {
-	cursor: pointer;
-	margin-bottom: -1px;
+  cursor: pointer;
+  margin-bottom: -1px;
 }
-.widget-name a.aexpand,
-.widget-name a.aexpand:link,
-.widget-name a.aexpand:visited {
-    border: 0 none;
-    color: #000;
-    text-decoration: none;
+.widget-name a.aexpand, .widget-name a.aexpand:link, .widget-name a.aexpand:visited {
+  border: 0 none;
+  color: #000;
+  text-decoration: none;
 }
-#dndnav .form-note,
-#dndextra .form-note,
-#dndcustom .form-note {
-	display: none;
+#dndnav .form-note, #dndextra .form-note, #dndcustom .form-note {
+  display: none;
 }
 .toolsWidget {
-	float: right;
+  float: right;
 }
 .widgetSettings {
-	border-top: 1px solid #ddd;
-	padding: 8px 6px;
-	background: #f5f5f5;
+  border-top: 1px solid #ddd;
+  padding: 8px 6px;
+  background: #f5f5f5;
 }
-
 #sidebarsControl {
-	clear: left;
+  clear: left;
 }
-
 /* ------------------------------------------------------------- list Widgets ref */
+
 #listWidgets {
-	float: left;
-	width: 49%;
-	background: #eee;
-	padding: 1.5em 1% 0;
-	margin: 0 1% 0 0;
+  float: left;
+  width: 49%;
+  background: #eee;
+  padding: 1.5em 1% 0;
+  margin: 0 1% 0 0;
 }
 #listWidgets h3 {
-	color: #333;
+  color: #333;
 }
-
 #widgets-ref {
-	padding: 1em 0;
-	margin: 1em 0 0;
+  padding: 1em 0;
+  margin: 1em 0 0;
 }
-#widgets-ref > li {
-	border: 1px solid #ccc;
-	margin-bottom: .5em;
-	background: #fff;
-	min-height: 3em;
-	padding: 0 0 4px 0;
-	list-style: none;
+#widgets-ref>li {
+  border: 1px solid #ccc;
+  margin-bottom: .5em;
+  background: #fff;
+  min-height: 3em;
+  padding: 0 0 4px 0;
+  list-style: none;
 }
-#widgets-ref .widget-name,
-#widgets-ref .manual-move {
-	background: #fff;
-	margin-bottom: 0;
-	padding: 4px 8px 0;
+#widgets-ref .widget-name, #widgets-ref .manual-move {
+  background: #fff;
+  margin-bottom: 0;
+  padding: 4px 8px 0;
 }
 #widgets-ref .widget-name {
-	min-height: 3em;
+  min-height: 3em;
 }
 #widgets-ref .widget-name .form-note {
-	display: block;
-	font-style: normal;
-	font-size: 1.1rem;
+  display: block;
+  font-style: normal;
+  font-size: 1.1rem;
 }
 #widgets-ref .widgetSettings {
-	display: none;
+  display: none;
 }
 .removeWidget {
-	margin-left: 1em;
+  margin-left: 1em;
 }
 /* ------------------------------------------------------------- help */
+
 #widgets-tpl dt {
-	margin: 1em 0 0 0;
+  margin: 1em 0 0 0;
 }
 #widgets-tpl dd {
-	margin: 0.2em 0 1em 0;
+  margin: 0.2em 0 1em 0;
 }

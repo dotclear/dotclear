@@ -8,15 +8,15 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */				"Berlin",
-	/* Description*/		"Dotclear 2.7+ default theme",
-	/* Author */			"Dotclear Team",
-	/* Version */			'1.2',
-	/* Properties */		array(
-								'type' => 'theme',
-								'tplset' => 'dotty'
-							)
+    "Berlin",                      // Name
+    "Dotclear 2.7+ default theme", // Description
+    "Dotclear Team",               // Author
+    '1.2',                         // Version
+    array(                         // Properties
+        'type'   => 'theme',
+        'tplset' => 'dotty'
+    )
 );

@@ -9,9 +9,9 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
-$__autoload['pingsAPI'] = dirname(__FILE__).'/lib.pings.php';
-$__autoload['pingsCoreBehaviour'] = dirname(__FILE__).'/lib.pings.php';
+$__autoload['pingsAPI']           = dirname(__FILE__) . '/lib.pings.php';
+$__autoload['pingsCoreBehaviour'] = dirname(__FILE__) . '/lib.pings.php';
 
-$core->addBehavior('coreFirstPublicationEntries',array('pingsCoreBehaviour','doPings'));
+$core->addBehavior('coreFirstPublicationEntries', array('pingsCoreBehaviour', 'doPings'));

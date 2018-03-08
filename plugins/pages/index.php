@@ -9,13 +9,12 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_CONTEXT_ADMIN')) { return; }
+if (!defined('DC_CONTEXT_ADMIN')) {return;}
 
 $act = !empty($_REQUEST['act']) ? $_REQUEST['act'] : 'list';
 
-
 if ($act == 'page') {
-	include dirname(__FILE__).'/page.php';
+    include dirname(__FILE__) . '/page.php';
 } else {
-	include dirname(__FILE__).'/list.php';
+    include dirname(__FILE__) . '/list.php';
 }

@@ -766,7 +766,7 @@ if ($file->editable && $core_media_writable) {
     Dont forget to remove call to datepicker in media_item.js
 
     form::datetime('media_dt', array('default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', $file->media_dt)))) .
-    */
+     */
     '</p>' .
     '<p><label for="media_private" class="classic">' . form::checkbox('media_private', 1, $file->media_priv) . ' ' .
     __('Private') . '</label></p>' .

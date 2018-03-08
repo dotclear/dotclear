@@ -9,12 +9,13 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_CONTEXT_ADMIN')) { return; }
+if (!defined('DC_CONTEXT_ADMIN')) {return;}
 $core->addBehavior('dcMaintenanceInit', array('dcBuildTools', 'maintenanceAdmin'));
 
 class dcBuildTools
 {
-	public static function maintenanceAdmin($maintenance) {
-		$maintenance->addTask('dcMaintenanceBuildtools');
-	}
+    public static function maintenanceAdmin($maintenance)
+    {
+        $maintenance->addTask('dcMaintenanceBuildtools');
+    }
 }

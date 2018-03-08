@@ -9,16 +9,16 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"Widgets",
-	/* Description*/		"Widgets for your blog sidebars",
-	/* Author */			"Olivier Meunier & Dotclear Team",
-	/* Version */			'3.4',
-	array(
-		'permissions' =>	'admin',
-		'priority' =>		1000000000,
-		'type'		=>		'plugin'
-	)
+    "Widgets",                         // Name
+    "Widgets for your blog sidebars",  // Description
+    "Olivier Meunier & Dotclear Team", // Author
+    '3.4',                             // Version
+    array(
+        'permissions' => 'admin',
+        'priority'    => 1000000000,
+        'type'        => 'plugin'
+    )
 );

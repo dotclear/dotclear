@@ -9,14 +9,14 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"Custom theme",
-	/* Description*/		"A CSS customizable theme",
-	/* Author */			"Olivier",
-	/* Version */			'1.2',
-	array(
-		'type'		=>		'theme'
-	)
+    "Custom theme",             // Name
+    "A CSS customizable theme", // Description
+    "Olivier",                  // Author
+    '1.2',                      // Version
+    array(
+        'type' => 'theme'
+    )
 );

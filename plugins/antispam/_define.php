@@ -9,19 +9,19 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"Antispam",
-	/* Description*/		"Generic antispam plugin for Dotclear",
-	/* Author */			"Alain Vagner",
-	/* Version */			'1.4.1',
-	array(
-		'permissions' =>	'usage,contentadmin',
-		'priority' =>		10,
-		'settings'	=>		array(
-								'self' => '',
-								'blog' => '#params.antispam_params'
-							)
-	)
+    "Antispam",                             // Name
+    "Generic antispam plugin for Dotclear", // Description
+    "Alain Vagner",                         // Author
+    '1.4.1',                                // Version
+    array(
+        'permissions' => 'usage,contentadmin',
+        'priority'    => 10,
+        'settings'    => array(
+            'self' => '',
+            'blog' => '#params.antispam_params'
+        )
+    )
 );

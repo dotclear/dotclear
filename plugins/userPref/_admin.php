@@ -9,10 +9,10 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_CONTEXT_ADMIN')) { return; }
+if (!defined('DC_CONTEXT_ADMIN')) {return;}
 
 $_menu['System']->addItem('user:preferences',
-		$core->adminurl->get('admin.plugin.userPref'),
-		dcPage::getPF('userPref/icon.png'),
-		preg_match('/'.preg_quote($core->adminurl->get('admin.plugin.userPref')).'(&.*)?$/',$_SERVER['REQUEST_URI']),
-		$core->auth->isSuperAdmin());
+    $core->adminurl->get('admin.plugin.userPref'),
+    dcPage::getPF('userPref/icon.png'),
+    preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.userPref')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
+    $core->auth->isSuperAdmin());

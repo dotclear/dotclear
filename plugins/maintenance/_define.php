@@ -9,19 +9,19 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"Maintenance",
-	/* Description*/		"Maintain your installation",
-	/* Author */			"Olivier Meunier & Association Dotclear",
-	/* Version */			'1.3.1',
-	array(
-		'permissions' =>	'admin',
-		'type'		=>		'plugin',
-		'settings'	=>		array(
-								'self' => '#settings'
-							)
-	)
+    "Maintenance",                            // Name
+    "Maintain your installation",             // Description
+    "Olivier Meunier & Association Dotclear", // Author
+    '1.3.1',                                  // Version
+    array(
+        'permissions' => 'admin',
+        'type'        => 'plugin',
+        'settings'    => array(
+            'self' => '#settings'
+        )
+    )
 
 );

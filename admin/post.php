@@ -560,10 +560,10 @@ if ($can_edit_post) {
                 Dont forget to remove call to datepicker in post.js
 
                 form::datetime('post_dt', array(
-                    'default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', strtotime($post_dt))),
-                    'class' => ($bad_dt ? 'invalid' : '')
+                'default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', strtotime($post_dt))),
+                'class' => ($bad_dt ? 'invalid' : '')
                 )) .
-                */
+                 */
                 '</p>',
                 'post_lang'   =>
                 '<p><label for="post_lang">' . __('Entry language') . '</label>' .

@@ -8,15 +8,15 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */				"Ductile",
-	/* Description*/		"Mediaqueries compliant elegant theme",
-	/* Author */			"Dotclear Team",
-	/* Version */			'1.5',
-	/* Properties */		array(
-								'standalone_config' => true,
-								'type' => 'theme'
-							)
+    "Ductile",                              // Name
+    "Mediaqueries compliant elegant theme", // Description
+    "Dotclear Team",                        // Author
+    '1.5',                                  // Version
+    array(                                  // Properties
+        'standalone_config' => true,
+        'type'              => 'theme'
+    )
 );

@@ -9,14 +9,14 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"user:preferences",
-	/* Description*/		"Manage every user preference directive",
-	/* Author */			"Franck Paul",
-	/* Version */			'0.3',
-	array(
-		'type'		=>		'plugin'
-	)
+    "user:preferences",                       // Name
+    "Manage every user preference directive", // Description
+    "Franck Paul",                            // Author
+    '0.3',                                    // Version
+    array(
+        'type' => 'plugin'
+    )
 );

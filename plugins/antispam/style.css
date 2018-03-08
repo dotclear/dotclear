@@ -1,35 +1,36 @@
 ul.spaminfo {
-	display: block;
-	list-style: none;
-	margin: 1em 0;
-	padding: 0;
+  display: block;
+  list-style: none;
+  margin: 1em 0;
+  padding: 0;
 }
 ul.spaminfo li {
-	margin: 0.5em 0;
-	padding-left: 16px;
-	background-color: transparent;
-	background-position: center left;
-	background-repeat: no-repeat;
+  margin: 0.5em 0;
+  padding-left: 16px;
+  background-color: transparent;
+  background-position: center left;
+  background-repeat: no-repeat;
 }
 ul.spaminfo .spamcount {
-	background-image: url(images/junk.png);
+  background-image: url(images/junk.png);
 }
 ul.spaminfo .hamcount {
-	background-image: url(images/check-on.png);
+  background-image: url(images/check-on.png);
 }
 ul.spaminfo .feed {
-	background-image: url(index.php?pf=antispam/feed.png);
+  background-image: url(index.php?pf=antispam/feed.png);
 }
 /* ---------------------------------------------------------- listing of IPs / bad words */
+
 .antispam {
-	height: 200px;
-	overflow: auto;
-	margin-bottom: 1em;
+  height: 200px;
+  overflow: auto;
+  margin-bottom: 1em;
 }
 .antispam p {
-	margin: 1px 0 0 0;
-	padding: 0.2em 0.5em;
+  margin: 1px 0 0 0;
+  padding: 0.2em 0.5em;
 }
 .antispam p.global {
-	background: #fec;
+  background: #fec;
 }

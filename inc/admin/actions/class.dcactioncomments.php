@@ -90,8 +90,8 @@ class dcCommentsActionsPage extends dcActionsPage
                 array(
                     'checked' => true
                 )) .
-            '</td>' .
-            '<td>' . $title['author'] . '</td><td>' . $title['title'] . '</td></tr>';
+                '</td>' .
+                '<td>' . $title['author'] . '</td><td>' . $title['title'] . '</td></tr>';
         }
         $ret .= '</table>';
         return $ret;

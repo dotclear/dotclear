@@ -9,17 +9,17 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"themeEditor",
-	/* Description*/		"Theme Editor",
-	/* Author */			"Olivier Meunier",
-	/* Version */			'1.3',
-	array(
-		'type'		=>		'plugin',
-		'settings'	=>		array(
-								'pref' => '#user-options.themeEditor_prefs'
-							)
-	)
+    "themeEditor",     // Name
+    "Theme Editor",    // Description
+    "Olivier Meunier", // Author
+    '1.3',             // Version
+    array(
+        'type'     => 'plugin',
+        'settings' => array(
+            'pref' => '#user-options.themeEditor_prefs'
+        )
+    )
 );

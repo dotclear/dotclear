@@ -9,15 +9,15 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) { return; }
+if (!defined('DC_RC_PATH')) {return;}
 
 $this->registerModule(
-	/* Name */			"Import / Export",
-	/* Description*/		"Import and Export your blog",
-	/* Author */			"Olivier Meunier & Contributors",
-	/* Version */			'3.2',
-	array(
-		'permissions' =>	'admin',
-		'type'		=>		'plugin'
-	)
+    "Import / Export",                // Name
+    "Import and Export your blog",    // Description
+    "Olivier Meunier & Contributors", // Author
+    '3.2',                            // Version
+    array(
+        'permissions' => 'admin',
+        'type'        => 'plugin'
+    )
 );

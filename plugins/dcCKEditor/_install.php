@@ -10,10 +10,10 @@
 #
 # -- END LICENSE BLOCK -----------------------------------------
 
-if (!defined('DC_CONTEXT_ADMIN')) { return; }
+if (!defined('DC_CONTEXT_ADMIN')) {return;}
 
 $version = $core->plugins->moduleInfo('dcCKEditor', 'version');
-if (version_compare($core->getVersion('dcCKEditor'), $version,'>=')) {
+if (version_compare($core->getVersion('dcCKEditor'), $version, '>=')) {
     return;
 }
 
