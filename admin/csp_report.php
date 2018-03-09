@@ -1,4 +1,12 @@
 <?php
+/**
+ * @package Dotclear
+ * @subpackage Backend
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+
 // From: https://github.com/nico3333fr/CSP-useful
 //
 // Note: this script requires PHP ≥ 5.4.

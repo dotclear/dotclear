@@ -1,24 +1,19 @@
 <?php
-# -- BEGIN LICENSE BLOCK ---------------------------------------
-#
-# This file is part of Dotclear 2.
-#
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) {return;}
-
 /**
- * @ingroup DC_CORE
- * @nosubgrouping
  * @brief Authentication and user credentials management
  *
  * dcAuth is a class used to handle everything related to user authentication
  * and credentials. Object is provided by dcCore $auth property.
+ *
+ * @package Dotclear
+ * @subpackage Core
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
  */
+
+if (!defined('DC_RC_PATH')) {return;}
+
 class dcAuth
 {
     /** @var dcCore dcCore instance */

@@ -1,15 +1,9 @@
 #!/bin/sh
-# -- BEGIN LICENSE BLOCK ---------------------------------------
+# @package Dotclear
 #
-# This file is part of Dotclear 2.
+# @copyright Olivier Meunier & Association Dotclear
+# @copyright GPL-2.0-only
 #
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK -----------------------------------------
-
 # Usage (from l10n-plugins root)
 # po_update.sh <dotclear-root> [<lang>]
 

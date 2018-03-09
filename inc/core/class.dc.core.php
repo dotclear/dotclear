@@ -1,27 +1,17 @@
 <?php
-# -- BEGIN LICENSE BLOCK ---------------------------------------
-#
-# This file is part of Dotclear 2.
-#
-# Copyright (c) 2003-2015 Olivier Meunier & Association Dotclear
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK -----------------------------------------
-
 /**
-@defgroup DC_CORE Dotclear Core Classes
+ * @brief Dotclear core class
+ *
+ * True to its name dcCore is the core of Dotclear. It handles everything related
+ * to blogs, database connection, plugins...
+ *
+ * @package Dotclear
+ * @subpackage Core
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
  */
 
-/**
-@ingroup DC_CORE
-@nosubgrouping
-@brief Dotclear core class
-
-True to its name dcCore is the core of Dotclear. It handles everything related
-to blogs, database connection, plugins...
- */
 class dcCore
 {
     public $con;        ///< <b>connection</b>        Database connection object
