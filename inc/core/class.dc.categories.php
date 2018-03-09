@@ -1,20 +1,19 @@
 <?php
-# -- BEGIN LICENSE BLOCK ---------------------------------------
-#
-# This file is part of Dotclear 2.
-#
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK -----------------------------------------
-if (!defined('DC_RC_PATH')) {return;}
+/**
+ * nestedTree class is based on excellent work of Kuzma Feskov
+ * (http://php.russofile.ru/ru/authors/sql/nestedsets01/)
+ *
+ * One day we'll move nestedTree to Clearbricks.
+ *
+ * @package Dotclear
+ * @subpackage Core
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ *
+ */
 
-# nestedTree class is based on excellent work of Kuzma Feskov
-# (http://php.russofile.ru/ru/authors/sql/nestedsets01/)
-#
-# One day we'll move nestedTree to Clearbricks.
+if (!defined('DC_RC_PATH')) {return;}
 
 class dcCategories extends nestedTree
 {

@@ -1,23 +1,20 @@
 <?php
-# -- BEGIN LICENSE BLOCK ---------------------------------------
-#
-# This file is part of Dotclear 2.
-#
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK -----------------------------------------
+/**
+ * @brief Repository modules XML feed reader
+ *
+ * Provides an object to parse XML feed of modules from repository.
+ *
+ * @package Dotclear
+ * @subpackage Core
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ *
+ * @since 2.6
+ */
+
 if (!defined('DC_RC_PATH')) {return;}
 
-/**
-@ingroup DC_CORE
-@brief Repository modules XML feed reader
-@since 2.6
-
-Provides an object to parse XML feed of modules from repository.
- */
 class dcStore
 {
     /** @var    object    dcCore instance */

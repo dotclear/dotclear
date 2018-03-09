@@ -1,25 +1,19 @@
 <?php
-# -- BEGIN LICENSE BLOCK ---------------------------------------
-#
-# This file is part of Dotclear 2.
-#
-# Copyright (c) 2003-2013 Olivier Meunier & Association Dotclear
-# Licensed under the GPL version 2.0 license.
-# See LICENSE file or
-# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-#
-# -- END LICENSE BLOCK -----------------------------------------
+/**
+ * @brief Themes specific handler
+ *
+ * Provides an specialized object to handle themes. An instance of this
+ * class should be created when needed.
+ *
+ * @package Dotclear
+ * @subpackage Core
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright GPL-2.0-only
+ */
+
 if (!defined('DC_RC_PATH')) {return;}
 
-/**
-@ingroup DC_CORE
-@brief Themes specific handler
-
-Provides an specialized object to handle themes. An instance of this
-class should be created when needed.
-
-This class extends dcModules.
- */
 class dcThemes extends dcModules
 {
     protected static $type = 'theme';
