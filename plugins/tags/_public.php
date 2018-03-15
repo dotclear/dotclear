@@ -93,9 +93,11 @@ class tplTags
 
         $limit = isset($attr['limit']) ? (integer) $attr['limit'] : 'null';
 
+        $combo = array('meta_id_lower', 'count', 'latest', 'oldest');
+
         $sortby = 'meta_id_lower';
-        if (isset($attr['sortby']) && $attr['sortby'] == 'count') {
-            $sortby = 'count';
+        if (isset($attr['sortby']) && in_array($attr['sortby'], $combo)) {
+            $sortby = strtolower($attr['sortby']);
         }
 
         $order = 'asc';
@@ -106,7 +108,9 @@ class tplTags
         $res =
             "<?php\n" .
             "\$_ctx->meta = \$core->meta->computeMetaStats(\$core->meta->getMetadata(array('meta_type'=>'"
-            . $type . "','limit'=>" . $limit . "))); " .
+            . $type . "','limit'=>" . $limit .
+            ($sortby != 'meta_id_lower' ? ",'order'=>'" . $sortby . ' ' . ($order == 'asc' ? 'ASC' : 'DESC' ) : '') . "'" .
+            "))); " .
             "\$_ctx->meta->sort('" . $sortby . "','" . $order . "'); " .
             '?>';
 
@@ -137,9 +141,11 @@ class tplTags
     {
         $type = isset($attr['type']) ? addslashes($attr['type']) : 'tag';
 
+        $combo = array('meta_id_lower', 'count', 'latest', 'oldest');
+
         $sortby = 'meta_id_lower';
-        if (isset($attr['sortby']) && $attr['sortby'] == 'count') {
-            $sortby = 'count';
+        if (isset($attr['sortby']) && in_array($attr['sortby'], $combo)) {
+            $sortby = strtolower($attr['sortby']);
         }
 
         $order = 'asc';
@@ -238,7 +244,24 @@ class tplTags
             return;
         }
 
+        $combo = array('meta_id_lower', 'count', 'latest', 'oldest');
+
+        $sort = $w->sortby;
+        if (!in_array($sort, $combo)) {
+            $sort = 'meta_id_lower';
+        }
+
+        $order = $w->orderby;
+        if ($order != 'asc') {
+            $order = 'desc';
+        }
+
         $params = array('meta_type' => 'tag');
+
+        if ($sort != 'meta_id_lower') {
+            // As optional limit may restrict result, we should set order (if not computed after)
+            $params['order'] = $sort . ' ' . ($order == 'asc' ? 'ASC' : 'DESC');
+        }
 
         if ($w->limit !== '') {
             $params['limit'] = abs((integer) $w->limit);
@@ -251,17 +274,10 @@ class tplTags
             return;
         }
 
-        $sort = $w->sortby;
-        if (!in_array($sort, array('meta_id_lower', 'count'))) {
-            $sort = 'meta_id_lower';
+        if ($sort == 'meta_id_lower') {
+            // Sort resulting recordset on cleaned id
+            $rs->sort($sort, $order);
         }
-
-        $order = $w->orderby;
-        if ($order != 'asc') {
-            $order = 'desc';
-        }
-
-        $rs->sort($sort, $order);
 
         $res =
             ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
