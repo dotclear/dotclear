@@ -109,7 +109,7 @@ class tplTags
             "<?php\n" .
             "\$_ctx->meta = \$core->meta->computeMetaStats(\$core->meta->getMetadata(array('meta_type'=>'"
             . $type . "','limit'=>" . $limit .
-            ($sortby != 'meta_id_lower' ? ",'order'=>'" . $sortby . ' ' . ($order == 'asc' ? 'ASC' : 'DESC' ) : '') . "'" .
+            ($sortby != 'meta_id_lower' ? ",'order'=>'" . $sortby . ' ' . ($order == 'asc' ? 'ASC' : 'DESC' ) . "'" : '')  .
             "))); " .
             "\$_ctx->meta->sort('" . $sortby . "','" . $order . "'); " .
             '?>';
