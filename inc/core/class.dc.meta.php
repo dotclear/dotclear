@@ -324,7 +324,7 @@ class dcMeta
         if ($count_only) {
             $strReq = 'SELECT count(distinct M.meta_id) ';
         } else {
-            $strReq = 'SELECT M.meta_id, M.meta_type, COUNT(M.post_id) as count ';
+            $strReq = 'SELECT M.meta_id, M.meta_type, COUNT(M.post_id) as count, MAX(P.post_dt) as latest, MIN(P.post_dt) as oldest ';
         }
 
         $strReq .=

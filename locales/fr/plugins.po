@@ -1791,6 +1791,12 @@ msgstr "Nombre de billets"
 msgid "Tag name"
 msgstr "Nom du mot-clé"
 
+msgid "Newest entry"
+msgstr "Billet le plus récent"
+
+msgid "Oldest entry"
+msgstr "Billet le plus ancien"
+
 msgid "Link to all tags:"
 msgstr "Lien vers tous les mots-clés :"
 

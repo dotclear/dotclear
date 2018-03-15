@@ -18,12 +18,17 @@ class tagsWidgets
 {
     public static function initWidgets($w)
     {
+        $combo = array(
+            __('Tag name')       => 'meta_id_lower',
+            __('Entries count')  => 'count',
+            __('Newest entry')   => 'latest',
+            __('Oldest entry')   => 'oldest'
+        );
+
         $w->create('tags', __('Tags'), array('tplTags', 'tagsWidget'), null, 'Tags cloud');
         $w->tags->setting('title', __('Title (optional)') . ' :', __('Tags'));
         $w->tags->setting('limit', __('Limit (empty means no limit):'), '20');
-        $w->tags->setting('sortby', __('Order by:'), 'meta_id_lower', 'combo',
-            array(__('Tag name') => 'meta_id_lower', __('Entries count') => 'count')
-        );
+        $w->tags->setting('sortby', __('Order by:'), 'meta_id_lower', 'combo', $combo);
         $w->tags->setting('orderby', __('Sort:'), 'asc', 'combo',
             array(__('Ascending') => 'asc', __('Descending') => 'desc')
         );
