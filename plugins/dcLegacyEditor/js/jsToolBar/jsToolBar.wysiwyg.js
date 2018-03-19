@@ -488,14 +488,12 @@ jsToolBar.prototype.tagsoup2xhtml = function(html) {
 
   /* IE laisse souvent des attributs sans guillemets */
   var myRegexp = /<[^>]+((\s+\w+\s*=\s*)([^"'][\w~@+$,%\/:.#?=&;!*()-]*))[^>]*?>/;
+  var myQuoteFn = function(str, val1, val2, val3) {
+    var tamponRegex = new RegExp(regexpEscape(val1));
+    return str.replace(tamponRegex, val2 + '"' + val3 + '"');
+  };
   while (myRegexp.test(html)) {
-    html = html.replace(
-      myRegexp,
-      function(str, val1, val2, val3) {
-        var tamponRegex = new RegExp(regexpEscape(val1));
-        return str.replace(tamponRegex, val2 + '"' + val3 + '"');
-      }
-    );
+    html = html.replace(myRegexp, myQuoteFn);
   }
 
   /* les navigateurs rajoutent une unite aux longueurs css nulles */
