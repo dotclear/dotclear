@@ -16,11 +16,14 @@
  */
 class dcSelectStatement
 {
+    protected $core;
+    protected $con;
+
     protected $columns;
     protected $from;
     protected $join;
     protected $where;
-    protected $and;
+    protected $cond;
     protected $sql;
     protected $having;
     protected $order;
@@ -32,10 +35,14 @@ class dcSelectStatement
     /**
      * Class constructor
      *
-     * @param mixed $from   optional from clause(s)
+     * @param dcCore    $core   dcCore instance
+     * @param mixed     $from   optional from clause(s)
      */
-    public function __construct($from = null)
+    public function __construct(&$core, $from = null)
     {
+        $this->core = &$core;
+        $this->con  = &$core->con;
+
         $this->columns =
         $this->from    =
         $this->join    =
@@ -60,218 +67,240 @@ class dcSelectStatement
     }
 
     /**
-     * Adds a new column
+     * Magic getter method
      *
-     * @param $c the column
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @param      string  $property  The property
+     *
+     * @return     mixed   property value if property exists
      */
-    public function column($c)
+    public function __get($property)
     {
-        array_push($this->columns, $c);
-        return $this;
+        if (property_exists($this, $property)) {
+            return $this->$property;
+        }
+        trigger_error('Unknown property ' . $property, E_USER_ERROR);
+        return;
     }
+
     /**
-     * adds a list of columns
+     * Magic setter method
      *
-     * @param array $c the list of columns
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @param      string  $property  The property
+     * @param      mixed   $value     The value
+     *
+     * @return     self
      */
-    public function columns($c)
+    public function __set($property, $value)
     {
-        $this->columns = array_merge($this->columns, $c);
+        if (property_exists($this, $property)) {
+            $this->$property = $value;
+        } else {
+            trigger_error('Unknown property ' . $property, E_USER_ERROR);
+        }
         return $this;
     }
 
     /**
-     * Adds a FROM clause
+     * Adds column(s)
      *
-     * @param string $c the from clause
+     * @param mixed     $c      the column(s)
+     * @param boolean   $reset  reset previous column(s) first
+     *
      * @return dcSelectStatement self instance, enabling to chain calls
      */
-    public function from($c)
+    public function columns($c, $reset = false)
     {
-        $c = trim(ltrim($c, ',')); // Cope with legacy code
-        array_push($this->from, $c);
+        if ($reset) {
+            $this->columns = array();
+        }
+        if (is_array($c)) {
+            $this->columns = array_merge($this->columns, $c);
+        } else {
+            array_push($this->columns, $c);
+        }
         return $this;
     }
 
     /**
-     * Adds a list of FROM clauses
+     * columns() alias
      *
-     * @param array $c the list of clauses
+     * @param      mixed    $c      the column(s)
+     * @param      boolean  $reset  reset previous column(s) first
+     *
      * @return dcSelectStatement self instance, enabling to chain calls
      */
-    public function froms($c)
+    public function column($c, $reset = false)
     {
-        $c          = array_map(trim(ltrim($c, ',')), $c); // Cope with legacy code
-        $this->from = array_merge($this->from, $c);
+        return $this->columns($c, $reset);
+    }
+
+    /**
+     * Adds FROM clause(s)
+     *
+     * @param mixed     $c      the from clause(s)
+     * @param boolean   $reset  reset previous from(s) first
+     *
+     * @return dcSelectStatement self instance, enabling to chain calls
+     */
+    public function from($c, $reset = false)
+    {
+        if ($reset) {
+            $this->from = array();
+        }
+        if (is_array($c)) {
+            $c          = array_map(trim(ltrim($c, ',')), $c); // Cope with legacy code
+            $this->from = array_merge($this->from, $c);
+        } else {
+            $c = trim(ltrim($c, ',')); // Cope with legacy code
+            array_push($this->from, $c);
+        }
         return $this;
     }
 
     /**
-     * Adds a JOIN clause (applied on first from item only)
+     * Adds JOIN clause(s) (applied on first from item only)
      *
-     * @param string $c the clause
+     * @param mixed     $c      the join clause(s)
+     * @param boolean   $reset  reset previous join(s) first
+     *
      * @return dcSelectStatement self instance, enabling to chain calls
      */
-    public function join($c)
+    public function join($c, $reset = false)
     {
-        array_push($this->join, $c);
+        if ($reset) {
+            $this->join = array();
+        }
+        if (is_array($c)) {
+            $this->join = array_merge($this->join, $c);
+        } else {
+            array_push($this->join, $c);
+        }
         return $this;
     }
 
     /**
-     * Adds a list of JOIN clauses (applied on first from item only)
+     * Adds WHERE clause(s) condition (each will be AND combined in statement)
      *
-     * @param array $c the list of clauses
+     * @param mixed     $c      the clause(s)
+     * @param boolean   $reset  reset previous where(s) first
+     *
      * @return dcSelectStatement self instance, enabling to chain calls
      */
-    public function joins($c)
+    public function where($c, $reset = false)
     {
-        $this->join = array_merge($this->join, $c);
+        if ($reset) {
+            $this->where = array();
+        }
+        if (is_array($c)) {
+            $this->where = array_merge($this->where, $c);
+        } else {
+            array_push($this->where, $c);
+        }
         return $this;
     }
 
     /**
-     * Adds a WHERE clause condition (each will be AND combined in statement)
+     * Adds additional WHERE clause condition(s) (including an operator at beginning)
      *
-     * @param string $c the clause
+     * @param mixed     $c      the clause(s)
+     * @param boolean   $reset  reset previous condition(s) first
+     *
      * @return dcSelectStatement self instance, enabling to chain calls
      */
-    public function where($c)
+    public function cond($c, $reset = false)
     {
-        array_push($this->where, $c);
+        if ($reset) {
+            $this->cond = array();
+        }
+        if (is_array($c)) {
+            $this->cond = array_merge($this->cond, $c);
+        } else {
+            array_push($this->cond, $c);
+        }
         return $this;
     }
 
     /**
-     * Adds a list of WHERE clauses (each will be AND combined in statement)
+     * Adds generic clause(s)
      *
-     * @param array $c the list of clauses
+     * @param mixed     $c      the clause(s)
+     * @param boolean   $reset  reset previous generic clause(s) first
+     *
      * @return dcSelectStatement self instance, enabling to chain calls
      */
-    public function wheres($c)
+    public function sql($c, $reset = false)
     {
-        $this->where = array_merge($this->where, $c);
+        if ($reset) {
+            $this->sql = array();
+        }
+        if (is_array($c)) {
+            $this->sql = array_merge($this->sql, $c);
+        } else {
+            array_push($this->sql, $c);
+        }
         return $this;
     }
 
     /**
-     * Adds a WHERE clause additional condition (including an operator at beginning)
+     * Adds HAVING clause(s)
      *
-     * @param string $c the clause
+     * @param mixed     $c      the clause(s)
+     * @param boolean   $reset  reset previous having(s) first
+     *
      * @return dcSelectStatement self instance, enabling to chain calls
      */
-    public function cond($c) {
-        array_push($this->cond, $c);
+    public function having($c, $reset = false)
+    {
+        if ($reset) {
+            $this->having = array();
+        }
+        if (is_array($c)) {
+            $this->having = array_merge($this->having, $c);
+        } else {
+            array_push($this->having, $c);
+        }
         return $this;
     }
 
     /**
-     * Adds a list of WHERE clause additional conditions (each including an operator at beginning)
+     * Adds ORDER BY clause(s)
      *
-     * @param array $c the list of clauses
+     * @param mixed     $c      the clause(s)
+     * @param boolean   $reset  reset previous order(s) first
+     *
      * @return dcSelectStatement self instance, enabling to chain calls
      */
-    public function conds($c)
+    public function order($c, $reset = false)
     {
-        $this->cond = array_merge($this->cond, $c);
+        if ($reset) {
+            $this->order = array();
+        }
+        if (is_array($c)) {
+            $this->order = array_merge($this->order, $c);
+        } else {
+            array_push($this->order, $c);
+        }
         return $this;
     }
 
     /**
-     * Adds a generic clause
+     * Adds GROUP BY clause(s)
      *
-     * @param string $c the clause
+     * @param mixed     $c      the clause(s)
+     * @param boolean   $reset  reset previous group(s) first
+     *
      * @return dcSelectStatement self instance, enabling to chain calls
      */
-    public function sql($c)
+    public function group($c, $reset = false)
     {
-        array_push($this->sql, $c);
-        return $this;
-    }
-
-    /**
-     * Adds a list of generic clauses
-     *
-     * @param array $c the list of clauses
-     * @return dcSelectStatement self instance, enabling to chain calls
-     */
-    public function sqls($c)
-    {
-        $this->sql = array_merge($this->sql, $c);
-        return $this;
-    }
-
-    /**
-     * Adds a HAVING clause
-     *
-     * @param string $c the clause
-     * @return dcSelectStatement self instance, enabling to chain calls
-     */
-    public function having($c)
-    {
-        array_push($this->having, $c);
-        return $this;
-    }
-
-    /**
-     * Adds a list of HAVING clauses (will be AND combined in statement)
-     *
-     * @param array $c the list of clauses
-     * @return dcSelectStatement self instance, enabling to chain calls
-     */
-    public function havings($c)
-    {
-        $this->having = array_merge($this->having, $c);
-        return $this;
-    }
-
-    /**
-     * Adds an ORDER BY clause
-     *
-     * @param string $c the clause
-     * @return dcSelectStatement self instance, enabling to chain calls
-     */
-    public function order($c)
-    {
-        array_push($this->order, $c);
-        return $this;
-    }
-
-    /**
-     * Adds a list of ORDER BY clauses
-     *
-     * @param array $c the list of clauses
-     * @return dcSelectStatement self instance, enabling to chain calls
-     */
-    public function orders($c)
-    {
-        $this->order = array_merge($this->order, $c);
-        return $this;
-    }
-
-    /**
-     * Adds an GROUP BY clause
-     *
-     * @param string $c the clause
-     * @return dcSelectStatement self instance, enabling to chain calls
-     */
-    public function group($c)
-    {
-        array_push($this->group, $c);
-        return $this;
-    }
-
-    /**
-     * Adds a list of GROUP BY clauses
-     *
-     * @param array $c the list of clauses
-     * @return dcSelectStatement self instance, enabling to chain calls
-     */
-    public function groups($c)
-    {
-        $this->order = array_merge($this->order, $c);
+        if ($reset) {
+            $this->group = array();
+        }
+        if (is_array($c)) {
+            $this->group = array_merge($this->group, $c);
+        } else {
+            array_push($this->group, $c);
+        }
         return $this;
     }
 
@@ -325,6 +354,45 @@ class dcSelectStatement
     {
         $this->distinct = $distinct;
         return $this;
+    }
+
+    // Helpers
+
+    /**
+     * Escape an identifier
+     *
+     * @param      string  $identifier  The identifier
+     *
+     * @return     string
+     */
+    public function escape($identifier)
+    {
+        return $this->con->escape($identifier);
+    }
+
+    /**
+     * Return an SQL IN (…) fragment
+     *
+     * @param      mixed  $list   The list
+     *
+     * @return     string
+     */
+    public function in($list)
+    {
+        return $this->con->in($list);
+    }
+
+    /**
+     * Return an SQL formatted date
+     *
+     * @param   string    $field     Field name
+     * @param   string    $pattern   Date format
+     *
+     * @return     string
+     */
+    public function dateFormat($field, $pattern)
+    {
+        return $this->con->dateFormat($field, $pattern);
     }
 
     /**
