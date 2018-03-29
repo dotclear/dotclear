@@ -148,7 +148,10 @@ class dcSelectStatement
             $this->from = array();
         }
         if (is_array($c)) {
-            $c          = array_map(trim(ltrim($c, ',')), $c); // Cope with legacy code
+            $filter = function($v) {
+                return trim(ltrim($v, ','));
+            };
+            $c          = array_map($filter, $c); // Cope with legacy code
             $this->from = array_merge($this->from, $c);
         } else {
             $c = trim(ltrim($c, ',')); // Cope with legacy code
@@ -359,15 +362,15 @@ class dcSelectStatement
     // Helpers
 
     /**
-     * Escape an identifier
+     * Escape a value
      *
-     * @param      string  $identifier  The identifier
+     * @param      string  $value  The value
      *
      * @return     string
      */
-    public function escape($identifier)
+    public function escape($value)
     {
-        return $this->con->escape($identifier);
+        return $this->con->escape($value);
     }
 
     /**
@@ -393,6 +396,43 @@ class dcSelectStatement
     public function dateFormat($field, $pattern)
     {
         return $this->con->dateFormat($field, $pattern);
+    }
+
+    /**
+     * Return an SQL formatted REGEXP clause
+     *
+     * @param      string  $value  The value
+     *
+     * @return     string
+     */
+    public function regexp($value)
+    {
+        if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli' || $this->con->driver() == 'mysqlimb4') {
+            $clause = "REGEXP '^" . $this->escape(preg_quote($value)) . "[0-9]+$'";
+        } elseif ($this->con->driver() == 'pgsql') {
+            $clause = "~ '^" . $this->escape(preg_quote($value)) . "[0-9]+$'";
+        } else {
+            $clause = "LIKE '" .
+                $sql->escape(preg_replace(array('%', '_', '!'), array('!%', '!_', '!!'), $value)) .
+                "%' ESCAPE '!'";
+        }
+        return $clause;
+    }
+
+    /**
+     * Quote and escape a value if necessary (type string)
+     *
+     * @param      mixed    $value   The value
+     * @param      boolean  $escape  The escape
+     *
+     * @return     string
+     */
+    public function quote($value, $escape = true)
+    {
+        return
+            (is_string($value) ? "'" : '') .
+            ($escape ? $this->con->escape($value) : $value) .
+            (is_string($value) ? "'" : '');
     }
 
     /**
@@ -469,7 +509,7 @@ class dcSelectStatement
             $query .= 'OFFSET ' . $this->offset . ' ';
         }
 
-        return $query;
+        return trim($query);
     }
 
     /**
@@ -495,11 +535,11 @@ class dcSelectStatement
                 ' ,'  => ',', // <space>, -> ,
                 '\( ' => '(' // (<space> -> (
             );
-            foreach ($patterns as $from => $to) {
-                $s = preg_replace('!' . $from . '!', $to, $s);
+            foreach ($patterns as $pattern => $replace) {
+                $s = preg_replace('!' . $pattern . '!', $replace, $s);
             }
             return $s;
         };
-        return ($filter($local) !== $filter($external));
+        return ($filter($local) === $filter($external));
     }
 }
