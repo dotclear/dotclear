@@ -350,7 +350,7 @@ class dcSelectStatement
      * @param boolean $distinct
      * @return dcSelectStatement self instance, enabling to chain calls
      */
-    public function distinct($distinct)
+    public function distinct($distinct = true)
     {
         $this->distinct = $distinct;
         return $this;
@@ -444,11 +444,6 @@ class dcSelectStatement
             $query .= join(' ', $this->sql) . ' ';
         }
 
-        // Order by clause (columns or aliases and optionnaly order ASC/DESC)
-        if (count($this->order)) {
-            $query .= 'ORDER BY ' . join(', ', $this->order) . ' ';
-        }
-
         // Group by clause (columns or aliases)
         if (count($this->group)) {
             $query .= 'GROUP BY ' . join(', ', $this->group) . ' ';
@@ -457,6 +452,11 @@ class dcSelectStatement
         // Having clause(s)
         if (count($this->having)) {
             $query .= 'HAVING ' . join(' AND ', $this->having) . ' ';
+        }
+
+        // Order by clause (columns or aliases and optionnaly order ASC/DESC)
+        if (count($this->order)) {
+            $query .= 'ORDER BY ' . join(', ', $this->order) . ' ';
         }
 
         // Limit clause
@@ -470,5 +470,36 @@ class dcSelectStatement
         }
 
         return $query;
+    }
+
+    /**
+     * Compare two SQL queries
+     *
+     * May be used for debugging purpose as:
+     * if (!$sql->isSame($sql->statement(), $oldRequest)) {
+     *    trigger_error('SQL statement error', E_USER_ERROR);
+     * }
+     *
+     * @param      string   $local     The local
+     * @param      string   $external  The external
+     *
+     * @return     boolean  True if same, False otherwise.
+     */
+    public function isSame($local, $external)
+    {
+        $filter = function ($s) {
+            $s = strtoupper($s);
+            $patterns = array(
+                '\s+' => ' ', // Multiple spaces/tabs -> one space
+                ' \)' => ')', // <space>) -> )
+                ' ,'  => ',', // <space>, -> ,
+                '\( ' => '(' // (<space> -> (
+            );
+            foreach ($patterns as $from => $to) {
+                $s = preg_replace('!' . $from . '!', $to, $s);
+            }
+            return $s;
+        };
+        return ($filter($local) !== $filter($external));
     }
 }
