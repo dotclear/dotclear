@@ -74,6 +74,8 @@ if ($status !== '' && in_array($status, $status_combo, true)) {
 if ($sortby !== '' && in_array($sortby, $sortby_combo, true)) {
     if ($order !== '' && in_array($order, $order_combo, true)) {
         $params['order'] = $sortby . ' ' . $order;
+    } else {
+        $order = 'desc';
     }
 } else {
     $sortby = 'blog_upddt';
