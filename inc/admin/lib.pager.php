@@ -48,14 +48,18 @@ class dcPager extends pager
         if (isset($args['ok'])) {
             unset($args['ok']);
         }
+
         $this->form_hidden = '';
         foreach ($args as $k => $v) {
-            if (is_array($v)) {
-                foreach ($v as $k2 => $v2) {
-                    $this->form_hidden .= form::hidden(array($k . '[]'), html::escapeHTML($v2));
+            // Check parameter key (will prevent some forms of XSS)
+            if ($k === preg_replace('`[^A-Za-z0-9_-]`', '', $k)) {
+                if (is_array($v)) {
+                    foreach ($v as $k2 => $v2) {
+                        $this->form_hidden .= form::hidden(array($k . '[]'), html::escapeHTML($v2));
+                    }
+                } else {
+                    $this->form_hidden .= form::hidden(array($k), html::escapeHTML($v));
                 }
-            } else {
-                $this->form_hidden .= form::hidden(array($k), html::escapeHTML($v));
             }
         }
         $this->form_action = $url['path'];
