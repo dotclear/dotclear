@@ -40,109 +40,106 @@ try {
 }
 
 # Creating filter combo boxes
-if (!$core->error->flag()) {
-    # Filter form we'll put in html_block
-    $users_combo = dcAdminCombos::getUsersCombo($users);
-    dcUtils::lexicalKeySort($users_combo);
-    $users_combo = array_merge(
-        array('-' => ''),
-        $users_combo
-    );
+$users_combo = dcAdminCombos::getUsersCombo($users);
+dcUtils::lexicalKeySort($users_combo);
+$users_combo = array_merge(
+    array('-' => ''),
+    $users_combo
+);
 
-    $categories_combo = array_merge(
-        array(
-            new formSelectOption('-', ''),
-            new formSelectOption(__('(No cat)'), 'NULL')),
-        dcAdminCombos::getCategoriesCombo($categories, false)
-    );
-    $categories_values = array();
-    foreach ($categories_combo as $cat) {
-        if (isset($cat->value)) {
-            $categories_values[$cat->value] = true;
-        }
+$categories_combo = array_merge(
+    array(
+        new formSelectOption('-', ''),
+        new formSelectOption(__('(No cat)'), 'NULL')),
+    dcAdminCombos::getCategoriesCombo($categories, false)
+);
+$categories_values = array();
+foreach ($categories_combo as $cat) {
+    if (isset($cat->value)) {
+        $categories_values[$cat->value] = true;
     }
-
-    $status_combo = array_merge(
-        array('-' => ''),
-        dcAdminCombos::getPostStatusesCombo()
-    );
-
-    $selected_combo = array(
-        '-'                => '',
-        __('Selected')     => '1',
-        __('Not selected') => '0'
-    );
-
-    $comment_combo = array(
-        '-'          => '',
-        __('Opened') => '1',
-        __('Closed') => '0'
-    );
-
-    $trackback_combo = array(
-        '-'          => '',
-        __('Opened') => '1',
-        __('Closed') => '0'
-    );
-
-    $attachment_combo = array(
-        '-'                       => '',
-        __('With attachments')    => '1',
-        __('Without attachments') => '0'
-    );
-
-    $password_combo = array(
-        '-'                    => '',
-        __('With password')    => '1',
-        __('Without password') => '0'
-    );
-
-    # Months array
-    $dt_m_combo = array_merge(
-        array('-' => ''),
-        dcAdminCombos::getDatesCombo($dates)
-    );
-
-    $lang_combo = array_merge(
-        array('-' => ''),
-        dcAdminCombos::getLangsCombo($langs, false)
-    );
-
-    # Post formats
-    $core_formaters    = $core->getFormaters();
-    $available_formats = array();
-    foreach ($core_formaters as $editor => $formats) {
-        foreach ($formats as $format) {
-            $available_formats[$format] = $format;
-        }
-    }
-    $format_combo = array_merge(
-        array('-' => ''),
-        $available_formats
-    );
-
-    $sortby_combo = array(
-        __('Date')                 => 'post_dt',
-        __('Title')                => 'post_title',
-        __('Category')             => 'cat_title',
-        __('Author')               => 'user_id',
-        __('Status')               => 'post_status',
-        __('Selected')             => 'post_selected',
-        __('Number of comments')   => 'nb_comment',
-        __('Number of trackbacks') => 'nb_trackback'
-    );
-
-    $sortby_lex = array(
-        // key in sorty_combo (see above) => field in SQL request
-        'post_title' => 'post_title',
-        'cat_title'  => 'cat_title',
-        'user_id'    => 'P.user_id');
-
-    $order_combo = array(
-        __('Descending') => 'desc',
-        __('Ascending')  => 'asc'
-    );
 }
+
+$status_combo = array_merge(
+    array('-' => ''),
+    dcAdminCombos::getPostStatusesCombo()
+);
+
+$selected_combo = array(
+    '-'                => '',
+    __('Selected')     => '1',
+    __('Not selected') => '0'
+);
+
+$comment_combo = array(
+    '-'          => '',
+    __('Opened') => '1',
+    __('Closed') => '0'
+);
+
+$trackback_combo = array(
+    '-'          => '',
+    __('Opened') => '1',
+    __('Closed') => '0'
+);
+
+$attachment_combo = array(
+    '-'                       => '',
+    __('With attachments')    => '1',
+    __('Without attachments') => '0'
+);
+
+$password_combo = array(
+    '-'                    => '',
+    __('With password')    => '1',
+    __('Without password') => '0'
+);
+
+# Months array
+$dt_m_combo = array_merge(
+    array('-' => ''),
+    dcAdminCombos::getDatesCombo($dates)
+);
+
+$lang_combo = array_merge(
+    array('-' => ''),
+    dcAdminCombos::getLangsCombo($langs, false)
+);
+
+# Post formats
+$core_formaters    = $core->getFormaters();
+$available_formats = array();
+foreach ($core_formaters as $editor => $formats) {
+    foreach ($formats as $format) {
+        $available_formats[$format] = $format;
+    }
+}
+$format_combo = array_merge(
+    array('-' => ''),
+    $available_formats
+);
+
+$sortby_combo = array(
+    __('Date')                 => 'post_dt',
+    __('Title')                => 'post_title',
+    __('Category')             => 'cat_title',
+    __('Author')               => 'user_id',
+    __('Status')               => 'post_status',
+    __('Selected')             => 'post_selected',
+    __('Number of comments')   => 'nb_comment',
+    __('Number of trackbacks') => 'nb_trackback'
+);
+
+$sortby_lex = array(
+    // key in sorty_combo (see above) => field in SQL request
+    'post_title' => 'post_title',
+    'cat_title'  => 'cat_title',
+    'user_id'    => 'P.user_id');
+
+$order_combo = array(
+    __('Descending') => 'desc',
+    __('Ascending')  => 'asc'
+);
 
 # Actions combo box
 
