@@ -51,11 +51,20 @@ $(function() {
     }
   }
 
+  $('#comments').onetabload(function() {
+    // Remove required attribut from #comment_content as textarea might be not more focusable
+    if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#comment_content') !== -1) {
+      $('#comment_content').removeAttr('required');
+    }
+  });
+
   $('#edit-entry').onetabload(function() {
 
     // Remove required attribut from #post_content in XHTML mode as textarea is not more focusable
     if (formatField.value == 'xhtml') {
-      $('#post_content').removeAttr('required');
+      if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#post_content') !== -1) {
+        $('#post_content').removeAttr('required');
+      }
     }
 
     // Load toolbars
