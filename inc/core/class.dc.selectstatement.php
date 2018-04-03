@@ -12,25 +12,18 @@
  */
 
 /**
- * Select Statement : small utility to build select queries
+ * SQL Statement : small utility to build SQL queries
  */
-class dcSelectStatement
+class dcSqlStatement
 {
     protected $core;
     protected $con;
 
     protected $columns;
     protected $from;
-    protected $join;
     protected $where;
     protected $cond;
     protected $sql;
-    protected $having;
-    protected $order;
-    protected $group;
-    protected $limit;
-    protected $offset;
-    protected $distinct;
 
     /**
      * Class constructor
@@ -45,17 +38,10 @@ class dcSelectStatement
 
         $this->columns =
         $this->from    =
-        $this->join    =
         $this->where   =
         $this->cond    =
         $this->sql     =
-        $this->having  =
-        $this->order   =
-        $this->group   =
         array();
-        $this->limit    = null;
-        $this->offset   = null;
-        $this->distinct = false;
 
         if ($from !== null) {
             if (is_array($from)) {
@@ -161,27 +147,6 @@ class dcSelectStatement
     }
 
     /**
-     * Adds JOIN clause(s) (applied on first from item only)
-     *
-     * @param mixed     $c      the join clause(s)
-     * @param boolean   $reset  reset previous join(s) first
-     *
-     * @return dcSelectStatement self instance, enabling to chain calls
-     */
-    public function join($c, $reset = false)
-    {
-        if ($reset) {
-            $this->join = array();
-        }
-        if (is_array($c)) {
-            $this->join = array_merge($this->join, $c);
-        } else {
-            array_push($this->join, $c);
-        }
-        return $this;
-    }
-
-    /**
      * Adds WHERE clause(s) condition (each will be AND combined in statement)
      *
      * @param mixed     $c      the clause(s)
@@ -240,6 +205,170 @@ class dcSelectStatement
             $this->sql = array_merge($this->sql, $c);
         } else {
             array_push($this->sql, $c);
+        }
+        return $this;
+    }
+
+    // Helpers
+
+    /**
+     * Escape a value
+     *
+     * @param      string  $value  The value
+     *
+     * @return     string
+     */
+    public function escape($value)
+    {
+        return $this->con->escape($value);
+    }
+
+    /**
+     * Quote and escape a value if necessary (type string)
+     *
+     * @param      mixed    $value   The value
+     * @param      boolean  $escape  The escape
+     *
+     * @return     string
+     */
+    public function quote($value, $escape = true)
+    {
+        return
+            (is_string($value) ? "'" : '') .
+            ($escape ? $this->con->escape($value) : $value) .
+            (is_string($value) ? "'" : '');
+    }
+
+    /**
+     * Return an SQL IN (…) fragment
+     *
+     * @param      mixed  $list   The list
+     *
+     * @return     string
+     */
+    public function in($list)
+    {
+        return $this->con->in($list);
+    }
+
+    /**
+     * Return an SQL formatted date
+     *
+     * @param   string    $field     Field name
+     * @param   string    $pattern   Date format
+     *
+     * @return     string
+     */
+    public function dateFormat($field, $pattern)
+    {
+        return $this->con->dateFormat($field, $pattern);
+    }
+
+    /**
+     * Return an SQL formatted REGEXP clause
+     *
+     * @param      string  $value  The value
+     *
+     * @return     string
+     */
+    public function regexp($value)
+    {
+        if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli' || $this->con->driver() == 'mysqlimb4') {
+            $clause = "REGEXP '^" . $this->escape(preg_quote($value)) . "[0-9]+$'";
+        } elseif ($this->con->driver() == 'pgsql') {
+            $clause = "~ '^" . $this->escape(preg_quote($value)) . "[0-9]+$'";
+        } else {
+            $clause = "LIKE '" .
+                $sql->escape(preg_replace(array('%', '_', '!'), array('!%', '!_', '!!'), $value)) .
+                "%' ESCAPE '!'";
+        }
+        return $clause;
+    }
+
+    /**
+     * Compare two SQL queries
+     *
+     * May be used for debugging purpose as:
+     *
+     * if (!$sql->isSame($sql->statement(), $oldRequest)) {
+     *    trigger_error('SQL statement error: ' . $sql->statement() . ' / ' .$oldRequest, E_USER_ERROR);
+     * }
+     *
+     * @param      string   $local     The local
+     * @param      string   $external  The external
+     *
+     * @return     boolean  True if same, False otherwise.
+     */
+    public function isSame($local, $external)
+    {
+        $filter = function ($s) {
+            $s = strtoupper($s);
+            $patterns = array(
+                '\s+' => ' ', // Multiple spaces/tabs -> one space
+                ' \)' => ')', // <space>) -> )
+                ' ,'  => ',', // <space>, -> ,
+                '\( ' => '(' // (<space> -> (
+            );
+            foreach ($patterns as $pattern => $replace) {
+                $s = preg_replace('!' . $pattern . '!', $replace, $s);
+            }
+            return trim($s);
+        };
+        return ($filter($local) === $filter($external));
+    }
+}
+
+/**
+ * Select Statement : small utility to build select queries
+ */
+class dcSelectStatement extends dcSqlStatement
+{
+    protected $join;
+    protected $having;
+    protected $order;
+    protected $group;
+    protected $limit;
+    protected $offset;
+    protected $distinct;
+
+    /**
+     * Class constructor
+     *
+     * @param dcCore    $core   dcCore instance
+     * @param mixed     $from   optional from clause(s)
+     */
+    public function __construct(&$core, $from = null)
+    {
+        $this->join    =
+        $this->having  =
+        $this->order   =
+        $this->group   =
+        array();
+
+        $this->limit    = null;
+        $this->offset   = null;
+        $this->distinct = false;
+
+        parent::__construct($core, $from);
+    }
+
+    /**
+     * Adds JOIN clause(s) (applied on first from item only)
+     *
+     * @param mixed     $c      the join clause(s)
+     * @param boolean   $reset  reset previous join(s) first
+     *
+     * @return dcSelectStatement self instance, enabling to chain calls
+     */
+    public function join($c, $reset = false)
+    {
+        if ($reset) {
+            $this->join = array();
+        }
+        if (is_array($c)) {
+            $this->join = array_merge($this->join, $c);
+        } else {
+            array_push($this->join, $c);
         }
         return $this;
     }
@@ -359,82 +488,6 @@ class dcSelectStatement
         return $this;
     }
 
-    // Helpers
-
-    /**
-     * Escape a value
-     *
-     * @param      string  $value  The value
-     *
-     * @return     string
-     */
-    public function escape($value)
-    {
-        return $this->con->escape($value);
-    }
-
-    /**
-     * Return an SQL IN (…) fragment
-     *
-     * @param      mixed  $list   The list
-     *
-     * @return     string
-     */
-    public function in($list)
-    {
-        return $this->con->in($list);
-    }
-
-    /**
-     * Return an SQL formatted date
-     *
-     * @param   string    $field     Field name
-     * @param   string    $pattern   Date format
-     *
-     * @return     string
-     */
-    public function dateFormat($field, $pattern)
-    {
-        return $this->con->dateFormat($field, $pattern);
-    }
-
-    /**
-     * Return an SQL formatted REGEXP clause
-     *
-     * @param      string  $value  The value
-     *
-     * @return     string
-     */
-    public function regexp($value)
-    {
-        if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli' || $this->con->driver() == 'mysqlimb4') {
-            $clause = "REGEXP '^" . $this->escape(preg_quote($value)) . "[0-9]+$'";
-        } elseif ($this->con->driver() == 'pgsql') {
-            $clause = "~ '^" . $this->escape(preg_quote($value)) . "[0-9]+$'";
-        } else {
-            $clause = "LIKE '" .
-                $sql->escape(preg_replace(array('%', '_', '!'), array('!%', '!_', '!!'), $value)) .
-                "%' ESCAPE '!'";
-        }
-        return $clause;
-    }
-
-    /**
-     * Quote and escape a value if necessary (type string)
-     *
-     * @param      mixed    $value   The value
-     * @param      boolean  $escape  The escape
-     *
-     * @return     string
-     */
-    public function quote($value, $escape = true)
-    {
-        return
-            (is_string($value) ? "'" : '') .
-            ($escape ? $this->con->escape($value) : $value) .
-            (is_string($value) ? "'" : '');
-    }
-
     /**
      * Returns the select statement
      *
@@ -511,35 +564,314 @@ class dcSelectStatement
 
         return trim($query);
     }
+}
+
+/**
+ * Delete Statement : small utility to build delete queries
+ */
+class dcDeleteStatement extends dcSqlStatement
+{
+    /**
+     * Returns the delete statement
+     *
+     * @return string the statement
+     */
+    public function statement()
+    {
+        // Check if source given
+        if (!count($this->from)) {
+            trigger_error(__('SQL DELETE requires a FROM source'), E_USER_ERROR);
+            return '';
+        }
+
+        // Query
+        $query = 'DELETE ';
+
+        // Table
+        $query .= 'FROM ' . $this->from[0] . ' ';
+
+        // Where clause(s)
+        if (count($this->where)) {
+            $query .= 'WHERE ' . join(' AND ', $this->where) . ' ';
+        }
+
+        // Direct where clause(s)
+        if (count($this->cond)) {
+            if (!count($this->where)) {
+                $query .= 'WHERE 1 '; // Hack to cope with the operator included in top of each condition
+            }
+            $query .= join(' ', $this->cond) . ' ';
+        }
+
+        // Generic clause(s)
+        if (count($this->sql)) {
+            $query .= join(' ', $this->sql) . ' ';
+        }
+
+        return trim($query);
+    }
+}
+
+/**
+ * Update Statement : small utility to build update queries
+ */
+class dcUpdateStatement extends dcSqlStatement
+{
+    protected $set;
 
     /**
-     * Compare two SQL queries
+     * Class constructor
      *
-     * May be used for debugging purpose as:
-     * if (!$sql->isSame($sql->statement(), $oldRequest)) {
-     *    trigger_error('SQL statement error', E_USER_ERROR);
-     * }
-     *
-     * @param      string   $local     The local
-     * @param      string   $external  The external
-     *
-     * @return     boolean  True if same, False otherwise.
+     * @param dcCore    $core   dcCore instance
+     * @param mixed     $from   optional from clause(s)
      */
-    public function isSame($local, $external)
+    public function __construct(&$core, $from = null)
     {
-        $filter = function ($s) {
-            $s = strtoupper($s);
-            $patterns = array(
-                '\s+' => ' ', // Multiple spaces/tabs -> one space
-                ' \)' => ')', // <space>) -> )
-                ' ,'  => ',', // <space>, -> ,
-                '\( ' => '(' // (<space> -> (
-            );
-            foreach ($patterns as $pattern => $replace) {
-                $s = preg_replace('!' . $pattern . '!', $replace, $s);
+        $this->set = array();
+
+        parent::__construct($core, $from);
+    }
+
+    /**
+     * from() alias
+     *
+     * @param mixed     $c      the reference clause(s)
+     * @param boolean   $reset  reset previous reference first
+     *
+     * @return dcUpdateStatement self instance, enabling to chain calls
+     */
+    public function reference($c, $reset = false)
+    {
+        return $this->from($c, $reset);
+    }
+
+    /**
+     * from() alias
+     *
+     * @param mixed     $c      the reference clause(s)
+     * @param boolean   $reset  reset previous reference first
+     *
+     * @return dcUpdateStatement self instance, enabling to chain calls
+     */
+    public function ref($c, $reset = false)
+    {
+        return $this->reference($c, $reset);
+    }
+
+    /**
+     * Adds update value(s)
+     *
+     * @param mixed     $c      the udpate values(s)
+     * @param boolean   $reset  reset previous update value(s) first
+     *
+     * @return dcUpdateStatement self instance, enabling to chain calls
+     */
+    public function set($c, $reset = false)
+    {
+        if ($reset) {
+            $this->set = array();
+        }
+        if (is_array($c)) {
+            $this->set = array_merge($this->set, $c);
+        } else {
+            array_push($this->set, $c);
+        }
+        return $this;
+    }
+
+    /**
+     * set() alias
+     *
+     * @param      mixed    $c      the update value(s)
+     * @param      boolean  $reset  reset previous update value(s) first
+     *
+     * @return dcUpdateStatement self instance, enabling to chain calls
+     */
+    public function sets($c, $reset = false)
+    {
+        return $this->set($c, $reset);
+    }
+
+    /**
+     * Returns the WHERE part of update statement
+     *
+     * Useful to construct the where clause used with cursor->update() method
+     */
+    public function whereStatement()
+    {
+        $query = '';
+
+        // Where clause(s)
+        if (count($this->where)) {
+            $query .= 'WHERE ' . join(' AND ', $this->where) . ' ';
+        }
+
+        // Direct where clause(s)
+        if (count($this->cond)) {
+            if (!count($this->where)) {
+                $query .= 'WHERE 1 '; // Hack to cope with the operator included in top of each condition
             }
-            return $s;
-        };
-        return ($filter($local) === $filter($external));
+            $query .= join(' ', $this->cond) . ' ';
+        }
+
+        // Generic clause(s)
+        if (count($this->sql)) {
+            $query .= join(' ', $this->sql) . ' ';
+        }
+
+        return trim($query);
+    }
+
+    /**
+     * Returns the update statement
+     *
+     * @return string the statement
+     */
+    public function statement()
+    {
+        // Check if source given
+        if (!count($this->from)) {
+            trigger_error(__('SQL UPDATE requires an INTO source'), E_USER_ERROR);
+            return '';
+        }
+
+        // Query
+        $query = 'UPDATE ';
+
+        // Reference
+        $query .= $this->from[0] . ' ';
+
+        // Value(s)
+        if (count($this->set)) {
+            $query .= 'SET ' . join(', ', $this->set) . ' ';
+        }
+
+        // Where clause(s)
+        if (count($this->where)) {
+            $query .= 'WHERE ' . join(' AND ', $this->where) . ' ';
+        }
+
+        // Direct where clause(s)
+        if (count($this->cond)) {
+            if (!count($this->where)) {
+                $query .= 'WHERE 1 '; // Hack to cope with the operator included in top of each condition
+            }
+            $query .= join(' ', $this->cond) . ' ';
+        }
+
+        // Generic clause(s)
+        if (count($this->sql)) {
+            $query .= join(' ', $this->sql) . ' ';
+        }
+
+        return trim($query);
+    }
+}
+
+/**
+ * Insert Statement : small utility to build insert queries
+ */
+class dcInsertStatement extends dcSqlStatement
+{
+    protected $lines;
+
+    /**
+     * Class constructor
+     *
+     * @param dcCore    $core   dcCore instance
+     * @param mixed     $into   optional into clause(s)
+     */
+    public function __construct(&$core, $into = null)
+    {
+        $this->lines = array();
+
+        parent::__construct($core, $into);
+    }
+
+    /**
+     * from() alias
+     *
+     * @param mixed     $c      the into clause(s)
+     * @param boolean   $reset  reset previous into first
+     *
+     * @return dcSelectStatement self instance, enabling to chain calls
+     */
+    public function into($c, $reset = false)
+    {
+        return $this->into($c, $reset);
+    }
+
+    /**
+     * Adds update value(s)
+     *
+     * @param mixed     $c      the insert values(s)
+     * @param boolean   $reset  reset previous insert value(s) first
+     *
+     * @return dcSelectStatement self instance, enabling to chain calls
+     */
+    public function lines($c, $reset = false)
+    {
+        if ($reset) {
+            $this->lines = array();
+        }
+        if (is_array($c)) {
+            $this->lines = array_merge($this->lines, $c);
+        } else {
+            array_push($this->lines, $c);
+        }
+        return $this;
+    }
+
+    /**
+     * line() alias
+     *
+     * @param      mixed    $c      the insert value(s)
+     * @param      boolean  $reset  reset previous insert value(s) first
+     *
+     * @return dcInsertStatement self instance, enabling to chain calls
+     */
+    public function line($c, $reset = false)
+    {
+        return $this->lines($c, $reset);
+    }
+
+    /**
+     * Returns the insert statement
+     *
+     * @return string the statement
+     */
+    public function statement()
+    {
+        // Check if source given
+        if (!count($this->from)) {
+            trigger_error(__('SQL INSERT requires an INTO source'), E_USER_ERROR);
+            return '';
+        }
+
+        // Query
+        $query = 'INSERT ';
+
+        // Reference
+        $query .= 'INTO ' . $this->from[0] . ' ';
+
+        // Column(s)
+        if (count($this->columns)) {
+            $query .= '(' . join(', ', $this->columns) . ') ';
+        }
+
+        // Value(s)
+        $query .= 'VALUES ';
+        if (count($this->lines)) {
+            $raws = array();
+            foreach ($this->lines as $line) {
+                $raws[] = '(' . join(', ', $line) . ')';
+            }
+            $query .= join(', ', $raws);
+        } else {
+            // Use SQL default values (useful only if SQL strict mode is off or if every columns has a defined default value)
+            $query .= '()';
+        }
+
+        return trim($query);
     }
 }
