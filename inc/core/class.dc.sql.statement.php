@@ -7,7 +7,7 @@
  * @package Dotclear
  * @subpackage Core
  *
- * @copyright Bruno Hondelatte & Association Dotclear
+ * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
 
@@ -19,6 +19,8 @@ class dcSqlStatement
     protected $core;
     protected $con;
 
+    protected $ctx; // Context (may be useful for behaviour's callback)
+
     protected $columns;
     protected $from;
     protected $where;
@@ -29,12 +31,13 @@ class dcSqlStatement
      * Class constructor
      *
      * @param dcCore    $core   dcCore instance
-     * @param mixed     $from   optional from clause(s)
+     * @param mixed     $ctx    optional context
      */
-    public function __construct(&$core, $from = null)
+    public function __construct(&$core, $ctx = null)
     {
         $this->core = &$core;
         $this->con  = &$core->con;
+        $this->ctx  = $ctx;
 
         $this->columns =
         $this->from    =
@@ -42,14 +45,6 @@ class dcSqlStatement
         $this->cond    =
         $this->sql     =
         array();
-
-        if ($from !== null) {
-            if (is_array($from)) {
-                $this->froms($from);
-            } else {
-                $this->from($from);
-            }
-        }
     }
 
     /**
@@ -83,6 +78,19 @@ class dcSqlStatement
         } else {
             trigger_error('Unknown property ' . $property, E_USER_ERROR);
         }
+        return $this;
+    }
+
+    /**
+     * Adds context
+     *
+     * @param mixed     $c      the context(s)
+     *
+     * @return dcSelectStatement self instance, enabling to chain calls
+     */
+    public function ctx($c)
+    {
+        $this->ctx = $c;
         return $this;
     }
 
@@ -134,7 +142,7 @@ class dcSqlStatement
             $this->from = array();
         }
         if (is_array($c)) {
-            $filter = function($v) {
+            $filter = function ($v) {
                 return trim(ltrim($v, ','));
             };
             $c          = array_map($filter, $c); // Cope with legacy code
@@ -279,7 +287,7 @@ class dcSqlStatement
             $clause = "~ '^" . $this->escape(preg_quote($value)) . "[0-9]+$'";
         } else {
             $clause = "LIKE '" .
-                $sql->escape(preg_replace(array('%', '_', '!'), array('!%', '!_', '!!'), $value)) .
+            $sql->escape(preg_replace(array('%', '_', '!'), array('!%', '!_', '!!'), $value)) .
                 "%' ESCAPE '!'";
         }
         return $clause;
@@ -302,7 +310,7 @@ class dcSqlStatement
     public function isSame($local, $external)
     {
         $filter = function ($s) {
-            $s = strtoupper($s);
+            $s        = strtoupper($s);
             $patterns = array(
                 '\s+' => ' ', // Multiple spaces/tabs -> one space
                 ' \)' => ')', // <space>) -> )
@@ -335,21 +343,21 @@ class dcSelectStatement extends dcSqlStatement
      * Class constructor
      *
      * @param dcCore    $core   dcCore instance
-     * @param mixed     $from   optional from clause(s)
+     * @param mixed     $ctx    optional context
      */
-    public function __construct(&$core, $from = null)
+    public function __construct(&$core, $ctx = null)
     {
-        $this->join    =
-        $this->having  =
-        $this->order   =
-        $this->group   =
+        $this->join   =
+        $this->having =
+        $this->order  =
+        $this->group  =
         array();
 
         $this->limit    = null;
         $this->offset   = null;
         $this->distinct = false;
 
-        parent::__construct($core, $from);
+        parent::__construct($core, $ctx);
     }
 
     /**
@@ -495,6 +503,9 @@ class dcSelectStatement extends dcSqlStatement
      */
     public function statement()
     {
+        # --BEHAVIOR-- coreBeforeSelectStatement
+        $this->core->callBehavior('coreBeforeSelectStatement', $this);
+
         // Check if source given
         if (!count($this->from)) {
             trigger_error(__('SQL SELECT requires a FROM source'), E_USER_ERROR);
@@ -562,7 +573,12 @@ class dcSelectStatement extends dcSqlStatement
             $query .= 'OFFSET ' . $this->offset . ' ';
         }
 
-        return trim($query);
+        $query = trim($query);
+
+        # --BEHAVIOR-- coreAfertSelectStatement
+        $this->core->callBehavior('coreAfterSelectStatement', $this, $query);
+
+        return $query;
     }
 }
 
@@ -578,6 +594,9 @@ class dcDeleteStatement extends dcSqlStatement
      */
     public function statement()
     {
+        # --BEHAVIOR-- coreBeforeDeleteStatement
+        $this->core->callBehavior('coreBeforeDeleteStatement', $this);
+
         // Check if source given
         if (!count($this->from)) {
             trigger_error(__('SQL DELETE requires a FROM source'), E_USER_ERROR);
@@ -608,7 +627,12 @@ class dcDeleteStatement extends dcSqlStatement
             $query .= join(' ', $this->sql) . ' ';
         }
 
-        return trim($query);
+        $query = trim($query);
+
+        # --BEHAVIOR-- coreAfertDeleteStatement
+        $this->core->callBehavior('coreAfterDeleteStatement', $this, $query);
+
+        return $query;
     }
 }
 
@@ -623,13 +647,13 @@ class dcUpdateStatement extends dcSqlStatement
      * Class constructor
      *
      * @param dcCore    $core   dcCore instance
-     * @param mixed     $from   optional from clause(s)
+     * @param mixed     $ctx    optional context
      */
-    public function __construct(&$core, $from = null)
+    public function __construct(&$core, $ctx = null)
     {
         $this->set = array();
 
-        parent::__construct($core, $from);
+        parent::__construct($core, $ctx);
     }
 
     /**
@@ -699,6 +723,9 @@ class dcUpdateStatement extends dcSqlStatement
      */
     public function whereStatement()
     {
+        # --BEHAVIOR-- coreBeforeUpdateWhereStatement
+        $this->core->callBehavior('coreBeforeUpdateWhereStatement', $this);
+
         $query = '';
 
         // Where clause(s)
@@ -719,7 +746,12 @@ class dcUpdateStatement extends dcSqlStatement
             $query .= join(' ', $this->sql) . ' ';
         }
 
-        return trim($query);
+        $query = trim($query);
+
+        # --BEHAVIOR-- coreAfertUpdateWhereStatement
+        $this->core->callBehavior('coreAfterUpdateWhereStatement', $this, $query);
+
+        return $query;
     }
 
     /**
@@ -729,6 +761,9 @@ class dcUpdateStatement extends dcSqlStatement
      */
     public function statement()
     {
+        # --BEHAVIOR-- coreBeforeUpdateStatement
+        $this->core->callBehavior('coreBeforeUpdateStatement', $this);
+
         // Check if source given
         if (!count($this->from)) {
             trigger_error(__('SQL UPDATE requires an INTO source'), E_USER_ERROR);
@@ -764,7 +799,12 @@ class dcUpdateStatement extends dcSqlStatement
             $query .= join(' ', $this->sql) . ' ';
         }
 
-        return trim($query);
+        $query = trim($query);
+
+        # --BEHAVIOR-- coreAfertUpdateStatement
+        $this->core->callBehavior('coreAfterUpdateStatement', $this, $query);
+
+        return $query;
     }
 }
 
@@ -779,13 +819,13 @@ class dcInsertStatement extends dcSqlStatement
      * Class constructor
      *
      * @param dcCore    $core   dcCore instance
-     * @param mixed     $into   optional into clause(s)
+     * @param mixed     $ctx    optional context
      */
-    public function __construct(&$core, $into = null)
+    public function __construct(&$core, $ctx = null)
     {
         $this->lines = array();
 
-        parent::__construct($core, $into);
+        parent::__construct($core, $ctx);
     }
 
     /**
@@ -842,6 +882,9 @@ class dcInsertStatement extends dcSqlStatement
      */
     public function statement()
     {
+        # --BEHAVIOR-- coreBeforeInsertStatement
+        $this->core->callBehavior('coreBeforeInsertStatement', $this);
+
         // Check if source given
         if (!count($this->from)) {
             trigger_error(__('SQL INSERT requires an INTO source'), E_USER_ERROR);
@@ -872,6 +915,11 @@ class dcInsertStatement extends dcSqlStatement
             $query .= '()';
         }
 
-        return trim($query);
+        $query = trim($query);
+
+        # --BEHAVIOR-- coreAfertInsertStatement
+        $this->core->callBehavior('coreAfterInsertStatement', $this, $query);
+
+        return $query;
     }
 }
