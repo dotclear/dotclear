@@ -109,7 +109,7 @@ class dcError
         $res = '';
 
         if ($this->flag) {
-            if (count($this->errors == 1)) {
+            if (count($this->errors) == 1) {
                 $res = sprintf($this->html_single, $this->errors[0]);
             } else {
                 foreach ($this->errors as $msg) {
