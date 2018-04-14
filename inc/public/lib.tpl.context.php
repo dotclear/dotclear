@@ -359,7 +359,7 @@ class context
         $res = array();
         foreach ($def as $v) {
             $v = trim($v);
-            if (preg_match('|^([^\t]*)[\t]+(.*)$|', $v, $matches)) {
+            if (preg_match('|^([^\t\s]*)[\t\s]+(.*)$|', $v, $matches)) {
                 $r = '/(\G|[\s]+|>)(' . preg_quote($matches[1], '/') . ')([\s]+|[<]|\Z)/ms';
                 $s = '$1<img src="' . $url . $matches[2] . '" ' .
                     'alt="$2" class="smiley" />$3';
