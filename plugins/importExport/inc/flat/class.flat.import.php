@@ -100,6 +100,11 @@ class flatImport extends flatBackup
         $this->core->callBehavior('importInit', $this, $this->core);
     }
 
+    public function getMode()
+    {
+        return $this->mode;
+    }
+
     public function importSingle()
     {
         if ($this->mode != 'single') {
