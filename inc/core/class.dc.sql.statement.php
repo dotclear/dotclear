@@ -141,6 +141,7 @@ class dcSqlStatement
         if ($reset) {
             $this->from = array();
         }
+        // Remove comma on beginning of clause(s) (legacy code)
         if (is_array($c)) {
             $filter = function ($v) {
                 return trim(ltrim($v, ','));
@@ -281,13 +282,13 @@ class dcSqlStatement
      */
     public function regexp($value)
     {
-        if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli' || $this->con->driver() == 'mysqlimb4') {
+        if ($this->con->syntax() == 'mysql') {
             $clause = "REGEXP '^" . $this->escape(preg_quote($value)) . "[0-9]+$'";
-        } elseif ($this->con->driver() == 'pgsql') {
+        } elseif ($this->con->syntax() == 'postgresql') {
             $clause = "~ '^" . $this->escape(preg_quote($value)) . "[0-9]+$'";
         } else {
             $clause = "LIKE '" .
-            $sql->escape(preg_replace(array('%', '_', '!'), array('!%', '!_', '!!'), $value)) .
+            $this->escape(preg_replace(array('%', '_', '!'), array('!%', '!_', '!!'), $value)) .
                 "%' ESCAPE '!'";
         }
         return $clause;
@@ -299,7 +300,7 @@ class dcSqlStatement
      * May be used for debugging purpose as:
      *
      * if (!$sql->isSame($sql->statement(), $oldRequest)) {
-     *    trigger_error('SQL statement error: ' . $sql->statement() . ' / ' .$oldRequest, E_USER_ERROR);
+     *     trigger_error('SQL statement error: ' . $sql->statement() . ' / ' . $oldRequest, E_USER_ERROR);
      * }
      *
      * @param      string   $local     The local
