@@ -46,7 +46,7 @@ function dcSystemCheck($con, &$err)
         $err[] = __('SPL module is not available.');
     }
 
-    if ($con->driver() == 'mysql' || $con->driver() == 'mysqli' || $con->driver() == 'mysqlimb4') {
+    if ($con->syntax() == 'mysql') {
         if (version_compare($con->version(), '4.1', '<')) {
             $err[] = sprintf(__('MySQL version is %s (4.1 or earlier needed).'), $con->version());
         } else {
