@@ -28,10 +28,10 @@ msgid "Password reset"
 msgstr "Réinitialisation du mot de passe"
 
 msgid "Someone has requested to reset the password for the following site and username."
-msgstr "Quelqu'un a demandé la réinitialisation du mot de passe pour le site et l'utilisateur suivants."
+msgstr "Quelqu'un a demandé la réinitialisation du mot de passe pour le site et l'utilisateur·rice suivants."
 
 msgid "Username:"
-msgstr "Nom d'utilisateur :"
+msgstr "Nom d'utilisatrice ou d'utilisateur :"
 
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Pour réinitialiser votre mot de passe, rendez-vous à l'adresse suivante. Sinon ignorez simplement ce message et rien ne se passera."
@@ -62,13 +62,13 @@ msgid "In order to login, you have to change your password now."
 msgstr "Afin de vous connecter, vous devez changer votre mot de passe."
 
 msgid "Safe Mode can only be used for super administrators."
-msgstr "Le mode sans échec ne peut être utilisé que par un super administrateur."
+msgstr "Le mode sans échec ne peut être utilisé que par un·e super administrateur·rice."
 
 msgid "Insufficient permissions"
 msgstr "Permissions insuffisantes"
 
 msgid "Wrong username or password"
-msgstr "Nom d'utilisateur ou mot de passe incorrect"
+msgstr "Nom d'utilisateur·rice ou mot de passe incorrect"
 
 msgid "Back to login screen"
 msgstr "Retour à l'écran de connexion"
@@ -299,7 +299,7 @@ msgid "Blog configuration"
 msgstr "Configuration du blog"
 
 msgid "Blog editor name:"
-msgstr "Nom de l'auteur du blog :"
+msgstr "Nom de l'auteur·rice du blog :"
 
 msgid "Default language:"
 msgstr "Langue par défaut :"
@@ -398,7 +398,7 @@ msgid "Please note that if you change current settings bellow, they will now app
 msgstr "Veuillez noter que si vous changez ces réglages, ils s'appliqueront désormais à toutes les nouvelles images ajoutées à la médiathèque."
 
 msgid "Be carefull if you share it with other blogs in your installation."
-msgstr "Soyez prudent si plusieurs blogs de l'installation partagent la même médiathèque."
+msgstr "Soyez prudent·e si plusieurs blogs de l'installation partagent la même médiathèque."
 
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr "Mettez -1 pour utiliser la taille par défaut, mettez 0 pour ignorer cette taille de miniature (images seulement)."
@@ -493,7 +493,7 @@ msgid "XML/RPC interface allows you to edit your blog with an external client."
 msgstr "L'interface XML/RPC vous permet de publier sur votre blog avec un client externe."
 
 msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
-msgstr "L'interface XML/RPC est active. Vous êtes invités à indiquer les paramètres suivants dans votre client XML/RPC :"
+msgstr "L'interface XML/RPC est active. Vous êtes invité·e·s à indiquer les paramètres suivants dans votre client XML/RPC :"
 
 msgid "Server URL:"
 msgstr "URL du serveur :"
@@ -502,7 +502,7 @@ msgid "Blogging system:"
 msgstr "Système de blog :"
 
 msgid "User name:"
-msgstr "Nom d'utilisateur :"
+msgstr "Nom d'utilisateur·rice :"
 
 msgid "your password"
 msgstr "votre mot de passe"
@@ -532,16 +532,16 @@ msgid "The current blog cannot be deleted."
 msgstr "Le blog courant ne peut être détruit."
 
 msgid "Only superadmin can delete a blog."
-msgstr "Seul un superadministrateur peut supprimer un blog."
+msgstr "Seul un ou une super-administrateur·rice peut supprimer un blog."
 
 msgid "Users"
-msgstr "Utilisateurs"
+msgstr "Utilisateur·rice·s"
 
 msgid "Users on this blog"
-msgstr "Utilisateurs de ce blog"
+msgstr "Utilisateur·rice·s de ce blog"
 
 msgid "No users"
-msgstr "Aucun utilisateur"
+msgstr "Aucun utilisateur·rice"
 
 msgid "Publications on this blog:"
 msgstr "Publications sur ce blog :"
@@ -554,7 +554,7 @@ msgid "Permissions:"
 msgstr "Permissions :"
 
 msgid "Super administrator"
-msgstr "Super administrateur"
+msgstr "Super administrateur·rice"
 
 msgid "All rights on all blogs."
 msgstr "Tous les droits sur tous les blogs."
@@ -865,7 +865,7 @@ msgid "Comment submitted"
 msgstr "Commentaire déposé"
 
 msgid "Author:"
-msgstr "Auteur :"
+msgstr "Auteur·rice :"
 
 msgid "Web site:"
 msgstr "Site web :"
@@ -892,7 +892,7 @@ msgid "Entry date"
 msgstr "Date de l'entrée"
 
 msgid "Author"
-msgstr "Auteur"
+msgstr "Auteur·rice"
 
 msgid "IP"
 msgstr "IP"
@@ -1002,13 +1002,13 @@ msgid "The cache directory does not exist or is not writable. You must create th
 msgstr "Le répertoire de cache n'existe pas ou n'est pas accessible en écriture. Vous devez créer ce répertoire avec les droits suffisants et affecter celui-ci à \"DC_TPL_CACHE\" dans le fichier inc/config.php."
 
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
-msgstr "Le répertoire de cache n'existe pas ou n'est pas accessible en écriture. Vous devriez contacter votre administrateur."
+msgstr "Le répertoire de cache n'existe pas ou n'est pas accessible en écriture. Vous devriez contacter votre administrateur·rice."
 
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "Il n'existe pas de répertoire /public/ à l'endroit spécifié pour le réglage \"public_path\" dans about:config. Vous devez créer ce répertoire avec les droits suffisants (ou changer ce réglage)."
 
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
-msgstr "Il n'existe pas de répertoire principal accessible en écriture pour la médiathèque. Vous devriez contacter votre administrateur."
+msgstr "Il n'existe pas de répertoire principal accessible en écriture pour la médiathèque. Vous devriez contacter votre administrateur·rice."
 
 msgid "Error:"
 msgstr "Erreur :"
@@ -1092,10 +1092,10 @@ msgid "Dotclear cannot be installed."
 msgstr "Dotclear ne peut pas être installé."
 
 msgid "No user ID given"
-msgstr "Aucun identifiant utilisateur spécifié"
+msgstr "Aucun identifiant utilisateur·rice spécifié"
 
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
-msgstr "L'identifiant utilisateur doit contenir au moins 2 caractères composés de lettres, chiffres ou symboles."
+msgstr "L'identifiant utilisateur·rice doit contenir au moins 2 caractères composés de lettres, chiffres ou symboles."
 
 msgid "Invalid email address"
 msgstr "Adresse email incorrecte"
@@ -1170,7 +1170,7 @@ msgid "User information"
 msgstr "Informations utilisateur"
 
 msgid "Please provide the following information needed to create the first user."
-msgstr "Merci de fournir les informations suivantes pour créer le premier utilisateur."
+msgstr "Merci de fournir les informations suivantes pour créer le ou la premier·ière utilisateur·rice."
 
 msgid "First Name:"
 msgstr "Prénom :"
@@ -1273,7 +1273,7 @@ msgid "Database Name:"
 msgstr "Nom de la base de données :"
 
 msgid "Database User Name:"
-msgstr "Nom d'utilisateur de la base de données :"
+msgstr "Nom d'utilisateur·rice de la base de données :"
 
 msgid "Database Password:"
 msgstr "Mot de passe de la base de données :"
@@ -1328,7 +1328,7 @@ msgstr "Sur cette page, vous pouvez installer, mettre à jour ou supprimer des l
 
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
-msgstr "Vous pouvez changer votre langue d'utilisateur dans vos <a href=\"%1$s\">préférences</a> ou changer la langue principale de votre blog dans vos <a href=\"%2$s\">Paramètres du blog</a>."
+msgstr "Vous pouvez changer votre langue d'utilisateur·rice dans vos <a href=\"%1$s\">préférences</a> ou changer la langue principale de votre blog dans vos <a href=\"%2$s\">Paramètres du blog</a>."
 
 msgid "Installed languages"
 msgstr "Langues installées"
@@ -1435,7 +1435,7 @@ msgstr "Confirmer la suppression"
 
 #, php-format
 msgid "Are you sure you want to remove %s?"
-msgstr "Êtes-vous certain de vouloir supprimer %s ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer %s ?"
 
 msgid "Cancel"
 msgstr "Annuler"
@@ -1599,7 +1599,7 @@ msgid "Default media insertion settings have been successfully updated."
 msgstr "Les paramètres par défaut d'insertion des médias ont été mis à jour."
 
 msgid "Are you sure to delete this media?"
-msgstr "Êtes-vous sûr de vouloir supprimer ce média ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer ce média ?"
 
 msgid "Select media item"
 msgstr "Insérer un média"
@@ -2046,7 +2046,7 @@ msgid "Attachment"
 msgstr "Annexe"
 
 msgid "Are you sure you want to remove this attachment?"
-msgstr "Êtes-vous certain de vouloir supprimer cette annexe ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer cette annexe ?"
 
 msgid "(No cat)"
 msgstr "(aucune)"
@@ -2235,7 +2235,7 @@ msgid "Do not use standard favicon"
 msgstr "Ne pas utiliser le favicon standard de Dotclear"
 
 msgid "This will be applied for all users"
-msgstr "Ce choix sera appliqué pour tous les utilisateurs"
+msgstr "Ce choix sera appliqué pour tous les utilisateur·rice·s"
 
 msgid "Optional columns displayed in lists"
 msgstr "Colonnes optionnelles affichées dans les listes"
@@ -2291,10 +2291,10 @@ msgid "Delete selected favorites"
 msgstr "Retirer les favoris sélectionnés"
 
 msgid "Are you sure you want to remove selected favorites?"
-msgstr "Êtes-vous sûr de vouloir retirer les favoris sélectionnés ?"
+msgstr "Êtes-vous sûr·e de vouloir retirer les favoris sélectionnés ?"
 
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
-msgstr "Si vous êtes super administrateur, vous pouvez faire de ces favoris le jeu par défaut pour tous les blogs de l'installation."
+msgstr "Si vous êtes super administrateur·rice, vous pouvez faire de ces favoris le jeu par défaut pour tous les blogs de l'installation."
 
 msgid "Define as default favorites"
 msgstr "Définir comme favoris par défaut"
@@ -2448,20 +2448,20 @@ msgid "Finish the update."
 msgstr "Finir la mise à jour."
 
 msgid "New user"
-msgstr "Nouvel utilisateur"
+msgstr "Nouvel utilisateur·rice"
 
 msgid "User has been successfully updated."
-msgstr "L'utilisateur a été mis à jour."
+msgstr "L'utilisateur·rice a été mis·e à jour."
 
 #, php-format
 msgid "User \"%s\" already exists."
-msgstr "L'utilisateur \"%s\" existe déjà."
+msgstr "L'utilisateur·rice \"%s\" existe déjà."
 
 msgid "User has been successfully created."
-msgstr "L'utilisateur a été créé."
+msgstr "L'utilisateur·rice a été créé·e."
 
 msgid "User profile"
-msgstr "Profil utilisateur"
+msgstr "Profil utilisateur·rice"
 
 msgid "User ID:"
 msgstr "Identifiant (login) :"
@@ -2482,7 +2482,7 @@ msgid "Timezone:"
 msgstr "Fuseau horaire :"
 
 msgid "Save and create another"
-msgstr "Enregistrer et créer un nouveau"
+msgstr "Enregistrer et créer un·e nouveau·elle"
 
 msgid "Permissions"
 msgstr "Permissions"
@@ -2498,7 +2498,7 @@ msgstr "Blog :"
 
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
-msgstr "%s est super administrateur (tous les droits sur tous les blogs)."
+msgstr "%s est super administrateur·rice (tous les droits sur tous les blogs)."
 
 msgid "Username"
 msgstr "Identifiant"
@@ -2519,16 +2519,16 @@ msgid "Set permissions"
 msgstr "Définir les permissions"
 
 msgid "User has been successfully removed."
-msgstr "L'utilisateur a été supprimé."
+msgstr "L'utilisateur·rice a été supprimé·e."
 
 msgid "The permissions have been successfully updated."
 msgstr "Les permissions ont été mises à jour."
 
 msgid "users per page"
-msgstr "utilisateurs par page"
+msgstr "utilisateur·rice·s par page"
 
 msgid "Selected users action:"
-msgstr "Action sur les utilisateurs sélectionnés :"
+msgstr "Action sur les utilisateur·rice·s sélectionné·e·s :"
 
 msgid "No blog or user given."
 msgstr "Vous n'avez pas indiqué de blog ou d'utilisateur"
@@ -2537,14 +2537,14 @@ msgid "You cannot delete yourself."
 msgstr "Vous ne pouvez pas vous supprimer vous-même."
 
 msgid "User has been successfully deleted."
-msgstr "L'utilisateur a été supprimé."
+msgstr "L'utilisateur·rice a été supprimé·e."
 
 msgid "Back to user profile"
-msgstr "Retour au profil utilisateur"
+msgstr "Retour au profil de l'utilisateur·rice"
 
 #, php-format
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
-msgstr "Choisissez un ou plusieurs blogs pour lesquels les utilisateurs suivants auront des permissions : %s."
+msgstr "Choisissez un ou plusieurs blogs pour lesquels les utilisateur·rice·s suivant·e·s auront des permissions : %s."
 
 msgid "No blog"
 msgstr "Pas de blog"
@@ -2557,7 +2557,7 @@ msgstr "sélectionner"
 
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
-msgstr "Vous allez changer les permissions des utilisateurs %s pour ces blogs."
+msgstr "Vous allez changer les permissions des utilisateur·rice·s %s pour ces blogs."
 
 msgid "Validate permissions"
 msgstr "Valider les permissions"
@@ -2650,7 +2650,7 @@ msgid "Change language"
 msgstr "Changer la langue"
 
 msgid "Change author"
-msgstr "Changer l'auteur"
+msgstr "Changer l'auteur·rice"
 
 msgid "No entry selected"
 msgstr "Aucune entrée sélectionnée"
@@ -2692,19 +2692,19 @@ msgid "Create a new category for the post(s)"
 msgstr "Créer une nouvelle catégorie pour ce(s) billet(s)"
 
 msgid "This user does not exist"
-msgstr "Cet utilisateur n'existe pas"
+msgstr "Cet·te utilisateur·rice n'existe pas"
 
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
-msgstr[0] "%d billet a été affecté à l'utilisateur \"%s\"."
-msgstr[1] "%d billets ont été affectés à l'utilisateur \"%s\"."
+msgstr[0] "%d billet a été affecté à l'utilisateur·rice \"%s\"."
+msgstr[1] "%d billets ont été affectés à l'utilisateur·rice \"%s\"."
 
 msgid "Change author for this selection"
-msgstr "Changer l'auteur pour cette sélection"
+msgstr "Changer l'auteur·rice pour cette sélection"
 
 msgid "New author (author ID):"
-msgstr "Nouvel auteur (identifiant utilisateur) :"
+msgstr "Nouvel auteur·rice (identifiant utilisateur·rice) :"
 
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\""
@@ -2831,75 +2831,75 @@ msgstr "voir le billet"
 
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
-msgstr "Êtes-vous certain de vouloir supprimer les billets sélectionnés (%s) ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer les billets sélectionnés (%s) ?"
 
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
-msgstr "Êtes-vous sûr de vouloir supprimer les médias sélectionnés (%d) ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les médias sélectionnés (%d) ?"
 
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
-msgstr "Êtes-vous certain de vouloir supprimer les categories sélectionnées (%s) ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer les categories sélectionnées (%s) ?"
 
 msgid "Are you sure you want to delete this entry?"
-msgstr "Êtes-vous certain de vouloir supprimer ce billet ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer ce billet ?"
 
 msgid "Click here to unlock the field"
 msgstr "Cliquez ici pour déverrouiller ce champ"
 
 msgid "Are you sure you want to delete all spams?"
-msgstr "Êtes-vous certain de vouloir supprimer tous les indésirables ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer tous les indésirables ?"
 
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
-msgstr "Êtes-vous certain de vouloir supprimer les commentaires sélectionnés (%s) ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer les commentaires sélectionnés (%s) ?"
 
 msgid "Are you sure you want to delete this comment?"
-msgstr "Êtes-vous certain de vouloir supprimer ce commentaire ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer ce commentaire ?"
 
 msgid "Users with posts cannot be deleted."
-msgstr "Les utilisateurs ayant écrit des entrées ne peuvent être supprimés."
+msgstr "Les utilisateur·rice·s ayant écrit des entrées ne peuvent être supprimés."
 
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
-msgstr "Êtes-vous certain de vouloir supprimer les utilisateurs sélectionnés (%s) ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer les utilisateur·rice·s sélectionné·e·s (%s) ?"
 
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
-msgstr "Êtes-vous sûr de vouloir supprimer les blogs sélectionnés (%s) ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les blogs sélectionnés (%s) ?"
 
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
-msgstr "Êtes-vous certain de vouloir supprimer la catégorie \"%s\" ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer la catégorie \"%s\" ?"
 
 msgid "Are you sure you want to reorder all categories?"
-msgstr "Êtes-vous certain de vouloir réinitialiser l'ordre des catégories ?"
+msgstr "Êtes-vous certain·e de vouloir réinitialiser l'ordre des catégories ?"
 
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
-msgstr "Êtes-vous certain de vouloir supprimer le média \"%s\" ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer le média \"%s\" ?"
 
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
-msgstr "Êtes-vous certain de vouloir supprimer le répertoire \"%s\" ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer le répertoire \"%s\" ?"
 
 msgid "Are you sure you want to extract archive in current directory?"
-msgstr "Êtes-vous certain de vouloir extraire l'archive dans le répertoire actuel ?"
+msgstr "Êtes-vous certain·e de vouloir extraire l'archive dans le répertoire actuel ?"
 
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
-msgstr "Êtes-vous certain de vouloir supprimer l'annexe \"%s\" ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer l'annexe \"%s\" ?"
 
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
-msgstr "Êtes-vous certain de vouloir supprimer la langue \"%s\" ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer la langue \"%s\" ?"
 
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr "Êtes-vous certain de vouloir supprimer le plugin \"%s\" ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer le plugin \"%s\" ?"
 
 msgid "Are you sure you want to delete selected plugins?"
-msgstr "Êtes-vous certain de vouloir supprimer les plugins sélectionnés ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer les plugins sélectionnés ?"
 
 msgid "Use this theme"
 msgstr "Utiliser ce thème"
@@ -2909,16 +2909,16 @@ msgstr "Supprimer ce thème"
 
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
-msgstr "Êtes-vous certain de vouloir supprimer le thème \"%s\" ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer le thème \"%s\" ?"
 
 msgid "Are you sure you want to delete selected themes?"
-msgstr "Êtes-vous certain de vouloir supprimer les thèmes sélectionnés ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer les thèmes sélectionnés ?"
 
 msgid "Are you sure you want to delete this backup?"
-msgstr "Êtes-vous certain de vouloir supprimer cette sauvegarde ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer cette sauvegarde ?"
 
 msgid "Are you sure you want to revert to this backup?"
-msgstr "Êtes-vous certain de vouloir restaurer cette sauvegarde ?"
+msgstr "Êtes-vous certain·e de vouloir restaurer cette sauvegarde ?"
 
 msgid "Zip file content"
 msgstr "Contenu du fichier zip"
@@ -3379,7 +3379,7 @@ msgid "trackback"
 msgstr "rétrolien"
 
 msgid "Type and author"
-msgstr "Type et auteur"
+msgstr "Type et auteur·rice"
 
 msgid "No blog matches the filter"
 msgstr "Aucun blog correspondant au filtre"
@@ -3408,23 +3408,23 @@ msgid "Switch to blog %s"
 msgstr "Passer au blog %s"
 
 msgid "No user matches the filter"
-msgstr "Aucun utilisateur correspondant au filtre"
+msgstr "Aucun·e utilisateur·rice correspondant·e au filtre"
 
 msgid "No user"
-msgstr "Aucun utilisateur"
+msgstr "Aucun·e utilisateur·rice"
 
 #, php-format
 msgid "List of %s users match the filter."
-msgstr "%s utilisateurs correspondent au filtre."
+msgstr "%s utilisateur·rice·s correspondent au filtre."
 
 msgid "Users list"
-msgstr "Liste des utilisateurs"
+msgstr "Liste des utilisateur·rice·s"
 
 msgid "admin"
-msgstr "Administrateur"
+msgstr "administrateur·rice"
 
 msgid "superadmin"
-msgstr "Super administrateur"
+msgstr "Super administrateur·rice"
 
 #, php-format
 msgid "ratio %.1f"
@@ -3488,7 +3488,7 @@ msgid "Pages"
 msgstr "Pages"
 
 msgid "administrator"
-msgstr "administrateur"
+msgstr "administrateur·rice"
 
 msgid "manage their own entries and comments"
 msgstr "gérer ses propres billets et commentaires"
@@ -3512,25 +3512,25 @@ msgid "manage all media items"
 msgstr "gérer tous les médias"
 
 msgid "That user does not exist in the database."
-msgstr "Cet utilisateur n'existe pas dans la base de données."
+msgstr "Cet·te utilisateur·rice n'existe pas dans la base de données."
 
 msgid "That key does not exist in the database."
 msgstr "Cette clé n'existe pas dans la base de données."
 
 msgid "You are not allowed to add categories"
-msgstr "Vous n'êtes pas autorisé à créer des catégories"
+msgstr "Vous n'êtes pas autorisé·e à créer des catégories"
 
 msgid "You are not allowed to update categories"
-msgstr "Vous n'êtes pas autorisé à modifier des catégories"
+msgstr "Vous n'êtes pas autorisé·e à modifier des catégories"
 
 msgid "You are not allowed to delete categories"
-msgstr "Vous n'êtes pas autorisé à supprimer des catégories"
+msgstr "Vous n'êtes pas autorisé·e à supprimer des catégories"
 
 msgid "This category is not empty."
 msgstr "Cette catégorie n'est pas vide."
 
 msgid "You are not allowed to reset categories order"
-msgstr "Vous n'êtes pas autorisé à réinitialiser l'ordre des catégories"
+msgstr "Vous n'êtes pas autorisé·e à réinitialiser l'ordre des catégories"
 
 msgid "Empty category URL"
 msgstr "URL de la catégorie vide"
@@ -3542,28 +3542,28 @@ msgid "You must provide a category URL"
 msgstr "Vous devez indiquer une URL de catégorie"
 
 msgid "You are not allowed to create an entry"
-msgstr "Vous n'êtes pas autorisé à créer des billets"
+msgstr "Vous n'êtes pas autorisé·e à créer des billets"
 
 msgid "You are not allowed to update entries"
-msgstr "Vous n'êtes pas autorisé à modifier les billets"
+msgstr "Vous n'êtes pas autorisé·e à modifier les billets"
 
 msgid "No such entry ID"
 msgstr "Identifiant de billet inconnu"
 
 msgid "You are not allowed to edit this entry"
-msgstr "Vous n'êtes pas autorisé à modifier ce billet"
+msgstr "Vous n'êtes pas autorisé·e à modifier ce billet"
 
 msgid "You are not allowed to change this entry status"
-msgstr "Vous n'êtes pas autorisé à modifier l'état de ce billet"
+msgstr "Vous n'êtes pas autorisé·e à modifier l'état de ce billet"
 
 msgid "You are not allowed to change this entry category"
-msgstr "Vous n'êtes pas autorisé à modifier la catégorie de ce billet"
+msgstr "Vous n'êtes pas autorisé·e à modifier la catégorie de ce billet"
 
 msgid "You are not allowed to change entries category"
-msgstr "Vous n'êtes pas autorisé à modifier la catégorie des billets"
+msgstr "Vous n'êtes pas autorisé·e à modifier la catégorie des billets"
 
 msgid "You are not allowed to delete entries"
-msgstr "Vous n'êtes pas autorisé à supprimer des billets"
+msgstr "Vous n'êtes pas autorisé·e à supprimer des billets"
 
 msgid "No entry title"
 msgstr "Pas de titre de billet"
@@ -3581,19 +3581,19 @@ msgid "Empty entry URL"
 msgstr "URL du billet vide"
 
 msgid "You are not allowed to update comments"
-msgstr "Vous n'êtes pas autorisé à modifier des commentaires"
+msgstr "Vous n'êtes pas autorisé·e à modifier des commentaires"
 
 msgid "No such comment ID"
 msgstr "Identifiant de commentaire inconnu"
 
 msgid "You are not allowed to update this comment"
-msgstr "Vous n'êtes pas autorisé à modifier ce commentaire"
+msgstr "Vous n'êtes pas autorisé·e à modifier ce commentaire"
 
 msgid "You are not allowed to change this comment's status"
-msgstr "Vous n'êtes pas autorisé à changer l'état de ce commentaire"
+msgstr "Vous n'êtes pas autorisé·e à changer l'état de ce commentaire"
 
 msgid "You are not allowed to delete comments"
-msgstr "Vous n'êtes pas autorisé à supprimer des commentaires"
+msgstr "Vous n'êtes pas autorisé·e à supprimer des commentaires"
 
 msgid "You must provide a comment"
 msgstr "Vous devez écrire un commentaire"
@@ -3614,10 +3614,10 @@ msgid "removed"
 msgstr "retiré"
 
 msgid "You are not an administrator"
-msgstr "Vous n'êtes pas administrateur"
+msgstr "Vous n'êtes pas administrateur·rice"
 
 msgid "Invalid user language code"
-msgstr "Code langue de l'utilisateur invalide"
+msgstr "Code langue de l'utilisateur·rice invalide"
 
 msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "L'identifiant du blog doit contenir au moins 2 caractères composés de lettres, chiffres ou symboles."
@@ -3638,13 +3638,13 @@ msgid "No blog defined."
 msgstr "Aucun blog défini."
 
 msgid "You are not a super administrator."
-msgstr "Vous n'êtes pas super administrateur."
+msgstr "Vous n'êtes pas super administrateur·rice."
 
 msgid "Permission denied."
 msgstr "Permission refusée."
 
 msgid "You are not the file owner."
-msgstr "Vous n'êtes pas le propriétaire de ce fichier."
+msgstr "Vous n'êtes pas le ou la propriétaire de ce fichier."
 
 msgid "This file is not allowed."
 msgstr "Ce fichier n'est pas autorisé."
@@ -4004,7 +4004,7 @@ msgstr "Connexion à la base de données impossible"
 
 #, php-format
 msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"http://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de passe de votre fichier <strong>config.php</strong> sont incorrects, soit que nous ne pouvons pas contacter le serveur de base de données à l'adresse \"<em>%s</em>\". Cela peut vouloir dire que le serveur en question est éteint.</p> <ul><li>Êtes-vous sûr que l'identifiant et le mot de passe sont corrects ?</li><li>Êtes-vous sûr d'avoir entré le bon nom de serveur ?</li><li> Êtes-vous sûr que le serveur fonctionne ?</li></ul><p>Si vous n'êtes pas sûr de la signification de ces termes, vous devriez probablement contacter votre hébergeur. Si vous avez besoin d'une aide supplémentaire, vous pouvez vous rendre sur <a href=\"http://forum.dotclear.net/\">le forum d'entraide Dotclear</a>.</p>"
+msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de passe de votre fichier <strong>config.php</strong> sont incorrects, soit que nous ne pouvons pas contacter le serveur de base de données à l'adresse \"<em>%s</em>\". Cela peut vouloir dire que le serveur en question est éteint.</p> <ul><li>Êtes-vous sûr·e que l'identifiant et le mot de passe sont corrects ?</li><li>Êtes-vous sûr·e d'avoir entré le bon nom de serveur ?</li><li> Êtes-vous sûr·e que le serveur fonctionne ?</li></ul><p>Si vous n'êtes pas sûr·e de la signification de ces termes, vous devriez probablement contacter votre hébergeur·euse. Si vous avez besoin d'une aide supplémentaire, vous pouvez vous rendre sur <a href=\"http://forum.dotclear.net/\">le forum d'entraide Dotclear</a>.</p>"
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
@@ -4177,10 +4177,10 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgstr "Widgets de présentation"
 
 #~ msgid "Users actions"
-#~ msgstr "Actions sur les utilisateurs"
+#~ msgstr "Actions sur les utilisateur·rice·s"
 
 #~ msgid "No User selected"
-#~ msgstr "Aucun utilisateur sélectionné"
+#~ msgstr "Aucun·e utilisateur·rice sélectionné·e"
 
 #~ msgid "(no cat)"
 #~ msgstr "(aucune)"
@@ -4333,7 +4333,7 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgstr "mettre en indésirable"
 
 #~ msgid "Filter users list"
-#~ msgstr "Filtrer la liste des utilisateurs"
+#~ msgstr "Filtrer la liste des utilisateur·rice·s"
 
 #~ msgid "%s: in [%s] and [%s]"
 #~ msgstr "%s : dans [%s] et [%s]"
@@ -4405,7 +4405,7 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgstr "Commentaires par page"
 
 #~ msgid "Comment author:"
-#~ msgstr "Auteur du commentaire :"
+#~ msgstr "Auteur·rice du commentaire :"
 
 #~ msgid "Latest news"
 #~ msgstr "Actualités"
@@ -4471,13 +4471,13 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgstr "Billets par page"
 
 #~ msgid "Author ID:"
-#~ msgstr "Identifiant de l'utilisateur :"
+#~ msgstr "Identifiant de l'utilisateur·rice :"
 
 #~ msgid "User language:"
-#~ msgstr "Langue de l'utilisateur :"
+#~ msgstr "Langue de l'utilisateur·rice :"
 
 #~ msgid "User timezone:"
-#~ msgstr "Fuseau horaire de l'utilisateur :"
+#~ msgstr "Fuseau horaire de l'utilisateur·rice :"
 
 #~ msgid "If you have changed this user email or password you must provide your current password to save these modifications."
 #~ msgstr "Si vous voulez changer votre adresse email ou votre mot de passe, vous devez indiquer votre mot de passe actuel pour enregistrer ces modifications."
@@ -4498,16 +4498,16 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgstr "Retour à \"%s\""
 
 #~ msgid "new user"
-#~ msgstr "nouvel utilisateur"
+#~ msgstr "nouvel·le utilisateur·rice"
 
 #~ msgid "No permissions."
 #~ msgstr "Aucune permission."
 
 #~ msgid "Create a new user"
-#~ msgstr "Créer un nouvel utilisateur"
+#~ msgstr "Créer un·e nouvel·le utilisateur·rice"
 
 #~ msgid "Users per page"
-#~ msgstr "Utilisateurs par page"
+#~ msgstr "Utilisateur·rice·s par page"
 
 #~ msgid "help"
 #~ msgstr "aide"
@@ -4519,13 +4519,13 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgstr "L'URL de chaque catégorie doit être unique."
 
 #~ msgid "You are not allowed to mark this entry as selected"
-#~ msgstr "Vous n'êtes pas autorisé à marquer ce billet comme sélectionné"
+#~ msgstr "Vous n'êtes pas autorisé·e à marquer ce billet comme sélectionné"
 
 #~ msgid "You are not allowed to delete this entry"
-#~ msgstr "Vous n'êtes pas autorisé à supprimer ce billet"
+#~ msgstr "Vous n'êtes pas autorisé·e à supprimer ce billet"
 
 #~ msgid "You are not allowed to delete this comment"
-#~ msgstr "Vous n'êtes pas autorisé à supprimer ce commentaire"
+#~ msgstr "Vous n'êtes pas autorisé·e à supprimer ce commentaire"
 
 #~ msgid "Directory %s does not exist."
 #~ msgstr "Le répertoire %s n'existe pas."
@@ -4540,13 +4540,13 @@ msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à l
 #~ msgstr "Choisissez un blog"
 
 #~ msgid "users"
-#~ msgstr "utilisateurs"
+#~ msgstr "utilisateur·rice·s"
 
 #~ msgid "The current blog cannot be deleted"
 #~ msgstr "Le blog courant ne peut être détruit"
 
 #~ msgid "Only superadmin can delete a blog"
-#~ msgstr "Seul un superadministrateur peut supprimer un blog"
+#~ msgstr "Seul un·e super-administrateur·rice peut supprimer un blog"
 
 #~ msgid "Edit basename:"
 #~ msgstr "Modifier l'URL spécifique :"
