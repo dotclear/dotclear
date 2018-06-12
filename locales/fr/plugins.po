@@ -67,7 +67,7 @@ msgid "Theme Editor"
 msgstr "Éditeur de thème"
 
 msgid "Manage every user preference directive"
-msgstr "Gestion des préférences utilisateur"
+msgstr "Gestion des préférences utilisateur·rice"
 
 msgid "Widgets for your blog sidebars"
 msgstr "Widgets pour les volets de votre blog"
@@ -237,7 +237,7 @@ msgid "Global IPs (used for all blogs)"
 msgstr "IP globales (valables pour tous les blogs)"
 
 msgid "Checks sender IP address against DNSBL servers"
-msgstr "Contrôle l'adresse IP de l'émetteur via les serveurs DNSBL"
+msgstr "Contrôle l'adresse IP de l'émetteur·rice via les serveurs DNSBL"
 
 #, php-format
 msgid "Filtered by %1$s with server %2$s."
@@ -578,7 +578,7 @@ msgid "Delete selected links"
 msgstr "Supprimer les liens sélectionnés"
 
 msgid "Are you sure you want to delete selected links?"
-msgstr "Êtes-vous sûr de vouloir supprimer ces liens ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer ces liens ?"
 
 msgid "The link list is empty."
 msgstr "La liste des liens est vide."
@@ -1057,7 +1057,7 @@ msgid "Please read carefully"
 msgstr "Lisez soigneusement"
 
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
-msgstr "Chaque utilisateur nouvellement importé a reçu un mot de passe aléatoire et devra en demander un nouveau en cliquant sur le lien « J'ai oublié mon mot de passe » sur la page d'authentification (son adresse email doit être valide)."
+msgstr "Chaque utilisateur·rice nouvellement importé·e a reçu un mot de passe aléatoire et devra en demander un nouveau en cliquant sur le lien « J'ai oublié mon mot de passe » sur la page d'authentification (son adresse email doit être valide)."
 
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
@@ -1104,7 +1104,7 @@ msgid "Single blog successfully imported."
 msgstr "Le blog a été importé."
 
 msgid "Are you sure you want to import a full backup file?"
-msgstr "Êtes-vous sûr de vouloir importer un fichier de sauvegarde complet ?"
+msgstr "Êtes-vous sûr·e de vouloir importer un fichier de sauvegarde complet ?"
 
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
@@ -1303,7 +1303,7 @@ msgid "Failed to empty templates cache directory."
 msgstr "Impossible de vider le répertoire de cache des « templates »."
 
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
-msgstr "La suppression du répertoire du cache des templates peut se révéler nécessaire lors de modifications dans les fichiers .html ou .css d'un thème (voire lors d'un changement de thème ou de mise à jour de plugin). Attention : chez certains hébergeurs (Free par exemple), le cache du répertoire des templates ne peut pas être vidé grâce à l'extension Maintenance, il faut supprimer le répertoire <strong>cbtpl</strong> situé dans le répertoire cache (dotclear/cache par défaut) avec un logiciel FTP."
+msgstr "La suppression du répertoire du cache des templates peut se révéler nécessaire lors de modifications dans les fichiers .html ou .css d'un thème (voire lors d'un changement de thème ou de mise à jour de plugin). Attention : chez certains hébergeur·euse·s (Free par exemple), le cache du répertoire des templates ne peut pas être vidé grâce à l'extension Maintenance, il faut supprimer le répertoire <strong>cbtpl</strong> situé dans le répertoire cache (dotclear/cache par défaut) avec un logiciel FTP."
 
 msgid "Count again comments and trackbacks"
 msgstr "Recompter les commentaires et rétroliens"
@@ -1417,7 +1417,7 @@ msgid "Download media folder of current blog"
 msgstr "Télécharger la médiathèque du blog courant"
 
 msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
-msgstr "Il peut être utile de sauvegarder votre médiathèque. Ceci comprime tout le contenu du répertoire de média dans un seul fichier Zip. Remarque : chez certains hébergeurs, la médiathèque ne peut pas être compressée avec ce plugin si elle est trop grande."
+msgstr "Il peut être utile de sauvegarder votre médiathèque. Ceci comprime tout le contenu du répertoire de média dans un seul fichier Zip. Remarque : chez certains hébergeur·euse·s, la médiathèque ne peut pas être compressée avec ce plugin si elle est trop grande."
 
 msgid "Download active theme of current blog"
 msgstr "Télécharger le theme actif du blog courant"
@@ -1537,7 +1537,7 @@ msgid "Select this page"
 msgstr "Sélectionner cette page"
 
 msgid "Are you sure you want to delete selected pages?"
-msgstr "Êtes-vous sûr de vouloir supprimer les pages sélectionnées ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les pages sélectionnées ?"
 
 msgid "Selected pages have been successfully updated."
 msgstr "Les pages sélectionnées ont été modifiées."
@@ -1564,7 +1564,7 @@ msgid "Edit page"
 msgstr "Modifier la page"
 
 msgid "Are you sure you want to delete this page?"
-msgstr "Êtes-vous sûr de vouloir supprimer cette page ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer cette page ?"
 
 msgid "Page has been successfully updated."
 msgstr "La page a été modifiée."
@@ -1815,7 +1815,7 @@ msgid "Add tags to this selection"
 msgstr "Ajouter des mots-clés à cette sélection"
 
 msgid "Are you sure you want to remove this tag?"
-msgstr "Êtes-vous sûr de vouloir supprimer ce mot-clé ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer ce mot-clé ?"
 
 msgid "Add a tag to this entry"
 msgstr "Ajouter un mot-clé à ce billet"
@@ -1872,7 +1872,7 @@ msgstr "Le mot-clé a été retiré."
 
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
-msgstr "Êtes-vous sûr de vouloir supprimer le mot-clé “%s” ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer le mot-clé “%s” ?"
 
 msgid "Back to tags list"
 msgstr "Retour à la liste des mots-clés"
@@ -1942,7 +1942,7 @@ msgid "An error occurred:"
 msgstr "Une erreur est survenue :"
 
 msgid "Are you sure you want to reset this file?"
-msgstr "Êtes-vous sûr de vouloir réinitialiser ce fichier ?"
+msgstr "Êtes-vous sûr·e de vouloir réinitialiser ce fichier ?"
 
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
@@ -1986,7 +1986,7 @@ msgid "user:preferences"
 msgstr "user:preferences"
 
 msgid "User preferences"
-msgstr "Préférences utilisateur"
+msgstr "Préférences utilisateur·rice"
 
 msgid "Global preferences"
 msgstr "Préférences globales"
@@ -2111,7 +2111,7 @@ msgid "Widgets"
 msgstr "Widgets"
 
 msgid "Are you sure you want to reset sidebars?"
-msgstr "Êtes-vous sûr de vouloir réinitialiser les volets ?"
+msgstr "Êtes-vous sûr·e de vouloir réinitialiser les volets ?"
 
 msgid "Available widgets"
 msgstr "Widgets disponibles"
@@ -2225,7 +2225,7 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 #~ msgstr "Balises de widget"
 
 #~ msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
-#~ msgstr "Si vous êtes autorisé à modifier vos fichiers de thème, vous pouvez ajouter des widgets sous forme de balise, avec leur propre configuration."
+#~ msgstr "Si vous êtes autorisé·e à modifier vos fichiers de thème, vous pouvez ajouter des widgets sous forme de balise, avec leur propre configuration."
 
 #~ msgid "To add a widget in your template, you need to write code like this:"
 #~ msgstr "Pour ajouter un widget à votre thème, vous devez insérer un code similaire à :"
@@ -2348,7 +2348,7 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 #~ msgstr "Mot global"
 
 #~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "Êtes-vous sûr de vouloir supprimer tous les indésirables ?"
+#~ msgstr "Êtes-vous sûr·e de vouloir supprimer tous les indésirables ?"
 
 #~ msgid "Delete all spams"
 #~ msgstr "Supprimer tous les indésirables"
@@ -2441,7 +2441,7 @@ msgstr "Glisser les widgets ici pour les retirer du volet."
 #~ msgstr "Coloration syntaxique"
 
 #~ msgid "user preferences"
-#~ msgstr "préférences utilisateur"
+#~ msgstr "préférences utilisateur·rice"
 
 #~ msgid "global preferences"
 #~ msgstr "préférences globales"
