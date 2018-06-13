@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['gl'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['gl'] = {
     pastetext : 
     {
     	button : 'Pegar como texto simple',
-    	pasteNotification : 'O seu navegador non permite pegar texto simple deste xeito. Prema %1 para pegar.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Pegar como texto simple'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['gl'] = {
     	type : 'Tipo de ligazón',
     	unlink : 'Eliminar a ligazón',
     	upload : 'Enviar'
-    },
-    justify : 
-    {
-    	block : 'Xustificado',
-    	center : 'Centrado',
-    	left : 'Aliñar á esquerda',
-    	right : 'Aliñar á dereita'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['gl'] = {
     	cut : 'Cortar',
     	cutError : 'Os axustes de seguranza do seu navegador non permiten que o editor realice automaticamente as tarefas de corte. Use o teclado para iso (Ctrl/Cmd+X).',
     	paste : 'Pegar',
-    	pasteNotification : 'O seu navegador non permite pegar deste xeito. Prema %1 para pegar.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Zona de pegado',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : 'Pegar'
     },
     button : 
     {
@@ -442,11 +439,8 @@ CKEDITOR.lang['gl'] = {
     about : 
     {
     	copy : 'Copyright &copy; $1. Todos os dereitos reservados.',
-    	dlgTitle : 'Sobre o CKEditor',
-    	help : 'Consulte $1 para obter axuda.',
-    	moreInfo : 'Para obter  información sobre a licenza, visite o noso sitio web:',
-    	title : 'Sobre o CKEditor',
-    	userGuide : 'Guía do usuario do CKEditor'
+    	dlgTitle : 'Sobre o CKEditor 4',
+    	moreInfo : 'Para obter  información sobre a licenza, visite o noso sitio web:'
     },
     editor : 'Editor de texto mellorado',
     editorPanel : 'Panel do editor de texto mellorado',
@@ -503,10 +497,13 @@ CKEDITOR.lang['gl'] = {
     	width : 'Largo',
     	height : 'Alto',
     	align : 'Aliñamento',
-    	alignLeft : 'Esquerda',
-    	alignRight : 'Dereita',
-    	alignCenter : 'Centro',
-    	alignJustify : 'Xustificado',
+    	left : 'Esquerda',
+    	right : 'Dereita',
+    	center : 'Centro',
+    	justify : 'Xustificado',
+    	alignLeft : 'Aliñar á esquerda',
+    	alignRight : 'Aliñar á dereita',
+    	alignCenter : 'Align Center',
     	alignTop : 'Arriba',
     	alignMiddle : 'Centro',
     	alignBottom : 'Abaixo',
@@ -514,6 +511,7 @@ CKEDITOR.lang['gl'] = {
     	invalidValue : 'Valor incorrecto.',
     	invalidHeight : 'O alto debe ser un número.',
     	invalidWidth : 'O largo debe ser un número.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'O valor especificado para o campo «%1» debe ser un número positivo con ou sen unha unidade de medida CSS correcta (px, %, in, cm, mm, em, ex, pt, ou pc).',
     	invalidHtmlLength : 'O valor especificado para o campo «%1» debe ser un número positivo con ou sen unha unidade de medida HTML correcta (px ou %).',
     	invalidInlineStyle : 'O valor especificado no estilo en liña debe consistir nunha ou máis tuplas co formato «nome : valor», separadas por punto e coma.',
@@ -530,7 +528,32 @@ CKEDITOR.lang['gl'] = {
     		'35' : 'Fin',
     		'36' : 'Inicio',
     		'46' : 'Supr',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Orde'
     	},
-    	keyboardShortcut : 'Atallo de teclado'
+    	keyboardShortcut : 'Atallo de teclado',
+    	optionDefault : 'Default'
     } }; 

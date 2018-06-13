@@ -1,6 +1,6 @@
 /*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see LICENSE.md or http://ckeditor.com/license
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 
 body
@@ -26,25 +26,6 @@ body
 	/* Fix for missing scrollbars with RTL texts. (#10488) */
 	word-wrap: break-word;
 }
-
-/* Dotclear */
-:root {
-	--html-font-size: 62.5%; }
-
-html {
-	font-size: 62.5%;
-	font-size: var(--html-font-size); }
-
-body {
-	font-size: 1.4rem;
-	line-height: 1.5;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-}
-.cke_editable
-{
-	font-size: 1.4rem;
-}
-/* End Dotclear */
 
 blockquote
 {
@@ -132,8 +113,7 @@ span[lang]
 figure
 {
 	text-align: center;
-	border: solid 1px #ccc;
-	border-radius: 2px;
+	outline: solid 1px #ccc;
 	background: rgba(0,0,0,0.05);
 	padding: 10px;
 	margin: 10px 20px;

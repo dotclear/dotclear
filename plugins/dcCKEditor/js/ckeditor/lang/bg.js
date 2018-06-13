@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['bg'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['bg'] = {
     pastetext : 
     {
     	button : 'Вмъкни като чист текст',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Вмъкни като чист текст'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['bg'] = {
     	type : 'Тип на връзката',
     	unlink : 'Премахни връзката',
     	upload : 'Качване'
-    },
-    justify : 
-    {
-    	block : 'Двустранно подравняване',
-    	center : 'Център',
-    	left : 'Подравни в ляво',
-    	right : 'Подравни в дясно'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['bg'] = {
     	cut : 'Отрежи',
     	cutError : 'Настройките за сигурност на Вашия браузър не позволяват на редактора автоматично да изъплни действията за отрязване. Моля ползвайте клавиатурните команди за целта (ctrl+x).',
     	paste : 'Вмъкни',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Зона за вмъкване',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : 'Вмъкни'
     },
     button : 
     {
@@ -442,11 +439,8 @@ CKEDITOR.lang['bg'] = {
     about : 
     {
     	copy : 'Copyright &copy; $1. All rights reserved.',
-    	dlgTitle : 'Относно CKEditor',
-    	help : 'Проверете $1 за помощ.',
-    	moreInfo : 'За лицензионна информация моля посетете сайта ни:',
-    	title : 'Относно CKEditor',
-    	userGuide : 'CKEditor User\'s Guide'
+    	dlgTitle : 'Относно CKEditor 4',
+    	moreInfo : 'За лицензионна информация моля посетете сайта ни:'
     },
     editor : 'Текстов редактор за форматиран текст',
     editorPanel : 'Панел на текстовия редактор',
@@ -503,10 +497,13 @@ CKEDITOR.lang['bg'] = {
     	width : 'Ширина',
     	height : 'Височина',
     	align : 'Подравняване',
-    	alignLeft : 'Ляво',
-    	alignRight : 'Дясно',
-    	alignCenter : 'Център',
-    	alignJustify : 'Двустранно подравняване',
+    	left : 'Ляво',
+    	right : 'Дясно',
+    	center : 'Център',
+    	justify : 'Двустранно подравняване',
+    	alignLeft : 'Подравни в ляво',
+    	alignRight : 'Подравни в дясно',
+    	alignCenter : 'Align Center',
     	alignTop : 'Горе',
     	alignMiddle : 'По средата',
     	alignBottom : 'Долу',
@@ -514,6 +511,7 @@ CKEDITOR.lang['bg'] = {
     	invalidValue : 'Невалидна стойност.',
     	invalidHeight : 'Височината трябва да е число.',
     	invalidWidth : 'Ширина требе да е число.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'Стойността на полето "%1" трябва да бъде положително число с или без валидна CSS измервателна единица (px, %, in, cm, mm, em, ex, pt, или pc).',
     	invalidHtmlLength : 'Стойността на полето "%1" трябва да бъде положително число с или без валидна HTML измервателна единица (px или %).',
     	invalidInlineStyle : 'Стойността на стилa трябва да съдържат една или повече двойки във формат "name : value", разделени с двоеточие.',
@@ -530,7 +528,32 @@ CKEDITOR.lang['bg'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

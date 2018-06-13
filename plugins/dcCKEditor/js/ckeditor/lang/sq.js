@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['sq'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['sq'] = {
     pastetext : 
     {
     	button : 'Hidhe si tekst të thjeshtë',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Hidhe si Tekst të Thjeshtë'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['sq'] = {
     	type : 'Lloji i Nyjes',
     	unlink : 'Largo Nyjen',
     	upload : 'Ngarko'
-    },
-    justify : 
-    {
-    	block : 'Zgjero',
-    	center : 'Qendër',
-    	left : 'Rreshto majtas',
-    	right : 'Rreshto Djathtas'
     },
     indent : 
     {
@@ -386,28 +380,28 @@ CKEDITOR.lang['sq'] = {
     		F0F8FF : 'E Kaltër Alice',
     		E6E6FA : 'Ngjyrë Purpur e Zbetë',
     		FFF : 'E bardhë',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'1ABC9C' : 'Sian i Fortë',
+    		'2ECC71' : 'Smerald',
+    		'3498DB' : 'E kaltër e ndritur',
+    		'9B59B6' : 'Ametist',
+    		'4E5F70' : 'Kaltër në Gri',
+    		F1C40F : 'E verdhë e gjallë',
+    		'16A085' : 'Sian e errët',
+    		'27AE60' : 'Smerald e errët',
+    		'2980B9' : 'E kaltër e fortë',
+    		'8E44AD' : 'Vjollcë e errët',
+    		'2C3E50' : 'E kaltër e njomë',
+    		F39C12 : 'E Portokalltë',
+    		E67E22 : 'Ngjyrë karote',
+    		E74C3C : 'E kuqe e zbehtë',
+    		ECF0F1 : 'Ngjyrë argjendi e ndritshme',
+    		'95A5A6' : 'Sian në gri e lehtë',
+    		DDD : 'Gri e lehtë',
+    		D35400 : 'Ngjyrë kungulli',
+    		C0392B : 'E kuqe e fortë',
+    		BDC3C7 : 'Ngjyrë argjendi',
+    		'7F8C8D' : 'Sian në gri',
+    		'999' : 'Gri e Errët'
     	},
     	more : 'Më Shumë Ngjyra...',
     	panelTitle : 'Ngjyrat',
@@ -420,7 +414,10 @@ CKEDITOR.lang['sq'] = {
     	cut : 'Preje',
     	cutError : 'Të dhënat e sigurisë së shfletuesit tuaj nuk lejojnë që redaktuesi automatikisht të kryej veprimin e prerjes. Ju lutemi shfrytëzoni tastierën për këtë veprim (Ctrl/Cmd+X).',
     	paste : 'Hidhe',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Shtyp %1 për të hedhur tekstin. Shfletuesi juaj nuk mbështetë hedhjen me pullë shiriti ose alternativën e menysë kontekstuale.',
+    	pasteArea : 'Hapësira e Hedhjes',
+    	pasteMsg : 'Hidh përmbajtjen brenda hapësirës më poshtë dhe shtyp OK.',
+    	title : 'Hidhe'
     },
     button : 
     {
@@ -442,11 +439,8 @@ CKEDITOR.lang['sq'] = {
     about : 
     {
     	copy : 'Të drejtat  e kopjimit &copy; $1. Të gjitha të drejtat e rezervuara.',
-    	dlgTitle : 'Rreth CKEditor',
-    	help : 'Kontrollo $1 për ndihmë.',
-    	moreInfo : 'Për informacione rreth licencave shih faqen tonë:',
-    	title : 'Rreth CKEditor',
-    	userGuide : 'Udhëzuesi i Shfrytëzuesit të CKEditor'
+    	dlgTitle : 'Rreth CKEditor 4',
+    	moreInfo : 'Për informacione rreth licencave shih faqen tonë:'
     },
     editor : 'Redaktues i Pasur Teksti',
     editorPanel : 'Paneli i redaktuesit të tekstit të plotë',
@@ -503,10 +497,13 @@ CKEDITOR.lang['sq'] = {
     	width : 'Gjerësi',
     	height : 'Lartësi',
     	align : 'Rreshtim',
-    	alignLeft : 'Majtas',
-    	alignRight : 'Djathtas',
-    	alignCenter : 'Qendër',
-    	alignJustify : 'Zgjero',
+    	left : 'Majtas',
+    	right : 'Djathtas',
+    	center : 'Qendër',
+    	justify : 'Zgjero',
+    	alignLeft : 'Rreshto majtas',
+    	alignRight : 'Rreshto Djathtas',
+    	alignCenter : 'Align Center',
     	alignTop : 'Lart',
     	alignMiddle : 'Në mes',
     	alignBottom : 'Poshtë',
@@ -514,6 +511,7 @@ CKEDITOR.lang['sq'] = {
     	invalidValue : 'Vlerë e pavlefshme',
     	invalidHeight : 'Lartësia duhet të jetë një numër',
     	invalidWidth : 'Gjerësia duhet të jetë një numër',
+    	invalidLength : 'Vlera e përcaktuar për fushën "%1" duhet të jetë pozitive me ose pa njësi matëse me vlerë (%2).',
     	invalidCssLength : 'Vlera e fushës "%1" duhet të jetë një numër pozitiv me apo pa njësi matëse të vlefshme CSS (px, %, in, cm, mm, em, ex, pt ose pc).',
     	invalidHtmlLength : 'Vlera e fushës "%1" duhet të jetë një numër pozitiv me apo pa njësi matëse të vlefshme HTML (px ose %)',
     	invalidInlineStyle : 'Stili inline duhet të jetë një apo disa vlera të formatit "emër: vlerë", ndarë nga pikëpresje.',
@@ -526,11 +524,36 @@ CKEDITOR.lang['sq'] = {
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Hapësirë',
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Grise',
-    		'224' : 'Command'
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
+    		'224' : 'Urdhëri'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Shkurtesat e tastierës',
+    	optionDefault : 'Parazgjedhur'
     } }; 

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ja'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['ja'] = {
     pastetext : 
     {
     	button : 'プレーンテキストとして貼り付け',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'プレーンテキストとして貼り付け'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['ja'] = {
     	type : 'リンクタイプ',
     	unlink : 'リンクを削除',
     	upload : 'アップロード'
-    },
-    justify : 
-    {
-    	block : '両端揃え',
-    	center : '中央揃え',
-    	left : '左揃え',
-    	right : '右揃え'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['ja'] = {
     	cut : '切り取り',
     	cutError : 'ブラウザーのセキュリティ設定によりエディタの切り取り操作を自動で実行することができません。実行するには手動でキーボードの(Ctrl/Cmd+X)を使用してください。',
     	paste : '貼り付け',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : '貼り付け場所',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : '貼り付け'
     },
     button : 
     {
@@ -443,10 +440,7 @@ CKEDITOR.lang['ja'] = {
     {
     	copy : 'Copyright &copy; $1. All rights reserved.',
     	dlgTitle : 'CKEditorについて',
-    	help : '$1 のヘルプを見てください。',
-    	moreInfo : 'ライセンス情報の詳細はウェブサイトにて確認してください:',
-    	title : 'CKEditorについて',
-    	userGuide : 'CKEditor User\'s Guide'
+    	moreInfo : 'ライセンス情報の詳細はウェブサイトにて確認してください:'
     },
     editor : 'リッチテキストエディタ',
     editorPanel : 'リッチテキストエディタパネル',
@@ -503,10 +497,13 @@ CKEDITOR.lang['ja'] = {
     	width : '幅',
     	height : '高さ',
     	align : '行揃え',
-    	alignLeft : '左',
-    	alignRight : '右',
-    	alignCenter : '中央',
-    	alignJustify : '両端揃え',
+    	left : '左',
+    	right : '右',
+    	center : '中央',
+    	justify : '両端揃え',
+    	alignLeft : '左揃え',
+    	alignRight : '右揃え',
+    	alignCenter : 'Align Center',
     	alignTop : '上',
     	alignMiddle : '中央',
     	alignBottom : '下',
@@ -514,6 +511,7 @@ CKEDITOR.lang['ja'] = {
     	invalidValue : '不正な値です。',
     	invalidHeight : '高さは数値で入力してください。',
     	invalidWidth : '幅は数値で入力してください。',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : '入力された "%1" 項目の値は、CSSの大きさ(px, %, in, cm, mm, em, ex, pt, または pc)が正しいものである/ないに関わらず、正の値である必要があります。',
     	invalidHtmlLength : '入力された "%1" 項目の値は、HTMLの大きさ(px または %)が正しいものである/ないに関わらず、正の値である必要があります。',
     	invalidInlineStyle : '入力されたインラインスタイルの値は、"名前 : 値" のフォーマットのセットで、複数の場合はセミコロンで区切られている形式である必要があります。',
@@ -530,7 +528,32 @@ CKEDITOR.lang['ja'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'キーボードショートカット'
+    	keyboardShortcut : 'キーボードショートカット',
+    	optionDefault : 'Default'
     } }; 

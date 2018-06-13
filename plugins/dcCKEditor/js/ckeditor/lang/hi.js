@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['hi'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['hi'] = {
     pastetext : 
     {
     	button : 'पेस्ट (सादा टॅक्स्ट)',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'पेस्ट (सादा टॅक्स्ट)'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['hi'] = {
     	type : 'लिंक प्रकार',
     	unlink : 'लिंक हटायें',
     	upload : 'अपलोड'
-    },
-    justify : 
-    {
-    	block : 'ब्लॉक जस्टीफ़ाई',
-    	center : 'बीच में',
-    	left : 'बायीं तरफ',
-    	right : 'दायीं तरफ'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['hi'] = {
     	cut : 'कट',
     	cutError : 'आपके ब्राउज़र की सुरक्षा सॅटिन्ग्स ने कट करने की अनुमति नहीं प्रदान की है। (Ctrl/Cmd+X) का प्रयोग करें।',
     	paste : 'पेस्ट',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Paste Area',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : 'पेस्ट'
     },
     button : 
     {
@@ -442,11 +439,8 @@ CKEDITOR.lang['hi'] = {
     about : 
     {
     	copy : 'Copyright &copy; $1. All rights reserved.',
-    	dlgTitle : 'About CKEditor',
-    	help : 'Check $1 for help.',
-    	moreInfo : 'For licensing information please visit our web site:',
-    	title : 'About CKEditor',
-    	userGuide : 'CKEditor User\'s Guide'
+    	dlgTitle : 'About CKEditor 4',
+    	moreInfo : 'For licensing information please visit our web site:'
     },
     editor : 'रिच टेक्स्ट एडिटर',
     editorPanel : 'Rich Text Editor panel',
@@ -503,10 +497,13 @@ CKEDITOR.lang['hi'] = {
     	width : 'चौड़ाई',
     	height : 'ऊँचाई',
     	align : 'ऍलाइन',
-    	alignLeft : 'दायें',
-    	alignRight : 'दायें',
-    	alignCenter : 'बीच में',
-    	alignJustify : 'ब्लॉक जस्टीफ़ाई',
+    	left : 'दायें',
+    	right : 'दायें',
+    	center : 'बीच में',
+    	justify : 'ब्लॉक जस्टीफ़ाई',
+    	alignLeft : 'बायीं तरफ',
+    	alignRight : 'दायीं तरफ',
+    	alignCenter : 'Align Center',
     	alignTop : 'ऊपर',
     	alignMiddle : 'मध्य',
     	alignBottom : 'नीचे',
@@ -514,6 +511,7 @@ CKEDITOR.lang['hi'] = {
     	invalidValue : 'Invalid value.',
     	invalidHeight : 'Height must be a number.',
     	invalidWidth : 'Width must be a number.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	invalidHtmlLength : 'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
@@ -530,7 +528,32 @@ CKEDITOR.lang['hi'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['fi'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['fi'] = {
     pastetext : 
     {
     	button : 'Liitä tekstinä',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Liitä tekstinä'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['fi'] = {
     	type : 'Linkkityyppi',
     	unlink : 'Poista linkki',
     	upload : 'Lisää tiedosto'
-    },
-    justify : 
-    {
-    	block : 'Tasaa molemmat reunat',
-    	center : 'Keskitä',
-    	left : 'Tasaa vasemmat reunat',
-    	right : 'Tasaa oikeat reunat'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['fi'] = {
     	cut : 'Leikkaa',
     	cutError : 'Selaimesi turva-asetukset eivät salli editorin toteuttaa leikkaamista. Käytä näppäimistöä leikkaamiseen (Ctrl+X).',
     	paste : 'Liitä',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Leikealue',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : 'Liitä'
     },
     button : 
     {
@@ -443,10 +440,7 @@ CKEDITOR.lang['fi'] = {
     {
     	copy : 'Copyright &copy; $1. Kaikki oikeuden pidätetään.',
     	dlgTitle : 'Tietoa CKEditorista',
-    	help : 'Katso ohjeet: $1.',
-    	moreInfo : 'Lisenssitiedot löytyvät kotisivuiltamme:',
-    	title : 'Tietoa CKEditorista',
-    	userGuide : 'CKEditorin käyttäjäopas'
+    	moreInfo : 'Lisenssitiedot löytyvät kotisivuiltamme:'
     },
     editor : 'Rikastekstieditori',
     editorPanel : 'Rikastekstieditoripaneeli',
@@ -503,10 +497,13 @@ CKEDITOR.lang['fi'] = {
     	width : 'Leveys',
     	height : 'Korkeus',
     	align : 'Kohdistus',
-    	alignLeft : 'Vasemmalle',
-    	alignRight : 'Oikealle',
-    	alignCenter : 'Keskelle',
-    	alignJustify : 'Tasaa molemmat reunat',
+    	left : 'Vasemmalle',
+    	right : 'Oikealle',
+    	center : 'Keskelle',
+    	justify : 'Tasaa molemmat reunat',
+    	alignLeft : 'Tasaa vasemmat reunat',
+    	alignRight : 'Tasaa oikeat reunat',
+    	alignCenter : 'Align Center',
     	alignTop : 'Ylös',
     	alignMiddle : 'Keskelle',
     	alignBottom : 'Alas',
@@ -514,6 +511,7 @@ CKEDITOR.lang['fi'] = {
     	invalidValue : 'Virheellinen arvo.',
     	invalidHeight : 'Korkeuden täytyy olla numero.',
     	invalidWidth : 'Leveyden täytyy olla numero.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'Kentän "%1" arvon täytyy olla positiivinen luku CSS mittayksikön (px, %, in, cm, mm, em, ex, pt tai pc) kanssa tai ilman.',
     	invalidHtmlLength : 'Kentän "%1" arvon täytyy olla positiivinen luku HTML mittayksikön (px tai %) kanssa tai ilman.',
     	invalidInlineStyle : 'Tyylille annetun arvon täytyy koostua yhdestä tai useammasta "nimi : arvo" parista, jotka ovat eroteltuna toisistaan puolipisteillä.',
@@ -530,7 +528,32 @@ CKEDITOR.lang['fi'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

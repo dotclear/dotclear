@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['hu'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['hu'] = {
     pastetext : 
     {
     	button : 'Beillesztés formázatlan szövegként',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Beillesztés formázatlan szövegként'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['hu'] = {
     	type : 'Hivatkozás típusa',
     	unlink : 'Hivatkozás törlése',
     	upload : 'Feltöltés'
-    },
-    justify : 
-    {
-    	block : 'Sorkizárt',
-    	center : 'Középre',
-    	left : 'Balra',
-    	right : 'Jobbra'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['hu'] = {
     	cut : 'Kivágás',
     	cutError : 'A böngésző biztonsági beállításai nem engedélyezik a szerkesztőnek, hogy végrehajtsa a kivágás műveletet. Használja az alábbi billentyűkombinációt (Ctrl/Cmd+X).',
     	paste : 'Beillesztés',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Nyomjd meg a %1 gombot a beillesztéshez. A böngésző nem támogatja a beillesztést az eszköztás gombbal vagy a menüből.',
+    	pasteArea : 'Beillesztési terület',
+    	pasteMsg : 'Illeszd be a tartalmat az alábbi területbe, és nyomj egy OK-t.',
+    	title : 'Beillesztés'
     },
     button : 
     {
@@ -442,11 +439,8 @@ CKEDITOR.lang['hu'] = {
     about : 
     {
     	copy : 'Copyright &copy; $1. Minden jog fenntartva.',
-    	dlgTitle : 'CKEditor névjegy',
-    	help : 'Itt találsz segítséget: $1',
-    	moreInfo : 'Licenszelési információkért kérjük látogassa meg weboldalunkat:',
-    	title : 'CKEditor névjegy',
-    	userGuide : 'CKEditor Felhasználói útmutató'
+    	dlgTitle : 'A CKEditor 4-ről',
+    	moreInfo : 'Licenszelési információkért kérjük látogassa meg weboldalunkat:'
     },
     editor : 'HTML szerkesztő',
     editorPanel : 'Rich Text szerkesztő panel',
@@ -503,10 +497,13 @@ CKEDITOR.lang['hu'] = {
     	width : 'Szélesség',
     	height : 'Magasság',
     	align : 'Igazítás',
-    	alignLeft : 'Bal',
+    	left : 'Bal',
+    	right : 'Jobbra',
+    	center : 'Középre',
+    	justify : 'Sorkizárt',
+    	alignLeft : 'Balra',
     	alignRight : 'Jobbra',
-    	alignCenter : 'Középre',
-    	alignJustify : 'Sorkizárt',
+    	alignCenter : 'Align Center',
     	alignTop : 'Tetejére',
     	alignMiddle : 'Középre',
     	alignBottom : 'Aljára',
@@ -514,6 +511,7 @@ CKEDITOR.lang['hu'] = {
     	invalidValue : 'Érvénytelen érték.',
     	invalidHeight : 'A magasság mezőbe csak számokat írhat.',
     	invalidWidth : 'A szélesség mezőbe csak számokat írhat.',
+    	invalidLength : 'A megadott értéknek a "%1" mezőben pozitív számnak kell lennie, egy érvényes mértékegységgel vagy anélkül (%2).',
     	invalidCssLength : '"%1"-hez megadott érték csakis egy pozitív szám lehet, esetleg egy érvényes CSS egységgel megjelölve(px, %, in, cm, mm, em, ex, pt vagy pc).',
     	invalidHtmlLength : '"%1"-hez megadott érték csakis egy pozitív szám lehet, esetleg egy érvényes HTML egységgel megjelölve(px vagy %).',
     	invalidInlineStyle : 'Az inline stílusnak megadott értéknek tartalmaznia kell egy vagy több rekordot a "name : value" formátumban, pontosvesszővel elválasztva.',
@@ -530,7 +528,32 @@ CKEDITOR.lang['hu'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Gyorsbillentyű'
+    	keyboardShortcut : 'Gyorsbillentyű',
+    	optionDefault : 'Alapértelmezett'
     } }; 

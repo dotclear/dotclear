@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['km'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['km'] = {
     pastetext : 
     {
     	button : 'បិទ\u200bភ្ជាប់\u200bជា\u200bអត្ថបទ\u200bធម្មតា',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'បិទ\u200bភ្ជាប់\u200bជា\u200bអត្ថបទ\u200bធម្មតា'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['km'] = {
     	type : 'ប្រភេទ\u200bតំណ',
     	unlink : 'ផ្ដាច់\u200bតំណ',
     	upload : 'ផ្ទុក\u200bឡើង'
-    },
-    justify : 
-    {
-    	block : 'តម្រឹម\u200bពេញ',
-    	center : 'កណ្ដាល',
-    	left : 'តម្រឹម\u200bឆ្វេង',
-    	right : 'តម្រឹម\u200bស្ដាំ'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['km'] = {
     	cut : 'កាត់យក',
     	cutError : 'ការកំណត់សុវត្ថភាពរបស់កម្មវិធីរុករករបស់លោកអ្នក នេះ\u200bមិនអាចធ្វើកម្មវិធីតាក់តែងអត្ថបទ កាត់អត្ថបទយកដោយស្វ័យប្រវត្តបានឡើយ ។ សូមប្រើប្រាស់បន្សំ ឃីដូចនេះ  (Ctrl/Cmd+X) ។',
     	paste : 'បិទ\u200bភ្ជាប់',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'តំបន់\u200bបិទ\u200bភ្ជាប់',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : 'បិទ\u200bភ្ជាប់'
     },
     button : 
     {
@@ -443,10 +440,7 @@ CKEDITOR.lang['km'] = {
     {
     	copy : 'រក្សាសិទ្ធិ &copy; $1។ រក្សា\u200bសិទ្ធិ\u200bគ្រប់\u200bបែប\u200bយ៉ាង។',
     	dlgTitle : 'អំពី CKEditor',
-    	help : 'ពិនិត្យ $1 សម្រាប់\u200bជំនួយ។',
-    	moreInfo : 'សម្រាប់\u200bព័ត៌មាន\u200bអំពី\u200bអាជ្ញាបណញណ សូម\u200bមើល\u200bក្នុង\u200bគេហទំព័រ\u200bរបស់\u200bយើង៖',
-    	title : 'អំពី CKEditor',
-    	userGuide : 'វិធី\u200bប្រើ\u200bប្រាស់ CKEditor'
+    	moreInfo : 'សម្រាប់\u200bព័ត៌មាន\u200bអំពី\u200bអាជ្ញាបណញណ សូម\u200bមើល\u200bក្នុង\u200bគេហទំព័រ\u200bរបស់\u200bយើង៖'
     },
     editor : 'ឧបករណ៍\u200bសរសេរ\u200bអត្ថបទ\u200bសម្បូរ\u200bបែប',
     editorPanel : 'ផ្ទាំង\u200bឧបករណ៍\u200bសរសេរ\u200bអត្ថបទ\u200bសម្បូរ\u200bបែប',
@@ -503,10 +497,13 @@ CKEDITOR.lang['km'] = {
     	width : 'ទទឹង',
     	height : 'កំពស់',
     	align : 'កំណត់\u200bទីតាំង',
-    	alignLeft : 'ខាងឆ្វង',
-    	alignRight : 'ខាងស្តាំ',
-    	alignCenter : 'កណ្តាល',
-    	alignJustify : 'តំរឹមសងខាង',
+    	left : 'ខាងឆ្វង',
+    	right : 'ខាងស្តាំ',
+    	center : 'កណ្តាល',
+    	justify : 'តំរឹមសងខាង',
+    	alignLeft : 'តម្រឹម\u200bឆ្វេង',
+    	alignRight : 'តម្រឹម\u200bស្ដាំ',
+    	alignCenter : 'Align Center',
     	alignTop : 'ខាងលើ',
     	alignMiddle : 'កណ្តាល',
     	alignBottom : 'ខាងក្រោម',
@@ -514,6 +511,7 @@ CKEDITOR.lang['km'] = {
     	invalidValue : 'តម្លៃ\u200bមិន\u200bត្រឹម\u200bត្រូវ។',
     	invalidHeight : 'តម្លៃ\u200bកំពស់\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ។',
     	invalidWidth : 'តម្លៃ\u200bទទឹង\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ។',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'តម្លៃ\u200bកំណត់\u200bសម្រាប់\u200bវាល "%1" ត្រូវ\u200bតែ\u200bជា\u200bលេខ\u200bវិជ្ជមាន\u200b ដោយ\u200bភ្ជាប់ឬ\u200bមិន\u200bភ្ជាប់\u200bជាមួយ\u200bនឹង\u200bឯកតា\u200bរង្វាស់\u200bរបស់ CSS (px, %, in, cm, mm, em, ex, pt ឬ pc) ។',
     	invalidHtmlLength : 'តម្លៃ\u200bកំណត់\u200bសម្រាប់\u200bវាល "%1" ត្រូវ\u200bតែ\u200bជា\u200bលេខ\u200bវិជ្ជមាន ដោយ\u200bភ្ជាប់\u200bឬ\u200bមិន\u200bភ្ជាប់\u200bជាមួយ\u200bនឹង\u200bឯកតា\u200bរង្វាស់\u200bរបស់ HTML (px ឬ %) ។',
     	invalidInlineStyle : 'តម្លៃ\u200bកំណត់\u200bសម្រាប់\u200bរចនាបថ\u200bក្នុង\u200bតួ ត្រូវ\u200bតែ\u200bមាន\u200bមួយ\u200bឬ\u200bធាតុ\u200bច្រើន\u200bដោយ\u200bមាន\u200bទ្រង់ទ្រាយ\u200bជា "ឈ្មោះ : តម្លៃ" ហើយ\u200bញែក\u200bចេញ\u200bពី\u200bគ្នា\u200bដោយ\u200bចុច\u200bក្បៀស។',
@@ -530,7 +528,32 @@ CKEDITOR.lang['km'] = {
     		'35' : 'ចុង',
     		'36' : 'ផ្ទះ',
     		'46' : 'លុប',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

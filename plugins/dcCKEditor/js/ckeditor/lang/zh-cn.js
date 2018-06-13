@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['zh-cn'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['zh-cn'] = {
     pastetext : 
     {
     	button : '粘贴为无格式文本',
-    	pasteNotification : '您的浏览器不允许用此方式粘贴成纯文本，要粘贴请按 %1。'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : '粘贴为无格式文本'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['zh-cn'] = {
     	type : '超链接类型',
     	unlink : '取消超链接',
     	upload : '上传'
-    },
-    justify : 
-    {
-    	block : '两端对齐',
-    	center : '居中',
-    	left : '左对齐',
-    	right : '右对齐'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['zh-cn'] = {
     	cut : '剪切',
     	cutError : '您的浏览器安全设置不允许编辑器自动执行剪切操作，请使用键盘快捷键(Ctrl/Cmd+X)来完成。',
     	paste : '粘贴',
-    	pasteNotification : '您的浏览器不允许用此方式粘贴，要粘贴请按 %1。'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : '粘贴区域',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : '粘贴'
     },
     button : 
     {
@@ -442,11 +439,8 @@ CKEDITOR.lang['zh-cn'] = {
     about : 
     {
     	copy : '版权所有 &copy; $1。<br />保留所有权利。',
-    	dlgTitle : '关于 CKEditor',
-    	help : '访问 $1 以获取帮助。',
-    	moreInfo : '相关授权许可信息请访问我们的网站：',
-    	title : '关于 CKEditor',
-    	userGuide : 'CKEditor 用户向导'
+    	dlgTitle : '关于 CKEditor 4',
+    	moreInfo : '相关授权许可信息请访问我们的网站：'
     },
     editor : '所见即所得编辑器',
     editorPanel : '所见即所得编辑器面板',
@@ -503,10 +497,13 @@ CKEDITOR.lang['zh-cn'] = {
     	width : '宽度',
     	height : '高度',
     	align : '对齐方式',
+    	left : '左对齐',
+    	right : '右对齐',
+    	center : '居中',
+    	justify : '两端对齐',
     	alignLeft : '左对齐',
     	alignRight : '右对齐',
-    	alignCenter : '居中',
-    	alignJustify : '两端对齐',
+    	alignCenter : 'Align Center',
     	alignTop : '顶端',
     	alignMiddle : '居中',
     	alignBottom : '底部',
@@ -514,6 +511,7 @@ CKEDITOR.lang['zh-cn'] = {
     	invalidValue : '无效的值。',
     	invalidHeight : '高度必须为数字格式',
     	invalidWidth : '宽度必须为数字格式',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : '此“%1”字段的值必须为正数，可以包含或不包含一个有效的 CSS 长度单位(px, %, in, cm, mm, em, ex, pt 或 pc)',
     	invalidHtmlLength : '此“%1”字段的值必须为正数，可以包含或不包含一个有效的 HTML 长度单位(px 或 %)',
     	invalidInlineStyle : '内联样式必须为格式是以分号分隔的一个或多个“属性名 : 属性值”。',
@@ -530,7 +528,32 @@ CKEDITOR.lang['zh-cn'] = {
     		'35' : '行尾键',
     		'36' : '行首键',
     		'46' : '删除键',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : '快捷键'
+    	keyboardShortcut : '快捷键',
+    	optionDefault : 'Default'
     } }; 

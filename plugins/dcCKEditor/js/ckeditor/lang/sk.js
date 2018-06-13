@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['sk'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['sk'] = {
     pastetext : 
     {
     	button : 'Vložiť ako čistý text',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Vložiť ako čistý text'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['sk'] = {
     	type : 'Typ odkazu',
     	unlink : 'Odstrániť odkaz',
     	upload : 'Nahrať'
-    },
-    justify : 
-    {
-    	block : 'Zarovnať do bloku',
-    	center : 'Zarovnať na stred',
-    	left : 'Zarovnať vľavo',
-    	right : 'Zarovnať vpravo'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['sk'] = {
     	cut : 'Vystrihnúť',
     	cutError : 'Bezpečnostné nastavenia vášho prehliadača nedovoľujú editoru automaticky spustiť operáciu vystrihnutia. Použite na to klávesnicu (Ctrl/Cmd+X).',
     	paste : 'Vložiť',
-    	pasteNotification : 'Váš prehliadač nepovoľuje prilepiť text takýmto spôsobom. Pre prilepenie stlačte %1.'
+    	pasteNotification : 'Stlačte %1 na vloženie. Váš prehliadač nepodporuje vloženie prostredníctvom tlačidla v nástrojovej lište alebo voľby v kontextovom menu.',
+    	pasteArea : 'Miesto pre vloženie',
+    	pasteMsg : 'Vložte svoj obsah do nasledujúcej oblasti a stlačte OK.',
+    	title : 'Vložiť'
     },
     button : 
     {
@@ -442,11 +439,8 @@ CKEDITOR.lang['sk'] = {
     about : 
     {
     	copy : 'Copyright &copy; $1. Všetky práva vyhradené.',
-    	dlgTitle : 'O CKEditor-e',
-    	help : 'Zaškrtnite $1 pre pomoc.',
-    	moreInfo : 'Pre informácie o licenciách, prosíme, navštívte našu web stránku:',
-    	title : 'O CKEditor-e',
-    	userGuide : 'Používateľská príručka KCEditor-a'
+    	dlgTitle : 'O aplikácii CKEditor 4',
+    	moreInfo : 'Pre informácie o licenciách, prosíme, navštívte našu web stránku:'
     },
     editor : 'Editor formátovaného textu',
     editorPanel : 'Panel editora formátovaného textu',
@@ -482,7 +476,7 @@ CKEDITOR.lang['sk'] = {
     	cssStyle : 'Štýl',
     	ok : 'OK',
     	cancel : 'Zrušiť',
-    	close : 'Zatvorit',
+    	close : 'Zatvoriť',
     	preview : 'Náhľad',
     	resize : 'Zmeniť veľkosť',
     	generalTab : 'Hlavné',
@@ -503,10 +497,13 @@ CKEDITOR.lang['sk'] = {
     	width : 'Šírka',
     	height : 'Výška',
     	align : 'Zarovnanie',
-    	alignLeft : 'Vľavo',
-    	alignRight : 'Vpravo',
-    	alignCenter : 'Na stred',
-    	alignJustify : 'Zarovnať do bloku',
+    	left : 'Vľavo',
+    	right : 'Vpravo',
+    	center : 'Na stred',
+    	justify : 'Do bloku',
+    	alignLeft : 'Zarovnať vľavo',
+    	alignRight : 'Zarovnať vpravo',
+    	alignCenter : 'Zarovnať na stred',
     	alignTop : 'Nahor',
     	alignMiddle : 'Na stred',
     	alignBottom : 'Dole',
@@ -514,6 +511,7 @@ CKEDITOR.lang['sk'] = {
     	invalidValue : 'Neplatná hodnota.',
     	invalidHeight : 'Výška musí byť číslo.',
     	invalidWidth : 'Šírka musí byť číslo.',
+    	invalidLength : 'Hodnota uvedená v poli "%1" musí byť kladné číslo a s platnou mernou jednotkou (%2), alebo bez nej.',
     	invalidCssLength : 'Špecifikovaná hodnota pre pole "%1" musí byť kladné číslo s alebo bez platnej CSS mernej jednotky (px, %, in, cm, mm, em, ex, pt alebo pc).',
     	invalidHtmlLength : 'Špecifikovaná hodnota pre pole "%1" musí byť kladné číslo s alebo bez platnej HTML mernej jednotky (px alebo %).',
     	invalidInlineStyle : 'Zadaná hodnota pre inline štýl musí pozostávať s jedného, alebo viac dvojíc formátu "názov: hodnota", oddelených bodkočiarkou.',
@@ -530,7 +528,32 @@ CKEDITOR.lang['sk'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Klávesová skratka'
+    	keyboardShortcut : 'Klávesová skratka',
+    	optionDefault : 'Predvolený'
     } }; 

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['cs'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['cs'] = {
     pastetext : 
     {
     	button : 'Vložit jako čistý text',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Vložit jako čistý text'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['cs'] = {
     	type : 'Typ odkazu',
     	unlink : 'Odstranit odkaz',
     	upload : 'Odeslat'
-    },
-    justify : 
-    {
-    	block : 'Zarovnat do bloku',
-    	center : 'Zarovnat na střed',
-    	left : 'Zarovnat vlevo',
-    	right : 'Zarovnat vpravo'
     },
     indent : 
     {
@@ -386,28 +380,28 @@ CKEDITOR.lang['cs'] = {
     		F0F8FF : 'Alenčina modrá',
     		E6E6FA : 'Levandulová',
     		FFF : 'Bílá',
-    		'1ABC9C' : 'Strong Cyan',
+    		'1ABC9C' : 'Silná azurová',
     		'2ECC71' : 'Emeraldová',
     		'3498DB' : 'Jasně modrá',
     		'9B59B6' : 'Ametystová',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
+    		'4E5F70' : 'Šedomodrá',
+    		F1C40F : 'Sytá žlutá',
+    		'16A085' : 'Tmavě azurová',
+    		'27AE60' : 'Tmavě emeraldová',
+    		'2980B9' : 'Silná modrá',
+    		'8E44AD' : 'Tmavě fialová',
+    		'2C3E50' : 'Odsycená modrá',
     		F39C12 : 'Oranžová',
     		E67E22 : 'Mrkvová',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
+    		E74C3C : 'Bledě červená',
+    		ECF0F1 : 'Světle stříbrná',
+    		'95A5A6' : 'Světlě šedoazurová',
+    		DDD : 'Světle šedá',
     		D35400 : 'Dýňová',
-    		C0392B : 'Strong Red',
+    		C0392B : 'Silná červená',
     		BDC3C7 : 'Stříbrná',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'7F8C8D' : 'Šedoazurová',
+    		'999' : 'Tmavošedá'
     	},
     	more : 'Více barev...',
     	panelTitle : 'Barvy',
@@ -420,7 +414,10 @@ CKEDITOR.lang['cs'] = {
     	cut : 'Vyjmout',
     	cutError : 'Bezpečnostní nastavení vašeho prohlížeče nedovolují editoru spustit funkci pro vyjmutí zvoleného textu do schránky. Prosím vyjměte zvolený text do schránky pomocí klávesnice (Ctrl/Cmd+X).',
     	paste : 'Vložit',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Stiskněte %1 pro vložení. Váš prohlížeč nepodporuje vkládání pomocí tlačítka na panelu nástrojů nebo volby kontextového menu.',
+    	pasteArea : 'Oblast vkládání',
+    	pasteMsg : 'Vložte svůj obsah do oblasti níže a stiskněte OK.',
+    	title : 'Vložit'
     },
     button : 
     {
@@ -442,11 +439,8 @@ CKEDITOR.lang['cs'] = {
     about : 
     {
     	copy : 'Copyright &copy; $1. All rights reserved.',
-    	dlgTitle : 'O aplikaci CKEditor',
-    	help : 'Prohlédněte si $1 pro nápovědu.',
-    	moreInfo : 'Pro informace o lincenci navštivte naši webovou stránku:',
-    	title : 'O aplikaci CKEditor',
-    	userGuide : 'Uživatelská příručka CKEditor'
+    	dlgTitle : 'O aplikaci CKEditor 4',
+    	moreInfo : 'Pro informace o lincenci navštivte naši webovou stránku:'
     },
     editor : 'Textový editor',
     editorPanel : 'Panel textového editoru',
@@ -503,10 +497,13 @@ CKEDITOR.lang['cs'] = {
     	width : 'Šířka',
     	height : 'Výška',
     	align : 'Zarovnání',
-    	alignLeft : 'Vlevo',
-    	alignRight : 'Vpravo',
-    	alignCenter : 'Na střed',
-    	alignJustify : 'Zarovnat do bloku',
+    	left : 'Vlevo',
+    	right : 'Vpravo',
+    	center : 'Na střed',
+    	justify : 'Zarovnat do bloku',
+    	alignLeft : 'Zarovnat vlevo',
+    	alignRight : 'Zarovnat vpravo',
+    	alignCenter : 'Align Center',
     	alignTop : 'Nahoru',
     	alignMiddle : 'Na střed',
     	alignBottom : 'Dolů',
@@ -514,6 +511,7 @@ CKEDITOR.lang['cs'] = {
     	invalidValue : 'Neplatná hodnota.',
     	invalidHeight : 'Zadaná výška musí být číslo.',
     	invalidWidth : 'Šířka musí být číslo.',
+    	invalidLength : 'Hodnota určená pro pole "%1" musí být kladné číslo bez nebo s platnou jednotkou míry (%2).',
     	invalidCssLength : 'Hodnota určená pro pole "%1" musí být kladné číslo bez nebo s platnou jednotkou míry CSS (px, %, in, cm, mm, em, ex, pt, nebo pc).',
     	invalidHtmlLength : 'Hodnota určená pro pole "%1" musí být kladné číslo bez nebo s platnou jednotkou míry HTML (px nebo %).',
     	invalidInlineStyle : 'Hodnota určená pro řádkový styl se musí skládat z jedné nebo více n-tic ve formátu "název : hodnota", oddělené středníky',
@@ -530,7 +528,32 @@ CKEDITOR.lang['cs'] = {
     		'35' : 'Konec',
     		'36' : 'Domů',
     		'46' : 'Smazat',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Klávesová zkratka'
+    	keyboardShortcut : 'Klávesová zkratka',
+    	optionDefault : 'Výchozí'
     } }; 

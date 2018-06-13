@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['sv'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['sv'] = {
     pastetext : 
     {
     	button : 'Klistra in som vanlig text',
-    	pasteNotification : 'Din webbläsare tillåter dig inte att klistra in vanlig text på detta vis. Tryck på %1 för att klistra in.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Klistra in som vanlig text'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['sv'] = {
     	type : 'Länktyp',
     	unlink : 'Radera länk',
     	upload : 'Ladda upp'
-    },
-    justify : 
-    {
-    	block : 'Justera till marginaler',
-    	center : 'Centrera',
-    	left : 'Vänsterjustera',
-    	right : 'Högerjustera'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['sv'] = {
     	cut : 'Klipp ut',
     	cutError : 'Säkerhetsinställningar i din webbläsare tillåter inte åtgärden klipp ut. Använd (Ctrl/Cmd+X) istället.',
     	paste : 'Klistra in',
-    	pasteNotification : 'Din webbläsare tillåter dig inte att klistra in på detta vis. Tryck på %1 för att klistra in.'
+    	pasteNotification : 'Tryck på %1 för att klistra in. Din webbläsare stödjer inte inklistring via verktygsfältet eller snabbmenyn.',
+    	pasteArea : 'Inklistringsområde',
+    	pasteMsg : 'Klistra in ditt innehåll i området nedan och tryck på OK.',
+    	title : 'Klistra in'
     },
     button : 
     {
@@ -442,11 +439,8 @@ CKEDITOR.lang['sv'] = {
     about : 
     {
     	copy : 'Copyright &copy; $1. Alla rättigheter reserverade.',
-    	dlgTitle : 'Om CKEditor',
-    	help : 'Se $1 för hjälp.',
-    	moreInfo : 'För information om licensiering besök vår hemsida:',
-    	title : 'Om CKEditor',
-    	userGuide : 'CKEditor användarmanual'
+    	dlgTitle : 'Om CKEditor 4',
+    	moreInfo : 'För information om licensiering besök vår hemsida:'
     },
     editor : 'Rich Text-editor',
     editorPanel : 'Panel till Rich Text-editor',
@@ -503,10 +497,13 @@ CKEDITOR.lang['sv'] = {
     	width : 'Bredd',
     	height : 'Höjd',
     	align : 'Justering',
-    	alignLeft : 'Vänster',
-    	alignRight : 'Höger',
-    	alignCenter : 'Centrerad',
-    	alignJustify : 'Justera till marginaler',
+    	left : 'Vänster',
+    	right : 'Höger',
+    	center : 'Centrerad',
+    	justify : 'Justera till marginaler',
+    	alignLeft : 'Vänsterjustera',
+    	alignRight : 'Högerjustera',
+    	alignCenter : 'Align Center',
     	alignTop : 'Överkant',
     	alignMiddle : 'Mitten',
     	alignBottom : 'Nederkant',
@@ -514,6 +511,7 @@ CKEDITOR.lang['sv'] = {
     	invalidValue : 'Felaktigt värde.',
     	invalidHeight : 'Höjd måste vara ett nummer.',
     	invalidWidth : 'Bredd måste vara ett nummer.',
+    	invalidLength : 'Värdet för fältet "%1" måste vara ett positivt nummer med eller utan en giltig mätenhet (%2).',
     	invalidCssLength : 'Värdet för fältet "%1" måste vara ett positivt nummer med eller utan CSS-mätenheter (px, %, in, cm, mm, em, ex, pt, eller pc).',
     	invalidHtmlLength : 'Värdet för fältet "%1" måste vara ett positivt nummer med eller utan godkända HTML-mätenheter (px eller %).',
     	invalidInlineStyle : 'Det angivna värdet för style måste innehålla en eller flera tupler separerade med semikolon i följande format: "name : value"',
@@ -530,7 +528,32 @@ CKEDITOR.lang['sv'] = {
     		'35' : 'Slut',
     		'36' : 'Hem',
     		'46' : 'Radera',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Kommando'
     	},
-    	keyboardShortcut : 'Kortkommando'
+    	keyboardShortcut : 'Kortkommando',
+    	optionDefault : 'Standard'
     } }; 

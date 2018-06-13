@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['gu'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['gu'] = {
     pastetext : 
     {
     	button : 'પેસ્ટ (ટેક્સ્ટ)',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'પેસ્ટ (ટેક્સ્ટ)'
     },
     pastefromword : 
     {
@@ -208,8 +209,8 @@ CKEDITOR.lang['gu'] = {
     	anchorName : 'ઍંકર નામથી પસંદ કરો',
     	charset : 'લિંક રિસૉર્સ કૅરિક્ટર સેટ',
     	cssClasses : 'સ્ટાઇલ-શીટ ક્લાસ',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'ડાઉનલોડ કરો',
+    	displayText : 'લખાણ દેખાડો',
     	emailAddress : 'ઈ-મેલ સરનામું',
     	emailBody : 'સંદેશ',
     	emailSubject : 'ઈ-મેલ વિષય',
@@ -253,13 +254,6 @@ CKEDITOR.lang['gu'] = {
     	type : 'લિંક પ્રકાર',
     	unlink : 'લિંક કાઢવી',
     	upload : 'અપલોડ'
-    },
-    justify : 
-    {
-    	block : 'બ્લૉક, અંતરાય જસ્ટિફાઇ',
-    	center : 'સંકેંદ્રણ/સેંટરિંગ',
-    	left : 'ડાબી બાજુએ/બાજુ તરફ',
-    	right : 'જમણી બાજુએ/બાજુ તરફ'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['gu'] = {
     	cut : 'કાપવું',
     	cutError : 'તમારા બ્રાઉઝર ની સુરક્ષિત સેટિંગસ કટ કરવાની પરવાનગી નથી આપતી. (Ctrl/Cmd+X) નો ઉપયોગ કરો.',
     	paste : 'પેસ્ટ',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'પેસ્ટ કરવાની જગ્યા',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : 'પેસ્ટ'
     },
     button : 
     {
@@ -443,16 +440,13 @@ CKEDITOR.lang['gu'] = {
     {
     	copy : 'કોપીરાઈટ &copy; $1. ઓલ રાઈટ્સ ',
     	dlgTitle : 'CKEditor વિષે',
-    	help : 'મદદ માટે $1 તપાસો',
-    	moreInfo : 'લાયસનસની માહિતી માટે અમારી વેબ સાઈટ',
-    	title : 'CKEditor વિષે',
-    	userGuide : 'CKEditor યુઝર્સ ગાઈડ'
+    	moreInfo : 'લાયસનસની માહિતી માટે અમારી વેબ સાઈટ'
     },
     editor : 'રીચ ટેક્ષ્ત્ એડીટર',
-    editorPanel : 'Rich Text Editor panel',
+    editorPanel : 'વધુ વિકલ્પ વાળુ એડિટર',
     common : 
     {
-    	editorHelp : 'પ્રેસ ALT 0 મદદ માટ',
+    	editorHelp : 'મદદ માટ ALT 0 દબાવો',
     	browseServer : 'સર્વર બ્રાઉઝ કરો',
     	url : 'URL',
     	protocol : 'પ્રોટોકૉલ',
@@ -503,17 +497,21 @@ CKEDITOR.lang['gu'] = {
     	width : 'પહોળાઈ',
     	height : 'ઊંચાઈ',
     	align : 'લાઇનદોરીમાં ગોઠવવું',
-    	alignLeft : 'ડાબી બાજુ ગોઠવવું',
-    	alignRight : 'જમણી',
-    	alignCenter : 'મધ્ય સેન્ટર',
-    	alignJustify : 'બ્લૉક, અંતરાય જસ્ટિફાઇ',
+    	left : 'ડાબી બાજુ ગોઠવવું',
+    	right : 'જમણી',
+    	center : 'મધ્ય સેન્ટર',
+    	justify : 'બ્લૉક, અંતરાય જસ્ટિફાઇ',
+    	alignLeft : 'ડાબી બાજુએ/બાજુ તરફ',
+    	alignRight : 'જમણી બાજુએ/બાજુ તરફ',
+    	alignCenter : 'Align Center',
     	alignTop : 'ઉપર',
     	alignMiddle : 'વચ્ચે',
     	alignBottom : 'નીચે',
-    	alignNone : 'None',
-    	invalidValue : 'Invalid value.',
+    	alignNone : 'કઇ નહી',
+    	invalidValue : 'અનુચિત મૂલ્ય',
     	invalidHeight : 'ઉંચાઈ એક આંકડો હોવો જોઈએ.',
     	invalidWidth : 'પોહળ ઈ એક આંકડો હોવો જોઈએ.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : '"%1" ની વેલ્યુ એક પોસીટીવ આંકડો હોવો જોઈએ અથવા CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc) વગર.',
     	invalidHtmlLength : '"%1" ની વેલ્યુ એક પોસીટીવ આંકડો હોવો જોઈએ અથવા HTML measurement unit (px or %) વગર.',
     	invalidInlineStyle : 'ઈનલાઈન  સ્ટાઈલ ની વેલ્યુ  "name : value" ના ફોર્મેટ માં હોવી જોઈએ, વચ્ચે સેમી-કોલોન જોઈએ.',
@@ -521,16 +519,41 @@ CKEDITOR.lang['gu'] = {
     	unavailable : '%1<span class="cke_accessibility">, નથી મળતું</span>',
     	keyboard : 
     	{
-    		'8' : 'Backspace',
-    		'13' : 'Enter',
-    		'16' : 'Shift',
-    		'17' : 'Ctrl',
-    		'18' : 'Alt',
-    		'32' : 'Space',
-    		'35' : 'End',
-    		'36' : 'Home',
-    		'46' : 'Delete',
-    		'224' : 'Command'
+    		'8' : 'Backspace કી',
+    		'13' : 'Enter કી',
+    		'16' : 'Shift કી',
+    		'17' : 'Ctrl કી',
+    		'18' : 'Alt કી',
+    		'32' : 'Space કી',
+    		'35' : 'End કી',
+    		'36' : 'Home કી',
+    		'46' : 'Delete કી',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
+    		'224' : 'Command કી'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'કીબોર્ડ શૉર્ટકટ',
+    	optionDefault : 'Default'
     } }; 

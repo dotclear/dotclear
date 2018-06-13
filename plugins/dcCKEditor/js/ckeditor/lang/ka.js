@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ka'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['ka'] = {
     pastetext : 
     {
     	button : 'მხოლოდ ტექსტის ჩასმა',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'მხოლოდ ტექსტის ჩასმა'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['ka'] = {
     	type : 'ბმულის ტიპი',
     	unlink : 'ბმულის მოხსნა',
     	upload : 'აქაჩვა'
-    },
-    justify : 
-    {
-    	block : 'გადასწორება',
-    	center : 'შუაში სწორება',
-    	left : 'მარცხნივ სწორება',
-    	right : 'მარჯვნივ სწორება'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['ka'] = {
     	cut : 'ამოჭრა',
     	cutError : 'თქვენი ბროუზერის უსაფრთხოების პარამეტრები არ იძლევა ამოჭრის ოპერაციის ავტომატურად განხორციელების საშუალებას. გამოიყენეთ კლავიატურა ამისთვის (Ctrl/Cmd+X).',
     	paste : 'ჩასმა',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'ჩასმის არე',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : 'ჩასმა'
     },
     button : 
     {
@@ -443,10 +440,7 @@ CKEDITOR.lang['ka'] = {
     {
     	copy : 'Copyright &copy; $1. ყველა უფლება დაცულია.',
     	dlgTitle : 'CKEditor-ის შესახებ',
-    	help : 'დახმარებისთვის იხილეთ $1.',
-    	moreInfo : 'ლიცენზიის ინფორმაციისთვის ეწვიეთ ჩვენს საიტს:',
-    	title : 'CKEditor-ის შესახებ',
-    	userGuide : 'CKEditor-ის მომხმარებლის სახელმძღვანელო'
+    	moreInfo : 'ლიცენზიის ინფორმაციისთვის ეწვიეთ ჩვენს საიტს:'
     },
     editor : 'ტექსტის რედაქტორი',
     editorPanel : 'Rich Text Editor panel',
@@ -503,10 +497,13 @@ CKEDITOR.lang['ka'] = {
     	width : 'სიგანე',
     	height : 'სიმაღლე',
     	align : 'სწორება',
-    	alignLeft : 'მარცხენა',
-    	alignRight : 'მარჯვენა',
-    	alignCenter : 'შუა',
-    	alignJustify : '両端揃え',
+    	left : 'მარცხენა',
+    	right : 'მარჯვენა',
+    	center : 'შუა',
+    	justify : '両端揃え',
+    	alignLeft : 'მარცხნივ სწორება',
+    	alignRight : 'მარჯვნივ სწორება',
+    	alignCenter : 'Align Center',
     	alignTop : 'ზემოთა',
     	alignMiddle : 'შუა',
     	alignBottom : 'ქვემოთა',
@@ -514,6 +511,7 @@ CKEDITOR.lang['ka'] = {
     	invalidValue : 'Invalid value.',
     	invalidHeight : 'სიმაღლე რიცხვით უნდა იყოს წარმოდგენილი.',
     	invalidWidth : 'სიგანე რიცხვით უნდა იყოს წარმოდგენილი.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	invalidHtmlLength : 'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
@@ -530,7 +528,32 @@ CKEDITOR.lang['ka'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

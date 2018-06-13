@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ru'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['ru'] = {
     pastetext : 
     {
     	button : 'Вставить только текст',
-    	pasteNotification : 'Ваш браузер не поддерживает данный метод вставки. Для вставки нажмите %1'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Вставить только текст'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['ru'] = {
     	type : 'Тип ссылки',
     	unlink : 'Убрать ссылку',
     	upload : 'Загрузка'
-    },
-    justify : 
-    {
-    	block : 'По ширине',
-    	center : 'По центру',
-    	left : 'По левому краю',
-    	right : 'По правому краю'
     },
     indent : 
     {
@@ -388,9 +382,9 @@ CKEDITOR.lang['ru'] = {
     		FFF : 'Белый',
     		'1ABC9C' : 'Strong Cyan',
     		'2ECC71' : 'Изумрудный',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
+    		'3498DB' : 'Светло-синий',
+    		'9B59B6' : 'Аметист',
+    		'4E5F70' : 'Сине-серый',
     		F1C40F : 'Ярко-желтый',
     		'16A085' : 'Dark Cyan',
     		'27AE60' : 'Тёмно-изумрудный',
@@ -403,9 +397,9 @@ CKEDITOR.lang['ru'] = {
     		ECF0F1 : 'Bright Silver',
     		'95A5A6' : 'Light Grayish Cyan',
     		DDD : 'Светло-серый',
-    		D35400 : 'Pumpkin',
+    		D35400 : 'Цвет тыквы',
     		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
+    		BDC3C7 : 'Серебристый',
     		'7F8C8D' : 'Grayish Cyan',
     		'999' : 'Тёмно-серый'
     	},
@@ -420,7 +414,10 @@ CKEDITOR.lang['ru'] = {
     	cut : 'Вырезать',
     	cutError : 'Настройки безопасности вашего браузера не разрешают редактору выполнять операции по вырезке текста. Пожалуйста, используйте для этого клавиатуру (Ctrl/Cmd+X).',
     	paste : 'Вставить',
-    	pasteNotification : 'Ваш браузер не поддерживает данный метод вставки. Для вставки нажмите %1'
+    	pasteNotification : 'Для вставки нажмите %1. Ваш браузер не поддерживает возможность вставки через панель инструментов или контекстное меню',
+    	pasteArea : 'Область вставки',
+    	pasteMsg : 'Вставьте контент в эту область и нажмите OK',
+    	title : 'Вставить'
     },
     button : 
     {
@@ -442,11 +439,8 @@ CKEDITOR.lang['ru'] = {
     about : 
     {
     	copy : 'Copyright &copy; $1. Все права защищены.',
-    	dlgTitle : 'О CKEditor',
-    	help : '$1 содержит подробную справку по использованию.',
-    	moreInfo : 'Для получения информации о лицензии, пожалуйста, перейдите на наш сайт:',
-    	title : 'О CKEditor',
-    	userGuide : 'Руководство пользователя CKEditor'
+    	dlgTitle : 'О CKEditor 4',
+    	moreInfo : 'Для получения информации о лицензии, пожалуйста, перейдите на наш сайт:'
     },
     editor : 'Визуальный текстовый редактор',
     editorPanel : 'Визуальный редактор текста',
@@ -503,10 +497,13 @@ CKEDITOR.lang['ru'] = {
     	width : 'Ширина',
     	height : 'Высота',
     	align : 'Выравнивание',
+    	left : 'По левому краю',
+    	right : 'По правому краю',
+    	center : 'По центру',
+    	justify : 'По ширине',
     	alignLeft : 'По левому краю',
     	alignRight : 'По правому краю',
-    	alignCenter : 'По центру',
-    	alignJustify : 'По ширине',
+    	alignCenter : 'Align Center',
     	alignTop : 'Поверху',
     	alignMiddle : 'Посередине',
     	alignBottom : 'Понизу',
@@ -514,6 +511,7 @@ CKEDITOR.lang['ru'] = {
     	invalidValue : 'Недопустимое значение.',
     	invalidHeight : 'Высота задается числом.',
     	invalidWidth : 'Ширина задается числом.',
+    	invalidLength : 'Указанное значение для поля "%1" должно быть положительным числом без или с корректным символом единицы измерения (%2)',
     	invalidCssLength : 'Значение, указанное в поле "%1", должно быть положительным целым числом. Допускается указание единиц меры CSS (px, %, in, cm, mm, em, ex, pt или pc).',
     	invalidHtmlLength : 'Значение, указанное в поле "%1", должно быть положительным целым числом. Допускается указание единиц меры HTML (px или %).',
     	invalidInlineStyle : 'Значение, указанное для стиля элемента, должно состоять из одной или нескольких пар данных в формате "параметр : значение", разделённых точкой с запятой.',
@@ -522,7 +520,7 @@ CKEDITOR.lang['ru'] = {
     	keyboard : 
     	{
     		'8' : 'Backspace',
-    		'13' : 'Enter',
+    		'13' : 'Ввод',
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
@@ -530,7 +528,32 @@ CKEDITOR.lang['ru'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Комбинация клавиш'
+    	keyboardShortcut : 'Комбинация клавиш',
+    	optionDefault : 'По умолчанию'
     } }; 

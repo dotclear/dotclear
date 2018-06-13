@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['tt'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['tt'] = {
     pastetext : 
     {
     	button : 'Форматлаусыз текст өстәү',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Форматлаусыз текст өстәү'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['tt'] = {
     	type : 'Сылталама төре',
     	unlink : 'Сылталаманы бетерү',
     	upload : 'Йөкләү'
-    },
-    justify : 
-    {
-    	block : 'Киңлеккә карап тигезләү',
-    	center : 'Үзәккә тигезләү',
-    	left : 'Сул як кырыйдан тигезләү',
-    	right : 'Уң як кырыйдан тигезләү'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['tt'] = {
     	cut : 'Кисеп алу',
     	cutError : 'Браузерыгызның иминлек үзлекләре автоматик рәвештә күчермәләү үтәүне тыя. Тиз төймәләрне (Ctrl/Cmd+C) кулланыгыз.',
     	paste : 'Өстәү',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Өстәү мәйданы',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : 'Өстәү'
     },
     button : 
     {
@@ -443,10 +440,7 @@ CKEDITOR.lang['tt'] = {
     {
     	copy : 'Copyright &copy; $1. Бар хокуклар сакланган',
     	dlgTitle : 'CKEditor турында',
-    	help : 'Ярдәм өчен $1 тикшереп карагыз.',
-    	moreInfo : 'For licensing information please visit our web site:',
-    	title : 'CKEditor турында',
-    	userGuide : 'CKEditor кулланмасы'
+    	moreInfo : 'For licensing information please visit our web site:'
     },
     editor : 'Форматлаулы текст өлкәсе',
     editorPanel : 'Rich Text Editor panel',
@@ -503,10 +497,13 @@ CKEDITOR.lang['tt'] = {
     	width : 'Киңлек',
     	height : 'Биеклек',
     	align : 'Тигезләү',
-    	alignLeft : 'Сул якка',
-    	alignRight : 'Уң якка',
-    	alignCenter : 'Үзәккә',
-    	alignJustify : 'Киңлеккә карап тигезләү',
+    	left : 'Сул якка',
+    	right : 'Уң якка',
+    	center : 'Үзәккә',
+    	justify : 'Киңлеккә карап тигезләү',
+    	alignLeft : 'Сул як кырыйдан тигезләү',
+    	alignRight : 'Уң як кырыйдан тигезләү',
+    	alignCenter : 'Align Center',
     	alignTop : 'Өскә',
     	alignMiddle : 'Уртага',
     	alignBottom : 'Аска',
@@ -514,6 +511,7 @@ CKEDITOR.lang['tt'] = {
     	invalidValue : 'Дөрес булмаган кыйммәт.',
     	invalidHeight : 'Биеклек сан булырга тиеш.',
     	invalidWidth : 'Киңлек сан булырга тиеш.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	invalidHtmlLength : 'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
@@ -530,7 +528,32 @@ CKEDITOR.lang['tt'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Бетерү',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

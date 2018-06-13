@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['bn'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['bn'] = {
     pastetext : 
     {
     	button : 'সাধারণ টেক্সট হিসেবে পেইস্ট করি',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'সাদা টেক্সট হিসেবে পেস্ট কর'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['bn'] = {
     	type : 'লিংক প্রকার',
     	unlink : 'লিংক সরাও',
     	upload : 'আপলোড'
-    },
-    justify : 
-    {
-    	block : 'যাচাই করি',
-    	center : 'মাঝ বরাবর ঘেষা',
-    	left : 'বা দিকে ঘেঁষা',
-    	right : 'ডান দিকে ঘেঁষা'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['bn'] = {
     	cut : 'কাট',
     	cutError : 'আপনার ব্রাউজারের সুরক্ষা সেটিংস এডিটরকে অটোমেটিক কাট করার অনুমতি দেয়নি। দয়া করে এই কাজের জন্য কিবোর্ড ব্যবহার করুন (Ctrl/Cmd+X)।',
     	paste : 'পেস্ট',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Paste Area',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : 'পেস্ট'
     },
     button : 
     {
@@ -442,11 +439,8 @@ CKEDITOR.lang['bn'] = {
     about : 
     {
     	copy : 'Copyright &copy; $1. All rights reserved.',
-    	dlgTitle : 'About CKEditor',
-    	help : 'Check $1 for help.',
-    	moreInfo : 'For licensing information please visit our web site:',
-    	title : 'About CKEditor',
-    	userGuide : 'CKEditor User\'s Guide'
+    	dlgTitle : 'About CKEditor 4',
+    	moreInfo : 'For licensing information please visit our web site:'
     },
     editor : 'Rich Text Editor',
     editorPanel : 'Rich Text Editor panel',
@@ -503,10 +497,13 @@ CKEDITOR.lang['bn'] = {
     	width : 'প্রস্থ',
     	height : 'দৈর্ঘ্য',
     	align : 'এলাইন',
-    	alignLeft : 'বামে',
-    	alignRight : 'ডানে',
-    	alignCenter : 'মাঝখানে',
-    	alignJustify : 'ব্লক জাস্টিফাই',
+    	left : 'বামে',
+    	right : 'ডানে',
+    	center : 'মাঝখানে',
+    	justify : 'ব্লক জাস্টিফাই',
+    	alignLeft : 'বা দিকে ঘেঁষা',
+    	alignRight : 'ডান দিকে ঘেঁষা',
+    	alignCenter : 'Align Center',
     	alignTop : 'উপর',
     	alignMiddle : 'মধ্য',
     	alignBottom : 'নীচে',
@@ -514,6 +511,7 @@ CKEDITOR.lang['bn'] = {
     	invalidValue : 'Invalid value.',
     	invalidHeight : 'Height must be a number.',
     	invalidWidth : 'Width must be a number.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	invalidHtmlLength : 'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
@@ -530,7 +528,32 @@ CKEDITOR.lang['bn'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 
