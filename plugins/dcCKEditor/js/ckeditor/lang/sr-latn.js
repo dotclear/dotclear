@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['sr-latn'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['sr-latn'] = {
     pastetext : 
     {
     	button : 'Zalepi kao čist tekst',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Zalepi kao čist tekst'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['sr-latn'] = {
     	type : 'Vrsta linka',
     	unlink : 'Ukloni link',
     	upload : 'Pošalji'
-    },
-    justify : 
-    {
-    	block : 'Obostrano ravnanje',
-    	center : 'Centriran tekst',
-    	left : 'Levo ravnanje',
-    	right : 'Desno ravnanje'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['sr-latn'] = {
     	cut : 'Iseci',
     	cutError : 'Sigurnosna podešavanja Vašeg pretraživača ne dozvoljavaju operacije automatskog isecanja teksta. Molimo Vas da koristite prečicu sa tastature (Ctrl/Cmd+X).',
     	paste : 'Zalepi',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Prostor za lepljenje',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : 'Zalepi'
     },
     button : 
     {
@@ -442,11 +439,8 @@ CKEDITOR.lang['sr-latn'] = {
     about : 
     {
     	copy : 'Copyright &copy; $1. All rights reserved.',
-    	dlgTitle : 'About CKEditor',
-    	help : 'Check $1 for help.',
-    	moreInfo : 'For licensing information please visit our web site:',
-    	title : 'About CKEditor',
-    	userGuide : 'CKEditor User\'s Guide'
+    	dlgTitle : 'About CKEditor 4',
+    	moreInfo : 'For licensing information please visit our web site:'
     },
     editor : 'Bogati uređivač teksta',
     editorPanel : 'Rich Text Editor panel',
@@ -503,10 +497,13 @@ CKEDITOR.lang['sr-latn'] = {
     	width : 'Širina',
     	height : 'Visina',
     	align : 'Ravnanje',
-    	alignLeft : 'Levo',
-    	alignRight : 'Desno',
-    	alignCenter : 'Sredina',
-    	alignJustify : 'Obostrano ravnanje',
+    	left : 'Levo',
+    	right : 'Desno',
+    	center : 'Sredina',
+    	justify : 'Obostrano ravnanje',
+    	alignLeft : 'Levo ravnanje',
+    	alignRight : 'Desno ravnanje',
+    	alignCenter : 'Align Center',
     	alignTop : 'Vrh',
     	alignMiddle : 'Sredina',
     	alignBottom : 'Dole',
@@ -514,6 +511,7 @@ CKEDITOR.lang['sr-latn'] = {
     	invalidValue : 'Invalid value.',
     	invalidHeight : 'Visina mora biti broj.',
     	invalidWidth : 'Širina mora biti broj.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	invalidHtmlLength : 'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
@@ -530,7 +528,32 @@ CKEDITOR.lang['sr-latn'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

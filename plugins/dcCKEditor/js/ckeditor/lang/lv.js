@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['lv'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['lv'] = {
     pastetext : 
     {
     	button : 'Ievietot kā vienkāršu tekstu',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Ievietot kā vienkāršu tekstu'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['lv'] = {
     	type : 'Hipersaites tips',
     	unlink : 'Noņemt hipersaiti',
     	upload : 'Augšupielādēt'
-    },
-    justify : 
-    {
-    	block : 'Izlīdzināt malas',
-    	center : 'Izlīdzināt pret centru',
-    	left : 'Izlīdzināt pa kreisi',
-    	right : 'Izlīdzināt pa labi'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['lv'] = {
     	cut : 'Izgriezt',
     	cutError : 'Jūsu pārlūkprogrammas drošības iestatījumi nepieļauj redaktoram automātiski veikt izgriezšanas darbību.  Lūdzu, izmantojiet (Ctrl/Cmd+X), lai veiktu šo darbību.',
     	paste : 'Ielīmēt',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Ielīmēšanas zona',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : 'Ievietot'
     },
     button : 
     {
@@ -442,11 +439,8 @@ CKEDITOR.lang['lv'] = {
     about : 
     {
     	copy : 'Kopēšanas tiesības &copy; $1. Visas tiesības rezervētas.',
-    	dlgTitle : 'Par CKEditor',
-    	help : 'Pārbaudiet $1 palīdzībai.',
-    	moreInfo : 'Informācijai par licenzēšanu apmeklējiet mūsu mājas lapu:',
-    	title : 'Par CKEditor',
-    	userGuide : 'CKEditor Lietotāja pamācība'
+    	dlgTitle : 'Par CKEditor 4',
+    	moreInfo : 'Informācijai par licenzēšanu apmeklējiet mūsu mājas lapu:'
     },
     editor : 'Bagātinātā teksta redaktors',
     editorPanel : 'Bagātinātā teksta redaktora panelis',
@@ -503,10 +497,13 @@ CKEDITOR.lang['lv'] = {
     	width : 'Platums',
     	height : 'Augstums',
     	align : 'Nolīdzināt',
-    	alignLeft : 'Pa kreisi',
-    	alignRight : 'Pa labi',
-    	alignCenter : 'Centrēti',
-    	alignJustify : 'Izlīdzināt malas',
+    	left : 'Pa kreisi',
+    	right : 'Pa labi',
+    	center : 'Centrēti',
+    	justify : 'Izlīdzināt malas',
+    	alignLeft : 'Izlīdzināt pa kreisi',
+    	alignRight : 'Izlīdzināt pa labi',
+    	alignCenter : 'Align Center',
     	alignTop : 'Augšā',
     	alignMiddle : 'Vertikāli centrēts',
     	alignBottom : 'Apakšā',
@@ -514,9 +511,10 @@ CKEDITOR.lang['lv'] = {
     	invalidValue : 'Nekorekta vērtība',
     	invalidHeight : 'Augstumam jābūt skaitlim.',
     	invalidWidth : 'Platumam jābūt skaitlim',
+    	invalidLength : 'Laukam "%1" norādītajai vērtībai jābūt pozitīvam skaitlim ar vai bez korektām mērvienībām (%2).',
     	invalidCssLength : 'Laukam "%1" norādītajai vērtībai jābūt pozitīvam skaitlim ar vai bez korektām CSS mērvienībām (px, %, in, cm, mm, em, ex, pt, vai pc).',
     	invalidHtmlLength : 'Laukam "%1" norādītajai vērtībai jābūt pozitīvam skaitlim ar vai bez korektām HTML mērvienībām (px vai %).',
-    	invalidInlineStyle : 'Iekļautajā stilā norādītajai vērtībai jāsastāv no viena vai vairākiem pāriem pēc forma\'ta "nosaukums: vērtība", atdalītiem ar semikolu.',
+    	invalidInlineStyle : 'Iekļautajā stilā norādītajai vērtībai jāsastāv no viena vai vairākiem pāriem pēc formāta "nosaukums: vērtība", atdalītiem ar semikolu.',
     	cssLengthTooltip : 'Ievadiet vērtību pikseļos vai skaitli ar derīgu CSS mērvienību (px, %, in, cm, mm, em, ex, pt, vai pc).',
     	unavailable : '%1<span class="cke_accessibility">, nav pieejams</span>',
     	keyboard : 
@@ -530,7 +528,32 @@ CKEDITOR.lang['lv'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

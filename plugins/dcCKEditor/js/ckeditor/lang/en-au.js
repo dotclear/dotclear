@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['en-au'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['en-au'] = {
     pastetext : 
     {
     	button : 'Paste as plain text',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Paste as Plain Text'
     },
     pastefromword : 
     {
@@ -155,8 +156,8 @@ CKEDITOR.lang['en-au'] = {
     },
     maximize : 
     {
-    	maximize : 'Maximize',
-    	minimize : 'Minimize'
+    	maximize : 'Maximise',
+    	minimize : 'Minimise'
     },
     magicline : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['en-au'] = {
     	type : 'Link Type',
     	unlink : 'Unlink',
     	upload : 'Upload'
-    },
-    justify : 
-    {
-    	block : 'Justify',
-    	center : 'Centre',
-    	left : 'Align Left',
-    	right : 'Align Right'
     },
     indent : 
     {
@@ -390,7 +384,7 @@ CKEDITOR.lang['en-au'] = {
     		'2ECC71' : 'Emerald',
     		'3498DB' : 'Bright Blue',
     		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
+    		'4E5F70' : 'Greyish Blue',
     		F1C40F : 'Vivid Yellow',
     		'16A085' : 'Dark Cyan',
     		'27AE60' : 'Dark Emerald',
@@ -401,13 +395,13 @@ CKEDITOR.lang['en-au'] = {
     		E67E22 : 'Carrot',
     		E74C3C : 'Pale Red',
     		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
+    		'95A5A6' : 'Light Greyish Cyan',
+    		DDD : 'Light Grey',
     		D35400 : 'Pumpkin',
     		C0392B : 'Strong Red',
     		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'7F8C8D' : 'Greyish Cyan',
+    		'999' : 'Dark Grey'
     	},
     	more : 'More Colours...',
     	panelTitle : 'Colors',
@@ -420,7 +414,10 @@ CKEDITOR.lang['en-au'] = {
     	cut : 'Cut',
     	cutError : 'Your browser security settings don\'t permit the editor to automatically execute cutting operations. Please use the keyboard for that (Ctrl/Cmd+X).',
     	paste : 'Paste',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Paste Area',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : 'Paste'
     },
     button : 
     {
@@ -442,11 +439,8 @@ CKEDITOR.lang['en-au'] = {
     about : 
     {
     	copy : 'Copyright &copy; $1. All rights reserved.',
-    	dlgTitle : 'About CKEditor',
-    	help : 'Check $1 for help.',
-    	moreInfo : 'For licensing information please visit our web site:',
-    	title : 'About CKEditor',
-    	userGuide : 'CKEditor User\'s Guide'
+    	dlgTitle : 'About CKEditor 4',
+    	moreInfo : 'For licensing information please visit our web site:'
     },
     editor : 'Rich Text Editor',
     editorPanel : 'Rich Text Editor panel',
@@ -503,10 +497,13 @@ CKEDITOR.lang['en-au'] = {
     	width : 'Width',
     	height : 'Height',
     	align : 'Align',
-    	alignLeft : 'Left',
-    	alignRight : 'Right',
-    	alignCenter : 'Centre',
-    	alignJustify : 'Justify',
+    	left : 'Left',
+    	right : 'Right',
+    	center : 'Center',
+    	justify : 'Justify',
+    	alignLeft : 'Align Left',
+    	alignRight : 'Align Right',
+    	alignCenter : 'Align Center',
     	alignTop : 'Top',
     	alignMiddle : 'Middle',
     	alignBottom : 'Bottom',
@@ -514,6 +511,7 @@ CKEDITOR.lang['en-au'] = {
     	invalidValue : 'Invalid value.',
     	invalidHeight : 'Height must be a number.',
     	invalidWidth : 'Width must be a number.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'Value specified for the "%1" field must be a positive number with or without a valid CSS measurement unit (px, %, in, cm, mm, em, ex, pt, or pc).',
     	invalidHtmlLength : 'Value specified for the "%1" field must be a positive number with or without a valid HTML measurement unit (px or %).',
     	invalidInlineStyle : 'Value specified for the inline style must consist of one or more tuples with the format of "name : value", separated by semi-colons.',
@@ -530,7 +528,32 @@ CKEDITOR.lang['en-au'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

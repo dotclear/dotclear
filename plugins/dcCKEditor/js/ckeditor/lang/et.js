@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['et'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['et'] = {
     pastetext : 
     {
     	button : 'Asetamine tavalise tekstina',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Asetamine tavalise tekstina'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['et'] = {
     	type : 'Lingi liik',
     	unlink : 'Lingi eemaldamine',
     	upload : 'Lae üles'
-    },
-    justify : 
-    {
-    	block : 'Rööpjoondus',
-    	center : 'Keskjoondus',
-    	left : 'Vasakjoondus',
-    	right : 'Paremjoondus'
     },
     indent : 
     {
@@ -397,8 +391,8 @@ CKEDITOR.lang['et'] = {
     		'2980B9' : 'Strong Blue',
     		'8E44AD' : 'Dark Violet',
     		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
+    		F39C12 : 'Oraanž',
+    		E67E22 : 'Porgand',
     		E74C3C : 'Pale Red',
     		ECF0F1 : 'Bright Silver',
     		'95A5A6' : 'Light Grayish Cyan',
@@ -407,7 +401,7 @@ CKEDITOR.lang['et'] = {
     		C0392B : 'Strong Red',
     		BDC3C7 : 'Silver',
     		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'999' : 'Tume hall'
     	},
     	more : 'Rohkem värve...',
     	panelTitle : 'Värvid',
@@ -420,7 +414,10 @@ CKEDITOR.lang['et'] = {
     	cut : 'Lõika',
     	cutError : 'Sinu veebisirvija turvaseaded ei luba redaktoril automaatselt lõigata. Palun kasutage selleks klaviatuuri klahvikombinatsiooni (Ctrl/Cmd+X).',
     	paste : 'Aseta',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Asetamise ala',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : 'Asetamine'
     },
     button : 
     {
@@ -442,11 +439,8 @@ CKEDITOR.lang['et'] = {
     about : 
     {
     	copy : 'Copyright &copy; $1. Kõik õigused kaitstud.',
-    	dlgTitle : 'CKEditorist',
-    	help : 'Abi jaoks vaata $1.',
-    	moreInfo : 'Litsentsi andmed leiab meie veebilehelt:',
-    	title : 'CKEditorist',
-    	userGuide : 'CKEditori kasutusjuhendit'
+    	dlgTitle : 'About CKEditor 4',
+    	moreInfo : 'Litsentsi andmed leiab meie veebilehelt:'
     },
     editor : 'Rikkalik tekstiredaktor',
     editorPanel : 'Rikkaliku tekstiredaktori paneel',
@@ -503,10 +497,13 @@ CKEDITOR.lang['et'] = {
     	width : 'Laius',
     	height : 'Kõrgus',
     	align : 'Joondus',
-    	alignLeft : 'Vasak',
-    	alignRight : 'Paremale',
-    	alignCenter : 'Kesk',
-    	alignJustify : 'Rööpjoondus',
+    	left : 'Vasak',
+    	right : 'Paremale',
+    	center : 'Kesk',
+    	justify : 'Rööpjoondus',
+    	alignLeft : 'Vasakjoondus',
+    	alignRight : 'Paremjoondus',
+    	alignCenter : 'Align Center',
     	alignTop : 'Üles',
     	alignMiddle : 'Keskele',
     	alignBottom : 'Alla',
@@ -514,6 +511,7 @@ CKEDITOR.lang['et'] = {
     	invalidValue : 'Vigane väärtus.',
     	invalidHeight : 'Kõrgus peab olema number.',
     	invalidWidth : 'Laius peab olema number.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : '"%1" välja jaoks määratud väärtus peab olema positiivne täisarv CSS ühikuga (px, %, in, cm, mm, em, ex, pt või pc) või ilma.',
     	invalidHtmlLength : '"%1" välja jaoks määratud väärtus peab olema positiivne täisarv HTML ühikuga (px või %) või ilma.',
     	invalidInlineStyle : 'Reasisese stiili määrangud peavad koosnema paarisväärtustest (tuples), mis on semikoolonitega eraldatult järgnevas vormingus: "nimi : väärtus".',
@@ -526,11 +524,36 @@ CKEDITOR.lang['et'] = {
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Tühik',
     		'35' : 'End',
     		'36' : 'Home',
-    		'46' : 'Delete',
+    		'46' : 'Kustuta',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Vaikeväärtus'
     } }; 

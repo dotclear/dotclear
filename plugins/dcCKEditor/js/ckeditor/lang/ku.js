@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ku'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['ku'] = {
     pastetext : 
     {
     	button : 'لکاندنی وەك دەقی ڕوون',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'لکاندنی وەك دەقی ڕوون'
     },
     pastefromword : 
     {
@@ -254,13 +255,6 @@ CKEDITOR.lang['ku'] = {
     	unlink : 'لابردنی بەستەر',
     	upload : 'بارکردن'
     },
-    justify : 
-    {
-    	block : 'هاوستوونی',
-    	center : 'ناوەڕاست',
-    	left : 'بەهێڵ کردنی چەپ',
-    	right : 'بەهێڵ کردنی ڕاست'
-    },
     indent : 
     {
     	indent : 'زیادکردنی بۆشایی',
@@ -369,7 +363,7 @@ CKEDITOR.lang['ku'] = {
     		'0FF' : 'شینی ئاسمانی',
     		'00F' : 'شین',
     		EE82EE : 'پەمەیی',
-    		A9A9A9 : 'ڕەساسی ناتۆخ',
+    		A9A9A9 : 'ڕەساسی تاریک',
     		FFA07A : 'نارەنجی ناتۆخ',
     		FFA500 : 'نارەنجی',
     		FFFF00 : 'زەرد',
@@ -386,27 +380,27 @@ CKEDITOR.lang['ku'] = {
     		F0F8FF : 'شینێکی ئاسمانی زۆر ناتۆخ',
     		E6E6FA : 'شیری',
     		FFF : 'سپی',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
+    		'1ABC9C' : 'شینی ئاسمانی بەهیز',
+    		'2ECC71' : 'زەمروتی سەوز',
     		'3498DB' : 'شینی ناتۆخ',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
+    		'9B59B6' : 'ئەرخەوانی، وەنەوشەیی',
+    		'4E5F70' : 'شینی ڕه‌ساسی',
+    		F1C40F : 'زەردی زیندوو',
+    		'16A085' : 'شینی ئاسمانی تاریک',
+    		'27AE60' : 'زەمروتی سەوزی تاریک',
     		'2980B9' : 'شینی تۆخ',
     		'8E44AD' : 'پەمەیی تاریک',
-    		'2C3E50' : 'Desaturated Blue',
+    		'2C3E50' : 'شینی ڕەشوسپی',
     		F39C12 : 'نارنجی',
     		E67E22 : 'گێزەر',
-    		E74C3C : 'Pale Red',
+    		E74C3C : 'سوری زەرد هەڵگەڕاو',
     		ECF0F1 : 'زیوی ڕووناک',
-    		'95A5A6' : 'Light Grayish Cyan',
+    		'95A5A6' : 'شینی ئاسمانی ڕه‌ساسی بریسکه‌دار',
     		DDD : 'ڕەساسی بریسکەدار',
     		D35400 : 'کولەکەی شیرین',
     		C0392B : 'سوری بەهێز',
     		BDC3C7 : 'زیوی',
-    		'7F8C8D' : 'Grayish Cyan',
+    		'7F8C8D' : 'شینی ئاسمانی ڕه‌ساسی',
     		'999' : 'ڕەساسی تۆخ'
     	},
     	more : 'ڕەنگی زیاتر...',
@@ -420,7 +414,10 @@ CKEDITOR.lang['ku'] = {
     	cut : 'بڕین',
     	cutError : 'پارێزی وێبگەڕەکەت ڕێگەنادات بە سەرنووسەکە لەبڕینی خۆکارانە. تکایە لەبری ئەمە ئەم فەرمانە بەکاربهێنە بەداگرتنی کلیلی (Ctrl/Cmd+X).',
     	paste : 'لکاندن',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'کلیک بکە لەسەر %1 بۆ لکاندنی. وێبگەڕەکەت پشتیوانی لکاندن ناکات بە دوگمەی تولامراز یان ئامرازی ناوەڕۆکی لیستە -  کلیکی دەستی ڕاست. ',
+    	pasteArea : 'ناوچەی لکاندن',
+    	pasteMsg : 'ناوەڕۆکەکەت لەم پانتایی خوارەوە بلکێنە',
+    	title : 'لکاندن'
     },
     button : 
     {
@@ -442,11 +439,8 @@ CKEDITOR.lang['ku'] = {
     about : 
     {
     	copy : 'مافی لەبەرگەرتنەوەی &copy; $1. گشتی پارێزراوه. ورگێڕانی بۆ کوردی لەلایەن هۆژە کۆیی.',
-    	dlgTitle : 'دەربارەی CKEditor',
-    	help : 'سەیری $1 بکه بۆ یارمەتی.',
-    	moreInfo : 'بۆ زانیاری زیاتر دەربارەی مۆڵەتی بەکارهێنان، تکایه سەردانی ماڵپەڕەکەمان بکه:',
-    	title : 'دەربارەی CKEditor',
-    	userGuide : 'ڕێپیشاندەری CKEditors'
+    	dlgTitle : 'دەربارەی CKEditor 4',
+    	moreInfo : 'بۆ زانیاری زیاتر دەربارەی مۆڵەتی بەکارهێنان، تکایه سەردانی ماڵپەڕەکەمان بکه:'
     },
     editor : 'سەرنووسەی دەقی تەواو',
     editorPanel : 'بڕگەی سەرنووسەی دەقی تەواو',
@@ -503,10 +497,13 @@ CKEDITOR.lang['ku'] = {
     	width : 'پانی',
     	height : 'درێژی',
     	align : 'ڕێککەرەوە',
-    	alignLeft : 'چەپ',
-    	alignRight : 'ڕاست',
-    	alignCenter : 'ناوەڕاست',
-    	alignJustify : 'هاوستوونی',
+    	left : 'چەپ',
+    	right : 'ڕاست',
+    	center : 'ناوەڕاست',
+    	justify : 'هاوستوونی',
+    	alignLeft : 'بەهێڵ کردنی چەپ',
+    	alignRight : 'بەهێڵ کردنی ڕاست',
+    	alignCenter : 'Align Center',
     	alignTop : 'سەرەوە',
     	alignMiddle : 'ناوەند',
     	alignBottom : 'ژێرەوە',
@@ -514,6 +511,7 @@ CKEDITOR.lang['ku'] = {
     	invalidValue : 'نرخێکی نادرووست.',
     	invalidHeight : 'درێژی دەبێت ژمارە بێت.',
     	invalidWidth : 'پانی دەبێت ژمارە بێت.',
+    	invalidLength : 'ئەم نرخەی دراوە بۆ خانەی "%1" دەبێت ژمارەکی درووست لەگەڵ بێت یان بە بێ پێوانەی یەکەی ( %2)',
     	invalidCssLength : 'ئەم نرخەی دراوە بۆ خانەی "%1" دەبێت ژمارەکی درووست بێت یان بێ ناونیشانی ئامرازی (px, %, in, cm, mm, em, ex, pt, یان pc).',
     	invalidHtmlLength : 'ئەم نرخەی دراوە بۆ خانەی "%1" دەبێت ژمارەکی درووست بێت یان بێ ناونیشانی ئامرازی HTML (px یان %).',
     	invalidInlineStyle : 'دانەی نرخی شێوازی ناوهێڵ دەبێت پێکهاتبێت لەیەك یان زیاتری داڕشتە "ناو : نرخ", جیاکردنەوەی بە فاریزە و خاڵ',
@@ -530,7 +528,32 @@ CKEDITOR.lang['ku'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'فەرمان'
     	},
-    	keyboardShortcut : 'کورتبڕی تەختەکلیل'
+    	keyboardShortcut : 'کورتبڕی تەختەکلیل',
+    	optionDefault : 'هەمیشەیی'
     } }; 

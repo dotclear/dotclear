@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ar'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['ar'] = {
     pastetext : 
     {
     	button : 'لصق كنص بسيط',
-    	pasteNotification : 'Your browser does not allow you to paste plain text this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'لصق كنص بسيط'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['ar'] = {
     	type : 'نوع الربط',
     	unlink : 'إزالة رابط',
     	upload : 'رفع'
-    },
-    justify : 
-    {
-    	block : 'ضبط',
-    	center : 'توسيط',
-    	left : 'محاذاة إلى اليسار',
-    	right : 'محاذاة إلى اليمين'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['ar'] = {
     	cut : 'قص',
     	cutError : 'الإعدادات الأمنية للمتصفح الذي تستخدمه تمنع القص التلقائي. فضلاً إستخدم لوحة المفاتيح لفعل ذلك (Ctrl/Cmd+X).',
     	paste : 'لصق',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'منطقة اللصق',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : 'لصق'
     },
     button : 
     {
@@ -443,10 +440,7 @@ CKEDITOR.lang['ar'] = {
     {
     	copy : 'حقوق النشر &copy; $1. جميع الحقوق محفوظة.',
     	dlgTitle : 'عن CKEditor',
-    	help : 'راجع $1 من أجل المساعدة',
-    	moreInfo : 'للحصول على معلومات الترخيص ، يرجى زيارة موقعنا:',
-    	title : 'عن CKEditor',
-    	userGuide : 'دليل مستخدم CKEditor.'
+    	moreInfo : 'للحصول على معلومات الترخيص ، يرجى زيارة موقعنا:'
     },
     editor : 'محرر النص الغني',
     editorPanel : 'لائحة محرر النص المنسق',
@@ -503,10 +497,13 @@ CKEDITOR.lang['ar'] = {
     	width : 'العرض',
     	height : 'الإرتفاع',
     	align : 'محاذاة',
-    	alignLeft : 'يسار',
-    	alignRight : 'يمين',
-    	alignCenter : 'وسط',
-    	alignJustify : 'ضبط',
+    	left : 'يسار',
+    	right : 'يمين',
+    	center : 'وسط',
+    	justify : 'ضبط',
+    	alignLeft : 'محاذاة إلى اليسار',
+    	alignRight : 'محاذاة إلى اليمين',
+    	alignCenter : 'Align Center',
     	alignTop : 'أعلى',
     	alignMiddle : 'وسط',
     	alignBottom : 'أسفل',
@@ -514,6 +511,7 @@ CKEDITOR.lang['ar'] = {
     	invalidValue : 'قيمة غير مفبولة.',
     	invalidHeight : 'الارتفاع يجب أن يكون عدداً.',
     	invalidWidth : 'العرض يجب أن يكون عدداً.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : 'قيمة الخانة المخصصة لـ "%1" يجب أن تكون رقما موجبا، باستخدام أو من غير استخدام وحدة CSS قياس مقبولة (px, %, in, cm, mm, em, ex, pt, or pc).',
     	invalidHtmlLength : 'قيمة الخانة المخصصة لـ "%1" يجب أن تكون رقما موجبا، باستخدام أو من غير استخدام وحدة HTML قياس مقبولة (px or %).',
     	invalidInlineStyle : 'قيمة الخانة المخصصة لـ  Inline Style يجب أن تختوي على مجموع واحد أو أكثر بالشكل التالي: "name : value", مفصولة بفاصلة منقزطة.',
@@ -530,7 +528,32 @@ CKEDITOR.lang['ar'] = {
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut'
+    	keyboardShortcut : 'Keyboard shortcut',
+    	optionDefault : 'Default'
     } }; 

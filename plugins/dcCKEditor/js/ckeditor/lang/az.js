@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['az'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['az'] = {
     pastetext : 
     {
     	button : 'Yalnız mətni saxla',
-    	pasteNotification : 'Sizin İnternet bələdçiniz bu cür mətnin köçürməsini dəstəklənmir. Əlavə etmək üçün %1 basın.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Paste as Plain Text'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['az'] = {
     	type : 'Linkin növü',
     	unlink : 'Linki sil',
     	upload : 'Serverə yüklə'
-    },
-    justify : 
-    {
-    	block : 'Eninə görə',
-    	center : 'Mərkəz',
-    	left : 'Soldan düzləndir',
-    	right : 'Sağdan düzləndir'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['az'] = {
     	cut : 'Kəs',
     	cutError : 'Avtomatik kəsmə mümkün deyil. Ctrl+X basın.',
     	paste : 'Əlavə et',
-    	pasteNotification : 'Sizin İnternet bələdçisi bu cür mətnin köçürməsi dəstəklənmir. Əlavə etmək üçün %1 basın.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Paste Area',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : 'Paste'
     },
     button : 
     {
@@ -443,10 +440,7 @@ CKEDITOR.lang['az'] = {
     {
     	copy : 'Copyright &copy; $1. Bütün hüquqlar qorunur.',
     	dlgTitle : 'CKEditor haqqında',
-    	help : 'Kömək üçün  $1 seçin',
-    	moreInfo : 'Lisenziya informasiyası üçün zəhmət olmasa saytımızı ziyarət edin:',
-    	title : 'CKEditor haqqında',
-    	userGuide : 'CKEditor İstifadəçilər üçün kitabça'
+    	moreInfo : 'Lisenziya informasiyası üçün zəhmət olmasa saytımızı ziyarət edin:'
     },
     editor : 'Mətn Redaktoru',
     editorPanel : 'Mətn Redaktorun Paneli',
@@ -503,10 +497,13 @@ CKEDITOR.lang['az'] = {
     	width : 'En',
     	height : 'Uzunluq',
     	align : 'Yerləşmə',
-    	alignLeft : 'Sol',
-    	alignRight : 'Sağ',
-    	alignCenter : 'Mərkəz',
-    	alignJustify : 'Eninə görə',
+    	left : 'Sol',
+    	right : 'Sağ',
+    	center : 'Mərkəz',
+    	justify : 'Eninə görə',
+    	alignLeft : 'Soldan düzləndir',
+    	alignRight : 'Sağdan düzləndir',
+    	alignCenter : 'Align Center',
     	alignTop : 'Yuxarı',
     	alignMiddle : 'Orta',
     	alignBottom : 'Aşağı',
@@ -514,6 +511,7 @@ CKEDITOR.lang['az'] = {
     	invalidValue : 'Yanlışdır.',
     	invalidHeight : 'Hündürlük rəqəm olmalıdır.',
     	invalidWidth : 'En rəqəm olmalıdır.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : '"%1" xanasında göstərilən məzmun tam və müsbət olmalıdır, CSS-də olan ölçü vahidlərin (px, %, in, cm, mm, em, ex, pt, or pc) istifadısinə icazə verilir.',
     	invalidHtmlLength : '"%1" xanasında göstərilən məzmun tam və müsbət olmalıdır HTML-də olan ölçü vahidlərin (px və ya %) istifadısinə icazə verilir.',
     	invalidInlineStyle : 'Teq içində olan üslub "ad :  məzmun" şəklidə, nöqtə-verqül işarəsi ilə bitməlidir',
@@ -530,7 +528,32 @@ CKEDITOR.lang['az'] = {
     		'35' : 'Son',
     		'36' : 'Evə',
     		'46' : 'Sil',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Əmr'
     	},
-    	keyboardShortcut : 'Qısayol düymələri'
+    	keyboardShortcut : 'Qısayol düymələri',
+    	optionDefault : 'Default'
     } }; 

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2017, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['tr'] = {
@@ -140,7 +140,8 @@ CKEDITOR.lang['tr'] = {
     pastetext : 
     {
     	button : 'Düz Metin Olarak Yapıştır',
-    	pasteNotification : 'Web tarayıcınız bu şekilde düz metni yapıştırmanıza izin vermiyor. Yapıştırmak için %1 basınız.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	title : 'Düz Metin Olarak Yapıştır'
     },
     pastefromword : 
     {
@@ -253,13 +254,6 @@ CKEDITOR.lang['tr'] = {
     	type : 'Link Türü',
     	unlink : 'Köprü Kaldır',
     	upload : 'Karşıya Yükle'
-    },
-    justify : 
-    {
-    	block : 'İki Kenara Yaslanmış',
-    	center : 'Ortalanmış',
-    	left : 'Sola Dayalı',
-    	right : 'Sağa Dayalı'
     },
     indent : 
     {
@@ -420,7 +414,10 @@ CKEDITOR.lang['tr'] = {
     	cut : 'Kes',
     	cutError : 'Gezgin yazılımınızın güvenlik ayarları düzenleyicinin otomatik kesme işlemine izin vermiyor. İşlem için (Ctrl/Cmd+X) tuşlarını kullanın.',
     	paste : 'Yapıştır',
-    	pasteNotification : 'Your browser doesn\'t allow you to paste this way. Press %1 to paste.'
+    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteArea : 'Yapıştırma Alanı',
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	title : 'Yapıştır'
     },
     button : 
     {
@@ -443,10 +440,7 @@ CKEDITOR.lang['tr'] = {
     {
     	copy : 'Copyright &copy; $1. Tüm hakları saklıdır.',
     	dlgTitle : 'CKEditor Hakkında',
-    	help : 'Yardım için $1 kontrol edin.',
-    	moreInfo : 'Lisanslama hakkında daha fazla bilgi almak için lütfen sitemizi ziyaret edin:',
-    	title : 'CKEditor Hakkında',
-    	userGuide : 'CKEditor Kullanıcı Kılavuzu'
+    	moreInfo : 'Lisanslama hakkında daha fazla bilgi almak için lütfen sitemizi ziyaret edin:'
     },
     editor : 'Zengin Metin Editörü',
     editorPanel : 'Zengin Metin Editör Paneli',
@@ -503,10 +497,13 @@ CKEDITOR.lang['tr'] = {
     	width : 'Genişlik',
     	height : 'Yükseklik',
     	align : 'Hizalama',
-    	alignLeft : 'Sol',
-    	alignRight : 'Sağ',
-    	alignCenter : 'Ortala',
-    	alignJustify : 'İki Kenara Yaslanmış',
+    	left : 'Sol',
+    	right : 'Sağ',
+    	center : 'Ortala',
+    	justify : 'İki Kenara Yaslanmış',
+    	alignLeft : 'Sola Dayalı',
+    	alignRight : 'Sağa Dayalı',
+    	alignCenter : 'Align Center',
     	alignTop : 'Üst',
     	alignMiddle : 'Orta',
     	alignBottom : 'Alt',
@@ -514,6 +511,7 @@ CKEDITOR.lang['tr'] = {
     	invalidValue : 'Geçersiz değer.',
     	invalidHeight : 'Yükseklik değeri bir sayı olmalıdır.',
     	invalidWidth : 'Genişlik değeri bir sayı olmalıdır.',
+    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
     	invalidCssLength : '"%1" alanı için verilen değer, geçerli bir CSS ölçü birimi (px, %, in, cm, mm, em, ex, pt, veya pc) içeren veya içermeyen pozitif bir sayı olmalıdır.',
     	invalidHtmlLength : 'Belirttiğiniz sayı "%1" alanı için pozitif bir sayı HTML birim değeri olmalıdır (px veya %).',
     	invalidInlineStyle : 'Satıriçi biçem için verilen değer, "isim : değer" biçiminde birbirinden noktalı virgüllerle ayrılan bir veya daha fazla değişkenler grubundan oluşmalıdır.',
@@ -530,7 +528,32 @@ CKEDITOR.lang['tr'] = {
     		'35' : 'En Sona Tuşu',
     		'36' : 'En Başa Tuşu',
     		'46' : 'Silme Tuşu',
+    		'112' : 'F1',
+    		'113' : 'F2',
+    		'114' : 'F3',
+    		'115' : 'F4',
+    		'116' : 'F5',
+    		'117' : 'F6',
+    		'118' : 'F7',
+    		'119' : 'F8',
+    		'120' : 'F9',
+    		'121' : 'F10',
+    		'122' : 'F11',
+    		'123' : 'F12',
+    		'124' : 'F13',
+    		'125' : 'F14',
+    		'126' : 'F15',
+    		'127' : 'F16',
+    		'128' : 'F17',
+    		'129' : 'F18',
+    		'130' : 'F19',
+    		'131' : 'F20',
+    		'132' : 'F21',
+    		'133' : 'F22',
+    		'134' : 'F23',
+    		'135' : 'F24',
     		'224' : 'Komut Tuşu'
     	},
-    	keyboardShortcut : 'Klavye Kısayolu'
+    	keyboardShortcut : 'Klavye Kısayolu',
+    	optionDefault : 'Default'
     } }; 
