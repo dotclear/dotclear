@@ -208,7 +208,11 @@ class dcBlog
 
         $cur->blog_upddt = date('Y-m-d H:i:s');
 
-        $cur->update("WHERE blog_id = '" . $this->con->escape($this->id) . "' ");
+        $sql = new dcUpdateStatement($this->core, 'coreTriggerBlog');
+        $sql
+            ->where('blog_id = ' . $sql->quote($this->id));
+
+        $cur->update($sql->whereStatement());
 
         # --BEHAVIOR-- coreBlogAfterTriggerBlog
         $this->core->callBehavior('coreBlogAfterTriggerBlog', $cur);
@@ -240,18 +244,20 @@ class dcBlog
 
         # Get posts affected by comments edition
         if (empty($affected_posts)) {
-            $strReq =
-            'SELECT post_id ' .
-            'FROM ' . $this->prefix . 'comment ' .
-            'WHERE comment_id' . $this->con->in($comments_ids) .
-                'GROUP BY post_id';
+            $sql = new dcSelectStatement($this->core, 'coreTriggerCommentsScope');
+            $sql
+                ->columns('post_id')
+                ->from($this->prefix . 'comment')
+                ->where('comment_id' . $sql->in($comments_ids))
+                ->group('post_id');
 
-            $rs = $this->con->select($strReq);
+            $rs = $this->con->select($sql->statement());
 
             $affected_posts = array();
             while ($rs->fetch()) {
                 $affected_posts[] = (integer) $rs->post_id;
             }
+            unset($sql);
         }
 
         if (!is_array($affected_posts) || empty($affected_posts)) {
@@ -259,14 +265,17 @@ class dcBlog
         }
 
         # Count number of comments if exists for affected posts
-        $strReq =
-        'SELECT post_id, COUNT(post_id) AS nb_comment, comment_trackback ' .
-        'FROM ' . $this->prefix . 'comment ' .
-        'WHERE comment_status = 1 ' .
-        'AND post_id' . $this->con->in($affected_posts) .
-            'GROUP BY post_id,comment_trackback';
+        $sql = new dcSelectStatement($this->core, 'coreTriggerCommentsCount');
+        $sql
+            ->columns(array('post_id', 'COUNT(post_id) AS nb_comment', 'comment_trackback'))
+            ->from($this->prefix . 'comment')
+            ->where(array(
+                'comment_status = 1',
+                'post_id' . $sql->in($affected_posts)
+            ))
+            ->group(array('post_id', 'comment_trackback'));
 
-        $rs = $this->con->select($strReq);
+        $rs = $this->con->select($sql->statement());
 
         $posts = array();
         while ($rs->fetch()) {
@@ -460,23 +469,25 @@ class dcBlog
 
     private function getCategoriesCounter($params = array())
     {
-        $strReq =
-        'SELECT  C.cat_id, COUNT(P.post_id) AS nb_post ' .
-        'FROM ' . $this->prefix . 'category AS C ' .
-        'JOIN ' . $this->prefix . "post P ON (C.cat_id = P.cat_id AND P.blog_id = '" . $this->con->escape($this->id) . "' ) " .
-        "WHERE C.blog_id = '" . $this->con->escape($this->id) . "' ";
+        $sql = new dcSelectStatement($this->core, 'coreGetCategoriesCounter');
+        $sql
+            ->columns(array('C.cat_id', 'COUNT(P.post_id) AS nb_post'))
+            ->from($this->prefix . 'category AS C')
+            ->join('JOIN ' . $this->prefix . 'post P ' .
+                'ON (C.cat_id = P.cat_id AND P.blog_id = ' . $sql->quote($this->id) . ')')
+            ->where('C.blog_id = ' . $sql->quote($this->id));
 
         if (!$this->core->auth->userID()) {
-            $strReq .= 'AND P.post_status = 1 ';
+            $sql->where('P.post_status = 1');
         }
 
         if (!empty($params['post_type'])) {
-            $strReq .= 'AND P.post_type ' . $this->con->in($params['post_type']);
+            $sql->where('P.post_type ' . $sql->in($params['post_type']));
         }
 
-        $strReq .= 'GROUP BY C.cat_id ';
+        $sql->group('C.cat_id');
 
-        $rs       = $this->con->select($strReq);
+        $rs       = $this->con->select($sql->statement());
         $counters = array();
         while ($rs->fetch()) {
             $counters[$rs->cat_id] = $rs->nb_post;
@@ -567,9 +578,13 @@ class dcBlog
         # --BEHAVIOR-- coreBeforeCategoryUpdate
         $this->core->callBehavior('coreBeforeCategoryUpdate', $this, $cur);
 
-        $cur->update(
-            'WHERE cat_id = ' . (integer) $id . ' ' .
-            "AND blog_id = '" . $this->con->escape($this->id) . "' ");
+        $sql = new dcUpdateStatement($this->core, 'coreCategoryUpdate');
+        $sql
+            ->where(array(
+                'cat_id = ' . (integer) $id,
+                'blog_id = ' . $sql->quote($this->id)
+            ));
+        $cur->update($sql->whereStatement());
 
         # --BEHAVIOR-- coreAfterCategoryUpdate
         $this->core->callBehavior('coreAfterCategoryUpdate', $this, $cur);
@@ -638,12 +653,15 @@ class dcBlog
             throw new Exception(__('You are not allowed to delete categories'));
         }
 
-        $strReq = 'SELECT COUNT(post_id) AS nb_post ' .
-        'FROM ' . $this->prefix . 'post ' .
-        'WHERE cat_id = ' . (integer) $id . ' ' .
-        "AND blog_id = '" . $this->con->escape($this->id) . "' ";
-
-        $rs = $this->con->select($strReq);
+        $sql = new dcSelectStatement($this->core, 'coreCategoryPostCount');
+        $sql
+            ->columns('COUNT(post_id) AS nb_post')
+            ->from($this->prefix . 'post')
+            ->where(array(
+                'cat_id = ' . (integer) $id,
+                'blog_id = ' . $sql->quote($this->id)
+            ));
+        $rs = $this->con->select($sql->statement());
 
         if ($rs->nb_post > 0) {
             throw new Exception(__('This category is not empty.'));
@@ -668,32 +686,25 @@ class dcBlog
 
     private function checkCategory($title, $url, $id = null)
     {
-        # Let's check if URL is taken...
-        $strReq =
-        'SELECT cat_url FROM ' . $this->prefix . 'category ' .
-        "WHERE cat_url = '" . $this->con->escape($url) . "' " .
-        ($id ? 'AND cat_id <> ' . (integer) $id . ' ' : '') .
-        "AND blog_id = '" . $this->con->escape($this->id) . "' " .
-            'ORDER BY cat_url DESC';
+        // Let's check if URL is taken...
+        $sql = new dcSelectStatement($this->core, 'coreCheckCategoryURL');
+        $sql
+            ->columns('cat_url')
+            ->from($this->prefix . 'category')
+            ->where('blog_id = ' . $sql->quote($this->id))
+            ->order('cat_url DESC');
+        if ($id) {
+            $sql->where('AND cat_id <> ' . (integer) $i);
+        }
+        $sql->cond('AND cat_url = ' . $sql->quote($url));
 
-        $rs = $this->con->select($strReq);
+        $rs = $this->con->select($sql->statement());
 
         if (!$rs->isEmpty()) {
-            if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli' || $this->con->driver() == 'mysqlimb4') {
-                $clause = "REGEXP '^" . $this->con->escape($url) . "[0-9]+$'";
-            } elseif ($this->con->driver() == 'pgsql') {
-                $clause = "~ '^" . $this->con->escape($url) . "[0-9]+$'";
-            } else {
-                $clause = "LIKE '" . $this->con->escape($url) . "%'";
-            }
-            $strReq =
-            'SELECT cat_url FROM ' . $this->prefix . 'category ' .
-            "WHERE cat_url " . $clause . ' ' .
-            ($id ? 'AND cat_id <> ' . (integer) $id . ' ' : '') .
-            "AND blog_id = '" . $this->con->escape($this->id) . "' " .
-                'ORDER BY cat_url DESC ';
+            // Replace condition on cat_url
+            $sql->cond('AND cat_url ' . $sql->regexp($url), true);
 
-            $rs = $this->con->select($strReq);
+            $rs = $this->con->select($sql->statement());
             $a  = array();
             while ($rs->fetch()) {
                 $a[] = $rs->cat_url;
@@ -790,69 +801,62 @@ class dcBlog
         $params = new ArrayObject($params);
         $this->core->callBehavior('coreBlogBeforeGetPosts', $params);
 
+        $sql = new dcSelectStatement($this->core, 'coreGetPosts');
+
         if ($count_only) {
-            $strReq = 'SELECT count(DISTINCT P.post_id) ';
+            $sql->columns('count(DISTINCT P.post_id)');
         } elseif (!empty($params['sql_only'])) {
-            $strReq = 'SELECT P.post_id ';
+            $sql->columns('P.post_id');
         } else {
-            if (!empty($params['no_content'])) {
-                $content_req = '';
-            } else {
-                $content_req =
-                    'post_excerpt, post_excerpt_xhtml, ' .
-                    'post_content, post_content_xhtml, post_notes, ';
+            if (empty($params['no_content'])) {
+                $sql->columns(array('post_excerpt', 'post_excerpt_xhtml', 'post_content', 'post_content_xhtml', 'post_notes'));
             }
 
             if (!empty($params['columns']) && is_array($params['columns'])) {
-                $content_req .= implode(', ', $params['columns']) . ', ';
+                $sql->columns($params['columns']);
             }
 
-            $strReq =
-                'SELECT P.post_id, P.blog_id, P.user_id, P.cat_id, post_dt, ' .
-                'post_tz, post_creadt, post_upddt, post_format, post_password, ' .
-                'post_url, post_lang, post_title, ' . $content_req .
-                'post_type, post_meta, ' .
-                'post_status, post_firstpub, post_selected, post_position, ' .
-                'post_open_comment, post_open_tb, nb_comment, nb_trackback, ' .
-                'U.user_name, U.user_firstname, U.user_displayname, U.user_email, ' .
-                'U.user_url, ' .
-                'C.cat_title, C.cat_url, C.cat_desc ';
+            $sql->columns(array('P.post_id', 'P.blog_id', 'P.user_id', 'P.cat_id', 'post_dt', 'post_tz', 'post_creadt',
+                'post_upddt', 'post_format', 'post_password', 'post_url', 'post_lang', 'post_title', 'post_type',
+                'post_meta', 'post_status', 'post_firstpub', 'post_selected', 'post_position', 'post_open_comment',
+                'post_open_tb', 'nb_comment', 'nb_trackback', 'U.user_name', 'U.user_firstname', 'U.user_displayname',
+                'U.user_email', 'U.user_url', 'C.cat_title', 'C.cat_url', 'C.cat_desc'));
         }
 
-        $strReq .=
-        'FROM ' . $this->prefix . 'post P ' .
-        'INNER JOIN ' . $this->prefix . 'user U ON U.user_id = P.user_id ' .
-        'LEFT OUTER JOIN ' . $this->prefix . 'category C ON P.cat_id = C.cat_id ';
+        $sql->from($this->prefix . 'post P')
+            ->join('INNER JOIN ' . $this->prefix . 'user U ON U.user_id = P.user_id')
+            ->join('LEFT OUTER JOIN ' . $this->prefix . 'category C ON P.cat_id = C.cat_id');
+
+        if (!empty($params['join'])) {
+            $sql->join($params['join']);
+        }
 
         if (!empty($params['from'])) {
-            $strReq .= $params['from'] . ' ';
+            $sql->from($params['from']);
         }
 
-        $strReq .=
-        "WHERE P.blog_id = '" . $this->con->escape($this->id) . "' ";
+        $sql->where('P.blog_id = ' . $sql->quote($this->id));
 
         if (!$this->core->auth->check('contentadmin', $this->id)) {
-            $strReq .= 'AND ((post_status = 1 ';
-
+            $cond = '((post_status = 1';
             if ($this->without_password) {
-                $strReq .= 'AND post_password IS NULL ';
+                $cond .= ' AND post_password IS NULL';
             }
-            $strReq .= ') ';
-
+            $cond .= ')';
             if ($this->core->auth->userID()) {
-                $strReq .= "OR P.user_id = '" . $this->con->escape($this->core->auth->userID()) . "')";
-            } else {
-                $strReq .= ') ';
+                $cond .= 'OR P.user_id = ' . $sql->quote($this->core->auth->userID());
             }
+            $cond .= ')';
+            $sql->where($cond);
         }
 
         #Adding parameters
         if (isset($params['post_type'])) {
             if (is_array($params['post_type']) || $params['post_type'] != '') {
-                $strReq .= 'AND post_type ' . $this->con->in($params['post_type']);
+                $sql->where('post_type ' . $sql->in($params['post_type']));
             }
         } else {
-            $strReq .= "AND post_type = 'post' ";
+            $sql->where("post_type = 'post' ");
         }
 
         if (isset($params['post_id']) && $params['post_id'] !== '') {
@@ -861,7 +865,7 @@ class dcBlog
             } else {
                 $params['post_id'] = array((integer) $params['post_id']);
             }
-            $strReq .= 'AND P.post_id ' . $this->con->in($params['post_id']);
+            $sql->where('P.post_id ' . $sql->in($params['post_id']));
         }
 
         if (isset($params['exclude_post_id']) && $params['exclude_post_id'] !== '') {
@@ -870,15 +874,15 @@ class dcBlog
             } else {
                 $params['exclude_post_id'] = array((integer) $params['exclude_post_id']);
             }
-            $strReq .= 'AND P.post_id NOT ' . $this->con->in($params['exclude_post_id']);
+            $sql->where('P.post_id NOT ' . $sql->in($params['exclude_post_id']));
         }
 
         if (isset($params['post_url']) && $params['post_url'] !== '') {
-            $strReq .= "AND post_url = '" . $this->con->escape($params['post_url']) . "' ";
+            $sql->where('post_url = ' . $sql->quote($params['post_url']));
         }
 
         if (!empty($params['user_id'])) {
-            $strReq .= "AND U.user_id = '" . $this->con->escape($params['user_id']) . "' ";
+            $sql->where('U.user_id = ' . $sql->quote($params['user_id']));
         }
 
         if (isset($params['cat_id']) && $params['cat_id'] !== '') {
@@ -888,7 +892,7 @@ class dcBlog
             if (!empty($params['cat_id_not'])) {
                 array_walk($params['cat_id'], function (&$v, $k) {$v = $v . " ?not";});
             }
-            $strReq .= 'AND ' . $this->getPostsCategoryFilter($params['cat_id'], 'cat_id') . ' ';
+            $sql->where($this->getPostsCategoryFilter($params['cat_id'], 'cat_id'));
         } elseif (isset($params['cat_url']) && $params['cat_url'] !== '') {
             if (!is_array($params['cat_url'])) {
                 $params['cat_url'] = array($params['cat_url']);
@@ -896,39 +900,36 @@ class dcBlog
             if (!empty($params['cat_url_not'])) {
                 array_walk($params['cat_url'], function (&$v, $k) {$v = $v . " ?not";});
             }
-            $strReq .= 'AND ' . $this->getPostsCategoryFilter($params['cat_url'], 'cat_url') . ' ';
+            $sql->where($this->getPostsCategoryFilter($params['cat_url'], 'cat_url'));
         }
 
         /* Other filters */
         if (isset($params['post_status'])) {
-            $strReq .= 'AND post_status = ' . (integer) $params['post_status'] . ' ';
+            $sql->where('post_status = ' . (integer) $params['post_status']);
         }
 
         if (isset($params['post_firstpub'])) {
-            $strReq .= 'AND post_firstpub = ' . (integer) $params['post_firstpub'] . ' ';
+            $sql->where('post_firstpub = ' . (integer) $params['post_firstpub']);
         }
 
         if (isset($params['post_selected'])) {
-            $strReq .= 'AND post_selected = ' . (integer) $params['post_selected'] . ' ';
+            $sql->where('post_selected = ' . (integer) $params['post_selected']);
         }
 
         if (!empty($params['post_year'])) {
-            $strReq .= 'AND ' . $this->con->dateFormat('post_dt', '%Y') . ' = ' .
-            "'" . sprintf('%04d', $params['post_year']) . "' ";
+            $sql->where($sql->dateFormat('post_dt', '%Y') . ' = ' . "'" . sprintf('%04d', $params['post_year']) . "'");
         }
 
         if (!empty($params['post_month'])) {
-            $strReq .= 'AND ' . $this->con->dateFormat('post_dt', '%m') . ' = ' .
-            "'" . sprintf('%02d', $params['post_month']) . "' ";
+            $sql->where($sql->dateFormat('post_dt', '%m') . ' = ' . "'" . sprintf('%02d', $params['post_month']) . "'");
         }
 
         if (!empty($params['post_day'])) {
-            $strReq .= 'AND ' . $this->con->dateFormat('post_dt', '%d') . ' = ' .
-            "'" . sprintf('%02d', $params['post_day']) . "' ";
+            $sql->where($sql->dateFormat('post_dt', '%d') . ' = ' . "'" . sprintf('%02d', $params['post_day']) . "'");
         }
 
         if (!empty($params['post_lang'])) {
-            $strReq .= "AND P.post_lang = '" . $this->con->escape($params['post_lang']) . "' ";
+            $sql->where('P.post_lang = ' . $sql->quote($params['post_lang']));
         }
 
         if (!empty($params['search'])) {
@@ -942,52 +943,51 @@ class dcBlog
 
                 if ($words) {
                     foreach ($words as $i => $w) {
-                        $words[$i] = "post_words LIKE '%" . $this->con->escape($w) . "%'";
+                        $words[$i] = "post_words LIKE '%" . $sql->escape($w) . "%'";
                     }
-                    $strReq .= 'AND ' . implode(' AND ', $words) . ' ';
+                    $sql->where(implode(' AND ', $words));
                 }
             }
         }
 
         if (isset($params['media'])) {
-            if ($params['media'] == '0') {
-                $strReq .= 'AND NOT ';
-            } else {
-                $strReq .= 'AND ';
-            }
-            $strReq .= 'EXISTS (SELECT M.post_id FROM ' . $this->prefix . 'post_media M ' .
-                'WHERE M.post_id = P.post_id ';
+            $sqlEx = new dcSelectStatement($this->core, 'coreGetPostsMedia');
+            $sqlEx
+                ->columns('M.post_id')
+                ->from($this->prefix . 'post_media M')
+                ->where('M.post_id = P.post_id');
             if (isset($params['link_type'])) {
-                $strReq .= " AND M.link_type " . $this->con->in($params['link_type']) . " ";
+                $sqlEx->where('M.link_type ' . $sql->in($params['link_type']));
             }
-            $strReq .= ")";
+            $sql->where(($params['media'] == '0' ? 'NOT ' : '') . 'EXISTS (' . $sqlEx->statement() . ')');
         }
 
         if (!empty($params['where'])) {
-            $strReq .= $params['where'] . ' ';
+            $sql->cond($params['where']);
         }
 
         if (!empty($params['sql'])) {
-            $strReq .= $params['sql'] . ' ';
+            $sql->sql($params['sql']);
         }
 
         if (!$count_only) {
             if (!empty($params['order'])) {
-                $strReq .= 'ORDER BY ' . $this->con->escape($params['order']) . ' ';
+                $sql->order($sql->escape($params['order']));
             } else {
-                $strReq .= 'ORDER BY post_dt DESC ';
+                $sql->order('post_dt DESC');
+            }
+            if (!empty($params['limit'])) {
+                $sql->limit($params['limit']);
             }
         }
 
-        if (!$count_only && !empty($params['limit'])) {
-            $strReq .= $this->con->limit($params['limit']);
-        }
+        $query = $sql->statement();
 
         if (!empty($params['sql_only'])) {
-            return $strReq;
+            return $query;
         }
 
-        $rs            = $this->con->select($strReq);
+        $rs            = $this->con->select($query);
         $rs->core      = $this->core;
         $rs->_nb_media = array();
         $rs->extend('rsExtPost');
@@ -1069,48 +1069,52 @@ class dcBlog
      */
     public function getLangs($params = array())
     {
-        $strReq = 'SELECT COUNT(post_id) as nb_post, post_lang ' .
-        'FROM ' . $this->prefix . 'post ' .
-        "WHERE blog_id = '" . $this->con->escape($this->id) . "' " .
-            "AND post_lang <> '' " .
-            "AND post_lang IS NOT NULL ";
+        $sql = new dcSelectStatement($this->core, 'coreGetLangs');
+        $sql
+            ->columns(array('COUNT(post_id) as nb_post', 'post_lang'))
+            ->from($this->prefix . 'post')
+            ->where(array(
+                'blog_id = ' . $sql->quote($this->id),
+                "post_lang <> ''",
+                'post_lang IS NOT NULL'
+            ));
 
         if (!$this->core->auth->check('contentadmin', $this->id)) {
-            $strReq .= 'AND ((post_status = 1 ';
+            $cond = '((post_status = 1';
 
             if ($this->without_password) {
-                $strReq .= 'AND post_password IS NULL ';
+                $cond .= ' AND post_password IS NULL';
             }
-            $strReq .= ') ';
+            $cond .= ')';
 
             if ($this->core->auth->userID()) {
-                $strReq .= "OR user_id = '" . $this->con->escape($this->core->auth->userID()) . "')";
-            } else {
-                $strReq .= ') ';
+                $cond .= " OR user_id = " . $sql->quote($this->core->auth->userID());
             }
+            $cond .= ')';
+            $sql->where($cond);
         }
 
         if (isset($params['post_type'])) {
             if ($params['post_type'] != '') {
-                $strReq .= "AND post_type = '" . $this->con->escape($params['post_type']) . "' ";
+                $sql->where("post_type = " . $sql->quote($params['post_type']));
             }
         } else {
-            $strReq .= "AND post_type = 'post' ";
+            $sql->where("post_type = 'post'");
         }
 
         if (isset($params['lang'])) {
-            $strReq .= "AND post_lang = '" . $this->con->escape($params['lang']) . "' ";
+            $sql->where("post_lang = " . $sql->quote($params['lang']));
         }
 
-        $strReq .= 'GROUP BY post_lang ';
+        $sql->group('post_lang');
 
         $order = 'desc';
         if (!empty($params['order']) && preg_match('/^(desc|asc)$/i', $params['order'])) {
             $order = $params['order'];
         }
-        $strReq .= 'ORDER BY post_lang ' . $order . ' ';
+        $sql->order('post_lang ' . $order);
 
-        return $this->con->select($strReq);
+        return $this->con->select($sql->statement());
     }
 
     /**
@@ -1133,6 +1137,8 @@ class dcBlog
      */
     public function getDates($params = array())
     {
+        $sql = new dcSelectStatement($this->core, 'coreGetDates');
+
         $dt_f  = '%Y-%m-%d';
         $dt_fc = '%Y%m%d';
         if (isset($params['type'])) {
@@ -1147,58 +1153,61 @@ class dcBlog
         $dt_f .= ' 00:00:00';
         $dt_fc .= '000000';
 
-        $cat_field = $catReq = $limit = '';
+        $sql
+            ->distinct()
+            ->columns(array(
+                $sql->dateFormat('post_dt', $dt_f) . ' AS dt',
+                'COUNT(P.post_id) AS nb_post'
+            ))
+            ->from($this->prefix . 'post P')
+            ->join('LEFT JOIN ' . $this->prefix . 'category C ON P.cat_id = C.cat_id')
+            ->group('dt');
 
         if (isset($params['cat_id']) && $params['cat_id'] !== '') {
-            $catReq    = 'AND P.cat_id = ' . (integer) $params['cat_id'] . ' ';
-            $cat_field = ', C.cat_url ';
+            $sql
+                ->columns('C.cat_url')
+                ->where('P.cat_id = ' . (integer) $params['cat_id'])
+                ->group('C.car_url');
         } elseif (isset($params['cat_url']) && $params['cat_url'] !== '') {
-            $catReq    = "AND C.cat_url = '" . $this->con->escape($params['cat_url']) . "' ";
-            $cat_field = ', C.cat_url ';
+            $sql
+                ->columns('C.cat_url')
+                ->where('C.cat_url = ' . $sql->quote($params['cat_url']))
+                ->group('C.car_url');
         }
         if (!empty($params['post_lang'])) {
-            $catReq = 'AND P.post_lang = \'' . $params['post_lang'] . '\' ';
+            $sql->where('P.post_lang = ' . $sql->quote($params['post_lang']));
         }
 
-        $strReq = 'SELECT DISTINCT(' . $this->con->dateFormat('post_dt', $dt_f) . ') AS dt ' .
-        $cat_field .
-        ',COUNT(P.post_id) AS nb_post ' .
-        'FROM ' . $this->prefix . 'post P LEFT JOIN ' . $this->prefix . 'category C ' .
-        'ON P.cat_id = C.cat_id ' .
-        "WHERE P.blog_id = '" . $this->con->escape($this->id) . "' " .
-            $catReq;
-
         if (!$this->core->auth->check('contentadmin', $this->id)) {
-            $strReq .= 'AND ((post_status = 1 ';
-
+            $cond = '((post_status = 1';
             if ($this->without_password) {
-                $strReq .= 'AND post_password IS NULL ';
+                $cond .= ' AND post_password IS NULL';
             }
-            $strReq .= ') ';
+            $cond .= ')';
 
             if ($this->core->auth->userID()) {
-                $strReq .= "OR P.user_id = '" . $this->con->escape($this->core->auth->userID()) . "')";
-            } else {
-                $strReq .= ') ';
+                $cond .= ' OR P.user_id = ' . $sql->quote($this->core->auth->userID());
             }
+            $cond .= ')';
+            $sql->where($cond);
         }
 
         if (!empty($params['post_type'])) {
-            $strReq .= "AND post_type " . $this->con->in($params['post_type']) . " ";
+            $sql->where("post_type " . $sql->in($params['post_type']));
         } else {
-            $strReq .= "AND post_type = 'post' ";
+            $sql->where("post_type = 'post'");
         }
 
         if (!empty($params['year'])) {
-            $strReq .= 'AND ' . $this->con->dateFormat('post_dt', '%Y') . " = '" . sprintf('%04d', $params['year']) . "' ";
+            $sql->where($sql->dateFormat('post_dt', '%Y') . " = '" . sprintf('%04d', $params['year']) . "'");
         }
 
         if (!empty($params['month'])) {
-            $strReq .= 'AND ' . $this->con->dateFormat('post_dt', '%m') . " = '" . sprintf('%02d', $params['month']) . "' ";
+            $sql->where($sql->dateFormat('post_dt', '%m') . " = '" . sprintf('%02d', $params['month']) . "'");
         }
 
         if (!empty($params['day'])) {
-            $strReq .= 'AND ' . $this->con->dateFormat('post_dt', '%d') . " = '" . sprintf('%02d', $params['day']) . "' ";
+            $sql->where($sql->dateFormat('post_dt', '%d') . " = '" . sprintf('%02d', $params['day']) . "'");
         }
 
         # Get next or previous date
@@ -1215,22 +1224,18 @@ class dcBlog
 
             $dt = date('YmdHis', strtotime($dt));
 
-            $strReq .= 'AND ' . $this->con->dateFormat('post_dt', $dt_fc) . $pdir . "'" . $dt . "' ";
-            $limit = $this->con->limit(1);
+            $sql
+                ->where($sql->dateFormat('post_dt', $dt_fc) . $pdir . "'" . $dt . "'")
+                ->limit(1);
         }
-
-        $strReq .= 'GROUP BY dt ' . $cat_field;
 
         $order = 'desc';
         if (!empty($params['order']) && preg_match('/^(desc|asc)$/i', $params['order'])) {
             $order = $params['order'];
         }
+        $sql->order('dt ' . $order);
 
-        $strReq .=
-            'ORDER BY dt ' . $order . ' ' .
-            $limit;
-
-        $rs = $this->con->select($strReq);
+        $rs = $this->con->select($sql->statement());
         $rs->extend('rsExtDates');
         return $rs;
     }
@@ -1252,10 +1257,12 @@ class dcBlog
         try
         {
             # Get ID
-            $rs = $this->con->select(
-                'SELECT MAX(post_id) ' .
-                'FROM ' . $this->prefix . 'post '
-            );
+            $sql = new dcSelectStatement($this->core, 'corePostCreateGetID');
+            $sql
+                ->columns('MAX(post_id)')
+                ->from($this->prefix . 'post');
+
+            $rs = $this->con->select($sql->statement());
 
             $cur->post_id     = (integer) $rs->f(0) + 1;
             $cur->blog_id     = (string) $this->id;
@@ -1327,14 +1334,19 @@ class dcBlog
 
         $cur->post_upddt = date('Y-m-d H:i:s');
 
-        #If user is only "usage", we need to check the post's owner
+        // If user is only "usage", we need to check the post's owner
         if (!$this->core->auth->check('contentadmin', $this->id)) {
-            $strReq = 'SELECT post_id ' .
-            'FROM ' . $this->prefix . 'post ' .
-            'WHERE post_id = ' . $id . ' ' .
-            "AND user_id = '" . $this->con->escape($this->core->auth->userID()) . "' ";
+            $sql = new dcSelectStatement($this->core, 'corePostUpdateCheckOwner');
+            $sql
+                ->column('post_id')
+                ->from($this->prefix . 'post')
+                ->where(array(
+                    'post_id = ' . $id,
+                    'user_id = ' . $sql->quote($this->core->auth->userID())
+                ));
 
-            $rs = $this->con->select($strReq);
+            $rs = $this->con->select($sql->statement());
+            unset($sql);
 
             if ($rs->isEmpty()) {
                 throw new Exception(__('You are not allowed to edit this entry'));
@@ -1344,7 +1356,10 @@ class dcBlog
         # --BEHAVIOR-- coreBeforePostUpdate
         $this->core->callBehavior('coreBeforePostUpdate', $this, $cur);
 
-        $cur->update('WHERE post_id = ' . $id . ' ');
+        $sql = new dcUpdateStatement($this->core, 'corePostUpdate');
+        $sql->where('post_id = ' . $id);
+
+        $cur->update($sql->whereStatement());
 
         # --BEHAVIOR-- coreAfterPostUpdate
         $this->core->callBehavior('coreAfterPostUpdate', $this, $cur);
@@ -1380,12 +1395,16 @@ class dcBlog
         $posts_ids = dcUtils::cleanIds($ids);
         $status    = (integer) $status;
 
-        $strReq = "WHERE blog_id = '" . $this->con->escape($this->id) . "' " .
-        "AND post_id " . $this->con->in($posts_ids);
+        $sql = new dcUpdateStatement($this->core, 'coreUpdPostsStatus');
+        $sql
+            ->where(array(
+                'blog_id = ' . $sql->quote($this->id),
+                'post_id ' . $sql->in($posts_ids)
+            ));
 
         #If user can only publish, we need to check the post's owner
         if (!$this->core->auth->check('contentadmin', $this->id)) {
-            $strReq .= "AND user_id = '" . $this->con->escape($this->core->auth->userID()) . "' ";
+            $sql->where('user_id = ' . $sql->quote($this->core->auth->userID()));
         }
 
         $cur = $this->con->openCursor($this->prefix . 'post');
@@ -1393,7 +1412,7 @@ class dcBlog
         $cur->post_status = $status;
         $cur->post_upddt  = date('Y-m-d H:i:s');
 
-        $cur->update($strReq);
+        $cur->update($sql->whereStatement());
         $this->triggerBlog();
 
         $this->firstPublicationEntries($posts_ids);
@@ -1425,12 +1444,16 @@ class dcBlog
         $posts_ids = dcUtils::cleanIds($ids);
         $selected  = (boolean) $selected;
 
-        $strReq = "WHERE blog_id = '" . $this->con->escape($this->id) . "' " .
-        "AND post_id " . $this->con->in($posts_ids);
+        $sql = new dcUpdateStatement($this->core, 'coreUpdPostsSelected');
+        $sql
+            ->where(array(
+                'blog_id = ' . $sql->quote($this->id),
+                'post_id ' . $sql->in($posts_ids)
+            ));
 
         # If user is only usage, we need to check the post's owner
         if (!$this->core->auth->check('contentadmin', $this->id)) {
-            $strReq .= "AND user_id = '" . $this->con->escape($this->core->auth->userID()) . "' ";
+            $sql->where('user_id = ' . $sql->quote($this->core->auth->userID()));
         }
 
         $cur = $this->con->openCursor($this->prefix . 'post');
@@ -1438,7 +1461,7 @@ class dcBlog
         $cur->post_selected = (integer) $selected;
         $cur->post_upddt    = date('Y-m-d H:i:s');
 
-        $cur->update($strReq);
+        $cur->update($sql->whereStatement());
         $this->triggerBlog();
     }
 
@@ -1468,12 +1491,16 @@ class dcBlog
         $posts_ids = dcUtils::cleanIds($ids);
         $cat_id    = (integer) $cat_id;
 
-        $strReq = "WHERE blog_id = '" . $this->con->escape($this->id) . "' " .
-        "AND post_id " . $this->con->in($posts_ids);
+        $sql = new dcUpdateStatement($this->core, 'coreUpdPostsCategory');
+        $sql
+            ->where(array(
+                'blog_id = ' . $sql->quote($this->id),
+                'post_id ' . $sql->in($posts_ids)
+            ));
 
-        # If user is only usage, we need to check the post's owner
+        // If user is only usage, we need to check the post's owner
         if (!$this->core->auth->check('contentadmin', $this->id)) {
-            $strReq .= "AND user_id = '" . $this->con->escape($this->core->auth->userID()) . "' ";
+            $sql->where('user_id = ' . $sql->quote($this->core->auth->userID()));
         }
 
         $cur = $this->con->openCursor($this->prefix . 'post');
@@ -1481,7 +1508,7 @@ class dcBlog
         $cur->cat_id     = ($cat_id ?: null);
         $cur->post_upddt = date('Y-m-d H:i:s');
 
-        $cur->update($strReq);
+        $cur->update($sql->whereStatement());
         $this->triggerBlog();
     }
 
@@ -1505,10 +1532,13 @@ class dcBlog
         $cur->cat_id     = ($new_cat_id ?: null);
         $cur->post_upddt = date('Y-m-d H:i:s');
 
-        $cur->update(
-            'WHERE cat_id = ' . $old_cat_id . ' ' .
-            "AND blog_id = '" . $this->con->escape($this->id) . "' "
-        );
+        $sql = new dcUpdateStatement($this->core, 'coreChangePostsCategory');
+        $sql
+            ->where(array(
+                'cat_id = ' . $old_cat_id,
+                'blog_id = ' . $sql->quote($this->id)
+            ));
+        $cur->update($sql->whereStatement());
         $this->triggerBlog();
     }
 
@@ -1539,16 +1569,20 @@ class dcBlog
             throw new Exception(__('No such entry ID'));
         }
 
-        $strReq = 'DELETE FROM ' . $this->prefix . 'post ' .
-        "WHERE blog_id = '" . $this->con->escape($this->id) . "' " .
-        "AND post_id " . $this->con->in($posts_ids);
+        $sql = new dcDeleteStatement($this->core, 'coreDelPosts');
+        $sql
+            ->from($this->prefix . 'post')
+            ->where(array(
+                'blog_id = ' . $sql->quote($this->id),
+                'post_id ' . $sql->in($posts_ids)
+            ));
 
-        #If user can only delete, we need to check the post's owner
+        // If user can only delete, we need to check the post's owner
         if (!$this->core->auth->check('contentadmin', $this->id)) {
-            $strReq .= "AND user_id = '" . $this->con->escape($this->core->auth->userID()) . "' ";
+            $sql->where('user_id = ' . $sql->quote($this->core->auth->userID()));
         }
 
-        $this->con->execute($strReq);
+        $this->con->execute($sql->statement());
         $this->triggerBlog();
     }
 
@@ -1557,12 +1591,17 @@ class dcBlog
      */
     public function publishScheduledEntries()
     {
-        $strReq = 'SELECT post_id, post_dt, post_tz ' .
-        'FROM ' . $this->prefix . 'post ' .
-        'WHERE post_status = -1 ' .
-        "AND blog_id = '" . $this->con->escape($this->id) . "' ";
+        $sql = new dcSelectStatement($this->core, 'coreScheduledEntriesPublish');
+        $sql
+            ->columns(array('post_id', 'post_dt', 'post_tz'))
+            ->from($this->prefix . 'post')
+            ->where(array(
+                'post_status = -1',
+                'blog_id = ' . $sql->quote($this->id)
+            ));
 
-        $rs = $this->con->select($strReq);
+        $rs = $this->con->select($sql->statement());
+        unset($sql);
 
         $now       = dt::toUTC(time());
         $to_change = new ArrayObject();
@@ -1587,12 +1626,16 @@ class dcBlog
             # --BEHAVIOR-- coreBeforeScheduledEntriesPublish
             $this->core->callBehavior('coreBeforeScheduledEntriesPublish', $this, $to_change);
 
-            $strReq =
-            'UPDATE ' . $this->prefix . 'post SET ' .
-            'post_status = 1 ' .
-            "WHERE blog_id = '" . $this->con->escape($this->id) . "' " .
-            'AND post_id ' . $this->con->in((array) $to_change) . ' ';
-            $this->con->execute($strReq);
+            $sql = new dcUpdateStatement($this->core, 'coreScheduledEntriesPublish');
+            $sql
+                ->reference($this->prefix . 'post')
+                ->set('post_status = 1')
+                ->where(array(
+                    'blog_id = ' . $sql->quote($this->id),
+                    'post_id ' . $sql->in((array) $to_change)
+                ));
+
+            $this->con->execute($sql->statement());
             $this->triggerBlog();
 
             # --BEHAVIOR-- coreAfterScheduledEntriesPublish
@@ -1623,12 +1666,16 @@ class dcBlog
 
         if (count($to_change)) {
 
-            $strReq =
-            'UPDATE ' . $this->prefix . 'post ' .
-            'SET post_firstpub = 1 ' .
-            "WHERE blog_id = '" . $this->con->escape($this->id) . "' " .
-            'AND post_id ' . $this->con->in((array) $to_change) . ' ';
-            $this->con->execute($strReq);
+            $sql = new dcUpdateStatement($this->core, 'coreFirstPublicationEntries');
+            $sql
+                ->reference($this->prefix . 'post')
+                ->set('post_firstpub = 1')
+                ->where(array(
+                    'blog_id = ' . $sql->quote($this->id),
+                    'post_id ' . $sql->in((array) $to_change)
+                ));
+
+            $this->con->execute($sql->statement());
 
             # --BEHAVIOR-- coreFirstPublicationEntries
             $this->core->callBehavior('coreFirstPublicationEntries', $this, $to_change);
@@ -1643,19 +1690,22 @@ class dcBlog
      */
     public function getPostsUsers($post_type = 'post')
     {
-        $strReq = 'SELECT P.user_id, user_name, user_firstname, ' .
-        'user_displayname, user_email ' .
-        'FROM ' . $this->prefix . 'post P, ' . $this->prefix . 'user U ' .
-        'WHERE P.user_id = U.user_id ' .
-        "AND blog_id = '" . $this->con->escape($this->id) . "' ";
+        $sql = new dcSelectStatement($this->core, 'coreGetPostsUsers');
+        $sql
+            ->columns(array('P.user_id', 'user_name', 'user_firstname', 'user_displayname', 'user_email'))
+            ->from(array($this->prefix . 'post P', $this->prefix . 'user U'))
+            ->where(array(
+                'P.user_id = U.user_id',
+                'blog_id = ' . $sql->quote($this->id)
+            ));
 
         if ($post_type) {
-            $strReq .= "AND post_type = '" . $this->con->escape($post_type) . "' ";
+            $sql->where("post_type = '" . $sql->escape($post_type) . "'");
         }
 
-        $strReq .= 'GROUP BY P.user_id, user_name, user_firstname, user_displayname, user_email ';
+        $sql->group(array('P.user_id', 'user_name', 'user_firstname', 'user_displayname', 'user_email'));
 
-        return $this->con->select($strReq);
+        return $this->con->select($sql->statement());
     }
 
     private function getPostsCategoryFilter($arr, $field = 'cat_id')
@@ -1686,15 +1736,20 @@ class dcBlog
         }
 
         if (!empty($sub)) {
-            $rs = $this->con->select(
-                'SELECT cat_id, cat_url, cat_lft, cat_rgt FROM ' . $this->prefix . 'category ' .
-                "WHERE blog_id = '" . $this->con->escape($this->id) . "' " .
-                'AND ' . $field . ' ' . $this->con->in(array_keys($sub))
-            );
+            $sql = new dcSelectStatement($this->core);
+            $sql
+                ->columns(array('cat_id', 'cat_url', 'cat_lft', 'cat_rgt'))
+                ->from($this->prefix . 'category')
+                ->where(array(
+                    'blog_id = ' . $sql->quote($this->id),
+                    $field . ' ' . $sql->in(array_keys($sub))
+                ));
+            $rs = $this->con->select($sql->statement());
 
             while ($rs->fetch()) {
                 $queries[$rs->f($field)] = '(C.cat_lft BETWEEN ' . $rs->cat_lft . ' AND ' . $rs->cat_rgt . ')';
             }
+            unset($sql);
         }
 
         # Create queries
@@ -1880,31 +1935,24 @@ class dcBlog
         }
 
         # Let's check if URL is taken...
-        $strReq = 'SELECT post_url FROM ' . $this->prefix . 'post ' .
-        "WHERE post_url = '" . $this->con->escape($url) . "' " .
-        'AND post_id <> ' . (integer) $post_id . ' ' .
-        "AND blog_id = '" . $this->con->escape($this->id) . "' " .
-            'ORDER BY post_url DESC';
+        $sql = new dcSelectStatement($this->core, 'coreGetPostURL');
+        $sql
+            ->columns('post_url')
+            ->from($this->prefix . 'post')
+            ->where(array(
+                'post_id <> ' . (integer) $post_id,
+                'blog_id = ' . $sql->quote($this->id)
+            ))
+            ->cond('AND post_url = ' . $sql->quote($url))
+            ->order('post_url DESC');
 
-        $rs = $this->con->select($strReq);
+        $rs = $this->con->select($sql->statement());
 
         if (!$rs->isEmpty()) {
-            if ($this->con->driver() == 'mysql' || $this->con->driver() == 'mysqli' || $this->con->driver() == 'mysqlimb4') {
-                $clause = "REGEXP '^" . $this->con->escape(preg_quote($url)) . "[0-9]+$'";
-            } elseif ($this->con->driver() == 'pgsql') {
-                $clause = "~ '^" . $this->con->escape(preg_quote($url)) . "[0-9]+$'";
-            } else {
-                $clause = "LIKE '" .
-                $this->con->escape(preg_replace(array('%', '_', '!'), array('!%', '!_', '!!'), $url)) .
-                    "%' ESCAPE '!'";
-            }
-            $strReq = 'SELECT post_url FROM ' . $this->prefix . 'post ' .
-            "WHERE post_url " . $clause . ' ' .
-            'AND post_id <> ' . (integer) $post_id . ' ' .
-            "AND blog_id = '" . $this->con->escape($this->id) . "' " .
-                'ORDER BY post_url DESC ';
+            // Replace condition on post_url
+            $sql->cond('AND post_url ' . $sql->regexp($url), true);
 
-            $rs = $this->con->select($strReq);
+            $rs = $this->con->select($sql->statement());
             $a  = array();
             while ($rs->fetch()) {
                 $a[] = $rs->post_url;
@@ -1962,67 +2010,62 @@ class dcBlog
      */
     public function getComments($params = array(), $count_only = false)
     {
+        $sql = new dcSelectStatement($this->core, 'coreGetComments');
+
         if ($count_only) {
-            $strReq = 'SELECT count(comment_id) ';
+            $sql->columns('count(comment_id)');
         } elseif (!empty($params['sql_only'])) {
-            $strReq = 'SELECT P.post_id ';
+            $sql->columns('P.post_id');
         } else {
-            if (!empty($params['no_content'])) {
-                $content_req = '';
-            } else {
-                $content_req = 'comment_content, ';
+            if (empty($params['no_content'])) {
+                $sql->columns('comment_content');
             }
 
             if (!empty($params['columns']) && is_array($params['columns'])) {
-                $content_req .= implode(', ', $params['columns']) . ', ';
+                $sql->columns($params['columns']);
             }
 
-            $strReq =
-                'SELECT C.comment_id, comment_dt, comment_tz, comment_upddt, ' .
-                'comment_author, comment_email, comment_site, ' .
-                $content_req . ' comment_trackback, comment_status, ' .
-                'comment_spam_status, comment_spam_filter, comment_ip, ' .
-                'P.post_title, P.post_url, P.post_id, P.post_password, P.post_type, ' .
-                'P.post_dt, P.user_id, U.user_email, U.user_url ';
+            $sql->columns(array('C.comment_id', 'comment_dt', 'comment_tz', 'comment_upddt', 'comment_author', 'comment_email', 'comment_site', 'comment_trackback', 'comment_status', 'comment_spam_status', 'comment_spam_filter', 'comment_ip', 'P.post_title', 'P.post_url', 'P.post_id', 'P.post_password', 'P.post_type', 'P.post_dt', 'P.user_id', 'U.user_email', 'U.user_url'));
         }
 
-        $strReq .=
-        'FROM ' . $this->prefix . 'comment C ' .
-        'INNER JOIN ' . $this->prefix . 'post P ON C.post_id = P.post_id ' .
-        'INNER JOIN ' . $this->prefix . 'user U ON P.user_id = U.user_id ';
+        $sql
+            ->from($this->prefix . 'comment C')
+            ->join(array(
+                'INNER JOIN ' . $this->prefix . 'post P ON C.post_id = P.post_id',
+                'INNER JOIN ' . $this->prefix . 'user U ON P.user_id = U.user_id '
+            ));
 
         if (!empty($params['from'])) {
-            $strReq .= $params['from'] . ' ';
+            $sql->from($params['from']);
         }
 
-        $strReq .=
-        "WHERE P.blog_id = '" . $this->con->escape($this->id) . "' ";
+        $sql->where('P.blog_id = ' . $sql->quote($this->id));
 
         if (!$this->core->auth->check('contentadmin', $this->id)) {
-            $strReq .= 'AND ((comment_status = 1 AND P.post_status = 1 ';
+            $cond = '((comment_status = 1 AND P.post_status = 1';
 
             if ($this->without_password) {
-                $strReq .= 'AND post_password IS NULL ';
+                $cond .= ' AND post_password IS NULL';
             }
-            $strReq .= ') ';
+            $cond .= ')';
 
             if ($this->core->auth->userID()) {
-                $strReq .= "OR P.user_id = '" . $this->con->escape($this->core->auth->userID()) . "')";
-            } else {
-                $strReq .= ') ';
+                $cond .= ' OR P.user_id = ' . $sql->quote($this->core->auth->userID());
             }
+            $cond .= ')';
+            $sql->where($cond);
         }
 
         if (!empty($params['post_type'])) {
-            $strReq .= 'AND post_type ' . $this->con->in($params['post_type']);
+            $sql->where('post_type ' . $sql->in($params['post_type']));
         }
 
         if (isset($params['post_id']) && $params['post_id'] !== '') {
-            $strReq .= 'AND P.post_id = ' . (integer) $params['post_id'] . ' ';
+            $sql->where('P.post_id = ' . (integer) $params['post_id']);
         }
 
         if (isset($params['cat_id']) && $params['cat_id'] !== '') {
-            $strReq .= 'AND P.cat_id = ' . (integer) $params['cat_id'] . ' ';
+            $sql->where('P.cat_id = ' . (integer) $params['cat_id']);
         }
 
         if (isset($params['comment_id']) && $params['comment_id'] !== '') {
@@ -2031,39 +2074,39 @@ class dcBlog
             } else {
                 $params['comment_id'] = array((integer) $params['comment_id']);
             }
-            $strReq .= 'AND comment_id ' . $this->con->in($params['comment_id']);
+            $sql->where('comment_id ' . $sql->in($params['comment_id']));
         }
 
         if (isset($params['comment_email'])) {
-            $comment_email = $this->con->escape(str_replace('*', '%', $params['comment_email']));
-            $strReq .= "AND comment_email LIKE '" . $comment_email . "' ";
+            $comment_email = $sql->quote(str_replace('*', '%', $params['comment_email']));
+            $sql->where('comment_email LIKE ' . $comment_email);
         }
 
         if (isset($params['comment_site'])) {
-            $comment_site = $this->con->escape(str_replace('*', '%', $params['comment_site']));
-            $strReq .= "AND comment_site LIKE '" . $comment_site . "' ";
+            $comment_site = $sql->quote(str_replace('*', '%', $params['comment_site']));
+            $sql->where('comment_site LIKE ' . $comment_site);
         }
 
         if (isset($params['comment_status'])) {
-            $strReq .= 'AND comment_status = ' . (integer) $params['comment_status'] . ' ';
+            $sql->where('comment_status = ' . (integer) $params['comment_status']);
         }
 
         if (!empty($params['comment_status_not'])) {
-            $strReq .= 'AND comment_status <> ' . (integer) $params['comment_status_not'] . ' ';
+            $sql->where('comment_status <> ' . (integer) $params['comment_status_not']);
         }
 
         if (isset($params['comment_trackback'])) {
-            $strReq .= 'AND comment_trackback = ' . (integer) (boolean) $params['comment_trackback'] . ' ';
+            $sql->where('comment_trackback = ' . (integer) (boolean) $params['comment_trackback']);
         }
 
         if (isset($params['comment_ip'])) {
-            $comment_ip = $this->con->escape(str_replace('*', '%', $params['comment_ip']));
-            $strReq .= "AND comment_ip LIKE '" . $comment_ip . "' ";
+            $comment_ip = $sql->quote(str_replace('*', '%', $params['comment_ip']));
+            $sql->where('comment_ip LIKE ' . $comment_ip);
         }
 
         if (isset($params['q_author'])) {
-            $q_author = $this->con->escape(str_replace('*', '%', strtolower($params['q_author'])));
-            $strReq .= "AND LOWER(comment_author) LIKE '" . $q_author . "' ";
+            $q_author = $sql->quote(str_replace('*', '%', strtolower($params['q_author'])));
+            $sql->where('LOWER(comment_author) LIKE ' . $q_author);
         }
 
         if (!empty($params['search'])) {
@@ -2077,34 +2120,36 @@ class dcBlog
 
                 if ($words) {
                     foreach ($words as $i => $w) {
-                        $words[$i] = "comment_words LIKE '%" . $this->con->escape($w) . "%'";
+                        $words[$i] = "comment_words LIKE '%" . $sql->escape($w) . "%'";
                     }
-                    $strReq .= 'AND ' . implode(' AND ', $words) . ' ';
+                    $sql->where(implode(' AND ', $words));
                 }
             }
         }
 
         if (!empty($params['sql'])) {
-            $strReq .= $params['sql'] . ' ';
+            $sql->sql($params['sql']);
         }
 
         if (!$count_only) {
             if (!empty($params['order'])) {
-                $strReq .= 'ORDER BY ' . $this->con->escape($params['order']) . ' ';
+                $sql->order($sql->escape($params['order']));
             } else {
-                $strReq .= 'ORDER BY comment_dt DESC ';
+                $sql->order('comment_dt DESC');
             }
         }
 
         if (!$count_only && !empty($params['limit'])) {
-            $strReq .= $this->con->limit($params['limit']);
+            $sql->limit($params['limit']);
         }
+
+        $query = $sql->statement();
 
         if (!empty($params['sql_only'])) {
-            return $strReq;
+            return $query;
         }
 
-        $rs       = $this->con->select($strReq);
+        $rs       = $this->con->select($query);
         $rs->core = $this->core;
         $rs->extend('rsExtComment');
 
@@ -2127,10 +2172,11 @@ class dcBlog
         try
         {
             # Get ID
-            $rs = $this->con->select(
-                'SELECT MAX(comment_id) ' .
-                'FROM ' . $this->prefix . 'comment '
-            );
+            $sql = new dcSelectStatement($this->core, 'coreCommentCreateGetID');
+            $sql
+                ->columns('MAX(comment_id)')
+                ->from($this->prefix . 'comment');
+            $rs = $this->con->select($sql->statement());
 
             $cur->comment_id    = (integer) $rs->f(0) + 1;
             $cur->comment_upddt = date('Y-m-d H:i:s');
@@ -2207,7 +2253,10 @@ class dcBlog
         # --BEHAVIOR-- coreBeforeCommentUpdate
         $this->core->callBehavior('coreBeforeCommentUpdate', $this, $cur, $rs);
 
-        $cur->update('WHERE comment_id = ' . $id . ' ');
+        $sql = new dcUpdateStatement($this->core, 'coreCommentUpdate');
+        $sql->where('comment_id = ' . $id);
+
+        $cur->update($sql->whereStatement());
 
         # --BEHAVIOR-- coreAfterCommentUpdate
         $this->core->callBehavior('coreAfterCommentUpdate', $this, $cur, $rs);
@@ -2242,20 +2291,25 @@ class dcBlog
         $co_ids = dcUtils::cleanIds($ids);
         $status = (integer) $status;
 
-        $strReq =
-        'UPDATE ' . $this->prefix . 'comment ' .
-            'SET comment_status = ' . $status . ' ';
-        $strReq .=
-        'WHERE comment_id' . $this->con->in($co_ids) .
-        'AND post_id in (SELECT tp.post_id ' .
-        'FROM ' . $this->prefix . 'post tp ' .
-        "WHERE tp.blog_id = '" . $this->con->escape($this->id) . "' ";
+        $sqlIn = new dcSelectStatement($this->core, 'coreUpdCommentsStatusIn');
+        $sqlIn
+            ->columns('tp.post_id')
+            ->from($this->prefix . 'post tp')
+            ->where('tp.blog_id = ' . $sqlIn->quote($this->id));
         if (!$this->core->auth->check('contentadmin', $this->id)) {
-            $strReq .=
-            "AND user_id = '" . $this->con->escape($this->core->auth->userID()) . "' ";
+            $sqlIn->where('user_id = ' . $sqlIn->quote($this->core->auth->userID()));
         }
-        $strReq .= ')';
-        $this->con->execute($strReq);
+
+        $sql = new dcUpdateStatement($this->core, 'coreUpdCommentsStatus');
+        $sql
+            ->reference($this->prefix . 'comment')
+            ->set('comment_status = ' . $status)
+            ->where(array(
+                'comment_id ' . $sql->in($co_ids),
+                'post_id in (' . $sqlIn->statement() . ')'
+            ));
+
+        $this->con->execute($sql->statement());
         $this->triggerComments($co_ids);
         $this->triggerBlog();
     }
@@ -2289,31 +2343,39 @@ class dcBlog
 
         # Retrieve posts affected by comments edition
         $affected_posts = array();
-        $strReq         =
-        'SELECT post_id ' .
-        'FROM ' . $this->prefix . 'comment ' .
-        'WHERE comment_id' . $this->con->in($co_ids) .
-            'GROUP BY post_id';
 
-        $rs = $this->con->select($strReq);
+        $sql = new dcSelectStatement($this->core, 'coreDelCommentsScope');
+        $sql
+            ->column('post_id')
+            ->from($this->prefix . 'comment')
+            ->where('comment_id' . $sql->in($co_ids))
+            ->group('post_id');
+
+        $rs = $this->con->select($sql->statement());
+        unset($sql);
 
         while ($rs->fetch()) {
             $affected_posts[] = (integer) $rs->post_id;
         }
 
-        $strReq =
-        'DELETE FROM ' . $this->prefix . 'comment ' .
-        'WHERE comment_id' . $this->con->in($co_ids) . ' ' .
-        'AND post_id in (SELECT tp.post_id ' .
-        'FROM ' . $this->prefix . 'post tp ' .
-        "WHERE tp.blog_id = '" . $this->con->escape($this->id) . "' ";
-        #If user can only delete, we need to check the post's owner
+        $sqlIn = new dcSelectStatement($this->core, 'coreDelCommentsIn');
+        $sqlIn
+            ->columns('tp.post_id')
+            ->from($this->prefix . 'post tp')
+            ->where(array('tp.blog_id = ' . $sqlIn->quote($this->id)));
         if (!$this->core->auth->check('contentadmin', $this->id)) {
-            $strReq .=
-            "AND tp.user_id = '" . $this->con->escape($this->core->auth->userID()) . "' ";
+            $sqlIn->where('tp.user_id = ' . $sqlIn->quote($this->core->auth->userID()));
         }
-        $strReq .= ")";
-        $this->con->execute($strReq);
+
+        $sql = new dcDeleteStatement($this->core, 'coreDelComments');
+        $sql
+            ->from($this->prefix . 'comment')
+            ->where(array(
+                'comment_id ' . $sql->in($co_ids),
+                'post_id in (' . $sqlIn->statement() . ')'
+            ));
+
+        $this->con->execute($sql->statement());
         $this->triggerComments($co_ids, true, $affected_posts);
         $this->triggerBlog();
     }
@@ -2324,19 +2386,25 @@ class dcBlog
             throw new Exception(__('You are not allowed to delete comments'));
         }
 
-        $strReq =
-        'DELETE FROM ' . $this->prefix . 'comment ' .
-        'WHERE comment_status = -2 ' .
-        'AND post_id in (SELECT tp.post_id ' .
-        'FROM ' . $this->prefix . 'post tp ' .
-        "WHERE tp.blog_id = '" . $this->con->escape($this->id) . "' ";
-        #If user can only delete, we need to check the post's owner
+        $sqlIn = new dcSelectStatement($this->core, 'coreDelJunkCommentsIn');
+        $sqlIn
+            ->columns('tp.post_id')
+            ->from($this->prefix . 'post tp')
+            ->where('tp.blog_id = ' . $sqlIn->quote($this->id));
         if (!$this->core->auth->check('contentadmin', $this->id)) {
-            $strReq .=
-            "AND tp.user_id = '" . $this->con->escape($this->core->auth->userID()) . "' ";
+            // If user can only delete, we need to check the post's owner
+            $sqlIn->where('tp.user_id = ' . $sqlIn->quote($this->core->auth->userID()));
         }
-        $strReq .= ")";
-        $this->con->execute($strReq);
+
+        $sql = new dcDeleteStatement($this->core, 'coreDelJunkComments');
+        $sql
+            ->from($this->prefix . 'comment')
+            ->where(array(
+                'comment_status = -2',
+                'post_id in (' . $sqlIn->statement() . ')'
+            ));
+
+        $this->con->execute($sql->statement());
         $this->triggerBlog();
     }
 

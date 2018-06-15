@@ -92,15 +92,16 @@ class dcAuth
     public function checkUser($user_id, $pwd = null, $user_key = null, $check_blog = true)
     {
         # Check user and password
-        $strReq = 'SELECT user_id, user_super, user_pwd, user_change_pwd, ' .
-        'user_name, user_firstname, user_displayname, user_email, ' .
-        'user_url, user_default_blog, user_options, ' .
-        'user_lang, user_tz, user_post_status, user_creadt, user_upddt ' .
-        'FROM ' . $this->con->escapeSystem($this->user_table) . ' ' .
-        "WHERE user_id = '" . $this->con->escape($user_id) . "' ";
+        $sql = new dcSelectStatement($this->core, 'coreAuthCheckUser');
+        $sql
+            ->columns(array('user_id', 'user_super', 'user_pwd', 'user_change_pwd', 'user_name', 'user_firstname',
+                'user_displayname', 'user_email', 'user_url', 'user_default_blog', 'user_options', 'user_lang',
+                'user_tz', 'user_post_status', 'user_creadt', 'user_upddt'))
+            ->from($this->user_table)
+            ->where('user_id = ' . $sql->quote($user_id));
 
         try {
-            $rs = $this->con->select($strReq);
+            $rs = $this->con->select($sql->statement());
         } catch (Exception $e) {
             $err = $e->getMessage();
             return false;
@@ -145,7 +146,10 @@ class dcAuth
                 // Store new hash in DB
                 $cur           = $this->con->openCursor($this->user_table);
                 $cur->user_pwd = (string) $rs->user_pwd;
-                $cur->update("WHERE user_id = '" . $rs->user_id . "'");
+
+                $sql = new dcUpdateStatement($this->core, 'coreAuthCheckUser');
+                $sql->where('user_id = ' . $sql->quote($rs->user_id));
+                $cur->update($sql->whereStatement());
             }
         } elseif ($user_key != '') {
             if (http::browserUID(DC_MASTER_KEY . $rs->user_id . $this->cryptLegacy($rs->user_id)) != $user_key) {
@@ -617,9 +621,11 @@ class dcAuth
      */
     public function recoverUserPassword($recover_key)
     {
-        $strReq = 'SELECT user_id, user_email ' .
-        'FROM ' . $this->user_table . ' ' .
-        "WHERE user_recover_key = '" . $this->con->escape($recover_key) . "' ";
+        $sql = new dcSelectStatement($this->core, 'coreAuthRecoverUserPwd');
+        $sql
+            ->columns(array('user_id', 'user_email'))
+            ->from($this->user_table)
+            ->where('user_recover_key = ' . $sql->quote($recover_key));
 
         $rs = $this->con->select($strReq);
 
@@ -634,7 +640,9 @@ class dcAuth
         $cur->user_recover_key = null;
         $cur->user_change_pwd  = 1; // User will have to change this temporary password at next login
 
-        $cur->update("WHERE user_recover_key = '" . $this->con->escape($recover_key) . "'");
+        $sql = new dcUpdateStatement($this->core, 'coreAuthRecoverUserPwd');
+        $sql->where('user_recover_key = ' . $sql->quote($recover_key));
+        $cur->update($sql->whereStatement());
 
         return array('user_email' => $rs->user_email, 'user_id' => $rs->user_id, 'new_pass' => $new_pass);
     }

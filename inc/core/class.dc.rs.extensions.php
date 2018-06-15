@@ -443,15 +443,15 @@ class rsExtPost
         if (isset($rs->_nb_media[$rs->index()])) {
             return $rs->_nb_media[$rs->index()];
         } else {
-            $strReq =
-            'SELECT count(media_id) ' .
-            'FROM ' . $rs->core->prefix . 'post_media ' .
-            'WHERE post_id = ' . (integer) $rs->post_id . ' ';
+            $sql = new dcSelectStatement($rs->core, 'coreRsExtCountMedia');
+            $sql
+                ->columns(array('count(media_id)'))
+                ->from($rs->core->prefix . 'post_media')
+                ->where('post_id = ' . $sql->quote((integer) $rs->post_id));
             if ($link_type != null) {
-                $strReq .= "AND link_type = '" . $rs->core->con->escape($link_type) . "'";
+                $sql->where('link_type = ' . $sql->quote($link_type));
             }
-
-            $res                         = (integer) $rs->core->con->select($strReq)->f(0);
+            $res                         = (integer) $rs->core->con->select($sql->statement())->f(0);
             $rs->_nb_media[$rs->index()] = $res;
             return $res;
         }

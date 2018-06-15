@@ -441,8 +441,12 @@ class dcCore
     {
         # Fetch versions if needed
         if (!is_array($this->versions)) {
-            $strReq = 'SELECT module, version FROM ' . $this->prefix . 'version';
-            $rs     = $this->con->select($strReq);
+            $sql = new dcSelectStatement($this, 'coreGetVersion');
+            $sql
+                ->columns(array('module', 'version'))
+                ->from($this->prefix . 'version');
+
+            $rs     = $this->con->select($sql->statement());
 
             while ($rs->fetch()) {
                 $this->versions[$rs->module] = $rs->version;
@@ -473,7 +477,10 @@ class dcCore
         if ($cur_version === null) {
             $cur->insert();
         } else {
-            $cur->update("WHERE module='" . $this->con->escape($module) . "'");
+            $sql = new dcUpdateStatement($this, 'coreSetVersion');
+            $sql->where('module=' . $sql->quote($module));
+
+            $cur->update($sql->whereStatement());
         }
 
         $this->versions[$module] = $version;
@@ -486,11 +493,12 @@ class dcCore
      */
     public function delVersion($module)
     {
-        $strReq =
-        'DELETE FROM ' . $this->prefix . 'version ' .
-        "WHERE module = '" . $this->con->escape($module) . "' ";
+        $sql = new dcDeleteStatement($this, 'coreDelVersion');
+        $sql
+            ->from($this->prefix . 'version')
+            ->where('module = ' . $sql->quote($module));
 
-        $this->con->execute($strReq);
+        $this->con->execute($sql->statement());
 
         if (is_array($this->versions)) {
             unset($this->versions[$module]);
@@ -529,39 +537,38 @@ class dcCore
      */
     public function getUsers($params = array(), $count_only = false)
     {
+        $sql = new dcSelectStatement($this, 'coreGetUsers');
+        $sql
+            ->from($this->prefix . 'user U')
+            ->where('NULL IS NULL');
+
         if ($count_only) {
-            $strReq =
-            'SELECT count(U.user_id) ' .
-            'FROM ' . $this->prefix . 'user U ' .
-                'WHERE NULL IS NULL ';
+            $sql->columns('COUNT(U.user_id)');
         } else {
-            $strReq =
-            'SELECT U.user_id,user_super,user_status,user_pwd,user_change_pwd,' .
-            'user_name,user_firstname,user_displayname,user_email,user_url,' .
-            'user_desc, user_lang,user_tz, user_post_status,user_options, ' .
-            'count(P.post_id) AS nb_post ' .
-            'FROM ' . $this->prefix . 'user U ' .
-            'LEFT JOIN ' . $this->prefix . 'post P ON U.user_id = P.user_id ' .
-                'WHERE NULL IS NULL ';
+            $sql
+                ->columns(array('U.user_id', 'user_super', 'user_status', 'user_pwd', 'user_change_pwd', 'user_name',
+                    'user_firstname', 'user_displayname', 'user_email', 'user_url', 'user_desc', 'user_lang', 'user_tz',
+                    'user_post_status', 'user_options', 'COUNT(P.post_id) AS nb_post'))
+                ->join('LEFT JOIN ' . $this->prefix . 'post P ON U.user_id = P.user_id');
         }
 
         if (!empty($params['q'])) {
-            $q = $this->con->escape(str_replace('*', '%', strtolower($params['q'])));
-            $strReq .= 'AND (' .
+            $q = $sql->escape(str_replace('*', '%', strtolower($params['q'])));
+            $sql->where(
+                '(' .
                 "LOWER(U.user_id) LIKE '" . $q . "' " .
                 "OR LOWER(user_name) LIKE '" . $q . "' " .
                 "OR LOWER(user_firstname) LIKE '" . $q . "' " .
-                ') ';
+                ')'
+            );
         }
 
         if (!empty($params['user_id'])) {
-            $strReq .= "AND U.user_id = '" . $this->con->escape($params['user_id']) . "' ";
+            $sql->where('U.user_id = ' . $sql->quote($params['user_id']));
         }
 
         if (!$count_only) {
-            $strReq .= 'GROUP BY U.user_id,user_super,user_status,user_pwd,user_change_pwd,' .
-                'user_name,user_firstname,user_displayname,user_email,user_url,' .
-                'user_desc, user_lang,user_tz,user_post_status,user_options ';
+            $sql->group(array('U.user_id', 'user_super', 'user_status', 'user_pwd', 'user_change_pwd', 'user_name', 'user_firstname', 'user_displayname', 'user_email', 'user_url', 'user_desc', 'user_lang', 'user_tz', 'user_post_status', 'user_options'));
 
             if (!empty($params['order']) && !$count_only) {
                 if (preg_match('`^([^. ]+) (?:asc|desc)`i', $params['order'], $matches)) {
@@ -570,19 +577,20 @@ class dcCore
                     } else {
                         $table_prefix = ''; // order = nb_post (asc|desc)
                     }
-                    $strReq .= 'ORDER BY ' . $table_prefix . $this->con->escape($params['order']) . ' ';
+                    $sql->order($table_prefix . $sql->escape($params['order']));
                 } else {
-                    $strReq .= 'ORDER BY ' . $this->con->escape($params['order']) . ' ';
+                    $sql->order($sql->escape($params['order']));
                 }
             } else {
-                $strReq .= 'ORDER BY U.user_id ASC ';
+                $sql->order('U.user_id ASC');
             }
         }
 
         if (!$count_only && !empty($params['limit'])) {
-            $strReq .= $this->con->limit($params['limit']);
+            $sql->limit($params['limit']);
         }
-        $rs = $this->con->select($strReq);
+
+        $rs = $this->con->select($sql->statement());
         $rs->extend('rsExtUser');
         return $rs;
     }
@@ -636,7 +644,11 @@ class dcCore
             throw new Exception(__('You are not an administrator'));
         }
 
-        $cur->update("WHERE user_id = '" . $this->con->escape($id) . "' ");
+        $sql = new dcUpdateStatement($this, 'coreUpdUser');
+        $sql
+            ->where('user_id = ' . $sql->quote($id));
+
+        $cur->update($sql->whereStatement());
 
         $this->auth->afterUpdUser($id, $cur);
 
@@ -645,10 +657,13 @@ class dcCore
         }
 
         # Updating all user's blogs
-        $rs = $this->con->select(
-            'SELECT DISTINCT(blog_id) FROM ' . $this->prefix . 'post ' .
-            "WHERE user_id = '" . $this->con->escape($id) . "' "
-        );
+        $sql = new dcSelectStatement($this, 'coreUpdUser');
+        $sql
+            ->columns('DISTINCT(blog_id)')
+            ->from($this->prefix . 'post')
+            ->where('user_id = ' . $sql->quote($id));
+
+        $rs = $this->con->select($sql->statement());
 
         while ($rs->fetch()) {
             $b = new dcBlog($this, $rs->blog_id);
@@ -680,10 +695,12 @@ class dcCore
             return;
         }
 
-        $strReq = 'DELETE FROM ' . $this->prefix . 'user ' .
-        "WHERE user_id = '" . $this->con->escape($id) . "' ";
+        $sql = new dcDeleteStatement($this, 'coreDelUser');
+        $sql
+            ->from($this->prefix . 'user')
+            ->where('user_id = ' . $sql->quote($id));
 
-        $this->con->execute($strReq);
+        $this->con->execute($sql->statement());
 
         $this->auth->afterDelUser($id);
     }
@@ -696,11 +713,13 @@ class dcCore
      */
     public function userExists($id)
     {
-        $strReq = 'SELECT user_id ' .
-        'FROM ' . $this->prefix . 'user ' .
-        "WHERE user_id = '" . $this->con->escape($id) . "' ";
+        $sql = new dcSelectStatement($this, 'coreUserExists');
+        $sql
+            ->columns('user_id')
+            ->from($this->prefix . 'user')
+            ->where('user_id = ' . $sql->quote($id));
 
-        $rs = $this->con->select($strReq);
+        $rs = $this->con->select($sql->statement());
 
         return !$rs->isEmpty();
     }
@@ -720,12 +739,14 @@ class dcCore
      */
     public function getUserPermissions($id)
     {
-        $strReq = 'SELECT B.blog_id, blog_name, blog_url, permissions ' .
-        'FROM ' . $this->prefix . 'permissions P ' .
-        'INNER JOIN ' . $this->prefix . 'blog B ON P.blog_id = B.blog_id ' .
-        "WHERE user_id = '" . $this->con->escape($id) . "' ";
+        $sql = new dcSelectStatement($this, 'coreGetUserPermissions');
+        $sql
+            ->columns(array('B.blog_id', 'blog_name', 'blog_url', 'permissions'))
+            ->from($this->prefix . 'permissions P')
+            ->join('INNER JOIN ' . $this->prefix . 'blog B ON P.blog_id = B.blog_id')
+            ->where('user_id = ' . $sql->quote($id));
 
-        $rs = $this->con->select($strReq);
+        $rs = $this->con->select($sql->statement());
 
         $res = array();
 
@@ -755,10 +776,12 @@ class dcCore
             throw new Exception(__('You are not an administrator'));
         }
 
-        $strReq = 'DELETE FROM ' . $this->prefix . 'permissions ' .
-        "WHERE user_id = '" . $this->con->escape($id) . "' ";
+        $sql = new dcDeleteStatement($this, 'coreSetUserPermissions');
+        $sql
+            ->from($this->prefix . 'permissions')
+            ->where('user_id = ' . $sql->quote($id));
 
-        $this->con->execute($strReq);
+        $this->con->execute($sql->statement());
 
         foreach ($perms as $blog_id => $p) {
             $this->setUserBlogPermissions($id, $blog_id, $p, false);
@@ -791,11 +814,14 @@ class dcCore
         $cur->permissions = $perms;
 
         if ($delete_first || $no_perm) {
-            $strReq = 'DELETE FROM ' . $this->prefix . 'permissions ' .
-            "WHERE blog_id = '" . $this->con->escape($blog_id) . "' " .
-            "AND user_id = '" . $this->con->escape($id) . "' ";
-
-            $this->con->execute($strReq);
+            $sql = new dcDeleteStatement($this, 'coreSetUserBlogPermissions');
+            $sql
+                ->from($this->prefix . 'permissions')
+                ->where(array(
+                    'blog_id = ' . $sql->quote($blog_id),
+                    'user_id = ' . $sql->quote($id)
+                ));
+            $this->con->execute($sql->statement());
         }
 
         if (!$no_perm) {
@@ -813,9 +839,12 @@ class dcCore
     {
         $cur = $this->con->openCursor($this->prefix . 'user');
 
+        $sql = new dcUpdateStatement($this, 'coreSetUserDefaultBlog');
+        $sql->where('user_id = ' . $sql->quote($id));
+
         $cur->user_default_blog = (string) $blog_id;
 
-        $cur->update("WHERE user_id = '" . $this->con->escape($id) . "'");
+        $cur->update($sql->whereStatement());
     }
 
     private function getUserCursor($cur)
@@ -889,23 +918,25 @@ class dcCore
      */
     public function getBlogPermissions($id, $with_super = true)
     {
-        $strReq =
-        'SELECT U.user_id AS user_id, user_super, user_name, user_firstname, ' .
-        'user_displayname, user_email, permissions ' .
-        'FROM ' . $this->prefix . 'user U ' .
-        'JOIN ' . $this->prefix . 'permissions P ON U.user_id = P.user_id ' .
-        "WHERE blog_id = '" . $this->con->escape($id) . "' ";
+        $sql = new dcSelectStatement($this, 'coreGetBlogPermissions');
+        $sql
+            ->columns(array('U.user_id AS user_id', 'user_super', 'user_name', 'user_firstname', 'user_displayname',
+                'user_email', 'permissions'))
+            ->from($this->prefix . 'user U')
+            ->join('JOIN ' . $this->prefix . 'permissions P ON U.user_id = P.user_id')
+            ->where('blog_id = ' . $sql->quote($id));
 
         if ($with_super) {
-            $strReq .=
-            'UNION ' .
-            'SELECT U.user_id AS user_id, user_super, user_name, user_firstname, ' .
-            "user_displayname, user_email, NULL AS permissions " .
-            'FROM ' . $this->prefix . 'user U ' .
-                'WHERE user_super = 1 ';
+            $sqlSuper = new dcSelectStatement($this, 'coreGetBlogPermissionsSuper');
+            $sqlSuper
+                ->columns(array('U.user_id AS user_id', 'user_super', 'user_name', 'user_firstname', 'user_displayname',
+                    'user_email', 'NULL AS permissions'))
+                ->from($this->prefix . 'user U')
+                ->where('user_super = 1');
+            $sql->sql('UNION ' . $sqlSuper->statement());
         }
 
-        $rs = $this->con->select($strReq);
+        $rs = $this->con->select($sql->statement());
 
         $res = array();
 
@@ -954,68 +985,55 @@ class dcCore
      */
     public function getBlogs($params = array(), $count_only = false)
     {
-        $join  = ''; // %1$s
-        $where = ''; // %2$s
+        $sql = new dcSelectStatement($this, 'coreGetBlogs');
+        $sql->from($this->prefix . 'blog B');
 
         if ($count_only) {
-            $strReq = 'SELECT count(B.blog_id) ' .
-            'FROM ' . $this->prefix . 'blog B ' .
-                '%1$s ' .
-                'WHERE NULL IS NULL ' .
-                '%2$s ';
+            $sql->columns('COUNT(B.blog_id)');
         } else {
-            $strReq =
-            'SELECT B.blog_id, blog_uid, blog_url, blog_name, blog_desc, blog_creadt, ' .
-            'blog_upddt, blog_status ' .
-            'FROM ' . $this->prefix . 'blog B ' .
-                '%1$s ' .
-                'WHERE NULL IS NULL ' .
-                '%2$s ';
+            $sql->columns(array('B.blog_id', 'blog_uid', 'blog_url', 'blog_name', 'blog_desc', 'blog_creadt', 'blog_upddt', 'blog_status'));
 
             if (!empty($params['order'])) {
-                $strReq .= 'ORDER BY ' . $this->con->escape($params['order']) . ' ';
+                $sql->order($sql->escape($params['order']));
             } else {
-                $strReq .= 'ORDER BY B.blog_id ASC ';
+                $sql->order('B.blog_id ASC');
             }
 
             if (!empty($params['limit'])) {
-                $strReq .= $this->con->limit($params['limit']);
+                $sql->limit($params['limit']);
             }
         }
 
         if ($this->auth->userID() && !$this->auth->isSuperAdmin()) {
-            $join  = 'INNER JOIN ' . $this->prefix . 'permissions PE ON B.blog_id = PE.blog_id ';
-            $where =
-            "AND PE.user_id = '" . $this->con->escape($this->auth->userID()) . "' " .
-                "AND (permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%') " .
-                "AND blog_status IN (1,0) ";
+            $sql->join('INNER JOIN ' . $this->prefix . 'permissions PE ON B.blog_id = PE.blog_id');
+            $sql->where("AND PE.user_id = " . $sql->quote($this->auth->userID()) .
+                " AND (permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%')" .
+                " AND blog_status IN (1,0)");
         } elseif (!$this->auth->userID()) {
-            $where = 'AND blog_status IN (1,0) ';
+            $sql->where('blog_status IN (1,0)');
         }
 
         if (isset($params['blog_status']) && $params['blog_status'] !== '' && $this->auth->isSuperAdmin()) {
-            $where .= 'AND blog_status = ' . (integer) $params['blog_status'] . ' ';
+            $sql->where('blog_status = ' . (integer) $params['blog_status']);
         }
 
         if (isset($params['blog_id']) && $params['blog_id'] !== '') {
             if (!is_array($params['blog_id'])) {
                 $params['blog_id'] = array($params['blog_id']);
             }
-            $where .= 'AND B.blog_id ' . $this->con->in($params['blog_id']);
+            $sql->where('B.blog_id ' . $sql->in($params['blog_id']));
         }
 
         if (!empty($params['q'])) {
             $params['q'] = strtolower(str_replace('*', '%', $params['q']));
-            $where .=
-            'AND (' .
-            "LOWER(B.blog_id) LIKE '" . $this->con->escape($params['q']) . "' " .
-            "OR LOWER(B.blog_name) LIKE '" . $this->con->escape($params['q']) . "' " .
-            "OR LOWER(B.blog_url) LIKE '" . $this->con->escape($params['q']) . "' " .
-                ') ';
+            $sql->where('(' .
+                "LOWER(B.blog_id) LIKE " . $sql->quote($params['q']) .
+                " OR LOWER(B.blog_name) LIKE " . $sql->quote($params['q']) .
+                " OR LOWER(B.blog_url) LIKE " . $sql->quote($params['q']) .
+                ')');
         }
 
-        $strReq = sprintf($strReq, $join, $where);
-        return $this->con->select($strReq);
+        return $this->con->select($sql->statement());
     }
 
     /**
@@ -1050,7 +1068,9 @@ class dcCore
 
         $cur->blog_upddt = date('Y-m-d H:i:s');
 
-        $cur->update("WHERE blog_id = '" . $this->con->escape($id) . "'");
+        $sql = new dcUpdateStatement($this, 'coreUpdBlog');
+        $sql->where('blog_id = ' . $sql->quote($id));
+        $cur->update($sql->whereStatement());
     }
 
     private function getBlogCursor($cur)
@@ -1089,10 +1109,12 @@ class dcCore
             throw new Exception(__('You are not an administrator'));
         }
 
-        $strReq = 'DELETE FROM ' . $this->prefix . 'blog ' .
-        "WHERE blog_id = '" . $this->con->escape($id) . "' ";
+        $sql = new dcDeleteStatement($this, 'coreDelBlog');
+        $sql
+            ->from($this->prefix . 'blog')
+            ->where('blog_id = ' . $sql->quote($id));
 
-        $this->con->execute($strReq);
+        $this->con->execute($sql->statement());
     }
 
     /**
@@ -1103,11 +1125,13 @@ class dcCore
      */
     public function blogExists($id)
     {
-        $strReq = 'SELECT blog_id ' .
-        'FROM ' . $this->prefix . 'blog ' .
-        "WHERE blog_id = '" . $this->con->escape($id) . "' ";
+        $sql = new dcSelectStatement($this, 'coreBlogExists');
+        $sql
+            ->columns('blog_id')
+            ->from($this->prefix . 'blog')
+            ->where('blog_id = ' . $sql->quote($id));
 
-        $rs = $this->con->select($strReq);
+        $rs = $this->con->select($sql->statement());
 
         return !$rs->isEmpty();
     }
@@ -1121,15 +1145,17 @@ class dcCore
      */
     public function countBlogPosts($id, $type = null)
     {
-        $strReq = 'SELECT COUNT(post_id) ' .
-        'FROM ' . $this->prefix . 'post ' .
-        "WHERE blog_id = '" . $this->con->escape($id) . "' ";
+        $sql = new dcSelectStatement($this, 'coreCountBlogPosts');
+        $sql
+            ->columns('COUNT(post_id)')
+            ->from($this->prefix . 'post')
+            ->where('blog_id = ' . $sql->quote($id));
 
         if ($type) {
-            $strReq .= "AND post_type = '" . $this->con->escape($type) . "' ";
+            $sql->where('post_type = ' . $sql->quote($type));
         }
 
-        return $this->con->select($strReq)->f(0);
+        return $this->con->select($sql->statement())->f(0);
     }
     //@}
 
@@ -1467,28 +1493,37 @@ class dcCore
      */
     public function indexAllPosts($start = null, $limit = null)
     {
-        $strReq = 'SELECT COUNT(post_id) ' .
-        'FROM ' . $this->prefix . 'post';
-        $rs    = $this->con->select($strReq);
-        $count = $rs->f(0);
+        $sql = new dcSelectStatement($this, 'coreIndexAllPostsCount');
+        $sql
+            ->columns('COUNT(post_id)')
+            ->from($this->prefix . 'post');
 
-        $strReq = 'SELECT post_id, post_title, post_excerpt_xhtml, post_content_xhtml ' .
-        'FROM ' . $this->prefix . 'post ';
+        $rs    = $this->con->select($sql->statement());
+        $count = $rs->f(0);
+        unset($sql);
+
+        $sql = new dcSelectStatement($this, 'coreIndexAllPosts');
+        $sql
+            ->columns(array('post_id', 'post_title', 'post_excerpt_xhtml', 'post_content_xhtml'))
+            ->from($this->prefix . 'post');
 
         if ($start !== null && $limit !== null) {
-            $strReq .= $this->con->limit($start, $limit);
+            $sql->limit($start, $limit);
         }
 
-        $rs = $this->con->select($strReq, true);
+        $rs = $this->con->select($sql->statement());
+        unset($sql);
 
         $cur = $this->con->openCursor($this->prefix . 'post');
 
+        $sql = new dcUpdateStatement($this, 'coreIndexAllPosts');
         while ($rs->fetch()) {
             $words = $rs->post_title . ' ' . $rs->post_excerpt_xhtml . ' ' .
             $rs->post_content_xhtml;
 
             $cur->post_words = implode(' ', text::splitWords($words));
-            $cur->update('WHERE post_id = ' . (integer) $rs->post_id);
+            $sql->where('post_id = ' . (integer) $rs->post_id, true);
+            $cur->update($sql->whereStatement());
             $cur->clean();
         }
 
@@ -1508,25 +1543,34 @@ class dcCore
      */
     public function indexAllComments($start = null, $limit = null)
     {
-        $strReq = 'SELECT COUNT(comment_id) ' .
-        'FROM ' . $this->prefix . 'comment';
-        $rs    = $this->con->select($strReq);
-        $count = $rs->f(0);
+        $sql = new dcSelectStatement($this, 'coreIndexAllCommentsCount');
+        $sql
+            ->columns('COUNT(comment_id)')
+            ->from($this->prefix . 'comment');
 
-        $strReq = 'SELECT comment_id, comment_content ' .
-        'FROM ' . $this->prefix . 'comment ';
+        $rs    = $this->con->select($sql->statement());
+        $count = $rs->f(0);
+        unset($sql);
+
+        $sql = new dcSelectStatement($this, 'coreIndexAllComments');
+        $sql
+            ->columns(array('comment_id', 'comment_content'))
+            ->from($this->prefix . 'comment');
 
         if ($start !== null && $limit !== null) {
-            $strReq .= $this->con->limit($start, $limit);
+            $sql->limit($start, $limit);
         }
 
-        $rs = $this->con->select($strReq);
+        $rs = $this->con->select($sql->statement());
+        unset($sql);
 
         $cur = $this->con->openCursor($this->prefix . 'comment');
 
+        $sql = new dcUpdateStatement($this, 'coreIndexAllComments');
         while ($rs->fetch()) {
             $cur->comment_words = implode(' ', text::splitWords($rs->comment_content));
-            $cur->update('WHERE comment_id = ' . (integer) $rs->comment_id);
+            $sql->where('comment_id = ' . (integer) $rs->comment_id, true);
+            $cur->update($sql->whereStatement());
             $cur->clean();
         }
 
@@ -1541,21 +1585,26 @@ class dcCore
      */
     public function countAllComments()
     {
+        $sqlCount = new dcSelectStatement($this, 'coreCountAllComments');
+        $sqlCount
+            ->columns('COUNT(C.comment_id)')
+            ->from($this->prefix . 'comment C')
+            ->where(array(
+                'C.post_id = P.post_id',
+                'C.comment_status = 1'
+            ));
 
-        $updCommentReq = 'UPDATE ' . $this->prefix . 'post P ' .
-        'SET nb_comment = (' .
-        'SELECT COUNT(C.comment_id) from ' . $this->prefix . 'comment C ' .
-            'WHERE C.post_id = P.post_id AND C.comment_trackback <> 1 ' .
-            'AND C.comment_status = 1 ' .
-            ')';
-        $updTrackbackReq = 'UPDATE ' . $this->prefix . 'post P ' .
-        'SET nb_trackback = (' .
-        'SELECT COUNT(C.comment_id) from ' . $this->prefix . 'comment C ' .
-            'WHERE C.post_id = P.post_id AND C.comment_trackback = 1 ' .
-            'AND C.comment_status = 1 ' .
-            ')';
-        $this->con->execute($updCommentReq);
-        $this->con->execute($updTrackbackReq);
+        $sql = new dcUpdateStatement($this, 'coreCountAllComments');
+        $sql
+            ->ref($this->prefix . 'post P');
+
+        $sqlCount->cond('AND C.comment_trackback <> 1', true);
+        $sql->set('nb_comment = (' . $sqlCount->statement() . ')', true);
+        $this->con->execute($sql->statement());
+
+        $sqlCount->cond('AND C.comment_trackback = 1', true);
+        $sql->set('nb_trackback = (' . $sqlCount->statement() . ')', true);
+        $this->con->execute($sql->statement());
     }
 
     /**

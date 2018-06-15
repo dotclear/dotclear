@@ -299,8 +299,8 @@ class dcSqlStatement
      *
      * May be used for debugging purpose as:
      *
-     * if (!$sql->isSame($sql->statement(), $oldRequest)) {
-     *     trigger_error('SQL statement error: ' . $sql->statement() . ' / ' . $oldRequest, E_USER_ERROR);
+     * if (!$sql->isSame($sql->statement(), $strReq)) {
+     *     trigger_error('SQL statement error: ' . $sql->statement() . ' / ' . $strReq, E_USER_ERROR);
      * }
      *
      * @param      string   $local     The local
