@@ -126,6 +126,10 @@ textarea {
 	overflow: auto;
 	vertical-align: top;
 }
+button:-moz-focusring,
+textarea:-moz-focusring {
+  outline: 2px solid #69b3fb;
+}
 table {
 	border-collapse: collapse;
 	margin-bottom: 1.5em;
