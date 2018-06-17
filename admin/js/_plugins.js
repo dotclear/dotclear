@@ -4,7 +4,7 @@
 $(function() {
   // expand a module line
   $('table.modules.expandable tr.line').each(function() {
-    $('td.module-name', this).toggleWithLegend($(this).next('.module-more'), {
+    $('td.module-name, th.module-name', this).toggleWithLegend($(this).next('.module-more'), {
       img_on_src: dotclear.img_plus_src,
       img_on_alt: dotclear.img_plus_alt,
       img_off_src: dotclear.img_minus_src,

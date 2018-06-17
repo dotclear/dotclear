@@ -624,7 +624,7 @@ class adminModulesList
 
             $tds++;
             echo
-                '<td class="module-name nowrap" scope="row">';
+                '<th class="module-name nowrap" scope="row">';
             if (in_array('checkbox', $cols)) {
                 if (in_array('expander', $cols)) {
                     echo
