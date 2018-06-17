@@ -884,7 +884,7 @@ caption {
   text-align: left;
   margin-bottom: .5em; }
 
-th {
+th:not(.module-name) {
   border-width: 1px 0 1px 0;
   border-style: solid;
   border-color: #dfdfdf;
@@ -893,7 +893,8 @@ th {
   vertical-align: top;
   text-align: left; }
 
-td {
+td, th.module-name {
+  font-weight: normal;
   border-width: 0 0 1px 0;
   border-style: solid;
   border-color: #e3e3e3;
