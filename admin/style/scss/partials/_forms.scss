@@ -41,10 +41,10 @@ fieldset {
   padding: 1em 0.5em;
   border-width: 1px 0;
   border-style: solid;
-  border-color: #ccc;
-  background: #f7f7f7;
+  border-color: $fieldset-border;
+  background: $fieldset-background;
   &:focus-within {
-    background-color: #eee;
+    background-color: $fieldset-focus-background;
   }
 }
 input[type=text],
@@ -64,20 +64,20 @@ legend {
   padding: 0.2em 0.6em;
   border-width: 1px;
   border-style: solid;
-  border-color: #676e78;
-  background: #fff;
+  border-color: $legend-border;
+  background: $legend-background;
   margin-bottom: 0.5em;
 }
 label .maximal, textarea.maximal, input.maximal, select.maximal {
   width: 99%;
 }
 input.invalid, textarea.invalid, select.invalid, input:not([type=file]):invalid:not(:focus) {
-  color: #900;
-  box-shadow: 0 0 0 3px rgba(218, 62, 90, 0.3);
+  color: $invalid-input-color;
+  box-shadow: 0 0 0 3px $invalid-input-shadow;
 }
 input.invalid, textarea.invalid, input:not([type=file]):invalid:not(:focus) {
-  border: 1px solid red;
-  background: #FFBABA;
+  border: 1px solid $invalid-input-border;
+  background: $invalid-input-background;
 }
 input[type=text],
 input[type=password],
@@ -90,8 +90,8 @@ input[type=time],
 input[type=file],
 input[type=number],
 textarea, select, input:not([type=file]):invalid, input:not([type=file]):invalid:placeholder-shown {
-  color: #000;
-  box-shadow: 1px 1px 2px #f3f3f3 inset;
+  color: $input-color;
+  box-shadow: 1px 1px 2px $input-shadow inset;
   padding: 3px;
   vertical-align: top;
 }
@@ -106,13 +106,13 @@ input[type=time],
 input[type=file],
 input[type=number],
 textarea, input:not([type=file]):invalid, input:not([type=file]):invalid:placeholder-shown {
-  background: #fcfcfc;
+  background: $input-background;
   border-width: 1px;
   border-style: solid;
-  border-color: #dfdfdf;
+  border-color: $input-border;
 }
 input:focus, textarea:focus {
-  border-color: #9bca1c;
+  border-color: $input-focus;
 }
 textarea {
   padding: 2px 0;
@@ -196,7 +196,7 @@ label.required {
   font-weight: bold;
 }
 label.required abbr {
-  color: #900;
+  color: $error-alt;
   font-size: 1.3em;
   text-decoration: none;
 }
@@ -224,7 +224,7 @@ p.field {
 .form-note, .form-stats {
   font-style: italic;
   font-weight: normal;
-  color: #676e78;
+  color: $form-note-color;
 }
 p.form-note, p.form-stats {
   margin-top: -.7em;
@@ -242,7 +242,7 @@ span.form-note, span.form-stats {
     background-color: inherit;
   }
   50% {
-    background-color: #ffbaba;
+    background-color: $error-background;
   }
   100% {
     background-color: inherit;
@@ -258,7 +258,7 @@ span.form-note, span.form-stats {
     background-color: inherit;
   }
   50% {
-    background-color: #ccff00;
+    background-color: $input-focus;
   }
   100% {
     background-color: inherit;

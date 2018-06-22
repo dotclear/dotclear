@@ -12,6 +12,8 @@ html {
 }
 
 body {
+  color: $body-color;
+  background: $body-background;
 	font-size: $body-font-size;
 	line-height: 1.5;
 	font-family: $sans-serif;
@@ -50,6 +52,7 @@ h6 {
 }
 
 h2 {
+  color: $title-color;
 	font-size: 1.5em;
 	font-weight: normal;
 	line-height: 1.25;
@@ -58,6 +61,7 @@ h2 {
 
 h3,
 .as_h3 {
+  color: $title-alt-color;
 	font-size: 1.34em;
 	font-weight: normal;
 	line-height: 1.5;
@@ -66,17 +70,20 @@ h3,
 
 h4,
 .as_h4 {
+  color: $title-color;
 	font-size: 1.16em;
 	line-height: 1.5;
 }
 
 h5 {
+  color: $title-color;
 	font-size: 1em;
 	line-height: 1.5;
 	font-weight: bold;
 }
 
 h6 {
+  color: $title-color;
 	font-size: 1em;
 	line-height: 1.5;
 }

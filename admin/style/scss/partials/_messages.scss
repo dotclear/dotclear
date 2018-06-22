@@ -4,21 +4,22 @@
 	font-style: normal;
 	padding: .2em .66em .2em;
 	text-indent: 24px;
-	color: #333;
 	display: inline-block;
 	line-height: 1.5em;
 	border-radius: 3px;
 }
 
-.warn,
-.warning {
-	background: #FEFACD url(msg-warning.png) no-repeat .3em .3em;
-	border: 1px solid #ffd478;
+.info {
+  color: $msg-info-color;
+	background: $msg-info-background url(msg-info.png) no-repeat .3em .3em;
+	border: 1px solid $msg-info-border;
 }
 
-.info {
-	background: #D9EDF7 url(msg-info.png) no-repeat .3em .3em;
-	border: 1px solid #BCE8F1;
+.warn,
+.warning {
+  color: $msg-warn-color;
+  background: $msg-warn-background url(msg-warning.png) no-repeat .3em .3em;
+  border: 1px solid $msg-warn-border;
 }
 
 div.warn,
@@ -45,7 +46,7 @@ span.info {
 	padding: 1em 0.5em 0.5em 48px;
 	margin-bottom: 1em;
 	border-radius: 8px;
-	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+	box-shadow: 1px 1px 2px $msg-shadow;
 }
 
 p.error,
@@ -59,24 +60,24 @@ p.warning-msg {
 }
 
 .error {
-	background: #ffbaba url(msg-error.png) no-repeat .7em .7em;
-	color: #000;
+	background: $msg-error-background url(msg-error.png) no-repeat .7em .7em;
+	color: $msg-error-color;
   animation-name: kf-error;
   animation-duration: .5s;
 }
 @keyframes kf-error {
   0% {
-    background-color: #fefacd;
+    background-color: $msg-error-background-alt;
   }
   100% {
-    background-color: #ffbaba;
+    background-color: $msg-error-background;
   }
 }
 
 .message,
 .static-msg {
-	background: #676e78 url(msg-std.png) no-repeat .7em .7em;
-	color: #fff;
+  color: $msg-color;
+	background: $msg-background url(msg-std.png) no-repeat .7em .7em;
 }
 .message {
   animation-name: kf-message;
@@ -84,10 +85,10 @@ p.warning-msg {
 }
 @keyframes kf-message {
   0% {
-    background-color: #ccc;
+    background-color: $msg-background-alt;
   }
   100% {
-    background-color: #676e78;
+    background-color: $msg-background;
   }
 }
 
@@ -95,47 +96,47 @@ p.warning-msg {
 .static-msg a,
 .message h3,
 .static-msg h3 {
-	color: #fff;
-}
-
-.success,
-.warning-msg {
-	color: #000;
+	color: $msg-color;
 }
 
 .success {
-	background: #bee74b url(msg-success.png) no-repeat .7em .7em;
+	color: $msg-success-color;
+}
+
+.success {
+	background: $msg-success-background url(msg-success.png) no-repeat .7em .7em;
   animation-name: kf-success;
   animation-duration: .5s;
 }
 @keyframes kf-success {
   0% {
-    background-color: #9bca1c;
+    background-color: $msg-success-background-alt;
   }
   100% {
-    background-color: #bee74b;
+    background-color: $msg-success-background;
   }
 }
 
 .warning-msg {
-	background: #ffd478 url(msg-warning.png) no-repeat .7em .7em;
-	border: 1px solid #ffd478;
+  color: $msg-warn-color;
+	background: $msg-warn-background-alt url(msg-warning.png) no-repeat .7em .7em;
+	border: 1px solid $msg-warn-border;
   animation-name: kf-warning;
   animation-duration: .5s;
 }
 @keyframes kf-warning {
   0% {
-    background-color: #fefacd;
+    background-color: $msg-warn-background;
   }
   100% {
-    background-color: #ffd478;
+    background-color: $msg-warn-background-alt;
   }
 }
 
 .success a,
 .warning-msg a,
 .info a {
-	color: #333;
+	color: $msg-info-color;
 }
 
 .close-notice-parent {
@@ -163,19 +164,19 @@ p.warning-msg {
 	padding: 1em 48px 0.5em 48px;
 	margin-bottom: 1em;
 	border-radius: 8px;
-	background: #A2CBE9 url(msg-success.png) no-repeat .7em .7em;
-	color: #000;
-	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  color: $dc-update-color;
+	background: $dc-update-background url(msg-success.png) no-repeat .7em .7em;
+	box-shadow: 1px 1px 2px $msg-shadow;
 	h3 {
 		margin-top: 0;
-		color: #000;
+		color: $dc-update-color;
 	}
 	p {
 		display: inline-block;
 		vertical-align: middle;
 	}
 	a {
-		color: #000;
+		color: $dc-update-color;
 		margin-right: 1em;
 		&.button {
 			padding: .5em 1em;
@@ -185,17 +186,17 @@ p.warning-msg {
 
 .updt-info a {
 	margin-left: 2em;
-	border-color: #000;
+	border-color: $dc-update-color;
 	font-weight: bold;
 }
 
 body.ajax-loader {
 	#header {
-		border-bottom-color: shade($light-blue, 10%);
+		border-bottom-color: $ajax-loader;
 		transition: border-bottom-color .3s ease;
 	}
 	#collapser {
-		background-color: shade($light-blue, 10%);
+		background-color: $ajax-loader;
 		transition: background-color .3s ease;
 	}
 }

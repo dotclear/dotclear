@@ -6,20 +6,13 @@
 #content > h2 {
 	padding: 0 1em .5em 1em;
 	margin: 0 -1em 1em -1em;
-	background: #fff url(bg_h2.png) repeat-x center bottom;
+	background: $breadcrumb-background url(bg_h2.png) repeat-x center bottom;
 }
-
-h2 a:link,
-h2 a:visited {
-	color: #676e78;
-	border-color: #000;
-}
-
 
 /* page courante dans le fil d'ariane */
 
 .page-title {
-	color: #d30e60;
+	color: $breadcrumb-current;
 	img {
 		padding-left: .5em;
 		vertical-align: middle;
@@ -36,7 +29,7 @@ h2 a:visited {
 .fieldset h3,
 .fieldset h4,
 .pretty-title {
-	color: #D33800;
+	color: $fieldset-pretty-title-color;
 	font-size: 1em;
 	font-weight: bold;
 }
@@ -51,12 +44,12 @@ h2 a:visited {
 	font-size: 1em;
 	text-transform: uppercase;
 	font-weight: bold;
-	color: #333;
+	color: $fieldset-smart-title-color;
 }
 
 #entry-sidebar h5 {
 	font-weight: normal;
-	color: #333;
+	color: $entry-sidebar-title-color;
 }
 
 .entry-status img.img_select_option {
@@ -66,7 +59,7 @@ h2 a:visited {
 
 h4 label,
 h5 label {
-	color: #333;
+	color: $title-label-color;
 }
 
 h2:first-child,
@@ -98,7 +91,7 @@ table {
 }
 
 caption {
-	color: #333;
+	color: $table-caption-color;
 	font-weight: bold;
 	text-align: left;
 	margin-bottom: .5em;
@@ -107,8 +100,8 @@ caption {
 th:not(.module-name) {
 	border-width: 1px 0 1px 0;
 	border-style: solid;
-	border-color: #dfdfdf;
-	background: #eef1ec;
+	border-color: $head-border;
+  background: $head-background;
 	padding: .4em 1em .4em .5em;
 	vertical-align: top;
 	text-align: left;
@@ -118,7 +111,7 @@ td, th.module-name {
   font-weight: normal;
 	border-width: 0 0 1px 0;
 	border-style: solid;
-	border-color: #e3e3e3;
+	border-color: $cell-border;
 	padding: .4em 1em .4em .5em;
 	vertical-align: top;
 }
@@ -133,8 +126,8 @@ p {
 hr {
 	height: 1px;
 	border-width: 1px 0 0;
-	border-color: #dfdfdf;
-	background: #dfdfdf;
+	border-color: $hr-color;
+	background: $hr-color;
 	border-style: solid;
 	&.clearer {
 		clear: both;
@@ -148,7 +141,7 @@ code,
 }
 
 code {
-	background: #fefacd;
+	background: $code-background;
 }
 
 pre {
@@ -179,9 +172,9 @@ label {
 a,
 a:link,
 a:visited {
-	color: #2373A8;
+  color: $link-color;
 	text-decoration: none;
-	border-bottom: 1px dotted #999;
+	border-bottom: 1px dotted $link-border;
 	background-color: inherit;
 	outline: 0;
 	img {
@@ -201,7 +194,7 @@ h1 a:visited {
 }
 
 .discrete a {
-	color: #333;
+	color: $discrete-link-color;
 }
 
 a:link {
@@ -210,7 +203,7 @@ a:link {
 
 a:focus,
 a:focus img {
-	outline: 2px solid #bee74b;
+	outline: 2px solid $link-outline;
 	border-bottom: none;
 	text-decoration: none;
 }

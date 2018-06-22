@@ -49,13 +49,13 @@ tr.line {
 		width: 6em;
 	}
 	input[type=text] {
-		background: #fff;
+		background: $line-input-background;
 	}
 	&:hover {
-		background: #f3f3f3;
+		background: $line-background-over;
 	}
 	&:focus-within {
-		background-color: #eee;
+    background-color: $line-focus-background;
 	}
 }
 
@@ -71,7 +71,7 @@ td.noborder,
 .noborder th,
 th.noborder {
 	border-width: 0 0 1px 0;
-	border-color: #dfdfdf;
+  border-color: $cell-noborder-color;
 	line-height: 2em;
 	padding-bottom: 0;
 }

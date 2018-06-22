@@ -2,8 +2,26 @@
 															UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
 
+@media screen and (max-width: $xl-screen) {
+  #header,
+  h1 {
+    background: $header-background-alt;
+  }
+  #top-info-user {
+    background: $header-background;
+    a.active {
+      color: $header-active-color-alt;
+      background: $header-active-background-alt;
+    }
+  }
+  #wrapper {
+    background: $wrapper-background url(bg_wrapper.png) repeat-y 17em;
+  }
+}
+
 @media screen and (max-width: $s-screen) {
 	#help-button {
+    background-color: $header-border;
 		padding: 0;
 		font-size: .83em;
 		line-height: 68px;
@@ -11,6 +29,15 @@
 }
 
 @media screen and (max-width: $xs-screen) {
+  h1 a {
+    &:link {
+      border-right: 1px solid $tabs-border;
+    }
+    &:hover,
+    &:focus {
+      border-right: 1px solid $tabs-border;
+    }
+  }
 	#dashboard-main {
 		padding: 0;
 	}
@@ -27,6 +54,7 @@
 		padding: 1em;
 	}
 	.pseudo-tabs li {
+    border-top: 1px solid $tabs-border;
 		padding: .25em;
 		&:first-child,
 		&:nth-of-type(2) {
@@ -36,6 +64,10 @@
 }
 
 @media screen and (max-width: $xxs-screen) {
+  h1,
+  h1 a {
+    border-right: $header-border-alt !important;
+  }
 	#content.with-help #help {
 		font-size: 1.2rem // 12px;
 	}
@@ -58,6 +90,9 @@
 	td {
 		padding: 0.3em 1em 0.3em 0;
 	}
+  .pseudo-tabs li {
+    border-top: 1px solid $tabs-border !important;
+  }
 	.pseudo-tabs li:first-child {
 		border-top: none;
 	}

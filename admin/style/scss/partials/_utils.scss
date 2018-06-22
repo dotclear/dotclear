@@ -2,13 +2,13 @@
 /* color-picker.js */
 
 .color-color-picker {
-	border: 1px solid #000;
+	border: 1px solid $color-picker-border;
 	width: 195px;
-	background: #fff;
+	background: $color-picker-background;
 }
 
 /* _media_item.js */
 
 .color-div {
-	border: 1px solid #ccc;
+	border: 1px solid $color-div-border;
 }

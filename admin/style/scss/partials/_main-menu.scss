@@ -5,12 +5,12 @@
 	h3 {
 		margin: 0;
 		padding: 10px 0 10px 8px;
-		color: #676e78;
+		color: $main-menu-title-color;
 		font-size: 1.15em;
 	}
 	a {
-		color: #333;
-		border-bottom-color: #ccc;
+		color: $main-menu-item-color;
+		border-bottom-color: $main-menu-item-border;
 	}
 	ul {
 		margin: 0 0 1.5em 0;
@@ -28,11 +28,11 @@
 		}
 	}
 	.active {
-		background-color: #fff;
+		background-color: $main-menu-active-background;
 		font-weight: bold;
 		a {
 			border-bottom: none;
-			color: #d30e60;
+			color: $main-menu-active-color;
 		}
 	}
 }
@@ -41,20 +41,13 @@
 #blog-menu,
 #system-menu,
 #plugins-menu {
-	border-bottom: 1px dashed #A2CBE9;
+	border-bottom: 1px dashed $main-menu-border;
 }
 
 #favorites-menu {
 	h3 {
-		color: #000;
 		font-variant: small-caps;
 		padding-top: .2em;
-	}
-	.active {
-		background-color: transparent;
-		a {
-			color: #000;
-		}
 	}
 }
 
@@ -68,7 +61,7 @@
 		line-height: 24px;
 	}
 	p {
-		border: 1px solid #999;
+		border: 1px solid $search-border;
 		border-radius: .3em;
 		position: relative;
 		width: 95%;
@@ -77,21 +70,21 @@
 	input[type="submit"] {
 		padding: 0 .25em;
 		margin-left: .33em;
-		background: #dfdfdf;
-		border-color: #999;
-		color: #333;
+    color: $search-color;
+		background: $search-background;
+		border-color: $search-border;
 		border-bottom-right-radius: .3em;
 		border-top-right-radius: .3em;
 		border-top-left-radius: 0;
 		border-bottom-left-radius: 0;
 		border: none;
-		border-left: 1px solid #999;
+		border-left: 1px solid $search-border;
 		font-size: .91em;
 		float: right;
 		&:hover,
 		&:focus {
-			background: #676e78;
-			color: #fff;
+      color: $search-submit-color;
+			background: $search-submit-background;
 		}
 	}
 }
@@ -106,6 +99,6 @@
 	border: none;
 	height: 2em;
 	&:focus {
-		border: 1px solid #bee74b;
+		border: 1px solid $search-outline;
 	}
 }

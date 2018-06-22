@@ -5,7 +5,7 @@
 	top: 0;
 	width: 100%;
 	height: 4px;
-	background: #ffd478;
+	background: $debug-background;
 	div {
 		display: none;
 		padding: 3px 0.5em 2px;
@@ -24,16 +24,16 @@
 }
 
 .debug {
-	background: #ffd478;
+	background: $debug-background;
 	padding: 3px 0.5em 2px;
 }
 
 input[type=submit].delete.debug,
 a.delete.debug {
-	border-color: #ffd478;
+	border-color: $debug-border;
 	&:hover {
-		background: #ffd478;
-		color: #900;
-		border-color: #ffd478;
+		background: $debug-background;
+		color: $debug-color;
+		border-color: $debug-border;
 	}
 }

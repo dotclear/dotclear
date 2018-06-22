@@ -2,14 +2,14 @@ a.form-control {
 	display: none;
 	background: url(../images/expand.png) no-repeat 4px center;
 	padding-left: 20px;
-	color: #000;
+	color: $form-control-color;
 	&.open {
 		background: url(../images/hide.png) no-repeat 4px center;
 	}
 }
 
 #filters-form {
-	border: 1px solid rgb(162, 203, 233);
+	border: 1px solid $filter-border;
 	border-radius: .3em;
 	margin-bottom: 2em;
 	padding: .5em 1em 0;
@@ -27,7 +27,7 @@ a.form-control {
 	}
 	.filters-options {
 		padding-left: 2em;
-		border-left: 1px solid #ccc;
+		border-left: 1px solid $filter-options-border;
 	}
 	select {
 		width: 14em;
@@ -47,7 +47,7 @@ a.form-control {
 		display: inline-block;
 	}
 	&:focus-within {
-		background-color: #eee;
+		background-color: $filter-focus-background;
 	}
 }
 

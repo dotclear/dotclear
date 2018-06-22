@@ -12,9 +12,9 @@
 		margin-left: 0;
 	}
 	.fieldset {
-		border: 1px solid #9bca1c;
+		border: 1px solid $login-fieldset-border;
 		padding: 1em 1em 0 1em;
-		background: #fff;
+		background: $login-fieldset-background;
 		margin-bottom: 0;
 		margin-top: 1em;
 	}

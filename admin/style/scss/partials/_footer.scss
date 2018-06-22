@@ -6,17 +6,17 @@
 	}
 	a:hover span.tooltip {
 		padding: 10px;
-		color: #910ed3;
+		color: $tooltip-color;
 		height: auto;
 		width: auto;
 		left: 0;
 		bottom: 0;
-		background: rgba(255,255,255,.9);
+		background: $tooltip-background;
 		z-index: 99;
 		font-family: monospace;
 		text-align: left;
-		border-top: 1px solid #910ed3;
-		border-right: 1px solid #910ed3;
+		border-top: 1px solid $tooltip-color;
+		border-right: 1px solid $tooltip-color;
 		border-radius: 0 2em 0 0;
 	}
 }

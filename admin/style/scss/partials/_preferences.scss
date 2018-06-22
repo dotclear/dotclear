@@ -3,7 +3,7 @@
 	margin-left: 0;
 	padding-left: 0;
 	#my-favs & {
-		border-top: 1px solid #eee;
+		border-top: 1px solid $fav-list-border;
 	}
 	li {
 		margin-left: 0;
@@ -13,11 +13,14 @@
 		position: relative;
 		#my-favs & {
 			line-height: 2;
-			border-bottom: 1px solid #eee;
+			border-bottom: 1px solid $fav-list-border;
 			padding-top: 3px;
 			padding-bottom: 3px;
 			position: relative;
 		}
+    #my-favs:focus-within & {
+      border-bottom-color: $fav-list-border-alt;
+    }
 		span.zoom {
 			display: none;
 		}
@@ -26,8 +29,8 @@
 			position: absolute;
 			bottom: 0;
 			left: 10em;
-			background-color: #f7f7f7;
-			border: 1px solid #dfdfdf;
+			background-color: $fav-list-background-over;
+			border: 1px solid $fav-list-border-alt;
 			padding: .2em;
 			border-radius: .5em;
 		}
@@ -39,10 +42,11 @@
 }
 
 #my-favs {
-	border-color: #9bca1c;
+	border-color: $my-favs-border;
 	input.position {
 		margin: 0 0 .4em .2em;
 	}
+
 }
 
 #available-favs {
@@ -60,8 +64,8 @@
 		position: absolute;
 		bottom: 0;
 		left: 10em;
-		background-color: #f7f7f7;
-		border: 1px solid #dfdfdf;
+		background-color: $fav-list-background;
+		border: 1px solid $fav-list-border-alt;
 		padding: .2em;
 		border-radius: .5em;
 	}
