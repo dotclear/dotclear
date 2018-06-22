@@ -41,7 +41,7 @@
 	h4 {
 		font-size: 1.08em;
 		margin-top: .3em;
-		border-bottom: 1px solid $ternary-color;
+		border-bottom: 1px solid $entry-sb-title-border;
 	}
 	select {
 		width: 100%;
@@ -56,9 +56,9 @@
 	margin-bottom: 1em;
 	margin-right: 1em;
 	padding: .5em 1em;
-	background-color: $secondary-background;
+	background-color: $entry-sb-background;
 	&:focus-within {
-		background-color: #eee;
+		background-color: $entry-sb-focus-background;
 	}
 }
 

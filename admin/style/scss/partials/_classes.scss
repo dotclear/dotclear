@@ -2,8 +2,8 @@
 
 .ac_results {
 	padding: 0px;
-	border: 1px dotted #f90;
-	background-color: white;
+	background-color: $ac-results-background;
+  border: 1px dotted $ac-results-border;
 	overflow: hidden;
 	z-index: 99999;
 	ul {
@@ -29,8 +29,8 @@
 }
 
 .ac_over {
-	background-color: #2373a8;
-	color: white;
+  color: $ac-results-over;
+  background-color: $ac-results-over-background;
 }
 
 
@@ -58,27 +58,27 @@
 }
 
 .pw-very-weak .bar {
-	background: #c44d58;
+	background: $pw-very-weak;
 	width: 30px;
 }
 
 .pw-weak .bar {
-	background: #e1732c;
+	background: $pw-weak;
 	width: 60px;
 }
 
 .pw-mediocre .bar {
-	background: #f90;
+	background: $pw-mediocre;
 	width: 90px;
 }
 
 .pw-strong .bar {
-	background: #cdad12;
+	background: $pw-strong;
 	width: 120px;
 }
 
 .pw-very-strong .bar {
-	background: #9ac123;
+	background: $pw-very-strong;
 	width: 150px;
 }
 
@@ -89,8 +89,7 @@
 /* selects accès rapide */
 
 .anchor-nav {
-	background: #ecf0f1;
-	color: #000;
+	background: $nav-background;
 	padding: 4px 1em;
 	label {
 		vertical-align: bottom;
@@ -102,16 +101,16 @@
 
 .nav_prevnext {
 	margin-bottom: 2em;
-	color: #fff;
+	color: $nav-background;
 }
 
 .nav_prevnext a,
 a.back {
-	color: #2373A8;
-	border: 1px solid #dfdfdf;
+	color: $nav-prevnext;
+	border: 1px solid $nav-prevnext-border;
 	padding: 2px 1.5em;
 	border-radius: .75em;
-	background-color: #f3f3f3;
+	background-color: $nav-prevnext-background;
 }
 
 a.back:before {
@@ -119,13 +118,13 @@ a.back:before {
 }
 
 a.onblog_link {
-	color: #333;
+	color: $onblog-link;
 	float: right;
-	border: 1px solid #eee;
+	border: 1px solid $onblog-link-border;
 	padding: 2px 1.5em;
 	border-radius: .75em;
-	background-color: #ECF0F1;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+	background-color: $onblog-link-background;
+	box-shadow: 0 1px 1px $onblog-link-shadow;
 }
 
 
@@ -148,28 +147,28 @@ a.onblog_link {
 		text-align: center;
 	}
 	.btn {
-		border: 1px solid #dfdfdf;
-		background-color: #fcfcfc;
-		color: #676e78;
+		border: 1px solid $pager-border;
+		background-color: $pager-background;
+		color: $pager-link;
 		border-radius: 3px;
 		overflow: hidden;
 		&.no-link {
-			border-color: #dfdfdf;
-			background-color: #f9f9f9;
+			border-color: $pager-border;
+			background-color: $pager-off-background;
 			padding: 1px 3px 0;
 		}
 	}
 	.active {
 		padding: 4px 12px;
-		color: #676e78;
+		color: $pager-active;
 	}
 	.direct-access {
 		margin-left: 2em;
 		input[type=text] {
-			border: 1px solid #dfdfdf;
+			border: 1px solid $pager-border;
 			padding: 3px 8px;
 			margin-left: .25em;
-			background-color: #fff;
+			background-color: $pager-input-background;
 		}
 		input[type=submit] {
 			padding: 3px 6px;
@@ -181,7 +180,7 @@ a.onblog_link {
 		border: none;
 		&:hover,
 		&:focus {
-			background-color: #ecf0f1;
+			background-color: $pager-background-over;
 		}
 	}
 }
@@ -199,12 +198,12 @@ a.onblog_link {
 		font-weight: bold;
 	}
 	.btn.no-link {
-		color: #ccc;
+		color: $index-no-link;
 	}
 	.active {
 		padding: 4px 8px;
-		color: #fff;
-		background: #676e78;
+		color: $index-active;
+		background: $index-active-background;
 		border-radius: 3px;
 		font-variant: small-caps;
 	}
@@ -218,11 +217,11 @@ a.onblog_link {
 	float: left;
 	margin: 3px 10px 2px 0;
 	padding: 5px .5em;
-	background: #ecf0f1;
+  color: $step;
+	background: $step-background;
+  border: 1px solid $step-border;
 	border-radius: 3px;
 	font-weight: bold;
-	border: 1px solid #c5c5c5;
-	color: #676e78;
 }
 
 
@@ -234,8 +233,8 @@ a.onblog_link {
 }
 
 .fieldset {
-	background: #fff;
-	border: 1px solid #c5c5c5;
+	background: $fieldset-background;
+	border: 1px solid $fieldset-border;
 	border-radius: 3px;
 	padding: 1em .7em .5em;
 	margin-bottom: 1em;
@@ -243,7 +242,7 @@ a.onblog_link {
 		margin-top: 0;
 	}
 	&:focus-within {
-		background-color: #eee;
+		background-color: $fieldset-focus-background;
 	}
 }
 
@@ -275,7 +274,7 @@ p.clear.vertical-separator {
 }
 
 .border-top {
-	border-top: 1px solid #999;
+	border-top: 1px solid $link-border;
 	padding-top: 1em;
 	margin-top: 1em;
 }
@@ -308,7 +307,7 @@ ul.from-left {
 }
 
 .offline {
-	color: #676e78;
+	color: $offline;
 }
 
 

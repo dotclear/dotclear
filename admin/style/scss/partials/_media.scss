@@ -13,7 +13,7 @@ span.media-file-mode {
 
 .media-item {
 	position: relative;
-	border: 1px solid #dfdfdf;
+	border: 1px solid $media-item-border;
 	margin: 9px;
 	padding: 10px 12px 6px;
 	width: 320px;
@@ -104,25 +104,25 @@ li.media-action {
 }
 
 .media-folder {
-	background: transparent url(bg_menu.png) repeat-y;
-	border-color: #eee;
+	background: $media-folder-background url(bg_menu.png) repeat-y;
+	border-color: $media-folder-border;
 	.media-link {
 		font-size: 1.125em;
 		margin-left: 2em;
-		color: #676e78;
+		color: $media-folder-link;
 		border-bottom: none;
 	}
 }
 
 tr.media-folder {
-	background: transparent;
+	background: $media-folder-background;
 	.media-link {
 		margin-left: 0;
 	}
 }
 
 .media-folder-up {
-	border-color: #fff;
+	border-color: $media-folderup-border;
 	padding-bottom: 6px;
 }
 
@@ -197,7 +197,7 @@ label span.one-file {
 	list-style-type: none;
 	margin-left: 0;
 	padding-left: 0;
-	border-bottom: 1px solid #dfdfdf;
+	border-bottom: 1px solid $media-files-border;
 	li {
 		margin-left: 0;
 		padding-left: 0;
@@ -207,7 +207,7 @@ label span.one-file {
 .upload-msg {
 	font-weight: bold;
 	&.upload-error {
-		color: #900;
+		color: $upload-error-color;
 	}
 }
 
@@ -219,7 +219,7 @@ label span.one-file {
 .upload-file {
 	margin: 0;
 	padding: .3em 0;
-	border-top: 1px solid #dfdfdf;
+	border-top: 1px solid $upload-file-border;
 	position: relative;
 }
 
@@ -248,9 +248,9 @@ label span.one-file {
 
 .upload-filemsg {
 	font-weight: bold;
-	color: green;
-	.upload-error {
-		color: #900;
+	color: $upload-filemsg-color;
+	&.upload-error {
+		color: $upload-error-color;
 	}
 }
 
@@ -262,8 +262,8 @@ label span.one-file {
 		font-weight: bold;
 		line-height: 1.2em;
 		text-align: right;
-		background: green url(loader.png) repeat-x left top;
-		color: white;
+		background: $upload-progress-background url(loader.png) repeat-x left top;
+		color: $upload-progress-color;
 		border-radius: 3px;
 	}
 }

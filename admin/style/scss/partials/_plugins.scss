@@ -20,18 +20,17 @@
 
 .modules tr.expand,
 .modules td.expand {
-	background: #f7f7f7;
-	border-color: #bee74b;
+	background: $modules-background;
+  border-color: $modules-border;
 }
 
 .modules tr.expand td:first-child {
 	font-weight: bold;
-	background: #dfe5e7;
+	background: $modules-background;
 }
 
 .modules td.expand {
 	padding: 0 0 1em;
-	border-top: 1px solid #eaeaea;
 	div {
 		display: inline-block;
 		vertical-align: top;

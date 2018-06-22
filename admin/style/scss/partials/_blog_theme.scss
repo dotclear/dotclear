@@ -11,10 +11,10 @@
 .box.theme {
 	margin: 5px;
 	padding: 10px 10px 5px 10px;
-	border: 1px solid #dfdfdf;
+	border: 1px solid $theme-box-border;
 	position: relative;
 	&:hover {
-		background: #ecf0f1 url(texture.png);
+		background: $theme-box-over url(texture.png);
 	}
 	input {
 		margin-bottom: 1em;
@@ -24,16 +24,16 @@
 .module-name,
 .module-name label {
 	margin-bottom: .5em;
-	color: #676e78;
+	color: $theme-name-color;
 }
 
 .module-sshot {
 	text-align: center;
 	img {
 		padding: 5px;
-		background: #f7f7f7;
-		box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-		border: 3px solid #fff;
+		background: $theme-img-background;
+		box-shadow: 1px 1px 2px $theme-img-shadow;
+		border: 3px solid $theme-img-border;
 		max-width: 100%;
 	}
 }
@@ -116,17 +116,17 @@ On adapte largeur et hauteur en fonction
 		width: 239px;
 		margin: 0;
 		padding: 10px;
-		background: rgba(250, 250, 250, .95);
+		background: $theme-action-background;
 	}
 	.module-infos.toggle-bloc {
 		top: 128px;
 		height: 80px;
-		border-top: 1px solid #e3e3e3;
+		border-top: 1px solid $theme-action-border;
 	}
 	.module-actions.toggle-bloc {
 		top: 208px;
 		height: 40px;
-		border-bottom: 1px solid #e3e3e3;
+		border-bottom: 1px solid $theme-action-border;
 	}
 }
 
@@ -142,11 +142,11 @@ On adapte largeur et hauteur en fonction
 	width: 646px;
 	margin: 5px;
 	padding: 20px 18px 6px;
-	background: #fff url(texture.png);
-	border: 1px solid #eee;
+	background: $theme-current-background url(texture.png);
+	border: 1px solid $theme-current-border;
 	border-radius: .5em;
 	min-height: 326px;
-	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	box-shadow: 1px 1px 2px $theme-current-shadow;
 	position: relative;
 	.module-sshot:hover {
 		cursor: auto;
@@ -154,13 +154,13 @@ On adapte largeur et hauteur en fonction
 	.module-sshot img {
 		float: left;
 		margin-right: 2em;
-		border: 9px solid #fff;
+		border: 9px solid $theme-current-img-border;
 		padding: 5px;
 		max-width: 308px;
 		max-height: 273px;
 	}
 	.module-name {
-		color: #D33800;
+		color: $theme-current-name-color;
 		font-size: 1.5em;
 		margin-bottom: 1em;
 	}

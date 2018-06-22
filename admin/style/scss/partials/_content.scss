@@ -1,7 +1,7 @@
 .part-tabs {
 	ul {
 		padding: .5em 0 0 1em;
-		border-bottom: 1px solid #ccc;
+		border-bottom: 1px solid $tabs-border;
 		line-height: 1.8;
 	}
 	li {
@@ -17,26 +17,26 @@
 		a {
 			padding: .33em 1.5em;
 			margin-right: -1px;
-			border: 1px solid #ccc;
+			border: 1px solid $tabs-border;
 			border-bottom: none;
 			text-decoration: none;
-			color: #333;
-			background-color: #ecf0f1;
+			color: $tabs-color;
+      background-color: $tabs-background;
 			display: inline-block;
 			&:hover,
 			&:focus {
-				color: #000;
-				background: #fff;
-				border-bottom-color: #fff;
+        color: $tabs-color;
+				background: $tabs-active-background;
+				border-bottom-color: $tabs-active-background;
 			}
       &:link {
         transition: unset;
       }
 		}
 		&.part-tabs-active a {
-			background: #fff;
+			background: $tabs-active-background;
 			font-weight: bold;
-			border-bottom-color: #fff;
+			border-bottom-color: $tabs-active-background;
 		}
 	}
 }
@@ -47,7 +47,7 @@
 
 .pseudo-tabs {
 	margin: -.75em 0 2em 0;
-	border-bottom: 1px solid #bbb;
+	border-bottom: 1px solid $tabs-border;
 	display: table;
 	width: 100%;
 	padding: 0;
@@ -57,7 +57,7 @@
 		display: table-cell;
 		border-width: 0 1px;
 		border-style: solid;
-		border-color: #ccc;
+		border-color: $tabs-border;
 		padding: 0;
 		margin: 0;
 		text-align: center;
@@ -69,12 +69,12 @@
 		border-bottom: none;
 		&:hover,
 		&:focus {
-			background-color: #ecf0f1;
-			color: #333;
+			background-color: $tabs-background;
+			color: $tabs-color;
 		}
 		&.active {
-			background-color: #ecf0f1;
-			color: #d30e60;
+			background-color: $tabs-background;
+			color: $tabs-active-color;
 		}
 	}
 }
@@ -84,7 +84,7 @@
 
 #help {
 	margin-top: 4em;
-	background: #f5f5f5;
+	background: $help-background;
 	z-index: 100;
 	clear: both;
 	padding: 0 1em;
@@ -94,8 +94,8 @@
 		top: 0;
 		right: 0;
 		width: 32rem; // 24em;
-		border-left: 2px solid #FFD478;
-		border-top: 2px solid #FFD478;
+		border-left: 2px solid $help-border;
+		border-top: 2px solid $help-border;
 		margin-top: 0;
 		padding: .5em 0 0 0;
 		overflow: auto;
@@ -109,15 +109,15 @@
 	right: 0;
 	padding: 0 1.5em 0 30px;
 	cursor: pointer;
-	color: #2373A8;
+	color: $link;
 	line-height: 3;
 	&.floatable {
-		border-top: 2px solid #ccc;
-		border-left: 2px solid #ccc;
-		border-bottom: 2px solid #ccc;
+		border-top: 2px solid $help-button-border;
+		border-left: 2px solid $help-button-border;
+		border-bottom: 2px solid $help-button-border;
 		border-bottom-left-radius: 1em;
 		border-top-left-radius: 1em;
-		background-color: #f5f5f5;
+		background-color: $help-button-background;
 		position: fixed;
 		top: 10px;
 		-webkit-transform: translateZ(0); // Let GPU doing his job
@@ -130,13 +130,13 @@
 	}
 	#content.with-help & {
 		right: 32rem; // 24em;
-		background-color: #f5f5f5;
+		background-color: $help-background;
 		position: fixed;
 		top: 6em; // 50px;
 		z-index: 100;
-		border-top: 2px solid #FFD478;
-		border-left: 2px solid #FFD478;
-		border-bottom: 2px solid #FFD478;
+		border-top: 2px solid $help-border;
+		border-left: 2px solid $help-border;
+		border-bottom: 2px solid $help-border;
 		border-bottom-left-radius: 1em;
 		border-top-left-radius: 1em;
 	}
@@ -156,7 +156,7 @@
 	}
 	dt {
 		font-weight: bold;
-		color: #676e78;
+		color: $help-title-color;
 		margin: 0;
 	}
 	dd {

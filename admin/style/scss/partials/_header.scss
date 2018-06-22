@@ -8,7 +8,7 @@
 	position: absolute;
 	top: 3em;
 	left: 0;
-	background: $light-blue;
+	background: $prelude-background;
 	width: 100%;
 	z-index: 100;
 	li {
@@ -18,12 +18,12 @@
 		display: inline;
 		a {
 			padding: 3px 16px 3px 8px;
-			background: $light-blue;
-			color: $black;
+      color: $prelude-color;
+			background: $prelude-background;
 			text-decoration: underline;
 			&:hover,
 			&:focus {
-				background: $white;
+				background: $prelude-background-alt;
 			}
 		}
 	}
@@ -46,7 +46,7 @@
 
 #header {
 	a {
-		color: $white;
+		color: $header-color;
 	}
 	img {
 		vertical-align: middle;
@@ -66,7 +66,7 @@ h1 {
 		left: 0;
 		width: 150px;
 		height: 36px; // was 3em;
-		color: $white;
+		color: $header-color;
 		background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
 		transition: none;
 		&:hover,
@@ -92,12 +92,13 @@ h1 {
 		margin-left: 1.5em;
 	}
 	input[type=submit] {
-		background: $black;
-		border-color: $gray-semi-dark;
+		background: $submit-background;
+		border-color: $submit-border;
 		margin-left: .33em;
 	}
 	input[type=submit]:hover {
-		background: $gray-semi-dark;
+    color: $submit-color;
+		background: $submit-background-alt;
 	}
 	p {
 		display: inline-block;
@@ -116,7 +117,7 @@ h1 {
 		display: inline-block;
 		margin-left: .5em;
 		padding-left: .5em;
-		border-left: 1px solid $gray-semi-dark;
+		border-left: 1px solid $header-link-border;
 		&:first-child {
 			border-left: none;
 		}
@@ -126,8 +127,8 @@ h1 {
 		border-radius: 4px;
 		margin: 0;
 		padding: 2px 8px 3px;
-		background-color: $secondary-background;
-		color: $secondary-color;
+    color: $header-active-color;
+		background-color: $header-active-background;
 		font-weight: bold;
 	}
 }
