@@ -6,7 +6,8 @@
 #content > h2 {
 	padding: 0 1em .5em 1em;
 	margin: 0 -1em 1em -1em;
-	background: $breadcrumb-background url(bg_h2.png) repeat-x center bottom;
+	background: $breadcrumb-background;
+  border-bottom: 1px solid $breadcrumb-border;
 }
 
 /* page courante dans le fil d'ariane */
