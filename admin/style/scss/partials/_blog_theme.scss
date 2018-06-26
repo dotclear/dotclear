@@ -14,7 +14,7 @@
 	border: 1px solid $theme-box-border;
 	position: relative;
 	&:hover {
-		background: $theme-box-over url(texture.png);
+		background: $theme-box-over;
 	}
 	input {
 		margin-bottom: 1em;
@@ -142,7 +142,7 @@ On adapte largeur et hauteur en fonction
 	width: 646px;
 	margin: 5px;
 	padding: 20px 18px 6px;
-	background: $theme-current-background url(texture.png);
+	background: $theme-current-background;
 	border: 1px solid $theme-current-border;
 	border-radius: .5em;
 	min-height: 326px;

@@ -86,7 +86,7 @@ $header-active-background:        $gray-very-light;                   // #f3f3f3
 $header-active-color-alt:         $white;                             // #ffffff
 $header-active-background-alt:    $gray-semi-dark;                    // #868686
 
-$wrapper-background:              $gray-very-light;                   // #f3f3f3
+$wrapper-background:              $white;                             // #ffffff
 
 $content-background:              $white;                             // #ffffff
 
@@ -123,6 +123,7 @@ $popup-title-background:          $gray-dark;                         // #676e78
 // Markup
 
 $breadcrumb-background:           $white;                             // #ffffff
+$breadcrumb-border:               $gray-semi-dark;                    // #868686
 $breadcrumb-current:              $current-page;                      // #d30e60
 
 $fieldset-pretty-title-color:     $orange;                            // #d33800
@@ -316,7 +317,7 @@ $theme-img-shadow:                rgba($gray-very-dark, 0.1);
 $theme-action-background:         $gray-very-light;                   // #f3f3f3
 $theme-action-border:             $gray-lighter;                      // #ececec
 
-$theme-current-background:        $white;                             // #ffffff
+$theme-current-background:        $gray-very-light;                   // #f3f3f3
 $theme-current-border:            $gray-lighter;                      // #ececec
 $theme-current-shadow:            rgba($gray-very-dark, 0.1);
 

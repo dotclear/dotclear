@@ -326,7 +326,7 @@ h1,
   vertical-align: top; }
 
 #wrapper {
-  background: #f3f3f3 url(bg_wrapper.png) repeat-y 14em;
+  background: #fff;
   position: relative;
   padding-top: 1.5em;
   float: left;
@@ -743,7 +743,8 @@ h1,
 #content > h2 {
   padding: 0 1em .5em 1em;
   margin: 0 -1em 1em -1em;
-  background: #fff url(bg_h2.png) repeat-x center bottom; }
+  background: #fff;
+  border-bottom: 1px solid #868686; }
 
 /* page courante dans le fil d'ariane */
 .page-title {
@@ -2172,7 +2173,7 @@ span.ibw {
     font-size: 1.2em; }
   #quick p.qinfo {
     margin: -.7em -1em 1em;
-    background: #d9edf7 url(info.png) no-repeat 0.2em 0.2em;
+    background: #d9edf7 url(msg-info.png) no-repeat 0.2em 0.2em;
     border: 1px solid #bce8f1;
     padding: .2em 1em .1em 24px;
     color: #323232; }
@@ -2292,7 +2293,7 @@ li.user_admin {
   border: 1px solid #dbdbdb;
   position: relative; }
   .box.theme:hover {
-    background: #f3f3f3 url(texture.png); }
+    background: #f3f3f3; }
   .box.theme input {
     margin-bottom: 1em; }
 
@@ -2389,7 +2390,7 @@ On adapte largeur et hauteur en fonction
   width: 646px;
   margin: 5px;
   padding: 20px 18px 6px;
-  background: #fff url(texture.png);
+  background: #f3f3f3;
   border: 1px solid #ececec;
   border-radius: .5em;
   min-height: 326px;
@@ -2556,8 +2557,9 @@ li.media-action {
     margin-bottom: 0; }
 
 .media-folder {
-  background: transparent url(bg_menu.png) repeat-y;
-  border-color: #ececec; }
+  background: transparent;
+  border-color: #ececec;
+  border-left-width: 8px; }
   .media-folder .media-link {
     font-size: 1.125em;
     margin-left: 2em;
@@ -3214,7 +3216,7 @@ ul.from-left {
       background: #868686; }
 
   #wrapper {
-    background: #f3f3f3 url(bg_wrapper.png) repeat-y 17em; } }
+    background: #fff; } }
 @media screen and (max-width: 44em) {
   #help-button {
     background-color: #a2cbe9;

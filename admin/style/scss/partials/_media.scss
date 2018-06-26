@@ -104,8 +104,9 @@ li.media-action {
 }
 
 .media-folder {
-	background: $media-folder-background url(bg_menu.png) repeat-y;
+	background: $media-folder-background;
 	border-color: $media-folder-border;
+  border-left-width: 8px;
 	.media-link {
 		font-size: 1.125em;
 		margin-left: 2em;
