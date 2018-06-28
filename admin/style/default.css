@@ -1714,48 +1714,18 @@ h1 {
   padding-top: .2em; }
 
 #search-menu {
-  padding: 4px 5px 0;
-  font-size: 100%; }
-  #search-menu * {
-    height: 2em;
-    display: inline-block;
-    vertical-align: top;
-    line-height: 24px; }
+  padding: 4px 0 0 4px;
+  font-size: .91em; }
   #search-menu p {
-    border: 1px solid #868686;
-    border-radius: .3em;
-    position: relative;
     width: 95%;
-    overflow: hidden; }
+    margin: 0 0 .5em 0; }
   #search-menu input[type="submit"] {
-    padding: 0 .25em;
-    margin-left: .33em;
-    color: #323232;
-    background: #c9c9c9;
-    border-color: #868686;
-    border-bottom-right-radius: .3em;
-    border-top-right-radius: .3em;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border: none;
-    border-left: 1px solid #868686;
-    font-size: .91em;
     float: right; }
-    #search-menu input[type="submit"]:hover, #search-menu input[type="submit"]:focus {
-      color: #fff;
-      background: #868686; }
 
 #qx {
-  width: 80%;
-  border-bottom-left-radius: .3em;
-  border-top-left-radius: .3em;
-  background: transparent url(search.png) no-repeat 4px center;
-  text-indent: 18px;
-  padding: 0;
-  border: none;
-  height: 2em; }
-  #qx:focus {
-    border: 1px solid #bee74b; }
+  width: 75%;
+  background: transparent url(search.svg) no-repeat 0 center;
+  text-indent: 20px; }
 
 .part-tabs ul {
   padding: .5em 0 0 1em;
@@ -1817,7 +1787,7 @@ h1 {
       background-color: #f3f3f3;
       color: #323232; }
     .pseudo-tabs a.active {
-      background-color: #f3f3f3;
+      background-color: #fff;
       color: #d33800; }
 
 /* contextual help */
@@ -2744,7 +2714,7 @@ div.template-upload {
   font-weight: bold; }
 
 .modules a.module-details {
-  background: transparent url(search.png) no-repeat 2px center;
+  background: transparent url(search.svg) no-repeat 0 center;
   padding: 4px 4px 0 20px; }
 .modules a.module-support {
   background: transparent url(help12.png) no-repeat 2px center;
@@ -2754,7 +2724,7 @@ div.template-upload {
   padding: 4px 4px 0 18px; }
 
 #m_search {
-  background: transparent url(search.png) no-repeat 4px center;
+  background: transparent url(search.svg) no-repeat 0 center;
   padding-left: 20px; }
 
 .mod-more {
