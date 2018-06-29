@@ -142,6 +142,7 @@ $cell-noborder-color:             shade($gray-very-light, 10%);       // #dbdbdb
 
 $hr-color:                        shade($gray-very-light, 10%);       // #dbdbdb
 
+$code-color:                      $body-color;
 $code-background:                 $code;                              // #fefacd
 
 $link-color:                      $link;                              // #2373a8
@@ -157,7 +158,7 @@ $fieldset-focus-background:       shade($white, 7%);                  // #ededed
 $legend-border:                   $gray-dark;                         // #676e78
 $legend-background:               $white;                             // #ffffff
 
-$invalid-input-color:             $error-alt;                         // #ae323b
+$invalid-input-color:             $black;                             // #000000
 $invalid-input-border:            $error-alt;                         // #ae323b
 $invalid-input-background:        $error;                             // #ffbaba
 $invalid-input-shadow:            rgba($error-alt, 0.3);
@@ -167,8 +168,6 @@ $input-background:                tint($gray-very-light, 50%);        // #f9f9f9
 $input-border:                    shade($gray-very-light, 10%);       // #dbdbdb
 $input-shadow:                    $gray-very-light;                   // #f3f3f3
 $input-focus:                     $link-outline;                      // #bee74b
-
-$required-color:                  $error-alt;                         // #ae323b
 
 $form-note-color:                 $gray-dark;                         // #676e78
 

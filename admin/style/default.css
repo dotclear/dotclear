@@ -850,6 +850,7 @@ code,
   font: 100% "Andale Mono", AndaleMono, Consolas, Monaco, "Courier New", monospace; }
 
 code {
+  color: #323232;
   background: #fefacd; }
 
 pre {
@@ -978,14 +979,6 @@ legend {
 label .maximal, textarea.maximal, input.maximal, select.maximal {
   width: 99%; }
 
-input.invalid, textarea.invalid, select.invalid, input:not([type=file]):invalid:not(:focus) {
-  color: #ae323b;
-  box-shadow: 0 0 0 3px rgba(174, 50, 59, 0.3); }
-
-input.invalid, textarea.invalid, input:not([type=file]):invalid:not(:focus) {
-  border: 1px solid #ae323b;
-  background: #ffbaba; }
-
 input[type=text],
 input[type=password],
 input[type=color],
@@ -1017,6 +1010,14 @@ textarea, input:not([type=file]):invalid, input:not([type=file]):invalid:placeho
   border-width: 1px;
   border-style: solid;
   border-color: #dbdbdb; }
+
+input:invalid:not(:required), textarea:invalid:not(:required), select:invalid:not(:required), input:not([type=file]):invalid:not(:focus):not(:required) {
+  color: #000;
+  box-shadow: 0 0 0 3px rgba(174, 50, 59, 0.3); }
+
+input:invalid:not(:required), textarea:invalid:not(:required), input:not([type=file]):invalid:not(:focus):not(:required) {
+  border: 1px solid #ae323b;
+  background: #ffbaba; }
 
 input:focus, textarea:focus {
   border-color: #bee74b; }
@@ -1135,24 +1136,16 @@ span.form-note, span.form-stats {
   animation-duration: 1s; }
 
 @keyframes kf-missing {
-  0% {
-    background-color: inherit; }
   50% {
-    background-color: #ffbaba; }
-  100% {
-    background-color: inherit; } }
+    background-color: #ffbaba; } }
 .focus {
   background-color: inherit;
   animation-name: kf-focus;
   animation-duration: 1s; }
 
 @keyframes kf-focus {
-  0% {
-    background-color: inherit; }
   50% {
-    background-color: #bee74b; }
-  100% {
-    background-color: inherit; } }
+    background-color: #bee74b; } }
 .no-more-info {
   display: none; }
 
@@ -1755,6 +1748,7 @@ h1 {
     .part-tabs li a:link {
       transition: unset; }
   .part-tabs li.part-tabs-active a {
+    color: #d33800;
     background: #fff;
     font-weight: bold;
     border-bottom-color: #fff; }
