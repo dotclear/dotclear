@@ -34,6 +34,7 @@
       }
 		}
 		&.part-tabs-active a {
+      color: $tabs-active-color;
 			background: $tabs-active-background;
 			font-weight: bold;
 			border-bottom-color: $tabs-active-background;

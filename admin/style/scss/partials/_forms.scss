@@ -71,14 +71,6 @@ legend {
 label .maximal, textarea.maximal, input.maximal, select.maximal {
   width: 99%;
 }
-input.invalid, textarea.invalid, select.invalid, input:not([type=file]):invalid:not(:focus) {
-  color: $invalid-input-color;
-  box-shadow: 0 0 0 3px $invalid-input-shadow;
-}
-input.invalid, textarea.invalid, input:not([type=file]):invalid:not(:focus) {
-  border: 1px solid $invalid-input-border;
-  background: $invalid-input-background;
-}
 input[type=text],
 input[type=password],
 input[type=color],
@@ -111,6 +103,16 @@ textarea, input:not([type=file]):invalid, input:not([type=file]):invalid:placeho
   border-style: solid;
   border-color: $input-border;
 }
+// Special for invalid but not required fields
+input:invalid:not(:required), textarea:invalid:not(:required), select:invalid:not(:required), input:not([type=file]):invalid:not(:focus):not(:required) {
+  color: $invalid-input-color;
+  box-shadow: 0 0 0 3px $invalid-input-shadow;
+}
+input:invalid:not(:required), textarea:invalid:not(:required), input:not([type=file]):invalid:not(:focus):not(:required) {
+  border: 1px solid $invalid-input-border;
+  background: $invalid-input-background;
+}
+//
 input:focus, textarea:focus {
   border-color: $input-focus;
 }
@@ -238,14 +240,8 @@ span.form-note, span.form-stats {
   animation-duration: 1s;
 }
 @keyframes kf-missing {
-  0% {
-    background-color: inherit;
-  }
   50% {
     background-color: $error-background;
-  }
-  100% {
-    background-color: inherit;
   }
 }
 .focus {
@@ -254,14 +250,8 @@ span.form-note, span.form-stats {
   animation-duration: 1s;
 }
 @keyframes kf-focus {
-  0% {
-    background-color: inherit;
-  }
   50% {
     background-color: $input-focus;
-  }
-  100% {
-    background-color: inherit;
   }
 }
 // .more-info Additional information on fieldset, field, … (may be hide from user-prefs)
