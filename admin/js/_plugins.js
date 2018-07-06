@@ -5,9 +5,9 @@ $(function() {
   // expand a module line
   $('table.modules.expandable tr.line').each(function() {
     $('td.module-name, th.module-name', this).toggleWithLegend($(this).next('.module-more'), {
-      img_on_src: dotclear.img_plus_src,
+      img_on_txt: dotclear.img_plus_txt,
       img_on_alt: dotclear.img_plus_alt,
-      img_off_src: dotclear.img_minus_src,
+      img_off_txt: dotclear.img_minus_txt,
       img_off_alt: dotclear.img_minus_alt,
       legend_click: true
     });
@@ -27,6 +27,9 @@ $(function() {
     // check if submit is a global action or one line action
     $('input[type=submit]', this).click(function() {
       var keyword = $(this).attr('name');
+      if (!keyword) {
+        return true;
+      }
       var maction = keyword.match(rxActionType);
       var action = maction[0];
       var mvalues = keyword.match(rxActionValue);

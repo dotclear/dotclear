@@ -68,9 +68,9 @@ jQuery.fn.enableShiftClick = function() {
 };
 jQuery.fn.toggleWithLegend = function(target, s) {
   var defaults = {
-    img_on_src: dotclear.img_plus_src,
+    img_on_txt: dotclear.img_plus_txt,
     img_on_alt: dotclear.img_plus_alt,
-    img_off_src: dotclear.img_minus_src,
+    img_off_txt: dotclear.img_minus_txt,
     img_off_alt: dotclear.img_minus_alt,
     unfolded_sections: dotclear.unfolded_sections,
     hide: true,
@@ -95,12 +95,12 @@ jQuery.fn.toggleWithLegend = function(target, s) {
   var toggle = function(i, speed) {
     speed = speed || 0;
     if (p.hide) {
-      $(i).get(0).src = p.img_on_src;
-      $(i).get(0).alt = p.img_on_alt;
+      $(i).get(0).value = p.img_on_txt;
+      $(i).get(0).setAttribute('aria-label', p.img_on_alt);
       target.addClass('hide');
     } else {
-      $(i).get(0).src = p.img_off_src;
-      $(i).get(0).alt = p.img_off_alt;
+      $(i).get(0).value = p.img_off_txt;
+      $(i).get(0).setAttribute('aria-label', p.img_off_alt);
       target.removeClass('hide');
       if (p.fn) {
         p.fn.apply(target);
@@ -121,22 +121,18 @@ jQuery.fn.toggleWithLegend = function(target, s) {
     p.hide = !p.hide;
   };
   return this.each(function() {
-    var i = document.createElement('img');
-    i.src = p.img_off_src;
-    i.alt = p.img_off_alt;
-    var a = document.createElement('a');
-    a.href = '#';
-    $(a).append(i);
-    $(a).css({
-      border: 'none',
-      outline: 'none'
-    });
-    var ctarget = p.legend_click ? this : a;
+    var b = document.createElement('input');
+    b.setAttribute('type', 'submit');
+    b.className = 'details-cmd';
+    b.value = p.img_on_txt;
+    b.setAttribute('aria-label', p.img_off_alt);
+
+    var ctarget = p.legend_click ? this : b;
     $(ctarget).css('cursor', 'pointer');
     if (p.legend_click) {
       $(ctarget).find('label').css('cursor', 'pointer');
     }
-    $(ctarget).click(function() {
+    $(ctarget).click(function(e) {
       if (p.user_pref && set_user_pref) {
         if (p.hide ^ p.reverse_user_pref) {
           jQuery.post('services.php', {
@@ -157,11 +153,12 @@ jQuery.fn.toggleWithLegend = function(target, s) {
           expires: -1
         });
       }
-      toggle(i, p.speed);
+      toggle(b, p.speed);
+      e.preventDefault();
       return false;
     });
-    toggle($(i).get(0));
-    $(this).prepend(' ').prepend(a);
+    toggle($(b).get(0));
+    $(this).prepend(b);
   });
 };
 (function($) {
@@ -179,14 +176,14 @@ jQuery.fn.toggleWithLegend = function(target, s) {
     });
   };
   var singleExpander = function singleExpander(line) {
-    $('<input type="image" src="' + dotclear.img_plus_src + '" alt="' + dotclear.img_plus_alt + '"/>').click(function(e) {
+    $('<input class="details-cmd" type="submit" value="' + dotclear.img_plus_txt + '" aria-label="' + dotclear.img_plus_alt + '"/>').click(function(e) {
       toggleArrow(this);
       $.expandContent.options.callback.call(this, line);
       e.preventDefault();
     }).prependTo($(line).children().get(0)); // first td
   };
   var multipleExpander = function multipleExpander(line, lines) {
-    $('<input type="image" src="' + dotclear.img_plus_src + '" alt="' + dotclear.img_plus_alt + '"/>').click(function(e) {
+    $('<input class="details-cmd" type="submit" value="' + dotclear.img_plus_txt + '" aria-label="' + dotclear.img_plus_alt + '"/>').click(function(e) {
       var that = this;
       var action = toggleArrow(this);
       lines.each(function() {
@@ -199,18 +196,18 @@ jQuery.fn.toggleWithLegend = function(target, s) {
   var toggleArrow = function toggleArrow(button, action) {
     action = action || '';
     if (action == '') {
-      if (button.alt == dotclear.img_plus_alt) {
+      if (button.getAttribute('aria-label') == dotclear.img_plus_alt) {
         action = 'open';
       } else {
         action = 'close';
       }
     }
     if (action == 'open') {
-      button.src = dotclear.img_minus_src;
-      button.alt = dotclear.img_minus_alt;
+      button.value = dotclear.img_minus_txt;
+      button.setAttribute('aria-label', dotclear.img_minus_alt);
     } else {
-      button.src = dotclear.img_plus_src;
-      button.alt = dotclear.img_plus_alt;
+      button.value = dotclear.img_plus_txt;
+      button.setAttribute('aria-label', dotclear.img_plus_alt);
     }
     return action;
   };
@@ -220,9 +217,9 @@ jQuery.fn.helpViewer = function() {
     return this;
   }
   var p = {
-    img_on_src: dotclear.img_plus_src,
+    img_on_txt: dotclear.img_plus_txt,
     img_on_alt: dotclear.img_plus_alt,
-    img_off_src: dotclear.img_minus_src,
+    img_off_txt: dotclear.img_minus_txt,
     img_off_alt: dotclear.img_minus_alt
   };
   var This = this;
@@ -246,10 +243,10 @@ jQuery.fn.helpViewer = function() {
     }
   };
   var textToggler = function(o) {
-    var i = $('<img src="' + p.img_on_src + '" alt="' + p.img_on_alt + '" />');
+    var b = $('<input class="details-cmd" type="submit" value="' + p.img_on_txt + '" aria-label="' + p.img_on_alt + '"/>');
     o.css('cursor', 'pointer');
     var hide = true;
-    o.prepend(' ').prepend(i);
+    o.prepend(' ').prepend(b);
     o.click(function() {
       $(this).nextAll().each(function() {
         if ($(this).is('h4')) {
@@ -260,11 +257,13 @@ jQuery.fn.helpViewer = function() {
         return true;
       });
       hide = !hide;
-      var img = $(this).find('img');
+      var img = $(this).find('input.details-cmd');
       if (!hide) {
-        img.attr('src', p.img_off_src);
+        img.attr('value', p.img_off_txt);
+        img.attr('aria-label', p.img_off_alt);
       } else {
-        img.attr('src', p.img_on_src);
+        img.attr('value', p.img_on_txt);
+        img.attr('aria-label', p.img_on_alt);
       }
     });
   };
@@ -277,8 +276,9 @@ jQuery.fn.helpViewer = function() {
   sizeBox();
   var img = $('<p id="help-button"><span><a href="">' + dotclear.msg.help + '</a></span></p>');
   var select = $();
-  img.click(function() {
+  img.click(function(e) {
     return toggle();
+    e.preventDefault();
   });
   $('#content').append(img);
   // listen for scroll

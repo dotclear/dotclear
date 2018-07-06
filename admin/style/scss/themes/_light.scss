@@ -216,7 +216,10 @@ $gotop-color:                     $gray-very-dark;                    // #323232
 $gotop-background:                transparent;
 $gotop-border:                    none;
 
-$addmeta-background:              tint($light-blue, 10%);             // #abd0eb
+$addmeta-color:                   $black;                             // #000000
+$addmeta-background:              transparent;
+$addmeta-focus-color:             $black;                             // #000000
+$addmeta-focus-background:        tint($light-blue, 10%);             // #abd0eb
 
 // Messages
 

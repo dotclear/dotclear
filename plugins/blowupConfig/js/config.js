@@ -68,26 +68,10 @@ $(function() {
 
   // Code import
   var e = $('#bu_export_content');
-  e.toggle();
 
-  var img = document.createElement('img');
-  img.src = dotclear.img_plus_src;
-  img.alt = dotclear.img_plus_alt;
-  img.className = 'expand';
-  $(img).css('cursor', 'pointer');
-  $(document.createTextNode(' ')).prependTo('#bu_export');
-  $(img).prependTo('#bu_export');
-
-  $(img).click(function() {
-    if (e.css('display') == 'none') {
-      this.src = dotclear.img_minus_src;
-      this.alt = dotclear.img_minus_alt;
-    } else {
-      this.src = dotclear.img_plus_src;
-      this.alt = dotclear.img_plus_alt;
-    }
-    e.toggle();
-  });
+  $('#bu_export').toggleWithLegend($(e),{
+      legend_click: true
+  })
 
   var a = document.createElement('a');
   a.href = '#';

@@ -7,13 +7,14 @@ $(function() {
     var bar = $('<div>').addClass('bloc-toggler');
     $(this).after(
       $(bar).toggleWithLegend($(this).parent().children('.toggle-bloc'), {
-        img_on_src: dotclear.img_plus_theme_src,
+        img_on_txt: dotclear.img_plus_theme_txt,
         img_on_alt: dotclear.img_plus_theme_alt,
-        img_off_src: dotclear.img_minus_theme_src,
+        img_off_txt: dotclear.img_minus_theme_txt,
         img_off_alt: dotclear.img_minus_theme_alt,
         legend_click: true
       }));
     $(this).children('img').click(function() {
+      // Click on theme thumbnail
       $(this).parent().parent().children('.bloc-toggler').click();
     });
   });
@@ -42,6 +43,9 @@ $(function() {
     // check if submit is a global action or one line action
     $('input[type=submit]', this).click(function() {
       var keyword = $(this).attr('name');
+      if (!keyword) {
+        return true;
+      }
       var maction = keyword.match(rxActionType);
       var action = maction[0];
       var mvalues = keyword.match(rxActionValue);
