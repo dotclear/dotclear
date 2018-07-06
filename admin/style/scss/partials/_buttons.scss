@@ -35,15 +35,6 @@ a.button {
 	vertical-align: middle;
 }
 
-/* Boutons javascript (dépliage/repliage, …) */
-
-.void-btn {
-	border: none;
-	border-radius: 0;
-	padding: 0;
-}
-
-
 /* validation */
 
 input[type=submit],
@@ -208,6 +199,28 @@ button[type=submit].disabled:hover {
 	border: 1px solid $button-disabled-border;
 }
 
+/* Boutons javascript (dépliage/repliage, …) */
+
+.void-btn {
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+input.details-cmd {
+  font-size: 0.9em;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0 5px 0 0;
+  color: currentColor;
+  background: transparent;
+  &:hover,
+  &:focus {
+    background: transparent;
+    color: $input-focus;
+  }
+}
 
 /* specific buttons */
 
@@ -259,7 +272,8 @@ a.metaGetMore {
 	border: none;
 	border-radius: 0;
 	padding: 0;
-	background: none;
+  color: $addmeta-color;
+	background: $addmeta-background;
 }
 
 .addMeta button:not(.metaGetMore),
@@ -268,6 +282,7 @@ a.metaGetMore {
 	margin-bottom: 2px;
 	&:hover,
 	&:focus {
-    background: $addmeta-background;
+    color: $addmeta-focus-color;
+    background: $addmeta-focus-background;
 	}
 }

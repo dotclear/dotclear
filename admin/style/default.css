@@ -1180,12 +1180,6 @@ input[type=submit] {
 a.button {
   vertical-align: middle; }
 
-/* Boutons javascript (dépliage/repliage, …) */
-.void-btn {
-  border: none;
-  border-radius: 0;
-  padding: 0; }
-
 /* validation */
 input[type=submit],
 button[type=submit],
@@ -1328,6 +1322,25 @@ button[type=submit].disabled:hover {
   background: #ececec;
   border: 1px solid #cbced1; }
 
+/* Boutons javascript (dépliage/repliage, …) */
+.void-btn {
+  border: none;
+  border-radius: 0;
+  padding: 0; }
+
+input.details-cmd {
+  font-size: 0.9em;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0 5px 0 0;
+  color: currentColor;
+  background: transparent;
+  }
+  input.details-cmd:hover, input.details-cmd:focus {
+    background: transparent;
+    color: #bee74b; }
+
 /* specific buttons */
 .checkbox-helper,
 #gototop,
@@ -1379,7 +1392,8 @@ a.metaGetMore {
   border: none;
   border-radius: 0;
   padding: 0;
-  background: none; }
+  color: #000;
+  background: transparent; }
 
 .addMeta button:not(.metaGetMore),
 .addMeta a:not(.metaGetMore) {
@@ -1388,6 +1402,7 @@ a.metaGetMore {
   .addMeta button:not(.metaGetMore):hover, .addMeta button:not(.metaGetMore):focus,
   .addMeta a:not(.metaGetMore):hover,
   .addMeta a:not(.metaGetMore):focus {
+    color: #000;
     background: #abd0eb; }
 
 .warn,
@@ -1984,11 +1999,12 @@ td.expand {
 
 a.form-control {
   display: none;
-  background: url(../images/expand.png) no-repeat 4px center;
-  padding-left: 20px;
   color: #000; }
-  a.form-control.open {
-    background: url(../images/hide.png) no-repeat 4px center; }
+  a.form-control::before {
+    content: "►";
+    margin-right: 5px; }
+  a.form-control.open::before {
+    content: "▼"; }
 
 #filters-form {
   border: 1px solid #a2cbe9;

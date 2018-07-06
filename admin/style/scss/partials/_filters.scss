@@ -1,10 +1,14 @@
 a.form-control {
 	display: none;
-	background: url(../images/expand.png) no-repeat 4px center;
-	padding-left: 20px;
 	color: $form-control-color;
+  &::before {
+    content: "►";
+    margin-right: 5px;
+  }
 	&.open {
-		background: url(../images/hide.png) no-repeat 4px center;
+    &::before {
+      content: "▼";
+    }
 	}
 }
 

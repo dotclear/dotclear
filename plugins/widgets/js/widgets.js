@@ -12,34 +12,35 @@ dotclear.postExpander = function(line) {
   var br = title.find('br');
   title.empty().append(order).append(link).append(tools).append(br);
 
-  var img = document.createElement('img');
-  img.src = dotclear.img_plus_src;
-  img.alt = dotclear.img_plus_alt;
-  img.className = 'expand';
-  $(img).css('cursor', 'pointer');
-  img.onclick = function() {
+  var b = document.createElement('input');
+  b.setAttribute('type', 'submit');
+  b.className = 'details-cmd';
+  b.value = dotclear.img_plus_txt;
+  b.setAttribute('aria-label', dotclear.img_plus_alt);
+  b.onclick = function(e) {
+    e.preventDefault();
     dotclear.viewPostContent($(this).parents('li'));
   };
   link.click(function(e) {
     e.preventDefault();
     dotclear.viewPostContent($(this).parents('li'));
   });
-  title.prepend(img);
+  title.prepend(b);
 };
 
 dotclear.viewPostContent = function(line, action) {
   action = action || 'toogle';
-  var img = line.find('.expand');
-  var isopen = img.attr('alt') == dotclear.img_plus_alt;
+  var img = line.find('.details-cmd');
+  var isopen = img.attr('aria-label') == dotclear.img_plus_alt;
 
   if (action == 'close' || (action == 'toogle' && !isopen)) {
     line.find('.widgetSettings').hide();
-    img.attr('src', dotclear.img_plus_src);
-    img.attr('alt', dotclear.img_plus_alt);
+    img.attr('value', dotclear.img_plus_txt);
+    img.attr('aria-label', dotclear.img_plus_alt);
   } else if (action == 'open' || (action == 'toogle' && isopen)) {
     line.find('.widgetSettings').show();
-    img.attr('src', dotclear.img_minus_src);
-    img.attr('alt', dotclear.img_minus_alt);
+    img.attr('value', dotclear.img_minus_txt);
+    img.attr('aria-label', dotclear.img_minus_alt);
   }
 
 };
