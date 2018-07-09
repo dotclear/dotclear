@@ -257,7 +257,7 @@ if (!empty($extraPlugins) && count($extraPlugins) > 0) {
             e.editor.document.$.documentElement.style.setProperty('--html-font-size',dotclear_htmlFontSize);
         }
 
-        if ($('label[for="post_excerpt"] a img').attr('src') == dotclear.img_minus_src) {
+        if ($('label[for="post_excerpt"] input').attr('aria-label') == dotclear.img_minus_alt) {
             $('#cke_post_excerpt').removeClass('hide');
         } else {
             $('#cke_post_excerpt').addClass('hide');

@@ -391,9 +391,8 @@ class dcPage
         echo '<p id="gototop"><a href="#wrapper">' . __('Page top') . '</a></p>' . "\n";
 
         $figure = "
-   /\_/\
-  (='.'=)
-  (\")-(\")";
+  ♥‿♥
+  ";
 
         echo
             '<div id="footer" role="contentinfo">' .
@@ -755,15 +754,19 @@ class dcPage
         self::jsVar('dotclear.nonce', $GLOBALS['core']->getNonce()) .
 
         self::jsVar('dotclear.img_plus_src', 'images/expand.png') .
+        self::jsVar('dotclear.img_plus_txt', '►') .
         self::jsVar('dotclear.img_plus_alt', __('uncover')) .
         self::jsVar('dotclear.img_minus_src', 'images/hide.png') .
+        self::jsVar('dotclear.img_minus_txt', '▼') .
         self::jsVar('dotclear.img_minus_alt', __('hide')) .
         self::jsVar('dotclear.img_menu_on', 'images/menu_on.png') .
         self::jsVar('dotclear.img_menu_off', 'images/menu_off.png') .
 
         self::jsVar('dotclear.img_plus_theme_src', 'images/plus-theme.png') .
+        self::jsVar('dotclear.img_plus_theme_txt', '►') .
         self::jsVar('dotclear.img_plus_theme_alt', __('uncover')) .
         self::jsVar('dotclear.img_minus_theme_src', 'images/minus-theme.png') .
+        self::jsVar('dotclear.img_minus_theme_txt', '▼') .
         self::jsVar('dotclear.img_minus_theme_alt', __('hide')) .
 
         self::jsVar('dotclear.msg.help',
