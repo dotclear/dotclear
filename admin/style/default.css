@@ -1335,8 +1335,7 @@ input.details-cmd {
   padding: 0;
   margin: 0 5px 0 0;
   color: currentColor;
-  background: transparent;
-  }
+  background: transparent; }
   input.details-cmd:hover, input.details-cmd:focus {
     background: transparent;
     color: #bee74b; }
