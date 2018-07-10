@@ -103,6 +103,10 @@ textarea, input:not([type=file]):invalid, input:not([type=file]):invalid:placeho
   border-style: solid;
   border-color: $input-border;
 }
+input[type=file] {
+  color: $input-file-color;
+  background: $input-file-background;
+}
 // Special for invalid but not required fields
 input:invalid:not(:required), textarea:invalid:not(:required), select:invalid:not(:required), input:not([type=file]):invalid:not(:focus):not(:required) {
   color: $invalid-input-color;

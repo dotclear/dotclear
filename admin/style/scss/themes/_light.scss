@@ -169,6 +169,9 @@ $input-border:                    shade($gray-very-light, 10%);       // #dbdbdb
 $input-shadow:                    $gray-very-light;                   // #f3f3f3
 $input-focus:                     $link-outline;                      // #bee74b
 
+$input-file-color:                $body-color;
+$input-file-background:           $body-background;
+
 $form-note-color:                 $gray-dark;                         // #676e78
 
 $error-background:                $error;                             // #ffbaba
@@ -278,7 +281,7 @@ $tooltip-color:                   $tooltip;                           // #910ed3
 $tooltip-background:              rgba($white, 0.9);
 
 // Application pages:
-// - Auth
+// - Auth (white background page)
 
 $login-fieldset-background:       $white;                             // #ffffff
 $login-fieldset-border:           $success-alt;                       // #9bca1c
@@ -290,6 +293,7 @@ $index-link-border:               $gray-semi-dark;                    // #868686
 $index-icon-background:           tint($gray-very-light, 50%);        // #f9f9f9
 $index-icon-border:               shade($gray-very-light, 10%);       // #dbdbdb
 $index-icon-outline:              $link-outline;                      // #bee74b
+$index-icon-contrast:             100%;
 
 $quick-background:                $gray-very-light;                   // #f3f3f3
 $quick-border:                    shade($gray-very-light, 10%);       // #dbdbdb

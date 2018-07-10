@@ -28,6 +28,10 @@
 	background: transparent url('loader.gif') right center no-repeat;
 }
 
+.ac_odd {
+  background-color: $ac-results-background;
+}
+
 .ac_over {
   color: $ac-results-over;
   background-color: $ac-results-over-background;

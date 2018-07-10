@@ -33,6 +33,7 @@
 			border-radius: 8px;
 			border: 1px solid $index-icon-border;
 			display: inline-block;
+      filter: contrast($index-icon-contrast);
 		}
 		&:focus {
 			outline: 0;

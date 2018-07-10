@@ -40,6 +40,7 @@ $core->auth->user_prefs->addWorkspace('accessibility');
 $user_acc_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
 
 $core->auth->user_prefs->addWorkspace('interface');
+$user_ui_darkmode         = $core->auth->user_prefs->interface->darkmode;
 $user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
 $user_ui_hidemoreinfo     = $core->auth->user_prefs->interface->hidemoreinfo;
 $user_ui_hidehelpbutton   = $core->auth->user_prefs->interface->hidehelpbutton;
@@ -236,6 +237,7 @@ if (isset($_POST['user_editor'])) {
 
         # Update user prefs
         $core->auth->user_prefs->accessibility->put('nodragdrop', !empty($_POST['user_acc_nodragdrop']), 'boolean');
+        $core->auth->user_prefs->interface->put('darkmode', !empty($_POST['user_ui_darkmode']), 'boolean');
         $core->auth->user_prefs->interface->put('enhanceduploader', !empty($_POST['user_ui_enhanceduploader']), 'boolean');
         $core->auth->user_prefs->interface->put('hidemoreinfo', !empty($_POST['user_ui_hidemoreinfo']), 'boolean');
         $core->auth->user_prefs->interface->put('hidehelpbutton', !empty($_POST['user_ui_hidehelpbutton']), 'boolean');
@@ -525,6 +527,10 @@ echo
 echo
 '<div class="fieldset">' .
 '<h4 id="user_options_interface">' . __('Interface') . '</h4>' .
+
+'<p><label for="user_ui_darkmode" class="classic">' .
+form::checkbox('user_ui_darkmode', 1, $user_ui_darkmode) . ' ' .
+__('Activate dark mode') . '</label></p>' .
 
 '<p><label for="user_ui_enhanceduploader" class="classic">' .
 form::checkbox('user_ui_enhanceduploader', 1, $user_ui_enhanceduploader) . ' ' .

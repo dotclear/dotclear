@@ -2195,6 +2195,9 @@ msgstr "Mes options"
 msgid "Interface"
 msgstr "Interface"
 
+msgid "Activate dark mode"
+msgstr "Activer le mode sombre"
+
 msgid "Activate enhanced uploader in media manager"
 msgstr "Activer l'interface avancée de la médiathèque"
 

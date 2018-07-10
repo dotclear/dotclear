@@ -10,6 +10,7 @@
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
+$core->auth->user_prefs->addWorkspace('interface');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -20,9 +21,12 @@ dcPage::check('usage,contentadmin');
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bibliothèque de styles - Dotclear - 2.7</title>
     <link rel="icon" type="image/png" href="images/favicon96-login.png" />
-    <link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
-    <?php
-$core->auth->user_prefs->addWorkspace('interface');
+<?php
+if ($core->auth->user_prefs->interface->dark_mode) {
+    echo dcPage::cssLoad('style/default-dark.css');
+} else {
+    echo dcPage::cssLoad('style/default.css');
+}
 if ($core->auth->user_prefs->interface->htmlfontsize) {
     echo
     '<script type="text/javascript">' . "\n" .
