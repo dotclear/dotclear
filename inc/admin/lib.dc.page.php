@@ -164,9 +164,13 @@ class dcPage
         '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
         '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
-        '  <title>' . $title . ' - ' . html::escapeHTML($core->blog->name) . ' - ' . html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n" .
+        '  <title>' . $title . ' - ' . html::escapeHTML($core->blog->name) . ' - ' . html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n";
 
-        self::cssLoad('style/default.css');
+      if ($core->auth->user_prefs->interface->darkmode) {
+            echo self::cssLoad('style/default-dark.css');
+      } else {
+            echo self::cssLoad('style/default.css');
+      }
         if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
             echo self::cssLoad('style/default-rtl.css');
         }
@@ -432,9 +436,13 @@ class dcPage
         '  <title>' . $title . ' - ' . html::escapeHTML($core->blog->name) . ' - ' . html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n" .
 
         '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
-        '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n" .
+        '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
 
-        self::cssLoad('style/default.css');
+        if ($core->auth->user_prefs->interface->darkmode) {
+            echo self::cssLoad('style/default-dark.css');
+        } else {
+            echo self::cssLoad('style/default.css');
+        }
         if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
             echo self::cssLoad('style/default-rtl.css');
         }
