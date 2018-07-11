@@ -100,7 +100,15 @@ class dcNamespace
         return true;
     }
 
-    private function settingExists($id, $global = false)
+    /**
+     * Returns true if a setting exist, else false
+     *
+     * @param      string   $id      The identifier
+     * @param      boolean  $global  The global
+     *
+     * @return     boolean
+     */
+    public function settingExists($id, $global = false)
     {
         $array = $global ? 'global' : 'local';
         return isset($this->{$array . '_settings'}[$id]);

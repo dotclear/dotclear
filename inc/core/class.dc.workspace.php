@@ -104,6 +104,14 @@ class dcWorkspace
         return true;
     }
 
+    /**
+     * Returns true if a pref exist, else false
+     *
+     * @param      string   $id      The identifier
+     * @param      boolean  $global  The global
+     *
+     * @return     boolean
+     */
     public function prefExists($id, $global = false)
     {
         $array = $global ? 'global' : 'local';
