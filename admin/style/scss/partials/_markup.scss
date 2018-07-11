@@ -209,3 +209,14 @@ a:focus img {
 	border-bottom: none;
 	text-decoration: none;
 }
+
+a.outgoing img, .outgoing-js {
+  width: .75em;
+  filter: contrast($outgoing-link-filter);
+  #header & {
+    width: 1.25em;
+    padding: 0 0 0 .5em;
+    vertical-align: initial;
+    filter: contrast(100%);
+  }
+}

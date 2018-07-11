@@ -118,7 +118,7 @@ if ($core->auth->user_prefs->dashboard->doclinks) {
 
         foreach ($__resources['doc'] as $k => $v) {
             $doc_links .= '<li><a class="outgoing" href="' . $v . '" title="' . $k . '">' . $k .
-                ' <img src="images/outgoing-blue.png" alt="" /></a></li>';
+                ' <img src="images/outgoing-link.svg" alt="" /></a></li>';
         }
 
         $doc_links .= '</ul></div>';

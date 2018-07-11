@@ -182,7 +182,7 @@ if (!$step) {
         echo
         '<p class="static-msg">' . sprintf(__('Dotclear %s is available.'), $new_v) .
             ($version_info ? ' <a href="' . $version_info . '" class="outgoing" title="' . __('Information about this version') . '">(' .
-            __('Information about this version') . ')&nbsp;<img src="images/outgoing.png" alt=""/></a>' : '') .
+            __('Information about this version') . ')&nbsp;<img src="images/outgoing-link.svg" alt=""/></a>' : '') .
             '</p>';
         if (version_compare(phpversion(), $updater->getPHPVersion()) < 0) {
             echo

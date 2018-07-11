@@ -208,7 +208,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
             '<td class="nowrap">' . $rs->blog_id . '</td>' .
             '<td class="maximal">' . html::escapeHTML($rs->blog_name) . '</td>' .
             '<td class="nowrap"><a class="outgoing" href="' . html::escapeHTML($rs->blog_url) . '">' . html::escapeHTML($rs->blog_url) .
-            ' <img src="images/outgoing-blue.png" alt="" /></a></td>' .
+            ' <img src="images/outgoing-link.svg" alt="" /></a></td>' .
             '<td class="nowrap">' . $core->countBlogPosts($rs->blog_id) . '</td>' .
                 '<td class="status">' . $img_status . '</td>' .
                 '</tr>';

@@ -229,7 +229,7 @@ class dcPage
         '<form action="' . $core->adminurl->get("admin.home") . '" method="post" id="top-info-blog">' .
         $blog_box .
         '<p><a href="' . $core->blog->url . '" class="outgoing" title="' . __('Go to site') .
-        '">' . __('Go to site') . '<img src="images/outgoing.png" alt="" /></a>' .
+        '">' . __('Go to site') . '<img src="images/outgoing-link.svg" alt="" /></a>' .
         '</p></form>' .
         '<ul id="top-info-user">' .
         '<li><a class="' . (preg_match('/' . preg_quote($core->adminurl->get('admin.home')) . '$/', $_SERVER['REQUEST_URI']) ? ' active' : '') . '" href="' . $core->adminurl->get("admin.home") . '">' . __('My dashboard') . '</a></li>' .

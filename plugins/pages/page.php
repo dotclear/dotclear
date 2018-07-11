@@ -359,7 +359,7 @@ if (!empty($_GET['xconv'])) {
 }
 
 if ($post_id && $post->post_status == 1) {
-    echo '<p><a class="onblog_link outgoing" href="' . $post->getURL() . '" title="' . html::escapeHTML($post_title) . '">' . __('Go to this page on the site') . ' <img src="images/outgoing-blue.png" alt="" /></a></p>';
+    echo '<p><a class="onblog_link outgoing" href="' . $post->getURL() . '" title="' . html::escapeHTML($post_title) . '">' . __('Go to this page on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
 }
 
 echo '';
