@@ -751,7 +751,7 @@ class adminBlogList extends adminGenericList
             '<td class="nowrap">' .
             '<a class="outgoing" href="' .
             html::escapeHTML($this->rs->blog_url) . '">' . html::escapeHTML($this->rs->blog_url) .
-            ' <img src="images/outgoing-blue.png" alt="" /></a></td>',
+            ' <img src="images/outgoing-link.svg" alt="" /></a></td>',
             'posts'  =>
             '<td class="nowrap count">' .
             $this->core->countBlogPosts($this->rs->blog_id) .

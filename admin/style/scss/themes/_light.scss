@@ -149,6 +149,8 @@ $link-color:                      $link;                              // #2373a8
 $link-border:                     $gray-semi-dark;                    // #868686
 $discrete-link-color:             $gray-very-dark;                    // #323232
 
+$outgoing-link-filter:            50%;
+
 // Forms
 
 $fieldset-border:                 tint($gray-dark, 66%);              // #c5c5c5

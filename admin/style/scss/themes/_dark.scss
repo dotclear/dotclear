@@ -150,6 +150,8 @@ $link-color:                      $link;
 $link-border:                     $gray-semi-dark;
 $discrete-link-color:             $body-color;
 
+$outgoing-link-filter:            100%;
+
 // Forms
 
 $fieldset-border:                 tint($gray-dark, 66%);

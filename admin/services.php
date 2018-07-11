@@ -53,7 +53,7 @@ class dcRestMethods
                     $i   = 1;
                     foreach ($feed->items as $item) {
                         $dt = isset($item->link) ? '<a href="' . $item->link . '" class="outgoing" title="' . $item->title . '">' .
-                        $item->title . ' <img src="images/outgoing-blue.png" alt="" /></a>' : $item->title;
+                        $item->title . ' <img src="images/outgoing-link.svg" alt="" /></a>' : $item->title;
 
                         if ($i < 3) {
                             $ret .=
