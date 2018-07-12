@@ -22,7 +22,7 @@ $core->auth->user_prefs->addWorkspace('interface');
     <title>Bibliothèque de styles - Dotclear - 2.7</title>
     <link rel="icon" type="image/png" href="images/favicon96-login.png" />
 <?php
-if ($core->auth->user_prefs->interface->dark_mode) {
+if ($core->auth->user_prefs->interface->darkmode) {
     echo dcPage::cssLoad('style/default-dark.css');
 } else {
     echo dcPage::cssLoad('style/default.css');
