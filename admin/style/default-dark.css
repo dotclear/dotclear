@@ -3098,6 +3098,16 @@ a.onblog_link {
   border-radius: 3px;
   font-weight: bold; }
 
+/* ------------------------------------------------------------------------- indicateurs */
+.mark-attach {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 12px;
+  height: 12px;
+  padding-left: 12px;
+  background: url("../images/attach.svg") no-repeat;
+  filter: hue-rotate(260deg) saturate(100) saturate(0.2) brightness(220%); }
+
 /* ---------------------------------------------------------------- utilisables partout  */
 .legible {
   font-size: 1.16em;

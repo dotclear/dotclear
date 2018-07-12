@@ -228,6 +228,26 @@ a.onblog_link {
 	font-weight: bold;
 }
 
+/* ------------------------------------------------------------------------- indicateurs */
+
+.mark {}
+
+.mark-published {}
+.mark-unpublished {}
+.mark-scheduled {}
+.mark-pending {}
+.mark-locked {}
+.mark-selected {}
+.mark-hidden {}
+.mark-attach {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 12px;
+  height: 12px;
+  padding-left: 12px;
+  background: $mark-attach-img no-repeat;
+  filter: $mark-attach-filter;
+}
 
 /* ---------------------------------------------------------------- utilisables partout  */
 
