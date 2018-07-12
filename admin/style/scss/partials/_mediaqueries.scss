@@ -17,6 +17,12 @@
   #wrapper {
     background: $wrapper-background;
   }
+  .modules {
+    th.module-desc,
+    td.module-desc {
+      display: none;  // Module description is also in title of the raw
+    }
+  }
 }
 
 @media screen and (max-width: $s-screen) {
