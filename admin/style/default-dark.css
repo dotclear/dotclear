@@ -3226,7 +3226,11 @@ ul.from-left {
       background: #86888c; }
 
   #wrapper {
-    background: #272b30; } }
+    background: #272b30; }
+
+  .modules th.module-desc,
+  .modules td.module-desc {
+    display: none; } }
 @media screen and (max-width: 44em) {
   #help-button {
     background-color: #9ac123;

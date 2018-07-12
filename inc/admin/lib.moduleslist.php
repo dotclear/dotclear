@@ -563,7 +563,7 @@ class adminModulesList
 
         if (in_array('desc', $cols)) {
             echo
-            '<th class="nowrap" scope="col">' . __('Details') . '</th>';
+            '<th class="nowrap module-desc" scope="col">' . __('Details') . '</th>';
         }
 
         if (in_array('distrib', $cols)) {
@@ -600,7 +600,9 @@ class adminModulesList
             }
 
             echo
-            '<tr class="line" id="' . html::escapeHTML($this->list_id) . '_m_' . html::escapeHTML($id) . '">';
+            '<tr class="line" id="' . html::escapeHTML($this->list_id) . '_m_' . html::escapeHTML($id) . '"' .
+                (in_array('desc', $cols) ? ' title="' . html::escapeHTML(__($module['desc'])) . '" ' : '') .
+                '>';
 
             $tds = 0;
 
