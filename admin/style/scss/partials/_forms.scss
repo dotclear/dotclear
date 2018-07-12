@@ -82,7 +82,7 @@ input[type=time],
 input[type=file],
 input[type=number],
 textarea, select, input:not([type=file]):invalid, input:not([type=file]):invalid:placeholder-shown {
-  color: $input-color;
+//  color: $input-color;
   box-shadow: 1px 1px 2px $input-shadow inset;
   padding: 3px;
   vertical-align: top;
@@ -98,14 +98,14 @@ input[type=time],
 input[type=file],
 input[type=number],
 textarea, input:not([type=file]):invalid, input:not([type=file]):invalid:placeholder-shown {
-  background: $input-background;
+//  background: $input-background;
   border-width: 1px;
   border-style: solid;
   border-color: $input-border;
 }
 input[type=file] {
-  color: $input-file-color;
-  background: $input-file-background;
+//  color: $input-file-color;
+//  background: $input-file-background;
 }
 // Special for invalid but not required fields
 input:invalid:not(:required), textarea:invalid:not(:required), select:invalid:not(:required), input:not([type=file]):invalid:not(:focus):not(:required) {

@@ -999,7 +999,6 @@ input[type=time],
 input[type=file],
 input[type=number],
 textarea, select, input:not([type=file]):invalid, input:not([type=file]):invalid:placeholder-shown {
-  color: #000;
   box-shadow: 1px 1px 2px #f3f3f3 inset;
   padding: 3px;
   vertical-align: top; }
@@ -1015,14 +1014,9 @@ input[type=time],
 input[type=file],
 input[type=number],
 textarea, input:not([type=file]):invalid, input:not([type=file]):invalid:placeholder-shown {
-  background: #f9f9f9;
   border-width: 1px;
   border-style: solid;
   border-color: #dbdbdb; }
-
-input[type=file] {
-  color: #323232;
-  background: #fff; }
 
 input:invalid:not(:required), textarea:invalid:not(:required), select:invalid:not(:required), input:not([type=file]):invalid:not(:focus):not(:required) {
   color: #000;
