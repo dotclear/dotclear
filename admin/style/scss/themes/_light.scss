@@ -417,6 +417,9 @@ $step-border:                     tint($gray-dark, 66%);              // #c5c5c5
 
 $offline:                         $gray-dark;                         // #676e78
 
+$mark-attach-img:                 url('../images/attach.svg');
+$mark-attach-filter:              hue-rotate(300deg) saturate(.64);
+
 // Utils
 
 $color-picker-border:             $black;                             // #000000

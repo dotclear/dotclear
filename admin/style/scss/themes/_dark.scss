@@ -418,6 +418,9 @@ $step-border:                     tint($gray-dark, 66%);
 
 $offline:                         $gray-semi-dark;
 
+$mark-attach-img:                 url('../images/attach.svg');
+$mark-attach-filter:              hue-rotate(260deg) saturate(100) saturate(.2) brightness(220%);
+
 // Utils
 
 $color-picker-border:             $black;

@@ -73,42 +73,42 @@ class adminPagesList extends adminGenericList
 
     private function postLine($count, $checked)
     {
-        $img       = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
+        $img       = '<img alt="%1$s" title="%1$s" src="images/%2$s" class="mark mark-%3$s" />';
         $sts_class = '';
         switch ($this->rs->post_status) {
             case 1:
-                $img_status = sprintf($img, __('Published'), 'check-on.png');
+                $img_status = sprintf($img, __('Published'), 'check-on.png', 'published');
                 $sts_class  = 'sts-online';
                 break;
             case 0:
-                $img_status = sprintf($img, __('Unpublished'), 'check-off.png');
+                $img_status = sprintf($img, __('Unpublished'), 'check-off.png', 'unpublished');
                 $sts_class  = 'sts-offline';
                 break;
             case -1:
-                $img_status = sprintf($img, __('Scheduled'), 'scheduled.png');
+                $img_status = sprintf($img, __('Scheduled'), 'scheduled.png', 'scheduled');
                 $sts_class  = 'sts-scheduled';
                 break;
             case -2:
-                $img_status = sprintf($img, __('Pending'), 'check-wrn.png');
+                $img_status = sprintf($img, __('Pending'), 'check-wrn.png', 'pending');
                 $sts_class  = 'sts-pending';
                 break;
         }
 
         $protected = '';
         if ($this->rs->post_password) {
-            $protected = sprintf($img, __('Protected'), 'locker.png');
+            $protected = sprintf($img, __('Protected'), 'locker.png', 'locked');
         }
 
         $selected = '';
         if ($this->rs->post_selected) {
-            $selected = sprintf($img, __('Hidden'), 'hidden.png');
+            $selected = sprintf($img, __('Hidden'), 'hidden.png', 'hidden');
         }
 
         $attach   = '';
         $nb_media = $this->rs->countMedia();
         if ($nb_media > 0) {
             $attach_str = $nb_media == 1 ? __('%d attachment') : __('%d attachments');
-            $attach     = sprintf($img, sprintf($attach_str, $nb_media), 'attach.png');
+            $attach     = sprintf($img, sprintf($attach_str, $nb_media), 'attach.png', 'attach');
         }
 
         $res = '<tr class="line ' . ($this->rs->post_status != 1 ? 'offline ' : '') . $sts_class . '"' .
