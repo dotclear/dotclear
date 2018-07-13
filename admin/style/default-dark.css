@@ -1068,8 +1068,7 @@ textarea {
 input[type=checkbox], input[type=radio], input[type=file] {
   border: none;
   margin: 0 .33em 0 0;
-  padding: 0;
-  background: transparent; }
+  padding: 0; }
 
 input + input[type=checkbox] {
   margin-left: .33em; }
@@ -1946,8 +1945,6 @@ tr.line select {
   box-shadow: none; }
 tr.line select {
   width: 6em; }
-tr.line input[type=text] {
-  background: #c9cbcf; }
 tr.line:hover {
   background: #4c4d4f; }
 tr.line:focus-within {
