@@ -24,6 +24,7 @@ $_menu['Plugins']->addItem(__('Antispam'),
 $core->addBehavior('coreAfterCommentUpdate', array('dcAntispam', 'trainFilters'));
 $core->addBehavior('adminAfterCommentDesc', array('dcAntispam', 'statusMessage'));
 $core->addBehavior('adminDashboardIcons', array('dcAntispam', 'dashboardIcon'));
+$core->addBehavior('adminDashboardHeaders', array('dcAntispam', 'dashboardHeaders'));
 
 $core->addBehavior('adminDashboardFavorites', 'antispamDashboardFavorites');
 $core->addBehavior('adminDashboardFavsIcon', 'antispamDashboardFavsIcon');

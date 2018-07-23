@@ -9,6 +9,8 @@
 
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
+$core->rest->addFunction('getPostsCount', array('dcRestMethods', 'getPostsCount'));
+$core->rest->addFunction('getCommentsCount', array('dcRestMethods', 'getCommentsCount'));
 $core->rest->addFunction('checkNewsUpdate', array('dcRestMethods', 'checkNewsUpdate'));
 $core->rest->addFunction('checkCoreUpdate', array('dcRestMethods', 'checkCoreUpdate'));
 $core->rest->addFunction('getPostById', array('dcRestMethods', 'getPostById'));
@@ -28,6 +30,40 @@ $core->rest->serve();
 /* Common REST methods */
 class dcRestMethods
 {
+    /**
+     * Serve method to get number of posts (whatever are their status) for current blog.
+     *
+     * @param     core     <b>dcCore</b>     dcCore instance
+     * @param     get     <b>array</b>     cleaned $_GET
+     */
+    public static function getPostsCount($core, $get)
+    {
+        $count = $core->blog->getPosts(array(), true)->f(0);
+        $str   = sprintf(__('%d post', '%d posts', $count), $count);
+
+        $rsp      = new xmlTag('count');
+        $rsp->ret = $str;
+
+        return $rsp;
+    }
+
+    /**
+     * Serve method to get number of comments (whatever are their status) for current blog.
+     *
+     * @param     core     <b>dcCore</b>     dcCore instance
+     * @param     get     <b>array</b>     cleaned $_GET
+     */
+    public static function getCommentsCount($core, $get)
+    {
+        $count = $core->blog->getComments(array(), true)->f(0);
+        $str   = sprintf(__('%d comment', '%d comments', $count), $count);
+
+        $rsp      = new xmlTag('count');
+        $rsp->ret = $str;
+
+        return $rsp;
+    }
+
     public static function checkNewsUpdate($core, $get)
     {
         # Dotclear news

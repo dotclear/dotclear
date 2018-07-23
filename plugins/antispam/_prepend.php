@@ -25,3 +25,12 @@ $core->spamfilters = array('dcFilterIP', 'dcFilterIpLookup', 'dcFilterWords', 'd
 
 $core->url->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', array('dcAntispamURL', 'spamFeed'));
 $core->url->register('hamfeed', 'hamfeed', '^hamfeed/(.+)$', array('dcAntispamURL', 'hamFeed'));
+
+if (!defined('DC_CONTEXT_ADMIN')) {return false;}
+
+// Admin mode
+
+$__autoload['dcAntispamRest'] = dirname(__FILE__) . '/_services.php';
+
+// Register REST methods
+$core->rest->addFunction('getSpamsCount', array('dcAntispamRest', 'getSpamsCount'));

@@ -1,6 +1,62 @@
 /*global $, dotclear, jsToolBar */
 'use strict';
 
+dotclear.dbCommentsCount = function() {
+  var params = {
+    f: 'getCommentsCount',
+    xd_check: dotclear.nonce,
+  };
+  $.get('services.php', params, function(data) {
+    if ($('rsp[status=failed]', data).length > 0) {
+      // For debugging purpose only:
+      // console.log($('rsp',data).attr('message'));
+      window.console.log('Dotclear REST server error');
+    } else {
+      var nb = $('rsp>count', data).attr('ret');
+      if (nb != dotclear.dbCommentsCount_Counter) {
+        // First pass or counter changed
+        var icon = $('#dashboard-main #icons p a[href="comments.php"]');
+        if (icon.length) {
+          // Update count if exists
+          var nb_label = icon.children('span.db-icon-title');
+          if (nb_label.length) {
+            nb_label.text(nb);
+          }
+        }
+        // Store current counter
+        dotclear.dbCommentsCount_Counter = nb;
+      }
+    }
+  });
+};
+dotclear.dbPostsCount = function() {
+  var params = {
+    f: 'getPostsCount',
+    xd_check: dotclear.nonce,
+  };
+  $.get('services.php', params, function(data) {
+    if ($('rsp[status=failed]', data).length > 0) {
+      // For debugging purpose only:
+      // console.log($('rsp',data).attr('message'));
+      window.console.log('Dotclear REST server error');
+    } else {
+      var nb = $('rsp>count', data).attr('ret');
+      if (nb != dotclear.dbPostsCount_Counter) {
+        // First pass or counter changed
+        var icon = $('#dashboard-main #icons p a[href="posts.php"]');
+        if (icon.length) {
+          // Update count if exists
+          var nb_label = icon.children('span.db-icon-title');
+          if (nb_label.length) {
+            nb_label.text(nb);
+          }
+        }
+        // Store current counter
+        dotclear.dbPostsCount_Counter = nb;
+      }
+    }
+  });
+};
 $(function() {
   function quickPost(f, status) {
     if ($.isFunction('jsToolBar') && (contentTb.getMode() == 'wysiwyg')) {
@@ -126,4 +182,24 @@ $(function() {
       }
     }
   });
+
+  // run counters' update on some dashboard icons
+  // Comments (including everything)
+  var icon_com = $('#dashboard-main #icons p a[href="comments.php"]');
+  if (icon_com.length) {
+    // Icon exists on dashboard
+    // First pass
+    dotclear.dbCommentsCount();
+    // Then fired every 60 seconds (1 minute)
+    dotclear.dbCommentsCount_Timer = setInterval(dotclear.dbCommentsCount, 60 * 1000);
+  }
+  // Posts
+  var icon_com = $('#dashboard-main #icons p a[href="posts.php"]');
+  if (icon_com.length) {
+    // Icon exists on dashboard
+    // First pass
+    dotclear.dbPostsCount();
+    // Then fired every 600 seconds (10 minutes)
+    dotclear.dbPostsCount_Timer = setInterval(dotclear.dbCommentsPost, 600 * 1000);
+  }
 });

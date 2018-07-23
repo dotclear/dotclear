@@ -266,7 +266,7 @@ if (!$core->auth->user_prefs->dashboard->nofavicons) {
     foreach ($__dashboard_icons as $i) {
         echo
         '<p><a href="' . $i[1] . '"><img src="' . dc_admin_icon_url($i[2]) . '" alt="" />' .
-            '<br /><span>' . $i[0] . '</span></a></p>';
+            '<br /><span class="db-icon-title">' . $i[0] . '</span></a></p>';
     }
     echo '</div>';
 }
