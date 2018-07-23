@@ -72,7 +72,7 @@ class dcAntispam
     {
         if (($count = self::countSpam($core)) > 0) {
             $str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
-            $icons['comments'][0] .= '</span></a> <br /><a href="' . $core->adminurl->get('admin.comments', array('status' => '-2')) . '"><span>' .
+            $icons['comments'][0] .= '</span></a> <br /><a href="' . $core->adminurl->get('admin.comments', array('status' => '-2')) . '"><span class="db-icon-title-spam">' .
             sprintf($str, $count);
         }
     }
@@ -81,11 +81,16 @@ class dcAntispam
     {
         if (($count = self::countSpam($core)) > 0) {
             $str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
-            return '</span></a> <br /><a href="' . $core->adminurl->get('admin.comments', array('status' => '-2')) . '"><span>' .
+            return '</span></a> <br /><a href="' . $core->adminurl->get('admin.comments', array('status' => '-2')) . '"><span class="db-icon-title-spam">' .
             sprintf($str, $count);
         } else {
             return '';
         }
+    }
+
+    public static function dashboardHeaders()
+    {
+        return dcPage::jsLoad(urldecode(dcPage::getPF('antispam/js/dashboard.js')));
     }
 
     public static function countSpam($core)
