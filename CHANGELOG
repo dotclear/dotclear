@@ -1,3 +1,26 @@
+Dotclear 2.14 - 2018-08-13
+===========================================================
+* 🛡 Security: Fix potential reflective XSS, thank's Zekvan Arslan for report (via Daniel Bishtawi from https://www.netsparker.com/)
+* 🐘 PHP 7.2 compliance
+* Use specialized fields whenever it's possible (email, …)
+* Add definition list capabilities (dl, dt, dd) to wiki (= <term>, : <definition>)
+* Add <sup>…</sup> support in wiki, syntax : ^exponant^
+* Add syntax property/method to dblayer driver
+* Replace some js oriented background fading by CSS3 animation
+* Enhance some visual focus indicators
+* Enhance key event management in popup (Esc, Enter, …)
+* Template filters may now be extended (or modified) by 3rd party plugins (via behaviors)
+* PSR-2 code formatting as far as possible (work in progress)
+* Add two new ways to order tags (by oldest or newest associated post publication date)
+* Update Codemirror to 5.38.0
+* Update CKEditor to 4.9.2
+* Update jQuery migrate plugin to 1.4.1
+* Update jQuery UI (custom) 1.12.1
+* Add a dark mode (via user preferences) for administration, CSS refactoring
+* Animate some counters on dashboard icons (nb of comments, spam comments and posts)
+* 🐛 → Various bugs and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.13.1 - 2018-01-27
 ===========================================================
 * Fix: Weird behaviour of theme editor when typing any of "t", "r", "u" and "e" characters
