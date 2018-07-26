@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:24+0200\n"
+"POT-Creation-Date: 2018-07-26 16:10+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -210,6 +210,14 @@ msgstr "días"
 msgid "Set spam filters."
 msgstr "Filtro de spam Akismet"
 
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "(incluyendo %d comentario basura)"
+
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "(incluyendo %d comentarios basura)"
+
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "Lista negra / Lista blanca de IP"
 
@@ -327,14 +335,6 @@ msgstr "Filtro desconocido."
 
 msgid "This comment is a spam:"
 msgstr "Comentario basura:"
-
-#, php-format
-msgid "(including %d spam comment)"
-msgstr "(incluyendo %d comentario basura)"
-
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(incluyendo %d comentarios basura)"
 
 msgid "Spam moderation"
 msgstr "Moderación de los comentarios basura"
@@ -1707,6 +1707,17 @@ msgstr ""
 msgid "Simple menu"
 msgstr ""
 
+msgid "the link will open a new window"
+msgstr ""
+
+#, fuzzy
+msgid "Active page"
+msgstr "Activo"
+
+#, fuzzy
+msgid "active page"
+msgstr "Ver la página"
+
 #, fuzzy
 msgid "Item description"
 msgstr "Ninguna descripción"
@@ -1844,6 +1855,9 @@ msgstr "Descripción"
 msgid "URL of item menu:"
 msgstr ""
 
+msgid "Open URL on a new tab"
+msgstr ""
+
 msgid "Add this item"
 msgstr ""
 
@@ -1885,14 +1899,20 @@ msgstr "Fuente Atom de las entradas asociadas a esta etiqueta"
 msgid "Tag"
 msgstr "Etiqueta"
 
-msgid "Limit (empty means no limit):"
-msgstr "Límite (dejar vacío significa que no hay límite):"
+msgid "Tag name"
+msgstr "Nombre de la etiqueta"
 
 msgid "Entries count"
 msgstr "Número de entradas"
 
-msgid "Tag name"
-msgstr "Nombre de la etiqueta"
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Limit (empty means no limit):"
+msgstr "Límite (dejar vacío significa que no hay límite):"
 
 msgid "Link to all tags:"
 msgstr ""
@@ -2435,9 +2455,6 @@ msgstr ""
 
 #~ msgid "Send"
 #~ msgstr "Enviar"
-
-#~ msgid "View page"
-#~ msgstr "Ver la página"
 
 #~ msgid "Preview page"
 #~ msgstr "Vista previa de la página"

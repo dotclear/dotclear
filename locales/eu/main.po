@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:24+0200\n"
+"POT-Creation-Date: 2018-07-26 16:10+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -139,13 +139,22 @@ msgstr ""
 msgid "Required field"
 msgstr ""
 
+msgid "Blog ID"
+msgstr ""
+
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr ""
 
 msgid "Blog name:"
 msgstr ""
 
+msgid "Blog name"
+msgstr ""
+
 msgid "Blog URL:"
+msgstr ""
+
+msgid "Blog URL"
 msgstr ""
 
 msgid "Blog description:"
@@ -396,6 +405,9 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
+msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
+msgstr ""
+
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr ""
 
@@ -617,12 +629,6 @@ msgstr ""
 msgid "Last update"
 msgstr ""
 
-msgid "Blog name"
-msgstr ""
-
-msgid "Blog ID"
-msgstr ""
-
 msgid "Status"
 msgstr ""
 
@@ -704,9 +710,7 @@ msgid "Categories"
 msgstr ""
 
 msgid "The category has been successfully removed."
-msgid_plural "The categories have been successfully removed."
-msgstr[0] ""
-msgstr[1] ""
+msgstr ""
 
 msgid "Entries have been successfully moved to the category you choose."
 msgstr ""
@@ -769,6 +773,9 @@ msgid "Category information"
 msgstr ""
 
 msgid "Name:"
+msgstr ""
+
+msgid "Name"
 msgstr ""
 
 msgid "Parent:"
@@ -854,6 +861,9 @@ msgstr ""
 msgid "Author:"
 msgstr ""
 
+msgid "Author"
+msgstr ""
+
 msgid "Web site:"
 msgstr ""
 
@@ -876,9 +886,6 @@ msgid "Entry title"
 msgstr ""
 
 msgid "Entry date"
-msgstr ""
-
-msgid "Author"
 msgstr ""
 
 msgid "IP"
@@ -930,37 +937,10 @@ msgid_plural "%s updates are available."
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "Dotclear news"
-msgstr ""
-
-msgid "%d %B %Y:"
-msgstr ""
-
 msgid "Documentation and support"
 msgstr ""
 
 msgid "Dashboard"
-msgstr ""
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr ""
-
-msgid "Upgrade now"
-msgstr ""
-
-msgid "Remind me later"
-msgstr ""
-
-msgid "Information about this version"
-msgstr ""
-
-#, php-format
-msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr ""
-
-#, php-format
-msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr ""
 
 msgid "Make this blog my default blog"
@@ -1013,6 +993,9 @@ msgid "Title:"
 msgstr ""
 
 msgid "Content:"
+msgstr ""
+
+msgid "Content"
 msgstr ""
 
 msgid "Category:"
@@ -1160,6 +1143,12 @@ msgstr ""
 msgid "Username and password"
 msgstr ""
 
+msgid "Username"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
 msgid "All done!"
 msgstr ""
 
@@ -1239,10 +1228,16 @@ msgstr ""
 msgid "MySQLi"
 msgstr ""
 
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
 msgid "PostgreSQL"
 msgstr ""
 
 msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1258,6 +1253,9 @@ msgid "Database Password:"
 msgstr ""
 
 msgid "Database Tables Prefix:"
+msgstr ""
+
+msgid "Prefix"
 msgstr ""
 
 msgid "Master Email: (used as sender for password recovery)"
@@ -1498,10 +1496,15 @@ msgstr ""
 msgid "Media list"
 msgstr ""
 
-msgid "Name"
+msgid "Size"
 msgstr ""
 
-msgid "Size"
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
 msgstr ""
 
 #, php-format
@@ -1808,6 +1811,9 @@ msgstr ""
 msgid "Link URL:"
 msgstr ""
 
+msgid "URL"
+msgstr ""
+
 msgid "Link title:"
 msgstr ""
 
@@ -1949,9 +1955,6 @@ msgid "Warning: Trackbacks are not more accepted for this entry."
 msgstr ""
 
 msgid "Trackbacks are not accepted on this blog so far."
-msgstr ""
-
-msgid "Password"
 msgstr ""
 
 msgid "Edit basename"
@@ -2170,6 +2173,9 @@ msgstr ""
 msgid "Interface"
 msgstr ""
 
+msgid "Activate dark mode"
+msgstr ""
+
 msgid "Activate enhanced uploader in media manager"
 msgstr ""
 
@@ -2180,6 +2186,12 @@ msgid "If checked, numeric fields will allow to type the elements' ordering numb
 msgstr ""
 
 msgid "Hide all secondary information and notes"
+msgstr ""
+
+msgid "Hide help button"
+msgstr ""
+
+msgid "Show asynchronous requests indicator"
 msgstr ""
 
 msgid "Font size:"
@@ -2341,6 +2353,51 @@ msgstr ""
 msgid "%d comments found"
 msgstr ""
 
+#, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Dotclear news not available"
+msgstr ""
+
+msgid "Dotclear news"
+msgstr ""
+
+msgid "%d %B %Y:"
+msgstr ""
+
+msgid "Dotclear update not available"
+msgstr ""
+
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr ""
+
+msgid "Upgrade now"
+msgstr ""
+
+msgid "Remind me later"
+msgstr ""
+
+msgid "Information about this version"
+msgstr ""
+
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Dotclear update"
 msgstr ""
 
@@ -2435,6 +2492,9 @@ msgstr ""
 msgid "User ID:"
 msgstr ""
 
+msgid "Login"
+msgstr ""
+
 msgid "Warning:"
 msgstr ""
 
@@ -2467,9 +2527,6 @@ msgstr ""
 
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
-msgstr ""
-
-msgid "Username"
 msgstr ""
 
 msgid "Last Name"
@@ -2516,9 +2573,6 @@ msgid "Choose one or more blogs to which you want to give permissions to users %
 msgstr ""
 
 msgid "No blog"
-msgstr ""
-
-msgid "URL"
 msgstr ""
 
 msgid "select"
@@ -2695,18 +2749,6 @@ msgstr ""
 
 msgid "Languages"
 msgstr ""
-
-#, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] ""
-msgstr[1] ""
 
 msgid "Change blog"
 msgstr ""
@@ -3026,6 +3068,10 @@ msgid "Version"
 msgstr ""
 
 msgid "Current version"
+msgstr ""
+
+#, php-format
+msgid " (%s)"
 msgstr ""
 
 #, php-format
@@ -3713,6 +3759,18 @@ msgstr ""
 msgid "Invalid setting namespace: %s"
 msgstr ""
 
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires an INTO source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
 msgid "Failed to read data feed"
 msgstr ""
 
@@ -3821,145 +3879,6 @@ msgid "No workspace specified"
 msgstr ""
 
 msgid "Something went wrong with auto upgrade:"
-msgstr ""
-
-msgid "Unable to open directory."
-msgstr ""
-
-msgid "Unable to create directory."
-msgstr ""
-
-msgid "File is not writable."
-msgstr ""
-
-msgid "Unable to open file."
-msgstr ""
-
-msgid "Not an uploaded file."
-msgstr ""
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr ""
-
-msgid "The uploaded file was only partially uploaded."
-msgstr ""
-
-msgid "No file was uploaded."
-msgstr ""
-
-msgid "Missing a temporary folder."
-msgstr ""
-
-msgid "Failed to write file to disk."
-msgstr ""
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr ""
-
-msgid "Bad range"
-msgstr ""
-
-msgid "Invalid range"
-msgstr ""
-
-msgid "Invalid line number"
-msgstr ""
-
-msgid "Chunk is out of range"
-msgstr ""
-
-msgid "Bad context"
-msgstr ""
-
-msgid "Bad context (in deletion)"
-msgstr ""
-
-msgid "Invalid diff format"
-msgstr ""
-
-msgid "Uploading this file is not allowed."
-msgstr ""
-
-msgid "Destination directory is not in jail."
-msgstr ""
-
-msgid "File already exists."
-msgstr ""
-
-msgid "Cannot write in this directory."
-msgstr ""
-
-msgid "Source file does not exist."
-msgstr ""
-
-msgid "File is not in jail."
-msgstr ""
-
-msgid "Destination directory is not writable."
-msgstr ""
-
-msgid "Unable to rename file."
-msgstr ""
-
-msgid "File cannot be removed."
-msgstr ""
-
-msgid "Directory is not in jail."
-msgstr ""
-
-msgid "Directory cannot be removed."
-msgstr ""
-
-msgid "Not enough memory to open image."
-msgstr ""
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
-msgid "singular"
-msgid_plural "plural"
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr ""
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr ""
-
-msgid "Unable to write destination file."
-msgstr ""
-
-msgid "Unable to write in target directory, permission denied."
-msgstr ""
-
-msgid "Not enough memory to open file."
-msgstr ""
-
-msgid "File does not exist"
-msgstr ""
-
-msgid "Cannot read file"
-msgstr ""
-
-msgid "Directory does not exist"
-msgstr ""
-
-msgid "Cannot read directory"
 msgstr ""
 
 msgid "Site temporarily unavailable"

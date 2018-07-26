@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:24+0200\n"
+"POT-Creation-Date: 2018-07-26 16:10+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -208,6 +208,14 @@ msgstr "napnál"
 msgid "Set spam filters."
 msgstr "Akismet spamszűrő"
 
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "(%d spam megjegyzést hozzászámolva)"
+
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "(%d spam megjegyzést hozzászámolva)"
+
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "IP Feketelista / Fehérlista szűrő"
 
@@ -325,14 +333,6 @@ msgstr "Ismeretlen szűrő."
 
 msgid "This comment is a spam:"
 msgstr "Ez a megjegyzés egy spam."
-
-#, php-format
-msgid "(including %d spam comment)"
-msgstr "(%d spam megjegyzést hozzászámolva)"
-
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(%d spam megjegyzést hozzászámolva)"
 
 msgid "Spam moderation"
 msgstr "Spam moderálás"
@@ -1710,6 +1710,17 @@ msgstr ""
 msgid "Simple menu"
 msgstr ""
 
+msgid "the link will open a new window"
+msgstr ""
+
+#, fuzzy
+msgid "Active page"
+msgstr "Aktív"
+
+#, fuzzy
+msgid "active page"
+msgstr "Oldal megte"
+
 #, fuzzy
 msgid "Item description"
 msgstr "Nincs megnevezés"
@@ -1847,6 +1858,9 @@ msgstr "Megnevezés"
 msgid "URL of item menu:"
 msgstr ""
 
+msgid "Open URL on a new tab"
+msgstr ""
+
 msgid "Add this item"
 msgstr ""
 
@@ -1888,14 +1902,20 @@ msgstr "A címke bejegyzéseinek Atom feed-je"
 msgid "Tag"
 msgstr "Címke:"
 
-msgid "Limit (empty means no limit):"
-msgstr "Korlát (ha üresen hagyod, akkor nincs határ)"
+msgid "Tag name"
+msgstr "Címke neve"
 
 msgid "Entries count"
 msgstr "Bejegyzések száma"
 
-msgid "Tag name"
-msgstr "Címke neve"
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Limit (empty means no limit):"
+msgstr "Korlát (ha üresen hagyod, akkor nincs határ)"
 
 msgid "Link to all tags:"
 msgstr ""
@@ -2439,9 +2459,6 @@ msgstr ""
 
 #~ msgid "Send"
 #~ msgstr "Küld"
-
-#~ msgid "View page"
-#~ msgstr "Oldal megte"
 
 #, fuzzy
 #~ msgid "Preview page"

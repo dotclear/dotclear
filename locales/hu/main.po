@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:24+0200\n"
+"POT-Creation-Date: 2018-07-26 16:10+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -146,13 +146,23 @@ msgstr "Blog ID:"
 msgid "Required field"
 msgstr "Kötelező kitölteni"
 
+msgid "Blog ID"
+msgstr "Blog ID"
+
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Legalább 2 karakter, betűket, számokat vagy szimbólumokat használhatsz."
 
 msgid "Blog name:"
 msgstr "Blognév:"
 
+msgid "Blog name"
+msgstr "Blognév"
+
 msgid "Blog URL:"
+msgstr "Blog URL-je:"
+
+#, fuzzy
+msgid "Blog URL"
 msgstr "Blog URL-je:"
 
 msgid "Blog description:"
@@ -407,6 +417,9 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
+msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
+msgstr ""
+
 #, fuzzy
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Elkészített képméretek (pixelben)"
@@ -655,12 +668,6 @@ msgstr "A funkció eléréséhez szükséges a plugins mapához írási jog!"
 msgid "Last update"
 msgstr "Legutóbbi frisítés"
 
-msgid "Blog name"
-msgstr "Blognév"
-
-msgid "Blog ID"
-msgstr "Blog ID"
-
 msgid "Status"
 msgstr "Állapot"
 
@@ -753,9 +760,7 @@ msgstr "Kategóriák"
 
 #, fuzzy
 msgid "The category has been successfully removed."
-msgid_plural "The categories have been successfully removed."
-msgstr[0] "A kategória adatai frissítve."
-msgstr[1] "A kategória adatai frissítve."
+msgstr "A kategória adatai frissítve."
 
 #, fuzzy
 msgid "Entries have been successfully moved to the category you choose."
@@ -827,6 +832,9 @@ msgstr "kategória információi"
 
 msgid "Name:"
 msgstr "Keresztnév::"
+
+msgid "Name"
+msgstr "Név"
 
 #, fuzzy
 msgid "Parent:"
@@ -927,6 +935,9 @@ msgstr "Hozzászólások"
 msgid "Author:"
 msgstr "Szerző:"
 
+msgid "Author"
+msgstr "Szerző"
+
 msgid "Web site:"
 msgstr "Honlap:"
 
@@ -953,9 +964,6 @@ msgstr "Bejegyzés címe"
 #, fuzzy
 msgid "Entry date"
 msgstr "Bejegyzés címe"
-
-msgid "Author"
-msgstr "Szerző"
 
 msgid "IP"
 msgstr ""
@@ -1013,39 +1021,11 @@ msgstr[0] "Iconv modul nem elérhető."
 msgstr[1] "Iconv modul nem elérhető."
 
 #, fuzzy
-msgid "Dotclear news"
-msgstr "DotClear csapat"
-
-msgid "%d %B %Y:"
-msgstr ""
-
-#, fuzzy
 msgid "Documentation and support"
 msgstr "Dokumentáció"
 
 msgid "Dashboard"
 msgstr "Beállítópanel"
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr "Dotclear %s már elérhető!"
-
-msgid "Upgrade now"
-msgstr "Frissítés"
-
-msgid "Remind me later"
-msgstr "Értesíts később"
-
-msgid "Information about this version"
-msgstr ""
-
-#, php-format
-msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr ""
-
-#, php-format
-msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr ""
 
 msgid "Make this blog my default blog"
 msgstr "Legyen ez az alapértelmezett blog"
@@ -1098,6 +1078,10 @@ msgid "Title:"
 msgstr "Cím::"
 
 msgid "Content:"
+msgstr "Tartalom:"
+
+#, fuzzy
+msgid "Content"
 msgstr "Tartalom:"
 
 msgid "Category:"
@@ -1254,6 +1238,14 @@ msgstr "Legutóbbi frisítés"
 msgid "Username and password"
 msgstr "Hibás felhasználónév vagy jelszó"
 
+#, fuzzy
+msgid "Username"
+msgstr "Felhasználónév:"
+
+#, fuzzy
+msgid "Password"
+msgstr "Jelszó:"
+
 msgid "All done!"
 msgstr "Minden rendben!"
 
@@ -1336,10 +1328,16 @@ msgstr ""
 msgid "MySQLi"
 msgstr ""
 
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
 msgid "PostgreSQL"
 msgstr ""
 
 msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1356,6 +1354,9 @@ msgstr "Adatbázis jelszava:"
 
 msgid "Database Tables Prefix:"
 msgstr "Adatbázis tábláinak prefixuma:"
+
+msgid "Prefix"
+msgstr ""
 
 msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
@@ -1613,10 +1614,15 @@ msgstr ""
 msgid "Media list"
 msgstr "Média tulajdonságok"
 
-msgid "Name"
-msgstr "Név"
-
 msgid "Size"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
 msgstr ""
 
 #, php-format
@@ -1946,6 +1952,10 @@ msgid "Link URL:"
 msgstr "Hivatkozás URL-je:"
 
 #, fuzzy
+msgid "URL"
+msgstr "URL ::"
+
+#, fuzzy
 msgid "Link title:"
 msgstr "Fájltípus:"
 
@@ -2104,10 +2114,6 @@ msgstr ""
 
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr ""
-
-#, fuzzy
-msgid "Password"
-msgstr "Jelszó:"
 
 #, fuzzy
 msgid "Edit basename"
@@ -2367,6 +2373,10 @@ msgid "Interface"
 msgstr "XML/RPC interfész"
 
 #, fuzzy
+msgid "Activate dark mode"
+msgstr "Bekapcsol"
+
+#, fuzzy
 msgid "Activate enhanced uploader in media manager"
 msgstr "Bővített fájlfeltöltő aktiválása"
 
@@ -2377,6 +2387,12 @@ msgid "If checked, numeric fields will allow to type the elements' ordering numb
 msgstr ""
 
 msgid "Hide all secondary information and notes"
+msgstr ""
+
+msgid "Hide help button"
+msgstr ""
+
+msgid "Show asynchronous requests indicator"
 msgstr ""
 
 #, fuzzy
@@ -2557,6 +2573,54 @@ msgstr "%d megjegyzést találtam"
 msgid "%d comments found"
 msgstr "%d megjegyzést találtam"
 
+#, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "A %s blog szerkesztése"
+msgstr[1] "A %s blog szerkesztése"
+
+#, fuzzy, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d megjegyzés"
+msgstr[1] "%d megjegyzés"
+
+#, fuzzy
+msgid "Dotclear news not available"
+msgstr "Dotclear %s már elérhető!"
+
+#, fuzzy
+msgid "Dotclear news"
+msgstr "DotClear csapat"
+
+msgid "%d %B %Y:"
+msgstr ""
+
+#, fuzzy
+msgid "Dotclear update not available"
+msgstr "Dotclear %s már elérhető!"
+
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s már elérhető!"
+
+msgid "Upgrade now"
+msgstr "Frissítés"
+
+msgid "Remind me later"
+msgstr "Értesíts később"
+
+msgid "Information about this version"
+msgstr ""
+
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 #, fuzzy
 msgid "Dotclear update"
 msgstr "A DotClear sikeresen frissítve."
@@ -2659,6 +2723,10 @@ msgstr "Felhasználók oldalanként"
 msgid "User ID:"
 msgstr "Felhasználónév"
 
+#, fuzzy
+msgid "Login"
+msgstr "Felhasználónév:"
+
 msgid "Warning:"
 msgstr "Figyelem:"
 
@@ -2695,10 +2763,6 @@ msgstr "Blog:"
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
-
-#, fuzzy
-msgid "Username"
-msgstr "Felhasználónév:"
 
 #, fuzzy
 msgid "Last Name"
@@ -2749,10 +2813,6 @@ msgstr "Válassz legalább egy blogot, hogy melyikhez szeretnéd a(z) %s jogait 
 
 msgid "No blog"
 msgstr "Nincs blog"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL ::"
 
 #, fuzzy
 msgid "select"
@@ -2960,18 +3020,6 @@ msgstr "Nyelv:"
 #, fuzzy
 msgid "Languages"
 msgstr "Nyelv?"
-
-#, fuzzy, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "A %s blog szerkesztése"
-msgstr[1] "A %s blog szerkesztése"
-
-#, fuzzy, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d megjegyzés"
-msgstr[1] "%d megjegyzés"
 
 msgid "Change blog"
 msgstr "Blog megváltoztatása"
@@ -3311,6 +3359,10 @@ msgstr "Verzió"
 #, fuzzy
 msgid "Current version"
 msgstr "jogok beállítása"
+
+#, php-format
+msgid " (%s)"
+msgstr ""
 
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
@@ -4065,6 +4117,18 @@ msgstr "Nem lehet a beállításokat lekérni:"
 msgid "Invalid setting namespace: %s"
 msgstr "Hibás beállítási név: %s"
 
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires an INTO source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
 #, fuzzy
 msgid "Failed to read data feed"
 msgstr "Nem lehet digest fájlt olvasni."
@@ -4186,149 +4250,6 @@ msgstr "Nincs meghatározva név"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Valami elszállt automata frissítés közben:"
 
-msgid "Unable to open directory."
-msgstr "Nem lehet megnyitni a mappát."
-
-msgid "Unable to create directory."
-msgstr "Nem lehet létrehozni a mappát."
-
-msgid "File is not writable."
-msgstr "A fájl nem írható."
-
-msgid "Unable to open file."
-msgstr "Nem lehet megnyitni a fájlt."
-
-msgid "Not an uploaded file."
-msgstr "Nem egy feltöltött fájl."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "A feltöltött fájl mérete meghaladja a maximálisan feltölthető fájl méretét."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "A feltöltött fájl csak részben érkezett meg a kiszolgálóra."
-
-msgid "No file was uploaded."
-msgstr "Nem érkezett fájl a kiszolgálóra."
-
-msgid "Missing a temporary folder."
-msgstr "Az ideiglenes mappa hiányzik!"
-
-msgid "Failed to write file to disk."
-msgstr "Nem tudok a lemezre írni."
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "a(z) %s nem mappa."
-
-msgid "Bad range"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid range"
-msgstr "Hibás nyelvkód"
-
-#, fuzzy
-msgid "Invalid line number"
-msgstr "Hibás nyelvkód"
-
-msgid "Chunk is out of range"
-msgstr ""
-
-msgid "Bad context"
-msgstr ""
-
-msgid "Bad context (in deletion)"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid diff format"
-msgstr "Érvénytelen digest fájl."
-
-msgid "Uploading this file is not allowed."
-msgstr "Nem engedélyezett feltölteni ezt a fájlt."
-
-msgid "Destination directory is not in jail."
-msgstr "Hibás célmappanév."
-
-#, fuzzy
-msgid "File already exists."
-msgstr "Az új fájl már létezik."
-
-msgid "Cannot write in this directory."
-msgstr "Nem tudok a mappába írni."
-
-msgid "Source file does not exist."
-msgstr "A forrásfájl nem létezik."
-
-msgid "File is not in jail."
-msgstr "Hibás fájlnév."
-
-msgid "Destination directory is not writable."
-msgstr "A célmappa nem írható."
-
-msgid "Unable to rename file."
-msgstr "Nem lehet átnevezni a fájlt."
-
-msgid "File cannot be removed."
-msgstr "A fájlt nem lehet eltávolítani."
-
-msgid "Directory is not in jail."
-msgstr "Hibás mappanév."
-
-msgid "Directory cannot be removed."
-msgstr "A mappát nem lehet eltávolítani."
-
-msgid "Not enough memory to open image."
-msgstr "Nincs elég memória a kép megnyitásához."
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
-msgid "singular"
-msgid_plural "plural"
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "A(z) %s nincs zip-be tömörítve."
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "Megpróbálom a(z) %s mappába kicsomagolni."
-
-msgid "Unable to write destination file."
-msgstr "Nem lehet írni a célfájlba."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "Nem lehet írni a célmappába, mert nincs elég jog hozzá."
-
-msgid "Not enough memory to open file."
-msgstr "Nincs elég memória a fájl megnyitásához."
-
-msgid "File does not exist"
-msgstr "A fájl nem létezik"
-
-msgid "Cannot read file"
-msgstr "Nem lehet a fájlt olvasni"
-
-msgid "Directory does not exist"
-msgstr "A mappa nem létezik"
-
-msgid "Cannot read directory"
-msgstr "Nem lehet a mappát olvasni"
-
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4344,6 +4265,115 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Unable to open directory."
+#~ msgstr "Nem lehet megnyitni a mappát."
+
+#~ msgid "Unable to create directory."
+#~ msgstr "Nem lehet létrehozni a mappát."
+
+#~ msgid "File is not writable."
+#~ msgstr "A fájl nem írható."
+
+#~ msgid "Unable to open file."
+#~ msgstr "Nem lehet megnyitni a fájlt."
+
+#~ msgid "Not an uploaded file."
+#~ msgstr "Nem egy feltöltött fájl."
+
+#~ msgid "The uploaded file exceeds the maximum file size allowed."
+#~ msgstr "A feltöltött fájl mérete meghaladja a maximálisan feltölthető fájl méretét."
+
+#~ msgid "The uploaded file was only partially uploaded."
+#~ msgstr "A feltöltött fájl csak részben érkezett meg a kiszolgálóra."
+
+#~ msgid "No file was uploaded."
+#~ msgstr "Nem érkezett fájl a kiszolgálóra."
+
+#~ msgid "Missing a temporary folder."
+#~ msgstr "Az ideiglenes mappa hiányzik!"
+
+#~ msgid "Failed to write file to disk."
+#~ msgstr "Nem tudok a lemezre írni."
+
+#~ msgid "%s is not a directory."
+#~ msgstr "a(z) %s nem mappa."
+
+#, fuzzy
+#~ msgid "Invalid range"
+#~ msgstr "Hibás nyelvkód"
+
+#, fuzzy
+#~ msgid "Invalid line number"
+#~ msgstr "Hibás nyelvkód"
+
+#, fuzzy
+#~ msgid "Invalid diff format"
+#~ msgstr "Érvénytelen digest fájl."
+
+#~ msgid "Uploading this file is not allowed."
+#~ msgstr "Nem engedélyezett feltölteni ezt a fájlt."
+
+#~ msgid "Destination directory is not in jail."
+#~ msgstr "Hibás célmappanév."
+
+#, fuzzy
+#~ msgid "File already exists."
+#~ msgstr "Az új fájl már létezik."
+
+#~ msgid "Cannot write in this directory."
+#~ msgstr "Nem tudok a mappába írni."
+
+#~ msgid "Source file does not exist."
+#~ msgstr "A forrásfájl nem létezik."
+
+#~ msgid "File is not in jail."
+#~ msgstr "Hibás fájlnév."
+
+#~ msgid "Destination directory is not writable."
+#~ msgstr "A célmappa nem írható."
+
+#~ msgid "Unable to rename file."
+#~ msgstr "Nem lehet átnevezni a fájlt."
+
+#~ msgid "File cannot be removed."
+#~ msgstr "A fájlt nem lehet eltávolítani."
+
+#~ msgid "Directory is not in jail."
+#~ msgstr "Hibás mappanév."
+
+#~ msgid "Directory cannot be removed."
+#~ msgstr "A mappát nem lehet eltávolítani."
+
+#~ msgid "Not enough memory to open image."
+#~ msgstr "Nincs elég memória a kép megnyitásához."
+
+#~ msgid "File %s is not compressed in the zip."
+#~ msgstr "A(z) %s nincs zip-be tömörítve."
+
+#~ msgid "Trying to unzip a folder name %s"
+#~ msgstr "Megpróbálom a(z) %s mappába kicsomagolni."
+
+#~ msgid "Unable to write destination file."
+#~ msgstr "Nem lehet írni a célfájlba."
+
+#~ msgid "Unable to write in target directory, permission denied."
+#~ msgstr "Nem lehet írni a célmappába, mert nincs elég jog hozzá."
+
+#~ msgid "Not enough memory to open file."
+#~ msgstr "Nincs elég memória a fájl megnyitásához."
+
+#~ msgid "File does not exist"
+#~ msgstr "A fájl nem létezik"
+
+#~ msgid "Cannot read file"
+#~ msgstr "Nem lehet a fájlt olvasni"
+
+#~ msgid "Directory does not exist"
+#~ msgstr "A mappa nem létezik"
+
+#~ msgid "Cannot read directory"
+#~ msgstr "Nem lehet a mappát olvasni"
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4666,9 +4696,6 @@ msgstr ""
 
 #~ msgid "The file <strong>%s</strong> already exists. If you need to reset any of the configuration items in this file, please delete it first or you may <a href=\"%s\">continue to install</a>."
 #~ msgstr "A <strong>%s</strong> fájl már létezik. ha szükséged van bármilyen konfigurációs elem megváltoztatására, előbb töröld vagy <a href=\"%s\">folytathatod a telepítést</a>."
-
-#~ msgid "Login:"
-#~ msgstr "Felhasználónév:"
 
 #~ msgid "An error occured while deleting %s theme:"
 #~ msgstr "Hiba történt %s törlése közben:"

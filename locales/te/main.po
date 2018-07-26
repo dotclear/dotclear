@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:25+0200\n"
+"POT-Creation-Date: 2018-07-26 16:11+0200\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -143,13 +143,23 @@ msgstr "బ్లాగు ID:"
 msgid "Required field"
 msgstr "తప్పనిసరి"
 
+msgid "Blog ID"
+msgstr "బ్లాగు ఐడీ"
+
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "కనీసం రెండు అక్షరాలు, అంకెలు లేదా గుర్తులు."
 
 msgid "Blog name:"
 msgstr "బ్లాగు పేరు:"
 
+msgid "Blog name"
+msgstr "బ్లాగు పేరు"
+
 msgid "Blog URL:"
+msgstr "బ్లాగు URL:"
+
+#, fuzzy
+msgid "Blog URL"
 msgstr "బ్లాగు URL:"
 
 msgid "Blog description:"
@@ -401,6 +411,9 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
+msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
+msgstr ""
+
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr ""
 
@@ -641,12 +654,6 @@ msgstr ""
 msgid "Last update"
 msgstr "చివరి తాజాకరణ"
 
-msgid "Blog name"
-msgstr "బ్లాగు పేరు"
-
-msgid "Blog ID"
-msgstr "బ్లాగు ఐడీ"
-
 msgid "Status"
 msgstr "స్థితి"
 
@@ -739,9 +746,7 @@ msgstr "వర్గాలు"
 
 #, fuzzy
 msgid "The category has been successfully removed."
-msgid_plural "The categories have been successfully removed."
-msgstr[0] "విజయవంతంగా వర్గాన్ని సృష్టించాం."
-msgstr[1] "విజయవంతంగా వర్గాన్ని సృష్టించాం."
+msgstr "విజయవంతంగా వర్గాన్ని సృష్టించాం."
 
 #, fuzzy
 msgid "Entries have been successfully moved to the category you choose."
@@ -814,6 +819,9 @@ msgstr "మరింత సమాచారం"
 
 msgid "Name:"
 msgstr "పేరు:"
+
+msgid "Name"
+msgstr "పేరు"
 
 msgid "Parent:"
 msgstr ""
@@ -906,6 +914,9 @@ msgstr "వ్యాఖ్యలు"
 msgid "Author:"
 msgstr "రచయిత:"
 
+msgid "Author"
+msgstr "రచయిత"
+
 msgid "Web site:"
 msgstr "వెబ్ సైటు:"
 
@@ -932,9 +943,6 @@ msgstr "టపా శీర్షిక"
 #, fuzzy
 msgid "Entry date"
 msgstr "టపా శీర్షిక"
-
-msgid "Author"
-msgstr "రచయిత"
 
 msgid "IP"
 msgstr ""
@@ -992,38 +1000,10 @@ msgstr[0] "డాట్‌క్లియర్ ఇప్పటికే స్�
 msgstr[1] "డాట్‌క్లియర్ ఇప్పటికే స్థాపితమైవుంది."
 
 #, fuzzy
-msgid "Dotclear news"
-msgstr "డాట్‌క్లియర్ జట్టు"
-
-msgid "%d %B %Y:"
-msgstr ""
-
-#, fuzzy
 msgid "Documentation and support"
 msgstr "పత్రావళి"
 
 msgid "Dashboard"
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Dotclear %s is available!"
-msgstr "డాట్‌క్లియర్ ఇప్పటికే స్థాపితమైవుంది."
-
-msgid "Upgrade now"
-msgstr ""
-
-msgid "Remind me later"
-msgstr ""
-
-msgid "Information about this version"
-msgstr ""
-
-#, php-format
-msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr ""
-
-#, php-format
-msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr ""
 
 msgid "Make this blog my default blog"
@@ -1076,6 +1056,10 @@ msgid "Title:"
 msgstr "శీర్షిక:"
 
 msgid "Content:"
+msgstr "విషయం:"
+
+#, fuzzy
+msgid "Content"
 msgstr "విషయం:"
 
 msgid "Category:"
@@ -1231,6 +1215,14 @@ msgstr "చివరి తాజాకరణ"
 msgid "Username and password"
 msgstr "తప్పుడు వాడుకరిపేరు లేదా సంకేతపదం"
 
+#, fuzzy
+msgid "Username"
+msgstr "వాడుకరిపేరు:"
+
+#, fuzzy
+msgid "Password"
+msgstr "సంకేతపదం:"
+
 msgid "All done!"
 msgstr "అంతా పూర్తయ్యింది!"
 
@@ -1312,10 +1304,16 @@ msgstr ""
 msgid "MySQLi"
 msgstr ""
 
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
 msgid "PostgreSQL"
 msgstr ""
 
 msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1331,6 +1329,9 @@ msgid "Database Password:"
 msgstr "డాటాబేసు సంకేతపదం:"
 
 msgid "Database Tables Prefix:"
+msgstr ""
+
+msgid "Prefix"
 msgstr ""
 
 msgid "Master Email: (used as sender for password recovery)"
@@ -1582,10 +1583,15 @@ msgstr ""
 msgid "Media list"
 msgstr "మాధ్యమ వివరాలు"
 
-msgid "Name"
-msgstr "పేరు"
-
 msgid "Size"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
 msgstr ""
 
 #, php-format
@@ -1911,6 +1917,10 @@ msgid "Link URL:"
 msgstr ""
 
 #, fuzzy
+msgid "URL"
+msgstr "URL?"
+
+#, fuzzy
 msgid "Link title:"
 msgstr "ఫైలు శీర్షిక:"
 
@@ -2068,10 +2078,6 @@ msgstr ""
 
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr ""
-
-#, fuzzy
-msgid "Password"
-msgstr "సంకేతపదం:"
 
 #, fuzzy
 msgid "Edit basename"
@@ -2325,6 +2331,10 @@ msgstr "అన్వేషణ ఎంపికలు"
 msgid "Interface"
 msgstr ""
 
+#, fuzzy
+msgid "Activate dark mode"
+msgstr "చేతనంచేయి"
+
 msgid "Activate enhanced uploader in media manager"
 msgstr ""
 
@@ -2335,6 +2345,12 @@ msgid "If checked, numeric fields will allow to type the elements' ordering numb
 msgstr ""
 
 msgid "Hide all secondary information and notes"
+msgstr ""
+
+msgid "Hide help button"
+msgstr ""
+
+msgid "Show asynchronous requests indicator"
 msgstr ""
 
 #, fuzzy
@@ -2512,6 +2528,54 @@ msgstr "%d వ్యాఖ్య దొరికింది"
 msgid "%d comments found"
 msgstr "%d వ్యాఖ్యలు దొరికాయి"
 
+#, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%s బ్లాగుని మార్చండి"
+msgstr[1] "%s బ్లాగుని మార్చండి"
+
+#, fuzzy, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d వ్యాఖ్య"
+msgstr[1] "%d వ్యాఖ్య"
+
+#, fuzzy
+msgid "Dotclear news not available"
+msgstr "డాట్‌క్లియర్ ఇప్పటికే స్థాపితమైవుంది."
+
+#, fuzzy
+msgid "Dotclear news"
+msgstr "డాట్‌క్లియర్ జట్టు"
+
+msgid "%d %B %Y:"
+msgstr ""
+
+#, fuzzy
+msgid "Dotclear update not available"
+msgstr "డాట్‌క్లియర్ ఇప్పటికే స్థాపితమైవుంది."
+
+#, fuzzy, php-format
+msgid "Dotclear %s is available!"
+msgstr "డాట్‌క్లియర్ ఇప్పటికే స్థాపితమైవుంది."
+
+msgid "Upgrade now"
+msgstr ""
+
+msgid "Remind me later"
+msgstr ""
+
+msgid "Information about this version"
+msgstr ""
+
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 #, fuzzy
 msgid "Dotclear update"
 msgstr "డాట్‌క్లియర్ జట్టు"
@@ -2613,6 +2677,10 @@ msgstr " వాడుకరులు (ఒక పేజీకి)"
 msgid "User ID:"
 msgstr "వాడుకరి ID"
 
+#, fuzzy
+msgid "Login"
+msgstr "ప్రవేశం:"
+
 msgid "Warning:"
 msgstr "హెచ్చరిక:"
 
@@ -2649,10 +2717,6 @@ msgstr "బ్లాగు:"
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
-
-#, fuzzy
-msgid "Username"
-msgstr "వాడుకరిపేరు:"
 
 #, fuzzy
 msgid "Last Name"
@@ -2703,10 +2767,6 @@ msgstr ""
 
 msgid "No blog"
 msgstr "బ్లాగులు లేవు"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL?"
 
 #, fuzzy
 msgid "select"
@@ -2909,18 +2969,6 @@ msgstr "టపా భాష:"
 
 msgid "Languages"
 msgstr "భాషలు"
-
-#, fuzzy, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "%s బ్లాగుని మార్చండి"
-msgstr[1] "%s బ్లాగుని మార్చండి"
-
-#, fuzzy, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d వ్యాఖ్య"
-msgstr[1] "%d వ్యాఖ్య"
 
 msgid "Change blog"
 msgstr "బ్లాగుని మార్చండి"
@@ -3259,6 +3307,10 @@ msgstr ""
 #, fuzzy
 msgid "Current version"
 msgstr "అనుమతులు ఇవ్వండి"
+
+#, php-format
+msgid " (%s)"
+msgstr ""
 
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
@@ -4006,6 +4058,18 @@ msgstr "తప్పుడు ఈమెయిల్ చిరునామా"
 msgid "Invalid setting namespace: %s"
 msgstr "తప్పుడు ఈమెయిల్ చిరునామా"
 
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires an INTO source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
 msgid "Failed to read data feed"
 msgstr ""
 
@@ -4121,149 +4185,6 @@ msgstr ""
 msgid "Something went wrong with auto upgrade:"
 msgstr ""
 
-msgid "Unable to open directory."
-msgstr ""
-
-msgid "Unable to create directory."
-msgstr ""
-
-msgid "File is not writable."
-msgstr "ఫైలుని వ్రాయలేం."
-
-msgid "Unable to open file."
-msgstr ""
-
-msgid "Not an uploaded file."
-msgstr ""
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr ""
-
-msgid "The uploaded file was only partially uploaded."
-msgstr ""
-
-msgid "No file was uploaded."
-msgstr ""
-
-msgid "Missing a temporary folder."
-msgstr ""
-
-msgid "Failed to write file to disk."
-msgstr ""
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr ""
-
-msgid "Bad range"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid range"
-msgstr "తప్పుడు భాషా సంకేతం"
-
-#, fuzzy
-msgid "Invalid line number"
-msgstr "తప్పుడు భాషా సంకేతం"
-
-msgid "Chunk is out of range"
-msgstr ""
-
-msgid "Bad context"
-msgstr ""
-
-msgid "Bad context (in deletion)"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid diff format"
-msgstr "తప్పుడు భాషా ఫైలు URL."
-
-msgid "Uploading this file is not allowed."
-msgstr ""
-
-msgid "Destination directory is not in jail."
-msgstr ""
-
-#, fuzzy
-msgid "File already exists."
-msgstr "ఈ ఫైలు ఇప్పటికే ఉంది."
-
-msgid "Cannot write in this directory."
-msgstr ""
-
-msgid "Source file does not exist."
-msgstr ""
-
-msgid "File is not in jail."
-msgstr ""
-
-msgid "Destination directory is not writable."
-msgstr ""
-
-msgid "Unable to rename file."
-msgstr ""
-
-msgid "File cannot be removed."
-msgstr "ఫైలుని తొలగించలేం."
-
-msgid "Directory is not in jail."
-msgstr ""
-
-msgid "Directory cannot be removed."
-msgstr ""
-
-msgid "Not enough memory to open image."
-msgstr ""
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
-msgid "singular"
-msgid_plural "plural"
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr ""
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr ""
-
-msgid "Unable to write destination file."
-msgstr ""
-
-msgid "Unable to write in target directory, permission denied."
-msgstr ""
-
-msgid "Not enough memory to open file."
-msgstr ""
-
-msgid "File does not exist"
-msgstr "ఫైలు లేనే లేదు"
-
-msgid "Cannot read file"
-msgstr "ఫైలుని చదువలేకున్నాం"
-
-msgid "Directory does not exist"
-msgstr ""
-
-msgid "Cannot read directory"
-msgstr ""
-
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4279,6 +4200,34 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "File is not writable."
+#~ msgstr "ఫైలుని వ్రాయలేం."
+
+#, fuzzy
+#~ msgid "Invalid range"
+#~ msgstr "తప్పుడు భాషా సంకేతం"
+
+#, fuzzy
+#~ msgid "Invalid line number"
+#~ msgstr "తప్పుడు భాషా సంకేతం"
+
+#, fuzzy
+#~ msgid "Invalid diff format"
+#~ msgstr "తప్పుడు భాషా ఫైలు URL."
+
+#, fuzzy
+#~ msgid "File already exists."
+#~ msgstr "ఈ ఫైలు ఇప్పటికే ఉంది."
+
+#~ msgid "File cannot be removed."
+#~ msgstr "ఫైలుని తొలగించలేం."
+
+#~ msgid "File does not exist"
+#~ msgstr "ఫైలు లేనే లేదు"
+
+#~ msgid "Cannot read file"
+#~ msgstr "ఫైలుని చదువలేకున్నాం"
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4451,9 +4400,6 @@ msgstr ""
 
 #~ msgid "login"
 #~ msgstr "ప్రవేశం"
-
-#~ msgid "Login:"
-#~ msgstr "ప్రవేశం:"
 
 #~ msgid "1 entry"
 #~ msgstr "1 టపా"

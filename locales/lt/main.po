@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:24+0200\n"
+"POT-Creation-Date: 2018-07-26 16:10+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -142,13 +142,23 @@ msgstr "Blogo ID:"
 msgid "Required field"
 msgstr "Būtinas laukelis"
 
+msgid "Blog ID"
+msgstr "Blogo ID"
+
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Naudokite raidžių, skaičių ir simbolių kombinaciją iš mažiausiai 2 ženklų."
 
 msgid "Blog name:"
 msgstr "Blogo pavadinimas:"
 
+msgid "Blog name"
+msgstr "Blogo pavadinimas"
+
 msgid "Blog URL:"
+msgstr "Blogo URL:"
+
+#, fuzzy
+msgid "Blog URL"
 msgstr "Blogo URL:"
 
 msgid "Blog description:"
@@ -402,6 +412,9 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
+msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
+msgstr ""
+
 #, fuzzy
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Sukurtų paveikslėlių dydis (pikseliais)"
@@ -650,12 +663,6 @@ msgstr "Įjunkite įrašymo teises savo plugin'ų direktorijai norėdami naudoti
 msgid "Last update"
 msgstr "Paskutinis atnaujinimas"
 
-msgid "Blog name"
-msgstr "Blogo pavadinimas"
-
-msgid "Blog ID"
-msgstr "Blogo ID"
-
 msgid "Status"
 msgstr "Statusas"
 
@@ -746,10 +753,7 @@ msgstr "Kategorijos"
 
 #, fuzzy
 msgid "The category has been successfully removed."
-msgid_plural "The categories have been successfully removed."
-msgstr[0] "Kategorija sėkmingai pašalinta."
-msgstr[1] "Kategorija sėkmingai pašalinta."
-msgstr[2] ""
+msgstr "Kategorija sėkmingai pašalinta."
 
 #, fuzzy
 msgid "Entries have been successfully moved to the category you choose."
@@ -820,6 +824,9 @@ msgstr "Kategorijos informacija"
 
 msgid "Name:"
 msgstr "Vardas:"
+
+msgid "Name"
+msgstr "Name"
 
 msgid "Parent:"
 msgstr "Pozicija:"
@@ -914,6 +921,9 @@ msgstr "Komentarai"
 msgid "Author:"
 msgstr "Autorius:"
 
+msgid "Author"
+msgstr "Autorius"
+
 msgid "Web site:"
 msgstr "Asmeninis tinklapis:"
 
@@ -940,9 +950,6 @@ msgstr "Įrašo antraštė"
 #, fuzzy
 msgid "Entry date"
 msgstr "Įrašo antraštė"
-
-msgid "Author"
-msgstr "Autorius"
 
 msgid "IP"
 msgstr ""
@@ -1001,40 +1008,11 @@ msgstr[1] "Nėra Iconv modulio."
 msgstr[2] ""
 
 #, fuzzy
-msgid "Dotclear news"
-msgstr "Dotclear komanda"
-
-#, fuzzy
-msgid "%d %B %Y:"
-msgstr "%A, %B %e %Y"
-
-#, fuzzy
 msgid "Documentation and support"
 msgstr "Dokumentacija"
 
 msgid "Dashboard"
 msgstr "Valdymas"
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr "Pasirodė naujas Dotclear %s!"
-
-msgid "Upgrade now"
-msgstr "Atnaujinti dabar"
-
-msgid "Remind me later"
-msgstr "Priminti vėliau"
-
-msgid "Information about this version"
-msgstr ""
-
-#, php-format
-msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr ""
-
-#, php-format
-msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr ""
 
 msgid "Make this blog my default blog"
 msgstr "Padaryti šitą dlogą pagrindiniu"
@@ -1086,6 +1064,10 @@ msgid "Title:"
 msgstr "Antraštė:"
 
 msgid "Content:"
+msgstr "Turinys:"
+
+#, fuzzy
+msgid "Content"
 msgstr "Turinys:"
 
 msgid "Category:"
@@ -1236,6 +1218,13 @@ msgstr "Pavardė:"
 msgid "Username and password"
 msgstr "Prisijungimo vardas ir slaptažodis"
 
+msgid "Username"
+msgstr "Prisijungimo vvardas"
+
+#, fuzzy
+msgid "Password"
+msgstr "Slaptažodis:"
+
 msgid "All done!"
 msgstr "Štai ir viskas!"
 
@@ -1317,10 +1306,16 @@ msgstr ""
 msgid "MySQLi"
 msgstr ""
 
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
 msgid "PostgreSQL"
 msgstr ""
 
 msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1337,6 +1332,9 @@ msgstr "Datenbank Passwort:"
 
 msgid "Database Tables Prefix:"
 msgstr "Datenbank Tabellen Präfix:"
+
+msgid "Prefix"
+msgstr ""
 
 msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
@@ -1589,10 +1587,15 @@ msgstr ""
 msgid "Media list"
 msgstr "Media detalės"
 
-msgid "Name"
-msgstr "Name"
-
 msgid "Size"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
 msgstr ""
 
 #, php-format
@@ -1920,6 +1923,10 @@ msgstr "Pridėti nuorodą"
 msgid "Link URL:"
 msgstr "Nuorodos URL:"
 
+#, fuzzy
+msgid "URL"
+msgstr "URL:"
+
 msgid "Link title:"
 msgstr "Nuorodos pavadinimas:"
 
@@ -2077,10 +2084,6 @@ msgstr ""
 
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr ""
-
-#, fuzzy
-msgid "Password"
-msgstr "Slaptažodis:"
 
 #, fuzzy
 msgid "Edit basename"
@@ -2339,6 +2342,10 @@ msgid "Interface"
 msgstr "XML/RPC sąsaja"
 
 #, fuzzy
+msgid "Activate dark mode"
+msgstr "Įjungti"
+
+#, fuzzy
 msgid "Activate enhanced uploader in media manager"
 msgstr "Įjungti enhanced Uploader"
 
@@ -2349,6 +2356,12 @@ msgid "If checked, numeric fields will allow to type the elements' ordering numb
 msgstr ""
 
 msgid "Hide all secondary information and notes"
+msgstr ""
+
+msgid "Hide help button"
+msgstr ""
+
+msgid "Show asynchronous requests indicator"
 msgstr ""
 
 #, fuzzy
@@ -2528,6 +2541,57 @@ msgstr "Rastas %d komentaras"
 msgid "%d comments found"
 msgstr "Rasti %d komentarai"
 
+#, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "Regaguoti blogą %s"
+msgstr[1] "Regaguoti blogą %s"
+msgstr[2] "Regaguoti blogą %s"
+
+#, fuzzy, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d komentaras"
+msgstr[1] "%d komentaras"
+msgstr[2] ""
+
+#, fuzzy
+msgid "Dotclear news not available"
+msgstr "Pasirodė naujas Dotclear %s!"
+
+#, fuzzy
+msgid "Dotclear news"
+msgstr "Dotclear komanda"
+
+#, fuzzy
+msgid "%d %B %Y:"
+msgstr "%A, %B %e %Y"
+
+#, fuzzy
+msgid "Dotclear update not available"
+msgstr "Pasirodė naujas Dotclear %s!"
+
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Pasirodė naujas Dotclear %s!"
+
+msgid "Upgrade now"
+msgstr "Atnaujinti dabar"
+
+msgid "Remind me later"
+msgstr "Priminti vėliau"
+
+msgid "Information about this version"
+msgstr ""
+
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Dotclear update"
 msgstr "Dotclear atnaujinimas"
 
@@ -2628,6 +2692,10 @@ msgstr "Dalyvio nustatymai"
 msgid "User ID:"
 msgstr "Benutzer ID"
 
+#, fuzzy
+msgid "Login"
+msgstr "Login:"
+
 msgid "Warning:"
 msgstr "Dėmesio:"
 
@@ -2663,9 +2731,6 @@ msgstr "Blogas:"
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
-
-msgid "Username"
-msgstr "Prisijungimo vvardas"
 
 msgid "Last Name"
 msgstr "Pavardė"
@@ -2714,10 +2779,6 @@ msgstr "Pasirinkite vieną ar daugiau blogų kurių teises norėtumėte suteikti
 
 msgid "No blog"
 msgstr "Nėra blogo"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL:"
 
 #, fuzzy
 msgid "select"
@@ -2923,20 +2984,6 @@ msgstr "Įrašo kalba:"
 
 msgid "Languages"
 msgstr "Kalbos"
-
-#, fuzzy, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "Regaguoti blogą %s"
-msgstr[1] "Regaguoti blogą %s"
-msgstr[2] "Regaguoti blogą %s"
-
-#, fuzzy, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d komentaras"
-msgstr[1] "%d komentaras"
-msgstr[2] ""
 
 msgid "Change blog"
 msgstr "Keisti blogą"
@@ -3276,6 +3323,10 @@ msgstr "Versija"
 #, fuzzy
 msgid "Current version"
 msgstr "nustatyti teises"
+
+#, php-format
+msgid " (%s)"
+msgstr ""
 
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
@@ -4038,6 +4089,18 @@ msgstr "Nepavyko gauti namespaces:"
 msgid "Invalid setting namespace: %s"
 msgstr "Negaliojantys nustatymai namespace: %s"
 
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires an INTO source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
 #, fuzzy
 msgid "Failed to read data feed"
 msgstr "Nepavyksta perskaityti digests failo."
@@ -4152,150 +4215,6 @@ msgstr "Namespace nenurodytas."
 msgid "Something went wrong with auto upgrade:"
 msgstr "Automatinio atnaujinimo metu įvyko klaida:"
 
-msgid "Unable to open directory."
-msgstr "Nepavyksta atidaryti direktorijos"
-
-msgid "Unable to create directory."
-msgstr "Nepavyksta sukurti direktorijos"
-
-msgid "File is not writable."
-msgstr "Failui nesuteiktos rašymo teisės."
-
-msgid "Unable to open file."
-msgstr "Nepavyksta atidaryti failo."
-
-msgid "Not an uploaded file."
-msgstr "Ne įkeltas failas."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "Įkeltas failas viršija maksimalų leistiną dydį."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "Buvo įkelta tik dalis failo."
-
-msgid "No file was uploaded."
-msgstr "Failas nebuvo įkeltas."
-
-msgid "Missing a temporary folder."
-msgstr "Nėra temporary direktorijos."
-
-msgid "Failed to write file to disk."
-msgstr "Nepavyko įrašyti į diską."
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s yra ne direktorija."
-
-msgid "Bad range"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid range"
-msgstr "Netinkamas kalbos kodas"
-
-#, fuzzy
-msgid "Invalid line number"
-msgstr "Netinkamas kalbos kodas"
-
-msgid "Chunk is out of range"
-msgstr ""
-
-msgid "Bad context"
-msgstr ""
-
-msgid "Bad context (in deletion)"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid diff format"
-msgstr "Negaliojantis digests failas."
-
-msgid "Uploading this file is not allowed."
-msgstr "Šio failo įkėlimas yra neleidžiamas."
-
-msgid "Destination directory is not in jail."
-msgstr "Direktorija nėra užrakinta."
-
-msgid "File already exists."
-msgstr "Failas jau egzistuoja."
-
-msgid "Cannot write in this directory."
-msgstr "Negalima įrašyti į šią direktoriją."
-
-msgid "Source file does not exist."
-msgstr "Pradinis failas neegzistuoja."
-
-msgid "File is not in jail."
-msgstr "Failas nėra užrakintas."
-
-msgid "Destination directory is not writable."
-msgstr "Paskirta direktorija neturi rašymo teisių."
-
-msgid "Unable to rename file."
-msgstr "Nepavyko pervadinti failo."
-
-msgid "File cannot be removed."
-msgstr "Failas negali būti pašalintas."
-
-msgid "Directory is not in jail."
-msgstr "Direktorija nėra užrakinta."
-
-msgid "Directory cannot be removed."
-msgstr "Direktorija negali būti pašakinta"
-
-msgid "Not enough memory to open image."
-msgstr "Nepakanka atminties atidaryti paveikslėliui."
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-#, fuzzy
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
-
-msgid "singular"
-msgid_plural "plural"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "Failas %s nėra suarchyvuotas zip formatu."
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr " Bandoma išarchyvuoti bylą pavadinimu %s"
-
-msgid "Unable to write destination file."
-msgstr "Nepavyksta įrašyti į paskirtą failą."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "Nepavyksta įrašyti į adresuotą direktoriją, priėjimas draudžiamas."
-
-msgid "Not enough memory to open file."
-msgstr "Nepakanka atminties atidaryti failui."
-
-msgid "File does not exist"
-msgstr "Failas neegzistuoja"
-
-msgid "Cannot read file"
-msgstr "Nepavyksta perskaityti failo"
-
-msgid "Directory does not exist"
-msgstr "Direktorija neegzistuoja"
-
-msgid "Cannot read directory"
-msgstr "Nepavyksta perskaityti direktorijos"
-
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4311,6 +4230,118 @@ msgstr "<p>Tai reiškia, kad arba username ir slaptažodis jūsų <strong>config
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
+
+#~ msgid "Unable to open directory."
+#~ msgstr "Nepavyksta atidaryti direktorijos"
+
+#~ msgid "Unable to create directory."
+#~ msgstr "Nepavyksta sukurti direktorijos"
+
+#~ msgid "File is not writable."
+#~ msgstr "Failui nesuteiktos rašymo teisės."
+
+#~ msgid "Unable to open file."
+#~ msgstr "Nepavyksta atidaryti failo."
+
+#~ msgid "Not an uploaded file."
+#~ msgstr "Ne įkeltas failas."
+
+#~ msgid "The uploaded file exceeds the maximum file size allowed."
+#~ msgstr "Įkeltas failas viršija maksimalų leistiną dydį."
+
+#~ msgid "The uploaded file was only partially uploaded."
+#~ msgstr "Buvo įkelta tik dalis failo."
+
+#~ msgid "No file was uploaded."
+#~ msgstr "Failas nebuvo įkeltas."
+
+#~ msgid "Missing a temporary folder."
+#~ msgstr "Nėra temporary direktorijos."
+
+#~ msgid "Failed to write file to disk."
+#~ msgstr "Nepavyko įrašyti į diską."
+
+#~ msgid "%s is not a directory."
+#~ msgstr "%s yra ne direktorija."
+
+#, fuzzy
+#~ msgid "Invalid range"
+#~ msgstr "Netinkamas kalbos kodas"
+
+#, fuzzy
+#~ msgid "Invalid line number"
+#~ msgstr "Netinkamas kalbos kodas"
+
+#, fuzzy
+#~ msgid "Invalid diff format"
+#~ msgstr "Negaliojantis digests failas."
+
+#~ msgid "Uploading this file is not allowed."
+#~ msgstr "Šio failo įkėlimas yra neleidžiamas."
+
+#~ msgid "Destination directory is not in jail."
+#~ msgstr "Direktorija nėra užrakinta."
+
+#~ msgid "File already exists."
+#~ msgstr "Failas jau egzistuoja."
+
+#~ msgid "Cannot write in this directory."
+#~ msgstr "Negalima įrašyti į šią direktoriją."
+
+#~ msgid "Source file does not exist."
+#~ msgstr "Pradinis failas neegzistuoja."
+
+#~ msgid "File is not in jail."
+#~ msgstr "Failas nėra užrakintas."
+
+#~ msgid "Destination directory is not writable."
+#~ msgstr "Paskirta direktorija neturi rašymo teisių."
+
+#~ msgid "Unable to rename file."
+#~ msgstr "Nepavyko pervadinti failo."
+
+#~ msgid "File cannot be removed."
+#~ msgstr "Failas negali būti pašalintas."
+
+#~ msgid "Directory is not in jail."
+#~ msgstr "Direktorija nėra užrakinta."
+
+#~ msgid "Directory cannot be removed."
+#~ msgstr "Direktorija negali būti pašakinta"
+
+#~ msgid "Not enough memory to open image."
+#~ msgstr "Nepakanka atminties atidaryti paveikslėliui."
+
+#, fuzzy
+#~ msgid "WARNING: the following errors have been found while parsing template file :"
+#~ msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
+
+#~ msgid "File %s is not compressed in the zip."
+#~ msgstr "Failas %s nėra suarchyvuotas zip formatu."
+
+#~ msgid "Trying to unzip a folder name %s"
+#~ msgstr " Bandoma išarchyvuoti bylą pavadinimu %s"
+
+#~ msgid "Unable to write destination file."
+#~ msgstr "Nepavyksta įrašyti į paskirtą failą."
+
+#~ msgid "Unable to write in target directory, permission denied."
+#~ msgstr "Nepavyksta įrašyti į adresuotą direktoriją, priėjimas draudžiamas."
+
+#~ msgid "Not enough memory to open file."
+#~ msgstr "Nepakanka atminties atidaryti failui."
+
+#~ msgid "File does not exist"
+#~ msgstr "Failas neegzistuoja"
+
+#~ msgid "Cannot read file"
+#~ msgstr "Nepavyksta perskaityti failo"
+
+#~ msgid "Directory does not exist"
+#~ msgstr "Direktorija neegzistuoja"
+
+#~ msgid "Cannot read directory"
+#~ msgstr "Nepavyksta perskaityti direktorijos"
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4623,9 +4654,6 @@ msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
 
 #~ msgid "The file <strong>%s</strong> already exists. If you need to reset any of the configuration items in this file, please delete it first or you may <a href=\"%s\">continue to install</a>."
 #~ msgstr "Die Datei <strong>%s</strong> existiert bereits. Willst Du die Einträge in der Konfigurationsdatei zurücksetzen, bitte lösche diese erst oder fahre mit <a href=\"%s\">der Installation fort</a>."
-
-#~ msgid "Login:"
-#~ msgstr "Login:"
 
 #~ msgid "Login and password"
 #~ msgstr "Login und Passwort:"

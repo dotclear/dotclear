@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:25+0200\n"
+"POT-Creation-Date: 2018-07-26 16:11+0200\n"
 "PO-Revision-Date: 2016-07-18 15:55+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -142,13 +142,23 @@ msgstr "博客 ID："
 msgid "Required field"
 msgstr "必添字段"
 
+msgid "Blog ID"
+msgstr "博客 ID"
+
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "至少 2 个字符，使用字母、数字或符号。"
 
 msgid "Blog name:"
 msgstr "博客名称："
 
+msgid "Blog name"
+msgstr "博客名称"
+
 msgid "Blog URL:"
+msgstr "博客 URL："
+
+#, fuzzy
+msgid "Blog URL"
 msgstr "博客 URL："
 
 msgid "Blog description:"
@@ -402,6 +412,9 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
+msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
+msgstr ""
+
 #, fuzzy
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "产生的图片大小(用像素)"
@@ -647,12 +660,6 @@ msgstr "要激活这个功能，请赋予您的插件目录写权限。"
 msgid "Last update"
 msgstr "最后更新"
 
-msgid "Blog name"
-msgstr "博客名称"
-
-msgid "Blog ID"
-msgstr "博客 ID"
-
 msgid "Status"
 msgstr "状态"
 
@@ -743,8 +750,7 @@ msgstr "分类目录"
 
 #, fuzzy
 msgid "The category has been successfully removed."
-msgid_plural "The categories have been successfully removed."
-msgstr[0] "成功移除分类目录。"
+msgstr "成功移除分类目录。"
 
 #, fuzzy
 msgid "Entries have been successfully moved to the category you choose."
@@ -814,6 +820,10 @@ msgid "Category information"
 msgstr "分类目录信息"
 
 msgid "Name:"
+msgstr "名字："
+
+#, fuzzy
+msgid "Name"
 msgstr "名字："
 
 msgid "Parent:"
@@ -909,6 +919,9 @@ msgstr "评论"
 msgid "Author:"
 msgstr "作者："
 
+msgid "Author"
+msgstr "作者"
+
 msgid "Web site:"
 msgstr "网站："
 
@@ -935,9 +948,6 @@ msgstr "文章标题"
 #, fuzzy
 msgid "Entry date"
 msgstr "文章标题"
-
-msgid "Author"
-msgstr "作者"
 
 msgid "IP"
 msgstr ""
@@ -994,39 +1004,11 @@ msgid_plural "%s updates are available."
 msgstr[0] "Iconv 模块不可用。"
 
 #, fuzzy
-msgid "Dotclear news"
-msgstr "Dotclear 团队"
-
-msgid "%d %B %Y:"
-msgstr ""
-
-#, fuzzy
 msgid "Documentation and support"
 msgstr "文档"
 
 msgid "Dashboard"
 msgstr "控制板"
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr "Dotclear %s 可用！"
-
-msgid "Upgrade now"
-msgstr "现在升级"
-
-msgid "Remind me later"
-msgstr "稍后提醒我"
-
-msgid "Information about this version"
-msgstr ""
-
-#, php-format
-msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr ""
-
-#, php-format
-msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr ""
 
 msgid "Make this blog my default blog"
 msgstr "使这个博客成为我的默认博客"
@@ -1078,6 +1060,10 @@ msgid "Title:"
 msgstr "标题："
 
 msgid "Content:"
+msgstr "内容："
+
+#, fuzzy
+msgid "Content"
 msgstr "内容："
 
 msgid "Category:"
@@ -1229,6 +1215,13 @@ msgstr "姓："
 msgid "Username and password"
 msgstr "用户名和密码"
 
+msgid "Username"
+msgstr "用户名"
+
+#, fuzzy
+msgid "Password"
+msgstr "密码："
+
 msgid "All done!"
 msgstr "一切完成！"
 
@@ -1310,10 +1303,16 @@ msgstr ""
 msgid "MySQLi"
 msgstr ""
 
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
 msgid "PostgreSQL"
 msgstr ""
 
 msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1330,6 +1329,9 @@ msgstr "数据库密码："
 
 msgid "Database Tables Prefix:"
 msgstr "数据库表前缀："
+
+msgid "Prefix"
+msgstr ""
 
 msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
@@ -1579,11 +1581,15 @@ msgstr ""
 msgid "Media list"
 msgstr "媒体详情"
 
-#, fuzzy
-msgid "Name"
-msgstr "名字："
-
 msgid "Size"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
 msgstr ""
 
 #, php-format
@@ -1911,6 +1917,10 @@ msgid "Link URL:"
 msgstr "链接 URL："
 
 #, fuzzy
+msgid "URL"
+msgstr "URL："
+
+#, fuzzy
 msgid "Link title:"
 msgstr "文件标题："
 
@@ -2069,10 +2079,6 @@ msgstr ""
 
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr ""
-
-#, fuzzy
-msgid "Password"
-msgstr "密码："
 
 #, fuzzy
 msgid "Edit basename"
@@ -2331,6 +2337,10 @@ msgid "Interface"
 msgstr "XML/RPC 接口"
 
 #, fuzzy
+msgid "Activate dark mode"
+msgstr "激活"
+
+#, fuzzy
 msgid "Activate enhanced uploader in media manager"
 msgstr "激活增强的上传工具"
 
@@ -2341,6 +2351,12 @@ msgid "If checked, numeric fields will allow to type the elements' ordering numb
 msgstr ""
 
 msgid "Hide all secondary information and notes"
+msgstr ""
+
+msgid "Hide help button"
+msgstr ""
+
+msgid "Show asynchronous requests indicator"
 msgstr ""
 
 #, fuzzy
@@ -2521,6 +2537,52 @@ msgstr "找到 %d 个评论"
 msgid "%d comments found"
 msgstr "找到 %d 个评论"
 
+#, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "编辑博客 %s"
+
+#, fuzzy, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d 个评论"
+
+#, fuzzy
+msgid "Dotclear news not available"
+msgstr "Dotclear %s 可用！"
+
+#, fuzzy
+msgid "Dotclear news"
+msgstr "Dotclear 团队"
+
+msgid "%d %B %Y:"
+msgstr ""
+
+#, fuzzy
+msgid "Dotclear update not available"
+msgstr "Dotclear %s 可用！"
+
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s 可用！"
+
+msgid "Upgrade now"
+msgstr "现在升级"
+
+msgid "Remind me later"
+msgstr "稍后提醒我"
+
+msgid "Information about this version"
+msgstr ""
+
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Dotclear update"
 msgstr "Dotclear 更新"
 
@@ -2621,6 +2683,10 @@ msgstr "每页用户数目"
 msgid "User ID:"
 msgstr "用户："
 
+#, fuzzy
+msgid "Login"
+msgstr "登录"
+
 msgid "Warning:"
 msgstr "警告："
 
@@ -2657,9 +2723,6 @@ msgstr "博客："
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
-
-msgid "Username"
-msgstr "用户名"
 
 msgid "Last Name"
 msgstr "姓"
@@ -2708,10 +2771,6 @@ msgstr "选择一个或者多个您想要赋予用户 %s 权限的博客。"
 
 msgid "No blog"
 msgstr "没有博客"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL："
 
 #, fuzzy
 msgid "select"
@@ -2901,16 +2960,6 @@ msgstr "文章语言："
 
 msgid "Languages"
 msgstr "语言"
-
-#, fuzzy, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "编辑博客 %s"
-
-#, fuzzy, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d 个评论"
 
 msgid "Change blog"
 msgstr "改变博客"
@@ -3248,6 +3297,10 @@ msgstr "版本"
 #, fuzzy
 msgid "Current version"
 msgstr "设置权限"
+
+#, php-format
+msgid " (%s)"
+msgstr ""
 
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
@@ -3987,6 +4040,18 @@ msgstr "无法检索设置："
 msgid "Invalid setting namespace: %s"
 msgstr "无效的设置命名空间：%s"
 
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires an INTO source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
 #, fuzzy
 msgid "Failed to read data feed"
 msgstr "无法读取摘要文件。"
@@ -4102,150 +4167,6 @@ msgstr "没有指定命名空间"
 msgid "Something went wrong with auto upgrade:"
 msgstr "自动升级时出现错误："
 
-msgid "Unable to open directory."
-msgstr "无法打开目录。"
-
-msgid "Unable to create directory."
-msgstr "无法创建目录。"
-
-msgid "File is not writable."
-msgstr "文件不可写。"
-
-msgid "Unable to open file."
-msgstr "无法打开文件。"
-
-msgid "Not an uploaded file."
-msgstr "不是一个上传的文件。"
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "上传的文件超过了最大允许的文件大小。"
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "上传的文件仅被部分上传。"
-
-msgid "No file was uploaded."
-msgstr "没有文件被上传。"
-
-msgid "Missing a temporary folder."
-msgstr "忽略了一个临时文件夹。"
-
-msgid "Failed to write file to disk."
-msgstr "写入文件到磁盘失败。"
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s 不是一个目录。"
-
-msgid "Bad range"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid range"
-msgstr "无效的语言代码"
-
-#, fuzzy
-msgid "Invalid line number"
-msgstr "无效的语言代码"
-
-msgid "Chunk is out of range"
-msgstr ""
-
-msgid "Bad context"
-msgstr ""
-
-msgid "Bad context (in deletion)"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid diff format"
-msgstr "无效的摘要文件。"
-
-msgid "Uploading this file is not allowed."
-msgstr "上传此文件是不允许的。"
-
-#, fuzzy
-msgid "Destination directory is not in jail."
-msgstr "目标目录不在监禁中。"
-
-msgid "File already exists."
-msgstr "文件已存在。"
-
-msgid "Cannot write in this directory."
-msgstr "无法在这个目录写入。"
-
-msgid "Source file does not exist."
-msgstr "源文件不存在。"
-
-#, fuzzy
-msgid "File is not in jail."
-msgstr "文件不再监禁中。"
-
-msgid "Destination directory is not writable."
-msgstr "目标目录不可写。"
-
-msgid "Unable to rename file."
-msgstr "无法重命名文件。"
-
-msgid "File cannot be removed."
-msgstr "文件无法被移除。"
-
-#, fuzzy
-msgid "Directory is not in jail."
-msgstr "目录不在监禁中。"
-
-msgid "Directory cannot be removed."
-msgstr "目录无法被移除。"
-
-msgid "Not enough memory to open image."
-msgstr "没有足够的空间打开图片。"
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
-msgid "singular"
-msgid_plural "plural"
-msgstr[0] ""
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "文件 %s 没有压缩到 zip 中。"
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "尝试解压缩一个目录 %s"
-
-msgid "Unable to write destination file."
-msgstr "无法写入目标文件。"
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "无法写入目标目录，权限被拒绝。"
-
-msgid "Not enough memory to open file."
-msgstr "没有足够空间打开文件。"
-
-msgid "File does not exist"
-msgstr "文件不存在"
-
-msgid "Cannot read file"
-msgstr "无法读取文件"
-
-msgid "Directory does not exist"
-msgstr "目录不存在"
-
-msgid "Cannot read directory"
-msgstr "无法读取目录"
-
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4261,6 +4182,117 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Unable to open directory."
+#~ msgstr "无法打开目录。"
+
+#~ msgid "Unable to create directory."
+#~ msgstr "无法创建目录。"
+
+#~ msgid "File is not writable."
+#~ msgstr "文件不可写。"
+
+#~ msgid "Unable to open file."
+#~ msgstr "无法打开文件。"
+
+#~ msgid "Not an uploaded file."
+#~ msgstr "不是一个上传的文件。"
+
+#~ msgid "The uploaded file exceeds the maximum file size allowed."
+#~ msgstr "上传的文件超过了最大允许的文件大小。"
+
+#~ msgid "The uploaded file was only partially uploaded."
+#~ msgstr "上传的文件仅被部分上传。"
+
+#~ msgid "No file was uploaded."
+#~ msgstr "没有文件被上传。"
+
+#~ msgid "Missing a temporary folder."
+#~ msgstr "忽略了一个临时文件夹。"
+
+#~ msgid "Failed to write file to disk."
+#~ msgstr "写入文件到磁盘失败。"
+
+#~ msgid "%s is not a directory."
+#~ msgstr "%s 不是一个目录。"
+
+#, fuzzy
+#~ msgid "Invalid range"
+#~ msgstr "无效的语言代码"
+
+#, fuzzy
+#~ msgid "Invalid line number"
+#~ msgstr "无效的语言代码"
+
+#, fuzzy
+#~ msgid "Invalid diff format"
+#~ msgstr "无效的摘要文件。"
+
+#~ msgid "Uploading this file is not allowed."
+#~ msgstr "上传此文件是不允许的。"
+
+#, fuzzy
+#~ msgid "Destination directory is not in jail."
+#~ msgstr "目标目录不在监禁中。"
+
+#~ msgid "File already exists."
+#~ msgstr "文件已存在。"
+
+#~ msgid "Cannot write in this directory."
+#~ msgstr "无法在这个目录写入。"
+
+#~ msgid "Source file does not exist."
+#~ msgstr "源文件不存在。"
+
+#, fuzzy
+#~ msgid "File is not in jail."
+#~ msgstr "文件不再监禁中。"
+
+#~ msgid "Destination directory is not writable."
+#~ msgstr "目标目录不可写。"
+
+#~ msgid "Unable to rename file."
+#~ msgstr "无法重命名文件。"
+
+#~ msgid "File cannot be removed."
+#~ msgstr "文件无法被移除。"
+
+#, fuzzy
+#~ msgid "Directory is not in jail."
+#~ msgstr "目录不在监禁中。"
+
+#~ msgid "Directory cannot be removed."
+#~ msgstr "目录无法被移除。"
+
+#~ msgid "Not enough memory to open image."
+#~ msgstr "没有足够的空间打开图片。"
+
+#~ msgid "File %s is not compressed in the zip."
+#~ msgstr "文件 %s 没有压缩到 zip 中。"
+
+#~ msgid "Trying to unzip a folder name %s"
+#~ msgstr "尝试解压缩一个目录 %s"
+
+#~ msgid "Unable to write destination file."
+#~ msgstr "无法写入目标文件。"
+
+#~ msgid "Unable to write in target directory, permission denied."
+#~ msgstr "无法写入目标目录，权限被拒绝。"
+
+#~ msgid "Not enough memory to open file."
+#~ msgstr "没有足够空间打开文件。"
+
+#~ msgid "File does not exist"
+#~ msgstr "文件不存在"
+
+#~ msgid "Cannot read file"
+#~ msgstr "无法读取文件"
+
+#~ msgid "Directory does not exist"
+#~ msgstr "目录不存在"
+
+#~ msgid "Cannot read directory"
+#~ msgstr "无法读取目录"
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4571,9 +4603,6 @@ msgstr ""
 
 #~ msgid "No attachment."
 #~ msgstr "没有附件。"
-
-#~ msgid "login"
-#~ msgstr "登录"
 
 #~ msgid "View site"
 #~ msgstr "浏览网站"

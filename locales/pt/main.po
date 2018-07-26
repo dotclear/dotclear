@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:24+0200\n"
+"POT-Creation-Date: 2018-07-26 16:11+0200\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -145,13 +145,23 @@ msgstr "ID do blog:"
 msgid "Required field"
 msgstr "Campo obrigatório"
 
+msgid "Blog ID"
+msgstr "ID do blog"
+
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Use no mínimo dois caracteres, números ou símbolos."
 
 msgid "Blog name:"
 msgstr "Nome do blog:"
 
+msgid "Blog name"
+msgstr "Nome do blog"
+
 msgid "Blog URL:"
+msgstr "URL do blog:"
+
+#, fuzzy
+msgid "Blog URL"
 msgstr "URL do blog:"
 
 msgid "Blog description:"
@@ -405,6 +415,9 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
+msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
+msgstr ""
+
 #, fuzzy
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Tamanho de imagens geradas (em pixeis)"
@@ -651,12 +664,6 @@ msgstr "Para activar esta função, permita acesso de escrita na pasta dos plugi
 msgid "Last update"
 msgstr "Última actualização"
 
-msgid "Blog name"
-msgstr "Nome do blog"
-
-msgid "Blog ID"
-msgstr "ID do blog"
-
 msgid "Status"
 msgstr "Estado"
 
@@ -747,9 +754,7 @@ msgstr "Categorias"
 
 #, fuzzy
 msgid "The category has been successfully removed."
-msgid_plural "The categories have been successfully removed."
-msgstr[0] "A categoria foi removida com sucesso."
-msgstr[1] "A categoria foi removida com sucesso."
+msgstr "A categoria foi removida com sucesso."
 
 #, fuzzy
 msgid "Entries have been successfully moved to the category you choose."
@@ -820,6 +825,9 @@ msgstr "Informação da categoria"
 
 msgid "Name:"
 msgstr "Nome:"
+
+msgid "Name"
+msgstr "Nome"
 
 msgid "Parent:"
 msgstr "Nível ascendente:"
@@ -914,6 +922,9 @@ msgstr "Comentários"
 msgid "Author:"
 msgstr "Autor:"
 
+msgid "Author"
+msgstr "Autor"
+
 msgid "Web site:"
 msgstr "Website:"
 
@@ -940,9 +951,6 @@ msgstr "Título da entrada"
 #, fuzzy
 msgid "Entry date"
 msgstr "Título da entrada"
-
-msgid "Author"
-msgstr "Autor"
 
 msgid "IP"
 msgstr ""
@@ -1000,39 +1008,11 @@ msgstr[0] "O módulo \"iconv\" não está disponível."
 msgstr[1] "O módulo \"iconv\" não está disponível."
 
 #, fuzzy
-msgid "Dotclear news"
-msgstr "Equipa Dotclear"
-
-msgid "%d %B %Y:"
-msgstr ""
-
-#, fuzzy
 msgid "Documentation and support"
 msgstr "Documentação"
 
 msgid "Dashboard"
 msgstr "Painel de controlo"
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr "Dotclear %s está disponível!"
-
-msgid "Upgrade now"
-msgstr "Actualizar agora"
-
-msgid "Remind me later"
-msgstr "Lembrar-me mais tarde"
-
-msgid "Information about this version"
-msgstr ""
-
-#, php-format
-msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr ""
-
-#, php-format
-msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr ""
 
 msgid "Make this blog my default blog"
 msgstr "Configurar como o blog principal"
@@ -1084,6 +1064,10 @@ msgid "Title:"
 msgstr "Título:"
 
 msgid "Content:"
+msgstr "Conteúdo:"
+
+#, fuzzy
+msgid "Content"
 msgstr "Conteúdo:"
 
 msgid "Category:"
@@ -1235,6 +1219,13 @@ msgstr "Apelido:"
 msgid "Username and password"
 msgstr "Utilizador ou password"
 
+msgid "Username"
+msgstr "Utilizador"
+
+#, fuzzy
+msgid "Password"
+msgstr "Password:"
+
 msgid "All done!"
 msgstr "Concluído!"
 
@@ -1316,10 +1307,16 @@ msgstr ""
 msgid "MySQLi"
 msgstr ""
 
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
 msgid "PostgreSQL"
 msgstr ""
 
 msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1336,6 +1333,9 @@ msgstr "Password da base de dados:"
 
 msgid "Database Tables Prefix:"
 msgstr "Prefixo das tabelas da base de dados:"
+
+msgid "Prefix"
+msgstr ""
 
 msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
@@ -1587,10 +1587,15 @@ msgstr ""
 msgid "Media list"
 msgstr "Detalhes do conteúdo multimédia"
 
-msgid "Name"
-msgstr "Nome"
-
 msgid "Size"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
 msgstr ""
 
 #, php-format
@@ -1919,6 +1924,10 @@ msgid "Link URL:"
 msgstr "URL do link"
 
 #, fuzzy
+msgid "URL"
+msgstr "URL:"
+
+#, fuzzy
 msgid "Link title:"
 msgstr "Título do ficheiro:"
 
@@ -2077,10 +2086,6 @@ msgstr ""
 
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr ""
-
-#, fuzzy
-msgid "Password"
-msgstr "Password:"
 
 #, fuzzy
 msgid "Edit basename"
@@ -2339,6 +2344,10 @@ msgid "Interface"
 msgstr "Interface XML/RPC"
 
 #, fuzzy
+msgid "Activate dark mode"
+msgstr "Activar"
+
+#, fuzzy
 msgid "Activate enhanced uploader in media manager"
 msgstr "Activar o uploader"
 
@@ -2349,6 +2358,12 @@ msgid "If checked, numeric fields will allow to type the elements' ordering numb
 msgstr ""
 
 msgid "Hide all secondary information and notes"
+msgstr ""
+
+msgid "Hide help button"
+msgstr ""
+
+msgid "Show asynchronous requests indicator"
 msgstr ""
 
 #, fuzzy
@@ -2529,6 +2544,54 @@ msgstr "%d comentário encontrado"
 msgid "%d comments found"
 msgstr "%d comentários encontrados"
 
+#, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "Editar o blog %s"
+msgstr[1] "Editar o blog %s"
+
+#, fuzzy, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d comentário"
+msgstr[1] "%d comentário"
+
+#, fuzzy
+msgid "Dotclear news not available"
+msgstr "Dotclear %s está disponível!"
+
+#, fuzzy
+msgid "Dotclear news"
+msgstr "Equipa Dotclear"
+
+msgid "%d %B %Y:"
+msgstr ""
+
+#, fuzzy
+msgid "Dotclear update not available"
+msgstr "Dotclear %s está disponível!"
+
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s está disponível!"
+
+msgid "Upgrade now"
+msgstr "Actualizar agora"
+
+msgid "Remind me later"
+msgstr "Lembrar-me mais tarde"
+
+msgid "Information about this version"
+msgstr ""
+
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Dotclear update"
 msgstr "Actualização de Dotclear"
 
@@ -2629,6 +2692,10 @@ msgstr "Utilizadores por página"
 msgid "User ID:"
 msgstr "ID do utilizador"
 
+#, fuzzy
+msgid "Login"
+msgstr "Login:"
+
 msgid "Warning:"
 msgstr "Aviso:"
 
@@ -2664,9 +2731,6 @@ msgstr "Blog:"
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
-
-msgid "Username"
-msgstr "Utilizador"
 
 msgid "Last Name"
 msgstr "Apelido"
@@ -2715,10 +2779,6 @@ msgstr "Escolha um ou mais blogs para o qual se pretende atribuir permissões pa
 
 msgid "No blog"
 msgstr "Sem blog"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL:"
 
 #, fuzzy
 msgid "select"
@@ -2916,18 +2976,6 @@ msgstr "Língua da entrada:"
 
 msgid "Languages"
 msgstr "Línguas"
-
-#, fuzzy, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "Editar o blog %s"
-msgstr[1] "Editar o blog %s"
-
-#, fuzzy, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d comentário"
-msgstr[1] "%d comentário"
 
 msgid "Change blog"
 msgstr "Modificar blog"
@@ -3266,6 +3314,10 @@ msgstr "Versão"
 #, fuzzy
 msgid "Current version"
 msgstr "definir permissões"
+
+#, php-format
+msgid " (%s)"
+msgstr ""
 
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
@@ -4021,6 +4073,18 @@ msgstr "Não consigo recuperar os parâmetros:"
 msgid "Invalid setting namespace: %s"
 msgstr "Parâmetro do espaço de nome invalido: %s"
 
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires an INTO source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
 #, fuzzy
 msgid "Failed to read data feed"
 msgstr "Não consigo ler o ficheiro compilado."
@@ -4136,148 +4200,6 @@ msgstr "Nenhum espaço de nomes especificado"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Um erro aconteceu durante a actualização automática:"
 
-msgid "Unable to open directory."
-msgstr "Não consigo abrir a pasta."
-
-msgid "Unable to create directory."
-msgstr "Não consigo criar a pasta."
-
-msgid "File is not writable."
-msgstr "O ficheiro não tem acesso de escrita."
-
-msgid "Unable to open file."
-msgstr "Não consigo abrir o ficheiro."
-
-msgid "Not an uploaded file."
-msgstr "O ficheiro não é um ficheiro enviado."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "O ficheiro enviado excede o tamanho máximo autorizado."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "O ficheiro só foi recebido parcialmente."
-
-msgid "No file was uploaded."
-msgstr "Nenhum ficheiro foi enviado."
-
-msgid "Missing a temporary folder."
-msgstr "Falta uma pasta temporária."
-
-msgid "Failed to write file to disk."
-msgstr "Falha ao gravar o ficheiro no disco."
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s não é uma pasta."
-
-msgid "Bad range"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid range"
-msgstr "Código de língua errado"
-
-#, fuzzy
-msgid "Invalid line number"
-msgstr "Código de língua errado"
-
-msgid "Chunk is out of range"
-msgstr ""
-
-msgid "Bad context"
-msgstr ""
-
-msgid "Bad context (in deletion)"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid diff format"
-msgstr "Ficheiro compilados inválido."
-
-msgid "Uploading this file is not allowed."
-msgstr "Enviar este ficheiro não é permitido."
-
-msgid "Destination directory is not in jail."
-msgstr "A pasta alcançada não é dentro do \"Jail\""
-
-msgid "File already exists."
-msgstr "O ficheiro já existe."
-
-msgid "Cannot write in this directory."
-msgstr "Não consigo escrever nesta pasta."
-
-msgid "Source file does not exist."
-msgstr "O ficheiro não existe."
-
-msgid "File is not in jail."
-msgstr "O ficheiro não é dentro do \"Jail\""
-
-msgid "Destination directory is not writable."
-msgstr "A pasta não tem acesso de escrita."
-
-msgid "Unable to rename file."
-msgstr "Não consigo renomear o ficheiro."
-
-msgid "File cannot be removed."
-msgstr "O ficheiro não pode ser removido."
-
-msgid "Directory is not in jail."
-msgstr "A pasta não é dentro do \"Jail\""
-
-msgid "Directory cannot be removed."
-msgstr "A pasta não pode ser removida."
-
-msgid "Not enough memory to open image."
-msgstr "Memória insuficiente para abrir a imagem."
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
-msgid "singular"
-msgid_plural "plural"
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "O ficheiro %s não está compactado no zip."
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "Tentando extrair a pasta %s"
-
-msgid "Unable to write destination file."
-msgstr "Não consigo escrever no ficheiro alcançado."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "Não consigo escrever na pasta alcançada, permissão recusada."
-
-msgid "Not enough memory to open file."
-msgstr "Memória insuficiente para abrir o ficheiro."
-
-msgid "File does not exist"
-msgstr "O ficheiro não existe"
-
-msgid "Cannot read file"
-msgstr "Não consigo ler o ficheiro"
-
-msgid "Directory does not exist"
-msgstr "A pasta não existe"
-
-msgid "Cannot read directory"
-msgstr "Não consigo ler a pasta"
-
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4293,6 +4215,114 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Unable to open directory."
+#~ msgstr "Não consigo abrir a pasta."
+
+#~ msgid "Unable to create directory."
+#~ msgstr "Não consigo criar a pasta."
+
+#~ msgid "File is not writable."
+#~ msgstr "O ficheiro não tem acesso de escrita."
+
+#~ msgid "Unable to open file."
+#~ msgstr "Não consigo abrir o ficheiro."
+
+#~ msgid "Not an uploaded file."
+#~ msgstr "O ficheiro não é um ficheiro enviado."
+
+#~ msgid "The uploaded file exceeds the maximum file size allowed."
+#~ msgstr "O ficheiro enviado excede o tamanho máximo autorizado."
+
+#~ msgid "The uploaded file was only partially uploaded."
+#~ msgstr "O ficheiro só foi recebido parcialmente."
+
+#~ msgid "No file was uploaded."
+#~ msgstr "Nenhum ficheiro foi enviado."
+
+#~ msgid "Missing a temporary folder."
+#~ msgstr "Falta uma pasta temporária."
+
+#~ msgid "Failed to write file to disk."
+#~ msgstr "Falha ao gravar o ficheiro no disco."
+
+#~ msgid "%s is not a directory."
+#~ msgstr "%s não é uma pasta."
+
+#, fuzzy
+#~ msgid "Invalid range"
+#~ msgstr "Código de língua errado"
+
+#, fuzzy
+#~ msgid "Invalid line number"
+#~ msgstr "Código de língua errado"
+
+#, fuzzy
+#~ msgid "Invalid diff format"
+#~ msgstr "Ficheiro compilados inválido."
+
+#~ msgid "Uploading this file is not allowed."
+#~ msgstr "Enviar este ficheiro não é permitido."
+
+#~ msgid "Destination directory is not in jail."
+#~ msgstr "A pasta alcançada não é dentro do \"Jail\""
+
+#~ msgid "File already exists."
+#~ msgstr "O ficheiro já existe."
+
+#~ msgid "Cannot write in this directory."
+#~ msgstr "Não consigo escrever nesta pasta."
+
+#~ msgid "Source file does not exist."
+#~ msgstr "O ficheiro não existe."
+
+#~ msgid "File is not in jail."
+#~ msgstr "O ficheiro não é dentro do \"Jail\""
+
+#~ msgid "Destination directory is not writable."
+#~ msgstr "A pasta não tem acesso de escrita."
+
+#~ msgid "Unable to rename file."
+#~ msgstr "Não consigo renomear o ficheiro."
+
+#~ msgid "File cannot be removed."
+#~ msgstr "O ficheiro não pode ser removido."
+
+#~ msgid "Directory is not in jail."
+#~ msgstr "A pasta não é dentro do \"Jail\""
+
+#~ msgid "Directory cannot be removed."
+#~ msgstr "A pasta não pode ser removida."
+
+#~ msgid "Not enough memory to open image."
+#~ msgstr "Memória insuficiente para abrir a imagem."
+
+#~ msgid "File %s is not compressed in the zip."
+#~ msgstr "O ficheiro %s não está compactado no zip."
+
+#~ msgid "Trying to unzip a folder name %s"
+#~ msgstr "Tentando extrair a pasta %s"
+
+#~ msgid "Unable to write destination file."
+#~ msgstr "Não consigo escrever no ficheiro alcançado."
+
+#~ msgid "Unable to write in target directory, permission denied."
+#~ msgstr "Não consigo escrever na pasta alcançada, permissão recusada."
+
+#~ msgid "Not enough memory to open file."
+#~ msgstr "Memória insuficiente para abrir o ficheiro."
+
+#~ msgid "File does not exist"
+#~ msgstr "O ficheiro não existe"
+
+#~ msgid "Cannot read file"
+#~ msgstr "Não consigo ler o ficheiro"
+
+#~ msgid "Directory does not exist"
+#~ msgstr "A pasta não existe"
+
+#~ msgid "Cannot read directory"
+#~ msgstr "Não consigo ler a pasta"
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4618,9 +4648,6 @@ msgstr ""
 
 #~ msgid "The file <strong>%s</strong> already exists. If you need to reset any of the configuration items in this file, please delete it first or you may <a href=\"%s\">continue to install</a>."
 #~ msgstr "O ficheiro <strong>%s</strong> já existe. Se necessita de alterar alguns itens de configuração, apague este ficheiro primeiro, se não <a href=\"%s\">continue para instalar</a>."
-
-#~ msgid "Login:"
-#~ msgstr "Login:"
 
 #~ msgid "Login and password"
 #~ msgstr "Login e password"

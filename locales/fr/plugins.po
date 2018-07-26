@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:23+0200\n"
+"POT-Creation-Date: 2018-07-26 16:10+0200\n"
 "PO-Revision-Date: 2016-07-18 15:16+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -196,6 +196,14 @@ msgstr "jours"
 msgid "Set spam filters."
 msgstr "Régler les filtres de spam."
 
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "(dont %d indésirable)"
+
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "(dont %d indésirables)"
+
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "Filtre de liste noire et blanche d'IP"
 
@@ -310,14 +318,6 @@ msgstr "Filtre inconnu."
 
 msgid "This comment is a spam:"
 msgstr "Ce commentaire est indésirable :"
-
-#, php-format
-msgid "(including %d spam comment)"
-msgstr "(dont %d indésirable)"
-
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(dont %d indésirables)"
 
 msgid "Spam moderation"
 msgstr "Modération des indésirables"
@@ -1626,6 +1626,15 @@ msgstr "Tout sélectionner"
 msgid "Simple menu"
 msgstr "Menu simple"
 
+msgid "the link will open a new window"
+msgstr "Ce lien s'ouvrira dans une nouvelle fenêtre"
+
+msgid "Active page"
+msgstr "Page active"
+
+msgid "active page"
+msgstr "page active"
+
 msgid "Item description"
 msgstr "Description des items de menu"
 
@@ -1746,6 +1755,9 @@ msgstr "Description de l'item de menu :"
 msgid "URL of item menu:"
 msgstr "URL de l'item de menu :"
 
+msgid "Open URL on a new tab"
+msgstr "S'ouvre dans un nouvel onglet"
+
 msgid "Add this item"
 msgstr "Ajouter cet item"
 
@@ -1782,20 +1794,20 @@ msgstr "Flux Atom des billets associés à ce mot-clé"
 msgid "Tag"
 msgstr "Mot-clé"
 
-msgid "Limit (empty means no limit):"
-msgstr "Limite (laisser vide si pas de limite) :"
+msgid "Tag name"
+msgstr "Nom du mot-clé"
 
 msgid "Entries count"
 msgstr "Nombre de billets"
-
-msgid "Tag name"
-msgstr "Nom du mot-clé"
 
 msgid "Newest entry"
 msgstr "Billet le plus récent"
 
 msgid "Oldest entry"
 msgstr "Billet le plus ancien"
+
+msgid "Limit (empty means no limit):"
+msgstr "Limite (laisser vide si pas de limite) :"
 
 msgid "Link to all tags:"
 msgstr "Lien vers tous les mots-clés :"
@@ -2005,18 +2017,6 @@ msgstr "Texte indicatif (HTML5 seulement, optionnel) :"
 
 msgid "Navigation links"
 msgstr "Liens de navigation"
-
-msgid "Open URL on a new tab"
-msgstr "S'ouvre dans un nouvel onglet"
-
-msgid "the link will open a new window"
-msgstr "Ce lien s'ouvrira dans une nouvelle fenêtre"
-
-msgid "active page"
-msgstr "page active"
-
-msgid "Active page"
-msgstr "Page active"
 
 msgid "Selected entries"
 msgstr "Billets sélectionnés"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:24+0200\n"
+"POT-Creation-Date: 2018-07-26 16:10+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -146,13 +146,23 @@ msgstr "블로그 아이디:"
 msgid "Required field"
 msgstr "필수 사항"
 
+msgid "Blog ID"
+msgstr "블로그 아이디"
+
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "최소 2자 이상의 글자, 숫자 또는 기호들의 조합."
 
 msgid "Blog name:"
 msgstr "블로그 이름"
 
+msgid "Blog name"
+msgstr "블로그 이름"
+
 msgid "Blog URL:"
+msgstr "블로그 URL"
+
+#, fuzzy
+msgid "Blog URL"
 msgstr "블로그 URL"
 
 msgid "Blog description:"
@@ -407,6 +417,9 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
+msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
+msgstr ""
+
 #, fuzzy
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "생성된 이미지 크기 (픽셀단위)"
@@ -652,12 +665,6 @@ msgstr "이 기능을 켜려면, 플러그인 폴더에 쓰기접근을 허용�
 msgid "Last update"
 msgstr "최근 갱신"
 
-msgid "Blog name"
-msgstr "블로그 이름"
-
-msgid "Blog ID"
-msgstr "블로그 아이디"
-
 msgid "Status"
 msgstr "공개상태"
 
@@ -748,8 +755,7 @@ msgstr "분류"
 
 #, fuzzy
 msgid "The category has been successfully removed."
-msgid_plural "The categories have been successfully removed."
-msgstr[0] "분류 제거 완료."
+msgstr "분류 제거 완료."
 
 #, fuzzy
 msgid "Entries have been successfully moved to the category you choose."
@@ -820,6 +826,9 @@ msgstr "분류 상세 정보"
 
 msgid "Name:"
 msgstr "이름 :"
+
+msgid "Name"
+msgstr "성"
 
 msgid "Parent:"
 msgstr "상위분류 :"
@@ -914,6 +923,9 @@ msgstr "댓글"
 msgid "Author:"
 msgstr "글쓴이 :"
 
+msgid "Author"
+msgstr "글쓴이"
+
 msgid "Web site:"
 msgstr "웹사이트 :"
 
@@ -940,9 +952,6 @@ msgstr "글꼭지 제목"
 #, fuzzy
 msgid "Entry date"
 msgstr "글꼭지 제목"
-
-msgid "Author"
-msgstr "글쓴이"
 
 msgid "IP"
 msgstr ""
@@ -999,39 +1008,11 @@ msgid_plural "%s updates are available."
 msgstr[0] "Iconv모듈을 사용할 수 없습니다."
 
 #, fuzzy
-msgid "Dotclear news"
-msgstr "Dotclear 팀"
-
-msgid "%d %B %Y:"
-msgstr ""
-
-#, fuzzy
 msgid "Documentation and support"
 msgstr "문서자료"
 
 msgid "Dashboard"
 msgstr "관리마당"
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr "Dotclear %s가 배포되었습니다 !"
-
-msgid "Upgrade now"
-msgstr "지금 바로 갱신"
-
-msgid "Remind me later"
-msgstr "나중에 다시 알려줌"
-
-msgid "Information about this version"
-msgstr ""
-
-#, php-format
-msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr ""
-
-#, php-format
-msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr ""
 
 msgid "Make this blog my default blog"
 msgstr "이 블로그를 기본 블로그로 설정"
@@ -1083,6 +1064,10 @@ msgid "Title:"
 msgstr "제목 :"
 
 msgid "Content:"
+msgstr "내용 :"
+
+#, fuzzy
+msgid "Content"
 msgstr "내용 :"
 
 msgid "Category:"
@@ -1237,6 +1222,14 @@ msgstr "최근 갱신"
 msgid "Username and password"
 msgstr "잘못된 사용자이름 또는 비밀번호"
 
+#, fuzzy
+msgid "Username"
+msgstr "사용자이름:"
+
+#, fuzzy
+msgid "Password"
+msgstr "비밀번호:"
+
 msgid "All done!"
 msgstr "완료되었습니다 !"
 
@@ -1319,10 +1312,16 @@ msgstr ""
 msgid "MySQLi"
 msgstr ""
 
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
 msgid "PostgreSQL"
 msgstr ""
 
 msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1339,6 +1338,9 @@ msgstr "데이터베이스 비밀번호 :"
 
 msgid "Database Tables Prefix:"
 msgstr "데이터베이스 테이블이름 머리씨 :"
+
+msgid "Prefix"
+msgstr ""
 
 msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
@@ -1588,10 +1590,15 @@ msgstr ""
 msgid "Media list"
 msgstr "미디어 상세정보"
 
-msgid "Name"
-msgstr "성"
-
 msgid "Size"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
 msgstr ""
 
 #, php-format
@@ -1920,6 +1927,10 @@ msgid "Link URL:"
 msgstr "링크 URL :"
 
 #, fuzzy
+msgid "URL"
+msgstr "URL :"
+
+#, fuzzy
 msgid "Link title:"
 msgstr "파일 제목 :"
 
@@ -2078,10 +2089,6 @@ msgstr ""
 
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr ""
-
-#, fuzzy
-msgid "Password"
-msgstr "비밀번호:"
 
 #, fuzzy
 msgid "Edit basename"
@@ -2340,6 +2347,10 @@ msgid "Interface"
 msgstr "XML/RPC 인터페이스"
 
 #, fuzzy
+msgid "Activate dark mode"
+msgstr "작동켜기"
+
+#, fuzzy
 msgid "Activate enhanced uploader in media manager"
 msgstr "복수파일 동시전송 모드로 전환"
 
@@ -2350,6 +2361,12 @@ msgid "If checked, numeric fields will allow to type the elements' ordering numb
 msgstr ""
 
 msgid "Hide all secondary information and notes"
+msgstr ""
+
+msgid "Hide help button"
+msgstr ""
+
+msgid "Show asynchronous requests indicator"
 msgstr ""
 
 #, fuzzy
@@ -2530,6 +2547,52 @@ msgstr "찾은 댓글수: %d"
 msgid "%d comments found"
 msgstr "찾은 댓글수: %d"
 
+#, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%s 블로그 설정 수정"
+
+#, fuzzy, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "댓글 %d 개"
+
+#, fuzzy
+msgid "Dotclear news not available"
+msgstr "Dotclear %s가 배포되었습니다 !"
+
+#, fuzzy
+msgid "Dotclear news"
+msgstr "Dotclear 팀"
+
+msgid "%d %B %Y:"
+msgstr ""
+
+#, fuzzy
+msgid "Dotclear update not available"
+msgstr "Dotclear %s가 배포되었습니다 !"
+
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s가 배포되었습니다 !"
+
+msgid "Upgrade now"
+msgstr "지금 바로 갱신"
+
+msgid "Remind me later"
+msgstr "나중에 다시 알려줌"
+
+msgid "Information about this version"
+msgstr ""
+
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Dotclear update"
 msgstr "Dotclear 갱신"
 
@@ -2630,6 +2693,10 @@ msgstr "페이지당 사용자수"
 msgid "User ID:"
 msgstr "사용자이름"
 
+#, fuzzy
+msgid "Login"
+msgstr "사용자이름:"
+
 msgid "Warning:"
 msgstr "경고 :"
 
@@ -2666,10 +2733,6 @@ msgstr "블로그 :"
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
-
-#, fuzzy
-msgid "Username"
-msgstr "사용자이름:"
 
 #, fuzzy
 msgid "Last Name"
@@ -2720,10 +2783,6 @@ msgstr "사용자 %s가 권한을 가지게될 블로그들을 선택해주세�
 
 msgid "No blog"
 msgstr "블로그가 없습니다."
-
-#, fuzzy
-msgid "URL"
-msgstr "URL :"
 
 #, fuzzy
 msgid "select"
@@ -2922,16 +2981,6 @@ msgstr "글꼭지 언어 :"
 
 msgid "Languages"
 msgstr "언어"
-
-#, fuzzy, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "%s 블로그 설정 수정"
-
-#, fuzzy, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "댓글 %d 개"
 
 msgid "Change blog"
 msgstr "블로그 변경"
@@ -3269,6 +3318,10 @@ msgstr "버전"
 #, fuzzy
 msgid "Current version"
 msgstr "권한 설정"
+
+#, php-format
+msgid " (%s)"
+msgstr ""
 
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
@@ -4006,6 +4059,18 @@ msgstr "설정값을 읽어볼 수 없게함 :"
 msgid "Invalid setting namespace: %s"
 msgstr "바르지 않은 영역이름 : %s"
 
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires an INTO source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
 #, fuzzy
 msgid "Failed to read data feed"
 msgstr "컨트롤파일(digests)을 읽을 수 없습니다."
@@ -4121,149 +4186,6 @@ msgstr "정해진 영역이름이 없습니다"
 msgid "Something went wrong with auto upgrade:"
 msgstr "자동 갱신 중 오류가 발생했습니다 :"
 
-msgid "Unable to open directory."
-msgstr "해당 폴더를 열 수 없습니다."
-
-msgid "Unable to create directory."
-msgstr "해당 폴더를 만들 수 없습니다."
-
-msgid "File is not writable."
-msgstr "파일이 쓰기 금지 상태입니다."
-
-msgid "Unable to open file."
-msgstr "파일을 열 수 없습니다."
-
-msgid "Not an uploaded file."
-msgstr "해당하는 파일이 없습니다."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "올리려는 파일이 크기한계를 초과합니다."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "파일의 일부만 올려졌습니다."
-
-msgid "No file was uploaded."
-msgstr "아무 파일도 올려지지 않았습니다."
-
-msgid "Missing a temporary folder."
-msgstr "임시폴더가 없습니다."
-
-msgid "Failed to write file to disk."
-msgstr "파일을 쓸 수가 없습니다."
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s는 폴더가 아닙니다."
-
-msgid "Bad range"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid range"
-msgstr "잘못된 언어 코드"
-
-#, fuzzy
-msgid "Invalid line number"
-msgstr "잘못된 언어 코드"
-
-msgid "Chunk is out of range"
-msgstr ""
-
-msgid "Bad context"
-msgstr ""
-
-msgid "Bad context (in deletion)"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid diff format"
-msgstr "컨트롤파일(digests)이 비정상적입니다."
-
-msgid "Uploading this file is not allowed."
-msgstr "이 파일은 올리기 금지된 파일입니다."
-
-msgid "Destination directory is not in jail."
-msgstr "목표 폴더가 접근가능영역(Jail) 안에 있지 않습니다."
-
-#, fuzzy
-msgid "File already exists."
-msgstr "새 파일이 이미 있습니다."
-
-msgid "Cannot write in this directory."
-msgstr "이 폴더에 쓰기를 할 수 없습니다."
-
-msgid "Source file does not exist."
-msgstr "소스파일이 존재하지 않습니다."
-
-msgid "File is not in jail."
-msgstr "파일이 접근가능영역(Jail) 안에 있지 않습니다."
-
-msgid "Destination directory is not writable."
-msgstr "목표 폴더가 쓰기 금지상태입니다."
-
-msgid "Unable to rename file."
-msgstr "파일 이름을 바꿀 수 없습니다."
-
-msgid "File cannot be removed."
-msgstr "이 파일은 지울 수 없습니다."
-
-# décidément ! mais que veut dire "jail" ? -- réponse de baramme : Jail est un système pour fabriquer une zone protégée sur FreeBSD système. Notamment, un accès à l'intérieur de Jail est (doit être) complètement isolé de son extérieur.
-msgid "Directory is not in jail."
-msgstr "해당 폴더가 접근가능영역(Jail) 안에 있지 않습니다."
-
-msgid "Directory cannot be removed."
-msgstr "이 폴더는 지울 수 없습니다."
-
-msgid "Not enough memory to open image."
-msgstr "이미지를 열기에 메모리가 충분하지 않습니다."
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
-msgid "singular"
-msgid_plural "plural"
-msgstr[0] ""
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "%s 파일은 zip파일이 아닙니다. (또는 zip파일 안에 있지 않습니다.)"
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "%s 폴더의 압축풀기를 시도합니다."
-
-msgid "Unable to write destination file."
-msgstr "목표한 파일을 쓰기(저장)할 수 없습니다."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "목표한 폴더가 쓰기금지 상태입니다."
-
-msgid "Not enough memory to open file."
-msgstr "파일을 쓰기에 메모리가 부족합니다."
-
-msgid "File does not exist"
-msgstr "파일이 존재하지 않습니다."
-
-msgid "Cannot read file"
-msgstr "파일을 읽을 수 없습니다."
-
-msgid "Directory does not exist"
-msgstr "폴더가 존재하지 않습니다."
-
-msgid "Cannot read directory"
-msgstr "폴더를 읽을 수 없습니다."
-
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4279,6 +4201,116 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Unable to open directory."
+#~ msgstr "해당 폴더를 열 수 없습니다."
+
+#~ msgid "Unable to create directory."
+#~ msgstr "해당 폴더를 만들 수 없습니다."
+
+#~ msgid "File is not writable."
+#~ msgstr "파일이 쓰기 금지 상태입니다."
+
+#~ msgid "Unable to open file."
+#~ msgstr "파일을 열 수 없습니다."
+
+#~ msgid "Not an uploaded file."
+#~ msgstr "해당하는 파일이 없습니다."
+
+#~ msgid "The uploaded file exceeds the maximum file size allowed."
+#~ msgstr "올리려는 파일이 크기한계를 초과합니다."
+
+#~ msgid "The uploaded file was only partially uploaded."
+#~ msgstr "파일의 일부만 올려졌습니다."
+
+#~ msgid "No file was uploaded."
+#~ msgstr "아무 파일도 올려지지 않았습니다."
+
+#~ msgid "Missing a temporary folder."
+#~ msgstr "임시폴더가 없습니다."
+
+#~ msgid "Failed to write file to disk."
+#~ msgstr "파일을 쓸 수가 없습니다."
+
+#~ msgid "%s is not a directory."
+#~ msgstr "%s는 폴더가 아닙니다."
+
+#, fuzzy
+#~ msgid "Invalid range"
+#~ msgstr "잘못된 언어 코드"
+
+#, fuzzy
+#~ msgid "Invalid line number"
+#~ msgstr "잘못된 언어 코드"
+
+#, fuzzy
+#~ msgid "Invalid diff format"
+#~ msgstr "컨트롤파일(digests)이 비정상적입니다."
+
+#~ msgid "Uploading this file is not allowed."
+#~ msgstr "이 파일은 올리기 금지된 파일입니다."
+
+#~ msgid "Destination directory is not in jail."
+#~ msgstr "목표 폴더가 접근가능영역(Jail) 안에 있지 않습니다."
+
+#, fuzzy
+#~ msgid "File already exists."
+#~ msgstr "새 파일이 이미 있습니다."
+
+#~ msgid "Cannot write in this directory."
+#~ msgstr "이 폴더에 쓰기를 할 수 없습니다."
+
+#~ msgid "Source file does not exist."
+#~ msgstr "소스파일이 존재하지 않습니다."
+
+#~ msgid "File is not in jail."
+#~ msgstr "파일이 접근가능영역(Jail) 안에 있지 않습니다."
+
+#~ msgid "Destination directory is not writable."
+#~ msgstr "목표 폴더가 쓰기 금지상태입니다."
+
+#~ msgid "Unable to rename file."
+#~ msgstr "파일 이름을 바꿀 수 없습니다."
+
+#~ msgid "File cannot be removed."
+#~ msgstr "이 파일은 지울 수 없습니다."
+
+# décidément ! mais que veut dire "jail" ? -- réponse de baramme : Jail est un système pour fabriquer une zone protégée sur FreeBSD système. Notamment, un accès à l'intérieur de Jail est (doit être) complètement isolé de son extérieur.
+#~ msgid "Directory is not in jail."
+#~ msgstr "해당 폴더가 접근가능영역(Jail) 안에 있지 않습니다."
+
+#~ msgid "Directory cannot be removed."
+#~ msgstr "이 폴더는 지울 수 없습니다."
+
+#~ msgid "Not enough memory to open image."
+#~ msgstr "이미지를 열기에 메모리가 충분하지 않습니다."
+
+#~ msgid "File %s is not compressed in the zip."
+#~ msgstr "%s 파일은 zip파일이 아닙니다. (또는 zip파일 안에 있지 않습니다.)"
+
+#~ msgid "Trying to unzip a folder name %s"
+#~ msgstr "%s 폴더의 압축풀기를 시도합니다."
+
+#~ msgid "Unable to write destination file."
+#~ msgstr "목표한 파일을 쓰기(저장)할 수 없습니다."
+
+#~ msgid "Unable to write in target directory, permission denied."
+#~ msgstr "목표한 폴더가 쓰기금지 상태입니다."
+
+#~ msgid "Not enough memory to open file."
+#~ msgstr "파일을 쓰기에 메모리가 부족합니다."
+
+#~ msgid "File does not exist"
+#~ msgstr "파일이 존재하지 않습니다."
+
+#~ msgid "Cannot read file"
+#~ msgstr "파일을 읽을 수 없습니다."
+
+#~ msgid "Directory does not exist"
+#~ msgstr "폴더가 존재하지 않습니다."
+
+#~ msgid "Cannot read directory"
+#~ msgstr "폴더를 읽을 수 없습니다."
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4603,9 +4635,6 @@ msgstr ""
 
 #~ msgid "The file <strong>%s</strong> already exists. If you need to reset any of the configuration items in this file, please delete it first or you may <a href=\"%s\">continue to install</a>."
 #~ msgstr "<strong>%s</strong> 파일이 이미 존재합니다. 당신의 설정사항을 완전히 초기화하려면, 이 파일을 먼저 지우십시요. 그렇지 않다면 <a href=\"%s\">설치를 계속</a>하셔도 됩니다."
-
-#~ msgid "Login:"
-#~ msgstr "사용자이름:"
 
 #~ msgid "Login and password"
 #~ msgstr "사용자이름과 비밀번호"

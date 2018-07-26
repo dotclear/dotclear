@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:24+0200\n"
+"POT-Creation-Date: 2018-07-26 16:10+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -211,6 +211,14 @@ msgstr "日"
 msgid "Set spam filters."
 msgstr "Akismetスパムフィルタ"
 
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "（%d のスパムコメントを含む）"
+
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "（%d のスパムコメントを含む）"
+
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "IPアドレスのブラックリスト／ホワイトリスト"
 
@@ -328,14 +336,6 @@ msgstr "不明なフィルタです。"
 
 msgid "This comment is a spam:"
 msgstr "このコメントはスパムです："
-
-#, php-format
-msgid "(including %d spam comment)"
-msgstr "（%d のスパムコメントを含む）"
-
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "（%d のスパムコメントを含む）"
 
 msgid "Spam moderation"
 msgstr "スパムのモデレート"
@@ -1707,6 +1707,17 @@ msgstr ""
 msgid "Simple menu"
 msgstr ""
 
+msgid "the link will open a new window"
+msgstr ""
+
+#, fuzzy
+msgid "Active page"
+msgstr "有効"
+
+#, fuzzy
+msgid "active page"
+msgstr "ページを表示"
+
 #, fuzzy
 msgid "Item description"
 msgstr "説明はありません"
@@ -1844,6 +1855,9 @@ msgstr "説明"
 msgid "URL of item menu:"
 msgstr ""
 
+msgid "Open URL on a new tab"
+msgstr ""
+
 msgid "Add this item"
 msgstr ""
 
@@ -1885,14 +1899,20 @@ msgstr "このタグのエントリのAtomフィード"
 msgid "Tag"
 msgstr "タグ"
 
-msgid "Limit (empty means no limit):"
-msgstr "制限（空欄は無制限）"
+msgid "Tag name"
+msgstr "タグ名"
 
 msgid "Entries count"
 msgstr "エントリ数"
 
-msgid "Tag name"
-msgstr "タグ名"
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Limit (empty means no limit):"
+msgstr "制限（空欄は無制限）"
 
 msgid "Link to all tags:"
 msgstr ""
@@ -2435,9 +2455,6 @@ msgstr ""
 
 #~ msgid "Send"
 #~ msgstr "送信"
-
-#~ msgid "View page"
-#~ msgstr "ページを表示"
 
 #~ msgid "Preview page"
 #~ msgstr "ページをプレビュー"

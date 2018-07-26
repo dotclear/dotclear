@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:23+0200\n"
+"POT-Creation-Date: 2018-07-26 16:09+0200\n"
 "PO-Revision-Date: 2016-07-18 15:44+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -141,13 +141,23 @@ msgstr "ID blogu:"
 msgid "Required field"
 msgstr "Neuspěšný požadavek"
 
+msgid "Blog ID"
+msgstr "ID blogu"
+
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Nejméně 2 znaky složené z písmen, číslic nebo symbolů."
 
 msgid "Blog name:"
 msgstr "Jméno blogu:"
 
+msgid "Blog name"
+msgstr "Jméno blogu"
+
 msgid "Blog URL:"
+msgstr "URL blogu:"
+
+#, fuzzy
+msgid "Blog URL"
 msgstr "URL blogu:"
 
 msgid "Blog description:"
@@ -400,6 +410,9 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
+msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
+msgstr ""
+
 #, fuzzy
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Vygenerované velikosti obrázků (v pixelech)"
@@ -647,12 +660,6 @@ msgstr "Pro správnou funkčnost nastavte správná práva pro zápis vašemu pl
 msgid "Last update"
 msgstr "Poslední aktualizace"
 
-msgid "Blog name"
-msgstr "Jméno blogu"
-
-msgid "Blog ID"
-msgstr "ID blogu"
-
 msgid "Status"
 msgstr "Stav"
 
@@ -743,10 +750,7 @@ msgstr "Kategorie"
 
 #, fuzzy
 msgid "The category has been successfully removed."
-msgid_plural "The categories have been successfully removed."
-msgstr[0] "Kategorie byla úspěšně smazána."
-msgstr[1] "Kategorie byla úspěšně smazána."
-msgstr[2] "Kategorie byla úspěšně smazána."
+msgstr "Kategorie byla úspěšně smazána."
 
 #, fuzzy
 msgid "Entries have been successfully moved to the category you choose."
@@ -816,6 +820,10 @@ msgid "Category information"
 msgstr "Informace kategorie"
 
 msgid "Name:"
+msgstr "Jméno:"
+
+#, fuzzy
+msgid "Name"
 msgstr "Jméno:"
 
 msgid "Parent:"
@@ -911,6 +919,9 @@ msgstr "Komentáře"
 msgid "Author:"
 msgstr "Autor:"
 
+msgid "Author"
+msgstr "Autor"
+
 msgid "Web site:"
 msgstr "Webová stránka:"
 
@@ -937,9 +948,6 @@ msgstr "Název položky"
 #, fuzzy
 msgid "Entry date"
 msgstr "Název položky"
-
-msgid "Author"
-msgstr "Autor"
 
 msgid "IP"
 msgstr ""
@@ -998,40 +1006,11 @@ msgstr[1] "Iconv modul není dostupný!"
 msgstr[2] "Iconv modul není dostupný!"
 
 #, fuzzy
-msgid "Dotclear news"
-msgstr "Dotclear tým"
-
-#, fuzzy
-msgid "%d %B %Y:"
-msgstr "%A, %e. %B %Y"
-
-#, fuzzy
 msgid "Documentation and support"
 msgstr "Dokumentace"
 
 msgid "Dashboard"
 msgstr "Nástěnka"
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr "Dotclear %s je dostupný!"
-
-msgid "Upgrade now"
-msgstr "Provést upgrade hned"
-
-msgid "Remind me later"
-msgstr "Připomenout později"
-
-msgid "Information about this version"
-msgstr ""
-
-#, php-format
-msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr ""
-
-#, php-format
-msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr ""
 
 msgid "Make this blog my default blog"
 msgstr "Nastavit tento blog jako výchozí"
@@ -1083,6 +1062,10 @@ msgid "Title:"
 msgstr "Název:"
 
 msgid "Content:"
+msgstr "Obsah:"
+
+#, fuzzy
+msgid "Content"
 msgstr "Obsah:"
 
 msgid "Category:"
@@ -1234,6 +1217,13 @@ msgstr "Příjmení:"
 msgid "Username and password"
 msgstr "Uživatelské jméno a heslo"
 
+msgid "Username"
+msgstr "Uživatelské jméno"
+
+#, fuzzy
+msgid "Password"
+msgstr "Heslo:"
+
 msgid "All done!"
 msgstr "Vše dokončeno!"
 
@@ -1315,10 +1305,16 @@ msgstr ""
 msgid "MySQLi"
 msgstr ""
 
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
 msgid "PostgreSQL"
 msgstr ""
 
 msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1335,6 +1331,9 @@ msgstr "DB heslo:"
 
 msgid "Database Tables Prefix:"
 msgstr "DB prefix tabulek:"
+
+msgid "Prefix"
+msgstr ""
 
 msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
@@ -1588,11 +1587,15 @@ msgstr ""
 msgid "Media list"
 msgstr "Detaily média"
 
-#, fuzzy
-msgid "Name"
-msgstr "Jméno:"
-
 msgid "Size"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
 msgstr ""
 
 #, php-format
@@ -1921,6 +1924,10 @@ msgid "Link URL:"
 msgstr "URL odkaz:"
 
 #, fuzzy
+msgid "URL"
+msgstr "URL:"
+
+#, fuzzy
 msgid "Link title:"
 msgstr "Titulek souboru:"
 
@@ -2079,10 +2086,6 @@ msgstr ""
 
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr ""
-
-#, fuzzy
-msgid "Password"
-msgstr "Heslo:"
 
 #, fuzzy
 msgid "Edit basename"
@@ -2341,6 +2344,10 @@ msgid "Interface"
 msgstr "XML/RPC rozhraní"
 
 #, fuzzy
+msgid "Activate dark mode"
+msgstr "Aktivovat"
+
+#, fuzzy
 msgid "Activate enhanced uploader in media manager"
 msgstr "Zapnout rozšířený uploader"
 
@@ -2351,6 +2358,12 @@ msgid "If checked, numeric fields will allow to type the elements' ordering numb
 msgstr ""
 
 msgid "Hide all secondary information and notes"
+msgstr ""
+
+msgid "Hide help button"
+msgstr ""
+
+msgid "Show asynchronous requests indicator"
 msgstr ""
 
 #, fuzzy
@@ -2531,6 +2544,57 @@ msgstr "nelezen %d komentář"
 msgid "%d comments found"
 msgstr "nalezeno %d komentářů"
 
+#, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "Upravit blog %s"
+msgstr[1] "Upravit blog %s"
+msgstr[2] "Upravit blog %s"
+
+#, fuzzy, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d komentář"
+msgstr[1] "%d komentář"
+msgstr[2] "%d komentář"
+
+#, fuzzy
+msgid "Dotclear news not available"
+msgstr "Dotclear %s je dostupný!"
+
+#, fuzzy
+msgid "Dotclear news"
+msgstr "Dotclear tým"
+
+#, fuzzy
+msgid "%d %B %Y:"
+msgstr "%A, %e. %B %Y"
+
+#, fuzzy
+msgid "Dotclear update not available"
+msgstr "Dotclear %s je dostupný!"
+
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s je dostupný!"
+
+msgid "Upgrade now"
+msgstr "Provést upgrade hned"
+
+msgid "Remind me later"
+msgstr "Připomenout později"
+
+msgid "Information about this version"
+msgstr ""
+
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Dotclear update"
 msgstr "Dotclear aktualizace"
 
@@ -2631,6 +2695,10 @@ msgstr "uživatelů na stranu"
 msgid "User ID:"
 msgstr "Uživatel:"
 
+#, fuzzy
+msgid "Login"
+msgstr "Přihlásit"
+
 msgid "Warning:"
 msgstr "Varování:"
 
@@ -2666,9 +2734,6 @@ msgstr "Blog:"
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
-
-msgid "Username"
-msgstr "Uživatelské jméno"
 
 msgid "Last Name"
 msgstr "Příjmení"
@@ -2717,10 +2782,6 @@ msgstr "Vyberte jeden nebo více blogů, ke kterým chcete uživateli %s dát op
 
 msgid "No blog"
 msgstr "Žádný blog"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL:"
 
 #, fuzzy
 msgid "select"
@@ -2926,20 +2987,6 @@ msgstr "Jazyk:"
 
 msgid "Languages"
 msgstr "Jazyky"
-
-#, fuzzy, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "Upravit blog %s"
-msgstr[1] "Upravit blog %s"
-msgstr[2] "Upravit blog %s"
-
-#, fuzzy, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d komentář"
-msgstr[1] "%d komentář"
-msgstr[2] "%d komentář"
 
 msgid "Change blog"
 msgstr "Změnit blog"
@@ -3280,6 +3327,10 @@ msgstr "Verze"
 #, fuzzy
 msgid "Current version"
 msgstr "Nastavit oprávnění"
+
+#, php-format
+msgid " (%s)"
+msgstr ""
 
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
@@ -4047,6 +4098,18 @@ msgstr "Nelze získat jmenný prostor:"
 msgid "Invalid setting namespace: %s"
 msgstr "Chybný jmenný prostor nastavení: %s"
 
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires an INTO source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
 #, fuzzy
 msgid "Failed to read data feed"
 msgstr "Nelze číst shrnující soubor."
@@ -4161,150 +4224,6 @@ msgstr "Nebyl specifikován žádný jmenný prostor"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Něco se stalo špatně při automatické aktualizaci:"
 
-msgid "Unable to open directory."
-msgstr "Nelze otevřít adresář."
-
-msgid "Unable to create directory."
-msgstr "Nelze vytvořit adresář."
-
-msgid "File is not writable."
-msgstr "Soubor není schopen zápisu."
-
-msgid "Unable to open file."
-msgstr "Nelze otevřít soubor."
-
-msgid "Not an uploaded file."
-msgstr "Není nahrán soubor."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "Nahrávaný soubor překročil max. povolenou velikost."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "Soubor byl částečně nahrán."
-
-msgid "No file was uploaded."
-msgstr "Nebyly nahrány žádné soubory."
-
-msgid "Missing a temporary folder."
-msgstr "Chybí dočasaný adresář."
-
-msgid "Failed to write file to disk."
-msgstr "Neúspěšný zápis souboru na disk."
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s není adresář."
-
-msgid "Bad range"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid range"
-msgstr "Neznámý kód jazyka"
-
-#, fuzzy
-msgid "Invalid line number"
-msgstr "Neznámý kód jazyka"
-
-msgid "Chunk is out of range"
-msgstr ""
-
-msgid "Bad context"
-msgstr ""
-
-msgid "Bad context (in deletion)"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid diff format"
-msgstr "Nevalidní shrnující soubor."
-
-msgid "Uploading this file is not allowed."
-msgstr "Tento typ souboru není pro nahrávání povolen."
-
-msgid "Destination directory is not in jail."
-msgstr "Cílový adresář není ve vězení."
-
-msgid "File already exists."
-msgstr "Soubor již existuje."
-
-msgid "Cannot write in this directory."
-msgstr "Nelze zapisovat do tohoto adresáře."
-
-msgid "Source file does not exist."
-msgstr "Zdrojový soubor neexistuje"
-
-msgid "File is not in jail."
-msgstr "Soubor není ve vězení."
-
-msgid "Destination directory is not writable."
-msgstr "Cílový adresář není zapisovatelný."
-
-msgid "Unable to rename file."
-msgstr "Nelze přejmenovat soubor."
-
-msgid "File cannot be removed."
-msgstr "Soubor nelze odstranit."
-
-msgid "Directory is not in jail."
-msgstr "Adresář není ve vězení."
-
-msgid "Directory cannot be removed."
-msgstr "Adresář nelze přesunout."
-
-msgid "Not enough memory to open image."
-msgstr "Nedostatek paměti prootevření obrázku."
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-#, fuzzy
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "Nastaly následujíci chyby při čtení z databáze:"
-
-msgid "singular"
-msgid_plural "plural"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "Soubor \"%s\"není komprimován v zip archívu."
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "Pokous o rozzipování složky %s"
-
-msgid "Unable to write destination file."
-msgstr "Nelze zapisovat do cílového souboru."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "Nelze zapisovat do cílového adresáře, přístup odepřen."
-
-msgid "Not enough memory to open file."
-msgstr "Nedostate paměti pro čtení souboru."
-
-msgid "File does not exist"
-msgstr "Soubor neexistuje"
-
-msgid "Cannot read file"
-msgstr "Nelze číst soubor"
-
-msgid "Directory does not exist"
-msgstr "Adresář neexistuje"
-
-msgid "Cannot read directory"
-msgstr "Nelze číst adresář"
-
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4320,6 +4239,118 @@ msgstr "<p>Tato situace může znamenat, že uživatelské jméno a heslo ulože
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Nastaly následujíci chyby při čtení z databáze:"
+
+#~ msgid "Unable to open directory."
+#~ msgstr "Nelze otevřít adresář."
+
+#~ msgid "Unable to create directory."
+#~ msgstr "Nelze vytvořit adresář."
+
+#~ msgid "File is not writable."
+#~ msgstr "Soubor není schopen zápisu."
+
+#~ msgid "Unable to open file."
+#~ msgstr "Nelze otevřít soubor."
+
+#~ msgid "Not an uploaded file."
+#~ msgstr "Není nahrán soubor."
+
+#~ msgid "The uploaded file exceeds the maximum file size allowed."
+#~ msgstr "Nahrávaný soubor překročil max. povolenou velikost."
+
+#~ msgid "The uploaded file was only partially uploaded."
+#~ msgstr "Soubor byl částečně nahrán."
+
+#~ msgid "No file was uploaded."
+#~ msgstr "Nebyly nahrány žádné soubory."
+
+#~ msgid "Missing a temporary folder."
+#~ msgstr "Chybí dočasaný adresář."
+
+#~ msgid "Failed to write file to disk."
+#~ msgstr "Neúspěšný zápis souboru na disk."
+
+#~ msgid "%s is not a directory."
+#~ msgstr "%s není adresář."
+
+#, fuzzy
+#~ msgid "Invalid range"
+#~ msgstr "Neznámý kód jazyka"
+
+#, fuzzy
+#~ msgid "Invalid line number"
+#~ msgstr "Neznámý kód jazyka"
+
+#, fuzzy
+#~ msgid "Invalid diff format"
+#~ msgstr "Nevalidní shrnující soubor."
+
+#~ msgid "Uploading this file is not allowed."
+#~ msgstr "Tento typ souboru není pro nahrávání povolen."
+
+#~ msgid "Destination directory is not in jail."
+#~ msgstr "Cílový adresář není ve vězení."
+
+#~ msgid "File already exists."
+#~ msgstr "Soubor již existuje."
+
+#~ msgid "Cannot write in this directory."
+#~ msgstr "Nelze zapisovat do tohoto adresáře."
+
+#~ msgid "Source file does not exist."
+#~ msgstr "Zdrojový soubor neexistuje"
+
+#~ msgid "File is not in jail."
+#~ msgstr "Soubor není ve vězení."
+
+#~ msgid "Destination directory is not writable."
+#~ msgstr "Cílový adresář není zapisovatelný."
+
+#~ msgid "Unable to rename file."
+#~ msgstr "Nelze přejmenovat soubor."
+
+#~ msgid "File cannot be removed."
+#~ msgstr "Soubor nelze odstranit."
+
+#~ msgid "Directory is not in jail."
+#~ msgstr "Adresář není ve vězení."
+
+#~ msgid "Directory cannot be removed."
+#~ msgstr "Adresář nelze přesunout."
+
+#~ msgid "Not enough memory to open image."
+#~ msgstr "Nedostatek paměti prootevření obrázku."
+
+#, fuzzy
+#~ msgid "WARNING: the following errors have been found while parsing template file :"
+#~ msgstr "Nastaly následujíci chyby při čtení z databáze:"
+
+#~ msgid "File %s is not compressed in the zip."
+#~ msgstr "Soubor \"%s\"není komprimován v zip archívu."
+
+#~ msgid "Trying to unzip a folder name %s"
+#~ msgstr "Pokous o rozzipování složky %s"
+
+#~ msgid "Unable to write destination file."
+#~ msgstr "Nelze zapisovat do cílového souboru."
+
+#~ msgid "Unable to write in target directory, permission denied."
+#~ msgstr "Nelze zapisovat do cílového adresáře, přístup odepřen."
+
+#~ msgid "Not enough memory to open file."
+#~ msgstr "Nedostate paměti pro čtení souboru."
+
+#~ msgid "File does not exist"
+#~ msgstr "Soubor neexistuje"
+
+#~ msgid "Cannot read file"
+#~ msgstr "Nelze číst soubor"
+
+#~ msgid "Directory does not exist"
+#~ msgstr "Adresář neexistuje"
+
+#~ msgid "Cannot read directory"
+#~ msgstr "Nelze číst adresář"
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4632,9 +4663,6 @@ msgstr "Nastaly následujíci chyby při čtení z databáze:"
 
 #~ msgid "No attachment."
 #~ msgstr "Žádné přílohy"
-
-#~ msgid "login"
-#~ msgstr "Přihlásit"
 
 #~ msgid "View site"
 #~ msgstr "přejít na blog"

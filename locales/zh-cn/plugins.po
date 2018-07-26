@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:25+0200\n"
+"POT-Creation-Date: 2018-07-26 16:11+0200\n"
 "PO-Revision-Date: 2016-07-18 15:55+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -208,6 +208,14 @@ msgstr "天"
 msgid "Set spam filters."
 msgstr "Akismet 垃圾评论过滤"
 
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "(包括 %d 个垃圾评论)"
+
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "(包括 %d 个垃圾评论)"
+
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "IP 黑名单／白名单过滤"
 
@@ -325,14 +333,6 @@ msgstr "未知的过滤。"
 
 msgid "This comment is a spam:"
 msgstr "这个评论是垃圾评论："
-
-#, php-format
-msgid "(including %d spam comment)"
-msgstr "(包括 %d 个垃圾评论)"
-
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(包括 %d 个垃圾评论)"
 
 msgid "Spam moderation"
 msgstr "垃圾评论审核"
@@ -1704,6 +1704,17 @@ msgstr ""
 msgid "Simple menu"
 msgstr ""
 
+msgid "the link will open a new window"
+msgstr ""
+
+#, fuzzy
+msgid "Active page"
+msgstr "激活"
+
+#, fuzzy
+msgid "active page"
+msgstr "查看页面"
+
 #, fuzzy
 msgid "Item description"
 msgstr "没有描述"
@@ -1841,6 +1852,9 @@ msgstr "描述"
 msgid "URL of item menu:"
 msgstr ""
 
+msgid "Open URL on a new tab"
+msgstr ""
+
 msgid "Add this item"
 msgstr ""
 
@@ -1882,14 +1896,20 @@ msgstr "此标签的文章 Atom feed"
 msgid "Tag"
 msgstr "标签"
 
-msgid "Limit (empty means no limit):"
-msgstr "限制(留空表示不限制)："
+msgid "Tag name"
+msgstr "标签名称"
 
 msgid "Entries count"
 msgstr "文章计数"
 
-msgid "Tag name"
-msgstr "标签名称"
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Limit (empty means no limit):"
+msgstr "限制(留空表示不限制)："
 
 msgid "Link to all tags:"
 msgstr ""
@@ -2430,9 +2450,6 @@ msgstr ""
 
 #~ msgid "Send"
 #~ msgstr "发送"
-
-#~ msgid "View page"
-#~ msgstr "查看页面"
 
 #~ msgid "Preview page"
 #~ msgstr "预览页面"

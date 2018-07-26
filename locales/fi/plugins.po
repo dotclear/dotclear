@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:24+0200\n"
+"POT-Creation-Date: 2018-07-26 16:10+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -190,6 +190,14 @@ msgstr "päivää"
 msgid "Set spam filters."
 msgstr "Säädä spämmisuodattimia."
 
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "(joista %d spämmikommentti)"
+
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "(joista %d spämmikommenttia)"
+
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "IP-osoitteiden suodatus mustan ja valkoisen listan mukaan"
 
@@ -304,14 +312,6 @@ msgstr "Tuntematon suodatin"
 
 msgid "This comment is a spam:"
 msgstr "Tämä kommentti on spämmi:"
-
-#, php-format
-msgid "(including %d spam comment)"
-msgstr "(joista %d spämmikommentti)"
-
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(joista %d spämmikommenttia)"
 
 msgid "Spam moderation"
 msgstr "Spämmien hallinta"
@@ -1620,6 +1620,17 @@ msgstr "Valitse kaikki"
 msgid "Simple menu"
 msgstr "Yksinkertainen valikko"
 
+msgid "the link will open a new window"
+msgstr ""
+
+#, fuzzy
+msgid "Active page"
+msgstr "Käytössä"
+
+#, fuzzy
+msgid "active page"
+msgstr "Uusi sivu"
+
 msgid "Item description"
 msgstr "Valikon kohdan kuvaus"
 
@@ -1740,6 +1751,9 @@ msgstr "Valikon kohdan kuvaus:"
 msgid "URL of item menu:"
 msgstr "Valikon kohdan URL:"
 
+msgid "Open URL on a new tab"
+msgstr ""
+
 msgid "Add this item"
 msgstr "Lisää tämä kohta"
 
@@ -1776,14 +1790,20 @@ msgstr "Tämän avainsanan blogimerkintöjen Atom-syöte"
 msgid "Tag"
 msgstr "Avainsana"
 
-msgid "Limit (empty means no limit):"
-msgstr "Yläraja (tyhjä kenttä = ei ylärajaa):"
+msgid "Tag name"
+msgstr "Avainsanan nimi"
 
 msgid "Entries count"
 msgstr "Blogimerkintöjen lukumäärä"
 
-msgid "Tag name"
-msgstr "Avainsanan nimi"
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Limit (empty means no limit):"
+msgstr "Yläraja (tyhjä kenttä = ei ylärajaa):"
 
 msgid "Link to all tags:"
 msgstr "Linkki kaikkiin avainsanoihin:"

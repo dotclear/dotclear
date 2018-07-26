@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:23+0200\n"
+"POT-Creation-Date: 2018-07-26 16:09+0200\n"
 "PO-Revision-Date: 2017-12-22 19:26+0100\n"
 "Last-Translator: Tin2 <sort300-blog@yahoo.com>\n"
 "Language-Team: \n"
@@ -192,6 +192,14 @@ msgstr "Tage"
 msgid "Set spam filters."
 msgstr "Spam Filter setzen."
 
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "(mit %d Spam-Kommentar)"
+
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "(mit %d Spam-Kommentaren)"
+
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "IP-Blacklist-/Whitelist-Filter"
 
@@ -306,14 +314,6 @@ msgstr "Unbekannter Filter."
 
 msgid "This comment is a spam:"
 msgstr "Dieser Kommentar ist Spam:"
-
-#, php-format
-msgid "(including %d spam comment)"
-msgstr "(mit %d Spam-Kommentar)"
-
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(mit %d Spam-Kommentaren)"
 
 msgid "Spam moderation"
 msgstr "Spam-Moderation"
@@ -1623,6 +1623,17 @@ msgstr "Alle überprüfen"
 msgid "Simple menu"
 msgstr "Einfach Menü"
 
+msgid "the link will open a new window"
+msgstr ""
+
+#, fuzzy
+msgid "Active page"
+msgstr "Aktiv"
+
+#, fuzzy
+msgid "active page"
+msgstr "Neue Seite"
+
 msgid "Item description"
 msgstr "Artikelbeschreibung"
 
@@ -1743,6 +1754,9 @@ msgstr "Beschreibung des Menü-Item:"
 msgid "URL of item menu:"
 msgstr "URL des Menü-Item:"
 
+msgid "Open URL on a new tab"
+msgstr ""
+
 msgid "Add this item"
 msgstr "Füge ein"
 
@@ -1779,14 +1793,20 @@ msgstr "Die Einträge dieses Tags als Atom-Feed abonnieren"
 msgid "Tag"
 msgstr "Tag"
 
-msgid "Limit (empty means no limit):"
-msgstr "Limit (Feld leer lassen für kein Limit)"
+msgid "Tag name"
+msgstr "Name des Tags"
 
 msgid "Entries count"
 msgstr "Anzahl der Einträge"
 
-msgid "Tag name"
-msgstr "Name des Tags"
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Limit (empty means no limit):"
+msgstr "Limit (Feld leer lassen für kein Limit)"
 
 msgid "Link to all tags:"
 msgstr "Link zu allen Tags"
