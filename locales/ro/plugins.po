@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:25+0200\n"
+"POT-Creation-Date: 2018-07-26 16:11+0200\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
@@ -202,6 +202,14 @@ msgstr "zile"
 msgid "Set spam filters."
 msgstr "Filtru de spam Akismet"
 
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "(incluzând %d comentariu spam)"
+
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "(incluzând %d comentarii spam)"
+
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "IP Blacklist / Filtru Whitelist"
 
@@ -319,14 +327,6 @@ msgstr "Filtru necunoscut"
 
 msgid "This comment is a spam:"
 msgstr "Acest comentariu este spam:"
-
-#, php-format
-msgid "(including %d spam comment)"
-msgstr "(incluzând %d comentariu spam)"
-
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(incluzând %d comentarii spam)"
 
 msgid "Spam moderation"
 msgstr "Moderare spam"
@@ -1662,6 +1662,16 @@ msgstr ""
 msgid "Simple menu"
 msgstr ""
 
+msgid "the link will open a new window"
+msgstr ""
+
+#, fuzzy
+msgid "Active page"
+msgstr "Activ"
+
+msgid "active page"
+msgstr ""
+
 #, fuzzy
 msgid "Item description"
 msgstr "Fără descriere"
@@ -1791,6 +1801,9 @@ msgstr "Descriere"
 msgid "URL of item menu:"
 msgstr ""
 
+msgid "Open URL on a new tab"
+msgstr ""
+
 msgid "Add this item"
 msgstr ""
 
@@ -1831,13 +1844,19 @@ msgstr ""
 msgid "Tag"
 msgstr ""
 
-msgid "Limit (empty means no limit):"
+msgid "Tag name"
 msgstr ""
 
 msgid "Entries count"
 msgstr ""
 
-msgid "Tag name"
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Limit (empty means no limit):"
 msgstr ""
 
 msgid "Link to all tags:"

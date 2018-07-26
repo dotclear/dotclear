@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:24+0200\n"
+"POT-Creation-Date: 2018-07-26 16:10+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -207,6 +207,14 @@ msgstr "dienų"
 msgid "Set spam filters."
 msgstr "Aksimet spamo filtras"
 
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "(įskaitant %d spamo komentarą)"
+
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "(įskaitant %d spamo komentarus)"
+
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "IP Blacklist sąrašas / Whitelist filtras"
 
@@ -324,14 +332,6 @@ msgstr "Nežinomas filtras."
 
 msgid "This comment is a spam:"
 msgstr "Šis komentaras yra spamas:"
-
-#, php-format
-msgid "(including %d spam comment)"
-msgstr "(įskaitant %d spamo komentarą)"
-
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(įskaitant %d spamo komentarus)"
 
 msgid "Spam moderation"
 msgstr "Spamo tvarkymas"
@@ -1703,6 +1703,17 @@ msgstr "Patikrinti visus"
 msgid "Simple menu"
 msgstr ""
 
+msgid "the link will open a new window"
+msgstr ""
+
+#, fuzzy
+msgid "Active page"
+msgstr "Aktyvus"
+
+#, fuzzy
+msgid "active page"
+msgstr "Žiūrėti puslapį"
+
 #, fuzzy
 msgid "Item description"
 msgstr "Nėra aprašymo"
@@ -1840,6 +1851,9 @@ msgstr "Aprašymas"
 msgid "URL of item menu:"
 msgstr ""
 
+msgid "Open URL on a new tab"
+msgstr ""
+
 msgid "Add this item"
 msgstr ""
 
@@ -1881,14 +1895,20 @@ msgstr "Šią žymą turinčių įrašų Atom feed"
 msgid "Tag"
 msgstr "Žyma"
 
-msgid "Limit (empty means no limit):"
-msgstr "Riboti (jei tuščia - apribojimo nėra)"
+msgid "Tag name"
+msgstr "Žymos pavadinimas"
 
 msgid "Entries count"
 msgstr "Įrašų skaičius"
 
-msgid "Tag name"
-msgstr "Žymos pavadinimas"
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Limit (empty means no limit):"
+msgstr "Riboti (jei tuščia - apribojimo nėra)"
 
 msgid "Link to all tags:"
 msgstr "Nuoroda į visas žymas:"
@@ -2390,9 +2410,6 @@ msgstr ""
 
 #~ msgid "previous page"
 #~ msgstr "ankstesnis puslapis"
-
-#~ msgid "View page"
-#~ msgstr "Žiūrėti puslapį"
 
 #~ msgid "Preview page"
 #~ msgstr "Peržiūrėti puslapį"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:24+0200\n"
+"POT-Creation-Date: 2018-07-26 16:11+0200\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -211,6 +211,14 @@ msgstr "dias"
 msgid "Set spam filters."
 msgstr "filtro de spam Akismet"
 
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "(cujo %d comentário spam)"
+
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "(cujo %d comentários spams)"
+
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "lista negra de IP / Filtro Lista Branca"
 
@@ -328,14 +336,6 @@ msgstr "Filtro desconhecido."
 
 msgid "This comment is a spam:"
 msgstr "Este comentário é um spam:"
-
-#, php-format
-msgid "(including %d spam comment)"
-msgstr "(cujo %d comentário spam)"
-
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(cujo %d comentários spams)"
 
 msgid "Spam moderation"
 msgstr "Moderação dos spam"
@@ -1707,6 +1707,17 @@ msgstr ""
 msgid "Simple menu"
 msgstr ""
 
+msgid "the link will open a new window"
+msgstr ""
+
+#, fuzzy
+msgid "Active page"
+msgstr "Activo"
+
+#, fuzzy
+msgid "active page"
+msgstr "Ver a página"
+
 #, fuzzy
 msgid "Item description"
 msgstr "Nenhuma descrição"
@@ -1844,6 +1855,9 @@ msgstr "Descrição"
 msgid "URL of item menu:"
 msgstr ""
 
+msgid "Open URL on a new tab"
+msgstr ""
+
 msgid "Add this item"
 msgstr ""
 
@@ -1886,14 +1900,20 @@ msgstr "Feed ATOM para as entradas desta etiqueta"
 msgid "Tag"
 msgstr "Etiqueta"
 
-msgid "Limit (empty means no limit):"
-msgstr "Limite (se vazio não há limite);"
+msgid "Tag name"
+msgstr "Nome da etiqueta"
 
 msgid "Entries count"
 msgstr "Contador de entradas"
 
-msgid "Tag name"
-msgstr "Nome da etiqueta"
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Limit (empty means no limit):"
+msgstr "Limite (se vazio não há limite);"
 
 msgid "Link to all tags:"
 msgstr ""
@@ -2436,9 +2456,6 @@ msgstr ""
 
 #~ msgid "Send"
 #~ msgstr "Enviar"
-
-#~ msgid "View page"
-#~ msgstr "Ver a página"
 
 #~ msgid "Preview page"
 #~ msgstr "Visualizar a página"

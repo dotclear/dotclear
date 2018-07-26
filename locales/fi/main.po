@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:24+0200\n"
+"POT-Creation-Date: 2018-07-26 16:10+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -137,13 +137,23 @@ msgstr "Blogin tunniste:"
 msgid "Required field"
 msgstr "Vaadittu kenttä"
 
+msgid "Blog ID"
+msgstr "Blogin tunniste"
+
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Ainakin 2 merkkiä, kirjaimia, numeroita tai symboleita."
 
 msgid "Blog name:"
 msgstr "Blogin nimi:"
 
+msgid "Blog name"
+msgstr "Blogin nimi"
+
 msgid "Blog URL:"
+msgstr "Blogin verkko-osoite:"
+
+#, fuzzy
+msgid "Blog URL"
 msgstr "Blogin verkko-osoite:"
 
 msgid "Blog description:"
@@ -395,6 +405,9 @@ msgstr "Huomaa, että jos muutat allaolevia nykyasetuksia, muutokset vaikuttavat
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "Ole varovainen, jos asetuksia käyttää useampi kuin yksi luomasi blogi."
 
+msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
+msgstr ""
+
 #, fuzzy
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Luotujen pienoiskuvien koot (pikseleinä)"
@@ -624,12 +637,6 @@ msgstr "Jotkin toiminnot ovat pois käytöstä, anna teemoillesi kirjoitusoikeus
 msgid "Last update"
 msgstr "Viimeisin päivitys"
 
-msgid "Blog name"
-msgstr "Blogin nimi"
-
-msgid "Blog ID"
-msgstr "Blogin tunniste"
-
 msgid "Status"
 msgstr "Tila"
 
@@ -713,10 +720,9 @@ msgstr "Kategorioiden järjestys on nyt oletusarvoinen."
 msgid "Categories"
 msgstr "Kategoriat"
 
+#, fuzzy
 msgid "The category has been successfully removed."
-msgid_plural "The categories have been successfully removed."
-msgstr[0] "Kategoria on poistettu."
-msgstr[1] "Kategoriat on poistettu."
+msgstr "Kategoria on poistettu."
 
 msgid "Entries have been successfully moved to the category you choose."
 msgstr "Merkinnät on siirretty valitsemaasi kategoriaan."
@@ -780,6 +786,9 @@ msgstr "Kategorian tiedot"
 
 msgid "Name:"
 msgstr "Nimi:"
+
+msgid "Name"
+msgstr "Nimi"
 
 msgid "Parent:"
 msgstr "Emo:"
@@ -870,6 +879,9 @@ msgstr "Jätetty kommentti"
 msgid "Author:"
 msgstr "Kirjoittanut:"
 
+msgid "Author"
+msgstr "Tekijä"
+
 msgid "Web site:"
 msgstr "Sivusto:"
 
@@ -894,9 +906,6 @@ msgstr "Blogimerkinnän otsikko"
 #, fuzzy
 msgid "Entry date"
 msgstr "Blogimerkinnän otsikko"
-
-msgid "Author"
-msgstr "Tekijä"
 
 #, fuzzy
 msgid "IP"
@@ -948,38 +957,11 @@ msgid_plural "%s updates are available."
 msgstr[0] "Päivitys on saatavana."
 msgstr[1] "%s päivitystä on saatavana."
 
-msgid "Dotclear news"
-msgstr "Dotclear news"
-
-msgid "%d %B %Y:"
-msgstr "%d.%m.%Y:"
-
 msgid "Documentation and support"
 msgstr "Dokumentaatio ja tuki"
 
 msgid "Dashboard"
 msgstr "Ohjaustaulu"
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr "Dotclear %s on saatavana!"
-
-msgid "Upgrade now"
-msgstr "Päivitä nyt"
-
-msgid "Remind me later"
-msgstr "Muista myöhemmin"
-
-msgid "Information about this version"
-msgstr "Tietoja tästä versiosta"
-
-#, php-format
-msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr ""
-
-#, php-format
-msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr ""
 
 msgid "Make this blog my default blog"
 msgstr "Tee tästä blogista oletusblogini"
@@ -1031,6 +1013,10 @@ msgid "Title:"
 msgstr "Otsikko:"
 
 msgid "Content:"
+msgstr "Sisältö:"
+
+#, fuzzy
+msgid "Content"
 msgstr "Sisältö:"
 
 msgid "Category:"
@@ -1180,6 +1166,12 @@ msgstr "Sukunimi:"
 msgid "Username and password"
 msgstr "Käyttäjätunnus ja salasana"
 
+msgid "Username"
+msgstr "Käyttäjänimi"
+
+msgid "Password"
+msgstr "Salasana"
+
 msgid "All done!"
 msgstr "Valmista!"
 
@@ -1260,12 +1252,18 @@ msgstr "MySQL (vanhentunut)"
 msgid "MySQLi"
 msgstr "MySQLi"
 
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
 msgid "PostgreSQL"
 msgstr "PostgreSQL"
 
 #, fuzzy
 msgid "SQLite"
 msgstr "MySQLi"
+
+msgid "Driver"
+msgstr ""
 
 msgid "Database Host Name:"
 msgstr "Tietokantapalvelimen nimi:"
@@ -1281,6 +1279,9 @@ msgstr "Tietokannan salasana:"
 
 msgid "Database Tables Prefix:"
 msgstr "Tietokantataulujen etuliite:"
+
+msgid "Prefix"
+msgstr ""
 
 msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
@@ -1528,10 +1529,15 @@ msgstr "Sivua kohti näytettävien elementtien lukumäärä:"
 msgid "Media list"
 msgstr "Mediatiedoston tiedot"
 
-msgid "Name"
-msgstr "Nimi"
-
 msgid "Size"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
 msgstr ""
 
 #, php-format
@@ -1844,6 +1850,10 @@ msgstr "Lisää linkki"
 msgid "Link URL:"
 msgstr "Linkin verkko-osoite:"
 
+#, fuzzy
+msgid "URL"
+msgstr "URL:"
+
 msgid "Link title:"
 msgstr "Linkin otsikko:"
 
@@ -1986,9 +1996,6 @@ msgstr "Varoitus: Tähän blogimerkintään ei voi enää takaisinviitata."
 
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "Tällä hetkellä blogissa ei ole takaisinviittausmahdollisuutta."
-
-msgid "Password"
-msgstr "Salasana"
 
 msgid "Edit basename"
 msgstr "Muokkaa tiedostonnimen kantaosaa"
@@ -2212,6 +2219,10 @@ msgstr "Omat asetukseni"
 msgid "Interface"
 msgstr "Käyttöliittymä"
 
+#, fuzzy
+msgid "Activate dark mode"
+msgstr "Ota käyttöön"
+
 msgid "Activate enhanced uploader in media manager"
 msgstr "Ota käyttöön parannettu tiedostonlataus medianhallinnassa"
 
@@ -2222,6 +2233,12 @@ msgid "If checked, numeric fields will allow to type the elements' ordering numb
 msgstr "Tämän valitsemalla voi kirjoittaa elementin järjestysnumeron numeerisiin kenttiin."
 
 msgid "Hide all secondary information and notes"
+msgstr ""
+
+msgid "Hide help button"
+msgstr ""
+
+msgid "Show asynchronous requests indicator"
 msgstr ""
 
 #, fuzzy
@@ -2387,6 +2404,53 @@ msgstr "%d löydetty kommentti"
 msgid "%d comments found"
 msgstr "%d löydettyä kommenttia"
 
+#, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "Muokkaa merkintää"
+msgstr[1] "Muokkaa merkintää"
+
+#, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d kommentti"
+msgstr[1] "%d kommenttia"
+
+#, fuzzy
+msgid "Dotclear news not available"
+msgstr "Dotclear %s on saatavana!"
+
+msgid "Dotclear news"
+msgstr "Dotclear news"
+
+msgid "%d %B %Y:"
+msgstr "%d.%m.%Y:"
+
+#, fuzzy
+msgid "Dotclear update not available"
+msgstr "Dotclear %s on saatavana!"
+
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s on saatavana!"
+
+msgid "Upgrade now"
+msgstr "Päivitä nyt"
+
+msgid "Remind me later"
+msgstr "Muista myöhemmin"
+
+msgid "Information about this version"
+msgstr "Tietoja tästä versiosta"
+
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Dotclear update"
 msgstr "Dotclearin päivitys"
 
@@ -2481,6 +2545,9 @@ msgstr "Käyttäjäprofiili"
 msgid "User ID:"
 msgstr "Käyttäjänimi (kirjautuessa):"
 
+msgid "Login"
+msgstr ""
+
 msgid "Warning:"
 msgstr "Varoitus:"
 
@@ -2514,9 +2581,6 @@ msgstr "Blogi:"
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr "%s on superjärjestelmänvalvoja (kaikki käyttöoikeudet kaikkiin blogeihin)."
-
-msgid "Username"
-msgstr "Käyttäjänimi"
 
 msgid "Last Name"
 msgstr "Sukunimi"
@@ -2563,10 +2627,6 @@ msgstr "Valitse yksi tai useampi blogi, joihin seuraavilla käyttäjillä on kä
 
 msgid "No blog"
 msgstr "Ei blogia"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL:"
 
 msgid "select"
 msgstr "valitse"
@@ -2749,18 +2809,6 @@ msgstr "Merkinnän kieli:"
 
 msgid "Languages"
 msgstr "Kielet"
-
-#, fuzzy, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "Muokkaa merkintää"
-msgstr[1] "Muokkaa merkintää"
-
-#, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d kommentti"
-msgstr[1] "%d kommenttia"
 
 msgid "Change blog"
 msgstr "Vaihda blogia"
@@ -3086,6 +3134,10 @@ msgstr "Versio"
 
 msgid "Current version"
 msgstr "Nykyversio"
+
+#, fuzzy, php-format
+msgid " (%s)"
+msgstr "(%s)"
 
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
@@ -3776,6 +3828,18 @@ msgstr "Nimiavaruuksia ei saatu luettua:"
 msgid "Invalid setting namespace: %s"
 msgstr "Asetuksen nimiavaruus ei kelpaa: %s"
 
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires an INTO source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
 msgid "Failed to read data feed"
 msgstr "Syötetietoja ei saatu luettua"
 
@@ -3886,145 +3950,6 @@ msgstr "Ei määriteltyä työavaruutta"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Automaattinen päivitys ei onnistunut:"
 
-msgid "Unable to open directory."
-msgstr "Hakemistoa ei voi avata."
-
-msgid "Unable to create directory."
-msgstr "Hakemistoa ei voi luoda."
-
-msgid "File is not writable."
-msgstr "Tiedostoon ei voi kirjoittaa."
-
-msgid "Unable to open file."
-msgstr "Tiedostoa ei saa auki."
-
-msgid "Not an uploaded file."
-msgstr "Ei palvelimelle ladattu tiedosto."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "Palvelimelle ladattu tiedosto on suurempi kuin sallittu suurin koko."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "Palvelimelle ladattu tiedosto ladattiin vain osin."
-
-msgid "No file was uploaded."
-msgstr "Palvelimelle ei ladattu tiedostoa."
-
-msgid "Missing a temporary folder."
-msgstr "Väliaikaishakemisto puuttuu."
-
-msgid "Failed to write file to disk."
-msgstr "Tiedostoa  ei saatu kirjoitetuksi levylle."
-
-msgid "A PHP extension stopped the file upload."
-msgstr "Jokin PHP-laajennus esti tiedoston lataamisen palvelimelle."
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s ei ole hakemisto."
-
-msgid "Bad range"
-msgstr "Raja-arvot eivät kelpaa"
-
-msgid "Invalid range"
-msgstr "Kelpaamaton rajaus"
-
-msgid "Invalid line number"
-msgstr "Rivinumero ei kelpaa"
-
-msgid "Chunk is out of range"
-msgstr "Palanen ei mahdu asetettujen rajojen sisään"
-
-msgid "Bad context"
-msgstr "Konteksti ei kelpaa"
-
-msgid "Bad context (in deletion)"
-msgstr "Konteksti ei kelpaa (poistettaessa)"
-
-msgid "Invalid diff format"
-msgstr "Diff-tiedoston muoto ei kelpaa."
-
-msgid "Uploading this file is not allowed."
-msgstr "Tämän tiedoston lataaminen palvelimelle ei ole sallittua."
-
-msgid "Destination directory is not in jail."
-msgstr "Kohdehakemisto ei ole vankilassa."
-
-msgid "File already exists."
-msgstr "Tiedosto on jo."
-
-msgid "Cannot write in this directory."
-msgstr "Tähän hakemistoon ei voi kirjoittaa."
-
-msgid "Source file does not exist."
-msgstr "Lähdetiedostoa ei ole."
-
-msgid "File is not in jail."
-msgstr "Tiedosto ei ole vankilassa."
-
-msgid "Destination directory is not writable."
-msgstr "Kohdehakemistoon ei voi kirjoittaa."
-
-msgid "Unable to rename file."
-msgstr "Tiedoston uudelleennimeäminen ei onnistu."
-
-msgid "File cannot be removed."
-msgstr "Tiedostoa ei voi poistaa."
-
-msgid "Directory is not in jail."
-msgstr "Hakemisto ei ole vankilassa."
-
-msgid "Directory cannot be removed."
-msgstr "Hakemistoa ei voi siirtää."
-
-msgid "Not enough memory to open image."
-msgstr "Ei tarpeeksi muistia kuvan avaamiseksi."
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr "Lohkon <tpl:%s> lopetuskoodia ei löytynyt. Sisältöä ei ota huomioon."
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr "Yllättävä lopetuskoodi <tpl:%s> löytyi."
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr "VAROITUS: seuraavat virheet löytyivät mallitiedosto jäsennettäessä:"
-
-msgid "singular"
-msgid_plural "plural"
-msgstr[0] "yksikkö"
-msgstr[1] "monikko"
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "Tiedostoa %s ei ole pakattu zip-paketissa."
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "Yritetään purkaa hakemisto nimeltä %s"
-
-msgid "Unable to write destination file."
-msgstr "Kohdetiedostoon ei voi kirjoittaa."
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "Kohdehakemistoon ei voi kirjoittaa, pyyntö evätty."
-
-msgid "Not enough memory to open file."
-msgstr "Ei tarpeeksi muistia tiedoston avaamiseksi."
-
-msgid "File does not exist"
-msgstr "Tiedostoa ei ole"
-
-msgid "Cannot read file"
-msgstr "Tiedostoa ei voi lukea"
-
-msgid "Directory does not exist"
-msgstr "Hakemistoa ei ole"
-
-msgid "Cannot read directory"
-msgstr "Hakemistoa ei voi lukea"
-
 msgid "Site temporarily unavailable"
 msgstr "Sivusto väliaikaisesti saavuttamattomissa"
 
@@ -4040,6 +3965,140 @@ msgstr "<p>Tämä tarkoittaa joko sitä, että käyttäjänimi- ja salasanatieto
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
+
+#~ msgid "Unable to open directory."
+#~ msgstr "Hakemistoa ei voi avata."
+
+#~ msgid "Unable to create directory."
+#~ msgstr "Hakemistoa ei voi luoda."
+
+#~ msgid "File is not writable."
+#~ msgstr "Tiedostoon ei voi kirjoittaa."
+
+#~ msgid "Unable to open file."
+#~ msgstr "Tiedostoa ei saa auki."
+
+#~ msgid "Not an uploaded file."
+#~ msgstr "Ei palvelimelle ladattu tiedosto."
+
+#~ msgid "The uploaded file exceeds the maximum file size allowed."
+#~ msgstr "Palvelimelle ladattu tiedosto on suurempi kuin sallittu suurin koko."
+
+#~ msgid "The uploaded file was only partially uploaded."
+#~ msgstr "Palvelimelle ladattu tiedosto ladattiin vain osin."
+
+#~ msgid "No file was uploaded."
+#~ msgstr "Palvelimelle ei ladattu tiedostoa."
+
+#~ msgid "Missing a temporary folder."
+#~ msgstr "Väliaikaishakemisto puuttuu."
+
+#~ msgid "Failed to write file to disk."
+#~ msgstr "Tiedostoa  ei saatu kirjoitetuksi levylle."
+
+#~ msgid "A PHP extension stopped the file upload."
+#~ msgstr "Jokin PHP-laajennus esti tiedoston lataamisen palvelimelle."
+
+#~ msgid "%s is not a directory."
+#~ msgstr "%s ei ole hakemisto."
+
+#~ msgid "Bad range"
+#~ msgstr "Raja-arvot eivät kelpaa"
+
+#~ msgid "Invalid range"
+#~ msgstr "Kelpaamaton rajaus"
+
+#~ msgid "Invalid line number"
+#~ msgstr "Rivinumero ei kelpaa"
+
+#~ msgid "Chunk is out of range"
+#~ msgstr "Palanen ei mahdu asetettujen rajojen sisään"
+
+#~ msgid "Bad context"
+#~ msgstr "Konteksti ei kelpaa"
+
+#~ msgid "Bad context (in deletion)"
+#~ msgstr "Konteksti ei kelpaa (poistettaessa)"
+
+#~ msgid "Invalid diff format"
+#~ msgstr "Diff-tiedoston muoto ei kelpaa."
+
+#~ msgid "Uploading this file is not allowed."
+#~ msgstr "Tämän tiedoston lataaminen palvelimelle ei ole sallittua."
+
+#~ msgid "Destination directory is not in jail."
+#~ msgstr "Kohdehakemisto ei ole vankilassa."
+
+#~ msgid "File already exists."
+#~ msgstr "Tiedosto on jo."
+
+#~ msgid "Cannot write in this directory."
+#~ msgstr "Tähän hakemistoon ei voi kirjoittaa."
+
+#~ msgid "Source file does not exist."
+#~ msgstr "Lähdetiedostoa ei ole."
+
+#~ msgid "File is not in jail."
+#~ msgstr "Tiedosto ei ole vankilassa."
+
+#~ msgid "Destination directory is not writable."
+#~ msgstr "Kohdehakemistoon ei voi kirjoittaa."
+
+#~ msgid "Unable to rename file."
+#~ msgstr "Tiedoston uudelleennimeäminen ei onnistu."
+
+#~ msgid "File cannot be removed."
+#~ msgstr "Tiedostoa ei voi poistaa."
+
+#~ msgid "Directory is not in jail."
+#~ msgstr "Hakemisto ei ole vankilassa."
+
+#~ msgid "Directory cannot be removed."
+#~ msgstr "Hakemistoa ei voi siirtää."
+
+#~ msgid "Not enough memory to open image."
+#~ msgstr "Ei tarpeeksi muistia kuvan avaamiseksi."
+
+#~ msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
+#~ msgstr "Lohkon <tpl:%s> lopetuskoodia ei löytynyt. Sisältöä ei ota huomioon."
+
+#~ msgid "Unexpected closing tag </tpl:%s> found."
+#~ msgstr "Yllättävä lopetuskoodi <tpl:%s> löytyi."
+
+#~ msgid "WARNING: the following errors have been found while parsing template file :"
+#~ msgstr "VAROITUS: seuraavat virheet löytyivät mallitiedosto jäsennettäessä:"
+
+#~ msgid "singular"
+#~ msgid_plural "plural"
+#~ msgstr[0] "yksikkö"
+#~ msgstr[1] "monikko"
+
+#~ msgid "File %s is not compressed in the zip."
+#~ msgstr "Tiedostoa %s ei ole pakattu zip-paketissa."
+
+#~ msgid "Trying to unzip a folder name %s"
+#~ msgstr "Yritetään purkaa hakemisto nimeltä %s"
+
+#~ msgid "Unable to write destination file."
+#~ msgstr "Kohdetiedostoon ei voi kirjoittaa."
+
+#~ msgid "Unable to write in target directory, permission denied."
+#~ msgstr "Kohdehakemistoon ei voi kirjoittaa, pyyntö evätty."
+
+#~ msgid "Not enough memory to open file."
+#~ msgstr "Ei tarpeeksi muistia tiedoston avaamiseksi."
+
+#~ msgid "File does not exist"
+#~ msgstr "Tiedostoa ei ole"
+
+#~ msgid "Cannot read file"
+#~ msgstr "Tiedostoa ei voi lukea"
+
+#~ msgid "Directory does not exist"
+#~ msgstr "Hakemistoa ei ole"
+
+#~ msgid "Cannot read directory"
+#~ msgstr "Hakemistoa ei voi lukea"
 
 #, fuzzy
 #~ msgid "A website mention this entry."

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:23+0200\n"
+"POT-Creation-Date: 2018-07-26 16:09+0200\n"
 "PO-Revision-Date: 2016-07-18 15:44+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -207,6 +207,14 @@ msgstr "dnů(y)"
 msgid "Set spam filters."
 msgstr "Akismet spamový filtr"
 
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "(obsahuje %d spamový komentář)"
+
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "(obsahuje %d spamových komentářů)"
+
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "IP blacklist / whitelist filtr"
 
@@ -324,14 +332,6 @@ msgstr "Neznámý filtr"
 
 msgid "This comment is a spam:"
 msgstr "Tento komentář je spam:"
-
-#, php-format
-msgid "(including %d spam comment)"
-msgstr "(obsahuje %d spamový komentář)"
-
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(obsahuje %d spamových komentářů)"
 
 msgid "Spam moderation"
 msgstr "Moderování spamu"
@@ -1705,6 +1705,17 @@ msgstr "Zkontroluj vše"
 msgid "Simple menu"
 msgstr ""
 
+msgid "the link will open a new window"
+msgstr ""
+
+#, fuzzy
+msgid "Active page"
+msgstr "Aktivní"
+
+#, fuzzy
+msgid "active page"
+msgstr "Zobrazit stránku"
+
 #, fuzzy
 msgid "Item description"
 msgstr "Žádný popis"
@@ -1842,6 +1853,9 @@ msgstr "Popis"
 msgid "URL of item menu:"
 msgstr ""
 
+msgid "Open URL on a new tab"
+msgstr ""
+
 msgid "Add this item"
 msgstr ""
 
@@ -1883,14 +1897,20 @@ msgstr "Atom zdroj článků tohoto štítku"
 msgid "Tag"
 msgstr "Štítek"
 
-msgid "Limit (empty means no limit):"
-msgstr "Limit (prázný znamený bez limitu):"
+msgid "Tag name"
+msgstr "Jméno štítku"
 
 msgid "Entries count"
 msgstr "Počet článků"
 
-msgid "Tag name"
-msgstr "Jméno štítku"
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Limit (empty means no limit):"
+msgstr "Limit (prázný znamený bez limitu):"
 
 msgid "Link to all tags:"
 msgstr "Odkaz na všechny štítky:"
@@ -2444,9 +2464,6 @@ msgstr ""
 
 #~ msgid "Send"
 #~ msgstr "Odeslat"
-
-#~ msgid "View page"
-#~ msgstr "Zobrazit stránku"
 
 #~ msgid "Preview page"
 #~ msgstr "Náhled stránky"

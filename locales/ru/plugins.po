@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:25+0200\n"
+"POT-Creation-Date: 2018-07-26 16:11+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -207,6 +207,14 @@ msgstr "дней"
 msgid "Set spam filters."
 msgstr "Спам фильтр Akismet"
 
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "(включая %d спам комментариев)"
+
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "(включая %d спам комментариев)"
+
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "Черный/белый список IP"
 
@@ -324,14 +332,6 @@ msgstr "Неизвестный фильтр"
 
 msgid "This comment is a spam:"
 msgstr "Этот комментарий является спамом:"
-
-#, php-format
-msgid "(including %d spam comment)"
-msgstr "(включая %d спам комментариев)"
-
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(включая %d спам комментариев)"
 
 msgid "Spam moderation"
 msgstr "Модерация спама"
@@ -1706,6 +1706,17 @@ msgstr "Проверить все"
 msgid "Simple menu"
 msgstr ""
 
+msgid "the link will open a new window"
+msgstr ""
+
+#, fuzzy
+msgid "Active page"
+msgstr "Активный"
+
+#, fuzzy
+msgid "active page"
+msgstr "Просмотреть страницу"
+
 #, fuzzy
 msgid "Item description"
 msgstr "Нет описания"
@@ -1843,6 +1854,9 @@ msgstr "Описание"
 msgid "URL of item menu:"
 msgstr ""
 
+msgid "Open URL on a new tab"
+msgstr ""
+
 msgid "Add this item"
 msgstr ""
 
@@ -1885,14 +1899,20 @@ msgstr "Лента новостей Atom записей с этим тегом"
 msgid "Tag"
 msgstr "Тег"
 
-msgid "Limit (empty means no limit):"
-msgstr "Лимит (нет предела при пустом поле)"
+msgid "Tag name"
+msgstr "Название тега"
 
 msgid "Entries count"
 msgstr "Количество записей"
 
-msgid "Tag name"
-msgstr "Название тега"
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Limit (empty means no limit):"
+msgstr "Лимит (нет предела при пустом поле)"
 
 msgid "Link to all tags:"
 msgstr "Ссылка на все теги"
@@ -2446,9 +2466,6 @@ msgstr ""
 
 #~ msgid "Send"
 #~ msgstr "Отправить"
-
-#~ msgid "View page"
-#~ msgstr "Просмотреть страницу"
 
 #~ msgid "Preview page"
 #~ msgstr "Предпросмотр страницы"

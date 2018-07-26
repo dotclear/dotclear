@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:24+0200\n"
+"POT-Creation-Date: 2018-07-26 16:10+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -150,13 +150,23 @@ msgstr "ブログID："
 msgid "Required field"
 msgstr "必須フィールド"
 
+msgid "Blog ID"
+msgstr "ブログID"
+
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "少なくとも2文字（文字・数字・記号）を入力します。"
 
 msgid "Blog name:"
 msgstr "ブログ名："
 
+msgid "Blog name"
+msgstr "ブログ名"
+
 msgid "Blog URL:"
+msgstr "ブログURL："
+
+#, fuzzy
+msgid "Blog URL"
 msgstr "ブログURL："
 
 msgid "Blog description:"
@@ -411,6 +421,9 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
+msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
+msgstr ""
+
 #, fuzzy
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "生成される画像サイズ（ピクセル単位）"
@@ -656,12 +669,6 @@ msgstr "この機能を有効にするには、plugins ディレクトリに書�
 msgid "Last update"
 msgstr "最終更新"
 
-msgid "Blog name"
-msgstr "ブログ名"
-
-msgid "Blog ID"
-msgstr "ブログID"
-
 msgid "Status"
 msgstr "状態"
 
@@ -752,8 +759,7 @@ msgstr "カテゴリ"
 
 #, fuzzy
 msgid "The category has been successfully removed."
-msgid_plural "The categories have been successfully removed."
-msgstr[0] "カテゴリは正常に削除されました。"
+msgstr "カテゴリは正常に削除されました。"
 
 #, fuzzy
 msgid "Entries have been successfully moved to the category you choose."
@@ -824,6 +830,9 @@ msgstr "カテゴリ情報"
 
 msgid "Name:"
 msgstr "名前："
+
+msgid "Name"
+msgstr "名前"
 
 msgid "Parent:"
 msgstr "親："
@@ -918,6 +927,9 @@ msgstr "コメント"
 msgid "Author:"
 msgstr "投稿者："
 
+msgid "Author"
+msgstr "投稿者"
+
 msgid "Web site:"
 msgstr "ウェブサイト："
 
@@ -944,9 +956,6 @@ msgstr "エントリのタイトル"
 #, fuzzy
 msgid "Entry date"
 msgstr "エントリのタイトル"
-
-msgid "Author"
-msgstr "投稿者"
 
 msgid "IP"
 msgstr ""
@@ -1003,39 +1012,11 @@ msgid_plural "%s updates are available."
 msgstr[0] "Iconv モジュールが利用可能ではありません。"
 
 #, fuzzy
-msgid "Dotclear news"
-msgstr "Dotclear チーム"
-
-msgid "%d %B %Y:"
-msgstr ""
-
-#, fuzzy
 msgid "Documentation and support"
 msgstr "ドキュメント"
 
 msgid "Dashboard"
 msgstr "ダッシュボード"
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr "Dotclear %s が入手可能です！"
-
-msgid "Upgrade now"
-msgstr "ただちにアップグレード"
-
-msgid "Remind me later"
-msgstr "後で再度知らせる"
-
-msgid "Information about this version"
-msgstr ""
-
-#, php-format
-msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr ""
-
-#, php-format
-msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr ""
 
 msgid "Make this blog my default blog"
 msgstr "このブログをデフォルトブログにする"
@@ -1087,6 +1068,10 @@ msgid "Title:"
 msgstr "タイトル："
 
 msgid "Content:"
+msgstr "内容："
+
+#, fuzzy
+msgid "Content"
 msgstr "内容："
 
 msgid "Category:"
@@ -1241,6 +1226,14 @@ msgstr "最終更新"
 msgid "Username and password"
 msgstr "ユーザ名またはパスワードが間違っています"
 
+#, fuzzy
+msgid "Username"
+msgstr "ユーザ名："
+
+#, fuzzy
+msgid "Password"
+msgstr "パスワード："
+
 msgid "All done!"
 msgstr "すべて完了しました！"
 
@@ -1322,10 +1315,16 @@ msgstr ""
 msgid "MySQLi"
 msgstr ""
 
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
 msgid "PostgreSQL"
 msgstr ""
 
 msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1342,6 +1341,9 @@ msgstr "データベースのパスワード："
 
 msgid "Database Tables Prefix:"
 msgstr "データベーステーブルのプレフィックス："
+
+msgid "Prefix"
+msgstr ""
 
 msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
@@ -1591,10 +1593,15 @@ msgstr ""
 msgid "Media list"
 msgstr "メディアの詳細"
 
-msgid "Name"
-msgstr "名前"
-
 msgid "Size"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
 msgstr ""
 
 #, php-format
@@ -1923,6 +1930,10 @@ msgid "Link URL:"
 msgstr "リンクのURL："
 
 #, fuzzy
+msgid "URL"
+msgstr "URL："
+
+#, fuzzy
 msgid "Link title:"
 msgstr "ファイルのタイトル："
 
@@ -2081,10 +2092,6 @@ msgstr ""
 
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr ""
-
-#, fuzzy
-msgid "Password"
-msgstr "パスワード："
 
 #, fuzzy
 msgid "Edit basename"
@@ -2343,6 +2350,10 @@ msgid "Interface"
 msgstr "XML/RPC インターフェイス"
 
 #, fuzzy
+msgid "Activate dark mode"
+msgstr "有効化"
+
+#, fuzzy
 msgid "Activate enhanced uploader in media manager"
 msgstr "拡張アップローダを有効化"
 
@@ -2353,6 +2364,12 @@ msgid "If checked, numeric fields will allow to type the elements' ordering numb
 msgstr ""
 
 msgid "Hide all secondary information and notes"
+msgstr ""
+
+msgid "Hide help button"
+msgstr ""
+
+msgid "Show asynchronous requests indicator"
 msgstr ""
 
 #, fuzzy
@@ -2533,6 +2550,52 @@ msgstr "%d コメントが見つかりました"
 msgid "%d comments found"
 msgstr "%d コメントが見つかりました"
 
+#, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "ブログ %s を編集"
+
+#, fuzzy, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "コメント(%d)"
+
+#, fuzzy
+msgid "Dotclear news not available"
+msgstr "Dotclear %s が入手可能です！"
+
+#, fuzzy
+msgid "Dotclear news"
+msgstr "Dotclear チーム"
+
+msgid "%d %B %Y:"
+msgstr ""
+
+#, fuzzy
+msgid "Dotclear update not available"
+msgstr "Dotclear %s が入手可能です！"
+
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s が入手可能です！"
+
+msgid "Upgrade now"
+msgstr "ただちにアップグレード"
+
+msgid "Remind me later"
+msgstr "後で再度知らせる"
+
+msgid "Information about this version"
+msgstr ""
+
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Dotclear update"
 msgstr "Dotclear のアップデート"
 
@@ -2633,6 +2696,10 @@ msgstr "ユーザ / ページ"
 msgid "User ID:"
 msgstr "ユーザID"
 
+#, fuzzy
+msgid "Login"
+msgstr "ログイン："
+
 msgid "Warning:"
 msgstr "警告："
 
@@ -2669,10 +2736,6 @@ msgstr "ブログ："
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
-
-#, fuzzy
-msgid "Username"
-msgstr "ユーザ名："
 
 #, fuzzy
 msgid "Last Name"
@@ -2723,10 +2786,6 @@ msgstr "ユーザ %s さんにパーミッションを与えたいブログを�
 
 msgid "No blog"
 msgstr "ブログはありません"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL："
 
 #, fuzzy
 msgid "select"
@@ -2925,16 +2984,6 @@ msgstr "エントリの言語："
 
 msgid "Languages"
 msgstr "言語"
-
-#, fuzzy, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "ブログ %s を編集"
-
-#, fuzzy, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "コメント(%d)"
 
 msgid "Change blog"
 msgstr "ブログの変更"
@@ -3272,6 +3321,10 @@ msgstr "バージョン"
 #, fuzzy
 msgid "Current version"
 msgstr "パーミッションを設定"
+
+#, php-format
+msgid " (%s)"
+msgstr ""
 
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
@@ -4009,6 +4062,18 @@ msgstr "設定を取り出すことができません："
 msgid "Invalid setting namespace: %s"
 msgstr "無効なネームスペースの設定です： %s"
 
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires an INTO source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
 #, fuzzy
 msgid "Failed to read data feed"
 msgstr "ダイジェストファイルが読めません。"
@@ -4124,148 +4189,6 @@ msgstr "ネームスペースが指定されていません"
 msgid "Something went wrong with auto upgrade:"
 msgstr "自動アップグレードで何か誤りがありました："
 
-msgid "Unable to open directory."
-msgstr "ディレクトが開けません。"
-
-msgid "Unable to create directory."
-msgstr "ディレクトリが作成できません。"
-
-msgid "File is not writable."
-msgstr "ファイルが書き込み可能ではありません。"
-
-msgid "Unable to open file."
-msgstr "ファイルが開けません。"
-
-msgid "Not an uploaded file."
-msgstr "アップロードされたファイルではありません。"
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "アップロードされたファイルは、許可される最大サイズを超過します。"
-
-msgid "The uploaded file was only partially uploaded."
-msgstr "アップロードされたファイルは、一部分のみがアップロードされました。"
-
-msgid "No file was uploaded."
-msgstr "ファイルはアップロードされませんでした。"
-
-msgid "Missing a temporary folder."
-msgstr "一時フォルダが見あたりません。"
-
-msgid "Failed to write file to disk."
-msgstr "ディスクへのファイルの書き込みに失敗しました。"
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s はディレクトリではありません。"
-
-msgid "Bad range"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid range"
-msgstr "無効な言語コードです"
-
-#, fuzzy
-msgid "Invalid line number"
-msgstr "無効な言語コードです"
-
-msgid "Chunk is out of range"
-msgstr ""
-
-msgid "Bad context"
-msgstr ""
-
-msgid "Bad context (in deletion)"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid diff format"
-msgstr "無効なダイジェストファイルです。"
-
-msgid "Uploading this file is not allowed."
-msgstr "このファイルのアップロードは許可されません。"
-
-msgid "Destination directory is not in jail."
-msgstr "対象ディレクトリが有効アクセス範囲内にありません。"
-
-#, fuzzy
-msgid "File already exists."
-msgstr "新しいファイルはすでに存在します。"
-
-msgid "Cannot write in this directory."
-msgstr "このディレクトリへの書き込みができません。"
-
-msgid "Source file does not exist."
-msgstr "ソースファイルが存在しません。"
-
-msgid "File is not in jail."
-msgstr "ファイルが有効アクセス範囲内にありません。"
-
-msgid "Destination directory is not writable."
-msgstr "対象ディレクトリが書き込み可能ではありません。"
-
-msgid "Unable to rename file."
-msgstr "ファイル名の変更ができません。"
-
-msgid "File cannot be removed."
-msgstr "ファイルを削除することができません。"
-
-msgid "Directory is not in jail."
-msgstr "ディレクトリが有効アクセス範囲内にありません。"
-
-msgid "Directory cannot be removed."
-msgstr "ディレクトリを削除することができません。"
-
-msgid "Not enough memory to open image."
-msgstr "画像を開くのに十分なメモリがありません。"
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
-msgid "singular"
-msgid_plural "plural"
-msgstr[0] ""
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr "ファイル %s はzipで圧縮されていません。"
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr "フォルダ名 %s のzip展開を試行しています"
-
-msgid "Unable to write destination file."
-msgstr "対象ファイルに書き込むことができません。"
-
-msgid "Unable to write in target directory, permission denied."
-msgstr "アクセスが許可されていないため、対象ディレクトリに書き込むことができません。"
-
-msgid "Not enough memory to open file."
-msgstr "ファイルを開くのに十分なメモリがありません。"
-
-msgid "File does not exist"
-msgstr "ファイルが存在しません"
-
-msgid "Cannot read file"
-msgstr "ファイルが読み込めません"
-
-msgid "Directory does not exist"
-msgstr "ディレクトリが存在しません"
-
-msgid "Cannot read directory"
-msgstr "ディレクトリが読み込めません"
-
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4281,6 +4204,115 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Unable to open directory."
+#~ msgstr "ディレクトが開けません。"
+
+#~ msgid "Unable to create directory."
+#~ msgstr "ディレクトリが作成できません。"
+
+#~ msgid "File is not writable."
+#~ msgstr "ファイルが書き込み可能ではありません。"
+
+#~ msgid "Unable to open file."
+#~ msgstr "ファイルが開けません。"
+
+#~ msgid "Not an uploaded file."
+#~ msgstr "アップロードされたファイルではありません。"
+
+#~ msgid "The uploaded file exceeds the maximum file size allowed."
+#~ msgstr "アップロードされたファイルは、許可される最大サイズを超過します。"
+
+#~ msgid "The uploaded file was only partially uploaded."
+#~ msgstr "アップロードされたファイルは、一部分のみがアップロードされました。"
+
+#~ msgid "No file was uploaded."
+#~ msgstr "ファイルはアップロードされませんでした。"
+
+#~ msgid "Missing a temporary folder."
+#~ msgstr "一時フォルダが見あたりません。"
+
+#~ msgid "Failed to write file to disk."
+#~ msgstr "ディスクへのファイルの書き込みに失敗しました。"
+
+#~ msgid "%s is not a directory."
+#~ msgstr "%s はディレクトリではありません。"
+
+#, fuzzy
+#~ msgid "Invalid range"
+#~ msgstr "無効な言語コードです"
+
+#, fuzzy
+#~ msgid "Invalid line number"
+#~ msgstr "無効な言語コードです"
+
+#, fuzzy
+#~ msgid "Invalid diff format"
+#~ msgstr "無効なダイジェストファイルです。"
+
+#~ msgid "Uploading this file is not allowed."
+#~ msgstr "このファイルのアップロードは許可されません。"
+
+#~ msgid "Destination directory is not in jail."
+#~ msgstr "対象ディレクトリが有効アクセス範囲内にありません。"
+
+#, fuzzy
+#~ msgid "File already exists."
+#~ msgstr "新しいファイルはすでに存在します。"
+
+#~ msgid "Cannot write in this directory."
+#~ msgstr "このディレクトリへの書き込みができません。"
+
+#~ msgid "Source file does not exist."
+#~ msgstr "ソースファイルが存在しません。"
+
+#~ msgid "File is not in jail."
+#~ msgstr "ファイルが有効アクセス範囲内にありません。"
+
+#~ msgid "Destination directory is not writable."
+#~ msgstr "対象ディレクトリが書き込み可能ではありません。"
+
+#~ msgid "Unable to rename file."
+#~ msgstr "ファイル名の変更ができません。"
+
+#~ msgid "File cannot be removed."
+#~ msgstr "ファイルを削除することができません。"
+
+#~ msgid "Directory is not in jail."
+#~ msgstr "ディレクトリが有効アクセス範囲内にありません。"
+
+#~ msgid "Directory cannot be removed."
+#~ msgstr "ディレクトリを削除することができません。"
+
+#~ msgid "Not enough memory to open image."
+#~ msgstr "画像を開くのに十分なメモリがありません。"
+
+#~ msgid "File %s is not compressed in the zip."
+#~ msgstr "ファイル %s はzipで圧縮されていません。"
+
+#~ msgid "Trying to unzip a folder name %s"
+#~ msgstr "フォルダ名 %s のzip展開を試行しています"
+
+#~ msgid "Unable to write destination file."
+#~ msgstr "対象ファイルに書き込むことができません。"
+
+#~ msgid "Unable to write in target directory, permission denied."
+#~ msgstr "アクセスが許可されていないため、対象ディレクトリに書き込むことができません。"
+
+#~ msgid "Not enough memory to open file."
+#~ msgstr "ファイルを開くのに十分なメモリがありません。"
+
+#~ msgid "File does not exist"
+#~ msgstr "ファイルが存在しません"
+
+#~ msgid "Cannot read file"
+#~ msgstr "ファイルが読み込めません"
+
+#~ msgid "Directory does not exist"
+#~ msgstr "ディレクトリが存在しません"
+
+#~ msgid "Cannot read directory"
+#~ msgstr "ディレクトリが読み込めません"
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4603,9 +4635,6 @@ msgstr ""
 
 #~ msgid "The file <strong>%s</strong> already exists. If you need to reset any of the configuration items in this file, please delete it first or you may <a href=\"%s\">continue to install</a>."
 #~ msgstr "ファイル <strong>%s</strong> はすでに存在しています。 このファイル内の設定項目のいずれかをリセットしたい場合は、最初にそれを削除してください。 そうでない場合は、<a href=\"%s\">インストールを継続</a>することもできます。"
-
-#~ msgid "Login:"
-#~ msgstr "ログイン："
 
 #~ msgid "Login and password"
 #~ msgstr "ログインとパスワード"

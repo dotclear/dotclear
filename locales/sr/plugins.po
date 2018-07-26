@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:25+0200\n"
+"POT-Creation-Date: 2018-07-26 16:11+0200\n"
 "PO-Revision-Date: 2016-07-18 15:53+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -192,6 +192,14 @@ msgstr ""
 msgid "Set spam filters."
 msgstr ""
 
+#, php-format
+msgid "(including %d spam comment)"
+msgstr ""
+
+#, php-format
+msgid "(including %d spam comments)"
+msgstr ""
+
 msgid "IP Blacklist / Whitelist Filter"
 msgstr ""
 
@@ -305,14 +313,6 @@ msgid "Unknown filter."
 msgstr ""
 
 msgid "This comment is a spam:"
-msgstr ""
-
-#, php-format
-msgid "(including %d spam comment)"
-msgstr ""
-
-#, php-format
-msgid "(including %d spam comments)"
 msgstr ""
 
 msgid "Spam moderation"
@@ -1624,6 +1624,15 @@ msgstr ""
 msgid "Simple menu"
 msgstr ""
 
+msgid "the link will open a new window"
+msgstr ""
+
+msgid "Active page"
+msgstr ""
+
+msgid "active page"
+msgstr ""
+
 msgid "Item description"
 msgstr ""
 
@@ -1744,6 +1753,9 @@ msgstr ""
 msgid "URL of item menu:"
 msgstr ""
 
+msgid "Open URL on a new tab"
+msgstr ""
+
 msgid "Add this item"
 msgstr ""
 
@@ -1780,13 +1792,19 @@ msgstr ""
 msgid "Tag"
 msgstr ""
 
-msgid "Limit (empty means no limit):"
+msgid "Tag name"
 msgstr ""
 
 msgid "Entries count"
 msgstr ""
 
-msgid "Tag name"
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Limit (empty means no limit):"
 msgstr ""
 
 msgid "Link to all tags:"

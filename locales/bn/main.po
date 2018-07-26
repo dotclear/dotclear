@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:23+0200\n"
+"POT-Creation-Date: 2018-07-26 16:09+0200\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -143,13 +143,23 @@ msgstr "ব্লগ আইডি:"
 msgid "Required field"
 msgstr "প্রয়োজনীয় ঘর"
 
+msgid "Blog ID"
+msgstr "ব্লগ আইডি"
+
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "কমপক্ষে ২ অক্ষর লিখতে হবে - বর্ণ, সংখ্যা বা সিম্বল থাকতে পারবে।"
 
 msgid "Blog name:"
 msgstr "ব্লগের নাম:"
 
+msgid "Blog name"
+msgstr "ব্লগের নাম"
+
 msgid "Blog URL:"
+msgstr "ব্লগ URL:"
+
+#, fuzzy
+msgid "Blog URL"
 msgstr "ব্লগ URL:"
 
 msgid "Blog description:"
@@ -402,6 +412,9 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
+msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
+msgstr ""
+
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr ""
 
@@ -643,12 +656,6 @@ msgstr ""
 msgid "Last update"
 msgstr "সর্বশেষ আপডেট"
 
-msgid "Blog name"
-msgstr "ব্লগের নাম"
-
-msgid "Blog ID"
-msgstr "ব্লগ আইডি"
-
 msgid "Status"
 msgstr "অবস্থা"
 
@@ -738,9 +745,7 @@ msgstr "ক্যাটাগরিসমূহ"
 
 #, fuzzy
 msgid "The category has been successfully removed."
-msgid_plural "The categories have been successfully removed."
-msgstr[0] "ক্যাটাগরিটি সফলভাবে মুছে ফেলা হয়েছে।"
-msgstr[1] "ক্যাটাগরিটি সফলভাবে মুছে ফেলা হয়েছে।"
+msgstr "ক্যাটাগরিটি সফলভাবে মুছে ফেলা হয়েছে।"
 
 #, fuzzy
 msgid "Entries have been successfully moved to the category you choose."
@@ -810,6 +815,9 @@ msgstr "ক্যাটাগরির তথ্য"
 
 msgid "Name:"
 msgstr "নাম:"
+
+msgid "Name"
+msgstr "নাম"
 
 msgid "Parent:"
 msgstr ""
@@ -897,6 +905,9 @@ msgstr "মন্তব্য"
 msgid "Author:"
 msgstr "লেখক:"
 
+msgid "Author"
+msgstr "লেখক"
+
 msgid "Web site:"
 msgstr "ওয়েব সাইট:"
 
@@ -923,9 +934,6 @@ msgstr "এন্ট্রির টাইটেল"
 #, fuzzy
 msgid "Entry date"
 msgstr "এন্ট্রির টাইটেল"
-
-msgid "Author"
-msgstr "লেখক"
 
 msgid "IP"
 msgstr ""
@@ -982,39 +990,11 @@ msgid_plural "%s updates are available."
 msgstr[0] "Dotclear %s এসে গেছে!"
 msgstr[1] "Dotclear %s এসে গেছে!"
 
-#, fuzzy
-msgid "Dotclear news"
-msgstr "ডটক্লিয়ার টিম"
-
-msgid "%d %B %Y:"
-msgstr ""
-
 msgid "Documentation and support"
 msgstr ""
 
 msgid "Dashboard"
 msgstr "ড্যাশবোর্ড"
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr "Dotclear %s এসে গেছে!"
-
-msgid "Upgrade now"
-msgstr "আপগ্রেড করুন"
-
-msgid "Remind me later"
-msgstr "পড়ে মনে করিয়ে দিও"
-
-msgid "Information about this version"
-msgstr ""
-
-#, php-format
-msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr ""
-
-#, php-format
-msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr ""
 
 msgid "Make this blog my default blog"
 msgstr "এই ব্লগটিকে আমার ডিফল্ট ব্লগ বানাও"
@@ -1066,6 +1046,10 @@ msgid "Title:"
 msgstr "টাইটেল:"
 
 msgid "Content:"
+msgstr "কন্টেন্ট:"
+
+#, fuzzy
+msgid "Content"
 msgstr "কন্টেন্ট:"
 
 msgid "Category:"
@@ -1220,6 +1204,14 @@ msgstr "সর্বশেষ আপডেট"
 msgid "Username and password"
 msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
 
+#, fuzzy
+msgid "Username"
+msgstr "ইউজারনেম:"
+
+#, fuzzy
+msgid "Password"
+msgstr "পাসওয়ার্ড:"
+
 msgid "All done!"
 msgstr "কাজ শেষ!"
 
@@ -1301,10 +1293,16 @@ msgstr ""
 msgid "MySQLi"
 msgstr ""
 
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
 msgid "PostgreSQL"
 msgstr ""
 
 msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1321,6 +1319,9 @@ msgstr "ডাটাবেজ পাসওয়ার্ড:"
 
 msgid "Database Tables Prefix:"
 msgstr "ডাটাবেজের টেবিল প্রেফিক্স:"
+
+msgid "Prefix"
+msgstr ""
 
 msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
@@ -1568,10 +1569,15 @@ msgstr ""
 msgid "Media list"
 msgstr "মিডিয়ার বিবরণ"
 
-msgid "Name"
-msgstr "নাম"
-
 msgid "Size"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
 msgstr ""
 
 #, php-format
@@ -1896,6 +1902,10 @@ msgid "Link URL:"
 msgstr "লিংক URL:"
 
 #, fuzzy
+msgid "URL"
+msgstr "URL:"
+
+#, fuzzy
 msgid "Link title:"
 msgstr "ফাইলের শিরোনাম:"
 
@@ -2053,10 +2063,6 @@ msgstr ""
 
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr ""
-
-#, fuzzy
-msgid "Password"
-msgstr "পাসওয়ার্ড:"
 
 #, fuzzy
 msgid "Edit basename"
@@ -2311,6 +2317,10 @@ msgstr "সার্চ অপশন"
 msgid "Interface"
 msgstr "XML/RPC ইন্টারফেস"
 
+#, fuzzy
+msgid "Activate dark mode"
+msgstr "সক্রিয়"
+
 msgid "Activate enhanced uploader in media manager"
 msgstr ""
 
@@ -2321,6 +2331,12 @@ msgid "If checked, numeric fields will allow to type the elements' ordering numb
 msgstr ""
 
 msgid "Hide all secondary information and notes"
+msgstr ""
+
+msgid "Hide help button"
+msgstr ""
+
+msgid "Show asynchronous requests indicator"
 msgstr ""
 
 #, fuzzy
@@ -2497,6 +2513,54 @@ msgstr "%d টি মন্তব্য পাওয়া গেছে"
 msgid "%d comments found"
 msgstr "%d টি মন্তব্য পাওয়া গেছে"
 
+#, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%s ব্লগ এডিট করুন"
+msgstr[1] "%s ব্লগ এডিট করুন"
+
+#, fuzzy, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d টি মন্তব্য"
+msgstr[1] "%d টি মন্তব্য"
+
+#, fuzzy
+msgid "Dotclear news not available"
+msgstr "Dotclear %s এসে গেছে!"
+
+#, fuzzy
+msgid "Dotclear news"
+msgstr "ডটক্লিয়ার টিম"
+
+msgid "%d %B %Y:"
+msgstr ""
+
+#, fuzzy
+msgid "Dotclear update not available"
+msgstr "Dotclear %s এসে গেছে!"
+
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s এসে গেছে!"
+
+msgid "Upgrade now"
+msgstr "আপগ্রেড করুন"
+
+msgid "Remind me later"
+msgstr "পড়ে মনে করিয়ে দিও"
+
+msgid "Information about this version"
+msgstr ""
+
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Dotclear update"
 msgstr "Dotclear আপডেট"
 
@@ -2596,6 +2660,10 @@ msgstr "প্রতি পেজে ইউজারের সংখ্যা"
 msgid "User ID:"
 msgstr "ইউজার:"
 
+#, fuzzy
+msgid "Login"
+msgstr "লগইন:"
+
 msgid "Warning:"
 msgstr ""
 
@@ -2631,10 +2699,6 @@ msgstr "ব্লগ:"
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
-
-#, fuzzy
-msgid "Username"
-msgstr "ইউজারনেম:"
 
 #, fuzzy
 msgid "Last Name"
@@ -2685,10 +2749,6 @@ msgstr ""
 
 msgid "No blog"
 msgstr ""
-
-#, fuzzy
-msgid "URL"
-msgstr "URL:"
 
 #, fuzzy
 msgid "select"
@@ -2886,18 +2946,6 @@ msgstr "এন্ট্রির ভাষা:"
 
 msgid "Languages"
 msgstr "ভাষাসমূহ"
-
-#, fuzzy, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "%s ব্লগ এডিট করুন"
-msgstr[1] "%s ব্লগ এডিট করুন"
-
-#, fuzzy, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d টি মন্তব্য"
-msgstr[1] "%d টি মন্তব্য"
 
 msgid "Change blog"
 msgstr ""
@@ -3232,6 +3280,10 @@ msgid "Version"
 msgstr "ভার্সন"
 
 msgid "Current version"
+msgstr ""
+
+#, php-format
+msgid " (%s)"
 msgstr ""
 
 #, php-format
@@ -3970,6 +4022,18 @@ msgstr ""
 msgid "Invalid setting namespace: %s"
 msgstr ""
 
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires an INTO source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
 msgid "Failed to read data feed"
 msgstr ""
 
@@ -4081,148 +4145,6 @@ msgstr ""
 msgid "Something went wrong with auto upgrade:"
 msgstr ""
 
-msgid "Unable to open directory."
-msgstr ""
-
-msgid "Unable to create directory."
-msgstr ""
-
-msgid "File is not writable."
-msgstr ""
-
-msgid "Unable to open file."
-msgstr ""
-
-msgid "Not an uploaded file."
-msgstr ""
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr ""
-
-msgid "The uploaded file was only partially uploaded."
-msgstr ""
-
-msgid "No file was uploaded."
-msgstr ""
-
-msgid "Missing a temporary folder."
-msgstr ""
-
-msgid "Failed to write file to disk."
-msgstr ""
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr ""
-
-msgid "Bad range"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid range"
-msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
-
-#, fuzzy
-msgid "Invalid line number"
-msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
-
-msgid "Chunk is out of range"
-msgstr ""
-
-msgid "Bad context"
-msgstr ""
-
-msgid "Bad context (in deletion)"
-msgstr ""
-
-msgid "Invalid diff format"
-msgstr ""
-
-msgid "Uploading this file is not allowed."
-msgstr ""
-
-msgid "Destination directory is not in jail."
-msgstr ""
-
-#, fuzzy
-msgid "File already exists."
-msgstr "\"%s\" নামে আরেকজন ইউজার ইতিমধ্যেই আছেন।"
-
-msgid "Cannot write in this directory."
-msgstr ""
-
-msgid "Source file does not exist."
-msgstr ""
-
-msgid "File is not in jail."
-msgstr ""
-
-msgid "Destination directory is not writable."
-msgstr ""
-
-msgid "Unable to rename file."
-msgstr ""
-
-msgid "File cannot be removed."
-msgstr ""
-
-msgid "Directory is not in jail."
-msgstr ""
-
-msgid "Directory cannot be removed."
-msgstr ""
-
-msgid "Not enough memory to open image."
-msgstr ""
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
-msgid "singular"
-msgid_plural "plural"
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr ""
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr ""
-
-msgid "Unable to write destination file."
-msgstr ""
-
-msgid "Unable to write in target directory, permission denied."
-msgstr ""
-
-msgid "Not enough memory to open file."
-msgstr ""
-
-msgid "File does not exist"
-msgstr ""
-
-msgid "Cannot read file"
-msgstr ""
-
-msgid "Directory does not exist"
-msgstr ""
-
-msgid "Cannot read directory"
-msgstr ""
-
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4238,6 +4160,18 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Invalid range"
+#~ msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
+
+#, fuzzy
+#~ msgid "Invalid line number"
+#~ msgstr "অবৈধ ল্যাঙ্গুয়েজ কোড"
+
+#, fuzzy
+#~ msgid "File already exists."
+#~ msgstr "\"%s\" নামে আরেকজন ইউজার ইতিমধ্যেই আছেন।"
 
 #, fuzzy
 #~ msgid "Filter blogs list"
@@ -4372,9 +4306,6 @@ msgstr ""
 
 #~ msgid "View site"
 #~ msgstr "সাইট দেখাও"
-
-#~ msgid "Login:"
-#~ msgstr "লগইন:"
 
 #~ msgid "Login and password"
 #~ msgstr "লগইন ও পাসওয়ার্ড"

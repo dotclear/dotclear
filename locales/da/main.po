@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:23+0200\n"
+"POT-Creation-Date: 2018-07-26 16:09+0200\n"
 "PO-Revision-Date: 2016-07-18 15:45+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Team DSLJ <maniactor@gmail.com>\n"
@@ -141,13 +141,23 @@ msgstr "Blog ID:"
 msgid "Required field"
 msgstr "Påkrævet felt"
 
+msgid "Blog ID"
+msgstr "Blog ID"
+
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Mindst 2 karaktere indeholdene bogstaver, tal eller symboler."
 
 msgid "Blog name:"
 msgstr "Blog navn:"
 
+msgid "Blog name"
+msgstr "Blog navn"
+
 msgid "Blog URL:"
+msgstr "Blog URL:"
+
+#, fuzzy
+msgid "Blog URL"
 msgstr "Blog URL:"
 
 msgid "Blog description:"
@@ -401,6 +411,9 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
+msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
+msgstr ""
+
 #, fuzzy
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Genereret billede størrelser (i pixel)"
@@ -641,12 +654,6 @@ msgstr "For at aktivere denne funktion, skal du give skrive tilladelse til din t
 msgid "Last update"
 msgstr "Sidste opdatering"
 
-msgid "Blog name"
-msgstr "Blog navn"
-
-msgid "Blog ID"
-msgstr "Blog ID"
-
 msgid "Status"
 msgstr "Status"
 
@@ -737,9 +744,7 @@ msgstr "Kategorier"
 
 #, fuzzy
 msgid "The category has been successfully removed."
-msgid_plural "The categories have been successfully removed."
-msgstr[0] "Kategorien er fjernet."
-msgstr[1] "Kategorien er fjernet."
+msgstr "Kategorien er fjernet."
 
 #, fuzzy
 msgid "Entries have been successfully moved to the category you choose."
@@ -809,6 +814,10 @@ msgid "Category information"
 msgstr "Kategori information"
 
 msgid "Name:"
+msgstr "Navn:"
+
+#, fuzzy
+msgid "Name"
 msgstr "Navn:"
 
 msgid "Parent:"
@@ -903,6 +912,9 @@ msgstr "Kommentarer"
 msgid "Author:"
 msgstr "Ejer:"
 
+msgid "Author"
+msgstr "Ejer"
+
 msgid "Web site:"
 msgstr "Hjemmeside:"
 
@@ -929,9 +941,6 @@ msgstr "Indlæg titel"
 #, fuzzy
 msgid "Entry date"
 msgstr "Indlæg titel"
-
-msgid "Author"
-msgstr "Ejer"
 
 msgid "IP"
 msgstr ""
@@ -989,39 +998,11 @@ msgstr[0] "Iconv module er ikke tilgængelig."
 msgstr[1] "Iconv module er ikke tilgængelig."
 
 #, fuzzy
-msgid "Dotclear news"
-msgstr "Dotclear holdet"
-
-msgid "%d %B %Y:"
-msgstr ""
-
-#, fuzzy
 msgid "Documentation and support"
 msgstr "Dokumentation"
 
 msgid "Dashboard"
 msgstr "Kontrolpanel"
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr "Dotclear %s er tilgængelig!"
-
-msgid "Upgrade now"
-msgstr "Opgrader nu"
-
-msgid "Remind me later"
-msgstr "Påmind mig senere"
-
-msgid "Information about this version"
-msgstr ""
-
-#, php-format
-msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr ""
-
-#, php-format
-msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr ""
 
 msgid "Make this blog my default blog"
 msgstr "Gør denne blog min standard blog"
@@ -1073,6 +1054,10 @@ msgid "Title:"
 msgstr "Titel:"
 
 msgid "Content:"
+msgstr "Indhold:"
+
+#, fuzzy
+msgid "Content"
 msgstr "Indhold:"
 
 msgid "Category:"
@@ -1227,6 +1212,14 @@ msgstr "Sidste opdatering"
 msgid "Username and password"
 msgstr "Forkert brugernavn eller kodeord"
 
+#, fuzzy
+msgid "Username"
+msgstr "Brugernavn:"
+
+#, fuzzy
+msgid "Password"
+msgstr "Kodeord:"
+
 msgid "All done!"
 msgstr "Færdig!"
 
@@ -1309,10 +1302,16 @@ msgstr ""
 msgid "MySQLi"
 msgstr ""
 
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
 msgid "PostgreSQL"
 msgstr ""
 
 msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1329,6 +1328,9 @@ msgstr "Database Kodeord:"
 
 msgid "Database Tables Prefix:"
 msgstr "Database Tabel Prefix:"
+
+msgid "Prefix"
+msgstr ""
 
 msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
@@ -1576,11 +1578,15 @@ msgstr ""
 msgid "Media list"
 msgstr "Medier og billeder"
 
-#, fuzzy
-msgid "Name"
-msgstr "Navn:"
-
 msgid "Size"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
 msgstr ""
 
 #, php-format
@@ -1899,6 +1905,10 @@ msgid "Link URL:"
 msgstr ""
 
 #, fuzzy
+msgid "URL"
+msgstr "URL:"
+
+#, fuzzy
 msgid "Link title:"
 msgstr "Indlæg titel"
 
@@ -2055,10 +2065,6 @@ msgstr ""
 
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr ""
-
-#, fuzzy
-msgid "Password"
-msgstr "Kodeord:"
 
 msgid "Edit basename"
 msgstr ""
@@ -2305,6 +2311,10 @@ msgstr ""
 msgid "Interface"
 msgstr "XML/RPC interface"
 
+#, fuzzy
+msgid "Activate dark mode"
+msgstr "Slet valgte tema"
+
 msgid "Activate enhanced uploader in media manager"
 msgstr ""
 
@@ -2315,6 +2325,12 @@ msgid "If checked, numeric fields will allow to type the elements' ordering numb
 msgstr ""
 
 msgid "Hide all secondary information and notes"
+msgstr ""
+
+msgid "Hide help button"
+msgstr ""
+
+msgid "Show asynchronous requests indicator"
 msgstr ""
 
 msgid "Font size:"
@@ -2487,6 +2503,54 @@ msgstr ""
 msgid "%d comments found"
 msgstr ""
 
+#, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "Rediger bloggen %s"
+msgstr[1] "Rediger bloggen %s"
+
+#, fuzzy, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d kommentar"
+msgstr[1] "%d kommentar"
+
+#, fuzzy
+msgid "Dotclear news not available"
+msgstr "Dotclear %s er tilgængelig!"
+
+#, fuzzy
+msgid "Dotclear news"
+msgstr "Dotclear holdet"
+
+msgid "%d %B %Y:"
+msgstr ""
+
+#, fuzzy
+msgid "Dotclear update not available"
+msgstr "Dotclear %s er tilgængelig!"
+
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s er tilgængelig!"
+
+msgid "Upgrade now"
+msgstr "Opgrader nu"
+
+msgid "Remind me later"
+msgstr "Påmind mig senere"
+
+msgid "Information about this version"
+msgstr ""
+
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Dotclear update"
 msgstr ""
 
@@ -2584,6 +2648,10 @@ msgstr ""
 msgid "User ID:"
 msgstr "Brugernavn:"
 
+#, fuzzy
+msgid "Login"
+msgstr "Log ind:"
+
 msgid "Warning:"
 msgstr ""
 
@@ -2619,10 +2687,6 @@ msgstr ""
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
-
-#, fuzzy
-msgid "Username"
-msgstr "Brugernavn:"
 
 #, fuzzy
 msgid "Last Name"
@@ -2673,10 +2737,6 @@ msgstr ""
 
 msgid "No blog"
 msgstr "Ingen blog"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL:"
 
 msgid "select"
 msgstr ""
@@ -2876,18 +2936,6 @@ msgstr "Installer sprog"
 
 msgid "Languages"
 msgstr ""
-
-#, fuzzy, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "Rediger bloggen %s"
-msgstr[1] "Rediger bloggen %s"
-
-#, fuzzy, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d kommentar"
-msgstr[1] "%d kommentar"
 
 msgid "Change blog"
 msgstr ""
@@ -3212,6 +3260,10 @@ msgid "Version"
 msgstr ""
 
 msgid "Current version"
+msgstr ""
+
+#, php-format
+msgid " (%s)"
 msgstr ""
 
 #, php-format
@@ -3944,6 +3996,18 @@ msgstr ""
 msgid "Invalid setting namespace: %s"
 msgstr ""
 
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires an INTO source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
 msgid "Failed to read data feed"
 msgstr ""
 
@@ -4055,148 +4119,6 @@ msgstr ""
 msgid "Something went wrong with auto upgrade:"
 msgstr ""
 
-msgid "Unable to open directory."
-msgstr ""
-
-msgid "Unable to create directory."
-msgstr ""
-
-msgid "File is not writable."
-msgstr ""
-
-msgid "Unable to open file."
-msgstr ""
-
-msgid "Not an uploaded file."
-msgstr ""
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr ""
-
-msgid "The uploaded file was only partially uploaded."
-msgstr ""
-
-msgid "No file was uploaded."
-msgstr ""
-
-msgid "Missing a temporary folder."
-msgstr ""
-
-msgid "Failed to write file to disk."
-msgstr ""
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr ""
-
-msgid "Bad range"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid range"
-msgstr "Ugyldig sprog kode"
-
-#, fuzzy
-msgid "Invalid line number"
-msgstr "Ugyldig sprog kode"
-
-msgid "Chunk is out of range"
-msgstr ""
-
-msgid "Bad context"
-msgstr ""
-
-msgid "Bad context (in deletion)"
-msgstr ""
-
-msgid "Invalid diff format"
-msgstr ""
-
-msgid "Uploading this file is not allowed."
-msgstr ""
-
-msgid "Destination directory is not in jail."
-msgstr ""
-
-#, fuzzy
-msgid "File already exists."
-msgstr "Filen %s eksisterer ikke."
-
-msgid "Cannot write in this directory."
-msgstr ""
-
-msgid "Source file does not exist."
-msgstr ""
-
-msgid "File is not in jail."
-msgstr ""
-
-msgid "Destination directory is not writable."
-msgstr ""
-
-msgid "Unable to rename file."
-msgstr ""
-
-msgid "File cannot be removed."
-msgstr ""
-
-msgid "Directory is not in jail."
-msgstr ""
-
-msgid "Directory cannot be removed."
-msgstr ""
-
-msgid "Not enough memory to open image."
-msgstr ""
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
-msgid "singular"
-msgid_plural "plural"
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr ""
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr ""
-
-msgid "Unable to write destination file."
-msgstr ""
-
-msgid "Unable to write in target directory, permission denied."
-msgstr ""
-
-msgid "Not enough memory to open file."
-msgstr ""
-
-msgid "File does not exist"
-msgstr ""
-
-msgid "Cannot read file"
-msgstr ""
-
-msgid "Directory does not exist"
-msgstr ""
-
-msgid "Cannot read directory"
-msgstr ""
-
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4212,6 +4134,18 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Invalid range"
+#~ msgstr "Ugyldig sprog kode"
+
+#, fuzzy
+#~ msgid "Invalid line number"
+#~ msgstr "Ugyldig sprog kode"
+
+#, fuzzy
+#~ msgid "File already exists."
+#~ msgstr "Filen %s eksisterer ikke."
 
 #, fuzzy
 #~ msgid "Filter blogs list"
@@ -4307,9 +4241,6 @@ msgstr ""
 
 #~ msgid "The file <strong>%s</strong> already exists. If you need to reset any of the configuration items in this file, please delete it first or you may <a href=\"%s\">continue to install</a>."
 #~ msgstr "Filen <strong>%s</strong> eksisterer allerede. Hvis du har brug for at nulstille nogle af konfigurationerne i denne fil, venligst slet den først, ellers skal du <a href=\"%s\">fortsætte installationen</a>."
-
-#~ msgid "Login:"
-#~ msgstr "Log ind:"
 
 #~ msgid "Login and password"
 #~ msgstr "Login og kodeord"

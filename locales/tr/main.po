@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:25+0200\n"
+"POT-Creation-Date: 2018-07-26 16:11+0200\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: crm <admin@craftmerkezi.com>\n"
@@ -144,13 +144,23 @@ msgstr "Blog ID:"
 msgid "Required field"
 msgstr "Gerekli alan"
 
+msgid "Blog ID"
+msgstr "Blog ID"
+
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr ""
 
 msgid "Blog name:"
 msgstr "Blog adı:"
 
+msgid "Blog name"
+msgstr "Blog adı"
+
 msgid "Blog URL:"
+msgstr "Blog  URL'si"
+
+#, fuzzy
+msgid "Blog URL"
 msgstr "Blog  URL'si"
 
 msgid "Blog description:"
@@ -404,6 +414,9 @@ msgstr ""
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr ""
 
+msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
+msgstr ""
+
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr ""
 
@@ -647,12 +660,6 @@ msgstr ""
 msgid "Last update"
 msgstr "Son güncelleme"
 
-msgid "Blog name"
-msgstr "Blog adı"
-
-msgid "Blog ID"
-msgstr "Blog ID"
-
 msgid "Status"
 msgstr "Durum"
 
@@ -741,9 +748,7 @@ msgstr "Kategoriler"
 
 #, fuzzy
 msgid "The category has been successfully removed."
-msgid_plural "The categories have been successfully removed."
-msgstr[0] "Kategori silinimi başarılı."
-msgstr[1] "Kategori silinimi başarılı."
+msgstr "Kategori silinimi başarılı."
 
 #, fuzzy
 msgid "Entries have been successfully moved to the category you choose."
@@ -814,6 +819,9 @@ msgstr "Kategori bilgisi"
 
 msgid "Name:"
 msgstr "İsim:"
+
+msgid "Name"
+msgstr "İsim"
 
 msgid "Parent:"
 msgstr "Ana:"
@@ -902,6 +910,9 @@ msgstr "Ahkamlar"
 msgid "Author:"
 msgstr "Yazar:"
 
+msgid "Author"
+msgstr "Yazar"
+
 msgid "Web site:"
 msgstr "Web sayfası"
 
@@ -928,9 +939,6 @@ msgstr "Yazı başlığı"
 #, fuzzy
 msgid "Entry date"
 msgstr "Yazı başlığı"
-
-msgid "Author"
-msgstr "Yazar"
 
 msgid "IP"
 msgstr ""
@@ -988,39 +996,11 @@ msgstr[0] "Dotclear %s mevcut!"
 msgstr[1] "Dotclear %s mevcut!"
 
 #, fuzzy
-msgid "Dotclear news"
-msgstr "Dotclear Ekibi"
-
-msgid "%d %B %Y:"
-msgstr ""
-
-#, fuzzy
 msgid "Documentation and support"
 msgstr "Belgeler"
 
 msgid "Dashboard"
 msgstr "Gösterge"
-
-#, php-format
-msgid "Dotclear %s is available!"
-msgstr "Dotclear %s mevcut!"
-
-msgid "Upgrade now"
-msgstr ""
-
-msgid "Remind me later"
-msgstr "Gelecekte beni hatırla"
-
-msgid "Information about this version"
-msgstr ""
-
-#, php-format
-msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
-msgstr ""
-
-#, php-format
-msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr ""
 
 msgid "Make this blog my default blog"
 msgstr ""
@@ -1072,6 +1052,10 @@ msgid "Title:"
 msgstr "Başlık:"
 
 msgid "Content:"
+msgstr "İçerik:"
+
+#, fuzzy
+msgid "Content"
 msgstr "İçerik:"
 
 msgid "Category:"
@@ -1221,6 +1205,13 @@ msgstr "Soy İsim:"
 msgid "Username and password"
 msgstr "Kullanıcı adı ve parola"
 
+msgid "Username"
+msgstr "Kullanıcı adı:"
+
+#, fuzzy
+msgid "Password"
+msgstr "Parola:"
+
 msgid "All done!"
 msgstr "Hepsi bitti!"
 
@@ -1302,10 +1293,16 @@ msgstr ""
 msgid "MySQLi"
 msgstr ""
 
+msgid "MySQLi (full UTF-8)"
+msgstr ""
+
 msgid "PostgreSQL"
 msgstr ""
 
 msgid "SQLite"
+msgstr ""
+
+msgid "Driver"
 msgstr ""
 
 msgid "Database Host Name:"
@@ -1322,6 +1319,9 @@ msgstr "Veritabanı parolası:"
 
 msgid "Database Tables Prefix:"
 msgstr "Veritabanı tabloları öneki:"
+
+msgid "Prefix"
+msgstr ""
 
 msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
@@ -1572,10 +1572,15 @@ msgstr ""
 msgid "Media list"
 msgstr "Medya ayrıntıları"
 
-msgid "Name"
-msgstr "İsim"
-
 msgid "Size"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
 msgstr ""
 
 #, php-format
@@ -1901,6 +1906,10 @@ msgid "Link URL:"
 msgstr "Bağlantı URL'si"
 
 #, fuzzy
+msgid "URL"
+msgstr "URL:"
+
+#, fuzzy
 msgid "Link title:"
 msgstr "Dosya başlığı:"
 
@@ -2059,10 +2068,6 @@ msgstr ""
 
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr ""
-
-#, fuzzy
-msgid "Password"
-msgstr "Parola:"
 
 #, fuzzy
 msgid "Edit basename"
@@ -2319,6 +2324,10 @@ msgid "Interface"
 msgstr ""
 
 #, fuzzy
+msgid "Activate dark mode"
+msgstr "Etkinleştir"
+
+#, fuzzy
 msgid "Activate enhanced uploader in media manager"
 msgstr "Gelişmiş yükleyiciyi etkinleştir"
 
@@ -2329,6 +2338,12 @@ msgid "If checked, numeric fields will allow to type the elements' ordering numb
 msgstr ""
 
 msgid "Hide all secondary information and notes"
+msgstr ""
+
+msgid "Hide help button"
+msgstr ""
+
+msgid "Show asynchronous requests indicator"
 msgstr ""
 
 #, fuzzy
@@ -2508,6 +2523,54 @@ msgstr "%d ahkam bulundu"
 msgid "%d comments found"
 msgstr "%d ahkam bulundu"
 
+#, fuzzy, php-format
+msgid "%d post"
+msgid_plural "%d posts"
+msgstr[0] "%s blogunu düzenle"
+msgstr[1] "%s blogunu düzenle"
+
+#, fuzzy, php-format
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d ahkam"
+msgstr[1] "%d ahkam"
+
+#, fuzzy
+msgid "Dotclear news not available"
+msgstr "Dotclear %s mevcut!"
+
+#, fuzzy
+msgid "Dotclear news"
+msgstr "Dotclear Ekibi"
+
+msgid "%d %B %Y:"
+msgstr ""
+
+#, fuzzy
+msgid "Dotclear update not available"
+msgstr "Dotclear %s mevcut!"
+
+#, php-format
+msgid "Dotclear %s is available!"
+msgstr "Dotclear %s mevcut!"
+
+msgid "Upgrade now"
+msgstr ""
+
+msgid "Remind me later"
+msgstr "Gelecekte beni hatırla"
+
+msgid "Information about this version"
+msgstr ""
+
+#, php-format
+msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
+msgstr ""
+
+#, php-format
+msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
+msgstr ""
+
 msgid "Dotclear update"
 msgstr "Dotclear güncelleme"
 
@@ -2607,6 +2670,10 @@ msgstr "Sayfa başına kullanıcı"
 msgid "User ID:"
 msgstr "Kullanıcı ID:"
 
+#, fuzzy
+msgid "Login"
+msgstr "Giriş:"
+
 msgid "Warning:"
 msgstr "Uyarı:"
 
@@ -2642,9 +2709,6 @@ msgstr "Blog:"
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
-
-msgid "Username"
-msgstr "Kullanıcı adı:"
 
 msgid "Last Name"
 msgstr "Soy İsim"
@@ -2693,10 +2757,6 @@ msgstr ""
 
 msgid "No blog"
 msgstr "Blog yok"
-
-#, fuzzy
-msgid "URL"
-msgstr "URL:"
 
 #, fuzzy
 msgid "select"
@@ -2903,18 +2963,6 @@ msgstr "Yazı dili:"
 
 msgid "Languages"
 msgstr "Diller"
-
-#, fuzzy, php-format
-msgid "%d post"
-msgid_plural "%d posts"
-msgstr[0] "%s blogunu düzenle"
-msgstr[1] "%s blogunu düzenle"
-
-#, fuzzy, php-format
-msgid "%d comment"
-msgid_plural "%d comments"
-msgstr[0] "%d ahkam"
-msgstr[1] "%d ahkam"
 
 msgid "Change blog"
 msgstr "Blog değiştir"
@@ -3248,6 +3296,10 @@ msgstr "Sürüm"
 #, fuzzy
 msgid "Current version"
 msgstr "izinleri ayarla"
+
+#, php-format
+msgid " (%s)"
+msgstr ""
 
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
@@ -4000,6 +4052,18 @@ msgstr "Dosya yeniden adlandırılamadı."
 msgid "Invalid setting namespace: %s"
 msgstr "Geçersiz namespace ayarlama: %s"
 
+msgid "SQL SELECT requires a FROM source"
+msgstr ""
+
+msgid "SQL DELETE requires a FROM source"
+msgstr ""
+
+msgid "SQL UPDATE requires an INTO source"
+msgstr ""
+
+msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
 #, fuzzy
 msgid "Failed to read data feed"
 msgstr "Dosya diske yazılamadı."
@@ -4113,148 +4177,6 @@ msgstr "Namespace belirlenmedi"
 msgid "Something went wrong with auto upgrade:"
 msgstr "Oto güncelleme sırasında birşeyler ters gitti:"
 
-msgid "Unable to open directory."
-msgstr "Dizin açılamadı."
-
-msgid "Unable to create directory."
-msgstr "Dizin oluşturulamadı."
-
-msgid "File is not writable."
-msgstr "Dosya yazılabilir değil."
-
-msgid "Unable to open file."
-msgstr "Dosya açılamadı."
-
-msgid "Not an uploaded file."
-msgstr "Yüklenmiş bir dosya değil."
-
-msgid "The uploaded file exceeds the maximum file size allowed."
-msgstr "Gönderilen dosya izin verilen dosya boyutunu aşıyor."
-
-msgid "The uploaded file was only partially uploaded."
-msgstr ""
-
-msgid "No file was uploaded."
-msgstr "Dosya yüklenilmedi."
-
-msgid "Missing a temporary folder."
-msgstr ""
-
-msgid "Failed to write file to disk."
-msgstr "Dosya diske yazılamadı."
-
-msgid "A PHP extension stopped the file upload."
-msgstr ""
-
-#, php-format
-msgid "%s is not a directory."
-msgstr "%s bir klasör değil."
-
-msgid "Bad range"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid range"
-msgstr "Geçersiz dil kodu"
-
-#, fuzzy
-msgid "Invalid line number"
-msgstr "Geçersiz dil kodu"
-
-msgid "Chunk is out of range"
-msgstr ""
-
-msgid "Bad context"
-msgstr ""
-
-msgid "Bad context (in deletion)"
-msgstr ""
-
-#, fuzzy
-msgid "Invalid diff format"
-msgstr "Geçersiz özet dosyası."
-
-msgid "Uploading this file is not allowed."
-msgstr "Bu dosyanın gönderilmesine izin yok."
-
-msgid "Destination directory is not in jail."
-msgstr ""
-
-msgid "File already exists."
-msgstr "Dosya zan var."
-
-msgid "Cannot write in this directory."
-msgstr ""
-
-msgid "Source file does not exist."
-msgstr "Kaynak dosya mevcut değil."
-
-msgid "File is not in jail."
-msgstr ""
-
-msgid "Destination directory is not writable."
-msgstr ""
-
-msgid "Unable to rename file."
-msgstr "Dosya yeniden adlandırılamadı."
-
-msgid "File cannot be removed."
-msgstr "Dosya silinemedi."
-
-msgid "Directory is not in jail."
-msgstr ""
-
-msgid "Directory cannot be removed."
-msgstr "Dizin silinemedi."
-
-msgid "Not enough memory to open image."
-msgstr ""
-
-#, php-format
-msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
-msgstr ""
-
-#, php-format
-msgid "Unexpected closing tag </tpl:%s> found."
-msgstr ""
-
-msgid "WARNING: the following errors have been found while parsing template file :"
-msgstr ""
-
-msgid "singular"
-msgid_plural "plural"
-msgstr[0] ""
-msgstr[1] ""
-
-#, php-format
-msgid "File %s is not compressed in the zip."
-msgstr ""
-
-#, php-format
-msgid "Trying to unzip a folder name %s"
-msgstr ""
-
-msgid "Unable to write destination file."
-msgstr ""
-
-msgid "Unable to write in target directory, permission denied."
-msgstr ""
-
-msgid "Not enough memory to open file."
-msgstr ""
-
-msgid "File does not exist"
-msgstr "Dosya mevcut değil"
-
-msgid "Cannot read file"
-msgstr "Dosya okunamadı"
-
-msgid "Directory does not exist"
-msgstr "Dizin mevcut değil."
-
-msgid "Cannot read directory"
-msgstr "Dizin okunamadı"
-
 msgid "Site temporarily unavailable"
 msgstr ""
 
@@ -4270,6 +4192,75 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Unable to open directory."
+#~ msgstr "Dizin açılamadı."
+
+#~ msgid "Unable to create directory."
+#~ msgstr "Dizin oluşturulamadı."
+
+#~ msgid "File is not writable."
+#~ msgstr "Dosya yazılabilir değil."
+
+#~ msgid "Unable to open file."
+#~ msgstr "Dosya açılamadı."
+
+#~ msgid "Not an uploaded file."
+#~ msgstr "Yüklenmiş bir dosya değil."
+
+#~ msgid "The uploaded file exceeds the maximum file size allowed."
+#~ msgstr "Gönderilen dosya izin verilen dosya boyutunu aşıyor."
+
+#~ msgid "No file was uploaded."
+#~ msgstr "Dosya yüklenilmedi."
+
+#~ msgid "Failed to write file to disk."
+#~ msgstr "Dosya diske yazılamadı."
+
+#~ msgid "%s is not a directory."
+#~ msgstr "%s bir klasör değil."
+
+#, fuzzy
+#~ msgid "Invalid range"
+#~ msgstr "Geçersiz dil kodu"
+
+#, fuzzy
+#~ msgid "Invalid line number"
+#~ msgstr "Geçersiz dil kodu"
+
+#, fuzzy
+#~ msgid "Invalid diff format"
+#~ msgstr "Geçersiz özet dosyası."
+
+#~ msgid "Uploading this file is not allowed."
+#~ msgstr "Bu dosyanın gönderilmesine izin yok."
+
+#~ msgid "File already exists."
+#~ msgstr "Dosya zan var."
+
+#~ msgid "Source file does not exist."
+#~ msgstr "Kaynak dosya mevcut değil."
+
+#~ msgid "Unable to rename file."
+#~ msgstr "Dosya yeniden adlandırılamadı."
+
+#~ msgid "File cannot be removed."
+#~ msgstr "Dosya silinemedi."
+
+#~ msgid "Directory cannot be removed."
+#~ msgstr "Dizin silinemedi."
+
+#~ msgid "File does not exist"
+#~ msgstr "Dosya mevcut değil"
+
+#~ msgid "Cannot read file"
+#~ msgstr "Dosya okunamadı"
+
+#~ msgid "Directory does not exist"
+#~ msgstr "Dizin mevcut değil."
+
+#~ msgid "Cannot read directory"
+#~ msgstr "Dizin okunamadı"
 
 #, fuzzy
 #~ msgid "A website mention this entry."
@@ -4501,9 +4492,6 @@ msgstr ""
 
 #~ msgid "login"
 #~ msgstr "giriş"
-
-#~ msgid "Login:"
-#~ msgstr "Giriş:"
 
 #~ msgid "Login and password"
 #~ msgstr "Giriş ve parola"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-24 11:24+0200\n"
+"POT-Creation-Date: 2018-07-26 16:10+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -208,6 +208,14 @@ msgstr "일"
 msgid "Set spam filters."
 msgstr "Akismet 스팸필터"
 
+#, php-format
+msgid "(including %d spam comment)"
+msgstr "(스팸 댓글 %d 개 포함)"
+
+#, php-format
+msgid "(including %d spam comments)"
+msgstr "(스팸 댓글 %d 개 포함)"
+
 msgid "IP Blacklist / Whitelist Filter"
 msgstr "접속 거부/허용 IP 리스트 필터"
 
@@ -325,14 +333,6 @@ msgstr "알 수 없는 필터"
 
 msgid "This comment is a spam:"
 msgstr "이 댓글은 스팸입니다 :"
-
-#, php-format
-msgid "(including %d spam comment)"
-msgstr "(스팸 댓글 %d 개 포함)"
-
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(스팸 댓글 %d 개 포함)"
 
 msgid "Spam moderation"
 msgstr "스팸 관리"
@@ -1711,6 +1711,17 @@ msgstr ""
 msgid "Simple menu"
 msgstr ""
 
+msgid "the link will open a new window"
+msgstr ""
+
+#, fuzzy
+msgid "Active page"
+msgstr "작동중"
+
+#, fuzzy
+msgid "active page"
+msgstr "페이지 보기"
+
 #, fuzzy
 msgid "Item description"
 msgstr "설명 없음"
@@ -1848,6 +1859,9 @@ msgstr "설명"
 msgid "URL of item menu:"
 msgstr ""
 
+msgid "Open URL on a new tab"
+msgstr ""
+
 msgid "Add this item"
 msgstr ""
 
@@ -1889,14 +1903,20 @@ msgstr "이 분류딱지가 설정된 글꼭지들의 타래소식 (Atom)"
 msgid "Tag"
 msgstr "분류딱지"
 
-msgid "Limit (empty means no limit):"
-msgstr "최대 분류딱지 수 (빈칸은 무한정을 의미)"
+msgid "Tag name"
+msgstr "분류딱지 이름"
 
 msgid "Entries count"
 msgstr "글꼭지 수"
 
-msgid "Tag name"
-msgstr "분류딱지 이름"
+msgid "Newest entry"
+msgstr ""
+
+msgid "Oldest entry"
+msgstr ""
+
+msgid "Limit (empty means no limit):"
+msgstr "최대 분류딱지 수 (빈칸은 무한정을 의미)"
 
 msgid "Link to all tags:"
 msgstr ""
@@ -2439,9 +2459,6 @@ msgstr ""
 
 #~ msgid "Send"
 #~ msgstr "보내기"
-
-#~ msgid "View page"
-#~ msgstr "페이지 보기"
 
 #~ msgid "Preview page"
 #~ msgstr "페이지 미리보기"
