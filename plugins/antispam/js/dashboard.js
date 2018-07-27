@@ -23,11 +23,13 @@ dotclear.dbSpamsCount = function() {
             nb_label.text(nb);
           }
         } else {
-          // Add full element (link + counter)
-          var icon = $('#dashboard-main #icons p a[href="comments.php"]');
-          if (icon.length) {
-            var xml = ' <br /><a href="comments.php?status=-2"><span class="db-icon-title-spam">' + nb + '</span></a>';
-            icon.after(xml);
+          if (nb != '') {
+            // Add full element (link + counter)
+            var icon = $('#dashboard-main #icons p a[href="comments.php"]');
+            if (icon.length) {
+              var xml = ' <br /><a href="comments.php?status=-2"><span class="db-icon-title-spam">' + nb + '</span></a>';
+              icon.after(xml);
+            }
           }
         }
         // Store current counter
