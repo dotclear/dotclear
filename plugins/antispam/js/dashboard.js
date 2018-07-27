@@ -40,7 +40,7 @@ dotclear.dbSpamsCount = function() {
 $(function() {
   // run counters' update on some dashboard icons
   // Spam comments
-  var icon_spam = $('#dashboard-main #icons p a[href="comments.php?status=-2"]');
+  var icon_spam = $('#dashboard-main #icons p a[href="comments.php"]');
   if (icon_spam.length) {
     // Icon exists on dashboard
     // First pass
