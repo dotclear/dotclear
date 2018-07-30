@@ -27,7 +27,7 @@ dotclear.dbSpamsCount = function() {
             // Add full element (link + counter)
             var icon = $('#dashboard-main #icons p a[href="comments.php"]');
             if (icon.length) {
-              var xml = ' <br /><a href="comments.php?status=-2"><span class="db-icon-title-spam">' + nb + '</span></a>';
+              var xml = ' <a href="comments.php?status=-2"><span class="db-icon-title-spam">' + nb + '</span></a>';
               icon.after(xml);
             }
           }

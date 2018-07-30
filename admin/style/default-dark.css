@@ -2122,8 +2122,11 @@ span.ibw {
   justify-content: center; }
   #icons p {
     width: 13em;
-    text-align: center;
-    margin: 1em 0 2em; }
+    margin: 1em 0 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; }
   #icons a, #icons a:link, #icons a:visited, #icons a:hover, #icons a:focus {
     border-bottom-width: 0;
     text-decoration: none; }
