@@ -41,6 +41,9 @@ define('DC_ADMIN_MAILFROM', '');
 // Cookie's name
 define('DC_SESSION_NAME', 'dcxd');
 
+// Session TTL
+//define('DC_SESSION_TTL','120 seconds');
+
 // Plugins root
 define('DC_PLUGINS_ROOT', dirname(__FILE__) . '/../plugins');
 
@@ -52,6 +55,25 @@ define('DC_VAR', path::real(dirname(__FILE__) . '/..') . '/var');
 
 // Cryptographic algorithm
 define('DC_CRYPT_ALGO', 'sha512');
+
+// Vendor name
+//define('DC_VENDOR_NAME', 'Dotclear');
+
+// Do not check for update
+//define('DC_NOT_UPDATE', false);
+
+// Update URL
+//define('DC_UPDATE_URL','http://download.dotclear.org/versions.xml');
+
+// Update channel (stable, unstable, testing)
+//define('DC_UPDATE_VERSION', 'stable');
+
+// Proxy config
+//define('HTTP_PROXY_HOST','127.0.0.1');
+//define('HTTP_PROXY_PORT','8080');
+
+// Show hidden media dirs
+//define('DC_SHOW_HIDDEN_DIRS', false);
 
 // If you have PATH_INFO issue, uncomment following lines
 //if (!isset($_SERVER['ORIG_PATH_INFO'])) {
