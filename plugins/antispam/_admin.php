@@ -93,9 +93,10 @@ class antispamBehaviors
         echo
         '<div class="fieldset"><h4 id="antispam_params">Antispam</h4>' .
         '<p><label for="antispam_moderation_ttl" class="classic">' . __('Delete junk comments older than') . ' ' .
-        form::number('antispam_moderation_ttl', 0, 999, $ttl) .
+        form::number('antispam_moderation_ttl', -1, 999, $ttl) .
         ' ' . __('days') .
         '</label></p>' .
+        '<p class="form-note">' . __('Set -1 to disabled this feature ; Leave empty to use default 7 days delay.') . '</p>' .
         '<p><a href="' . $core->adminurl->get('admin.plugin.antispam') . '">' . __('Set spam filters.') . '</a></p>' .
             '</div>';
     }
