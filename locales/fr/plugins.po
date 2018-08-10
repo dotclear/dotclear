@@ -193,6 +193,9 @@ msgstr "Supprimer les commentaires indésirables âgés de plus de"
 msgid "days"
 msgstr "jours"
 
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr "Mettez -1 pour désactiver cette fonction ; laissez vide pour utiliser le délai de 7 jours par défaut."
+
 msgid "Set spam filters."
 msgstr "Régler les filtres de spam."
 
