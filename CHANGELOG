@@ -1,3 +1,10 @@
+Dotclear 2.14.1 - 2018-mm-dd
+===========================================================
+* 🐘 PHP 5.6+ is required - PHP 5.5 is buggy with the 2.14 release
+* Fix: smallest admin font size was set when saving user prefs
+* Fix: minifying JS scripts may cause problems with regular expressions
+* Fix: empty JS var was set for syntax coloration if disabled
+
 Dotclear 2.14 - 2018-08-13
 ===========================================================
 * 🛡 Security: Fix potential reflective XSS, thank's Zekvan Arslan for report (via Daniel Bishtawi from https://www.netsparker.com/)
