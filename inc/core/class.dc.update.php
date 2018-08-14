@@ -25,7 +25,7 @@ class dcUpdate
         'href'     => null,
         'checksum' => null,
         'info'     => null,
-        'php'      => '5.5',
+        'php'      => '5.6',
         'notify'   => true
     );
 
