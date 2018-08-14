@@ -16,10 +16,10 @@ try
         throw new Exception(sprintf("File %s does not exist", $js));
     }
 
-    require dirname(__FILE__) . '/jsmin-1.1.1.php';
+    require dirname(__FILE__) . '/Minifier.php';
 
     $content = file_get_contents($js);
-    $res     = JSMin::minify($content);
+    $res     = \JShrink\Minifier::minify($content, array('flaggedComments' => false));
 
     if (($fp = fopen($js, 'wb')) === false) {
         throw new Exception(sprintf('Unable to open file %s', $js));
