@@ -1084,8 +1084,8 @@ msgid "Save and publish"
 msgstr "saugoti ir publikuoti"
 
 #, fuzzy, php-format
-msgid "PHP version is %s (5.5 or earlier needed)."
-msgstr "PHP versija %s (reikalinga 5.5 arba ankstesnė)."
+msgid "PHP version is %s (5.6 or earlier needed)."
+msgstr "PHP versija %s (reikalinga 5.6 arba ankstesnė)."
 
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "Nėra Multibyte string modulio (mbstring)."

@@ -153,7 +153,7 @@ define('DC_DEFAULT_TPLSET', 'mustek');
 define('DC_DEFAULT_JQUERY', '2.2.4');
 
 if (!defined('DC_NEXT_REQUIRED_PHP')) {
-    define('DC_NEXT_REQUIRED_PHP', '5.5'); // Announced in 2.12, will be required in 2.13
+    define('DC_NEXT_REQUIRED_PHP', '5.6');
 }
 
 if (!defined('DC_VENDOR_NAME')) {
