@@ -1077,7 +1077,7 @@ msgid "Save and publish"
 msgstr "భద్రపరచి ప్రచురించు"
 
 #, php-format
-msgid "PHP version is %s (5.5 or earlier needed)."
+msgid "PHP version is %s (5.6 or earlier needed)."
 msgstr ""
 
 msgid "Multibyte string module (mbstring) is not available."
