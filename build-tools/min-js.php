@@ -19,7 +19,7 @@ try
     require dirname(__FILE__) . '/Minifier.php';
 
     $content = file_get_contents($js);
-    $res     = \JShrink\Minifier::minify($content);
+    $res     = \JShrink\Minifier::minify($content, array('flaggedComments' => false));
 
     if (($fp = fopen($js, 'wb')) === false) {
         throw new Exception(sprintf('Unable to open file %s', $js));
