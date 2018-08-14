@@ -69,12 +69,12 @@ echo dcPage::jsVars(array(
     'dotclear.msg.saving_document'    => __("Saving document..."),
     'dotclear.msg.document_saved'     => __("Document saved"),
     'dotclear.msg.error_occurred'     => __("An error occurred:"),
-    'dotclear.msg.confirm_reset_file' => __("Are you sure you want to reset this file?"),
-    'dotclear.colorsyntax'            => $user_ui_colorsyntax
+    'dotclear.msg.confirm_reset_file' => __("Are you sure you want to reset this file?")
 )) .
 dcPage::jsConfirmClose('file-form') .
 dcPage::jsLoad(dcPage::getPF('themeEditor/js/script.js'));
 if ($user_ui_colorsyntax) {
+    echo dcPage::jsVar('dotclear.colorsyntax', $user_ui_colorsyntax);
     echo dcPage::jsLoadCodeMirror($user_ui_colorsyntax_theme);
 }
 echo dcPage::cssLoad(dcPage::getPF('themeEditor/style.css'));
