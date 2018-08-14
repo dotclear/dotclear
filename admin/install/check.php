@@ -13,8 +13,8 @@ function dcSystemCheck($con, &$err)
 {
     $err = array();
 
-    if (version_compare(phpversion(), '5.5', '<')) {
-        $err[] = sprintf(__('PHP version is %s (5.5 or earlier needed).'), phpversion());
+    if (version_compare(phpversion(), '5.6', '<')) {
+        $err[] = sprintf(__('PHP version is %s (5.6 or earlier needed).'), phpversion());
     }
 
     if (!function_exists('mb_detect_encoding')) {
