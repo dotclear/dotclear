@@ -446,7 +446,7 @@ $(function() {
     if (this.nodeType == 8) {
       var data = this.data;
       data = data.replace(/ /g, '&nbsp;').replace(/\n/g, '<br/>');
-      $('<span class="tooltip">' + $('#footer a').prop('title') + data + '</span>').appendTo('#footer a');
+      $('<span class="tooltip" aria-hidden="true">' + $('#footer a').prop('title') + data + '</span>').appendTo('#footer a');
     }
   });
   // manage outgoing links
