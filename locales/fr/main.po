@@ -590,6 +590,12 @@ msgstr "Gestion des thèmes"
 msgid "Update themes"
 msgstr "Mettre à jour les thèmes"
 
+msgid "Manual checking of themes update done successfully."
+msgstr "La vérification manuelle de mise à jour des thèmes a été effectuée."
+
+msgid "Force checking update of themes"
+msgstr "Forcer la vérification de mise à jour des thèmes"
+
 #, php-format
 msgid "There is one theme to update available from repository."
 msgid_plural "There are %s themes to update available from repository."
@@ -1780,6 +1786,12 @@ msgstr "Configuration du plugin"
 
 msgid "Update plugins"
 msgstr "Mise à jour des plugins"
+
+msgid "Manual checking of plugins update done successfully."
+msgstr "La vérification manuelle de mise à jour des plugins a été effectuée."
+
+msgid "Force checking update of plugins"
+msgstr "Forcer la vérification de mise à jour des plugins"
 
 #, php-format
 msgid "There is one plugin to update available from repository."

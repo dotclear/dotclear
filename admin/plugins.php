@@ -15,7 +15,8 @@ dcPage::check('admin');
 $list = new adminModulesList(
     $core->plugins,
     DC_PLUGINS_ROOT,
-    $core->blog->settings->system->store_plugin_url
+    $core->blog->settings->system->store_plugin_url,
+    !empty($_GET['nocache'])
 );
 
 adminModulesList::$allow_multi_install = (boolean) DC_ALLOW_MULTI_MODULES;
@@ -115,6 +116,12 @@ if (!empty($plugins_install['failure'])) {
 # -- Display modules lists --
 if ($core->auth->isSuperAdmin()) {
 
+    if (!$core->error->flag()) {
+        if (!empty($_GET['nocache'])) {
+            dcPage::success(__('Manual checking of plugins update done successfully.'));
+        }
+    }
+
     # Updated modules from repo
     $modules = $list->store->get(true);
     if (!empty($modules)) {
@@ -143,6 +150,12 @@ if ($core->auth->isSuperAdmin()) {
             '</p>' .
 
             '</div>';
+    } else {
+        echo
+        '<form action="' . $list->getURL('', false) . '" method="get">' .
+        '<p><input type="hidden" name="nocache" value="1" />' .
+        '<input type="submit" value="' . __('Force checking update of plugins') . '" /></p>' .
+            '</form>';
     }
 }
 

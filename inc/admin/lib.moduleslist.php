@@ -53,14 +53,15 @@ class adminModulesList
      * Note that this creates dcStore instance.
      *
      * @param    object    $modules        dcModules instance
-     * @param    string    $modules_root    Modules root directories
+     * @param    string    $modules_root   Modules root directories
      * @param    string    $xml_url        URL of modules feed from repository
+     * @param    boolean   $force          Force query repository
      */
-    public function __construct(dcModules $modules, $modules_root, $xml_url)
+    public function __construct(dcModules $modules, $modules_root, $xml_url, $force = false)
     {
         $this->core    = $modules->core;
         $this->modules = $modules;
-        $this->store   = new dcStore($modules, $xml_url);
+        $this->store   = new dcStore($modules, $xml_url, $force);
 
         $this->page_url = $this->core->adminurl->get('admin.plugins');
 
@@ -1467,12 +1468,13 @@ class adminThemesList extends adminModulesList
      * Note that this creates dcStore instance.
      *
      * @param    object    $modules        dcModules instance
-     * @param    string    $modules_root    Modules root directories
+     * @param    string    $modules_root   Modules root directories
      * @param    string    $xml_url        URL of modules feed from repository
+     * @param    boolean   $force          Force query repository
      */
-    public function __construct(dcModules $modules, $modules_root, $xml_url)
+    public function __construct(dcModules $modules, $modules_root, $xml_url, $force = false)
     {
-        parent::__construct($modules, $modules_root, $xml_url);
+        parent::__construct($modules, $modules_root, $xml_url, $force);
         $this->page_url = $this->core->adminurl->get('admin.blog.theme');
     }
 
