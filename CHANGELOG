@@ -1,6 +1,7 @@
-Dotclear 2.14.1 - 2018-mm-dd
+Dotclear 2.14.1 - 2018-08-17
 ===========================================================
 * 🐘 PHP 5.6+ is required - PHP 5.5 is buggy with the 2.14 release
+* Fix: install wizzard was broken
 * Fix: smallest admin font size was set when saving user prefs
 * Fix: minifying JS scripts may cause problems with regular expressions
 * Fix: empty JS var was set for syntax coloration if disabled
