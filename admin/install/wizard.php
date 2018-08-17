@@ -215,7 +215,7 @@ form::field('DBPREFIX', 30, 255, array(
 )) .
 '</p>' .
 '<p><label for="ADMINMAILFROM">' . __('Master Email: (used as sender for password recovery)') . '</label> ' .
-form::mail('ADMINMAILFROM', array(
+form::email('ADMINMAILFROM', array(
     'size'         => 30,
     'default'      => html::escapeHTML($ADMINMAILFROM),
     'autocomplete' => 'email'
