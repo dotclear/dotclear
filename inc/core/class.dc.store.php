@@ -37,15 +37,16 @@ class dcStore
      *
      * @param    object    $modules        dcModules instance
      * @param    string    $xml_url        XML feed URL
+     * @param    boolean   $force          Force query repository
      */
-    public function __construct(dcModules $modules, $xml_url)
+    public function __construct(dcModules $modules, $xml_url, $force = false)
     {
         $this->core       = $modules->core;
         $this->modules    = $modules;
         $this->xml_url    = $xml_url;
         $this->user_agent = sprintf('Dotclear/%s)', DC_VERSION);
 
-        $this->check();
+        $this->check($force);
     }
 
     /**
