@@ -418,6 +418,7 @@ $step-background:                 $gray-very-light;                   // #f3f3f3
 $step-border:                     tint($gray-dark, 66%);              // #c5c5c5
 
 $offline:                         $gray-dark;                         // #676e78
+$offline-background:              $gray-very-light;                   // #f3f3f3
 
 $mark-attach-img:                 url('../images/attach.svg');
 $mark-attach-filter:              hue-rotate(300deg) saturate(.64);

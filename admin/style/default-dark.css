@@ -3166,7 +3166,8 @@ ul.from-left {
     list-style-type: square; }
 
 .offline {
-  color: #86888c; }
+  color: #86888c;
+  background: #323334; }
 
 /* caché pour tout le monde */
 .hide,
