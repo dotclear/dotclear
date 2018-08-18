@@ -121,7 +121,7 @@ $table_header = '<div class="table-outer"><table class="prefs" id="%s"><caption 
 '  <th class="nowrap">' . __('Setting ID') . '</th>' . "\n" .
 '  <th>' . __('Value') . '</th>' . "\n" .
 '  <th>' . __('Type') . '</th>' . "\n" .
-'  <th class="maximalx">' . __('Description') . '</th>' . "\n" .
+'  <th>' . __('Description') . '</th>' . "\n" .
     '</tr>' . "\n" .
     '</thead>' . "\n" .
     '<tbody>';
