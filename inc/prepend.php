@@ -102,7 +102,7 @@ define('CLI_MODE', PHP_SAPI == 'cli');
 # Disallow every special wrapper
 if (function_exists('stream_wrapper_unregister')) {
     $special_wrappers = array_intersect(array('http', 'https', 'ftp', 'ftps', 'ssh2.shell', 'ssh2.exec',
-        'ssh2.tunnel', 'ssh2.sftp', 'ssh2.scp', 'ogg', 'expect'), stream_get_wrappers());
+        'ssh2.tunnel', 'ssh2.sftp', 'ssh2.scp', 'ogg', 'expect', 'phar'), stream_get_wrappers());
     foreach ($special_wrappers as $p) {
         @stream_wrapper_unregister($p);
     }
