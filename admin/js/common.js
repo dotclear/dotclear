@@ -163,32 +163,29 @@ jQuery.fn.toggleWithLegend = function(target, s) {
 };
 (function($) {
   $.expandContent = function(opts) {
-    var defaults = {};
-    $.expandContent.options = $.extend({}, defaults, opts);
     if (opts == undefined || opts.callback == undefined || !$.isFunction(opts.callback)) {
       return;
     }
     if (opts.line != undefined) {
-      multipleExpander(opts.line, opts.lines);
+      multipleExpander(opts.line, opts.lines, opts.callback);
     }
     opts.lines.each(function() {
-      singleExpander(this);
+      singleExpander(this, opts.callback);
     });
   };
-  var singleExpander = function singleExpander(line) {
+  var singleExpander = function singleExpander(line, callback) {
     $('<input class="details-cmd" type="submit" value="' + dotclear.img_plus_txt + '" aria-label="' + dotclear.img_plus_alt + '"/>').click(function(e) {
       toggleArrow(this);
-      $.expandContent.options.callback.call(this, line);
+      callback(line);
       e.preventDefault();
     }).prependTo($(line).children().get(0)); // first td
   };
-  var multipleExpander = function multipleExpander(line, lines) {
+  var multipleExpander = function multipleExpander(line, lines, callback) {
     $('<input class="details-cmd" type="submit" value="' + dotclear.img_plus_txt + '" aria-label="' + dotclear.img_plus_alt + '"/>').click(function(e) {
-      var that = this;
       var action = toggleArrow(this);
       lines.each(function() {
         toggleArrow(this.firstChild.firstChild, action);
-        $.expandContent.options.callback.call(that, this, action);
+        callback(this, action);
       });
       e.preventDefault();
     }).prependTo($(line).children().get(0)); // first td
