@@ -475,80 +475,83 @@ msgstr "Modifier le lien"
 msgid "XFN information"
 msgstr "Informations XFN"
 
+msgid "More information on <a href="https://en.wikipedia.org/wiki/XHTML_Friends_Network">Wikipedia</a> website"
+msgstr "Plus d'information sur le site <a href="https://fr.wikipedia.org/wiki/XHTML_Friends_Network">Wikipedia</a>"
+
 msgid "_xfn_Me"
-msgstr "_xfn_Me"
+msgstr "Identité"
 
 msgid "_xfn_Another link for myself"
-msgstr "_xfn_Another link for myself"
+msgstr "Une autre de mes adresses Web"
 
 msgid "_xfn_Friendship"
-msgstr "_xfn_Friendship"
+msgstr "Amitié"
 
 msgid "_xfn_Contact"
-msgstr "_xfn_Contact"
+msgstr "Contact"
 
 msgid "_xfn_Acquaintance"
-msgstr "_xfn_Acquaintance"
+msgstr "Connaissance"
 
 msgid "_xfn_Friend"
-msgstr "_xfn_Friend"
+msgstr "Ami·e"
 
 msgid "_xfn_Physical"
-msgstr "_xfn_Physical"
+msgstr "Physique"
 
 msgid "_xfn_Met"
-msgstr "_xfn_Met"
+msgstr "Rencontré·e"
 
 msgid "_xfn_Professional"
-msgstr "_xfn_Professional"
+msgstr "Professionnel"
 
 msgid "_xfn_Co-worker"
-msgstr "_xfn_Co-worker"
+msgstr "Collègue de travail"
 
 msgid "_xfn_Colleague"
-msgstr "_xfn_Colleague"
+msgstr "Consœur ou Confrère"
 
 msgid "_xfn_Geographical"
-msgstr "_xfn_Geographical"
+msgstr "Géographique"
 
 msgid "_xfn_Co-resident"
-msgstr "_xfn_Co-resident"
+msgstr "Colocataire"
 
 msgid "_xfn_Neighbor"
-msgstr "_xfn_Neighbor"
+msgstr "Voisin"
 
 msgid "_xfn_Family"
-msgstr "_xfn_Family"
+msgstr "Famille"
 
 msgid "_xfn_Child"
-msgstr "_xfn_Child"
+msgstr "Enfant"
 
 msgid "_xfn_Parent"
-msgstr "_xfn_Parent"
+msgstr "Parent"
 
 msgid "_xfn_Sibling"
-msgstr "_xfn_Sibling"
+msgstr "Sœur/frère"
 
 msgid "_xfn_Spouse"
-msgstr "_xfn_Spouse"
+msgstr "Conjoint·e"
 
 msgid "_xfn_Kin"
-msgstr "_xfn_Kin"
+msgstr "Famille"
 
 msgid "_xfn_Romantic"
-msgstr "_xfn_Romantic"
+msgstr "Romantique"
 
 msgid "_xfn_Muse"
-msgstr "_xfn_Muse"
+msgstr "Muse"
 
 msgid "_xfn_Crush"
-msgstr "_xfn_Crush"
+msgstr "Coup de foudre"
 
 msgid "_xfn_Date"
-msgstr "_xfn_Date"
+msgstr "Petit·e ami·e"
 
 msgid "_xfn_Sweetheart"
-msgstr "_xfn_Sweetheart"
+msgstr "Être aimé"
 
 msgid "Nothing to import"
 msgstr "Rien à importer"

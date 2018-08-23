@@ -83,6 +83,10 @@ if (isset($rs) && $rs->is_cat && !empty($_POST['edit_cat'])) {
     }
 }
 
+# Languages combo
+$links      = $blogroll->getLangs(array('order' => 'asc'));
+$lang_combo = dcAdminCombos::getLangsCombo($links, true);
+
 ?>
 <html>
 <head>
@@ -146,12 +150,16 @@ if (isset($rs) && !$rs->is_cat) {
     form::field('link_desc', 30, 255, html::escapeHTML($link_desc)) . '</p>' .
 
     '<p><label for="link_lang">' . __('Language:') . '</label> ' .
-    form::field('link_lang', 5, 5, html::escapeHTML($link_lang)) . '</p>' .
+    form::combo('link_lang', $lang_combo, $link_lang) .
+    '</p>' .
+
     '</div>' .
 
     # XFN nightmare
     '<div class="col70 last-col">' .
     '<h3>' . __('XFN information') . '</h3>' .
+    '<p class="clear form-note">' . __('More information on <a href="https://en.wikipedia.org/wiki/XHTML_Friends_Network">Wikipedia</a> website') . '</p>' .
+
     '<div class="table-outer">' .
     '<table class="noborder">' .
 
