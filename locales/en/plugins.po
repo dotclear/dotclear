@@ -468,6 +468,9 @@ msgstr ""
 msgid "XFN information"
 msgstr ""
 
+msgid "More information on <a href="https://en.wikipedia.org/wiki/XHTML_Friends_Network">Wikipedia</a> website"
+msgstr ""
+
 msgid "_xfn_Me"
 msgstr "Me"
 

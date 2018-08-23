@@ -45,6 +45,30 @@ class dcBlogroll
         return $rs;
     }
 
+    public function getLangs($params = array())
+    {
+        // Use post_lang as an alias of link_lang to be able to use the dcAdminCombos::getLangsCombo() function
+        $strReq = 'SELECT COUNT(link_id) as nb_link, link_lang as post_lang ' .
+        'FROM ' . $this->table . ' ' .
+        "WHERE blog_id = '" . $this->con->escape($this->blog->id) . "' " .
+            "AND link_lang <> '' " .
+            "AND link_lang IS NOT NULL ";
+
+        if (isset($params['lang'])) {
+            $strReq .= "AND link_lang = '" . $this->con->escape($params['lang']) . "' ";
+        }
+
+        $strReq .= 'GROUP BY link_lang ';
+
+        $order = 'desc';
+        if (!empty($params['order']) && preg_match('/^(desc|asc)$/i', $params['order'])) {
+            $order = $params['order'];
+        }
+        $strReq .= 'ORDER BY link_lang ' . $order . ' ';
+
+        return $this->con->select($strReq);
+    }
+
     public function getLink($id)
     {
         $params['link_id'] = $id;
