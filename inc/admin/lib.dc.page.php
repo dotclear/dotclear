@@ -219,7 +219,6 @@ class dcPage
         '<ul id="prelude">' .
         '<li><a href="#content">' . __('Go to the content') . '</a></li>' .
         '<li><a href="#main-menu">' . __('Go to the menu') . '</a></li>' .
-        '<li><a href="#qx">' . __('Go to search') . '</a></li>' .
         '<li><a href="#help">' . __('Go to help') . '</a></li>' .
         '</ul>' . "\n" .
         '<div id="header" role="banner">' .
