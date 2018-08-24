@@ -85,7 +85,7 @@ class dcRestMethods
                 $feed_reader->setUserAgent('Dotclear - http://www.dotclear.org/');
                 $feed = $feed_reader->parse($GLOBALS['__resources']['rss_news']);
                 if ($feed) {
-                    $ret = '<div class="box medium dc-box"><h3>' . __('Dotclear news') . '</h3><dl id="news">';
+                    $ret = '<div class="box medium dc-box" id="ajax-news"><h3>' . __('Dotclear news') . '</h3><dl id="news">';
                     $i   = 1;
                     foreach ($feed->items as $item) {
                         $dt = isset($item->link) ? '<a href="' . $item->link . '" class="outgoing" title="' . $item->title . '">' .
@@ -131,7 +131,7 @@ class dcRestMethods
                 // Check PHP version required
                 if (version_compare(phpversion(), $updater->getPHPVersion()) >= 0) {
                     $ret =
-                    '<div class="dc-update"><h3>' . sprintf(__('Dotclear %s is available!'), $new_v) . '</h3> ' .
+                    '<div class="dc-update" id="ajax-update"><h3>' . sprintf(__('Dotclear %s is available!'), $new_v) . '</h3> ' .
                     '<p><a class="button submit" href="' . $core->adminurl->get("admin.update") . '">' . sprintf(__('Upgrade now'), $new_v) . '</a> ' .
                     '<a class="button" href="' . $core->adminurl->get("admin.update", array('hide_msg' => 1)) . '">' . __('Remind me later') . '</a>' .
                         ($version_info ? ' </p>' .
