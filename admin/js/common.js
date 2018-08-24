@@ -433,7 +433,7 @@ var dotclear = {
       return true;
     });
   },
-  outgoingLink: function(target) {
+  outgoingLinks: function(target) {
     $(target).filter(function() {
       return ((this.hostname && this.hostname != location.hostname && !$(this).hasClass('modal') && !$(this).hasClass('modal-image')) || $(this).hasClass('outgoing'));
     }).each(function() {
@@ -460,7 +460,7 @@ $(function() {
     }
   });
   // manage outgoing links
-  dotclear.outgoingLink('a');
+  dotclear.outgoingLinks('a');
   // Popups: dealing with Escape key fired
   $('#dotclear-admin.popup').keyup(function(e) {
     if (e.key == 'Escape') {
