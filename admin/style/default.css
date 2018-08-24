@@ -1582,12 +1582,8 @@ body.ajax-loader #collapser {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  position: absolute;
-  top: 3em;
-  left: 0;
   background: #a2cbe9;
-  width: 100%;
-  z-index: 100; }
+  width: 100%; }
   #prelude li {
     list-style-type: none;
     margin: 0;
