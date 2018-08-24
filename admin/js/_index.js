@@ -155,7 +155,7 @@ $(function() {
         var xml = $('rsp>update', data).attr('ret');
         $('#content h2').after(xml);
         // manage outgoing links
-        dotclear.outgoingLink('#ajax-update a');
+        dotclear.outgoingLinks('#ajax-update a');
       }
     }
   });
@@ -182,7 +182,7 @@ $(function() {
         }
         $('#dashboard-boxes div.db-items').prepend(xml);
         // manage outgoing links
-        dotclear.outgoingLink('#ajax-news a');
+        dotclear.outgoingLinks('#ajax-news a');
       }
     }
   });
