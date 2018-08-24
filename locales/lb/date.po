@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-15 16:27+0200\n"
+"PO-Revision-Date: 2017-01-15 19:05+0100\n"
+"Last-Translator: Alain Vagner<alain.vagner@sous-anneau.org>\n"
+"Language-Team: \n"
+"Language: lb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.11\n"
+
+msgid "%Y-%m-%d %H:%M"
+msgstr ""
+
+msgid "_Jan"
+msgstr "Jan"
+
+msgid "_Feb"
+msgstr "Feb"
+
+msgid "_Mar"
+msgstr "Mäe"
+
+msgid "_Apr"
+msgstr "Abr"
+
+msgid "_May"
+msgstr "Mee"
+
+msgid "_Jun"
+msgstr "Jun"
+
+msgid "_Jul"
+msgstr "Jul"
+
+msgid "_Aug"
+msgstr "Aug"
+
+msgid "_Sep"
+msgstr "Sep"
+
+msgid "_Oct"
+msgstr "Okt"
+
+msgid "_Nov"
+msgstr "Nov"
+
+msgid "_Dec"
+msgstr "Dez"
+
+msgid "January"
+msgstr "Januar"
+
+msgid "February"
+msgstr "Februar"
+
+msgid "March"
+msgstr "Mäerz"
+
+msgid "April"
+msgstr "Abrëll"
+
+msgid "May"
+msgstr "Mee"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "August"
+msgstr "August"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "Dezember"
+
+msgid "_Mon"
+msgstr "Méi"
+
+msgid "_Tue"
+msgstr "Dën"
+
+msgid "_Wed"
+msgstr "Mët"
+
+msgid "_Thu"
+msgstr "Don"
+
+msgid "_Fri"
+msgstr "Fre"
+
+msgid "_Sat"
+msgstr "Sam"
+
+msgid "_Sun"
+msgstr "Son"
+
+msgid "Monday"
+msgstr "Méindeg"
+
+msgid "Tuesday"
+msgstr "Dënschdeg"
+
+msgid "Wednesday"
+msgstr "Mëttwoch"
+
+msgid "Thursday"
+msgstr "Donneschdeg"
+
+msgid "Friday"
+msgstr "Freideg"
+
+msgid "Saturday"
+msgstr "Samschdeg"
+
+msgid "Sunday"
+msgstr "Sonndeg"
