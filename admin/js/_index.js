@@ -154,6 +154,8 @@ $(function() {
         // Something has to be displayed
         var xml = $('rsp>update', data).attr('ret');
         $('#content h2').after(xml);
+        // manage outgoing links
+        dotclear.outgoingLink('#ajax-update a');
       }
     }
   });
@@ -179,6 +181,8 @@ $(function() {
           $('#dashboard-boxes').prepend('<div class="db-items"></div>');
         }
         $('#dashboard-boxes div.db-items').prepend(xml);
+        // manage outgoing links
+        dotclear.outgoingLink('#ajax-news a');
       }
     }
   });

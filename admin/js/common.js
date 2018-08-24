@@ -432,6 +432,19 @@ var dotclear = {
       }
       return true;
     });
+  },
+  outgoingLink: function(target) {
+    $(target).filter(function() {
+      return ((this.hostname && this.hostname != location.hostname && !$(this).hasClass('modal') && !$(this).hasClass('modal-image')) || $(this).hasClass('outgoing'));
+    }).each(function() {
+      $(this).prop('title', $(this).prop('title') + ' (' + dotclear.msg.new_window + ')');
+      if (!$(this).hasClass('outgoing')) {
+        $(this).append('&nbsp;<img class="outgoing-js" src="images/outgoing-link.svg" alt=""/>');
+      }
+    }).click(function(e) {
+      e.preventDefault();
+      window.open($(this).attr('href'));
+    });
   }
 };
 /* On document ready
@@ -447,17 +460,7 @@ $(function() {
     }
   });
   // manage outgoing links
-  $('a').filter(function() {
-    return ((this.hostname && this.hostname != location.hostname && !$(this).hasClass('modal') && !$(this).hasClass('modal-image')) || $(this).hasClass('outgoing'));
-  }).each(function() {
-    $(this).prop('title', $(this).prop('title') + ' (' + dotclear.msg.new_window + ')');
-    if (!$(this).hasClass('outgoing')) {
-      $(this).append('&nbsp;<img class="outgoing-js" src="images/outgoing-link.svg" alt=""/>');
-    }
-  }).click(function(e) {
-    e.preventDefault();
-    window.open($(this).attr('href'));
-  });
+  dotclear.outgoingLink('a');
   // Popups: dealing with Escape key fired
   $('#dotclear-admin.popup').keyup(function(e) {
     if (e.key == 'Escape') {
