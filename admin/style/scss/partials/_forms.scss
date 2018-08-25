@@ -179,6 +179,10 @@ input[type=file] {
   margin-top: .3em;
   margin-bottom: .3em;
 }
+input[type=color] {
+  width: 4em;
+  height: 3em;
+}
 optgroup {
   font-weight: bold;
   font-style: normal;
