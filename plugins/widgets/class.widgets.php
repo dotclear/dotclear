@@ -273,6 +273,9 @@ class dcWidget
             if (!is_array($options)) {
                 return false;
             }
+        } elseif ($type == 'textarea') {
+            // If any, the 4th argument should be an array (key → value)
+            $options = @func_get_arg(4);
         }
 
         $this->settings[$name] = array(
@@ -315,9 +318,10 @@ class dcWidget
                     '</p>';
                 break;
             case 'textarea':
+                $class = (isset($s['options']) && isset($s['options']['class']) ? ' ' . $s['options']['class'] : '');
                 $res .=
                 '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
-                form::textarea(array($iname, $wfid), 30, 8, html::escapeHTML($s['value']), 'maximal') .
+                form::textarea(array($iname, $wfid), 30, 8, html::escapeHTML($s['value']), 'maximal' . $class) .
                     '</p>';
                 break;
             case 'check':

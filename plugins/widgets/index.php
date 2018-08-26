@@ -222,7 +222,8 @@ if (is_array($rte_flags) && in_array('widgets_text', $rte_flags)) {
     $rte_flag = $rte_flags['widgets_text'];
 }
 if ($rte_flag) {
-    echo $core->callBehavior('adminPostEditor', $widget_editor['xhtml'], 'widget', array('#sidebarsWidgets textarea'), 'xhtml');
+    echo $core->callBehavior('adminPostEditor', $widget_editor['xhtml'], 'widget',
+        array('#sidebarsWidgets textarea:not(.noeditor)'), 'xhtml');
 }
 echo (dcPage::jsConfirmClose('sidebarsWidgets'));
 ?>

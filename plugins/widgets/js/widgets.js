@@ -122,7 +122,7 @@ $(function() {
 
   // HTML text editor
   if ($.isFunction(jsToolBar)) {
-    $('#sidebarsWidgets textarea').each(function() {
+    $('#sidebarsWidgets textarea:not(.noeditor)').each(function() {
       var tbWidgetText = new jsToolBar(this);
       tbWidgetText.draw('xhtml');
     });
