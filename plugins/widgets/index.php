@@ -222,8 +222,11 @@ if (is_array($rte_flags) && in_array('widgets_text', $rte_flags)) {
     $rte_flag = $rte_flags['widgets_text'];
 }
 if ($rte_flag) {
+    echo dcPage::jsVars(array('dotclear.widget_noeditor' => 0));
     echo $core->callBehavior('adminPostEditor', $widget_editor['xhtml'], 'widget',
         array('#sidebarsWidgets textarea:not(.noeditor)'), 'xhtml');
+} else {
+    echo dcPage::jsVars(array('dotclear.widget_noeditor' => 1));
 }
 echo (dcPage::jsConfirmClose('sidebarsWidgets'));
 ?>
