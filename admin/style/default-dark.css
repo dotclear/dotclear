@@ -228,7 +228,9 @@ h6 {
 --------------------------------------------------- */
 /* Typographie */
 :root {
-  --html-font-size: 62.5%; }
+  --html-font-size: 62.5%;
+  --body-color: #dcdee0;
+  --body-background: #272b30; }
 
 html {
   font-size: 62.5%;

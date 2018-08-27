@@ -3,6 +3,9 @@
 :root {
 	// May be superseed by user pref (typically from 50% to 75%, default 62.5%)
 	--html-font-size: #{$html-font-size};
+  // Main colors
+  --body-color: #{$body-color};
+  --body-background: #{$body-background};
 }
 
 // base //

@@ -168,8 +168,10 @@ class dcPage
 
         if ($core->auth->user_prefs->interface->darkmode) {
             echo self::cssLoad('style/default-dark.css');
+            echo self::jsVars(array('dotclear_darkMode' => 1));
         } else {
             echo self::cssLoad('style/default.css');
+            echo self::jsVars(array('dotclear_darkMode' => 0));
         }
         if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
             echo self::cssLoad('style/default-rtl.css');
@@ -447,8 +449,10 @@ class dcPage
 
         if ($core->auth->user_prefs->interface->darkmode) {
             echo self::cssLoad('style/default-dark.css');
+            echo self::jsVars(array('dotclear_darkMode' => 1));
         } else {
             echo self::cssLoad('style/default.css');
+            echo self::jsVars(array('dotclear_darkMode' => 0));
         }
         if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
             echo self::cssLoad('style/default-rtl.css');
