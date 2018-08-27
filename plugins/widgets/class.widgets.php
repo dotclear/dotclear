@@ -273,9 +273,11 @@ class dcWidget
             if (!is_array($options)) {
                 return false;
             }
-        } elseif ($type == 'textarea') {
-            // If any, the 4th argument should be an array (key → value)
-            $options = @func_get_arg(4);
+            // If any, the 5th argument should be an array (key → value) of opts
+            $opts = @func_get_arg(5);
+        } else {
+            // If any, the 4th argument should be an array (key → value) of opts
+            $opts = @func_get_arg(4);
         }
 
         $this->settings[$name] = array(
@@ -286,6 +288,9 @@ class dcWidget
 
         if (isset($options)) {
             $this->settings[$name]['options'] = $options;
+        }
+        if (isset($opt)) {
+            $this->settings[$name]['opts'] = $opts;
         }
     }
 
@@ -310,15 +315,15 @@ class dcWidget
         $res   = '';
         $wfid  = "wf-" . $i;
         $iname = $pr ? $pr . '[' . $id . ']' : $id;
+        $class = (isset($s['opts']) && isset($s['opts']['class']) ? ' ' . $s['opts']['class'] : '');
         switch ($s['type']) {
             case 'text':
                 $res .=
                 '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
-                form::field(array($iname, $wfid), 20, 255, html::escapeHTML($s['value']), 'maximal') .
+                form::field(array($iname, $wfid), 20, 255, html::escapeHTML($s['value']), 'maximal' . $class) .
                     '</p>';
                 break;
             case 'textarea':
-                $class = (isset($s['options']) && isset($s['options']['class']) ? ' ' . $s['options']['class'] : '');
                 $res .=
                 '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
                 form::textarea(array($iname, $wfid), 30, 8, html::escapeHTML($s['value']), 'maximal' . $class) .
@@ -328,7 +333,7 @@ class dcWidget
                 $res .=
                 '<p>' . form::hidden(array($iname), '0') .
                 '<label class="classic" for="' . $wfid . '">' .
-                form::checkbox(array($iname, $wfid), '1', $s['value']) . ' ' . $s['title'] .
+                form::checkbox(array($iname, $wfid), '1', $s['value'], $class) . ' ' . $s['title'] .
                     '</label></p>';
                 break;
             case 'radio':
@@ -338,7 +343,7 @@ class dcWidget
                         $res .= $k > 0 ? '<br/>' : '';
                         $res .=
                         '<label class="classic" for="' . $wfid . '-' . $k . '">' .
-                        form::radio(array($iname, $wfid . '-' . $k), $v[1], $s['value'] == $v[1]) . ' ' . $v[0] .
+                        form::radio(array($iname, $wfid . '-' . $k), $v[1], $s['value'] == $v[1], $class) . ' ' . $v[0] .
                             '</label>';
                     }
                 }
@@ -347,7 +352,7 @@ class dcWidget
             case 'combo':
                 $res .=
                 '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
-                form::combo(array($iname, $wfid), $s['options'], $s['value']) .
+                form::combo(array($iname, $wfid), $s['options'], $s['value'], $class) .
                     '</p>';
                 break;
         }
