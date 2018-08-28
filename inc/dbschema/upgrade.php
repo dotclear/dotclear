@@ -687,6 +687,16 @@ class dcUpgrade
             @unlink(DC_ROOT . '/' . 'admin/js/jquery/jquery.bgFade.js');
         }
 
+        if (version_compare($version, '2.15', '<')) {
+            # switch from jQuery 1.11.3 to 1.12.4
+            $strReq = 'UPDATE ' . $core->prefix . 'setting ' .
+                " SET setting_value = '1.12.4' " .
+                " WHERE setting_id = 'jquery_version' " .
+                " AND setting_ns = 'system' " .
+                " AND setting_value = '1.11.3' ";
+            $core->con->execute($strReq);
+        }
+
         $core->setVersion('core', DC_VERSION);
         $core->blogDefaults();
 
