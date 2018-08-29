@@ -118,42 +118,41 @@ class context
     public static function global_filters($str, $args, $tag = '')
     {
         $args[0] = &$str;
-        $params  = new ArrayObject($args);
 
         # --BEHAVIOR-- publicBeforeContentFilter
-        $res = $GLOBALS['core']->callBehavior('publicBeforeContentFilter', $GLOBALS['core'], $tag, $params);
-        $str = $params[0];
+        $res = $GLOBALS['core']->callBehavior('publicBeforeContentFilter', $GLOBALS['core'], $tag, $args);
+        $str = $args[0];
 
-        if ($params['strip_tags']) {
+        if ($args['strip_tags']) {
             $str = self::strip_tags($str);
         }
-        if ($params['remove_html']) {
+        if ($args['remove_html']) {
             $str = self::remove_html($str);
             $str = preg_replace('/\s+/', ' ', $str);
         }
-        if ($params['encode_xml'] || $params['encode_html']) {
+        if ($args['encode_xml'] || $args['encode_html']) {
             $str = self::encode_xml($str);
         }
 
-        if ($params['cut_string'] > 0) {
-            $str = self::cut_string($str, (integer) $params['cut_string']);
+        if ($args['cut_string'] > 0) {
+            $str = self::cut_string($str, (integer) $args['cut_string']);
         }
 
-        if ($params['lower_case']) {
+        if ($args['lower_case']) {
             $str = self::lower_case($str);
-        } elseif ($params['capitalize']) {
+        } elseif ($args['capitalize']) {
             $str = self::capitalize($str);
-        } elseif ($params['upper_case']) {
+        } elseif ($args['upper_case']) {
             $str = self::upper_case($str);
         }
 
-        if ($params['encode_url']) {
+        if ($args['encode_url']) {
             $str = self::encode_url($str);
         }
 
         # --BEHAVIOR-- publicAfterContentFilter
-        $res = $GLOBALS['core']->callBehavior('publicAfterContentFilter', $GLOBALS['core'], $tag, $params);
-        $str = $params[0];
+        $res = $GLOBALS['core']->callBehavior('publicAfterContentFilter', $GLOBALS['core'], $tag, $args);
+        $str = $args[0];
 
         return $str;
     }
