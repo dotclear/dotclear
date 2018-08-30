@@ -198,12 +198,61 @@ $(function() {
     dotclear.dbCommentsCount_Timer = setInterval(dotclear.dbCommentsCount, 60 * 1000);
   }
   // Posts
-  var icon_com = $('#dashboard-main #icons p a[href="posts.php"]');
-  if (icon_com.length) {
+  var icon_post = $('#dashboard-main #icons p a[href="posts.php"]');
+  if (icon_post.length) {
     // Icon exists on dashboard
     // First pass
     dotclear.dbPostsCount();
     // Then fired every 600 seconds (10 minutes)
     dotclear.dbPostsCount_Timer = setInterval(dotclear.dbCommentsPost, 600 * 1000);
   }
+
+  // Dashboard boxes and their children are sortable
+  var set_positions = function(sel, id) {
+    var list = $(sel).sortable("toArray").join();
+    // Save positions (via services) for id
+    var params = {
+      f: 'setDashboardPositions',
+      xd_check: dotclear.nonce,
+      id: id,
+      list: list
+    };
+    $.post('services.php', params, function() {});
+  };
+  // Wait 5 seconds before activating ordering capabilities on dashboard
+  setTimeout(function() {
+    $('#dashboard-main').sortable({
+      cursor: 'move',
+      opacity: 0.5,
+      tolerance: "pointer",
+      update: function() {
+        set_positions(this, 'main_order');
+      }
+    });
+    $('#dashboard-boxes').sortable({
+      cursor: 'move',
+      opacity: 0.5,
+      tolerance: "pointer",
+      update: function() {
+        set_positions(this, 'boxes_order');
+      }
+    });
+    $('#db-items').sortable({
+      cursor: 'move',
+      opacity: 0.5,
+      tolerance: "pointer",
+      update: function() {
+        set_positions(this, 'boxes_items_order');
+      }
+    });
+    $('#db-contents').sortable({
+      cursor: 'move',
+      opacity: 0.5,
+      tolerance: "pointer",
+      update: function() {
+        set_positions(this, 'boxes_contents_order');
+      }
+    });
+  }, 5000);
+
 });
