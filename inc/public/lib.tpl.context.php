@@ -115,39 +115,68 @@ class context
             $tag);
     }
 
+    private static function default_filters($filter, $str, $arg)
+    {
+        switch ($filter) {
+            case 'strip_tags':
+                return self::strip_tags($str);
+
+            case 'remove_html':
+                return preg_replace('/\s+/', ' ', self::remove_html($str));
+
+            case 'encode_xml':
+            case 'encode_html':
+                return self::encode_xml($str);
+
+            case 'cut_string':
+                return self::cut_string($str, (integer) $arg);
+
+            case 'lower_case':
+                return self::lower_case($str);
+
+            case 'capitalize':
+                return self::capitalize($str);
+
+            case 'upper_case':
+                return self::upper_case($str);
+
+            case 'encode_url':
+                return self::encode_url($str);
+        }
+        return $str;
+    }
+
     public static function global_filters($str, $args, $tag = '')
     {
+        $filters = array(
+            'strip_tags',                             // Removes HTML tags (mono line)
+            'remove_html',                            // Removes HTML tags
+            'encode_xml', 'encode_html',              // Encode HTML entities
+            'cut_string',                             // Cut string (length in $args['cut_string'])
+            'lower_case', 'capitalize', 'upper_case', // Case transformations
+            'encode_url'                             // URL encode (as for insert in query string)
+        );
+
         $args[0] = &$str;
 
         # --BEHAVIOR-- publicBeforeContentFilter
         $res = $GLOBALS['core']->callBehavior('publicBeforeContentFilter', $GLOBALS['core'], $tag, $args);
         $str = $args[0];
 
-        if ($args['strip_tags']) {
-            $str = self::strip_tags($str);
-        }
-        if ($args['remove_html']) {
-            $str = self::remove_html($str);
-            $str = preg_replace('/\s+/', ' ', $str);
-        }
-        if ($args['encode_xml'] || $args['encode_html']) {
-            $str = self::encode_xml($str);
-        }
-
-        if ($args['cut_string'] > 0) {
-            $str = self::cut_string($str, (integer) $args['cut_string']);
-        }
-
-        if ($args['lower_case']) {
-            $str = self::lower_case($str);
-        } elseif ($args['capitalize']) {
-            $str = self::capitalize($str);
-        } elseif ($args['upper_case']) {
-            $str = self::upper_case($str);
-        }
-
-        if ($args['encode_url']) {
-            $str = self::encode_url($str);
+        foreach ($filters as $filter) {
+            # --BEHAVIOR-- publicContentFilter
+            switch ($GLOBALS['core']->callBehavior('publicContentFilter', $GLOBALS['core'], $tag, $args, $filter)) {
+                case '1':
+                    // 3rd party filter applied and must stop
+                    break;
+                case '0':
+                default:
+                    // 3rd party filter applied and should continue
+                    // Apply default filter
+                    if ($args[$filter]) {
+                        $str = self::default_filters($filter, $str, $args[$filter]);
+                    }
+            }
         }
 
         # --BEHAVIOR-- publicAfterContentFilter
