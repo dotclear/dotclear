@@ -74,7 +74,7 @@ echo dcPage::jsVars(array(
 dcPage::jsConfirmClose('file-form') .
 dcPage::jsLoad(dcPage::getPF('themeEditor/js/script.js'));
 if ($user_ui_colorsyntax) {
-    echo dcPage::jsVar('dotclear.colorsyntax', $user_ui_colorsyntax);
+    echo dcPage::jsVars(array('dotclear.colorsyntax' => $user_ui_colorsyntax));
     echo dcPage::jsLoadCodeMirror($user_ui_colorsyntax_theme);
 }
 echo dcPage::cssLoad(dcPage::getPF('themeEditor/style.css'));
