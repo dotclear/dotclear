@@ -114,7 +114,7 @@ $dashboardItem = 0;
 # Documentation links
 if ($core->auth->user_prefs->dashboard->doclinks) {
     if (!empty($__resources['doc'])) {
-        $doc_links = '<div class="box small dc-box"><h3>' . __('Documentation and support') . '</h3><ul>';
+        $doc_links = '<div class="box small dc-box" id="doc-and-support"><h3>' . __('Documentation and support') . '</h3><ul>';
 
         foreach ($__resources['doc'] as $k => $v) {
             $doc_links .= '<li><a class="outgoing" href="' . $v . '" title="' . $k . '">' . $k .
@@ -149,6 +149,8 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 /* DISPLAY
 -------------------------------------------------------- */
 dcPage::open(__('Dashboard'),
+    dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
+    dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
     dcPage::jsLoad('js/_index.js') .
     $admin_post_behavior .
     # --BEHAVIOR-- adminDashboardHeaders
@@ -243,34 +245,102 @@ if ($core->auth->isSuperAdmin()) {
     }
 }
 
-# Dashboard items and contents (processed first, as we need to know the result before displaying the icons.)
-$dashboardItems = '';
-foreach ($__dashboard_items as $i) {
-    foreach ($i as $v) {
-        $dashboardItems .= $v;
-    }
-}
-$dashboardContents = '';
-foreach ($__dashboard_contents as $i) {
-    foreach ($i as $v) {
-        $dashboardContents .= $v;
-    }
-}
+# Get current main orders
+$main_order = $core->auth->user_prefs->dashboard->main_order;
+$main_order = ($main_order != '' ? explode(',', $main_order) : array());
 
-# Dashboard elements: icons then boxes (items then contents)
-echo '<div id="dashboard-main">';
+# Get current boxes orders
+$boxes_order = $core->auth->user_prefs->dashboard->boxes_order;
+$boxes_order = ($boxes_order != '' ? explode(',', $boxes_order) : array());
 
+# Get current boxes items orders
+$boxes_items_order = $core->auth->user_prefs->dashboard->boxes_items_order;
+$boxes_items_order = ($boxes_items_order != '' ? explode(',', $boxes_items_order) : array());
+
+# Get current boxes contents orders
+$boxes_contents_order = $core->auth->user_prefs->dashboard->boxes_contents_order;
+$boxes_contents_order = ($boxes_contents_order != '' ? explode(',', $boxes_contents_order) : array());
+
+$composeItems = function ($list, $blocks, $flat = false) {
+
+    $ret   = array();
+    $items = array();
+
+    if ($flat) {
+        $items = $blocks;
+    } else {
+        foreach ($blocks as $i) {
+            foreach ($i as $v) {
+                $items[] = $v;
+            }
+        }
+    }
+
+    # First loop to find ordered indexes
+    $order = array();
+    $index = 0;
+    foreach ($items as $v) {
+        if (preg_match('/<div.*?id="([^"].*?)".*?>/ms', $v, $match)) {
+            $id       = $match[1];
+            $position = array_search($id, $list, true);
+            if ($position !== false) {
+                $order[$position] = $index;
+            }
+        }
+        $index++;
+    }
+
+    # Second loop to combine ordered items
+    $index = 0;
+    foreach ($items as $v) {
+        $position = array_search($index, $order, true);
+        if ($position !== false) {
+            $ret[$position] = $v;
+        }
+        $index++;
+    }
+    # Reorder items on their position (key)
+    ksort($ret);
+
+    # Third loop to combine unordered items
+    $index = 0;
+    foreach ($items as $v) {
+        $position = array_search($index, $order, true);
+        if ($position === false) {
+            $ret[count($ret)] = $v;
+        }
+        $index++;
+    }
+
+    return join('', $ret);
+};
+
+# Compose dashboard items (doc, …)
+$dashboardItems = $composeItems($boxes_items_order, $__dashboard_items);
+# Compose dashboard contents (plugin's modules)
+$dashboardContents = $composeItems($boxes_contents_order, $__dashboard_contents);
+
+$__dashboard_boxes = array();
+if ($dashboardItems != '') {
+    $__dashboard_boxes[] = '<div class="db-items" id="db-items">' . $dashboardItems . '</div>';
+}
+if ($dashboardContents != '') {
+    $__dashboard_boxes[] = '<div class="db-contents" id="db-contents">' . $dashboardContents . '</div>';
+}
+$dashboardBoxes = $composeItems($boxes_order, $__dashboard_boxes, true);
+
+# Compose main area
+$__dashboard_main = array();
 if (!$core->auth->user_prefs->dashboard->nofavicons) {
     # Dashboard icons
-    echo '<div id="icons">';
+    $dashboardIcons = '<div id="icons">';
     foreach ($__dashboard_icons as $i) {
-        echo
-        '<p><a href="' . $i[1] . '"><img src="' . dc_admin_icon_url($i[2]) . '" alt="" />' .
+        $dashboardIcons .= '<p><a href="' . $i[1] . '"><img src="' . dc_admin_icon_url($i[2]) . '" alt="" />' .
             '<br /><span class="db-icon-title">' . $i[0] . '</span></a></p>';
     }
-    echo '</div>';
+    $dashboardIcons .= '</div>';
+    $__dashboard_main[] = $dashboardIcons;
 }
-
 if ($core->auth->user_prefs->dashboard->quickentry) {
     if ($core->auth->check('usage,contentadmin', $core->blog->id)) {
         # Getting categories
@@ -278,7 +348,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
             $core->blog->getCategories(array())
         );
 
-        echo
+        $dashboardQuickEntry =
         '<div id="quick">' .
         '<h3>' . __('Quick entry') . sprintf(' &rsaquo; %s', $core->auth->getOption('post_format')) . '</h3>' .
         '<form id="quick-entry" action="' . $core->adminurl->get('admin.post') . '" method="post" class="fieldset">' .
@@ -319,17 +389,16 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
             '</p>' .
             '</form>' .
             '</div>';
+        $__dashboard_main[] = $dashboardQuickEntry;
     }
 }
-
-if ($dashboardContents != '' || $dashboardItems != '') {
-    echo
-        '<div id="dashboard-boxes">' .
-        ($dashboardItems != '' ? '<div class="db-items">' . $dashboardItems . '</div>' : '') .
-        ($dashboardContents != '' ? '<div class="db-contents">' . $dashboardContents . '</div>' : '') .
-        '</div>';
+if ($dashboardBoxes != '') {
+    $__dashboard_main[] = '<div id="dashboard-boxes">' . $dashboardBoxes . '</div>';
 }
+$dashboardMain = $composeItems($main_order, $__dashboard_main, true);
 
-echo '</div>'; #end dashboard-main
+# Dashboard elements
+echo '<div id="dashboard-main">' . $dashboardMain . '</div>';
+
 dcPage::helpBlock('core_dashboard');
 dcPage::close();

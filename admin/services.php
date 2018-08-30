@@ -24,6 +24,7 @@ $core->rest->addFunction('setPostMeta', array('dcRestMethods', 'setPostMeta'));
 $core->rest->addFunction('searchMeta', array('dcRestMethods', 'searchMeta'));
 $core->rest->addFunction('setSectionFold', array('dcRestMethods', 'setSectionFold'));
 $core->rest->addFunction('getModuleById', array('dcRestMethods', 'getModuleById'));
+$core->rest->addFunction('setDashboardPositions', array('dcRestMethods', 'setDashboardPositions'));
 
 $core->rest->serve();
 
@@ -562,6 +563,26 @@ class dcRestMethods
             };
         }
         $core->auth->user_prefs->toggles->put('unfolded_sections', join(',', $toggles));
+        return true;
+    }
+
+    public static function setDashboardPositions($core, $get, $post)
+    {
+        if (empty($post['id'])) {
+            throw new Exception('No zone name');
+        }
+        if (empty($post['list'])) {
+            throw new Exception('No sorted list of id');
+        }
+
+        if ($core->auth->user_prefs->dashboard === null) {
+            $core->auth->user_prefs->addWorkspace('dashboard');
+        }
+
+        $zone  = $post['id'];
+        $order = $post['list'];
+
+        $core->auth->user_prefs->dashboard->put($zone, $order);
         return true;
     }
 
