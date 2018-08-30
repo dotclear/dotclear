@@ -2164,6 +2164,9 @@ msgstr "Les favoris ont été mis à jour."
 msgid "Default favorites have been successfully updated."
 msgstr "Les favoris par défaut ont été enregistrés."
 
+msgid "Dashboard items order have been successfully reset."
+msgstr "Le positionnement des éléments du tableau de bord a été réinitialisé."
+
 msgid "My profile"
 msgstr "Mon profil"
 
@@ -2348,6 +2351,12 @@ msgstr "Ne pas afficher les mises à jour de Dotclear"
 
 msgid "Save my dashboard options"
 msgstr "Enregistrer les options de mon tableau de bord"
+
+msgid "Dashboard items order"
+msgstr "Positionnement des éléments du tableau de bord"
+
+msgid "Reset dashboard items order"
+msgstr "Réinitialiser le positionnement des éléments du tableau de bord"
 
 msgid "Search options"
 msgstr "Options de recherche"

@@ -59,7 +59,7 @@ $default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'user-pro
 
 if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder']) ||
     !empty($_GET['replaced']) || !empty($_POST['appendaction']) || !empty($_POST['removeaction']) ||
-    !empty($_GET['db-updated'])) {
+    !empty($_GET['db-updated']) || !empty($_POST['resetorder'])) {
     $default_tab = 'user-favorites';
 } elseif (!empty($_GET['updated'])) {
     $default_tab = 'user-options';
@@ -400,6 +400,19 @@ if (!empty($_POST['replace']) && $core->auth->isSuperAdmin()) {
     }
 }
 
+# Reset dashboard items order
+if (!empty($_POST['resetorder'])) {
+    $core->auth->user_prefs->dashboard->drop('main_order');
+    $core->auth->user_prefs->dashboard->drop('boxes_order');
+    $core->auth->user_prefs->dashboard->drop('boxes_items_order');
+    $core->auth->user_prefs->dashboard->drop('boxes_contents_order');
+
+    if (!$core->error->flag()) {
+        dcPage::addSuccessNotice(__('Dashboard items order have been successfully reset.'));
+        $core->adminurl->redirect("admin.user.preferences", array(), '#user-favorites');
+    }
+}
+
 /* DISPLAY
 -------------------------------------------------------- */
 dcPage::open($page_title,
@@ -668,6 +681,7 @@ echo '<div class="multi-part" id="user-favorites" title="' . __('My dashboard') 
 $ws = $core->auth->user_prefs->addWorkspace('favorites');
 echo '<h3>' . __('My dashboard') . '</h3>';
 
+# Favorites
 echo '<form action="' . $core->adminurl->get("admin.user.preferences") . '" method="post" id="favs-form" class="two-boxes odd">';
 
 echo '<div id="my-favs" class="fieldset"><h4>' . __('My favorites') . '</h4>';
@@ -773,6 +787,7 @@ echo '</div>'; # /available favorites
 
 echo '</form>';
 
+# Dashboard items
 echo
 '<form action="' . $core->adminurl->get("admin.user.preferences") . '" method="post" id="db-forms" class="two-boxes even">' .
 
@@ -833,6 +848,16 @@ form::hidden('db-options', '-') .
 $core->formNonce() .
 '<input type="submit" accesskey="s" value="' . __('Save my dashboard options') . '" /></p>' .
     '</form>';
+
+# Dashboard items order (reset)
+echo '<form action="' . $core->adminurl->get("admin.user.preferences") . '" method="post" id="order-reset" class="two-boxes even">';
+echo '<div class="fieldset"><h4>' . __('Dashboard items order') . '</h4>';
+echo
+'<p>' .
+$core->formNonce() .
+'<input type="submit" name="resetorder" value="' . __('Reset dashboard items order') . '" /></p>';
+echo '</div>';
+echo '</form>';
 
 echo '</div>'; # /multipart-user-favorites
 
