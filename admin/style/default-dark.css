@@ -2116,6 +2116,8 @@ span.ibw {
 
 #dashboard-main {
   text-align: center; }
+  #dashboard-main > *:last-child {
+    margin-bottom: 1em; }
 
 /* raccourcis */
 #icons {
@@ -2171,9 +2173,7 @@ span.ibw {
     border: 1px solid #bce8f1;
     padding: .2em 1em .1em 24px;
     color: #323334; }
-  #quick #new_cat,
-  #quick .q-cat,
-  #quick .q-cat label {
+  #quick #new_cat, #quick .q-cat, #quick .q-cat label {
     display: inline-block;
     vertical-align: top;
     margin-right: 1em;
@@ -2197,22 +2197,18 @@ span.ibw {
     margin: 10px;
     text-align: left; }
 
-.db-items,
-.db-contents {
+.db-items, .db-contents {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   flex: 1 1 auto; }
-  .db-items img,
-  .db-contents img {
+  .db-items img, .db-contents img {
     vertical-align: middle; }
-  .db-items ul,
-  .db-contents ul {
+  .db-items ul, .db-contents ul {
     display: block;
     padding-left: 1.5em;
     list-style: square; }
-  .db-items li,
-  .db-contents li {
+  .db-items li, .db-contents li {
     margin: 0.25em 0 0 0; }
 
 .no-js .outgoing img {
@@ -3198,6 +3194,12 @@ ul.from-left {
   display: none; }
 
 /* ---------------------------------------------- Couleurs ajoutées via javascript
+
+/* Sortable (jQuery UI) */
+.sortable-area {
+  border: 1px dashed currentColor;
+  background-color: #4c4d4f; }
+
 /* color-picker.js */
 .color-color-picker {
   border: 1px solid #000;

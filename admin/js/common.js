@@ -134,21 +134,12 @@ jQuery.fn.toggleWithLegend = function(target, s) {
     }
     $(ctarget).click(function(e) {
       if (p.user_pref && set_user_pref) {
-        if (p.hide ^ p.reverse_user_pref) {
-          jQuery.post('services.php', {
-            'f': 'setSectionFold',
-            'section': p.user_pref,
-            'value': 1,
-            xd_check: dotclear.nonce
-          }, function() {});
-        } else {
-          jQuery.post('services.php', {
-            'f': 'setSectionFold',
-            'section': p.user_pref,
-            'value': 0,
-            xd_check: dotclear.nonce
-          }, function() {});
-        }
+        jQuery.post('services.php', {
+          'f': 'setSectionFold',
+          'section': p.user_pref,
+          'value': (p.hide ^ p.reverse_user_pref ? 1 : 0),
+          xd_check: dotclear.nonce
+        }, function() {});
         jQuery.cookie(p.user_pref, '', {
           expires: -1
         });
