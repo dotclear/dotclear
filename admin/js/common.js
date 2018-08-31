@@ -289,7 +289,7 @@ var dotclear = {
   msg: {},
   enterKeyInForm: function(frm_id, ok_id, cancel_id) {
     $(frm_id + ':not(' + cancel_id + ')').keyup(function(e) {
-      if (e.key == 'Enter') {
+      if ((e.key == 'Enter') && ($(ok_id).prop('disabled') !== true)) {
         e.preventDefault();
         e.stopPropagation();
         $(ok_id).trigger('click');
