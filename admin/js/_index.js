@@ -219,40 +219,28 @@ $(function() {
     };
     $.post('services.php', params, function() {});
   };
+  var init_positions = function(sel, id) {
+    $(sel).sortable({
+      cursor: 'move',
+      opacity: 0.5,
+      tolerance: "pointer",
+      update: function() {
+        set_positions(sel, id);
+      },
+      start: function() {
+        $(sel).addClass('sortable-area');
+      },
+      stop: function() {
+        $(sel).removeClass('sortable-area');
+      }
+    });
+  };
   // Wait 5 seconds before activating ordering capabilities on dashboard
   setTimeout(function() {
-    $('#dashboard-main').sortable({
-      cursor: 'move',
-      opacity: 0.5,
-      tolerance: "pointer",
-      update: function() {
-        set_positions(this, 'main_order');
-      }
-    });
-    $('#dashboard-boxes').sortable({
-      cursor: 'move',
-      opacity: 0.5,
-      tolerance: "pointer",
-      update: function() {
-        set_positions(this, 'boxes_order');
-      }
-    });
-    $('#db-items').sortable({
-      cursor: 'move',
-      opacity: 0.5,
-      tolerance: "pointer",
-      update: function() {
-        set_positions(this, 'boxes_items_order');
-      }
-    });
-    $('#db-contents').sortable({
-      cursor: 'move',
-      opacity: 0.5,
-      tolerance: "pointer",
-      update: function() {
-        set_positions(this, 'boxes_contents_order');
-      }
-    });
+    init_positions('#dashboard-main', 'main_order');
+    init_positions('#dashboard-boxes', 'boxes_order');
+    init_positions('#db-items', 'boxes_items_order');
+    init_positions('#db-contents', 'boxes_contents_order');
   }, 5000);
 
 });
