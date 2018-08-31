@@ -6,6 +6,7 @@
 /* raccourcis */
 
 #icons {
+  margin: 1em auto 2em;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -62,9 +63,8 @@
 /* billet rapide */
 
 #quick {
-	padding: 1em;
 	max-width: 72em;
-	margin: 0 auto;
+  margin: 1em auto 2em;
 	background: $quick-background;
   border: 1px solid $quick-border;
 	text-align: left;
@@ -99,8 +99,7 @@
 /* modules additionnels */
 
 #dashboard-boxes {
-	margin: 1em auto 1em;
-	padding-top: 2em;
+	margin: 1em auto 2em;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
