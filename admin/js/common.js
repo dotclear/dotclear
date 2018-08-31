@@ -265,8 +265,8 @@ jQuery.fn.helpViewer = function() {
   var img = $('<p id="help-button"><span><a href="">' + dotclear.msg.help + '</a></span></p>');
   var select = $();
   img.click(function(e) {
-    return toggle();
     e.preventDefault();
+    return toggle();
   });
   $('#content').append(img);
   // listen for scroll
