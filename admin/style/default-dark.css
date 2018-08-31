@@ -2158,6 +2158,7 @@ span.ibw {
 #quick {
   max-width: 72em;
   margin: 1em auto 2em;
+  padding: 1em;
   background: #323334;
   border: 1px solid #dbdcdd;
   text-align: left; }
