@@ -1340,7 +1340,7 @@ button[type=submit].disabled:hover {
   border-radius: 0;
   padding: 0; }
 
-input.details-cmd {
+button.details-cmd {
   font-size: 0.9em;
   border: none;
   border-radius: 0;
@@ -1348,7 +1348,7 @@ input.details-cmd {
   margin: 0 5px 0 0;
   color: currentColor;
   background: transparent; }
-  input.details-cmd:hover, input.details-cmd:focus {
+  button.details-cmd:hover, button.details-cmd:focus {
     background: transparent;
     color: #bee74b; }
 
@@ -2102,10 +2102,6 @@ span.ibw {
     padding-top: 6px;
     padding-bottom: 6px;
     font-size: 1em; }
-  #login-screen input.details-cmd {
-    width: auto;
-    margin: 0 5px 0 0;
-    padding: 0; }
   #login-screen #issue {
     margin-left: 1.33em;
     font-size: .91em; }
