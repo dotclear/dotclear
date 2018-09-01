@@ -67,6 +67,9 @@ msgstr "une annexe"
 msgid "%d attachments"
 msgstr "%d annexes"
 
+msgid "Previous entry"
+msgstr "Billet précédent"
+
 msgid "previous entries"
 msgstr "billets précédents"
 
@@ -75,6 +78,12 @@ msgstr "page"
 
 msgid "of"
 msgstr "de"
+
+msgid "Entries"
+msgstr "Billets"
+
+msgid "Next entry"
+msgstr "Billet suivant"
 
 msgid "next entries"
 msgstr "billets suivants"
