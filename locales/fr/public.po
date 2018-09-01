@@ -67,6 +67,9 @@ msgstr "une annexe"
 msgid "%d attachments"
 msgstr "%d annexes"
 
+msgid "Previous entry:"
+msgstr "Billet précédent :"
+
 msgid "previous entries"
 msgstr "billets précédents"
 
@@ -75,6 +78,12 @@ msgstr "page"
 
 msgid "of"
 msgstr "de"
+
+msgid "Entries"
+msgstr "Billets"
+
+msgid "Next entry:"
+msgstr "Billet suivant :"
 
 msgid "next entries"
 msgstr "billets suivants"
@@ -249,6 +258,9 @@ msgstr "Vous devez indiquer un mot de passe pour accéder à cette partie."
 
 msgid "Password:"
 msgstr "Mot de passe :"
+
+msgid "Access to content"
+msgstr "Accéder au contenu"
 
 msgid "You must provide a valid email address."
 msgstr "Vous devez indiquer une adresse e-mail valide."
