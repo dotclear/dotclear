@@ -94,13 +94,16 @@ jQuery.fn.toggleWithLegend = function(target, s) {
   }
   var toggle = function(i, speed) {
     speed = speed || 0;
+    var b = $(i).get(0);
     if (p.hide) {
-      $(i).get(0).value = p.img_on_txt;
-      $(i).get(0).setAttribute('aria-label', p.img_on_alt);
+      b.firstChild.data = p.img_on_txt;
+      b.setAttribute('value', p.img_on_txt);
+      b.setAttribute('aria-label', p.img_on_alt);
       target.addClass('hide');
     } else {
-      $(i).get(0).value = p.img_off_txt;
-      $(i).get(0).setAttribute('aria-label', p.img_off_alt);
+      b.firstChild.data = p.img_off_txt;
+      b.setAttribute('value', p.img_off_txt);
+      b.setAttribute('aria-label', p.img_off_alt);
       target.removeClass('hide');
       if (p.fn) {
         p.fn.apply(target);
@@ -121,11 +124,13 @@ jQuery.fn.toggleWithLegend = function(target, s) {
     p.hide = !p.hide;
   };
   return this.each(function() {
-    var b = document.createElement('input');
-    b.setAttribute('type', 'submit');
+    var b = document.createElement('button');
+    b.setAttribute('type', 'button');
     b.className = 'details-cmd';
     b.value = p.img_on_txt;
-    b.setAttribute('aria-label', p.img_off_alt);
+    b.setAttribute('aria-label', p.img_on_alt);
+    var t = document.createTextNode(p.img_on_txt);
+    b.appendChild(t);
 
     var ctarget = p.legend_click ? this : b;
     $(ctarget).css('cursor', 'pointer');
@@ -176,14 +181,14 @@ jQuery.fn.toggleWithLegend = function(target, s) {
     });
   };
   var singleExpander = function singleExpander(line) {
-    $('<input class="details-cmd" type="submit" value="' + dotclear.img_plus_txt + '" aria-label="' + dotclear.img_plus_alt + '"/>').click(function(e) {
+    $('<button type="button" class="details-cmd" aria-label="' + dotclear.img_plus_alt + '">' + dotclear.img_plus_txt + '</button>').click(function (e) {
       toggleArrow(this);
       $.expandContent.options.callback.call(this, line);
       e.preventDefault();
     }).prependTo($(line).children().get(0)); // first td
   };
   var multipleExpander = function multipleExpander(line, lines) {
-    $('<input class="details-cmd" type="submit" value="' + dotclear.img_plus_txt + '" aria-label="' + dotclear.img_plus_alt + '"/>').click(function(e) {
+    $('<button type="button" class="details-cmd" aria-label="' + dotclear.img_plus_alt + '">' + dotclear.img_plus_txt + '</button>').click(function (e) {
       var that = this;
       var action = toggleArrow(this);
       lines.each(function() {
@@ -203,10 +208,12 @@ jQuery.fn.toggleWithLegend = function(target, s) {
       }
     }
     if (action == 'open') {
-      button.value = dotclear.img_minus_txt;
+      button.firstChild.data = dotclear.img_minus_txt;
+      button.setAttribute('value', dotclear.img_minus_txt);
       button.setAttribute('aria-label', dotclear.img_minus_alt);
     } else {
-      button.value = dotclear.img_plus_txt;
+      button.firstChild.data = dotclear.img_plus_txt;
+      button.setAttribute('value', dotclear.img_plus_txt);
       button.setAttribute('aria-label', dotclear.img_plus_alt);
     }
     return action;
@@ -243,7 +250,7 @@ jQuery.fn.helpViewer = function() {
     }
   };
   var textToggler = function(o) {
-    var b = $('<input class="details-cmd" type="submit" value="' + p.img_on_txt + '" aria-label="' + p.img_on_alt + '"/>');
+    var b = $('<button type="button" class="details-cmd" aria-label="' + p.img_on_alt + '">' + p.img_on_txt + '</button>');
     o.css('cursor', 'pointer');
     var hide = true;
     o.prepend(' ').prepend(b);
@@ -257,11 +264,13 @@ jQuery.fn.helpViewer = function() {
         return true;
       });
       hide = !hide;
-      var img = $(this).find('input.details-cmd');
+      var img = $(this).find('button.details-cmd');
       if (!hide) {
+        img.html(p.img_off_txt);
         img.attr('value', p.img_off_txt);
         img.attr('aria-label', p.img_off_alt);
       } else {
+        img.html(p.img_on_txt);
         img.attr('value', p.img_on_txt);
         img.attr('aria-label', p.img_on_alt);
       }
@@ -277,8 +286,8 @@ jQuery.fn.helpViewer = function() {
   var img = $('<p id="help-button"><span><a href="">' + dotclear.msg.help + '</a></span></p>');
   var select = $();
   img.click(function(e) {
-    return toggle();
     e.preventDefault();
+    return toggle();
   });
   $('#content').append(img);
   // listen for scroll
