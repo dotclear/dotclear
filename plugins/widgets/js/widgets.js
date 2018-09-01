@@ -12,11 +12,13 @@ dotclear.postExpander = function(line) {
   var br = title.find('br');
   title.empty().append(order).append(link).append(tools).append(br);
 
-  var b = document.createElement('input');
-  b.setAttribute('type', 'submit');
+  var b = document.createElement('button');
+  b.setAttribute('type', 'button');
   b.className = 'details-cmd';
   b.value = dotclear.img_plus_txt;
   b.setAttribute('aria-label', dotclear.img_plus_alt);
+  var t = document.createTextNode(dotclear.img_plus_txt);
+  b.appendChild(t);
   b.onclick = function(e) {
     e.preventDefault();
     dotclear.viewPostContent($(this).parents('li'));
@@ -35,10 +37,12 @@ dotclear.viewPostContent = function(line, action) {
 
   if (action == 'close' || (action == 'toogle' && !isopen)) {
     line.find('.widgetSettings').hide();
+    img.html(dotclear.img_plus_txt);
     img.attr('value', dotclear.img_plus_txt);
     img.attr('aria-label', dotclear.img_plus_alt);
   } else if (action == 'open' || (action == 'toogle' && isopen)) {
     line.find('.widgetSettings').show();
+    img.html(dotclear.img_minus_txt);
     img.attr('value', dotclear.img_minus_txt);
     img.attr('aria-label', dotclear.img_minus_alt);
   }
