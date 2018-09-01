@@ -116,3 +116,14 @@ p, ul, ol {
     margin-bottom: .5em;
 }
 ul ul, ul ol, ol ol, ol ul { margin-top: .5em; }
+/* a11y */
+.sr {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
