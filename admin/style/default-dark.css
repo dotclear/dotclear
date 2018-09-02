@@ -2739,6 +2739,7 @@ div.template-upload {
   padding: 4px 4px 0 18px; }
 
 #m_search {
+  color: #fff;
   background: transparent url(search.svg) no-repeat 0 center;
   padding-left: 20px; }
 
@@ -3685,6 +3686,7 @@ img.mfp-img {
       display: block; }
 
 .debug {
+  color: #ae323b;
   background: #ffd478;
   padding: 3px 0.5em 2px; }
 
