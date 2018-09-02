@@ -344,7 +344,7 @@ if ($blog_id) {
 
     echo
     '<div class="multi-part" id="params" title="' . __('Parameters') . '">' .
-    '<h3 class="out-of-screen-if-js">' . __('Parameters') . '</h3>' .
+    '<div id="standard-pref"><h3>' . __('Blog parameters') . '</h3>' .
         '<form action="' . $action . '" method="post" id="blog-form">';
 
     echo
@@ -614,6 +614,7 @@ if ($blog_id) {
     '</div>' .
     '<br class="clear" />' . //Opera sucks
 
+    '</div>' .
     '</div>';
 
     echo '<div id="advanced-pref"><h3>' . __('Advanced parameters') . '</h3>';
