@@ -1,3 +1,11 @@
+Dotclear 2.14.2 - 2018-09-04
+===========================================================
+* 🛡 Security: Authenticated cross-site scripting (XSS) was possible due to the .ahtml (or .bhtml, .chtml, …) file extension being allowed in the media manager. Thank's Josiah Pierce for report (CVE-2018-16358)
+* 🛡 Security: Unregister phar wrapper in order to avoid PHP Phar extension vulerability
+* Fix: Enter key in some input fields were not redirect to the parent form
+* Fix: Unable to save modified theme's files in theme editor, when Codemirror is used
+* Fix: Back to the original global_filters() template function (will be rewritten in the next 2.15)
+
 Dotclear 2.14.1 - 2018-08-17
 ===========================================================
 * 🐘 PHP 5.6+ is required - PHP 5.5 is buggy with the 2.14 release
