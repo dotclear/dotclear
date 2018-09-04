@@ -31,6 +31,7 @@ ul.spaminfo .feed {
   margin: 1px 0 0 0;
   padding: 0.2em 0.5em;
 }
-.antispam p.global {
+.antispam .global {
+  color: #3c3c3c;
   background: #fec;
 }
