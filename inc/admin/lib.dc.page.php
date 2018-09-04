@@ -167,11 +167,11 @@ class dcPage
         '  <title>' . $title . ' - ' . html::escapeHTML($core->blog->name) . ' - ' . html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n";
 
         if ($core->auth->user_prefs->interface->darkmode) {
-            echo self::cssLoad('style/default-dark.css');
             echo self::jsVars(array('dotclear_darkMode' => 1));
+            echo self::cssLoad('style/default-dark.css');
         } else {
-            echo self::cssLoad('style/default.css');
             echo self::jsVars(array('dotclear_darkMode' => 0));
+            echo self::cssLoad('style/default.css');
         }
         if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
             echo self::cssLoad('style/default-rtl.css');
@@ -448,11 +448,11 @@ class dcPage
         '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
 
         if ($core->auth->user_prefs->interface->darkmode) {
-            echo self::cssLoad('style/default-dark.css');
             echo self::jsVars(array('dotclear_darkMode' => 1));
+            echo self::cssLoad('style/default-dark.css');
         } else {
-            echo self::cssLoad('style/default.css');
             echo self::jsVars(array('dotclear_darkMode' => 0));
+            echo self::cssLoad('style/default.css');
         }
         if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
             echo self::cssLoad('style/default-rtl.css');
