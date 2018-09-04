@@ -310,15 +310,6 @@ class dcUpgrade
             @unlink(DC_ROOT . '/' . 'inc/libs/clearbricks/.hgignore');
         }
 
-        if (version_compare($version, '2.4.0', '<=')) {
-            # setup media_exclusion
-            $strReq = 'UPDATE ' . $core->prefix . 'setting ' .
-                "SET setting_value = '/\\.php\$/i' " .
-                "WHERE setting_id = 'media_exclusion' " .
-                "AND setting_value = '' ";
-            $core->con->execute($strReq);
-        }
-
         if (version_compare($version, '2.5', '<=')) {
             # Try to disable daInstaller plugin if it has been installed outside the default plugins directory
             $path    = explode(PATH_SEPARATOR, DC_PLUGINS_ROOT);
@@ -453,29 +444,11 @@ class dcUpgrade
                 " AND setting_ns = 'system' " .
                 " AND setting_value = '1.11.1' ";
             $core->con->execute($strReq);
-            # setup media_exclusion (cope with php, php5, php7, … rather than only .php)
-            $strReq = 'UPDATE ' . $core->prefix . 'setting ' .
-                " SET setting_value = '/\\.php[0-9]*\$/i' " .
-                " WHERE setting_id = 'media_exclusion' " .
-                " AND setting_ns = 'system' " .
-                " AND setting_value = '/\\.php\$/i' ";
-            $core->con->execute($strReq);
             # Some new settings should be initialized, prepare db queries
             $strReq = 'INSERT INTO ' . $core->prefix . 'setting' .
                 ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
                 ' VALUES(\'%s\',\'system\',\'%s\',\'boolean\',\'%s\')';
             $core->con->execute(sprintf($strReq, 'no_search', '0', 'Disable internal search system'));
-        }
-
-        if (version_compare($version, '2.8.2', '<=')) {
-            # Update flie exclusion upload regex
-            $strReq = 'UPDATE ' . $core->prefix . 'setting ' .
-                " SET setting_value = '/\\.(phps?|pht(ml)?|phl)[0-9]*\$/i' " .
-                " WHERE setting_id = 'media_exclusion' " .
-                " AND setting_ns = 'system' " .
-                " AND (setting_value = '/\\.php[0-9]*\$/i' " .
-                "   OR setting_value = '/\\.php\$/i') ";
-            $core->con->execute($strReq);
         }
 
         if (version_compare($version, '2.9', '<=')) {
@@ -503,16 +476,6 @@ class dcUpgrade
             # Some settings and prefs should be moved from string to array
             self::prefs2array('dashboard', 'favorites');
             self::prefs2array('interface', 'media_last_dirs');
-
-            # Update flie exclusion upload regex
-            $strReq = 'UPDATE ' . $core->prefix . 'setting ' .
-                " SET setting_value = '/\\.(phps?|pht(ml)?|phl|s?html?|js)[0-9]*\$/i' " .
-                " WHERE setting_id = 'media_exclusion' " .
-                " AND setting_ns = 'system' " .
-                " AND (setting_value = '/\\.php[0-9]*\$/i' " .
-                "   OR setting_value = '/\\.php\$/i') " .
-                "   OR setting_value = '/\\.(phps?|pht(ml)?|phl)[0-9]*\$/i' ";
-            $core->con->execute($strReq);
         }
 
         if (version_compare($version, '2.10', '<')) {
@@ -525,17 +488,6 @@ class dcUpgrade
             if (!file_exists($f)) {
                 @file_put_contents($f, 'Require all denied' . "\n" . 'Deny from all' . "\n");
             }
-
-            # Update flie exclusion upload regex
-            $strReq = 'UPDATE ' . $core->prefix . 'setting ' .
-                " SET setting_value = '/\\.(phps?|pht(ml)?|phl|s?html?|js|htaccess)[0-9]*\$/i' " .
-                " WHERE setting_id = 'media_exclusion' " .
-                " AND setting_ns = 'system' " .
-                " AND (setting_value = '/\\.php[0-9]*\$/i' " .
-                "   OR setting_value = '/\\.php\$/i') " .
-                "   OR setting_value = '/\\.(phps?|pht(ml)?|phl)[0-9]*\$/i' " .
-                "   OR setting_value = '/\\.(phps?|pht(ml)?|phl|s?html?|js)[0-9]*\$/i'";
-            $core->con->execute($strReq);
 
             # Some new settings should be initialized, prepare db queries
             $strReq = 'INSERT INTO ' . $core->prefix . 'setting' .
@@ -687,17 +639,17 @@ class dcUpgrade
             @unlink(DC_ROOT . '/' . 'admin/js/jquery/jquery.bgFade.js');
         }
 
-        if (version_compare($version, '2.14.2', '<')) {
+        if (version_compare($version, '2.14.3', '<')) {
             # Update flie exclusion upload regex
             $strReq = 'UPDATE ' . $core->prefix . 'setting ' .
-                " SET setting_value = '/\\.(phps?|pht(ml)?|phl|.?html?|js|htaccess)[0-9]*\$/i' " .
+                " SET setting_value = '/\\.(phps?|pht(ml)?|phl|.?html?|js|htaccess)[0-9]*$/i' " .
                 " WHERE setting_id = 'media_exclusion' " .
                 " AND setting_ns = 'system' " .
-                " AND (setting_value = '/\\.php[0-9]*\$/i' " .
-                "   OR setting_value = '/\\.php\$/i') " .
-                "   OR setting_value = '/\\.(phps?|pht(ml)?|phl)[0-9]*\$/i' " .
-                "   OR setting_value = '/\\.(phps?|pht(ml)?|phl|s?html?|js)[0-9]*\$/i'" .
-                "   OR setting_value = '/\\.(phps?|pht(ml)?|phl|s?html?|js|htaccess)[0-9]*\$/i'";
+                " AND (setting_value = '/\\.php[0-9]*$/i' " .
+                "   OR setting_value = '/\\.php$/i') " .
+                "   OR setting_value = '/\\.(phps?|pht(ml)?|phl)[0-9]*$/i' " .
+                "   OR setting_value = '/\\.(phps?|pht(ml)?|phl|s?html?|js)[0-9]*$/i'" .
+                "   OR setting_value = '/\\.(phps?|pht(ml)?|phl|s?html?|js|htaccess)[0-9]*$/i'";
             $core->con->execute($strReq);
         }
 
