@@ -1378,7 +1378,7 @@ class dcCore
                     'Enable XML/RPC interface'),
                 array('lang', 'string', 'en',
                     'Default blog language'),
-                array('media_exclusion', 'string', '/\.(phps?|pht(ml)?|phl|.?html?|js|htaccess)[0-9]*$/i',
+                array('media_exclusion', 'string', '/\.(phps?|pht(ml)?|phl|.?html?|xml|js|htaccess)[0-9]*$/i',
                     'File name exclusion pattern in media manager. (PCRE value)'),
                 array('media_img_m_size', 'integer', 448,
                     'Image medium size in media manager'),
