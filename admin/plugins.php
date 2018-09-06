@@ -9,7 +9,7 @@
 
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
-dcPage::check('admin');
+dcPage::checkSuper();
 
 # -- Page helper --
 $list = new adminModulesList(
