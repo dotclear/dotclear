@@ -113,6 +113,8 @@ class dcFavorites
             if (!$this->core->auth->check($fattr['permissions'], $this->core->blog->id)) {
                 return false;
             }
+        } elseif (!$this->core->auth->isSuperAdmin()) {
+            return false;
         }
         return $fattr;
     }
@@ -181,7 +183,6 @@ class dcFavorites
                 }
             }
         }
-
     }
 
     /**
