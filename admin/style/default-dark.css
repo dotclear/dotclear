@@ -223,6 +223,9 @@ h6 {
 /** --------------------------------------------------
   Colors
 --------------------------------------------------- */
+/* bright red */
+/* slategray */
+/* soft dark blue */
 /** --------------------------------------------------
     Common rules
 --------------------------------------------------- */
@@ -3206,6 +3209,61 @@ ul.from-left {
 /* _media_item.js */
 .color-div {
   border: 1px solid #c9cbcf; }
+
+/* Badges */
+/*
+   Set .badgeable to badge parent's (not mandatory for menu items), then use:
+      .badge (standard badge)
+    which must be combined with :
+      .badge-icon (dashboard icon) → top right, or
+      .badge-block (dashboard module) → top left, or
+      .badge-inline (menu item) → right centered
+    and may be combined with :
+      .badge-info → blue background
+    and may be combined with (only in dashboard, not in menu) :
+      .badge-block-icon (dashboard icon or module) → soft badge on top right
+*/
+.badgeable {
+  /* class to set to badge parent's, not mandatory for menu items */
+  position: relative; }
+
+/* Badge design */
+.badge {
+  color: #fff;
+  background-color: #d54e21;
+  vertical-align: top;
+  border-radius: 10px;
+  padding: 0 .6em; }
+
+.badge-info {
+  background-color: #3f51b5; }
+
+.badge-icon {
+  border-radius: 5px; }
+
+.badge-block-icon {
+  background-color: #708090; }
+
+/* Badge position */
+.badge-icon {
+  /* Dashboard icon → badge on top rigt */
+  position: absolute;
+  top: 0;
+  right: 20px; }
+
+.badge-block {
+  /* Dashboard module → badge on top left */
+  position: absolute;
+  top: -10px;
+  right: -10px; }
+
+.badge-block-icon {
+  /* Dashboard icon/module → badge on top rigt */
+  right: 20px; }
+
+.badge-inline {
+  /* Menu item */
+  margin-left: .5em; }
 
 /* ------------------------------------------------------------------------------------
 															UN POIL DE MEDIA QUERIES
