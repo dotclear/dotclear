@@ -21,19 +21,7 @@
 	border: 1px solid $color-div-border;
 }
 
-/* Badges */
-/*
-   Set .badgeable to badge parent's (not mandatory for menu items), then use:
-      .badge (standard badge)
-    which must be combined with :
-      .badge-icon (dashboard icon) → top right, or
-      .badge-block (dashboard module) → top left, or
-      .badge-inline (menu item) → right centered
-    and may be combined with :
-      .badge-info → blue background
-    and may be combined with (only in dashboard, not in menu) :
-      .badge-block-icon (dashboard icon or module) → soft badge on top right
-*/
+/* Badges (common.js) */
 
 .badgeable {
   /* class to set to badge parent's, not mandatory for menu items */
@@ -48,31 +36,30 @@
   border-radius: 10px;
   padding: 0 .6em;
 }
-.badge-info {
-  background-color: $badge-info-background
-}
 .badge-icon {
-  border-radius: 5px;
+  background-color: $badge-soft-background;
 }
-.badge-block-icon {
-  background-color: $badge-soft-background
+
+/* Badge background override */
+.badge-std {
+  background-color: $badge-std-background;
+}
+.badge-info {
+  background-color: $badge-info-background;
+}
+.badge-soft {
+  background-color: $badge-soft-background;
 }
 
 /* Badge position */
-.badge-icon {
-  /* Dashboard icon → badge on top rigt */
-  position: absolute;
-  top: 0;
-  right: 20px;
-}
 .badge-block {
-  /* Dashboard module → badge on top left */
+  /* Dashboard module → badge on top right */
   position: absolute;
   top: -10px;
   right: -10px;
 }
-.badge-block-icon {
-  /* Dashboard icon/module → badge on top rigt */
+.badge-icon {
+  /* Dashboard icon → badge on top right */
   right: 20px;
 }
 .badge-inline {
