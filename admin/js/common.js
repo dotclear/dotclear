@@ -170,14 +170,14 @@ jQuery.fn.toggleWithLegend = function(target, s) {
     });
   };
   var singleExpander = function singleExpander(line, callback) {
-    $('<button type="button" class="details-cmd" aria-label="' + dotclear.img_plus_alt + '">' + dotclear.img_plus_txt + '</button>').click(function (e) {
+    $('<button type="button" class="details-cmd" aria-label="' + dotclear.img_plus_alt + '">' + dotclear.img_plus_txt + '</button>').click(function(e) {
       toggleArrow(this);
       callback(line);
       e.preventDefault();
     }).prependTo($(line).children().get(0)); // first td
   };
   var multipleExpander = function multipleExpander(line, lines, callback) {
-    $('<button type="button" class="details-cmd" aria-label="' + dotclear.img_plus_alt + '">' + dotclear.img_plus_txt + '</button>').click(function (e) {
+    $('<button type="button" class="details-cmd" aria-label="' + dotclear.img_plus_alt + '">' + dotclear.img_plus_txt + '</button>').click(function(e) {
       var action = toggleArrow(this);
       lines.each(function() {
         toggleArrow(this.firstChild.firstChild, action);
@@ -445,7 +445,81 @@ var dotclear = {
       e.preventDefault();
       window.open($(this).attr('href'));
     });
+  },
+
+  badge: function($elt, options = null) {
+    // Cope with selector given as string or DOM element rather than a jQuery object
+    if (typeof $elt === 'string' || $elt instanceof Element) {
+      $elt = $($elt);
+    }
+
+    // Return if elt does not exist
+    if (!$elt.length) return;
+
+    // Cope with options
+    var opt = $.extend({
+      /* sibling: define if the given element is a sibling of the badge or it's parent
+       *  true: use $elt.after() to add badge
+       *  false: use $elt.parent().append() to add badge (default)
+       */
+      sibling: false,
+      /* id: badge unique class
+       *  this class will be used to delete all corresponding badge (used for removing and updating)
+       */
+      id: 'default',
+      /* remove: will remove the badge if set to true */
+      remove: false,
+      /* value: badge value */
+      value: null,
+      /* inline: if set to true, the badge is an inline element (useful for menu item) rather than a block */
+      inline: false,
+      /* icon: if set to true, the badge is attached to a dashboard icon (needed for correct positionning) */
+      icon: false,
+      /* type: Override default background (which may vary)
+       *  by default badge background are soft grey for dashboard icons (see opt.icon) and bright red for all other elements
+       *  possible values:
+       *    'std':  bright red
+       *    'info': blue
+       *    'soft': soft grey
+       */
+      type: '',
+      /* classes: additionnal badge classes */
+      classes: ''
+    }, options);
+
+    // Set some constants
+    const classid = 'span.badge.badge-' + opt.id; // Pseudo unique class
+
+    // Set badgeable class to elt parent's (if sibling) or elt itself, if it is necessary
+    var $parent = (opt.sibling ? $elt.parent() : $elt);
+    if (!opt.inline && !opt.remove && !$parent.hasClass('badgeable')) {
+      $parent.addClass('badgeable');
+    }
+
+    // Remove existing badge if exists
+    var $badge = (opt.sibling ? $parent.children(classid) : $elt.children(classid));
+    if ($badge.length) {
+      $badge.remove();
+    }
+
+    if (!opt.remove && opt.value !== null) {
+      // Add the new badge
+      const cls = 'badge badge-' + opt.id + ' ' +
+        (opt.inline ? 'badge-inline' : 'badge-block') +
+        (opt.icon ? ' badge-icon' : '') +
+        (opt.type !== '' ? ' badge-' + opt.type : '') +
+        (opt.classes !== '' ? ' ' + opt.classes : '');
+      const xml = '<span class="' + cls + '" aria-hidden="true">' + opt.value + '</span>';
+      if (opt.sibling) {
+        // Add badge after it's sibling
+        $elt.after(xml);
+      } else {
+        // Append badge to the elt
+        $elt.append(xml);
+      }
+    }
   }
+
 };
 /* On document ready
 -------------------------------------------------------- */
