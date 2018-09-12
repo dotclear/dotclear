@@ -32,7 +32,7 @@
 .badge {
   color: $badge-color;
   background-color: $badge-std-background;
-  border: 1px solid currentColor;
+  border: 1px solid $badge-border;
   vertical-align: top;
   border-radius: 10px;
   padding: 0 .6em;
