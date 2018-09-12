@@ -483,6 +483,12 @@ var dotclear = {
        *    'soft': soft grey
        */
       type: '',
+      /* left: display badge on the left rather than on the right (unused for inline badge) */
+      left: false,
+      /* noborder: do not display the badge border */
+      noborder: false,
+      /* small: use a smaller font-size */
+      small: false,
       /* classes: additionnal badge classes */
       classes: ''
     }, options);
@@ -502,13 +508,18 @@ var dotclear = {
       $badge.remove();
     }
 
+    // Add the new badge if any
     if (!opt.remove && opt.value !== null) {
-      // Add the new badge
+      // Compose badge classes
       const cls = 'badge badge-' + opt.id + ' ' +
         (opt.inline ? 'badge-inline' : 'badge-block') +
         (opt.icon ? ' badge-icon' : '') +
         (opt.type !== '' ? ' badge-' + opt.type : '') +
+        (opt.left ? ' badge-left' : '') +
+        (opt.noborder ? ' badge-noborder' : '') +
+        (opt.small ? ' badge-small' : '') +
         (opt.classes !== '' ? ' ' + opt.classes : '');
+      // Compose badge
       const xml = '<span class="' + cls + '" aria-hidden="true">' + opt.value + '</span>';
       if (opt.sibling) {
         // Add badge after it's sibling

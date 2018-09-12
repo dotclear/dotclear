@@ -32,6 +32,7 @@
 .badge {
   color: $badge-color;
   background-color: $badge-std-background;
+  border: 1px solid currentColor;
   vertical-align: top;
   border-radius: 10px;
   padding: 0 .6em;
@@ -66,3 +67,29 @@
   /* Menu item */
   margin-left: .5em;
 }
+.badge-left {
+  right: auto;
+  left: -10px;
+  &.badge-icon {
+    left: 20px;
+  }
+}
+
+/* Badge design option */
+.badge-noborder {
+  border: none;
+}
+.badge-small {
+  font-size: smaller;
+  &.badge-icon {
+    right: 25px;
+    &.badge-left {
+      right: auto;
+      left: 25px;
+    }
+  }
+}
+.badge-square {
+  border-radius: 0;
+}
+
