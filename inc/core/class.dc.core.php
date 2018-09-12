@@ -375,12 +375,9 @@ class dcCore
     @param    behavior    <b>string</b>    Behavior name
     @return    <b>string</b> Behavior concatened result
      */
-    public function callBehavior($behavior)
+    public function callBehavior($behavior, ...$args)
     {
         if (isset($this->behaviors[$behavior])) {
-            $args = func_get_args();
-            array_shift($args);
-
             $res = '';
 
             foreach ($this->behaviors[$behavior] as $f) {

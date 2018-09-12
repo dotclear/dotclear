@@ -123,9 +123,9 @@ class flatBackupItem
         return isset($this->__data[$n]);
     }
 
-    public function drop()
+    public function drop(...$args)
     {
-        foreach (func_get_args() as $n) {
+        foreach ($args as $n) {
             if (isset($this->__data[$n])) {
                 unset($this->__data[$n]);
             }

@@ -157,13 +157,9 @@ class dcMedia extends filemanager
         }
     }
 
-    protected function callFileHandler($type, $event)
+    protected function callFileHandler($type, $event, ...$args)
     {
         if (!empty($this->file_handler[$type][$event])) {
-            $args = func_get_args();
-            array_shift($args);
-            array_shift($args);
-
             foreach ($this->file_handler[$type][$event] as $f) {
                 call_user_func_array($f, $args);
             }

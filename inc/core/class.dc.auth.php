@@ -374,14 +374,11 @@ class dcAuth
      * @param callback    $f            Callback function
      * @return mixed
      */
-    public function sudo($f)
+    public function sudo($f, ...$args)
     {
         if (!is_callable($f)) {
             throw new Exception($f . ' function doest not exist');
         }
-
-        $args = func_get_args();
-        array_shift($args);
 
         if ($this->user_admin) {
             $res = call_user_func_array($f, $args);

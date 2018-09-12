@@ -618,7 +618,7 @@ class dcPage
         # Deprecated but we keep this for plugins.
     }
 
-    public static function helpBlock()
+    public static function helpBlock(...$params)
     {
         global $core;
 
@@ -626,8 +626,7 @@ class dcPage
             return;
         }
 
-        $args = func_get_args();
-        $args = new ArrayObject($args);
+        $args = new ArrayObject($params);
 
         # --BEHAVIOR-- adminPageHelpBlock
         $GLOBALS['core']->callBehavior('adminPageHelpBlock', $args);
@@ -913,22 +912,21 @@ class dcPage
         return '';
     }
 
-    public static function jsConfirmClose()
+    public static function jsConfirmClose(...$args)
     {
-        $args = func_get_args();
         if (count($args) > 0) {
             foreach ($args as $k => $v) {
                 $args[$k] = "'" . html::escapeJS($v) . "'";
             }
-            $args = implode(',', $args);
+            $params = implode(',', $args);
         } else {
-            $args = '';
+            $params = '';
         }
 
         return
         self::jsLoad('js/confirm-close.js') .
         '<script type="text/javascript">' . "\n" .
-        "confirmClosePage = new confirmClose(" . $args . "); " .
+        "confirmClosePage = new confirmClose(" . $params . "); " .
         "confirmClose.prototype.prompt = '" . html::escapeJS(__('You have unsaved changes.')) . "'; " .
             "</script>\n";
     }
