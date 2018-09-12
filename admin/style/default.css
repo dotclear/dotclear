@@ -3219,10 +3219,11 @@ ul.from-left {
 .badge {
   color: #fff;
   background-color: #d54e21;
-  border: 1px solid currentColor;
+  border: 1px solid transparent;
   vertical-align: top;
   border-radius: 10px;
-  padding: 0 .6em; }
+  padding: 0 .6em;
+  }
 
 .badge-icon {
   background-color: #607d8b; }
