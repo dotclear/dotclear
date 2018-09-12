@@ -171,9 +171,9 @@ class dcUpdate
         return $this->forced_files;
     }
 
-    public function setForcedFiles()
+    public function setForcedFiles(...$args)
     {
-        $this->forced_files = func_get_args();
+        $this->forced_files = $args;
     }
 
     /**

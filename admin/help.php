@@ -11,10 +11,9 @@ require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
-$helpPage = function () {
+$helpPage = function (...$args) {
     $ret = array('content' => '', 'title' => '');
 
-    $args = func_get_args();
     if (empty($args)) {
         return $ret;
     }
