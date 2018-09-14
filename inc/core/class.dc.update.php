@@ -20,17 +20,17 @@ class dcUpdate
     protected $version;
     protected $cache_file;
 
-    protected $version_info = array(
+    protected $version_info = [
         'version'  => null,
         'href'     => null,
         'checksum' => null,
         'info'     => null,
         'php'      => '5.6',
         'notify'   => true
-    );
+    ];
 
     protected $cache_ttl    = '-6 hours';
-    protected $forced_files = array();
+    protected $forced_files = [];
 
     /**
      * Constructor
@@ -313,7 +313,7 @@ class dcUpdate
         $zip->close();
         unset($opts, $cur_digests, $new_digests, $zip);
 
-        $not_readable = array();
+        $not_readable = [];
 
         if (!empty($this->forced_files)) {
             $new_files = array_merge($new_files, $this->forced_files);
@@ -375,8 +375,8 @@ class dcUpdate
             $new_files = array_merge($new_files, $this->forced_files);
         }
 
-        $zip_files    = array();
-        $not_writable = array();
+        $zip_files    = [];
+        $not_writable = [];
 
         foreach ($new_files as $file) {
             if (!$file) {
@@ -423,10 +423,10 @@ class dcUpdate
         $cur_md5 = $cur_path = $cur_digests;
         $new_md5 = $new_path = $new_digests;
 
-        array_walk($cur_md5, array($this, 'parseLine'), 1);
-        array_walk($cur_path, array($this, 'parseLine'), 2);
-        array_walk($new_md5, array($this, 'parseLine'), 1);
-        array_walk($new_path, array($this, 'parseLine'), 2);
+        array_walk($cur_md5, [$this, 'parseLine'], 1);
+        array_walk($cur_path, [$this, 'parseLine'], 2);
+        array_walk($new_md5, [$this, 'parseLine'], 1);
+        array_walk($new_path, [$this, 'parseLine'], 2);
 
         $cur = array_combine($cur_md5, $cur_path);
         $new = array_combine($new_md5, $new_path);
@@ -463,7 +463,7 @@ class dcUpdate
         $opts     = FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES;
         $contents = file($digests_file, $opts);
 
-        $changes = array();
+        $changes = [];
 
         foreach ($contents as $digest) {
             if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', $digest, $m)) {

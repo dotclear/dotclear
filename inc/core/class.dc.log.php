@@ -40,7 +40,7 @@ class dcLog
     @param    count_only    <b>boolean</b>        Only counts results
     @return    <b>record</b>    A record with some more capabilities
      */
-    public function getLogs($params = array(), $count_only = false)
+    public function getLogs($params = [], $count_only = false)
     {
         if ($count_only) {
             $f = 'COUNT(log_id)';

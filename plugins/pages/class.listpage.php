@@ -19,7 +19,7 @@ class adminPagesList extends adminGenericList
             echo '<p><strong>' . __('No page') . '</strong></p>';
         } else {
             $pager   = new dcPager($page, $this->rs_count, $nb_per_page, 10);
-            $entries = array();
+            $entries = [];
             if (isset($_REQUEST['entries'])) {
                 foreach ($_REQUEST['entries'] as $v) {
                     $entries[(integer) $v] = true;
@@ -29,7 +29,7 @@ class adminPagesList extends adminGenericList
                 '<div class="table-outer">' .
                 '<table class="maximal dragable"><thead><tr>';
 
-            $cols = array(
+            $cols = [
                 'title'      => '<th colspan="3" scope="col" class="first">' . __('Title') . '</th>',
                 'date'       => '<th scope="col">' . __('Date') . '</th>',
                 'author'     => '<th scope="col">' . __('Author') . '</th>',
@@ -38,7 +38,7 @@ class adminPagesList extends adminGenericList
                 'trackbacks' => '<th scope="col"><img src="images/trackbacks.png" alt="" title="' . __('Trackbacks') .
                 '" /><span class="hidden">' . __('Trackbacks') . '</span></th>',
                 'status'     => '<th scope="col">' . __('Status') . '</th>'
-            );
+            ];
 
             $cols = new ArrayObject($cols);
             $this->core->callBehavior('adminPagesListHeader', $this->core, $this->rs, $cols);
@@ -114,22 +114,22 @@ class adminPagesList extends adminGenericList
         $res = '<tr class="line ' . ($this->rs->post_status != 1 ? 'offline ' : '') . $sts_class . '"' .
         ' id="p' . $this->rs->post_id . '">';
 
-        $cols = array(
+        $cols = [
             'position'   => '<td class="nowrap handle minimal">' .
-            form::number(array('order[' . $this->rs->post_id . ']'), array(
+            form::number(['order[' . $this->rs->post_id . ']'], [
                 'min'        => 1,
                 'default'    => $count + 1,
                 'class'      => 'position',
                 'extra_html' => 'title="' . sprintf(__('position of %s'), html::escapeHTML($this->rs->post_title)) . '"'
-            )) .
+            ]) .
             '</td>',
             'check'      => '<td class="nowrap">' .
-            form::checkbox(array('entries[]'), $this->rs->post_id,
-                array(
+            form::checkbox(['entries[]'], $this->rs->post_id,
+                [
                     'checked'    => $checked,
                     'disabled'   => !$this->rs->isEditable(),
                     'extra_html' => 'title="' . __('Select this page') . '"'
-                )
+                ]
             ) . '</td>',
             'title'      => '<td class="maximal" scope="row"><a href="' .
             $this->core->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '">' .
@@ -139,7 +139,7 @@ class adminPagesList extends adminGenericList
             'comments'   => '<td class="nowrap count">' . $this->rs->nb_comment . '</td>',
             'trackbacks' => '<td class="nowrap count">' . $this->rs->nb_trackback . '</td>',
             'status'     => '<td class="nowrap status">' . $img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach . '</td>'
-        );
+        ];
 
         $cols = new ArrayObject($cols);
         $this->core->callBehavior('adminPagesListValue', $this->core, $this->rs, $cols);

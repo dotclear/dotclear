@@ -15,7 +15,7 @@ $tab = empty($_REQUEST['tab']) ? '' : $_REQUEST['tab'];
 
 $post_id = !empty($_REQUEST['post_id']) ? (integer) $_REQUEST['post_id'] : null;
 if ($post_id) {
-    $post = $core->blog->getPosts(array('post_id' => $post_id));
+    $post = $core->blog->getPosts(['post_id' => $post_id]);
     if ($post->isEmpty()) {
         $post_id = null;
     }
@@ -30,8 +30,8 @@ $file                  = null;
 $popup                 = (integer) !empty($_REQUEST['popup']);
 $select                = !empty($_REQUEST['select']) ? (integer) $_REQUEST['select'] : 0; // 0 : none, 1 : single media, >1 : multiple medias
 $plugin_id             = isset($_REQUEST['plugin_id']) ? html::sanitizeURL($_REQUEST['plugin_id']) : '';
-$page_url_params       = array('popup' => $popup, 'select' => $select, 'post_id' => $post_id);
-$media_page_url_params = array('popup' => $popup, 'select' => $select, 'post_id' => $post_id, 'link_type' => $link_type);
+$page_url_params       = ['popup' => $popup, 'select' => $select, 'post_id' => $post_id];
+$media_page_url_params = ['popup' => $popup, 'select' => $select, 'post_id' => $post_id, 'link_type' => $link_type];
 
 if ($plugin_id != '') {
     $page_url_params['plugin_id']       = $plugin_id;
@@ -45,10 +45,10 @@ if ($id != '') {
 }
 
 if ($popup) {
-    $open_f  = array('dcPage', 'openPopup');
-    $close_f = array('dcPage', 'closePopup');
+    $open_f  = ['dcPage', 'openPopup'];
+    $close_f = ['dcPage', 'closePopup'];
 } else {
-    $open_f  = array('dcPage', 'open');
+    $open_f  = ['dcPage', 'open'];
     $close_f = function () {
         dcPage::helpBlock('core_media');
         dcPage::close();
@@ -72,7 +72,7 @@ try
     $core_media_writable = $core->media->writable();
 
     # Prepare directories combo box
-    $dirs_combo = array();
+    $dirs_combo = [];
     foreach ($core->media->getDBDirs() as $v) {
         $dirs_combo['/' . $v] = $v;
     }
@@ -181,7 +181,7 @@ if (!empty($_POST['save_blog_prefs'])) {
 
 # Function to get image title based on meta
 $get_img_title = function ($file, $pattern, $dto_first = false, $no_date_alone = false) {
-    $res     = array();
+    $res     = [];
     $pattern = preg_split('/\s*;;\s*/', $pattern);
     $sep     = ', ';
     $dates   = 0;
@@ -243,15 +243,15 @@ call_user_func($open_f, __('Media manager'),
     dcPage::jsDatePicker() .
     ($popup ? dcPage::jsPageTabs($tab) : ''),
     dcPage::breadcrumb(
-        array(
+        [
             html::escapeHTML($core->blog->name) => '',
             __('Media manager')                 => $home_url,
             $breadcrumb                         => ''
-        ),
-        array(
+        ],
+        [
             'home_link' => !$popup,
             'hl'        => false
-        )
+        ]
     )
 );
 
@@ -320,12 +320,12 @@ if ($select) {
         foreach (array_reverse($file->media_thumb) as $s => $v) {
             $s_checked = ($s == $media_img_default_size);
             echo '<label class="classic">' .
-            form::radio(array('src'), html::escapeHTML($v), $s_checked) . ' ' .
+            form::radio(['src'], html::escapeHTML($v), $s_checked) . ' ' .
             $core->media->thumb_sizes[$s][2] . '</label><br /> ';
         }
         $s_checked = (!isset($file->media_thumb[$media_img_default_size]));
         echo '<label class="classic">' .
-        form::radio(array('src'), $file->file_url, $s_checked) . ' ' . __('original') . '</label><br /> ';
+        form::radio(['src'], $file->file_url, $s_checked) . ' ' . __('original') . '</label><br /> ';
         echo '</p>';
 
     } elseif ($file_type[0] == 'audio') {
@@ -340,10 +340,10 @@ if ($select) {
     '<p>' .
     '<button type="button" id="media-select-ok" class="submit">' . __('Select') . '</button> ' .
     '<button type="button" id="media-select-cancel">' . __('Cancel') . '</button>' .
-    form::hidden(array('type'), html::escapeHTML($media_type)) .
-    form::hidden(array('title'), html::escapeHTML($file->media_title)) .
-    form::hidden(array('description'), html::escapeHTML($media_desc)) .
-    form::hidden(array('url'), $file->file_url) .
+    form::hidden(['type'], html::escapeHTML($media_type)) .
+    form::hidden(['title'], html::escapeHTML($file->media_title)) .
+    form::hidden(['description'], html::escapeHTML($media_desc)) .
+    form::hidden(['url'], $file->file_url) .
         '</p>';
 
     echo '</form>';
@@ -391,12 +391,12 @@ if ($popup && !$select) {
         foreach (array_reverse($file->media_thumb) as $s => $v) {
             $s_checked = ($s == $media_img_default_size);
             echo '<label class="classic">' .
-            form::radio(array('src'), html::escapeHTML($v), $s_checked) . ' ' .
+            form::radio(['src'], html::escapeHTML($v), $s_checked) . ' ' .
             $core->media->thumb_sizes[$s][2] . '</label><br /> ';
         }
         $s_checked = (!isset($file->media_thumb[$media_img_default_size]));
         echo '<label class="classic">' .
-        form::radio(array('src'), $file->file_url, $s_checked) . ' ' . __('original') . '</label><br /> ';
+        form::radio(['src'], $file->file_url, $s_checked) . ' ' . __('original') . '</label><br /> ';
         echo '</p>';
         echo '</div>';
 
@@ -404,13 +404,13 @@ if ($popup && !$select) {
         '<div class="two-boxes">' .
         '<h3>' . __('Image legend and title') . '</h3>' .
         '<p>' .
-        '<label for="legend1" class="classic">' . form::radio(array('legend', 'legend1'), 'legend',
+        '<label for="legend1" class="classic">' . form::radio(['legend', 'legend1'], 'legend',
             ($media_img_default_legend == 'legend')) .
         __('Legend and title') . '</label><br />' .
-        '<label for="legend2" class="classic">' . form::radio(array('legend', 'legend2'), 'title',
+        '<label for="legend2" class="classic">' . form::radio(['legend', 'legend2'], 'title',
             ($media_img_default_legend == 'title')) .
         __('Title') . '</label><br />' .
-        '<label for="legend3" class="classic">' . form::radio(array('legend', 'legend3'), 'none',
+        '<label for="legend3" class="classic">' . form::radio(['legend', 'legend3'], 'none',
             ($media_img_default_legend == 'none')) .
         __('None') . '</label>' .
             '</p>' .
@@ -419,17 +419,17 @@ if ($popup && !$select) {
         echo
         '<div class="two-boxes">' .
         '<h3>' . __('Image alignment') . '</h3>';
-        $i_align = array(
-            'none'   => array(__('None'), ($media_img_default_alignment == 'none' ? 1 : 0)),
-            'left'   => array(__('Left'), ($media_img_default_alignment == 'left' ? 1 : 0)),
-            'right'  => array(__('Right'), ($media_img_default_alignment == 'right' ? 1 : 0)),
-            'center' => array(__('Center'), ($media_img_default_alignment == 'center' ? 1 : 0))
-        );
+        $i_align = [
+            'none'   => [__('None'), ($media_img_default_alignment == 'none' ? 1 : 0)],
+            'left'   => [__('Left'), ($media_img_default_alignment == 'left' ? 1 : 0)],
+            'right'  => [__('Right'), ($media_img_default_alignment == 'right' ? 1 : 0)],
+            'center' => [__('Center'), ($media_img_default_alignment == 'center' ? 1 : 0)]
+        ];
 
         echo '<p>';
         foreach ($i_align as $k => $v) {
             echo '<label class="classic">' .
-            form::radio(array('alignment'), $k, $v[1]) . ' ' . $v[0] . '</label><br /> ';
+            form::radio(['alignment'], $k, $v[1]) . ' ' . $v[0] . '</label><br /> ';
         }
         echo '</p>';
         echo '</div>';
@@ -438,9 +438,9 @@ if ($popup && !$select) {
         '<div class="two-boxes">' .
         '<h3>' . __('Image insertion') . '</h3>' .
         '<p>' .
-        '<label for="insert1" class="classic">' . form::radio(array('insertion', 'insert1'), 'simple', !$media_img_default_link) .
+        '<label for="insert1" class="classic">' . form::radio(['insertion', 'insert1'], 'simple', !$media_img_default_link) .
         __('As a single image') . '</label><br />' .
-        '<label for="insert2" class="classic">' . form::radio(array('insertion', 'insert2'), 'link', $media_img_default_link) .
+        '<label for="insert2" class="classic">' . form::radio(['insertion', 'insert2'], 'link', $media_img_default_link) .
         __('As a link to the original image') . '</label>' .
             '</p>' .
             '</div>';
@@ -452,17 +452,17 @@ if ($popup && !$select) {
         '<h3>' . __('MP3 disposition') . '</h3>';
         dcPage::message(__("Please note that you cannot insert mp3 files with visual editor."), false);
 
-        $i_align = array(
-            'none'   => array(__('None'), ($media_img_default_alignment == 'none' ? 1 : 0)),
-            'left'   => array(__('Left'), ($media_img_default_alignment == 'left' ? 1 : 0)),
-            'right'  => array(__('Right'), ($media_img_default_alignment == 'right' ? 1 : 0)),
-            'center' => array(__('Center'), ($media_img_default_alignment == 'center' ? 1 : 0))
-        );
+        $i_align = [
+            'none'   => [__('None'), ($media_img_default_alignment == 'none' ? 1 : 0)],
+            'left'   => [__('Left'), ($media_img_default_alignment == 'left' ? 1 : 0)],
+            'right'  => [__('Right'), ($media_img_default_alignment == 'right' ? 1 : 0)],
+            'center' => [__('Center'), ($media_img_default_alignment == 'center' ? 1 : 0)]
+        ];
 
         echo '<p>';
         foreach ($i_align as $k => $v) {
             echo '<label class="classic">' .
-            form::radio(array('alignment'), $k, $v[1]) . ' ' . $v[0] . '</label><br /> ';
+            form::radio(['alignment'], $k, $v[1]) . ' ' . $v[0] . '</label><br /> ';
         }
 
         $public_player_style = unserialize($core->blog->settings->themes->mp3player_style);
@@ -489,17 +489,17 @@ if ($popup && !$select) {
         '<div class="two-boxes">' .
         '<h3>' . __('Video disposition') . '</h3>';
 
-        $i_align = array(
-            'none'   => array(__('None'), ($media_img_default_alignment == 'none' ? 1 : 0)),
-            'left'   => array(__('Left'), ($media_img_default_alignment == 'left' ? 1 : 0)),
-            'right'  => array(__('Right'), ($media_img_default_alignment == 'right' ? 1 : 0)),
-            'center' => array(__('Center'), ($media_img_default_alignment == 'center' ? 1 : 0))
-        );
+        $i_align = [
+            'none'   => [__('None'), ($media_img_default_alignment == 'none' ? 1 : 0)],
+            'left'   => [__('Left'), ($media_img_default_alignment == 'left' ? 1 : 0)],
+            'right'  => [__('Right'), ($media_img_default_alignment == 'right' ? 1 : 0)],
+            'center' => [__('Center'), ($media_img_default_alignment == 'center' ? 1 : 0)]
+        ];
 
         echo '<p>';
         foreach ($i_align as $k => $v) {
             echo '<label class="classic">' .
-            form::radio(array('alignment'), $k, $v[1]) . ' ' . $v[0] . '</label><br /> ';
+            form::radio(['alignment'], $k, $v[1]) . ' ' . $v[0] . '</label><br /> ';
         }
 
         $public_player_style = unserialize($core->blog->settings->themes->flvplayer_style);
@@ -516,10 +516,10 @@ if ($popup && !$select) {
     '<p>' .
     '<button type="button" id="media-insert-ok" class="submit">' . __('Insert') . '</button> ' .
     '<button type="button" id="media-insert-cancel">' . __('Cancel') . '</button>' .
-    form::hidden(array('type'), html::escapeHTML($media_type)) .
-    form::hidden(array('title'), html::escapeHTML($file->media_title)) .
-    form::hidden(array('description'), html::escapeHTML($media_desc)) .
-    form::hidden(array('url'), $file->file_url) .
+    form::hidden(['type'], html::escapeHTML($media_type)) .
+    form::hidden(['title'], html::escapeHTML($file->media_title)) .
+    form::hidden(['description'], html::escapeHTML($media_desc)) .
+    form::hidden(['url'], $file->file_url) .
         '</p>';
 
     echo '</form>';
@@ -530,10 +530,10 @@ if ($popup && !$select) {
         '<form id="save_settings" action="' . $core->adminurl->getBase('admin.media.item') . '" method="post">' .
         '<p>' . __('Make current settings as default') . ' ' .
         '<input class="reset" type="submit" name="save_blog_prefs" value="' . __('OK') . '" />' .
-        form::hidden(array('pref_src'), '') .
-        form::hidden(array('pref_alignment'), '') .
-        form::hidden(array('pref_insertion'), '') .
-        form::hidden(array('pref_legend'), '') .
+        form::hidden(['pref_src'], '') .
+        form::hidden(['pref_alignment'], '') .
+        form::hidden(['pref_insertion'], '') .
+        form::hidden(['pref_legend'], '') .
         $core->adminurl->getHiddenFormFields('admin.media.item', $page_url_params) .
         $core->formNonce() . '</p>' .
             '</form>' . '</div>';
@@ -579,9 +579,9 @@ if ($file->media_image) {
     foreach (array_reverse($file->media_thumb) as $s => $v) {
         $strong_link = ($s == $thumb_size) ? '<strong>%s</strong>' : '%s';
         printf($strong_link, '<a href="' . $core->adminurl->get('admin.media.item', array_merge($page_url_params,
-            array("size" => $s, 'tab' => 'media-details-tab'))) . '">' . $core->media->thumb_sizes[$s][2] . '</a> | ');
+            ["size" => $s, 'tab' => 'media-details-tab'])) . '">' . $core->media->thumb_sizes[$s][2] . '</a> | ');
     }
-    echo '<a href="' . $core->adminurl->get('admin.media.item', array_merge($page_url_params, array("size" => "o", "tab" => "media-details-tab"))) . '">' . __('original') . '</a>';
+    echo '<a href="' . $core->adminurl->get('admin.media.item', array_merge($page_url_params, ["size" => "o", "tab" => "media-details-tab"])) . '">' . __('original') . '</a>';
     echo '</p>';
 
     if ($thumb_size != 'o' && isset($file->media_thumb[$thumb_size])) {
@@ -605,11 +605,11 @@ if ($file->media_image) {
 
 // Show player if relevant
 if ($file_type[0] == 'audio') {
-    echo dcMedia::audioPlayer($file->type, $file->file_url, $core->adminurl->get("admin.home", array('pf' => 'player_mp3.swf')),
+    echo dcMedia::audioPlayer($file->type, $file->file_url, $core->adminurl->get("admin.home", ['pf' => 'player_mp3.swf']),
         null, $core->blog->settings->system->media_flash_fallback);
 }
 if ($file_type[0] == 'video') {
-    echo dcMedia::videoPlayer($file->type, $file->file_url, $core->adminurl->get("admin.home", array('pf' => 'player_flv.swf')),
+    echo dcMedia::videoPlayer($file->type, $file->file_url, $core->adminurl->get("admin.home", ['pf' => 'player_flv.swf']),
         null, $core->blog->settings->system->media_flash_fallback);
 }
 
@@ -632,18 +632,18 @@ echo
 
 if (empty($_GET['find_posts'])) {
     echo
-    '<p><a class="button" href="' . $core->adminurl->get('admin.media.item', array_merge($page_url_params, array("find_posts" => 1, "tab" => "media-details-tab"))) . '">' .
+    '<p><a class="button" href="' . $core->adminurl->get('admin.media.item', array_merge($page_url_params, ["find_posts" => 1, "tab" => "media-details-tab"])) . '">' .
     __('Show entries containing this media') . '</a></p>';
 } else {
     echo '<h3>' . __('Entries containing this media') . '</h3>';
-    $params = array(
+    $params = [
         'post_type' => '',
         'from'      => 'LEFT OUTER JOIN ' . $core->prefix . 'post_media PM ON P.post_id = PM.post_id ',
         'sql'       => 'AND (' .
         'PM.media_id = ' . (integer) $id . ' ' .
         "OR post_content_xhtml LIKE '%" . $core->con->escape($file->relname) . "%' " .
         "OR post_excerpt_xhtml LIKE '%" . $core->con->escape($file->relname) . "%' "
-    );
+    ];
 
     if ($file->media_image) {
         # We look for thumbnails too
@@ -727,10 +727,10 @@ if ($file->editable && $core_media_writable) {
     }
 
     if ($file->type == 'application/zip') {
-        $inflate_combo = array(
+        $inflate_combo = [
             __('Extract in a new directory')   => 'new',
             __('Extract in current directory') => 'current'
-        );
+        ];
 
         echo
         '<form class="clear fieldset" id="file-unzip" action="' . $core->adminurl->get("admin.media.item") . '" method="post">' .
@@ -762,7 +762,7 @@ if ($file->editable && $core_media_writable) {
     Previous line will be replaced by this one as soon as every browser will support datetime-local input type
     Dont forget to remove call to datepicker in media_item.js
 
-    form::datetime('media_dt', array('default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', $file->media_dt)))) .
+    form::datetime('media_dt', ['default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', $file->media_dt))]) .
      */
     '</p>' .
     '<p><label for="media_private" class="classic">' . form::checkbox('media_private', 1, $file->media_priv) . ' ' .
@@ -777,7 +777,7 @@ if ($file->editable && $core_media_writable) {
     echo
     '<form class="clear fieldset" action="' . $core->adminurl->get("admin.media.item") . '" method="post" enctype="multipart/form-data">' .
     '<h4>' . __('Change file') . '</h4>' .
-    '<div>' . form::hidden(array('MAX_FILE_SIZE'), DC_MAX_UPLOAD_SIZE) . '</div>' .
+    '<div>' . form::hidden(['MAX_FILE_SIZE'], DC_MAX_UPLOAD_SIZE) . '</div>' .
     '<p><label for="upfile">' . __('Choose a file:') .
     ' (' . sprintf(__('Maximum size %s'), files::size(DC_MAX_UPLOAD_SIZE)) . ') ' .
     '<input type="file" id="upfile" name="upfile" size="35" />' .

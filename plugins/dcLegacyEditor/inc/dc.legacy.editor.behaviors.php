@@ -21,7 +21,7 @@ class dcLegacyEditorBehaviors
      * @param tags     <b>array</b>  array of ids to inject editor
      * @param syntax   <b>string</b> wanted syntax (wiki,markdown,...)
      */
-    public static function adminPostEditor($editor = '', $context = '', array $tags = array(), $syntax = '')
+    public static function adminPostEditor($editor = '', $context = '', array $tags = [], $syntax = '')
     {
         if (empty($editor) || $editor != 'dcLegacyEditor') {return;}
 

@@ -14,8 +14,8 @@ if (!defined('DC_RC_PATH')) {return;}
 $__autoload['dcPagesActionsPage'] = dirname(__FILE__) . '/class.actionpage.php';
 $__autoload['adminPagesList']     = dirname(__FILE__) . '/class.listpage.php';
 
-$core->url->register('pages', 'pages', '^pages/(.+)$', array('urlPages', 'pages'));
-$core->url->register('pagespreview', 'pagespreview', '^pagespreview/(.+)$', array('urlPages', 'pagespreview'));
+$core->url->register('pages', 'pages', '^pages/(.+)$', ['urlPages', 'pages']);
+$core->url->register('pagespreview', 'pagespreview', '^pagespreview/(.+)$', ['urlPages', 'pagespreview']);
 
 $core->setPostType('page', 'plugin.php?p=pages&act=page&id=%d', $core->url->getURLFor('pages', '%s'), 'Pages');
 

@@ -22,7 +22,7 @@ class dcSettings
     protected $table;   ///< <b>string</b> Settings table name
     protected $blog_id; ///< <b>string</b> Blog ID
 
-    protected $namespaces = array(); ///< <b>array</b> Associative namespaces array
+    protected $namespaces = []; ///< <b>array</b> Associative namespaces array
 
     protected $ns; ///< <b>string</b> Current namespace
 
@@ -221,13 +221,13 @@ class dcSettings
         if (isset($this->namespaces[$this->ns]->$n)) {
             $this->namespaces[$this->ns]->$n['value'] = $v;
         } else {
-            $this->namespaces[$this->ns]->$n = array(
+            $this->namespaces[$this->ns]->$n = [
                 'ns'     => $this->ns,
                 'value'  => $v,
                 'type'   => gettype($n),
                 'label'  => '',
                 'global' => false
-            );
+            ];
         }
     }
 
@@ -320,7 +320,7 @@ class dcSettings
         // the settings directly, without passing via a namespace.
         $this->raiseDeprecated('dumpSettings');
 
-        $settings = array();
+        $settings = [];
         // Parse all the namespaces
         foreach (array_keys($this->namespaces) as $id => $ns) {
             $settings = array_merge($settings, $this->namespaces[$ns]->dumpSettings());
@@ -342,7 +342,7 @@ class dcSettings
         // the settings directly, without passing via a namespace.
         $this->raiseDeprecated('dumpGlobalSettings');
 
-        $settings = array();
+        $settings = [];
         // Parse all the namespaces
         foreach (array_keys($this->namespaces) as $id => $ns) {
             $settings = array_merge($settings, $this->namespaces[$ns]->dumpGlobalSettings());
@@ -362,10 +362,10 @@ class dcSettings
     @param    params        <b>array</b>        Parameters
     @return    <b>record</b>    A record
      */
-    public function getGlobalSettings($params = array())
+    public function getGlobalSettings($params = [])
     {
         $strReq = "SELECT * from " . $this->table . " ";
-        $where  = array();
+        $where  = [];
         if (!empty($params['ns'])) {
             $where[] = "setting_ns = '" . $this->con->escape($params['ns']) . "'";
         }

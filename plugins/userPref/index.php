@@ -68,18 +68,18 @@ $part = !empty($_GET['part']) && $_GET['part'] == 'global' ? 'global' : 'local';
 function prefLine($id, $s, $ws, $field_name, $strong_label)
 {
     if ($s['type'] == 'boolean') {
-        $field = form::combo(array($field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id),
-            array(__('yes') => 1, __('no') => 0), $s['value'] ? 1 : 0);
+        $field = form::combo([$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
+            [__('yes') => 1, __('no') => 0], $s['value'] ? 1 : 0);
     } else {
         if ($s['type'] == 'array') {
-            $field = form::field(array($field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id), 40, null,
+            $field = form::field([$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id], 40, null,
                 html::escapeHTML(json_encode($s['value'])));
         } else {
-            $field = form::field(array($field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id), 40, null,
+            $field = form::field([$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id], 40, null,
                 html::escapeHTML($s['value']));
         }
     }
-    $type = form::hidden(array($field_name . '_type' . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id . '_type'),
+    $type = form::hidden([$field_name . '_type' . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id . '_type'],
         html::escapeHTML($s['type']));
 
     $slabel = $strong_label ? '<strong>%s</strong>' : '%s';
@@ -102,11 +102,11 @@ function prefLine($id, $s, $ws, $field_name, $strong_label)
 <body>
 <?php
 echo dcPage::breadcrumb(
-    array(
+    [
         __('System')                            => '',
         html::escapeHTML($core->auth->userID()) => '',
         __('user:preferences')                  => ''
-    )) .
+    ]) .
 dcPage::notices();
 
 ?>
@@ -127,7 +127,7 @@ $table_header = '<div class="table-outer"><table class="prefs" id="%s"><caption 
     '<tbody>';
 $table_footer = '</tbody></table></div>';
 
-$prefs = array();
+$prefs = [];
 foreach ($core->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
     foreach ($workspace->dumpPrefs() as $k => $v) {
         $prefs[$ws][$k] = $v;
@@ -135,7 +135,7 @@ foreach ($core->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
 }
 ksort($prefs);
 if (count($prefs) > 0) {
-    $ws_combo = array();
+    $ws_combo = [];
     foreach ($prefs as $ws => $s) {
         $ws_combo[$ws] = '#l_' . $ws;
     }
@@ -143,7 +143,7 @@ if (count($prefs) > 0) {
     '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post">' .
     '<p class="anchor-nav">' .
     '<label for="lp_nav" class="classic">' . __('Goto:') . '</label> ' .
-    form::combo('lp_nav', $ws_combo, array('class' => 'navigation')) .
+    form::combo('lp_nav', $ws_combo, ['class' => 'navigation']) .
     ' <input type="submit" value="' . __('Ok') . '" id="lp_submit" />' .
     '<input type="hidden" name="p" value="userPref" />' .
     $core->formNonce() . '</p></form>';
@@ -173,7 +173,7 @@ foreach ($prefs as $ws => $s) {
 <h3 class="out-of-screen-if-js"><?php echo __('Global preferences'); ?></h3>
 
 <?php
-$prefs = array();
+$prefs = [];
 
 foreach ($core->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
     foreach ($workspace->dumpGlobalPrefs() as $k => $v) {
@@ -184,7 +184,7 @@ foreach ($core->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
 ksort($prefs);
 
 if (count($prefs) > 0) {
-    $ws_combo = array();
+    $ws_combo = [];
     foreach ($prefs as $ws => $s) {
         $ws_combo[$ws] = '#g_' . $ws;
     }
@@ -192,7 +192,7 @@ if (count($prefs) > 0) {
     '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post">' .
     '<p class="anchor-nav">' .
     '<label for="gp_nav" class="classic">' . __('Goto:') . '</label> ' .
-    form::combo('gp_nav', $ws_combo, array('class' => 'navigation')) .
+    form::combo('gp_nav', $ws_combo, ['class' => 'navigation']) .
     ' <input type="submit" value="' . __('Ok') . '" id="gp_submit" />' .
     '<input type="hidden" name="p" value="userPref" />' .
     $core->formNonce() . '</p></form>';

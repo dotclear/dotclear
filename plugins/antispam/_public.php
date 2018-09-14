@@ -11,6 +11,6 @@
 
 if (!defined('DC_RC_PATH')) {return;}
 
-$core->addBehavior('publicBeforeCommentCreate', array('dcAntispam', 'isSpam'));
-$core->addBehavior('publicBeforeTrackbackCreate', array('dcAntispam', 'isSpam'));
-$core->addBehavior('publicBeforeDocument', array('dcAntispam', 'purgeOldSpam'));
+$core->addBehavior('publicBeforeCommentCreate', ['dcAntispam', 'isSpam']);
+$core->addBehavior('publicBeforeTrackbackCreate', ['dcAntispam', 'isSpam']);
+$core->addBehavior('publicBeforeDocument', ['dcAntispam', 'purgeOldSpam']);

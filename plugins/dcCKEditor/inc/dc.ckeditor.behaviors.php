@@ -22,7 +22,7 @@ class dcCKEditorBehaviors
      * @param tags     <b>array</b>  array of ids into inject editor
      * @param syntax   <b>string</b> wanted syntax (xhtml)
      */
-    public static function adminPostEditor($editor = '', $context = '', array $tags = array(), $syntax = 'xhtml')
+    public static function adminPostEditor($editor = '', $context = '', array $tags = [], $syntax = 'xhtml')
     {
         if (empty($editor) || $editor != 'dcCKEditor' || $syntax != 'xhtml') {return;}
 

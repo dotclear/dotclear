@@ -22,7 +22,7 @@ $list = new adminModulesList(
 adminModulesList::$allow_multi_install = (boolean) DC_ALLOW_MULTI_MODULES;
 adminModulesList::$distributed_modules = explode(',', DC_DISTRIB_PLUGINS);
 
-if ($core->plugins->disableDepModules($core->adminurl->get('admin.plugins', array()))) {
+if ($core->plugins->disableDepModules($core->adminurl->get('admin.plugins', []))) {
     exit;
 }
 
@@ -42,11 +42,11 @@ if ($list->setConfiguration()) {
         $core->callBehavior('pluginsToolsHeaders', $core, true),
 
         dcPage::breadcrumb(
-            array(
+            [
                 html::escapeHTML($core->blog->name)                                  => '',
                 __('Plugins management')                                             => $list->getURL('', false),
                 '<span class="page-title">' . __('Plugin configuration') . '</span>' => ''
-            ))
+            ])
     );
 
     # Display previously gathered content
@@ -81,10 +81,10 @@ dcPage::open(__('Plugins management'),
     $core->callBehavior('pluginsToolsHeaders', $core, false),
 
     dcPage::breadcrumb(
-        array(
+        [
             __('System')             => '',
             __('Plugins management') => ''
-        ))
+        ])
 );
 
 # -- Plugins install messages --
@@ -138,8 +138,8 @@ if ($core->auth->isSuperAdmin()) {
             ->setTab('update')
             ->setModules($modules)
             ->displayModules(
-                /*cols */array('checkbox', 'icon', 'name', 'version', 'current_version', 'desc'),
-                /* actions */array('update')
+                /*cols */['checkbox', 'icon', 'name', 'version', 'current_version', 'desc'],
+                /* actions */['update']
             );
 
         echo
@@ -175,8 +175,8 @@ if (!empty($modules)) {
         ->setTab('plugins')
         ->setModules($modules)
         ->displayModules(
-            /* cols */array('expander', 'icon', 'name', 'version', 'desc', 'distrib', 'deps'),
-            /* actions */array('deactivate', 'delete', 'behavior')
+            /* cols */['expander', 'icon', 'name', 'version', 'desc', 'distrib', 'deps'],
+            /* actions */['deactivate', 'delete', 'behavior']
         );
 }
 
@@ -193,8 +193,8 @@ if ($core->auth->isSuperAdmin()) {
             ->setTab('plugins')
             ->setModules($modules)
             ->displayModules(
-                /* cols */array('expander', 'icon', 'name', 'version', 'desc', 'distrib'),
-                /* actions */array('activate', 'delete')
+                /* cols */['expander', 'icon', 'name', 'version', 'desc', 'distrib'],
+                /* actions */['activate', 'delete']
             );
     }
 }
@@ -220,8 +220,8 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
             ->displaySearch()
             ->displayIndex()
             ->displayModules(
-                /* cols */array('expander', 'name', 'score', 'version', 'desc', 'deps'),
-                /* actions */array('install'),
+                /* cols */['expander', 'name', 'score', 'version', 'desc', 'deps'],
+                /* actions */['install'],
                 /* nav limit */true
             );
 

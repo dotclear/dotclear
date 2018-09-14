@@ -47,17 +47,17 @@ class dcFavorites
         $this->core       = $core;
         $this->fav_defs   = new ArrayObject();
         $this->ws         = $core->auth->user_prefs->addWorkspace('dashboard');
-        $this->user_prefs = array();
+        $this->user_prefs = [];
 
         if ($this->ws->prefExists('favorites')) {
             $this->local_prefs  = $this->ws->getLocal('favorites');
             $this->global_prefs = $this->ws->getGlobal('favorites');
             // Since we never know what user puts through user:preferences ...
             if (!is_array($this->local_prefs)) {
-                $this->local_prefs = array();
+                $this->local_prefs = [];
             }
             if (!is_array($this->global_prefs)) {
-                $this->global_prefs = array();
+                $this->global_prefs = [];
             }
         } else {
             // No favorite defined ? Huhu, let's go for a migration
@@ -105,7 +105,7 @@ class dcFavorites
             }
             $fattr = $this->fav_defs[$p];
         }
-        $fattr = array_merge(array('id' => null, 'class' => null), $fattr);
+        $fattr = array_merge(['id' => null, 'class' => null], $fattr);
         if (isset($fattr['permissions'])) {
             if (is_bool($fattr['permissions']) && !$fattr['permissions']) {
                 return false;
@@ -130,7 +130,7 @@ class dcFavorites
      */
     public function getFavorites($ids)
     {
-        $prefs = array();
+        $prefs = [];
         foreach ($ids as $id) {
             $f = $this->getFavorite($id);
             if ($f !== false) {
@@ -157,7 +157,7 @@ class dcFavorites
             $this->user_prefs = $this->getFavorites($this->global_prefs);
         }
         if (!count($this->user_prefs)) {
-            $this->user_prefs = $this->getFavorites(array('new_post'));
+            $this->user_prefs = $this->getFavorites(['new_post']);
         }
         $u = explode('?', $_SERVER['REQUEST_URI']);
         // Loop over prefs to enable active favorites
@@ -194,8 +194,8 @@ class dcFavorites
     protected function migrateFavorites()
     {
         $fav_ws             = $this->core->auth->user_prefs->addWorkspace('favorites');
-        $this->local_prefs  = array();
-        $this->global_prefs = array();
+        $this->local_prefs  = [];
+        $this->global_prefs = [];
         foreach ($fav_ws->dumpPrefs() as $k => $v) {
             $fav = @unserialize($v['value']);
             if (is_array($fav)) {
@@ -222,7 +222,7 @@ class dcFavorites
         $f = new ArrayObject();
         $this->core->callBehavior('adminDashboardFavs', $this->core, $f);
         foreach ($f as $k => $v) {
-            $fav = array(
+            $fav = [
                 'title'       => __($v[1]),
                 'url'         => $v[2],
                 'small-icon'  => $v[3],
@@ -230,7 +230,7 @@ class dcFavorites
                 'permissions' => $v[5],
                 'id'          => $v[6],
                 'class'       => $v[7]
-            );
+            ];
             $this->register($v[0], $fav);
         }
 
@@ -343,7 +343,7 @@ class dcFavorites
                 $v = new ArrayObject($v);
                 call_user_func($v['dashboard_cb'], $this->core, $v);
             }
-            $icons[$k] = new ArrayObject(array($v['title'], $v['url'], $v['large-icon']));
+            $icons[$k] = new ArrayObject([$v['title'], $v['url'], $v['large-icon']]);
             $this->core->callBehavior('adminDashboardFavsIcon', $this->core, $k, $icons[$k]);
         }
     }
@@ -409,101 +409,101 @@ class defaultFavorites
     public static function initDefaultFavorites($favs)
     {
         $core = &$GLOBALS['core'];
-        $favs->registerMultiple(array(
-            'prefs'      => array(
+        $favs->registerMultiple([
+            'prefs'      => [
                 'title'      => __('My preferences'),
                 'url'        => $core->adminurl->get("admin.user.preferences"),
                 'small-icon' => 'images/menu/user-pref.png',
-                'large-icon' => 'images/menu/user-pref-b.png'),
-            'new_post'   => array(
+                'large-icon' => 'images/menu/user-pref-b.png'],
+            'new_post'   => [
                 'title'       => __('New entry'),
                 'url'         => $core->adminurl->get("admin.post"),
                 'small-icon'  => 'images/menu/edit.png',
                 'large-icon'  => 'images/menu/edit-b.png',
-                'permissions' => 'usage,contentadmin'),
-            'posts'      => array(
+                'permissions' => 'usage,contentadmin'],
+            'posts'      => [
                 'title'        => __('Posts'),
                 'url'          => $core->adminurl->get("admin.posts"),
                 'small-icon'   => 'images/menu/entries.png',
                 'large-icon'   => 'images/menu/entries-b.png',
                 'permissions'  => 'usage,contentadmin',
-                'dashboard_cb' => array('defaultFavorites', 'postsDashboard')),
-            'comments'   => array(
+                'dashboard_cb' => ['defaultFavorites', 'postsDashboard']],
+            'comments'   => [
                 'title'        => __('Comments'),
                 'url'          => $core->adminurl->get("admin.comments"),
                 'small-icon'   => 'images/menu/comments.png',
                 'large-icon'   => 'images/menu/comments-b.png',
                 'permissions'  => 'usage,contentadmin',
-                'dashboard_cb' => array('defaultFavorites', 'commentsDashboard')),
-            'search'     => array(
+                'dashboard_cb' => ['defaultFavorites', 'commentsDashboard']],
+            'search'     => [
                 'title'       => __('Search'),
                 'url'         => $core->adminurl->get("admin.search"),
                 'small-icon'  => 'images/menu/search.png',
                 'large-icon'  => 'images/menu/search-b.png',
-                'permissions' => 'usage,contentadmin'),
-            'categories' => array(
+                'permissions' => 'usage,contentadmin'],
+            'categories' => [
                 'title'       => __('Categories'),
                 'url'         => $core->adminurl->get("admin.categories"),
                 'small-icon'  => 'images/menu/categories.png',
                 'large-icon'  => 'images/menu/categories-b.png',
-                'permissions' => 'categories'),
-            'media'      => array(
+                'permissions' => 'categories'],
+            'media'      => [
                 'title'       => __('Media manager'),
                 'url'         => $core->adminurl->get("admin.media"),
                 'small-icon'  => 'images/menu/media.png',
                 'large-icon'  => 'images/menu/media-b.png',
-                'permissions' => 'media,media_admin'),
-            'blog_pref'  => array(
+                'permissions' => 'media,media_admin'],
+            'blog_pref'  => [
                 'title'       => __('Blog settings'),
                 'url'         => $core->adminurl->get("admin.blog.pref"),
                 'small-icon'  => 'images/menu/blog-pref.png',
                 'large-icon'  => 'images/menu/blog-pref-b.png',
-                'permissions' => 'admin'),
-            'blog_theme' => array(
+                'permissions' => 'admin'],
+            'blog_theme' => [
                 'title'       => __('Blog appearance'),
                 'url'         => $core->adminurl->get("admin.blog.theme"),
                 'small-icon'  => 'images/menu/themes.png',
                 'large-icon'  => 'images/menu/blog-theme-b.png',
-                'permissions' => 'admin'),
-            'blogs'      => array(
+                'permissions' => 'admin'],
+            'blogs'      => [
                 'title'       => __('Blogs'),
                 'url'         => $core->adminurl->get("admin.blogs"),
                 'small-icon'  => 'images/menu/blogs.png',
                 'large-icon'  => 'images/menu/blogs-b.png',
-                'permissions' => 'usage,contentadmin'),
-            'users'      => array(
+                'permissions' => 'usage,contentadmin'],
+            'users'      => [
                 'title'      => __('Users'),
                 'url'        => $core->adminurl->get("admin.users"),
                 'small-icon' => 'images/menu/users.png',
-                'large-icon' => 'images/menu/users-b.png'),
-            'plugins'    => array(
+                'large-icon' => 'images/menu/users-b.png'],
+            'plugins'    => [
                 'title'      => __('Plugins management'),
                 'url'        => $core->adminurl->get("admin.plugins"),
                 'small-icon' => 'images/menu/plugins.png',
-                'large-icon' => 'images/menu/plugins-b.png'),
-            'langs'      => array(
+                'large-icon' => 'images/menu/plugins-b.png'],
+            'langs'      => [
                 'title'      => __('Languages'),
                 'url'        => $core->adminurl->get("admin.langs"),
                 'small-icon' => 'images/menu/langs.png',
-                'large-icon' => 'images/menu/langs-b.png'),
-            'help'       => array(
+                'large-icon' => 'images/menu/langs-b.png'],
+            'help'       => [
                 'title'      => __('Global help'),
                 'url'        => $core->adminurl->get("admin.help"),
                 'small-icon' => 'images/menu/help.png',
-                'large-icon' => 'images/menu/help-b.png')
-        ));
+                'large-icon' => 'images/menu/help-b.png']
+        ]);
     }
 
     public static function postsDashboard($core, $v)
     {
-        $post_count  = $core->blog->getPosts(array(), true)->f(0);
+        $post_count  = $core->blog->getPosts([], true)->f(0);
         $str_entries = __('%d post', '%d posts', $post_count);
         $v['title']  = sprintf($str_entries, $post_count);
     }
 
     public static function commentsDashboard($core, $v)
     {
-        $comment_count = $core->blog->getComments(array(), true)->f(0);
+        $comment_count = $core->blog->getComments([], true)->f(0);
         $str_comments  = __('%d comment', '%d comments', $comment_count);
         $v['title']    = sprintf($str_comments, $comment_count);
     }

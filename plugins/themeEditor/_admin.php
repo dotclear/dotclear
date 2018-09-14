@@ -15,10 +15,10 @@ if (!isset($__resources['help']['themeEditor'])) {
     $__resources['help']['themeEditor'] = dirname(__FILE__) . '/help.html';
 }
 
-$core->addBehavior('adminCurrentThemeDetails', array('themeEditorBehaviors', 'theme_editor_details'));
+$core->addBehavior('adminCurrentThemeDetails', ['themeEditorBehaviors', 'theme_editor_details']);
 
-$core->addBehavior('adminBeforeUserOptionsUpdate', array('themeEditorBehaviors', 'adminBeforeUserUpdate'));
-$core->addBehavior('adminPreferencesForm', array('themeEditorBehaviors', 'adminPreferencesForm'));
+$core->addBehavior('adminBeforeUserOptionsUpdate', ['themeEditorBehaviors', 'adminBeforeUserUpdate']);
+$core->addBehavior('adminPreferencesForm', ['themeEditorBehaviors', 'adminPreferencesForm']);
 
 class themeEditorBehaviors
 {
@@ -50,7 +50,7 @@ class themeEditorBehaviors
         $core->auth->user_prefs->addWorkspace('interface');
 
         $themes_list  = dcPage::getCodeMirrorThemes();
-        $themes_combo = array(__('Default') => '');
+        $themes_combo = [__('Default') => ''];
         foreach ($themes_list as $theme) {
             $themes_combo[$theme] = $theme;
         }
@@ -68,16 +68,16 @@ class themeEditorBehaviors
             echo
             '<p><label for="colorsyntax_theme" class="classic">' . __('Theme:') . '</label> ' .
             form::combo('colorsyntax_theme', $themes_combo,
-                array(
+                [
                     'default'    => $core->auth->user_prefs->interface->colorsyntax_theme,
-                    'extra_html' => 'onchange="selectTheme()"')) .
+                    'extra_html' => 'onchange="selectTheme()"']) .
                 '</p>';
         } else {
             echo form::hidden('colorsyntax_theme', '');
         }
         echo '</div>';
         echo '<div class="col">';
-        echo dcPage::jsLoadCodeMirror('', false, array('javascript'));
+        echo dcPage::jsLoadCodeMirror('', false, ['javascript']);
         foreach ($themes_list as $theme) {
             echo dcPage::cssLoad('js/codemirror/theme/' . $theme . '.css');
         }

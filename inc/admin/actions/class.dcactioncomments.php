@@ -11,11 +11,11 @@ if (!defined('DC_RC_PATH')) {return;}
 
 class dcCommentsActionsPage extends dcActionsPage
 {
-    public function __construct($core, $uri, $redirect_args = array())
+    public function __construct($core, $uri, $redirect_args = [])
     {
         parent::__construct($core, $uri, $redirect_args);
-        $this->redirect_fields = array('type', 'author', 'status',
-            'sortby', 'ip', 'order', 'page', 'nb', 'section');
+        $this->redirect_fields = ['type', 'author', 'status',
+            'sortby', 'ip', 'order', 'page', 'nb', 'section'];
         $this->field_entries = 'comments';
         $this->title_cb      = __('Comments');
         $this->loadDefaults();
@@ -58,11 +58,11 @@ class dcCommentsActionsPage extends dcActionsPage
     {
         $this->core->error->add($e->getMessage());
         $this->beginPage(dcPage::breadcrumb(
-            array(
+            [
                 html::escapeHTML($this->core->blog->name) => '',
                 __('Comments')                            => $this->core->adminurl->get('admin.comments'),
                 __('Comments actions')                    => ''
-            ))
+            ])
         );
         $this->endPage();
     }
@@ -84,10 +84,10 @@ class dcCommentsActionsPage extends dcActionsPage
         foreach ($this->entries as $id => $title) {
             $ret .=
             '<tr><td class="minimal">' .
-            form::checkbox(array($this->field_entries . '[]'), $id,
-                array(
+            form::checkbox([$this->field_entries . '[]'], $id,
+                [
                     'checked' => true
-                )) .
+                ]) .
                 '</td>' .
                 '<td>' . $title['author'] . '</td><td>' . $title['title'] . '</td></tr>';
         }
@@ -97,7 +97,7 @@ class dcCommentsActionsPage extends dcActionsPage
 
     protected function fetchEntries($from)
     {
-        $params = array();
+        $params = [];
         if (!empty($from['comments'])) {
             $comments = $from['comments'];
 
@@ -115,10 +115,10 @@ class dcCommentsActionsPage extends dcActionsPage
         }
         $co = $this->core->blog->getComments($params);
         while ($co->fetch()) {
-            $this->entries[$co->comment_id] = array(
+            $this->entries[$co->comment_id] = [
                 'title'  => $co->post_title,
                 'author' => $co->comment_author
-            );
+            ];
         }
         $this->rs = $co;
     }
@@ -130,21 +130,21 @@ class dcDefaultCommentActions
     {
         if ($core->auth->check('publish,contentadmin', $core->blog->id)) {
             $ap->addAction(
-                array(__('Status') => array(
+                [__('Status') => [
                     __('Publish')         => 'publish',
                     __('Unpublish')       => 'unpublish',
                     __('Mark as pending') => 'pending',
                     __('Mark as junk')    => 'junk'
-                )),
-                array('dcDefaultCommentActions', 'doChangeCommentStatus')
+                ]],
+                ['dcDefaultCommentActions', 'doChangeCommentStatus']
             );
         }
 
         if ($core->auth->check('delete,contentadmin', $core->blog->id)) {
             $ap->addAction(
-                array(__('Delete') => array(
-                    __('Delete') => 'delete')),
-                array('dcDefaultCommentActions', 'doDeleteComment')
+                [__('Delete') => [
+                    __('Delete') => 'delete']],
+                ['dcDefaultCommentActions', 'doDeleteComment']
             );
         }
 
@@ -157,14 +157,14 @@ class dcDefaultCommentActions
         }
 
         if ($ip_filter_active) {
-            $blacklist_actions = array(__('Blacklist IP') => 'blacklist');
+            $blacklist_actions = [__('Blacklist IP') => 'blacklist'];
             if ($core->auth->isSuperAdmin()) {
                 $blacklist_actions[__('Blacklist IP (global)')] = 'blacklist_global';
             }
 
             $ap->addAction(
-                array(__('IP address') => $blacklist_actions),
-                array('dcDefaultCommentActions', 'doBlacklistIP')
+                [__('IP address') => $blacklist_actions],
+                ['dcDefaultCommentActions', 'doBlacklistIP']
             );
         }
     }

@@ -36,7 +36,7 @@ class dcPostMedia
     @param    media_id    <b>integer</b>        Optionnal media ID
     @return    <b>array</b> Array of fileItems
      */
-    public function getPostMedia($params = array())
+    public function getPostMedia($params = [])
     {
         $strReq =
             'SELECT M.media_file, M.media_id, M.media_path, M.media_title, M.media_meta, M.media_dt, ' .
@@ -54,7 +54,7 @@ class dcPostMedia
             $strReq .= $params['from'] . ' ';
         }
 
-        $where = array();
+        $where = [];
         if (isset($params['post_id'])) {
             $where[] = "PM.post_id " . $this->con->in($params['post_id']);
         }
@@ -93,7 +93,7 @@ class dcPostMedia
         $post_id  = (integer) $post_id;
         $media_id = (integer) $media_id;
 
-        $f = $this->getPostMedia(array('post_id' => $post_id, 'media_id' => $media_id, 'link_type' => $link_type));
+        $f = $this->getPostMedia(['post_id' => $post_id, 'media_id' => $media_id, 'link_type' => $link_type]);
 
         if (!$f->isEmpty()) {
             return;
@@ -156,7 +156,7 @@ class dcPostMedia
 
         $rs = $this->con->select($strReq);
 
-        $res = array();
+        $res = [];
 
         while ($rs->fetch()) {
             $f = $this->fileRecord($rs);

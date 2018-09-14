@@ -27,7 +27,7 @@ try {
 
 # Getting dates
 try {
-    $dates = $core->blog->getDates(array('type' => 'month'));
+    $dates = $core->blog->getDates(['type' => 'month']);
 } catch (Exception $e) {
     $core->error->add($e->getMessage());
 }
@@ -43,17 +43,17 @@ try {
 $users_combo = dcAdminCombos::getUsersCombo($users);
 dcUtils::lexicalKeySort($users_combo);
 $users_combo = array_merge(
-    array('-' => ''),
+    ['-' => ''],
     $users_combo
 );
 
 $categories_combo = array_merge(
-    array(
+    [
         new formSelectOption('-', ''),
-        new formSelectOption(__('(No cat)'), 'NULL')),
+        new formSelectOption(__('(No cat)'), 'NULL')],
     dcAdminCombos::getCategoriesCombo($categories, false)
 );
-$categories_values = array();
+$categories_values = [];
 foreach ($categories_combo as $cat) {
     if (isset($cat->value)) {
         $categories_values[$cat->value] = true;
@@ -61,65 +61,65 @@ foreach ($categories_combo as $cat) {
 }
 
 $status_combo = array_merge(
-    array('-' => ''),
+    ['-' => ''],
     dcAdminCombos::getPostStatusesCombo()
 );
 
-$selected_combo = array(
+$selected_combo = [
     '-'                => '',
     __('Selected')     => '1',
     __('Not selected') => '0'
-);
+];
 
-$comment_combo = array(
+$comment_combo = [
     '-'          => '',
     __('Opened') => '1',
     __('Closed') => '0'
-);
+];
 
-$trackback_combo = array(
+$trackback_combo = [
     '-'          => '',
     __('Opened') => '1',
     __('Closed') => '0'
-);
+];
 
-$attachment_combo = array(
+$attachment_combo = [
     '-'                       => '',
     __('With attachments')    => '1',
     __('Without attachments') => '0'
-);
+];
 
-$password_combo = array(
+$password_combo = [
     '-'                    => '',
     __('With password')    => '1',
     __('Without password') => '0'
-);
+];
 
 # Months array
 $dt_m_combo = array_merge(
-    array('-' => ''),
+    ['-' => ''],
     dcAdminCombos::getDatesCombo($dates)
 );
 
 $lang_combo = array_merge(
-    array('-' => ''),
+    ['-' => ''],
     dcAdminCombos::getLangsCombo($langs, false)
 );
 
 # Post formats
 $core_formaters    = $core->getFormaters();
-$available_formats = array();
+$available_formats = [];
 foreach ($core_formaters as $editor => $formats) {
     foreach ($formats as $format) {
         $available_formats[$format] = $format;
     }
 }
 $format_combo = array_merge(
-    array('-' => ''),
+    ['-' => ''],
     $available_formats
 );
 
-$sortby_combo = array(
+$sortby_combo = [
     __('Date')                 => 'post_dt',
     __('Title')                => 'post_title',
     __('Category')             => 'cat_title',
@@ -128,18 +128,18 @@ $sortby_combo = array(
     __('Selected')             => 'post_selected',
     __('Number of comments')   => 'nb_comment',
     __('Number of trackbacks') => 'nb_trackback'
-);
+];
 
-$sortby_lex = array(
+$sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request
     'post_title' => 'post_title',
     'cat_title'  => 'cat_title',
-    'user_id'    => 'P.user_id');
+    'user_id'    => 'P.user_id'];
 
-$order_combo = array(
+$order_combo = [
     __('Descending') => 'desc',
     __('Ascending')  => 'asc'
-);
+];
 
 # Actions combo box
 
@@ -177,7 +177,7 @@ if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
     $nb_per_page = (integer) $_GET['nb'];
 }
 
-$params['limit']      = array((($page - 1) * $nb_per_page), $nb_per_page);
+$params['limit']      = [(($page - 1) * $nb_per_page), $nb_per_page];
 $params['no_content'] = true;
 $params['where']      = '';
 
@@ -307,10 +307,10 @@ try {
 dcPage::open(__('Entries'),
     dcPage::jsLoad('js/_posts_list.js') . dcPage::jsFilterControl($show_filters),
     dcPage::breadcrumb(
-        array(
+        [
             html::escapeHTML($core->blog->name) => '',
             __('Entries')                       => ''
-        ))
+        ])
 );
 if (!empty($_GET['upd'])) {
     dcPage::success(__('Selected entries have been successfully updated.'));
@@ -381,20 +381,20 @@ if (!$core->error->flag()) {
         '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
         form::combo('action', $posts_actions_page->getCombo()) .
         '<input id="do-action" type="submit" value="' . __('ok') . '" disabled /></p>' .
-        form::hidden(array('user_id'), $user_id) .
-        form::hidden(array('cat_id'), $cat_id) .
-        form::hidden(array('status'), $status) .
-        form::hidden(array('password'), $password) .
-        form::hidden(array('selected'), $selected) .
-        form::hidden(array('comment'), $comment) .
-        form::hidden(array('trackback'), $trackback) .
-        form::hidden(array('attachment'), $attachment) .
-        form::hidden(array('month'), $month) .
-        form::hidden(array('lang'), $lang) .
-        form::hidden(array('sortby'), $sortby) .
-        form::hidden(array('order'), $order) .
-        form::hidden(array('page'), $page) .
-        form::hidden(array('nb'), $nb_per_page) .
+        form::hidden(['user_id'], $user_id) .
+        form::hidden(['cat_id'], $cat_id) .
+        form::hidden(['status'], $status) .
+        form::hidden(['password'], $password) .
+        form::hidden(['selected'], $selected) .
+        form::hidden(['comment'], $comment) .
+        form::hidden(['trackback'], $trackback) .
+        form::hidden(['attachment'], $attachment) .
+        form::hidden(['month'], $month) .
+        form::hidden(['lang'], $lang) .
+        form::hidden(['sortby'], $sortby) .
+        form::hidden(['order'], $order) .
+        form::hidden(['page'], $page) .
+        form::hidden(['nb'], $nb_per_page) .
         $core->formNonce() .
         '</div>' .
         '</form>',

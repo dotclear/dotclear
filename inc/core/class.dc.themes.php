@@ -37,12 +37,12 @@ class dcThemes extends dcModules
     @param    properties    <b>array</b>        extra properties
     (currently available keys : parent, priority, standalone_config, type, tplset)
      */
-    public function registerModule($name, $desc, $author, $version, $properties = array())
+    public function registerModule($name, $desc, $author, $version, $properties = [])
     {
         # Fallback to legacy registerModule parameters
         if (!is_array($properties)) {
             $args       = func_get_args();
-            $properties = array();
+            $properties = [];
             if (isset($args[4])) {
                 $properties['parent'] = $args[4];
             }
@@ -52,9 +52,9 @@ class dcThemes extends dcModules
         }
         # Themes specifics properties
         $properties = array_merge(
-            array('parent' => null, 'tplset' => DC_DEFAULT_TPLSET),
+            ['parent' => null, 'tplset' => DC_DEFAULT_TPLSET],
             $properties,
-            array('permissions' => 'admin') // force themes perms
+            ['permissions' => 'admin'] // force themes perms
         );
 
         parent::registerModule($name, $desc, $author, $version, $properties);

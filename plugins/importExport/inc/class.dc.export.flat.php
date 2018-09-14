@@ -190,15 +190,15 @@ class dcExportFlat extends dcIeModule
         '</p>' .
 
         '<p><label for="file_zip" class="classic">' .
-        form::checkbox(array('file_zip', 'file_zip'), 1) . ' ' .
+        form::checkbox(['file_zip', 'file_zip'], 1) . ' ' .
         __('Compress file') . '</label>' .
         '</p>' .
 
-        '<p class="zip-dl"><a href="' . $this->core->decode('admin.media', array('d' => '', 'zipdl' => '1')) . '">' .
+        '<p class="zip-dl"><a href="' . $this->core->decode('admin.media', ['d' => '', 'zipdl' => '1']) . '">' .
         __('You may also want to download your media directory as a zip file') . '</a></p>' .
 
         '<p><input type="submit" value="' . __('Export') . '" />' .
-        form::hidden(array('do'), 'export_blog') .
+        form::hidden(['do'], 'export_blog') .
         $this->core->formNonce() . '</p>' .
 
             '</form>';
@@ -210,16 +210,16 @@ class dcExportFlat extends dcIeModule
             '<p>' . __('This will create an export of all the content of your database.') . '</p>' .
 
             '<p><label for="file_name2">' . __('File name:') . '</label>' .
-            form::field(array('file_name', 'file_name2'), 50, 255, date('Y-m-d-H-i-') . 'dotclear-backup.txt') .
+            form::field(['file_name', 'file_name2'], 50, 255, date('Y-m-d-H-i-') . 'dotclear-backup.txt') .
             '</p>' .
 
             '<p><label for="file_zip2" class="classic">' .
-            form::checkbox(array('file_zip', 'file_zip2'), 1) . ' ' .
+            form::checkbox(['file_zip', 'file_zip2'], 1) . ' ' .
             __('Compress file') . '</label>' .
             '</p>' .
 
             '<p><input type="submit" value="' . __('Export') . '" />' .
-            form::hidden(array('do'), 'export_all') .
+            form::hidden(['do'], 'export_all') .
             $this->core->formNonce() . '</p>' .
 
                 '</form>';

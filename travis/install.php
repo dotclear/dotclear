@@ -15,11 +15,11 @@ $_SERVER['HTTP_HOST'] = 'http';
 $_SERVER['SERVER_PORT'] = '1080';
 
 $tmp_pwd = md5(uniqid());  // don't care, user will be deleted
-$_POST = array(
+$_POST = [
     'u_login' => 'admin',
     'u_pwd' =>  $tmp_pwd,
     'u_pwd2' => $tmp_pwd
-);
+];
 
 ob_start();
 require_once(__DIR__.'/../admin/install/index.php');

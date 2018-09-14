@@ -25,24 +25,24 @@ class flatImport extends flatBackup
     private $blog_name;
     private $blog_desc;
 
-    private $users = array();
+    private $users = [];
 
-    public $old_ids = array(
-        'category' => array(),
-        'post'     => array(),
-        'media'    => array()
-    );
+    public $old_ids = [
+        'category' => [],
+        'post'     => [],
+        'media'    => []
+    ];
 
-    public $stack = array(
+    public $stack = [
         'categories' => null,
         'cat_id'     => 1,
-        'cat_lft'    => array(),
+        'cat_lft'    => [],
         'post_id'    => 1,
         'media_id'   => 1,
         'comment_id' => 1,
         'link_id'    => 1,
         'log_id'     => 1
-    );
+    ];
 
     public $has_categories = false;
 
@@ -156,7 +156,7 @@ class flatImport extends flatBackup
         try
         {
             $last_line_name = '';
-            $constrained    = array('post', 'meta', 'post_media', 'ping', 'comment');
+            $constrained    = ['post', 'meta', 'post_media', 'ping', 'comment'];
 
             while (($line = $this->getLine()) !== false) {
                 # import DC 1.2.x, we fix lines before insert
@@ -813,10 +813,10 @@ class flatImport extends flatBackup
 
     private function prepareDC12line(&$line)
     {
-        $settings = array('dc_theme', 'dc_nb_post_per_page', 'dc_allow_comments',
+        $settings = ['dc_theme', 'dc_nb_post_per_page', 'dc_allow_comments',
             'dc_allow_trackbacks', 'dc_comment_pub', 'dc_comments_ttl',
             'dc_wiki_comments', 'dc_use_smilies', 'dc_date_format', 'dc_time_format',
-            'dc_url_scan');
+            'dc_url_scan'];
 
         switch ($line->__name) {
             case 'categorie':

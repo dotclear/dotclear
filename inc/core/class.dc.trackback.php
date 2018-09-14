@@ -79,10 +79,10 @@ class dcTrackback
         $ping_parts = explode('|', $url);
         # Maybe a webmention
         if (count($ping_parts) == 3) {
-            $payload = http_build_query(array(
+            $payload = http_build_query([
                 'source' => $post_url,
                 'target' => $ping_parts[1]
-            ));
+            ]);
 
             try {
                 $http = self::initHttp($ping_parts[0], $path);
@@ -96,20 +96,20 @@ class dcTrackback
                 throw new Exception(__('Unable to ping URL'));
             }
 
-            if (!in_array($status, array('200', '201', '202'))) {
+            if (!in_array($status, ['200', '201', '202'])) {
                 $ping_error = $http->getStatus();
                 $ping_msg   = __('Bad server response code');
             }
         }
         # No, let's walk by the trackback way
         elseif (count($ping_parts) < 2) {
-            $data = array(
+            $data = [
                 'title'     => $post_title,
                 'excerpt'   => $post_excerpt,
                 'url'       => $post_url,
                 'blog_name' => trim(html::escapeHTML(html::clean($this->core->blog->name)))
                 //,'__debug' => false
-            );
+            ];
 
             # Ping
             try {
@@ -205,7 +205,7 @@ class dcTrackback
         }
 
         if (!$err) {
-            $post = $this->core->blog->getPosts(array('post_id' => $post_id, 'post_type' => ''));
+            $post = $this->core->blog->getPosts(['post_id' => $post_id, 'post_type' => '']);
 
             if ($post->isEmpty()) {
                 $err = true;
@@ -429,11 +429,11 @@ class dcTrackback
      */
     private function pingAlreadyDone($post_id, $from_url)
     {
-        $params = array(
+        $params = [
             'post_id'           => $post_id,
             'comment_site'      => $from_url,
             'comment_trackback' => 1
-        );
+        ];
 
         $rs = $this->core->blog->getComments($params, true);
         if ($rs && !$rs->isEmpty()) {
@@ -569,10 +569,10 @@ class dcTrackback
         }
 
         # Time to see if we've got a winner...
-        $params = array(
+        $params = [
             'post_type' => $p_type,
             'post_url'  => $post_url
-        );
+        ];
         $posts = $this->core->blog->getPosts($params);
 
         # Missed!
@@ -604,7 +604,7 @@ class dcTrackback
         $c_type = explode(';', $http->getHeader('content-type'));
 
         # Bad luck. Bye, bye...
-        if (!in_array($c_type[0], array('text/html', 'application/xhtml+xml'))) {
+        if (!in_array($c_type[0], ['text/html', 'application/xhtml+xml'])) {
             throw new Exception(__('Your source URL does not look like a supported content type. Sorry. Bye, bye!'), 0);
         }
 
@@ -637,7 +637,7 @@ class dcTrackback
      */
     public function discover($text)
     {
-        $res = array();
+        $res = [];
 
         foreach ($this->getTextLinks($text) as $link) {
             if (($url = $this->getPingURL($link)) !== null) {
@@ -656,7 +656,7 @@ class dcTrackback
      */
     private function getTextLinks($text)
     {
-        $res = array();
+        $res = [];
 
         # href attribute on "a" tags
         if (preg_match_all('/<a ([^>]+)>/ms', $text, $match, PREG_SET_ORDER)) {
@@ -742,7 +742,7 @@ class dcTrackback
         # Nothing, let's try webmention. Only support x/html content
         if ($wm_url) {
             $type = explode(';', $http->getHeader('content-type'));
-            if (!in_array($type[0], array('text/html', 'application/xhtml+xml'))) {
+            if (!in_array($type[0], ['text/html', 'application/xhtml+xml'])) {
                 $wm_url = false;
             }
         }

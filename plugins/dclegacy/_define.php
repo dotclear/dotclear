@@ -16,8 +16,8 @@ $this->registerModule(
     "Legacy modules for dotclear", // Description
     "dc Team",                     // Author
     '1.0',                         // Version
-    array(
+    [
         'priority' => 500,
         'type'     => 'plugin'
-    )
+    ]
 );

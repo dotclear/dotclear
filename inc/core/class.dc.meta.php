@@ -41,7 +41,7 @@ class dcMeta
      */
     public function splitMetaValues($str)
     {
-        $res = array();
+        $res = [];
         foreach (explode(',', $str) as $i => $tag) {
             $tag = trim($tag);
             $tag = self::sanitizeMetaID($tag);
@@ -79,7 +79,7 @@ class dcMeta
         $meta = @unserialize($str);
 
         if (!is_array($meta)) {
-            return array();
+            return [];
         }
 
         return $meta;
@@ -117,18 +117,18 @@ class dcMeta
     public function getMetaRecordset($str, $type)
     {
         $meta = $this->getMetaArray($str);
-        $data = array();
+        $data = [];
 
         if (isset($meta[$type])) {
             foreach ($meta[$type] as $v) {
-                $data[] = array(
+                $data[] = [
                     'meta_id'       => $v,
                     'meta_type'     => $type,
                     'meta_id_lower' => mb_strtolower($v),
                     'count'         => 0,
                     'percent'       => 0,
                     'roundpercent'  => 0
-                );
+                ];
             }
         }
 
@@ -190,7 +190,7 @@ class dcMeta
 
         $rs = $this->con->select($strReq);
 
-        $meta = array();
+        $meta = [];
         while ($rs->fetch()) {
             $meta[$rs->meta_type][] = $rs->meta_id;
         }
@@ -215,7 +215,7 @@ class dcMeta
 
     @return    <b>record</b>    the resulting posts record
      */
-    public function getPostsByMeta($params = array(), $count_only = false)
+    public function getPostsByMeta($params = [], $count_only = false)
     {
         if (!isset($params['meta_id'])) {
             return;
@@ -247,7 +247,7 @@ class dcMeta
 
     @return    <b>record</b>    the resulting comments record
      */
-    public function getCommentsByMeta($params = array(), $count_only = false)
+    public function getCommentsByMeta($params = [], $count_only = false)
     {
         if (!isset($params['meta_id'])) {
             return;
@@ -281,7 +281,7 @@ class dcMeta
      */
     public function getMeta($type = null, $limit = null, $meta_id = null, $post_id = null)
     {
-        $params = array();
+        $params = [];
 
         if ($type != null) {
             $params['meta_type'] = $type;
@@ -319,7 +319,7 @@ class dcMeta
 
     @return    <b>record</b>    the resulting comments record
      */
-    public function getMetadata($params = array(), $count_only = false)
+    public function getMetadata($params = [], $count_only = false)
     {
         if ($count_only) {
             $strReq = 'SELECT count(distinct M.meta_id) ';
@@ -389,7 +389,7 @@ class dcMeta
     {
         $rs_static = $rs->toStatic();
 
-        $max = array();
+        $max = [];
         while ($rs_static->fetch()) {
             $type = $rs_static->meta_type;
             if (!isset($max[$type])) {
@@ -512,7 +512,7 @@ class dcMeta
             $updReq .= $plus;
         }
 
-        $to_update = $to_remove = array();
+        $to_update = $to_remove = [];
 
         $rs = $this->con->select(sprintf($getReq, $this->con->escape($meta_id),
             $this->con->escape($type)));
@@ -586,10 +586,10 @@ class dcMeta
         $rs = $this->con->select($strReq);
 
         if ($rs->isEmpty()) {
-            return array();
+            return [];
         }
 
-        $ids = array();
+        $ids = [];
         while ($rs->fetch()) {
             $ids[] = $rs->post_id;
         }

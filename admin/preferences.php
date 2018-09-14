@@ -24,7 +24,7 @@ $user_post_status = $core->auth->getInfo('user_post_status');
 
 $user_options = $core->auth->getOptions();
 if (empty($user_options['editor']) || !is_array($user_options['editor'])) {
-    $user_options['editor'] = array();
+    $user_options['editor'] = [];
 }
 
 $core->auth->user_prefs->addWorkspace('dashboard');
@@ -74,13 +74,13 @@ $editors       = array_keys($editors_combo);
 
 # Format by editors
 $formaters         = $core->getFormaters();
-$format_by_editors = array();
+$format_by_editors = [];
 foreach ($formaters as $editor => $formats) {
     foreach ($formats as $format) {
         $format_by_editors[$format][$editor] = $editor;
     }
 }
-$available_formats = array('' => '');
+$available_formats = ['' => ''];
 foreach (array_keys($format_by_editors) as $format) {
     $available_formats[$format] = $format;
     if (!isset($user_options['editor'][$format])) {
@@ -89,7 +89,7 @@ foreach (array_keys($format_by_editors) as $format) {
 }
 $status_combo = dcAdminCombos::getPostStatusescombo();
 
-$iconsets_combo = array(__('Default') => '');
+$iconsets_combo = [__('Default') => ''];
 $iconsets_root  = dirname(__FILE__) . '/images/iconset/';
 if (is_dir($iconsets_root) && is_readable($iconsets_root)) {
     if (($d = @dir($iconsets_root)) !== false) {
@@ -102,13 +102,13 @@ if (is_dir($iconsets_root) && is_readable($iconsets_root)) {
 }
 
 # Body base font size (37.5% = 6px, 50% = 8px, 62.5% = 10px, 75% = 12px, 87.5% = 14px)
-$htmlfontsize_combo = array(
+$htmlfontsize_combo = [
     __('Smallest') => '37.5%',
     __('Smaller')  => '50%',
     __('Default')  => '62.5%',
     __('Larger')   => '75%',
     __('Largest')  => '87,5%'
-);
+];
 # Ensure Font size is set to default is empty
 if ($user_ui_htmlfontsize == '') {
     $user_ui_htmlfontsize = '62.5%';
@@ -118,10 +118,10 @@ if ($user_ui_htmlfontsize == '') {
 $lang_combo = dcAdminCombos::getAdminLangsCombo();
 
 # Get 3rd parts xhtml editor flags
-$rte = array(
-    'blog_descr' => array(true, __('Blog description (in blog parameters)')),
-    'cat_descr'  => array(true, __('Category description'))
-);
+$rte = [
+    'blog_descr' => [true, __('Blog description (in blog parameters)')],
+    'cat_descr'  => [true, __('Category description')]
+];
 $rte = new ArrayObject($rte);
 $core->callBehavior('adminRteFlags', $core, $rte);
 # Load user settings
@@ -135,15 +135,15 @@ if (is_array($rte_flags)) {
 }
 
 # Get default colums (admin lists)
-$cols = array(
-    'posts' => array(__('Posts'), array(
-        'date'       => array(true, __('Date')),
-        'category'   => array(true, __('Category')),
-        'author'     => array(true, __('Author')),
-        'comments'   => array(true, __('Comments')),
-        'trackbacks' => array(true, __('Trackbacks'))
-    ))
-);
+$cols = [
+    'posts' => [__('Posts'), [
+        'date'       => [true, __('Date')],
+        'category'   => [true, __('Category')],
+        'author'     => [true, __('Author')],
+        'comments'   => [true, __('Comments')],
+        'trackbacks' => [true, __('Trackbacks')]
+    ]]
+];
 $cols = new arrayObject($cols);
 $core->callBehavior('adminColumnsLists', $core, $cols);
 # Load user settings
@@ -254,13 +254,13 @@ if (isset($_POST['user_editor'])) {
         }
         $core->auth->user_prefs->interface->put('media_by_page', (integer) $_POST['user_ui_media_by_page'], 'integer');
         $core->auth->user_prefs->interface->put('media_nb_last_dirs', (integer) $_POST['user_ui_media_nb_last_dirs'], 'integer');
-        $core->auth->user_prefs->interface->put('media_last_dirs', array(), 'array', null, false);
-        $core->auth->user_prefs->interface->put('media_fav_dirs', array(), 'array', null, false);
+        $core->auth->user_prefs->interface->put('media_last_dirs', [], 'array', null, false);
+        $core->auth->user_prefs->interface->put('media_fav_dirs', [], 'array', null, false);
 
         # Update user columns (lists)
-        $cu = array();
+        $cu = [];
         foreach ($cols as $col_type => $cols_list) {
-            $ct = array();
+            $ct = [];
             foreach ($cols_list[1] as $col_name => $col_data) {
                 $ct[$col_name] = isset($_POST['cols_' . $col_type]) && in_array($col_name, $_POST['cols_' . $col_type], true) ? true : false;
             }
@@ -271,7 +271,7 @@ if (isset($_POST['user_editor'])) {
         $core->auth->user_prefs->interface->put('cols', $cu, 'array');
 
         # Update user xhtml editor flags
-        $rf = array();
+        $rf = [];
         foreach ($rte as $rk => $rv) {
             $rf[$rk] = isset($_POST['rte_flags']) && in_array($rk, $_POST['rte_flags'], true) ? true : false;
         }
@@ -284,7 +284,7 @@ if (isset($_POST['user_editor'])) {
         $core->callBehavior('adminAfterUserOptionsUpdate', $cur, $core->auth->userID());
 
         dcPage::addSuccessNotice(__('Personal options has been successfully updated.'));
-        $core->adminurl->redirect("admin.user.preferences", array(), '#user-options');
+        $core->adminurl->redirect("admin.user.preferences", [], '#user-options');
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
     }
@@ -312,7 +312,7 @@ if (isset($_POST['db-options'])) {
         $core->callBehavior('adminAfterDashboardOptionsUpdate', $core->auth->userID());
 
         dcPage::addSuccessNotice(__('Dashboard options has been successfully updated.'));
-        $core->adminurl->redirect("admin.user.preferences", array(), '#user-favorites');
+        $core->adminurl->redirect("admin.user.preferences", [], '#user-favorites');
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
     }
@@ -334,7 +334,7 @@ if (!empty($_POST['appendaction'])) {
 
         if (!$core->error->flag()) {
             dcPage::addSuccessNotice(__('Favorites have been successfully added.'));
-            $core->adminurl->redirect("admin.user.preferences", array(), '#user-favorites');
+            $core->adminurl->redirect("admin.user.preferences", [], '#user-favorites');
         }
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
@@ -347,7 +347,7 @@ if (!empty($_POST['removeaction'])) {
         if (empty($_POST['remove'])) {
             throw new Exception(__('No favorite selected'));
         }
-        $user_fav_ids = array();
+        $user_fav_ids = [];
         foreach ($core->favs->getFavoriteIDs(false) as $v) {
             $user_fav_ids[$v] = true;
         }
@@ -359,7 +359,7 @@ if (!empty($_POST['removeaction'])) {
         $core->favs->setFavoriteIDs(array_keys($user_fav_ids), false);
         if (!$core->error->flag()) {
             dcPage::addSuccessNotice(__('Favorites have been successfully removed.'));
-            $core->adminurl->redirect("admin.user.preferences", array(), '#user-favorites');
+            $core->adminurl->redirect("admin.user.preferences", [], '#user-favorites');
         }
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
@@ -367,7 +367,7 @@ if (!empty($_POST['removeaction'])) {
 }
 
 # Order favs
-$order = array();
+$order = [];
 if (empty($_POST['favs_order']) && !empty($_POST['order'])) {
     $order = $_POST['order'];
     asort($order);
@@ -385,7 +385,7 @@ if (!empty($_POST['saveorder']) && !empty($order)) {
     $core->favs->setFavoriteIDs($order, false);
     if (!$core->error->flag()) {
         dcPage::addSuccessNotice(__('Favorites have been successfully updated.'));
-        $core->adminurl->redirect("admin.user.preferences", array(), '#user-favorites');
+        $core->adminurl->redirect("admin.user.preferences", [], '#user-favorites');
     }
 }
 
@@ -396,7 +396,7 @@ if (!empty($_POST['replace']) && $core->auth->isSuperAdmin()) {
 
     if (!$core->error->flag()) {
         dcPage::addSuccessNotice(__('Default favorites have been successfully updated.'));
-        $core->adminurl->redirect("admin.user.preferences", array(), '#user-favorites');
+        $core->adminurl->redirect("admin.user.preferences", [], '#user-favorites');
     }
 }
 
@@ -409,7 +409,7 @@ if (!empty($_POST['resetorder'])) {
 
     if (!$core->error->flag()) {
         dcPage::addSuccessNotice(__('Dashboard items order have been successfully reset.'));
-        $core->adminurl->redirect("admin.user.preferences", array(), '#user-favorites');
+        $core->adminurl->redirect("admin.user.preferences", [], '#user-favorites');
     }
 }
 
@@ -438,10 +438,10 @@ dcPage::open($page_title,
     $core->callBehavior('adminPreferencesHeaders'),
 
     dcPage::breadcrumb(
-        array(
+        [
             html::escapeHTML($core->auth->userID()) => '',
             $page_title                             => ''
-        ))
+        ])
 );
 
 # User profile
@@ -452,39 +452,39 @@ echo
 '<form action="' . $core->adminurl->get("admin.user.preferences") . '" method="post" id="user-form">' .
 
 '<p><label for="user_name">' . __('Last Name:') . '</label>' .
-form::field('user_name', 20, 255, array(
+form::field('user_name', 20, 255, [
     'default'      => html::escapeHTML($user_name),
     'autocomplete' => 'family-name'
-)) .
+]) .
 '</p>' .
 
 '<p><label for="user_firstname">' . __('First Name:') . '</label>' .
-form::field('user_firstname', 20, 255, array(
+form::field('user_firstname', 20, 255, [
     'default'      => html::escapeHTML($user_firstname),
     'autocomplete' => 'given-name'
-)) .
+]) .
 '</p>' .
 
 '<p><label for="user_displayname">' . __('Display name:') . '</label>' .
-form::field('user_displayname', 20, 255, array(
+form::field('user_displayname', 20, 255, [
     'default'      => html::escapeHTML($user_displayname),
     'autocomplete' => 'nickname'
-)) .
+]) .
 '</p>' .
 
 '<p><label for="user_email">' . __('Email:') . '</label>' .
-form::email('user_email', array(
+form::email('user_email', [
     'default'      => html::escapeHTML($user_email),
     'autocomplete' => 'email'
-)) .
+]) .
 '</p>' .
 
 '<p><label for="user_url">' . __('URL:') . '</label>' .
-form::url('user_url', array(
+form::url('user_url', [
     'size'         => 30,
     'default'      => html::escapeHTML($user_url),
     'autocomplete' => 'url'
-)) .
+]) .
 '</p>' .
 
 '<p><label for="user_lang">' . __('Language for my interface:') . '</label>' .
@@ -500,9 +500,9 @@ if ($core->auth->allowPassChange()) {
     '<div class="pw-table">' .
     '<p class="pw-cell"><label for="new_pwd">' . __('New password:') . '</label>' .
     form::password('new_pwd', 20, 255,
-        array(
+        [
             'extra_html'   => 'data-indicator="pwindicator"',
-            'autocomplete' => 'new-password')
+            'autocomplete' => 'new-password']
     ) . '</p>' .
     '<div id="pwindicator">' .
     '    <div class="bar"></div>' .
@@ -512,14 +512,14 @@ if ($core->auth->allowPassChange()) {
 
     '<p><label for="new_pwd_c">' . __('Confirm new password:') . '</label>' .
     form::password('new_pwd_c', 20, 255,
-        array(
-            'autocomplete' => 'new-password')
+        [
+            'autocomplete' => 'new-password']
     ) . '</p>' .
 
     '<p><label for="cur_pwd">' . __('Your current password:') . '</label>' .
     form::password('cur_pwd', 20, 255,
-        array(
-            'autocomplete' => 'current-password')
+        [
+            'autocomplete' => 'current-password']
     ) . '</p>' .
     '<p class="form-note warn">' .
     __('If you have changed your email or password you must provide your current password to save these modifications.') .
@@ -609,7 +609,7 @@ foreach ($cols as $col_type => $col_list) {
     foreach ($col_list[1] as $col_name => $col_data) {
         echo
         '<p><label for="cols_' . $col_type . '-' . $col_name . '" class="classic">' .
-        form::checkbox(array('cols_' . $col_type . '[]', 'cols_' . $col_type . '-' . $col_name), $col_name, $col_data[0]) . $col_data[1] . '</label>';
+        form::checkbox(['cols_' . $col_type . '[]', 'cols_' . $col_type . '-' . $col_name], $col_name, $col_data[0]) . $col_data[1] . '</label>';
     }
     echo '</div>';
     $odd = !$odd;
@@ -625,8 +625,8 @@ foreach ($format_by_editors as $format => $editors) {
     echo
     '<p class="field"><label for="user_editor_' . $format . '">' . sprintf(__('Preferred editor for %s:'), $format) . '</label>' .
     form::combo(
-        array('user_editor[' . $format . ']', 'user_editor_' . $format),
-        array_merge(array(__('Choose an editor') => ''), $editors),
+        ['user_editor[' . $format . ']', 'user_editor_' . $format],
+        array_merge([__('Choose an editor') => ''], $editors),
         $user_options['editor'][$format]
     ) . '</p>';
 }
@@ -656,7 +656,7 @@ echo '<h5>' . __('Use xhtml editor for:') . '</h5>';
 foreach ($rte as $rk => $rv) {
     echo
     '<p><label for="rte_' . $rk . '" class="classic">' .
-    form::checkbox(array('rte_flags[]', 'rte_' . $rk), $rk, $rv[0]) . $rv[1] . '</label>';
+    form::checkbox(['rte_flags[]', 'rte_' . $rk], $rk, $rv[0]) . $rv[1] . '</label>';
 }
 echo '</div>';
 
@@ -699,13 +699,13 @@ foreach ($user_fav as $id) {
         $count++;
         echo '<li id="fu-' . $id . '">' . '<label for="fuk-' . $id . '">' .
         '<img src="' . dc_admin_icon_url($fav['small-icon']) . '" alt="" /> ' . '<span class="zoom"><img src="' . dc_admin_icon_url($fav['large-icon']) . '" alt="" /></span>' .
-        form::field(array('order[' . $id . ']'), 2, 3, array(
+        form::field(['order[' . $id . ']'], 2, 3, [
             'default'    => $count,
             'class'      => 'position',
             'extra_html' => 'title="' . sprintf(__('position of %s'), $fav['title']) . '"'
-        )) .
-        form::hidden(array('dynorder[]', 'dynorder-' . $id . ''), $id) .
-        form::checkbox(array('remove[]', 'fuk-' . $id), $id) . __($fav['title']) . '</label>' .
+        ]) .
+        form::hidden(['dynorder[]', 'dynorder-' . $id . ''], $id) .
+        form::checkbox(['remove[]', 'fuk-' . $id], $id) . __($fav['title']) . '</label>' .
             '</li>';
     }
 }
@@ -740,7 +740,7 @@ if ($count > 0) {
 }
 
 $avail_fav       = $core->favs->getFavorites($core->favs->getAvailableFavoritesIDs());
-$default_fav_ids = array();
+$default_fav_ids = [];
 foreach ($core->favs->getFavoriteIDs(true) as $v) {
     $default_fav_ids[$v] = true;
 }
@@ -770,7 +770,7 @@ foreach ($avail_fav as $k => $fav) {
     echo '<li id="fa-' . $k . '">' . '<label for="fak-' . $k . '">' .
     '<img src="' . dc_admin_icon_url($fav['small-icon']) . '" alt="" /> ' .
     '<span class="zoom"><img src="' . dc_admin_icon_url($fav['large-icon']) . '" alt="" /></span>' .
-    form::checkbox(array('append[]', 'fak-' . $k), $k) .
+    form::checkbox(['append[]', 'fak-' . $k], $k) .
         $fav['title'] . '</label>' .
         (isset($default_fav_ids[$k]) ? ' <span class="default-fav"><img src="images/selected.png" alt="' . __('(default favorite)') . '" /></span>' : '') .
         '</li>';

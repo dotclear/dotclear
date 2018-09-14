@@ -72,7 +72,7 @@ class dcAntispam
     {
         if (($count = self::countSpam($core)) > 0) {
             $str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
-            $icons['comments'][0] .= '</span></a> <a href="' . $core->adminurl->get('admin.comments', array('status' => '-2')) . '"><span class="db-icon-title-spam">' .
+            $icons['comments'][0] .= '</span></a> <a href="' . $core->adminurl->get('admin.comments', ['status' => '-2']) . '"><span class="db-icon-title-spam">' .
             sprintf($str, $count);
         }
     }
@@ -81,7 +81,7 @@ class dcAntispam
     {
         if (($count = self::countSpam($core)) > 0) {
             $str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
-            return '</span></a> <a href="' . $core->adminurl->get('admin.comments', array('status' => '-2')) . '"><span class="db-icon-title-spam">' .
+            return '</span></a> <a href="' . $core->adminurl->get('admin.comments', ['status' => '-2']) . '"><span class="db-icon-title-spam">' .
             sprintf($str, $count);
         } else {
             return '';
@@ -95,12 +95,12 @@ class dcAntispam
 
     public static function countSpam($core)
     {
-        return $core->blog->getComments(array('comment_status' => -2), true)->f(0);
+        return $core->blog->getComments(['comment_status' => -2], true)->f(0);
     }
 
     public static function countPublishedComments($core)
     {
-        return $core->blog->getComments(array('comment_status' => 1), true)->f(0);
+        return $core->blog->getComments(['comment_status' => 1], true)->f(0);
     }
 
     public static function delAllSpam($core, $beforeDate = null)
@@ -116,7 +116,7 @@ class dcAntispam
         }
 
         $rs = $core->con->select($strReq);
-        $r  = array();
+        $r  = [];
         while ($rs->fetch()) {
             $r[] = (integer) $rs->comment_id;
         }

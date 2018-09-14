@@ -35,7 +35,7 @@ class linksImporter
 
         $outlines = $xml->xpath("//outline");
 
-        $this->entries = array();
+        $this->entries = [];
         foreach ($outlines as $outline) {
             if (isset($outline['htmlUrl'])) {
                 $link = $outline['htmlUrl'];
@@ -65,7 +65,7 @@ class linksImporter
 
         $outlines = $xml->xpath("//bookmark");
 
-        $this->entries = array();
+        $this->entries = [];
         foreach ($outlines as $outline) {
             if (!isset($outline['href'])) {
                 continue;

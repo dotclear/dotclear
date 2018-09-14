@@ -15,7 +15,7 @@ class debianChangelog
 	private function readLastRevision()
 	{
 		$f = file($this->f);
-		$res = array();
+		$res = [];
 		$done = false;
 
 		foreach ($f as $v)
@@ -95,14 +95,14 @@ class debianChangelog
 
 	private function getPackageInfo($l)
 	{
-		$res = array(
+		$res = [
 			'package' => '',
 			'version' => '',
 			'dist' => '',
 			'keywords' => '',
 			'changelog' => '',
-			'maintainer' => array()
-		);
+			'maintainer' => []
+		];
 
 		$l = explode(';',$l);
 
@@ -125,11 +125,11 @@ class debianChangelog
 
 	private function getMaintainerInfo($l)
 	{
-		$res = array(
+		$res = [
 			'name' => '',
 			'email' => '',
 			'date' => ''
-		);
+		];
 
 		if (preg_match('/^ -- (.+?) <(.+?)>  (.+?)$/',$l,$m)) {
 			$res['name'] = $m[1];
@@ -170,14 +170,14 @@ class svnInfo
 			throw new Exception('Unable to open SVN log');
 		}
 
-		$res = array();
+		$res = [];
 		foreach ($x->logentry as $change)
 		{
-			$res[(integer) $change['revision']] = array(
+			$res[(integer) $change['revision']] = [
 				'author' => (string) $change->author,
 				'date' => (string) $change->date,
 				'msg' => trim((string) $change->msg)
-			);
+			];
 		}
 
 		return $res;

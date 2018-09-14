@@ -16,11 +16,11 @@ $this->registerModule(
     "Ping services",   // Description
     "Olivier Meunier", // Author
     '1.3',             // Version
-    array(
+    [
         'permissions' => 'usage,contentadmin',
         'type'        => 'plugin',
-        'settings'    => array(
+        'settings'    => [
             'self' => ''
-        )
-    )
+        ]
+    ]
 );

@@ -27,12 +27,12 @@ if ($core->blog->settings->widgets->widgets_custom) {
     $widgets_custom = dcWidgets::load($core->blog->settings->widgets->widgets_custom);
 }
 
-$append_combo = array(
+$append_combo = [
     '-'              => 0,
     __('navigation') => 'nav',
     __('extra')      => 'extra',
     __('custom')     => 'custom'
-);
+];
 
 function literalNullString($v)
 {
@@ -45,7 +45,7 @@ function literalNullString($v)
 # Adding widgets to sidebars
 if (!empty($_POST['append']) && is_array($_POST['addw'])) {
     # Filter selection
-    $addw = array();
+    $addw = [];
     foreach ($_POST['addw'] as $k => $v) {
         if (($v == 'extra' || $v == 'nav' || $v == 'custom') && $__widgets->{$k} !== null) {
             $addw[$k] = $v;
@@ -143,7 +143,7 @@ if (isset($_POST['w']) && is_array($_POST['w'])) {
 # Update sidebars
 if (!empty($_POST['wup']) || $removing || $move) {
     if (!isset($_POST['w']) || !is_array($_POST['w'])) {
-        $_POST['w'] = array();
+        $_POST['w'] = [];
     }
 
     try
@@ -159,13 +159,13 @@ if (!empty($_POST['wup']) || $removing || $move) {
         }
 
         if (!isset($_POST['w']['nav'])) {
-            $_POST['w']['nav'] = array();
+            $_POST['w']['nav'] = [];
         }
         if (!isset($_POST['w']['extra'])) {
-            $_POST['w']['extra'] = array();
+            $_POST['w']['extra'] = [];
         }
         if (!isset($_POST['w']['custom'])) {
-            $_POST['w']['custom'] = array();
+            $_POST['w']['custom'] = [];
         }
 
         $widgets_nav    = dcWidgets::loadArray($_POST['w']['nav'], $__widgets);
@@ -213,7 +213,7 @@ $user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
 if (!$user_dm_nodragdrop) {
     echo dcPage::jsLoad(dcPage::getPF('widgets/js/dragdrop.js'));
 }
-echo dcPage::jsVars(array('dotclear.msg.confirm_widgets_reset' => __('Are you sure you want to reset sidebars?')));
+echo dcPage::jsVars(['dotclear.msg.confirm_widgets_reset' => __('Are you sure you want to reset sidebars?')]);
 
 $widget_editor = $core->auth->getOption('editor');
 $rte_flag      = true;
@@ -222,11 +222,11 @@ if (is_array($rte_flags) && in_array('widgets_text', $rte_flags)) {
     $rte_flag = $rte_flags['widgets_text'];
 }
 if ($rte_flag) {
-    echo dcPage::jsVars(array('dotclear.widget_noeditor' => 0));
+    echo dcPage::jsVars(['dotclear.widget_noeditor' => 0]);
     echo $core->callBehavior('adminPostEditor', $widget_editor['xhtml'], 'widget',
-        array('#sidebarsWidgets textarea:not(.noeditor)'), 'xhtml');
+        ['#sidebarsWidgets textarea:not(.noeditor)'], 'xhtml');
 } else {
-    echo dcPage::jsVars(array('dotclear.widget_noeditor' => 1));
+    echo dcPage::jsVars(['dotclear.widget_noeditor' => 1]);
 }
 echo (dcPage::jsConfirmClose('sidebarsWidgets'));
 ?>
@@ -234,10 +234,10 @@ echo (dcPage::jsConfirmClose('sidebarsWidgets'));
 <body>
 <?php
 echo dcPage::breadcrumb(
-    array(
+    [
         html::escapeHTML($core->blog->name) => '',
         __('Widgets')                       => ''
-    )) .
+    ]) .
 dcPage::notices();
 
 # All widgets
@@ -250,16 +250,16 @@ echo
 $j = 0;
 foreach ($__widgets->elements(true) as $w) {
     echo
-    '<li>' . form::hidden(array('w[void][0][id]'), html::escapeHTML($w->id())) .
-    '<p class="widget-name">' . form::number(array('w[void][0][order]'), array(
+    '<li>' . form::hidden(['w[void][0][id]'], html::escapeHTML($w->id())) .
+    '<p class="widget-name">' . form::number(['w[void][0][order]'], [
         'default'    => 0,
         'class'      => 'hide',
         'extra_html' => 'title="' . __('order') . '"'
-    )) .
+    ]) .
     ' ' . $w->name() .
     ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') . '</p>' .
     '<p class="manual-move remove-if-drag"><label class="classic">' . __('Append to:') . '</label> ' .
-    form::combo(array('addw[' . $w->id() . ']'), $append_combo) .
+    form::combo(['addw[' . $w->id() . ']'], $append_combo) .
     '<input type="submit" name="append[' . $w->id() . ']" value="' . __('Add') . '" /></p>' .
     '<div class="widgetSettings hidden-if-drag">' . $w->formSettings('w[void][0]', $j) . '</div>' .
         '</li>';
@@ -364,12 +364,12 @@ function sidebarWidgets($id, $title, $widgets, $pr, $default_widgets, &$j)
         $iname = 'w[' . $pr . '][' . $i . ']';
 
         $res .=
-        '<li>' . form::hidden(array($iname . '[id]'), html::escapeHTML($w->id())) .
-        '<p class="widget-name">' . form::number(array($iname . '[order]'), array(
+        '<li>' . form::hidden([$iname . '[id]'], html::escapeHTML($w->id())) .
+        '<p class="widget-name">' . form::number([$iname . '[order]'], [
             'default'    => $i,
             'class'      => 'hidden',
             'extra_html' => 'title="' . __('order') . '"'
-        )) .
+        ]) .
         ' ' . $w->name() .
         ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') .
         '<span class="toolsWidget remove-if-drag">' .

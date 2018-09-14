@@ -16,8 +16,8 @@ $this->registerModule(
     "Configure your Blowup Theme", // Description
     "Olivier Meunier",             // Author
     '1.2',                         // Version
-    array(
+    [
         'permissions' => 'admin',
         'type'        => 'plugin'
-    )
+    ]
 );

@@ -17,10 +17,10 @@ class dcWorkspace
     protected $table;   ///< <b>string</b> Preferences table name
     protected $user_id; ///< <b>string</b> User ID
 
-    protected $global_prefs = array(); ///< <b>array</b> Global prefs array
-    protected $local_prefs  = array(); ///< <b>array</b> Local prefs array
-    protected $prefs        = array(); ///< <b>array</b> Associative prefs array
-    protected $ws;                     ///< <b>string</b> Current workspace
+    protected $global_prefs = []; ///< <b>array</b> Global prefs array
+    protected $local_prefs  = []; ///< <b>array</b> Local prefs array
+    protected $prefs        = []; ///< <b>array</b> Associative prefs array
+    protected $ws;                ///< <b>string</b> Current workspace
 
     /**
     Object constructor. Retrieves user prefs and puts them in $prefs
@@ -86,13 +86,13 @@ class dcWorkspace
 
             $array = $rs->user_id ? 'local' : 'global';
 
-            $this->{$array . '_prefs'}[$id] = array(
+            $this->{$array . '_prefs'}[$id] = [
                 'ws'     => $this->ws,
                 'value'  => $value,
                 'type'   => $type,
                 'label'  => (string) $rs->f('pref_label'),
                 'global' => $rs->user_id == ''
-            );
+            ];
         }
 
         $this->prefs = $this->global_prefs;
@@ -390,7 +390,7 @@ class dcWorkspace
 
         $array = $global ? 'global' : 'local';
         unset($this->{$array . '_prefs'});
-        $this->{$array . '_prefs'} = array();
+        $this->{$array . '_prefs'} = [];
 
         $array       = $global ? 'local' : 'global';
         $this->prefs = $this->{$array . '_prefs'};

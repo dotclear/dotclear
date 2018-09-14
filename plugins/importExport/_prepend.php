@@ -29,14 +29,14 @@ $core->addBehavior('importExportModules', 'registerIeModules');
 
 function registerIeModules($modules, $core)
 {
-    $modules['import'] = array_merge($modules['import'], array('dcImportFlat'));
-    $modules['import'] = array_merge($modules['import'], array('dcImportFeed'));
+    $modules['import'] = array_merge($modules['import'], ['dcImportFlat']);
+    $modules['import'] = array_merge($modules['import'], ['dcImportFeed']);
 
-    $modules['export'] = array_merge($modules['export'], array('dcExportFlat'));
+    $modules['export'] = array_merge($modules['export'], ['dcExportFlat']);
 
     if ($core->auth->isSuperAdmin()) {
-        $modules['import'] = array_merge($modules['import'], array('dcImportDC1'));
-        $modules['import'] = array_merge($modules['import'], array('dcImportWP'));
+        $modules['import'] = array_merge($modules['import'], ['dcImportDC1']);
+        $modules['import'] = array_merge($modules['import'], ['dcImportWP']);
     }
 }
 

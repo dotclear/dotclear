@@ -347,7 +347,7 @@ class rsExtPost
     public static function getAuthorEmail($rs, $encoded = true)
     {
         if ($encoded) {
-            return strtr($rs->user_email, array('@' => '%40', '.' => '%2e'));
+            return strtr($rs->user_email, ['@' => '%40', '.' => '%2e']);
         }
         return $rs->user_email;
     }
@@ -576,7 +576,7 @@ class rsExtComment
         $res = $rs->comment_content;
 
         if ($rs->core->blog->settings->system->comments_nofollow) {
-            $res = preg_replace_callback('#<a(.*?href=".*?".*?)>#ms', array('self', 'noFollowURL'), $res);
+            $res = preg_replace_callback('#<a(.*?href=".*?".*?)>#ms', ['self', 'noFollowURL'], $res);
         }
 
         if ($absolute_urls) {
@@ -654,7 +654,7 @@ class rsExtComment
     public static function getEmail($rs, $encoded = true)
     {
         if ($encoded) {
-            return strtr($rs->comment_email, array('@' => '%40', '.' => '%2e'));
+            return strtr($rs->comment_email, ['@' => '%40', '.' => '%2e']);
         }
         return $rs->comment_email;
     }
@@ -863,7 +863,7 @@ class rsExtUser
         if (is_array($options)) {
             return $options;
         }
-        return array();
+        return [];
     }
 
     /**
@@ -919,7 +919,7 @@ class extStaticRecord extends staticRecord
         $this->sortfield = $field;
         $this->sortsign  = strtolower($order) == 'asc' ? 1 : -1;
 
-        usort($this->__data, array($this, 'lexicalSortCallback'));
+        usort($this->__data, [$this, 'lexicalSortCallback']);
 
         $this->sortfield = null;
         $this->sortsign  = null;

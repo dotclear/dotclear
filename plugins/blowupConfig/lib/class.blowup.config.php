@@ -16,31 +16,31 @@ class blowupConfig
     protected static $css_folder = 'blowup-css';
     protected static $img_folder = 'blowup-images';
 
-    protected static $fonts = array(
-        'sans-serif' => array(
+    protected static $fonts = [
+        'sans-serif' => [
             'ss1' => 'Arial, Helvetica, sans-serif',
             'ss2' => 'Verdana,Geneva, Arial, Helvetica, sans-serif',
             'ss3' => '"Lucida Grande", "Lucida Sans Unicode", sans-serif',
             'ss4' => '"Trebuchet MS", Helvetica, sans-serif',
             'ss5' => 'Impact, Charcoal, sans-serif'
-        ),
+        ],
 
-        'serif'      => array(
+        'serif'      => [
             's1' => 'Times, "Times New Roman", serif',
             's2' => 'Georgia, serif',
             's3' => 'Baskerville, "Palatino Linotype", serif'
-        ),
+        ],
 
-        'monospace'  => array(
+        'monospace'  => [
             'm1' => '"Andale Mono", "Courier New", monospace',
             'm2' => '"Courier New", Courier, mono, monospace'
-        )
-    );
+        ]
+    ];
 
-    protected static $fonts_combo = array();
-    protected static $fonts_list  = array();
+    protected static $fonts_combo = [];
+    protected static $fonts_list  = [];
 
-    public static $top_images = array(
+    public static $top_images = [
         'default'        => 'Default',
         'blank'          => 'Blank',
         'light-trails-1' => 'Light Trails 1',
@@ -57,14 +57,14 @@ class blowupConfig
         'roadrunner-1'   => 'Road Runner 1',
         'roadrunner-2'   => 'Road Runner 2',
         'typo'           => 'Typo'
-    );
+    ];
 
     public static function fontsList()
     {
         if (empty(self::$fonts_combo)) {
             self::$fonts_combo[__('default')] = '';
             foreach (self::$fonts as $family => $g) {
-                $fonts = array();
+                $fonts = [];
                 foreach ($g as $code => $font) {
                     $fonts[str_replace('"', '', $font)] = $code;
                 }
@@ -156,7 +156,7 @@ class blowupConfig
             return;
         }
 
-        $css = array();
+        $css = [];
 
         /* Sidebar position
         ---------------------------------------------- */
@@ -198,11 +198,11 @@ class blowupConfig
         } else {
             dcThemeConfig::prop($css, '#top h1 span', 'text-indent', '-5000px');
             dcThemeConfig::prop($css, '#top h1', 'top', '0px');
-            $css['#top h1 a'] = array(
+            $css['#top h1 a'] = [
                 'display' => 'block',
                 'height'  => $s['top_height'] ? ($s['top_height'] - 10) . 'px' : '120px',
                 'width'   => '800px'
-            );
+            ];
         }
         dcThemeConfig::prop($css, '#top', 'height', $s['top_height']);
 
@@ -324,11 +324,11 @@ class blowupConfig
             throw new Exception(__('Unable to create images.'));
         }
 
-        $body_fill = array(
+        $body_fill = [
             'light'  => dirname(__FILE__) . '/../alpha-img/gradient-l.png',
             'medium' => dirname(__FILE__) . '/../alpha-img/gradient-m.png',
             'dark'   => dirname(__FILE__) . '/../alpha-img/gradient-d.png'
-        );
+        ];
 
         $body_g = isset($body_fill[$gradient]) ? $body_fill[$gradient] : false;
 

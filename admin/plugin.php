@@ -16,11 +16,11 @@ $p      = !empty($_REQUEST['p']) ? $_REQUEST['p'] : null;
 $popup  = (integer) !empty($_REQUEST['popup']);
 
 if ($popup) {
-    $open_f  = array('dcPage', 'openPopup');
-    $close_f = array('dcPage', 'closePopup');
+    $open_f  = ['dcPage', 'openPopup'];
+    $close_f = ['dcPage', 'closePopup'];
 } else {
-    $open_f  = array('dcPage', 'open');
-    $close_f = array('dcPage', 'close');
+    $open_f  = ['dcPage', 'open'];
+    $close_f = ['dcPage', 'close'];
 }
 
 if ($core->plugins->moduleExists($p)) {
@@ -84,10 +84,10 @@ if (file_exists($p_file)) {
 } else {
     call_user_func($open_f, __('Plugin not found'), '',
         dcPage::breadcrumb(
-            array(
+            [
                 __('System')           => '',
                 __('Plugin not found') => ''
-            ))
+            ])
     );
 
     echo '<p>' . __('The plugin you reached does not exist or does not have an admin page.') . '</p>';

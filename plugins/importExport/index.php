@@ -26,13 +26,13 @@ function listImportExportModules($core, $modules)
     return '<dl class="modules">' . $res . '</dl>';
 }
 
-$modules = new ArrayObject(array('import' => array(), 'export' => array()));
+$modules = new ArrayObject(['import' => [], 'export' => []]);
 
 # --BEHAVIOR-- importExportModules
 $core->callBehavior('importExportModules', $modules, $core);
 
 $type = null;
-if (!empty($_REQUEST['type']) && in_array($_REQUEST['type'], array('export', 'import'))) {
+if (!empty($_REQUEST['type']) && in_array($_REQUEST['type'], ['export', 'import'])) {
     $type = $_REQUEST['type'];
 }
 
@@ -70,11 +70,11 @@ dcPage::jsLoad(dcPage::getPF('importExport/js/script.js')) .
 
 if ($type && $module !== null) {
     echo dcPage::breadcrumb(
-        array(
+        [
             __('Plugins')                   => '',
             $title                          => $p_url,
             html::escapeHTML($module->name) => ''
-        )) .
+        ]) .
     dcPage::notices();
 
     echo
@@ -85,10 +85,10 @@ if ($type && $module !== null) {
     echo '</div>';
 } else {
     echo dcPage::breadcrumb(
-        array(
+        [
             __('Plugins') => '',
             $title        => ''
-        )) .
+        ]) .
     dcPage::notices();
 
     echo '<h3>' . __('Import') . '</h3>' . listImportExportModules($core, $modules['import']);
@@ -97,7 +97,7 @@ if ($type && $module !== null) {
     '<h3>' . __('Export') . '</h3>' .
     '<p class="info">' . sprintf(
         __('Export functions are in the page %s.'),
-        '<a href="' . $core->adminurl->get('admin.plugin.maintenance', array('tab' => 'backup')) . '#backup">' . __('Maintenance') . '</a>'
+        '<a href="' . $core->adminurl->get('admin.plugin.maintenance', ['tab' => 'backup']) . '#backup">' . __('Maintenance') . '</a>'
     ) . '</p>';
 }
 

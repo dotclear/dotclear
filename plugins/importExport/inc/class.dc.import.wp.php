@@ -24,10 +24,10 @@ class dcImportWP extends dcIeModule
     protected $post_limit  = 20;
     protected $post_count  = 0;
 
-    protected $has_table = array();
+    protected $has_table = [];
 
     protected $vars;
-    protected $base_vars = array(
+    protected $base_vars = [
         'db_host'            => '',
         'db_name'            => '',
         'db_user'            => '',
@@ -40,10 +40,10 @@ class dcImportWP extends dcIeModule
         'post_limit'         => 20,
         'post_formater'      => 'xhtml',
         'comment_formater'   => 'xhtml',
-        'user_ids'           => array(),
-        'cat_ids'            => array(),
+        'user_ids'           => [],
+        'cat_ids'            => [],
         'permalink_template' => 'p=%post_id%',
-        'permalink_tags'     => array(
+        'permalink_tags'     => [
             '%year%',
             '%monthnum%',
             '%day%',
@@ -54,8 +54,8 @@ class dcImportWP extends dcIeModule
             '%post_id%',
             '%category%',
             '%author%'
-        )
-    );
+        ]
+    ];
     protected $formaters;
 
     protected function setInfo()
@@ -243,9 +243,9 @@ class dcImportWP extends dcIeModule
                 break;
             case 5:
                 $t = sprintf(__('Importing entries from %d to %d / %d'), $this->post_offset,
-                    min(array($this->post_offset + $this->post_limit, $this->post_count)), $this->post_count);
+                    min([$this->post_offset + $this->post_limit, $this->post_count]), $this->post_count);
                 printf($this->imForm(5, $t),
-                    form::hidden(array('offset'), $this->post_offset) .
+                    form::hidden(['offset'], $this->post_offset) .
                     $this->autoSubmit()
                 );
                 break;
@@ -270,7 +270,7 @@ class dcImportWP extends dcIeModule
         '<form action="' . $this->getURL(true) . '" method="post">' .
         '<h3 class="vertical-separator">' . $legend . '</h3>' .
         '<div>' . $this->core->formNonce() .
-        form::hidden(array('do'), 'step' . $step) .
+        form::hidden(['do'], 'step' . $step) .
         '%s' . '</div>' .
         '<p><input type="submit" value="' . $submit_value . '" /></p>' .
         '<p class="form-note info">' . __('Depending on the size of your blog, it could take a few minutes.') . '</p>' .
@@ -346,7 +346,7 @@ class dcImportWP extends dcIeModule
                     $cur->user_creadt      = $rs->user_registered;
                     $cur->user_lang        = $this->core->blog->settings->system->lang;
                     $cur->user_tz          = $this->core->blog->settings->system->blog_timezone;
-                    $permissions           = array();
+                    $permissions           = [];
 
                     $rs_meta = $db->select('SELECT * FROM ' . $prefix . 'usermeta WHERE user_id = ' . $rs->ID);
                     while ($rs_meta->fetch()) {
@@ -361,9 +361,9 @@ class dcImportWP extends dcIeModule
                                 $cur->user_desc = $this->cleanStr($rs_meta->meta_value);
                                 break;
                             case 'rich_editing':
-                                $cur->user_options = new ArrayObject(array(
+                                $cur->user_options = new ArrayObject([
                                     'enable_wysiwyg' => $rs_meta->meta_value == 'true' ? true : false
-                                ));
+                                ]);
                                 break;
                             case 'wp_user_level':
                                 switch ($rs_meta->meta_value) {
@@ -586,7 +586,7 @@ class dcImportWP extends dcIeModule
             }
         }
 
-        $permalink_infos = array(
+        $permalink_infos = [
             date('Y', strtotime($cur->post_dt)),
             date('m', strtotime($cur->post_dt)),
             date('d', strtotime($cur->post_dt)),
@@ -597,7 +597,7 @@ class dcImportWP extends dcIeModule
             $rs->ID,
             $cur->cat_id,
             $cur->user_id
-        );
+        ];
         $cur->post_url = str_replace(
             $this->vars['permalink_tags'],
             $permalink_infos,
@@ -726,8 +726,8 @@ class dcImportWP extends dcIeModule
     # Pings import
     protected function importPings($post_id, $new_post_id, $db)
     {
-        $urls  = array();
-        $pings = array();
+        $urls  = [];
+        $pings = [];
 
         $rs = $db->select(
             'SELECT pinged FROM ' . $this->vars['db_prefix'] . 'posts ' .

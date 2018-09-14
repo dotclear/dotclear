@@ -24,7 +24,7 @@ class dcBlogroll
         $this->table = $this->blog->prefix . 'link';
     }
 
-    public function getLinks($params = array())
+    public function getLinks($params = [])
     {
         $strReq = 'SELECT link_id, link_title, link_desc, link_href, ' .
         'link_lang, link_xfn, link_position ' .
@@ -45,7 +45,7 @@ class dcBlogroll
         return $rs;
     }
 
-    public function getLangs($params = array())
+    public function getLangs($params = [])
     {
         // Use post_lang as an alias of link_lang to be able to use the dcAdminCombos::getLangsCombo() function
         $strReq = 'SELECT COUNT(link_id) as nb_link, link_lang as post_lang ' .
@@ -206,7 +206,7 @@ class dcBlogroll
 
     public function getLinksHierarchy($rs)
     {
-        $res = array();
+        $res = [];
 
         foreach ($rs->rows() as $k => $v) {
             if (!$v['is_cat']) {

@@ -28,190 +28,190 @@ class dcTemplate extends template
         $this->core = &$core;
 
         # Transitional tags
-        $this->addValue('EntryTrackbackCount', array($this, 'EntryPingCount'));
-        $this->addValue('EntryTrackbackData', array($this, 'EntryPingData'));
-        $this->addValue('EntryTrackbackLink', array($this, 'EntryPingLink'));
+        $this->addValue('EntryTrackbackCount', [$this, 'EntryPingCount']);
+        $this->addValue('EntryTrackbackData', [$this, 'EntryPingData']);
+        $this->addValue('EntryTrackbackLink', [$this, 'EntryPingLink']);
 
         # l10n
-        $this->addValue('lang', array($this, 'l10n'));
+        $this->addValue('lang', [$this, 'l10n']);
 
         # Loops test tags
-        $this->addBlock('LoopPosition', array($this, 'LoopPosition'));
-        $this->addValue('LoopIndex', array($this, 'LoopIndex'));
+        $this->addBlock('LoopPosition', [$this, 'LoopPosition']);
+        $this->addValue('LoopIndex', [$this, 'LoopIndex']);
 
         # Archives
-        $this->addBlock('Archives', array($this, 'Archives'));
-        $this->addBlock('ArchivesHeader', array($this, 'ArchivesHeader'));
-        $this->addBlock('ArchivesFooter', array($this, 'ArchivesFooter'));
-        $this->addBlock('ArchivesYearHeader', array($this, 'ArchivesYearHeader'));
-        $this->addBlock('ArchivesYearFooter', array($this, 'ArchivesYearFooter'));
-        $this->addValue('ArchiveDate', array($this, 'ArchiveDate'));
-        $this->addBlock('ArchiveNext', array($this, 'ArchiveNext'));
-        $this->addBlock('ArchivePrevious', array($this, 'ArchivePrevious'));
-        $this->addValue('ArchiveEntriesCount', array($this, 'ArchiveEntriesCount'));
-        $this->addValue('ArchiveURL', array($this, 'ArchiveURL'));
+        $this->addBlock('Archives', [$this, 'Archives']);
+        $this->addBlock('ArchivesHeader', [$this, 'ArchivesHeader']);
+        $this->addBlock('ArchivesFooter', [$this, 'ArchivesFooter']);
+        $this->addBlock('ArchivesYearHeader', [$this, 'ArchivesYearHeader']);
+        $this->addBlock('ArchivesYearFooter', [$this, 'ArchivesYearFooter']);
+        $this->addValue('ArchiveDate', [$this, 'ArchiveDate']);
+        $this->addBlock('ArchiveNext', [$this, 'ArchiveNext']);
+        $this->addBlock('ArchivePrevious', [$this, 'ArchivePrevious']);
+        $this->addValue('ArchiveEntriesCount', [$this, 'ArchiveEntriesCount']);
+        $this->addValue('ArchiveURL', [$this, 'ArchiveURL']);
 
         # Blog
-        $this->addValue('BlogArchiveURL', array($this, 'BlogArchiveURL'));
-        $this->addValue('BlogCopyrightNotice', array($this, 'BlogCopyrightNotice'));
-        $this->addValue('BlogDescription', array($this, 'BlogDescription'));
-        $this->addValue('BlogEditor', array($this, 'BlogEditor'));
-        $this->addValue('BlogFeedID', array($this, 'BlogFeedID'));
-        $this->addValue('BlogFeedURL', array($this, 'BlogFeedURL'));
-        $this->addValue('BlogRSDURL', array($this, 'BlogRSDURL'));
-        $this->addValue('BlogName', array($this, 'BlogName'));
-        $this->addValue('BlogLanguage', array($this, 'BlogLanguage'));
-        $this->addValue('BlogThemeURL', array($this, 'BlogThemeURL'));
-        $this->addValue('BlogParentThemeURL', array($this, 'BlogParentThemeURL'));
-        $this->addValue('BlogUpdateDate', array($this, 'BlogUpdateDate'));
-        $this->addValue('BlogID', array($this, 'BlogID'));
-        $this->addValue('BlogURL', array($this, 'BlogURL'));
-        $this->addValue('BlogXMLRPCURL', array($this, 'BlogXMLRPCURL'));
-        $this->addValue('BlogPublicURL', array($this, 'BlogPublicURL'));
-        $this->addValue('BlogQmarkURL', array($this, 'BlogQmarkURL'));
-        $this->addValue('BlogMetaRobots', array($this, 'BlogMetaRobots'));
-        $this->addValue('BlogJsJQuery', array($this, 'BlogJsJQuery'));
+        $this->addValue('BlogArchiveURL', [$this, 'BlogArchiveURL']);
+        $this->addValue('BlogCopyrightNotice', [$this, 'BlogCopyrightNotice']);
+        $this->addValue('BlogDescription', [$this, 'BlogDescription']);
+        $this->addValue('BlogEditor', [$this, 'BlogEditor']);
+        $this->addValue('BlogFeedID', [$this, 'BlogFeedID']);
+        $this->addValue('BlogFeedURL', [$this, 'BlogFeedURL']);
+        $this->addValue('BlogRSDURL', [$this, 'BlogRSDURL']);
+        $this->addValue('BlogName', [$this, 'BlogName']);
+        $this->addValue('BlogLanguage', [$this, 'BlogLanguage']);
+        $this->addValue('BlogThemeURL', [$this, 'BlogThemeURL']);
+        $this->addValue('BlogParentThemeURL', [$this, 'BlogParentThemeURL']);
+        $this->addValue('BlogUpdateDate', [$this, 'BlogUpdateDate']);
+        $this->addValue('BlogID', [$this, 'BlogID']);
+        $this->addValue('BlogURL', [$this, 'BlogURL']);
+        $this->addValue('BlogXMLRPCURL', [$this, 'BlogXMLRPCURL']);
+        $this->addValue('BlogPublicURL', [$this, 'BlogPublicURL']);
+        $this->addValue('BlogQmarkURL', [$this, 'BlogQmarkURL']);
+        $this->addValue('BlogMetaRobots', [$this, 'BlogMetaRobots']);
+        $this->addValue('BlogJsJQuery', [$this, 'BlogJsJQuery']);
 
         # Categories
-        $this->addBlock('Categories', array($this, 'Categories'));
-        $this->addBlock('CategoriesHeader', array($this, 'CategoriesHeader'));
-        $this->addBlock('CategoriesFooter', array($this, 'CategoriesFooter'));
-        $this->addBlock('CategoryIf', array($this, 'CategoryIf'));
-        $this->addBlock('CategoryFirstChildren', array($this, 'CategoryFirstChildren'));
-        $this->addBlock('CategoryParents', array($this, 'CategoryParents'));
-        $this->addValue('CategoryFeedURL', array($this, 'CategoryFeedURL'));
-        $this->addValue('CategoryURL', array($this, 'CategoryURL'));
-        $this->addValue('CategoryShortURL', array($this, 'CategoryShortURL'));
-        $this->addValue('CategoryDescription', array($this, 'CategoryDescription'));
-        $this->addValue('CategoryTitle', array($this, 'CategoryTitle'));
-        $this->addValue('CategoryEntriesCount', array($this, 'CategoryEntriesCount'));
+        $this->addBlock('Categories', [$this, 'Categories']);
+        $this->addBlock('CategoriesHeader', [$this, 'CategoriesHeader']);
+        $this->addBlock('CategoriesFooter', [$this, 'CategoriesFooter']);
+        $this->addBlock('CategoryIf', [$this, 'CategoryIf']);
+        $this->addBlock('CategoryFirstChildren', [$this, 'CategoryFirstChildren']);
+        $this->addBlock('CategoryParents', [$this, 'CategoryParents']);
+        $this->addValue('CategoryFeedURL', [$this, 'CategoryFeedURL']);
+        $this->addValue('CategoryURL', [$this, 'CategoryURL']);
+        $this->addValue('CategoryShortURL', [$this, 'CategoryShortURL']);
+        $this->addValue('CategoryDescription', [$this, 'CategoryDescription']);
+        $this->addValue('CategoryTitle', [$this, 'CategoryTitle']);
+        $this->addValue('CategoryEntriesCount', [$this, 'CategoryEntriesCount']);
 
         # Comments
-        $this->addBlock('Comments', array($this, 'Comments'));
-        $this->addValue('CommentAuthor', array($this, 'CommentAuthor'));
-        $this->addValue('CommentAuthorDomain', array($this, 'CommentAuthorDomain'));
-        $this->addValue('CommentAuthorLink', array($this, 'CommentAuthorLink'));
-        $this->addValue('CommentAuthorMailMD5', array($this, 'CommentAuthorMailMD5'));
-        $this->addValue('CommentAuthorURL', array($this, 'CommentAuthorURL'));
-        $this->addValue('CommentContent', array($this, 'CommentContent'));
-        $this->addValue('CommentDate', array($this, 'CommentDate'));
-        $this->addValue('CommentTime', array($this, 'CommentTime'));
-        $this->addValue('CommentEmail', array($this, 'CommentEmail'));
-        $this->addValue('CommentEntryTitle', array($this, 'CommentEntryTitle'));
-        $this->addValue('CommentFeedID', array($this, 'CommentFeedID'));
-        $this->addValue('CommentID', array($this, 'CommentID'));
-        $this->addBlock('CommentIf', array($this, 'CommentIf'));
-        $this->addValue('CommentIfFirst', array($this, 'CommentIfFirst'));
-        $this->addValue('CommentIfMe', array($this, 'CommentIfMe'));
-        $this->addValue('CommentIfOdd', array($this, 'CommentIfOdd'));
-        $this->addValue('CommentIP', array($this, 'CommentIP'));
-        $this->addValue('CommentOrderNumber', array($this, 'CommentOrderNumber'));
-        $this->addBlock('CommentsFooter', array($this, 'CommentsFooter'));
-        $this->addBlock('CommentsHeader', array($this, 'CommentsHeader'));
-        $this->addValue('CommentPostURL', array($this, 'CommentPostURL'));
-        $this->addBlock('IfCommentAuthorEmail', array($this, 'IfCommentAuthorEmail'));
-        $this->addValue('CommentHelp', array($this, 'CommentHelp'));
+        $this->addBlock('Comments', [$this, 'Comments']);
+        $this->addValue('CommentAuthor', [$this, 'CommentAuthor']);
+        $this->addValue('CommentAuthorDomain', [$this, 'CommentAuthorDomain']);
+        $this->addValue('CommentAuthorLink', [$this, 'CommentAuthorLink']);
+        $this->addValue('CommentAuthorMailMD5', [$this, 'CommentAuthorMailMD5']);
+        $this->addValue('CommentAuthorURL', [$this, 'CommentAuthorURL']);
+        $this->addValue('CommentContent', [$this, 'CommentContent']);
+        $this->addValue('CommentDate', [$this, 'CommentDate']);
+        $this->addValue('CommentTime', [$this, 'CommentTime']);
+        $this->addValue('CommentEmail', [$this, 'CommentEmail']);
+        $this->addValue('CommentEntryTitle', [$this, 'CommentEntryTitle']);
+        $this->addValue('CommentFeedID', [$this, 'CommentFeedID']);
+        $this->addValue('CommentID', [$this, 'CommentID']);
+        $this->addBlock('CommentIf', [$this, 'CommentIf']);
+        $this->addValue('CommentIfFirst', [$this, 'CommentIfFirst']);
+        $this->addValue('CommentIfMe', [$this, 'CommentIfMe']);
+        $this->addValue('CommentIfOdd', [$this, 'CommentIfOdd']);
+        $this->addValue('CommentIP', [$this, 'CommentIP']);
+        $this->addValue('CommentOrderNumber', [$this, 'CommentOrderNumber']);
+        $this->addBlock('CommentsFooter', [$this, 'CommentsFooter']);
+        $this->addBlock('CommentsHeader', [$this, 'CommentsHeader']);
+        $this->addValue('CommentPostURL', [$this, 'CommentPostURL']);
+        $this->addBlock('IfCommentAuthorEmail', [$this, 'IfCommentAuthorEmail']);
+        $this->addValue('CommentHelp', [$this, 'CommentHelp']);
 
         # Comment preview
-        $this->addBlock('IfCommentPreview', array($this, 'IfCommentPreview'));
-        $this->addBlock('IfCommentPreviewOptional', array($this, 'IfCommentPreviewOptional'));
-        $this->addValue('CommentPreviewName', array($this, 'CommentPreviewName'));
-        $this->addValue('CommentPreviewEmail', array($this, 'CommentPreviewEmail'));
-        $this->addValue('CommentPreviewSite', array($this, 'CommentPreviewSite'));
-        $this->addValue('CommentPreviewContent', array($this, 'CommentPreviewContent'));
-        $this->addValue('CommentPreviewCheckRemember', array($this, 'CommentPreviewCheckRemember'));
+        $this->addBlock('IfCommentPreview', [$this, 'IfCommentPreview']);
+        $this->addBlock('IfCommentPreviewOptional', [$this, 'IfCommentPreviewOptional']);
+        $this->addValue('CommentPreviewName', [$this, 'CommentPreviewName']);
+        $this->addValue('CommentPreviewEmail', [$this, 'CommentPreviewEmail']);
+        $this->addValue('CommentPreviewSite', [$this, 'CommentPreviewSite']);
+        $this->addValue('CommentPreviewContent', [$this, 'CommentPreviewContent']);
+        $this->addValue('CommentPreviewCheckRemember', [$this, 'CommentPreviewCheckRemember']);
 
         # Entries
-        $this->addBlock('DateFooter', array($this, 'DateFooter'));
-        $this->addBlock('DateHeader', array($this, 'DateHeader'));
-        $this->addBlock('Entries', array($this, 'Entries'));
-        $this->addBlock('EntriesFooter', array($this, 'EntriesFooter'));
-        $this->addBlock('EntriesHeader', array($this, 'EntriesHeader'));
-        $this->addValue('EntryAuthorCommonName', array($this, 'EntryAuthorCommonName'));
-        $this->addValue('EntryAuthorDisplayName', array($this, 'EntryAuthorDisplayName'));
-        $this->addValue('EntryAuthorEmail', array($this, 'EntryAuthorEmail'));
-        $this->addValue('EntryAuthorEmailMD5', array($this, 'EntryAuthorEmailMD5'));
-        $this->addValue('EntryAuthorID', array($this, 'EntryAuthorID'));
-        $this->addValue('EntryAuthorLink', array($this, 'EntryAuthorLink'));
-        $this->addValue('EntryAuthorURL', array($this, 'EntryAuthorURL'));
-        $this->addValue('EntryBasename', array($this, 'EntryBasename'));
-        $this->addValue('EntryCategory', array($this, 'EntryCategory'));
-        $this->addValue('EntryCategoryDescription', array($this, 'EntryCategoryDescription'));
-        $this->addBlock('EntryCategoriesBreadcrumb', array($this, 'EntryCategoriesBreadcrumb'));
-        $this->addValue('EntryCategoryID', array($this, 'EntryCategoryID'));
-        $this->addValue('EntryCategoryURL', array($this, 'EntryCategoryURL'));
-        $this->addValue('EntryCategoryShortURL', array($this, 'EntryCategoryShortURL'));
-        $this->addValue('EntryCommentCount', array($this, 'EntryCommentCount'));
-        $this->addValue('EntryContent', array($this, 'EntryContent'));
-        $this->addValue('EntryDate', array($this, 'EntryDate'));
-        $this->addValue('EntryExcerpt', array($this, 'EntryExcerpt'));
-        $this->addValue('EntryFeedID', array($this, 'EntryFeedID'));
-        $this->addValue('EntryFirstImage', array($this, 'EntryFirstImage'));
-        $this->addValue('EntryID', array($this, 'EntryID'));
-        $this->addBlock('EntryIf', array($this, 'EntryIf'));
-        $this->addBlock('EntryIfContentCut', array($this, 'EntryIfContentCut'));
-        $this->addValue('EntryIfFirst', array($this, 'EntryIfFirst'));
-        $this->addValue('EntryIfOdd', array($this, 'EntryIfOdd'));
-        $this->addValue('EntryIfSelected', array($this, 'EntryIfSelected'));
-        $this->addValue('EntryLang', array($this, 'EntryLang'));
-        $this->addBlock('EntryNext', array($this, 'EntryNext'));
-        $this->addValue('EntryPingCount', array($this, 'EntryPingCount'));
-        $this->addValue('EntryPingData', array($this, 'EntryPingData'));
-        $this->addValue('EntryPingLink', array($this, 'EntryPingLink'));
-        $this->addBlock('EntryPrevious', array($this, 'EntryPrevious'));
-        $this->addValue('EntryTitle', array($this, 'EntryTitle'));
-        $this->addValue('EntryTime', array($this, 'EntryTime'));
-        $this->addValue('EntryURL', array($this, 'EntryURL'));
+        $this->addBlock('DateFooter', [$this, 'DateFooter']);
+        $this->addBlock('DateHeader', [$this, 'DateHeader']);
+        $this->addBlock('Entries', [$this, 'Entries']);
+        $this->addBlock('EntriesFooter', [$this, 'EntriesFooter']);
+        $this->addBlock('EntriesHeader', [$this, 'EntriesHeader']);
+        $this->addValue('EntryAuthorCommonName', [$this, 'EntryAuthorCommonName']);
+        $this->addValue('EntryAuthorDisplayName', [$this, 'EntryAuthorDisplayName']);
+        $this->addValue('EntryAuthorEmail', [$this, 'EntryAuthorEmail']);
+        $this->addValue('EntryAuthorEmailMD5', [$this, 'EntryAuthorEmailMD5']);
+        $this->addValue('EntryAuthorID', [$this, 'EntryAuthorID']);
+        $this->addValue('EntryAuthorLink', [$this, 'EntryAuthorLink']);
+        $this->addValue('EntryAuthorURL', [$this, 'EntryAuthorURL']);
+        $this->addValue('EntryBasename', [$this, 'EntryBasename']);
+        $this->addValue('EntryCategory', [$this, 'EntryCategory']);
+        $this->addValue('EntryCategoryDescription', [$this, 'EntryCategoryDescription']);
+        $this->addBlock('EntryCategoriesBreadcrumb', [$this, 'EntryCategoriesBreadcrumb']);
+        $this->addValue('EntryCategoryID', [$this, 'EntryCategoryID']);
+        $this->addValue('EntryCategoryURL', [$this, 'EntryCategoryURL']);
+        $this->addValue('EntryCategoryShortURL', [$this, 'EntryCategoryShortURL']);
+        $this->addValue('EntryCommentCount', [$this, 'EntryCommentCount']);
+        $this->addValue('EntryContent', [$this, 'EntryContent']);
+        $this->addValue('EntryDate', [$this, 'EntryDate']);
+        $this->addValue('EntryExcerpt', [$this, 'EntryExcerpt']);
+        $this->addValue('EntryFeedID', [$this, 'EntryFeedID']);
+        $this->addValue('EntryFirstImage', [$this, 'EntryFirstImage']);
+        $this->addValue('EntryID', [$this, 'EntryID']);
+        $this->addBlock('EntryIf', [$this, 'EntryIf']);
+        $this->addBlock('EntryIfContentCut', [$this, 'EntryIfContentCut']);
+        $this->addValue('EntryIfFirst', [$this, 'EntryIfFirst']);
+        $this->addValue('EntryIfOdd', [$this, 'EntryIfOdd']);
+        $this->addValue('EntryIfSelected', [$this, 'EntryIfSelected']);
+        $this->addValue('EntryLang', [$this, 'EntryLang']);
+        $this->addBlock('EntryNext', [$this, 'EntryNext']);
+        $this->addValue('EntryPingCount', [$this, 'EntryPingCount']);
+        $this->addValue('EntryPingData', [$this, 'EntryPingData']);
+        $this->addValue('EntryPingLink', [$this, 'EntryPingLink']);
+        $this->addBlock('EntryPrevious', [$this, 'EntryPrevious']);
+        $this->addValue('EntryTitle', [$this, 'EntryTitle']);
+        $this->addValue('EntryTime', [$this, 'EntryTime']);
+        $this->addValue('EntryURL', [$this, 'EntryURL']);
 
         # Languages
-        $this->addBlock('Languages', array($this, 'Languages'));
-        $this->addBlock('LanguagesHeader', array($this, 'LanguagesHeader'));
-        $this->addBlock('LanguagesFooter', array($this, 'LanguagesFooter'));
-        $this->addValue('LanguageCode', array($this, 'LanguageCode'));
-        $this->addBlock('LanguageIfCurrent', array($this, 'LanguageIfCurrent'));
-        $this->addValue('LanguageURL', array($this, 'LanguageURL'));
+        $this->addBlock('Languages', [$this, 'Languages']);
+        $this->addBlock('LanguagesHeader', [$this, 'LanguagesHeader']);
+        $this->addBlock('LanguagesFooter', [$this, 'LanguagesFooter']);
+        $this->addValue('LanguageCode', [$this, 'LanguageCode']);
+        $this->addBlock('LanguageIfCurrent', [$this, 'LanguageIfCurrent']);
+        $this->addValue('LanguageURL', [$this, 'LanguageURL']);
 
         # Pagination
-        $this->addBlock('Pagination', array($this, 'Pagination'));
-        $this->addValue('PaginationCounter', array($this, 'PaginationCounter'));
-        $this->addValue('PaginationCurrent', array($this, 'PaginationCurrent'));
-        $this->addBlock('PaginationIf', array($this, 'PaginationIf'));
-        $this->addValue('PaginationURL', array($this, 'PaginationURL'));
+        $this->addBlock('Pagination', [$this, 'Pagination']);
+        $this->addValue('PaginationCounter', [$this, 'PaginationCounter']);
+        $this->addValue('PaginationCurrent', [$this, 'PaginationCurrent']);
+        $this->addBlock('PaginationIf', [$this, 'PaginationIf']);
+        $this->addValue('PaginationURL', [$this, 'PaginationURL']);
 
         # Trackbacks
-        $this->addValue('PingBlogName', array($this, 'PingBlogName'));
-        $this->addValue('PingContent', array($this, 'PingContent'));
-        $this->addValue('PingDate', array($this, 'PingDate'));
-        $this->addValue('PingEntryTitle', array($this, 'PingEntryTitle'));
-        $this->addValue('PingFeedID', array($this, 'PingFeedID'));
-        $this->addValue('PingID', array($this, 'PingID'));
-        $this->addValue('PingIfFirst', array($this, 'PingIfFirst'));
-        $this->addValue('PingIfOdd', array($this, 'PingIfOdd'));
-        $this->addValue('PingIP', array($this, 'PingIP'));
-        $this->addValue('PingNoFollow', array($this, 'PingNoFollow'));
-        $this->addValue('PingOrderNumber', array($this, 'PingOrderNumber'));
-        $this->addValue('PingPostURL', array($this, 'PingPostURL'));
-        $this->addBlock('Pings', array($this, 'Pings'));
-        $this->addBlock('PingsFooter', array($this, 'PingsFooter'));
-        $this->addBlock('PingsHeader', array($this, 'PingsHeader'));
-        $this->addValue('PingTime', array($this, 'PingTime'));
-        $this->addValue('PingTitle', array($this, 'PingTitle'));
-        $this->addValue('PingAuthorURL', array($this, 'PingAuthorURL'));
+        $this->addValue('PingBlogName', [$this, 'PingBlogName']);
+        $this->addValue('PingContent', [$this, 'PingContent']);
+        $this->addValue('PingDate', [$this, 'PingDate']);
+        $this->addValue('PingEntryTitle', [$this, 'PingEntryTitle']);
+        $this->addValue('PingFeedID', [$this, 'PingFeedID']);
+        $this->addValue('PingID', [$this, 'PingID']);
+        $this->addValue('PingIfFirst', [$this, 'PingIfFirst']);
+        $this->addValue('PingIfOdd', [$this, 'PingIfOdd']);
+        $this->addValue('PingIP', [$this, 'PingIP']);
+        $this->addValue('PingNoFollow', [$this, 'PingNoFollow']);
+        $this->addValue('PingOrderNumber', [$this, 'PingOrderNumber']);
+        $this->addValue('PingPostURL', [$this, 'PingPostURL']);
+        $this->addBlock('Pings', [$this, 'Pings']);
+        $this->addBlock('PingsFooter', [$this, 'PingsFooter']);
+        $this->addBlock('PingsHeader', [$this, 'PingsHeader']);
+        $this->addValue('PingTime', [$this, 'PingTime']);
+        $this->addValue('PingTitle', [$this, 'PingTitle']);
+        $this->addValue('PingAuthorURL', [$this, 'PingAuthorURL']);
 
         # System
-        $this->addValue('SysBehavior', array($this, 'SysBehavior'));
-        $this->addBlock('SysIf', array($this, 'SysIf'));
-        $this->addBlock('SysIfCommentPublished', array($this, 'SysIfCommentPublished'));
-        $this->addBlock('SysIfCommentPending', array($this, 'SysIfCommentPending'));
-        $this->addBlock('SysIfFormError', array($this, 'SysIfFormError'));
-        $this->addValue('SysFeedSubtitle', array($this, 'SysFeedSubtitle'));
-        $this->addValue('SysFormError', array($this, 'SysFormError'));
-        $this->addValue('SysPoweredBy', array($this, 'SysPoweredBy'));
-        $this->addValue('SysSearchString', array($this, 'SysSearchString'));
-        $this->addValue('SysSelfURI', array($this, 'SysSelfURI'));
+        $this->addValue('SysBehavior', [$this, 'SysBehavior']);
+        $this->addBlock('SysIf', [$this, 'SysIf']);
+        $this->addBlock('SysIfCommentPublished', [$this, 'SysIfCommentPublished']);
+        $this->addBlock('SysIfCommentPending', [$this, 'SysIfCommentPending']);
+        $this->addBlock('SysIfFormError', [$this, 'SysIfFormError']);
+        $this->addValue('SysFeedSubtitle', [$this, 'SysFeedSubtitle']);
+        $this->addValue('SysFormError', [$this, 'SysFormError']);
+        $this->addValue('SysPoweredBy', [$this, 'SysPoweredBy']);
+        $this->addValue('SysSearchString', [$this, 'SysSearchString']);
+        $this->addValue('SysSelfURI', [$this, 'SysSelfURI']);
 
         # Generic
-        $this->addValue('else', array($this, 'GenericElse'));
+        $this->addValue('else', [$this, 'GenericElse']);
     }
 
     public function getData($________)
@@ -242,7 +242,7 @@ class dcTemplate extends template
         $res = $this->core->callBehavior('templateBeforeBlock', $this->core, $this->current_tag, $attr);
 
         # --BEHAVIOR-- templateInsideBlock
-        $this->core->callBehavior('templateInsideBlock', $this->core, $this->current_tag, $attr, array(&$content));
+        $this->core->callBehavior('templateInsideBlock', $this->core, $this->current_tag, $attr, [&$content]);
 
         $res .= parent::compileBlockNode($this->current_tag, $attr, $content);
 
@@ -268,14 +268,14 @@ class dcTemplate extends template
         return $res;
     }
 
-    public function getFilters($attr, $default = array())
+    public function getFilters($attr, $default = [])
     {
         if (!is_array($attr) && !($attr instanceof arrayObject)) {
-            $attr = array();
+            $attr = [];
         }
 
         $p = array_merge(
-            array(
+            [
                 0             => null,
                 'encode_xml'  => 0,
                 'encode_html' => 0,
@@ -286,7 +286,7 @@ class dcTemplate extends template
                 'remove_html' => 0,
                 'capitalize'  => 0,
                 'strip_tags'  => 0
-            ),
+            ],
             $default
         );
 
@@ -317,12 +317,12 @@ class dcTemplate extends template
 
     public function getSortByStr($attr, $table = null)
     {
-        $res = array();
+        $res = [];
 
         $default_order = 'desc';
 
-        $default_alias = array(
-            'post'    => array(
+        $default_alias = [
+            'post'    => [
                 'title'     => 'post_title',
                 'selected'  => 'post_selected',
                 'author'    => 'user_id',
@@ -330,13 +330,13 @@ class dcTemplate extends template
                 'id'        => 'post_id',
                 'comment'   => 'nb_comment',
                 'trackback' => 'nb_trackback'
-            ),
-            'comment' => array(
+            ],
+            'comment' => [
                 'author' => 'comment_author',
                 'date'   => 'comment_dt',
                 'id'     => 'comment_id'
-            )
-        );
+            ]
+        ];
 
         $alias = new ArrayObject();
 
@@ -348,10 +348,10 @@ class dcTemplate extends template
         if (is_array($alias)) {
             foreach ($alias as $k => $v) {
                 if (!is_array($v)) {
-                    $alias[$k] = array();
+                    $alias[$k] = [];
                 }
                 if (!isset($default_alias[$k]) || !is_array($default_alias[$k])) {
-                    $default_alias[$k] = array();
+                    $default_alias[$k] = [];
                 }
                 $default_alias[$k] = array_merge($default_alias[$k], $alias[$k]);
             }
@@ -473,7 +473,7 @@ class dcTemplate extends template
      */
     public function Archives($attr, $content)
     {
-        $p = "if (!isset(\$params)) \$params = array();\n";
+        $p = "if (!isset(\$params)) \$params = [];\n";
         $p .= "\$params['type'] = 'month';\n";
         if (isset($attr['type'])) {
             $p .= "\$params['type'] = '" . addslashes($attr['type']) . "';\n";
@@ -506,7 +506,7 @@ class dcTemplate extends template
         $res = "<?php\n";
         $res .= $p;
         $res .= $this->core->callBehavior("templatePrepareParams",
-            array("tag" => "Archives", "method" => "blog::getDates"),
+            ["tag" => "Archives", "method" => "blog::getDates"],
             $attr, $content);
         $res .= '$_ctx->archives = $core->blog->getDates($params); unset($params);' . "\n";
         $res .= "?>\n";
@@ -586,11 +586,11 @@ class dcTemplate extends template
         $f = $this->getFilters($attr);
         return $this->displayCounter(
             sprintf($f, '$_ctx->archives->nb_post'),
-            array(
+            [
                 'none' => 'no archive',
                 'one'  => 'one archive',
                 'more' => '%d archives'
-            ),
+            ],
             $attr,
             true
         );
@@ -606,7 +606,7 @@ class dcTemplate extends template
      */
     public function ArchiveNext($attr, $content)
     {
-        $p = "if (!isset(\$params)) \$params = array();\n";
+        $p = "if (!isset(\$params)) \$params = [];\n";
         $p .= "\$params['type'] = 'month';\n";
         if (isset($attr['type'])) {
             $p .= "\$params['type'] = '" . addslashes($attr['type']) . "';\n";
@@ -625,7 +625,7 @@ class dcTemplate extends template
         $res = "<?php\n";
         $res .= $p;
         $res .= $this->core->callBehavior("templatePrepareParams",
-            array("tag" => "ArchiveNext", "method" => "blog::getDates"),
+            ["tag" => "ArchiveNext", "method" => "blog::getDates"],
             $attr, $content);
         $res .= '$_ctx->archives = $core->blog->getDates($params); unset($params);' . "\n";
         $res .= "?>\n";
@@ -646,7 +646,7 @@ class dcTemplate extends template
      */
     public function ArchivePrevious($attr, $content)
     {
-        $p = 'if (!isset($params)) $params = array();';
+        $p = 'if (!isset($params)) $params = [];';
         $p .= "\$params['type'] = 'month';\n";
         if (isset($attr['type'])) {
             $p .= "\$params['type'] = '" . addslashes($attr['type']) . "';\n";
@@ -664,7 +664,7 @@ class dcTemplate extends template
 
         $res = "<?php\n";
         $res .= $this->core->callBehavior("templatePrepareParams",
-            array("tag" => "ArchivePrevious", "method" => "blog::getDates"),
+            ["tag" => "ArchivePrevious", "method" => "blog::getDates"],
             $attr, $content);
         $res .= $p;
         $res .= '$_ctx->archives = $core->blog->getDates($params); unset($params);' . "\n";
@@ -899,7 +899,7 @@ class dcTemplate extends template
      */
     public function Categories($attr, $content)
     {
-        $p = "if (!isset(\$params)) \$params = array();\n";
+        $p = "if (!isset(\$params)) \$params = [];\n";
 
         if (isset($attr['url'])) {
             $p .= "\$params['cat_url'] = '" . addslashes($attr['url']) . "';\n";
@@ -920,7 +920,7 @@ class dcTemplate extends template
         $res = "<?php\n";
         $res .= $p;
         $res .= $this->core->callBehavior("templatePrepareParams",
-            array("tag" => "Categories", "method" => "blog::getCategories"),
+            ["tag" => "Categories", "method" => "blog::getCategories"],
             $attr, $content);
         $res .= '$_ctx->categories = $core->blog->getCategories($params);' . "\n";
         $res .= "?>\n";
@@ -1094,11 +1094,11 @@ class dcTemplate extends template
         $f = $this->getFilters($attr);
         return $this->displayCounter(
             sprintf($f, '$_ctx->categories->nb_post'),
-            array(
+            [
                 'none' => 'No post',
                 'one'  => 'One post',
                 'more' => '%d posts'
-            ),
+            ],
             $attr,
             true
         );
@@ -1152,13 +1152,13 @@ class dcTemplate extends template
             if (!isset($attr['ignore_pagination']) || $attr['ignore_pagination'] == "0") {
                 // standard pagination, set offset
                 $p .= "if ((\$core->url->type == 'default') || (\$core->url->type == 'default-page')) {\n";
-                $p .= "    \$params['limit'] = array((\$_page_number == 1 ? 0 : (\$_page_number - 2) * \$nb_entry_per_page + \$nb_entry_first_page),\$params['limit']);\n";
+                $p .= "    \$params['limit'] = [(\$_page_number == 1 ? 0 : (\$_page_number - 2) * \$nb_entry_per_page + \$nb_entry_first_page),\$params['limit']];\n";
                 $p .= "} else {\n";
-                $p .= "    \$params['limit'] = array((\$_page_number - 1) * \$nb_entry_per_page,\$params['limit']);\n";
+                $p .= "    \$params['limit'] = [(\$_page_number - 1) * \$nb_entry_per_page,\$params['limit']];\n";
                 $p .= "}\n";
             } else {
                 // no pagination, get all posts from 0 to limit
-                $p .= "\$params['limit'] = array(0, \$params['limit']);\n";
+                $p .= "\$params['limit'] = [0, \$params['limit']];\n";
             }
         }
 
@@ -1242,7 +1242,7 @@ class dcTemplate extends template
         $res = "<?php\n";
         $res .= $p;
         $res .= $this->core->callBehavior("templatePrepareParams",
-            array("tag" => "Entries", "method" => "blog::getPosts"),
+            ["tag" => "Entries", "method" => "blog::getPosts"],
             $attr, $content);
         $res .= '$_ctx->post_params = $params;' . "\n";
         $res .= '$_ctx->posts = $core->blog->getPosts($params); unset($params);' . "\n";
@@ -1893,11 +1893,11 @@ class dcTemplate extends template
 
         return $this->displayCounter(
             $operation,
-            array(
+            [
                 'none' => 'no comments',
                 'one'  => 'one comment',
                 'more' => '%d comments'
-            ),
+            ],
             $attr,
             false
         );
@@ -1915,11 +1915,11 @@ class dcTemplate extends template
     {
         return $this->displayCounter(
             '$_ctx->posts->nb_trackback',
-            array(
+            [
                 'none' => 'no trackbacks',
                 'one'  => 'one trackback',
                 'more' => '%d trackbacks'
-            ),
+            ],
             $attr,
             false
         );
@@ -1952,7 +1952,7 @@ class dcTemplate extends template
      */
     public function Languages($attr, $content)
     {
-        $p = "if (!isset(\$params)) \$params = array();\n";
+        $p = "if (!isset(\$params)) \$params = [];\n";
 
         if (isset($attr['lang'])) {
             $p = "\$params['lang'] = '" . addslashes($attr['lang']) . "';\n";
@@ -1966,7 +1966,7 @@ class dcTemplate extends template
         $res = "<?php\n";
         $res .= $p;
         $res .= $this->core->callBehavior("templatePrepareParams",
-            array("tag" => "Languages", "method" => "blog::getLangs"),
+            ["tag" => "Languages", "method" => "blog::getLangs"],
             $attr, $content);
         $res .= '$_ctx->langs = $core->blog->getLangs($params); unset($params);' . "\n";
         $res .= "?>\n";
@@ -2043,7 +2043,7 @@ class dcTemplate extends template
         $p = "<?php\n";
         $p .= '$params = $_ctx->post_params;' . "\n";
         $p .= $this->core->callBehavior("templatePrepareParams",
-            array("tag" => "Pagination", "method" => "blog::getPosts"),
+            ["tag" => "Pagination", "method" => "blog::getPosts"],
             $attr, $content);
         $p .= '$_ctx->pagination = $core->blog->getPosts($params,true); unset($params);' . "\n";
         $p .= "?>\n";
@@ -2091,7 +2091,7 @@ class dcTemplate extends template
      */
     public function PaginationIf($attr, $content)
     {
-        $if = array();
+        $if = [];
 
         if (isset($attr['start'])) {
             $sign = (boolean) $attr['start'] ? '' : '!';
@@ -2193,7 +2193,7 @@ class dcTemplate extends template
 
         $res = "<?php\n";
         $res .= $this->core->callBehavior("templatePrepareParams",
-            array("tag" => "Comments", "method" => "blog::getComments"),
+            ["tag" => "Comments", "method" => "blog::getComments"],
             $attr, $content);
         $res .= $p;
         $res .= '$_ctx->comments = $core->blog->getComments($params); unset($params);' . "\n";
@@ -2372,7 +2372,7 @@ class dcTemplate extends template
      */
     public function CommentIf($attr, $content)
     {
-        $if      = array();
+        $if      = [];
         $is_ping = null;
 
         if (isset($attr['is_ping'])) {
@@ -2805,7 +2805,7 @@ class dcTemplate extends template
         $res = "<?php\n";
         $res .= $p;
         $res .= $this->core->callBehavior("templatePrepareParams",
-            array("tag" => "Pings", "method" => "blog::getComments"),
+            ["tag" => "Pings", "method" => "blog::getComments"],
             $attr, $content);
         $res .= '$_ctx->pings = $core->blog->getComments($params); unset($params);' . "\n";
         $res .= "if (\$_ctx->posts !== null) { \$core->blog->withoutPassword(true);}\n";

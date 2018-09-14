@@ -21,13 +21,13 @@ $_menu['Plugins']->addItem(
 );
 
 // Admin behaviors
-$core->addBehavior('dcMaintenanceInit', array('dcMaintenanceAdmin', 'dcMaintenanceInit'));
-$core->addBehavior('adminDashboardFavorites', array('dcMaintenanceAdmin', 'adminDashboardFavorites'));
-$core->addBehavior('adminDashboardContents', array('dcMaintenanceAdmin', 'adminDashboardItems'));
-$core->addBehavior('adminDashboardOptionsForm', array('dcMaintenanceAdmin', 'adminDashboardOptionsForm'));
-$core->addBehavior('adminAfterDashboardOptionsUpdate', array('dcMaintenanceAdmin', 'adminAfterDashboardOptionsUpdate'));
-$core->addBehavior('adminPageHelpBlock', array('dcMaintenanceAdmin', 'adminPageHelpBlock'));
-$core->addBehavior('pluginsToolsHeaders', array('dcMaintenanceAdmin', 'pluginsToolsHeaders'));
+$core->addBehavior('dcMaintenanceInit', ['dcMaintenanceAdmin', 'dcMaintenanceInit']);
+$core->addBehavior('adminDashboardFavorites', ['dcMaintenanceAdmin', 'adminDashboardFavorites']);
+$core->addBehavior('adminDashboardContents', ['dcMaintenanceAdmin', 'adminDashboardItems']);
+$core->addBehavior('adminDashboardOptionsForm', ['dcMaintenanceAdmin', 'adminDashboardOptionsForm']);
+$core->addBehavior('adminAfterDashboardOptionsUpdate', ['dcMaintenanceAdmin', 'adminAfterDashboardOptionsUpdate']);
+$core->addBehavior('adminPageHelpBlock', ['dcMaintenanceAdmin', 'adminPageHelpBlock']);
+$core->addBehavior('pluginsToolsHeaders', ['dcMaintenanceAdmin', 'pluginsToolsHeaders']);
 
 /**
 @ingroup PLUGIN_MAINTENANCE
@@ -46,9 +46,9 @@ class dcMaintenanceAdmin
     public static function dcMaintenanceInit($maintenance)
     {
         $maintenance
-            ->addTab('maintenance', __('Servicing'), array('summary' => __('Tools to maintain the performance of your blogs.')))
-            ->addTab('backup', __('Backup'), array('summary' => __('Tools to back up your content.')))
-            ->addTab('dev', __('Development'), array('summary' => __('Tools to assist in development of plugins, themes and core.')))
+            ->addTab('maintenance', __('Servicing'), ['summary' => __('Tools to maintain the performance of your blogs.')])
+            ->addTab('backup', __('Backup'), ['summary' => __('Tools to back up your content.')])
+            ->addTab('dev', __('Development'), ['summary' => __('Tools to assist in development of plugins, themes and core.')])
 
             ->addGroup('optimize', __('Optimize'))
             ->addGroup('index', __('Count and index'))
@@ -57,7 +57,7 @@ class dcMaintenanceAdmin
             ->addGroup('zipblog', __('Current blog'))
             ->addGroup('zipfull', __('All blogs'))
 
-            ->addGroup('l10n', __('Translations'), array('summary' => __('Maintain translations')))
+            ->addGroup('l10n', __('Translations'), ['summary' => __('Maintain translations')])
 
             ->addTask('dcMaintenanceCache')
             ->addTask('dcMaintenanceCSP')
@@ -80,15 +80,15 @@ class dcMaintenanceAdmin
      */
     public static function adminDashboardFavorites($core, $favs)
     {
-        $favs->register('maintenance', array(
+        $favs->register('maintenance', [
             'title'        => __('Maintenance'),
             'url'          => $core->adminurl->get('admin.plugin.maintenance'),
             'small-icon'   => dcPage::getPF('maintenance/icon.png'),
             'large-icon'   => dcPage::getPF('maintenance/icon-big.png'),
             'permissions'  => 'admin',
-            'active_cb'    => array('dcMaintenanceAdmin', 'adminDashboardFavoritesActive'),
-            'dashboard_cb' => array('dcMaintenanceAdmin', 'adminDashboardFavoritesCallback')
-        ));
+            'active_cb'    => ['dcMaintenanceAdmin', 'adminDashboardFavoritesActive'],
+            'dashboard_cb' => ['dcMaintenanceAdmin', 'adminDashboardFavoritesCallback']
+        ]);
     }
 
     /**
@@ -151,7 +151,7 @@ class dcMaintenanceAdmin
 
         $maintenance = new dcMaintenance($core);
 
-        $lines = array();
+        $lines = [];
         foreach ($maintenance->getTasks() as $t) {
             $ts = $t->expired();
             if ($ts === false) {
@@ -173,14 +173,14 @@ class dcMaintenanceAdmin
             return;
         }
 
-        $items[] = new ArrayObject(array(
+        $items[] = new ArrayObject([
             '<div id="maintenance-expired" class="box small">' .
             '<h3><img src="' . dcPage::getPF('maintenance/icon-small.png') . '" alt="" /> ' . __('Maintenance') . '</h3>' .
             '<p class="warning no-margin">' . sprintf(__('There is a task to execute.', 'There are %s tasks to execute.', count($lines)), count($lines)) . '</p>' .
             '<ul>' . implode('', $lines) . '</ul>' .
             '<p><a href="' . $core->adminurl->get('admin.plugin.maintenance') . '">' . __('Manage tasks') . '</a></p>' .
             '</div>'
-        ));
+        ]);
     }
 
     /**

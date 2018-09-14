@@ -16,10 +16,10 @@ $this->registerModule(
     "Theme Editor",    // Description
     "Olivier Meunier", // Author
     '1.3',             // Version
-    array(
+    [
         'type'     => 'plugin',
-        'settings' => array(
+        'settings' => [
             'pref' => '#user-options.themeEditor_prefs'
-        )
-    )
+        ]
+    ]
 );

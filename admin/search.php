@@ -25,14 +25,14 @@ $nb_per_page = 30;
 if ($q) {
     $q = html::escapeHTML($q);
 
-    $params = array();
+    $params = [];
 
     # Get posts
     if ($qtype == 'p') {
         $starting_scripts .= dcPage::jsLoad('js/_posts_list.js');
 
         $params['search']     = $q;
-        $params['limit']      = array((($page - 1) * $nb_per_page), $nb_per_page);
+        $params['limit']      = [(($page - 1) * $nb_per_page), $nb_per_page];
         $params['no_content'] = true;
         $params['order']      = 'post_dt DESC';
 
@@ -49,7 +49,7 @@ if ($q) {
         $starting_scripts .= dcPage::jsLoad('js/_comments.js');
 
         $params['search']     = $q;
-        $params['limit']      = array((($page - 1) * $nb_per_page), $nb_per_page);
+        $params['limit']      = [(($page - 1) * $nb_per_page), $nb_per_page];
         $params['no_content'] = true;
         $params['order']      = 'comment_dt DESC';
 
@@ -64,13 +64,13 @@ if ($q) {
 }
 
 if ($qtype == 'p') {
-    $posts_actions_page = new dcPostsActionsPage($core, $core->adminurl->get("admin.search"), array('q' => $q, 'qtype' => $qtype));
+    $posts_actions_page = new dcPostsActionsPage($core, $core->adminurl->get("admin.search"), ['q' => $q, 'qtype' => $qtype]);
 
     if ($posts_actions_page->process()) {
         return;
     }
 } else {
-    $comments_actions_page = new dcCommentsActionsPage($core, $core->adminurl->get("admin.search"), array('q' => $q, 'qtype' => $qtype));
+    $comments_actions_page = new dcCommentsActionsPage($core, $core->adminurl->get("admin.search"), ['q' => $q, 'qtype' => $qtype]);
 
     if ($comments_actions_page->process()) {
         return;
@@ -79,18 +79,18 @@ if ($qtype == 'p') {
 
 dcPage::open(__('Search'), $starting_scripts,
     dcPage::breadcrumb(
-        array(
+        [
             html::escapeHTML($core->blog->name) => '',
             __('Search')                        => ''
-        ))
+        ])
 );
 
 echo
 '<form action="' . $core->adminurl->get("admin.search") . '" method="get" role="search">' .
 '<div class="fieldset"><h3>' . __('Search options') . '</h3>' .
 '<p><label for="q">' . __('Query:') . ' </label>' . form::field('q', 30, 255, $q) . '</p>' .
-'<p><label for="qtype1" class="classic">' . form::radio(array('qtype', 'qtype1'), 'p', $qtype == 'p') . ' ' . __('Search in entries') . '</label> ' .
-'<label for="qtype2" class="classic">' . form::radio(array('qtype', 'qtype2'), 'c', $qtype == 'c') . ' ' . __('Search in comments') . '</label></p>' .
+'<p><label for="qtype1" class="classic">' . form::radio(['qtype', 'qtype1'], 'p', $qtype == 'p') . ' ' . __('Search in entries') . '</label> ' .
+'<label for="qtype2" class="classic">' . form::radio(['qtype', 'qtype2'], 'c', $qtype == 'c') . ' ' . __('Search in comments') . '</label></p>' .
 '<p><input type="submit" value="' . __('Search') . '" /></p>' .
     '</div>' .
     '</form>';
@@ -116,7 +116,7 @@ if ($q && !$core->error->flag()) {
             '<p class="col checkboxes-helpers"></p>' .
 
             '<p class="col right"><label for="action1" class="classic">' . __('Selected entries action:') . '</label> ' .
-            form::combo(array('action', 'action1'), $posts_actions_page->getCombo()) .
+            form::combo(['action', 'action1'], $posts_actions_page->getCombo()) .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
             $core->formNonce() .
             $posts_actions_page->getHiddenFields() .
@@ -143,7 +143,7 @@ if ($q && !$core->error->flag()) {
             '<p class="col checkboxes-helpers"></p>' .
 
             '<p class="col right"><label for="action2" class="classic">' . __('Selected comments action:') . '</label> ' .
-            form::combo(array('action', 'action2'), $comments_actions_page->getCombo()) .
+            form::combo(['action', 'action2'], $comments_actions_page->getCombo()) .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
             $core->formNonce() .
             $comments_actions_page->getHiddenFields() .

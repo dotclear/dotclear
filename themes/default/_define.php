@@ -16,7 +16,7 @@ $this->registerModule(
     "Default Dotclear theme, fully customizable", // Description
     "Marco & Olivier",                            // Author
     '1.0',                                        // Version
-    array(
+    [
         'type' => 'theme'
-    )
+    ]
 );

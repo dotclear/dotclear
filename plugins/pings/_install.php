@@ -17,10 +17,10 @@ if (version_compare($core->getVersion('pings'), $version, '>=')) {
 }
 
 // Default pings services
-$default_pings_uris = array(
+$default_pings_uris = [
     'Ping-o-Matic!'      => 'http://rpc.pingomatic.com/',
     'Google Blog Search' => 'http://blogsearch.google.com/ping/RPC2'
-);
+];
 
 $core->blog->settings->addNamespace('pings');
 $core->blog->settings->pings->put('pings_active', 1, 'boolean', 'Activate pings plugin', false, true);

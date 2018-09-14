@@ -16,11 +16,11 @@ $this->registerModule(
     "Breadcrumb for Dotclear", // Description
     "Franck Paul",             // Author
     '0.7',                     // Version
-    array(
+    [
         'permissions' => 'usage,contentadmin', // Permissions
         'type'        => 'plugin',             // Type
-        'settings'    => array(
+        'settings'    => [
             'blog' => '#params.breadcrumb_params'
-        )
-    )
+        ]
+    ]
 );

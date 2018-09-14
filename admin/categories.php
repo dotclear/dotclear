@@ -109,10 +109,10 @@ $starting_script .= dcPage::jsLoad('js/_categories.js');
 
 dcPage::open(__('Categories'), $starting_script,
     dcPage::breadcrumb(
-        array(
+        [
             html::escapeHTML($core->blog->name) => '',
             __('Categories')                    => ''
-        ))
+        ])
 );
 
 if (!empty($_GET['del'])) {
@@ -155,9 +155,9 @@ if ($rs->isEmpty()) {
 
         echo
         '<p class="cat-title"><label class="classic" for="cat_' . $rs->cat_id . '"><a href="' .
-        $core->adminurl->get("admin.category", array('id' => $rs->cat_id)) . '">' . html::escapeHTML($rs->cat_title) .
+        $core->adminurl->get("admin.category", ['id' => $rs->cat_id]) . '">' . html::escapeHTML($rs->cat_title) .
         '</a></label> </p>' .
-        '<p class="cat-nb-posts">(<a href="' . $core->adminurl->get("admin.posts", array('cat_id' => $rs->cat_id)) . '">' .
+        '<p class="cat-nb-posts">(<a href="' . $core->adminurl->get("admin.posts", ['cat_id' => $rs->cat_id]) . '">' .
         sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry')), $rs->nb_post) . '</a>' .
         ', ' . __('total:') . ' ' . $rs->nb_total . ')</p>' .
         '<p class="cat-url">' . __('URL:') . ' <code>' . html::escapeHTML($rs->cat_url) . '</code></p>';
@@ -168,7 +168,7 @@ if ($rs->isEmpty()) {
             // remove current category
             echo
             '<label for="mov_cat_' . $rs->cat_id . '">' . __('Move entries to') . '</label> ' .
-            form::combo(array('mov_cat[' . $rs->cat_id . ']', 'mov_cat_' . $rs->cat_id), array_filter($categories_combo,
+            form::combo(['mov_cat[' . $rs->cat_id . ']', 'mov_cat_' . $rs->cat_id], array_filter($categories_combo,
                 function ($cat) {return $cat->value != $GLOBALS['rs']->cat_id;}
             ), '', '') .
             ' <input type="submit" class="reset" name="mov[' . $rs->cat_id . ']" value="' . __('OK') . '"/>';

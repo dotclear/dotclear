@@ -16,11 +16,11 @@ $this->registerModule(
     "Simple menu for Dotclear", // Description
     "Franck Paul",              // Author
     '1.5',                      // Version
-    array(
+    [
         'permissions' => 'admin',
         'type'        => 'plugin',
-        'settings'    => array(
+        'settings'    => [
             'self' => ''
-        )
-    )
+        ]
+    ]
 );

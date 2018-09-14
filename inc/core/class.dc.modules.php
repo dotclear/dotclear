@@ -17,20 +17,20 @@ class dcModules
 {
     protected $path;
     protected $ns;
-    protected $modules       = array();
-    protected $disabled      = array();
-    protected $errors        = array();
-    protected $modules_names = array();
-    protected $all_modules   = array();
+    protected $modules       = [];
+    protected $disabled      = [];
+    protected $errors        = [];
+    protected $modules_names = [];
+    protected $all_modules   = [];
     protected $disabled_mode = false;
-    protected $disabled_meta = array();
-    protected $to_disable    = array();
+    protected $disabled_meta = [];
+    protected $to_disable    = [];
 
     protected $id;
     protected $mroot;
 
     # Inclusion variables
-    protected static $superglobals = array('GLOBALS', '_SERVER', '_GET', '_POST', '_COOKIE', '_FILES', '_ENV', '_REQUEST', '_SESSION');
+    protected static $superglobals = ['GLOBALS', '_SERVER', '_GET', '_POST', '_COOKIE', '_FILES', '_ENV', '_REQUEST', '_SESSION'];
     protected static $_k;
     protected static $_n;
 
@@ -59,13 +59,13 @@ class dcModules
     public function checkDependencies()
     {
         $dc_version       = preg_replace('/\-dev$/', '', DC_VERSION);
-        $this->to_disable = array();
+        $this->to_disable = [];
         foreach ($this->all_modules as $k => &$m) {
             if (isset($m['requires'])) {
-                $missing = array();
+                $missing = [];
                 foreach ($m['requires'] as &$dep) {
                     if (!is_array($dep)) {
-                        $dep = array($dep);
+                        $dep = [$dep];
                     }
                     // grab missing dependencies
                     if (!isset($this->all_modules[$dep[0]]) && ($dep[0] != 'core')) {
@@ -90,7 +90,7 @@ class dcModules
                 if (count($missing)) {
                     $m['cannot_enable'] = $missing;
                     if ($m['enabled']) {
-                        $this->to_disable[] = array('name' => $k, 'reason' => $missing);
+                        $this->to_disable[] = ['name' => $k, 'reason' => $missing];
                     }
                 }
             }
@@ -118,7 +118,7 @@ class dcModules
             // Avoid infinite redirects
             return false;
         }
-        $reason = array();
+        $reason = [];
         foreach ($this->to_disable as $module) {
             try {
                 $this->deactivateModule($module['name']);
@@ -131,7 +131,7 @@ class dcModules
                 __('The following extensions have been disabled :'),
                 join('', $reason)
             );
-            dcPage::addWarningNotice($message, array('divtag' => true, 'with_ts' => false));
+            dcPage::addWarningNotice($message, ['divtag' => true, 'with_ts' => false]);
             $url = $redir_url . (strpos($redir_url, "?") ? '&' : '?') . 'dep=1';
             http::redirect($url);
             return true;
@@ -160,7 +160,7 @@ class dcModules
         $disabled = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
         $disabled = $disabled && !get_parent_class($this) ? true : false;
 
-        $ignored = array();
+        $ignored = [];
 
         foreach ($this->path as $root) {
             if (!is_dir($root) || !is_readable($root)) {
@@ -210,7 +210,7 @@ class dcModules
         }
         $this->checkDependencies();
         # Sort plugins
-        uasort($this->modules, array($this, 'sortModules'));
+        uasort($this->modules, [$this, 'sortModules']);
 
         foreach ($this->modules as $id => $m) {
             # Load translation and _prepend
@@ -228,7 +228,7 @@ class dcModules
             $this->loadModuleL10N($id, $lang, 'main');
             if ($ns == 'admin') {
                 $this->loadModuleL10Nresources($id, $lang);
-                $this->core->adminurl->register('admin.plugin.' . $id, 'plugin.php', array('p' => $id));
+                $this->core->adminurl->register('admin.plugin.' . $id, 'plugin.php', ['p' => $id]);
             }
         }
 
@@ -274,12 +274,12 @@ class dcModules
     @param    properties    <b>array</b>        extra properties
     (currently available keys : permissions, priority, type)
      */
-    public function registerModule($name, $desc, $author, $version, $properties = array())
+    public function registerModule($name, $desc, $author, $version, $properties = [])
     {
         if ($this->disabled_mode) {
             $this->disabled_meta = array_merge(
                 $properties,
-                array(
+                [
                     'root'          => $this->mroot,
                     'name'          => $name,
                     'desc'          => $desc,
@@ -287,14 +287,14 @@ class dcModules
                     'version'       => $version,
                     'enabled'       => false,
                     'root_writable' => is_writable($this->mroot)
-                )
+                ]
             );
             return;
         }
         # Fallback to legacy registerModule parameters
         if (!is_array($properties)) {
             $args       = func_get_args();
-            $properties = array();
+            $properties = [];
             if (isset($args[4])) {
                 $properties['permissions'] = $args[4];
             }
@@ -305,15 +305,15 @@ class dcModules
 
         # Default module properties
         $properties = array_merge(
-            array(
+            [
                 'permissions'       => null,
                 'priority'          => 1000,
                 'standalone_config' => false,
                 'type'              => null,
                 'enabled'           => true,
-                'requires'          => array(),
-                'settings'          => array()
-            ), $properties
+                'requires'          => [],
+                'settings'          => []
+            ], $properties
         );
 
         # Check module type
@@ -345,14 +345,14 @@ class dcModules
                 $this->modules_names[$name] = $version;
                 $this->modules[$this->id]   = array_merge(
                     $properties,
-                    array(
+                    [
                         'root'          => $this->mroot,
                         'name'          => $name,
                         'desc'          => $desc,
                         'author'        => $author,
                         'version'       => $version,
                         'root_writable' => is_writable($this->mroot)
-                    )
+                    ]
                 );
             } else {
                 $path1          = path::real($this->moduleInfo($name, 'root'));
@@ -369,9 +369,9 @@ class dcModules
 
     public function resetModulesList()
     {
-        $this->modules       = array();
-        $this->modules_names = array();
-        $this->errors        = array();
+        $this->modules       = [];
+        $this->modules_names = [];
+        $this->errors        = [];
     }
 
     public static function installPackage($zip_file, dcModules &$modules)
@@ -475,7 +475,7 @@ class dcModules
      */
     public function installModules()
     {
-        $res = array('success' => array(), 'failure' => array());
+        $res = ['success' => [], 'failure' => []];
         foreach ($this->modules as $id => &$m) {
             $i = $this->installModule($id, $msg);
             if ($i === true) {

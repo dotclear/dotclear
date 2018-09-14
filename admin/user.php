@@ -124,11 +124,11 @@ if (isset($_POST['user_name'])) {
             }
 
             dcPage::addSuccessNotice(__('User has been successfully updated.'));
-            $core->adminurl->redirect("admin.user", array('id' => $new_id));
+            $core->adminurl->redirect("admin.user", ['id' => $new_id]);
         }
         # Add user
         else {
-            if ($core->getUsers(array('user_id' => $cur->user_id), true)->f(0) > 0) {
+            if ($core->getUsers(['user_id' => $cur->user_id], true)->f(0) > 0) {
                 throw new Exception(sprintf(__('User "%s" already exists.'), html::escapeHTML($cur->user_id)));
             }
 
@@ -144,7 +144,7 @@ if (isset($_POST['user_name'])) {
             if (!empty($_POST['saveplus'])) {
                 $core->adminurl->redirect("admin.user");
             } else {
-                $core->adminurl->redirect("admin.user", array('id' => $new_id));
+                $core->adminurl->redirect("admin.user", ['id' => $new_id]);
             }
         }
     } catch (Exception $e) {
@@ -172,11 +172,11 @@ dcPage::open($page_title,
     $core->callBehavior('adminUserHeaders'),
 
     dcPage::breadcrumb(
-        array(
+        [
             __('System') => '',
             __('Users')  => $core->adminurl->get("admin.users"),
             $page_title  => ''
-        ))
+        ])
 );
 
 if (!empty($_GET['upd'])) {
@@ -195,11 +195,11 @@ echo
 '<h3>' . __('User profile') . '</h3>' .
 
 '<p><label for="user_id" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('User ID:') . '</label> ' .
-form::field('user_id', 20, 255, array(
+form::field('user_id', 20, 255, [
     'default'      => html::escapeHTML($user_id),
     'extra_html'   => 'required placeholder="' . __('Login') . '"',
     'autocomplete' => 'username'
-)) .
+]) .
 '</p>' .
 '<p class="form-note info">' . __('At least 2 characters using letters, numbers or symbols.') . '</p>';
 
@@ -216,10 +216,10 @@ echo
 ($user_id != '' ? '' : '<abbr title="' . __('Required field') . '">*</abbr> ') .
 ($user_id != '' ? __('New password:') : __('Password:')) . '</label>' .
 form::password('new_pwd', 20, 255,
-    array(
+    [
         'extra_html'   => 'data-indicator="pwindicator"' .
         ($user_id != '' ? '' : ' required placeholder="' . __('Password') . '"'),
-        'autocomplete' => 'new-password')
+        'autocomplete' => 'new-password']
 ) .
 '</p>' .
 '<div id="pwindicator">' .
@@ -232,9 +232,9 @@ form::password('new_pwd', 20, 255,
 '<p><label for="new_pwd_c" ' . ($user_id != '' ? '' : 'class="required"') . '>' .
 ($user_id != '' ? '' : '<abbr title="' . __('Required field') . '">*</abbr> ') . __('Confirm password:') . '</label> ' .
 form::password('new_pwd_c', 20, 255,
-    array(
+    [
         'extra_html'   => ($user_id != '' ? '' : 'required placeholder="' . __('Password') . '"'),
-        'autocomplete' => 'new-password')) .
+        'autocomplete' => 'new-password']) .
     '</p>';
 
 if ($core->auth->allowPassChange()) {
@@ -249,48 +249,48 @@ $super_disabled = $user_super && $user_id == $core->auth->userID();
 echo
 '<p><label for="user_super" class="classic">' .
 form::checkbox(($super_disabled ? 'user_super_off' : 'user_super'), '1',
-    array(
+    [
         'checked'  => $user_super,
         'disabled' => $super_disabled
-    )) .
+    ]) .
 ' ' . __('Super administrator') . '</label></p>' .
-($super_disabled ? form::hidden(array('user_super'), $user_super) : '') .
+($super_disabled ? form::hidden(['user_super'], $user_super) : '') .
 
 '<p><label for="user_name">' . __('Last Name:') . '</label> ' .
-form::field('user_name', 20, 255, array(
+form::field('user_name', 20, 255, [
     'default'      => html::escapeHTML($user_name),
     'autocomplete' => 'family-name'
-)) .
+]) .
 '</p>' .
 
 '<p><label for="user_firstname">' . __('First Name:') . '</label> ' .
-form::field('user_firstname', 20, 255, array(
+form::field('user_firstname', 20, 255, [
     'default'      => html::escapeHTML($user_firstname),
     'autocomplete' => 'given-name'
-)) .
+]) .
 '</p>' .
 
 '<p><label for="user_displayname">' . __('Display name:') . '</label> ' .
-form::field('user_displayname', 20, 255, array(
+form::field('user_displayname', 20, 255, [
     'default'      => html::escapeHTML($user_displayname),
     'autocomplete' => 'nickname'
-)) .
+]) .
 '</p>' .
 
 '<p><label for="user_email">' . __('Email:') . '</label> ' .
-form::email('user_email', array(
+form::email('user_email', [
     'default'      => html::escapeHTML($user_email),
     'autocomplete' => 'email'
-)) .
+]) .
 '</p>' .
 '<p class="form-note">' . __('Mandatory for password recovering procedure.') . '</p>' .
 
 '<p><label for="user_url">' . __('URL:') . '</label> ' .
-form::url('user_url', array(
+form::url('user_url', [
     'size'         => 30,
     'default'      => html::escapeHTML($user_url),
     'autocomplete' => 'url'
-)) .
+]) .
 '</p>' .
 '</div>' .
 
@@ -329,10 +329,10 @@ echo
 '<p class="clear vertical-separator"><label for="your_pwd" class="required">' .
 '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label>' .
 form::password('your_pwd', 20, 255,
-    array(
+    [
         'extra_html'   => 'required placeholder="' . __('Password') . '"',
         'autocomplete' => 'current-password'
-    )
+    ]
 ) . '</p>' .
 '<p class="clear"><input type="submit" name="save" accesskey="s" value="' . __('Save') . '" />' .
 ($user_id != '' ? '' : ' <input type="submit" name="saveplus" value="' . __('Save and create another') . '" />') .
@@ -350,9 +350,9 @@ if ($user_id) {
         echo
         '<form action="' . $core->adminurl->get("admin.user.actions") . '" method="post">' .
         '<p><input type="submit" value="' . __('Add new permissions') . '" />' .
-        form::hidden(array('redir'), $core->adminurl->get("admin.user", array('id' => $user_id))) .
-        form::hidden(array('action'), 'blogs') .
-        form::hidden(array('users[]'), $user_id) .
+        form::hidden(['redir'], $core->adminurl->get("admin.user", ['id' => $user_id])) .
+        form::hidden(['action'], 'blogs') .
+        form::hidden(['users[]'], $user_id) .
         $core->formNonce() .
             '</p>' .
             '</form>';
@@ -368,7 +368,7 @@ if ($user_id) {
                     echo
                     '<form action="' . $core->adminurl->get("admin.user.actions") . '" method="post" class="perm-block">' .
                     '<p class="blog-perm">' . __('Blog:') . ' <a href="' .
-                    $core->adminurl->get("admin.blog", array('id' => html::escapeHTML($k))) . '">' .
+                    $core->adminurl->get("admin.blog", ['id' => html::escapeHTML($k)]) . '">' .
                     html::escapeHTML($v['name']) . '</a> (' . html::escapeHTML($k) . ')</p>';
 
                     echo '<ul class="ul-perm">';
@@ -380,10 +380,10 @@ if ($user_id) {
                     echo
                     '</ul>' .
                     '<p class="add-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '" />' .
-                    form::hidden(array('redir'), $core->adminurl->get("admin.user", array('id' => $user_id))) .
-                    form::hidden(array('action'), 'perms') .
-                    form::hidden(array('users[]'), $user_id) .
-                    form::hidden(array('blogs[]'), $k) .
+                    form::hidden(['redir'], $core->adminurl->get("admin.user", ['id' => $user_id])) .
+                    form::hidden(['action'], 'perms') .
+                    form::hidden(['users[]'], $user_id) .
+                    form::hidden(['blogs[]'], $k) .
                     $core->formNonce() .
                         '</p>' .
                         '</form>';

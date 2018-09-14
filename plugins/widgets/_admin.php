@@ -11,8 +11,8 @@
 
 if (!defined('DC_CONTEXT_ADMIN')) {return;}
 
-$core->addBehavior('adminDashboardFavorites', array('widgetsBehaviors', 'widgets_dashboard_favorites'));
-$core->addBehavior('adminRteFlags', array('widgetsBehaviors', 'adminRteFlags'));
+$core->addBehavior('adminDashboardFavorites', ['widgetsBehaviors', 'widgets_dashboard_favorites']);
+$core->addBehavior('adminRteFlags', ['widgetsBehaviors', 'adminRteFlags']);
 
 $_menu['Blog']->addItem(__('Presentation widgets'),
     $core->adminurl->get('admin.plugin.widgets'),
@@ -24,16 +24,16 @@ class widgetsBehaviors
 {
     public static function widgets_dashboard_favorites($core, $favs)
     {
-        $favs->register('widgets', array(
+        $favs->register('widgets', [
             'title'      => __('Presentation widgets'),
             'url'        => $core->adminurl->get('admin.plugin.widgets'),
             'small-icon' => dcPage::getPF('widgets/icon.png'),
             'large-icon' => dcPage::getPF('widgets/icon-big.png')
-        ));
+        ]);
     }
 
     public static function adminRteFlags($core, $rte)
     {
-        $rte['widgets_text'] = array(true, __('Widget\'s textareas'));
+        $rte['widgets_text'] = [true, __('Widget\'s textareas')];
     }
 }

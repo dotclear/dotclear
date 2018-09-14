@@ -29,19 +29,19 @@ class dcAuth
     /** @var string Current user ID */
     protected $user_id;
     /** @var array Array with user information */
-    protected $user_info = array();
+    protected $user_info = [];
     /** @var array Array with user options */
-    protected $user_options = array();
+    protected $user_options = [];
     /** @var boolean User must change his password after login */
     protected $user_change_pwd;
     /** @var boolean User is super admin */
     protected $user_admin;
     /** @var array Permissions for each blog */
-    protected $permissions = array();
+    protected $permissions = [];
     /** @var boolean User can change its password */
     protected $allow_pass_change = true;
     /** @var array List of blogs on which the user has permissions */
-    protected $blogs = array();
+    protected $blogs = [];
     /** @var integer Count of user blogs */
     public $blog_count = null;
 
@@ -64,7 +64,7 @@ class dcAuth
         $this->user_table = $core->prefix . 'user';
         $this->perm_table = $core->prefix . 'permissions';
 
-        $this->perm_types = array(
+        $this->perm_types = [
             'admin'        => __('administrator'),
             'usage'        => __('manage their own entries and comments'),
             'publish'      => __('publish entries and comments'),
@@ -73,7 +73,7 @@ class dcAuth
             'categories'   => __('manage categories'),
             'media'        => __('manage their own media items'),
             'media_admin'  => __('manage all media items')
-        );
+        ];
     }
 
     /// @name Credentials and user permissions
@@ -421,7 +421,7 @@ class dcAuth
             "WHERE blog_id = '" . $this->con->escape($blog_id) . "' ";
             $rs = $this->con->select($strReq);
 
-            $this->blogs[$blog_id] = $rs->isEmpty() ? false : array('admin' => true);
+            $this->blogs[$blog_id] = $rs->isEmpty() ? false : ['admin' => true];
 
             return $this->blogs[$blog_id];
         }
@@ -441,7 +441,7 @@ class dcAuth
     public function getBlogCount()
     {
         if ($this->blog_count === null) {
-            $this->blog_count = $this->core->getBlogs(array(), true)->f(0);
+            $this->blog_count = $this->core->getBlogs([], true)->f(0);
         }
 
         return $this->blog_count;
@@ -540,7 +540,7 @@ class dcAuth
         $level = preg_replace('/^\|/', '', $level);
         $level = preg_replace('/\|$/', '', $level);
 
-        $res = array();
+        $res = [];
         foreach (explode('|', $level) as $v) {
             $res[$v] = true;
         }
@@ -633,7 +633,7 @@ class dcAuth
 
         $cur->update("WHERE user_recover_key = '" . $this->con->escape($recover_key) . "'");
 
-        return array('user_email' => $rs->user_email, 'user_id' => $rs->user_id, 'new_pass' => $new_pass);
+        return ['user_email' => $rs->user_email, 'user_id' => $rs->user_id, 'new_pass' => $new_pass];
     }
     //@}
 

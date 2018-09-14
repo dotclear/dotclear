@@ -11,7 +11,7 @@
 
 if (!defined('DC_RC_PATH')) {return;}
 
-$core->addBehavior('coreBlogBeforeGetPosts', array('publicPages', 'coreBlogBeforeGetPosts'));
+$core->addBehavior('coreBlogBeforeGetPosts', ['publicPages', 'coreBlogBeforeGetPosts']);
 
 # Localized string we find in template
 __('Published on');
@@ -30,7 +30,7 @@ class publicPages
             if (isset($params['post_type'])) {
                 if (!is_array($params['post_type'])) {
                     // Convert it in array
-                    $params['post_type'] = array($params['post_type']);
+                    $params['post_type'] = [$params['post_type']];
                 }
                 if (!in_array('page', $params['post_type'])) {
                     // Add page post type
@@ -38,7 +38,7 @@ class publicPages
                 }
             } else {
                 // Dont miss default post type (aka post)
-                $params['post_type'] = array('post', 'page');
+                $params['post_type'] = ['post', 'page'];
             }
         }
     }
@@ -57,9 +57,9 @@ class urlPages extends dcUrlHandlers
 
             $core->blog->withoutPassword(false);
 
-            $params = new ArrayObject(array(
+            $params = new ArrayObject([
                 'post_type' => 'page',
-                'post_url'  => $args));
+                'post_url'  => $args]);
 
             $core->callBehavior('publicPagesBeforeGetPosts', $params, $args);
 
@@ -89,12 +89,12 @@ class urlPages extends dcUrlHandlers
                     if (isset($_COOKIE['dc_passwd'])) {
                         $pwd_cookie = json_decode($_COOKIE['dc_passwd']);
                         if ($pwd_cookie === null) {
-                            $pwd_cookie = array();
+                            $pwd_cookie = [];
                         } else {
                             $pwd_cookie = (array) $pwd_cookie;
                         }
                     } else {
-                        $pwd_cookie = array();
+                        $pwd_cookie = [];
                     }
 
                     # Check for match
@@ -267,7 +267,7 @@ class tplPages
         $params['post_selected'] = false;
 
         $sort = $w->sortby;
-        if (!in_array($sort, array('post_title', 'post_position', 'post_dt'))) {
+        if (!in_array($sort, ['post_title', 'post_position', 'post_dt'])) {
             $sort = 'post_title';
         }
 

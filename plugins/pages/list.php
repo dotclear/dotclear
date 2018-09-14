@@ -14,9 +14,9 @@ dcPage::check('pages,contentadmin');
 
 /* Getting pages
 -------------------------------------------------------- */
-$params = array(
+$params = [
     'post_type' => 'page'
-);
+];
 
 $page        = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
 $nb_per_page = 30;
@@ -25,7 +25,7 @@ if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
     $nb_per_page = (integer) $_GET['nb'];
 }
 
-$params['limit']      = array((($page - 1) * $nb_per_page), $nb_per_page);
+$params['limit']      = [(($page - 1) * $nb_per_page), $nb_per_page];
 $params['no_content'] = true;
 $params['order']      = 'post_position ASC, post_title ASC';
 
@@ -39,12 +39,12 @@ try {
 
 # Actions combo box
 
-$pages_actions_page = new dcPagesActionsPage($core, 'plugin.php', array('p' => 'pages'));
+$pages_actions_page = new dcPagesActionsPage($core, 'plugin.php', ['p' => 'pages']);
 
 if (!$pages_actions_page->process()) {
 
 # --BEHAVIOR-- adminPagesActionsCombo
-    $core->callBehavior('adminPagesActionsCombo', array(&$combo_action));
+    $core->callBehavior('adminPagesActionsCombo', [&$combo_action]);
 
 /* Display
 -------------------------------------------------------- */
@@ -67,10 +67,10 @@ echo
 <body>
 <?php
 echo dcPage::breadcrumb(
-        array(
+        [
             html::escapeHTML($core->blog->name) => '',
             __('Pages')                         => ''
-        )) . dcPage::notices();
+        ]) . dcPage::notices();
 
     if (!empty($_GET['upd'])) {
         dcPage::success(__('Selected pages have been successfully updated.'));
@@ -95,9 +95,9 @@ echo dcPage::breadcrumb(
             '<p class="col right"><label for="action" class="classic">' . __('Selected pages action:') . '</label> ' .
             form::combo('action', $pages_actions_page->getCombo()) .
             '<input id="do-action" type="submit" value="' . __('ok') . '" />' .
-            form::hidden(array('post_type'), 'page') .
-            form::hidden(array('p'), 'pages') .
-            form::hidden(array('act'), 'list') .
+            form::hidden(['post_type'], 'page') .
+            form::hidden(['p'], 'pages') .
+            form::hidden(['act'], 'list') .
             $core->formNonce() .
             '</p></div>' .
             '<p class="clear form-note hidden-if-js">' .

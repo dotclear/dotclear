@@ -9,22 +9,22 @@
 
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
-$core->rest->addFunction('getPostsCount', array('dcRestMethods', 'getPostsCount'));
-$core->rest->addFunction('getCommentsCount', array('dcRestMethods', 'getCommentsCount'));
-$core->rest->addFunction('checkNewsUpdate', array('dcRestMethods', 'checkNewsUpdate'));
-$core->rest->addFunction('checkCoreUpdate', array('dcRestMethods', 'checkCoreUpdate'));
-$core->rest->addFunction('getPostById', array('dcRestMethods', 'getPostById'));
-$core->rest->addFunction('getCommentById', array('dcRestMethods', 'getCommentById'));
-$core->rest->addFunction('quickPost', array('dcRestMethods', 'quickPost'));
-$core->rest->addFunction('validatePostMarkup', array('dcRestMethods', 'validatePostMarkup'));
-$core->rest->addFunction('getZipMediaContent', array('dcRestMethods', 'getZipMediaContent'));
-$core->rest->addFunction('getMeta', array('dcRestMethods', 'getMeta'));
-$core->rest->addFunction('delMeta', array('dcRestMethods', 'delMeta'));
-$core->rest->addFunction('setPostMeta', array('dcRestMethods', 'setPostMeta'));
-$core->rest->addFunction('searchMeta', array('dcRestMethods', 'searchMeta'));
-$core->rest->addFunction('setSectionFold', array('dcRestMethods', 'setSectionFold'));
-$core->rest->addFunction('getModuleById', array('dcRestMethods', 'getModuleById'));
-$core->rest->addFunction('setDashboardPositions', array('dcRestMethods', 'setDashboardPositions'));
+$core->rest->addFunction('getPostsCount', ['dcRestMethods', 'getPostsCount']);
+$core->rest->addFunction('getCommentsCount', ['dcRestMethods', 'getCommentsCount']);
+$core->rest->addFunction('checkNewsUpdate', ['dcRestMethods', 'checkNewsUpdate']);
+$core->rest->addFunction('checkCoreUpdate', ['dcRestMethods', 'checkCoreUpdate']);
+$core->rest->addFunction('getPostById', ['dcRestMethods', 'getPostById']);
+$core->rest->addFunction('getCommentById', ['dcRestMethods', 'getCommentById']);
+$core->rest->addFunction('quickPost', ['dcRestMethods', 'quickPost']);
+$core->rest->addFunction('validatePostMarkup', ['dcRestMethods', 'validatePostMarkup']);
+$core->rest->addFunction('getZipMediaContent', ['dcRestMethods', 'getZipMediaContent']);
+$core->rest->addFunction('getMeta', ['dcRestMethods', 'getMeta']);
+$core->rest->addFunction('delMeta', ['dcRestMethods', 'delMeta']);
+$core->rest->addFunction('setPostMeta', ['dcRestMethods', 'setPostMeta']);
+$core->rest->addFunction('searchMeta', ['dcRestMethods', 'searchMeta']);
+$core->rest->addFunction('setSectionFold', ['dcRestMethods', 'setSectionFold']);
+$core->rest->addFunction('getModuleById', ['dcRestMethods', 'getModuleById']);
+$core->rest->addFunction('setDashboardPositions', ['dcRestMethods', 'setDashboardPositions']);
 
 $core->rest->serve();
 
@@ -39,7 +39,7 @@ class dcRestMethods
      */
     public static function getPostsCount($core, $get)
     {
-        $count = $core->blog->getPosts(array(), true)->f(0);
+        $count = $core->blog->getPosts([], true)->f(0);
         $str   = sprintf(__('%d post', '%d posts', $count), $count);
 
         $rsp      = new xmlTag('count');
@@ -56,7 +56,7 @@ class dcRestMethods
      */
     public static function getCommentsCount($core, $get)
     {
-        $count = $core->blog->getComments(array(), true)->f(0);
+        $count = $core->blog->getComments([], true)->f(0);
         $str   = sprintf(__('%d comment', '%d comments', $count), $count);
 
         $rsp      = new xmlTag('count');
@@ -134,7 +134,7 @@ class dcRestMethods
                     $ret =
                     '<div class="dc-update" id="ajax-update"><h3>' . sprintf(__('Dotclear %s is available!'), $new_v) . '</h3> ' .
                     '<p><a class="button submit" href="' . $core->adminurl->get("admin.update") . '">' . sprintf(__('Upgrade now'), $new_v) . '</a> ' .
-                    '<a class="button" href="' . $core->adminurl->get("admin.update", array('hide_msg' => 1)) . '">' . __('Remind me later') . '</a>' .
+                    '<a class="button" href="' . $core->adminurl->get("admin.update", ['hide_msg' => 1]) . '">' . __('Remind me later') . '</a>' .
                         ($version_info ? ' </p>' .
                         '<p class="updt-info"><a href="' . $version_info . '">' . __('Information about this version') . '</a>' : '') . '</p>' .
                         '</div>';
@@ -165,7 +165,7 @@ class dcRestMethods
             throw new Exception('No post ID');
         }
 
-        $params = array('post_id' => (integer) $get['id']);
+        $params = ['post_id' => (integer) $get['id']];
 
         if (isset($get['post_type'])) {
             $params['post_type'] = $get['post_type'];
@@ -231,7 +231,7 @@ class dcRestMethods
             throw new Exception('No comment ID');
         }
 
-        $rs = $core->blog->getComments(array('comment_id' => (integer) $get['id']));
+        $rs = $core->blog->getComments(['comment_id' => (integer) $get['id']]);
 
         if ($rs->isEmpty()) {
             throw new Exception('No comment for this ID');
@@ -307,7 +307,7 @@ class dcRestMethods
         $rsp     = new xmlTag('post');
         $rsp->id = $return_id;
 
-        $post = $core->blog->getPosts(array('post_id' => $return_id));
+        $post = $core->blog->getPosts(['post_id' => $return_id]);
 
         $rsp->post_status = $post->post_status;
         $rsp->post_url    = $post->getURL();
@@ -391,11 +391,11 @@ class dcRestMethods
 
         $sortby = !empty($get['sortby']) ? $get['sortby'] : 'meta_type,asc';
 
-        $rs = $core->meta->getMetadata(array(
+        $rs = $core->meta->getMetadata([
             'meta_type' => $metaType,
             'limit'     => $limit,
             'meta_id'   => $metaId,
-            'post_id'   => $postid));
+            'post_id'   => $postid]);
         $rs = $core->meta->computeMetaStats($rs);
 
         $sortby = explode(',', $sortby);
@@ -450,10 +450,10 @@ class dcRestMethods
         }
 
         # Get previous meta for post
-        $post_meta = $core->meta->getMetadata(array(
+        $post_meta = $core->meta->getMetadata([
             'meta_type' => $post['metaType'],
-            'post_id'   => $post['postId']));
-        $pm = array();
+            'post_id'   => $post['postId']]);
+        $pm = [];
         while ($post_meta->fetch()) {
             $pm[] = $post_meta->meta_id;
         }
@@ -493,7 +493,7 @@ class dcRestMethods
 
         $sortby = !empty($get['sortby']) ? $get['sortby'] : 'meta_type,asc';
 
-        $rs = $core->meta->getMetadata(array('meta_type' => $metaType));
+        $rs = $core->meta->getMetadata(['meta_type' => $metaType]);
         $rs = $core->meta->computeMetaStats($rs);
 
         $sortby = explode(',', $sortby);
@@ -548,7 +548,7 @@ class dcRestMethods
         if ($core->auth->user_prefs->toggles->prefExists('unfolded_sections')) {
             $toggles = explode(',', trim($core->auth->user_prefs->toggles->unfolded_sections));
         } else {
-            $toggles = array();
+            $toggles = [];
         }
         $k = array_search($section, $toggles);
         if ($status) {
@@ -597,7 +597,7 @@ class dcRestMethods
 
         $id     = $get['id'];
         $list   = $get['list'];
-        $module = array();
+        $module = [];
 
         if ($list == 'plugin-activate') {
             $modules = $core->plugins->getModules();

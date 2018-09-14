@@ -27,4 +27,4 @@ $__autoload['dcMaintenanceVacuum']         = dirname(__FILE__) . '/inc/tasks/cla
 $__autoload['dcMaintenanceZipmedia']       = dirname(__FILE__) . '/inc/tasks/class.dc.maintenance.zipmedia.php';
 $__autoload['dcMaintenanceZiptheme']       = dirname(__FILE__) . '/inc/tasks/class.dc.maintenance.ziptheme.php';
 
-$this->core->rest->addFunction('dcMaintenanceStep', array('dcMaintenanceRest', 'step'));
+$this->core->rest->addFunction('dcMaintenanceStep', ['dcMaintenanceRest', 'step']);

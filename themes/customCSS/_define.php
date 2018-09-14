@@ -16,7 +16,7 @@ $this->registerModule(
     "A CSS customizable theme", // Description
     "Olivier",                  // Author
     '1.2',                      // Version
-    array(
+    [
         'type' => 'theme'
-    )
+    ]
 );

@@ -12,22 +12,22 @@
 if (!defined('DC_RC_PATH')) {return;}
 
 # Attachments
-$core->tpl->addBlock('Attachments', array('attachmentTpl', 'Attachments'));
-$core->tpl->addBlock('AttachmentsHeader', array('attachmentTpl', 'AttachmentsHeader'));
-$core->tpl->addBlock('AttachmentsFooter', array('attachmentTpl', 'AttachmentsFooter'));
-$core->tpl->addValue('AttachmentMimeType', array('attachmentTpl', 'AttachmentMimeType'));
-$core->tpl->addValue('AttachmentType', array('attachmentTpl', 'AttachmentType'));
-$core->tpl->addValue('AttachmentFileName', array('attachmentTpl', 'AttachmentFileName'));
-$core->tpl->addValue('AttachmentSize', array('attachmentTpl', 'AttachmentSize'));
-$core->tpl->addValue('AttachmentTitle', array('attachmentTpl', 'AttachmentTitle'));
-$core->tpl->addValue('AttachmentThumbnailURL', array('attachmentTpl', 'AttachmentThumbnailURL'));
-$core->tpl->addValue('AttachmentURL', array('attachmentTpl', 'AttachmentURL'));
-$core->tpl->addValue('MediaURL', array('attachmentTpl', 'MediaURL'));
-$core->tpl->addBlock('AttachmentIf', array('attachmentTpl', 'AttachmentIf'));
+$core->tpl->addBlock('Attachments', ['attachmentTpl', 'Attachments']);
+$core->tpl->addBlock('AttachmentsHeader', ['attachmentTpl', 'AttachmentsHeader']);
+$core->tpl->addBlock('AttachmentsFooter', ['attachmentTpl', 'AttachmentsFooter']);
+$core->tpl->addValue('AttachmentMimeType', ['attachmentTpl', 'AttachmentMimeType']);
+$core->tpl->addValue('AttachmentType', ['attachmentTpl', 'AttachmentType']);
+$core->tpl->addValue('AttachmentFileName', ['attachmentTpl', 'AttachmentFileName']);
+$core->tpl->addValue('AttachmentSize', ['attachmentTpl', 'AttachmentSize']);
+$core->tpl->addValue('AttachmentTitle', ['attachmentTpl', 'AttachmentTitle']);
+$core->tpl->addValue('AttachmentThumbnailURL', ['attachmentTpl', 'AttachmentThumbnailURL']);
+$core->tpl->addValue('AttachmentURL', ['attachmentTpl', 'AttachmentURL']);
+$core->tpl->addValue('MediaURL', ['attachmentTpl', 'MediaURL']);
+$core->tpl->addBlock('AttachmentIf', ['attachmentTpl', 'AttachmentIf']);
 
-$core->tpl->addValue('EntryAttachmentCount', array('attachmentTpl', 'EntryAttachmentCount'));
+$core->tpl->addValue('EntryAttachmentCount', ['attachmentTpl', 'EntryAttachmentCount']);
 
-$core->addBehavior('tplIfConditions', array('attachmentBehavior', 'tplIfConditions'));
+$core->addBehavior('tplIfConditions', ['attachmentBehavior', 'tplIfConditions']);
 
 class attachmentTpl
 {
@@ -89,7 +89,7 @@ class attachmentTpl
      */
     public static function AttachmentIf($attr, $content)
     {
-        $if = array();
+        $if = [];
 
         $operator = isset($attr['operator']) ? dcTemplate::getOperator($attr['operator']) : '&&';
 
@@ -223,11 +223,11 @@ class attachmentTpl
         global $core;
         return $core->tpl->displayCounter(
             '$_ctx->posts->countMedia(\'attachment\')',
-            array(
+            [
                 'none' => 'no attachments',
                 'one'  => 'one attachment',
                 'more' => '%d attachments'
-            ),
+            ],
             $attr,
             false
         );

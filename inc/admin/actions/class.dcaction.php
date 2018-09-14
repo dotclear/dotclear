@@ -63,17 +63,17 @@ abstract class dcActionsPage
      *
      * @return mixed Value.
      */
-    public function __construct($core, $uri, $redirect_args = array())
+    public function __construct($core, $uri, $redirect_args = [])
     {
         $this->core            = $core;
         $this->actions         = new ArrayObject();
-        $this->combo           = array();
+        $this->combo           = [];
         $this->uri             = $uri;
         $this->redir_args      = $redirect_args;
-        $this->redirect_fields = array();
+        $this->redirect_fields = [];
         $this->action          = '';
         $this->cb_title        = __('Title');
-        $this->entries         = array();
+        $this->entries         = [];
         $this->from            = new ArrayObject($_POST);
         $this->field_entries   = 'entries';
         $this->caller_title    = __('Entries');
@@ -121,14 +121,14 @@ abstract class dcActionsPage
             if (is_array($a)) {
                 $values = array_values($a);
                 if (!isset($this->combo[$k])) {
-                    $this->combo[$k] = array();
+                    $this->combo[$k] = [];
                 }
                 $this->combo[$k] = array_merge($this->combo[$k], $a);
             } elseif ($a instanceof formSelectOption) {
-                $values          = array($a->value);
+                $values          = [$a->value];
                 $this->combo[$k] = $a->value;
             } else {
-                $values          = array($a);
+                $values          = [$a];
                 $this->combo[$k] = $a;
             }
             // Associate each potential value to the callback
@@ -192,7 +192,7 @@ abstract class dcActionsPage
     {
         $ret = '';
         foreach ($this->redir_args as $k => $v) {
-            $ret .= form::hidden(array($k), $v);
+            $ret .= form::hidden([$k], $v);
         }
         if ($with_ids) {
             $ret .= $this->getIDsHidden();
@@ -244,7 +244,7 @@ abstract class dcActionsPage
      *
      * @return string the redirection url
      */
-    public function getRedirection($with_selected_entries = false, $params = array())
+    public function getRedirection($with_selected_entries = false, $params = [])
     {
         $redir_args = array_merge($params, $this->redir_args);
         if (isset($redir_args['redir'])) {
@@ -264,7 +264,7 @@ abstract class dcActionsPage
      *
      * @access public
      */
-    public function redirect($with_selected_entries = false, $params = array())
+    public function redirect($with_selected_entries = false, $params = [])
     {
         http::redirect($this->getRedirection($with_selected_entries, $params));
         exit;
@@ -356,9 +356,9 @@ abstract class dcActionsPage
         foreach ($this->entries as $id => $title) {
             $ret .=
             '<tr><td class="minimal">' .
-            form::checkbox(array($this->field_entries . '[]'), $id, array(
+            form::checkbox([$this->field_entries . '[]'], $id, [
                 'checked' => true
-            )) .
+            ]) .
                 '</td>' .
                 '<td>' . $title . '</td></tr>';
         }

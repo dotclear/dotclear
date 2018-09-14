@@ -3,7 +3,7 @@
     <title>dcLegacyEditor</title>
   </head>
   <body>
-    <?php echo dcPage::breadcrumb(array(__('Plugins') => '', __('dcLegacyEditor') => '')) . dcPage::notices(); ?>
+    <?php echo dcPage::breadcrumb([__('Plugins') => '', __('dcLegacyEditor') => '']) . dcPage::notices(); ?>
 
     <?php if ($is_admin): ?>
       <h3 class="hidden-if-js"><?php echo __('Settings'); ?></h3>

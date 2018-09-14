@@ -12,34 +12,34 @@ require dirname(__FILE__) . '/../inc/admin/prepend.php';
 dcPage::checkSuper();
 
 # Creating filter combo boxes
-$sortby_combo = array(
+$sortby_combo = [
     __('Username')          => 'user_id',
     __('Last Name')         => 'user_name',
     __('First Name')        => 'user_firstname',
     __('Display name')      => 'user_displayname',
     __('Number of entries') => 'nb_post'
-);
+];
 
-$sortby_lex = array(
+$sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request
     'user_id'          => 'U.user_id',
     'user_name'        => 'user_name',
     'user_firstname'   => 'user_firstname',
-    'user_displayname' => 'user_displayname');
+    'user_displayname' => 'user_displayname'];
 
-$order_combo = array(
+$order_combo = [
     __('Descending') => 'desc',
     __('Ascending')  => 'asc'
-);
+];
 
 # Actions combo box
-$combo_action = array(
+$combo_action = [
     __('Set permissions') => 'blogs',
     __('Delete')          => 'deleteuser'
-);
+];
 
 # --BEHAVIOR-- adminUsersActionsCombo
-$core->callBehavior('adminUsersActionsCombo', array(&$combo_action));
+$core->callBehavior('adminUsersActionsCombo', [&$combo_action]);
 
 $show_filters = false;
 
@@ -58,7 +58,7 @@ $q      = !empty($_GET['q']) ? $_GET['q'] : '';
 $sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : 'user_id';
 $order  = !empty($_GET['order']) ? $_GET['order'] : 'asc';
 
-$params['limit'] = array((($page - 1) * $nb_per_page), $nb_per_page);
+$params['limit'] = [(($page - 1) * $nb_per_page), $nb_per_page];
 
 # - Search filter
 if ($q) {
@@ -108,10 +108,10 @@ try {
 dcPage::open(__('Users'),
     dcPage::jsLoad('js/_users.js') . dcPage::jsFilterControl($show_filters),
     dcPage::breadcrumb(
-        array(
+        [
             __('System') => '',
             __('Users')  => ''
-        ))
+        ])
 );
 
 if (!$core->error->flag()) {
@@ -163,11 +163,11 @@ if (!$core->error->flag()) {
         form::combo('action', $combo_action) .
         '</label> ' .
         '<input id="do-action" type="submit" value="' . __('ok') . '" />' .
-        form::hidden(array('q'), html::escapeHTML($q)) .
-        form::hidden(array('sortby'), $sortby) .
-        form::hidden(array('order'), $order) .
-        form::hidden(array('page'), $page) .
-        form::hidden(array('nb'), $nb_per_page) .
+        form::hidden(['q'], html::escapeHTML($q)) .
+        form::hidden(['sortby'], $sortby) .
+        form::hidden(['order'], $order) .
+        form::hidden(['page'], $page) .
+        form::hidden(['nb'], $nb_per_page) .
         $core->formNonce() .
         '</p>' .
         '</div>' .

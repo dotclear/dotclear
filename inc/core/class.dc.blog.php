@@ -48,8 +48,8 @@ class dcBlog
     /** @var string Blog public path */
     public $public_path;
 
-    private $post_status    = array();
-    private $comment_status = array();
+    private $post_status    = [];
+    private $comment_status = [];
 
     private $categories;
 
@@ -248,7 +248,7 @@ class dcBlog
 
             $rs = $this->con->select($strReq);
 
-            $affected_posts = array();
+            $affected_posts = [];
             while ($rs->fetch()) {
                 $affected_posts[] = (integer) $rs->post_id;
             }
@@ -268,7 +268,7 @@ class dcBlog
 
         $rs = $this->con->select($strReq);
 
-        $posts = array();
+        $posts = [];
         while ($rs->fetch()) {
             if ($rs->comment_trackback) {
                 $posts[$rs->post_id]['trackback'] = $rs->nb_comment;
@@ -319,9 +319,9 @@ class dcBlog
     @param    params    <b>array</b>        Parameters
     @return    <b>record</b>
      */
-    public function getCategories($params = array())
+    public function getCategories($params = [])
     {
-        $c_params = array();
+        $c_params = [];
         if (isset($params['post_type'])) {
             $c_params['post_type'] = $params['post_type'];
             unset($params['post_type']);
@@ -340,8 +340,8 @@ class dcBlog
         $rs = $this->categories()->getChildren($start, null, 'desc');
 
         # Get each categories total posts count
-        $data  = array();
-        $stack = array();
+        $data  = [];
+        $stack = [];
         $level = 0;
         $cols  = $rs->columns();
         while ($rs->fetch()) {
@@ -369,7 +369,7 @@ class dcBlog
 
             $level = $rs->level;
 
-            $t = array();
+            $t = [];
             foreach ($cols as $c) {
                 $t[$c] = $rs->f($c);
             }
@@ -387,12 +387,12 @@ class dcBlog
             foreach ($data as $v) {
                 if ($v['cat_id'] == $params['cat_id']) {
                     $found = true;
-                    $data  = array($v);
+                    $data  = [$v];
                     break;
                 }
             }
             if (!$found) {
-                $data = array();
+                $data = [];
             }
         }
 
@@ -402,12 +402,12 @@ class dcBlog
             foreach ($data as $v) {
                 if ($v['cat_url'] == $params['cat_url']) {
                     $found = true;
-                    $data  = array($v);
+                    $data  = [$v];
                     break;
                 }
             }
             if (!$found) {
-                $data = array();
+                $data = [];
             }
         }
 
@@ -422,7 +422,7 @@ class dcBlog
      */
     public function getCategory($id)
     {
-        return $this->getCategories(array('cat_id' => $id));
+        return $this->getCategories(['cat_id' => $id]);
     }
 
     /**
@@ -455,10 +455,10 @@ class dcBlog
      */
     public function getCategoryFirstChildren($id)
     {
-        return $this->getCategories(array('start' => $id, 'level' => $id == 0 ? 1 : 2));
+        return $this->getCategories(['start' => $id, 'level' => $id == 0 ? 1 : 2]);
     }
 
-    private function getCategoriesCounter($params = array())
+    private function getCategoriesCounter($params = [])
     {
         $strReq =
         'SELECT  C.cat_id, COUNT(P.post_id) AS nb_post ' .
@@ -477,7 +477,7 @@ class dcBlog
         $strReq .= 'GROUP BY C.cat_id ';
 
         $rs       = $this->con->select($strReq);
-        $counters = array();
+        $counters = [];
         while ($rs->fetch()) {
             $counters[$rs->cat_id] = $rs->nb_post;
         }
@@ -498,11 +498,11 @@ class dcBlog
             throw new Exception(__('You are not allowed to add categories'));
         }
 
-        $url = array();
+        $url = [];
         if ($parent != 0) {
             $rs = $this->getCategory($parent);
             if ($rs->isEmpty()) {
-                $url = array();
+                $url = [];
             } else {
                 $url[] = $rs->cat_url;
             }
@@ -550,7 +550,7 @@ class dcBlog
         }
 
         if ($cur->cat_url == '') {
-            $url = array();
+            $url = [];
             $rs  = $this->categories()->getParents($id);
             while ($rs->fetch()) {
                 if ($rs->index() == $rs->count() - 1) {
@@ -694,7 +694,7 @@ class dcBlog
                 'ORDER BY cat_url DESC ';
 
             $rs = $this->con->select($strReq);
-            $a  = array();
+            $a  = [];
             while ($rs->fetch()) {
                 $a[] = $rs->cat_url;
             }
@@ -784,7 +784,7 @@ class dcBlog
     @param    count_only    <b>boolean</b>        Only counts results
     @return    <b>record</b>    A record with some more capabilities or the SQL request
      */
-    public function getPosts($params = array(), $count_only = false)
+    public function getPosts($params = [], $count_only = false)
     {
         # --BEHAVIOR-- coreBlogBeforeGetPosts
         $params = new ArrayObject($params);
@@ -859,7 +859,7 @@ class dcBlog
             if (is_array($params['post_id'])) {
                 array_walk($params['post_id'], function (&$v, $k) {if ($v !== null) {$v = (integer) $v;}});
             } else {
-                $params['post_id'] = array((integer) $params['post_id']);
+                $params['post_id'] = [(integer) $params['post_id']];
             }
             $strReq .= 'AND P.post_id ' . $this->con->in($params['post_id']);
         }
@@ -868,7 +868,7 @@ class dcBlog
             if (is_array($params['exclude_post_id'])) {
                 array_walk($params['exclude_post_id'], function (&$v, $k) {if ($v !== null) {$v = (integer) $v;}});
             } else {
-                $params['exclude_post_id'] = array((integer) $params['exclude_post_id']);
+                $params['exclude_post_id'] = [(integer) $params['exclude_post_id']];
             }
             $strReq .= 'AND P.post_id NOT ' . $this->con->in($params['exclude_post_id']);
         }
@@ -883,7 +883,7 @@ class dcBlog
 
         if (isset($params['cat_id']) && $params['cat_id'] !== '') {
             if (!is_array($params['cat_id'])) {
-                $params['cat_id'] = array($params['cat_id']);
+                $params['cat_id'] = [$params['cat_id']];
             }
             if (!empty($params['cat_id_not'])) {
                 array_walk($params['cat_id'], function (&$v, $k) {$v = $v . " ?not";});
@@ -891,7 +891,7 @@ class dcBlog
             $strReq .= 'AND ' . $this->getPostsCategoryFilter($params['cat_id'], 'cat_id') . ' ';
         } elseif (isset($params['cat_url']) && $params['cat_url'] !== '') {
             if (!is_array($params['cat_url'])) {
-                $params['cat_url'] = array($params['cat_url']);
+                $params['cat_url'] = [$params['cat_url']];
             }
             if (!empty($params['cat_url_not'])) {
                 array_walk($params['cat_url'], function (&$v, $k) {$v = $v . " ?not";});
@@ -937,7 +937,7 @@ class dcBlog
             if (!empty($words)) {
                 # --BEHAVIOR-- corePostSearch
                 if ($this->core->hasBehavior('corePostSearch')) {
-                    $this->core->callBehavior('corePostSearch', $this->core, array(&$words, &$strReq, &$params));
+                    $this->core->callBehavior('corePostSearch', $this->core, [&$words, &$strReq, &$params]);
                 }
 
                 if ($words) {
@@ -989,14 +989,14 @@ class dcBlog
 
         $rs            = $this->con->select($strReq);
         $rs->core      = $this->core;
-        $rs->_nb_media = array();
+        $rs->_nb_media = [];
         $rs->extend('rsExtPost');
 
         # --BEHAVIOR-- coreBlogGetPosts
         $this->core->callBehavior('coreBlogGetPosts', $rs);
 
         # --BEHAVIOR-- coreBlogAfterGetPosts
-        $alt = new arrayObject(array('rs' => null, 'params' => $params, 'count_only' => $count_only));
+        $alt = new arrayObject(['rs' => null, 'params' => $params, 'count_only' => $count_only]);
         $this->core->callBehavior('coreBlogAfterGetPosts', $rs, $alt);
         if ($alt['rs'] instanceof record) {
             $rs = $alt['rs'];
@@ -1067,7 +1067,7 @@ class dcBlog
     @param    params    <b>array</b>        Parameters
     @return    record
      */
-    public function getLangs($params = array())
+    public function getLangs($params = [])
     {
         $strReq = 'SELECT COUNT(post_id) as nb_post, post_lang ' .
         'FROM ' . $this->prefix . 'post ' .
@@ -1131,7 +1131,7 @@ class dcBlog
     @param    params    <b>array</b>        Parameters array
     @return    record
      */
-    public function getDates($params = array())
+    public function getDates($params = [])
     {
         $dt_f  = '%Y-%m-%d';
         $dt_fc = '%Y%m%d';
@@ -1609,13 +1609,13 @@ class dcBlog
      */
     public function firstPublicationEntries($ids)
     {
-        $posts = $this->getPosts(array(
+        $posts = $this->getPosts([
             'post_id'       => dcUtils::cleanIds($ids),
             'post_status'   => 1,
             'post_firstpub' => 0
-        ));
+        ]);
 
-        $to_change = array();
+        $to_change = [];
         while ($posts->fetch()) {
 
             $to_change[] = $posts->post_id;
@@ -1662,9 +1662,9 @@ class dcBlog
     {
         $field = $field == 'cat_id' ? 'cat_id' : 'cat_url';
 
-        $sub     = array();
-        $not     = array();
-        $queries = array();
+        $sub     = [];
+        $not     = [];
+        $queries = [];
 
         foreach ($arr as $v) {
             $v    = trim($v);
@@ -1698,10 +1698,10 @@ class dcBlog
         }
 
         # Create queries
-        $sql = array(
-            0 => array(), # wanted categories
-            1 => array() # excluded categories
-        );
+        $sql = [
+            0 => [], # wanted categories
+            1 => [] # excluded categories
+        ];
 
         foreach ($queries as $id => $q) {
             $sql[(integer) isset($not[$id])][] = $q;
@@ -1837,12 +1837,12 @@ class dcBlog
         }
 
         # --BEHAVIOR-- coreAfterPostContentFormat
-        $this->core->callBehavior('coreAfterPostContentFormat', array(
+        $this->core->callBehavior('coreAfterPostContentFormat', [
             'excerpt'       => &$excerpt,
             'content'       => &$content,
             'excerpt_xhtml' => &$excerpt_xhtml,
             'content_xhtml' => &$content_xhtml
-        ));
+        ]);
     }
 
     /**
@@ -1859,13 +1859,13 @@ class dcBlog
     {
         $url = trim($url);
 
-        $url_patterns = array(
+        $url_patterns = [
             '{y}'  => date('Y', strtotime($post_dt)),
             '{m}'  => date('m', strtotime($post_dt)),
             '{d}'  => date('d', strtotime($post_dt)),
             '{t}'  => text::tidyURL($post_title),
             '{id}' => (integer) $post_id
-        );
+        ];
 
         # If URL is empty, we create a new one
         if ($url == '') {
@@ -1895,7 +1895,7 @@ class dcBlog
                 $clause = "~ '^" . $this->con->escape(preg_quote($url)) . "[0-9]+$'";
             } else {
                 $clause = "LIKE '" .
-                $this->con->escape(preg_replace(array('%', '_', '!'), array('!%', '!_', '!!'), $url)) .
+                $this->con->escape(preg_replace(['%', '_', '!'], ['!%', '!_', '!!'], $url)) .
                     "%' ESCAPE '!'";
             }
             $strReq = 'SELECT post_url FROM ' . $this->prefix . 'post ' .
@@ -1905,7 +1905,7 @@ class dcBlog
                 'ORDER BY post_url DESC ';
 
             $rs = $this->con->select($strReq);
-            $a  = array();
+            $a  = [];
             while ($rs->fetch()) {
                 $a[] = $rs->post_url;
             }
@@ -1960,7 +1960,7 @@ class dcBlog
     @param    count_only    <b>boolean</b>        Only counts results
     @return    <b>record</b>    A record with some more capabilities
      */
-    public function getComments($params = array(), $count_only = false)
+    public function getComments($params = [], $count_only = false)
     {
         if ($count_only) {
             $strReq = 'SELECT count(comment_id) ';
@@ -2029,7 +2029,7 @@ class dcBlog
             if (is_array($params['comment_id'])) {
                 array_walk($params['comment_id'], function (&$v, $k) {if ($v !== null) {$v = (integer) $v;}});
             } else {
-                $params['comment_id'] = array((integer) $params['comment_id']);
+                $params['comment_id'] = [(integer) $params['comment_id']];
             }
             $strReq .= 'AND comment_id ' . $this->con->in($params['comment_id']);
         }
@@ -2072,7 +2072,7 @@ class dcBlog
             if (!empty($words)) {
                 # --BEHAVIOR coreCommentSearch
                 if ($this->core->hasBehavior('coreCommentSearch')) {
-                    $this->core->callBehavior('coreCommentSearch', $this->core, array(&$words, &$strReq, &$params));
+                    $this->core->callBehavior('coreCommentSearch', $this->core, [&$words, &$strReq, &$params]);
                 }
 
                 if ($words) {
@@ -2183,7 +2183,7 @@ class dcBlog
             throw new Exception(__('No such comment ID'));
         }
 
-        $rs = $this->getComments(array('comment_id' => $id));
+        $rs = $this->getComments(['comment_id' => $id]);
 
         if ($rs->isEmpty()) {
             throw new Exception(__('No such comment ID'));
@@ -2288,7 +2288,7 @@ class dcBlog
         }
 
         # Retrieve posts affected by comments edition
-        $affected_posts = array();
+        $affected_posts = [];
         $strReq         =
         'SELECT post_id ' .
         'FROM ' . $this->prefix . 'comment ' .

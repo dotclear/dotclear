@@ -16,12 +16,12 @@ $this->registerModule(
     "dotclear CKEditor integration", // Description
     "dotclear Team",                 // Author
     "1.1.0",                         // Version
-    array(
+    [
         'permissions' => 'usage,contentadmin',
         'type'        => 'plugin',
-        'settings'    => array(
+        'settings'    => [
             'self' => '',
             'pref' => '#user-options.user_options_edition'
-        )
-    )
+        ]
+    ]
 );

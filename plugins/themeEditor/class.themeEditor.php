@@ -22,10 +22,10 @@ class dcThemeEditor
     protected $parent_name;
     protected $tplset_name;
 
-    public $tpl = array();
-    public $css = array();
-    public $js  = array();
-    public $po  = array();
+    public $tpl = [];
+    public $css = [];
+    public $js  = [];
+    public $po  = [];
 
     public function __construct($core)
     {
@@ -111,12 +111,12 @@ class dcThemeEditor
             throw new Exception(sprintf(__('File %s is not readable'), $f));
         }
 
-        return array(
+        return [
             'c'    => file_get_contents($F),
             'w'    => $this->getDestinationFile($type, $f) !== false,
             'type' => $type,
             'f'    => $f
-        );
+        ];
     }
 
     public function writeFile($type, $f, $content)
@@ -255,7 +255,7 @@ class dcThemeEditor
             case 'po':
                 return $this->po;
             default:
-                return array();
+                return [];
         }
     }
 
@@ -302,7 +302,7 @@ class dcThemeEditor
             $this->tpl_model = array_merge($this->getFilesInDir($p['root'] . '/default-templates/' . $this->tplset_name), $this->tpl_model);
         }
 
-        uksort($this->tpl, array($this, 'sortFilesHelper'));
+        uksort($this->tpl, [$this, 'sortFilesHelper']);
     }
 
     protected function findStyles()
@@ -333,11 +333,11 @@ class dcThemeEditor
     {
         $dir = path::real($dir);
         if (!$dir || !is_dir($dir) || !is_readable($dir)) {
-            return array();
+            return [];
         }
 
         $d   = dir($dir);
-        $res = array();
+        $res = [];
         while (($f = $d->read()) !== false) {
             if (is_file($dir . '/' . $f) && !preg_match('/^\./', $f) && (!$ext || preg_match('/\.' . preg_quote($ext) . '$/i', $f))) {
                 if (!$model || preg_match('/^' . preg_quote($model) . '$/i', $f)) {

@@ -40,7 +40,7 @@ class dcSpamFilter
         }
 
         if ($core && isset($core->adminurl)) {
-            $this->gui_url = $core->adminurl->get('admin.plugin.antispam', array('f' => get_class($this)), '&');
+            $this->gui_url = $core->adminurl->get('admin.plugin.antispam', ['f' => get_class($this)], '&');
         }
     }
 

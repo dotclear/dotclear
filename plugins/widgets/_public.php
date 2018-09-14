@@ -14,9 +14,9 @@ if (!defined('DC_RC_PATH')) {return;}
 include dirname(__FILE__) . '/_default_widgets.php';
 require_once dirname(__FILE__) . '/_widgets_functions.php';
 
-$core->tpl->addValue('Widgets', array('publicWidgets', 'tplWidgets'));
-$core->tpl->addBlock('Widget', array('publicWidgets', 'tplWidget'));
-$core->tpl->addBlock('IfWidgets', array('publicWidgets', 'tplIfWidgets'));
+$core->tpl->addValue('Widgets', ['publicWidgets', 'tplWidgets']);
+$core->tpl->addBlock('Widget', ['publicWidgets', 'tplWidget']);
+$core->tpl->addBlock('IfWidgets', ['publicWidgets', 'tplIfWidgets']);
 
 class publicWidgets
 {
@@ -32,7 +32,7 @@ class publicWidgets
             "   publicWidgets::widgetsHandler('extra','" . addslashes($disable) . "');" . "\n" .
             "   publicWidgets::widgetsHandler('custom','" . addslashes($disable) . "');" . "\n";
         } else {
-            if (!in_array($type, array('nav', 'extra', 'custom'))) {
+            if (!in_array($type, ['nav', 'extra', 'custom'])) {
                 $type = 'nav';
             }
             $res = "publicWidgets::widgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "');";
@@ -82,7 +82,7 @@ class publicWidgets
             "   publicWidgets::ifWidgetsHandler('extra','" . addslashes($disable) . "') &&" . "\n" .
             "   publicWidgets::ifWidgetsHandler('custom','" . addslashes($disable) . "')" . "\n";
         } else {
-            if (!in_array($type, array('nav', 'extra', 'custom'))) {
+            if (!in_array($type, ['nav', 'extra', 'custom'])) {
                 $type = 'nav';
             }
             $res = "publicWidgets::ifWidgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "')";
@@ -163,7 +163,7 @@ class publicWidgets
             } else {
                 $text = $e;
             }
-            $w->{$setting} = preg_replace_callback('/\{tpl:lang (.*?)\}/msu', array('self', 'widgetL10nHandler'), $text);
+            $w->{$setting} = preg_replace_callback('/\{tpl:lang (.*?)\}/msu', ['self', 'widgetL10nHandler'], $text);
         }
 
         echo $w->call(0);

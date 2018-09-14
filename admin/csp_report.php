@@ -92,7 +92,7 @@ if ($data = json_decode($data, true)) {
             }
 
             // Prettify the JSON-formatted data
-            $violation = array_merge(array('hash' => $hash), $data['csp-report']);
+            $violation = array_merge(['hash' => $hash], $data['csp-report']);
             $output    = json_encode($violation, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
 
             // The file content will have to be enclosed in brackets [] before

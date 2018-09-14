@@ -31,7 +31,7 @@ $status_combo = dcAdminCombos::getCommentStatusescombo();
 if (!empty($_POST['add']) && !empty($_POST['post_id'])) {
     try
     {
-        $rs = $core->blog->getPosts(array('post_id' => $_POST['post_id'], 'post_type' => ''));
+        $rs = $core->blog->getPosts(['post_id' => $_POST['post_id'], 'post_type' => '']);
 
         if ($rs->isEmpty()) {
             throw new Exception(__('Entry does not exist.'));
@@ -126,7 +126,7 @@ if (!$core->error->flag() && isset($rs)) {
             $core->callBehavior('adminAfterCommentUpdate', $cur, $comment_id);
 
             dcPage::addSuccessNotice(__('Comment has been successfully updated.'));
-            $core->adminurl->redirect("admin.comment", array('id' => $comment_id));
+            $core->adminurl->redirect("admin.comment", ['id' => $comment_id]);
         } catch (Exception $e) {
             $core->error->add($e->getMessage());
         }
@@ -155,24 +155,24 @@ if (!$core->error->flag() && isset($rs)) {
 -------------------------------------------------------- */
 if ($comment_id) {
     $breadcrumb = dcPage::breadcrumb(
-        array(
+        [
             html::escapeHTML($core->blog->name) => '',
             html::escapeHTML($post_title)       => $core->getPostAdminURL($post_type, $post_id) . '&amp;co=1#c' . $comment_id,
             __('Edit comment')                  => ''
-        ));
+        ]);
 } else {
     $breadcrumb = dcPage::breadcrumb(
-        array(
+        [
             html::escapeHTML($core->blog->name) => '',
             html::escapeHTML($post_title)       => $core->getPostAdminURL($post_type, $post_id),
             __('Edit comment')                  => ''
-        ));
+        ]);
 }
 
 dcPage::open(__('Edit comment'),
     dcPage::jsConfirmClose('comment-form') .
     dcPage::jsLoad('js/_comment.js') .
-    $core->callBehavior('adminPostEditor', $comment_editor['xhtml'], 'comment', array('#comment_content'), 'xhtml') .
+    $core->callBehavior('adminPostEditor', $comment_editor['xhtml'], 'comment', ['#comment_content'], 'xhtml') .
     # --BEHAVIOR-- adminCommentHeaders
     $core->callBehavior('adminCommentHeaders'),
     $breadcrumb
@@ -197,7 +197,7 @@ if ($comment_id) {
     '<div class="fieldset">' .
     '<h3>' . __('Information collected') . '</h3>' .
     '<p>' . __('IP address:') . ' ' .
-    '<a href="' . $core->adminurl->get("admin.comments", array('ip' => $comment_ip)) . '">' . $comment_ip . '</a></p>' .
+    '<a href="' . $core->adminurl->get("admin.comments", ['ip' => $comment_ip]) . '">' . $comment_ip . '</a></p>' .
 
     '<p>' . __('Date:') . ' ' .
     dt::dt2str(__('%Y-%m-%d %H:%M'), $comment_dt) . '</p>' .
@@ -205,10 +205,10 @@ if ($comment_id) {
 
     '<h3>' . __('Comment submitted') . '</h3>' .
     '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr>' . __('Author:') . '</label>' .
-    form::field('comment_author', 30, 255, array(
+    form::field('comment_author', 30, 255, [
         'default'    => html::escapeHTML($comment_author),
         'extra_html' => 'required placeholder="' . __('Author') . '"'
-    )) .
+    ]) .
     '</p>' .
 
     '<p><label for="comment_email">' . __('Email:') . '</label>' .
@@ -222,7 +222,7 @@ if ($comment_id) {
 
     '<p><label for="comment_status">' . __('Status:') . '</label>' .
     form::combo('comment_status', $status_combo,
-        array('default' => $comment_status, 'disabled' => !$can_publish)) .
+        ['default' => $comment_status, 'disabled' => !$can_publish]) .
     '</p>' .
 
     # --BEHAVIOR-- adminAfterCommentDesc

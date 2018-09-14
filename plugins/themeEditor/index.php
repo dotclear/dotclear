@@ -13,7 +13,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {return;}
 
 require dirname(__FILE__) . '/class.themeEditor.php';
 
-$file_default = $file = array('c' => null, 'w' => false, 'type' => null, 'f' => null, 'default_file' => false);
+$file_default = $file = ['c' => null, 'w' => false, 'type' => null, 'f' => null, 'default_file' => false];
 
 # Get interface setting
 $core->auth->user_prefs->addWorkspace('interface');
@@ -65,16 +65,16 @@ try
 <head>
     <title><?php echo __('Edit theme files'); ?></title>
     <?php
-echo dcPage::jsVars(array(
+echo dcPage::jsVars([
     'dotclear.msg.saving_document'    => __("Saving document..."),
     'dotclear.msg.document_saved'     => __("Document saved"),
     'dotclear.msg.error_occurred'     => __("An error occurred:"),
     'dotclear.msg.confirm_reset_file' => __("Are you sure you want to reset this file?")
-)) .
+]) .
 dcPage::jsConfirmClose('file-form') .
 dcPage::jsLoad(dcPage::getPF('themeEditor/js/script.js'));
 if ($user_ui_colorsyntax) {
-    echo dcPage::jsVars(array('dotclear.colorsyntax' => $user_ui_colorsyntax));
+    echo dcPage::jsVars(['dotclear.colorsyntax' => $user_ui_colorsyntax]);
     echo dcPage::jsLoadCodeMirror($user_ui_colorsyntax_theme);
 }
 echo dcPage::cssLoad(dcPage::getPF('themeEditor/style.css'));
@@ -84,11 +84,11 @@ echo dcPage::cssLoad(dcPage::getPF('themeEditor/style.css'));
 <body>
 <?php
 echo dcPage::breadcrumb(
-    array(
+    [
         html::escapeHTML($core->blog->name) => '',
         __('Blog appearance')               => $core->adminurl->get('admin.blog.theme'),
         __('Edit theme files')              => ''
-    )) .
+    ]) .
 dcPage::notices();
 ?>
 
@@ -109,18 +109,18 @@ if ($file['c'] === null) {
     '<form id="file-form" action="' . $p_url . '" method="post">' .
     '<div class="fieldset"><h3>' . __('File editor') . '</h3>' .
     '<p><label for="file_content">' . sprintf(__('Editing file %s'), '<strong>' . $file['f']) . '</strong></label></p>' .
-    '<p>' . form::textarea('file_content', 72, 25, array(
+    '<p>' . form::textarea('file_content', 72, 25, [
         'default'  => html::escapeHTML($file['c']),
         'class'    => 'maximal',
         'disabled' => !$file['w']
-    )) . '</p>';
+    ]) . '</p>';
 
     if ($file['w']) {
         echo
         '<p><input type="submit" name="write" value="' . __('Save') . ' (s)" accesskey="s" /> ' .
         ($o->deletableFile($file['type'], $file['f']) ? '<input type="submit" name="delete" class="delete" value="' . __('Reset') . '" />' : '') .
         $core->formNonce() .
-            ($file['type'] ? form::hidden(array($file['type']), $file['f']) : '') .
+            ($file['type'] ? form::hidden([$file['type']], $file['f']) : '') .
             '</p>';
     } else {
         echo '<p>' . __('This file is not writable. Please check your theme files permissions.') . '</p>';

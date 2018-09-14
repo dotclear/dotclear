@@ -47,10 +47,10 @@ try
 
     # Update filters
     if (isset($_POST['filters_upd'])) {
-        $filters_opt = array();
+        $filters_opt = [];
         $i           = 0;
         foreach ($filters as $fid => $f) {
-            $filters_opt[$fid] = array(false, $i);
+            $filters_opt[$fid] = [false, $i];
             $i++;
         }
 
@@ -117,11 +117,11 @@ echo dcPage::cssLoad(dcPage::getPF('antispam/style.css'));
 
 if ($filter_gui !== false) {
     echo dcPage::breadcrumb(
-        array(
+        [
             __('Plugins')                                         => '',
             $page_name                                            => $p_url,
             sprintf(__('%s filter configuration'), $filter->name) => ''
-        )) .
+        ]) .
     dcPage::notices();
 
     echo '<p><a href="' . $p_url . '" class="back">' . __('Back to filters list') . '</a></p>';
@@ -133,10 +133,10 @@ if ($filter_gui !== false) {
     }
 } else {
     echo dcPage::breadcrumb(
-        array(
+        [
             __('Plugins') => '',
             $page_name    => ''
-        )) .
+        ]) .
     dcPage::notices();
 
     # Information
@@ -150,9 +150,9 @@ if ($filter_gui !== false) {
 
     echo
     '<ul class="spaminfo">' .
-    '<li class="spamcount"><a href="' . $core->adminurl->get('admin.comments', array('status' => '-2')) . '">' . __('Junk comments:') . '</a> ' .
+    '<li class="spamcount"><a href="' . $core->adminurl->get('admin.comments', ['status' => '-2']) . '">' . __('Junk comments:') . '</a> ' .
     '<strong>' . $spam_count . '</strong></li>' .
-    '<li class="hamcount"><a href="' . $core->adminurl->get('admin.comments', array('status' => '1')) . '">' . __('Published comments:') . '</a> ' .
+    '<li class="hamcount"><a href="' . $core->adminurl->get('admin.comments', ['status' => '1']) . '">' . __('Published comments:') . '</a> ' .
         $published_count . '</li>' .
         '</ul>';
 
@@ -203,24 +203,24 @@ if ($filter_gui !== false) {
 
         echo
         '<tr class="line' . ($f->active ? '' : ' offline') . '" id="f_' . $fid . '">' .
-        '<td class="handle">' . form::number(array('f_order[' . $fid . ']'), array(
+        '<td class="handle">' . form::number(['f_order[' . $fid . ']'], [
             'min'        => 0,
             'default'    => $i,
             'class'      => 'position',
             'extra_html' => 'title="' . __('position') . '"'
-        )) .
+        ]) .
         '</td>' .
-        '<td class="nowrap">' . form::checkbox(array('filters_active[]'), $fid,
-            array(
+        '<td class="nowrap">' . form::checkbox(['filters_active[]'], $fid,
+            [
                 'checked'    => $f->active,
                 'extra_html' => 'title="' . __('Active') . '"'
-            )
+            ]
         ) . '</td>' .
-        '<td class="nowrap">' . form::checkbox(array('filters_auto_del[]'), $fid,
-            array(
+        '<td class="nowrap">' . form::checkbox(['filters_auto_del[]'], $fid,
+            [
                 'checked'    => $f->auto_delete,
                 'extra_html' => 'title="' . __('Auto Del.') . '"'
-            )
+            ]
         ) . '</td>' .
         '<td class="nowrap" scope="row">' . $f->name . '</td>' .
         '<td class="maximal">' . $f->description . '</td>' .

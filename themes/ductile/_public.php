@@ -16,15 +16,15 @@ if (!defined('DC_RC_PATH')) {return;}
 \l10n::set(dirname(__FILE__) . '/locales/' . $_lang . '/main');
 
 # Behaviors
-$core->addBehavior('publicHeadContent', array(__NAMESPACE__ . '\tplDuctileTheme', 'publicHeadContent'));
-$core->addBehavior('publicInsideFooter', array(__NAMESPACE__ . '\tplDuctileTheme', 'publicInsideFooter'));
+$core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplDuctileTheme', 'publicHeadContent']);
+$core->addBehavior('publicInsideFooter', [__NAMESPACE__ . '\tplDuctileTheme', 'publicInsideFooter']);
 
 # Templates
-$core->tpl->addValue('ductileEntriesList', array(__NAMESPACE__ . '\tplDuctileTheme', 'ductileEntriesList'));
-$core->tpl->addBlock('EntryIfContentIsCut', array(__NAMESPACE__ . '\tplDuctileTheme', 'EntryIfContentIsCut'));
-$core->tpl->addValue('ductileNbEntryPerPage', array(__NAMESPACE__ . '\tplDuctileTheme', 'ductileNbEntryPerPage'));
-$core->tpl->addValue('ductileLogoSrc', array(__NAMESPACE__ . '\tplDuctileTheme', 'ductileLogoSrc'));
-$core->tpl->addBlock('IfPreviewIsNotMandatory', array(__NAMESPACE__ . '\tplDuctileTheme', 'IfPreviewIsNotMandatory'));
+$core->tpl->addValue('ductileEntriesList', [__NAMESPACE__ . '\tplDuctileTheme', 'ductileEntriesList']);
+$core->tpl->addBlock('EntryIfContentIsCut', [__NAMESPACE__ . '\tplDuctileTheme', 'EntryIfContentIsCut']);
+$core->tpl->addValue('ductileNbEntryPerPage', [__NAMESPACE__ . '\tplDuctileTheme', 'ductileNbEntryPerPage']);
+$core->tpl->addValue('ductileLogoSrc', [__NAMESPACE__ . '\tplDuctileTheme', 'ductileLogoSrc']);
+$core->tpl->addBlock('IfPreviewIsNotMandatory', [__NAMESPACE__ . '\tplDuctileTheme', 'IfPreviewIsNotMandatory']);
 
 class tplDuctileTheme
 {
@@ -108,7 +108,7 @@ class tplDuctileTheme
         global $core;
 
         $tpl_path   = dirname(__FILE__) . '/tpl/';
-        $list_types = array('title', 'short', 'full');
+        $list_types = ['title', 'short', 'full'];
 
         // Get all _entry-*.html in tpl folder of theme
         $list_types_templates = \files::scandir($tpl_path);
@@ -132,7 +132,7 @@ class tplDuctileTheme
         foreach ($list_types as $v) {
             $ret .= '   case \'' . $v . '\':' . "\n" .
             '?>' . "\n" .
-            $core->tpl->includeFile(array('src' => '_entry-' . $v . '.html')) . "\n" .
+            $core->tpl->includeFile(['src' => '_entry-' . $v . '.html']) . "\n" .
                 '<?php ' . "\n" .
                 '       break;' . "\n";
         }
@@ -302,8 +302,8 @@ class tplDuctileTheme
         }
 
         $ret = '';
-        $css = array();
-        $uri = array();
+        $css = [];
+        $uri = [];
         if (!isset($s['body_font']) || ($s['body_font'] == '')) {
             // See if webfont defined for main font
             if (isset($s['body_webfont_api']) && isset($s['body_webfont_family']) && isset($s['body_webfont_url'])) {
@@ -368,7 +368,7 @@ class tplDuctileTheme
             return;
         }
 
-        $css = array();
+        $css = [];
 
         # Properties
 
@@ -419,7 +419,7 @@ class tplDuctileTheme
         }
 
         # Large screens
-        $css_large = array();
+        $css_large = [];
 
         # Blog title font weight
         $selectors = 'h1, h1 a:link, h1 a:visited, h1 a:hover, h1 a:visited, h1 a:focus';
@@ -477,7 +477,7 @@ class tplDuctileTheme
         }
 
         # Small screens
-        $css_small = array();
+        $css_small = [];
 
         # Blog title font weight
         $selectors = 'h1, h1 a:link, h1 a:visited, h1 a:hover, h1 a:visited, h1 a:focus';
@@ -531,7 +531,7 @@ class tplDuctileTheme
         return $res;
     }
 
-    protected static $fonts = array(
+    protected static $fonts = [
         // Theme standard
         'Ductile body'      => '"Century Schoolbook", "Century Schoolbook L", Georgia, serif',
         'Ductile alternate' => '"Franklin gothic medium", "arial narrow", "DejaVu Sans Condensed", "helvetica neue", helvetica, sans-serif',
@@ -551,7 +551,7 @@ class tplDuctileTheme
 
         // Monospace families
         'Monospace'         => 'Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace'
-    );
+    ];
 
     protected static function fontDef($c)
     {

@@ -47,11 +47,11 @@ if (!$core->error->flag() && $blog_id && !empty($_POST['del'])) {
 
 dcPage::open(__('Delete a blog'), '',
     dcPage::breadcrumb(
-        array(
+        [
             __('System')        => '',
             __('Blogs')         => $core->adminurl->get("admin.blogs"),
             __('Delete a blog') => ''
-        ))
+        ])
 );
 
 if (!$core->error->flag()) {
@@ -65,7 +65,7 @@ if (!$core->error->flag()) {
     '<form action="' . $core->adminurl->get("admin.blog.del") . '" method="post">' .
     '<div>' . $core->formNonce() . '</div>' .
     '<p><label for="pwd">' . __('Your password:') . '</label> ' .
-    form::password('pwd', 20, 255, array('autocomplete' => 'current-password')) . '</p>' .
+    form::password('pwd', 20, 255, ['autocomplete' => 'current-password']) . '</p>' .
     '<p><input type="submit" class="delete" name="del" value="' . __('Delete this blog') . '" />' .
     form::hidden('blog_id', $blog_id) . '</p>' .
         '</form>';

@@ -17,21 +17,21 @@ $core->addBehavior('adminUsersActionsHeaders', 'blogroll_users_actions_headers')
 
 function blogroll_dashboard($core, $icons)
 {
-    $icons['blogroll'] = new ArrayObject(array(
+    $icons['blogroll'] = new ArrayObject([
         __('Blogroll'),
         $core->adminurl->get('admin.plugin.blogroll'),
         dcPage::getPF('blogroll/icon.png')
-    ));
+    ]);
 }
 function blogroll_dashboard_favorites($core, $favs)
 {
-    $favs->register('blogroll', array(
+    $favs->register('blogroll', [
         'title'       => __('Blogroll'),
         'url'         => $core->adminurl->get('admin.plugin.blogroll'),
         'small-icon'  => dcPage::getPF('blogroll/icon-small.png'),
         'large-icon'  => dcPage::getPF('blogroll/icon.png'),
         'permissions' => 'usage,contentadmin'
-    ));
+    ]);
 }
 function blogroll_users_actions_headers()
 {

@@ -14,4 +14,4 @@ if (!defined('DC_RC_PATH')) {return;}
 $__autoload['pingsAPI']           = dirname(__FILE__) . '/lib.pings.php';
 $__autoload['pingsCoreBehaviour'] = dirname(__FILE__) . '/lib.pings.php';
 
-$core->addBehavior('coreFirstPublicationEntries', array('pingsCoreBehaviour', 'doPings'));
+$core->addBehavior('coreFirstPublicationEntries', ['pingsCoreBehaviour', 'doPings']);

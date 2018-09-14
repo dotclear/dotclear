@@ -14,101 +14,107 @@ namespace tests\unit;
 
 use atoum;
 
-require_once __DIR__.'/../../bootstrap.php';
-$f = str_replace('\\','/',__FILE__);
-require_once(str_replace('tests/unit/','',$f));
+require_once __DIR__ . '/../../bootstrap.php';
+$f = str_replace('\\', '/', __FILE__);
+require_once str_replace('tests/unit/', '', $f);
 
 class dcCore extends atoum
 {
     private $prefix = 'dc_';
 
-	private function getConnection($driver) {
-		$controller = new \atoum\mock\controller();
-		$controller->__construct = function() {};
+    private function getConnection($driver)
+    {
+        $controller              = new \atoum\mock\controller();
+        $controller->__construct = function () {};
 
-		$class_name = sprintf('\mock\%sConnection',$driver);
-		$con = new $class_name($driver,$controller);
-		$this->calling($con)->driver = $driver;
-		$this->calling($con)->escape = function($s) { // just for order, so don't care
+        $class_name                  = sprintf('\mock\%sConnection', $driver);
+        $con                         = new $class_name($driver, $controller);
+        $this->calling($con)->driver = $driver;
+        $this->calling($con)->escape = function ($s) {
+            // just for order, so don't care
             return $s;
         };
-		$this->calling($con)->select = function($sql) {
-            return new \staticRecord(array(),array());
+        $this->calling($con)->select = function ($sql) {
+            return new \staticRecord([], []);
         };
 
-		return $con;
-	}
+        return $con;
+    }
 
-    public function testGetUsers($driver) {
+    public function testGetUsers($driver)
+    {
         $con = $this->getConnection($driver);
 
-        $controller = new \atoum\mock\controller();
-        $controller->__construct = function() {};
+        $controller              = new \atoum\mock\controller();
+        $controller->__construct = function () {};
 
         $query = 'SELECT U.user_id,user_super,user_status,user_pwd,user_change_pwd,user_name,user_firstname,user_displayname,user_email,user_url,user_desc, user_lang,user_tz, user_post_status,user_options, count(P.post_id) AS nb_post FROM user U LEFT JOIN post P ON U.user_id = P.user_id WHERE NULL IS NULL GROUP BY U.user_id,user_super,user_status,user_pwd,user_change_pwd,user_name,user_firstname,user_displayname,user_email,user_url,user_desc, user_lang,user_tz,user_post_status,user_options ORDER BY U.user_id ASC ';
 
-        $core = new \mock\dcCore(null,null,null,null,null,null,null,$controller);
+        $core      = new \mock\dcCore(null, null, null, null, null, null, null, $controller);
         $core->con = $con;
         $this
-			->if($core->getUsers())
+            ->if($core->getUsers())
             ->then()
-				  ->mock($con)->call('select')
-				  ->withIdenticalArguments($query)
-				  ->once();
+            ->mock($con)->call('select')
+            ->withIdenticalArguments($query)
+            ->once();
     }
 
-    public function testGetUsersWithParams($driver,$params,$query) {
+    public function testGetUsersWithParams($driver, $params, $query)
+    {
         $con = $this->getConnection($driver);
 
-        $controller = new \atoum\mock\controller();
-        $controller->__construct = function() {};
+        $controller              = new \atoum\mock\controller();
+        $controller->__construct = function () {};
 
-        $core = new \mock\dcCore(null,null,null,null,null,null,null,$controller);
+        $core      = new \mock\dcCore(null, null, null, null, null, null, null, $controller);
         $core->con = $con;
 
         $this
-			->if($core->getUsers($params))
+            ->if($core->getUsers($params))
             ->then()
-				  ->mock($con)->call('select')
-				  ->withIdenticalArguments($query)
-				  ->once();
+            ->mock($con)->call('select')
+            ->withIdenticalArguments($query)
+            ->once();
     }
 
     /*
      * DataProviders
-    **/
-    protected function testGetUsersDataProvider() {
-        $query = array();
+     **/
+    protected function testGetUsersDataProvider()
+    {
+        $query = [];
 
-        return array(
-			array('pgsql'),
-			array('sqlite'),
-			array('mysql'),
-			array('mysqli'),
-		);
+        return [
+            ['pgsql'],
+            ['sqlite'],
+            ['mysql'],
+            ['mysqli']
+        ];
     }
 
-    protected function testGetUsersWithParamsDataProvider() {
+    protected function testGetUsersWithParamsDataProvider()
+    {
         $base_query = 'SELECT U.user_id,user_super,user_status,user_pwd,user_change_pwd,user_name,user_firstname,user_displayname,user_email,user_url,user_desc, user_lang,user_tz, user_post_status,user_options, count(P.post_id) AS nb_post FROM user U LEFT JOIN post P ON U.user_id = P.user_id WHERE NULL IS NULL GROUP BY U.user_id,user_super,user_status,user_pwd,user_change_pwd,user_name,user_firstname,user_displayname,user_email,user_url,user_desc, user_lang,user_tz,user_post_status,user_options ORDER BY ';
 
-        return array(
-			array('pgsql',array('order' => 'user_id asc'),$base_query.'U.user_id asc '),
-			array('pgsql',array('order' => 'U.user_id asc'),$base_query.'U.user_id asc '),
-			array('mysql',array('order' => 'user_id asc'),$base_query.'U.user_id asc '),
-			array('mysql',array('order' => 'U.user_id asc'),$base_query.'U.user_id asc '),
-			array('mysqli',array('order' => 'user_id asc'),$base_query.'U.user_id asc '),
-			array('mysqli',array('order' => 'U.user_id asc'),$base_query.'U.user_id asc '),
-			array('sqlite',array('order' => 'user_id asc'),$base_query.'U.user_id asc '),
-			array('sqlite',array('order' => 'U.user_id asc'),$base_query.'U.user_id asc '),
+        return [
+            ['pgsql', ['order' => 'user_id asc'], $base_query . 'U.user_id asc '],
+            ['pgsql', ['order' => 'U.user_id asc'], $base_query . 'U.user_id asc '],
+            ['mysql', ['order' => 'user_id asc'], $base_query . 'U.user_id asc '],
+            ['mysql', ['order' => 'U.user_id asc'], $base_query . 'U.user_id asc '],
+            ['mysqli', ['order' => 'user_id asc'], $base_query . 'U.user_id asc '],
+            ['mysqli', ['order' => 'U.user_id asc'], $base_query . 'U.user_id asc '],
+            ['sqlite', ['order' => 'user_id asc'], $base_query . 'U.user_id asc '],
+            ['sqlite', ['order' => 'U.user_id asc'], $base_query . 'U.user_id asc '],
 
-            array('pgsql',array('order' => 'nb_post desc'),$base_query.'P.nb_post desc '),
-			array('pgsql',array('order' => 'P.nb_post desc'),$base_query.'P.nb_post desc '),
-			array('mysql',array('order' => 'nb_post desc'),$base_query.'P.nb_post desc '),
-			array('mysql',array('order' => 'P.nb_post desc'),$base_query.'P.nb_post desc '),
-			array('mysqli',array('order' => 'nb_post desc'),$base_query.'P.nb_post desc '),
-			array('mysqli',array('order' => 'P.nb_post desc'),$base_query.'P.nb_post desc '),
-			array('sqlite',array('order' => 'nb_post desc'),$base_query.'P.nb_post desc '),
-			array('sqlite',array('order' => 'P.nb_post desc'),$base_query.'P.nb_post desc '),
-		);
+            ['pgsql', ['order' => 'nb_post desc'], $base_query . 'P.nb_post desc '],
+            ['pgsql', ['order' => 'P.nb_post desc'], $base_query . 'P.nb_post desc '],
+            ['mysql', ['order' => 'nb_post desc'], $base_query . 'P.nb_post desc '],
+            ['mysql', ['order' => 'P.nb_post desc'], $base_query . 'P.nb_post desc '],
+            ['mysqli', ['order' => 'nb_post desc'], $base_query . 'P.nb_post desc '],
+            ['mysqli', ['order' => 'P.nb_post desc'], $base_query . 'P.nb_post desc '],
+            ['sqlite', ['order' => 'nb_post desc'], $base_query . 'P.nb_post desc '],
+            ['sqlite', ['order' => 'P.nb_post desc'], $base_query . 'P.nb_post desc ']
+        ];
     }
 }

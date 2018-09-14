@@ -90,7 +90,7 @@ class defaultWidgets
             return;
         }
 
-        $rs = $core->blog->getCategories(array('post_type' => 'post', 'without_empty' => !$w->with_empty));
+        $rs = $core->blog->getCategories(['post_type' => 'post', 'without_empty' => !$w->with_empty]);
         if ($rs->isEmpty()) {
             return;
         }
@@ -144,11 +144,11 @@ class defaultWidgets
             return;
         }
 
-        $params = array(
+        $params = [
             'post_selected' => true,
             'no_content'    => true,
             'order'         => 'post_dt ' . strtoupper($w->orderby)
-        );
+        ];
 
         $rs = $core->blog->getPosts($params);
 

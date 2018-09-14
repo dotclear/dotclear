@@ -9,8 +9,8 @@
 
 if (!defined('DC_RC_PATH')) {return;}
 
-$core->addBehavior('coreBlogGetPosts', array('rsExtendPublic', 'coreBlogGetPosts'));
-$core->addBehavior('coreBlogGetComments', array('rsExtendPublic', 'coreBlogGetComments'));
+$core->addBehavior('coreBlogGetPosts', ['rsExtendPublic', 'coreBlogGetPosts']);
+$core->addBehavior('coreBlogGetComments', ['rsExtendPublic', 'coreBlogGetComments']);
 
 class rsExtendPublic
 {

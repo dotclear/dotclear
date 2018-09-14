@@ -12,7 +12,7 @@
 // BEHAVIORS
 class tagsBehaviors
 {
-    public static function adminPostEditor($editor = '', $context = '', array $tags = array(), $syntax = '')
+    public static function adminPostEditor($editor = '', $context = '', array $tags = [], $syntax = '')
     {
         if (($editor != 'dcLegacyEditor' && $editor != 'dcCKEditor') || $context != 'post') {
             return;
@@ -44,11 +44,11 @@ class tagsBehaviors
         if ($context != 'post') {
             return;
         }
-        $extraPlugins[] = array(
+        $extraPlugins[] = [
             'name'   => 'dctags',
             'button' => 'dcTags',
             'url'    => DC_ADMIN_URL . 'index.php?pf=tags/js/ckeditor-tags-plugin.js'
-        );
+        ];
     }
 
     public static function adminPageHelpBlock($blocks)
@@ -68,18 +68,18 @@ class tagsBehaviors
 
     public static function dashboardFavorites($core, $favs)
     {
-        $favs->register('tags', array(
+        $favs->register('tags', [
             'title'       => __('Tags'),
-            'url'         => $core->adminurl->get('admin.plugin.tags', array('m' => 'tags')),
+            'url'         => $core->adminurl->get('admin.plugin.tags', ['m' => 'tags']),
             'small-icon'  => dcPage::getPF('tags/icon.png'),
             'large-icon'  => dcPage::getPF('tags/icon-big.png'),
             'permissions' => 'usage,contentadmin'
-        ));
+        ]);
     }
 
     public static function coreInitWikiPost($wiki2xhtml)
     {
-        $wiki2xhtml->registerFunction('url:tag', array('tagsBehaviors', 'wiki2xhtmlTag'));
+        $wiki2xhtml->registerFunction('url:tag', ['tagsBehaviors', 'wiki2xhtmlTag']);
     }
 
     public static function wiki2xhtmlTag($url, $content)
@@ -128,14 +128,14 @@ class tagsBehaviors
     public static function adminPostsActionsPage($core, $ap)
     {
         $ap->addAction(
-            array(__('Tags') => array(__('Add tags') => 'tags')),
-            array('tagsBehaviors', 'adminAddTags')
+            [__('Tags') => [__('Add tags') => 'tags']],
+            ['tagsBehaviors', 'adminAddTags']
         );
 
         if ($core->auth->check('delete,contentadmin', $core->blog->id)) {
             $ap->addAction(
-                array(__('Tags') => array(__('Remove tags') => 'tags_remove')),
-                array('tagsBehaviors', 'adminRemoveTags')
+                [__('Tags') => [__('Remove tags') => 'tags_remove']],
+                ['tagsBehaviors', 'adminRemoveTags']
             );
         }
     }
@@ -148,10 +148,10 @@ class tagsBehaviors
             $posts = $ap->getRS();
             while ($posts->fetch()) {
                 # Get tags for post
-                $post_meta = $meta->getMetadata(array(
+                $post_meta = $meta->getMetadata([
                     'meta_type' => 'tag',
-                    'post_id'   => $posts->post_id));
-                $pm = array();
+                    'post_id'   => $posts->post_id]);
+                $pm = [];
                 while ($post_meta->fetch()) {
                     $pm[] = $post_meta->meta_id;
                 }
@@ -177,11 +177,11 @@ class tagsBehaviors
 
             $ap->beginPage(
                 dcPage::breadcrumb(
-                    array(
+                    [
                         html::escapeHTML($core->blog->name) => '',
                         __('Entries')                       => $ap->getRedirection(true),
                         __('Add tags to this selection')    => ''
-                    )),
+                    ]),
                 dcPage::jsMetaEditor() .
                 '<script type="text/javascript">' . "\n" .
                 "var editor_tags_options = {\n" .
@@ -210,7 +210,7 @@ class tagsBehaviors
             form::textarea('new_tags', 60, 3) .
             '</div>' .
             $core->formNonce() . $ap->getHiddenFields() .
-            form::hidden(array('action'), 'tags') .
+            form::hidden(['action'], 'tags') .
             '<p><input type="submit" value="' . __('Save') . '" ' .
                 'name="save_tags" /></p>' .
                 '</form>';
@@ -238,12 +238,12 @@ class tagsBehaviors
             $ap->redirect(true);
         } else {
             $meta = &$core->meta;
-            $tags = array();
+            $tags = [];
 
             foreach ($ap->getIDS() as $id) {
-                $post_tags = $meta->getMetadata(array(
+                $post_tags = $meta->getMetadata([
                     'meta_type' => 'tag',
-                    'post_id'   => (integer) $id))->toStatic()->rows();
+                    'post_id'   => (integer) $id])->toStatic()->rows();
                 foreach ($post_tags as $v) {
                     if (isset($tags[$v['meta_id']])) {
                         $tags[$v['meta_id']]++;
@@ -257,11 +257,11 @@ class tagsBehaviors
             }
             $ap->beginPage(
                 dcPage::breadcrumb(
-                    array(
+                    [
                         html::escapeHTML($core->blog->name)            => '',
                         __('Entries')                                  => 'posts.php',
                         __('Remove selected tags from this selection') => ''
-                    )));
+                    ]));
             $posts_count = count($_POST['entries']);
 
             echo
@@ -275,7 +275,7 @@ class tagsBehaviors
                     $label = sprintf($label, '%s', '<strong>%s</strong>');
                 }
                 echo '<p>' . sprintf($label,
-                    form::checkbox(array('meta_id[]'), html::escapeHTML($k)),
+                    form::checkbox(['meta_id[]'], html::escapeHTML($k)),
                     html::escapeHTML($k)) .
                     '</p>';
             }
@@ -284,7 +284,7 @@ class tagsBehaviors
             '<p><input type="submit" value="' . __('ok') . '" />' .
 
             $core->formNonce() . $ap->getHiddenFields() .
-            form::hidden(array('action'), 'tags_remove') .
+            form::hidden(['action'], 'tags_remove') .
                 '</p></div></form>';
             $ap->endPage();
         }
@@ -327,10 +327,10 @@ class tagsBehaviors
         } elseif ($args instanceof record) {
             $opts = $args->options();
         } else {
-            $opts = array();
+            $opts = [];
         }
 
-        $combo                 = array();
+        $combo                 = [];
         $combo[__('Short')]    = 'more';
         $combo[__('Extended')] = 'all';
 

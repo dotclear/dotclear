@@ -55,7 +55,7 @@ if (count($_GET) > 1) {
     exit;
 }
 
-$allow_types = array('png', 'jpg', 'jpeg', 'gif', 'css', 'js', 'swf', 'svg', 'html', 'xml', 'json', 'txt');
+$allow_types = ['png', 'jpg', 'jpeg', 'gif', 'css', 'js', 'swf', 'svg', 'html', 'xml', 'json', 'txt'];
 
 $vf = path::clean($_GET['vf']);
 $VF = path::real(DC_VAR . '/' . $vf);
@@ -73,7 +73,7 @@ if (!in_array(files::getExtension($VF), $allow_types)) {
 }
 
 http::$cache_max_age = 7 * 24 * 60 * 60; // One week cache for var files served by ?vf=…
-http::cache(array_merge(array($VF), get_included_files()));
+http::cache(array_merge([$VF], get_included_files()));
 
 header('Content-Type: ' . files::getMimeType($VF));
 readfile($VF);

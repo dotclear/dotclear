@@ -58,7 +58,7 @@ class pingsAdminBehaviors
         if (!empty($_POST['pings_do']) && is_array($_POST['pings_do'])) {
             $pings_do = $_POST['pings_do'];
         } else {
-            $pings_do = array();
+            $pings_do = [];
         }
 
         $item = '<h5 class="ping-services">' . __('Pings') . '</h5>';
@@ -66,7 +66,7 @@ class pingsAdminBehaviors
         foreach ($pings_uris as $k => $v) {
             $item .=
             '<p class="ping-services"><label for="pings_do-' . $i . '" class="classic">' .
-            form::checkbox(array('pings_do[]', 'pings_do-' . $i), html::escapeHTML($v), in_array($v, $pings_do), 'check-ping-services') . ' ' .
+            form::checkbox(['pings_do[]', 'pings_do-' . $i], html::escapeHTML($v), in_array($v, $pings_do), 'check-ping-services') . ' ' .
             html::escapeHTML($k) . '</label></p>';
             $i++;
         }

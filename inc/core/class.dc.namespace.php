@@ -17,10 +17,10 @@ class dcNamespace
     protected $table;   ///< <b>string</b> Settings table name
     protected $blog_id; ///< <b>string</b> Blog ID
 
-    protected $global_settings = array(); ///< <b>array</b> Global settings array
-    protected $local_settings  = array(); ///< <b>array</b> Local settings array
-    protected $settings        = array(); ///< <b>array</b> Associative settings array
-    protected $ns;                        ///< <b>string</b> Current namespace
+    protected $global_settings = []; ///< <b>array</b> Global settings array
+    protected $local_settings  = []; ///< <b>array</b> Local settings array
+    protected $settings        = []; ///< <b>array</b> Associative settings array
+    protected $ns;                   ///< <b>string</b> Current namespace
 
     /**
     Object constructor. Retrieves blog settings and puts them in $settings
@@ -82,13 +82,13 @@ class dcNamespace
 
             $array = $rs->blog_id ? 'local' : 'global';
 
-            $this->{$array . '_settings'}[$id] = array(
+            $this->{$array . '_settings'}[$id] = [
                 'ns'     => $this->ns,
                 'value'  => $value,
                 'type'   => $type,
                 'label'  => (string) $rs->f('setting_label'),
                 'global' => $rs->blog_id == ''
-            );
+            ];
         }
 
         $this->settings = $this->global_settings;
@@ -374,7 +374,7 @@ class dcNamespace
 
         $array = $global ? 'global' : 'local';
         unset($this->{$array . '_settings'});
-        $this->{$array . '_settings'} = array();
+        $this->{$array . '_settings'} = [];
 
         $array          = $global ? 'local' : 'global';
         $this->settings = $this->{$array . '_settings'};
