@@ -74,4 +74,4 @@ if (!empty($_POST['saveconfig'])) {
     }
 }
 
-include dirname(__FILE__) . '/../tpl/index.tpl';
+include dirname(__FILE__) . '/../tpl/index.php';

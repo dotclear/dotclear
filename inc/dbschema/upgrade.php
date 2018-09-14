@@ -661,6 +661,15 @@ class dcUpgrade
                 " AND setting_ns = 'system' " .
                 " AND setting_value = '1.11.3' ";
             $core->con->execute($strReq);
+
+            # A bit of housecleaning for no longer needed files
+            $remfiles = [
+                'plugins/dcLegacyEditor/tpl/index.tpl',
+                'plugins/dcCKEditor/tpl/index.tpl'
+            ];
+            foreach ($remfiles as $f) {
+                @unlink(DC_ROOT . '/' . $f);
+            }
         }
 
         $core->setVersion('core', DC_VERSION);
