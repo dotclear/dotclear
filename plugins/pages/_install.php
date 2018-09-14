@@ -21,10 +21,10 @@ $core->blog->settings->addNamespace('pages');
 if ($core->getVersion('pages') == null) {
 
     // Create a first pending page, only on a new installation of this plugin
-    $params = array(
+    $params = [
         'post_type'  => 'page',
         'no_content' => true
-    );
+    ];
     $counter = $core->blog->getPosts($params, true);
 
     if ($counter->f(0) == 0 && $core->blog->settings->pages->firstpage == null) {

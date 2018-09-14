@@ -21,10 +21,10 @@ $__autoload['dcFilterIpLookup']    = dirname(__FILE__) . '/filters/class.dc.filt
 $__autoload['dcFilterLinksLookup'] = dirname(__FILE__) . '/filters/class.dc.filter.linkslookup.php';
 $__autoload['dcFilterWords']       = dirname(__FILE__) . '/filters/class.dc.filter.words.php';
 
-$core->spamfilters = array('dcFilterIP', 'dcFilterIpLookup', 'dcFilterWords', 'dcFilterLinksLookup');
+$core->spamfilters = ['dcFilterIP', 'dcFilterIpLookup', 'dcFilterWords', 'dcFilterLinksLookup'];
 
-$core->url->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', array('dcAntispamURL', 'spamFeed'));
-$core->url->register('hamfeed', 'hamfeed', '^hamfeed/(.+)$', array('dcAntispamURL', 'hamFeed'));
+$core->url->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', ['dcAntispamURL', 'spamFeed']);
+$core->url->register('hamfeed', 'hamfeed', '^hamfeed/(.+)$', ['dcAntispamURL', 'hamFeed']);
 
 if (!defined('DC_CONTEXT_ADMIN')) {return false;}
 
@@ -33,4 +33,4 @@ if (!defined('DC_CONTEXT_ADMIN')) {return false;}
 $__autoload['dcAntispamRest'] = dirname(__FILE__) . '/_services.php';
 
 // Register REST methods
-$core->rest->addFunction('getSpamsCount', array('dcAntispamRest', 'getSpamsCount'));
+$core->rest->addFunction('getSpamsCount', ['dcAntispamRest', 'getSpamsCount']);

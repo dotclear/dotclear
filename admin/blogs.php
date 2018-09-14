@@ -13,21 +13,21 @@ dcPage::check('usage,contentadmin');
 
 # Filters
 $status_combo = array_merge(
-    array('-' => ''),
+    ['-' => ''],
     dcAdminCombos::getBlogStatusesCombo()
 );
 
-$sortby_combo = array(
+$sortby_combo = [
     __('Last update') => 'blog_upddt',
     __('Blog name')   => 'UPPER(blog_name)',
     __('Blog ID')     => 'B.blog_id',
     __('Status')      => 'blog_status'
-);
+];
 
-$order_combo = array(
+$order_combo = [
     __('Descending') => 'desc',
     __('Ascending')  => 'asc'
-);
+];
 
 # Actions
 
@@ -85,7 +85,7 @@ if ($sortby != 'blog_upddt' || $order != 'desc') {
     $show_filters = true;
 }
 
-$params['limit'] = array((($page - 1) * $nb_per_page), $nb_per_page);
+$params['limit'] = [(($page - 1) * $nb_per_page), $nb_per_page];
 
 try {
     $counter  = $core->getBlogs($params, 1);
@@ -109,10 +109,10 @@ try {
 dcPage::open(__('List of blogs'),
     dcPage::jsLoad('js/_blogs.js') . dcPage::jsFilterControl($show_filters),
     dcPage::breadcrumb(
-        array(
+        [
             __('System')        => '',
             __('List of blogs') => ''
-        ))
+        ])
 );
 
 if (!$core->error->flag()) {
@@ -162,19 +162,19 @@ if (!$core->error->flag()) {
 
             '<p class="col right"><label for="action" class="classic">' . __('Selected blogs action:') . '</label> ' .
             form::combo('action', $blogs_actions_page->getCombo(),
-                array('class' => 'online', 'extra_html' => 'title="' . __('Actions') . '"')) .
+                ['class' => 'online', 'extra_html' => 'title="' . __('Actions') . '"']) .
             $core->formNonce() .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
             '</div>' .
 
             '<p><label for="pwd" class="classic">' . __('Please give your password to confirm blog(s) deletion:') . '</label> ' .
-            form::password('pwd', 20, 255, array('autocomplete' => 'current-password')) . '</p>' .
+            form::password('pwd', 20, 255, ['autocomplete' => 'current-password']) . '</p>' .
 
-            form::hidden(array('sortby'), $sortby) .
-            form::hidden(array('order'), $order) .
-            form::hidden(array('status'), $status) .
-            form::hidden(array('page'), $page) .
-            form::hidden(array('nb'), $nb_per_page) .
+            form::hidden(['sortby'], $sortby) .
+            form::hidden(['order'], $order) .
+            form::hidden(['status'], $status) .
+            form::hidden(['page'], $page) .
+            form::hidden(['nb'], $nb_per_page) .
 
             '</form>' : ''),
         $show_filters

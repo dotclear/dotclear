@@ -23,7 +23,7 @@ class dcStore
     public $modules;
 
     /** @var    array    Modules fields to search on and their weighting */
-    public static $weighting = array('id' => 10, 'name' => 8, 'author' => 6, 'tags' => 4, 'desc' => 2);
+    public static $weighting = ['id' => 10, 'name' => 8, 'author' => 6, 'tags' => 4, 'desc' => 2];
 
     /** @var    string    User agent used to query repository */
     protected $user_agent = 'DotClear.org RepoBrowser/0.1';
@@ -66,7 +66,7 @@ class dcStore
 
         $raw_datas = $parser->getModules();
 
-        uasort($raw_datas, array('self', 'sort'));
+        uasort($raw_datas, ['self', 'sort']);
 
         $skipped = array_keys($this->modules->getDisabledModules());
         foreach ($skipped as $p_id) {
@@ -75,7 +75,7 @@ class dcStore
             }
         }
 
-        $updates = array();
+        $updates = [];
         $current = $this->modules->getModules();
         foreach ($current as $p_id => $p_infos) {
             if (isset($raw_datas[$p_id])) {
@@ -89,10 +89,10 @@ class dcStore
             }
         }
 
-        $this->data = array(
+        $this->data = [
             'new'    => $raw_datas,
             'update' => $updates
-        );
+        ];
 
         return true;
     }
@@ -124,7 +124,7 @@ class dcStore
      */
     public function search($pattern)
     {
-        $result = array();
+        $result = [];
 
         # Split query into small clean words
         if (!($patterns = self::patternize($pattern))) {
@@ -244,7 +244,7 @@ class dcStore
      */
     public static function patternize($str)
     {
-        $arr = array();
+        $arr = [];
 
         foreach (explode(' ', $str) as $_) {
             $_ = strtolower(preg_replace('/[^A-Za-z0-9]/', '', $_));

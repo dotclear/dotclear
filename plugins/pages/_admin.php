@@ -11,8 +11,8 @@
 
 if (!defined('DC_CONTEXT_ADMIN')) {return;}
 
-$core->addBehavior('adminColumnsLists', array('pagesColumnsLists', 'adminColumnsLists'));
-$core->addBehavior('adminDashboardFavorites', array('pagesDashboard', 'pagesDashboardFavs'));
+$core->addBehavior('adminColumnsLists', ['pagesColumnsLists', 'adminColumnsLists']);
+$core->addBehavior('adminDashboardFavorites', ['pagesDashboard', 'pagesDashboardFavs']);
 $core->addBehavior('adminUsersActionsHeaders', 'pages_users_actions_headers');
 
 class pagesColumnsLists
@@ -20,12 +20,12 @@ class pagesColumnsLists
     public static function adminColumnsLists($core, $cols)
     {
         // Set optional columns in pages lists
-        $cols['pages'] = array(__('Pages'), array(
-            'date'       => array(true, __('Date')),
-            'author'     => array(true, __('Author')),
-            'comments'   => array(true, __('Comments')),
-            'trackbacks' => array(true, __('Trackbacks'))
-        ));
+        $cols['pages'] = [__('Pages'), [
+            'date'       => [true, __('Date')],
+            'author'     => [true, __('Author')],
+            'comments'   => [true, __('Comments')],
+            'trackbacks' => [true, __('Trackbacks')]
+        ]];
     }
 }
 
@@ -33,23 +33,23 @@ class pagesDashboard
 {
     public static function pagesDashboardFavs($core, $favs)
     {
-        $favs->register('pages', array(
+        $favs->register('pages', [
             'title'        => __('Pages'),
             'url'          => $core->adminurl->get('admin.plugin.pages'),
             'small-icon'   => dcPage::getPF('pages/icon.png'),
             'large-icon'   => dcPage::getPF('pages/icon-big.png'),
             'permissions'  => 'contentadmin,pages',
-            'dashboard_cb' => array('pagesDashboard', 'pagesDashboardCB'),
-            'active_cb'    => array('pagesDashboard', 'pagesActiveCB')
-        ));
-        $favs->register('newpage', array(
+            'dashboard_cb' => ['pagesDashboard', 'pagesDashboardCB'],
+            'active_cb'    => ['pagesDashboard', 'pagesActiveCB']
+        ]);
+        $favs->register('newpage', [
             'title'       => __('New page'),
-            'url'         => $core->adminurl->get('admin.plugin.pages', array('act' => 'page')),
+            'url'         => $core->adminurl->get('admin.plugin.pages', ['act' => 'page']),
             'small-icon'  => dcPage::getPF('pages/icon-np.png'),
             'large-icon'  => dcPage::getPF('pages/icon-np-big.png'),
             'permissions' => 'contentadmin,pages',
-            'active_cb'   => array('pagesDashboard', 'newPageActiveCB')
-        ));
+            'active_cb'   => ['pagesDashboard', 'newPageActiveCB']
+        ]);
     }
 
     public static function pagesDashboardCB($core, $v)

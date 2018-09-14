@@ -27,8 +27,8 @@ if (!in_array($type, $type_combo)) {
     $type = null;
 }
 
-$params               = array();
-$params['limit']      = array((($page - 1) * $nb_per_page), $nb_per_page);
+$params               = [];
+$params['limit']      = [(($page - 1) * $nb_per_page), $nb_per_page];
 $params['no_content'] = true;
 $params['order']      = 'post_dt DESC';
 

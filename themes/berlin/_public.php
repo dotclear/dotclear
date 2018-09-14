@@ -16,16 +16,16 @@ if (!defined('DC_RC_PATH')) {return;}
 \l10n::set(dirname(__FILE__) . '/locales/' . $_lang . '/main');
 //__('Show menu').__('Hide menu').__('Navigation');
 
-$core->addBehavior('publicHeadContent', array(__NAMESPACE__ . '\behaviorBerlinTheme', 'publicHeadContent'));
+$core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\behaviorBerlinTheme', 'publicHeadContent']);
 
 class behaviorBerlinTheme
 {
     public static function publicHeadContent()
     {
-        echo \dcUtils::jsVars(array(
+        echo \dcUtils::jsVars([
             'dotclear_berlin_show_menu'  => __('Show menu'),
             'dotclear_berlin_hide_menu'  => __('Hide menu'),
             'dotclear_berlin_navigation' => __('Navigation')
-        ));
+        ]);
     }
 }

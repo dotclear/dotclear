@@ -16,7 +16,7 @@ if ($core->blog->settings->system->theme != 'default') {
 }
 
 require dirname(__FILE__) . '/lib/class.blowup.config.php';
-$core->addBehavior('publicHeadContent', array('tplBlowupTheme', 'publicHeadContent'));
+$core->addBehavior('publicHeadContent', ['tplBlowupTheme', 'publicHeadContent']);
 
 class tplBlowUpTheme
 {

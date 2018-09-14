@@ -11,10 +11,10 @@
 
 class dcPagesActionsPage extends dcPostsActionsPage
 {
-    public function __construct($core, $uri, $redirect_args = array())
+    public function __construct($core, $uri, $redirect_args = [])
     {
         parent::__construct($core, $uri, $redirect_args);
-        $this->redirect_fields = array();
+        $this->redirect_fields = [];
         $this->caller_title    = __('Pages');
 
     }
@@ -23,11 +23,11 @@ class dcPagesActionsPage extends dcPostsActionsPage
     {
         $this->core->error->add($e->getMessage());
         $this->beginPage(dcPage::breadcrumb(
-            array(
+            [
                 html::escapeHTML($this->core->blog->name) => '',
                 __('Pages')                               => $this->getRedirection(true),
                 __('Pages actions')                       => ''
-            ))
+            ])
         );
         $this->endPage();
     }
@@ -51,7 +51,7 @@ class dcPagesActionsPage extends dcPostsActionsPage
     public function loadDefaults()
     {
         DefaultPagesActions::adminPagesActionsPage($this->core, $this);
-        $this->actions['reorder'] = array('dcPagesActionsPage', 'doReorderPages');
+        $this->actions['reorder'] = ['dcPagesActionsPage', 'doReorderPages'];
         $this->core->callBehavior('adminPagesActionsPage', $this->core, $this);
 
     }
@@ -101,27 +101,27 @@ class DefaultPagesActions
     {
         if ($core->auth->check('publish,contentadmin', $core->blog->id)) {
             $ap->addAction(
-                array(__('Status') => array(
+                [__('Status') => [
                     __('Publish')         => 'publish',
                     __('Unpublish')       => 'unpublish',
                     __('Schedule')        => 'schedule',
                     __('Mark as pending') => 'pending'
-                )),
-                array('dcDefaultPostActions', 'doChangePostStatus')
+                ]],
+                ['dcDefaultPostActions', 'doChangePostStatus']
             );
         }
         if ($core->auth->check('admin', $core->blog->id)) {
             $ap->addAction(
-                array(__('Change') => array(
-                    __('Change author') => 'author')),
-                array('dcDefaultPostActions', 'doChangePostAuthor')
+                [__('Change') => [
+                    __('Change author') => 'author']],
+                ['dcDefaultPostActions', 'doChangePostAuthor']
             );
         }
         if ($core->auth->check('delete,contentadmin', $core->blog->id)) {
             $ap->addAction(
-                array(__('Delete') => array(
-                    __('Delete') => 'delete')),
-                array('dcDefaultPostActions', 'doDeletePost')
+                [__('Delete') => [
+                    __('Delete') => 'delete']],
+                ['dcDefaultPostActions', 'doDeletePost']
             );
         }
     }

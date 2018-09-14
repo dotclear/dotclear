@@ -11,7 +11,7 @@ if (!defined('DC_RC_PATH')) {return;}
 
 function dcSystemCheck($con, &$err)
 {
-    $err = array();
+    $err = [];
 
     if (version_compare(phpversion(), '5.6', '<')) {
         $err[] = sprintf(__('PHP version is %s (5.6 or earlier needed).'), phpversion());

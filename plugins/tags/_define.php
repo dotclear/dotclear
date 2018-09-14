@@ -16,12 +16,12 @@ $this->registerModule(
     "Tags for posts",  // Description
     "Olivier Meunier", // Author
     '1.5',             // Version
-    array(
+    [
         'permissions' => 'usage,contentadmin',
         'priority'    => 1001, // Must be higher than dcLegacyEditor/dcCKEditor priority (ie 1000)
         'type'        => 'plugin',
-        'settings'    => array(
+        'settings'    => [
             'pref' => '#user-options.tags_prefs'
-        )
-    )
+        ]
+    ]
 );

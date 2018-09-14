@@ -26,10 +26,10 @@ if ($self_ns->active) {
     }
 
     $core->addEditorFormater('dcLegacyEditor', 'xhtml', function ($s) {return $s;});
-    $core->addEditorFormater('dcLegacyEditor', 'wiki', array($core->wiki2xhtml, 'transform'));
+    $core->addEditorFormater('dcLegacyEditor', 'wiki', [$core->wiki2xhtml, 'transform']);
 
-    $core->addBehavior('adminPostEditor', array('dcLegacyEditorBehaviors', 'adminPostEditor'));
-    $core->addBehavior('adminPopupMedia', array('dcLegacyEditorBehaviors', 'adminPopupMedia'));
-    $core->addBehavior('adminPopupLink', array('dcLegacyEditorBehaviors', 'adminPopupLink'));
-    $core->addBehavior('adminPopupPosts', array('dcLegacyEditorBehaviors', 'adminPopupPosts'));
+    $core->addBehavior('adminPostEditor', ['dcLegacyEditorBehaviors', 'adminPostEditor']);
+    $core->addBehavior('adminPopupMedia', ['dcLegacyEditorBehaviors', 'adminPopupMedia']);
+    $core->addBehavior('adminPopupLink', ['dcLegacyEditorBehaviors', 'adminPopupLink']);
+    $core->addBehavior('adminPopupPosts', ['dcLegacyEditorBehaviors', 'adminPopupPosts']);
 }

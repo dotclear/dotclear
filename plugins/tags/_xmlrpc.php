@@ -11,9 +11,9 @@
 
 if (!defined('DC_RC_PATH')) {return;}
 
-$core->addBehavior('xmlrpcGetPostInfo', array('tagsXMLRPCbehaviors', 'getPostInfo'));
-$core->addBehavior('xmlrpcAfterNewPost', array('tagsXMLRPCbehaviors', 'editPost'));
-$core->addBehavior('xmlrpcAfterEditPost', array('tagsXMLRPCbehaviors', 'editPost'));
+$core->addBehavior('xmlrpcGetPostInfo', ['tagsXMLRPCbehaviors', 'getPostInfo']);
+$core->addBehavior('xmlrpcAfterNewPost', ['tagsXMLRPCbehaviors', 'editPost']);
+$core->addBehavior('xmlrpcAfterEditPost', ['tagsXMLRPCbehaviors', 'editPost']);
 
 class tagsXMLRPCbehaviors
 {
@@ -21,11 +21,11 @@ class tagsXMLRPCbehaviors
     {
         $res = &$res[0];
 
-        $rs = $x->core->meta->getMetadata(array(
+        $rs = $x->core->meta->getMetadata([
             'meta_type' => 'tag',
-            'post_id'   => $res['postid']));
+            'post_id'   => $res['postid']]);
 
-        $m = array();
+        $m = [];
         while ($rs->fetch()) {
             $m[] = $rs->meta_id;
         }

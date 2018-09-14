@@ -19,9 +19,9 @@ class dcMaintenance
     public $core;
     public $p_url;
 
-    private $tasks  = array();
-    private $tabs   = array();
-    private $groups = array();
+    private $tasks  = [];
+    private $tabs   = [];
+    private $groups = [];
     private $logs   = null;
 
     /**
@@ -60,7 +60,7 @@ class dcMaintenance
      * @param    options    <b>string<b> Options
      * @return <b>dcMaintenance</b>    Self
      */
-    public function addTab($id, $name, $options = array())
+    public function addTab($id, $name, $options = [])
     {
         $this->tabs[$id] = new dcMaintenanceDescriptor($id, $name, $options);
 
@@ -99,7 +99,7 @@ class dcMaintenance
      * @param    options    <b>string<b> Options
      * @return <b>dcMaintenance</b>    Self
      */
-    public function addGroup($id, $name, $options = array())
+    public function addGroup($id, $name, $options = [])
     {
         $this->groups[$id] = new dcMaintenanceDescriptor($id, $name, $options);
 
@@ -204,7 +204,7 @@ class dcMaintenance
             "AND log_table = 'maintenance' "
         );
 
-        $logs = array();
+        $logs = [];
         while ($rs->fetch()) {
             $logs[] = $rs->log_id;
         }
@@ -230,12 +230,12 @@ class dcMaintenance
     public function delLogs()
     {
         // Retrieve logs from this task
-        $rs = $this->core->log->getLogs(array(
+        $rs = $this->core->log->getLogs([
             'log_table' => 'maintenance',
             'blog_id'   => 'all'
-        ));
+        ]);
 
-        $logs = array();
+        $logs = [];
         while ($rs->fetch()) {
             $logs[] = $rs->log_id;
         }
@@ -249,29 +249,29 @@ class dcMaintenance
     /**
      * Get logs
      *
-     * Return array(
-     *        task id => array(
+     * Return [
+     *        task id => [
      *            timestamp of last execution,
      *            logged on current blog or not
-     *        )
-     * )
+     *        ]
+     * ]
      *
      * @return    <b>array</b> List of logged tasks
      */
     public function getLogs()
     {
         if ($this->logs === null) {
-            $rs = $this->core->log->getLogs(array(
+            $rs = $this->core->log->getLogs([
                 'log_table' => 'maintenance',
                 'blog_id'   => 'all'
-            ));
+            ]);
 
-            $this->logs = array();
+            $this->logs = [];
             while ($rs->fetch()) {
-                $this->logs[$rs->log_msg] = array(
+                $this->logs[$rs->log_msg] = [
                     'ts'   => strtotime($rs->log_dt),
                     'blog' => $rs->blog_id == $this->core->blog->id
-                );
+                ];
             }
         }
 

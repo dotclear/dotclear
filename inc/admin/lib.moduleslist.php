@@ -22,10 +22,10 @@ class adminModulesList
     public $store; /**< @var    object    dcStore instance */
 
     public static $allow_multi_install = false; /**< @var    boolean    Work with multiple root directories */
-    public static $distributed_modules = array(); /**< @var    array    List of modules distributed with Dotclear */
+    public static $distributed_modules = []; /**< @var    array    List of modules distributed with Dotclear */
 
     protected $list_id = 'unknow'; /**< @var    string    Current list ID */
-    protected $data    = array(); /**< @var    array    Current modules */
+    protected $data    = []; /**< @var    array    Current modules */
 
     protected $config_module  = ''; /**< @var    string    Module ID to configure */
     protected $config_file    = ''; /**< @var    string    Module path to configure */
@@ -41,7 +41,7 @@ class adminModulesList
     protected $page_redir = ''; /**< @var    string    Page redirection */
 
     public static $nav_indexes = 'abcdefghijklmnopqrstuvwxyz0123456789'; /**< @var    string    Index list */
-    protected $nav_list        = array(); /**< @var    array    Index list with special index */
+    protected $nav_list        = []; /**< @var    array    Index list with special index */
     protected $nav_special     = 'other'; /**< @var    string    Text for other special index */
 
     protected $sort_field = 'sname'; /**< @var    string    Field used to sort modules */
@@ -77,7 +77,7 @@ class adminModulesList
      */
     public function setList($id)
     {
-        $this->data     = array();
+        $this->data     = [];
         $this->page_tab = '';
         $this->list_id  = $id;
 
@@ -298,7 +298,7 @@ class adminModulesList
     public function setIndex($str)
     {
         $this->nav_special = (string) $str;
-        $this->nav_list    = array_merge(str_split(self::$nav_indexes), array($this->nav_special));
+        $this->nav_list    = array_merge(str_split(self::$nav_indexes), [$this->nav_special]);
 
         return $this;
     }
@@ -325,7 +325,7 @@ class adminModulesList
         }
 
         # Fetch modules required field
-        $indexes = array();
+        $indexes = [];
         foreach ($this->data as $id => $module) {
             if (!isset($module[$this->sort_field])) {
                 continue;
@@ -340,7 +340,7 @@ class adminModulesList
             $indexes[$char]++;
         }
 
-        $buttons = array();
+        $buttons = [];
         foreach ($this->nav_list as $char) {
             # Selected letter
             if ($this->getIndex() == $char) {
@@ -411,7 +411,7 @@ class adminModulesList
      */
     public function setModules($modules)
     {
-        $this->data = array();
+        $this->data = [];
         if (!empty($modules) && is_array($modules)) {
             foreach ($modules as $id => $module) {
                 $this->data[$id] = self::sanitizeModule($id, $module);
@@ -446,7 +446,7 @@ class adminModulesList
 
         return array_merge(
             # Default values
-            array(
+            [
                 'desc'              => '',
                 'author'            => '',
                 'version'           => 0,
@@ -464,19 +464,19 @@ class adminModulesList
                 'sshot'             => '',
                 'score'             => 0,
                 'type'              => null,
-                'require'           => array(),
-                'settings'          => array()
-            ),
+                'require'           => [],
+                'settings'          => []
+            ],
             # Module's values
             $module,
             # Clean up values
-            array(
+            [
                 'id'    => $id,
                 'sid'   => self::sanitizeString($id),
                 'label' => $label,
                 'name'  => $name,
                 'sname' => self::sanitizeString($name)
-            )
+            ]
         );
     }
 
@@ -503,7 +503,7 @@ class adminModulesList
      */
     public static function sortModules($modules, $field, $asc = true)
     {
-        $origin = $sorter = array();
+        $origin = $sorter = [];
 
         foreach ($modules as $id => $module) {
             $origin[] = $module;
@@ -527,7 +527,7 @@ class adminModulesList
      * @param    boolean    $nav_limit    Limit list to previously selected index
      * @return    adminModulesList self instance
      */
-    public function displayModules($cols = array('name', 'version', 'desc'), $actions = array(), $nav_limit = false)
+    public function displayModules($cols = ['name', 'version', 'desc'], $actions = [], $nav_limit = false)
     {
         echo
         '<form action="' . $this->getURL() . '" method="post" class="modules-form-actions">' .
@@ -611,7 +611,7 @@ class adminModulesList
                 $tds++;
                 echo
                 '<td class="module-icon nowrap">' .
-                form::checkbox(array('modules[' . $count . ']', html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id)), html::escapeHTML($id)) .
+                form::checkbox(['modules[' . $count . ']', html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id)], html::escapeHTML($id)) .
                     '</td>';
             }
 
@@ -641,7 +641,7 @@ class adminModulesList
             } else {
                 echo
                 html::escapeHTML($module['name']) . ($id != $module['name'] ? sprintf(__(' (%s)'), $id) : '') .
-                form::hidden(array('modules[' . $count . ']'), html::escapeHTML($id));
+                form::hidden(['modules[' . $count . ']'], html::escapeHTML($id));
             }
             echo
             $this->core->formNonce() .
@@ -731,7 +731,7 @@ class adminModulesList
                         '<li class="module-author">' . __('Author:') . ' ' . html::escapeHTML($module['author']) . '</li>';
                     }
 
-                    $more = array();
+                    $more = [];
                     if (!empty($module['details'])) {
                         $more[] = '<a class="module-details" href="' . $module['details'] . '">' . __('Details') . '</a>';
                     }
@@ -820,7 +820,7 @@ class adminModulesList
      */
     public static function getSettingsUrls($core, $id, $check = false, $self = true)
     {
-        $st = array();
+        $st = [];
 
         $mr       = $core->plugins->moduleRoot($id);
         $config   = !empty($mr) && file_exists(path::real($mr . '/_config.php'));
@@ -830,7 +830,7 @@ class adminModulesList
                 if (!$check ||
                     $core->auth->isSuperAdmin() ||
                     $core->auth->check($core->plugins->moduleInfo($id, 'permissions'), $core->blog->id)) {
-                    $params = array('module' => $id, 'conf' => '1');
+                    $params = ['module' => $id, 'conf' => '1'];
                     if (!$core->plugins->moduleInfo($id, 'standalone_config') && !$self) {
                         $params['redir'] = $core->adminurl->get('admin.plugin.' . $id);
                     }
@@ -889,7 +889,7 @@ class adminModulesList
      */
     protected function getActions($id, $module, $actions)
     {
-        $submits = array();
+        $submits = [];
 
         # Use loop to keep requested order
         foreach ($actions as $action) {
@@ -951,7 +951,7 @@ class adminModulesList
      */
     protected function getGlobalActions($actions, $with_selection = false)
     {
-        $submits = array();
+        $submits = [];
 
         # Use loop to keep requested order
         foreach ($actions as $action) {
@@ -1014,7 +1014,7 @@ class adminModulesList
             return;
         }
 
-        $modules = !empty($_POST['modules']) && is_array($_POST['modules']) ? array_values($_POST['modules']) : array();
+        $modules = !empty($_POST['modules']) && is_array($_POST['modules']) ? array_values($_POST['modules']) : [];
 
         if ($this->core->auth->isSuperAdmin() && !empty($_POST['delete'])) {
 
@@ -1286,11 +1286,11 @@ class adminModulesList
         '<p class="field"><label for="pkg_file" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Zip file path:') . '</label> ' .
         '<input type="file" name="pkg_file" id="pkg_file" required /></p>' .
         '<p class="field"><label for="your_pwd1" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .
-        form::password(array('your_pwd', 'your_pwd1'), 20, 255,
-            array(
+        form::password(['your_pwd', 'your_pwd1'], 20, 255,
+            [
                 'extra_html'   => 'required placeholder="' . __('Password') . '"',
                 'autocomplete' => 'current-password'
-            )
+            ]
         ) . '</p>' .
         '<p><input type="submit" name="upload_pkg" value="' . __('Upload') . '" />' .
         $this->core->formNonce() . '</p>' .
@@ -1301,16 +1301,16 @@ class adminModulesList
         '<form method="post" action="' . $this->getURL() . '" id="fetchpkg" class="fieldset">' .
         '<h4>' . __('Download a zip file') . '</h4>' .
         '<p class="field"><label for="pkg_url" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Zip file URL:') . '</label> ' .
-        form::field('pkg_url', 40, 255, array(
+        form::field('pkg_url', 40, 255, [
             'extra_html' => 'required placeholder="' . __('URL') . '"'
-        )) .
+        ]) .
         '</p>' .
         '<p class="field"><label for="your_pwd2" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .
-        form::password(array('your_pwd', 'your_pwd2'), 20, 255,
-            array(
+        form::password(['your_pwd', 'your_pwd2'], 20, 255,
+            [
                 'extra_html'   => 'required placeholder="' . __('Password') . '"',
                 'autocomplete' => 'current-password'
-            )
+            ]
         ) . '</p>' .
         '<p><input type="submit" name="fetch_pkg" value="' . __('Download') . '" />' .
         $this->core->formNonce() . '</p>' .
@@ -1478,7 +1478,7 @@ class adminThemesList extends adminModulesList
         $this->page_url = $this->core->adminurl->get('admin.blog.theme');
     }
 
-    public function displayModules($cols = array('name', 'config', 'version', 'desc'), $actions = array(), $nav_limit = false)
+    public function displayModules($cols = ['name', 'config', 'version', 'desc'], $actions = [], $nav_limit = false)
     {
         echo
         '<form action="' . $this->getURL() . '" method="post" class="modules-form-actions">' .
@@ -1518,13 +1518,13 @@ class adminThemesList extends adminModulesList
                 if (in_array('checkbox', $cols)) {
                     $line .=
                     '<label for="' . html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id) . '">' .
-                    form::checkbox(array('modules[' . $count . ']', html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id)), html::escapeHTML($id)) .
+                    form::checkbox(['modules[' . $count . ']', html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id)], html::escapeHTML($id)) .
                     html::escapeHTML($module['name']) .
                         '</label>';
 
                 } else {
                     $line .=
-                    form::hidden(array('modules[' . $count . ']'), html::escapeHTML($id)) .
+                    form::hidden(['modules[' . $count . ']'], html::escapeHTML($id)) .
                     html::escapeHTML($module['name']);
                 }
 
@@ -1568,12 +1568,12 @@ class adminThemesList extends adminModulesList
                 if (in_array('checkbox', $cols)) {
                     $line .=
                     '<label for="' . html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id) . '">' .
-                    form::checkbox(array('modules[' . $count . ']', html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id)), html::escapeHTML($id)) .
+                    form::checkbox(['modules[' . $count . ']', html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id)], html::escapeHTML($id)) .
                     html::escapeHTML($module['name']) .
                         '</label>';
                 } else {
                     $line .=
-                    form::hidden(array('modules[' . $count . ']'), html::escapeHTML($id)) .
+                    form::hidden(['modules[' . $count . ']'], html::escapeHTML($id)) .
                     html::escapeHTML($module['name']);
                 }
 
@@ -1711,7 +1711,7 @@ class adminThemesList extends adminModulesList
 
     protected function getActions($id, $module, $actions)
     {
-        $submits = array();
+        $submits = [];
 
         $this->core->blog->settings->addNamespace('system');
         if ($id != $this->core->blog->settings->system->theme) {
@@ -1731,7 +1731,7 @@ class adminThemesList extends adminModulesList
 
     protected function getGlobalActions($actions, $with_selection = false)
     {
-        $submits = array();
+        $submits = [];
 
         foreach ($actions as $action) {
             switch ($action) {
@@ -1767,7 +1767,7 @@ class adminThemesList extends adminModulesList
             return;
         }
 
-        $modules = !empty($_POST['modules']) && is_array($_POST['modules']) ? array_values($_POST['modules']) : array();
+        $modules = !empty($_POST['modules']) && is_array($_POST['modules']) ? array_values($_POST['modules']) : [];
 
         if (!empty($_POST['select'])) {
 

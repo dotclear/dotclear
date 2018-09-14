@@ -23,10 +23,10 @@ $self_ns = $core->blog->settings->addNamespace('dcckeditor');
 if ($self_ns->active) {
     $core->addEditorFormater('dcCKEditor', 'xhtml', function ($s) {return $s;});
 
-    $core->addBehavior('adminPostEditor', array('dcCKEditorBehaviors', 'adminPostEditor'));
-    $core->addBehavior('adminPopupMedia', array('dcCKEditorBehaviors', 'adminPopupMedia'));
-    $core->addBehavior('adminPopupLink', array('dcCKEditorBehaviors', 'adminPopupLink'));
-    $core->addBehavior('adminPopupPosts', array('dcCKEditorBehaviors', 'adminPopupPosts'));
+    $core->addBehavior('adminPostEditor', ['dcCKEditorBehaviors', 'adminPostEditor']);
+    $core->addBehavior('adminPopupMedia', ['dcCKEditorBehaviors', 'adminPopupMedia']);
+    $core->addBehavior('adminPopupLink', ['dcCKEditorBehaviors', 'adminPopupLink']);
+    $core->addBehavior('adminPopupPosts', ['dcCKEditorBehaviors', 'adminPopupPosts']);
 
-    $core->addBehavior('adminMediaURL', array('dcCKEditorBehaviors', 'adminMediaURL'));
+    $core->addBehavior('adminMediaURL', ['dcCKEditorBehaviors', 'adminMediaURL']);
 }

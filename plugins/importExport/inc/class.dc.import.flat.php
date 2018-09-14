@@ -146,7 +146,7 @@ class dcImportFlat extends dcIeModule
             return;
         }
 
-        $public_files = array_merge(array('-' => ''), $this->getPublicFiles());
+        $public_files = array_merge(['-' => ''], $this->getPublicFiles());
         $has_files    = (boolean) (count($public_files) - 1);
 
         echo
@@ -192,8 +192,8 @@ class dcImportFlat extends dcIeModule
         echo
         '<p>' .
         $this->core->formNonce() .
-        form::hidden(array('do'), 1) .
-        form::hidden(array('MAX_FILE_SIZE'), DC_MAX_UPLOAD_SIZE) .
+        form::hidden(['do'], 1) .
+        form::hidden(['MAX_FILE_SIZE'], DC_MAX_UPLOAD_SIZE) .
         '<input type="submit" value="' . __('Import') . '" /></p>' .
 
             '</form>';
@@ -219,16 +219,16 @@ class dcImportFlat extends dcIeModule
             echo
             '<p><label for="your_pwd" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label>' .
             form::password('your_pwd', 20, 255,
-                array(
+                [
                     'extra_html'   => 'required placeholder="' . __('Password') . '"',
                     'autocomplete' => 'current-password'
-                )
+                ]
             ) . '</p>' .
 
             '<p>' .
             $this->core->formNonce() .
-            form::hidden(array('do'), 1) .
-            form::hidden(array('MAX_FILE_SIZE'), DC_MAX_UPLOAD_SIZE) .
+            form::hidden(['do'], 1) .
+            form::hidden(['MAX_FILE_SIZE'], DC_MAX_UPLOAD_SIZE) .
             '<input type="submit" value="' . __('Import') . '" /></p>' .
 
                 '</form>';
@@ -237,7 +237,7 @@ class dcImportFlat extends dcIeModule
 
     protected function getPublicFiles()
     {
-        $public_files = array();
+        $public_files = [];
         $dir          = @dir($this->core->blog->public_path);
         if ($dir) {
             while (($entry = $dir->read()) !== false) {

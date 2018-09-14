@@ -21,21 +21,21 @@ if (!defined('DC_CONTEXT_ADMIN')) {return;}
 <body>
 <?php
 echo dcPage::breadcrumb(
-    array(
+    [
         html::escapeHTML($core->blog->name) => '',
         __('Tags')                          => ''
-    )) .
+    ]) .
 dcPage::notices();
 ?>
 
 <?php
 
-$tags = $core->meta->getMetadata(array('meta_type' => 'tag'));
+$tags = $core->meta->getMetadata(['meta_type' => 'tag']);
 $tags = $core->meta->computeMetaStats($tags);
 $tags->sort('meta_id_lower', 'asc');
 
 $last_letter = null;
-$cols        = array('', '');
+$cols        = ['', ''];
 $col         = 0;
 while ($tags->fetch()) {
     $letter = mb_strtoupper(mb_substr($tags->meta_id_lower, 0, 1));

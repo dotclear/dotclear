@@ -59,7 +59,7 @@ class dcFilterAkismet extends dcSpamFilter
         try
         {
             if ($ak->verify()) {
-                $post = $blog->getPosts(array('post_id' => $post_id));
+                $post = $blog->getPosts(['post_id' => $post_id]);
 
                 $c = $ak->comment_check(
                     $post->getURL(),
@@ -185,10 +185,10 @@ class akismet extends netHttp
         $this->host = $this->base_host;
         $path       = sprintf($this->ak_path, 'verify-key');
 
-        $data = array(
+        $data = [
             'key'  => $this->ak_key,
             'blog' => $this->blog_url
-        );
+        ];
 
         if ($this->post($path, $data, 'UTF-8')) {
             return $this->getContent() == 'valid';
@@ -199,8 +199,8 @@ class akismet extends netHttp
 
     public function comment_check($permalink, $type, $author, $email, $url, $content)
     {
-        $info_ignore = array('HTTP_COOKIE');
-        $info        = array();
+        $info_ignore = ['HTTP_COOKIE'];
+        $info        = [];
 
         foreach ($_SERVER as $k => $v) {
             if (strpos($k, 'HTTP_') === 0 && !in_array($k, $info_ignore)) {
@@ -223,13 +223,13 @@ class akismet extends netHttp
         return true;
     }
 
-    protected function callFunc($function, $permalink, $type, $author, $email, $url, $content, $info = array())
+    protected function callFunc($function, $permalink, $type, $author, $email, $url, $content, $info = [])
     {
         $ua      = isset($info['HTTP_USER_AGENT']) ? $info['HTTP_USER_AGENT'] : '';
         $referer = isset($info['HTTP_REFERER']) ? $info['HTTP_REFERER'] : '';
 
         # Prepare comment data
-        $data = array(
+        $data = [
             'blog'                 => $this->blog_url,
             'user_ip'              => http::realIP(),
             'user_agent'           => $ua,
@@ -240,7 +240,7 @@ class akismet extends netHttp
             'comment_author_email' => $email,
             'comment_author_url'   => $url,
             'comment_content'      => $content
-        );
+        ];
 
         $data = array_merge($data, $info);
 

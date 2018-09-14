@@ -42,8 +42,8 @@ if (!empty($_POST['delete']) && $core->auth->check('publish,contentadmin', $core
     }
 }
 
-$params               = array();
-$params['limit']      = array((($page - 1) * $nb_per_page), $nb_per_page);
+$params               = [];
+$params['limit']      = [(($page - 1) * $nb_per_page), $nb_per_page];
 $params['no_content'] = true;
 
 $params['meta_id']   = $tag;
@@ -59,7 +59,7 @@ try {
     $core->error->add($e->getMessage());
 }
 
-$posts_actions_page = new dcPostsActionsPage($core, 'plugin.php', array('p' => 'tags', 'm' => 'tag_posts', 'tag' => $tag));
+$posts_actions_page = new dcPostsActionsPage($core, 'plugin.php', ['p' => 'tags', 'm' => 'tag_posts', 'tag' => $tag]);
 
 if ($posts_actions_page->process()) {
     return;
@@ -85,11 +85,11 @@ if ($posts_actions_page->process()) {
 
 <?php
 echo dcPage::breadcrumb(
-    array(
+    [
         html::escapeHTML($core->blog->name)                         => '',
         __('Tags')                                                  => $p_url . '&amp;m=tags',
         __('Tag') . ' &ldquo;' . html::escapeHTML($tag) . '&rdquo;' => ''
-    )) .
+    ]) .
 dcPage::notices();
 ?>
 

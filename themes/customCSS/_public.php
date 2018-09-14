@@ -13,7 +13,7 @@ namespace themes\customcss;
 
 if (!defined('DC_RC_PATH')) {return;}
 
-$core->addBehavior('publicHeadContent', array(__NAMESPACE__ . '\tplCustomTheme', 'publicHeadContent'));
+$core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplCustomTheme', 'publicHeadContent']);
 
 class tplCustomTheme
 {

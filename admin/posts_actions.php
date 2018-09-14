@@ -25,7 +25,7 @@ if (isset($_REQUEST['redir'])) {
     $args['redir'] = $_REQUEST['redir'];
 } else {
     $uri  = $core->adminurl->get("admin.posts");
-    $args = array();
+    $args = [];
 }
 
 $posts_actions_page = new dcPostsActionsPage($core, $uri, $args);

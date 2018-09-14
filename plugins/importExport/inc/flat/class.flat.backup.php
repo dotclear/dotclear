@@ -14,16 +14,16 @@ if (!defined('DC_RC_PATH')) {return;}
 class flatBackup
 {
     protected $fp;
-    private $line_cols = array();
+    private $line_cols = [];
     private $line_name;
     private $line_num;
 
-    private $replacement = array(
+    private $replacement = [
         '/(?<!\\\\)(?>(\\\\\\\\)*+)(\\\\n)/u' => "\$1\n",
         '/(?<!\\\\)(?>(\\\\\\\\)*+)(\\\\r)/u' => "\$1\r",
         '/(?<!\\\\)(?>(\\\\\\\\)*+)(\\\\")/u' => '$1"',
         '/(\\\\\\\\)/'                        => '\\'
-    );
+    ];
 
     public function __construct($file)
     {
@@ -63,7 +63,7 @@ class flatBackup
                 throw new Exception(sprintf('Invalid row count at line %s', $this->line_num));
             }
 
-            $res = array();
+            $res = [];
 
             for ($i = 0; $i < count($line); $i++) {
                 $res[$this->line_cols[$i]] =
@@ -94,7 +94,7 @@ class flatBackupItem
 {
     public $__name;
     public $__line;
-    private $__data = array();
+    private $__data = [];
 
     public function __construct($name, $data, $line)
     {

@@ -30,7 +30,7 @@ if (!empty($_GET['default_blog'])) {
 
 dcPage::check('usage,contentadmin');
 
-if ($core->plugins->disableDepModules($core->adminurl->get('admin.home', array()))) {
+if ($core->plugins->disableDepModules($core->adminurl->get('admin.home', []))) {
     exit;
 }
 
@@ -107,7 +107,7 @@ if (isset($__dashboard_icons['blog_theme'])) {
 }
 
 # Latest news for dashboard
-$__dashboard_items = new ArrayObject(array(new ArrayObject(), new ArrayObject()));
+$__dashboard_items = new ArrayObject([new ArrayObject(), new ArrayObject()]);
 
 $dashboardItem = 0;
 
@@ -130,7 +130,7 @@ if ($core->auth->user_prefs->dashboard->doclinks) {
 $core->callBehavior('adminDashboardItems', $core, $__dashboard_items);
 
 # Dashboard content
-$__dashboard_contents = new ArrayObject(array(new ArrayObject, new ArrayObject));
+$__dashboard_contents = new ArrayObject([new ArrayObject, new ArrayObject]);
 $core->callBehavior('adminDashboardContents', $core, $__dashboard_contents);
 
 # Editor stuff
@@ -141,7 +141,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
         $post_editor = $core->auth->getOption('editor');
         if ($post_editor && !empty($post_editor[$post_format])) {
             // context is not post because of tags not available
-            $admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', array('#post_content'), $post_format);
+            $admin_post_behavior = $core->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', ['#post_content'], $post_format);
         }
     }
 }
@@ -156,16 +156,16 @@ dcPage::open(__('Dashboard'),
     # --BEHAVIOR-- adminDashboardHeaders
     $core->callBehavior('adminDashboardHeaders'),
     dcPage::breadcrumb(
-        array(
+        [
             __('Dashboard') . ' : ' . html::escapeHTML($core->blog->name) => ''
-        ),
-        array('home_link' => false)
+        ],
+        ['home_link' => false]
     )
 );
 
 if ($core->auth->getInfo('user_default_blog') != $core->blog->id && $core->auth->getBlogCount() > 1) {
     echo
-    '<p><a href="' . $core->adminurl->get("admin.home", array('default_blog' => 1)) . '" class="button">' . __('Make this blog my default blog') . '</a></p>';
+    '<p><a href="' . $core->adminurl->get("admin.home", ['default_blog' => 1]) . '" class="button">' . __('Make this blog my default blog') . '</a></p>';
 }
 
 if ($core->blog->status == 0) {
@@ -190,7 +190,7 @@ if (!defined('DC_ADMIN_MAILFROM') || !DC_ADMIN_MAILFROM) {
         '</p>';
 }
 
-$err = array();
+$err = [];
 
 # Check cache directory
 if ($core->auth->isSuperAdmin()) {
@@ -247,24 +247,24 @@ if ($core->auth->isSuperAdmin()) {
 
 # Get current main orders
 $main_order = $core->auth->user_prefs->dashboard->main_order;
-$main_order = ($main_order != '' ? explode(',', $main_order) : array());
+$main_order = ($main_order != '' ? explode(',', $main_order) : []);
 
 # Get current boxes orders
 $boxes_order = $core->auth->user_prefs->dashboard->boxes_order;
-$boxes_order = ($boxes_order != '' ? explode(',', $boxes_order) : array());
+$boxes_order = ($boxes_order != '' ? explode(',', $boxes_order) : []);
 
 # Get current boxes items orders
 $boxes_items_order = $core->auth->user_prefs->dashboard->boxes_items_order;
-$boxes_items_order = ($boxes_items_order != '' ? explode(',', $boxes_items_order) : array());
+$boxes_items_order = ($boxes_items_order != '' ? explode(',', $boxes_items_order) : []);
 
 # Get current boxes contents orders
 $boxes_contents_order = $core->auth->user_prefs->dashboard->boxes_contents_order;
-$boxes_contents_order = ($boxes_contents_order != '' ? explode(',', $boxes_contents_order) : array());
+$boxes_contents_order = ($boxes_contents_order != '' ? explode(',', $boxes_contents_order) : []);
 
 $composeItems = function ($list, $blocks, $flat = false) {
 
-    $ret   = array();
-    $items = array();
+    $ret   = [];
+    $items = [];
 
     if ($flat) {
         $items = $blocks;
@@ -277,7 +277,7 @@ $composeItems = function ($list, $blocks, $flat = false) {
     }
 
     # First loop to find ordered indexes
-    $order = array();
+    $order = [];
     $index = 0;
     foreach ($items as $v) {
         if (preg_match('/<div.*?id="([^"].*?)".*?>/ms', $v, $match)) {
@@ -320,7 +320,7 @@ $dashboardItems = $composeItems($boxes_items_order, $__dashboard_items);
 # Compose dashboard contents (plugin's modules)
 $dashboardContents = $composeItems($boxes_contents_order, $__dashboard_contents);
 
-$__dashboard_boxes = array();
+$__dashboard_boxes = [];
 if ($dashboardItems != '') {
     $__dashboard_boxes[] = '<div class="db-items" id="db-items">' . $dashboardItems . '</div>';
 }
@@ -330,7 +330,7 @@ if ($dashboardContents != '') {
 $dashboardBoxes = $composeItems($boxes_order, $__dashboard_boxes, true);
 
 # Compose main area
-$__dashboard_main = array();
+$__dashboard_main = [];
 if (!$core->auth->user_prefs->dashboard->nofavicons) {
     # Dashboard icons
     $dashboardIcons = '<div id="icons">';
@@ -345,7 +345,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
     if ($core->auth->check('usage,contentadmin', $core->blog->id)) {
         # Getting categories
         $categories_combo = dcAdminCombos::getCategoriesCombo(
-            $core->blog->getCategories(array())
+            $core->blog->getCategories([])
         );
 
         $dashboardQuickEntry =
@@ -354,14 +354,14 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
         '<form id="quick-entry" action="' . $core->adminurl->get('admin.post') . '" method="post" class="fieldset">' .
         '<h4>' . __('New entry') . '</h4>' .
         '<p class="col"><label for="post_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
-        form::field('post_title', 20, 255, array(
+        form::field('post_title', 20, 255, [
             'class'      => 'maximal',
             'extra_html' => 'required placeholder="' . __('Title') . '"'
-        )) .
+        ]) .
         '</p>' .
         '<p class="area"><label class="required" ' .
         'for="post_content"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Content:') . '</label> ' .
-        form::textarea('post_content', 50, 10, array('extra_html' => 'required placeholder="' . __('Content') . '"')) .
+        form::textarea('post_content', 50, 10, ['extra_html' => 'required placeholder="' . __('Content') . '"']) .
         '</p>' .
         '<p><label for="cat_id" class="classic">' . __('Category:') . '</label> ' .
         form::combo('cat_id', $categories_combo) . '</p>' .

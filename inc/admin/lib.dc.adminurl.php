@@ -36,9 +36,9 @@ class dcAdminURL
      * @param  string $url    url value
      * @param  array  $params query string params (optional)
      */
-    public function register($name, $url, $params = array())
+    public function register($name, $url, $params = [])
     {
-        $this->urls[$name] = array('url' => $url, 'qs' => $params);
+        $this->urls[$name] = ['url' => $url, 'qs' => $params];
     }
 
     /**
@@ -48,7 +48,7 @@ class dcAdminURL
      * @param  array  $params extra parameters to add
      * @param  string $newurl new url if different from the original
      */
-    public function registercopy($name, $orig, $params = array(), $newurl = '')
+    public function registercopy($name, $orig, $params = [], $newurl = '')
     {
         if (!isset($this->urls[$orig])) {
             throw new exception('Unknown URL handler for ' . $orig);
@@ -71,7 +71,7 @@ class dcAdminURL
      * @param  boolean $parametric set to true if url will be used as (s)printf() format.
      * @return string            the forged url
      */
-    public function get($name, $params = array(), $separator = '&amp;', $parametric = false)
+    public function get($name, $params = [], $separator = '&amp;', $parametric = false)
     {
         if (!isset($this->urls[$name])) {
             throw new exception('Unknown URL handler for ' . $name);
@@ -98,7 +98,7 @@ class dcAdminURL
      * @param  string $suffix suffix to be added to the QS parameters
      * @return string            the forged url
      */
-    public function redirect($name, $params = array(), $suffix = "")
+    public function redirect($name, $params = [], $suffix = "")
     {
         if (!isset($this->urls[$name])) {
             throw new exception('Unknown URL handler for ' . $name);
@@ -129,7 +129,7 @@ class dcAdminURL
      * @param  array  $params    query string parameters, given as an associative array
      * @return string            the forged form data
      */
-    public function getHiddenFormFields($name, $params = array())
+    public function getHiddenFormFields($name, $params = [])
     {
         if (!isset($this->urls[$name])) {
             throw new exception('Unknown URL handler for ' . $name);
@@ -138,7 +138,7 @@ class dcAdminURL
         $p   = array_merge($url['qs'], $params);
         $str = '';
         foreach ((array) $p as $k => $v) {
-            $str .= form::hidden(array($k), $v);
+            $str .= form::hidden([$k], $v);
         }
         return $str;
     }
@@ -153,7 +153,7 @@ class dcAdminURL
      * @param  string $separator separator to use between QS parameters
      * @return string            the forged decoded url
      */
-    public function decode($name, $params = array(), $separator = '&')
+    public function decode($name, $params = [], $separator = '&')
     {
         return urldecode($this->get($name, $params, false, $separator));
     }

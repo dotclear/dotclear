@@ -24,10 +24,10 @@ class dcImportDC1 extends dcIeModule
     protected $post_limit  = 20;
     protected $post_count  = 0;
 
-    protected $has_table = array();
+    protected $has_table = [];
 
     protected $vars;
-    protected $base_vars = array(
+    protected $base_vars = [
         'db_driver'  => 'mysql',
         'db_host'    => '',
         'db_name'    => '',
@@ -35,8 +35,8 @@ class dcImportDC1 extends dcIeModule
         'db_pwd'     => '',
         'db_prefix'  => 'dc_',
         'post_limit' => 20,
-        'cat_ids'    => array()
-    );
+        'cat_ids'    => []
+    ];
 
     protected function setInfo()
     {
@@ -140,10 +140,10 @@ class dcImportDC1 extends dcIeModule
         }
 
         # db drivers
-        $db_drivers = array(
+        $db_drivers = [
             'mysql'  => 'mysql',
             'mysqli' => 'mysqli'
-        );
+        ];
 
         switch ($this->step) {
             case 1:
@@ -189,9 +189,9 @@ class dcImportDC1 extends dcIeModule
                 break;
             case 5:
                 $t = sprintf(__('Importing entries from %d to %d / %d'), $this->post_offset,
-                    min(array($this->post_offset + $this->post_limit, $this->post_count)), $this->post_count);
+                    min([$this->post_offset + $this->post_limit, $this->post_count]), $this->post_count);
                 printf($this->imForm(5, $t),
-                    form::hidden(array('offset'), $this->post_offset) .
+                    form::hidden(['offset'], $this->post_offset) .
                     $this->autoSubmit()
                 );
                 break;
@@ -225,7 +225,7 @@ class dcImportDC1 extends dcIeModule
         '<form action="' . $this->getURL(true) . '" method="post">' .
         '<h3 class="vertical-separator">' . $legend . '</h3>' .
         '<div>' . $this->core->formNonce() .
-        form::hidden(array('do'), 'step' . $step) .
+        form::hidden(['do'], 'step' . $step) .
         '%s' . '</div>' .
         '<p class="vertical-separator"><input type="submit" value="' . $submit_value . '" /></p>' .
         '<p class="form-note info">' . __('Depending on the size of your blog, it could take a few minutes.') . '</p>' .
@@ -299,12 +299,12 @@ class dcImportDC1 extends dcIeModule
                     $cur->user_lang        = $rs->user_lang;
                     $cur->user_tz          = $this->core->blog->settings->system->blog_timezone;
                     $cur->user_post_status = $rs->user_post_pub ? 1 : -2;
-                    $cur->user_options     = new ArrayObject(array(
+                    $cur->user_options     = new ArrayObject([
                         'edit_size'   => (integer) $rs->user_edit_size,
                         'post_format' => $rs->user_post_format
-                    ));
+                    ]);
 
-                    $permissions = array();
+                    $permissions = [];
                     switch ($rs->user_level) {
                         case '0':
                             $cur->user_status = 0;
@@ -572,7 +572,7 @@ class dcImportDC1 extends dcIeModule
     # Pings import
     protected function importPings($post_id, $new_post_id, $db)
     {
-        $urls = array();
+        $urls = [];
 
         $rs = $db->select(
             'SELECT * FROM ' . $this->vars['db_prefix'] . 'ping ' .

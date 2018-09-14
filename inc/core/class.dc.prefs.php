@@ -21,7 +21,7 @@ class dcPrefs
     protected $table;   ///< <b>string</b> Prefs table name
     protected $user_id; ///< <b>string</b> User ID
 
-    protected $workspaces = array(); ///< <b>array</b> Associative workspaces array
+    protected $workspaces = []; ///< <b>array</b> Associative workspaces array
 
     protected $ws; ///< <b>string</b> Current workspace
 

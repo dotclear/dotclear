@@ -16,7 +16,7 @@ $this->registerModule(
     "Internal build tools for dotclear team", // Description
     "dcTeam",                                 // Author
     '1.0',                                    // Version
-    array(
+    [
         'permissions' => 'admin'
-    )
+    ]
 );

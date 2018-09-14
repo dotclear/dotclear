@@ -11,10 +11,10 @@ if (!defined('DC_RC_PATH')) {return;}
 
 class dcBlogsActionsPage extends dcActionsPage
 {
-    public function __construct($core, $uri, $redirect_args = array())
+    public function __construct($core, $uri, $redirect_args = [])
     {
         parent::__construct($core, $uri, $redirect_args);
-        $this->redirect_fields = array('status', 'sortby', 'order', 'page', 'nb');
+        $this->redirect_fields = ['status', 'sortby', 'order', 'page', 'nb'];
         $this->field_entries   = 'blogs';
         $this->title_cb        = __('Blogs');
         $this->loadDefaults();
@@ -56,11 +56,11 @@ class dcBlogsActionsPage extends dcActionsPage
     {
         $this->core->error->add($e->getMessage());
         $this->beginPage(dcPage::breadcrumb(
-            array(
+            [
                 html::escapeHTML($this->core->blog->name) => '',
                 __('Blogs')                               => $this->core->adminurl->get('admin.blogs'),
                 __('Blogs actions')                       => ''
-            ))
+            ])
         );
         $this->endPage();
     }
@@ -71,10 +71,10 @@ class dcBlogsActionsPage extends dcActionsPage
         foreach ($this->entries as $id => $res) {
             $ret .=
             '<tr>' .
-            '<td class="minimal">' . form::checkbox(array($this->field_entries . '[]'), $id,
-                array(
+            '<td class="minimal">' . form::checkbox([$this->field_entries . '[]'], $id,
+                [
                     'checked' => true
-                )) .
+                ]) .
                 '</td>' .
                 '<td>' . $res['blog'] . '</td>' .
                 '<td>' . $res['name'] . '</td>' .
@@ -89,17 +89,17 @@ class dcBlogsActionsPage extends dcActionsPage
 
     protected function fetchEntries($from)
     {
-        $params = array();
+        $params = [];
         if (!empty($from['blogs'])) {
             $params['blog_id'] = $from['blogs'];
         }
 
         $bl = $this->core->getBlogs($params);
         while ($bl->fetch()) {
-            $this->entries[$bl->blog_id] = array(
+            $this->entries[$bl->blog_id] = [
                 'blog' => $bl->blog_id,
                 'name' => $bl->blog_name
-            );
+            ];
         }
         $this->rs = $bl;
     }
@@ -114,17 +114,17 @@ class dcDefaultBlogActions
         }
 
         $ap->addAction(
-            array(__('Status') => array(
+            [__('Status') => [
                 __('Set online')     => 'online',
                 __('Set offline')    => 'offline',
                 __('Set as removed') => 'remove'
-            )),
-            array('dcDefaultBlogActions', 'doChangeBlogStatus')
+            ]],
+            ['dcDefaultBlogActions', 'doChangeBlogStatus']
         );
         $ap->addAction(
-            array(__('Delete') => array(
-                __('Delete') => 'delete')),
-            array('dcDefaultBlogActions', 'doDeleteBlog')
+            [__('Delete') => [
+                __('Delete') => 'delete']],
+            ['dcDefaultBlogActions', 'doDeleteBlog']
         );
     }
 
@@ -174,7 +174,7 @@ class dcDefaultBlogActions
             throw new Exception(__('Password verification failed'));
         }
 
-        $ids = array();
+        $ids = [];
         foreach ($ap_ids as $id) {
             if ($id == $core->blog->id) {
                 dcPage::addWarningNotice(__('The current blog cannot be deleted.'));

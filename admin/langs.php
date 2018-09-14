@@ -157,10 +157,10 @@ if ($is_writable && !empty($_POST['upload_pkg'])) {
 dcPage::open(__('Languages management'),
     dcPage::jsLoad('js/_langs.js'),
     dcPage::breadcrumb(
-        array(
+        [
             __('System')               => '',
             __('Languages management') => ''
-        ))
+        ])
 );
 
 if (!empty($_GET['removed'])) {
@@ -182,7 +182,7 @@ echo
 '<h3>' . __('Installed languages') . '</h3>';
 
 $locales_content = scandir(DC_L10N_ROOT);
-$tmp             = array();
+$tmp             = [];
 foreach ($locales_content as $v) {
     $c = ($v == '.' || $v == '..' || $v == 'en' || !is_dir(DC_L10N_ROOT . '/' . $v) || !isset($iso_codes[$v]));
 
@@ -216,7 +216,7 @@ if (empty($locales_content)) {
             '<form action="' . $core->adminurl->get("admin.langs") . '" method="post">' .
             '<div>' .
             $core->formNonce() .
-            form::hidden(array('locale_id'), html::escapeHTML($k)) .
+            form::hidden(['locale_id'], html::escapeHTML($k)) .
             '<input type="submit" class="delete" name="delete" value="' . __('Delete') . '" /> ' .
                 '</div>' .
                 '</form>';
@@ -235,7 +235,7 @@ if (!$is_writable) {
 }
 
 if (!empty($dc_langs) && $is_writable) {
-    $dc_langs_combo = array();
+    $dc_langs_combo = [];
     foreach ($dc_langs as $k => $v) {
         if ($v->link && isset($iso_codes[$v->title])) {
             $dc_langs_combo[html::escapeHTML('(' . $v->title . ') ' . $iso_codes[$v->title])] = html::escapeHTML($v->link);
@@ -248,12 +248,12 @@ if (!empty($dc_langs) && $is_writable) {
     '<p>' . sprintf(__('You can download and install a additional language directly from Dotclear.net. ' .
         'Proposed languages are based on your version: %s.'), '<strong>' . DC_VERSION . '</strong>') . '</p>' .
     '<p class="field"><label for="pkg_url" class="classic">' . __('Language:') . '</label> ' .
-    form::combo(array('pkg_url'), $dc_langs_combo) . '</p>' .
+    form::combo(['pkg_url'], $dc_langs_combo) . '</p>' .
     '<p class="field"><label for="your_pwd1" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .
-    form::password(array('your_pwd', 'your_pwd1'), 20, 255,
-        array(
+    form::password(['your_pwd', 'your_pwd1'], 20, 255,
+        [
             'extra_html'   => 'required placeholder="' . __('Password') . '"',
-            'autocomplete' => 'current-password')
+            'autocomplete' => 'current-password']
     ) . '</p>' .
     '<p><input type="submit" value="' . __('Install language') . '" />' .
     $core->formNonce() .
@@ -270,10 +270,10 @@ if ($is_writable) {
     '<p class="field"><label for="pkg_file" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Language zip file:') . '</label> ' .
     '<input type="file" id="pkg_file" name="pkg_file" required /></p>' .
     '<p class="field"><label for="your_pwd2" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .
-    form::password(array('your_pwd', 'your_pwd2'), 20, 255,
-        array(
+    form::password(['your_pwd', 'your_pwd2'], 20, 255,
+        [
             'extra_html'   => 'required placeholder="' . __('Password') . '"',
-            'autocomplete' => 'current-password')
+            'autocomplete' => 'current-password']
     ) . '</p>' .
     '<p><input type="submit" name="upload_pkg" value="' . __('Upload language') . '" />' .
     $core->formNonce() .

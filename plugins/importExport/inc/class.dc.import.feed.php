@@ -45,8 +45,8 @@ class dcImportFeed extends dcIeModule
         } else {
             $dns = $dns6;
         }
-        $ip6 = array();
-        $ip4 = array();
+        $ip6 = [];
+        $ip4 = [];
         foreach ($dns as $record) {
             if ($record["type"] == "A") {
                 $ip4[] = $record["ip"];
@@ -177,7 +177,7 @@ class dcImportFeed extends dcIeModule
 
         '<p>' .
         $this->core->formNonce() .
-        form::hidden(array('do'), 1) .
+        form::hidden(['do'], 1) .
         '<input type="submit" value="' . __('Import') . '" /></p>' .
 
             '</form>';

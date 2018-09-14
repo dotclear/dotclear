@@ -16,12 +16,12 @@ $this->registerModule(
     "dotclear legacy editor", // Description
     "dotclear Team",          // Author
     '0.1.4',                  // Version
-    array(
+    [
         'permissions' => 'usage,contentadmin',
         'type'        => 'plugin',
-        'settings'    => array(
+        'settings'    => [
             'self' => '',
             'pref' => '#user-options.user_options_edition'
-        )
-    )
+        ]
+    ]
 );

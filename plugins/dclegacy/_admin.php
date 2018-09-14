@@ -11,9 +11,9 @@
 
 if (!defined('DC_CONTEXT_ADMIN')) {return;}
 
-$GLOBALS['core']->addBehavior('adminPostsActionsPage', array('dcLegacyPosts', 'adminPostsActionsPage'));
-$GLOBALS['core']->addBehavior('adminPagesActionsPage', array('dcLegacyPages', 'adminPagesActionsPage'));
-$GLOBALS['core']->addBehavior('adminCommentsActionsPage', array('dcLegacyComments', 'adminCommentsActionsPage'));
+$GLOBALS['core']->addBehavior('adminPostsActionsPage', ['dcLegacyPosts', 'adminPostsActionsPage']);
+$GLOBALS['core']->addBehavior('adminPagesActionsPage', ['dcLegacyPages', 'adminPagesActionsPage']);
+$GLOBALS['core']->addBehavior('adminCommentsActionsPage', ['dcLegacyComments', 'adminCommentsActionsPage']);
 
 /* Handle deprecated behaviors :
  * adminPostsActionsCombo
@@ -25,9 +25,9 @@ class dcLegacyPosts
     public static function adminPostsActionsPage($core, dcPostsActionsPage $as)
     {
         $stub_actions = new ArrayObject();
-        $core->callBehavior('adminPostsActionsCombo', array($stub_actions));
+        $core->callBehavior('adminPostsActionsCombo', [$stub_actions]);
         if (!empty($stub_actions)) {
-            $as->addAction($stub_actions, array('dcLegacyPosts', 'onActionLegacy'));
+            $as->addAction($stub_actions, ['dcLegacyPosts', 'onActionLegacy']);
         }
     }
 
@@ -54,9 +54,9 @@ class dcLegacyComments
     public static function adminCommentsActionsPage($core, dcCommentsActionsPage $as)
     {
         $stub_actions = new ArrayObject();
-        $core->callBehavior('adminCommentsActionsCombo', array($stub_actions));
+        $core->callBehavior('adminCommentsActionsCombo', [$stub_actions]);
         if (!empty($stub_actions)) {
-            $as->addAction($stub_actions, array('dcLegacyComments', 'onActionLegacy'));
+            $as->addAction($stub_actions, ['dcLegacyComments', 'onActionLegacy']);
         }
     }
 
@@ -87,9 +87,9 @@ class dcLegacyPages
     public static function adminPagesActionsPage($core, dcPagesActionsPage $as)
     {
         $stub_actions = new ArrayObject();
-        $core->callBehavior('adminPagesActionsCombo', array($stub_actions));
+        $core->callBehavior('adminPagesActionsCombo', [$stub_actions]);
         if (!empty($stub_actions)) {
-            $as->addAction($stub_actions, array('dcLegacyPages', 'onActionLegacy'));
+            $as->addAction($stub_actions, ['dcLegacyPages', 'onActionLegacy']);
         }
     }
 

@@ -30,7 +30,7 @@ class dcMaintenanceDescriptor
      * @param    name    <b>string<b> Tab name
      * @param    options    <b>string<b> Options
      */
-    public function __construct($id, $name, $options = array())
+    public function __construct($id, $name, $options = [])
     {
         $this->id      = (string) $id;
         $this->name    = (string) $name;

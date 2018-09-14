@@ -11,11 +11,11 @@ if (!defined('DC_RC_PATH')) {return;}
 
 class dcPostsActionsPage extends dcActionsPage
 {
-    public function __construct($core, $uri, $redirect_args = array())
+    public function __construct($core, $uri, $redirect_args = [])
     {
         parent::__construct($core, $uri, $redirect_args);
-        $this->redirect_fields = array('user_id', 'cat_id', 'status',
-            'selected', 'attachment', 'month', 'lang', 'sortby', 'order', 'page', 'nb');
+        $this->redirect_fields = ['user_id', 'cat_id', 'status',
+            'selected', 'attachment', 'month', 'lang', 'sortby', 'order', 'page', 'nb'];
         $this->loadDefaults();
     }
 
@@ -60,18 +60,18 @@ class dcPostsActionsPage extends dcActionsPage
     {
         $this->core->error->add($e->getMessage());
         $this->beginPage(dcPage::breadcrumb(
-            array(
+            [
                 html::escapeHTML($this->core->blog->name) => '',
                 $this->getCallerTitle()                   => $this->getRedirection(true),
                 __('Entries actions')                     => ''
-            ))
+            ])
         );
         $this->endPage();
     }
 
     protected function fetchEntries($from)
     {
-        $params = array();
+        $params = [];
         if (!empty($from['entries'])) {
             $entries = $from['entries'];
 
@@ -106,46 +106,46 @@ class dcDefaultPostActions
     {
         if ($core->auth->check('publish,contentadmin', $core->blog->id)) {
             $ap->addAction(
-                array(__('Status') => array(
+                [__('Status') => [
                     __('Publish')         => 'publish',
                     __('Unpublish')       => 'unpublish',
                     __('Schedule')        => 'schedule',
                     __('Mark as pending') => 'pending'
-                )),
-                array('dcDefaultPostActions', 'doChangePostStatus')
+                ]],
+                ['dcDefaultPostActions', 'doChangePostStatus']
             );
         }
         $ap->addAction(
-            array(__('Mark') => array(
+            [__('Mark') => [
                 __('Mark as selected')   => 'selected',
                 __('Mark as unselected') => 'unselected'
-            )),
-            array('dcDefaultPostActions', 'doUpdateSelectedPost')
+            ]],
+            ['dcDefaultPostActions', 'doUpdateSelectedPost']
         );
         $ap->addAction(
-            array(__('Change') => array(
+            [__('Change') => [
                 __('Change category') => 'category'
-            )),
-            array('dcDefaultPostActions', 'doChangePostCategory')
+            ]],
+            ['dcDefaultPostActions', 'doChangePostCategory']
         );
         $ap->addAction(
-            array(__('Change') => array(
+            [__('Change') => [
                 __('Change language') => 'lang'
-            )),
-            array('dcDefaultPostActions', 'doChangePostLang')
+            ]],
+            ['dcDefaultPostActions', 'doChangePostLang']
         );
         if ($core->auth->check('admin', $core->blog->id)) {
             $ap->addAction(
-                array(__('Change') => array(
-                    __('Change author') => 'author')),
-                array('dcDefaultPostActions', 'doChangePostAuthor')
+                [__('Change') => [
+                    __('Change author') => 'author']],
+                ['dcDefaultPostActions', 'doChangePostAuthor']
             );
         }
         if ($core->auth->check('delete,contentadmin', $core->blog->id)) {
             $ap->addAction(
-                array(__('Delete') => array(
-                    __('Delete') => 'delete')),
-                array('dcDefaultPostActions', 'doDeletePost')
+                [__('Delete') => [
+                    __('Delete') => 'delete']],
+                ['dcDefaultPostActions', 'doDeletePost']
             );
         }
     }
@@ -280,11 +280,11 @@ class dcDefaultPostActions
 
             $ap->beginPage(
                 dcPage::breadcrumb(
-                    array(
+                    [
                         html::escapeHTML($core->blog->name)      => '',
                         $ap->getCallerTitle()                    => $ap->getRedirection(true),
                         __('Change category for this selection') => ''
-                    )));
+                    ]));
             # categories list
             # Getting categories
             $categories_combo = dcAdminCombos::getCategoriesCombo(
@@ -294,7 +294,7 @@ class dcDefaultPostActions
             '<form action="' . $ap->getURI() . '" method="post">' .
             $ap->getCheckboxes() .
             '<p><label for="new_cat_id" class="classic">' . __('Category:') . '</label> ' .
-            form::combo(array('new_cat_id'), $categories_combo);
+            form::combo(['new_cat_id'], $categories_combo);
 
             if ($core->auth->check('categories', $core->blog->id)) {
                 echo
@@ -311,7 +311,7 @@ class dcDefaultPostActions
             echo
             $core->formNonce() .
             $ap->getHiddenFields() .
-            form::hidden(array('action'), 'category') .
+            form::hidden(['action'], 'category') .
             '<input type="submit" value="' . __('Save') . '" /></p>' .
                 '</form>';
             $ap->endPage();
@@ -348,10 +348,10 @@ class dcDefaultPostActions
         } else {
             $usersList = '';
             if ($core->auth->check('admin', $core->blog->id)) {
-                $params = array(
+                $params = [
                     'limit' => 100,
                     'order' => 'nb_post DESC'
-                );
+                ];
                 $rs       = $core->getUsers($params);
                 $rsStatic = $rs->toStatic();
                 $rsStatic->extend('rsExtUser');
@@ -363,10 +363,10 @@ class dcDefaultPostActions
             }
             $ap->beginPage(
                 dcPage::breadcrumb(
-                    array(
+                    [
                         html::escapeHTML($core->blog->name)    => '',
                         $ap->getCallerTitle()                  => $ap->getRedirection(true),
-                        __('Change author for this selection') => '')),
+                        __('Change author for this selection') => '']),
                 dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
                 '<script type="text/javascript">' . "\n" .
                 'usersList = [' . $usersList . ']' . "\n" .
@@ -381,7 +381,7 @@ class dcDefaultPostActions
 
             echo
             $core->formNonce() . $ap->getHiddenFields() .
-            form::hidden(array('action'), 'author') .
+            form::hidden(['action'], 'author') .
             '<input type="submit" value="' . __('Save') . '" /></p>' .
                 '</form>';
             $ap->endPage();
@@ -411,16 +411,16 @@ class dcDefaultPostActions
         } else {
             $ap->beginPage(
                 dcPage::breadcrumb(
-                    array(
+                    [
                         html::escapeHTML($core->blog->name)      => '',
                         $ap->getCallerTitle()                    => $ap->getRedirection(true),
                         __('Change language for this selection') => ''
-                    )));
+                    ]));
             # lang list
             # Languages combo
-            $rs         = $core->blog->getLangs(array('order' => 'asc'));
+            $rs         = $core->blog->getLangs(['order' => 'asc']);
             $all_langs  = l10n::getISOcodes(0, 1);
-            $lang_combo = array('' => '', __('Most used') => array(), __('Available') => l10n::getISOcodes(1, 1));
+            $lang_combo = ['' => '', __('Most used') => [], __('Available') => l10n::getISOcodes(1, 1)];
             while ($rs->fetch()) {
                 if (isset($all_langs[$rs->post_lang])) {
                     $lang_combo[__('Most used')][$all_langs[$rs->post_lang]] = $rs->post_lang;
@@ -441,7 +441,7 @@ class dcDefaultPostActions
 
             echo
             $core->formNonce() . $ap->getHiddenFields() .
-            form::hidden(array('action'), 'lang') .
+            form::hidden(['action'], 'lang') .
             '<input type="submit" value="' . __('Save') . '" /></p>' .
                 '</form>';
             $ap->endPage();

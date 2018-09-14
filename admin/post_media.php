@@ -18,7 +18,7 @@ $link_type = !empty($_REQUEST['link_type']) ? $_REQUEST['link_type'] : null;
 if (!$post_id) {
     exit;
 }
-$rs = $core->blog->getPosts(array('post_id' => $post_id, 'post_type' => ''));
+$rs = $core->blog->getPosts(['post_id' => $post_id, 'post_type' => '']);
 if ($rs->isEmpty()) {
     exit;
 }
@@ -29,7 +29,7 @@ try {
         $core->media->addPostMedia($post_id, $media_id, $link_type);
         if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
             header('Content-type: application/json');
-            echo json_encode(array('url' => $core->getPostAdminURL($rs->post_type, $post_id, false)));
+            echo json_encode(['url' => $core->getPostAdminURL($rs->post_type, $post_id, false)]);
             exit();
         } else {
             http::redirect($core->getPostAdminURL($rs->post_type, $post_id, false));

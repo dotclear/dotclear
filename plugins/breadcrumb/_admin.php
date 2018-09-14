@@ -14,8 +14,8 @@ if (!defined('DC_CONTEXT_ADMIN')) {return;}
 // dead but useful code, in order to have translations
 __('Breadcrumb') . __('Breadcrumb for Dotclear');
 
-$core->addBehavior('adminBlogPreferencesForm', array('breadcrumbBehaviors', 'adminBlogPreferencesForm'));
-$core->addBehavior('adminBeforeBlogSettingsUpdate', array('breadcrumbBehaviors', 'adminBeforeBlogSettingsUpdate'));
+$core->addBehavior('adminBlogPreferencesForm', ['breadcrumbBehaviors', 'adminBlogPreferencesForm']);
+$core->addBehavior('adminBeforeBlogSettingsUpdate', ['breadcrumbBehaviors', 'adminBeforeBlogSettingsUpdate']);
 
 class breadcrumbBehaviors
 {

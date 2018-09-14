@@ -36,7 +36,7 @@ if (!empty($_GET['shot']) && $list->modules->moduleExists($_GET['shot'])) {
         $f = dirname(__FILE__) . '/images/noscreenshot.png';
     }
 
-    http::cache(array_merge(array($f), get_included_files()));
+    http::cache(array_merge([$f], get_included_files()));
 
     header('Content-Type: ' . files::getMimeType($f));
     header('Content-Length: ' . filesize($f));
@@ -63,11 +63,11 @@ if ($list->setConfiguration($core->blog->settings->system->theme)) {
         $core->callBehavior('themesToolsHeaders', $core, true),
 
         dcPage::breadcrumb(
-            array(
+            [
                 html::escapeHTML($core->blog->name)                                 => '',
                 __('Blog appearance')                                               => $list->getURL('', false),
                 '<span class="page-title">' . __('Theme configuration') . '</span>' => ''
-            ))
+            ])
     );
 
     # Display previously gathered content
@@ -97,10 +97,10 @@ dcPage::open(__('Themes management'),
     $core->callBehavior('themesToolsHeaders', $core, false),
 
     dcPage::breadcrumb(
-        array(
+        [
             html::escapeHTML($core->blog->name)                             => '',
             '<span class="page-title">' . __('Blog appearance') . '</span>' => ''
-        ))
+        ])
 );
 
 # -- Display modules lists --
@@ -128,8 +128,8 @@ if ($core->auth->isSuperAdmin()) {
             ->setTab('themes')
             ->setModules($modules)
             ->displayModules(
-                /*cols */array('checkbox', 'name', 'sshot', 'desc', 'author', 'version', 'current_version', 'parent'),
-                /* actions */array('update', 'delete')
+                /*cols */['checkbox', 'name', 'sshot', 'desc', 'author', 'version', 'current_version', 'parent'],
+                /* actions */['update', 'delete']
             );
 
         echo
@@ -163,8 +163,8 @@ if (!empty($modules)) {
         ->setTab('themes')
         ->setModules($modules)
         ->displayModules(
-            /* cols */array('sshot', 'distrib', 'name', 'config', 'desc', 'author', 'version', 'parent'),
-            /* actions */array('select', 'behavior', 'deactivate', 'delete')
+            /* cols */['sshot', 'distrib', 'name', 'config', 'desc', 'author', 'version', 'parent'],
+            /* actions */['select', 'behavior', 'deactivate', 'delete']
         );
 
     echo
@@ -185,8 +185,8 @@ if (!empty($modules)) {
         ->setTab('themes')
         ->setModules($modules)
         ->displayModules(
-            /* cols */array('name', 'distrib'),
-            /* actions */array('activate', 'delete')
+            /* cols */['name', 'distrib'],
+            /* actions */['activate', 'delete']
         );
 
     echo
@@ -212,8 +212,8 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
             ->displaySearch()
             ->displayIndex()
             ->displayModules(
-                /* cols */array('expander', 'sshot', 'name', 'score', 'config', 'desc', 'author', 'version', 'parent', 'details', 'support'),
-                /* actions */array('install'),
+                /* cols */['expander', 'sshot', 'name', 'score', 'config', 'desc', 'author', 'version', 'parent', 'details', 'support'],
+                /* actions */['install'],
                 /* nav limit */true
             );
 

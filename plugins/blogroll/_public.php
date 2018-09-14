@@ -14,10 +14,10 @@ if (!defined('DC_RC_PATH')) {return;}
 require dirname(__FILE__) . '/_widgets.php';
 
 # Blogroll template functions
-$core->tpl->addValue('Blogroll', array('tplBlogroll', 'blogroll'));
-$core->tpl->addValue('BlogrollXbelLink', array('tplBlogroll', 'blogrollXbelLink'));
+$core->tpl->addValue('Blogroll', ['tplBlogroll', 'blogroll']);
+$core->tpl->addValue('BlogrollXbelLink', ['tplBlogroll', 'blogrollXbelLink']);
 
-$core->url->register('xbel', 'xbel', '^xbel(?:/?)$', array('urlBlogroll', 'xbel'));
+$core->url->register('xbel', 'xbel', '^xbel(?:/?)$', ['urlBlogroll', 'xbel']);
 
 class tplBlogroll
 {
@@ -74,7 +74,7 @@ class tplBlogroll
             if (!isset($hierarchy[$category])) {
                 return '';
             }
-            $hierarchy = array($hierarchy[$category]);
+            $hierarchy = [$hierarchy[$category]];
         }
 
         foreach ($hierarchy as $k => $v) {

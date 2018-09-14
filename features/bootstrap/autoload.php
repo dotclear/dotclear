@@ -14,7 +14,7 @@ define('CLEARBRICKS_PATH',__DIR__.'/../../inc/libs/clearbricks');
 
 require_once __DIR__.'/../../vendor/autoload.php';
 
-$__autoload = array();
+$__autoload = [];
 $__autoload['dbStruct'] = CLEARBRICKS_PATH.'/dbschema/class.dbstruct.php';
 $__autoload['dbSchema'] = CLEARBRICKS_PATH.'/dbschema/class.dbschema.php';
 $__autoload['pgsqlSchema'] = CLEARBRICKS_PATH.'/dbschema/class.pgsql.dbschema.php';

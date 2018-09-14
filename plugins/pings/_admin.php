@@ -19,21 +19,21 @@ $_menu['Blog']->addItem(__('Pings'),
 
 $__autoload['pingsAdminBehaviors'] = dirname(__FILE__) . '/lib.pings.php';
 
-$core->addBehavior('adminPostHeaders', array('pingsAdminBehaviors', 'pingJS'));
-$core->addBehavior('adminPostFormItems', array('pingsAdminBehaviors', 'pingsFormItems'));
-$core->addBehavior('adminAfterPostCreate', array('pingsAdminBehaviors', 'doPings'));
-$core->addBehavior('adminAfterPostUpdate', array('pingsAdminBehaviors', 'doPings'));
+$core->addBehavior('adminPostHeaders', ['pingsAdminBehaviors', 'pingJS']);
+$core->addBehavior('adminPostFormItems', ['pingsAdminBehaviors', 'pingsFormItems']);
+$core->addBehavior('adminAfterPostCreate', ['pingsAdminBehaviors', 'doPings']);
+$core->addBehavior('adminAfterPostUpdate', ['pingsAdminBehaviors', 'doPings']);
 
 $core->addBehavior('adminDashboardFavorites', 'pingDashboardFavorites');
 
 function pingDashboardFavorites($core, $favs)
 {
-    $favs->register('pings', array(
+    $favs->register('pings', [
         'title'      => __('Pings'),
         'url'        => $core->adminurl->get('admin.plugin.pings'),
         'small-icon' => dcPage::getPF('pings/icon.png'),
         'large-icon' => dcPage::getPF('pings/icon-big.png')
-    ));
+    ]);
 }
 
 $core->addBehavior('adminPageHelpBlock', 'pingsPageHelpBlock');

@@ -16,7 +16,7 @@ $this->registerModule(
     "Manage every user preference directive", // Description
     "Franck Paul",                            // Author
     '0.3',                                    // Version
-    array(
+    [
         'type' => 'plugin'
-    )
+    ]
 );

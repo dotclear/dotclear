@@ -17,7 +17,7 @@ $path = realpath($path);
 $cmd = 'find ' . $path . ' -type f -name \'*.po\'';
 exec($cmd, $eres, $ret);
 
-$res = array();
+$res = [];
 
 foreach ($eres as $f) {
     $dest = dirname($f) . '/' . basename($f, '.po') . '.lang.php';

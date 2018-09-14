@@ -19,8 +19,8 @@ class dcMenu
         $this->id        = $id;
         $this->title     = $title;
         $this->itemSpace = $itemSpace;
-        $this->pinned    = array();
-        $this->items     = array();
+        $this->pinned    = [];
+        $this->items     = [];
     }
 
     public function addItem($title, $url, $img, $active, $show = true, $id = null, $class = null, $pinned = false)

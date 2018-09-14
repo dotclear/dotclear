@@ -14,7 +14,7 @@ if (!defined('DC_RC_PATH')) {return;}
 require dirname(__FILE__) . '/_widgets.php';
 
 # Simple menu template functions
-$core->tpl->addValue('SimpleMenu', array('tplSimpleMenu', 'simpleMenu'));
+$core->tpl->addValue('SimpleMenu', ['tplSimpleMenu', 'simpleMenu']);
 
 class tplSimpleMenu
 {
@@ -47,7 +47,7 @@ class tplSimpleMenu
     {
         global $core, $_ctx;
 
-        $descr_type = array(0 => 'span', 1 => 'title', 2 => 'both', 3 => 'none');
+        $descr_type = [0 => 'span', 1 => 'title', 2 => 'both', 3 => 'none'];
 
         if (!(boolean) $core->blog->settings->system->simpleMenu_active) {
             return;
@@ -144,14 +144,14 @@ class tplSimpleMenu
 
                 $label = html::escapeHTML(__($m['label']));
 
-                $item = new ArrayObject(array(
+                $item = new ArrayObject([
                     'url'    => $href,   // URL
                     'label'  => $label,  // <a> link label
                     'title'  => $title,  // <a> link title (optional)
                     'span'   => $span,   // description (will be displayed after <a> link)
                     'active' => $active, // status (true/false)
                     'class'  => ''      // additional <li> class (optional)
-                ));
+                ]);
 
                 # --BEHAVIOR-- publicSimpleMenuItem
                 $core->callBehavior('publicSimpleMenuItem', $i, $item);

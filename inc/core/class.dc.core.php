@@ -30,9 +30,9 @@ class dcCore
     public $stime;      ///< <b>float</b>            starting time
 
     private $versions   = null;
-    private $formaters  = array();
-    private $behaviors  = array();
-    private $post_types = array();
+    private $formaters  = [];
+    private $behaviors  = [];
+    private $post_types = [];
 
     /**
     dcCore constructor inits everything related to Dotclear. It takes arguments
@@ -150,11 +150,11 @@ class dcCore
      */
     public function getAllBlogStatus()
     {
-        return array(
+        return [
             1  => __('online'),
             0  => __('offline'),
             -1 => __('removed')
-        );
+        ];
     }
 
     /**
@@ -199,7 +199,7 @@ class dcCore
             return;
         }
 
-        return form::hidden(array('xd_check'), $this->getNonce());
+        return form::hidden(['xd_check'], $this->getNonce());
     }
     //@}
 
@@ -243,7 +243,7 @@ class dcCore
      */
     public function getEditors()
     {
-        $editors = array();
+        $editors = [];
 
         foreach (array_keys($this->formaters) as $editor_id) {
             $editors[$editor_id] = $this->plugins->moduleInfo($editor_id, 'name');
@@ -269,7 +269,7 @@ class dcCore
      */
     public function getFormaters($editor_id = '')
     {
-        $formaters_list = array();
+        $formaters_list = [];
 
         if (!empty($editor_id)) {
             if (isset($this->formaters[$editor_id])) {
@@ -362,7 +362,7 @@ class dcCore
             return $this->behaviors[$behavior];
         }
 
-        return array();
+        return [];
     }
 
     /**
@@ -413,11 +413,11 @@ class dcCore
 
     public function setPostType($type, $admin_url, $public_url, $label = '')
     {
-        $this->post_types[$type] = array(
+        $this->post_types[$type] = [
             'admin_url'  => $admin_url,
             'public_url' => $public_url,
             'label'      => ($label != '' ? $label : $type)
-        );
+        ];
     }
 
     public function getPostTypes()
@@ -524,7 +524,7 @@ class dcCore
     @param    count_only    <b>boolean</b>        Only counts results
     @return    <b>record</b>
      */
-    public function getUsers($params = array(), $count_only = false)
+    public function getUsers($params = [], $count_only = false)
     {
         if ($count_only) {
             $strReq =
@@ -562,7 +562,7 @@ class dcCore
 
             if (!empty($params['order']) && !$count_only) {
                 if (preg_match('`^([^. ]+) (?:asc|desc)`i', $params['order'], $matches)) {
-                    if (in_array($matches[1], array('user_id', 'user_name', 'user_firstname', 'user_displayname'))) {
+                    if (in_array($matches[1], ['user_id', 'user_name', 'user_firstname', 'user_displayname'])) {
                         $table_prefix = 'U.';
                     } else {
                         $table_prefix = ''; // order = nb_post (asc|desc)
@@ -724,14 +724,14 @@ class dcCore
 
         $rs = $this->con->select($strReq);
 
-        $res = array();
+        $res = [];
 
         while ($rs->fetch()) {
-            $res[$rs->blog_id] = array(
+            $res[$rs->blog_id] = [
                 'name' => $rs->blog_name,
                 'url'  => $rs->blog_url,
                 'p'    => $this->auth->parsePermissions($rs->permissions)
-            );
+            ];
         }
 
         return $res;
@@ -856,13 +856,13 @@ class dcCore
      */
     public function userDefaults()
     {
-        return array(
+        return [
             'edit_size'      => 24,
             'enable_wysiwyg' => true,
             'toolbar_bottom' => false,
-            'editor'         => array('xhtml' => 'dcCKEditor', 'wiki' => 'dcLegacyEditor'),
+            'editor'         => ['xhtml' => 'dcCKEditor', 'wiki' => 'dcLegacyEditor'],
             'post_format'    => 'wiki'
-        );
+        ];
     }
     //@}
 
@@ -904,17 +904,17 @@ class dcCore
 
         $rs = $this->con->select($strReq);
 
-        $res = array();
+        $res = [];
 
         while ($rs->fetch()) {
-            $res[$rs->user_id] = array(
+            $res[$rs->user_id] = [
                 'name'        => $rs->user_name,
                 'firstname'   => $rs->user_firstname,
                 'displayname' => $rs->user_displayname,
                 'email'       => $rs->user_email,
                 'super'       => (boolean) $rs->user_super,
                 'p'           => $this->auth->parsePermissions($rs->permissions)
-            );
+            ];
         }
 
         return $res;
@@ -928,7 +928,7 @@ class dcCore
      */
     public function getBlog($id)
     {
-        $blog = $this->getBlogs(array('blog_id' => $id));
+        $blog = $this->getBlogs(['blog_id' => $id]);
 
         if ($blog->isEmpty()) {
             return false;
@@ -949,7 +949,7 @@ class dcCore
     @param    count_only    <b>boolean</b>        Count only results
     @return    <b>record</b>
      */
-    public function getBlogs($params = array(), $count_only = false)
+    public function getBlogs($params = [], $count_only = false)
     {
         $join  = ''; // %1$s
         $where = ''; // %2$s
@@ -996,7 +996,7 @@ class dcCore
 
         if (isset($params['blog_id']) && $params['blog_id'] !== '') {
             if (!is_array($params['blog_id'])) {
-                $params['blog_id'] = array($params['blog_id']);
+                $params['blog_id'] = [$params['blog_id']];
             }
             $where .= 'AND B.blog_id ' . $this->con->in($params['blog_id']);
         }
@@ -1180,7 +1180,7 @@ class dcCore
     {
         $this->initWiki();
 
-        $this->wiki2xhtml->setOpts(array(
+        $this->wiki2xhtml->setOpts([
             'active_title'        => 1,
             'active_setext_title' => 0,
             'active_hr'           => 1,
@@ -1213,9 +1213,9 @@ class dcCore
             'note_prefix'         => 'wiki-footnote',
             'note_str'            => '<div class="footnotes"><h4>Notes</h4>%s</div>',
             'img_style_center'    => 'display:table; margin:0 auto;'
-        ));
+        ]);
 
-        $this->wiki2xhtml->registerFunction('url:post', array($this, 'wikiPostLink'));
+        $this->wiki2xhtml->registerFunction('url:post', [$this, 'wikiPostLink']);
 
         # --BEHAVIOR-- coreWikiPostInit
         $this->callBehavior('coreInitWikiPost', $this->wiki2xhtml);
@@ -1228,7 +1228,7 @@ class dcCore
     {
         $this->initWiki();
 
-        $this->wiki2xhtml->setOpts(array(
+        $this->wiki2xhtml->setOpts([
             'active_title'        => 0,
             'active_setext_title' => 0,
             'active_hr'           => 0,
@@ -1257,7 +1257,7 @@ class dcCore
             'active_mark'         => 0,
             'parse_pre'           => 0,
             'active_fr_syntax'    => 0
-        ));
+        ]);
 
         # --BEHAVIOR-- coreInitWikiSimpleComment
         $this->callBehavior('coreInitWikiSimpleComment', $this->wiki2xhtml);
@@ -1270,7 +1270,7 @@ class dcCore
     {
         $this->initWiki();
 
-        $this->wiki2xhtml->setOpts(array(
+        $this->wiki2xhtml->setOpts([
             'active_title'        => 0,
             'active_setext_title' => 0,
             'active_hr'           => 0,
@@ -1299,7 +1299,7 @@ class dcCore
             'active_mark'         => 1,
             'parse_pre'           => 0,
             'active_fr_syntax'    => 0
-        ));
+        ]);
 
         # --BEHAVIOR-- coreInitWikiComment
         $this->callBehavior('coreInitWikiComment', $this->wiki2xhtml);
@@ -1308,20 +1308,20 @@ class dcCore
     public function wikiPostLink($url, $content)
     {
         if (!($this->blog instanceof dcBlog)) {
-            return array();
+            return [];
         }
 
         $post_id = abs((integer) substr($url, 5));
         if (!$post_id) {
-            return array();
+            return [];
         }
 
-        $post = $this->blog->getPosts(array('post_id' => $post_id));
+        $post = $this->blog->getPosts(['post_id' => $post_id]);
         if ($post->isEmpty()) {
-            return array();
+            return [];
         }
 
-        $res        = array('url' => $post->getURL());
+        $res        = ['url' => $post->getURL()];
         $post_title = $post->post_title;
 
         if ($content != $url) {
@@ -1351,99 +1351,99 @@ class dcCore
     public function blogDefaults($defaults = null)
     {
         if (!is_array($defaults)) {
-            $defaults = array(
-                array('allow_comments', 'boolean', true,
-                    'Allow comments on blog'),
-                array('allow_trackbacks', 'boolean', true,
-                    'Allow trackbacks on blog'),
-                array('blog_timezone', 'string', 'Europe/London',
-                    'Blog timezone'),
-                array('comments_nofollow', 'boolean', true,
-                    'Add rel="nofollow" to comments URLs'),
-                array('comments_pub', 'boolean', true,
-                    'Publish comments immediately'),
-                array('comments_ttl', 'integer', 0,
-                    'Number of days to keep comments open (0 means no ttl)'),
-                array('copyright_notice', 'string', '', 'Copyright notice (simple text)'),
-                array('date_format', 'string', '%A, %B %e %Y',
-                    'Date format. See PHP strftime function for patterns'),
-                array('editor', 'string', '',
-                    'Person responsible of the content'),
-                array('enable_html_filter', 'boolean', 0,
-                    'Enable HTML filter'),
-                array('enable_xmlrpc', 'boolean', 0,
-                    'Enable XML/RPC interface'),
-                array('lang', 'string', 'en',
-                    'Default blog language'),
-                array('media_exclusion', 'string', '/\.(phps?|pht(ml)?|phl|.?html?|xml|js|htaccess)[0-9]*$/i',
-                    'File name exclusion pattern in media manager. (PCRE value)'),
-                array('media_img_m_size', 'integer', 448,
-                    'Image medium size in media manager'),
-                array('media_img_s_size', 'integer', 240,
-                    'Image small size in media manager'),
-                array('media_img_t_size', 'integer', 100,
-                    'Image thumbnail size in media manager'),
-                array('media_img_title_pattern', 'string', 'Title ;; Date(%b %Y) ;; separator(, )',
-                    'Pattern to set image title when you insert it in a post'),
-                array('media_video_width', 'integer', 400,
-                    'Video width in media manager'),
-                array('media_video_height', 'integer', 300,
-                    'Video height in media manager'),
-                array('media_flash_fallback', 'boolean', true,
-                    'Flash player fallback for audio and video media'),
-                array('nb_post_for_home', 'integer', 20,
-                    'Number of entries on first home page'),
-                array('nb_post_per_page', 'integer', 20,
-                    'Number of entries on home pages and category pages'),
-                array('nb_post_per_feed', 'integer', 20,
-                    'Number of entries on feeds'),
-                array('nb_comment_per_feed', 'integer', 20,
-                    'Number of comments on feeds'),
-                array('post_url_format', 'string', '{y}/{m}/{d}/{t}',
-                    'Post URL format. {y}: year, {m}: month, {d}: day, {id}: post id, {t}: entry title'),
-                array('public_path', 'string', 'public',
-                    'Path to public directory, begins with a / for a full system path'),
-                array('public_url', 'string', '/public',
-                    'URL to public directory'),
-                array('robots_policy', 'string', 'INDEX,FOLLOW',
-                    'Search engines robots policy'),
-                array('short_feed_items', 'boolean', false,
-                    'Display short feed items'),
-                array('theme', 'string', 'berlin',
-                    'Blog theme'),
-                array('themes_path', 'string', 'themes',
-                    'Themes root path'),
-                array('themes_url', 'string', '/themes',
-                    'Themes root URL'),
-                array('time_format', 'string', '%H:%M',
-                    'Time format. See PHP strftime function for patterns'),
-                array('tpl_allow_php', 'boolean', false,
-                    'Allow PHP code in templates'),
-                array('tpl_use_cache', 'boolean', true,
-                    'Use template caching'),
-                array('trackbacks_pub', 'boolean', true,
-                    'Publish trackbacks immediately'),
-                array('trackbacks_ttl', 'integer', 0,
-                    'Number of days to keep trackbacks open (0 means no ttl)'),
-                array('url_scan', 'string', 'query_string',
-                    'URL handle mode (path_info or query_string)'),
-                array('use_smilies', 'boolean', false,
-                    'Show smilies on entries and comments'),
-                array('no_search', 'boolean', false,
-                    'Disable search'),
-                array('inc_subcats', 'boolean', false,
-                    'Include sub-categories in category page and category posts feed'),
-                array('wiki_comments', 'boolean', false,
-                    'Allow commenters to use a subset of wiki syntax'),
-                array('import_feed_url_control', 'boolean', true,
-                    'Control feed URL before import'),
-                array('import_feed_no_private_ip', 'boolean', true,
-                    'Prevent import feed from private IP'),
-                array('import_feed_ip_regexp', 'string', '',
-                    'Authorize import feed only from this IP regexp'),
-                array('import_feed_port_regexp', 'string', '/^(80|443)$/',
-                    'Authorize import feed only from this port regexp')
-            );
+            $defaults = [
+                ['allow_comments', 'boolean', true,
+                    'Allow comments on blog'],
+                ['allow_trackbacks', 'boolean', true,
+                    'Allow trackbacks on blog'],
+                ['blog_timezone', 'string', 'Europe/London',
+                    'Blog timezone'],
+                ['comments_nofollow', 'boolean', true,
+                    'Add rel="nofollow" to comments URLs'],
+                ['comments_pub', 'boolean', true,
+                    'Publish comments immediately'],
+                ['comments_ttl', 'integer', 0,
+                    'Number of days to keep comments open (0 means no ttl)'],
+                ['copyright_notice', 'string', '', 'Copyright notice (simple text)'],
+                ['date_format', 'string', '%A, %B %e %Y',
+                    'Date format. See PHP strftime function for patterns'],
+                ['editor', 'string', '',
+                    'Person responsible of the content'],
+                ['enable_html_filter', 'boolean', 0,
+                    'Enable HTML filter'],
+                ['enable_xmlrpc', 'boolean', 0,
+                    'Enable XML/RPC interface'],
+                ['lang', 'string', 'en',
+                    'Default blog language'],
+                ['media_exclusion', 'string', '/\.(phps?|pht(ml)?|phl|.?html?|xml|js|htaccess)[0-9]*$/i',
+                    'File name exclusion pattern in media manager. (PCRE value)'],
+                ['media_img_m_size', 'integer', 448,
+                    'Image medium size in media manager'],
+                ['media_img_s_size', 'integer', 240,
+                    'Image small size in media manager'],
+                ['media_img_t_size', 'integer', 100,
+                    'Image thumbnail size in media manager'],
+                ['media_img_title_pattern', 'string', 'Title ;; Date(%b %Y) ;; separator(, )',
+                    'Pattern to set image title when you insert it in a post'],
+                ['media_video_width', 'integer', 400,
+                    'Video width in media manager'],
+                ['media_video_height', 'integer', 300,
+                    'Video height in media manager'],
+                ['media_flash_fallback', 'boolean', true,
+                    'Flash player fallback for audio and video media'],
+                ['nb_post_for_home', 'integer', 20,
+                    'Number of entries on first home page'],
+                ['nb_post_per_page', 'integer', 20,
+                    'Number of entries on home pages and category pages'],
+                ['nb_post_per_feed', 'integer', 20,
+                    'Number of entries on feeds'],
+                ['nb_comment_per_feed', 'integer', 20,
+                    'Number of comments on feeds'],
+                ['post_url_format', 'string', '{y}/{m}/{d}/{t}',
+                    'Post URL format. {y}: year, {m}: month, {d}: day, {id}: post id, {t}: entry title'],
+                ['public_path', 'string', 'public',
+                    'Path to public directory, begins with a / for a full system path'],
+                ['public_url', 'string', '/public',
+                    'URL to public directory'],
+                ['robots_policy', 'string', 'INDEX,FOLLOW',
+                    'Search engines robots policy'],
+                ['short_feed_items', 'boolean', false,
+                    'Display short feed items'],
+                ['theme', 'string', 'berlin',
+                    'Blog theme'],
+                ['themes_path', 'string', 'themes',
+                    'Themes root path'],
+                ['themes_url', 'string', '/themes',
+                    'Themes root URL'],
+                ['time_format', 'string', '%H:%M',
+                    'Time format. See PHP strftime function for patterns'],
+                ['tpl_allow_php', 'boolean', false,
+                    'Allow PHP code in templates'],
+                ['tpl_use_cache', 'boolean', true,
+                    'Use template caching'],
+                ['trackbacks_pub', 'boolean', true,
+                    'Publish trackbacks immediately'],
+                ['trackbacks_ttl', 'integer', 0,
+                    'Number of days to keep trackbacks open (0 means no ttl)'],
+                ['url_scan', 'string', 'query_string',
+                    'URL handle mode (path_info or query_string)'],
+                ['use_smilies', 'boolean', false,
+                    'Show smilies on entries and comments'],
+                ['no_search', 'boolean', false,
+                    'Disable search'],
+                ['inc_subcats', 'boolean', false,
+                    'Include sub-categories in category page and category posts feed'],
+                ['wiki_comments', 'boolean', false,
+                    'Allow commenters to use a subset of wiki syntax'],
+                ['import_feed_url_control', 'boolean', true,
+                    'Control feed URL before import'],
+                ['import_feed_no_private_ip', 'boolean', true,
+                    'Prevent import feed from private IP'],
+                ['import_feed_ip_regexp', 'string', '',
+                    'Authorize import feed only from this IP regexp'],
+                ['import_feed_port_regexp', 'string', '/^(80|443)$/',
+                    'Authorize import feed only from this port regexp']
+            ];
         }
 
         $settings = new dcSettings($this, null);

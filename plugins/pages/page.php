@@ -33,7 +33,7 @@ $post_open_comment  = false;
 $post_open_tb       = false;
 $post_selected      = false;
 
-$post_media = array();
+$post_media = [];
 
 $page_title = __('New page');
 
@@ -59,7 +59,7 @@ $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" sr
 
 # Formaters combo
 $core_formaters    = $core->getFormaters();
-$available_formats = array('' => '');
+$available_formats = ['' => ''];
 foreach ($core_formaters as $editor => $formats) {
     foreach ($formats as $format) {
         $available_formats[$format] = $format;
@@ -67,7 +67,7 @@ foreach ($core_formaters as $editor => $formats) {
 }
 
 # Languages combo
-$rs         = $core->blog->getLangs(array('order' => 'asc'));
+$rs         = $core->blog->getLangs(['order' => 'asc']);
 $lang_combo = dcAdminCombos::getLangsCombo($rs, true);
 
 # Validation flag
@@ -278,12 +278,12 @@ if ($post_editor) {
     }
     if ($p_edit == $c_edit) {
         $admin_post_behavior .= $core->callBehavior('adminPostEditor',
-            $p_edit, 'page', array('#post_excerpt', '#post_content', '#comment_content'), $post_format);
+            $p_edit, 'page', ['#post_excerpt', '#post_content', '#comment_content'], $post_format);
     } else {
         $admin_post_behavior .= $core->callBehavior('adminPostEditor',
-            $p_edit, 'page', array('#post_excerpt', '#post_content'), $post_format);
+            $p_edit, 'page', ['#post_excerpt', '#post_content'], $post_format);
         $admin_post_behavior .= $core->callBehavior('adminPostEditor',
-            $c_edit, 'comment', array('#comment_content'), 'xhtml');
+            $c_edit, 'comment', ['#comment_content'], 'xhtml');
     }
 }
 
@@ -333,11 +333,11 @@ if ($post_id) {
     $edit_entry_title = $page_title;
 }
 echo dcPage::breadcrumb(
-    array(
+    [
         html::escapeHTML($core->blog->name) => '',
         __('Pages')                         => $p_url,
         $edit_entry_title                   => ''
-    ));
+    ]);
 
 if (!empty($_GET['upd'])) {
     dcPage::success(__('Page has been successfully updated.'));
@@ -385,14 +385,14 @@ if (!$can_view_page) {
 /* Post form if we can edit page
 -------------------------------------------------------- */
 if ($can_edit_page) {
-    $sidebar_items = new ArrayObject(array(
-        'status-box'  => array(
+    $sidebar_items = new ArrayObject([
+        'status-box'  => [
             'title' => __('Status'),
-            'items' => array(
+            'items' => [
                 'post_status' =>
                 '<p><label for="post_status">' . __('Page status') . '</label> ' .
                 form::combo('post_status', $status_combo,
-                    array('default' => $post_status, 'disabled' => !$can_publish)) .
+                    ['default' => $post_status, 'disabled' => !$can_publish]) .
                 '</p>',
                 'post_dt'     =>
                 '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
@@ -401,10 +401,10 @@ if ($can_edit_page) {
                 Previous line will be replaced by this one as soon as every browser will support datetime-local input type
                 Dont forget to remove call to datepicker in post.js
 
-                form::datetime('post_dt', array(
+                form::datetime('post_dt', [
                 'default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', strtotime($post_dt))),
                 'class' => ($bad_dt ? 'invalid' : '')
-                )) .
+                ]) .
                  */
                 '</p>',
                 'post_lang'   =>
@@ -418,19 +418,19 @@ if ($can_edit_page) {
                 '<p class="format_control control_wiki">' .
                 '<a id="convert-xhtml" class="button' . ($post_id && $post_format != 'wiki' ? ' hide' : '') .
                 '" href="' . html::escapeURL($redir_url) . '&amp;id=' . $post_id . '&amp;xconv=1">' .
-                __('Convert to XHTML') . '</a></p></div>')),
-        'metas-box'   => array(
+                __('Convert to XHTML') . '</a></p></div>']],
+        'metas-box'   => [
             'title' => __('Filing'),
-            'items' => array(
+            'items' => [
                 'post_position' =>
                 '<p><label for="post_position" class="classic">' . __('Page position') . '</label> ' .
-                form::number('post_position', array(
+                form::number('post_position', [
                     'default' => $post_position
-                )) .
-                '</p>')),
-        'options-box' => array(
+                ]) .
+                '</p>']],
+        'options-box' => [
             'title' => __('Options'),
-            'items' => array(
+            'items' => [
                 'post_open_comment_tb' =>
                 '<div>' .
                 '<h5 id="label_comment_tb">' . __('Comments and trackbacks list') . '</h5>' .
@@ -470,16 +470,16 @@ if ($can_edit_page) {
                 '<p class="form-note warn">' .
                 __('Warning: If you set the URL manually, it may conflict with another page.') .
                 '</p></div>'
-            ))));
-    $main_items = new ArrayObject(array(
+            ]]]);
+    $main_items = new ArrayObject([
         "post_title"   =>
         '<p class="col">' .
         '<label class="required no-margin bold" for="post_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
-        form::field('post_title', 20, 255, array(
+        form::field('post_title', 20, 255, [
             'default'    => html::escapeHTML($post_title),
             'class'      => 'maximal',
             'extra_html' => 'required placeholder="' . __('Title') . '"'
-        )) .
+        ]) .
         '</p>',
 
         "post_excerpt" =>
@@ -492,10 +492,10 @@ if ($can_edit_page) {
         '<p class="area" id="content-area"><label class="required bold" ' .
         'for="post_content"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Content:') . '</label> ' .
         form::textarea('post_content', 50, $core->auth->getOption('edit_size'),
-            array(
+            [
                 'default'    => html::escapeHTML($post_content),
                 'extra_html' => 'required placeholder="' . __('Content') . '"'
-            )) .
+            ]) .
         '</p>',
 
         "post_notes"   =>
@@ -503,7 +503,7 @@ if ($can_edit_page) {
         __('Unpublished notes.') . '</span></label>' .
         form::textarea('post_notes', 50, 5, html::escapeHTML($post_notes)) .
         '</p>'
-    )
+    ]
     );
 
     # --BEHAVIOR-- adminPostFormItems
@@ -576,9 +576,9 @@ if ($can_edit_page) {
     if ($post_id && !empty($post_media)) {
         echo
         '<form action="' . $core->adminurl->get('admin.post.media') . '" id="attachment-remove-hide" method="post">' .
-        '<div>' . form::hidden(array('post_id'), $post_id) .
-        form::hidden(array('media_id'), '') .
-        form::hidden(array('remove'), 1) .
+        '<div>' . form::hidden(['post_id'], $post_id) .
+        form::hidden(['media_id'], '') .
+        form::hidden(['remove'], 1) .
         $core->formNonce() . '</div></form>';
     }
 }
@@ -586,13 +586,13 @@ if ($can_edit_page) {
 /* Comments and trackbacks
 -------------------------------------------------------- */
 if ($post_id) {
-    $params = array('post_id' => $post_id, 'order' => 'comment_dt ASC');
+    $params = ['post_id' => $post_id, 'order' => 'comment_dt ASC'];
 
-    $comments   = $core->blog->getComments(array_merge($params, array('comment_trackback' => 0)));
-    $trackbacks = $core->blog->getComments(array_merge($params, array('comment_trackback' => 1)));
+    $comments   = $core->blog->getComments(array_merge($params, ['comment_trackback' => 0]));
+    $trackbacks = $core->blog->getComments(array_merge($params, ['comment_trackback' => 1]));
 
     # Actions combo box
-    $combo_action = array();
+    $combo_action = [];
     if ($can_edit_page && $core->auth->check('publish,contentadmin', $core->blog->id)) {
         $combo_action[__('Publish')]         = 'publish';
         $combo_action[__('Unpublish')]       = 'unpublish';
@@ -654,31 +654,31 @@ if ($post_id) {
     '<form action="' . $core->adminurl->get('admin.comment') . '" method="post" id="comment-form">' .
     '<div class="constrained">' .
     '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label>' .
-    form::field('comment_author', 30, 255, array(
+    form::field('comment_author', 30, 255, [
         'default'    => html::escapeHTML($core->auth->getInfo('user_cn')),
         'extra_html' => 'required placeholder="' . __('Author') . '"'
-    )) .
+    ]) .
     '</p>' .
 
     '<p><label for="comment_email">' . __('Email:') . '</label>' .
-    form::email('comment_email', array(
+    form::email('comment_email', [
         'size'         => 30,
         'default'      => html::escapeHTML($core->auth->getInfo('user_email')),
         'autocomplete' => 'email'
-    )) .
+    ]) .
     '</p>' .
 
     '<p><label for="comment_site">' . __('Web site:') . '</label>' .
-    form::url('comment_site', array(
+    form::url('comment_site', [
         'size'         => 30,
         'default'      => html::escapeHTML($core->auth->getInfo('user_url')),
         'autocomplete' => 'url'
-    )) .
+    ]) .
     '</p>' .
 
     '<p class="area"><label for="comment_content" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' .
     __('Comment:') . '</label> ' .
-    form::textarea('comment_content', 50, 8, array('extra_html' => 'required placeholder="' . __('Comment') . '"')) .
+    form::textarea('comment_content', 50, 8, ['extra_html' => 'required placeholder="' . __('Comment') . '"']) .
     '</p>' .
 
     '<p>' . form::hidden('post_id', $post_id) .
@@ -728,7 +728,7 @@ function showComments($rs, $has_action)
         '</tr>';
 
     while ($rs->fetch()) {
-        $comment_url = $core->adminurl->get('admin.comment', array('id' => $rs->comment_id));
+        $comment_url = $core->adminurl->get('admin.comment', ['id' => $rs->comment_id]);
 
         $img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
         switch ($rs->comment_status) {
@@ -751,14 +751,14 @@ function showComments($rs, $has_action)
         ' id="c' . $rs->comment_id . '">' .
 
         '<td class="nowrap">' .
-        ($has_action ? form::checkbox(array('comments[]'), $rs->comment_id,
-            array(
+        ($has_action ? form::checkbox(['comments[]'], $rs->comment_id,
+            [
                 'extra_html' => 'title="' . __('Select this comment') . '"'
-            )
+            ]
         ) : '') . '</td>' .
         '<td class="maximal">' . $rs->comment_author . '</td>' .
         '<td class="nowrap">' . dt::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) . '</td>' .
-        '<td class="nowrap"><a href="' . $core->adminurl->get('admin.comment', array('ip' => $rs->comment_ip)) . '">' . $rs->comment_ip . '</a></td>' .
+        '<td class="nowrap"><a href="' . $core->adminurl->get('admin.comment', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>' .
         '<td class="nowrap status">' . $img_status . '</td>' .
         '<td class="nowrap status"><a href="' . $comment_url . '">' .
         '<img src="images/edit-mini.png" alt="" title="' . __('Edit this comment') . '" /> ' . __('Edit') . '</a></td>' .

@@ -21,22 +21,22 @@ $_menu['Plugins']->addItem(__('Antispam'),
     preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.antispam')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
     $core->auth->check('admin', $core->blog->id));
 
-$core->addBehavior('coreAfterCommentUpdate', array('dcAntispam', 'trainFilters'));
-$core->addBehavior('adminAfterCommentDesc', array('dcAntispam', 'statusMessage'));
-$core->addBehavior('adminDashboardIcons', array('dcAntispam', 'dashboardIcon'));
-$core->addBehavior('adminDashboardHeaders', array('dcAntispam', 'dashboardHeaders'));
+$core->addBehavior('coreAfterCommentUpdate', ['dcAntispam', 'trainFilters']);
+$core->addBehavior('adminAfterCommentDesc', ['dcAntispam', 'statusMessage']);
+$core->addBehavior('adminDashboardIcons', ['dcAntispam', 'dashboardIcon']);
+$core->addBehavior('adminDashboardHeaders', ['dcAntispam', 'dashboardHeaders']);
 
 $core->addBehavior('adminDashboardFavorites', 'antispamDashboardFavorites');
 $core->addBehavior('adminDashboardFavsIcon', 'antispamDashboardFavsIcon');
 
 function antispamDashboardFavorites($core, $favs)
 {
-    $favs->register('antispam', array(
+    $favs->register('antispam', [
         'title'       => __('Antispam'),
         'url'         => $core->adminurl->get('admin.plugin.antispam'),
         'small-icon'  => dcPage::getPF('antispam/icon.png'),
         'large-icon'  => dcPage::getPF('antispam/icon-big.png'),
-        'permissions' => 'admin')
+        'permissions' => 'admin']
     );
 }
 
@@ -53,10 +53,10 @@ function antispamDashboardFavsIcon($core, $name, $icon)
 }
 
 if (!DC_ANTISPAM_CONF_SUPER || $core->auth->isSuperAdmin()) {
-    $core->addBehavior('adminBlogPreferencesForm', array('antispamBehaviors', 'adminBlogPreferencesForm'));
-    $core->addBehavior('adminBeforeBlogSettingsUpdate', array('antispamBehaviors', 'adminBeforeBlogSettingsUpdate'));
-    $core->addBehavior('adminCommentsSpamForm', array('antispamBehaviors', 'adminCommentsSpamForm'));
-    $core->addBehavior('adminPageHelpBlock', array('antispamBehaviors', 'adminPageHelpBlock'));
+    $core->addBehavior('adminBlogPreferencesForm', ['antispamBehaviors', 'adminBlogPreferencesForm']);
+    $core->addBehavior('adminBeforeBlogSettingsUpdate', ['antispamBehaviors', 'adminBeforeBlogSettingsUpdate']);
+    $core->addBehavior('adminCommentsSpamForm', ['antispamBehaviors', 'adminCommentsSpamForm']);
+    $core->addBehavior('adminPageHelpBlock', ['antispamBehaviors', 'adminPageHelpBlock']);
 }
 
 class antispamBehaviors

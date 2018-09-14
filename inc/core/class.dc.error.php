@@ -18,7 +18,7 @@ if (!defined('DC_RC_PATH')) {return;}
 class dcError
 {
     /** @var array Errors stack */
-    protected $errors = array();
+    protected $errors = [];
     /** @var boolean True if stack is not empty */
     protected $flag = false;
     /** @var string HTML errors list pattern */
@@ -71,7 +71,7 @@ class dcError
     public function reset()
     {
         $this->flag   = false;
-        $this->errors = array();
+        $this->errors = [];
     }
 
     /**

@@ -145,10 +145,10 @@ if ($can_install && !empty($_POST)) {
 
         # date and time formats
         $formatDate   = __('%A, %B %e %Y');
-        $date_formats = array('%Y-%m-%d', '%m/%d/%Y', '%d/%m/%Y', '%Y/%m/%d', '%d.%m.%Y', '%b %e %Y', '%e %b %Y', '%Y %b %e',
+        $date_formats = ['%Y-%m-%d', '%m/%d/%Y', '%d/%m/%Y', '%Y/%m/%d', '%d.%m.%Y', '%b %e %Y', '%e %b %Y', '%Y %b %e',
             '%a, %Y-%m-%d', '%a, %m/%d/%Y', '%a, %d/%m/%Y', '%a, %Y/%m/%d', '%B %e, %Y', '%e %B, %Y', '%Y, %B %e', '%e. %B %Y',
-            '%A, %B %e, %Y', '%A, %e %B, %Y', '%A, %Y, %B %e', '%A, %Y, %B %e', '%A, %e. %B %Y');
-        $time_formats = array('%H:%M', '%I:%M', '%l:%M', '%Hh%M', '%Ih%M', '%lh%M');
+            '%A, %B %e, %Y', '%A, %e %B, %Y', '%A, %Y, %B %e', '%A, %Y, %B %e', '%A, %e. %B %Y'];
+        $time_formats = ['%H:%M', '%I:%M', '%l:%M', '%Hh%M', '%Ih%M', '%lh%M'];
         if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
             $formatDate   = preg_replace('#(?<!%)((?:%%)*)%e#', '\1%#d', $formatDate);
             $date_formats = array_map(
@@ -239,7 +239,7 @@ if ($can_install && !empty($_POST)) {
 
         # Add default favorites
         $core->favs = new dcFavorites($core);
-        $init_favs  = array('posts', 'new_post', 'newpage', 'comments', 'categories', 'media', 'blog_theme', 'widgets', 'simpleMenu', 'prefs', 'help');
+        $init_favs  = ['posts', 'new_post', 'newpage', 'comments', 'categories', 'media', 'blog_theme', 'widgets', 'simpleMenu', 'prefs', 'help'];
         $core->favs->setFavoriteIDs($init_favs, true);
 
         $step = 1;
@@ -330,41 +330,41 @@ if ($can_install && $step == 0) {
     '<form action="index.php" method="post">' .
     '<fieldset><legend>' . __('User information') . '</legend>' .
     '<p><label for="u_firstname">' . __('First Name:') . '</label> ' .
-    form::field('u_firstname', 30, 255, array(
+    form::field('u_firstname', 30, 255, [
         'default'      => html::escapeHTML($u_firstname),
         'autocomplete' => 'given-name'
-    )) .
+    ]) .
     '</p>' .
     '<p><label for="u_name">' . __('Last Name:') . '</label> ' .
-    form::field('u_name', 30, 255, array(
+    form::field('u_name', 30, 255, [
         'default'      => html::escapeHTML($u_name),
         'autocomplete' => 'family-name'
-    )) .
+    ]) .
     '</p>' .
     '<p><label for="u_email">' . __('Email:') . '</label> ' .
-    form::email('u_email', array(
+    form::email('u_email', [
         'size'         => 30,
         'default'      => html::escapeHTML($u_email),
         'autocomplete' => 'email'
-    )) .
+    ]) .
     '</p>' .
     '</fieldset>' .
 
     '<fieldset><legend>' . __('Username and password') . '</legend>' .
     '<p><label for="u_login" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Username:') . ' ' .
-    form::field('u_login', 30, 32, array(
+    form::field('u_login', 30, 32, [
         'default'      => html::escapeHTML($u_login),
         'extra_html'   => 'required placeholder="' . __('Username') . '"',
         'autocomplete' => 'username'
-    )) .
+    ]) .
     '</label></p>' .
     '<div class="pw-table">' .
     '<p class="pw-cell">' .
     '<label for="u_pwd" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('New password:') . '</label>' .
-    form::password('u_pwd', 30, 255, array(
+    form::password('u_pwd', 30, 255, [
         'extra_html'   => 'data-indicator="pwindicator" required placeholder="' . __('Password') . '"',
         'autocomplete' => 'new-password'
-    )) .
+    ]) .
     '</p>' .
     '<div id="pwindicator">' .
     '    <div class="bar"></div>' .
@@ -372,10 +372,10 @@ if ($can_install && $step == 0) {
     '</div>' .
     '</div>' .
     '<p><label for="u_pwd2" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Confirm password:') . ' ' .
-    form::password('u_pwd2', 30, 255, array(
+    form::password('u_pwd2', 30, 255, [
         'extra_html'   => 'required placeholder="' . __('Password') . '"',
         'autocomplete' => 'new-password'
-    )) .
+    ]) .
     '</label></p>' .
     '</fieldset>' .
 
@@ -420,8 +420,8 @@ if ($can_install && $step == 0) {
 
     '<form action="../auth.php" method="post">' .
     '<p><input type="submit" value="' . __('Manage your blog now') . '" />' .
-    form::hidden(array('user_id'), html::escapeHTML($u_login)) .
-    form::hidden(array('user_pwd'), html::escapeHTML($u_pwd)) .
+    form::hidden(['user_id'], html::escapeHTML($u_login)) .
+    form::hidden(['user_pwd'], html::escapeHTML($u_pwd)) .
         '</p>' .
         '</form>';
 } elseif (!$can_install) {

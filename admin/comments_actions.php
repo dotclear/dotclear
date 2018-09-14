@@ -22,7 +22,7 @@ if (isset($_REQUEST['redir'])) {
     $args['redir'] = $_REQUEST['redir'];
 } else {
     $uri  = $core->adminurl->get("admin.comments");
-    $args = array();
+    $args = [];
 }
 
 $comments_actions_page = new dcCommentsActionsPage($core, $uri, $args);

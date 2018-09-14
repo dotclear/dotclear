@@ -47,7 +47,7 @@ if ($standalone) {
     }
 
     $action = $core->adminurl->get("admin.blog");
-    $redir  = $core->adminurl->get("admin.blog", array('id' => "%s"), '&', true);
+    $redir  = $core->adminurl->get("admin.blog", ['id' => "%s"], '&', true);
 }
 
 # Language codes
@@ -60,55 +60,55 @@ $status_combo = dcAdminCombos::getBlogStatusescombo();
 $now                = time();
 $date_formats       = $blog_settings->system->date_formats;
 $time_formats       = $blog_settings->system->time_formats;
-$date_formats_combo = array('' => '');
+$date_formats_combo = ['' => ''];
 foreach ($date_formats as $format) {
     $date_formats_combo[dt::str($format, $now)] = $format;
 }
-$time_formats_combo = array('' => '');
+$time_formats_combo = ['' => ''];
 foreach ($time_formats as $format) {
     $time_formats_combo[dt::str($format, $now)] = $format;
 }
 
 # URL scan modes
-$url_scan_combo = array(
+$url_scan_combo = [
     'PATH_INFO'    => 'path_info',
     'QUERY_STRING' => 'query_string'
-);
+];
 
 # Post URL combo
-$post_url_combo = array(
+$post_url_combo = [
     __('year/month/day/title') => '{y}/{m}/{d}/{t}',
     __('year/month/title')     => '{y}/{m}/{t}',
     __('year/title')           => '{y}/{t}',
     __('title')                => '{t}',
     __('post id/title')        => '{id}/{t}',
     __('post id')              => '{id}'
-);
+];
 if (!in_array($blog_settings->system->post_url_format, $post_url_combo)) {
     $post_url_combo[html::escapeHTML($blog_settings->system->post_url_format)] = html::escapeHTML($blog_settings->system->post_url_format);
 }
 
 # Note title tag combo
-$note_title_tag_combo = array(
+$note_title_tag_combo = [
     __('H4') => 0,
     __('H3') => 1,
     __('P')  => 2
-);
+];
 
 # Image title combo
-$img_title_combo = array(
+$img_title_combo = [
     __('(none)')                     => '',
     __('Title')                      => 'Title ;; separator(, )',
     __('Title, Date')                => 'Title ;; Date(%b %Y) ;; separator(, )',
     __('Title, Country, Date')       => 'Title ;; Country ;; Date(%b %Y) ;; separator(, )',
     __('Title, City, Country, Date') => 'Title ;; City ;; Country ;; Date(%b %Y) ;; separator(, )'
-);
+];
 if (!in_array($blog_settings->system->media_img_title_pattern, $img_title_combo)) {
     $img_title_combo[html::escapeHTML($blog_settings->system->media_img_title_pattern)] = html::escapeHTML($blog_settings->system->media_img_title_pattern);
 }
 
 # Image default size combo
-$img_default_size_combo = array();
+$img_default_size_combo = [];
 try {
     $media                                  = new dcMedia($core);
     $img_default_size_combo[__('original')] = 'o';
@@ -120,30 +120,30 @@ try {
 }
 
 # Image default alignment combo
-$img_default_alignment_combo = array(
+$img_default_alignment_combo = [
     __('None')   => 'none',
     __('Left')   => 'left',
     __('Right')  => 'right',
     __('Center') => 'center'
-);
+];
 
 # Image default legend and title combo
-$img_default_legend_combo = array(
+$img_default_legend_combo = [
     __('Legend and title') => 'legend',
     __('Title')            => 'title',
     __('None')             => 'none'
-);
+];
 
 # Robots policy options
-$robots_policy_options = array(
+$robots_policy_options = [
     'INDEX,FOLLOW'               => __("I would like search engines and archivers to index and archive my blog's content."),
     'INDEX,FOLLOW,NOARCHIVE'     => __("I would like search engines and archivers to index but not archive my blog's content."),
     'NOINDEX,NOFOLLOW,NOARCHIVE' => __("I would like to prevent search engines and archivers from indexing or archiving my blog's content.")
-);
+];
 
 # jQuery available versions
 $jquery_root           = dirname(__FILE__) . '/../inc/js/jquery';
-$jquery_versions_combo = array(__('Default') . ' (' . DC_DEFAULT_JQUERY . ')' => DC_DEFAULT_JQUERY);
+$jquery_versions_combo = [__('Default') . ' (' . DC_DEFAULT_JQUERY . ')' => DC_DEFAULT_JQUERY];
 if (is_dir($jquery_root) && is_readable($jquery_root)) {
     if (($d = @dir($jquery_root)) !== false) {
         while (($entry = $d->read()) !== false) {
@@ -294,18 +294,18 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin', $blog_id)) {
 
 if ($standalone) {
     $breadcrumb = dcPage::breadcrumb(
-        array(
+        [
             html::escapeHTML($blog_name) => '',
             __('Blog settings')          => ''
-        )
+        ]
     );
 } else {
     $breadcrumb = dcPage::breadcrumb(
-        array(
+        [
             __('System')                                               => '',
             __('Blogs')                                                => $core->adminurl->get("admin.blogs"),
             __('Blog settings') . ' : ' . html::escapeHTML($blog_name) => ''
-        ));
+        ]);
 }
 
 $desc_editor = $core->auth->getOption('editor');
@@ -323,7 +323,7 @@ dcPage::open(__('Blog settings'),
         __('Warning: except for special configurations, it is generally advised to have a trailing "?" in your blog URL in QUERY_STRING mode.')) . "\n" .
     "</script>" .
     dcPage::jsConfirmClose('blog-form') .
-    ($rte_flag ? $core->callBehavior('adminPostEditor', $desc_editor['xhtml'], 'blog_desc', array('#blog_desc'), 'xhtml') : '') .
+    ($rte_flag ? $core->callBehavior('adminPostEditor', $desc_editor['xhtml'], 'blog_desc', ['#blog_desc'], 'xhtml') : '') .
     dcPage::jsLoad('js/_blog_pref.js') .
 
     # --BEHAVIOR-- adminBlogPreferencesHeaders
@@ -354,10 +354,10 @@ if ($blog_id) {
     echo
     '<p><label for="blog_name" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog name:') . '</label>' .
     form::field('blog_name', 30, 255,
-        array(
+        [
             'default'    => html::escapeHTML($blog_name),
             'extra_html' => 'required placeholder="' . __('Blog name') . '"'
-        )
+        ]
     ) . '</p>';
 
     echo
@@ -417,10 +417,10 @@ if ($blog_id) {
     form::checkbox('comments_pub', '1', !$blog_settings->system->comments_pub) .
     __('Moderate comments') . '</label></p>' .
     '<p><label for="comments_ttl" class="classic">' . sprintf(__('Leave comments open for %s days') . '.',
-        form::number('comments_ttl', array(
+        form::number('comments_ttl', [
             'min'     => 0,
             'max'     => 999,
-            'default' => $blog_settings->system->comments_ttl)
+            'default' => $blog_settings->system->comments_ttl]
         )) .
     '</label></p>' .
     '<p class="form-note">' . __('No limit: leave blank.') . '</p>' .
@@ -440,10 +440,10 @@ if ($blog_id) {
     form::checkbox('trackbacks_pub', '1', !$blog_settings->system->trackbacks_pub) .
     __('Moderate trackbacks') . '</label></p>' .
     '<p><label for="trackbacks_ttl" class="classic">' . sprintf(__('Leave trackbacks open for %s days') . '.',
-        form::number('trackbacks_ttl', array(
+        form::number('trackbacks_ttl', [
             'min'     => 0,
             'max'     => 999,
-            'default' => $blog_settings->system->trackbacks_ttl)
+            'default' => $blog_settings->system->trackbacks_ttl]
         )) .
     '</label></p>' .
     '<p class="form-note">' . __('No limit: leave blank.') . '</p>' .
@@ -463,13 +463,13 @@ if ($blog_id) {
     '<div class="col">' .
     '<p><label for="date_format">' . __('Date format:') . '</label> ' .
     form::field('date_format', 30, 255, html::escapeHTML($blog_settings->system->date_format)) .
-    form::combo('date_format_select', $date_formats_combo, array('extra_html' => 'title="' . __('Pattern of date') . '"')) .
+    form::combo('date_format_select', $date_formats_combo, ['extra_html' => 'title="' . __('Pattern of date') . '"']) .
     '</p>' .
     '<p class="chosen form-note">' . __('Sample:') . ' ' . dt::str(html::escapeHTML($blog_settings->system->date_format)) . '</p>' .
 
     '<p><label for="time_format">' . __('Time format:') . '</label>' .
     form::field('time_format', 30, 255, html::escapeHTML($blog_settings->system->time_format)) .
-    form::combo('time_format_select', $time_formats_combo, array('extra_html' => 'title="' . __('Pattern of time') . '"')) .
+    form::combo('time_format_select', $time_formats_combo, ['extra_html' => 'title="' . __('Pattern of time') . '"']) .
     '</p>' .
     '<p class="chosen form-note">' . __('Sample:') . ' ' . dt::str(html::escapeHTML($blog_settings->system->time_format)) . '</p>' .
 
@@ -484,34 +484,34 @@ if ($blog_id) {
 
     '<div class="col">' .
     '<p><label for="nb_post_for_home" class="classic">' . sprintf(__('Display %s entries on home page'),
-        form::number('nb_post_for_home', array(
+        form::number('nb_post_for_home', [
             'min'     => 1,
             'max'     => 999,
-            'default' => $blog_settings->system->nb_post_for_home)
+            'default' => $blog_settings->system->nb_post_for_home]
         )) .
     '</label></p>' .
 
     '<p><label for="nb_post_per_page" class="classic">' . sprintf(__('Display %s entries per page'),
-        form::number('nb_post_per_page', array(
+        form::number('nb_post_per_page', [
             'min'     => 1,
             'max'     => 999,
-            'default' => $blog_settings->system->nb_post_per_page)
+            'default' => $blog_settings->system->nb_post_per_page]
         )) .
     '</label></p>' .
 
     '<p><label for="nb_post_per_feed" class="classic">' . sprintf(__('Display %s entries per feed'),
-        form::number('nb_post_per_feed', array(
+        form::number('nb_post_per_feed', [
             'min'     => 1,
             'max'     => 999,
-            'default' => $blog_settings->system->nb_post_per_feed)
+            'default' => $blog_settings->system->nb_post_per_feed]
         )) .
     '</label></p>' .
 
     '<p><label for="nb_comment_per_feed" class="classic">' . sprintf(__('Display %s comments per feed'),
-        form::number('nb_comment_per_feed', array(
+        form::number('nb_comment_per_feed', [
             'min'     => 1,
             'max'     => 999,
-            'default' => $blog_settings->system->nb_comment_per_feed)
+            'default' => $blog_settings->system->nb_comment_per_feed]
         )) .
     '</label></p>' .
 
@@ -538,44 +538,44 @@ if ($blog_id) {
     '<div class="col">' .
     '<h5>' . __('Generated image sizes (max dimension in pixels)') . '</h5>' .
     '<p class="field"><label for="media_img_t_size">' . __('Thumbnail') . '</label> ' .
-    form::number('media_img_t_size', array(
+    form::number('media_img_t_size', [
         'min'     => -1,
         'max'     => 999,
         'default' => $blog_settings->system->media_img_t_size
-    )) .
+    ]) .
     '</p>' .
 
     '<p class="field"><label for="media_img_s_size">' . __('Small') . '</label> ' .
-    form::number('media_img_s_size', array(
+    form::number('media_img_s_size', [
         'min'     => -1,
         'max'     => 999,
         'default' => $blog_settings->system->media_img_s_size
-    )) .
+    ]) .
     '</p>' .
 
     '<p class="field"><label for="media_img_m_size">' . __('Medium') . '</label> ' .
-    form::number('media_img_m_size', array(
+    form::number('media_img_m_size', [
         'min'     => -1,
         'max'     => 999,
         'default' => $blog_settings->system->media_img_m_size
-    )) .
+    ]) .
     '</p>' .
 
     '<h5>' . __('Default size of the inserted video (in pixels)') . '</h5>' .
     '<p class="field"><label for="media_video_width">' . __('Width') . '</label> ' .
-    form::number('media_video_width', array(
+    form::number('media_video_width', [
         'min'     => -1,
         'max'     => 999,
         'default' => $blog_settings->system->media_video_width
-    )) .
+    ]) .
     '</p>' .
 
     '<p class="field"><label for="media_video_height">' . __('Height') . '</label> ' .
-    form::number('media_video_height', array(
+    form::number('media_video_height', [
         'min'     => -1,
         'max'     => 999,
         'default' => $blog_settings->system->media_video_height
-    )) .
+    ]) .
     '</p>' .
 
     '<h5>' . __('Flash player') . '</h5>' .
@@ -629,12 +629,12 @@ if ($blog_id) {
 
         echo
         '<p><label for="blog_url" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog URL:') . '</label>' .
-        form::url('blog_url', array(
+        form::url('blog_url', [
             'size'       => 50,
             'max'        => 255,
             'default'    => html::escapeHTML($blog_url),
             'extra_html' => 'required placeholder="' . __('Blog URL') . '"'
-        )) .
+        ]) .
         '</p>' .
 
         '<p><label for="url_scan">' . __('URL scan method:') . '</label>' .
@@ -720,7 +720,7 @@ if ($blog_id) {
     $i = 0;
     foreach ($robots_policy_options as $k => $v) {
         echo '<p><label for="robots_policy-' . $i . '" class="classic">' .
-        form::radio(array('robots_policy', 'robots_policy-' . $i), $k, $blog_settings->system->robots_policy == $k) . ' ' . $v . '</label></p>';
+        form::radio(['robots_policy', 'robots_policy-' . $i], $k, $blog_settings->system->robots_policy == $k) . ' ' . $v . '</label></p>';
         $i++;
     }
 
@@ -763,7 +763,7 @@ if ($blog_id) {
         echo
         '<form action="' . $core->adminurl->get("admin.blog.del") . '" method="post">' .
         '<p><input type="submit" class="delete" value="' . __('Delete this blog') . '" />' .
-        form::hidden(array('blog_id'), $blog_id) .
+        form::hidden(['blog_id'], $blog_id) .
         $core->formNonce() . '</p>' .
             '</form>';
     } else {
@@ -790,7 +790,7 @@ if ($blog_id) {
         echo '<p>' . __('No users') . '</p>';
     } else {
         if ($core->auth->isSuperAdmin()) {
-            $user_url_p = '<a href="' . $core->adminurl->get("admin.user", array('id' => '%1$s'), '&amp;', true) . '">%1$s</a>';
+            $user_url_p = '<a href="' . $core->adminurl->get("admin.user", ['id' => '%1$s'], '&amp;', true) . '">%1$s</a>';
         } else {
             $user_url_p = '%1$s';
         }
@@ -825,10 +825,10 @@ if ($blog_id) {
                 '<h5>' . __('Publications on this blog:') . '</h5>' .
                     '<ul>';
                 foreach ($post_type as $type => $pt_info) {
-                    $params = array(
+                    $params = [
                         'post_type' => $type,
                         'user_id'   => $k
-                    );
+                    ];
                     echo '<li>' . sprintf(__('%1$s: %2$s'), __($pt_info['label']), $core->blog->getPosts($params, true)->f(0)) . '</li>';
                 }
                 echo
@@ -861,10 +861,10 @@ if ($blog_id) {
                     echo
                     '<form action="' . $core->adminurl->get('admin.user.actions') . '" method="post">' .
                     '<p class="change-user-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '" />' .
-                    form::hidden(array('redir'), $core->adminurl->get("admin.blog.pref", array('id' => $k), '&')) .
-                    form::hidden(array('action'), 'perms') .
-                    form::hidden(array('users[]'), $k) .
-                    form::hidden(array('blogs[]'), $blog_id) .
+                    form::hidden(['redir'], $core->adminurl->get("admin.blog.pref", ['id' => $k], '&')) .
+                    form::hidden(['action'], 'perms') .
+                    form::hidden(['users[]'], $k) .
+                    form::hidden(['blogs[]'], $blog_id) .
                     $core->formNonce() .
                         '</p>' .
                         '</form>';

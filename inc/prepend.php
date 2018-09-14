@@ -101,8 +101,8 @@ define('CLI_MODE', PHP_SAPI == 'cli');
 
 # Disallow every special wrapper
 if (function_exists('stream_wrapper_unregister')) {
-    $special_wrappers = array_intersect(array('http', 'https', 'ftp', 'ftps', 'ssh2.shell', 'ssh2.exec',
-        'ssh2.tunnel', 'ssh2.sftp', 'ssh2.scp', 'ogg', 'expect', 'phar'), stream_get_wrappers());
+    $special_wrappers = array_intersect(['http', 'https', 'ftp', 'ftps', 'ssh2.shell', 'ssh2.exec',
+        'ssh2.tunnel', 'ssh2.sftp', 'ssh2.scp', 'ogg', 'expect', 'phar'], stream_get_wrappers());
     foreach ($special_wrappers as $p) {
         @stream_wrapper_unregister($p);
     }
@@ -278,19 +278,19 @@ try {
     exit;
 }
 
-$core->url->registerDefault(array('dcUrlHandlers', 'home'));
-$core->url->registerError(array('dcUrlHandlers', 'default404'));
-$core->url->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', array('dcUrlHandlers', 'lang'));
-$core->url->register('post', 'post', '^post/(.+)$', array('dcUrlHandlers', 'post'));
-$core->url->register('preview', 'preview', '^preview/(.+)$', array('dcUrlHandlers', 'preview'));
-$core->url->register('category', 'category', '^category/(.+)$', array('dcUrlHandlers', 'category'));
-$core->url->register('archive', 'archive', '^archive(/.+)?$', array('dcUrlHandlers', 'archive'));
+$core->url->registerDefault(['dcUrlHandlers', 'home']);
+$core->url->registerError(['dcUrlHandlers', 'default404']);
+$core->url->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', ['dcUrlHandlers', 'lang']);
+$core->url->register('post', 'post', '^post/(.+)$', ['dcUrlHandlers', 'post']);
+$core->url->register('preview', 'preview', '^preview/(.+)$', ['dcUrlHandlers', 'preview']);
+$core->url->register('category', 'category', '^category/(.+)$', ['dcUrlHandlers', 'category']);
+$core->url->register('archive', 'archive', '^archive(/.+)?$', ['dcUrlHandlers', 'archive']);
 
-$core->url->register('feed', 'feed', '^feed/(.+)$', array('dcUrlHandlers', 'feed'));
-$core->url->register('trackback', 'trackback', '^trackback/(.+)$', array('dcUrlHandlers', 'trackback'));
-$core->url->register('webmention', 'webmention', '^webmention(/.+)?$', array('dcUrlHandlers', 'webmention'));
-$core->url->register('rsd', 'rsd', '^rsd$', array('dcUrlHandlers', 'rsd'));
-$core->url->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', array('dcUrlHandlers', 'xmlrpc'));
+$core->url->register('feed', 'feed', '^feed/(.+)$', ['dcUrlHandlers', 'feed']);
+$core->url->register('trackback', 'trackback', '^trackback/(.+)$', ['dcUrlHandlers', 'trackback']);
+$core->url->register('webmention', 'webmention', '^webmention(/.+)?$', ['dcUrlHandlers', 'webmention']);
+$core->url->register('rsd', 'rsd', '^rsd$', ['dcUrlHandlers', 'rsd']);
+$core->url->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', ['dcUrlHandlers', 'xmlrpc']);
 
 // Should use dcAdminURL class, but only in admin -> to be moved to public/prepend.php and admin/prepend.php ?
 $core->setPostType('post', 'post.php?id=%d', $core->url->getURLFor('post', '%s'), 'Posts');
@@ -305,7 +305,7 @@ define('DC_MAX_UPLOAD_SIZE', $u_max_size);
 unset($u_max_size);unset($p_max_size);
 
 # Register supplemental mime types
-files::registerMimeTypes(array(
+files::registerMimeTypes([
     // Audio
     'aac'  => 'audio/aac',
     'ogg'  => 'audio/ogg',
@@ -315,7 +315,7 @@ files::registerMimeTypes(array(
     'mp4'  => 'video/mp4',
     'm4p'  => 'video/mp4',
     'webm' => 'video/webm'
-));
+]);
 
 # Shutdown
 register_shutdown_function('__shutdown');

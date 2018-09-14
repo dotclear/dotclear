@@ -38,7 +38,7 @@ class dcAntispamURL extends dcUrlHandlers
         header('Content-Type: application/xml; charset=UTF-8');
 
         $title   = $core->blog->name . ' - ' . __('Spam moderation') . ' - ';
-        $params  = array();
+        $params  = [];
         $end_url = '';
         if ($type == 'spam') {
             $title .= __('Spam');

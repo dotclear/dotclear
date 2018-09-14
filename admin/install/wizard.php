@@ -193,13 +193,13 @@ echo
 
 '<form action="wizard.php" method="post">' .
 '<p><label class="required" for="DBDRIVER"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Database type:') . '</label> ' .
-form::combo('DBDRIVER', array(
+form::combo('DBDRIVER', [
     __('MySQL (deprecated)')  => 'mysql',
     __('MySQLi')              => 'mysqli',
     __('MySQLi (full UTF-8)') => 'mysqlimb4',
     __('PostgreSQL')          => 'pgsql',
-    __('SQLite')              => 'sqlite'),
-    array('default' => $DBDRIVER, 'extra_html' => 'required placeholder="' . __('Driver') . '"')) . '</p>' .
+    __('SQLite')              => 'sqlite'],
+    ['default' => $DBDRIVER, 'extra_html' => 'required placeholder="' . __('Driver') . '"']) . '</p>' .
 '<p><label for="DBHOST">' . __('Database Host Name:') . '</label> ' .
 form::field('DBHOST', 30, 255, html::escapeHTML($DBHOST)) . '</p>' .
 '<p><label for="DBNAME">' . __('Database Name:') . '</label> ' .
@@ -209,17 +209,17 @@ form::field('DBUSER', 30, 255, html::escapeHTML($DBUSER)) . '</p>' .
 '<p><label for="DBPASSWORD">' . __('Database Password:') . '</label> ' .
 form::password('DBPASSWORD', 30, 255) . '</p>' .
 '<p><label for="DBPREFIX" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Database Tables Prefix:') . '</label> ' .
-form::field('DBPREFIX', 30, 255, array(
+form::field('DBPREFIX', 30, 255, [
     'default'    => html::escapeHTML($DBPREFIX),
     'extra_html' => 'required placeholder="' . __('Prefix') . '"'
-)) .
+]) .
 '</p>' .
 '<p><label for="ADMINMAILFROM">' . __('Master Email: (used as sender for password recovery)') . '</label> ' .
-form::email('ADMINMAILFROM', array(
+form::email('ADMINMAILFROM', [
     'size'         => 30,
     'default'      => html::escapeHTML($ADMINMAILFROM),
     'autocomplete' => 'email'
-)) .
+]) .
 '</p>' .
 
 '<p><input type="submit" value="' . __('Continue') . '" /></p>' .

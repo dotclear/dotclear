@@ -16,8 +16,8 @@ class flatExport
     private $con;
     private $prefix;
 
-    private $line_reg = array('/\\\\/u', '/\n/u', '/\r/u', '/"/u');
-    private $line_rep = array('\\\\\\\\', '\n', '\r', '\"');
+    private $line_reg = ['/\\\\/u', '/\n/u', '/\r/u', '/"/u'];
+    private $line_rep = ['\\\\\\\\', '\n', '\r', '\"'];
 
     public $fp;
 
@@ -73,7 +73,7 @@ class flatExport
         $schema    = dbSchema::init($this->con);
         $db_tables = $schema->getTables();
 
-        $tables = array();
+        $tables = [];
         foreach ($db_tables as $t) {
             if ($this->prefix) {
                 if (strpos($t, $this->prefix) === 0) {
@@ -89,7 +89,7 @@ class flatExport
 
     public function getLine($rs)
     {
-        $l    = array();
+        $l    = [];
         $cols = $rs->columns();
         foreach ($cols as $i => &$c) {
             $s     = $rs->f($c);

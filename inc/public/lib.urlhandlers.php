@@ -32,7 +32,7 @@ class dcUrlHandlers extends urlHandler
     public function register($type, $url, $representation, $handler)
     {
         $core = &$GLOBALS['core'];
-        $t    = new ArrayObject(array($type, $url, $representation, $handler));
+        $t    = new ArrayObject([$type, $url, $representation, $handler]);
         $core->callBehavior("publicRegisterURL", $t);
         parent::register($t[0], $t[1], $t[2], $t[3]);
     }
@@ -240,7 +240,7 @@ class dcUrlHandlers extends urlHandler
 
             $GLOBALS['_search'] = !empty($_GET['q']) ? rawurldecode($_GET['q']) : '';
             if ($GLOBALS['_search']) {
-                $params = new ArrayObject(array('search' => $GLOBALS['_search']));
+                $params = new ArrayObject(['search' => $GLOBALS['_search']]);
                 $core->callBehavior('publicBeforeSearchCount', $params);
                 $GLOBALS['_search_count'] = $core->blog->getPosts($params, true)->f(0);
             }
@@ -255,8 +255,8 @@ class dcUrlHandlers extends urlHandler
         $core = &$GLOBALS['core'];
 
         $n      = self::getPageNumber($args);
-        $params = new ArrayObject(array(
-            'lang' => $args));
+        $params = new ArrayObject([
+            'lang' => $args]);
 
         $core->callBehavior('publicLangBeforeGetLangs', $params, $args);
 
@@ -285,10 +285,10 @@ class dcUrlHandlers extends urlHandler
             # No category was specified.
             self::p404();
         } else {
-            $params = new ArrayObject(array(
+            $params = new ArrayObject([
                 'cat_url'       => $args,
                 'post_type'     => 'post',
-                'without_empty' => false));
+                'without_empty' => false]);
 
             $core->callBehavior('publicCategoryBeforeGetCategories', $params, $args);
 
@@ -316,10 +316,10 @@ class dcUrlHandlers extends urlHandler
         if ($args == '') {
             self::serveDocument('archive.html');
         } elseif (preg_match('|^/([0-9]{4})/([0-9]{2})$|', $args, $m)) {
-            $params = new ArrayObject(array(
+            $params = new ArrayObject([
                 'year'  => $m[1],
                 'month' => $m[2],
-                'type'  => 'month'));
+                'type'  => 'month']);
 
             $core->callBehavior('publicArchiveBeforeGetDates', $params, $args);
 
@@ -348,8 +348,8 @@ class dcUrlHandlers extends urlHandler
 
             $core->blog->withoutPassword(false);
 
-            $params = new ArrayObject(array(
-                'post_url' => $args));
+            $params = new ArrayObject([
+                'post_url' => $args]);
 
             $core->callBehavior('publicPostBeforeGetPosts', $params, $args);
 
@@ -379,12 +379,12 @@ class dcUrlHandlers extends urlHandler
                     if (isset($_COOKIE['dc_passwd'])) {
                         $pwd_cookie = json_decode($_COOKIE['dc_passwd']);
                         if ($pwd_cookie === null) {
-                            $pwd_cookie = array();
+                            $pwd_cookie = [];
                         } else {
                             $pwd_cookie = (array) $pwd_cookie;
                         }
                     } else {
-                        $pwd_cookie = array();
+                        $pwd_cookie = [];
                     }
 
                     # Check for match
@@ -541,7 +541,7 @@ class dcUrlHandlers extends urlHandler
         $core = &$GLOBALS['core'];
 
         if (preg_match('!^([a-z]{2}(-[a-z]{2})?)/(.*)$!', $args, $m)) {
-            $params = new ArrayObject(array('lang' => $m[1]));
+            $params = new ArrayObject(['lang' => $m[1]]);
 
             $args = $m[3];
 
@@ -581,9 +581,9 @@ class dcUrlHandlers extends urlHandler
         }
 
         if ($cat_url) {
-            $params = new ArrayObject(array(
+            $params = new ArrayObject([
                 'cat_url'   => $cat_url,
-                'post_type' => 'post'));
+                'post_type' => 'post']);
 
             $core->callBehavior('publicFeedBeforeGetCategories', $params, $args);
 
@@ -597,9 +597,9 @@ class dcUrlHandlers extends urlHandler
 
             $subtitle = ' - ' . $_ctx->categories->cat_title;
         } elseif ($post_id) {
-            $params = new ArrayObject(array(
+            $params = new ArrayObject([
                 'post_id'   => $post_id,
-                'post_type' => ''));
+                'post_type' => '']);
 
             $core->callBehavior('publicFeedBeforeGetPosts', $params, $args);
 
@@ -649,7 +649,7 @@ class dcUrlHandlers extends urlHandler
             $post_id = (integer) $args;
 
             if (!is_array($args)) {
-                $args = array();
+                $args = [];
             }
 
             $args['post_id'] = $post_id;
@@ -667,7 +667,7 @@ class dcUrlHandlers extends urlHandler
     {
         $core = &$GLOBALS['core'];
         if (!is_array($args)) {
-            $args = array();
+            $args = [];
         }
 
         $args['type'] = 'webmention';

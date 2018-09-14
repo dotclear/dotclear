@@ -23,13 +23,13 @@ $core->addBehavior('adminDashboardFavorites', 'importExportDashboardFavorites');
 
 function importExportDashboardFavorites($core, $favs)
 {
-    $favs->register('importExport', array(
+    $favs->register('importExport', [
         'title'       => __('Import/Export'),
         'url'         => $core->adminurl->get('admin.plugin.importExport'),
         'small-icon'  => dcPage::getPF('importExport/icon.png'),
         'large-icon'  => dcPage::getPF('importExport/icon-big.png'),
         'permissions' => 'admin'
-    ));
+    ]);
 }
 
 $core->addBehavior('dcMaintenanceInit', 'ieMaintenanceInit');

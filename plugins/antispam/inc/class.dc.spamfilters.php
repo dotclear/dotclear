@@ -13,8 +13,8 @@ if (!defined('DC_RC_PATH')) {return;}
 
 class dcSpamFilters
 {
-    private $filters     = array();
-    private $filters_opt = array();
+    private $filters     = [];
+    private $filters_opt = [];
     private $core;
 
     public function __construct($core)
@@ -41,7 +41,7 @@ class dcSpamFilters
 
         $this->setFilterOpts();
         if (!empty($this->filters_opt)) {
-            uasort($this->filters, array($this, 'orderCallBack'));
+            uasort($this->filters, [$this, 'orderCallBack']);
         }
     }
 
@@ -132,8 +132,8 @@ class dcSpamFilters
 
         # Create default options if needed
         if (!is_array($this->filters_opt)) {
-            $this->saveFilterOpts(array(), true);
-            $this->filters_opt = array();
+            $this->saveFilterOpts([], true);
+            $this->filters_opt = [];
         }
 
         foreach ($this->filters_opt as $k => $o) {

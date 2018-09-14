@@ -39,7 +39,7 @@ if (!empty($_POST['saveconfig'])) {
             $core->blog->settings->dcckeditor->put('format_select', $dcckeditor_format_select, 'boolean');
 
             // default tags : p;h1;h2;h3;h4;h5;h6;pre;address
-            $allowed_tags = array('p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'pre', 'address');
+            $allowed_tags = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'pre', 'address'];
             if (!empty($_POST['dcckeditor_format_tags'])) {
                 $tags     = explode(';', $_POST['dcckeditor_format_tags']);
                 $new_tags = true;

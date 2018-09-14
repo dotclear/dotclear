@@ -36,14 +36,14 @@ if (!empty($_GET['hide_msg'])) {
 $p_url = 'update.php';
 
 $step = isset($_GET['step']) ? $_GET['step'] : '';
-$step = in_array($step, array('check', 'download', 'backup', 'unzip')) ? $step : '';
+$step = in_array($step, ['check', 'download', 'backup', 'unzip']) ? $step : '';
 
 $default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'update';
 if (!empty($_POST['backup_file'])) {
     $default_tab = 'files';
 }
 
-$archives = array();
+$archives = [];
 foreach (files::scanDir(DC_BACKUP_PATH) as $v) {
     if (preg_match('/backup-([0-9A-Za-z\.-]+).zip/', $v)) {
         $archives[] = $v;
@@ -158,10 +158,10 @@ dcPage::open(__('Dotclear update'),
         dcPage::jsLoad('js/_update.js')
         : ''),
     dcPage::breadcrumb(
-        array(
+        [
             __('System')          => '',
             __('Dotclear update') => ''
-        ))
+        ])
 );
 
 if (!$core->error->flag()) {
@@ -210,7 +210,7 @@ if (!$step) {
         echo '<form action="' . $p_url . '" method="post">';
         foreach ($archives as $v) {
             echo
-            '<p><label class="classic">' . form::radio(array('backup_file'), html::escapeHTML($v)) . ' ' .
+            '<p><label class="classic">' . form::radio(['backup_file'], html::escapeHTML($v)) . ' ' .
             html::escapeHTML($v) . '</label></p>';
         }
 

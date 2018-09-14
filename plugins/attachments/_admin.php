@@ -11,13 +11,13 @@
 
 if (!defined('DC_CONTEXT_ADMIN')) {return;}
 
-$core->addBehavior('adminPostFormItems', array('attachmentAdmin', 'adminPostFormItems'));
-$core->addBehavior('adminPostAfterForm', array('attachmentAdmin', 'adminPostAfterForm'));
-$core->addBehavior('adminPostHeaders', array('attachmentAdmin', 'postHeaders'));
-$core->addBehavior('adminPageFormItems', array('attachmentAdmin', 'adminPostFormItems'));
-$core->addBehavior('adminPageAfterForm', array('attachmentAdmin', 'adminPostAfterForm'));
-$core->addBehavior('adminPageHeaders', array('attachmentAdmin', 'postHeaders'));
-$core->addBehavior('adminPageHelpBlock', array('attachmentAdmin', 'adminPageHelpBlock'));
+$core->addBehavior('adminPostFormItems', ['attachmentAdmin', 'adminPostFormItems']);
+$core->addBehavior('adminPostAfterForm', ['attachmentAdmin', 'adminPostAfterForm']);
+$core->addBehavior('adminPostHeaders', ['attachmentAdmin', 'postHeaders']);
+$core->addBehavior('adminPageFormItems', ['attachmentAdmin', 'adminPostFormItems']);
+$core->addBehavior('adminPageAfterForm', ['attachmentAdmin', 'adminPostAfterForm']);
+$core->addBehavior('adminPageHeaders', ['attachmentAdmin', 'postHeaders']);
+$core->addBehavior('adminPageHelpBlock', ['attachmentAdmin', 'adminPageHelpBlock']);
 
 class attachmentAdmin
 {
@@ -55,22 +55,22 @@ class attachmentAdmin
                 }
                 $item .=
                 '<div class="media-item s-attachments">' .
-                '<a class="media-icon" href="' . $core->adminurl->get('admin.media.item', array('id' => $f->media_id)) . '">' .
+                '<a class="media-icon" href="' . $core->adminurl->get('admin.media.item', ['id' => $f->media_id]) . '">' .
                 '<img src="' . $f->media_icon . '" alt="" title="' . $f->basename . '" /></a>' .
                 '<ul>' .
-                '<li><a class="media-link" href="' . $core->adminurl->get('admin.media.item', array('id' => $f->media_id)) . '" ' .
+                '<li><a class="media-link" href="' . $core->adminurl->get('admin.media.item', ['id' => $f->media_id]) . '" ' .
                 'title="' . $f->basename . '">' . $ftitle . '</a></li>' .
                 '<li>' . $f->media_dtstr . '</li>' .
                 '<li>' . files::size($f->size) . ' - ' .
                 '<a href="' . $f->file_url . '">' . __('open') . '</a>' . '</li>' .
 
                 '<li class="media-action"><a class="attachment-remove" id="attachment-' . $f->media_id . '" ' .
-                'href="' . $core->adminurl->get('admin.post.media', array(
+                'href="' . $core->adminurl->get('admin.post.media', [
                     'post_id'   => $post->post_id,
                     'media_id'  => $f->media_id,
                     'link_type' => 'attachment',
                     'remove'    => '1'
-                )) . '">' .
+                ]) . '">' .
                 '<img src="images/trash.png" alt="' . __('remove') . '" /></a>' .
                     '</li>' .
 
@@ -83,7 +83,7 @@ class attachmentAdmin
                 $item .= '<p class="form-note s-attachments">' . __('No attachment.') . '</p>';
             }
             $item .=
-            '<p class="s-attachments"><a class="button" href="' . $core->adminurl->get('admin.media', array('post_id' => $post->post_id, 'link_type' => 'attachment')) . '">' .
+            '<p class="s-attachments"><a class="button" href="' . $core->adminurl->get('admin.media', ['post_id' => $post->post_id, 'link_type' => 'attachment']) . '">' .
             __('Add files to this entry') . '</a></p>';
             $sidebar['metas-box']['items']['attachments'] = $item;
         }
@@ -95,10 +95,10 @@ class attachmentAdmin
             $core = &$GLOBALS['core'];
             echo
             '<form action="' . $core->adminurl->get('admin.post.media') . '" id="attachment-remove-hide" method="post">' .
-            '<div>' . form::hidden(array('post_id'), $post->post_id) .
-            form::hidden(array('media_id'), '') .
-            form::hidden(array('link_type'), 'attachment') .
-            form::hidden(array('remove'), 1) .
+            '<div>' . form::hidden(['post_id'], $post->post_id) .
+            form::hidden(['media_id'], '') .
+            form::hidden(['link_type'], 'attachment') .
+            form::hidden(['remove'], 1) .
             $core->formNonce() . '</div></form>';
         }
     }

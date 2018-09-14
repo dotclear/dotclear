@@ -117,7 +117,7 @@ class dcUpgrade
 
         if (version_compare($version, '2.1.6', '<=')) {
             # ie7js has been upgraded
-            $ie7files = array(
+            $ie7files = [
                 'ie7-base64.php ',
                 'ie7-content.htc',
                 'ie7-core.js',
@@ -138,7 +138,7 @@ class dcUpgrade
                 'ie7-server.css',
                 'ie7-standard-p.js',
                 'ie7-xml-extras.js'
-            );
+            ];
             foreach ($ie7files as $f) {
                 @unlink(DC_ROOT . '/admin/js/ie7/' . $f);
             }
@@ -172,28 +172,28 @@ class dcUpgrade
 
         if (version_compare($version, '2.3', '<')) {
             # Add global favorites
-            $init_fav = array();
+            $init_fav = [];
 
-            $init_fav['new_post'] = array('new_post', 'New entry', 'post.php',
+            $init_fav['new_post'] = ['new_post', 'New entry', 'post.php',
                 'images/menu/edit.png', 'images/menu/edit-b.png',
-                'usage,contentadmin', null, null);
-            $init_fav['newpage'] = array('newpage', 'New page', 'plugin.php?p=pages&amp;act=page',
+                'usage,contentadmin', null, null];
+            $init_fav['newpage'] = ['newpage', 'New page', 'plugin.php?p=pages&amp;act=page',
                 'index.php?pf=pages/icon-np.png', 'index.php?pf=pages/icon-np-big.png',
-                'contentadmin,pages', null, null);
-            $init_fav['media'] = array('media', 'Media manager', 'media.php',
+                'contentadmin,pages', null, null];
+            $init_fav['media'] = ['media', 'Media manager', 'media.php',
                 'images/menu/media.png', 'images/menu/media-b.png',
-                'media,media_admin', null, null);
-            $init_fav['widgets'] = array('widgets', 'Presentation widgets', 'plugin.php?p=widgets',
+                'media,media_admin', null, null];
+            $init_fav['widgets'] = ['widgets', 'Presentation widgets', 'plugin.php?p=widgets',
                 'index.php?pf=widgets/icon.png', 'index.php?pf=widgets/icon-big.png',
-                'admin', null, null);
-            $init_fav['blog_theme'] = array('blog_theme', 'Blog appearance', 'blog_theme.php',
+                'admin', null, null];
+            $init_fav['blog_theme'] = ['blog_theme', 'Blog appearance', 'blog_theme.php',
                 'images/menu/themes.png', 'images/menu/blog-theme-b.png',
-                'admin', null, null);
+                'admin', null, null];
 
             $count = 0;
             foreach ($init_fav as $k => $f) {
-                $t = array('name' => $f[0], 'title'       => $f[1], 'url' => $f[2], 'small-icon' => $f[3],
-                    'large-icon'      => $f[4], 'permissions' => $f[5], 'id'  => $f[6], 'class'      => $f[7]);
+                $t = ['name' => $f[0], 'title'       => $f[1], 'url' => $f[2], 'small-icon' => $f[3],
+                    'large-icon'      => $f[4], 'permissions' => $f[5], 'id'  => $f[6], 'class'      => $f[7]];
                 $sqlstr = 'INSERT INTO ' . $core->prefix . 'pref (pref_id, user_id, pref_ws, pref_value, pref_type, pref_label) VALUES (' .
                 '\'' . sprintf("g%03s", $count) . '\',NULL,\'favorites\',\'' . serialize($t) . '\',\'string\',NULL);';
                 $core->con->execute($sqlstr);
@@ -201,7 +201,7 @@ class dcUpgrade
             }
 
             # A bit of housecleaning for no longer needed files
-            $remfiles = array(
+            $remfiles = [
                 'admin/style/cat-bg.png',
                 'admin/style/footer-bg.png',
                 'admin/style/head-logo.png',
@@ -271,8 +271,8 @@ class dcUpgrade
                 'themes/default/tpl/_head.html',
                 'themes/default/tpl/_mp3_player.html',
                 'themes/default/tpl/_top.html'
-            );
-            $remfolders = array(
+            ];
+            $remfolders = [
                 'inc/clearbricks/common',
                 'inc/clearbricks/dblayer',
                 'inc/clearbricks/dbschema',
@@ -295,7 +295,7 @@ class dcUpgrade
                 'inc/clearbricks/zip',
                 'inc/clearbricks',
                 'themes/default/tpl'
-            );
+            ];
 
             foreach ($remfiles as $f) {
                 @unlink(DC_ROOT . '/' . $f);
@@ -379,10 +379,10 @@ class dcUpgrade
             $strReqSelect .= ' AND blog_id IS NULL';
 
             # Add date and time formats
-            $date_formats = array('%Y-%m-%d', '%m/%d/%Y', '%d/%m/%Y', '%Y/%m/%d', '%d.%m.%Y', '%b %e %Y', '%e %b %Y', '%Y %b %e',
+            $date_formats = ['%Y-%m-%d', '%m/%d/%Y', '%d/%m/%Y', '%Y/%m/%d', '%d.%m.%Y', '%b %e %Y', '%e %b %Y', '%Y %b %e',
                 '%a, %Y-%m-%d', '%a, %m/%d/%Y', '%a, %d/%m/%Y', '%a, %Y/%m/%d', '%B %e, %Y', '%e %B, %Y', '%Y, %B %e', '%e. %B %Y',
-                '%A, %B %e, %Y', '%A, %e %B, %Y', '%A, %Y, %B %e', '%A, %Y, %B %e', '%A, %e. %B %Y');
-            $time_formats = array('%H:%M', '%I:%M', '%l:%M', '%Hh%M', '%Ih%M', '%lh%M');
+                '%A, %B %e, %Y', '%A, %e %B, %Y', '%A, %Y, %B %e', '%A, %Y, %B %e', '%A, %e. %B %Y'];
+            $time_formats = ['%H:%M', '%I:%M', '%l:%M', '%Hh%M', '%Ih%M', '%lh%M'];
             if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
                 $date_formats = array_map(function ($f) {return str_replace('%e', '%#d', $f);}, $date_formats);
             }
@@ -572,7 +572,7 @@ class dcUpgrade
             $core->con->execute($strReq);
 
             # A bit of housecleaning for no longer needed files
-            $remfiles = array(
+            $remfiles = [
                 'admin/js/jquery/jquery.modal.js',
                 'admin/style/modal/close.png',
                 'admin/style/modal/loader.gif',
@@ -595,12 +595,12 @@ class dcUpgrade
                 'admin/style/iesucks.css',
                 'plugins/tags/js/jquery.autocomplete.js',
                 'theme/ductile/ie.css'
-            );
-            $remfolders = array(
+            ];
+            $remfolders = [
                 'admin/style/modal',
                 'admin/js/tool-man',
                 'admin/js/ie7'
-            );
+            ];
 
             foreach ($remfiles as $f) {
                 @unlink(DC_ROOT . '/' . $f);
@@ -687,7 +687,7 @@ class dcUpgrade
         while ($rs->fetch()) {
             $value = @unserialize($rs->setting_value);
             if (!$value) {
-                $value = array();
+                $value = [];
             }
             settype($value, 'array');
             $value = json_encode($value);
@@ -722,7 +722,7 @@ class dcUpgrade
         while ($rs->fetch()) {
             $value = @unserialize($rs->pref_value);
             if (!$value) {
-                $value = array();
+                $value = [];
             }
             settype($value, 'array');
             $value = json_encode($value);

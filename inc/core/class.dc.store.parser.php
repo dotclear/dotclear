@@ -36,7 +36,7 @@ class dcStoreParser
         }
 
         $this->xml   = simplexml_load_string($data);
-        $this->items = array();
+        $this->items = [];
 
         if ($this->xml === false) {
             throw new Exception(__('Wrong data feed'));
@@ -60,7 +60,7 @@ class dcStoreParser
         foreach ($this->xml->module as $i) {
             $attrs = $i->attributes();
 
-            $item = array();
+            $item = [];
 
             # DC/DA shared markers
             $item['id']      = (string) $attrs['id'];
@@ -78,7 +78,7 @@ class dcStoreParser
             $item['support'] = (string) $i->children(self::$bloc)->support;
             $item['sshot']   = (string) $i->children(self::$bloc)->sshot;
 
-            $tags = array();
+            $tags = [];
             foreach ($i->children(self::$bloc)->tags as $t) {
                 $tags[] = (string) $t->tag;
             }

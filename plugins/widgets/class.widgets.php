@@ -13,7 +13,7 @@ if (!defined('DC_RC_PATH')) {return;}
 
 class dcWidgets
 {
-    private $__widgets = array();
+    private $__widgets = [];
 
     public static function load($s)
     {
@@ -28,7 +28,7 @@ class dcWidgets
 
     public function store()
     {
-        $serialized = array();
+        $serialized = [];
         foreach ($this->__widgets as $pos => $w) {
             $serialized[] = ($w->serialize($pos));
         }
@@ -59,7 +59,7 @@ class dcWidgets
     public function elements($sorted = false)
     {
         if ($sorted) {
-            uasort($this->__widgets, array('self', 'sort'));
+            uasort($this->__widgets, ['self', 'sort']);
         }
         return $this->__widgets;
     }
@@ -87,7 +87,7 @@ class dcWidgets
             return false;
         }
 
-        uasort($A, array('self', 'arraySort'));
+        uasort($A, ['self', 'arraySort']);
 
         $result = new self;
         foreach ($A as $v) {
@@ -134,11 +134,11 @@ class dcWidget
     private $desc;
     private $public_callback = null;
     public $append_callback  = null;
-    private $settings        = array();
+    private $settings        = [];
 
     public function serialize($order)
     {
-        $values = array();
+        $values = [];
         foreach ($this->settings as $k => $v) {
             $values[$k] = $v['value'];
         }
@@ -280,11 +280,11 @@ class dcWidget
             $opts = @func_get_arg(4);
         }
 
-        $this->settings[$name] = array(
+        $this->settings[$name] = [
             'title' => $title,
             'type'  => $type,
             'value' => $value
-        );
+        ];
 
         if (isset($options)) {
             $this->settings[$name]['options'] = $options;
@@ -320,20 +320,20 @@ class dcWidget
             case 'text':
                 $res .=
                 '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
-                form::field(array($iname, $wfid), 20, 255, html::escapeHTML($s['value']), 'maximal' . $class) .
+                form::field([$iname, $wfid], 20, 255, html::escapeHTML($s['value']), 'maximal' . $class) .
                     '</p>';
                 break;
             case 'textarea':
                 $res .=
                 '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
-                form::textarea(array($iname, $wfid), 30, 8, html::escapeHTML($s['value']), 'maximal' . $class) .
+                form::textarea([$iname, $wfid], 30, 8, html::escapeHTML($s['value']), 'maximal' . $class) .
                     '</p>';
                 break;
             case 'check':
                 $res .=
-                '<p>' . form::hidden(array($iname), '0') .
+                '<p>' . form::hidden([$iname], '0') .
                 '<label class="classic" for="' . $wfid . '">' .
-                form::checkbox(array($iname, $wfid), '1', $s['value'], $class) . ' ' . $s['title'] .
+                form::checkbox([$iname, $wfid], '1', $s['value'], $class) . ' ' . $s['title'] .
                     '</label></p>';
                 break;
             case 'radio':
@@ -343,7 +343,7 @@ class dcWidget
                         $res .= $k > 0 ? '<br/>' : '';
                         $res .=
                         '<label class="classic" for="' . $wfid . '-' . $k . '">' .
-                        form::radio(array($iname, $wfid . '-' . $k), $v[1], $s['value'] == $v[1], $class) . ' ' . $v[0] .
+                        form::radio([$iname, $wfid . '-' . $k], $v[1], $s['value'] == $v[1], $class) . ' ' . $v[0] .
                             '</label>';
                     }
                 }
@@ -352,7 +352,7 @@ class dcWidget
             case 'combo':
                 $res .=
                 '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
-                form::combo(array($iname, $wfid), $s['options'], $s['value'], $class) .
+                form::combo([$iname, $wfid], $s['options'], $s['value'], $class) .
                     '</p>';
                 break;
         }

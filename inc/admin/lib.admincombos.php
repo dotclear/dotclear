@@ -28,9 +28,9 @@ class dcAdminCombos
      */
     public static function getCategoriesCombo($categories, $include_empty = true, $use_url = false)
     {
-        $categories_combo = array();
+        $categories_combo = [];
         if ($include_empty) {
-            $categories_combo = array(new formSelectOption(__('(No cat)'), ''));
+            $categories_combo = [new formSelectOption(__('(No cat)'), '')];
         }
         while ($categories->fetch()) {
             $categories_combo[] = new formSelectOption(
@@ -50,7 +50,7 @@ class dcAdminCombos
      */
     public static function getPostStatusesCombo()
     {
-        $status_combo = array();
+        $status_combo = [];
         foreach (self::$core->blog->getAllPostStatus() as $k => $v) {
             $status_combo[$v] = (string) $k;
         }
@@ -65,7 +65,7 @@ class dcAdminCombos
      */
     public static function getUsersCombo($users)
     {
-        $users_combo = array();
+        $users_combo = [];
         while ($users->fetch()) {
             $user_cn = dcUtils::getUserCN($users->user_id, $users->user_name,
                 $users->user_firstname, $users->user_displayname);
@@ -87,7 +87,7 @@ class dcAdminCombos
      */
     public static function getDatesCombo($dates)
     {
-        $dt_m_combo = array();
+        $dt_m_combo = [];
         while ($dates->fetch()) {
             $dt_m_combo[dt::str('%B %Y', $dates->ts())] = $dates->year() . $dates->month();
         }
@@ -106,7 +106,7 @@ class dcAdminCombos
     {
         $all_langs = l10n::getISOcodes(0, 1);
         if ($with_available) {
-            $langs_combo = array('' => '', __('Most used') => array(), __('Available') => l10n::getISOcodes(1, 1));
+            $langs_combo = ['' => '', __('Most used') => [], __('Available') => l10n::getISOcodes(1, 1)];
             while ($langs->fetch()) {
                 if (isset($all_langs[$langs->post_lang])) {
                     $langs_combo[__('Most used')][$all_langs[$langs->post_lang]] = $langs->post_lang;
@@ -116,7 +116,7 @@ class dcAdminCombos
                 }
             }
         } else {
-            $langs_combo = array();
+            $langs_combo = [];
             while ($langs->fetch()) {
                 $lang_name               = isset($all_langs[$langs->post_lang]) ? $all_langs[$langs->post_lang] : $langs->post_lang;
                 $langs_combo[$lang_name] = $langs->post_lang;
@@ -133,7 +133,7 @@ class dcAdminCombos
      */
     public static function getAdminLangsCombo()
     {
-        $lang_combo = array();
+        $lang_combo = [];
         $langs      = l10n::getISOcodes(1, 1);
         foreach ($langs as $k => $v) {
             $lang_avail   = $v == 'en' || is_dir(DC_L10N_ROOT . '/' . $v);
@@ -149,7 +149,7 @@ class dcAdminCombos
      */
     public static function getEditorsCombo()
     {
-        $editors_combo = array();
+        $editors_combo = [];
 
         foreach (self::$core->getEditors() as $v) {
             $editors_combo[$v] = $v;
@@ -166,7 +166,7 @@ class dcAdminCombos
      */
     public static function getFormatersCombo($editor_id = '')
     {
-        $formaters_combo = array();
+        $formaters_combo = [];
 
         if (!empty($editor_id)) {
             foreach (self::$core->getFormaters($editor_id) as $formater) {
@@ -190,7 +190,7 @@ class dcAdminCombos
      */
     public static function getBlogStatusesCombo()
     {
-        $status_combo = array();
+        $status_combo = [];
         foreach (self::$core->getAllBlogStatus() as $k => $v) {
             $status_combo[$v] = (string) $k;
         }
@@ -204,7 +204,7 @@ class dcAdminCombos
      */
     public static function getCommentStatusescombo()
     {
-        $status_combo = array();
+        $status_combo = [];
         foreach (self::$core->blog->getAllCommentStatus() as $k => $v) {
             $status_combo[$v] = (string) $k;
         }

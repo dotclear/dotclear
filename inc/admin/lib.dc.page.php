@@ -13,15 +13,15 @@ define('DC_AUTH_PAGE', 'auth.php');
 
 class dcPage
 {
-    private static $loaded_js     = array();
-    private static $loaded_css    = array();
+    private static $loaded_js     = [];
+    private static $loaded_css    = [];
     private static $xframe_loaded = false;
-    private static $N_TYPES       = array(
+    private static $N_TYPES       = [
         "success" => "success",
         "warning" => "warning-msg",
         "error"   => "error",
         "message" => "message",
-        "static"  => "static-msg");
+        "static"  => "static-msg"];
 
     # Auth check
     public static function check($permissions)
@@ -52,7 +52,7 @@ class dcPage
     }
 
     # Top of admin page
-    public static function open($title = '', $head = '', $breadcrumb = '', $options = array())
+    public static function open($title = '', $head = '', $breadcrumb = '', $options = [])
     {
         global $core;
 
@@ -67,8 +67,8 @@ class dcPage
             }
             $blog_box .= '</p>';
         } else {
-            $rs_blogs = $core->getBlogs(array('order' => 'LOWER(blog_name)', 'limit' => 20));
-            $blogs    = array();
+            $rs_blogs = $core->getBlogs(['order' => 'LOWER(blog_name)', 'limit' => 20]);
+            $blogs    = [];
             while ($rs_blogs->fetch()) {
                 $blogs[html::escapeHTML($rs_blogs->blog_name . ' - ' . $rs_blogs->blog_url)] = $rs_blogs->blog_id;
             }
@@ -83,7 +83,7 @@ class dcPage
         $safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
 
         # Display
-        $headers = new ArrayObject(array());
+        $headers = new ArrayObject([]);
 
         # Content-Type
         $headers['content-type'] = 'Content-Type: text/html; charset=UTF-8';
@@ -101,7 +101,7 @@ class dcPage
         # Content-Security-Policy (only if safe mode if not active, it may help)
         if (!$safe_mode && $core->blog->settings->system->csp_admin_on) {
             // Get directives from settings if exist, else set defaults
-            $csp = new ArrayObject(array());
+            $csp = new ArrayObject([]);
 
                                                                                 // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
                                                                                 // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
@@ -134,7 +134,7 @@ class dcPage
             $core->callBehavior('adminPageHTTPHeaderCSP', $csp);
 
             // Construct CSP header
-            $directives = array();
+            $directives = [];
             foreach ($csp as $key => $value) {
                 if ($value) {
                     $directives[] = $key . ' ' . $value;
@@ -167,10 +167,10 @@ class dcPage
         '  <title>' . $title . ' - ' . html::escapeHTML($core->blog->name) . ' - ' . html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n";
 
         if ($core->auth->user_prefs->interface->darkmode) {
-            echo self::jsVars(array('dotclear_darkMode' => 1));
+            echo self::jsVars(['dotclear_darkMode' => 1]);
             echo self::cssLoad('style/default-dark.css');
         } else {
-            echo self::jsVars(array('dotclear_darkMode' => 0));
+            echo self::jsVars(['dotclear_darkMode' => 0]);
             echo self::cssLoad('style/default.css');
         }
         if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
@@ -236,7 +236,7 @@ class dcPage
         '<li><a class="' . (preg_match('/' . preg_quote($core->adminurl->get('admin.home')) . '$/', $_SERVER['REQUEST_URI']) ? ' active' : '') . '" href="' . $core->adminurl->get("admin.home") . '">' . __('My dashboard') . '</a></li>' .
         '<li><a class="smallscreen' . (preg_match('/' . preg_quote($core->adminurl->get('admin.user.preferences')) . '(\?.*)?$/', $_SERVER['REQUEST_URI']) ? ' active' : '') .
         '" href="' . $core->adminurl->get("admin.user.preferences") . '">' . __('My preferences') . '</a></li>' .
-        '<li><a href="' . $core->adminurl->get("admin.home", array('logout' => 1)) . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), $core->auth->userID()) .
+        '<li><a href="' . $core->adminurl->get("admin.home", ['logout' => 1]) . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), $core->auth->userID()) .
             '</span><img src="images/logout.png" alt="" /></a></li>' .
             '</ul>' .
             '</header>'; // end header
@@ -302,7 +302,7 @@ class dcPage
         return $res;
     }
 
-    public static function addNotice($type, $message, $options = array())
+    public static function addNotice($type, $message, $options = [])
     {
         if (isset(self::$N_TYPES[$type])) {
             $class = self::$N_TYPES[$type];
@@ -312,10 +312,10 @@ class dcPage
         if (isset($_SESSION['notifications']) && is_array($_SESSION['notifications'])) {
             $notifications = $_SESSION['notifications'];
         } else {
-            $notifications = array();
+            $notifications = [];
         }
 
-        $n = array_merge($options, array('class' => $class, 'ts' => time(), 'text' => $message));
+        $n = array_merge($options, ['class' => $class, 'ts' => time(), 'text' => $message]);
         if ($type != "static") {
             $notifications[] = $n;
         } else {
@@ -324,17 +324,17 @@ class dcPage
         $_SESSION['notifications'] = $notifications;
     }
 
-    public static function addSuccessNotice($message, $options = array())
+    public static function addSuccessNotice($message, $options = [])
     {
         self::addNotice("success", $message, $options);
     }
 
-    public static function addWarningNotice($message, $options = array())
+    public static function addWarningNotice($message, $options = [])
     {
         self::addNotice("warning", $message, $options);
     }
 
-    public static function addErrorNotice($message, $options = array())
+    public static function addErrorNotice($message, $options = [])
     {
         self::addNotice("error", $message, $options);
     }
@@ -448,10 +448,10 @@ class dcPage
         '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
 
         if ($core->auth->user_prefs->interface->darkmode) {
-            echo self::jsVars(array('dotclear_darkMode' => 1));
+            echo self::jsVars(['dotclear_darkMode' => 1]);
             echo self::cssLoad('style/default-dark.css');
         } else {
-            echo self::jsVars(array('dotclear_darkMode' => 0));
+            echo self::jsVars(['dotclear_darkMode' => 0]);
             echo self::cssLoad('style/default.css');
         }
         if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
@@ -519,7 +519,7 @@ class dcPage
             '</body></html>';
     }
 
-    public static function breadcrumb($elements = null, $options = array())
+    public static function breadcrumb($elements = null, $options = [])
     {
         global $core;
         $with_home_link = isset($options['home_link']) ? $options['home_link'] : true;
@@ -741,7 +741,7 @@ class dcPage
                 }
             }
         } else {
-            $unfolded_sections = array();
+            $unfolded_sections = [];
         }
         return '<script type="text/javascript">' . "\n" .
         'dotclear.unfolded_sections = {' . join(",", $unfolded_sections) . "};\n" .
@@ -1002,17 +1002,17 @@ class dcPage
         # Deprecated but we keep this for plugins.
     }
 
-    public static function jsUpload($params = array(), $base_url = null)
+    public static function jsUpload($params = [], $base_url = null)
     {
         if (!$base_url) {
             $base_url = path::clean(dirname(preg_replace('/(\?.*$)?/', '', $_SERVER['REQUEST_URI']))) . '/';
         }
 
-        $params = array_merge($params, array(
+        $params = array_merge($params, [
             'sess_id=' . session_id(),
             'sess_uid=' . $_SESSION['sess_browser_uid'],
             'xd_check=' . $GLOBALS['core']->getNonce()
-        ));
+        ]);
 
         return
         '<script type="text/javascript">' . "\n" .
@@ -1067,7 +1067,7 @@ class dcPage
             "</script>";
     }
 
-    public static function jsLoadCodeMirror($theme = '', $multi = true, $modes = array('css', 'htmlmixed', 'javascript', 'php', 'xml'))
+    public static function jsLoadCodeMirror($theme = '', $multi = true, $modes = ['css', 'htmlmixed', 'javascript', 'php', 'xml'])
     {
         $ret =
         self::cssLoad('js/codemirror/lib/codemirror.css') .
@@ -1114,7 +1114,7 @@ class dcPage
 
     public static function getCodeMirrorThemes()
     {
-        $themes      = array();
+        $themes      = [];
         $themes_root = dirname(__FILE__) . '/../../admin' . '/js/codemirror/theme/';
         if (is_dir($themes_root) && is_readable($themes_root)) {
             if (($d = @dir($themes_root)) !== false) {
@@ -1131,12 +1131,12 @@ class dcPage
 
     public static function getPF($file)
     {
-        return $GLOBALS['core']->adminurl->get('load.plugin.file', array('pf' => $file));
+        return $GLOBALS['core']->adminurl->get('load.plugin.file', ['pf' => $file]);
     }
 
     public static function getVF($file)
     {
-        return $GLOBALS['core']->adminurl->get('load.var.file', array('vf' => $file));
+        return $GLOBALS['core']->adminurl->get('load.var.file', ['vf' => $file]);
     }
 
     public static function setXFrameOptions($headers, $origin = null)

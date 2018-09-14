@@ -44,7 +44,7 @@ class dcSqlStatement
         $this->where   =
         $this->cond    =
         $this->sql     =
-        array();
+        [];
     }
 
     /**
@@ -105,7 +105,7 @@ class dcSqlStatement
     public function columns($c, $reset = false)
     {
         if ($reset) {
-            $this->columns = array();
+            $this->columns = [];
         }
         if (is_array($c)) {
             $this->columns = array_merge($this->columns, $c);
@@ -139,7 +139,7 @@ class dcSqlStatement
     public function from($c, $reset = false)
     {
         if ($reset) {
-            $this->from = array();
+            $this->from = [];
         }
         // Remove comma on beginning of clause(s) (legacy code)
         if (is_array($c)) {
@@ -166,7 +166,7 @@ class dcSqlStatement
     public function where($c, $reset = false)
     {
         if ($reset) {
-            $this->where = array();
+            $this->where = [];
         }
         if (is_array($c)) {
             $this->where = array_merge($this->where, $c);
@@ -187,7 +187,7 @@ class dcSqlStatement
     public function cond($c, $reset = false)
     {
         if ($reset) {
-            $this->cond = array();
+            $this->cond = [];
         }
         if (is_array($c)) {
             $this->cond = array_merge($this->cond, $c);
@@ -208,7 +208,7 @@ class dcSqlStatement
     public function sql($c, $reset = false)
     {
         if ($reset) {
-            $this->sql = array();
+            $this->sql = [];
         }
         if (is_array($c)) {
             $this->sql = array_merge($this->sql, $c);
@@ -288,7 +288,7 @@ class dcSqlStatement
             $clause = "~ '^" . $this->escape(preg_quote($value)) . "[0-9]+$'";
         } else {
             $clause = "LIKE '" .
-            $this->escape(preg_replace(array('%', '_', '!'), array('!%', '!_', '!!'), $value)) .
+            $this->escape(preg_replace(['%', '_', '!'], ['!%', '!_', '!!'], $value)) .
                 "%' ESCAPE '!'";
         }
         return $clause;
@@ -312,12 +312,12 @@ class dcSqlStatement
     {
         $filter = function ($s) {
             $s        = strtoupper($s);
-            $patterns = array(
+            $patterns = [
                 '\s+' => ' ', // Multiple spaces/tabs -> one space
                 ' \)' => ')', // <space>) -> )
                 ' ,'  => ',', // <space>, -> ,
                 '\( ' => '(' // (<space> -> (
-            );
+            ];
             foreach ($patterns as $pattern => $replace) {
                 $s = preg_replace('!' . $pattern . '!', $replace, $s);
             }
@@ -352,7 +352,7 @@ class dcSelectStatement extends dcSqlStatement
         $this->having =
         $this->order  =
         $this->group  =
-        array();
+        [];
 
         $this->limit    = null;
         $this->offset   = null;
@@ -372,7 +372,7 @@ class dcSelectStatement extends dcSqlStatement
     public function join($c, $reset = false)
     {
         if ($reset) {
-            $this->join = array();
+            $this->join = [];
         }
         if (is_array($c)) {
             $this->join = array_merge($this->join, $c);
@@ -393,7 +393,7 @@ class dcSelectStatement extends dcSqlStatement
     public function having($c, $reset = false)
     {
         if ($reset) {
-            $this->having = array();
+            $this->having = [];
         }
         if (is_array($c)) {
             $this->having = array_merge($this->having, $c);
@@ -414,7 +414,7 @@ class dcSelectStatement extends dcSqlStatement
     public function order($c, $reset = false)
     {
         if ($reset) {
-            $this->order = array();
+            $this->order = [];
         }
         if (is_array($c)) {
             $this->order = array_merge($this->order, $c);
@@ -435,7 +435,7 @@ class dcSelectStatement extends dcSqlStatement
     public function group($c, $reset = false)
     {
         if ($reset) {
-            $this->group = array();
+            $this->group = [];
         }
         if (is_array($c)) {
             $this->group = array_merge($this->group, $c);
@@ -652,7 +652,7 @@ class dcUpdateStatement extends dcSqlStatement
      */
     public function __construct(&$core, $ctx = null)
     {
-        $this->set = array();
+        $this->set = [];
 
         parent::__construct($core, $ctx);
     }
@@ -694,7 +694,7 @@ class dcUpdateStatement extends dcSqlStatement
     public function set($c, $reset = false)
     {
         if ($reset) {
-            $this->set = array();
+            $this->set = [];
         }
         if (is_array($c)) {
             $this->set = array_merge($this->set, $c);
@@ -824,7 +824,7 @@ class dcInsertStatement extends dcSqlStatement
      */
     public function __construct(&$core, $ctx = null)
     {
-        $this->lines = array();
+        $this->lines = [];
 
         parent::__construct($core, $ctx);
     }
@@ -853,7 +853,7 @@ class dcInsertStatement extends dcSqlStatement
     public function lines($c, $reset = false)
     {
         if ($reset) {
-            $this->lines = array();
+            $this->lines = [];
         }
         if (is_array($c)) {
             $this->lines = array_merge($this->lines, $c);
@@ -906,7 +906,7 @@ class dcInsertStatement extends dcSqlStatement
         // Value(s)
         $query .= 'VALUES ';
         if (count($this->lines)) {
-            $raws = array();
+            $raws = [];
             foreach ($this->lines as $line) {
                 $raws[] = '(' . join(', ', $line) . ')';
             }

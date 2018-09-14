@@ -70,18 +70,18 @@ $part = !empty($_GET['part']) && $_GET['part'] == 'global' ? 'global' : 'local';
 function settingLine($id, $s, $ns, $field_name, $strong_label)
 {
     if ($s['type'] == 'boolean') {
-        $field = form::combo(array($field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id),
-            array(__('yes') => 1, __('no') => 0), $s['value'] ? 1 : 0);
+        $field = form::combo([$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
+            [__('yes') => 1, __('no') => 0], $s['value'] ? 1 : 0);
     } else {
         if ($s['type'] == 'array') {
-            $field = form::field(array($field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id), 40, null,
+            $field = form::field([$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id], 40, null,
                 html::escapeHTML(json_encode($s['value'])));
         } else {
-            $field = form::field(array($field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id), 40, null,
+            $field = form::field([$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id], 40, null,
                 html::escapeHTML($s['value']));
         }
     }
-    $type = form::hidden(array($field_name . '_type' . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id . '_type'),
+    $type = form::hidden([$field_name . '_type' . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id . '_type'],
         html::escapeHTML($s['type']));
 
     $slabel = $strong_label ? '<strong>%s</strong>' : '%s';
@@ -104,11 +104,11 @@ function settingLine($id, $s, $ns, $field_name, $strong_label)
 <body>
 <?php
 echo dcPage::breadcrumb(
-    array(
+    [
         __('System')                        => '',
         html::escapeHTML($core->blog->name) => '',
         __('about:config')                  => ''
-    )) .
+    ]) .
 dcPage::notices();
 ?>
 
@@ -128,7 +128,7 @@ $table_header = '<div class="table-outer"><table class="settings" id="%s"><capti
     '<tbody>';
 $table_footer = '</tbody></table></div>';
 
-$settings = array();
+$settings = [];
 foreach ($core->blog->settings->dumpNamespaces() as $ns => $namespace) {
     foreach ($namespace->dumpSettings() as $k => $v) {
         $settings[$ns][$k] = $v;
@@ -136,7 +136,7 @@ foreach ($core->blog->settings->dumpNamespaces() as $ns => $namespace) {
 }
 ksort($settings);
 if (count($settings) > 0) {
-    $ns_combo = array();
+    $ns_combo = [];
     foreach ($settings as $ns => $s) {
         $ns_combo[$ns] = '#l_' . $ns;
     }
@@ -173,7 +173,7 @@ foreach ($settings as $ns => $s) {
 <h3 class="out-of-screen-if-js"><?php echo __('Global settings'); ?></h3>
 
 <?php
-$settings = array();
+$settings = [];
 
 foreach ($core->blog->settings->dumpNamespaces() as $ns => $namespace) {
     foreach ($namespace->dumpGlobalSettings() as $k => $v) {
@@ -184,7 +184,7 @@ foreach ($core->blog->settings->dumpNamespaces() as $ns => $namespace) {
 ksort($settings);
 
 if (count($settings) > 0) {
-    $ns_combo = array();
+    $ns_combo = [];
     foreach ($settings as $ns => $s) {
         $ns_combo[$ns] = '#g_' . $ns;
     }

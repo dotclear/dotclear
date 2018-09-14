@@ -129,12 +129,12 @@ $core->callBehavior('publicPrepend', $core);
 
 # Prepare the HTTP cache thing
 $mod_files = get_included_files();
-$mod_ts    = array();
+$mod_ts    = [];
 $mod_ts[]  = $core->blog->upddt;
 
-$__theme_tpl_path = array(
+$__theme_tpl_path = [
     $core->blog->themes_path . '/' . $__theme . '/tpl'
-);
+];
 if ($__parent_theme) {
     $__theme_tpl_path[] = $core->blog->themes_path . '/' . $__parent_theme . '/tpl';
 }

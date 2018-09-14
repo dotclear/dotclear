@@ -40,10 +40,10 @@ if (!empty($_REQUEST['id'])) {
     unset($rs);
 
     # Allowed parents list
-    $children        = $core->blog->getCategories(array('start' => $cat_id));
-    $allowed_parents = array(__('Top level') => 0);
+    $children        = $core->blog->getCategories(['start' => $cat_id]);
+    $allowed_parents = [__('Top level') => 0];
 
-    $p = array();
+    $p = [];
     while ($children->fetch()) {
         $p[$children->cat_id] = 1;
     }
@@ -60,7 +60,7 @@ if (!empty($_REQUEST['id'])) {
     unset($rs);
 
     # Allowed siblings list
-    $siblings = array();
+    $siblings = [];
     $rs       = $core->blog->getCategoryFirstChildren($cat_parent);
     while ($rs->fetch()) {
         if ($rs->cat_id != $cat_id) {
@@ -125,7 +125,7 @@ if (isset($_POST['cat_title'])) {
 
             dcPage::addSuccessNotice(__('The category has been successfully updated.'));
 
-            $core->adminurl->redirect("admin.category", array('id' => $_POST['id']));
+            $core->adminurl->redirect("admin.category", ['id' => $_POST['id']]);
         }
         # Create category
         else {
@@ -148,13 +148,13 @@ if (isset($_POST['cat_title'])) {
 
 $title = $cat_id ? html::escapeHTML($cat_title) : __('New category');
 
-$elements = array(
+$elements = [
     html::escapeHTML($core->blog->name) => '',
     __('Categories')                    => $core->adminurl->get("admin.categories")
-);
+];
 if ($cat_id) {
     while ($parents->fetch()) {
-        $elements[html::escapeHTML($parents->cat_title)] = $core->adminurl->get("admin.category", array('id' => $parents->cat_id));
+        $elements[html::escapeHTML($parents->cat_title)] = $core->adminurl->get("admin.category", ['id' => $parents->cat_id]);
     }
 }
 $elements[$title] = '';
@@ -169,7 +169,7 @@ if (is_array($rte_flags) && in_array('cat_descr', $rte_flags)) {
 dcPage::open($title,
     dcPage::jsConfirmClose('category-form') .
     dcPage::jsLoad('js/_category.js') .
-    ($rte_flag ? $core->callBehavior('adminPostEditor', $category_editor['xhtml'], 'category', array('#cat_desc'), 'xhtml') : ''),
+    ($rte_flag ? $core->callBehavior('adminPostEditor', $category_editor['xhtml'], 'category', ['#cat_desc'], 'xhtml') : ''),
     dcPage::breadcrumb($elements)
 );
 
@@ -181,10 +181,10 @@ echo
 '<form action="' . $core->adminurl->get("admin.category") . '" method="post" id="category-form">' .
 '<h3>' . __('Category information') . '</h3>' .
 '<p><label class="required" for="cat_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label> ' .
-form::field('cat_title', 40, 255, array(
+form::field('cat_title', 40, 255, [
     'default'    => html::escapeHTML($cat_title),
     'extra_html' => 'required placeholder="' . __('Name') . '"'
-)) .
+]) .
     '</p>';
 if (!$cat_id) {
     $rs = $core->blog->getCategories();
@@ -230,7 +230,7 @@ if ($cat_id) {
     '<p><label for="cat_parent" class="classic">' . __('Parent:') . '</label> ' .
     form::combo('cat_parent', $allowed_parents, $cat_parent) . '</p>' .
     '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
-    form::hidden(array('id'), $cat_id) . $core->formNonce() . '</p>' .
+    form::hidden(['id'], $cat_id) . $core->formNonce() . '</p>' .
         '</form>' .
         '</div>';
 
@@ -240,11 +240,11 @@ if ($cat_id) {
         '<form action="' . $core->adminurl->get("admin.category") . '" method="post" class="fieldset">' .
         '<h4>' . __('Category sibling') . '</h4>' .
         '<p><label class="classic" for="cat_sibling">' . __('Move current category') . '</label> ' .
-        form::combo('cat_move', array(__('before') => 'before', __('after') => 'after'),
-            array('extra_html' => 'title="' . __('position: ') . '"')) . ' ' .
+        form::combo('cat_move', [__('before') => 'before', __('after') => 'after'],
+            ['extra_html' => 'title="' . __('position: ') . '"']) . ' ' .
         form::combo('cat_sibling', $siblings) . '</p>' .
         '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
-        form::hidden(array('id'), $cat_id) . $core->formNonce() . '</p>' .
+        form::hidden(['id'], $cat_id) . $core->formNonce() . '</p>' .
             '</form>' .
             '</div>';
     }

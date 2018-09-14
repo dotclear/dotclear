@@ -22,7 +22,7 @@ class dcMedia extends filemanager
     protected $postmedia;
     protected $file_sort = 'name-asc';
 
-    protected $file_handler = array(); ///< <b>array</b> Array of callbacks
+    protected $file_handler = []; ///< <b>array</b> Array of callbacks
 
     public $thumb_tp       = '%s/.%s_%s.jpg'; ///< <b>string</b> Thumbnail file pattern
     public $thumb_tp_alpha = '%s/.%s_%s.png'; ///< <b>string</b> Thumbnail file pattern (with alpha layer)
@@ -34,12 +34,12 @@ class dcMedia extends filemanager
     - t: thumbnail image
     - sq: square image
      */
-    public $thumb_sizes = array(
-        'm'  => array(448, 'ratio', 'medium'),
-        's'  => array(240, 'ratio', 'small'),
-        't'  => array(100, 'ratio', 'thumbnail'),
-        'sq' => array(48, 'crop', 'square')
-    );
+    public $thumb_sizes = [
+        'm'  => [448, 'ratio', 'medium'],
+        's'  => [240, 'ratio', 'small'],
+        't'  => [100, 'ratio', 'thumbnail'],
+        'sq' => [48, 'crop', 'square']
+    ];
 
     public $icon_img = 'images/media/%s.png'; ///< <b>string</b> Icon file pattern
 
@@ -90,27 +90,27 @@ class dcMedia extends filemanager
         $this->exclude_pattern = $core->blog->settings->system->media_exclusion;
 
         # Event handlers
-        $this->addFileHandler('image/jpeg', 'create', array($this, 'imageThumbCreate'));
-        $this->addFileHandler('image/png', 'create', array($this, 'imageThumbCreate'));
-        $this->addFileHandler('image/gif', 'create', array($this, 'imageThumbCreate'));
+        $this->addFileHandler('image/jpeg', 'create', [$this, 'imageThumbCreate']);
+        $this->addFileHandler('image/png', 'create', [$this, 'imageThumbCreate']);
+        $this->addFileHandler('image/gif', 'create', [$this, 'imageThumbCreate']);
 
-        $this->addFileHandler('image/png', 'update', array($this, 'imageThumbUpdate'));
-        $this->addFileHandler('image/jpeg', 'update', array($this, 'imageThumbUpdate'));
-        $this->addFileHandler('image/gif', 'update', array($this, 'imageThumbUpdate'));
+        $this->addFileHandler('image/png', 'update', [$this, 'imageThumbUpdate']);
+        $this->addFileHandler('image/jpeg', 'update', [$this, 'imageThumbUpdate']);
+        $this->addFileHandler('image/gif', 'update', [$this, 'imageThumbUpdate']);
 
-        $this->addFileHandler('image/png', 'remove', array($this, 'imageThumbRemove'));
-        $this->addFileHandler('image/jpeg', 'remove', array($this, 'imageThumbRemove'));
-        $this->addFileHandler('image/gif', 'remove', array($this, 'imageThumbRemove'));
+        $this->addFileHandler('image/png', 'remove', [$this, 'imageThumbRemove']);
+        $this->addFileHandler('image/jpeg', 'remove', [$this, 'imageThumbRemove']);
+        $this->addFileHandler('image/gif', 'remove', [$this, 'imageThumbRemove']);
 
-        $this->addFileHandler('image/jpeg', 'create', array($this, 'imageMetaCreate'));
+        $this->addFileHandler('image/jpeg', 'create', [$this, 'imageMetaCreate']);
 
-        $this->addFileHandler('image/jpeg', 'recreate', array($this, 'imageThumbCreate'));
-        $this->addFileHandler('image/png', 'recreate', array($this, 'imageThumbCreate'));
-        $this->addFileHandler('image/gif', 'recreate', array($this, 'imageThumbCreate'));
+        $this->addFileHandler('image/jpeg', 'recreate', [$this, 'imageThumbCreate']);
+        $this->addFileHandler('image/png', 'recreate', [$this, 'imageThumbCreate']);
+        $this->addFileHandler('image/gif', 'recreate', [$this, 'imageThumbCreate']);
 
-        $this->addFileHandler('image/jpeg', 'recreate', array($this, 'imageThumbCreate'));
-        $this->addFileHandler('image/png', 'recreate', array($this, 'imageThumbCreate'));
-        $this->addFileHandler('image/gif', 'recreate', array($this, 'imageThumbCreate'));
+        $this->addFileHandler('image/jpeg', 'recreate', [$this, 'imageThumbCreate']);
+        $this->addFileHandler('image/png', 'recreate', [$this, 'imageThumbCreate']);
+        $this->addFileHandler('image/gif', 'recreate', [$this, 'imageThumbCreate']);
 
         # Thumbnails sizes
         $this->thumb_sizes['m'][0] = abs($core->blog->settings->system->media_img_m_size);
@@ -290,7 +290,7 @@ class dcMedia extends filemanager
             $f->media_icon = sprintf($this->icon_img, $f->media_icon);
 
             # Thumbnails
-            $f->media_thumb = array();
+            $f->media_thumb = [];
             $p              = path::info($f->relname);
 
             $alpha = ($p['extension'] == 'png') || ($p['extension'] == 'PNG');
@@ -330,7 +330,7 @@ class dcMedia extends filemanager
 
     public function setFileSort($type = 'name')
     {
-        if (in_array($type, array('name-asc', 'name-desc', 'date-asc', 'date-desc'))) {
+        if (in_array($type, ['name-asc', 'name-desc', 'date-asc', 'date-desc'])) {
             $this->file_sort = $type;
         }
     }
@@ -401,7 +401,7 @@ class dcMedia extends filemanager
 
         parent::getDir();
 
-        $f_res = array();
+        $f_res = [];
         $p_dir = $this->dir;
 
         # If type is set, remove items from p_dir
@@ -413,7 +413,7 @@ class dcMedia extends filemanager
             }
         }
 
-        $f_reg = array();
+        $f_reg = [];
 
         while ($rs->fetch()) {
             # File in subdirectory, forget about it!
@@ -466,7 +466,7 @@ class dcMedia extends filemanager
             }
         }
         try {
-            usort($this->dir['files'], array($this, 'sortFileHandler'));
+            usort($this->dir['files'], [$this, 'sortFileHandler']);
         } catch (Exception $e) {}
     }
 
@@ -531,8 +531,8 @@ class dcMedia extends filemanager
 
         $rs = $this->con->select($strReq);
 
-        $this->dir = array('dirs' => array(), 'files' => array());
-        $f_res     = array();
+        $this->dir = ['dirs' => [], 'files' => []];
+        $f_res     = [];
         while ($rs->fetch()) {
             $fr = $this->fileRecord($rs);
             if ($fr) {
@@ -542,7 +542,7 @@ class dcMedia extends filemanager
         $this->dir['files'] = $f_res;
 
         try {
-            usort($this->dir['files'], array($this, 'sortFileHandler'));
+            usort($this->dir['files'], [$this, 'sortFileHandler']);
         } catch (Exception $e) {}
 
         return (count($f_res) > 0 ? true : false);
@@ -559,10 +559,10 @@ class dcMedia extends filemanager
      */
     public function getPostMedia($post_id, $media_id = null, $link_type = null)
     {
-        $params = array(
+        $params = [
             'post_id'    => $post_id,
             'media_path' => $this->path
-        );
+        ];
         if ($media_id) {
             $params['media_id'] = (integer) $media_id;
         }
@@ -571,7 +571,7 @@ class dcMedia extends filemanager
         }
         $rs = $this->postmedia->getPostMedia($params);
 
-        $res = array();
+        $res = [];
 
         while ($rs->fetch()) {
             $f = $this->fileRecord($rs);
@@ -646,7 +646,7 @@ class dcMedia extends filemanager
 
         $delReq = 'DELETE FROM ' . $this->table . ' ' .
             'WHERE media_id IN (%s) ';
-        $del_ids = array();
+        $del_ids = [];
 
         while ($rs->fetch()) {
             if (!is_file($this->root . '/' . $rs->media_file)) {
@@ -1114,7 +1114,7 @@ class dcMedia extends filemanager
             }
 
             if (!is_array($args)) {
-                $args = array(
+                $args = [
                     'showvolume'      => 1,
                     'loadingcolor'    => 'ff9900',
                     'bgcolor1'        => 'eeeeee',
@@ -1124,7 +1124,7 @@ class dcMedia extends filemanager
                     'slidercolor1'    => 'cccccc',
                     'slidercolor2'    => '999999',
                     'sliderovercolor' => '0066cc'
-                );
+                ];
             }
 
             $args['mp3'] = $url;
@@ -1136,7 +1136,7 @@ class dcMedia extends filemanager
                 $args['height'] = 20;
             }
 
-            $vars = array();
+            $vars = [];
             foreach ($args as $k => $v) {
                 $vars[] = $k . '=' . $v;
             }
@@ -1200,7 +1200,7 @@ class dcMedia extends filemanager
             }
 
             if (!is_array($args)) {
-                $args = array(
+                $args = [
                     'margin'          => 1,
                     'showvolume'      => 1,
                     'showtime'        => 1,
@@ -1209,7 +1209,7 @@ class dcMedia extends filemanager
                     'slidercolor1'    => 'cccccc',
                     'slidercolor2'    => '999999',
                     'sliderovercolor' => '0066cc'
-                );
+                ];
             }
 
             $args['flv'] = $url;
@@ -1221,7 +1221,7 @@ class dcMedia extends filemanager
                 $args['height'] = 300;
             }
 
-            $vars = array();
+            $vars = [];
             foreach ($args as $k => $v) {
                 $vars[] = $k . '=' . $v;
             }
@@ -1263,7 +1263,7 @@ class dcMedia extends filemanager
         }
 
         if (!is_array($args)) {
-            $args = array(
+            $args = [
                 'showvolume'      => 1,
                 'loadingcolor'    => 'ff9900',
                 'bgcolor1'        => 'eeeeee',
@@ -1273,7 +1273,7 @@ class dcMedia extends filemanager
                 'slidercolor1'    => 'cccccc',
                 'slidercolor2'    => '999999',
                 'sliderovercolor' => '0066cc'
-            );
+            ];
         }
 
         $args['mp3'] = $url;
@@ -1285,7 +1285,7 @@ class dcMedia extends filemanager
             $args['height'] = 20;
         }
 
-        $vars = array();
+        $vars = [];
         foreach ($args as $k => $v) {
             $vars[] = $k . '=' . $v;
         }
@@ -1320,7 +1320,7 @@ class dcMedia extends filemanager
         }
 
         if (!is_array($args)) {
-            $args = array(
+            $args = [
                 'margin'          => 1,
                 'showvolume'      => 1,
                 'showtime'        => 1,
@@ -1329,7 +1329,7 @@ class dcMedia extends filemanager
                 'slidercolor1'    => 'cccccc',
                 'slidercolor2'    => '999999',
                 'sliderovercolor' => '0066cc'
-            );
+            ];
         }
 
         $args['flv'] = $url;
@@ -1341,7 +1341,7 @@ class dcMedia extends filemanager
             $args['height'] = 300;
         }
 
-        $vars = array();
+        $vars = [];
         foreach ($args as $k => $v) {
             $vars[] = $k . '=' . $v;
         }

@@ -27,7 +27,7 @@ abstract class dcIeModule
         $this->core = &$core;
         $this->setInfo();
 
-        if (!in_array($this->type, array('import', 'export'))) {
+        if (!in_array($this->type, ['import', 'export'])) {
             throw new Exception(sprintf('Unknow type for module %s', get_class($this)));
         }
 
@@ -65,7 +65,7 @@ abstract class dcIeModule
 
     protected function autoSubmit()
     {
-        return form::hidden(array('autosubmit'), 1);
+        return form::hidden(['autosubmit'], 1);
     }
 
     protected function congratMessage()

@@ -121,11 +121,11 @@ elseif ($change_pwd) {
         if (count($tmp_data) != 3) {
             throw new Exception();
         }
-        $data = array(
+        $data = [
             'user_id'       => base64_decode($tmp_data[0]),
             'cookie_admin'  => $tmp_data[1],
             'user_remember' => $tmp_data[2] == '1'
-        );
+        ];
         if ($data['user_id'] === false) {
             throw new Exception();
         }
@@ -189,11 +189,11 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null)) {
         $core->auth->cryptLegacy($user_id)) . bin2hex(pack('a32', $user_id));
 
     if ($check_perms && $core->auth->mustChangePassword()) {
-        $login_data = join('/', array(
+        $login_data = join('/', [
             base64_encode($user_id),
             $cookie_admin,
             empty($_POST['user_remember']) ? '0' : '1'
-        ));
+        ]);
 
         if (!$core->auth->allowPassChange()) {
             $err = __('You have to change your password before you can login.');
@@ -293,19 +293,19 @@ if ($akey) {
     '<div class="fieldset" role="main"><h2>' . __('Request a new password') . '</h2>' .
     '<p><label for="user_id">' . __('Username:') . '</label> ' .
     form::field('user_id', 20, 32,
-        array(
+        [
             'default'      => html::escapeHTML($user_id),
             'autocomplete' => 'username'
-        )
+        ]
     ) .
     '</p>' .
 
     '<p><label for="user_email">' . __('Email:') . '</label> ' .
     form::email('user_email',
-        array(
+        [
             'default'      => html::escapeHTML($user_email),
             'autocomplete' => 'email'
-        )
+        ]
     ) .
     '</p>' .
 
@@ -321,23 +321,23 @@ if ($akey) {
     '<div class="fieldset"><h2>' . __('Change your password') . '</h2>' .
     '<p><label for="new_pwd">' . __('New password:') . '</label> ' .
     form::password('new_pwd', 20, 255,
-        array(
+        [
             'autocomplete' => 'new-password'
-        )
+        ]
     ) . '</p>' .
 
     '<p><label for="new_pwd_c">' . __('Confirm password:') . '</label> ' .
     form::password('new_pwd_c', 20, 255,
-        array(
+        [
             'autocomplete' => 'new-password'
-        )
+        ]
     ) . '</p>' .
     '</div>' .
 
     '<p><input type="submit" value="' . __('change') . '" />' .
     form::hidden('login_data', $login_data) . '</p>';
 } else {
-    if (is_callable(array($core->auth, 'authForm'))) {
+    if (is_callable([$core->auth, 'authForm'])) {
         echo $core->auth->authForm($user_id);
     } else {
         if ($safe_mode) {
@@ -355,17 +355,17 @@ if ($akey) {
         echo
         '<p><label for="user_id">' . __('Username:') . '</label> ' .
         form::field('user_id', 20, 32,
-            array(
+            [
                 'default'      => html::escapeHTML($user_id),
                 'autocomplete' => 'username'
-            )
+            ]
         ) . '</p>' .
 
         '<p><label for="user_pwd">' . __('Password:') . '</label> ' .
         form::password('user_pwd', 20, 255,
-            array(
+            [
                 'autocomplete' => 'current-password'
-            )
+            ]
         ) . '</p>' .
 
         '<p>' .
@@ -396,9 +396,9 @@ if ($akey) {
         } else {
             echo '<p id="more"><strong>' . __('Connection issue?') . '</strong></p>';
             if ($core->auth->allowPassChange()) {
-                echo '<p><a href="' . $core->adminurl->get('admin.auth', array('recover' => 1)) . '">' . __('I forgot my password') . '</a></p>';
+                echo '<p><a href="' . $core->adminurl->get('admin.auth', ['recover' => 1]) . '">' . __('I forgot my password') . '</a></p>';
             }
-            echo '<p><a href="' . $core->adminurl->get('admin.auth', array('safe_mode' => 1)) . '" id="safe_mode_link">' . __('I want to log in in safe mode') . '</a></p>';
+            echo '<p><a href="' . $core->adminurl->get('admin.auth', ['safe_mode' => 1]) . '" id="safe_mode_link">' . __('I want to log in in safe mode') . '</a></p>';
         }
 
         echo '</div>';

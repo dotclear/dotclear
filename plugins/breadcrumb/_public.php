@@ -12,7 +12,7 @@
 if (!defined('DC_RC_PATH')) {return;}
 
 # Breadcrumb template functions
-$core->tpl->addValue('Breadcrumb', array('tplBreadcrumb', 'breadcrumb'));
+$core->tpl->addValue('Breadcrumb', ['tplBreadcrumb', 'breadcrumb']);
 
 class tplBreadcrumb
 {

@@ -30,24 +30,24 @@ class dcCategories extends nestedTree
         $this->con           = &$core->con;
         $this->blog_id       = $core->blog->id;
         $this->table         = $core->prefix . 'category';
-        $this->add_condition = array('blog_id' => "'" . $this->con->escape($this->blog_id) . "'");
+        $this->add_condition = ['blog_id' => "'" . $this->con->escape($this->blog_id) . "'"];
     }
 
-    public function getChildren($start = 0, $id = null, $sort = 'asc', $fields = array())
+    public function getChildren($start = 0, $id = null, $sort = 'asc', $fields = [])
     {
-        $fields = array_merge(array('cat_title', 'cat_url', 'cat_desc'), $fields);
+        $fields = array_merge(['cat_title', 'cat_url', 'cat_desc'], $fields);
         return parent::getChildren($start, $id, $sort, $fields);
     }
 
-    public function getParents($id, $fields = array())
+    public function getParents($id, $fields = [])
     {
-        $fields = array_merge(array('cat_title', 'cat_url', 'cat_desc'), $fields);
+        $fields = array_merge(['cat_title', 'cat_url', 'cat_desc'], $fields);
         return parent::getParents($id, $fields);
     }
 
-    public function getParent($id, $fields = array())
+    public function getParent($id, $fields = [])
     {
-        $fields = array_merge(array('cat_title', 'cat_url', 'cat_desc'), $fields);
+        $fields = array_merge(['cat_title', 'cat_url', 'cat_desc'], $fields);
         return parent::getParent($id, $fields);
     }
 }
@@ -61,7 +61,7 @@ abstract class nestedTree
     protected $f_right;
     protected $f_id;
 
-    protected $add_condition = array();
+    protected $add_condition = [];
 
     protected $parents;
 
@@ -70,7 +70,7 @@ abstract class nestedTree
         $this->con = &$con;
     }
 
-    public function getChildren($start = 0, $id = null, $sort = 'asc', $fields = array())
+    public function getChildren($start = 0, $id = null, $sort = 'asc', $fields = [])
     {
         $fields = count($fields) > 0 ? ', C2.' . implode(', C2.', $fields) : '';
 
@@ -102,7 +102,7 @@ abstract class nestedTree
         return $this->con->select($sql);
     }
 
-    public function getParents($id, $fields = array())
+    public function getParents($id, $fields = [])
     {
         $fields = count($fields) > 0 ? ', C1.' . implode(', C1.', $fields) : '';
 
@@ -118,7 +118,7 @@ abstract class nestedTree
         );
     }
 
-    public function getParent($id, $fields = array())
+    public function getParent($id, $fields = [])
     {
         $fields = count($fields) > 0 ? ', C1.' . implode(', C1.', $fields) : '';
 
@@ -471,7 +471,7 @@ abstract class nestedTree
             return '';
         }
 
-        $w = array();
+        $w = [];
         foreach ($this->add_condition as $c => $n) {
             $w[] = $prefix . $c . ' = ' . $n;
         }

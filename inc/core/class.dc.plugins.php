@@ -38,12 +38,12 @@ class dcPlugins extends dcModules
     @param    version        <b>string</b>        Module version
     @param    properties    <b>array</b>        extra properties (currently available keys : permissions, priority, standalone_config, type)
      */
-    public function registerModule($name, $desc, $author, $version, $properties = array())
+    public function registerModule($name, $desc, $author, $version, $properties = [])
     {
         # Fallback to legacy registerModule parameters
         if (!is_array($properties)) {
             $args       = func_get_args();
-            $properties = array();
+            $properties = [];
             if (isset($args[4])) {
                 $properties['permissions'] = $args[4];
             }

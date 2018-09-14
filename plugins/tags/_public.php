@@ -17,32 +17,32 @@ __("This tag's entries Atom feed");
 
 require dirname(__FILE__) . '/_widgets.php';
 
-$core->tpl->addBlock('Tags', array('tplTags', 'Tags'));
-$core->tpl->addBlock('TagsHeader', array('tplTags', 'TagsHeader'));
-$core->tpl->addBlock('TagsFooter', array('tplTags', 'TagsFooter'));
-$core->tpl->addBlock('EntryTags', array('tplTags', 'EntryTags'));
-$core->tpl->addBlock('TagIf', array('tplTags', 'TagIf'));
-$core->tpl->addValue('TagID', array('tplTags', 'TagID'));
-$core->tpl->addValue('TagCount', array('tplTags', 'TagCount'));
-$core->tpl->addValue('TagPercent', array('tplTags', 'TagPercent'));
-$core->tpl->addValue('TagRoundPercent', array('tplTags', 'TagRoundPercent'));
-$core->tpl->addValue('TagURL', array('tplTags', 'TagURL'));
-$core->tpl->addValue('TagCloudURL', array('tplTags', 'TagCloudURL'));
-$core->tpl->addValue('TagFeedURL', array('tplTags', 'TagFeedURL'));
+$core->tpl->addBlock('Tags', ['tplTags', 'Tags']);
+$core->tpl->addBlock('TagsHeader', ['tplTags', 'TagsHeader']);
+$core->tpl->addBlock('TagsFooter', ['tplTags', 'TagsFooter']);
+$core->tpl->addBlock('EntryTags', ['tplTags', 'EntryTags']);
+$core->tpl->addBlock('TagIf', ['tplTags', 'TagIf']);
+$core->tpl->addValue('TagID', ['tplTags', 'TagID']);
+$core->tpl->addValue('TagCount', ['tplTags', 'TagCount']);
+$core->tpl->addValue('TagPercent', ['tplTags', 'TagPercent']);
+$core->tpl->addValue('TagRoundPercent', ['tplTags', 'TagRoundPercent']);
+$core->tpl->addValue('TagURL', ['tplTags', 'TagURL']);
+$core->tpl->addValue('TagCloudURL', ['tplTags', 'TagCloudURL']);
+$core->tpl->addValue('TagFeedURL', ['tplTags', 'TagFeedURL']);
 
 # Kept for backward compatibility (for now)
-$core->tpl->addBlock('MetaData', array('tplTags', 'Tags'));
-$core->tpl->addBlock('MetaDataHeader', array('tplTags', 'TagsHeader'));
-$core->tpl->addBlock('MetaDataFooter', array('tplTags', 'TagsFooter'));
-$core->tpl->addValue('MetaID', array('tplTags', 'TagID'));
-$core->tpl->addValue('MetaPercent', array('tplTags', 'TagPercent'));
-$core->tpl->addValue('MetaRoundPercent', array('tplTags', 'TagRoundPercent'));
-$core->tpl->addValue('MetaURL', array('tplTags', 'TagURL'));
-$core->tpl->addValue('MetaAllURL', array('tplTags', 'TagCloudURL'));
-$core->tpl->addBlock('EntryMetaData', array('tplTags', 'EntryTags'));
+$core->tpl->addBlock('MetaData', ['tplTags', 'Tags']);
+$core->tpl->addBlock('MetaDataHeader', ['tplTags', 'TagsHeader']);
+$core->tpl->addBlock('MetaDataFooter', ['tplTags', 'TagsFooter']);
+$core->tpl->addValue('MetaID', ['tplTags', 'TagID']);
+$core->tpl->addValue('MetaPercent', ['tplTags', 'TagPercent']);
+$core->tpl->addValue('MetaRoundPercent', ['tplTags', 'TagRoundPercent']);
+$core->tpl->addValue('MetaURL', ['tplTags', 'TagURL']);
+$core->tpl->addValue('MetaAllURL', ['tplTags', 'TagCloudURL']);
+$core->tpl->addBlock('EntryMetaData', ['tplTags', 'EntryTags']);
 
-$core->addBehavior('templateBeforeBlock', array('behaviorsTags', 'templateBeforeBlock'));
-$core->addBehavior('publicBeforeDocument', array('behaviorsTags', 'addTplPath'));
+$core->addBehavior('templateBeforeBlock', ['behaviorsTags', 'templateBeforeBlock']);
+$core->addBehavior('publicBeforeDocument', ['behaviorsTags', 'addTplPath']);
 
 class behaviorsTags
 {
@@ -51,7 +51,7 @@ class behaviorsTags
         if (($b == 'Entries' || $b == 'Comments') && isset($attr['tag'])) {
             return
             "<?php\n" .
-            "if (!isset(\$params)) { \$params = array(); }\n" .
+            "if (!isset(\$params)) { \$params = []; }\n" .
             "if (!isset(\$params['from'])) { \$params['from'] = ''; }\n" .
             "if (!isset(\$params['sql'])) { \$params['sql'] = ''; }\n" .
             "\$params['from'] .= ', '.\$core->prefix.'meta META ';\n" .
@@ -62,7 +62,7 @@ class behaviorsTags
         } elseif (empty($attr['no_context']) && ($b == 'Entries' || $b == 'Comments')) {
             return
                 '<?php if ($_ctx->exists("meta") && ($_ctx->meta->meta_type == "tag")) { ' .
-                "if (!isset(\$params)) { \$params = array(); }\n" .
+                "if (!isset(\$params)) { \$params = []; }\n" .
                 "if (!isset(\$params['from'])) { \$params['from'] = ''; }\n" .
                 "if (!isset(\$params['sql'])) { \$params['sql'] = ''; }\n" .
                 "\$params['from'] .= ', '.\$core->prefix.'meta META ';\n" .
@@ -93,7 +93,7 @@ class tplTags
 
         $limit = isset($attr['limit']) ? (integer) $attr['limit'] : 'null';
 
-        $combo = array('meta_id_lower', 'count', 'latest', 'oldest');
+        $combo = ['meta_id_lower', 'count', 'latest', 'oldest'];
 
         $sortby = 'meta_id_lower';
         if (isset($attr['sortby']) && in_array($attr['sortby'], $combo)) {
@@ -107,10 +107,10 @@ class tplTags
 
         $res =
             "<?php\n" .
-            "\$_ctx->meta = \$core->meta->computeMetaStats(\$core->meta->getMetadata(array('meta_type'=>'"
+            "\$_ctx->meta = \$core->meta->computeMetaStats(\$core->meta->getMetadata(['meta_type'=>'"
             . $type . "','limit'=>" . $limit .
             ($sortby != 'meta_id_lower' ? ",'order'=>'" . $sortby . ' ' . ($order == 'asc' ? 'ASC' : 'DESC' ) . "'" : '')  .
-            "))); " .
+            "])); " .
             "\$_ctx->meta->sort('" . $sortby . "','" . $order . "'); " .
             '?>';
 
@@ -141,7 +141,7 @@ class tplTags
     {
         $type = isset($attr['type']) ? addslashes($attr['type']) : 'tag';
 
-        $combo = array('meta_id_lower', 'count', 'latest', 'oldest');
+        $combo = ['meta_id_lower', 'count', 'latest', 'oldest'];
 
         $sortby = 'meta_id_lower';
         if (isset($attr['sortby']) && in_array($attr['sortby'], $combo)) {
@@ -168,7 +168,7 @@ class tplTags
 
     public static function TagIf($attr, $content)
     {
-        $if        = array();
+        $if        = [];
         $operateur = isset($attr['operator']) ? dcTemplate::getOperator($attr['operator']) : '&&';
 
         if (isset($attr['has_entries'])) {
@@ -244,7 +244,7 @@ class tplTags
             return;
         }
 
-        $combo = array('meta_id_lower', 'count', 'latest', 'oldest');
+        $combo = ['meta_id_lower', 'count', 'latest', 'oldest'];
 
         $sort = $w->sortby;
         if (!in_array($sort, $combo)) {
@@ -256,7 +256,7 @@ class tplTags
             $order = 'desc';
         }
 
-        $params = array('meta_type' => 'tag');
+        $params = ['meta_type' => 'tag'];
 
         if ($sort != 'meta_id_lower') {
             // As optional limit may restrict result, we should set order (if not computed after)
@@ -328,9 +328,9 @@ class urlTags extends dcUrlHandlers
             $comments = !empty($m[3]);
 
             $GLOBALS['_ctx']->meta = $GLOBALS['core']->meta->computeMetaStats(
-                $GLOBALS['core']->meta->getMetadata(array(
+                $GLOBALS['core']->meta->getMetadata([
                     'meta_type' => 'tag',
-                    'meta_id'   => $m[1])));
+                    'meta_id'   => $m[1]]));
 
             if ($GLOBALS['_ctx']->meta->isEmpty()) {
                 self::p404();
@@ -349,9 +349,9 @@ class urlTags extends dcUrlHandlers
             }
 
             $GLOBALS['_ctx']->meta = $GLOBALS['core']->meta->computeMetaStats(
-                $GLOBALS['core']->meta->getMetadata(array(
+                $GLOBALS['core']->meta->getMetadata([
                     'meta_type' => 'tag',
-                    'meta_id'   => $args)));
+                    'meta_id'   => $args]));
 
             if ($GLOBALS['_ctx']->meta->isEmpty()) {
                 self::p404();
@@ -376,9 +376,9 @@ class urlTags extends dcUrlHandlers
             $comments = !empty($m[3]);
 
             $GLOBALS['_ctx']->meta = $GLOBALS['core']->meta->computeMetaStats(
-                $GLOBALS['core']->meta->getMetadata(array(
+                $GLOBALS['core']->meta->getMetadata([
                     'meta_type' => 'tag',
-                    'meta_id'   => $tag)));
+                    'meta_id'   => $tag]));
 
             if ($GLOBALS['_ctx']->meta->isEmpty()) {
                 # The specified tag does not exist.

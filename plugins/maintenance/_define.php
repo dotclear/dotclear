@@ -16,12 +16,12 @@ $this->registerModule(
     "Maintain your installation",             // Description
     "Olivier Meunier & Association Dotclear", // Author
     '1.3.1',                                  // Version
-    array(
+    [
         'permissions' => 'admin',
         'type'        => 'plugin',
-        'settings'    => array(
+        'settings'    => [
             'self' => '#settings'
-        )
-    )
+        ]
+    ]
 
 );

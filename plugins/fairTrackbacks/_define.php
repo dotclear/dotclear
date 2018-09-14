@@ -16,9 +16,9 @@ $this->registerModule(
     "Trackback validity check", // Description
     "Olivier Meunier",          // Author
     '1.1',                      // Version
-    array(
+    [
         'permissions' => 'usage,contentadmin',
         'priority'    => 200,
         'type'        => 'plugin'
-    )
+    ]
 );

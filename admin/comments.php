@@ -24,34 +24,34 @@ if (!empty($_POST['delete_all_spam'])) {
 # Creating filter combo boxes
 # Filter form we'll put in html_block
 $status_combo = array_merge(
-    array('-' => ''),
+    ['-' => ''],
     dcAdminCombos::getCommentStatusescombo()
 );
 
-$type_combo = array(
+$type_combo = [
     '-'             => '',
     __('Comment')   => 'co',
     __('Trackback') => 'tb'
-);
+];
 
-$sortby_combo = array(
+$sortby_combo = [
     __('Date')        => 'comment_dt',
     __('Entry title') => 'post_title',
     __('Entry date')  => 'post_dt',
     __('Author')      => 'comment_author',
     __('Status')      => 'comment_status'
-);
+];
 
-$sortby_lex = array(
+$sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request
     'post_title'          => 'post_title',
     'comment_author'      => 'comment_author',
-    'comment_spam_filter' => 'comment_spam_filter');
+    'comment_spam_filter' => 'comment_spam_filter'];
 
-$order_combo = array(
+$order_combo = [
     __('Descending') => 'desc',
     __('Ascending')  => 'asc'
-);
+];
 
 /* Get comments
 -------------------------------------------------------- */
@@ -78,7 +78,7 @@ if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
     $nb_per_page = (integer) $_GET['nb'];
 }
 
-$params['limit']      = array((($page - 1) * $nb_per_page), $nb_per_page);
+$params['limit']      = [(($page - 1) * $nb_per_page), $nb_per_page];
 $params['no_content'] = true;
 
 # Author filter
@@ -154,7 +154,7 @@ if ($sortby !== '' && in_array($sortby, $sortby_combo)) {
 }
 
 # Actions combo box
-$combo_action = array();
+$combo_action = [];
 $default      = '';
 if ($core->auth->check('delete,contentadmin', $core->blog->id) && $status == -2) {
     $default = 'delete';
@@ -182,10 +182,10 @@ try {
 dcPage::open(__('Comments and trackbacks'),
     dcPage::jsLoad('js/_comments.js') . dcPage::jsFilterControl($show_filters),
     dcPage::breadcrumb(
-        array(
+        [
             html::escapeHTML($core->blog->name) => '',
             __('Comments and trackbacks')       => ''
-        ))
+        ])
 );
 if (!empty($_GET['upd'])) {
     dcPage::success(__('Selected comments have been successfully updated.'));
@@ -199,7 +199,7 @@ if (!$core->error->flag()) {
         unset($_SESSION['comments_del_spam']);
     }
 
-    $spam_count = $core->blog->getComments(array('comment_status' => -2), true)->f(0);
+    $spam_count = $core->blog->getComments(['comment_status' => -2], true)->f(0);
     if ($spam_count > 0) {
 
         echo
@@ -208,10 +208,10 @@ if (!$core->error->flag()) {
         if (!$with_spam || ($status != -2)) {
             if ($spam_count == 1) {
                 echo '<p>' . sprintf(__('You have one spam comment.'), '<strong>' . $spam_count . '</strong>') . ' ' .
-                '<a href="' . $core->adminurl->get("admin.comments", array('status' => -2)) . '">' . __('Show it.') . '</a></p>';
+                '<a href="' . $core->adminurl->get("admin.comments", ['status' => -2]) . '">' . __('Show it.') . '</a></p>';
             } elseif ($spam_count > 1) {
                 echo '<p>' . sprintf(__('You have %s spam comments.'), '<strong>' . $spam_count . '</strong>') . ' ' .
-                '<a href="' . $core->adminurl->get("admin.comments", array('status' => -2)) . '">' . __('Show them.') . '</a></p>';
+                '<a href="' . $core->adminurl->get("admin.comments", ['status' => -2]) . '">' . __('Show them.') . '</a></p>';
             }
         }
 
@@ -277,19 +277,19 @@ if (!$core->error->flag()) {
 
         '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
         form::combo('action', $comments_actions_page->getCombo(),
-            array('default' => $default, 'extra_html' => 'title="' . __('Actions') . '"')) .
+            ['default' => $default, 'extra_html' => 'title="' . __('Actions') . '"']) .
         $core->formNonce() .
         '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
-        form::hidden(array('type'), $type) .
-        form::hidden(array('sortby'), $sortby) .
-        form::hidden(array('order'), $order) .
-        form::hidden(array('author'), html::escapeHTML(preg_replace('/%/', '%%', $author))) .
-        form::hidden(array('status'), $status) .
-        form::hidden(array('ip'), preg_replace('/%/', '%%', $ip)) .
-        form::hidden(array('page'), $page) .
-        form::hidden(array('nb'), $nb_per_page) .
-        form::hidden(array('email'), html::escapeHTML(preg_replace('/%/', '%%', $email))) .
-        form::hidden(array('site'), html::escapeHTML(preg_replace('/%/', '%%', $site))) .
+        form::hidden(['type'], $type) .
+        form::hidden(['sortby'], $sortby) .
+        form::hidden(['order'], $order) .
+        form::hidden(['author'], html::escapeHTML(preg_replace('/%/', '%%', $author))) .
+        form::hidden(['status'], $status) .
+        form::hidden(['ip'], preg_replace('/%/', '%%', $ip)) .
+        form::hidden(['page'], $page) .
+        form::hidden(['nb'], $nb_per_page) .
+        form::hidden(['email'], html::escapeHTML(preg_replace('/%/', '%%', $email))) .
+        form::hidden(['site'], html::escapeHTML(preg_replace('/%/', '%%', $site))) .
         '</div>' .
 
         '</form>',

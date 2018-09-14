@@ -11,7 +11,7 @@ require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
 
-$users = array();
+$users = [];
 if (!empty($_POST['users']) && is_array($_POST['users'])) {
     foreach ($_POST['users'] as $u) {
         if ($core->userExists($u)) {
@@ -20,7 +20,7 @@ if (!empty($_POST['users']) && is_array($_POST['users'])) {
     }
 }
 
-$blogs = array();
+$blogs = [];
 if (!empty($_POST['blogs']) && is_array($_POST['blogs'])) {
     foreach ($_POST['blogs'] as $b) {
         if ($core->blogExists($b)) {
@@ -37,13 +37,13 @@ if (!empty($_POST['action']) && !empty($_POST['users'])) {
     if (isset($_POST['redir']) && strpos($_POST['redir'], '://') === false) {
         $redir = $_POST['redir'];
     } else {
-        $redir = $core->adminurl->get("admin.users", array(
+        $redir = $core->adminurl->get("admin.users", [
             'q'      => $_POST['q'],
             'sortby' => $_POST['sortby'],
             'order'  => $_POST['order'],
             'page'   => $_POST['page'],
             'nb'     => $_POST['nb']
-        ));
+        ]);
     }
 
     if (empty($users)) {
@@ -86,7 +86,7 @@ if (!empty($_POST['action']) && !empty($_POST['users'])) {
 
             foreach ($users as $u) {
                 foreach ($blogs as $b) {
-                    $set_perms = array();
+                    $set_perms = [];
 
                     if (!empty($_POST['perm'][$b])) {
                         foreach ($_POST['perm'][$b] as $perm_id => $v) {
@@ -113,18 +113,18 @@ if (!empty($_POST['action']) && !empty($_POST['users'])) {
 -------------------------------------------------------- */
 if (!empty($users) && empty($blogs) && $action == 'blogs') {
     $breadcrumb = dcPage::breadcrumb(
-        array(
+        [
             __('System')      => '',
             __('Users')       => $core->adminurl->get("admin.users"),
             __('Permissions') => ''
-        ));
+        ]);
 } else {
     $breadcrumb = dcPage::breadcrumb(
-        array(
+        [
             __('System')  => '',
             __('Users')   => $core->adminurl->get("admin.users"),
             __('Actions') => ''
-        ));
+        ]);
 }
 
 dcPage::open(
@@ -142,18 +142,18 @@ if (!isset($action)) {
 
 $hidden_fields = '';
 foreach ($users as $u) {
-    $hidden_fields .= form::hidden(array('users[]'), $u);
+    $hidden_fields .= form::hidden(['users[]'], $u);
 }
 
 if (isset($_POST['redir']) && strpos($_POST['redir'], '://') === false) {
-    $hidden_fields .= form::hidden(array('redir'), html::escapeURL($_POST['redir']));
+    $hidden_fields .= form::hidden(['redir'], html::escapeURL($_POST['redir']));
 } else {
     $hidden_fields .=
-    form::hidden(array('q'), html::escapeHTML($_POST['q'])) .
-    form::hidden(array('sortby'), $_POST['sortby']) .
-    form::hidden(array('order'), $_POST['order']) .
-    form::hidden(array('page'), $_POST['page']) .
-    form::hidden(array('nb'), $_POST['nb']);
+    form::hidden(['q'], html::escapeHTML($_POST['q'])) .
+    form::hidden(['sortby'], $_POST['sortby']) .
+    form::hidden(['order'], $_POST['order']) .
+    form::hidden(['page'], $_POST['page']) .
+    form::hidden(['nb'], $_POST['nb']);
 }
 
 echo '<p><a class="back" href="' . html::escapeURL($redir) . '">' . __('Back to user profile') . '</a></p>';
@@ -169,7 +169,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
     } catch (Exception $e) {}
 
     foreach ($users as $u) {
-        $user_list[] = '<a href="' . $core->adminurl->get("admin.user", array('id' => $u)) . '">' . $u . '</a>';
+        $user_list[] = '<a href="' . $core->adminurl->get("admin.user", ['id' => $u]) . '">' . $u . '</a>';
     }
 
     echo
@@ -200,10 +200,10 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
             echo
             '<tr class="line">' .
             '<td class="nowrap">' .
-            form::checkbox(array('blogs[]'), $rs->blog_id,
-                array(
+            form::checkbox(['blogs[]'], $rs->blog_id,
+                [
                     'extra_html' => 'title="' . __('select') . ' ' . $rs->blog_id . '"'
-                )) .
+                ]) .
             '</td>' .
             '<td class="nowrap">' . $rs->blog_id . '</td>' .
             '<td class="maximal">' . html::escapeHTML($rs->blog_name) . '</td>' .
@@ -219,20 +219,20 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
         '<p class="checkboxes-helpers"></p>' .
         '<p><input id="do-action" type="submit" value="' . __('Set permissions') . '" />' .
         $hidden_fields .
-        form::hidden(array('action'), 'perms') .
+        form::hidden(['action'], 'perms') .
         $core->formNonce() . '</p>' .
             '</form>';
     }
 }
 # Permissions list for each selected blogs
 elseif (!empty($blogs) && !empty($users) && $action == 'perms') {
-    $user_perm = array();
+    $user_perm = [];
     if (count($users) == 1) {
         $user_perm = $core->getUserPermissions($users[0]);
     }
 
     foreach ($users as $u) {
-        $user_list[] = '<a href="' . $core->adminurl->get("admin.user", array('id' => $u)) . '">' . $u . '</a>';
+        $user_list[] = '<a href="' . $core->adminurl->get("admin.user", ['id' => $u]) . '">' . $u . '</a>';
     }
 
     echo
@@ -243,8 +243,8 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms') {
     '<form id="permissions-form" action="' . $core->adminurl->get("admin.user.actions") . '" method="post">';
 
     foreach ($blogs as $b) {
-        echo '<h3>' . ('Blog:') . ' <a href="' . $core->adminurl->get("admin.blog", array('id' => html::escapeHTML($b))) . '">' . html::escapeHTML($b) . '</a>' .
-        form::hidden(array('blogs[]'), $b) . '</h3>';
+        echo '<h3>' . ('Blog:') . ' <a href="' . $core->adminurl->get("admin.blog", ['id' => html::escapeHTML($b)]) . '">' . html::escapeHTML($b) . '</a>' .
+        form::hidden(['blogs[]'], $b) . '</h3>';
         $unknown_perms = $user_perm;
         foreach ($core->auth->getPermissionsTypes() as $perm_id => $perm) {
             $checked = false;
@@ -258,7 +258,7 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms') {
 
             echo
             '<p><label for="perm' . html::escapeHTML($b) . html::escapeHTML($perm_id) . '" class="classic">' .
-            form::checkbox(array('perm[' . html::escapeHTML($b) . '][' . html::escapeHTML($perm_id) . ']', 'perm' . html::escapeHTML($b) . html::escapeHTML($perm_id)),
+            form::checkbox(['perm[' . html::escapeHTML($b) . '][' . html::escapeHTML($perm_id) . ']', 'perm' . html::escapeHTML($b) . html::escapeHTML($perm_id)],
                 1, $checked) . ' ' .
             __($perm) . '</label></p>';
         }
@@ -269,8 +269,8 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms') {
                 echo
                 '<p><label for="perm' . html::escapeHTML($b) . html::escapeHTML($perm_id) . '" class="classic">' .
                 form::checkbox(
-                    array('perm[' . html::escapeHTML($b) . '][' . html::escapeHTML($perm_id) . ']',
-                        'perm' . html::escapeHTML($b) . html::escapeHTML($perm_id)),
+                    ['perm[' . html::escapeHTML($b) . '][' . html::escapeHTML($perm_id) . ']',
+                        'perm' . html::escapeHTML($b) . html::escapeHTML($perm_id)],
                     1, $checked) . ' ' .
                 sprintf(__('[%s] (unreferenced permission)'), $perm_id) . '</label></p>';
             }
@@ -283,14 +283,14 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms') {
     '<h3>' . __('Validate permissions') . '</h3>' .
     '<p><label for="your_pwd" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label>' .
     form::password('your_pwd', 20, 255,
-        array(
+        [
             'extra_html'   => 'required placeholder="' . __('Password') . '"',
             'autocomplete' => 'current-password'
-        )
+        ]
     ) . '</p>' .
     '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
     $hidden_fields .
-    form::hidden(array('action'), 'updateperm') .
+    form::hidden(['action'], 'updateperm') .
     $core->formNonce() . '</p>' .
         '</div>' .
         '</form>';

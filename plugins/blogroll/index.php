@@ -124,7 +124,7 @@ if (!empty($_POST['removeaction']) && !empty($_POST['remove'])) {
 }
 
 # Order links
-$order = array();
+$order = [];
 if (empty($_POST['links_order']) && !empty($_POST['order'])) {
     $order = $_POST['order'];
     asort($order);
@@ -177,10 +177,10 @@ if (!$core->auth->user_prefs->accessibility->nodragdrop) {
 <body>
 <?php
 echo dcPage::breadcrumb(
-    array(
+    [
         html::escapeHTML($core->blog->name) => '',
         __('Blogroll')                      => ''
-    )) .
+    ]) .
 dcPage::notices();
 ?>
 
@@ -207,16 +207,16 @@ while ($rs->fetch()) {
 
         echo
         '<tr class="line" id="l_' . $rs->link_id . '">' .
-        '<td class="handle minimal">' . form::field(array('order[' . $rs->link_id . ']'), 2, 5, array(
+        '<td class="handle minimal">' . form::field(['order[' . $rs->link_id . ']'], 2, 5, [
             'default'    => $position,
             'class'      => 'position',
             'extra_html' => 'title="' . __('position') . '"'
-        )) .
+        ]) .
         '</td>' .
-        '<td class="minimal">' . form::checkbox(array('remove[]'), $rs->link_id,
-            array(
+        '<td class="minimal">' . form::checkbox(['remove[]'], $rs->link_id,
+            [
                 'extra_html' => 'title="' . __('select this link') . '"'
-            )
+            ]
         ) . '</td>';
 
         if ($rs->is_cat) {
@@ -243,7 +243,7 @@ while ($rs->fetch()) {
 <?php
 echo
     form::hidden('links_order', '') .
-    form::hidden(array('p'), 'blogroll') .
+    form::hidden(['p'], 'blogroll') .
     $core->formNonce();
     ?>
 <input type="submit" name="saveorder" value="<?php echo __('Save order'); ?>" /></p>
@@ -267,17 +267,17 @@ echo
 '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" id="add-link-form">' .
 '<h3>' . __('Add a new link') . '</h3>' .
 '<p class="col"><label for="link_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
-form::field('link_title', 30, 255, array(
+form::field('link_title', 30, 255, [
     'default'    => $link_title,
     'extra_html' => 'required placeholder="' . __('Title') . '"'
-)) .
+]) .
 '</p>' .
 
 '<p class="col"><label for="link_href" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('URL:') . '</label> ' .
-form::field('link_href', 30, 255, array(
+form::field('link_href', 30, 255, [
     'default'    => $link_href,
     'extra_html' => 'required placeholder="' . __('URL') . '"'
-)) .
+]) .
 '</p>' .
 
 '<p class="col"><label for="link_desc">' . __('Description:') . '</label> ' .
@@ -287,7 +287,7 @@ form::field('link_desc', 30, 255, $link_desc) .
 '<p class="col"><label for="link_lang">' . __('Language:') . '</label> ' .
 form::field('link_lang', 5, 5, $link_lang) .
 '</p>' .
-'<p>' . form::hidden(array('p'), 'blogroll') .
+'<p>' . form::hidden(['p'], 'blogroll') .
 $core->formNonce() .
 '<input type="submit" name="add_link" value="' . __('Save') . '" /></p>' .
     '</form>' .
@@ -298,12 +298,12 @@ echo
 '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" id="add-category-form">' .
 '<h3>' . __('Add a new category') . '</h3>' .
 '<p><label for="cat_title" class=" classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
-form::field('cat_title', 30, 255, array(
+form::field('cat_title', 30, 255, [
     'default'    => $cat_title,
     'extra_html' => 'required placeholder="' . __('Title') . '"'
-)) .
+]) .
 ' ' .
-form::hidden(array('p'), 'blogroll') .
+form::hidden(['p'], 'blogroll') .
 $core->formNonce() .
 '<input type="submit" name="add_cat" value="' . __('Save') . '" /></p>' .
     '</form>' .
@@ -317,7 +317,7 @@ if (!isset($imported)) {
     '<h3>' . __('Import links') . '</h3>' .
     '<p><label for="links_file" class=" classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('OPML or XBEL File:') . '</label> ' .
     '<input type="file" id="links_file" name="links_file" required /></p>' .
-    '<p>' . form::hidden(array('p'), 'blogroll') .
+    '<p>' . form::hidden(['p'], 'blogroll') .
     $core->formNonce() .
     '<input type="submit" name="import_links" value="' . __('Import') . '" /></p>' .
         '</form>';
@@ -341,7 +341,7 @@ if (!isset($imported)) {
             $desc  = html::escapeHTML($entry->desc);
 
             echo
-            '<tr><td>' . form::checkbox(array('entries[]'), $i) . '</td>' .
+            '<tr><td>' . form::checkbox(['entries[]'], $i) . '</td>' .
                 '<td nowrap><a href="' . $url . '">' . $title . '</a>' .
                 '<input type="hidden" name="url[' . $i . ']" value="' . $url . '" />' .
                 '<input type="hidden" name="title[' . $i . ']" value="' . $title . '" />' .
@@ -357,7 +357,7 @@ if (!isset($imported)) {
         '<p class="col checkboxes-helpers"></p>' .
 
         '<p class="col right">' .
-        form::hidden(array('p'), 'blogroll') .
+        form::hidden(['p'], 'blogroll') .
         $core->formNonce() .
         '<input type="submit" name="cancel_import" value="' . __('Cancel') . '" />&nbsp;' .
         '<input type="submit" name="import_links_do" value="' . __('Import') . '" /></p>' .

@@ -21,7 +21,7 @@ $tasks       = $maintenance->getTasks();
 $headers = '';
 $p_url   = $core->adminurl->get('admin.plugin.maintenance');
 $task    = null;
-$expired = array();
+$expired = [];
 
 $code = empty($_POST['code']) ? null : (integer) $_POST['code'];
 $tab  = empty($_REQUEST['tab']) ? '' : $_REQUEST['tab'];
@@ -100,13 +100,13 @@ if (!empty($_POST['save_settings'])) {
 
 // Combos
 
-$combo_ts = array(
+$combo_ts = [
     __('Never')            => 0,
     __('Every week')       => 604800,
     __('Every two weeks')  => 1209600,
     __('Every month')      => 2592000,
     __('Every two months') => 5184000
-);
+];
 
 // Display page
 
@@ -131,10 +131,10 @@ $maintenance->getHeaders() . '
 // Check if there is somthing to display according to user permissions
 if (empty($tasks)) {
     echo dcPage::breadcrumb(
-        array(
+        [
             __('Plugins')     => '',
             __('Maintenance') => ''
-        )
+        ]
     ) .
     '<p class="warn">' . __('You have not sufficient permissions to view this page.') . '</p>' .
         '</body></html>';
@@ -147,11 +147,11 @@ if ($task && ($res = $task->step()) !== null) {
     // Page title
 
     echo dcPage::breadcrumb(
-        array(
+        [
             __('Plugins')                                            => '',
             '<a href="' . $p_url . '">' . __('Maintenance') . '</a>' => '',
             html::escapeHTML($task->name())                          => ''
-        )
+        ]
     ) . dcPage::notices();
 
     // content
@@ -171,8 +171,8 @@ if ($task && ($res = $task->step()) !== null) {
     $res .
     '<p class="step-submit">' .
     '<input type="submit" value="' . $task->task() . '" /> ' .
-    form::hidden(array('task'), $task->id()) .
-    form::hidden(array('code'), (integer) $code) .
+    form::hidden(['task'], $task->id()) .
+    form::hidden(['code'], (integer) $code) .
     $core->formNonce() .
         '</p>' .
         '</form>' .
@@ -182,10 +182,10 @@ if ($task && ($res = $task->step()) !== null) {
     // Page title
 
     echo dcPage::breadcrumb(
-        array(
+        [
             __('Plugins')     => '',
             __('Maintenance') => ''
-        )
+        ]
     ) . dcPage::notices();
 
     // Simple task (with only a button to start it)
@@ -202,7 +202,7 @@ if ($task && ($res = $task->step()) !== null) {
                 }
 
                 $res_task .=
-                '<p>' . form::radio(array('task', $t->id()), $t->id()) . ' ' .
+                '<p>' . form::radio(['task', $t->id()], $t->id()) . ' ' .
                 '<label class="classic" for="' . $t->id() . '">' .
                 html::escapeHTML($t->task()) . '</label>';
 
@@ -245,7 +245,7 @@ if ($task && ($res = $task->step()) !== null) {
             '<form action="' . $p_url . '" method="post">' .
             $res_group .
             '<p><input type="submit" value="' . __('Execute task') . '" /> ' .
-            form::hidden(array('tab'), $tab_obj->id()) .
+            form::hidden(['tab'], $tab_obj->id()) .
             $core->formNonce() . '</p>' .
             '<p class="form-note info">' . __('This may take a very long time.') . '</p>' .
                 '</form>' .
@@ -266,8 +266,8 @@ if ($task && ($res = $task->step()) !== null) {
         '<form action="' . $p_url . '" method="post">' .
         $t->content() .
         '<p><input type="submit" value="' . __('Execute task') . '" /> ' .
-        form::hidden(array('task'), $t->id()) .
-        form::hidden(array('tab'), $t->id()) .
+        form::hidden(['task'], $t->id()) .
+        form::hidden(['tab'], $t->id()) .
         $core->formNonce() . '</p>' .
             '</form>' .
             '</div>';
@@ -292,7 +292,7 @@ if ($task && ($res = $task->step()) !== null) {
 
     '<h4 class="pretty-title vertical-separator">' . __('Frequency') . '</h4>' .
 
-    '<p class="vertical-separator">' . form::radio(array('settings_recall_type', 'settings_recall_all'), 'all') . ' ' .
+    '<p class="vertical-separator">' . form::radio(['settings_recall_type', 'settings_recall_all'], 'all') . ' ' .
     '<label class="classic" for="settings_recall_all">' .
     '<strong>' . __('Use one recall time for all tasks') . '</strong></label></p>' .
 
@@ -300,7 +300,7 @@ if ($task && ($res = $task->step()) !== null) {
     form::combo('settings_recall_time', $combo_ts, 'seperate', 'recall-for-all') .
     '</p>' .
 
-    '<p class="vertical-separator">' . form::radio(array('settings_recall_type', 'settings_recall_separate'), 'separate', 1) . ' ' .
+    '<p class="vertical-separator">' . form::radio(['settings_recall_type', 'settings_recall_separate'], 'separate', 1) . ' ' .
     '<label class="classic" for="settings_recall_separate">' .
     '<strong>' . __('Use one recall time per task') . '</strong></label></p>';
 
@@ -320,8 +320,8 @@ if ($task && ($res = $task->step()) !== null) {
 
     echo
     '<p class="field wide"><input type="submit" value="' . __('Save') . '" /> ' .
-    form::hidden(array('tab'), 'settings') .
-    form::hidden(array('save_settings'), 1) .
+    form::hidden(['tab'], 'settings') .
+    form::hidden(['save_settings'], 1) .
     $core->formNonce() . '</p>' .
         '</form>' .
         '</div>';

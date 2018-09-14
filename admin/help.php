@@ -12,7 +12,7 @@ require dirname(__FILE__) . '/../inc/admin/prepend.php';
 dcPage::check('usage,contentadmin');
 
 $helpPage = function (...$args) {
-    $ret = array('content' => '', 'title' => '');
+    $ret = ['content' => '', 'title' => ''];
 
     if (empty($args)) {
         return $ret;
@@ -69,15 +69,15 @@ if (($content_array['content'] == '') || ($help_page == 'index')) {
 }
 if ($content_array['title'] != '') {
     $breadcrumb = dcPage::breadcrumb(
-        array(
+        [
             __('Global help')       => $core->adminurl->get("admin.help"),
             $content_array['title'] => ''
-        ));
+        ]);
 } else {
     $breadcrumb = dcPage::breadcrumb(
-        array(
+        [
             __('Global help') => ''
-        ));
+        ]);
 }
 
 /* DISPLAY

@@ -50,7 +50,7 @@ function dc_admin_icon_url($img)
             if ($m[1]) {
                 $icon = path::real(dirname(__FILE__) . '/../../admin/images/iconset/' . $user_ui_iconset . '/' . $m[1], false);
                 if ($icon !== false) {
-                    $allow_types = array('png', 'jpg', 'jpeg', 'gif');
+                    $allow_types = ['png', 'jpg', 'jpeg', 'gif'];
                     if (is_file($icon) && is_readable($icon) && in_array(files::getExtension($icon), $allow_types)) {
                         return DC_ADMIN_URL . 'images/iconset/' . $user_ui_iconset . '/' . $m[1];
                     }
@@ -195,8 +195,8 @@ $core->adminurl->register('admin.auth', 'auth.php');
 $core->adminurl->register('admin.help', 'help.php');
 $core->adminurl->register('admin.update', 'update.php');
 
-$core->adminurl->registercopy('load.plugin.file', 'admin.home', array('pf' => 'dummy.css'));
-$core->adminurl->registercopy('load.var.file', 'admin.home', array('vf' => 'dummy.json'));
+$core->adminurl->registercopy('load.plugin.file', 'admin.home', ['pf' => 'dummy.css']);
+$core->adminurl->registercopy('load.var.file', 'admin.home', ['vf' => 'dummy.json']);
 
 if ($core->auth->userID() && $core->blog !== null) {
     # Loading resources and help files

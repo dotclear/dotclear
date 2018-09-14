@@ -16,8 +16,8 @@ $this->registerModule(
     "Dotclear 2.7+ default theme", // Description
     "Dotclear Team",               // Author
     '1.2',                         // Version
-    array(                         // Properties
+    [                              // Properties
         'type'   => 'theme',
         'tplset' => 'dotty'
-    )
+    ]
 );

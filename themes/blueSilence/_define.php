@@ -16,7 +16,7 @@ $this->registerModule(
     "Dotclear Theme",       // Description
     "Marco / marcarea.com", // Author
     '1.0',                  // Version
-    array(
+    [
         'type' => 'theme'
-    )
+    ]
 );

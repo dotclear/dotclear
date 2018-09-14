@@ -11,7 +11,7 @@ if (!defined('DC_RC_PATH')) {return;}
 
 class context
 {
-    public $stack = array();
+    public $stack = [];
 
     public function __set($name, $var)
     {
@@ -104,14 +104,14 @@ class context
         $encode_xml, $remove_html, $cut_string, $lower_case, $upper_case, $encode_url, $tag = '') {
         return self::global_filters(
             $str,
-            array(0       => null,
+            [0       => null,
                 'encode_xml'  => $encode_xml,
                 'remove_html' => $remove_html,
                 'cut_string'  => $cut_string,
                 'lower_case'  => $lower_case,
                 'upper_case'  => ($upper_case == 1 ? 1 : 0),
                 'capitalize'  => ($upper_case == 2 ? 1 : 0),
-                'encode_url'  => $encode_url),
+                'encode_url'  => $encode_url],
             $tag);
     }
 
@@ -148,14 +148,14 @@ class context
 
     public static function global_filters($str, $args, $tag = '')
     {
-        $filters = array(
+        $filters = [
             'strip_tags',                             // Removes HTML tags (mono line)
             'remove_html',                            // Removes HTML tags
             'encode_xml', 'encode_html',              // Encode HTML entities
             'cut_string',                             // Cut string (length in $args['cut_string'])
             'lower_case', 'capitalize', 'upper_case', // Case transformations
             'encode_url'                             // URL encode (as for insert in query string)
-        );
+        ];
 
         $args[0] = &$str;
 
@@ -208,7 +208,7 @@ class context
 
     public static function strip_tags($str)
     {
-        return trim(preg_replace('/ {2,}/', ' ', str_replace(array("\r", "\n", "\t"), ' ', html::clean($str))));
+        return trim(preg_replace('/ {2,}/', ' ', str_replace(["\r", "\n", "\t"], ' ', html::clean($str))));
     }
 
     public static function lower_case($str)
@@ -335,7 +335,7 @@ class context
     # Robots policy
     public static function robotsPolicy($base, $over)
     {
-        $pol  = array('INDEX' => 'INDEX', 'FOLLOW' => 'FOLLOW', 'ARCHIVE' => 'ARCHIVE');
+        $pol  = ['INDEX' => 'INDEX', 'FOLLOW' => 'FOLLOW', 'ARCHIVE' => 'ARCHIVE'];
         $base = array_flip(preg_split('/\s*,\s*/', $base));
         $over = array_flip(preg_split('/\s*,\s*/', $over));
 
@@ -358,7 +358,7 @@ class context
     # Smilies static methods
     public static function getSmilies($blog)
     {
-        $path = array();
+        $path = [];
         if (isset($GLOBALS['__theme'])) {
             $path[] = $GLOBALS['__theme'];
             if (isset($GLOBALS['__parent_theme'])) {
@@ -369,7 +369,7 @@ class context
         $definition = $blog->themes_path . '/%s/smilies/smilies.txt';
         $base_url   = $blog->settings->system->themes_url . '/%s/smilies/';
 
-        $res = array();
+        $res = [];
 
         foreach ($path as $t) {
             if (file_exists(sprintf($definition, $t))) {
@@ -384,7 +384,7 @@ class context
     {
         $def = file($f);
 
-        $res = array();
+        $res = [];
         foreach ($def as $v) {
             $v = trim($v);
             if (preg_match('|^([^\t\s]*)[\t\s]+(.*)$|', $v, $matches)) {
@@ -447,7 +447,7 @@ class context
         #   <http://www.bradchoate.com/past/mtregex.php>
         #
         $index  = 0;
-        $tokens = array();
+        $tokens = [];
 
         $match = '(?s:<!(?:--.*?--\s*)+>)|' . # comment
         '(?s:<\?.*?\?>)|' . # processing instruction
@@ -458,9 +458,9 @@ class context
 
         foreach ($parts as $part) {
             if (++$index % 2 && $part != '') {
-                $tokens[] = array('text', $part);
+                $tokens[] = ['text', $part];
             } else {
-                $tokens[] = array('tag', $part);
+                $tokens[] = ['tag', $part];
             }
 
         }

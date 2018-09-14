@@ -36,7 +36,7 @@ class dcFilterFairTrackbacks extends dcSpamFilter
 
         try
         {
-            $default_parse = array('scheme' => '', 'host' => '', 'path' => '', 'query' => '');
+            $default_parse = ['scheme' => '', 'host' => '', 'path' => '', 'query' => ''];
             $S             = array_merge($default_parse, parse_url($site));
 
             if ($S['scheme'] != 'http' || !$S['host'] || !$S['path']) {
@@ -44,7 +44,7 @@ class dcFilterFairTrackbacks extends dcSpamFilter
             }
 
             # Check incomink link page
-            $post     = $this->core->blog->getPosts(array('post_id' => $post_id));
+            $post     = $this->core->blog->getPosts(['post_id' => $post_id]);
             $post_url = $post->getURL();
             $P        = array_merge($default_parse, parse_url($post_url));
 

@@ -140,10 +140,10 @@ class dcFilterWords extends dcSpamFilter
                 }
 
                 $item = '<p class="' . $p_style . '"><label class="classic" for="word-' . $rs->rule_id . '">' .
-                form::checkbox(array('swd[]', 'word-' . $rs->rule_id), $rs->rule_id,
-                    array(
+                form::checkbox(['swd[]', 'word-' . $rs->rule_id], $rs->rule_id,
+                    [
                         'disabled' => $disabled_word
-                    )
+                    ]
                 ) . ' ' .
                 html::escapeHTML($rs->rule_content) .
                     '</label></p>';
@@ -167,7 +167,7 @@ class dcFilterWords extends dcSpamFilter
 
             $res .=
             '</div>' .
-            '<p>' . form::hidden(array('spamwords'), 1) .
+            '<p>' . form::hidden(['spamwords'], 1) .
             $core->formNonce() .
             '<input class="submit delete" type="submit" value="' . __('Delete selected words') . '"/></p>' .
                 '</form>';
@@ -177,8 +177,8 @@ class dcFilterWords extends dcSpamFilter
             $res .=
             '<form action="' . html::escapeURL($url) . '" method="post">' .
             '<p><input type="submit" value="' . __('Create default wordlist') . '" />' .
-            form::hidden(array('spamwords'), 1) .
-            form::hidden(array('createlist'), 1) .
+            form::hidden(['spamwords'], 1) .
+            form::hidden(['createlist'], 1) .
             $core->formNonce() . '</p>' .
                 '</form>';
         }
@@ -254,7 +254,7 @@ class dcFilterWords extends dcSpamFilter
 
     public function defaultWordsList()
     {
-        $words = array(
+        $words = [
             '/-credit(\s+|$)/',
             '/-digest(\s+|$)/',
             '/-loan(\s+|$)/',
@@ -353,7 +353,7 @@ class dcFilterWords extends dcSpamFilter
             'vioxx',
             'xanax',
             'zolus'
-        );
+        ];
 
         foreach ($words as $w) {
             try {

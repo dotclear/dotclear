@@ -113,11 +113,11 @@ class dcFilterIP extends dcSpamFilter
         '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
 
         '<p>' .
-        form::hidden(array('ip_type'), $type) .
+        form::hidden(['ip_type'], $type) .
         '<label class="classic" for="addip_' . $type . '">' . __('Add an IP address: ') . '</label> ' .
-        form::field(array('addip', 'addip_' . $type), 18, 255);
+        form::field(['addip', 'addip_' . $type], 18, 255);
         if ($core->auth->isSuperAdmin()) {
-            $res .= '<label class="classic" for="globalip_' . $type . '">' . form::checkbox(array('globalip', 'globalip_' . $type), 1) . ' ' .
+            $res .= '<label class="classic" for="globalip_' . $type . '">' . form::checkbox(['globalip', 'globalip_' . $type], 1) . ' ' .
             __('Global IP (used for all blogs)') . '</label> ';
         }
 
@@ -154,10 +154,10 @@ class dcFilterIP extends dcSpamFilter
 
                 $item =
                 '<p class="' . $p_style . '"><label class="classic" for="' . $type . '-ip-' . $rs->rule_id . '">' .
-                form::checkbox(array('delip[]', $type . '-ip-' . $rs->rule_id), $rs->rule_id,
-                    array(
+                form::checkbox(['delip[]', $type . '-ip-' . $rs->rule_id], $rs->rule_id,
+                    [
                         'disabled' => $disabled_ip
-                    )
+                    ]
                 ) . ' ' .
                 html::escapeHTML($pattern) .
                     '</label></p>';
@@ -182,7 +182,7 @@ class dcFilterIP extends dcSpamFilter
             '</div>' .
             '<p><input class="submit delete" type="submit" value="' . __('Delete') . '"/>' .
             $core->formNonce() .
-            form::hidden(array('ip_type'), $type) .
+            form::hidden(['ip_type'], $type) .
                 '</p>' .
                 '</form>';
         }

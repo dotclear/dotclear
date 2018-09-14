@@ -17,13 +17,13 @@ try
 {
     $pings_uris = $core->blog->settings->pings->pings_uris;
     if (!$pings_uris) {
-        $pings_uris = array();
+        $pings_uris = [];
     }
 
     if (isset($_POST['pings_srv_name'])) {
-        $pings_srv_name = is_array($_POST['pings_srv_name']) ? $_POST['pings_srv_name'] : array();
-        $pings_srv_uri  = is_array($_POST['pings_srv_uri']) ? $_POST['pings_srv_uri'] : array();
-        $pings_uris     = array();
+        $pings_srv_name = is_array($_POST['pings_srv_name']) ? $_POST['pings_srv_name'] : [];
+        $pings_srv_uri  = is_array($_POST['pings_srv_uri']) ? $_POST['pings_srv_uri'] : [];
+        $pings_uris     = [];
 
         foreach ($pings_srv_name as $k => $v) {
             if (trim($v) && trim($pings_srv_uri[$k])) {
@@ -54,10 +54,10 @@ try
 <?php
 
 echo dcPage::breadcrumb(
-    array(
+    [
         __('Plugins')             => '',
         __('Pings configuration') => ''
-    ));
+    ]);
 
 echo
 '<form action="' . $p_url . '" method="post">' .
@@ -68,12 +68,12 @@ $i = 0;
 foreach ($pings_uris as $n => $u) {
     echo
     '<p><label for="pings_srv_name-' . $i . '" class="classic">' . __('Service name:') . '</label> ' .
-    form::field(array('pings_srv_name[]', 'pings_srv_name-' . $i), 20, 128, html::escapeHTML($n)) . ' ' .
+    form::field(['pings_srv_name[]', 'pings_srv_name-' . $i], 20, 128, html::escapeHTML($n)) . ' ' .
     '<label for="pings_srv_uri-' . $i . '" class="classic">' . __('Service URI:') . '</label> ' .
-    form::url(array('pings_srv_uri[]', 'pings_srv_uri-' . $i), array(
+    form::url(['pings_srv_uri[]', 'pings_srv_uri-' . $i], [
         'size'    => 40,
         'default' => html::escapeHTML($u)
-    ));
+    ]);
 
     if (!empty($_GET['test'])) {
         try {
@@ -90,9 +90,9 @@ foreach ($pings_uris as $n => $u) {
 
 echo
 '<p><label for="pings_srv_name2" class="classic">' . __('Service name:') . '</label> ' .
-form::field(array('pings_srv_name[]', 'pings_srv_name2'), 20, 128) . ' ' .
+form::field(['pings_srv_name[]', 'pings_srv_name2'], 20, 128) . ' ' .
 '<label for="pings_srv_uri2" class="classic">' . __('Service URI:') . '</label> ' .
-form::url(array('pings_srv_uri[]', 'pings_srv_uri2'), 40) .
+form::url(['pings_srv_uri[]', 'pings_srv_uri2'], 40) .
 '</p>' .
 
 '<p><label for="pings_auto" class="classic">' . form::checkbox('pings_auto', 1, $core->blog->settings->pings->pings_auto) .

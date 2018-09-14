@@ -21,16 +21,16 @@ dcPage::openPopup(__('Add a link'), dcPage::jsLoad('js/_popup_link.js') . $core-
 echo '<h2 class="page-title">' . __('Add a link') . '</h2>';
 
 # Languages combo
-$rs         = $core->blog->getLangs(array('order' => 'asc'));
+$rs         = $core->blog->getLangs(['order' => 'asc']);
 $lang_combo = dcAdminCombos::getLangsCombo($rs, true);
 
 echo
 '<form id="link-insert-form" action="#" method="get">' .
 '<p><label class="required" for="href"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Link URL:') . '</label> ' .
-form::field('href', 35, 512, array(
+form::field('href', 35, 512, [
     'default'    => html::escapeHTML($href),
     'extra_html' => 'required placeholder="' . __('URL') . '"'
-)) .
+]) .
 '</p>' .
 '<p><label for="title">' . __('Link title:') . '</label> ' .
 form::field('title', 35, 512, html::escapeHTML($title)) . '</p>' .

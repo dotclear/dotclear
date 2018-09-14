@@ -55,7 +55,7 @@ if (count($_GET) > 1) {
     exit;
 }
 
-$allow_types = array('png', 'jpg', 'jpeg', 'gif', 'css', 'js', 'swf', 'svg');
+$allow_types = ['png', 'jpg', 'jpeg', 'gif', 'css', 'js', 'swf', 'svg'];
 
 $pf = path::clean($_GET['pf']);
 
@@ -88,7 +88,7 @@ if (!in_array(files::getExtension($PF), $allow_types)) {
 }
 
 http::$cache_max_age = 7 * 24 * 60 * 60; // One week cache for plugin's files served by ?pf=… is better than old 2 hours
-http::cache(array_merge(array($PF), get_included_files()));
+http::cache(array_merge([$PF], get_included_files()));
 
 header('Content-Type: ' . files::getMimeType($PF));
 // Content-length is not mandatory and must be the exact size of content transfered AFTER possible compression (gzip, deflate, …)
