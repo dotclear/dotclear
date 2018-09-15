@@ -266,6 +266,9 @@ hr {
   background-size: 100%;
   background-image: linear-gradient(to right, #dcdcdc, #636363, #dcdcdc); }
 
+abbr[title] {
+  text-decoration: none; }
+
 blockquote, q {
   font-family: "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
   color: #636363;
