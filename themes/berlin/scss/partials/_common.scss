@@ -63,6 +63,9 @@ hr {
     background: #333;
     @include background-image(linear-gradient(left, $gray-medium, $gray-dark, $gray-medium));
 }
+abbr[title] {
+  text-decoration: none;
+}
 blockquote, q {
     font-family: $serif;
     color: $gray-dark;

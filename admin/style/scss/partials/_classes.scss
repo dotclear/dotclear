@@ -265,6 +265,11 @@ a.onblog_link {
 	h3 {
 		margin-top: 0;
 	}
+  hr {
+    background-color: $fieldset-border;
+    border-width: 0;
+    margin: 1em 0;
+  }
 	&:focus-within {
 		background-color: $fieldset-focus-background;
 	}

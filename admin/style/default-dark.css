@@ -966,6 +966,10 @@ fieldset {
   border-style: solid;
   border-color: #cbced1;
   background: #272b30; }
+  fieldset hr {
+    background-color: #cbced1;
+    border-width: 0;
+    margin: 1em 0; }
   fieldset:focus-within {
     background-color: #363a3e; }
 
@@ -3113,6 +3117,10 @@ a.onblog_link {
   margin-bottom: 1em; }
   .fieldset h3 {
     margin-top: 0; }
+  .fieldset hr {
+    background-color: #cbced1;
+    border-width: 0;
+    margin: 1em 0; }
   .fieldset:focus-within {
     background-color: #363a3e; }
 
@@ -3222,8 +3230,7 @@ ul.from-left {
   border: 1px solid #dcdee0;
   vertical-align: top;
   border-radius: 10px;
-  padding: 0 .6em;
-  }
+  padding: 0 .6em; }
 
 .badge-icon {
   background-color: #607d8b; }

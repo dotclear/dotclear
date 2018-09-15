@@ -43,6 +43,11 @@ fieldset {
   border-style: solid;
   border-color: $fieldset-border;
   background: $fieldset-background;
+  hr {
+    background-color: $fieldset-border;
+    border-width: 0;
+    margin: 1em 0;
+  }
   &:focus-within {
     background-color: $fieldset-focus-background;
   }
