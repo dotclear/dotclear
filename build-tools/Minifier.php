@@ -23,7 +23,7 @@ namespace JShrink;
  *
  * Usage - Minifier::minify($js);
  * Usage - Minifier::minify($js, $options);
- * Usage - Minifier::minify($js, ['flaggedComments' => false]);
+ * Usage - Minifier::minify($js, array('flaggedComments' => false));
  *
  * @package JShrink
  * @author Robert Hafner <tedivm@tedivm.com>
@@ -81,7 +81,7 @@ class Minifier
      *
      * @var array
      */
-    protected static $defaultOptions = ['flaggedComments' => true];
+    protected static $defaultOptions = array('flaggedComments' => true);
 
     /**
      * Contains lock ids which are used to replace certain code patterns and
@@ -89,7 +89,7 @@ class Minifier
      *
      * @var array
      */
-    protected $locks = [];
+    protected $locks = array();
 
     /**
      * Takes a string containing javascript and removes unneeded characters in
@@ -100,7 +100,7 @@ class Minifier
      * @throws \Exception
      * @return bool|string
      */
-    public static function minify($js, $options = [])
+    public static function minify($js, $options = array())
     {
         try {
             ob_start();
@@ -551,7 +551,7 @@ class Minifier
         /* lock things like <code>"asd" + ++x;</code> */
         $lock = '"LOCK---' . crc32(time()) . '"';
 
-        $matches = [];
+        $matches = array();
         preg_match('/([+-])(\s+)([+-])/S', $js, $matches);
         if (empty($matches)) {
             return $js;

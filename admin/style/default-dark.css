@@ -20,7 +20,8 @@ body {
   padding: 0; }
 
 a {
-  background: transparent; }
+  background: transparent;
+  }
   a:focus {
     outline: thin dotted; }
   a:active, a:hover {
@@ -749,7 +750,8 @@ h1,
   padding: 0 1em .5em 1em;
   margin: 0 -1em 1em -1em;
   background: #272b30;
-  border-bottom: 1px solid #86888c; }
+  border-bottom: 1px solid #86888c;
+  }
 
 /* page courante dans le fil d'ariane */
 .page-title {
