@@ -11,9 +11,9 @@ EOF;
 $dc_base  = dirname(__FILE__) . '/..';
 $php_exec = $_SERVER['_'];
 
-$opts = [
-    'http' => []
-];
+$opts = array(
+    'http' => array()
+);
 if (getenv('http_proxy') !== false) {
     $opts['http']['proxy'] = 'tcp://' . getenv('http_proxy');
 }
