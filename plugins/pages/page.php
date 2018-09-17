@@ -298,6 +298,7 @@ if ($post_editor) {
 dcPage::jsDatePicker() .
 dcPage::jsModal() .
 dcPage::jsLoad('js/_post.js') .
+dcPage::jsLoad(dcPage::getPF('pages/js/page.js')) .
 $admin_post_behavior .
 dcPage::jsConfirmClose('entry-form', 'comment-form') .
 # --BEHAVIOR-- adminPageHeaders
@@ -730,24 +731,29 @@ function showComments($rs, $has_action)
     while ($rs->fetch()) {
         $comment_url = $core->adminurl->get('admin.comment', ['id' => $rs->comment_id]);
 
-        $img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
+        $img       = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
+        $sts_class = '';
         switch ($rs->comment_status) {
             case 1:
                 $img_status = sprintf($img, __('Published'), 'check-on.png');
+                $sts_class  = 'sts-online';
                 break;
             case 0:
                 $img_status = sprintf($img, __('Unpublished'), 'check-off.png');
+                $sts_class  = 'sts-offline';
                 break;
             case -1:
                 $img_status = sprintf($img, __('Pending'), 'check-wrn.png');
+                $sts_class  = 'sts-pending';
                 break;
             case -2:
                 $img_status = sprintf($img, __('Junk'), 'junk.png');
+                $sts_class  = 'sts-junk';
                 break;
         }
 
         echo
-        '<tr class="line' . ($rs->comment_status != 1 ? ' offline' : '') . '"' .
+        '<tr class="line ' . ($rs->comment_status != 1 ? ' offline ' : '') . $sts_class . '"' .
         ' id="c' . $rs->comment_id . '">' .
 
         '<td class="nowrap">' .

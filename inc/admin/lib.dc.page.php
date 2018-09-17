@@ -764,6 +764,7 @@ class dcPage
         self::jsLoad('js/jquery/jquery-migrate.js') .
         self::jsLoad('js/jquery/jquery.biscuit.js') .
         self::jsLoad('js/common.js') .
+        self::jsLoad('js/services.js') .
         self::jsLoad('js/prelude.js') .
 
         '<script type="text/javascript">' . "\n" .

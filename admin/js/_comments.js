@@ -1,56 +1,40 @@
 /*global $, dotclear */
 'use strict';
 
-dotclear.viewCommentContent = function(line, action) {
+dotclear.viewCommentContent = function(line, action, e) {
   action = action || 'toggle';
+  if ($(line).attr('id') == undefined) {
+    return;
+  }
+
   var commentId = $(line).attr('id').substr(1);
   var tr = document.getElementById('ce' + commentId);
+  var spam = (e.metaKey || $(line).hasClass('sts-junk'));
 
-  if (!tr && (action == 'toggle' || action == 'open')) {
-    tr = document.createElement('tr');
-    tr.id = 'ce' + commentId;
-    var td = document.createElement('td');
-    td.colSpan = 6;
-    td.className = 'expand';
-    tr.appendChild(td);
-
-    // Get comment content
-    $.get('services.php', {
-      f: 'getCommentById',
-      id: commentId
-    }, function(data) {
-      var rsp = $(data).children('rsp')[0];
-
-      if (rsp.attributes[0].value == 'ok') {
-        var comment = $(rsp).find('comment_display_content').text();
-
-        if (comment) {
-          $(td).append(comment);
-          var comment_email = $(rsp).find('comment_email').text();
-          var comment_site = $(rsp).find('comment_site').text();
-          var comment_ip = $(rsp).find('comment_ip').text();
-          var comment_spam_disp = $(rsp).find('comment_spam_disp').text();
-
-          $(td).append('<p><strong>' + dotclear.msg.website +
-            '</strong> ' + comment_site + '<br />' +
-            '<strong>' + dotclear.msg.email + '</strong> ' + comment_email + '<br />' +
-            '<strong>' + dotclear.msg.ip_address +
-            '</strong> <a href="comments.php?ip=' + comment_ip + '">' + comment_ip + '</a>' +
-            '<br />' + comment_spam_disp + '</p>');
-        }
+  if (!tr) {
+    // Get comment content if possible
+    dotclear.getCommentContent(commentId, function(content) {
+      if (content) {
+        // Content found
+        tr = document.createElement('tr');
+        tr.id = 'ce' + commentId;
+        var td = document.createElement('td');
+        td.colSpan = $(line).children('td').length;
+        td.className = 'expand';
+        tr.appendChild(td);
+        $(td).append(content);
+        $(line).addClass('expand');
+        line.parentNode.insertBefore(tr, line.nextSibling);
       } else {
-        window.alert($(rsp).find('message').text());
+        // No content, content not found or server error
+        $(line).removeClass('expand');
       }
+    }, {
+      clean: spam
     });
-
+  } else {
+    $(tr).toggle();
     $(line).toggleClass('expand');
-    line.parentNode.insertBefore(tr, line.nextSibling);
-  } else if (tr && tr.style.display == 'none' && (action == 'toggle' || action == 'open')) {
-    $(tr).css('display', 'table-row');
-    $(line).addClass('expand');
-  } else if (tr && tr.style.display != 'none' && (action == 'toggle' || action == 'close')) {
-    $(tr).css('display', 'none');
-    $(line).removeClass('expand');
   }
 };
 
