@@ -172,7 +172,7 @@ jQuery.fn.toggleWithLegend = function(target, s) {
   var singleExpander = function singleExpander(line, callback) {
     $('<button type="button" class="details-cmd" aria-label="' + dotclear.img_plus_alt + '">' + dotclear.img_plus_txt + '</button>').click(function(e) {
       toggleArrow(this);
-      callback(line);
+      callback(line, '', e);
       e.preventDefault();
     }).prependTo($(line).children().get(0)); // first td
   };
@@ -181,7 +181,7 @@ jQuery.fn.toggleWithLegend = function(target, s) {
       var action = toggleArrow(this);
       lines.each(function() {
         toggleArrow(this.firstChild.firstChild, action);
-        callback(this, action);
+        callback(this, action, e);
       });
       e.preventDefault();
     }).prependTo($(line).children().get(0)); // first td

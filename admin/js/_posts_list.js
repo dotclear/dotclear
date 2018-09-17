@@ -1,52 +1,38 @@
 /*global $, dotclear */
 'use strict';
 
-dotclear.viewPostContent = function(line, action) {
+dotclear.viewPostContent = function(line, action, e) {
   action = action || 'toggle';
+  if ($(line).attr('id') == undefined) {
+    return;
+  }
+
   var postId = $(line).attr('id').substr(1);
   var tr = document.getElementById('pe' + postId);
 
-  if (!tr && (action == 'toggle' || action == 'open')) {
-    tr = document.createElement('tr');
-    tr.id = 'pe' + postId;
-    var td = document.createElement('td');
-    td.colSpan = 8;
-    td.className = 'expand';
-    tr.appendChild(td);
-
-    // Get post content
-    $.get('services.php', {
-      f: 'getPostById',
-      id: postId,
-      post_type: ''
-    }, function(data) {
-      var rsp = $(data).children('rsp')[0];
-
-      if (rsp.attributes[0].value == 'ok') {
-        var post = $(rsp).find('post_display_content').text();
-        var post_excerpt = $(rsp).find('post_display_excerpt').text();
-        var res = '';
-
-        if (post) {
-          if (post_excerpt) {
-            res += post_excerpt + '<hr />';
-          }
-          res += post;
-          $(td).append(res);
-        }
+  if (!tr) {
+    // Get post content if possible
+    dotclear.getEntryContent(postId, function(content) {
+      if (content) {
+        // Content found
+        tr = document.createElement('tr');
+        tr.id = 'pe' + postId;
+        var td = document.createElement('td');
+        td.colSpan = $(line).children('td').length;
+        td.className = 'expand';
+        tr.appendChild(td);
+        $(td).append(content);
+        $(line).addClass('expand');
+        line.parentNode.insertBefore(tr, line.nextSibling);
       } else {
-        window.alert($(rsp).find('message').text());
+        $(line).toggleClass('expand');
       }
+    }, {
+      clean: (e.metaKey)
     });
-
-    $(line).addClass('expand');
-    line.parentNode.insertBefore(tr, line.nextSibling);
-  } else if (tr && tr.style.display == 'none' && (action == 'toggle' || action == 'open')) {
-    $(tr).css('display', 'table-row');
-    $(line).addClass('expand');
-  } else if (tr && tr.style.display != 'none' && (action == 'toggle' || action == 'close')) {
-    $(tr).css('display', 'none');
-    $(line).removeClass('expand');
+  } else {
+    $(tr).toggle();
+    $(line).toggleClass('expand');
   }
 };
 
