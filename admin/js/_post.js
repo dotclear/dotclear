@@ -7,9 +7,12 @@ dotclear.viewCommentContent = function(line, action, e) {
     return;
   }
 
-  var commentId = $(line).attr('id').substr(1);
-  var tr = document.getElementById('ce' + commentId);
-  var spam = (e.metaKey || $(line).hasClass('sts-junk'));
+  const commentId = $(line).attr('id').substr(1);
+  const lineId = `ce${commentId}`;
+  let tr = document.getElementById(lineId);
+
+  // If meta key down or it's a spam then display content HTML code
+  const clean = (e.metaKey || $(line).hasClass('sts-junk'));
 
   if (!tr) {
     // Get comment content
@@ -17,8 +20,8 @@ dotclear.viewCommentContent = function(line, action, e) {
       if (content) {
         // Content found
         tr = document.createElement('tr');
-        tr.id = 'ce' + commentId;
-        var td = document.createElement('td');
+        tr.id = lineId;
+        const td = document.createElement('td');
         td.colSpan = $(line).children('td').length;
         td.className = 'expand';
         tr.appendChild(td);
@@ -31,7 +34,7 @@ dotclear.viewCommentContent = function(line, action, e) {
       }
     }, {
       ip: false,
-      clean: spam
+      clean: clean
     });
   } else {
     $(tr).toggle();
@@ -41,11 +44,11 @@ dotclear.viewCommentContent = function(line, action, e) {
 
 $(function() {
   // Post preview
-  var $preview_url = $('#post-preview').attr('href');
+  let $preview_url = $('#post-preview').attr('href');
   if ($preview_url) {
 
     // Make $preview_url absolute
-    var $a = document.createElement('a');
+    let $a = document.createElement('a');
     $a.href = $('#post-preview').attr('href');
     $preview_url = $a.href;
 
@@ -77,7 +80,7 @@ $(function() {
     dotclear.hideLockable();
 
     // Add date picker
-    var post_dtPick = new datePicker($('#post_dt').get(0));
+    const post_dtPick = new datePicker($('#post_dt').get(0));
     post_dtPick.img_top = '1.5em';
     post_dtPick.draw();
 
@@ -139,7 +142,7 @@ $(function() {
     // Replace attachment remove links by a POST form submit
     $('a.attachment-remove').click(function() {
       this.href = '';
-      var m_name = $(this).parents('ul').find('li:first>a').attr('title');
+      const m_name = $(this).parents('ul').find('li:first>a').attr('title');
       if (window.confirm(dotclear.msg.confirm_remove_attachment.replace('%s', m_name))) {
         var f = $('#attachment-remove-hide').get(0);
         f.elements.media_id.value = this.id.substring(11);

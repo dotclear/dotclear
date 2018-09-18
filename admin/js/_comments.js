@@ -7,9 +7,12 @@ dotclear.viewCommentContent = function(line, action, e) {
     return;
   }
 
-  var commentId = $(line).attr('id').substr(1);
-  var tr = document.getElementById('ce' + commentId);
-  var spam = (e.metaKey || $(line).hasClass('sts-junk'));
+  const commentId = $(line).attr('id').substr(1);
+  const lineId = `ce${commentId}`;
+  let tr = document.getElementById(lineId);
+
+  // If meta key down or it's a spam then display content HTML code
+  const clean = (e.metaKey || $(line).hasClass('sts-junk'));
 
   if (!tr) {
     // Get comment content if possible
@@ -17,8 +20,8 @@ dotclear.viewCommentContent = function(line, action, e) {
       if (content) {
         // Content found
         tr = document.createElement('tr');
-        tr.id = 'ce' + commentId;
-        var td = document.createElement('td');
+        tr.id = lineId;
+        const td = document.createElement('td');
         td.colSpan = $(line).children('td').length;
         td.className = 'expand';
         tr.appendChild(td);
@@ -30,7 +33,7 @@ dotclear.viewCommentContent = function(line, action, e) {
         $(line).removeClass('expand');
       }
     }, {
-      clean: spam
+      clean: clean
     });
   } else {
     $(tr).toggle();

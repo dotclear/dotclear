@@ -4,18 +4,18 @@
 jQuery.fn.updateBlogrollPermissionsForm = function() {
   return this.each(function() {
 
-    var perms = {};
-    var re = /^perm\[(.+?)\]\[(.+?)\]$/;
-    var e, prop;
+    let perms = {};
+    const re = /^perm\[(.+?)\]\[(.+?)\]$/;
+    let e;
+    let prop;
 
     // Building a nice object of form elements
-    for (var i = 0; i < this.elements.length; i++) {
+    for (let i = 0; i < this.elements.length; i++) {
       e = this.elements[i];
 
       if (e.name == undefined) {
         continue;
       }
-      var prop;
       prop = e.name.match(re);
       if (!prop) {
         continue;
@@ -37,10 +37,10 @@ jQuery.fn.updateBlogrollPermissionsForm = function() {
     }
 
     function admin(E, perms, re) {
-      P = E.name.match(re);
+      const P = E.name.match(re);
 
-      perms[P[1]]['blogroll'].checked = E.checked;
-      perms[P[1]]['blogroll'].disabled = E.checked;
+      perms[P[1]].blogroll.checked = E.checked;
+      perms[P[1]].blogroll.disabled = E.checked;
     }
   });
 };

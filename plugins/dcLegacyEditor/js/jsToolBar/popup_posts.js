@@ -8,8 +8,8 @@ $(function() {
 
 	$('#form-entries tr>td.maximal>a').click(function() {
 		// Get post_id
-		var tb = window.opener.the_toolbar;
-		var data = tb.elements.link.data;
+		const tb = window.opener.the_toolbar;
+		const data = tb.elements.link.data;
 
 		data.href = tb.stripBaseURL($(this).attr('title'));
 

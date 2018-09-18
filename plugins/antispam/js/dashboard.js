@@ -2,7 +2,7 @@
 'use strict';
 
 dotclear.dbSpamsCount = function() {
-  var params = {
+  const params = {
     f: 'getSpamsCount',
     xd_check: dotclear.nonce,
   };
@@ -12,22 +12,22 @@ dotclear.dbSpamsCount = function() {
       // console.log($('rsp',data).attr('message'));
       window.console.log('Dotclear REST server error');
     } else {
-      var nb = $('rsp>count', data).attr('ret');
+      const nb = $('rsp>count', data).attr('ret');
       if (nb != dotclear.dbSpamsCount_Counter) {
         // First pass or counter changed
-        var icon = $('#dashboard-main #icons p a[href="comments.php?status=-2"]');
+        let icon = $('#dashboard-main #icons p a[href="comments.php?status=-2"]');
         if (icon.length) {
           // Update count if exists
-          var nb_label = icon.children('span.db-icon-title-spam');
+          const nb_label = icon.children('span.db-icon-title-spam');
           if (nb_label.length) {
             nb_label.text(nb);
           }
         } else {
           if (nb != '') {
             // Add full element (link + counter)
-            var icon = $('#dashboard-main #icons p a[href="comments.php"]');
+            icon = $('#dashboard-main #icons p a[href="comments.php"]');
             if (icon.length) {
-              var xml = ' <a href="comments.php?status=-2"><span class="db-icon-title-spam">' + nb + '</span></a>';
+              const xml = ` <a href="comments.php?status=-2"><span class="db-icon-title-spam">${nb}</span></a>`;
               icon.after(xml);
             }
           }
@@ -42,7 +42,7 @@ dotclear.dbSpamsCount = function() {
 $(function() {
   // run counters' update on some dashboard icons
   // Spam comments
-  var icon_spam = $('#dashboard-main #icons p a[href="comments.php"]');
+  const icon_spam = $('#dashboard-main #icons p a[href="comments.php"]');
   if (icon_spam.length) {
     // Icon exists on dashboard
     // First pass

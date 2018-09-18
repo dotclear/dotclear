@@ -34,7 +34,7 @@ jsToolBar.prototype.elements.tag.fn.wiki = function() {
   });
 };
 jsToolBar.prototype.elements.tag.fn.markdown = function() {
-  var url = this.elements.tag.url;
+  const url = this.elements.tag.url;
   this.encloseSelection('', '', function(str) {
     if (str == '') {
       window.alert(dotclear.msg.no_selection);
@@ -49,7 +49,7 @@ jsToolBar.prototype.elements.tag.fn.markdown = function() {
   });
 };
 jsToolBar.prototype.elements.tag.fn.xhtml = function() {
-  var url = this.elements.tag.url;
+  const url = this.elements.tag.url;
   this.encloseSelection('', '', function(str) {
     if (str == '') {
       window.alert(dotclear.msg.no_selection);
@@ -64,7 +64,7 @@ jsToolBar.prototype.elements.tag.fn.xhtml = function() {
   });
 };
 jsToolBar.prototype.elements.tag.fn.wysiwyg = function() {
-  var t = this.getSelectedText();
+  const t = this.getSelectedText();
 
   if (t == '') {
     window.alert(dotclear.msg.no_selection);
@@ -74,8 +74,8 @@ jsToolBar.prototype.elements.tag.fn.wysiwyg = function() {
     return;
   }
 
-  var n = this.getSelectedNode();
-  var a = document.createElement('a');
+  const n = this.getSelectedNode();
+  const a = document.createElement('a');
   a.href = this.stripBaseURL(this.elements.tag.url + '/' + t);
   a.appendChild(n);
   this.insertNode(a);

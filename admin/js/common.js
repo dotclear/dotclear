@@ -52,10 +52,14 @@ jQuery.fn.enableShiftClick = function() {
   this.click(function(event) {
     if (event.shiftKey) {
       if (dotclear.lastclicked != '') {
-        var range;
-        var trparent = $(this).parents('tr');
-        if (trparent.nextAll('#' + dotclear.lastclicked).length != 0) range = trparent.nextUntil('#' + dotclear.lastclicked);
-        else range = trparent.prevUntil('#' + dotclear.lastclicked);
+        let range;
+        const trparent = $(this).parents('tr');
+        const id = `#${dotclear.lastclicked}`;
+        if (trparent.nextAll(id).length != 0) {
+          range = trparent.nextUntil(id);
+        } else {
+          range = trparent.prevUntil(id);
+        }
         range.find('input[type=checkbox]').setChecked(dotclear.lastclickedstatus);
         this.checked = dotclear.lastclickedstatus;
       }
@@ -67,7 +71,7 @@ jQuery.fn.enableShiftClick = function() {
   });
 };
 jQuery.fn.toggleWithLegend = function(target, s) {
-  var defaults = {
+  const defaults = {
     img_on_txt: dotclear.img_plus_txt,
     img_on_alt: dotclear.img_plus_alt,
     img_off_txt: dotclear.img_minus_txt,
@@ -80,21 +84,21 @@ jQuery.fn.toggleWithLegend = function(target, s) {
     user_pref: false,
     reverse_user_pref: false // Reverse cookie behavior
   };
-  var p = jQuery.extend(defaults, s);
+  const p = jQuery.extend(defaults, s);
   if (!target) {
     return this;
   }
-  var set_cookie = p.hide ^ p.reverse_cookie;
+  const set_cookie = p.hide ^ p.reverse_cookie;
   if (p.cookie && jQuery.cookie(p.cookie)) {
     p.hide = p.reverse_cookie;
   }
-  var set_user_pref = p.hide ^ p.reverse_user_pref;
+  let set_user_pref = p.hide ^ p.reverse_user_pref;
   if (p.user_pref && p.unfolded_sections !== undefined && (p.user_pref in p.unfolded_sections)) {
     p.hide = p.reverse_user_pref;
   }
-  var toggle = function(i, speed) {
+  const toggle = function(i, speed) {
     speed = speed || 0;
-    var b = $(i).get(0);
+    const b = $(i).get(0);
     if (p.hide) {
       b.firstChild.data = p.img_on_txt;
       b.setAttribute('value', p.img_on_txt);
@@ -124,15 +128,15 @@ jQuery.fn.toggleWithLegend = function(target, s) {
     p.hide = !p.hide;
   };
   return this.each(function() {
-    var b = document.createElement('button');
+    const b = document.createElement('button');
     b.setAttribute('type', 'button');
     b.className = 'details-cmd';
     b.value = p.img_on_txt;
     b.setAttribute('aria-label', p.img_on_alt);
-    var t = document.createTextNode(p.img_on_txt);
+    const t = document.createTextNode(p.img_on_txt);
     b.appendChild(t);
 
-    var ctarget = p.legend_click ? this : b;
+    const ctarget = p.legend_click ? this : b;
     $(ctarget).css('cursor', 'pointer');
     if (p.legend_click) {
       $(ctarget).find('label').css('cursor', 'pointer');
@@ -140,9 +144,9 @@ jQuery.fn.toggleWithLegend = function(target, s) {
     $(ctarget).click(function(e) {
       if (p.user_pref && set_user_pref) {
         jQuery.post('services.php', {
-          'f': 'setSectionFold',
-          'section': p.user_pref,
-          'value': (p.hide ^ p.reverse_user_pref ? 1 : 0),
+          f: 'setSectionFold',
+          section: p.user_pref,
+          value: (p.hide ^ p.reverse_user_pref ? 1 : 0),
           xd_check: dotclear.nonce
         }, function() {});
         jQuery.cookie(p.user_pref, '', {
@@ -157,6 +161,7 @@ jQuery.fn.toggleWithLegend = function(target, s) {
     $(this).prepend(b);
   });
 };
+
 (function($) {
   $.expandContent = function(opts) {
     if (opts == undefined || opts.callback == undefined || !$.isFunction(opts.callback)) {
@@ -169,15 +174,15 @@ jQuery.fn.toggleWithLegend = function(target, s) {
       singleExpander(this, opts.callback);
     });
   };
-  var singleExpander = function singleExpander(line, callback) {
-    $('<button type="button" class="details-cmd" aria-label="' + dotclear.img_plus_alt + '">' + dotclear.img_plus_txt + '</button>').click(function(e) {
+  const singleExpander = function(line, callback) {
+    $(`<button type="button" class="details-cmd" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`).click(function(e) {
       toggleArrow(this);
       callback(line, '', e);
       e.preventDefault();
     }).prependTo($(line).children().get(0)); // first td
   };
-  var multipleExpander = function multipleExpander(line, lines, callback) {
-    $('<button type="button" class="details-cmd" aria-label="' + dotclear.img_plus_alt + '">' + dotclear.img_plus_txt + '</button>').click(function(e) {
+  const multipleExpander = function(line, lines, callback) {
+    $(`<button type="button" class="details-cmd" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`).click(function(e) {
       var action = toggleArrow(this);
       lines.each(function() {
         toggleArrow(this.firstChild.firstChild, action);
@@ -186,7 +191,7 @@ jQuery.fn.toggleWithLegend = function(target, s) {
       e.preventDefault();
     }).prependTo($(line).children().get(0)); // first td
   };
-  var toggleArrow = function toggleArrow(button, action) {
+  const toggleArrow = function(button, action) {
     action = action || '';
     if (action == '') {
       if (button.getAttribute('aria-label') == dotclear.img_plus_alt) {
@@ -211,14 +216,15 @@ jQuery.fn.helpViewer = function() {
   if (this.length < 1) {
     return this;
   }
-  var p = {
+  let select = $();
+  const p = {
     img_on_txt: dotclear.img_plus_txt,
     img_on_alt: dotclear.img_plus_alt,
     img_off_txt: dotclear.img_minus_txt,
     img_off_alt: dotclear.img_minus_alt
   };
-  var This = this;
-  var toggle = function() {
+  const This = this;
+  const toggle = function() {
     $('#content').toggleClass('with-help');
     if (document.all) {
       if ($('#content').hasClass('with-help')) {
@@ -231,16 +237,16 @@ jQuery.fn.helpViewer = function() {
     sizeBox();
     return false;
   };
-  var sizeBox = function() {
+  const sizeBox = function() {
     This.css('height', 'auto');
     if ($('#wrapper').height() > This.height()) {
       This.css('height', $('#wrapper').height() + 'px');
     }
   };
-  var textToggler = function(o) {
-    var b = $('<button type="button" class="details-cmd" aria-label="' + p.img_on_alt + '">' + p.img_on_txt + '</button>');
+  const textToggler = function(o) {
+    const b = $(`<button type="button" class="details-cmd" aria-label="${p.img_on_alt}">${p.img_on_txt}</button>`);
     o.css('cursor', 'pointer');
-    var hide = true;
+    let hide = true;
     o.prepend(' ').prepend(b);
     o.click(function() {
       $(this).nextAll().each(function() {
@@ -252,7 +258,7 @@ jQuery.fn.helpViewer = function() {
         return true;
       });
       hide = !hide;
-      var img = $(this).find('button.details-cmd');
+      const img = $(this).find('button.details-cmd');
       if (!hide) {
         img.html(p.img_off_txt);
         img.attr('value', p.img_off_txt);
@@ -271,17 +277,16 @@ jQuery.fn.helpViewer = function() {
   });
   this.find('h4:first').nextAll('*:not(h4)').hide();
   sizeBox();
-  var img = $('<p id="help-button"><span><a href="">' + dotclear.msg.help + '</a></span></p>');
-  var select = $();
+  const img = $(`<p id="help-button"><span><a href="">${dotclear.msg.help}</a></span></p>`);
   img.click(function(e) {
     e.preventDefault();
     return toggle();
   });
   $('#content').append(img);
   // listen for scroll
-  var peInPage = $('#help-button').offset().top;
+  const peInPage = $('#help-button').offset().top;
   $('#help-button').addClass('floatable');
-  var peInFloat = $('#help-button').offset().top - $(window).scrollTop();
+  const peInFloat = $('#help-button').offset().top - $(window).scrollTop();
   $('#help-button').removeClass('floatable');
   $(window).scroll(function() {
     if ($(window).scrollTop() >= peInPage - peInFloat) {
@@ -292,10 +297,12 @@ jQuery.fn.helpViewer = function() {
   });
   return this;
 };
+
 /* Dotclear common object
 -------------------------------------------------------- */
-var dotclear = {
+const dotclear = {
   msg: {},
+
   enterKeyInForm: function(frm_id, ok_id, cancel_id) {
     $(frm_id + ':not(' + cancel_id + ')').keyup(function(e) {
       if ((e.key == 'Enter') && ($(ok_id).prop('disabled') !== true)) {
@@ -305,8 +312,9 @@ var dotclear = {
       }
     });
   },
+
   condSubmit: function(chkboxes, target) {
-    var checkboxes = $(chkboxes),
+    const checkboxes = $(chkboxes),
       submitButt = $(target);
     if (checkboxes === undefined || submitButt === undefined) {
       return;
@@ -328,18 +336,19 @@ var dotclear = {
       }
     });
   },
+
   hideLockable: function() {
     $('div.lockable').each(function() {
-      var current_lockable_div = this;
+      const current_lockable_div = this;
       $(this).find('p.form-note').hide();
       $(this).find('input').each(function() {
         this.disabled = true;
-        $(this).width(($(this).width() - 14) + 'px');
-        var imgE = document.createElement('img');
+        $(this).width(`${$(this).width() - 14}px`);
+        const imgE = document.createElement('img');
         imgE.src = 'images/locker.png';
         imgE.style.position = 'absolute';
         imgE.style.top = '1.8em';
-        imgE.style.left = ($(this).width() + 14) + 'px';
+        imgE.style.left = `${$(this).width() + 14}px`;
         imgE.alt = dotclear.msg.click_to_unlock;
         $(imgE).css('cursor', 'pointer');
         $(imgE).click(function() {
@@ -355,10 +364,11 @@ var dotclear = {
       });
     });
   },
+
   checkboxesHelpers: function(e, target, c, s) {
     $(e).append(document.createTextNode(dotclear.msg.to_select));
     $(e).append(document.createTextNode(' '));
-    $('<button type="button" class="checkbox-helper select-all">' + dotclear.msg.select_all + '</button>').click(function() {
+    $(`<button type="button" class="checkbox-helper select-all">${dotclear.msg.select_all}</button>`).click(function() {
       if (target !== undefined) {
         target.check();
       } else {
@@ -370,7 +380,7 @@ var dotclear = {
       return false;
     }).appendTo($(e));
     $(e).append(document.createTextNode(' '));
-    $('<button type="button" class="checkbox-helper select-none">' + dotclear.msg.no_selection + '</button>').click(function() {
+    $(`<button type="button" class="checkbox-helper select-none">${dotclear.msg.no_selection}</button>`).click(function() {
       if (target !== undefined) {
         target.unCheck();
       } else {
@@ -382,7 +392,7 @@ var dotclear = {
       return false;
     }).appendTo($(e));
     $(e).append(document.createTextNode(' '));
-    $('<button type="button" class="checkbox-helper select-reverse">' + dotclear.msg.invert_sel + '</button>').click(function() {
+    $(`<button type="button" class="checkbox-helper select-reverse">${dotclear.msg.invert_sel}</button>`).click(function() {
       if (target !== undefined) {
         target.toggleCheck();
       } else {
@@ -394,13 +404,14 @@ var dotclear = {
       return false;
     }).appendTo($(e));
   },
+
   postsActionsHelper: function() {
     $('#form-entries').submit(function() {
-      var action = $(this).find('select[name="action"]').val();
+      const action = $(this).find('select[name="action"]').val();
       if (action === undefined) {
         return;
       }
-      var checked = false;
+      let checked = false;
       $(this).find('input[name="entries[]"]').each(function() {
         if (this.checked) {
           checked = true;
@@ -415,10 +426,11 @@ var dotclear = {
       return true;
     });
   },
+
   commentsActionsHelper: function() {
     $('#form-comments').submit(function() {
-      var action = $(this).find('select[name="action"]').val();
-      var checked = false;
+      const action = $(this).find('select[name="action"]').val();
+      let checked = false;
       $(this).find('input[name="comments[]"]').each(function() {
         if (this.checked) {
           checked = true;
@@ -433,11 +445,12 @@ var dotclear = {
       return true;
     });
   },
+
   outgoingLinks: function(target) {
     $(target).filter(function() {
       return ((this.hostname && this.hostname != location.hostname && !$(this).hasClass('modal') && !$(this).hasClass('modal-image')) || $(this).hasClass('outgoing'));
     }).each(function() {
-      $(this).prop('title', $(this).prop('title') + ' (' + dotclear.msg.new_window + ')');
+      $(this).prop('title', `${$(this).prop('title')} (${dotclear.msg.new_window})`);
       if (!$(this).hasClass('outgoing')) {
         $(this).append('&nbsp;<img class="outgoing-js" src="images/outgoing-link.svg" alt=""/>');
       }
@@ -457,7 +470,7 @@ var dotclear = {
     if (!$elt.length) return;
 
     // Cope with options
-    var opt = $.extend({
+    const opt = $.extend({
       /* sibling: define if the given element is a sibling of the badge or it's parent
        *  true: use $elt.after() to add badge
        *  false: use $elt.parent().append() to add badge (default)
@@ -494,16 +507,16 @@ var dotclear = {
     }, options);
 
     // Set some constants
-    const classid = 'span.badge.badge-' + opt.id; // Pseudo unique class
+    const classid = `span.badge.badge-${opt.id}`; // Pseudo unique class
 
     // Set badgeable class to elt parent's (if sibling) or elt itself, if it is necessary
-    var $parent = (opt.sibling ? $elt.parent() : $elt);
+    const $parent = (opt.sibling ? $elt.parent() : $elt);
     if (!opt.inline && !opt.remove && !$parent.hasClass('badgeable')) {
       $parent.addClass('badgeable');
     }
 
     // Remove existing badge if exists
-    var $badge = (opt.sibling ? $parent.children(classid) : $elt.children(classid));
+    const $badge = (opt.sibling ? $parent.children(classid) : $elt.children(classid));
     if ($badge.length) {
       $badge.remove();
     }
@@ -511,16 +524,16 @@ var dotclear = {
     // Add the new badge if any
     if (!opt.remove && opt.value !== null) {
       // Compose badge classes
-      const cls = 'badge badge-' + opt.id + ' ' +
-        (opt.inline ? 'badge-inline' : 'badge-block') +
-        (opt.icon ? ' badge-icon' : '') +
-        (opt.type !== '' ? ' badge-' + opt.type : '') +
-        (opt.left ? ' badge-left' : '') +
-        (opt.noborder ? ' badge-noborder' : '') +
-        (opt.small ? ' badge-small' : '') +
-        (opt.classes !== '' ? ' ' + opt.classes : '');
+      const cls = `badge badge-${opt.id} \
+${opt.inline ? 'badge-inline' : 'badge-block'}\
+${opt.icon ? ' badge-icon' : ''}\
+${opt.type !== '' ? ` badge-${opt.type}` : ''}\
+${opt.left ? ' badge-left' : ''}\
+${opt.noborder ? ' badge-noborder' : ''}\
+${opt.small ? ' badge-small' : ''}\
+${opt.classes !== '' ? ` ${opt.classes}` : ''}`;
       // Compose badge
-      const xml = '<span class="' + cls + '" aria-hidden="true">' + opt.value + '</span>';
+      const xml = `<span class="${cls}" aria-hidden="true">${opt.value}</span>`;
       if (opt.sibling) {
         // Add badge after it's sibling
         $elt.after(xml);
@@ -530,8 +543,8 @@ var dotclear = {
       }
     }
   }
-
 };
+
 /* On document ready
 -------------------------------------------------------- */
 $(function() {
@@ -539,9 +552,9 @@ $(function() {
   $('body').removeClass('no-js').addClass('with-js');
   $('body').contents().each(function() {
     if (this.nodeType == 8) {
-      var data = this.data;
+      let data = this.data;
       data = data.replace(/ /g, '&nbsp;').replace(/\n/g, '<br/>');
-      $('<span class="tooltip" aria-hidden="true">' + $('#footer a').prop('title') + data + '</span>').appendTo('#footer a');
+      $(`<span class="tooltip" aria-hidden="true">${$('#footer a').prop('title')}${data}</span>`).appendTo('#footer a');
     }
   });
   // manage outgoing links
@@ -558,7 +571,7 @@ $(function() {
   $('#switchblog').change(function() {
     this.form.submit();
   });
-  var menu_settings = {
+  const menu_settings = {
     img_on_src: dotclear.img_menu_off,
     img_off_src: dotclear.img_menu_on,
     legend_click: true,
@@ -582,7 +595,7 @@ $(function() {
   // Notices
   $('p.success,p.warning,p.error,div.error').each(function() {
     $(this).addClass('close-notice-parent');
-    $(this).append('<button class="close-notice" type="button"><img src="images/close.png" alt="' + dotclear.msg.close_notice + '" /></button>');
+    $(this).append(`<button class="close-notice" type="button"><img src="images/close.png" alt="${dotclear.msg.close_notice}" /></button>`);
   });
   $('button.close-notice').click(function(e) {
     e.preventDefault();
@@ -590,7 +603,7 @@ $(function() {
   });
   // Password
   $('form:has(input[type=password][name=your_pwd])').submit(function() {
-    var e = this.elements.your_pwd;
+    const e = this.elements.your_pwd;
     if (e.value == '') {
       $(e).addClass('missing').focusout(function() {
         $(this).removeClass('missing');
@@ -630,7 +643,7 @@ $(function() {
     });
   }
   // Main menu collapser
-  var objMain = $('#wrapper');
+  const objMain = $('#wrapper');
 
   function showSidebar() {
     // Show sidebar
@@ -648,8 +661,7 @@ $(function() {
     });
   }
   // Sidebar separator
-  var objSeparator = $('#collapser');
-  objSeparator.click(function(e) {
+  $('#collapser').click(function(e) {
     e.preventDefault();
     if (objMain.hasClass('hide-mm')) {
       showSidebar();

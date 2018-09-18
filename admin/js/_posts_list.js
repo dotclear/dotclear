@@ -7,8 +7,9 @@ dotclear.viewPostContent = function(line, action, e) {
     return;
   }
 
-  var postId = $(line).attr('id').substr(1);
-  var tr = document.getElementById('pe' + postId);
+  const postId = $(line).attr('id').substr(1);
+  const lineId = `pe${postId}`;
+  let tr = document.getElementById(lineId);
 
   if (!tr) {
     // Get post content if possible
@@ -16,8 +17,8 @@ dotclear.viewPostContent = function(line, action, e) {
       if (content) {
         // Content found
         tr = document.createElement('tr');
-        tr.id = 'pe' + postId;
-        var td = document.createElement('td');
+        tr.id = lineId;
+        const td = document.createElement('td');
         td.colSpan = $(line).children('td').length;
         td.className = 'expand';
         tr.appendChild(td);

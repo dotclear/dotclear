@@ -38,13 +38,13 @@ $(function() {
   });
 
   // Predefined styles
-  var styles_combo = document.createElement('select');
+  const styles_combo = document.createElement('select');
   $(styles_combo).append('<option value="">&nbsp;</option>');
   $(styles_combo).append('<option value="none">none</option>');
   $(styles_combo).attr('title', dotclear.msg.predefined_style_title);
 
-  for (var style in dotclear.blowup_styles) {
-    var styles_option = document.createElement('option');
+  for (let style in dotclear.blowup_styles) {
+    const styles_option = document.createElement('option');
     styles_option.value = dotclear.blowup_styles[style];
     $(styles_option).append(style);
     $(styles_combo).append(styles_option);
@@ -67,20 +67,20 @@ $(function() {
   });
 
   // Code import
-  var e = $('#bu_export_content');
+  const e = $('#bu_export_content');
 
-  $('#bu_export').toggleWithLegend($(e),{
-      legend_click: true
-  })
+  $('#bu_export').toggleWithLegend($(e), {
+    legend_click: true
+  });
 
-  var a = document.createElement('a');
+  const a = document.createElement('a');
   a.href = '#';
   $(a).text(dotclear.msg.apply_code);
 
   e.append(a);
 
   $(a).click(function() {
-    var code = e.find('#export_code');
+    const code = e.find('#export_code');
     if (code.size() == 0) {
       return false;
     }
@@ -99,13 +99,15 @@ $(function() {
 
   function applyBlowupValues(code) {
     code = code.replace('\n', '');
-    var re = /(^| )([a-zA-Z0-9_]+):"([^"]*?)"(;|$)/g;
-    var reg = /^(.+):"([^"]*)"(;?)\s*$/;
-    var s = code.match(re);
+    const re = /(^| )([a-zA-Z0-9_]+):"([^"]*?)"(;|$)/g;
+    const reg = /^(.+):"([^"]*)"(;?)\s*$/;
+    const s = code.match(re);
 
     if (typeof(s) == 'object' && s.length > 0) {
-      var member, target, value;
-      for (var i = 0, s_length = s.length; i < s_length; i++) {
+      let member;
+      let target;
+      let value;
+      for (let i = 0, s_length = s.length; i < s_length; i++) {
         member = reg.exec(s[i]);
         target = member[1].replace(' ', '');
         value = member[2].replace(' ', '');
@@ -125,7 +127,7 @@ $(function() {
   }
 
   function getColorLum(color) {
-    var rgb = [parseInt('0x' + color.substring(1, 3)) / 255,
+    const rgb = [parseInt('0x' + color.substring(1, 3)) / 255,
       parseInt('0x' + color.substring(3, 5)) / 255,
       parseInt('0x' + color.substring(5, 7)) / 255
     ];

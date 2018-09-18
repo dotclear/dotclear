@@ -1,4 +1,4 @@
-/*global $, reorder, dotclear */
+/*global $, reorder, dotclear, jsToolBar */
 'use strict';
 
 $(function() {
@@ -22,9 +22,9 @@ $(function() {
       ui.item.css('left', ui.item.position().left + 20);
     },
     update: function(event, ui) {
-      var ul = $(this);
-      var widget = ui.item;
-      var field = ul.parents('.widgets');
+      const ul = $(this);
+      const widget = ui.item;
+      const field = ul.parents('.widgets');
 
       // met a zéro le décalage
       ui.item.css('left', 'auto');
@@ -75,10 +75,10 @@ $(function() {
       if (!dotclear.widget_noeditor) {
         ui.helper.find('textarea:not(.noeditor)').each(function() {
           if ($.isFunction(jsToolBar)) {
-            var tbWidgetText = new jsToolBar(this);
+            const tbWidgetText = new jsToolBar(this);
             tbWidgetText.draw('xhtml');
           }
-        })
+        });
       }
     }
   });

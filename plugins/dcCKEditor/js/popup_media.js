@@ -7,37 +7,37 @@ $(function() {
   });
 
   $('#media-insert-ok').click(function() {
-    var insert_form = $('#media-insert-form').get(0);
+    const insert_form = $('#media-insert-form').get(0);
     if (insert_form === undefined) {
       return;
     }
 
-    var editor_name = window.opener.$.getEditorName(),
-      editor = window.opener.CKEDITOR.instances[editor_name],
-      type = insert_form.elements.type.value,
-      media_align_grid = {
-        left: 'float: left; margin: 0 1em 1em 0;',
-        right: 'float: right; margin: 0 0 1em 1em;',
-        center: 'margin: 0 auto; display: table;'
-      };
+    const editor_name = window.opener.$.getEditorName();
+    const editor = window.opener.CKEDITOR.instances[editor_name];
+    const type = insert_form.elements.type.value;
+    const media_align_grid = {
+      left: 'float: left; margin: 0 1em 1em 0;',
+      right: 'float: right; margin: 0 0 1em 1em;',
+      center: 'margin: 0 auto; display: table;'
+    };
 
     if (type == 'image') {
       if (editor.mode == 'wysiwyg') {
 
-        var align = $('input[name="alignment"]:checked', insert_form).val();
-        var media_legend = $('input[name="legend"]:checked', insert_form).val();
-        var img_description = $('input[name="description"]', insert_form).val();
-        var style = '';
-        var template = '';
-        var template_figure = [
+        const align = $('input[name="alignment"]:checked', insert_form).val();
+        let media_legend = $('input[name="legend"]:checked', insert_form).val();
+        const img_description = $('input[name="description"]', insert_form).val();
+        let style = '';
+        let template = '';
+        let template_figure = [
           '',
           ''
         ];
-        var template_link = [
+        let template_link = [
           '',
           ''
         ];
-        var template_image = '';
+        let template_image = '';
 
         if (media_legend != '' && media_legend != 'title' && media_legend != 'none') {
           media_legend = 'legend';
@@ -57,7 +57,7 @@ $(function() {
           }
           template_figure[1] = template_figure[1] + '</figure>';
         }
-        template_image = '<img class="media" src="{imgSrc}" alt="{imgAlt}"' + style + '/>';
+        template_image = `<img class="media" src="{imgSrc}" alt="{imgAlt}"${style}/>`;
         if ($('input[name="insertion"]:checked', insert_form).val() == 'link') {
           // With a link to original
           template_link[0] = '<a class="media-link" href="{aHref}">';
@@ -65,8 +65,8 @@ $(function() {
         }
         template = template_figure[0] + template_link[0] + template_image + template_link[1] + template_figure[1];
 
-        var block = new window.opener.CKEDITOR.template(template);
-        var params = {};
+        let block = new window.opener.CKEDITOR.template(template);
+        let params = {};
 
         // Set parameters for template
         if (media_legend != '' && media_legend != 'none') {
@@ -85,34 +85,36 @@ $(function() {
         }
 
         // Insert element
-        var figure = window.opener.CKEDITOR.dom.element.createFromHtml(
+        const figure = window.opener.CKEDITOR.dom.element.createFromHtml(
           block.output(params), editor.document
         );
         editor.insertElement(figure);
       }
+
     } else if (type == 'mp3') {
       // Audio media
-      var player_audio = $('#public_player').val();
-      var align_audio = $('input[name="alignment"]:checked', insert_form).val();
+      let player_audio = $('#public_player').val();
+      const align_audio = $('input[name="alignment"]:checked', insert_form).val();
 
       if (align_audio != undefined && align_audio != 'none') {
-        player_audio = '<div style="' + media_align_grid[align_audio] + '">' + player_audio + '</div>';
+        player_audio = `<div style="${media_align_grid[align_audio]}">${player_audio}</div>`;
       }
       editor.insertElement(window.opener.CKEDITOR.dom.element.createFromHtml(player_audio));
+
     } else if (type == 'flv') {
       // Video media
-      var oplayer = $('<div>' + $('#public_player').val() + '</div>');
-      var flashvars = $('[name=FlashVars]', oplayer).val();
+      const oplayer = $(`<div>${$('#public_player').val()}</div>`);
+      let flashvars = $('[name=FlashVars]', oplayer).val();
 
-      var align_video = $('input[name="alignment"]:checked', insert_form).val();
+      const align_video = $('input[name="alignment"]:checked', insert_form).val();
 
-      var title = insert_form.elements.title.value;
+      const title = insert_form.elements.title.value;
       if (title) {
-        flashvars = 'title=' + encodeURI(title) + '&amp;' + flashvars;
+        flashvars = `title=${encodeURI(title)}&amp;${flashvars}`;
       }
 
-      var vw = $('#video_w').val();
-      var vh = $('#video_h').val();
+      const vw = $('#video_w').val();
+      const vh = $('#video_h').val();
 
       if (vw > 0) {
         $('video', oplayer).attr('width', vw);
@@ -134,18 +136,18 @@ $(function() {
       }
 
       $('[name=FlashVars]', oplayer).val(flashvars);
-      var player_video = oplayer.html();
+      let player_video = oplayer.html();
 
       if (align_video != undefined && align_video != 'none') {
-        player_video = '<div style="' + media_align_grid[align_video] + '">' + player_video + '</div>';
+        player_video = `<div style="${media_align_grid[align_video]}">${player_video}</div>`;
       }
       editor.insertElement(window.opener.CKEDITOR.dom.element.createFromHtml(player_video));
+
     } else {
       // Unknown media type
-      var link = '<a href="';
-      link += window.opener.$.stripBaseURL($('input[name="url"]', insert_form).val());
-      link += '">' + window.opener.CKEDITOR.tools.htmlEncodeAttr(insert_form.elements.title.value) + '</a>';
-      var element = window.opener.CKEDITOR.dom.element.createFromHtml(link);
+      const url = window.opener.$.stripBaseURL($('input[name="url"]', insert_form).val());
+      const text = window.opener.CKEDITOR.tools.htmlEncodeAttr(insert_form.elements.title.value);
+      const element = window.opener.CKEDITOR.dom.element.createFromHtml(`<a href="${url}">${text}</a>`);
 
       editor.insertElement(element);
     }

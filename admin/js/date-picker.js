@@ -20,8 +20,10 @@ function datePicker(target) {
   this.oTable.id = 'dc_datepicker_' + target.id;
   this.oTable.className = 'date-picker';
 
-  var cur = 1;
-  var oRow, oHeading, oSpan;
+  let cur = 1;
+  let oRow;
+  let oHeading;
+  let oSpan;
 
   // Set title
   oRow = document.createElement('tr');
@@ -31,7 +33,7 @@ function datePicker(target) {
   oHeading.colSpan = 4;
   oHeading.className = 'date-picker-month';
 
-  var nav = document.createElement('span');
+  let nav = document.createElement('span');
   nav.appendChild(document.createTextNode(String.fromCharCode(171)));
   nav.fn = this.changeMonth;
   nav.obj = this;
@@ -96,9 +98,8 @@ function datePicker(target) {
 
   // Create legend
   oRow = document.createElement('tr');
-  var cday;
-  for (i = 0; i < this.days.length; i++) {
-    cday = this.days[i].substring(0, 1).toUpperCase();
+  for (let i = 0; i < this.days.length; i++) {
+    const cday = this.days[i].substring(0, 1).toUpperCase();
     oHeading = document.createElement('th');
     oHeading.appendChild(document.createTextNode(cday));
     oHeading.setAttribute('title', this.days[i]);
@@ -107,10 +108,10 @@ function datePicker(target) {
   this.oBody.appendChild(oRow);
 
   // Create 6 rows of 7 cols for days
-  for (var i = 0; i < 6; i++) {
+  for (let i = 0; i < 6; i++) {
     oRow = document.createElement('tr');
 
-    for (var j = 0; j < 7; j++) {
+    for (let j = 0; j < 7; j++) {
       this.oDates[cur] = document.createElement('td');
       this.oDates[cur].appendChild(document.createTextNode(
         String.fromCharCode(160)));
@@ -242,11 +243,11 @@ datePicker.prototype = {
     this.oMonth.appendChild(document.createTextNode(
       this.months[this.month - 1]));
 
-    var firstDay = this.firstDay();
-    var nbDays = this.numberOfDays();
+    const firstDay = this.firstDay();
+    const nbDays = this.numberOfDays();
 
     // Empty days
-    for (var i = 1; i <= 42; i++) {
+    for (let i = 1; i <= 42; i++) {
       while (this.oDates[i].hasChildNodes()) {
         this.oDates[i].removeChild(this.oDates[i].firstChild);
       }
@@ -258,8 +259,8 @@ datePicker.prototype = {
     }
 
     // Insert days from the first day to the last
-    for (i = 1; i <= nbDays; i++) {
-      var j = firstDay + i - 1;
+    for (let i = 1; i <= nbDays; i++) {
+      const j = firstDay + i - 1;
 
       while (this.oDates[j].hasChildNodes()) {
         this.oDates[j].removeChild(this.oDates[j].firstChild);
@@ -315,8 +316,7 @@ datePicker.prototype = {
   },
 
   changeMonth: function(dir) {
-    var m = this.month;
-    m = m + dir;
+    const m = this.month + dir;
 
     if (m > 12) {
       this.month = 1;
@@ -345,9 +345,9 @@ datePicker.prototype = {
   },
 
   sendDate: function(d) {
-    var m = this.month;
-    var hour = this.oHour.value * 1;
-    var minute = this.oMinute.value * 1;
+    let m = this.month;
+    let hour = this.oHour.value * 1;
+    let minute = this.oMinute.value * 1;
 
     if (hour < 0 || hour > 23 || isNaN(hour)) {
       hour = 0;
@@ -369,17 +369,17 @@ datePicker.prototype = {
       minute = '0' + minute;
     }
 
-    this.target.value = this.year + '-' + m + '-' + d + ' ' + hour + ':' + minute;
+    this.target.value = `${this.year}-${m}-${d} ${hour}:${minute}`;
     this.close();
   },
 
   sendNow: function() {
-    var dt = new Date();
-    var y = dt.getFullYear();
-    var m = dt.getMonth() + 1;
-    var d = dt.getDate();
-    var h = dt.getHours();
-    var i = dt.getMinutes();
+    let dt = new Date();
+    const y = dt.getFullYear();
+    let m = dt.getMonth() + 1;
+    let d = dt.getDate();
+    let h = dt.getHours();
+    let i = dt.getMinutes();
 
     if (m < 10) {
       m = '0' + m;
@@ -394,7 +394,7 @@ datePicker.prototype = {
       i = '0' + i;
     }
 
-    this.target.value = y + '-' + m + '-' + d + ' ' + h + ':' + i;
+    this.target.value = `${y}-${m}-${d} ${h}:${i}`;
     this.close();
   },
 
@@ -403,7 +403,7 @@ datePicker.prototype = {
   },
 
   numberOfDays: function() {
-    var res = 31;
+    let res = 31;
     if (this.month == 4 || this.month == 6 || this.month == 9 ||
       this.month == 11) {
       res = 30;
@@ -419,8 +419,8 @@ datePicker.prototype = {
   },
 
   firstDay: function() {
-    var dt = new Date(this.year, this.month - 1, 1);
-    var res = dt.getDay();
+    let dt = new Date(this.year, this.month - 1, 1);
+    let res = dt.getDay();
 
     if (res == 0) {
       res = 7;
@@ -431,8 +431,8 @@ datePicker.prototype = {
 
   show: function() {
     // Parsing target value
-    var re = /(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2})/;
-    var match = re.exec(this.target.value);
+    const re = /(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2})/;
+    const match = re.exec(this.target.value);
     if (match) {
       this.year = match[1] * 1;
       this.month = match[2] * 1;
@@ -440,7 +440,7 @@ datePicker.prototype = {
       this.hour = match[4] * 1;
       this.minute = match[5] * 1;
     } else {
-      var dt = new Date();
+      let dt = new Date();
       this.year = dt.getFullYear();
       this.month = dt.getMonth() + 1;
       this.day = dt.getDate();
@@ -456,8 +456,8 @@ datePicker.prototype = {
   },
 
   setPosition: function() {
-    var t_x = this.findPosX(this.target);
-    var t_y = this.findPosY(this.target);
+    const t_x = this.findPosX(this.target);
+    const t_y = this.findPosY(this.target);
 
     this.oTable.style.position = 'absolute';
     this.oTable.style.zIndex = '100';
@@ -466,7 +466,7 @@ datePicker.prototype = {
   },
 
   findPosX: function(obj) {
-    var curleft = 0;
+    let curleft = 0;
     if (obj.offsetParent) {
       while (1) {
         curleft += obj.offsetLeft;
@@ -482,7 +482,7 @@ datePicker.prototype = {
   },
 
   findPosY: function(obj) {
-    var curtop = 0;
+    let curtop = 0;
     if (obj.offsetParent) {
       while (1) {
         curtop += obj.offsetTop;
@@ -498,7 +498,7 @@ datePicker.prototype = {
   },
 
   draw: function() {
-    var imgE = document.createElement('img');
+    const imgE = document.createElement('img');
     imgE.src = this.img_src;
     imgE.alt = this.img_alt;
     imgE.style.position = 'absolute';

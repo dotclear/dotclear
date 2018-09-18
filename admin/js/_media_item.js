@@ -3,9 +3,9 @@
 
 $(function() {
   // Add datePicker if possible
-  var media_dt = document.getElementById('media_dt');
+  const media_dt = document.getElementById('media_dt');
   if (media_dt != undefined) {
-    var post_dtPick = new datePicker(media_dt);
+    const post_dtPick = new datePicker(media_dt);
     post_dtPick.img_top = '1.5em';
     post_dtPick.draw();
   }
@@ -17,13 +17,13 @@ $(function() {
 
   // Display zip file content
   $('#file-unzip').each(function() {
-    var a = document.createElement('a');
-    var mediaId = $(this).find('input[name=id]').val();
-    var self = $(this);
+    const a = document.createElement('a');
+    const mediaId = $(this).find('input[name=id]').val();
+    const This = $(this);
 
     a.href = '#';
     $(a).text(dotclear.msg.zip_file_content);
-    self.before(a);
+    This.before(a);
     $(a).wrap('<p></p>');
 
     $(a).click(function() {
@@ -31,12 +31,12 @@ $(function() {
         f: 'getZipMediaContent',
         id: mediaId
       }, function(data) {
-        var rsp = $(data).children('rsp')[0];
+        const rsp = $(data).children('rsp')[0];
 
         if (rsp.attributes[0].value == 'ok') {
-          var div = document.createElement('div');
-          var list = document.createElement('ul');
-          var expanded = false;
+          const div = document.createElement('div');
+          const list = document.createElement('ul');
+          let expanded = false;
 
           $(div).css({
             overflow: 'auto',
@@ -45,7 +45,7 @@ $(function() {
           });
           $(div).addClass('color-div');
           $(div).append(list);
-          self.before(div);
+          This.before(div);
           $(a).hide();
           $(div).before('<h3>' + dotclear.msg.zip_file_content + '</h3>');
 

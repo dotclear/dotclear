@@ -3,21 +3,21 @@
 
 dotclear.postExpander = function(line) {
 
-  var title = $(line).find('.widget-name');
+  const title = $(line).find('.widget-name');
   title.find('.form-note').remove();
 
-  var order = title.find('input[name*=order]');
-  var link = $('<a href="#" alt="expand" class="aexpand"/>').append(title.text());
-  var tools = title.find('.toolsWidget');
-  var br = title.find('br');
+  const order = title.find('input[name*=order]');
+  const link = $('<a href="#" alt="expand" class="aexpand"/>').append(title.text());
+  const tools = title.find('.toolsWidget');
+  const br = title.find('br');
   title.empty().append(order).append(link).append(tools).append(br);
 
-  var b = document.createElement('button');
+  const b = document.createElement('button');
   b.setAttribute('type', 'button');
   b.className = 'details-cmd';
   b.value = dotclear.img_plus_txt;
   b.setAttribute('aria-label', dotclear.img_plus_alt);
-  var t = document.createTextNode(dotclear.img_plus_txt);
+  const t = document.createTextNode(dotclear.img_plus_txt);
   b.appendChild(t);
   b.onclick = function(e) {
     e.preventDefault();
@@ -32,8 +32,8 @@ dotclear.postExpander = function(line) {
 
 dotclear.viewPostContent = function(line, action) {
   action = action || 'toogle';
-  var img = line.find('.details-cmd');
-  var isopen = img.attr('aria-label') == dotclear.img_plus_alt;
+  const img = line.find('.details-cmd');
+  const isopen = img.attr('aria-label') == dotclear.img_plus_alt;
 
   if (action == 'close' || (action == 'toogle' && !isopen)) {
     line.find('.widgetSettings').hide();
@@ -52,12 +52,12 @@ dotclear.viewPostContent = function(line, action) {
 function reorder(ul) {
   // réordonne
   if (ul.attr('id')) {
-    var $list = ul.find('li').not('.empty-widgets');
+    const $list = ul.find('li').not('.empty-widgets');
     $list.each(function(i) {
-      var $this = $(this);
+      const $this = $(this);
 
       // trouve la zone de réception
-      var name = ul.attr('id').split('dnd').join('');
+      const name = ul.attr('id').split('dnd').join('');
 
       // modifie le name en conséquence
       $this.find('*[name^=w]').each(function() {
@@ -111,23 +111,21 @@ $(function() {
   // move
   $('input[name*=_down]').click(function(e) {
     e.preventDefault();
-    var $this = $(this);
-    var $li = $this.parents('li');
+    const $li = $(this).parents('li');
     $li.next().after($li);
-    reorder($this.parents('ul.connected'));
+    reorder($(this).parents('ul.connected'));
   });
   $('input[name*=_up]').click(function(e) {
     e.preventDefault();
-    var $this = $(this);
-    var $li = $this.parents('li');
+    const $li = $(this).parents('li');
     $li.prev().before($li);
-    reorder($this.parents('ul.connected'));
+    reorder($(this).parents('ul.connected'));
   });
 
   // HTML text editor
   if ($.isFunction(jsToolBar)) {
     $('#sidebarsWidgets textarea:not(.noeditor)').each(function() {
-      var tbWidgetText = new jsToolBar(this);
+      let tbWidgetText = new jsToolBar(this);
       tbWidgetText.draw('xhtml');
     });
   }

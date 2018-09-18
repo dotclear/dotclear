@@ -2,7 +2,7 @@
 'use strict';
 
 dotclear.dbCommentsCount = function() {
-  var params = {
+  const params = {
     f: 'getCommentsCount',
     xd_check: dotclear.nonce,
   };
@@ -12,13 +12,13 @@ dotclear.dbCommentsCount = function() {
       // console.log($('rsp',data).attr('message'));
       window.console.log('Dotclear REST server error');
     } else {
-      var nb = $('rsp>count', data).attr('ret');
+      const nb = $('rsp>count', data).attr('ret');
       if (nb != dotclear.dbCommentsCount_Counter) {
         // First pass or counter changed
-        var icon = $('#dashboard-main #icons p a[href="comments.php"]');
+        const icon = $('#dashboard-main #icons p a[href="comments.php"]');
         if (icon.length) {
           // Update count if exists
-          var nb_label = icon.children('span.db-icon-title');
+          const nb_label = icon.children('span.db-icon-title');
           if (nb_label.length) {
             nb_label.text(nb);
           }
@@ -30,7 +30,7 @@ dotclear.dbCommentsCount = function() {
   });
 };
 dotclear.dbPostsCount = function() {
-  var params = {
+  const params = {
     f: 'getPostsCount',
     xd_check: dotclear.nonce,
   };
@@ -40,13 +40,13 @@ dotclear.dbPostsCount = function() {
       // console.log($('rsp',data).attr('message'));
       window.console.log('Dotclear REST server error');
     } else {
-      var nb = $('rsp>count', data).attr('ret');
+      const nb = $('rsp>count', data).attr('ret');
       if (nb != dotclear.dbPostsCount_Counter) {
         // First pass or counter changed
-        var icon = $('#dashboard-main #icons p a[href="posts.php"]');
+        const icon = $('#dashboard-main #icons p a[href="posts.php"]');
         if (icon.length) {
           // Update count if exists
-          var nb_label = icon.children('span.db-icon-title');
+          const nb_label = icon.children('span.db-icon-title');
           if (nb_label.length) {
             nb_label.text(nb);
           }
@@ -63,7 +63,7 @@ $(function() {
       contentTb.syncContents('iframe');
     }
 
-    var params = {
+    const params = {
       f: 'quickPost',
       xd_check: dotclear.nonce,
       post_title: $('#post_title', f).val(),
@@ -79,7 +79,7 @@ $(function() {
     $('p.qinfo', f).remove();
 
     $.post('services.php', params, function(data) {
-      var msg;
+      let msg;
       if ($('rsp[status=failed]', data).length > 0) {
         msg = '<p class="qinfo"><strong>' + dotclear.msg.error +
           '</strong> ' + $('rsp', data).text() + '</p>';
@@ -107,7 +107,7 @@ $(function() {
     });
   }
 
-  var f = $('#quick-entry');
+  const f = $('#quick-entry');
   if (f.length > 0) {
     if ($.isFunction(jsToolBar)) {
       var contentTb = new jsToolBar($('#post_content', f)[0]);
@@ -142,7 +142,7 @@ $(function() {
   });
 
   // check if core update available
-  var params = {
+  let params = {
     f: 'checkCoreUpdate',
     xd_check: dotclear.nonce
   };
@@ -152,7 +152,7 @@ $(function() {
     } else {
       if ($('rsp>update', data).attr('check') == 1) {
         // Something has to be displayed
-        var xml = $('rsp>update', data).attr('ret');
+        const xml = $('rsp>update', data).attr('ret');
         $('#content h2').after(xml);
         // manage outgoing links
         dotclear.outgoingLinks('#ajax-update a');
@@ -171,7 +171,7 @@ $(function() {
     } else {
       if ($('rsp>news', data).attr('check') == 1) {
         // Something has to be displayed
-        var xml = $('rsp>news', data).attr('ret');
+        const xml = $('rsp>news', data).attr('ret');
         if ($('#dashboard-boxes').length == 0) {
           // Create the #dashboard-boxes container
           $('#dashboard-main').append('<div id="dashboard-boxes"></div>');
@@ -189,8 +189,7 @@ $(function() {
 
   // run counters' update on some dashboard icons
   // Comments (including everything)
-  var icon_com = $('#dashboard-main #icons p a[href="comments.php"]');
-  if (icon_com.length) {
+  if ($('#dashboard-main #icons p a[href="comments.php"]').length) {
     // Icon exists on dashboard
     // First pass
     dotclear.dbCommentsCount();
@@ -198,8 +197,7 @@ $(function() {
     dotclear.dbCommentsCount_Timer = setInterval(dotclear.dbCommentsCount, 60 * 1000);
   }
   // Posts
-  var icon_post = $('#dashboard-main #icons p a[href="posts.php"]');
-  if (icon_post.length) {
+  if ($('#dashboard-main #icons p a[href="posts.php"]').length) {
     // Icon exists on dashboard
     // First pass
     dotclear.dbPostsCount();
@@ -208,10 +206,10 @@ $(function() {
   }
 
   // Dashboard boxes and their children are sortable
-  var set_positions = function(sel, id) {
-    var list = $(sel).sortable("toArray").join();
+  const set_positions = function(sel, id) {
+    const list = $(sel).sortable("toArray").join();
     // Save positions (via services) for id
-    var params = {
+    const params = {
       f: 'setDashboardPositions',
       xd_check: dotclear.nonce,
       id: id,
@@ -219,7 +217,7 @@ $(function() {
     };
     $.post('services.php', params, function() {});
   };
-  var init_positions = function(sel, id) {
+  const init_positions = function(sel, id) {
     $(sel).sortable({
       cursor: 'move',
       opacity: 0.5,

@@ -63,12 +63,12 @@ jsToolBar.prototype.switchMode = function(mode) {
 
 jsToolBar.prototype.syncContents = function(from) {
   from = from || 'textarea';
-  var This = this;
+  const This = this;
   if (from == 'textarea') {
     initContent();
   } else {
     this.validBlockquote();
-    var html = this.applyHtmlFilters(this.ibody.innerHTML);
+    let html = this.applyHtmlFilters(this.ibody.innerHTML);
     if (html == '<br />') {
       html = '<p></p>';
     }
@@ -85,14 +85,14 @@ jsToolBar.prototype.syncContents = function(from) {
     if (This.textarea.value != '' && This.textarea.value != '<p></p>') {
       This.ibody.innerHTML = This.applyWysiwygFilters(This.textarea.value);
       if (This.ibody.createTextRange) { //cursor at the begin for IE
-        var IErange = This.ibody.createTextRange();
+        const IErange = This.ibody.createTextRange();
         IErange.execCommand("SelectAll");
         IErange.collapse();
         IErange.select();
       }
     } else {
-      var idoc = This.iwin.document;
-      var para = idoc.createElement('p');
+      const idoc = This.iwin.document;
+      const para = idoc.createElement('p');
       para.appendChild(idoc.createElement('br'));
       while (idoc.body.hasChildNodes()) {
         idoc.body.removeChild(idoc.body.lastChild);
@@ -107,14 +107,14 @@ jsToolBar.prototype.htmlFilters = {
   }
 };
 jsToolBar.prototype.applyHtmlFilters = function(str) {
-  for (var fn in this.htmlFilters) {
+  for (let fn in this.htmlFilters) {
     str = this.htmlFilters[fn].call(this, str);
   }
   return str;
 };
 jsToolBar.prototype.wysiwygFilters = {};
 jsToolBar.prototype.applyWysiwygFilters = function(str) {
-  for (var fn in this.wysiwygFilters) {
+  for (let fn in this.wysiwygFilters) {
     str = this.wysiwygFilters[fn].call(this, str);
   }
   return str;
@@ -142,7 +142,7 @@ jsToolBar.prototype.switchEdit = function() {
 /** Creates iframe for editor, inits a blank document
  */
 jsToolBar.prototype.initWindow = function() {
-  var This = this;
+  const This = this;
 
   this.iframe = document.createElement('iframe');
   this.textarea.parentNode.insertBefore(this.iframe, this.textarea.nextSibling);
@@ -159,23 +159,22 @@ jsToolBar.prototype.initWindow = function() {
   }
 
   function initIframe() {
-    var doc = This.iframe.contentWindow.document;
+    const doc = This.iframe.contentWindow.document;
     if (!doc) {
       setTimeout(initIframe, 1);
       return false;
     }
 
     doc.open();
-    var html =
-      '<html>\n' +
-      '<head>\n' +
-      '<link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />' +
-      '<style type="text/css">' + This.iframe_css + '</style>\n' +
-      (This.base_url != '' ? '<base href="' + This.base_url + '" />' : '') +
-      '</head>\n' +
-      '<body>\n' +
-      '</body>\n' +
-      '</html>';
+    const html =
+`<html>
+  <head>
+    <link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
+    <style type="text/css">${This.iframe_css}</style>
+    ${This.base_url != '' ? `<base href="${This.base_url}" />` : ''}
+  </head>
+  <body></body>
+</html>`;
 
     doc.write(html);
     doc.close();
@@ -211,8 +210,8 @@ jsToolBar.prototype.initWindow = function() {
       });
     }
 
-    for (var evt in This.iwinEvents) {
-      var event = This.iwinEvents[evt];
+    for (let evt in This.iwinEvents) {
+      const event = This.iwinEvents[evt];
       This.addIwinEvent(This.iframe.contentWindow.document, event.type, event.fn, This);
     }
 
@@ -226,7 +225,7 @@ jsToolBar.prototype.initWindow = function() {
   initIframe();
 };
 jsToolBar.prototype.addIwinEvent = function(target, type, fn, scope) {
-  var myFn = function(e) {
+  const myFn = function(e) {
     fn.call(scope, e);
   };
   addEvent(target, type, myFn, true);
@@ -259,11 +258,11 @@ jsToolBar.prototype.setSwitcher = function() {
     this.switcher.removeChild(this.switcher.firstChild);
   }
 
-  var This = this;
+  const This = this;
 
   function setLink(title, link) {
-    var li = document.createElement('li');
-    var a;
+    const li = document.createElement('li');
+    let a;
     if (link) {
       a = document.createElement('a');
       a.href = '#';
@@ -306,7 +305,7 @@ jsToolBar.prototype.focusEditor = function() {
     try {
       this.iwin.document.designMode = 'on';
     } catch (e) {} // Firefox needs this
-    var This = this;
+    const This = this;
     setTimeout(function() {
       This.iframe.contentWindow.focus();
     }, 1);
@@ -325,7 +324,7 @@ jsToolBar.prototype.resizeSetStartH = function() {
   this.dragStartH = this.textarea.offsetHeight + 0;
 };
 jsToolBar.prototype.resizeDragMove = function(event) {
-  var new_height = (this.dragStartH + event.clientY - this.dragStartY) + 'px';
+  const new_height = `${this.dragStartH + event.clientY - this.dragStartY}px`;
   if (this.iframe != undefined) {
     this.iframe.style.height = new_height;
   }
@@ -337,10 +336,10 @@ jsToolBar.prototype.resizeDragMove = function(event) {
 /** Replaces current selection by given node
  */
 jsToolBar.prototype.insertNode = function(node) {
-  var range;
+  let range;
 
   if (this.iwin.getSelection) { // Gecko
-    var sel = this.iwin.getSelection();
+    const sel = this.iwin.getSelection();
     range = sel.getRangeAt(0);
 
     // deselect all ranges
@@ -365,7 +364,7 @@ jsToolBar.prototype.insertNode = function(node) {
     sel.collapseToEnd();
   } else { // IE
     // lambda element
-    var p = this.iwin.document.createElement('div');
+    const p = this.iwin.document.createElement('div');
     p.appendChild(node);
     range = this.iwin.document.selection.createRange();
     range.execCommand('delete');
@@ -380,18 +379,18 @@ jsToolBar.prototype.insertNode = function(node) {
 /** Returns a document fragment with selected nodes
  */
 jsToolBar.prototype.getSelectedNode = function() {
-  var sel;
+  let sel;
   var content;
   if (this.iwin.getSelection) { // Gecko
     sel = this.iwin.getSelection();
-    var range = sel.getRangeAt(0);
+    const range = sel.getRangeAt(0);
     content = range.cloneContents();
   } else { // IE
     sel = this.iwin.document.selection;
-    var d = this.iwin.document.createElement('div');
+    const d = this.iwin.document.createElement('div');
     d.innerHTML = sel.createRange().htmlText;
     content = this.iwin.document.createDocumentFragment();
-    for (var i = 0; i < d.childNodes.length; i++) {
+    for (let i = 0; i < d.childNodes.length; i++) {
       content.appendChild(d.childNodes[i].cloneNode(true));
     }
   }
@@ -404,25 +403,26 @@ jsToolBar.prototype.getSelectedText = function() {
   if (this.iwin.getSelection) { // Gecko
     return this.iwin.getSelection().toString();
   } else { // IE
-    var range = this.iwin.document.selection.createRange();
+    const range = this.iwin.document.selection.createRange();
     return range.text;
   }
 };
 
 jsToolBar.prototype.replaceNodeByContent = function(node) {
-  var content = this.iwin.document.createDocumentFragment();
-  for (var i = 0; i < node.childNodes.length; i++) {
+  const content = this.iwin.document.createDocumentFragment();
+  for (let i = 0; i < node.childNodes.length; i++) {
     content.appendChild(node.childNodes[i].cloneNode(true));
   }
   node.parentNode.replaceChild(content, node);
 };
 
 jsToolBar.prototype.getBlockLevel = function() {
-  var blockElts = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+  const blockElts = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
-  var range, commonAncestorContainer;
+  let range;
+  let commonAncestorContainer;
   if (this.iwin.getSelection) { //gecko
-    var selection = this.iwin.getSelection();
+    const selection = this.iwin.getSelection();
     range = selection.getRangeAt(0);
     commonAncestorContainer = range.commonAncestorContainer;
     while (commonAncestorContainer.nodeType != 1) {
@@ -433,7 +433,7 @@ jsToolBar.prototype.getBlockLevel = function() {
     commonAncestorContainer = range.parentElement();
   }
 
-  var ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
+  let ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
   while (arrayIndexOf(blockElts, ancestorTagName) == -1 && ancestorTagName != 'body') {
     commonAncestorContainer = commonAncestorContainer.parentNode;
     ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
@@ -442,7 +442,7 @@ jsToolBar.prototype.getBlockLevel = function() {
   else return commonAncestorContainer;
 };
 jsToolBar.prototype.adjustBlockLevelCombo = function() {
-  var blockLevel = this.getBlockLevel();
+  const blockLevel = this.getBlockLevel();
   if (blockLevel !== null)
     this.toolNodes.blocks.value = blockLevel.tagName.toLowerCase();
   else {
@@ -470,7 +470,7 @@ jsToolBar.prototype.simpleCleanRegex = new Array(
 /** Cleanup HTML code
  */
 jsToolBar.prototype.tagsoup2xhtml = function(html) {
-  for (var reg in this.simpleCleanRegex) {
+  for (let reg in this.simpleCleanRegex) {
     html = html.replace(this.simpleCleanRegex[reg][0], this.simpleCleanRegex[reg][1]);
   }
   /* tags vides */
@@ -487,9 +487,9 @@ jsToolBar.prototype.tagsoup2xhtml = function(html) {
     });
 
   /* IE laisse souvent des attributs sans guillemets */
-  var myRegexp = /<[^>]+((\s+\w+\s*=\s*)([^"'][\w~@+$,%\/:.#?=&;!*()-]*))[^>]*?>/;
-  var myQuoteFn = function(str, val1, val2, val3) {
-    var tamponRegex = new RegExp(regexpEscape(val1));
+  const myRegexp = /<[^>]+((\s+\w+\s*=\s*)([^"'][\w~@+$,%\/:.#?=&;!*()-]*))[^>]*?>/;
+  const myQuoteFn = function(str, val1, val2, val3) {
+    const tamponRegex = new RegExp(regexpEscape(val1));
     return str.replace(tamponRegex, val2 + '"' + val3 + '"');
   };
   while (myRegexp.test(html)) {
@@ -507,7 +507,7 @@ jsToolBar.prototype.tagsoup2xhtml = function(html) {
   html = html.replace(/\r\n/g, "\n");
 
   /* Trim only if there's no pre tag */
-  var pattern_pre = /<pre>[\s\S]*<\/pre>/gi;
+  const pattern_pre = /<pre>[\s\S]*<\/pre>/gi;
   if (!pattern_pre.test(html)) {
     html = html.replace(/^\s+/gm, '');
     html = html.replace(/\s+$/gm, '');
@@ -516,17 +516,17 @@ jsToolBar.prototype.tagsoup2xhtml = function(html) {
   return html;
 };
 jsToolBar.prototype.validBlockquote = function() {
-  var blockElts = ['address', 'blockquote', 'dl', 'div', 'fieldset', 'form', 'h1',
+  const blockElts = ['address', 'blockquote', 'dl', 'div', 'fieldset', 'form', 'h1',
     'h2', 'h3', 'h4', 'h5', 'h6', 'hr', 'ol', 'p', 'pre', 'table', 'ul'
   ];
-  var BQs = this.iwin.document.getElementsByTagName('blockquote');
-  var bqChilds;
-  var p;
+  const BQs = this.iwin.document.getElementsByTagName('blockquote');
+  let bqChilds;
+  let p;
 
-  for (var bq = 0; bq < BQs.length; bq++) {
+  for (let bq = 0; bq < BQs.length; bq++) {
     bqChilds = BQs[bq].childNodes;
-    var frag = this.iwin.document.createDocumentFragment();
-    for (var i = (bqChilds.length - 1); i >= 0; i--) {
+    let frag = this.iwin.document.createDocumentFragment();
+    for (let i = (bqChilds.length - 1); i >= 0; i--) {
       if (bqChilds[i].nodeType == 1 && // Node.ELEMENT_NODE
         arrayIndexOf(blockElts, bqChilds[i].tagName.toLowerCase()) >= 0) {
         if (frag.childNodes.length > 0) {
@@ -560,7 +560,7 @@ jsToolBar.prototype.removeFormatRegexp = new Array(
 );
 
 jsToolBar.prototype.removeTextFormating = function(html) {
-  for (var reg in this.removeFormatRegexp) {
+  for (let reg in this.removeFormatRegexp) {
     html = html.replace(this.removeFormatRegexp[reg][0], this.removeFormatRegexp[reg][1]);
   }
 
@@ -575,7 +575,7 @@ jsToolBar.prototype.elements.blocks.wysiwyg = {
   list: ['none', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
   fn: function(opt) {
     if (opt == 'none') {
-      var blockLevel = this.getBlockLevel();
+      const blockLevel = this.getBlockLevel();
       if (blockLevel !== null) {
         this.replaceNodeByContent(blockLevel);
       }
@@ -610,34 +610,34 @@ jsToolBar.prototype.elements.del.fn.wysiwyg = function() {
 };
 
 jsToolBar.prototype.elements.quote.fn.wysiwyg = function() {
-  var n = this.getSelectedNode();
-  var q = this.iwin.document.createElement('q');
+  const n = this.getSelectedNode();
+  const q = this.iwin.document.createElement('q');
   q.appendChild(n);
   this.insertNode(q);
 };
 
 jsToolBar.prototype.elements.code.fn.wysiwyg = function() {
-  var n = this.getSelectedNode();
-  var code = this.iwin.document.createElement('code');
+  const n = this.getSelectedNode();
+  const code = this.iwin.document.createElement('code');
   code.appendChild(n);
   this.insertNode(code);
 };
 
 jsToolBar.prototype.elements.mark.fn.wysiwyg = function() {
-  var n = this.getSelectedNode();
-  var mark = this.iwin.document.createElement('mark');
+  const n = this.getSelectedNode();
+  const mark = this.iwin.document.createElement('mark');
   mark.appendChild(n);
   this.insertNode(mark);
 };
 
 jsToolBar.prototype.elements.br.fn.wysiwyg = function() {
-  var n = this.iwin.document.createElement('br');
+  const n = this.iwin.document.createElement('br');
   this.insertNode(n);
 };
 
 jsToolBar.prototype.elements.blockquote.fn.wysiwyg = function() {
-  var n = this.getSelectedNode();
-  var q = this.iwin.document.createElement('blockquote');
+  const n = this.getSelectedNode();
+  const q = this.iwin.document.createElement('blockquote');
   q.appendChild(n);
   this.insertNode(q);
 };
@@ -658,10 +658,12 @@ jsToolBar.prototype.elements.ol.fn.wysiwyg = function() {
 };
 
 jsToolBar.prototype.elements.link.fn.wysiwyg = function() {
-  var href, hreflang;
-  var range, commonAncestorContainer;
+  let href;
+  let hreflang;
+  let range;
+  let commonAncestorContainer;
   if (this.iwin.getSelection) { //gecko
-    var selection = this.iwin.getSelection();
+    const selection = this.iwin.getSelection();
     range = selection.getRangeAt(0);
     commonAncestorContainer = range.commonAncestorContainer;
     while (commonAncestorContainer.nodeType != 1) {
@@ -672,7 +674,7 @@ jsToolBar.prototype.elements.link.fn.wysiwyg = function() {
     commonAncestorContainer = range.parentElement();
   }
 
-  var ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
+  let ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
   while (ancestorTagName != 'a' && ancestorTagName != 'body') {
     commonAncestorContainer = commonAncestorContainer.parentNode;
     ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
@@ -706,8 +708,8 @@ jsToolBar.prototype.elements.link.fn.wysiwyg = function() {
   }
 
   // Create link
-  var n = this.getSelectedNode();
-  var a = this.iwin.document.createElement('a');
+  const n = this.getSelectedNode();
+  const a = this.iwin.document.createElement('a');
   a.href = href;
   if (hreflang) a.setAttribute('hreflang', hreflang);
   a.appendChild(n);
@@ -722,12 +724,12 @@ jsToolBar.prototype.elements.removeFormat = {
 };
 jsToolBar.prototype.elements.removeFormat.disabled = !jsToolBar.prototype.can_wwg;
 jsToolBar.prototype.elements.removeFormat.fn.xhtml = function() {
-  var html = this.textarea.value;
+  let html = this.textarea.value;
   html = this.removeTextFormating(html);
   this.textarea.value = html;
 };
 jsToolBar.prototype.elements.removeFormat.fn.wysiwyg = function() {
-  var html = this.iwin.document.body.innerHTML;
+  let html = this.iwin.document.body.innerHTML;
   html = this.removeTextFormating(html);
   this.iwin.document.body.innerHTML = html;
 };
@@ -737,9 +739,9 @@ function arrayIndexOf(aArray, aValue) {
   if (typeof Array.indexOf == 'function') {
     return aArray.indexOf(aValue);
   } else {
-    var index = -1;
-    var l = aArray.length;
-    for (var i = 0; i < l; i++) {
+    let index = -1;
+    const l = aArray.length;
+    for (let i = 0; i < l; i++) {
       if (aArray[i] === aValue) {
         index = i;
         break;
@@ -754,7 +756,7 @@ function addEvent(obj, evType, fn, useCapture) {
     obj.addEventListener(evType, fn, useCapture);
     return true;
   } else if (obj.attachEvent) {
-    var r = obj.attachEvent("on" + evType, fn);
+    const r = obj.attachEvent("on" + evType, fn);
     return r;
   } else {
     return false;
@@ -766,7 +768,7 @@ function removeEvent(obj, evType, fn, useCapture) {
     obj.removeEventListener(evType, fn, useCapture);
     return true;
   } else if (obj.detachEvent) {
-    var r = obj.detachEvent("on" + evType, fn);
+    const r = obj.detachEvent("on" + evType, fn);
     return r;
   } else {
     return false;

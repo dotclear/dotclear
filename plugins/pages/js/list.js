@@ -7,8 +7,9 @@ dotclear.viewPostContent = function(line, action, e) {
     return;
   }
 
-  var postId = $(line).attr('id').substr(1);
-  var tr = document.getElementById('pe' + postId);
+  const postId = $(line).attr('id').substr(1);
+  const lineId = `pe${postId}`;
+  let tr = document.getElementById(lineId);
 
   if (!tr) {
     // Get post content if possible
@@ -16,8 +17,8 @@ dotclear.viewPostContent = function(line, action, e) {
       if (content) {
         // Content found
         tr = document.createElement('tr');
-        tr.id = 'pe' + postId;
-        var td = document.createElement('td');
+        tr.id = lineId;
+        const td = document.createElement('td');
         td.colSpan = $(line).children('td').length;
         td.className = 'expand';
         tr.appendChild(td);
@@ -46,7 +47,7 @@ $(function() {
     callback: dotclear.viewPostContent
   });
   $('.checkboxes-helpers').each(function() {
-    var p = $('<p></p>');
+    const p = $('<p></p>');
     $(this).prepend(p);
     dotclear.checkboxesHelpers(p, undefined, '#pageslist td input[type=checkbox]', '#form-entries #do-action');
   });
@@ -55,7 +56,7 @@ $(function() {
 
   $('#pageslist tr.line td:not(.expander)').mousedown(function() {
     $('#pageslist tr.line').each(function() {
-      var td = this.firstChild;
+      const td = this.firstChild;
       dotclear.viewPostContent(td.firstChild, td.firstChild.line, 'close');
     });
     $('#pageslist tr:not(.line)').remove();
@@ -87,8 +88,8 @@ $(function() {
   });
 
   $('#form-entries').submit(function() {
-    var action = $(this).find('select[name="action"]').val();
-    var checked = false;
+    const action = $(this).find('select[name="action"]').val();
+    let checked = false;
     if ($('input[name="reorder"][clicked=true]').val()) {
       return true;
     }

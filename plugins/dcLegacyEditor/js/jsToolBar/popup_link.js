@@ -12,15 +12,15 @@ $(function() {
 	});
 
 	function sendClose() {
-		var insert_form = $('#link-insert-form').get(0);
+		const insert_form = $('#link-insert-form').get(0);
 		if (insert_form == undefined) { return; }
 
-		var tb = window.opener.the_toolbar;
-		var data = tb.elements.link.data;
+		const tb = window.opener.the_toolbar;
+		const data = tb.elements.link.data;
 
 		data.href = tb.stripBaseURL(insert_form.elements.href.value);
 		data.title = insert_form.elements.title.value;
 		data.hreflang = insert_form.elements.hreflang.value;
 		tb.elements.link.fncall[tb.mode].call(tb);
-	};
+	}
 });

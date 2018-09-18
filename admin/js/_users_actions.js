@@ -4,12 +4,12 @@
 jQuery.fn.updatePermissionsForm = function() {
   return this.each(function() {
 
-    var perms = {};
-    var re = /^perm\[(.+?)\]\[(.+?)\]$/;
-    var e, prop;
+    let perms = {};
+    const re = /^perm\[(.+?)\]\[(.+?)\]$/;
+    let e, prop;
 
-    var admin = function(E, perms, re) {
-      var P = E.name.match(re);
+    const admin = function(E, perms, re) {
+      const P = E.name.match(re);
 
       perms[P[1]].usage.checked = E.checked;
       perms[P[1]].publish.checked = E.checked;
@@ -28,8 +28,8 @@ jQuery.fn.updatePermissionsForm = function() {
       perms[P[1]].media_admin.disabled = E.checked;
     };
 
-    var contentadmin = function(E, perms, re) {
-      var P = E.name.match(re);
+    const contentadmin = function(E, perms, re) {
+      const P = E.name.match(re);
 
       perms[P[1]].usage.checked = E.checked;
       perms[P[1]].publish.checked = E.checked;
@@ -40,8 +40,8 @@ jQuery.fn.updatePermissionsForm = function() {
       perms[P[1]].delete.disabled = E.checked;
     };
 
-    var mediaadmin = function(E, perms, re) {
-      var P = E.name.match(re);
+    const mediaadmin = function(E, perms, re) {
+      const P = E.name.match(re);
 
       perms[P[1]].media.checked = E.checked;
 
@@ -49,7 +49,7 @@ jQuery.fn.updatePermissionsForm = function() {
     };
 
     // Building a nice object of form elements
-    for (var i = 0; i < this.elements.length; i++) {
+    for (let i = 0; i < this.elements.length; i++) {
       e = this.elements[i];
       if (e.name == undefined) {
         continue;
@@ -64,9 +64,9 @@ jQuery.fn.updatePermissionsForm = function() {
       perms[prop[1]][prop[2]] = e;
     }
     // Populate states
-    for (var blog in perms) {
+    for (let blog in perms) {
       // Loop on blog
-      for (var element in perms[blog]) {
+      for (let element in perms[blog]) {
         // Loop on permission
         e = perms[blog][element];
         prop = e.name.match(re);

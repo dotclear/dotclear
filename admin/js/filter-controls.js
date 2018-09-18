@@ -2,13 +2,13 @@
 'use strict';
 
 $(function() {
-  var reset_url = '?';
+  let reset_url = '?';
   if (dotclear.filter_reset_url != undefined) {
     reset_url = dotclear.filter_reset_url;
   }
 
-  var $filtersform = $('#filters-form');
-  $filtersform.before('<p><a id="filter-control" class="form-control" href="' + reset_url + '" style="display:inline">' + dotclear.msg.filter_posts_list + '</a></p>');
+  const $filtersform = $('#filters-form');
+  $filtersform.before(`<p><a id="filter-control" class="form-control" href="${reset_url}" style="display:inline">${dotclear.msg.filter_posts_list}</a></p>`);
 
   if (dotclear.msg.show_filters == 'false') {
     $filtersform.hide();

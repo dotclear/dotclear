@@ -7,15 +7,15 @@ $(function() {
   });
 
   $('#link-insert-ok').click(function() {
-    var insert_form = $('#link-insert-form').get(0);
+    const insert_form = $('#link-insert-form').get(0);
     if (insert_form == undefined) {
       return;
     }
 
-    var editor_name = window.opener.$.getEditorName(),
-      editor = window.opener.CKEDITOR.instances[editor_name],
-      link = '',
-      selected_element;
+    const editor_name = window.opener.$.getEditorName();
+    const editor = window.opener.CKEDITOR.instances[editor_name];
+    let link = '';
+    let selected_element;
     if (editor.getSelection().getSelectedElement() != null) {
       selected_element = editor.getSelection().getSelectedElement();
     } else {
