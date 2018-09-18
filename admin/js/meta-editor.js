@@ -53,11 +53,11 @@ metaEditor.prototype = {
       return true;
     });
 
-    var This = this;
+    const This = this;
 
     this.submit_button = $('<input type="button" value="ok" class="ib meta-helper" />');
     this.submit_button.click(function() {
-      var v = This.meta_dialog.val();
+      const v = This.meta_dialog.val();
       This.addMeta(v);
       return false;
     });
@@ -71,19 +71,19 @@ metaEditor.prototype = {
   },
 
   displayMetaList: function() {
-    var li;
+    let li;
     if (this.meta_list == undefined) {
       this.meta_list = $('<ul class="metaList"></ul>');
       this.target.prepend(this.meta_list);
     }
 
     if (this.post_id == false) {
-      var meta = this.splitMetaValues(this.meta_field.val());
+      const meta = this.splitMetaValues(this.meta_field.val());
 
       this.meta_list.empty();
-      for (var i = 0; i < meta.length; i++) {
+      for (let i = 0; i < meta.length; i++) {
         li = $('<li>' + meta[i] + '</li>');
-        var a_remove = $('<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>');
+        const a_remove = $('<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>');
         a_remove.get(0).caller = this;
         a_remove.get(0).meta_id = meta[i];
         a_remove.click(function() {
@@ -94,8 +94,8 @@ metaEditor.prototype = {
         this.meta_list.append(li);
       }
     } else {
-      var This = this;
-      var params = {
+      const This = this;
+      const params = {
         f: 'getMeta',
         metaType: this.meta_type,
         sortby: 'metaId,asc',
@@ -111,9 +111,9 @@ metaEditor.prototype = {
 
         This.meta_list.empty();
         data.find('meta').each(function() {
-          var meta_id = $(this).text();
+          const meta_id = $(this).text();
           li = $('<li><a href="' + This.meta_url + $(this).attr('uri') + '">' + meta_id + '</a></li>');
-          a_remove = $('<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>');
+          const a_remove = $('<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>');
           a_remove.get(0).caller = This;
           a_remove.get(0).meta_id = meta_id;
           a_remove.click(function() {
@@ -144,7 +144,7 @@ metaEditor.prototype = {
   },
 
   showMetaList: function(list_type, target) {
-    var params = {
+    const params = {
       f: 'getMeta',
       metaType: this.meta_type,
       sortby: 'metaId,asc'
@@ -154,23 +154,22 @@ metaEditor.prototype = {
       params.limit = '30';
     }
 
-    var This = this;
+    const This = this;
 
     $.get(this.service_uri, params, function(data) {
 
-      var pl = $('<p class="addMeta"></p>');
+      const pl = $('<p class="addMeta"></p>');
 
       $(target).find('.addMeta').remove();
 
       if ($(data).find('meta').length > 0) {
         pl.empty();
-        var meta_link;
 
         $(data).find('meta').each(function(i) {
-          meta_link = $('<button type="button" class="metaItem meta-helper">' + $(this).text() + '</button>');
+          const meta_link = $('<button type="button" class="metaItem meta-helper">' + $(this).text() + '</button>');
           meta_link.get(0).meta_id = $(this).text();
           meta_link.click(function() {
-            var v = This.splitMetaValues(This.meta_dialog.val() + ',' + this.meta_id);
+            const v = This.splitMetaValues(This.meta_dialog.val() + ',' + this.meta_id);
             This.meta_dialog.val(v.join(','));
             return false;
           });
@@ -182,7 +181,7 @@ metaEditor.prototype = {
         });
 
         if (list_type == 'more') {
-          var a_more = $('<button type="button" class="button metaGetMore meta-helper"></button>');
+          const a_more = $('<button type="button" class="button metaGetMore meta-helper"></button>');
           a_more.append(This.text_all + String.fromCharCode(160) + String.fromCharCode(187));
           a_more.click(function() {
             This.showMetaList('more-all', target);
@@ -194,10 +193,10 @@ metaEditor.prototype = {
         if (list_type != 'more-all') {
           pl.addClass('hide');
 
-          var pa = $('<p></p>');
+          const pa = $('<p></p>');
           target.append(pa);
 
-          var a = $('<button type="button" class="button metaGetList meta-helper">' + This.text_choose + '</button>');
+          const a = $(`<button type="button" class="button metaGetList meta-helper">${This.text_choose}</button>`);
           a.click(function() {
             $(this).parent().next().removeClass('hide');
             $(this).remove();
@@ -224,7 +223,7 @@ metaEditor.prototype = {
       this.meta_dialog.val('');
       this.displayMetaList();
     } else {
-      var params = {
+      const params = {
         xd_check: dotclear.nonce,
         f: 'setPostMeta',
         postId: this.post_id,
@@ -232,7 +231,7 @@ metaEditor.prototype = {
         meta: str
       };
 
-      var This = this;
+      const This = this;
       $.post(this.service_uri, params, function(data) {
         if ($(data).find('rsp').attr('status') == 'ok') {
           This.meta_dialog.val('');
@@ -246,8 +245,8 @@ metaEditor.prototype = {
 
   removeMeta: function(meta_id) {
     if (this.post_id == false) {
-      var meta = this.splitMetaValues(this.meta_field.val());
-      for (var i = 0; i < meta.length; i++) {
+      let meta = this.splitMetaValues(this.meta_field.val());
+      for (let i = 0; i < meta.length; i++) {
         if (meta[i] == meta_id) {
           meta.splice(i, 1);
           break;
@@ -256,11 +255,11 @@ metaEditor.prototype = {
       this.meta_field.val(meta.join(','));
       this.displayMetaList();
     } else {
-      var text_confirm_msg = this.text_confirm_remove.replace(/%s/, this.meta_type);
+      const text_confirm_msg = this.text_confirm_remove.replace(/%s/, this.meta_type);
 
       if (window.confirm(text_confirm_msg)) {
-        var This = this;
-        var params = {
+        const This = this;
+        const params = {
           xd_check: dotclear.nonce,
           f: 'delMeta',
           postId: this.post_id,
@@ -289,10 +288,10 @@ metaEditor.prototype = {
       return false;
     }
 
-    var res = [];
-    var v = str.split(',');
+    let res = [];
+    let v = str.split(',');
     v.sort();
-    for (var i = 0; i < v.length; i++) {
+    for (let i = 0; i < v.length; i++) {
       v[i] = v[i].replace(/^\s*/, '').replace(/\s*$/, '');
       if (v[i] != '' && !inArray(v[i], res)) {
         res.push(v[i]);

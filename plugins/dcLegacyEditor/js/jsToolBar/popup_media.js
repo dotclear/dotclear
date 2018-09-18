@@ -14,19 +14,20 @@ $(function() {
   });
 
   function sendClose() {
-    var insert_form = $('#media-insert-form').get(0);
+    const insert_form = $('#media-insert-form').get(0);
     if (insert_form == undefined) {
       return;
     }
 
-    var tb = window.opener.the_toolbar;
-    var type = insert_form.elements.type.value;
-    var media_align_grid = {
+    const tb = window.opener.the_toolbar;
+    const type = insert_form.elements.type.value;
+    const media_align_grid = {
       left: 'float: left; margin: 0 1em 1em 0;',
       right: 'float: right; margin: 0 0 1em 1em;',
       center: 'text-align: center;'
     };
-    var align, player;
+    let align;
+    let player;
 
     if (type == 'image') {
       tb.elements.img_select.data.src = tb.stripBaseURL($('input[name="src"]:checked', insert_form).val());
@@ -37,7 +38,7 @@ $(function() {
       tb.elements.img_select.data.description = $('input[name="description"]', insert_form).val();
       tb.elements.img_select.data.url = tb.stripBaseURL(insert_form.elements.url.value);
 
-      var media_legend = $('input[name="legend"]:checked', insert_form).val();
+      let media_legend = $('input[name="legend"]:checked', insert_form).val();
       if (media_legend != '' && media_legend != 'title' && media_legend != 'none') {
         media_legend = 'legend';
       }
@@ -54,14 +55,14 @@ $(function() {
       align = $('input[name="alignment"]:checked', insert_form).val();
 
       if (align != undefined && align != 'none') {
-        player = '<div style="' + media_align_grid[align] + '">' + player + '</div>';
+        player = `<div style="${media_align_grid[align]}">${player}</div>`;
       }
 
       tb.elements.mp3_insert.data.player = player.replace(/>/g, '>\n');
       tb.elements.mp3_insert.fncall[tb.mode].call(tb);
     } else if (type == 'flv') // may be all video media, not only flv
     {
-      var oplayer = $('<div>' + $('#public_player').val() + '</div>');
+      var oplayer = $(`<div>${$('#public_player').val()}</div>`);
       var flashvars = $('[name=FlashVars]', oplayer).val();
 
       align = $('input[name="alignment"]:checked', insert_form).val();
@@ -97,7 +98,7 @@ $(function() {
       player = oplayer.html();
 
       if (align != undefined && align != 'none') {
-        player = '<div style="' + media_align_grid[align] + '">' + player + '</div>';
+        player = `<div style="${media_align_grid[align]}">${player}</div>`;
       }
 
       tb.elements.flv_insert.data.player = player.replace(/>/g, '>\n');

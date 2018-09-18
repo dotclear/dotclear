@@ -20,23 +20,23 @@ $(function() {
 
   // actions tests
   $('.modules-form-actions').each(function() {
-    var rxActionType = /^[^\[]+/;
-    var rxActionValue = /([^\[]+)\]$/;
-    var checkboxes = $(this).find('input[type=checkbox]');
+    const rxActionType = /^[^\[]+/;
+    const rxActionValue = /([^\[]+)\]$/;
+    const checkboxes = $(this).find('input[type=checkbox]');
 
     // check if submit is a global action or one line action
     $('input[type=submit]', this).click(function() {
-      var keyword = $(this).attr('name');
+      const keyword = $(this).attr('name');
       if (!keyword) {
         return true;
       }
-      var maction = keyword.match(rxActionType);
-      var action = maction[0];
-      var mvalues = keyword.match(rxActionValue);
+      const maction = keyword.match(rxActionType);
+      const action = maction[0];
+      const mvalues = keyword.match(rxActionValue);
 
       // action on multiple modules
       if (!mvalues) {
-        var checked = false;
+        let checked = false;
 
         // check if there is checkboxes in form
         if (checkboxes.length > 0) {
@@ -59,7 +59,7 @@ $(function() {
 
         // action on one module
       } else {
-        var module = mvalues[1];
+        const module = mvalues[1];
 
         // confirm delete
         if (action == 'delete') {

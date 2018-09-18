@@ -4,8 +4,8 @@
 (function($) {
   $.fn.enhancedUploader = function() {
     return this.each(function() {
-      var me = $(this);
-      var $container = $(me).parent();
+      const me = $(this);
+      const $container = $(me).parent();
 
       function enableButton(button) {
         button.prop('disabled', false).removeClass('disabled');
@@ -16,7 +16,7 @@
       }
 
       function displayMessageInQueue(n) {
-        var msg = '';
+        let msg = '';
         if (n == 1) {
           msg = dotclear.jsUpload.msg.file_in_queue;
         } else if (n > 1) {
@@ -87,7 +87,8 @@
         }
       });
 
-      var $msg, label;
+      let $msg;
+      let label;
 
       if ($container.hasClass('enhanced_uploader')) {
         $msg = dotclear.msg.enhanced_uploader_disable;
@@ -102,7 +103,7 @@
         label = dotclear.jsUpload.msg.choose_file;
       }
 
-      $('<p class="clear"><button type="button" class="enhanced-toggle">' + $msg + '</button></p>').click(function(e) {
+      $(`<p class="clear"><button type="button" class="enhanced-toggle">${$msg}</button></p>`).click(function(e) {
         if ($container.hasClass('enhanced_uploader')) {
           $msg = dotclear.msg.enhanced_uploader_activate;
           label = dotclear.jsUpload.msg.choose_file;
@@ -121,8 +122,8 @@
           $msg = dotclear.msg.enhanced_uploader_disable;
           label = dotclear.jsUpload.msg.choose_files;
           $('#upfile').attr('multiple', true);
-          var startButton = $('.button.start');
-          var buttonBar = $('#fileupload .fileupload-buttonbar');
+          const startButton = $('.button.start');
+          const buttonBar = $('#fileupload .fileupload-buttonbar');
           disableButton(startButton);
           disableButton(buttonBar);
           startButton.css('display', 'inline-block');
@@ -152,7 +153,7 @@ $(function() {
   dotclear.condSubmit('#form-medias input[type="checkbox"]', '#form-medias #delete_medias');
 
   $('#form-medias #delete_medias').click(function(e) {
-    var count_checked = $('input[name="medias[]"]:checked', $('#form-medias')).length;
+    const count_checked = $('input[name="medias[]"]:checked', $('#form-medias')).length;
     if (count_checked == 0) {
       e.preventDefault();
       return false;
@@ -167,12 +168,12 @@ $(function() {
 
   // attach media
   $('#form-medias').on('click', '.media-item .attach-media', function(e) {
-    var parts = $(this).prop('href').split('?');
-    var str_params = parts[1].split('&');
-    var postData = {};
+    const parts = $(this).prop('href').split('?');
+    const str_params = parts[1].split('&');
+    let postData = {};
 
-    for (var n = 0; n < str_params.length; n++) {
-      var kv = str_params[n].split('=');
+    for (let n = 0; n < str_params.length; n++) {
+      const kv = str_params[n].split('=');
       postData[kv[0]] = kv[1];
     }
     postData.xd_check = dotclear.nonce;
@@ -191,15 +192,15 @@ $(function() {
 
   function fileRemoveAct() {
     $('body').on('click', 'a.media-remove', function() {
-      var m_name = $(this).parents('.media-item').find('a.media-link').text();
-      var m_text = '';
+      const m_name = $(this).parents('.media-item').find('a.media-link').text();
+      let m_text = '';
       if ($(this).parents('div.media-folder').length == 0) {
         m_text = dotclear.msg.confirm_delete_media.replace('%s', m_name);
       } else {
         m_text = dotclear.msg.confirm_delete_directory.replace('%s', m_name);
       }
       if (window.confirm(m_text)) {
-        var f = $('#media-remove-hide').get(0);
+        const f = $('#media-remove-hide').get(0);
         f.elements.remove.value = this.href.replace(/^(.*)&remove=(.*?)(&|$)/, '$2');
         this.href = '';
         f.submit();

@@ -1,9 +1,16 @@
 /*global $, dotclear */
 'use strict';
 
+/**
+ * Gets the entry (post, page, …) content.
+ *
+ * @param      numeric     postId    The post identifier
+ * @param      function    callback  The callback
+ * @param      object      options   The options
+ */
 dotclear.getEntryContent = function(postId, callback, options) {
-  var res = '';
-  var opt = $.extend({
+  let res = '';
+  const opt = $.extend({
     // Entry type (default: post)
     type: '',
     // Alert on error
@@ -28,14 +35,14 @@ dotclear.getEntryContent = function(postId, callback, options) {
     })
     .done(function(data) {
       // Response received
-      var rsp = $(data).children('rsp')[0];
+      const rsp = $(data).children('rsp')[0];
       if (rsp.attributes[0].value == 'ok') {
-        var excerpt = $(rsp).find('post_display_excerpt').text();
-        var content = $(rsp).find('post_display_content').text();
+        let excerpt = $(rsp).find('post_display_excerpt').text();
+        let content = $(rsp).find('post_display_content').text();
         if (excerpt || content) {
           // Clean content if requested
           if (opt.clean) {
-            var text = document.createElement('textarea');
+            const text = document.createElement('textarea');
             if (excerpt) {
               text.textContent = excerpt;
               excerpt = text.innerHTML;
@@ -77,9 +84,16 @@ dotclear.getEntryContent = function(postId, callback, options) {
     });
 };
 
+/**
+ * Gets the comment content.
+ *
+ * @param      numeric     commentId  The comment identifier
+ * @param      function    callback   The callback
+ * @param      object      options    The options
+ */
 dotclear.getCommentContent = function(commentId, callback, options) {
-  var res = '';
-  var opt = $.extend({
+  let res = '';
+  const opt = $.extend({
     // Get comment metadata (email, site, …)
     metadata: true,
     // Show IP in metadata
@@ -105,13 +119,13 @@ dotclear.getCommentContent = function(commentId, callback, options) {
     })
     .done(function(data) {
       // Response received
-      var rsp = $(data).children('rsp')[0];
+      const rsp = $(data).children('rsp')[0];
       if (rsp.attributes[0].value == 'ok') {
-        var content = $(rsp).find('comment_display_content').text();
+        let content = $(rsp).find('comment_display_content').text();
         if (content) {
           // Clean content if requested
           if (opt.clean) {
-            var text = document.createElement('textarea');
+            const text = document.createElement('textarea');
             text.textContent = content;
             content = text.innerHTML;
           }
@@ -124,10 +138,10 @@ dotclear.getCommentContent = function(commentId, callback, options) {
           }
           // Get metadata (if requested)
           if (opt.metadata) {
-            var comment_email = $(rsp).find('comment_email').text();
-            var comment_site = $(rsp).find('comment_site').text();
-            var comment_ip = $(rsp).find('comment_ip').text();
-            var comment_spam_disp = $(rsp).find('comment_spam_disp').text();
+            const comment_email = $(rsp).find('comment_email').text();
+            const comment_site = $(rsp).find('comment_site').text();
+            const comment_ip = $(rsp).find('comment_ip').text();
+            const comment_spam_disp = $(rsp).find('comment_spam_disp').text();
 
             content += `<p>
               <strong>${dotclear.msg.website}</strong> ${comment_site}<br />

@@ -4,18 +4,17 @@
 jQuery.fn.updatePagesPermissionsForm = function() {
   return this.each(function() {
 
-    var perms = {};
-    var re = /^perm\[(.+?)\]\[(.+?)\]$/;
-    var e, prop;
+    let perms = {};
+    const re = /^perm\[(.+?)\]\[(.+?)\]$/;
 
     // Building a nice object of form elements
-    for (var i = 0; i < this.elements.length; i++) {
-      e = this.elements[i];
+    for (let i = 0; i < this.elements.length; i++) {
+      const e = this.elements[i];
 
       if (e.name == undefined) {
         continue;
       }
-      prop = e.name.match(re);
+      const prop = e.name.match(re);
       if (!prop) {
         continue;
       }
@@ -36,7 +35,7 @@ jQuery.fn.updatePagesPermissionsForm = function() {
     }
 
     function admin(E, perms, re) {
-      var P = E.name.match(re);
+      const P = E.name.match(re);
 
       perms[P[1]].pages.checked = E.checked;
       perms[P[1]].pages.disabled = E.checked;

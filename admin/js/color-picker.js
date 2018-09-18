@@ -7,9 +7,7 @@ $(function() {
 
 jQuery.fn.colorPicker = function() {
   $(this).each(function() {
-    var colbox, f;
-    colbox = $('#jquery-colorpicker')[0];
-
+    let colbox = $('#jquery-colorpicker')[0];
     if (colbox == undefined) {
       colbox = document.createElement('div');
       colbox.id = 'jquery-colorpicker';
@@ -22,14 +20,14 @@ jQuery.fn.colorPicker = function() {
       });
       $('body').append(colbox);
     }
-    f = $.farbtastic(colbox);
+    const f = $.farbtastic(colbox);
     f.linkTo(this);
 
-    var handler = $(document.createElement('img'));
+    const handler = $(document.createElement('img'));
     handler.attr('src', 'images/picker.png');
     handler.attr('alt', '');
 
-    var span = $(document.createElement('span'));
+    const span = $(document.createElement('span'));
 
     if ($(this).css('position') == 'absolute') {
       span.css('position', 'absolute');
@@ -53,12 +51,12 @@ jQuery.fn.colorPicker = function() {
       cursor: 'default'
     });
 
-    var This = this;
+    const This = this;
     handler.click(function() {
       if ($(colbox).css('display') == 'none' || this != colbox.linkedto) {
         f.linkTo(This);
         This.focus();
-        var offset = $(This).offset();
+        const offset = $(This).offset();
         $(colbox).css({
           zIndex: 1000,
           top: offset.top + $(this).height() + 5,

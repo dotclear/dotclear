@@ -3,11 +3,11 @@
 
 $(function() {
   // Cope with saving
-  var msg = false;
+  let msg = false;
   $('#file-form input[name="write"]').click(function(e) {
-    var f = this.form;
+    const f = this.form;
 
-    var data = {
+    const data = {
       file_content: (!dotclear.colorsyntax ? $(f).find('#file_content').get(0).value : editor.getValue()),
       xd_check: $(f).find('input[name="xd_check"]').get(0).value,
       write: 1
@@ -21,7 +21,7 @@ $(function() {
     msg.text(dotclear.msg.saving_document);
 
     $.post(document.location.href, data, function(res) {
-      var err = $(res).find('div.error li:first');
+      const err = $(res).find('div.error li:first');
       if (err.length > 0) {
         msg.text(dotclear.msg.error_occurred + ' ' + err.text());
         return;

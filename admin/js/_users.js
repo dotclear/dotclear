@@ -7,11 +7,11 @@ $(function() {
   });
   dotclear.condSubmit('#form-users input[type="checkbox"]', '#form-users #do-action');
   $('#form-users').submit(function() {
-    var action = $(this).find('select[name="action"]').val();
-    var user_ids = [];
-    var nb_posts = [];
-    var i;
-    var msg_cannot_delete = false;
+    const action = $(this).find('select[name="action"]').val();
+    let user_ids = [];
+    let nb_posts = [];
+    let i;
+    let msg_cannot_delete = false;
 
     $(this).find('input[name="users[]"]').each(function() {
       user_ids.push(this);
@@ -34,7 +34,7 @@ $(function() {
       }
     }
 
-    var selectfields = 0;
+    let selectfields = 0;
     for (i = 0; i < user_ids.length; i++) {
       selectfields += user_ids[i].checked;
     }

@@ -4,9 +4,9 @@
 $(function() {
   $('#comment-form p:has(input[type=submit][name=preview],button[type=submit][name=preview])').
   before(
-    '<p class="remember"><input type="checkbox" id="c_remember" name="c_remember" /> ' +
-    '<label for="c_remember">' + post_remember_str + '</label>' +
-    '</p>'
+`<p class="remember"><input type="checkbox" id="c_remember" name="c_remember" />
+<label for="c_remember">${post_remember_str}</label>
+</p>`
   );
 
   var cookie = readCookie($.cookie('comment_info'));
@@ -45,10 +45,10 @@ $(function() {
   });
 
   function setCookie() {
-    var name = $('#c_name').val();
-    var mail = $('#c_mail').val();
-    var site = $('#c_site').val();
-    var cpath = $('link[rel=top]').attr('href');
+    const name = $('#c_name').val();
+    const mail = $('#c_mail').val();
+    const site = $('#c_site').val();
+    let cpath = $('link[rel=top]').attr('href');
     if (!cpath) {
       cpath = '/';
     } else {
@@ -72,14 +72,11 @@ $(function() {
     if (!c) {
       return false;
     }
-
-    var s = c.split('\n');
-
+    const s = c.split('\n');
     if (s.length != 3) {
       dropCookie();
       return false;
     }
-
     return s;
   }
 });

@@ -2,7 +2,7 @@
 'use strict';
 
 $(function() {
-  var new_auth_id = $('#new_auth_id');
+  const new_auth_id = $('#new_auth_id');
   if (new_auth_id.length) {
     new_auth_id.autocomplete(usersList, {
       delay: 1000,

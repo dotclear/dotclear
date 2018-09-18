@@ -23,7 +23,7 @@
  * ***** END LICENSE BLOCK *****
  */
 
-var jsToolBar = function(textarea) {
+const jsToolBar = function(textarea) {
   if (!document.createElement) {
     return;
   }
@@ -58,8 +58,8 @@ var jsToolBar = function(textarea) {
     if (this.editor.addEventListener) {
       this.handle = document.createElement('div');
       this.handle.className = 'jstHandle';
-      var dragStart = this.resizeDragStart;
-      var This = this;
+      const dragStart = this.resizeDragStart;
+      const This = this;
       this.handle.addEventListener('mousedown', function(event) {
         dragStart.call(This, event);
       }, false);
@@ -72,7 +72,7 @@ var jsToolBar = function(textarea) {
   // de raccourcis vers les éléments DOM correspondants aux outils.
 };
 
-var jsButton = function(title, fn, scope, className, accesskey) {
+const jsButton = function(title, fn, scope, className, accesskey) {
   this.title = title || null;
   this.fn = fn || function() {};
   this.scope = scope || null;
@@ -82,12 +82,12 @@ var jsButton = function(title, fn, scope, className, accesskey) {
 jsButton.prototype.draw = function() {
   if (!this.scope) return null;
 
-  var button = document.createElement('button');
+  const button = document.createElement('button');
   button.setAttribute('type', 'button');
   if (this.className) button.className = this.className;
   button.title = this.title;
   if (this.accesskey) button.accessKey = this.accesskey;
-  var span = document.createElement('span');
+  const span = document.createElement('span');
   span.appendChild(document.createTextNode(this.title));
   button.appendChild(span);
 
@@ -95,7 +95,7 @@ jsButton.prototype.draw = function() {
     button.style.backgroundImage = 'url(' + this.icon + ')';
   }
   if (typeof(this.fn) == 'function') {
-    var This = this;
+    const This = this;
     button.onclick = function() {
       try {
         This.fn.apply(This.scope, arguments);
@@ -106,12 +106,12 @@ jsButton.prototype.draw = function() {
   return button;
 };
 
-var jsSpace = function(id) {
+const jsSpace = function(id) {
   this.id = id || null;
   this.width = null;
 };
 jsSpace.prototype.draw = function() {
-  var span = document.createElement('span');
+  const span = document.createElement('span');
   if (this.id) span.id = this.id;
   span.appendChild(document.createTextNode(String.fromCharCode(160)));
   span.className = 'jstSpacer';
@@ -120,7 +120,7 @@ jsSpace.prototype.draw = function() {
   return span;
 };
 
-var jsCombo = function(title, options, scope, fn, className) {
+const jsCombo = function(title, options, scope, fn, className) {
   this.title = title || null;
   this.options = options || null;
   this.scope = scope || null;
@@ -130,19 +130,19 @@ var jsCombo = function(title, options, scope, fn, className) {
 jsCombo.prototype.draw = function() {
   if (!this.scope || !this.options) return null;
 
-  var select = document.createElement('select');
+  const select = document.createElement('select');
   if (this.className) select.className = this.className;
   select.title = this.title;
 
-  for (var o in this.options) {
+  for (let o in this.options) {
     //var opt = this.options[o];
-    var option = document.createElement('option');
+    const option = document.createElement('option');
     option.value = o;
     option.appendChild(document.createTextNode(this.options[o]));
     select.appendChild(option);
   }
 
-  var This = this;
+  const This = this;
   select.onchange = function() {
     try {
       This.fn.call(This.scope, this.value);
@@ -176,16 +176,16 @@ jsToolBar.prototype = {
   },
 
   button: function(toolName) {
-    var tool = this.elements[toolName];
+    const tool = this.elements[toolName];
     if (typeof tool.fn[this.mode] != 'function') return null;
-    var b = new jsButton(tool.title, tool.fn[this.mode], this, 'jstb_' + toolName, tool.accesskey);
+    const b = new jsButton(tool.title, tool.fn[this.mode], this, 'jstb_' + toolName, tool.accesskey);
     if (tool.icon != undefined) {
       b.icon = tool.icon;
     }
     return b;
   },
   space: function(toolName) {
-    var tool = new jsSpace(toolName);
+    const tool = new jsSpace(toolName);
     if (this.elements[toolName].format != undefined && !this.elements[toolName].format[this.mode]) return null;
     if (this.elements[toolName].width !== undefined) {
       tool.width = this.elements[toolName].width;
@@ -193,18 +193,18 @@ jsToolBar.prototype = {
     return tool;
   },
   combo: function(toolName) {
-    var tool = this.elements[toolName];
+    const tool = this.elements[toolName];
 
     if (tool[this.mode] != undefined) {
 
-      var length = tool[this.mode].list.length;
+      const length = tool[this.mode].list.length;
 
       if (typeof tool[this.mode].fn != 'function' || length == 0) {
         return null;
       } else {
-        var options = {};
-        for (var i = 0; i < length; i++) {
-          var opt = tool[this.mode].list[i];
+        let options = {};
+        for (let i = 0; i < length; i++) {
+          const opt = tool[this.mode].list[i];
           options[opt] = tool.options[opt];
         }
         return new jsCombo(tool.title, options, this, tool[this.mode].fn);
@@ -223,12 +223,14 @@ jsToolBar.prototype = {
     this.toolNodes = {}; // vide les raccourcis DOM/**/
 
     // Draw toolbar elements
-    var b, tool, newTool;
+    let b;
+    let tool;
+    let newTool;
 
-    for (var i in this.elements) {
+    for (let i in this.elements) {
       b = this.elements[i];
 
-      var disabled =
+      const disabled =
         b.type == undefined || b.type == '' ||
         (b.disabled != undefined && b.disabled) ||
         (b.context != undefined && b.context != null && b.context != this.context);
@@ -261,7 +263,12 @@ jsToolBar.prototype = {
     prefix = prefix || '';
     suffix = suffix || '';
 
-    var start, end, sel, scrollPos, subst, res;
+    let start;
+    let end;
+    let sel;
+    let scrollPos;
+    let subst;
+    let res;
 
     if (typeof(document.selection) != "undefined") {
       sel = document.selection.createRange().text;
@@ -304,7 +311,7 @@ jsToolBar.prototype = {
 
   stripBaseURL: function(url) {
     if (this.base_url != '') {
-      var pos = url.indexOf(this.base_url);
+      const pos = url.indexOf(this.base_url);
       if (pos == 0) {
         url = url.substr(this.base_url.length);
       }
@@ -320,7 +327,7 @@ jsToolBar.prototype.resizeSetStartH = function() {
   this.dragStartH = this.textarea.offsetHeight + 0;
 };
 jsToolBar.prototype.resizeDragStart = function(event) {
-  var This = this;
+  const This = this;
   this.dragStartY = event.clientY;
   this.resizeSetStartH();
   document.addEventListener('mousemove', this.dragMoveHdlr = function(event) {
@@ -363,7 +370,7 @@ jsToolBar.prototype.elements.blocks = {
         this.textarea.focus();
       else
         try {
-          this.singleTag('<' + opt + '>', '</' + opt + '>');
+          this.singleTag(`<${opt}>`, `</${opt}>`);
         } catch (e) {}
       this.toolNodes.blocks.value = 'nonebis';
     }
@@ -687,9 +694,9 @@ jsToolBar.prototype.elements.img.fn.xhtml = function() {
   if (src) {
     this.encloseSelection('', '', function(str) {
       if (str) {
-        return '<img src="' + src + '" alt="' + str + '" />';
+        return `<img src="${src}" alt="${str}" />`;
       } else {
-        return '<img src="' + src + '" alt="" />';
+        return `<img src="${src}" alt="" />`;
       }
     });
   }
@@ -699,9 +706,9 @@ jsToolBar.prototype.elements.img.fn.wiki = function() {
   if (src) {
     this.encloseSelection('', '', function(str) {
       if (str) {
-        return '((' + src + '|' + str + '))';
+        return `((${src}|${str}))`;
       } else {
-        return '((' + src + '))';
+        return `((${src}))`;
       }
     });
   }

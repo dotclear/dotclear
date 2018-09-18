@@ -3,7 +3,7 @@
 
 function confirmClose() {
   if (arguments.length > 0) {
-    for (var i = 0; i < arguments.length; i++) {
+    for (let i = 0; i < arguments.length; i++) {
       this.forms_id.push(arguments[i]);
     }
   }
@@ -18,15 +18,14 @@ confirmClose.prototype = {
   getCurrentForms: function() {
     // Store current form's element's values
 
-    var formsInPage = this.getForms();
-    var f, e;
-    var This = this;
+    const formsInPage = this.getForms();
+    const This = this;
     this.forms = [];
-    for (var i = 0; i < formsInPage.length; i++) {
-      f = formsInPage[i];
-      var tmpForm = [];
-      for (var j = 0; j < f.elements.length; j++) {
-        e = this.getFormElementValue(f[j]);
+    for (let i = 0; i < formsInPage.length; i++) {
+      const f = formsInPage[i];
+      let tmpForm = [];
+      for (let j = 0; j < f.elements.length; j++) {
+        const e = this.getFormElementValue(f[j]);
         if (e != undefined) {
           tmpForm.push(e);
         }
@@ -47,18 +46,17 @@ confirmClose.prototype = {
       return true;
     }
 
-    var formsInPage = this.getForms();
-    var f, e, i, j;
-    for (i = 0; i < formsInPage.length; i++) {
-      f = formsInPage[i];
+    const formsInPage = this.getForms();
+    for (let i = 0; i < formsInPage.length; i++) {
+      const f = formsInPage[i];
       var tmpForm = [];
-      for (j = 0; j < f.elements.length; j++) {
-        e = this.getFormElementValue(f[j]);
+      for (let j = 0; j < f.elements.length; j++) {
+        const e = this.getFormElementValue(f[j]);
         if (e != undefined) {
           tmpForm.push(e);
         }
       }
-      for (j = 0; j < this.forms[i].length; j++) {
+      for (let j = 0; j < this.forms[i].length; j++) {
         if (this.forms[i][j] != tmpForm[j]) {
           return false;
         }
@@ -76,10 +74,9 @@ confirmClose.prototype = {
     }
 
     if (this.forms_id.length > 0) {
-      var res = [];
-      var f;
-      for (var i = 0; i < this.forms_id.length; i++) {
-        f = document.getElementById(this.forms_id[i]);
+      let res = [];
+      for (let i = 0; i < this.forms_id.length; i++) {
+        const f = document.getElementById(this.forms_id[i]);
         if (f != undefined) {
           res.push(f);
         }
@@ -133,7 +130,7 @@ confirmClose.prototype = {
   },
 
   getFormRadioValue: function(e) {
-    for (var i = 0; i < e.length; i++) {
+    for (let i = 0; i < e.length; i++) {
       if (e[i].checked) {
         return e[i].value;
       } else {
@@ -144,7 +141,7 @@ confirmClose.prototype = {
   }
 };
 
-var confirmClosePage = new confirmClose();
+let confirmClosePage = new confirmClose();
 
 chainHandler(window, 'onload', function() {
   confirmClosePage.getCurrentForms();

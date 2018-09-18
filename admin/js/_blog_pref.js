@@ -2,10 +2,10 @@
 'use strict';
 
 $(function() {
-  var blog_url = $('#blog_url');
+  const blog_url = $('#blog_url');
   if (blog_url.length > 0 && !blog_url.is(':hidden')) {
-    var checkQueryString = function() {
-      const url = $('#blog_url')[0].value;
+    const checkQueryString = function() {
+      const url = blog_url[0].value;
       const scan = $('#url_scan')[0].value;
       let msg = '';
       if (/.*[^\/]$/.exec(url) && scan == 'path_info') {
@@ -15,11 +15,11 @@ $(function() {
       }
       $('p#urlwarning').remove();
       if (msg != '') {
-        $('#blog_url').parents('p').after(`<p id="urlwarning" class="warning">${msg}</p>`);
+        blog_url.parents('p').after(`<p id="urlwarning" class="warning">${msg}</p>`);
       }
     };
     checkQueryString();
-    $('#blog_url').focusout(checkQueryString);
+    blog_url.focusout(checkQueryString);
     $('body').on('change', '#url_scan', checkQueryString);
   }
 

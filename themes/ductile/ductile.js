@@ -1,80 +1,70 @@
 /*global $ */
 'use strict';
 
-$(function() {
-  var create_name = function(text) {
+$(document).ready(function() {
+  if ($(window).width() < 1024) {
 
-    // Convert text to lower case.
-    var name = text.toLowerCase();
+    const create_name = function(text) {
 
-    // Remove leading and trailing spaces, and any non-alphanumeric
-    // characters except for ampersands, spaces and dashes.
-    name = name.replace(/^\s+|\s+$|[^a-z0-9&\s-]/g, '');
+      // Convert text to lower case.
+      let name = text.toLowerCase();
 
-    // Replace '&' with 'and'.
-    name = name.replace(/&/g, 'and');
+      // Remove leading and trailing spaces, and any non-alphanumeric
+      // characters except for ampersands, spaces and dashes.
+      name = name.replace(/^\s+|\s+$|[^a-z0-9&\s-]/g, '');
 
-    // Replaces spaces with dashes.
-    name = name.replace(/\s/g, '-');
+      // Replace '&' with 'and'.
+      name = name.replace(/&/g, 'and');
 
-    // Squash any duplicate dashes.
-    name = name.replace(/(-)+\1/g, '$1');
+      // Replaces spaces with dashes.
+      name = name.replace(/\s/g, '-');
 
-    return name;
-  };
+      // Squash any duplicate dashes.
+      name = name.replace(/(-)+\1/g, '$1');
 
-  var add_link = function() {
+      return name;
+    };
 
-    // Convert the h2 element text into a value that
-    // is safe to use in a name attribute.
-    var name = create_name($(this).text());
+    // Set toggle class to each #sidebar h2
+    $('#sidebar div div h2').addClass('toggle');
 
-    // Create a name attribute in the following sibling
-    // to act as a fragment anchor.
-    $(this).next().attr('name', name);
+    // Hide all h2.toggle siblings
+    $('#sidebar div div h2').nextAll().hide();
 
-    // Replace the h2.toggle element with a link to the
-    // fragment anchor.  Use the h2 text to create the
-    // link title attribute.
-    $(this).html(
-      '<a href="#' + name + '" title="Reveal ' +
-      $(this).text() + ' content">' +
-      $(this).html() + '</a>');
-  };
+    // Add a link to each h2.toggle element.
+    $('h2.toggle').each(function() {
 
-  var toggle = function(event) {
-    event.preventDefault();
+      // Convert the h2 element text into a value that
+      // is safe to use in a name attribute.
+      const name = create_name($(this).text());
 
-    // Toggle the 'expanded' class of the h2.toggle
-    // element, then apply the slideToggle effect
-    // to all siblings.
-    $(this).toggleClass('expanded').
-    nextAll().slideToggle('fast');
-  };
+      // Create a name attribute in the following sibling
+      // to act as a fragment anchor.
+      $(this).next().attr('name', name);
 
-  var remove_focus = function() {
-    // Use the blur() method to remove focus.
-    $(this).blur();
-  };
+      // Replace the h2.toggle element with a link to the
+      // fragment anchor.  Use the h2 text to create the
+      // link title attribute.
+      $(this).html(
+        '<a href="#' + name + '" title="Reveal ' +
+        $(this).text() + ' content">' +
+        $(this).html() + '</a>');
+    });
 
-  $(document).ready(function() {
-    if ($(window).width() < 1024) {
+    // Add a click event handler to all h2.toggle elements.
+    $('h2.toggle').click(function(event) {
+      event.preventDefault();
+      // Toggle the 'expanded' class of the h2.toggle
+      // element, then apply the slideToggle effect
+      // to all siblings.
+      $(this).toggleClass('expanded').
+      nextAll().slideToggle('fast');
+    });
 
-      // Set toggle class to each #sidebar h2
-      $('#sidebar div div h2').addClass('toggle');
-
-      // Hide all h2.toggle siblings
-      $('#sidebar div div h2').nextAll().hide();
-
-      // Add a link to each h2.toggle element.
-      $('h2.toggle').each(add_link);
-
-      // Add a click event handler to all h2.toggle elements.
-      $('h2.toggle').click(toggle);
-
-      // Remove the focus from the link tag when accessed with a mouse.
-      $('h2.toggle a').mouseup(remove_focus);
-    }
-  });
-
+    // Remove the focus from the link tag when accessed with a mouse.
+    $('h2.toggle a').mouseup(function() {
+      // Use the blur() method to remove focus.
+      $(this).blur();
+    });
+  }
 });

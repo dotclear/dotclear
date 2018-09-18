@@ -2,24 +2,30 @@
 'use strict';
 
 $(function() {
-	$('#filters-list').sortable({'cursor':'move'});
-	$('#filters-list tr').hover(function () {
-		$(this).css({'cursor':'move'});
-	}, function () {
-		$(this).css({'cursor':'auto'});
-	});
-	$('#filters-list-form').submit(function() {
-		var order=[];
-		$('#filters-list tr td input.position').each(function() {
-			order.push(this.name.replace(/^f_order\[([^\]]+)\]$/,'$1'));
-		});
-		$('input[name=filters_order]')[0].value = order.join(',');
-		return true;
-	});
-	$('#filters-list tr td input.position').hide();
-	$('#filters-list tr td.handle').addClass('handler');
+  $('#filters-list').sortable({
+    'cursor': 'move'
+  });
+  $('#filters-list tr').hover(function() {
+    $(this).css({
+      'cursor': 'move'
+    });
+  }, function() {
+    $(this).css({
+      'cursor': 'auto'
+    });
+  });
+  $('#filters-list-form').submit(function() {
+    let order = [];
+    $('#filters-list tr td input.position').each(function() {
+      order.push(this.name.replace(/^f_order\[([^\]]+)\]$/, '$1'));
+    });
+    $('input[name=filters_order]')[0].value = order.join(',');
+    return true;
+  });
+  $('#filters-list tr td input.position').hide();
+  $('#filters-list tr td.handle').addClass('handler');
 
-	$('form input[type=submit][name=delete_all]').click(function(){
-		return window.confirm(dotclear.msg.confirm_spam_delete);
-	});
+  $('form input[type=submit][name=delete_all]').click(function() {
+    return window.confirm(dotclear.msg.confirm_spam_delete);
+  });
 });

@@ -1,3 +1,6 @@
+/*global CKEDITOR */
+'use strict';
+
 CKEDITOR.skin.name = 'dotclear';
 
 CKEDITOR.skin.ua_editor = 'ie,iequirks,ie7,ie8';

@@ -15,7 +15,7 @@ $(function() {
     });
   });
   $('#menuitems').submit(function() {
-    var order = [];
+    let order = [];
     $('#menuitemslist tr td input.position').each(function() {
       order.push(this.name.replace(/^order\[([^\]]+)\]$/, '$1'));
     });

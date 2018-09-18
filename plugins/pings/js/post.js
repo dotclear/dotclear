@@ -2,16 +2,16 @@
 'use strict';
 
 $(function() {
-	$('#edit-entry').onetabload(function() {
-		if ($('p.ping-services').length > 0) {
-			var p = $('<p></p>');
-			p.addClass('ping-services');
-			$('p.ping-services:last').after(p);
-			dotclear.checkboxesHelpers($('p.ping-services:last').get(0), $('.check-ping-services'));
-		}
-		$('h5.ping-services').toggleWithLegend($('p.ping-services'),{
-			user_pref: 'dcx_ping_services',
-			legend_click: true
-		});
-	});
+  $('#edit-entry').onetabload(function() {
+    if ($('p.ping-services').length > 0) {
+      const p = $('<p></p>');
+      p.addClass('ping-services');
+      $('p.ping-services:last').after(p);
+      dotclear.checkboxesHelpers($('p.ping-services:last').get(0), $('.check-ping-services'));
+    }
+    $('h5.ping-services').toggleWithLegend($('p.ping-services'), {
+      user_pref: 'dcx_ping_services',
+      legend_click: true
+    });
+  });
 });
