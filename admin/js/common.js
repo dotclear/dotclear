@@ -524,7 +524,14 @@ const dotclear = {
     // Add the new badge if any
     if (!opt.remove && opt.value !== null) {
       // Compose badge classes
-      const cls = `badge badge-${opt.id} ${opt.inline ? 'badge-inline' : 'badge-block'}${opt.icon ? ' badge-icon' : ''}${opt.type !== '' ? ` badge-${opt.type}` : ''}${opt.left ? ' badge-left' : ''}${opt.noborder ? ' badge-noborder' : ''}${opt.small ? ' badge-small' : ''}${opt.classes !== '' ? ` ${opt.classes}` : ''}`;
+      const cls = `badge badge-${opt.id} \
+${opt.inline ? 'badge-inline' : 'badge-block'}\
+${opt.icon ? ' badge-icon' : ''}\
+${opt.type !== '' ? ` badge-${opt.type}` : ''}\
+${opt.left ? ' badge-left' : ''}\
+${opt.noborder ? ' badge-noborder' : ''}\
+${opt.small ? ' badge-small' : ''}\
+${opt.classes !== '' ? ` ${opt.classes}` : ''}`;
       // Compose badge
       const xml = `<span class="${cls}" aria-hidden="true">${opt.value}</span>`;
       if (opt.sibling) {
