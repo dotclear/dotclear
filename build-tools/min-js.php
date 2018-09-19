@@ -27,7 +27,7 @@ try
     fwrite($fp, $res);
     fclose($fp);
 } catch (Exception $e) {
-    fwrite(STDERR, $e->getMessage() . "\n");
+    fwrite(STDERR, $e->getMessage() . ($js ? "($js)" : '') . "\n");
     exit(1);
 }
 ?>

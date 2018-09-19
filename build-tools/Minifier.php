@@ -480,7 +480,11 @@ class Minifier
                 // character, so those will be treated just fine using the switch
                 // block below.
                 case "\n":
-                    throw new \RuntimeException('Unclosed string at position: ' . $startpos);
+                    if ($stringType !== '`') {
+                        throw new \RuntimeException('Unclosed string at position: ' . $startpos);
+                    } else {
+                        echo $this->a;
+                    }
                     break;
 
                 // Escaped characters get picked up here. If it's an escaped new line it's not really needed
