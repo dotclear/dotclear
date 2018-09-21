@@ -1,8 +1,10 @@
+/*global jQuery, chainHandler */
+'use strict';
+
 (function($) {
-  'use strict';
 
   $.pageTabs = function(start_tab, opts) {
-    var defaults = {
+    const defaults = {
       containerClass: 'part-tabs',
       partPrefix: 'part-',
       contentClass: 'multi-part',
@@ -11,9 +13,9 @@
     };
 
     $.pageTabs.options = $.extend({}, defaults, opts);
-    var active_tab = start_tab || '';
-    var hash = $.pageTabs.getLocationHash();
-    var subhash = $.pageTabs.getLocationSubhash();
+    let active_tab = start_tab || '';
+    const hash = $.pageTabs.getLocationHash();
+    const subhash = $.pageTabs.getLocationSubhash();
 
     if (hash !== undefined && hash) {
       window.scrollTo(0, 0);
@@ -24,7 +26,7 @@
 
     createTabs();
 
-    $('ul li', '.' + $.pageTabs.options.containerClass).click(function(e) {
+    $('ul li', '.' + $.pageTabs.options.containerClass).click(function() {
       if ($(this).hasClass($.pageTabs.options.activeClass)) {
         return;
       }
@@ -33,7 +35,7 @@
       $(this).addClass($.pageTabs.options.activeClass);
       $('.' + $.pageTabs.options.contentClass + '.active').removeClass('active').hide();
 
-      var part_to_activate = $('#' + $.pageTabs.options.partPrefix + getHash($(this).find('a').attr('href')));
+      const part_to_activate = $('#' + $.pageTabs.options.partPrefix + getHash($(this).find('a').attr('href')));
 
       part_to_activate.addClass('active').show();
       if (!part_to_activate.hasClass('loaded')) {
@@ -44,16 +46,16 @@
       part_to_activate.tabload();
     });
 
-    $(window).bind('hashchange onhashchange', function(e) {
+    $(window).bind('hashchange onhashchange', function() {
       $.pageTabs.clickTab($.pageTabs.getLocationHash());
     });
 
     $.pageTabs.clickTab(active_tab);
 
     if (subhash !== undefined) {
-      var elt = document.getElementById(subhash);
+      const elt = document.getElementById(subhash);
       // Tab displayed, now scroll to the sub-part if defined in original document.location (#tab.sub-part)
-      elt.scrollIntoView()
+      elt.scrollIntoView();
       // Give focus to the sub-part if possible
       $('#' + subhash).addClass('focus').focusout(function() {
         $(this).removeClass('focus');
@@ -64,9 +66,8 @@
     return this;
   };
 
-  var createTabs = function createTabs() {
-    var lis = [],
-      li_class = '';
+  const createTabs = function createTabs() {
+    let lis = [];
 
     $('.' + $.pageTabs.options.contentClass).each(function() {
       $(this).hide();
@@ -79,8 +80,8 @@
       .insertBefore($('.' + $.pageTabs.options.contentClass).get(0));
   };
 
-  var getHash = function getHash(href) {
-    var href = href || '';
+  const getHash = function getHash(href) {
+    href = href || '';
 
     return href.replace(/.*#/, '');
   };
@@ -91,7 +92,7 @@
     } else if ($('#' + $.pageTabs.options.idTabPrefix + tab, '.' + $.pageTabs.options.containerClass).length == 0) {
       // try to find anchor in a .multi-part div
       if ($('#' + tab).length == 1) {
-        var div_content = $('#' + tab).parents('.' + $.pageTabs.options.contentClass);
+        const div_content = $('#' + tab).parents('.' + $.pageTabs.options.contentClass);
         if (div_content.length == 1) {
           tab = div_content.attr('id').replace($.pageTabs.options.partPrefix, '');
         } else {
@@ -109,12 +110,12 @@
 
   $.pageTabs.getLocationHash = function() {
     // Return the URL hash (without subhash — #hash[.subhash])
-    var h = getHash(document.location.hash).split('.');
+    const h = getHash(document.location.hash).split('.');
     return h[0];
   };
   $.pageTabs.getLocationSubhash = function() {
     // Return the URL subhash if present (without hash — #hash[.subhash])
-    var sh = getHash(document.location.hash).split('.');
+    const sh = getHash(document.location.hash).split('.');
     return sh[1];
   };
 })(jQuery);
@@ -122,9 +123,9 @@
 jQuery.fn.tabload = function(f) {
   this.each(function() {
     if (f) {
-      chainHandler(this, 'tabload', f)
+      chainHandler(this, 'tabload', f);
     } else {
-      var h = this.tabload;
+      const h = this.tabload;
       if (h) {
         h.apply(this);
       }
@@ -138,7 +139,7 @@ jQuery.fn.onetabload = function(f) {
     if (f) {
       chainHandler(this, 'onetabload', f);
     } else {
-      var h = this.onetabload;
+      const h = this.onetabload;
       if (h != null) {
         h.apply(this);
         this.onetabload = null;
