@@ -1,3 +1,9 @@
+Dotclear 2.14.3 - 2018-09-26
+===========================================================
+* 🛡 Security: Avoid XML upload in media manager
+* Fix: Upgrade modification for media_exclusion default setting
+* Fix: cope with PHP.ini setting memory_limit set to -1 (unlimited)
+
 Dotclear 2.14.2 - 2018-09-04
 ===========================================================
 * 🛡 Security: Authenticated cross-site scripting (XSS) was possible due to the .ahtml (or .bhtml, .chtml, …) file extension being allowed in the media manager. Thank's Josiah Pierce for report (CVE-2018-16358)
