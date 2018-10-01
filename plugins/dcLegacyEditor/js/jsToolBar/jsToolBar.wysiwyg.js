@@ -187,6 +187,11 @@ jsToolBar.prototype.initWindow = function() {
       doc.documentElement.style.setProperty('--html-font-size', dotclear_htmlFontSize);
     }
 
+    // Set lang if set for the textarea
+    if (This.textarea.lang) {
+      doc.documentElement.setAttribute('lang', This.textarea.lang);
+    }
+
     This.iwin = This.iframe.contentWindow;
 
     This.syncContents('textarea');

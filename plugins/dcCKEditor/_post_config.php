@@ -107,6 +107,10 @@ $(function() {
     CKEDITOR.config.colorButton_enableMore = true;
 <?php endif;?>
 
+    CKEDITOR.config.defaultLanguage = dotclear.user_language;
+    CKEDITOR.config.language = dotclear.user_language;
+    CKEDITOR.config.contentsLanguage = dotclear.user_language;
+
 <?php
 if (!empty($extraPlugins) && count($extraPlugins) > 0) {
     foreach ($extraPlugins as $plugin) {
@@ -236,7 +240,6 @@ if (!empty($extraPlugins) && count($extraPlugins) > 0) {
     });
 
     CKEDITOR.on('instanceLoaded',function(e) {
-
         // Retrieve textarea element of the instance, then its line-height (in px) and rows values,
         // then apply line-height * rows (min = 6) to the inner height of the instance.
 
@@ -249,7 +252,6 @@ if (!empty($extraPlugins) && count($extraPlugins) > 0) {
                 e.editor.resize('100%',ta_height,true);
             }
         }
-
     });
 
     CKEDITOR.on('instanceReady',function(e) {
@@ -267,6 +269,15 @@ if (!empty($extraPlugins) && count($extraPlugins) > 0) {
             $('#cke_post_excerpt').toggleClass('hide',$('#post_excerpt').hasClass('hide'));
         });
 
+        const ta = document.getElementById(e.editor.name);
+        if (ta !== undefined) {
+            if (ta.lang && e.editor.config.contentsLanguage !== ta.lang) {
+                let config = e.editor.config;
+                config.contentsLanguage = ta.lang;
+                e.editor.destroy();
+                CKEDITOR.replace(e.editor.name, config);
+            }
+        }
     });
 
     // @TODO: find a better way to retrieve active editor

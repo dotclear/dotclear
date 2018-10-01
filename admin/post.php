@@ -658,7 +658,11 @@ if ($can_edit_post) {
         "post_excerpt" =>
         '<p class="area" id="excerpt-area"><label for="post_excerpt" class="bold">' . __('Excerpt:') . ' <span class="form-note">' .
         __('Introduction to the post.') . '</span></label> ' .
-        form::textarea('post_excerpt', 50, 5, html::escapeHTML($post_excerpt)) .
+        form::textarea('post_excerpt', 50, 5,
+            [
+                'default'    => html::escapeHTML($post_excerpt),
+                'extra_html' => 'lang="' . $post_lang . '"'
+            ]) .
         '</p>',
 
         "post_content" =>
@@ -667,7 +671,7 @@ if ($can_edit_post) {
         form::textarea('post_content', 50, $core->auth->getOption('edit_size'),
             [
                 'default'    => html::escapeHTML($post_content),
-                'extra_html' => 'required placeholder="' . __('Content') . '"'
+                'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . $post_lang . '"'
             ]) .
         '</p>',
 
@@ -810,7 +814,10 @@ if ($post_id) {
 
     '<p class="area"><label for="comment_content" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' .
     __('Comment:') . '</label> ' .
-    form::textarea('comment_content', 50, 8, ['extra_html' => 'required placeholder="' . __('Comment') . '"']) .
+    form::textarea('comment_content', 50, 8,
+        [
+            'extra_html' => 'required placeholder="' . __('Comment') . '" lang="' . $core->auth->getInfo('user_lang') . '"'
+        ]) .
     '</p>' .
 
     '<p>' .

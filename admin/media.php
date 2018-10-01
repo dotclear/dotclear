@@ -382,12 +382,13 @@ if ($dir && !empty($_POST['newdir'])) {
 # Adding a file
 if ($dir && !empty($_FILES['upfile'])) {
     // only one file per request : @see option singleFileUploads in admin/js/jsUpload/jquery.fileupload
-    $upfile = ['name' => $_FILES['upfile']['name'][0],
-        'type'                 => $_FILES['upfile']['type'][0],
-        'tmp_name'             => $_FILES['upfile']['tmp_name'][0],
-        'error'                => $_FILES['upfile']['error'][0],
-        'size'                 => $_FILES['upfile']['size'][0],
-        'title'                => html::escapeHTML($_FILES['upfile']['name'][0])
+    $upfile = [
+        'name'     => $_FILES['upfile']['name'][0],
+        'type'     => $_FILES['upfile']['type'][0],
+        'tmp_name' => $_FILES['upfile']['tmp_name'][0],
+        'error'    => $_FILES['upfile']['error'][0],
+        'size'     => $_FILES['upfile']['size'][0],
+        'title'    => html::escapeHTML($_FILES['upfile']['name'][0])
     ];
 
     if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
@@ -404,9 +405,10 @@ if ($dir && !empty($_FILES['upfile'])) {
                 'html' => $mediaItemLine($core->media->getFile($new_file_id), 1, $query)
             ];
         } catch (Exception $e) {
-            $message['files'][] = ['name' => $upfile['name'],
-                'size'                             => $upfile['size'],
-                'error'                            => $e->getMessage()
+            $message['files'][] = [
+                'name'  => $upfile['name'],
+                'size'  => $upfile['size'],
+                'error' => $e->getMessage()
             ];
         }
         echo json_encode($message);
