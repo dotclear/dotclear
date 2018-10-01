@@ -13,7 +13,7 @@
  */
 
 /*jslint nomen: true, bitwise: true */
-/*global window, document, URL, webkitURL, Blob, File, FileReader, define */
+/*global window, document, URL, webkitURL, FileReader, define */
 
 (function ($) {
     'use strict';

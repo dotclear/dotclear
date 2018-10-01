@@ -486,7 +486,11 @@ if ($can_edit_page) {
         "post_excerpt" =>
         '<p class="area" id="excerpt-area"><label for="post_excerpt" class="bold">' . __('Excerpt:') . ' <span class="form-note">' .
         __('Introduction to the page.') . '</span></label> ' .
-        form::textarea('post_excerpt', 50, 5, html::escapeHTML($post_excerpt)) .
+        form::textarea('post_excerpt', 50, 5,
+            [
+                'default'    => html::escapeHTML($post_excerpt),
+                'extra_html' => 'lang="' . $post_lang . '"'
+            ]) .
         '</p>',
 
         "post_content" =>
@@ -495,7 +499,7 @@ if ($can_edit_page) {
         form::textarea('post_content', 50, $core->auth->getOption('edit_size'),
             [
                 'default'    => html::escapeHTML($post_content),
-                'extra_html' => 'required placeholder="' . __('Content') . '"'
+                'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . $post_lang . '"'
             ]) .
         '</p>',
 

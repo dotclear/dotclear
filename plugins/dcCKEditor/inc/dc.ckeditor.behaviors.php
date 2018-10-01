@@ -39,6 +39,7 @@ class dcCKEditorBehaviors
         dcPage::jsVar('dotclear.admin_base_url', DC_ADMIN_URL) .
         dcPage::jsVar('dotclear.base_url', $GLOBALS['core']->blog->host) .
         dcPage::jsVar('dotclear.dcckeditor_plugin_url', DC_ADMIN_URL . self::$p_url) .
+        dcPage::jsVar('dotclear.user_language', $GLOBALS['core']->auth->getInfo('user_lang')) .
         'CKEDITOR_GETURL = function(resource) {
                 // If this is not a full or absolute path.
                 if ( resource.indexOf(":/") == -1 && resource.indexOf("/") !== 0 ) {

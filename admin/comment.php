@@ -229,7 +229,11 @@ if ($comment_id) {
     $core->callBehavior('adminAfterCommentDesc', $rs) .
 
     '<p class="area"><label for="comment_content">' . __('Comment:') . '</label> ' .
-    form::textarea('comment_content', 50, 10, html::escapeHTML($comment_content)) .
+    form::textarea('comment_content', 50, 10,
+        [
+            'default'    => html::escapeHTML($comment_content),
+            'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '"'
+        ]) .
     '</p>' .
 
     '<p>' . form::hidden('id', $comment_id) .
