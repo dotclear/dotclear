@@ -84,7 +84,8 @@ if (!empty($_REQUEST['id'])) {
     form::field('blog_name', 30, 255,
         [
             'default'    => html::escapeHTML($blog_name),
-            'extra_html' => 'required placeholder="' . __('Blog name') . '"'
+            'extra_html' => 'required placeholder="' . __('Blog name') . '" lang="' . $core->auth->getInfo('user_lang') . '" ' .
+                'spellcheck="true"'
         ]
     ) . '</p>' .
 
@@ -98,7 +99,11 @@ if (!empty($_REQUEST['id'])) {
     ) . '</p>' .
 
     '<p class="area"><label for="blog_desc">' . __('Blog description:') . '</label> ' .
-    form::textarea('blog_desc', 60, 5, html::escapeHTML($blog_desc)) . '</p>' .
+    form::textarea('blog_desc', 60, 5,
+        [
+            'default'    => html::escapeHTML($blog_desc),
+            'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
+        ]) . '</p>' .
 
     '<p><input type="submit" accesskey="s" name="create" value="' . __('Create') . '" /></p>' .
         '</form>';

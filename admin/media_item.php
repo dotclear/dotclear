@@ -755,7 +755,11 @@ if ($file->editable && $core_media_writable) {
     '<p><label for="media_file">' . __('File name:') . '</label>' .
     form::field('media_file', 30, 255, html::escapeHTML($file->basename)) . '</p>' .
     '<p><label for="media_title">' . __('File title:') . '</label>' .
-    form::field('media_title', 30, 255, html::escapeHTML($file->media_title)) . '</p>' .
+    form::field('media_title', 30, 255,
+        [
+            'default'    => html::escapeHTML($file->media_title),
+            'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
+        ]) . '</p>' .
     '<p><label for="media_dt">' . __('File date:') . '</label>' .
     form::field('media_dt', 16, 16, html::escapeHTML($file->media_dtstr)) .
     /*

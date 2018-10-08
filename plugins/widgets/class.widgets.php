@@ -312,6 +312,8 @@ class dcWidget
 
     public function formSetting($id, $s, $pr = '', &$i = 0)
     {
+        global $core;
+
         $res   = '';
         $wfid  = "wf-" . $i;
         $iname = $pr ? $pr . '[' . $id . ']' : $id;
@@ -320,13 +322,21 @@ class dcWidget
             case 'text':
                 $res .=
                 '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
-                form::field([$iname, $wfid], 20, 255, html::escapeHTML($s['value']), 'maximal' . $class) .
+                form::field([$iname, $wfid], 20, 255,
+                    [
+                        'default'    => html::escapeHTML($s['value']),
+                        'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
+                    ], 'maximal' . $class) .
                     '</p>';
                 break;
             case 'textarea':
                 $res .=
                 '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
-                form::textarea([$iname, $wfid], 30, 8, html::escapeHTML($s['value']), 'maximal' . $class) .
+                form::textarea([$iname, $wfid], 30, 8,
+                    [
+                        'default'    => html::escapeHTML($s['value']),
+                        'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
+                    ], 'maximal' . $class) .
                     '</p>';
                 break;
             case 'check':
