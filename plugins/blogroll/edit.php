@@ -114,7 +114,7 @@ if (isset($rs) && $rs->is_cat) {
     '<p><label for="link_desc" class="required classic"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
     form::field('link_desc', 30, 255, [
         'default'    => html::escapeHTML($link_desc),
-        'extra_html' => 'required placeholder="' . __('Title') . '"'
+        'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
     ]) .
 
     form::hidden('edit', 1) .
@@ -134,7 +134,7 @@ if (isset($rs) && !$rs->is_cat) {
     '<p><label for="link_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
     form::field('link_title', 30, 255, [
         'default'    => html::escapeHTML($link_title),
-        'extra_html' => 'required placeholder="' . __('Title') . '"'
+        'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
     ]) .
     '</p>' .
 
@@ -147,7 +147,11 @@ if (isset($rs) && !$rs->is_cat) {
     '</p>' .
 
     '<p><label for="link_desc">' . __('Description:') . '</label> ' .
-    form::field('link_desc', 30, 255, html::escapeHTML($link_desc)) . '</p>' .
+    form::field('link_desc', 30, 255,
+        [
+            'default'    => html::escapeHTML($link_desc),
+            'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
+        ]) . '</p>' .
 
     '<p><label for="link_lang">' . __('Language:') . '</label> ' .
     form::combo('link_lang', $lang_combo, $link_lang) .

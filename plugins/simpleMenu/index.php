@@ -226,7 +226,7 @@ if (!empty($_POST['saveconfig'])) {
                         # Should modify if necessary $item_label, $item_descr and $item_url
                         # Should set if necessary $item_select_label (displayed on further admin step only)
                         $core->callBehavior('adminSimpleMenuBeforeEdit', $item_type, $item_select,
-                            [&$item_label, &$item_descr, &$item_url, &$item_select_label]);
+                            [ & $item_label, &$item_descr, &$item_url, &$item_select_label]);
                         break;
                 }
                 break;
@@ -489,11 +489,15 @@ if ($step) {
             __('Label of item menu:') . '</label>' .
             form::field('item_label', 20, 255, [
                 'default'    => $item_label,
-                'extra_html' => 'required placeholder="' . __('Label') . '"'
+                'extra_html' => 'required placeholder="' . __('Label') . '" lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
             ]) .
                 '</p>';
             echo '<p class="field"><label for="item_descr" class="classic">' .
-            __('Description of item menu:') . '</label>' . form::field('item_descr', 30, 255, $item_descr) . '</p>';
+            __('Description of item menu:') . '</label>' . form::field('item_descr', 30, 255,
+                [
+                    'default'    => $item_descr,
+                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
+                ]) . '</p>';
             echo '<p class="field"><label for="item_url" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' .
             __('URL of item menu:') . '</label>' .
             form::field('item_url', 40, 255, [
@@ -574,8 +578,16 @@ if (count($menu)) {
             ]) .
             form::hidden(['dynorder[]', 'dynorder-' . $i], $i) . '</td>';
             echo '<td class="minimal">' . form::checkbox(['items_selected[]', 'ims-' . $i], $i) . '</td>';
-            echo '<td class="nowrap" scope="row">' . form::field(['items_label[]', 'iml-' . $i], '', 255, html::escapeHTML(__($m['label']))) . '</td>';
-            echo '<td class="nowrap">' . form::field(['items_descr[]', 'imd-' . $i], '30', 255, html::escapeHTML(__($m['descr']))) . '</td>';
+            echo '<td class="nowrap" scope="row">' . form::field(['items_label[]', 'iml-' . $i], '', 255,
+                [
+                    'default'    => html::escapeHTML(__($m['label'])),
+                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
+                ]) . '</td>';
+            echo '<td class="nowrap">' . form::field(['items_descr[]', 'imd-' . $i], '30', 255,
+                [
+                    'default'    => html::escapeHTML(__($m['descr'])),
+                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
+                ]) . '</td>';
             echo '<td class="nowrap">' . form::field(['items_url[]', 'imu-' . $i], '30', 255, html::escapeHTML($m['url'])) . '</td>';
             echo '<td class="nowrap">' . form::checkbox('items_targetBlank' . $i, 'blank', $targetBlank) . '</td>';
         } else {

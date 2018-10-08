@@ -356,13 +356,18 @@ if ($blog_id) {
     form::field('blog_name', 30, 255,
         [
             'default'    => html::escapeHTML($blog_name),
-            'extra_html' => 'required placeholder="' . __('Blog name') . '"'
+            'extra_html' => 'required placeholder="' . __('Blog name') . ' lang="' . $blog_settings->system->lang .
+                '" spellcheck="true"'
         ]
     ) . '</p>';
 
     echo
     '<p class="area"><label for="blog_desc">' . __('Blog description:') . '</label>' .
-    form::textarea('blog_desc', 60, 5, html::escapeHTML($blog_desc)) . '</p>';
+    form::textarea('blog_desc', 60, 5,
+        [
+            'default'    => html::escapeHTML($blog_desc),
+            'extra_html' => 'lang="' . $blog_settings->system->lang . '" spellcheck="true"'
+        ]) . '</p>';
 
     if ($core->auth->isSuperAdmin()) {
         echo
@@ -399,7 +404,11 @@ if ($blog_id) {
     '</p>' .
 
     '<p><label for="copyright_notice">' . __('Copyright notice:') . '</label>' .
-    form::field('copyright_notice', 30, 255, html::escapeHTML($blog_settings->system->copyright_notice)) .
+    form::field('copyright_notice', 30, 255,
+        [
+            'default'    => html::escapeHTML($blog_settings->system->copyright_notice),
+            'extra_html' => 'lang="' . $blog_settings->system->lang . '" spellcheck="true"'
+        ]) .
         '</p>' .
 
         '</div>';
@@ -615,7 +624,7 @@ if ($blog_id) {
     '<br class="clear" />' . //Opera sucks
 
     '</div>' .
-    '</div>';
+        '</div>';
 
     echo '<div id="advanced-pref"><h3>' . __('Advanced parameters') . '</h3>';
 

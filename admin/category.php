@@ -17,6 +17,9 @@ $cat_url      = '';
 $cat_desc     = '';
 $cat_position = '';
 
+$blog_settings = new dcSettings($core, $core->blog->id);
+$blog_lang     = $blog_settings->system->lang;
+
 # Getting existing category
 if (!empty($_REQUEST['id'])) {
     try {
@@ -183,7 +186,7 @@ echo
 '<p><label class="required" for="cat_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label> ' .
 form::field('cat_title', 40, 255, [
     'default'    => html::escapeHTML($cat_title),
-    'extra_html' => 'required placeholder="' . __('Name') . '"'
+    'extra_html' => 'required placeholder="' . __('Name') . '" lang="' . $blog_lang . '" spellcheck="true"'
 ]) .
     '</p>';
 if (!$cat_id) {
@@ -210,7 +213,11 @@ __('Warning: If you set the URL manually, it may conflict with another category.
 '</div>' .
 
 '<p class="area"><label for="cat_desc">' . __('Description:') . '</label> ' .
-form::textarea('cat_desc', 50, 8, html::escapeHTML($cat_desc)) .
+form::textarea('cat_desc', 50, 8,
+    [
+        'default'    => html::escapeHTML($cat_desc),
+        'extra_html' => 'lang="' . $blog_lang . '" spellcheck="true"'
+    ]) .
 '</p>' .
 
 '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .

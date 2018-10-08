@@ -232,7 +232,7 @@ if ($comment_id) {
     form::textarea('comment_content', 50, 10,
         [
             'default'    => html::escapeHTML($comment_content),
-            'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '"'
+            'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
         ]) .
     '</p>' .
 

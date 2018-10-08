@@ -479,7 +479,7 @@ if ($can_edit_page) {
         form::field('post_title', 20, 255, [
             'default'    => html::escapeHTML($post_title),
             'class'      => 'maximal',
-            'extra_html' => 'required placeholder="' . __('Title') . '"'
+            'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . $post_lang . '" spellcheck="true"'
         ]) .
         '</p>',
 
@@ -489,7 +489,7 @@ if ($can_edit_page) {
         form::textarea('post_excerpt', 50, 5,
             [
                 'default'    => html::escapeHTML($post_excerpt),
-                'extra_html' => 'lang="' . $post_lang . '"'
+                'extra_html' => 'lang="' . $post_lang . '" spellcheck="true"'
             ]) .
         '</p>',
 
@@ -499,14 +499,18 @@ if ($can_edit_page) {
         form::textarea('post_content', 50, $core->auth->getOption('edit_size'),
             [
                 'default'    => html::escapeHTML($post_content),
-                'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . $post_lang . '"'
+                'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . $post_lang . '" spellcheck="true"'
             ]) .
         '</p>',
 
         "post_notes"   =>
         '<p class="area" id="notes-area"><label for="post_notes" class="bold">' . __('Personal notes:') . ' <span class="form-note">' .
         __('Unpublished notes.') . '</span></label>' .
-        form::textarea('post_notes', 50, 5, html::escapeHTML($post_notes)) .
+        form::textarea('post_notes', 50, 5,
+            [
+                'default' => html::escapeHTML($post_notes),
+                'extra_html' => 'lang="' . $post_lang . '" spellcheck="true"'
+            ]) .
         '</p>'
     ]
     );
