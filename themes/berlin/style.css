@@ -1215,7 +1215,7 @@ button.submit:active, button.preview:active {
   width: 17em; }
 
 .arch-tag-list li {
-  display: inline;
+  display: inline-block;
   padding-right: 1em; }
 
 .arch-tag-list .tag0 {
