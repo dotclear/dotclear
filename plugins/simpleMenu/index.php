@@ -320,42 +320,34 @@ if (!empty($_POST['saveconfig'])) {
                     ];
                 }
                 $menu = $newmenu;
-                // Save menu in blog settings
-                $core->blog->settings->system->put('simpleMenu', $menu);
-                $core->blog->triggerBlog();
 
-                // All done successfully, return to menu items list
-                dcPage::addSuccessNotice(__('Menu items have been successfully updated.'));
-                http::redirect($p_url);
-            } catch (Exception $e) {
-                $core->error->add($e->getMessage());
-            }
-        }
-
-        # Order menu items
-        $order = [];
-        if (empty($_POST['im_order']) && !empty($_POST['order'])) {
-            $order = $_POST['order'];
-            asort($order);
-            $order = array_keys($order);
-        } elseif (!empty($_POST['im_order'])) {
-            $order = $_POST['im_order'];
-            if (substr($order, -1) == ',') {
-                $order = substr($order, 0, strlen($order) - 1);
-            }
-            $order = explode(',', $order);
-        }
-
-        if (!empty($_POST['updateaction']) && !empty($order)) {
-            try {
-                $newmenu = [];
-                foreach ($order as $i => $k) {
-                    $newmenu[] = [
-                        'label' => $menu[$k]['label'],
-                        'descr' => $menu[$k]['descr'],
-                        'url'   => $menu[$k]['url']];
+                $core->auth->user_prefs->addWorkspace('accessibility');
+                if ($core->auth->user_prefs->accessibility->nodragdrop) {
+                    # Order menu items
+                    $order = [];
+                    if (empty($_POST['im_order']) && !empty($_POST['order'])) {
+                        $order = $_POST['order'];
+                        asort($order);
+                        $order = array_keys($order);
+                    } elseif (!empty($_POST['im_order'])) {
+                        $order = $_POST['im_order'];
+                        if (substr($order, -1) == ',') {
+                            $order = substr($order, 0, strlen($order) - 1);
+                        }
+                        $order = explode(',', $order);
+                    }
+                    if (!empty($order)) {
+                        $newmenu = [];
+                        foreach ($order as $i => $k) {
+                            $newmenu[] = [
+                                'label' => $menu[$k]['label'],
+                                'descr' => $menu[$k]['descr'],
+                                'url'   => $menu[$k]['url']];
+                        }
+                        $menu = $newmenu;
+                    }
                 }
-                $menu = $newmenu;
+
                 // Save menu in blog settings
                 $core->blog->settings->system->put('simpleMenu', $menu);
                 $core->blog->triggerBlog();
@@ -367,7 +359,6 @@ if (!empty($_POST['saveconfig'])) {
                 $core->error->add($e->getMessage());
             }
         }
-
     }
 }
 
@@ -572,6 +563,7 @@ if (count($menu)) {
             echo '<td class="handle minimal">' .
             form::number(['order[' . $i . ']'], [
                 'min'        => 1,
+                'max'        => count($menu),
                 'default'    => $count,
                 'class'      => 'position',
                 'extra_html' => 'title="' . sprintf(__('position of %s'), html::escapeHTML(__($m['label']))) . '"'

@@ -207,7 +207,9 @@ while ($rs->fetch()) {
 
         echo
         '<tr class="line" id="l_' . $rs->link_id . '">' .
-        '<td class="handle minimal">' . form::field(['order[' . $rs->link_id . ']'], 2, 5, [
+        '<td class="handle minimal">' . form::number(['order[' . $rs->link_id . ']'], [
+            'min'        => 1,
+            'max'        => $rs->count(),
             'default'    => $position,
             'class'      => 'position',
             'extra_html' => 'title="' . __('position') . '"'
