@@ -177,6 +177,12 @@ class dcPage
             echo self::cssLoad('style/default-rtl.css');
         }
 
+        $core->auth->user_prefs->addWorkspace('accessibility');
+        echo
+            '<script type="text/javascript">' . "\n" .
+            'dotclear.noDragDrop = '.($core->auth->user_prefs->accessibility->nodragdrop ? 'true' : 'false').';' . "\n" .
+            "</script>\n";
+
         $core->auth->user_prefs->addWorkspace('interface');
         if (!$core->auth->user_prefs->interface->hide_std_favicon) {
             echo
@@ -457,6 +463,12 @@ class dcPage
         if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
             echo self::cssLoad('style/default-rtl.css');
         }
+
+        $core->auth->user_prefs->addWorkspace('accessibility');
+        echo
+            '<script type="text/javascript">' . "\n" .
+            'dotclear.noDragDrop = '.($core->auth->user_prefs->accessibility->nodragdrop ? 'true' : 'false').';' . "\n" .
+            "</script>\n";
 
         $core->auth->user_prefs->addWorkspace('interface');
         if ($core->auth->user_prefs->interface->htmlfontsize) {
