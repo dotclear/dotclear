@@ -222,6 +222,8 @@ $(function() {
       $(sel).sortable({
         cursor: 'move',
         opacity: 0.5,
+        delay: 200,
+        distance: 10,
         tolerance: "pointer",
         update: function() {
           set_positions(sel, id);
