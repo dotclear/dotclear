@@ -205,40 +205,41 @@ $(function() {
     dotclear.dbPostsCount_Timer = setInterval(dotclear.dbCommentsPost, 600 * 1000);
   }
 
-  // Dashboard boxes and their children are sortable
-  const set_positions = function(sel, id) {
-    const list = $(sel).sortable("toArray").join();
-    // Save positions (via services) for id
-    const params = {
-      f: 'setDashboardPositions',
-      xd_check: dotclear.nonce,
-      id: id,
-      list: list
+  if (!dotclear.noDragDrop) {
+    // Dashboard boxes and their children are sortable
+    const set_positions = function(sel, id) {
+      const list = $(sel).sortable("toArray").join();
+      // Save positions (via services) for id
+      const params = {
+        f: 'setDashboardPositions',
+        xd_check: dotclear.nonce,
+        id: id,
+        list: list
+      };
+      $.post('services.php', params, function() {});
     };
-    $.post('services.php', params, function() {});
-  };
-  const init_positions = function(sel, id) {
-    $(sel).sortable({
-      cursor: 'move',
-      opacity: 0.5,
-      tolerance: "pointer",
-      update: function() {
-        set_positions(sel, id);
-      },
-      start: function() {
-        $(sel).addClass('sortable-area');
-      },
-      stop: function() {
-        $(sel).removeClass('sortable-area');
-      }
-    });
-  };
-  // Wait 5 seconds before activating ordering capabilities on dashboard
-  setTimeout(function() {
-    init_positions('#dashboard-main', 'main_order');
-    init_positions('#dashboard-boxes', 'boxes_order');
-    init_positions('#db-items', 'boxes_items_order');
-    init_positions('#db-contents', 'boxes_contents_order');
-  }, 5000);
-
+    const init_positions = function(sel, id) {
+      $(sel).sortable({
+        cursor: 'move',
+        opacity: 0.5,
+        tolerance: "pointer",
+        update: function() {
+          set_positions(sel, id);
+        },
+        start: function() {
+          $(sel).addClass('sortable-area');
+        },
+        stop: function() {
+          $(sel).removeClass('sortable-area');
+        }
+      });
+    };
+    // Wait 5 seconds before activating ordering capabilities on dashboard
+    setTimeout(function() {
+      init_positions('#dashboard-main', 'main_order');
+      init_positions('#dashboard-boxes', 'boxes_order');
+      init_positions('#db-items', 'boxes_items_order');
+      init_positions('#db-contents', 'boxes_contents_order');
+    }, 5000);
+  }
 });
