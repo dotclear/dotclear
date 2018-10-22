@@ -191,7 +191,7 @@ if ($filter_gui !== false) {
         '</tr></thead>' .
         '<tbody id="filters-list" >';
 
-    $i = 0;
+    $i = 1;
     foreach ($filters as $fid => $f) {
         $gui_link = '&nbsp;';
         if ($f->hasGUI()) {
@@ -204,7 +204,8 @@ if ($filter_gui !== false) {
         echo
         '<tr class="line' . ($f->active ? '' : ' offline') . '" id="f_' . $fid . '">' .
         '<td class="handle">' . form::number(['f_order[' . $fid . ']'], [
-            'min'        => 0,
+            'min'        => 1,
+            'max'        => count($filters),
             'default'    => $i,
             'class'      => 'position',
             'extra_html' => 'title="' . __('position') . '"'

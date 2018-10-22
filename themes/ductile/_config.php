@@ -358,6 +358,7 @@ foreach ($ductile_stickers as $i => $v) {
     '<tr class="line" id="l_' . $i . '">' .
     '<td class="handle minimal">' . form::number(['order[' . $i . ']'], [
         'min'     => 0,
+        'max'     => count($ductile_stickers),
         'default' => $count,
         'class'   => 'position'
     ]) .

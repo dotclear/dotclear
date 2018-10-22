@@ -699,7 +699,9 @@ foreach ($user_fav as $id) {
         $count++;
         echo '<li id="fu-' . $id . '">' . '<label for="fuk-' . $id . '">' .
         '<img src="' . dc_admin_icon_url($fav['small-icon']) . '" alt="" /> ' . '<span class="zoom"><img src="' . dc_admin_icon_url($fav['large-icon']) . '" alt="" /></span>' .
-        form::field(['order[' . $id . ']'], 2, 3, [
+        form::number(['order[' . $id . ']'], [
+            'min'        => 1,
+            'max'        => count($user_fav),
             'default'    => $count,
             'class'      => 'position',
             'extra_html' => 'title="' . sprintf(__('position of %s'), $fav['title']) . '"'
