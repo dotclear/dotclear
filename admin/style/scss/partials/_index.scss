@@ -142,6 +142,9 @@
 }
 // Drag'n'drop of dashboard areas
 #dragndrop {
+  .no-js & {
+    display: none;
+  }
   position: absolute;
   width: 2em;
   height: 1.5em;
