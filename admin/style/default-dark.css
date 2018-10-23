@@ -20,8 +20,7 @@ body {
   padding: 0; }
 
 a {
-  background: transparent;
-  }
+  background: transparent; }
   a:focus {
     outline: thin dotted; }
   a:active, a:hover {
@@ -750,8 +749,7 @@ h1,
   padding: 0 1em .5em 1em;
   margin: 0 -1em 1em -1em;
   background: #272b30;
-  border-bottom: 1px solid #86888c;
-  }
+  border-bottom: 1px solid #86888c; }
 
 /* page courante dans le fil d'ariane */
 .page-title {
@@ -2229,6 +2227,21 @@ span.ibw {
   margin: 0 0 1em 0; }
   #news dd p {
     margin: 0.2em 0 0 0; }
+
+#dragndrop {
+  position: absolute;
+  width: 2em;
+  height: 1.5em;
+  -webkit-mask-image: url(dragndrop.svg);
+  mask-image: url(dragndrop.svg); }
+  #dragndrop:before {
+    content: "";
+    display: inline-block;
+    width: 2em;
+    height: 1.5em;
+    background: #86888c; }
+  #dragndrop:checked:before {
+    background: #bee74b; }
 
 #media_img_title_pattern {
   margin-right: 1em; }

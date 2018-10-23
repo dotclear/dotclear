@@ -146,6 +146,18 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
     }
 }
 
+# Dashboard drag'n'drop switch for its elements
+$core->auth->user_prefs->addWorkspace('accessibility');
+$dragndrop = '';
+if (!$core->auth->user_prefs->accessibility->nodragdrop) {
+    $dragndrop =
+        '<script type="text/javascript">' . "\n" .
+            dcPage::jsVar('dotclear.dragndrop_off', __('Dashboard area\'s drag and drop is disabled')) . "\n" .
+            dcPage::jsVar('dotclear.dragndrop_on', __('Dashboard area\'s drag and drop is enabled')) . "\n" .
+        "</script>\n".
+        '<input type="checkbox" id="dragndrop" title="' . __('Dashboard area\'s drag and drop is disabled') . '" />';
+}
+
 /* DISPLAY
 -------------------------------------------------------- */
 dcPage::open(__('Dashboard'),
@@ -397,8 +409,7 @@ if ($dashboardBoxes != '') {
 }
 $dashboardMain = $composeItems($main_order, $__dashboard_main, true);
 
-# Dashboard elements
-echo '<div id="dashboard-main">' . $dashboardMain . '</div>';
+echo $dragndrop . '<div id="dashboard-main">' . $dashboardMain . '</div>';
 
 dcPage::helpBlock('core_dashboard');
 dcPage::close();

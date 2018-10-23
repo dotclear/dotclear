@@ -1,6 +1,6 @@
 #dashboard-main {
   text-align: center;
-  & > *:last-child {
+  &>*:last-child {
     margin-bottom: 1em;
   }
 }
@@ -138,5 +138,23 @@
     p {
       margin: 0.2em 0 0 0;
     }
+  }
+}
+// Drag'n'drop of dashboard areas
+#dragndrop {
+  position: absolute;
+  width: 2em;
+  height: 1.5em;
+  -webkit-mask-image: url(dragndrop.svg);
+  mask-image: url(dragndrop.svg);
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 2em;
+    height: 1.5em;
+    background: $drag-n-drop-off;
+  }
+  &:checked:before {
+    background: $drag-n-drop-on;
   }
 }

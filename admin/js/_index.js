@@ -236,12 +236,27 @@ $(function() {
         }
       });
     };
-    // Wait 5 seconds before activating ordering capabilities on dashboard
-    setTimeout(function() {
-      init_positions('#dashboard-main', 'main_order');
-      init_positions('#dashboard-boxes', 'boxes_order');
-      init_positions('#db-items', 'boxes_items_order');
-      init_positions('#db-contents', 'boxes_contents_order');
-    }, 5000);
+    const reset_positions = function(sel) {
+      $(sel).sortable('destroy');
+    };
+    // List of sortable areas
+    const areas = [
+      ['#dashboard-main', 'main_order'],
+      ['#dashboard-boxes', 'boxes_order'],
+      ['#db-items', 'boxes_items_order'],
+      ['#db-contents', 'boxes_contents_order']
+    ];
+    // Set or reset sortable depending on #dragndrop checbkox value
+    $('#dragndrop').click(function() {
+      if ($(this).is(':checked')) {
+        // Activate sorting feature
+        areas.forEach(element => init_positions(element[0], element[1]));
+        $(this).prop('title', dotclear.dragndrop_on);
+      } else {
+        // Deactivate sorting feature
+        areas.forEach(element => reset_positions(element[0]));
+        $(this).prop('title', dotclear.dragndrop_off);
+      }
+    });
   }
 });
