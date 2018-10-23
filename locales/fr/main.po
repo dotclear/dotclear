@@ -959,6 +959,12 @@ msgstr "Documentation et support"
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
+msgid "Dashboard area's drag and drop is disabled"
+msgstr "L'ordonnancement par glisser-déposer des zones du tableau de bord est désactivé"
+
+msgid "Dashboard area's drag and drop is enabled"
+msgstr "L'ordonnancement par glisser-déposer des zones du tableau de bord est activé"
+
 msgid "Make this blog my default blog"
 msgstr "Définir comme blog par défaut"
 
