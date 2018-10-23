@@ -2234,6 +2234,8 @@ span.ibw {
   height: 1.5em;
   -webkit-mask-image: url(dragndrop.svg);
   mask-image: url(dragndrop.svg); }
+  .no-js #dragndrop {
+    display: none; }
   #dragndrop:before {
     content: "";
     display: inline-block;
