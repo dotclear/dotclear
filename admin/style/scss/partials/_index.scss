@@ -146,18 +146,17 @@
     display: none;
   }
   position: absolute;
-  width: 2em;
-  height: 1.5em;
-  -webkit-mask-image: url(dragndrop.svg);
-  mask-image: url(dragndrop.svg);
-  &:before {
-    content: "";
+  &+label {
+    position: absolute;
     display: inline-block;
+    line-height: 1;
+  }
+  &+label .dragndrop-svg {
     width: 2em;
     height: 1.5em;
-    background: $drag-n-drop-off;
+    fill: $drag-n-drop-off;
   }
-  &:checked:before {
-    background: $drag-n-drop-on;
+  &:checked+label .dragndrop-svg {
+    fill: $drag-n-drop-on;
   }
 }
