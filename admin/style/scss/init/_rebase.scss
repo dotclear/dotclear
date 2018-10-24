@@ -255,3 +255,7 @@ h6 {
 		@include visually-hidden-focus;
 	}
 }
+
+.sr-only {
+  @include visually-hidden;
+}

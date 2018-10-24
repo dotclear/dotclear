@@ -151,11 +151,18 @@ $core->auth->user_prefs->addWorkspace('accessibility');
 $dragndrop = '';
 if (!$core->auth->user_prefs->accessibility->nodragdrop) {
     $dragndrop =
-        '<script type="text/javascript">' . "\n" .
-            dcPage::jsVar('dotclear.dragndrop_off', __('Dashboard area\'s drag and drop is disabled')) . "\n" .
-            dcPage::jsVar('dotclear.dragndrop_on', __('Dashboard area\'s drag and drop is enabled')) . "\n" .
-        "</script>\n".
-        '<input type="checkbox" id="dragndrop" title="' . __('Dashboard area\'s drag and drop is disabled') . '" />';
+    '<script type="text/javascript">' . "\n" .
+    dcPage::jsVar('dotclear.dragndrop_off', __('Dashboard area\'s drag and drop is disabled')) . "\n" .
+    dcPage::jsVar('dotclear.dragndrop_on', __('Dashboard area\'s drag and drop is enabled')) . "\n" .
+    "</script>\n" .
+    '<input type="checkbox" id="dragndrop" class="sr-only" title="' .
+        __('Dashboard area\'s drag and drop is disabled') . '" />' .
+    '<label for="dragndrop">' .
+    '<svg aria-hidden="true" focusable="false" class="dragndrop-svg">' .
+    '<use xlink:href="images/dragndrop.svg#mask"></use>' .
+    '</svg>' .
+    '<span id="dragndrop-label" class="sr-only">' . __('Dashboard area\'s drag and drop is disabled') . '</span>' .
+    '</label>';
 }
 
 /* DISPLAY
