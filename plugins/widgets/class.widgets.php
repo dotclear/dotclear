@@ -325,8 +325,9 @@ class dcWidget
                 form::field([$iname, $wfid], 20, 255,
                     [
                         'default'    => html::escapeHTML($s['value']),
+                        'class'      => 'maximal' . $class,
                         'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
-                    ], 'maximal' . $class) .
+                    ]) .
                     '</p>';
                 break;
             case 'textarea':
@@ -335,8 +336,9 @@ class dcWidget
                 form::textarea([$iname, $wfid], 30, 8,
                     [
                         'default'    => html::escapeHTML($s['value']),
+                        'class'      => 'maximal' . $class,
                         'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
-                    ], 'maximal' . $class) .
+                    ]) .
                     '</p>';
                 break;
             case 'check':
