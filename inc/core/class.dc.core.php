@@ -1282,6 +1282,7 @@ class dcCore
             'active_setext_title' => 0,
             'active_hr'           => 0,
             'active_lists'        => 1,
+            'active_defl'         => 0,
             'active_quote'        => 1,
             'active_pre'          => 1,
             'active_aside'        => 0,
