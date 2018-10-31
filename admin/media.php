@@ -182,6 +182,9 @@ $mediaItemLine = function ($f, $i, $query, $table = false) {
         $link   = $core->adminurl->get(
             'admin.media.item', $params
         );
+        if ($f->media_priv) {
+            $class .= ' media-private';
+        }
     }
 
     $maxchars = 36;
@@ -249,7 +252,7 @@ $mediaItemLine = function ($f, $i, $query, $table = false) {
         $lst = '';
         if (!$f->d) {
             $lst .=
-            '<li>' . $f->media_title . '</li>' .
+            '<li>' . ($f->media_priv ? '<img class="media-private" src="images/locker.png" alt="'.__('private media').'">' : '') . $f->media_title . '</li>' .
             '<li>' .
             $f->media_dtstr . ' - ' .
             files::size($f->size) . ' - ' .
@@ -270,7 +273,7 @@ $mediaItemLine = function ($f, $i, $query, $table = false) {
         $res .= '<td class="media-action">' . $act . '</td>';
         $res .= '<td class="maximal" scope="row"><a class="media-flag media-link" href="' . rawurldecode($link) . '">' .
         '<img src="' . $f->media_icon . '" alt="" />' . ($query ? $file : $fname) . '</a>' .
-            '<br />' . ($f->d ? '' : $f->media_title) . '</td>';
+            '<br />' . ($f->d ? '' : ($f->media_priv ? '<img class="media-private" src="images/locker.png" alt="'.__('private media').'">' : '') .$f->media_title) . '</td>';
         $res .= '<td class="nowrap count">' . ($f->d ? '' : $f->media_dtstr) . '</td>';
         $res .= '<td class="nowrap count">' . ($f->d ? '' : files::size($f->size) . ' - ' .
             '<a ' . $class_open . 'href="' . $f->file_url . '">' . __('open') . '</a>') . '</td>';

@@ -358,6 +358,7 @@ $media-folder-border:             $gray-lighter;
 $media-folderup-border:           transparent;
 $media-folder-link:               $gray-light;
 $media-item-border:               shade($gray-very-light, 10%);
+$media-item-border-private:       $red;
 $media-files-border:              shade($gray-very-light, 10%);
 
 $upload-color:                    shade($success-alt, 45%);

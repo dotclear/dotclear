@@ -1566,6 +1566,9 @@ msgstr "Taille maximale de fichier autorisée :"
 msgid "Private"
 msgstr "Privé"
 
+msgid "private media"
+msgstr "Média privé"
+
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "Pour envoyer plusieurs fichiers à la fois, vous pouvez activer l'interface avancée dans"
 
