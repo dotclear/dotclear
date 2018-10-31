@@ -2524,6 +2524,13 @@ span.media-file-mode {
   .media-item audio {
     width: 100%;
     margin-top: .5em; }
+  .media-item.media-private {
+    border-color: #c44d58; }
+    .media-item.media-private img.media-private {
+      padding-right: .5em; }
+
+tr.media-private img.media-private {
+  padding-right: .5em; }
 
 a.media-icon {
   display: block;

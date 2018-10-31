@@ -37,6 +37,15 @@ span.media-file-mode {
 		width: 100%;
 		margin-top: .5em;
 	}
+  &.media-private {
+    border-color: $media-item-border-private;
+    & img.media-private {
+      padding-right: .5em;
+    }
+  }
+}
+tr.media-private img.media-private {
+  padding-right: .5em;
 }
 
 a.media-icon {

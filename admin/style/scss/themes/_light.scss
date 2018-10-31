@@ -358,6 +358,7 @@ $media-folder-border:             $gray-lighter;                      // #ececec
 $media-folderup-border:           transparent;
 $media-folder-link:               $gray-dark;                         // #676e78
 $media-item-border:               shade($gray-very-light, 10%);       // #dbdbdb
+$media-item-border-private:       $red;
 $media-files-border:              shade($gray-very-light, 10%);       // #dbdbdb
 
 $upload-color:                    shade($success-alt, 45%);           // #556f0f
