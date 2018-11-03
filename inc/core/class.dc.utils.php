@@ -134,6 +134,14 @@ class dcUtils
         return dcUtils::jsVars([$n => $v]);
     }
 
+    public static function jsJson($id, $vars)
+    {
+        // Use dcUtils::jsLoad($core->blog->getPF('util.js')) to use the JS getData() decoder
+        $ret = '<script type="application/json" id="' . html::escapeHTML($id) . '-data">' . "\n" .
+            json_encode($vars, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES) . "\n" . '</script>';
+        return $ret;
+    }
+
     /**
      * Locale specific array sorting function
      *

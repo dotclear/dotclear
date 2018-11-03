@@ -166,6 +166,8 @@ class dcPage
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
         '  <title>' . $title . ' - ' . html::escapeHTML($core->blog->name) . ' - ' . html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n";
 
+        echo self::jsUtil();
+
         if ($core->auth->user_prefs->interface->darkmode) {
             echo self::jsVars(['dotclear_darkMode' => 1]);
             echo self::cssLoad('style/default-dark.css');
@@ -453,6 +455,8 @@ class dcPage
         '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
         '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
 
+        echo self::jsUtil();
+
         if ($core->auth->user_prefs->interface->darkmode) {
             echo self::jsVars(['dotclear_darkMode' => 1]);
             echo self::cssLoad('style/default-dark.css');
@@ -739,6 +743,11 @@ class dcPage
         $ret .= "</script>\n";
 
         return $ret;
+    }
+
+    public static function jsUtil()
+    {
+        return self::jsLoad($core->blog->getPF('util.js'));
     }
 
     public static function jsToggles()
