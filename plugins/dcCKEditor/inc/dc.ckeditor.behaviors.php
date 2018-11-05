@@ -59,13 +59,6 @@ class dcCKEditorBehaviors
         dcPage::jsLoad(self::$p_url . '/js/ckeditor/adapters/jquery.js') .
         dcPage::jsLoad($config_js);
 
-        if ($GLOBALS['core']->auth->user_prefs->interface->htmlfontsize) {
-            $res .=
-            '<script type="text/javascript">' . "\n" .
-            dcPage::jsVar('dotclear_htmlFontSize', $GLOBALS['core']->auth->user_prefs->interface->htmlfontsize) . "\n" .
-                "</script>\n";
-        }
-
         return $res;
     }
 

@@ -1,12 +1,15 @@
-/*global $, jQuery, dotclear_htmlFontSize */
+/*global $, jQuery, getData */
 /*exported chainHandler */
 'use strict';
+
+/* Get PreInit JSON data */
+const dotclear_init = getData('dotclear_init');
 
 /* Set some CSS variables here
 -------------------------------------------------------- */
 // set base font-size of body (62.5% default, usually : 50% to 75%)
-if (typeof dotclear_htmlFontSize !== 'undefined') {
-  document.documentElement.style.setProperty('--html-font-size', dotclear_htmlFontSize);
+if (typeof dotclear_init.htmlFontSize !== 'undefined') {
+  document.documentElement.style.setProperty('--html-font-size', dotclear_init.htmlFontSize);
 }
 /* ChainHandler, py Peter van der Beken
 -------------------------------------------------------- */
@@ -548,6 +551,11 @@ ${opt.classes !== '' ? ` ${opt.classes}` : ''}`;
 /* On document ready
 -------------------------------------------------------- */
 $(function() {
+  // Store preinit DATA in dotclear object
+  dotclear.data = dotclear_init;
+  // Get other DATA
+  Object.assign(dotclear.data, getData('dotclear'));
+
   // remove class no-js from html tag; cf style/default.css for examples
   $('body').removeClass('no-js').addClass('with-js');
   $('body').contents().each(function() {
@@ -628,11 +636,11 @@ $(function() {
     }
   });
   // Advanced users
-  if (dotclear.hideMoreInfo) {
+  if (dotclear.data.hideMoreInfo) {
     $('.more-info,.form-note:not(.warn,.warning,.info)').addClass('no-more-info');
   }
   // Ajax loader activity indicator
-  if (dotclear.showAjaxLoader) {
+  if (dotclear.data.showAjaxLoader) {
     $(document).ajaxStart(function() {
       $('body').addClass('ajax-loader');
       $('div.ajax-loader').show();

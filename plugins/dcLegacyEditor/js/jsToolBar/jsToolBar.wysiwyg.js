@@ -1,4 +1,4 @@
-/*global jsToolBar, dotclear_htmlFontSize, chainHandler */
+/*global jsToolBar, dotclear, chainHandler */
 'use strict';
 
 /* ***** BEGIN LICENSE BLOCK *****
@@ -183,8 +183,8 @@ jsToolBar.prototype.initWindow = function() {
       // warning : doc is now inaccessible for IE6 sp1
     }
 
-    if (typeof dotclear_htmlFontSize !== 'undefined') {
-      doc.documentElement.style.setProperty('--html-font-size', dotclear_htmlFontSize);
+    if (dotclear && dotclear.data && dotclear.data.htmlFontSize) {
+      doc.documentElement.style.setProperty('--html-font-size', dotclear.data.htmlFontSize);
     }
 
     // Set lang if set for the textarea

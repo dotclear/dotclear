@@ -138,13 +138,6 @@ class dcLegacyEditorBehaviors
         $res .=
             "</script>\n";
 
-        if ($GLOBALS['core']->auth->user_prefs->interface->htmlfontsize) {
-            $res .=
-            '<script type="text/javascript">' . "\n" .
-            dcPage::jsVar('dotclear_htmlFontSize', $GLOBALS['core']->auth->user_prefs->interface->htmlfontsize) . "\n" .
-                "</script>\n";
-        }
-
         return $res;
     }
 }

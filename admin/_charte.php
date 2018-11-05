@@ -22,17 +22,18 @@ $core->auth->user_prefs->addWorkspace('interface');
     <title>Bibliothèque de styles - Dotclear - 2.7</title>
     <link rel="icon" type="image/png" href="images/favicon96-login.png" />
 <?php
+$js = [];
 if ($core->auth->user_prefs->interface->darkmode) {
     echo dcPage::cssLoad('style/default-dark.css');
 } else {
     echo dcPage::cssLoad('style/default.css');
 }
 if ($core->auth->user_prefs->interface->htmlfontsize) {
-    echo
-    '<script type="text/javascript">' . "\n" .
-    dcPage::jsVar('dotclear_htmlFontSize', $core->auth->user_prefs->interface->htmlfontsize) .
-        "</script>\n";
+    $js['htmlFontSize'] = $core->auth->user_prefs->interface->htmlfontsize;
 }
+// Set some JSON data
+echo dcUtils::jsJson('dotclear_init', $js);
+echo dcPage::jsUtil();
 ?>
     <script type="text/javascript" src="js/jquery/jquery.js"></script>
     <script type="text/javascript" src="js/jquery/jquery-ui.custom.js"></script>

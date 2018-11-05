@@ -205,7 +205,7 @@ $(function() {
     dotclear.dbPostsCount_Timer = setInterval(dotclear.dbCommentsPost, 600 * 1000);
   }
 
-  if (!dotclear.noDragDrop) {
+  if (!dotclear.data.noDragDrop) {
     // Dashboard boxes and their children are sortable
     const set_positions = function(sel, id) {
       const list = $(sel).sortable("toArray").join();

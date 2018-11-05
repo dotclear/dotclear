@@ -22,10 +22,12 @@ class behaviorBerlinTheme
 {
     public static function publicHeadContent()
     {
-        echo \dcUtils::jsVars([
-            'dotclear_berlin_show_menu'  => __('Show menu'),
-            'dotclear_berlin_hide_menu'  => __('Hide menu'),
-            'dotclear_berlin_navigation' => __('Navigation')
+        echo
+        \dcUtils::jsLoad($GLOBALS['core']->blog->getPF('util.js')) .
+        \dcUtils::jsJson('dotclear_berlin', [
+            'show_menu'  => __('Show menu'),
+            'hide_menu'  => __('Hide menu'),
+            'navigation' => __('Navigation')
         ]);
     }
 }

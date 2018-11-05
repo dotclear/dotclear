@@ -23,10 +23,15 @@ class dcPage
         "message" => "message",
         "static"  => "static-msg"];
 
+    private static function getCore()
+    {
+        return $GLOBALS['core'];
+    }
+
     # Auth check
     public static function check($permissions)
     {
-        global $core;
+        $core = self::getCore();
 
         if ($core->blog && $core->auth->check($permissions, $core->blog->id)) {
             return;
@@ -41,7 +46,7 @@ class dcPage
     # Check super admin
     public static function checkSuper()
     {
-        global $core;
+        $core = self::getCore();
 
         if (!$core->auth->isSuperAdmin()) {
             if (session_id()) {
@@ -54,7 +59,8 @@ class dcPage
     # Top of admin page
     public static function open($title = '', $head = '', $breadcrumb = '', $options = [])
     {
-        global $core;
+        $core = self::getCore();
+        $js = [];
 
         # List of user's blogs
         if ($core->auth->getBlogCount() == 1 || $core->auth->getBlogCount() > 20) {
@@ -169,10 +175,10 @@ class dcPage
         echo self::jsUtil();
 
         if ($core->auth->user_prefs->interface->darkmode) {
-            echo self::jsVars(['dotclear_darkMode' => 1]);
+            $js['darkMode'] = 1;
             echo self::cssLoad('style/default-dark.css');
         } else {
-            echo self::jsVars(['dotclear_darkMode' => 0]);
+            $js['darkMode'] = 0;
             echo self::cssLoad('style/default.css');
         }
         if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
@@ -185,37 +191,22 @@ class dcPage
                 '<link rel="icon" type="image/png" href="images/favicon96-login.png" />' . "\n" .
                 '<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />' . "\n";
         }
-
         if ($core->auth->user_prefs->interface->htmlfontsize) {
-            echo
-            '<script type="text/javascript">' . "\n" .
-            self::jsVar('dotclear_htmlFontSize', $core->auth->user_prefs->interface->htmlfontsize) . "\n" .
-                "</script>\n";
+            $js['htmlFontSize'] = $core->auth->user_prefs->interface->htmlfontsize;
         }
+        $js['hideMoreInfo'] = (boolean) $core->auth->user_prefs->interface->hidemoreinfo;
+        $js['showAjaxLoader'] = (boolean) $core->auth->user_prefs->interface->showajaxloader;
+
+        $core->auth->user_prefs->addWorkspace('accessibility');
+        $js['noDragDrop'] = (boolean) $core->auth->user_prefs->accessibility->nodragdrop;
+
+        // Set some JSON data
+        echo dcUtils::jsJson('dotclear_init', $js);
 
         echo
         self::jsCommon() .
         self::jsToggles() .
             $head;
-
-        $core->auth->user_prefs->addWorkspace('accessibility');
-        echo
-            '<script type="text/javascript">' . "\n" .
-            'dotclear.noDragDrop = '.($core->auth->user_prefs->accessibility->nodragdrop ? 'true' : 'false').';' . "\n" .
-            "</script>\n";
-
-        if ($core->auth->user_prefs->interface->hidemoreinfo) {
-            echo
-                '<script type="text/javascript">' . "\n" .
-                'dotclear.hideMoreInfo = true;' . "\n" .
-                "</script>\n";
-        }
-        if ($core->auth->user_prefs->interface->showajaxloader) {
-            echo
-                '<script type="text/javascript">' . "\n" .
-                'dotclear.showAjaxLoader = true;' . "\n" .
-                "</script>\n";
-        }
 
         # --BEHAVIOR-- adminPageHTMLHead
         $core->callBehavior('adminPageHTMLHead');
@@ -275,7 +266,7 @@ class dcPage
 
     public static function notices()
     {
-        global $core;
+        $core = self::getCore();
         static $error_displayed = false;
 
         $res = '';
@@ -349,7 +340,7 @@ class dcPage
 
     protected static function getNotification($n)
     {
-        global $core;
+        $core = self::getCore();
 
         $tag = (isset($n['divtag']) && $n['divtag']) ? 'div' : 'p';
         $ts  = '';
@@ -362,7 +353,7 @@ class dcPage
 
     public static function close()
     {
-        global $core;
+        $core = self::getCore();
 
         if (!$GLOBALS['__resources']['ctxhelp']) {
             if (!$core->auth->user_prefs->interface->hidehelpbutton) {
@@ -435,7 +426,8 @@ class dcPage
 
     public static function openPopup($title = '', $head = '', $breadcrumb = '')
     {
-        global $core;
+        $core = self::getCore();
+        $js = [];
 
         # Display
         header('Content-Type: text/html; charset=UTF-8');
@@ -459,10 +451,10 @@ class dcPage
         echo self::jsUtil();
 
         if ($core->auth->user_prefs->interface->darkmode) {
-            echo self::jsVars(['dotclear_darkMode' => 1]);
+            $js['darkMode'] = 1;
             echo self::cssLoad('style/default-dark.css');
         } else {
-            echo self::jsVars(['dotclear_darkMode' => 0]);
+            $js['darkMode'] = 0;
             echo self::cssLoad('style/default.css');
         }
         if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
@@ -471,35 +463,21 @@ class dcPage
 
         $core->auth->user_prefs->addWorkspace('interface');
         if ($core->auth->user_prefs->interface->htmlfontsize) {
-            echo
-            '<script type="text/javascript">' . "\n" .
-            self::jsVar('dotclear_htmlFontSize', $core->auth->user_prefs->interface->htmlfontsize) . "\n" .
-                "</script>\n";
+            $js['htmlFontSize'] = $core->auth->user_prefs->interface->htmlfontsize;
         }
+        $js['hideMoreInfo'] = (boolean) $core->auth->user_prefs->interface->hidemoreinfo;
+        $js['showAjaxLoader'] = (boolean) $core->auth->user_prefs->interface->showajaxloader;
+
+        $core->auth->user_prefs->addWorkspace('accessibility');
+        $js['noDragDrop'] = (boolean) $core->auth->user_prefs->accessibility->nodragdrop;
+
+        // Set JSON data
+        echo dcUtils::jsJson('dotclear_init', $js);
 
         echo
         self::jsCommon() .
         self::jsToggles() .
             $head;
-
-        $core->auth->user_prefs->addWorkspace('accessibility');
-        echo
-            '<script type="text/javascript">' . "\n" .
-            'dotclear.noDragDrop = '.($core->auth->user_prefs->accessibility->nodragdrop ? 'true' : 'false').';' . "\n" .
-            "</script>\n";
-
-        if ($core->auth->user_prefs->interface->hidemoreinfo) {
-            echo
-                '<script type="text/javascript">' . "\n" .
-                'dotclear.hideMoreInfo = true;' . "\n" .
-                "</script>\n";
-        }
-        if ($core->auth->user_prefs->interface->showajaxloader) {
-            echo
-                '<script type="text/javascript">' . "\n" .
-                'dotclear.showAjaxLoader = true;' . "\n" .
-                "</script>\n";
-        }
 
         # --BEHAVIOR-- adminPageHTMLHead
         $core->callBehavior('adminPageHTMLHead');
@@ -538,7 +516,7 @@ class dcPage
 
     public static function breadcrumb($elements = null, $options = [])
     {
-        global $core;
+        $core = self::getCore();
 
         $with_home_link = isset($options['home_link']) ? $options['home_link'] : true;
         $hl             = isset($options['hl']) ? $options['hl'] : true;
@@ -565,7 +543,7 @@ class dcPage
 
     public static function message($msg, $timestamp = true, $div = false, $echo = true, $class = 'message')
     {
-        global $core;
+        $core = self::getCore();
 
         $res = '';
         if ($msg != '') {
@@ -638,7 +616,7 @@ class dcPage
 
     public static function helpBlock(...$params)
     {
-        global $core;
+        $core = self::getCore();
 
         if ($core->auth->user_prefs->interface->hidehelpbutton) {
             return;
@@ -647,7 +625,7 @@ class dcPage
         $args = new ArrayObject($params);
 
         # --BEHAVIOR-- adminPageHelpBlock
-        $GLOBALS['core']->callBehavior('adminPageHelpBlock', $args);
+        $core->callBehavior('adminPageHelpBlock', $args);
 
         if (empty($args)) {
             return;
@@ -749,13 +727,16 @@ class dcPage
 
     public static function jsUtil()
     {
-        return self::jsLoad($GLOBALS['core']->blog->getPF('util.js'));
+        $core = self::getCore();
+        return self::jsLoad($core->blog->getPF('util.js'));
     }
 
     public static function jsToggles()
     {
-        if ($GLOBALS['core']->auth->user_prefs->toggles) {
-            $unfolded_sections = explode(',', $GLOBALS['core']->auth->user_prefs->toggles->unfolded_sections);
+        $core = self::getCore();
+
+        if ($core->auth->user_prefs->toggles) {
+            $unfolded_sections = explode(',', $core->auth->user_prefs->toggles->unfolded_sections);
             foreach ($unfolded_sections as $k => &$v) {
                 if ($v == '') {
                     unset($unfolded_sections[$k]);
@@ -773,8 +754,10 @@ class dcPage
 
     public static function jsCommon()
     {
+        $core = self::getCore();
+
         $mute_or_no = '';
-        if (empty($GLOBALS['core']->blog) || $GLOBALS['core']->blog->settings->system->jquery_migrate_mute) {
+        if (empty($core->blog) || $core->blog->settings->system->jquery_migrate_mute) {
             $mute_or_no .=
                 '<script type="text/javascript">' . "\n" .
                 'jQuery.migrateMute = true;' . "\n" .
@@ -793,7 +776,7 @@ class dcPage
         '<script type="text/javascript">' . "\n" .
         'jsToolBar = {}, jsToolBar.prototype = { elements : {} };' . "\n" .
 
-        self::jsVar('dotclear.nonce', $GLOBALS['core']->getNonce()) .
+        self::jsVar('dotclear.nonce', $core->getNonce()) .
 
         self::jsVar('dotclear.img_plus_src', 'images/expand.png') .
         self::jsVar('dotclear.img_plus_txt', '►') .
@@ -1028,6 +1011,8 @@ class dcPage
 
     public static function jsUpload($params = [], $base_url = null)
     {
+        $core = self::getCore();
+
         if (!$base_url) {
             $base_url = path::clean(dirname(preg_replace('/(\?.*$)?/', '', $_SERVER['REQUEST_URI']))) . '/';
         }
@@ -1035,7 +1020,7 @@ class dcPage
         $params = array_merge($params, [
             'sess_id=' . session_id(),
             'sess_uid=' . $_SESSION['sess_browser_uid'],
-            'xd_check=' . $GLOBALS['core']->getNonce()
+            'xd_check=' . $core->getNonce()
         ]);
 
         return
@@ -1155,12 +1140,14 @@ class dcPage
 
     public static function getPF($file)
     {
-        return $GLOBALS['core']->adminurl->get('load.plugin.file', ['pf' => $file]);
+        $core = self::getCore();
+        return $core->adminurl->get('load.plugin.file', ['pf' => $file]);
     }
 
     public static function getVF($file)
     {
-        return $GLOBALS['core']->adminurl->get('load.var.file', ['vf' => $file]);
+        $core = self::getCore();
+        return $core->adminurl->get('load.var.file', ['vf' => $file]);
     }
 
     public static function setXFrameOptions($headers, $origin = null)

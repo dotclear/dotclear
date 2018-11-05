@@ -164,7 +164,8 @@ body > script {
 /* HTML5 for old browsers */
 article, aside, details, figcaption, figure, footer,
 header, hgroup, main, nav, section, summary {
-  display: block; }
+  display: block;
+  }
 
 audio, canvas, video {
   display: inline-block; }
@@ -643,7 +644,8 @@ a.site-title__link:visited {
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 1px; }
+  width: 1px;
+  }
 
 .footer__widgets .widget {
   margin-top: 1em; }
