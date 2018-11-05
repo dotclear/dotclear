@@ -1,7 +1,7 @@
 /*global $, dotclear, jsToolBar */
 'use strict';
 
-dotclear.postExpander = function(line) {
+dotclear.widgetExpander = function(line) {
 
   const title = $(line).find('.widget-name');
   title.find('.form-note').remove();
@@ -21,16 +21,16 @@ dotclear.postExpander = function(line) {
   b.appendChild(t);
   b.onclick = function(e) {
     e.preventDefault();
-    dotclear.viewPostContent($(this).parents('li'));
+    dotclear.viewWidgetContent($(this).parents('li'));
   };
   link.click(function(e) {
     e.preventDefault();
-    dotclear.viewPostContent($(this).parents('li'));
+    dotclear.viewWidgetContent($(this).parents('li'));
   });
   title.prepend(b);
 };
 
-dotclear.viewPostContent = function(line, action) {
+dotclear.viewWidgetContent = function(line, action) {
   action = action || 'toogle';
   const img = line.find('.details-cmd');
   const isopen = img.attr('aria-label') == dotclear.img_plus_alt;
@@ -98,8 +98,8 @@ $(function() {
 
   // plier/déplier
   $('#dndnav > li, #dndextra > li, #dndcustom > li').each(function() {
-    dotclear.postExpander(this);
-    dotclear.viewPostContent($(this), 'close');
+    dotclear.widgetExpander(this);
+    dotclear.viewWidgetContent($(this), 'close');
   });
 
   // remove
