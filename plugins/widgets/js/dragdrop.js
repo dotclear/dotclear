@@ -52,9 +52,9 @@ $(function() {
       reorder(ul);
 
       // expand
-      if (widget.find('img.expand').length == 0) {
-        dotclear.postExpander(widget);
-        dotclear.viewPostContent(widget, 'close');
+      if (widget.find('.details-cmd').length == 0) {
+        dotclear.widgetExpander(widget);
+        dotclear.viewWidgetContent(widget, 'close');
       }
     }
   });
