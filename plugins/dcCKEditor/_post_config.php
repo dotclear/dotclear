@@ -255,8 +255,8 @@ if (!empty($extraPlugins) && count($extraPlugins) > 0) {
     });
 
     CKEDITOR.on('instanceReady',function(e) {
-        if (typeof dotclear_htmlFontSize !== 'undefined') {
-            e.editor.document.$.documentElement.style.setProperty('--html-font-size',dotclear_htmlFontSize);
+        if (dotclear && dotclear.data && dotclear.data.htmlFontSize) {
+            e.editor.document.$.documentElement.style.setProperty('--html-font-size',dotclear.data.htmlFontSize);
         }
 
         if ($('label[for="post_excerpt"] input').attr('aria-label') == dotclear.img_minus_alt) {
