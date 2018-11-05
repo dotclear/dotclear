@@ -350,6 +350,7 @@ class dcPage
     protected static function getNotification($n)
     {
         global $core;
+
         $tag = (isset($n['divtag']) && $n['divtag']) ? 'div' : 'p';
         $ts  = '';
         if (!isset($n['with_ts']) || ($n['with_ts'] == true)) {
@@ -538,6 +539,7 @@ class dcPage
     public static function breadcrumb($elements = null, $options = [])
     {
         global $core;
+
         $with_home_link = isset($options['home_link']) ? $options['home_link'] : true;
         $hl             = isset($options['hl']) ? $options['hl'] : true;
         $hl_pos         = isset($options['hl_pos']) ? $options['hl_pos'] : -1;
@@ -747,7 +749,7 @@ class dcPage
 
     public static function jsUtil()
     {
-        return self::jsLoad($core->blog->getPF('util.js'));
+        return self::jsLoad($GLOBALS['core']->blog->getPF('util.js'));
     }
 
     public static function jsToggles()
