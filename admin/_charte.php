@@ -33,7 +33,6 @@ if ($core->auth->user_prefs->interface->htmlfontsize) {
 }
 // Set some JSON data
 echo dcUtils::jsJson('dotclear_init', $js);
-echo dcPage::jsUtil();
 ?>
     <script type="text/javascript" src="js/jquery/jquery.js"></script>
     <script type="text/javascript" src="js/jquery/jquery-ui.custom.js"></script>

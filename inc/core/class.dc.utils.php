@@ -136,8 +136,7 @@ class dcUtils
 
     public static function jsJson($id, $vars)
     {
-        // Use echo dcUtils::jsLoad($core->blog->getPF('util.js')); to use the JS getData() decoder
-        // or echo dcPage::jsUtil(); in admin mode
+        // Use echo dcUtils::jsLoad($core->blog->getPF('util.js')); to use the JS getData() decoder in public mode
         $ret = '<script type="application/json" id="' . html::escapeHTML($id) . '-data">' . "\n" .
             json_encode($vars, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES) . "\n" . '</script>';
         return $ret;
