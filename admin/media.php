@@ -374,7 +374,7 @@ if ($dir && !empty($_POST['newdir'])) {
         $core->media->makeDir($_POST['newdir']);
         dcPage::addSuccessNotice(sprintf(
             __('Directory "%s" has been successfully created.'),
-            html::escapeHTML($_POST['newdir']))
+            html::escapeHTML(files::tidyFileName($_POST['newdir'])))
         );
         $core->adminurl->redirect('admin.media', $page_url_params);
     } catch (Exception $e) {
@@ -731,7 +731,7 @@ if ($select) {
 if (!defined('DC_SHOW_HIDDEN_DIRS') || (DC_SHOW_HIDDEN_DIRS == false)) {
     for ($i = count($dir['dirs']) - 1; $i >= 0; $i--) {
         if ($dir['dirs'][$i]->d) {
-            if (strpos($dir['dirs'][$i]->relname, '.') !== false) {
+            if (strpos($dir['dirs'][$i]->basename, '.') === 0) {
                 unset($dir['dirs'][$i]);
             }
         }
