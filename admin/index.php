@@ -378,10 +378,10 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
             'extra_html' => 'required placeholder="' . __('Title') . '"'
         ]) .
         '</p>' .
-        '<p class="area"><label class="required" ' .
+        '<div class="area"><label class="required" ' .
         'for="post_content"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Content:') . '</label> ' .
         form::textarea('post_content', 50, 10, ['extra_html' => 'required placeholder="' . __('Content') . '"']) .
-        '</p>' .
+        '</div>' .
         '<p><label for="cat_id" class="classic">' . __('Category:') . '</label> ' .
         form::combo('cat_id', $categories_combo) . '</p>' .
         ($core->auth->check('categories', $core->blog->id)

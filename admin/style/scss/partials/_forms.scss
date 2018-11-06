@@ -220,8 +220,11 @@ label.bold {
   font-weight: bold;
   margin-top: 2em;
 }
-label.area, p.area {
+label.area, p.area, div.area {
   width: inherit !important;
+}
+div.area {
+  margin-bottom: 1em;
 }
 p.field {
   position: relative;
