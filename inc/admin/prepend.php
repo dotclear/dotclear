@@ -222,6 +222,7 @@ if ($core->auth->userID() && $core->blog !== null) {
     $user_ui_nofavmenu = $core->auth->user_prefs->interface->nofavmenu;
 
     $core->favs = new dcFavorites($core);
+    $core->notices = new dcNotices($core);
 
     # [] : Title, URL, small icon, large icon, permissions, id, class
     # NB : '*' in permissions means any, null means super admin only

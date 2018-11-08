@@ -98,7 +98,6 @@ jQuery.fn.toggleWithLegend = function(target, s) {
     img_off_alt: dotclear.img_minus_alt,
     unfolded_sections: dotclear.unfolded_sections,
     hide: true,
-    speed: 0,
     legend_click: false,
     fn: false, // A function called on first display,
     user_pref: false,
@@ -116,8 +115,7 @@ jQuery.fn.toggleWithLegend = function(target, s) {
   if (p.user_pref && p.unfolded_sections !== undefined && (p.user_pref in p.unfolded_sections)) {
     p.hide = p.reverse_user_pref;
   }
-  const toggle = function(i, speed) {
-    speed = speed || 0;
+  const toggle = function(i) {
     const b = $(i).get(0);
     if (p.hide) {
       b.firstChild.data = p.img_on_txt;
@@ -173,7 +171,7 @@ jQuery.fn.toggleWithLegend = function(target, s) {
           expires: -1
         });
       }
-      toggle(b, p.speed);
+      toggle(b);
       e.preventDefault();
       return false;
     });
