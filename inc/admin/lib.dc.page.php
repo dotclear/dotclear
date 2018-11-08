@@ -16,12 +16,6 @@ class dcPage
     private static $loaded_js     = [];
     private static $loaded_css    = [];
     private static $xframe_loaded = false;
-    private static $N_TYPES       = [
-        "success" => "success",
-        "warning" => "warning-msg",
-        "error"   => "error",
-        "message" => "message",
-        "static"  => "static-msg"];
 
     private static function getCore()
     {
@@ -259,66 +253,19 @@ class dcPage
         echo $breadcrumb;
 
         // Display notices and errors
-        echo self::notices();
+        echo $core->notices->getNotices();
     }
 
     public static function notices()
     {
         $core = self::getCore();
-        static $error_displayed = false;
-
-        $res = '';
-
-        // return error messages if any
-        if ($core->error->flag() && !$error_displayed) {
-
-            # --BEHAVIOR-- adminPageNotificationError
-            $notice_error = $core->callBehavior('adminPageNotificationError', $core, $core->error);
-
-            if (isset($notice_error) && !empty($notice_error)) {
-                $res .= $notice_error;
-            } else {
-                $res .= '<div class="error"><p>' .
-                '<strong>' . (count($core->error->getErrors()) > 1 ? __('Errors:') : __('Error:')) . '</strong>' .
-                '</p>' . $core->error->toHTML() . '</div>';
-            }
-            $error_displayed = true;
-        }
-
-        // return notices if any
-        if (isset($_SESSION['notifications'])) {
-            foreach ($_SESSION['notifications'] as $notification) {
-
-                # --BEHAVIOR-- adminPageNotification
-                $notice = $core->callBehavior('adminPageNotification', $core, $notification);
-
-                $res .= (isset($notice) && !empty($notice) ? $notice : self::getNotification($notification));
-            }
-            unset($_SESSION['notifications']);
-        }
-        return $res;
+        return $core->notices->getNotices();
     }
 
     public static function addNotice($type, $message, $options = [])
     {
-        if (isset(self::$N_TYPES[$type])) {
-            $class = self::$N_TYPES[$type];
-        } else {
-            $class = $type;
-        }
-        if (isset($_SESSION['notifications']) && is_array($_SESSION['notifications'])) {
-            $notifications = $_SESSION['notifications'];
-        } else {
-            $notifications = [];
-        }
-
-        $n = array_merge($options, ['class' => $class, 'ts' => time(), 'text' => $message]);
-        if ($type != "static") {
-            $notifications[] = $n;
-        } else {
-            array_unshift($notifications, $n);
-        }
-        $_SESSION['notifications'] = $notifications;
+        $core = self::getCore();
+        $core->notices->addNotice($type, $message, $options);
     }
 
     public static function addSuccessNotice($message, $options = [])
@@ -334,19 +281,6 @@ class dcPage
     public static function addErrorNotice($message, $options = [])
     {
         self::addNotice("error", $message, $options);
-    }
-
-    protected static function getNotification($n)
-    {
-        $core = self::getCore();
-
-        $tag = (isset($n['divtag']) && $n['divtag']) ? 'div' : 'p';
-        $ts  = '';
-        if (!isset($n['with_ts']) || ($n['with_ts'] == true)) {
-            $ts = dt::str(__('[%H:%M:%S]'), $n['ts'], $core->auth->getInfo('user_tz')) . ' ';
-        }
-        $res = '<' . $tag . ' class="' . $n['class'] . '" role="alert">' . $ts . $n['text'] . '</' . $tag . '>';
-        return $res;
     }
 
     public static function close()
@@ -494,7 +428,7 @@ class dcPage
         echo $breadcrumb;
 
         // Display notices and errors
-        echo self::notices();
+        echo $core->notices->getNotices();
     }
 
     public static function closePopup()
@@ -540,17 +474,7 @@ class dcPage
     public static function message($msg, $timestamp = true, $div = false, $echo = true, $class = 'message')
     {
         $core = self::getCore();
-
-        $res = '';
-        if ($msg != '') {
-            $res = ($div ? '<div class="' . $class . '">' : '') . '<p' . ($div ? '' : ' class="' . $class . '"') . '>' .
-                ($timestamp ? dt::str(__('[%H:%M:%S]'), null, $core->auth->getInfo('user_tz')) . ' ' : '') . $msg .
-                '</p>' . ($div ? '</div>' : '');
-            if ($echo) {
-                echo $res;
-            }
-        }
-        return $res;
+        return $core->notices->message($msg, $timestamp, $div, $echo, $class);
     }
 
     public static function success($msg, $timestamp = true, $div = false, $echo = true)

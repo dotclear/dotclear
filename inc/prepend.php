@@ -64,6 +64,7 @@ $__autoload['dcUpgrade'] = dirname(__FILE__) . '/dbschema/upgrade.php';
 
 $__autoload['dcMenu']                = dirname(__FILE__) . '/admin/class.dc.menu.php';
 $__autoload['dcFavorites']           = dirname(__FILE__) . '/admin/class.dc.favorites.php';
+$__autoload['dcNotices']             = dirname(__FILE__) . '/admin/class.dc.notices.php';
 $__autoload['dcPage']                = dirname(__FILE__) . '/admin/lib.dc.page.php';
 $__autoload['adminGenericList']      = dirname(__FILE__) . '/admin/lib.pager.php';
 $__autoload['adminPostList']         = dirname(__FILE__) . '/admin/lib.pager.php';
