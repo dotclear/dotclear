@@ -514,3 +514,6 @@ datePicker.prototype = {
     this.target.parentNode.insertBefore(imgE, this.target.nextSibling);
   }
 };
+
+// Get some DATA
+Object.assign(datePicker.prototype, getData('date_picker'));
