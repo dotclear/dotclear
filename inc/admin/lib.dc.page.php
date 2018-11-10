@@ -105,8 +105,8 @@ class dcPage
 
                                                                                 // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
                                                                                 // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
-            $csp_prefix = $core->con->driver() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
-            $csp_suffix = $core->con->driver() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
+            $csp_prefix = $core->con->syntax() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks syntax
+            $csp_suffix = $core->con->syntax() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks syntax
 
             $csp['default-src'] = $core->blog->settings->system->csp_admin_default ?:
             $csp_prefix . "'self'" . $csp_suffix;
@@ -126,6 +126,9 @@ class dcPage
             # Cope with media display in media manager (via public URL)
             if (!is_null($core->media)) {
                 $csp['img-src'] .= ' ' . parse_url($core->media->root_url, PHP_URL_HOST);
+            } elseif (!is_null($core->blog->host)) {
+                // Let's try with the blog URL
+                $csp['img-src'] .= ' ' . parse_url($core->blog->host, PHP_URL_HOST);
             }
             # Allow everything in iframe (used by editors to preview public content)
             $csp['child-src'] = "*";
