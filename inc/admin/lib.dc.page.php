@@ -54,7 +54,7 @@ class dcPage
     public static function open($title = '', $head = '', $breadcrumb = '', $options = [])
     {
         $core = self::getCore();
-        $js = [];
+        $js   = [];
 
         # List of user's blogs
         if ($core->auth->getBlogCount() == 1 || $core->auth->getBlogCount() > 20) {
@@ -72,11 +72,8 @@ class dcPage
             while ($rs_blogs->fetch()) {
                 $blogs[html::escapeHTML($rs_blogs->blog_name . ' - ' . $rs_blogs->blog_url)] = $rs_blogs->blog_id;
             }
-            $blog_box =
-            '<p><label for="switchblog" class="classic">' .
-            __('Blogs:') . '</label> ' .
-            $core->formNonce() .
-            form::combo('switchblog', $blogs, $core->blog->id) .
+            $blog_box = '<p><label for="switchblog" class="classic">' . __('Blogs:') . '</label> ' .
+            $core->formNonce() . form::combo('switchblog', $blogs, $core->blog->id) .
             '<input type="submit" value="' . __('ok') . '" class="hidden-if-js" /></p>';
         }
 
@@ -189,7 +186,7 @@ class dcPage
         if ($core->auth->user_prefs->interface->htmlfontsize) {
             $js['htmlFontSize'] = $core->auth->user_prefs->interface->htmlfontsize;
         }
-        $js['hideMoreInfo'] = (boolean) $core->auth->user_prefs->interface->hidemoreinfo;
+        $js['hideMoreInfo']   = (boolean) $core->auth->user_prefs->interface->hidemoreinfo;
         $js['showAjaxLoader'] = (boolean) $core->auth->user_prefs->interface->showajaxloader;
 
         $core->auth->user_prefs->addWorkspace('accessibility');
@@ -259,28 +256,43 @@ class dcPage
         echo $core->notices->getNotices();
     }
 
+    /**
+    @deprecated Please use $core->notices->getNotices()
+     **/
     public static function notices()
     {
         $core = self::getCore();
         return $core->notices->getNotices();
     }
 
+    /**
+    @deprecated Please use $core->notices->addNotice()
+     **/
     public static function addNotice($type, $message, $options = [])
     {
         $core = self::getCore();
         $core->notices->addNotice($type, $message, $options);
     }
 
+    /**
+    @deprecated Please use $core->notices->addSuccessNotice()
+     **/
     public static function addSuccessNotice($message, $options = [])
     {
         self::addNotice("success", $message, $options);
     }
 
+    /**
+    @deprecated Please use $core->notices->addWarningNotice()
+     **/
     public static function addWarningNotice($message, $options = [])
     {
         self::addNotice("warning", $message, $options);
     }
 
+    /**
+    @deprecated Please use $core->notices->addErrorNotice()
+     **/
     public static function addErrorNotice($message, $options = [])
     {
         self::addNotice("error", $message, $options);
@@ -301,7 +313,7 @@ class dcPage
         $menu = &$GLOBALS['_menu'];
 
         echo
-        "</div>\n" . // End of #content
+        "</div>\n" .  // End of #content
         "</main>\n" . // End of #main
 
         '<nav id="main-menu" role="navigation">' . "\n" .
@@ -362,7 +374,7 @@ class dcPage
     public static function openPopup($title = '', $head = '', $breadcrumb = '')
     {
         $core = self::getCore();
-        $js = [];
+        $js   = [];
 
         # Display
         header('Content-Type: text/html; charset=UTF-8');
@@ -380,8 +392,8 @@ class dcPage
         '  <meta charset="UTF-8" />' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
         '  <title>' . $title . ' - ' . html::escapeHTML($core->blog->name) . ' - ' . html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n" .
-        '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
-        '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
+            '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
+            '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
 
         if ($core->auth->user_prefs->interface->darkmode) {
             $js['darkMode'] = 1;
@@ -398,7 +410,7 @@ class dcPage
         if ($core->auth->user_prefs->interface->htmlfontsize) {
             $js['htmlFontSize'] = $core->auth->user_prefs->interface->htmlfontsize;
         }
-        $js['hideMoreInfo'] = (boolean) $core->auth->user_prefs->interface->hidemoreinfo;
+        $js['hideMoreInfo']   = (boolean) $core->auth->user_prefs->interface->hidemoreinfo;
         $js['showAjaxLoader'] = (boolean) $core->auth->user_prefs->interface->showajaxloader;
 
         $core->auth->user_prefs->addWorkspace('accessibility');
@@ -437,9 +449,9 @@ class dcPage
     public static function closePopup()
     {
         echo
-        "</div>\n" . // End of #content
+        "</div>\n" .  // End of #content
         "</main>\n" . // End of #main
-        "</div>\n" . // End of #wrapper
+        "</div>\n" .  // End of #wrapper
 
         '<p id="gototop"><a href="#wrapper">' . __('Page top') . '</a></p>' . "\n" .
 
@@ -474,17 +486,26 @@ class dcPage
         return $res;
     }
 
+    /**
+    @deprecated Please use $core->notices->message()
+     **/
     public static function message($msg, $timestamp = true, $div = false, $echo = true, $class = 'message')
     {
         $core = self::getCore();
         return $core->notices->message($msg, $timestamp, $div, $echo, $class);
     }
 
+    /**
+    @deprecated Please use $core->notices->success()
+     **/
     public static function success($msg, $timestamp = true, $div = false, $echo = true)
     {
         return self::message($msg, $timestamp, $div, $echo, "success");
     }
 
+    /**
+    @deprecated Please use $core->notices->warning()
+     **/
     public static function warning($msg, $timestamp = true, $div = false, $echo = true)
     {
         return self::message($msg, $timestamp, $div, $echo, "warning-msg");
@@ -646,6 +667,11 @@ class dcPage
         $ret .= "</script>\n";
 
         return $ret;
+    }
+
+    public static function jsJson($id, $vars)
+    {
+        return dcUtils::jsJson($id, $vars);
     }
 
     public static function jsToggles()
@@ -886,39 +912,39 @@ class dcPage
 
     public static function jsDatePicker()
     {
+        $js = [
+            'months'    => [
+                __('January'),
+                __('February'),
+                __('March'),
+                __('April'),
+                __('May'),
+                __('June'),
+                __('July'),
+                __('August'),
+                __('September'),
+                __('October'),
+                __('November'),
+                __('December')
+            ],
+            'days'      => [
+                __('Monday'),
+                __('Tuesday'),
+                __('Wednesday'),
+                __('Thursday'),
+                __('Friday'),
+                __('Saturday'),
+                __('Sunday')
+            ],
+            'img_src'   => 'images/date-picker.png',
+            'img_alt'   => __('Choose date'),
+            'close_msg' => __('close'),
+            'now_msg'   => __('now')
+        ];
         return
         self::cssLoad('style/date-picker.css') .
-        self::jsLoad('js/date-picker.js') .
-        '<script type="text/javascript">' . "\n" .
-
-        "datePicker.prototype.months[0] = '" . html::escapeJS(__('January')) . "'; " .
-        "datePicker.prototype.months[1] = '" . html::escapeJS(__('February')) . "'; " .
-        "datePicker.prototype.months[2] = '" . html::escapeJS(__('March')) . "'; " .
-        "datePicker.prototype.months[3] = '" . html::escapeJS(__('April')) . "'; " .
-        "datePicker.prototype.months[4] = '" . html::escapeJS(__('May')) . "'; " .
-        "datePicker.prototype.months[5] = '" . html::escapeJS(__('June')) . "'; " .
-        "datePicker.prototype.months[6] = '" . html::escapeJS(__('July')) . "'; " .
-        "datePicker.prototype.months[7] = '" . html::escapeJS(__('August')) . "'; " .
-        "datePicker.prototype.months[8] = '" . html::escapeJS(__('September')) . "'; " .
-        "datePicker.prototype.months[9] = '" . html::escapeJS(__('October')) . "'; " .
-        "datePicker.prototype.months[10] = '" . html::escapeJS(__('November')) . "'; " .
-        "datePicker.prototype.months[11] = '" . html::escapeJS(__('December')) . "'; " .
-
-        "datePicker.prototype.days[0] = '" . html::escapeJS(__('Monday')) . "'; " .
-        "datePicker.prototype.days[1] = '" . html::escapeJS(__('Tuesday')) . "'; " .
-        "datePicker.prototype.days[2] = '" . html::escapeJS(__('Wednesday')) . "'; " .
-        "datePicker.prototype.days[3] = '" . html::escapeJS(__('Thursday')) . "'; " .
-        "datePicker.prototype.days[4] = '" . html::escapeJS(__('Friday')) . "'; " .
-        "datePicker.prototype.days[5] = '" . html::escapeJS(__('Saturday')) . "'; " .
-        "datePicker.prototype.days[6] = '" . html::escapeJS(__('Sunday')) . "'; " .
-
-        "datePicker.prototype.img_src = 'images/date-picker.png'; " .
-        "datePicker.prototype.img_alt = '" . html::escapeJS(__('Choose date')) . "'; " .
-
-        "datePicker.prototype.close_msg = '" . html::escapeJS(__('close')) . "'; " .
-        "datePicker.prototype.now_msg = '" . html::escapeJS(__('now')) . "'; " .
-
-            "</script>\n";
+        self::jsJson('date_picker', $js) .
+        self::jsLoad('js/date-picker.js');
     }
 
     public static function jsToolBar()
