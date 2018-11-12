@@ -238,10 +238,8 @@ class dcUrlHandlers extends urlHandler
 
             $core->url->type = 'search';
 
-            $GLOBALS['_search'] = !empty($_GET['q']) ? rawurldecode($_GET['q']) : '';
+            $GLOBALS['_search'] = !empty($_GET['q']) ? html::escapeHTML(rawurldecode($_GET['q'])) : '';
             if ($GLOBALS['_search']) {
-                // Sanitize search string
-                $GLOBALS['_search'] = filter_var($GLOBALS['_search'], FILTER_SANITIZE_SPECIAL_CHARS);
                 $params = new ArrayObject(['search' => $GLOBALS['_search']]);
                 $core->callBehavior('publicBeforeSearchCount', $params);
                 $GLOBALS['_search_count'] = $core->blog->getPosts($params, true)->f(0);
