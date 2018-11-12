@@ -7,7 +7,7 @@
  * @copyright GPL-2.0-only
  */
 
-if (!defined('DC_ADMIN_CONTEXT')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {return;}
 
 /**
  * @brief Helper for admin list of modules.
