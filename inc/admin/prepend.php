@@ -8,6 +8,7 @@
  */
 
 define('DC_CONTEXT_ADMIN', true);
+define('DC_ADMIN_CONTEXT', true); // For dyslexic devs ;-)
 
 require_once dirname(__FILE__) . '/../prepend.php';
 
