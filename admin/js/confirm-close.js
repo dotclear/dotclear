@@ -1,4 +1,4 @@
-/*global chainHandler */
+/*global chainHandler, getData */
 'use strict';
 
 function confirmClose() {
@@ -158,3 +158,7 @@ chainHandler(window, 'onbeforeunload', function(event_) {
   }
   return false;
 });
+
+const confirm_close = getData('confirm_close');
+confirmClose.prototype.prompt = confirm_close.prompt;
+confirmClosePage = new confirmClose(...confirm_close.forms);

@@ -864,21 +864,13 @@ class dcPage
 
     public static function jsConfirmClose(...$args)
     {
-        if (count($args) > 0) {
-            foreach ($args as $k => $v) {
-                $args[$k] = "'" . html::escapeJS($v) . "'";
-            }
-            $params = implode(',', $args);
-        } else {
-            $params = '';
-        }
-
+        $js = [
+            'prompt' => __('You have unsaved changes.'),
+            'forms' => $args
+        ];
         return
-        self::jsLoad('js/confirm-close.js') .
-        '<script type="text/javascript">' . "\n" .
-        "confirmClosePage = new confirmClose(" . $params . "); " .
-        "confirmClose.prototype.prompt = '" . html::escapeJS(__('You have unsaved changes.')) . "'; " .
-            "</script>\n";
+        self::jsJson('confirm_close', $js) .
+        self::jsLoad('js/confirm-close.js');
     }
 
     public static function jsPageTabs($default = null)
