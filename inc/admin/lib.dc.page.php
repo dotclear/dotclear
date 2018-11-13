@@ -699,159 +699,105 @@ class dcPage
     {
         $core = self::getCore();
 
-        $mute_or_no = '';
-        if (empty($core->blog) || $core->blog->settings->system->jquery_migrate_mute) {
-            $mute_or_no .=
-                '<script type="text/javascript">' . "\n" .
-                'jQuery.migrateMute = true;' . "\n" .
-                "</script>\n";
-        }
+        $js = [
+            'nonce'               => $core->getNonce(),
+
+            'img_plus_src'        => 'images/expand.png',
+            'img_plus_txt'        => '►',
+            'img_plus_alt'        => __('uncover'),
+
+            'img_minus_src'       => 'images/hide.png',
+            'img_minus_txt'       => '▼',
+            'img_minus_alt'       => __('hide'),
+
+            'img_menu_on'         => 'images/menu_on.png',
+            'img_menu_off'        => 'images/menu_off.png',
+
+            'img_plus_theme_src'  => 'images/plus-theme.png',
+            'img_plus_theme_txt'  => '►',
+            'img_plus_theme_alt'  => __('uncover'),
+
+            'img_minus_theme_src' => 'images/minus-theme.png',
+            'img_minus_theme_txt' => '▼',
+            'img_minus_theme_alt' => __('hide')
+        ];
+
+        $js_msg = [
+            'help'                                 => __('Need help?'),
+            'new_window'                           => __('new window'),
+            'help_hide'                            => __('Hide'),
+            'to_select'                            => __('Select:'),
+            'no_selection'                         => __('no selection'),
+            'select_all'                           => __('select all'),
+            'invert_sel'                           => __('Invert selection'),
+            'website'                              => __('Web site:'),
+            'email'                                => __('Email:'),
+            'ip_address'                           => __('IP address:'),
+            'error'                                => __('Error:'),
+            'entry_created'                        => __('Entry has been successfully created.'),
+            'edit_entry'                           => __('Edit entry'),
+            'view_entry'                           => __('view entry'),
+            'confirm_delete_posts'                 => __("Are you sure you want to delete selected entries (%s)?"),
+            'confirm_delete_medias'                => __("Are you sure you want to delete selected medias (%d)?"),
+            'confirm_delete_categories'            => __("Are you sure you want to delete selected categories (%s)?"),
+            'confirm_delete_post'                  => __("Are you sure you want to delete this entry?"),
+            'click_to_unlock'                      => __("Click here to unlock the field"),
+            'confirm_spam_delete'                  => __('Are you sure you want to delete all spams?'),
+            'confirm_delete_comments'              => __('Are you sure you want to delete selected comments (%s)?'),
+            'confirm_delete_comment'               => __('Are you sure you want to delete this comment?'),
+            'cannot_delete_users'                  => __('Users with posts cannot be deleted.'),
+            'confirm_delete_user'                  => __('Are you sure you want to delete selected users (%s)?'),
+            'confirm_delete_blog'                  => __('Are you sure you want to delete selected blogs (%s)?'),
+            'confirm_delete_category'              => __('Are you sure you want to delete category "%s"?'),
+            'confirm_reorder_categories'           => __('Are you sure you want to reorder all categories?'),
+            'confirm_delete_media'                 => __('Are you sure you want to remove media "%s"?'),
+            'confirm_delete_directory'             => __('Are you sure you want to remove directory "%s"?'),
+            'confirm_extract_current'              => __('Are you sure you want to extract archive in current directory?'),
+            'confirm_remove_attachment'            => __('Are you sure you want to remove attachment "%s"?'),
+            'confirm_delete_lang'                  => __('Are you sure you want to delete "%s" language?'),
+            'confirm_delete_plugin'                => __('Are you sure you want to delete "%s" plugin?'),
+            'confirm_delete_plugins'               => __('Are you sure you want to delete selected plugins?'),
+            'use_this_theme'                       => __('Use this theme'),
+            'remove_this_theme'                    => __('Remove this theme'),
+            'confirm_delete_theme'                 => __('Are you sure you want to delete "%s" theme?'),
+            'confirm_delete_themes'                => __('Are you sure you want to delete selected themes?'),
+            'confirm_delete_backup'                => __('Are you sure you want to delete this backup?'),
+            'confirm_revert_backup'                => __('Are you sure you want to revert to this backup?'),
+            'zip_file_content'                     => __('Zip file content'),
+            'xhtml_validator'                      => __('XHTML markup validator'),
+            'xhtml_valid'                          => __('XHTML content is valid.'),
+            'xhtml_not_valid'                      => __('There are XHTML markup errors.'),
+            'warning_validate_no_save_content'     => __('Attention: an audit of a content not yet registered.'),
+            'confirm_change_post_format'           => __('You have unsaved changes. Switch post format will loose these changes. Proceed anyway?'),
+            'confirm_change_post_format_noconvert' => __("Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"),
+            'load_enhanced_uploader'               => __('Loading enhanced uploader, please wait.'),
+
+            'module_author'                        => __('Author:'),
+            'module_details'                       => __('Details'),
+            'module_support'                       => __('Support'),
+            'module_help'                          => __('Help:'),
+            'module_section'                       => __('Section:'),
+            'module_tags'                          => __('Tags:'),
+
+            'close_notice'                         => __('Hide this notice')
+        ];
 
         return
+        self::jsLoad('js/prepend.js') .
         self::jsLoad('js/jquery/jquery.js') .
-        $mute_or_no .
+        self::jsJson('dotclear_jquery', [
+            'mute' => (empty($core->blog) || $core->blog->settings->system->jquery_migrate_mute)
+        ]) .
+        self::jsLoad('js/jquery-mute.js') .
         self::jsLoad('js/jquery/jquery-migrate.js') .
         self::jsLoad('js/jquery/jquery.biscuit.js') .
+
+        self::jsJson('dotclear', $js) .
+        self::jsJson('dotclear_msg', $js_msg) .
+
         self::jsLoad('js/common.js') .
         self::jsLoad('js/services.js') .
-        self::jsLoad('js/prelude.js') .
-
-        '<script type="text/javascript">' . "\n" .
-        'jsToolBar = {}, jsToolBar.prototype = { elements : {} };' . "\n" .
-
-        self::jsVar('dotclear.nonce', $core->getNonce()) .
-
-        self::jsVar('dotclear.img_plus_src', 'images/expand.png') .
-        self::jsVar('dotclear.img_plus_txt', '►') .
-        self::jsVar('dotclear.img_plus_alt', __('uncover')) .
-        self::jsVar('dotclear.img_minus_src', 'images/hide.png') .
-        self::jsVar('dotclear.img_minus_txt', '▼') .
-        self::jsVar('dotclear.img_minus_alt', __('hide')) .
-        self::jsVar('dotclear.img_menu_on', 'images/menu_on.png') .
-        self::jsVar('dotclear.img_menu_off', 'images/menu_off.png') .
-
-        self::jsVar('dotclear.img_plus_theme_src', 'images/plus-theme.png') .
-        self::jsVar('dotclear.img_plus_theme_txt', '►') .
-        self::jsVar('dotclear.img_plus_theme_alt', __('uncover')) .
-        self::jsVar('dotclear.img_minus_theme_src', 'images/minus-theme.png') .
-        self::jsVar('dotclear.img_minus_theme_txt', '▼') .
-        self::jsVar('dotclear.img_minus_theme_alt', __('hide')) .
-
-        self::jsVar('dotclear.msg.help',
-            __('Need help?')) .
-        self::jsVar('dotclear.msg.new_window',
-            __('new window')) .
-        self::jsVar('dotclear.msg.help_hide',
-            __('Hide')) .
-        self::jsVar('dotclear.msg.to_select',
-            __('Select:')) .
-        self::jsVar('dotclear.msg.no_selection',
-            __('no selection')) .
-        self::jsVar('dotclear.msg.select_all',
-            __('select all')) .
-        self::jsVar('dotclear.msg.invert_sel',
-            __('Invert selection')) .
-        self::jsVar('dotclear.msg.website',
-            __('Web site:')) .
-        self::jsVar('dotclear.msg.email',
-            __('Email:')) .
-        self::jsVar('dotclear.msg.ip_address',
-            __('IP address:')) .
-        self::jsVar('dotclear.msg.error',
-            __('Error:')) .
-        self::jsVar('dotclear.msg.entry_created',
-            __('Entry has been successfully created.')) .
-        self::jsVar('dotclear.msg.edit_entry',
-            __('Edit entry')) .
-        self::jsVar('dotclear.msg.view_entry',
-            __('view entry')) .
-        self::jsVar('dotclear.msg.confirm_delete_posts',
-            __("Are you sure you want to delete selected entries (%s)?")) .
-        self::jsVar('dotclear.msg.confirm_delete_medias',
-            __("Are you sure you want to delete selected medias (%d)?")) .
-        self::jsVar('dotclear.msg.confirm_delete_categories',
-            __("Are you sure you want to delete selected categories (%s)?")) .
-        self::jsVar('dotclear.msg.confirm_delete_post',
-            __("Are you sure you want to delete this entry?")) .
-        self::jsVar('dotclear.msg.click_to_unlock',
-            __("Click here to unlock the field")) .
-        self::jsVar('dotclear.msg.confirm_spam_delete',
-            __('Are you sure you want to delete all spams?')) .
-        self::jsVar('dotclear.msg.confirm_delete_comments',
-            __('Are you sure you want to delete selected comments (%s)?')) .
-        self::jsVar('dotclear.msg.confirm_delete_comment',
-            __('Are you sure you want to delete this comment?')) .
-        self::jsVar('dotclear.msg.cannot_delete_users',
-            __('Users with posts cannot be deleted.')) .
-        self::jsVar('dotclear.msg.confirm_delete_user',
-            __('Are you sure you want to delete selected users (%s)?')) .
-        self::jsVar('dotclear.msg.confirm_delete_blog',
-            __('Are you sure you want to delete selected blogs (%s)?')) .
-        self::jsVar('dotclear.msg.confirm_delete_category',
-            __('Are you sure you want to delete category "%s"?')) .
-        self::jsVar('dotclear.msg.confirm_reorder_categories',
-            __('Are you sure you want to reorder all categories?')) .
-        self::jsVar('dotclear.msg.confirm_delete_media',
-            __('Are you sure you want to remove media "%s"?')) .
-        self::jsVar('dotclear.msg.confirm_delete_directory',
-            __('Are you sure you want to remove directory "%s"?')) .
-        self::jsVar('dotclear.msg.confirm_extract_current',
-            __('Are you sure you want to extract archive in current directory?')) .
-        self::jsVar('dotclear.msg.confirm_remove_attachment',
-            __('Are you sure you want to remove attachment "%s"?')) .
-        self::jsVar('dotclear.msg.confirm_delete_lang',
-            __('Are you sure you want to delete "%s" language?')) .
-        self::jsVar('dotclear.msg.confirm_delete_plugin',
-            __('Are you sure you want to delete "%s" plugin?')) .
-        self::jsVar('dotclear.msg.confirm_delete_plugins',
-            __('Are you sure you want to delete selected plugins?')) .
-        self::jsVar('dotclear.msg.use_this_theme',
-            __('Use this theme')) .
-        self::jsVar('dotclear.msg.remove_this_theme',
-            __('Remove this theme')) .
-        self::jsVar('dotclear.msg.confirm_delete_theme',
-            __('Are you sure you want to delete "%s" theme?')) .
-        self::jsVar('dotclear.msg.confirm_delete_themes',
-            __('Are you sure you want to delete selected themes?')) .
-        self::jsVar('dotclear.msg.confirm_delete_backup',
-            __('Are you sure you want to delete this backup?')) .
-        self::jsVar('dotclear.msg.confirm_revert_backup',
-            __('Are you sure you want to revert to this backup?')) .
-        self::jsVar('dotclear.msg.zip_file_content',
-            __('Zip file content')) .
-        self::jsVar('dotclear.msg.xhtml_validator',
-            __('XHTML markup validator')) .
-        self::jsVar('dotclear.msg.xhtml_valid',
-            __('XHTML content is valid.')) .
-        self::jsVar('dotclear.msg.xhtml_not_valid',
-            __('There are XHTML markup errors.')) .
-        self::jsVar('dotclear.msg.warning_validate_no_save_content',
-            __('Attention: an audit of a content not yet registered.')) .
-        self::jsVar('dotclear.msg.confirm_change_post_format',
-            __('You have unsaved changes. Switch post format will loose these changes. Proceed anyway?')) .
-        self::jsVar('dotclear.msg.confirm_change_post_format_noconvert',
-            __("Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?")) .
-        self::jsVar('dotclear.msg.load_enhanced_uploader',
-            __('Loading enhanced uploader, please wait.')) .
-
-        self::jsVar('dotclear.msg.module_author',
-            __('Author:')) .
-        self::jsVar('dotclear.msg.module_details',
-            __('Details')) .
-        self::jsVar('dotclear.msg.module_support',
-            __('Support')) .
-        self::jsVar('dotclear.msg.module_help',
-            __('Help:')) .
-        self::jsVar('dotclear.msg.module_section',
-            __('Section:')) .
-        self::jsVar('dotclear.msg.module_tags',
-            __('Tags:')) .
-
-        self::jsVar('dotclear.msg.close_notice',
-            __('Hide this notice')) .
-
-            "\n" .
-            "</script>\n";
+        self::jsLoad('js/prelude.js');
     }
 
     /**
@@ -866,7 +812,7 @@ class dcPage
     {
         $js = [
             'prompt' => __('You have unsaved changes.'),
-            'forms' => $args
+            'forms'  => $args
         ];
         return
         self::jsJson('confirm_close', $js) .

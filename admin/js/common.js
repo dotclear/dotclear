@@ -1,23 +1,6 @@
-/*global $, jQuery */
-/*exported chainHandler, getData */
+/*global $, jQuery, getData */
+/*exported chainHandler */
 'use strict';
-
-function getData(id, clear = true) {
-  let data = {};
-  // Read the JSON-formatted data from the DOM. (from https://mathiasbynens.be/notes/json-dom-csp)
-  // To be use with: <script type="application/json" id="myid-data">{"key":value, …}</script>
-  const element = document.getElementById(`${id}-data`);
-  if (element) {
-    try {
-      data = JSON.parse(element.textContent);
-      if (clear) {
-        // Clear the element’s contents
-        element.innerHTML = '';
-      }
-    } catch (e) {}
-  }
-  return data;
-}
 
 /* Get PreInit JSON data */
 const dotclear_init = getData('dotclear_init');
@@ -569,7 +552,8 @@ $(function() {
   // Store preinit DATA in dotclear object
   dotclear.data = dotclear_init;
   // Get other DATA
-  Object.assign(dotclear.data, getData('dotclear'));
+  Object.assign(dotclear, getData('dotclear'));
+  Object.assign(dotclear.msg, getData('dotclear_msg'));
 
   // remove class no-js from html tag; cf style/default.css for examples
   $('body').removeClass('no-js').addClass('with-js');

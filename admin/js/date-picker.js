@@ -1,3 +1,5 @@
+/*global getData */
+/*exported datePicker */
 'use strict';
 
 function datePicker(target) {
