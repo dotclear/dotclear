@@ -1010,13 +1010,14 @@ class dcPage
 
     public static function jsFilterControl($show = true)
     {
+        $js = [
+            'show_filters' => (boolean) $show,
+            'filter_posts_list' => __('Show filters and display options'),
+            'cancel_the_filter' => __('Cancel filters and display options')
+        ];
         return
-        self::jsLoad('js/filter-controls.js') .
-        '<script type="text/javascript">' . "\n" .
-        self::jsVar('dotclear.msg.show_filters', $show ? 'true' : 'false') . "\n" .
-        self::jsVar('dotclear.msg.filter_posts_list', __('Show filters and display options')) . "\n" .
-        self::jsVar('dotclear.msg.cancel_the_filter', __('Cancel filters and display options')) . "\n" .
-            "</script>";
+        self::jsJson('filter_controls', $js).
+        self::jsLoad('js/filter-controls.js');
     }
 
     public static function jsLoadCodeMirror($theme = '', $multi = true, $modes = ['css', 'htmlmixed', 'javascript', 'php', 'xml'])
