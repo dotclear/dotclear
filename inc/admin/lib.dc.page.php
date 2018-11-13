@@ -678,21 +678,18 @@ class dcPage
     {
         $core = self::getCore();
 
+        $js = [];
         if ($core->auth->user_prefs->toggles) {
             $unfolded_sections = explode(',', $core->auth->user_prefs->toggles->unfolded_sections);
             foreach ($unfolded_sections as $k => &$v) {
-                if ($v == '') {
-                    unset($unfolded_sections[$k]);
-                } else {
-                    $v = "'" . html::escapeJS($v) . "':true";
+                if ($v !== '') {
+                    $js[$unfolded_sections[$k]] = true;
                 }
             }
-        } else {
-            $unfolded_sections = [];
         }
-        return '<script type="text/javascript">' . "\n" .
-        'dotclear.unfolded_sections = {' . join(",", $unfolded_sections) . "};\n" .
-            "</script>\n";
+        return
+        self::jsJson('dotclear_toggles', $js) .
+        self::jsLoad('js/toggles.js');
     }
 
     public static function jsCommon()
