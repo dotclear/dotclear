@@ -966,31 +966,36 @@ class dcPage
             'xd_check=' . $core->getNonce()
         ]);
 
-        return
-        '<script type="text/javascript">' . "\n" .
-        "dotclear.jsUpload = {};\n" .
-        "dotclear.jsUpload.msg = {};\n" .
-        self::jsVar('dotclear.msg.enhanced_uploader_activate', __('Temporarily activate enhanced uploader')) .
-        self::jsVar('dotclear.msg.enhanced_uploader_disable', __('Temporarily disable enhanced uploader')) .
-        self::jsVar('dotclear.jsUpload.msg.limit_exceeded', __('Limit exceeded.')) .
-        self::jsVar('dotclear.jsUpload.msg.size_limit_exceeded', __('File size exceeds allowed limit.')) .
-        self::jsVar('dotclear.jsUpload.msg.canceled', __('Canceled.')) .
-        self::jsVar('dotclear.jsUpload.msg.http_error', __('HTTP Error:')) .
-        self::jsVar('dotclear.jsUpload.msg.error', __('Error:')) .
-        self::jsVar('dotclear.jsUpload.msg.choose_file', __('Choose file')) .
-        self::jsVar('dotclear.jsUpload.msg.choose_files', __('Choose files')) .
-        self::jsVar('dotclear.jsUpload.msg.cancel', __('Cancel')) .
-        self::jsVar('dotclear.jsUpload.msg.clean', __('Clean')) .
-        self::jsVar('dotclear.jsUpload.msg.upload', __('Upload')) .
-        self::jsVar('dotclear.jsUpload.msg.send', __('Send')) .
-        self::jsVar('dotclear.jsUpload.msg.file_successfully_uploaded', __('File successfully uploaded.')) .
-        self::jsVar('dotclear.jsUpload.msg.no_file_in_queue', __('No file in queue.')) .
-        self::jsVar('dotclear.jsUpload.msg.file_in_queue', __('1 file in queue.')) .
-        self::jsVar('dotclear.jsUpload.msg.files_in_queue', __('%d files in queue.')) .
-        self::jsVar('dotclear.jsUpload.msg.queue_error', __('Queue error:')) .
-        self::jsVar('dotclear.jsUpload.base_url', $base_url) .
-        "</script>\n" .
+        $js_msg = [
+            'enhanced_uploader_activate' => __('Temporarily activate enhanced uploader'),
+            'enhanced_uploader_disable'  => __('Temporarily disable enhanced uploader')
+        ];
+        $js = [
+            'msg'      => [
+                'limit_exceeded'             => __('Limit exceeded.'),
+                'size_limit_exceeded'        => __('File size exceeds allowed limit.'),
+                'canceled'                   => __('Canceled.'),
+                'http_error'                 => __('HTTP Error:'),
+                'error'                      => __('Error:'),
+                'choose_file'                => __('Choose file'),
+                'choose_files'               => __('Choose files'),
+                'cancel'                     => __('Cancel'),
+                'clean'                      => __('Clean'),
+                'upload'                     => __('Upload'),
+                'send'                       => __('Send'),
+                'file_successfully_uploaded' => __('File successfully uploaded.'),
+                'no_file_in_queue'           => __('No file in queue.'),
+                'file_in_queue'              => __('1 file in queue.'),
+                'files_in_queue'             => __('%d files in queue.'),
+                'queue_error'                => __('Queue error:')
+            ],
+            'base_url' => $base_url
+        ];
 
+        return
+        self::jsJson('file_upload', $js) .
+        self::jsJson('file_upload_msg', $js_msg) .
+        self::jsLoad('js/file-upload.js') .
         self::jsLoad('js/jquery/jquery-ui.custom.js') .
         self::jsLoad('js/jsUpload/tmpl.js') .
         self::jsLoad('js/jsUpload/template-upload.js') .
@@ -1011,12 +1016,12 @@ class dcPage
     public static function jsFilterControl($show = true)
     {
         $js = [
-            'show_filters' => (boolean) $show,
+            'show_filters'      => (boolean) $show,
             'filter_posts_list' => __('Show filters and display options'),
             'cancel_the_filter' => __('Cancel filters and display options')
         ];
         return
-        self::jsJson('filter_controls', $js).
+        self::jsJson('filter_controls', $js) .
         self::jsLoad('js/filter-controls.js');
     }
 

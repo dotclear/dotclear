@@ -1,5 +1,5 @@
-/*global $, jQuery, getData */
-/*exported chainHandler */
+/*global $, jQuery */
+/*exported chainHandler, getData */
 'use strict';
 
 function getData(id, clear = true) {
@@ -17,7 +17,7 @@ function getData(id, clear = true) {
     } catch (e) {}
   }
   return data;
-};
+}
 
 /* Get PreInit JSON data */
 const dotclear_init = getData('dotclear_init');
