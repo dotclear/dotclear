@@ -883,17 +883,13 @@ class dcPage
 
     public static function jsPageTabs($default = null)
     {
-        if ($default) {
-            $default = "'" . html::escapeJS($default) . "'";
-        }
-
+        $js = [
+            'default' => $default
+        ];
         return
+        self::jsJson('page_tabs', $js) .
         self::jsLoad('js/jquery/jquery.pageTabs.js') .
-            '<script type="text/javascript">' . "\n" .
-            '$(function() {' . "\n" .
-            '   $.pageTabs(' . $default . ');' . "\n" .
-            '});' .
-            "</script>\n";
+        self::jsLoad('js/page-tabs.js');
     }
 
     public static function jsModal()
