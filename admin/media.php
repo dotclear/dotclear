@@ -139,9 +139,6 @@ try {
     }
     $core_media_writable = $core->media->writable();
     $dir                 = &$core->media->dir;
-    if (!$core_media_writable) {
-//        throw new Exception('you do not have sufficient permissions to write to this folder: ');
-    }
 } catch (Exception $e) {
     $core->error->add($e->getMessage());
 }
@@ -662,7 +659,7 @@ if ($popup) {
     echo dcPage::notices();
 }
 
-if (!$core_media_writable) {
+if (!$core_media_writable && !$core->error->flag()) {
     dcPage::warning(__('You do not have sufficient permissions to write to this folder.'));
 }
 
