@@ -49,7 +49,7 @@ class dcNotices
         $res = '';
 
         // return error messages if any
-        if ($this->core->error->flag() && !$error_displayed) {
+        if ($this->core->error->flag() && !$this->error_displayed) {
 
             # --BEHAVIOR-- adminPageNotificationError
             $notice_error = $this->core->callBehavior('adminPageNotificationError', $this->core, $this->core->error);
