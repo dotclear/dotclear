@@ -978,26 +978,22 @@ class dcPage
         return $ret;
     }
 
-    public static function jsRunCodeMirror($name, $id, $mode, $theme = '')
+    public static function jsRunCodeMirror($name, $id = null, $mode = null, $theme = '')
     {
-        $ret =
-            '<script type="text/javascript">' . "\n" .
-            'var ' . $name . ' = CodeMirror.fromTextArea(' . $id . ',{' . "\n" .
-            '   mode: "' . $mode . '",' . "\n" .
-            '   tabMode: "indent",' . "\n" .
-            '   lineWrapping: 1,' . "\n" .
-            '   lineNumbers: 1,' . "\n" .
-            '   matchBrackets: 1,' . "\n" .
-            '   autoCloseBrackets: 1,' . "\n" .
-            '   extraKeys: {"F11": function(cm) {cm.setOption("fullScreen",!cm.getOption("fullScreen"));}}';
-        if ($theme) {
-            $ret .=
-                ',' . "\n" .
-                '   theme: "' . $theme . '"';
+        if (is_array($name)) {
+            $js = $name;
+        } else {
+            $js = [[
+                'name'  => $name,
+                'id'    => $id,
+                'mode'  => $mode,
+                'theme' => $theme
+            ]];
         }
-        $ret .= "\n" .
-            '});' . "\n" .
-            '</script>';
+
+        $ret =
+        self::jsJson('codemirror', $js) .
+        self::jsLoad('js/codemirror.js');
         return $ret;
     }
 
