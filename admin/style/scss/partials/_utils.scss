@@ -7,6 +7,14 @@
   background-color: $main-menu-background;
 }
 
+.ui-sortable-handle {
+  border: 1px dashed currentColor !important;
+  border-radius: .75em !important;
+  & > .ui-sortable {
+//    border-color: $main-menu-border !important;
+  }
+}
+
 /* color-picker.js */
 
 .color-color-picker {
