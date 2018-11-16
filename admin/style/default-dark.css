@@ -2256,7 +2256,8 @@ span.ibw {
     height: 1.5em;
     fill: #86888c; }
   #dragndrop:checked + label .dragndrop-svg {
-    fill: #bee74b; }
+    fill: #bee74b;
+    background-color: var(--body-background); }
 
 #media_img_title_pattern {
   margin-right: 1em; }
@@ -3244,6 +3245,10 @@ ul.from-left {
 .sortable-area {
   border: 1px dashed currentColor;
   background-color: #4c4d4f; }
+
+.ui-sortable-handle {
+  border: 1px dashed currentColor !important;
+  border-radius: .75em !important; }
 
 /* color-picker.js */
 .color-color-picker {
