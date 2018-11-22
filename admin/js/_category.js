@@ -4,7 +4,7 @@
 $(function() {
   dotclear.hideLockable();
 
-  if ($.isFunction(jsToolBar)) {
+  if (typeof jsToolBar !== 'undefined' && $.isFunction(jsToolBar)) {
     const tbCategory = new jsToolBar(document.getElementById('cat_desc'));
     tbCategory.draw('xhtml');
   }
