@@ -32,7 +32,7 @@ $(function() {
   });
 
   // HTML text editor
-  if ($.isFunction(jsToolBar)) {
+  if (typeof jsToolBar !== 'undefined' && $.isFunction(jsToolBar)) {
     $('#blog_desc').each(function() {
       let tbWidgetText = new jsToolBar(this);
       tbWidgetText.context = 'blog_desc';
