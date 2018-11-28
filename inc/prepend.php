@@ -176,7 +176,9 @@ if (!defined('DC_ADMIN_SSL')) {
 if (defined('DC_FORCE_SCHEME_443') && DC_FORCE_SCHEME_443) {
     http::$https_scheme_on_443 = true;
 }
-
+if (defined('DC_REVERSE_PROXY') && DC_REVERSE_PROXY) {
+    http::$reverse_proxy = true;
+}
 if (!defined('DC_DBPERSIST')) {
     define('DC_DBPERSIST', false);
 }
