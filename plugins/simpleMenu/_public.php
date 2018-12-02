@@ -163,7 +163,7 @@ class tplSimpleMenu
                     ($item['class'] ? ' ' . $item['class'] : '') .
                     '">' .
                     '<a href="' . $href . '"' .
-                    (!empty($item['title']) ? ' title="' . $item['title'] . '"' : '') .
+                    (!empty($item['title']) ? ' title="'. $label ." - " . $item['title'] . '"' : '') .
                     (($targetBlank) ? ' target="_blank" rel="noopener noreferrer"' : '') . '>' .
                     '<span class="simple-menu-label">' . $item['label'] . '</span>' .
                     $item['span'] . '</a>' .
