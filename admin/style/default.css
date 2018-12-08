@@ -3246,7 +3246,7 @@ ul.from-left {
   border: 1px dashed currentColor;
   background-color: #f3f3f3; }
 
-.ui-sortable-handle {
+div.ui-sortable-handle {
   border: 1px dashed currentColor !important;
   border-radius: .75em !important; }
 
