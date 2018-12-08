@@ -7,7 +7,7 @@
   background-color: $main-menu-background;
 }
 
-.ui-sortable-handle {
+div.ui-sortable-handle {
   border: 1px dashed currentColor !important;
   border-radius: .75em !important;
   & > .ui-sortable {
