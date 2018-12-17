@@ -134,10 +134,15 @@ if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID')) {
             unset($_SESSION['media_manager_page']);
         }
 
-        # Removing switchblog from URL
-        $redir = $_SERVER['REQUEST_URI'];
-        $redir = preg_replace('/switchblog=(.*?)(&|$)/', '', $redir);
-        $redir = preg_replace('/\?$/', '', $redir);
+        if (!empty($_REQUEST['redir'])) {
+            # Keep context as far as possible
+            $redir = $_REQUEST['redir'];
+        } else {
+            # Removing switchblog from URL
+            $redir = $_SERVER['REQUEST_URI'];
+            $redir = preg_replace('/switchblog=(.*?)(&|$)/', '', $redir);
+            $redir = preg_replace('/\?$/', '', $redir);
+        }
         http::redirect($redir);
         exit;
     }
