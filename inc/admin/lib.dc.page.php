@@ -74,6 +74,7 @@ class dcPage
             }
             $blog_box = '<p><label for="switchblog" class="classic">' . __('Blogs:') . '</label> ' .
             $core->formNonce() . form::combo('switchblog', $blogs, $core->blog->id) .
+            form::hidden(['redir'], $_SERVER['REQUEST_URI']) .
             '<input type="submit" value="' . __('ok') . '" class="hidden-if-js" /></p>';
         }
 
