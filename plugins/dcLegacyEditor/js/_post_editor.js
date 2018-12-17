@@ -1,10 +1,14 @@
-/*global $, dotclear, jsToolBar */
+/*global $, dotclear, jsToolBar, getData */
 'use strict';
+
+// Get context
+Object.assign(dotclear, getData('legacy_editor_ctx'));
 
 $(function() {
   if ($('#edit-entry').length == 0) {
     return;
   }
+
   if (dotclear.legacy_editor_context === undefined ||
     dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context] === undefined) {
     return;

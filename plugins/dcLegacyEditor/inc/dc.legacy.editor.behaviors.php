@@ -25,14 +25,16 @@ class dcLegacyEditorBehaviors
     {
         if (empty($editor) || $editor != 'dcLegacyEditor') {return;}
 
+        $js = [
+            'legacy_editor_context' => $context,
+            'legacy_editor_syntax' => $syntax,
+            'legacy_editor_tags_context' => [$context => $tags]
+        ];
+
         return
         self::jsToolBar() .
-        dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/_post_editor.js')) .
-        '<script type="text/javascript">' . "\n" .
-        dcPage::jsVar('dotclear.legacy_editor_context', $context) .
-        dcPage::jsVar('dotclear.legacy_editor_syntax', $syntax) .
-        'dotclear.legacy_editor_tags_context = ' . sprintf('{%s:["%s"]};' . "\n", $context, implode('","', $tags)) . "\n" .
-            "</script>\n";
+        dcPage::jsJson('legacy_editor_ctx', $js) .
+        dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/_post_editor.js'));
     }
 
     public static function adminPopupMedia($editor = '')
@@ -58,7 +60,85 @@ class dcLegacyEditorBehaviors
 
     protected static function jsToolBar()
     {
+        $rtl = l10n::getTextDirection($GLOBALS['_lang']) == 'rtl' ? 'direction: rtl;' : '';
+        $css = <<<EOT
+body {
+    color: #000;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 2px;
+    border: none;
+    $rtl
+}
+code {
+    color: #666;
+    font-weight: bold;
+}
+body > p:first-child {
+    margin-top: 0;
+}
+EOT;
+        $js = [
+            'dialog_url'            => 'popup.php',
+            'iframe_css'            => $css,
+            'base_url'              => $GLOBALS['core']->blog->host,
+            'switcher_visual_title' => __('visual'),
+            'switcher_source_title' => __('source'),
+            'legend_msg'            => __('You can use the following shortcuts to format your text.'),
+            'elements'              => [
+                    'blocks' => ['options' => [
+                        'none' => __('-- none --'),
+                        'nonebis' => __('-- block format --'),
+                        'p' => __('Paragraph'),
+                        'h1' => __('Level 1 header'),
+                        'h2' => __('Level 2 header'),
+                        'h3' => __('Level 3 header'),
+                        'h4' => __('Level 4 header'),
+                        'h5' => __('Level 5 header'),
+                        'h6' => __('Level 6 header'),
+                    ]],
+
+                    'strong' => ['title' => __('Strong emphasis')],
+                    'em' => ['title' => __('Emphasis')],
+                    'ins' => ['title' => __('Inserted')],
+                    'del' => ['title' => __('Deleted')],
+                    'quote' => ['title' => __('Inline quote')],
+                    'code' => ['title' => __('Code')],
+                    'mark' => ['title' => __('Mark')],
+                    'br' => ['title' => __('Line break')],
+                    'blockquote' => ['title' => __('Blockquote')],
+                    'pre' => ['title' => __('Preformated text')],
+                    'ul' => ['title' => __('Unordered list')],
+                    'ol' => ['title' => __('Ordered list')],
+
+                    'link' => [
+                        'title' => __('Link'),
+                        'accesskey' => __('l'),
+                        'href_prompt' => __('URL?'),
+                        'hreflang_prompt' => __('Language?')
+                    ],
+
+                    'img' => [
+                        'title' => __('External image'),
+                        'src_prompt' => __('URL?')
+                    ],
+
+                    'img_select' => [
+                        'title' => __('Media chooser'),
+                        'accesskey' => __('m')
+                    ],
+
+                    'post_link' => ['title' => __('Link to an entry')],
+                    'removeFormat' => ['title' => __('Remove text formating')]
+            ],
+            'toolbar_bottom' => (boolean) isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('toolbar_bottom')
+        ];
+        if (!$GLOBALS['core']->auth->check('media,media_admin', $GLOBALS['core']->blog->id)) {
+            $js['elements']['img_select']['disabled'] = true;
+        }
+
         $res =
+        dcPage::jsJson('legacy_editor', $js) .
         dcPage::cssLoad(dcPage::getPF('dcLegacyEditor/css/jsToolBar/jsToolBar.css')) .
         dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/jsToolBar.js'));
 
@@ -68,75 +148,7 @@ class dcLegacyEditorBehaviors
 
         $res .=
         dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/jsToolBar.dotclear.js')) .
-        '<script type="text/javascript">' . "\n" .
-        "jsToolBar.prototype.dialog_url = 'popup.php'; " . "\n" .
-        "jsToolBar.prototype.iframe_css = '" .
-        'body {' .
-        '   color: #000;' .
-        '   background: #f9f9f9;' .
-        '   margin: 0;' .
-        '   padding: 2px;' .
-        '   border: none;' .
-        (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl' ? ' direction: rtl;' : '') .
-        '}' .
-        'code {' .
-        '   color: #666;' .
-        '   font-weight: bold;' .
-        '}' .
-        'body > p:first-child {' .
-        '   margin-top: 0;' .
-        '}' .
-        "'; " . "\n" .
-        "jsToolBar.prototype.base_url = '" . html::escapeJS($GLOBALS['core']->blog->host) . "'; " . "\n" .
-        "jsToolBar.prototype.switcher_visual_title = '" . html::escapeJS(__('visual')) . "'; " . "\n" .
-        "jsToolBar.prototype.switcher_source_title = '" . html::escapeJS(__('source')) . "'; " . "\n" .
-        "jsToolBar.prototype.legend_msg = '" .
-        html::escapeJS(__('You can use the following shortcuts to format your text.')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.blocks.options.none = '" . html::escapeJS(__('-- none --')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.blocks.options.nonebis = '" . html::escapeJS(__('-- block format --')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.blocks.options.p = '" . html::escapeJS(__('Paragraph')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.blocks.options.h1 = '" . html::escapeJS(__('Level 1 header')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.blocks.options.h2 = '" . html::escapeJS(__('Level 2 header')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.blocks.options.h3 = '" . html::escapeJS(__('Level 3 header')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.blocks.options.h4 = '" . html::escapeJS(__('Level 4 header')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.blocks.options.h5 = '" . html::escapeJS(__('Level 5 header')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.blocks.options.h6 = '" . html::escapeJS(__('Level 6 header')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.strong.title = '" . html::escapeJS(__('Strong emphasis')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.em.title = '" . html::escapeJS(__('Emphasis')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.ins.title = '" . html::escapeJS(__('Inserted')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.del.title = '" . html::escapeJS(__('Deleted')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.quote.title = '" . html::escapeJS(__('Inline quote')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.code.title = '" . html::escapeJS(__('Code')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.mark.title = '" . html::escapeJS(__('Mark')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.br.title = '" . html::escapeJS(__('Line break')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.blockquote.title = '" . html::escapeJS(__('Blockquote')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.pre.title = '" . html::escapeJS(__('Preformated text')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.ul.title = '" . html::escapeJS(__('Unordered list')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.ol.title = '" . html::escapeJS(__('Ordered list')) . "'; " . "\n" .
-
-        "jsToolBar.prototype.elements.link.title = '" . html::escapeJS(__('Link')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.link.accesskey = '" . html::escapeJS(__('l')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.link.href_prompt = '" . html::escapeJS(__('URL?')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.link.hreflang_prompt = '" . html::escapeJS(__('Language?')) . "'; " . "\n" .
-
-        "jsToolBar.prototype.elements.img.title = '" . html::escapeJS(__('External image')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.img.src_prompt = '" . html::escapeJS(__('URL?')) . "'; " . "\n" .
-
-        "jsToolBar.prototype.elements.img_select.title = '" . html::escapeJS(__('Media chooser')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.img_select.accesskey = '" . html::escapeJS(__('m')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.post_link.title = '" . html::escapeJS(__('Link to an entry')) . "'; " . "\n" .
-        "jsToolBar.prototype.elements.removeFormat = jsToolBar.prototype.elements.removeFormat || {}; " . "\n" .
-        "jsToolBar.prototype.elements.removeFormat.title = '" . html::escapeJS(__('Remove text formating')) . "'; " . "\n";
-
-        if (!$GLOBALS['core']->auth->check('media,media_admin', $GLOBALS['core']->blog->id)) {
-            $res .= "jsToolBar.prototype.elements.img_select.disabled = true;\n";
-        }
-
-        $res .= "jsToolBar.prototype.toolbar_bottom = " .
-            (isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('toolbar_bottom') ? 'true' : 'false') . ";\n";
-
-        $res .=
-            "</script>\n";
+        dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/jsToolBar.config.js'));
 
         return $res;
     }
