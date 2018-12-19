@@ -148,21 +148,22 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 
 # Dashboard drag'n'drop switch for its elements
 $core->auth->user_prefs->addWorkspace('accessibility');
-$dragndrop = '';
+$dragndrop      = '';
+$dragndrop_head = '';
+$dragndrop_msg  = [
+    'dragndrop_off' => __('Dashboard area\'s drag and drop is disabled'),
+    'dragndrop_on'  => __('Dashboard area\'s drag and drop is enabled')
+];
 if (!$core->auth->user_prefs->accessibility->nodragdrop) {
-    $dragndrop =
-    '<script type="text/javascript">' . "\n" .
-    dcPage::jsVar('dotclear.dragndrop_off', __('Dashboard area\'s drag and drop is disabled')) . "\n" .
-    dcPage::jsVar('dotclear.dragndrop_on', __('Dashboard area\'s drag and drop is enabled')) . "\n" .
-    "</script>\n" .
-    '<input type="checkbox" id="dragndrop" class="sr-only" title="' .
-        __('Dashboard area\'s drag and drop is disabled') . '" />' .
+    $dragndrop_head = dcPage::jsJson('dotclear_dragndrop', $dragndrop_msg);
+    $dragndrop      =
+    '<input type="checkbox" id="dragndrop" class="sr-only" title="' . $dragndrop_msg['dragndrop_off'] . '" />' .
     '<label for="dragndrop">' .
     '<svg aria-hidden="true" focusable="false" class="dragndrop-svg">' .
     '<use xlink:href="images/dragndrop.svg#mask"></use>' .
     '</svg>' .
-    '<span id="dragndrop-label" class="sr-only">' . __('Dashboard area\'s drag and drop is disabled') . '</span>' .
-    '</label>';
+    '<span id="dragndrop-label" class="sr-only">' . $dragndrop_msg['dragndrop_off'] . '</span>' .
+        '</label>';
 }
 
 /* DISPLAY
@@ -171,6 +172,7 @@ dcPage::open(__('Dashboard'),
     dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
     dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
     dcPage::jsLoad('js/_index.js') .
+    $dragndrop_head .
     $admin_post_behavior .
     # --BEHAVIOR-- adminDashboardHeaders
     $core->callBehavior('adminDashboardHeaders'),
