@@ -2319,7 +2319,7 @@ msgid "Simple menu"
 msgstr ""
 
 #: plugins/simpleMenu/_public.php:129 plugins/simpleMenu/_public.php:139
-msgid "the link will open a new window"
+msgid "new window"
 msgstr ""
 
 #: plugins/simpleMenu/_public.php:142

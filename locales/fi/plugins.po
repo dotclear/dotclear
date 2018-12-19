@@ -1620,7 +1620,7 @@ msgstr "Valitse kaikki"
 msgid "Simple menu"
 msgstr "Yksinkertainen valikko"
 
-msgid "the link will open a new window"
+msgid "new window"
 msgstr ""
 
 #, fuzzy

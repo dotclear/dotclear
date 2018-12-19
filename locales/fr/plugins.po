@@ -1632,8 +1632,8 @@ msgstr "Tout sélectionner"
 msgid "Simple menu"
 msgstr "Menu simple"
 
-msgid "the link will open a new window"
-msgstr "Ce lien s'ouvrira dans une nouvelle fenêtre"
+msgid "new window"
+msgstr "nouvelle fenêtre"
 
 msgid "Active page"
 msgstr "Page active"
