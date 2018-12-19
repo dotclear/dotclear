@@ -1,4 +1,4 @@
-/*global $, dotclear, jsToolBar */
+/*global $, dotclear, jsToolBar, getData */
 'use strict';
 
 dotclear.dbCommentsCount = function() {
@@ -248,6 +248,7 @@ $(function() {
     ];
     // Set or reset sortable depending on #dragndrop checbkox value
     $('#dragndrop').click(function() {
+      Object.assign(dotclear, getData('dotclear_dragndrop'));
       if ($(this).is(':checked')) {
         // Activate sorting feature
         areas.forEach(element => init_positions(element[0], element[1]));
