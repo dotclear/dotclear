@@ -126,7 +126,7 @@ class tplSimpleMenu
                 if ($m['descr']) {
                     if (($description == 'title' || $description == 'both') && $targetBlank) {
                         $title = html::escapeHTML(__($m['descr'])) . ' (' .
-                        __('the link will open a new window') . ')';
+                        __('new window') . ')';
                     } elseif ($description == 'title' || $description == 'both') {
                         $title = html::escapeHTML(__($m['descr']));
                     }
@@ -136,7 +136,7 @@ class tplSimpleMenu
                 }
 
                 if (empty($title) && $targetBlank) {
-                    $title = __('the link will open a new window');
+                    $title = __('new window');
                 }
                 if ($active && !$targetBlank) {
                     $title = (empty($title) ? __('Active page') : $title . ' (' . __('active page') . ')');
@@ -163,7 +163,7 @@ class tplSimpleMenu
                     ($item['class'] ? ' ' . $item['class'] : '') .
                     '">' .
                     '<a href="' . $href . '"' .
-                    (!empty($item['title']) ? ' title="'. $label ." - " . $item['title'] . '"' : '') .
+                    (!empty($item['title']) ? ' title="'. $label . ' - ' . $item['title'] . '"' : '') .
                     (($targetBlank) ? ' target="_blank" rel="noopener noreferrer"' : '') . '>' .
                     '<span class="simple-menu-label">' . $item['label'] . '</span>' .
                     $item['span'] . '</a>' .

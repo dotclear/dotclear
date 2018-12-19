@@ -1623,7 +1623,7 @@ msgstr "Alle überprüfen"
 msgid "Simple menu"
 msgstr "Einfach Menü"
 
-msgid "the link will open a new window"
+msgid "new window"
 msgstr ""
 
 #, fuzzy

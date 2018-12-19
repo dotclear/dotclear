@@ -1705,7 +1705,7 @@ msgstr "Zkontroluj vše"
 msgid "Simple menu"
 msgstr ""
 
-msgid "the link will open a new window"
+msgid "new window"
 msgstr ""
 
 #, fuzzy
