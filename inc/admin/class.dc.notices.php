@@ -148,7 +148,7 @@ class dcNotices
         return $this->message($msg, $timestamp, $div, $echo, "success");
     }
 
-    public static function warning($msg, $timestamp = true, $div = false, $echo = true)
+    public function warning($msg, $timestamp = true, $div = false, $echo = true)
     {
         return $this->message($msg, $timestamp, $div, $echo, "warning-msg");
     }
