@@ -63,6 +63,9 @@ if (!empty($_POST['saveconfig'])) {
             $dcckeditor_clipboard_buttons = (empty($_POST['dcckeditor_clipboard_buttons'])) ? false : true;
             $core->blog->settings->dcckeditor->put('clipboard_buttons', $dcckeditor_clipboard_buttons, 'boolean');
 
+            $dcckeditor_action_buttons = (empty($_POST['dcckeditor_action_buttons'])) ? false : true;
+            $core->blog->settings->dcckeditor->put('action_buttons', $dcckeditor_action_buttons, 'boolean');
+
             $dcckeditor_disable_native_spellchecker = (empty($_POST['dcckeditor_disable_native_spellchecker'])) ? false : true;
             $core->blog->settings->dcckeditor->put('disable_native_spellchecker', $dcckeditor_disable_native_spellchecker, 'boolean');
         }
