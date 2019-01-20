@@ -89,6 +89,12 @@
           <?php echo __('Copy, Paste, Paste Text, Paste from Word'); ?>
         </p>
         <p>
+          <?php echo form::checkbox('dcckeditor_action_buttons', 1, $dcckeditor_action_buttons); ?>
+          <label class="classic" for="dcckeditor_action_buttons">
+            <?php echo __('Add undo/redo buttons'); ?>
+          </label>
+        </p>
+        <p>
           <?php echo form::checkbox('dcckeditor_disable_native_spellchecker', 1, $dcckeditor_disable_native_spellchecker); ?>
           <label class="classic" for="dcckeditor_disable_native_spellchecker">
             <?php echo __('Disables the built-in spell checker if the browser provides one'); ?>

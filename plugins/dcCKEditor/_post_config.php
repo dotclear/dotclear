@@ -190,6 +190,13 @@ if (!empty($extraPlugins) && count($extraPlugins) > 0) {
             },
 <?php endif;?>
 
+<?php if (!empty($dcckeditor_action_buttons)): ?>
+            {
+                name: 'action',
+                items: ['Undo','Redo']
+            },
+<?php endif;?>
+
 <?php if (!empty($dcckeditor_alignment_buttons)): ?>
             {
                 name: 'paragraph',

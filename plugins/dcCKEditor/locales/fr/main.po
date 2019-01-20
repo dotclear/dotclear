@@ -59,13 +59,13 @@ msgstr "Ajouter le bouton pour masquer les boutons"
 
 #: tpl/index.tpl:45
 msgid "Add format selection"
-msgstr "Ajouter le bouton pour ajouter les formats."
+msgstr "Ajouter le bouton pour ajouter les formats"
 
 msgid "Add table button"
-msgstr "Ajouter le bouton pour ajouter des tableaux."
+msgstr "Ajouter le bouton pour ajouter des tableaux"
 
 msgid "Add clipboard buttons"
-msgstr "Ajouter les boutons de copier/coller..."
+msgstr "Ajouter les boutons de copier/coller"
 
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "Copier, Coller, Coller sans mise en forme, Copier depuis word"
@@ -87,3 +87,6 @@ msgstr "L'URL ne peut pas être vide."
 
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Désactiver la correction orthographique fournie par le navigateur"
+
+msgid "Add undo/redo buttons"
+msgstr "Ajouter les boutons défaire/refaire"
