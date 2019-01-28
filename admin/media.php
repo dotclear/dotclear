@@ -280,6 +280,32 @@ $mediaItemLine = function ($f, $i, $query, $table = false) {
     return $res;
 };
 
+$forgetDir = function($d) {
+    // Remove a directory from recent and fav list (if necessary)
+    global $core;
+
+    $core->auth->user_prefs->addWorkspace('interface');
+    $nb_last_dirs = (integer) ($core->auth->user_prefs->interface->media_nb_last_dirs);
+    if ($nb_last_dirs > 0) {
+        // Remove from recent dirs
+        $last_dirs = $core->auth->user_prefs->interface->media_last_dirs;
+        if (is_array($last_dirs)) {
+            if (in_array($d, $last_dirs)) {
+                unset($last_dirs[array_search($d, $last_dirs)]);
+                $core->auth->user_prefs->interface->put('media_last_dirs', $last_dirs, 'array');
+            }
+        }
+        // Remove from fav dirs
+        $fav_dirs = $core->auth->user_prefs->interface->media_fav_dirs;
+        if (is_array($fav_dirs)) {
+            if (in_array($d, $fav_dirs)) {
+                unset($fav_dirs[array_search($d, $fav_dirs)]);
+                $core->auth->user_prefs->interface->put('media_fav_dirs', $fav_dirs, 'array');
+            }
+        }
+    }
+};
+
 // Actions
 
 # Zip download
@@ -453,14 +479,20 @@ if ($dir && !empty($_POST['medias']) && !empty($_POST['delete_medias'])) {
 # Removing item from popup only
 if ($dir && !empty($_POST['rmyes']) && !empty($_POST['remove'])) {
     $_POST['remove'] = rawurldecode($_POST['remove']);
+    $forget = false;
 
     try {
         if (is_dir(path::real($core->media->getPwd() . '/' . path::clean($_POST['remove'])))) {
             $msg = __('Directory has been successfully removed.');
+            # Remove dir from recents/favs if necessary
+            $forget = true;
         } else {
             $msg = __('File has been successfully removed.');
         }
         $core->media->removeItem($_POST['remove']);
+        if ($forget) {
+            $forgetDir($d . '/' . path::clean($_POST['remove']));
+        }
         dcPage::addSuccessNotice($msg);
         $core->adminurl->redirect('admin.media', $page_url_params);
     } catch (Exception $e) {
