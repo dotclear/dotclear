@@ -221,12 +221,20 @@ $get_img_title = function ($file, $pattern, $dto_first = false, $no_date_alone =
     return implode($sep, $res);
 };
 
+$get_img_desc = function($file, $default = '') {
+    if (count($file->media_meta) > 0) {
+        foreach ($file->media_meta as $k => $v) {
+            if ((string) $v && ($k == 'Description')) {
+                return $v;
+            }
+        }
+    }
+    return $default;
+};
+
 /* DISPLAY Main page
 -------------------------------------------------------- */
 $starting_scripts =
-'<script type="text/javascript">' . "\n" .
-dcPage::jsVar('dotclear.msg.confirm_delete_media', __('Are you sure to delete this media?')) . "\n" .
-"</script>" .
 dcPage::jsModal() .
 dcPage::jsLoad('js/_media_item.js');
 if ($popup && !empty($plugin_id)) {
@@ -281,7 +289,8 @@ $file_type = explode('/', $file->type);
 # Selection mode
 if ($select) {
     // Let user choose thumbnail size if image
-    $media_desc = $file->media_title;
+    $media_title = $file->media_title;
+    $media_desc = $get_img_desc($file, $media_title);
 
     echo
     '<div id="media-select" class="multi-part" title="' . __('Select media item') . '">' .
@@ -304,12 +313,12 @@ if ($select) {
 
     if ($file->media_type == 'image') {
         $media_type = 'image';
-        $media_desc = $get_img_title($file,
+        $media_title = $get_img_title($file,
             $core->blog->settings->system->media_img_title_pattern,
             $core->blog->settings->system->media_img_use_dto_first,
             $core->blog->settings->system->media_img_no_date_alone);
-        if ($media_desc == $file->basename) {
-            $media_desc = '';
+        if ($media_title == $file->basename) {
+            $media_title = '';
         }
 
         echo
@@ -341,7 +350,7 @@ if ($select) {
     '<button type="button" id="media-select-ok" class="submit">' . __('Select') . '</button> ' .
     '<button type="button" id="media-select-cancel">' . __('Cancel') . '</button>' .
     form::hidden(['type'], html::escapeHTML($media_type)) .
-    form::hidden(['title'], html::escapeHTML($file->media_title)) .
+    form::hidden(['title'], html::escapeHTML($media_title)) .
     form::hidden(['description'], html::escapeHTML($media_desc)) .
     form::hidden(['url'], $file->file_url) .
         '</p>';
@@ -352,7 +361,8 @@ if ($select) {
 
 # Insertion popup
 if ($popup && !$select) {
-    $media_desc = $file->media_title;
+    $media_title = $file->media_title;
+    $media_desc = $get_img_desc($file, $media_title);
 
     echo
     '<div id="media-insert" class="multi-part" title="' . __('Insert media item') . '">' .
@@ -375,12 +385,12 @@ if ($popup && !$select) {
 
     if ($file->media_type == 'image') {
         $media_type = 'image';
-        $media_desc = $get_img_title($file,
+        $media_title = $get_img_title($file,
             $core->blog->settings->system->media_img_title_pattern,
             $core->blog->settings->system->media_img_use_dto_first,
             $core->blog->settings->system->media_img_no_date_alone);
-        if ($media_desc == $file->basename) {
-            $media_desc = '';
+        if ($media_title == $file->basename) {
+            $media_title = '';
         }
 
         echo
@@ -517,7 +527,7 @@ if ($popup && !$select) {
     '<button type="button" id="media-insert-ok" class="submit">' . __('Insert') . '</button> ' .
     '<button type="button" id="media-insert-cancel">' . __('Cancel') . '</button>' .
     form::hidden(['type'], html::escapeHTML($media_type)) .
-    form::hidden(['title'], html::escapeHTML($file->media_title)) .
+    form::hidden(['title'], html::escapeHTML($media_title)) .
     form::hidden(['description'], html::escapeHTML($media_desc)) .
     form::hidden(['url'], $file->file_url) .
         '</p>';
