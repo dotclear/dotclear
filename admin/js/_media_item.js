@@ -76,7 +76,8 @@ $(function() {
 
   // Confirm for deleting current medoa
   $('#delete-form input[name="delete"]').click(function() {
-    return window.confirm(dotclear.msg.confirm_delete_media);
+    let m_name = $('#delete-form input[name="remove"]').val();
+    return window.confirm(dotclear.msg.confirm_delete_media.replace('%s', m_name));
   });
 
   // Get current insertion settings
