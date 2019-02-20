@@ -1400,8 +1400,6 @@ class dcCore
                     'Video width in media manager'],
                 ['media_video_height', 'integer', 300,
                     'Video height in media manager'],
-                ['media_flash_fallback', 'boolean', true,
-                    'Flash player fallback for audio and video media'],
                 ['nb_post_for_home', 'integer', 20,
                     'Number of entries on first home page'],
                 ['nb_post_per_page', 'integer', 20,

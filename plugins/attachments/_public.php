@@ -119,8 +119,15 @@ class attachmentTpl
         }
 
         if (isset($attr['is_video'])) {
+            // Since 2.15 .flv media are no more considered as video (Flash is obsolete)
             $sign = (boolean) $attr['is_video'] ? '==' : '!=';
-            $if[] = '$attach_f->type_prefix ' . $sign . ' "video"';
+            $test = '$attach_f->type_prefix ' . $sign . ' "video"';
+            if ($sign == '==') {
+                $test .= ' && $attach_f->type != "video/x-flv"';
+            } else {
+                $test .= ' || $attach_f->type == "video/x-flv"';
+            }
+            $if[] = $test;
         }
 
         if (count($if) != 0) {
