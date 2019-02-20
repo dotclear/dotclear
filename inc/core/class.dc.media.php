@@ -1091,155 +1091,57 @@ class dcMedia extends filemanager
     }
 
     /**
-    Returns HTML code for audio player (HTML5 and if possible fallback Flash player)
+    Returns HTML code for audio player (HTML5, Flash player fallback is obsolete since 2.15)
 
     @param  type        <b>string</b>         audio mime type
     @param    url            <b>string</b>        audio URL to play
-    @param    player        <b>string</b>        Player URL (flash player fallback)
-    @param    args        <b>array</b>        Player parameters (flash player fallback)
-    @param  fallback     <b>boolean</b>        Include Flash player fallback
+    @param    player        <b>string</b>        Player URL (flash player fallback, obsolete)
+    @param    args        <b>array</b>        Player parameters (flash player fallback, obsolete)
+    @param  fallback     <b>boolean</b>        Include Flash player fallback (obsolete)
     @param     preload        <b>boolean</b>        Add preload="auto" attribute if true, else preload="none"
     @return    <b>string</b>
      */
-    public static function audioPlayer($type, $url, $player = null, $args = null, $fallback = true, $preload = true)
+    public static function audioPlayer($type, $url, $player = null, $args = null, $fallback = false, $preload = true)
     {
-        $audio =
+        return
             '<audio controls preload="' . ($preload ? 'auto' : 'none') . '">' .
-            '<source src="' . $url . '">';
-
-        if ($fallback && $type == 'audio/mpeg3') {
-            // Include Flash player fallback
-            if (!$player) {
-                $player = 'player_mp3.swf';
-            }
-
-            if (!is_array($args)) {
-                $args = [
-                    'showvolume'      => 1,
-                    'loadingcolor'    => 'ff9900',
-                    'bgcolor1'        => 'eeeeee',
-                    'bgcolor2'        => 'cccccc',
-                    'buttoncolor'     => '0066cc',
-                    'buttonovercolor' => 'ff9900',
-                    'slidercolor1'    => 'cccccc',
-                    'slidercolor2'    => '999999',
-                    'sliderovercolor' => '0066cc'
-                ];
-            }
-
-            $args['mp3'] = $url;
-
-            if (empty($args['width'])) {
-                $args['width'] = 200;
-            }
-            if (empty($args['height'])) {
-                $args['height'] = 20;
-            }
-
-            $vars = [];
-            foreach ($args as $k => $v) {
-                $vars[] = $k . '=' . $v;
-            }
-
-            $audio .=
-            '<object type="application/x-shockwave-flash" ' .
-            'data="' . $player . '" ' .
-            'width="' . $args['width'] . '" height="' . $args['height'] . '">' .
-            '<param name="movie" value="' . $player . '" />' .
-            '<param name="wmode" value="transparent" />' .
-            '<param name="FlashVars" value="' . implode('&amp;', $vars) . '" />' .
-            __('Embedded Audio Player') .
-                '</object>';
-        }
-
-        $audio .=
+            '<source src="' . $url . '">' .
             '</audio>';
-
-        return $audio;
     }
 
     /**
-    Returns HTML code for video player (HTML5 and if possible fallback Flash player)
+    Returns HTML code for video player (HTML5, Flash player fallback is obsolete since 2.15)
 
     @param  type        <b>string</b>         video mime type
     @param    url            <b>string</b>        video URL to play
-    @param    player        <b>string</b>        Player URL (flash player fallback)
-    @param    args        <b>array</b>        Player parameters (flash player fallback)
-    @param  fallback     <b>boolean</b>        Include Flash player fallback (if not .flv)
+    @param    player        <b>string</b>        Player URL (flash player fallback, obsolete)
+    @param    args        <b>array</b>        Player parameters (flash player fallback, obsolete)
+    @param  fallback     <b>boolean</b>        Include Flash player fallback (if not .flv, obsolete)
     @param     preload        <b>boolean</b>        Add preload="auto" attribute if true, else preload="none"
     @return    <b>string</b>
      */
-    public static function videoPlayer($type, $url, $player = null, $args = null, $fallback = true, $preload = true)
+    public static function videoPlayer($type, $url, $player = null, $args = null, $fallback = false, $preload = true)
     {
         $video = '';
 
-        // Cope with width and height, if given
-        $width  = 400;
-        $height = 300;
-        if (is_array($args)) {
-            if (!empty($args['width']) && $args['width']) {
-                $width = (int) $args['width'];
-            }
-            if (!empty($args['height']) && $args['height']) {
-                $height = (int) $args['height'];
-            }
-        }
-
         if ($type != 'video/x-flv') {
+            // Cope with width and height, if given
+            $width  = 400;
+            $height = 300;
+            if (is_array($args)) {
+                if (!empty($args['width']) && $args['width']) {
+                    $width = (int) $args['width'];
+                }
+                if (!empty($args['height']) && $args['height']) {
+                    $height = (int) $args['height'];
+                }
+            }
+
             $video =
                 '<video controls preload="' . ($preload ? 'auto' : 'none') . '"' .
                 ($width ? ' width="' . $width . '"' : '') .
                 ($height ? ' height="' . $height . '"' : '') . '>' .
-                '<source src="' . $url . '">';
-        }
-
-        if ($type == 'video/x-flv' || ($fallback && ($type == 'video/mp4' || $type == 'video/x-m4v'))) {
-            // Include Flash player fallback
-            if (!$player) {
-                $player = 'player_flv.swf';
-            }
-
-            if (!is_array($args)) {
-                $args = [
-                    'margin'          => 1,
-                    'showvolume'      => 1,
-                    'showtime'        => 1,
-                    'showfullscreen'  => 1,
-                    'buttonovercolor' => 'ff9900',
-                    'slidercolor1'    => 'cccccc',
-                    'slidercolor2'    => '999999',
-                    'sliderovercolor' => '0066cc'
-                ];
-            }
-
-            $args['flv'] = $url;
-
-            if (empty($args['width'])) {
-                $args['width'] = 400;
-            }
-            if (empty($args['height'])) {
-                $args['height'] = 300;
-            }
-
-            $vars = [];
-            foreach ($args as $k => $v) {
-                $vars[] = $k . '=' . $v;
-            }
-
-            $video .=
-            '<object type="application/x-shockwave-flash" ' .
-            'data="' . $player . '" ' .
-            'width="' . $args['width'] . '" height="' . $args['height'] . '">' .
-            '<param name="movie" value="' . $player . '" />' .
-            '<param name="wmode" value="transparent" />' .
-            '<param name="allowFullScreen" value="true" />' .
-            '<param name="FlashVars" value="' . implode('&amp;', $vars) . '" />' .
-            __('Embedded Video Player') .
-                '</object>';
-        }
-
-        if ($type != 'video/x-flv') {
-            $video .=
+                '<source src="' . $url . '">' .
                 '</video>';
         }
 
@@ -1247,66 +1149,25 @@ class dcMedia extends filemanager
     }
 
     /**
-    Returns HTML code for MP3 player
+    Returns HTML code for MP3 player (Flash player fallback is obsolete since 2.15)
 
     @param    url            <b>string</b>        MP3 URL to play
     @param    player        <b>string</b>        Player URL
     @param    args        <b>array</b>        Player parameters
-    @param  fallback     <b>boolean</b>        Include Flash player fallback
+    @param  fallback     <b>boolean</b>        Include Flash player fallback (obsolete)
     @param     preload        <b>boolean</b>        Add preload="auto" attribute if true, else preload="none"
     @return    <b>string</b>
      */
-    public static function mp3player($url, $player = null, $args = null, $fallback = true, $preload = true)
+    public static function mp3player($url, $player = null, $args = null, $fallback = false, $preload = true)
     {
-        if (!$player) {
-            $player = 'player_mp3.swf';
-        }
-
-        if (!is_array($args)) {
-            $args = [
-                'showvolume'      => 1,
-                'loadingcolor'    => 'ff9900',
-                'bgcolor1'        => 'eeeeee',
-                'bgcolor2'        => 'cccccc',
-                'buttoncolor'     => '0066cc',
-                'buttonovercolor' => 'ff9900',
-                'slidercolor1'    => 'cccccc',
-                'slidercolor2'    => '999999',
-                'sliderovercolor' => '0066cc'
-            ];
-        }
-
-        $args['mp3'] = $url;
-
-        if (empty($args['width'])) {
-            $args['width'] = 200;
-        }
-        if (empty($args['height'])) {
-            $args['height'] = 20;
-        }
-
-        $vars = [];
-        foreach ($args as $k => $v) {
-            $vars[] = $k . '=' . $v;
-        }
-
         return
             '<audio controls preload="' . ($preload ? 'auto' : 'none') . '">' .
             '<source src="' . $url . '" type="audio/mpeg">' .
-            ($fallback ?
-            '<object type="application/x-shockwave-flash" ' .
-            'data="' . $player . '" ' .
-            'width="' . $args['width'] . '" height="' . $args['height'] . '">' .
-            '<param name="movie" value="' . $player . '" />' .
-            '<param name="wmode" value="transparent" />' .
-            '<param name="FlashVars" value="' . implode('&amp;', $vars) . '" />' .
-            __('Embedded Audio Player') .
-            '</object>' : '') .
             '</audio>';
     }
 
     /**
-    Returns HTML code for FLV player
+    Returns HTML code for FLV player (obsolete since 2.15)
 
     @param    url        <b>string</b>        FLV URL to play
     @param    player    <b>string</b>        Player URL
@@ -1315,46 +1176,6 @@ class dcMedia extends filemanager
      */
     public static function flvplayer($url, $player = null, $args = null)
     {
-        if (!$player) {
-            $player = 'player_flv.swf';
-        }
-
-        if (!is_array($args)) {
-            $args = [
-                'margin'          => 1,
-                'showvolume'      => 1,
-                'showtime'        => 1,
-                'showfullscreen'  => 1,
-                'buttonovercolor' => 'ff9900',
-                'slidercolor1'    => 'cccccc',
-                'slidercolor2'    => '999999',
-                'sliderovercolor' => '0066cc'
-            ];
-        }
-
-        $args['flv'] = $url;
-
-        if (empty($args['width'])) {
-            $args['width'] = 400;
-        }
-        if (empty($args['height'])) {
-            $args['height'] = 300;
-        }
-
-        $vars = [];
-        foreach ($args as $k => $v) {
-            $vars[] = $k . '=' . $v;
-        }
-
-        return
-        '<object type="application/x-shockwave-flash" ' .
-        'data="' . $player . '" ' .
-        'width="' . $args['width'] . '" height="' . $args['height'] . '">' .
-        '<param name="movie" value="' . $player . '" />' .
-        '<param name="wmode" value="transparent" />' .
-        '<param name="allowFullScreen" value="true" />' .
-        '<param name="FlashVars" value="' . implode('&amp;', $vars) . '" />' .
-        __('Embedded Video Player') .
-            '</object>';
+        return '';
     }
 }

@@ -260,7 +260,7 @@ $mediaItemLine = function ($f, $i, $query, $table = false) {
 
         // Show player if relevant
         if ($file_type[0] == 'audio') {
-            $lst .= '<li>' . dcMedia::audioPlayer($f->type, $f->file_url, $core->adminurl->get("admin.home", ['pf' => 'player_mp3.swf']), null, $core->blog->settings->system->media_flash_fallback, false) . '</li>';
+            $lst .= '<li>' . dcMedia::audioPlayer($f->type, $f->file_url, null, null, null, false, false) . '</li>';
         }
 
         $res .= ($lst != '' ? '<ul>' . $lst . '</ul>' : '');

@@ -221,7 +221,7 @@ $get_img_title = function ($file, $pattern, $dto_first = false, $no_date_alone =
     return implode($sep, $res);
 };
 
-$get_img_desc = function($file, $default = '') {
+$get_img_desc = function ($file, $default = '') {
     if (count($file->media_meta) > 0) {
         foreach ($file->media_meta as $k => $v) {
             if ((string) $v && ($k == 'Description')) {
@@ -290,7 +290,7 @@ $file_type = explode('/', $file->type);
 if ($select) {
     // Let user choose thumbnail size if image
     $media_title = $file->media_title;
-    $media_desc = $get_img_desc($file, $media_title);
+    $media_desc  = $get_img_desc($file, $media_title);
 
     echo
     '<div id="media-select" class="multi-part" title="' . __('Select media item') . '">' .
@@ -312,7 +312,7 @@ if ($select) {
     }
 
     if ($file->media_type == 'image') {
-        $media_type = 'image';
+        $media_type  = 'image';
         $media_title = $get_img_title($file,
             $core->blog->settings->system->media_img_title_pattern,
             $core->blog->settings->system->media_img_use_dto_first,
@@ -362,7 +362,7 @@ if ($select) {
 # Insertion popup
 if ($popup && !$select) {
     $media_title = $file->media_title;
-    $media_desc = $get_img_desc($file, $media_title);
+    $media_desc  = $get_img_desc($file, $media_title);
 
     echo
     '<div id="media-insert" class="multi-part" title="' . __('Insert media item') . '">' .
@@ -384,7 +384,7 @@ if ($popup && !$select) {
     }
 
     if ($file->media_type == 'image') {
-        $media_type = 'image';
+        $media_type  = 'image';
         $media_title = $get_img_title($file,
             $core->blog->settings->system->media_img_title_pattern,
             $core->blog->settings->system->media_img_use_dto_first,
@@ -475,9 +475,7 @@ if ($popup && !$select) {
             form::radio(['alignment'], $k, $v[1]) . ' ' . $v[0] . '</label><br /> ';
         }
 
-        $public_player_style = unserialize($core->blog->settings->themes->mp3player_style);
-        $public_player       = dcMedia::audioPlayer($file->type, $file->file_url, $core->blog->getQmarkURL() . 'pf=player_mp3.swf', $public_player_style, $core->blog->settings->system->media_flash_fallback);
-        echo form::hidden('public_player', html::escapeHTML($public_player));
+        echo form::hidden('public_player', html::escapeHTML(dcMedia::audioPlayer($file->type, $file->file_url)));
         echo '</p>';
         echo '</div>';
     } elseif ($file_type[0] == 'video') {
@@ -512,9 +510,7 @@ if ($popup && !$select) {
             form::radio(['alignment'], $k, $v[1]) . ' ' . $v[0] . '</label><br /> ';
         }
 
-        $public_player_style = unserialize($core->blog->settings->themes->flvplayer_style);
-        $public_player       = dcMedia::videoPlayer($file->type, $file->file_url, $core->blog->getQmarkURL() . 'pf=player_flv.swf', $public_player_style, $core->blog->settings->system->media_flash_fallback);
-        echo form::hidden('public_player', html::escapeHTML($public_player));
+        echo form::hidden('public_player', html::escapeHTML(dcMedia::videoPlayer($file->type, $file->file_url)));
         echo '</p>';
         echo '</div>';
     } else {
@@ -615,12 +611,10 @@ if ($file->media_image) {
 
 // Show player if relevant
 if ($file_type[0] == 'audio') {
-    echo dcMedia::audioPlayer($file->type, $file->file_url, $core->adminurl->get("admin.home", ['pf' => 'player_mp3.swf']),
-        null, $core->blog->settings->system->media_flash_fallback);
+    echo dcMedia::audioPlayer($file->type, $file->file_url);
 }
 if ($file_type[0] == 'video') {
-    echo dcMedia::videoPlayer($file->type, $file->file_url, $core->adminurl->get("admin.home", ['pf' => 'player_flv.swf']),
-        null, $core->blog->settings->system->media_flash_fallback);
+    echo dcMedia::videoPlayer($file->type, $file->file_url);
 }
 
 echo

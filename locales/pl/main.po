@@ -440,15 +440,6 @@ msgstr "Szerokość:"
 msgid "Height"
 msgstr "Wysokość:"
 
-msgid "Flash player"
-msgstr ""
-
-msgid "Insert Flash player fallback for video (mp4 or m4v) and audio (mp3) media"
-msgstr ""
-
-msgid "For flv video, the Flash player will be anyway inserted."
-msgstr ""
-
 msgid "Default image insertion attributes"
 msgstr ""
 
