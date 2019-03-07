@@ -2743,6 +2743,15 @@ div.template-upload {
   #media-original-image.overheight {
     height: 500px; }
 
+#media-attribute {
+  margin-left: .5em;
+  padding: .5em;
+  border-left: 1px solid currentColor; }
+  #media-attribute .media-title {
+    font-weight: bolder; }
+  #media-attribute .media-desc {
+    font-style: italic; }
+
 .modules td.module-actions, .modules td.module-icon {
   vertical-align: middle; }
 .modules td.module-icon img:last-child {

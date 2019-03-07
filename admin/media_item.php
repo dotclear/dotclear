@@ -424,6 +424,11 @@ if ($popup && !$select) {
             ($media_img_default_legend == 'none')) .
         __('None') . '</label>' .
             '</p>' .
+            '<p id="media-attribute">' .
+            __('Title: ') . ($media_title != '' ? '<span class="media-title">' . $media_title . '</span>' : __('<none>')) .
+            ($media_title != '' && $media_desc != '' ? '<br />' : '') .
+            __('Legend: ') . ($media_desc != '' ? ' <span class="media-desc">' . $media_desc . '</span>' : __('<none>')) .
+            '</p>' .
             '</div>';
 
         echo
