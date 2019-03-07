@@ -26,3 +26,15 @@
 		height: 500px;
 	}
 }
+
+#media-attribute {
+  margin-left: .5em;
+  padding: .5em;
+  border-left: 1px solid currentColor;
+  .media-title {
+    font-weight: bolder;
+  }
+  .media-desc {
+    font-style: italic;
+  }
+}

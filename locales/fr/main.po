@@ -460,6 +460,15 @@ msgstr "Insérer le lien vers l'image originale"
 msgid "Image legend and title:"
 msgstr "Insertion des légende et titre de l'image :"
 
+msgid "Title: "
+msgstr "Titre : "
+
+msgid "Legend: "
+msgstr "Légende : "
+
+msgid "<none>"
+msgstr "<sans>"
+
 msgid "Advanced parameters"
 msgstr "Paramètres avancés du blog"
 
