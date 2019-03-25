@@ -55,7 +55,7 @@ if (count($_GET) > 1) {
     exit;
 }
 
-$allow_types = ['png', 'jpg', 'jpeg', 'gif', 'css', 'js', 'swf', 'svg'];
+$allow_types = ['png', 'jpg', 'jpeg', 'gif', 'css', 'js', 'swf', 'svg', 'woff', 'woff2', 'ttf', 'otf', 'eot'];
 
 $pf = path::clean($_GET['pf']);
 
@@ -65,6 +65,7 @@ $paths = array_reverse(explode(PATH_SEPARATOR, DC_PLUGINS_ROOT));
 $paths[] = dirname(__FILE__) . '/swf';
 $paths[] = dirname(__FILE__) . '/js';
 $paths[] = dirname(__FILE__) . '/css';
+$paths[] = dirname(__FILE__) . '/font';
 
 foreach ($paths as $m) {
     $PF = path::real($m . '/' . $pf);
