@@ -249,7 +249,7 @@ $mediaItemLine = function ($f, $i, $query, $table = false) {
         $lst = '';
         if (!$f->d) {
             $lst .=
-            '<li>' . ($f->media_priv ? '<img class="media-private" src="images/locker.png" alt="'.__('private media').'">' : '') . $f->media_title . '</li>' .
+            '<li>' . ($f->media_priv ? '<img class="media-private" src="images/locker.png" alt="' . __('private media') . '">' : '') . $f->media_title . '</li>' .
             '<li>' .
             $f->media_dtstr . ' - ' .
             files::size($f->size) . ' - ' .
@@ -270,7 +270,7 @@ $mediaItemLine = function ($f, $i, $query, $table = false) {
         $res .= '<td class="media-action">' . $act . '</td>';
         $res .= '<td class="maximal" scope="row"><a class="media-flag media-link" href="' . rawurldecode($link) . '">' .
         '<img src="' . $f->media_icon . '" alt="" />' . ($query ? $file : $fname) . '</a>' .
-            '<br />' . ($f->d ? '' : ($f->media_priv ? '<img class="media-private" src="images/locker.png" alt="'.__('private media').'">' : '') .$f->media_title) . '</td>';
+            '<br />' . ($f->d ? '' : ($f->media_priv ? '<img class="media-private" src="images/locker.png" alt="' . __('private media') . '">' : '') . $f->media_title) . '</td>';
         $res .= '<td class="nowrap count">' . ($f->d ? '' : $f->media_dtstr) . '</td>';
         $res .= '<td class="nowrap count">' . ($f->d ? '' : files::size($f->size) . ' - ' .
             '<a ' . $class_open . 'href="' . $f->file_url . '">' . __('open') . '</a>') . '</td>';
@@ -280,7 +280,7 @@ $mediaItemLine = function ($f, $i, $query, $table = false) {
     return $res;
 };
 
-$forgetDir = function($d) {
+$forgetDir = function ($d) {
     // Remove a directory from recent and fav list (if necessary)
     global $core;
 
@@ -393,15 +393,24 @@ if (!$q) {
 
 # New directory
 if ($dir && !empty($_POST['newdir'])) {
-    try {
-        $core->media->makeDir($_POST['newdir']);
-        dcPage::addSuccessNotice(sprintf(
-            __('Directory "%s" has been successfully created.'),
-            html::escapeHTML(files::tidyFileName($_POST['newdir'])))
-        );
-        $core->adminurl->redirect('admin.media', $page_url_params);
-    } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+    $nd = files::tidyFileName($_POST['newdir']);
+    if (array_filter($dir['files'], function ($i) use ($nd) {return ($i->basename === $nd);}) ||
+        array_filter($dir['dirs'], function ($i) use ($nd) {return ($i->basename === $nd);})) {
+        dcPage::addWarningNotice(sprintf(
+            __('Directory or file "%s" already exists.'),
+            html::escapeHTML($nd)
+        ));
+    } else {
+        try {
+            $core->media->makeDir($_POST['newdir']);
+            dcPage::addSuccessNotice(sprintf(
+                __('Directory "%s" has been successfully created.'),
+                html::escapeHTML($nd)
+            ));
+            $core->adminurl->redirect('admin.media', $page_url_params);
+        } catch (Exception $e) {
+            $core->error->add($e->getMessage());
+        }
     }
 }
 
@@ -479,7 +488,7 @@ if ($dir && !empty($_POST['medias']) && !empty($_POST['delete_medias'])) {
 # Removing item from popup only
 if ($dir && !empty($_POST['rmyes']) && !empty($_POST['remove'])) {
     $_POST['remove'] = rawurldecode($_POST['remove']);
-    $forget = false;
+    $forget          = false;
 
     try {
         if (is_dir(path::real($core->media->getPwd() . '/' . path::clean($_POST['remove'])))) {

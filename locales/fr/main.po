@@ -1406,6 +1406,10 @@ msgid "Not a valid directory"
 msgstr "Répertoire invalide"
 
 #, php-format
+msgid "Directory or file \"%s\" already exists."
+msgstr "Le répertoire ou le fichier \"%s\" existe déjà."
+
+#, php-format
 msgid "Directory \"%s\" has been successfully created."
 msgstr "Le répertoire \"%s\" a été créé."
 
