@@ -101,6 +101,9 @@
       } else {
         $msg = dotclear.msg.enhanced_uploader_activate;
         label = dotclear.jsUpload.msg.choose_file;
+        $(me).fileupload({
+          disabled: true
+        });
       }
 
       $(`<p class="clear"><button type="button" class="enhanced-toggle">${$msg}</button></p>`).click(function(e) {
