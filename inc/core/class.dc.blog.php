@@ -458,6 +458,31 @@ class dcBlog
         return $this->getCategories(['start' => $id, 'level' => $id == 0 ? 1 : 2]);
     }
 
+    /**
+     * Returns true if a given category if in a given category's subtree
+     *
+     * @param      string   $cat_url    The cat url
+     * @param      string   $start_url  The top cat url
+     *
+     * @return     boolean  true if cat_url is in given start_url cat subtree
+     */
+    public function IsInCatSubtree($cat_url, $start_url)
+    {
+        // Get cat_id from start_url
+        $cat = $this->getCategories(['cat_url' => $start_url]);
+        if ($cat->fetch()) {
+            // cat_id found, get cat tree list
+            $cats = $this->getCategories(['start' => $cat->cat_id]);
+            while ($cats->fetch()) {
+                // check if post category is one of the cat or sub-cats
+                if ($cats->cat_url === $cat_url) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     private function getCategoriesCounter($params = [])
     {
         $strReq =

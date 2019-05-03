@@ -242,7 +242,7 @@ class dcTemplate extends template
         $res = $this->core->callBehavior('templateBeforeBlock', $this->core, $this->current_tag, $attr);
 
         # --BEHAVIOR-- templateInsideBlock
-        $this->core->callBehavior('templateInsideBlock', $this->core, $this->current_tag, $attr, [&$content]);
+        $this->core->callBehavior('templateInsideBlock', $this->core, $this->current_tag, $attr, [ & $content]);
 
         $res .= parent::compileBlockNode($this->current_tag, $attr, $content);
 
@@ -966,12 +966,23 @@ class dcTemplate extends template
         $operator = isset($attr['operator']) ? $this->getOperator($attr['operator']) : '&&';
 
         if (isset($attr['url'])) {
-            $url = addslashes(trim($attr['url']));
+            $url  = addslashes(trim($attr['url']));
+            $args = preg_split('/\s*[?]\s*/', $url, -1, PREG_SPLIT_NO_EMPTY);
+            $url  = array_shift($args);
+            $args = array_flip($args);
             if (substr($url, 0, 1) == '!') {
-                $url  = substr($url, 1);
-                $if[] = '($_ctx->categories->cat_url != "' . $url . '")';
+                $url = substr($url, 1);
+                if (isset($args['sub'])) {
+                    $if[] = '(!$core->blog->IsInCatSubtree($_ctx->categories->cat_url, "' . $url . '"))';
+                } else {
+                    $if[] = '($_ctx->categories->cat_url != "' . $url . '")';
+                }
             } else {
-                $if[] = '($_ctx->categories->cat_url == "' . $url . '")';
+                if (isset($args['sub'])) {
+                    $if[] = '($core->blog->IsInCatSubtree($_ctx->categories->cat_url, "' . $url . '"))';
+                } else {
+                    $if[] = '($_ctx->categories->cat_url == "' . $url . '")';
+                }
             }
         }
 
@@ -979,11 +990,22 @@ class dcTemplate extends template
             $urls = explode(',', addslashes(trim($attr['urls'])));
             if (is_array($urls) && count($urls)) {
                 foreach ($urls as $url) {
+                    $args = preg_split('/\s*[?]\s*/', trim($url), -1, PREG_SPLIT_NO_EMPTY);
+                    $url  = array_shift($args);
+                    $args = array_flip($args);
                     if (substr($url, 0, 1) == '!') {
-                        $url  = substr($url, 1);
-                        $if[] = '($_ctx->categories->cat_url != "' . $url . '")';
+                        $url = substr($url, 1);
+                        if (isset($args['sub'])) {
+                            $if[] = '(!$core->blog->IsInCatSubtree($_ctx->categories->cat_url, "' . $url . '"))';
+                        } else {
+                            $if[] = '($_ctx->categories->cat_url != "' . $url . '")';
+                        }
                     } else {
-                        $if[] = '($_ctx->categories->cat_url == "' . $url . '")';
+                        if (isset($args['sub'])) {
+                            $if[] = '($core->blog->IsInCatSubtree($_ctx->categories->cat_url, "' . $url . '"))';
+                        } else {
+                            $if[] = '($_ctx->categories->cat_url == "' . $url . '")';
+                        }
                     }
                 }
             }
@@ -1324,11 +1346,22 @@ class dcTemplate extends template
 
         if (isset($attr['category'])) {
             $category = addslashes(trim($attr['category']));
+            $args     = preg_split('/\s*[?]\s*/', $category, -1, PREG_SPLIT_NO_EMPTY);
+            $category = array_shift($args);
+            $args     = array_flip($args);
             if (substr($category, 0, 1) == '!') {
                 $category = substr($category, 1);
-                $if[]     = '($_ctx->posts->cat_url != "' . $category . '")';
+                if (isset($args['sub'])) {
+                    $if[] = '(!$_ctx->posts->underCat("' . $category . '"))';
+                } else {
+                    $if[] = '($_ctx->posts->cat_url != "' . $category . '")';
+                }
             } else {
-                $if[] = '($_ctx->posts->cat_url == "' . $category . '")';
+                if (isset($args['sub'])) {
+                    $if[] = '($_ctx->posts->underCat("' . $category . '"))';
+                } else {
+                    $if[] = '($_ctx->posts->cat_url == "' . $category . '")';
+                }
             }
         }
 
@@ -1336,11 +1369,22 @@ class dcTemplate extends template
             $categories = explode(',', addslashes(trim($attr['categories'])));
             if (is_array($categories) && count($categories)) {
                 foreach ($categories as $category) {
+                    $args     = preg_split('/\s*[?]\s*/', trim($category), -1, PREG_SPLIT_NO_EMPTY);
+                    $category = array_shift($args);
+                    $args     = array_flip($args);
                     if (substr($category, 0, 1) == '!') {
                         $category = substr($category, 1);
-                        $if[]     = '($_ctx->posts->cat_url != "' . $category . '")';
+                        if (isset($args['sub'])) {
+                            $if[] = '(!$_ctx->posts->underCat("' . $category . '"))';
+                        } else {
+                            $if[] = '($_ctx->posts->cat_url != "' . $category . '")';
+                        }
                     } else {
-                        $if[] = '($_ctx->posts->cat_url == "' . $category . '")';
+                        if (isset($args['sub'])) {
+                            $if[] = '($_ctx->posts->underCat("' . $category . '"))';
+                        } else {
+                            $if[] = '($_ctx->posts->cat_url == "' . $category . '")';
+                        }
                     }
                 }
             }
