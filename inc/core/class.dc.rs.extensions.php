@@ -456,6 +456,19 @@ class rsExtPost
             return $res;
         }
     }
+
+    /**
+     * Returns true if current category if in given cat_url subtree
+     *
+     * @param      record   $rs       Invisible parameter
+     * @param      string   $cat_url  The cat url
+     *
+     * @return     boolean  true if current cat is in given cat subtree
+     */
+    public static function underCat($rs, $cat_url)
+    {
+        return $rs->core->blog->IsInCatSubtree($rs->cat_url, $cat_url);
+    }
 }
 
 /**
