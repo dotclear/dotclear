@@ -62,13 +62,14 @@ function dc_admin_icon_url($img)
     return $img;
 }
 
-function addMenuItem($section, $desc, $adminurl, $icon, $perm, $pinned = false)
+function addMenuItem($section, $desc, $adminurl, $icon, $perm, $pinned = false, $strict = false)
 {
     global $core, $_menu;
 
-    $url = $core->adminurl->get($adminurl);
+    $url     = $core->adminurl->get($adminurl);
+    $pattern = '@' . preg_quote($url) . ($strict ? '' : '(\?.*)?') . '$@';
     $_menu[$section]->prependItem($desc, $url, $icon,
-        preg_match('/' . preg_quote($url) . '(\?.*)?$/', $_SERVER['REQUEST_URI']), $perm, null, null, $pinned);
+        preg_match($pattern, $_SERVER['REQUEST_URI']), $perm, null, null, $pinned);
 }
 
 if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID')) {
@@ -227,7 +228,7 @@ if ($core->auth->userID() && $core->blog !== null) {
     $core->auth->user_prefs->addWorkspace('interface');
     $user_ui_nofavmenu = $core->auth->user_prefs->interface->nofavmenu;
 
-    $core->favs = new dcFavorites($core);
+    $core->favs    = new dcFavorites($core);
     $core->notices = new dcNotices($core);
 
     # [] : Title, URL, small icon, large icon, permissions, id, class
@@ -271,7 +272,7 @@ if ($core->auth->userID() && $core->blog !== null) {
     addMenuItem('Blog', __('Entries'), 'admin.posts', 'images/menu/entries.png',
         $core->auth->check('usage,contentadmin', $core->blog->id));
     addMenuItem('Blog', __('New entry'), 'admin.post', 'images/menu/edit.png',
-        $core->auth->check('usage,contentadmin', $core->blog->id), true);
+        $core->auth->check('usage,contentadmin', $core->blog->id), true, true);
 
     addMenuItem('System', __('Update'), 'admin.update', 'images/menu/update.png',
         $core->auth->isSuperAdmin() && is_readable(DC_DIGESTS));
