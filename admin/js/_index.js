@@ -202,7 +202,7 @@ $(function() {
     // First pass
     dotclear.dbPostsCount();
     // Then fired every 600 seconds (10 minutes)
-    dotclear.dbPostsCount_Timer = setInterval(dotclear.dbCommentsPost, 600 * 1000);
+    dotclear.dbPostsCount_Timer = setInterval(dotclear.dbPostsCount, 600 * 1000);
   }
 
   if (!dotclear.data.noDragDrop) {
