@@ -2746,7 +2746,8 @@ div.template-upload {
 #media-attribute {
   margin-left: .5em;
   padding: .5em;
-  border-left: 1px solid currentColor; }
+  border-left: 1px solid currentColor;
+  overflow-wrap: break-word; }
   #media-attribute .media-title {
     font-weight: bolder; }
   #media-attribute .media-desc {
