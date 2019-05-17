@@ -24,9 +24,9 @@ class dcMedia extends filemanager
 
     protected $file_handler = []; ///< <b>array</b> Array of callbacks
 
-    public $thumb_tp       = '%s/.%s_%s.jpg'; ///< <b>string</b> Thumbnail file pattern
-    public $thumb_tp_alpha = '%s/.%s_%s.png'; ///< <b>string</b> Thumbnail file pattern (with alpha layer)
-
+    public $thumb_tp       = '%s/.%s_%s.jpg';  ///< <b>string</b> Thumbnail file pattern
+    public $thumb_tp_alpha = '%s/.%s_%s.png';  ///< <b>string</b> Thumbnail file pattern (with alpha layer)
+    public $thumb_tp_webp  = '%s/.%s_%s.webp'; ///< <b>string</b> Thumbnail file pattern (webp)
     /**
     <b>array</b> Tubmnail sizes:
     - m: medium image
@@ -93,24 +93,25 @@ class dcMedia extends filemanager
         $this->addFileHandler('image/jpeg', 'create', [$this, 'imageThumbCreate']);
         $this->addFileHandler('image/png', 'create', [$this, 'imageThumbCreate']);
         $this->addFileHandler('image/gif', 'create', [$this, 'imageThumbCreate']);
+        $this->addFileHandler('image/webp', 'create', [$this, 'imageThumbCreate']);
 
         $this->addFileHandler('image/png', 'update', [$this, 'imageThumbUpdate']);
         $this->addFileHandler('image/jpeg', 'update', [$this, 'imageThumbUpdate']);
         $this->addFileHandler('image/gif', 'update', [$this, 'imageThumbUpdate']);
+        $this->addFileHandler('image/webp', 'update', [$this, 'imageThumbUpdate']);
 
         $this->addFileHandler('image/png', 'remove', [$this, 'imageThumbRemove']);
         $this->addFileHandler('image/jpeg', 'remove', [$this, 'imageThumbRemove']);
         $this->addFileHandler('image/gif', 'remove', [$this, 'imageThumbRemove']);
+        $this->addFileHandler('image/webp', 'remove', [$this, 'imageThumbRemove']);
 
         $this->addFileHandler('image/jpeg', 'create', [$this, 'imageMetaCreate']);
+        $this->addFileHandler('image/webp', 'create', [$this, 'imageMetaCreate']);
 
         $this->addFileHandler('image/jpeg', 'recreate', [$this, 'imageThumbCreate']);
         $this->addFileHandler('image/png', 'recreate', [$this, 'imageThumbCreate']);
         $this->addFileHandler('image/gif', 'recreate', [$this, 'imageThumbCreate']);
-
-        $this->addFileHandler('image/jpeg', 'recreate', [$this, 'imageThumbCreate']);
-        $this->addFileHandler('image/png', 'recreate', [$this, 'imageThumbCreate']);
-        $this->addFileHandler('image/gif', 'recreate', [$this, 'imageThumbCreate']);
+        $this->addFileHandler('image/webp', 'recreate', [$this, 'imageThumbCreate']);
 
         # Thumbnails sizes
         $this->thumb_sizes['m'][0] = abs($core->blog->settings->system->media_img_m_size);
@@ -293,16 +294,23 @@ class dcMedia extends filemanager
             $f->media_thumb = [];
             $p              = path::info($f->relname);
 
-            $alpha = ($p['extension'] == 'png') || ($p['extension'] == 'PNG');
+            $alpha = strtolower($p['extension']) === 'png';
+            $webp  = strtolower($p['extension']) === 'webp';
 
-            $thumb     = sprintf(($alpha ? $this->thumb_tp_alpha : $this->thumb_tp), $this->root . '/' . $p['dirname'], $p['base'], '%s');
-            $thumb_url = sprintf(($alpha ? $this->thumb_tp_alpha : $this->thumb_tp), $this->root_url . $p['dirname'], $p['base'], '%s');
+            $thumb = sprintf(
+                ($alpha ? $this->thumb_tp_alpha :
+                    ($webp ? $this->thumb_tp_webp : $this->thumb_tp)),
+                $this->root . '/' . $p['dirname'], $p['base'], '%s');
+            $thumb_url = sprintf(
+                ($alpha ? $this->thumb_tp_alpha :
+                    ($webp ? $this->thumb_tp_webp : $this->thumb_tp)),
+                $this->root_url . $p['dirname'], $p['base'], '%s');
 
             # Cleaner URLs
             $thumb_url = preg_replace('#\./#', '/', $thumb_url);
             $thumb_url = preg_replace('#(?<!:)/+#', '/', $thumb_url);
 
-            if ($alpha) {
+            if ($alpha || $webp) {
                 $thumb_alt     = sprintf($this->thumb_tp, $this->root . '/' . $p['dirname'], $p['base'], '%s');
                 $thumb_url_alt = sprintf($this->thumb_tp, $this->root_url . $p['dirname'], $p['base'], '%s');
                 # Cleaner URLs
@@ -313,7 +321,7 @@ class dcMedia extends filemanager
             foreach ($this->thumb_sizes as $suffix => $s) {
                 if (file_exists(sprintf($thumb, $suffix))) {
                     $f->media_thumb[$suffix] = sprintf($thumb_url, $suffix);
-                } elseif ($alpha && file_exists(sprintf($thumb_alt, $suffix))) {
+                } elseif (($alpha || $webp) && file_exists(sprintf($thumb_alt, $suffix))) {
                     $f->media_thumb[$suffix] = sprintf($thumb_url_alt, $suffix);
                 }
             }
@@ -912,7 +920,7 @@ class dcMedia extends filemanager
     {
         $zip = new fileUnzip($f->file);
         $zip->setExcludePattern($this->exclude_pattern);
-        $list = $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
+        $list = $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg|\.git|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 
         if ($create_dir) {
             $zip_root_dir = $zip->getRootDir();
@@ -964,7 +972,7 @@ class dcMedia extends filemanager
     public function getZipContent($f)
     {
         $zip  = new fileUnzip($f->file);
-        $list = $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
+        $list = $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg|\.git|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
         $zip->close();
         return $list;
     }
@@ -991,8 +999,12 @@ class dcMedia extends filemanager
         }
 
         $p     = path::info($file);
-        $alpha = ($p['extension'] == 'png') || ($p['extension'] == 'PNG');
-        $thumb = sprintf(($alpha ? $this->thumb_tp_alpha : $this->thumb_tp), $p['dirname'], $p['base'], '%s');
+        $alpha = strtolower($p['extension']) === 'png';
+        $webp  = strtolower($p['extension']) === 'webp';
+        $thumb = sprintf(($alpha ? $this->thumb_tp_alpha :
+            ($webp ? $this->thumb_tp_webp :
+                $this->thumb_tp)),
+            $p['dirname'], $p['base'], '%s');
 
         try
         {
@@ -1012,7 +1024,7 @@ class dcMedia extends filemanager
                     ($suffix == 'sq' || $w > $s[0] || $h > $s[0])) {
                     $rate = ($s[0] < 100 ? 95 : ($s[0] < 600 ? 90 : 85));
                     $img->resize($s[0], $s[0], $s[1]);
-                    $img->output(($alpha ? 'png' : 'jpeg'), $thumb_file, $rate);
+                    $img->output(($alpha || $webp ? strtolower($p['extension']) : 'jpeg'), $thumb_file, $rate);
                     $img->loadImage($file);
                 }
             }
@@ -1029,12 +1041,20 @@ class dcMedia extends filemanager
     {
         if ($file->relname != $newFile->relname) {
             $p         = path::info($file->relname);
-            $alpha     = ($p['extension'] == 'png') || ($p['extension'] == 'PNG');
-            $thumb_old = sprintf(($alpha ? $this->thumb_tp_alpha : $this->thumb_tp), $p['dirname'], $p['base'], '%s');
+            $alpha     = strtolower($p['extension']) === 'png';
+            $webp      = strtolower($p['extension']) === 'webp';
+            $thumb_old = sprintf(($alpha ? $this->thumb_tp_alpha :
+                ($webp ? $this->thumb_tp_webp :
+                    $this->thumb_tp)),
+                $p['dirname'], $p['base'], '%s');
 
             $p         = path::info($newFile->relname);
-            $alpha     = ($p['extension'] == 'png') || ($p['extension'] == 'PNG');
-            $thumb_new = sprintf(($alpha ? $this->thumb_tp_alpha : $this->thumb_tp), $p['dirname'], $p['base'], '%s');
+            $alpha     = strtolower($p['extension']) === 'png';
+            $webp      = strtolower($p['extension']) === 'webp';
+            $thumb_new = sprintf(($alpha ? $this->thumb_tp_alpha :
+                ($webp ? $this->thumb_tp_webp :
+                    $this->thumb_tp)),
+                $p['dirname'], $p['base'], '%s');
 
             foreach ($this->thumb_sizes as $suffix => $s) {
                 try {
@@ -1047,8 +1067,12 @@ class dcMedia extends filemanager
     public function imageThumbRemove($f)
     {
         $p     = path::info($f);
-        $alpha = ($p['extension'] == 'png') || ($p['extension'] == 'PNG');
-        $thumb = sprintf(($alpha ? $this->thumb_tp_alpha : $this->thumb_tp), '', $p['base'], '%s');
+        $alpha = strtolower($p['extension']) === 'png';
+        $webp  = strtolower($p['extension']) === 'webp';
+        $thumb = sprintf(($alpha ? $this->thumb_tp_alpha :
+            ($webp ? $this->thumb_tp_webp :
+                $this->thumb_tp)),
+            '', $p['base'], '%s');
 
         foreach ($this->thumb_sizes as $suffix => $s) {
             try {
