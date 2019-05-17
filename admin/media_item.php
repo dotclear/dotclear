@@ -701,7 +701,7 @@ if (empty($_GET['find_posts'])) {
     }
 }
 
-if ($file->type == 'image/jpeg') {
+if ($file->type == 'image/jpeg' || $file->type == 'image/webp') {
     echo '<h3>' . __('Image details') . '</h3>';
 
     $details = '';
