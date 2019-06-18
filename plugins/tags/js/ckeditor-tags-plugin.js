@@ -1,5 +1,7 @@
-/*global $, dotclear, CKEDITOR */
+/*global $, dotclear, CKEDITOR, getData */
 'use strict';
+
+object.assign(dotclear.msg, getData('ck_editor_tags'));
 
 (function() {
   CKEDITOR.plugins.add('dctags', {
