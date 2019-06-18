@@ -22,17 +22,19 @@ class tagsBehaviors
 
         if ($editor == 'dcLegacyEditor') {
             return
-            dcPage::jsLoad(dcPage::getPF('tags/js/legacy-post.js')) .
-            '<script type="text/javascript">' . "\n" .
-            "jsToolBar.prototype.elements.tag.title = '" . html::escapeJS(__('Tag')) . "';\n" .
-            "jsToolBar.prototype.elements.tag.url = '" . html::escapeJS($tag_url) . "';\n" .
-                "</script>\n";
+            dcPage::jsJson('legacy_editor_tags', [
+                'tag' => [
+                    'title' => __('tag'),
+                    'url'   => $tag_url
+                ]
+            ]) .
+            dcPage::jsLoad(dcPage::getPF('tags/js/legacy-post.js'));
         } elseif ($editor == 'dcCKEditor') {
             return
-            '<script type="text/javascript">' . "\n" .
-            "dotclear.msg.tag_title = '" . html::escapeJS(__('Tag')) . "';\n" .
-            "dotclear.msg.tag_url = '" . html::escapeJS($tag_url) . "';\n" .
-                "</script>\n";
+            dcPage::jsJson('ck_editor_tags', [
+                'tag_title' => __('tag'),
+                'tag_url'   => $tag_url
+            ]);
         }
         return;
     }
@@ -175,6 +177,22 @@ class tagsBehaviors
             $opts = $core->auth->getOptions();
             $type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
 
+            $editor_tags_options = [
+                'meta_url'            => 'plugin.php?p=tags&m=tag_posts&amp;tag=',
+                'list_type'           => $type,
+                'text_confirm_remove' => __('Are you sure you want to remove this tag?'),
+                'text_add_meta'       => __('Add a tag to this entry'),
+                'text_choose'         => __('Choose from list'),
+                'text_all'            => __('all'),
+                'text_separation'     => __('Enter tags separated by comma')
+            ];
+
+            $msg = [
+                'tags_autocomplete' => __('used in %e - frequency %p%'),
+                'entry'             => __('entry'),
+                'entries'           => __('entries')
+            ];
+
             $ap->beginPage(
                 dcPage::breadcrumb(
                     [
@@ -183,24 +201,10 @@ class tagsBehaviors
                         __('Add tags to this selection')    => ''
                     ]),
                 dcPage::jsMetaEditor() .
-                '<script type="text/javascript">' . "\n" .
-                "var editor_tags_options = {\n" .
-                "meta_url : 'plugin.php?p=tags&m=tag_posts&amp;tag=',\n" .
-                "list_type : '" . html::escapeJS($type) . "',\n" .
-                "text_confirm_remove : '" . html::escapeJS(__('Are you sure you want to remove this tag?')) . "',\n" .
-                "text_add_meta : '" . html::escapeJS(__('Add a tag to this entry')) . "',\n" .
-                "text_choose : '" . html::escapeJS(__('Choose from list')) . "',\n" .
-                "text_all : '" . html::escapeJS(__('all')) . "',\n" .
-                "text_separation : '" . html::escapeJS(__('Enter tags separated by comma')) . "',\n" .
-                "};\n" .
-                "</script>\n" .
+                dcPage::jsJson('editor_tags_options', $editor_tags_options) .
+                dcPage::jsJson('editor_tags_msg', $msg) .
                 dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
                 dcPage::jsLoad(dcPage::getPF('tags/js/posts_actions.js')) .
-                '<script type="text/javascript">' . "\n" .
-                "dotclear.msg.tags_autocomplete = '" . html::escapeJS(__('used in %e - frequency %p%')) . "';\n" .
-                "dotclear.msg.entry = '" . html::escapeJS(__('entry')) . "';\n" .
-                "dotclear.msg.entries = '" . html::escapeJS(__('entries')) . "';\n" .
-                "</script>\n" .
                 dcPage::cssLoad(dcPage::getPF('tags/style.css'))
             );
             echo
@@ -298,25 +302,27 @@ class tagsBehaviors
         $opts = $GLOBALS['core']->auth->getOptions();
         $type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
 
+        $editor_tags_options = [
+            'meta_url'            => 'plugin.php?p=tags&m=tag_posts&amp;tag=',
+            'list_type'           => $type,
+            'text_confirm_remove' => __('Are you sure you want to remove this tag?'),
+            'text_add_meta'       => __('Add a tag to this entry'),
+            'text_choose'         => __('Choose from list'),
+            'text_all'            => __('all'),
+            'text_separation'     => __('Enter tags separated by comma')
+        ];
+
+        $msg = [
+            'tags_autocomplete' => __('used in %e - frequency %p%'),
+            'entry'             => __('entry'),
+            'entries'           => __('entries')
+        ];
+
         return
-        '<script type="text/javascript">' . "\n" .
-        "var editor_tags_options = {\n" .
-        "meta_url : 'plugin.php?p=tags&m=tag_posts&amp;tag=',\n" .
-        "list_type : '" . html::escapeJS($type) . "',\n" .
-        "text_confirm_remove : '" . html::escapeJS(__('Are you sure you want to remove this tag?')) . "',\n" .
-        "text_add_meta : '" . html::escapeJS(__('Add a tag to this entry')) . "',\n" .
-        "text_choose : '" . html::escapeJS(__('Choose from list')) . "',\n" .
-        "text_all : '" . html::escapeJS(__('all')) . "',\n" .
-        "text_separation : '" . html::escapeJS(__('Enter tags separated by comma')) . "',\n" .
-        "};\n" .
-        "</script>\n" .
+        dcPage::jsJson('editor_tags_options', $editor_tags_options) .
+        dcPage::jsJson('editor_tags_msg', $msg) .
         dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
         dcPage::jsLoad(dcPage::getPF('tags/js/post.js')) .
-        '<script type="text/javascript">' . "\n" .
-        "dotclear.msg.tags_autocomplete = '" . html::escapeJS(__('used in %e - frequency %p%')) . "';\n" .
-        "dotclear.msg.entry = '" . html::escapeJS(__('entry')) . "';\n" .
-        "dotclear.msg.entries = '" . html::escapeJS(__('entries')) . "';\n" .
-        "</script>\n" .
         dcPage::cssLoad(dcPage::getPF('tags/style.css'));
     }
 

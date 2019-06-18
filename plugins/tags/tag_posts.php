@@ -69,17 +69,15 @@ if ($posts_actions_page->process()) {
 <html>
 <head>
     <title><?php echo __('Tags'); ?></title>
-    <?php echo dcPage::cssLoad(dcPage::getPF('tags/style.css')); ?>
-    <?php echo dcPage::jsLoad('js/_posts_list.js'); ?>
-    <script type="text/javascript">
-        dotclear.msg.confirm_tag_delete = '<?php echo html::escapeJS(sprintf(__('Are you sure you want to remove tag: “%s”?'), html::escapeHTML($tag))) ?>';
-        $(function() {
-            $('#tag_delete').submit(function() {
-                return window.confirm(dotclear.msg.confirm_tag_delete);
-            });
-        });
-    </script>
-    <?php echo dcPage::jsConfirmClose('tag_rename'); ?>
+<?php
+echo dcPage::cssLoad(dcPage::getPF('tags/style.css')) .
+dcPage::jsLoad('js/_posts_list.js') .
+dcPage::jsJson('posts_tags_msg', [
+    'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), html::escapeHTML($tag))
+]) .
+dcPage::jsLoad(dcPage::getPF('tags/js/posts.js')) .
+dcPage::jsConfirmClose('tag_rename');
+?>
 </head>
 <body>
 

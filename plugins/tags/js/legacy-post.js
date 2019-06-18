@@ -1,5 +1,7 @@
-/*global dotclear, jsToolBar */
+/*global dotclear, jsToolBar, mergeDeep, getData */
 'use strict';
+
+mergeDeep(jsToolBar.prototype.elements, getData('legacy_editor_tags'));
 
 // Toolbar button for tags
 jsToolBar.prototype.elements.tagSpace = {
