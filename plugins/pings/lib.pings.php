@@ -32,15 +32,7 @@ class pingsAdminBehaviors
 {
     public static function pingJS()
     {
-        global $core;
-
-        $res =
-        "<script type=\"text/javascript\">\n" .
-        dcPage::jsVar('dotclear.msg.check_all', __('Check all')) . "\n" .
-        "</script>\n" .
-        dcPage::jsLoad(dcPage::getPF('pings/js/post.js'));
-
-        return $res;
+        return dcPage::jsLoad(dcPage::getPF('pings/js/post.js'));
     }
 
     public static function pingsFormItems($main, $sidebar, $post)
