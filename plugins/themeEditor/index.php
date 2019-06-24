@@ -65,16 +65,18 @@ try
 <head>
     <title><?php echo __('Edit theme files'); ?></title>
     <?php
-echo dcPage::jsVars([
-    'dotclear.msg.saving_document'    => __("Saving document..."),
-    'dotclear.msg.document_saved'     => __("Document saved"),
-    'dotclear.msg.error_occurred'     => __("An error occurred:"),
-    'dotclear.msg.confirm_reset_file' => __("Are you sure you want to reset this file?")
-]) .
-dcPage::jsConfirmClose('file-form') .
-dcPage::jsLoad(dcPage::getPF('themeEditor/js/script.js'));
 if ($user_ui_colorsyntax) {
-    echo dcPage::jsVars(['dotclear.colorsyntax' => $user_ui_colorsyntax]);
+    echo dcPage::jsJson('dotclear_colorsyntax', ['colorsyntax' => $user_ui_colorsyntax]);
+}
+echo dcPage::jsJson('theme_editor_msg', [
+    'saving_document'    => __("Saving document..."),
+    'document_saved'     => __("Document saved"),
+    'error_occurred'     => __("An error occurred:"),
+    'confirm_reset_file' => __("Are you sure you want to reset this file?")
+]) .
+dcPage::jsLoad(dcPage::getPF('themeEditor/js/script.js')) .
+dcPage::jsConfirmClose('file-form') ;
+if ($user_ui_colorsyntax) {
     echo dcPage::jsLoadCodeMirror($user_ui_colorsyntax_theme);
 }
 echo dcPage::cssLoad(dcPage::getPF('themeEditor/style.css'));
@@ -134,23 +136,8 @@ if ($file['c'] === null) {
             (!empty($_REQUEST['css']) ? "css" :
             (!empty($_REQUEST['js']) ? "javascript" :
                 (!empty($_REQUEST['po']) ? "text/plain" : "text/html")));
-        echo
-            '<script type="text/javascript">
-            window.CodeMirror.defineMode("dotclear", function(config) {
-                return CodeMirror.multiplexingMode(
-                    CodeMirror.getMode(config, "' . $editorMode . '"),
-                    {open: "{{tpl:", close: "}}",
-                     mode: CodeMirror.getMode(config, "text/plain"),
-                     delimStyle: "delimit"},
-                    {open: "<tpl:", close: ">",
-                     mode: CodeMirror.getMode(config, "text/plain"),
-                     delimStyle: "delimit"},
-                    {open: "</tpl:", close: ">",
-                     mode: CodeMirror.getMode(config, "text/plain"),
-                     delimStyle: "delimit"}
-                    );
-            });
-        </script>';
+        echo dcPage::jsJson('theme_editor_mode', ['mode' => $editorMode]);
+        echo dcPage::jsLoad(dcPage::getPF('themeEditor/js/mode.js'));
         echo dcPage::jsRunCodeMirror('editor', 'file_content', 'dotclear', $user_ui_colorsyntax_theme);
     }
 }

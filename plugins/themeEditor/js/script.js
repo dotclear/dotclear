@@ -1,5 +1,9 @@
-/*global $, dotclear, editor, confirmClosePage */
+/*global $, dotclear, editor, confirmClosePage, getData */
 'use strict';
+
+// Get locales and setting
+Object.assign(dotclear.msg, getData('theme_editor_msg'));
+Object.assign(dotclear, getData('dotclear_colorsyntax'));
 
 $(function() {
   // Cope with saving

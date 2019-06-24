@@ -69,8 +69,8 @@ class themeEditorBehaviors
             '<p><label for="colorsyntax_theme" class="classic">' . __('Theme:') . '</label> ' .
             form::combo('colorsyntax_theme', $themes_combo,
                 [
-                    'default'    => $core->auth->user_prefs->interface->colorsyntax_theme,
-                    'extra_html' => 'onchange="selectTheme()"']) .
+                    'default' => $core->auth->user_prefs->interface->colorsyntax_theme
+                ]) .
                 '</p>';
         } else {
             echo form::hidden('colorsyntax_theme', '');
@@ -96,26 +96,8 @@ function findSequence(goal) {
   return find(1, "1");
 }</textarea>';
         echo
-            '<script>
-            var input = document.getElementById("colorsyntax_theme");
-            var theme = input.options[input.selectedIndex].textContent;
-            var editor = CodeMirror.fromTextArea(document.getElementById("codemirror"), {
-                mode: "javascript",
-                tabMode: "indent",
-                lineWrapping: 1,
-                lineNumbers: 1,
-                matchBrackets: 1,
-                autoCloseBrackets: 1,
-                theme: "' . ($core->auth->user_prefs->interface->colorsyntax_theme != '' ? $core->auth->user_prefs->interface->colorsyntax_theme : 'default') . '"
-            });
-            function selectTheme() {
-                var input = document.getElementById("colorsyntax_theme");
-                var theme = input.options[input.selectedIndex].value;
-                if (theme == "") theme = "default";
-                editor.setOption("theme", theme);
-                editor.refresh();
-            }
-        </script>';
+        dcPage::jsJson('theme_editor_current', ['theme' => $core->auth->user_prefs->interface->colorsyntax_theme != '' ? $core->auth->user_prefs->interface->colorsyntax_theme : 'default']) .
+        dcPage::jsLoad(dcPage::getPF('themeEditor/js/theme.js'));
         echo '</div>';
         echo '</div>';
     }
