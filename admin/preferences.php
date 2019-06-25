@@ -416,21 +416,18 @@ if (!empty($_POST['resetorder'])) {
 /* DISPLAY
 -------------------------------------------------------- */
 dcPage::open($page_title,
-    dcPage::jsLoad('js/_preferences.js') .
     ($user_acc_nodragdrop ? '' : dcPage::jsLoad('js/_preferences-dragdrop.js')) .
     dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
     dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
     dcPage::jsLoad('js/jquery/jquery.pwstrength.js') .
-    '<script type="text/javascript">' . "\n" .
-    "\$(function() {\n" .
-    "   \$('#new_pwd').pwstrength({texts: ['" .
-    sprintf(__('Password strength: %s'), __('very weak')) . "', '" .
-    sprintf(__('Password strength: %s'), __('weak')) . "', '" .
-    sprintf(__('Password strength: %s'), __('mediocre')) . "', '" .
-    sprintf(__('Password strength: %s'), __('strong')) . "', '" .
-    sprintf(__('Password strength: %s'), __('very strong')) . "']});\n" .
-    "});\n" .
-    "</script>\n" .
+    dcPage::jsJson('preferences', [
+            sprintf(__('Password strength: %s'), __('very weak')),
+            sprintf(__('Password strength: %s'), __('weak')),
+            sprintf(__('Password strength: %s'), __('mediocre')),
+            sprintf(__('Password strength: %s'), __('strong')),
+            sprintf(__('Password strength: %s'), __('very strong'))
+        ]) .
+    dcPage::jsLoad('js/_preferences.js') .
     dcPage::jsPageTabs($default_tab) .
     dcPage::jsConfirmClose('user-form', 'opts-forms', 'favs-form') .
 
