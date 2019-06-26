@@ -315,12 +315,10 @@ if (is_array($rte_flags) && in_array('blog_descr', $rte_flags)) {
 }
 
 dcPage::open(__('Blog settings'),
-    '<script type="text/javascript">' . "\n" .
-    dcPage::jsVar('dotclear.msg.warning_path_info',
-        __('Warning: except for special configurations, it is generally advised to have a trailing "/" in your blog URL in PATH_INFO mode.')) . "\n" .
-    dcPage::jsVar('dotclear.msg.warning_query_string',
-        __('Warning: except for special configurations, it is generally advised to have a trailing "?" in your blog URL in QUERY_STRING mode.')) . "\n" .
-    "</script>" .
+    dcPage::jsJson('blog_pref', [
+        'warning_path_info'    => __('Warning: except for special configurations, it is generally advised to have a trailing "/" in your blog URL in PATH_INFO mode.'),
+        'warning_query_string' => __('Warning: except for special configurations, it is generally advised to have a trailing "?" in your blog URL in QUERY_STRING mode.')
+    ]) .
     dcPage::jsConfirmClose('blog-form') .
     ($rte_flag ? $core->callBehavior('adminPostEditor', $desc_editor['xhtml'], 'blog_desc', ['#blog_desc'], 'xhtml') : '') .
     dcPage::jsLoad('js/_blog_pref.js') .
@@ -356,7 +354,7 @@ if ($blog_id) {
         [
             'default'    => html::escapeHTML($blog_name),
             'extra_html' => 'required placeholder="' . __('Blog name') . ' lang="' . $blog_settings->system->lang .
-                '" spellcheck="true"'
+            '" spellcheck="true"'
         ]
     ) . '</p>';
 
