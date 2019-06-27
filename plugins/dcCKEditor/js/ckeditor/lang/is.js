@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['is'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['is'] = {
     	headersColumn : 'Fyrsti dálkur',
     	headersNone : 'Engar',
     	headersRow : 'Fyrsta röð',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Border size must be a number.',
     	invalidCellPadding : 'Cell padding must be a positive number.',
     	invalidCellSpacing : 'Cell spacing must be a positive number.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['is'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armenian numbering',
     	bulletedTitle : 'Bulleted List Properties',
     	circle : 'Circle',
     	decimal : 'Decimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Decimal leading zero (01, 02, 03, etc.)',
     	disc : 'Disc',
-    	georgian : 'Georgian numbering (an, ban, gan, etc.)',
     	lowerAlpha : 'Lower Alpha (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Lower Greek (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Lower Roman (i, ii, iii, iv, v, etc.)',
     	none : 'None',
     	notset : '<not set>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['is'] = {
     	noAnchors : '<Engin bókamerki á skrá>',
     	noEmail : 'Sláðu inn netfang!',
     	noUrl : 'Sláðu inn veffang stiklunnar!',
+    	noTel : 'Please type the phone number',
     	other : '<annar>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Háð venslum (Netscape)',
     	popupFeatures : 'Eigindi sprettiglugga',
     	popupFullScreen : 'Heilskjár (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['is'] = {
     	toAnchor : 'Bókamerki á þessari síðu',
     	toEmail : 'Netfang',
     	toUrl : 'Vefslóð',
+    	toPhone : 'Phone',
     	toolbar : 'Stofna/breyta stiklu',
     	type : 'Stikluflokkur',
     	unlink : 'Fjarlægja stiklu',
@@ -416,12 +416,7 @@ CKEDITOR.lang['is'] = {
     	paste : 'Líma',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Paste Area',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Líma'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

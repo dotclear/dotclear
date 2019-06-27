@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ka'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['ka'] = {
     	headersColumn : 'პირველი სვეტი',
     	headersNone : 'არაფერი',
     	headersRow : 'პირველი სტრიქონი',
+    	heightUnit : 'height unit',
     	invalidBorder : 'ჩარჩოს ზომა რიცხვით უდნა იყოს წარმოდგენილი.',
     	invalidCellPadding : 'უჯრის კიდე (padding) რიცხვით უნდა იყოს წარმოდგენილი.',
     	invalidCellSpacing : 'უჯრის სივრცე (spacing) რიცხვით უნდა იყოს წარმოდგენილი.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['ka'] = {
     },
     liststyle : 
     {
-    	armenian : 'სომხური გადანომრვა',
     	bulletedTitle : 'ღილებიანი სიის პარამეტრები',
     	circle : 'წრეწირი',
     	decimal : 'რიცხვებით (1, 2, 3, ..)',
-    	decimalLeadingZero : 'ნულით დაწყებული რიცხვებით (01, 02, 03, ..)',
     	disc : 'წრე',
-    	georgian : 'ქართული გადანომრვა (ან, ბან, გან, ..)',
     	lowerAlpha : 'პატარა ლათინური ასოებით (a, b, c, d, e, ..)',
-    	lowerGreek : 'პატარა ბერძნული ასოებით (ალფა, ბეტა, გამა, ..)',
     	lowerRoman : 'რომაული გადანომრვცა პატარა ციფრებით (i, ii, iii, iv, v, ..)',
     	none : 'არაფერი',
     	notset : '<არაფერი>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['ka'] = {
     	noAnchors : '(ამ დოკუმენტში ღუზა არაა)',
     	noEmail : 'აკრიფეთ ელფოსტის მისამართი',
     	noUrl : 'აკრიფეთ ბმულის URL',
+    	noTel : 'Please type the phone number',
     	other : '<სხვა>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'დამოკიდებული (Netscape)',
     	popupFeatures : 'Popup ფანჯრის პარამეტრები',
     	popupFullScreen : 'მთელი ეკრანი (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['ka'] = {
     	toAnchor : 'ბმული ტექსტში ღუზაზე',
     	toEmail : 'ელფოსტა',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'ბმული',
     	type : 'ბმულის ტიპი',
     	unlink : 'ბმულის მოხსნა',
@@ -416,12 +416,7 @@ CKEDITOR.lang['ka'] = {
     	paste : 'ჩასმა',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'ჩასმის არე',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'ჩასმა'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

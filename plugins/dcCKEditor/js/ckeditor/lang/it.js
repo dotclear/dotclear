@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['it'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['it'] = {
     	headersColumn : 'Prima Colonna',
     	headersNone : 'Nessuna',
     	headersRow : 'Prima Riga',
+    	heightUnit : 'height unit',
     	invalidBorder : 'La dimensione del bordo dev\'essere un numero.',
     	invalidCellPadding : 'Il paging delle celle dev\'essere un numero',
     	invalidCellSpacing : 'La spaziatura tra le celle dev\'essere un numero.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['it'] = {
     },
     liststyle : 
     {
-    	armenian : 'Numerazione Armena',
     	bulletedTitle : 'Proprietà liste puntate',
     	circle : 'Cerchio',
     	decimal : 'Decimale (1, 2, 3, ecc.)',
-    	decimalLeadingZero : 'Decimale preceduto da 0 (01, 02, 03, ecc.)',
     	disc : 'Disco',
-    	georgian : 'Numerazione Georgiana (an, ban, gan, ecc.)',
     	lowerAlpha : 'Alfabetico minuscolo (a, b, c, d, e, ecc.)',
-    	lowerGreek : 'Greco minuscolo (alpha, beta, gamma, ecc.)',
     	lowerRoman : 'Numerazione Romana minuscola (i, ii, iii, iv, v, ecc.)',
     	none : 'Nessuno',
     	notset : '<non impostato>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['it'] = {
     	noAnchors : '(Nessuna ancora disponibile nel documento)',
     	noEmail : 'Devi inserire un\'indirizzo e-mail',
     	noUrl : 'Devi inserire l\'URL del collegamento',
+    	noTel : 'Inserire il numero di telefono',
     	other : '<altro>',
+    	phoneNumber : 'Numero di telefono',
     	popupDependent : 'Dipendente (Netscape)',
     	popupFeatures : 'Caratteristiche finestra popup',
     	popupFullScreen : 'A tutto schermo (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['it'] = {
     	toAnchor : 'Ancora nel testo',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
+    	toPhone : 'Telefono',
     	toolbar : 'Collegamento',
     	type : 'Tipo di Collegamento',
     	unlink : 'Elimina collegamento',
@@ -416,12 +416,7 @@ CKEDITOR.lang['it'] = {
     	paste : 'Incolla',
     	pasteNotification : 'Premere %1 per incollare. Il tuo browser non permette di incollare tramite il pulsante della barra degli strumenti o tramite la voce del menu contestuale.',
     	pasteArea : 'Area dove incollare',
-    	pasteMsg : 'Incollare il proprio contenuto all\'interno dell\'area sottostante e premere OK.',
-    	title : 'Incolla'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (selezionato)'
+    	pasteMsg : 'Incollare il proprio contenuto all\'interno dell\'area sottostante e premere OK.'
     },
     blockquote : 
     {

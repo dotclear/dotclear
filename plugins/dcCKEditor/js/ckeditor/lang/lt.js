@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['lt'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['lt'] = {
     	headersColumn : 'Pirmas stulpelis',
     	headersNone : 'Nėra',
     	headersRow : 'Pirma eilutė',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Reikšmė turi būti nurodyta skaičiumi.',
     	invalidCellPadding : 'Reikšmė turi būti nurodyta skaičiumi.',
     	invalidCellSpacing : 'Reikšmė turi būti nurodyta skaičiumi.',
@@ -140,7 +141,7 @@ CKEDITOR.lang['lt'] = {
     pastetext : 
     {
     	button : 'Įdėti kaip gryną tekstą',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Spauskite %1 kad įklijuotumėte. Jūsų naršyklė nepalaiko įklijavimo mygtuko arba kontekstinio meniu šiam veiksmui.',
     	title : 'Įdėti kaip gryną tekstą'
     },
     pastefromword : 
@@ -152,7 +153,7 @@ CKEDITOR.lang['lt'] = {
     },
     notification : 
     {
-    	closed : 'Notification closed.'
+    	closed : 'Pranešimas uždarytas.'
     },
     maximize : 
     {
@@ -161,19 +162,15 @@ CKEDITOR.lang['lt'] = {
     },
     magicline : 
     {
-    	title : 'Insert paragraph here'
+    	title : 'Įterpti pastraipą čia'
     },
     liststyle : 
     {
-    	armenian : 'Armėniški skaitmenys',
     	bulletedTitle : 'Ženklelinio sąrašo nustatymai',
     	circle : 'Apskritimas',
     	decimal : 'Dešimtainis (1, 2, 3, t.t)',
-    	decimalLeadingZero : 'Dešimtainis su nuliu priekyje (01, 02, 03, t.t)',
     	disc : 'Diskas',
-    	georgian : 'Gruziniški skaitmenys (an, ban, gan, t.t)',
     	lowerAlpha : 'Mažosios Alpha (a, b, c, d, e, t.t)',
-    	lowerGreek : 'Mažosios Graikų (alpha, beta, gamma, t.t)',
     	lowerRoman : 'Mažosios Romėnų (i, ii, iii, iv, v, t.t)',
     	none : 'Niekas',
     	notset : '<nenurodytas>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['lt'] = {
     	noAnchors : '(Šiame dokumente žymių nėra)',
     	noEmail : 'Prašome įvesti el.pašto adresą',
     	noUrl : 'Prašome įvesti nuorodos URL',
+    	noTel : 'Please type the phone number',
     	other : '<kitas>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Priklausomas (Netscape)',
     	popupFeatures : 'Išskleidžiamo lango savybės',
     	popupFullScreen : 'Visas ekranas (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['lt'] = {
     	toAnchor : 'Žymė šiame puslapyje',
     	toEmail : 'El.paštas',
     	toUrl : 'Nuoroda',
+    	toPhone : 'Phone',
     	toolbar : 'Įterpti/taisyti nuorodą',
     	type : 'Nuorodos tipas',
     	unlink : 'Panaikinti nuorodą',
@@ -414,14 +414,9 @@ CKEDITOR.lang['lt'] = {
     	cut : 'Iškirpti',
     	cutError : 'Jūsų naršyklės saugumo nustatymai neleidžia redaktoriui automatiškai įvykdyti iškirpimo operacijų. Tam prašome naudoti klaviatūrą (Ctrl/Cmd+X).',
     	paste : 'Įdėti',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Spauskite %1 kad įkliuotumėte. Jūsų naršyklė nepalaiko įklijavimo paspaudus mygtuką arba kontekstinio menių galimybės.',
     	pasteArea : 'Įkelti dalį',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Įdėti'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Pasirinkta)'
+    	pasteMsg : 'Įklijuokite savo turinį į žemiau esantį lauką ir paspauskite OK.'
     },
     blockquote : 
     {
@@ -524,7 +519,7 @@ CKEDITOR.lang['lt'] = {
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Tarpas',
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
@@ -554,6 +549,6 @@ CKEDITOR.lang['lt'] = {
     		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut',
-    	optionDefault : 'Default'
+    	keyboardShortcut : 'Spartusis klavišas',
+    	optionDefault : 'Numatytasis'
     } }; 

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['pt-br'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['pt-br'] = {
     	headersColumn : 'Primeira coluna',
     	headersNone : 'Nenhum',
     	headersRow : 'Primeira linha',
+    	heightUnit : 'height unit',
     	invalidBorder : 'O tamanho da borda tem que ser um número.',
     	invalidCellPadding : 'A margem interna das células tem que ser um número.',
     	invalidCellSpacing : 'O espaçamento das células tem que ser um número.',
@@ -140,7 +141,7 @@ CKEDITOR.lang['pt-br'] = {
     pastetext : 
     {
     	button : 'Colar como Texto sem Formatação',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Pressione %1 para colar. Seu navegador não suporta colar a partir do botão da barra de ferramentas ou do menu de contexto.',
     	title : 'Colar como Texto sem Formatação'
     },
     pastefromword : 
@@ -165,15 +166,11 @@ CKEDITOR.lang['pt-br'] = {
     },
     liststyle : 
     {
-    	armenian : 'Numeração Armêna',
     	bulletedTitle : 'Propriedades da Lista sem Numeros',
     	circle : 'Círculo',
     	decimal : 'Numeração Decimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Numeração Decimal com zeros (01, 02, 03, etc.)',
     	disc : 'Disco',
-    	georgian : 'Numeração da Geórgia (an, ban, gan, etc.)',
     	lowerAlpha : 'Numeração Alfabética minúscula (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Numeração Grega minúscula (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Numeração Romana minúscula (i, ii, iii, iv, v, etc.)',
     	none : 'Nenhum',
     	notset : '<não definido>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['pt-br'] = {
     	noAnchors : '(Não há âncoras no documento)',
     	noEmail : 'Por favor, digite o endereço de e-mail',
     	noUrl : 'Por favor, digite o endereço do Link',
+    	noTel : 'Please type the phone number',
     	other : '<outro>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dependente (Netscape)',
     	popupFeatures : 'Propriedades da Janela Pop-up',
     	popupFullScreen : 'Modo Tela Cheia (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['pt-br'] = {
     	toAnchor : 'Âncora nesta página',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Inserir/Editar Link',
     	type : 'Tipo de hiperlink',
     	unlink : 'Remover Link',
@@ -416,12 +416,7 @@ CKEDITOR.lang['pt-br'] = {
     	paste : 'Colar',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Área para Colar',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Colar'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selecionado)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['pt-br'] = {
     	justify : 'Justificar',
     	alignLeft : 'Alinhar Esquerda',
     	alignRight : 'Alinhar Direita',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Centralizar',
     	alignTop : 'Superior',
     	alignMiddle : 'Centralizado',
     	alignBottom : 'Inferior',

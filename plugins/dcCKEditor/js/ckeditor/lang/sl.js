@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['sl'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['sl'] = {
     	headersColumn : 'Prvi stolpec',
     	headersNone : 'Brez',
     	headersRow : 'Prva vrstica',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Širina obrobe mora biti število.',
     	invalidCellPadding : 'Odmik znotraj celic mora biti pozitivno število.',
     	invalidCellSpacing : 'Razmik med celicami mora biti pozitivno število.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['sl'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armenian numbering',
     	bulletedTitle : 'Bulleted List Properties',
     	circle : 'Circle',
     	decimal : 'Decimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Decimal leading zero (01, 02, 03, etc.)',
     	disc : 'Disc',
-    	georgian : 'Georgian numbering (an, ban, gan, etc.)',
     	lowerAlpha : 'Lower Alpha (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Lower Greek (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Lower Roman (i, ii, iii, iv, v, etc.)',
     	none : 'None',
     	notset : '<not set>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['sl'] = {
     	noAnchors : '(V tem dokumentu ni sider)',
     	noEmail : 'Vnesite e-poštni naslov',
     	noUrl : 'Vnesite URL povezave',
+    	noTel : 'Please type the phone number',
     	other : '<drugo>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Podokno (Netscape)',
     	popupFeatures : 'Značilnosti pojavnega okna',
     	popupFullScreen : 'Celozaslonsko (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['sl'] = {
     	toAnchor : 'Sidro na tej strani',
     	toEmail : 'E-pošta',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Vstavi/uredi povezavo',
     	type : 'Vrsta povezave',
     	unlink : 'Odstrani povezavo',
@@ -416,12 +416,7 @@ CKEDITOR.lang['sl'] = {
     	paste : 'Prilepi',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Prilepi območje',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Prilepi'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Izbrano)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

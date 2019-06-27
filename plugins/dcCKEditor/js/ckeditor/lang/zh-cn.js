@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['zh-cn'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['zh-cn'] = {
     	headersColumn : '第一列',
     	headersNone : '无',
     	headersRow : '第一行',
+    	heightUnit : 'height unit',
     	invalidBorder : '边框粗细必须为数字格式',
     	invalidCellPadding : '单元格填充必须为数字格式',
     	invalidCellSpacing : '单元格间距必须为数字格式',
@@ -140,7 +141,7 @@ CKEDITOR.lang['zh-cn'] = {
     pastetext : 
     {
     	button : '粘贴为无格式文本',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : '您的浏览器不支持通过工具栏或右键菜单进行粘贴，请按 %1 进行粘贴。',
     	title : '粘贴为无格式文本'
     },
     pastefromword : 
@@ -165,15 +166,11 @@ CKEDITOR.lang['zh-cn'] = {
     },
     liststyle : 
     {
-    	armenian : '传统的亚美尼亚编号方式',
     	bulletedTitle : '项目列表属性',
     	circle : '空心圆',
     	decimal : '数字 (1, 2, 3, 等)',
-    	decimalLeadingZero : '0开头的数字标记(01, 02, 03, 等)',
     	disc : '实心圆',
-    	georgian : '传统的乔治亚编号方式(an, ban, gan, 等)',
     	lowerAlpha : '小写英文字母(a, b, c, d, e, 等)',
-    	lowerGreek : '小写希腊字母(alpha, beta, gamma, 等)',
     	lowerRoman : '小写罗马数字(i, ii, iii, iv, v, 等)',
     	none : '无标记',
     	notset : '<没有设置>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['zh-cn'] = {
     	noAnchors : '(此文档没有可用的锚点)',
     	noEmail : '请输入电子邮件地址',
     	noUrl : '请输入超链接地址',
+    	noTel : 'Please type the phone number',
     	other : '<其他>',
+    	phoneNumber : 'Phone number',
     	popupDependent : '依附 (NS)',
     	popupFeatures : '弹出窗口属性',
     	popupFullScreen : '全屏 (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['zh-cn'] = {
     	toAnchor : '页内锚点链接',
     	toEmail : '电子邮件',
     	toUrl : '地址',
+    	toPhone : 'Phone',
     	toolbar : '插入/编辑超链接',
     	type : '超链接类型',
     	unlink : '取消超链接',
@@ -414,14 +414,9 @@ CKEDITOR.lang['zh-cn'] = {
     	cut : '剪切',
     	cutError : '您的浏览器安全设置不允许编辑器自动执行剪切操作，请使用键盘快捷键(Ctrl/Cmd+X)来完成。',
     	paste : '粘贴',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : '您的浏览器不支持通过工具栏或右键菜单进行粘贴，请按 %1 进行粘贴。',
     	pasteArea : '粘贴区域',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : '粘贴'
-    },
-    button : 
-    {
-    	selectedLabel : '已选中 %1 项'
+    	pasteMsg : '将您的内容粘贴到下方区域，然后按确定。'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['zh-cn'] = {
     	justify : '两端对齐',
     	alignLeft : '左对齐',
     	alignRight : '右对齐',
-    	alignCenter : 'Align Center',
+    	alignCenter : '居中',
     	alignTop : '顶端',
     	alignMiddle : '居中',
     	alignBottom : '底部',
@@ -511,7 +506,7 @@ CKEDITOR.lang['zh-cn'] = {
     	invalidValue : '无效的值。',
     	invalidHeight : '高度必须为数字格式',
     	invalidWidth : '宽度必须为数字格式',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : '为 "%1" 字段设置的值必须是一个正数或者没有一个有效的度量单位 (%2)。',
     	invalidCssLength : '此“%1”字段的值必须为正数，可以包含或不包含一个有效的 CSS 长度单位(px, %, in, cm, mm, em, ex, pt 或 pc)',
     	invalidHtmlLength : '此“%1”字段的值必须为正数，可以包含或不包含一个有效的 HTML 长度单位(px 或 %)',
     	invalidInlineStyle : '内联样式必须为格式是以分号分隔的一个或多个“属性名 : 属性值”。',
@@ -555,5 +550,5 @@ CKEDITOR.lang['zh-cn'] = {
     		'224' : 'Command'
     	},
     	keyboardShortcut : '快捷键',
-    	optionDefault : 'Default'
+    	optionDefault : '默认'
     } }; 

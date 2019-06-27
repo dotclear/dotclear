@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['da'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['da'] = {
     	headersColumn : 'Første kolonne',
     	headersNone : 'Ingen',
     	headersRow : 'Første række',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Rammetykkelse skal være et tal.',
     	invalidCellPadding : 'Cellemargen skal være et tal.',
     	invalidCellSpacing : 'Celleafstand skal være et tal.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['da'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armensk nummering',
     	bulletedTitle : 'Værdier for cirkelpunktopstilling',
     	circle : 'Cirkel',
     	decimal : 'Decimal (1, 2, 3, osv.)',
-    	decimalLeadingZero : 'Decimaler med 0 først (01, 02, 03, etc.)',
     	disc : 'Værdier for diskpunktopstilling',
-    	georgian : 'Georgiansk nummering (an, ban, gan, etc.)',
     	lowerAlpha : 'Små alfabet (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Små græsk (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Små romerske (i, ii, iii, iv, v, etc.)',
     	none : 'Ingen',
     	notset : '<ikke defineret>',
@@ -209,8 +206,8 @@ CKEDITOR.lang['da'] = {
     	anchorName : 'Efter ankernavn',
     	charset : 'Tegnsæt',
     	cssClasses : 'Typografiark',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Tving Download',
+    	displayText : 'Vis tekst',
     	emailAddress : 'E-mailadresse',
     	emailBody : 'Besked',
     	emailSubject : 'Emne',
@@ -225,7 +222,9 @@ CKEDITOR.lang['da'] = {
     	noAnchors : '(Ingen bogmærker i dokumentet)',
     	noEmail : 'Indtast e-mailadresse!',
     	noUrl : 'Indtast hyperlink-URL!',
+    	noTel : 'Please type the phone number',
     	other : '<anden>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Koblet/dependent (Netscape)',
     	popupFeatures : 'Egenskaber for popup',
     	popupFullScreen : 'Fuld skærm (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['da'] = {
     	toAnchor : 'Bogmærke på denne side',
     	toEmail : 'E-mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Indsæt/redigér hyperlink',
     	type : 'Type',
     	unlink : 'Fjern hyperlink',
@@ -416,12 +416,7 @@ CKEDITOR.lang['da'] = {
     	paste : 'Indsæt',
     	pasteNotification : 'Tryk %1 for at sætte ind. Din browser understøtter ikke indsættelse med værktøjslinje knappen eller kontekst menuen.',
     	pasteArea : 'Indsættelses område',
-    	pasteMsg : 'Indsæt dit indhold i området nedenfor og tryk OK.',
-    	title : 'Indsæt'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Valgt)'
+    	pasteMsg : 'Indsæt dit indhold i området nedenfor og tryk OK.'
     },
     blockquote : 
     {

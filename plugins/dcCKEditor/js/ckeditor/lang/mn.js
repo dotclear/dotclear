@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['mn'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['mn'] = {
     	headersColumn : 'First column',
     	headersNone : 'None',
     	headersRow : 'First Row',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Border size must be a number.',
     	invalidCellPadding : 'Cell padding must be a positive number.',
     	invalidCellSpacing : 'Cell spacing must be a positive number.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['mn'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armenian numbering',
     	bulletedTitle : 'Bulleted List Properties',
     	circle : 'Circle',
     	decimal : 'Decimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Decimal leading zero (01, 02, 03, etc.)',
     	disc : 'Disc',
-    	georgian : 'Georgian numbering (an, ban, gan, etc.)',
     	lowerAlpha : 'Lower Alpha (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Lower Greek (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Lower Roman (i, ii, iii, iv, v, etc.)',
     	none : 'None',
     	notset : '<not set>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['mn'] = {
     	noAnchors : '(Баримт бичиг зангуугүй байна)',
     	noEmail : 'Э-шуудангий хаягаа шивнэ үү',
     	noUrl : 'Холбоосны URL хаягийг шивнэ үү',
+    	noTel : 'Please type the phone number',
     	other : '<other>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Хамаатай (Netscape)',
     	popupFeatures : 'Popup цонхны онцлог',
     	popupFullScreen : 'Цонх дүүргэх (Internet Explorer)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['mn'] = {
     	toAnchor : 'Энэ бичвэр дэх зангуу руу очих холбоос',
     	toEmail : 'Э-захиа',
     	toUrl : 'цахим хуудасны хаяг (URL)',
+    	toPhone : 'Phone',
     	toolbar : 'Холбоос',
     	type : 'Линкийн төрөл',
     	unlink : 'Холбоос авч хаях',
@@ -416,12 +416,7 @@ CKEDITOR.lang['mn'] = {
     	paste : 'Буулгах',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Paste Area',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Буулгах'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

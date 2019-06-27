@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['vi'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['vi'] = {
     	headersColumn : 'Cột đầu tiên',
     	headersNone : 'Không có',
     	headersRow : 'Hàng đầu tiên',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Kích cỡ của đường biên phải là một số nguyên.',
     	invalidCellPadding : 'Khoảng đệm giữa ô và nội dung phải là một số nguyên.',
     	invalidCellSpacing : 'Khoảng cách giữa các ô phải là một số nguyên.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['vi'] = {
     },
     liststyle : 
     {
-    	armenian : 'Số theo kiểu Armenian',
     	bulletedTitle : 'Thuộc tính danh sách không thứ tự',
     	circle : 'Khuyên tròn',
     	decimal : 'Kiểu số (1, 2, 3 ...)',
-    	decimalLeadingZero : 'Kiểu số (01, 02, 03...)',
     	disc : 'Hình đĩa',
-    	georgian : 'Số theo kiểu Georgian (an, ban, gan...)',
     	lowerAlpha : 'Kiểu abc thường (a, b, c, d, e...)',
-    	lowerGreek : 'Kiểu Hy Lạp (alpha, beta, gamma...)',
     	lowerRoman : 'Số La Mã kiểu thường (i, ii, iii, iv, v...)',
     	none : 'Không gì cả',
     	notset : '<không thiết lập>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['vi'] = {
     	noAnchors : '(Không có điểm neo nào trong tài liệu)',
     	noEmail : 'Hãy đưa vào địa chỉ thư điện tử',
     	noUrl : 'Hãy đưa vào đường dẫn liên kết (URL)',
+    	noTel : 'Please type the phone number',
     	other : '<khác>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Phụ thuộc (Netscape)',
     	popupFeatures : 'Đặc điểm của cửa sổ Popup',
     	popupFullScreen : 'Toàn màn hình (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['vi'] = {
     	toAnchor : 'Neo trong trang này',
     	toEmail : 'Thư điện tử',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Chèn/Sửa liên kết',
     	type : 'Kiểu liên kết',
     	unlink : 'Xoá liên kết',
@@ -416,12 +416,7 @@ CKEDITOR.lang['vi'] = {
     	paste : 'Dán',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Khu vực dán',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Dán'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Đã chọn)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

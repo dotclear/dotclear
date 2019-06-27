@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ja'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['ja'] = {
     	headersColumn : '最初の列のみ',
     	headersNone : 'なし',
     	headersRow : '最初の行のみ',
+    	heightUnit : 'height unit',
     	invalidBorder : '枠線の幅は数値で入力してください。',
     	invalidCellPadding : 'セル内余白は数値で入力してください。',
     	invalidCellSpacing : 'セル間余白は数値で入力してください。',
@@ -165,15 +166,11 @@ CKEDITOR.lang['ja'] = {
     },
     liststyle : 
     {
-    	armenian : 'アルメニア数字',
     	bulletedTitle : '箇条書きのプロパティ',
     	circle : '白丸',
     	decimal : '数字 (1, 2, 3, etc.)',
-    	decimalLeadingZero : '0付きの数字 (01, 02, 03, etc.)',
     	disc : '黒丸',
-    	georgian : 'グルジア数字 (an, ban, gan, etc.)',
     	lowerAlpha : '小文字アルファベット (a, b, c, d, e, etc.)',
-    	lowerGreek : '小文字ギリシャ文字 (alpha, beta, gamma, etc.)',
     	lowerRoman : '小文字ローマ数字 (i, ii, iii, iv, v, etc.)',
     	none : 'なし',
     	notset : '<なし>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['ja'] = {
     	noAnchors : '(このドキュメント内にアンカーはありません)',
     	noEmail : 'メールアドレスを入力してください。',
     	noUrl : 'リンクURLを入力してください。',
+    	noTel : 'Please type the phone number',
     	other : '<その他の>',
+    	phoneNumber : 'Phone number',
     	popupDependent : '開いたウィンドウに連動して閉じる (Netscape)',
     	popupFeatures : 'ポップアップウィンドウ特徴',
     	popupFullScreen : '全画面モード(IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['ja'] = {
     	toAnchor : 'ページ内のアンカー',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'リンク挿入/編集',
     	type : 'リンクタイプ',
     	unlink : 'リンクを削除',
@@ -416,12 +416,7 @@ CKEDITOR.lang['ja'] = {
     	paste : '貼り付け',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : '貼り付け場所',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : '貼り付け'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (選択中)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

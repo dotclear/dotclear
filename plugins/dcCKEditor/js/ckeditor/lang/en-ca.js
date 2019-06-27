@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['en-ca'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['en-ca'] = {
     	headersColumn : 'First column',
     	headersNone : 'None',
     	headersRow : 'First Row',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Border size must be a number.',
     	invalidCellPadding : 'Cell padding must be a number.',
     	invalidCellSpacing : 'Cell spacing must be a number.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['en-ca'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armenian numbering',
     	bulletedTitle : 'Bulleted List Properties',
     	circle : 'Circle',
     	decimal : 'Decimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Decimal leading zero (01, 02, 03, etc.)',
     	disc : 'Disc',
-    	georgian : 'Georgian numbering (an, ban, gan, etc.)',
     	lowerAlpha : 'Lower Alpha (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Lower Greek (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Lower Roman (i, ii, iii, iv, v, etc.)',
     	none : 'None',
     	notset : '<not set>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['en-ca'] = {
     	noAnchors : '(No anchors available in the document)',
     	noEmail : 'Please type the e-mail address',
     	noUrl : 'Please type the link URL',
+    	noTel : 'Please type the phone number',
     	other : '<other>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dependent (Netscape)',
     	popupFeatures : 'Popup Window Features',
     	popupFullScreen : 'Full Screen (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['en-ca'] = {
     	toAnchor : 'Link to anchor in the text',
     	toEmail : 'E-mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Link',
     	type : 'Link Type',
     	unlink : 'Unlink',
@@ -416,12 +416,7 @@ CKEDITOR.lang['en-ca'] = {
     	paste : 'Paste',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Paste Area',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Paste'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

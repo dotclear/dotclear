@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['de'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['de'] = {
     	headersColumn : 'Erste Spalte',
     	headersNone : 'Keine',
     	headersRow : 'Erste Zeile',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Die Rahmenbreite muß eine Zahl sein.',
     	invalidCellPadding : 'Der Zellenabstand innen muß eine positive Zahl sein.',
     	invalidCellSpacing : 'Der Zellenabstand außen muß eine positive Zahl sein.',
@@ -140,7 +141,7 @@ CKEDITOR.lang['de'] = {
     pastetext : 
     {
     	button : 'Als Klartext einfügen',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Drücken Sie %1 zum Einfügen. Ihr Browser unterstützt nicht das Einfügen über dem Knopf in der Toolbar oder dem Kontextmenü.',
     	title : 'Als Klartext einfügen'
     },
     pastefromword : 
@@ -165,15 +166,11 @@ CKEDITOR.lang['de'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armenische Nummerierung',
     	bulletedTitle : 'Aufzählungslisteneigenschaften',
     	circle : 'Ring',
     	decimal : 'Dezimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Dezimal mit führender Null (01, 02, 03, usw.)',
     	disc : 'Kreis',
-    	georgian : 'Georgische Nummerierung (an, ban, gan, usw.)',
     	lowerAlpha : 'Klein Alpha (a, b, c, d, e, usw.)',
-    	lowerGreek : 'Klein griechisch (alpha, beta, gamma, usw.)',
     	lowerRoman : 'Klein römisch (i, ii, iii, iv, v, usw.)',
     	none : 'Keine',
     	notset : '<nicht festgelegt>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['de'] = {
     	noAnchors : '(Keine Anker im Dokument vorhanden)',
     	noEmail : 'Bitte geben Sie E-Mail-Adresse an',
     	noUrl : 'Bitte geben Sie die Link-URL an',
+    	noTel : 'Please type the phone number',
     	other : '<andere>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Abhängig (Netscape)',
     	popupFeatures : 'Pop-up Fenstereigenschaften',
     	popupFullScreen : 'Vollbild (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['de'] = {
     	toAnchor : 'Anker in dieser Seite',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Link einfügen/editieren',
     	type : 'Link-Typ',
     	unlink : 'Link entfernen',
@@ -414,14 +414,9 @@ CKEDITOR.lang['de'] = {
     	cut : 'Ausschneiden',
     	cutError : 'Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch auszuschneiden. Bitte benutzen Sie die System-Zwischenablage über STRG-X (ausschneiden) und STRG-V (einfügen).',
     	paste : 'Einfügen',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Drücken Sie %1 zum Einfügen. Ihr Browser unterstützt nicht das Einfügen über dem Knopf in der Toolbar oder dem Kontextmenü.',
     	pasteArea : 'Einfügebereich',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Einfügen'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Ausgewählt)'
+    	pasteMsg : 'Fügen Sie den Inhalt in den unteren Bereich ein und drücken Sie OK.'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['de'] = {
     	justify : 'Blocksatz',
     	alignLeft : 'Linksbündig',
     	alignRight : 'Rechtsbündig',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Zentriert',
     	alignTop : 'Oben',
     	alignMiddle : 'Mitte',
     	alignBottom : 'Unten',
@@ -555,5 +550,5 @@ CKEDITOR.lang['de'] = {
     		'224' : 'Befehl'
     	},
     	keyboardShortcut : 'Tastaturkürzel',
-    	optionDefault : 'Default'
+    	optionDefault : 'Standard'
     } }; 

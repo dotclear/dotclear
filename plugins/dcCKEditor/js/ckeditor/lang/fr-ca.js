@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['fr-ca'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['fr-ca'] = {
     	headersColumn : 'Première colonne',
     	headersNone : 'Aucun',
     	headersRow : 'Première ligne',
+    	heightUnit : 'height unit',
     	invalidBorder : 'La taille de bordure doit être un nombre.',
     	invalidCellPadding : 'La marge interne des cellules doit être un nombre positif.',
     	invalidCellSpacing : 'L\'espacement des cellules doit être un nombre positif.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['fr-ca'] = {
     },
     liststyle : 
     {
-    	armenian : 'Numération arménienne',
     	bulletedTitle : 'Propriété de liste à puce',
     	circle : 'Cercle',
     	decimal : 'Décimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Décimal avec zéro (01, 02, 03, etc.)',
     	disc : 'Disque',
-    	georgian : 'Numération géorgienne (an, ban, gan, etc.)',
     	lowerAlpha : 'Alphabétique minuscule (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Grecque minuscule (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Romain minuscule (i, ii, iii, iv, v, etc.)',
     	none : 'Aucun',
     	notset : '<non défini>',
@@ -210,7 +207,7 @@ CKEDITOR.lang['fr-ca'] = {
     	charset : 'Encodage de la cible',
     	cssClasses : 'Classes CSS',
     	download : 'Force Download',
-    	displayText : 'Display Text',
+    	displayText : 'Afficher le texte',
     	emailAddress : 'Courriel',
     	emailBody : 'Corps du message',
     	emailSubject : 'Objet du message',
@@ -225,7 +222,9 @@ CKEDITOR.lang['fr-ca'] = {
     	noAnchors : '(Pas d\'ancre disponible dans le document)',
     	noEmail : 'Veuillez saisir le courriel',
     	noUrl : 'Veuillez saisir l\'URL',
+    	noTel : 'Please type the phone number',
     	other : '<autre>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dépendante (Netscape)',
     	popupFeatures : 'Caractéristiques de la fenêtre popup',
     	popupFullScreen : 'Plein écran (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['fr-ca'] = {
     	toAnchor : 'Ancre dans cette page',
     	toEmail : 'Courriel',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Lien',
     	type : 'Type de lien',
     	unlink : 'Supprimer le lien',
@@ -416,12 +416,7 @@ CKEDITOR.lang['fr-ca'] = {
     	paste : 'Coller',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Coller la zone',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Coller'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

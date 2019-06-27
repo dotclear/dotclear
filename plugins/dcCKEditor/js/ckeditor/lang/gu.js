@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['gu'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['gu'] = {
     	headersColumn : 'પહેલી ઊભી કટાર',
     	headersNone : 'નથી ',
     	headersRow : 'પહેલી  કટાર',
+    	heightUnit : 'height unit',
     	invalidBorder : 'બોર્ડર એક આંકડો હોવો જોઈએ',
     	invalidCellPadding : 'સેલની અંદરની જગ્યા સુન્ય કરતા વધારે હોવી જોઈએ.',
     	invalidCellSpacing : 'સેલ વચ્ચેની જગ્યા સુન્ય કરતા વધારે હોવી જોઈએ.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['gu'] = {
     },
     liststyle : 
     {
-    	armenian : 'અરમેનિયન આંકડા પદ્ધતિ',
     	bulletedTitle : 'બુલેટેડ લીસ્ટના ગુણ',
     	circle : 'વર્તુળ',
     	decimal : 'આંકડા (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'સુન્ય આગળ આંકડા (01, 02, 03, etc.)',
     	disc : 'ડિસ્ક',
-    	georgian : 'ગેઓર્ગિયન આંકડા પદ્ધતિ (an, ban, gan, etc.)',
     	lowerAlpha : 'આલ્ફા નાના (a, b, c, d, e, etc.)',
-    	lowerGreek : 'ગ્રીક નાના (alpha, beta, gamma, etc.)',
     	lowerRoman : 'રોમન નાના (i, ii, iii, iv, v, etc.)',
     	none : 'કસુ ',
     	notset : '<સેટ નથી>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['gu'] = {
     	noAnchors : '(ડૉક્યુમન્ટમાં ઍંકરની સંખ્યા)',
     	noEmail : 'ઈ-મેલ સરનામું ટાઇપ કરો',
     	noUrl : 'લિંક  URL ટાઇપ કરો',
+    	noTel : 'Please type the phone number',
     	other : '<other> <અન્ય>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'ડિપેન્ડન્ટ (Netscape)',
     	popupFeatures : 'પૉપ-અપ વિન્ડો ફીચરસૅ',
     	popupFullScreen : 'ફુલ સ્ક્રીન (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['gu'] = {
     	toAnchor : 'આ પેજનો ઍંકર',
     	toEmail : 'ઈ-મેલ',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'લિંક ઇન્સર્ટ/દાખલ કરવી',
     	type : 'લિંક પ્રકાર',
     	unlink : 'લિંક કાઢવી',
@@ -416,12 +416,7 @@ CKEDITOR.lang['gu'] = {
     	paste : 'પેસ્ટ',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'પેસ્ટ કરવાની જગ્યા',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'પેસ્ટ'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

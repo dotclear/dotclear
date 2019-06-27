@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['id'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['id'] = {
     	headersColumn : 'Kolom pertama',
     	headersNone : 'Tidak ada',
     	headersRow : 'Baris Pertama',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Ukuran batasan harus sebuah angka',
     	invalidCellPadding : '\'Spasi dalam\' sel harus angka positif.',
     	invalidCellSpacing : 'Spasi antar sel harus angka positif.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['id'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armenian numbering',
     	bulletedTitle : 'Bulleted List Properties',
     	circle : 'Lingkaran',
     	decimal : 'Desimal (1, 2, 3, dst.)',
-    	decimalLeadingZero : 'Desimal diawali angka nol (01, 02, 03, dst.)',
     	disc : 'Cakram',
-    	georgian : 'Georgian numbering (an, ban, gan, etc.)',
     	lowerAlpha : 'Huruf Kecil (a, b, c, d, e, dst.)',
-    	lowerGreek : 'Lower Greek (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Angka Romawi (i, ii, iii, iv, v, dst.)',
     	none : 'Tidak ada',
     	notset : '<tidak diatur>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['id'] = {
     	noAnchors : '(No anchors available in the document)',
     	noEmail : 'Silahkan ketikkan alamat e-mail',
     	noUrl : 'Silahkan ketik URL tautan',
+    	noTel : 'Please type the phone number',
     	other : '<lainnya>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dependent (Netscape)',
     	popupFeatures : 'Popup Window Features',
     	popupFullScreen : 'Full Screen (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['id'] = {
     	toAnchor : 'Link to anchor in the text',
     	toEmail : 'E-mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Tautan',
     	type : 'Link Type',
     	unlink : 'Unlink',
@@ -416,12 +416,7 @@ CKEDITOR.lang['id'] = {
     	paste : 'Tempel',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Area Tempel',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Tempel'
-    },
-    button : 
-    {
-    	selectedLabel : '%1(Dipilih)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

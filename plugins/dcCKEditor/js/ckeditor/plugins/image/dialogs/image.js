@@ -1,5 +1,5 @@
 ﻿/**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -116,20 +116,25 @@
 						if ( !dialog.userlockRatio && oImageOriginal.getCustomData( 'isReady' ) == 'true' ) {
 							var width = dialog.getValueOf( 'info', 'txtWidth' ),
 								height = dialog.getValueOf( 'info', 'txtHeight' ),
-								originalRatio = oImageOriginal.$.width * 1000 / oImageOriginal.$.height,
-								thisRatio = width * 1000 / height;
+								originalRatio = oImageOriginal.$.width / oImageOriginal.$.height,
+								thisRatio = width / height;
+
 							dialog.lockRatio = false; // Default: unlock ratio
 
-							if ( !width && !height )
+							if ( !width && !height ) {
 								dialog.lockRatio = true;
-							else if ( !isNaN( originalRatio ) && !isNaN( thisRatio ) ) {
-								if ( Math.round( originalRatio ) == Math.round( thisRatio ) )
+							} else {
+								// Round ratio to two decimal places so ratio locking will be less precise (#2254).
+								var ratioComparison = Math.round( ( originalRatio / thisRatio ) * 100 ) / 100;
+
+								if ( ratioComparison == 1 ) {
 									dialog.lockRatio = true;
+								}
 							}
 						}
-					} else if ( value !== undefined )
+					} else if ( value !== undefined ) {
 						dialog.lockRatio = value;
-					else {
+					} else {
 						dialog.userlockRatio = 1;
 						dialog.lockRatio = !dialog.lockRatio;
 					}

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['zh'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['zh'] = {
     	headersColumn : '第一行',
     	headersNone : '無',
     	headersRow : '第一列',
+    	heightUnit : 'height unit',
     	invalidBorder : '框線大小必須是整數。',
     	invalidCellPadding : '儲存格邊距必須為正數。',
     	invalidCellSpacing : '儲存格間距必須為正數。',
@@ -140,7 +141,7 @@ CKEDITOR.lang['zh'] = {
     pastetext : 
     {
     	button : '貼成純文字',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : '請按下「%1」貼上。您的瀏覽器不支援工具列按鈕或是內容功能表選項。 ',
     	title : '貼成純文字'
     },
     pastefromword : 
@@ -165,15 +166,11 @@ CKEDITOR.lang['zh'] = {
     },
     liststyle : 
     {
-    	armenian : '亞美尼亞數字',
     	bulletedTitle : '項目符號清單屬性',
     	circle : '圓圈',
     	decimal : '小數點 (1, 2, 3, etc.)',
-    	decimalLeadingZero : '前綴 0 十位數字 (01, 02, 03, 等)',
     	disc : '圓點',
-    	georgian : '喬治王時代數字 (an, ban, gan, 等)',
     	lowerAlpha : '小寫字母 (a, b, c, d, e 等)',
-    	lowerGreek : '小寫希臘字母 (alpha, beta, gamma, 等)',
     	lowerRoman : '小寫羅馬數字 (i, ii, iii, iv, v 等)',
     	none : '無',
     	notset : '<未設定>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['zh'] = {
     	noAnchors : '(本文件中無可用之錨點)',
     	noEmail : '請輸入電子郵件',
     	noUrl : '請輸入連結 URL',
+    	noTel : 'Please type the phone number',
     	other : '<其他>',
+    	phoneNumber : 'Phone number',
     	popupDependent : '獨立 (Netscape)',
     	popupFeatures : '快顯視窗功能',
     	popupFullScreen : '全螢幕 (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['zh'] = {
     	toAnchor : '文字中的錨點連結',
     	toEmail : '電子郵件',
     	toUrl : '網址',
+    	toPhone : 'Phone',
     	toolbar : '連結',
     	type : '連結類型',
     	unlink : '取消連結',
@@ -414,14 +414,9 @@ CKEDITOR.lang['zh'] = {
     	cut : '剪下',
     	cutError : '瀏覽器的安全性設定不允許編輯器自動執行剪下動作。請使用鏐盤快捷鍵 (Ctrl/Cmd+X) 剪下。',
     	paste : '貼上',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : '請按下「%1」貼上。您的瀏覽器不支援工具列按鈕或是內容功能表選項。',
     	pasteArea : '貼上區',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : '貼上'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (已選取)'
+    	pasteMsg : '請將您的內容貼於下方區域中並按下「OK」。'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['zh'] = {
     	justify : '左右對齊',
     	alignLeft : '靠左對齊',
     	alignRight : '靠右對齊',
-    	alignCenter : 'Align Center',
+    	alignCenter : '置中對齊',
     	alignTop : '頂端',
     	alignMiddle : '中間對齊',
     	alignBottom : '底端',

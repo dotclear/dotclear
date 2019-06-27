@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ug'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['ug'] = {
     	headersColumn : 'بىرىنچى ئىستون',
     	headersNone : 'يوق',
     	headersRow : 'بىرىنچى قۇر',
+    	heightUnit : 'height unit',
     	invalidBorder : 'گىرۋەك توملۇقى چوقۇم سان بولىدۇ',
     	invalidCellPadding : 'كاتەكچىگە چوقۇم سان تولدۇرۇلىدۇ',
     	invalidCellSpacing : 'كاتەكچە ئارىلىقى چوقۇم سان بولىدۇ',
@@ -140,7 +141,7 @@ CKEDITOR.lang['ug'] = {
     pastetext : 
     {
     	button : 'پىچىمى يوق تېكىست سۈپىتىدە چاپلا',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'چاپلانغىنى 1% . سىزنىڭ تور كۆرگۈچىڭىز قۇرال تەكچىسى ۋە سىيرىلما تاللاپ چاپلاش ئىقتىدارىنى قوللىمايدىكەن .',
     	title : 'پىچىمى يوق تېكىست سۈپىتىدە چاپلا'
     },
     pastefromword : 
@@ -165,15 +166,11 @@ CKEDITOR.lang['ug'] = {
     },
     liststyle : 
     {
-    	armenian : 'قەدىمكى ئەرمىنىيە تەرتىپ نومۇرى شەكلى',
     	bulletedTitle : 'تۈر بەلگە تىزىم خاسلىقى',
     	circle : 'بوش چەمبەر',
     	decimal : 'سان (1, 2, 3 قاتارلىق)',
-    	decimalLeadingZero : 'نۆلدىن باشلانغان سان بەلگە (01, 02, 03 قاتارلىق)',
     	disc : 'تولدۇرۇلغان چەمبەر',
-    	georgian : 'قەدىمكى جورجىيە تەرتىپ نومۇرى شەكلى (an, ban, gan قاتارلىق)',
     	lowerAlpha : 'ئىنگلىزچە كىچىك ھەرپ (a, b, c, d, e قاتارلىق)',
-    	lowerGreek : 'گرېكچە كىچىك ھەرپ (alpha, beta, gamma قاتارلىق)',
     	lowerRoman : 'كىچىك ھەرپلىك رىم رەقىمى (i, ii, iii, iv, v قاتارلىق)',
     	none : 'بەلگە يوق',
     	notset : '‹تەڭشەلمىگەن›',
@@ -225,7 +222,9 @@ CKEDITOR.lang['ug'] = {
     	noAnchors : '(بۇ پۈتۈكتە ئىشلەتكىلى بولىدىغان لەڭگەرلىك نۇقتا يوق)',
     	noEmail : 'ئېلخەت ئادرېسىنى كىرگۈزۈڭ',
     	noUrl : 'ئۇلانما ئادرېسىنى كىرگۈزۈڭ',
+    	noTel : 'Please type the phone number',
     	other : '‹باشقا›',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'تەۋە (NS)',
     	popupFeatures : 'قاڭقىش كۆزنەك خاسلىقى',
     	popupFullScreen : 'پۈتۈن ئېكران (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['ug'] = {
     	toAnchor : 'بەت ئىچىدىكى لەڭگەرلىك نۇقتا ئۇلانمىسى',
     	toEmail : 'ئېلخەت',
     	toUrl : 'ئادرېس',
+    	toPhone : 'Phone',
     	toolbar : 'ئۇلانما قىستۇر/تەھرىرلە',
     	type : 'ئۇلانما تىپى',
     	unlink : 'ئۇلانما بىكار قىل',
@@ -416,12 +416,7 @@ CKEDITOR.lang['ug'] = {
     	paste : 'چاپلا',
     	pasteNotification : 'چاپلانغىنى 1% . سىزنىڭ تور كۆرگۈچىڭىز قۇرال تەكچىسى ۋە سىيرىلما تاللاپ چاپلاش ئىقتىدارىنى قوللىمايدىكەن .',
     	pasteArea : 'چاپلاش دائىرىسى',
-    	pasteMsg : 'مەزمۇنىڭىزنى تۆۋەندىكى رايونغا چاپلاپ ئاندىن OK نى بېسىڭ .',
-    	title : 'چاپلا'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (تاللاندى)'
+    	pasteMsg : 'مەزمۇنىڭىزنى تۆۋەندىكى رايونغا چاپلاپ ئاندىن OK نى بېسىڭ .'
     },
     blockquote : 
     {

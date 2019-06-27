@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['az'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['az'] = {
     	headersColumn : 'Birinci sütun',
     	headersNone : 'yox',
     	headersRow : 'Birinci sətir',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Sərhədlərin eni müsbət rəqəm olmalıdır.',
     	invalidCellPadding : 'Xanalardakı kənar boşluqlar müsbət rəqəm olmalıdır.',
     	invalidCellSpacing : 'Xanalararası interval müsbət rəqəm olmalıdır.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['az'] = {
     },
     liststyle : 
     {
-    	armenian : 'Erməni nömrələmə',
     	bulletedTitle : 'Markerlənmiş siyahının xüsusiyyətləri',
     	circle : 'Dəirəcik',
     	decimal : 'Rəqəm (1, 2, 3 və s.)',
-    	decimalLeadingZero : 'Aparıcı sıfır olan rəqəm (01, 02, 03 və s.)',
     	disc : 'Disk',
-    	georgian : 'Gürcü nömrələmə (an, ban, gan, və s.)',
     	lowerAlpha : 'Kiçik hərflər (a, b, c, d, e və s.)',
-    	lowerGreek : 'Kiçik Yunan hərfləri (alfa, beta, qamma və s.)',
     	lowerRoman : 'Rum rəqəmləri (i, ii, iii, iv, v və s.)',
     	none : 'Yoxdur',
     	notset : '<seçilməmiş>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['az'] = {
     	noAnchors : '(heç bir xeş tapılmayıb)',
     	noEmail : 'E-poçt ünvanı daxil edin',
     	noUrl : 'Linkin URL-ı daxil edin',
+    	noTel : 'Please type the phone number',
     	other : '<digər>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Asılı (Netscape)',
     	popupFeatures : 'Pəncərənin xüsusiyyətləri',
     	popupFullScreen : 'Tam ekran rejimi (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['az'] = {
     	toAnchor : 'Xeş',
     	toEmail : 'E-poçt',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Link',
     	type : 'Linkin növü',
     	unlink : 'Linki sil',
@@ -416,12 +416,7 @@ CKEDITOR.lang['az'] = {
     	paste : 'Əlavə et',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Paste Area',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Paste'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (seçilib)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['az'] = {
     	justify : 'Eninə görə',
     	alignLeft : 'Soldan düzləndir',
     	alignRight : 'Sağdan düzləndir',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Mərkəzə düzləndir',
     	alignTop : 'Yuxarı',
     	alignMiddle : 'Orta',
     	alignBottom : 'Aşağı',
@@ -511,7 +506,7 @@ CKEDITOR.lang['az'] = {
     	invalidValue : 'Yanlışdır.',
     	invalidHeight : 'Hündürlük rəqəm olmalıdır.',
     	invalidWidth : 'En rəqəm olmalıdır.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : '"%1" xanasına, ölçü vahidinin (%2) göstərilməsindən asılı olmayaraq, müsbət ədəd qeyd olunmalıdır.',
     	invalidCssLength : '"%1" xanasında göstərilən məzmun tam və müsbət olmalıdır, CSS-də olan ölçü vahidlərin (px, %, in, cm, mm, em, ex, pt, or pc) istifadısinə icazə verilir.',
     	invalidHtmlLength : '"%1" xanasında göstərilən məzmun tam və müsbət olmalıdır HTML-də olan ölçü vahidlərin (px və ya %) istifadısinə icazə verilir.',
     	invalidInlineStyle : 'Teq içində olan üslub "ad :  məzmun" şəklidə, nöqtə-verqül işarəsi ilə bitməlidir',
@@ -555,5 +550,5 @@ CKEDITOR.lang['az'] = {
     		'224' : 'Əmr'
     	},
     	keyboardShortcut : 'Qısayol düymələri',
-    	optionDefault : 'Default'
+    	optionDefault : 'Standart'
     } }; 

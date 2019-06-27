@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['cs'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['cs'] = {
     	headersColumn : 'První sloupec',
     	headersNone : 'Žádné',
     	headersRow : 'První řádek',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Zdaná velikost okraje musí být číselná.',
     	invalidCellPadding : 'Zadané odsazení obsahu v buňce musí být číselné.',
     	invalidCellSpacing : 'Zadaná vzdálenost buněk musí být číselná.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['cs'] = {
     },
     liststyle : 
     {
-    	armenian : 'Arménské',
     	bulletedTitle : 'Vlastnosti odrážek',
     	circle : 'Kroužky',
     	decimal : 'Arabská čísla (1, 2, 3, atd.)',
-    	decimalLeadingZero : 'Arabská čísla uvozená nulou (01, 02, 03, atd.)',
     	disc : 'Kolečka',
-    	georgian : 'Gruzínské (an, ban, gan, atd.)',
     	lowerAlpha : 'Malá latinka (a, b, c, d, e, atd.)',
-    	lowerGreek : 'Malé řecké (alpha, beta, gamma, atd.)',
     	lowerRoman : 'Malé římské (i, ii, iii, iv, v, atd.)',
     	none : 'Nic',
     	notset : '<nenastaveno>',
@@ -209,7 +206,7 @@ CKEDITOR.lang['cs'] = {
     	anchorName : 'Podle jména kotvy',
     	charset : 'Přiřazená znaková sada',
     	cssClasses : 'Třída stylu',
-    	download : 'Force Download',
+    	download : 'Vynutit stažení',
     	displayText : 'Zobrazit text',
     	emailAddress : 'E-mailová adresa',
     	emailBody : 'Tělo zprávy',
@@ -225,7 +222,9 @@ CKEDITOR.lang['cs'] = {
     	noAnchors : '(Ve stránce není definována žádná kotva!)',
     	noEmail : 'Zadejte prosím e-mailovou adresu',
     	noUrl : 'Zadejte prosím URL odkazu',
+    	noTel : 'Vyplňte prosím telefonní číslo',
     	other : '<jiný>',
+    	phoneNumber : 'Telefonní číslo',
     	popupDependent : 'Závislost (Netscape)',
     	popupFeatures : 'Vlastnosti vyskakovacího okna',
     	popupFullScreen : 'Celá obrazovka (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['cs'] = {
     	toAnchor : 'Kotva v této stránce',
     	toEmail : 'E-mail',
     	toUrl : 'URL',
+    	toPhone : 'Telefon',
     	toolbar : 'Odkaz',
     	type : 'Typ odkazu',
     	unlink : 'Odstranit odkaz',
@@ -416,12 +416,7 @@ CKEDITOR.lang['cs'] = {
     	paste : 'Vložit',
     	pasteNotification : 'Stiskněte %1 pro vložení. Váš prohlížeč nepodporuje vkládání pomocí tlačítka na panelu nástrojů nebo volby kontextového menu.',
     	pasteArea : 'Oblast vkládání',
-    	pasteMsg : 'Vložte svůj obsah do oblasti níže a stiskněte OK.',
-    	title : 'Vložit'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Vybráno)'
+    	pasteMsg : 'Vložte svůj obsah do oblasti níže a stiskněte OK.'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['cs'] = {
     	justify : 'Zarovnat do bloku',
     	alignLeft : 'Zarovnat vlevo',
     	alignRight : 'Zarovnat vpravo',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Zarovnat na střed',
     	alignTop : 'Nahoru',
     	alignMiddle : 'Na střed',
     	alignBottom : 'Dolů',

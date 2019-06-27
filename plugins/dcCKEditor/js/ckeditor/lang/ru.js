@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ru'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['ru'] = {
     	headersColumn : 'Левая колонка',
     	headersNone : 'Без заголовков',
     	headersRow : 'Верхняя строка',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Размер границ должен быть числом.',
     	invalidCellPadding : 'Внутренний отступ ячеек (cellpadding) должен быть числом.',
     	invalidCellSpacing : 'Внешний отступ ячеек (cellspacing) должен быть числом.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['ru'] = {
     },
     liststyle : 
     {
-    	armenian : 'Армянская нумерация',
     	bulletedTitle : 'Свойства маркированного списка',
     	circle : 'Круг',
     	decimal : 'Десятичные (1, 2, 3, и т.д.)',
-    	decimalLeadingZero : 'Десятичные с ведущим нулём (01, 02, 03, и т.д.)',
     	disc : 'Окружность',
-    	georgian : 'Грузинская нумерация (ани, бани, гани, и т.д.)',
     	lowerAlpha : 'Строчные латинские (a, b, c, d, e, и т.д.)',
-    	lowerGreek : 'Строчные греческие (альфа, бета, гамма, и т.д.)',
     	lowerRoman : 'Строчные римские (i, ii, iii, iv, v, и т.д.)',
     	none : 'Нет',
     	notset : '<не указано>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['ru'] = {
     	noAnchors : '(В документе нет ни одного якоря)',
     	noEmail : 'Пожалуйста, введите email адрес',
     	noUrl : 'Пожалуйста, введите ссылку',
+    	noTel : 'Please type the phone number',
     	other : '<другой>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Зависимое (Netscape)',
     	popupFeatures : 'Параметры всплывающего окна',
     	popupFullScreen : 'Полноэкранное (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['ru'] = {
     	toAnchor : 'Ссылка на якорь в тексте',
     	toEmail : 'Email',
     	toUrl : 'Ссылка',
+    	toPhone : 'Phone',
     	toolbar : 'Вставить/Редактировать ссылку',
     	type : 'Тип ссылки',
     	unlink : 'Убрать ссылку',
@@ -380,27 +380,27 @@ CKEDITOR.lang['ru'] = {
     		F0F8FF : 'Бледно-голубой',
     		E6E6FA : 'Лавандовый',
     		FFF : 'Белый',
-    		'1ABC9C' : 'Strong Cyan',
+    		'1ABC9C' : 'Насыщенный голубой',
     		'2ECC71' : 'Изумрудный',
     		'3498DB' : 'Светло-синий',
     		'9B59B6' : 'Аметист',
     		'4E5F70' : 'Сине-серый',
     		F1C40F : 'Ярко-желтый',
-    		'16A085' : 'Dark Cyan',
+    		'16A085' : 'Тёмно-голубой',
     		'27AE60' : 'Тёмно-изумрудный',
-    		'2980B9' : 'Strong Blue',
+    		'2980B9' : 'Насыщенный синий',
     		'8E44AD' : 'Тёмно-фиолетовый',
-    		'2C3E50' : 'Desaturated Blue',
+    		'2C3E50' : 'Ненасыщенный синий',
     		F39C12 : 'Оранжевый',
     		E67E22 : 'Морковный',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
+    		E74C3C : 'Бледно-красный',
+    		ECF0F1 : 'Яркий серебристый',
+    		'95A5A6' : 'Светлый серо-голубой',
     		DDD : 'Светло-серый',
     		D35400 : 'Цвет тыквы',
-    		C0392B : 'Strong Red',
+    		C0392B : 'Насыщенный красный',
     		BDC3C7 : 'Серебристый',
-    		'7F8C8D' : 'Grayish Cyan',
+    		'7F8C8D' : 'Серо-голубой',
     		'999' : 'Тёмно-серый'
     	},
     	more : 'Ещё цвета...',
@@ -416,12 +416,7 @@ CKEDITOR.lang['ru'] = {
     	paste : 'Вставить',
     	pasteNotification : 'Для вставки нажмите %1. Ваш браузер не поддерживает возможность вставки через панель инструментов или контекстное меню',
     	pasteArea : 'Область вставки',
-    	pasteMsg : 'Вставьте контент в эту область и нажмите OK',
-    	title : 'Вставить'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Выбрано)'
+    	pasteMsg : 'Вставьте контент в эту область и нажмите OK'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['ru'] = {
     	justify : 'По ширине',
     	alignLeft : 'По левому краю',
     	alignRight : 'По правому краю',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'По центру',
     	alignTop : 'Поверху',
     	alignMiddle : 'Посередине',
     	alignBottom : 'Понизу',

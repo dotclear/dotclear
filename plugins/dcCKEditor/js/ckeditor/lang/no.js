@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['no'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['no'] = {
     	headersColumn : 'Første kolonne',
     	headersNone : 'Ingen',
     	headersRow : 'Første rad',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Rammestørrelse må være et tall.',
     	invalidCellPadding : 'Cellepolstring må være et positivt tall.',
     	invalidCellSpacing : 'Cellemarg må være et positivt tall.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['no'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armensk nummerering',
     	bulletedTitle : 'Egenskaper for punktmerket liste',
     	circle : 'Sirkel',
     	decimal : 'Tall (1, 2, 3, osv.)',
-    	decimalLeadingZero : 'Tall, med førstesiffer null (01, 02, 03, osv.)',
     	disc : 'Disk',
-    	georgian : 'Georgisk nummerering (an, ban, gan, osv.)',
     	lowerAlpha : 'Alfabetisk, små (a, b, c, d, e, osv.)',
-    	lowerGreek : 'Gresk, små (alpha, beta, gamma, osv.)',
     	lowerRoman : 'Romertall, små (i, ii, iii, iv, v, osv.)',
     	none : 'Ingen',
     	notset : '<ikke satt>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['no'] = {
     	noAnchors : '(Ingen anker i dokumentet)',
     	noEmail : 'Vennligst skriv inn e-postadressen',
     	noUrl : 'Vennligst skriv inn lenkens URL',
+    	noTel : 'Skriv inn telefonnummer',
     	other : '<annen>',
+    	phoneNumber : 'Telefonnummer',
     	popupDependent : 'Avhenging (Netscape)',
     	popupFeatures : 'Egenskaper for popup-vindu',
     	popupFullScreen : 'Fullskjerm (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['no'] = {
     	toAnchor : 'Lenke til anker i teksten',
     	toEmail : 'E-post',
     	toUrl : 'URL',
+    	toPhone : 'Telefon',
     	toolbar : 'Sett inn/Rediger lenke',
     	type : 'Lenketype',
     	unlink : 'Fjern lenke',
@@ -380,28 +380,28 @@ CKEDITOR.lang['no'] = {
     		F0F8FF : 'Svak cyan',
     		E6E6FA : 'Lavendel',
     		FFF : 'Hvit',
-    		'1ABC9C' : 'Strong Cyan',
+    		'1ABC9C' : 'Kraftig turkis',
     		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
+    		'3498DB' : 'Lyseblå',
     		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
+    		'4E5F70' : 'Gråblå',
     		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
+    		'16A085' : 'Mørk turkis',
     		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
+    		'2980B9' : 'Signalblå',
+    		'8E44AD' : 'Mørk fiolett',
     		'2C3E50' : 'Desaturated Blue',
     		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
+    		E67E22 : 'Gulrotfarge',
     		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
+    		ECF0F1 : 'Lys sølv',
+    		'95A5A6' : 'Lys gråturkis',
+    		DDD : 'Lysegrå',
     		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		C0392B : 'Signalrød',
+    		BDC3C7 : 'Sølv',
+    		'7F8C8D' : 'Gråturkis',
+    		'999' : 'Mørkegrå'
     	},
     	more : 'Flere farger...',
     	panelTitle : 'Farger',
@@ -414,14 +414,9 @@ CKEDITOR.lang['no'] = {
     	cut : 'Klipp ut',
     	cutError : 'Din nettlesers sikkerhetsinstillinger tillater ikke automatisk utklipping av tekst. Vennligst bruk snarveien (Ctrl/Cmd+X).',
     	paste : 'Lim inn',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Trykk %1 for å lime inn. På grunn av manglende støtte i nettleseren din, kan du ikke lime inn via knapperaden eller kontekstmenyen.',
     	pasteArea : 'Innlimingsområde',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Lim inn'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Valgt)'
+    	pasteMsg : 'Lim inn innholdet i området nedenfor og trykk OK.'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['no'] = {
     	justify : 'Blokkjuster',
     	alignLeft : 'Venstrejuster',
     	alignRight : 'Høyrejuster',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Midtjustér',
     	alignTop : 'Topp',
     	alignMiddle : 'Midten',
     	alignBottom : 'Bunn',
@@ -511,7 +506,7 @@ CKEDITOR.lang['no'] = {
     	invalidValue : 'Ugyldig verdi.',
     	invalidHeight : 'Høyde må være et tall.',
     	invalidWidth : 'Bredde må være et tall.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : 'Verdien i "%1"-feltet må være et positivt tall med eller uten en gyldig måleenhet (%2).',
     	invalidCssLength : 'Den angitte verdien for feltet "%1" må være et positivt tall med eller uten en gyldig CSS-målingsenhet (px, %, in, cm, mm, em, ex, pt, eller pc).',
     	invalidHtmlLength : 'Den angitte verdien for feltet "%1" må være et positivt tall med eller uten en gyldig HTML-målingsenhet (px eller %).',
     	invalidInlineStyle : 'Verdi angitt for inline stil må bestå av en eller flere sett med formatet "navn : verdi", separert med semikolon',
@@ -524,7 +519,7 @@ CKEDITOR.lang['no'] = {
     		'16' : 'Shift',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Mellomrom',
     		'35' : 'End',
     		'36' : 'Home',
     		'46' : 'Delete',
@@ -552,8 +547,8 @@ CKEDITOR.lang['no'] = {
     		'133' : 'F22',
     		'134' : 'F23',
     		'135' : 'F24',
-    		'224' : 'Command'
+    		'224' : 'Kommando'
     	},
-    	keyboardShortcut : 'Keyboard shortcut',
-    	optionDefault : 'Default'
+    	keyboardShortcut : 'Hurtigtast',
+    	optionDefault : 'Standard'
     } }; 

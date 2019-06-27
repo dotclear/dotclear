@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ar'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['ar'] = {
     	headersColumn : 'العمود الأول',
     	headersNone : 'بدون',
     	headersRow : 'الصف الأول',
+    	heightUnit : 'height unit',
     	invalidBorder : 'حجم الحد يجب أن يكون عدداً.',
     	invalidCellPadding : 'المسافة البادئة يجب أن تكون عدداً',
     	invalidCellSpacing : 'المسافة بين الخلايا يجب أن تكون عدداً.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['ar'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armenian numbering',
     	bulletedTitle : 'Bulleted List Properties',
     	circle : 'Circle',
     	decimal : 'Decimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Decimal leading zero (01, 02, 03, etc.)',
     	disc : 'Disc',
-    	georgian : 'Georgian numbering (an, ban, gan, etc.)',
     	lowerAlpha : 'Lower Alpha (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Lower Greek (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Lower Roman (i, ii, iii, iv, v, etc.)',
     	none : 'None',
     	notset : '<not set>',
@@ -209,8 +206,8 @@ CKEDITOR.lang['ar'] = {
     	anchorName : 'حسب إسم الإشارة المرجعية',
     	charset : 'ترميز المادة المطلوبة',
     	cssClasses : 'فئات التنسيق',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'فرض التحميل',
+    	displayText : 'نص العرض',
     	emailAddress : 'البريد الإلكتروني',
     	emailBody : 'محتوى الرسالة',
     	emailSubject : 'موضوع الرسالة',
@@ -225,7 +222,9 @@ CKEDITOR.lang['ar'] = {
     	noAnchors : '(لا توجد علامات مرجعية في هذا المستند)',
     	noEmail : 'الرجاء كتابة الريد الإلكتروني',
     	noUrl : 'الرجاء كتابة رابط الموقع',
+    	noTel : 'Please type the phone number',
     	other : '<أخرى>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'تابع (Netscape)',
     	popupFeatures : 'خصائص النافذة المنبثقة',
     	popupFullScreen : 'ملئ الشاشة (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['ar'] = {
     	toAnchor : 'مكان في هذا المستند',
     	toEmail : 'بريد إلكتروني',
     	toUrl : 'الرابط',
+    	toPhone : 'Phone',
     	toolbar : 'رابط',
     	type : 'نوع الربط',
     	unlink : 'إزالة رابط',
@@ -416,12 +416,7 @@ CKEDITOR.lang['ar'] = {
     	paste : 'لصق',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'منطقة اللصق',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'لصق'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (محدد)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ro'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['ro'] = {
     	headersColumn : 'Prima coloană',
     	headersNone : 'Nimic',
     	headersRow : 'Primul rând',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Dimensiunea bordurii trebuie să aibe un număr.',
     	invalidCellPadding : 'Spațierea celulei trebuie sa fie un număr pozitiv',
     	invalidCellSpacing : 'Spațierea celului trebuie să fie un număr pozitiv.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['ro'] = {
     },
     liststyle : 
     {
-    	armenian : 'Numerotare armeniană',
     	bulletedTitle : 'Proprietățile listei cu simboluri',
     	circle : 'Cerc',
     	decimal : 'Decimale (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Decimale cu zero în față (01, 02, 03, etc.)',
     	disc : 'Disc',
-    	georgian : 'Numerotare georgiană (an, ban, gan, etc.)',
     	lowerAlpha : 'Litere mici (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Litere grecești mici (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Cifre romane mici (i, ii, iii, iv, v, etc.)',
     	none : 'Nimic',
     	notset : '<nesetat>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['ro'] = {
     	noAnchors : 'Nu există nici o ancoră',
     	noEmail : 'Vă rugăm să scrieţi adresa de e-mail',
     	noUrl : 'Vă rugăm să scrieţi URL-ul',
+    	noTel : 'Please type the phone number',
     	other : 'altceva',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dependent (Netscape)',
     	popupFeatures : 'Proprietăţile ferestrei popup',
     	popupFullScreen : 'Tot ecranul (Full Screen)(IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['ro'] = {
     	toAnchor : 'Ancoră în această pagină',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Inserează/Editează link (legătură web)',
     	type : 'Tipul link-ului (al legăturii web)',
     	unlink : 'Înlătură link (legătură web)',
@@ -411,17 +411,12 @@ CKEDITOR.lang['ro'] = {
     {
     	copy : 'Copiază',
     	copyError : 'Setările de securitate ale navigatorului (browser) pe care îl folosiţi nu permit editorului să execute automat operaţiunea de copiere. Vă rugăm folosiţi tastatura (Ctrl/Cmd+C).',
-    	cut : 'Decupează',
+    	cut : 'Tăiere',
     	cutError : 'Setările de securitate ale navigatorului (browser) pe care îl folosiţi nu permit editorului să execute automat operaţiunea de tăiere. Vă rugăm folosiţi tastatura (Ctrl/Cmd+X).',
-    	paste : 'Adaugă din clipboard',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	paste : 'Adaugă',
+    	pasteNotification : 'Apasă %1 pentru adăugare. Navigatorul (browser) tău nu suportă adăugarea din clipboard cu butonul din toolbar sau cu opțiunea din meniul contextual.',
     	pasteArea : 'Suprafața de adăugare',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Adaugă'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selectat)'
+    	pasteMsg : 'Adaugă conținutul tău înăuntru zonei de mai jos și apasă OK.'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['ro'] = {
     	justify : 'Aliniere în bloc (Justify)',
     	alignLeft : 'Aliniere la stânga',
     	alignRight : 'Aliniere la dreapta',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Aliniere centru',
     	alignTop : 'Aliniere sus',
     	alignMiddle : 'Aliniere la mijloc',
     	alignBottom : 'Aliniere jos',
@@ -511,7 +506,7 @@ CKEDITOR.lang['ro'] = {
     	invalidValue : 'Valoare invalidă',
     	invalidHeight : 'Înălțimea trebuie să fie un număr.',
     	invalidWidth : 'Lățimea trebuie să fie un număr.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : 'Valoarea specificată pentru câmpul "%1" trebuie să fie un număr pozitiv cu sau fără o unitate de măsură validă (%2).',
     	invalidCssLength : 'Valoarea specificată pentru câmpul "%1" trebuie să fie un număr pozitiv cu sau fără o unitate de măsură validă CSS (px, %, in, cm, mm, em, ex, pt, sau pc).',
     	invalidHtmlLength : 'Valoarea specificată pentru câmpul "%1" trebuie să fie un număr pozitiv cu sau fără o unitate de măsură validă HTML (px sau %).',
     	invalidInlineStyle : 'Valoarea specificată pentru stil trebuie să conțină una sau mai multe construcții de tipul "name : value", separate prin punct și virgulă.',
@@ -555,5 +550,5 @@ CKEDITOR.lang['ro'] = {
     		'224' : 'Command'
     	},
     	keyboardShortcut : 'Scurtături tastatură',
-    	optionDefault : 'Default'
+    	optionDefault : 'Implicit'
     } }; 

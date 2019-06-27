@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['de-ch'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['de-ch'] = {
     	headersColumn : 'Erste Spalte',
     	headersNone : 'Keine',
     	headersRow : 'Erste Zeile',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Die Rahmenbreite muss eine Zahl sein.',
     	invalidCellPadding : 'Der Zellenabstand innen muss eine positive Zahl sein.',
     	invalidCellSpacing : 'Der Zellenabstand aussen muss eine positive Zahl sein.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['de-ch'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armenische Nummerierung',
     	bulletedTitle : 'Aufzählungslisteneigenschaften',
     	circle : 'Ring',
     	decimal : 'Dezimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Dezimal mit führender Null (01, 02, 03, usw.)',
     	disc : 'Kreis',
-    	georgian : 'Georgische Nummerierung (an, ban, gan, usw.)',
     	lowerAlpha : 'Klein Alpha (a, b, c, d, e, usw.)',
-    	lowerGreek : 'Klein griechisch (alpha, beta, gamma, usw.)',
     	lowerRoman : 'Klein römisch (i, ii, iii, iv, v, usw.)',
     	none : 'Keine',
     	notset : '<nicht festgelegt>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['de-ch'] = {
     	noAnchors : '(Keine Anker im Dokument vorhanden)',
     	noEmail : 'Bitte geben Sie E-Mail-Adresse an',
     	noUrl : 'Bitte geben Sie die Link-URL an',
+    	noTel : 'Please type the phone number',
     	other : '<andere>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Abhängig (Netscape)',
     	popupFeatures : 'Pop-up Fenstereigenschaften',
     	popupFullScreen : 'Vollbild (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['de-ch'] = {
     	toAnchor : 'Anker in dieser Seite',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Link einfügen/editieren',
     	type : 'Link-Typ',
     	unlink : 'Link entfernen',
@@ -416,12 +416,7 @@ CKEDITOR.lang['de-ch'] = {
     	paste : 'Einfügen',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Einfügebereich',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Einfügen'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Ausgewählt)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

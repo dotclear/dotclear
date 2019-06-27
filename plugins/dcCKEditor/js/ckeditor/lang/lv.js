@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['lv'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['lv'] = {
     	headersColumn : 'Pirmā kolona',
     	headersNone : 'Nekas',
     	headersRow : 'Pirmā rinda',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Rāmju izmēram jābūt skaitlim',
     	invalidCellPadding : 'Šūnu atkāpēm jābūt pozitīvam skaitlim',
     	invalidCellSpacing : 'Šūnu atstarpēm jābūt pozitīvam skaitlim',
@@ -140,7 +141,7 @@ CKEDITOR.lang['lv'] = {
     pastetext : 
     {
     	button : 'Ievietot kā vienkāršu tekstu',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Nospied %1 lai ielīmētu. Tavs pārlūks neatbalsta ielīmēšanu ar rīkjoslas pogām vai uznirstošās izvēlnes opciju.',
     	title : 'Ievietot kā vienkāršu tekstu'
     },
     pastefromword : 
@@ -152,7 +153,7 @@ CKEDITOR.lang['lv'] = {
     },
     notification : 
     {
-    	closed : 'Notification closed.'
+    	closed : 'Paziņojums aizvērts.'
     },
     maximize : 
     {
@@ -165,15 +166,11 @@ CKEDITOR.lang['lv'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armēņu skaitļi',
     	bulletedTitle : 'Vienkārša saraksta uzstādījumi',
     	circle : 'Aplis',
     	decimal : 'Decimālie (1, 2, 3, utt)',
-    	decimalLeadingZero : 'Decimālie ar nulli (01, 02, 03, utt)',
     	disc : 'Disks',
-    	georgian : 'Gruzīņu skaitļi (an, ban, gan, utt)',
     	lowerAlpha : 'Mazie alfabēta (a, b, c, d, e, utt)',
-    	lowerGreek : 'Mazie grieķu (alfa, beta, gamma, utt)',
     	lowerRoman : 'Mazie romāņu (i, ii, iii, iv, v, utt)',
     	none : 'Nekas',
     	notset : '<nav norādīts>',
@@ -209,8 +206,8 @@ CKEDITOR.lang['lv'] = {
     	anchorName : 'Pēc iezīmes nosaukuma',
     	charset : 'Pievienotā resursa kodējums',
     	cssClasses : 'Stilu saraksta klases',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Piespiedu ielāde',
+    	displayText : 'Attēlot tekstu',
     	emailAddress : 'E-pasta adrese',
     	emailBody : 'Ziņas saturs',
     	emailSubject : 'Ziņas tēma',
@@ -225,7 +222,9 @@ CKEDITOR.lang['lv'] = {
     	noAnchors : '(Šajā dokumentā nav iezīmju)',
     	noEmail : 'Lūdzu norādi e-pasta adresi',
     	noUrl : 'Lūdzu norādi hipersaiti',
+    	noTel : 'Please type the phone number',
     	other : '<cits>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Atkarīgs (Netscape)',
     	popupFeatures : 'Uznirstošā loga nosaukums īpašības',
     	popupFullScreen : 'Pilnā ekrānā (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['lv'] = {
     	toAnchor : 'Iezīme šajā lapā',
     	toEmail : 'E-pasts',
     	toUrl : 'Adrese',
+    	toPhone : 'Phone',
     	toolbar : 'Ievietot/Labot hipersaiti',
     	type : 'Hipersaites tips',
     	unlink : 'Noņemt hipersaiti',
@@ -380,28 +380,28 @@ CKEDITOR.lang['lv'] = {
     		F0F8FF : 'Alises zils',
     		E6E6FA : 'Lavanda',
     		FFF : 'Balts',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'1ABC9C' : 'Spēcīgs ciāna',
+    		'2ECC71' : 'Smaragds',
+    		'3498DB' : 'Koši zils',
+    		'9B59B6' : 'Ametists',
+    		'4E5F70' : 'Pelēkzils',
+    		F1C40F : 'Spilgti dzeltens',
+    		'16A085' : 'Tumšs ciāna',
+    		'27AE60' : 'Tumšs smaragds',
+    		'2980B9' : 'Spēcīgi zils',
+    		'8E44AD' : 'Tumši violets',
+    		'2C3E50' : 'Bāli zils',
+    		F39C12 : 'Apelsīnu',
+    		E67E22 : 'Burkānu',
+    		E74C3C : 'Blāvi sarkans',
+    		ECF0F1 : 'Spilgti sudraba',
+    		'95A5A6' : 'Gaišs pelēki ciāna',
+    		DDD : 'Gaiši pelēks',
+    		D35400 : 'Ķirbja',
+    		C0392B : 'Spēcīgi sarkans',
+    		BDC3C7 : 'Sudraba',
+    		'7F8C8D' : 'Pelēcīgs ciāna',
+    		'999' : 'Tumši pelēks'
     	},
     	more : 'Plašāka palete...',
     	panelTitle : 'Krāsa',
@@ -414,14 +414,9 @@ CKEDITOR.lang['lv'] = {
     	cut : 'Izgriezt',
     	cutError : 'Jūsu pārlūkprogrammas drošības iestatījumi nepieļauj redaktoram automātiski veikt izgriezšanas darbību.  Lūdzu, izmantojiet (Ctrl/Cmd+X), lai veiktu šo darbību.',
     	paste : 'Ielīmēt',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Nospied %1 lai ielīmētu. Tavs pārlūks neatbalsta ielīmēšanu ar rīkjoslas pogām vai uznirstošās izvēlnes opciju.',
     	pasteArea : 'Ielīmēšanas zona',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Ievietot'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteMsg : 'Ielīmē saturu zemāk esošajā laukā un nospied OK.'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['lv'] = {
     	justify : 'Izlīdzināt malas',
     	alignLeft : 'Izlīdzināt pa kreisi',
     	alignRight : 'Izlīdzināt pa labi',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Centrēt',
     	alignTop : 'Augšā',
     	alignMiddle : 'Vertikāli centrēts',
     	alignBottom : 'Apakšā',
@@ -519,15 +514,15 @@ CKEDITOR.lang['lv'] = {
     	unavailable : '%1<span class="cke_accessibility">, nav pieejams</span>',
     	keyboard : 
     	{
-    		'8' : 'Backspace',
-    		'13' : 'Enter',
-    		'16' : 'Shift',
-    		'17' : 'Ctrl',
-    		'18' : 'Alt',
-    		'32' : 'Space',
-    		'35' : 'End',
-    		'36' : 'Home',
-    		'46' : 'Delete',
+    		'8' : ' atkāpšanās taustiņš',
+    		'13' : 'Ievadīt',
+    		'16' : 'pārslēgšanas taustiņš',
+    		'17' : 'vadīšanas taustiņš',
+    		'18' : 'alternēšanas taustiņš',
+    		'32' : 'Atstarpe',
+    		'35' : 'Beigas',
+    		'36' : 'Mājup',
+    		'46' : 'Dzēst',
     		'112' : 'F1',
     		'113' : 'F2',
     		'114' : 'F3',
@@ -552,8 +547,8 @@ CKEDITOR.lang['lv'] = {
     		'133' : 'F22',
     		'134' : 'F23',
     		'135' : 'F24',
-    		'224' : 'Command'
+    		'224' : 'Komanda'
     	},
-    	keyboardShortcut : 'Keyboard shortcut',
-    	optionDefault : 'Default'
+    	keyboardShortcut : 'Klaviatūras saīsne',
+    	optionDefault : 'Noklusēts'
     } }; 

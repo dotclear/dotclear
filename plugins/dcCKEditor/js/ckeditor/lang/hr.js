@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['hr'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['hr'] = {
     	headersColumn : 'Prva kolona',
     	headersNone : 'Ništa',
     	headersRow : 'Prvi red',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Debljina ruba mora biti broj.',
     	invalidCellPadding : 'Razmak ćelija mora biti broj.',
     	invalidCellSpacing : 'Prostornost ćelija mora biti broj.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['hr'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armenijska numeracija',
     	bulletedTitle : 'Svojstva liste',
     	circle : 'Krug',
     	decimal : 'Decimalna numeracija (1, 2, 3, itd.)',
-    	decimalLeadingZero : 'Decimalna s vodećom nulom (01, 02, 03, itd)',
     	disc : 'Disk',
-    	georgian : 'Gruzijska numeracija(an, ban, gan, etc.)',
     	lowerAlpha : 'Znakovi mala slova (a, b, c, d, e, itd.)',
-    	lowerGreek : 'Grčka numeracija mala slova (alfa, beta, gama, itd).',
     	lowerRoman : 'Romanska numeracija mala slova (i, ii, iii, iv, v, itd.)',
     	none : 'Bez',
     	notset : '<nije određen>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['hr'] = {
     	noAnchors : '(Nema dostupnih sidra)',
     	noEmail : 'Molimo upišite e-mail adresu',
     	noUrl : 'Molimo upišite URL link',
+    	noTel : 'Please type the phone number',
     	other : '<drugi>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Ovisno (Netscape)',
     	popupFeatures : 'Mogućnosti popup prozora',
     	popupFullScreen : 'Cijeli ekran (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['hr'] = {
     	toAnchor : 'Sidro na ovoj stranici',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Ubaci/promijeni vezu',
     	type : 'Vrsta veze',
     	unlink : 'Ukloni vezu',
@@ -416,12 +416,7 @@ CKEDITOR.lang['hr'] = {
     	paste : 'Zalijepi',
     	pasteNotification : 'Vaš preglednik Vam ne dozvoljava lijepljenje običnog teksta na ovaj način. Za lijepljenje, pritisnite %1.',
     	pasteArea : 'Okvir za lijepljenje',
-    	pasteMsg : 'Zalijepite vaš sadržaj u okvir ispod i pritisnite OK.',
-    	title : 'Zalijepi'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Odabrano)'
+    	pasteMsg : 'Zalijepite vaš sadržaj u okvir ispod i pritisnite OK.'
     },
     blockquote : 
     {

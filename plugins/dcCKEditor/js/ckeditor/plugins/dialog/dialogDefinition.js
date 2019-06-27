@@ -1,6 +1,6 @@
 ﻿// jscs:disable disallowMixedSpacesAndTabs
 /**
- * @license Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -126,6 +126,12 @@
  * The function to execute when the dialog is loaded (executed every time the dialog is opened).
  *
  * @property {Function} onShow
+ */
+
+/**
+ * The function executed every time the dialog is closed.
+ *
+ * @property {Function} onHide
  */
 
 /**
@@ -1027,6 +1033,6 @@
  *
  * This marker allows for restoring the same text direction upon the next dialog opening.
  *
- * @since 4.5
+ * @since 4.5.0
  * @property {Boolean} bidi
  */

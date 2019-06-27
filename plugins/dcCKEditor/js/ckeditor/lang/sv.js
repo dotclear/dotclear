@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['sv'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['sv'] = {
     	headersColumn : 'Första kolumnen',
     	headersNone : 'Ingen',
     	headersRow : 'Första raden',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Ram måste vara ett nummer.',
     	invalidCellPadding : 'Luft i cell måste vara ett nummer.',
     	invalidCellSpacing : 'Luft i cell måste vara ett nummer.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['sv'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armenisk numrering',
     	bulletedTitle : 'Egenskaper för punktlista',
     	circle : 'Cirkel',
     	decimal : 'Decimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Decimal nolla (01, 02, 03, etc.)',
     	disc : 'Disk',
-    	georgian : 'Georgisk numrering (an, ban, gan, etc.)',
     	lowerAlpha : 'Alpha gemener (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Grekiska gemener (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Romerska gemener (i, ii, iii, iv, v, etc.)',
     	none : 'Ingen',
     	notset : '<ej angiven>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['sv'] = {
     	noAnchors : '(Inga ankare kunde hittas)',
     	noEmail : 'Var god ange e-postadress',
     	noUrl : 'Var god ange länkens URL',
+    	noTel : 'Var god ange telefonnummer',
     	other : '<annan>',
+    	phoneNumber : 'Telefonnummer',
     	popupDependent : 'Beroende (endast Netscape)',
     	popupFeatures : 'Popup-fönstrets egenskaper',
     	popupFullScreen : 'Helskärm (endast IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['sv'] = {
     	toAnchor : 'Länk till ankare i texten',
     	toEmail : 'E-post',
     	toUrl : 'URL',
+    	toPhone : 'Telefon',
     	toolbar : 'Infoga/Redigera länk',
     	type : 'Länktyp',
     	unlink : 'Radera länk',
@@ -416,12 +416,7 @@ CKEDITOR.lang['sv'] = {
     	paste : 'Klistra in',
     	pasteNotification : 'Tryck på %1 för att klistra in. Din webbläsare stödjer inte inklistring via verktygsfältet eller snabbmenyn.',
     	pasteArea : 'Inklistringsområde',
-    	pasteMsg : 'Klistra in ditt innehåll i området nedan och tryck på OK.',
-    	title : 'Klistra in'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Vald)'
+    	pasteMsg : 'Klistra in ditt innehåll i området nedan och tryck på OK.'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['sv'] = {
     	justify : 'Justera till marginaler',
     	alignLeft : 'Vänsterjustera',
     	alignRight : 'Högerjustera',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Centrera',
     	alignTop : 'Överkant',
     	alignMiddle : 'Mitten',
     	alignBottom : 'Nederkant',
