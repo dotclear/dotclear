@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['et'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['et'] = {
     	headersColumn : 'Esimene tulp',
     	headersNone : 'Puudub',
     	headersRow : 'Esimene rida',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Äärise suurus peab olema number.',
     	invalidCellPadding : 'Lahtrite polsterdus (padding) peab olema positiivne arv.',
     	invalidCellSpacing : 'Lahtrite vahe peab olema positiivne arv.',
@@ -140,7 +141,7 @@ CKEDITOR.lang['et'] = {
     pastetext : 
     {
     	button : 'Asetamine tavalise tekstina',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Asetamiseks vajuta %1. Sinu brauser ei toeta asetamist tööriistariba nupu või kontekstimenüü valikuga.',
     	title : 'Asetamine tavalise tekstina'
     },
     pastefromword : 
@@ -152,7 +153,7 @@ CKEDITOR.lang['et'] = {
     },
     notification : 
     {
-    	closed : 'Notification closed.'
+    	closed : 'Teavitused on suletud.'
     },
     maximize : 
     {
@@ -165,15 +166,11 @@ CKEDITOR.lang['et'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armeenia numbrid',
     	bulletedTitle : 'Punktloendi omadused',
     	circle : 'Ring',
     	decimal : 'Numbrid (1, 2, 3, jne)',
-    	decimalLeadingZero : 'Numbrid algusnulliga (01, 02, 03, jne)',
     	disc : 'Täpp',
-    	georgian : 'Gruusia numbrid (an, ban, gan, jne)',
     	lowerAlpha : 'Väiketähed (a, b, c, d, e, jne)',
-    	lowerGreek : 'Kreeka väiketähed (alpha, beta, gamma, jne)',
     	lowerRoman : 'Väiksed rooma numbrid (i, ii, iii, iv, v, jne)',
     	none : 'Puudub',
     	notset : '<pole määratud>',
@@ -209,8 +206,8 @@ CKEDITOR.lang['et'] = {
     	anchorName : 'Ankru nime järgi',
     	charset : 'Lingitud ressursi märgistik',
     	cssClasses : 'Stiilistiku klassid',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Sunni allalaadimine',
+    	displayText : 'Näidatav tekst',
     	emailAddress : 'E-posti aadress',
     	emailBody : 'Sõnumi tekst',
     	emailSubject : 'Sõnumi teema',
@@ -225,7 +222,9 @@ CKEDITOR.lang['et'] = {
     	noAnchors : '(Selles dokumendis pole ankruid)',
     	noEmail : 'Palun kirjuta e-posti aadress',
     	noUrl : 'Palun kirjuta lingi URL',
+    	noTel : 'Palun sisesta telefoninumber',
     	other : '<muu>',
+    	phoneNumber : 'Telefoninumber',
     	popupDependent : 'Sõltuv (Netscape)',
     	popupFeatures : 'Hüpikakna omadused',
     	popupFullScreen : 'Täisekraan (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['et'] = {
     	toAnchor : 'Ankur sellel lehel',
     	toEmail : 'E-post',
     	toUrl : 'URL',
+    	toPhone : 'Telefon',
     	toolbar : 'Lingi lisamine/muutmine',
     	type : 'Lingi liik',
     	unlink : 'Lingi eemaldamine',
@@ -363,7 +363,7 @@ CKEDITOR.lang['et'] = {
     		'0FF' : 'Tsüaniidsinine',
     		'00F' : 'Sinine',
     		EE82EE : 'Violetne',
-    		A9A9A9 : 'Tuhm hall',
+    		A9A9A9 : 'Tumehall',
     		FFA07A : 'Hele lõhe',
     		FFA500 : 'Oranž',
     		FFFF00 : 'Kollane',
@@ -380,27 +380,27 @@ CKEDITOR.lang['et'] = {
     		F0F8FF : 'Beebisinine',
     		E6E6FA : 'Lavendel',
     		FFF : 'Valge',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
+    		'1ABC9C' : 'Tugev taevasinine',
+    		'2ECC71' : 'Smaragdroheline',
+    		'3498DB' : 'Kirgas sinine',
+    		'9B59B6' : 'Ametüst',
+    		'4E5F70' : 'Hallikassinine',
+    		F1C40F : 'Erkkollane',
+    		'16A085' : 'Tume taevasinine',
+    		'27AE60' : 'Tumeroheline',
+    		'2980B9' : 'Tugev sinine',
+    		'8E44AD' : 'Tumevioletne',
+    		'2C3E50' : 'Hallikassinine',
     		F39C12 : 'Oraanž',
     		E67E22 : 'Porgand',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
+    		E74C3C : 'Kahvatu punane',
+    		ECF0F1 : 'Kirgas hõbedane',
+    		'95A5A6' : 'Hele hallikas taevasinine',
+    		DDD : 'Helehall',
+    		D35400 : 'Kõrvitsavärv',
+    		C0392B : 'Tugev punane',
+    		BDC3C7 : 'Hõbedane',
+    		'7F8C8D' : 'Hallikas taevasinine',
     		'999' : 'Tume hall'
     	},
     	more : 'Rohkem värve...',
@@ -414,14 +414,9 @@ CKEDITOR.lang['et'] = {
     	cut : 'Lõika',
     	cutError : 'Sinu veebisirvija turvaseaded ei luba redaktoril automaatselt lõigata. Palun kasutage selleks klaviatuuri klahvikombinatsiooni (Ctrl/Cmd+X).',
     	paste : 'Aseta',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Asetamiseks vajuta %1. Sinu brauser ei toeta asetamist tööriistariba nupu või kontekstimenüü valikuga.',
     	pasteArea : 'Asetamise ala',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Asetamine'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteMsg : 'Aseta sisu alumisse kasti ja vajuta OK nupule.'
     },
     blockquote : 
     {
@@ -439,7 +434,7 @@ CKEDITOR.lang['et'] = {
     about : 
     {
     	copy : 'Copyright &copy; $1. Kõik õigused kaitstud.',
-    	dlgTitle : 'About CKEditor 4',
+    	dlgTitle : 'CKEditor 4st lähemalt',
     	moreInfo : 'Litsentsi andmed leiab meie veebilehelt:'
     },
     editor : 'Rikkalik tekstiredaktor',
@@ -503,15 +498,15 @@ CKEDITOR.lang['et'] = {
     	justify : 'Rööpjoondus',
     	alignLeft : 'Vasakjoondus',
     	alignRight : 'Paremjoondus',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Keskjoondus',
     	alignTop : 'Üles',
     	alignMiddle : 'Keskele',
     	alignBottom : 'Alla',
-    	alignNone : 'None',
+    	alignNone : 'Pole',
     	invalidValue : 'Vigane väärtus.',
     	invalidHeight : 'Kõrgus peab olema number.',
     	invalidWidth : 'Laius peab olema number.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : 'Välja "%1" väärtus peab olema positiivne arv korrektse ühikuga (%2) või ilma.',
     	invalidCssLength : '"%1" välja jaoks määratud väärtus peab olema positiivne täisarv CSS ühikuga (px, %, in, cm, mm, em, ex, pt või pc) või ilma.',
     	invalidHtmlLength : '"%1" välja jaoks määratud väärtus peab olema positiivne täisarv HTML ühikuga (px või %) või ilma.',
     	invalidInlineStyle : 'Reasisese stiili määrangud peavad koosnema paarisväärtustest (tuples), mis on semikoolonitega eraldatult järgnevas vormingus: "nimi : väärtus".',
@@ -554,6 +549,6 @@ CKEDITOR.lang['et'] = {
     		'135' : 'F24',
     		'224' : 'Command'
     	},
-    	keyboardShortcut : 'Keyboard shortcut',
+    	keyboardShortcut : 'Kiirklahv',
     	optionDefault : 'Vaikeväärtus'
     } }; 

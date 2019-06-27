@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['fo'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['fo'] = {
     	headersColumn : 'Fyrsta kolonna',
     	headersNone : 'Eingin',
     	headersRow : 'Fyrsta rað',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Borda-stødd má vera eitt tal.',
     	invalidCellPadding : 'Cell padding má vera eitt tal.',
     	invalidCellSpacing : 'Cell spacing má vera eitt tal.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['fo'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armensk talskipan',
     	bulletedTitle : 'Eginleikar fyri lista við prikkum',
     	circle : 'Sirkul',
     	decimal : 'Vanlig tøl (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Tøl við null frammanfyri (01, 02, 03, etc.)',
     	disc : 'Disc',
-    	georgian : 'Georgisk talskipan (an, ban, gan, osv.)',
     	lowerAlpha : 'Lítlir bókstavir (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Grikskt við lítlum (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Lítil rómaratøl (i, ii, iii, iv, v, etc.)',
     	none : 'Einki',
     	notset : '<ikki sett>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['fo'] = {
     	noAnchors : '(Eingir marknasteinar eru í hesum dokumentið)',
     	noEmail : 'Vinarliga skriva teldupost-adressu',
     	noUrl : 'Vinarliga skriva tilknýti (URL)',
+    	noTel : 'Please type the phone number',
     	other : '<annað>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Bundið (Netscape)',
     	popupFeatures : 'Popup vindeygans víðkaðu eginleikar',
     	popupFullScreen : 'Fullur skermur (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['fo'] = {
     	toAnchor : 'Tilknýti til marknastein í tekstinum',
     	toEmail : 'Teldupostur',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Ger/broyt tilknýti',
     	type : 'Tilknýtisslag',
     	unlink : 'Strika tilknýti',
@@ -416,12 +416,7 @@ CKEDITOR.lang['fo'] = {
     	paste : 'Innrita',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Avritingarumráði',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Innrita'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['fa'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['fa'] = {
     	headersColumn : 'اولین ستون',
     	headersNone : 'هیچ',
     	headersRow : 'اولین ردیف',
+    	heightUnit : 'height unit',
     	invalidBorder : 'مقدار اندازه خطوط باید یک عدد باشد.',
     	invalidCellPadding : 'بالشتک سلول باید یک عدد باشد.',
     	invalidCellSpacing : 'مقدار فاصلهگذاری سلول باید یک عدد باشد.',
@@ -152,7 +153,7 @@ CKEDITOR.lang['fa'] = {
     },
     notification : 
     {
-    	closed : 'Notification closed.'
+    	closed : 'آگاه‌سازی بسته شد'
     },
     maximize : 
     {
@@ -165,15 +166,11 @@ CKEDITOR.lang['fa'] = {
     },
     liststyle : 
     {
-    	armenian : 'شماره‌گذاری ارمنی',
     	bulletedTitle : 'خصوصیات فهرست نقطه‌ای',
     	circle : 'دایره',
     	decimal : 'ده‌دهی (۱، ۲، ۳، ...)',
-    	decimalLeadingZero : 'دهدهی همراه با صفر (۰۱، ۰۲، ۰۳، ...)',
     	disc : 'صفحه گرد',
-    	georgian : 'شمارهگذاری گریگورین (an, ban, gan, etc.)',
     	lowerAlpha : 'پانویس الفبایی (a, b, c, d, e, etc.)',
-    	lowerGreek : 'پانویس یونانی (alpha, beta, gamma, etc.)',
     	lowerRoman : 'پانویس رومی (i, ii, iii, iv, v, etc.)',
     	none : 'هیچ',
     	notset : '<تنظیم نشده>',
@@ -210,7 +207,7 @@ CKEDITOR.lang['fa'] = {
     	charset : 'نویسه\u200bگان منبع پیوند شده',
     	cssClasses : 'کلاس\u200bهای شیوه\u200bنامه(Stylesheet)',
     	download : 'Force Download',
-    	displayText : 'Display Text',
+    	displayText : 'نمایش متن',
     	emailAddress : 'نشانی پست الکترونیکی',
     	emailBody : 'متن پیام',
     	emailSubject : 'موضوع پیام',
@@ -225,7 +222,9 @@ CKEDITOR.lang['fa'] = {
     	noAnchors : '(در این سند لنگری دردسترس نیست)',
     	noEmail : 'لطفا نشانی پست الکترونیکی را بنویسید',
     	noUrl : 'لطفا URL پیوند را بنویسید',
+    	noTel : 'Please type the phone number',
     	other : '<سایر>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'وابسته (Netscape)',
     	popupFeatures : 'ویژگی\u200bهای پنجرهٴ پاپاپ',
     	popupFullScreen : 'تمام صفحه (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['fa'] = {
     	toAnchor : 'لنگر در همین صفحه',
     	toEmail : 'پست الکترونیکی',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'گنجاندن/ویرایش پیوند',
     	type : 'نوع پیوند',
     	unlink : 'برداشتن پیوند',
@@ -416,12 +416,7 @@ CKEDITOR.lang['fa'] = {
     	paste : 'چسباندن',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'محل چسباندن',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'چسباندن'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (انتخاب شده)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['fa'] = {
     	justify : 'بلوک چین',
     	alignLeft : 'چپ چین',
     	alignRight : 'راست چین',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'مرکز قرار بده',
     	alignTop : 'بالا',
     	alignMiddle : 'میانه',
     	alignBottom : 'پائین',
@@ -511,7 +506,7 @@ CKEDITOR.lang['fa'] = {
     	invalidValue : 'مقدار نامعتبر.',
     	invalidHeight : 'ارتفاع باید یک عدد باشد.',
     	invalidWidth : 'عرض باید یک عدد باشد.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : 'عدد تعیین شده برای فیلد "%1" باید یک عدد مثبت با یا بدون یک واحد اندازه گیری معتبر ("%2") باشد.',
     	invalidCssLength : 'عدد تعیین شده برای فیلد "%1" باید یک عدد مثبت با یا بدون یک واحد اندازه گیری CSS معتبر باشد (px, %, in, cm, mm, em, ex, pt, or pc).',
     	invalidHtmlLength : 'عدد تعیین شده برای فیلد "%1" باید یک عدد مثبت با یا بدون یک واحد اندازه گیری HTML معتبر باشد (px or %).',
     	invalidInlineStyle : 'عدد تعیین شده برای سبک درون\u200bخطی -Inline Style- باید دارای یک یا چند چندتایی با شکلی شبیه "name : value" که باید با یک ";" از هم جدا شوند.',
@@ -524,7 +519,7 @@ CKEDITOR.lang['fa'] = {
     		'16' : 'تعویض',
     		'17' : 'کنترل',
     		'18' : 'دگرساز',
-    		'32' : 'Space',
+    		'32' : 'فاصله',
     		'35' : 'پایان',
     		'36' : 'خانه',
     		'46' : 'حذف',
@@ -552,8 +547,8 @@ CKEDITOR.lang['fa'] = {
     		'133' : 'F22',
     		'134' : 'F23',
     		'135' : 'F24',
-    		'224' : 'Command'
+    		'224' : 'فرمان'
     	},
-    	keyboardShortcut : 'Keyboard shortcut',
-    	optionDefault : 'Default'
+    	keyboardShortcut : 'میانبر صفحه کلید',
+    	optionDefault : 'پیش فرض'
     } }; 

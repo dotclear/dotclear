@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['th'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['th'] = {
     	headersColumn : 'คอลัมน์แรก',
     	headersNone : 'None',
     	headersRow : 'แถวแรก',
+    	heightUnit : 'height unit',
     	invalidBorder : 'ขนาดเส้นกรอบต้องเป็นจำนวนตัวเลข',
     	invalidCellPadding : 'ช่องว่างภายในเซลล์ต้องเลขจำนวนบวก',
     	invalidCellSpacing : 'ช่องว่างภายในเซลล์ต้องเป็นเลขจำนวนบวก',
@@ -165,15 +166,11 @@ CKEDITOR.lang['th'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armenian numbering',
     	bulletedTitle : 'Bulleted List Properties',
     	circle : 'Circle',
     	decimal : 'Decimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Decimal leading zero (01, 02, 03, etc.)',
     	disc : 'Disc',
-    	georgian : 'Georgian numbering (an, ban, gan, etc.)',
     	lowerAlpha : 'Lower Alpha (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Lower Greek (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Lower Roman (i, ii, iii, iv, v, etc.)',
     	none : 'None',
     	notset : '<not set>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['th'] = {
     	noAnchors : '(ยังไม่มีจุดเชื่อมโยงภายในหน้าเอกสารนี้)',
     	noEmail : 'กรุณาระบุอีเมล์ (E-mail)',
     	noUrl : 'กรุณาระบุที่อยู่อ้างอิงออนไลน์ (URL)',
+    	noTel : 'Please type the phone number',
     	other : '<อื่น ๆ>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'แสดงเต็มหน้าจอ (Netscape)',
     	popupFeatures : 'คุณสมบัติของหน้าจอเล็ก (Pop-up)',
     	popupFullScreen : 'แสดงเต็มหน้าจอ (IE5.5++ เท่านั้น)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['th'] = {
     	toAnchor : 'จุดเชื่อมโยง (Anchor)',
     	toEmail : 'ส่งอีเมล์ (E-Mail)',
     	toUrl : 'ที่อยู่อ้างอิง URL',
+    	toPhone : 'Phone',
     	toolbar : 'แทรก/แก้ไข ลิงค์',
     	type : 'ประเภทของลิงค์',
     	unlink : 'ลบ ลิงค์',
@@ -416,12 +416,7 @@ CKEDITOR.lang['th'] = {
     	paste : 'วาง',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Paste Area',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'วาง'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

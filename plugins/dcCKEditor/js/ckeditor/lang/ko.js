@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ko'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['ko'] = {
     	headersColumn : '첫 열',
     	headersNone : '없음',
     	headersRow : '첫 행',
+    	heightUnit : 'height unit',
     	invalidBorder : '테두리 두께는 숫자여야 합니다.',
     	invalidCellPadding : '셀 여백은 0 이상이어야 합니다.',
     	invalidCellSpacing : '셀 간격은 0 이상이어야 합니다.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['ko'] = {
     },
     liststyle : 
     {
-    	armenian : '아르메니아 숫자',
     	bulletedTitle : '순서 없는 목록 속성',
     	circle : '원',
     	decimal : '수 (1, 2, 3, 등)',
-    	decimalLeadingZero : '0이 붙은 수 (01, 02, 03, 등)',
     	disc : '내림차순',
-    	georgian : '그루지야 숫자 (an, ban, gan, 등)',
     	lowerAlpha : '영소문자 (a, b, c, d, e, 등)',
-    	lowerGreek : '그리스 소문자 (alpha, beta, gamma, 등)',
     	lowerRoman : '로마 소문자 (i, ii, iii, iv, v, 등)',
     	none : '없음',
     	notset : '<설정 없음>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['ko'] = {
     	noAnchors : '(문서에 책갈피가 없습니다.)',
     	noEmail : '이메일 주소를 입력하십시오',
     	noUrl : '링크 주소(URL)를 입력하십시오',
+    	noTel : 'Please type the phone number',
     	other : '<기타>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dependent (Netscape)',
     	popupFeatures : '팝업창 속성',
     	popupFullScreen : '전체화면 (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['ko'] = {
     	toAnchor : '책갈피',
     	toEmail : '이메일',
     	toUrl : '주소(URL)',
+    	toPhone : 'Phone',
     	toolbar : '링크 삽입/변경',
     	type : '링크 종류',
     	unlink : '링크 지우기',
@@ -416,12 +416,7 @@ CKEDITOR.lang['ko'] = {
     	paste : '붙여넣기',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : '붙여넣기 범위',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : '붙여넣기'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (선택됨)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

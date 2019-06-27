@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['cy'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['cy'] = {
     	headersColumn : 'Colofn gyntaf',
     	headersNone : 'Dim',
     	headersRow : 'Rhes gyntaf',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Mae\'n rhaid i faint yr ymyl fod yn rhif.',
     	invalidCellPadding : 'Mae\'n rhaid i badiad y gell fod yn rhif positif.',
     	invalidCellSpacing : 'Mae\'n rhaid i fylchiad y gell fod yn rhif positif.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['cy'] = {
     },
     liststyle : 
     {
-    	armenian : 'Rhifo Armeneg',
     	bulletedTitle : 'Priodweddau Rhestr Fwled',
     	circle : 'Cylch',
     	decimal : 'Degol (1, 2, 3, ayyb.)',
-    	decimalLeadingZero : 'Degol â sero arweiniol (01, 02, 03, ayyb.)',
     	disc : 'Disg',
-    	georgian : 'Rhifau Sioraidd (an, ban, gan, ayyb.)',
     	lowerAlpha : 'Alffa Is (a, b, c, d, e, ayyb.)',
-    	lowerGreek : 'Groeg Is (alpha, beta, gamma, ayyb.)',
     	lowerRoman : 'Rhufeinig Is (i, ii, iii, iv, v, ayyb.)',
     	none : 'Dim',
     	notset : '<heb osod>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['cy'] = {
     	noAnchors : '(Dim angorau ar gael yn y ddogfen)',
     	noEmail : 'Teipiwch gyfeiriad yr e-bost',
     	noUrl : 'Teipiwch URL y ddolen',
+    	noTel : 'Please type the phone number',
     	other : '<eraill>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dibynnol (Netscape)',
     	popupFeatures : 'Nodweddion Ffenestr Bop',
     	popupFullScreen : 'Sgrin Llawn (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['cy'] = {
     	toAnchor : 'Dolen at angor yn y testun',
     	toEmail : 'E-bost',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Dolen',
     	type : 'Math y Ddolen',
     	unlink : 'Datgysylltu',
@@ -416,12 +416,7 @@ CKEDITOR.lang['cy'] = {
     	paste : 'Gludo',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Ardal Gludo',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Gludo'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

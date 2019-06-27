@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['tr'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['tr'] = {
     	headersColumn : 'İlk Sütun',
     	headersNone : 'Yok',
     	headersRow : 'İlk Satır',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Çerceve büyüklüklüğü sayı olmalıdır.',
     	invalidCellPadding : 'Hücre aralığı (padding) sayı olmalıdır.',
     	invalidCellSpacing : 'Hücre boşluğu (spacing) sayı olmalıdır.',
@@ -139,9 +140,9 @@ CKEDITOR.lang['tr'] = {
     },
     pastetext : 
     {
-    	button : 'Düz Metin Olarak Yapıştır',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
-    	title : 'Düz Metin Olarak Yapıştır'
+    	button : 'Düz metin olarak yapıştır',
+    	pasteNotification : '%1 tuşuna yapıştırmak için tıklayın. Tarayıcınız, Araç Çubuğu yada İçerik Menüsünü kullanarak yapıştırmayı desteklemiyor.',
+    	title : 'Düz metin olarak yapıştır'
     },
     pastefromword : 
     {
@@ -165,15 +166,11 @@ CKEDITOR.lang['tr'] = {
     },
     liststyle : 
     {
-    	armenian : 'Ermenice sayılandırma',
     	bulletedTitle : 'Simgeli Liste Özellikleri',
     	circle : 'Daire',
     	decimal : 'Ondalık (1, 2, 3, vs.)',
-    	decimalLeadingZero : 'Başı sıfırlı ondalık (01, 02, 03, vs.)',
     	disc : 'Disk',
-    	georgian : 'Gürcüce numaralandırma (an, ban, gan, vs.)',
     	lowerAlpha : 'Küçük Alpha (a, b, c, d, e, vs.)',
-    	lowerGreek : 'Küçük Greek (alpha, beta, gamma, vs.)',
     	lowerRoman : 'Küçük Roman (i, ii, iii, iv, v, vs.)',
     	none : 'Yok',
     	notset : '<ayarlanmamış>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['tr'] = {
     	noAnchors : '(Bu belgede hiç çapa yok)',
     	noEmail : 'Lütfen E-posta adresini yazın',
     	noUrl : 'Lütfen Link URL\'sini yazın',
+    	noTel : 'Please type the phone number',
     	other : '<diğer>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Bağımlı (Netscape)',
     	popupFeatures : 'Yeni Açılan Pencere Özellikleri',
     	popupFullScreen : 'Tam Ekran (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['tr'] = {
     	toAnchor : 'Bu sayfada çapa',
     	toEmail : 'E-Posta',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Link Ekle/Düzenle',
     	type : 'Link Türü',
     	unlink : 'Köprü Kaldır',
@@ -363,7 +363,7 @@ CKEDITOR.lang['tr'] = {
     		'0FF' : 'Ciyan',
     		'00F' : 'Mavi',
     		EE82EE : 'Menekşe',
-    		A9A9A9 : 'Koyu Gri',
+    		A9A9A9 : 'Loş Gri',
     		FFA07A : 'Açık Sarımsı',
     		FFA500 : 'Portakal',
     		FFFF00 : 'Sarı',
@@ -410,18 +410,13 @@ CKEDITOR.lang['tr'] = {
     clipboard : 
     {
     	copy : 'Kopyala',
-    	copyError : 'Gezgin yazılımınızın güvenlik ayarları düzenleyicinin otomatik kopyalama işlemine izin vermiyor. İşlem için (Ctrl/Cmd+C) tuşlarını kullanın.',
+    	copyError : 'Tarayıcı yazılımınızın güvenlik ayarları düzenleyicinin otomatik kopyalama işlemine izin vermiyor. İşlem için (Ctrl/Cmd+C) tuşlarını kullanın.',
     	cut : 'Kes',
-    	cutError : 'Gezgin yazılımınızın güvenlik ayarları düzenleyicinin otomatik kesme işlemine izin vermiyor. İşlem için (Ctrl/Cmd+X) tuşlarını kullanın.',
+    	cutError : 'Tarayıcı yazılımınızın güvenlik ayarları düzenleyicinin otomatik kesme işlemine izin vermiyor. İşlem için (Ctrl/Cmd+X) tuşlarını kullanın.',
     	paste : 'Yapıştır',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : '%1 tuşuna yapıştırmak için tıklayın. Tarayıcınız, Araç Çubuğu yada İçerik Menüsünü kullanarak yapıştırmayı desteklemiyor.',
     	pasteArea : 'Yapıştırma Alanı',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Yapıştır'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Seçilmiş)'
+    	pasteMsg : 'İçeriğinizi alttaki bulunan alana yapıştırın ve TAMAM butonuna tıklayın'
     },
     blockquote : 
     {
@@ -455,7 +450,7 @@ CKEDITOR.lang['tr'] = {
     	image : 'Resim',
     	flash : 'Flash',
     	form : 'Form',
-    	checkbox : 'Onay Kutusu',
+    	checkbox : 'Seçim Kutusu',
     	radio : 'Seçenek Düğmesi',
     	textField : 'Metin Kutusu',
     	textarea : 'Metin Alanı',
@@ -469,11 +464,11 @@ CKEDITOR.lang['tr'] = {
     	langDir : 'Dil Yönü',
     	langDirLtr : 'Soldan Sağa (LTR)',
     	langDirRtl : 'Sağdan Sola (RTL)',
-    	langCode : 'Dil Kodlaması',
-    	longDescr : 'Uzun Tanımlı URL',
-    	cssClass : 'Biçem Sayfası Sınıfları',
+    	langCode : ' Dil Kodu',
+    	longDescr : 'Uzun Açıklamalı URL',
+    	cssClass : 'Stil Sınıfları',
     	advisoryTitle : 'Öneri Başlığı',
-    	cssStyle : 'Biçem',
+    	cssStyle : 'Stil',
     	ok : 'Tamam',
     	cancel : 'İptal',
     	close : 'Kapat',
@@ -492,8 +487,8 @@ CKEDITOR.lang['tr'] = {
     	targetParent : 'Üst Pencere (_parent)',
     	langDirLTR : 'Soldan Sağa (LTR)',
     	langDirRTL : 'Sağdan Sola (RTL)',
-    	styles : 'Biçem',
-    	cssClasses : 'Biçem Sayfası Sınıfları',
+    	styles : 'Stil',
+    	cssClasses : 'Stil Sınıfları',
     	width : 'Genişlik',
     	height : 'Yükseklik',
     	align : 'Hizalama',
@@ -503,7 +498,7 @@ CKEDITOR.lang['tr'] = {
     	justify : 'İki Kenara Yaslanmış',
     	alignLeft : 'Sola Dayalı',
     	alignRight : 'Sağa Dayalı',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Ortaya Hizala',
     	alignTop : 'Üst',
     	alignMiddle : 'Orta',
     	alignBottom : 'Alt',
@@ -511,10 +506,10 @@ CKEDITOR.lang['tr'] = {
     	invalidValue : 'Geçersiz değer.',
     	invalidHeight : 'Yükseklik değeri bir sayı olmalıdır.',
     	invalidWidth : 'Genişlik değeri bir sayı olmalıdır.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : '"%1" alanı için belirtilen değer, geçerli bir ölçü birimi olsun veya olmasın (%2) pozitif bir sayı olmalıdır.',
     	invalidCssLength : '"%1" alanı için verilen değer, geçerli bir CSS ölçü birimi (px, %, in, cm, mm, em, ex, pt, veya pc) içeren veya içermeyen pozitif bir sayı olmalıdır.',
-    	invalidHtmlLength : 'Belirttiğiniz sayı "%1" alanı için pozitif bir sayı HTML birim değeri olmalıdır (px veya %).',
-    	invalidInlineStyle : 'Satıriçi biçem için verilen değer, "isim : değer" biçiminde birbirinden noktalı virgüllerle ayrılan bir veya daha fazla değişkenler grubundan oluşmalıdır.',
+    	invalidHtmlLength : '"%1" alanı için belirttiğiniz sayı, HTML (px veya %) birimi olsun yada olmasın pozitif bir değeri olmalıdır.',
+    	invalidInlineStyle : 'Satıriçi stil için verilen değer, "isim : değer" biçiminde birbirinden noktalı virgüllerle ayrılan bir veya daha fazla değişkenler grubundan oluşmalıdır.',
     	cssLengthTooltip : 'Piksel türünde bir sayı veya geçerli bir CSS ölçü birimi (px, %, in, cm, mm, em, ex, pt veya pc) içeren bir sayı girin.',
     	unavailable : '%1<span class="cke_accessibility">, kullanılamaz</span>',
     	keyboard : 
@@ -555,5 +550,5 @@ CKEDITOR.lang['tr'] = {
     		'224' : 'Komut Tuşu'
     	},
     	keyboardShortcut : 'Klavye Kısayolu',
-    	optionDefault : 'Default'
+    	optionDefault : 'Varsayılan'
     } }; 

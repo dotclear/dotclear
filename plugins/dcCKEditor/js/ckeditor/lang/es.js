@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['es'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['es'] = {
     	headersColumn : 'Primera columna',
     	headersNone : 'Ninguno',
     	headersRow : 'Primera fila',
+    	heightUnit : 'height unit',
     	invalidBorder : 'El tamaño del borde debe ser un número.',
     	invalidCellPadding : 'El espaciado interior debe ser un número.',
     	invalidCellSpacing : 'El espaciado entre celdas debe ser un número.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['es'] = {
     },
     liststyle : 
     {
-    	armenian : 'Numeración armenia',
     	bulletedTitle : 'Propiedades de viñetas',
     	circle : 'Círculo',
     	decimal : 'Decimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Decimal con cero inicial (01, 02, 03, etc.)',
     	disc : 'Disco',
-    	georgian : 'Numeración georgiana (an, ban, gan, etc.)',
     	lowerAlpha : 'Alfabeto en minúsculas (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Letras griegas (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Números romanos en minúsculas (i, ii, iii, iv, v, etc.)',
     	none : 'Ninguno',
     	notset : '<sin establecer>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['es'] = {
     	noAnchors : '(No hay referencias disponibles en el documento)',
     	noEmail : 'Por favor escriba la dirección de e-mail',
     	noUrl : 'Por favor escriba el vínculo URL',
+    	noTel : 'Please type the phone number',
     	other : '<otro>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dependiente (Netscape)',
     	popupFeatures : 'Características de Ventana Emergente',
     	popupFullScreen : 'Pantalla Completa (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['es'] = {
     	toAnchor : 'Referencia en esta página',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Insertar/Editar Vínculo',
     	type : 'Tipo de vínculo',
     	unlink : 'Eliminar Vínculo',
@@ -416,12 +416,7 @@ CKEDITOR.lang['es'] = {
     	paste : 'Pegar',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Zona de pegado',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Pegar'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Seleccionado)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

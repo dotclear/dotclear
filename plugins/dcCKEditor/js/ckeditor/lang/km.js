@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['km'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['km'] = {
     	headersColumn : 'ជួរ\u200bឈរ\u200bដំបូង',
     	headersNone : 'មិន\u200bមាន',
     	headersRow : 'ជួរ\u200bដេក\u200bដំបូង',
+    	heightUnit : 'height unit',
     	invalidBorder : 'ទំហំ\u200bបន្ទាត់\u200bស៊ុម\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ។',
     	invalidCellPadding : 'ចន្លោះ\u200bក្រឡា\u200bត្រូវ\u200bតែជា\u200bលេខ\u200bវិជ្ជមាន។',
     	invalidCellSpacing : 'គម្លាត\u200bក្រឡា\u200bត្រូវ\u200bតែ\u200bជា\u200bលេខ\u200bវិជ្ជមាន។',
@@ -165,15 +166,11 @@ CKEDITOR.lang['km'] = {
     },
     liststyle : 
     {
-    	armenian : 'លេខ\u200bអារមេនី',
     	bulletedTitle : 'លក្ខណៈ\u200bសម្បត្តិ\u200bបញ្ជី\u200bជា\u200bចំណុច',
     	circle : 'រង្វង់\u200bមូល',
     	decimal : 'លេខ\u200bទសភាគ (1, 2, 3, ...)',
-    	decimalLeadingZero : 'ទសភាគ\u200bចាប់\u200bផ្ដើម\u200bពី\u200bសូន្យ (01, 02, 03, ...)',
     	disc : 'ថាស',
-    	georgian : 'លេខ\u200bចចជា (an, ban, gan, ...)',
     	lowerAlpha : 'ព្យញ្ជនៈ\u200bតូច (a, b, c, d, e, ...)',
-    	lowerGreek : 'លេខ\u200bក្រិក\u200bតូច (alpha, beta, gamma, ...)',
     	lowerRoman : 'លេខ\u200bរ៉ូម៉ាំង\u200bតូច (i, ii, iii, iv, v, ...)',
     	none : 'គ្មាន',
     	notset : '<not set>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['km'] = {
     	noAnchors : '(មិន\u200bមាន\u200bយុថ្កា\u200bនៅ\u200bក្នុង\u200bឯកសារ\u200bអត្ថថបទ\u200bទេ)',
     	noEmail : 'សូម\u200bបញ្ចូល\u200bអាសយដ្ឋាន\u200bអ៊ីមែល',
     	noUrl : 'សូម\u200bបញ្ចូល\u200bតំណ URL',
+    	noTel : 'Please type the phone number',
     	other : '<ផ្សេង\u200bទៀត>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dependent (Netscape)',
     	popupFeatures : 'មុខ\u200bងារ\u200bផុស\u200bផ្ទាំង\u200bវីនដូ\u200bឡើង',
     	popupFullScreen : 'ពេញ\u200bអេក្រង់ (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['km'] = {
     	toAnchor : 'ត\u200bភ្ជាប់\u200bទៅ\u200bយុថ្កា\u200bក្នុង\u200bអត្ថបទ',
     	toEmail : 'អ៊ីមែល',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'តំណ',
     	type : 'ប្រភេទ\u200bតំណ',
     	unlink : 'ផ្ដាច់\u200bតំណ',
@@ -416,12 +416,7 @@ CKEDITOR.lang['km'] = {
     	paste : 'បិទ\u200bភ្ជាប់',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'តំបន់\u200bបិទ\u200bភ្ជាប់',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'បិទ\u200bភ្ជាប់'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (បាន\u200bជ្រើស\u200bរើស)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

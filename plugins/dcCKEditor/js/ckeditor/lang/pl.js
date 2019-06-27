@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['pl'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['pl'] = {
     	headersColumn : 'Pierwsza kolumna',
     	headersNone : 'Brak',
     	headersRow : 'Pierwszy wiersz',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Wartość obramowania musi być liczbą.',
     	invalidCellPadding : 'Dopełnienie komórek musi być liczbą dodatnią.',
     	invalidCellSpacing : 'Odstęp pomiędzy komórkami musi być liczbą dodatnią.',
@@ -140,7 +141,7 @@ CKEDITOR.lang['pl'] = {
     pastetext : 
     {
     	button : 'Wklej jako czysty tekst',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Naciśnij %1 by wkleić tekst. Twoja przeglądarka nie obsługuje wklejania za pomocą przycisku paska narzędzi lub opcji menu kontekstowego.',
     	title : 'Wklej jako czysty tekst'
     },
     pastefromword : 
@@ -165,15 +166,11 @@ CKEDITOR.lang['pl'] = {
     },
     liststyle : 
     {
-    	armenian : 'Numerowanie armeńskie',
     	bulletedTitle : 'Właściwości list wypunktowanych',
     	circle : 'Koło',
     	decimal : 'Liczby (1, 2, 3 itd.)',
-    	decimalLeadingZero : 'Liczby z początkowym zerem (01, 02, 03 itd.)',
     	disc : 'Okrąg',
-    	georgian : 'Numerowanie gruzińskie (an, ban, gan itd.)',
     	lowerAlpha : 'Małe litery (a, b, c, d, e itd.)',
-    	lowerGreek : 'Małe litery greckie (alpha, beta, gamma itd.)',
     	lowerRoman : 'Małe cyfry rzymskie (i, ii, iii, iv, v itd.)',
     	none : 'Brak',
     	notset : '<nie ustawiono>',
@@ -202,7 +199,7 @@ CKEDITOR.lang['pl'] = {
     		menu : 'Właściwości kotwicy',
     		title : 'Właściwości kotwicy',
     		name : 'Nazwa kotwicy',
-    		errorName : 'Wpisz nazwę kotwicy',
+    		errorName : 'Podaj nazwę kotwicy.',
     		remove : 'Usuń kotwicę'
     	},
     	anchorId : 'Wg identyfikatora',
@@ -223,9 +220,11 @@ CKEDITOR.lang['pl'] = {
     	menu : 'Edytuj odnośnik',
     	name : 'Nazwa',
     	noAnchors : '(W dokumencie nie zdefiniowano żadnych kotwic)',
-    	noEmail : 'Podaj adres e-mail',
-    	noUrl : 'Podaj adres URL',
+    	noEmail : 'Podaj adres e-mail.',
+    	noUrl : 'Podaj adres URL.',
+    	noTel : 'Podaj numer telefonu.',
     	other : '<inny>',
+    	phoneNumber : 'Numer telefonu',
     	popupDependent : 'Okno zależne (Netscape)',
     	popupFeatures : 'Właściwości wyskakującego okna',
     	popupFullScreen : 'Pełny ekran (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['pl'] = {
     	toAnchor : 'Odnośnik wewnątrz strony (kotwica)',
     	toEmail : 'Adres e-mail',
     	toUrl : 'Adres URL',
+    	toPhone : 'Telefon',
     	toolbar : 'Wstaw/edytuj odnośnik',
     	type : 'Typ odnośnika',
     	unlink : 'Usuń odnośnik',
@@ -416,12 +416,7 @@ CKEDITOR.lang['pl'] = {
     	paste : 'Wklej',
     	pasteNotification : 'Naciśnij %1 by wkleić tekst. Twoja przeglądarka nie pozwala na wklejanie za pomocą przycisku paska narzędzi lub opcji menu kontekstowego.',
     	pasteArea : 'Miejsce do wklejenia treści',
-    	pasteMsg : 'Wklej treść do obszaru poniżej i naciśnij OK.',
-    	title : 'Wklej'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Wybrany)'
+    	pasteMsg : 'Wklej treść do obszaru poniżej i naciśnij OK.'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['pl'] = {
     	justify : 'Wyjustuj',
     	alignLeft : 'Wyrównaj do lewej',
     	alignRight : 'Wyrównaj do prawej',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Wyśrodkuj',
     	alignTop : 'Do góry',
     	alignMiddle : 'Do środka',
     	alignBottom : 'Do dołu',

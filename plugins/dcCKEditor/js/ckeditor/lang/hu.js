@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['hu'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['hu'] = {
     	headersColumn : 'Első oszlop',
     	headersNone : 'Nincsenek',
     	headersRow : 'Első sor',
+    	heightUnit : 'height unit',
     	invalidBorder : 'A szegélyméret mezőbe csak számokat írhat.',
     	invalidCellPadding : 'A cella belső margó mezőbe csak számokat írhat.',
     	invalidCellSpacing : 'A cella térköz mezőbe csak számokat írhat.',
@@ -140,12 +141,12 @@ CKEDITOR.lang['hu'] = {
     pastetext : 
     {
     	button : 'Beillesztés formázatlan szövegként',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Nyomja meg a %1 gombot a beillesztéshez. A böngésző nem támogatja a beillesztést az eszköztár gombbal vagy a menüből.',
     	title : 'Beillesztés formázatlan szövegként'
     },
     pastefromword : 
     {
-    	confirmCleanup : 'Úgy tűnik a beillesztett szöveget Word-ből másolt át. Meg szeretné tisztítani a szöveget? (ajánlott)',
+    	confirmCleanup : 'Úgy tűnik a beillesztett szöveget Word-ből másolta át. Meg szeretné tisztítani a szöveget? (ajánlott)',
     	error : 'Egy belső hiba miatt nem sikerült megtisztítani a szöveget',
     	title : 'Beillesztés Word-ből',
     	toolbar : 'Beillesztés Word-ből'
@@ -165,15 +166,11 @@ CKEDITOR.lang['hu'] = {
     },
     liststyle : 
     {
-    	armenian : 'Örmény számozás',
     	bulletedTitle : 'Pontozott lista tulajdonságai',
     	circle : 'Kör',
     	decimal : 'Arab számozás (1, 2, 3, stb.)',
-    	decimalLeadingZero : 'Számozás bevezető nullákkal (01, 02, 03, stb.)',
     	disc : 'Korong',
-    	georgian : 'Grúz számozás (an, ban, gan, stb.)',
     	lowerAlpha : 'Kisbetűs (a, b, c, d, e, stb.)',
-    	lowerGreek : 'Görög (alpha, beta, gamma, stb.)',
     	lowerRoman : 'Római kisbetűs (i, ii, iii, iv, v, stb.)',
     	none : 'Nincs',
     	notset : '<Nincs beállítva>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['hu'] = {
     	noAnchors : '(Nincs horgony a dokumentumban)',
     	noEmail : 'Adja meg az E-Mail címet',
     	noUrl : 'Adja meg a hivatkozás webcímét',
+    	noTel : 'Please type the phone number',
     	other : '<más>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Szülőhöz kapcsolt (csak Netscape)',
     	popupFeatures : 'Felugró ablak jellemzői',
     	popupFullScreen : 'Teljes képernyő (csak IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['hu'] = {
     	toAnchor : 'Horgony az oldalon',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Hivatkozás beillesztése/módosítása',
     	type : 'Hivatkozás típusa',
     	unlink : 'Hivatkozás törlése',
@@ -265,9 +265,9 @@ CKEDITOR.lang['hu'] = {
     	alt : 'Alternatív szöveg',
     	border : 'Keret',
     	btnUpload : 'Küldés a szerverre',
-    	button2Img : 'A kiválasztott képgombból sima képet szeretne csinálni?',
+    	button2Img : 'Szeretne a kiválasztott képgombból sima képet csinálni?',
     	hSpace : 'Vízsz. táv',
-    	img2Button : 'A kiválasztott képből képgombot szeretne csinálni?',
+    	img2Button : 'Szeretne a kiválasztott képből képgombot csinálni?',
     	infoTab : 'Alaptulajdonságok',
     	linkTab : 'Hivatkozás',
     	lockRatio : 'Arány megtartása',
@@ -276,7 +276,7 @@ CKEDITOR.lang['hu'] = {
     	title : 'Kép tulajdonságai',
     	titleButton : 'Képgomb tulajdonságai',
     	upload : 'Feltöltés',
-    	urlMissing : 'Hiányzik a kép URL-je',
+    	urlMissing : 'Hiányzik a kép URL-je.',
     	vSpace : 'Függ. táv',
     	validateBorder : 'A keret méretének egész számot kell beírni!',
     	validateHSpace : 'Vízszintes távolságnak egész számot kell beírni!',
@@ -289,7 +289,7 @@ CKEDITOR.lang['hu'] = {
     format : 
     {
     	label : 'Formátum',
-    	panelTitle : 'Formátum',
+    	panelTitle : 'Bekezdés formátum',
     	tag_address : 'Címsor',
     	tag_div : 'Bekezdés (DIV)',
     	tag_h1 : 'Fejléc 1',
@@ -414,14 +414,9 @@ CKEDITOR.lang['hu'] = {
     	cut : 'Kivágás',
     	cutError : 'A böngésző biztonsági beállításai nem engedélyezik a szerkesztőnek, hogy végrehajtsa a kivágás műveletet. Használja az alábbi billentyűkombinációt (Ctrl/Cmd+X).',
     	paste : 'Beillesztés',
-    	pasteNotification : 'Nyomjd meg a %1 gombot a beillesztéshez. A böngésző nem támogatja a beillesztést az eszköztás gombbal vagy a menüből.',
+    	pasteNotification : 'Nyomja meg a %1 gombot a beillesztéshez. A böngésző nem támogatja a beillesztést az eszköztárról vagy a menüből.',
     	pasteArea : 'Beillesztési terület',
-    	pasteMsg : 'Illeszd be a tartalmat az alábbi területbe, és nyomj egy OK-t.',
-    	title : 'Beillesztés'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Kiválasztva)'
+    	pasteMsg : 'Illessze be a tartalmat az alábbi mezőbe, és nyomja meg az OK-t.'
     },
     blockquote : 
     {
@@ -443,10 +438,10 @@ CKEDITOR.lang['hu'] = {
     	moreInfo : 'Licenszelési információkért kérjük látogassa meg weboldalunkat:'
     },
     editor : 'HTML szerkesztő',
-    editorPanel : 'Rich Text szerkesztő panel',
+    editorPanel : 'HTML szerkesztő panel',
     common : 
     {
-    	editorHelp : 'Segítségért nyomjon ALT 0',
+    	editorHelp : 'Segítségért nyomjon ALT 0-t',
     	browseServer : 'Böngészés a szerveren',
     	url : 'Hivatkozás',
     	protocol : 'Protokoll',
@@ -459,7 +454,7 @@ CKEDITOR.lang['hu'] = {
     	radio : 'Választógomb',
     	textField : 'Szövegmező',
     	textarea : 'Szövegterület',
-    	hiddenField : 'Rejtettmező',
+    	hiddenField : 'Rejtett mező',
     	button : 'Gomb',
     	select : 'Legördülő lista',
     	imageButton : 'Képgomb',
@@ -471,7 +466,7 @@ CKEDITOR.lang['hu'] = {
     	langDirRtl : 'Jobbról balra',
     	langCode : 'Nyelv kódja',
     	longDescr : 'Részletes leírás webcíme',
-    	cssClass : 'Stíluskészlet',
+    	cssClass : 'CSS osztályok',
     	advisoryTitle : 'Súgócimke',
     	cssStyle : 'Stílus',
     	ok : 'Rendben',
@@ -483,7 +478,7 @@ CKEDITOR.lang['hu'] = {
     	advancedTab : 'További opciók',
     	validateNumberFailed : 'A mezőbe csak számokat írhat.',
     	confirmNewPage : 'Minden nem mentett változás el fog veszni! Biztosan be szeretné tölteni az oldalt?',
-    	confirmCancel : 'Az űrlap tartalma megváltozott, ám a változásokat nem rögzítette. Biztosan be szeretné zárni az űrlapot?',
+    	confirmCancel : 'Pár beállítást megváltoztatott. Biztosan be szeretné zárni az ablakot?',
     	options : 'Beállítások',
     	target : 'Cél',
     	targetNew : 'Új ablak (_blank)',
@@ -503,7 +498,7 @@ CKEDITOR.lang['hu'] = {
     	justify : 'Sorkizárt',
     	alignLeft : 'Balra',
     	alignRight : 'Jobbra',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Középre igazítás',
     	alignTop : 'Tetejére',
     	alignMiddle : 'Középre',
     	alignBottom : 'Aljára',

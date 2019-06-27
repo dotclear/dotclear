@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['he'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['he'] = {
     	headersColumn : 'עמודה ראשונה',
     	headersNone : 'אין',
     	headersRow : 'שורה ראשונה',
+    	heightUnit : 'height unit',
     	invalidBorder : 'שדה גודל המסגרת חייב להיות מספר.',
     	invalidCellPadding : 'שדה ריפוד התאים חייב להיות מספר חיובי.',
     	invalidCellSpacing : 'שדה ריווח התאים חייב להיות מספר חיובי.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['he'] = {
     },
     liststyle : 
     {
-    	armenian : 'ספרות ארמניות',
     	bulletedTitle : 'תכונות רשימת תבליטים',
     	circle : 'עיגול ריק',
     	decimal : 'ספרות (1, 2, 3 וכו\')',
-    	decimalLeadingZero : 'ספרות עם 0 בהתחלה (01, 02, 03 וכו\')',
     	disc : 'עיגול מלא',
-    	georgian : 'ספרות גיאורגיות (an, ban, gan וכו\')',
     	lowerAlpha : 'אותיות אנגליות קטנות (a, b, c, d, e וכו\')',
-    	lowerGreek : 'אותיות יווניות קטנות (alpha, beta, gamma וכו\')',
     	lowerRoman : 'ספירה רומית באותיות קטנות (i, ii, iii, iv, v וכו\')',
     	none : 'ללא',
     	notset : '<לא נקבע>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['he'] = {
     	noAnchors : '(אין עוגנים זמינים בדף)',
     	noEmail : 'יש להקליד את כתובת הדוא"ל',
     	noUrl : 'יש להקליד את כתובת הקישור (URL)',
+    	noTel : 'Please type the phone number',
     	other : '<אחר>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'תלוי (Netscape)',
     	popupFeatures : 'תכונות החלון הקופץ',
     	popupFullScreen : 'מסך מלא (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['he'] = {
     	toAnchor : 'עוגן בעמוד זה',
     	toEmail : 'דוא"ל',
     	toUrl : 'כתובת (URL)',
+    	toPhone : 'Phone',
     	toolbar : 'הוספת/עריכת קישור',
     	type : 'סוג קישור',
     	unlink : 'הסרת הקישור',
@@ -416,12 +416,7 @@ CKEDITOR.lang['he'] = {
     	paste : 'הדבקה',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'איזור הדבקה',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'הדבקה'
-    },
-    button : 
-    {
-    	selectedLabel : '1% (סומן)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

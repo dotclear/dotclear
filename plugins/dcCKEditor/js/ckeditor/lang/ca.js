@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ca'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['ca'] = {
     	headersColumn : 'Primera columna',
     	headersNone : 'Cap',
     	headersRow : 'Primera fila',
+    	heightUnit : 'height unit',
     	invalidBorder : 'El gruix de la vora ha de ser un nombre.',
     	invalidCellPadding : 'L\'encoixinament de cel·la  ha de ser un nombre.',
     	invalidCellSpacing : 'L\'espaiat de cel·la  ha de ser un nombre.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['ca'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armenian numbering',
     	bulletedTitle : 'Bulleted List Properties',
     	circle : 'Circle',
     	decimal : 'Decimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Decimal leading zero (01, 02, 03, etc.)',
     	disc : 'Disc',
-    	georgian : 'Georgian numbering (an, ban, gan, etc.)',
     	lowerAlpha : 'Lower Alpha (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Lower Greek (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Lower Roman (i, ii, iii, iv, v, etc.)',
     	none : 'None',
     	notset : '<not set>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['ca'] = {
     	noAnchors : '(No hi ha àncores disponibles en aquest document)',
     	noEmail : 'Si us plau, escrigui l\'adreça correu electrònic',
     	noUrl : 'Si us plau, escrigui l\'enllaç URL',
+    	noTel : 'Please type the phone number',
     	other : '<altre>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Depenent (Netscape)',
     	popupFeatures : 'Característiques finestra popup',
     	popupFullScreen : 'Pantalla completa (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['ca'] = {
     	toAnchor : 'Àncora en aquesta pàgina',
     	toEmail : 'Correu electrònic',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Insereix/Edita enllaç',
     	type : 'Tipus d\'enllaç',
     	unlink : 'Elimina l\'enllaç',
@@ -416,12 +416,7 @@ CKEDITOR.lang['ca'] = {
     	paste : 'Enganxar',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Àrea d\'enganxat',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Enganxar'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Seleccionat)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

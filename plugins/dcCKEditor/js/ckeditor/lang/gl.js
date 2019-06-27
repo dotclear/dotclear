@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['gl'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['gl'] = {
     	headersColumn : 'Primeira columna',
     	headersNone : 'Ningún',
     	headersRow : 'Primeira fila',
+    	heightUnit : 'height unit',
     	invalidBorder : 'O tamaño do bordo debe ser un número.',
     	invalidCellPadding : 'A marxe interior debe ser un número positivo.',
     	invalidCellSpacing : 'A marxe entre celas debe ser un número positivo.',
@@ -140,7 +141,7 @@ CKEDITOR.lang['gl'] = {
     pastetext : 
     {
     	button : 'Pegar como texto simple',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Prema %1 para pegar. O seu navegador non admite pegar co botón da barra de ferramentas ou coa opción do menú contextual.',
     	title : 'Pegar como texto simple'
     },
     pastefromword : 
@@ -165,15 +166,11 @@ CKEDITOR.lang['gl'] = {
     },
     liststyle : 
     {
-    	armenian : 'Numeración armenia',
     	bulletedTitle : 'Propiedades da lista viñeteada',
     	circle : 'Circulo',
     	decimal : 'Decimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Decimal con cero á esquerda (01, 02, 03, etc.)',
     	disc : 'Disc',
-    	georgian : 'Numeración xeorxiana (an, ban, gan, etc.)',
     	lowerAlpha : 'Alfabeto en minúsculas (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Grego en minúsculas (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Números romanos en minúsculas (i, ii, iii, iv, v, etc.)',
     	none : 'Ningún',
     	notset : '<sen estabelecer>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['gl'] = {
     	noAnchors : '(Non hai ancoraxes dispoñíbeis no documento)',
     	noEmail : 'Escriba o enderezo de correo',
     	noUrl : 'Escriba a ligazón URL',
-    	other : '<outro>',
+    	noTel : 'Escriba o número de teléfono',
+    	other : '<other>',
+    	phoneNumber : 'Número de teléfono',
     	popupDependent : 'Dependente (Netscape)',
     	popupFeatures : 'Características da xanela emerxente',
     	popupFullScreen : 'Pantalla completa (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['gl'] = {
     	toAnchor : 'Ligar coa ancoraxe no testo',
     	toEmail : 'Correo',
     	toUrl : 'URL',
+    	toPhone : 'Teléfono',
     	toolbar : 'Ligazón',
     	type : 'Tipo de ligazón',
     	unlink : 'Eliminar a ligazón',
@@ -414,14 +414,9 @@ CKEDITOR.lang['gl'] = {
     	cut : 'Cortar',
     	cutError : 'Os axustes de seguranza do seu navegador non permiten que o editor realice automaticamente as tarefas de corte. Use o teclado para iso (Ctrl/Cmd+X).',
     	paste : 'Pegar',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Prema %1 para pegar. O seu navegador non admite pegar co botón da barra de ferramentas ou coa opción do menú contextual.',
     	pasteArea : 'Zona de pegado',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Pegar'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (seleccionado)'
+    	pasteMsg : 'Pegue o contido dentro da área de abaixo e prema Aceptar.'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['gl'] = {
     	justify : 'Xustificado',
     	alignLeft : 'Aliñar á esquerda',
     	alignRight : 'Aliñar á dereita',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Aliñar ao centro',
     	alignTop : 'Arriba',
     	alignMiddle : 'Centro',
     	alignBottom : 'Abaixo',
@@ -511,7 +506,7 @@ CKEDITOR.lang['gl'] = {
     	invalidValue : 'Valor incorrecto.',
     	invalidHeight : 'O alto debe ser un número.',
     	invalidWidth : 'O largo debe ser un número.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : 'O valor especificado para o campo «%1» debe ser un número positivo con ou sen unha unidade de medida correcta (%2).',
     	invalidCssLength : 'O valor especificado para o campo «%1» debe ser un número positivo con ou sen unha unidade de medida CSS correcta (px, %, in, cm, mm, em, ex, pt, ou pc).',
     	invalidHtmlLength : 'O valor especificado para o campo «%1» debe ser un número positivo con ou sen unha unidade de medida HTML correcta (px ou %).',
     	invalidInlineStyle : 'O valor especificado no estilo en liña debe consistir nunha ou máis tuplas co formato «nome : valor», separadas por punto e coma.',
@@ -555,5 +550,5 @@ CKEDITOR.lang['gl'] = {
     		'224' : 'Orde'
     	},
     	keyboardShortcut : 'Atallo de teclado',
-    	optionDefault : 'Default'
+    	optionDefault : 'Predeterminado'
     } }; 

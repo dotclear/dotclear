@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['tt'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['tt'] = {
     	headersColumn : 'Беренче багана',
     	headersNone : 'Һичбер',
     	headersRow : 'Беренче юл',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Чик киңлеге сан булырга тиеш.',
     	invalidCellPadding : 'Cell padding must be a positive number.',
     	invalidCellSpacing : 'Күзәнәкләр аралары уңай сан булырга тиеш.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['tt'] = {
     },
     liststyle : 
     {
-    	armenian : 'Әрмән номерлавы',
     	bulletedTitle : 'Маркерлы тезмә үзлекләре',
     	circle : 'Түгәрәк',
     	decimal : 'Унарлы (1, 2, 3, ...)',
-    	decimalLeadingZero : 'Ноль белән башланган унарлы (01, 02, 03, ...)',
     	disc : 'Диск',
-    	georgian : 'Georgian numbering (an, ban, gan, etc.)',
     	lowerAlpha : 'Lower Alpha (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Lower Greek (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Lower Roman (i, ii, iii, iv, v, etc.)',
     	none : 'Һичбер',
     	notset : '<билгеләнмәгән>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['tt'] = {
     	noAnchors : '(Әлеге документта якорьләр табылмады)',
     	noEmail : 'Электрон почта адресын языгыз',
     	noUrl : 'Сылталаманы языгыз',
+    	noTel : 'Телефон номерыгызны языгыз',
     	other : '<бүтән>',
+    	phoneNumber : 'Телефон номеры',
     	popupDependent : 'Бәйле (Netscape)',
     	popupFeatures : 'Popup Window Features',
     	popupFullScreen : 'Тулы экран (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['tt'] = {
     	toAnchor : 'Якорьне текст белән бәйләү',
     	toEmail : 'Электрон почта',
     	toUrl : 'Сылталама',
+    	toPhone : 'Телефон',
     	toolbar : 'Сылталама',
     	type : 'Сылталама төре',
     	unlink : 'Сылталаманы бетерү',
@@ -416,12 +416,7 @@ CKEDITOR.lang['tt'] = {
     	paste : 'Өстәү',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Өстәү мәйданы',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Өстәү'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Сайланган)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['si'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['si'] = {
     	headersColumn : 'පළමූ සිරස් තීරුව',
     	headersNone : 'කිසිවක්ම නොවේ',
     	headersRow : 'පළමූ පේළිය',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Border size must be a number.',
     	invalidCellPadding : 'Cell padding must be a positive number.',
     	invalidCellSpacing : 'Cell spacing must be a positive number.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['si'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armenian numbering',
     	bulletedTitle : 'Bulleted List Properties',
     	circle : 'Circle',
     	decimal : 'Decimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Decimal leading zero (01, 02, 03, etc.)',
     	disc : 'Disc',
-    	georgian : 'Georgian numbering (an, ban, gan, etc.)',
     	lowerAlpha : 'Lower Alpha (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Lower Greek (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Lower Roman (i, ii, iii, iv, v, etc.)',
     	none : 'කිසිවක්ම නොවේ',
     	notset : '<යොදා >',
@@ -225,7 +222,9 @@ CKEDITOR.lang['si'] = {
     	noAnchors : '(No anchors available in the document)',
     	noEmail : 'Please type the e-mail address',
     	noUrl : 'Please type the link URL',
+    	noTel : 'Please type the phone number',
     	other : '<other>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dependent (Netscape)',
     	popupFeatures : 'Popup Window Features',
     	popupFullScreen : 'Full Screen (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['si'] = {
     	toAnchor : 'Link to anchor in the text',
     	toEmail : 'E-mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'සබැඳිය',
     	type : 'Link Type',
     	unlink : 'Unlink',
@@ -416,12 +416,7 @@ CKEDITOR.lang['si'] = {
     	paste : 'අලවන්න',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'අලවන ප්‍රදේශ',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'අලවන්න'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

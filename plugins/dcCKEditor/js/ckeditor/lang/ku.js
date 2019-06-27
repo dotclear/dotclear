@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ku'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['ku'] = {
     	headersColumn : 'یەکەم ئەستوون',
     	headersNone : 'هیچ',
     	headersRow : 'یەکەم ڕیز',
+    	heightUnit : 'height unit',
     	invalidBorder : 'ژمارەی پەراوێز دەبێت تەنها ژماره بێت.',
     	invalidCellPadding : 'ناوپۆشی خانه دەبێت ژمارەکی درووست بێت.',
     	invalidCellSpacing : 'بۆشایی خانه دەبێت ژمارەکی درووست بێت.',
@@ -140,7 +141,7 @@ CKEDITOR.lang['ku'] = {
     pastetext : 
     {
     	button : 'لکاندنی وەك دەقی ڕوون',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'کلیک بکە لەسەر %1 بۆ لکاندنی. وێبگەڕەکەت پشتیوانی لکاندن ناکات بە دوگمەی تولامراز یان ئامرازی ناوەڕۆکی لیستە - کلیکی دەستی ڕاست',
     	title : 'لکاندنی وەك دەقی ڕوون'
     },
     pastefromword : 
@@ -165,15 +166,11 @@ CKEDITOR.lang['ku'] = {
     },
     liststyle : 
     {
-    	armenian : 'ئاراستەی ژمارەی ئەرمەنی',
     	bulletedTitle : 'خاسیەتی لیستی خاڵی',
     	circle : 'بازنه',
     	decimal : 'ژمارە (1, 2, 3, وە هیتر.)',
-    	decimalLeadingZero : 'ژمارە سفڕی لەپێشەوه (01, 02, 03, وە هیتر.)',
     	disc : 'پەپکە',
-    	georgian : 'ئاراستەی ژمارەی جۆڕجی (an, ban, gan, وە هیتر.)',
     	lowerAlpha : 'ئەلفابێی بچووك (a, b, c, d, e, وە هیتر.)',
-    	lowerGreek : 'یۆنانی بچووك (alpha, beta, gamma, وە هیتر.)',
     	lowerRoman : 'ژمارەی ڕۆمی بچووك (i, ii, iii, iv, v, وە هیتر.)',
     	none : 'هیچ',
     	notset : '<دانەندراوه>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['ku'] = {
     	noAnchors : '(هیچ جۆرێکی لەنگەر ئامادە نیە لەم پەڕەیه)',
     	noEmail : 'تکایە ناونیشانی ئیمەیل بنووسە',
     	noUrl : 'تکایە ناونیشانی بەستەر بنووسە',
+    	noTel : 'Please type the phone number',
     	other : '<هیتر>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'پێوەبەستراو (Netscape)',
     	popupFeatures : 'خاسیەتی پەنجەرەی سەرهەڵدەر',
     	popupFullScreen : 'پڕ بەپڕی شاشە (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['ku'] = {
     	toAnchor : 'بەستەر بۆ لەنگەر له دەق',
     	toEmail : 'ئیمەیل',
     	toUrl : 'ناونیشانی بەستەر',
+    	toPhone : 'Phone',
     	toolbar : 'دانان/ڕێکخستنی بەستەر',
     	type : 'جۆری بەستەر',
     	unlink : 'لابردنی بەستەر',
@@ -416,12 +416,7 @@ CKEDITOR.lang['ku'] = {
     	paste : 'لکاندن',
     	pasteNotification : 'کلیک بکە لەسەر %1 بۆ لکاندنی. وێبگەڕەکەت پشتیوانی لکاندن ناکات بە دوگمەی تولامراز یان ئامرازی ناوەڕۆکی لیستە -  کلیکی دەستی ڕاست. ',
     	pasteArea : 'ناوچەی لکاندن',
-    	pasteMsg : 'ناوەڕۆکەکەت لەم پانتایی خوارەوە بلکێنە',
-    	title : 'لکاندن'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (هەڵبژێردراو)'
+    	pasteMsg : 'ناوەڕۆکەکەت لەم پانتایی خوارەوە بلکێنە'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['ku'] = {
     	justify : 'هاوستوونی',
     	alignLeft : 'بەهێڵ کردنی چەپ',
     	alignRight : 'بەهێڵ کردنی ڕاست',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'بەهێڵ کردنی ناوەڕاست',
     	alignTop : 'سەرەوە',
     	alignMiddle : 'ناوەند',
     	alignBottom : 'ژێرەوە',

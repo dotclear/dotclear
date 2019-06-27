@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['ms'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['ms'] = {
     	headersColumn : 'First column',
     	headersNone : 'None',
     	headersRow : 'First Row',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Border size must be a number.',
     	invalidCellPadding : 'Cell padding must be a positive number.',
     	invalidCellSpacing : 'Cell spacing must be a positive number.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['ms'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armenian numbering',
     	bulletedTitle : 'Bulleted List Properties',
     	circle : 'Circle',
     	decimal : 'Decimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Decimal leading zero (01, 02, 03, etc.)',
     	disc : 'Disc',
-    	georgian : 'Georgian numbering (an, ban, gan, etc.)',
     	lowerAlpha : 'Lower Alpha (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Lower Greek (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Lower Roman (i, ii, iii, iv, v, etc.)',
     	none : 'None',
     	notset : '<not set>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['ms'] = {
     	noAnchors : '(Tiada pautan terdapat dalam dokumen ini)',
     	noEmail : 'Sila taip alamat e-mail',
     	noUrl : 'Sila taip sambungan URL',
+    	noTel : 'Please type the phone number',
     	other : '<lain>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Bergantungan (Netscape)',
     	popupFeatures : 'Ciri Tetingkap Popup',
     	popupFullScreen : 'Skrin Penuh (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['ms'] = {
     	toAnchor : 'Pautan dalam muka surat ini',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Masukkan/Sunting Sambungan',
     	type : 'Jenis Sambungan',
     	unlink : 'Buang Sambungan',
@@ -416,12 +416,7 @@ CKEDITOR.lang['ms'] = {
     	paste : 'Tampal',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Paste Area',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Tampal'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selected)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['fi'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['fi'] = {
     	headersColumn : 'Ensimmäinen sarake',
     	headersNone : 'Ei',
     	headersRow : 'Ensimmäinen rivi',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Reunan koon täytyy olla numero.',
     	invalidCellPadding : 'Solujen sisennyksen täytyy olla numero.',
     	invalidCellSpacing : 'Solujen välin täytyy olla numero.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['fi'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armeenialainen numerointi',
     	bulletedTitle : 'Numeroimattoman listan ominaisuudet',
     	circle : 'Ympyrä',
     	decimal : 'Desimaalit (1, 2, 3, jne.)',
-    	decimalLeadingZero : 'Desimaalit, alussa nolla (01, 02, 03, jne.)',
     	disc : 'Levy',
-    	georgian : 'Georgialainen numerointi (an, ban, gan, etc.)',
     	lowerAlpha : 'Pienet aakkoset (a, b, c, d, e, jne.)',
-    	lowerGreek : 'Pienet kreikkalaiset (alpha, beta, gamma, jne.)',
     	lowerRoman : 'Pienet roomalaiset (i, ii, iii, iv, v, jne.)',
     	none : 'Ei mikään',
     	notset : '<ei asetettu>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['fi'] = {
     	noAnchors : '(Ei ankkureita tässä dokumentissa)',
     	noEmail : 'Kirjoita sähköpostiosoite',
     	noUrl : 'Linkille on kirjoitettava URL',
+    	noTel : 'Please type the phone number',
     	other : '<muu>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Riippuva (Netscape)',
     	popupFeatures : 'Popup ikkunan ominaisuudet',
     	popupFullScreen : 'Täysi ikkuna (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['fi'] = {
     	toAnchor : 'Ankkuri tässä sivussa',
     	toEmail : 'Sähköposti',
     	toUrl : 'Osoite',
+    	toPhone : 'Phone',
     	toolbar : 'Lisää linkki/muokkaa linkkiä',
     	type : 'Linkkityyppi',
     	unlink : 'Poista linkki',
@@ -416,12 +416,7 @@ CKEDITOR.lang['fi'] = {
     	paste : 'Liitä',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Leikealue',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Liitä'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Valittu)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

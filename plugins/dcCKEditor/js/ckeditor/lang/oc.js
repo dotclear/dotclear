@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['oc'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['oc'] = {
     	headersColumn : 'Primièra colomna',
     	headersNone : 'Pas cap',
     	headersRow : 'Primièra linha',
+    	heightUnit : 'height unit',
     	invalidBorder : 'La talha de la bordadura deu èsser un nombre.',
     	invalidCellPadding : 'Lo marge intèrne de las cellulas deu èsser un nombre positiu.',
     	invalidCellSpacing : 'L\'espaçament entre las cellulas deu èsser un nombre positiu.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['oc'] = {
     },
     liststyle : 
     {
-    	armenian : 'Numerotacion armènia',
     	bulletedTitle : 'Proprietats de la lista de piuses',
     	circle : 'Cercle',
     	decimal : 'Decimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Decimal precedit per un 0 (01, 02, 03, etc.)',
     	disc : 'Disc',
-    	georgian : 'Numeracion georgiana (an, ban, gan, etc.)',
     	lowerAlpha : 'Letras minusculas (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Grèc minuscula (alfa, bèta, gamma, etc.)',
     	lowerRoman : 'Chifras romanas minusculas (i, ii, iii, iv, v, etc.)',
     	none : 'Pas cap',
     	notset : '<indefinit>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['oc'] = {
     	noAnchors : '(Cap d\'ancòra pas disponibla dins aqueste document)',
     	noEmail : 'Entratz l\'adreça electronica',
     	noUrl : 'Entratz l\'URL del ligam',
+    	noTel : 'Please type the phone number',
     	other : '<autre>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dependenta (Netscape)',
     	popupFeatures : 'Caracteristicas de la fenèstra sorgissenta',
     	popupFullScreen : 'Ecran complet (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['oc'] = {
     	toAnchor : 'Ancòra',
     	toEmail : 'Corrièl',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Ligam',
     	type : 'Tipe de ligam',
     	unlink : 'Suprimir lo ligam',
@@ -416,12 +416,7 @@ CKEDITOR.lang['oc'] = {
     	paste : 'Pegar',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Paste Area',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Paste'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Seleccionat)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

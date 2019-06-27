@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['eo'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['eo'] = {
     	headersColumn : 'Unua kolumno',
     	headersNone : 'Neniu',
     	headersRow : 'Unua linio',
+    	heightUnit : 'height unit',
     	invalidBorder : 'La bordergrando devas esti nombro.',
     	invalidCellPadding : 'La interna marĝeno en la ĉeloj devas esti pozitiva nombro.',
     	invalidCellSpacing : 'La spaco inter la ĉeloj devas esti pozitiva nombro.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['eo'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armena nombrado',
     	bulletedTitle : 'Atributoj de Bula Listo',
     	circle : 'Cirklo',
     	decimal : 'Dekumaj Nombroj (1, 2, 3, ktp.)',
-    	decimalLeadingZero : 'Dekumaj Nombroj malantaŭ nulo (01, 02, 03, ktp.)',
     	disc : 'Disko',
-    	georgian : 'Gruza nombrado (an, ban, gan, ktp.)',
     	lowerAlpha : 'Minusklaj Literoj (a, b, c, d, e, ktp.)',
-    	lowerGreek : 'Grekaj Minusklaj Literoj (alpha, beta, gamma, ktp.)',
     	lowerRoman : 'Minusklaj Romanaj Nombroj (i, ii, iii, iv, v, ktp.)',
     	none : 'Neniu',
     	notset : '<Defaŭlta>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['eo'] = {
     	noAnchors : '<Ne disponeblas ankroj en la dokumento>',
     	noEmail : 'Bonvolu entajpi la retpoŝtadreson',
     	noUrl : 'Bonvolu entajpi la URL-on',
+    	noTel : 'Please type the phone number',
     	other : '<alia>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Dependa (Netscape)',
     	popupFeatures : 'Atributoj de la Ŝprucfenestro',
     	popupFullScreen : 'Tutekrane (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['eo'] = {
     	toAnchor : 'Ankri en tiu ĉi paĝo',
     	toEmail : 'Retpoŝto',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Enmeti/Ŝanĝi Ligilon',
     	type : 'Tipo de Ligilo',
     	unlink : 'Forigi Ligilon',
@@ -416,12 +416,7 @@ CKEDITOR.lang['eo'] = {
     	paste : 'Interglui',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Intergluoareo',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Interglui'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Selektita)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

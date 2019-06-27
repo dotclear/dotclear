@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['nl'] = {
@@ -40,7 +40,7 @@ CKEDITOR.lang['nl'] = {
     table : 
     {
     	border : 'Randdikte',
-    	caption : 'Titel',
+    	caption : 'Bijschrift',
     	cell : 
     	{
     		menu : 'Cel',
@@ -88,6 +88,7 @@ CKEDITOR.lang['nl'] = {
     	headersColumn : 'Eerste kolom',
     	headersNone : 'Geen',
     	headersRow : 'Eerste rij',
+    	heightUnit : 'height unit',
     	invalidBorder : 'De randdikte moet een getal zijn.',
     	invalidCellPadding : 'Celopvulling moet een getal zijn.',
     	invalidCellSpacing : 'Celafstand moet een getal zijn.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['nl'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armeense nummering',
     	bulletedTitle : 'Eigenschappen lijst met opsommingstekens',
     	circle : 'Cirkel',
     	decimal : 'Cijfers (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Cijfers beginnen met nul (01, 02, 03, etc.)',
     	disc : 'Schijf',
-    	georgian : 'Georgische nummering (an, ban, gan, etc.)',
     	lowerAlpha : 'Kleine letters (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Grieks kleine letters (alpha, beta, gamma, etc.)',
     	lowerRoman : 'Romeins kleine letters (i, ii, iii, iv, v, etc.)',
     	none : 'Geen',
     	notset : '<niet gezet>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['nl'] = {
     	noAnchors : '(Geen interne links in document gevonden)',
     	noEmail : 'Geef een e-mailadres',
     	noUrl : 'Geef de link van de URL',
+    	noTel : 'Geef een telefoonnummer',
     	other : '<ander>',
+    	phoneNumber : 'Telefoonnummer',
     	popupDependent : 'Afhankelijk (Netscape)',
     	popupFeatures : 'Instellingen popupvenster',
     	popupFullScreen : 'Volledig scherm (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['nl'] = {
     	toAnchor : 'Interne link in pagina',
     	toEmail : 'E-mail',
     	toUrl : 'URL',
+    	toPhone : 'Telefoon',
     	toolbar : 'Link invoegen/wijzigen',
     	type : 'Linktype',
     	unlink : 'Link verwijderen',
@@ -381,8 +381,8 @@ CKEDITOR.lang['nl'] = {
     		E6E6FA : 'Lavendel',
     		FFF : 'Wit',
     		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
+    		'2ECC71' : 'Smaragdgroen',
+    		'3498DB' : 'Helderblauw',
     		'9B59B6' : 'Amethyst',
     		'4E5F70' : 'Grayish Blue',
     		F1C40F : 'Vivid Yellow',
@@ -391,17 +391,17 @@ CKEDITOR.lang['nl'] = {
     		'2980B9' : 'Strong Blue',
     		'8E44AD' : 'Dark Violet',
     		'2C3E50' : 'Desaturated Blue',
-    		F39C12 : 'Orange',
+    		F39C12 : 'Oranje',
     		E67E22 : 'Carrot',
     		E74C3C : 'Pale Red',
     		ECF0F1 : 'Bright Silver',
     		'95A5A6' : 'Light Grayish Cyan',
     		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
+    		D35400 : 'Pompoen',
     		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
+    		BDC3C7 : 'Zilver',
     		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'999' : 'Donkergrijs'
     	},
     	more : 'Meer kleuren...',
     	panelTitle : 'Kleuren',
@@ -416,12 +416,7 @@ CKEDITOR.lang['nl'] = {
     	paste : 'Plakken',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Plakgebied',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Plakken'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Geselecteerd)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['nl'] = {
     	justify : 'Uitvullen',
     	alignLeft : 'Links uitlijnen',
     	alignRight : 'Rechts uitlijnen',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Centreren',
     	alignTop : 'Boven',
     	alignMiddle : 'Midden',
     	alignBottom : 'Onder',
@@ -555,5 +550,5 @@ CKEDITOR.lang['nl'] = {
     		'224' : 'Command'
     	},
     	keyboardShortcut : 'Sneltoets',
-    	optionDefault : 'Default'
+    	optionDefault : 'Standaard'
     } }; 

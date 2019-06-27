@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['nb'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['nb'] = {
     	headersColumn : 'Første kolonne',
     	headersNone : 'Ingen',
     	headersRow : 'Første rad',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Rammestørrelse må være et tall.',
     	invalidCellPadding : 'Cellepolstring må være et positivt tall.',
     	invalidCellSpacing : 'Cellemarg må være et positivt tall.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['nb'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armensk nummerering',
     	bulletedTitle : 'Egenskaper for punktliste',
     	circle : 'Sirkel',
     	decimal : 'Tall (1, 2, 3, osv.)',
-    	decimalLeadingZero : 'Tall, med førstesiffer null (01, 02, 03, osv.)',
     	disc : 'Disk',
-    	georgian : 'Georgisk nummerering (an, ban, gan, osv.)',
     	lowerAlpha : 'Alfabetisk, små (a, b, c, d, e, osv.)',
-    	lowerGreek : 'Gresk, små (alpha, beta, gamma, osv.)',
     	lowerRoman : 'Romertall, små (i, ii, iii, iv, v, osv.)',
     	none : 'Ingen',
     	notset : '<ikke satt>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['nb'] = {
     	noAnchors : '(Ingen anker i dokumentet)',
     	noEmail : 'Vennligst skriv inn e-postadressen',
     	noUrl : 'Vennligst skriv inn lenkens URL',
+    	noTel : 'Vennligst skriv inn telefonnummeret',
     	other : '<annen>',
+    	phoneNumber : 'Telefonnummer',
     	popupDependent : 'Avhenging (Netscape)',
     	popupFeatures : 'Egenskaper for popup-vindu',
     	popupFullScreen : 'Fullskjerm (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['nb'] = {
     	toAnchor : 'Lenke til anker i teksten',
     	toEmail : 'E-post',
     	toUrl : 'URL',
+    	toPhone : 'Telefon',
     	toolbar : 'Lenke',
     	type : 'Lenketype',
     	unlink : 'Fjern lenke',
@@ -416,12 +416,7 @@ CKEDITOR.lang['nb'] = {
     	paste : 'Lim inn',
     	pasteNotification : 'Trykk %1 for å lime inn. Nettleseren din støtter ikke å lime inn med knappen i verktøylinjen eller høyreklikkmenyen.',
     	pasteArea : 'Innlimingsområde',
-    	pasteMsg : 'Lim inn innholdet i området nedenfor og klikk OK.',
-    	title : 'Lim inn'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Valgt)'
+    	pasteMsg : 'Lim inn innholdet i området nedenfor og klikk OK.'
     },
     blockquote : 
     {

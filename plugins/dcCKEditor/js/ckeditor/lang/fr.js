@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['fr'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['fr'] = {
     	headersColumn : 'Première colonne',
     	headersNone : 'Aucun',
     	headersRow : 'Première ligne',
+    	heightUnit : 'height unit',
     	invalidBorder : 'La taille de la bordure doit être un nombre.',
     	invalidCellPadding : 'La marge interne des cellules doit être un nombre positif.',
     	invalidCellSpacing : 'L\'espacement entre les cellules doit être un nombre positif.',
@@ -140,7 +141,7 @@ CKEDITOR.lang['fr'] = {
     pastetext : 
     {
     	button : 'Coller comme texte brut',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Utilisez le raccourci %1 pour coller. Votre navigateur n\'accepte pas de coller à l\'aide du bouton ou du menu contextuel.',
     	title : 'Coller comme texte brut'
     },
     pastefromword : 
@@ -165,15 +166,11 @@ CKEDITOR.lang['fr'] = {
     },
     liststyle : 
     {
-    	armenian : 'Numération arménienne',
     	bulletedTitle : 'Propriétés de la liste à puces',
     	circle : 'Cercle',
     	decimal : 'Décimal (1, 2, 3, etc.)',
-    	decimalLeadingZero : 'Décimal précédé par un 0 (01, 02, 03, etc.)',
     	disc : 'Disque',
-    	georgian : 'Numération géorgienne (an, ban, gan, etc.)',
     	lowerAlpha : 'Lettres minuscules (a, b, c, d, e, etc.)',
-    	lowerGreek : 'Grec minuscule (alpha, bêta, gamma, etc.)',
     	lowerRoman : 'Chiffres romains minuscules (i, ii, iii, iv, v, etc.)',
     	none : 'Aucun',
     	notset : '<indéfini>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['fr'] = {
     	noAnchors : '(Aucune ancre disponible dans ce document)',
     	noEmail : 'Veuillez entrer l\'adresse électronique',
     	noUrl : 'Veuillez entrer l\'URL du lien',
+    	noTel : 'Veuillez entrer le numéro de téléphone',
     	other : '<autre>',
+    	phoneNumber : 'Numéro de téléphone',
     	popupDependent : 'Dépendante (Netscape)',
     	popupFeatures : 'Caractéristiques de la fenêtre surgissante',
     	popupFullScreen : 'Plein écran (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['fr'] = {
     	toAnchor : 'Ancre',
     	toEmail : 'Courriel',
     	toUrl : 'URL',
+    	toPhone : 'Téléphone',
     	toolbar : 'Lien',
     	type : 'Type de lien',
     	unlink : 'Supprimer le lien',
@@ -414,14 +414,9 @@ CKEDITOR.lang['fr'] = {
     	cut : 'Couper',
     	cutError : 'Les paramètres de sécurité de votre navigateur n\'autorisent pas l\'éditeur à exécuter automatiquement l\'opération « Couper ». Veuillez utiliser le raccourci clavier à cet effet (Ctrl/Cmd+X).',
     	paste : 'Coller',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Utilisez le raccourci %1 pour coller. Votre navigateur n\'accepte pas de coller à l\'aide du bouton ou du menu contextuel.',
     	pasteArea : 'Coller la zone',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Coller'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Sélectionné)'
+    	pasteMsg : 'Collez votre contenu dans la zone de saisie ci-dessous et cliquez OK.'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['fr'] = {
     	justify : 'Justifier',
     	alignLeft : 'Aligner à gauche',
     	alignRight : 'Aligner à droite',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Aligner au centre',
     	alignTop : 'Haut',
     	alignMiddle : 'Milieu',
     	alignBottom : 'Bas',
@@ -511,7 +506,7 @@ CKEDITOR.lang['fr'] = {
     	invalidValue : 'Valeur invalide.',
     	invalidHeight : 'La hauteur doit être un nombre.',
     	invalidWidth : 'La largeur doit être un nombre.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : 'La valeur de "%1" doit être un nombre positif avec ou sans unité de mesure (%2).',
     	invalidCssLength : 'La valeur spécifiée pour le champ « %1 » doit être un nombre positif avec ou sans unité de mesure CSS valide (px, %, in, cm, mm, em, ex, pt, ou pc).',
     	invalidHtmlLength : 'La valeur spécifiée pour le champ « %1 » doit être un nombre positif avec ou sans unité de mesure HTML valide (px ou %).',
     	invalidInlineStyle : 'La valeur spécifiée pour le style en ligne doit être composée d\'un ou plusieurs couples au format « nom : valeur », séparés par des points-virgules.',

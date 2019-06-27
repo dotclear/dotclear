@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['el'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['el'] = {
     	headersColumn : 'Πρώτη στήλη',
     	headersNone : 'Κανένα',
     	headersRow : 'Πρώτη Γραμμή',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Το πάχος του περιγράμματος πρέπει να είναι ένας αριθμός.',
     	invalidCellPadding : 'Η αναπλήρωση των κελιών πρέπει να είναι θετικός αριθμός.',
     	invalidCellSpacing : 'Η απόσταση μεταξύ των κελιών πρέπει να είναι ένας θετικός αριθμός.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['el'] = {
     },
     liststyle : 
     {
-    	armenian : 'Αρμενική αρίθμηση',
     	bulletedTitle : 'Ιδιότητες Λίστας Σημείων',
     	circle : 'Κύκλος',
     	decimal : 'Δεκαδική (1, 2, 3, κτλ)',
-    	decimalLeadingZero : 'Δεκαδική με αρχικό μηδεν (01, 02, 03, κτλ)',
     	disc : 'Δίσκος',
-    	georgian : 'Γεωργιανή αρίθμηση (ა, ბ, გ, κτλ)',
     	lowerAlpha : 'Μικρά Λατινικά (a, b, c, d, e, κτλ.)',
-    	lowerGreek : 'Μικρά Ελληνικά (α, β, γ, κτλ)',
     	lowerRoman : 'Μικρά Ρωμαϊκά (i, ii, iii, iv, v, κτλ)',
     	none : 'Καμία',
     	notset : '<δεν έχει οριστεί>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['el'] = {
     	noAnchors : '(Δεν υπάρχουν άγκυρες στο κείμενο)',
     	noEmail : 'Εισάγετε τη διεύθυνση ηλεκτρονικού ταχυδρομείου',
     	noUrl : 'Εισάγετε την τοποθεσία (URL) του συνδέσμου',
+    	noTel : 'Please type the phone number',
     	other : '<άλλο>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Εξαρτημένο (Netscape)',
     	popupFeatures : 'Επιλογές Αναδυόμενου Παραθύρου',
     	popupFullScreen : 'Πλήρης Οθόνη (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['el'] = {
     	toAnchor : 'Άγκυρα σε αυτήν τη σελίδα',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Σύνδεσμος',
     	type : 'Τύπος Συνδέσμου',
     	unlink : 'Αφαίρεση Συνδέσμου',
@@ -416,12 +416,7 @@ CKEDITOR.lang['el'] = {
     	paste : 'Επικόλληση',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Περιοχή Επικόλλησης',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Επικόλληση'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Επιλεγμένο)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

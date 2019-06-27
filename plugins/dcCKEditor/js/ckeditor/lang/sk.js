@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['sk'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['sk'] = {
     	headersColumn : 'Prvý stĺpec',
     	headersNone : 'Žiadne',
     	headersRow : 'Prvý riadok',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Šírka orámovania musí byť číslo.',
     	invalidCellPadding : 'Odsadenie v bunkách (cell padding) musí byť kladné číslo.',
     	invalidCellSpacing : 'Medzera mädzi bunkami (cell spacing) musí byť kladné číslo.',
@@ -116,8 +117,8 @@ CKEDITOR.lang['sk'] = {
     	label : 'Štýly',
     	panelTitle : 'Formátovanie štýlov',
     	panelTitle1 : 'Štýly bloku',
-    	panelTitle2 : 'Vnútroriadkové (inline) štýly',
-    	panelTitle3 : 'Štýly objeku'
+    	panelTitle2 : 'Znakové štýly',
+    	panelTitle3 : 'Štýly objektu'
     },
     specialchar : 
     {
@@ -165,15 +166,11 @@ CKEDITOR.lang['sk'] = {
     },
     liststyle : 
     {
-    	armenian : 'Arménske číslovanie',
     	bulletedTitle : 'Vlastnosti odrážkového zoznamu',
     	circle : 'Kruh',
     	decimal : 'Číselné (1, 2, 3, atď.)',
-    	decimalLeadingZero : 'Číselné s nulou (01, 02, 03, atď.)',
     	disc : 'Disk',
-    	georgian : 'Gruzínske číslovanie (an, ban, gan, atď.)',
     	lowerAlpha : 'Malé latinské (a, b, c, d, e, atď.)',
-    	lowerGreek : 'Malé grécke (alfa, beta, gama, atď.)',
     	lowerRoman : 'Malé rímske (i, ii, iii, iv, v, atď.)',
     	none : 'Nič',
     	notset : '<nenastavené>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['sk'] = {
     	noAnchors : '(V dokumente nie sú dostupné žiadne kotvy)',
     	noEmail : 'Zadajte prosím e-mailovú adresu',
     	noUrl : 'Zadajte prosím URL odkazu',
+    	noTel : 'Zadajte prosím telefónne číslo',
     	other : '<iný>',
+    	phoneNumber : 'Telefónne číslo',
     	popupDependent : 'Závislosť (Netscape)',
     	popupFeatures : 'Vlastnosti vyskakovacieho okna',
     	popupFullScreen : 'Celá obrazovka (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['sk'] = {
     	toAnchor : 'Odkaz na kotvu v texte',
     	toEmail : 'E-mail',
     	toUrl : 'URL',
+    	toPhone : 'Telefón',
     	toolbar : 'Odkaz',
     	type : 'Typ odkazu',
     	unlink : 'Odstrániť odkaz',
@@ -416,12 +416,7 @@ CKEDITOR.lang['sk'] = {
     	paste : 'Vložiť',
     	pasteNotification : 'Stlačte %1 na vloženie. Váš prehliadač nepodporuje vloženie prostredníctvom tlačidla v nástrojovej lište alebo voľby v kontextovom menu.',
     	pasteArea : 'Miesto pre vloženie',
-    	pasteMsg : 'Vložte svoj obsah do nasledujúcej oblasti a stlačte OK.',
-    	title : 'Vložiť'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (Vybrané)'
+    	pasteMsg : 'Vložte svoj obsah do nasledujúcej oblasti a stlačte OK.'
     },
     blockquote : 
     {

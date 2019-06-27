@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['eu'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['eu'] = {
     	headersColumn : 'Lehen zutabea',
     	headersNone : 'Bat ere ez',
     	headersRow : 'Lehen errenkada',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Ertzaren tamaina zenbaki bat izan behar da.',
     	invalidCellPadding : 'Gelaxken betegarria zenbaki bat izan behar da.',
     	invalidCellSpacing : 'Gelaxka arteko tartea zenbaki bat izan behar da.',
@@ -165,15 +166,11 @@ CKEDITOR.lang['eu'] = {
     },
     liststyle : 
     {
-    	armenian : 'Zenbakitze armeniarra',
     	bulletedTitle : 'Buletadun zerrendaren propietateak',
     	circle : 'Zirkulua',
     	decimal : 'Hamartarra (1, 2, 3...)',
-    	decimalLeadingZero : 'Aurretik zeroa duen hamartarra (01, 02, 03...)',
     	disc : 'Diskoa',
-    	georgian : 'Zenbakitze georgiarra (an, ban, gan...)',
     	lowerAlpha : 'Alfabetoa minuskulaz (a, b, c, d, e...)',
-    	lowerGreek : 'Greziera minuskulaz (alpha, beta, gamma...)',
     	lowerRoman : 'Erromatarra minuskulaz (i, ii, iii, iv, v...)',
     	none : 'Bat ere ez',
     	notset : '<ezarri gabea>',
@@ -209,7 +206,7 @@ CKEDITOR.lang['eu'] = {
     	anchorName : 'Aingura-izenaren arabera',
     	charset : 'Estekatutako baliabide karaktere-jokoa',
     	cssClasses : 'Estilo-orriko klaseak',
-    	download : 'Force Download',
+    	download : 'Behartu deskarga',
     	displayText : 'Bistaratu testua',
     	emailAddress : 'E-posta helbidea',
     	emailBody : 'Mezuaren gorputza',
@@ -225,7 +222,9 @@ CKEDITOR.lang['eu'] = {
     	noAnchors : '(Ez dago aingurarik erabilgarri dokumentuan)',
     	noEmail : 'Mesedez idatzi e-posta helbidea',
     	noUrl : 'Mesedez idatzi estekaren URLa',
+    	noTel : 'Please type the phone number',
     	other : '<bestelakoa>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Menpekoa (Netscape)',
     	popupFeatures : 'Laster-leihoaren ezaugarriak',
     	popupFullScreen : 'Pantaila osoa (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['eu'] = {
     	toAnchor : 'Estekatu testuko aingurara',
     	toEmail : 'E-posta',
     	toUrl : 'URLa',
+    	toPhone : 'Phone',
     	toolbar : 'Esteka',
     	type : 'Esteka-mota',
     	unlink : 'Kendu esteka',
@@ -416,12 +416,7 @@ CKEDITOR.lang['eu'] = {
     	paste : 'Itsatsi',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Itsasteko area',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Itsatsi'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 (hautatuta)'
+    	pasteMsg : 'Paste your content inside the area below and press OK.'
     },
     blockquote : 
     {

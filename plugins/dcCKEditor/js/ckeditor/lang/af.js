@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2018, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['af'] = {
@@ -88,6 +88,7 @@ CKEDITOR.lang['af'] = {
     	headersColumn : 'Eerste kolom',
     	headersNone : 'Geen',
     	headersRow : 'Eerste ry',
+    	heightUnit : 'height unit',
     	invalidBorder : 'Randbreedte moet \'n getal wees.',
     	invalidCellPadding : 'Sel-spasie moet \'n getal wees.',
     	invalidCellSpacing : 'Sel-afstand moet \'n getal wees.',
@@ -139,16 +140,16 @@ CKEDITOR.lang['af'] = {
     },
     pastetext : 
     {
-    	button : 'Plak as eenvoudige teks',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
-    	title : 'Plak as eenvoudige teks'
+    	button : 'Voeg by as eenvoudige teks',
+    	pasteNotification : 'Druk %1 om by te voeg. Jou leser ondersteun nie byvoeg deur die toolbar knoppie of die konteks kieslys nie',
+    	title : 'Voeg by as eenvoudige teks'
     },
     pastefromword : 
     {
-    	confirmCleanup : 'Die teks wat u wil plak lyk asof dit uit Word gekopiëer is. Wil u dit eers skoonmaak voordat dit geplak word?',
-    	error : 'Die geplakte teks kon nie skoongemaak word nie, weens \'n interne fout',
-    	title : 'Plak vanuit Word',
-    	toolbar : 'Plak vanuit Word'
+    	confirmCleanup : 'Die teks wat u wil byvoeg lyk asof dit uit Word gekopiëer is. Wil u dit eers skoonmaak voordat dit bygevoeg word?',
+    	error : 'Die bygevoegte teks kon nie skoongemaak word nie, weens \'n interne fout',
+    	title : 'Uit Word byvoeg',
+    	toolbar : 'Uit Word byvoeg'
     },
     notification : 
     {
@@ -165,15 +166,11 @@ CKEDITOR.lang['af'] = {
     },
     liststyle : 
     {
-    	armenian : 'Armeense nommering',
     	bulletedTitle : 'Eienskappe van ongenommerde lys',
     	circle : 'Sirkel',
     	decimal : 'Desimale syfers (1, 2, 3, ens.)',
-    	decimalLeadingZero : 'Desimale syfers met voorloopnul (01, 02, 03, ens.)',
     	disc : 'Skyf',
-    	georgian : 'Georgiese nommering (an, ban, gan, ens.)',
     	lowerAlpha : 'Kleinletters (a, b, c, d, e, ens.)',
-    	lowerGreek : 'Griekse kleinletters (alpha, beta, gamma, ens.)',
     	lowerRoman : 'Romeinse kleinletters (i, ii, iii, iv, v, ens.)',
     	none : 'Geen',
     	notset : '<nie ingestel nie>',
@@ -225,7 +222,9 @@ CKEDITOR.lang['af'] = {
     	noAnchors : '(Geen ankers beskikbaar in dokument)',
     	noEmail : 'Gee die e-posadres',
     	noUrl : 'Gee die skakel se URL',
+    	noTel : 'Please type the phone number',
     	other : '<ander>',
+    	phoneNumber : 'Phone number',
     	popupDependent : 'Afhanklik (Netscape)',
     	popupFeatures : 'Eienskappe van opspringvenster',
     	popupFullScreen : 'Volskerm (IE)',
@@ -250,6 +249,7 @@ CKEDITOR.lang['af'] = {
     	toAnchor : 'Anker in bladsy',
     	toEmail : 'E-pos',
     	toUrl : 'URL',
+    	toPhone : 'Phone',
     	toolbar : 'Skakel invoeg/wysig',
     	type : 'Skakelsoort',
     	unlink : 'Verwyder skakel',
@@ -410,18 +410,13 @@ CKEDITOR.lang['af'] = {
     clipboard : 
     {
     	copy : 'Kopiëer',
-    	copyError : 'U blaaier se sekuriteitsinstelling belet die kopiëringsaksie. Gebruik die sleutelbordkombinasie (Ctrl/Cmd+C).',
-    	cut : 'Knip',
-    	cutError : 'U blaaier se sekuriteitsinstelling belet die outomatiese knip-aksie. Gebruik die sleutelbordkombinasie (Ctrl/Cmd+X).',
-    	paste : 'Plak',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
-    	pasteArea : 'Plak-area',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	title : 'Byvoeg'
-    },
-    button : 
-    {
-    	selectedLabel : '%1 uitgekies'
+    	copyError : 'U leser se sekuriteitsinstelling belet die kopiëringsaksie. Gebruik die sleutelbordkombinasie (Ctrl/Cmd+C).',
+    	cut : 'Uitsnei',
+    	cutError : 'U leser se sekuriteitsinstelling belet die outomatiese uitsnei-aksie. Gebruik die sleutelbordkombinasie (Ctrl/Cmd+X).',
+    	paste : 'Byvoeg',
+    	pasteNotification : 'Druk %1 om by te voeg. You leser ondersteun nie die toolbar knoppie of inoud kieslysie opsie nie. ',
+    	pasteArea : 'Area byvoeg',
+    	pasteMsg : 'Voeg jou inhoud in die gebied onder by en druk OK'
     },
     blockquote : 
     {
@@ -503,7 +498,7 @@ CKEDITOR.lang['af'] = {
     	justify : 'Eweredig',
     	alignLeft : 'Links oplyn',
     	alignRight : 'Regs oplyn',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Middel oplyn',
     	alignTop : 'Bo',
     	alignMiddle : 'Middel',
     	alignBottom : 'Onder',
@@ -511,7 +506,7 @@ CKEDITOR.lang['af'] = {
     	invalidValue : 'Ongeldige waarde',
     	invalidHeight : 'Hoogte moet \'n getal wees',
     	invalidWidth : 'Breedte moet \'n getal wees.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : 'Die waarde vir die veld "%1" moet \'n  posetiewe nommer wees met of sonder die meeteenheid (%2).',
     	invalidCssLength : 'Die waarde vir die "%1" veld moet \'n posetiewe getal wees met of sonder \'n geldige CSS eenheid (px, %, in, cm, mm, em, ex, pt, of pc).',
     	invalidHtmlLength : 'Die waarde vir die  "%1" veld moet \'n posetiewe getal wees met of sonder \'n geldige HTML eenheid (px of %).',
     	invalidInlineStyle : 'Ongeldige CSS. Formaat is een of meer sleutel-wert paare, "naam : wert" met kommapunte gesky.',
@@ -555,5 +550,5 @@ CKEDITOR.lang['af'] = {
     		'224' : 'Bevel'
     	},
     	keyboardShortcut : 'Sleutel kombenasie',
-    	optionDefault : 'Default'
+    	optionDefault : 'Verstek'
     } }; 
