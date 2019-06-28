@@ -270,36 +270,19 @@ header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ 
 
     <link rel="stylesheet" href="../style/install.css" type="text/css" media="screen" />
 
-  <script type="text/javascript" src="../js/jquery/jquery.js"></script>
+  <?php echo dcPage::jsLoad('../js/prepend.js'); ?>
+  <?php echo dcPage::jsLoad('../js/jquery/jquery.js'); ?>
   <?php echo dcPage::jsLoad('../js/jquery/jquery.pwstrength.js'); ?>
-  <script type="text/javascript">
-      $(function() {
-        var login_re = new RegExp('[^A-Za-z0-9@._-]+','g');
-        $('#u_firstname').keyup(function() {
-            var login = this.value.toLowerCase().replace(login_re,'').substring(0,32);
-            $('#u_login').val(login);
-        });
-        $('#u_login').keyup(function() {
-            $(this).val(this.value.replace(login_re,''));
-        });
-
-        <?php echo "\$('#u_pwd').pwstrength({texts: ['" .
-sprintf(__('Password strength: %s'), __('very weak')) . "', '" .
-sprintf(__('Password strength: %s'), __('weak')) . "', '" .
-sprintf(__('Password strength: %s'), __('mediocre')) . "', '" .
-sprintf(__('Password strength: %s'), __('strong')) . "', '" .
-sprintf(__('Password strength: %s'), __('very strong')) . "']});\n"; ?>
-
-        $('#u_login').parent().after($('<input type="hidden" name="u_date" value="' + Date().toLocaleString() + '" />'));
-
-        var password_link = $('<a href="#" id="obfus"><?php echo (__('show')); ?></a>').click(function() {
-                $('#password').show();
-                $(this).remove();
-                return false;
-            });
-        $('#password').hide().before(password_link);
-      });
-  </script>
+  <?php echo dcPage::jsJson('install', [
+            sprintf(__('Password strength: %s'), __('very weak')),
+            sprintf(__('Password strength: %s'), __('weak')),
+            sprintf(__('Password strength: %s'), __('mediocre')),
+            sprintf(__('Password strength: %s'), __('strong')),
+            sprintf(__('Password strength: %s'), __('very strong'))
+        ]);
+  ?>
+  <?php echo dcPage::jsJson('install_show', __('show')); ?>
+  <?php echo dcPage::jsLoad('../js/_install.js'); ?>
 </head>
 
 <body id="dotclear-admin" class="install">
