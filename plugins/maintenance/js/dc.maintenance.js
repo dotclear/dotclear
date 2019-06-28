@@ -1,5 +1,7 @@
-/*global $, dotclear */
+/*global $, dotclear, getData */
 'use strict';
+
+Object.assign(dotclear.msg, getData('maintenance'));
 
 $(function() {
   $('.step-box').each(function() {
