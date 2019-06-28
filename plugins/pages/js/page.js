@@ -1,7 +1,10 @@
-/*global $, dotclear, datePicker, commentTb */
+/*global $, dotclear, getData */
 'use strict';
 
 $(function() {
+  // Update page/post deletion message
+  Object.assign(dotclear.msg, getData('pages_page'));
+
   $('#comments').onetabload(function() {
     $.expandContent({
       line: $('#part-comments .comments-list tr:not(.line)'),

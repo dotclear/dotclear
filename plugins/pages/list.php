@@ -56,12 +56,9 @@ if (!$pages_actions_page->process()) {
 echo
     dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
     dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-    dcPage::jsLoad(dcPage::getPF('pages/js/list.js')) .
-    '<script type="text/javascript">' . "\n" .
-    dcPage::jsVar('dotclear.msg.confirm_delete_posts', __("Are you sure you want to delete selected pages?")) .
-        '</script>';
-
-    ?>
+    dcPage::jsJson('pages_list', ['confirm_delete_posts' => __("Are you sure you want to delete selected pages?")]) .
+    dcPage::jsLoad(dcPage::getPF('pages/js/list.js'))
+  ?>
 </head>
 
 <body>

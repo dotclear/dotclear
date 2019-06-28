@@ -291,12 +291,10 @@ if ($post_editor) {
 <html>
 <head>
   <title><?php echo $page_title . ' - ' . __('Pages'); ?></title>
-  <script type="text/javascript">
-  <?php echo dcPage::jsVar('dotclear.msg.confirm_delete_post', __("Are you sure you want to delete this page?")); ?>
-  </script>
   <?php echo
 dcPage::jsDatePicker() .
 dcPage::jsModal() .
+dcPage::jsJson('pages_page', ['confirm_delete_post' => __("Are you sure you want to delete this page?")]) .
 dcPage::jsLoad('js/_post.js') .
 dcPage::jsLoad(dcPage::getPF('pages/js/page.js')) .
 $admin_post_behavior .
