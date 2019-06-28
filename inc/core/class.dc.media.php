@@ -920,7 +920,7 @@ class dcMedia extends filemanager
     {
         $zip = new fileUnzip($f->file);
         $zip->setExcludePattern($this->exclude_pattern);
-        $list = $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg|\.git|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
+        $list = $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 
         if ($create_dir) {
             $zip_root_dir = $zip->getRootDir();
@@ -972,7 +972,7 @@ class dcMedia extends filemanager
     public function getZipContent($f)
     {
         $zip  = new fileUnzip($f->file);
-        $list = $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg|\.git|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
+        $list = $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
         $zip->close();
         return $list;
     }
