@@ -1,9 +1,10 @@
-/*global $, dotclear, usersList */
+/*global $, dotclear, getData */
 'use strict';
 
 $(function() {
   const new_auth_id = $('#new_auth_id');
   if (new_auth_id.length) {
+    const usersList = getData('users_list');
     new_auth_id.autocomplete(usersList, {
       delay: 1000,
       matchSubset: true,
