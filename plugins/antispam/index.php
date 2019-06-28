@@ -95,21 +95,18 @@ try
 <html>
 <head>
   <title><?php echo ($filter_gui !== false ? sprintf(__('%s configuration'), $filter->name) . ' - ' : '') . $page_name; ?></title>
-  <script type="text/javascript">
-  <?php
-echo dcPage::jsVar('dotclear.msg.confirm_spam_delete', __('Are you sure you want to delete all spams?'));
-?>
-  </script>
   <?php
 echo dcPage::jsPageTabs($default_tab);
 $core->auth->user_prefs->addWorkspace('accessibility');
 if (!$core->auth->user_prefs->accessibility->nodragdrop) {
     echo
     dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
-    dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-    dcPage::jsLoad(dcPage::getPF('antispam/js/antispam.js'));
+    dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
 }
-echo dcPage::cssLoad(dcPage::getPF('antispam/style.css'));
+echo
+    dcPage::jsJson('antispam', ['confirm_spam_delete' => __('Are you sure you want to delete all spams?')]) .
+    dcPage::jsLoad(dcPage::getPF('antispam/js/antispam.js')) .
+    dcPage::cssLoad(dcPage::getPF('antispam/style.css'));
 ?>
 </head>
 <body>
