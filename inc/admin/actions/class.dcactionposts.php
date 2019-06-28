@@ -346,7 +346,7 @@ class dcDefaultPostActions
 
             $ap->redirect(true);
         } else {
-            $usersList = '';
+            $usersList = [];
             if ($core->auth->check('admin', $core->blog->id)) {
                 $params = [
                     'limit' => 100,
@@ -358,7 +358,7 @@ class dcDefaultPostActions
                 $rsStatic = $rsStatic->toExtStatic();
                 $rsStatic->lexicalSort('user_id');
                 while ($rsStatic->fetch()) {
-                    $usersList .= ($usersList != '' ? ',' : '') . '"' . $rsStatic->user_id . '"';
+                    $usersList[] = $rsStatic->user_id;
                 }
             }
             $ap->beginPage(
@@ -368,9 +368,7 @@ class dcDefaultPostActions
                         $ap->getCallerTitle()                  => $ap->getRedirection(true),
                         __('Change author for this selection') => '']),
                 dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
-                '<script type="text/javascript">' . "\n" .
-                'usersList = [' . $usersList . ']' . "\n" .
-                "</script>\n"
+                dcPage::jsJson('users_list', $usersList)
             );
 
             echo
