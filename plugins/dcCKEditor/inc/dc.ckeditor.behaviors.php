@@ -92,4 +92,12 @@ class dcCKEditorBehaviors
     {
         return self::$tagsContext;
     }
+
+    public static function adminPageHTTPHeaderCSP($csp)
+    {
+        return;
+        // add 'unsafe-inline' for CSS, add 'unsafe-eval' for scripts as far as CKEditor 4.x is used
+        $csp['style-src'] .= " 'unsafe-inline'";
+        $csp['script-src'] .= " 'unsafe-inline' 'unsafe-eval'";
+    }
 }

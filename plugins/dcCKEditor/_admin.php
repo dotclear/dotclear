@@ -29,4 +29,6 @@ if ($self_ns->active) {
     $core->addBehavior('adminPopupPosts', ['dcCKEditorBehaviors', 'adminPopupPosts']);
 
     $core->addBehavior('adminMediaURL', ['dcCKEditorBehaviors', 'adminMediaURL']);
+
+    $core->addBehavior('adminPageHTTPHeaderCSP', ['dcCKEditorBehaviors', 'adminPageHTTPHeaderCSP']);
 }
