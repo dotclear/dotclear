@@ -1,5 +1,7 @@
-/*global $, dotclear */
+/*global $, dotclear, getData */
 'use strict';
+
+Object.assign(dotclear.msg, getData('ie_msg'));
 
 $(function() {
   if ($('*.error').length > 0) {

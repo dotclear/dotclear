@@ -61,11 +61,9 @@ echo '
 <head>
     <title>' . $title . '</title>' .
 dcPage::cssLoad(dcPage::getPF('importExport/style.css')) .
+dcPage::jsJson('ie_msg', ['please_wait' => __('Please wait...')]) .
 dcPage::jsLoad(dcPage::getPF('importExport/js/script.js')) .
-'<script type="text/javascript">
-    ' . dcPage::jsVar('dotclear.msg.please_wait', __('Please wait...')) . '
-    </script>
-</head>
+'</head>
 <body>';
 
 if ($type && $module !== null) {

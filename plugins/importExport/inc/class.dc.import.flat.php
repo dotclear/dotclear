@@ -150,28 +150,9 @@ class dcImportFlat extends dcIeModule
         $has_files    = (boolean) (count($public_files) - 1);
 
         echo
-        '<script type="text/javascript">' . "\n" .
-        dcPage::jsVar('dotclear.msg.confirm_full_import',
-            __('Are you sure you want to import a full backup file?')) .
-            "$(function() {" .
-            "$('#up_single_file').change(function() { " .
-            "if (this.value != '') { $('#public_single_file').val(''); } " .
-            "}); " .
-            "$('#public_single_file').change(function() { " .
-            "if (this.value != '') { $('#up_single_file').val(''); } " .
-            "}); " .
-            "$('#up_full_file').change(function() { " .
-            "if (this.value != '') { $('#public_full_file').val(''); } " .
-            "}); " .
-            "$('#public_full_file').change(function() { " .
-            "if (this.value != '') { $('#up_full_file').val(''); } " .
-            "}); " .
-            "$('#formfull').submit(function() { " .
-            "return window.confirm(dotclear.msg.confirm_full_import); " .
-            "}); " .
-            "});\n" .
-            "</script>\n";
-
+        dcPage::jsJson('ie_import_flat_msg',
+            ['confirm_full_import' => __('Are you sure you want to import a full backup file?')]) .
+        dcPage::jsLoad(dcPage::getPF('importExport/js/import_flat.js'));
         echo
         '<form action="' . $this->getURL(true) . '" method="post" enctype="multipart/form-data" class="fieldset">' .
         '<h3>' . __('Single blog') . '</h3>' .
