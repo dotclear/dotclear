@@ -39,28 +39,10 @@ echo dcUtils::jsJson('dotclear_init', $js);
     <script type="text/javascript" src="js/jquery/jquery.ui.touch-punch.js"></script>
     <script type="text/javascript" src="js/jquery/jquery.pageTabs.js"></script>
     <script type="text/javascript" src="js/jquery/jquery.biscuit.js"></script>
+    <script type="text/javascript" src="js/prepend.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/prelude.js"></script>
-    <script type="text/javascript">
-        dotclear.img_plus_alt = 'dévoiler';
-        dotclear.img_minus_alt = 'cacher';
-        dotclear.img_menu_on = 'images/menu_on.png';
-        dotclear.img_menu_off = 'images/menu_off.png';
-        dotclear.msg.new_window = 'nouvelle fenêtre';
-    </script>
-    <script type="text/javascript">
-        $(function() {
-            $.pageTabs('two-boxes');
-            $('#pageslist').sortable({'cursor':'move'});
-            $('#pageslist tr').hover(function(){
-                $(this).css({'cursor':'move'});
-            }, function(){
-                $(this).css({'cursor':'auto'});
-            });
-            $('#pageslist tr td input.position').hide();
-            $('#pageslist tr td.handle').addClass('handler');
-        });
-    </script>
+    <script type="text/javascript" src="js/_charte.js"></script>
 </head>
 
 <body id="dotclear-admin" class="no-js guideline<?php $core->auth->user_prefs->interface->dynfontsize ? ' responsive-font' : '';?>">
