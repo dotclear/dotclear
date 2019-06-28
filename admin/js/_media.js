@@ -211,4 +211,12 @@ $(function() {
       return false;
     });
   }
+
+  // Switch folder
+  const urlmenu = document.getElementById('switchfolder');
+  if (urlmenu) {
+    urlmenu.onchange = function() {
+      window.location = this.options[this.selectedIndex].value;
+    };
+  }
 });

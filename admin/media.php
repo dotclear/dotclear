@@ -680,9 +680,6 @@ if ($nb_last_dirs > 0) {
             '<select name="switchfolder" id="switchfolder">' .
             $last_folders_item .
             '</select>' .
-            '<script type="text/javascript">var urlmenu = document.getElementById(\'switchfolder\');
-             urlmenu.onchange = function() { window.location = this.options[this.selectedIndex].value; };
-            </script>' .
             ' <a id="media-fav-dir" href="' . $fav_url . '" title="' . $fav_alt . '"><img src="' . $fav_img . '" alt="' . $fav_alt . '" /></a>' .
             '</p>';
     }
