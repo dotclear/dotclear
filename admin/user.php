@@ -157,18 +157,14 @@ if (isset($_POST['user_name'])) {
 dcPage::open($page_title,
     dcPage::jsConfirmClose('user-form') .
     dcPage::jsLoad('js/jquery/jquery.pwstrength.js') .
-    '<script type="text/javascript">' . "\n" .
-    "\$(function() {\n" .
-    "   \$('#new_pwd').pwstrength({texts: ['" .
-    sprintf(__('Password strength: %s'), __('very weak')) . "', '" .
-    sprintf(__('Password strength: %s'), __('weak')) . "', '" .
-    sprintf(__('Password strength: %s'), __('mediocre')) . "', '" .
-    sprintf(__('Password strength: %s'), __('strong')) . "', '" .
-    sprintf(__('Password strength: %s'), __('very strong')) . "']});\n" .
-    "});\n" .
-    "</script>\n" .
-
-    # --BEHAVIOR-- adminUserHeaders
+    dcPage::jsJson('user', [
+            sprintf(__('Password strength: %s'), __('very weak')),
+            sprintf(__('Password strength: %s'), __('weak')),
+            sprintf(__('Password strength: %s'), __('mediocre')),
+            sprintf(__('Password strength: %s'), __('strong')),
+            sprintf(__('Password strength: %s'), __('very strong'))
+        ]) .
+    dcPage::jsLoad('js/_user.js') .
     $core->callBehavior('adminUserHeaders'),
 
     dcPage::breadcrumb(
