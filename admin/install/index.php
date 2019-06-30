@@ -178,7 +178,7 @@ if ($can_install && !empty($_POST)) {
         $blog_settings->system->put('csp_admin_default',
             $csp_prefix . "'self'" . $csp_suffix, 'string', 'CSP default-src directive', true, true);
         $blog_settings->system->put('csp_admin_script',
-            $csp_prefix . "'self' 'unsafe-inline' 'unsafe-eval'" . $csp_suffix, 'string', 'CSP script-src directive', true, true);
+            $csp_prefix . "'self' 'unsafe-eval'" . $csp_suffix, 'string', 'CSP script-src directive', true, true);
         $blog_settings->system->put('csp_admin_style',
             $csp_prefix . "'self' 'unsafe-inline'" . $csp_suffix, 'string', 'CSP style-src directive', true, true);
         $blog_settings->system->put('csp_admin_img',
