@@ -203,13 +203,16 @@ if (!empty($_POST)) {
 <head>
   <title><?php echo __('Blowup configuration'); ?></title>
   <?php
+$js = [
+    'blowup_public_url' => blowupConfig::imagesURL(),
+    'msg'               => [
+        'predefined_styles'      => __('Predefined styles'),
+        'apply_code'             => __('Apply code'),
+        'predefined_style_title' => __('Choose a predefined style')
+    ]
+];
+echo dcPage::jsJson('blowup', $js);
 echo dcPage::jsLoad(dcPage::getPF('blowupConfig/js/config.js'));
-echo dcPage::jsVars([
-    'dotclear.blowup_public_url'          => blowupConfig::imagesURL(),
-    'dotclear.msg.predefined_styles'      => __('Predefined styles'),
-    'dotclear.msg.apply_code'             => __('Apply code'),
-    'dotclear.msg.predefined_style_title' => __('Choose a predefined style')
-]);
 ?>
 </head>
 
