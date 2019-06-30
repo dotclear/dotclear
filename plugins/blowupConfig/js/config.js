@@ -1,7 +1,10 @@
-/*global $, dotclear */
+/*global $, dotclear, mergeDeep, getData */
 'use strict';
 
 $(function() {
+
+  mergeDeep(dotclear, getData('blowup'));
+
   // Hide main title
   if ($('#blog_title_hide').prop('checked')) {
     toggleDisable($('#blog_title_f'));
