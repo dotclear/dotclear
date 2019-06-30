@@ -109,7 +109,7 @@ class dcPage
             $csp['default-src'] = $core->blog->settings->system->csp_admin_default ?:
             $csp_prefix . "'self'" . $csp_suffix;
             $csp['script-src'] = $core->blog->settings->system->csp_admin_script ?:
-            $csp_prefix . "'self' 'unsafe-inline' 'unsafe-eval'" . $csp_suffix;
+            $csp_prefix . "'self' 'unsafe-eval'" . $csp_suffix;
             $csp['style-src'] = $core->blog->settings->system->csp_admin_style ?:
             $csp_prefix . "'self' 'unsafe-inline'" . $csp_suffix;
             $csp['img-src'] = $core->blog->settings->system->csp_admin_img ?:

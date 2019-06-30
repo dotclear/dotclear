@@ -670,6 +670,13 @@ class dcUpgrade
             foreach ($remfiles as $f) {
                 @unlink(DC_ROOT . '/' . $f);
             }
+
+            // Remove unsafe-inline from CSP script directives
+            $strReq = 'UPDATE ' . $core->prefix . 'setting ' .
+                " SET setting_value = REPLACE(setting_value, \"'unsafe-inline'\", '') " .
+                " WHERE setting_id = 'csp_admin_script' " .
+                " AND setting_ns = 'system' ";
+            $core->con->execute($strReq);
         }
 
         $core->setVersion('core', DC_VERSION);
