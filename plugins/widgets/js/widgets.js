@@ -1,4 +1,4 @@
-/*global $, dotclear, jsToolBar */
+/*global $, dotclear, jsToolBar, mergeDeep, getData */
 'use strict';
 
 dotclear.widgetExpander = function(line) {
@@ -91,6 +91,9 @@ function reorder(ul) {
 }
 
 $(function() {
+
+  mergeDeep(dotclear, getData('widgets'));
+
   // reset
   $('input[name="wreset"]').click(function() {
     return window.confirm(dotclear.msg.confirm_widgets_reset);

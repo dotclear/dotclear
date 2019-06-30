@@ -203,9 +203,19 @@ if (!empty($_POST['wup']) || $removing || $move) {
 <head>
   <title><?php echo __('Widgets'); ?></title>
 <?php
+$widget_editor = $core->auth->getOption('editor');
+$rte_flag      = true;
+$rte_flags     = @$core->auth->user_prefs->interface->rte_flags;
+if (is_array($rte_flags) && in_array('widgets_text', $rte_flags)) {
+    $rte_flag = $rte_flags['widgets_text'];
+}
 echo dcPage::cssLoad(dcPage::getPF('widgets/style.css')) .
 dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
 dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+dcPage::jsJson('widgets', [
+    'widget_noeditor' => ($rte_flag ? 0 : 1),
+    'msg'             => ['confirm_widgets_reset' => __('Are you sure you want to reset sidebars?')]
+]) .
 dcPage::jsLoad(dcPage::getPF('widgets/js/widgets.js'));
 
 $core->auth->user_prefs->addWorkspace('accessibility');
@@ -213,20 +223,9 @@ $user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
 if (!$user_dm_nodragdrop) {
     echo dcPage::jsLoad(dcPage::getPF('widgets/js/dragdrop.js'));
 }
-echo dcPage::jsVars(['dotclear.msg.confirm_widgets_reset' => __('Are you sure you want to reset sidebars?')]);
-
-$widget_editor = $core->auth->getOption('editor');
-$rte_flag      = true;
-$rte_flags     = @$core->auth->user_prefs->interface->rte_flags;
-if (is_array($rte_flags) && in_array('widgets_text', $rte_flags)) {
-    $rte_flag = $rte_flags['widgets_text'];
-}
 if ($rte_flag) {
-    echo dcPage::jsVars(['dotclear.widget_noeditor' => 0]);
     echo $core->callBehavior('adminPostEditor', $widget_editor['xhtml'], 'widget',
         ['#sidebarsWidgets textarea:not(.noeditor)'], 'xhtml');
-} else {
-    echo dcPage::jsVars(['dotclear.widget_noeditor' => 1]);
 }
 echo (dcPage::jsConfirmClose('sidebarsWidgets'));
 ?>
