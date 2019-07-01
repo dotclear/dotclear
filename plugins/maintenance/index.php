@@ -98,6 +98,32 @@ if (!empty($_POST['save_settings'])) {
     }
 }
 
+// Save system settings
+
+if (!empty($_POST['save_system'])) {
+
+    try {
+        // Default (global) settings
+        $core->blog->settings->system->put('csp_admin_on', !empty($_POST['system_csp_global']), null, null, true, true);
+        $core->blog->settings->system->put('csp_admin_report_only', !empty($_POST['system_csp_global_report_only']), null, null, true, true);
+        // Current blog settings
+        $core->blog->settings->system->put('csp_admin_on', !empty($_POST['system_csp']));
+        $core->blog->settings->system->put('csp_admin_report_only', !empty($_POST['system_csp_report_only']));
+
+        dcPage::addSuccessNotice(__('System settings have been saved.'));
+
+        if (!empty($_POST['system_csp_reset'])) {
+            $core->blog->settings->system->dropEvery('csp_admin_on');
+            $core->blog->settings->system->dropEvery('csp_admin_report_only');
+            dcPage::addSuccessNotice(__('All blog\'s Content-Security-Policy settings have been reset to default.'));
+        }
+
+        http::redirect($p_url . '&tab=' . $tab . '#' . $tab);
+    } catch (Exception $e) {
+        $core->error->add($e->getMessage());
+    }
+}
+
 // Combos
 
 $combo_ts = [
@@ -126,7 +152,7 @@ $maintenance->getHeaders() . '
 </head>
 <body>';
 
-// Check if there is somthing to display according to user permissions
+// Check if there is something to display according to user permissions
 if (empty($tasks)) {
     echo dcPage::breadcrumb(
         [
@@ -323,6 +349,49 @@ if ($task && ($res = $task->step()) !== null) {
     $core->formNonce() . '</p>' .
         '</form>' .
         '</div>';
+
+    // System tab
+    if ($core->auth->isSuperAdmin()) {
+        echo
+        '<div id="system" class="multi-part" title="' . __('System') . '">' .
+        '<h3>' . __('System settings') . '</h3>' .
+            '<form action="' . $p_url . '" method="post">';
+
+        echo
+        '<div class="fieldset two-cols clearfix">' .
+        '<h4 class="pretty-title">' . __('Content-Security-Policy') . '</h4>' .
+
+        '<div class="col">' .
+        '<p><label for="system_csp" class="classic">' .
+        form::checkbox('system_csp', '1', $core->blog->settings->system->csp_admin_on) .
+        __('Enable Content-Security-Policy system') . '</label></p>' .
+        '<p><label for="system_csp_report_only" class="classic">' .
+        form::checkbox('system_csp_report_only', '1', $core->blog->settings->system->csp_admin_report_only) .
+        __('Enable Content-Security-Policy report only') . '</label></p>' .
+        '</div>' .
+
+        '<div class="col">' .
+        '<p><label for="system_csp_global" class="classic">' .
+        form::checkbox('system_csp_global', '1', $core->blog->settings->system->getGlobal('csp_admin_on')) .
+        __('Enable Content-Security-Policy system by default') . '</label></p>' .
+        '<p><label for="system_csp_global_report_only" class="classic">' .
+        form::checkbox('system_csp_global_report_only', '1', $core->blog->settings->system->getGlobal('csp_admin_report_only')) .
+        __('Enable Content-Security-Policy report only by default') . '</label></p>' .
+        '<p><label for="system_csp_reset" class="classic">' .
+        form::checkbox('system_csp_reset', '1', 0) .
+        __('Also reset all Content-Security-Policy blogs\'s settings to default') . '</label></p>' .
+        '</div>' .
+        '</div>';
+
+        echo
+        '<p class="field wide"><input type="submit" value="' . __('Save') . '" /> ' .
+        form::hidden(['tab'], 'system') .
+        form::hidden(['save_system'], 1) .
+        $core->formNonce() . '</p>' .
+            '</form>' .
+            '</div>';
+    }
+
 }
 
 dcPage::helpBlock('maintenance', 'maintenancetasks');

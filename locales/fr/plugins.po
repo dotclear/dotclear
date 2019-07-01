@@ -1486,6 +1486,30 @@ msgstr "Délai de rappel pour toutes les tâches :"
 msgid "Use one recall time per task"
 msgstr "Utiliser un délai de rappel différent pour chaque tâche"
 
+msgid "Content-Security-Policy"
+msgstr "Content-Security-Policy"
+
+msgid "Enable Content-Security-Policy system"
+msgstr "Activer le système Content-Security-Policy"
+
+msgid "Enable Content-Security-Policy report only"
+msgstr "Activer le rapport seul pour le système Content-Security-Policy"
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr "Activer par défaut le système Content-Security-Policy"
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr "Activer par défaut le rapport seul pour le système Content-Security-Policy"
+
+msgid "Also reset all Content-Security-Policy blogs's settings to default"
+msgstr "Remettre tous les réglages Content-Security-Policy des blogs aux valeurs par défaut"
+
+msgid "System settings have been saved."
+msgstr "Les réglages système ont été enregistrés."
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr "Tous les réglages Content-Security-Policy des blogs ont été remis aux valeurs par défaut."
+
 msgid "New page"
 msgstr "Nouvelle page"
 
