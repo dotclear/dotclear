@@ -364,6 +364,28 @@ class dcWorkspace
     }
 
     /**
+     * Removes every existing specific pref. in a workspace
+     *
+     * @param      string     $id      Pref ID
+     * @param      boolean    $global  Remove global pref too
+     */
+    public function dropEvery($id, $global = false)
+    {
+        if (!$this->ws) {
+            throw new Exception(__('No workspace specified'));
+        }
+
+        $strReq = 'DELETE FROM ' . $this->table . ' ';
+        if (!$global) {
+            $strReq .= 'WHERE user_id IS NOT NULL ';
+        }
+        $strReq .= "AND pref_id = '" . $this->con->escape($id) . "' ";
+        $strReq .= "AND pref_ws = '" . $this->con->escape($this->ws) . "' ";
+
+        $this->con->execute($strReq);
+    }
+
+    /**
     Removes all existing pref. in a Workspace
 
     @param    force_global    <b>boolean</b>    Force global pref drop

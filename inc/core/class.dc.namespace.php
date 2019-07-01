@@ -348,6 +348,28 @@ class dcNamespace
     }
 
     /**
+     * Removes every existing specific setting in a namespace
+     *
+     * @param      string     $id      Setting ID
+     * @param      boolean    $global  Remove global setting too
+     */
+    public function dropEvery($id, $global = false)
+    {
+        if (!$this->ns) {
+            throw new Exception(__('No namespace specified'));
+        }
+
+        $strReq = 'DELETE FROM ' . $this->table . ' ';
+        if (!$global) {
+            $strReq .= 'WHERE blog_id IS NOT NULL ';
+        }
+        $strReq .= "AND setting_id = '" . $this->con->escape($id) . "' ";
+        $strReq .= "AND setting_ns = '" . $this->con->escape($this->ns) . "' ";
+
+        $this->con->execute($strReq);
+    }
+
+    /**
     Removes all existing settings in a Namespace
 
     @param    force_global    <b>boolean</b>    Force global pref drop
