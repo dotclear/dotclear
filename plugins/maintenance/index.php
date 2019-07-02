@@ -379,7 +379,7 @@ if ($task && ($res = $task->step()) !== null) {
         __('Enable Content-Security-Policy report only by default') . '</label></p>' .
         '<p><label for="system_csp_reset" class="classic">' .
         form::checkbox('system_csp_reset', '1', 0) .
-        __('Also reset all Content-Security-Policy blogs\'s settings to default') . '</label></p>' .
+        __('Also apply these settings to all blogs') . '</label></p>' .
         '</div>' .
         '</div>';
 
