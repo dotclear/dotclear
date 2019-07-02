@@ -19,10 +19,11 @@
 
 	{{tpl:include src="_head.html"}}
 
-	<script type="text/javascript" src="{{tpl:BlogQmarkURL}}pf=post.js"></script>
-	<script type="text/javascript">
-		var post_remember_str = '{{tpl:lang Remember me on this blog}}';
-	</script>
+  <script type="application/json" id="dc_post_remember_str-data">
+    {"post_remember_str": "{{tpl:lang Remember me on this blog}}"}
+  </script>
+  <script type="text/javascript" src="{{tpl:BlogQmarkURL}}pf=util.js"></script>
+  <script type="text/javascript" src="{{tpl:BlogQmarkURL}}pf=post.js"></script>
 </head>
 <body class="dc-post">
 	<div id="page">
