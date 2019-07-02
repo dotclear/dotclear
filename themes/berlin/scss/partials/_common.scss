@@ -119,6 +119,40 @@ p, ul, ol {
     margin-bottom: .5em;
 }
 ul ul, ul ol, ol ol, ol ul { margin-top: .5em; }
+dl {
+  padding: 1em;
+  margin: 0;
+  background: transparent;
+}
+dt {
+  color: rgb(139, 145, 165);
+  font-weight: bold;
+}
+dd+dt {
+  margin-top: .5em;
+}
+dd {
+  margin-left: 1em;
+  border-left: 1px solid #d9dbdf;
+  padding-left: 1em;
+  color: #555;
+}
+aside {
+  background-color: rgb(250, 250, 250);
+  color: rgb(99, 99, 99);
+  width: 20em;
+  padding: 0 1em;
+  float: right;
+  margin: 0 -5em 1em 2em;
+  border-left: 3px solid #267daf;
+}
+@media only screen and (max-width: 60em) {
+  aside {
+    float: inherit;
+    width: inherit;
+    margin: 1em 2em;
+  }
+}
 /* a11y */
 .sr {
   border: 0;
