@@ -1,7 +1,9 @@
-/*global $, post_remember_str */
+/*global $, getData */
 'use strict';
 
 $(function() {
+  var post_remember_str = post_remember_str || getData('dc_post_remember_str').post_remember_str;
+
 	$('#comment-form p:has(input[type=submit][name=preview],button[type=submit][name=preview])').
 		before(
 			'<p class="remember"><input type="checkbox" id="c_remember" name="c_remember" /> ' +
@@ -10,7 +12,6 @@ $(function() {
 		);
 
 	var cookie = readCookie($.cookie('comment_info'));
-
 
 	if (cookie != false) {
 		$('#c_name').val(cookie[0]);
