@@ -118,6 +118,15 @@ class dcUtils
         return '<script type="text/javascript" src="' . $escaped_src . '"></script>' . "\n";
     }
 
+    /**
+     * return a list of javascript variables définitions code
+     *
+     * @deprecated 2.15 use dcUtils::jsJson() and getData()/mergeDeep() in javascript
+     *
+     * @param      array  $vars   The variables
+     *
+     * @return     string  javascript code (inside <script… ></script>)
+     */
     public static function jsVars($vars)
     {
         $ret = '<script type="text/javascript">' . "\n";
@@ -129,6 +138,16 @@ class dcUtils
         return $ret;
     }
 
+    /**
+     * return a javascript variable definition line code
+     *
+     * @deprecated 2.15 use dcUtils::jsJson() and getData()/mergeDeep() in javascript
+     *
+     * @param      string  $n      variable name
+     * @param      various  $v      value
+     *
+     * @return     string  javascript code
+     */
     public static function jsVar($n, $v)
     {
         return dcUtils::jsVars([$n => $v]);

@@ -654,11 +654,30 @@ class dcPage
         return $src;
     }
 
+    /**
+     * return a javascript variable definition line code
+     *
+     * @deprecated 2.15 use dcPage::jsJson() and getData()/mergeDeep() in javascript
+     *
+     * @param      string  $n      variable name
+     * @param      various  $v      value
+     *
+     * @return     string  javascript code
+     */
     public static function jsVar($n, $v)
     {
         return $n . " = '" . html::escapeJS($v) . "';\n";
     }
 
+    /**
+     * return a list of javascript variables définitions code
+     *
+     * @deprecated 2.15 use dcPage::jsJson() and getData()/mergeDeep() in javascript
+     *
+     * @param      array  $vars   The variables
+     *
+     * @return     string  javascript code (inside <script… ></script>)
+     */
     public static function jsVars($vars)
     {
         $ret = '<script type="text/javascript">' . "\n";
