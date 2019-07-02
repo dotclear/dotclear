@@ -164,8 +164,7 @@ body > script {
 /* HTML5 for old browsers */
 article, aside, details, figcaption, figure, footer,
 header, hgroup, main, nav, section, summary {
-  display: block;
-  }
+  display: block; }
 
 audio, canvas, video {
   display: inline-block; }
@@ -325,6 +324,38 @@ p, ul, ol {
 ul ul, ul ol, ol ol, ol ul {
   margin-top: .5em; }
 
+dl {
+  padding: 1em;
+  margin: 0;
+  background: transparent; }
+
+dt {
+  color: #8b91a5;
+  font-weight: bold; }
+
+dd + dt {
+  margin-top: .5em; }
+
+dd {
+  margin-left: 1em;
+  border-left: 1px solid #d9dbdf;
+  padding-left: 1em;
+  color: #555; }
+
+aside {
+  background-color: #fafafa;
+  color: #636363;
+  width: 20em;
+  padding: 0 1em;
+  float: right;
+  margin: 0 -5em 1em 2em;
+  border-left: 3px solid #267daf; }
+
+@media only screen and (max-width: 60em) {
+  aside {
+    float: inherit;
+    width: inherit;
+    margin: 1em 2em; } }
 /* a11y */
 .sr {
   border: 0;
@@ -644,8 +675,7 @@ a.site-title__link:visited {
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 1px;
-  }
+  width: 1px; }
 
 .footer__widgets .widget {
   margin-top: 1em; }
