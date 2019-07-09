@@ -28,7 +28,7 @@ if (!empty($_GET['default_blog'])) {
     }
 }
 
-dcPage::check('usage,contentadmin');
+dcPage::check('usage,contentadmin', true);
 
 if ($core->plugins->disableDepModules($core->adminurl->get('admin.home', []))) {
     exit;
