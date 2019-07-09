@@ -23,12 +23,18 @@ class dcPage
     }
 
     # Auth check
-    public static function check($permissions)
+    public static function check($permissions, $home = false)
     {
         $core = self::getCore();
 
         if ($core->blog && $core->auth->check($permissions, $core->blog->id)) {
             return;
+        }
+
+        // Check if dashboard is not the current page et if it is granted for the user
+        if (!$home && $core->blog && $core->auth->check('usage,contentadmin', $core->blog->id)) {
+            // Go back to the dashboard
+            http::redirect(DC_ADMIN_URL);
         }
 
         if (session_id()) {
@@ -38,11 +44,17 @@ class dcPage
     }
 
     # Check super admin
-    public static function checkSuper()
+    public static function checkSuper($home = false)
     {
         $core = self::getCore();
 
         if (!$core->auth->isSuperAdmin()) {
+            // Check if dashboard is not the current page et if it is granted for the user
+            if (!$home && $core->blog && $core->auth->check('usage,contentadmin', $core->blog->id)) {
+                // Go back to the dashboard
+                http::redirect(DC_ADMIN_URL);
+            }
+
             if (session_id()) {
                 $core->session->destroy();
             }
