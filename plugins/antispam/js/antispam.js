@@ -30,4 +30,5 @@ $(function() {
   $('form input[type=submit][name=delete_all]').click(function() {
     return window.confirm(dotclear.msg.confirm_spam_delete);
   });
+  dotclear.responsiveCellHeaders(document.querySelector('#filters-list-form table'), '#filters-list-form table', 1, true);
 });

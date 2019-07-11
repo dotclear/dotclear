@@ -25,4 +25,5 @@ $(function() {
   $('#menuitemslist tr td input.position').hide();
   $('#menuitemslist tr td.handle').addClass('handler');
   dotclear.condSubmit('#menuitems tr td input[name^=items_selected]', '#menuitems #remove-action');
+  dotclear.responsiveCellHeaders(document.querySelector('#menuitems table'), '#menuitems table', 2);
 });

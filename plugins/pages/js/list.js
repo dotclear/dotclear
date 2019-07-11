@@ -55,6 +55,7 @@ $(function() {
   });
   $('#pageslist td input[type=checkbox]').enableShiftClick();
   dotclear.condSubmit('#pageslist td input[type=checkbox]', '#form-entries #do-action');
+  dotclear.responsiveCellHeaders(document.querySelector('#form-entries table'), '#form-entries table', 3, true);
 
   $('#pageslist tr.line td:not(.expander)').mousedown(function() {
     $('#pageslist tr.line').each(function() {

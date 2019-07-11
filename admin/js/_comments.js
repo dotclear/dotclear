@@ -53,6 +53,7 @@ $(function() {
   $('#form-comments td input[type=checkbox]').enableShiftClick();
   dotclear.commentsActionsHelper();
   dotclear.condSubmit('#form-comments td input[type=checkbox]', '#form-comments #do-action');
+  dotclear.responsiveCellHeaders(document.querySelector('#form-comments table'), '#form-comments table', 1);
   $('form input[type=submit][name=delete_all_spam]').click(function() {
     return window.confirm(dotclear.msg.confirm_spam_delete);
   });
