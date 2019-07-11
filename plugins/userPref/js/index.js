@@ -1,4 +1,4 @@
-/*global $ */
+/*global $, dotclear */
 'use strict';
 
 $(function() {
@@ -12,4 +12,6 @@ $(function() {
   $('#lp_nav').change(function() {
     window.location = $('#lp_nav option:selected').val();
   });
+  dotclear.responsiveCellHeaders(document.querySelector('table.prefs'), 'table.prefs', 0, true);
+  $('table.prefs').addClass('rch rch-thead');
 });

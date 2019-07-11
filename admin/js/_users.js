@@ -6,6 +6,7 @@ $(function() {
     dotclear.checkboxesHelpers(this, undefined, '#form-users input[type="checkbox"]', '#form-users #do-action');
   });
   dotclear.condSubmit('#form-users input[type="checkbox"]', '#form-users #do-action');
+  dotclear.responsiveCellHeaders(document.querySelector('#form-users table'), '#form-users table', 1);
   $('#form-users').submit(function() {
     const action = $(this).find('select[name="action"]').val();
     let user_ids = [];

@@ -54,4 +54,5 @@ $(function() {
   $('#form-entries td input[type=checkbox]').enableShiftClick();
   dotclear.condSubmit('#form-entries td input[type=checkbox]', '#form-entries #do-action');
   dotclear.postsActionsHelper();
+  dotclear.responsiveCellHeaders(document.querySelector('#form-entries table'), '#form-entries table', 1);
 });

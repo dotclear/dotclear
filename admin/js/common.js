@@ -461,6 +461,39 @@ const dotclear = {
     });
   },
 
+  /**
+   * Add headers on each cells (responsive tables)
+   *
+   * @param      DOM elt   table         The table
+   * @param      string    selector      The selector
+   * @param      number    [offset=0]    The offset = number of firsts columns to ignore
+   * @param      boolean   [thead=false] True if titles are in thead rather than in the first tr of the body
+   */
+  responsiveCellHeaders: function(table, selector, offset = 0, thead = false) {
+    try {
+      let THarray = [];
+      const ths = table.getElementsByTagName("th");
+      for (let i = 0; i < ths.length; i++) {
+        for (let colspan = ths[i].colSpan; colspan > 0; colspan--) {
+          THarray.push(ths[i].innerText.replace('►', ''));
+        }
+      }
+      let styleElm = document.createElement("style");
+      let styleSheet;
+      document.head.appendChild(styleElm);
+      styleSheet = styleElm.sheet;
+      for (let i = offset; i < THarray.length; i++) {
+        styleSheet.insertRule(
+          selector + " td:nth-child(" + (i + 1) + ')::before {content:"' + THarray[i] + ' ";}',
+          styleSheet.cssRules.length
+        );
+      }
+      table.className += (table.className !== '' ? ' ' : '') + 'rch' + (thead ? ' rch-thead' : '');
+    } catch (e) {
+      console.log("responsiveCellHeaders(): " + e);
+    }
+  },
+
   badge: function($elt, options = null) {
     // Cope with selector given as string or DOM element rather than a jQuery object
     if (typeof $elt === 'string' || $elt instanceof Element) {

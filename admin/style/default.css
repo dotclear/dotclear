@@ -1953,18 +1953,15 @@ table .count {
 th.first input {
   padding-right: 34px; }
 
-th img,
-tr.line img {
+th img, tr.line img {
   vertical-align: middle; }
-  th img.expand,
-  tr.line img.expand {
+  th img.expand, tr.line img.expand {
     margin-right: 6px;
     margin-bottom: -2px; }
 
 tr.line p {
   margin: 0; }
-tr.line input,
-tr.line select {
+tr.line input, tr.line select {
   vertical-align: middle;
   box-shadow: none; }
 tr.line select {
@@ -1979,10 +1976,7 @@ td.status {
   td.status a {
     border: none; }
 
-.noborder td,
-td.noborder,
-.noborder th,
-th.noborder {
+.noborder td, td.noborder, .noborder th, th.noborder {
   border-width: 0 0 1px 0;
   border-color: #dbdbdb;
   line-height: 2em;
@@ -1994,20 +1988,15 @@ th.noborder {
 table.posts-list {
   min-width: 50%; }
 
-table.settings,
-table.prefs {
+table.settings, table.prefs {
   margin-bottom: 3em; }
-  table.settings th:first-child,
-  table.prefs th:first-child {
+  table.settings th:first-child, table.prefs th:first-child {
     width: 20%; }
-  table.settings th + th,
-  table.prefs th + th {
+  table.settings th + th, table.prefs th + th {
     width: 30%; }
-    table.settings th + th + th,
-    table.prefs th + th + th {
+    table.settings th + th + th, table.prefs th + th + th {
       width: 10%; }
-  table.settings th:last-child,
-  table.prefs th:last-child {
+  table.settings th:last-child, table.prefs th:last-child {
     width: 40%; }
 
 /* js */
@@ -2024,6 +2013,44 @@ td.expand {
   background: transparent url(drag.png) no-repeat 0 50%;
   padding-left: 15px; }
 
+/* Responsive Cell Header */
+.rch td::before {
+  display: none; }
+
+@media screen and (max-width: 44em), print and (max-width: 5in) {
+  table.rch {
+    display: block; }
+    table.rch caption, table.rch tbody, table.rch tr, table.rch td {
+      display: block; }
+    table.rch th, table.rch tr:first-of-type {
+      display: none; }
+    table.rch td:first-of-type {
+      border-top: 1px solid #ececec;
+      color: #c9c9c9;
+      background: #595959; }
+    table.rch td::before {
+      display: inline;
+      font-weight: bold; }
+    table.rch td {
+      display: grid;
+      grid-template-columns: 10em auto;
+      grid-gap: 1em 0.5em;
+      text-align: left;
+      border: none; }
+    table.rch .maximal {
+      max-width: inherit; }
+    table.rch .nowrap {
+      white-space: inherit; }
+    table.rch td.expand {
+      grid-template-columns: auto !important;
+      color: #323232;
+      background-color: #fff;
+      border-top: 1px dashed #ececec; }
+
+  table.rch-thead thead {
+    display: none; }
+  table.rch-thead tr:first-of-type {
+    display: block; } }
 a.form-control {
   display: none;
   color: #000; }
