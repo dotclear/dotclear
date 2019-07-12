@@ -141,6 +141,7 @@ if (isset($_POST['user_name'])) {
             $core->callBehavior('adminAfterUserCreate', $cur, $new_id);
 
             dcPage::addSuccessNotice(__('User has been successfully created.'));
+            dcPage::addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
             if (!empty($_POST['saveplus'])) {
                 $core->adminurl->redirect("admin.user");
             } else {
@@ -158,12 +159,12 @@ dcPage::open($page_title,
     dcPage::jsConfirmClose('user-form') .
     dcPage::jsLoad('js/jquery/jquery.pwstrength.js') .
     dcPage::jsJson('user', [
-            sprintf(__('Password strength: %s'), __('very weak')),
-            sprintf(__('Password strength: %s'), __('weak')),
-            sprintf(__('Password strength: %s'), __('mediocre')),
-            sprintf(__('Password strength: %s'), __('strong')),
-            sprintf(__('Password strength: %s'), __('very strong'))
-        ]) .
+        sprintf(__('Password strength: %s'), __('very weak')),
+        sprintf(__('Password strength: %s'), __('weak')),
+        sprintf(__('Password strength: %s'), __('mediocre')),
+        sprintf(__('Password strength: %s'), __('strong')),
+        sprintf(__('Password strength: %s'), __('very strong'))
+    ]) .
     dcPage::jsLoad('js/_user.js') .
     $core->callBehavior('adminUserHeaders'),
 
