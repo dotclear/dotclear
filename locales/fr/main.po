@@ -2532,6 +2532,9 @@ msgstr "L'utilisateur·rice \"%s\" existe déjà."
 msgid "User has been successfully created."
 msgstr "L'utilisateur·rice a été créé·e."
 
+msgid "User has no permission, he will not be able to login yet. See below to add some."
+msgstr "L'utilisateur·rice n'a aucune permission, elle ou il ne sera pas en mesure de se connecter. Voir plus bas pour en ajouter."
+
 msgid "User profile"
 msgstr "Profil utilisateur·rice"
 
