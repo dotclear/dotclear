@@ -2046,6 +2046,8 @@ td.expand {
       color: #323232;
       background-color: #fff;
       border-top: 1px dashed #ececec; }
+    table.rch input, table.rch select {
+      align-self: center; }
 
   table.rch-thead thead {
     display: none; }
