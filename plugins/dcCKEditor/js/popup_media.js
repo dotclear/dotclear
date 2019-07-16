@@ -94,6 +94,11 @@ $(function() {
     } else if (type == 'mp3') {
       // Audio media
       let player_audio = $('#public_player').val();
+      let title = insert_form.elements.title.value;
+      if (title) {
+        player_audio = `<figure><figcaption>${title}</figcaption>${player_audio}</figure>`;
+      }
+
       const align_audio = $('input[name="alignment"]:checked', insert_form).val();
 
       if (align_audio != undefined && align_audio != 'none') {

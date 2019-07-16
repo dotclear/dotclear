@@ -54,6 +54,11 @@ $(function() {
       player = $('#public_player').val();
       align = $('input[name="alignment"]:checked', insert_form).val();
 
+      let title = insert_form.elements.title.value;
+      if (title) {
+        player = `<figure><figcaption>${title}</figcaption>${player}</figure>`;
+      }
+
       if (align != undefined && align != 'none') {
         player = `<div style="${media_align_grid[align]}">${player}</div>`;
       }
