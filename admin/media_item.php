@@ -290,6 +290,10 @@ $file_type = explode('/', $file->type);
 if ($select) {
     // Let user choose thumbnail size if image
     $media_title = $file->media_title;
+    if ($media_title == $file->basename || files::tidyFileName($media_title) == $file->basename) {
+        $media_title = '';
+    }
+
     $media_desc  = $get_img_desc($file, $media_title);
 
     echo
@@ -317,7 +321,7 @@ if ($select) {
             $core->blog->settings->system->media_img_title_pattern,
             $core->blog->settings->system->media_img_use_dto_first,
             $core->blog->settings->system->media_img_no_date_alone);
-        if ($media_title == $file->basename) {
+        if ($media_title == $file->basename || files::tidyFileName($media_title) == $file->basename) {
             $media_title = '';
         }
 
@@ -362,6 +366,10 @@ if ($select) {
 # Insertion popup
 if ($popup && !$select) {
     $media_title = $file->media_title;
+    if ($media_title == $file->basename || files::tidyFileName($media_title) == $file->basename) {
+        $media_title = '';
+    }
+
     $media_desc  = $get_img_desc($file, $media_title);
 
     echo
@@ -389,7 +397,7 @@ if ($popup && !$select) {
             $core->blog->settings->system->media_img_title_pattern,
             $core->blog->settings->system->media_img_use_dto_first,
             $core->blog->settings->system->media_img_no_date_alone);
-        if ($media_title == $file->basename) {
+        if ($media_title == $file->basename || files::tidyFileName($media_title) == $file->basename) {
             $media_title = '';
         }
 
