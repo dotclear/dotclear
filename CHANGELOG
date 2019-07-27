@@ -1,3 +1,27 @@
+Dotclear 2.15 - 2018-08-13
+===========================================================
+* 🐘 PHP 5.6+ is required, PHP 7.3 compliance
+* Add drag'n'drop sorting system for dashboard blocks
+* Backend context is preserved on switching blog (as far as possible)
+* No more inline javascript, default/install CSP directive modified accordingly
+* Add settings (in maintenance plugin) for CSP system
+* Set correct lang attribute (useful for browser/editor spelling) for content (post/page) depending on entry setting, and CK editor UI in user language
+* Add spellcheck="true" attribute on input/textarea
+* Refactoring of notices/messages code on backend
+* Add undo/redo buttons to CKEditor toolbar
+* No more flash players (flv,mp3)
+* Add title/legend reminder on media popup insertion (1st tab)
+* Add font loading capabilities for ?pf= system - allow plugin to load css fonts
+* Add WebP image format support to Dotclear (may depends on your server PHP capabilities)
+* Add <sub>…</sub> support in Dotclear wiki, syntax : _indice_
+* Template system: Allow ?sub for category/categories attributes of tpl:EntryIf, and for url/urls attributes of fpl:CategoryIf
+* Responsive tables (posts, pages, users, …)
+* Fix: port use behind reverse proxy (Clearbricks)
+* Lib: Update Codemirror to 5.48.0
+* Lib: Update CKEditor to 4.12.0
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.14.3 - 2018-09-26
 ===========================================================
 * 🛡 Security: Avoid XML upload in media manager
