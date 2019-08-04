@@ -14,8 +14,8 @@ Dotclear 2.15 - 2019-08-13
 * Add WebP image format support to Dotclear (may depends on your server PHP capabilities)
 * Add <sub>…</sub> support in Dotclear wiki, syntax : _indice_
 * Template system: Allow ?sub for category/categories attributes of tpl:EntryIf, and for url/urls attributes of fpl:CategoryIf
-* Responsive tables (posts, pages, users, …)
-* Fix: port use behind reverse proxy (Clearbricks)
+* Responsive tables/lists (posts, pages, users, …)
+* Fix: port used behind reverse proxy (Clearbricks)
 * Lib: Update Codemirror to 5.48.0
 * Lib: Update CKEditor to 4.12.0
 * 🗑 → No more flash players (flv,mp3)
