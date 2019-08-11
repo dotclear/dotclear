@@ -13,7 +13,7 @@ Dotclear 2.15 - 2019-08-13
 * Add font loading capabilities for ?pf= system - plugin are now able to load css fonts
 * Add WebP image format support to Dotclear (may depends on your server PHP capabilities)
 * Add <sub>…</sub> support in Dotclear wiki, syntax : _indice_
-* Template system: Allow ?sub for category/categories attributes of tpl:EntryIf, and for url/urls attributes of fpl:CategoryIf
+* Template system: Allow ?sub for category/categories attributes of tpl:EntryIf, and for url/urls attributes of tpl:CategoryIf
 * Responsive tables/lists (posts, pages, users, …)
 * Fix: port used behind reverse proxy (Clearbricks)
 * Lib: Update Codemirror to 5.48.0
