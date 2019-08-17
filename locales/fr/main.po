@@ -466,8 +466,8 @@ msgstr "Titre : "
 msgid "Legend: "
 msgstr "Légende : "
 
-msgid "<none>"
-msgstr "<sans>"
+msgid "(none)"
+msgstr "(sans)"
 
 msgid "Advanced parameters"
 msgstr "Paramètres avancés du blog"
