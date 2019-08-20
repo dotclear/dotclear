@@ -15,6 +15,7 @@ Dotclear 2.15 - 2019-08-13
 * Add <sub>…</sub> support in Dotclear wiki, syntax : _indice_
 * Template system: Allow ?sub for category/categories attributes of tpl:EntryIf, and for url/urls attributes of tpl:CategoryIf
 * Responsive tables/lists (posts, pages, users, …)
+* Spams preview (administrative board) now shows HTML code rather than interpreted content
 * Fix: port used behind reverse proxy (Clearbricks)
 * Lib: Update Codemirror to 5.48.0
 * Lib: Update CKEditor to 4.12.0
