@@ -281,7 +281,7 @@ if (!empty($extraPlugins) && count($extraPlugins) > 0) {
             if (ta.lang && e.editor.config.contentsLanguage !== ta.lang) {
                 let config = e.editor.config;
                 config.contentsLanguage = ta.lang;
-//                e.editor.destroy();
+                e.editor.destroy();
                 CKEDITOR.replace(e.editor.name, config);
             }
         }
