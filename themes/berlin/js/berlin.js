@@ -6,9 +6,10 @@ const dotclear_berlin = getData('dotclear_berlin');
 $('html').addClass('js');
 // Show/Hide main menu
 $('.header__nav').
-before(`<button id="hamburger" type="button"><span class="visually-hidden">${dotclear_berlin.navigation}</span></button>`).
+before(`<button id="hamburger" type="button" aria-label="${dotclear_berlin.navigation}" aria-expanded="false"></button>`).
 toggle();
 $('#hamburger').click(function() {
+  $(this).attr('aria-expanded', $(this).attr('aria-expanded') == "true" ? "false" : "true");
   $(this).toggleClass('open');
   $('.header__nav').toggle('easing');
 });
