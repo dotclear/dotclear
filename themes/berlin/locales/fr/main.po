@@ -31,5 +31,5 @@ msgstr "Montrer le menu"
 msgid "Hide menu"
 msgstr "Cacher le menu"
 
-msgid "Navigation"
-msgstr "Navigation"
+msgid "Main menu"
+msgstr "Menu principal"

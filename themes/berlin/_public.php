@@ -27,7 +27,7 @@ class behaviorBerlinTheme
         \dcUtils::jsJson('dotclear_berlin', [
             'show_menu'  => __('Show menu'),
             'hide_menu'  => __('Hide menu'),
-            'navigation' => __('Navigation')
+            'navigation' => __('Main menu')
         ]);
     }
 }
