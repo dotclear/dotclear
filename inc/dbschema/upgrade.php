@@ -671,9 +671,12 @@ class dcUpgrade
                 @unlink(DC_ROOT . '/' . $f);
             }
 
+        }
+
+        if (version_compare($version, '2.15.1', '<')) {
             // Remove unsafe-inline from CSP script directives
             $strReq = 'UPDATE ' . $core->prefix . 'setting ' .
-                " SET setting_value = REPLACE(setting_value, \"'unsafe-inline'\", '') " .
+                " SET setting_value = REPLACE(setting_value, '''unsafe-inline''', '') " .
                 " WHERE setting_id = 'csp_admin_script' " .
                 " AND setting_ns = 'system' ";
             $core->con->execute($strReq);
