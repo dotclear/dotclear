@@ -9,3 +9,6 @@ msgstr "Agregar un retroenlace"
 
 msgid "From"
 msgstr "Del"
+
+msgid "Required field"
+msgstr "Campo obligatorio"
