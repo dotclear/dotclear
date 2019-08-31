@@ -6,3 +6,6 @@ msgstr "Senden"
 
 msgid "Add ping"
 msgstr "Ping hinzufügen"
+
+msgid "Required field"
+msgstr "Pflichtfeld"

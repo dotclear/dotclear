@@ -33,3 +33,6 @@ msgstr "Cacher le menu"
 
 msgid "Main menu"
 msgstr "Menu principal"
+
+msgid "Required field"
+msgstr "Champ obligatoire"
