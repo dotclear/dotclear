@@ -1,4 +1,4 @@
-/*global $, dotclear, editor, confirmClosePage, getData */
+/*global $, dotclear, confirmClosePage, getData, codemirror_instance */
 'use strict';
 
 // Get locales and setting
@@ -12,7 +12,7 @@ $(function() {
     const f = this.form;
 
     const data = {
-      file_content: (!dotclear.colorsyntax ? $(f).find('#file_content').get(0).value : editor.getValue()),
+      file_content: (!dotclear.colorsyntax ? $(f).find('#file_content').get(0).value : codemirror_instance.editor.getValue()),
       xd_check: $(f).find('input[name="xd_check"]').get(0).value,
       write: 1
     };
