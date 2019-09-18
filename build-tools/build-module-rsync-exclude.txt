@@ -1,0 +1,21 @@
+# Developpement specific dirs/files
+*.map
+*.rb
+sass
+scss
+.sass*
+scripts
+# CVS dirs/files
+.git*
+.hg*
+*.old
+*.bak
+*.BAK
+*.orig
+*.rej
+# Archives
+*.zip
+# Documentation
+mkdocs
+# Mac OS Specific
+.DS_Store

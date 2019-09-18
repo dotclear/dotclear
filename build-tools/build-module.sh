@@ -42,7 +42,7 @@ if [ -d "$MOD_NAME" ]; then
   rm -rf ./"$MOD_NAME"
 fi
 mkdir ./"$MOD_NAME"
-rsync --exclude="$MOD_NAME" --exclude="mkdocs" --exclude="build.sh" --exclude=".git*" --exclude=".DS_Store" --exclude="*.zip" --exclude="*.map" --exclude="*.rb" --exclude="sass" --exclude="scss" --exclude=".sass*" --exclude="scripts" -a . ./"$MOD_NAME"
+rsync --exclude-from="$DIRECTORY/build-module-rsync-exclude.txt" --exclude="$MOD_NAME" -a . ./"$MOD_NAME"
 
 # Pack Javascript files
 if [ -f "$MIN_JS" ]; then
