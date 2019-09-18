@@ -32,7 +32,10 @@ fi
 
 # Find module name
 MOD_NAME=$(basename "$PWD")
-[ -z "$MOD_NAME" ] && { echo "Unable to find module name!" ; exit 1; }
+if [ "$MOD_NAME" = "themes" ] || [ "$MOD_NAME" = "plugins" ] || [ -d ./plugins ] ; then
+  echo "Launch this command inside the module folder!"
+  exit 1
+fi
 
 # Copy all files to tmp dir
 if [ -d "$MOD_NAME" ]; then
