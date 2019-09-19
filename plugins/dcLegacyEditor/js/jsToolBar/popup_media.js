@@ -68,14 +68,8 @@ $(function() {
     } else if (type == 'flv') // may be all video media, not only flv
     {
       var oplayer = $(`<div>${$('#public_player').val()}</div>`);
-      var flashvars = $('[name=FlashVars]', oplayer).val();
 
       align = $('input[name="alignment"]:checked', insert_form).val();
-
-      var title = insert_form.elements.title.value;
-      if (title) {
-        flashvars = 'title=' + encodeURI(title) + '&amp;' + flashvars;
-      }
 
       var vw = $('#video_w').val();
       var vh = $('#video_h').val();
@@ -83,23 +77,18 @@ $(function() {
       if (vw > 0) {
         $('video', oplayer).attr('width', vw);
         $('object', oplayer).attr('width', vw);
-        flashvars = flashvars.replace(/(width=\d*)/, 'width=' + vw);
       } else {
         $('video', oplayer).removeAttr('width');
         $('object', oplayer).removeAttr('width');
-        flashvars = flashvars.replace(/(width=\d*)/, '');
       }
       if (vh > 0) {
         $('video', oplayer).attr('height', vh);
         $('object', oplayer).attr('height', vh);
-        flashvars = flashvars.replace(/(height=\d*)/, 'height=' + vh);
       } else {
         $('video', oplayer).removeAttr('height');
         $('object', oplayer).removeAttr('height');
-        flashvars = flashvars.replace(/(height=\d*)/, '');
       }
 
-      $('[name=FlashVars]', oplayer).val(flashvars);
       player = oplayer.html();
 
       if (align != undefined && align != 'none') {
