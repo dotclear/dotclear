@@ -559,7 +559,7 @@ const dotclear = {
     if (!opt.remove && opt.value !== null) {
       // Compose badge classes
       const cls = `badge badge-${opt.id} \
-${opt.inline ? 'badge-inline' : 'badge-block'}\
+${opt.inline ? ' badge-inline' : ' badge-block'}\
 ${opt.icon ? ' badge-icon' : ''}\
 ${opt.type !== '' ? ` badge-${opt.type}` : ''}\
 ${opt.left ? ' badge-left' : ''}\
