@@ -96,9 +96,8 @@ You can submit a pull request, or feel free to use any other way you'd prefer.
 
 Repositories:
 -------------
-https://hg.dotclear.org/dotclear/ (official)
-https://bitbucket.org/dotclear/dotclear (Bitbucket)
-https://github.com/dotclear/dotclear (Github, sync'ed with Bitbucket)
+https://git.dotclear.org/dotclear/ (official)
+https://github.com/dotclear/dotclear (Github)
 
 
 [1]: http://download.dotclear.org/loader/dotclear-loader.php
@@ -108,4 +107,3 @@ https://github.com/dotclear/dotclear (Github, sync'ed with Bitbucket)
 [5]: http://dotclear.org/documentation/2.0/usage
 [6]: http://dotclear.org/documentation/2.0/admin
 [7]: http://dotclear.org/documentation/2.0/resources
-
