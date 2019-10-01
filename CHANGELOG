@@ -1,3 +1,9 @@
+Dotclear 2.15.2 - 2019-10-01
+===========================================================
+* Fix: Ajax saving of files in theme editor when using codemirror
+* Fix: Video insertion with CKEditor or LegacyEditor
+* Fix: Badge position for dashboard modules counters
+
 Dotclear 2.15.1 - 2019-08-29
 ===========================================================
 * Fix: SQL request for CSP unsafe-inline setting
