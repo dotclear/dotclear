@@ -558,14 +558,28 @@ const dotclear = {
     // Add the new badge if any
     if (!opt.remove && opt.value !== null) {
       // Compose badge classes
-      const cls = `badge badge-${opt.id} \
-${opt.inline ? ' badge-inline' : ' badge-block'}\
-${opt.icon ? ' badge-icon' : ''}\
-${opt.type !== '' ? ` badge-${opt.type}` : ''}\
-${opt.left ? ' badge-left' : ''}\
-${opt.noborder ? ' badge-noborder' : ''}\
-${opt.small ? ' badge-small' : ''}\
-${opt.classes !== '' ? ` ${opt.classes}` : ''}`;
+      let classes = ['badge'];
+      classes.push(`badge-${opt.id}`);
+      classes.push(opt.inline ? 'badge-inline' : 'badge-block');
+      if (opt.icon) {
+        classes.push('badge-icon');
+      }
+      if (opt.type) {
+        classes.push(`badge-${opt.type}`);
+      }
+      if (opt.left) {
+        classes.push('badge-left');
+      }
+      if (opt.noborder) {
+        classes.push('badge-noborder');
+      }
+      if (opt.small) {
+        classes.push('badge-small');
+      }
+      if (opt.classes) {
+        classes.push(`${opt.classes}`);
+      }
+      const cls = classes.join(' ');
       // Compose badge
       const xml = `<span class="${cls}" aria-hidden="true">${opt.value}</span>`;
       if (opt.sibling) {
