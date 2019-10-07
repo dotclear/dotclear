@@ -11,7 +11,11 @@ toggle();
 $('#hamburger').click(function() {
   $(this).attr('aria-expanded', $(this).attr('aria-expanded') == "true" ? "false" : "true");
   $(this).toggleClass('open');
-  $('.header__nav').toggle('easing');
+  $('.header__nav').toggle('easing', function() {
+    if ($('#hamburger').hasClass('open')) {
+      $('.header__nav li:first a')[0].focus();
+    }
+  });
 });
 // Show/Hide sidebar on small screens
 $('#main').prepend(`<button id="offcanvas-on" type="button"><span class="visually-hidden">${dotclear_berlin.show_menu}</span></button>`);
@@ -20,10 +24,14 @@ $('#offcanvas-on').click(function() {
   $('#wrapper').addClass('off-canvas');
   $('#footer').addClass('off-canvas');
   $('#sidebar').prepend(btn);
+  btn[0].focus({
+    preventScroll: true
+  });
   btn.click(function(evt) {
     $('#wrapper').removeClass('off-canvas');
     $('#footer').removeClass('off-canvas');
     evt.target.remove();
+    $('#offcanvas-on')[0].focus();
   });
 });
 $(document).ready(function() {
