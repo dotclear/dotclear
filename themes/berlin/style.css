@@ -769,7 +769,15 @@ a.site-title__link:visited {
 .blognav__widgets li, .blogextra__widgets li {
   display: block;
   padding: .25em;
-  border-bottom: 1px solid #dcdcdc; }
+  border-bottom: 1px solid #dcdcdc;
+  position: relative; }
+  .blognav__widgets li a::after, .blogextra__widgets li a::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
 .blognav__widgets li ul, .blogextra__widgets li ul {
   margin-left: -.25em; }
 .blognav__widgets li li, .blogextra__widgets li li {
