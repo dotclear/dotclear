@@ -22,6 +22,18 @@
 			padding: 4px 0 1px 32px;
 			background-repeat: no-repeat;
 			background-position: 8px .3em;
+      position: relative;
+      a::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+      &:hover {
+        background-color: $main-menu-active-background;
+      }
 			&:first-child {
 				margin-top: 0;
 			}

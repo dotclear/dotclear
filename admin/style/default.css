@@ -1730,7 +1730,17 @@ h1 {
     margin: 0.5em 0 0;
     padding: 4px 0 1px 32px;
     background-repeat: no-repeat;
-    background-position: 8px .3em; }
+    background-position: 8px .3em;
+    position: relative; }
+    #main-menu ul li a::after {
+      position: absolute;
+      content: "";
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0; }
+    #main-menu ul li:hover {
+      background-color: #fff; }
     #main-menu ul li:first-child {
       margin-top: 0; }
 #main-menu .active {
