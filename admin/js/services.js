@@ -1,4 +1,4 @@
-/*global $, dotclear */
+/*global $, dotclear, trimHtml */
 'use strict';
 
 /**
@@ -58,7 +58,7 @@ dotclear.getEntryContent = function(postId, callback, options) {
           }
           // Cut content if requested
           if (opt.length > -1) {
-            content = content.substr(0, opt.length);
+            content = trimHtml(content, {limit: opt.length}).html;
           }
           if (opt.clean && content) {
             content = `<pre>${content}</pre>`;
@@ -131,7 +131,7 @@ dotclear.getCommentContent = function(commentId, callback, options) {
           }
           // Cut content if requested
           if (opt.length > -1) {
-            content = content.substr(0, opt.length);
+            content = trimHtml(content, {limit: opt.length}).html;
           }
           if (opt.clean && content) {
             content = `<pre>${content}</pre>`;
