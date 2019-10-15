@@ -3320,7 +3320,7 @@ div.ui-sortable-handle {
   background-color: #d54e21;
   border: 1px solid #dcdee0;
   vertical-align: top;
-  border-radius: 10px;
+  border-radius: 1em;
   padding: 0 .6em; }
 
 .badge-icon {
