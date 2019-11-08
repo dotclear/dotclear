@@ -588,8 +588,11 @@ class rsExtComment
     {
         $res = $rs->comment_content;
 
+
         if ($rs->core->blog->settings->system->comments_nofollow) {
             $res = preg_replace_callback('#<a(.*?href=".*?".*?)>#ms', ['self', 'noFollowURL'], $res);
+        } else {
+            $res = preg_replace_callback('#<a(.*?href=".*?".*?)>#ms', ['self', 'UgcURL'], $res);
         }
 
         if ($absolute_urls) {
@@ -601,11 +604,20 @@ class rsExtComment
 
     private static function noFollowURL($m)
     {
-        if (preg_match('/rel="nofollow"/', $m[1])) {
+        if (preg_match('/rel="ugc nofollow"/', $m[1])) {
             return $m[0];
         }
 
-        return '<a' . $m[1] . ' rel="nofollow">';
+        return '<a' . $m[1] . ' rel="ugc nofollow">';
+    }
+
+    private static function UgcURL($m)
+    {
+        if (preg_match('/rel="ugc"/', $m[1])) {
+            return $m[0];
+        }
+
+        return '<a' . $m[1] . ' rel="ugc">';
     }
 
     /**
@@ -645,15 +657,15 @@ class rsExtComment
         $res = '%1$s';
         $url = $rs->getAuthorURL();
         if ($url) {
-            $res = '<a href="%2$s"%3$s>%1$s</a>';
+            $res = '<a href="%2$s" rel="%3$s">%1$s</a>';
         }
 
-        $nofollow = '';
+        $rel = 'ugc';
         if ($rs->core->blog->settings->system->comments_nofollow) {
-            $nofollow = ' rel="nofollow"';
+            $rel .= ' nofollow';
         }
 
-        return sprintf($res, html::escapeHTML($rs->comment_author), html::escapeHTML($url), $nofollow);
+        return sprintf($res, html::escapeHTML($rs->comment_author), html::escapeHTML($url), $rel);
     }
 
     /**
