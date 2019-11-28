@@ -294,7 +294,7 @@ if ($select) {
         $media_title = '';
     }
 
-    $media_desc  = $get_img_desc($file, $media_title);
+    $media_desc = $get_img_desc($file, $media_title);
 
     echo
     '<div id="media-select" class="multi-part" title="' . __('Select media item') . '">' .
@@ -370,7 +370,7 @@ if ($popup && !$select) {
         $media_title = '';
     }
 
-    $media_desc  = $get_img_desc($file, $media_title);
+    $media_desc = $get_img_desc($file, $media_title);
 
     echo
     '<div id="media-insert" class="multi-part" title="' . __('Insert media item') . '">' .
@@ -436,8 +436,8 @@ if ($popup && !$select) {
         __('Title: ') . ($media_title != '' ? '<span class="media-title">' . $media_title . '</span>' : __('(none)')) .
         '<br />' .
         __('Legend: ') . ($media_desc != '' ? ' <span class="media-desc">' . $media_desc . '</span>' : __('(none)')) .
-        '</p>' .
-        '</div>';
+            '</p>' .
+            '</div>';
 
         echo
         '<div class="two-boxes">' .
@@ -527,7 +527,8 @@ if ($popup && !$select) {
         echo '</p>';
         echo '</div>';
     } else {
-        $media_type = 'default';
+        $media_type  = 'default';
+        $media_title = $file->media_title;
         echo '<p>' . __('Media item will be inserted as a link.') . '</p>';
     }
 
