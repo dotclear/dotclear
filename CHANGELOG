@@ -1,3 +1,9 @@
+Dotclear 2.15.3 - 2019-11-28
+===========================================================
+* Fix: Avoid weird side-effect of JS minifier
+* Fix: insertion of default type media (non image/audio/video) in XHTML entries
+* Fix: Cope with old themes for 'remember me' string defined in JS
+
 Dotclear 2.15.2 - 2019-10-01
 ===========================================================
 * Fix: Ajax saving of files in theme editor when using codemirror
