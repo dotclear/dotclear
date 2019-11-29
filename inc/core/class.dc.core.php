@@ -1211,6 +1211,7 @@ class dcCore
             'active_aside'        => 1,
             'active_sup'          => 1,
             'active_sub'          => 1,
+            'active_i'            => 1,
             'parse_pre'           => 1,
             'active_fr_syntax'    => 0,
             'first_title_level'   => 3,
@@ -1264,6 +1265,7 @@ class dcCore
             'active_aside'        => 0,
             'active_sup'          => 0,
             'active_sub'          => 0,
+            'active_i'            => 0,
             'parse_pre'           => 0,
             'active_fr_syntax'    => 0
         ]);
@@ -1311,6 +1313,7 @@ class dcCore
             'active_aside'        => 0,
             'active_sup'          => 1,
             'active_sub'          => 1,
+            'active_i'            => 1,
             'parse_pre'           => 0,
             'active_fr_syntax'    => 0
         ]);
