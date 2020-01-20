@@ -9,11 +9,11 @@
 #
 # Plugin module, inside plugins folder:
 # $ cd plugins/my-plugin
-# $ ../build-tools/build-module.sh
+# $ ../../build-tools/build-module.sh
 #
 # Theme module, inside themes folder:
 # $ cd themes/my-theme
-# $ ../build-tools/build-module.sh theme
+# $ ../../build-tools/build-module.sh theme
 
 # Module type
 MOD_TYPE="plugin"
