@@ -63,7 +63,7 @@ define('DC_CRYPT_ALGO', 'sha512');
 //define('DC_NOT_UPDATE', false);
 
 // Update URL
-//define('DC_UPDATE_URL','http://download.dotclear.org/versions.xml');
+//define('DC_UPDATE_URL','https://download.dotclear.org/versions.xml');
 
 // Update channel (stable, unstable, testing)
 //define('DC_UPDATE_VERSION', 'stable');

@@ -184,7 +184,7 @@ if (!defined('DC_DBPERSIST')) {
 }
 
 if (!defined('DC_UPDATE_URL')) {
-    define('DC_UPDATE_URL', 'http://download.dotclear.org/versions.xml');
+    define('DC_UPDATE_URL', 'https://download.dotclear.org/versions.xml');
 }
 
 if (!defined('DC_UPDATE_VERSION')) {
