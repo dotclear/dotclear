@@ -9,7 +9,7 @@
 		<name>{{tpl:BlogEditor encode_xml="1"}}</name>
 	</author>
 	<id>{{tpl:BlogFeedID}}</id>
-	<generator uri="http://www.dotclear.org/">Dotclear</generator>
+	<generator uri="https://www.dotclear.org/">Dotclear</generator>
 	<tpl:Comments order="desc" with_pings="1">
 		<tpl:CommentIf is_ping="1">
 			<entry>

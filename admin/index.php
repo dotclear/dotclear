@@ -199,7 +199,7 @@ if (!defined('DC_ADMIN_URL') || !DC_ADMIN_URL) {
     echo
     '<p class="static-msg">' .
     sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_URL') .
-    ' ' . __('See <a href="http://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.') .
+    ' ' . __('See <a href="https://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.') .
         '</p>';
 }
 
@@ -207,7 +207,7 @@ if (!defined('DC_ADMIN_MAILFROM') || !DC_ADMIN_MAILFROM) {
     echo
     '<p class="static-msg">' .
     sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_MAILFROM') .
-    ' ' . __('See <a href="http://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.') .
+    ' ' . __('See <a href="https://dotclear.org/documentation/2.0/admin/config">documentation</a> for more information.') .
         '</p>';
 }
 

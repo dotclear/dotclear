@@ -3092,7 +3092,7 @@ class dcTemplate extends template
     public function SysPoweredBy($attr)
     {
         return
-            '<?php printf(__("Powered by %s"),"<a href=\"http://dotclear.org/\">Dotclear</a>"); ?>';
+            '<?php printf(__("Powered by %s"),"<a href=\"https://dotclear.org/\">Dotclear</a>"); ?>';
     }
 
     public function SysSearchString($attr)

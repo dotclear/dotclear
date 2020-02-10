@@ -83,7 +83,7 @@ class dcRestMethods
                 $feed_reader = new feedReader;
                 $feed_reader->setCacheDir(DC_TPL_CACHE);
                 $feed_reader->setTimeout(2);
-                $feed_reader->setUserAgent('Dotclear - http://www.dotclear.org/');
+                $feed_reader->setUserAgent('Dotclear - https://dotclear.org/');
                 $feed = $feed_reader->parse($GLOBALS['__resources']['rss_news']);
                 if ($feed) {
                     $ret = '<div class="box medium dc-box" id="ajax-news"><h3>' . __('Dotclear news') . '</h3><dl id="news">';

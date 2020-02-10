@@ -140,7 +140,7 @@ echo dcUtils::jsJson('dotclear_init', $js);
                             <p><span class="step">2</span> On peut assortir une boîte des class <code>"odd"</code> (nothing left) et <code>"even"</code> pour que les marges se placent correctement.</p>
                         </div><!--
                         --><div class="two-boxes odd">
-                            <p><span class="step">3</span> Attention, il faut soit ne pas retourner à la ligne entre la fermeture d'une boîte <code>"two-boxes"</code> et l'ouverture de la suivante soit adopter la méthode de commentaire vide mise en place ici et expliquée chez <a href="http://www.alsacreations.com/astuce/lire/1432-display-inline-block-espaces-indesirables.html">Alsacréations</a> («&nbsp;Méthode 2&nbsp;»).</p>
+                            <p><span class="step">3</span> Attention, il faut soit ne pas retourner à la ligne entre la fermeture d'une boîte <code>"two-boxes"</code> et l'ouverture de la suivante soit adopter la méthode de commentaire vide mise en place ici et expliquée chez <a href="https://www.alsacreations.com/astuce/lire/1432-display-inline-block-espaces-indesirables.html">Alsacréations</a> («&nbsp;Méthode 2&nbsp;»).</p>
                         </div><!--
                         --><div class="two-boxes even">
                             <div class="two-boxes odd">
@@ -314,7 +314,7 @@ echo dcUtils::jsJson('dotclear_init', $js);
                         <input type="hidden" value="aboutConfig" name="p" />
                     </p>
                 <h3 id="prevnext">Navigation contextuelle</h3>
-                    <p><a title="Titre du lien" href="http://fr.dotclear.org/blog" class="onblog_link outgoing">Lien vers le blog <img alt="" src="images/outgoing-link.svg" /></a></p>
+                    <p><a title="Titre du lien" href="https://fr.dotclear.org/blog" class="onblog_link outgoing">Lien vers le blog <img alt="" src="images/outgoing-link.svg" /></a></p>
                     <p class="nav_prevnext"><a title="Titre de l'élément précédente" href="post.php?id=4145">«&nbsp;Élément précédent</a> | <a title="Titre de l'élément suivant" href="#">Élément suivant&nbsp;»</a></p>
 
                 <h3 id="pseudo-tabs">Pseudo-onglets </h3>
@@ -536,7 +536,7 @@ echo dcUtils::jsJson('dotclear_init', $js);
                 <p>Les icônes utilisées dans l'administration sont présentes en deux formats&nbsp; 64*64px pour les grandes
                 (qui sont affichées sur le tableau de bord si la page correspondante est choisie en favori par l'utilisateur) et
                 16*16px pour les petits formats.</p>
-                <p>La plupart sont dérivées de la fonte d'icônes <a href="http://www.elegantthemes.com/blog/resources/elegant-icon-font">Elegant Font</a>. Les autres sont des images vectorielles réalisées
+                <p>La plupart sont dérivées de la fonte d'icônes <a href="https://www.elegantthemes.com/blog/resources/elegant-icon-font">Elegant Font</a>. Les autres sont des images vectorielles réalisées
                 par la DC Team. Nous les avons nommées <em>Traviata</em>. La palette de couleurs utilisée est la suivante&nbsp;:</p>
                 <p class="txt-center"><img src="images/palette-traviata.png" alt="palette des couleurs utilisées pour les icônes" /></p>
                 <p class="txt-center">Bleu&nbsp;: #137bbb - Vert&nbsp;: #9ac123 - Rouge&nbsp;: #c44d58 - Bleu ciel&nbsp;: #a2cbe9 - Gris clair&nbsp;: #ececec -
@@ -586,7 +586,7 @@ echo dcUtils::jsJson('dotclear_init', $js);
         </div><!-- /main-menu -->
 
         <div id="footer">
-            <a href="http://dotclear.org/" title="Merci de manger des clafoutis."><img src="style/dc_logos/w-dotclear90.png" alt="Merci d'utiliser Dotclear 2.6-dev." /></a>
+            <a href="https://dotclear.org/" title="Merci de manger des clafoutis."><img src="style/dc_logos/w-dotclear90.png" alt="Merci d'utiliser Dotclear 2.6-dev." /></a>
         </div><!-- /footer -->
                                                 <!--
                                                                   .

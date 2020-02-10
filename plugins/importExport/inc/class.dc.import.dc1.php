@@ -536,7 +536,7 @@ class dcImportDC1 extends dcIeModule
             $cur->comment_trackback = (integer) $rs->comment_trackback;
 
             $cur->comment_site = $this->cleanStr($rs->comment_site);
-            if ($cur->comment_site != '' && !preg_match('!^http://.*$!', $cur->comment_site)) {
+            if ($cur->comment_site != '' && !preg_match('!^http(s)?://.*$!', $cur->comment_site)) {
                 $cur->comment_site = substr('http://' . $cur->comment_site, 0, 255);
             }
 

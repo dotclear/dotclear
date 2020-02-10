@@ -786,7 +786,7 @@ class dcTrackback
     {
         $client = netHttp::initClient($url, $path);
         $client->setTimeout(5);
-        $client->setUserAgent('Dotclear - http://www.dotclear.org/');
+        $client->setUserAgent('Dotclear - https://dotclear.org/');
         $client->useGzip(false);
         $client->setPersistReferers(false);
 

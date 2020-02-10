@@ -11,7 +11,7 @@ Depends: ${misc:Depends}, apache2 | httpd | apache, libclearbricks, php5-pgsql |
 Suggests: php5-tidy
 Description: DotClear 2
  Dotclear is a blog engine written in PHP 5.
- More information on http://www.dotclear.org/
+ More information on https://dotclear.org/
 
 Package: dotclear-l10n-ja
 Architecture: all
@@ -19,4 +19,4 @@ Depends: ${misc:Depends}, dotclear (>= 2.0)
 Description: DotClear 2
  Dotclear 2 Japanese language pack
  Dotclear 2 is a blog engine written in PHP 5.
- More information on http://www.dotclear.org/
+ More information on https://dotclear.org/

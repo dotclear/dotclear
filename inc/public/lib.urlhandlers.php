@@ -690,7 +690,7 @@ class dcUrlHandlers extends urlHandler
         '<rsd version="1.0" xmlns="http://archipelago.phrasewise.com/rsd">' . "\n" .
         "<service>\n" .
         "  <engineName>Dotclear</engineName>\n" .
-        "  <engineLink>http://www.dotclear.org/</engineLink>\n" .
+        "  <engineLink>https://dotclear.org/</engineLink>\n" .
         '  <homePageLink>' . html::escapeHTML($core->blog->url) . "</homePageLink>\n";
 
         if ($core->blog->settings->system->enable_xmlrpc) {

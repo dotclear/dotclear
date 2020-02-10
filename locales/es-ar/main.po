@@ -1019,7 +1019,7 @@ msgstr "Este blog está removido"
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "DC_ADMIN_URL no está definido, debería corregir su archivo de configuración."
 
-msgid "See <a href=\"http://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
+msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr ""
 
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
@@ -1242,14 +1242,14 @@ msgstr "Administre ahora su blog"
 msgid "Installation can not be completed"
 msgstr ""
 
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr ""
 
 #, fuzzy, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "El directorio de cache %s no se puede escribir."
 
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
 msgstr ""
 
 #, fuzzy, php-format
@@ -1281,7 +1281,7 @@ msgstr ""
 msgid "Attention:"
 msgstr "Acción"
 
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
 msgstr ""
 
 msgid "System information"
@@ -2596,18 +2596,18 @@ msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it<
 msgstr "El archivo de Dotclear descargado parece estar corrupto. Pruebe <a %s>descargarlo</a> nuevamente."
 
 #, fuzzy
-msgid "If this problem persists try to <a href=\"http://dotclear.org/download\">update manually</a>."
-msgstr "Los siguientes archivos de su instalación de Dotclear no pueden ser escritos. Por favor solucione esto o trate de <a href=\"http://dotclear.org/download\">actualizar manualmente</a>."
+msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
+msgstr "Los siguientes archivos de su instalación de Dotclear no pueden ser escritos. Por favor solucione esto o trate de <a href=\"https://dotclear.org/download\">actualizar manualmente</a>."
 
-msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"http://dotclear.org/download\">update manually</a>."
-msgstr "Los siguientes archivos de su instalación de Dotclear han sido modificados, así que no se tratará de actualizar su instalación. Por favor, trate de <a href=\"http://dotclear.org/download\">actualizar manualmente</a>."
+msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
+msgstr "Los siguientes archivos de su instalación de Dotclear han sido modificados, así que no se tratará de actualizar su instalación. Por favor, trate de <a href=\"https://dotclear.org/download\">actualizar manualmente</a>."
 
 #, php-format
 msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
 msgstr "Los siguientes archivos de su instalación de Dotclear no pueden ser leídos. Por favor solucione esto o trate de hacer una copia de resguardo manualmente de los archivos %s."
 
-msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"http://dotclear.org/download\">update manually</a>."
-msgstr "Los siguientes archivos de su instalación de Dotclear no pueden ser escritos. Por favor solucione esto o trate de <a href=\"http://dotclear.org/download\">actualizar manualmente</a>."
+msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
+msgstr "Los siguientes archivos de su instalación de Dotclear no pueden ser escritos. Por favor solucione esto o trate de <a href=\"https://dotclear.org/download\">actualizar manualmente</a>."
 
 msgid "Manual checking of update done successfully."
 msgstr ""
@@ -4211,7 +4211,7 @@ msgid "Unable to connect to database"
 msgstr ""
 
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"http://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
 msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"

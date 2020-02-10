@@ -402,7 +402,7 @@ dotclear (2.0-1) unstable; urgency=low ; svnrev=2233
 
   * SVN Revision 2127 - olivier, on Mon, 21 Jul 2008 01:34:32 +0200
     Added no_context attribute on following template tags. Closes #233.
-    
+
      * tpl:Archives
      * tpl:Entries
      * tpl:Comments
@@ -435,7 +435,7 @@ dotclear (2.0-1) unstable; urgency=low ; svnrev=2233
 
   * SVN Revision 2136 - xave, on Mon, 21 Jul 2008 18:47:54 +0200
     Added user permissions handling, several refinements and a general code cleaning.
-    
+
     Closes #339.
 
   * SVN Revision 2137 - olivier, on Mon, 21 Jul 2008 22:51:29 +0200
@@ -707,9 +707,9 @@ dotclear (1.99+2.0-beta8-2) unstable; urgency=low ; svnrev=2025
     Added dcAuth::sessionExists and dcAuth::checkSession methods. See #254.
 
   * SVN Revision 1863 - bruno, on Fri, 30 May 2008 13:10:47 +0200
-     * Fixed tag deletion bug when post_type != 'post' 
+     * Fixed tag deletion bug when post_type != 'post'
      * Added optional $post_type parameter to delMeta and updateMeta
-    cf. http://forum.dotclear.net/viewtopic.php?pid=212534
+    cf. https://forum.dotclear.net/viewtopic.php?pid=212534
 
   * SVN Revision 1864 - bruno, on Fri, 30 May 2008 14:53:53 +0200
     Missed 1 post_type filter in actions ...
@@ -1386,7 +1386,7 @@ dotclear (1.99+2.0-beta8-1) unstable; urgency=low ; svnrev=1850
     Added back following template tags:
      * tpl:EntryTrackbackCount
      * tpl:EntryTrackbackData
-     * tpl:EntryTrackbackLink 
+     * tpl:EntryTrackbackLink
     They will be remove on 2.0 release.
 
   * SVN Revision 1773 - olivier, on Thu, 24 Apr 2008 16:53:42 +0200
@@ -2252,7 +2252,7 @@ dotclear (1.99+2.0-beta5-7) unstable; urgency=low ; svnrev=1571
 
   * SVN Revision 1491 - olivier, on Sat, 28 Jul 2007 14:49:30 +0200
     Fixed XHTML validation issue.
-    See http://www.dotclear.net/forum/viewtopic.php?pid=171299#p171299 for details.
+    See https://www.dotclear.net/forum/viewtopic.php?pid=171299#p171299 for details.
 
   * SVN Revision 1492 - olivier, on Sat, 28 Jul 2007 14:59:32 +0200
     Fixed a minor issue with tags widget.
@@ -2335,7 +2335,7 @@ dotclear (1.99+2.0-beta5-7) unstable; urgency=low ; svnrev=1571
 
   * SVN Revision 1525 - biou, on Fri, 21 Sep 2007 10:52:20 +0200
     idn compatibility
-    see http://www.dotclear.net/forum/viewtopic.php?pid=179934#p179934
+    see https://www.dotclear.net/forum/viewtopic.php?pid=179934#p179934
 
   * SVN Revision 1526 - biou, on Sun, 30 Sep 2007 15:34:25 +0200
     spam comments number displayed on dashboard
@@ -2345,7 +2345,7 @@ dotclear (1.99+2.0-beta5-7) unstable; urgency=low ; svnrev=1571
     Suppression de r?\195?\168gles redondantes dans la feuille de style du th?\195?\168me par d?\195?\169faut. (Thanks to Adjaya)
 
   * SVN Revision 1528 - kozlika, on Sun, 07 Oct 2007 18:03:48 +0200
-    Typo in admin files - Thanks to goetzilla http://www.dotclear.net/forum/viewtopic.php?pid=181006#p181006
+    Typo in admin files - Thanks to goetzilla https://www.dotclear.net/forum/viewtopic.php?pid=181006#p181006
     (vous v?\195?\169rifiez hein ?)
 
   * SVN Revision 1529 - kozlika, on Mon, 08 Oct 2007 07:49:20 +0200
@@ -2721,7 +2721,7 @@ dotclear (1.99+2.0-beta4-1) unstable; urgency=low ; svnrev=1095
     Applied jQuery diff on attr() internal function to fix an IE (again) bug.
 
   * SVN Revision 991 - pep, on Wed, 22 Nov 2006 13:04:11 +0100
-    Fixed a bug ... * cough * 
+    Fixed a bug ... * cough *
 
   * SVN Revision 992 - olivier, on Wed, 22 Nov 2006 17:04:49 +0100
     Widgets now work with Safari. I hate this browser.
@@ -3922,7 +3922,7 @@ dotclear (1.99+2.0-beta1-2) unstable; urgency=low ; svnrev=652
  -- Mikael Poussard <mik@gandi.net>  Wed, 10 Jan 2007 15:22:20 +0100
 
 dotclear (1.99+2.0-beta1-1) unstable; urgency=low ; svnrev=644
-  
+
 
   Initial upstream release
 

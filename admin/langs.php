@@ -19,7 +19,7 @@ $dc_langs    = false;
 $feed_reader = new feedReader;
 $feed_reader->setCacheDir(DC_TPL_CACHE);
 $feed_reader->setTimeout(5);
-$feed_reader->setUserAgent('Dotclear - http://www.dotclear.org/');
+$feed_reader->setUserAgent('Dotclear - https://dotclear.org/');
 try {
     $dc_langs = $feed_reader->parse(sprintf(DC_L10N_UPDATE_URL, DC_VERSION));
     if ($dc_langs !== false) {
@@ -89,12 +89,12 @@ if ($is_writable && !empty($_POST['pkg_url'])) {
 
         $url  = html::escapeHTML($_POST['pkg_url']);
         $dest = DC_L10N_ROOT . '/' . basename($url);
-        if (!preg_match('#^http://[^.]+\.dotclear\.(net|org)/.*\.zip$#', $url)) {
+        if (!preg_match('#^https://[^.]+\.dotclear\.(net|org)/.*\.zip$#', $url)) {
             throw new Exception(__('Invalid language file URL.'));
         }
 
         $client = netHttp::initClient($url, $path);
-        $client->setUserAgent('Dotclear - http://www.dotclear.org/');
+        $client->setUserAgent('Dotclear - https://dotclear.org/');
         $client->useGzip(false);
         $client->setPersistReferers(false);
         $client->setOutput($dest);

@@ -147,7 +147,7 @@ define('DC_ROOT', path::real(dirname(__FILE__) . '/..'));
 define('DC_VERSION', '2.16-dev');
 define('DC_DIGESTS', dirname(__FILE__) . '/digests');
 define('DC_L10N_ROOT', dirname(__FILE__) . '/../locales');
-define('DC_L10N_UPDATE_URL', 'http://services.dotclear.net/dc2.l10n/?version=%s');
+define('DC_L10N_UPDATE_URL', 'https://services.dotclear.net/dc2.l10n/?version=%s');
 define('DC_DISTRIB_PLUGINS', 'aboutConfig,akismet,antispam,attachments,blogroll,blowupConfig,dclegacy,fairTrackbacks,importExport,maintenance,pages,pings,simpleMenu,tags,themeEditor,userPref,widgets,dcLegacyEditor,dcCKEditor,breadcrumb');
 define('DC_DISTRIB_THEMES', 'berlin,blueSilence,blowupConfig,customCSS,default,ductile');
 define('DC_DEFAULT_TPLSET', 'mustek');
@@ -254,7 +254,7 @@ try {
                 '<li>Are you sure that the database server is running?</li></ul>' .
                 '<p>If you\'re unsure what these terms mean you should probably contact ' .
                 'your host. If you still need help you can always visit the ' .
-                '<a href="http://forum.dotclear.net/">Dotclear Support Forums</a>.</p>') .
+                '<a href="https://forum.dotclear.net/">Dotclear Support Forums</a>.</p>') .
                 (DC_DEBUG ?
                     __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' : '')
                 , (DC_DBHOST != '' ? DC_DBHOST : 'localhost')

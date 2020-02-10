@@ -98,7 +98,7 @@ if ($new_v && $step) {
                             'Try <a %s>download it</a> again.'), 'href="' . $p_url . '?step=download"') .
                         ' ' .
                         __('If this problem persists try to ' .
-                            '<a href="http://dotclear.org/download">update manually</a>.')
+                            '<a href="https://dotclear.org/download">update manually</a>.')
                     );
                 }
                 http::redirect($p_url . '?step=backup');
@@ -125,7 +125,7 @@ if ($new_v && $step) {
             $msg =
                 __('The following files of your Dotclear installation ' .
                 'have been modified so we won\'t try to update your installation. ' .
-                'Please try to <a href="http://dotclear.org/download">update manually</a>.');
+                'Please try to <a href="https://dotclear.org/download">update manually</a>.');
         } elseif ($e->getCode() == dcUpdate::ERR_FILES_UNREADABLE) {
             $msg =
                 sprintf(__('The following files of your Dotclear installation are not readable. ' .
@@ -134,7 +134,7 @@ if ($new_v && $step) {
         } elseif ($e->getCode() == dcUpdate::ERR_FILES_UNWRITALBE) {
             $msg =
                 __('The following files of your Dotclear installation cannot be written. ' .
-                'Please fix this or try to <a href="http://dotclear.org/download">update manually</a>.');
+                'Please fix this or try to <a href="https://dotclear.org/download">update manually</a>.');
         }
 
         if (isset($e->bad_files)) {

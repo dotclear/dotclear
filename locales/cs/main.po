@@ -1016,7 +1016,7 @@ msgstr "Tento blog byl odstraněn"
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "DC_ADMIN_URL není nastaveno. Měli byste ho nastavit."
 
-msgid "See <a href=\"http://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
+msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr ""
 
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
@@ -1239,16 +1239,16 @@ msgstr "Spravovat blog"
 msgid "Installation can not be completed"
 msgstr "Instalace nemůže být dokončena"
 
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr "Pro dané důvody nemůže být Dotclear nainstalován. Prosím navštivte <a href=\"http://dotclear.org/documentation/2.0/admin/install\">dokumentaci</a>, kde je popsáno jak opravit problém."
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr "Pro dané důvody nemůže být Dotclear nainstalován. Prosím navštivte <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentaci</a>, kde je popsáno jak opravit problém."
 
 #, fuzzy, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "Cachovací adresář %s nemá právo zápisu"
 
 #, fuzzy
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr "Pro dané důvody nemůže být Dotclear nainstalován. Prosím navštivte <a href=\"http://dotclear.org/documentation/2.0/admin/install\">dokumentaci</a>, kde je popsáno jak opravit problém."
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgstr "Pro dané důvody nemůže být Dotclear nainstalován. Prosím navštivte <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentaci</a>, kde je popsáno jak opravit problém."
 
 #, fuzzy, php-format
 msgid "Cannot write \"%s\" directory."
@@ -1278,8 +1278,8 @@ msgstr "Pro dokončení instalace DotClearu a publikaci článků je třeba vypl
 msgid "Attention:"
 msgstr "Upozornění:"
 
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr "tento průvodce nemusí fungovat správně na každém serveru. Pokud tomu tak je, prosím navštivte <a href=\"http://dotclear.org/documentation/2.0/admin/install\">dokumentaci</a>, kde je popsáno, jak vytvořit soubor <strong>config.php</strong> manuálně."
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr "tento průvodce nemusí fungovat správně na každém serveru. Pokud tomu tak je, prosím navštivte <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentaci</a>, kde je popsáno, jak vytvořit soubor <strong>config.php</strong> manuálně."
 
 msgid "System information"
 msgstr "Systémové informace"
@@ -2598,18 +2598,18 @@ msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it<
 msgstr "Stažený archív Dotclearu se zdá být poškozený. Zkuste jej <a %s>stáhnout</a> znovu."
 
 #, fuzzy
-msgid "If this problem persists try to <a href=\"http://dotclear.org/download\">update manually</a>."
-msgstr "Následující soubory z vaší instalace Dotclearu nemůžou být zapsány. Prosím, pokuste se to napravit, nebo se pokuste o <a href=\"http://dotclear.org/download\">manuální aktualizaci</a>."
+msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
+msgstr "Následující soubory z vaší instalace Dotclearu nemůžou být zapsány. Prosím, pokuste se to napravit, nebo se pokuste o <a href=\"https://dotclear.org/download\">manuální aktualizaci</a>."
 
-msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"http://dotclear.org/download\">update manually</a>."
-msgstr "Následující soubory vaší Dotcleear instalace byly změněny a proto nebude provedena aktualizace. Prosím, proveďte aktualizace <a href=\"http://dotclear.org/download\">manuálně</a>."
+msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
+msgstr "Následující soubory vaší Dotcleear instalace byly změněny a proto nebude provedena aktualizace. Prosím, proveďte aktualizace <a href=\"https://dotclear.org/download\">manuálně</a>."
 
 #, php-format
 msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
 msgstr "Následující soubory z vaší instalace Dotclearu není možné přečíst. Prosím, pokuste se to napravit, nebo soubory pojmenované %s zálohujte ručně."
 
-msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"http://dotclear.org/download\">update manually</a>."
-msgstr "Následující soubory z vaší instalace Dotclearu nemůžou být zapsány. Prosím, pokuste se to napravit, nebo se pokuste o <a href=\"http://dotclear.org/download\">manuální aktualizaci</a>."
+msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
+msgstr "Následující soubory z vaší instalace Dotclearu nemůžou být zapsány. Prosím, pokuste se to napravit, nebo se pokuste o <a href=\"https://dotclear.org/download\">manuální aktualizaci</a>."
 
 msgid "Manual checking of update done successfully."
 msgstr ""
@@ -4225,8 +4225,8 @@ msgid "Unable to connect to database"
 msgstr "Nelze se připojit k databázi"
 
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"http://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Tato situace může znamenat, že uživatelské jméno a heslo uložené ve vašem konfiguračním souboru <strong>config.php</strong> jsou nesprávné nebo se nelze připojit k databázi běžící na serveru \"<em>%s</em>\" - server s databází může být vypnutý.</p> <ul><li>Jste si jisti, že jste zadali správné uživatelské jméno a heslo k databázi?</li><li>Jste si jisti, že jste zadali správné jméno serveru databáze?</li><li>Jste si jisti, že server databáze běží?</li></ul><p>Pokud si nejste jisti, co některé termíny znamenají, měli byste zřejmě kontaktovat svého webhostéra. Pokud stále potřebujete pomoci, můžete navštívit <a href=\"http://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>Tato situace může znamenat, že uživatelské jméno a heslo uložené ve vašem konfiguračním souboru <strong>config.php</strong> jsou nesprávné nebo se nelze připojit k databázi běžící na serveru \"<em>%s</em>\" - server s databází může být vypnutý.</p> <ul><li>Jste si jisti, že jste zadali správné uživatelské jméno a heslo k databázi?</li><li>Jste si jisti, že jste zadali správné jméno serveru databáze?</li><li>Jste si jisti, že server databáze běží?</li></ul><p>Pokud si nejste jisti, co některé termíny znamenají, měli byste zřejmě kontaktovat svého webhostéra. Pokud stále potřebujete pomoci, můžete navštívit <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Nastaly následujíci chyby při čtení z databáze:"

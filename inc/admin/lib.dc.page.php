@@ -370,7 +370,7 @@ class dcPage
 
         echo
             '<footer id="footer" role="contentinfo">' .
-            '<a href="http://dotclear.org/" title="' . $text . '">' .
+            '<a href="https://dotclear.org/" title="' . $text . '">' .
             '<img src="style/dc_logos/w-dotclear90.png" alt="' . $text . '" /></a></footer>' . "\n" .
             "<!-- " . "\n" .
             $figure .

@@ -1018,7 +1018,7 @@ msgstr "이 블로그는 삭제되었습니다."
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "DC_ADMIN_URL이 정해지지 않았습니다. 블로그 설정파일을 수정하셔야 합니다."
 
-msgid "See <a href=\"http://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
+msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr ""
 
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
@@ -1246,14 +1246,14 @@ msgstr "블로그 관리"
 msgid "Installation can not be completed"
 msgstr ""
 
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr ""
 
 #, fuzzy, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "캐시 폴더 %s 에 쓰기접근이 불허된 상태입니다."
 
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
 msgstr ""
 
 #, fuzzy, php-format
@@ -1285,7 +1285,7 @@ msgstr ""
 msgid "Attention:"
 msgstr "작업"
 
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
 msgstr ""
 
 msgid "System information"
@@ -2596,18 +2596,18 @@ msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it<
 msgstr "내려받은 Dotclear 압축파일에 오류가 있어보입니다. 다시 <a %s>내려받기</a> 해주세요."
 
 #, fuzzy
-msgid "If this problem persists try to <a href=\"http://dotclear.org/download\">update manually</a>."
-msgstr "당신의 Dotclear에 다음 파일들을 쓸 수 없습니다. 이 문제를 해결해 주시거나, <a href=\"http://www.dotclear.net/download\">수동으로 갱신</a>하셔야 합니다."
+msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
+msgstr "당신의 Dotclear에 다음 파일들을 쓸 수 없습니다. 이 문제를 해결해 주시거나, <a href=\"https://www.dotclear.net/download\">수동으로 갱신</a>하셔야 합니다."
 
-msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"http://dotclear.org/download\">update manually</a>."
-msgstr "당신의 DotClear에 있는 아래 파일들이 원본과 달라서 DotClear를 자동으로 갱신할 수 없습니다. DotClear를 <a href=\"http://www.dotclear.net/download\">수동으로 설치</a>하셔야 합니다."
+msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
+msgstr "당신의 DotClear에 있는 아래 파일들이 원본과 달라서 DotClear를 자동으로 갱신할 수 없습니다. DotClear를 <a href=\"https://www.dotclear.net/download\">수동으로 설치</a>하셔야 합니다."
 
 #, php-format
 msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
 msgstr "당신의 Dotclear에 있는 다음 파일들을 읽을 수 없습니다. 이 문제를 해결해 주시거나, %s 라고 명명된 백업파일을 수동으로 만들어 주세요."
 
-msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"http://dotclear.org/download\">update manually</a>."
-msgstr "당신의 Dotclear에 다음 파일들을 쓸 수 없습니다. 이 문제를 해결해 주시거나, <a href=\"http://www.dotclear.net/download\">수동으로 갱신</a>하셔야 합니다."
+msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
+msgstr "당신의 Dotclear에 다음 파일들을 쓸 수 없습니다. 이 문제를 해결해 주시거나, <a href=\"https://www.dotclear.net/download\">수동으로 갱신</a>하셔야 합니다."
 
 msgid "Manual checking of update done successfully."
 msgstr ""
@@ -4187,7 +4187,7 @@ msgid "Unable to connect to database"
 msgstr ""
 
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"http://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
 msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"

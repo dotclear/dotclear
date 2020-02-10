@@ -1018,7 +1018,7 @@ msgstr "Šis blogas yra pašalintas"
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "DC_ADMIN_URL nėra nurodytas. Redaguokite savo konfigūracinį failą."
 
-msgid "See <a href=\"http://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
+msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr ""
 
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
@@ -1240,16 +1240,16 @@ msgstr "Tvarkykite savo blogą dabar"
 msgid "Installation can not be completed"
 msgstr "Instaliacija negali būti baigta"
 
-msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
-msgstr "Dėl šių priežaščių, instaliacija negali būti baigta. Peržiūrėkite susijusią <a href=\"http://dotclear.org/documentation/2.0/admin/install\">dokumentaciją (anglų k.)</a>, skitrą tokių problemų sprendimui."
+msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
+msgstr "Dėl šių priežaščių, instaliacija negali būti baigta. Peržiūrėkite susijusią <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentaciją (anglų k.)</a>, skitrą tokių problemų sprendimui."
 
 #, fuzzy, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "Cache direktorija %s neturi rašymo nustatymų."
 
 #, fuzzy
-msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr "Dėl šių priežaščių, instaliacija negali būti baigta. Peržiūrėkite susijusią <a href=\"http://dotclear.org/documentation/2.0/admin/install\">dokumentaciją (anglų k.)</a>, skitrą tokių problemų sprendimui."
+msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
+msgstr "Dėl šių priežaščių, instaliacija negali būti baigta. Peržiūrėkite susijusią <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentaciją (anglų k.)</a>, skitrą tokių problemų sprendimui."
 
 #, fuzzy, php-format
 msgid "Cannot write \"%s\" directory."
@@ -1279,8 +1279,8 @@ msgstr "Mums reikia žinoti kaip naudotis jūsų duomenų baze ir kas jūs esate
 msgid "Attention:"
 msgstr "Dėmesio:"
 
-msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"http://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
-msgstr "šis diegimas gali neveikti kaikuriuose hostuose. Jeigu diegimas neveikia prašome peržiūrėti <a href=\"http://dotclear.org/documentation/2.0/admin/install\">dokumentaciją (anglų k.)</a>, kaip rankiniu būdu sukurti <strong>config.php</strong> failą."
+msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
+msgstr "šis diegimas gali neveikti kaikuriuose hostuose. Jeigu diegimas neveikia prašome peržiūrėti <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentaciją (anglų k.)</a>, kaip rankiniu būdu sukurti <strong>config.php</strong> failą."
 
 msgid "System information"
 msgstr "Sistemos informacija"
@@ -2595,18 +2595,18 @@ msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it<
 msgstr "Atisiųstas Dotclear archyvas greičiausiai yra sugadintas. Pabandykite <a %s>atsisiųsti archyvą</a> iš naujo."
 
 #, fuzzy
-msgid "If this problem persists try to <a href=\"http://dotclear.org/download\">update manually</a>."
-msgstr "Šių Dotclear instaliacinių failų neįmanoma įrašyti. Sutaisykite tai arba bandykite <a href=\"http://dotclear.org/download\">atnaujinti rankiniu būdu</a>."
+msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
+msgstr "Šių Dotclear instaliacinių failų neįmanoma įrašyti. Sutaisykite tai arba bandykite <a href=\"https://dotclear.org/download\">atnaujinti rankiniu būdu</a>."
 
-msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"http://dotclear.org/download\">update manually</a>."
-msgstr "Šie Dotclear instaliaciniai failai buvo pakeisti taigi nebus bandoma atnaujinti instaliacijos. Prašome <a href=\"http://dotclear.org/download\">atnaujinti rankiniu būdu</a>."
+msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
+msgstr "Šie Dotclear instaliaciniai failai buvo pakeisti taigi nebus bandoma atnaujinti instaliacijos. Prašome <a href=\"https://dotclear.org/download\">atnaujinti rankiniu būdu</a>."
 
 #, php-format
 msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
 msgstr "Šių Dotclear instaliacinių failų neįmanoma perkaityti. Sutaisykite tai arba padarykite atsarginę kopiją pavadintą %s rankiniu būdu."
 
-msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"http://dotclear.org/download\">update manually</a>."
-msgstr "Šių Dotclear instaliacinių failų neįmanoma įrašyti. Sutaisykite tai arba bandykite <a href=\"http://dotclear.org/download\">atnaujinti rankiniu būdu</a>."
+msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
+msgstr "Šių Dotclear instaliacinių failų neįmanoma įrašyti. Sutaisykite tai arba bandykite <a href=\"https://dotclear.org/download\">atnaujinti rankiniu būdu</a>."
 
 msgid "Manual checking of update done successfully."
 msgstr ""
@@ -4216,8 +4216,8 @@ msgid "Unable to connect to database"
 msgstr "Nepavyksta prisijungti prie duomenų bazės"
 
 #, php-format
-msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"http://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
-msgstr "<p>Tai reiškia, kad arba username ir slaptažodis jūsų <strong>config.php</strong> faile yra neteisingi arba neįmanoma prisijungti prie duomenų bazės serverio \"<em>%s</em>\". Gali būti kad jūsų hosto duomenų bazės serveris neveikia.</p> <ul><li>Ar esate įsitikinęs, kad duomenų bazės prisijungimo duomenys geri?</li><li>Ar suvedėte teisingą hostname?</li><li>Ar duomenų bazės serveris tikrai veikia?</li></ul><p>Jei nesate tikras ką šie terminai reiškia, patariame susisiekti su hostingo tiekėju. Jei vis dar reikia pagalbos visada galite apsilankyti <a href=\"http://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
+msgstr "<p>Tai reiškia, kad arba username ir slaptažodis jūsų <strong>config.php</strong> faile yra neteisingi arba neįmanoma prisijungti prie duomenų bazės serverio \"<em>%s</em>\". Gali būti kad jūsų hosto duomenų bazės serveris neveikia.</p> <ul><li>Ar esate įsitikinęs, kad duomenų bazės prisijungimo duomenys geri?</li><li>Ar suvedėte teisingą hostname?</li><li>Ar duomenų bazės serveris tikrai veikia?</li></ul><p>Jei nesate tikras ką šie terminai reiškia, patariame susisiekti su hostingo tiekėju. Jei vis dar reikia pagalbos visada galite apsilankyti <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"

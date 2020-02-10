@@ -100,10 +100,10 @@ https://git.dotclear.org/dotclear/ (official)
 https://github.com/dotclear/dotclear (Github)
 
 
-[1]: http://download.dotclear.org/loader/dotclear-loader.php
-[2]: http://dotclear.org/documentation/2.0/admin/install
-[3]: http://dotclear.org/download
-[4]: http://dotclear.org/documentation/2.0/overview/tour
-[5]: http://dotclear.org/documentation/2.0/usage
-[6]: http://dotclear.org/documentation/2.0/admin
-[7]: http://dotclear.org/documentation/2.0/resources
+[1]: https://download.dotclear.org/loader/dotclear-loader.php
+[2]: https://dotclear.org/documentation/2.0/admin/install
+[3]: https://dotclear.org/download
+[4]: https://dotclear.org/documentation/2.0/overview/tour
+[5]: https://dotclear.org/documentation/2.0/usage
+[6]: https://dotclear.org/documentation/2.0/admin
+[7]: https://dotclear.org/documentation/2.0/resources

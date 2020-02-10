@@ -46,7 +46,7 @@ if (!is_writable(dirname(DC_RC_PATH))) {
     '<p>' . __('Dotclear installation wizard could not create configuration file for you. ' .
         'You must change folder right or create the <strong>config.php</strong> ' .
         'file manually, please refer to ' .
-        '<a href="http://dotclear.org/documentation/2.0/admin/install">' .
+        '<a href="https://dotclear.org/documentation/2.0/admin/install">' .
         'the documentation</a> to learn how to do this.') . '</p>';
 }
 
@@ -181,7 +181,7 @@ if (!empty($err)) {
         'Just fill this two steps wizard with this information and we will be done.') . '</p>' .
     '<p class="message"><strong>' . __('Attention:') . '</strong> ' .
     __('this wizard may not function on every host. If it does not work for you, ' .
-        'please refer to <a href="http://dotclear.org/documentation/2.0/admin/install">' .
+        'please refer to <a href="https://dotclear.org/documentation/2.0/admin/install">' .
         'the documentation</a> to learn how to create the <strong>config.php</strong> ' .
         'file manually.') . '</p>';
 }

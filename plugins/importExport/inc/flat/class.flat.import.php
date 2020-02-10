@@ -867,7 +867,7 @@ class flatImport extends flatBackup
                 break;
             case 'comment':
                 $line->substitute('comment_auteur', 'comment_author');
-                if ($line->comment_site != '' && !preg_match('!^http://.*$!', $line->comment_site, $m)) {
+                if ($line->comment_site != '' && !preg_match('!^http(s)?://.*$!', $line->comment_site, $m)) {
                     $line->comment_site = 'http://' . $line->comment_site;
                 }
                 $line->comment_status = (integer) $line->comment_pub;
