@@ -378,9 +378,12 @@ msgstr "Afficher des émoticônes dans les billets, pages et commentaires"
 msgid "Disable internal search system"
 msgstr "Désactiver la recherche interne"
 
+msgid "Display a static page as home page"
+msgstr "Afficher une page statique comme page d'accueil"
+
 #, php-format
-msgid "Display %s entries on home page"
-msgstr "Afficher %s billets sur la page d'accueil"
+msgid "Display %s entries on first page"
+msgstr "Afficher %s billets sur la première page"
 
 #, php-format
 msgid "Display %s entries per page"

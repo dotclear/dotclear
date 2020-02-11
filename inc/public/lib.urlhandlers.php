@@ -200,16 +200,19 @@ class dcUrlHandlers extends urlHandler
         $n = self::getPageNumber($args);
 
         if ($args && !$n) {
-            # "Then specified URL went unrecognized by all URL handlers and
+            # Then specified URL went unrecognized by all URL handlers and
             # defaults to the home page, but is not a page number.
             self::p404();
         } else {
             $_ctx = &$GLOBALS['_ctx'];
             $core = &$GLOBALS['core'];
 
+            $core->url->type = 'default';
             if ($n) {
                 $GLOBALS['_page_number'] = $n;
-                $core->url->type         = $n > 1 ? 'default-page' : 'default';
+                if ($n > 1) {
+                    $core->url->type = 'default-page';
+                }
             }
 
             if (empty($_GET['q'])) {
@@ -221,6 +224,21 @@ class dcUrlHandlers extends urlHandler
             } else {
                 self::search();
             }
+        }
+    }
+
+    public static function static_home($args)
+    {
+        $_ctx = &$GLOBALS['_ctx'];
+        $core = &$GLOBALS['core'];
+
+        $core->url->type = 'static';
+
+        if (empty($_GET['q'])) {
+            self::serveDocument('static.html');
+            $core->blog->publishScheduledEntries();
+        } else {
+            self::search();
         }
     }
 

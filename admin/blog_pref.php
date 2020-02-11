@@ -274,6 +274,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin', $blog_id)) {
         }
         $blog_settings->system->put('jquery_version', $_POST['jquery_version']);
         $blog_settings->system->put('prevents_clickjacking', !empty($_POST['prevents_clickjacking']));
+        $blog_settings->system->put('static_home', !empty($_POST['static_home']));
 
         # --BEHAVIOR-- adminBeforeBlogSettingsUpdate
         $core->callBehavior('adminBeforeBlogSettingsUpdate', $blog_settings);
@@ -486,10 +487,16 @@ if ($blog_id) {
     '<p><label for="no_search" class="classic">' .
     form::checkbox('no_search', '1', $blog_settings->system->no_search) .
     __('Disable internal search system') . '</label></p>' .
+
+    '<p><label for="static_home" class="classic">' .
+    form::checkbox('static_home', '1', $blog_settings->system->static_home) .
+    __('Display a static page as home page') . '</label></p>' .
+
     '</div>' .
 
     '<div class="col">' .
-    '<p><label for="nb_post_for_home" class="classic">' . sprintf(__('Display %s entries on home page'),
+
+    '<p><label for="nb_post_for_home" class="classic">' . sprintf(__('Display %s entries on first page'),
         form::number('nb_post_for_home', [
             'min'     => 1,
             'max'     => 999,

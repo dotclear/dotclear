@@ -47,14 +47,28 @@ class tplBreadcrumb
 
         switch ($core->url->type) {
 
-            case 'default':
-                // Home (first page only)
+            case 'static':
+                // Static home
                 $ret = '<span id="bc-home">' . __('Home') . '</span>';
                 break;
 
+            case 'default':
+                if ($core->blog->settings->system->static_home) {
+                    // Static home and on (1st) blog page
+                    $ret = '<a id="bc-home" href="' . $core->blog->url . '">' . __('Home') . '</a>';
+                    $ret .= $separator . __('Blog');
+                } else {
+                    // Home (first page only)
+                    $ret = '<span id="bc-home">' . __('Home') . '</span>';
+                }
+                break;
+
             case 'default-page':
-                // Home`(page 2 to n)
+                // Home or blog page`(page 2 to n)
                 $ret = '<a id="bc-home" href="' . $core->blog->url . '">' . __('Home') . '</a>';
+                if ($core->blog->settings->system->static_home) {
+                    $ret .= $separator . '<a href="' . $core->blog->url . $core->url->getURLFor('blog') . '">' . __('Blog') . '</a>';
+                }
                 $ret .= $separator . sprintf(__('page %d'), $page);
                 break;
 

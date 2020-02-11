@@ -151,6 +151,12 @@ if (!empty($tplset) && is_dir(dirname(__FILE__) . '/default-templates/' . $tplse
 }
 $core->url->mode = $core->blog->settings->system->url_scan;
 
+# Cope with static home page option
+if ($core->blog->settings->system->static_home) {
+    $core->url->registerDefault(['dcUrlHandlers', 'static_home']);
+    $core->url->register('blog', 'blog', '^blog(/.+)?$', ['dcUrlHandlers', 'home']);
+}
+
 try {
     # --BEHAVIOR-- publicBeforeDocument
     $core->callBehavior('publicBeforeDocument', $core);
