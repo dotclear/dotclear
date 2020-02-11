@@ -154,7 +154,7 @@ $core->url->mode = $core->blog->settings->system->url_scan;
 # Cope with static home page option
 if ($core->blog->settings->system->static_home) {
     $core->url->registerDefault(['dcUrlHandlers', 'static_home']);
-    $core->url->register('blog', 'blog', '^blog(/.+)?$', ['dcUrlHandlers', 'home']);
+    $core->url->register('posts', 'posts', '^posts(/.+)?$', ['dcUrlHandlers', 'home']);
 }
 
 try {
