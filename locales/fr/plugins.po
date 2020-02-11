@@ -871,7 +871,7 @@ msgid "m"
 msgstr ""
 
 msgid "Link to an entry"
-msgstr "Lien vers une entrée"
+msgstr "Lien vers une publication"
 
 msgid "Link"
 msgstr "Lien"
@@ -1645,7 +1645,7 @@ msgid "Error"
 msgstr "Erreur"
 
 msgid "Auto pings all services on first publication of entry (current blog only)"
-msgstr "Signaler automatiquement à tous ces services la première publication des entrées (blog courant seulement)"
+msgstr "Signaler automatiquement à tous ces services la première publication des publications (blog courant seulement)"
 
 msgid "Test ping services"
 msgstr "Tester les services de signalement"
@@ -1850,8 +1850,8 @@ msgstr "Retirer des mots-clés"
 
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
-msgstr[0] "Le mot-clé a été ajouté aux entrées sélectionnées"
-msgstr[1] "Les mot-clés ont été ajoutés aux entrées sélectionnées"
+msgstr[0] "Le mot-clé a été ajouté aux publications sélectionnées"
+msgstr[1] "Les mot-clés ont été ajoutés aux publications sélectionnées"
 
 msgid "Add tags to this selection"
 msgstr "Ajouter des mots-clés à cette sélection"
@@ -1885,8 +1885,8 @@ msgstr "Mots-clés à ajouter :"
 
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
-msgstr[0] "Le mot-clé a été retiré des entrées sélectionnées"
-msgstr[1] "Les mot-clés ont été retirés des entrées sélectionnées"
+msgstr[0] "Le mot-clé a été retiré des publications sélectionnées"
+msgstr[1] "Les mot-clés ont été retirés des publications sélectionnées"
 
 msgid "No tags for selected entries"
 msgstr "Aucun mot-clé pour les billets sélectionnés"

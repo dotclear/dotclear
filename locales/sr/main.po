@@ -2186,7 +2186,7 @@ msgstr "vaša lozinka"
 
 #, fuzzy
 msgid "Number of comments"
-msgstr "Nombre d'entrées'"
+msgstr "Nombre de commentaires'"
 
 #, fuzzy
 msgid "Number of trackbacks"
@@ -2725,7 +2725,7 @@ msgid "Display name"
 msgstr "Pseudonyme"
 
 msgid "Number of entries"
-msgstr "Nombre d'entrées'"
+msgstr "Nombre de publications"
 
 msgid "Set permissions"
 msgstr "Définir les permissions"

@@ -361,7 +361,7 @@ echo dcUtils::jsJson('dotclear_init', $js);
                 <h3 id="courants">Tableau classique</h3>
                 <div class="table-outer">
                     <table>
-                        <caption class="hidden">Liste des entrées</caption>
+                        <caption class="hidden">Liste des publications</caption>
                         <tr>
                             <th colspan="2" class="first">Titre</th>
                             <th scope="col">Date</th>
