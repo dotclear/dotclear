@@ -67,7 +67,7 @@ class tplBreadcrumb
                 // Home or blog page`(page 2 to n)
                 $ret = '<a id="bc-home" href="' . $core->blog->url . '">' . __('Home') . '</a>';
                 if ($core->blog->settings->system->static_home) {
-                    $ret .= $separator . '<a href="' . $core->blog->url . $core->url->getURLFor('blog') . '">' . __('Blog') . '</a>';
+                    $ret .= $separator . '<a href="' . $core->blog->url . $core->url->getURLFor('posts') . '">' . __('Blog') . '</a>';
                 }
                 $ret .= $separator . sprintf(__('page %d'), $page);
                 break;
