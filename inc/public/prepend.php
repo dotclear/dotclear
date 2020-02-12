@@ -51,6 +51,12 @@ if ((boolean) !$core->blog->status) {
         , 670);
 }
 
+# Cope with static home page option
+if ($core->blog->settings->system->static_home) {
+    $core->url->registerDefault(['dcUrlHandlers', 'static_home']);
+    $core->url->register('posts', 'posts', '^posts(/.+)?$', ['dcUrlHandlers', 'home']);
+}
+
 # Loading media
 try {
     $core->media = new dcMedia($core);
@@ -150,12 +156,6 @@ if (!empty($tplset) && is_dir(dirname(__FILE__) . '/default-templates/' . $tplse
         $core->tpl->getPath());
 }
 $core->url->mode = $core->blog->settings->system->url_scan;
-
-# Cope with static home page option
-if ($core->blog->settings->system->static_home) {
-    $core->url->registerDefault(['dcUrlHandlers', 'static_home']);
-    $core->url->register('posts', 'posts', '^posts(/.+)?$', ['dcUrlHandlers', 'home']);
-}
 
 try {
     # --BEHAVIOR-- publicBeforeDocument
