@@ -489,15 +489,6 @@ if ($blog_id) {
     form::checkbox('no_search', '1', $blog_settings->system->no_search) .
     __('Disable internal search system') . '</label></p>' .
 
-    '<p><label for="static_home" class="classic">' .
-    form::checkbox('static_home', '1', $blog_settings->system->static_home) .
-    __('Display a static entry as home page') . '</label></p>' .
-
-    '<p><label for="static_home_url">' . __('Entry URL (to be used as content for home page):') . '</label>' .
-    form::field('static_home_url', 30, 255, html::escapeHTML($blog_settings->system->static_home_url)) .
-    '</p>' .
-    '<p class="form-note">' . __('Leave empty to use the default presentation.') . '</p> ' .
-
     '</div>' .
 
     '<div class="col">' .
@@ -544,6 +535,19 @@ if ($blog_id) {
     '</div>' .
     '</div>' .
     '<br class="clear" />' . //Opera sucks
+
+    '<hr .>' .
+
+    '<p><label for="static_home" class="classic">' .
+    form::checkbox('static_home', '1', $blog_settings->system->static_home) .
+    __('Display an entry as static home page') . '</label></p>' .
+
+    '<p><label for="static_home_url" class="classic">' . __('Entry URL (its content will be used for the static home page):') . '</label> ' .
+    form::field('static_home_url', 30, 255, html::escapeHTML($blog_settings->system->static_home_url)) .
+    ' <button type="button" id="static_home_url_selector">' . __('Choose an entry') . '</button>' .
+    '</p>' .
+    '<p class="form-note">' . __('Leave empty to use the default presentation.') . '</p> ' .
+
     '</div>';
 
     echo

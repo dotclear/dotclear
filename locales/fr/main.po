@@ -378,11 +378,14 @@ msgstr "Afficher des émoticônes dans les billets, pages et commentaires"
 msgid "Disable internal search system"
 msgstr "Désactiver la recherche interne"
 
-msgid "Display a static entry as home page"
-msgstr "Afficher une publication statique comme page d'accueil"
+msgid "Display an entry as static home page"
+msgstr "Afficher une publication comme page d'accueil statique"
 
-msgid "Entry URL (to be used as content for home page):"
-msgstr "URL de la publication (son contenu sera utilisé pour la page d'accueil) :"
+msgid "Entry URL (its content will be used for the static home page):"
+msgstr "URL de la publication (son contenu sera utilisé pour la page d'accueil statique) :"
+
+msgid "Choose an entry"
+msgstr "Sélectionner une publication"
 
 msgid "Leave empty to use the default presentation."
 msgstr "Laissez vide pour utiliser la présentation par défaut."

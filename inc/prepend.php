@@ -82,6 +82,7 @@ $__autoload['dcPostsActionsPage']    = dirname(__FILE__) . '/admin/actions/class
 $__autoload['dcCommentsActionsPage'] = dirname(__FILE__) . '/admin/actions/class.dcactioncomments.php';
 $__autoload['dcBlogsActionsPage']    = dirname(__FILE__) . '/admin/actions/class.dcactionblogs.php';
 $__autoload['dcActionsPage']         = dirname(__FILE__) . '/admin/actions/class.dcaction.php';
+$__autoload['dcAdminBlogPref']       = dirname(__FILE__) . '/admin/class.dc.blog_pref.php';
 
 $__autoload['dcTemplate']    = dirname(__FILE__) . '/public/class.dc.template.php';
 $__autoload['context']       = dirname(__FILE__) . '/public/lib.tpl.context.php';
