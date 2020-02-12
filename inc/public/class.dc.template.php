@@ -71,6 +71,10 @@ class dcTemplate extends template
         $this->addValue('BlogQmarkURL', [$this, 'BlogQmarkURL']);
         $this->addValue('BlogMetaRobots', [$this, 'BlogMetaRobots']);
         $this->addValue('BlogJsJQuery', [$this, 'BlogJsJQuery']);
+        $this->addValue('BlogPostsURL', [$this, 'BlogPostsURL']);
+        $this->addBlock('IfBlogStaticEntryURL', [$this, 'IfBlogStaticEntryURL']);
+        $this->addValue('BlogStaticEntryURL', [$this, 'BlogStaticEntryURL']);
+
 
         # Categories
         $this->addBlock('Categories', [$this, 'Categories']);
@@ -890,6 +894,39 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
         return '<?php echo ' . sprintf($f, '$core->blog->getJsJQuery()') . '; ?>';
+    }
+
+    /*dtd
+    <!ELEMENT tpl:BlogPostsURL - O -- Blog Posts URL -->
+     */
+    public function BlogPostsURL($attr)
+    {
+        $f = $this->getFilters($attr);
+        return '<?php echo ' . sprintf($f, ('$core->blog->settings->system->static_home ? $core->blog->url.$core->url->getURLFor("posts") : $core->blog->url')) . '; ?>';
+    }
+
+    /*dtd
+    <!ELEMENT tpl:IfBlogStaticEntryURL - O -- Test if Blog has a static home entry URL -->
+     */
+    public function IfBlogStaticEntryURL($attr, $content)
+    {
+        return
+            "<?php if (\$core->blog->settings->system->static_home_url != '') : ?>" .
+            $content .
+            "<?php endif; ?>";
+    }
+
+    /*dtd
+    <!ELEMENT tpl:BlogStaticEntryURL - O -- Set Blog static home entry URL -->
+     */
+    public function BlogStaticEntryURL($attr)
+    {
+        $f = $this->getFilters($attr);
+
+        $p = "\$params['post_type'] = array_keys(\$core->getPostTypes());\n";
+        $p .= "\$params['post_url'] = " . sprintf($f, '$core->blog->settings->system->static_home_url') . ";\n";
+
+        return "<?php\n" . $p . " ?>";
     }
 
     /* Categories ----------------------------------------- */
