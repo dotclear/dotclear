@@ -275,6 +275,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin', $blog_id)) {
         $blog_settings->system->put('jquery_version', $_POST['jquery_version']);
         $blog_settings->system->put('prevents_clickjacking', !empty($_POST['prevents_clickjacking']));
         $blog_settings->system->put('static_home', !empty($_POST['static_home']));
+        $blog_settings->system->put('static_home_url', $_POST['static_home_url']);
 
         # --BEHAVIOR-- adminBeforeBlogSettingsUpdate
         $core->callBehavior('adminBeforeBlogSettingsUpdate', $blog_settings);
@@ -490,7 +491,12 @@ if ($blog_id) {
 
     '<p><label for="static_home" class="classic">' .
     form::checkbox('static_home', '1', $blog_settings->system->static_home) .
-    __('Display a static page as home page') . '</label></p>' .
+    __('Display a static entry as home page') . '</label></p>' .
+
+    '<p><label for="static_home_url">' . __('Entry URL (to be used as content for home page):') . '</label>' .
+    form::field('static_home_url', 30, 255, html::escapeHTML($blog_settings->system->static_home_url)) .
+    '</p>' .
+    '<p class="form-note">' . __('Leave empty to use the default presentation.') . '</p> ' .
 
     '</div>' .
 
