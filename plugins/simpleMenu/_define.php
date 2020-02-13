@@ -15,7 +15,7 @@ $this->registerModule(
     "simpleMenu",               // Name
     "Simple menu for Dotclear", // Description
     "Franck Paul",              // Author
-    '1.5',                      // Version
+    '1.6',                      // Version
     [
         'permissions' => 'admin',
         'type'        => 'plugin',

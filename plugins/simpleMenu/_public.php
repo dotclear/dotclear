@@ -57,8 +57,8 @@ class tplSimpleMenu
             return;
         }
 
-        if (($w->homeonly == 1 && $core->url->type != 'default') ||
-            ($w->homeonly == 2 && $core->url->type == 'default')) {
+        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) ||
+            ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
             return;
         }
 

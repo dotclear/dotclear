@@ -13,6 +13,17 @@ class dcUrlHandlers extends urlHandler
 {
     public $args;
 
+    protected function getHomeType()
+    {
+        $core = &$GLOBALS['core'];
+        return $core->blog->settings->system->static_home ? 'static' : 'default';
+    }
+
+    public function isHome($type)
+    {
+        return $type == $this->getHomeType();
+    }
+
     public function getURLFor($type, $value = '')
     {
         $core = &$GLOBALS['core'];
@@ -187,7 +198,7 @@ class dcUrlHandlers extends urlHandler
         $core->callBehavior('urlHandlerGetArgsDocument', $this);
 
         if (!$type) {
-            $this->type = 'default';
+            $this->type = $this->getHomeType();
             $this->callDefaultHandler($this->args);
         } else {
             $this->type = $type;

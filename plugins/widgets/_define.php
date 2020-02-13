@@ -15,7 +15,7 @@ $this->registerModule(
     "Widgets",                         // Name
     "Widgets for your blog sidebars",  // Description
     "Olivier Meunier & Dotclear Team", // Author
-    '3.4',                             // Version
+    '3.5',                             // Version
     [
         'permissions' => 'admin',
         'priority'    => 1000000000,
