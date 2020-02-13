@@ -536,7 +536,7 @@ if ($blog_id) {
     '</div>' .
     '<br class="clear" />' . //Opera sucks
 
-    '<hr .>' .
+    '<hr />' .
 
     '<p><label for="static_home" class="classic">' .
     form::checkbox('static_home', '1', $blog_settings->system->static_home) .
