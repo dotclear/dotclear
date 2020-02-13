@@ -285,6 +285,7 @@ try {
 $core->url->registerDefault(['dcUrlHandlers', 'home']);
 $core->url->registerError(['dcUrlHandlers', 'default404']);
 $core->url->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', ['dcUrlHandlers', 'lang']);
+$core->url->register('posts', 'posts', '^posts(/.+)?$', ['dcUrlHandlers', 'home']);
 $core->url->register('post', 'post', '^post/(.+)$', ['dcUrlHandlers', 'post']);
 $core->url->register('preview', 'preview', '^preview/(.+)$', ['dcUrlHandlers', 'preview']);
 $core->url->register('category', 'category', '^category/(.+)$', ['dcUrlHandlers', 'category']);
