@@ -1701,6 +1701,9 @@ msgstr "La configuration a été mise à jour"
 msgid "Label"
 msgstr "Libellé"
 
+msgid "Home page"
+msgstr "Page d'accueil"
+
 msgid "Recent posts"
 msgstr "Billets récents"
 

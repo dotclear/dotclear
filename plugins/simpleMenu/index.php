@@ -80,6 +80,10 @@ try {
 $items         = new ArrayObject();
 $items['home'] = new ArrayObject([__('Home'), false]);
 
+if ($core->blog->settings->system->static_home) {
+    $items['posts'] = new ArrayObject([__('Posts'), false]);
+}
+
 if (count($langs_combo) > 1) {
     $items['lang'] = new ArrayObject([__('Language'), true]);
 }
@@ -175,7 +179,12 @@ if (!empty($_POST['saveconfig'])) {
                 switch ($item_type) {
                     case 'home':
                         $item_label = __('Home');
+                        $item_descr = $core->blog->settings->system->static_home ? __('Home page') : __('Recent posts');
+                        break;
+                    case 'posts':
+                        $item_label = __('Posts');
                         $item_descr = __('Recent posts');
+                        $item_url .= $core->url->getURLFor('posts');
                         break;
                     case 'lang':
                         $item_select_label = array_search($item_select, $langs_combo);
