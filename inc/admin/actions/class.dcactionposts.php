@@ -31,14 +31,14 @@ class dcPostsActionsPage extends dcActionsPage
     public function beginPage($breadcrumb = '', $head = '')
     {
         if ($this->in_plugin) {
-            echo '<html><head><title>' . __('Entries') . '</title>' .
+            echo '<html><head><title>' . __('Posts') . '</title>' .
             dcPage::jsLoad('js/_posts_actions.js') .
                 $head .
                 '</script></head><body>' .
                 $breadcrumb;
         } else {
             dcPage::open(
-                __('Entries'),
+                __('Posts'),
                 dcPage::jsLoad('js/_posts_actions.js') .
                 $head,
                 $breadcrumb
@@ -63,7 +63,7 @@ class dcPostsActionsPage extends dcActionsPage
             [
                 html::escapeHTML($this->core->blog->name) => '',
                 $this->getCallerTitle()                   => $this->getRedirection(true),
-                __('Entries actions')                     => ''
+                __('Posts actions')                     => ''
             ])
         );
         $this->endPage();

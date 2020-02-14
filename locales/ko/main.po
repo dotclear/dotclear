@@ -1999,6 +1999,9 @@ msgstr ""
 msgid "Entries"
 msgstr "글꼭지"
 
+msgid "Posts"
+msgstr "글꼭지"
+
 msgid "Entry has been successfully updated."
 msgstr "글꼭지가 성공적으로 갱신되었습니다."
 
@@ -2868,6 +2871,10 @@ msgstr "분류 목록"
 
 #, fuzzy
 msgid "Entries actions"
+msgstr "선택된 글꼭지들에 대한 작업 :"
+
+#, fuzzy
+msgid "Posts actions"
 msgstr "선택된 글꼭지들에 대한 작업 :"
 
 #, fuzzy

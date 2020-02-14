@@ -269,7 +269,7 @@ if ($core->auth->userID() && $core->blog !== null) {
         $core->auth->check('usage,contentadmin', $core->blog->id));
     addMenuItem('Blog', __('Comments'), 'admin.comments', 'images/menu/comments.png',
         $core->auth->check('usage,contentadmin', $core->blog->id));
-    addMenuItem('Blog', __('Entries'), 'admin.posts', 'images/menu/entries.png',
+    addMenuItem('Blog', __('Posts'), 'admin.posts', 'images/menu/entries.png',
         $core->auth->check('usage,contentadmin', $core->blog->id));
     addMenuItem('Blog', __('New post'), 'admin.post', 'images/menu/edit.png',
         $core->auth->check('usage,contentadmin', $core->blog->id), true, true);

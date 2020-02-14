@@ -1988,6 +1988,9 @@ msgstr ""
 msgid "Entries"
 msgstr "టపాలు"
 
+msgid "Posts"
+msgstr "టపాలు"
+
 msgid "Entry has been successfully updated."
 msgstr "విజయవంతంగా టపాని తాజాకరించాం."
 
@@ -2853,6 +2856,10 @@ msgstr "వర్గాలు"
 
 #, fuzzy
 msgid "Entries actions"
+msgstr "ఎంచుకున్న వాటిపై చర్య:"
+
+#, fuzzy
+msgid "Posts actions"
 msgstr "ఎంచుకున్న వాటిపై చర్య:"
 
 msgid "Schedule"

@@ -1989,6 +1989,9 @@ msgstr ""
 msgid "Entries"
 msgstr "文章"
 
+msgid "Posts"
+msgstr "文章"
+
 msgid "Entry has been successfully updated."
 msgstr "成功更新文章。"
 
@@ -2853,6 +2856,10 @@ msgstr "分类目录列表"
 
 #, fuzzy
 msgid "Entries actions"
+msgstr "已选择的文章的动作："
+
+#, fuzzy
+msgid "Posts actions"
 msgstr "已选择的文章的动作："
 
 msgid "Schedule"

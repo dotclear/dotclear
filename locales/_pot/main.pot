@@ -2606,6 +2606,9 @@ msgstr ""
 msgid "Entries"
 msgstr ""
 
+msgid "Posts"
+msgstr ""
+
 #: admin/post.php:410
 msgid "Entry has been successfully updated."
 msgstr ""
@@ -3640,6 +3643,9 @@ msgstr ""
 
 #: inc/admin/actions/class.dcactionposts.php:66
 msgid "Entries actions"
+msgstr ""
+
+msgid "Posts actions"
 msgstr ""
 
 #: inc/admin/actions/class.dcactionposts.php:112

@@ -1975,6 +1975,9 @@ msgstr ""
 msgid "Entries"
 msgstr "Indlæg"
 
+msgid "Posts"
+msgstr "Indlæg"
+
 msgid "Entry has been successfully updated."
 msgstr ""
 
@@ -2819,6 +2822,10 @@ msgstr "Kategori liste"
 
 #, fuzzy
 msgid "Entries actions"
+msgstr "Indlæg"
+
+#, fuzzy
+msgid "Posts actions"
 msgstr "Indlæg"
 
 msgid "Schedule"

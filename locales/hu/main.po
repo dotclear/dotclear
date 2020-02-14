@@ -2024,6 +2024,9 @@ msgstr ""
 msgid "Entries"
 msgstr "Bejegyzések"
 
+msgid "Posts"
+msgstr "Bejegyzések"
+
 msgid "Entry has been successfully updated."
 msgstr "A bejegyzést frissítettem."
 
@@ -2899,6 +2902,10 @@ msgstr "Kategóriák"
 
 #, fuzzy
 msgid "Entries actions"
+msgstr "Teendő a kijelöltekkel:"
+
+#, fuzzy
+msgid "Posts actions"
 msgstr "Teendő a kijelöltekkel:"
 
 #, fuzzy

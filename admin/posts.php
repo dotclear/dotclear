@@ -304,12 +304,12 @@ try {
 /* DISPLAY
 -------------------------------------------------------- */
 
-dcPage::open(__('Entries'),
+dcPage::open(__('Posts'),
     dcPage::jsLoad('js/_posts_list.js') . dcPage::jsFilterControl($show_filters),
     dcPage::breadcrumb(
         [
             html::escapeHTML($core->blog->name) => '',
-            __('Entries')                       => ''
+            __('Posts')                       => ''
         ])
 );
 if (!empty($_GET['upd'])) {

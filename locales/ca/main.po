@@ -2025,6 +2025,9 @@ msgstr ""
 msgid "Entries"
 msgstr "Entrades"
 
+msgid "Posts"
+msgstr "Entrades"
+
 msgid "Entry has been successfully updated."
 msgstr "L'entrada s'ha actualitzat amb èxit."
 
@@ -2892,6 +2895,9 @@ msgstr "Categories"
 
 #, fuzzy
 msgid "Entries actions"
+msgstr "Acció en les entrades seleccionades:"
+
+msgid "Posts actions"
 msgstr "Acció en les entrades seleccionades:"
 
 #, fuzzy

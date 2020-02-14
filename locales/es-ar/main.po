@@ -1997,6 +1997,9 @@ msgstr ""
 msgid "Entries"
 msgstr "Entradas"
 
+msgid "Posts"
+msgstr "Entradas"
+
 msgid "Entry has been successfully updated."
 msgstr "Entrada actualizada con éxito."
 
@@ -2866,6 +2869,10 @@ msgstr "Lista de categorías"
 
 #, fuzzy
 msgid "Entries actions"
+msgstr "Acción de las entradas seleccionadas:"
+
+#, fuzzy
+msgid "Posts actions"
 msgstr "Acción de las entradas seleccionadas:"
 
 #, fuzzy

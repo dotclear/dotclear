@@ -1929,6 +1929,9 @@ msgid "&ldquo;%s&rdquo;"
 msgstr "&ldquo;%s&rdquo;"
 
 msgid "Entries"
+msgstr "Publications"
+
+msgid "Posts"
 msgstr "Billets"
 
 msgid "Entry has been successfully updated."
@@ -2710,6 +2713,9 @@ msgid "Back to entries list"
 msgstr "Retour à la liste des billets"
 
 msgid "Entries actions"
+msgstr "Action sur les publications"
+
+msgid "Posts actions"
 msgstr "Action sur les publications"
 
 msgid "Schedule"

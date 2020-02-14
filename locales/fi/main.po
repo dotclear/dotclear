@@ -1913,6 +1913,9 @@ msgstr "&rdquo;%s&rdquo;"
 msgid "Entries"
 msgstr "Merkinnät"
 
+msgid "Posts"
+msgstr "Merkinnät"
+
 msgid "Entry has been successfully updated."
 msgstr "Merkintä on päivitetty."
 
@@ -2700,6 +2703,9 @@ msgid "Back to entries list"
 msgstr "Paluu blogimerkintäluetteloon"
 
 msgid "Entries actions"
+msgstr "Toimet merkintöjen suhteen"
+
+msgid "Posts actions"
 msgstr "Toimet merkintöjen suhteen"
 
 msgid "Schedule"

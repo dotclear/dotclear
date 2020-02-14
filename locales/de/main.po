@@ -1902,6 +1902,9 @@ msgstr ""
 msgid "Entries"
 msgstr "Einträge"
 
+msgid "Posts"
+msgstr "Einträge"
+
 msgid "Entry has been successfully updated."
 msgstr "Eintrag wurde erfolgreich aktualisiert."
 
@@ -2675,6 +2678,9 @@ msgid "Back to entries list"
 msgstr "Zurück zu den Einträgen"
 
 msgid "Entries actions"
+msgstr "Eintrags-Funktionen"
+
+msgid "Posts actions"
 msgstr "Eintrags-Funktionen"
 
 msgid "Schedule"

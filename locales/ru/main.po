@@ -1996,6 +1996,9 @@ msgstr ""
 msgid "Entries"
 msgstr "Записи"
 
+msgid "Posts"
+msgstr "Записи"
+
 msgid "Entry has been successfully updated."
 msgstr "Запись упешно отредактирована"
 
@@ -2866,6 +2869,10 @@ msgstr "Категории."
 
 #, fuzzy
 msgid "Entries actions"
+msgstr "Действия над выбранными записями:"
+
+#, fuzzy
+msgid "Posts actions"
 msgstr "Действия над выбранными записями:"
 
 msgid "Schedule"

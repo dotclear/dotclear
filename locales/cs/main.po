@@ -1996,6 +1996,9 @@ msgstr ""
 msgid "Entries"
 msgstr "Články"
 
+msgid "Posts"
+msgstr "Články"
+
 msgid "Entry has been successfully updated."
 msgstr "Článek byl úspěšně upraven."
 
@@ -2866,6 +2869,9 @@ msgstr "Seznam kategorií"
 
 #, fuzzy
 msgid "Entries actions"
+msgstr "Vybrané články:"
+
+msgid "Posts actions"
 msgstr "Vybrané články:"
 
 msgid "Schedule"

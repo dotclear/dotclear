@@ -384,7 +384,7 @@ if ($post_editor) {
     }
 }
 
-dcPage::open($page_title . ' - ' . __('Entries'),
+dcPage::open($page_title . ' - ' . __('Posts'),
     dcPage::jsDatePicker() .
     dcPage::jsModal() .
     dcPage::jsMetaEditor() .
@@ -398,7 +398,7 @@ dcPage::open($page_title . ' - ' . __('Entries'),
     dcPage::breadcrumb(
         [
             html::escapeHTML($core->blog->name)         => '',
-            __('Entries')                               => $core->adminurl->get("admin.posts"),
+            __('Posts')                               => $core->adminurl->get("admin.posts"),
             ($post_id ? $page_title_edit : $page_title) => ''
         ])
     , [

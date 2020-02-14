@@ -1973,6 +1973,9 @@ msgstr ""
 msgid "Entries"
 msgstr "এন্ট্রি"
 
+msgid "Posts"
+msgstr "এন্ট্রি"
+
 msgid "Entry has been successfully updated."
 msgstr ""
 
@@ -2832,6 +2835,9 @@ msgstr "ক্যাটাগরির লিস্ট"
 
 #, fuzzy
 msgid "Entries actions"
+msgstr "এন্ট্রি"
+
+msgid "Posts actions"
 msgstr "এন্ট্রি"
 
 msgid "Schedule"

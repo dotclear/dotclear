@@ -2002,6 +2002,9 @@ msgstr ""
 msgid "Entries"
 msgstr "エントリ"
 
+msgid "Posts"
+msgstr "エントリ"
+
 msgid "Entry has been successfully updated."
 msgstr "エントリは正常に更新されました。"
 
@@ -2871,6 +2874,10 @@ msgstr "カテゴリリスト"
 
 #, fuzzy
 msgid "Entries actions"
+msgstr "選択されたエントリに実行："
+
+#, fuzzy
+msgid "Posts actions"
 msgstr "選択されたエントリに実行："
 
 #, fuzzy

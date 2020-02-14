@@ -1978,6 +1978,9 @@ msgstr ""
 msgid "Entries"
 msgstr "Yazılar"
 
+msgid "Posts"
+msgstr "Yazılar"
+
 msgid "Entry has been successfully updated."
 msgstr "Yazı güncellemini başarılı."
 
@@ -2843,6 +2846,10 @@ msgstr "Kategori listesi"
 
 #, fuzzy
 msgid "Entries actions"
+msgstr "Seçilmiş yazılara yap:"
+
+#, fuzzy
+msgid "Posts actions"
 msgstr "Seçilmiş yazılara yap:"
 
 #, fuzzy

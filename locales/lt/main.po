@@ -1994,6 +1994,9 @@ msgstr ""
 msgid "Entries"
 msgstr "Įrašai"
 
+msgid "Posts"
+msgstr "Įrašai"
+
 msgid "Entry has been successfully updated."
 msgstr "Įrašas sėkmingai atnaujintas"
 
@@ -2863,6 +2866,10 @@ msgstr "Kategorijų sąrašas"
 
 #, fuzzy
 msgid "Entries actions"
+msgstr "Pasirinktų įrašų veiksmas:"
+
+#, fuzzy
+msgid "Posts actions"
 msgstr "Pasirinktų įrašų veiksmas:"
 
 msgid "Schedule"
