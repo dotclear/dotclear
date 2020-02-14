@@ -1044,7 +1044,7 @@ msgstr ""
 msgid "Quick entry"
 msgstr "快速书写文章"
 
-msgid "New entry"
+msgid "New post"
 msgstr "新文章"
 
 msgid "Title:"

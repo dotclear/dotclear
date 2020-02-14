@@ -1020,7 +1020,7 @@ msgstr "Des erreurs se sont produites avec les plugins suivants :"
 msgid "Quick entry"
 msgstr "Billet rapide"
 
-msgid "New entry"
+msgid "New post"
 msgstr "Nouveau billet"
 
 msgid "Title:"

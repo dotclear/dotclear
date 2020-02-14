@@ -1062,7 +1062,7 @@ msgstr ""
 msgid "Quick entry"
 msgstr "Új bejegyzés"
 
-msgid "New entry"
+msgid "New post"
 msgstr "Új bejegyzés"
 
 msgid "Title:"

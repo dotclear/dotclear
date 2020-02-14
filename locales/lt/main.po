@@ -1048,7 +1048,7 @@ msgstr ""
 msgid "Quick entry"
 msgstr "Greitas įrašas"
 
-msgid "New entry"
+msgid "New post"
 msgstr "Naujas įrašas"
 
 msgid "Title:"

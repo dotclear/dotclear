@@ -373,7 +373,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
         '<div id="quick">' .
         '<h3>' . __('Quick entry') . sprintf(' &rsaquo; %s', $core->auth->getOption('post_format')) . '</h3>' .
         '<form id="quick-entry" action="' . $core->adminurl->get('admin.post') . '" method="post" class="fieldset">' .
-        '<h4>' . __('New entry') . '</h4>' .
+        '<h4>' . __('New post') . '</h4>' .
         '<p class="col"><label for="post_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
         form::field('post_title', 20, 255, [
             'class'      => 'maximal',

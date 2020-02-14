@@ -1030,7 +1030,7 @@ msgstr ""
 msgid "Quick entry"
 msgstr "দ্রুত এন্ট্রি"
 
-msgid "New entry"
+msgid "New post"
 msgstr "নতুন এন্ট্রি"
 
 msgid "Title:"

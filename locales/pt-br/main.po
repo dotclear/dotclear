@@ -1060,7 +1060,7 @@ msgstr "Um erro aconteceu durante a supressão do plugin %s :"
 msgid "Quick entry"
 msgstr "1 post"
 
-msgid "New entry"
+msgid "New post"
 msgstr "Novo post"
 
 msgid "Title:"

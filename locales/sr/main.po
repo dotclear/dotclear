@@ -1054,7 +1054,7 @@ msgstr ""
 msgid "Quick entry"
 msgstr "Billet rapide"
 
-msgid "New entry"
+msgid "New post"
 msgstr "Nouveau billet"
 
 msgid "Title:"

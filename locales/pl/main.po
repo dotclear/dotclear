@@ -1044,7 +1044,7 @@ msgstr "Podczas usuwania wtyczki %s wystąpił błąd:"
 msgid "Quick entry"
 msgstr "Szybki wpis"
 
-msgid "New entry"
+msgid "New post"
 msgstr "Nowy wpis"
 
 msgid "Title:"

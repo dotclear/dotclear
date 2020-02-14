@@ -977,7 +977,7 @@ msgstr ""
 msgid "Quick entry"
 msgstr ""
 
-msgid "New entry"
+msgid "New post"
 msgstr ""
 
 msgid "Title:"

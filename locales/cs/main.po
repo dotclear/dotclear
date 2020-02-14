@@ -1046,7 +1046,7 @@ msgstr ""
 msgid "Quick entry"
 msgstr "Rychlý článek"
 
-msgid "New entry"
+msgid "New post"
 msgstr "Nový článek"
 
 msgid "Title:"

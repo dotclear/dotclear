@@ -319,7 +319,7 @@ if (!empty($_GET['upd'])) {
 }
 if (!$core->error->flag()) {
     echo
-    '<p class="top-add"><a class="button add" href="' . $core->adminurl->get("admin.post") . '">' . __('New entry') . '</a></p>' .
+    '<p class="top-add"><a class="button add" href="' . $core->adminurl->get("admin.post") . '">' . __('New post') . '</a></p>' .
     '<form action="' . $core->adminurl->get("admin.posts") . '" method="get" id="filters-form">' .
     '<h3 class="out-of-screen-if-js">' . __('Show filters and display options') . '</h3>' .
 

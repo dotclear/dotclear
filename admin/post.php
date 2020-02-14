@@ -30,7 +30,7 @@ $post_selected      = false;
 $post_open_comment  = $core->blog->settings->system->allow_comments;
 $post_open_tb       = $core->blog->settings->system->allow_trackbacks;
 
-$page_title = __('New entry');
+$page_title = __('New post');
 
 $can_view_page = true;
 $can_edit_post = $core->auth->check('usage,contentadmin', $core->blog->id);
@@ -690,7 +690,7 @@ if ($can_edit_post) {
     # --BEHAVIOR-- adminPostFormItems
     $core->callBehavior('adminPostFormItems', $main_items, $sidebar_items, isset($post) ? $post : null, 'post');
 
-    echo '<div class="multi-part" title="' . ($post_id ? __('Edit entry') : __('New entry')) .
+    echo '<div class="multi-part" title="' . ($post_id ? __('Edit entry') : __('New post')) .
     sprintf(' &rsaquo; %s', $post_format) . '" id="edit-entry">';
     echo '<form action="' . $core->adminurl->get('admin.post') . '" method="post" id="entry-form">';
     echo '<div id="entry-wrapper">';

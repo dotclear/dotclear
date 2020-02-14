@@ -1048,7 +1048,7 @@ msgstr ""
 msgid "Quick entry"
 msgstr "글꼭지 바로 만들기"
 
-msgid "New entry"
+msgid "New post"
 msgstr "새 글꼭지"
 
 msgid "Title:"

@@ -1038,7 +1038,7 @@ msgstr ""
 msgid "Quick entry"
 msgstr "Hurtigt indlæg"
 
-msgid "New entry"
+msgid "New post"
 msgstr "Nyt indlæg"
 
 msgid "Title:"

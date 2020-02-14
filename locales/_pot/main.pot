@@ -1386,7 +1386,7 @@ msgstr ""
 #: admin/index.php:285 admin/post.php:33 admin/post.php:680
 #: admin/posts.php:322 inc/admin/class.dc.favorites.php:418
 #: inc/admin/prepend.php:266
-msgid "New entry"
+msgid "New post"
 msgstr ""
 
 #: admin/index.php:286 admin/index.php:301 admin/media.php:951

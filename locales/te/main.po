@@ -1040,7 +1040,7 @@ msgstr ""
 msgid "Quick entry"
 msgstr "త్వరిత టపా"
 
-msgid "New entry"
+msgid "New post"
 msgstr "కొత్త టపా"
 
 msgid "Title:"

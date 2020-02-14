@@ -1036,7 +1036,7 @@ msgstr ""
 msgid "Quick entry"
 msgstr "Hızlı entri"
 
-msgid "New entry"
+msgid "New post"
 msgstr "Yeni yazı"
 
 msgid "Title:"

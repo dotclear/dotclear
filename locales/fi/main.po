@@ -997,7 +997,7 @@ msgstr "Seuraavat liitännäiset ovat aiheuttaneet virheitä:"
 msgid "Quick entry"
 msgstr "Nopea merkintä"
 
-msgid "New entry"
+msgid "New post"
 msgstr "Uusi merkintä"
 
 msgid "Title:"

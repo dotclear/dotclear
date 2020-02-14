@@ -1047,7 +1047,7 @@ msgstr ""
 msgid "Quick entry"
 msgstr "Entrada rápida"
 
-msgid "New entry"
+msgid "New post"
 msgstr "Nueva entrada"
 
 msgid "Title:"

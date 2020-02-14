@@ -416,7 +416,7 @@ class defaultFavorites
                 'small-icon' => 'images/menu/user-pref.png',
                 'large-icon' => 'images/menu/user-pref-b.png'],
             'new_post'   => [
-                'title'       => __('New entry'),
+                'title'       => __('New post'),
                 'url'         => $core->adminurl->get("admin.post"),
                 'small-icon'  => 'images/menu/edit.png',
                 'large-icon'  => 'images/menu/edit-b.png',
