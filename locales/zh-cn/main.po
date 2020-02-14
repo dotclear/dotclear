@@ -1938,7 +1938,7 @@ msgstr "搜索"
 msgid "cancel"
 msgstr "取消"
 
-msgid "Edit entry"
+msgid "Edit post"
 msgstr "编辑文章"
 
 msgid "This entry does not exist."

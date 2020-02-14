@@ -2538,7 +2538,7 @@ msgid "cancel"
 msgstr ""
 
 #: admin/post.php:80 admin/post.php:680 inc/admin/lib.dc.page.php:805
-msgid "Edit entry"
+msgid "Edit post"
 msgstr ""
 
 #: admin/post.php:87

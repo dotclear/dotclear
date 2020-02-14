@@ -1923,7 +1923,7 @@ msgstr "সার্চ"
 msgid "cancel"
 msgstr "বাতিল"
 
-msgid "Edit entry"
+msgid "Edit post"
 msgstr "এন্ট্রি এডিট"
 
 msgid "This entry does not exist."

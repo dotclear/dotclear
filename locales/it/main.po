@@ -1941,7 +1941,7 @@ msgstr "Cerca"
 msgid "cancel"
 msgstr "annulla"
 
-msgid "Edit entry"
+msgid "Edit post"
 msgstr "Modifica articolo"
 
 msgid "This entry does not exist."

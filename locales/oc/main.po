@@ -1868,7 +1868,7 @@ msgstr "Recercar"
 msgid "cancel"
 msgstr "dirimir"
 
-msgid "Edit entry"
+msgid "Edit post"
 msgstr ""
 
 msgid "This entry does not exist."

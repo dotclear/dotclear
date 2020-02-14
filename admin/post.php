@@ -77,7 +77,7 @@ $tb_urls = $tb_excerpt = '';
 
 # Get entry informations
 if (!empty($_REQUEST['id'])) {
-    $page_title = __('Edit entry');
+    $page_title = __('Edit post');
 
     $params['post_id'] = $_REQUEST['id'];
 
@@ -690,7 +690,7 @@ if ($can_edit_post) {
     # --BEHAVIOR-- adminPostFormItems
     $core->callBehavior('adminPostFormItems', $main_items, $sidebar_items, isset($post) ? $post : null, 'post');
 
-    echo '<div class="multi-part" title="' . ($post_id ? __('Edit entry') : __('New post')) .
+    echo '<div class="multi-part" title="' . ($post_id ? __('Edit post') : __('New post')) .
     sprintf(' &rsaquo; %s', $post_format) . '" id="edit-entry">';
     echo '<form action="' . $core->adminurl->get('admin.post') . '" method="post" id="entry-form">';
     echo '<div id="entry-wrapper">';

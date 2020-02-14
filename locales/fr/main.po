@@ -1887,7 +1887,7 @@ msgstr "Rechercher"
 msgid "cancel"
 msgstr "annuler"
 
-msgid "Edit entry"
+msgid "Edit post"
 msgstr "Modifier le billet"
 
 msgid "This entry does not exist."

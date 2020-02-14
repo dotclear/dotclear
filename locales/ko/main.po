@@ -1948,7 +1948,7 @@ msgstr "찾기"
 msgid "cancel"
 msgstr "취소"
 
-msgid "Edit entry"
+msgid "Edit post"
 msgstr "글꼭지 편집"
 
 msgid "This entry does not exist."

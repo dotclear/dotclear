@@ -1951,7 +1951,7 @@ msgstr "検索"
 msgid "cancel"
 msgstr "キャンセル"
 
-msgid "Edit entry"
+msgid "Edit post"
 msgstr "エントリの編集"
 
 msgid "This entry does not exist."

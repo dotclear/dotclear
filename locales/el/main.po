@@ -1829,7 +1829,7 @@ msgstr ""
 msgid "cancel"
 msgstr ""
 
-msgid "Edit entry"
+msgid "Edit post"
 msgstr ""
 
 msgid "This entry does not exist."

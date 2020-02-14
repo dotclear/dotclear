@@ -1927,7 +1927,7 @@ msgstr "Ara"
 msgid "cancel"
 msgstr "iptal"
 
-msgid "Edit entry"
+msgid "Edit post"
 msgstr "Yazıyı düzenle"
 
 msgid "This entry does not exist."

@@ -1973,7 +1973,7 @@ msgstr "Keresés"
 msgid "cancel"
 msgstr "vissza"
 
-msgid "Edit entry"
+msgid "Edit post"
 msgstr "Bejegyzés szerkesztése"
 
 msgid "This entry does not exist."

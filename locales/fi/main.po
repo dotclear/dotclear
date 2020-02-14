@@ -1869,7 +1869,7 @@ msgstr "Haku"
 msgid "cancel"
 msgstr "peruuta"
 
-msgid "Edit entry"
+msgid "Edit post"
 msgstr "Muokkaa merkintää"
 
 msgid "This entry does not exist."

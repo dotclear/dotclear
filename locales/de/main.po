@@ -1858,7 +1858,7 @@ msgstr "Suche"
 msgid "cancel"
 msgstr "abbrechen"
 
-msgid "Edit entry"
+msgid "Edit post"
 msgstr "Eintrag bearbeiten"
 
 msgid "This entry does not exist."

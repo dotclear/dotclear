@@ -1998,7 +1998,7 @@ msgstr "Pesquisar"
 msgid "cancel"
 msgstr "cancelar"
 
-msgid "Edit entry"
+msgid "Edit post"
 msgstr "Modificar o post"
 
 msgid "This entry does not exist."

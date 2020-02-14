@@ -1975,7 +1975,7 @@ msgstr ""
 msgid "cancel"
 msgstr "Anul·lar"
 
-msgid "Edit entry"
+msgid "Edit post"
 msgstr "Editar l'entrada"
 
 msgid "This entry does not exist."

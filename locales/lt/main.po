@@ -1943,7 +1943,7 @@ msgstr "Paieška"
 msgid "cancel"
 msgstr "atšaukti"
 
-msgid "Edit entry"
+msgid "Edit post"
 msgstr "Įrašo redagavimas"
 
 msgid "This entry does not exist."

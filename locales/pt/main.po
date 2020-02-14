@@ -1945,7 +1945,7 @@ msgstr "Pesquisa"
 msgid "cancel"
 msgstr "cancelar"
 
-msgid "Edit entry"
+msgid "Edit post"
 msgstr "Editar entrada"
 
 msgid "This entry does not exist."
