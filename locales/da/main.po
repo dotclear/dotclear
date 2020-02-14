@@ -1035,7 +1035,7 @@ msgstr "Følgende plugins er ikke installeret:"
 msgid "Errors have occured with following plugins:"
 msgstr ""
 
-msgid "Quick entry"
+msgid "Quick post"
 msgstr "Hurtigt indlæg"
 
 msgid "New post"

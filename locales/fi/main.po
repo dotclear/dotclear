@@ -994,7 +994,7 @@ msgstr "Seuraavia liitännäisiä ei ole asennettu:"
 msgid "Errors have occured with following plugins:"
 msgstr "Seuraavat liitännäiset ovat aiheuttaneet virheitä:"
 
-msgid "Quick entry"
+msgid "Quick post"
 msgstr "Nopea merkintä"
 
 msgid "New post"

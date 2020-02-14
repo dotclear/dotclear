@@ -994,7 +994,7 @@ msgstr "Folgende Plugins sind noch nicht installiert:"
 msgid "Errors have occured with following plugins:"
 msgstr ""
 
-msgid "Quick entry"
+msgid "Quick post"
 msgstr "Schnelleintrag"
 
 msgid "New post"

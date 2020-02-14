@@ -1380,7 +1380,7 @@ msgid "Errors have occured with following plugins:"
 msgstr ""
 
 #: admin/index.php:283
-msgid "Quick entry"
+msgid "Quick post"
 msgstr ""
 
 #: admin/index.php:285 admin/post.php:33 admin/post.php:680

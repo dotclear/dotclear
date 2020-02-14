@@ -1033,7 +1033,7 @@ msgstr ""
 msgid "Errors have occured with following plugins:"
 msgstr ""
 
-msgid "Quick entry"
+msgid "Quick post"
 msgstr "Hızlı entri"
 
 msgid "New post"

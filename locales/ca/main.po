@@ -1047,7 +1047,7 @@ msgid "Errors have occured with following plugins:"
 msgstr ""
 
 #, fuzzy
-msgid "Quick entry"
+msgid "Quick post"
 msgstr "1 entrada"
 
 msgid "New post"

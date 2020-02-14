@@ -1045,7 +1045,7 @@ msgstr "Следующие плагины не были установлены:"
 msgid "Errors have occured with following plugins:"
 msgstr ""
 
-msgid "Quick entry"
+msgid "Quick post"
 msgstr "Быстрая запись"
 
 msgid "New post"

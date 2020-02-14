@@ -1057,7 +1057,7 @@ msgid "Errors have occured with following plugins:"
 msgstr "Um erro aconteceu durante a supressão do plugin %s :"
 
 #, fuzzy
-msgid "Quick entry"
+msgid "Quick post"
 msgstr "1 post"
 
 msgid "New post"

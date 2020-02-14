@@ -1041,7 +1041,7 @@ msgstr "Następujące wtyczki nie zostały zainstalowane:"
 msgid "Errors have occured with following plugins:"
 msgstr "Podczas usuwania wtyczki %s wystąpił błąd:"
 
-msgid "Quick entry"
+msgid "Quick post"
 msgstr "Szybki wpis"
 
 msgid "New post"

@@ -1027,7 +1027,7 @@ msgstr "নিচের প্লাগইনগুলো ইন্সটল ক
 msgid "Errors have occured with following plugins:"
 msgstr ""
 
-msgid "Quick entry"
+msgid "Quick post"
 msgstr "দ্রুত এন্ট্রি"
 
 msgid "New post"

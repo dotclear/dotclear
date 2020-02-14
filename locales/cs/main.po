@@ -1043,7 +1043,7 @@ msgstr "Následující pluginy nebyly nainstalovány:"
 msgid "Errors have occured with following plugins:"
 msgstr ""
 
-msgid "Quick entry"
+msgid "Quick post"
 msgstr "Rychlý článek"
 
 msgid "New post"

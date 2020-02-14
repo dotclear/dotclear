@@ -1046,7 +1046,7 @@ msgstr "Los siguientes agregados no han sido instalados:"
 msgid "Errors have occured with following plugins:"
 msgstr ""
 
-msgid "Quick entry"
+msgid "Quick post"
 msgstr "Entrada rápida"
 
 msgid "New post"

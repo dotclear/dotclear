@@ -1049,7 +1049,7 @@ msgstr "以下のプラグインはインストールされませんでした：
 msgid "Errors have occured with following plugins:"
 msgstr ""
 
-msgid "Quick entry"
+msgid "Quick post"
 msgstr "クイックエントリ"
 
 msgid "New post"

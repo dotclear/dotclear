@@ -1017,7 +1017,7 @@ msgstr "Les plugins suivants n'ont pas été installés :"
 msgid "Errors have occured with following plugins:"
 msgstr "Des erreurs se sont produites avec les plugins suivants :"
 
-msgid "Quick entry"
+msgid "Quick post"
 msgstr "Billet rapide"
 
 msgid "New post"

@@ -1045,7 +1045,7 @@ msgstr "Šie plugin'ai nebuvo instaliuoti:"
 msgid "Errors have occured with following plugins:"
 msgstr ""
 
-msgid "Quick entry"
+msgid "Quick post"
 msgstr "Greitas įrašas"
 
 msgid "New post"

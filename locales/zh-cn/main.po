@@ -1041,7 +1041,7 @@ msgstr "下列插件还没有安装："
 msgid "Errors have occured with following plugins:"
 msgstr ""
 
-msgid "Quick entry"
+msgid "Quick post"
 msgstr "快速书写文章"
 
 msgid "New post"

@@ -1045,7 +1045,7 @@ msgstr "다음 플러그인들은 설치되지 않았습니다 :"
 msgid "Errors have occured with following plugins:"
 msgstr ""
 
-msgid "Quick entry"
+msgid "Quick post"
 msgstr "글꼭지 바로 만들기"
 
 msgid "New post"

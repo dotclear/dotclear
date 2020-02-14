@@ -371,7 +371,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
 
         $dashboardQuickEntry =
         '<div id="quick">' .
-        '<h3>' . __('Quick entry') . sprintf(' &rsaquo; %s', $core->auth->getOption('post_format')) . '</h3>' .
+        '<h3>' . __('Quick post') . sprintf(' &rsaquo; %s', $core->auth->getOption('post_format')) . '</h3>' .
         '<form id="quick-entry" action="' . $core->adminurl->get('admin.post') . '" method="post" class="fieldset">' .
         '<h4>' . __('New post') . '</h4>' .
         '<p class="col"><label for="post_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
