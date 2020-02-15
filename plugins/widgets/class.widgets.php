@@ -37,8 +37,10 @@ class dcWidgets
 
     public function create($id, $name, $callback, $append_callback = null, $desc = '')
     {
-        $this->__widgets[$id]                  = new dcWidget($id, $name, $callback, $desc);
+        $this->__widgets[$id]                  = new dcWidgetExt($id, $name, $callback, $desc);
         $this->__widgets[$id]->append_callback = $append_callback;
+
+        return $this->__widgets[$id];
     }
 
     public function append($widget)
@@ -292,6 +294,8 @@ class dcWidget
         if (isset($opt)) {
             $this->settings[$name]['opts'] = $opts;
         }
+
+        return $this;
     }
 
     public function settings()
@@ -369,5 +373,49 @@ class dcWidget
                 break;
         }
         return $res;
+    }
+}
+
+class dcWidgetExt extends dcWidget
+{
+    const ALL_PAGES   = 0;  // Widget displayed on every page
+    const HOME_ONLY   = 1;  // Widget displayed on home page only
+    const EXCEPT_HOME = 2;  // Widget displayed on every page but home page
+
+    public function addTitle($title = '')
+    {
+        return $this->setting('title', __('Title (optional)') . ' :', $title);
+    }
+
+    public function addHomeOnly()
+    {
+        return $this->setting('homeonly', __('Display on:'), 0, 'combo',
+            [__('All pages') => self::ALL_PAGES, __('Home page only') => self::HOME_ONLY, __('Except on home page') => self::EXCEPT_HOME]);
+    }
+
+    public function checkHomeOnly($type, $alt_not_home = 1, $alt_home = 0)
+    {
+        global $core;
+
+        if (($this->homeonly == self::HOME_ONLY && !$core->url->isHome($type) && $alt_not_home) ||
+            ($this->homeonly == self::EXCEPT_HOME && ($core->url->isHome($type) || $alt_home ))) {
+            return false;
+        }
+        return true;
+    }
+
+    public function addContentOnly($content_only = 0)
+    {
+        return $this->setting('content_only', __('Content only'), $content_only, 'check');
+    }
+
+    public function addClass($class = '')
+    {
+        return $this->setting('class', __('CSS class:'), $class);
+    }
+
+    public function addOffline($offline = 0)
+    {
+        return $this->setting('offline', __('Offline'), $offline, 'check');
     }
 }

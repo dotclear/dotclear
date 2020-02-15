@@ -25,8 +25,7 @@ class defaultWidgets
             return;
         }
 
-        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) ||
-            ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
+        if (!$w->checkHomeOnly($core->url->type)) {
             return;
         }
 
@@ -50,8 +49,7 @@ class defaultWidgets
             return;
         }
 
-        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) ||
-            ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
+        if (!$w->checkHomeOnly($core->url->type)) {
             return;
         }
 
@@ -83,8 +81,7 @@ class defaultWidgets
             return;
         }
 
-        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) ||
-            ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
+        if (!$w->checkHomeOnly($core->url->type)) {
             return;
         }
 
@@ -137,8 +134,7 @@ class defaultWidgets
             return;
         }
 
-        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) ||
-            ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
+        if (!$w->checkHomeOnly($core->url->type)) {
             return;
         }
 
@@ -179,8 +175,7 @@ class defaultWidgets
             return;
         }
 
-        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type) && $core->url->type != 'lang') ||
-            ($w->homeonly == 2 && ($core->url->isHome($core->url->type) || $core->url->type == 'lang' ))) {
+        if (!$w->checkHomeOnly($core->url->type, ($core->url->type != 'lang'), ($core->url->type == 'lang'))) {
             return;
         }
 
@@ -222,8 +217,7 @@ class defaultWidgets
             return;
         }
 
-        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) ||
-            ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
+        if (!$w->checkHomeOnly($core->url->type)) {
             return;
         }
 
@@ -268,8 +262,7 @@ class defaultWidgets
             return;
         }
 
-        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) ||
-            ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
+        if (!$w->checkHomeOnly($core->url->type)) {
             return;
         }
 
@@ -322,8 +315,7 @@ class defaultWidgets
             return;
         }
 
-        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) ||
-            ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
+        if (!$w->checkHomeOnly($core->url->type)) {
             return;
         }
 
@@ -340,8 +332,7 @@ class defaultWidgets
             return;
         }
 
-        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) ||
-            ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
+        if (!$w->checkHomeOnly($core->url->type)) {
             return;
         }
 
@@ -396,8 +387,7 @@ class defaultWidgets
             return;
         }
 
-        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) ||
-            ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
+        if (!$w->checkHomeOnly($core->url->type)) {
             return;
         }
 
