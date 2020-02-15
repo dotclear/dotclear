@@ -18,31 +18,27 @@ class tagsWidgets
 {
     public static function initWidgets($w)
     {
-        $combo = [
-            __('Tag name')       => 'meta_id_lower',
-            __('Entries count')  => 'count',
-            __('Newest entry')   => 'latest',
-            __('Oldest entry')   => 'oldest'
-        ];
-
-        $w->create('tags', __('Tags'), ['tplTags', 'tagsWidget'], null, 'Tags cloud');
-        $w->tags->setting('title', __('Title (optional)') . ' :', __('Tags'));
-        $w->tags->setting('limit', __('Limit (empty means no limit):'), '20');
-        $w->tags->setting('sortby', __('Order by:'), 'meta_id_lower', 'combo', $combo);
-        $w->tags->setting('orderby', __('Sort:'), 'asc', 'combo',
-            [__('Ascending') => 'asc', __('Descending') => 'desc']
-        );
-        $w->tags->setting('alltagslinktitle', __('Link to all tags:'), __('All tags'));
-        $w->tags->setting('homeonly', __('Display on:'), 0, 'combo',
-            [
-                __('All pages')           => 0,
-                __('Home page only')      => 1,
-                __('Except on home page') => 2
-            ]
-        );
-        $w->tags->setting('content_only', __('Content only'), 0, 'check');
-        $w->tags->setting('class', __('CSS class:'), '');
-        $w->tags->setting('offline', __('Offline'), 0, 'check');
+        $w
+            ->create('tags', __('Tags'), ['tplTags', 'tagsWidget'], null, 'Tags cloud')
+            ->addTitle(__('Menu'))
+            ->setting('limit', __('Limit (empty means no limit):'), '20')
+            ->setting('sortby', __('Order by:'), 'meta_id_lower', 'combo',
+                [
+                    __('Tag name')       => 'meta_id_lower',
+                    __('Entries count')  => 'count',
+                    __('Newest entry')   => 'latest',
+                    __('Oldest entry')   => 'oldest'
+                ])
+            ->setting('orderby', __('Sort:'), 'asc', 'combo',
+                [
+                    __('Ascending') => 'asc',
+                    __('Descending') => 'desc'
+                ])
+            ->setting('alltagslinktitle', __('Link to all tags:'), __('All tags'))
+            ->addHomeOnly()
+            ->addContentOnly()
+            ->addClass()
+            ->addOffline();
     }
 
     public static function initDefaultWidgets($w, $d)
