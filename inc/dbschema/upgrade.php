@@ -682,6 +682,27 @@ class dcUpgrade
             $core->con->execute($strReq);
         }
 
+        if (version_compare($version, '2.16', '<')) {
+            // Update DotAddict plugins store URL
+            $strReq = 'UPDATE ' . $core->prefix . 'setting ' .
+                " SET setting_value = REPLACE(setting_value, 'http://update.dotaddict.org', 'https://update.dotaddict.org') " .
+                " WHERE setting_id = 'store_plugin_url' " .
+                " AND setting_ns = 'system' ";
+            $core->con->execute($strReq);
+            // Update DotAddict themes store URL
+            $strReq = 'UPDATE ' . $core->prefix . 'setting ' .
+                " SET setting_value = REPLACE(setting_value, 'http://update.dotaddict.org', 'https://update.dotaddict.org') " .
+                " WHERE setting_id = 'store_theme_url' " .
+                " AND setting_ns = 'system' ";
+            $core->con->execute($strReq);
+            // Update CSP img-src default directive for media.dotaddict.org
+            $strReq = 'UPDATE ' . $core->prefix . 'setting ' .
+                " SET setting_value = REPLACE(setting_value, 'http://media.dotaddict.org', 'https://media.dotaddict.org') " .
+                " WHERE setting_id = 'csp_admin_img' " .
+                " AND setting_ns = 'system' ";
+            $core->con->execute($strReq);
+        }
+
         $core->setVersion('core', DC_VERSION);
         $core->blogDefaults();
 

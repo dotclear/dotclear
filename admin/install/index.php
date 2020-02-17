@@ -162,8 +162,8 @@ if ($can_install && !empty($_POST)) {
         $blog_settings->system->put('time_formats', $time_formats, 'array', 'Time formats examples', true, true);
 
         # Add repository URL for themes and plugins
-        $blog_settings->system->put('store_plugin_url', 'http://update.dotaddict.org/dc2/plugins.xml', 'string', 'Plugins XML feed location', true, true);
-        $blog_settings->system->put('store_theme_url', 'http://update.dotaddict.org/dc2/themes.xml', 'string', 'Themes XML feed location', true, true);
+        $blog_settings->system->put('store_plugin_url', 'https://update.dotaddict.org/dc2/plugins.xml', 'string', 'Plugins XML feed location', true, true);
+        $blog_settings->system->put('store_theme_url', 'https://update.dotaddict.org/dc2/themes.xml', 'string', 'Themes XML feed location', true, true);
 
         # CSP directive (admin part)
 
@@ -182,7 +182,7 @@ if ($can_install && !empty($_POST)) {
         $blog_settings->system->put('csp_admin_style',
             $csp_prefix . "'self' 'unsafe-inline'" . $csp_suffix, 'string', 'CSP style-src directive', true, true);
         $blog_settings->system->put('csp_admin_img',
-            $csp_prefix . "'self' data: http://media.dotaddict.org blob:", 'string', 'CSP img-src directive', true, true);
+            $csp_prefix . "'self' data: https://media.dotaddict.org blob:", 'string', 'CSP img-src directive', true, true);
 
         # Add Dotclear version
         $cur          = $core->con->openCursor($core->prefix . 'version');

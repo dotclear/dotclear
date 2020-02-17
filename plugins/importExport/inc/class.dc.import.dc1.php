@@ -205,7 +205,7 @@ class dcImportDC1 extends dcIeModule
 
                 '<li>' . sprintf(__('Please note that Dotclear 2 has a new URL layout. You can avoid broken ' .
                     'links by installing <a href="%s">DC1 redirect</a> plugin and activate it in your blog configuration.'),
-                    'http://plugins.dotaddict.org/dc2/details/dc1redirect') . '</li>' .
+                    'https://plugins.dotaddict.org/dc2/details/dc1redirect') . '</li>' .
                 '</ul>' .
 
                 $this->congratMessage();

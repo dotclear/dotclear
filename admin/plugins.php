@@ -145,7 +145,7 @@ if ($core->auth->isSuperAdmin()) {
         echo
         '<p class="info vertical-separator">' . sprintf(
             __("Visit %s repository, the resources center for Dotclear."),
-            '<a href="http://plugins.dotaddict.org/dc2/">Dotaddict</a>'
+            '<a href="https://plugins.dotaddict.org/dc2/">Dotaddict</a>'
         ) .
             '</p>' .
 
@@ -228,7 +228,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
         echo
         '<p class="info vertical-separator">' . sprintf(
             __("Visit %s repository, the resources center for Dotclear."),
-            '<a href="http://plugins.dotaddict.org/dc2/">Dotaddict</a>'
+            '<a href="https://plugins.dotaddict.org/dc2/">Dotaddict</a>'
         ) .
             '</p>' .
 
