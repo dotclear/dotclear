@@ -22,7 +22,7 @@ class dcStoreParser
     /** @var    array    Array of feed contents */
     protected $items;
     /** @var    string    XML bloc tag */
-    protected static $bloc = 'https://dotaddict.org/da/';
+    protected static $bloc = 'http://dotaddict.org/da/';
 
     /**
      * Constructor.
