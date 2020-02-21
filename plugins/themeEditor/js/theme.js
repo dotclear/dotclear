@@ -15,6 +15,10 @@ $(function() {
     theme: current.theme != '' ? current.theme : 'default'
   });
 
+  $('#part-tabs-user-options').on('click', function() {
+    editor.refresh();
+  });
+
   $('#colorsyntax_theme').on('change', function() {
     var input = document.getElementById("colorsyntax_theme");
     var theme = input.options[input.selectedIndex].value;
