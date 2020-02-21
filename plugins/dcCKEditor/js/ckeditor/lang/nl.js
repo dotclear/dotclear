@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
 CKEDITOR.lang['nl'] = {
@@ -392,7 +392,7 @@ CKEDITOR.lang['nl'] = {
     		'8E44AD' : 'Dark Violet',
     		'2C3E50' : 'Desaturated Blue',
     		F39C12 : 'Oranje',
-    		E67E22 : 'Carrot',
+    		E67E22 : 'Wortel',
     		E74C3C : 'Pale Red',
     		ECF0F1 : 'Bright Silver',
     		'95A5A6' : 'Light Grayish Cyan',
