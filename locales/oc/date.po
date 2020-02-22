@@ -92,31 +92,31 @@ msgid "December"
 msgstr "Decembre"
 
 msgid "_Mon"
-msgstr ""
+msgstr "_Diluns"
 
 msgid "_Tue"
-msgstr ""
+msgstr "_Dimars"
 
 msgid "_Wed"
-msgstr ""
+msgstr "_Dimècres"
 
 msgid "_Thu"
-msgstr ""
+msgstr "_Dijòus"
 
 msgid "_Fri"
-msgstr ""
+msgstr "_Divendres"
 
 msgid "_Sat"
-msgstr ""
+msgstr "_Dissabte"
 
 msgid "_Sun"
-msgstr ""
+msgstr "_Dimenge"
 
 msgid "Monday"
 msgstr "Diluns"
 
 msgid "Tuesday"
-msgstr "Dimarç"
+msgstr "Dimars"
 
 msgid "Wednesday"
 msgstr "Dimècres"
