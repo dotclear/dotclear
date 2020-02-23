@@ -17,13 +17,13 @@ msgstr ""
 "X-Generator: Poedit 1.8.8\n"
 
 msgid "To content"
-msgstr ""
+msgstr "Al contengut"
 
 msgid "To menu"
-msgstr ""
+msgstr "Al menú"
 
 msgid "To search"
-msgstr ""
+msgstr "A la cercar"
 
 msgid "By"
 msgstr "Per"
@@ -32,246 +32,246 @@ msgid "by"
 msgstr "per"
 
 msgid "on"
-msgstr "subre"
+msgstr "sus"
 
 msgid "On"
-msgstr "Subre"
+msgstr "Sus"
 
 msgid "Continue reading"
-msgstr ""
+msgstr "Téner de legir"
 
 #, fuzzy
 msgid "no comments"
-msgstr "0 comentaris"
+msgstr "Cap de comentari"
 
 msgid "one comment"
-msgstr "1 comentaris"
+msgstr "1 comentari"
 
 msgid "%d comments"
 msgstr "%d comentaris"
 
 msgid "no trackbacks"
-msgstr ""
+msgstr "cap de trackback"
 
 msgid "one trackback"
-msgstr ""
+msgstr "un trackback"
 
 msgid "%d trackbacks"
-msgstr ""
+msgstr "%d trackbacks"
 
 msgid "no attachments"
-msgstr ""
+msgstr "cap de pèça-junta"
 
 msgid "one attachment"
-msgstr ""
+msgstr "una pèça-junta"
 
 msgid "%d attachments"
-msgstr ""
+msgstr "%d pèças-juntas"
 
 msgid "previous entries"
-msgstr ""
+msgstr "entradas precedentas"
 
 msgid "page"
-msgstr ""
+msgstr "pagina"
 
 msgid "of"
-msgstr ""
+msgstr "de"
 
 msgid "next entries"
-msgstr ""
+msgstr "entrada seguenta"
 
 msgid "Search"
 msgstr "Recercar"
 
 msgid "Your search for <em>%1$s</em> returned no result."
-msgstr ""
+msgstr "Vòstra recèrca per <em>%1$s</em> a pas cap de resultat."
 
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
-msgstr ""
+msgstr "Vòstra recèrca per <em>%1$s</em> a <strong>%2$s</strong> resultat"
 
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
-msgstr ""
+msgstr "Vòstra recèrca per <em>%1$s</em> a <strong>%2$s</strong> resultats"
 
 msgid "Home"
 msgstr "Acuèlh"
 
 msgid "All keywords"
-msgstr ""
+msgstr "Totes los mots claus"
 
 msgid "Best of me"
-msgstr ""
+msgstr "Mon melhor"
 
 msgid "Languages"
-msgstr ""
+msgstr "Lengas"
 
 msgid "Categories"
-msgstr ""
+msgstr "Categorias"
 
 #, fuzzy
 msgid "Subcategories"
-msgstr "Subscriure"
+msgstr "Jos-categorias"
 
 msgid "Archives"
-msgstr ""
+msgstr "Archius"
 
 msgid "Links"
 msgstr "Ligams"
 
 msgid "Subscribe"
-msgstr "Subscriure"
+msgstr "S’abonar"
 
 msgid "Entries feed"
-msgstr ""
+msgstr "Flux de las entradas"
 
 msgid "Comments feed"
-msgstr ""
+msgstr "Flux dels comentaris"
 
 msgid "This blog's comments Atom feed"
-msgstr ""
+msgstr "Flux Atom dels comentaris d’aqueste blòg"
 
 msgid "This category's entries Atom feed"
-msgstr ""
+msgstr "Flux Atom de las entradas d’aquesta categoria"
 
 msgid "This category's comments Atom feed"
-msgstr ""
+msgstr "Flux Atom dels comentaris d’aquesta categoria"
 
 msgid "This post's comments feed"
-msgstr ""
+msgstr "Flux d’aquesta publicacion"
 
 msgid "This post's comments Atom feed"
-msgstr ""
+msgstr "Flux Atom dels comentaris d’aquesta publicacion"
 
 msgid "Attachments"
-msgstr ""
+msgstr "Pèças-juntas"
 
 msgid "Permalink"
-msgstr ""
+msgstr "Permaligam"
 
 msgid "Comments"
-msgstr ""
+msgstr "Comentaris"
 
 msgid "Your comment"
-msgstr "Vostre comentari"
+msgstr "Vòstre comentari"
 
 msgid "Your comment has been published."
-msgstr ""
+msgstr "Vòstre comenatir es estat publicat."
 
 msgid "Your comment has been submitted and will be reviewed for publication."
-msgstr ""
+msgstr "Lo comentari es estat enviat e serà repassat abans publicacion."
 
 msgid "Add a comment"
-msgstr ""
+msgstr "Ajustar un comentari"
 
 msgid "Name or nickname"
-msgstr ""
+msgstr "Nom o escais"
 
 msgid "Email address"
-msgstr ""
+msgstr "Adreça electronica"
 
 msgid "Website"
-msgstr "Siti oèb"
+msgstr "Site web"
 
 msgid "optional"
-msgstr ""
+msgstr "opcional"
 
 msgid "Comment"
 msgstr "Comentari"
 
 msgid "Comments can be formatted using a simple wiki syntax."
-msgstr ""
+msgstr "Los comentaris son formats en utilizant la sintaxi wiki."
 
 msgid "HTML code is displayed as text and web addresses are automatically converted."
-msgstr ""
+msgstr "Lo còdi HTML es mostat coma de tèxt e las adreças web son automaticament convertidas."
 
 msgid "Remember me on this blog"
-msgstr ""
+msgstr "Se remembrar de ieu sul blòg"
 
 msgid "preview"
-msgstr "vista prèvia"
+msgstr "apercebut"
 
 msgid "send"
 msgstr "mandar"
 
 msgid "They posted on the same topic"
-msgstr ""
+msgstr "Publiquèron sul meteis subjècte"
 
 msgid "Trackback URL"
-msgstr ""
+msgstr "URL trackback"
 
 msgid "You must provide an author name"
-msgstr ""
+msgstr ""Devètz picar un nom d’autor
 
 msgid "You must provide a comment"
-msgstr ""
+msgstr "Devètz picar un comentari"
 
 msgid "Email address is not valid"
-msgstr ""
+msgstr "L’adreça email es pas valida"
 
 msgid "Document not found"
-msgstr ""
+msgstr "Document introbable"
 
 msgid "The document you are looking for does not exist."
-msgstr ""
+msgstr "Lo document que cercatz existís pas."
 
 msgid "Powered by %s"
-msgstr ""
+msgstr "Propulsat per %s"
 
 msgid "Subscribe to"
-msgstr "Subscriure's a:"
+msgstr "S’abonar a :"
 
 msgid "What is an RSS feed?"
-msgstr ""
+msgstr "Qu’es aquò un flux RSS"
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
-msgstr ""
+msgstr "Un flux RSS es un resumit del blòg. Fornís de contenguts (siá de publicacions siá de comentaris) o un resumit del contengut amb de ligams cap a la version complèta e d’autras metadonadas. Los darrièrs elements publicats se pòdon legir dins vòstre <a href=\"https://ca.wikipedia.org/wiki/Agregador\">aggregator RSS</a>"
 
 msgid "Simply copy the following URL into your aggregator:"
-msgstr ""
+msgstr "Copiatz simplament l’URL seguenta dins vòstre agregador :"
 
 msgid "Password needed"
-msgstr ""
+msgstr "Senhal requesit"
 
 msgid "You must give a password to access this area."
-msgstr ""
+msgstr "Vos cal picar lo senhal per accedir a aquesta zòna."
 
 msgid "Password:"
-msgstr "Trempassaire:"
+msgstr "Senhal :"
 
 msgid "You must provide a valid email address."
-msgstr ""
+msgstr "Devètz provesir una adreça electronica valida"
 
 msgid "Read"
 msgstr "Legir"
 
 msgid "in"
-msgstr ""
+msgstr "dins"
 
 msgid "In"
-msgstr ""
+msgstr "Dins"
 
 msgid "Page top"
-msgstr ""
+msgstr "Naut de la pagina"
 
 msgid "toDay"
-msgstr ""
+msgstr "finsA"
 
 msgid "FromDay"
-msgstr ""
+msgstr "APartir"
 
 msgid "By category"
-msgstr ""
+msgstr "Per categoria"
 
 msgid "By date"
-msgstr ""
+msgstr "Per data"
 
 msgid "By tag"
-msgstr ""
+msgstr "Per etiqueta"
 
 msgid "Blog menu"
-msgstr ""
+msgstr "Menú del blòg"
 
 msgid "Etra menu"
-msgstr ""
+msgstr "Menú etra"
 
 msgid "Blog info"
-msgstr ""
+msgstr "Info del blòg"
