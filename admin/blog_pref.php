@@ -272,6 +272,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin', $blog_id)) {
         if (isset($_POST['robots_policy'])) {
             $blog_settings->system->put('robots_policy', $_POST['robots_policy']);
         }
+        $blog_settings->system->put('jquery_needed', !empty($_POST['jquery_needed']));
         $blog_settings->system->put('jquery_version', $_POST['jquery_version']);
         $blog_settings->system->put('prevents_clickjacking', !empty($_POST['prevents_clickjacking']));
         $blog_settings->system->put('static_home', !empty($_POST['static_home']));
@@ -744,6 +745,10 @@ if ($blog_id) {
     echo '</div>';
 
     echo '<div class="fieldset"><h4>' . __('jQuery javascript library') . '</h4>' .
+
+    '<p><label for="jquery_needed" class="classic">' .
+    form::checkbox('jquery_needed', '1', $blog_settings->system->jquery_needed) .
+    __('Load the jQuery library') . '</label></p>' .
 
     '<p><label for="jquery_version" class="classic">' . __('jQuery version to be loaded for this blog:') . '</label>' . ' ' .
     form::combo('jquery_version', $jquery_versions_combo, $blog_settings->system->jquery_version) .

@@ -3066,6 +3066,11 @@ class dcTemplate extends template
             $if[] = '(isset($_search_count) && $_search_count ' . html::decodeEntities($attr['search_count']) . ')';
         }
 
+        if (isset($attr['jquery_needed'])) {
+            $sign = (boolean) $attr['jquery_needed'] ? '' : '!';
+            $if[] = $sign . '$core->blog->settings->system->jquery_needed';
+        }
+
         $this->core->callBehavior('tplIfConditions', 'SysIf', $attr, $content, $if);
 
         if (count($if) != 0) {

@@ -701,6 +701,12 @@ class dcUpgrade
                 " WHERE setting_id = 'csp_admin_img' " .
                 " AND setting_ns = 'system' ";
             $core->con->execute($strReq);
+            // Set default jQuery loading for blog
+            $strReq = 'INSERT INTO ' . $core->prefix . 'setting' .
+                ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
+                ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
+            $core->con->execute(
+                sprintf($strReq, 'jquery_needed', true, 'boolean', 'Load jQuery library'));
         }
 
         $core->setVersion('core', DC_VERSION);

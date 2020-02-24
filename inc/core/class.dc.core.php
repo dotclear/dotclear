@@ -1457,7 +1457,9 @@ class dcCore
                 ['import_feed_ip_regexp', 'string', '',
                     'Authorize import feed only from this IP regexp'],
                 ['import_feed_port_regexp', 'string', '/^(80|443)$/',
-                    'Authorize import feed only from this port regexp']
+                    'Authorize import feed only from this port regexp'],
+                ['jquery_needed', 'boolean', true,
+                    'Load jQuery library'],
             ];
         }
 
