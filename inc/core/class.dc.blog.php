@@ -119,7 +119,8 @@ class dcBlog
     public function getJsJQuery()
     {
         $version = $this->settings->system->jquery_version;
-        if ($version == '') {
+        // Use the blog defined version only if more recent than default
+        if ($version == '' or version_compare($version, DC_DEFAULT_JQUERY, '<')) {
             $version = DC_DEFAULT_JQUERY; // defined in inc/prepend.php
         }
         return 'jquery/' . $version;
