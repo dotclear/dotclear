@@ -1,4 +1,4 @@
-/*exported getData, isObject, mergeDeep */
+/*exported getData, isObject, mergeDeep, getCookie, setCookie, deleteCookie */
 'use strict';
 
 var getData = getData || function(id, clear = true) {
@@ -42,3 +42,44 @@ var mergeDeep = mergeDeep || function mergeDeep(target, ...sources) {
   }
   return mergeDeep(target, ...sources);
 };
+
+// Returns the cookie with the given name or false if not found
+function getCookie(name) {
+  let matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : false;  // may be undefined rather than false?
+}
+
+// Set a new cookie
+// usage: setCookie('user', 'John', {secure: true, 'expires': 60});
+function setCookie(name, value, options = {}) {
+
+  if (typeof options.expires === 'number') {
+    // Cope with expires option given in number of days from now
+      options.expires = new Date(Date.now() + options.expires * 864e5);
+  }
+  if (options.expires instanceof Date) {
+    // Cope with expires option given as a Date object
+    options.expires = options.expires.toUTCString();
+  }
+
+  let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+  for (let optionKey in options) {
+    updatedCookie += "; " + optionKey;
+    let optionValue = options[optionKey];
+    if (optionValue !== true) {
+      updatedCookie += "=" + optionValue;
+    }
+  }
+
+  document.cookie = updatedCookie;
+}
+
+// Delete a cookie
+function deleteCookie(name) {
+  setCookie(name, "", {
+    'expires': -1
+  });
+}
