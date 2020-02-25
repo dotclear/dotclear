@@ -710,6 +710,22 @@ class dcUpgrade
 
             # A bit of housecleaning for no longer needed files
             $remfiles = [
+                // Oldest jQuery public lib
+                'inc/js/1.4.2/jquery.js',
+                'inc/js/1.4.2/jquery.cookie.js',
+                'inc/js/1.11.1/jquery.js',
+                'inc/js/1.11.1/jquery.cookie.js',
+                'inc/js/1.11.3/jquery.js',
+                'inc/js/1.11.3/jquery.cookie.js',
+                'inc/js/1.12.4/jquery.js',
+                'inc/js/1.12.4/jquery.cookie.js',
+                'inc/js/2.2.0/jquery.js',
+                'inc/js/2.2.0/jquery.cookie.js',
+                'inc/js/2.2.4/jquery.js',
+                'inc/js/2.2.4/jquery.cookie.js',
+                'inc/js/3.3.1/jquery.js',
+                'inc/js/3.3.1/jquery.cookie.js',
+                // jQuery farbtastic Color picker
                 'admin/js/color-picker.js',
                 'admin/js/jquery/jquery.farbtastic.js',
                 'admin/style/farbtastic/farbtastic.css',
@@ -718,6 +734,15 @@ class dcUpgrade
                 'admin/style/farbtastic/wheel.png'
             ];
             $remfolders = [
+                // Oldest jQuery public lib
+                'inc/js/1.4.2',
+                'inc/js/1.11.1',
+                'inc/js/1.11.3',
+                'inc/js/1.12.4',
+                'inc/js/2.2.0',
+                'inc/js/2.2.4',
+                'inc/js/3.3.1',
+                // jQuery farbtastic Color picker
                 'admin/style/farbtastic'
             ];
             foreach ($remfiles as $f) {
