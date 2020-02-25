@@ -8,7 +8,7 @@ $('html').addClass('js');
 $('.header__nav').
 before(`<button id="hamburger" type="button" aria-label="${dotclear_berlin.navigation}" aria-expanded="false"></button>`).
 toggle();
-$('#hamburger').click(function() {
+$('#hamburger').on('click', function() {
   $(this).attr('aria-expanded', $(this).attr('aria-expanded') == "true" ? "false" : "true");
   $(this).toggleClass('open');
   $('.header__nav').toggle('easing', function() {
@@ -19,7 +19,7 @@ $('#hamburger').click(function() {
 });
 // Show/Hide sidebar on small screens
 $('#main').prepend(`<button id="offcanvas-on" type="button"><span class="visually-hidden">${dotclear_berlin.show_menu}</span></button>`);
-$('#offcanvas-on').click(function() {
+$('#offcanvas-on').on('click', function() {
   const btn = $(`<button id="offcanvas-off" type="button"><span class="visually-hidden">${dotclear_berlin.hide_menu}</span></button>`);
   $('#wrapper').addClass('off-canvas');
   $('#footer').addClass('off-canvas');
@@ -27,7 +27,7 @@ $('#offcanvas-on').click(function() {
   btn[0].focus({
     preventScroll: true
   });
-  btn.click(function(evt) {
+  btn.on('click', function(evt) {
     $('#wrapper').removeClass('off-canvas');
     $('#footer').removeClass('off-canvas');
     evt.target.remove();
@@ -43,7 +43,7 @@ $(document).ready(function() {
       $('#gotop').fadeOut();
     }
   });
-  $('#gotop').click(function(e) {
+  $('#gotop').on('click', function(e) {
     $('body,html').animate({
       scrollTop: 0
     }, 800);
