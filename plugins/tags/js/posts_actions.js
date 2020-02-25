@@ -1,4 +1,4 @@
-/*global $, dotclear, metaEditor, getData */
+/*global $, dotclear, metaEditor, getData, mergeDeep */
 'use strict';
 
 mergeDeep(dotclear.msg, getData('editor_tags_msg'));
@@ -20,7 +20,7 @@ $(function() {
 
   mEdit.addMetaDialog();
 
-  $('input[name="save_tags"]').click(function() {
+  $('input[name="save_tags"]').on('click', function() {
     tag_field.val($('#post_meta_input').val());
   });
 

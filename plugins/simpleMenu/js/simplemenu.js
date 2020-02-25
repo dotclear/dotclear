@@ -5,16 +5,18 @@ $(function() {
   $('#menuitemslist').sortable({
     'cursor': 'move'
   });
-  $('#menuitemslist tr').hover(function() {
-    $(this).css({
-      'cursor': 'move'
+  $('#menuitemslist tr')
+    .on('mouseenter', function() {
+      $(this).css({
+        'cursor': 'move'
+      });
+    })
+    .on('mouseleave', function() {
+      $(this).css({
+        'cursor': 'auto'
+      });
     });
-  }, function() {
-    $(this).css({
-      'cursor': 'auto'
-    });
-  });
-  $('#menuitems').submit(function() {
+  $('#menuitems').on('submit', function() {
     let order = [];
     $('#menuitemslist tr td input.position').each(function() {
       order.push(this.name.replace(/^order\[([^\]]+)\]$/, '$1'));

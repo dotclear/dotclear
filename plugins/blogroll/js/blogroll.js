@@ -5,15 +5,17 @@ $(function() {
   $('#links-list').sortable({
     'cursor': 'move'
   });
-  $('#links-list tr').hover(function() {
-    $(this).css({
-      'cursor': 'move'
+  $('#links-list tr')
+    .on('mouseenter', function() {
+      $(this).css({
+        'cursor': 'move'
+      });
+    })
+    .on('mouseleave', function() {
+      $(this).css({
+        'cursor': 'auto'
+      });
     });
-  }, function() {
-    $(this).css({
-      'cursor': 'auto'
-    });
-  });
   $('#links-form').submit(function() {
     let order = [];
     $('#links-list tr td input.position').each(function() {

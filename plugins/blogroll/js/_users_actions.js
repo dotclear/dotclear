@@ -30,7 +30,7 @@ jQuery.fn.updateBlogrollPermissionsForm = function() {
         if (e.checked) {
           admin(e, perms, re);
         }
-        $(e).click(function() {
+        $(e).on('click', function() {
           admin(this, perms, re);
         });
       }

@@ -68,7 +68,7 @@ $(function() {
       });
     } else {
       // Open preview on antother window
-      $('#post-preview').click(function(e) {
+      $('#post-preview').on('click', function(e) {
         e.preventDefault();
         window.open($(this).attr('href'));
       });
@@ -85,7 +85,7 @@ $(function() {
     post_dtPick.draw();
 
     // Confirm post deletion
-    $('input[name="delete"]').click(function() {
+    $('input[name="delete"]').on('click', function() {
       return window.confirm(dotclear.msg.confirm_delete_post);
     });
 
@@ -140,13 +140,13 @@ $(function() {
     });
 
     // Replace attachment remove links by a POST form submit
-    $('a.attachment-remove').click(function() {
+    $('a.attachment-remove').on('click', function() {
       this.href = '';
       const m_name = $(this).parents('ul').find('li:first>a').attr('title');
       if (window.confirm(dotclear.msg.confirm_remove_attachment.replace('%s', m_name))) {
         var f = $('#attachment-remove-hide').get(0);
         f.elements.media_id.value = this.id.substring(11);
-        f.submit();
+        f.trigger('submit');
       }
       return false;
     });

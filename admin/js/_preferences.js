@@ -10,16 +10,16 @@ $(function() {
     texts: texts
   });
   const user_email = $('#user_email').val();
-  $('#user-form').submit(function() {
+  $('#user-form').on('submit', function() {
     var e = this.elements.cur_pwd;
     if (e.value != '') {
       return true;
     }
     if ($('#user_email').val() != user_email || $('#new_pwd').val() != '') {
-      $(e).addClass('missing').focusout(function() {
+      $(e).addClass('missing').on('focusout', function() {
         $(this).removeClass('missing');
       });
-      e.focus();
+      e.trigger('focus');
       return false;
     }
     return true;

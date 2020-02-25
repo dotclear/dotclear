@@ -26,7 +26,7 @@ $(function() {
     This.before(a);
     $(a).wrap('<p></p>');
 
-    $(a).click(function() {
+    $(a).on('click', function() {
       $.get('services.php', {
         f: 'getZipMediaContent',
         id: mediaId
@@ -67,7 +67,7 @@ $(function() {
   });
 
   // Confirm for inflating in current directory
-  $('#file-unzip').submit(function() {
+  $('#file-unzip').on('submit', function() {
     if ($(this).find('#inflate_mode').val() == 'current') {
       return window.confirm(dotclear.msg.confirm_extract_current);
     }
@@ -75,13 +75,13 @@ $(function() {
   });
 
   // Confirm for deleting current medoa
-  $('#delete-form input[name="delete"]').click(function() {
+  $('#delete-form input[name="delete"]').on('click', function() {
     let m_name = $('#delete-form input[name="remove"]').val();
     return window.confirm(dotclear.msg.confirm_delete_media.replace('%s', m_name));
   });
 
   // Get current insertion settings
-  $('#save_settings').submit(function() {
+  $('#save_settings').on('submit', function() {
     $('input[name="pref_src"]').val($('input[name="src"][type=radio]:checked').attr('value'));
     $('input[name="pref_alignment"]').val($('input[name="alignment"][type=radio]:checked').attr('value'));
     $('input[name="pref_insertion"]').val($('input[name="insertion"][type=radio]:checked').attr('value'));
@@ -89,7 +89,7 @@ $(function() {
   });
 
   // Set focus if in popup mode
-  $('#media-insert-form :input:visible:enabled:checked:first, #media-insert-form :input:visible:enabled:first').focus();
+  $('#media-insert-form :input:visible:enabled:checked:first, #media-insert-form :input:visible:enabled:first').trigger('focus');
 
   // Deal with enter key on media insert popup form : every form element will be filtered but Cancel button
   dotclear.enterKeyInForm('#media-insert-form', '#media-insert-ok', '#media-insert-cancel');

@@ -114,7 +114,7 @@ $(function() {
       contentTb.switchMode($('#post_format', f).val());
     }
 
-    $('input[name=save]', f).click(function() {
+    $('input[name=save]', f).on('click', function() {
       quickPost(f, -2);
       return false;
     });
@@ -123,7 +123,7 @@ $(function() {
       var btn = $('<input type="submit" value="' + $('input[name=save-publish]', f).val() + '" />');
       $('input[name=save-publish]', f).remove();
       $('input[name=save]', f).after(btn).after(' ');
-      btn.click(function() {
+      btn.on('click', function() {
         quickPost(f, 1);
         return false;
       });
@@ -247,7 +247,7 @@ $(function() {
       ['#db-contents', 'boxes_contents_order']
     ];
     // Set or reset sortable depending on #dragndrop checbkox value
-    $('#dragndrop').click(function() {
+    $('#dragndrop').on('click', function() {
       Object.assign(dotclear, getData('dotclear_dragndrop'));
       if ($(this).is(':checked')) {
         // Activate sorting feature

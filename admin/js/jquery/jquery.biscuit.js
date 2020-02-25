@@ -1,3 +1,6 @@
+/*global jQuery */
+'use strict';
+
 /**
  * Cookie plugin
  *

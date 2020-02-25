@@ -57,7 +57,7 @@ $(function() {
   dotclear.condSubmit('#pageslist td input[type=checkbox]', '#form-entries #do-action');
   dotclear.responsiveCellHeaders(document.querySelector('#form-entries table'), '#form-entries table', 3, true);
 
-  $('#pageslist tr.line td:not(.expander)').mousedown(function() {
+  $('#pageslist tr.line td:not(.expander)').on('mousedown', function() {
     $('#pageslist tr.line').each(function() {
       const td = this.firstChild;
       dotclear.viewPostContent(td.firstChild, td.firstChild.line, 'close');
@@ -73,15 +73,17 @@ $(function() {
       });
     }
   });
-  $('#pageslist tr').hover(function() {
-    $(this).css({
-      'cursor': 'move'
+  $('#pageslist tr')
+    .on('mouseenter', function() {
+      $(this).css({
+        'cursor': 'move'
+      });
+    })
+    .on('mouseleave', function() {
+      $(this).css({
+        'cursor': 'auto'
+      });
     });
-  }, function() {
-    $(this).css({
-      'cursor': 'auto'
-    });
-  });
   $('#pageslist tr td input.position').hide();
   $('#pageslist tr td.handle').addClass('handler');
 
@@ -107,7 +109,7 @@ $(function() {
     }
 
     if (action == 'delete') {
-      return window.confirm(dotclear.msg.confirm_delete_posts.replace('%s', $('input[name="entries[]"]:checked').size()));
+      return window.confirm(dotclear.msg.confirm_delete_posts.replace('%s', $('input[name="entries[]"]:checked').length));
     }
 
     return true;

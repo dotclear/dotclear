@@ -814,11 +814,14 @@ class dcPage
         return
         self::jsLoad('js/prepend.js') .
         self::jsLoad('js/jquery/jquery.js') .
+        (DC_DEBUG ?
             self::jsJson('dotclear_jquery', [
                 'mute' => (empty($core->blog) || $core->blog->settings->system->jquery_migrate_mute)
             ]) .
             self::jsLoad('js/jquery-mute.js') .
-        self::jsLoad('js/jquery/jquery-migrate.js') .
+            self::jsLoad('js/jquery/jquery-migrate.js') :
+            ''
+        ) .
         self::jsLoad('js/jquery/jquery.biscuit.js') .
 
         self::jsJson('dotclear', $js) .

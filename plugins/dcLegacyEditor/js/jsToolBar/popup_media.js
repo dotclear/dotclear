@@ -3,11 +3,11 @@
 
 $(function() {
   $('#media-insert').onetabload(function() {
-    $('#media-insert-cancel').click(function() {
+    $('#media-insert-cancel').on('click', function() {
       window.close();
     });
 
-    $('#media-insert-ok').click(function() {
+    $('#media-insert-ok').on('click', function() {
       sendClose();
       window.close();
     });

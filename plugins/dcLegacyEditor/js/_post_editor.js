@@ -24,7 +24,7 @@ $(function() {
     // Get document format and prepare toolbars
     formatField = $('#post_format').get(0);
     let last_post_format = $(formatField).val();
-    $(formatField).change(function() {
+    $(formatField).on('change', function() {
       if (this.value != 'dcLegacyEditor') {
         return;
       }
@@ -85,7 +85,7 @@ $(function() {
     // Check unsaved changes before XHTML conversion
     const excerpt = $('#post_excerpt').val();
     const content = $('#post_content').val();
-    $('#convert-xhtml').click(function() {
+    $('#convert-xhtml').on('click', function() {
       if (excerpt != $('#post_excerpt').val() || content != $('#post_content').val()) {
         return window.confirm(dotclear.msg.confirm_change_post_format);
       }

@@ -16,11 +16,11 @@ $(function() {
     });
   }
 
-  $('input[name^="delete"]').click(function() {
+  $('input[name^="delete"]').on('click', function() {
     return window.confirm(dotclear.msg.confirm_delete_category.replace('%s', $(this).parents('li').first().find('.cat-title label a').text()));
   });
 
-  $('input[name="reset"]').click(function() {
+  $('input[name="reset"]').on('click', function() {
     return window.confirm(dotclear.msg.confirm_reorder_categories);
   });
 });

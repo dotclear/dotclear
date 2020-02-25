@@ -2,11 +2,11 @@
 'use strict';
 
 $(function() {
-  $('#link-insert-cancel').click(function() {
+  $('#link-insert-cancel').on('click', function() {
     window.close();
   });
 
-  $('#form-entries tr>td.maximal>a').click(function(e) {
+  $('#form-entries tr>td.maximal>a').on('click', function(e) {
     e.preventDefault();
     const editor_name = window.opener.$.getEditorName();
     const editor = window.opener.CKEDITOR.instances[editor_name];

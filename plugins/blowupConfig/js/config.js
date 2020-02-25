@@ -14,7 +14,7 @@ $(function() {
     toggleDisable($('#blog_title_p'));
   }
 
-  $('#blog_title_hide').click(function() {
+  $('#blog_title_hide').on('click', function() {
     toggleDisable($('#blog_title_f'));
     toggleDisable($('#blog_title_s'));
     toggleDisable($('#blog_title_c'));
@@ -29,7 +29,7 @@ $(function() {
     $('#uploader').hide();
   }
 
-  $('#top_image').change(function() {
+  $('#top_image').on('change', function() {
     if (this.value == 'custom') {
       $('#uploader').show();
       $('#image-preview').attr('src', dotclear.blowup_public_url + '/page-t.png');
@@ -56,7 +56,7 @@ $(function() {
   $('#theme_config').prepend(styles_combo);
   $(styles_combo).wrap('<div class="fieldset"></div>').before('<h3>' + dotclear.msg.predefined_styles + '</h3>').wrap('<p></p>');
 
-  $(styles_combo).change(function() {
+  $(styles_combo).on('change', function() {
     $(this.form).find('input[type=text]').val('').css({
       backgroundColor: '#FFF',
       color: '#000'
@@ -82,7 +82,7 @@ $(function() {
 
   e.append(a);
 
-  $(a).click(function() {
+  $(a).on('click', function() {
     const code = e.find('#export_code');
     if (code.size() == 0) {
       return false;

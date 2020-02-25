@@ -7,7 +7,7 @@ $(function() {
 		tbComment.draw('xhtml');
 	}
 
-	$('#comment-form input[name="delete"]').click(function() {
+	$('#comment-form input[name="delete"]').on('click', function() {
 		return window.confirm(dotclear.msg.confirm_delete_comment);
 	});
 });

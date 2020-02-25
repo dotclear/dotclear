@@ -5,11 +5,11 @@
 Object.assign(dotclear, getData('admin.blog_pref'));
 
 $(function() {
-  $('#link-insert-cancel').click(function() {
+  $('#link-insert-cancel').on('click', function() {
     window.close();
   });
 
-  $('#form-entries tr>td.maximal>a').click(function() {
+  $('#form-entries tr>td.maximal>a').on('click', function() {
 
     function stripBaseURL(url) {
         if (dotclear.base_url != '') {

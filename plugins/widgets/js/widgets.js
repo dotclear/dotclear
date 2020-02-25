@@ -23,7 +23,7 @@ dotclear.widgetExpander = function(line) {
     e.preventDefault();
     dotclear.viewWidgetContent($(this).parents('li'));
   };
-  link.click(function(e) {
+  link.on('click', function(e) {
     e.preventDefault();
     dotclear.viewWidgetContent($(this).parents('li'));
   });
@@ -95,7 +95,7 @@ $(function() {
   mergeDeep(dotclear, getData('widgets'));
 
   // reset
-  $('input[name="wreset"]').click(function() {
+  $('input[name="wreset"]').on('click', function() {
     return window.confirm(dotclear.msg.confirm_widgets_reset);
   });
 
@@ -106,19 +106,19 @@ $(function() {
   });
 
   // remove
-  $('input[name*=_rem]').click(function(e) {
+  $('input[name*=_rem]').on('click', function(e) {
     e.preventDefault();
     $(this).parents('li').remove();
   });
 
   // move
-  $('input[name*=_down]').click(function(e) {
+  $('input[name*=_down]').on('click', function(e) {
     e.preventDefault();
     const $li = $(this).parents('li');
     $li.next().after($li);
     reorder($(this).parents('ul.connected'));
   });
-  $('input[name*=_up]').click(function(e) {
+  $('input[name*=_up]').on('click', function(e) {
     e.preventDefault();
     const $li = $(this).parents('li');
     $li.prev().before($li);

@@ -28,15 +28,15 @@
         $('.queue-message', me).html(msg);
       }
 
-      $('.button.choose_files').click(function(e) {
+      $('.button.choose_files').on('click', function(e) {
         if ($container.hasClass('enhanced_uploader')) {
           // Use the native click() of the file input.
-          $('#upfile').click();
+          $('#upfile').trigger('click');
           e.preventDefault();
         }
       });
 
-      $('.button.cancel', '#fileupload .fileupload-buttonbar').click(function() {
+      $('.button.cancel', '#fileupload .fileupload-buttonbar').on('click', function() {
         $('.button.cancel', '#fileupload .fileupload-buttonbar').hide();
         disableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
         displayMessageInQueue(0);
@@ -50,7 +50,7 @@
         displayMessageInQueue($('.files .template-upload', me).length);
       });
 
-      $('.button.clean', me).click(function(e) {
+      $('.button.clean', me).on('click', function(e) {
         $('.fileupload-ctrl .files .template-download', me).slideUp(500, function() {
           $(this).remove();
         });
@@ -106,7 +106,7 @@
         });
       }
 
-      $(`<p class="clear"><button type="button" class="enhanced-toggle">${$msg}</button></p>`).click(function(e) {
+      $(`<p class="clear"><button type="button" class="enhanced-toggle">${$msg}</button></p>`).on('click', function(e) {
         if ($container.hasClass('enhanced_uploader')) {
           $msg = dotclear.msg.enhanced_uploader_activate;
           label = dotclear.jsUpload.msg.choose_file;
@@ -155,7 +155,7 @@ $(function() {
   });
   dotclear.condSubmit('#form-medias input[type="checkbox"]', '#form-medias #delete_medias');
 
-  $('#form-medias #delete_medias').click(function(e) {
+  $('#form-medias #delete_medias').on('click', function(e) {
     const count_checked = $('input[name="medias[]"]:checked', $('#form-medias')).length;
     if (count_checked == 0) {
       e.preventDefault();
@@ -206,7 +206,7 @@ $(function() {
         const f = $('#media-remove-hide').get(0);
         f.elements.remove.value = this.href.replace(/^(.*)&remove=(.*?)(&|$)/, '$2');
         this.href = '';
-        f.submit();
+        f.trigger('submit');
       }
       return false;
     });

@@ -13,14 +13,14 @@ $(function() {
         img_off_alt: dotclear.img_minus_theme_alt,
         legend_click: true
       }));
-    $(this).children('img').click(function() {
+    $(this).children('img').on('click', function() {
       // Click on theme thumbnail
-      $(this).parent().parent().children('.bloc-toggler').click();
+      $(this).parent().parent().children('.bloc-toggler').trigger('click');
     });
   });
 
   // dirty short search blocker
-  $('div.modules-search form input[type=submit]').click(function() {
+  $('div.modules-search form input[type=submit]').on('click', function() {
     const mlen = $('input[name=m_search]', $(this).parent()).val();
     if (mlen.length > 2) {
       return true;
@@ -41,7 +41,7 @@ $(function() {
     const checkboxes = $(this).find('input[type=checkbox]');
 
     // check if submit is a global action or one line action
-    $('input[type=submit]', this).click(function() {
+    $('input[type=submit]', this).on('click', function() {
       const keyword = $(this).attr('name');
       if (!keyword) {
         return true;

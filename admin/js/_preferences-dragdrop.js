@@ -11,7 +11,7 @@ $(function() {
   $('#my-favs ul input').css({
     'cursor': 'auto'
   });
-  $('#favs-form').submit(function() {
+  $('#favs-form').on('submit', function() {
     let order = [];
     $('#my-favs ul li input.position').each(function() {
       order.push(this.name.replace(/^order\[([^\]]+)\]$/, '$1'));
