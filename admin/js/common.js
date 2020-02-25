@@ -723,10 +723,10 @@ $(function() {
     e.preventDefault();
     if (objMain.hasClass('hide-mm')) {
       showSidebar();
-      $('#main-menu input#qx').focus();
+      $('#main-menu input#qx').trigger('focus');
     } else {
       hideSidebar();
-      $('#content a.go_home').focus();
+      $('#content a.go_home').trigger('focus');
     }
   });
   if ($.cookie('sidebar-pref') == 'hide-mm') {

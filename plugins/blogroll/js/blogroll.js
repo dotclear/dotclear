@@ -16,7 +16,7 @@ $(function() {
         'cursor': 'auto'
       });
     });
-  $('#links-form').submit(function() {
+  $('#links-form').on('submit', function() {
     let order = [];
     $('#links-list tr td input.position').each(function() {
       order.push(this.name.replace(/^order\[([^\]]+)\]$/, '$1'));

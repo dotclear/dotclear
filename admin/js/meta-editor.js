@@ -116,7 +116,7 @@ metaEditor.prototype = {
           const a_remove = $('<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>');
           a_remove.get(0).caller = This;
           a_remove.get(0).meta_id = meta_id;
-          a_remove.click(function() {
+          a_remove.on('click', function() {
             this.caller.removeMeta(this.meta_id);
             return false;
           });
@@ -197,7 +197,7 @@ metaEditor.prototype = {
           target.append(pa);
 
           const a = $(`<button type="button" class="button metaGetList meta-helper">${This.text_choose}</button>`);
-          a.click(function() {
+          a.on('click', function() {
             $(this).parent().next().removeClass('hide');
             $(this).remove();
             return false;

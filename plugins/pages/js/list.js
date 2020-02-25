@@ -87,12 +87,12 @@ $(function() {
   $('#pageslist tr td input.position').hide();
   $('#pageslist tr td.handle').addClass('handler');
 
-  $('form input[type=submit]').click(function() {
+  $('form input[type=submit]').on('click', function() {
     $('input[type=submit]', $(this).parents('form')).removeAttr('clicked');
     $(this).attr('clicked', 'true');
   });
 
-  $('#form-entries').submit(function() {
+  $('#form-entries').on('submit', function() {
     const action = $(this).find('select[name="action"]').val();
     let checked = false;
     if ($('input[name="reorder"][clicked=true]').val()) {
