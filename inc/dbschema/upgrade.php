@@ -707,6 +707,25 @@ class dcUpgrade
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
             $core->con->execute(
                 sprintf($strReq, 'jquery_needed', true, 'boolean', 'Load jQuery library'));
+
+            # A bit of housecleaning for no longer needed files
+            $remfiles = [
+                'admin/js/color-picker.js',
+                'admin/js/jquery/jquery.farbtastic.js',
+                'admin/style/farbtastic/farbtastic.css',
+                'admin/style/farbtastic/marker.png',
+                'admin/style/farbtastic/mask.png',
+                'admin/style/farbtastic/wheel.png'
+            ];
+            $remfolders = [
+                'admin/style/farbtastic'
+            ];
+            foreach ($remfiles as $f) {
+                @unlink(DC_ROOT . '/' . $f);
+            }
+            foreach ($remfolders as $f) {
+                @rmdir(DC_ROOT . '/' . $f);
+            }
         }
 
         $core->setVersion('core', DC_VERSION);

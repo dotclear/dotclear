@@ -814,10 +814,10 @@ class dcPage
         return
         self::jsLoad('js/prepend.js') .
         self::jsLoad('js/jquery/jquery.js') .
-        self::jsJson('dotclear_jquery', [
-            'mute' => (empty($core->blog) || $core->blog->settings->system->jquery_migrate_mute)
-        ]) .
-        self::jsLoad('js/jquery-mute.js') .
+            self::jsJson('dotclear_jquery', [
+                'mute' => (empty($core->blog) || $core->blog->settings->system->jquery_migrate_mute)
+            ]) .
+            self::jsLoad('js/jquery-mute.js') .
         self::jsLoad('js/jquery/jquery-migrate.js') .
         self::jsLoad('js/jquery/jquery.biscuit.js') .
 
@@ -865,12 +865,12 @@ class dcPage
         self::jsLoad('js/jquery/jquery.magnific-popup.js');
     }
 
+    /**
+    @deprecated since version 2.16
+     */
     public static function jsColorPicker()
     {
-        return
-        self::cssLoad('style/farbtastic/farbtastic.css') .
-        self::jsLoad('js/jquery/jquery.farbtastic.js') .
-        self::jsLoad('js/color-picker.js');
+        return '';
     }
 
     public static function jsDatePicker()
