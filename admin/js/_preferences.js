@@ -19,7 +19,7 @@ $(function() {
       $(e).addClass('missing').on('focusout', function() {
         $(this).removeClass('missing');
       });
-      e.trigger('focus');
+      e.focus();
       return false;
     }
     return true;

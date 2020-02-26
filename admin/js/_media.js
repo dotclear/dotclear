@@ -206,7 +206,7 @@ $(function() {
         const f = $('#media-remove-hide').get(0);
         f.elements.remove.value = this.href.replace(/^(.*)&remove=(.*?)(&|$)/, '$2');
         this.href = '';
-        f.trigger('submit');
+        f.submit();
       }
       return false;
     });

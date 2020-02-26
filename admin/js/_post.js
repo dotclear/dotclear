@@ -146,7 +146,7 @@ $(function() {
       if (window.confirm(dotclear.msg.confirm_remove_attachment.replace('%s', m_name))) {
         var f = $('#attachment-remove-hide').get(0);
         f.elements.media_id.value = this.id.substring(11);
-        f.trigger('submit');
+        f.submit();
       }
       return false;
     });
