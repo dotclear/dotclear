@@ -1,5 +1,8 @@
+/*global jQuery */
+'use strict';
+
 /*
- * jQuery Autocomplete plugin 1.2.3
+ * jQuery Autocomplete plugin 1.2.4 - adapted to jQuery 3+ (strict mode)
  *
  * Copyright (c) 2009 Jörn Zaefferer
  *
@@ -12,7 +15,6 @@
  *
  */
 
-;
 (function($) {
 
   $.fn.extend({
@@ -90,16 +92,8 @@
 
     var blockSubmit;
 
-    // prevent form submit in opera when selecting with return key
-    navigator.userAgent.indexOf("Opera") != -1 && $(input.form).bind("submit.autocomplete", function() {
-      if (blockSubmit) {
-        blockSubmit = false;
-        return false;
-      }
-    });
-
     // older versions of opera don't trigger keydown multiple times while pressed, others don't work with keypress at all
-    $input.bind((navigator.userAgent.indexOf("Opera") != -1 && !'KeyboardEvent' in window ? "keypress" : "keydown") + ".autocomplete", function(event) {
+    $input.on((navigator.userAgent.indexOf("Opera") != -1 && !('KeyboardEvent' in window) ? "keypress" : "keydown") + ".autocomplete", function(event) {
       // a keypress means the input has focus
       // avoids issue where input had focus before the autocomplete was applied
       hasFocus = 1;
@@ -186,7 +180,7 @@
           onChange(0, true);
         }
       }
-    }).bind("search", function() {
+    }).on("search", function() {
       // TODO why not just specifying both arguments?
       var fn = (arguments.length > 1) ? arguments[1] : null;
 
@@ -206,14 +200,14 @@
       $.each(trimWords($input.val()), function(i, value) {
         request(value, findValueCallback, findValueCallback);
       });
-    }).bind("flushCache", function() {
+    }).on("flushCache", function() {
       cache.flush();
-    }).bind("setOptions", function() {
+    }).on("setOptions", function() {
       $.extend(true, options, arguments[1]);
       // if we've updated the data, repopulate
       if ("data" in arguments[1])
         cache.populate();
-    }).bind("unautocomplete", function() {
+    }).on("unautocomplete", function() {
       select.unbind();
       $input.unbind();
       $(input.form).unbind(".autocomplete");
@@ -278,7 +272,7 @@
         stopLoading();
         select.hide();
       }
-    };
+    }
 
     function trimWords(value) {
       if (!value)
@@ -298,7 +292,7 @@
         return words[0];
       var cursorAt = $(input).selection().start;
       if (cursorAt == value.length) {
-        words = trimWords(value)
+        words = trimWords(value);
       } else {
         words = trimWords(value.replace(value.substring(cursorAt), ""));
       }
@@ -317,15 +311,14 @@
         // select the portion of the value not typed by the user (so the next character will erase)
         $(input).selection(previousValue.length, previousValue.length + sValue.length);
       }
-    };
+    }
 
     function hideResults() {
       clearTimeout(timeout);
       timeout = setTimeout(hideResultsNow, 200);
-    };
+    }
 
     function hideResultsNow() {
-      var wasVisible = select.visible();
       select.hide();
       clearTimeout(timeout);
       stopLoading();
@@ -346,7 +339,7 @@
           }
         );
       }
-    };
+    }
 
     function receiveData(q, data) {
       if (data && data.length && hasFocus) {
@@ -357,7 +350,7 @@
       } else {
         hideResultsNow();
       }
-    };
+    }
 
     function request(term, success, failure) {
       if (!options.matchCase)
@@ -407,7 +400,7 @@
           failure(term);
         }
       }
-    };
+    }
 
     function parse(data) {
       var parsed = [];
@@ -424,11 +417,11 @@
         }
       }
       return parsed;
-    };
+    }
 
     function stopLoading() {
       $input.removeClass(options.loadingClass);
-    };
+    }
 
   };
 
@@ -478,7 +471,7 @@
       }
       if (i == -1) return false;
       return i == 0 || options.matchContains;
-    };
+    }
 
     function add(q, value) {
       if (length > options.cacheLength) {
@@ -531,7 +524,7 @@
         if (nullData++ < options.max) {
           stMatchSets[""].push(row);
         }
-      };
+      }
 
       // add the data items to the cache
       $.each(stMatchSets, function(i, value) {
@@ -563,13 +556,13 @@
          */
         if (!options.url && options.matchContains) {
           // track all matches
-          var csub = [];
+          let csub = [];
           // loop through all the data grids for matches
-          for (var k in data) {
+          for (let k in data) {
             // don't search through the stMatchSets[""] (minChars: 0) cache
             // this prevents duplicates
             if (k.length > 0) {
-              var c = data[k];
+              let c = data[k];
               $.each(c, function(i, x) {
                 // if we've got a match, add it to the array
                 if (matchSubset(x.value, q)) {
@@ -585,10 +578,10 @@
             return data[q];
           } else
         if (options.matchSubset) {
-          for (var i = q.length - 1; i >= options.minChars; i--) {
-            var c = data[q.substr(0, i)];
+          for (let i = q.length - 1; i >= options.minChars; i--) {
+            let c = data[q.substr(0, i)];
             if (c) {
-              var csub = [];
+              let csub = [];
               $.each(c, function(i, x) {
                 if (matchSubset(x.value, q)) {
                   csub[csub.length] = x;
@@ -625,7 +618,7 @@
         .addClass(options.resultsClass)
         .css("position", "absolute")
         .appendTo(document.body)
-        .on('hover', function(event) {
+        .on('hover', function() {
           // Browsers except FF do not fire mouseup event on scrollbars, resulting in mouseDownOnSelect remaining true, and results list not always hiding.
           if ($(this).is(":visible")) {
             input.focus();
@@ -681,7 +674,7 @@
           list.scrollTop(offset);
         }
       }
-    };
+    }
 
     function movePosition(step) {
       if (options.scrollJumpPosition || (!options.scrollJumpPosition && !((step < 0 && active == 0) || (step > 0 && active == listItems.size() - 1)))) {
@@ -750,8 +743,8 @@
         }
       },
       hide: function() {
-        element && element.hide();
-        listItems && listItems.removeClass(CLASSES.ACTIVE);
+        element.hide();
+        listItems.removeClass(CLASSES.ACTIVE);
         active = -1;
       },
       visible: function() {
@@ -794,10 +787,10 @@
         return selected && selected.length && $.data(selected[0], "ac_data");
       },
       emptyList: function() {
-        list && list.empty();
+        list.empty();
       },
       unbind: function() {
-        element && element.remove();
+        element.remove();
       }
     };
   };
@@ -837,12 +830,12 @@
       return {
         start: caretAt,
         end: caretAt + textLength
-      }
+      };
     } else if (field.selectionStart !== undefined) {
       return {
         start: field.selectionStart,
         end: field.selectionEnd
-      }
+      };
     }
   };
 
