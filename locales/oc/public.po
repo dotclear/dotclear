@@ -23,7 +23,7 @@ msgid "To menu"
 msgstr "Al menú"
 
 msgid "To search"
-msgstr "A la cercar"
+msgstr "A la recèrca"
 
 msgid "By"
 msgstr "Per"
@@ -78,7 +78,7 @@ msgid "of"
 msgstr "de"
 
 msgid "next entries"
-msgstr "entrada seguenta"
+msgstr "entradas seguentas"
 
 msgid "Search"
 msgstr "Recercar"
