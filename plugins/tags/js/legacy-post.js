@@ -1,8 +1,6 @@
 /*global dotclear, jsToolBar, mergeDeep, getData */
 'use strict';
 
-mergeDeep(jsToolBar.prototype.elements, getData('legacy_editor_tags'));
-
 // Toolbar button for tags
 jsToolBar.prototype.elements.tagSpace = {
   type: 'space',
@@ -19,6 +17,9 @@ jsToolBar.prototype.elements.tag = {
   title: 'Keyword',
   fn: {}
 };
+
+mergeDeep(jsToolBar.prototype.elements, getData('legacy_editor_tags'));
+
 jsToolBar.prototype.elements.tag.context = 'post';
 jsToolBar.prototype.elements.tag.icon = 'index.php?pf=tags/img/tag-add.png';
 jsToolBar.prototype.elements.tag.fn.wiki = function() {

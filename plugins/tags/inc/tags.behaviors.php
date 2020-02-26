@@ -24,7 +24,7 @@ class tagsBehaviors
             return
             dcPage::jsJson('legacy_editor_tags', [
                 'tag' => [
-                    'title' => __('tag'),
+                    'title' => __('Tag'),
                     'url'   => $tag_url
                 ]
             ]) .
@@ -32,7 +32,7 @@ class tagsBehaviors
         } elseif ($editor == 'dcCKEditor') {
             return
             dcPage::jsJson('ck_editor_tags', [
-                'tag_title' => __('tag'),
+                'tag_title' => __('Tag'),
                 'tag_url'   => $tag_url
             ]);
         }
