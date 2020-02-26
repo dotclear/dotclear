@@ -119,9 +119,16 @@ class dcBlog
     public function getJsJQuery()
     {
         $version = $this->settings->system->jquery_version;
-        // Use the blog defined version only if more recent than default
-        if ($version == '' or version_compare($version, DC_DEFAULT_JQUERY, '<')) {
+        if ($version == '') {
+            // Version not set, use default one
             $version = DC_DEFAULT_JQUERY; // defined in inc/prepend.php
+        } else {
+            if (!$this->settings->system->jquery_allow_old_version) {
+                // Use the blog defined version only if more recent than default
+                if (version_compare($version, DC_DEFAULT_JQUERY, '<')) {
+                    $version = DC_DEFAULT_JQUERY; // defined in inc/prepend.php
+                }
+            }
         }
         return 'jquery/' . $version;
     }

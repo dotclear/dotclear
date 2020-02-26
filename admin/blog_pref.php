@@ -143,7 +143,7 @@ $robots_policy_options = [
 
 # jQuery available versions
 $jquery_root           = dirname(__FILE__) . '/../inc/js/jquery';
-$jquery_versions_combo = [__('Default') . ' (' . DC_DEFAULT_JQUERY . ')' => DC_DEFAULT_JQUERY];
+$jquery_versions_combo = [__('Default') . ' (' . DC_DEFAULT_JQUERY . ')' => ''];
 if (is_dir($jquery_root) && is_readable($jquery_root)) {
     if (($d = @dir($jquery_root)) !== false) {
         while (($entry = $d->read()) !== false) {
