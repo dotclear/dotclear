@@ -1,10 +1,13 @@
+/*global jQuery */
+'use strict';
+
 (function($) {
   $.pwstrength = function(password) {
-    var score = 0;
-    var symbols = '[!,@,#,$,%,^,&,*,?,_,~]';
+    let score = 0;
+    const symbols = '[!,@,#,$,%,^,&,*,?,_,~]';
     // Regexp
-    var check = new RegExp('(' + symbols + ')');
-    var doublecheck = new RegExp('(' + '.*' + symbols + '.*' + symbols + ')');
+    let check = new RegExp('(' + symbols + ')');
+    let doublecheck = new RegExp('(' + '.*' + symbols + '.*' + symbols + ')');
     // password length
     score += password.length * 4;
     score += checkRepetition(1, password).length - password.length;
@@ -43,11 +46,12 @@
   };
 
   function checkRepetition(rLen, str) {
-    var res = "",
-      repeated = false;
-    for (var i = 0; i < str.length; i++) {
+    let res = '';
+    let repeated = false;
+    for (let i = 0; i < str.length; i++) {
       repeated = true;
-      for (var j = 0; j < rLen && (j + i + rLen) < str.length; j++) {
+      let j;
+      for (j = 0; j < rLen && (j + i + rLen) < str.length; j++) {
         repeated = repeated && (str.charAt(j + i) === str.charAt(j + i + rLen));
       }
       if (j < rLen) {
@@ -64,22 +68,22 @@
   }
 
   function updateIndicator(event) {
-    var strength = $.pwstrength($(this).val()),
-      options = event.data,
-      klass;
-    klass = options.classes[strength];
+    let strength = $.pwstrength($(event.currentTarget).val());
+    let options = event.data;
+    let klass = options.classes[strength];
     options.indicator.removeClass(options.indicator.data('pwclass'));
     options.indicator.data('pwclass', klass);
     options.indicator.addClass(klass);
     options.indicator.find(options.label).html(options.texts[strength]);
   }
+
   $.fn.pwstrength = function(options) {
-    var options = $.extend({
+    options = $.extend({
       label: '.label',
       classes: ['pw-very-weak', 'pw-weak', 'pw-mediocre', 'pw-strong', 'pw-very-strong'],
       texts: ['very weak', 'weak', 'mediocre', 'strong', 'very strong']
     }, options || {});
     options.indicator = $('#' + this.data('indicator'));
-    return this.keyup(options, updateIndicator);
+    return this.on('keyup', options, updateIndicator);
   };
 })(jQuery);
