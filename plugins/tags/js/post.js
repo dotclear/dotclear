@@ -18,13 +18,13 @@ $(function() {
       }
       mEdit = new metaEditor(tags_edit, meta_field, 'tag', getData('editor_tags_options'));
       mEdit.meta_url = 'plugin.php?p=tags&m=tag_posts&amp;tag=';
-      mEdit.displayMeta('tag', post_id);
+      mEdit.displayMeta('tag', post_id, 'post_meta_tag_input');
 
       // mEdit object reference for toolBar
       window.dc_tag_editor = mEdit;
     }
 
-    $('#post_meta_input').autocomplete(mEdit.service_uri, {
+    $('#post_meta_tag_input').autocomplete(mEdit.service_uri, {
       extraParams: {
         'f': 'searchMeta',
         'metaType': 'tag'

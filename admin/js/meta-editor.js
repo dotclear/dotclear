@@ -36,14 +36,15 @@ metaEditor.prototype = {
 
   service_uri: 'services.php',
 
-  displayMeta: function(type, post_id) {
+  displayMeta: function(type, post_id, input_id = 'post_meta_input') {
     this.meta_type = type;
     this.post_id = post_id;
     this.target.empty();
 
     this.meta_dialog = $('<input type="text" class="ib" />');
     this.meta_dialog.attr('title', this.text_add_meta.replace(/%s/, this.meta_type));
-    this.meta_dialog.attr('id', 'post_meta_input');
+    this.meta_dialog.attr('id', input_id);
+    this.meta_dialog.attr('class', 'post_meta_input');
     // Meta dialog input
     this.meta_dialog.on('keypress', function(evt) { // We don't want to submit form!
       if (evt.keyCode == 13) {

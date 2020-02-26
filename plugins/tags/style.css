@@ -66,10 +66,6 @@ ul.metaList li {
   list-style-position: inside;
 }
 
-#post_meta_input:focus {
-  -moz-box-sizing: content-box;
-}
-
 #tags-edit input[type=text] {
   width: 11.5em;
 }
