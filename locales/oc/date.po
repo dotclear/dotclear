@@ -1,13 +1,13 @@
 # Dotclear language pack (Occitan).
 # euskaraz <sabrina.favier@orange.fr>, 2008.
-#
+# Quentin PAGÈS, 2020
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2016-07-18 15:50+0200\n"
+"PO-Revision-Date: 2020-02-26 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Occitan\n"
 "Language: oc\n"
@@ -92,25 +92,25 @@ msgid "December"
 msgstr "Decembre"
 
 msgid "_Mon"
-msgstr "_Dl"
+msgstr "Diluns"
 
 msgid "_Tue"
-msgstr "_Dm"
+msgstr "Dimars"
 
 msgid "_Wed"
-msgstr "_Dc"
+msgstr "Dimècres"
 
 msgid "_Thu"
-msgstr "_Dj"
+msgstr "Dijòus"
 
 msgid "_Fri"
-msgstr "_Dv"
+msgstr "Divendres"
 
 msgid "_Sat"
-msgstr "_Ds"
+msgstr "Dissabte"
 
 msgid "_Sun"
-msgstr "_Dg"
+msgstr "Dimenge"
 
 msgid "Monday"
 msgstr "Diluns"
