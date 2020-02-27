@@ -4,7 +4,7 @@
 set -e
 
 # Download ckbuilder.jar from http://download.cksource.com/CKBuilder/
-# Current release is 2.3.0
+# Current release is 2.3.2
 
 # 1) clone ckbuilder from git@github.com:ckeditor/ckbuilder.git
 # 2) patch src/lib/builder.js at line 120
