@@ -272,7 +272,7 @@ if (!empty($extraPlugins) && count($extraPlugins) > 0) {
             $('#cke_post_excerpt').addClass('hide');
         }
 
-        $('#excerpt-area label').click(function() {
+        $('#excerpt-area label').on('click', function() {
             $('#cke_post_excerpt').toggleClass('hide',$('#post_excerpt').hasClass('hide'));
         });
 
