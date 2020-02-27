@@ -136,7 +136,7 @@ class dcAntispam
     {
         $code =
         pack('a32', $core->auth->userID()) .
-        pack('H*', $core->auth->cryptLegacy($core->auth->getInfo('user_pwd')));
+        hash(DC_CRYPT_ALGO, $core->auth->cryptLegacy($core->auth->getInfo('user_pwd')));
         return bin2hex($code);
     }
 
@@ -145,13 +145,11 @@ class dcAntispam
         $code = pack('H*', $code);
 
         $user_id = trim(@pack('a32', substr($code, 0, 32)));
-        $pwd     = @unpack('H*hex', substr($code, 32));
+        $pwd     = substr($code, 32);
 
         if ($user_id === false || $pwd === false) {
             return false;
         }
-
-        $pwd = $pwd['hex'];
 
         $strReq = 'SELECT user_id, user_pwd ' .
         'FROM ' . $core->prefix . 'user ' .
@@ -163,7 +161,7 @@ class dcAntispam
             return false;
         }
 
-        if ($core->auth->cryptLegacy($rs->user_pwd) != $pwd) {
+        if (hash(DC_CRYPT_ALGO, $core->auth->cryptLegacy($rs->user_pwd)) != $pwd) {
             return false;
         }
 
