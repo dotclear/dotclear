@@ -59,7 +59,6 @@ config: clean config-stamp
   find $(DC)/admin/js/jquery/*.js -exec ./build-tools/min-js.php \{\} \;
   find $(DC)/admin/js/jsUpload/*.js -exec ./build-tools/min-js.php \{\} \;
   find $(DC)/plugins -name '*.js' -exec ./build-tools/min-js.php \{\} \;
-  ## find $(DC)/themes/default/js/*.js -exec ./build-tools/min-js.php \{\} \;
   find $(DC)/inc/js -name '*.js' -exec ./build-tools/min-js.php \{\} \;
 
   ## Debug off
