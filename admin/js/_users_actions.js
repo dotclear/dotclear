@@ -75,7 +75,7 @@ jQuery.fn.updatePermissionsForm = function() {
           if (e.checked) {
             admin(e, perms, re);
           }
-          $(e).click(function() {
+          $(e).on('click', function() {
             admin(this, perms, re);
           });
         } else if (prop[2] == 'contentadmin') {
@@ -83,7 +83,7 @@ jQuery.fn.updatePermissionsForm = function() {
           if (e.checked) {
             contentadmin(e, perms, re);
           }
-          $(e).click(function() {
+          $(e).on('click', function() {
             contentadmin(this, perms, re);
           });
         } else if (prop[2] == 'media_admin') {
@@ -91,7 +91,7 @@ jQuery.fn.updatePermissionsForm = function() {
           if (e.checked) {
             mediaadmin(e, perms, re);
           }
-          $(e).click(function() {
+          $(e).on('click', function() {
             mediaadmin(this, perms, re);
           });
         }

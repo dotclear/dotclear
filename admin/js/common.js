@@ -52,7 +52,7 @@ jQuery.fn.toggleCheck = function() {
   });
 };
 jQuery.fn.enableShiftClick = function() {
-  this.click(function(event) {
+  this.on('click', function(event) {
     if (event.shiftKey) {
       if (dotclear.lastclicked != '') {
         let range;
@@ -142,7 +142,7 @@ jQuery.fn.toggleWithLegend = function(target, s) {
     if (p.legend_click) {
       $(ctarget).find('label').css('cursor', 'pointer');
     }
-    $(ctarget).click(function(e) {
+    $(ctarget).on('click', function(e) {
       if (p.user_pref && set_user_pref) {
         jQuery.post('services.php', {
           f: 'setSectionFold',
@@ -176,21 +176,25 @@ jQuery.fn.toggleWithLegend = function(target, s) {
     });
   };
   const singleExpander = function(line, callback) {
-    $(`<button type="button" class="details-cmd" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`).click(function(e) {
-      toggleArrow(this);
-      callback(line, '', e);
-      e.preventDefault();
-    }).prependTo($(line).children().get(0)); // first td
+    $(`<button type="button" class="details-cmd" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`).on(
+      'click',
+      function(e) {
+        toggleArrow(this);
+        callback(line, '', e);
+        e.preventDefault();
+      }).prependTo($(line).children().get(0)); // first td
   };
   const multipleExpander = function(line, lines, callback) {
-    $(`<button type="button" class="details-cmd" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`).click(function(e) {
-      var action = toggleArrow(this);
-      lines.each(function() {
-        toggleArrow(this.firstChild.firstChild, action);
-        callback(this, action, e);
-      });
-      e.preventDefault();
-    }).prependTo($(line).children().get(0)); // first td
+    $(`<button type="button" class="details-cmd" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`).on(
+      'click',
+      function(e) {
+        var action = toggleArrow(this);
+        lines.each(function() {
+          toggleArrow(this.firstChild.firstChild, action);
+          callback(this, action, e);
+        });
+        e.preventDefault();
+      }).prependTo($(line).children().get(0)); // first td
   };
   const toggleArrow = function(button, action) {
     action = action || '';
@@ -249,7 +253,7 @@ jQuery.fn.helpViewer = function() {
     o.css('cursor', 'pointer');
     let hide = true;
     o.prepend(' ').prepend(b);
-    o.click(function() {
+    o.on('click', function() {
       $(this).nextAll().each(function() {
         if ($(this).is('h4')) {
           return false;
@@ -279,7 +283,7 @@ jQuery.fn.helpViewer = function() {
   this.find('h4:first').nextAll('*:not(h4)').hide();
   sizeBox();
   const img = $(`<p id="help-button"><span><a href="">${dotclear.msg.help}</a></span></p>`);
-  img.click(function(e) {
+  img.on('click', function(e) {
     e.preventDefault();
     return toggle();
   });
@@ -289,7 +293,7 @@ jQuery.fn.helpViewer = function() {
   $('#help-button').addClass('floatable');
   const peInFloat = $('#help-button').offset().top - $(window).scrollTop();
   $('#help-button').removeClass('floatable');
-  $(window).scroll(function() {
+  $(window).on('scroll', function() {
     if ($(window).scrollTop() >= peInPage - peInFloat) {
       $('#help-button').addClass('floatable');
     } else {
@@ -305,7 +309,7 @@ const dotclear = {
   msg: {},
 
   enterKeyInForm: function(frm_id, ok_id, cancel_id) {
-    $(frm_id + ':not(' + cancel_id + ')').keyup(function(e) {
+    $(frm_id + ':not(' + cancel_id + ')').on('keyup', function(e) {
       if ((e.key == 'Enter') && ($(ok_id).prop('disabled') !== true)) {
         e.preventDefault();
         e.stopPropagation();
@@ -327,7 +331,7 @@ const dotclear = {
     } else {
       submitButt.removeClass('disabled');
     }
-    checkboxes.click(function() {
+    checkboxes.on('click', function() {
       // Update target state
       submitButt.attr('disabled', !checkboxes.is(':checked'));
       if (!checkboxes.is(':checked')) {
@@ -352,7 +356,7 @@ const dotclear = {
         imgE.style.left = `${$(this).width() + 14}px`;
         imgE.alt = dotclear.msg.click_to_unlock;
         $(imgE).css('cursor', 'pointer');
-        $(imgE).click(function() {
+        $(imgE).on('click', function() {
           $(this).hide();
           $(this).prev('input').each(function() {
             this.disabled = false;
@@ -369,7 +373,7 @@ const dotclear = {
   checkboxesHelpers: function(e, target, c, s) {
     $(e).append(document.createTextNode(dotclear.msg.to_select));
     $(e).append(document.createTextNode(' '));
-    $(`<button type="button" class="checkbox-helper select-all">${dotclear.msg.select_all}</button>`).click(function() {
+    $(`<button type="button" class="checkbox-helper select-all">${dotclear.msg.select_all}</button>`).on('click', function() {
       if (target !== undefined) {
         target.check();
       } else {
@@ -381,7 +385,7 @@ const dotclear = {
       return false;
     }).appendTo($(e));
     $(e).append(document.createTextNode(' '));
-    $(`<button type="button" class="checkbox-helper select-none">${dotclear.msg.no_selection}</button>`).click(function() {
+    $(`<button type="button" class="checkbox-helper select-none">${dotclear.msg.no_selection}</button>`).on('click', function() {
       if (target !== undefined) {
         target.unCheck();
       } else {
@@ -393,7 +397,7 @@ const dotclear = {
       return false;
     }).appendTo($(e));
     $(e).append(document.createTextNode(' '));
-    $(`<button type="button" class="checkbox-helper select-reverse">${dotclear.msg.invert_sel}</button>`).click(function() {
+    $(`<button type="button" class="checkbox-helper select-reverse">${dotclear.msg.invert_sel}</button>`).on('click', function() {
       if (target !== undefined) {
         target.toggleCheck();
       } else {
@@ -407,7 +411,7 @@ const dotclear = {
   },
 
   postsActionsHelper: function() {
-    $('#form-entries').submit(function() {
+    $('#form-entries').on('submit', function() {
       const action = $(this).find('select[name="action"]').val();
       if (action === undefined) {
         return;
@@ -422,14 +426,14 @@ const dotclear = {
         return false;
       }
       if (action == 'delete') {
-        return window.confirm(dotclear.msg.confirm_delete_posts.replace('%s', $('input[name="entries[]"]:checked').size()));
+        return window.confirm(dotclear.msg.confirm_delete_posts.replace('%s', $('input[name="entries[]"]:checked').length));
       }
       return true;
     });
   },
 
   commentsActionsHelper: function() {
-    $('#form-comments').submit(function() {
+    $('#form-comments').on('submit', function() {
       const action = $(this).find('select[name="action"]').val();
       let checked = false;
       $(this).find('input[name="comments[]"]').each(function() {
@@ -441,7 +445,7 @@ const dotclear = {
         return false;
       }
       if (action == 'delete') {
-        return window.confirm(dotclear.msg.confirm_delete_comments.replace('%s', $('input[name="comments[]"]:checked').size()));
+        return window.confirm(dotclear.msg.confirm_delete_comments.replace('%s', $('input[name="comments[]"]:checked').length));
       }
       return true;
     });
@@ -455,7 +459,7 @@ const dotclear = {
       if (!$(this).hasClass('outgoing')) {
         $(this).append('&nbsp;<img class="outgoing-js" src="images/outgoing-link.svg" alt=""/>');
       }
-    }).click(function(e) {
+    }).on('click', function(e) {
       e.preventDefault();
       window.open($(this).attr('href'));
     });
@@ -614,7 +618,7 @@ $(function() {
   // manage outgoing links
   dotclear.outgoingLinks('a');
   // Popups: dealing with Escape key fired
-  $('#dotclear-admin.popup').keyup(function(e) {
+  $('#dotclear-admin.popup').on('keyup', function(e) {
     if (e.key == 'Escape') {
       e.preventDefault();
       window.close();
@@ -622,7 +626,7 @@ $(function() {
     }
   });
   // Blog switcher
-  $('#switchblog').change(function() {
+  $('#switchblog').on('change', function() {
     this.form.submit();
   });
   const menu_settings = {
@@ -651,15 +655,15 @@ $(function() {
     $(this).addClass('close-notice-parent');
     $(this).append(`<button class="close-notice" type="button"><img src="images/close.png" alt="${dotclear.msg.close_notice}" /></button>`);
   });
-  $('button.close-notice').click(function(e) {
+  $('button.close-notice').on('click', function(e) {
     e.preventDefault();
     $(this).parent().hide();
   });
   // Password
-  $('form:has(input[type=password][name=your_pwd])').submit(function() {
+  $('form:has(input[type=password][name=your_pwd])').on('submit', function() {
     const e = this.elements.your_pwd;
     if (e.value == '') {
-      $(e).addClass('missing').focusout(function() {
+      $(e).addClass('missing').on('focusout', function() {
         $(this).removeClass('missing');
       });
       e.focus();
@@ -715,14 +719,14 @@ $(function() {
     });
   }
   // Sidebar separator
-  $('#collapser').click(function(e) {
+  $('#collapser').on('click', function(e) {
     e.preventDefault();
     if (objMain.hasClass('hide-mm')) {
       showSidebar();
-      $('#main-menu input#qx').focus();
+      $('#main-menu input#qx').trigger('focus');
     } else {
       hideSidebar();
-      $('#content a.go_home').focus();
+      $('#content a.go_home').trigger('focus');
     }
   });
   if ($.cookie('sidebar-pref') == 'hide-mm') {
@@ -731,14 +735,14 @@ $(function() {
     objMain.removeClass('hide-mm');
   }
   // totop scroll
-  $(window).scroll(function() {
+  $(window).on('scroll', function() {
     if ($(this).scrollTop() != 0) {
       $('#gototop').fadeIn();
     } else {
       $('#gototop').fadeOut();
     }
   });
-  $('#gototop').click(function(e) {
+  $('#gototop').on('click', function(e) {
     $('body,html').animate({
       scrollTop: 0
     }, 800);

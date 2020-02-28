@@ -534,6 +534,9 @@ msgstr "Paramètres d'indexation par les moteurs de recherche"
 msgid "jQuery javascript library"
 msgstr "Bibliothèque javascript jQuery"
 
+msgid "Load the jQuery library"
+msgstr "Charger la bibliothèque jQuery"
+
 msgid "jQuery version to be loaded for this blog:"
 msgstr "Version de la bibliothèque jQuery à charger pour ce blog :"
 

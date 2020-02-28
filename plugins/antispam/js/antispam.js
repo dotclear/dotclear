@@ -7,16 +7,18 @@ $(function() {
   $('#filters-list').sortable({
     'cursor': 'move'
   });
-  $('#filters-list tr').hover(function() {
-    $(this).css({
-      'cursor': 'move'
+  $('#filters-list tr')
+    .on('mouseenter', function() {
+      $(this).css({
+        'cursor': 'move'
+      });
+    })
+    .on('mouseleave', function() {
+      $(this).css({
+        'cursor': 'auto'
+      });
     });
-  }, function() {
-    $(this).css({
-      'cursor': 'auto'
-    });
-  });
-  $('#filters-list-form').submit(function() {
+  $('#filters-list-form').on('submit', function() {
     let order = [];
     $('#filters-list tr td input.position').each(function() {
       order.push(this.name.replace(/^f_order\[([^\]]+)\]$/, '$1'));
@@ -27,7 +29,7 @@ $(function() {
   $('#filters-list tr td input.position').hide();
   $('#filters-list tr td.handle').addClass('handler');
 
-  $('form input[type=submit][name=delete_all]').click(function() {
+  $('form input[type=submit][name=delete_all]').on('click', function() {
     return window.confirm(dotclear.msg.confirm_spam_delete);
   });
   dotclear.responsiveCellHeaders(document.querySelector('#filters-list-form table'), '#filters-list-form table', 1, true);

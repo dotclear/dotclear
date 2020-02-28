@@ -57,7 +57,6 @@ if ($list->setConfiguration($core->blog->settings->system->theme)) {
     # Display page
     dcPage::open(__('Blog appearance'),
         dcPage::jsPageTabs() .
-        dcPage::jsColorPicker() .
 
         # --BEHAVIOR-- themesToolsHeaders
         $core->callBehavior('themesToolsHeaders', $core, true),
@@ -91,7 +90,6 @@ try {
 dcPage::open(__('Themes management'),
     dcPage::jsLoad('js/_blog_theme.js') .
     dcPage::jsPageTabs() .
-    dcPage::jsColorPicker() .
 
     # --BEHAVIOR-- themesToolsHeaders
     $core->callBehavior('themesToolsHeaders', $core, false),

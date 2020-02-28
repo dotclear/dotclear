@@ -1,83 +1,86 @@
-/*global $, getData */
+/*global getData, getCookie, setCookie, deleteCookie */
 'use strict';
 
 if (typeof post_remember_str === 'undefined' && typeof getData !== 'undefined') {
   var post_remember_str = getData('dc_post_remember_str').post_remember_str;
 }
 
-$(function() {
-	$('#comment-form p:has(input[type=submit][name=preview],button[type=submit][name=preview])').
-		before(
-			'<p class="remember"><input type="checkbox" id="c_remember" name="c_remember" /> ' +
-			'<label for="c_remember">' + post_remember_str + '</label>' +
-			'</p>'
-		);
+window.addEventListener('load', () => {
+  let bloc = new DOMParser().parseFromString(
+    `<p class="remember"><input type="checkbox" id="c_remember" name="c_remember" /> <label for="c_remember">${post_remember_str}</label></p>`,
+    'text/html'
+  ).body.firstChild;
+  // Looks for a preview input
+  let point = document.querySelector('#comment-form input[type=submit][name=preview]');
+  if (!point) {
+    // not found, looks for a preview button
+    point = document.querySelector('#comment-form button[type=submit][name=preview]');
+  }
+  if (point) {
+    // Preview found, insert remember me checkbox
+    point = point.parentNode; // Seek to enclosed paragraphe which contains preview button
+    point.parentNode.insertBefore(bloc, point);
+  }
 
-	var cookie = readCookie($.cookie('comment_info'));
+  const remember_cookie_name = 'comment_info';
 
-	if (cookie != false) {
-		$('#c_name').val(cookie[0]);
-		$('#c_mail').val(cookie[1]);
-		$('#c_site').val(cookie[2]);
-		$('#c_remember').attr('checked','checked');
-	}
+  let cookie = readRememberCookie(getCookie(remember_cookie_name));
 
-	$('#c_remember').click(function() {
-		if (this.checked) {
-			setCookie();
-		} else {
-			dropCookie();
-		}
-	});
+  if (cookie != false) {
+    document.getElementById('c_name').setAttribute('value', cookie[0]);
+    document.getElementById('c_mail').setAttribute('value', cookie[1]);
+    document.getElementById('c_site').setAttribute('value', cookie[2]);
+    document.getElementById('c_remember').setAttribute('checked', 'checked');
+  }
 
-	$('#c_name').change(function() {
-		if ($('#c_remember').get(0).checked) {
-			setCookie();
-		}
-	});
+  document.getElementById('c_remember').onclick = function(e) {
+    if (e.target.checked) {
+      setRememberCookie();
+    } else {
+      dropRememberCookie();
+    }
+  };
 
-	$('#c_mail').change(function() {
-		if ($('#c_remember').get(0).checked) {
-			setCookie();
-		}
-	});
+  let copeWithModifiedInfo = function() {
+    if (document.getElementById('c_remember').checked) {
+      setRememberCookie();
+    }
+  };
 
-	$('#c_site').change(function() {
-		if ($('#c_remember').get(0).checked) {
-			setCookie();
-		}
-	});
+  document.getElementById('c_name').onchange = copeWithModifiedInfo;
+  document.getElementById('c_mail').onchange = copeWithModifiedInfo;
+  document.getElementById('c_site').onchange = copeWithModifiedInfo;
 
-	function setCookie() {
-		var name = $('#c_name').val();
-		var mail = $('#c_mail').val();
-		var site = $('#c_site').val();
-		var cpath = $('h1 a').attr('href');
-		if (!cpath) {
-			cpath = '/';
-		} else {
-			cpath = cpath.replace(/.*:\/\/[^\/]*([^?]*).*/g,'$1');
-		}
+  function setRememberCookie() {
+    let name = document.getElementById('c_name').value;
+    let mail = document.getElementById('c_mail').value;
+    let site = document.getElementById('c_site').value;
+    let cpath = document.querySelector('h1 a').getAttribute('href');
 
-		$.cookie('comment_info', name + '\n' + mail + '\n' + site, {expires: 60, path: cpath});
-	}
+    cpath = !cpath ? '/' : cpath.replace(/.*:\/\/[^\/]*([^?]*).*/g, '$1');
 
-	function dropCookie() {
-		$.cookie('comment_info','',{expires: -30, path: '/'});
-	}
+    setCookie(remember_cookie_name, `${name}\n${mail}\n${site}`, {
+      expires: 60, // keep cookie for 2 months (60 days)
+      path: cpath
+    });
+  }
 
-	function readCookie(c) {
-		if (!c) {
-			return false;
-		}
+  function dropRememberCookie() {
+    deleteCookie(remember_cookie_name);
+  }
 
-		var s = c.split('\n');
+  function readRememberCookie(cookie) {
+    if (!cookie) {
+      return false;
+    }
 
-		if (s.length != 3) {
-			dropCookie();
-			return false;
-		}
+    let result = cookie.split('\n');
 
-		return s;
-	}
+    if (result.length != 3) {
+      dropRememberCookie();
+      return false;
+    }
+
+    return result;
+  }
 });

@@ -45,7 +45,7 @@ $(function() {
     }
 
     if (action == 'deleteuser') {
-      return window.confirm(dotclear.msg.confirm_delete_user.replace('%s', $('input[name="users[]"]:checked').size()));
+      return window.confirm(dotclear.msg.confirm_delete_user.replace('%s', $('input[name="users[]"]:checked').length));
     }
 
     return true;

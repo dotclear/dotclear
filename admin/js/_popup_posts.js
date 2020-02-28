@@ -3,5 +3,5 @@
 
 $(function() {
   // Set focus on #type input
-  $('#type').focus();
+  $('#type').trigger('focus');
 });

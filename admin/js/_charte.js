@@ -6,7 +6,7 @@ $(function() {
   $('#pageslist').sortable({
     'cursor': 'move'
   });
-  $('#pageslist tr').hover(function() {
+  $('#pageslist tr').on('hover', function() {
     $(this).css({
       'cursor': 'move'
     });

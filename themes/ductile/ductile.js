@@ -52,7 +52,7 @@ $(document).ready(function() {
     });
 
     // Add a click event handler to all h2.toggle elements.
-    $('h2.toggle').click(function(event) {
+    $('h2.toggle').on('click', function(event) {
       event.preventDefault();
       // Toggle the 'expanded' class of the h2.toggle
       // element, then apply the slideToggle effect
@@ -62,9 +62,9 @@ $(document).ready(function() {
     });
 
     // Remove the focus from the link tag when accessed with a mouse.
-    $('h2.toggle a').mouseup(function() {
+    $('h2.toggle a').on('mouseup', function() {
       // Use the blur() method to remove focus.
-      $(this).blur();
+      $(this).trigger('blur');
     });
   }
 });

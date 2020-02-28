@@ -1,17 +1,17 @@
 /*global $ */
 'use strict';
 
-$(window).load(function() {
+$(window).on('load', function() {
   let uid = $('input[name=user_id]');
   let upw = $('input[name=user_pwd]');
-  uid.focus();
+  uid.trigger('focus');
 
   if (upw.length == 0) {
     return;
   }
   uid.keypress(evt => {
     if (evt.which == 13 && upw.val() == '') {
-      upw.focus();
+      upw.trigger('focus');
       return false;
     }
     return true;

@@ -26,7 +26,7 @@
 
     createTabs();
 
-    $('ul li', '.' + $.pageTabs.options.containerClass).click(function() {
+    $('ul li', '.' + $.pageTabs.options.containerClass).on('click', function() {
       if ($(this).hasClass($.pageTabs.options.activeClass)) {
         return;
       }
@@ -46,7 +46,7 @@
       part_to_activate.tabload();
     });
 
-    $(window).bind('hashchange onhashchange', function() {
+    $(window).on('hashchange onhashchange', function() {
       $.pageTabs.clickTab($.pageTabs.getLocationHash());
     });
 
@@ -57,7 +57,7 @@
       // Tab displayed, now scroll to the sub-part if defined in original document.location (#tab.sub-part)
       elt.scrollIntoView();
       // Give focus to the sub-part if possible
-      $('#' + subhash).addClass('focus').focusout(function() {
+      $('#' + subhash).addClass('focus').on('focusout', function() {
         $(this).removeClass('focus');
       });
       elt.focus();
@@ -105,7 +105,7 @@
 
     $('ul li a', '.' + $.pageTabs.options.containerClass).filter(function() {
       return getHash($(this).attr('href')) == tab;
-    }).parent().click();
+    }).parent().trigger('click');
   };
 
   $.pageTabs.getLocationHash = function() {

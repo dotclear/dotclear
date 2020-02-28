@@ -214,7 +214,7 @@ class dcModules
 
         foreach ($this->modules as $id => $m) {
             # Load translation and _prepend
-            if (file_exists($m['root'] . '/_prepend.php')) {
+            if (isset($m['root']) && file_exists($m['root'] . '/_prepend.php')) {
                 $r = $this->loadModuleFile($m['root'] . '/_prepend.php');
 
                 # If _prepend.php file returns null (ie. it has a void return statement)
@@ -501,6 +501,9 @@ class dcModules
      */
     public function installModule($id, &$msg)
     {
+        if (!isset($this->modules[$id])) {
+            return;
+        }
         try {
             $i = $this->loadModuleFile($this->modules[$id]['root'] . '/_install.php');
             if ($i === true) {
@@ -682,6 +685,9 @@ class dcModules
      */
     public function loadNsFile($id, $ns = null)
     {
+        if (!isset($this->modules[$id])) {
+            return;
+        }
         switch ($ns) {
             case 'admin':
                 $this->loadModuleFile($this->modules[$id]['root'] . '/_admin.php');
@@ -727,6 +733,9 @@ class dcModules
 
     private function sortModules($a, $b)
     {
+        if (!isset($a['priority']) || !isset($b['priority'])) {
+            return 1;
+        }
         if ($a['priority'] == $b['priority']) {
             return strcasecmp($a['name'], $b['name']);
         }

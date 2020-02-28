@@ -2,11 +2,11 @@
 'use strict';
 
 $(function() {
-  $('#link-insert-cancel').click(function() {
+  $('#link-insert-cancel').on('click', function() {
     window.close();
   });
 
-  $('#link-insert-ok').click(function() {
+  $('#link-insert-ok').on('click', function() {
     const insert_form = $('#link-insert-form').get(0);
     if (insert_form == undefined) {
       return;

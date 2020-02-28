@@ -21,11 +21,11 @@ $(function() {
       }
     };
     checkQueryString();
-    blog_url.focusout(checkQueryString);
+    blog_url.on('focusout', checkQueryString);
     $('body').on('change', '#url_scan', checkQueryString);
   }
 
-  $('#date_format_select,#time_format_select').change(function() {
+  $('#date_format_select,#time_format_select').on('change', function() {
     if ($(this).prop('value') == '') {
       return;
     }
@@ -33,7 +33,7 @@ $(function() {
     $(this).parent().next('.chosen').html($(this).find(':selected').prop('label'));
   });
 
-  $('#static_home_url_selector').click(function(e) {
+  $('#static_home_url_selector').on('click', function(e) {
     window.open('popup_posts.php?plugin_id=admin.blog_pref&type=page', 'dc_popup',
       'alwaysRaised=yes,dependent=yes,toolbar=yes,height=500,width=760,' +
       'menubar=no,resizable=yes,scrollbars=yes,status=no');

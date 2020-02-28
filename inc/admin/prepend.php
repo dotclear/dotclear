@@ -289,6 +289,9 @@ if ($core->auth->userID() && $core->blog !== null) {
     if (empty($core->blog->settings->system->jquery_migrate_mute)) {
         $core->blog->settings->system->put('jquery_migrate_mute', true, 'boolean', 'Mute warnings for jquery migrate plugin ?', false);
     }
+    if (empty($core->blog->settings->system->jquery_allow_old_version)) {
+        $core->blog->settings->system->put('jquery_allow_old_version', false, 'boolean', 'Allow older version of jQuery', false, true);
+    }
 
     # Admin behaviors
     $core->addBehavior('adminPopupPosts', ['dcAdminBlogPref', 'adminPopupPosts']);

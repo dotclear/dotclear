@@ -25,7 +25,7 @@ $(function() {
     const checkboxes = $(this).find('input[type=checkbox]');
 
     // check if submit is a global action or one line action
-    $('input[type=submit]', this).click(function() {
+    $('input[type=submit]', this).on('click', function() {
       const keyword = $(this).attr('name');
       if (!keyword) {
         return true;

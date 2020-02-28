@@ -8,7 +8,7 @@ Object.assign(dotclear, getData('dotclear_colorsyntax'));
 $(function() {
   // Cope with saving
   let msg = false;
-  $('#file-form input[name="write"]').click(function(e) {
+  $('#file-form input[name="write"]').on('click', function(e) {
     const f = this.form;
 
     const data = {
@@ -45,7 +45,7 @@ $(function() {
   });
 
   // Confirm for deleting current file
-  $('#file-form input[name="delete"]').click(function() {
+  $('#file-form input[name="delete"]').on('click', function() {
     return window.confirm(dotclear.msg.confirm_reset_file);
   });
 
