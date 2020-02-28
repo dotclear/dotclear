@@ -807,6 +807,10 @@ class dcMedia extends filemanager
         $cur->media_upddt   = date('Y-m-d H:i:s');
         $cur->media_private = (integer) $newFile->media_priv;
 
+        if ($newFile->media_meta instanceof SimpleXMLElement) {
+            $cur->media_meta = $newFile->media_meta->asXML();
+        }
+
         $cur->update('WHERE media_id = ' . $id);
 
         $this->callFileHandler($file->type, 'update', $file, $newFile);

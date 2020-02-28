@@ -1775,6 +1775,9 @@ msgstr "Nom du fichier :"
 msgid "File title:"
 msgstr "Titre du fichier :"
 
+msgid "File description:"
+msgstr "Description du fichier :"
+
 msgid "File date:"
 msgstr "Date du fichier :"
 

@@ -101,6 +101,7 @@ if ($file && !empty($_FILES['upfile']) && $file->editable && $core_media_writabl
 
 # Update file
 if ($file && !empty($_POST['media_file']) && $file->editable && $core_media_writable) {
+
     $newFile = clone $file;
 
     $newFile->basename = $_POST['media_file'];
@@ -116,6 +117,27 @@ if ($file && !empty($_POST['media_file']) && $file->editable && $core_media_writ
     $newFile->media_dt    = strtotime($_POST['media_dt']);
     $newFile->media_dtstr = $_POST['media_dt'];
     $newFile->media_priv  = !empty($_POST['media_private']);
+
+    if (isset($_POST['media_desc'])) {
+        $desc = html::escapeHTML($_POST['media_desc']);
+        if ($file->media_meta instanceof SimpleXMLElement) {
+            if (count($file->media_meta) > 0) {
+                foreach ($file->media_meta as $k => $v) {
+                    if ((string) $v && ($k == 'Description')) {
+                        // Update value
+                        $v[0] = $desc;
+                    }
+                }
+            } else {
+                // Add value
+                $file->media_meta->addChild('Description', $desc);
+            }
+        } else {
+            // Create meta and add value
+            $file->media_meta = simplexml_load_string('<meta></meta>');
+            $file->media_meta->addChild('Description', $desc);
+        }
+    }
 
     try {
         $core->media->updateFile($file, $newFile);
@@ -777,8 +799,18 @@ if ($file->editable && $core_media_writable) {
         [
             'default'    => html::escapeHTML($file->media_title),
             'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
-        ]) . '</p>' .
-    '<p><label for="media_dt">' . __('File date:') . '</label>' .
+        ]) . '</p>';
+    if ($file->type == 'image/jpeg' || $file->type == 'image/webp') {
+        echo
+        '<p><label for="media_desc">' . __('File description:') . '</label>' .
+        form::field('media_desc', 60, 255,
+            [
+                'default'    => html::escapeHTML($get_img_desc($file, '')),
+                'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
+            ]) . '</p>' .
+        '<p><label for="media_dt">' . __('File date:') . '</label>';
+    }
+    echo
     form::field('media_dt', 16, 16, html::escapeHTML($file->media_dtstr)) .
     /*
     Previous line will be replaced by this one as soon as every browser will support datetime-local input type
