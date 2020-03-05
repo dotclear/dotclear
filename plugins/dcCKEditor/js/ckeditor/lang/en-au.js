@@ -138,6 +138,10 @@ CKEDITOR.lang['en-au'] = {
     {
     	toolbar : 'Print'
     },
+    preview : 
+    {
+    	preview : 'Preview'
+    },
     pastetext : 
     {
     	button : 'Paste as plain text',

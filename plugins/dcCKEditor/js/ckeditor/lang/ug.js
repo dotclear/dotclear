@@ -138,6 +138,10 @@ CKEDITOR.lang['ug'] = {
     {
     	toolbar : 'باس '
     },
+    preview : 
+    {
+    	preview : 'ئالدىن كۆزەت'
+    },
     pastetext : 
     {
     	button : 'پىچىمى يوق تېكىست سۈپىتىدە چاپلا',

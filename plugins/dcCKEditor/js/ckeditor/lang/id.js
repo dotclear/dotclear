@@ -138,6 +138,10 @@ CKEDITOR.lang['id'] = {
     {
     	toolbar : 'Cetak'
     },
+    preview : 
+    {
+    	preview : 'Pratinjau'
+    },
     pastetext : 
     {
     	button : 'Tempel sebagai teks polos',

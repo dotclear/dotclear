@@ -138,6 +138,10 @@ CKEDITOR.lang['sl'] = {
     {
     	toolbar : 'Natisni'
     },
+    preview : 
+    {
+    	preview : 'Predogled'
+    },
     pastetext : 
     {
     	button : 'Prilepi kot golo besedilo',

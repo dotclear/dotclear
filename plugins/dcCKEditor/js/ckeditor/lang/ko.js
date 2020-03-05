@@ -138,6 +138,10 @@ CKEDITOR.lang['ko'] = {
     {
     	toolbar : '인쇄'
     },
+    preview : 
+    {
+    	preview : '미리보기'
+    },
     pastetext : 
     {
     	button : '텍스트로 붙여넣기',

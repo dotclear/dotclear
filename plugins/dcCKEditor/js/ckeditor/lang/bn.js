@@ -138,6 +138,10 @@ CKEDITOR.lang['bn'] = {
     {
     	toolbar : 'প্রিন্ট করি'
     },
+    preview : 
+    {
+    	preview : 'প্রাকদর্শন'
+    },
     pastetext : 
     {
     	button : 'সাধারণ টেক্সট হিসেবে পেইস্ট করি',

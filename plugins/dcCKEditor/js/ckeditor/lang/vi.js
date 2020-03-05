@@ -138,6 +138,10 @@ CKEDITOR.lang['vi'] = {
     {
     	toolbar : 'In'
     },
+    preview : 
+    {
+    	preview : 'Xem trước'
+    },
     pastetext : 
     {
     	button : 'Dán theo định dạng văn bản thuần',

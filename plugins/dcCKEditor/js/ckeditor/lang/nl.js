@@ -138,6 +138,10 @@ CKEDITOR.lang['nl'] = {
     {
     	toolbar : 'Afdrukken'
     },
+    preview : 
+    {
+    	preview : 'Voorbeeld'
+    },
     pastetext : 
     {
     	button : 'Plakken als platte tekst',

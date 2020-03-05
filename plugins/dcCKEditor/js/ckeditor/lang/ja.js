@@ -138,6 +138,10 @@ CKEDITOR.lang['ja'] = {
     {
     	toolbar : '印刷'
     },
+    preview : 
+    {
+    	preview : 'プレビュー'
+    },
     pastetext : 
     {
     	button : 'プレーンテキストとして貼り付け',

@@ -138,6 +138,10 @@ CKEDITOR.lang['km'] = {
     {
     	toolbar : 'បោះពុម្ព'
     },
+    preview : 
+    {
+    	preview : 'មើល\u200bជា\u200bមុន'
+    },
     pastetext : 
     {
     	button : 'បិទ\u200bភ្ជាប់\u200bជា\u200bអត្ថបទ\u200bធម្មតា',

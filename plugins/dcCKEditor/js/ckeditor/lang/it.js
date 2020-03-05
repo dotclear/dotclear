@@ -138,6 +138,10 @@ CKEDITOR.lang['it'] = {
     {
     	toolbar : 'Stampa'
     },
+    preview : 
+    {
+    	preview : 'Anteprima'
+    },
     pastetext : 
     {
     	button : 'Incolla come testo semplice',

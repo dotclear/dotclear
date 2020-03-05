@@ -138,6 +138,10 @@ CKEDITOR.lang['gu'] = {
     {
     	toolbar : 'પ્રિન્ટ'
     },
+    preview : 
+    {
+    	preview : 'પૂર્વદર્શન'
+    },
     pastetext : 
     {
     	button : 'પેસ્ટ (ટેક્સ્ટ)',

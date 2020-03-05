@@ -138,6 +138,10 @@ CKEDITOR.lang['ku'] = {
     {
     	toolbar : 'چاپکردن'
     },
+    preview : 
+    {
+    	preview : 'پێشبینین'
+    },
     pastetext : 
     {
     	button : 'لکاندنی وەك دەقی ڕوون',

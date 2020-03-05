@@ -138,6 +138,10 @@ CKEDITOR.lang['tr'] = {
     {
     	toolbar : 'Yazdır'
     },
+    preview : 
+    {
+    	preview : 'Ön İzleme'
+    },
     pastetext : 
     {
     	button : 'Düz metin olarak yapıştır',

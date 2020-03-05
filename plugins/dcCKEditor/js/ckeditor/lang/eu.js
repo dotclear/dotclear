@@ -138,6 +138,10 @@ CKEDITOR.lang['eu'] = {
     {
     	toolbar : 'Inprimatu'
     },
+    preview : 
+    {
+    	preview : 'Aurrebista'
+    },
     pastetext : 
     {
     	button : 'Itsatsi testu arrunta bezala',

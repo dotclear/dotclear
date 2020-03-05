@@ -138,6 +138,10 @@ CKEDITOR.lang['sr-latn'] = {
     {
     	toolbar : 'Štampa'
     },
+    preview : 
+    {
+    	preview : 'Izgled stranice'
+    },
     pastetext : 
     {
     	button : 'Zalepi kao neformiran tekst',

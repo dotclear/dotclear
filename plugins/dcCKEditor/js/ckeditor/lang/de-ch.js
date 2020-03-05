@@ -138,6 +138,10 @@ CKEDITOR.lang['de-ch'] = {
     {
     	toolbar : 'Drucken'
     },
+    preview : 
+    {
+    	preview : 'Vorschau'
+    },
     pastetext : 
     {
     	button : 'Als Klartext einfügen',

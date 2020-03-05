@@ -138,6 +138,10 @@ CKEDITOR.lang['sr'] = {
     {
     	toolbar : 'Штампа'
     },
+    preview : 
+    {
+    	preview : 'Изглед странице'
+    },
     pastetext : 
     {
     	button : 'Залепи као неформиран текст',

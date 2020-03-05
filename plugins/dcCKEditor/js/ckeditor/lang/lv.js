@@ -138,6 +138,10 @@ CKEDITOR.lang['lv'] = {
     {
     	toolbar : 'Drukāt'
     },
+    preview : 
+    {
+    	preview : 'Priekšskatīt'
+    },
     pastetext : 
     {
     	button : 'Ievietot kā vienkāršu tekstu',

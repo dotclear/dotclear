@@ -138,6 +138,10 @@ CKEDITOR.lang['is'] = {
     {
     	toolbar : 'Prenta'
     },
+    preview : 
+    {
+    	preview : 'Forskoða'
+    },
     pastetext : 
     {
     	button : 'Líma sem ósniðinn texta',

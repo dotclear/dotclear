@@ -138,6 +138,10 @@ CKEDITOR.lang['az'] = {
     {
     	toolbar : 'Çap et'
     },
+    preview : 
+    {
+    	preview : 'Öncədən baxılması'
+    },
     pastetext : 
     {
     	button : 'Yalnız mətni saxla',

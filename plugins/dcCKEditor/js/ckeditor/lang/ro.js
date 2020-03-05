@@ -138,6 +138,10 @@ CKEDITOR.lang['ro'] = {
     {
     	toolbar : 'Printează'
     },
+    preview : 
+    {
+    	preview : 'Previzualizare'
+    },
     pastetext : 
     {
     	button : 'Adaugă ca text simplu (Plain Text)',

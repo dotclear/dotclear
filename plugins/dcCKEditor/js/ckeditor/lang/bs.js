@@ -138,6 +138,10 @@ CKEDITOR.lang['bs'] = {
     {
     	toolbar : 'Štampaj'
     },
+    preview : 
+    {
+    	preview : 'Prikaži'
+    },
     pastetext : 
     {
     	button : 'Zalijepi kao obièan tekst',

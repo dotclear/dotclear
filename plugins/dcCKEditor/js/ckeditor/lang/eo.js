@@ -138,6 +138,10 @@ CKEDITOR.lang['eo'] = {
     {
     	toolbar : 'Presi'
     },
+    preview : 
+    {
+    	preview : 'Vidigi Aspekton'
+    },
     pastetext : 
     {
     	button : 'Interglui kiel platan tekston',

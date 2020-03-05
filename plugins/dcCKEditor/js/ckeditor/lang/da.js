@@ -138,6 +138,10 @@ CKEDITOR.lang['da'] = {
     {
     	toolbar : 'Udskriv'
     },
+    preview : 
+    {
+    	preview : 'Vis eksempel'
+    },
     pastetext : 
     {
     	button : 'Indsæt som ikke-formateret tekst',

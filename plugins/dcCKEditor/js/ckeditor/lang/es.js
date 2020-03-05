@@ -138,6 +138,10 @@ CKEDITOR.lang['es'] = {
     {
     	toolbar : 'Imprimir'
     },
+    preview : 
+    {
+    	preview : 'Vista Previa'
+    },
     pastetext : 
     {
     	button : 'Pegar como Texto Plano',
@@ -437,7 +441,7 @@ CKEDITOR.lang['es'] = {
     	dlgTitle : 'Acerca de CKEditor 4',
     	moreInfo : 'Para información de licencia, por favor visite nuestro sitio web:'
     },
-    editor : 'Editor de texto enriquecido',
+    editor : 'Editor de Texto Enriquecido',
     editorPanel : 'Panel del Editor de Texto Enriquecido',
     common : 
     {
@@ -498,7 +502,7 @@ CKEDITOR.lang['es'] = {
     	justify : 'Justificado',
     	alignLeft : 'Alinear a Izquierda',
     	alignRight : 'Alinear a Derecha',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Centrar',
     	alignTop : 'Tope',
     	alignMiddle : 'Centro',
     	alignBottom : 'Pie',
@@ -506,7 +510,7 @@ CKEDITOR.lang['es'] = {
     	invalidValue : 'Valor no válido',
     	invalidHeight : 'Altura debe ser un número.',
     	invalidWidth : 'Anchura debe ser un número.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : 'El valor especificado para el campo "%1" debe ser un número positivo, incluyendo opcionalmente una unidad de medida válida (%2).',
     	invalidCssLength : 'El valor especificado para el campo "%1" debe ser un número positivo, incluyendo optionalmente una unidad de medida CSS válida (px, %, in, cm, mm, em, ex, pt, o pc).',
     	invalidHtmlLength : 'El valor especificado para el campo "%1" debe ser un número positivo, incluyendo optionalmente una unidad de medida HTML válida (px o %).',
     	invalidInlineStyle : 'El valor especificado para el estilo debe consistir en uno o más pares con el formato "nombre: valor", separados por punto y coma.',
@@ -519,7 +523,7 @@ CKEDITOR.lang['es'] = {
     		'16' : 'Mayús.',
     		'17' : 'Ctrl',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Espacio',
     		'35' : 'Fin',
     		'36' : 'Inicio',
     		'46' : 'Suprimir',
@@ -547,8 +551,8 @@ CKEDITOR.lang['es'] = {
     		'133' : 'F22',
     		'134' : 'F23',
     		'135' : 'F24',
-    		'224' : 'Command'
+    		'224' : 'Comando'
     	},
-    	keyboardShortcut : 'Keyboard shortcut',
+    	keyboardShortcut : 'Atajos de teclado',
     	optionDefault : 'Default'
     } }; 

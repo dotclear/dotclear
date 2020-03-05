@@ -138,6 +138,10 @@ CKEDITOR.lang['fa'] = {
     {
     	toolbar : 'چاپ'
     },
+    preview : 
+    {
+    	preview : 'پیشنمایش'
+    },
     pastetext : 
     {
     	button : 'چسباندن به عنوان متن ساده',

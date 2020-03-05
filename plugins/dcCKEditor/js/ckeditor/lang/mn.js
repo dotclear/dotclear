@@ -138,6 +138,10 @@ CKEDITOR.lang['mn'] = {
     {
     	toolbar : 'Хэвлэх'
     },
+    preview : 
+    {
+    	preview : 'Уридчлан харах'
+    },
     pastetext : 
     {
     	button : 'Энгийн бичвэрээр буулгах',
