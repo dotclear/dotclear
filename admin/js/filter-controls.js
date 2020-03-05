@@ -21,6 +21,9 @@ $(function() {
       .text(dotclear.msg.cancel_the_filter);
   }
 
+  // Deal with enter key on filters form : every form element will be filtered but Cancel button
+  dotclear.enterKeyInForm('#filters-form', '#filters-form input[type="submit"]', '#filter-control');
+
   $('#filter-control').on('click', function() {
     if ($(this).hasClass('open')) {
       if (dotclear.msg.show_filters) {
