@@ -138,6 +138,10 @@ CKEDITOR.lang['ca'] = {
     {
     	toolbar : 'Imprimeix'
     },
+    preview : 
+    {
+    	preview : 'Visualització prèvia'
+    },
     pastetext : 
     {
     	button : 'Enganxa com a text no formatat',

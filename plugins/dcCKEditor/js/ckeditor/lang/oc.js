@@ -138,6 +138,10 @@ CKEDITOR.lang['oc'] = {
     {
     	toolbar : 'Imprimir'
     },
+    preview : 
+    {
+    	preview : 'Previsualizar'
+    },
     pastetext : 
     {
     	button : 'Pegar coma tèxte brut',

@@ -138,6 +138,10 @@ CKEDITOR.lang['ms'] = {
     {
     	toolbar : 'Cetak'
     },
+    preview : 
+    {
+    	preview : 'Prebiu'
+    },
     pastetext : 
     {
     	button : 'Tampal sebagai text biasa',

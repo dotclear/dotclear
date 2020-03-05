@@ -138,6 +138,10 @@ CKEDITOR.lang['uk'] = {
     {
     	toolbar : 'Друк'
     },
+    preview : 
+    {
+    	preview : 'Попередній перегляд'
+    },
     pastetext : 
     {
     	button : 'Вставити тільки текст',

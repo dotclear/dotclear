@@ -138,6 +138,10 @@ CKEDITOR.lang['fi'] = {
     {
     	toolbar : 'Tulosta'
     },
+    preview : 
+    {
+    	preview : 'Esikatsele'
+    },
     pastetext : 
     {
     	button : 'Liitä tekstinä',

@@ -138,6 +138,10 @@ CKEDITOR.lang['fo'] = {
     {
     	toolbar : 'Prenta'
     },
+    preview : 
+    {
+    	preview : 'Frumsýning'
+    },
     pastetext : 
     {
     	button : 'Innrita som reinan tekst',

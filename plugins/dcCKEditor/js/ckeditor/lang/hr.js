@@ -138,6 +138,10 @@ CKEDITOR.lang['hr'] = {
     {
     	toolbar : 'Ispiši'
     },
+    preview : 
+    {
+    	preview : 'Pregledaj'
+    },
     pastetext : 
     {
     	button : 'Zalijepi kao čisti tekst',

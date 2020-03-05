@@ -138,6 +138,10 @@ CKEDITOR.lang['tt'] = {
     {
     	toolbar : 'Бастыру'
     },
+    preview : 
+    {
+    	preview : 'Карап алу'
+    },
     pastetext : 
     {
     	button : 'Форматлаусыз текст өстәү',

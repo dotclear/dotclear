@@ -138,6 +138,10 @@ CKEDITOR.lang['gl'] = {
     {
     	toolbar : 'Imprimir'
     },
+    preview : 
+    {
+    	preview : 'Vista previa'
+    },
     pastetext : 
     {
     	button : 'Pegar como texto simple',

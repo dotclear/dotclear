@@ -138,6 +138,10 @@ CKEDITOR.lang['cy'] = {
     {
     	toolbar : 'Argraffu'
     },
+    preview : 
+    {
+    	preview : 'Rhagolwg'
+    },
     pastetext : 
     {
     	button : 'Gludo fel testun plaen',

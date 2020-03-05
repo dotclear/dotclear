@@ -138,6 +138,10 @@ CKEDITOR.lang['et'] = {
     {
     	toolbar : 'Printimine'
     },
+    preview : 
+    {
+    	preview : 'Eelvaade'
+    },
     pastetext : 
     {
     	button : 'Asetamine tavalise tekstina',

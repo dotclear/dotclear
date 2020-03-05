@@ -138,6 +138,10 @@ CKEDITOR.lang['zh-cn'] = {
     {
     	toolbar : '打印'
     },
+    preview : 
+    {
+    	preview : '预览'
+    },
     pastetext : 
     {
     	button : '粘贴为无格式文本',

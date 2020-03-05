@@ -138,6 +138,10 @@ CKEDITOR.lang['hu'] = {
     {
     	toolbar : 'Nyomtatás'
     },
+    preview : 
+    {
+    	preview : 'Előnézet'
+    },
     pastetext : 
     {
     	button : 'Beillesztés formázatlan szövegként',

@@ -138,6 +138,10 @@ CKEDITOR.lang['es-mx'] = {
     {
     	toolbar : 'Imprimir'
     },
+    preview : 
+    {
+    	preview : 'Vista previa'
+    },
     pastetext : 
     {
     	button : 'Pegar como texto plano',

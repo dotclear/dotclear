@@ -138,6 +138,10 @@ CKEDITOR.lang['af'] = {
     {
     	toolbar : 'Druk'
     },
+    preview : 
+    {
+    	preview : 'Voorbeeld'
+    },
     pastetext : 
     {
     	button : 'Voeg by as eenvoudige teks',

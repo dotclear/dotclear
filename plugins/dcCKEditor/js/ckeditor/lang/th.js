@@ -138,6 +138,10 @@ CKEDITOR.lang['th'] = {
     {
     	toolbar : 'สั่งพิมพ์'
     },
+    preview : 
+    {
+    	preview : 'ดูหน้าเอกสารตัวอย่าง'
+    },
     pastetext : 
     {
     	button : 'วางแบบตัวอักษรธรรมดา',

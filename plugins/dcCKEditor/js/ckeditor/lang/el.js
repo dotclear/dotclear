@@ -138,6 +138,10 @@ CKEDITOR.lang['el'] = {
     {
     	toolbar : 'Εκτύπωση'
     },
+    preview : 
+    {
+    	preview : 'Προεπισκόπιση'
+    },
     pastetext : 
     {
     	button : 'Επικόλληση ως απλό κείμενο',

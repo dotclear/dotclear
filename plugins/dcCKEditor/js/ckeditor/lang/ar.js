@@ -138,6 +138,10 @@ CKEDITOR.lang['ar'] = {
     {
     	toolbar : 'طباعة'
     },
+    preview : 
+    {
+    	preview : 'معاينة الصفحة'
+    },
     pastetext : 
     {
     	button : 'لصق كنص بسيط',

@@ -138,6 +138,10 @@ CKEDITOR.lang['pt'] = {
     {
     	toolbar : 'Imprimir'
     },
+    preview : 
+    {
+    	preview : 'Pré-visualizar'
+    },
     pastetext : 
     {
     	button : 'Colar como texto simples',

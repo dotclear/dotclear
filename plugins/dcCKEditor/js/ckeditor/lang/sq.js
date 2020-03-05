@@ -138,6 +138,10 @@ CKEDITOR.lang['sq'] = {
     {
     	toolbar : 'Shtype'
     },
+    preview : 
+    {
+    	preview : 'Parashiko'
+    },
     pastetext : 
     {
     	button : 'Hidhe si tekst të thjeshtë',

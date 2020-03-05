@@ -138,6 +138,10 @@ CKEDITOR.lang['hi'] = {
     {
     	toolbar : 'प्रिन्ट'
     },
+    preview : 
+    {
+    	preview : 'प्रीव्यू'
+    },
     pastetext : 
     {
     	button : 'पेस्ट (सादा टॅक्स्ट)',

@@ -138,6 +138,10 @@ CKEDITOR.lang['bg'] = {
     {
     	toolbar : 'Печат'
     },
+    preview : 
+    {
+    	preview : 'Преглед'
+    },
     pastetext : 
     {
     	button : 'Вмъкни като чист текст',

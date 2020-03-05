@@ -138,6 +138,10 @@ CKEDITOR.lang['ka'] = {
     {
     	toolbar : 'ბეჭდვა'
     },
+    preview : 
+    {
+    	preview : 'გადახედვა'
+    },
     pastetext : 
     {
     	button : 'მხოლოდ ტექსტის ჩასმა',

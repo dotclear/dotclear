@@ -138,6 +138,10 @@ CKEDITOR.lang['he'] = {
     {
     	toolbar : 'הדפסה'
     },
+    preview : 
+    {
+    	preview : 'תצוגה מקדימה'
+    },
     pastetext : 
     {
     	button : 'הדבקה כטקסט פשוט',

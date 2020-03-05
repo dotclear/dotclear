@@ -138,6 +138,10 @@ CKEDITOR.lang['pl'] = {
     {
     	toolbar : 'Drukuj'
     },
+    preview : 
+    {
+    	preview : 'Podgląd'
+    },
     pastetext : 
     {
     	button : 'Wklej jako czysty tekst',

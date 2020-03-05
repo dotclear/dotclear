@@ -138,6 +138,10 @@ CKEDITOR.lang['sv'] = {
     {
     	toolbar : 'Skriv ut'
     },
+    preview : 
+    {
+    	preview : 'Förhandsgranska'
+    },
     pastetext : 
     {
     	button : 'Klistra in som vanlig text',

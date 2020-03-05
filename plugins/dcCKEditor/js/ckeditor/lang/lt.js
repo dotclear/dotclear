@@ -138,6 +138,10 @@ CKEDITOR.lang['lt'] = {
     {
     	toolbar : 'Spausdinti'
     },
+    preview : 
+    {
+    	preview : 'Peržiūra'
+    },
     pastetext : 
     {
     	button : 'Įdėti kaip gryną tekstą',

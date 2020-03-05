@@ -138,6 +138,10 @@ CKEDITOR.lang['sk'] = {
     {
     	toolbar : 'Tlač'
     },
+    preview : 
+    {
+    	preview : 'Náhľad'
+    },
     pastetext : 
     {
     	button : 'Vložiť ako čistý text',

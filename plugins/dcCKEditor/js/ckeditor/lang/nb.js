@@ -138,6 +138,10 @@ CKEDITOR.lang['nb'] = {
     {
     	toolbar : 'Skriv ut'
     },
+    preview : 
+    {
+    	preview : 'Forhåndsvis'
+    },
     pastetext : 
     {
     	button : 'Lim inn som ren tekst',

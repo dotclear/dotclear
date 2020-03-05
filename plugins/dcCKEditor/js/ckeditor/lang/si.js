@@ -138,6 +138,10 @@ CKEDITOR.lang['si'] = {
     {
     	toolbar : 'මුද්‍රණය කරන්න'
     },
+    preview : 
+    {
+    	preview : 'නැවත '
+    },
     pastetext : 
     {
     	button : 'සාමාන්‍ය අක්ෂර ලෙස අලවන්න',
