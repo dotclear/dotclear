@@ -58,7 +58,7 @@ class dcModules
      */
     public function checkDependencies()
     {
-        $dc_version       = preg_replace('/\-dev$/', '', DC_VERSION);
+        $dc_version       = preg_replace('/\-dev.*$/', '', DC_VERSION);
         $this->to_disable = [];
         foreach ($this->all_modules as $k => &$m) {
             if (isset($m['requires'])) {
