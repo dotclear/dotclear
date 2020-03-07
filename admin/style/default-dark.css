@@ -1369,7 +1369,8 @@ button.details-cmd {
   padding: 0;
   margin: 0 5px 0 0;
   color: currentColor;
-  background: transparent; }
+  background: transparent;
+  box-shadow: none; }
   button.details-cmd:hover, button.details-cmd:focus {
     background: transparent;
     color: #bee74b; }
