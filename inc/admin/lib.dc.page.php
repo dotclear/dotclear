@@ -141,7 +141,7 @@ class dcPage
                 $csp['img-src'] .= ' ' . parse_url($core->blog->host, PHP_URL_HOST);
             }
             # Allow everything in iframe (used by editors to preview public content)
-            $csp['child-src'] = "*";
+            $csp['frame-src'] = "*";
 
             # --BEHAVIOR-- adminPageHTTPHeaderCSP
             $core->callBehavior('adminPageHTTPHeaderCSP', $csp);
