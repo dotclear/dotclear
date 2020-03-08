@@ -924,7 +924,7 @@ class dcTemplate extends template
         $f = $this->getFilters($attr);
 
         $p = "\$params['post_type'] = array_keys(\$core->getPostTypes());\n";
-        $p .= "\$params['post_url'] = " . sprintf($f, '$core->blog->settings->system->static_home_url') . ";\n";
+        $p .= "\$params['post_url'] = " . sprintf($f, 'urldecode($core->blog->settings->system->static_home_url)') . ";\n";
 
         return "<?php\n" . $p . " ?>";
     }
