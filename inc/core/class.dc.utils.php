@@ -115,7 +115,7 @@ class dcUtils
         if ($v !== null) {
             $escaped_src = dcUtils::appendVersion($escaped_src, $v);
         }
-        return '<script type="text/javascript" src="' . $escaped_src . '"></script>' . "\n";
+        return '<script src="' . $escaped_src . '"></script>' . "\n";
     }
 
     /**
@@ -129,7 +129,7 @@ class dcUtils
      */
     public static function jsVars($vars)
     {
-        $ret = '<script type="text/javascript">' . "\n";
+        $ret = '<script>' . "\n";
         foreach ($vars as $var => $value) {
             $ret .= 'var ' . $var . ' = ' . (is_string($value) ? '"' . html::escapeJS($value) . '"' : $value) . ';' . "\n";
         }

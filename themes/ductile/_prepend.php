@@ -34,7 +34,7 @@ class tplDuctileThemeAdmin
             \dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
             \dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
             echo <<<EOT
-<script type="text/javascript">
+<script>
 $(function() {
     $('#stickerslist').sortable({'cursor':'move'});
     $('#stickerslist tr').hover(function () {

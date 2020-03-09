@@ -281,7 +281,7 @@ class tplDuctileTheme
             "</style>\n";
 
         echo
-        '<script type="text/javascript" src="' .
+        '<script src="' .
         $core->blog->settings->system->themes_url . '/' . $core->blog->settings->system->theme .
             '/ductile.js"></script>' . "\n";
 
@@ -310,7 +310,7 @@ class tplDuctileTheme
                 $uri[] = $s['body_webfont_url'];
                 switch ($s['body_webfont_api']) {
                     case 'js':
-                        $ret .= sprintf('<script type="text/javascript" src="%s"></script>', $s['body_webfont_url']) . "\n";
+                        $ret .= sprintf('<script src="%s"></script>', $s['body_webfont_url']) . "\n";
                         break;
                     case 'css':
                         $ret .= sprintf('<link type="text/css" href="%s" rel="stylesheet" />', $s['body_webfont_url']) . "\n";
@@ -327,7 +327,7 @@ class tplDuctileTheme
                 if (!in_array($s['alternate_webfont_url'], $uri)) {
                     switch ($s['alternate_webfont_api']) {
                         case 'js':
-                            $ret .= sprintf('<script type="text/javascript" src="%s"></script>', $s['alternate_webfont_url']) . "\n";
+                            $ret .= sprintf('<script src="%s"></script>', $s['alternate_webfont_url']) . "\n";
                             break;
                         case 'css':
                             $ret .= sprintf('<link type="text/css" href="%s" rel="stylesheet" />', $s['alternate_webfont_url']) . "\n";

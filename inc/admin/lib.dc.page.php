@@ -355,18 +355,18 @@ class dcPage
 
         echo '<p id="gototop"><a href="#wrapper">' . __('Page top') . '</a></p>' . "\n";
 
-        $figure = "
+        $figure = <<<'EOT'
   ♥‿♥
               |    |    |
-             )_)  )_)  )_)
-            )___))___))___)\
-           )____)____)_____)\\
+             )_)  )_)  )_)        \ /
+            )___))___))___)\     — o —
+           )____)____)_____)\\    / \
          _____|____|____|____\\\__
----------\                   /---------
+---------\ ° ° °      ° ° °  /---------
   ^^^^^ ^^^^^^^^^^^^^^^^^^^^^
     ^^^^      ^^^^     ^^^    ^^
          ^^^^      ^^^
-  ";
+EOT;
 
         echo
             '<footer id="footer" role="contentinfo">' .
@@ -651,7 +651,7 @@ class dcPage
         if (!isset(self::$loaded_js[$escaped_src])) {
             self::$loaded_js[$escaped_src] = true;
             $escaped_src                   = self::appendVersion($escaped_src, $v);
-            return '<script type="text/javascript" src="' . $escaped_src . '"></script>' . "\n";
+            return '<script src="' . $escaped_src . '"></script>' . "\n";
         }
     }
 
@@ -692,7 +692,7 @@ class dcPage
      */
     public static function jsVars($vars)
     {
-        $ret = '<script type="text/javascript">' . "\n";
+        $ret = '<script>' . "\n";
         foreach ($vars as $var => $value) {
             $ret .= $var . ' = ' . (is_string($value) ? "'" . html::escapeJS($value) . "'" : $value) . ';' . "\n";
         }

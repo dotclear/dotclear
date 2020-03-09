@@ -34,15 +34,15 @@ if ($core->auth->user_prefs->interface->htmlfontsize) {
 // Set some JSON data
 echo dcUtils::jsJson('dotclear_init', $js);
 ?>
-    <script type="text/javascript" src="js/jquery/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery/jquery-ui.custom.js"></script>
-    <script type="text/javascript" src="js/jquery/jquery.ui.touch-punch.js"></script>
-    <script type="text/javascript" src="js/jquery/jquery.pageTabs.js"></script>
-    <script type="text/javascript" src="js/jquery/jquery.biscuit.js"></script>
-    <script type="text/javascript" src="js/prepend.js"></script>
-    <script type="text/javascript" src="js/common.js"></script>
-    <script type="text/javascript" src="js/prelude.js"></script>
-    <script type="text/javascript" src="js/_charte.js"></script>
+    <script src="js/jquery/jquery.js"></script>
+    <script src="js/jquery/jquery-ui.custom.js"></script>
+    <script src="js/jquery/jquery.ui.touch-punch.js"></script>
+    <script src="js/jquery/jquery.pageTabs.js"></script>
+    <script src="js/jquery/jquery.biscuit.js"></script>
+    <script src="js/prepend.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/prelude.js"></script>
+    <script src="js/_charte.js"></script>
 </head>
 
 <body id="dotclear-admin" class="no-js guideline<?php $core->auth->user_prefs->interface->dynfontsize ? ' responsive-font' : '';?>">
