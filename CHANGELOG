@@ -1,3 +1,17 @@
+Dotclear 2.16 - 2020-03-13
+===========================================================
+* 🐘 PHP 5.6+ is required, PHP 7.4 compliance
+* 🛡 Security: all requests from/to Dotclear and DotAddict servers use now HTTPS
+* jQuery upgraded to 3.4.1, older version will be removed, jQuery not anymore requested for "Remember me" feature
+* New "static" mode for home page
+* Media description may now be updated
+* Add <i [lang="…"]>…</i> support to Dotclear wiki, syntax: ££text[|lang]££
+* Lib: Update Codemirror to 5.52.0
+* Lib: Update CKEditor to 4.14.0
+* Lib: Clearbricks now supports MySQL 8+
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.15.3 - 2019-11-28
 ===========================================================
 * Fix: Avoid weird side-effect of JS minifier
