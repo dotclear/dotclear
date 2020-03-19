@@ -139,7 +139,7 @@ window.addEventListener('beforeunload', (event) => {
     event = window.event;
   }
 
-  if (!dotclear.confirmClosePage.form_submit && !dotclear.confirmClosePage.compareForms()) {
+  if (dotclear.confirmClosePage !== undefined && !dotclear.confirmClosePage.form_submit && !dotclear.confirmClosePage.compareForms()) {
     event.returnValue = dotclear.confirmClosePage.prompt;
     return dotclear.confirmClosePage.prompt;
   }
