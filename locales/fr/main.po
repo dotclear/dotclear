@@ -2468,6 +2468,15 @@ msgstr "Les prochaines versions de Dotclear ne supporteront par les versions de 
 msgid "Dotclear update"
 msgstr "Mise à jour de Dotclear"
 
+msgid "Precheck update error"
+msgstr "Erreur avant mise à jour"
+
+msgid "Backup directory does not exist"
+msgstr "Le répertoire de sauvegarde est inexistant"
+
+msgid "Access denied"
+msgstr "L'accès est refusé"
+
 #, php-format
 msgid "Unable to delete file %s"
 msgstr "Impossible de supprimer le fichier %s"
