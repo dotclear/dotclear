@@ -1,4 +1,4 @@
-/*global jQuery, chainHandler */
+/*global jQuery */
 'use strict';
 
 (function($) {
@@ -39,11 +39,11 @@
 
       part_to_activate.addClass('active').show();
       if (!part_to_activate.hasClass('loaded')) {
-        part_to_activate.onetabload();
+        part_to_activate.trigger('onetabload');
         part_to_activate.addClass('loaded');
       }
 
-      part_to_activate.tabload();
+      part_to_activate.trigger('tabload');
     });
 
     $(window).on('hashchange onhashchange', function() {
@@ -119,32 +119,3 @@
     return sh[1];
   };
 })(jQuery);
-
-jQuery.fn.tabload = function(f) {
-  this.each(function() {
-    if (f) {
-      chainHandler(this, 'tabload', f);
-    } else {
-      const h = this.tabload;
-      if (h) {
-        h.apply(this);
-      }
-    }
-  });
-  return this;
-};
-
-jQuery.fn.onetabload = function(f) {
-  this.each(function() {
-    if (f) {
-      chainHandler(this, 'onetabload', f);
-    } else {
-      const h = this.onetabload;
-      if (h != null) {
-        h.apply(this);
-        this.onetabload = null;
-      }
-    }
-  });
-  return this;
-};

@@ -3,7 +3,7 @@
 
 $(function() {
   $('#gp_submit,#lp_submit').hide();
-  $('#part-local,#part-global').tabload(function() {
+  $('#part-local,#part-global').on('tabload', function() {
     $('.multi-part.active select.navigation option:first').attr('selected', true);
   });
   $('#gp_nav').on('change', function() {
