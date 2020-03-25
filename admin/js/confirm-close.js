@@ -140,8 +140,7 @@ window.addEventListener('beforeunload', (event) => {
   }
 
   if (dotclear.confirmClosePage !== undefined && !dotclear.confirmClosePage.form_submit && !dotclear.confirmClosePage.compareForms()) {
-    event.returnValue = dotclear.confirmClosePage.prompt;
-    return dotclear.confirmClosePage.prompt;
+    event.preventDefault(); // HTML5 specification
+    event.returnValue = ''; // Google Chrome requires returnValue to be set.
   }
-  return false;
 });
