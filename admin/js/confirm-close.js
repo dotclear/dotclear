@@ -35,6 +35,7 @@ confirmClose.prototype = {
 
       f.addEventListener('submit', () => this.form_submit = true);
     }
+    console.log(this.forms);
   },
 
   compareForms: function() {
@@ -45,7 +46,7 @@ confirmClose.prototype = {
       return true;
     }
 
-    const formMatch = (obj, source) => Object.keys(source).every(key => obj.hasOwnProperty(key) && obj[key] === source[key]);
+    const formMatch = (source, obj) => Object.keys(source).every(key => obj.hasOwnProperty(key) && obj[key] === source[key]);
     const eltRef = (e) => e.id != undefined && e.id != '' ? e.id : e.name;
 
     const formsInPage = this.getForms();
