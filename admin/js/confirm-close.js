@@ -35,7 +35,6 @@ confirmClose.prototype = {
 
       f.addEventListener('submit', () => this.form_submit = true);
     }
-    console.log(this.forms);
   },
 
   compareForms: function() {
