@@ -199,7 +199,7 @@ msgid "Trackback URL"
 msgstr "URL trackback"
 
 msgid "You must provide an author name"
-msgstr ""Devètz picar un nom d’autor
+msgstr "Devètz picar un nom d’autor"
 
 msgid "You must provide a comment"
 msgstr "Devètz picar un comentari"
