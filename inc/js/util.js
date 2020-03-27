@@ -27,7 +27,7 @@ var isObject = isObject || function isObject(item) {
  * @param target
  * @param ...sources
  */
-var mergeDeep = mergeDeep || function mergeDeep(target, ...sources) {
+var mergeDeep = mergeDeep || function(target, ...sources) {
   if (!sources.length) return target;
   const source = sources.shift();
   if (isObject(target) && isObject(source)) {
@@ -44,16 +44,16 @@ var mergeDeep = mergeDeep || function mergeDeep(target, ...sources) {
 };
 
 // Returns the cookie with the given name or false if not found
-function getCookie(name) {
+var getCookie = getCookie || function(name) {
   let matches = document.cookie.match(new RegExp(
     "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
   ));
   return matches ? decodeURIComponent(matches[1]) : false;  // may be undefined rather than false?
-}
+};
 
 // Set a new cookie
 // usage: setCookie('user', 'John', {secure: true, 'expires': 60});
-function setCookie(name, value, options = {}) {
+var setCookie = setCookie || function(name, value, options = {}) {
 
   if (typeof options.expires === 'number') {
     // Cope with expires option given in number of days from now
@@ -75,11 +75,11 @@ function setCookie(name, value, options = {}) {
   }
 
   document.cookie = updatedCookie;
-}
+};
 
 // Delete a cookie
-function deleteCookie(name) {
+var deleteCookie = deleteCookie || function(name) {
   setCookie(name, "", {
     'expires': -1
   });
-}
+};
