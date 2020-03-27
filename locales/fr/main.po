@@ -67,6 +67,9 @@ msgstr "Le mode sans échec ne peut être utilisé que par un·e super administr
 msgid "Insufficient permissions"
 msgstr "Permissions insuffisantes"
 
+msgid "Administration session expired"
+msgstr "Session d'administration expirée"
+
 msgid "Wrong username or password"
 msgstr "Nom d'utilisateur·rice ou mot de passe incorrect"
 
