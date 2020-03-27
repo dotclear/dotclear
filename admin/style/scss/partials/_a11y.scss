@@ -1,0 +1,22 @@
+/* ------------------------------------------------------------------------------------
+                              A11Y - Accessibilité
+------------------------------------------------------------------------------------ */
+
+/* Remove animations for folks who set their OS to reduce motion.
+ 1. Immediately jump any animation to the end point
+ 2. Remove transitions & fixed background attachment
+ See: https://github.com/mozdevs/cssremedy/issues/11
+*/
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0s !important;
+    transition-duration: 0s !important;
+  }
+}
