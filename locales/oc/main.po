@@ -24,17 +24,17 @@ msgid "Password reset"
 msgstr "Reïnicializar lo senhal"
 
 msgid "Someone has requested to reset the password for the following site and username."
-msgstr ""
+msgstr "Qualqu’un a demandat la reïnicializacion lo senhal pel site e nom d’utilizaire seguent"
 
 msgid "Username:"
 msgstr "Nom d’utilizaire :"
 
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
-msgstr ""
+msgstr "Per reïnicializar lo senhal visitatz l’adreça seguenta, autrament ignoratz aqueste email e res serà pas cambiat."
 
 #, php-format
 msgid "The e-mail was sent successfully to %s."
-msgstr ""
+msgstr "Email corrèctament enviat a %s."
 
 msgid "Your new password"
 msgstr "Vòstre senhal novèl"
@@ -52,19 +52,19 @@ msgid "You didn't change your password."
 msgstr "Avètz pas cambiat de senhal"
 
 msgid "You have to change your password before you can login."
-msgstr ""
+msgstr "Vos cal cambiar lo senhal abans de vos connectar."
 
 msgid "In order to login, you have to change your password now."
 msgstr ""
 
 msgid "Safe Mode can only be used for super administrators."
-msgstr ""
+msgstr "Lo mòde segur es pas qu’utilizable pels super administrators."
 
 msgid "Insufficient permissions"
 msgstr ""
 
 msgid "Wrong username or password"
-msgstr ""
+msgstr "Marrit senhal o nom d’utilizaire"
 
 msgid "Back to login screen"
 msgstr "Tornar a l’ecran de connexion"
@@ -92,7 +92,7 @@ msgid "change"
 msgstr "cambiar"
 
 msgid "Safe mode login"
-msgstr ""
+msgstr "Mòde de connexion segur"
 
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr ""
@@ -107,10 +107,10 @@ msgid "log in"
 msgstr "connexion"
 
 msgid "You must accept cookies in order to use the private area."
-msgstr ""
+msgstr "Vos cal acceptar los cookies per utilizar la zòna privada."
 
 msgid "Get back to normal authentication"
-msgstr ""
+msgstr "Tornar a la autentificacion normala"
 
 msgid "Connection issue?"
 msgstr "Problèma de connexion ?"
@@ -119,11 +119,11 @@ msgid "I forgot my password"
 msgstr "Ai oblidat mon senhal"
 
 msgid "I want to log in in safe mode"
-msgstr ""
+msgstr "Vòli me connectar en mòde segur"
 
 #, php-format
 msgid "Blog \"%s\" successfully created"
-msgstr ""
+msgstr "Blog \"%s\" corrèctament creat"
 
 msgid "New blog"
 msgstr "Nòu blòg"
@@ -144,7 +144,7 @@ msgid "Blog ID"
 msgstr "ID del blòg"
 
 msgid "At least 2 characters using letters, numbers or symbols."
-msgstr ""
+msgstr "Almens 2 caractèrs en utilizant de letras, nombres e simbòl"
 
 msgid "Blog name:"
 msgstr "Nom del blòg :"
@@ -166,10 +166,10 @@ msgid "Create"
 msgstr "Crear"
 
 msgid "No such blog ID"
-msgstr ""
+msgstr "Cap d’ID de blòg correspondent"
 
 msgid "Password verification failed"
-msgstr ""
+msgstr "La verificacion del senhal a fracassat"
 
 #, php-format
 msgid "Blog \"%s\" successfully deleted"
@@ -183,10 +183,10 @@ msgstr "Avertiment"
 
 #, php-format
 msgid "You are about to delete the blog %s. Every entry, comment and category will be deleted."
-msgstr ""
+msgstr "Sètz a mand de suprimir lo blòg %s. Totas las entradas, comentaris e categorias seràn suprimits."
 
 msgid "Please give your password to confirm the blog deletion."
-msgstr ""
+msgstr "Mercés de picar vòstre senhal per confirmar la supression del blòg."
 
 msgid "Your password:"
 msgstr "Vòstre senhal :"
@@ -201,13 +201,13 @@ msgid "No such blog."
 msgstr ""
 
 msgid "year/month/day/title"
-msgstr ""
+msgstr "annada/mes/jorn/títol"
 
 msgid "year/month/title"
-msgstr ""
+msgstr "annada/mes/títol"
 
 msgid "year/title"
-msgstr ""
+msgstr "annada/títol"
 
 msgid "title"
 msgstr "títol"
@@ -243,10 +243,10 @@ msgid "Title, City, Country, Date"
 msgstr "Títol, Vila, País, Data"
 
 msgid "original"
-msgstr ""
+msgstr "original"
 
 msgid "None"
-msgstr ""
+msgstr "Cap"
 
 msgid "Left"
 msgstr "Esquèrra"
@@ -258,7 +258,7 @@ msgid "Center"
 msgstr "Centre"
 
 msgid "Legend and title"
-msgstr ""
+msgstr "Legenda e títol"
 
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr ""
@@ -276,7 +276,7 @@ msgid "This blog ID is already used."
 msgstr ""
 
 msgid "Invalid language code"
-msgstr ""
+msgstr "Còdi de lenga invalid"
 
 msgid "Blog has been successfully updated."
 msgstr ""
@@ -297,7 +297,7 @@ msgid "Parameters"
 msgstr "Paramètres"
 
 msgid "Blog details"
-msgstr ""
+msgstr "Detalhs del blòg"
 
 msgid "Blog status:"
 msgstr ""
@@ -365,7 +365,7 @@ msgid "Sample:"
 msgstr ""
 
 msgid "Time format:"
-msgstr ""
+msgstr "Format orari :"
 
 msgid "Pattern of time"
 msgstr ""
@@ -399,7 +399,7 @@ msgid "Include sub-categories in category page and category posts feed"
 msgstr ""
 
 msgid "Media and images"
-msgstr ""
+msgstr "Mèdia e imatges"
 
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
 msgstr ""
@@ -496,7 +496,7 @@ msgid "XML/RPC interface is active. You should set the following parameters on y
 msgstr ""
 
 msgid "Server URL:"
-msgstr ""
+msgstr "URL del servidor :"
 
 msgid "Blogging system:"
 msgstr ""
@@ -573,13 +573,13 @@ msgstr ""
 
 #, fuzzy
 msgid "Blog appearance"
-msgstr "Blògs"
+msgstr "Aparéncia del blòg"
 
 msgid "Theme configuration"
 msgstr "Configuracion del tèma"
 
 msgid "Themes management"
-msgstr ""
+msgstr "Gestion dels tèmas"
 
 msgid "Update themes"
 msgstr "Actualizar lo tèma"
@@ -601,7 +601,7 @@ msgid "You can configure and manage installed themes from this list."
 msgstr ""
 
 msgid "Deactivated themes"
-msgstr ""
+msgstr "Tèmas desactivats"
 
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr ""
@@ -610,13 +610,13 @@ msgid "Add themes"
 msgstr "Ajustar de tèmas"
 
 msgid "Add themes from repository"
-msgstr ""
+msgstr "Ajustar de tèmas d’un repertòri"
 
 msgid "Install or upgrade manually"
-msgstr ""
+msgstr "Installar o metre a nivèl manualament"
 
 msgid "Add themes from a package"
-msgstr ""
+msgstr "Ajustar de tèmas d’un paquet"
 
 msgid "You can install themes by uploading or downloading zip files."
 msgstr ""
@@ -637,16 +637,16 @@ msgid "Ascending"
 msgstr ""
 
 msgid "List of blogs"
-msgstr ""
+msgstr "Lista dels blògs"
 
 msgid "Create a new blog"
-msgstr ""
+msgstr "Crear un nòu blòg"
 
 msgid "Show filters and display options"
 msgstr ""
 
 msgid "Filters"
-msgstr "Tiltres"
+msgstr "Filtres"
 
 msgid "Search:"
 msgstr "Recercar :"
@@ -659,7 +659,7 @@ msgid "Display options"
 msgstr "Documentason"
 
 msgid "Order by:"
-msgstr ""
+msgstr "Ordonar per :"
 
 msgid "Sort:"
 msgstr "Triar :"
@@ -668,7 +668,7 @@ msgid "Show"
 msgstr "Mostrar"
 
 msgid "blogs per page"
-msgstr ""
+msgstr "blògs per pagina"
 
 msgid "Apply filters and display options"
 msgstr ""
@@ -678,7 +678,7 @@ msgstr ""
 
 #, fuzzy
 msgid "Actions"
-msgstr "Accions:"
+msgstr "Accions :"
 
 msgid "ok"
 msgstr "D’acòrdi"
@@ -687,7 +687,7 @@ msgid "Please give your password to confirm blog(s) deletion:"
 msgstr ""
 
 msgid "This category does not exist."
-msgstr ""
+msgstr "Aquesta categoria existís pas."
 
 #, php-format
 msgid "The category \"%s\" has been successfully deleted."
@@ -791,7 +791,7 @@ msgid "Description:"
 msgstr "Descripcion :"
 
 msgid "Move this category"
-msgstr ""
+msgstr "Desplaçar aquesta categoria"
 
 #, fuzzy
 msgid "Category parent"
@@ -923,7 +923,7 @@ msgid "You have %s spam comments."
 msgstr ""
 
 msgid "Show them."
-msgstr ""
+msgstr "Los mostrar"
 
 msgid "Delete all spams"
 msgstr ""
@@ -994,10 +994,10 @@ msgid "Errors have occured with following plugins:"
 msgstr ""
 
 msgid "Quick post"
-msgstr ""
+msgstr "Publicacion rapida"
 
 msgid "New post"
-msgstr ""
+msgstr "Publicacion novèla"
 
 msgid "Title:"
 msgstr "Títol :"
@@ -1103,7 +1103,7 @@ msgid ""
 msgstr ""
 
 msgid "Dotclear Install"
-msgstr ""
+msgstr "Installacion de Dotclear"
 
 #, fuzzy, php-format
 msgid "Password strength: %s"
@@ -1138,24 +1138,24 @@ msgid "Errors:"
 msgstr "Errors :"
 
 msgid "Configuration file has been successfully created."
-msgstr ""
+msgstr "Creacion corrècta del fichièr de configuracion."
 
 msgid "User information"
-msgstr ""
+msgstr "Informacions utilizaire"
 
 msgid "Please provide the following information needed to create the first user."
 msgstr ""
 
 #, fuzzy
 msgid "First Name:"
-msgstr "Reirenom:"
+msgstr "Prenom :"
 
 #, fuzzy
 msgid "Last Name:"
-msgstr "Nom:"
+msgstr "Nom :"
 
 msgid "Username and password"
-msgstr ""
+msgstr "Nom d’utilizaire e senhal"
 
 #, fuzzy
 msgid "Username"
@@ -1163,10 +1163,10 @@ msgstr "Nom d’utilizaire :"
 
 #, fuzzy
 msgid "Password"
-msgstr "MSenhal:"
+msgstr "Senhal:"
 
 msgid "All done!"
-msgstr ""
+msgstr "Tot es prest !"
 
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr ""
@@ -1179,17 +1179,17 @@ msgstr "Vòstre blòg"
 
 #, fuzzy
 msgid "Blog address:"
-msgstr "Blògs:"
+msgstr "Adreça del blògs :"
 
 #, fuzzy
 msgid "Administration interface:"
 msgstr "Interfàcia d’administracion"
 
 msgid "Manage your blog now"
-msgstr ""
+msgstr "Gerir lo blòg ara"
 
 msgid "Installation can not be completed"
-msgstr ""
+msgstr "L’installacion se pòt pas terminar"
 
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr ""
@@ -1238,25 +1238,25 @@ msgid "Please provide the following information needed to create your configurat
 msgstr ""
 
 msgid "Database type:"
-msgstr ""
+msgstr "Tipe de basa de donadas"
 
 msgid "MySQL (deprecated)"
-msgstr ""
+msgstr "MySQL (obsolèt)"
 
 msgid "MySQLi"
 msgstr ""
 
 msgid "MySQLi (full UTF-8)"
-msgstr ""
+msgstr "MySQLi (UTF-8 a fons)"
 
 msgid "PostgreSQL"
-msgstr ""
+msgstr "PostgreSQL"
 
 msgid "SQLite"
-msgstr ""
+msgstr "SQLite"
 
 msgid "Driver"
-msgstr ""
+msgstr "Pilòt"
 
 msgid "Database Host Name:"
 msgstr ""
@@ -1274,7 +1274,7 @@ msgid "Database Tables Prefix:"
 msgstr ""
 
 msgid "Prefix"
-msgstr ""
+msgstr "Prefix"
 
 msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
@@ -1284,19 +1284,19 @@ msgid "Continue"
 msgstr "Contengut :"
 
 msgid "Invalid language zip file."
-msgstr ""
+msgstr "Archiu de lenga invalid"
 
 msgid "The zip file does not appear to be a valid Dotclear language pack."
-msgstr ""
+msgstr "Lo fichièr zip sembla pas èsser un paquet de lenga valid per Dotclear."
 
 msgid "An error occurred during language upgrade."
-msgstr ""
+msgstr "Una error s’es producha pendent la mesa a nivèl de la lenga."
 
 msgid "No such installed language"
 msgstr ""
 
 msgid "You can't remove English language."
-msgstr ""
+msgstr "Podètz pas tirar l’anglés."
 
 msgid "Permissions to delete language denied."
 msgstr ""
@@ -1317,10 +1317,10 @@ msgid "Unable to move uploaded file."
 msgstr ""
 
 msgid "Languages management"
-msgstr ""
+msgstr "Gestion de las lengas"
 
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
-msgstr ""
+msgstr "Aquí podètz installar, metre a jorn o suprimir de lengas de vòstras installacion Dotclear."
 
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
@@ -1330,7 +1330,7 @@ msgid "Installed languages"
 msgstr "Lengas installadas"
 
 msgid "No additional language is installed."
-msgstr ""
+msgstr "Cap de lenga suplementària es pas installada."
 
 #, fuzzy
 msgid "Language"
@@ -1361,7 +1361,7 @@ msgid "Install language"
 msgstr "Installar la lenga"
 
 msgid "Upload a zip file"
-msgstr ""
+msgstr "Enviar un fichièr zip"
 
 msgid "You can install languages by uploading zip files."
 msgstr ""
@@ -1370,7 +1370,7 @@ msgid "Language zip file:"
 msgstr ""
 
 msgid "Upload language"
-msgstr ""
+msgstr "Enviar la lenga"
 
 msgid "By names, in ascending order"
 msgstr ""
@@ -1535,29 +1535,29 @@ msgid "In %s:"
 msgstr ""
 
 msgid "Create new directory"
-msgstr ""
+msgstr "Crear un dossièr novèl"
 
 msgid "Directory Name:"
-msgstr ""
+msgstr "Nom del dossièr :"
 
 #, php-format
 msgid "Backup content of %s"
-msgstr ""
+msgstr "Salvagardar lo contengut de %s"
 
 msgid "Download zip file"
-msgstr ""
+msgstr "Telecargar lo fichièr zip"
 
 msgid "Add files"
-msgstr ""
+msgstr "Ajustar de fichièrs"
 
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr ""
 
 msgid "Choose file"
-msgstr ""
+msgstr "Causir un fichièr"
 
 msgid "Choose files"
-msgstr ""
+msgstr "Causir de fichièrs"
 
 msgid "Maximum file size allowed:"
 msgstr ""
@@ -1572,10 +1572,10 @@ msgid "My preferences"
 msgstr "Mas preferéncias"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Actualizar"
 
 msgid "Clear all"
-msgstr ""
+msgstr "Tot escafar"
 
 msgid "Upload"
 msgstr "Enviar"
@@ -1584,12 +1584,11 @@ msgstr "Enviar"
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
 
-#, fuzzy
 msgid "Blog parameters"
-msgstr "Blògs"
+msgstr "Paramètres del blòg"
 
 msgid "Not a valid file"
-msgstr ""
+msgstr "Es pas un fichièr valid"
 
 msgid "File has been successfully updated."
 msgstr ""
@@ -2089,14 +2088,13 @@ msgstr ""
 
 #, fuzzy
 msgid "With password"
-msgstr "Mot de pas:"
+msgstr "Amb senhal"
 
 msgid "Without password"
 msgstr ""
 
-#, fuzzy
 msgid "Number of comments"
-msgstr "Acceptar los comentaris"
+msgstr "Nombre de comentaris"
 
 msgid "Number of trackbacks"
 msgstr ""
@@ -2120,11 +2118,11 @@ msgid "Month:"
 msgstr "Mes:"
 
 msgid "Lang:"
-msgstr "Lenga:"
+msgstr "Lenga :"
 
 #, fuzzy
 msgid "Comments:"
-msgstr "Coment:"
+msgstr "Comentari :"
 
 msgid "Trackbacks:"
 msgstr ""
@@ -2185,20 +2183,20 @@ msgid "Default favorites have been successfully updated."
 msgstr ""
 
 msgid "My profile"
-msgstr ""
+msgstr "Mon perfil"
 
 msgid "Display name:"
 msgstr ""
 
 msgid "Language for my interface:"
-msgstr ""
+msgstr "Lenga de mon interfàcia :"
 
 msgid "My timezone:"
 msgstr ""
 
 #, fuzzy
 msgid "Change my password"
-msgstr "Categòria"
+msgstr "Cambiar mon senhal"
 
 msgid "Confirm new password:"
 msgstr ""
@@ -2210,17 +2208,16 @@ msgid "If you have changed your email or password you must provide your current 
 msgstr ""
 
 msgid "Update my profile"
-msgstr ""
+msgstr "Metre a jorn mon perfil"
 
 msgid "My options"
-msgstr ""
+msgstr "Mas opcions"
 
 msgid "Interface"
-msgstr ""
+msgstr "Interfàcia"
 
-#, fuzzy
 msgid "Activate dark mode"
-msgstr "Privat"
+msgstr "Activar lo mòde fosc"
 
 msgid "Activate enhanced uploader in media manager"
 msgstr ""
@@ -2339,7 +2336,7 @@ msgid "Add to my favorites"
 msgstr ""
 
 msgid "Menu"
-msgstr ""
+msgstr "Menú"
 
 msgid "Display favorites at the top of the menu"
 msgstr ""
