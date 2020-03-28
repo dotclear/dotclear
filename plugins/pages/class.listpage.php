@@ -47,7 +47,7 @@ class adminPagesList extends adminGenericList
             $this->userColumns('pages', $cols);
 
             $html_block .= '<tr>' . implode(iterator_to_array($cols)) .
-                '</tr></thead><tbody id="pageslist">%s</tbody></table></div>';
+                '</tr></thead><tbody id="pageslist">%s</tbody></table>%s</div>';
 
             if ($enclose_block) {
                 $html_block = sprintf($enclose_block, $html_block);
@@ -66,6 +66,21 @@ class adminPagesList extends adminGenericList
             }
 
             echo $blocks[1];
+
+            $fmt = function($title, $image) {
+                return sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
+            };
+            echo '<p class="info">' . __('Legend: ') .
+                $fmt(__('Published'), 'check-on.png') . ' - ' .
+                $fmt(__('Unpublished'), 'check-off.png') . ' - ' .
+                $fmt(__('Scheduled'), 'scheduled.png') . ' - ' .
+                $fmt(__('Pending'), 'check-wrn.png') . ' - ' .
+                $fmt(__('Protected'), 'locker.png') . ' - ' .
+                $fmt(__('Hidden'), 'hidden.png') . ' - ' .
+                $fmt(__('Attachments'), 'attach.png') .
+                '</p>';
+
+            echo $blocks[2];
 
             echo $pager->getLinks();
         }

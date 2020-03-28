@@ -236,7 +236,7 @@ class adminPostList extends adminGenericList
             // Cope with optional columns
             $this->userColumns('posts', $cols);
 
-            $html_block .= '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table></div>';
+            $html_block .= '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table>%s</div>';
             if ($enclose_block) {
                 $html_block = sprintf($enclose_block, $html_block);
             }
@@ -252,6 +252,21 @@ class adminPostList extends adminGenericList
             }
 
             echo $blocks[1];
+
+            $fmt = function($title, $image) {
+                return sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
+            };
+            echo '<p class="info">' . __('Legend: ') .
+                $fmt(__('Published'), 'check-on.png') . ' - ' .
+                $fmt(__('Unpublished'), 'check-off.png') . ' - ' .
+                $fmt(__('Scheduled'), 'scheduled.png') . ' - ' .
+                $fmt(__('Pending'), 'check-wrn.png') . ' - ' .
+                $fmt(__('Protected'), 'locker.png') . ' - ' .
+                $fmt(__('Selected'), 'selected.png') . ' - ' .
+                $fmt(__('Attachments'), 'attach.png') .
+                '</p>';
+
+            echo $blocks[2];
 
             echo $pager->getLinks();
         }
@@ -542,7 +557,7 @@ class adminCommentList extends adminGenericList
             $cols = new ArrayObject($cols);
             $this->core->callBehavior('adminCommentListHeader', $this->core, $this->rs, $cols);
 
-            $html_block .= '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table></div>';
+            $html_block .= '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table>%s</div>';
 
             if ($enclose_block) {
                 $html_block = sprintf($enclose_block, $html_block);
@@ -559,6 +574,18 @@ class adminCommentList extends adminGenericList
             }
 
             echo $blocks[1];
+
+            $fmt = function($title, $image) {
+                return sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
+            };
+            echo '<p class="info">' . __('Legend: ') .
+                $fmt(__('Published'), 'check-on.png') . ' - ' .
+                $fmt(__('Unpublished'), 'check-off.png') . ' - ' .
+                $fmt(__('Pending'), 'check-wrn.png') . ' - ' .
+                $fmt(__('Junk'), 'junk.png') .
+                '</p>';
+
+            echo $blocks[2];
 
             echo $pager->getLinks();
         }
@@ -701,7 +728,7 @@ class adminBlogList extends adminGenericList
                 :
                 '<caption class="hidden">' . __('Blogs list') . '</caption>'
             ) .
-            '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table></div>';
+            '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table>%s</div>';
 
             if ($enclose_block) {
                 $html_block = sprintf($enclose_block, $html_block);
@@ -718,6 +745,17 @@ class adminBlogList extends adminGenericList
             }
 
             echo $blocks[1];
+
+            $fmt = function($title, $image) {
+                return sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
+            };
+            echo '<p class="info">' . __('Legend: ') .
+                $fmt(__('online'), 'check-on.png') . ' - ' .
+                $fmt(__('offline'), 'check-off.png') . ' - ' .
+                $fmt(__('removed'), 'check-wrn.png') .
+                '</p>';
+
+            echo $blocks[2];
 
             echo $pager->getLinks();
         }
@@ -814,7 +852,7 @@ class adminUserList extends adminGenericList
             $cols = new ArrayObject($cols);
             $this->core->callBehavior('adminUserListHeader', $this->core, $this->rs, $cols);
 
-            $html_block .= '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table></div>';
+            $html_block .= '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table>%s</div>';
             if ($enclose_block) {
                 $html_block = sprintf($enclose_block, $html_block);
             }
@@ -830,6 +868,16 @@ class adminUserList extends adminGenericList
             }
 
             echo $blocks[1];
+
+            $fmt = function($title, $image) {
+                return sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
+            };
+            echo '<p class="info">' . __('Legend: ') .
+                $fmt(__('admin'), 'admin.png') . ' - ' .
+                $fmt(__('superadmin'), 'superadmin.png') .
+                '</p>';
+
+            echo $blocks[2];
 
             echo $pager->getLinks();
         }
