@@ -1355,6 +1355,7 @@ class dcTemplate extends template
     republished    (0|1)    #IMPLIED    -- post has been updated since publication (value : 1) or not (value : 0)
     operator    (and|or)    #IMPLIED    -- combination of conditions, if more than 1 specifiec (default: and)
     url        CDATA    #IMPLIED    -- post has given url
+    author        CDATA    #IMPLIED    -- post has given user_id
     >
      */
     public function EntryIf($attr, $content)
@@ -1491,6 +1492,16 @@ class dcTemplate extends template
         if (isset($attr['republished'])) {
             $sign = (boolean) $attr['republished'] ? '' : '!';
             $if[] = $sign . '(boolean)$_ctx->posts->isRepublished()';
+        }
+
+        if (isset($attr['author'])) {
+            $author = trim($attr['author']);
+            if (substr($author, 0, 1) == '!') {
+                $author  = substr($author, 1);
+                $if[] = '$_ctx->posts->user_id != "' . $author . '"';
+            } else {
+                $if[] = '$_ctx->posts->user_id == "' . $author . '"';
+            }
         }
 
         $this->core->callBehavior('tplIfConditions', 'EntryIf', $attr, $content, $if);
