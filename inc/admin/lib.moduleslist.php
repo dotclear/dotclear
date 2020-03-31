@@ -822,6 +822,11 @@ class adminModulesList
         $config   = !empty($mr) && file_exists(path::real($mr . '/_config.php'));
         $index    = !empty($mr) && file_exists(path::real($mr . '/index.php'));
         $settings = $core->plugins->moduleInfo($id, 'settings');
+        if ($self) {
+            if (isset($settings['self']) && $settings['self'] === false) {
+                $self = false;
+            }
+        }
         if ($config || $index || !empty($settings)) {
             if ($config) {
                 if (!$check ||
