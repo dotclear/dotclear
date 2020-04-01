@@ -368,8 +368,13 @@ if (!$core->error->flag()) {
     '<p><span class="label ib">' . __('Show') . '</span> <label for="nb" class="classic">' .
     form::number('nb', 0, 999, $nb_per_page) . ' ' .
     __('entries per page') . '</label></p>' .
+
+    form::hidden('filters-options-id', 'posts') .
+    '<p class="hidden-if-no-js"><a href="#" id="filter-options-save">' . __('Save current options') . '</a></p>' .
+
     '</div>' .
     '</div>' .
+
 
     '<p><input type="submit" value="' . __('Apply filters and display options') . '" />' .
     '<br class="clear" /></p>' . //Opera sucks

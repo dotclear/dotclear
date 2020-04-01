@@ -25,6 +25,7 @@ $core->rest->addFunction('searchMeta', ['dcRestMethods', 'searchMeta']);
 $core->rest->addFunction('setSectionFold', ['dcRestMethods', 'setSectionFold']);
 $core->rest->addFunction('getModuleById', ['dcRestMethods', 'getModuleById']);
 $core->rest->addFunction('setDashboardPositions', ['dcRestMethods', 'setDashboardPositions']);
+$core->rest->addFunction('setListsOptions', ['dcRestMethods', 'setListsOptions']);
 
 $core->rest->serve();
 
@@ -584,6 +585,43 @@ class dcRestMethods
 
         $core->auth->user_prefs->dashboard->put($zone, $order);
         return true;
+    }
+
+    public static function setListsOptions($core, $get, $post)
+    {
+        $rsp = new xmlTag('result');
+
+        try {
+            if (empty($post['id'])) {
+                throw new Exception('No list name');
+            }
+            if (!in_array($post['id'], ['posts', 'comments', 'blogs', 'users'])) {
+                throw new Exception('List name invalid');
+            }
+
+            if ($core->auth->user_prefs->interface === null) {
+                $core->auth->user_prefs->addWorkspace('interface');
+            }
+            switch ($post['id']) {
+                case 'posts':
+                    if (isset($post['nb_per_page'])) {
+                        $core->auth->user_prefs->interface->put('nb_posts_per_page', (integer) $post['nb_per_page']);
+                    }
+                    if (isset($post['sortby'])) {
+                        $core->auth->user_prefs->interface->put('posts_sortby', $post['sortby']);
+                    }
+                    if (isset($post['order'])) {
+                        $core->auth->user_prefs->interface->put('order', $post['order']);
+                    }
+                    break;
+            }
+            $rsp->msg = __('List options saved');
+
+        } catch (Exception $e) {
+            $rsp->msg = $e->getMessage();
+        };
+
+        return $rsp;
     }
 
     public static function getModuleById($core, $get, $post)

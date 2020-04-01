@@ -40,4 +40,35 @@ $(function() {
     }
     return false;
   });
+
+  $('#filter-options-save').on('click', function() {
+    // Save list options (via services)
+    const param = {
+      f: 'setListsOptions',
+      xd_check: dotclear.nonce,
+      id: $('#filters-options-id').val(),
+      sort: $('#sortby').val(),
+      orderby: $('#order').val(),
+      nb_per_page: $('#nb').val()
+    };
+    $.post('services.php', param)
+      .done(function(data) {
+        const rsp = $(data).children('rsp')[0];
+        if (rsp) {
+          const res = $(rsp).find('result')[0];
+          if (res) {
+            window.alert(res.getAttribute('msg'));
+          } else {
+            if (rsp.getAttribute('status') !== 'ok') {
+              window.console.log('Dotclear REST server error');
+            }
+          }
+        }
+      })
+      .fail(function(jqXHR, textStatus, errorThrown) {
+        // No response
+        window.console.log(`AJAX ${textStatus} (status: ${jqXHR.status} ${errorThrown})`);
+        window.alert('Server error');
+      });
+  });
 });

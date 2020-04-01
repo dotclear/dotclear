@@ -2285,6 +2285,12 @@ msgstr "Colonnes optionnelles affichées dans les listes"
 msgid "Options for lists"
 msgstr "Options des listes"
 
+msgid "Save current options"
+msgstr "Sauvegarder ces options"
+
+msgid "List options saved"
+msgstr "Options de liste sauvegardées"
+
 msgid "Edition"
 msgstr "Édition"
 
