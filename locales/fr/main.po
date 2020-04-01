@@ -2282,6 +2282,9 @@ msgstr "Ce choix sera appliqué pour tous les utilisateur·rice·s"
 msgid "Optional columns displayed in lists"
 msgstr "Colonnes optionnelles affichées dans les listes"
 
+msgid "Options for lists"
+msgstr "Options des listes"
+
 msgid "Edition"
 msgstr "Édition"
 

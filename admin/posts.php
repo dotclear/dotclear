@@ -151,6 +151,12 @@ if ($posts_actions_page->process()) {
 
 /* Get posts
 -------------------------------------------------------- */
+$core->auth->user_prefs->addWorkspace('interface');
+$default_sortby = $core->auth->user_prefs->interface->posts_sortby ?: 'post_dt';
+$default_order  = $core->auth->user_prefs->interface->posts_order ?: 'desc';
+$nb_per_page    = $core->auth->user_prefs->interface->nb_posts_per_page ?: 30;
+
+# Filters
 $user_id    = !empty($_GET['user_id']) ? $_GET['user_id'] : '';
 $cat_id     = !empty($_GET['cat_id']) ? $_GET['cat_id'] : '';
 $status     = isset($_GET['status']) ? $_GET['status'] : '';
@@ -162,13 +168,13 @@ $attachment = isset($_GET['attachment']) ? $_GET['attachment'] : '';
 $month      = !empty($_GET['month']) ? $_GET['month'] : '';
 $lang       = !empty($_GET['lang']) ? $_GET['lang'] : '';
 $format     = !empty($_GET['format']) ? $_GET['format'] : '';
-$sortby     = !empty($_GET['sortby']) ? $_GET['sortby'] : 'post_dt';
-$order      = !empty($_GET['order']) ? $_GET['order'] : 'desc';
+# Options
+$sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : $default_sortby;
+$order  = !empty($_GET['order']) ? $_GET['order'] : $default_order;
 
 $show_filters = false;
 
-$page        = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
-$nb_per_page = 30;
+$page = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
 
 if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
     if ($nb_per_page != (integer) $_GET['nb']) {
@@ -284,7 +290,7 @@ if ($sortby !== '' && in_array($sortby, $sortby_combo)) {
         $order = 'desc';
     }
 
-    if ($sortby != 'post_dt' || $order != 'desc') {
+    if ($sortby != $default_sortby || $order != $default_order) {
         $show_filters = true;
     }
 } else {
@@ -309,7 +315,7 @@ dcPage::open(__('Posts'),
     dcPage::breadcrumb(
         [
             html::escapeHTML($core->blog->name) => '',
-            __('Posts')                       => ''
+            __('Posts')                         => ''
         ])
 );
 if (!empty($_GET['upd'])) {

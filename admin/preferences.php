@@ -158,6 +158,26 @@ if (is_array($cols_user)) {
     }
 }
 
+$posts_sortby_combo = [
+    __('Date')                 => 'post_dt',
+    __('Title')                => 'post_title',
+    __('Category')             => 'cat_title',
+    __('Author')               => 'user_id',
+    __('Status')               => 'post_status',
+    __('Selected')             => 'post_selected',
+    __('Number of comments')   => 'nb_comment',
+    __('Number of trackbacks') => 'nb_trackback'
+];
+
+$posts_order_combo = [
+    __('Descending') => 'desc',
+    __('Ascending')  => 'asc'
+];
+
+$posts_sortby = @$core->auth->user_prefs->interface->posts_sortby;
+$posts_order = @$core->auth->user_prefs->interface->posts_order;
+$nb_posts_per_page = @$core->auth->user_prefs->interface->nb_posts_per_page;
+
 # Add or update user
 if (isset($_POST['user_name'])) {
     try
@@ -269,6 +289,11 @@ if (isset($_POST['user_editor'])) {
             }
         }
         $core->auth->user_prefs->interface->put('cols', $cu, 'array');
+
+        # Update user lists options
+        $core->auth->user_prefs->interface->put('posts_sortby', $_POST['user_ui_posts_sortby'], 'string');
+        $core->auth->user_prefs->interface->put('posts_order', $_POST['user_ui_posts_order'], 'string');
+        $core->auth->user_prefs->interface->put('nb_posts_per_page', (integer) $_POST['user_ui_nb_posts_per_page'], 'integer');
 
         # Update user xhtml editor flags
         $rf = [];
@@ -612,6 +637,21 @@ foreach ($cols as $col_type => $col_list) {
     $odd = !$odd;
 }
 echo '</div>';
+
+echo
+'<div class="fieldset">' .
+'<h4 id="user_options_lists">' . __('Options for lists') . '</h4>' .
+'<div class="two-boxes odd">' .
+'<h5>' . __('Posts') . '</h5>' .
+'<p class="field"><label for="user_ui_posts_sortby">' . __('Order by:') . '</label> ' .
+form::combo('user_ui_posts_sortby', $posts_sortby_combo, $posts_sortby) . '</p>' .
+'<p class="field"><label for="user_ui_posts_order">' . __('Sort:') . '</label> ' .
+form::combo('user_ui_posts_order', $posts_order_combo, $posts_order) . '</p>' .
+'<p class="field"><span class="label">' . __('Show') . '</span> <label for="nb" class="classic">' .
+form::number('user_ui_nb_posts_per_page', 0, 999, $nb_posts_per_page) . ' ' .
+__('entries per page') . '</label></p>' .
+'</div>' .
+'</div>';
 
 echo
 '<div class="fieldset">' .
