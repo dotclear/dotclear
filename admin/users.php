@@ -39,13 +39,22 @@ $combo_action = [
 ];
 
 # --BEHAVIOR-- adminUsersActionsCombo
-$core->callBehavior('adminUsersActionsCombo', [&$combo_action]);
+$core->callBehavior('adminUsersActionsCombo', [ & $combo_action]);
+
+/* Get users
+-------------------------------------------------------- */
+$core->auth->user_prefs->addWorkspace('interface');
+$default_sortby = $core->auth->user_prefs->interface->users_sortby ?: 'user_id';
+$default_order  = $core->auth->user_prefs->interface->users_order ?: 'asc';
+$nb_per_page    = $core->auth->user_prefs->interface->nb_users_per_page ?: 30;
+
+$q      = !empty($_GET['q']) ? $_GET['q'] : '';
+$sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : $default_sortby;
+$order  = !empty($_GET['order']) ? $_GET['order'] : $default_order;
 
 $show_filters = false;
 
-#?Get users
 $page        = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
-$nb_per_page = 30;
 
 if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
     if ($nb_per_page != (integer) $_GET['nb']) {
@@ -53,10 +62,6 @@ if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
     }
     $nb_per_page = (integer) $_GET['nb'];
 }
-
-$q      = !empty($_GET['q']) ? $_GET['q'] : '';
-$sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : 'user_id';
-$order  = !empty($_GET['order']) ? $_GET['order'] : 'asc';
 
 $params['limit'] = [(($page - 1) * $nb_per_page), $nb_per_page];
 
@@ -67,22 +72,14 @@ if ($q) {
 }
 
 # - Sortby and order filter
-if ($sortby !== '' && in_array($sortby, $sortby_combo, true)) {
-    if (array_key_exists($sortby, $sortby_lex)) {
-        $params['order'] = $core->con->lexFields($sortby_lex[$sortby]);
-    } else {
-        $params['order'] = $sortby;
-    }
-    if ($order !== '' && in_array($order, $order_combo, true)) {
-        $params['order'] .= ' ' . $order;
-    } else {
-        $order = 'asc';
-    }
-} else {
-    $sortby = 'user_id';
-    $order  = 'asc';
+if (!in_array($sortby, $sortby_combo, true)) {
+    $sortby = $default_sortby;
 }
-if ($sortby != 'user_id' || $order != 'asc') {
+if (!in_array($order, $order_combo, true)) {
+    $order = $default_order;
+}
+$params['order'] = (array_key_exists($sortby, $sortby_lex) ? $core->con->lexFields($sortby_lex[$sortby]) : $sortby) . ' ' . $order;
+if ($sortby != $default_sortby || $order != $default_order) {
     $show_filters = true;
 }
 
@@ -142,6 +139,10 @@ if (!$core->error->flag()) {
     form::combo('order', $order_combo, $order) . '</p>' .
     '<p><span class="label ib">' . __('Show') . '</span> <label for="nb" class="classic">' .
     form::number('nb', 0, 999, $nb_per_page) . ' ' . __('users per page') . '</label></p> ' .
+
+    form::hidden('filters-options-id', 'users') .
+    '<p class="hidden-if-no-js"><a href="#" id="filter-options-save">' . __('Save current options') . '</a></p>' .
+
     '</div>' .
     '</div>' .
 

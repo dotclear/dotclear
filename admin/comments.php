@@ -55,21 +55,27 @@ $order_combo = [
 
 /* Get comments
 -------------------------------------------------------- */
+$core->auth->user_prefs->addWorkspace('interface');
+$default_sortby = $core->auth->user_prefs->interface->comments_sortby ?: 'comment_dt';
+$default_order  = $core->auth->user_prefs->interface->comments_order ?: 'desc';
+$nb_per_page    = $core->auth->user_prefs->interface->nb_comments_per_page ?: 30;
+
+# Filters
 $author = isset($_GET['author']) ? $_GET['author'] : '';
 $status = isset($_GET['status']) ? $_GET['status'] : '';
 $type   = !empty($_GET['type']) ? $_GET['type'] : '';
-$sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : 'comment_dt';
-$order  = !empty($_GET['order']) ? $_GET['order'] : 'desc';
 $ip     = !empty($_GET['ip']) ? $_GET['ip'] : '';
 $email  = !empty($_GET['email']) ? $_GET['email'] : '';
 $site   = !empty($_GET['site']) ? $_GET['site'] : '';
+# Options
+$sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : $default_sortby;
+$order  = !empty($_GET['order']) ? $_GET['order'] : $default_order;
 
 $with_spam = $author || $status || $type || $sortby != 'comment_dt' || $order != 'desc' || $ip;
 
 $show_filters = false;
 
 $page        = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
-$nb_per_page = 30;
 
 if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
     if ($nb_per_page != (integer) $_GET['nb']) {
@@ -133,24 +139,15 @@ if ($with_spam || ($status == -2)) {
 }
 
 # Sortby and order filter
-if ($sortby !== '' && in_array($sortby, $sortby_combo)) {
-    if (array_key_exists($sortby, $sortby_lex)) {
-        $params['order'] = $core->con->lexFields($sortby_lex[$sortby]);
-    } else {
-        $params['order'] = $sortby;
-    }
-    if ($order !== '' && in_array($order, $order_combo)) {
-        $params['order'] .= ' ' . $order;
-    } else {
-        $order = 'desc';
-    }
-
-    if ($sortby != 'comment_dt' || $order != 'desc') {
-        $show_filters = true;
-    }
-} else {
-    $sortby = 'comment_dt';
-    $order  = 'desc';
+if (!in_array($sortby, $sortby_combo)) {
+    $sortby = $default_sortby;
+}
+if (!in_array($order, $order_combo)) {
+    $order = $default_order;
+}
+$params['order'] = (array_key_exists($sortby, $sortby_lex) ? $core->con->lexFields($sortby_lex[$sortby]) : $sortby) . ' ' . $order;
+if ($sortby != $default_sortby || $order != $default_order) {
+    $show_filters = true;
 }
 
 # Actions combo box
@@ -259,9 +256,13 @@ if (!$core->error->flag()) {
     '<p><span class="label ib">' . __('Show') . '</span> <label for="nb" class="classic">' .
     form::number('nb', 0, 999, $nb_per_page) . ' ' .
     __('comments per page') . '</label></p>' .
-    '</div>' .
+
+    form::hidden('filters-options-id', 'comments') .
+    '<p class="hidden-if-no-js"><a href="#" id="filter-options-save">' . __('Save current options') . '</a></p>' .
 
     '</div>' .
+    '</div>' .
+
     '<p><input type="submit" value="' . __('Apply filters and display options') . '" />' .
     '<br class="clear" /></p>' . //Opera sucks
     '</form>';

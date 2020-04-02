@@ -278,24 +278,15 @@ if ($format !== '' && in_array($format, $format_combo)) {
 }
 
 # - Sortby and order filter
-if ($sortby !== '' && in_array($sortby, $sortby_combo)) {
-    if (array_key_exists($sortby, $sortby_lex)) {
-        $params['order'] = $core->con->lexFields($sortby_lex[$sortby]);
-    } else {
-        $params['order'] = $sortby;
-    }
-    if ($order !== '' && in_array($order, $order_combo)) {
-        $params['order'] .= ' ' . $order;
-    } else {
-        $order = 'desc';
-    }
-
-    if ($sortby != $default_sortby || $order != $default_order) {
-        $show_filters = true;
-    }
-} else {
-    $sortby = 'post_dt';
-    $order  = 'desc';
+if (!in_array($sortby, $sortby_combo)) {
+    $sortby = $default_sortby;
+}
+if (!in_array($order, $order_combo)) {
+    $order = $default_order;
+}
+$params['order'] = (array_key_exists($sortby, $sortby_lex) ? $core->con->lexFields($sortby_lex[$sortby]) : $sortby) . ' ' . $order;
+if ($sortby != $default_sortby || $order != $default_order) {
+    $show_filters = true;
 }
 
 # Get posts
@@ -374,7 +365,6 @@ if (!$core->error->flag()) {
 
     '</div>' .
     '</div>' .
-
 
     '<p><input type="submit" value="' . __('Apply filters and display options') . '" />' .
     '<br class="clear" /></p>' . //Opera sucks

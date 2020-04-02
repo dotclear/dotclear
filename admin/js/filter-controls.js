@@ -48,7 +48,7 @@ $(function() {
       xd_check: dotclear.nonce,
       id: $('#filters-options-id').val(),
       sort: $('#sortby').val(),
-      orderby: $('#order').val(),
+      order: $('#order').val(),
       nb_per_page: $('#nb').val()
     };
     $.post('services.php', param)

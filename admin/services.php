@@ -589,39 +589,67 @@ class dcRestMethods
 
     public static function setListsOptions($core, $get, $post)
     {
-        $rsp = new xmlTag('result');
+        if (empty($post['id'])) {
+            throw new Exception('No list name');
+        }
+        if (!in_array($post['id'], ['posts', 'comments', 'blogs', 'users'])) {
+            throw new Exception('List name invalid');
+        }
 
-        try {
-            if (empty($post['id'])) {
-                throw new Exception('No list name');
-            }
-            if (!in_array($post['id'], ['posts', 'comments', 'blogs', 'users'])) {
-                throw new Exception('List name invalid');
-            }
+        $res = new xmlTag('result');
 
-            if ($core->auth->user_prefs->interface === null) {
-                $core->auth->user_prefs->addWorkspace('interface');
-            }
-            switch ($post['id']) {
-                case 'posts':
-                    if (isset($post['nb_per_page'])) {
-                        $core->auth->user_prefs->interface->put('nb_posts_per_page', (integer) $post['nb_per_page']);
-                    }
-                    if (isset($post['sortby'])) {
-                        $core->auth->user_prefs->interface->put('posts_sortby', $post['sortby']);
-                    }
-                    if (isset($post['order'])) {
-                        $core->auth->user_prefs->interface->put('order', $post['order']);
-                    }
-                    break;
-            }
-            $rsp->msg = __('List options saved');
+        if ($core->auth->user_prefs->interface === null) {
+            $core->auth->user_prefs->addWorkspace('interface');
+        }
+        switch ($post['id']) {
+            case 'posts':
+                if (isset($post['nb_per_page'])) {
+                    $core->auth->user_prefs->interface->put('nb_posts_per_page', (integer) $post['nb_per_page']);
+                }
+                if (isset($post['sort'])) {
+                    $core->auth->user_prefs->interface->put('posts_sortby', $post['sort']);
+                }
+                if (isset($post['order'])) {
+                    $core->auth->user_prefs->interface->put('posts_order', $post['order']);
+                }
+                break;
+            case 'comments':
+                if (isset($post['nb_per_page'])) {
+                    $core->auth->user_prefs->interface->put('nb_comments_per_page', (integer) $post['nb_per_page']);
+                }
+                if (isset($post['sort'])) {
+                    $core->auth->user_prefs->interface->put('comments_sortby', $post['sort']);
+                }
+                if (isset($post['order'])) {
+                    $core->auth->user_prefs->interface->put('comments_order', $post['order']);
+                }
+                break;
+            case 'blogs':
+                if (isset($post['nb_per_page'])) {
+                    $core->auth->user_prefs->interface->put('nb_blogs_per_page', (integer) $post['nb_per_page']);
+                }
+                if (isset($post['sort'])) {
+                    $core->auth->user_prefs->interface->put('blogs_sortby', $post['sort']);
+                }
+                if (isset($post['order'])) {
+                    $core->auth->user_prefs->interface->put('blogs_order', $post['order']);
+                }
+                break;
+            case 'users':
+                if (isset($post['nb_per_page'])) {
+                    $core->auth->user_prefs->interface->put('nb_users_per_page', (integer) $post['nb_per_page']);
+                }
+                if (isset($post['sort'])) {
+                    $core->auth->user_prefs->interface->put('users_sortby', $post['sort']);
+                }
+                if (isset($post['order'])) {
+                    $core->auth->user_prefs->interface->put('users_order', $post['order']);
+                }
+                break;
+        }
+        $res->msg = __('List options saved');
 
-        } catch (Exception $e) {
-            $rsp->msg = $e->getMessage();
-        };
-
-        return $rsp;
+        return $res;
     }
 
     public static function getModuleById($core, $get, $post)

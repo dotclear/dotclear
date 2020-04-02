@@ -169,14 +169,57 @@ $posts_sortby_combo = [
     __('Number of trackbacks') => 'nb_trackback'
 ];
 
-$posts_order_combo = [
+$comments_sortby_combo = [
+    __('Date')        => 'comment_dt',
+    __('Entry title') => 'post_title',
+    __('Entry date')  => 'post_dt',
+    __('Author')      => 'comment_author',
+    __('Status')      => 'comment_status',
+    __('IP')          => 'comment_ip',
+    __('Spam filter') => 'comment_spam_filter'
+];
+
+$blogs_sortby_combo = [
+    __('Last update') => 'blog_upddt',
+    __('Blog name')   => 'UPPER(blog_name)',
+    __('Blog ID')     => 'B.blog_id',
+    __('Status')      => 'blog_status'
+];
+
+if ($core->auth->isSuperAdmin()) {
+    $users_sortby_combo = [
+        __('Username')          => 'user_id',
+        __('Last Name')         => 'user_name',
+        __('First Name')        => 'user_firstname',
+        __('Display name')      => 'user_displayname',
+        __('Number of entries') => 'nb_post'
+    ];
+}
+
+$order_combo = [
     __('Descending') => 'desc',
     __('Ascending')  => 'asc'
 ];
 
-$posts_sortby = @$core->auth->user_prefs->interface->posts_sortby;
-$posts_order = @$core->auth->user_prefs->interface->posts_order;
-$nb_posts_per_page = @$core->auth->user_prefs->interface->nb_posts_per_page;
+# Load user settings for lists options
+// Posts
+$posts_sortby      = $core->auth->user_prefs->interface->posts_sortby ?: 'post_dt';
+$posts_order       = $core->auth->user_prefs->interface->posts_order ?: 'desc';
+$nb_posts_per_page = $core->auth->user_prefs->interface->nb_posts_per_page;
+// Comments
+$comments_sortby      = $core->auth->user_prefs->interface->comments_sortby ?: 'comment_dt';
+$comments_order       = $core->auth->user_prefs->interface->comments_order ?: 'desc';
+$nb_comments_per_page = $core->auth->user_prefs->interface->nb_comments_per_page;
+// Blogs
+$blogs_sortby      = $core->auth->user_prefs->interface->blogs_sortby ?: 'blog_upddt';
+$blogs_order       = $core->auth->user_prefs->interface->blogs_order ?: 'desc';
+$nb_blogs_per_page = $core->auth->user_prefs->interface->nb_blogs_per_page;
+if ($core->auth->isSuperAdmin()) {
+    // Users
+    $users_sortby      = $core->auth->user_prefs->interface->users_sortby ?: 'user_id';
+    $users_order       = $core->auth->user_prefs->interface->users_order ?: 'asc';
+    $nb_users_per_page = $core->auth->user_prefs->interface->nb_users_per_page;
+}
 
 # Add or update user
 if (isset($_POST['user_name'])) {
@@ -291,9 +334,24 @@ if (isset($_POST['user_editor'])) {
         $core->auth->user_prefs->interface->put('cols', $cu, 'array');
 
         # Update user lists options
+        // Posts
         $core->auth->user_prefs->interface->put('posts_sortby', $_POST['user_ui_posts_sortby'], 'string');
         $core->auth->user_prefs->interface->put('posts_order', $_POST['user_ui_posts_order'], 'string');
         $core->auth->user_prefs->interface->put('nb_posts_per_page', (integer) $_POST['user_ui_nb_posts_per_page'], 'integer');
+        // Comments
+        $core->auth->user_prefs->interface->put('comments_sortby', $_POST['user_ui_comments_sortby'], 'string');
+        $core->auth->user_prefs->interface->put('comments_order', $_POST['user_ui_comments_order'], 'string');
+        $core->auth->user_prefs->interface->put('nb_comments_per_page', (integer) $_POST['user_ui_nb_comments_per_page'], 'integer');
+        // Blogs
+        $core->auth->user_prefs->interface->put('blogs_sortby', $_POST['user_ui_blogs_sortby'], 'string');
+        $core->auth->user_prefs->interface->put('blogs_order', $_POST['user_ui_blogs_order'], 'string');
+        $core->auth->user_prefs->interface->put('nb_blogs_per_page', (integer) $_POST['user_ui_nb_blogs_per_page'], 'integer');
+        if ($core->auth->isSuperAdmin()) {
+            // Users
+            $core->auth->user_prefs->interface->put('users_sortby', $_POST['user_ui_users_sortby'], 'string');
+            $core->auth->user_prefs->interface->put('users_order', $_POST['user_ui_users_order'], 'string');
+            $core->auth->user_prefs->interface->put('nb_users_per_page', (integer) $_POST['user_ui_nb_users_per_page'], 'integer');
+        }
 
         # Update user xhtml editor flags
         $rf = [];
@@ -446,12 +504,12 @@ dcPage::open($page_title,
     dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
     dcPage::jsLoad('js/jquery/jquery.pwstrength.js') .
     dcPage::jsJson('preferences', [
-            sprintf(__('Password strength: %s'), __('very weak')),
-            sprintf(__('Password strength: %s'), __('weak')),
-            sprintf(__('Password strength: %s'), __('mediocre')),
-            sprintf(__('Password strength: %s'), __('strong')),
-            sprintf(__('Password strength: %s'), __('very strong'))
-        ]) .
+        sprintf(__('Password strength: %s'), __('very weak')),
+        sprintf(__('Password strength: %s'), __('weak')),
+        sprintf(__('Password strength: %s'), __('mediocre')),
+        sprintf(__('Password strength: %s'), __('strong')),
+        sprintf(__('Password strength: %s'), __('very strong'))
+    ]) .
     dcPage::jsLoad('js/_preferences.js') .
     dcPage::jsPageTabs($default_tab) .
     dcPage::jsConfirmClose('user-form', 'opts-forms', 'favs-form') .
@@ -646,12 +704,44 @@ echo
 '<p class="field"><label for="user_ui_posts_sortby">' . __('Order by:') . '</label> ' .
 form::combo('user_ui_posts_sortby', $posts_sortby_combo, $posts_sortby) . '</p>' .
 '<p class="field"><label for="user_ui_posts_order">' . __('Sort:') . '</label> ' .
-form::combo('user_ui_posts_order', $posts_order_combo, $posts_order) . '</p>' .
-'<p class="field"><span class="label">' . __('Show') . '</span> <label for="nb" class="classic">' .
+form::combo('user_ui_posts_order', $order_combo, $posts_order) . '</p>' .
+'<p><span class="label ib">' . __('Show') . '</span> <label for="user_ui_nb_posts_per_page" class="classic">' .
 form::number('user_ui_nb_posts_per_page', 0, 999, $nb_posts_per_page) . ' ' .
 __('entries per page') . '</label></p>' .
+'<hr />' .
+'<h5>' . __('Comments') . '</h5>' .
+'<p class="field"><label for="user_ui_comments_sortby">' . __('Order by:') . '</label> ' .
+form::combo('user_ui_comments_sortby', $comments_sortby_combo, $comments_sortby) . '</p>' .
+'<p class="field"><label for="user_ui_comments_order">' . __('Sort:') . '</label> ' .
+form::combo('user_ui_comments_order', $order_combo, $comments_order) . '</p>' .
+'<p><span class="label ib">' . __('Show') . '</span> <label for="user_ui_nb_comments_per_page" class="classic">' .
+form::number('user_ui_nb_comments_per_page', 0, 999, $nb_comments_per_page) . ' ' .
+__('comments per page') . '</label></p>' .
 '</div>' .
-'</div>';
+'<div class="two-boxes even">' .
+'<h5>' . __('Blogs') . '</h5>' .
+'<p class="field"><label for="user_ui_blogs_sortby">' . __('Order by:') . '</label> ' .
+form::combo('user_ui_blogs_sortby', $blogs_sortby_combo, $blogs_sortby) . '</p>' .
+'<p class="field"><label for="user_ui_blogs_order">' . __('Sort:') . '</label> ' .
+form::combo('user_ui_blogs_order', $order_combo, $blogs_order) . '</p>' .
+'<p><span class="label ib">' . __('Show') . '</span> <label for="user_ui_nb_blogs_per_page" class="classic">' .
+form::number('user_ui_nb_blogs_per_page', 0, 999, $nb_blogs_per_page) . ' ' .
+__('blogs per page') . '</label></p>';
+if ($core->auth->isSuperAdmin()) {
+    echo
+    '<hr />' .
+    '<h5>' . __('Users') . '</h5>' .
+    '<p class="field"><label for="user_ui_users_sortby">' . __('Order by:') . '</label> ' .
+    form::combo('user_ui_users_sortby', $users_sortby_combo, $users_sortby) . '</p>' .
+    '<p class="field"><label for="user_ui_users_order">' . __('Sort:') . '</label> ' .
+    form::combo('user_ui_users_order', $order_combo, $users_order) . '</p>' .
+    '<p><span class="label ib">' . __('Show') . '</span> <label for="user_ui_nb_users_per_page" class="classic">' .
+    form::number('user_ui_nb_users_per_page', 0, 999, $nb_users_per_page) . ' ' .
+    __('users per page') . '</label></p>';
+}
+echo
+    '</div>' .
+    '</div>';
 
 echo
 '<div class="fieldset">' .

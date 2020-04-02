@@ -38,16 +38,20 @@ if ($core->auth->isSuperAdmin()) {
     }
 }
 
+$core->auth->user_prefs->addWorkspace('interface');
+$default_sortby = $core->auth->user_prefs->interface->blogs_sortby ?: 'blog_upddt';
+$default_order  = $core->auth->user_prefs->interface->blogs_order ?: 'desc';
+$nb_per_page    = $core->auth->user_prefs->interface->nb_blogs_per_page ?: 30;
+
 # Requests
 $q      = !empty($_GET['q']) ? $_GET['q'] : '';
 $status = isset($_GET['status']) ? $_GET['status'] : '';
-$sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : 'blog_upddt';
-$order  = !empty($_GET['order']) ? $_GET['order'] : 'desc';
+$sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : $default_sortby;
+$order  = !empty($_GET['order']) ? $_GET['order'] : $default_order;
 
 $show_filters = false;
 
-$page        = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
-$nb_per_page = 30;
+$page = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
 
 if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
     if ($nb_per_page != (integer) $_GET['nb']) {
@@ -71,17 +75,14 @@ if ($status !== '' && in_array($status, $status_combo, true)) {
 }
 
 # - Sortby and order filter
-if ($sortby !== '' && in_array($sortby, $sortby_combo, true)) {
-    if ($order !== '' && in_array($order, $order_combo, true)) {
-        $params['order'] = $sortby . ' ' . $order;
-    } else {
-        $order = 'desc';
-    }
-} else {
-    $sortby = 'blog_upddt';
-    $order  = 'desc';
+if (!in_array($sortby, $sortby_combo, true)) {
+    $sortby = $default_sortby;
 }
-if ($sortby != 'blog_upddt' || $order != 'desc') {
+if (!in_array($order, $order_combo, true)) {
+    $order = $default_order;
+}
+$params['order'] = $sortby . ' ' . $order;
+if ($sortby != $default_sortby || $order != $default_order) {
     $show_filters = true;
 }
 
@@ -142,6 +143,10 @@ if (!$core->error->flag()) {
     form::combo('order', $order_combo, html::escapeHTML($order)) . '</p>' .
     '<p><span class="label ib">' . __('Show') . '</span> <label for="nb" class="classic">' .
     form::number('nb', 0, 999, $nb_per_page) . ' ' . __('blogs per page') . '</label></p>' .
+
+    form::hidden('filters-options-id', 'blogs') .
+    '<p class="hidden-if-no-js"><a href="#" id="filter-options-save">' . __('Save current options') . '</a></p>' .
+
     '</div>' .
     '</div>' .
 
