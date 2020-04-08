@@ -57,7 +57,7 @@ class dcNotices
             if (isset($notice_error) && !empty($notice_error)) {
                 $res .= $notice_error;
             } else {
-                $res .= '<div class="error"><p>' .
+                $res .= '<div class="error" role="alert"><p>' .
                 '<strong>' . (count($this->core->error->getErrors()) > 1 ? __('Errors:') : __('Error:')) . '</strong>' .
                 '</p>' . $this->core->error->toHTML() . '</div>';
             }
