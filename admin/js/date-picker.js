@@ -3,6 +3,7 @@
 'use strict';
 
 function datePicker(target) {
+  /* jshint validthis: true */
   if (!document.getElementById) {
     return;
   }
