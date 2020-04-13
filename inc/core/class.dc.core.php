@@ -1146,7 +1146,14 @@ class dcCore
             return $str;
         }
 
-        $filter = new htmlFilter;
+        $options = new ArrayObject([
+            'keep_aria' => false,
+            'keep_data' => false,
+            'keep_js'   => false
+        ]);
+        $this->callBehavior('HTMLfilter', $options);
+
+        $filter = new htmlFilter($options['keep_aria'], $options['keep_data'], $options['keep_js']);
         $str    = trim($filter->apply($str));
         return $str;
     }
@@ -1459,7 +1466,7 @@ class dcCore
                 ['import_feed_port_regexp', 'string', '/^(80|443)$/',
                     'Authorize import feed only from this port regexp'],
                 ['jquery_needed', 'boolean', true,
-                    'Load jQuery library'],
+                    'Load jQuery library']
             ];
         }
 
