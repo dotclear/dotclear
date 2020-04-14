@@ -841,15 +841,6 @@ class adminModulesList
                     '">' . __('Configure plugin') . '</a>';
                 }
             }
-            if ($index && $self) {
-                if (!$check ||
-                    $core->auth->isSuperAdmin() ||
-                    $core->auth->check($core->plugins->moduleInfo($id, 'permissions'), $core->blog->id)) {
-                    $st[] = '<a class="module-config" href="' .
-                    $core->adminurl->get('admin.plugin.' . $id) .
-                    '">' . __('Plugin settings') . '</a>';
-                }
-            }
             if (is_array($settings)) {
                 foreach ($settings as $sk => $sv) {
                     switch ($sk) {
@@ -872,19 +863,40 @@ class adminModulesList
                             }
                             break;
                         case 'self':
-                            if ($self && !$index) {
+                            if ($self) {
                                 if (!$check ||
                                     $core->auth->isSuperAdmin() ||
                                     $core->auth->check($core->plugins->moduleInfo($id, 'permissions'), $core->blog->id)) {
                                     $st[] = '<a class="module-config" href="' .
-                                    $core->adminurl->get('admin.plugin.' . $id) .
+                                    $core->adminurl->get('admin.plugin.' . $id) . $sv .
                                     '">' . __('Plugin settings') . '</a>';
                                 }
+                                // No need to use default index.php
+                                $index = false;
+                            }
+                            break;
+                        case 'other':
+                            if (!$check ||
+                                $core->auth->isSuperAdmin() ||
+                                $core->auth->check($core->plugins->moduleInfo($id, 'permissions'), $core->blog->id)) {
+                                $st[] = '<a class="module-config" href="' .
+                                $sv .
+                                '">' . __('Plugin settings') . '</a>';
                             }
                             break;
                     }
                 }
             }
+            if ($index && $self) {
+                if (!$check ||
+                    $core->auth->isSuperAdmin() ||
+                    $core->auth->check($core->plugins->moduleInfo($id, 'permissions'), $core->blog->id)) {
+                    $st[] = '<a class="module-config" href="' .
+                    $core->adminurl->get('admin.plugin.' . $id) .
+                    '">' . __('Plugin settings') . '</a>';
+                }
+            }
+
         }
 
         return $st;
