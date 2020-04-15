@@ -1,3 +1,17 @@
+xDotclear 2.16.1 - 2020-04-15
+===========================================================
+* Fix: False alert about non existing modification in administration (post edition, …)
+* Fix: Test the existence of directory backup before update
+* Fix: Do not load "remember me" javascript script when comment are closed
+* Fix: Show admin session expired message if necessary rather than wrong user/pwd
+* Fix: wiki2xhtml, i, code, del, ins, mark, sup and sub elements are now allowed inside an a (link) element
+* Fix: util.js utilities function script is now load on every page (will be improved in further release)
+* Fix: In Ductile theme, load jQuery only if required
+* Fix: Detection of mandatory input field content to enable submit button
+* Add a behavior to setup htmlFilter options (keep aria, keep data, keep js)
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.16 - 2020-03-13
 ===========================================================
 * 🐘 PHP 5.6+ is required, PHP 7.4 compliance

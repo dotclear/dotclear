@@ -21,11 +21,12 @@
 <tpl:Block name="html-head">
 	{{tpl:parent}}
 
-  <script type="application/json" id="dc_post_remember_str-data">
-    {"post_remember_str": "{{tpl:lang Remember me on this blog}}"}
-  </script>
-  <script src="{{tpl:BlogQmarkURL}}pf=util.js"></script>
-  <script src="{{tpl:BlogQmarkURL}}pf=post.js"></script>
+  <tpl:EntryIf comments_active="1">
+    <script type="application/json" id="dc_post_remember_str-data">
+      {"post_remember_str": "{{tpl:lang Remember me on this blog}}"}
+    </script>
+    <script src="{{tpl:BlogQmarkURL}}pf=post.js"></script>
+  </tpl:EntryIf>
 </tpl:Block>
 
 <tpl:Block name="body-tag"><body class="dc-post"></tpl:Block>

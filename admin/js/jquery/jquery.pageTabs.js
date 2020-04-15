@@ -39,11 +39,11 @@
 
       part_to_activate.addClass('active').show();
       if (!part_to_activate.hasClass('loaded')) {
-        part_to_activate.onetabload();
+        part_to_activate.trigger('onetabload');
         part_to_activate.addClass('loaded');
       }
 
-      part_to_activate.tabload();
+      part_to_activate.trigger('tabload');
     });
 
     $(window).on('hashchange onhashchange', function() {
@@ -120,7 +120,9 @@
   };
 })(jQuery);
 
+// The next 2 function (tabload and onetabload) should be deleted in the next 2.17 major release
 jQuery.fn.tabload = function(f) {
+  console.warn("jQuery.fn.tabload() is deprecated and will be soon removed; use the .on('tabload', ...) method");
   this.each(function() {
     if (f) {
       chainHandler(this, 'tabload', f);
@@ -135,6 +137,7 @@ jQuery.fn.tabload = function(f) {
 };
 
 jQuery.fn.onetabload = function(f) {
+  console.warn("jQuery.fn.onetabload() is deprecated and will be soon removed; use the .on('onetabload', ...) method");
   this.each(function() {
     if (f) {
       chainHandler(this, 'onetabload', f);
@@ -148,3 +151,4 @@ jQuery.fn.onetabload = function(f) {
   });
   return this;
 };
+

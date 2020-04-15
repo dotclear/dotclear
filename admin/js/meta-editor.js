@@ -1,8 +1,8 @@
 /*global $, dotclear */
 'use strict';
 
-//~ metaEditor & metaEditor.prototype should go to the core.
 function metaEditor(target, meta_field, meta_type, meta_options) {
+  /*jshint validthis: true */
   this.target = target;
   this.meta_field = meta_field;
   this.meta_type = meta_type;
@@ -41,10 +41,7 @@ metaEditor.prototype = {
     this.post_id = post_id;
     this.target.empty();
 
-    this.meta_dialog = $('<input type="text" class="ib" />');
-    this.meta_dialog.attr('title', this.text_add_meta.replace(/%s/, this.meta_type));
-    this.meta_dialog.attr('id', input_id);
-    this.meta_dialog.attr('class', 'post_meta_input');
+    this.meta_dialog = $(`<input type="text" class="ib meta-helper" title="${this.text_add_meta.replace(/%s/, this.meta_type)}" id="${input_id}" />`);
     // Meta dialog input
     this.meta_dialog.on('keypress', function(evt) { // We don't want to submit form!
       if (evt.keyCode == 13) {
@@ -83,7 +80,7 @@ metaEditor.prototype = {
 
       this.meta_list.empty();
       for (let i = 0; i < meta.length; i++) {
-        li = $('<li>' + meta[i] + '</li>');
+        li = $(`<li>${meta[i]}</li>`);
         const a_remove = $('<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>');
         a_remove.get(0).caller = this;
         a_remove.get(0).meta_id = meta[i];
@@ -113,7 +110,7 @@ metaEditor.prototype = {
         This.meta_list.empty();
         data.find('meta').each(function() {
           const meta_id = $(this).text();
-          li = $('<li><a href="' + This.meta_url + $(this).attr('uri') + '">' + meta_id + '</a></li>');
+          li = $(`<li><a href="${This.meta_url}${$(this).attr('uri')}">${meta_id}</a></li>`);
           const a_remove = $('<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>');
           a_remove.get(0).caller = This;
           a_remove.get(0).meta_id = meta_id;
@@ -167,7 +164,7 @@ metaEditor.prototype = {
         pl.empty();
 
         $(data).find('meta').each(function(i) {
-          const meta_link = $('<button type="button" class="metaItem meta-helper">' + $(this).text() + '</button>');
+          const meta_link = $(`<button type="button" class="metaItem meta-helper">${$(this).text()}</button>`);
           meta_link.get(0).meta_id = $(this).text();
           meta_link.on('click', function() {
             const v = This.splitMetaValues(This.meta_dialog.val() + ',' + this.meta_id);

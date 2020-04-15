@@ -2,7 +2,7 @@
 'use strict';
 
 $(function() {
-  $('#edit-entry').onetabload(function() {
+  $('#edit-entry').on('onetabload', function() {
     if ($('p.ping-services').length > 0) {
       const p = $('<p></p>');
       p.addClass('ping-services');

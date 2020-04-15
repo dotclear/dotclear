@@ -1,40 +1,39 @@
-/*global chainHandler, getData */
+/*global getData, dotclear */
 'use strict';
 
-function confirmClose() {
+const confirmClose = function() {
   if (arguments.length > 0) {
     for (let i = 0; i < arguments.length; i++) {
       this.forms_id.push(arguments[i]);
     }
   }
-}
+};
 
 confirmClose.prototype = {
   prompt: 'You have unsaved changes.',
   forms_id: [],
   forms: [],
-  formSubmit: false,
+  form_submit: false,
 
   getCurrentForms: function() {
     // Store current form's element's values
 
+    const eltRef = (e) => e.id != undefined && e.id != '' ? e.id : e.name;
+
     const formsInPage = this.getForms();
-    const This = this;
     this.forms = [];
     for (let i = 0; i < formsInPage.length; i++) {
       const f = formsInPage[i];
       let tmpForm = [];
       for (let j = 0; j < f.elements.length; j++) {
         const e = this.getFormElementValue(f[j]);
-        if (e != undefined) {
-          tmpForm.push(e);
+        if (e !== undefined) {
+          tmpForm[eltRef(f[j])] = e;
         }
       }
       this.forms.push(tmpForm);
 
-      chainHandler(f, 'onsubmit', function() {
-        This.formSubmit = true;
-      });
+      f.addEventListener('submit', () => this.form_submit = true);
     }
   },
 
@@ -46,20 +45,21 @@ confirmClose.prototype = {
       return true;
     }
 
+    const formMatch = (source, obj) => Object.keys(source).every(key => obj.hasOwnProperty(key) && obj[key] === source[key]);
+    const eltRef = (e) => e.id != undefined && e.id != '' ? e.id : e.name;
+
     const formsInPage = this.getForms();
     for (let i = 0; i < formsInPage.length; i++) {
       const f = formsInPage[i];
-      var tmpForm = [];
+      let tmpForm = [];
       for (let j = 0; j < f.elements.length; j++) {
         const e = this.getFormElementValue(f[j]);
-        if (e != undefined) {
-          tmpForm.push(e);
+        if (e !== undefined) {
+          tmpForm[eltRef(f[j])] = e;
         }
       }
-      for (let j = 0; j < this.forms[i].length; j++) {
-        if (this.forms[i][j] != tmpForm[j]) {
-          return false;
-        }
+      if (!formMatch(tmpForm, this.forms[i])) {
+        return false;
       }
     }
 
@@ -92,73 +92,55 @@ confirmClose.prototype = {
   getFormElementValue: function(e) {
     // Return current value of an form element
 
-    if (e == undefined) {
+    if (
       // Unknown object
-      return undefined;
-    }
-    if (e.type != undefined && e.type == 'button') {
+      (e === undefined) ||
+      // Ignore unidentified object
+      ((e.id === undefined || e.id === '') && (e.name === undefined || e.name === '')) ||
       // Ignore button element
-      return undefined;
-    }
-    if (e.classList.contains('meta-helper') || e.classList.contains('checkbox-helper')) {
+      (e.type !== undefined && e.type === 'button') ||
+      // Ignore submit element
+      (e.type !== undefined && e.type === 'submit') ||
+      // Ignore readonly element
+      (e.hasAttribute('readonly')) ||
       // Ignore some application helper element
+      (e.classList.contains('meta-helper') || e.classList.contains('checkbox-helper'))
+    ) {
       return undefined;
     }
-    if (e.type != undefined && e.type == 'radio') {
+
+    if (e.type !== undefined && (e.type === 'radio' || e.type === 'checkbox')) {
       // Return actual radio button value if selected, else null
-      return this.getFormRadioValue(e);
-    } else if (e.type != undefined && e.type == 'checkbox') {
-      // Return actual checkbox button value if checked, else null
-      return this.getFormCheckValue(e);
-    } else if (e.type != undefined && e.type == 'password') {
+      return (e.checked ? e.value : null);
+    } else if (e.type !== undefined && e.type === 'password') {
       // Ignore password element
       return null;
-    } else if (e.value != undefined) {
+    } else if (e.value !== undefined) {
       // Return element value if not undefined
       return e.value;
     } else {
       // Every other case, return null
       return null;
     }
-  },
-
-  getFormCheckValue: function(e) {
-    if (e.checked) {
-      return e.value;
-    }
-    return null;
-  },
-
-  getFormRadioValue: function(e) {
-    for (let i = 0; i < e.length; i++) {
-      if (e[i].checked) {
-        return e[i].value;
-      } else {
-        return null;
-      }
-    }
-    return null;
   }
 };
 
-let confirmClosePage = new confirmClose();
+window.addEventListener('load', () => {
+  const confirm_close = getData('confirm_close');
+  confirmClose.prototype.prompt = confirm_close.prompt;
 
-chainHandler(window, 'onload', function() {
-  confirmClosePage.getCurrentForms();
+  dotclear.confirmClosePage = new confirmClose(...confirm_close.forms);
+
+  dotclear.confirmClosePage.getCurrentForms();
 });
 
-chainHandler(window, 'onbeforeunload', function(event_) {
-  if (event_ == undefined && window.event) {
-    event_ = window.event;
+window.addEventListener('beforeunload', (event) => {
+  if (event == undefined && window.event) {
+    event = window.event;
   }
 
-  if (!confirmClosePage.formSubmit && !confirmClosePage.compareForms()) {
-    event_.returnValue = confirmClosePage.prompt;
-    return confirmClosePage.prompt;
+  if (dotclear.confirmClosePage !== undefined && !dotclear.confirmClosePage.form_submit && !dotclear.confirmClosePage.compareForms()) {
+    event.preventDefault(); // HTML5 specification
+    event.returnValue = ''; // Google Chrome requires returnValue to be set.
   }
-  return false;
 });
-
-const confirm_close = getData('confirm_close');
-confirmClose.prototype.prompt = confirm_close.prompt;
-confirmClosePage = new confirmClose(...confirm_close.forms);

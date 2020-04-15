@@ -20,6 +20,9 @@ window.addEventListener('load', () => {
     // Preview found, insert remember me checkbox
     point = point.parentNode; // Seek to enclosed paragraphe which contains preview button
     point.parentNode.insertBefore(bloc, point);
+  } else {
+    // No preview button/input found, no more to do
+    return;
   }
 
   const remember_cookie_name = 'comment_info';

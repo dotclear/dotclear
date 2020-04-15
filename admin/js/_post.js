@@ -76,7 +76,7 @@ $(function() {
   }
 
   // Tabs events
-  $('#edit-entry').onetabload(function() {
+  $('#edit-entry').on('onetabload', function() {
     dotclear.hideLockable();
 
     // Add date picker
@@ -152,7 +152,7 @@ $(function() {
     });
   });
 
-  $('#comments').onetabload(function() {
+  $('#comments').on('onetabload', function() {
     $.expandContent({
       line: $('#form-comments .comments-list tr:not(.line)'),
       lines: $('#form-comments .comments-list tr.line'),
@@ -165,7 +165,7 @@ $(function() {
     dotclear.commentsActionsHelper();
   });
 
-  $('#trackbacks').onetabload(function() {
+  $('#trackbacks').on('onetabload', function() {
     $.expandContent({
       line: $('#form-trackbacks .comments-list tr:not(.line)'),
       lines: $('#form-trackbacks .comments-list tr.line'),
@@ -178,7 +178,7 @@ $(function() {
     dotclear.commentsActionsHelper();
   });
 
-  $('#add-comment').onetabload(function() {
+  $('#add-comment').on('onetabload', function() {
     commentTb.draw('xhtml');
   });
 });

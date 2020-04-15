@@ -512,7 +512,7 @@ dcPage::open($page_title,
     ]) .
     dcPage::jsLoad('js/_preferences.js') .
     dcPage::jsPageTabs($default_tab) .
-    dcPage::jsConfirmClose('user-form', 'opts-forms', 'favs-form') .
+    dcPage::jsConfirmClose('user-form', 'opts-forms', 'favs-form', 'db-forms') .
 
     # --BEHAVIOR-- adminPreferencesHeaders
     $core->callBehavior('adminPreferencesHeaders'),

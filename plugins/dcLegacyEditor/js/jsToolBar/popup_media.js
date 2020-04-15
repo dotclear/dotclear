@@ -2,7 +2,7 @@
 'use strict';
 
 $(function() {
-  $('#media-insert').onetabload(function() {
+  $('#media-insert').on('onetabload', function() {
     $('#media-insert-cancel').on('click', function() {
       window.close();
     });

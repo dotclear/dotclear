@@ -9,15 +9,43 @@
 
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
-if (!defined('DC_BACKUP_PATH')) {
-    define('DC_BACKUP_PATH', DC_ROOT);
-}
-
 dcPage::checkSuper();
 
+if (!defined('DC_BACKUP_PATH')) {
+    define('DC_BACKUP_PATH', DC_ROOT);
+} else {
+    // Check backup path existence
+    if (!is_dir(DC_BACKUP_PATH)) {
+        dcPage::open(
+            __('Dotclear update'),
+            '',
+            dcPage::breadcrumb(
+                [
+                    __('System')          => '',
+                    __('Dotclear update') => ''
+                ])
+        );
+        echo
+        '<h3>' . __('Precheck update error') . '</h3>' .
+        '<p>' . __('Backup directory does not exist') . '</p>';
+        dcPage::close();
+        exit;
+    }
+}
+
 if (!is_readable(DC_DIGESTS)) {
-    dcPage::open(__('Dotclear update'));
-    echo '<h2>Access denied</h2>';
+    dcPage::open(
+        __('Dotclear update'),
+        '',
+        dcPage::breadcrumb(
+            [
+                __('System')          => '',
+                __('Dotclear update') => ''
+            ])
+    );
+    echo
+    '<h3>' . __('Precheck update error') . '</h3>' .
+    '<p>' . __('Access denied') . '</p>';
     dcPage::close();
     exit;
 }

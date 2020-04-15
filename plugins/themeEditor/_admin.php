@@ -82,7 +82,7 @@ class themeEditorBehaviors
             echo dcPage::cssLoad('js/codemirror/theme/' . $theme . '.css');
         }
         echo '
-<textarea id="codemirror" name="codemirror">
+<textarea id="codemirror" name="codemirror" readonly="true">
 function findSequence(goal) {
   function find(start, history) {
     if (start == goal)

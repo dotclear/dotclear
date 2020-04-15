@@ -4,7 +4,7 @@
 mergeDeep(dotclear.msg, getData('editor_tags_msg'));
 
 $(function() {
-  $('#edit-entry').onetabload(function() {
+  $('#edit-entry').on('onetabload', function() {
     const tags_edit = $('#tags-edit');
     let post_id = $('#id');
     let meta_field = null;

@@ -222,14 +222,14 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null)) {
 
         $core->adminurl->redirect('admin.home');
     } else {
-        if (isset($_COOKIE['dc_admin'])) {
-            unset($_COOKIE['dc_admin']);
-            setcookie('dc_admin', false, -600, '', '', DC_ADMIN_SSL);
-        }
         if ($check_user) {
             $err = __('Insufficient permissions');
         } else {
-            $err = __('Wrong username or password');
+            $err = isset($_COOKIE['dc_admin']) ? __('Administration session expired') : __('Wrong username or password');
+        }
+        if (isset($_COOKIE['dc_admin'])) {
+            unset($_COOKIE['dc_admin']);
+            setcookie('dc_admin', false, -600, '', '', DC_ADMIN_SSL);
         }
     }
 }
