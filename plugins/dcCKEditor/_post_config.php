@@ -68,9 +68,9 @@ $extraPlugins = $__extraPlugins->getArrayCopy();
         }
 
         var editor = CKEDITOR.instances[$.getEditorName()];
-        if (editor !== undefined && !confirmClosePage.formSubmit && editor.checkDirty()) {
-            e.returnValue = confirmClosePage.prompt;
-            return confirmClosePage.prompt;
+        if (editor !== undefined && !dotclear.confirmClosePage.form_submit && editor.checkDirty()) {
+            e.preventDefault(); // HTML5 specification
+            e.returnValue = ''; // Google Chrome requires returnValue to be set.
         }
         return false;
     });
