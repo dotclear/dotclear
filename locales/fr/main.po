@@ -2288,6 +2288,9 @@ msgstr "Colonnes optionnelles affichées dans les listes"
 msgid "Options for lists"
 msgstr "Options des listes"
 
+msgid "Apply filters on the fly"
+msgstr "Appliquer les filtres à la volée"
+
 msgid "Save current options"
 msgstr "Sauvegarder ces options"
 

@@ -220,6 +220,8 @@ if ($core->auth->isSuperAdmin()) {
     $users_order       = $core->auth->user_prefs->interface->users_order ?: 'asc';
     $nb_users_per_page = $core->auth->user_prefs->interface->nb_users_per_page;
 }
+// All filters
+$auto_filter = $core->auth->user_prefs->interface->auto_filter;
 
 # Add or update user
 if (isset($_POST['user_name'])) {
@@ -352,6 +354,8 @@ if (isset($_POST['user_editor'])) {
             $core->auth->user_prefs->interface->put('users_order', $_POST['user_ui_users_order'], 'string');
             $core->auth->user_prefs->interface->put('nb_users_per_page', (integer) $_POST['user_ui_nb_users_per_page'], 'integer');
         }
+        // All filters
+        $core->auth->user_prefs->interface->put('auto_filter', !empty($_POST['user_ui_auto_filter']), 'boolean');
 
         # Update user xhtml editor flags
         $rf = [];
@@ -699,6 +703,10 @@ echo '</div>';
 echo
 '<div class="fieldset">' .
 '<h4 id="user_options_lists">' . __('Options for lists') . '</h4>' .
+'<p><label for="user_ui_auto_filter" class="classic">' .
+form::checkbox('user_ui_auto_filter', 1, $auto_filter) . ' ' .
+__('Apply filters on the fly') . '</label></p>' .
+'<hr />' .
 '<div class="two-boxes odd">' .
 '<h5>' . __('Posts') . '</h5>' .
 '<p class="field"><label for="user_ui_posts_sortby">' . __('Order by:') . '</label> ' .

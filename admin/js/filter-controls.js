@@ -20,6 +20,12 @@ $(function() {
       .addClass('open')
       .text(dotclear.msg.cancel_the_filter);
   }
+  if (getData('filter_options').auto_filter) {
+    $('#filters-form input[type="submit"]').parent().hide();
+    $('#filters-form input[type!="submit"], #filters-form select').on('input', function() {
+      $filtersform[0].submit();
+    });
+  }
 
   // Deal with enter key on filters form : every form element will be filtered but Cancel button
   dotclear.enterKeyInForm('#filters-form', '#filters-form input[type="submit"]', '#filter-control');

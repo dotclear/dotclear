@@ -981,6 +981,7 @@ EOT;
 
     public static function jsFilterControl($show = true)
     {
+        $core = self::getCore();
         $js = [
             'show_filters'      => (boolean) $show,
             'filter_posts_list' => __('Show filters and display options'),
@@ -988,6 +989,7 @@ EOT;
         ];
         return
         self::jsJson('filter_controls', $js) .
+        self::jsJson('filter_options', ['auto_filter' => $core->auth->user_prefs->interface->auto_filter]) .
         self::jsLoad('js/filter-controls.js');
     }
 
