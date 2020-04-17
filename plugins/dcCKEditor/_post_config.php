@@ -105,6 +105,14 @@ $(function() {
 <?php if (!empty($dcckeditor_textcolor_button) || !empty($dcckeditor_background_textcolor_button)): ?>
     // button add "More Colors..." can be added if colordialog plugin is enabled
     CKEDITOR.config.colorButton_enableMore = true;
+    // Std colors CKeditor 4.14 : 1abc9c,2ecc71,3498db,9b59b6,4e5f70,f1c40f,16a085,27ae60,2980b9,8e44ad,2c3e50,f39c12,e67e22,e74c3c,ecf0f1,95a5a6,dddddd,ffffff,d35400,c0392b,bdc3c7,7f8c8d,999999,000000
+    CKEDITOR.config.colorButton_colors =
+        '000,800000,8b4513,2f4f4f,008080,000080,4b0082,696969,' +
+        'b22222,a52a2a,daa520,006400,40e0d0,0000cd,800080,808080,' +
+        'f00,ff8c00,ffd700,008000,0ff,00f,ee82ee,a9a9a9,' +
+        'ffa07a,ffa500,ffff00,00ff00,afeeee,add8e6,dda0dd,d3d3d3,' +
+        'fff0f5,faebd7,ffffe0,f0fff0,f0ffff,f0f8ff,e6e6fa,fff' +
+        '1abc9c,2ecc71,3498db,9b59b6,4e5f70,f1c40f,16a085,27ae60,2980b9,8e44ad,2c3e50,f39c12,e67e22,e74c3c,ecf0f1,95a5a6,dddddd,d35400,c0392b,bdc3c7,7f8c8d'
 <?php endif;?>
 
     CKEDITOR.config.defaultLanguage = dotclear.user_language;
