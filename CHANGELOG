@@ -1,4 +1,9 @@
-xDotclear 2.16.1 - 2020-04-15
+Dotclear 2.16.2 - 2020-04-17
+===========================================================
+* Fix: Alert missing about existing modification in administration (post edition, …) with CKEditor
+* Merge old and new color palette for CKEditor text/background buttons
+
+Dotclear 2.16.1 - 2020-04-15
 ===========================================================
 * Fix: False alert about non existing modification in administration (post edition, …)
 * Fix: Test the existence of directory backup before update
