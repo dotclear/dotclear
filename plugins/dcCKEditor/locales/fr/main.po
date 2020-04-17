@@ -53,6 +53,24 @@ msgstr "Ajouter le bouton pour changer la couleur du texte"
 msgid "Add background text color button"
 msgstr "Ajouter le bouton pour changer la couleur de fond du texte"
 
+msgid "Custom colors list:"
+msgstr "Liste de couleurs personnalisée :"
+
+msgid "Add colors without # separated by a comma."
+msgstr "Listez les couleurs sans # ni espaces, séparées par des virgules."
+
+msgid "Leave empty to use the default palette:"
+msgstr "Laissez vide pour utiliser la palette par défaut :"
+
+msgid "Example of custom color list:"
+msgstr "Exemple de liste de couleurs personnalisée :"
+
+msgid "Colors per row in palette:"
+msgstr "Nombre de couleurs par ligne dans la palette :"
+
+msgid "Leave empty to use default (6)"
+msgstr "Laissez vide pour utiliser le nombre par défaut (6)"
+
 #: tpl/index.tpl:41
 msgid "Add collapse button"
 msgstr "Ajouter le bouton pour masquer les boutons"
