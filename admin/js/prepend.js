@@ -1,7 +1,14 @@
 /*exported getData, isObject, mergeDeep, trimHtml */
 'use strict';
 
-function getData(id, clear = true) {
+/**
+ * Gets application/json data (JSON format).
+ * @param      {string}   id              element identifier
+ * @param      {boolean}  [clear=true]    clear content
+ * @param      {boolean}  [remove=false]  remove element
+ * @return     {object}   data object
+ */
+function getData(id, clear = true, remove = false) {
   let data = {};
   // Read the JSON-formatted data from the DOM. (from https://mathiasbynens.be/notes/json-dom-csp)
   // To be use with: <script type="application/json" id="myid-data">{"key":value, …}</script>
@@ -9,7 +16,10 @@ function getData(id, clear = true) {
   if (element) {
     try {
       data = JSON.parse(element.textContent);
-      if (clear) {
+      if (remove) {
+        // Remove element
+        element.remove();
+      } else if (clear) {
         // Clear the element’s contents
         element.innerHTML = '';
       }
