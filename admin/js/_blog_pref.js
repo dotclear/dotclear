@@ -53,7 +53,7 @@ $(function() {
   // Hide advanced and plugins prefs sections
   $('#standard-pref h3').toggleWithLegend($('#standard-pref').children().not('h3'), {
     legend_click: true,
-    hide: false
+    user_pref: 'dcx_blog_pref_std',
   });
   $('#advanced-pref h3').toggleWithLegend($('#advanced-pref').children().not('h3'), {
     legend_click: true,
