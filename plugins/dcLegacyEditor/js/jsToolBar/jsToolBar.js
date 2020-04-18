@@ -298,7 +298,7 @@ jsToolBar.prototype = {
     } else if (typeof(this.textarea.setSelectionRange) != "undefined") {
       this.textarea.value = this.textarea.value.substring(0, start) + subst +
         this.textarea.value.substring(end);
-      if (sel) {
+      if (sel || typeof(fn) == 'function') {
         this.textarea.setSelectionRange(start + subst.length, start + subst.length);
       } else {
         if (typeof(fn) != 'function') {
