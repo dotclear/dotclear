@@ -62,7 +62,7 @@ class l10nFaker
             $main .= $this->fake_l10n($v[2]);
         }
         $post_types = $this->core->getPostTypes();
-        $main .= "\n# Post types \n\n";
+        $main .= "\n# Post types\n\n";
         foreach ($post_types as $k => $v) {
             $main .= $this->fake_l10n($v['label']);
         }
