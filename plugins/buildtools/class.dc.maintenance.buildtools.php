@@ -68,19 +68,19 @@ class l10nFaker
         }
         $ws = $this->core->auth->user_prefs->favorites; // Favs old school !
         if ($ws) {
-            $main .= "\n# Favorites \n\n";
+            $main .= "\n# Favorites\n\n";
             foreach ($ws->dumpPrefs() as $k => $v) {
                 $fav = unserialize($v['value']);
                 $main .= $this->fake_l10n($fav['title']);
             }
         }
         file_put_contents(dirname($__autoload['dcCore']) . '/_fake_l10n.php', $main);
-        $plugin .= "\n# Plugin names \n\n";
+        $plugin .= "\n# Plugin names\n\n";
         foreach ($this->bundled_plugins as $id) {
             $p = $this->core->plugins->getModules($id);
             $plugin .= $this->fake_l10n($p['desc']);
         }
-        $plugin .= "\n# Widget settings names \n\n";
+        $plugin .= "\n# Widget settings names\n\n";
         $widgets = $__widgets->elements();
         foreach ($widgets as $w) {
             $plugin .= $this->fake_l10n($w->desc());
