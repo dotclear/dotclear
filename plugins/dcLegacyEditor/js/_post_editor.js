@@ -70,7 +70,7 @@ $(function() {
   $('#edit-entry').on('onetabload', function() {
 
     // Remove required attribut from #post_content in XHTML mode as textarea is not more focusable
-    if (formatField.value == 'xhtml') {
+    if (formatField !== undefined && formatField.value == 'xhtml') {
       if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#post_content') !== -1) {
         $('#post_content').removeAttr('required');
       }
