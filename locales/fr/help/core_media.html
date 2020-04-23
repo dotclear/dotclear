@@ -1,108 +1,92 @@
 <html>
   <head>
-    <title>Médiathèque</title>
+    <title>Media manager</title>
   </head>
   <body>
-    <h4>Liste des médias</h4>
-    <p>La page principale de la <em>Médiathèque</em> (anciennement gestionnaire de médias)
-      présente la liste des fichiers (médias) disponibles pour le blog en cours d'utilisation.</p>
+    <h4>Media list</h4>
+    <p>The main page of the media manager displays a list of available files (media) for the currently selected blog.</p>
 
-    <p>Le clic sur l'icône ou le nom d'un répertoire permet d'afficher les sous-répertoires et médias qu'il contient.</p>
+    <p>You can click the icons or names of the media in the folder or any subfolder to display them.</p>
 
-    <p>Les fichiers son au format MP3 sont présentés avec un lecteur permettant
-      d'en prendre immédiatement connaissance (sous réserve que le lecteur (ou
-      plugin) Flash soit disponible sur votre navigateur.</p>
+    <p>Selecting a MP3 sound file displays a player to immediately play the file. The Flash plugin must be installed on your browser for this player to operate.</p>
 
-    <p>Les images sont affichées avec une miniature quand cela est possible.</p>
+    <p>The images are displayed with a thumbnail when possible.</p>
 
-    <h4>Ajouter des fichiers</h4>
+    <h4>Add files</h4>
     <dl>
-      <dt>Choisissez un fichier</dt>
-      <dd>Permet de choisir un fichier sur son disque dur pour l'envoyer sur le
-	blog. Si le fichier dépasse la taille maximale, il ne pourra être envoyé.</dd>
+      <dt>Choose a file</dt>
+      <dd>Here you can select one of your local files to send it on your 
+      blog. Should the file be bigger than the maximum size, it will not be sent.</dd>
       
-      <dt>Titre</dt>
-      <dd>Titre optionnel du fichier à envoyer.</dd>
+      <dt>Title</dt>
+      <dd>Optional title for the file you want to send.</dd>
       
-      <dt>Privé</dt>
-      <dd>Indique que le fichier envoyé n'est visible que par son propriétaire tant
-	qu'il n'est pas publié sur le blog.</dd>
+      <dt>Private</dt>
+      <dd>Check this if you want the file to be private, i.e. accessible only by
+      its owner and not accessible from the blog (until published).</dd>
     </dl>
 
     <dl>
-      <dt>Interface avancée</dt>
-      <dd>Permet de choisir plusieurs fichiers à la fois sur son disque dur pour les envoyer sur le
-	blog. Si un des fichiers dépasse la taille maximale, il ne pourra être envoyé.<br />
-	Quand vous choisissez plusieurs fichiers sur votre disque dur, ils sont mis en liste d'attente. Vous
-	pouvez en ajouter d'autres, en cliquant de nouveau sur <strong>Choisir des fichiers</strong>. Vous pouvez aussi retirer 
-	des fichiers de la liste d'attente en cliquant sur l'icône rouge correspondante.<br />
-	Lorsque vous êtes prêt, cliquez sur <strong>Envoyer</strong>.</dd>
+      <dt>Enhanced uploader</dt>
+      <dd>Allows to select one or several of your local files to send them on your 
+  blog. Should any file be bigger than the maximum size, it will not be sent.<br />
+	When you select several local files, they are added to the queue. You can add more files by clicking again on <strong>Choose files</strong>. You can also remove files from the queue by clicking on the corresponding red cross-shaped icon.<br />
+  When you are ready, click on <strong>Upload</strong>.</dd>
     </dl>
 
-    <h4>Supprimer des fichiers</h4>
-    <p>Pour supprimer un fichier, cochez la case correspondante associée 
-      et cliquez sur <strong>Supprimer les médias sélectionnés</strong>. Vous pouvez choisir de 
-      supprimer plusieurs fichiers à la fois.</p>
+    <h4>Delete files</h4>
+    <p>To delete a file, check its checkbox and click on <strong>Remove selected media</strong>. You can delete several files at once.</p>
 
-    <h4>Nouveau répertoire</h4>
-    <p>Ce formulaire permet de créer un nouveau répertoire dans le répertoire en
-      cours d'utilisation. Indiquez simplement un nom comme vous le feriez sur votre
-      ordinateur.</p>
+    <h4>New folder</h4>
+    <p>This form allows you to create a new subfolder in the currently displayed
+folder. Just choose a name for it as you would do on your own computer.</p>
 
-    <h4>Détails du média</h4>
-    <p>La page individuelle d'un média présente un ensemble d'informations sur
-      celui-ci et permet d'effectuer quelques opérations.</p>
+    <h4>Media details</h4>
+    <p>This page displays a set of information about the currently selected file and allows you to perform a several operations on it.</p>
 
     <dl>
-      <dt>Nom du fichier</dt>
-      <dd>Changer le nom du fichier en cours.</dd>
+      <dt>File name</dt>
+      <dd>Change the file name of the current file.</dd>
       
-      <dt>Titre du fichier</dt>
-      <dd>Changer ou donner un titre au fichier en cours.</dd>
+      <dt>File title</dt>
+      <dd>Give a title to the file or change the current one.</dd>
       
-      <dt>Date du fichier</dt>
-      <dd>Changer la date du fichier.</dd>
+      <dt>File date</dt>
+      <dd>Change the file date.</dd>
       
-      <dt>Privé</dt>
-      <dd>Changer le caractère privé ou non du média.</dd>
+      <dt>Private</dt>
+      <dd>Specify that the file will be hidden to anyone but its owner in the media manager.</dd>
       
-      <dt>Nouveau répertoire</dt>
-      <dd>Permet de changer l'emplacement du fichier.</dd>
+      <dt>New directory</dt>
+      <dd>Allows you to move the file in another folder.</dd>
       
-      <dt>Changer le fichier</dt>
-      <dd>Ce formulaire permet de changer le fichier tout en conservant ses
-	attributs (nom, titre...). Comme toujours, il ne peut dépasser la taille
-	maximale indiquée.</dd>
+      <dt>Change file</dt>
+      <dd>With this form, you can replace the file while keeping all the attributes
+      (name, title...). As always, you have to respect the maximum file size.</dd>
     </dl>
 
-    <h4>Cas particulier des images</h4>
-    <p>Lors de l'ajout d'une image, jusqu'à quatre versions de celle-ci peuvent
-      être disponibles (selon la taille de l'image d'origine)&nbsp;:</p>
+    <h4>Specific case: images</h4>
+    <p>When you add an image, depending of its size, up to four versions will be made available (depending on the original image size):</p>
     <ul>
-      <li><strong>carrée</strong>&nbsp;: image carrée de 48 pixels de côté,</li>
-      <li><strong>miniature</strong>&nbsp;: image réduite à 100 pixels sur son plus grand côté,</li>
-      <li><strong>petite</strong>&nbsp;: image réduite à 240 pixels sur son plus grand côté,</li>
-      <li><strong>moyenne</strong>&nbsp;: image réduite à 500 pixes sur son plus grand côté,</li>
-      <li><strong>originale</strong>&nbsp;: image originale non transformée.</li>
+      <li><strong>Square:</strong> A 48x48 pixels square thumbnail.</li>
+      <li><strong>Thumbnail:</strong> The image reduced to 100 pixels on its longest side.</li>
+      <li><strong>Small:</strong> The longest side is reduced to 240 pixels.</li>
+      <li><strong>Medium:</strong> The longest side is reduced to 500 pixels.</li>
+      <li><strong>Original:</strong> The original, unchanged image.</li>
     </ul>
-    <p>Les tailles par défaut des versions miniature, petite et moyenne, peuvent être modifiées dans les paramètres du blog</p>
+    <p>Default sizes for the thumbnail, small and medium versions can be modified in your blog settings.</p>
 
-    <h4>Attacher un fichier à un billet</h4>
-    <p>Vous pouvez attacher un fichier à un billet très facilement. Commencez par
-      créer un nouveau billet et enregistrez-le. Dans la section <em>Annexes</em>, cliquez sur <em>Ajouter des fichiers à la page</em> pour ouvrir la médiathèque.</p>
+    <h4>Attach a file to an entry</h4>
+    <p>You can easily attach a file to one of your posts. First, create a new post and save it. Then click on "Add files to this entry" to open the media manager.</p>
 
-    <p>En cliquant sur l'icône [+] (Attacher un fichier au billet) vous pourrez
-      joindre le fichier à votre billet.</p>
+    <p>Just click on the [+] icon (Attach this file to entry). The file will then
+be attached to the post.</p>
 
-    <p>Les fichiers attachés à un billet seront visibles sur la page individuelle
-      du billet, sous la forme d'une liste après le contenu du billet. Les fichiers
-      MP3 seront automatiquement accompagnés d'un lecteur en Flash permettant la
-      lecture directe du fichier.</p>
+    <p>The attached files will be shown on the post page, as a list after the post content. The MP3 files will be made available through a Flash player, so that they can be easily played by your visitors.</p>
 
-    <h4>Podcast et diffusion de fichiers musicaux</h4>
-    <p>Tous les fichiers attachés à un billet seront présents dans les fils RSS de
-      vos billets, vous permettant ainsi de réaliser des podcast de n'importe quel
-      type de fichier.</p>
+    <h4>Podcast and broadcasting of music files</h4>
+    <p>All attached files will be included in your blog feeds, allowing an easy
+podcasting of any type of file.</p>
 
   </body>
 </html>
