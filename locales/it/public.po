@@ -1,261 +1,65 @@
-# SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-13 05:22+0200\n"
-"PO-Revision-Date: 2016-07-18 15:48+0200\n"
+"POT-Creation-Date: 2020-04-23 14:48+0200\n"
+"PO-Revision-Date: 2020-04-23 14:12\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: Charles Hebert <charles.hebert@gmail.com>\n"
+"Language-Team: Italian\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.8\n"
-
-msgid "To content"
-msgstr "Al contenuto"
-
-msgid "To menu"
-msgstr "Al menu"
-
-msgid "To search"
-msgstr "Alla ricerca"
-
-msgid "By"
-msgstr "Da"
-
-msgid "by"
-msgstr "da"
-
-msgid "on"
-msgstr "il"
-
-msgid "On"
-msgstr "Il"
-
-msgid "Continue reading"
-msgstr "Continua lettura"
-
-#, fuzzy
-msgid "no comments"
-msgstr "nessuno commento"
-
-msgid "one comment"
-msgstr "un commento"
-
-msgid "%d comments"
-msgstr "%d commenti"
-
-msgid "no trackbacks"
-msgstr "nessun trackback"
-
-msgid "one trackback"
-msgstr "un trackback"
-
-msgid "%d trackbacks"
-msgstr "%d trackback"
-
-msgid "no attachments"
-msgstr "nessun allegato"
-
-msgid "one attachment"
-msgstr "un allegato"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Language: it\n"
+"X-Crowdin-File: /master/locales/en/public.po\n"
 
 msgid "%d attachments"
 msgstr "%d allegati"
 
-msgid "previous entries"
-msgstr "articoli precedenti"
+msgid "%d comments"
+msgstr "%d commenti"
 
-msgid "page"
-msgstr "pagina"
+msgid "%d trackbacks"
+msgstr "%d trackback"
 
-msgid "of"
-msgstr "di"
+msgid "%s reactions"
+msgstr ""
 
-msgid "next entries"
-msgstr "articoli successivi"
-
-msgid "Search"
-msgstr "Cerca"
-
-msgid "Your search for <em>%1$s</em> returned no result."
-msgstr "Non è stato trovato alcun risultato per la ricerca di <em>%1$s</em>."
-
-msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
-msgstr "È stato trovato <strong>%2$s</strong> risultato per la ricerca di <em>%1$s</em>."
-
-msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
-msgstr "Sono stati trovati <strong>%2$s</strong> risultati per la ricerca di <em>%1$s</em>."
-
-msgid "Home"
-msgstr "Home"
-
-msgid "All keywords"
-msgstr "Tutte le parole chiave"
-
-msgid "Best of me"
-msgstr "Articoli migliori"
-
-msgid "Languages"
-msgstr "Lingue"
-
-msgid "Categories"
-msgstr "Categorie"
-
-msgid "Subcategories"
-msgstr "Sotto-categorie"
-
-msgid "Archives"
-msgstr "Archivi"
-
-msgid "Links"
-msgstr "Link"
-
-msgid "Subscribe"
-msgstr "Sottoscrivi"
-
-msgid "Entries feed"
-msgstr "Feed degli articoli"
-
-msgid "Comments feed"
-msgstr "Feed dei commenti"
-
-msgid "This blog's comments Atom feed"
-msgstr "Feed Atom dei commenti di questo blog"
-
-msgid "This category's entries Atom feed"
-msgstr "Feed Atom degli articoli di questa categoria"
-
-msgid "This category's comments Atom feed"
-msgstr "Feed Atom dei commenti di questa categoria"
-
-msgid "This post's comments feed"
-msgstr "Feed dei commenti di questo articolo"
-
-msgid "This post's comments Atom feed"
-msgstr "Feed Atom dei commenti di questo articolo"
-
-msgid "Attachments"
-msgstr "Allegati"
-
-msgid "Permalink"
-msgstr "Permalink"
-
-msgid "Comments"
-msgstr "Commenti"
-
-msgid "Your comment"
-msgstr "Il tuo commento"
-
-msgid "Your comment has been published."
-msgstr "Il tuo commento è stato pubblicato."
-
-msgid "Your comment has been submitted and will be reviewed for publication."
-msgstr "Il tuo commento è stato inviato e sarà controllato prima di essere pubblicato."
+msgid "Access to content"
+msgstr ""
 
 msgid "Add a comment"
 msgstr "Scrivi un commento"
 
-msgid "Name or nickname"
-msgstr "Nome o nickname"
-
-msgid "Email address"
-msgstr "Indirizzo email"
-
-msgid "Website"
-msgstr "Sito web"
-
-msgid "optional"
-msgstr "facoltativo"
-
-msgid "Comment"
-msgstr "Commento"
-
-msgid "Comments can be formatted using a simple wiki syntax."
+msgid "Add ping"
 msgstr ""
 
-msgid "HTML code is displayed as text and web addresses are automatically converted."
-msgstr "Il codice HTML è mostrato come testo e gli indirizzi web sono automaticamente convertiti."
-
-msgid "Remember me on this blog"
-msgstr "Ricordami su questo blog"
-
-msgid "preview"
-msgstr "anteprima"
-
-msgid "send"
-msgstr "invia"
-
-msgid "They posted on the same topic"
-msgstr "Hanno scritto sullo stesso argomento"
-
-msgid "Trackback URL"
-msgstr "URL trackback"
-
-msgid "You must provide an author name"
-msgstr "È necessario inserire il nome dell'autore"
-
-msgid "You must provide a comment"
-msgstr "È necessario inserire un commento"
-
-msgid "Email address is not valid"
-msgstr "Indirizzo email non valido"
-
-msgid "Document not found"
-msgstr "Documento non trovato"
-
-msgid "The document you are looking for does not exist."
-msgstr "Il documento richiesto non esiste."
-
-msgid "Powered by %s"
-msgstr "Creato con %s"
-
-msgid "Subscribe to"
-msgstr "Iscriviti a"
-
-msgid "What is an RSS feed?"
-msgstr "Che cos'è un feed RSS?"
-
-msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
-msgstr "Un feed RSS è il riassunto di un blog. Permette di leggere direttamente i contenuti (come gli articoli o i commenti) o loro riassunti, ed include inoltre un link alla relativa pagina del blog. Per mantenersi aggiornati sui nuovi articoli pubblicati, è possibile iscriversi attraverso un <a href=\"http://it.wikipedia.org/wiki/Aggregatore\">aggregatore di feed</a>."
-
-msgid "Simply copy the following URL into your aggregator:"
-msgstr "È sufficiente copiare il seguente URL all'interno del proprio aggregatore:"
-
-msgid "Password needed"
-msgstr "Password richiesta"
-
-msgid "You must give a password to access this area."
-msgstr "Per accedere in quest'area del sito è necessario inserire la password."
-
-msgid "Password:"
-msgstr "Password:"
-
-msgid "You must provide a valid email address."
-msgstr "È necessario fornire un indirizzo email valido."
-
-msgid "Read"
-msgstr "Leggi"
-
-msgid "in"
+msgid "Additionnal style directives"
 msgstr ""
 
-msgid "In"
+msgid "All keywords"
+msgstr "Tutte le parole chiave"
+
+msgid "Archives"
+msgstr "Archivi"
+
+msgid "Attachments"
+msgstr "Allegati"
+
+msgid "Best of me"
+msgstr "Articoli migliori"
+
+msgid "Blog info"
 msgstr ""
 
-msgid "Page top"
+msgid "Blog menu"
 msgstr ""
 
-msgid "toDay"
-msgstr ""
-
-msgid "FromDay"
-msgstr ""
+msgid "By"
+msgstr "Da"
 
 msgid "By category"
 msgstr ""
@@ -266,13 +70,271 @@ msgstr ""
 msgid "By tag"
 msgstr ""
 
-#, fuzzy
-msgid "Blog menu"
-msgstr "Al menu"
+msgid "Categories"
+msgstr "Categorie"
 
-#, fuzzy
-msgid "Etra menu"
-msgstr "Al menu"
+msgid "Comment"
+msgstr "Commento"
 
-msgid "Blog info"
+msgid "Comments"
+msgstr "Commenti"
+
+msgid "Comments can be formatted using a simple wiki syntax."
 msgstr ""
+
+msgid "Comments feed"
+msgstr "Feed dei commenti"
+
+msgid "Continue reading"
+msgstr "Continua lettura"
+
+msgid "Document not found"
+msgstr "Documento non trovato"
+
+msgid "Email address"
+msgstr "Indirizzo email"
+
+msgid "Email address is not valid"
+msgstr "Indirizzo email non valido"
+
+msgid "Entries feed"
+msgstr "Feed degli articoli"
+
+msgid "Etra menu"
+msgstr ""
+
+msgid "Explore archives"
+msgstr ""
+
+msgid "Extra menu"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "Go to homepage"
+msgstr ""
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "Il codice HTML è mostrato come testo e gli indirizzi web sono automaticamente convertiti."
+
+msgid "Home"
+msgstr ""
+
+msgid "In"
+msgstr ""
+
+msgid "Languages"
+msgstr "Lingue"
+
+msgid "Links"
+msgstr "Link"
+
+msgid "Name or nickname"
+msgstr "Nome o nickname"
+
+msgid "Next entry:"
+msgstr ""
+
+msgid "On"
+msgstr "Il"
+
+msgid "Page top"
+msgstr ""
+
+msgid "Password needed"
+msgstr "Password richiesta"
+
+msgid "Password:"
+msgstr ""
+
+msgid "Permalink"
+msgstr ""
+
+msgid "Powered by %s"
+msgstr "Creato con %s"
+
+msgid "Preview"
+msgstr ""
+
+msgid "Previous entry:"
+msgstr ""
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "Un feed RSS è il riassunto di un blog. Permette di leggere direttamente i contenuti (come gli articoli o i commenti) o loro riassunti, ed include inoltre un link alla relativa pagina del blog. Per mantenersi aggiornati sui nuovi articoli pubblicati, è possibile iscriversi attraverso un <a href=\"http://it.wikipedia.org/wiki/Aggregatore\">aggregatore di feed</a>."
+
+msgid "Read"
+msgstr "Leggi"
+
+msgid "Remember me on this blog"
+msgstr "Ricordami su questo blog"
+
+msgid "Required field"
+msgstr ""
+
+msgid "Search"
+msgstr "Cerca"
+
+msgid "Send"
+msgstr ""
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "È sufficiente copiare il seguente URL all'interno del proprio aggregatore:"
+
+msgid "Subcategories"
+msgstr "Sotto-categorie"
+
+msgid "Subscribe"
+msgstr "Sottoscrivi"
+
+msgid "Subscribe to"
+msgstr "Iscriviti a"
+
+msgid "Suggestions:"
+msgstr ""
+
+msgid "The document you are looking for does not exist."
+msgstr "Il documento richiesto non esiste."
+
+msgid "The list of recents posts is available"
+msgstr ""
+
+msgid "They posted on the same topic"
+msgstr "Hanno scritto sullo stesso argomento"
+
+msgid "This blog's comments Atom feed"
+msgstr "Feed Atom dei commenti di questo blog"
+
+msgid "This category's comments Atom feed"
+msgstr "Feed Atom dei commenti di questa categoria"
+
+msgid "This category's entries Atom feed"
+msgstr "Feed Atom degli articoli di questa categoria"
+
+msgid "This post's comments Atom feed"
+msgstr "Feed Atom dei commenti di questo articolo"
+
+msgid "This post's comments feed"
+msgstr "Feed dei commenti di questo articolo"
+
+# Not found strings
+msgid "To content"
+msgstr "Al contenuto"
+
+msgid "To menu"
+msgstr "Al menu"
+
+msgid "To search"
+msgstr "Alla ricerca"
+
+msgid "Trackback URL"
+msgstr "URL trackback"
+
+msgid "URL you've tried has typos, or the page has been deleted or moved."
+msgstr ""
+
+msgid "Use search form"
+msgstr ""
+
+msgid "Website"
+msgstr "Sito web"
+
+msgid "What is an RSS feed?"
+msgstr "Che cos'è un feed RSS?"
+
+msgid "You must give a password to access this area."
+msgstr "Per accedere in quest'area del sito è necessario inserire la password."
+
+msgid "You must provide a comment"
+msgstr "È necessario inserire un commento"
+
+msgid "You must provide a valid email address."
+msgstr "È necessario fornire un indirizzo email valido."
+
+msgid "You must provide an author name"
+msgstr "È necessario inserire il nome dell'autore"
+
+msgid "Your comment"
+msgstr "Il tuo commento"
+
+msgid "Your comment has been published."
+msgstr "Il tuo commento è stato pubblicato."
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "Il tuo commento è stato inviato e sarà controllato prima di essere pubblicato."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "È stato trovato <strong>%2$s</strong> risultato per la ricerca di <em>%1$s</em>."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "Sono stati trovati <strong>%2$s</strong> risultati per la ricerca di <em>%1$s</em>."
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "Non è stato trovato alcun risultato per la ricerca di <em>%1$s</em>."
+
+msgid "by"
+msgstr "da"
+
+msgid "here"
+msgstr ""
+
+msgid "in"
+msgstr ""
+
+msgid "next entries"
+msgstr "articoli successivi"
+
+msgid "no attachments"
+msgstr "nessun allegato"
+
+msgid "no comments"
+msgstr ""
+
+msgid "no reactions"
+msgstr ""
+
+msgid "no trackbacks"
+msgstr "nessun trackback"
+
+msgid "of"
+msgstr "di"
+
+msgid "on"
+msgstr "il"
+
+msgid "one attachment"
+msgstr "un allegato"
+
+msgid "one comment"
+msgstr "un commento"
+
+msgid "one reaction"
+msgstr ""
+
+msgid "one trackback"
+msgstr "un trackback"
+
+msgid "optional"
+msgstr "facoltativo"
+
+msgid "page"
+msgstr "pagina"
+
+msgid "preview"
+msgstr "anteprima"
+
+msgid "previous entries"
+msgstr "articoli precedenti"
+
+msgid "reactions"
+msgstr ""
+
+msgid "send"
+msgstr "invia"
+
+msgid "toDay"
+msgstr ""
+
