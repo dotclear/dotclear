@@ -1,21 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:11+0200\n"
-"PO-Revision-Date: 2016-07-18 15:54+0200\n"
+"POT-Creation-Date: 2020-04-23 14:48+0200\n"
+"PO-Revision-Date: 2020-04-23 14:24\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: crm <admin@craftmerkezi.com>\n"
-"Language: tr_TR\n"
+"Language-Team: Turkish\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.8\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Language: tr\n"
+"X-Crowdin-File: /master/locales/en/plugins.po\n"
 
 msgid "Manage every blog configuration directive"
 msgstr ""
@@ -77,16 +76,14 @@ msgstr ""
 msgid "Breadcrumb for Dotclear"
 msgstr ""
 
-#, fuzzy
 msgid "Search engine form"
-msgstr "Arama motoru indeksi"
+msgstr ""
 
 msgid "List of navigation links"
 msgstr ""
 
-#, fuzzy
 msgid "List of selected entries"
-msgstr "Seçtiğim girimler."
+msgstr ""
 
 msgid "List of available languages"
 msgstr ""
@@ -115,13 +112,11 @@ msgstr ""
 msgid "Blogroll list"
 msgstr ""
 
-#, fuzzy
 msgid "List of simple menu items"
-msgstr "Seçtiğim girimler."
+msgstr ""
 
-#, fuzzy
 msgid "Tags cloud"
-msgstr "Eklenecek tagler:"
+msgstr ""
 
 msgid "Configuration successfully updated"
 msgstr ""
@@ -139,9 +134,8 @@ msgstr ""
 msgid "Settings for %s"
 msgstr ""
 
-#, fuzzy
 msgid "Setting ID"
-msgstr "Ayar adı:"
+msgstr ""
 
 msgid "Value"
 msgstr "Değer"
@@ -152,9 +146,8 @@ msgstr "Açıklama"
 msgid "Goto:"
 msgstr ""
 
-#, fuzzy
 msgid "Global settings"
-msgstr "global ayarlar"
+msgstr ""
 
 msgid "Akismet spam filter"
 msgstr ""
@@ -193,6 +186,9 @@ msgid "Delete junk comments older than"
 msgstr ""
 
 msgid "days"
+msgstr ""
+
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
 msgstr ""
 
 msgid "Set spam filters."
@@ -281,9 +277,8 @@ msgstr ""
 msgid "Words have been successfully removed."
 msgstr ""
 
-#, fuzzy
 msgid "Add a word "
-msgstr "Kelime ekle"
+msgstr ""
 
 msgid "Global word (used for all blogs)"
 msgstr ""
@@ -344,6 +339,9 @@ msgstr ""
 msgid "%s configuration"
 msgstr ""
 
+msgid "Are you sure you want to delete all spams?"
+msgstr ""
+
 #, php-format
 msgid "%s filter configuration"
 msgstr ""
@@ -378,9 +376,8 @@ msgstr ""
 msgid "Filter configuration"
 msgstr ""
 
-#, fuzzy
 msgid "position"
-msgstr "Açıklama"
+msgstr ""
 
 msgid "Syndication"
 msgstr ""
@@ -389,9 +386,6 @@ msgid "Junk comments RSS feed"
 msgstr ""
 
 msgid "Published comments RSS feed"
-msgstr ""
-
-msgid "Attachments"
 msgstr ""
 
 #, php-format
@@ -413,35 +407,10 @@ msgstr ""
 msgid "manage blogroll"
 msgstr ""
 
-msgid "Links"
-msgstr ""
-
-msgid "Title (optional)"
-msgstr ""
-
 msgid "All categories"
 msgstr ""
 
-msgid "Display on:"
-msgstr ""
-
-#, fuzzy
-msgid "All pages"
-msgstr "Tüm etiketler"
-
-msgid "Home page only"
-msgstr ""
-
-msgid "Except on home page"
-msgstr ""
-
-msgid "Content only"
-msgstr ""
-
-msgid "CSS class:"
-msgstr ""
-
-msgid "Offline"
+msgid "Links"
 msgstr ""
 
 msgid "You must provide a link title"
@@ -475,6 +444,9 @@ msgid "Edit link"
 msgstr ""
 
 msgid "XFN information"
+msgstr ""
+
+msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 msgstr ""
 
 msgid "_xfn_Me"
@@ -884,6 +856,78 @@ msgstr ""
 msgid "URL field cannot be empty."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Plugin activation"
+msgstr ""
+
+msgid "Enable dcCKEditor plugin"
+msgstr ""
+
+msgid "Add alignment buttons"
+msgstr ""
+
+msgid "Add lists buttons"
+msgstr ""
+
+msgid "Add text color button"
+msgstr ""
+
+msgid "Add background text color button"
+msgstr ""
+
+msgid "Custom colors list:"
+msgstr ""
+
+msgid "Add colors without # separated by a comma."
+msgstr ""
+
+msgid "Leave empty to use the default palette:"
+msgstr ""
+
+msgid "Example of custom color list:"
+msgstr ""
+
+msgid "Colors per row in palette:"
+msgstr ""
+
+msgid "Leave empty to use default (6)"
+msgstr ""
+
+msgid "Add collapse button"
+msgstr ""
+
+msgid "Add format selection"
+msgstr ""
+
+msgid "Custom formats"
+msgstr ""
+
+msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
+msgstr ""
+
+msgid "Add table button"
+msgstr ""
+
+msgid "Add clipboard buttons"
+msgstr ""
+
+msgid "Copy, Paste, Paste Text, Paste from Word"
+msgstr ""
+
+msgid "Add undo/redo buttons"
+msgstr ""
+
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr ""
+
+msgid "Save configuration"
+msgstr ""
+
 msgid "visual"
 msgstr ""
 
@@ -956,13 +1000,17 @@ msgstr ""
 msgid "URL?"
 msgstr ""
 
-#, fuzzy
 msgid "Language?"
-msgstr "Blog dilleri"
+msgstr ""
 
-#, fuzzy
 msgid "Remove text formating"
-msgstr "tag sil"
+msgstr ""
+
+msgid "dcLegacyEditor"
+msgstr ""
+
+msgid "Enable dcLegacyEditor plugin"
+msgstr ""
 
 msgid "Checks trackback source for a link to the post"
 msgstr ""
@@ -982,9 +1030,8 @@ msgstr ""
 msgid "Failed to compress export file."
 msgstr ""
 
-#, fuzzy
 msgid "Single blog"
-msgstr "Tek bir blog içe aktar."
+msgstr ""
 
 #, php-format
 msgid "This will create an export of your current blog: %s"
@@ -1231,9 +1278,8 @@ msgstr ""
 msgid "Tools to maintain the performance of your blogs."
 msgstr ""
 
-#, fuzzy
 msgid "Backup"
-msgstr "Geri"
+msgstr ""
 
 msgid "Tools to back up your content."
 msgstr ""
@@ -1259,9 +1305,8 @@ msgstr ""
 msgid "Current blog"
 msgstr ""
 
-#, fuzzy
 msgid "All blogs"
-msgstr "Tüm etiketler"
+msgstr ""
 
 msgid "Maintain translations"
 msgstr ""
@@ -1371,9 +1416,8 @@ msgstr ""
 msgid "Entries index done."
 msgstr ""
 
-#, fuzzy
 msgid "Failed to index entries."
-msgstr "Seçtiğim girimler."
+msgstr ""
 
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr ""
@@ -1439,6 +1483,12 @@ msgstr ""
 msgid "Maintenance plugin has been successfully configured."
 msgstr ""
 
+msgid "System settings have been saved."
+msgstr ""
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
 msgid "Never"
 msgstr ""
 
@@ -1466,9 +1516,8 @@ msgstr ""
 msgid "This may take a very long time."
 msgstr ""
 
-#, fuzzy
 msgid "Alert settings"
-msgstr "blog ayarları"
+msgstr ""
 
 msgid "Activation"
 msgstr ""
@@ -1492,6 +1541,24 @@ msgstr ""
 msgid "Use one recall time per task"
 msgstr ""
 
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
+msgstr ""
+
 msgid "New page"
 msgstr ""
 
@@ -1499,9 +1566,9 @@ msgstr ""
 msgid "%d page"
 msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "%d pages"
-msgstr "Sayfalar"
+msgstr ""
 
 msgid "manage pages"
 msgstr ""
@@ -1530,9 +1597,8 @@ msgstr ""
 msgid "Publication date"
 msgstr ""
 
-#, fuzzy
 msgid "Pages actions"
-msgstr "Sayfa başlığı"
+msgstr ""
 
 msgid "Back to pages list"
 msgstr ""
@@ -1546,9 +1612,8 @@ msgstr ""
 msgid "Hidden"
 msgstr ""
 
-#, fuzzy
 msgid "Select this page"
-msgstr "Seçtiğim girimler."
+msgstr ""
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr ""
@@ -1592,9 +1657,8 @@ msgstr ""
 msgid "Page status"
 msgstr ""
 
-#, fuzzy
 msgid "Page language"
-msgstr "Blog dilleri"
+msgstr ""
 
 msgid "Hide in widget Pages"
 msgstr ""
@@ -1605,9 +1669,8 @@ msgstr ""
 msgid "Introduction to the page."
 msgstr ""
 
-#, fuzzy
 msgid "Select this comment"
-msgstr "Seçtiğim girimler."
+msgstr ""
 
 msgid "Pings"
 msgstr ""
@@ -1636,25 +1699,20 @@ msgstr ""
 msgid "Test ping services"
 msgstr ""
 
-msgid "Check all"
-msgstr ""
-
 msgid "Simple menu"
 msgstr ""
 
 msgid "new window"
 msgstr ""
 
-#, fuzzy
 msgid "Active page"
-msgstr "Tüm etiketler"
+msgstr ""
 
 msgid "active page"
 msgstr ""
 
-#, fuzzy
 msgid "Item description"
-msgstr "Açıklama"
+msgstr ""
 
 msgid "Displayed in link"
 msgstr ""
@@ -1668,13 +1726,11 @@ msgstr ""
 msgid "Not displayed nor used"
 msgstr ""
 
-#, fuzzy
 msgid "All months"
-msgstr "Tüm etiketler"
+msgstr ""
 
-#, fuzzy
 msgid "Archive"
-msgstr "Arşiv"
+msgstr ""
 
 msgid "Page"
 msgstr ""
@@ -1689,6 +1745,9 @@ msgid "Configuration successfully updated."
 msgstr ""
 
 msgid "Label"
+msgstr ""
+
+msgid "Home page"
 msgstr ""
 
 msgid "Recent posts"
@@ -1739,13 +1798,11 @@ msgstr ""
 msgid "Step #3"
 msgstr ""
 
-#, fuzzy
 msgid "Add item"
-msgstr "tag ekle"
+msgstr ""
 
-#, fuzzy
 msgid "Select type"
-msgstr "Seçtiğim girimler."
+msgstr ""
 
 msgid "Type of item menu:"
 msgstr ""
@@ -1753,9 +1810,8 @@ msgstr ""
 msgid "Continue..."
 msgstr ""
 
-#, fuzzy
 msgid "Select language:"
-msgstr "Blog dilleri"
+msgstr ""
 
 msgid "Select category:"
 msgstr ""
@@ -1772,9 +1828,8 @@ msgstr ""
 msgid "Label of item menu:"
 msgstr ""
 
-#, fuzzy
 msgid "Description of item menu:"
-msgstr "Açıklama"
+msgstr ""
 
 msgid "URL of item menu:"
 msgstr ""
@@ -1788,9 +1843,6 @@ msgstr ""
 msgid "Enable simple menu for this blog"
 msgstr ""
 
-msgid "Save configuration"
-msgstr ""
-
 msgid "Add an item"
 msgstr ""
 
@@ -1800,9 +1852,8 @@ msgstr ""
 msgid "Update menu"
 msgstr ""
 
-#, fuzzy
 msgid "Delete selected menu items"
-msgstr "Seçtiğim girimler."
+msgstr ""
 
 msgid "Are you sure you want to remove selected menu items?"
 msgstr ""
@@ -1819,6 +1870,9 @@ msgstr ""
 msgid "Tag"
 msgstr "Etiket"
 
+msgid "Limit (empty means no limit):"
+msgstr ""
+
 msgid "Tag name"
 msgstr ""
 
@@ -1831,27 +1885,19 @@ msgstr ""
 msgid "Oldest entry"
 msgstr ""
 
-msgid "Limit (empty means no limit):"
-msgstr ""
-
 msgid "Link to all tags:"
 msgstr ""
 
-#, fuzzy
 msgid "Add tags"
-msgstr "tag ekle"
+msgstr ""
 
-#, fuzzy
 msgid "Remove tags"
-msgstr "tag sil"
+msgstr ""
 
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] ""
 msgstr[1] ""
-
-msgid "Add tags to this selection"
-msgstr ""
 
 msgid "Are you sure you want to remove this tag?"
 msgstr ""
@@ -1877,6 +1923,9 @@ msgstr ""
 msgid "entries"
 msgstr ""
 
+msgid "Add tags to this selection"
+msgstr ""
+
 msgid "Tags to add:"
 msgstr "Eklenecek tagler:"
 
@@ -1900,9 +1949,8 @@ msgstr ""
 msgid "Extended"
 msgstr ""
 
-#, fuzzy
 msgid "Tags list format:"
-msgstr "Eklenecek tagler:"
+msgstr ""
 
 msgid "Tag has been successfully renamed"
 msgstr ""
@@ -2022,17 +2070,14 @@ msgstr ""
 msgid "Preferences successfully updated"
 msgstr ""
 
-#, fuzzy
 msgid "user:preferences"
-msgstr "global ayarlar"
+msgstr ""
 
-#, fuzzy
 msgid "User preferences"
-msgstr "global ayarlar"
+msgstr ""
 
-#, fuzzy
 msgid "Global preferences"
-msgstr "global ayarlar"
+msgstr ""
 
 msgid "Presentation widgets"
 msgstr ""
@@ -2091,10 +2136,10 @@ msgstr ""
 msgid "Text:"
 msgstr ""
 
-msgid "Last entries"
+msgid "Uncategorized"
 msgstr ""
 
-msgid "Uncategorized"
+msgid "Last entries"
 msgstr ""
 
 msgid "Tag:"
@@ -2118,6 +2163,30 @@ msgid "Entries feed"
 msgstr ""
 
 msgid "Comments feed"
+msgstr ""
+
+msgid "Title (optional)"
+msgstr ""
+
+msgid "Display on:"
+msgstr ""
+
+msgid "All pages"
+msgstr ""
+
+msgid "Except on home page"
+msgstr ""
+
+msgid "Home page only"
+msgstr ""
+
+msgid "Content only"
+msgstr ""
+
+msgid "CSS class:"
+msgstr ""
+
+msgid "Offline"
 msgstr ""
 
 msgid "navigation"
@@ -2204,9 +2273,8 @@ msgstr ""
 msgid "Down the widget"
 msgstr ""
 
-#, fuzzy
 msgid "Remove the widget"
-msgstr "tag sil"
+msgstr ""
 
 msgid "Remove widget"
 msgstr ""
@@ -2214,28 +2282,3 @@ msgstr ""
 msgid "Drag widgets here to remove."
 msgstr ""
 
-#~ msgid "next"
-#~ msgstr "diğeri"
-
-#~ msgid "Index all posts"
-#~ msgstr "Tüm yazıları indeksle"
-
-#, fuzzy
-#~ msgid "Pages"
-#~ msgstr "Sayfalar"
-
-#~ msgid "Tags:"
-#~ msgstr "Etiketler:"
-
-#~ msgid "Edit tag"
-#~ msgstr "Tag düzenle"
-
-#, fuzzy
-#~ msgid "Edit tag name:"
-#~ msgstr "Tag düzenle"
-
-#~ msgid "List"
-#~ msgstr "Liste"
-
-#~ msgid "Send"
-#~ msgstr "Gönder"
