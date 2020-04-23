@@ -1,21 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:10+0200\n"
-"PO-Revision-Date: 2016-07-18 15:50+0200\n"
+"POT-Creation-Date: 2020-04-23 14:48+0200\n"
+"PO-Revision-Date: 2020-04-23 14:48\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: Occitan\n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 1.8.8\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Language: oc\n"
+"X-Crowdin-File: /master/locales/en/plugins.po\n"
 
 msgid "Manage every blog configuration directive"
 msgstr ""
@@ -189,6 +188,9 @@ msgstr ""
 msgid "days"
 msgstr ""
 
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
 msgid "Set spam filters."
 msgstr ""
 
@@ -337,6 +339,9 @@ msgstr ""
 msgid "%s configuration"
 msgstr ""
 
+msgid "Are you sure you want to delete all spams?"
+msgstr ""
+
 #, php-format
 msgid "%s filter configuration"
 msgstr ""
@@ -383,9 +388,6 @@ msgstr ""
 msgid "Published comments RSS feed"
 msgstr ""
 
-msgid "Attachments"
-msgstr ""
-
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -405,34 +407,10 @@ msgstr ""
 msgid "manage blogroll"
 msgstr ""
 
-msgid "Links"
-msgstr ""
-
-msgid "Title (optional)"
-msgstr ""
-
 msgid "All categories"
 msgstr ""
 
-msgid "Display on:"
-msgstr ""
-
-msgid "All pages"
-msgstr ""
-
-msgid "Home page only"
-msgstr ""
-
-msgid "Except on home page"
-msgstr ""
-
-msgid "Content only"
-msgstr ""
-
-msgid "CSS class:"
-msgstr ""
-
-msgid "Offline"
+msgid "Links"
 msgstr ""
 
 msgid "You must provide a link title"
@@ -466,6 +444,9 @@ msgid "Edit link"
 msgstr ""
 
 msgid "XFN information"
+msgstr ""
+
+msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 msgstr ""
 
 msgid "_xfn_Me"
@@ -875,6 +856,78 @@ msgstr ""
 msgid "URL field cannot be empty."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Plugin activation"
+msgstr ""
+
+msgid "Enable dcCKEditor plugin"
+msgstr ""
+
+msgid "Add alignment buttons"
+msgstr ""
+
+msgid "Add lists buttons"
+msgstr ""
+
+msgid "Add text color button"
+msgstr ""
+
+msgid "Add background text color button"
+msgstr ""
+
+msgid "Custom colors list:"
+msgstr ""
+
+msgid "Add colors without # separated by a comma."
+msgstr ""
+
+msgid "Leave empty to use the default palette:"
+msgstr ""
+
+msgid "Example of custom color list:"
+msgstr ""
+
+msgid "Colors per row in palette:"
+msgstr ""
+
+msgid "Leave empty to use default (6)"
+msgstr ""
+
+msgid "Add collapse button"
+msgstr ""
+
+msgid "Add format selection"
+msgstr ""
+
+msgid "Custom formats"
+msgstr ""
+
+msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
+msgstr ""
+
+msgid "Add table button"
+msgstr ""
+
+msgid "Add clipboard buttons"
+msgstr ""
+
+msgid "Copy, Paste, Paste Text, Paste from Word"
+msgstr ""
+
+msgid "Add undo/redo buttons"
+msgstr ""
+
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr ""
+
+msgid "Save configuration"
+msgstr ""
+
 msgid "visual"
 msgstr ""
 
@@ -951,6 +1004,12 @@ msgid "Language?"
 msgstr ""
 
 msgid "Remove text formating"
+msgstr ""
+
+msgid "dcLegacyEditor"
+msgstr ""
+
+msgid "Enable dcLegacyEditor plugin"
 msgstr ""
 
 msgid "Checks trackback source for a link to the post"
@@ -1424,6 +1483,12 @@ msgstr ""
 msgid "Maintenance plugin has been successfully configured."
 msgstr ""
 
+msgid "System settings have been saved."
+msgstr ""
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
 msgid "Never"
 msgstr ""
 
@@ -1474,6 +1539,24 @@ msgid "Recall time for all tasks:"
 msgstr ""
 
 msgid "Use one recall time per task"
+msgstr ""
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
 msgstr ""
 
 msgid "New page"
@@ -1616,9 +1699,6 @@ msgstr ""
 msgid "Test ping services"
 msgstr ""
 
-msgid "Check all"
-msgstr ""
-
 msgid "Simple menu"
 msgstr ""
 
@@ -1665,6 +1745,9 @@ msgid "Configuration successfully updated."
 msgstr ""
 
 msgid "Label"
+msgstr ""
+
+msgid "Home page"
 msgstr ""
 
 msgid "Recent posts"
@@ -1760,9 +1843,6 @@ msgstr ""
 msgid "Enable simple menu for this blog"
 msgstr ""
 
-msgid "Save configuration"
-msgstr ""
-
 msgid "Add an item"
 msgstr ""
 
@@ -1790,6 +1870,9 @@ msgstr ""
 msgid "Tag"
 msgstr ""
 
+msgid "Limit (empty means no limit):"
+msgstr ""
+
 msgid "Tag name"
 msgstr ""
 
@@ -1800,9 +1883,6 @@ msgid "Newest entry"
 msgstr ""
 
 msgid "Oldest entry"
-msgstr ""
-
-msgid "Limit (empty means no limit):"
 msgstr ""
 
 msgid "Link to all tags:"
@@ -1818,9 +1898,6 @@ msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] ""
 msgstr[1] ""
-
-msgid "Add tags to this selection"
-msgstr ""
 
 msgid "Are you sure you want to remove this tag?"
 msgstr ""
@@ -1844,6 +1921,9 @@ msgid "entry"
 msgstr ""
 
 msgid "entries"
+msgstr ""
+
+msgid "Add tags to this selection"
 msgstr ""
 
 msgid "Tags to add:"
@@ -2056,10 +2136,10 @@ msgstr ""
 msgid "Text:"
 msgstr ""
 
-msgid "Last entries"
+msgid "Uncategorized"
 msgstr ""
 
-msgid "Uncategorized"
+msgid "Last entries"
 msgstr ""
 
 msgid "Tag:"
@@ -2083,6 +2163,30 @@ msgid "Entries feed"
 msgstr ""
 
 msgid "Comments feed"
+msgstr ""
+
+msgid "Title (optional)"
+msgstr ""
+
+msgid "Display on:"
+msgstr ""
+
+msgid "All pages"
+msgstr ""
+
+msgid "Except on home page"
+msgstr ""
+
+msgid "Home page only"
+msgstr ""
+
+msgid "Content only"
+msgstr ""
+
+msgid "CSS class:"
+msgstr ""
+
+msgid "Offline"
 msgstr ""
 
 msgid "navigation"
@@ -2177,3 +2281,4 @@ msgstr ""
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
