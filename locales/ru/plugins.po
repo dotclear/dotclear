@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:11+0200\n"
+"POT-Creation-Date: 2020-04-23 14:58+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -203,6 +203,9 @@ msgstr "Удалить спам комментарии старше чем"
 msgid "days"
 msgstr "дней"
 
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
 #, fuzzy
 msgid "Set spam filters."
 msgstr "Спам фильтр Akismet"
@@ -355,6 +358,10 @@ msgstr "Конфигурация фильтров успешно сохране�
 msgid "%s configuration"
 msgstr "%s конфигурация"
 
+#, fuzzy
+msgid "Are you sure you want to delete all spams?"
+msgstr "Вы уверены, что хотите удалить эту страницу?"
+
 #, fuzzy, php-format
 msgid "%s filter configuration"
 msgstr "Конфигурация фильтра"
@@ -403,9 +410,6 @@ msgstr "RSS спам комментариев"
 msgid "Published comments RSS feed"
 msgstr "RSS опубликованных комментариев"
 
-msgid "Attachments"
-msgstr ""
-
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -426,38 +430,11 @@ msgstr "Ссылки"
 msgid "manage blogroll"
 msgstr "управление ссылками"
 
-msgid "Links"
-msgstr "Ссылки"
-
-msgid "Title (optional)"
-msgstr ""
-
 msgid "All categories"
 msgstr "Все категории"
 
-msgid "Display on:"
-msgstr ""
-
-#, fuzzy
-msgid "All pages"
-msgstr "Все теги"
-
-msgid "Home page only"
-msgstr "Долько домашняя страница"
-
-msgid "Except on home page"
-msgstr ""
-
-#, fuzzy
-msgid "Content only"
-msgstr "Фильтры содержания"
-
-#, fuzzy
-msgid "CSS class:"
-msgstr "CSS файлы"
-
-msgid "Offline"
-msgstr ""
+msgid "Links"
+msgstr "Ссылки"
 
 msgid "You must provide a link title"
 msgstr "Вы должны указать текст ссылки"
@@ -492,6 +469,9 @@ msgstr "Редактировать ссылку"
 #, fuzzy
 msgid "XFN information"
 msgstr "Информация"
+
+msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
+msgstr ""
 
 msgid "_xfn_Me"
 msgstr "Мне"
@@ -907,6 +887,87 @@ msgstr "Внешние медиа"
 msgid "URL field cannot be empty."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
+#, fuzzy
+msgid "Settings"
+msgstr "Название настройки"
+
+#, fuzzy
+msgid "Plugin activation"
+msgstr "Активный"
+
+msgid "Enable dcCKEditor plugin"
+msgstr ""
+
+#, fuzzy
+msgid "Add alignment buttons"
+msgstr "Расположение медиа"
+
+#, fuzzy
+msgid "Add lists buttons"
+msgstr "Добавить теги к записям"
+
+#, fuzzy
+msgid "Add text color button"
+msgstr "Цвет текста сайдбара:"
+
+#, fuzzy
+msgid "Add background text color button"
+msgstr "Цвет фона:"
+
+msgid "Custom colors list:"
+msgstr ""
+
+#, fuzzy
+msgid "Add colors without # separated by a comma."
+msgstr "Введите теги, разделяя запятыми"
+
+msgid "Leave empty to use the default palette:"
+msgstr ""
+
+msgid "Example of custom color list:"
+msgstr ""
+
+msgid "Colors per row in palette:"
+msgstr ""
+
+msgid "Leave empty to use default (6)"
+msgstr ""
+
+msgid "Add collapse button"
+msgstr ""
+
+#, fuzzy
+msgid "Add format selection"
+msgstr "Добавить %s к этой записи"
+
+msgid "Custom formats"
+msgstr ""
+
+msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
+msgstr ""
+
+msgid "Add table button"
+msgstr ""
+
+msgid "Add clipboard buttons"
+msgstr ""
+
+msgid "Copy, Paste, Paste Text, Paste from Word"
+msgstr ""
+
+msgid "Add undo/redo buttons"
+msgstr ""
+
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr ""
+
+#, fuzzy
+msgid "Save configuration"
+msgstr "%s конфигурация"
+
 msgid "visual"
 msgstr ""
 
@@ -993,6 +1054,12 @@ msgstr "Язык"
 #, fuzzy
 msgid "Remove text formating"
 msgstr "удалить теги"
+
+msgid "dcLegacyEditor"
+msgstr ""
+
+msgid "Enable dcLegacyEditor plugin"
+msgstr ""
 
 msgid "Checks trackback source for a link to the post"
 msgstr "Проверить источник пинга на наличие ссылки на пост"
@@ -1493,6 +1560,13 @@ msgstr ""
 msgid "Maintenance plugin has been successfully configured."
 msgstr "Категория успешно обновлена."
 
+#, fuzzy
+msgid "System settings have been saved."
+msgstr "Настройки успешно обновлены."
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
 msgid "Never"
 msgstr ""
 
@@ -1546,6 +1620,24 @@ msgid "Recall time for all tasks:"
 msgstr ""
 
 msgid "Use one recall time per task"
+msgstr ""
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
 msgstr ""
 
 msgid "New page"
@@ -1700,9 +1792,6 @@ msgstr ""
 msgid "Test ping services"
 msgstr "Протестировать сервис пингов"
 
-msgid "Check all"
-msgstr "Проверить все"
-
 msgid "Simple menu"
 msgstr ""
 
@@ -1759,6 +1848,10 @@ msgstr "Конфигурация успешно обновлена"
 
 msgid "Label"
 msgstr ""
+
+#, fuzzy
+msgid "Home page"
+msgstr "Долько домашняя страница"
 
 msgid "Recent posts"
 msgstr ""
@@ -1864,10 +1957,6 @@ msgid "Enable simple menu for this blog"
 msgstr ""
 
 #, fuzzy
-msgid "Save configuration"
-msgstr "%s конфигурация"
-
-#, fuzzy
 msgid "Add an item"
 msgstr "Добавить новую ссылку"
 
@@ -1899,6 +1988,9 @@ msgstr "Лента новостей Atom записей с этим тегом"
 msgid "Tag"
 msgstr "Тег"
 
+msgid "Limit (empty means no limit):"
+msgstr "Лимит (нет предела при пустом поле)"
+
 msgid "Tag name"
 msgstr "Название тега"
 
@@ -1910,9 +2002,6 @@ msgstr ""
 
 msgid "Oldest entry"
 msgstr ""
-
-msgid "Limit (empty means no limit):"
-msgstr "Лимит (нет предела при пустом поле)"
 
 msgid "Link to all tags:"
 msgstr "Ссылка на все теги"
@@ -1929,10 +2018,6 @@ msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Тег успешно удален"
 msgstr[1] "Тег успешно удален"
 msgstr[2] ""
-
-#, fuzzy
-msgid "Add tags to this selection"
-msgstr "Добавить %s к этой записи"
 
 #, fuzzy
 msgid "Are you sure you want to remove this tag?"
@@ -1959,6 +2044,10 @@ msgstr "публикация"
 
 msgid "entries"
 msgstr "записи"
+
+#, fuzzy
+msgid "Add tags to this selection"
+msgstr "Добавить %s к этой записи"
 
 msgid "Tags to add:"
 msgstr "Теги для добавления:"
@@ -2185,11 +2274,11 @@ msgstr "Текст"
 msgid "Text:"
 msgstr "Текст:"
 
-msgid "Last entries"
-msgstr "Последние записи"
-
 msgid "Uncategorized"
 msgstr "Внекатегорийно"
+
+msgid "Last entries"
+msgstr "Последние записи"
 
 msgid "Tag:"
 msgstr "Тег:"
@@ -2213,6 +2302,33 @@ msgstr "RSS записей"
 
 msgid "Comments feed"
 msgstr "RSS комментариев"
+
+msgid "Title (optional)"
+msgstr ""
+
+msgid "Display on:"
+msgstr ""
+
+#, fuzzy
+msgid "All pages"
+msgstr "Все теги"
+
+msgid "Except on home page"
+msgstr ""
+
+msgid "Home page only"
+msgstr "Долько домашняя страница"
+
+#, fuzzy
+msgid "Content only"
+msgstr "Фильтры содержания"
+
+#, fuzzy
+msgid "CSS class:"
+msgstr "CSS файлы"
+
+msgid "Offline"
+msgstr ""
 
 msgid "navigation"
 msgstr "навигация"
@@ -2313,6 +2429,9 @@ msgstr "Удалить виджет"
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
+#~ msgid "Check all"
+#~ msgstr "Проверить все"
 
 #~ msgid "Page top"
 #~ msgstr "Верх страницы"
@@ -2419,9 +2538,6 @@ msgstr ""
 #~ msgid "Tags:"
 #~ msgstr "Теги:"
 
-#~ msgid "Add tags to entries"
-#~ msgstr "Добавить теги к записям"
-
 #~ msgid "Edit tag"
 #~ msgstr "Редактировать тег"
 
@@ -2484,9 +2600,6 @@ msgstr ""
 
 #~ msgid "Page URL:"
 #~ msgstr "URL страницы:"
-
-#~ msgid "Media alignment"
-#~ msgstr "Расположение медиа"
 
 #~ msgid "Media title"
 #~ msgstr "Заголовок медиа"

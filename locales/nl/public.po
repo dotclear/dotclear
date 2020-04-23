@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"POT-Creation-Date: 2020-04-23 14:55+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Joran <LL@li.org>\n"
@@ -15,6 +15,218 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.8\n"
+
+msgid "%d attachments"
+msgstr "%d bijlages"
+
+msgid "%d comments"
+msgstr "%d comments"
+
+msgid "%d trackbacks"
+msgstr "%d trackbacks"
+
+msgid "%s reactions"
+msgstr ""
+
+# Not found strings
+#, fuzzy
+msgid "Access to content"
+msgstr "Naar inhoud"
+
+msgid "Add a comment"
+msgstr "Schrijf een comment"
+
+msgid "Add ping"
+msgstr ""
+
+msgid "Additionnal style directives"
+msgstr ""
+
+msgid "All keywords"
+msgstr "Alle tags"
+
+msgid "Archives"
+msgstr "Archief"
+
+msgid "Attachments"
+msgstr "Bijlages"
+
+msgid "Best of me"
+msgstr "Beste blogs"
+
+msgid "Blog info"
+msgstr ""
+
+#, fuzzy
+msgid "Blog menu"
+msgstr "Naar menu"
+
+msgid "By"
+msgstr "Door"
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
+
+msgid "Categories"
+msgstr "Categorïen"
+
+msgid "Comment"
+msgstr "Comment"
+
+msgid "Comments"
+msgstr "Comments"
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr ""
+
+msgid "Comments feed"
+msgstr "Feed van reacties"
+
+msgid "Continue reading"
+msgstr "Lees verder"
+
+msgid "Document not found"
+msgstr "Document niet gevonden"
+
+msgid "Email address"
+msgstr "Emailadres"
+
+msgid "Email address is not valid"
+msgstr "Je moet een geldig emailadres invoeren"
+
+msgid "Entries feed"
+msgstr "Feed van post"
+
+#, fuzzy
+msgid "Etra menu"
+msgstr "Naar menu"
+
+msgid "Explore archives"
+msgstr ""
+
+#, fuzzy
+msgid "Extra menu"
+msgstr "Naar menu"
+
+msgid "From"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "Go to homepage"
+msgstr ""
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "Géén HTML code, urls worden automatisch klikbaar."
+
+msgid "Home"
+msgstr "Home"
+
+msgid "In"
+msgstr ""
+
+msgid "Languages"
+msgstr "Talen"
+
+msgid "Links"
+msgstr "Links"
+
+msgid "Name or nickname"
+msgstr "Naam of nickname"
+
+#, fuzzy
+msgid "Next entry:"
+msgstr "volgende posts"
+
+msgid "On"
+msgstr "Op"
+
+msgid "Page top"
+msgstr ""
+
+msgid "Password needed"
+msgstr "Wachtwoord nodig"
+
+msgid "Password:"
+msgstr "Wachtwoord:"
+
+msgid "Permalink"
+msgstr "Permalink"
+
+msgid "Powered by %s"
+msgstr "Powered by %s"
+
+#, fuzzy
+msgid "Preview"
+msgstr "preview"
+
+#, fuzzy
+msgid "Previous entry:"
+msgstr "vorige posts"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "RSS ofwel really simple syndication is een eenvoudige manier om automatisch op de hoogte te blijven van favoriete websites. Bezoekers hoeven niet meer te surfen naar internetpagina's om te kijken of de pagina's zijn gewijzigd. RSS feeds kun je lezen met een <a href=\"http://nl.wikipedia.org/wiki/Feedreader\"\">RSS lezer\"</a>."
+
+msgid "Read"
+msgstr "Lees"
+
+msgid "Remember me on this blog"
+msgstr "Onthoud mij"
+
+msgid "Required field"
+msgstr ""
+
+msgid "Search"
+msgstr "Zoeken"
+
+msgid "Send"
+msgstr ""
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Je hoeft alleen de volgende URL naar je RSS lezer te kopieeren: "
+
+msgid "Subcategories"
+msgstr "Subcategorïen"
+
+msgid "Subscribe"
+msgstr "Aanmelden"
+
+msgid "Subscribe to"
+msgstr "Inschrijven op"
+
+msgid "Suggestions:"
+msgstr ""
+
+msgid "The document you are looking for does not exist."
+msgstr "Het document waar je naar zoekt bestaat niet."
+
+msgid "The list of recents posts is available"
+msgstr ""
+
+msgid "They posted on the same topic"
+msgstr "Zij posten over hetzelfde onderwerp"
+
+msgid "This blog's comments Atom feed"
+msgstr "Atom feed van dit blog"
+
+msgid "This category's comments Atom feed"
+msgstr "Atom feed van comments op deze categorie"
+
+msgid "This category's entries Atom feed"
+msgstr "Atom feed van deze categorie"
+
+msgid "This post's comments Atom feed"
+msgstr "De Atom feed van de comments op deze post"
+
+msgid "This post's comments feed"
+msgstr "De feed van de comments op deze post"
 
 # Not found strings
 msgid "To content"
@@ -26,129 +238,32 @@ msgstr "Naar menu"
 msgid "To search"
 msgstr "Naar het zoeken"
 
-msgid "By"
-msgstr "Door"
+msgid "Trackback URL"
+msgstr "Trackback URL"
 
-msgid "by"
-msgstr "door"
+msgid "URL you've tried has typos, or the page has been deleted or moved."
+msgstr ""
 
-msgid "on"
-msgstr "op"
+msgid "Use search form"
+msgstr ""
 
-msgid "On"
-msgstr "Op"
+msgid "Website"
+msgstr "Website"
 
-msgid "Continue reading"
-msgstr "Lees verder"
+msgid "What is an RSS feed?"
+msgstr "Wat is een RSS feed ?"
 
-#, fuzzy
-msgid "no comments"
-msgstr "geen comments"
+msgid "You must give a password to access this area."
+msgstr "Je moet een wachtwoord invoeren om deze pagina's te bekijken"
 
-msgid "one comment"
-msgstr "een comment"
+msgid "You must provide a comment"
+msgstr "Je moet een bericht invoeren"
 
-msgid "%d comments"
-msgstr "%d comments"
+msgid "You must provide a valid email address."
+msgstr "Vul een geldig emailadres in."
 
-msgid "no trackbacks"
-msgstr "geen trackback"
-
-msgid "one trackback"
-msgstr "een trackback"
-
-msgid "%d trackbacks"
-msgstr "%d trackbacks"
-
-msgid "no attachments"
-msgstr "geen bijlages"
-
-msgid "one attachment"
-msgstr "een bijlage"
-
-msgid "%d attachments"
-msgstr "%d bijlages"
-
-msgid "previous entries"
-msgstr "vorige posts"
-
-msgid "page"
-msgstr "pagina"
-
-msgid "of"
-msgstr "van"
-
-msgid "next entries"
-msgstr "volgende posts"
-
-msgid "Search"
-msgstr "Zoeken"
-
-msgid "Your search for <em>%1$s</em> returned no result."
-msgstr "Je zoekopdracht naar <em>%1$</em> heeft geen resultaten."
-
-msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
-msgstr "Je zoekopdracht naar <em>%1$s</em> heeft <strong>%2$s</strong> resultaten opgeleverd."
-
-msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
-msgstr "Je zoekopdracht naar <em>%1$s</em> heeft <strong>%2$s</strong> resultaten opgeleverd."
-
-msgid "Home"
-msgstr "Home"
-
-msgid "All keywords"
-msgstr "Alle tags"
-
-msgid "Best of me"
-msgstr "Beste blogs"
-
-msgid "Languages"
-msgstr "Talen"
-
-msgid "Categories"
-msgstr "Categorïen"
-
-msgid "Subcategories"
-msgstr "Subcategorïen"
-
-msgid "Archives"
-msgstr "Archief"
-
-msgid "Links"
-msgstr "Links"
-
-msgid "Subscribe"
-msgstr "Aanmelden"
-
-msgid "Entries feed"
-msgstr "Feed van post"
-
-msgid "Comments feed"
-msgstr "Feed van reacties"
-
-msgid "This blog's comments Atom feed"
-msgstr "Atom feed van dit blog"
-
-msgid "This category's entries Atom feed"
-msgstr "Atom feed van deze categorie"
-
-msgid "This category's comments Atom feed"
-msgstr "Atom feed van comments op deze categorie"
-
-msgid "This post's comments feed"
-msgstr "De feed van de comments op deze post"
-
-msgid "This post's comments Atom feed"
-msgstr "De Atom feed van de comments op deze post"
-
-msgid "Attachments"
-msgstr "Bijlages"
-
-msgid "Permalink"
-msgstr "Permalink"
-
-msgid "Comments"
-msgstr "Comments"
+msgid "You must provide an author name"
+msgstr "Je moet een naam invoeren"
 
 msgid "Your comment"
 msgstr "Jou comment"
@@ -159,121 +274,76 @@ msgstr "Jou comment is gepubliceerd"
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "Je comment is opgeslagen, en zal worden bekeken voordat hij gepubliceerd word."
 
-msgid "Add a comment"
-msgstr "Schrijf een comment"
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "Je zoekopdracht naar <em>%1$s</em> heeft <strong>%2$s</strong> resultaten opgeleverd."
 
-msgid "Name or nickname"
-msgstr "Naam of nickname"
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "Je zoekopdracht naar <em>%1$s</em> heeft <strong>%2$s</strong> resultaten opgeleverd."
 
-msgid "Email address"
-msgstr "Emailadres"
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "Je zoekopdracht naar <em>%1$</em> heeft geen resultaten."
 
-msgid "Website"
-msgstr "Website"
+msgid "by"
+msgstr "door"
 
-msgid "optional"
-msgstr "niet verplicht"
-
-msgid "Comment"
-msgstr "Comment"
-
-msgid "Comments can be formatted using a simple wiki syntax."
+msgid "here"
 msgstr ""
-
-msgid "HTML code is displayed as text and web addresses are automatically converted."
-msgstr "Géén HTML code, urls worden automatisch klikbaar."
-
-msgid "Remember me on this blog"
-msgstr "Onthoud mij"
-
-msgid "preview"
-msgstr "preview"
-
-msgid "send"
-msgstr "zend"
-
-msgid "They posted on the same topic"
-msgstr "Zij posten over hetzelfde onderwerp"
-
-msgid "Trackback URL"
-msgstr "Trackback URL"
-
-msgid "You must provide an author name"
-msgstr "Je moet een naam invoeren"
-
-msgid "You must provide a comment"
-msgstr "Je moet een bericht invoeren"
-
-msgid "Email address is not valid"
-msgstr "Je moet een geldig emailadres invoeren"
-
-msgid "Document not found"
-msgstr "Document niet gevonden"
-
-msgid "The document you are looking for does not exist."
-msgstr "Het document waar je naar zoekt bestaat niet."
-
-msgid "Powered by %s"
-msgstr "Powered by %s"
-
-msgid "Subscribe to"
-msgstr "Inschrijven op"
-
-msgid "What is an RSS feed?"
-msgstr "Wat is een RSS feed ?"
-
-msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
-msgstr "RSS ofwel really simple syndication is een eenvoudige manier om automatisch op de hoogte te blijven van favoriete websites. Bezoekers hoeven niet meer te surfen naar internetpagina's om te kijken of de pagina's zijn gewijzigd. RSS feeds kun je lezen met een <a href=\"http://nl.wikipedia.org/wiki/Feedreader\"\">RSS lezer\"</a>."
-
-msgid "Simply copy the following URL into your aggregator:"
-msgstr "Je hoeft alleen de volgende URL naar je RSS lezer te kopieeren: "
-
-msgid "Password needed"
-msgstr "Wachtwoord nodig"
-
-msgid "You must give a password to access this area."
-msgstr "Je moet een wachtwoord invoeren om deze pagina's te bekijken"
-
-msgid "Password:"
-msgstr "Wachtwoord:"
-
-msgid "You must provide a valid email address."
-msgstr "Vul een geldig emailadres in."
-
-msgid "Read"
-msgstr "Lees"
 
 msgid "in"
 msgstr ""
 
-msgid "In"
+msgid "next entries"
+msgstr "volgende posts"
+
+msgid "no attachments"
+msgstr "geen bijlages"
+
+#, fuzzy
+msgid "no comments"
+msgstr "geen comments"
+
+msgid "no reactions"
 msgstr ""
 
-msgid "Page top"
+msgid "no trackbacks"
+msgstr "geen trackback"
+
+msgid "of"
+msgstr "van"
+
+msgid "on"
+msgstr "op"
+
+msgid "one attachment"
+msgstr "een bijlage"
+
+msgid "one comment"
+msgstr "een comment"
+
+#, fuzzy
+msgid "one reaction"
+msgstr "Lees verder"
+
+msgid "one trackback"
+msgstr "een trackback"
+
+msgid "optional"
+msgstr "niet verplicht"
+
+msgid "page"
+msgstr "pagina"
+
+msgid "preview"
+msgstr "preview"
+
+msgid "previous entries"
+msgstr "vorige posts"
+
+msgid "reactions"
 msgstr ""
+
+msgid "send"
+msgstr "zend"
 
 msgid "toDay"
-msgstr ""
-
-msgid "FromDay"
-msgstr ""
-
-msgid "By category"
-msgstr ""
-
-msgid "By date"
-msgstr ""
-
-msgid "By tag"
-msgstr ""
-
-#, fuzzy
-msgid "Blog menu"
-msgstr "Naar menu"
-
-#, fuzzy
-msgid "Etra menu"
-msgstr "Naar menu"
-
-msgid "Blog info"
 msgstr ""

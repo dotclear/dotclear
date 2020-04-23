@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:10+0200\n"
+"POT-Creation-Date: 2020-04-23 14:53+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -204,6 +204,9 @@ msgstr "다음 날짜수가 지나면 스팸댓글 삭제"
 msgid "days"
 msgstr "일"
 
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
 #, fuzzy
 msgid "Set spam filters."
 msgstr "Akismet 스팸필터"
@@ -356,6 +359,10 @@ msgstr "필터 설정이 성공적으로 저장되었습니다."
 msgid "%s configuration"
 msgstr "%s 설정"
 
+#, fuzzy
+msgid "Are you sure you want to delete all spams?"
+msgstr "페이지를 삭제하시려는 게 확실합니까 ?"
+
 #, fuzzy, php-format
 msgid "%s filter configuration"
 msgstr "필터 설정"
@@ -404,9 +411,6 @@ msgstr "스팸댓글 타래소식"
 msgid "Published comments RSS feed"
 msgstr "공개된 댓글 타래소식"
 
-msgid "Attachments"
-msgstr ""
-
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -427,38 +431,11 @@ msgstr "링크모음"
 msgid "manage blogroll"
 msgstr "링크모음 관리"
 
-msgid "Links"
-msgstr "링크모음"
-
-msgid "Title (optional)"
-msgstr ""
-
 msgid "All categories"
 msgstr "모든 링크분류 포함"
 
-msgid "Display on:"
-msgstr ""
-
-#, fuzzy
-msgid "All pages"
-msgstr "모든 분류딱지"
-
-msgid "Home page only"
-msgstr "시작화면에만 보이기"
-
-msgid "Except on home page"
-msgstr ""
-
-#, fuzzy
-msgid "Content only"
-msgstr "필터 목록으로 돌아가기"
-
-#, fuzzy
-msgid "CSS class:"
-msgstr "CSS 파일들"
-
-msgid "Offline"
-msgstr ""
+msgid "Links"
+msgstr "링크모음"
 
 msgid "You must provide a link title"
 msgstr "링크의 제목을 지정해야합니다."
@@ -493,6 +470,9 @@ msgstr "링크 편집"
 #, fuzzy
 msgid "XFN information"
 msgstr "정보"
+
+msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
+msgstr ""
 
 msgid "_xfn_Me"
 msgstr "나"
@@ -909,6 +889,86 @@ msgstr "외부 미디어"
 msgid "URL field cannot be empty."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
+#, fuzzy
+msgid "Settings"
+msgstr "설정 이름"
+
+#, fuzzy
+msgid "Plugin activation"
+msgstr "작동중"
+
+msgid "Enable dcCKEditor plugin"
+msgstr ""
+
+#, fuzzy
+msgid "Add alignment buttons"
+msgstr "미디어 줄맞춤"
+
+#, fuzzy
+msgid "Add lists buttons"
+msgstr "글꼭지에 분류딱지 추가"
+
+#, fuzzy
+msgid "Add text color button"
+msgstr "측면판 바탕글 색상 :"
+
+#, fuzzy
+msgid "Add background text color button"
+msgstr "바탕색 :"
+
+msgid "Custom colors list:"
+msgstr ""
+
+msgid "Add colors without # separated by a comma."
+msgstr ""
+
+msgid "Leave empty to use the default palette:"
+msgstr ""
+
+msgid "Example of custom color list:"
+msgstr ""
+
+msgid "Colors per row in palette:"
+msgstr ""
+
+msgid "Leave empty to use default (6)"
+msgstr ""
+
+msgid "Add collapse button"
+msgstr ""
+
+#, fuzzy
+msgid "Add format selection"
+msgstr "%s 를(을) 이 글꼭지에 추가"
+
+msgid "Custom formats"
+msgstr ""
+
+msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
+msgstr ""
+
+msgid "Add table button"
+msgstr ""
+
+msgid "Add clipboard buttons"
+msgstr ""
+
+msgid "Copy, Paste, Paste Text, Paste from Word"
+msgstr ""
+
+msgid "Add undo/redo buttons"
+msgstr ""
+
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr ""
+
+#, fuzzy
+msgid "Save configuration"
+msgstr "%s 설정"
+
 msgid "visual"
 msgstr ""
 
@@ -994,6 +1054,12 @@ msgstr "언어"
 #, fuzzy
 msgid "Remove text formating"
 msgstr "분류딱지 제거"
+
+msgid "dcLegacyEditor"
+msgstr ""
+
+msgid "Enable dcLegacyEditor plugin"
+msgstr ""
 
 msgid "Checks trackback source for a link to the post"
 msgstr "다른 블로그의 글꼭지로 가는 링크를 가졌는지 글걸기댓글 소스에서 확인"
@@ -1498,6 +1564,13 @@ msgstr ""
 msgid "Maintenance plugin has been successfully configured."
 msgstr "분류가 성공적으로 생성되었습니다."
 
+#, fuzzy
+msgid "System settings have been saved."
+msgstr "설정사항이 성공적으로 갱신되었습니다."
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
 msgid "Never"
 msgstr ""
 
@@ -1551,6 +1624,24 @@ msgid "Recall time for all tasks:"
 msgstr ""
 
 msgid "Use one recall time per task"
+msgstr ""
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
 msgstr ""
 
 msgid "New page"
@@ -1705,9 +1796,6 @@ msgstr ""
 msgid "Test ping services"
 msgstr "ping 서비스 테스트"
 
-msgid "Check all"
-msgstr ""
-
 msgid "Simple menu"
 msgstr ""
 
@@ -1764,6 +1852,10 @@ msgstr "설정사항 갱신 성공"
 
 msgid "Label"
 msgstr ""
+
+#, fuzzy
+msgid "Home page"
+msgstr "시작화면에만 보이기"
 
 msgid "Recent posts"
 msgstr ""
@@ -1869,10 +1961,6 @@ msgid "Enable simple menu for this blog"
 msgstr ""
 
 #, fuzzy
-msgid "Save configuration"
-msgstr "%s 설정"
-
-#, fuzzy
 msgid "Add an item"
 msgstr "새 링크 추가"
 
@@ -1903,6 +1991,9 @@ msgstr "이 분류딱지가 설정된 글꼭지들의 타래소식 (Atom)"
 msgid "Tag"
 msgstr "분류딱지"
 
+msgid "Limit (empty means no limit):"
+msgstr "최대 분류딱지 수 (빈칸은 무한정을 의미)"
+
 msgid "Tag name"
 msgstr "분류딱지 이름"
 
@@ -1914,9 +2005,6 @@ msgstr ""
 
 msgid "Oldest entry"
 msgstr ""
-
-msgid "Limit (empty means no limit):"
-msgstr "최대 분류딱지 수 (빈칸은 무한정을 의미)"
 
 msgid "Link to all tags:"
 msgstr ""
@@ -1933,10 +2021,6 @@ msgstr "분류딱지 제거"
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "분류딱지가 성공적으로 삭제되었습니다."
-
-#, fuzzy
-msgid "Add tags to this selection"
-msgstr "%s 를(을) 이 글꼭지에 추가"
 
 #, fuzzy
 msgid "Are you sure you want to remove this tag?"
@@ -1964,6 +2048,10 @@ msgstr "가운데"
 
 msgid "entries"
 msgstr "글꼭지"
+
+#, fuzzy
+msgid "Add tags to this selection"
+msgstr "%s 를(을) 이 글꼭지에 추가"
 
 msgid "Tags to add:"
 msgstr "추가할 분류딱지들 :"
@@ -2188,11 +2276,11 @@ msgstr "알림말"
 msgid "Text:"
 msgstr "알림말 :"
 
-msgid "Last entries"
-msgstr "최근 글꼭지"
-
 msgid "Uncategorized"
 msgstr "분류 미정"
+
+msgid "Last entries"
+msgstr "최근 글꼭지"
 
 msgid "Tag:"
 msgstr "분류딱지 :"
@@ -2216,6 +2304,33 @@ msgstr "글꼭지 타래소식"
 
 msgid "Comments feed"
 msgstr "댓글 타래소식"
+
+msgid "Title (optional)"
+msgstr ""
+
+msgid "Display on:"
+msgstr ""
+
+#, fuzzy
+msgid "All pages"
+msgstr "모든 분류딱지"
+
+msgid "Except on home page"
+msgstr ""
+
+msgid "Home page only"
+msgstr "시작화면에만 보이기"
+
+#, fuzzy
+msgid "Content only"
+msgstr "필터 목록으로 돌아가기"
+
+#, fuzzy
+msgid "CSS class:"
+msgstr "CSS 파일들"
+
+msgid "Offline"
+msgstr ""
 
 msgid "navigation"
 msgstr "기본사항"
@@ -2412,9 +2527,6 @@ msgstr ""
 #~ msgid "Tags:"
 #~ msgstr "분류딱지 목록 :"
 
-#~ msgid "Add tags to entries"
-#~ msgstr "글꼭지에 분류딱지 추가"
-
 #~ msgid "Edit tag"
 #~ msgstr "분류딱지 편집"
 
@@ -2477,9 +2589,6 @@ msgstr ""
 
 #~ msgid "Page URL:"
 #~ msgstr "페이지 URL :"
-
-#~ msgid "Media alignment"
-#~ msgstr "미디어 줄맞춤"
 
 #~ msgid "Media title"
 #~ msgstr "미디어 제목"

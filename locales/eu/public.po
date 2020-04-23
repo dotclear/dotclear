@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear euskara translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"POT-Creation-Date: 2020-04-23 14:50+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Atropos-Nemesis <jonquiereguillaume@msn.com>\n"
@@ -14,253 +14,50 @@ msgstr ""
 "X-Generator: Poedit 1.8.8\n"
 "X-Poedit-SearchPath-0: /home/nemesis/.poedit/tm\n"
 
-# Not found strings
-msgid "To content"
-msgstr ""
-
-msgid "To menu"
-msgstr ""
-
-msgid "To search"
-msgstr ""
-
-msgid "By"
-msgstr "Egilea:"
-
-msgid "by"
-msgstr "egilea:"
-
-msgid "on"
-msgstr ""
-
-msgid "On"
-msgstr ""
-
-msgid "Continue reading"
-msgstr "Jarraitu irakurketa"
-
-#, fuzzy
-msgid "no comments"
-msgstr "iruzkinik ez "
-
-msgid "one comment"
-msgstr "iruzkin 1 "
+msgid "%d attachments"
+msgstr "%d eranskin"
 
 msgid "%d comments"
 msgstr "%d iruzkin "
 
-msgid "no trackbacks"
-msgstr ""
-
-msgid "one trackback"
-msgstr ""
-
 msgid "%d trackbacks"
 msgstr ""
 
-msgid "no attachments"
-msgstr "eranskinik ez"
-
-msgid "one attachment"
-msgstr "eranskin 1"
-
-msgid "%d attachments"
-msgstr "%d eranskin"
-
-msgid "previous entries"
-msgstr "Aurreko sarrerak "
-
-msgid "page"
-msgstr "orrialdea"
-
-msgid "of"
+msgid "%s reactions"
 msgstr ""
 
-msgid "next entries"
-msgstr "Hurrengo sarrerak"
-
-msgid "Search"
-msgstr "Bilatu "
-
-msgid "Your search for <em>%1$s</em> returned no result."
-msgstr ""
-
-msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
-msgstr ""
-
-msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
-msgstr ""
-
-msgid "Home"
-msgstr "webgunera "
-
-msgid "All keywords"
-msgstr ""
-
-msgid "Best of me"
-msgstr ""
-
-msgid "Languages"
-msgstr ""
-
-msgid "Categories"
-msgstr "Atalak"
-
-#, fuzzy
-msgid "Subcategories"
-msgstr "Atalak"
-
-msgid "Archives"
-msgstr "Artxiboak "
-
-msgid "Links"
-msgstr "estekak "
-
-msgid "Subscribe"
-msgstr ""
-
-msgid "Entries feed"
-msgstr ""
-
-msgid "Comments feed"
-msgstr ""
-
-#, fuzzy
-msgid "This blog's comments Atom feed"
-msgstr "Bidalketa honen iruzkinentzako RSS jarioa. "
-
-#, fuzzy
-msgid "This category's entries Atom feed"
-msgstr "Bidalketa honen iruzkinentzako RSS jarioa. "
-
-#, fuzzy
-msgid "This category's comments Atom feed"
-msgstr "Bidalketa honen iruzkinentzako RSS jarioa. "
-
-msgid "This post's comments feed"
-msgstr ""
-
-#, fuzzy
-msgid "This post's comments Atom feed"
-msgstr "Bidalketa honen iruzkinentzako RSS jarioa. "
-
-msgid "Attachments"
-msgstr "Eranskinak "
-
-msgid "Permalink"
-msgstr "Esteka iraunkorren"
-
-msgid "Comments"
-msgstr "Iruzkinak"
-
-msgid "Your comment"
-msgstr "Zure iruzkina "
-
-msgid "Your comment has been published."
-msgstr ""
-
-msgid "Your comment has been submitted and will be reviewed for publication."
+msgid "Access to content"
 msgstr ""
 
 msgid "Add a comment"
 msgstr ""
 
-msgid "Name or nickname"
+msgid "Add ping"
 msgstr ""
 
-msgid "Email address"
-msgstr "Helbide elektronikoa"
-
-msgid "Website"
-msgstr "Webgunea"
-
-msgid "optional"
-msgstr "hautazkoa"
-
-msgid "Comment"
-msgstr "Iruzkina"
-
-msgid "Comments can be formatted using a simple wiki syntax."
+msgid "Additionnal style directives"
 msgstr ""
 
-msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgid "All keywords"
 msgstr ""
 
-msgid "Remember me on this blog"
-msgstr "Gogora nazazu "
+msgid "Archives"
+msgstr "Artxiboak "
 
-msgid "preview"
-msgstr "aurreikusi"
+msgid "Attachments"
+msgstr "Eranskinak "
 
-msgid "send"
-msgstr "bidali"
-
-msgid "They posted on the same topic"
+msgid "Best of me"
 msgstr ""
 
-msgid "Trackback URL"
-msgstr "Aipurako URLa "
-
-msgid "You must provide an author name"
+msgid "Blog info"
 msgstr ""
 
-msgid "You must provide a comment"
+msgid "Blog menu"
 msgstr ""
 
-msgid "Email address is not valid"
-msgstr ""
-
-msgid "Document not found"
-msgstr ""
-
-msgid "The document you are looking for does not exist."
-msgstr ""
-
-#, fuzzy
-msgid "Powered by %s"
-msgstr "ek kudeatua"
-
-msgid "Subscribe to"
-msgstr ""
-
-msgid "What is an RSS feed?"
-msgstr ""
-
-msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
-msgstr ""
-
-msgid "Simply copy the following URL into your aggregator:"
-msgstr ""
-
-msgid "Password needed"
-msgstr ""
-
-msgid "You must give a password to access this area."
-msgstr ""
-
-msgid "Password:"
-msgstr "Pasahitza:"
-
-msgid "You must provide a valid email address."
-msgstr ""
-
-msgid "Read"
-msgstr "Irakurri"
-
-msgid "in"
-msgstr ""
-
-msgid "In"
-msgstr ""
-
-msgid "Page top"
-msgstr ""
-
-msgid "toDay"
-msgstr ""
-
-msgid "FromDay"
-msgstr ""
+msgid "By"
+msgstr "Egilea:"
 
 msgid "By category"
 msgstr ""
@@ -271,11 +68,281 @@ msgstr ""
 msgid "By tag"
 msgstr ""
 
-msgid "Blog menu"
+msgid "Categories"
+msgstr "Atalak"
+
+msgid "Comment"
+msgstr "Iruzkina"
+
+msgid "Comments"
+msgstr "Iruzkinak"
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr ""
+
+msgid "Comments feed"
+msgstr ""
+
+msgid "Continue reading"
+msgstr "Jarraitu irakurketa"
+
+msgid "Document not found"
+msgstr ""
+
+msgid "Email address"
+msgstr "Helbide elektronikoa"
+
+msgid "Email address is not valid"
+msgstr ""
+
+msgid "Entries feed"
 msgstr ""
 
 msgid "Etra menu"
 msgstr ""
 
-msgid "Blog info"
+msgid "Explore archives"
+msgstr ""
+
+msgid "Extra menu"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "Go to homepage"
+msgstr ""
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr ""
+
+msgid "Home"
+msgstr "webgunera "
+
+msgid "In"
+msgstr ""
+
+msgid "Languages"
+msgstr ""
+
+msgid "Links"
+msgstr "estekak "
+
+msgid "Name or nickname"
+msgstr ""
+
+#, fuzzy
+msgid "Next entry:"
+msgstr "Hurrengo sarrerak"
+
+msgid "On"
+msgstr ""
+
+msgid "Page top"
+msgstr ""
+
+msgid "Password needed"
+msgstr ""
+
+msgid "Password:"
+msgstr "Pasahitza:"
+
+msgid "Permalink"
+msgstr "Esteka iraunkorren"
+
+#, fuzzy
+msgid "Powered by %s"
+msgstr "ek kudeatua"
+
+#, fuzzy
+msgid "Preview"
+msgstr "aurreikusi"
+
+#, fuzzy
+msgid "Previous entry:"
+msgstr "Aurreko sarrerak "
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr ""
+
+msgid "Read"
+msgstr "Irakurri"
+
+msgid "Remember me on this blog"
+msgstr "Gogora nazazu "
+
+msgid "Required field"
+msgstr ""
+
+msgid "Search"
+msgstr "Bilatu "
+
+msgid "Send"
+msgstr ""
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr ""
+
+#, fuzzy
+msgid "Subcategories"
+msgstr "Atalak"
+
+msgid "Subscribe"
+msgstr ""
+
+msgid "Subscribe to"
+msgstr ""
+
+msgid "Suggestions:"
+msgstr ""
+
+msgid "The document you are looking for does not exist."
+msgstr ""
+
+msgid "The list of recents posts is available"
+msgstr ""
+
+msgid "They posted on the same topic"
+msgstr ""
+
+#, fuzzy
+msgid "This blog's comments Atom feed"
+msgstr "Bidalketa honen iruzkinentzako RSS jarioa. "
+
+#, fuzzy
+msgid "This category's comments Atom feed"
+msgstr "Bidalketa honen iruzkinentzako RSS jarioa. "
+
+#, fuzzy
+msgid "This category's entries Atom feed"
+msgstr "Bidalketa honen iruzkinentzako RSS jarioa. "
+
+#, fuzzy
+msgid "This post's comments Atom feed"
+msgstr "Bidalketa honen iruzkinentzako RSS jarioa. "
+
+msgid "This post's comments feed"
+msgstr ""
+
+# Not found strings
+msgid "To content"
+msgstr ""
+
+msgid "To menu"
+msgstr ""
+
+msgid "To search"
+msgstr ""
+
+msgid "Trackback URL"
+msgstr "Aipurako URLa "
+
+msgid "URL you've tried has typos, or the page has been deleted or moved."
+msgstr ""
+
+msgid "Use search form"
+msgstr ""
+
+msgid "Website"
+msgstr "Webgunea"
+
+msgid "What is an RSS feed?"
+msgstr ""
+
+msgid "You must give a password to access this area."
+msgstr ""
+
+msgid "You must provide a comment"
+msgstr ""
+
+msgid "You must provide a valid email address."
+msgstr ""
+
+msgid "You must provide an author name"
+msgstr ""
+
+msgid "Your comment"
+msgstr "Zure iruzkina "
+
+msgid "Your comment has been published."
+msgstr ""
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr ""
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr ""
+
+msgid "by"
+msgstr "egilea:"
+
+msgid "here"
+msgstr ""
+
+msgid "in"
+msgstr ""
+
+msgid "next entries"
+msgstr "Hurrengo sarrerak"
+
+msgid "no attachments"
+msgstr "eranskinik ez"
+
+#, fuzzy
+msgid "no comments"
+msgstr "iruzkinik ez "
+
+msgid "no reactions"
+msgstr ""
+
+msgid "no trackbacks"
+msgstr ""
+
+msgid "of"
+msgstr ""
+
+msgid "on"
+msgstr ""
+
+msgid "one attachment"
+msgstr "eranskin 1"
+
+msgid "one comment"
+msgstr "iruzkin 1 "
+
+#, fuzzy
+msgid "one reaction"
+msgstr "Jarraitu irakurketa"
+
+msgid "one trackback"
+msgstr ""
+
+msgid "optional"
+msgstr "hautazkoa"
+
+msgid "page"
+msgstr "orrialdea"
+
+msgid "preview"
+msgstr "aurreikusi"
+
+msgid "previous entries"
+msgstr "Aurreko sarrerak "
+
+msgid "reactions"
+msgstr ""
+
+msgid "send"
+msgstr "bidali"
+
+msgid "toDay"
 msgstr ""

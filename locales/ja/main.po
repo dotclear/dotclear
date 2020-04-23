@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:10+0200\n"
+"POT-Creation-Date: 2020-04-23 14:52+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -71,6 +71,10 @@ msgstr "あなたは最高管理者ではありません。"
 #, fuzzy
 msgid "Insufficient permissions"
 msgstr "パーミッションを設定"
+
+#, fuzzy
+msgid "Administration session expired"
+msgstr "管理インターフェイス："
 
 msgid "Wrong username or password"
 msgstr "ユーザ名またはパスワードが間違っています"
@@ -310,6 +314,10 @@ msgstr "ブログは正常に作成されました。"
 msgid "Parameters"
 msgstr "パラメータ"
 
+#, fuzzy
+msgid "Blog parameters"
+msgstr "パラメータ"
+
 msgid "Blog details"
 msgstr "ブログの詳細"
 
@@ -391,7 +399,7 @@ msgid "Disable internal search system"
 msgstr ""
 
 #, fuzzy, php-format
-msgid "Display %s entries on home page"
+msgid "Display %s entries on first page"
 msgstr "ページ単位のエントリ表示数： %s"
 
 #, php-format
@@ -410,6 +418,20 @@ msgid "Truncate feeds"
 msgstr "フィードの切り詰め"
 
 msgid "Include sub-categories in category page and category posts feed"
+msgstr ""
+
+#, fuzzy
+msgid "Display an entry as static home page"
+msgstr "ページ単位のエントリ表示数： %s"
+
+msgid "Entry URL (its content will be used for the static home page):"
+msgstr ""
+
+#, fuzzy
+msgid "Choose an entry"
+msgstr "ブログの選択"
+
+msgid "Leave empty to use the default presentation."
 msgstr ""
 
 msgid "Media and images"
@@ -537,6 +559,9 @@ msgstr "検索エンジンロボットのポリシー"
 msgid "jQuery javascript library"
 msgstr ""
 
+msgid "Load the jQuery library"
+msgstr ""
+
 msgid "jQuery version to be loaded for this blog:"
 msgstr ""
 
@@ -609,6 +634,9 @@ msgstr "テーマの環境設定"
 msgid "Themes management"
 msgstr "言語の管理"
 
+msgid "Manual checking of themes update done successfully."
+msgstr ""
+
 #, fuzzy
 msgid "Update themes"
 msgstr "サムネイルの更新"
@@ -621,6 +649,10 @@ msgstr[0] ""
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
+
+#, fuzzy
+msgid "Force checking update of themes"
+msgstr "Dotclear をアップデート"
 
 #, fuzzy
 msgid "Installed themes"
@@ -704,6 +736,10 @@ msgstr "それを表示する。"
 #, fuzzy
 msgid "blogs per page"
 msgstr "ブログ / ページ"
+
+#, fuzzy
+msgid "Save current options"
+msgstr "検索オプション"
 
 msgid "Apply filters and display options"
 msgstr ""
@@ -1005,6 +1041,12 @@ msgstr[0] "Iconv モジュールが利用可能ではありません。"
 #, fuzzy
 msgid "Documentation and support"
 msgstr "ドキュメント"
+
+msgid "Dashboard area's drag and drop is disabled"
+msgstr ""
+
+msgid "Dashboard area's drag and drop is enabled"
+msgstr ""
 
 msgid "Dashboard"
 msgstr "ダッシュボード"
@@ -1456,12 +1498,20 @@ msgstr "このファイルをエントリへ挿入"
 msgid "delete"
 msgstr "削除"
 
+#, fuzzy
+msgid "private media"
+msgstr "プライベート"
+
 msgid "open"
 msgstr "開く"
 
 #, fuzzy
 msgid "Not a valid directory"
 msgstr "有効なファイルではありません"
+
+#, fuzzy, php-format
+msgid "Directory or file \"%s\" already exists."
+msgstr "ユーザ \"%s\" さんはすでに存在します。"
 
 #, fuzzy, php-format
 msgid "Directory \"%s\" has been successfully created."
@@ -1654,10 +1704,6 @@ msgstr "アップロード"
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
 
-#, fuzzy
-msgid "Blog parameters"
-msgstr "パラメータ"
-
 msgid "Not a valid file"
 msgstr "有効なファイルではありません"
 
@@ -1670,10 +1716,6 @@ msgstr "サムネイルは正常に更新されました。"
 #, fuzzy
 msgid "Default media insertion settings have been successfully updated."
 msgstr "サムネイルは正常に更新されました。"
-
-#, fuzzy
-msgid "Are you sure to delete this media?"
-msgstr "本当に、このコメントを削除してもよろしいですか？"
 
 #, fuzzy
 msgid "Select media item"
@@ -1690,6 +1732,13 @@ msgid "Insert media item"
 msgstr "メディアアイテムの挿入"
 
 msgid "Image legend and title"
+msgstr ""
+
+#, fuzzy
+msgid "Title: "
+msgstr "タイトル："
+
+msgid "Legend: "
 msgstr ""
 
 msgid "Image alignment"
@@ -1833,6 +1882,10 @@ msgstr "ファイル名："
 msgid "File title:"
 msgstr "ファイルのタイトル："
 
+#, fuzzy
+msgid "File description:"
+msgstr "ブログの説明："
+
 msgid "File date:"
 msgstr "ファイルの日付："
 
@@ -1872,6 +1925,9 @@ msgstr "プラグインの管理"
 msgid "Plugin configuration"
 msgstr "ブログの環境設定"
 
+msgid "Manual checking of plugins update done successfully."
+msgstr ""
+
 #, fuzzy
 msgid "Update plugins"
 msgstr "プラグインをアップロード"
@@ -1880,6 +1936,10 @@ msgstr "プラグインをアップロード"
 msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
+
+#, fuzzy
+msgid "Force checking update of plugins"
+msgstr "Dotclear をアップデート"
 
 #, fuzzy
 msgid "Installed plugins"
@@ -1951,8 +2011,9 @@ msgstr "検索"
 msgid "cancel"
 msgstr "キャンセル"
 
+#, fuzzy
 msgid "Edit post"
-msgstr "エントリの編集"
+msgstr "ブログ %s を編集"
 
 msgid "This entry does not exist."
 msgstr "このエントリは存在しません。"
@@ -1999,11 +2060,8 @@ msgstr "保留"
 msgid "&ldquo;%s&rdquo;"
 msgstr ""
 
-msgid "Entries"
-msgstr "エントリ"
-
 msgid "Posts"
-msgstr "エントリ"
+msgstr ""
 
 msgid "Entry has been successfully updated."
 msgstr "エントリは正常に更新されました。"
@@ -2106,10 +2164,6 @@ msgstr ""
 #, fuzzy
 msgid "Unpublished notes."
 msgstr "非掲載"
-
-#, fuzzy
-msgid "Edit post"
-msgstr "ブログ %s を編集"
 
 #, fuzzy
 msgid "Preview"
@@ -2265,8 +2319,19 @@ msgstr ""
 msgid "Category description"
 msgstr "カテゴリの兄弟"
 
-msgid "Posts"
-msgstr ""
+#, fuzzy
+msgid "Last Name"
+msgstr "最終更新"
+
+#, fuzzy
+msgid "First Name"
+msgstr "ファーストネーム"
+
+msgid "Display name"
+msgstr "表示名"
+
+msgid "Number of entries"
+msgstr "エントリ数"
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "メールアドレスやパスワードを変更したい場合は、現在のパスワードを入力する必要があります。"
@@ -2301,6 +2366,10 @@ msgstr "ファイルは正常に更新されました。"
 #, fuzzy
 msgid "Default favorites have been successfully updated."
 msgstr "サムネイルは正常に更新されました。"
+
+#, fuzzy
+msgid "Dashboard items order have been successfully reset."
+msgstr "カテゴリは正常に並び替えられました。"
 
 msgid "My profile"
 msgstr ""
@@ -2393,6 +2462,17 @@ msgstr ""
 
 msgid "Optional columns displayed in lists"
 msgstr ""
+
+msgid "Options for lists"
+msgstr ""
+
+#, fuzzy
+msgid "Apply filters on the fly"
+msgstr "ファイルの追加"
+
+#, fuzzy
+msgid "users per page"
+msgstr "ユーザ / ページ"
 
 #, fuzzy
 msgid "Edition"
@@ -2514,6 +2594,13 @@ msgstr "Dotclear をアップデート"
 msgid "Save my dashboard options"
 msgstr "検索オプション"
 
+#, fuzzy
+msgid "Dashboard items order"
+msgstr "ダッシュボード"
+
+msgid "Reset dashboard items order"
+msgstr ""
+
 msgid "Search options"
 msgstr "検索オプション"
 
@@ -2590,8 +2677,24 @@ msgstr ""
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr ""
 
+#, fuzzy
+msgid "List options saved"
+msgstr "検索オプション"
+
 msgid "Dotclear update"
 msgstr "Dotclear のアップデート"
+
+#, fuzzy
+msgid "Precheck update error"
+msgstr "Dotclear をアップデート"
+
+#, fuzzy
+msgid "Backup directory does not exist"
+msgstr "ディレクトリが存在しません"
+
+#, fuzzy
+msgid "Access denied"
+msgstr "許可されていません。"
 
 #, php-format
 msgid "Unable to delete file %s"
@@ -2682,6 +2785,9 @@ msgstr "ユーザ \"%s\" さんはすでに存在します。"
 msgid "User has been successfully created."
 msgstr "ユーザは正常に作成されました。"
 
+msgid "User has no permission, he will not be able to login yet. See below to add some."
+msgstr ""
+
 #, fuzzy
 msgid "User profile"
 msgstr "ユーザ / ページ"
@@ -2731,20 +2837,6 @@ msgstr "ブログ："
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
-#, fuzzy
-msgid "Last Name"
-msgstr "最終更新"
-
-#, fuzzy
-msgid "First Name"
-msgstr "ファーストネーム"
-
-msgid "Display name"
-msgstr "表示名"
-
-msgid "Number of entries"
-msgstr "エントリ数"
-
 msgid "Set permissions"
 msgstr "パーミッションを設定"
 
@@ -2753,10 +2845,6 @@ msgstr "ユーザは正常に削除されました。"
 
 msgid "The permissions have been successfully updated."
 msgstr "パーミッションは正常に更新されました。"
-
-#, fuzzy
-msgid "users per page"
-msgstr "ユーザ / ページ"
 
 msgid "Selected users action:"
 msgstr "選択されたユーザに実行："
@@ -2780,6 +2868,9 @@ msgstr "ユーザ %s さんにパーミッションを与えたいブログを�
 
 msgid "No blog"
 msgstr "ブログはありません"
+
+msgid "Entries"
+msgstr "エントリ"
 
 #, fuzzy
 msgid "select"
@@ -2871,10 +2962,6 @@ msgstr "コメントは正常に更新されました。"
 #, fuzzy
 msgid "Back to entries list"
 msgstr "カテゴリリスト"
-
-#, fuzzy
-msgid "Entries actions"
-msgstr "選択されたエントリに実行："
 
 #, fuzzy
 msgid "Posts actions"
@@ -2983,6 +3070,9 @@ msgstr "エントリの言語："
 msgid "Languages"
 msgstr "言語"
 
+msgid "[%H:%M:%S]"
+msgstr ""
+
 msgid "Change blog"
 msgstr "ブログの変更"
 
@@ -2994,9 +3084,6 @@ msgid "Go to the content"
 msgstr "エントリの内容がありません"
 
 msgid "Go to the menu"
-msgstr ""
-
-msgid "Go to search"
 msgstr ""
 
 msgid "Go to help"
@@ -3021,9 +3108,6 @@ msgstr ""
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr ""
 
-msgid "[%H:%M:%S]"
-msgstr ""
-
 #, php-format
 msgid "Thank you for using %s."
 msgstr "%s をご利用いただき誠にありがとうございます。"
@@ -3031,247 +3115,6 @@ msgstr "%s をご利用いただき誠にありがとうございます。"
 #, fuzzy
 msgid "Page top"
 msgstr "ページ"
-
-#, fuzzy
-msgid "Go to dashboard"
-msgstr "ダッシュボード"
-
-msgid "Help about this page"
-msgstr ""
-
-#, php-format
-msgid "See also %s"
-msgstr ""
-
-msgid "the global help"
-msgstr ""
-
-msgid "uncover"
-msgstr "展開"
-
-msgid "hide"
-msgstr "隠す"
-
-msgid "Need help?"
-msgstr ""
-
-msgid "new window"
-msgstr ""
-
-msgid "Hide"
-msgstr ""
-
-#, fuzzy
-msgid "Select:"
-msgstr "イチ押し："
-
-#, fuzzy
-msgid "no selection"
-msgstr "選択されていません"
-
-msgid "select all"
-msgstr "すべてを選択"
-
-msgid "Invert selection"
-msgstr "選択を反転"
-
-msgid "view entry"
-msgstr "エントリの表示"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected entries (%s)?"
-msgstr "本当に、選択されたエントリを削除してもよろしいですか？"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected medias (%d)?"
-msgstr "本当に、選択されたエントリを削除してもよろしいですか？"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected categories (%s)?"
-msgstr "本当に、選択されたエントリを削除してもよろしいですか？"
-
-msgid "Are you sure you want to delete this entry?"
-msgstr "本当に、このエントリを削除してもよろしいですか？"
-
-msgid "Click here to unlock the field"
-msgstr ""
-
-#, fuzzy
-msgid "Are you sure you want to delete all spams?"
-msgstr "本当に、テーマ \"%s\" を削除してもよろしいですか？"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected comments (%s)?"
-msgstr "本当に、選択されたコメントを削除してもよろしいですか？"
-
-msgid "Are you sure you want to delete this comment?"
-msgstr "本当に、このコメントを削除してもよろしいですか？"
-
-msgid "Users with posts cannot be deleted."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected users (%s)?"
-msgstr "本当に、選択されたユーザを削除してもよろしいですか？"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected blogs (%s)?"
-msgstr "本当に、選択されたユーザを削除してもよろしいですか？"
-
-#, php-format
-msgid "Are you sure you want to delete category \"%s\"?"
-msgstr "本当に、カテゴリ \"%s\" を削除してもよろしいですか？"
-
-#, fuzzy
-msgid "Are you sure you want to reorder all categories?"
-msgstr "本当に、カテゴリ \"%s\" を削除してもよろしいですか？"
-
-#, php-format
-msgid "Are you sure you want to remove media \"%s\"?"
-msgstr "本当に、メディア \"%s\" を削除してもよろしいですか？"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to remove directory \"%s\"?"
-msgstr "本当に、メディア \"%s\" を削除してもよろしいですか？"
-
-msgid "Are you sure you want to extract archive in current directory?"
-msgstr "本当に、現在のディレクトリにアーカイブを展開してもよろしいですか？"
-
-#, php-format
-msgid "Are you sure you want to remove attachment \"%s\"?"
-msgstr "本当に、添付 \"%s\" を削除してもよろしいですか？"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" language?"
-msgstr "本当に、言語 \"%s\" を削除してもよろしいですか？"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr "本当に、プラグイン \"%s\" を削除してもよろしいですか？"
-
-#, fuzzy
-msgid "Are you sure you want to delete selected plugins?"
-msgstr "本当に、プラグイン \"%s\" を削除してもよろしいですか？"
-
-msgid "Use this theme"
-msgstr "このテーマを使用"
-
-msgid "Remove this theme"
-msgstr "このテーマを削除"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" theme?"
-msgstr "本当に、テーマ \"%s\" を削除してもよろしいですか？"
-
-#, fuzzy
-msgid "Are you sure you want to delete selected themes?"
-msgstr "本当に、選択されたエントリを削除してもよろしいですか？"
-
-#, fuzzy
-msgid "Are you sure you want to delete this backup?"
-msgstr "本当に、このコメントを削除してもよろしいですか？"
-
-#, fuzzy
-msgid "Are you sure you want to revert to this backup?"
-msgstr "本当に、この添付ファイルを除去してもよろしいですか？"
-
-msgid "Zip file content"
-msgstr "zipファイルの内容"
-
-msgid "XHTML markup validator"
-msgstr "XHTMLマークアップバリデータ"
-
-msgid "XHTML content is valid."
-msgstr "XHTMLコンテンツは適切です。"
-
-msgid "There are XHTML markup errors."
-msgstr "XHTMLマークアップエラーがあります。"
-
-msgid "Attention: an audit of a content not yet registered."
-msgstr ""
-
-msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
-msgstr ""
-
-msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
-msgstr ""
-
-msgid "Loading enhanced uploader, please wait."
-msgstr ""
-
-msgid "Details"
-msgstr "詳細"
-
-msgid "Support"
-msgstr ""
-
-#, fuzzy
-msgid "Help:"
-msgstr "ヘルプ"
-
-#, fuzzy
-msgid "Section:"
-msgstr "操作"
-
-msgid "Tags:"
-msgstr ""
-
-#, fuzzy
-msgid "Hide this notice"
-msgstr "このテーマを使用"
-
-msgid "You have unsaved changes."
-msgstr "保存されていない変更があります。"
-
-#, fuzzy
-msgid "Choose date"
-msgstr "ファイルの選択"
-
-msgid "close"
-msgstr "閉じる"
-
-msgid "now"
-msgstr "現在"
-
-msgid "Temporarily activate enhanced uploader"
-msgstr "拡張アップローダを有効化"
-
-msgid "Temporarily disable enhanced uploader"
-msgstr "拡張アップローダを無効化"
-
-msgid "Limit exceeded."
-msgstr "制限を超過しました。"
-
-msgid "File size exceeds allowed limit."
-msgstr "ファイルサイズが許可される制限を超過しました。"
-
-msgid "Canceled."
-msgstr "キャンセルされました。"
-
-msgid "HTTP Error:"
-msgstr "HTTPエラー："
-
-msgid "Clean"
-msgstr "クリア"
-
-msgid "File successfully uploaded."
-msgstr "ファイルは正常にアップロードされました。"
-
-msgid "No file in queue."
-msgstr "キューにファイルはありません。"
-
-msgid "1 file in queue."
-msgstr "キューに 1 のファイルがあります。"
-
-#, php-format
-msgid "%d files in queue."
-msgstr "キューに %d のファイルがあります。"
-
-msgid "Queue error:"
-msgstr "キューエラー："
-
-msgid "Cancel filters and display options"
-msgstr ""
 
 msgid "other"
 msgstr ""
@@ -3320,6 +3163,9 @@ msgstr "バージョン"
 msgid "Current version"
 msgstr "パーミッションを設定"
 
+msgid "Details"
+msgstr "詳細"
+
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -3334,9 +3180,15 @@ msgstr ""
 msgid "Plugin from official distribution"
 msgstr ""
 
+msgid "Support"
+msgstr ""
+
 #, fuzzy
-msgid "Manage plugin"
-msgstr "ブログのテーマ"
+msgid "Section:"
+msgstr "操作"
+
+msgid "Tags:"
+msgstr ""
 
 msgid "No plugins matched your search."
 msgstr ""
@@ -3623,6 +3475,10 @@ msgstr[0] ""
 msgid "Protected"
 msgstr "保護"
 
+#, fuzzy
+msgid "Attachments"
+msgstr "添付ファイル"
+
 #, php-format
 msgid "%d attachment"
 msgstr "添付(%d)"
@@ -3688,6 +3544,15 @@ msgstr[0] ""
 #, fuzzy
 msgid "Blogs list"
 msgstr "ブログ"
+
+msgid "online"
+msgstr "オンライン"
+
+msgid "offline"
+msgstr "オフライン"
+
+msgid "removed"
+msgstr "撤去"
 
 #, fuzzy, php-format
 msgid "Edit blog settings for %s"
@@ -3773,19 +3638,16 @@ msgstr "ブログ"
 msgid "Plugins"
 msgstr "プラグイン"
 
-#, fuzzy
-msgid "medium"
-msgstr "ミディアム："
+msgid "moyenne"
+msgstr ""
 
-#, fuzzy
-msgid "small"
-msgstr "スモール："
+msgid "petite"
+msgstr ""
 
-#, fuzzy
-msgid "thumbnail"
-msgstr "サムネイル："
+msgid "vignette"
+msgstr ""
 
-msgid "square"
+msgid "carrée"
 msgstr ""
 
 #, fuzzy
@@ -3914,15 +3776,6 @@ msgstr "投稿者名を入力する必要があります"
 msgid "Email address is not valid."
 msgstr "メールアドレスが有効ではありません。"
 
-msgid "online"
-msgstr "オンライン"
-
-msgid "offline"
-msgstr "オフライン"
-
-msgid "removed"
-msgstr "撤去"
-
 msgid "You are not an administrator"
 msgstr "あなたは管理者ではありません"
 
@@ -3971,12 +3824,6 @@ msgstr "ファイルはデータベースに存在しません。"
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "展開先のディレクトリ %s はすでに存在します。"
-
-msgid "Embedded Audio Player"
-msgstr ""
-
-msgid "Embedded Video Player"
-msgstr ""
 
 #, php-format
 msgid "Requires %s module which is not installed"
@@ -4203,6 +4050,211 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+#, fuzzy
+#~ msgid "Are you sure to delete this media?"
+#~ msgstr "本当に、このコメントを削除してもよろしいですか？"
+
+#, fuzzy
+#~ msgid "Entries actions"
+#~ msgstr "選択されたエントリに実行："
+
+#, fuzzy
+#~ msgid "Go to dashboard"
+#~ msgstr "ダッシュボード"
+
+#~ msgid "uncover"
+#~ msgstr "展開"
+
+#~ msgid "hide"
+#~ msgstr "隠す"
+
+#, fuzzy
+#~ msgid "Select:"
+#~ msgstr "イチ押し："
+
+#, fuzzy
+#~ msgid "no selection"
+#~ msgstr "選択されていません"
+
+#~ msgid "select all"
+#~ msgstr "すべてを選択"
+
+#~ msgid "Invert selection"
+#~ msgstr "選択を反転"
+
+#~ msgid "view entry"
+#~ msgstr "エントリの表示"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected entries (%s)?"
+#~ msgstr "本当に、選択されたエントリを削除してもよろしいですか？"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected medias (%d)?"
+#~ msgstr "本当に、選択されたエントリを削除してもよろしいですか？"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected categories (%s)?"
+#~ msgstr "本当に、選択されたエントリを削除してもよろしいですか？"
+
+#~ msgid "Are you sure you want to delete this entry?"
+#~ msgstr "本当に、このエントリを削除してもよろしいですか？"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "本当に、テーマ \"%s\" を削除してもよろしいですか？"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected comments (%s)?"
+#~ msgstr "本当に、選択されたコメントを削除してもよろしいですか？"
+
+#~ msgid "Are you sure you want to delete this comment?"
+#~ msgstr "本当に、このコメントを削除してもよろしいですか？"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected users (%s)?"
+#~ msgstr "本当に、選択されたユーザを削除してもよろしいですか？"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected blogs (%s)?"
+#~ msgstr "本当に、選択されたユーザを削除してもよろしいですか？"
+
+#~ msgid "Are you sure you want to delete category \"%s\"?"
+#~ msgstr "本当に、カテゴリ \"%s\" を削除してもよろしいですか？"
+
+#, fuzzy
+#~ msgid "Are you sure you want to reorder all categories?"
+#~ msgstr "本当に、カテゴリ \"%s\" を削除してもよろしいですか？"
+
+#~ msgid "Are you sure you want to remove media \"%s\"?"
+#~ msgstr "本当に、メディア \"%s\" を削除してもよろしいですか？"
+
+#, fuzzy
+#~ msgid "Are you sure you want to remove directory \"%s\"?"
+#~ msgstr "本当に、メディア \"%s\" を削除してもよろしいですか？"
+
+#~ msgid "Are you sure you want to extract archive in current directory?"
+#~ msgstr "本当に、現在のディレクトリにアーカイブを展開してもよろしいですか？"
+
+#~ msgid "Are you sure you want to remove attachment \"%s\"?"
+#~ msgstr "本当に、添付 \"%s\" を削除してもよろしいですか？"
+
+#~ msgid "Are you sure you want to delete \"%s\" language?"
+#~ msgstr "本当に、言語 \"%s\" を削除してもよろしいですか？"
+
+#~ msgid "Are you sure you want to delete \"%s\" plugin?"
+#~ msgstr "本当に、プラグイン \"%s\" を削除してもよろしいですか？"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected plugins?"
+#~ msgstr "本当に、プラグイン \"%s\" を削除してもよろしいですか？"
+
+#~ msgid "Use this theme"
+#~ msgstr "このテーマを使用"
+
+#~ msgid "Remove this theme"
+#~ msgstr "このテーマを削除"
+
+#~ msgid "Are you sure you want to delete \"%s\" theme?"
+#~ msgstr "本当に、テーマ \"%s\" を削除してもよろしいですか？"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected themes?"
+#~ msgstr "本当に、選択されたエントリを削除してもよろしいですか？"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete this backup?"
+#~ msgstr "本当に、このコメントを削除してもよろしいですか？"
+
+#, fuzzy
+#~ msgid "Are you sure you want to revert to this backup?"
+#~ msgstr "本当に、この添付ファイルを除去してもよろしいですか？"
+
+#~ msgid "Zip file content"
+#~ msgstr "zipファイルの内容"
+
+#~ msgid "XHTML markup validator"
+#~ msgstr "XHTMLマークアップバリデータ"
+
+#~ msgid "XHTML content is valid."
+#~ msgstr "XHTMLコンテンツは適切です。"
+
+#~ msgid "There are XHTML markup errors."
+#~ msgstr "XHTMLマークアップエラーがあります。"
+
+#, fuzzy
+#~ msgid "Help:"
+#~ msgstr "ヘルプ"
+
+#, fuzzy
+#~ msgid "Hide this notice"
+#~ msgstr "このテーマを使用"
+
+#~ msgid "You have unsaved changes."
+#~ msgstr "保存されていない変更があります。"
+
+#, fuzzy
+#~ msgid "Choose date"
+#~ msgstr "ファイルの選択"
+
+#~ msgid "close"
+#~ msgstr "閉じる"
+
+#~ msgid "now"
+#~ msgstr "現在"
+
+#~ msgid "Temporarily activate enhanced uploader"
+#~ msgstr "拡張アップローダを有効化"
+
+#~ msgid "Temporarily disable enhanced uploader"
+#~ msgstr "拡張アップローダを無効化"
+
+#~ msgid "Limit exceeded."
+#~ msgstr "制限を超過しました。"
+
+#~ msgid "File size exceeds allowed limit."
+#~ msgstr "ファイルサイズが許可される制限を超過しました。"
+
+#~ msgid "Canceled."
+#~ msgstr "キャンセルされました。"
+
+#~ msgid "HTTP Error:"
+#~ msgstr "HTTPエラー："
+
+#~ msgid "Clean"
+#~ msgstr "クリア"
+
+#~ msgid "File successfully uploaded."
+#~ msgstr "ファイルは正常にアップロードされました。"
+
+#~ msgid "No file in queue."
+#~ msgstr "キューにファイルはありません。"
+
+#~ msgid "1 file in queue."
+#~ msgstr "キューに 1 のファイルがあります。"
+
+#~ msgid "%d files in queue."
+#~ msgstr "キューに %d のファイルがあります。"
+
+#~ msgid "Queue error:"
+#~ msgstr "キューエラー："
+
+#, fuzzy
+#~ msgid "Manage plugin"
+#~ msgstr "ブログのテーマ"
+
+#, fuzzy
+#~ msgid "medium"
+#~ msgstr "ミディアム："
+
+#, fuzzy
+#~ msgid "small"
+#~ msgstr "スモール："
+
+#, fuzzy
+#~ msgid "thumbnail"
+#~ msgstr "サムネイル："
+
 #~ msgid "Unable to open directory."
 #~ msgstr "ディレクトが開けません。"
 
@@ -4306,9 +4358,6 @@ msgstr ""
 #~ msgid "Cannot read file"
 #~ msgstr "ファイルが読み込めません"
 
-#~ msgid "Directory does not exist"
-#~ msgstr "ディレクトリが存在しません"
-
 #~ msgid "Cannot read directory"
 #~ msgstr "ディレクトリが読み込めません"
 
@@ -4372,10 +4421,6 @@ msgstr ""
 
 #~ msgid "back"
 #~ msgstr "戻る"
-
-#, fuzzy
-#~ msgid "Apply filters"
-#~ msgstr "ファイルの追加"
 
 #~ msgid "Page(s)"
 #~ msgstr "ページ"

@@ -1,14 +1,8 @@
-msgid "Additionnal style directives"
-msgstr "Instrucciones CSS adicionales"
+msgid "Show menu"
+msgstr ""
 
-msgid "reactions"
-msgstr "reacciones"
+msgid "Hide menu"
+msgstr ""
 
-msgid "Add ping"
-msgstr "Agregar un retroenlace"
-
-msgid "From"
-msgstr "Del"
-
-msgid "Required field"
-msgstr "Campo obligatorio"
+msgid "Main menu"
+msgstr ""

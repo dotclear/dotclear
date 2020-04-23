@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:10+0200\n"
+"POT-Creation-Date: 2020-04-23 14:52+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -207,6 +207,9 @@ msgstr "次の日数を経過したジャンクコメントを削除："
 msgid "days"
 msgstr "日"
 
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
 #, fuzzy
 msgid "Set spam filters."
 msgstr "Akismetスパムフィルタ"
@@ -359,6 +362,10 @@ msgstr "フィルタの設定は正常に保存されました。"
 msgid "%s configuration"
 msgstr "%s の設定"
 
+#, fuzzy
+msgid "Are you sure you want to delete all spams?"
+msgstr "本当に、このページを削除してもよろしいですか？"
+
 #, fuzzy, php-format
 msgid "%s filter configuration"
 msgstr "フィルタの設定"
@@ -407,9 +414,6 @@ msgstr "ジャンクコメントのRSSフィード"
 msgid "Published comments RSS feed"
 msgstr "掲載済みコメントのRSSフィード"
 
-msgid "Attachments"
-msgstr ""
-
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -430,38 +434,11 @@ msgstr "ブログロール"
 msgid "manage blogroll"
 msgstr "ブログロールの管理"
 
-msgid "Links"
-msgstr "リンク"
-
-msgid "Title (optional)"
-msgstr ""
-
 msgid "All categories"
 msgstr "すべてのカテゴリ"
 
-msgid "Display on:"
-msgstr ""
-
-#, fuzzy
-msgid "All pages"
-msgstr "すべてのタグ"
-
-msgid "Home page only"
-msgstr "ホームページのみ"
-
-msgid "Except on home page"
-msgstr ""
-
-#, fuzzy
-msgid "Content only"
-msgstr "フィルタへ戻る"
-
-#, fuzzy
-msgid "CSS class:"
-msgstr "CSSファイル"
-
-msgid "Offline"
-msgstr ""
+msgid "Links"
+msgstr "リンク"
 
 msgid "You must provide a link title"
 msgstr "リンクのタイトルを入力する必要があります"
@@ -496,6 +473,9 @@ msgstr "リンクの編集"
 #, fuzzy
 msgid "XFN information"
 msgstr "情報"
+
+msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
+msgstr ""
 
 msgid "_xfn_Me"
 msgstr "自分"
@@ -911,6 +891,86 @@ msgstr "外部メディア"
 msgid "URL field cannot be empty."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
+#, fuzzy
+msgid "Settings"
+msgstr "設定名"
+
+#, fuzzy
+msgid "Plugin activation"
+msgstr "有効"
+
+msgid "Enable dcCKEditor plugin"
+msgstr ""
+
+#, fuzzy
+msgid "Add alignment buttons"
+msgstr "メディアの配置"
+
+#, fuzzy
+msgid "Add lists buttons"
+msgstr "エントリへタグを追加"
+
+#, fuzzy
+msgid "Add text color button"
+msgstr "サイドバーテキストの色："
+
+#, fuzzy
+msgid "Add background text color button"
+msgstr "背景色："
+
+msgid "Custom colors list:"
+msgstr ""
+
+msgid "Add colors without # separated by a comma."
+msgstr ""
+
+msgid "Leave empty to use the default palette:"
+msgstr ""
+
+msgid "Example of custom color list:"
+msgstr ""
+
+msgid "Colors per row in palette:"
+msgstr ""
+
+msgid "Leave empty to use default (6)"
+msgstr ""
+
+msgid "Add collapse button"
+msgstr ""
+
+#, fuzzy
+msgid "Add format selection"
+msgstr "このエントリへ %s を追加"
+
+msgid "Custom formats"
+msgstr ""
+
+msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
+msgstr ""
+
+msgid "Add table button"
+msgstr ""
+
+msgid "Add clipboard buttons"
+msgstr ""
+
+msgid "Copy, Paste, Paste Text, Paste from Word"
+msgstr ""
+
+msgid "Add undo/redo buttons"
+msgstr ""
+
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr ""
+
+#, fuzzy
+msgid "Save configuration"
+msgstr "%s の設定"
+
 msgid "visual"
 msgstr ""
 
@@ -996,6 +1056,12 @@ msgstr "言語"
 #, fuzzy
 msgid "Remove text formating"
 msgstr "タグの除去"
+
+msgid "dcLegacyEditor"
+msgstr ""
+
+msgid "Enable dcLegacyEditor plugin"
+msgstr ""
 
 msgid "Checks trackback source for a link to the post"
 msgstr "投稿へリンクしているかトラックバック元をチェックします"
@@ -1494,6 +1560,13 @@ msgstr ""
 msgid "Maintenance plugin has been successfully configured."
 msgstr "カテゴリは正常に作成されました。"
 
+#, fuzzy
+msgid "System settings have been saved."
+msgstr "設定は正常に更新されました。"
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
 msgid "Never"
 msgstr ""
 
@@ -1547,6 +1620,24 @@ msgid "Recall time for all tasks:"
 msgstr ""
 
 msgid "Use one recall time per task"
+msgstr ""
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
 msgstr ""
 
 msgid "New page"
@@ -1701,9 +1792,6 @@ msgstr ""
 msgid "Test ping services"
 msgstr "Pingサービスのテスト"
 
-msgid "Check all"
-msgstr ""
-
 msgid "Simple menu"
 msgstr ""
 
@@ -1760,6 +1848,10 @@ msgstr "設定は正常に更新されました"
 
 msgid "Label"
 msgstr ""
+
+#, fuzzy
+msgid "Home page"
+msgstr "ホームページのみ"
 
 msgid "Recent posts"
 msgstr ""
@@ -1865,10 +1957,6 @@ msgid "Enable simple menu for this blog"
 msgstr ""
 
 #, fuzzy
-msgid "Save configuration"
-msgstr "%s の設定"
-
-#, fuzzy
 msgid "Add an item"
 msgstr "新しいリンクを追加"
 
@@ -1899,6 +1987,9 @@ msgstr "このタグのエントリのAtomフィード"
 msgid "Tag"
 msgstr "タグ"
 
+msgid "Limit (empty means no limit):"
+msgstr "制限（空欄は無制限）"
+
 msgid "Tag name"
 msgstr "タグ名"
 
@@ -1910,9 +2001,6 @@ msgstr ""
 
 msgid "Oldest entry"
 msgstr ""
-
-msgid "Limit (empty means no limit):"
-msgstr "制限（空欄は無制限）"
 
 msgid "Link to all tags:"
 msgstr ""
@@ -1929,10 +2017,6 @@ msgstr "タグの除去"
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "タグは正常に削除されました"
-
-#, fuzzy
-msgid "Add tags to this selection"
-msgstr "このエントリへ %s を追加"
 
 #, fuzzy
 msgid "Are you sure you want to remove this tag?"
@@ -1960,6 +2044,10 @@ msgstr "中央"
 
 msgid "entries"
 msgstr "エントリ"
+
+#, fuzzy
+msgid "Add tags to this selection"
+msgstr "このエントリへ %s を追加"
 
 msgid "Tags to add:"
 msgstr "追加するタグ："
@@ -2184,11 +2272,11 @@ msgstr "テキスト"
 msgid "Text:"
 msgstr "テキスト："
 
-msgid "Last entries"
-msgstr "最終エントリ"
-
 msgid "Uncategorized"
 msgstr "未分類"
+
+msgid "Last entries"
+msgstr "最終エントリ"
 
 msgid "Tag:"
 msgstr "タグ："
@@ -2212,6 +2300,33 @@ msgstr "エントリのフィード"
 
 msgid "Comments feed"
 msgstr "コメントのフィード"
+
+msgid "Title (optional)"
+msgstr ""
+
+msgid "Display on:"
+msgstr ""
+
+#, fuzzy
+msgid "All pages"
+msgstr "すべてのタグ"
+
+msgid "Except on home page"
+msgstr ""
+
+msgid "Home page only"
+msgstr "ホームページのみ"
+
+#, fuzzy
+msgid "Content only"
+msgstr "フィルタへ戻る"
+
+#, fuzzy
+msgid "CSS class:"
+msgstr "CSSファイル"
+
+msgid "Offline"
+msgstr ""
 
 msgid "navigation"
 msgstr "ナビゲーション"
@@ -2408,9 +2523,6 @@ msgstr ""
 #~ msgid "Tags:"
 #~ msgstr "タグ："
 
-#~ msgid "Add tags to entries"
-#~ msgstr "エントリへタグを追加"
-
 #~ msgid "Edit tag"
 #~ msgstr "タグの編集"
 
@@ -2473,9 +2585,6 @@ msgstr ""
 
 #~ msgid "Page URL:"
 #~ msgstr "ページのURL："
-
-#~ msgid "Media alignment"
-#~ msgstr "メディアの配置"
 
 #~ msgid "Media title"
 #~ msgstr "メディアのタイトル"

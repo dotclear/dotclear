@@ -4,13 +4,14 @@
 # @copyright Olivier Meunier & Association Dotclear
 # @copyright GPL-2.0-only
 #
-# Usage (from l10n-plugins root)
-# po_update.sh <dotclear-root> [<lang>]
+# Usage (from dotclear root)
+# po_update.sh <lang> [plugin-or-theme-path]
 
 export LANG=C
 
 XGETTEXT=xgettext
 MSGMERGE=msgmerge
+MSGCAT=msgcat
 
 PLUGINS="
 aboutConfig
@@ -61,19 +62,6 @@ extract_strings()
   "$@"
 }
 
-extract_html_strings()
-{
-  tee -
-
-  $XGETTEXT \
-  - \
-  --sort-by-file \
-  -L PHP -k__ \
-  --no-wrap \
-  --foreign-user \
-  --from-code=UTF-8 \
-  "$@"
-}
 update_po()
 {
   po_file=$1
@@ -90,7 +78,7 @@ update_po()
     perl -pi -e "s|; charset=CHARSET|; charset=UTF-8|sgi;" $po_file $po_file
   fi
 
-  $MSGMERGE --no-location --no-wrap -o $po_tmp $po_file $pot_file
+  $MSGMERGE --no-location --no-wrap --quiet -o $po_tmp $po_file $pot_file
   mv $po_tmp $po_file
 }
 
@@ -105,9 +93,9 @@ if [ -z "$PO_MODULE" ]; then
     -o locales/_pot/main.pot \
     -x locales/_pot/date.pot
 
-  echo "DONE"
+  echo "- done"
 
-  # plugins.pot
+  # - plugins.pot
   echo "Building plugins PO template..."
   for p in $PLUGINS; do
     if [ -d plugins/$p ]; then
@@ -120,7 +108,30 @@ if [ -z "$PO_MODULE" ]; then
     -x locales/_pot/date.pot \
     -x locales/_pot/main.pot
 
-  echo "DONE"
+  # - public.pot
+  # Will use all default templates files and will be merged with _public.pot if necessary
+  echo "Building public PO template..."
+  echo '<?php' > ./__html_tpl_dummy.php
+  find ./inc/public/default-templates -name '*.html' -exec grep -o '{{tpl:lang [^}]*}}' {} \; | \
+    sed 's/{{tpl:lang \(.*\)}}$/__\("\1")/' | sort -u \
+    >> ./__html_tpl_dummy.php
+  sed -i "" 's/\$/\\\$/g' ./__html_tpl_dummy.php
+  find . -name '__html_tpl_dummy.php' -print | \
+    extract_strings \
+    --package-name="Dotclear 2" \
+    -o locales/_pot/templates.pot \
+    -x locales/_pot/date.pot \
+    -x locales/_pot/main.pot \
+    -x locales/_pot/plugins.pot
+  rm -f ./__html_tpl_dummy.php
+  if [ -s locales/_pot/_public.pot ]; then
+    $MSGCAT --use-first --no-wrap --sort-output locales/_pot/templates.pot locales/_pot/_public.pot > locales/_pot/public.pot
+    rm -f locales/_pot/templates.pot
+  else
+    mv locales/_pot/templates.pot locales/_pot/public.pot
+  fi
+
+  echo "- done"
 
   #
   # Update locales/<lang> if needed
@@ -150,9 +161,11 @@ if [ -z "$PO_MODULE" ]; then
   update_po ./locales/$PO_LANG/plugins.po ./locales/_pot/plugins.pot
   update_po ./locales/$PO_LANG/public.po ./locales/_pot/public.pot
   update_po ./locales/$PO_LANG/date.po ./locales/_pot/date.pot
+  echo "- done"
+
 else
   #
-  # Plugin language update
+  # Plugin (3rd party only) or Theme (standard or 3rd party) language update
   #
 
   if [ ! -d $PO_MODULE ]; then
@@ -161,35 +174,68 @@ else
   fi
   echo "Module $PO_MODULE language update"
 
-
   #
   # Building po template file
   #
+  echo "Building PO template..."
   if [ ! -d $PO_MODULE/locales/_pot ]; then
     mkdir -p $PO_MODULE/locales/_pot
   fi
-  echo "Building main PO template..."
-  echo '<?php' >$PO_MODULE/__html_tpl_dummy.php
+
+  # _config.php goes to admin.pot, should be loaded explicitely in _config.php:
+  # l10n::set(dirname(__FILE__) . '/locales/' . $_lang . '/admin');
+
+  if [ -f $PO_MODULE/_config.php ]; then
+    echo "- Building admin PO template..."
+    find $PO_MODULE -name '_config.php' -print | \
+      extract_strings \
+      --package-name="Dotclear 2 `basename $PO_MODULE` module" \
+      -o $PO_MODULE/locales/_pot/admin.pot \
+      -x locales/_pot/date.pot -x locales/_pot/main.pot -x locales/_pot/public.pot -x locales/_pot/plugins.pot
+  else
+    touch $PO_MODULE/locales/_pot/admin.pot
+  fi
+
+  # All other files including templates
+
+  echo "- Building main PO template..."
+  echo '<?php' > $PO_MODULE/__html_tpl_dummy.php
   find $PO_MODULE -name '*.html' -exec grep -o '{{tpl:lang [^}]*}}' {} \; | sed 's/{{tpl:lang \(.*\)}}$/__\("\1")/' | sort -u \
     >> $PO_MODULE/__html_tpl_dummy.php
   sed -i "" 's/\$/\\\$/g' $PO_MODULE/__html_tpl_dummy.php
 
-  find $PO_MODULE -name '*.php' -print | \
+  find $PO_MODULE -name '*.php' -not -regex '.*/_config.php' -print | \
     extract_strings \
     --package-name="Dotclear 2 `basename $PO_MODULE` module" \
     -o $PO_MODULE/locales/_pot/main.pot \
+    -x $PO_MODULE/locales/_pot/admin.pot \
     -x locales/_pot/date.pot -x locales/_pot/main.pot -x locales/_pot/public.pot -x locales/_pot/plugins.pot
 
   rm -f $PO_MODULE/__html_tpl_dummy.php
+  if [ ! -s $PO_MODULE/locales/_pot/admin.pot ]; then
+    # Remove admin.pot if is empty
+    rm -f $PO_MODULE/locales/_pot/admin.pot
+  fi
+  if [ ! -s $PO_MODULE/locales/_pot/main.pot ]; then
+    # Remove main.pot if is empty
+    rm -f $PO_MODULE/locales/_pot/main.pot
+  fi
 
-  echo "DONE"
+  echo "- PO template built"
 
   #
   # Update locale/<lang>
   #
+  echo "Update PO file..."
   if [ ! -d $PO_MODULE/locales/$PO_LANG ]; then
     mkdir -p $PO_MODULE/locales/$PO_LANG
   fi
-  echo "Updating module <$PO_MODULE> main <$PO_LANG> po file... "
-  update_po $PO_MODULE/locales/$PO_LANG/main.po $PO_MODULE/locales/_pot/main.pot
+  if [ -s $PO_MODULE/locales/_pot/main.pot ]; then
+    echo "- Updating module <$PO_MODULE> main <$PO_LANG> po file... "
+    update_po $PO_MODULE/locales/$PO_LANG/main.po $PO_MODULE/locales/_pot/main.pot
+  fi
+  if [ -s $PO_MODULE/locales/_pot/admin.pot ]; then
+    echo "- Updating module <$PO_MODULE> admin <$PO_LANG> po file... "
+    update_po $PO_MODULE/locales/$PO_LANG/admin.po $PO_MODULE/locales/_pot/admin.pot
+  fi
 fi

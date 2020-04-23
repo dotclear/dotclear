@@ -7,82 +7,306 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"POT-Creation-Date: 2020-04-23 15:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-# Not found strings
-msgid "To content"
-msgstr ""
-
-msgid "To menu"
-msgstr ""
-
-msgid "To search"
-msgstr ""
-
-msgid "By"
-msgstr ""
-
-msgid "by"
-msgstr ""
-
-msgid "on"
-msgstr ""
-
-msgid "On"
-msgstr ""
-
-msgid "Continue reading"
-msgstr ""
-
-msgid "no comments"
-msgstr ""
-
-msgid "one comment"
+msgid "%d attachments"
 msgstr ""
 
 msgid "%d comments"
 msgstr ""
 
-msgid "no trackbacks"
-msgstr ""
-
-msgid "one trackback"
-msgstr ""
-
 msgid "%d trackbacks"
 msgstr ""
 
-msgid "no attachments"
+msgid "%s reactions"
 msgstr ""
 
-msgid "one attachment"
+#: __html_tpl_dummy.php:2
+msgid "Access to content"
 msgstr ""
 
-msgid "%d attachments"
+msgid "Add a comment"
 msgstr ""
 
-msgid "previous entries"
+#: __html_tpl_dummy.php:4
+msgid "Add ping"
 msgstr ""
 
-msgid "page"
+msgid "Additionnal style directives"
 msgstr ""
 
-msgid "of"
+msgid "All keywords"
 msgstr ""
 
-msgid "next entries"
+msgid "Archives"
+msgstr ""
+
+msgid "Attachments"
+msgstr ""
+
+msgid "Best of me"
+msgstr ""
+
+#: __html_tpl_dummy.php:7
+msgid "Blog info"
+msgstr ""
+
+#: __html_tpl_dummy.php:8
+msgid "Blog menu"
+msgstr ""
+
+#: __html_tpl_dummy.php:12
+msgid "By"
+msgstr ""
+
+#: __html_tpl_dummy.php:9
+msgid "By category"
+msgstr ""
+
+#: __html_tpl_dummy.php:10
+msgid "By date"
+msgstr ""
+
+#: __html_tpl_dummy.php:11
+msgid "By tag"
+msgstr ""
+
+msgid "Categories"
+msgstr ""
+
+msgid "Comment"
+msgstr ""
+
+msgid "Comments"
+msgstr ""
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr ""
+
+msgid "Comments feed"
+msgstr ""
+
+#: __html_tpl_dummy.php:16
+msgid "Continue reading"
+msgstr ""
+
+#: __html_tpl_dummy.php:17
+msgid "Document not found"
+msgstr ""
+
+#: __html_tpl_dummy.php:18
+msgid "Email address"
+msgstr ""
+
+msgid "Email address is not valid"
+msgstr ""
+
+msgid "Entries feed"
+msgstr ""
+
+msgid "Etra menu"
+msgstr ""
+
+#: __html_tpl_dummy.php:21
+msgid "Explore archives"
+msgstr ""
+
+#: __html_tpl_dummy.php:22
+msgid "Extra menu"
+msgstr ""
+
+#: __html_tpl_dummy.php:23
+msgid "From"
+msgstr ""
+
+#: __html_tpl_dummy.php:24
+msgid "FromDay"
+msgstr ""
+
+#: __html_tpl_dummy.php:25
+msgid "Go to homepage"
+msgstr ""
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "In"
+msgstr ""
+
+msgid "Languages"
+msgstr ""
+
+msgid "Links"
+msgstr ""
+
+#: __html_tpl_dummy.php:26
+msgid "Name or nickname"
+msgstr ""
+
+#: __html_tpl_dummy.php:27
+msgid "Next entry:"
+msgstr ""
+
+#: __html_tpl_dummy.php:28
+msgid "On"
+msgstr ""
+
+msgid "Page top"
+msgstr ""
+
+#: __html_tpl_dummy.php:31
+msgid "Password needed"
+msgstr ""
+
+msgid "Password:"
+msgstr ""
+
+#: __html_tpl_dummy.php:33
+msgid "Permalink"
+msgstr ""
+
+msgid "Powered by %s"
+msgstr ""
+
+msgid "Preview"
+msgstr ""
+
+#: __html_tpl_dummy.php:35
+msgid "Previous entry:"
+msgstr ""
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr ""
+
+#: __html_tpl_dummy.php:36
+msgid "Read"
+msgstr ""
+
+#: __html_tpl_dummy.php:37
+msgid "Remember me on this blog"
+msgstr ""
+
+msgid "Required field"
 msgstr ""
 
 msgid "Search"
 msgstr ""
 
-msgid "Your search for <em>%1$s</em> returned no result."
+msgid "Send"
+msgstr ""
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr ""
+
+#: __html_tpl_dummy.php:41
+msgid "Subcategories"
+msgstr ""
+
+msgid "Subscribe"
+msgstr ""
+
+msgid "Subscribe to"
+msgstr ""
+
+#: __html_tpl_dummy.php:42
+msgid "Suggestions:"
+msgstr ""
+
+#: __html_tpl_dummy.php:43
+msgid "The document you are looking for does not exist."
+msgstr ""
+
+#: __html_tpl_dummy.php:44
+msgid "The list of recents posts is available"
+msgstr ""
+
+#: __html_tpl_dummy.php:45
+msgid "They posted on the same topic"
+msgstr ""
+
+msgid "This blog's comments Atom feed"
+msgstr ""
+
+#: __html_tpl_dummy.php:46
+msgid "This category's comments Atom feed"
+msgstr ""
+
+#: __html_tpl_dummy.php:47
+msgid "This category's entries Atom feed"
+msgstr ""
+
+#: __html_tpl_dummy.php:48
+msgid "This post's comments Atom feed"
+msgstr ""
+
+#: __html_tpl_dummy.php:49
+msgid "This post's comments feed"
+msgstr ""
+
+#: __html_tpl_dummy.php:50
+msgid "To content"
+msgstr ""
+
+#: __html_tpl_dummy.php:51
+msgid "To menu"
+msgstr ""
+
+#: __html_tpl_dummy.php:52
+msgid "To search"
+msgstr ""
+
+#: __html_tpl_dummy.php:53
+msgid "Trackback URL"
+msgstr ""
+
+#: __html_tpl_dummy.php:54
+msgid "URL you've tried has typos, or the page has been deleted or moved."
+msgstr ""
+
+#: __html_tpl_dummy.php:55
+msgid "Use search form"
+msgstr ""
+
+#: __html_tpl_dummy.php:56
+msgid "Website"
+msgstr ""
+
+msgid "What is an RSS feed?"
+msgstr ""
+
+#: __html_tpl_dummy.php:58
+msgid "You must give a password to access this area."
+msgstr ""
+
+msgid "You must provide a comment"
+msgstr ""
+
+msgid "You must provide a valid email address."
+msgstr ""
+
+msgid "You must provide an author name"
+msgstr ""
+
+#: __html_tpl_dummy.php:61
+msgid "Your comment"
+msgstr ""
+
+#: __html_tpl_dummy.php:59
+msgid "Your comment has been published."
+msgstr ""
+
+#: __html_tpl_dummy.php:60
+msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr ""
 
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
@@ -91,185 +315,79 @@ msgstr ""
 msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
 msgstr ""
 
-msgid "Home"
+msgid "Your search for <em>%1$s</em> returned no result."
 msgstr ""
 
-msgid "All keywords"
+#: __html_tpl_dummy.php:62
+msgid "by"
 msgstr ""
 
-msgid "Best of me"
-msgstr ""
-
-msgid "Languages"
-msgstr ""
-
-msgid "Categories"
-msgstr ""
-
-msgid "Subcategories"
-msgstr ""
-
-msgid "Archives"
-msgstr ""
-
-msgid "Links"
-msgstr ""
-
-msgid "Subscribe"
-msgstr ""
-
-msgid "Entries feed"
-msgstr ""
-
-msgid "Comments feed"
-msgstr ""
-
-msgid "This blog's comments Atom feed"
-msgstr ""
-
-msgid "This category's entries Atom feed"
-msgstr ""
-
-msgid "This category's comments Atom feed"
-msgstr ""
-
-msgid "This post's comments feed"
-msgstr ""
-
-msgid "This post's comments Atom feed"
-msgstr ""
-
-msgid "Attachments"
-msgstr ""
-
-msgid "Permalink"
-msgstr ""
-
-msgid "Comments"
-msgstr ""
-
-msgid "Your comment"
-msgstr ""
-
-msgid "Your comment has been published."
-msgstr ""
-
-msgid "Your comment has been submitted and will be reviewed for publication."
-msgstr ""
-
-msgid "Add a comment"
-msgstr ""
-
-msgid "Name or nickname"
-msgstr ""
-
-msgid "Email address"
-msgstr ""
-
-msgid "Website"
-msgstr ""
-
-msgid "optional"
-msgstr ""
-
-msgid "Comment"
-msgstr ""
-
-msgid "Comments can be formatted using a simple wiki syntax."
-msgstr ""
-
-msgid "HTML code is displayed as text and web addresses are automatically converted."
-msgstr ""
-
-msgid "Remember me on this blog"
-msgstr ""
-
-msgid "preview"
-msgstr ""
-
-msgid "send"
-msgstr ""
-
-msgid "They posted on the same topic"
-msgstr ""
-
-msgid "Trackback URL"
-msgstr ""
-
-msgid "You must provide an author name"
-msgstr ""
-
-msgid "You must provide a comment"
-msgstr ""
-
-msgid "Email address is not valid"
-msgstr ""
-
-msgid "Document not found"
-msgstr ""
-
-msgid "The document you are looking for does not exist."
-msgstr ""
-
-msgid "Powered by %s"
-msgstr ""
-
-msgid "Subscribe to"
-msgstr ""
-
-msgid "What is an RSS feed?"
-msgstr ""
-
-msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
-msgstr ""
-
-msgid "Simply copy the following URL into your aggregator:"
-msgstr ""
-
-msgid "Password needed"
-msgstr ""
-
-msgid "You must give a password to access this area."
-msgstr ""
-
-msgid "Password:"
-msgstr ""
-
-msgid "You must provide a valid email address."
-msgstr ""
-
-msgid "Read"
+#: __html_tpl_dummy.php:63
+msgid "here"
 msgstr ""
 
 msgid "in"
 msgstr ""
 
-msgid "In"
+#: __html_tpl_dummy.php:64
+msgid "next entries"
 msgstr ""
 
-msgid "Page top"
+msgid "no attachments"
 msgstr ""
 
+msgid "no comments"
+msgstr ""
+
+msgid "no reactions"
+msgstr ""
+
+msgid "no trackbacks"
+msgstr ""
+
+#: __html_tpl_dummy.php:65
+msgid "of"
+msgstr ""
+
+#: __html_tpl_dummy.php:66
+msgid "on"
+msgstr ""
+
+msgid "one attachment"
+msgstr ""
+
+msgid "one comment"
+msgstr ""
+
+msgid "one reaction"
+msgstr ""
+
+msgid "one trackback"
+msgstr ""
+
+#: __html_tpl_dummy.php:67
+msgid "optional"
+msgstr ""
+
+#: __html_tpl_dummy.php:68
+msgid "page"
+msgstr ""
+
+#: __html_tpl_dummy.php:69
+msgid "preview"
+msgstr ""
+
+#: __html_tpl_dummy.php:70
+msgid "previous entries"
+msgstr ""
+
+msgid "reactions"
+msgstr ""
+
+#: __html_tpl_dummy.php:71
+msgid "send"
+msgstr ""
+
+#: __html_tpl_dummy.php:72
 msgid "toDay"
-msgstr ""
-
-msgid "FromDay"
-msgstr ""
-
-msgid "By category"
-msgstr ""
-
-msgid "By date"
-msgstr ""
-
-msgid "By tag"
-msgstr ""
-
-msgid "Blog menu"
-msgstr ""
-
-msgid "Etra menu"
-msgstr ""
-
-msgid "Blog info"
 msgstr ""

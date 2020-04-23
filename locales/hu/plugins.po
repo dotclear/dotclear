@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:10+0200\n"
+"POT-Creation-Date: 2020-04-23 14:51+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -204,6 +204,9 @@ msgstr "Töröld azokat a spam hozzászólásokat, melyek idősebbek"
 msgid "days"
 msgstr "napnál"
 
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
 #, fuzzy
 msgid "Set spam filters."
 msgstr "Akismet spamszűrő"
@@ -356,6 +359,10 @@ msgstr "A szűrők beállítását sikeresen elmentettem."
 msgid "%s configuration"
 msgstr "%s beállítás"
 
+#, fuzzy
+msgid "Are you sure you want to delete all spams?"
+msgstr "Biztosan törölni szeretnéd ezt az oldalt?"
+
 #, fuzzy, php-format
 msgid "%s filter configuration"
 msgstr "Szűrő beállítása"
@@ -404,9 +411,6 @@ msgstr "Spam hozzászólások RSS feed-je"
 msgid "Published comments RSS feed"
 msgstr "Publikált hozzászólások RSS feed-je"
 
-msgid "Attachments"
-msgstr ""
-
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -427,37 +431,11 @@ msgstr "Blogroll"
 msgid "manage blogroll"
 msgstr "blogroll kezelése"
 
-msgid "Links"
-msgstr "Hivatkozások"
-
-msgid "Title (optional)"
-msgstr ""
-
 msgid "All categories"
 msgstr "Összes kategória"
 
-msgid "Display on:"
-msgstr ""
-
-#, fuzzy
-msgid "All pages"
-msgstr "Mindegyik címke"
-
-msgid "Home page only"
-msgstr "Csak a honlapot"
-
-msgid "Except on home page"
-msgstr ""
-
-#, fuzzy
-msgid "Content only"
-msgstr "Szűrőkhöz visszatér.."
-
-msgid "CSS class:"
-msgstr ""
-
-msgid "Offline"
-msgstr ""
+msgid "Links"
+msgstr "Hivatkozások"
 
 msgid "You must provide a link title"
 msgstr "Kötelező címet adnod"
@@ -492,6 +470,9 @@ msgstr "Hivatkozás szerkesztése"
 #, fuzzy
 msgid "XFN information"
 msgstr "Információ"
+
+msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
+msgstr ""
 
 msgid "_xfn_Me"
 msgstr "_xfnizálj _Engem"
@@ -907,6 +888,86 @@ msgstr "Külső média"
 msgid "URL field cannot be empty."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
+#, fuzzy
+msgid "Settings"
+msgstr "Beálíltás neve"
+
+#, fuzzy
+msgid "Plugin activation"
+msgstr "Aktív"
+
+msgid "Enable dcCKEditor plugin"
+msgstr ""
+
+#, fuzzy
+msgid "Add alignment buttons"
+msgstr "Média igazítása:"
+
+#, fuzzy
+msgid "Add lists buttons"
+msgstr "címkék hozzáadása az alábbi bejegyzéshez"
+
+#, fuzzy
+msgid "Add text color button"
+msgstr "Oldalsó sáv szövegeinek betűszíne:"
+
+#, fuzzy
+msgid "Add background text color button"
+msgstr "Háttérszín:"
+
+msgid "Custom colors list:"
+msgstr ""
+
+msgid "Add colors without # separated by a comma."
+msgstr ""
+
+msgid "Leave empty to use the default palette:"
+msgstr ""
+
+msgid "Example of custom color list:"
+msgstr ""
+
+msgid "Colors per row in palette:"
+msgstr ""
+
+msgid "Leave empty to use default (6)"
+msgstr ""
+
+msgid "Add collapse button"
+msgstr ""
+
+#, fuzzy
+msgid "Add format selection"
+msgstr "%s hozzáadása a bejegyzéshez"
+
+msgid "Custom formats"
+msgstr ""
+
+msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
+msgstr ""
+
+msgid "Add table button"
+msgstr ""
+
+msgid "Add clipboard buttons"
+msgstr ""
+
+msgid "Copy, Paste, Paste Text, Paste from Word"
+msgstr ""
+
+msgid "Add undo/redo buttons"
+msgstr ""
+
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr ""
+
+#, fuzzy
+msgid "Save configuration"
+msgstr "%s beállítás"
+
 msgid "visual"
 msgstr ""
 
@@ -992,6 +1053,12 @@ msgstr "Nyelv"
 #, fuzzy
 msgid "Remove text formating"
 msgstr "címke eltávolítása"
+
+msgid "dcLegacyEditor"
+msgstr ""
+
+msgid "Enable dcLegacyEditor plugin"
+msgstr ""
 
 msgid "Checks trackback source for a link to the post"
 msgstr "Trackback forrás ellenőrzése"
@@ -1497,6 +1564,13 @@ msgstr ""
 msgid "Maintenance plugin has been successfully configured."
 msgstr "a kategóriát sikeresen létrehoztam."
 
+#, fuzzy
+msgid "System settings have been saved."
+msgstr "A beállításokat sikeresen frissítettem."
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
 msgid "Never"
 msgstr ""
 
@@ -1550,6 +1624,24 @@ msgid "Recall time for all tasks:"
 msgstr ""
 
 msgid "Use one recall time per task"
+msgstr ""
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
 msgstr ""
 
 msgid "New page"
@@ -1704,9 +1796,6 @@ msgstr ""
 msgid "Test ping services"
 msgstr "Pingszolgáltatások ellenőrzése"
 
-msgid "Check all"
-msgstr ""
-
 msgid "Simple menu"
 msgstr ""
 
@@ -1763,6 +1852,10 @@ msgstr "A konfigurációt sikeresen frissítettem."
 
 msgid "Label"
 msgstr ""
+
+#, fuzzy
+msgid "Home page"
+msgstr "Csak a honlapot"
 
 msgid "Recent posts"
 msgstr ""
@@ -1868,10 +1961,6 @@ msgid "Enable simple menu for this blog"
 msgstr ""
 
 #, fuzzy
-msgid "Save configuration"
-msgstr "%s beállítás"
-
-#, fuzzy
 msgid "Add an item"
 msgstr "Új hivatkozás hozzáadása"
 
@@ -1902,6 +1991,9 @@ msgstr "A címke bejegyzéseinek Atom feed-je"
 msgid "Tag"
 msgstr "Címke:"
 
+msgid "Limit (empty means no limit):"
+msgstr "Korlát (ha üresen hagyod, akkor nincs határ)"
+
 msgid "Tag name"
 msgstr "Címke neve"
 
@@ -1913,9 +2005,6 @@ msgstr ""
 
 msgid "Oldest entry"
 msgstr ""
-
-msgid "Limit (empty means no limit):"
-msgstr "Korlát (ha üresen hagyod, akkor nincs határ)"
 
 msgid "Link to all tags:"
 msgstr ""
@@ -1933,10 +2022,6 @@ msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "A címkét sikeresen eltávolítottam"
 msgstr[1] "A címkét sikeresen eltávolítottam"
-
-#, fuzzy
-msgid "Add tags to this selection"
-msgstr "%s hozzáadása a bejegyzéshez"
 
 #, fuzzy
 msgid "Are you sure you want to remove this tag?"
@@ -1964,6 +2049,10 @@ msgstr "középre"
 
 msgid "entries"
 msgstr "bejegyzés"
+
+#, fuzzy
+msgid "Add tags to this selection"
+msgstr "%s hozzáadása a bejegyzéshez"
 
 msgid "Tags to add:"
 msgstr "Hozzáadandó címkék:"
@@ -2187,11 +2276,11 @@ msgstr "Szöveg"
 msgid "Text:"
 msgstr "Szöveg:"
 
-msgid "Last entries"
-msgstr "Legutolsó bejegyzések"
-
 msgid "Uncategorized"
 msgstr "Kategorizálatlan"
+
+msgid "Last entries"
+msgstr "Legutolsó bejegyzések"
 
 #, fuzzy
 msgid "Tag:"
@@ -2216,6 +2305,32 @@ msgstr "Bejegyzések feedje"
 
 msgid "Comments feed"
 msgstr "Hozzászólások feedje"
+
+msgid "Title (optional)"
+msgstr ""
+
+msgid "Display on:"
+msgstr ""
+
+#, fuzzy
+msgid "All pages"
+msgstr "Mindegyik címke"
+
+msgid "Except on home page"
+msgstr ""
+
+msgid "Home page only"
+msgstr "Csak a honlapot"
+
+#, fuzzy
+msgid "Content only"
+msgstr "Szűrőkhöz visszatér.."
+
+msgid "CSS class:"
+msgstr ""
+
+msgid "Offline"
+msgstr ""
 
 msgid "navigation"
 msgstr "navigáció"
@@ -2412,9 +2527,6 @@ msgstr ""
 #~ msgid "Tags:"
 #~ msgstr "Címkék:"
 
-#~ msgid "Add tags to entries"
-#~ msgstr "címkék hozzáadása az alábbi bejegyzéshez"
-
 #~ msgid "Edit tag"
 #~ msgstr "Címke szerkesztése"
 
@@ -2478,9 +2590,6 @@ msgstr ""
 
 #~ msgid "Page URL:"
 #~ msgstr "Lap URL:"
-
-#~ msgid "Media alignment"
-#~ msgstr "Média igazítása:"
 
 #~ msgid "Media title"
 #~ msgstr "Média címe"

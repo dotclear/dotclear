@@ -1,0 +1,30 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2 customCSS module\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-23 13:45+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: themes/customCSS/_config.php:19
+#, php-format
+msgid "File %s does not exist and directory %s is not writable."
+msgstr ""
+
+#: themes/customCSS/_config.php:29
+msgid "Style sheet upgraded."
+msgstr ""
+
+#: themes/customCSS/_config.php:35
+msgid "Style sheet:"
+msgstr ""

@@ -69,8 +69,7 @@ files:
   - source: /plugins/dcLegacyEditor/locales/en/help/
     ignore:
       - '*.php'
-    translation: >-
-      /plugins/dcLegacyEditor/locales/%two_letters_code%/help/%original_file_name%
+    translation: /plugins/dcLegacyEditor/locales/%two_letters_code%/help/%original_file_name%
   - source: /plugins/dcCKEditor/locales/en/help/
     ignore:
       - '*.php'

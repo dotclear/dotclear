@@ -1,11 +1,8 @@
-msgid "From"
-msgstr "Von"
+msgid "Show menu"
+msgstr ""
 
-msgid "Send"
-msgstr "Senden"
+msgid "Hide menu"
+msgstr ""
 
-msgid "Add ping"
-msgstr "Ping hinzufügen"
-
-msgid "Required field"
-msgstr "Pflichtfeld"
+msgid "Main menu"
+msgstr ""

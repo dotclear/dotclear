@@ -1,2 +1,0 @@
-msgid "Enable dcLegacyEditor plugin"
-msgstr "Activer le plugin dcLegacyEditor"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:11+0200\n"
+"POT-Creation-Date: 2020-04-23 14:57+0200\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
@@ -198,6 +198,9 @@ msgstr "Șterge comentariile din folderul junk mai vechi de"
 msgid "days"
 msgstr "zile"
 
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
 #, fuzzy
 msgid "Set spam filters."
 msgstr "Filtru de spam Akismet"
@@ -350,6 +353,10 @@ msgstr "Configurația filtrelor a fost salvată."
 msgid "%s configuration"
 msgstr "configuratia %s"
 
+#, fuzzy
+msgid "Are you sure you want to delete all spams?"
+msgstr "Sigur dorești a șterge legăturile selectate?"
+
 #, fuzzy, php-format
 msgid "%s filter configuration"
 msgstr "Configurare filtru"
@@ -397,9 +404,6 @@ msgstr "Abonare RSS de comentarii junk"
 msgid "Published comments RSS feed"
 msgstr "Abonare RSS de comentarii publicate"
 
-msgid "Attachments"
-msgstr ""
-
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -419,37 +423,11 @@ msgstr "Blogroll"
 msgid "manage blogroll"
 msgstr "administrare blogroll"
 
-msgid "Links"
-msgstr "Legături"
-
-msgid "Title (optional)"
-msgstr ""
-
 msgid "All categories"
 msgstr "Toate categoriile"
 
-msgid "Display on:"
-msgstr ""
-
-#, fuzzy
-msgid "All pages"
-msgstr "Toate categoriile"
-
-msgid "Home page only"
-msgstr "Doar pagina de start"
-
-msgid "Except on home page"
-msgstr ""
-
-#, fuzzy
-msgid "Content only"
-msgstr "Întoarce-te la filtre"
-
-msgid "CSS class:"
-msgstr ""
-
-msgid "Offline"
-msgstr ""
+msgid "Links"
+msgstr "Legături"
 
 msgid "You must provide a link title"
 msgstr "Trebuie să inserezi un titlu al legăturii"
@@ -484,6 +462,9 @@ msgstr "Modifică legătura"
 #, fuzzy
 msgid "XFN information"
 msgstr "Informații"
+
+msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
+msgstr ""
 
 msgid "_xfn_Me"
 msgstr "_xfn_Me"
@@ -898,6 +879,82 @@ msgstr ""
 msgid "URL field cannot be empty."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
+#, fuzzy
+msgid "Settings"
+msgstr "setări blog"
+
+#, fuzzy
+msgid "Plugin activation"
+msgstr "Activ"
+
+msgid "Enable dcCKEditor plugin"
+msgstr ""
+
+msgid "Add alignment buttons"
+msgstr ""
+
+msgid "Add lists buttons"
+msgstr ""
+
+msgid "Add text color button"
+msgstr ""
+
+#, fuzzy
+msgid "Add background text color button"
+msgstr "Culoare de fundal:"
+
+msgid "Custom colors list:"
+msgstr ""
+
+msgid "Add colors without # separated by a comma."
+msgstr ""
+
+msgid "Leave empty to use the default palette:"
+msgstr ""
+
+msgid "Example of custom color list:"
+msgstr ""
+
+msgid "Colors per row in palette:"
+msgstr ""
+
+msgid "Leave empty to use default (6)"
+msgstr ""
+
+msgid "Add collapse button"
+msgstr ""
+
+msgid "Add format selection"
+msgstr ""
+
+msgid "Custom formats"
+msgstr ""
+
+msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
+msgstr ""
+
+msgid "Add table button"
+msgstr ""
+
+msgid "Add clipboard buttons"
+msgstr ""
+
+msgid "Copy, Paste, Paste Text, Paste from Word"
+msgstr ""
+
+msgid "Add undo/redo buttons"
+msgstr ""
+
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr ""
+
+#, fuzzy
+msgid "Save configuration"
+msgstr "configuratia %s"
+
 msgid "visual"
 msgstr ""
 
@@ -975,6 +1032,12 @@ msgid "Language?"
 msgstr "Limbă"
 
 msgid "Remove text formating"
+msgstr ""
+
+msgid "dcLegacyEditor"
+msgstr ""
+
+msgid "Enable dcLegacyEditor plugin"
 msgstr ""
 
 msgid "Checks trackback source for a link to the post"
@@ -1456,6 +1519,12 @@ msgstr ""
 msgid "Maintenance plugin has been successfully configured."
 msgstr "categoria a fost creată."
 
+msgid "System settings have been saved."
+msgstr ""
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
 msgid "Never"
 msgstr ""
 
@@ -1508,6 +1577,24 @@ msgid "Recall time for all tasks:"
 msgstr ""
 
 msgid "Use one recall time per task"
+msgstr ""
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
 msgstr ""
 
 msgid "New page"
@@ -1656,9 +1743,6 @@ msgstr ""
 msgid "Test ping services"
 msgstr ""
 
-msgid "Check all"
-msgstr ""
-
 msgid "Simple menu"
 msgstr ""
 
@@ -1711,6 +1795,10 @@ msgstr "Configurație actualizată cu succes"
 
 msgid "Label"
 msgstr ""
+
+#, fuzzy
+msgid "Home page"
+msgstr "Doar pagina de start"
 
 msgid "Recent posts"
 msgstr ""
@@ -1811,10 +1899,6 @@ msgid "Enable simple menu for this blog"
 msgstr ""
 
 #, fuzzy
-msgid "Save configuration"
-msgstr "configuratia %s"
-
-#, fuzzy
 msgid "Add an item"
 msgstr "Adaugă o nouă legătură"
 
@@ -1844,6 +1928,9 @@ msgstr ""
 msgid "Tag"
 msgstr ""
 
+msgid "Limit (empty means no limit):"
+msgstr ""
+
 msgid "Tag name"
 msgstr ""
 
@@ -1854,9 +1941,6 @@ msgid "Newest entry"
 msgstr ""
 
 msgid "Oldest entry"
-msgstr ""
-
-msgid "Limit (empty means no limit):"
 msgstr ""
 
 msgid "Link to all tags:"
@@ -1874,9 +1958,6 @@ msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Cuvântul a fost adăugat cu succes."
 msgstr[1] "Cuvântul a fost adăugat cu succes."
 msgstr[2] ""
-
-msgid "Add tags to this selection"
-msgstr ""
 
 #, fuzzy
 msgid "Are you sure you want to remove this tag?"
@@ -1901,6 +1982,9 @@ msgid "entry"
 msgstr ""
 
 msgid "entries"
+msgstr ""
+
+msgid "Add tags to this selection"
 msgstr ""
 
 msgid "Tags to add:"
@@ -2122,10 +2206,10 @@ msgstr ""
 msgid "Text:"
 msgstr ""
 
-msgid "Last entries"
+msgid "Uncategorized"
 msgstr ""
 
-msgid "Uncategorized"
+msgid "Last entries"
 msgstr ""
 
 msgid "Tag:"
@@ -2149,6 +2233,32 @@ msgid "Entries feed"
 msgstr ""
 
 msgid "Comments feed"
+msgstr ""
+
+msgid "Title (optional)"
+msgstr ""
+
+msgid "Display on:"
+msgstr ""
+
+#, fuzzy
+msgid "All pages"
+msgstr "Toate categoriile"
+
+msgid "Except on home page"
+msgstr ""
+
+msgid "Home page only"
+msgstr "Doar pagina de start"
+
+#, fuzzy
+msgid "Content only"
+msgstr "Întoarce-te la filtre"
+
+msgid "CSS class:"
+msgstr ""
+
+msgid "Offline"
 msgstr ""
 
 msgid "navigation"

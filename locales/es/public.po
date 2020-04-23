@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: public\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"POT-Creation-Date: 2020-04-23 14:49+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
@@ -19,246 +19,52 @@ msgstr ""
 "X-Generator: Poedit 1.8.8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "To content"
-msgstr "Ir al contenido"
-
-msgid "To menu"
-msgstr "Ir al menú"
-
-msgid "To search"
-msgstr "Ir a las búsquedas"
-
-msgid "By"
-msgstr "Por"
-
-msgid "by"
-msgstr "por"
-
-msgid "on"
-msgstr "el"
-
-msgid "On"
-msgstr "El"
-
-msgid "Continue reading"
-msgstr "Seguir leyendo"
-
-#, fuzzy
-msgid "no comments"
-msgstr "sin comentarios"
-
-msgid "one comment"
-msgstr "un comentario"
+msgid "%d attachments"
+msgstr "%d adjuntos"
 
 msgid "%d comments"
 msgstr "%d comentarios"
 
-msgid "no trackbacks"
-msgstr "sin retroenlaces"
-
-msgid "one trackback"
-msgstr "un retroenlace"
-
 msgid "%d trackbacks"
 msgstr "%d retroenlaces"
 
-msgid "no attachments"
-msgstr "sin adjuntos"
+msgid "%s reactions"
+msgstr "%s reacciones"
 
-msgid "one attachment"
-msgstr "un adjunto"
-
-msgid "%d attachments"
-msgstr "%d adjuntos"
-
-msgid "previous entries"
-msgstr "entradas anteriores"
-
-msgid "page"
-msgstr "página"
-
-msgid "of"
-msgstr "de"
-
-msgid "next entries"
-msgstr "siguientes entradas"
-
-msgid "Search"
-msgstr "Buscar"
-
-msgid "Your search for <em>%1$s</em> returned no result."
-msgstr "Su busqueda de <em>%1$s</em> no ha devuelto ningún resultado."
-
-msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
-msgstr "Su búsqueda de <em>%1$s</em> ha devuelto <strong>%2$s</strong> resultado."
-
-msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
-msgstr "Su búsqueda de <em>%1$s</em> ha devuelto <strong>%2$s</strong> resultados."
-
-msgid "Home"
-msgstr "Inicio"
-
-msgid "All keywords"
-msgstr "Todas las palabras clave"
-
-msgid "Best of me"
-msgstr "Destacados"
-
-msgid "Languages"
-msgstr "Idiomas"
-
-msgid "Categories"
-msgstr "Categorías"
-
-msgid "Subcategories"
-msgstr "Subcategorías"
-
-msgid "Archives"
-msgstr "Archivos"
-
-msgid "Links"
-msgstr "Enlaces"
-
-msgid "Subscribe"
-msgstr "Suscribirse"
-
-msgid "Entries feed"
-msgstr "Fuente de las entradas"
-
-msgid "Comments feed"
-msgstr "Fuente de los comentarios"
-
-msgid "This blog's comments Atom feed"
-msgstr "Fuente Atom de los comentarios de este blog"
-
-msgid "This category's entries Atom feed"
-msgstr "Fuente Atom de las entradas de esta categoría"
-
-msgid "This category's comments Atom feed"
-msgstr "Fuente Atom de los comentarios de esta categoría"
-
-msgid "This post's comments feed"
-msgstr "Fuente de los comentarios de esta entrada"
-
-msgid "This post's comments Atom feed"
-msgstr "Fuente Atom de los comentarios de esta entrada"
-
-msgid "Attachments"
-msgstr "Adjuntos"
-
-msgid "Permalink"
-msgstr "Enlace permanente"
-
-msgid "Comments"
-msgstr "Comentarios"
-
-msgid "Your comment"
-msgstr "Su comentario"
-
-msgid "Your comment has been published."
-msgstr "Su comentario ha sido publicado."
-
-msgid "Your comment has been submitted and will be reviewed for publication."
-msgstr "Se ha enviado su comentario, y se publicará tras ser revisado."
+#, fuzzy
+msgid "Access to content"
+msgstr "Ir al contenido"
 
 msgid "Add a comment"
 msgstr "Añadir un comentario"
 
-msgid "Name or nickname"
-msgstr "Nombre o apodo"
+msgid "Add ping"
+msgstr "Agregar un retroenlace"
 
-msgid "Email address"
-msgstr "Dirección de correo electrónico"
+msgid "Additionnal style directives"
+msgstr "Instrucciones CSS adicionales"
 
-msgid "Website"
-msgstr "Sitio web"
+msgid "All keywords"
+msgstr "Todas las palabras clave"
 
-msgid "optional"
-msgstr "opcional"
+msgid "Archives"
+msgstr "Archivos"
 
-msgid "Comment"
-msgstr "Comentario"
+msgid "Attachments"
+msgstr "Adjuntos"
 
-msgid "Comments can be formatted using a simple wiki syntax."
+msgid "Best of me"
+msgstr "Destacados"
+
+msgid "Blog info"
 msgstr ""
 
-msgid "HTML code is displayed as text and web addresses are automatically converted."
-msgstr "El código HTML se muestra como texto y las direcciones web se transforman automáticamente."
+#, fuzzy
+msgid "Blog menu"
+msgstr "Ir al menú"
 
-msgid "Remember me on this blog"
-msgstr "Recordarme en este blog"
-
-msgid "preview"
-msgstr "vista previa"
-
-msgid "send"
-msgstr "enviar"
-
-msgid "They posted on the same topic"
-msgstr "Discusiones sobre el mismo tema"
-
-msgid "Trackback URL"
-msgstr "URL de retroenlace"
-
-msgid "You must provide an author name"
-msgstr "Debe proporcionar un nombre de autor"
-
-msgid "You must provide a comment"
-msgstr "Debe escribir un comentario"
-
-msgid "Email address is not valid"
-msgstr "La dirección de correo electrónico no es válida"
-
-msgid "Document not found"
-msgstr "Documento no encontrado"
-
-msgid "The document you are looking for does not exist."
-msgstr "El documento que busca no existe."
-
-msgid "Powered by %s"
-msgstr "Funciona con %s"
-
-msgid "Subscribe to"
-msgstr "Suscribirse a"
-
-msgid "What is an RSS feed?"
-msgstr "¿Qué es una fuente RSS?"
-
-msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
-msgstr "Una fuente RSS recoge la información de actualizaciones de un sitio web. Proporciona el contenido de las entradas o comentarios, o un extracto de ellos, junto con un enlace a la versión completa y otros metadatos. Esta fuente tiene como objetivo ser leído por un <a href=\"http://es.wikipedia.org/wiki/Agregador/\">agregador</a> de RSS."
-
-msgid "Simply copy the following URL into your aggregator:"
-msgstr "Simplemente copie la siguiente dirección en su agregador:"
-
-msgid "Password needed"
-msgstr "Es necesaria una contraseña"
-
-msgid "You must give a password to access this area."
-msgstr "Debe indicar una contraseña para acceder a este área."
-
-msgid "Password:"
-msgstr "Contraseña:"
-
-msgid "You must provide a valid email address."
-msgstr "Debe proporcionar una dirección de correo electrónico válida."
-
-msgid "Read"
-msgstr "Leer"
-
-msgid "in"
-msgstr ""
-
-msgid "In"
-msgstr ""
-
-msgid "Page top"
-msgstr ""
-
-msgid "toDay"
-msgstr "al"
-
-msgid "FromDay"
-msgstr "Del"
+msgid "By"
+msgstr "Por"
 
 msgid "By category"
 msgstr "Por categoría"
@@ -269,28 +75,274 @@ msgstr "Por fecha"
 msgid "By tag"
 msgstr "Por tag"
 
-#, fuzzy
-msgid "Blog menu"
-msgstr "Ir al menú"
+msgid "Categories"
+msgstr "Categorías"
+
+msgid "Comment"
+msgstr "Comentario"
+
+msgid "Comments"
+msgstr "Comentarios"
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr ""
+
+msgid "Comments feed"
+msgstr "Fuente de los comentarios"
+
+msgid "Continue reading"
+msgstr "Seguir leyendo"
+
+msgid "Document not found"
+msgstr "Documento no encontrado"
+
+msgid "Email address"
+msgstr "Dirección de correo electrónico"
+
+msgid "Email address is not valid"
+msgstr "La dirección de correo electrónico no es válida"
+
+msgid "Entries feed"
+msgstr "Fuente de las entradas"
 
 #, fuzzy
 msgid "Etra menu"
 msgstr "Ir al menú"
 
-msgid "Blog info"
-msgstr ""
+msgid "Explore archives"
+msgstr "Explorar los archivos"
 
-msgid "URL you've tried has typos, or the page has been deleted or moved."
-msgstr "Su URL está equivocada o la página fue borrada o desplazada."
+#, fuzzy
+msgid "Extra menu"
+msgstr "Ir al menú"
 
-msgid "Suggestions:"
-msgstr "Sugerencias:"
+msgid "From"
+msgstr "Por"
+
+msgid "FromDay"
+msgstr "Del"
 
 msgid "Go to homepage"
 msgstr "Regresar al inicio"
 
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "El código HTML se muestra como texto y las direcciones web se transforman automáticamente."
+
+msgid "Home"
+msgstr "Inicio"
+
+msgid "In"
+msgstr ""
+
+msgid "Languages"
+msgstr "Idiomas"
+
+msgid "Links"
+msgstr "Enlaces"
+
+msgid "Name or nickname"
+msgstr "Nombre o apodo"
+
+#, fuzzy
+msgid "Next entry:"
+msgstr "siguientes entradas"
+
+msgid "On"
+msgstr "El"
+
+msgid "Page top"
+msgstr ""
+
+msgid "Password needed"
+msgstr "Es necesaria una contraseña"
+
+msgid "Password:"
+msgstr "Contraseña:"
+
+msgid "Permalink"
+msgstr "Enlace permanente"
+
+msgid "Powered by %s"
+msgstr "Funciona con %s"
+
+msgid "Preview"
+msgstr "Vista previa"
+
+#, fuzzy
+msgid "Previous entry:"
+msgstr "entradas anteriores"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "Una fuente RSS recoge la información de actualizaciones de un sitio web. Proporciona el contenido de las entradas o comentarios, o un extracto de ellos, junto con un enlace a la versión completa y otros metadatos. Esta fuente tiene como objetivo ser leído por un <a href=\"http://es.wikipedia.org/wiki/Agregador/\">agregador</a> de RSS."
+
+msgid "Read"
+msgstr "Leer"
+
+msgid "Remember me on this blog"
+msgstr "Recordarme en este blog"
+
+msgid "Required field"
+msgstr "Campo obligatorio"
+
+msgid "Search"
+msgstr "Buscar"
+
+msgid "Send"
+msgstr ""
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Simplemente copie la siguiente dirección en su agregador:"
+
+msgid "Subcategories"
+msgstr "Subcategorías"
+
+msgid "Subscribe"
+msgstr "Suscribirse"
+
+msgid "Subscribe to"
+msgstr "Suscribirse a"
+
+msgid "Suggestions:"
+msgstr "Sugerencias:"
+
+msgid "The document you are looking for does not exist."
+msgstr "El documento que busca no existe."
+
+msgid "The list of recents posts is available"
+msgstr ""
+
+msgid "They posted on the same topic"
+msgstr "Discusiones sobre el mismo tema"
+
+msgid "This blog's comments Atom feed"
+msgstr "Fuente Atom de los comentarios de este blog"
+
+msgid "This category's comments Atom feed"
+msgstr "Fuente Atom de los comentarios de esta categoría"
+
+msgid "This category's entries Atom feed"
+msgstr "Fuente Atom de las entradas de esta categoría"
+
+msgid "This post's comments Atom feed"
+msgstr "Fuente Atom de los comentarios de esta entrada"
+
+msgid "This post's comments feed"
+msgstr "Fuente de los comentarios de esta entrada"
+
+msgid "To content"
+msgstr "Ir al contenido"
+
+msgid "To menu"
+msgstr "Ir al menú"
+
+msgid "To search"
+msgstr "Ir a las búsquedas"
+
+msgid "Trackback URL"
+msgstr "URL de retroenlace"
+
+msgid "URL you've tried has typos, or the page has been deleted or moved."
+msgstr "Su URL está equivocada o la página fue borrada o desplazada."
+
 msgid "Use search form"
 msgstr "Buscar"
 
-msgid "Explore archives"
-msgstr "Explorar los archivos"
+msgid "Website"
+msgstr "Sitio web"
+
+msgid "What is an RSS feed?"
+msgstr "¿Qué es una fuente RSS?"
+
+msgid "You must give a password to access this area."
+msgstr "Debe indicar una contraseña para acceder a este área."
+
+msgid "You must provide a comment"
+msgstr "Debe escribir un comentario"
+
+msgid "You must provide a valid email address."
+msgstr "Debe proporcionar una dirección de correo electrónico válida."
+
+msgid "You must provide an author name"
+msgstr "Debe proporcionar un nombre de autor"
+
+msgid "Your comment"
+msgstr "Su comentario"
+
+msgid "Your comment has been published."
+msgstr "Su comentario ha sido publicado."
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "Se ha enviado su comentario, y se publicará tras ser revisado."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "Su búsqueda de <em>%1$s</em> ha devuelto <strong>%2$s</strong> resultado."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "Su búsqueda de <em>%1$s</em> ha devuelto <strong>%2$s</strong> resultados."
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "Su busqueda de <em>%1$s</em> no ha devuelto ningún resultado."
+
+msgid "by"
+msgstr "por"
+
+msgid "here"
+msgstr ""
+
+msgid "in"
+msgstr ""
+
+msgid "next entries"
+msgstr "siguientes entradas"
+
+msgid "no attachments"
+msgstr "sin adjuntos"
+
+#, fuzzy
+msgid "no comments"
+msgstr "sin comentarios"
+
+msgid "no reactions"
+msgstr "no reacciones"
+
+msgid "no trackbacks"
+msgstr "sin retroenlaces"
+
+msgid "of"
+msgstr "de"
+
+msgid "on"
+msgstr "el"
+
+msgid "one attachment"
+msgstr "un adjunto"
+
+msgid "one comment"
+msgstr "un comentario"
+
+msgid "one reaction"
+msgstr "una reaccion"
+
+msgid "one trackback"
+msgstr "un retroenlace"
+
+msgid "optional"
+msgstr "opcional"
+
+msgid "page"
+msgstr "página"
+
+msgid "preview"
+msgstr "vista previa"
+
+msgid "previous entries"
+msgstr "entradas anteriores"
+
+msgid "reactions"
+msgstr "reacciones"
+
+msgid "send"
+msgstr "enviar"
+
+msgid "toDay"
+msgstr "al"

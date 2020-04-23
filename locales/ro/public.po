@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"POT-Creation-Date: 2020-04-23 14:57+0200\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
@@ -18,246 +18,52 @@ msgstr ""
 "X-Launchpad-Export-Date: 2012-05-27 15:39+0000\n"
 "X-Generator: Poedit 1.8.8\n"
 
-msgid "To content"
-msgstr "Mergi la conținut"
-
-msgid "To menu"
-msgstr "Mergi la meniu"
-
-msgid "To search"
-msgstr "Mergi la căutare"
-
-msgid "By"
-msgstr "De"
-
-msgid "by"
-msgstr "de"
-
-msgid "on"
-msgstr "activat"
-
-msgid "On"
-msgstr "Activat"
-
-msgid "Continue reading"
-msgstr "Citește în continuare"
-
-#, fuzzy
-msgid "no comments"
-msgstr "niciun comentariu"
-
-msgid "one comment"
-msgstr "un comentariu"
+msgid "%d attachments"
+msgstr "%d atașamente"
 
 msgid "%d comments"
 msgstr "%d comentarii"
 
-msgid "no trackbacks"
-msgstr "fără trackback"
-
-msgid "one trackback"
-msgstr "un trackback"
-
 msgid "%d trackbacks"
 msgstr "%d trackback-uri"
 
-msgid "no attachments"
-msgstr "niciun atașament"
+msgid "%s reactions"
+msgstr ""
 
-msgid "one attachment"
-msgstr "un atașament"
-
-msgid "%d attachments"
-msgstr "%d atașamente"
-
-msgid "previous entries"
-msgstr "postări anterioare"
-
-msgid "page"
-msgstr "pagină"
-
-msgid "of"
-msgstr "de"
-
-msgid "next entries"
-msgstr "următoarele postări"
-
-msgid "Search"
-msgstr "Căutare"
-
-msgid "Your search for <em>%1$s</em> returned no result."
-msgstr "Căutarea dvs după <em>%1$s</em> nu are rezultate."
-
-msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
-msgstr "Căutate dvs după <em>%1$s</em> are următorul <strong>%2$s</strong> rezultat"
-
-msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
-msgstr "Căutate dvs după <em>%1$s</em> are următoarele <strong>%2$s</strong> rezultate"
-
-msgid "Home"
-msgstr "Pagină de pornire"
-
-msgid "All keywords"
-msgstr "Toate cuvintele-cheie"
-
-msgid "Best of me"
-msgstr "Cel mai bun din mine"
-
-msgid "Languages"
-msgstr "Limbi"
-
-msgid "Categories"
-msgstr "Categorii"
-
-msgid "Subcategories"
-msgstr "Subcategorii"
-
-msgid "Archives"
-msgstr "Arhive"
-
-msgid "Links"
-msgstr "Legături"
-
-msgid "Subscribe"
-msgstr "Abonare"
-
-msgid "Entries feed"
-msgstr "Abonament de postări"
-
-msgid "Comments feed"
-msgstr "Abonament de comentarii"
-
-msgid "This blog's comments Atom feed"
-msgstr "Abonamentul Atom al acestui blog"
-
-msgid "This category's entries Atom feed"
-msgstr "Abonamentul Atom al postărilor din această categorie"
-
-msgid "This category's comments Atom feed"
-msgstr "Abonamentul Atom al comentarilor din această categorie"
-
-msgid "This post's comments feed"
-msgstr "Abonamentul comentarilor postării acesteia"
-
-msgid "This post's comments Atom feed"
-msgstr "Abonamentul Atom de comentarii al acestei postări"
-
-msgid "Attachments"
-msgstr "Atașamente"
-
-msgid "Permalink"
-msgstr "Permalink"
-
-msgid "Comments"
-msgstr "Comentarii"
-
-msgid "Your comment"
-msgstr "Comentariul dvs"
-
-msgid "Your comment has been published."
-msgstr "Comentariul dvs a fost publicat."
-
-msgid "Your comment has been submitted and will be reviewed for publication."
-msgstr "Comentariul dvs a fost trimis și va fi revizuit înainte de publicare."
+#, fuzzy
+msgid "Access to content"
+msgstr "Mergi la conținut"
 
 msgid "Add a comment"
 msgstr "Adaugă un comentariu"
 
-msgid "Name or nickname"
-msgstr "Nume sau poreclă"
-
-msgid "Email address"
-msgstr "Adresă de contact"
-
-msgid "Website"
-msgstr "Sit web"
-
-msgid "optional"
-msgstr "opțional"
-
-msgid "Comment"
-msgstr "Comentariu"
-
-msgid "Comments can be formatted using a simple wiki syntax."
+msgid "Add ping"
 msgstr ""
 
-msgid "HTML code is displayed as text and web addresses are automatically converted."
-msgstr "Codul html este afișat ca text iar adresele web sunt procesate automat."
-
-msgid "Remember me on this blog"
-msgstr "Ține-mă minte pe acest blog."
-
-msgid "preview"
-msgstr "previzualizare"
-
-msgid "send"
-msgstr "trimite"
-
-msgid "They posted on the same topic"
-msgstr "Și ei au postat pe același subiect"
-
-msgid "Trackback URL"
-msgstr "Trackback URL"
-
-msgid "You must provide an author name"
-msgstr "Trebuie să specifici un nume de autor"
-
-msgid "You must provide a comment"
-msgstr "Trebuie să scrii un comentariu"
-
-msgid "Email address is not valid"
-msgstr "Adresa de contact nu este valabilă"
-
-msgid "Document not found"
-msgstr "Documentul nu a fost găsit"
-
-msgid "The document you are looking for does not exist."
-msgstr "Documentul pe care îl căutați nu există"
-
-msgid "Powered by %s"
-msgstr "Creat de %s"
-
-msgid "Subscribe to"
-msgstr "Abonează-te la"
-
-msgid "What is an RSS feed?"
-msgstr "Ce este un abonament RSS?"
-
-msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
-msgstr "Abonamentul RSS este un sumar de blog gratuit. Oferă conținut (fie postări sau comentarii) sau un sumar de conținut, împreună cu legături web către versiunea completă a conținutului respectiv, și alte metadate. Ultimele conținuturi publicate pot fi citite de către <a href=\"http://en.wikipedia.org/wiki/Aggregator\">abonatorul</a> dvs favorit."
-
-msgid "Simply copy the following URL into your aggregator:"
-msgstr "Pur și simplu copiați următoarea legătură web în abonatorul dvs"
-
-msgid "Password needed"
-msgstr "Parola este necesară"
-
-msgid "You must give a password to access this area."
-msgstr "Trebuie să inserați o parolă pentru a accesa această zonă."
-
-msgid "Password:"
-msgstr "Parolă:"
-
-msgid "You must provide a valid email address."
-msgstr "Trebuie să furnizați o adresă email validă."
-
-msgid "Read"
-msgstr "Citeşte"
-
-msgid "in"
+msgid "Additionnal style directives"
 msgstr ""
 
-msgid "In"
+msgid "All keywords"
+msgstr "Toate cuvintele-cheie"
+
+msgid "Archives"
+msgstr "Arhive"
+
+msgid "Attachments"
+msgstr "Atașamente"
+
+msgid "Best of me"
+msgstr "Cel mai bun din mine"
+
+msgid "Blog info"
 msgstr ""
 
-msgid "Page top"
-msgstr ""
+#, fuzzy
+msgid "Blog menu"
+msgstr "Mergi la meniu"
 
-msgid "toDay"
-msgstr ""
-
-msgid "FromDay"
-msgstr ""
+msgid "By"
+msgstr "De"
 
 msgid "By category"
 msgstr ""
@@ -268,13 +74,276 @@ msgstr ""
 msgid "By tag"
 msgstr ""
 
-#, fuzzy
-msgid "Blog menu"
-msgstr "Mergi la meniu"
+msgid "Categories"
+msgstr "Categorii"
+
+msgid "Comment"
+msgstr "Comentariu"
+
+msgid "Comments"
+msgstr "Comentarii"
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr ""
+
+msgid "Comments feed"
+msgstr "Abonament de comentarii"
+
+msgid "Continue reading"
+msgstr "Citește în continuare"
+
+msgid "Document not found"
+msgstr "Documentul nu a fost găsit"
+
+msgid "Email address"
+msgstr "Adresă de contact"
+
+msgid "Email address is not valid"
+msgstr "Adresa de contact nu este valabilă"
+
+msgid "Entries feed"
+msgstr "Abonament de postări"
 
 #, fuzzy
 msgid "Etra menu"
 msgstr "Mergi la meniu"
 
-msgid "Blog info"
+msgid "Explore archives"
+msgstr ""
+
+#, fuzzy
+msgid "Extra menu"
+msgstr "Mergi la meniu"
+
+msgid "From"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "Go to homepage"
+msgstr ""
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "Codul html este afișat ca text iar adresele web sunt procesate automat."
+
+msgid "Home"
+msgstr "Pagină de pornire"
+
+msgid "In"
+msgstr ""
+
+msgid "Languages"
+msgstr "Limbi"
+
+msgid "Links"
+msgstr "Legături"
+
+msgid "Name or nickname"
+msgstr "Nume sau poreclă"
+
+#, fuzzy
+msgid "Next entry:"
+msgstr "următoarele postări"
+
+msgid "On"
+msgstr "Activat"
+
+msgid "Page top"
+msgstr ""
+
+msgid "Password needed"
+msgstr "Parola este necesară"
+
+msgid "Password:"
+msgstr "Parolă:"
+
+msgid "Permalink"
+msgstr "Permalink"
+
+msgid "Powered by %s"
+msgstr "Creat de %s"
+
+#, fuzzy
+msgid "Preview"
+msgstr "previzualizare"
+
+#, fuzzy
+msgid "Previous entry:"
+msgstr "postări anterioare"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "Abonamentul RSS este un sumar de blog gratuit. Oferă conținut (fie postări sau comentarii) sau un sumar de conținut, împreună cu legături web către versiunea completă a conținutului respectiv, și alte metadate. Ultimele conținuturi publicate pot fi citite de către <a href=\"http://en.wikipedia.org/wiki/Aggregator\">abonatorul</a> dvs favorit."
+
+msgid "Read"
+msgstr "Citeşte"
+
+msgid "Remember me on this blog"
+msgstr "Ține-mă minte pe acest blog."
+
+msgid "Required field"
+msgstr ""
+
+msgid "Search"
+msgstr "Căutare"
+
+msgid "Send"
+msgstr ""
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Pur și simplu copiați următoarea legătură web în abonatorul dvs"
+
+msgid "Subcategories"
+msgstr "Subcategorii"
+
+msgid "Subscribe"
+msgstr "Abonare"
+
+msgid "Subscribe to"
+msgstr "Abonează-te la"
+
+msgid "Suggestions:"
+msgstr ""
+
+msgid "The document you are looking for does not exist."
+msgstr "Documentul pe care îl căutați nu există"
+
+msgid "The list of recents posts is available"
+msgstr ""
+
+msgid "They posted on the same topic"
+msgstr "Și ei au postat pe același subiect"
+
+msgid "This blog's comments Atom feed"
+msgstr "Abonamentul Atom al acestui blog"
+
+msgid "This category's comments Atom feed"
+msgstr "Abonamentul Atom al comentarilor din această categorie"
+
+msgid "This category's entries Atom feed"
+msgstr "Abonamentul Atom al postărilor din această categorie"
+
+msgid "This post's comments Atom feed"
+msgstr "Abonamentul Atom de comentarii al acestei postări"
+
+msgid "This post's comments feed"
+msgstr "Abonamentul comentarilor postării acesteia"
+
+msgid "To content"
+msgstr "Mergi la conținut"
+
+msgid "To menu"
+msgstr "Mergi la meniu"
+
+msgid "To search"
+msgstr "Mergi la căutare"
+
+msgid "Trackback URL"
+msgstr "Trackback URL"
+
+msgid "URL you've tried has typos, or the page has been deleted or moved."
+msgstr ""
+
+msgid "Use search form"
+msgstr ""
+
+msgid "Website"
+msgstr "Sit web"
+
+msgid "What is an RSS feed?"
+msgstr "Ce este un abonament RSS?"
+
+msgid "You must give a password to access this area."
+msgstr "Trebuie să inserați o parolă pentru a accesa această zonă."
+
+msgid "You must provide a comment"
+msgstr "Trebuie să scrii un comentariu"
+
+msgid "You must provide a valid email address."
+msgstr "Trebuie să furnizați o adresă email validă."
+
+msgid "You must provide an author name"
+msgstr "Trebuie să specifici un nume de autor"
+
+msgid "Your comment"
+msgstr "Comentariul dvs"
+
+msgid "Your comment has been published."
+msgstr "Comentariul dvs a fost publicat."
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "Comentariul dvs a fost trimis și va fi revizuit înainte de publicare."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "Căutate dvs după <em>%1$s</em> are următorul <strong>%2$s</strong> rezultat"
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "Căutate dvs după <em>%1$s</em> are următoarele <strong>%2$s</strong> rezultate"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "Căutarea dvs după <em>%1$s</em> nu are rezultate."
+
+msgid "by"
+msgstr "de"
+
+msgid "here"
+msgstr ""
+
+msgid "in"
+msgstr ""
+
+msgid "next entries"
+msgstr "următoarele postări"
+
+msgid "no attachments"
+msgstr "niciun atașament"
+
+#, fuzzy
+msgid "no comments"
+msgstr "niciun comentariu"
+
+msgid "no reactions"
+msgstr ""
+
+msgid "no trackbacks"
+msgstr "fără trackback"
+
+msgid "of"
+msgstr "de"
+
+msgid "on"
+msgstr "activat"
+
+msgid "one attachment"
+msgstr "un atașament"
+
+msgid "one comment"
+msgstr "un comentariu"
+
+#, fuzzy
+msgid "one reaction"
+msgstr "Citește în continuare"
+
+msgid "one trackback"
+msgstr "un trackback"
+
+msgid "optional"
+msgstr "opțional"
+
+msgid "page"
+msgstr "pagină"
+
+msgid "preview"
+msgstr "previzualizare"
+
+msgid "previous entries"
+msgstr "postări anterioare"
+
+msgid "reactions"
+msgstr ""
+
+msgid "send"
+msgstr "trimite"
+
+msgid "toDay"
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:11+0200\n"
+"POT-Creation-Date: 2020-04-23 14:56+0200\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -67,6 +67,10 @@ msgstr "Não é super-administrador."
 #, fuzzy
 msgid "Insufficient permissions"
 msgstr "definir permissões"
+
+#, fuzzy
+msgid "Administration session expired"
+msgstr "Interface de administração:"
 
 msgid "Wrong username or password"
 msgstr "Utilizador ou password incorrecto"
@@ -304,6 +308,10 @@ msgstr "O blog foi criado com sucesso."
 msgid "Parameters"
 msgstr "Parâmetros"
 
+#, fuzzy
+msgid "Blog parameters"
+msgstr "Parâmetros"
+
 msgid "Blog details"
 msgstr "Detalhes do blog"
 
@@ -385,7 +393,7 @@ msgid "Disable internal search system"
 msgstr ""
 
 #, fuzzy, php-format
-msgid "Display %s entries on home page"
+msgid "Display %s entries on first page"
 msgstr "Mostrar %s entradas por páginas"
 
 #, php-format
@@ -404,6 +412,20 @@ msgid "Truncate feeds"
 msgstr "Truncar os feeds"
 
 msgid "Include sub-categories in category page and category posts feed"
+msgstr ""
+
+#, fuzzy
+msgid "Display an entry as static home page"
+msgstr "Mostrar %s entradas por páginas"
+
+msgid "Entry URL (its content will be used for the static home page):"
+msgstr ""
+
+#, fuzzy
+msgid "Choose an entry"
+msgstr "Escolher um blog"
+
+msgid "Leave empty to use the default presentation."
 msgstr ""
 
 msgid "Media and images"
@@ -531,6 +553,9 @@ msgstr "Política de acesso dos motores de pesquisa (via robots.txt)"
 msgid "jQuery javascript library"
 msgstr ""
 
+msgid "Load the jQuery library"
+msgstr ""
+
 msgid "jQuery version to be loaded for this blog:"
 msgstr ""
 
@@ -603,6 +628,9 @@ msgstr "Configuração do tema"
 msgid "Themes management"
 msgstr "Gerir as línguas"
 
+msgid "Manual checking of themes update done successfully."
+msgstr ""
+
 #, fuzzy
 msgid "Update themes"
 msgstr "Actualizar miniaturas"
@@ -616,6 +644,10 @@ msgstr[1] ""
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
+
+#, fuzzy
+msgid "Force checking update of themes"
+msgstr "Actualizar Dotclear"
 
 #, fuzzy
 msgid "Installed themes"
@@ -699,6 +731,10 @@ msgstr "Mostrá-lo."
 #, fuzzy
 msgid "blogs per page"
 msgstr "Blogs por página"
+
+#, fuzzy
+msgid "Save current options"
+msgstr "Opções da pesquisa"
 
 msgid "Apply filters and display options"
 msgstr ""
@@ -1001,6 +1037,12 @@ msgstr[1] "O módulo \"iconv\" não está disponível."
 #, fuzzy
 msgid "Documentation and support"
 msgstr "Documentação"
+
+msgid "Dashboard area's drag and drop is disabled"
+msgstr ""
+
+msgid "Dashboard area's drag and drop is enabled"
+msgstr ""
 
 msgid "Dashboard"
 msgstr "Painel de controlo"
@@ -1448,12 +1490,20 @@ msgstr "Inserir este ficheiro na entrada"
 msgid "delete"
 msgstr "Apagar"
 
+#, fuzzy
+msgid "private media"
+msgstr "Privado"
+
 msgid "open"
 msgstr "abrir"
 
 #, fuzzy
 msgid "Not a valid directory"
 msgstr "O ficheiro não é válido"
+
+#, fuzzy, php-format
+msgid "Directory or file \"%s\" already exists."
+msgstr "O utilizador \"%s\" já existe"
 
 #, fuzzy, php-format
 msgid "Directory \"%s\" has been successfully created."
@@ -1647,10 +1697,6 @@ msgstr "Enviar"
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
 
-#, fuzzy
-msgid "Blog parameters"
-msgstr "Parâmetros"
-
 msgid "Not a valid file"
 msgstr "O ficheiro não é válido"
 
@@ -1663,10 +1709,6 @@ msgstr "As miniaturas foram actualizadas."
 #, fuzzy
 msgid "Default media insertion settings have been successfully updated."
 msgstr "As miniaturas foram actualizadas."
-
-#, fuzzy
-msgid "Are you sure to delete this media?"
-msgstr "Tem certeza de que deseja apagar este comentário?"
 
 #, fuzzy
 msgid "Select media item"
@@ -1683,6 +1725,13 @@ msgid "Insert media item"
 msgstr "Inserir item multimédia"
 
 msgid "Image legend and title"
+msgstr ""
+
+#, fuzzy
+msgid "Title: "
+msgstr "Título:"
+
+msgid "Legend: "
 msgstr ""
 
 msgid "Image alignment"
@@ -1826,6 +1875,10 @@ msgstr "Nome do ficheiro:"
 msgid "File title:"
 msgstr "Título do ficheiro:"
 
+#, fuzzy
+msgid "File description:"
+msgstr "Descrição do blog:"
+
 msgid "File date:"
 msgstr "Data do ficheiro:"
 
@@ -1865,6 +1918,9 @@ msgstr "Gerir os plugins"
 msgid "Plugin configuration"
 msgstr "Configuração do blog"
 
+msgid "Manual checking of plugins update done successfully."
+msgstr ""
+
 #, fuzzy
 msgid "Update plugins"
 msgstr "Enviar o plugin"
@@ -1874,6 +1930,10 @@ msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
+
+#, fuzzy
+msgid "Force checking update of plugins"
+msgstr "Actualizar Dotclear"
 
 #, fuzzy
 msgid "Installed plugins"
@@ -1945,8 +2005,9 @@ msgstr "Pesquisa"
 msgid "cancel"
 msgstr "cancelar"
 
+#, fuzzy
 msgid "Edit post"
-msgstr "Editar entrada"
+msgstr "Editar o blog %s"
 
 msgid "This entry does not exist."
 msgstr "Esta entrada não existe."
@@ -1993,11 +2054,8 @@ msgstr "pendente"
 msgid "&ldquo;%s&rdquo;"
 msgstr ""
 
-msgid "Entries"
-msgstr "Entradas"
-
 msgid "Posts"
-msgstr "Entradas"
+msgstr ""
 
 msgid "Entry has been successfully updated."
 msgstr "A entrada foi actualizada com sucesso."
@@ -2100,10 +2158,6 @@ msgstr ""
 #, fuzzy
 msgid "Unpublished notes."
 msgstr "não publicado"
-
-#, fuzzy
-msgid "Edit post"
-msgstr "Editar o blog %s"
 
 #, fuzzy
 msgid "Preview"
@@ -2259,8 +2313,17 @@ msgstr ""
 msgid "Category description"
 msgstr "Categoria do mesmo nível"
 
-msgid "Posts"
-msgstr ""
+msgid "Last Name"
+msgstr "Apelido"
+
+msgid "First Name"
+msgstr "Nome"
+
+msgid "Display name"
+msgstr "Mostrar o nome"
+
+msgid "Number of entries"
+msgstr "Número de entradas"
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Se você quer mudar o seu endereço de email ou a sua password, tem que indicar a sua password actual."
@@ -2295,6 +2358,10 @@ msgstr "O ficheiro foi actualizado com sucesso"
 #, fuzzy
 msgid "Default favorites have been successfully updated."
 msgstr "As miniaturas foram actualizadas."
+
+#, fuzzy
+msgid "Dashboard items order have been successfully reset."
+msgstr "A ordem das categorias foi actualizada com sucesso."
 
 msgid "My profile"
 msgstr ""
@@ -2387,6 +2454,17 @@ msgstr ""
 
 msgid "Optional columns displayed in lists"
 msgstr ""
+
+msgid "Options for lists"
+msgstr ""
+
+#, fuzzy
+msgid "Apply filters on the fly"
+msgstr "Adicionar ficheiros"
+
+#, fuzzy
+msgid "users per page"
+msgstr "Utilizadores por página"
 
 #, fuzzy
 msgid "Edition"
@@ -2508,6 +2586,13 @@ msgstr "Actualizar Dotclear"
 msgid "Save my dashboard options"
 msgstr "Opções da pesquisa"
 
+#, fuzzy
+msgid "Dashboard items order"
+msgstr "Painel de controlo"
+
+msgid "Reset dashboard items order"
+msgstr ""
+
 msgid "Search options"
 msgstr "Opções da pesquisa"
 
@@ -2586,8 +2671,24 @@ msgstr ""
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr ""
 
+#, fuzzy
+msgid "List options saved"
+msgstr "Opções da pesquisa"
+
 msgid "Dotclear update"
 msgstr "Actualização de Dotclear"
+
+#, fuzzy
+msgid "Precheck update error"
+msgstr "Actualizar Dotclear"
+
+#, fuzzy
+msgid "Backup directory does not exist"
+msgstr "A pasta não existe"
+
+#, fuzzy
+msgid "Access denied"
+msgstr "Permissão recusada."
 
 #, php-format
 msgid "Unable to delete file %s"
@@ -2678,6 +2779,9 @@ msgstr "O utilizador \"%s\" já existe"
 msgid "User has been successfully created."
 msgstr "O utilizador foi criado com sucesso."
 
+msgid "User has no permission, he will not be able to login yet. See below to add some."
+msgstr ""
+
 #, fuzzy
 msgid "User profile"
 msgstr "Utilizadores por página"
@@ -2726,18 +2830,6 @@ msgstr "Blog:"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
-msgid "Last Name"
-msgstr "Apelido"
-
-msgid "First Name"
-msgstr "Nome"
-
-msgid "Display name"
-msgstr "Mostrar o nome"
-
-msgid "Number of entries"
-msgstr "Número de entradas"
-
 msgid "Set permissions"
 msgstr "definir permissões"
 
@@ -2746,10 +2838,6 @@ msgstr "O utilizador foi apagado com sucesso."
 
 msgid "The permissions have been successfully updated."
 msgstr "As permissões foram actualizadas com sucesso."
-
-#, fuzzy
-msgid "users per page"
-msgstr "Utilizadores por página"
 
 msgid "Selected users action:"
 msgstr "Acção dos utilizadores seleccionados:"
@@ -2773,6 +2861,9 @@ msgstr "Escolha um ou mais blogs para o qual se pretende atribuir permissões pa
 
 msgid "No blog"
 msgstr "Sem blog"
+
+msgid "Entries"
+msgstr "Entradas"
 
 #, fuzzy
 msgid "select"
@@ -2862,10 +2953,6 @@ msgstr "O comentário foi actualizado com sucesso."
 #, fuzzy
 msgid "Back to entries list"
 msgstr "Lista das categorias"
-
-#, fuzzy
-msgid "Entries actions"
-msgstr "Acção sobre as entradas seleccionadas:"
 
 #, fuzzy
 msgid "Posts actions"
@@ -2975,6 +3062,9 @@ msgstr "Língua da entrada:"
 msgid "Languages"
 msgstr "Línguas"
 
+msgid "[%H:%M:%S]"
+msgstr ""
+
 msgid "Change blog"
 msgstr "Modificar blog"
 
@@ -2986,9 +3076,6 @@ msgid "Go to the content"
 msgstr "A entrada não tem conteúdos"
 
 msgid "Go to the menu"
-msgstr ""
-
-msgid "Go to search"
 msgstr ""
 
 msgid "Go to help"
@@ -3013,9 +3100,6 @@ msgstr ""
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr ""
 
-msgid "[%H:%M:%S]"
-msgstr ""
-
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Obrigado por utilizar %s."
@@ -3023,246 +3107,6 @@ msgstr "Obrigado por utilizar %s."
 #, fuzzy
 msgid "Page top"
 msgstr "Página(s)"
-
-#, fuzzy
-msgid "Go to dashboard"
-msgstr "Painel de controlo"
-
-msgid "Help about this page"
-msgstr ""
-
-#, php-format
-msgid "See also %s"
-msgstr ""
-
-msgid "the global help"
-msgstr ""
-
-msgid "uncover"
-msgstr "mostrar"
-
-msgid "hide"
-msgstr "esconder"
-
-msgid "Need help?"
-msgstr ""
-
-msgid "new window"
-msgstr ""
-
-msgid "Hide"
-msgstr ""
-
-#, fuzzy
-msgid "Select:"
-msgstr "Seleccionado:"
-
-#, fuzzy
-msgid "no selection"
-msgstr "Nenhuma selecção"
-
-msgid "select all"
-msgstr "seleccionar tudo"
-
-msgid "Invert selection"
-msgstr "inverter selecção"
-
-msgid "view entry"
-msgstr "ver a entrada"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected entries (%s)?"
-msgstr "Tem certeza de que deseja apagar as entradas seleccionadas?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected medias (%d)?"
-msgstr "Tem certeza de que deseja apagar as entradas seleccionadas?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected categories (%s)?"
-msgstr "Tem certeza de que deseja apagar as entradas seleccionadas?"
-
-msgid "Are you sure you want to delete this entry?"
-msgstr "Tem certeza de que deseja apagar esta entrada?"
-
-msgid "Click here to unlock the field"
-msgstr ""
-
-#, fuzzy
-msgid "Are you sure you want to delete all spams?"
-msgstr "Tem certeza de que deseja apagar o tema \"%s\"?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected comments (%s)?"
-msgstr "Tem certeza de que deseja apagar os comentários seleccionados?"
-
-msgid "Are you sure you want to delete this comment?"
-msgstr "Tem certeza de que deseja apagar este comentário?"
-
-msgid "Users with posts cannot be deleted."
-msgstr "Utilizadores com entradas não podem ser apagados"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected users (%s)?"
-msgstr "Tem certeza de que deseja apagar os utilizadores seleccionados?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected blogs (%s)?"
-msgstr "Tem certeza de que deseja apagar os utilizadores seleccionados?"
-
-#, php-format
-msgid "Are you sure you want to delete category \"%s\"?"
-msgstr "Tem certeza de que deseja apagar a categoria \"%s\"?"
-
-msgid "Are you sure you want to reorder all categories?"
-msgstr "Tem certeza de que deseja reordenar as categorias?"
-
-#, php-format
-msgid "Are you sure you want to remove media \"%s\"?"
-msgstr "Tem certeza de que deseja apagar o media \"%s\"?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to remove directory \"%s\"?"
-msgstr "Tem certeza de que deseja apagar o media \"%s\"?"
-
-msgid "Are you sure you want to extract archive in current directory?"
-msgstr "Tem certeza de que deseja extrair o arquivo na pasta actual?"
-
-#, php-format
-msgid "Are you sure you want to remove attachment \"%s\"?"
-msgstr "Tem certeza de que deseja remover o anexo \"%s\"?"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" language?"
-msgstr "Tem certeza de que deseja apagar a língua \"%s\"?"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr "Tem certeza de que deseja apagar o plugin \"%s\"?"
-
-#, fuzzy
-msgid "Are you sure you want to delete selected plugins?"
-msgstr "Tem certeza de que deseja apagar o plugin \"%s\"?"
-
-msgid "Use this theme"
-msgstr "Usar este tema"
-
-msgid "Remove this theme"
-msgstr "Remover este tema"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" theme?"
-msgstr "Tem certeza de que deseja apagar o tema \"%s\"?"
-
-#, fuzzy
-msgid "Are you sure you want to delete selected themes?"
-msgstr "Tem certeza de que deseja apagar as entradas seleccionadas?"
-
-#, fuzzy
-msgid "Are you sure you want to delete this backup?"
-msgstr "Tem certeza de que deseja apagar este comentário?"
-
-#, fuzzy
-msgid "Are you sure you want to revert to this backup?"
-msgstr "Tem certeza de que deseja remover este anexo?"
-
-msgid "Zip file content"
-msgstr "Conteúdo do ficheiro zip"
-
-msgid "XHTML markup validator"
-msgstr "Validar o código XHTML"
-
-msgid "XHTML content is valid."
-msgstr "O conteúdo XHTML é válido."
-
-msgid "There are XHTML markup errors."
-msgstr "O código XHTML contem erros."
-
-msgid "Attention: an audit of a content not yet registered."
-msgstr ""
-
-msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
-msgstr ""
-
-msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
-msgstr ""
-
-msgid "Loading enhanced uploader, please wait."
-msgstr ""
-
-msgid "Details"
-msgstr "Detalhes"
-
-msgid "Support"
-msgstr ""
-
-#, fuzzy
-msgid "Help:"
-msgstr "Ajuda"
-
-#, fuzzy
-msgid "Section:"
-msgstr "Acção"
-
-msgid "Tags:"
-msgstr ""
-
-#, fuzzy
-msgid "Hide this notice"
-msgstr "Usar este tema"
-
-msgid "You have unsaved changes."
-msgstr "Você tem alterações não salvas."
-
-#, fuzzy
-msgid "Choose date"
-msgstr "Escolha o ficheiro"
-
-msgid "close"
-msgstr "fechar"
-
-msgid "now"
-msgstr "agora"
-
-msgid "Temporarily activate enhanced uploader"
-msgstr "Activar o uploader"
-
-msgid "Temporarily disable enhanced uploader"
-msgstr "Desactivar o uploader"
-
-msgid "Limit exceeded."
-msgstr "Limite excedida:"
-
-msgid "File size exceeds allowed limit."
-msgstr "O tamanho do ficheiro ultrapassa o limite permitido."
-
-msgid "Canceled."
-msgstr "Cancelado."
-
-msgid "HTTP Error:"
-msgstr "Erro HTTP:"
-
-msgid "Clean"
-msgstr "Limpar"
-
-msgid "File successfully uploaded."
-msgstr "Ficheiro enviado com sucesso."
-
-msgid "No file in queue."
-msgstr "Nenhum ficheiro na fila."
-
-msgid "1 file in queue."
-msgstr "1 ficheiro na fila."
-
-#, php-format
-msgid "%d files in queue."
-msgstr "%d ficheiros na fila."
-
-msgid "Queue error:"
-msgstr "Erro na fila:"
-
-msgid "Cancel filters and display options"
-msgstr ""
 
 msgid "other"
 msgstr ""
@@ -3313,6 +3157,9 @@ msgstr "Versão"
 msgid "Current version"
 msgstr "definir permissões"
 
+msgid "Details"
+msgstr "Detalhes"
+
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -3327,9 +3174,15 @@ msgstr ""
 msgid "Plugin from official distribution"
 msgstr ""
 
+msgid "Support"
+msgstr ""
+
 #, fuzzy
-msgid "Manage plugin"
-msgstr "Tema actual"
+msgid "Section:"
+msgstr "Acção"
+
+msgid "Tags:"
+msgstr ""
 
 msgid "No plugins matched your search."
 msgstr ""
@@ -3631,6 +3484,10 @@ msgstr[1] ""
 msgid "Protected"
 msgstr "protegido"
 
+#, fuzzy
+msgid "Attachments"
+msgstr "Anexos"
+
 #, php-format
 msgid "%d attachment"
 msgstr "%d anexo"
@@ -3699,6 +3556,15 @@ msgstr[1] ""
 #, fuzzy
 msgid "Blogs list"
 msgstr "Blogs"
+
+msgid "online"
+msgstr "online"
+
+msgid "offline"
+msgstr "offline"
+
+msgid "removed"
+msgstr "removido"
 
 #, fuzzy, php-format
 msgid "Edit blog settings for %s"
@@ -3784,19 +3650,16 @@ msgstr "Blog"
 msgid "Plugins"
 msgstr "Plugins"
 
-#, fuzzy
-msgid "medium"
-msgstr "Médio:"
+msgid "moyenne"
+msgstr ""
 
-#, fuzzy
-msgid "small"
-msgstr "Pequeno:"
+msgid "petite"
+msgstr ""
 
-#, fuzzy
-msgid "thumbnail"
-msgstr "Miniaturas:"
+msgid "vignette"
+msgstr ""
 
-msgid "square"
+msgid "carrée"
 msgstr ""
 
 #, fuzzy
@@ -3925,15 +3788,6 @@ msgstr "Deve fornecer um nome de autor"
 msgid "Email address is not valid."
 msgstr "Endereço de email inválido."
 
-msgid "online"
-msgstr "online"
-
-msgid "offline"
-msgstr "offline"
-
-msgid "removed"
-msgstr "removido"
-
 msgid "You are not an administrator"
 msgstr "Não é administrador"
 
@@ -3982,12 +3836,6 @@ msgstr "O ficheiro não existe na base de dados."
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "A pasta %s já existe."
-
-msgid "Embedded Audio Player"
-msgstr ""
-
-msgid "Embedded Video Player"
-msgstr ""
 
 #, php-format
 msgid "Requires %s module which is not installed"
@@ -4214,6 +4062,213 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+#, fuzzy
+#~ msgid "Are you sure to delete this media?"
+#~ msgstr "Tem certeza de que deseja apagar este comentário?"
+
+#, fuzzy
+#~ msgid "Entries actions"
+#~ msgstr "Acção sobre as entradas seleccionadas:"
+
+#, fuzzy
+#~ msgid "Go to dashboard"
+#~ msgstr "Painel de controlo"
+
+#~ msgid "uncover"
+#~ msgstr "mostrar"
+
+#~ msgid "hide"
+#~ msgstr "esconder"
+
+#, fuzzy
+#~ msgid "Select:"
+#~ msgstr "Seleccionado:"
+
+#, fuzzy
+#~ msgid "no selection"
+#~ msgstr "Nenhuma selecção"
+
+#~ msgid "select all"
+#~ msgstr "seleccionar tudo"
+
+#~ msgid "Invert selection"
+#~ msgstr "inverter selecção"
+
+#~ msgid "view entry"
+#~ msgstr "ver a entrada"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected entries (%s)?"
+#~ msgstr "Tem certeza de que deseja apagar as entradas seleccionadas?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected medias (%d)?"
+#~ msgstr "Tem certeza de que deseja apagar as entradas seleccionadas?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected categories (%s)?"
+#~ msgstr "Tem certeza de que deseja apagar as entradas seleccionadas?"
+
+#~ msgid "Are you sure you want to delete this entry?"
+#~ msgstr "Tem certeza de que deseja apagar esta entrada?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "Tem certeza de que deseja apagar o tema \"%s\"?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected comments (%s)?"
+#~ msgstr "Tem certeza de que deseja apagar os comentários seleccionados?"
+
+#~ msgid "Are you sure you want to delete this comment?"
+#~ msgstr "Tem certeza de que deseja apagar este comentário?"
+
+#~ msgid "Users with posts cannot be deleted."
+#~ msgstr "Utilizadores com entradas não podem ser apagados"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected users (%s)?"
+#~ msgstr "Tem certeza de que deseja apagar os utilizadores seleccionados?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected blogs (%s)?"
+#~ msgstr "Tem certeza de que deseja apagar os utilizadores seleccionados?"
+
+#~ msgid "Are you sure you want to delete category \"%s\"?"
+#~ msgstr "Tem certeza de que deseja apagar a categoria \"%s\"?"
+
+#~ msgid "Are you sure you want to reorder all categories?"
+#~ msgstr "Tem certeza de que deseja reordenar as categorias?"
+
+#~ msgid "Are you sure you want to remove media \"%s\"?"
+#~ msgstr "Tem certeza de que deseja apagar o media \"%s\"?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to remove directory \"%s\"?"
+#~ msgstr "Tem certeza de que deseja apagar o media \"%s\"?"
+
+#~ msgid "Are you sure you want to extract archive in current directory?"
+#~ msgstr "Tem certeza de que deseja extrair o arquivo na pasta actual?"
+
+#~ msgid "Are you sure you want to remove attachment \"%s\"?"
+#~ msgstr "Tem certeza de que deseja remover o anexo \"%s\"?"
+
+#~ msgid "Are you sure you want to delete \"%s\" language?"
+#~ msgstr "Tem certeza de que deseja apagar a língua \"%s\"?"
+
+#~ msgid "Are you sure you want to delete \"%s\" plugin?"
+#~ msgstr "Tem certeza de que deseja apagar o plugin \"%s\"?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected plugins?"
+#~ msgstr "Tem certeza de que deseja apagar o plugin \"%s\"?"
+
+#~ msgid "Use this theme"
+#~ msgstr "Usar este tema"
+
+#~ msgid "Remove this theme"
+#~ msgstr "Remover este tema"
+
+#~ msgid "Are you sure you want to delete \"%s\" theme?"
+#~ msgstr "Tem certeza de que deseja apagar o tema \"%s\"?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected themes?"
+#~ msgstr "Tem certeza de que deseja apagar as entradas seleccionadas?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete this backup?"
+#~ msgstr "Tem certeza de que deseja apagar este comentário?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to revert to this backup?"
+#~ msgstr "Tem certeza de que deseja remover este anexo?"
+
+#~ msgid "Zip file content"
+#~ msgstr "Conteúdo do ficheiro zip"
+
+#~ msgid "XHTML markup validator"
+#~ msgstr "Validar o código XHTML"
+
+#~ msgid "XHTML content is valid."
+#~ msgstr "O conteúdo XHTML é válido."
+
+#~ msgid "There are XHTML markup errors."
+#~ msgstr "O código XHTML contem erros."
+
+#, fuzzy
+#~ msgid "Help:"
+#~ msgstr "Ajuda"
+
+#, fuzzy
+#~ msgid "Hide this notice"
+#~ msgstr "Usar este tema"
+
+#~ msgid "You have unsaved changes."
+#~ msgstr "Você tem alterações não salvas."
+
+#, fuzzy
+#~ msgid "Choose date"
+#~ msgstr "Escolha o ficheiro"
+
+#~ msgid "close"
+#~ msgstr "fechar"
+
+#~ msgid "now"
+#~ msgstr "agora"
+
+#~ msgid "Temporarily activate enhanced uploader"
+#~ msgstr "Activar o uploader"
+
+#~ msgid "Temporarily disable enhanced uploader"
+#~ msgstr "Desactivar o uploader"
+
+#~ msgid "Limit exceeded."
+#~ msgstr "Limite excedida:"
+
+#~ msgid "File size exceeds allowed limit."
+#~ msgstr "O tamanho do ficheiro ultrapassa o limite permitido."
+
+#~ msgid "Canceled."
+#~ msgstr "Cancelado."
+
+#~ msgid "HTTP Error:"
+#~ msgstr "Erro HTTP:"
+
+#~ msgid "Clean"
+#~ msgstr "Limpar"
+
+#~ msgid "File successfully uploaded."
+#~ msgstr "Ficheiro enviado com sucesso."
+
+#~ msgid "No file in queue."
+#~ msgstr "Nenhum ficheiro na fila."
+
+#~ msgid "1 file in queue."
+#~ msgstr "1 ficheiro na fila."
+
+#~ msgid "%d files in queue."
+#~ msgstr "%d ficheiros na fila."
+
+#~ msgid "Queue error:"
+#~ msgstr "Erro na fila:"
+
+#, fuzzy
+#~ msgid "Manage plugin"
+#~ msgstr "Tema actual"
+
+#, fuzzy
+#~ msgid "medium"
+#~ msgstr "Médio:"
+
+#, fuzzy
+#~ msgid "small"
+#~ msgstr "Pequeno:"
+
+#, fuzzy
+#~ msgid "thumbnail"
+#~ msgstr "Miniaturas:"
+
 #~ msgid "Unable to open directory."
 #~ msgstr "Não consigo abrir a pasta."
 
@@ -4316,9 +4371,6 @@ msgstr ""
 #~ msgid "Cannot read file"
 #~ msgstr "Não consigo ler o ficheiro"
 
-#~ msgid "Directory does not exist"
-#~ msgstr "A pasta não existe"
-
 #~ msgid "Cannot read directory"
 #~ msgstr "Não consigo ler a pasta"
 
@@ -4385,10 +4437,6 @@ msgstr ""
 
 #~ msgid "back"
 #~ msgstr "para trás"
-
-#, fuzzy
-#~ msgid "Apply filters"
-#~ msgstr "Adicionar ficheiros"
 
 #~ msgid "Page(s)"
 #~ msgstr "Página(s)"

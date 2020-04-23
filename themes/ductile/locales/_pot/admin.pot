@@ -1,0 +1,247 @@
+# SOME DESCRIPTIVE TITLE.
+# This file is put in the public domain.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Dotclear 2 ductile module\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-23 14:01+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: themes/ductile/_config.php:35
+msgid "Full"
+msgstr ""
+
+#: themes/ductile/_config.php:53
+msgid "Home (first page)"
+msgstr ""
+
+#: themes/ductile/_config.php:54
+msgid "Home (other pages)"
+msgstr ""
+
+#: themes/ductile/_config.php:55
+msgid "Entries for a category"
+msgstr ""
+
+#: themes/ductile/_config.php:56
+msgid "Entries for a tag"
+msgstr ""
+
+#: themes/ductile/_config.php:57
+msgid "Search result entries"
+msgstr ""
+
+#: themes/ductile/_config.php:58
+msgid "Month archive entries"
+msgstr ""
+
+#: themes/ductile/_config.php:63
+msgid "Ductile primary"
+msgstr ""
+
+#: themes/ductile/_config.php:64
+msgid "Ductile secondary"
+msgstr ""
+
+#: themes/ductile/_config.php:65
+msgid "Times New Roman"
+msgstr ""
+
+#: themes/ductile/_config.php:66
+msgid "Georgia"
+msgstr ""
+
+#: themes/ductile/_config.php:67
+msgid "Garamond"
+msgstr ""
+
+#: themes/ductile/_config.php:68
+msgid "Helvetica/Arial"
+msgstr ""
+
+#: themes/ductile/_config.php:69
+msgid "Verdana"
+msgstr ""
+
+#: themes/ductile/_config.php:70
+msgid "Trebuchet MS"
+msgstr ""
+
+#: themes/ductile/_config.php:71
+msgid "Impact"
+msgstr ""
+
+#: themes/ductile/_config.php:72
+msgid "Monospace"
+msgstr ""
+
+#: themes/ductile/_config.php:76
+msgid "none"
+msgstr ""
+
+#: themes/ductile/_config.php:77
+msgid "javascript (Adobe)"
+msgstr ""
+
+#: themes/ductile/_config.php:78
+msgid "stylesheet (Google)"
+msgstr ""
+
+#: themes/ductile/_config.php:311
+msgid "Theme configuration upgraded."
+msgstr ""
+
+#: themes/ductile/_config.php:330
+msgid "Header"
+msgstr ""
+
+#: themes/ductile/_config.php:331
+msgid "Hide blog description:"
+msgstr ""
+
+#: themes/ductile/_config.php:333
+msgid "Logo URL:"
+msgstr ""
+
+#: themes/ductile/_config.php:336
+#, php-format
+msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
+msgstr ""
+
+#: themes/ductile/_config.php:340
+msgid "Stickers"
+msgstr ""
+
+#: themes/ductile/_config.php:344
+msgid "Stickers (footer)"
+msgstr ""
+
+#: themes/ductile/_config.php:348
+msgid "Image"
+msgstr ""
+
+#: themes/ductile/_config.php:375
+msgid "Entries list types and limits"
+msgstr ""
+
+#: themes/ductile/_config.php:377
+msgid "Entries lists"
+msgstr ""
+
+#: themes/ductile/_config.php:380
+msgid "Context"
+msgstr ""
+
+#: themes/ductile/_config.php:381
+msgid "Entries list type"
+msgstr ""
+
+#: themes/ductile/_config.php:407
+msgid "Miscellaneous options"
+msgstr ""
+
+#: themes/ductile/_config.php:408
+msgid "Comment preview is not mandatory:"
+msgstr ""
+
+#: themes/ductile/_config.php:419
+msgid "Presentation"
+msgstr ""
+
+#: themes/ductile/_config.php:424
+msgid "General settings"
+msgstr ""
+
+#: themes/ductile/_config.php:426
+msgid "Fonts"
+msgstr ""
+
+#: themes/ductile/_config.php:431
+msgid "Main text"
+msgstr ""
+
+#: themes/ductile/_config.php:432
+msgid "Main font:"
+msgstr ""
+
+#: themes/ductile/_config.php:435 themes/ductile/_config.php:450
+msgid "Set to Default to use a webfont."
+msgstr ""
+
+#: themes/ductile/_config.php:437 themes/ductile/_config.php:452
+msgid "Webfont family:"
+msgstr ""
+
+#: themes/ductile/_config.php:439 themes/ductile/_config.php:454
+msgid "Webfont URL:"
+msgstr ""
+
+#: themes/ductile/_config.php:441 themes/ductile/_config.php:456
+msgid "Webfont API:"
+msgstr ""
+
+#: themes/ductile/_config.php:446
+msgid "Secondary text"
+msgstr ""
+
+#: themes/ductile/_config.php:447
+msgid "Secondary font:"
+msgstr ""
+
+#: themes/ductile/_config.php:461
+msgid "Titles"
+msgstr ""
+
+#: themes/ductile/_config.php:464 themes/ductile/_config.php:530
+msgid "Blog title"
+msgstr ""
+
+#: themes/ductile/_config.php:465 themes/ductile/_config.php:482
+#: themes/ductile/_config.php:508 themes/ductile/_config.php:531
+#: themes/ductile/_config.php:548
+msgid "In bold:"
+msgstr ""
+
+#: themes/ductile/_config.php:468 themes/ductile/_config.php:485
+#: themes/ductile/_config.php:534 themes/ductile/_config.php:551
+msgid "Font size (in em by default):"
+msgstr ""
+
+#: themes/ductile/_config.php:471 themes/ductile/_config.php:488
+#: themes/ductile/_config.php:500 themes/ductile/_config.php:537
+#: themes/ductile/_config.php:554
+msgid "Color:"
+msgstr ""
+
+#: themes/ductile/_config.php:481 themes/ductile/_config.php:547
+msgid "Post title"
+msgstr ""
+
+#: themes/ductile/_config.php:498
+msgid "Titles without link"
+msgstr ""
+
+#: themes/ductile/_config.php:507
+msgid "Inside posts links"
+msgstr ""
+
+#: themes/ductile/_config.php:511
+msgid "Normal and visited links color:"
+msgstr ""
+
+#: themes/ductile/_config.php:518
+msgid "Active, hover and focus links color:"
+msgstr ""
+
+#: themes/ductile/_config.php:525
+msgid "Mobile specific settings"
+msgstr ""

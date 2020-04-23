@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:10+0200\n"
+"POT-Creation-Date: 2020-04-23 14:51+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -67,6 +67,10 @@ msgstr "Nem vagy szuper adminisztrátor."
 #, fuzzy
 msgid "Insufficient permissions"
 msgstr "jogok beállítása"
+
+#, fuzzy
+msgid "Administration session expired"
+msgstr "Adminisztrációs felület::"
 
 msgid "Wrong username or password"
 msgstr "Hibás felhasználónév vagy jelszó"
@@ -306,6 +310,10 @@ msgstr "A blogot sikeresen elkészítettem."
 msgid "Parameters"
 msgstr "Beállítások"
 
+#, fuzzy
+msgid "Blog parameters"
+msgstr "Beállítások"
+
 msgid "Blog details"
 msgstr "Blog részletei"
 
@@ -387,7 +395,7 @@ msgid "Disable internal search system"
 msgstr ""
 
 #, fuzzy, php-format
-msgid "Display %s entries on home page"
+msgid "Display %s entries on first page"
 msgstr "%s bejegyzést mutass oldalanként"
 
 #, php-format
@@ -406,6 +414,20 @@ msgid "Truncate feeds"
 msgstr "Feedek megcsonkítása"
 
 msgid "Include sub-categories in category page and category posts feed"
+msgstr ""
+
+#, fuzzy
+msgid "Display an entry as static home page"
+msgstr "%s bejegyzést mutass oldalanként"
+
+msgid "Entry URL (its content will be used for the static home page):"
+msgstr ""
+
+#, fuzzy
+msgid "Choose an entry"
+msgstr "Válassz blogot"
+
+msgid "Leave empty to use the default presentation."
 msgstr ""
 
 msgid "Media and images"
@@ -534,6 +556,9 @@ msgstr "Keresőmotorok robotjainak jogai"
 msgid "jQuery javascript library"
 msgstr ""
 
+msgid "Load the jQuery library"
+msgstr ""
+
 msgid "jQuery version to be loaded for this blog:"
 msgstr ""
 
@@ -607,6 +632,9 @@ msgstr "Téma beállítása"
 msgid "Themes management"
 msgstr "Nyelvkezelő"
 
+msgid "Manual checking of themes update done successfully."
+msgstr ""
+
 #, fuzzy
 msgid "Update themes"
 msgstr "Kisképek frissítése"
@@ -620,6 +648,10 @@ msgstr[1] ""
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
+
+#, fuzzy
+msgid "Force checking update of themes"
+msgstr "Dotclear frissítés"
 
 #, fuzzy
 msgid "Installed themes"
@@ -703,6 +735,10 @@ msgstr "Mutasd meg."
 #, fuzzy
 msgid "blogs per page"
 msgstr "Blogok oldalanként"
+
+#, fuzzy
+msgid "Save current options"
+msgstr "Keresési feltételek"
 
 msgid "Apply filters and display options"
 msgstr ""
@@ -1014,6 +1050,12 @@ msgstr[1] "Iconv modul nem elérhető."
 #, fuzzy
 msgid "Documentation and support"
 msgstr "Dokumentáció"
+
+msgid "Dashboard area's drag and drop is disabled"
+msgstr ""
+
+msgid "Dashboard area's drag and drop is enabled"
+msgstr ""
 
 msgid "Dashboard"
 msgstr "Beállítópanel"
@@ -1474,12 +1516,20 @@ msgstr "Fájl beillesztése a bejegyzésbe"
 msgid "delete"
 msgstr "Törlés"
 
+#, fuzzy
+msgid "private media"
+msgstr "Privát"
+
 msgid "open"
 msgstr "megnyit"
 
 #, fuzzy
 msgid "Not a valid directory"
 msgstr "Nem érvényes fájl"
+
+#, fuzzy, php-format
+msgid "Directory or file \"%s\" already exists."
+msgstr "A(z) \"%s\" felhasználó már létezik."
 
 #, fuzzy, php-format
 msgid "Directory \"%s\" has been successfully created."
@@ -1675,10 +1725,6 @@ msgstr "Feltölt"
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
 
-#, fuzzy
-msgid "Blog parameters"
-msgstr "Beállítások"
-
 msgid "Not a valid file"
 msgstr "Nem érvényes fájl"
 
@@ -1691,10 +1737,6 @@ msgstr "A kisképek sikeresen frissültek."
 #, fuzzy
 msgid "Default media insertion settings have been successfully updated."
 msgstr "A kisképek sikeresen frissültek."
-
-#, fuzzy
-msgid "Are you sure to delete this media?"
-msgstr "Biztosan szeretnéd törölni a hozzászólást?"
 
 #, fuzzy
 msgid "Select media item"
@@ -1711,6 +1753,13 @@ msgid "Insert media item"
 msgstr "Médiaelem beszúrása"
 
 msgid "Image legend and title"
+msgstr ""
+
+#, fuzzy
+msgid "Title: "
+msgstr "Cím::"
+
+msgid "Legend: "
 msgstr ""
 
 msgid "Image alignment"
@@ -1854,6 +1903,10 @@ msgstr "Fájlnév:"
 msgid "File title:"
 msgstr "Fájltípus:"
 
+#, fuzzy
+msgid "File description:"
+msgstr "Blog leírása:"
+
 msgid "File date:"
 msgstr "Fájl dátuma:"
 
@@ -1893,6 +1946,9 @@ msgstr "Kiegészítő-kezelő"
 msgid "Plugin configuration"
 msgstr "Blog beállítás"
 
+msgid "Manual checking of plugins update done successfully."
+msgstr ""
+
 #, fuzzy
 msgid "Update plugins"
 msgstr "Feltölt"
@@ -1902,6 +1958,10 @@ msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
+
+#, fuzzy
+msgid "Force checking update of plugins"
+msgstr "Dotclear frissítés"
 
 #, fuzzy
 msgid "Installed plugins"
@@ -1973,8 +2033,9 @@ msgstr "Keresés"
 msgid "cancel"
 msgstr "vissza"
 
+#, fuzzy
 msgid "Edit post"
-msgstr "Bejegyzés szerkesztése"
+msgstr "A %s blog szerkesztése"
 
 msgid "This entry does not exist."
 msgstr "Ez a bejegyzés nem létezik."
@@ -2021,11 +2082,8 @@ msgstr "függő"
 msgid "&ldquo;%s&rdquo;"
 msgstr ""
 
-msgid "Entries"
-msgstr "Bejegyzések"
-
 msgid "Posts"
-msgstr "Bejegyzések"
+msgstr ""
 
 msgid "Entry has been successfully updated."
 msgstr "A bejegyzést frissítettem."
@@ -2128,10 +2186,6 @@ msgstr ""
 #, fuzzy
 msgid "Unpublished notes."
 msgstr "nem publikált"
-
-#, fuzzy
-msgid "Edit post"
-msgstr "A %s blog szerkesztése"
 
 #, fuzzy
 msgid "Preview"
@@ -2288,8 +2342,19 @@ msgstr ""
 msgid "Category description"
 msgstr "Kategória:"
 
-msgid "Posts"
-msgstr ""
+#, fuzzy
+msgid "Last Name"
+msgstr "Legutóbbi frisítés"
+
+#, fuzzy
+msgid "First Name"
+msgstr "Keresztnév"
+
+msgid "Display name"
+msgstr "Név"
+
+msgid "Number of entries"
+msgstr "Bejegyzések száma"
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Ha szeretnéd megváltoztatni az e-mail címedet vagy a jelszavadat, akkor add meg a régi jelszavadat!"
@@ -2324,6 +2389,10 @@ msgstr "A fájl sikeresen frissült."
 #, fuzzy
 msgid "Default favorites have been successfully updated."
 msgstr "A kisképek sikeresen frissültek."
+
+#, fuzzy
+msgid "Dashboard items order have been successfully reset."
+msgstr "A kategória sorrendje frissült."
 
 msgid "My profile"
 msgstr ""
@@ -2416,6 +2485,17 @@ msgstr ""
 
 msgid "Optional columns displayed in lists"
 msgstr ""
+
+msgid "Options for lists"
+msgstr ""
+
+#, fuzzy
+msgid "Apply filters on the fly"
+msgstr "Fájlok hozzáadása"
+
+#, fuzzy
+msgid "users per page"
+msgstr "Felhasználók oldalanként"
 
 #, fuzzy
 msgid "Edition"
@@ -2537,6 +2617,13 @@ msgstr "Dotclear frissítés"
 msgid "Save my dashboard options"
 msgstr "Keresési feltételek"
 
+#, fuzzy
+msgid "Dashboard items order"
+msgstr "Beállítópanel"
+
+msgid "Reset dashboard items order"
+msgstr ""
+
 msgid "Search options"
 msgstr "Keresési feltételek"
 
@@ -2616,8 +2703,24 @@ msgid "The next versions of Dotclear will not support PHP version < %s, your's i
 msgstr ""
 
 #, fuzzy
+msgid "List options saved"
+msgstr "Keresési feltételek"
+
+#, fuzzy
 msgid "Dotclear update"
 msgstr "A DotClear sikeresen frissítve."
+
+#, fuzzy
+msgid "Precheck update error"
+msgstr "Dotclear frissítés"
+
+#, fuzzy
+msgid "Backup directory does not exist"
+msgstr "A mappa nem létezik"
+
+#, fuzzy
+msgid "Access denied"
+msgstr "Hozzáférés megtagadva."
 
 #, php-format
 msgid "Unable to delete file %s"
@@ -2709,6 +2812,9 @@ msgstr "A(z) \"%s\" felhasználó már létezik."
 msgid "User has been successfully created."
 msgstr "A felhasználót sikeresen létrehoztam."
 
+msgid "User has no permission, he will not be able to login yet. See below to add some."
+msgstr ""
+
 #, fuzzy
 msgid "User profile"
 msgstr "Felhasználók oldalanként"
@@ -2758,20 +2864,6 @@ msgstr "Blog:"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
-#, fuzzy
-msgid "Last Name"
-msgstr "Legutóbbi frisítés"
-
-#, fuzzy
-msgid "First Name"
-msgstr "Keresztnév"
-
-msgid "Display name"
-msgstr "Név"
-
-msgid "Number of entries"
-msgstr "Bejegyzések száma"
-
 msgid "Set permissions"
 msgstr "jogok beállítása"
 
@@ -2780,10 +2872,6 @@ msgstr "A felhasználó le eltt törölve."
 
 msgid "The permissions have been successfully updated."
 msgstr "A jogokat frissítettem."
-
-#, fuzzy
-msgid "users per page"
-msgstr "Felhasználók oldalanként"
 
 msgid "Selected users action:"
 msgstr "Feladat a kijelölt felhasználókkal"
@@ -2807,6 +2895,9 @@ msgstr "Válassz legalább egy blogot, hogy melyikhez szeretnéd a(z) %s jogait 
 
 msgid "No blog"
 msgstr "Nincs blog"
+
+msgid "Entries"
+msgstr "Bejegyzések"
 
 #, fuzzy
 msgid "select"
@@ -2899,10 +2990,6 @@ msgstr "A kommentár sikeresen frissült."
 #, fuzzy
 msgid "Back to entries list"
 msgstr "Kategóriák"
-
-#, fuzzy
-msgid "Entries actions"
-msgstr "Teendő a kijelöltekkel:"
 
 #, fuzzy
 msgid "Posts actions"
@@ -3019,6 +3106,9 @@ msgstr "Nyelv:"
 msgid "Languages"
 msgstr "Nyelv?"
 
+msgid "[%H:%M:%S]"
+msgstr ""
+
 msgid "Change blog"
 msgstr "Blog megváltoztatása"
 
@@ -3030,9 +3120,6 @@ msgid "Go to the content"
 msgstr "Nincs tartalom"
 
 msgid "Go to the menu"
-msgstr ""
-
-msgid "Go to search"
 msgstr ""
 
 msgid "Go to help"
@@ -3057,9 +3144,6 @@ msgstr ""
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr ""
 
-msgid "[%H:%M:%S]"
-msgstr ""
-
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Köszönjük, hogy a %s -t használta."
@@ -3067,247 +3151,6 @@ msgstr "Köszönjük, hogy a %s -t használta."
 #, fuzzy
 msgid "Page top"
 msgstr "Oldal"
-
-#, fuzzy
-msgid "Go to dashboard"
-msgstr "Beállítópanel"
-
-msgid "Help about this page"
-msgstr ""
-
-#, php-format
-msgid "See also %s"
-msgstr ""
-
-msgid "the global help"
-msgstr ""
-
-msgid "uncover"
-msgstr "nem takart"
-
-msgid "hide"
-msgstr "rejt"
-
-msgid "Need help?"
-msgstr ""
-
-msgid "new window"
-msgstr ""
-
-msgid "Hide"
-msgstr ""
-
-#, fuzzy
-msgid "Select:"
-msgstr "Kiválasztott:"
-
-#, fuzzy
-msgid "no selection"
-msgstr "Nincs kijelölés"
-
-msgid "select all"
-msgstr "mindet"
-
-msgid "Invert selection"
-msgstr "ellenkezőket"
-
-msgid "view entry"
-msgstr "oldal megtekintése"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected entries (%s)?"
-msgstr "Biztosan törölni szeretnéd a kijelölt bejegyzéseket?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected medias (%d)?"
-msgstr "Biztosan törölni szeretnéd a kijelölt bejegyzéseket?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected categories (%s)?"
-msgstr "Biztosan törölni szeretnéd a kijelölt bejegyzéseket?"
-
-msgid "Are you sure you want to delete this entry?"
-msgstr "Biztosan törölni szeretnéd a kijelölt bejegyzést?"
-
-msgid "Click here to unlock the field"
-msgstr ""
-
-#, fuzzy
-msgid "Are you sure you want to delete all spams?"
-msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected comments (%s)?"
-msgstr "Biztosan szeretnéd törölni a hozzászólásokat?"
-
-msgid "Are you sure you want to delete this comment?"
-msgstr "Biztosan szeretnéd törölni a hozzászólást?"
-
-msgid "Users with posts cannot be deleted."
-msgstr ""
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected users (%s)?"
-msgstr "Biztosan szeretnéd törölni a kijelölt felhasználókat?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected blogs (%s)?"
-msgstr "Biztosan szeretnéd törölni a kijelölt felhasználókat?"
-
-#, php-format
-msgid "Are you sure you want to delete category \"%s\"?"
-msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
-
-#, fuzzy
-msgid "Are you sure you want to reorder all categories?"
-msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
-
-#, php-format
-msgid "Are you sure you want to remove media \"%s\"?"
-msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to remove directory \"%s\"?"
-msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
-
-msgid "Are you sure you want to extract archive in current directory?"
-msgstr "Biztosan a jelenlegi mappába szeretnéd kicsomagolni a fájlt?"
-
-#, php-format
-msgid "Are you sure you want to remove attachment \"%s\"?"
-msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" language?"
-msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
-
-#, fuzzy
-msgid "Are you sure you want to delete selected plugins?"
-msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
-
-msgid "Use this theme"
-msgstr "Ezt használd"
-
-msgid "Remove this theme"
-msgstr "Ezt töröld"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" theme?"
-msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
-
-#, fuzzy
-msgid "Are you sure you want to delete selected themes?"
-msgstr "Biztosan törölni szeretnéd a kijelölt bejegyzéseket?"
-
-#, fuzzy
-msgid "Are you sure you want to delete this backup?"
-msgstr "Biztosan szeretnéd törölni a hozzászólást?"
-
-#, fuzzy
-msgid "Are you sure you want to revert to this backup?"
-msgstr "Biztosan törölni szeretnéd?"
-
-msgid "Zip file content"
-msgstr "Zip fájl tartalma"
-
-msgid "XHTML markup validator"
-msgstr "XMTML érvényesítő"
-
-msgid "XHTML content is valid."
-msgstr "XHTML tartalom érvényes."
-
-msgid "There are XHTML markup errors."
-msgstr "Vannak hibák az XHTML kódban."
-
-msgid "Attention: an audit of a content not yet registered."
-msgstr ""
-
-msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
-msgstr ""
-
-msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
-msgstr ""
-
-msgid "Loading enhanced uploader, please wait."
-msgstr ""
-
-msgid "Details"
-msgstr "Tulajdonságok"
-
-msgid "Support"
-msgstr ""
-
-#, fuzzy
-msgid "Help:"
-msgstr "Súgó"
-
-#, fuzzy
-msgid "Section:"
-msgstr "Feladat"
-
-msgid "Tags:"
-msgstr ""
-
-#, fuzzy
-msgid "Hide this notice"
-msgstr "Ezt használd"
-
-msgid "You have unsaved changes."
-msgstr "Vannak nem mentett változásaid."
-
-#, fuzzy
-msgid "Choose date"
-msgstr "Válassz fájlt"
-
-msgid "close"
-msgstr "bezár"
-
-msgid "now"
-msgstr "most"
-
-msgid "Temporarily activate enhanced uploader"
-msgstr "Bővített fájlfeltöltő aktiválása"
-
-msgid "Temporarily disable enhanced uploader"
-msgstr "Bővített fájlfeltöltő kikapcsolása"
-
-msgid "Limit exceeded."
-msgstr "A határokat elértem."
-
-msgid "File size exceeds allowed limit."
-msgstr "A fájlméret eléri a megengedettet!"
-
-msgid "Canceled."
-msgstr "Visszavonva."
-
-msgid "HTTP Error:"
-msgstr "HTTP Hiba:"
-
-msgid "Clean"
-msgstr "Takarít"
-
-msgid "File successfully uploaded."
-msgstr "A fájlt sikeresen feltöltöttem."
-
-msgid "No file in queue."
-msgstr "Nincs fájl a várakozási sorban."
-
-msgid "1 file in queue."
-msgstr "Egy fájl a várakozási sorban."
-
-#, php-format
-msgid "%d files in queue."
-msgstr "%d fájl a várakozási sorban."
-
-msgid "Queue error:"
-msgstr "Várakozási hiba:"
-
-msgid "Cancel filters and display options"
-msgstr ""
 
 msgid "other"
 msgstr ""
@@ -3358,6 +3201,9 @@ msgstr "Verzió"
 msgid "Current version"
 msgstr "jogok beállítása"
 
+msgid "Details"
+msgstr "Tulajdonságok"
+
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -3372,9 +3218,15 @@ msgstr ""
 msgid "Plugin from official distribution"
 msgstr ""
 
+msgid "Support"
+msgstr ""
+
 #, fuzzy
-msgid "Manage plugin"
-msgstr "Blog témái"
+msgid "Section:"
+msgstr "Feladat"
+
+msgid "Tags:"
+msgstr ""
 
 msgid "No plugins matched your search."
 msgstr ""
@@ -3675,6 +3527,10 @@ msgstr[1] ""
 msgid "Protected"
 msgstr "védett"
 
+#, fuzzy
+msgid "Attachments"
+msgstr "Mellékletek"
+
 #, php-format
 msgid "%d attachment"
 msgstr "%d csatolt fájl"
@@ -3743,6 +3599,15 @@ msgstr[1] ""
 #, fuzzy
 msgid "Blogs list"
 msgstr "Blogok"
+
+msgid "online"
+msgstr "elérhető"
+
+msgid "offline"
+msgstr "láthatatlan"
+
+msgid "removed"
+msgstr "törölt"
 
 #, fuzzy, php-format
 msgid "Edit blog settings for %s"
@@ -3828,19 +3693,16 @@ msgstr "Blog"
 msgid "Plugins"
 msgstr "Kiegészítők"
 
-#, fuzzy
-msgid "medium"
-msgstr "Közepes:"
+msgid "moyenne"
+msgstr ""
 
-#, fuzzy
-msgid "small"
-msgstr "Kicsi:"
+msgid "petite"
+msgstr ""
 
-#, fuzzy
-msgid "thumbnail"
-msgstr "Előnézet:"
+msgid "vignette"
+msgstr ""
 
-msgid "square"
+msgid "carrée"
 msgstr ""
 
 #, fuzzy
@@ -3969,15 +3831,6 @@ msgstr "Meg kell adnod a szerző nevét"
 msgid "Email address is not valid."
 msgstr "Az e-mail cím nem érvényes."
 
-msgid "online"
-msgstr "elérhető"
-
-msgid "offline"
-msgstr "láthatatlan"
-
-msgid "removed"
-msgstr "törölt"
-
 msgid "You are not an administrator"
 msgstr "Nem vagy adminisztrátor"
 
@@ -4026,12 +3879,6 @@ msgstr "A fájl nincs az adatbázisban."
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "A(z) %s célmappa már létezik."
-
-msgid "Embedded Audio Player"
-msgstr ""
-
-msgid "Embedded Video Player"
-msgstr ""
 
 #, php-format
 msgid "Requires %s module which is not installed"
@@ -4264,6 +4111,211 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+#, fuzzy
+#~ msgid "Are you sure to delete this media?"
+#~ msgstr "Biztosan szeretnéd törölni a hozzászólást?"
+
+#, fuzzy
+#~ msgid "Entries actions"
+#~ msgstr "Teendő a kijelöltekkel:"
+
+#, fuzzy
+#~ msgid "Go to dashboard"
+#~ msgstr "Beállítópanel"
+
+#~ msgid "uncover"
+#~ msgstr "nem takart"
+
+#~ msgid "hide"
+#~ msgstr "rejt"
+
+#, fuzzy
+#~ msgid "Select:"
+#~ msgstr "Kiválasztott:"
+
+#, fuzzy
+#~ msgid "no selection"
+#~ msgstr "Nincs kijelölés"
+
+#~ msgid "select all"
+#~ msgstr "mindet"
+
+#~ msgid "Invert selection"
+#~ msgstr "ellenkezőket"
+
+#~ msgid "view entry"
+#~ msgstr "oldal megtekintése"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected entries (%s)?"
+#~ msgstr "Biztosan törölni szeretnéd a kijelölt bejegyzéseket?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected medias (%d)?"
+#~ msgstr "Biztosan törölni szeretnéd a kijelölt bejegyzéseket?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected categories (%s)?"
+#~ msgstr "Biztosan törölni szeretnéd a kijelölt bejegyzéseket?"
+
+#~ msgid "Are you sure you want to delete this entry?"
+#~ msgstr "Biztosan törölni szeretnéd a kijelölt bejegyzést?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected comments (%s)?"
+#~ msgstr "Biztosan szeretnéd törölni a hozzászólásokat?"
+
+#~ msgid "Are you sure you want to delete this comment?"
+#~ msgstr "Biztosan szeretnéd törölni a hozzászólást?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected users (%s)?"
+#~ msgstr "Biztosan szeretnéd törölni a kijelölt felhasználókat?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected blogs (%s)?"
+#~ msgstr "Biztosan szeretnéd törölni a kijelölt felhasználókat?"
+
+#~ msgid "Are you sure you want to delete category \"%s\"?"
+#~ msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to reorder all categories?"
+#~ msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+#~ msgid "Are you sure you want to remove media \"%s\"?"
+#~ msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to remove directory \"%s\"?"
+#~ msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+#~ msgid "Are you sure you want to extract archive in current directory?"
+#~ msgstr "Biztosan a jelenlegi mappába szeretnéd kicsomagolni a fájlt?"
+
+#~ msgid "Are you sure you want to remove attachment \"%s\"?"
+#~ msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+#~ msgid "Are you sure you want to delete \"%s\" language?"
+#~ msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+#~ msgid "Are you sure you want to delete \"%s\" plugin?"
+#~ msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected plugins?"
+#~ msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+#~ msgid "Use this theme"
+#~ msgstr "Ezt használd"
+
+#~ msgid "Remove this theme"
+#~ msgstr "Ezt töröld"
+
+#~ msgid "Are you sure you want to delete \"%s\" theme?"
+#~ msgstr "Biztosan szeretnéd a(z) \"%s\"-t törölni?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected themes?"
+#~ msgstr "Biztosan törölni szeretnéd a kijelölt bejegyzéseket?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete this backup?"
+#~ msgstr "Biztosan szeretnéd törölni a hozzászólást?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to revert to this backup?"
+#~ msgstr "Biztosan törölni szeretnéd?"
+
+#~ msgid "Zip file content"
+#~ msgstr "Zip fájl tartalma"
+
+#~ msgid "XHTML markup validator"
+#~ msgstr "XMTML érvényesítő"
+
+#~ msgid "XHTML content is valid."
+#~ msgstr "XHTML tartalom érvényes."
+
+#~ msgid "There are XHTML markup errors."
+#~ msgstr "Vannak hibák az XHTML kódban."
+
+#, fuzzy
+#~ msgid "Help:"
+#~ msgstr "Súgó"
+
+#, fuzzy
+#~ msgid "Hide this notice"
+#~ msgstr "Ezt használd"
+
+#~ msgid "You have unsaved changes."
+#~ msgstr "Vannak nem mentett változásaid."
+
+#, fuzzy
+#~ msgid "Choose date"
+#~ msgstr "Válassz fájlt"
+
+#~ msgid "close"
+#~ msgstr "bezár"
+
+#~ msgid "now"
+#~ msgstr "most"
+
+#~ msgid "Temporarily activate enhanced uploader"
+#~ msgstr "Bővített fájlfeltöltő aktiválása"
+
+#~ msgid "Temporarily disable enhanced uploader"
+#~ msgstr "Bővített fájlfeltöltő kikapcsolása"
+
+#~ msgid "Limit exceeded."
+#~ msgstr "A határokat elértem."
+
+#~ msgid "File size exceeds allowed limit."
+#~ msgstr "A fájlméret eléri a megengedettet!"
+
+#~ msgid "Canceled."
+#~ msgstr "Visszavonva."
+
+#~ msgid "HTTP Error:"
+#~ msgstr "HTTP Hiba:"
+
+#~ msgid "Clean"
+#~ msgstr "Takarít"
+
+#~ msgid "File successfully uploaded."
+#~ msgstr "A fájlt sikeresen feltöltöttem."
+
+#~ msgid "No file in queue."
+#~ msgstr "Nincs fájl a várakozási sorban."
+
+#~ msgid "1 file in queue."
+#~ msgstr "Egy fájl a várakozási sorban."
+
+#~ msgid "%d files in queue."
+#~ msgstr "%d fájl a várakozási sorban."
+
+#~ msgid "Queue error:"
+#~ msgstr "Várakozási hiba:"
+
+#, fuzzy
+#~ msgid "Manage plugin"
+#~ msgstr "Blog témái"
+
+#, fuzzy
+#~ msgid "medium"
+#~ msgstr "Közepes:"
+
+#, fuzzy
+#~ msgid "small"
+#~ msgstr "Kicsi:"
+
+#, fuzzy
+#~ msgid "thumbnail"
+#~ msgstr "Előnézet:"
+
 #~ msgid "Unable to open directory."
 #~ msgstr "Nem lehet megnyitni a mappát."
 
@@ -4367,9 +4419,6 @@ msgstr ""
 #~ msgid "Cannot read file"
 #~ msgstr "Nem lehet a fájlt olvasni"
 
-#~ msgid "Directory does not exist"
-#~ msgstr "A mappa nem létezik"
-
 #~ msgid "Cannot read directory"
 #~ msgstr "Nem lehet a mappát olvasni"
 
@@ -4433,10 +4482,6 @@ msgstr ""
 
 #~ msgid "back"
 #~ msgstr "vissza"
-
-#, fuzzy
-#~ msgid "Apply filters"
-#~ msgstr "Fájlok hozzáadása"
 
 #~ msgid "Page(s)"
 #~ msgstr "Oldal"

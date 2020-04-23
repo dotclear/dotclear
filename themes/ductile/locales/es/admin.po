@@ -1,0 +1,168 @@
+msgid "Full"
+msgstr ""
+
+msgid "Home (first page)"
+msgstr ""
+
+msgid "Home (other pages)"
+msgstr ""
+
+msgid "Entries for a category"
+msgstr ""
+
+msgid "Entries for a tag"
+msgstr ""
+
+msgid "Search result entries"
+msgstr ""
+
+msgid "Month archive entries"
+msgstr ""
+
+msgid "Ductile primary"
+msgstr ""
+
+msgid "Ductile secondary"
+msgstr ""
+
+msgid "Times New Roman"
+msgstr ""
+
+msgid "Georgia"
+msgstr ""
+
+msgid "Garamond"
+msgstr ""
+
+msgid "Helvetica/Arial"
+msgstr ""
+
+msgid "Verdana"
+msgstr ""
+
+msgid "Trebuchet MS"
+msgstr ""
+
+msgid "Impact"
+msgstr ""
+
+msgid "Monospace"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "javascript (Adobe)"
+msgstr ""
+
+msgid "stylesheet (Google)"
+msgstr ""
+
+msgid "Theme configuration upgraded."
+msgstr ""
+
+msgid "Header"
+msgstr ""
+
+msgid "Hide blog description:"
+msgstr ""
+
+msgid "Logo URL:"
+msgstr ""
+
+#, php-format
+msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
+msgstr ""
+
+msgid "Stickers"
+msgstr ""
+
+msgid "Stickers (footer)"
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid "Entries list types and limits"
+msgstr ""
+
+msgid "Entries lists"
+msgstr ""
+
+msgid "Context"
+msgstr ""
+
+msgid "Entries list type"
+msgstr ""
+
+msgid "Miscellaneous options"
+msgstr ""
+
+msgid "Comment preview is not mandatory:"
+msgstr ""
+
+msgid "Presentation"
+msgstr ""
+
+msgid "General settings"
+msgstr ""
+
+msgid "Fonts"
+msgstr ""
+
+msgid "Main text"
+msgstr ""
+
+msgid "Main font:"
+msgstr ""
+
+msgid "Set to Default to use a webfont."
+msgstr ""
+
+msgid "Webfont family:"
+msgstr ""
+
+msgid "Webfont URL:"
+msgstr ""
+
+msgid "Webfont API:"
+msgstr ""
+
+msgid "Secondary text"
+msgstr ""
+
+msgid "Secondary font:"
+msgstr ""
+
+msgid "Titles"
+msgstr ""
+
+msgid "Blog title"
+msgstr ""
+
+msgid "In bold:"
+msgstr ""
+
+msgid "Font size (in em by default):"
+msgstr ""
+
+msgid "Color:"
+msgstr ""
+
+msgid "Post title"
+msgstr ""
+
+msgid "Titles without link"
+msgstr ""
+
+msgid "Inside posts links"
+msgstr ""
+
+msgid "Normal and visited links color:"
+msgstr ""
+
+msgid "Active, hover and focus links color:"
+msgstr ""
+
+msgid "Mobile specific settings"
+msgstr ""

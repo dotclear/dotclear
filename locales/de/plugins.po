@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:09+0200\n"
+"POT-Creation-Date: 2020-04-23 14:46+0200\n"
 "PO-Revision-Date: 2017-12-22 19:26+0100\n"
 "Last-Translator: Tin2 <sort300-blog@yahoo.com>\n"
 "Language-Team: \n"
@@ -189,6 +189,9 @@ msgstr "Lösche Müll-Kommentare älter als"
 msgid "days"
 msgstr "Tage"
 
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
 msgid "Set spam filters."
 msgstr "Spam Filter setzen."
 
@@ -337,6 +340,10 @@ msgstr "Filter-Einstellungen wurde erfolgreicht gespeichert."
 msgid "%s configuration"
 msgstr "%s Konfiguration"
 
+#, fuzzy
+msgid "Are you sure you want to delete all spams?"
+msgstr "Diese Seite wirklich löschen?"
+
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s Filter-Einstellungen"
@@ -383,9 +390,6 @@ msgstr "Müll-Kommentare per RSS-Feed abonnieren"
 msgid "Published comments RSS feed"
 msgstr "Veröffentlichte Kommentare per RSS-Feed abonnieren"
 
-msgid "Attachments"
-msgstr "Anlagen"
-
 #, php-format
 msgid "Attachments (%d)"
 msgstr "Anlagen (%d)"
@@ -405,35 +409,11 @@ msgstr "Blogroll"
 msgid "manage blogroll"
 msgstr "Blogroll verwalten"
 
-msgid "Links"
-msgstr "Links"
-
-msgid "Title (optional)"
-msgstr "Titel (optional)"
-
 msgid "All categories"
 msgstr "Alle Kategorien"
 
-msgid "Display on:"
-msgstr "Anzeige an:"
-
-msgid "All pages"
-msgstr "Alle Seiten"
-
-msgid "Home page only"
-msgstr "Nur auf Startseite"
-
-msgid "Except on home page"
-msgstr "Ausser auf der Startseite"
-
-msgid "Content only"
-msgstr "Nur Inhalt"
-
-msgid "CSS class:"
-msgstr "CSS Klasse: "
-
-msgid "Offline"
-msgstr "Offline"
+msgid "Links"
+msgstr "Links"
 
 msgid "You must provide a link title"
 msgstr "Du musst einen Linktitel eingeben"
@@ -467,6 +447,9 @@ msgstr "Bearbeite Link"
 
 msgid "XFN information"
 msgstr "XFN Information"
+
+msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
+msgstr ""
 
 msgid "_xfn_Me"
 msgstr "_xfn_Ich"
@@ -875,6 +858,85 @@ msgstr "Externes Bild"
 msgid "URL field cannot be empty."
 msgstr "URL Feld darf nicht leer sein."
 
+msgid "dcCKEditor"
+msgstr ""
+
+#, fuzzy
+msgid "Settings"
+msgstr "Einstellungs ID"
+
+#, fuzzy
+msgid "Plugin activation"
+msgstr "Aktivierung"
+
+msgid "Enable dcCKEditor plugin"
+msgstr ""
+
+msgid "Add alignment buttons"
+msgstr ""
+
+#, fuzzy
+msgid "Add lists buttons"
+msgstr "Füge Tags zu Einträgen hinzu"
+
+#, fuzzy
+msgid "Add text color button"
+msgstr "Schriftfarbe der Sidebar:"
+
+#, fuzzy
+msgid "Add background text color button"
+msgstr "Hintergrundfarbe:"
+
+msgid "Custom colors list:"
+msgstr ""
+
+#, fuzzy
+msgid "Add colors without # separated by a comma."
+msgstr "Trage Tags mit Komma getrennt ein"
+
+msgid "Leave empty to use the default palette:"
+msgstr ""
+
+msgid "Example of custom color list:"
+msgstr ""
+
+msgid "Colors per row in palette:"
+msgstr ""
+
+msgid "Leave empty to use default (6)"
+msgstr ""
+
+msgid "Add collapse button"
+msgstr ""
+
+#, fuzzy
+msgid "Add format selection"
+msgstr "Tags zu dieser Auswahl zufügen"
+
+msgid "Custom formats"
+msgstr ""
+
+msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
+msgstr ""
+
+msgid "Add table button"
+msgstr ""
+
+msgid "Add clipboard buttons"
+msgstr ""
+
+msgid "Copy, Paste, Paste Text, Paste from Word"
+msgstr ""
+
+msgid "Add undo/redo buttons"
+msgstr ""
+
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr ""
+
+msgid "Save configuration"
+msgstr "Konfiguration speichern"
+
 msgid "visual"
 msgstr "visuell"
 
@@ -952,6 +1014,13 @@ msgstr "Sprache?"
 
 msgid "Remove text formating"
 msgstr "Formatierung entfernen"
+
+#, fuzzy
+msgid "dcLegacyEditor"
+msgstr "Dotclear legacy editor"
+
+msgid "Enable dcLegacyEditor plugin"
+msgstr ""
 
 msgid "Checks trackback source for a link to the post"
 msgstr "Überprüft die Trackback-Quelle für einen Link zu den Beitrag."
@@ -1425,6 +1494,13 @@ msgstr "Es könnte nützlich sein, das aktuelle Theme zu sichern, bevor Änderun
 msgid "Maintenance plugin has been successfully configured."
 msgstr "Wartungs-Plugin wurde erfolgreich konfiguriert."
 
+#, fuzzy
+msgid "System settings have been saved."
+msgstr "Einstellungen wurden erfolgreich aktualisiert."
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
 msgid "Never"
 msgstr "Nie"
 
@@ -1476,6 +1552,25 @@ msgstr "Zeitintervall für alle Aufträge:"
 
 msgid "Use one recall time per task"
 msgstr "Zeitintervall für jeden Auftrag festlegen"
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+#, fuzzy
+msgid "Also apply these settings to all blogs"
+msgstr "Globale IPs (für alle Blogs verwendet)"
 
 msgid "New page"
 msgstr "Neue Seite"
@@ -1617,9 +1712,6 @@ msgstr ""
 msgid "Test ping services"
 msgstr "Teste den Ping-Dienst"
 
-msgid "Check all"
-msgstr "Alle überprüfen"
-
 msgid "Simple menu"
 msgstr "Einfach Menü"
 
@@ -1669,6 +1761,10 @@ msgstr "Konfiguration wurden erfolgreich aktualisiert."
 
 msgid "Label"
 msgstr "Wortlaut"
+
+#, fuzzy
+msgid "Home page"
+msgstr "Nur auf Startseite"
 
 msgid "Recent posts"
 msgstr "Kürzliche Einträge"
@@ -1763,9 +1859,6 @@ msgstr "Füge ein"
 msgid "Enable simple menu for this blog"
 msgstr "Einfaches Menu anwenden"
 
-msgid "Save configuration"
-msgstr "Konfiguration speichern"
-
 msgid "Add an item"
 msgstr "Ein Item einfügen"
 
@@ -1793,6 +1886,9 @@ msgstr "Die Einträge dieses Tags als Atom-Feed abonnieren"
 msgid "Tag"
 msgstr "Tag"
 
+msgid "Limit (empty means no limit):"
+msgstr "Limit (Feld leer lassen für kein Limit)"
+
 msgid "Tag name"
 msgstr "Name des Tags"
 
@@ -1804,9 +1900,6 @@ msgstr ""
 
 msgid "Oldest entry"
 msgstr ""
-
-msgid "Limit (empty means no limit):"
-msgstr "Limit (Feld leer lassen für kein Limit)"
 
 msgid "Link to all tags:"
 msgstr "Link zu allen Tags"
@@ -1821,9 +1914,6 @@ msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Tag wurde erfolgreich zu ausgewählten Einträgen zugefügt"
 msgstr[1] "Tags wurden erfolgreich zu ausgewählten Einträgen zugefügt"
-
-msgid "Add tags to this selection"
-msgstr "Tags zu dieser Auswahl zufügen"
 
 msgid "Are you sure you want to remove this tag?"
 msgstr "Bist du sicher, diesen Tag zu entfernen?"
@@ -1848,6 +1938,9 @@ msgstr "Eintrag"
 
 msgid "entries"
 msgstr "Einträge"
+
+msgid "Add tags to this selection"
+msgstr "Tags zu dieser Auswahl zufügen"
 
 msgid "Tags to add:"
 msgstr "Tags zum Zufügen:"
@@ -2059,11 +2152,11 @@ msgstr "Text"
 msgid "Text:"
 msgstr "Text:"
 
-msgid "Last entries"
-msgstr "Neuste Einträge"
-
 msgid "Uncategorized"
 msgstr "Nicht kategorisiert"
+
+msgid "Last entries"
+msgstr "Neuste Einträge"
 
 msgid "Tag:"
 msgstr "Tag:"
@@ -2087,6 +2180,30 @@ msgstr "Feed für Einträge"
 
 msgid "Comments feed"
 msgstr "Feed für Kommentare"
+
+msgid "Title (optional)"
+msgstr "Titel (optional)"
+
+msgid "Display on:"
+msgstr "Anzeige an:"
+
+msgid "All pages"
+msgstr "Alle Seiten"
+
+msgid "Except on home page"
+msgstr "Ausser auf der Startseite"
+
+msgid "Home page only"
+msgstr "Nur auf Startseite"
+
+msgid "Content only"
+msgstr "Nur Inhalt"
+
+msgid "CSS class:"
+msgstr "CSS Klasse: "
+
+msgid "Offline"
+msgstr "Offline"
 
 msgid "navigation"
 msgstr "Navigation"
@@ -2180,6 +2297,12 @@ msgstr "Widget entfernen"
 
 msgid "Drag widgets here to remove."
 msgstr "Widgets hierhin ziehen zum Löschen."
+
+#~ msgid "Attachments"
+#~ msgstr "Anlagen"
+
+#~ msgid "Check all"
+#~ msgstr "Alle überprüfen"
 
 #~ msgid "Page top"
 #~ msgstr "Seitenkopf"
@@ -2293,9 +2416,6 @@ msgstr "Widgets hierhin ziehen zum Löschen."
 
 #~ msgid "Tags:"
 #~ msgstr "Tags:"
-
-#~ msgid "Add tags to entries"
-#~ msgstr "Füge Tags zu Einträgen hinzu"
 
 #~ msgid "Edit tag"
 #~ msgstr "Tag bearbeiten"

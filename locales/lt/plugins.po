@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:10+0200\n"
+"POT-Creation-Date: 2020-04-23 14:54+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -203,6 +203,9 @@ msgstr "Trinti šiukšlėmis pažymųtus komentarus senesnius nei"
 msgid "days"
 msgstr "dienų"
 
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
 #, fuzzy
 msgid "Set spam filters."
 msgstr "Aksimet spamo filtras"
@@ -355,6 +358,10 @@ msgstr "Filtrų nustatymai sėkmingai išsaugoti."
 msgid "%s configuration"
 msgstr "%s nustatymai"
 
+#, fuzzy
+msgid "Are you sure you want to delete all spams?"
+msgstr "Ar tikrai norite ištrinti šį puslapį?"
+
 #, fuzzy, php-format
 msgid "%s filter configuration"
 msgstr "Filtro nustatymai"
@@ -403,9 +410,6 @@ msgstr "Šlamšto komentarų RSS "
 msgid "Published comments RSS feed"
 msgstr "Publikuotų komentarų RSS"
 
-msgid "Attachments"
-msgstr ""
-
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -426,38 +430,11 @@ msgstr "Blogroll"
 msgid "manage blogroll"
 msgstr "tvarkyti Bogroll"
 
-msgid "Links"
-msgstr "Nuorodos"
-
-msgid "Title (optional)"
-msgstr ""
-
 msgid "All categories"
 msgstr "Visos kategorijos"
 
-msgid "Display on:"
-msgstr ""
-
-#, fuzzy
-msgid "All pages"
-msgstr "Visos žymos"
-
-msgid "Home page only"
-msgstr "Tik namų puslapis"
-
-msgid "Except on home page"
-msgstr ""
-
-#, fuzzy
-msgid "Content only"
-msgstr "Turinio filtrai"
-
-#, fuzzy
-msgid "CSS class:"
-msgstr "CSS failai"
-
-msgid "Offline"
-msgstr ""
+msgid "Links"
+msgstr "Nuorodos"
 
 msgid "You must provide a link title"
 msgstr "Turite įrašyti nuorodos pavadinimą"
@@ -492,6 +469,9 @@ msgstr "Taisyti nuorodą"
 #, fuzzy
 msgid "XFN information"
 msgstr "Informacija"
+
+msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
+msgstr ""
 
 msgid "_xfn_Me"
 msgstr "Aš"
@@ -907,6 +887,87 @@ msgstr "Externes Medium"
 msgid "URL field cannot be empty."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
+#, fuzzy
+msgid "Settings"
+msgstr "Nustatymo pavadinimas"
+
+#, fuzzy
+msgid "Plugin activation"
+msgstr "Aktyvus"
+
+msgid "Enable dcCKEditor plugin"
+msgstr ""
+
+#, fuzzy
+msgid "Add alignment buttons"
+msgstr "Ausrichtung des Mediums"
+
+#, fuzzy
+msgid "Add lists buttons"
+msgstr "Pridėti žymas prie įrašų"
+
+#, fuzzy
+msgid "Add text color button"
+msgstr "Šoninės juostos teksto spalva:"
+
+#, fuzzy
+msgid "Add background text color button"
+msgstr "Fono spalva:"
+
+msgid "Custom colors list:"
+msgstr ""
+
+#, fuzzy
+msgid "Add colors without # separated by a comma."
+msgstr "Įveslite žymas atskirtas kableliais"
+
+msgid "Leave empty to use the default palette:"
+msgstr ""
+
+msgid "Example of custom color list:"
+msgstr ""
+
+msgid "Colors per row in palette:"
+msgstr ""
+
+msgid "Leave empty to use default (6)"
+msgstr ""
+
+msgid "Add collapse button"
+msgstr ""
+
+#, fuzzy
+msgid "Add format selection"
+msgstr "Pridėti %s? prie šio įrašo"
+
+msgid "Custom formats"
+msgstr ""
+
+msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
+msgstr ""
+
+msgid "Add table button"
+msgstr ""
+
+msgid "Add clipboard buttons"
+msgstr ""
+
+msgid "Copy, Paste, Paste Text, Paste from Word"
+msgstr ""
+
+msgid "Add undo/redo buttons"
+msgstr ""
+
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr ""
+
+#, fuzzy
+msgid "Save configuration"
+msgstr "%s nustatymai"
+
 msgid "visual"
 msgstr ""
 
@@ -993,6 +1054,12 @@ msgstr "Kalba"
 #, fuzzy
 msgid "Remove text formating"
 msgstr "Naikinti žymėjimą"
+
+msgid "dcLegacyEditor"
+msgstr ""
+
+msgid "Enable dcLegacyEditor plugin"
+msgstr ""
 
 msgid "Checks trackback source for a link to the post"
 msgstr "Patikrina trackback šaltinio nuorodą į įrašą."
@@ -1490,6 +1557,13 @@ msgstr ""
 msgid "Maintenance plugin has been successfully configured."
 msgstr "Kategorija sėkmingai sukurta."
 
+#, fuzzy
+msgid "System settings have been saved."
+msgstr "Nustatymi sėkmingai atnaujinti."
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
 msgid "Never"
 msgstr ""
 
@@ -1543,6 +1617,24 @@ msgid "Recall time for all tasks:"
 msgstr ""
 
 msgid "Use one recall time per task"
+msgstr ""
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
 msgstr ""
 
 msgid "New page"
@@ -1697,9 +1789,6 @@ msgstr ""
 msgid "Test ping services"
 msgstr "Testuoti ping servisus"
 
-msgid "Check all"
-msgstr "Patikrinti visus"
-
 msgid "Simple menu"
 msgstr ""
 
@@ -1756,6 +1845,10 @@ msgstr "Nustatymai sėkmingai atnaujinti"
 
 msgid "Label"
 msgstr ""
+
+#, fuzzy
+msgid "Home page"
+msgstr "Tik namų puslapis"
 
 msgid "Recent posts"
 msgstr ""
@@ -1861,10 +1954,6 @@ msgid "Enable simple menu for this blog"
 msgstr ""
 
 #, fuzzy
-msgid "Save configuration"
-msgstr "%s nustatymai"
-
-#, fuzzy
 msgid "Add an item"
 msgstr "Pridėti naują nuorodą"
 
@@ -1895,6 +1984,9 @@ msgstr "Šią žymą turinčių įrašų Atom feed"
 msgid "Tag"
 msgstr "Žyma"
 
+msgid "Limit (empty means no limit):"
+msgstr "Riboti (jei tuščia - apribojimo nėra)"
+
 msgid "Tag name"
 msgstr "Žymos pavadinimas"
 
@@ -1906,9 +1998,6 @@ msgstr ""
 
 msgid "Oldest entry"
 msgstr ""
-
-msgid "Limit (empty means no limit):"
-msgstr "Riboti (jei tuščia - apribojimo nėra)"
 
 msgid "Link to all tags:"
 msgstr "Nuoroda į visas žymas:"
@@ -1924,10 +2013,6 @@ msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Žyma sėkmingai pašalinta"
 msgstr[1] "Žyma sėkmingai pašalinta"
-
-#, fuzzy
-msgid "Add tags to this selection"
-msgstr "Pridėti %s? prie šio įrašo"
 
 #, fuzzy
 msgid "Are you sure you want to remove this tag?"
@@ -1954,6 +2039,10 @@ msgstr "įrašas"
 
 msgid "entries"
 msgstr "įrašai"
+
+#, fuzzy
+msgid "Add tags to this selection"
+msgstr "Pridėti %s? prie šio įrašo"
 
 msgid "Tags to add:"
 msgstr "Pridedamos žymos:"
@@ -2175,11 +2264,11 @@ msgstr "Tekstas"
 msgid "Text:"
 msgstr "Tekstas:"
 
-msgid "Last entries"
-msgstr "Paskutiniai įrašai"
-
 msgid "Uncategorized"
 msgstr "Nerūšiuota"
+
+msgid "Last entries"
+msgstr "Paskutiniai įrašai"
 
 msgid "Tag:"
 msgstr "Žyma:"
@@ -2203,6 +2292,33 @@ msgstr "Įrašų rss"
 
 msgid "Comments feed"
 msgstr "Komentarų rss"
+
+msgid "Title (optional)"
+msgstr ""
+
+msgid "Display on:"
+msgstr ""
+
+#, fuzzy
+msgid "All pages"
+msgstr "Visos žymos"
+
+msgid "Except on home page"
+msgstr ""
+
+msgid "Home page only"
+msgstr "Tik namų puslapis"
+
+#, fuzzy
+msgid "Content only"
+msgstr "Turinio filtrai"
+
+#, fuzzy
+msgid "CSS class:"
+msgstr "CSS failai"
+
+msgid "Offline"
+msgstr ""
 
 msgid "navigation"
 msgstr "navigacija"
@@ -2305,6 +2421,9 @@ msgstr "Pašalinti valdiklį"
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
+#~ msgid "Check all"
+#~ msgstr "Patikrinti visus"
 
 #~ msgid "Page top"
 #~ msgstr "Puslapio viršus"
@@ -2423,9 +2542,6 @@ msgstr ""
 #~ msgid "Tags:"
 #~ msgstr "Žymos:"
 
-#~ msgid "Add tags to entries"
-#~ msgstr "Pridėti žymas prie įrašų"
-
 #~ msgid "Edit tag"
 #~ msgstr "Redaguoti žymą"
 
@@ -2458,9 +2574,6 @@ msgstr ""
 
 #~ msgid "Page URL:"
 #~ msgstr "URL der Seite:"
-
-#~ msgid "Media alignment"
-#~ msgstr "Ausrichtung des Mediums"
 
 #~ msgid "Media title"
 #~ msgstr "Titel des Mediums"

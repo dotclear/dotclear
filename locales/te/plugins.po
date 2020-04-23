@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:11+0200\n"
+"POT-Creation-Date: 2020-04-23 14:59+0200\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -198,6 +198,9 @@ msgstr ""
 msgid "days"
 msgstr "రోజులు"
 
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
 msgid "Set spam filters."
 msgstr ""
 
@@ -347,6 +350,10 @@ msgstr ""
 msgid "%s configuration"
 msgstr ""
 
+#, fuzzy
+msgid "Are you sure you want to delete all spams?"
+msgstr "ఈ పేజీని మీరు నిజంగానే తొలగించాలనుకుంటున్నారా?"
+
 #, php-format
 msgid "%s filter configuration"
 msgstr ""
@@ -394,9 +401,6 @@ msgstr ""
 msgid "Published comments RSS feed"
 msgstr ""
 
-msgid "Attachments"
-msgstr ""
-
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -417,36 +421,11 @@ msgstr "బ్లాగ్మిత్రులు"
 msgid "manage blogroll"
 msgstr "బ్లాగ్మిత్రులను సంభాళించండి"
 
-msgid "Links"
-msgstr "లంకెలు"
-
-msgid "Title (optional)"
-msgstr ""
-
 msgid "All categories"
 msgstr "అన్ని వర్గాలు"
 
-msgid "Display on:"
-msgstr ""
-
-#, fuzzy
-msgid "All pages"
-msgstr "అన్ని ట్యాగులూ"
-
-msgid "Home page only"
-msgstr ""
-
-msgid "Except on home page"
-msgstr ""
-
-msgid "Content only"
-msgstr ""
-
-msgid "CSS class:"
-msgstr ""
-
-msgid "Offline"
-msgstr ""
+msgid "Links"
+msgstr "లంకెలు"
 
 msgid "You must provide a link title"
 msgstr ""
@@ -482,6 +461,9 @@ msgstr ""
 #, fuzzy
 msgid "XFN information"
 msgstr "సమాచారం"
+
+msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
+msgstr ""
 
 msgid "_xfn_Me"
 msgstr ""
@@ -891,6 +873,82 @@ msgstr ""
 msgid "URL field cannot be empty."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
+#, fuzzy
+msgid "Settings"
+msgstr "అమరిక పేరు"
+
+#, fuzzy
+msgid "Plugin activation"
+msgstr "పేజీ స్థానం"
+
+msgid "Enable dcCKEditor plugin"
+msgstr ""
+
+msgid "Add alignment buttons"
+msgstr ""
+
+msgid "Add lists buttons"
+msgstr ""
+
+#, fuzzy
+msgid "Add text color button"
+msgstr "ప్రక్కపట్టీ పాఠ్యపు రంగు:"
+
+msgid "Add background text color button"
+msgstr ""
+
+msgid "Custom colors list:"
+msgstr ""
+
+msgid "Add colors without # separated by a comma."
+msgstr ""
+
+msgid "Leave empty to use the default palette:"
+msgstr ""
+
+msgid "Example of custom color list:"
+msgstr ""
+
+msgid "Colors per row in palette:"
+msgstr ""
+
+msgid "Leave empty to use default (6)"
+msgstr ""
+
+msgid "Add collapse button"
+msgstr ""
+
+#, fuzzy
+msgid "Add format selection"
+msgstr "టపాలకు ట్యాగులను చేర్చండి"
+
+msgid "Custom formats"
+msgstr ""
+
+msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
+msgstr ""
+
+msgid "Add table button"
+msgstr ""
+
+msgid "Add clipboard buttons"
+msgstr ""
+
+msgid "Copy, Paste, Paste Text, Paste from Word"
+msgstr ""
+
+msgid "Add undo/redo buttons"
+msgstr ""
+
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr ""
+
+msgid "Save configuration"
+msgstr ""
+
 msgid "visual"
 msgstr ""
 
@@ -970,6 +1028,12 @@ msgstr "భాష"
 #, fuzzy
 msgid "Remove text formating"
 msgstr "ట్యాగులను తొలగించండి"
+
+msgid "dcLegacyEditor"
+msgstr ""
+
+msgid "Enable dcLegacyEditor plugin"
+msgstr ""
 
 msgid "Checks trackback source for a link to the post"
 msgstr ""
@@ -1451,6 +1515,12 @@ msgstr ""
 msgid "Maintenance plugin has been successfully configured."
 msgstr "పేజీని విజయవంతంగా సృష్టించాం."
 
+msgid "System settings have been saved."
+msgstr ""
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
 msgid "Never"
 msgstr ""
 
@@ -1502,6 +1572,24 @@ msgid "Recall time for all tasks:"
 msgstr ""
 
 msgid "Use one recall time per task"
+msgstr ""
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
 msgstr ""
 
 msgid "New page"
@@ -1655,9 +1743,6 @@ msgstr ""
 msgid "Test ping services"
 msgstr ""
 
-msgid "Check all"
-msgstr ""
-
 msgid "Simple menu"
 msgstr ""
 
@@ -1711,6 +1796,10 @@ msgstr "పేజీని విజయవంతంగా తాజాకరి�
 
 msgid "Label"
 msgstr ""
+
+#, fuzzy
+msgid "Home page"
+msgstr "పేజీ లేదు"
 
 msgid "Recent posts"
 msgstr ""
@@ -1814,9 +1903,6 @@ msgstr ""
 msgid "Enable simple menu for this blog"
 msgstr ""
 
-msgid "Save configuration"
-msgstr ""
-
 msgid "Add an item"
 msgstr ""
 
@@ -1846,6 +1932,9 @@ msgstr ""
 msgid "Tag"
 msgstr "ట్యాగు"
 
+msgid "Limit (empty means no limit):"
+msgstr ""
+
 msgid "Tag name"
 msgstr "ట్యాగు పేరు"
 
@@ -1856,9 +1945,6 @@ msgid "Newest entry"
 msgstr ""
 
 msgid "Oldest entry"
-msgstr ""
-
-msgid "Limit (empty means no limit):"
 msgstr ""
 
 msgid "Link to all tags:"
@@ -1877,10 +1963,6 @@ msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "పేజీని విజయవంతంగా తాజాకరించాం."
 msgstr[1] "పేజీని విజయవంతంగా తాజాకరించాం."
-
-#, fuzzy
-msgid "Add tags to this selection"
-msgstr "టపాలకు ట్యాగులను చేర్చండి"
 
 #, fuzzy
 msgid "Are you sure you want to remove this tag?"
@@ -1908,6 +1990,10 @@ msgstr "మధ్య"
 
 msgid "entries"
 msgstr "టపాలు"
+
+#, fuzzy
+msgid "Add tags to this selection"
+msgstr "టపాలకు ట్యాగులను చేర్చండి"
 
 msgid "Tags to add:"
 msgstr "చేర్చాల్సిన ట్యాగులు:"
@@ -2126,11 +2212,11 @@ msgstr "పాఠ్యం"
 msgid "Text:"
 msgstr "పాఠ్యం:"
 
-msgid "Last entries"
-msgstr "ఇటీవలి టపాలు"
-
 msgid "Uncategorized"
 msgstr "అవర్గీకృతం"
+
+msgid "Last entries"
+msgstr "ఇటీవలి టపాలు"
 
 msgid "Tag:"
 msgstr ""
@@ -2154,6 +2240,31 @@ msgstr "టపాల ఫీడు"
 
 msgid "Comments feed"
 msgstr "వ్యాఖ్యల ఫీడు"
+
+msgid "Title (optional)"
+msgstr ""
+
+msgid "Display on:"
+msgstr ""
+
+#, fuzzy
+msgid "All pages"
+msgstr "అన్ని ట్యాగులూ"
+
+msgid "Except on home page"
+msgstr ""
+
+msgid "Home page only"
+msgstr ""
+
+msgid "Content only"
+msgstr ""
+
+msgid "CSS class:"
+msgstr ""
+
+msgid "Offline"
+msgstr ""
 
 msgid "navigation"
 msgstr ""

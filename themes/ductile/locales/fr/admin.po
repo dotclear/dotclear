@@ -1,143 +1,23 @@
-msgid "Theme configuration upgraded."
-msgstr "La configuration du thème a été mise à jour."
-
-msgid "Content"
-msgstr "Contenu"
-
-msgid "Header"
-msgstr "Entête"
-
-msgid "Hide blog description:"
-msgstr "Cacher la description du blog :"
-
-msgid "Logo URL:"
-msgstr "URL du logo :"
-
-msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
-msgstr "Pour configurer le menu allez à la <a href=\"%s\">page d'administration de Menu Simple</a>."
-
-msgid "Stickers"
-msgstr "Étiquettes"
-
-msgid "Stickers (footer)"
-msgstr "Étiquettes (pied de page)"
-
-msgid "Entries list types and limits"
-msgstr "Types et limites des listes de billets"
-
-msgid "Entries lists"
-msgstr "Listes de billets"
-
-msgid "Context"
-msgstr "Contexte"
-
-msgid "Entries list type"
-msgstr "Type de liste de billets"
-
-msgid "Number of entries"
-msgstr "Nombre de billets"
+msgid "Full"
+msgstr "Complet"
 
 msgid "Home (first page)"
-msgstr "Page d'accueil (première page)"
+msgstr "Page d'accueil (premire page)"
 
 msgid "Home (other pages)"
 msgstr "Page d'accueil (pages suivantes)"
 
 msgid "Entries for a category"
-msgstr "Billets d'une catégorie"
+msgstr "Billets d'une catgorie"
 
 msgid "Entries for a tag"
-msgstr "Billets pour un mot-clé"
+msgstr "Billets pour un mot-cl"
 
 msgid "Search result entries"
-msgstr "Billets résultant d'une recherche"
+msgstr "Billets rsultant d'une recherche"
 
 msgid "Month archive entries"
 msgstr "Billets d'une archive mensuelle"
-
-msgid "Title"
-msgstr "Titre"
-
-msgid "Short"
-msgstr "Court"
-
-msgid "Full"
-msgstr "Complet"
-
-msgid "Miscellaneous options"
-msgstr "Options diverses"
-
-msgid "Comment preview is not mandatory:"
-msgstr "Prévisualisation du commentaire non obligatoire :"
-
-msgid "Presentation"
-msgstr "Présentation"
-
-msgid "General settings"
-msgstr "Paramètres généraux"
-
-msgid "Mobile specific settings"
-msgstr "Paramètres spécifiques pour les mobiles"
-
-msgid "Blog title"
-msgstr "Titre du blog"
-
-msgid "In bold:"
-msgstr "En gras :"
-
-msgid "Font size (in em by default):"
-msgstr "Taille du texte courant (en em par défaut) :"
-
-msgid "Color:"
-msgstr "Couleur :"
-
-msgid "Post title"
-msgstr "Titre des billets"
-
-msgid "Titles without link"
-msgstr "Titres sans lien"
-
-msgid "Inside posts links"
-msgstr "Liens dans les billets"
-
-msgid "Normal and visited links color:"
-msgstr "Couleur des liens normaux et visités :"
-
-msgid "Active, hover and focus links color:"
-msgstr "Couleur des liens actifs, survolés et ayant le focus :"
-
-msgid "Fonts"
-msgstr "Polices de caractère"
-
-msgid "Main:"
-msgstr "Principale :"
-
-msgid "Secondary:"
-msgstr "Secondaire :"
-
-msgid "none"
-msgstr "aucune"
-
-msgid "javascript (Adobe)"
-msgstr "javascript (Adobe)"
-
-msgid "stylesheet (Google)"
-msgstr "feuille de style (Google)"
-
-msgid "Set main font to Default to use webfont below."
-msgstr "Mettre la police de caractère principale à Défaut pour utiliser la fonte web ci-dessous."
-
-msgid "Set secondary font to Default to use webfont below."
-msgstr "Mettre la police de caractère secondaire à Défaut pour utiliser la fonte web ci-dessous."
-
-msgid "Webfont family:"
-msgstr "Famille"
-
-msgid "Webfont URL:"
-msgstr "URL de la fonte web"
-
-msgid "Webfont API:"
-msgstr "Type d'API"
 
 msgid "Ductile primary"
 msgstr "Principale de Ductile"
@@ -169,5 +49,126 @@ msgstr "Impact"
 msgid "Monospace"
 msgstr "Monospace"
 
-msgid "ratio %.1f"
-msgstr "ratio %.1f"
+msgid "none"
+msgstr "aucune"
+
+msgid "javascript (Adobe)"
+msgstr "javascript (Adobe)"
+
+msgid "stylesheet (Google)"
+msgstr "feuille de style (Google)"
+
+msgid "Theme configuration upgraded."
+msgstr "La configuration du thme a t mise  jour."
+
+msgid "Header"
+msgstr "Entte"
+
+msgid "Hide blog description:"
+msgstr "Cacher la description du blog :"
+
+msgid "Logo URL:"
+msgstr "URL du logo :"
+
+#, php-format
+msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
+msgstr "Pour configurer le menu allez  la <a href=\"%s\">page d'administration de Menu Simple</a>."
+
+msgid "Stickers"
+msgstr "tiquettes"
+
+msgid "Stickers (footer)"
+msgstr "tiquettes (pied de page)"
+
+msgid "Image"
+msgstr ""
+
+msgid "Entries list types and limits"
+msgstr "Types et limites des listes de billets"
+
+msgid "Entries lists"
+msgstr "Listes de billets"
+
+msgid "Context"
+msgstr "Contexte"
+
+msgid "Entries list type"
+msgstr "Type de liste de billets"
+
+msgid "Miscellaneous options"
+msgstr "Options diverses"
+
+msgid "Comment preview is not mandatory:"
+msgstr "Prvisualisation du commentaire non obligatoire :"
+
+msgid "Presentation"
+msgstr "Prsentation"
+
+msgid "General settings"
+msgstr "Paramtres gnraux"
+
+msgid "Fonts"
+msgstr "Polices de caractre"
+
+#, fuzzy
+msgid "Main text"
+msgstr "Contexte"
+
+#, fuzzy
+msgid "Main font:"
+msgstr "Principale :"
+
+#, fuzzy
+msgid "Set to Default to use a webfont."
+msgstr "Mettre la police de caractre principale  Dfaut pour utiliser la fonte web ci-dessous."
+
+msgid "Webfont family:"
+msgstr "Famille"
+
+msgid "Webfont URL:"
+msgstr "URL de la fonte web"
+
+msgid "Webfont API:"
+msgstr "Type d'API"
+
+#, fuzzy
+msgid "Secondary text"
+msgstr "Secondaire :"
+
+#, fuzzy
+msgid "Secondary font:"
+msgstr "Secondaire :"
+
+#, fuzzy
+msgid "Titles"
+msgstr "Titre"
+
+msgid "Blog title"
+msgstr "Titre du blog"
+
+msgid "In bold:"
+msgstr "En gras :"
+
+msgid "Font size (in em by default):"
+msgstr "Taille du texte courant (en em par dfaut) :"
+
+msgid "Color:"
+msgstr "Couleur :"
+
+msgid "Post title"
+msgstr "Titre des billets"
+
+msgid "Titles without link"
+msgstr "Titres sans lien"
+
+msgid "Inside posts links"
+msgstr "Liens dans les billets"
+
+msgid "Normal and visited links color:"
+msgstr "Couleur des liens normaux et visits :"
+
+msgid "Active, hover and focus links color:"
+msgstr "Couleur des liens actifs, survols et ayant le focus :"
+
+msgid "Mobile specific settings"
+msgstr "Paramtres spcifiques pour les mobiles"

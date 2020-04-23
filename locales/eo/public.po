@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-13 05:22+0200\n"
+"POT-Creation-Date: 2020-04-23 14:49+0200\n"
 "PO-Revision-Date: 2016-07-18 15:46+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -15,6 +15,219 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.8\n"
+
+msgid "%d attachments"
+msgstr "%d aldonaĵoj"
+
+msgid "%d comments"
+msgstr "%d komentoj"
+
+msgid "%d trackbacks"
+msgstr "%d retroligoj"
+
+msgid "%s reactions"
+msgstr ""
+
+# Not found strings
+#, fuzzy
+msgid "Access to content"
+msgstr "Al kontento"
+
+msgid "Add a comment"
+msgstr "Aldoni komenton"
+
+msgid "Add ping"
+msgstr ""
+
+msgid "Additionnal style directives"
+msgstr ""
+
+msgid "All keywords"
+msgstr "Ĉiuj ŝlosilvortoj"
+
+msgid "Archives"
+msgstr "Arkivoj"
+
+msgid "Attachments"
+msgstr "Aldonaĵoj"
+
+msgid "Best of me"
+msgstr ""
+
+msgid "Blog info"
+msgstr ""
+
+#, fuzzy
+msgid "Blog menu"
+msgstr "Al menuo"
+
+msgid "By"
+msgstr "Far"
+
+msgid "By category"
+msgstr ""
+
+msgid "By date"
+msgstr ""
+
+msgid "By tag"
+msgstr ""
+
+msgid "Categories"
+msgstr "Kategorioj"
+
+msgid "Comment"
+msgstr "Komento"
+
+msgid "Comments"
+msgstr "Komentoj"
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr ""
+
+msgid "Comments feed"
+msgstr "Ĉeno de la komentoj"
+
+msgid "Continue reading"
+msgstr "Legi plu"
+
+msgid "Document not found"
+msgstr "Dokumento ne trovebla"
+
+msgid "Email address"
+msgstr "Retpoŝtadreso"
+
+msgid "Email address is not valid"
+msgstr ""
+
+msgid "Entries feed"
+msgstr "Ĉeno de la biletoj"
+
+#, fuzzy
+msgid "Etra menu"
+msgstr "Al menuo"
+
+msgid "Explore archives"
+msgstr ""
+
+#, fuzzy
+msgid "Extra menu"
+msgstr "Al menuo"
+
+msgid "From"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "Go to homepage"
+msgstr ""
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr ""
+
+msgid "Home"
+msgstr "Hejmpaĝo"
+
+msgid "In"
+msgstr ""
+
+msgid "Languages"
+msgstr "Lingvoj"
+
+msgid "Links"
+msgstr "Ligoj"
+
+msgid "Name or nickname"
+msgstr "Nomo"
+
+#, fuzzy
+msgid "Next entry:"
+msgstr "antaŭaj biletoj"
+
+msgid "On"
+msgstr "Je la"
+
+msgid "Page top"
+msgstr ""
+
+msgid "Password needed"
+msgstr "Pasvorto necesa"
+
+msgid "Password:"
+msgstr "Pasvorto:"
+
+msgid "Permalink"
+msgstr "Permanenta ligilo"
+
+msgid "Powered by %s"
+msgstr ""
+
+#, fuzzy
+msgid "Preview"
+msgstr "previdi"
+
+#, fuzzy
+msgid "Previous entry:"
+msgstr "malantaŭaj biletoj"
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr ""
+
+msgid "Read"
+msgstr "Legi"
+
+msgid "Remember me on this blog"
+msgstr "Memoru min en tiu blogo"
+
+msgid "Required field"
+msgstr ""
+
+msgid "Search"
+msgstr "Serĉi"
+
+msgid "Send"
+msgstr ""
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr ""
+
+msgid "Subcategories"
+msgstr "Subkategorioj"
+
+msgid "Subscribe"
+msgstr "Aboni"
+
+msgid "Subscribe to"
+msgstr ""
+
+msgid "Suggestions:"
+msgstr ""
+
+#, fuzzy
+msgid "The document you are looking for does not exist."
+msgstr "La dokumento kiun vi serĉas ne ekzistas."
+
+msgid "The list of recents posts is available"
+msgstr ""
+
+msgid "They posted on the same topic"
+msgstr ""
+
+msgid "This blog's comments Atom feed"
+msgstr "La Atom-a ĉeno de tiu blogo komentoj"
+
+msgid "This category's comments Atom feed"
+msgstr ""
+
+msgid "This category's entries Atom feed"
+msgstr ""
+
+msgid "This post's comments Atom feed"
+msgstr ""
+
+msgid "This post's comments feed"
+msgstr ""
 
 # Not found strings
 msgid "To content"
@@ -26,129 +239,32 @@ msgstr "Al menuo"
 msgid "To search"
 msgstr "Al serĉilo"
 
-msgid "By"
-msgstr "Far"
-
-msgid "by"
-msgstr "far"
-
-msgid "on"
-msgstr "je la"
-
-msgid "On"
-msgstr "Je la"
-
-msgid "Continue reading"
-msgstr "Legi plu"
-
-#, fuzzy
-msgid "no comments"
-msgstr "neniu komento"
-
-msgid "one comment"
-msgstr "neniu komento"
-
-msgid "%d comments"
-msgstr "%d komentoj"
-
-msgid "no trackbacks"
-msgstr "neniu retroligo"
-
-msgid "one trackback"
-msgstr "unu retroligo"
-
-msgid "%d trackbacks"
-msgstr "%d retroligoj"
-
-msgid "no attachments"
-msgstr "neniu aldonaĵo"
-
-msgid "one attachment"
-msgstr "unu aldonaĵo"
-
-msgid "%d attachments"
-msgstr "%d aldonaĵoj"
-
-msgid "previous entries"
-msgstr "malantaŭaj biletoj"
-
-msgid "page"
-msgstr "paĝo"
-
-msgid "of"
-msgstr "de"
-
-msgid "next entries"
-msgstr "antaŭaj biletoj"
-
-msgid "Search"
-msgstr "Serĉi"
-
-msgid "Your search for <em>%1$s</em> returned no result."
-msgstr "Via serĉo pri <em>%1$s</em> trovis neniun rezulton."
-
-msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
-msgstr "Via serĉo pri <em>%1$s</em> trovis <strong>%2$s</strong> rezultojn."
-
-msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
-msgstr "Via serĉo pri <em>%1$s</em> trovis <strong>%2$s</strong> rezultojn."
-
-msgid "Home"
-msgstr "Hejmpaĝo"
-
-msgid "All keywords"
-msgstr "Ĉiuj ŝlosilvortoj"
-
-msgid "Best of me"
+msgid "Trackback URL"
 msgstr ""
 
-msgid "Languages"
-msgstr "Lingvoj"
-
-msgid "Categories"
-msgstr "Kategorioj"
-
-msgid "Subcategories"
-msgstr "Subkategorioj"
-
-msgid "Archives"
-msgstr "Arkivoj"
-
-msgid "Links"
-msgstr "Ligoj"
-
-msgid "Subscribe"
-msgstr "Aboni"
-
-msgid "Entries feed"
-msgstr "Ĉeno de la biletoj"
-
-msgid "Comments feed"
-msgstr "Ĉeno de la komentoj"
-
-msgid "This blog's comments Atom feed"
-msgstr "La Atom-a ĉeno de tiu blogo komentoj"
-
-msgid "This category's entries Atom feed"
+msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr ""
 
-msgid "This category's comments Atom feed"
+msgid "Use search form"
 msgstr ""
 
-msgid "This post's comments feed"
+msgid "Website"
+msgstr "Retejo"
+
+msgid "What is an RSS feed?"
 msgstr ""
 
-msgid "This post's comments Atom feed"
+msgid "You must give a password to access this area."
+msgstr "Vi devas doni pasvorton por vidi tiun paĝon."
+
+msgid "You must provide a comment"
 msgstr ""
 
-msgid "Attachments"
-msgstr "Aldonaĵoj"
+msgid "You must provide a valid email address."
+msgstr "Vi devas doni korektan retpoŝtadreson."
 
-msgid "Permalink"
-msgstr "Permanenta ligilo"
-
-msgid "Comments"
-msgstr "Komentoj"
+msgid "You must provide an author name"
+msgstr ""
 
 msgid "Your comment"
 msgstr "Via komento"
@@ -159,122 +275,76 @@ msgstr "Via komento estis publikigita"
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "Via komento estis sendita kaj estos kontrolita antaŭ publikigado."
 
-msgid "Add a comment"
-msgstr "Aldoni komenton"
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "Via serĉo pri <em>%1$s</em> trovis <strong>%2$s</strong> rezultojn."
 
-msgid "Name or nickname"
-msgstr "Nomo"
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "Via serĉo pri <em>%1$s</em> trovis <strong>%2$s</strong> rezultojn."
 
-msgid "Email address"
-msgstr "Retpoŝtadreso"
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "Via serĉo pri <em>%1$s</em> trovis neniun rezulton."
 
-msgid "Website"
-msgstr "Retejo"
+msgid "by"
+msgstr "far"
 
-msgid "optional"
-msgstr "opcia"
-
-msgid "Comment"
-msgstr "Komento"
-
-msgid "Comments can be formatted using a simple wiki syntax."
+msgid "here"
 msgstr ""
-
-msgid "HTML code is displayed as text and web addresses are automatically converted."
-msgstr ""
-
-msgid "Remember me on this blog"
-msgstr "Memoru min en tiu blogo"
-
-msgid "preview"
-msgstr "previdi"
-
-msgid "send"
-msgstr "sendi"
-
-msgid "They posted on the same topic"
-msgstr ""
-
-msgid "Trackback URL"
-msgstr ""
-
-msgid "You must provide an author name"
-msgstr ""
-
-msgid "You must provide a comment"
-msgstr ""
-
-msgid "Email address is not valid"
-msgstr ""
-
-msgid "Document not found"
-msgstr "Dokumento ne trovebla"
-
-#, fuzzy
-msgid "The document you are looking for does not exist."
-msgstr "La dokumento kiun vi serĉas ne ekzistas."
-
-msgid "Powered by %s"
-msgstr ""
-
-msgid "Subscribe to"
-msgstr ""
-
-msgid "What is an RSS feed?"
-msgstr ""
-
-msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
-msgstr ""
-
-msgid "Simply copy the following URL into your aggregator:"
-msgstr ""
-
-msgid "Password needed"
-msgstr "Pasvorto necesa"
-
-msgid "You must give a password to access this area."
-msgstr "Vi devas doni pasvorton por vidi tiun paĝon."
-
-msgid "Password:"
-msgstr "Pasvorto:"
-
-msgid "You must provide a valid email address."
-msgstr "Vi devas doni korektan retpoŝtadreson."
-
-msgid "Read"
-msgstr "Legi"
 
 msgid "in"
 msgstr ""
 
-msgid "In"
+msgid "next entries"
+msgstr "antaŭaj biletoj"
+
+msgid "no attachments"
+msgstr "neniu aldonaĵo"
+
+#, fuzzy
+msgid "no comments"
+msgstr "neniu komento"
+
+msgid "no reactions"
 msgstr ""
 
-msgid "Page top"
+msgid "no trackbacks"
+msgstr "neniu retroligo"
+
+msgid "of"
+msgstr "de"
+
+msgid "on"
+msgstr "je la"
+
+msgid "one attachment"
+msgstr "unu aldonaĵo"
+
+msgid "one comment"
+msgstr "neniu komento"
+
+#, fuzzy
+msgid "one reaction"
+msgstr "Legi plu"
+
+msgid "one trackback"
+msgstr "unu retroligo"
+
+msgid "optional"
+msgstr "opcia"
+
+msgid "page"
+msgstr "paĝo"
+
+msgid "preview"
+msgstr "previdi"
+
+msgid "previous entries"
+msgstr "malantaŭaj biletoj"
+
+msgid "reactions"
 msgstr ""
+
+msgid "send"
+msgstr "sendi"
 
 msgid "toDay"
-msgstr ""
-
-msgid "FromDay"
-msgstr ""
-
-msgid "By category"
-msgstr ""
-
-msgid "By date"
-msgstr ""
-
-msgid "By tag"
-msgstr ""
-
-#, fuzzy
-msgid "Blog menu"
-msgstr "Al menuo"
-
-#, fuzzy
-msgid "Etra menu"
-msgstr "Al menuo"
-
-msgid "Blog info"
 msgstr ""

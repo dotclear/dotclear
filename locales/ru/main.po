@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:11+0200\n"
+"POT-Creation-Date: 2020-04-23 14:58+0200\n"
 "PO-Revision-Date: 2016-07-18 15:53+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: ru_RU <en@li.org>\n"
@@ -65,6 +65,10 @@ msgstr "Вы не супер администратор."
 #, fuzzy
 msgid "Insufficient permissions"
 msgstr "установить права доступа"
+
+#, fuzzy
+msgid "Administration session expired"
+msgstr "Админ-панель"
 
 msgid "Wrong username or password"
 msgstr "Неправильное имя пользователя либо пароль"
@@ -302,6 +306,10 @@ msgstr "Блог успешно создан."
 msgid "Parameters"
 msgstr "Настройки"
 
+#, fuzzy
+msgid "Blog parameters"
+msgstr "Настройки"
+
 msgid "Blog details"
 msgstr "Информация о блоге"
 
@@ -383,7 +391,7 @@ msgid "Disable internal search system"
 msgstr ""
 
 #, fuzzy, php-format
-msgid "Display %s entries on home page"
+msgid "Display %s entries on first page"
 msgstr "Показывать %s записей на странице"
 
 #, php-format
@@ -402,6 +410,20 @@ msgid "Truncate feeds"
 msgstr "Обрезать ленты новостей"
 
 msgid "Include sub-categories in category page and category posts feed"
+msgstr ""
+
+#, fuzzy
+msgid "Display an entry as static home page"
+msgstr "Показывать %s записей на странице"
+
+msgid "Entry URL (its content will be used for the static home page):"
+msgstr ""
+
+#, fuzzy
+msgid "Choose an entry"
+msgstr "Выберите блог"
+
+msgid "Leave empty to use the default presentation."
 msgstr ""
 
 msgid "Media and images"
@@ -529,6 +551,9 @@ msgstr "Параметры индексации поисковыми машин�
 msgid "jQuery javascript library"
 msgstr ""
 
+msgid "Load the jQuery library"
+msgstr ""
+
 msgid "jQuery version to be loaded for this blog:"
 msgstr ""
 
@@ -601,6 +626,9 @@ msgstr "Конфигурация темы"
 msgid "Themes management"
 msgstr "Управление языками"
 
+msgid "Manual checking of themes update done successfully."
+msgstr ""
+
 #, fuzzy
 msgid "Update themes"
 msgstr "Обновление миниатюр"
@@ -615,6 +643,10 @@ msgstr[2] ""
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
+
+#, fuzzy
+msgid "Force checking update of themes"
+msgstr "Обновить Dotclear"
 
 #, fuzzy
 msgid "Installed themes"
@@ -698,6 +730,10 @@ msgstr "Показать"
 #, fuzzy
 msgid "blogs per page"
 msgstr "Блогов на страницу"
+
+#, fuzzy
+msgid "Save current options"
+msgstr "Параметры поиска"
 
 msgid "Apply filters and display options"
 msgstr ""
@@ -1001,6 +1037,12 @@ msgstr[2] ""
 #, fuzzy
 msgid "Documentation and support"
 msgstr "Документация"
+
+msgid "Dashboard area's drag and drop is disabled"
+msgstr ""
+
+msgid "Dashboard area's drag and drop is enabled"
+msgstr ""
 
 msgid "Dashboard"
 msgstr "Панель инструментов"
@@ -1447,12 +1489,20 @@ msgstr "Вставить этот файл в запись"
 msgid "delete"
 msgstr "Удалить"
 
+#, fuzzy
+msgid "private media"
+msgstr "Личный"
+
 msgid "open"
 msgstr "открыть"
 
 #, fuzzy
 msgid "Not a valid directory"
 msgstr "Неверный файл"
+
+#, fuzzy, php-format
+msgid "Directory or file \"%s\" already exists."
+msgstr "Пользователь \"%s\" уже существует."
 
 #, fuzzy, php-format
 msgid "Directory \"%s\" has been successfully created."
@@ -1648,10 +1698,6 @@ msgstr "Загрузить"
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
 
-#, fuzzy
-msgid "Blog parameters"
-msgstr "Настройки"
-
 msgid "Not a valid file"
 msgstr "Неверный файл"
 
@@ -1664,10 +1710,6 @@ msgstr "Уменьшенные изображения обновлены."
 #, fuzzy
 msgid "Default media insertion settings have been successfully updated."
 msgstr "Уменьшенные изображения обновлены."
-
-#, fuzzy
-msgid "Are you sure to delete this media?"
-msgstr "Вы уверены, что хотите удалить этот комментарий?"
 
 #, fuzzy
 msgid "Select media item"
@@ -1684,6 +1726,13 @@ msgid "Insert media item"
 msgstr "Добавить медиа"
 
 msgid "Image legend and title"
+msgstr ""
+
+#, fuzzy
+msgid "Title: "
+msgstr "Заголовок:"
+
+msgid "Legend: "
 msgstr ""
 
 msgid "Image alignment"
@@ -1826,6 +1875,10 @@ msgstr "Имя файла:"
 msgid "File title:"
 msgstr "Заголовок файла:"
 
+#, fuzzy
+msgid "File description:"
+msgstr "Описание блога :"
+
 msgid "File date:"
 msgstr "Дата файла:"
 
@@ -1865,6 +1918,9 @@ msgstr "Управление плагинами"
 msgid "Plugin configuration"
 msgstr "Конфигурация блога"
 
+msgid "Manual checking of plugins update done successfully."
+msgstr ""
+
 #, fuzzy
 msgid "Update plugins"
 msgstr "Загрузить плагин"
@@ -1875,6 +1931,10 @@ msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+
+#, fuzzy
+msgid "Force checking update of plugins"
+msgstr "Обновить Dotclear"
 
 #, fuzzy
 msgid "Installed plugins"
@@ -1945,8 +2005,9 @@ msgstr "Поиск"
 msgid "cancel"
 msgstr "отмена"
 
+#, fuzzy
 msgid "Edit post"
-msgstr "Редактировать запись"
+msgstr "Редактировать блог %s"
 
 msgid "This entry does not exist."
 msgstr "Эта запись не существует."
@@ -1993,11 +2054,8 @@ msgstr "в ожидании"
 msgid "&ldquo;%s&rdquo;"
 msgstr ""
 
-msgid "Entries"
-msgstr "Записи"
-
 msgid "Posts"
-msgstr "Записи"
+msgstr ""
 
 msgid "Entry has been successfully updated."
 msgstr "Запись упешно отредактирована"
@@ -2100,10 +2158,6 @@ msgstr ""
 #, fuzzy
 msgid "Unpublished notes."
 msgstr "неопубликовано"
-
-#, fuzzy
-msgid "Edit post"
-msgstr "Редактировать блог %s"
 
 #, fuzzy
 msgid "Preview"
@@ -2259,8 +2313,17 @@ msgstr ""
 msgid "Category description"
 msgstr "Категория "
 
-msgid "Posts"
-msgstr ""
+msgid "Last Name"
+msgstr "Фамилия"
+
+msgid "First Name"
+msgstr "Имя"
+
+msgid "Display name"
+msgstr "Отображаемое имя"
+
+msgid "Number of entries"
+msgstr "Количество записей"
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Если вы хотите ваш email или пароль, то вы должны ввести свой текущий пароль."
@@ -2295,6 +2358,10 @@ msgstr "Файл был успешно обновлен."
 #, fuzzy
 msgid "Default favorites have been successfully updated."
 msgstr "Уменьшенные изображения обновлены."
+
+#, fuzzy
+msgid "Dashboard items order have been successfully reset."
+msgstr "Порядок категорий был успешно изменен."
 
 msgid "My profile"
 msgstr ""
@@ -2387,6 +2454,17 @@ msgstr ""
 
 msgid "Optional columns displayed in lists"
 msgstr ""
+
+msgid "Options for lists"
+msgstr ""
+
+#, fuzzy
+msgid "Apply filters on the fly"
+msgstr "Добавить файлы"
+
+#, fuzzy
+msgid "users per page"
+msgstr "Пользователей на страницу"
 
 #, fuzzy
 msgid "Edition"
@@ -2508,6 +2586,13 @@ msgstr "Обновить Dotclear"
 msgid "Save my dashboard options"
 msgstr "Параметры поиска"
 
+#, fuzzy
+msgid "Dashboard items order"
+msgstr "Панель инструментов"
+
+msgid "Reset dashboard items order"
+msgstr ""
+
 msgid "Search options"
 msgstr "Параметры поиска"
 
@@ -2589,8 +2674,24 @@ msgstr ""
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr ""
 
+#, fuzzy
+msgid "List options saved"
+msgstr "Параметры поиска"
+
 msgid "Dotclear update"
 msgstr "Обновление Dotclear"
+
+#, fuzzy
+msgid "Precheck update error"
+msgstr "Обновить Dotclear"
+
+#, fuzzy
+msgid "Backup directory does not exist"
+msgstr "Директория не существует"
+
+#, fuzzy
+msgid "Access denied"
+msgstr "Недостаточно прав доступа."
 
 #, php-format
 msgid "Unable to delete file %s"
@@ -2681,6 +2782,9 @@ msgstr "Пользователь \"%s\" уже существует."
 msgid "User has been successfully created."
 msgstr "Пользователь был успешно создан."
 
+msgid "User has no permission, he will not be able to login yet. See below to add some."
+msgstr ""
+
 #, fuzzy
 msgid "User profile"
 msgstr "Пользователей на страницу"
@@ -2729,18 +2833,6 @@ msgstr "Блог:"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
-msgid "Last Name"
-msgstr "Фамилия"
-
-msgid "First Name"
-msgstr "Имя"
-
-msgid "Display name"
-msgstr "Отображаемое имя"
-
-msgid "Number of entries"
-msgstr "Количество записей"
-
 msgid "Set permissions"
 msgstr "установить права доступа"
 
@@ -2749,10 +2841,6 @@ msgstr "Пользователь был успешно удален."
 
 msgid "The permissions have been successfully updated."
 msgstr "Права доступа успешно обновлены"
-
-#, fuzzy
-msgid "users per page"
-msgstr "Пользователей на страницу"
 
 msgid "Selected users action:"
 msgstr "Действие над выбранными пользователями:"
@@ -2776,6 +2864,9 @@ msgstr "Выберите один или более блогов, для кот�
 
 msgid "No blog"
 msgstr "Нет блога"
+
+msgid "Entries"
+msgstr "Записи"
 
 #, fuzzy
 msgid "select"
@@ -2866,10 +2957,6 @@ msgstr "Комментарий успешно обновлен."
 #, fuzzy
 msgid "Back to entries list"
 msgstr "Категории."
-
-#, fuzzy
-msgid "Entries actions"
-msgstr "Действия над выбранными записями:"
 
 #, fuzzy
 msgid "Posts actions"
@@ -2986,6 +3073,9 @@ msgstr "Язык записи:"
 msgid "Languages"
 msgstr "Языки"
 
+msgid "[%H:%M:%S]"
+msgstr ""
+
 msgid "Change blog"
 msgstr "Изменить блог"
 
@@ -2997,9 +3087,6 @@ msgid "Go to the content"
 msgstr "Нет содержимого записи"
 
 msgid "Go to the menu"
-msgstr ""
-
-msgid "Go to search"
 msgstr ""
 
 msgid "Go to help"
@@ -3024,9 +3111,6 @@ msgstr ""
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr ""
 
-msgid "[%H:%M:%S]"
-msgstr ""
-
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Благодарим за использование %s."
@@ -3034,245 +3118,6 @@ msgstr "Благодарим за использование %s."
 #, fuzzy
 msgid "Page top"
 msgstr "Страницы"
-
-#, fuzzy
-msgid "Go to dashboard"
-msgstr "Панель инструментов"
-
-msgid "Help about this page"
-msgstr ""
-
-#, php-format
-msgid "See also %s"
-msgstr ""
-
-msgid "the global help"
-msgstr ""
-
-msgid "uncover"
-msgstr "открыть"
-
-msgid "hide"
-msgstr "спрятать"
-
-msgid "Need help?"
-msgstr ""
-
-msgid "new window"
-msgstr ""
-
-msgid "Hide"
-msgstr ""
-
-#, fuzzy
-msgid "Select:"
-msgstr "Выбранный:"
-
-msgid "no selection"
-msgstr "Ничего не выбрано"
-
-msgid "select all"
-msgstr "выбрать все"
-
-msgid "Invert selection"
-msgstr "инвертировать выбор"
-
-msgid "view entry"
-msgstr "просмотреть запись"
-
-#, php-format
-msgid "Are you sure you want to delete selected entries (%s)?"
-msgstr "Вы уверены, что хотите удалить выбранные записи (%s)?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected medias (%d)?"
-msgstr "Вы уверены, что хотите удалить выбранные записи (%s)?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected categories (%s)?"
-msgstr "Вы уверены, что хотите удалить выбранные записи (%s)?"
-
-msgid "Are you sure you want to delete this entry?"
-msgstr "Вы уверены, что хотите удалить эту запись?"
-
-msgid "Click here to unlock the field"
-msgstr ""
-
-#, fuzzy
-msgid "Are you sure you want to delete all spams?"
-msgstr "Вы уверены, что хотите удалить тему \"%s\"?"
-
-#, php-format
-msgid "Are you sure you want to delete selected comments (%s)?"
-msgstr "Вы уверены, что хотите удалить выбранные комментарии (%s)?"
-
-msgid "Are you sure you want to delete this comment?"
-msgstr "Вы уверены, что хотите удалить этот комментарий?"
-
-msgid "Users with posts cannot be deleted."
-msgstr "Пользователи с публикациями не могут быть удалены"
-
-#, php-format
-msgid "Are you sure you want to delete selected users (%s)?"
-msgstr "Вы уверены, что хотите удалить выбранных юзерей (%s)?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected blogs (%s)?"
-msgstr "Вы уверены, что хотите удалить выбранных юзерей (%s)?"
-
-#, php-format
-msgid "Are you sure you want to delete category \"%s\"?"
-msgstr "Вы уверены, что хотите удалить категорию \"%s\"?"
-
-msgid "Are you sure you want to reorder all categories?"
-msgstr "Вы уверены, что хотите упорядочить все категории?"
-
-#, php-format
-msgid "Are you sure you want to remove media \"%s\"?"
-msgstr "Вы уверены, что хотите удалить медиа (%s) ?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to remove directory \"%s\"?"
-msgstr "Вы уверены, что хотите удалить медиа (%s) ?"
-
-msgid "Are you sure you want to extract archive in current directory?"
-msgstr "Вы уверены, что хотите извлечь архив в текущую директорию?"
-
-#, php-format
-msgid "Are you sure you want to remove attachment \"%s\"?"
-msgstr "Вы уверены, что хотите удалить этот прикрепленный файл \"%s\"?"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" language?"
-msgstr "Вы уверены, что хотите удалить  язык %s?"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr "Вы уверены, что хотите удалить плагин \"%s\"?"
-
-#, fuzzy
-msgid "Are you sure you want to delete selected plugins?"
-msgstr "Вы уверены, что хотите удалить плагин \"%s\"?"
-
-msgid "Use this theme"
-msgstr "Использовать  эту тему"
-
-msgid "Remove this theme"
-msgstr "Удалить эту тему"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" theme?"
-msgstr "Вы уверены, что хотите удалить тему \"%s\"?"
-
-#, fuzzy
-msgid "Are you sure you want to delete selected themes?"
-msgstr "Вы уверены, что хотите удалить выбранные записи (%s)?"
-
-#, fuzzy
-msgid "Are you sure you want to delete this backup?"
-msgstr "Вы уверены, что хотите удалить этот комментарий?"
-
-#, fuzzy
-msgid "Are you sure you want to revert to this backup?"
-msgstr "Вы уверены, что хотите удалить этот прикрепленный файл?"
-
-msgid "Zip file content"
-msgstr "Содержимое zip файла"
-
-msgid "XHTML markup validator"
-msgstr "Проверка разметки XHTML"
-
-msgid "XHTML content is valid."
-msgstr "Разметка XHTML не содержит ошибок."
-
-msgid "There are XHTML markup errors."
-msgstr "В разметке XHTML есть ошибки."
-
-msgid "Attention: an audit of a content not yet registered."
-msgstr ""
-
-msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
-msgstr "Вы не сохранили изменения. Переключение формата поста  приведет к потере этих изменений. Продолжить?"
-
-msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
-msgstr ""
-
-msgid "Loading enhanced uploader, please wait."
-msgstr ""
-
-msgid "Details"
-msgstr "Детали"
-
-msgid "Support"
-msgstr ""
-
-#, fuzzy
-msgid "Help:"
-msgstr "Помощь"
-
-#, fuzzy
-msgid "Section:"
-msgstr "Действие"
-
-msgid "Tags:"
-msgstr ""
-
-#, fuzzy
-msgid "Hide this notice"
-msgstr "Использовать  эту тему"
-
-msgid "You have unsaved changes."
-msgstr "Вы не сохранили изменения."
-
-#, fuzzy
-msgid "Choose date"
-msgstr "Выбрать файл"
-
-msgid "close"
-msgstr "закрыть"
-
-msgid "now"
-msgstr "сейчас"
-
-msgid "Temporarily activate enhanced uploader"
-msgstr "Активировать улучшенный аплоадер"
-
-msgid "Temporarily disable enhanced uploader"
-msgstr "Отключить улучшенный аплоадер"
-
-msgid "Limit exceeded."
-msgstr "Лимит исчерпан."
-
-msgid "File size exceeds allowed limit."
-msgstr "Размер файла превышает допустиый лимит."
-
-msgid "Canceled."
-msgstr "Отменено."
-
-msgid "HTTP Error:"
-msgstr "Ошибка HTTP :"
-
-msgid "Clean"
-msgstr "Очистить"
-
-msgid "File successfully uploaded."
-msgstr "Файл успешно загружен."
-
-msgid "No file in queue."
-msgstr "Нет файлов в очереди."
-
-msgid "1 file in queue."
-msgstr "1 файл в очереди."
-
-#, php-format
-msgid "%d files in queue."
-msgstr "файлов в очереди: %d"
-
-msgid "Queue error:"
-msgstr "Ошибка очереди:"
-
-msgid "Cancel filters and display options"
-msgstr ""
 
 msgid "other"
 msgstr ""
@@ -3325,6 +3170,9 @@ msgstr "Версия"
 msgid "Current version"
 msgstr "установить права доступа"
 
+msgid "Details"
+msgstr "Детали"
+
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -3339,9 +3187,15 @@ msgstr ""
 msgid "Plugin from official distribution"
 msgstr ""
 
+msgid "Support"
+msgstr ""
+
 #, fuzzy
-msgid "Manage plugin"
-msgstr "Темы блога"
+msgid "Section:"
+msgstr "Действие"
+
+msgid "Tags:"
+msgstr ""
 
 msgid "No plugins matched your search."
 msgstr ""
@@ -3657,6 +3511,10 @@ msgstr[2] ""
 msgid "Protected"
 msgstr "защищен"
 
+#, fuzzy
+msgid "Attachments"
+msgstr "Вложенные файлы"
+
 #, php-format
 msgid "%d attachment"
 msgstr "%d приложение"
@@ -3728,6 +3586,15 @@ msgstr[2] ""
 #, fuzzy
 msgid "Blogs list"
 msgstr "Блоги"
+
+msgid "online"
+msgstr "онлайн"
+
+msgid "offline"
+msgstr "оффлайн"
+
+msgid "removed"
+msgstr "удалено"
 
 #, fuzzy, php-format
 msgid "Edit blog settings for %s"
@@ -3811,17 +3678,17 @@ msgstr "Блог"
 msgid "Plugins"
 msgstr "Плагины"
 
-msgid "medium"
-msgstr "Средний:"
+msgid "moyenne"
+msgstr ""
 
-msgid "small"
-msgstr "Маленький:"
+msgid "petite"
+msgstr ""
 
-msgid "thumbnail"
-msgstr "Уменьшенное изображение:"
+msgid "vignette"
+msgstr ""
 
-msgid "square"
-msgstr "квадрат"
+msgid "carrée"
+msgstr ""
 
 #, fuzzy
 msgid "Pages"
@@ -3949,15 +3816,6 @@ msgstr "Необходимо ввести имя автора"
 msgid "Email address is not valid."
 msgstr "Неверный Email адрес."
 
-msgid "online"
-msgstr "онлайн"
-
-msgid "offline"
-msgstr "оффлайн"
-
-msgid "removed"
-msgstr "удалено"
-
 msgid "You are not an administrator"
 msgstr "Вы не администратор"
 
@@ -4004,12 +3862,6 @@ msgstr "Этот файл не существует в базе данных."
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "Директория для извлечения %s уже существует."
-
-msgid "Embedded Audio Player"
-msgstr "Встроенный аудио-плеер"
-
-msgid "Embedded Video Player"
-msgstr "Встроенный видио-плеер"
 
 #, php-format
 msgid "Requires %s module which is not installed"
@@ -4234,6 +4086,218 @@ msgstr "<p>Это может означать, что имя пользоват�
 msgid "The following error was encountered while trying to read the database:"
 msgstr "При попытке чтения базы данных обнаружена следующая ошибка:"
 
+#, fuzzy
+#~ msgid "Are you sure to delete this media?"
+#~ msgstr "Вы уверены, что хотите удалить этот комментарий?"
+
+#, fuzzy
+#~ msgid "Entries actions"
+#~ msgstr "Действия над выбранными записями:"
+
+#, fuzzy
+#~ msgid "Go to dashboard"
+#~ msgstr "Панель инструментов"
+
+#~ msgid "uncover"
+#~ msgstr "открыть"
+
+#~ msgid "hide"
+#~ msgstr "спрятать"
+
+#, fuzzy
+#~ msgid "Select:"
+#~ msgstr "Выбранный:"
+
+#~ msgid "no selection"
+#~ msgstr "Ничего не выбрано"
+
+#~ msgid "select all"
+#~ msgstr "выбрать все"
+
+#~ msgid "Invert selection"
+#~ msgstr "инвертировать выбор"
+
+#~ msgid "view entry"
+#~ msgstr "просмотреть запись"
+
+#~ msgid "Are you sure you want to delete selected entries (%s)?"
+#~ msgstr "Вы уверены, что хотите удалить выбранные записи (%s)?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected medias (%d)?"
+#~ msgstr "Вы уверены, что хотите удалить выбранные записи (%s)?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected categories (%s)?"
+#~ msgstr "Вы уверены, что хотите удалить выбранные записи (%s)?"
+
+#~ msgid "Are you sure you want to delete this entry?"
+#~ msgstr "Вы уверены, что хотите удалить эту запись?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "Вы уверены, что хотите удалить тему \"%s\"?"
+
+#~ msgid "Are you sure you want to delete selected comments (%s)?"
+#~ msgstr "Вы уверены, что хотите удалить выбранные комментарии (%s)?"
+
+#~ msgid "Are you sure you want to delete this comment?"
+#~ msgstr "Вы уверены, что хотите удалить этот комментарий?"
+
+#~ msgid "Users with posts cannot be deleted."
+#~ msgstr "Пользователи с публикациями не могут быть удалены"
+
+#~ msgid "Are you sure you want to delete selected users (%s)?"
+#~ msgstr "Вы уверены, что хотите удалить выбранных юзерей (%s)?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected blogs (%s)?"
+#~ msgstr "Вы уверены, что хотите удалить выбранных юзерей (%s)?"
+
+#~ msgid "Are you sure you want to delete category \"%s\"?"
+#~ msgstr "Вы уверены, что хотите удалить категорию \"%s\"?"
+
+#~ msgid "Are you sure you want to reorder all categories?"
+#~ msgstr "Вы уверены, что хотите упорядочить все категории?"
+
+#~ msgid "Are you sure you want to remove media \"%s\"?"
+#~ msgstr "Вы уверены, что хотите удалить медиа (%s) ?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to remove directory \"%s\"?"
+#~ msgstr "Вы уверены, что хотите удалить медиа (%s) ?"
+
+#~ msgid "Are you sure you want to extract archive in current directory?"
+#~ msgstr "Вы уверены, что хотите извлечь архив в текущую директорию?"
+
+#~ msgid "Are you sure you want to remove attachment \"%s\"?"
+#~ msgstr "Вы уверены, что хотите удалить этот прикрепленный файл \"%s\"?"
+
+#~ msgid "Are you sure you want to delete \"%s\" language?"
+#~ msgstr "Вы уверены, что хотите удалить  язык %s?"
+
+#~ msgid "Are you sure you want to delete \"%s\" plugin?"
+#~ msgstr "Вы уверены, что хотите удалить плагин \"%s\"?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected plugins?"
+#~ msgstr "Вы уверены, что хотите удалить плагин \"%s\"?"
+
+#~ msgid "Use this theme"
+#~ msgstr "Использовать  эту тему"
+
+#~ msgid "Remove this theme"
+#~ msgstr "Удалить эту тему"
+
+#~ msgid "Are you sure you want to delete \"%s\" theme?"
+#~ msgstr "Вы уверены, что хотите удалить тему \"%s\"?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete selected themes?"
+#~ msgstr "Вы уверены, что хотите удалить выбранные записи (%s)?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete this backup?"
+#~ msgstr "Вы уверены, что хотите удалить этот комментарий?"
+
+#, fuzzy
+#~ msgid "Are you sure you want to revert to this backup?"
+#~ msgstr "Вы уверены, что хотите удалить этот прикрепленный файл?"
+
+#~ msgid "Zip file content"
+#~ msgstr "Содержимое zip файла"
+
+#~ msgid "XHTML markup validator"
+#~ msgstr "Проверка разметки XHTML"
+
+#~ msgid "XHTML content is valid."
+#~ msgstr "Разметка XHTML не содержит ошибок."
+
+#~ msgid "There are XHTML markup errors."
+#~ msgstr "В разметке XHTML есть ошибки."
+
+#~ msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+#~ msgstr "Вы не сохранили изменения. Переключение формата поста  приведет к потере этих изменений. Продолжить?"
+
+#, fuzzy
+#~ msgid "Help:"
+#~ msgstr "Помощь"
+
+#, fuzzy
+#~ msgid "Hide this notice"
+#~ msgstr "Использовать  эту тему"
+
+#~ msgid "You have unsaved changes."
+#~ msgstr "Вы не сохранили изменения."
+
+#, fuzzy
+#~ msgid "Choose date"
+#~ msgstr "Выбрать файл"
+
+#~ msgid "close"
+#~ msgstr "закрыть"
+
+#~ msgid "now"
+#~ msgstr "сейчас"
+
+#~ msgid "Temporarily activate enhanced uploader"
+#~ msgstr "Активировать улучшенный аплоадер"
+
+#~ msgid "Temporarily disable enhanced uploader"
+#~ msgstr "Отключить улучшенный аплоадер"
+
+#~ msgid "Limit exceeded."
+#~ msgstr "Лимит исчерпан."
+
+#~ msgid "File size exceeds allowed limit."
+#~ msgstr "Размер файла превышает допустиый лимит."
+
+#~ msgid "Canceled."
+#~ msgstr "Отменено."
+
+#~ msgid "HTTP Error:"
+#~ msgstr "Ошибка HTTP :"
+
+#~ msgid "Clean"
+#~ msgstr "Очистить"
+
+#~ msgid "File successfully uploaded."
+#~ msgstr "Файл успешно загружен."
+
+#~ msgid "No file in queue."
+#~ msgstr "Нет файлов в очереди."
+
+#~ msgid "1 file in queue."
+#~ msgstr "1 файл в очереди."
+
+#~ msgid "%d files in queue."
+#~ msgstr "файлов в очереди: %d"
+
+#~ msgid "Queue error:"
+#~ msgstr "Ошибка очереди:"
+
+#, fuzzy
+#~ msgid "Manage plugin"
+#~ msgstr "Темы блога"
+
+#~ msgid "medium"
+#~ msgstr "Средний:"
+
+#~ msgid "small"
+#~ msgstr "Маленький:"
+
+#~ msgid "thumbnail"
+#~ msgstr "Уменьшенное изображение:"
+
+#~ msgid "square"
+#~ msgstr "квадрат"
+
+#~ msgid "Embedded Audio Player"
+#~ msgstr "Встроенный аудио-плеер"
+
+#~ msgid "Embedded Video Player"
+#~ msgstr "Встроенный видио-плеер"
+
 #~ msgid "Unable to open directory."
 #~ msgstr "Невозможно открыть директорию."
 
@@ -4344,9 +4408,6 @@ msgstr "При попытке чтения базы данных обнаруж�
 #~ msgid "Cannot read file"
 #~ msgstr "Невозможно прочитать файл"
 
-#~ msgid "Directory does not exist"
-#~ msgstr "Директория не существует"
-
 #~ msgid "Cannot read directory"
 #~ msgstr "Невозможно прочитать директорию"
 
@@ -4410,10 +4471,6 @@ msgstr "При попытке чтения базы данных обнаруж�
 
 #~ msgid "back"
 #~ msgstr "назад"
-
-#, fuzzy
-#~ msgid "Apply filters"
-#~ msgstr "Добавить файлы"
 
 #~ msgid "Page(s)"
 #~ msgstr "Страницы"

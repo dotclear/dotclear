@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:11+0200\n"
+"POT-Creation-Date: 2020-04-23 15:00+0200\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: crm <admin@craftmerkezi.com>\n"
@@ -65,6 +65,10 @@ msgstr "Super admin değilsiniz."
 #, fuzzy
 msgid "Insufficient permissions"
 msgstr "izinleri ayarla"
+
+#, fuzzy
+msgid "Administration session expired"
+msgstr "Admin arayüzü:"
 
 msgid "Wrong username or password"
 msgstr "Hatalı kullanıcı adı ya da parola"
@@ -303,6 +307,10 @@ msgstr "Blog başarıyla oluşturuldu."
 msgid "Parameters"
 msgstr ""
 
+#, fuzzy
+msgid "Blog parameters"
+msgstr "Blog görünüşü"
+
 msgid "Blog details"
 msgstr "Blog ayrıntıları"
 
@@ -384,7 +392,7 @@ msgid "Disable internal search system"
 msgstr ""
 
 #, fuzzy, php-format
-msgid "Display %s entries on home page"
+msgid "Display %s entries on first page"
 msgstr "Sayfa başına %s yazı göster"
 
 #, php-format
@@ -403,6 +411,20 @@ msgid "Truncate feeds"
 msgstr ""
 
 msgid "Include sub-categories in category page and category posts feed"
+msgstr ""
+
+#, fuzzy
+msgid "Display an entry as static home page"
+msgstr "Sayfa başına %s yazı göster"
+
+msgid "Entry URL (its content will be used for the static home page):"
+msgstr ""
+
+#, fuzzy
+msgid "Choose an entry"
+msgstr "Bir blog seçin"
+
+msgid "Leave empty to use the default presentation."
 msgstr ""
 
 msgid "Media and images"
@@ -528,6 +550,9 @@ msgstr "Arama motoru robotları politikası"
 msgid "jQuery javascript library"
 msgstr ""
 
+msgid "Load the jQuery library"
+msgstr ""
+
 msgid "jQuery version to be loaded for this blog:"
 msgstr ""
 
@@ -600,6 +625,9 @@ msgstr "Tema ayarları"
 msgid "Themes management"
 msgstr "Dil yönetimi"
 
+msgid "Manual checking of themes update done successfully."
+msgstr ""
+
 #, fuzzy
 msgid "Update themes"
 msgstr "Pulları güncelle"
@@ -613,6 +641,10 @@ msgstr[1] ""
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
+
+#, fuzzy
+msgid "Force checking update of themes"
+msgstr "Dotclear'ı güncelle "
 
 #, fuzzy
 msgid "Installed themes"
@@ -694,6 +726,10 @@ msgstr ""
 #, fuzzy
 msgid "blogs per page"
 msgstr "Sayfa başına blog"
+
+#, fuzzy
+msgid "Save current options"
+msgstr "Arama seçenekleri"
 
 msgid "Apply filters and display options"
 msgstr ""
@@ -989,6 +1025,12 @@ msgstr[1] "Dotclear %s mevcut!"
 #, fuzzy
 msgid "Documentation and support"
 msgstr "Belgeler"
+
+msgid "Dashboard area's drag and drop is disabled"
+msgstr ""
+
+msgid "Dashboard area's drag and drop is enabled"
+msgstr ""
 
 msgid "Dashboard"
 msgstr "Gösterge"
@@ -1434,12 +1476,19 @@ msgstr "Bu dosyayı yazıya kat"
 msgid "delete"
 msgstr "Sil"
 
+msgid "private media"
+msgstr ""
+
 msgid "open"
 msgstr "aç"
 
 #, fuzzy
 msgid "Not a valid directory"
 msgstr "Geçerli bir dosya değil"
+
+#, fuzzy, php-format
+msgid "Directory or file \"%s\" already exists."
+msgstr "Kullanıcı \"%s\" evvelden mevcut."
 
 #, fuzzy, php-format
 msgid "Directory \"%s\" has been successfully created."
@@ -1632,10 +1681,6 @@ msgstr "Yükle"
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
 
-#, fuzzy
-msgid "Blog parameters"
-msgstr "Blog görünüşü"
-
 msgid "Not a valid file"
 msgstr "Geçerli bir dosya değil"
 
@@ -1648,9 +1693,6 @@ msgstr "Pulların güncellenimi başarılı."
 #, fuzzy
 msgid "Default media insertion settings have been successfully updated."
 msgstr "Pulların güncellenimi başarılı."
-
-msgid "Are you sure to delete this media?"
-msgstr ""
 
 #, fuzzy
 msgid "Select media item"
@@ -1667,6 +1709,13 @@ msgid "Insert media item"
 msgstr "Medya parçası ekle"
 
 msgid "Image legend and title"
+msgstr ""
+
+#, fuzzy
+msgid "Title: "
+msgstr "Başlık:"
+
+msgid "Legend: "
 msgstr ""
 
 msgid "Image alignment"
@@ -1809,6 +1858,10 @@ msgstr "Dosya adı:"
 msgid "File title:"
 msgstr "Dosya başlığı:"
 
+#, fuzzy
+msgid "File description:"
+msgstr "Blog açıklaması"
+
 msgid "File date:"
 msgstr "Dosya tarihi:"
 
@@ -1848,6 +1901,9 @@ msgstr "Eklenti yönetimi"
 msgid "Plugin configuration"
 msgstr "Blog ayarları"
 
+msgid "Manual checking of plugins update done successfully."
+msgstr ""
+
 #, fuzzy
 msgid "Update plugins"
 msgstr "Eklenti yükle"
@@ -1857,6 +1913,10 @@ msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
+
+#, fuzzy
+msgid "Force checking update of plugins"
+msgstr "Dotclear'ı güncelle "
 
 #, fuzzy
 msgid "Installed plugins"
@@ -1927,8 +1987,9 @@ msgstr "Ara"
 msgid "cancel"
 msgstr "iptal"
 
+#, fuzzy
 msgid "Edit post"
-msgstr "Yazıyı düzenle"
+msgstr "%s blogunu düzenle"
 
 msgid "This entry does not exist."
 msgstr "Bu yazı mevcut değil."
@@ -1975,11 +2036,8 @@ msgstr "beklemede"
 msgid "&ldquo;%s&rdquo;"
 msgstr ""
 
-msgid "Entries"
-msgstr "Yazılar"
-
 msgid "Posts"
-msgstr "Yazılar"
+msgstr ""
 
 msgid "Entry has been successfully updated."
 msgstr "Yazı güncellemini başarılı."
@@ -2082,10 +2140,6 @@ msgstr ""
 #, fuzzy
 msgid "Unpublished notes."
 msgstr "yayınlanmadı"
-
-#, fuzzy
-msgid "Edit post"
-msgstr "%s blogunu düzenle"
 
 #, fuzzy
 msgid "Preview"
@@ -2241,8 +2295,17 @@ msgstr ""
 msgid "Category description"
 msgstr "Yavru kategori"
 
-msgid "Posts"
-msgstr ""
+msgid "Last Name"
+msgstr "Soy İsim"
+
+msgid "First Name"
+msgstr "İlk İsim"
+
+msgid "Display name"
+msgstr "Gösterim ismi"
+
+msgid "Number of entries"
+msgstr "Yazı sayısı"
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr ""
@@ -2277,6 +2340,10 @@ msgstr "Dosya güncellenimi  başarılı."
 #, fuzzy
 msgid "Default favorites have been successfully updated."
 msgstr "Pulların güncellenimi başarılı."
+
+#, fuzzy
+msgid "Dashboard items order have been successfully reset."
+msgstr "Kategori sıralanımı başarılı."
 
 msgid "My profile"
 msgstr ""
@@ -2367,6 +2434,17 @@ msgstr ""
 
 msgid "Optional columns displayed in lists"
 msgstr ""
+
+msgid "Options for lists"
+msgstr ""
+
+#, fuzzy
+msgid "Apply filters on the fly"
+msgstr "Dosya ekle"
+
+#, fuzzy
+msgid "users per page"
+msgstr "Sayfa başına kullanıcı"
 
 #, fuzzy
 msgid "Edition"
@@ -2487,6 +2565,13 @@ msgstr "Dotclear'ı güncelle "
 msgid "Save my dashboard options"
 msgstr "Arama seçenekleri"
 
+#, fuzzy
+msgid "Dashboard items order"
+msgstr "Gösterge"
+
+msgid "Reset dashboard items order"
+msgstr ""
+
 msgid "Search options"
 msgstr "Arama seçenekleri"
 
@@ -2565,8 +2650,23 @@ msgstr ""
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr ""
 
+#, fuzzy
+msgid "List options saved"
+msgstr "Arama seçenekleri"
+
 msgid "Dotclear update"
 msgstr "Dotclear güncelleme"
+
+#, fuzzy
+msgid "Precheck update error"
+msgstr "Dotclear'ı güncelle "
+
+#, fuzzy
+msgid "Backup directory does not exist"
+msgstr "Dizin mevcut değil."
+
+msgid "Access denied"
+msgstr ""
 
 #, php-format
 msgid "Unable to delete file %s"
@@ -2656,6 +2756,9 @@ msgstr "Kullanıcı \"%s\" evvelden mevcut."
 msgid "User has been successfully created."
 msgstr "Kullanıcı oluşturumu başarılı."
 
+msgid "User has no permission, he will not be able to login yet. See below to add some."
+msgstr ""
+
 #, fuzzy
 msgid "User profile"
 msgstr "Sayfa başına kullanıcı"
@@ -2704,18 +2807,6 @@ msgstr "Blog:"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
-msgid "Last Name"
-msgstr "Soy İsim"
-
-msgid "First Name"
-msgstr "İlk İsim"
-
-msgid "Display name"
-msgstr "Gösterim ismi"
-
-msgid "Number of entries"
-msgstr "Yazı sayısı"
-
 msgid "Set permissions"
 msgstr "izinleri ayarla"
 
@@ -2724,10 +2815,6 @@ msgstr "Kullanıcı silinimi başarılı."
 
 msgid "The permissions have been successfully updated."
 msgstr "Izinlerin güncellenimi başarılı."
-
-#, fuzzy
-msgid "users per page"
-msgstr "Sayfa başına kullanıcı"
 
 msgid "Selected users action:"
 msgstr "Seçili kullanıcılara yap:"
@@ -2751,6 +2838,9 @@ msgstr ""
 
 msgid "No blog"
 msgstr "Blog yok"
+
+msgid "Entries"
+msgstr "Yazılar"
 
 #, fuzzy
 msgid "select"
@@ -2843,10 +2933,6 @@ msgstr "Ahkam başarıyla güncellendi"
 #, fuzzy
 msgid "Back to entries list"
 msgstr "Kategori listesi"
-
-#, fuzzy
-msgid "Entries actions"
-msgstr "Seçilmiş yazılara yap:"
 
 #, fuzzy
 msgid "Posts actions"
@@ -2962,6 +3048,9 @@ msgstr "Yazı dili:"
 msgid "Languages"
 msgstr "Diller"
 
+msgid "[%H:%M:%S]"
+msgstr ""
+
 msgid "Change blog"
 msgstr "Blog değiştir"
 
@@ -2973,9 +3062,6 @@ msgid "Go to the content"
 msgstr "Yazı içeriği yok"
 
 msgid "Go to the menu"
-msgstr ""
-
-msgid "Go to search"
 msgstr ""
 
 msgid "Go to help"
@@ -3000,9 +3086,6 @@ msgstr ""
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr ""
 
-msgid "[%H:%M:%S]"
-msgstr ""
-
 #, php-format
 msgid "Thank you for using %s."
 msgstr "\"%s\" kullandığınız için teşekkürler"
@@ -3010,241 +3093,6 @@ msgstr "\"%s\" kullandığınız için teşekkürler"
 #, fuzzy
 msgid "Page top"
 msgstr "Sayfa(lar)"
-
-#, fuzzy
-msgid "Go to dashboard"
-msgstr "Gösterge"
-
-msgid "Help about this page"
-msgstr ""
-
-#, php-format
-msgid "See also %s"
-msgstr ""
-
-msgid "the global help"
-msgstr ""
-
-msgid "uncover"
-msgstr ""
-
-msgid "hide"
-msgstr "gizle"
-
-msgid "Need help?"
-msgstr ""
-
-msgid "new window"
-msgstr ""
-
-msgid "Hide"
-msgstr ""
-
-#, fuzzy
-msgid "Select:"
-msgstr "Seçili:"
-
-#, fuzzy
-msgid "no selection"
-msgstr "Seçim yok"
-
-msgid "select all"
-msgstr "hepsini seç"
-
-msgid "Invert selection"
-msgstr "seçimi evir"
-
-msgid "view entry"
-msgstr "yazıyı gör"
-
-#, php-format
-msgid "Are you sure you want to delete selected entries (%s)?"
-msgstr ""
-
-#, php-format
-msgid "Are you sure you want to delete selected medias (%d)?"
-msgstr ""
-
-#, php-format
-msgid "Are you sure you want to delete selected categories (%s)?"
-msgstr ""
-
-msgid "Are you sure you want to delete this entry?"
-msgstr ""
-
-msgid "Click here to unlock the field"
-msgstr ""
-
-msgid "Are you sure you want to delete all spams?"
-msgstr ""
-
-#, php-format
-msgid "Are you sure you want to delete selected comments (%s)?"
-msgstr ""
-
-msgid "Are you sure you want to delete this comment?"
-msgstr ""
-
-msgid "Users with posts cannot be deleted."
-msgstr ""
-
-#, php-format
-msgid "Are you sure you want to delete selected users (%s)?"
-msgstr ""
-
-#, php-format
-msgid "Are you sure you want to delete selected blogs (%s)?"
-msgstr ""
-
-#, php-format
-msgid "Are you sure you want to delete category \"%s\"?"
-msgstr ""
-
-msgid "Are you sure you want to reorder all categories?"
-msgstr ""
-
-#, php-format
-msgid "Are you sure you want to remove media \"%s\"?"
-msgstr ""
-
-#, php-format
-msgid "Are you sure you want to remove directory \"%s\"?"
-msgstr ""
-
-msgid "Are you sure you want to extract archive in current directory?"
-msgstr ""
-
-#, php-format
-msgid "Are you sure you want to remove attachment \"%s\"?"
-msgstr ""
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" language?"
-msgstr ""
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr ""
-
-msgid "Are you sure you want to delete selected plugins?"
-msgstr ""
-
-msgid "Use this theme"
-msgstr "Bu temayı kullan"
-
-msgid "Remove this theme"
-msgstr "Bu temayı sil"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" theme?"
-msgstr ""
-
-msgid "Are you sure you want to delete selected themes?"
-msgstr ""
-
-msgid "Are you sure you want to delete this backup?"
-msgstr ""
-
-msgid "Are you sure you want to revert to this backup?"
-msgstr ""
-
-msgid "Zip file content"
-msgstr "ZIP dosyası içeriği"
-
-msgid "XHTML markup validator"
-msgstr "XHTML tastikle"
-
-msgid "XHTML content is valid."
-msgstr "XHTML içeriği geçerli."
-
-msgid "There are XHTML markup errors."
-msgstr "XHTML markup hataları var."
-
-msgid "Attention: an audit of a content not yet registered."
-msgstr ""
-
-msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
-msgstr ""
-
-msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
-msgstr ""
-
-msgid "Loading enhanced uploader, please wait."
-msgstr ""
-
-msgid "Details"
-msgstr "Ayrıntılar"
-
-msgid "Support"
-msgstr ""
-
-#, fuzzy
-msgid "Help:"
-msgstr "Yardım"
-
-#, fuzzy
-msgid "Section:"
-msgstr "Eylem"
-
-msgid "Tags:"
-msgstr ""
-
-#, fuzzy
-msgid "Hide this notice"
-msgstr "Bu temayı kullan"
-
-msgid "You have unsaved changes."
-msgstr "Kaydedilmemiş değişiklikler var."
-
-#, fuzzy
-msgid "Choose date"
-msgstr "Dosya seçimi"
-
-msgid "close"
-msgstr "kapat"
-
-msgid "now"
-msgstr "şimdi"
-
-msgid "Temporarily activate enhanced uploader"
-msgstr "Gelişmiş yükleyiciyi etkinleştir"
-
-msgid "Temporarily disable enhanced uploader"
-msgstr "Gelişmiş yükleyiciyi kapat"
-
-msgid "Limit exceeded."
-msgstr "Sınır aşıldı."
-
-msgid "File size exceeds allowed limit."
-msgstr "Dosya boyutu müsaadelinin üzerinde."
-
-msgid "Canceled."
-msgstr "İptallendi."
-
-msgid "HTTP Error:"
-msgstr "HTTP Hatası:"
-
-msgid "Clean"
-msgstr "Temizle"
-
-msgid "File successfully uploaded."
-msgstr "Dosya başarıyla yüklendi."
-
-msgid "No file in queue."
-msgstr "Kuyrukta dosya yok."
-
-msgid "1 file in queue."
-msgstr "kuyrukta 1 dosya var."
-
-#, php-format
-msgid "%d files in queue."
-msgstr "Kuyrukta %d dosya var."
-
-msgid "Queue error:"
-msgstr "Kuyruk hatası."
-
-msgid "Cancel filters and display options"
-msgstr ""
 
 msgid "other"
 msgstr ""
@@ -3295,6 +3143,9 @@ msgstr "Sürüm"
 msgid "Current version"
 msgstr "izinleri ayarla"
 
+msgid "Details"
+msgstr "Ayrıntılar"
+
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -3309,9 +3160,15 @@ msgstr ""
 msgid "Plugin from official distribution"
 msgstr ""
 
+msgid "Support"
+msgstr ""
+
 #, fuzzy
-msgid "Manage plugin"
-msgstr "Blog temaları"
+msgid "Section:"
+msgstr "Eylem"
+
+msgid "Tags:"
+msgstr ""
 
 msgid "No plugins matched your search."
 msgstr ""
@@ -3610,6 +3467,10 @@ msgstr[1] ""
 msgid "Protected"
 msgstr "korumalı"
 
+#, fuzzy
+msgid "Attachments"
+msgstr "Ekler"
+
 #, php-format
 msgid "%d attachment"
 msgstr "%d ek"
@@ -3678,6 +3539,15 @@ msgstr[1] ""
 #, fuzzy
 msgid "Blogs list"
 msgstr "Bloglar"
+
+msgid "online"
+msgstr "çevrimiçi"
+
+msgid "offline"
+msgstr "çevrimdışı"
+
+msgid "removed"
+msgstr "kaldırıldı"
 
 #, fuzzy, php-format
 msgid "Edit blog settings for %s"
@@ -3763,19 +3633,16 @@ msgstr "Blog"
 msgid "Plugins"
 msgstr "Eklentiler"
 
-#, fuzzy
-msgid "medium"
-msgstr "Orta:"
+msgid "moyenne"
+msgstr ""
 
-#, fuzzy
-msgid "small"
-msgstr "Küçük:"
+msgid "petite"
+msgstr ""
 
-#, fuzzy
-msgid "thumbnail"
-msgstr "Pullar:"
+msgid "vignette"
+msgstr ""
 
-msgid "square"
+msgid "carrée"
 msgstr ""
 
 #, fuzzy
@@ -3904,15 +3771,6 @@ msgstr "Yazar ismi gimelisiniz"
 msgid "Email address is not valid."
 msgstr "Eposta adresi geçersiz"
 
-msgid "online"
-msgstr "çevrimiçi"
-
-msgid "offline"
-msgstr "çevrimdışı"
-
-msgid "removed"
-msgstr "kaldırıldı"
-
 msgid "You are not an administrator"
 msgstr "Admin değilsiniz"
 
@@ -3960,12 +3818,6 @@ msgstr ""
 
 #, php-format
 msgid "Extract destination directory %s already exists."
-msgstr ""
-
-msgid "Embedded Audio Player"
-msgstr ""
-
-msgid "Embedded Video Player"
 msgstr ""
 
 #, php-format
@@ -4191,6 +4043,125 @@ msgstr ""
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
+#, fuzzy
+#~ msgid "Entries actions"
+#~ msgstr "Seçilmiş yazılara yap:"
+
+#, fuzzy
+#~ msgid "Go to dashboard"
+#~ msgstr "Gösterge"
+
+#~ msgid "hide"
+#~ msgstr "gizle"
+
+#, fuzzy
+#~ msgid "Select:"
+#~ msgstr "Seçili:"
+
+#, fuzzy
+#~ msgid "no selection"
+#~ msgstr "Seçim yok"
+
+#~ msgid "select all"
+#~ msgstr "hepsini seç"
+
+#~ msgid "Invert selection"
+#~ msgstr "seçimi evir"
+
+#~ msgid "view entry"
+#~ msgstr "yazıyı gör"
+
+#~ msgid "Use this theme"
+#~ msgstr "Bu temayı kullan"
+
+#~ msgid "Remove this theme"
+#~ msgstr "Bu temayı sil"
+
+#~ msgid "Zip file content"
+#~ msgstr "ZIP dosyası içeriği"
+
+#~ msgid "XHTML markup validator"
+#~ msgstr "XHTML tastikle"
+
+#~ msgid "XHTML content is valid."
+#~ msgstr "XHTML içeriği geçerli."
+
+#~ msgid "There are XHTML markup errors."
+#~ msgstr "XHTML markup hataları var."
+
+#, fuzzy
+#~ msgid "Help:"
+#~ msgstr "Yardım"
+
+#, fuzzy
+#~ msgid "Hide this notice"
+#~ msgstr "Bu temayı kullan"
+
+#~ msgid "You have unsaved changes."
+#~ msgstr "Kaydedilmemiş değişiklikler var."
+
+#, fuzzy
+#~ msgid "Choose date"
+#~ msgstr "Dosya seçimi"
+
+#~ msgid "close"
+#~ msgstr "kapat"
+
+#~ msgid "now"
+#~ msgstr "şimdi"
+
+#~ msgid "Temporarily activate enhanced uploader"
+#~ msgstr "Gelişmiş yükleyiciyi etkinleştir"
+
+#~ msgid "Temporarily disable enhanced uploader"
+#~ msgstr "Gelişmiş yükleyiciyi kapat"
+
+#~ msgid "Limit exceeded."
+#~ msgstr "Sınır aşıldı."
+
+#~ msgid "File size exceeds allowed limit."
+#~ msgstr "Dosya boyutu müsaadelinin üzerinde."
+
+#~ msgid "Canceled."
+#~ msgstr "İptallendi."
+
+#~ msgid "HTTP Error:"
+#~ msgstr "HTTP Hatası:"
+
+#~ msgid "Clean"
+#~ msgstr "Temizle"
+
+#~ msgid "File successfully uploaded."
+#~ msgstr "Dosya başarıyla yüklendi."
+
+#~ msgid "No file in queue."
+#~ msgstr "Kuyrukta dosya yok."
+
+#~ msgid "1 file in queue."
+#~ msgstr "kuyrukta 1 dosya var."
+
+#~ msgid "%d files in queue."
+#~ msgstr "Kuyrukta %d dosya var."
+
+#~ msgid "Queue error:"
+#~ msgstr "Kuyruk hatası."
+
+#, fuzzy
+#~ msgid "Manage plugin"
+#~ msgstr "Blog temaları"
+
+#, fuzzy
+#~ msgid "medium"
+#~ msgstr "Orta:"
+
+#, fuzzy
+#~ msgid "small"
+#~ msgstr "Küçük:"
+
+#, fuzzy
+#~ msgid "thumbnail"
+#~ msgstr "Pullar:"
+
 #~ msgid "Unable to open directory."
 #~ msgstr "Dizin açılamadı."
 
@@ -4254,9 +4225,6 @@ msgstr ""
 #~ msgid "Cannot read file"
 #~ msgstr "Dosya okunamadı"
 
-#~ msgid "Directory does not exist"
-#~ msgstr "Dizin mevcut değil."
-
 #~ msgid "Cannot read directory"
 #~ msgstr "Dizin okunamadı"
 
@@ -4299,10 +4267,6 @@ msgstr ""
 
 #~ msgid "back"
 #~ msgstr "geri"
-
-#, fuzzy
-#~ msgid "Apply filters"
-#~ msgstr "Dosya ekle"
 
 #~ msgid "Page(s)"
 #~ msgstr "Sayfa(lar)"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.1.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:10+0200\n"
+"POT-Creation-Date: 2020-04-23 14:50+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Español Argentino <thecattony@thecattony.com.ar>\n"
@@ -204,6 +204,9 @@ msgstr "Eliminar comentarios no deseados mas antiguos que"
 msgid "days"
 msgstr "días"
 
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
 #, fuzzy
 msgid "Set spam filters."
 msgstr "Filtro de spam Akismet"
@@ -356,6 +359,10 @@ msgstr "La configuración de los filtros de guardo con éxito."
 msgid "%s configuration"
 msgstr "Configuración de %s"
 
+#, fuzzy
+msgid "Are you sure you want to delete all spams?"
+msgstr "¿Esta seguro que desea eliminar esta pagina?"
+
 #, fuzzy, php-format
 msgid "%s filter configuration"
 msgstr "Configuración del filtro"
@@ -404,9 +411,6 @@ msgstr "Comentarios no deseados en feeds"
 msgid "Published comments RSS feed"
 msgstr "Comentarios publicados en feeds"
 
-msgid "Attachments"
-msgstr ""
-
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -427,38 +431,11 @@ msgstr "Enlaces recomendados"
 msgid "manage blogroll"
 msgstr "Administrar enlaces recomendados"
 
-msgid "Links"
-msgstr "Enlaces"
-
-msgid "Title (optional)"
-msgstr ""
-
 msgid "All categories"
 msgstr "Todas las categorías"
 
-msgid "Display on:"
-msgstr ""
-
-#, fuzzy
-msgid "All pages"
-msgstr "Todas las etiquetas"
-
-msgid "Home page only"
-msgstr "Solo en página de inicio"
-
-msgid "Except on home page"
-msgstr ""
-
-#, fuzzy
-msgid "Content only"
-msgstr "Filtros de contenido"
-
-#, fuzzy
-msgid "CSS class:"
-msgstr "Archivos CSS"
-
-msgid "Offline"
-msgstr ""
+msgid "Links"
+msgstr "Enlaces"
 
 msgid "You must provide a link title"
 msgstr "Debe indicar un titulo de enlace"
@@ -493,6 +470,9 @@ msgstr "Editar enlace"
 #, fuzzy
 msgid "XFN information"
 msgstr "Información"
+
+msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
+msgstr ""
 
 msgid "_xfn_Me"
 msgstr "Mio"
@@ -908,6 +888,86 @@ msgstr "Medio externo"
 msgid "URL field cannot be empty."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
+#, fuzzy
+msgid "Settings"
+msgstr "Nombre de parámetro"
+
+#, fuzzy
+msgid "Plugin activation"
+msgstr "Activo"
+
+msgid "Enable dcCKEditor plugin"
+msgstr ""
+
+#, fuzzy
+msgid "Add alignment buttons"
+msgstr "Alineación del medio"
+
+#, fuzzy
+msgid "Add lists buttons"
+msgstr "Agregar etiquetas a las entradas"
+
+#, fuzzy
+msgid "Add text color button"
+msgstr "Color de texto de la barra lateral:"
+
+#, fuzzy
+msgid "Add background text color button"
+msgstr "Color de fondo:"
+
+msgid "Custom colors list:"
+msgstr ""
+
+msgid "Add colors without # separated by a comma."
+msgstr ""
+
+msgid "Leave empty to use the default palette:"
+msgstr ""
+
+msgid "Example of custom color list:"
+msgstr ""
+
+msgid "Colors per row in palette:"
+msgstr ""
+
+msgid "Leave empty to use default (6)"
+msgstr ""
+
+msgid "Add collapse button"
+msgstr ""
+
+#, fuzzy
+msgid "Add format selection"
+msgstr "Agregar %s a esta entrada"
+
+msgid "Custom formats"
+msgstr ""
+
+msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
+msgstr ""
+
+msgid "Add table button"
+msgstr ""
+
+msgid "Add clipboard buttons"
+msgstr ""
+
+msgid "Copy, Paste, Paste Text, Paste from Word"
+msgstr ""
+
+msgid "Add undo/redo buttons"
+msgstr ""
+
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr ""
+
+#, fuzzy
+msgid "Save configuration"
+msgstr "Configuración de %s"
+
 msgid "visual"
 msgstr ""
 
@@ -993,6 +1053,12 @@ msgstr "Idioma"
 #, fuzzy
 msgid "Remove text formating"
 msgstr "quitar etiquetas"
+
+msgid "dcLegacyEditor"
+msgstr ""
+
+msgid "Enable dcLegacyEditor plugin"
+msgstr ""
 
 msgid "Checks trackback source for a link to the post"
 msgstr "Corroborar la fuente de los enlaces inversos por el enlace a la entrada"
@@ -1491,6 +1557,13 @@ msgstr ""
 msgid "Maintenance plugin has been successfully configured."
 msgstr "categoría creada con éxito."
 
+#, fuzzy
+msgid "System settings have been saved."
+msgstr "Parámetros actualizados con éxito."
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
 msgid "Never"
 msgstr ""
 
@@ -1544,6 +1617,24 @@ msgid "Recall time for all tasks:"
 msgstr ""
 
 msgid "Use one recall time per task"
+msgstr ""
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
 msgstr ""
 
 msgid "New page"
@@ -1698,9 +1789,6 @@ msgstr ""
 msgid "Test ping services"
 msgstr "Probar servicios de ping"
 
-msgid "Check all"
-msgstr ""
-
 msgid "Simple menu"
 msgstr ""
 
@@ -1757,6 +1845,10 @@ msgstr "Configuración actualizada con éxito"
 
 msgid "Label"
 msgstr ""
+
+#, fuzzy
+msgid "Home page"
+msgstr "Solo en página de inicio"
 
 msgid "Recent posts"
 msgstr ""
@@ -1862,10 +1954,6 @@ msgid "Enable simple menu for this blog"
 msgstr ""
 
 #, fuzzy
-msgid "Save configuration"
-msgstr "Configuración de %s"
-
-#, fuzzy
 msgid "Add an item"
 msgstr "Agregar un enlace nuevo"
 
@@ -1896,6 +1984,9 @@ msgstr "Esta(s) etiqueta(s) de entradas de redifusión web"
 msgid "Tag"
 msgstr "Etiqueta"
 
+msgid "Limit (empty means no limit):"
+msgstr "Limite (vació es sin limite):"
+
 msgid "Tag name"
 msgstr "Nombre de etiqueta"
 
@@ -1907,9 +1998,6 @@ msgstr ""
 
 msgid "Oldest entry"
 msgstr ""
-
-msgid "Limit (empty means no limit):"
-msgstr "Limite (vació es sin limite):"
 
 msgid "Link to all tags:"
 msgstr ""
@@ -1927,10 +2015,6 @@ msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Etiqueta eliminada con éxito"
 msgstr[1] "Etiqueta eliminada con éxito"
-
-#, fuzzy
-msgid "Add tags to this selection"
-msgstr "Agregar %s a esta entrada"
 
 #, fuzzy
 msgid "Are you sure you want to remove this tag?"
@@ -1958,6 +2042,10 @@ msgstr "centro"
 
 msgid "entries"
 msgstr "entradas"
+
+#, fuzzy
+msgid "Add tags to this selection"
+msgstr "Agregar %s a esta entrada"
 
 msgid "Tags to add:"
 msgstr "Etiquetas a agregar:"
@@ -2183,11 +2271,11 @@ msgstr "Texto"
 msgid "Text:"
 msgstr "Texto:"
 
-msgid "Last entries"
-msgstr "Últimas entradas"
-
 msgid "Uncategorized"
 msgstr "Sin categoría"
+
+msgid "Last entries"
+msgstr "Últimas entradas"
 
 msgid "Tag:"
 msgstr "Etiqueta:"
@@ -2211,6 +2299,33 @@ msgstr "Redifusión web de entradas"
 
 msgid "Comments feed"
 msgstr "Redifusión web de comentarios"
+
+msgid "Title (optional)"
+msgstr ""
+
+msgid "Display on:"
+msgstr ""
+
+#, fuzzy
+msgid "All pages"
+msgstr "Todas las etiquetas"
+
+msgid "Except on home page"
+msgstr ""
+
+msgid "Home page only"
+msgstr "Solo en página de inicio"
+
+#, fuzzy
+msgid "Content only"
+msgstr "Filtros de contenido"
+
+#, fuzzy
+msgid "CSS class:"
+msgstr "Archivos CSS"
+
+msgid "Offline"
+msgstr ""
 
 msgid "navigation"
 msgstr "navegación"
@@ -2407,9 +2522,6 @@ msgstr ""
 #~ msgid "Tags:"
 #~ msgstr "Etiquetas:"
 
-#~ msgid "Add tags to entries"
-#~ msgstr "Agregar etiquetas a las entradas"
-
 #~ msgid "Edit tag"
 #~ msgstr "Editar etiqueta"
 
@@ -2472,9 +2584,6 @@ msgstr ""
 
 #~ msgid "Page URL:"
 #~ msgstr "URL de pagina:"
-
-#~ msgid "Media alignment"
-#~ msgstr "Alineación del medio"
 
 #~ msgid "Media title"
 #~ msgstr "Título del medio"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:11+0200\n"
+"POT-Creation-Date: 2020-04-23 15:01+0200\n"
 "PO-Revision-Date: 2016-07-18 15:55+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -204,6 +204,9 @@ msgstr "删除垃圾评论早于"
 msgid "days"
 msgstr "天"
 
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
+
 #, fuzzy
 msgid "Set spam filters."
 msgstr "Akismet 垃圾评论过滤"
@@ -357,6 +360,10 @@ msgstr "成功保存过滤器配置。"
 msgid "%s configuration"
 msgstr "%s 配置"
 
+#, fuzzy
+msgid "Are you sure you want to delete all spams?"
+msgstr "您确定要删除此页面吗？"
+
 #, fuzzy, php-format
 msgid "%s filter configuration"
 msgstr "过滤器配置"
@@ -405,9 +412,6 @@ msgstr "垃圾评论 RSS feed"
 msgid "Published comments RSS feed"
 msgstr "发表的评论 RSS feed"
 
-msgid "Attachments"
-msgstr ""
-
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
@@ -428,38 +432,11 @@ msgstr "博客链接"
 msgid "manage blogroll"
 msgstr "管理博客链接"
 
-msgid "Links"
-msgstr "链接"
-
-msgid "Title (optional)"
-msgstr ""
-
 msgid "All categories"
 msgstr "所有分类目录"
 
-msgid "Display on:"
-msgstr ""
-
-#, fuzzy
-msgid "All pages"
-msgstr "所有标签"
-
-msgid "Home page only"
-msgstr "仅首页"
-
-msgid "Except on home page"
-msgstr ""
-
-#, fuzzy
-msgid "Content only"
-msgstr "内容过滤器"
-
-#, fuzzy
-msgid "CSS class:"
-msgstr "CSS 文件"
-
-msgid "Offline"
-msgstr ""
+msgid "Links"
+msgstr "链接"
 
 msgid "You must provide a link title"
 msgstr "您必须提供一个链接标题"
@@ -494,6 +471,9 @@ msgstr "编辑链接"
 #, fuzzy
 msgid "XFN information"
 msgstr "信息"
+
+msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
+msgstr ""
 
 msgid "_xfn_Me"
 msgstr "我自己"
@@ -910,6 +890,86 @@ msgstr "外部媒体"
 msgid "URL field cannot be empty."
 msgstr ""
 
+msgid "dcCKEditor"
+msgstr ""
+
+#, fuzzy
+msgid "Settings"
+msgstr "设置名称"
+
+#, fuzzy
+msgid "Plugin activation"
+msgstr "激活"
+
+msgid "Enable dcCKEditor plugin"
+msgstr ""
+
+#, fuzzy
+msgid "Add alignment buttons"
+msgstr "媒体对齐"
+
+#, fuzzy
+msgid "Add lists buttons"
+msgstr "向文章添加标签"
+
+#, fuzzy
+msgid "Add text color button"
+msgstr "侧边栏文字颜色："
+
+#, fuzzy
+msgid "Add background text color button"
+msgstr "背景颜色："
+
+msgid "Custom colors list:"
+msgstr ""
+
+msgid "Add colors without # separated by a comma."
+msgstr ""
+
+msgid "Leave empty to use the default palette:"
+msgstr ""
+
+msgid "Example of custom color list:"
+msgstr ""
+
+msgid "Colors per row in palette:"
+msgstr ""
+
+msgid "Leave empty to use default (6)"
+msgstr ""
+
+msgid "Add collapse button"
+msgstr ""
+
+#, fuzzy
+msgid "Add format selection"
+msgstr "向这篇文章添加 %s"
+
+msgid "Custom formats"
+msgstr ""
+
+msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
+msgstr ""
+
+msgid "Add table button"
+msgstr ""
+
+msgid "Add clipboard buttons"
+msgstr ""
+
+msgid "Copy, Paste, Paste Text, Paste from Word"
+msgstr ""
+
+msgid "Add undo/redo buttons"
+msgstr ""
+
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr ""
+
+#, fuzzy
+msgid "Save configuration"
+msgstr "%s 配置"
+
 msgid "visual"
 msgstr ""
 
@@ -995,6 +1055,12 @@ msgstr "语言"
 #, fuzzy
 msgid "Remove text formating"
 msgstr "移除标签"
+
+msgid "dcLegacyEditor"
+msgstr ""
+
+msgid "Enable dcLegacyEditor plugin"
+msgstr ""
 
 msgid "Checks trackback source for a link to the post"
 msgstr "检查文章链接的 trackback 源"
@@ -1491,6 +1557,13 @@ msgstr ""
 msgid "Maintenance plugin has been successfully configured."
 msgstr "成功创建分类目录。"
 
+#, fuzzy
+msgid "System settings have been saved."
+msgstr "成功更新设置。"
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
 msgid "Never"
 msgstr ""
 
@@ -1544,6 +1617,24 @@ msgid "Recall time for all tasks:"
 msgstr ""
 
 msgid "Use one recall time per task"
+msgstr ""
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
 msgstr ""
 
 msgid "New page"
@@ -1698,9 +1789,6 @@ msgstr ""
 msgid "Test ping services"
 msgstr "测试 ping 服务器"
 
-msgid "Check all"
-msgstr ""
-
 msgid "Simple menu"
 msgstr ""
 
@@ -1757,6 +1845,10 @@ msgstr "成功更新配置"
 
 msgid "Label"
 msgstr ""
+
+#, fuzzy
+msgid "Home page"
+msgstr "仅首页"
 
 msgid "Recent posts"
 msgstr ""
@@ -1862,10 +1954,6 @@ msgid "Enable simple menu for this blog"
 msgstr ""
 
 #, fuzzy
-msgid "Save configuration"
-msgstr "%s 配置"
-
-#, fuzzy
 msgid "Add an item"
 msgstr "添加一个新链接"
 
@@ -1896,6 +1984,9 @@ msgstr "此标签的文章 Atom feed"
 msgid "Tag"
 msgstr "标签"
 
+msgid "Limit (empty means no limit):"
+msgstr "限制(留空表示不限制)："
+
 msgid "Tag name"
 msgstr "标签名称"
 
@@ -1907,9 +1998,6 @@ msgstr ""
 
 msgid "Oldest entry"
 msgstr ""
-
-msgid "Limit (empty means no limit):"
-msgstr "限制(留空表示不限制)："
 
 msgid "Link to all tags:"
 msgstr ""
@@ -1924,10 +2012,6 @@ msgstr "移除标签"
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "成功移除标签"
-
-#, fuzzy
-msgid "Add tags to this selection"
-msgstr "向这篇文章添加 %s"
 
 #, fuzzy
 msgid "Are you sure you want to remove this tag?"
@@ -1955,6 +2039,10 @@ msgstr "中间"
 
 msgid "entries"
 msgstr "文章"
+
+#, fuzzy
+msgid "Add tags to this selection"
+msgstr "向这篇文章添加 %s"
 
 msgid "Tags to add:"
 msgstr "要添加的标签："
@@ -2179,11 +2267,11 @@ msgstr "文本"
 msgid "Text:"
 msgstr "文本："
 
-msgid "Last entries"
-msgstr "最新文章"
-
 msgid "Uncategorized"
 msgstr "未分类"
+
+msgid "Last entries"
+msgstr "最新文章"
 
 msgid "Tag:"
 msgstr "标签："
@@ -2207,6 +2295,33 @@ msgstr "文章 feed"
 
 msgid "Comments feed"
 msgstr "评论 feed"
+
+msgid "Title (optional)"
+msgstr ""
+
+msgid "Display on:"
+msgstr ""
+
+#, fuzzy
+msgid "All pages"
+msgstr "所有标签"
+
+msgid "Except on home page"
+msgstr ""
+
+msgid "Home page only"
+msgstr "仅首页"
+
+#, fuzzy
+msgid "Content only"
+msgstr "内容过滤器"
+
+#, fuzzy
+msgid "CSS class:"
+msgstr "CSS 文件"
+
+msgid "Offline"
+msgstr ""
 
 msgid "navigation"
 msgstr "导航"
@@ -2403,9 +2518,6 @@ msgstr ""
 #~ msgid "Tags:"
 #~ msgstr "标签："
 
-#~ msgid "Add tags to entries"
-#~ msgstr "向文章添加标签"
-
 #~ msgid "Edit tag"
 #~ msgstr "编辑标签"
 
@@ -2468,9 +2580,6 @@ msgstr ""
 
 #~ msgid "Page URL:"
 #~ msgstr "页面 URL："
-
-#~ msgid "Media alignment"
-#~ msgstr "媒体对齐"
 
 #~ msgid "Media title"
 #~ msgstr "媒体标题"
