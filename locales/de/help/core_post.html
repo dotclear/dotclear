@@ -1,112 +1,113 @@
 <html>
 <head>
-  <title>Einen Eintrag bearbeiten</title>
+  <title>Editing an entry</title>
 </head>
 
 <body>
-
-<h3>Einen Eintrag bearbeiten</h3>
+<h4>Editing an entry</h4>
 
 <dl>
-  <dt>Titel des Eintrags</dt>
-  <dd>Gib Deinem Eintrag einen Titel. Dieses Feld ist Pflicht.</dd>
+  <dt>Entry title</dt>
+  <dd>Type in the entry title. This field is mandatory.</dd>
   
-  <dt>Exzerpt oder Auszug</dt>
-  <dd>Der Inhalt dieses Feldes wird auf Seiten wie der Startseite oder Kategorieseite gezeigt, die Blogeintr&auml;ge als Liste 
-  ausgeben. Ein Exzerpt ist mit einem Link "weiter lesen" gekennzeichnet.
-  Dieser Auszug wird auch auf der eigentlichen Eintragsseite, der post.html, wiedergegeben. 
-  Wenn Du es leer l&auml;sst, wird der Text im <em>Inhalt</em> Feld auf der Startseite
-  und anderen Seiten mit Listen gezeigt.</dd>
+  <dt>Excerpt</dt>
+  <dd>The content of this field will be shown in pages showing entries as
+  a list, such as the homepage or categories pages, followed by a "continue reading"
+  link. It will also be visible at the beginning of the page showing the
+  whole post. Should you leave it blank, the <em>content</em> field will be shown entirely on the homepage and other entry list pages.</dd>
   
-  <dt>Inhalt</dt>
-  <dd>Der Inhalt Deines Blogeintrages. Pflichtfeld.</dd>
+  <dt>Content</dt>
+  <dd>The content of your entry. This field is mandatory.</dd>
   
-  <dt>Anmerkungen</dt>
-  <dd>Dieses Feld ist f&uuml;r pers&ouml;nliche Notizen. Der Inhalt wird nicht in Deinem Blog angezeigt.</dd>
+  <dt>Personal notes</dt>
+  <dd>This text area is for personal use, for notes or memos. What you enter here
+  will never be displayed on the blog.</dd>
   
-  <dt>Kategorie</dt>
-  <dd>Die Kategorie Deines Eintrages.Um eine neue Kategorie zu erstellen, klicke auf "Kategorie" in der linken Menuleiste. 
- Die Auswahl einer Kategorie ist kein Pflichtfeld. M&ouml;chtest Du keine Kategorie ausw&auml;hlen, bleibt das Feld blank. </dd>
-  
-  <dt>Status des Eintrags</dt>
-  <dd>Erlaubt folgenden Status auzuw&auml;hlen:
+  <dt>Entry status</dt>
+  <dd>Allows you to choose your entry's status:
     <ul>
-      <li><strong>unerledigt:</strong> Status ist noch nicht entschieden.</li>
-      <li><strong>eingeplant:</strong> Der Eintrag wird zu einer bestimmten Zeit online gehen, die
-      in dem <em>Ver&ouml;ffentlicht am</em> Feld angegeben wird.</li>
-      <li><strong>unver&ouml;ffentlicht:</strong> Der Eintrag ist offline.</li>
-      <li><strong>ver&ouml;ffentlicht:</strong> Der Eintrag ist online.</li>
+      <li><strong>Pending:</strong> The publication status has not yet been decided.</li>
+      <li><strong>Scheduled:</strong> The post will be set online at the time and date set in the <strong>Published on</strong> field.</li>
+      <li><strong>Unpublished:</strong> The post is offline.</li>
+      <li><strong>Published:</strong> The post is online.</li>
     </ul>
   </dd>
   
-  <dt>Ver&ouml;ffentlicht am</dt>
-  <dd>Hier kannst Du Datum und Zeit ver&auml;ndern. Wenn der Status des Eintrags
-  <em>eingeplant</em> ist,  wird dieser zu der gew&auml;hlten Zeit erscheinen.</dd>
+  <dt>Publication date and hour</dt>
+  <dd>Here you can change the entry's publication date and time. If the entry's
+  status is <strong>Scheduled</strong>, it will be online at the given date and time.</dd>
+
+  <dt>Entry language</dt>
+  <dd>Select the language code of your entry. It defaults to your (as a
+  user) language but you can change it to whatever language code you want, e.g.
+  "en" or "es-ar". This code is used for the entry's display.</dd>
+
+  <dt>Text formatting</dt>
+  <dd>Choose the entry's syntax. Wiki is a simplified syntax
+  and will be converted to valid XHTML. Unless you have a perfect
+  understanding of XHTML, we advise you to choose the Wiki syntax.
+  See the Wiki syntax reference for more information.</dd>
+
+  <dt>Selected entry</dt>
+  <dd>The selected entries will be listed on your blog menu, under the title "Best of me".</dd>
+
+  <dt>Category</dt>
+  <dd>Your entry's category. To create a new category, please see the
+  <strong>Categories</strong> section. You can choose to leave
+  you entry without a category by selecting the <em>(none)</em> item.</dd>
+
+  <dt>Add a new category</dt>
+  <dd>You can create a new category by entering its title and selecting its parent category (or select <em>(none)</em> to create a top level category).</dd>
   
-  <dt>Textformat</dt>
-  <dd>W&auml;hle den Syntaxtyp aus. Wiki ist eine vereinfachte Syntax und wird 
-    zu xhtml konvertiert. Wir raten die Wiki Syntax zu verwenden, wenn Du keine 
-    html Kenntnisse hast. Schaue in der Wiki Syntax Reference nach mehr Informationen.</dd>
+  <dt>Tags</dt>
+  <dd>Add tags separated by commas, and press <strong>ok</strong> when done. You can also select existing tags by clicking on <strong>Choose from list</strong>.</dd>
+
+  <dt>Attachments</dt>
+  <dd>Attachments are media files added to the entry. You can use the <strong>Add files to this entry</strong> button to select media files to add to the entry.<br />
+    This option will appear after you save your entry.<br />
+    Please check the Media manager help for more information.</dd>
+
+  <dt>Accept comments</dt>
+  <dd>Check this box to allow your visitors to comment on this entry. The corresponding global setting can be found in the blog settings.</dd>
+
+  <dt>Accept trackbacks</dt>
+  <dd>A trackback is a way to let a portion of your entry as a comment on
+  another blog. Check this box to allow others to trackback your entry. The
+  corresponding global setting is to be found in the blog settings.</dd>
   
-  <dt>Kommentare akzeptieren</dt>
-  <dd>W&auml;hle die Box aus, um Besuchern die M&ouml;glichkeit zu geben, Kommentare zu schreiben. Bitte beachte die
-  allgemeinen Einstellungen f&uuml;r Dein Blog.</dd>
+  <dt>Password</dt>
+  <dd>You can enter a password for your entry. A password protected entry will
+  not be displayed on your blog, it will only be accessible to those you will
+  give the entry URL to (see the <strong>view entry</strong> link) and password.</dd>
+
+  <dt>Basename</dt>
+  <dd>You can unprotect this field by clicking on the little lock on its right and choose another URL for your entry. If the URL you're trying to use is already used by another entry, a number will be added to it.</dd>  
   
-  <dt>Trackbacks akzeptieren</dt>
-  <dd>Ein Trackback gibt die M&ouml;glichkeit, einen Auszug aus Deinem Blogeintrag in einem anderen Blog als Kommentar zu hinterlassen. 
-  Bitte beachte die  allgemeinen Einstellungen f&uuml;r Dein Blog.</dd>
-  
-  <dt>Ausgew&auml;hlter Beitrag</dt>
-  <dd>Ein ausgew&auml;hlter Beitrag wird in Deiner Sidebar mit dem Widget "Ausgew&auml;hlter Beitrag" erscheinen.</dd>
-  
-  <dt>Passwort eintragen</dt>
-  <dd>Du kannst ein Passwort f&uuml;r Deinen Eintrag anbieten. Ein passwortgesch&uuml;tzter Beitrag wird nicht in Deinem Blog erscheinen
-  und wird nur mit dem direkten Aufrufen der URL (siehe <em>Eintrag ansehen</em>) und dem Eingeben des Passwortes einsehbar sein.</dd>
-  
-  <dt>Basisname</dt>
-  <dd>Wenn Du auf das Schloss klickst, dann kannst Du dem Eintrag eine andere URL geben.
-Sollte die URL schon vergeben sein, wird eine Nummer hinzugef&uuml;gt.</dd>
-  
-  <dt>Eintragssprache</dt>
-  <dd>Deine Sprache wird mit zwei Buchstaben angegeben. Standardsprache ist Deine 
-  (Benutzer) Sprache, jedoch kannst Du auch die Sprache &auml;ndern, z.B. 
-  "en" oder "fr-qc". Dieser Code ist nur f&uuml;r den jeweiligen Eintrag und eine &Uuml;berpr&uuml;fung findet nicht statt.</dd>
-  
-  <dt>Anlagen</dt>
-  <dd>Anlagen sind alle Medien in Deinem Beitrag. Das Link <em>Anlage dem Eintrag hinzuf&uuml;gen"</em> 
-  erlaubt weitere Dateien hinzuzuf&uuml;gen. Speichere Deinen Eintrag ab, bevor Du auf das Link klickst. 
-  Weitere Inofrmationen siehe in der Hilfe zum Medienmanager nach.</dd>
 </dl>
 
-<h3>Kommentare</h3>
+<h4>Comments</h4>
 <dl>
-  <dt>Kommentarliste</dt>
-  <dd>Im <em>Kommentare</em> Registerblatt kannst Du diese lesen und den Status dieser &auml;ndern. 
-  Als Blogadministrator kannst Du Kommentare offline und online setzen, diese l&ouml;schen oder als Junk kennzeichnen.</dd>
+  <dt>Comment list</dt>
+  <dd>On the <strong>Comments</strong> tab, you can read and change the status of
+  your entry's comments (and trackbacks). If you're allowed to by the blog administrator, you will be able to set your comments (and trackbacks) online or offline, to delete them or to mark them as junk.</dd>
   
-  <dt>Einen Kommentar hinzuf&uuml;gen</dt>
-  <dd>Im <em>Einen Kommentar hinzuf&uuml;gen</em> Registerblatt kannst Du einen Kommentar schreiben oder 
-  auf einen Kommentar antworten, ohne den Backend Bereich des Blogs zu verlassen.
-  Die Syntax ist xhtml. Benutze das Feld, um einen Kommentar zu ver&auml;ndern</dd>
+  <dt>Add a comment</dt>
+  <dd>On the <strong>Add a comment</strong> tab, you can reply to one of your entry's comments without leaving your blog's backend. The syntax to be used here is plain, unlimited XHTML. Use the fields as if you were modifying a comment.</dd>
 </dl>
-
-<h3>Trackback</h3>
-<p>Um ein Trackback zu machen, klicke auf das <em>Ping blogs</em> Link.
-Du wirst einen Hinweis finden, wenn der Status nicht <em>ver&ouml;ffentlicht</em> ist.</p>
-
+  
+<h4>Add a comment</h4>
 <dl>
-  <dt>URLs pingen</dt>
-  <dd>F&uuml;ge die Trackback URL des Blogeintrages ein, das Du pingen willst.</dd>
-  
-  
-  <dt>Exzerpt senden</dt>
-  <dd>Dieses Feld beinhaltet die ersten S&auml;tze, die auch in dem Blog angezeigt werden, dass Deinen Beitragt anpingt. 
-  Du kannst den Inhalt bearbeiten.</dd>
-  
-  
-  <dt> Ping URLs automatisch entdecken</dt>
-  <dd>Wenn ein Link in Deinem Blog zu einem spezifischen Eintrag f&uuml;hrt und die Blogeinstellungen entsprechend sind, 
- wird dieses Tool erlauben automatisch die URLs f&uuml;r Dich zu pingen.</dd>
+  <dt>Name</dt>
+  <dd>Comment author's name. This field is mandatory.</dd>
+
+  <dt>Email</dt>
+  <dd>Comment author's e-mail address.</dd>
+
+  <dt>Website</dt>
+  <dd>Comment author's Website URL.</dd>
+
+  <dt>Comment</dt>
+  <dd>Comment content. This field uses XHTML syntax.</dd>
 </dl>
 
 </body>
