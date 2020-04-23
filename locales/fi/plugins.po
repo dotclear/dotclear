@@ -1,19 +1,20 @@
-# Finnish translation of DotClear
-# Kari Eveli <lexitec@lexitec.fi>, 2015.
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:10+0200\n"
-"PO-Revision-Date: 2016-07-18 15:47+0200\n"
+"POT-Creation-Date: 2020-04-23 14:48+0200\n"
+"PO-Revision-Date: 2020-04-23 14:21\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: Finnish\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Language: fi\n"
+"X-Crowdin-File: /master/locales/en/plugins.po\n"
 
 msgid "Manage every blog configuration directive"
 msgstr "Kaikkien blogiasetusmääritysten hallinta"
@@ -127,7 +128,7 @@ msgid "yes"
 msgstr "kyllä"
 
 msgid "about:config"
-msgstr "about:config"
+msgstr ""
 
 #, php-format
 msgid "Settings for %s"
@@ -186,6 +187,9 @@ msgstr "Poista spämmikommentit, jotka ovat vanhempia kuin"
 
 msgid "days"
 msgstr "päivää"
+
+msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
+msgstr ""
 
 msgid "Set spam filters."
 msgstr "Säädä spämmisuodattimia."
@@ -335,6 +339,9 @@ msgstr "Suodattimien asetukset on talletettu."
 msgid "%s configuration"
 msgstr "%s:n asetukset"
 
+msgid "Are you sure you want to delete all spams?"
+msgstr ""
+
 #, php-format
 msgid "%s filter configuration"
 msgstr "%s-suodattimen asetukset"
@@ -381,9 +388,6 @@ msgstr "Roskakommenttien RSS-syöte"
 msgid "Published comments RSS feed"
 msgstr "Julkaistujen kommenttien RSS-syöte"
 
-msgid "Attachments"
-msgstr "Liitteet"
-
 #, php-format
 msgid "Attachments (%d)"
 msgstr "Liitteitä (%d)"
@@ -403,35 +407,11 @@ msgstr "Blogroll-linkkiluettelo"
 msgid "manage blogroll"
 msgstr "Hallinnoi blogrollia"
 
-msgid "Links"
-msgstr "Linkit"
-
-msgid "Title (optional)"
-msgstr "Otsikko (valinnainen)"
-
 msgid "All categories"
 msgstr "Kaikki kategoriat"
 
-msgid "Display on:"
-msgstr "Näytetään:"
-
-msgid "All pages"
-msgstr "Kaikilla sivuilla"
-
-msgid "Home page only"
-msgstr "Vain etusivulla"
-
-msgid "Except on home page"
-msgstr "Muualla paitsi etusivulla"
-
-msgid "Content only"
-msgstr "Vain sisältö (ilman ympäröivää laatikkoa)"
-
-msgid "CSS class:"
-msgstr "Lisä-CSS-luokka ympäröivää laatikkoa varten:"
-
-msgid "Offline"
-msgstr "Ei verkossa"
+msgid "Links"
+msgstr "Linkit"
 
 msgid "You must provide a link title"
 msgstr "Anna linkin otsikko"
@@ -466,80 +446,83 @@ msgstr "Muokkaa linkkiä"
 msgid "XFN information"
 msgstr "XFN-tiedot"
 
+msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
+msgstr ""
+
 msgid "_xfn_Me"
-msgstr "_xfn_Me"
+msgstr ""
 
 msgid "_xfn_Another link for myself"
-msgstr "_xfn_Another link for myself"
+msgstr ""
 
 msgid "_xfn_Friendship"
-msgstr "_xfn_Friendship"
+msgstr ""
 
 msgid "_xfn_Contact"
-msgstr "_xfn_Contact"
+msgstr ""
 
 msgid "_xfn_Acquaintance"
-msgstr "_xfn_Acquaintance"
+msgstr ""
 
 msgid "_xfn_Friend"
-msgstr "_xfn_Friend"
+msgstr ""
 
 msgid "_xfn_Physical"
-msgstr "_xfn_Physical"
+msgstr ""
 
 msgid "_xfn_Met"
-msgstr "_xfn_Met"
+msgstr ""
 
 msgid "_xfn_Professional"
-msgstr "_xfn_Professional"
+msgstr ""
 
 msgid "_xfn_Co-worker"
-msgstr "_xfn_Co-worker"
+msgstr ""
 
 msgid "_xfn_Colleague"
-msgstr "_xfn_Colleague"
+msgstr ""
 
 msgid "_xfn_Geographical"
-msgstr "_xfn_Geographical"
+msgstr ""
 
 msgid "_xfn_Co-resident"
-msgstr "_xfn_Co-resident"
+msgstr ""
 
 msgid "_xfn_Neighbor"
-msgstr "_xfn_Neighbor"
+msgstr ""
 
 msgid "_xfn_Family"
-msgstr "_xfn_Family"
+msgstr ""
 
 msgid "_xfn_Child"
-msgstr "_xfn_Child"
+msgstr ""
 
 msgid "_xfn_Parent"
-msgstr "_xfn_Parent"
+msgstr ""
 
 msgid "_xfn_Sibling"
-msgstr "_xfn_Sibling"
+msgstr ""
 
 msgid "_xfn_Spouse"
-msgstr "_xfn_Spouse"
+msgstr ""
 
 msgid "_xfn_Kin"
-msgstr "_xfn_Kin"
+msgstr ""
 
 msgid "_xfn_Romantic"
-msgstr "_xfn_Romantic"
+msgstr ""
 
 msgid "_xfn_Muse"
-msgstr "_xfn_Muse"
+msgstr ""
 
 msgid "_xfn_Crush"
-msgstr "_xfn_Crush"
+msgstr ""
 
 msgid "_xfn_Date"
-msgstr "_xfn_Date"
+msgstr ""
 
 msgid "_xfn_Sweetheart"
-msgstr "_xfn_Sweetheart"
+msgstr ""
 
 msgid "Nothing to import"
 msgstr "Ei tuotavaa"
@@ -847,7 +830,7 @@ msgid "All tags"
 msgstr "Kaikki avainsanat"
 
 msgid "404"
-msgstr "404"
+msgstr ""
 
 msgid "The configuration has been updated."
 msgstr "Asetukset on päivitetty."
@@ -872,6 +855,78 @@ msgstr "Ulkoinen kuva"
 
 msgid "URL field cannot be empty."
 msgstr ""
+
+msgid "dcCKEditor"
+msgstr ""
+
+msgid "Settings"
+msgstr "Asetukset"
+
+msgid "Plugin activation"
+msgstr "Liitännäisen käyttöönotto"
+
+msgid "Enable dcCKEditor plugin"
+msgstr "Ota dcCKEditor-liitännäinen käyttöön"
+
+msgid "Add alignment buttons"
+msgstr "Lisää kohdistusnapit"
+
+msgid "Add lists buttons"
+msgstr "Lisää luettelonapit"
+
+msgid "Add text color button"
+msgstr "Lisää tekstivärinappi"
+
+msgid "Add background text color button"
+msgstr ""
+
+msgid "Custom colors list:"
+msgstr ""
+
+msgid "Add colors without # separated by a comma."
+msgstr "Syötä avainsanat pilkulla eroteltuina"
+
+msgid "Leave empty to use the default palette:"
+msgstr ""
+
+msgid "Example of custom color list:"
+msgstr ""
+
+msgid "Colors per row in palette:"
+msgstr ""
+
+msgid "Leave empty to use default (6)"
+msgstr ""
+
+msgid "Add collapse button"
+msgstr "Lisää kutista-nappi"
+
+msgid "Add format selection"
+msgstr "Lisää muotoilunvalinta"
+
+msgid "Custom formats"
+msgstr "Mukautetut muotoilut"
+
+msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
+msgstr "Oletusmuotoilut ovat: p;h1;h2;h3;h4;h5;h6;pre;address"
+
+msgid "Add table button"
+msgstr "Lisää taulukkonappi"
+
+msgid "Add clipboard buttons"
+msgstr "Lisää leiketaulunapit"
+
+msgid "Copy, Paste, Paste Text, Paste from Word"
+msgstr "Kopioi, Liitä, Liitä tekstinä, Liitä Wordistä"
+
+msgid "Add undo/redo buttons"
+msgstr ""
+
+msgid "Disables the built-in spell checker if the browser provides one"
+msgstr "Poistaa sisäänrakennetun oikeinkirjoituksentarkistajan käytöstä, mikäli selaimessa on sellainen"
+
+msgid "Save configuration"
+msgstr "Tallenna asetukset"
 
 msgid "visual"
 msgstr "visuaalinen"
@@ -943,13 +998,19 @@ msgid "Ordered list"
 msgstr "Järjestetty luettelo"
 
 msgid "URL?"
-msgstr "URL?"
+msgstr ""
 
 msgid "Language?"
 msgstr "Kieli?"
 
 msgid "Remove text formating"
 msgstr "Poista tekstinmuotoilu"
+
+msgid "dcLegacyEditor"
+msgstr "Perinteinen Dotclear-editori"
+
+msgid "Enable dcLegacyEditor plugin"
+msgstr "Ota dcLegacyEditor-liitännäinen käyttöön"
 
 msgid "Checks trackback source for a link to the post"
 msgstr "Tarkistaa, onko takaisinviittauksen lähdekoodissa linkki blogimerkintään"
@@ -1422,6 +1483,12 @@ msgstr "Blogissa käytetyn teeman varmistaminen voi olla hyvä idea ennen muutok
 msgid "Maintenance plugin has been successfully configured."
 msgstr "Ylläpitoliitännäisen asetukset on annettu."
 
+msgid "System settings have been saved."
+msgstr ""
+
+msgid "All blog's Content-Security-Policy settings have been reset to default."
+msgstr ""
+
 msgid "Never"
 msgstr "Ei koskaan"
 
@@ -1473,6 +1540,24 @@ msgstr "Muistuta kaikista tehtävistä:"
 
 msgid "Use one recall time per task"
 msgstr "Tehtäväkohtainen muistutusaika eri tehtäville"
+
+msgid "Content-Security-Policy"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only"
+msgstr ""
+
+msgid "Enable Content-Security-Policy system by default"
+msgstr ""
+
+msgid "Enable Content-Security-Policy report only by default"
+msgstr ""
+
+msgid "Also apply these settings to all blogs"
+msgstr ""
 
 msgid "New page"
 msgstr "Uusi sivu"
@@ -1614,22 +1699,17 @@ msgstr ""
 msgid "Test ping services"
 msgstr "Testaa ping-palvelut"
 
-msgid "Check all"
-msgstr "Valitse kaikki"
-
 msgid "Simple menu"
 msgstr "Yksinkertainen valikko"
 
 msgid "new window"
 msgstr ""
 
-#, fuzzy
 msgid "Active page"
-msgstr "Käytössä"
+msgstr ""
 
-#, fuzzy
 msgid "active page"
-msgstr "Uusi sivu"
+msgstr ""
 
 msgid "Item description"
 msgstr "Valikon kohdan kuvaus"
@@ -1666,6 +1746,9 @@ msgstr "Asetukset päivitetty."
 
 msgid "Label"
 msgstr "Otsake"
+
+msgid "Home page"
+msgstr ""
 
 msgid "Recent posts"
 msgstr "Viimeisimmät merkinnät"
@@ -1760,9 +1843,6 @@ msgstr "Lisää tämä kohta"
 msgid "Enable simple menu for this blog"
 msgstr "Ota yksinkertainen valikko käyttöön tässä blogissa"
 
-msgid "Save configuration"
-msgstr "Tallenna asetukset"
-
 msgid "Add an item"
 msgstr "Lisää kohta"
 
@@ -1790,6 +1870,9 @@ msgstr "Tämän avainsanan blogimerkintöjen Atom-syöte"
 msgid "Tag"
 msgstr "Avainsana"
 
+msgid "Limit (empty means no limit):"
+msgstr "Yläraja (tyhjä kenttä = ei ylärajaa):"
+
 msgid "Tag name"
 msgstr "Avainsanan nimi"
 
@@ -1801,9 +1884,6 @@ msgstr ""
 
 msgid "Oldest entry"
 msgstr ""
-
-msgid "Limit (empty means no limit):"
-msgstr "Yläraja (tyhjä kenttä = ei ylärajaa):"
 
 msgid "Link to all tags:"
 msgstr "Linkki kaikkiin avainsanoihin:"
@@ -1818,9 +1898,6 @@ msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Avainsana on lisätty valittuihin blogimerkintöihin"
 msgstr[1] "Avainsanat on lisätty valittuihin blogimerkintöihin"
-
-msgid "Add tags to this selection"
-msgstr "Lisää avainsanat tähän valintaan"
 
 msgid "Are you sure you want to remove this tag?"
 msgstr "Oletko varma, että haluat poistaa tämän avainsanan?"
@@ -1845,6 +1922,9 @@ msgstr "blogimerkintä"
 
 msgid "entries"
 msgstr "blogimerkintää"
+
+msgid "Add tags to this selection"
+msgstr "Lisää avainsanat tähän valintaan"
 
 msgid "Tags to add:"
 msgstr "Lisättäviä avainsanoja:"
@@ -1901,9 +1981,8 @@ msgstr "Tähän blogiin ei ole liitetty avainsanoja."
 msgid "Edit theme files"
 msgstr "Muokkaa teematiedostoja"
 
-#, fuzzy
 msgid "Syntax highlighting"
-msgstr "Teemojen muokkausohjelman syntaksiväritys"
+msgstr ""
 
 msgid "Syntax highlighting in theme editor"
 msgstr "Teemojen muokkausohjelman syntaksiväritys"
@@ -1992,7 +2071,7 @@ msgid "Preferences successfully updated"
 msgstr "Käyttäjän asetukset päivitetty"
 
 msgid "user:preferences"
-msgstr "user:preferences"
+msgstr ""
 
 msgid "User preferences"
 msgstr "Käyttäjän asetukset"
@@ -2057,11 +2136,11 @@ msgstr "Teksti"
 msgid "Text:"
 msgstr "Teksti:"
 
-msgid "Last entries"
-msgstr "Viimeisimmät merkinnät"
-
 msgid "Uncategorized"
 msgstr "Ei kategoriaa"
+
+msgid "Last entries"
+msgstr "Viimeisimmät merkinnät"
 
 msgid "Tag:"
 msgstr "Avainsana:"
@@ -2085,6 +2164,30 @@ msgstr "Blogimerkintöjen syöte"
 
 msgid "Comments feed"
 msgstr "Kommenttien syöte"
+
+msgid "Title (optional)"
+msgstr "Otsikko (valinnainen)"
+
+msgid "Display on:"
+msgstr "Näytetään:"
+
+msgid "All pages"
+msgstr "Kaikilla sivuilla"
+
+msgid "Except on home page"
+msgstr "Muualla paitsi etusivulla"
+
+msgid "Home page only"
+msgstr "Vain etusivulla"
+
+msgid "Content only"
+msgstr "Vain sisältö (ilman ympäröivää laatikkoa)"
+
+msgid "CSS class:"
+msgstr "Lisä-CSS-luokka ympäröivää laatikkoa varten:"
+
+msgid "Offline"
+msgstr "Ei verkossa"
 
 msgid "navigation"
 msgstr "Navigointipaneeli"
@@ -2179,14 +2282,3 @@ msgstr "Poista vimpain"
 msgid "Drag widgets here to remove."
 msgstr "Vedä vimpaimet tähän poistaaksesi."
 
-#~ msgid "Page top"
-#~ msgstr "Sivun ylälaitaan"
-
-#~ msgid "URL"
-#~ msgstr "URL"
-
-#~ msgid "or"
-#~ msgstr "tai"
-
-#~ msgid "Search:"
-#~ msgstr "Haku:"
