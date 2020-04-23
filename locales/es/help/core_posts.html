@@ -1,62 +1,63 @@
 <html>
 <head>
-  <title>Gestión de las entradas</title>
+  <title>Entries management</title>
 </head>
 
 <body>
 
-<h3>Filtros de la lista de entradas</h3>
+<h4>Entries list filter</h4>
 
 <dl>
-  <dt>Autor</dt>
-  <dd>Permite filtrar las entradas por autor.</dd>
+  <dt>Author</dt>
+  <dd>Filters entries by author.</dd>
   
-  <dt>Categoría</dt>
-  <dd>Filtrar las entradas por categoría.</dd>
+  <dt>Category</dt>
+  <dd>Filters entries by category.</dd>
   
-  <dt>Estado</dt>
-  <dd><ul>
-    <li><strong>en espera</strong>: en espera de publicarse.</li>
-    <li><strong>planificado</strong>: la entrada se publicará en la fecha y hora indicados
-    en el campo <em>Publicado el</em>.</li>
-    <li><strong>no publicado</strong>: entrada no publicada.</li>
-    <li><strong>publicado</strong>: entrada publicada.</li>
-  </ul></dd>
+  <dt>Status</dt>
+  <dd>Filters entries by status:<ul>
+      <li><strong>Pending:</strong> Pending entries.</li>
+      <li><strong>Scheduled:</strong> Scheduled entries.</li>
+      <li><strong>Unpublished:</strong> Offline entries.</li>
+      <li><strong>Published:</strong> Online entries.</li>
+    </ul></dd>
   
-  <dt>Seleccionado</dt>
-  <dd>Sólo las entradas seleccionadas, o las no selecciondas.</dd>
+  <dt>Selected</dt>
+  <dd>Filters entries that have the <strong>Selected</strong> status or not.</dd>
+
+  <dt>Attachments</dt>
+  <dd>Filters entries based on if they have attachments or not.</dd>
   
-  <dt>Mes</dt>
-  <dd>Filtra las entradas de un mes de un año dado.</dd>
+  <dt>Month</dt>
+  <dd>Filters entries from the given month of a given year.</dd>
   
-  <dt>idioma</dt>
-  <dd>Filtra las entradas según el idioma indicado en el campo idioma de la entrada.</dd>
+  <dt>Language</dt>
+  <dd>Filters entries based on the language set in the <strong>Language</strong> field of an entry.</dd>
   
-  <dt>Ordenar por</dt>
-  <dd>Permite ordenar los resultados del filtro según la fecha, el título,
-  la categoría, el autor, el estado de publicación o el estado de selección.</dd>
+  <dt>Order by</dt>
+  <dd>Allows you to order the result by date, title, category, author, publication status, selected status, number of comments or number of trackbacks.</dd>
   
-  <dt>Orden</dt>
-  <dd>Indica el orden en el que se desea ordenar.</dd>
+  <dt>Sort</dt>
+  <dd>Allows you to sort the results ascending or descending.</dd>
   
-  <dt>Entradas por página</dt>
-  <dd>Número de entradas a mostrar por página de resultados.</dd>
+  <dt>Entries per page</dt>
+  <dd>Number of entries to display per page.</dd>
 </dl>
 
-<h3>Acciones por lotes sobre las entradas</h3>
-<p>Es posible efectuar un conjunto de acciones sobre varias entradas de una sola vez.
-Las acciones posibles dependen de los permisos del usuario.</p>
-
+<h4>Batch actions</h4>
+<p>It is possible to make a batch of actions on several articles. The possible actions depend on the user's permissions:</p>
 <ul>
-  <li><strong>Publicar</strong>: publicar la entrada,</li>
-  <li><strong>No publicar</strong>: no publicar la entrada,</li>
-  <li><strong>Planificar</strong>: planificar la entrada para una fecha de publicación,</li>
-  <li><strong>En espera</strong>: en espera de publicarse,</li>
-  <li><strong>Cambiar de categoría</strong>: envía a la lista de categorías para cambiar la de las entradas seleccionadas,</li>
-  <li><strong>Cambiar el autor</strong>: permite cambiar el autor de la entrada indicando
-  el identificativo del usuario que será el nuevo autor,</li>
-  <li><strong>Borrar</strong>: borra la entrada (esta operación es irreversible).</li>
+  <li><strong>Publish:</strong> Publish the selected entries online.</li>
+  <li><strong>Unpublish:</strong> Pull the selected entries offline.</li>
+  <li><strong>Schedule:</strong> Schedule the selected entries to be set online at publication date.</li>
+  <li><strong>Mark as pending:</strong> Mark selected entries as pending.</li>
+  <li><strong>Mark as selected/unselected:</strong> Set the selected entries as Selected/Unselected./li>
+  <li><strong>Change category:</strong> Modify the category of the selected entries.</li>
+  <li><strong>Change language:</strong> Modify the language of the selected entries.</li>
+  <li><strong>Change author:</strong> Modify the selected entries' author by entering the new author's ID.</li>
+  <li><strong>Delete:</strong> Delete the selected entries (this operation cannot be cancelled).</li>
+  <li><strong>Add/Remove tags:</strong> Add or remove tags on the selected entries.</li>
 </ul>
-
+<p><em>The above list might contain other items if additional actions have been added by plugins active on your system.</em></p>
 </body>
 </html>
