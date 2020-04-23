@@ -1,21 +1,20 @@
-# German translation of DotClear
-# Copyright (C) 2008.
-# Andreas Diller <nendilo@gmail.com>, 2008.
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-26 16:10+0200\n"
-"PO-Revision-Date: 2016-07-18 15:50+0200\n"
+"POT-Creation-Date: 2020-04-23 14:48+0200\n"
+"PO-Revision-Date: 2020-04-23 14:27\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: \n"
-"Language: lt_LT\n"
+"Language-Team: Lithuanian\n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && (n%100>19 || n%100<11) ? 0 : (n%10>=2 && n%10<=9) && (n%100>19 || n%100<11) ? 1 : n%1!=0 ? 2: 3);\n"
 "X-Generator: Poedit 1.8.8\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Language: lt\n"
+"X-Crowdin-File: /master/locales/en/main.po\n"
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear atnaujintas."
@@ -57,13 +56,14 @@ msgstr "Jūs turite pakeisti savo slaptažodį kad galėtumėte prisijungti."
 msgid "In order to login, you have to change your password now."
 msgstr "Jūs turite pakeisti savo slaptažodį prieš prisijungdami."
 
-#, fuzzy
 msgid "Safe Mode can only be used for super administrators."
-msgstr "Jūs nesate super administratorius."
+msgstr ""
 
-#, fuzzy
 msgid "Insufficient permissions"
-msgstr "nustatyti teises"
+msgstr ""
+
+msgid "Administration session expired"
+msgstr ""
 
 msgid "Wrong username or password"
 msgstr "Klaidingas prisijungimo vardas ir slaptažodis"
@@ -104,9 +104,8 @@ msgstr ""
 msgid "Remember my ID on this device"
 msgstr "Prisiminti mano ID šiame kompiuteryje"
 
-#, fuzzy
 msgid "log in"
-msgstr "Blogo pavadinimas"
+msgstr ""
 
 msgid "You must accept cookies in order to use the private area."
 msgstr "Tam kad pasiekti tolimesnį puslapį jūs turite leisti įjungti Cookies."
@@ -123,9 +122,9 @@ msgstr "Pamiršau slaptažodį"
 msgid "I want to log in in safe mode"
 msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "Blog \"%s\" successfully created"
-msgstr "Blogas sėkmingai sukurtas."
+msgstr ""
 
 msgid "New blog"
 msgstr "Naujas blogas"
@@ -157,9 +156,8 @@ msgstr "Blogo pavadinimas"
 msgid "Blog URL:"
 msgstr "Blogo URL:"
 
-#, fuzzy
 msgid "Blog URL"
-msgstr "Blogo URL:"
+msgstr ""
 
 msgid "Blog description:"
 msgstr "Blogo aprašymas:"
@@ -173,9 +171,9 @@ msgstr "Tokio blogo ID nėra"
 msgid "Password verification failed"
 msgstr "Slaptažodžio patvirtinti nepavyko."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Blog \"%s\" successfully deleted"
-msgstr "Blogas sėkmingai ištrintas."
+msgstr ""
 
 msgid "Delete a blog"
 msgstr "Ištrinti blogą"
@@ -217,9 +215,8 @@ msgstr "antraštė"
 msgid "post id/title"
 msgstr ""
 
-#, fuzzy
 msgid "post id"
-msgstr "Dažniausiai naudojamas"
+msgstr ""
 
 msgid "H4"
 msgstr ""
@@ -260,9 +257,8 @@ msgstr "Dešinė"
 msgid "Center"
 msgstr "Centras"
 
-#, fuzzy
 msgid "Legend and title"
-msgstr "Įrašykite paveikslėlio pavadinimą"
+msgstr ""
 
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr "Noriu, kad paieškos sistemos ir archyvatoriai indeksuotų ir archyvuotų mano blogo turinį."
@@ -291,15 +287,17 @@ msgstr "Blogo nustatymai"
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr "Dėmesio: blogo adreso URL gale rekomenduojama naudoti \"/\" pasirinkus PATH_INFO, išskyrus specialius konfigūravimo atvejus."
 
-#, fuzzy
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
-msgstr "Dėmesio: blogo adreso URL gale rekomenduojama naudoti \"?\" pasirinkus QUERY_STRING, išskyrus specialius konfigūravimo atvejus."
+msgstr ""
 
 msgid "Blog has been successfully created."
 msgstr "Blogas sėkmingai sukurtas."
 
 msgid "Parameters"
 msgstr "Parametrai"
+
+msgid "Blog parameters"
+msgstr ""
 
 msgid "Blog details"
 msgstr "Blogas išsamiau"
@@ -381,9 +379,9 @@ msgstr "Įrašuose ir komentaruose rodyti veidelius"
 msgid "Disable internal search system"
 msgstr ""
 
-#, fuzzy, php-format
-msgid "Display %s entries on home page"
-msgstr "Rodyti %s įrašus puslapyje"
+#, php-format
+msgid "Display %s entries on first page"
+msgstr ""
 
 #, php-format
 msgid "Display %s entries per page"
@@ -403,6 +401,18 @@ msgstr "Trumpinti kanalus"
 msgid "Include sub-categories in category page and category posts feed"
 msgstr ""
 
+msgid "Display an entry as static home page"
+msgstr ""
+
+msgid "Entry URL (its content will be used for the static home page):"
+msgstr ""
+
+msgid "Choose an entry"
+msgstr ""
+
+msgid "Leave empty to use the default presentation."
+msgstr ""
+
 msgid "Media and images"
 msgstr "Media ir paveikslėliai"
 
@@ -415,32 +425,26 @@ msgstr ""
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr ""
 
-#, fuzzy
 msgid "Generated image sizes (max dimension in pixels)"
-msgstr "Sukurtų paveikslėlių dydis (pikseliais)"
+msgstr ""
 
-#, fuzzy
 msgid "Thumbnail"
-msgstr "Miniatiūros:"
+msgstr ""
 
-#, fuzzy
 msgid "Small"
-msgstr "Mažos:"
+msgstr ""
 
-#, fuzzy
 msgid "Medium"
-msgstr "Vidutinės:"
+msgstr ""
 
 msgid "Default size of the inserted video (in pixels)"
 msgstr ""
 
-#, fuzzy
 msgid "Width"
-msgstr "Plotis:"
+msgstr ""
 
-#, fuzzy
 msgid "Height"
-msgstr "Aukštis:"
+msgstr ""
 
 msgid "Default image insertion attributes"
 msgstr ""
@@ -457,25 +461,20 @@ msgstr ""
 msgid "It is retrieved from the picture's metadata."
 msgstr ""
 
-#, fuzzy
 msgid "Size of inserted image:"
-msgstr "Įrašykite paveikslėlio pavadinimą"
+msgstr ""
 
-#, fuzzy
 msgid "Image alignment:"
-msgstr "Paveikslėlio lygiavimas"
+msgstr ""
 
-#, fuzzy
 msgid "Insert a link to the original image"
-msgstr "Kaip nuorodą į originalų paveikslėlį"
+msgstr ""
 
-#, fuzzy
 msgid "Image legend and title:"
-msgstr "Paveikslėlio lygiavimas"
+msgstr ""
 
-#, fuzzy
 msgid "Advanced parameters"
-msgstr "Parametrai"
+msgstr ""
 
 msgid "Please note that changing your blog ID may require changes in your public index.php file."
 msgstr "Jei keičiate savo blogo ID, gali tekti atlikti pakeitimus index.php faile."
@@ -494,9 +493,8 @@ msgstr ""
 msgid "New post URL format:"
 msgstr "Naujo įrašo URL formatas:"
 
-#, fuzzy
 msgid "Dotclear"
-msgstr "Dotclear komanda"
+msgstr ""
 
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr ""
@@ -528,26 +526,26 @@ msgstr "Paieškos variklių nustatymai"
 msgid "jQuery javascript library"
 msgstr ""
 
+msgid "Load the jQuery library"
+msgstr ""
+
 msgid "jQuery version to be loaded for this blog:"
 msgstr ""
 
-#, fuzzy
 msgid "Blog security"
-msgstr "Blogo aprašymas:"
+msgstr ""
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr ""
 
-#, fuzzy
 msgid "Plugins parameters"
-msgstr "Parametrai"
+msgstr ""
 
 msgid "Save"
 msgstr "Išsaugoti"
 
-#, fuzzy
 msgid "The current blog cannot be deleted."
-msgstr "Dalyviai turintys įrašų negali būti ištrinti."
+msgstr ""
 
 msgid "Only superadmin can delete a blog."
 msgstr ""
@@ -561,17 +559,15 @@ msgstr "Dalyviai šiame bloge"
 msgid "No users"
 msgstr "Dalyvių nėra"
 
-#, fuzzy
 msgid "Publications on this blog:"
-msgstr "Dalyviai šiame bloge"
+msgstr ""
 
 #, php-format
 msgid "%1$s: %2$s"
 msgstr ""
 
-#, fuzzy
 msgid "Permissions:"
-msgstr "Teisės"
+msgstr ""
 
 msgid "Super administrator"
 msgstr "Super administratorius"
@@ -583,13 +579,11 @@ msgstr ""
 msgid "[%s] (unreferenced permission)"
 msgstr ""
 
-#, fuzzy
 msgid "All rights on this blog."
-msgstr "Dalyviai šiame bloge"
+msgstr ""
 
-#, fuzzy
 msgid "Change permissions"
-msgstr "keisti leidimus"
+msgstr ""
 
 msgid "Blog appearance"
 msgstr "Blogo vaizdavimas"
@@ -597,13 +591,14 @@ msgstr "Blogo vaizdavimas"
 msgid "Theme configuration"
 msgstr "Temos konfigūravimas"
 
-#, fuzzy
 msgid "Themes management"
-msgstr "Kalbų tvarkymas"
+msgstr ""
 
-#, fuzzy
+msgid "Manual checking of themes update done successfully."
+msgstr ""
+
 msgid "Update themes"
-msgstr "Atnaujinti miniatiūras"
+msgstr ""
 
 #, php-format
 msgid "There is one theme to update available from repository."
@@ -611,35 +606,35 @@ msgid_plural "There are %s themes to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr ""
 
-#, fuzzy
+msgid "Force checking update of themes"
+msgstr ""
+
 msgid "Installed themes"
-msgstr "Instaliuotos kalbos"
+msgstr ""
 
 msgid "You can configure and manage installed themes from this list."
 msgstr ""
 
-#, fuzzy
 msgid "Deactivated themes"
-msgstr "Išjungti"
+msgstr ""
 
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr ""
 
-#, fuzzy
 msgid "Add themes"
-msgstr "Blogo temos"
+msgstr ""
 
 msgid "Add themes from repository"
 msgstr ""
 
-#, fuzzy
 msgid "Install or upgrade manually"
-msgstr "Instaliuoti arba trinti kalbas"
+msgstr ""
 
 msgid "Add themes from a package"
 msgstr ""
@@ -647,9 +642,8 @@ msgstr ""
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Instaliuoti temas galite įkeldami arba atsisiųsdami zip failus."
 
-#, fuzzy
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
-msgstr "Įjunkite įrašymo teises savo plugin'ų direktorijai norėdami naudotis šia funkcija."
+msgstr ""
 
 msgid "Last update"
 msgstr "Paskutinis atnaujinimas"
@@ -681,9 +675,8 @@ msgstr "Ieškoti:"
 msgid "Status:"
 msgstr "Statusas:"
 
-#, fuzzy
 msgid "Display options"
-msgstr "Rodomas vardas"
+msgstr ""
 
 msgid "Order by:"
 msgstr "Rikiuoti pagal:"
@@ -691,64 +684,58 @@ msgstr "Rikiuoti pagal:"
 msgid "Sort:"
 msgstr "Rūšiuoti:"
 
-#, fuzzy
 msgid "Show"
-msgstr "Parodyti."
+msgstr ""
 
-#, fuzzy
 msgid "blogs per page"
-msgstr "Blogų viename puslapyje"
+msgstr ""
+
+msgid "Save current options"
+msgstr ""
 
 msgid "Apply filters and display options"
 msgstr ""
 
-#, fuzzy
 msgid "Selected blogs action:"
-msgstr "Veiskmas pasirinktiems dalyviams:"
+msgstr ""
 
-#, fuzzy
 msgid "Actions"
-msgstr "Veiksmas"
+msgstr ""
 
 msgid "ok"
 msgstr "tinka"
 
-#, fuzzy
 msgid "Please give your password to confirm blog(s) deletion:"
-msgstr "Įveskite savo slaptažodį, kad patvirtintumėte blogo ištrynimą."
+msgstr ""
 
 msgid "This category does not exist."
 msgstr "Ši kategorija neegzistuoja"
 
-#, fuzzy, php-format
+#, php-format
 msgid "The category \"%s\" has been successfully deleted."
-msgstr "Kategorija sėkmingai sukurta."
+msgstr ""
 
-#, fuzzy
 msgid "Category where to move entries does not exist"
-msgstr "Ši kategorija neegzistuoja"
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "The entries have been successfully moved to category \"%s\""
-msgstr "Teisės sėkmingai atnaujintos "
+msgstr ""
 
 msgid "Categories have been successfully reordered."
 msgstr "Kategorijos sėkmingai pertvarkytos."
 
-#, fuzzy
 msgid "Categories order has been successfully reset."
-msgstr "Kategorijos sėkmingai pertvarkytos."
+msgstr ""
 
 msgid "Categories"
 msgstr "Kategorijos"
 
-#, fuzzy
 msgid "The category has been successfully removed."
-msgstr "Kategorija sėkmingai pašalinta."
+msgstr ""
 
-#, fuzzy
 msgid "Entries have been successfully moved to the category you choose."
-msgstr "Kategorijos sėkmingai pertvarkytos."
+msgstr ""
 
 msgid "New category"
 msgstr "Nauja kategorija"
@@ -760,52 +747,46 @@ msgstr "Kategorijos kolkas nėra."
 msgid "%d entries"
 msgstr "%d įrašai"
 
-#, fuzzy, php-format
+#, php-format
 msgid "%d entry"
-msgstr "%d įrašas"
+msgstr ""
 
 msgid "total:"
 msgstr "viso:"
 
 msgid "URL:"
-msgstr "URL:"
+msgstr ""
 
-#, fuzzy
 msgid "Move entries to"
-msgstr "Perkelti šią kategoriją"
+msgstr ""
 
 msgid "OK"
 msgstr ""
 
-#, fuzzy
 msgid "Delete category"
-msgstr "Nauja kategorija"
+msgstr ""
 
 msgid "To rearrange categories order, move items by drag and drop, then click on “Save categories order” button."
 msgstr ""
 
-#, fuzzy
 msgid "Save categories order"
-msgstr "tvarkyti kategorijas"
+msgstr ""
 
-#, fuzzy
 msgid "Reorder all categories on the top level"
-msgstr "Visos viršuje esančios kategorijos bus perkeltos"
+msgstr ""
 
 msgid "Top level"
 msgstr "Viršus"
 
-#, fuzzy
 msgid "The category has been successfully moved"
-msgstr "Kategorija sėkmingai perkelta."
+msgstr ""
 
-#, fuzzy
 msgid "The category has been successfully updated."
-msgstr "Kategorija sėkmingai sukurta."
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "The category \"%s\" has been successfully created."
-msgstr "Kategorija sėkmingai sukurta."
+msgstr ""
 
 msgid "Category has been successfully updated."
 msgstr "Kategorija sėkmingai atnaujinta"
@@ -817,7 +798,7 @@ msgid "Name:"
 msgstr "Vardas:"
 
 msgid "Name"
-msgstr "Name"
+msgstr ""
 
 msgid "Parent:"
 msgstr "Pozicija:"
@@ -846,9 +827,8 @@ msgstr "po"
 msgid "before"
 msgstr "prieš"
 
-#, fuzzy
 msgid "position: "
-msgstr "MP3 dispozicija"
+msgstr ""
 
 msgid "Entry does not exist."
 msgstr "Įrašas neegzistuoja."
@@ -862,9 +842,8 @@ msgstr "Komentarų nėra."
 msgid "Comment has been successfully updated."
 msgstr "Komentaras sėkmingai atnaujintas."
 
-#, fuzzy
 msgid "Comment has been successfully deleted."
-msgstr "Komentaras sėkmingai atnaujintas."
+msgstr ""
 
 msgid "You can't edit this comment."
 msgstr "Jūs negalite redaguoti šio komentaro."
@@ -877,27 +856,18 @@ msgid "Your comment on my blog %s"
 msgstr "Jūsų komentaras mano %s bloge"
 
 #, php-format
-msgid ""
-"Hi!\n"
-"\n"
+msgid "Hi!\n\n"
 "You wrote a comment on:\n"
-"%s\n"
-"\n"
-"\n"
-msgstr ""
-"Sveiki!\n"
-"\n"
+"%s\n\n\n"
+msgstr "Sveiki!\n\n"
 "Jūs parašėte komentarą:\n"
-"%s\n"
-"\n"
-"\n"
+"%s\n\n\n"
 
 msgid "Send an e-mail"
 msgstr "Siųsti el. laišką"
 
-#, fuzzy
 msgid "Information collected"
-msgstr "nepažymėtas"
+msgstr ""
 
 msgid "IP address:"
 msgstr "IP adresas:"
@@ -905,9 +875,8 @@ msgstr "IP adresas:"
 msgid "Date:"
 msgstr "Data:"
 
-#, fuzzy
 msgid "Comment submitted"
-msgstr "Komentarai"
+msgstr ""
 
 msgid "Author:"
 msgstr "Autorius:"
@@ -924,13 +893,11 @@ msgstr "Komentaras:"
 msgid "Delete"
 msgstr "Trinti"
 
-#, fuzzy
 msgid "Comment"
-msgstr "Komentaras:"
+msgstr ""
 
-#, fuzzy
 msgid "Trackback"
-msgstr "Trackback'ai"
+msgstr ""
 
 msgid "Date"
 msgstr "Data"
@@ -938,28 +905,23 @@ msgstr "Data"
 msgid "Entry title"
 msgstr "Įrašo antraštė"
 
-#, fuzzy
 msgid "Entry date"
-msgstr "Įrašo antraštė"
+msgstr ""
 
 msgid "IP"
 msgstr ""
 
-#, fuzzy
 msgid "Spam filter"
-msgstr "filtras"
+msgstr ""
 
-#, fuzzy
 msgid "Selected comments have been successfully updated."
-msgstr "Komentaras sėkmingai atnaujintas."
+msgstr ""
 
-#, fuzzy
 msgid "Selected comments have been successfully deleted."
-msgstr "Tema sėkmingai ištrinta."
+msgstr ""
 
-#, fuzzy
 msgid "Spam comments have been successfully deleted."
-msgstr "Komentaras sėkmingai atnaujintas."
+msgstr ""
 
 msgid "You have one spam comment."
 msgstr "Turite vieną spamo komentarą."
@@ -974,16 +936,14 @@ msgstr "Turite %s spamo komentarų(us)."
 msgid "Show them."
 msgstr "Parodyti."
 
-#, fuzzy
 msgid "Delete all spams"
-msgstr "Ištrinti blogą"
+msgstr ""
 
 msgid "Type:"
 msgstr "Tipas:"
 
-#, fuzzy
 msgid "comments per page"
-msgstr "Komentarų viename puslapyje"
+msgstr ""
 
 msgid "Selected comments action:"
 msgstr "Veiksmas pasirinktiems komentarams:"
@@ -991,16 +951,22 @@ msgstr "Veiksmas pasirinktiems komentarams:"
 msgid "Global help"
 msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "An update is available"
 msgid_plural "%s updates are available."
-msgstr[0] "Nėra Iconv modulio."
-msgstr[1] "Nėra Iconv modulio."
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy
 msgid "Documentation and support"
-msgstr "Dokumentacija"
+msgstr ""
+
+msgid "Dashboard area's drag and drop is disabled"
+msgstr ""
+
+msgid "Dashboard area's drag and drop is enabled"
+msgstr ""
 
 msgid "Dashboard"
 msgstr "Valdymas"
@@ -1014,9 +980,9 @@ msgstr "Šis blogas yra išjungtas"
 msgid "This blog is removed"
 msgstr "Šis blogas yra pašalintas"
 
-#, fuzzy, php-format
+#, php-format
 msgid "%s is not defined, you should edit your configuration file."
-msgstr "DC_ADMIN_URL nėra nurodytas. Redaguokite savo konfigūracinį failą."
+msgstr ""
 
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr ""
@@ -1057,9 +1023,8 @@ msgstr "Antraštė:"
 msgid "Content:"
 msgstr "Turinys:"
 
-#, fuzzy
 msgid "Content"
-msgstr "Turinys:"
+msgstr ""
 
 msgid "Category:"
 msgstr "Kategorija:"
@@ -1070,13 +1035,12 @@ msgstr "Pridėti naują kategoriją"
 msgid "This category will be created when you will save your post."
 msgstr ""
 
-#, fuzzy
 msgid "Save and publish"
-msgstr "saugoti ir publikuoti"
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "PHP version is %s (5.6 or earlier needed)."
-msgstr "PHP versija %s (reikalinga 5.6 arba ankstesnė)."
+msgstr ""
 
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "Nėra Multibyte string modulio (mbstring)."
@@ -1138,7 +1102,7 @@ msgid "My first blog"
 msgstr "Mano pirmasis blogas"
 
 msgid "%A, %B %e %Y"
-msgstr "%A, %B %e %Y"
+msgstr ""
 
 msgid "Welcome to Dotclear!"
 msgstr "Jus sveikina Dotclear!"
@@ -1149,19 +1113,17 @@ msgstr "Tai pirmas jūsų blogo įrašas. Prsijunkite norėdami ištrinti arba r
 msgid "Dotclear Team"
 msgstr "Dotclear komanda"
 
-msgid ""
-"<p>This is a comment.</p>\n"
+msgid "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr ""
-"<p>Čia yra komentaras.</p>\n"
+msgstr "<p>Čia yra komentaras.</p>\n"
 "<p>Prisijunkite tam, kad peržiūrėti ir trinti blogo komentarus.</p>"
 
 msgid "Dotclear Install"
 msgstr "Dotclear instaliacija"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Password strength: %s"
-msgstr "Naujo slaptažodžio nustatymas"
+msgstr ""
 
 msgid "very weak"
 msgstr ""
@@ -1212,9 +1174,8 @@ msgstr "Prisijungimo vardas ir slaptažodis"
 msgid "Username"
 msgstr "Prisijungimo vvardas"
 
-#, fuzzy
 msgid "Password"
-msgstr "Slaptažodis:"
+msgstr ""
 
 msgid "All done!"
 msgstr "Štai ir viskas!"
@@ -1243,21 +1204,19 @@ msgstr "Instaliacija negali būti baigta"
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "Dėl šių priežaščių, instaliacija negali būti baigta. Peržiūrėkite susijusią <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentaciją (anglų k.)</a>, skitrą tokių problemų sprendimui."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Path <strong>%s</strong> is not writable."
-msgstr "Cache direktorija %s neturi rašymo nustatymų."
+msgstr ""
 
-#, fuzzy
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
-msgstr "Dėl šių priežaščių, instaliacija negali būti baigta. Peržiūrėkite susijusią <a href=\"https://dotclear.org/documentation/2.0/admin/install\">dokumentaciją (anglų k.)</a>, skitrą tokių problemų sprendimui."
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "Cannot write \"%s\" directory."
-msgstr "Negalima įrašyti į šią direktoriją."
+msgstr ""
 
-#, fuzzy
 msgid "Master email is not valid."
-msgstr "El. pašto adresas negalioja"
+msgstr ""
 
 #, php-format
 msgid "File %s does not exist."
@@ -1289,7 +1248,7 @@ msgid "Please provide the following information needed to create your configurat
 msgstr "Pateikite informaciją reikalingą tam, kad sukrti konfigūracinį failą."
 
 msgid "Database type:"
-msgstr "Database type:"
+msgstr ""
 
 msgid "MySQL (deprecated)"
 msgstr ""
@@ -1310,13 +1269,13 @@ msgid "Driver"
 msgstr ""
 
 msgid "Database Host Name:"
-msgstr "Database Host Name:"
+msgstr ""
 
 msgid "Database Name:"
-msgstr "Database Name:"
+msgstr ""
 
 msgid "Database User Name:"
-msgstr "Database User Name:"
+msgstr ""
 
 msgid "Database Password:"
 msgstr "Datenbank Passwort:"
@@ -1330,9 +1289,8 @@ msgstr ""
 msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
 
-#, fuzzy
 msgid "Continue"
-msgstr "Turinys:"
+msgstr ""
 
 msgid "Invalid language zip file."
 msgstr "Netinkamas kalbos zip failas"
@@ -1433,9 +1391,8 @@ msgstr "Pagal datas, didėjančia tvarka"
 msgid "By dates, in descending order"
 msgstr "Pagal datas, mažėjančia tvarka"
 
-#, fuzzy
 msgid "Select this file"
-msgstr "Trinti šį blogą."
+msgstr ""
 
 msgid "Attach this file to entry"
 msgstr "Prisegti šį failą prie įrašo"
@@ -1446,26 +1403,33 @@ msgstr "Pridėti šį failą prie įrašo"
 msgid "delete"
 msgstr "trinti"
 
+msgid "private media"
+msgstr ""
+
 msgid "open"
 msgstr "atidaryti"
 
-#, fuzzy
 msgid "Not a valid directory"
-msgstr "Netinkamas failas"
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
+msgid "Directory or file \"%s\" already exists."
+msgstr ""
+
+#, php-format
 msgid "Directory \"%s\" has been successfully created."
-msgstr "Direktorija sėkmingai sukurta."
+msgstr ""
 
 msgid "Files have been successfully uploaded."
 msgstr "Failai sėkmingai įkelti."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Successfully delete one media."
 msgid_plural "Successfully delete %d medias."
-msgstr[0] "Blogas sėkmingai ištrintas."
-msgstr[1] "Blogas sėkmingai ištrintas."
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 msgid "Directory has been successfully removed."
 msgstr "Direktorija sėkmingai pašalinta."
@@ -1473,9 +1437,9 @@ msgstr "Direktorija sėkmingai pašalinta."
 msgid "File has been successfully removed."
 msgstr "Failai sėkmingai pašalinti."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Directory \"%s\" has been successfully rebuilt."
-msgstr "Direktorija sėkmingai atstatyta."
+msgstr ""
 
 msgid "Media manager"
 msgstr "Media tvarkyklė"
@@ -1490,16 +1454,16 @@ msgstr "Ar tikrai norite pašalinti %s?"
 msgid "Cancel"
 msgstr "Atšaukti"
 
-#, fuzzy
 msgid "Yes"
-msgstr "taip"
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
-msgstr[0] "Rasti %d įrašai"
-msgstr[1] "Rasti %d įrašai"
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 msgid "Remove this folder from your favorites"
 msgstr ""
@@ -1510,9 +1474,8 @@ msgstr ""
 msgid "Goto recent folder:"
 msgstr ""
 
-#, fuzzy
 msgid "You do not have sufficient permissions to write to this folder."
-msgstr "Neturite teisių ištrinti šį plugin'ą."
+msgstr ""
 
 msgid "Directory has been successfully created."
 msgstr "Direktorija sėkmingai sukurta."
@@ -1523,13 +1486,12 @@ msgstr "Direktorija sėkmingai atstatyta."
 msgid "Zip file has been successfully extracted."
 msgstr "Sėkmingai išarchyvuotas zip failas."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Select a file by clicking on %s"
-msgstr "Pasirinkite prie įrašo pridedamą failą paspausdami %s."
+msgstr ""
 
-#, fuzzy
 msgid "Choose selected medias"
-msgstr "Atstatyti pasirinktą failą"
+msgstr ""
 
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
@@ -1538,21 +1500,19 @@ msgstr ""
 msgid "or"
 msgstr ""
 
-#, fuzzy
 msgid "upload a new file"
-msgstr "Įkelti zip failą"
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
-msgstr "Pasirinkite prie įrašo %s prisegamą failą paspausdami %s."
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
-msgstr "Pasirinkite prie įrašo pridedamą failą paspausdami %s."
+msgstr ""
 
-#, fuzzy
 msgid "Remove selected medias"
-msgstr "Atstatyti pasirinktą failą"
+msgstr ""
 
 msgid "Will search into media filename (including path), title and description"
 msgstr ""
@@ -1560,13 +1520,11 @@ msgstr ""
 msgid "No file."
 msgstr "Nėra failo."
 
-#, fuzzy
 msgid "Grid display mode"
-msgstr "Rodomas vardas"
+msgstr ""
 
-#, fuzzy
 msgid "List display mode"
-msgstr "Rodomas vardas"
+msgstr ""
 
 msgid "Sort files:"
 msgstr "Rūšiuoti failus:"
@@ -1574,9 +1532,8 @@ msgstr "Rūšiuoti failus:"
 msgid "Number of elements displayed per page:"
 msgstr ""
 
-#, fuzzy
 msgid "Media list"
-msgstr "Media detalės"
+msgstr ""
 
 msgid "Size"
 msgstr ""
@@ -1593,20 +1550,18 @@ msgstr ""
 msgid "In %s:"
 msgstr ""
 
-#, fuzzy
 msgid "Create new directory"
-msgstr "Išarchyvuoti naujoje direktorijoje"
+msgstr ""
 
 msgid "Directory Name:"
 msgstr "Direktorijos pavadinimas:"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Backup content of %s"
-msgstr "Atgal į \"%s\""
+msgstr ""
 
-#, fuzzy
 msgid "Download zip file"
-msgstr "Atsisiųsti zip failą"
+msgstr ""
 
 msgid "Add files"
 msgstr "Pridėti failus"
@@ -1629,16 +1584,14 @@ msgstr "Privatus"
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr ""
 
-#, fuzzy
 msgid "My preferences"
-msgstr "Dalyvio nustatymai"
+msgstr ""
 
 msgid "Refresh"
 msgstr ""
 
-#, fuzzy
 msgid "Clear all"
-msgstr "Dotclear instaliacija"
+msgstr ""
 
 msgid "Upload"
 msgstr "Įkelti"
@@ -1646,10 +1599,6 @@ msgstr "Įkelti"
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr ""
-
-#, fuzzy
-msgid "Blog parameters"
-msgstr "Parametrai"
 
 msgid "Not a valid file"
 msgstr "Netinkamas failas"
@@ -1660,29 +1609,28 @@ msgstr "Failas sėkmingai atnaujintas"
 msgid "Thumbnails have been successfully updated."
 msgstr "Miniatiūra sėkmingai atnaujinta"
 
-#, fuzzy
 msgid "Default media insertion settings have been successfully updated."
-msgstr "Teisės sėkmingai atnaujintos "
+msgstr ""
 
-#, fuzzy
-msgid "Are you sure to delete this media?"
-msgstr "Ar tikrai norite ištrinti šį komentarą?"
-
-#, fuzzy
 msgid "Select media item"
-msgstr "Pridėti media elementą"
+msgstr ""
 
 msgid "Image size:"
 msgstr "Paveikslėlio dydis:"
 
-#, fuzzy
 msgid "Select"
-msgstr "Pažymėtas:"
+msgstr ""
 
 msgid "Insert media item"
 msgstr "Pridėti media elementą"
 
 msgid "Image legend and title"
+msgstr ""
+
+msgid "Title: "
+msgstr ""
+
+msgid "Legend: "
 msgstr ""
 
 msgid "Image alignment"
@@ -1694,9 +1642,8 @@ msgstr "Paveikslėlio įdėjimas"
 msgid "As a single image"
 msgstr "Kaip vieną paveikslėlį"
 
-#, fuzzy
 msgid "As a link to the original image"
-msgstr "Kaip nuorodą į originalų paveikslėlį"
+msgstr ""
 
 msgid "MP3 disposition"
 msgstr "MP3 dispozicija"
@@ -1734,17 +1681,14 @@ msgstr "Media detalės"
 msgid "Available sizes:"
 msgstr "Galimi dydžiai:"
 
-#, fuzzy
 msgid "Thumbnail details"
-msgstr "Miniatiūros:"
+msgstr ""
 
-#, fuzzy
 msgid "Image width:"
-msgstr "Paveikslėlio dydis:"
+msgstr ""
 
-#, fuzzy
 msgid "Image height:"
-msgstr "Paveikslėlio lygiavimas"
+msgstr ""
 
 msgid "File size:"
 msgstr "Failo dydis:"
@@ -1812,9 +1756,8 @@ msgstr "Išarchyvuojama šioje direktorijoje, kuri bus perrašyta kartu su egzis
 msgid "Extract mode:"
 msgstr "Išarchyvavimo būdas:"
 
-#, fuzzy
 msgid "Extract"
-msgstr "išarchyvuoti"
+msgstr ""
 
 msgid "Change media properties"
 msgstr "Keisti media savybes"
@@ -1824,6 +1767,9 @@ msgstr "Failo pavadinimas:"
 
 msgid "File title:"
 msgstr "Failo antraštė:"
+
+msgid "File description:"
+msgstr ""
 
 msgid "File date:"
 msgstr "Failo data:"
@@ -1844,9 +1790,8 @@ msgstr "Maksimalus dydis: %s"
 msgid "Send"
 msgstr ""
 
-#, fuzzy
 msgid "Delete this media"
-msgstr "Trinti šį blogą."
+msgstr ""
 
 msgid "No content found on this plugin."
 msgstr "Šiame plugin'e jokio turinio nerasta."
@@ -1860,13 +1805,14 @@ msgstr "Plugin'as kurį pasiek'te neegzistuoja arba neturi administravimo puslap
 msgid "Plugins management"
 msgstr "Plugin'ų valdymas"
 
-#, fuzzy
 msgid "Plugin configuration"
-msgstr "Blogo konfigūracija"
+msgstr ""
 
-#, fuzzy
+msgid "Manual checking of plugins update done successfully."
+msgstr ""
+
 msgid "Update plugins"
-msgstr "Įkelti plugin'ą"
+msgstr ""
 
 #, php-format
 msgid "There is one plugin to update available from repository."
@@ -1874,10 +1820,13 @@ msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy
+msgid "Force checking update of plugins"
+msgstr ""
+
 msgid "Installed plugins"
-msgstr "Instaliuotos kalbos"
+msgstr ""
 
 msgid "Activated plugins"
 msgstr "Įjungti plugin'ai"
@@ -1891,9 +1840,8 @@ msgstr "Išjungti plgin'us"
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr ""
 
-#, fuzzy
 msgid "Add plugins"
-msgstr "Įjungti plugin'ai"
+msgstr ""
 
 msgid "Add plugins from repository"
 msgstr ""
@@ -1904,9 +1852,8 @@ msgstr ""
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "Galite instaliuoti plugin'us įkeldami ar parsisiųsdami zip failus."
 
-#, fuzzy
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
-msgstr "Įjunkite įrašymo teises savo plugin'ų direktorijai norėdami naudotis šia funkcija."
+msgstr ""
 
 msgid "Add a link"
 msgstr "Pridėti nuorodą"
@@ -1914,9 +1861,8 @@ msgstr "Pridėti nuorodą"
 msgid "Link URL:"
 msgstr "Nuorodos URL:"
 
-#, fuzzy
 msgid "URL"
-msgstr "URL:"
+msgstr ""
 
 msgid "Link title:"
 msgstr "Nuorodos pavadinimas:"
@@ -1927,9 +1873,8 @@ msgstr "Nuorodos kalba:"
 msgid "Add a link to an entry"
 msgstr "Pridėti nuorodą prie įrašo"
 
-#, fuzzy
 msgid "Entry type:"
-msgstr "Įrašo antraštė"
+msgstr ""
 
 msgid "Ok"
 msgstr ""
@@ -1944,58 +1889,48 @@ msgid "cancel"
 msgstr "atšaukti"
 
 msgid "Edit post"
-msgstr "Įrašo redagavimas"
+msgstr ""
 
 msgid "This entry does not exist."
 msgstr "Šis įrašas neegzistuoja."
 
-#, fuzzy
 msgid "Next entry"
-msgstr "sekantis įrašas"
+msgstr ""
 
-#, fuzzy
 msgid "Previous entry"
-msgstr "ankstesnis įrašas"
+msgstr ""
 
 msgid "All pings sent."
 msgstr "Visos ping komandos išsiųstos"
 
-#, fuzzy
 msgid "Invalid publication date"
-msgstr "Netinkamas kalbos kodas"
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "The post \"%s\" has been successfully updated"
-msgstr "Teisės sėkmingai atnaujintos "
+msgstr ""
 
 msgid "Entry has been successfully created."
 msgstr "Įrašas sėkmingai sukurtas."
 
-#, fuzzy
 msgid "Published"
-msgstr "publikuojamas"
+msgstr ""
 
-#, fuzzy
 msgid "Unpublished"
-msgstr "nepublikuojamas"
+msgstr ""
 
-#, fuzzy
 msgid "Scheduled"
-msgstr "Tvarkaraštis"
+msgstr ""
 
-#, fuzzy
 msgid "Pending"
-msgstr "laukiantis"
+msgstr ""
 
 #, php-format
 msgid "&ldquo;%s&rdquo;"
 msgstr ""
 
-msgid "Entries"
-msgstr "Įrašai"
-
 msgid "Posts"
-msgstr "Įrašai"
+msgstr ""
 
 msgid "Entry has been successfully updated."
 msgstr "Įrašas sėkmingai atnaujintas"
@@ -2021,31 +1956,26 @@ msgstr ""
 msgid "Junk"
 msgstr ""
 
-#, fuzzy
 msgid "select this comment"
-msgstr "Redaguoti šį komentarą"
+msgstr ""
 
-#, fuzzy
 msgid "select this trackback"
-msgstr "Leisti trackback'us"
+msgstr ""
 
 msgid "Edit this comment"
 msgstr "Redaguoti šį komentarą"
 
-#, fuzzy
 msgid "Entry status"
-msgstr "Įrašo būklė:"
+msgstr ""
 
 msgid "Publication date and hour"
 msgstr ""
 
-#, fuzzy
 msgid "Entry language"
-msgstr "Įrašo kalba:"
+msgstr ""
 
-#, fuzzy
 msgid "Text formatting"
-msgstr "Teksto formatas:"
+msgstr ""
 
 msgid "Convert to XHTML"
 msgstr "Konvertuoti į XHTML"
@@ -2059,13 +1989,11 @@ msgstr "Pasirinktas įrašas"
 msgid "Category"
 msgstr "Kategorija"
 
-#, fuzzy
 msgid "Options"
-msgstr "Veiksmas"
+msgstr ""
 
-#, fuzzy
 msgid "Comments and trackbacks list"
-msgstr "Komentarai ir trackback'ai"
+msgstr ""
 
 msgid "Warning: Comments are not more accepted for this entry."
 msgstr ""
@@ -2079,9 +2007,8 @@ msgstr ""
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr ""
 
-#, fuzzy
 msgid "Edit basename"
-msgstr "Pagindinis vardas:"
+msgstr ""
 
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "Dųmesio: Įrašydami URL ranka rizikuojate kad nuoroda gali atitikti kitą įrašą."
@@ -2095,17 +2022,11 @@ msgstr ""
 msgid "Personal notes:"
 msgstr ""
 
-#, fuzzy
 msgid "Unpublished notes."
-msgstr "nepublikuojamas"
+msgstr ""
 
-#, fuzzy
-msgid "Edit post"
-msgstr "Regaguoti blogą %s"
-
-#, fuzzy
 msgid "Preview"
-msgstr "Pažiūrėti įrašą"
+msgstr ""
 
 msgid "Comments"
 msgstr "Komentarai"
@@ -2116,16 +2037,14 @@ msgstr "Pridėti komentarą"
 msgid "Trackbacks"
 msgstr "Trackback'ai"
 
-#, fuzzy
 msgid "Trackbacks received"
-msgstr "Trackback'ai"
+msgstr ""
 
 msgid "No trackback"
 msgstr "Trackback'ų nėra"
 
-#, fuzzy
 msgid "Selected trackbacks action:"
-msgstr "Pasirinktų įrašų veiksmas:"
+msgstr ""
 
 msgid "Ping blogs"
 msgstr "Ping blogai"
@@ -2133,9 +2052,8 @@ msgstr "Ping blogai"
 msgid "URLs to ping:"
 msgstr "URL kuriems siunčiamas ping:"
 
-#, fuzzy
 msgid "Excerpt to send:"
-msgstr "Santrauka:"
+msgstr ""
 
 msgid "Auto discover ping URLs"
 msgstr "Automatiškai rasti ping URLus"
@@ -2161,59 +2079,47 @@ msgstr ""
 msgid "Selected"
 msgstr "Pažymėta"
 
-#, fuzzy
 msgid "Not selected"
-msgstr "nepažymėtas"
+msgstr ""
 
 msgid "Opened"
 msgstr ""
 
-#, fuzzy
 msgid "Closed"
-msgstr "uždaryti"
+msgstr ""
 
-#, fuzzy
 msgid "With attachments"
-msgstr "%d prisegimai"
+msgstr ""
 
-#, fuzzy
 msgid "Without attachments"
-msgstr "%d prisegimai"
+msgstr ""
 
-#, fuzzy
 msgid "With password"
-msgstr "Įrašo slaptažodis:"
+msgstr ""
 
-#, fuzzy
 msgid "Without password"
-msgstr "jūsų slaptažodis"
+msgstr ""
 
-#, fuzzy
 msgid "Number of comments"
-msgstr "Įrašų skaičius"
+msgstr ""
 
-#, fuzzy
 msgid "Number of trackbacks"
-msgstr "Trackback'ų nėra"
+msgstr ""
 
-#, fuzzy
 msgid "Selected entries have been successfully updated."
-msgstr "Teisės sėkmingai atnaujintos "
+msgstr ""
 
-#, fuzzy
 msgid "Selected entries have been successfully deleted."
-msgstr "Tema sėkmingai ištrinta."
+msgstr ""
 
-#, fuzzy
 msgid "Format:"
-msgstr "Datos formatas:"
+msgstr ""
 
 msgid "Selected:"
 msgstr "Pažymėtas:"
 
-#, fuzzy
 msgid "Attachments:"
-msgstr "Prisegimai"
+msgstr ""
 
 msgid "Month:"
 msgstr "Mėnuo:"
@@ -2221,28 +2127,23 @@ msgstr "Mėnuo:"
 msgid "Lang:"
 msgstr "Kalba:"
 
-#, fuzzy
 msgid "Comments:"
-msgstr "Komentarai"
+msgstr ""
 
-#, fuzzy
 msgid "Trackbacks:"
-msgstr "Trackback'ai"
+msgstr ""
 
-#, fuzzy
 msgid "entries per page"
-msgstr "Įrašų viename puslapyje"
+msgstr ""
 
 msgid "Selected entries action:"
 msgstr "Pasirinktų įrašų veiksmas:"
 
-#, fuzzy
 msgid "Smallest"
-msgstr "Mažos:"
+msgstr ""
 
-#, fuzzy
 msgid "Smaller"
-msgstr "Mažos:"
+msgstr ""
 
 msgid "Larger"
 msgstr ""
@@ -2253,12 +2154,20 @@ msgstr ""
 msgid "Blog description (in blog parameters)"
 msgstr ""
 
-#, fuzzy
 msgid "Category description"
-msgstr "Antrinė kategorija"
-
-msgid "Posts"
 msgstr ""
+
+msgid "Last Name"
+msgstr "Pavardė"
+
+msgid "First Name"
+msgstr "Vardas"
+
+msgid "Display name"
+msgstr "Rodomas vardas"
+
+msgid "Number of entries"
+msgstr "Įrašų skaičius"
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Norėdami pakeisti savo el. paštą ar slaptažodį privalote pateikti dabartinį savo slaptažodį."
@@ -2266,33 +2175,29 @@ msgstr "Norėdami pakeisti savo el. paštą ar slaptažodį privalote pateikti d
 msgid "Personal information has been successfully updated."
 msgstr "Asmeninė informacija sėkmingai atnaujinta."
 
-#, fuzzy
 msgid "Personal options has been successfully updated."
-msgstr "Asmeninė informacija sėkmingai atnaujinta."
+msgstr ""
 
-#, fuzzy
 msgid "Dashboard options has been successfully updated."
-msgstr "Asmeninė informacija sėkmingai atnaujinta."
+msgstr ""
 
-#, fuzzy
 msgid "No favorite selected"
-msgstr "nepažymėtas"
+msgstr ""
 
-#, fuzzy
 msgid "Favorites have been successfully added."
-msgstr "Failai sėkmingai įkelti."
+msgstr ""
 
-#, fuzzy
 msgid "Favorites have been successfully removed."
-msgstr "Failai sėkmingai pašalinti."
+msgstr ""
 
-#, fuzzy
 msgid "Favorites have been successfully updated."
-msgstr "Failas sėkmingai atnaujintas"
+msgstr ""
 
-#, fuzzy
 msgid "Default favorites have been successfully updated."
-msgstr "Miniatiūra sėkmingai atnaujinta"
+msgstr ""
+
+msgid "Dashboard items order have been successfully reset."
+msgstr ""
 
 msgid "My profile"
 msgstr ""
@@ -2303,45 +2208,35 @@ msgstr "Rodyti vardą:"
 msgid "Language for my interface:"
 msgstr ""
 
-#, fuzzy
 msgid "My timezone:"
-msgstr "Blogo laiko juosta:"
+msgstr ""
 
-#, fuzzy
 msgid "Change my password"
-msgstr "Slaptawodžio keitimas"
+msgstr ""
 
-#, fuzzy
 msgid "Confirm new password:"
-msgstr "Patvirtinkite slaptažodį:"
+msgstr ""
 
-#, fuzzy
 msgid "Your current password:"
-msgstr "Jūsų slaptažodis:"
+msgstr ""
 
-#, fuzzy
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
-msgstr "Norėdami pakeisti savo el. paštą ar slaptažodį privalote pateikti dabartinį savo slaptažodį."
+msgstr ""
 
-#, fuzzy
 msgid "Update my profile"
-msgstr "Atnaujinti failų atsargines kopijas"
+msgstr ""
 
-#, fuzzy
 msgid "My options"
-msgstr "Paieškos nustatymai"
+msgstr ""
 
-#, fuzzy
 msgid "Interface"
-msgstr "XML/RPC sąsaja"
+msgstr ""
 
-#, fuzzy
 msgid "Activate dark mode"
-msgstr "Įjungti"
+msgstr ""
 
-#, fuzzy
 msgid "Activate enhanced uploader in media manager"
-msgstr "Įjungti enhanced Uploader"
+msgstr ""
 
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr ""
@@ -2358,9 +2253,8 @@ msgstr ""
 msgid "Show asynchronous requests indicator"
 msgstr ""
 
-#, fuzzy
 msgid "Font size:"
-msgstr "Failo dydis:"
+msgstr ""
 
 msgid "Activate adpative font size"
 msgstr ""
@@ -2386,17 +2280,24 @@ msgstr ""
 msgid "Optional columns displayed in lists"
 msgstr ""
 
-#, fuzzy
+msgid "Options for lists"
+msgstr ""
+
+msgid "Apply filters on the fly"
+msgstr ""
+
+msgid "users per page"
+msgstr ""
+
 msgid "Edition"
-msgstr "Redaguoti komentarą"
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "Preferred editor for %s:"
-msgstr "Pageidaujamas formatas:"
+msgstr ""
 
-#, fuzzy
 msgid "Choose an editor"
-msgstr "Pasirinkite blogą"
+msgstr ""
 
 msgid "Preferred format:"
 msgstr "Pageidaujamas formatas:"
@@ -2416,17 +2317,14 @@ msgstr ""
 msgid "Use xhtml editor for:"
 msgstr ""
 
-#, fuzzy
 msgid "Other options"
-msgstr "Paieškos nustatymai"
+msgstr ""
 
-#, fuzzy
 msgid "Save my options"
-msgstr "Paieškos nustatymai"
+msgstr ""
 
-#, fuzzy
 msgid "My dashboard"
-msgstr "Valdymas"
+msgstr ""
 
 msgid "My favorites"
 msgstr ""
@@ -2435,17 +2333,14 @@ msgstr ""
 msgid "position of %s"
 msgstr ""
 
-#, fuzzy
 msgid "Save order"
-msgstr "Pertvarkyti"
+msgstr ""
 
-#, fuzzy
 msgid "Delete selected favorites"
-msgstr "Trinti pasirinktą failą"
+msgstr ""
 
-#, fuzzy
 msgid "Are you sure you want to remove selected favorites?"
-msgstr "Ar tikrai norite pertvarkyti visas kategorijas?"
+msgstr ""
 
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr ""
@@ -2471,39 +2366,38 @@ msgstr ""
 msgid "Display favorites at the top of the menu"
 msgstr ""
 
-#, fuzzy
 msgid "Dashboard icons"
-msgstr "Valdymas"
+msgstr ""
 
-#, fuzzy
 msgid "Display dashboard icons"
-msgstr "Valdymas"
+msgstr ""
 
 msgid "Iconset:"
 msgstr ""
 
-#, fuzzy
 msgid "Dashboard modules"
-msgstr "Valdymas"
+msgstr ""
 
-#, fuzzy
 msgid "Display documentation links"
-msgstr "Dokumentacija"
+msgstr ""
 
-#, fuzzy
 msgid "Display Dotclear news"
-msgstr "Atnaujinti Dotclear"
+msgstr ""
 
 msgid "Display quick entry form"
 msgstr ""
 
-#, fuzzy
 msgid "Do not display Dotclear updates"
-msgstr "Atnaujinti Dotclear"
+msgstr ""
 
-#, fuzzy
 msgid "Save my dashboard options"
-msgstr "Paieškos nustatymai"
+msgstr ""
+
+msgid "Dashboard items order"
+msgstr ""
+
+msgid "Reset dashboard items order"
+msgstr ""
 
 msgid "Search options"
 msgstr "Paieškos nustatymai"
@@ -2511,13 +2405,11 @@ msgstr "Paieškos nustatymai"
 msgid "Query:"
 msgstr "Užklausa:"
 
-#, fuzzy
 msgid "Search in entries"
-msgstr "paieškos įrašai"
+msgstr ""
 
-#, fuzzy
 msgid "Search in comments"
-msgstr "paieškos komentarai"
+msgstr ""
 
 #, php-format
 msgid "%d entries found"
@@ -2535,35 +2427,33 @@ msgstr "Rastas %d komentaras"
 msgid "%d comments found"
 msgstr "Rasti %d komentarai"
 
-#, fuzzy, php-format
+#, php-format
 msgid "%d post"
 msgid_plural "%d posts"
-msgstr[0] "Regaguoti blogą %s"
-msgstr[1] "Regaguoti blogą %s"
-msgstr[2] "Regaguoti blogą %s"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
-msgstr[0] "%d komentaras"
-msgstr[1] "%d komentaras"
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy
 msgid "Dotclear news not available"
-msgstr "Pasirodė naujas Dotclear %s!"
+msgstr ""
 
-#, fuzzy
 msgid "Dotclear news"
-msgstr "Dotclear komanda"
+msgstr ""
 
-#, fuzzy
 msgid "%d %B %Y:"
-msgstr "%A, %B %e %Y"
+msgstr ""
 
-#, fuzzy
 msgid "Dotclear update not available"
-msgstr "Pasirodė naujas Dotclear %s!"
+msgstr ""
 
 #, php-format
 msgid "Dotclear %s is available!"
@@ -2586,8 +2476,20 @@ msgstr ""
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr ""
 
+msgid "List options saved"
+msgstr ""
+
 msgid "Dotclear update"
 msgstr "Dotclear atnaujinimas"
+
+msgid "Precheck update error"
+msgstr ""
+
+msgid "Backup directory does not exist"
+msgstr ""
+
+msgid "Access denied"
+msgstr ""
 
 #, php-format
 msgid "Unable to delete file %s"
@@ -2597,9 +2499,8 @@ msgstr "Nepavyko ištrinti failo %s"
 msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
 msgstr "Atisiųstas Dotclear archyvas greičiausiai yra sugadintas. Pabandykite <a %s>atsisiųsti archyvą</a> iš naujo."
 
-#, fuzzy
 msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
-msgstr "Šių Dotclear instaliacinių failų neįmanoma įrašyti. Sutaisykite tai arba bandykite <a href=\"https://dotclear.org/download\">atnaujinti rankiniu būdu</a>."
+msgstr ""
 
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr "Šie Dotclear instaliaciniai failai buvo pakeisti taigi nebus bandoma atnaujinti instaliacijos. Prašome <a href=\"https://dotclear.org/download\">atnaujinti rankiniu būdu</a>."
@@ -2617,17 +2518,16 @@ msgstr ""
 msgid "No newer Dotclear version available."
 msgstr "Naujesnė Dotclear versija neegzistuoja."
 
-#, fuzzy
 msgid "Force checking update Dotclear"
-msgstr "Atnaujinti Dotclear"
+msgstr ""
 
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Galima atisiųsti naują Dotclear %s versiją."
 
-#, fuzzy, php-format
+#, php-format
 msgid "PHP version is %s (%s or earlier needed)."
-msgstr "PHP versija %s (reikalinga 5.0 arba ankstesnė)."
+msgstr ""
 
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "Norėdami atnaujinti Dotclear instaliaciją spustelkite sekantį mygtuką. Atsarginė dabartinės instaiacijos kopija bus sukurta root direktorijoje."
@@ -2635,9 +2535,8 @@ msgstr "Norėdami atnaujinti Dotclear instaliaciją spustelkite sekantį mygtuk�
 msgid "Update Dotclear"
 msgstr "Atnaujinti Dotclear"
 
-#, fuzzy
 msgid "Manage backup files"
-msgstr "Atnaujinti failų atsargines kopijas"
+msgstr ""
 
 msgid "Update backup files"
 msgstr "Atnaujinti failų atsargines kopijas"
@@ -2664,9 +2563,8 @@ msgstr "Sveikinimai, esate per vieną paspaudimą nuo atnaujinimo pabaigos."
 msgid "Finish the update."
 msgstr "Baigti atnaujinimą."
 
-#, fuzzy
 msgid "New user"
-msgstr "naujas dalyvis"
+msgstr ""
 
 msgid "User has been successfully updated."
 msgstr "Dalyvis sėkmingai atnaujintas."
@@ -2678,17 +2576,17 @@ msgstr "Dalyvis \"%s\" jau yra."
 msgid "User has been successfully created."
 msgstr "Dalyvis sėkmingai sukurtas."
 
-#, fuzzy
+msgid "User has no permission, he will not be able to login yet. See below to add some."
+msgstr ""
+
 msgid "User profile"
-msgstr "Dalyvio nustatymai"
+msgstr ""
 
-#, fuzzy
 msgid "User ID:"
-msgstr "Benutzer ID"
+msgstr ""
 
-#, fuzzy
 msgid "Login"
-msgstr "Login:"
+msgstr ""
 
 msgid "Warning:"
 msgstr "Dėmesio:"
@@ -2702,9 +2600,8 @@ msgstr "Prisijungimui reikalingas slaptažodžio pakeitimas."
 msgid "Mandatory for password recovering procedure."
 msgstr ""
 
-#, fuzzy
 msgid "Timezone:"
-msgstr "Blogo laiko juosta:"
+msgstr ""
 
 msgid "Save and create another"
 msgstr ""
@@ -2715,9 +2612,8 @@ msgstr "Teisės"
 msgid "Add new permissions"
 msgstr "Pridėti naujų teisių"
 
-#, fuzzy
 msgid "No permissions so far."
-msgstr "Teisių nėra."
+msgstr ""
 
 msgid "Blog:"
 msgstr "Blogas:"
@@ -2725,18 +2621,6 @@ msgstr "Blogas:"
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
-
-msgid "Last Name"
-msgstr "Pavardė"
-
-msgid "First Name"
-msgstr "Vardas"
-
-msgid "Display name"
-msgstr "Rodomas vardas"
-
-msgid "Number of entries"
-msgstr "Įrašų skaičius"
 
 msgid "Set permissions"
 msgstr "Nustatyti teises"
@@ -2747,10 +2631,6 @@ msgstr "Dalyvis sėkmingai pašalintas"
 msgid "The permissions have been successfully updated."
 msgstr "Teisės sėkmingai atnaujintos "
 
-#, fuzzy
-msgid "users per page"
-msgstr "Dalyvių viename puslapyje"
-
 msgid "Selected users action:"
 msgstr "Veiskmas pasirinktiems dalyviams:"
 
@@ -2760,9 +2640,8 @@ msgstr "Nepateiktas joks blogo dalyvis"
 msgid "You cannot delete yourself."
 msgstr ""
 
-#, fuzzy
 msgid "User has been successfully deleted."
-msgstr "Dalyvis sėkmingai atnaujintas."
+msgstr ""
 
 msgid "Back to user profile"
 msgstr ""
@@ -2774,64 +2653,56 @@ msgstr "Pasirinkite vieną ar daugiau blogų kurių teises norėtumėte suteikti
 msgid "No blog"
 msgstr "Nėra blogo"
 
-#, fuzzy
+msgid "Entries"
+msgstr "Įrašai"
+
 msgid "select"
-msgstr "pažymėtas"
+msgstr ""
 
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr "Jūs ruošiatės pakeisti šių blogo dalyvių %s teises."
 
-#, fuzzy
 msgid "Validate permissions"
-msgstr "nustatyti teises"
+msgstr ""
 
-#, fuzzy
 msgid "Back to blogs list"
-msgstr "Komentarų nėra."
+msgstr ""
 
-#, fuzzy
 msgid "Blogs actions"
-msgstr "Blogai"
+msgstr ""
 
-#, fuzzy
 msgid "Blog id"
-msgstr "Blogas"
+msgstr ""
 
-#, fuzzy
 msgid "Set online"
-msgstr "prisijungęs"
+msgstr ""
 
-#, fuzzy
 msgid "Set offline"
-msgstr "neprisijungęs"
+msgstr ""
 
-#, fuzzy
 msgid "Set as removed"
-msgstr "ištrintas"
+msgstr ""
 
-#, fuzzy
 msgid "No blog selected"
-msgstr "nepažymėtas"
+msgstr ""
 
-#, fuzzy
 msgid "Selected blogs have been successfully updated."
-msgstr "Komentaras sėkmingai atnaujintas."
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "%d blog has been successfully deleted"
 msgid_plural "%d blogs have been successfully deleted"
-msgstr[0] "Blogas sėkmingai ištrintas."
-msgstr[1] "Blogas sėkmingai ištrintas."
-msgstr[2] "Blogas sėkmingai ištrintas."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy
 msgid "Back to comments list"
-msgstr "Komentarų nėra."
+msgstr ""
 
-#, fuzzy
 msgid "Comments actions"
-msgstr "Komentaro autorius:"
+msgstr ""
 
 msgid "Publish"
 msgstr "Publikuoti"
@@ -2842,9 +2713,8 @@ msgstr "Nebepublikuoti"
 msgid "Mark as pending"
 msgstr "Žymėti kaip laukiantį"
 
-#, fuzzy
 msgid "Mark as junk"
-msgstr "žymėti kaip šiukšlę"
+msgstr ""
 
 msgid "Blacklist IP"
 msgstr ""
@@ -2852,25 +2722,17 @@ msgstr ""
 msgid "Blacklist IP (global)"
 msgstr ""
 
-#, fuzzy
 msgid "No comment selected"
-msgstr "Komentarų nėra."
+msgstr ""
 
-#, fuzzy
 msgid "IP addresses for selected comments have been blacklisted."
-msgstr "Komentaras sėkmingai atnaujintas."
+msgstr ""
 
-#, fuzzy
 msgid "Back to entries list"
-msgstr "Kategorijų sąrašas"
+msgstr ""
 
-#, fuzzy
-msgid "Entries actions"
-msgstr "Pasirinktų įrašų veiksmas:"
-
-#, fuzzy
 msgid "Posts actions"
-msgstr "Pasirinktų įrašų veiksmas:"
+msgstr ""
 
 msgid "Schedule"
 msgstr "Tvarkaraštis"
@@ -2890,68 +2752,71 @@ msgstr "Keisti"
 msgid "Change category"
 msgstr "Keisti direktoriją"
 
-#, fuzzy
 msgid "Change language"
-msgstr "Keisti failą"
+msgstr ""
 
 msgid "Change author"
 msgstr "Keisti autorių"
 
-#, fuzzy
 msgid "No entry selected"
-msgstr "nepažymėtas"
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
-msgstr[0] "Įrašas sėkmingai atnaujintas"
-msgstr[1] "Įrašas sėkmingai atnaujintas"
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
-msgstr[0] "Įrašas sėkmingai sukurtas."
-msgstr[1] "Įrašas sėkmingai sukurtas."
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
-msgstr[0] "Įrašas sėkmingai sukurtas."
-msgstr[1] "Įrašas sėkmingai sukurtas."
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
-msgstr[0] "Tema sėkmingai ištrinta."
-msgstr[1] "Tema sėkmingai ištrinta."
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
-msgstr[0] "Įrašas sėkmingai atnaujintas"
-msgstr[1] "Įrašas sėkmingai atnaujintas"
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 msgid "Change category for this selection"
 msgstr "Keisti įrašų kategoriją"
 
-#, fuzzy
 msgid "Create a new category for the post(s)"
-msgstr "Keisti įrašų kategoriją"
+msgstr ""
 
 msgid "This user does not exist"
 msgstr "Šis dalyvis neegzistuoja"
 
-#, fuzzy, php-format
+#, php-format
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
-msgstr[0] "Įrašas sėkmingai sukurtas."
-msgstr[1] "Įrašas sėkmingai sukurtas."
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 msgid "Change author for this selection"
 msgstr "Keisti įrašų autorių"
@@ -2959,16 +2824,16 @@ msgstr "Keisti įrašų autorių"
 msgid "New author (author ID):"
 msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "%d entry has been successfully set to language \"%s\""
 msgid_plural "%d entries have been successfully set to language \"%s\""
-msgstr[0] "Įrašas sėkmingai atnaujintas"
-msgstr[1] "Įrašas sėkmingai atnaujintas"
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy
 msgid "Change language for this selection"
-msgstr "Keisti įrašų autorių"
+msgstr ""
 
 msgid "Available"
 msgstr "Galimas"
@@ -2976,12 +2841,14 @@ msgstr "Galimas"
 msgid "Most used"
 msgstr "Dažniausiai naudojamas"
 
-#, fuzzy
 msgid "Entry language:"
-msgstr "Įrašo kalba:"
+msgstr ""
 
 msgid "Languages"
 msgstr "Kalbos"
+
+msgid "[%H:%M:%S]"
+msgstr ""
 
 msgid "Change blog"
 msgstr "Keisti blogą"
@@ -2989,14 +2856,10 @@ msgstr "Keisti blogą"
 msgid "Blogs:"
 msgstr "Blogai:"
 
-#, fuzzy
 msgid "Go to the content"
-msgstr "Nėra įrašo turinio"
-
-msgid "Go to the menu"
 msgstr ""
 
-msgid "Go to search"
+msgid "Go to the menu"
 msgstr ""
 
 msgid "Go to help"
@@ -3005,9 +2868,9 @@ msgstr ""
 msgid "Go to site"
 msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "Logout %s"
-msgstr "Atsijungti"
+msgstr ""
 
 msgid "Hide main menu"
 msgstr ""
@@ -3021,262 +2884,18 @@ msgstr ""
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr ""
 
-msgid "[%H:%M:%S]"
-msgstr ""
-
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Ačiū, kad naudojatės %s."
 
-#, fuzzy
 msgid "Page top"
-msgstr "Puslapis(iai)"
-
-#, fuzzy
-msgid "Go to dashboard"
-msgstr "Valdymas"
-
-msgid "Help about this page"
-msgstr ""
-
-#, php-format
-msgid "See also %s"
-msgstr ""
-
-msgid "the global help"
-msgstr ""
-
-msgid "uncover"
-msgstr "rodyti"
-
-msgid "hide"
-msgstr "slėpti"
-
-msgid "Need help?"
-msgstr ""
-
-msgid "new window"
-msgstr ""
-
-msgid "Hide"
-msgstr ""
-
-#, fuzzy
-msgid "Select:"
-msgstr "Pažymėtas:"
-
-msgid "no selection"
-msgstr "be pasirinkimo"
-
-msgid "select all"
-msgstr "pasirinkti viską"
-
-msgid "Invert selection"
-msgstr "atvirkščias pasirinkimas"
-
-msgid "view entry"
-msgstr "žiūrėti įrašą"
-
-#, php-format
-msgid "Are you sure you want to delete selected entries (%s)?"
-msgstr "Ar tikrai norite ištrinti pasirinktus įrašus (%s)?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected medias (%d)?"
-msgstr "Ar tikrai norite ištrinti pasirinktus įrašus (%s)?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected categories (%s)?"
-msgstr "Ar tikrai norite ištrinti pasirinktus įrašus (%s)?"
-
-msgid "Are you sure you want to delete this entry?"
-msgstr "Ar tikrai norite ištrinti šį įrašą?"
-
-msgid "Click here to unlock the field"
-msgstr ""
-
-#, fuzzy
-msgid "Are you sure you want to delete all spams?"
-msgstr "Ar tikrai norite ištrinti \"%s\" temą?"
-
-#, php-format
-msgid "Are you sure you want to delete selected comments (%s)?"
-msgstr "Ar tikrai norite ištrinti pasirinktus komentarus (%s)?"
-
-msgid "Are you sure you want to delete this comment?"
-msgstr "Ar tikrai norite ištrinti šį komentarą?"
-
-msgid "Users with posts cannot be deleted."
-msgstr "Dalyviai turintys įrašų negali būti ištrinti."
-
-#, php-format
-msgid "Are you sure you want to delete selected users (%s)?"
-msgstr "Ar tikrai norite ištrinti pasirinktus dalyvius (%s)?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to delete selected blogs (%s)?"
-msgstr "Ar tikrai norite ištrinti pasirinktus dalyvius (%s)?"
-
-#, php-format
-msgid "Are you sure you want to delete category \"%s\"?"
-msgstr "Ar tikrai norite ištrinti kategoriją \"%s\"?"
-
-msgid "Are you sure you want to reorder all categories?"
-msgstr "Ar tikrai norite pertvarkyti visas kategorijas?"
-
-#, php-format
-msgid "Are you sure you want to remove media \"%s\"?"
-msgstr "Ar tikrai norite pašalinti media \"%s\"?"
-
-#, fuzzy, php-format
-msgid "Are you sure you want to remove directory \"%s\"?"
-msgstr "Ar tikrai norite pašalinti media \"%s\"?"
-
-msgid "Are you sure you want to extract archive in current directory?"
-msgstr "Ar tikrai norite išarchyvuoti šioje direktorijoje?"
-
-#, php-format
-msgid "Are you sure you want to remove attachment \"%s\"?"
-msgstr "Ar tikrai norite pašalinti prisegimą \"%s\"?"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" language?"
-msgstr "Ar tikrai norite ištrinti \"%s\" kalbą?"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr "Ar tikrai norite ištrinti \"%s\" plugin'ą?"
-
-#, fuzzy
-msgid "Are you sure you want to delete selected plugins?"
-msgstr "Ar tikrai norite ištrinti \"%s\" plugin'ą?"
-
-msgid "Use this theme"
-msgstr "Naudoti šią temą"
-
-msgid "Remove this theme"
-msgstr "Pašalinti šią temą"
-
-#, php-format
-msgid "Are you sure you want to delete \"%s\" theme?"
-msgstr "Ar tikrai norite ištrinti \"%s\" temą?"
-
-#, fuzzy
-msgid "Are you sure you want to delete selected themes?"
-msgstr "Ar tikrai norite ištrinti pasirinktus įrašus (%s)?"
-
-#, fuzzy
-msgid "Are you sure you want to delete this backup?"
-msgstr "Ar tikrai norite ištrinti šį komentarą?"
-
-#, fuzzy
-msgid "Are you sure you want to revert to this backup?"
-msgstr "Ar tikrai norite pašalinti šį prisegimą?"
-
-msgid "Zip file content"
-msgstr "Zip failo turinys"
-
-msgid "XHTML markup validator"
-msgstr "XHTML markup validator"
-
-msgid "XHTML content is valid."
-msgstr "XHTML turinys tinkamas."
-
-msgid "There are XHTML markup errors."
-msgstr "Yra XHTML markup klaidų."
-
-msgid "Attention: an audit of a content not yet registered."
-msgstr ""
-
-msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
-msgstr "Yra neišsaugotų pakeitimų. Įrašo formato keitimas panaikins visus atnaujinimus. Tęsti?"
-
-msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
-msgstr ""
-
-msgid "Loading enhanced uploader, please wait."
-msgstr ""
-
-msgid "Details"
-msgstr "Detalės"
-
-msgid "Support"
-msgstr ""
-
-#, fuzzy
-msgid "Help:"
-msgstr "Pagalba"
-
-#, fuzzy
-msgid "Section:"
-msgstr "Veiksmas"
-
-msgid "Tags:"
-msgstr ""
-
-#, fuzzy
-msgid "Hide this notice"
-msgstr "Naudoti šią temą"
-
-msgid "You have unsaved changes."
-msgstr "Yra neišsaugotų pakeitimų. "
-
-#, fuzzy
-msgid "Choose date"
-msgstr "Pasirinkti failą"
-
-msgid "close"
-msgstr "uždaryti"
-
-msgid "now"
-msgstr "dabar"
-
-msgid "Temporarily activate enhanced uploader"
-msgstr "Įjungti enhanced Uploader"
-
-msgid "Temporarily disable enhanced uploader"
-msgstr "Išjungti enhanced uploader"
-
-msgid "Limit exceeded."
-msgstr "Limitas viršytas."
-
-msgid "File size exceeds allowed limit."
-msgstr "Failo dydis viršija leistiną ribą."
-
-msgid "Canceled."
-msgstr "Atšaukta."
-
-msgid "HTTP Error:"
-msgstr "HTTP klaida:"
-
-msgid "Clean"
-msgstr "Išvalyti"
-
-msgid "File successfully uploaded."
-msgstr "Failas sėkmingai įkeltas"
-
-msgid "No file in queue."
-msgstr "Eilėje failo nėra."
-
-msgid "1 file in queue."
-msgstr "Eilėje 1 failas."
-
-#, php-format
-msgid "%d files in queue."
-msgstr "%d failai eilėje."
-
-msgid "Queue error:"
-msgstr "Eilės klaida:"
-
-msgid "Cancel filters and display options"
 msgstr ""
 
 msgid "other"
 msgstr ""
 
-#, fuzzy
 msgid "Search in repository:"
-msgstr "Ieškoti įraše:"
+msgstr ""
 
 msgid "Reset search"
 msgstr ""
@@ -3290,10 +2909,10 @@ msgid_plural "Found %d results for search \"%s\":"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy
 msgid "current selection"
-msgstr "be pasirinkimo"
+msgstr ""
 
 #, php-format
 msgid "%d result"
@@ -3301,6 +2920,7 @@ msgid_plural "%d results"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 msgid "no results"
 msgstr ""
@@ -3308,9 +2928,8 @@ msgstr ""
 msgid "Browse index:"
 msgstr ""
 
-#, fuzzy
 msgid "Plugins list"
-msgstr "Plugin'ai"
+msgstr ""
 
 msgid "Score"
 msgstr ""
@@ -3318,9 +2937,11 @@ msgstr ""
 msgid "Version"
 msgstr "Versija"
 
-#, fuzzy
 msgid "Current version"
-msgstr "nustatyti teises"
+msgstr ""
+
+msgid "Details"
+msgstr "Detalės"
 
 #, php-format
 msgid " (%s)"
@@ -3336,9 +2957,14 @@ msgstr ""
 msgid "Plugin from official distribution"
 msgstr ""
 
-#, fuzzy
-msgid "Manage plugin"
-msgstr "Įkelti plugin'ą"
+msgid "Support"
+msgstr ""
+
+msgid "Section:"
+msgstr ""
+
+msgid "Tags:"
+msgstr ""
 
 msgid "No plugins matched your search."
 msgstr ""
@@ -3352,9 +2978,8 @@ msgstr ""
 msgid "Plugin settings (in user preferences)"
 msgstr ""
 
-#, fuzzy
 msgid "Plugin settings"
-msgstr "Blogo nustatymai"
+msgstr ""
 
 msgid "Activate"
 msgstr "Įjungti"
@@ -3362,32 +2987,26 @@ msgstr "Įjungti"
 msgid "Deactivate"
 msgstr "Išjungti"
 
-#, fuzzy
 msgid "Install"
-msgstr "Dotclear instaliacija"
+msgstr ""
 
 msgid "Update"
 msgstr "Atnaujinimai"
 
-#, fuzzy
 msgid "Activate selected plugins"
-msgstr "Įjungti plugin'ai"
+msgstr ""
 
-#, fuzzy
 msgid "Activate all plugins from this list"
-msgstr "Įjungti plugin'ai"
+msgstr ""
 
-#, fuzzy
 msgid "Deactivate selected plugins"
-msgstr "Išjungti plgin'us"
+msgstr ""
 
-#, fuzzy
 msgid "Deactivate all plugins from this list"
-msgstr "Išjungti plgin'us"
+msgstr ""
 
-#, fuzzy
 msgid "Update selected plugins"
-msgstr "Išjungti plgin'us"
+msgstr ""
 
 msgid "Update all plugins from this list"
 msgstr ""
@@ -3398,67 +3017,61 @@ msgstr "Nėra tokio plugin'o"
 msgid "You don't have permissions to delete this plugin."
 msgstr "Neturite teisių ištrinti šį plugin'ą."
 
-#, fuzzy
 msgid "Some plugins have not been delete."
-msgstr "Šie plugin'ai nebuvo instaliuoti:"
+msgstr ""
 
-#, fuzzy
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
-msgstr[0] "Plugin'as sėkmingai ištrintas."
-msgstr[1] "Plugin'as sėkmingai ištrintas."
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successuflly installed."
-msgstr[0] "Plugin'as sėkmingai instaliuotas."
-msgstr[1] "Plugin'as sėkmingai instaliuotas."
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
-msgstr[0] "Plugin'as sėkmingai instaliuotas."
-msgstr[1] "Plugin'as sėkmingai instaliuotas."
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy
 msgid "Some plugins have not been deactivated."
-msgstr "Šie plugin'ai nebuvo instaliuoti:"
+msgstr ""
 
-#, fuzzy
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
-msgstr[0] "Plugin'as sėkmingai ištrintas."
-msgstr[1] "Plugin'as sėkmingai ištrintas."
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successuflly updated."
-msgstr[0] "Plugin'as sėkmingai atnaujintas."
-msgstr[1] "Plugin'as sėkmingai atnaujintas."
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy
 msgid "Zip file path:"
-msgstr "Zip failo turinys"
+msgstr ""
 
 msgid "Download a zip file"
 msgstr "Atsisiųsti zip failą"
 
-#, fuzzy
 msgid "Zip file URL:"
-msgstr "Temos zip failo URL:"
+msgstr ""
 
-#, fuzzy
 msgid "Download"
-msgstr "Atsisiųsti temą"
+msgstr ""
 
-#, fuzzy
 msgid "Unknow plugin ID"
-msgstr "Įkelti plugin'ą"
+msgstr ""
 
 msgid "This plugin has no configuration file."
 msgstr ""
@@ -3486,9 +3099,9 @@ msgstr "per %s"
 msgid "version %s"
 msgstr " %s versija"
 
-#, fuzzy, php-format
+#, php-format
 msgid "(current version %s)"
-msgstr " %s versija"
+msgstr ""
 
 #, php-format
 msgid "(built on \"%s\")"
@@ -3498,96 +3111,85 @@ msgstr "(sukurtas \"%s\")"
 msgid "(requires \"%s\")"
 msgstr "(reikalauja \"%s\")"
 
-#, fuzzy
 msgid "View stylesheet"
-msgstr "Stylesheet"
+msgstr ""
 
-#, fuzzy
 msgid "Configure theme"
-msgstr "Blogo temos"
+msgstr ""
 
 msgid "No themes matched your search."
 msgstr ""
 
-#, fuzzy
 msgid "Use this one"
-msgstr "Naudoti šią temą"
+msgstr ""
 
-#, fuzzy
 msgid "Update selected themes"
-msgstr "ištrinti pasirinkta temą"
+msgstr ""
 
 msgid "Update all themes from this list"
 msgstr ""
 
-#, fuzzy
 msgid "No such theme."
-msgstr "Nėra tokio modulio."
+msgstr ""
 
-#, fuzzy
 msgid "Theme has been successfully selected."
-msgstr "Tema sėkmingai ištrinta."
+msgstr ""
 
-#, fuzzy
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
-msgstr[0] "Tema sėkmingai pakeista."
-msgstr[1] "Tema sėkmingai pakeista."
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 msgid "Some themes have not been deactivated."
 msgstr ""
 
-#, fuzzy
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
-msgstr[0] "Tema sėkmingai ištrinta."
-msgstr[1] "Tema sėkmingai ištrinta."
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy
 msgid "You don't have permissions to delete this theme."
-msgstr "Neturite teisių ištrinti šį plugin'ą."
+msgstr ""
 
-#, fuzzy
 msgid "Some themes have not been delete."
-msgstr "Dalyviai turintys įrašų negali būti ištrinti."
+msgstr ""
 
-#, fuzzy
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
-msgstr[0] "Tema sėkmingai ištrinta."
-msgstr[1] "Tema sėkmingai ištrinta."
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successuflly installed."
-msgstr[0] "Tema sėkmingai instaliuota."
-msgstr[1] "Tema sėkmingai instaliuota."
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successuflly updated."
-msgstr[0] "Tema sėkmingai atnaujinta."
-msgstr[1] "Tema sėkmingai atnaujinta."
+msgstr[0] ""
+msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy
 msgid "First page"
-msgstr "Vardas"
+msgstr ""
 
-#, fuzzy
 msgid "Previous page"
-msgstr "ankstesnis įrašas"
+msgstr ""
 
 msgid "Next page"
 msgstr ""
 
-#, fuzzy
 msgid "Last page"
-msgstr "Paskutinis atnaujinimas"
+msgstr ""
 
 #, php-format
 msgid "Page %s / %s"
@@ -3597,28 +3199,25 @@ msgstr ""
 msgid "Direct access page %s"
 msgstr ""
 
-#, fuzzy
 msgid "&#171; prev."
-msgstr "&#171;ankst."
+msgstr ""
 
-#, fuzzy
 msgid "next &#187;"
-msgstr "sek&#187;"
+msgstr ""
 
-#, fuzzy
 msgid "No entry matches the filter"
-msgstr "Nėra įrašo pavadinimo"
+msgstr ""
 
 msgid "No entry"
 msgstr "Įrašo nėra"
 
-#, fuzzy, php-format
+#, php-format
 msgid "List of %s entries matching the filter."
-msgstr "Nėra įrašo pavadinimo"
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "List of entries (%s)"
-msgstr "Kategorijų sąrašas"
+msgstr ""
 
 #, php-format
 msgid ", <a href=\"%s\">published</a> (1)"
@@ -3626,6 +3225,7 @@ msgid_plural ", <a href=\"%s\">published</a> (%s)"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 #, php-format
 msgid ", <a href=\"%s\">pending</a> (1)"
@@ -3633,6 +3233,7 @@ msgid_plural ", <a href=\"%s\">pending</a> (%s)"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 #, php-format
 msgid ", <a href=\"%s\">programmed</a> (1)"
@@ -3640,6 +3241,7 @@ msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 #, php-format
 msgid ", <a href=\"%s\">unpublished</a> (1)"
@@ -3647,10 +3249,13 @@ msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy
 msgid "Protected"
-msgstr "apsaugotas"
+msgstr ""
+
+msgid "Attachments"
+msgstr ""
 
 #, php-format
 msgid "%d attachment"
@@ -3660,9 +3265,8 @@ msgstr "%d prisegimas"
 msgid "%d attachments"
 msgstr "%d prisegimai"
 
-#, fuzzy
 msgid "Entries list"
-msgstr "Kategorijų sąrašas"
+msgstr ""
 
 msgid "No comments or trackbacks matches the filter"
 msgstr ""
@@ -3673,10 +3277,11 @@ msgid_plural "List of %s comments or trackbacks matching the filter."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "List of comments and trackbacks (%s)"
-msgstr "Komentarai ir trackback'ai"
+msgstr ""
 
 #, php-format
 msgid ", <a href=\"%s\">spam</a> (1)"
@@ -3684,13 +3289,13 @@ msgid_plural ", <a href=\"%s\">spam</a> (%s)"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
 msgid "Type"
 msgstr "Tipas"
 
-#, fuzzy
 msgid "Entry"
-msgstr "Įrašai"
+msgstr ""
 
 #, php-format
 msgid "Edit the %1$s from %2$s"
@@ -3702,16 +3307,14 @@ msgstr "komentaras"
 msgid "trackback"
 msgstr "trackback'as"
 
-#, fuzzy
 msgid "Type and author"
-msgstr "Keisti autorių"
+msgstr ""
 
 msgid "No blog matches the filter"
 msgstr ""
 
-#, fuzzy
 msgid "Entries (all types)"
-msgstr "Įrašų viename puslapyje"
+msgstr ""
 
 #, php-format
 msgid "%d blog matches the filter."
@@ -3719,18 +3322,26 @@ msgid_plural "%d blogs match the filter."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+msgstr[3] ""
 
-#, fuzzy
 msgid "Blogs list"
-msgstr "Blogai"
+msgstr ""
 
-#, fuzzy, php-format
+msgid "online"
+msgstr "prisijungęs"
+
+msgid "offline"
+msgstr "neprisijungęs"
+
+msgid "removed"
+msgstr "ištrintas"
+
+#, php-format
 msgid "Edit blog settings for %s"
-msgstr "Regaguoti blogą %s"
+msgstr ""
 
-#, fuzzy
 msgid "Edit blog settings"
-msgstr "Blogo nustatymai"
+msgstr ""
 
 #, php-format
 msgid "Switch to blog %s"
@@ -3746,12 +3357,11 @@ msgstr "Nėra dalyvio"
 msgid "List of %s users match the filter."
 msgstr ""
 
-#, fuzzy
 msgid "Users list"
-msgstr "Dalyviai"
+msgstr ""
 
 msgid "admin"
-msgstr "admin"
+msgstr ""
 
 msgid "superadmin"
 msgstr "Super Administratorius"
@@ -3764,31 +3374,28 @@ msgstr ""
 msgid "(%s)"
 msgstr ""
 
-#, fuzzy
 msgid "The 'public' directory does not exist."
-msgstr "Šis įrašas neegzistuoja."
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "The '%s' directory cannot be modified."
-msgstr "Direktorija negali būti pašakinta"
+msgstr ""
 
 msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
 msgstr ""
 
-#, fuzzy
 msgid "Unable to create images."
-msgstr "Nepavyksta sukurti direktorijos"
+msgstr ""
 
-#, fuzzy
 msgid "Invalid file type."
-msgstr "Negaliojantis digests failas."
+msgstr ""
 
 msgid "An error occurred while writing the file."
 msgstr "Įrašant failą įvyko klaida."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Uploaded image is not %s pixels wide."
-msgstr "Sukurtų paveikslėlių dydis (pikseliais)"
+msgstr ""
 
 msgid "Database error"
 msgstr "Datenbankfehler"
@@ -3796,9 +3403,8 @@ msgstr "Datenbankfehler"
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "Jūsų duomenų bazėje nėra Session table . Ar Dotclear yra pilkai instaliuotas?"
 
-#, fuzzy
 msgid "System settings"
-msgstr "Blogo nustatymai"
+msgstr ""
 
 msgid "Blog"
 msgstr "Blogas"
@@ -3806,21 +3412,20 @@ msgstr "Blogas"
 msgid "Plugins"
 msgstr "Plugin'ai"
 
-msgid "medium"
-msgstr "Vidutinis:"
+msgid "moyenne"
+msgstr ""
 
-msgid "small"
-msgstr "Mažas:"
+msgid "petite"
+msgstr ""
 
-msgid "thumbnail"
-msgstr "Miniatiūra:"
+msgid "vignette"
+msgstr ""
 
-msgid "square"
-msgstr "kvadratas"
+msgid "carrée"
+msgstr ""
 
-#, fuzzy
 msgid "Pages"
-msgstr "Puslapis(iai)"
+msgstr ""
 
 msgid "administrator"
 msgstr "administratorius"
@@ -3864,13 +3469,11 @@ msgstr "Jums nėra leidžiama trinti kategorijų"
 msgid "This category is not empty."
 msgstr "Ši kategorija nėra tuščia"
 
-#, fuzzy
 msgid "You are not allowed to reset categories order"
-msgstr "Jums nėra leidžiama trinti kategorijų"
+msgstr ""
 
-#, fuzzy
 msgid "Empty category URL"
-msgstr "Tuščias įrašo URL"
+msgstr ""
 
 msgid "You must provide a category title"
 msgstr "Turite nurodyti kategorijos pavadinimą"
@@ -3896,9 +3499,8 @@ msgstr "Jums neleidžiama keisti šio įrašo statuso"
 msgid "You are not allowed to change this entry category"
 msgstr "Jums neleidžiama keisti šio įrašo kategorijos"
 
-#, fuzzy
 msgid "You are not allowed to change entries category"
-msgstr "Jums neleidžiama keisti šio įrašo kategorijos"
+msgstr ""
 
 msgid "You are not allowed to delete entries"
 msgstr "Jums neleidžiama trinti įrašų"
@@ -3909,13 +3511,11 @@ msgstr "Nėra įrašo pavadinimo"
 msgid "No entry content"
 msgstr "Nėra įrašo turinio"
 
-#, fuzzy
 msgid "Notes"
-msgstr "Pastabos:"
+msgstr ""
 
-#, fuzzy
 msgid "Note"
-msgstr "Pastabos:"
+msgstr ""
 
 msgid "Empty entry URL"
 msgstr "Tuščias įrašo URL"
@@ -3943,15 +3543,6 @@ msgstr "Turite pateikti autoriaus vardą"
 
 msgid "Email address is not valid."
 msgstr "El. pašto adresas negalioja"
-
-msgid "online"
-msgstr "prisijungęs"
-
-msgid "offline"
-msgstr "neprisijungęs"
-
-msgid "removed"
-msgstr "ištrintas"
 
 msgid "You are not an administrator"
 msgstr "Jūs nesate administratorius"
@@ -3986,9 +3577,8 @@ msgstr "Priėjimas draudžiamas."
 msgid "You are not the file owner."
 msgstr "Jūs nesate failo savininkas."
 
-#, fuzzy
 msgid "This file is not allowed."
-msgstr "Šio failo įkėlimas yra neleidžiamas."
+msgstr ""
 
 msgid "New file already exists."
 msgstr "Naujas failas jau egzistuoja."
@@ -3999,12 +3589,6 @@ msgstr "Failo nėra duomenų bazėje."
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "Išarchyvuojama direktorija %s jau egzistuoja."
-
-msgid "Embedded Audio Player"
-msgstr "Embedded Audio Player"
-
-msgid "Embedded Video Player"
-msgstr "Embedded Video Player"
 
 #, php-format
 msgid "Requires %s module which is not installed"
@@ -4022,9 +3606,8 @@ msgstr ""
 msgid "Requires %s module which is disabled"
 msgstr ""
 
-#, fuzzy
 msgid "The following extensions have been disabled :"
-msgstr "Buvo instaliuoti šie plugin'ai:"
+msgstr ""
 
 #, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
@@ -4076,9 +3659,8 @@ msgstr "%s yra negaliojantis nustatymų id"
 msgid "No namespace specified"
 msgstr "Namespace nenurodytas."
 
-#, fuzzy
 msgid "Unable to retrieve workspaces:"
-msgstr "Nepavyko gauti namespaces:"
+msgstr ""
 
 msgid "Unable to retrieve namespaces:"
 msgstr "Nepavyko gauti namespaces:"
@@ -4099,13 +3681,11 @@ msgstr ""
 msgid "SQL INSERT requires an INTO source"
 msgstr ""
 
-#, fuzzy
 msgid "Failed to read data feed"
-msgstr "Nepavyksta perskaityti digests failo."
+msgstr ""
 
-#, fuzzy
 msgid "Wrong data feed"
-msgstr "Trumpinti kanalus"
+msgstr ""
 
 msgid "An error occurred while downloading the file."
 msgstr "Atsisiunčiant failą įvyko klaida"
@@ -4194,21 +3774,19 @@ msgstr "Nepavyksta perskaityti digests failo."
 msgid "Invalid digests file."
 msgstr "Negaliojantis digests failas."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid dcWorkspace: %s"
-msgstr "Negaliojantis nustatymas dcNamespace: %s"
+msgstr ""
 
-#, fuzzy
 msgid "Unable to retrieve prefs:"
-msgstr "Nepavyko gauti namespaces:"
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "%s is not a valid pref id"
-msgstr "%s yra negaliojantis nustatymų id"
+msgstr ""
 
-#, fuzzy
 msgid "No workspace specified"
-msgstr "Namespace nenurodytas."
+msgstr ""
 
 msgid "Something went wrong with auto upgrade:"
 msgstr "Automatinio atnaujinimo metu įvyko klaida:"
@@ -4229,429 +3807,3 @@ msgstr "<p>Tai reiškia, kad arba username ir slaptažodis jūsų <strong>config
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
 
-#~ msgid "Unable to open directory."
-#~ msgstr "Nepavyksta atidaryti direktorijos"
-
-#~ msgid "Unable to create directory."
-#~ msgstr "Nepavyksta sukurti direktorijos"
-
-#~ msgid "File is not writable."
-#~ msgstr "Failui nesuteiktos rašymo teisės."
-
-#~ msgid "Unable to open file."
-#~ msgstr "Nepavyksta atidaryti failo."
-
-#~ msgid "Not an uploaded file."
-#~ msgstr "Ne įkeltas failas."
-
-#~ msgid "The uploaded file exceeds the maximum file size allowed."
-#~ msgstr "Įkeltas failas viršija maksimalų leistiną dydį."
-
-#~ msgid "The uploaded file was only partially uploaded."
-#~ msgstr "Buvo įkelta tik dalis failo."
-
-#~ msgid "No file was uploaded."
-#~ msgstr "Failas nebuvo įkeltas."
-
-#~ msgid "Missing a temporary folder."
-#~ msgstr "Nėra temporary direktorijos."
-
-#~ msgid "Failed to write file to disk."
-#~ msgstr "Nepavyko įrašyti į diską."
-
-#~ msgid "%s is not a directory."
-#~ msgstr "%s yra ne direktorija."
-
-#, fuzzy
-#~ msgid "Invalid range"
-#~ msgstr "Netinkamas kalbos kodas"
-
-#, fuzzy
-#~ msgid "Invalid line number"
-#~ msgstr "Netinkamas kalbos kodas"
-
-#, fuzzy
-#~ msgid "Invalid diff format"
-#~ msgstr "Negaliojantis digests failas."
-
-#~ msgid "Uploading this file is not allowed."
-#~ msgstr "Šio failo įkėlimas yra neleidžiamas."
-
-#~ msgid "Destination directory is not in jail."
-#~ msgstr "Direktorija nėra užrakinta."
-
-#~ msgid "File already exists."
-#~ msgstr "Failas jau egzistuoja."
-
-#~ msgid "Cannot write in this directory."
-#~ msgstr "Negalima įrašyti į šią direktoriją."
-
-#~ msgid "Source file does not exist."
-#~ msgstr "Pradinis failas neegzistuoja."
-
-#~ msgid "File is not in jail."
-#~ msgstr "Failas nėra užrakintas."
-
-#~ msgid "Destination directory is not writable."
-#~ msgstr "Paskirta direktorija neturi rašymo teisių."
-
-#~ msgid "Unable to rename file."
-#~ msgstr "Nepavyko pervadinti failo."
-
-#~ msgid "File cannot be removed."
-#~ msgstr "Failas negali būti pašalintas."
-
-#~ msgid "Directory is not in jail."
-#~ msgstr "Direktorija nėra užrakinta."
-
-#~ msgid "Directory cannot be removed."
-#~ msgstr "Direktorija negali būti pašakinta"
-
-#~ msgid "Not enough memory to open image."
-#~ msgstr "Nepakanka atminties atidaryti paveikslėliui."
-
-#, fuzzy
-#~ msgid "WARNING: the following errors have been found while parsing template file :"
-#~ msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
-
-#~ msgid "File %s is not compressed in the zip."
-#~ msgstr "Failas %s nėra suarchyvuotas zip formatu."
-
-#~ msgid "Trying to unzip a folder name %s"
-#~ msgstr " Bandoma išarchyvuoti bylą pavadinimu %s"
-
-#~ msgid "Unable to write destination file."
-#~ msgstr "Nepavyksta įrašyti į paskirtą failą."
-
-#~ msgid "Unable to write in target directory, permission denied."
-#~ msgstr "Nepavyksta įrašyti į adresuotą direktoriją, priėjimas draudžiamas."
-
-#~ msgid "Not enough memory to open file."
-#~ msgstr "Nepakanka atminties atidaryti failui."
-
-#~ msgid "File does not exist"
-#~ msgstr "Failas neegzistuoja"
-
-#~ msgid "Cannot read file"
-#~ msgstr "Nepavyksta perskaityti failo"
-
-#~ msgid "Directory does not exist"
-#~ msgstr "Direktorija neegzistuoja"
-
-#~ msgid "Cannot read directory"
-#~ msgstr "Nepavyksta perskaityti direktorijos"
-
-#, fuzzy
-#~ msgid "A website mention this entry."
-#~ msgstr "Pridėti failus prie šio įrašo"
-
-#, fuzzy
-#~ msgid "Filter blogs list"
-#~ msgstr "Regaguoti blogą %s"
-
-#, fuzzy
-#~ msgid "Filter comments and trackbacks list"
-#~ msgstr "Komentarai ir trackback'ai"
-
-#~ msgid "SQLite Database Schema cannot be upgraded."
-#~ msgstr "SQLite Database Schema negali būti atnaujinta."
-
-#~ msgid "login"
-#~ msgstr "prisijungti"
-
-#~ msgid "save"
-#~ msgstr "išsaugoti"
-
-#~ msgid "more information"
-#~ msgstr "daugiau informacijos"
-
-#~ msgid "Leave blank to disable this feature."
-#~ msgstr "Norėdami išjungti, palikite tuščią"
-
-#~ msgid "This defines image tag title when you insert it in a post from the media manager. It is retrieved from the picture's metadata."
-#~ msgstr "Čia nustatomas paveikslėlio pavadinimas kai jis įkeliamas iš media tvarkyklės. Pavadinimas gaunamas iš metadata informacijos."
-
-#~ msgid "XML/RPC interface is not active. Change settings to enable it."
-#~ msgstr "XML/RPC sąsaja neaktyvi. Keiskite nustatymus norėdami įjungti."
-
-#~ msgid "You can't remove default theme."
-#~ msgstr "Negalite ištrinti numatytosios temos"
-
-#~ msgid "Theme does not exist."
-#~ msgstr "Tokia tema neegzistuoja"
-
-#~ msgid "You can find additional themes for your blog on %s."
-#~ msgstr "Daugiau temų savo blogui galite rasti %s."
-
-#~ msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
-#~ msgstr "Paprastai norint atnaujinti temą tereikia ją įkelti į \"Install or upgrade a theme\" skyrių"
-
-#~ msgid "Themes"
-#~ msgstr "Temos"
-
-#~ msgid "You are currently using <strong>%s</strong>"
-#~ msgstr "Šiuo metu jūs naudojate \"%s\""
-
-#~ msgid "use selected theme"
-#~ msgstr "naudoti pasirinktą temą"
-
-#~ msgid "Install or upgrade a theme"
-#~ msgstr "instaliuoti arba atnaujinti pasirinktą temą"
-
-#~ msgid "Theme zip file:"
-#~ msgstr "Temos zip failas:"
-
-#~ msgid "Upload theme"
-#~ msgstr "Įkelti temą"
-
-#~ msgid "To enable this function, please give write access to your themes directory."
-#~ msgstr "Įjunkite įrašymo teises savo temų direktorijai norėdami naudotis šia funkcija."
-
-#~ msgid "back"
-#~ msgstr "atgal"
-
-#~ msgid "edit"
-#~ msgstr "redaguoti"
-
-#~ msgid "Remove a category"
-#~ msgstr "Pašalinti kategoriją"
-
-#~ msgid "Choose a category to remove:"
-#~ msgstr "Pasirinkti pašalinamą kategoriją:"
-
-#~ msgid "Reorder categories"
-#~ msgstr "Pertvarkyti kategorijas"
-
-#~ msgid "publish"
-#~ msgstr "publikuoti"
-
-#~ msgid "unpublish"
-#~ msgstr "nebepublikuoti"
-
-#~ msgid "mark as pending"
-#~ msgstr "žymti kaip laukiantį"
-
-#~ msgid "%d comments"
-#~ msgstr "%d komentarai"
-
-#~ msgid "Latest news"
-#~ msgstr "Naujienos"
-
-#~ msgid "Some plugins are installed twice:"
-#~ msgstr "Kai kurie plugin'ai instaduoti du kart:"
-
-#~ msgid "send"
-#~ msgstr "siųsti"
-
-#~ msgid "New directory"
-#~ msgstr "Nauja direktorija"
-
-#~ msgid "Download this directory as a zip file"
-#~ msgstr "Atsisiųsti šią direktoriją zip failu"
-
-#~ msgid "update thumbnails"
-#~ msgstr "atnaujinti miniatiūras"
-
-#~ msgid "permissions"
-#~ msgstr "teisės"
-
-#~ msgid "choose a blog"
-#~ msgstr "pasirinkite blogą"
-
-#~ msgid "You don't have permissions to deactivate this plugin."
-#~ msgstr "Neturite teisių išjungti šį plugin'ą."
-
-#~ msgid "Plugins add new functionalities to Dotclear. Here you can activate or deactivate installed plugins."
-#~ msgstr "Plugin'ai Dotclear prideda funkcionalumo. Čia galite įjungti ar išjungti instaliuotus plugin'us."
-
-#~ msgid "You can find additional plugins for your blog on %s."
-#~ msgstr "Papildomus plugin'us galite rasti savo bloge %s."
-
-#~ msgid "To install or upgrade a plugin you generally just need to upload it in \"Install or upgrade a plugin\" section."
-#~ msgstr "Norėdami instaliuoti ar atnaujinti plugin'us, įkelkite juos į \"Instaliuoti arba atnaujinti plugin'ą\" ."
-
-#~ msgid "To install or upgrade a plugin you just need to extract it in your plugins directory."
-#~ msgstr "Norėdami instaliuoti ar atnaujinti plugin'ą išarchyvuokite jį plugin'ų direktorijoje"
-
-#~ msgid "Plugin"
-#~ msgstr "Plugin'as"
-
-#~ msgid "Install or upgrade a plugin"
-#~ msgstr "Instaliuoti arba atnaujinti plugin'ą"
-
-#~ msgid "Plugin zip file:"
-#~ msgstr "Plugin'o zip failas"
-
-#~ msgid "Plugin zip file URL:"
-#~ msgstr "Plugin'o zip failo URL:"
-
-#~ msgid "Download plugin"
-#~ msgstr "Atisiųsti plugin'ą"
-
-#~ msgid "insert"
-#~ msgstr "įdėti"
-
-#~ msgid "View entry"
-#~ msgstr "Žiūrėti įrašą"
-
-#~ msgid "Published on:"
-#~ msgstr "Įrašytas:"
-
-#~ msgid "remove"
-#~ msgstr "pašalinti"
-
-#~ msgid "No attachment."
-#~ msgstr "Nieko neprisegta."
-
-#~ msgid "junk"
-#~ msgstr "šiukšlės"
-
-#~ msgid "Author ID:"
-#~ msgstr "Autoriaus ID:"
-
-#~ msgid "User language:"
-#~ msgstr "Dalyvio kalba:"
-
-#~ msgid "User timezone:"
-#~ msgstr "Dalyvio laiko juosta:"
-
-#~ msgid "schedule"
-#~ msgstr "tvarkaraštis"
-
-#~ msgid "change category"
-#~ msgstr "keisti kategoriją"
-
-#~ msgid "change author"
-#~ msgstr "keisti autorių"
-
-#~ msgid "This entry does not exist or is not published"
-#~ msgstr "Įrašas neegzistuoja arba nėra publikuotas"
-
-#~ msgid "Send excerpt:"
-#~ msgstr "Siųsti ištrauką:"
-
-#~ msgid "users"
-#~ msgstr "dalyviai"
-
-#~ msgid "Create a new user"
-#~ msgstr "Sukurti naują dalyvį"
-
-#~ msgid "View site"
-#~ msgstr "Žiūrėti puslapį"
-
-#~ msgid "User:"
-#~ msgstr "Dalyvis:"
-
-#~ msgid "help"
-#~ msgstr "pagalba"
-
-#~ msgid "visual"
-#~ msgstr "rodomas"
-
-#~ msgid "source"
-#~ msgstr "kodas"
-
-#~ msgid "You can use the following shortcuts to format your text."
-#~ msgstr "Teksto formatavimui galite naudoti šias santrumpas."
-
-#~ msgid "-- none --"
-#~ msgstr "-- nepasirinkta --"
-
-#~ msgid "-- block format --"
-#~ msgstr "-- paragrafo formatas --"
-
-#~ msgid "Paragraph"
-#~ msgstr "Paragrafas"
-
-#~ msgid "Level 1 header"
-#~ msgstr "1 lygio antraštė"
-
-#~ msgid "Level 2 header"
-#~ msgstr "2 lygio antraštė"
-
-#~ msgid "Level 3 header"
-#~ msgstr "3 lygio antraštė"
-
-#~ msgid "Level 4 header"
-#~ msgstr "4 lygio antraštė"
-
-#~ msgid "Level 5 header"
-#~ msgstr "5 lygio antraštė"
-
-#~ msgid "Level 6 header"
-#~ msgstr "6 lygio antraštė"
-
-#~ msgid "Strong emphasis"
-#~ msgstr "Ryškus išskyrimo šriftas"
-
-#~ msgid "Emphasis"
-#~ msgstr "Išskyrimo šriftas"
-
-#~ msgid "Inserted"
-#~ msgstr "Įdėtas"
-
-#~ msgid "Deleted"
-#~ msgstr "Ištrintas"
-
-#~ msgid "Inline quote"
-#~ msgstr "Citata"
-
-#~ msgid "Code"
-#~ msgstr "Kodas"
-
-#~ msgid "Line break"
-#~ msgstr "Kita eilutė"
-
-#~ msgid "Blockquote"
-#~ msgstr "Kitas paragrafas"
-
-#~ msgid "Preformated text"
-#~ msgstr "Suformatuotas tekstas"
-
-#~ msgid "Unordered list"
-#~ msgstr "Nerūšiuotas sąrašas"
-
-#~ msgid "Ordered list"
-#~ msgstr "Rūšiuotas sąrašas"
-
-#~ msgid "Link"
-#~ msgstr "Nuoroda"
-
-#~ msgid "URL?"
-#~ msgstr "URL?"
-
-#~ msgid "Language?"
-#~ msgstr "Kalba?"
-
-#~ msgid "External image"
-#~ msgstr "Išorinis paveikslėlis"
-
-#~ msgid "Media chooser"
-#~ msgstr "Media pasrinkimas"
-
-#~ msgid "Link to an entry"
-#~ msgstr "Nuoroda į įrašą"
-
-#~ msgid "Category URL must be unique."
-#~ msgstr "Kategorijos URL turi būti unikalus"
-
-#~ msgid "You are not allowed to mark this entry as selected"
-#~ msgstr "Jums neleidžiama pažymėti šio įrašo kaip pasirinkto"
-
-#~ msgid "You are not allowed to delete this entry"
-#~ msgstr "Jums neleidžiama trinti šio įrašo"
-
-#~ msgid "You are not allowed to delete this comment"
-#~ msgstr "Jums neleidžiama trinti šio komentaro"
-
-#~ msgid "Directory %s does not exist."
-#~ msgstr "Direktorija %s neegzistuoja."
-
-#~ msgid "%s: in [%s] and [%s]"
-#~ msgstr "%s: į [%s] ir [%s]"
-
-#~ msgid "The file <strong>%s</strong> already exists. If you need to reset any of the configuration items in this file, please delete it first or you may <a href=\"%s\">continue to install</a>."
-#~ msgstr "Die Datei <strong>%s</strong> existiert bereits. Willst Du die Einträge in der Konfigurationsdatei zurücksetzen, bitte lösche diese erst oder fahre mit <a href=\"%s\">der Installation fort</a>."
-
-#~ msgid "Login and password"
-#~ msgstr "Login und Passwort:"
