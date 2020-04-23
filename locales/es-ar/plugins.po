@@ -1,21 +1,20 @@
-# Dotclear language pack (Argentinian Spanish).
-# Work under Creative Commons license attribution-share alike 3.0 unported, please see http://creativecommons.org/licenses/by-sa/3.0/ for details.
-# ThecaTTony <thecattony@thecattony.com.ar>, 2009.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2.1.6\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 14:50+0200\n"
-"PO-Revision-Date: 2016-07-18 15:47+0200\n"
+"POT-Creation-Date: 2020-04-23 14:48+0200\n"
+"PO-Revision-Date: 2020-04-23 15:49\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: Español Argentino <thecattony@thecattony.com.ar>\n"
+"Language-Team: Spanish, Argentina\n"
 "Language: es_AR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.8.8\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Language: es-AR\n"
+"X-Crowdin-File: /master/locales/en/plugins.po\n"
 
 msgid "Manage every blog configuration directive"
 msgstr ""
@@ -29,9 +28,8 @@ msgstr ""
 msgid "Manage post attachments"
 msgstr ""
 
-#, fuzzy
 msgid "Manage your blogroll"
-msgstr "Administrar enlaces recomendados"
+msgstr ""
 
 msgid "Configure your Blowup Theme"
 msgstr ""
@@ -42,9 +40,8 @@ msgstr ""
 msgid "Trackback validity check"
 msgstr ""
 
-#, fuzzy
 msgid "Import and Export your blog"
-msgstr "Exportar un blog"
+msgstr ""
 
 msgid "Maintain your installation"
 msgstr ""
@@ -52,9 +49,8 @@ msgstr ""
 msgid "Serve entries as simple web pages"
 msgstr ""
 
-#, fuzzy
 msgid "Ping services"
-msgstr "Probar servicios de ping"
+msgstr ""
 
 msgid "Simple menu for Dotclear"
 msgstr ""
@@ -68,9 +64,8 @@ msgstr "Editor de temas"
 msgid "Manage every user preference directive"
 msgstr ""
 
-#, fuzzy
 msgid "Widgets for your blog sidebars"
-msgstr "agregar widgets a la barra lateral"
+msgstr ""
 
 msgid "dotclear legacy editor"
 msgstr ""
@@ -81,24 +76,20 @@ msgstr ""
 msgid "Breadcrumb for Dotclear"
 msgstr ""
 
-#, fuzzy
 msgid "Search engine form"
-msgstr "Motor de Búsqueda"
+msgstr ""
 
-#, fuzzy
 msgid "List of navigation links"
-msgstr "Enlaces de navegación"
+msgstr ""
 
-#, fuzzy
 msgid "List of selected entries"
-msgstr "Sin etiquetas para las entradas seleccionadas"
+msgstr ""
 
 msgid "List of available languages"
 msgstr ""
 
-#, fuzzy
 msgid "List of categories"
-msgstr "Todas las categorías"
+msgstr ""
 
 msgid "Feed subscription links (RSS or Atom)"
 msgstr ""
@@ -112,30 +103,26 @@ msgstr ""
 msgid "List of last entries published"
 msgstr ""
 
-#, fuzzy
 msgid "List of last comments published"
-msgstr "Redifusión web %s de comentarios de este blog"
+msgstr ""
 
 msgid "List of published pages"
 msgstr ""
 
-#, fuzzy
 msgid "Blogroll list"
-msgstr "Enlaces recomendados"
+msgstr ""
 
-#, fuzzy
 msgid "List of simple menu items"
-msgstr "Eliminar enlaces seleccionados"
+msgstr ""
 
-#, fuzzy
 msgid "Tags cloud"
-msgstr "Etiquetas a agregar:"
+msgstr ""
 
 msgid "Configuration successfully updated"
 msgstr "Configuración actualizada con éxito"
 
 msgid "no"
-msgstr "no"
+msgstr ""
 
 msgid "yes"
 msgstr ""
@@ -143,13 +130,12 @@ msgstr ""
 msgid "about:config"
 msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "Settings for %s"
-msgstr "Editando el archivo %s"
+msgstr ""
 
-#, fuzzy
 msgid "Setting ID"
-msgstr "Nombre de parámetro"
+msgstr ""
 
 msgid "Value"
 msgstr "Valor"
@@ -160,9 +146,8 @@ msgstr "Descripción"
 msgid "Goto:"
 msgstr ""
 
-#, fuzzy
 msgid "Global settings"
-msgstr "parámetros globales"
+msgstr ""
 
 msgid "Akismet spam filter"
 msgstr "Filtro de spam Akismet"
@@ -171,9 +156,8 @@ msgstr "Filtro de spam Akismet"
 msgid "Filtered by %s."
 msgstr "Filtrado por %s."
 
-#, fuzzy
 msgid "Filter configuration have been successfully saved."
-msgstr "La configuración de los filtros de guardo con éxito."
+msgstr ""
 
 msgid "Akismet API key:"
 msgstr "Llave de API Akismet:"
@@ -188,7 +172,7 @@ msgid "Get your own API key"
 msgstr "Obtenga su propia llave API"
 
 msgid "Antispam"
-msgstr "Antispam"
+msgstr ""
 
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
@@ -207,9 +191,8 @@ msgstr "días"
 msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
 msgstr ""
 
-#, fuzzy
 msgid "Set spam filters."
-msgstr "Filtro de spam Akismet"
+msgstr ""
 
 #, php-format
 msgid "(including %d spam comment)"
@@ -238,9 +221,8 @@ msgstr "Lista negra"
 msgid "Whitelist"
 msgstr "Lista blanca"
 
-#, fuzzy
 msgid "Add an IP address: "
-msgstr "Agregar una dirección IP"
+msgstr ""
 
 msgid "Global IP (used for all blogs)"
 msgstr ""
@@ -267,9 +249,8 @@ msgstr "Corroborar dirección IP del remitente con los servidores DNSBL"
 msgid "Filtered by %1$s with server %2$s."
 msgstr "Filtrado por %1$s con el servidor %2$s."
 
-#, fuzzy
 msgid "The list of DNSBL servers has been succesfully updated."
-msgstr "Orden de los elementos actualizados con éxito"
+msgstr ""
 
 msgid "IP Lookup servers"
 msgstr "Direcciones IP de los servidores a consultar"
@@ -296,9 +277,8 @@ msgstr "Palabra agregada con éxito."
 msgid "Words have been successfully removed."
 msgstr "Palabras eliminadas con éxito."
 
-#, fuzzy
 msgid "Add a word "
-msgstr "Agregar una palabra"
+msgstr ""
 
 msgid "Global word (used for all blogs)"
 msgstr ""
@@ -341,7 +321,7 @@ msgid "Spam moderation"
 msgstr "Moderación de spam"
 
 msgid "Spam"
-msgstr "Spam"
+msgstr "Basura"
 
 msgid "Ham"
 msgstr "Valido"
@@ -359,17 +339,15 @@ msgstr "La configuración de los filtros de guardo con éxito."
 msgid "%s configuration"
 msgstr "Configuración de %s"
 
-#, fuzzy
 msgid "Are you sure you want to delete all spams?"
-msgstr "¿Esta seguro que desea eliminar esta pagina?"
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "%s filter configuration"
-msgstr "Configuración del filtro"
+msgstr ""
 
-#, fuzzy
 msgid "Back to filters list"
-msgstr "Volver a la lista de etiquetas"
+msgstr ""
 
 msgid "Information"
 msgstr "Información"
@@ -398,9 +376,8 @@ msgstr "Nombre del filtro"
 msgid "Filter configuration"
 msgstr "Configuración del filtro"
 
-#, fuzzy
 msgid "position"
-msgstr "Posición de la pagina"
+msgstr ""
 
 msgid "Syndication"
 msgstr "Sindicación"
@@ -421,9 +398,8 @@ msgstr ""
 msgid "No attachment."
 msgstr ""
 
-#, fuzzy
 msgid "Add files to this entry"
-msgstr "Agregar archivos a esta pagina"
+msgstr ""
 
 msgid "Blogroll"
 msgstr "Enlaces recomendados"
@@ -467,9 +443,8 @@ msgstr "Editar categoría."
 msgid "Edit link"
 msgstr "Editar enlace"
 
-#, fuzzy
 msgid "XFN information"
-msgstr "Información"
+msgstr ""
 
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 msgstr ""
@@ -573,9 +548,8 @@ msgstr "Orden de los elementos actualizados con éxito"
 msgid "Lang"
 msgstr "Idioma"
 
-#, fuzzy
 msgid "select this link"
-msgstr "Eliminar esta etiqueta"
+msgstr ""
 
 msgid "Delete selected links"
 msgstr "Eliminar enlaces seleccionados"
@@ -628,22 +602,20 @@ msgstr "Estilos predeterminados"
 msgid "Apply code"
 msgstr "Aplicar código"
 
-#, fuzzy
 msgid "Choose a predefined style"
-msgstr "Estilos predeterminados"
+msgstr ""
 
 msgid "Back to Blog appearance"
 msgstr ""
 
-#, fuzzy
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
-msgstr "Como las imágenes no pueden ser creadas, no podrás cambiar algunas propiedades de fondo."
+msgstr ""
 
 msgid "Customization"
 msgstr ""
 
 msgid "General"
-msgstr "General"
+msgstr ""
 
 msgid "Background color:"
 msgstr "Color de fondo:"
@@ -826,9 +798,8 @@ msgstr ""
 msgid "default"
 msgstr "predeterminado"
 
-#, fuzzy
 msgid "Unable to create css file."
-msgstr "No se pueden crear las imágenes."
+msgstr ""
 
 msgid "Unable to open image."
 msgstr "No se puede abrir la imagen."
@@ -861,9 +832,8 @@ msgstr "Todas las etiquetas"
 msgid "404"
 msgstr ""
 
-#, fuzzy
 msgid "The configuration has been updated."
-msgstr "La configuración del tema se actualizo con éxito."
+msgstr ""
 
 msgid "Media chooser"
 msgstr ""
@@ -874,16 +844,14 @@ msgstr ""
 msgid "Link to an entry"
 msgstr ""
 
-#, fuzzy
 msgid "Link"
-msgstr "Enlaces"
+msgstr ""
 
 msgid "l"
 msgstr ""
 
-#, fuzzy
 msgid "External image"
-msgstr "Medio externo"
+msgstr ""
 
 msgid "URL field cannot be empty."
 msgstr ""
@@ -891,32 +859,26 @@ msgstr ""
 msgid "dcCKEditor"
 msgstr ""
 
-#, fuzzy
 msgid "Settings"
-msgstr "Nombre de parámetro"
+msgstr ""
 
-#, fuzzy
 msgid "Plugin activation"
-msgstr "Activo"
+msgstr ""
 
 msgid "Enable dcCKEditor plugin"
 msgstr ""
 
-#, fuzzy
 msgid "Add alignment buttons"
-msgstr "Alineación del medio"
+msgstr ""
 
-#, fuzzy
 msgid "Add lists buttons"
-msgstr "Agregar etiquetas a las entradas"
+msgstr ""
 
-#, fuzzy
 msgid "Add text color button"
-msgstr "Color de texto de la barra lateral:"
+msgstr ""
 
-#, fuzzy
 msgid "Add background text color button"
-msgstr "Color de fondo:"
+msgstr ""
 
 msgid "Custom colors list:"
 msgstr ""
@@ -939,9 +901,8 @@ msgstr ""
 msgid "Add collapse button"
 msgstr ""
 
-#, fuzzy
 msgid "Add format selection"
-msgstr "Agregar %s a esta entrada"
+msgstr ""
 
 msgid "Custom formats"
 msgstr ""
@@ -964,9 +925,8 @@ msgstr ""
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr ""
 
-#, fuzzy
 msgid "Save configuration"
-msgstr "Configuración de %s"
+msgstr ""
 
 msgid "visual"
 msgstr ""
@@ -986,29 +946,23 @@ msgstr ""
 msgid "Paragraph"
 msgstr ""
 
-#, fuzzy
 msgid "Level 1 header"
-msgstr "Agregador"
+msgstr ""
 
-#, fuzzy
 msgid "Level 2 header"
-msgstr "Agregador"
+msgstr ""
 
-#, fuzzy
 msgid "Level 3 header"
-msgstr "Agregador"
+msgstr ""
 
-#, fuzzy
 msgid "Level 4 header"
-msgstr "Agregador"
+msgstr ""
 
-#, fuzzy
 msgid "Level 5 header"
-msgstr "Agregador"
+msgstr ""
 
-#, fuzzy
 msgid "Level 6 header"
-msgstr "Agregador"
+msgstr ""
 
 msgid "Strong emphasis"
 msgstr ""
@@ -1046,13 +1000,11 @@ msgstr ""
 msgid "URL?"
 msgstr ""
 
-#, fuzzy
 msgid "Language?"
-msgstr "Idioma"
+msgstr ""
 
-#, fuzzy
 msgid "Remove text formating"
-msgstr "quitar etiquetas"
+msgstr ""
 
 msgid "dcLegacyEditor"
 msgstr ""
@@ -1078,17 +1030,15 @@ msgstr "Archivo de exportación no encontrado."
 msgid "Failed to compress export file."
 msgstr ""
 
-#, fuzzy
 msgid "Single blog"
-msgstr "Importar un blig individual"
+msgstr ""
 
 #, php-format
 msgid "This will create an export of your current blog: %s"
 msgstr "Esto creará una exportación del siguiente blog: %s"
 
-#, fuzzy
 msgid "Compress file"
-msgstr "Archivos de plantillas"
+msgstr ""
 
 msgid "You may also want to download your media directory as a zip file"
 msgstr "¿También desea descargar su directorio de medios como un archivo zip?"
@@ -1099,9 +1049,8 @@ msgstr "Exportar"
 msgid "Multiple blogs"
 msgstr ""
 
-#, fuzzy
 msgid "This will create an export of all the content of your database."
-msgstr "¡Atención!: Esto limpiara todo el contenido de su base de datos, excepto los usuarios."
+msgstr ""
 
 msgid "Congratulation!"
 msgstr "Felicitaciones"
@@ -1121,9 +1070,9 @@ msgstr "Importación de Dotclear 1.2"
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Importe una instalación de Dotclear 1.2 en su blo actual."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
-msgstr "Importe una instalación de Dotclear 1.2 en su blo actual."
+msgstr ""
 
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "Por favor, tenga en cuenta que este proceso vaciará sus categorías, entradas y comentarios del actual blog."
@@ -1193,9 +1142,9 @@ msgstr "No hay elementos en redifusión web."
 msgid "Content successfully imported."
 msgstr "Contenido importado con éxito."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
-msgstr "Esto importará un archivo de resguardo de un blog individual como contenido nuevo del actual blog: %s."
+msgstr ""
 
 msgid "Feed URL:"
 msgstr "URL de la redifusión web:"
@@ -1226,16 +1175,14 @@ msgstr ""
 msgid "or pick up a local file in your public directory"
 msgstr "o elija un archivo local de su directorio publico"
 
-#, fuzzy
 msgid "This will reset all the content of your database, except users."
-msgstr "¡Atención!: Esto limpiara todo el contenido de su base de datos, excepto los usuarios."
+msgstr ""
 
 msgid "Another file with same name exists."
 msgstr ""
 
-#, fuzzy
 msgid "Failed to extract backup file."
-msgstr "Subir archivo de resguardo"
+msgstr ""
 
 msgid "No backup in compressed file."
 msgstr ""
@@ -1256,9 +1203,8 @@ msgstr "Primero se necesita cierta información de la instalación de su antiguo
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "Dotclear y WordPress administran las categorías de manera un poco diferente. Usted puede asignar multiples categorías a una entrada en WordPress. En el mundo de Dotclear, lo vemos como \"One category, several tags.\" Es por eso que Dotclear solo puede importar una categoría por entrada y escogerá la de menor numeración. Si quiere mantener el rastro de todas las categorías, puede importarlas como etiquetas con un prefijo opcional."
 
-#, fuzzy
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>.If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
-msgstr "Por otro lado, en WordPress, una entrada no puede prescindir de categoría, y la instalación por defecto contiene una primer categoría llamada <i>\"Uncategorized\"</i>. Si no hizo cambios en esa categoría, puede ignorarla cuando importe su blog. Actualmente Dotclear le permite tener entradas descategorizadas."
+msgstr ""
 
 msgid "Ignore the first category:"
 msgstr "Ignorar la primer categoría:"
@@ -1307,9 +1253,8 @@ msgstr "El archivo no es una exportación completa de Dotclear."
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr ""
 
-#, fuzzy
 msgid "Database export"
-msgstr "Exportar archivo plano"
+msgstr ""
 
 msgid "Download database of current blog"
 msgstr ""
@@ -1327,16 +1272,14 @@ msgstr ""
 msgid "Maintenance"
 msgstr "Mantenimiento"
 
-#, fuzzy
 msgid "Servicing"
-msgstr "Nombre del servicio:"
+msgstr ""
 
 msgid "Tools to maintain the performance of your blogs."
 msgstr ""
 
-#, fuzzy
 msgid "Backup"
-msgstr "Volver"
+msgstr ""
 
 msgid "Tools to back up your content."
 msgstr ""
@@ -1359,13 +1302,11 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
-#, fuzzy
 msgid "Current blog"
-msgstr "Regresar a enlaces recomendados"
+msgstr ""
 
-#, fuzzy
 msgid "All blogs"
-msgstr "Todas las etiquetas"
+msgstr ""
 
 msgid "Maintain translations"
 msgstr ""
@@ -1392,9 +1333,8 @@ msgid_plural "There are %s tasks to execute."
 msgstr[0] ""
 msgstr[1] ""
 
-#, fuzzy
 msgid "Manage tasks"
-msgstr "administrar paginas"
+msgstr ""
 
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr ""
@@ -1405,9 +1345,8 @@ msgstr ""
 msgid "Failed to execute task."
 msgstr ""
 
-#, fuzzy
 msgid "Task successfully executed."
-msgstr "Enlace creado con éxito."
+msgstr ""
 
 msgid "Empty templates cache directory"
 msgstr "Vaciar directorio de cache de plantillas"
@@ -1415,23 +1354,20 @@ msgstr "Vaciar directorio de cache de plantillas"
 msgid "Templates cache directory emptied."
 msgstr "Directorio de cache de plantillas vaciado."
 
-#, fuzzy
 msgid "Failed to empty templates cache directory."
-msgstr "Vaciar directorio de cache de plantillas"
+msgstr ""
 
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>/cbtpl/</strong> directly on the server with your FTP software."
 msgstr ""
 
-#, fuzzy
 msgid "Count again comments and trackbacks"
-msgstr "Contador de comentarios y enlaces inversos."
+msgstr ""
 
 msgid "Comments and trackback counted."
 msgstr "Contador de comentarios y enlaces inversos."
 
-#, fuzzy
 msgid "Failed to count comments and trackbacks."
-msgstr "Contador de comentarios y enlaces inversos."
+msgstr ""
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr ""
@@ -1451,9 +1387,8 @@ msgstr ""
 msgid "Search engine index"
 msgstr "Índice del motor de búsqueda"
 
-#, fuzzy
 msgid "Index all comments for search engine"
-msgstr "Indexar todos los comentarios"
+msgstr ""
 
 msgid "Next"
 msgstr ""
@@ -1465,9 +1400,8 @@ msgstr "Indexando comentarios desde %d hasta %d."
 msgid "Comments index done."
 msgstr "Comentarios indexados."
 
-#, fuzzy
 msgid "Failed to index comments."
-msgstr "Indexar todos los comentarios"
+msgstr ""
 
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr ""
@@ -1482,41 +1416,36 @@ msgstr "Indexando entradas desde %d hasta %d."
 msgid "Entries index done."
 msgstr "Entradas indexadas."
 
-#, fuzzy
 msgid "Failed to index entries."
-msgstr "Entradas seleccionadas"
+msgstr ""
 
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr ""
 
-#, fuzzy
 msgid "Delete all logs"
-msgstr "Eliminar todos los comentarios no deseados"
+msgstr ""
 
 msgid "Logs deleted."
 msgstr ""
 
-#, fuzzy
 msgid "Failed to delete logs."
-msgstr "No se pueden crear las imágenes."
+msgstr ""
 
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr ""
 
-#, fuzzy
 msgid "Entries metadata"
-msgstr "Redifusión web de entradas"
+msgstr ""
 
 msgid "Synchronize entries metadata"
 msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "Synchronize entry %d to %d."
-msgstr "Indexando entradas desde %d hasta %d."
+msgstr ""
 
-#, fuzzy
 msgid "Entries metadata synchronize done."
-msgstr "Entradas indexadas."
+msgstr ""
 
 msgid "Failed to synchronize entries metadata."
 msgstr ""
@@ -1524,13 +1453,11 @@ msgstr ""
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr ""
 
-#, fuzzy
 msgid "Optimise database"
-msgstr "Optimizar el espacio de la base de datos"
+msgstr ""
 
-#, fuzzy
 msgid "optimize tables"
-msgstr "Optimizar el espacio de la base de datos"
+msgstr ""
 
 msgid "Optimization successful."
 msgstr "Optimización finalizada con éxito."
@@ -1553,13 +1480,11 @@ msgstr ""
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr ""
 
-#, fuzzy
 msgid "Maintenance plugin has been successfully configured."
-msgstr "categoría creada con éxito."
+msgstr ""
 
-#, fuzzy
 msgid "System settings have been saved."
-msgstr "Parámetros actualizados con éxito."
+msgstr ""
 
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr ""
@@ -1588,17 +1513,14 @@ msgstr ""
 msgid "Execute task"
 msgstr ""
 
-#, fuzzy
 msgid "This may take a very long time."
-msgstr "Esto puede tardar mucho tiempo"
+msgstr ""
 
-#, fuzzy
 msgid "Alert settings"
-msgstr "parámetros del blog"
+msgstr ""
 
-#, fuzzy
 msgid "Activation"
-msgstr "Activo"
+msgstr ""
 
 msgid "Display alert messages on late tasks"
 msgstr ""
@@ -1640,20 +1562,19 @@ msgstr ""
 msgid "New page"
 msgstr "Nueva pagina"
 
-#, fuzzy, php-format
+#, php-format
 msgid "%d page"
-msgstr "Editar pagina"
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "%d pages"
-msgstr "Editar pagina"
+msgstr ""
 
 msgid "manage pages"
 msgstr "administrar paginas"
 
-#, fuzzy
 msgid "My first page"
-msgstr "Editar pagina"
+msgstr ""
 
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr ""
@@ -1676,17 +1597,14 @@ msgstr "Posición de la pagina"
 msgid "Publication date"
 msgstr "Fecha de publicación"
 
-#, fuzzy
 msgid "Pages actions"
-msgstr "Posición de la pagina"
+msgstr ""
 
-#, fuzzy
 msgid "Back to pages list"
-msgstr "Volver a la lista de etiquetas"
+msgstr ""
 
-#, fuzzy
 msgid "Selected pages have been successfully reordered."
-msgstr "Elementos eliminados con éxito."
+msgstr ""
 
 msgid "No page"
 msgstr "Sin pagina"
@@ -1694,20 +1612,17 @@ msgstr "Sin pagina"
 msgid "Hidden"
 msgstr ""
 
-#, fuzzy
 msgid "Select this page"
-msgstr "Eliminar esta etiqueta"
+msgstr ""
 
 msgid "Are you sure you want to delete selected pages?"
 msgstr "¿Esta seguro que desea eliminar las paginas seleccionadas?"
 
-#, fuzzy
 msgid "Selected pages have been successfully updated."
-msgstr "Parámetros actualizados con éxito."
+msgstr ""
 
-#, fuzzy
 msgid "Selected pages have been successfully deleted."
-msgstr "Los comentarios no deseados se eliminaron con éxito."
+msgstr ""
 
 msgid "Selected pages action:"
 msgstr "Acción sobre las paginas seleccionadas:"
@@ -1718,9 +1633,8 @@ msgstr ""
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr ""
 
-#, fuzzy
 msgid "Save pages order"
-msgstr "Guardar orden"
+msgstr ""
 
 msgid "This page does not exist."
 msgstr "Esa pagina no existe."
@@ -1743,13 +1657,11 @@ msgstr ""
 msgid "Page status"
 msgstr "Estado de la pagina:"
 
-#, fuzzy
 msgid "Page language"
-msgstr "Idioma de la pagina:"
+msgstr ""
 
-#, fuzzy
 msgid "Hide in widget Pages"
-msgstr "Esconder título principal"
+msgstr ""
 
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Atención: si indica manualmente la URL, ésta podría entrar en conflicto con otra pagina."
@@ -1757,12 +1669,11 @@ msgstr "Atención: si indica manualmente la URL, ésta podría entrar en conflic
 msgid "Introduction to the page."
 msgstr ""
 
-#, fuzzy
 msgid "Select this comment"
-msgstr "Eliminar esta etiqueta"
+msgstr ""
 
 msgid "Pings"
-msgstr "Pings"
+msgstr ""
 
 msgid "Settings have been successfully updated."
 msgstr "Parámetros actualizados con éxito."
@@ -1779,9 +1690,8 @@ msgstr "Nombre del servicio:"
 msgid "Service URI:"
 msgstr "URI del servicio:"
 
-#, fuzzy
 msgid "Error"
-msgstr "error"
+msgstr ""
 
 msgid "Auto pings all services on first publication of entry (current blog only)"
 msgstr ""
@@ -1795,25 +1705,20 @@ msgstr ""
 msgid "new window"
 msgstr ""
 
-#, fuzzy
 msgid "Active page"
-msgstr "Activo"
+msgstr ""
 
-#, fuzzy
 msgid "active page"
-msgstr "Ver pagina"
+msgstr ""
 
-#, fuzzy
 msgid "Item description"
-msgstr "Sin descripción"
+msgstr ""
 
-#, fuzzy
 msgid "Displayed in link"
-msgstr "Eliminar esta etiqueta"
+msgstr ""
 
-#, fuzzy
 msgid "Used as link title"
-msgstr "No existe el enlace o titulo"
+msgstr ""
 
 msgid "Displayed in link and used as title"
 msgstr ""
@@ -1821,17 +1726,14 @@ msgstr ""
 msgid "Not displayed nor used"
 msgstr ""
 
-#, fuzzy
 msgid "All months"
-msgstr "Todas las etiquetas"
+msgstr ""
 
-#, fuzzy
 msgid "Archive"
-msgstr "Archivos"
+msgstr ""
 
-#, fuzzy
 msgid "Page"
-msgstr "Paginas"
+msgstr ""
 
 msgid "Tags"
 msgstr "Etiquetas"
@@ -1839,16 +1741,14 @@ msgstr "Etiquetas"
 msgid "User defined"
 msgstr ""
 
-#, fuzzy
 msgid "Configuration successfully updated."
-msgstr "Configuración actualizada con éxito"
+msgstr ""
 
 msgid "Label"
 msgstr ""
 
-#, fuzzy
 msgid "Home page"
-msgstr "Solo en página de inicio"
+msgstr ""
 
 msgid "Recent posts"
 msgstr ""
@@ -1860,28 +1760,25 @@ msgstr ""
 msgid "Recent Posts from this category"
 msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "Posts from %s"
-msgstr "Elegir de la lista"
+msgstr ""
 
-#, fuzzy, php-format
+#, php-format
 msgid "Recent posts for %s tag"
-msgstr "Agregar archivos a esta pagina"
+msgstr ""
 
-#, fuzzy
 msgid "Menu item has been successfully added."
-msgstr "Palabra agregada con éxito."
+msgstr ""
 
 msgid "Label and URL of menu item are mandatory."
 msgstr ""
 
-#, fuzzy
 msgid "Menu items have been successfully removed."
-msgstr "Elementos eliminados con éxito."
+msgstr ""
 
-#, fuzzy
 msgid "No menu items selected."
-msgstr "No hay elementos en redifusión web."
+msgstr ""
 
 msgid "Label is mandatory."
 msgstr ""
@@ -1889,9 +1786,8 @@ msgstr ""
 msgid "URL is mandatory."
 msgstr ""
 
-#, fuzzy
 msgid "Menu items have been successfully updated."
-msgstr "Parámetros actualizados con éxito."
+msgstr ""
 
 msgid "Step #1"
 msgstr ""
@@ -1902,13 +1798,11 @@ msgstr ""
 msgid "Step #3"
 msgstr ""
 
-#, fuzzy
 msgid "Add item"
-msgstr "agregar etiquetas"
+msgstr ""
 
-#, fuzzy
 msgid "Select type"
-msgstr "Eliminar esta etiqueta"
+msgstr ""
 
 msgid "Type of item menu:"
 msgstr ""
@@ -1916,20 +1810,17 @@ msgstr ""
 msgid "Continue..."
 msgstr ""
 
-#, fuzzy
 msgid "Select language:"
-msgstr "Idiomas del blog"
+msgstr ""
 
-#, fuzzy
 msgid "Select category:"
-msgstr "Editar categoría."
+msgstr ""
 
 msgid "Select month (if necessary):"
 msgstr ""
 
-#, fuzzy
 msgid "Select page:"
-msgstr "Eliminar esta etiqueta"
+msgstr ""
 
 msgid "Select tag (if necessary):"
 msgstr ""
@@ -1937,9 +1828,8 @@ msgstr ""
 msgid "Label of item menu:"
 msgstr ""
 
-#, fuzzy
 msgid "Description of item menu:"
-msgstr "Descripción"
+msgstr ""
 
 msgid "URL of item menu:"
 msgstr ""
@@ -1953,24 +1843,20 @@ msgstr ""
 msgid "Enable simple menu for this blog"
 msgstr ""
 
-#, fuzzy
 msgid "Add an item"
-msgstr "Agregar un enlace nuevo"
+msgstr ""
 
 msgid "Menu items list"
 msgstr ""
 
-#, fuzzy
 msgid "Update menu"
-msgstr "actualizar barras laterales"
+msgstr ""
 
-#, fuzzy
 msgid "Delete selected menu items"
-msgstr "Eliminar enlaces seleccionados"
+msgstr ""
 
-#, fuzzy
 msgid "Are you sure you want to remove selected menu items?"
-msgstr "¿Esta seguro que desea eliminar los enlaces seleccionados?"
+msgstr ""
 
 msgid "No menu items so far."
 msgstr ""
@@ -2002,27 +1888,22 @@ msgstr ""
 msgid "Link to all tags:"
 msgstr ""
 
-#, fuzzy
 msgid "Add tags"
-msgstr "agregar etiquetas"
+msgstr "Añadir etiquetas"
 
-#, fuzzy
 msgid "Remove tags"
-msgstr "quitar etiquetas"
+msgstr "Eliminar etiquetas"
 
-#, fuzzy
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
-msgstr[0] "Etiqueta eliminada con éxito"
-msgstr[1] "Etiqueta eliminada con éxito"
+msgstr[0] ""
+msgstr[1] ""
 
-#, fuzzy
 msgid "Are you sure you want to remove this tag?"
-msgstr "¿Esta seguro que desea eliminar %s?"
+msgstr ""
 
-#, fuzzy
 msgid "Add a tag to this entry"
-msgstr "Agregar %s a esta entrada"
+msgstr ""
 
 msgid "Choose from list"
 msgstr "Elegir de la lista"
@@ -2036,32 +1917,28 @@ msgstr ""
 msgid "used in %e - frequency %p%"
 msgstr ""
 
-#, fuzzy
 msgid "entry"
-msgstr "centro"
+msgstr ""
 
 msgid "entries"
 msgstr "entradas"
 
-#, fuzzy
 msgid "Add tags to this selection"
-msgstr "Agregar %s a esta entrada"
+msgstr ""
 
 msgid "Tags to add:"
 msgstr "Etiquetas a agregar:"
 
-#, fuzzy
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
-msgstr[0] "Etiqueta eliminada con éxito"
-msgstr[1] "Etiqueta eliminada con éxito"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "No tags for selected entries"
 msgstr "Sin etiquetas para las entradas seleccionadas"
 
-#, fuzzy
 msgid "Remove selected tags from this selection"
-msgstr "Quitar etiquetas seleccionadas de las siguientes entradas"
+msgstr ""
 
 msgid "Following tags have been found in selected entries:"
 msgstr "Las siguientes etiquetas han sido encontradas en las entradas seleccionadas:"
@@ -2069,13 +1946,11 @@ msgstr "Las siguientes etiquetas han sido encontradas en las entradas selecciona
 msgid "Short"
 msgstr ""
 
-#, fuzzy
 msgid "Extended"
-msgstr "Medio externo"
+msgstr ""
 
-#, fuzzy
 msgid "Tags list format:"
-msgstr "Etiquetas a agregar:"
+msgstr ""
 
 msgid "Tag has been successfully renamed"
 msgstr "Etiqueta renombrada con éxito"
@@ -2083,9 +1958,9 @@ msgstr "Etiqueta renombrada con éxito"
 msgid "Tag has been successfully removed"
 msgstr "Etiqueta eliminada con éxito"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
-msgstr "¿Esta seguro que desea eliminar %s?"
+msgstr ""
 
 msgid "Back to tags list"
 msgstr "Volver a la lista de etiquetas"
@@ -2093,9 +1968,8 @@ msgstr "Volver a la lista de etiquetas"
 msgid "Rename"
 msgstr ""
 
-#, fuzzy
 msgid "Delete this tag"
-msgstr "Eliminar esta etiqueta"
+msgstr ""
 
 #, php-format
 msgid "List of entries with the tag “%s”"
@@ -2104,9 +1978,8 @@ msgstr ""
 msgid "No tags on this blog."
 msgstr "Sin etiquetas en este blog."
 
-#, fuzzy
 msgid "Edit theme files"
-msgstr "Editando el archivo %s"
+msgstr ""
 
 msgid "Syntax highlighting"
 msgstr ""
@@ -2140,9 +2013,9 @@ msgstr "El archivo %s no puede ser leído"
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "No se puede escribir el archivo %s. Por favor corrobore los permisos de sus archivos y directorios de tema."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
-msgstr "No se puede escribir el archivo %s. Por favor corrobore los permisos de sus archivos y directorios de tema."
+msgstr ""
 
 msgid "The file has been reset."
 msgstr ""
@@ -2156,9 +2029,8 @@ msgstr "Documento guardado"
 msgid "An error occurred:"
 msgstr "Ocurrió un error:"
 
-#, fuzzy
 msgid "Are you sure you want to reset this file?"
-msgstr "¿Esta seguro que desea eliminar esta pagina?"
+msgstr ""
 
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
@@ -2192,32 +2064,26 @@ msgstr "Archivos CSS"
 msgid "JavaScript files"
 msgstr "Archivos JavaScript"
 
-#, fuzzy
 msgid "Locales files"
-msgstr "Archivos de plantillas"
+msgstr ""
 
-#, fuzzy
 msgid "Preferences successfully updated"
-msgstr "Pagina actualizada con éxito."
+msgstr ""
 
-#, fuzzy
 msgid "user:preferences"
-msgstr "parámetros globales"
+msgstr ""
 
-#, fuzzy
 msgid "User preferences"
-msgstr "parámetros globales"
+msgstr ""
 
-#, fuzzy
 msgid "Global preferences"
-msgstr "parámetros globales"
+msgstr ""
 
 msgid "Presentation widgets"
 msgstr "Presentación de Widgets"
 
-#, fuzzy
 msgid "Widget's textareas"
-msgstr "Widgets como etiquetas en plantillas"
+msgstr ""
 
 msgid "Search engine"
 msgstr "Motor de Búsqueda"
@@ -2243,9 +2109,8 @@ msgstr "Con contador de entradas"
 msgid "Include sub cats in count"
 msgstr ""
 
-#, fuzzy
 msgid "Include empty categories"
-msgstr "Importando categorías"
+msgstr ""
 
 msgid "Subscribe links"
 msgstr "Enlaces de suscripción"
@@ -2306,9 +2171,8 @@ msgstr ""
 msgid "Display on:"
 msgstr ""
 
-#, fuzzy
 msgid "All pages"
-msgstr "Todas las etiquetas"
+msgstr ""
 
 msgid "Except on home page"
 msgstr ""
@@ -2316,13 +2180,11 @@ msgstr ""
 msgid "Home page only"
 msgstr "Solo en página de inicio"
 
-#, fuzzy
 msgid "Content only"
-msgstr "Filtros de contenido"
+msgstr ""
 
-#, fuzzy
 msgid "CSS class:"
-msgstr "Archivos CSS"
+msgstr ""
 
 msgid "Offline"
 msgstr ""
@@ -2331,11 +2193,10 @@ msgid "navigation"
 msgstr "navegación"
 
 msgid "extra"
-msgstr "extra"
+msgstr ""
 
-#, fuzzy
 msgid "custom"
-msgstr "Personalizar..."
+msgstr ""
 
 msgid "empty string"
 msgstr ""
@@ -2347,7 +2208,7 @@ msgid "Sidebars have been resetting."
 msgstr ""
 
 msgid "Widgets"
-msgstr "Widgets"
+msgstr "Componentes"
 
 msgid "Are you sure you want to reset sidebars?"
 msgstr "¿Esta seguro que desea restaurar las barras laterales?"
@@ -2364,9 +2225,8 @@ msgstr "orden"
 msgid "Append to:"
 msgstr "Añadir a:"
 
-#, fuzzy
 msgid "Add widgets to sidebars"
-msgstr "agregar widgets a la barra lateral"
+msgstr ""
 
 msgid "Navigation sidebar"
 msgstr "Barra lateral de navegación"
@@ -2374,9 +2234,8 @@ msgstr "Barra lateral de navegación"
 msgid "Extra sidebar"
 msgstr "Barra lateral extra"
 
-#, fuzzy
 msgid "Custom sidebar"
-msgstr "restaurar barras laterales"
+msgstr ""
 
 msgid "Update sidebars"
 msgstr "actualizar barras laterales"
@@ -2405,21 +2264,17 @@ msgstr ""
 msgid "Setting name:"
 msgstr "Nombre de paremetro:"
 
-#, fuzzy
 msgid "No widget as far."
-msgstr "Sin widget."
+msgstr ""
 
-#, fuzzy
 msgid "Up the widget"
-msgstr "Sin widget."
+msgstr ""
 
-#, fuzzy
 msgid "Down the widget"
-msgstr "Quitar widget"
+msgstr ""
 
-#, fuzzy
 msgid "Remove the widget"
-msgstr "Quitar widget"
+msgstr ""
 
 msgid "Remove widget"
 msgstr "Quitar widget"
@@ -2427,169 +2282,3 @@ msgstr "Quitar widget"
 msgid "Drag widgets here to remove."
 msgstr ""
 
-#~ msgid "Page top"
-#~ msgstr "Principio de página"
-
-#~ msgid "URL"
-#~ msgstr "URL"
-
-#~ msgid "or"
-#~ msgstr "o"
-
-#~ msgid "Settings definition successfully updated"
-#~ msgstr "Definición de parámetros actualizada con éxito"
-
-#~ msgid "Global IP"
-#~ msgstr "Dirección IP global"
-
-#~ msgid "Global word"
-#~ msgstr "Palabra global"
-
-#~ msgid "Delete all spams"
-#~ msgstr "Eliminar todos los comentarios no deseados"
-
-#~ msgid "XFN"
-#~ msgstr "Red de amigos XHTML"
-
-#, fuzzy
-#~ msgid "The 'public' directory does not exist."
-#~ msgstr "Esa pagina no existe."
-
-#~ msgid "Invalid file type."
-#~ msgstr "Tipo de archivo invalido."
-
-#~ msgid "Export all content"
-#~ msgstr "Exportar todos los contenidos"
-
-#~ msgid "This will import your Dotclear 1.2 content as new content in the current blog: %s."
-#~ msgstr "Esto importará el contenido de su blog Dotclear 1.2 como nuevo contenido de su actual blog: %s."
-
-#~ msgid "Feed import"
-#~ msgstr "Importar redifusión web (feeds)"
-
-#~ msgid "Imports a feed as new entries."
-#~ msgstr "Importar redifusión web como nuevas entradas."
-
-#~ msgid "Import from a feed"
-#~ msgstr "Importar desde una redifusión web (feed)"
-
-#~ msgid "This will import a feed (RSS or Atom) a as new content in the current blog: %s."
-#~ msgstr "Esto importará una redifusión web (RSS o Atom) como contenido nuevo al actual blog: %s."
-
-#~ msgid "Import a full backup file"
-#~ msgstr "Importar un archivo de resguardo de una instalación completa"
-
-#~ msgid "next"
-#~ msgstr "siguiente"
-
-#~ msgid "Vacuum tables"
-#~ msgstr "Tablas vacías"
-
-#~ msgid "Counters"
-#~ msgstr "Contadores"
-
-#~ msgid "Reset comments and ping counters"
-#~ msgstr "Reiniciar comentarios y contadores de ping"
-
-#~ msgid "Index all posts"
-#~ msgstr "Indexar todas las entradas"
-
-#, fuzzy
-#~ msgid "Vacuum logs"
-#~ msgstr "Tablas vacías"
-
-#~ msgid "Empty directory"
-#~ msgstr "Vaciar directorio"
-
-#~ msgid "Pages"
-#~ msgstr "Paginas"
-
-#~ msgid "next page"
-#~ msgstr "pagina siguiente"
-
-#~ msgid "previous page"
-#~ msgstr "pagina anterior"
-
-#~ msgid "Page password"
-#~ msgstr "Contraseña de la pagina:"
-
-#~ msgid "Add files to this page"
-#~ msgstr "Agregar archivos a esta pagina"
-
-#~ msgid "Pings:"
-#~ msgstr "Pings:"
-
-#~ msgid "Tags:"
-#~ msgstr "Etiquetas:"
-
-#~ msgid "Edit tag"
-#~ msgstr "Editar etiqueta"
-
-#, fuzzy
-#~ msgid "Actions for this tag"
-#~ msgstr "Agregar archivos a esta pagina"
-
-#, fuzzy
-#~ msgid "Edit tag name:"
-#~ msgstr "Editar etiqueta"
-
-#, fuzzy
-#~ msgid "Preferences definition successfully updated"
-#~ msgstr "Definición de parámetros actualizada con éxito"
-
-#~ msgid "If you are allowed to edit your theme templates, you can directly add widgets as templates tags, with their own configuration."
-#~ msgstr "Si le esta permitido editar la plantilla de su tema, usted puede agregar widgets directamente como etiquetas de plantillas con su propia configuración."
-
-#~ msgid "To add a widget in your template, you need to write code like this:"
-#~ msgstr "Para agregar un widget en su plantilla necesita escribir un código como el siguiente:"
-
-#~ msgid "Widget ID"
-#~ msgstr "ID de widget"
-
-#~ msgid "Setting value"
-#~ msgstr "Valor del parámetro"
-
-#~ msgid "Here are the following available widgets for your blog:"
-#~ msgstr "Aquí están los widgets disponibles para su blog:"
-
-#~ msgid "List"
-#~ msgstr "Lista"
-
-#~ msgid "Return to filters"
-#~ msgstr "Regresar a los filtros"
-
-#~ msgid "import"
-#~ msgstr "importar"
-
-#~ msgid "Preview"
-#~ msgstr "Vista previa"
-
-#~ msgid "Send"
-#~ msgstr "Enviar"
-
-#~ msgid "Preview page"
-#~ msgstr "Previsualizar pagina"
-
-#~ msgid "Rename this tag:"
-#~ msgstr "Renombrar esta etiqueta:"
-
-#~ msgid "External media selector"
-#~ msgstr "Selector de medios externos"
-
-#~ msgid "Supported media services"
-#~ msgstr "Servicios de medios soportados"
-
-#~ msgid "Please enter the URL of the page containing the video you want to include in your post."
-#~ msgstr "Por favor ingrese el URL de la pagina que contiene el video que usted quiere incluir en la entrada."
-
-#~ msgid "Page URL:"
-#~ msgstr "URL de pagina:"
-
-#~ msgid "Media title"
-#~ msgstr "Título del medio"
-
-#~ msgid "Unsupported service"
-#~ msgstr "Servicio no soportado"
-
-#~ msgid "Invalid page URL"
-#~ msgstr "URL de pagina invalido"
