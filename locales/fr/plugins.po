@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-23 14:48+0200\n"
-"PO-Revision-Date: 2020-04-23 14:08\n"
+"PO-Revision-Date: 2020-04-23 14:43\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -207,7 +207,7 @@ msgstr "Filtre de liste noire et blanche d'IP"
 
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
-msgstr "Flitré par %1$s avec la règle %2$s."
+msgstr "Filtré par %1$s avec la règle %2$s."
 
 msgid "IP address has been successfully added."
 msgstr "L'adresse IP a été ajoutée."
@@ -579,7 +579,7 @@ msgid "Light linear gradient"
 msgstr "Dégradé linéaire clair"
 
 msgid "Medium linear gradient"
-msgstr "Dégragé linéaire moyen"
+msgstr "Dégradé linéaire moyen"
 
 msgid "Dark linear gradient"
 msgstr "Dégradé linéaire foncé"
@@ -799,7 +799,7 @@ msgid "default"
 msgstr "défaut"
 
 msgid "Unable to create css file."
-msgstr "Impossible de créer le fichier css."
+msgstr "Impossible de créer le fichier CSS."
 
 msgid "Unable to open image."
 msgstr "Impossible d'ouvrir l'image."
@@ -1288,7 +1288,7 @@ msgid "Development"
 msgstr "Développement"
 
 msgid "Tools to assist in development of plugins, themes and core."
-msgstr "Outils pour aider au developpement de plugins, thèmes et au core."
+msgstr "Outils pour aider au développement de plugins, thèmes et au cœur de l'application."
 
 msgid "Optimize"
 msgstr "Optimiser"
@@ -1370,7 +1370,7 @@ msgid "Failed to count comments and trackbacks."
 msgstr "Impossible de recompter les commentaires et rétroliens."
 
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
-msgstr "Recompter commentaires et des rétroliens a pour effet de donner le nombre exact de ceux-ci pour chaque billet. Cette opération peut se révéler utile lors de l'import d'un blog d'une autre plateforme (ou d'une migration de Dotclear 1 vers Dotclear 2)."
+msgstr "Recompter les commentaires et les rétroliens a pour effet de donner le nombre exact de ceux-ci pour chaque billet. Cette opération peut se révéler utile lors de l'import d'un blog d'une autre plateforme (ou d'une migration de Dotclear 1 vers Dotclear 2)."
 
 msgid "Delete the Content-Security-Policy report file"
 msgstr "Supprimer le rapport de violation des Content-Security-Policy"
