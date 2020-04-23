@@ -1,8 +1,8 @@
 files:
-  - source: /locales/_pot
+  - source: /locales/en/
     ignore:
+      - '*.html'
       - '*.php'
-      - README
     translation: /locales/%two_letters_code%/%file_name%.po
   - source: /locales/en/help/
     translation: /locales/%two_letters_code%/help/%file_name%.html
