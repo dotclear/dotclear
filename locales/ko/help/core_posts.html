@@ -1,58 +1,63 @@
 <html>
 <head>
-  <title>글꼭지 관리</title>
+  <title>Entries management</title>
 </head>
 
 <body>
 
-<h3>글꼭지 목록 필터</h3>
+<h4>Entries list filter</h4>
 
 <dl>
-  <dt>글쓴이</dt>
-  <dd>글쓴이(이름)을 이용해 걸러보기.</dd>
+  <dt>Author</dt>
+  <dd>Filters entries by author.</dd>
   
-  <dt>분류</dt>
-  <dd>분류를 이용한 걸러보기.</dd>
+  <dt>Category</dt>
+  <dd>Filters entries by category.</dd>
   
-  <dt>공개상태</dt>
-  <dd><ul>
-    <li><strong>미지정:</strong> 공개상태가 아직 지정되지 않은 글꼭지들.</li>
-    <li><strong>예약:</strong> 공개 일정이 예약되어 자동으로 공개될 글꼭지들.</li>
-    <li><strong>비공개:</strong> 비공개상태인 글꼭지들.</li>
-    <li><strong>공개:</strong> 공개상태인 글꼭지들.</li>
-  </ul></dd>
+  <dt>Status</dt>
+  <dd>Filters entries by status:<ul>
+      <li><strong>Pending:</strong> Pending entries.</li>
+      <li><strong>Scheduled:</strong> Scheduled entries.</li>
+      <li><strong>Unpublished:</strong> Offline entries.</li>
+      <li><strong>Published:</strong> Online entries.</li>
+    </ul></dd>
   
-  <dt>선별됨</dt>
-  <dd>선별된 글꼭지만 보이게 하거나 또는 그 반대.</dd>
+  <dt>Selected</dt>
+  <dd>Filters entries that have the <strong>Selected</strong> status or not.</dd>
+
+  <dt>Attachments</dt>
+  <dd>Filters entries based on if they have attachments or not.</dd>
   
-  <dt>월</dt>
-  <dd>특정 연월에 따라 걸러보기.</dd>
+  <dt>Month</dt>
+  <dd>Filters entries from the given month of a given year.</dd>
   
-  <dt>언어</dt>
-  <dd>글꼭지에 지정된 언어에 따라 걸러보기</dd>
+  <dt>Language</dt>
+  <dd>Filters entries based on the language set in the <strong>Language</strong> field of an entry.</dd>
   
-  <dt>정렬항</dt>
-  <dd>글꼭지 목록을 정렬하는 기준항 설정</dd>
+  <dt>Order by</dt>
+  <dd>Allows you to order the result by date, title, category, author, publication status, selected status, number of comments or number of trackbacks.</dd>
   
-  <dt>정렬순</dt>
-  <dd>정렬항의 정렬방법 설정. 오름순 또는 내림순.</dd>
+  <dt>Sort</dt>
+  <dd>Allows you to sort the results ascending or descending.</dd>
   
-  <dt>페이지당 글꼭지수</dt>
-  <dd>필터 결과를 출력하는 페이지들에서, 각 페이지 당 보이게될 최대 글꼭지수 지정.</dd>
+  <dt>Entries per page</dt>
+  <dd>Number of entries to display per page.</dd>
 </dl>
 
-<h3>선택된 글꼭지들에 대한 작업</h3>
-<p>사용자로서 당신에게 주어진 권한에 따라 몇가지 일관작업을 목록에서 선택한 글꼭지들에 실행할 수 있습니다.</p>
-
+<h4>Batch actions</h4>
+<p>It is possible to make a batch of actions on several articles. The possible actions depend on the user's permissions:</p>
 <ul>
-  <li><strong>공개하기</strong>: 글꼭지들을 공개상태로 만듬.</li>
-  <li><strong>공개 안하기</strong>: 글꼭지들을 비공개상태로 만듬.</li>
-  <li><strong>예약하기</strong>: 글꼭지들에 일시를 지정하고 그 때가되면 자동으로 공개상태로 되게함.</li>
-  <li><strong>미지정으로 표시</strong>: 글꼭지들에서 다른 공개상태들을 지움.</li>
-  <li><strong>분류 변경</strong>: 이 작업을 실행하면, 분류 목록으로 이동하고, 거기서 분류를 선택하면, 글꼭지들에 선택된 분류가 적용됩니다.</li>
-  <li><strong>글쓴이 변경</strong>: 글쓴이 ID를 새로 써넣는 작업을 통해 글꼭지들의 글쓴이를 바꿈.</li>
-  <li><strong>삭제</strong>: 글꼭지들 삭제. (주의. 한 번 삭제하면 되돌릴 수 없습니다.).</li>
+  <li><strong>Publish:</strong> Publish the selected entries online.</li>
+  <li><strong>Unpublish:</strong> Pull the selected entries offline.</li>
+  <li><strong>Schedule:</strong> Schedule the selected entries to be set online at publication date.</li>
+  <li><strong>Mark as pending:</strong> Mark selected entries as pending.</li>
+  <li><strong>Mark as selected/unselected:</strong> Set the selected entries as Selected/Unselected./li>
+  <li><strong>Change category:</strong> Modify the category of the selected entries.</li>
+  <li><strong>Change language:</strong> Modify the language of the selected entries.</li>
+  <li><strong>Change author:</strong> Modify the selected entries' author by entering the new author's ID.</li>
+  <li><strong>Delete:</strong> Delete the selected entries (this operation cannot be cancelled).</li>
+  <li><strong>Add/Remove tags:</strong> Add or remove tags on the selected entries.</li>
 </ul>
-
+<p><em>The above list might contain other items if additional actions have been added by plugins active on your system.</em></p>
 </body>
 </html>
