@@ -1,58 +1,139 @@
-<<<<<<< .working
-﻿<?xml version="1.0" encoding="UTF-8"?>
 <html>
-=======
-<html>
->>>>>>> .merge-right.r2800
 <head>
-  <title>사용자 선택사항</title>
+  <title>My preferences</title>
 </head>
 
 <body>
 
-<h3>사용자 선택사항</h3>
+<h4>My profile</h4>
 <dl>
-  <dt>성과 이름</dt>
-  <dd>필명이 비어있으면, 여기서 지정한 이름과 성이 글쓴이 이름으로 표시됩니다.</dd>
+  <dt>Last name, First name</dt>
+  <dd>If the display name is empty, the author's name will be displayed
+  as his first name and last name as set here.</dd>
   
-  <dt>필명</dt>
-  <dd>여기서 당신이 쓴, 글꼭지나 댓글 등, 포스트에 쓰일 글쓴이 이름을 지정해줍니다.</dd>
+  <dt>Display name</dt>
+  <dd>Here you can choose a nickname that will be displayed in your posts instead 
+  of your last name and first name.</dd>
   
-  <dt>이메일</dt>
-  <dd>새 댓글이 달렸음을 알리는 쪽지를 보낼 이메일주소.</dd>
+  <dt>Email</dt>
+  <dd>E-mail address used when you request a new password.<br />
+    New comment notifications will be sent to this address as well.<em>(If you update
+  this field, you must enter your current password in the appropriate field at the 
+  bottom of the form)</em></dd>
   
   <dt>URL</dt>
-  <dd>사용자의 웹사이트. 이 값이 지정되어있으면, 글쓴이 이름이 이 웹사이트를 지시하는 링크로 표시됩니다.</dd>
+  <dd>The user's website. If set, the author name will be displayed as
+  a link to the said website.</dd>
   
-  <dt>선호하는 편집방식</dt>
-  <dd>당신이 선호하는 구문규칙을 지정해줍니다. 위키는 단순화된 구문규칙으로서, 올바른 xhtml로 변환됩니다. HTML에 대해 완벽히 알고 있지 않는 한, 위키 구문규칙을 사용하실 것을 권합니다.</dd>
+  <dt>Language for my interface</dt>
+  <dd>The language used when publishing entries. If the translation is available,
+  the interface will also be displayed in that language.</dd>
   
-  <dt>글꼭지 공개상태 기본값</dt>
-  <dd>글꼭지 공개상태 기본값은 다음 중 하나로 지정될 수 있습니다:
+  <dt>My timezone</dt>
+  <dd>That choice will define the time displayed on post publication.</dd>
+  
+  <dt>Change your password</dt>
+  <dd>To change your password, write down twice your password in the fields 
+  <em>New password</em> and <em>Confirm password</em>. The minimal password 
+  length is 6 characters. If no new password is provided, the current one is kept.
+  <em>(If you update this field, you must enter your current password in
+  the appropriate field at the bottom of the form)</em></dd>
+</dl>
+
+
+<h4>My options</h4>
+<h5>Interface</h5>
+<dl>  
+  <dt>Activate enhanced uploader in media manager</dt>
+  <dd>Allows to activate the advanced interface in media manager that enables to 
+  upload multiple files at a time (Note: Your Web browser must support Javascript 
+  to be able to use this feature).</dd>
+
+  <dt>Disable Javascript powered drag and drop for ordering items</dt>
+  <dd>Allows to disable "drag and drop" for item ordering. Drag and drop will be 
+  replaced by numeric fields that will let you enter fields position instead.</dd>
+
+  <dt>Number of elements displayed per page in media manager</dt>
+  <dd>Defines the number of media that will be displayed in media manager (folders
+  are not taken into account when counting items).</dd>
+  
+  <dt>Do not use standard favicon</dt>
+  <dd>Allows to disable default favicon in the Web browser address bar.</dd>
+</dl>
+
+<h5>Edition</h5>
+<dl>    
+  <dt>Preferred format</dt>
+  <dd>Choose the entry's syntax. Wiki is a simplified syntax
+  and will be converted to valid XHTML. Unless you have a perfect
+  understanding of XHTML, we advise you to choose the Wiki syntax.
+  See the Wiki syntax reference for more information.</dd>
+  
+  <dt>Default entry status</dt>
+  <dd>The default status for new entries can be set to:
     <ul>
-      <li><strong>미지정:</strong> 공개상태가 아직 지정되지 않음.</li>
-      <li><strong>예약:</strong> 글꼭지가 <em>공개일시</em> 칸에 정해진 일시에 자동 공개됨.</li>
-      <li><strong>비공개:</strong> 글꼭지가 비공개 상태임.</li>
-      <li><strong>공개:</strong> 글꼭지가 공개된 상태임.</li>
+      <li><strong>Pending:</strong> The publication status has not been yet decided.</li>
+      <li><strong>Scheduled:</strong> The entry will be set online at the time and date provided in the <strong>Published on</strong> field.</li>
+      <li><strong>Unpublished:</strong> Offline entry.</li>
+      <li><strong>Published:</strong> Online entry.</li>
     </ul>
   </dd>
   
-  <dt>글꼭지 편집칸 높이</dt>
-  <dd>글꼭지 편집칸의 높이를 지정합니다. 기본값은 24 입니다.</dd>
+  <dt>Entry edit field height</dt>
+  <dd>Sets the height of the edition field of an entry. By default, this parameter is set to 24.</dd>
   
-  <dt>사용자 언어</dt>
-  <dd>사용자의 포스트에 적용될 언어 선택. 해당 언어에 일치하는 DotClear 번역이 있으면, 사용자 인터페이스도 이 언어에 맞춰 보여짐.</dd>
-  
-  <dt>사용자 지역시간대</dt>
-  <dd>포스트가 공개될 때 작성시간이 어떻게 표시될 지 여기서 지정된 값에 따라 계산됩니다.</dd>
-  
-  <dt>위지윅모드 사용가능</dt>
-  <dd>포스트와 설명 편집시 위지윅모드를 쓸수 있도록 해줍니다.</dd>
+  <dt>Enable WYSIWYG mode</dt>
+  <dd>Allows the use of the visual editor (WYSIWYG: What You See Is What You Get) for the entries, pages and categories description fields.</dd>
 </dl>
 
-<h3>비밀번호 변경</h3>
-<p>비밀번호를 변경하려면 <em>새 비밀번호</em>칸과 <em>비밀번호 확인</em>칸 두 곳을 작성해주어야 합니다. 비밀번호의 최소 길이는 6 자입니다.</p>
-<p>새 비밀번호가 지정되지 않으면, 현 비밀번호가 유지됩니다.</p>
+<h5>Other options</h5>
+<dl>
+  <dt>Tags list format</dt>
+  <dd>You can select if you want to see, while editing an entry, all the tags used (<strong>Extended</strong>) or only the most used ones (<strong>Short</strong>).</dd>
 
+  <dt>Syntax highlighting in theme editor</dt>
+  <dd>Enables syntax highlighting when using the theme editor (HTML and CSS files)</dd>     
+</dl>
+
+
+<h4>My dashboard</h4>
+<dl>
+  <dt>My favorites</dt>
+  <dd>This zone displays the chosen favorites on the blog's dashboard. 
+  They can be reordered with your mouse if Javascript is activated in your browser. 
+  Otherwise, a field allows to give them an ordering number. When you are done, do not forget to save your changes by pressing <strong>Save order</strong>.<br />
+  You may also delete favorites by selecting them and pressing <strong>Delete selected favorites</strong>.</dd>
+  
+  <dt>Define as default favorites (super administrator)</dt> 
+  <dd>Enable to set currently defined favorites list as default favorites list for all users. This list will be proposed to users if they don't have defined their own favorites yet.</dd>
+
+  <dt>Other available favorites</dt>
+  <dd>All plugins allowing to be put as favorites are diplayed here. Check the corresponding boxes and add them to the dashboard by pressing <strong>Add tp my favorites</strong>.</dd>
+
+  <dt>Display favorites at the top of the menu</dt>
+  <dd>If enabled, displays favorites at the top of the menu.</dd>
+
+  <dt>Icon set</dt>
+  <dd>If several iconsets are installed, enables to choose which icon set to
+  use for admin.</dd>
+  
+  <dt>Dashboard modules</dt>
+  <dd>Choices made in this zone will be reflected on your blog's dashboard.</dd>
+  
+  <dt>Display documentation links</dt>
+  <dd>Enable to display documentation links on dashboard landing page.</dd>
+  
+  <dt>Display Dotclear news</dt>
+  <dd>Enable to display Dotclear news on dashboard landing page.</dd>
+
+  <dt>Display quick entry form</dt>
+  <dd>Enable to display "quick entry" form on dashboard landing page.</dd>
+
+  <dt>Display overdue tasks counter on maintenance dashboard icon</dt>
+  <dd>Enables to display the number of overdue tasks (i.e. that should be processed) under the <strong>Maintenance</strong> icon. <strong>Maintenance</strong> icon has to be set in your favorites to use this feature.</dd>
+
+  <dt>Display overdue tasks list on dashboard items</dt>
+  <dd>Enable to display the list of overdue tasks (i.e. that should be processed) in a dedicated section on the Dashboard landing page.</dd>
+</dl>
 </body>
 </html>
