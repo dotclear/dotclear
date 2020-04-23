@@ -6,7 +6,71 @@ files:
     translation: /locales/%two_letters_code%/%file_name%.po
   - source: /locales/en/help/
     translation: /locales/%two_letters_code%/help/%file_name%.html
-  - source: /plugins/aboutConfig/locales/
+  - source: /plugins/aboutConfig/locales/en/help/
     ignore:
       - '*.php'
-    translation: /plugins/aboutConfig/locales/%two_letters_code%/%original_file_name%
+    translation: /plugins/aboutConfig/locales/%two_letters_code%/help/%original_file_name%
+  - source: /plugins/akismet/locales/en/help/
+    ignore:
+      - '*.php'
+    translation: /plugins/akismet/locales/%two_letters_code%/help/%original_file_name%
+  - source: /plugins/antispam/locales/en/help/
+    ignore:
+      - '*.php'
+    translation: /plugins/antispam/locales/%two_letters_code%/help/%original_file_name%
+  - source: /plugins/attachments/locales/en/help/
+    ignore:
+      - '*.php'
+    translation: /plugins/attachments/locales/%two_letters_code%/help/%original_file_name%
+  - source: /plugins/blogroll/locales/en/help/
+    ignore:
+      - '*.php'
+    translation: /plugins/blogroll/locales/%two_letters_code%/help/%original_file_name%
+  - source: /plugins/blowupConfig/locales/en/help/
+    ignore:
+      - '*.php'
+    translation: /plugins/blowupConfig/locales/%two_letters_code%/help/%original_file_name%
+  - source: /plugins/importExport/locales/en/help/
+    ignore:
+      - '*.php'
+    translation: /plugins/importExport/locales/%two_letters_code%/help/%original_file_name%
+  - source: /plugins/maintenance/locales/en/help/
+    ignore:
+      - '*.php'
+    translation: /plugins/maintenance/locales/%two_letters_code%/help/%original_file_name%
+  - source: /plugins/pages/locales/en/help/
+    ignore:
+      - '*.php'
+    translation: /plugins/pages/locales/%two_letters_code%/help/%original_file_name%
+  - source: /plugins/pings/locales/en/help/
+    ignore:
+      - '*.php'
+    translation: /plugins/pings/locales/%two_letters_code%/help/%original_file_name%
+  - source: /plugins/simpleMenu/locales/en/help/
+    ignore:
+      - '*.php'
+    translation: /plugins/simpleMenu/locales/%two_letters_code%/help/%original_file_name%
+  - source: /plugins/tags/locales/en/help/
+    ignore:
+      - '*.php'
+    translation: /plugins/tags/locales/%two_letters_code%/help/%original_file_name%
+  - source: /plugins/themeEditor/locales/en/help/
+    ignore:
+      - '*.php'
+    translation: /plugins/themeEditor/locales/%two_letters_code%/help/%original_file_name%
+  - source: /plugins/userPref/locales/en/help/
+    ignore:
+      - '*.php'
+    translation: /plugins/userPref/locales/%two_letters_code%/help/%original_file_name%
+  - source: /plugins/widgets/locales/en/help/
+    ignore:
+      - '*.php'
+    translation: /plugins/widgets/locales/%two_letters_code%/help/%original_file_name%
+  - source: /plugins/dcLegacyEditor/locales/en/help/
+    ignore:
+      - '*.php'
+    translation: /plugins/dcLegacyEditor/locales/%two_letters_code%/help/%original_file_name%
+  - source: /plugins/dcCKEditor/locales/en/help/
+    ignore:
+      - '*.php'
+    translation: /plugins/dcCKEditor/locales/%two_letters_code%/help/%original_file_name%
