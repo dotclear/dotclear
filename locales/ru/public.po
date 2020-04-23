@@ -1,261 +1,65 @@
-# French translation of DotClear
-# Copyright (C) 2006.
-# Olivier Meunier <olivier@dotclear.net>, 2006.
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear 2\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-10-13 05:22+0200\n"
-"PO-Revision-Date: 2016-07-18 15:52+0200\n"
+"POT-Creation-Date: 2020-04-23 14:48+0200\n"
+"PO-Revision-Date: 2020-04-23 14:23\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: \n"
+"Language-Team: Russian\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=((n%10==1 && n%100!=11) ? 0 : ((n%10 >= 2 && n%10 <=4 && (n%100 < 12 || n%100 > 14)) ? 1 : ((n%10 == 0 || (n%10 >= 5 && n%10 <=9)) || (n%100 >= 11 && n%100 <= 14)) ? 2 : 3));\n"
 "X-Generator: Poedit 1.8.8\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-
-msgid "To content"
-msgstr "К содержимому"
-
-msgid "To menu"
-msgstr "К меню"
-
-msgid "To search"
-msgstr "В поиск"
-
-msgid "By"
-msgstr "Кем"
-
-msgid "by"
-msgstr "кем"
-
-msgid "on"
-msgstr "в"
-
-msgid "On"
-msgstr "В"
-
-msgid "Continue reading"
-msgstr "Читать дальше"
-
-#, fuzzy
-msgid "no comments"
-msgstr "нет комментариев"
-
-msgid "one comment"
-msgstr "Один комментарий"
-
-msgid "%d comments"
-msgstr "Комментариев: %d"
-
-msgid "no trackbacks"
-msgstr "нет трекбеков"
-
-msgid "one trackback"
-msgstr "Один трекбек"
-
-msgid "%d trackbacks"
-msgstr "Трекбеков: %d"
-
-msgid "no attachments"
-msgstr "нет вложений"
-
-msgid "one attachment"
-msgstr "Одно вложение"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Language: ru\n"
+"X-Crowdin-File: /master/locales/en/public.po\n"
 
 msgid "%d attachments"
 msgstr "Вложений: %d"
 
-msgid "previous entries"
-msgstr "предыдущие записи"
+msgid "%d comments"
+msgstr "Комментариев: %d"
 
-msgid "page"
-msgstr "страница"
+msgid "%d trackbacks"
+msgstr "Трекбеков: %d"
 
-msgid "of"
-msgstr "из"
+msgid "%s reactions"
+msgstr ""
 
-msgid "next entries"
-msgstr "следующие записи"
-
-msgid "Search"
-msgstr "Поиск"
-
-msgid "Your search for <em>%1$s</em> returned no result."
-msgstr "По запросу <em>%1$s</em>ничего не найлено."
-
-msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
-msgstr "По вашему запросу <em>%1$s</em>получен результат<strong>%2$s</strong>"
-
-msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
-msgstr "По вашему запросу <em>%1$s</em>получены результаты<strong>%2$s</strong>"
-
-msgid "Home"
-msgstr "Домой"
-
-msgid "All keywords"
-msgstr "Все ключевые слова"
-
-msgid "Best of me"
-msgstr "Лучшие"
-
-msgid "Languages"
-msgstr "Языки"
-
-msgid "Categories"
-msgstr "Категории"
-
-msgid "Subcategories"
-msgstr "Подкатегории"
-
-msgid "Archives"
-msgstr "Архивы"
-
-msgid "Links"
-msgstr "Ссылки"
-
-msgid "Subscribe"
-msgstr "Подписаться"
-
-msgid "Entries feed"
-msgstr "RSS записей"
-
-msgid "Comments feed"
-msgstr "RSS комментариев"
-
-msgid "This blog's comments Atom feed"
-msgstr "Лента новостей Atom комментариев блога"
-
-msgid "This category's entries Atom feed"
-msgstr "Лента новостей Atom записей блога"
-
-msgid "This category's comments Atom feed"
-msgstr "Лента новостей Atom комментариев этой категории"
-
-msgid "This post's comments feed"
-msgstr "RSS комментариев этой записи"
-
-msgid "This post's comments Atom feed"
-msgstr "Лента новостей Atom комментариев этой записи"
-
-msgid "Attachments"
-msgstr "Вложения"
-
-msgid "Permalink"
-msgstr "Постоянная ссылка"
-
-msgid "Comments"
-msgstr "Комментарии"
-
-msgid "Your comment"
-msgstr "Ваш комментарий"
-
-msgid "Your comment has been published."
-msgstr "Ваш комментарий опубликован."
-
-msgid "Your comment has been submitted and will be reviewed for publication."
-msgstr "Ваш комментарий сохранен и ожидает модерации."
+msgid "Access to content"
+msgstr ""
 
 msgid "Add a comment"
 msgstr "Добавить комментарий"
 
-msgid "Name or nickname"
-msgstr "Имя"
-
-msgid "Email address"
-msgstr "Email"
-
-msgid "Website"
-msgstr "Вебсайт"
-
-msgid "optional"
-msgstr "необязательно"
-
-msgid "Comment"
-msgstr "Комментарий"
-
-msgid "Comments can be formatted using a simple wiki syntax."
-msgstr "Комментарии могут быть отформатированы, используя простой wiki-синтаксис."
-
-msgid "HTML code is displayed as text and web addresses are automatically converted."
-msgstr "HTML код отображается как текст, веб адреса автоматически преобразовываются."
-
-msgid "Remember me on this blog"
-msgstr "Запомнить меня на этом блоге"
-
-msgid "preview"
-msgstr "предпросмотр"
-
-msgid "send"
-msgstr "отправить"
-
-msgid "They posted on the same topic"
-msgstr "Продолжение обсуждения"
-
-msgid "Trackback URL"
-msgstr "URL трекбека"
-
-msgid "You must provide an author name"
-msgstr "Укажите ваше имя"
-
-msgid "You must provide a comment"
-msgstr "Введите ваш комментарий"
-
-msgid "Email address is not valid"
-msgstr "Неверный адрес email"
-
-msgid "Document not found"
-msgstr "Документ не найден"
-
-msgid "The document you are looking for does not exist."
-msgstr "Документ, который вы ищете не существует."
-
-msgid "Powered by %s"
-msgstr "Создано на %s"
-
-msgid "Subscribe to"
-msgstr "Подписаться на"
-
-msgid "What is an RSS feed?"
-msgstr "Что такое RSS ?"
-
-msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
-msgstr "Лента новостей RSS - это краткая подборка новостей блога. Она содержит записи или комментарии вместе со ссылками на полную версию, а также другие данные. Последние опубликованные записи могут быть прочитаны таким образом в приложении для <a href=\"http://en.wikipedia.org/wiki/Aggregator\">чтения лент RSS</a>"
-
-msgid "Simply copy the following URL into your aggregator:"
-msgstr "Копировать следующий URL в программу чтения новостей:"
-
-msgid "Password needed"
-msgstr "Необходим пароль"
-
-msgid "You must give a password to access this area."
-msgstr "Нужно ввести пароль чтобы пройти далее."
-
-msgid "Password:"
-msgstr "Пароль:"
-
-msgid "You must provide a valid email address."
-msgstr "Введите правильный email адрес."
-
-msgid "Read"
-msgstr "Читать"
-
-msgid "in"
+msgid "Add ping"
 msgstr ""
 
-msgid "In"
+msgid "Additionnal style directives"
 msgstr ""
 
-msgid "Page top"
+msgid "All keywords"
+msgstr "Все ключевые слова"
+
+msgid "Archives"
+msgstr "Архивы"
+
+msgid "Attachments"
+msgstr "Вложения"
+
+msgid "Best of me"
+msgstr "Лучшие"
+
+msgid "Blog info"
 msgstr ""
 
-msgid "toDay"
+msgid "Blog menu"
 msgstr ""
 
-msgid "FromDay"
-msgstr ""
+msgid "By"
+msgstr "Кем"
 
 msgid "By category"
 msgstr ""
@@ -266,13 +70,271 @@ msgstr ""
 msgid "By tag"
 msgstr ""
 
-#, fuzzy
-msgid "Blog menu"
-msgstr "К меню"
+msgid "Categories"
+msgstr "Категории"
 
-#, fuzzy
+msgid "Comment"
+msgstr "Комментарий"
+
+msgid "Comments"
+msgstr "Комментарии"
+
+msgid "Comments can be formatted using a simple wiki syntax."
+msgstr "Комментарии могут быть отформатированы, используя простой wiki-синтаксис."
+
+msgid "Comments feed"
+msgstr "RSS комментариев"
+
+msgid "Continue reading"
+msgstr "Читать дальше"
+
+msgid "Document not found"
+msgstr "Документ не найден"
+
+msgid "Email address"
+msgstr "Email"
+
+msgid "Email address is not valid"
+msgstr "Неверный адрес email"
+
+msgid "Entries feed"
+msgstr "RSS записей"
+
 msgid "Etra menu"
+msgstr ""
+
+msgid "Explore archives"
+msgstr ""
+
+msgid "Extra menu"
+msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "FromDay"
+msgstr ""
+
+msgid "Go to homepage"
+msgstr ""
+
+msgid "HTML code is displayed as text and web addresses are automatically converted."
+msgstr "HTML код отображается как текст, веб адреса автоматически преобразовываются."
+
+msgid "Home"
+msgstr "Домой"
+
+msgid "In"
+msgstr ""
+
+msgid "Languages"
+msgstr "Языки"
+
+msgid "Links"
+msgstr "Ссылки"
+
+msgid "Name or nickname"
+msgstr "Имя"
+
+msgid "Next entry:"
+msgstr ""
+
+msgid "On"
+msgstr "В"
+
+msgid "Page top"
+msgstr ""
+
+msgid "Password needed"
+msgstr "Необходим пароль"
+
+msgid "Password:"
+msgstr "Пароль:"
+
+msgid "Permalink"
+msgstr "Постоянная ссылка"
+
+msgid "Powered by %s"
+msgstr "Создано на %s"
+
+msgid "Preview"
+msgstr ""
+
+msgid "Previous entry:"
+msgstr ""
+
+msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
+msgstr "Лента новостей RSS - это краткая подборка новостей блога. Она содержит записи или комментарии вместе со ссылками на полную версию, а также другие данные. Последние опубликованные записи могут быть прочитаны таким образом в приложении для <a href=\"http://en.wikipedia.org/wiki/Aggregator\">чтения лент RSS</a>"
+
+msgid "Read"
+msgstr "Читать"
+
+msgid "Remember me on this blog"
+msgstr "Запомнить меня на этом блоге"
+
+msgid "Required field"
+msgstr ""
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Send"
+msgstr ""
+
+msgid "Simply copy the following URL into your aggregator:"
+msgstr "Копировать следующий URL в программу чтения новостей:"
+
+msgid "Subcategories"
+msgstr "Подкатегории"
+
+msgid "Subscribe"
+msgstr "Подписаться"
+
+msgid "Subscribe to"
+msgstr "Подписаться на"
+
+msgid "Suggestions:"
+msgstr ""
+
+msgid "The document you are looking for does not exist."
+msgstr "Документ, который вы ищете не существует."
+
+msgid "The list of recents posts is available"
+msgstr ""
+
+msgid "They posted on the same topic"
+msgstr "Продолжение обсуждения"
+
+msgid "This blog's comments Atom feed"
+msgstr "Лента новостей Atom комментариев блога"
+
+msgid "This category's comments Atom feed"
+msgstr "Лента новостей Atom комментариев этой категории"
+
+msgid "This category's entries Atom feed"
+msgstr "Лента новостей Atom записей блога"
+
+msgid "This post's comments Atom feed"
+msgstr "Лента новостей Atom комментариев этой записи"
+
+msgid "This post's comments feed"
+msgstr "RSS комментариев этой записи"
+
+# Not found strings
+msgid "To content"
+msgstr "К содержимому"
+
+msgid "To menu"
 msgstr "К меню"
 
-msgid "Blog info"
+msgid "To search"
+msgstr "В поиск"
+
+msgid "Trackback URL"
+msgstr "URL трекбека"
+
+msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr ""
+
+msgid "Use search form"
+msgstr ""
+
+msgid "Website"
+msgstr "Вебсайт"
+
+msgid "What is an RSS feed?"
+msgstr "Что такое RSS ?"
+
+msgid "You must give a password to access this area."
+msgstr "Нужно ввести пароль чтобы пройти далее."
+
+msgid "You must provide a comment"
+msgstr "Введите ваш комментарий"
+
+msgid "You must provide a valid email address."
+msgstr "Введите правильный email адрес."
+
+msgid "You must provide an author name"
+msgstr "Укажите ваше имя"
+
+msgid "Your comment"
+msgstr "Ваш комментарий"
+
+msgid "Your comment has been published."
+msgstr "Ваш комментарий опубликован."
+
+msgid "Your comment has been submitted and will be reviewed for publication."
+msgstr "Ваш комментарий сохранен и ожидает модерации."
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."
+msgstr "По вашему запросу <em>%1$s</em>получен результат<strong>%2$s</strong>"
+
+msgid "Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."
+msgstr "По вашему запросу <em>%1$s</em>получены результаты<strong>%2$s</strong>"
+
+msgid "Your search for <em>%1$s</em> returned no result."
+msgstr "По запросу <em>%1$s</em>ничего не найлено."
+
+msgid "by"
+msgstr "кем"
+
+msgid "here"
+msgstr ""
+
+msgid "in"
+msgstr ""
+
+msgid "next entries"
+msgstr "следующие записи"
+
+msgid "no attachments"
+msgstr "нет вложений"
+
+msgid "no comments"
+msgstr ""
+
+msgid "no reactions"
+msgstr ""
+
+msgid "no trackbacks"
+msgstr "нет трекбеков"
+
+msgid "of"
+msgstr "из"
+
+msgid "on"
+msgstr "в"
+
+msgid "one attachment"
+msgstr "Одно вложение"
+
+msgid "one comment"
+msgstr "Один комментарий"
+
+msgid "one reaction"
+msgstr ""
+
+msgid "one trackback"
+msgstr "Один трекбек"
+
+msgid "optional"
+msgstr "необязательно"
+
+msgid "page"
+msgstr "страница"
+
+msgid "preview"
+msgstr "предпросмотр"
+
+msgid "previous entries"
+msgstr "предыдущие записи"
+
+msgid "reactions"
+msgstr ""
+
+msgid "send"
+msgstr "отправить"
+
+msgid "toDay"
+msgstr ""
+
