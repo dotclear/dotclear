@@ -1,87 +1,70 @@
 <html>
-  <head>
-    <title>Utilisateur·rice</title>
-  </head>
+<head>
+  <title>User</title>
+</head>
 
-  <body>
-    <p>Cette page permet de créer de nouveaux utilisateur·rice·s mais aussi de modifier
-      le profil d'utilisateur·rice·s existant·e·s.</p>
-    <p>Pour créer (ou modifier) un·e utilisateur·rice votre mot de passe vous sera demandé dans
-      le champ <em>Votre mot de passe</em>.</p>
+<body>
 
-    <h4>Profil utilisateur·rice</h4>
-    <dl>
-      <dt>Identifiant (login)</dt>
-      <dd>Il doit être composé d'au moins 2 caractères (lettres non accentuées,
-	chiffres ou symboles, pas d'espace). Ce champ est obligatoire.</dd>
+<h4>User profile</h4>
+<dl>
+  <dt>User ID</dt>
+  <dd>At least 2 characters using letters, numbers or symbols (no space). This field is mandatory.</dd>
 
-      <dt>Mot de passe</dt>
-      <dd>
-	<p>
-	  Indiquez deux fois le mot de passe dans les champs <em>Mot de passe</em>
-	  et <em>Confirmer le mot de passe</em>. Le mot de passe doit être long d'au
-	  moins 6 caractères. Ces deux champs sont obligatoires.</p>
-	<p>Une indication sur la robustesse de votre mot de passe apparaîtra en
-	  face du champ <em>Mot de passe</em>.</p>
-      </dd>
+  <dt>New password</dt>
+  <dd>If you want to change your password, enter the new password twice in <strong>New password</strong> and <strong>Confirm password</strong> fields. Passwords must contain at least 6 characters. Both fields are mandatory.</dd>
 
-      <dt>Changement de mot de passe requis à la prochaine connexion</dt>
-      <dd>Cocher cette case permettra au nouvel utilisateur de choisir lui-même
-	son mot de passe de connexion.</dd>
+  <dt>Password change required to connect</dt>
+  <dd>Check this box so that a new user will have to choose his own password when he will connect.</dd>
 
-      <dt>Super administrateur·rice</dt>
-      <dd>Ce choix attribuera toutes les permissions au profil de l'utilisateur·rice sur
-	l'ensemble des blogs de l'installation.</dd>
+  <dt>Super administrator</dt>
+  <dd>This will give the current user all the permissions on all the blogs hosted on the system.</dd>
+  
+  <dt>Last name, First name</dt>
+  <dd>If no display name is provided, the displayed author's name will contain the last name and first name entered in these two fields.</dd>
 
-      <dt>Nom, Prénom</dt>
-      <dd>Si le pseudonyme n'est pas renseigné, le nom de l'auteur·rice qui sera affiché
-	sera composé des nom et prénom renseignés dans ces champs.</dd>
+  <dt>Display name</dt>
+  <dd>You can select the nickname you want to use to sign your articles. If not empty, this field will be used instead of the last name and first name fields.</dd>
 
-      <dt>Pseudonyme</dt>
-      <dd>Vous pouvez choisir ici le pseudonyme avec lequel vos billets seront signés.
-  S'il est renseigné, le pseudonyme se substitue au nom et au prénom.</dd>
+  <dt>Email</dt>
+  <dd>This e-mail address will be used if you need to recover your password from Dotclear's authentication screen.</dd>
 
-      <dt>Email</dt>
-      <dd>Adresse à laquelle sera envoyé un nouveau mot de passe en cas d'oubli.</dd>
+  <dt>URL</dt>
+  <dd>Indicates the user's website. If this field is not empty, the author's name will become a clickable link to this website.</dd>
+</dl>
 
-      <dt>URL</dt>
-      <dd>Indique le site web de l'utilisateur·rice. S'il est indiqué, le nom du rédacteur ou de la
-	rédactrice d'un billet sera présenté comme un lien vers le site donné.</dd>
-    </dl>
+<h4>Options</h4>
+<h5>Interface</h5>
+<dl>
+  <dt>Language</dt>
+  <dd>Set the default language for new entries. If a translation is available for this language, the blog interface will be translated in this language as well.</dd>
 
-    <h4>Options utilisateur·rice</h4>
-    <dl>
-      <dt>Langue de l'utilisateur·rice</dt>
-      <dd>Indique la langue dans laquelle on souhaite publier ses billets. Si la
-	traduction existe, l'interface sera également traduite dans cette langue.</dd>
+  <dt>Timezone</dt>
+  <dd>This option impacts the way the entries' publication time is displayed.</dd>
+</dl>
 
-      <dt>Fuseau horaire de l'utilisateur·rice</dt>
-      <dd>Ce choix déterminera l'affichage de l'heure de publication des billets.</dd>
+<h5>Edition</h5>
+<dl>  
+  <dt>Preferred format</dt>
+  <dd>Choose the entry's syntax. Wiki is a simplified syntax
+  and will be converted to valid XHTML. Unless you have a perfect
+  understanding of XHTML, we advise you to choose the Wiki syntax.
+  See the Wiki syntax reference for more information.</dd>
+  
+  <dt>Default entry status</dt>
+  <dd>The default status for new entries can be set to:
+    <ul>
+      <li><strong>Pending:</strong> The publication status has not been yet decided.</li>
+      <li><strong>Scheduled:</strong> The entry will be set online at the time and date provided in the <strong>Published on</strong> field.</li>
+      <li><strong>Unpublished:</strong> Offline entry.</li>
+      <li><strong>Published:</strong> Online entry.</li>
+    </ul>
+  </dd>
 
-      <dt>Format d'édition préféré</dt>
-      <dd>Choix de la syntaxe par défaut pour la saisie des billets. Le wiki est une
-	syntaxe simplifiée et sera converti en xhtml valide&nbsp;; à moins que vous ne
-	maîtrisiez parfaitement le xhtml, nous vous conseillons le choix du wiki.</dd>
+  <dt>Entry edit field height</dt>
+  <dd>Sets the height of the edition field of an entry. By default, this parameter is set to 24.</dd>
 
-      <dt>État des billets par défaut</dt>
-      <dd>Le statut par défaut des billets peut être déterminé à&nbsp;:
-	<ul>
-	  <li><strong>En attente&nbsp;:</strong> le statut de publication n'a pas encore
-	    été décidé.</li>
-	  <li><strong>Programmé&nbsp;:</strong> le billet sera mis en ligne aux date et
-	    heure indiquées dans le champ <em>Publié le</em>.</li>
-	  <li><strong>Non publié&nbsp;:</strong> billet hors ligne.</li>
-	  <li><strong>Publié&nbsp;:</strong> billet en ligne.</li>
-	</ul>
-      </dd>
-
-      <dt>Taille de la zone d'édition</dt>
-      <dd>Fixe la hauteur de la zone d'édtion du billet. Par défaut ce paramètre est
-      réglé à la valeur 24.</dd>
-
-      <dt>Format de la liste des mots-clés</dt>
-      <dd>Ce choix permet, dans la page d'édition d'un billet, d'afficher tous les
-	mots-clés disponibles (<em>Étendu</em>) ou seulement les plus utilisés (<em>Court</em>).</dd>
-    </dl>
-  </body>
+  <dt>Tags list format</dt>
+  <dd>You can select if you want to see, while editing an entry, all the tags used (<strong>Extended</strong>) or only the most used ones (<strong>Short</strong>).</dd>
+</dl>
+</body>
 </html>
