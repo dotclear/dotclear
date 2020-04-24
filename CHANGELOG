@@ -1,3 +1,7 @@
+Dotclear 2.16.4 - 2020-04-24
+===========================================================
+* Fix: Remove <sub>content</sub> (_<content>_) from authorized element in wiki links. - missing from 2.16.3
+
 Dotclear 2.16.3 - 2020-04-20
 ===========================================================
 * Fix: Remove <sub>content</sub> (_<content>_) from authorized element in wiki links.
