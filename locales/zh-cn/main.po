@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 15:01+0200\n"
+"POT-Creation-Date: 2020-04-24 10:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:55+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -3092,6 +3092,251 @@ msgstr "感谢您使用 %s。"
 msgid "Page top"
 msgstr "页数"
 
+#, fuzzy
+msgid "Go to dashboard"
+msgstr "控制板"
+
+msgid "Help about this page"
+msgstr ""
+
+#, php-format
+msgid "See also %s"
+msgstr ""
+
+msgid "the global help"
+msgstr ""
+
+msgid "uncover"
+msgstr "显示"
+
+msgid "hide"
+msgstr "隐藏"
+
+msgid "Need help?"
+msgstr ""
+
+msgid "new window"
+msgstr ""
+
+msgid "Hide"
+msgstr ""
+
+#, fuzzy
+msgid "Select:"
+msgstr "精选的："
+
+#, fuzzy
+msgid "no selection"
+msgstr "取消全部选择"
+
+msgid "select all"
+msgstr "选择全部"
+
+msgid "Invert selection"
+msgstr "反选"
+
+#, fuzzy
+msgid "Edit entry"
+msgstr "%d 篇文章"
+
+msgid "view entry"
+msgstr "查看文章"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected entries (%s)?"
+msgstr "您确定您要删除选定的文章吗？"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected medias (%d)?"
+msgstr "您确定您要删除选定的文章吗？"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected categories (%s)?"
+msgstr "您确定您要删除选定的文章吗？"
+
+msgid "Are you sure you want to delete this entry?"
+msgstr "您确定您要删除这篇文章吗？"
+
+msgid "Click here to unlock the field"
+msgstr ""
+
+#, fuzzy
+msgid "Are you sure you want to delete all spams?"
+msgstr "您确定您要删除“%s”主题吗？"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected comments (%s)?"
+msgstr "您确定您要删除选定的评论吗？"
+
+msgid "Are you sure you want to delete this comment?"
+msgstr "您确定您要删除这个评论吗？"
+
+#, fuzzy
+msgid "Users with posts cannot be deleted."
+msgstr "有文章的用户无法被删除。"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "您确定您要删除选定的用户吗？"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
+msgstr "您确定您要删除选定的用户吗？"
+
+#, php-format
+msgid "Are you sure you want to delete category \"%s\"?"
+msgstr "您确定您要删除分类目录“%s”吗？"
+
+msgid "Are you sure you want to reorder all categories?"
+msgstr "您确定您要重新排列所有分类目录吗？"
+
+#, php-format
+msgid "Are you sure you want to remove media \"%s\"?"
+msgstr "您确定您要移除媒体“%s”吗？"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove directory \"%s\"?"
+msgstr "您确定您要移除媒体“%s”吗？"
+
+msgid "Are you sure you want to extract archive in current directory?"
+msgstr "您确定您要把压缩包解压到当前目录吗？"
+
+#, php-format
+msgid "Are you sure you want to remove attachment \"%s\"?"
+msgstr "您确定您要移除附件“%s”吗？"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" language?"
+msgstr "您确定您要删除“%s”语言包吗？"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" plugin?"
+msgstr "您确定您要删除“%s”插件吗？"
+
+#, fuzzy
+msgid "Are you sure you want to delete selected plugins?"
+msgstr "您确定您要删除“%s”插件吗？"
+
+msgid "Use this theme"
+msgstr "使用这个主题"
+
+msgid "Remove this theme"
+msgstr "移除这个主题"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" theme?"
+msgstr "您确定您要删除“%s”主题吗？"
+
+#, fuzzy
+msgid "Are you sure you want to delete selected themes?"
+msgstr "您确定您要删除选定的文章吗？"
+
+#, fuzzy
+msgid "Are you sure you want to delete this backup?"
+msgstr "您确定您要删除这个评论吗？"
+
+#, fuzzy
+msgid "Are you sure you want to revert to this backup?"
+msgstr "您确定要移除这个附件吗？"
+
+msgid "Zip file content"
+msgstr "zip 文件内容"
+
+msgid "XHTML markup validator"
+msgstr "XHTML 标记检查器"
+
+msgid "XHTML content is valid."
+msgstr "XHTML 内容有效。"
+
+msgid "There are XHTML markup errors."
+msgstr "这是 XHTML 标记的错误。"
+
+msgid "Attention: an audit of a content not yet registered."
+msgstr ""
+
+msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
+
+msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
+msgstr ""
+
+msgid "Loading enhanced uploader, please wait."
+msgstr ""
+
+msgid "Details"
+msgstr "详情"
+
+msgid "Support"
+msgstr ""
+
+#, fuzzy
+msgid "Help:"
+msgstr "帮助"
+
+#, fuzzy
+msgid "Section:"
+msgstr "动作"
+
+msgid "Tags:"
+msgstr ""
+
+#, fuzzy
+msgid "Hide this notice"
+msgstr "使用这个主题"
+
+msgid "You have unsaved changes."
+msgstr "您有未保存的改动。"
+
+#, fuzzy
+msgid "Choose date"
+msgstr "选择文件"
+
+msgid "close"
+msgstr "关闭"
+
+msgid "now"
+msgstr "现在"
+
+msgid "Temporarily activate enhanced uploader"
+msgstr "激活增强的上传工具"
+
+msgid "Temporarily disable enhanced uploader"
+msgstr "禁用增强的上传工具"
+
+msgid "Limit exceeded."
+msgstr "超出限制。"
+
+msgid "File size exceeds allowed limit."
+msgstr "文件大小超出允许的限制。"
+
+msgid "Canceled."
+msgstr "已取消。"
+
+msgid "HTTP Error:"
+msgstr "HTTP 错误："
+
+msgid "Clean"
+msgstr "清除"
+
+msgid "File successfully uploaded."
+msgstr "成功上传文件。"
+
+msgid "No file in queue."
+msgstr "队列中没有文件。"
+
+msgid "1 file in queue."
+msgstr "队列中有 1 个文件。"
+
+#, php-format
+msgid "%d files in queue."
+msgstr "队列中有 %d 个文件。"
+
+msgid "Queue error:"
+msgstr "队列错误："
+
+msgid "Cancel filters and display options"
+msgstr ""
+
 msgid "other"
 msgstr ""
 
@@ -3139,9 +3384,6 @@ msgstr "版本"
 msgid "Current version"
 msgstr "设置权限"
 
-msgid "Details"
-msgstr "详情"
-
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -3154,16 +3396,6 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr ""
 
 msgid "Plugin from official distribution"
-msgstr ""
-
-msgid "Support"
-msgstr ""
-
-#, fuzzy
-msgid "Section:"
-msgstr "动作"
-
-msgid "Tags:"
 msgstr ""
 
 msgid "No plugins matched your search."
@@ -4035,190 +4267,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Entries actions"
 #~ msgstr "已选择的文章的动作："
-
-#, fuzzy
-#~ msgid "Go to dashboard"
-#~ msgstr "控制板"
-
-#~ msgid "uncover"
-#~ msgstr "显示"
-
-#~ msgid "hide"
-#~ msgstr "隐藏"
-
-#, fuzzy
-#~ msgid "Select:"
-#~ msgstr "精选的："
-
-#, fuzzy
-#~ msgid "no selection"
-#~ msgstr "取消全部选择"
-
-#~ msgid "select all"
-#~ msgstr "选择全部"
-
-#~ msgid "Invert selection"
-#~ msgstr "反选"
-
-#~ msgid "view entry"
-#~ msgstr "查看文章"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected entries (%s)?"
-#~ msgstr "您确定您要删除选定的文章吗？"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected medias (%d)?"
-#~ msgstr "您确定您要删除选定的文章吗？"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected categories (%s)?"
-#~ msgstr "您确定您要删除选定的文章吗？"
-
-#~ msgid "Are you sure you want to delete this entry?"
-#~ msgstr "您确定您要删除这篇文章吗？"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "您确定您要删除“%s”主题吗？"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected comments (%s)?"
-#~ msgstr "您确定您要删除选定的评论吗？"
-
-#~ msgid "Are you sure you want to delete this comment?"
-#~ msgstr "您确定您要删除这个评论吗？"
-
-#, fuzzy
-#~ msgid "Users with posts cannot be deleted."
-#~ msgstr "有文章的用户无法被删除。"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected users (%s)?"
-#~ msgstr "您确定您要删除选定的用户吗？"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected blogs (%s)?"
-#~ msgstr "您确定您要删除选定的用户吗？"
-
-#~ msgid "Are you sure you want to delete category \"%s\"?"
-#~ msgstr "您确定您要删除分类目录“%s”吗？"
-
-#~ msgid "Are you sure you want to reorder all categories?"
-#~ msgstr "您确定您要重新排列所有分类目录吗？"
-
-#~ msgid "Are you sure you want to remove media \"%s\"?"
-#~ msgstr "您确定您要移除媒体“%s”吗？"
-
-#, fuzzy
-#~ msgid "Are you sure you want to remove directory \"%s\"?"
-#~ msgstr "您确定您要移除媒体“%s”吗？"
-
-#~ msgid "Are you sure you want to extract archive in current directory?"
-#~ msgstr "您确定您要把压缩包解压到当前目录吗？"
-
-#~ msgid "Are you sure you want to remove attachment \"%s\"?"
-#~ msgstr "您确定您要移除附件“%s”吗？"
-
-#~ msgid "Are you sure you want to delete \"%s\" language?"
-#~ msgstr "您确定您要删除“%s”语言包吗？"
-
-#~ msgid "Are you sure you want to delete \"%s\" plugin?"
-#~ msgstr "您确定您要删除“%s”插件吗？"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected plugins?"
-#~ msgstr "您确定您要删除“%s”插件吗？"
-
-#~ msgid "Use this theme"
-#~ msgstr "使用这个主题"
-
-#~ msgid "Remove this theme"
-#~ msgstr "移除这个主题"
-
-#~ msgid "Are you sure you want to delete \"%s\" theme?"
-#~ msgstr "您确定您要删除“%s”主题吗？"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected themes?"
-#~ msgstr "您确定您要删除选定的文章吗？"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete this backup?"
-#~ msgstr "您确定您要删除这个评论吗？"
-
-#, fuzzy
-#~ msgid "Are you sure you want to revert to this backup?"
-#~ msgstr "您确定要移除这个附件吗？"
-
-#~ msgid "Zip file content"
-#~ msgstr "zip 文件内容"
-
-#~ msgid "XHTML markup validator"
-#~ msgstr "XHTML 标记检查器"
-
-#~ msgid "XHTML content is valid."
-#~ msgstr "XHTML 内容有效。"
-
-#~ msgid "There are XHTML markup errors."
-#~ msgstr "这是 XHTML 标记的错误。"
-
-#, fuzzy
-#~ msgid "Help:"
-#~ msgstr "帮助"
-
-#, fuzzy
-#~ msgid "Hide this notice"
-#~ msgstr "使用这个主题"
-
-#~ msgid "You have unsaved changes."
-#~ msgstr "您有未保存的改动。"
-
-#, fuzzy
-#~ msgid "Choose date"
-#~ msgstr "选择文件"
-
-#~ msgid "close"
-#~ msgstr "关闭"
-
-#~ msgid "now"
-#~ msgstr "现在"
-
-#~ msgid "Temporarily activate enhanced uploader"
-#~ msgstr "激活增强的上传工具"
-
-#~ msgid "Temporarily disable enhanced uploader"
-#~ msgstr "禁用增强的上传工具"
-
-#~ msgid "Limit exceeded."
-#~ msgstr "超出限制。"
-
-#~ msgid "File size exceeds allowed limit."
-#~ msgstr "文件大小超出允许的限制。"
-
-#~ msgid "Canceled."
-#~ msgstr "已取消。"
-
-#~ msgid "HTTP Error:"
-#~ msgstr "HTTP 错误："
-
-#~ msgid "Clean"
-#~ msgstr "清除"
-
-#~ msgid "File successfully uploaded."
-#~ msgstr "成功上传文件。"
-
-#~ msgid "No file in queue."
-#~ msgstr "队列中没有文件。"
-
-#~ msgid "1 file in queue."
-#~ msgstr "队列中有 1 个文件。"
-
-#~ msgid "%d files in queue."
-#~ msgstr "队列中有 %d 个文件。"
-
-#~ msgid "Queue error:"
-#~ msgstr "队列错误："
 
 #, fuzzy
 #~ msgid "Manage plugin"

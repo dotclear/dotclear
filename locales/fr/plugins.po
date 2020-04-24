@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 14:50+0200\n"
+"POT-Creation-Date: 2020-04-24 10:23+0200\n"
 "PO-Revision-Date: 2020-04-23 11:21+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
@@ -343,9 +343,6 @@ msgstr "La configuration des filtres a été enregistrée."
 #, php-format
 msgid "%s configuration"
 msgstr "Configuration de %s"
-
-msgid "Are you sure you want to delete all spams?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer tous les indésirables ?"
 
 #, php-format
 msgid "%s filter configuration"
@@ -1707,9 +1704,6 @@ msgstr "Tester les services de signalement"
 msgid "Simple menu"
 msgstr "Menu simple"
 
-msgid "new window"
-msgstr "nouvelle fenêtre"
-
 msgid "Active page"
 msgstr "Page active"
 
@@ -2286,3 +2280,9 @@ msgstr "Retirer le widget"
 
 msgid "Drag widgets here to remove."
 msgstr "Glisser les widgets ici pour les retirer du volet."
+
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "Êtes-vous sûr·e de vouloir supprimer tous les indésirables ?"
+
+#~ msgid "new window"
+#~ msgstr "nouvelle fenêtre"

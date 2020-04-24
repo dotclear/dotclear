@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 14:58+0200\n"
+"POT-Creation-Date: 2020-04-24 10:24+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -357,10 +357,6 @@ msgstr "Конфигурация фильтров успешно сохране�
 #, php-format
 msgid "%s configuration"
 msgstr "%s конфигурация"
-
-#, fuzzy
-msgid "Are you sure you want to delete all spams?"
-msgstr "Вы уверены, что хотите удалить эту страницу?"
 
 #, fuzzy, php-format
 msgid "%s filter configuration"
@@ -1795,9 +1791,6 @@ msgstr "Протестировать сервис пингов"
 msgid "Simple menu"
 msgstr ""
 
-msgid "new window"
-msgstr ""
-
 #, fuzzy
 msgid "Active page"
 msgstr "Активный"
@@ -2429,6 +2422,10 @@ msgstr "Удалить виджет"
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "Вы уверены, что хотите удалить эту страницу?"
 
 #~ msgid "Check all"
 #~ msgstr "Проверить все"

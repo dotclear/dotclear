@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 14:50+0200\n"
+"POT-Creation-Date: 2020-04-24 10:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -337,10 +337,6 @@ msgstr "Suodattimien asetukset on talletettu."
 #, php-format
 msgid "%s configuration"
 msgstr "%s:n asetukset"
-
-#, fuzzy
-msgid "Are you sure you want to delete all spams?"
-msgstr "Oletko varma, että haluat poistaa tämän sivun?"
 
 #, php-format
 msgid "%s filter configuration"
@@ -1704,9 +1700,6 @@ msgstr "Testaa ping-palvelut"
 msgid "Simple menu"
 msgstr "Yksinkertainen valikko"
 
-msgid "new window"
-msgstr ""
-
 #, fuzzy
 msgid "Active page"
 msgstr "Käytössä"
@@ -2287,6 +2280,10 @@ msgstr "Poista vimpain"
 
 msgid "Drag widgets here to remove."
 msgstr "Vedä vimpaimet tähän poistaaksesi."
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "Oletko varma, että haluat poistaa tämän sivun?"
 
 #~ msgid "Attachments"
 #~ msgstr "Liitteet"

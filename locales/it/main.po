@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 14:52+0200\n"
+"POT-Creation-Date: 2020-04-24 10:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -3105,6 +3105,250 @@ msgstr "Grazie di aver scelto %s."
 msgid "Page top"
 msgstr "Pagina/e"
 
+#, fuzzy
+msgid "Go to dashboard"
+msgstr "Pannello di gestione"
+
+msgid "Help about this page"
+msgstr ""
+
+#, php-format
+msgid "See also %s"
+msgstr ""
+
+msgid "the global help"
+msgstr ""
+
+msgid "uncover"
+msgstr "scopri"
+
+msgid "hide"
+msgstr "nascondi"
+
+msgid "Need help?"
+msgstr ""
+
+msgid "new window"
+msgstr ""
+
+msgid "Hide"
+msgstr ""
+
+#, fuzzy
+msgid "Select:"
+msgstr "Selezionato:"
+
+#, fuzzy
+msgid "no selection"
+msgstr "Nessuna selezione"
+
+msgid "select all"
+msgstr "seleziona tutto"
+
+msgid "Invert selection"
+msgstr "inverti selezione"
+
+#, fuzzy
+msgid "Edit entry"
+msgstr "%d articolo"
+
+msgid "view entry"
+msgstr "visualizza articolo"
+
+#, php-format
+msgid "Are you sure you want to delete selected entries (%s)?"
+msgstr "Si è sicuri di voler eliminare gli articoli selezionati (%s)?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected medias (%d)?"
+msgstr "Si è sicuri di voler eliminare gli articoli selezionati (%s)?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected categories (%s)?"
+msgstr "Si è sicuri di voler eliminare gli articoli selezionati (%s)?"
+
+msgid "Are you sure you want to delete this entry?"
+msgstr "Si è sicuri di voler eliminare questo articolo?"
+
+msgid "Click here to unlock the field"
+msgstr ""
+
+#, fuzzy
+msgid "Are you sure you want to delete all spams?"
+msgstr "Si è sicuri di voler eliminare il tema \"%s\"?"
+
+#, php-format
+msgid "Are you sure you want to delete selected comments (%s)?"
+msgstr "Si è sicuri di voler eliminare i commenti selezionati (%s)?"
+
+msgid "Are you sure you want to delete this comment?"
+msgstr "Si è sicuri di voler eliminare questo commento?"
+
+msgid "Users with posts cannot be deleted."
+msgstr "Gli utenti autori di articoli non possono essere eliminati."
+
+#, php-format
+msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "Si è sicuri di voler eliminare gli utenti selezionati (%s)?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
+msgstr "Si è sicuri di voler eliminare gli utenti selezionati (%s)?"
+
+#, php-format
+msgid "Are you sure you want to delete category \"%s\"?"
+msgstr "Si è sicuri di voler eliminare la categoria \"%s\"?"
+
+msgid "Are you sure you want to reorder all categories?"
+msgstr "Si è sicuri di voler riordinare tutte le categorie?"
+
+#, php-format
+msgid "Are you sure you want to remove media \"%s\"?"
+msgstr "Si è sicuri di voler eliminare il contenuto media \"%s\"?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove directory \"%s\"?"
+msgstr "Si è sicuri di voler eliminare il contenuto media \"%s\"?"
+
+msgid "Are you sure you want to extract archive in current directory?"
+msgstr "Si è sicuri di voler estrarre l'archivio nella cartella attuale?"
+
+#, php-format
+msgid "Are you sure you want to remove attachment \"%s\"?"
+msgstr "Si è sicuri di voler eliminare l'allegato \"%s\"?"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" language?"
+msgstr "Si è sicuri di voler eliminare la lingua \"%s\"?"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" plugin?"
+msgstr "Si è sicuri di voler eliminare il componente aggiuntivo \"%s\"?"
+
+#, fuzzy
+msgid "Are you sure you want to delete selected plugins?"
+msgstr "Si è sicuri di voler eliminare il componente aggiuntivo \"%s\"?"
+
+msgid "Use this theme"
+msgstr "Usa questo tema"
+
+msgid "Remove this theme"
+msgstr "Elimina questo tema"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" theme?"
+msgstr "Si è sicuri di voler eliminare il tema \"%s\"?"
+
+#, fuzzy
+msgid "Are you sure you want to delete selected themes?"
+msgstr "Si è sicuri di voler eliminare gli articoli selezionati (%s)?"
+
+#, fuzzy
+msgid "Are you sure you want to delete this backup?"
+msgstr "Si è sicuri di voler eliminare questo commento?"
+
+#, fuzzy
+msgid "Are you sure you want to revert to this backup?"
+msgstr "Si è sicuri voler eliminare questo allegato?"
+
+msgid "Zip file content"
+msgstr "Contenuto del file zip"
+
+msgid "XHTML markup validator"
+msgstr "Validatore XHTML"
+
+msgid "XHTML content is valid."
+msgstr "Il contenuto XHTML è valido."
+
+msgid "There are XHTML markup errors."
+msgstr "Sono stati trovati degli errori XHTML."
+
+msgid "Attention: an audit of a content not yet registered."
+msgstr ""
+
+msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
+
+msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
+msgstr ""
+
+msgid "Loading enhanced uploader, please wait."
+msgstr ""
+
+msgid "Details"
+msgstr "Dettagli"
+
+msgid "Support"
+msgstr ""
+
+#, fuzzy
+msgid "Help:"
+msgstr "Aiuto"
+
+#, fuzzy
+msgid "Section:"
+msgstr "Azione"
+
+msgid "Tags:"
+msgstr ""
+
+#, fuzzy
+msgid "Hide this notice"
+msgstr "Usa questo tema"
+
+msgid "You have unsaved changes."
+msgstr "Sono presenti delle modifiche non salvate."
+
+#, fuzzy
+msgid "Choose date"
+msgstr "Seleziona file"
+
+msgid "close"
+msgstr "chiudi"
+
+msgid "now"
+msgstr "ora"
+
+msgid "Temporarily activate enhanced uploader"
+msgstr "Attiva il caricamento avanzato"
+
+msgid "Temporarily disable enhanced uploader"
+msgstr "Disattiva il caricamento avanzato"
+
+msgid "Limit exceeded."
+msgstr "Limite superato."
+
+msgid "File size exceeds allowed limit."
+msgstr "La dimensione del file supera il limite consentito."
+
+msgid "Canceled."
+msgstr "Annullato."
+
+msgid "HTTP Error:"
+msgstr "Errore HTTP:"
+
+msgid "Clean"
+msgstr "Pulisci"
+
+msgid "File successfully uploaded."
+msgstr "File caricato correttamente."
+
+msgid "No file in queue."
+msgstr "Nessun file in coda."
+
+msgid "1 file in queue."
+msgstr "1 file in coda."
+
+#, php-format
+msgid "%d files in queue."
+msgstr "%d file in coda."
+
+msgid "Queue error:"
+msgstr "Errore coda:"
+
+msgid "Cancel filters and display options"
+msgstr ""
+
 msgid "other"
 msgstr ""
 
@@ -3154,9 +3398,6 @@ msgstr "Versione"
 msgid "Current version"
 msgstr "imposta permessi"
 
-msgid "Details"
-msgstr "Dettagli"
-
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -3169,16 +3410,6 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr ""
 
 msgid "Plugin from official distribution"
-msgstr ""
-
-msgid "Support"
-msgstr ""
-
-#, fuzzy
-msgid "Section:"
-msgstr "Azione"
-
-msgid "Tags:"
 msgstr ""
 
 msgid "No plugins matched your search."
@@ -4060,186 +4291,6 @@ msgstr "Si è verificato il seguente errore durante il tentativo di connessione 
 #, fuzzy
 #~ msgid "Entries actions"
 #~ msgstr "Azione sui post selezionati:"
-
-#, fuzzy
-#~ msgid "Go to dashboard"
-#~ msgstr "Pannello di gestione"
-
-#~ msgid "uncover"
-#~ msgstr "scopri"
-
-#~ msgid "hide"
-#~ msgstr "nascondi"
-
-#, fuzzy
-#~ msgid "Select:"
-#~ msgstr "Selezionato:"
-
-#, fuzzy
-#~ msgid "no selection"
-#~ msgstr "Nessuna selezione"
-
-#~ msgid "select all"
-#~ msgstr "seleziona tutto"
-
-#~ msgid "Invert selection"
-#~ msgstr "inverti selezione"
-
-#~ msgid "view entry"
-#~ msgstr "visualizza articolo"
-
-#~ msgid "Are you sure you want to delete selected entries (%s)?"
-#~ msgstr "Si è sicuri di voler eliminare gli articoli selezionati (%s)?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected medias (%d)?"
-#~ msgstr "Si è sicuri di voler eliminare gli articoli selezionati (%s)?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected categories (%s)?"
-#~ msgstr "Si è sicuri di voler eliminare gli articoli selezionati (%s)?"
-
-#~ msgid "Are you sure you want to delete this entry?"
-#~ msgstr "Si è sicuri di voler eliminare questo articolo?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "Si è sicuri di voler eliminare il tema \"%s\"?"
-
-#~ msgid "Are you sure you want to delete selected comments (%s)?"
-#~ msgstr "Si è sicuri di voler eliminare i commenti selezionati (%s)?"
-
-#~ msgid "Are you sure you want to delete this comment?"
-#~ msgstr "Si è sicuri di voler eliminare questo commento?"
-
-#~ msgid "Users with posts cannot be deleted."
-#~ msgstr "Gli utenti autori di articoli non possono essere eliminati."
-
-#~ msgid "Are you sure you want to delete selected users (%s)?"
-#~ msgstr "Si è sicuri di voler eliminare gli utenti selezionati (%s)?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected blogs (%s)?"
-#~ msgstr "Si è sicuri di voler eliminare gli utenti selezionati (%s)?"
-
-#~ msgid "Are you sure you want to delete category \"%s\"?"
-#~ msgstr "Si è sicuri di voler eliminare la categoria \"%s\"?"
-
-#~ msgid "Are you sure you want to reorder all categories?"
-#~ msgstr "Si è sicuri di voler riordinare tutte le categorie?"
-
-#~ msgid "Are you sure you want to remove media \"%s\"?"
-#~ msgstr "Si è sicuri di voler eliminare il contenuto media \"%s\"?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to remove directory \"%s\"?"
-#~ msgstr "Si è sicuri di voler eliminare il contenuto media \"%s\"?"
-
-#~ msgid "Are you sure you want to extract archive in current directory?"
-#~ msgstr "Si è sicuri di voler estrarre l'archivio nella cartella attuale?"
-
-#~ msgid "Are you sure you want to remove attachment \"%s\"?"
-#~ msgstr "Si è sicuri di voler eliminare l'allegato \"%s\"?"
-
-#~ msgid "Are you sure you want to delete \"%s\" language?"
-#~ msgstr "Si è sicuri di voler eliminare la lingua \"%s\"?"
-
-#~ msgid "Are you sure you want to delete \"%s\" plugin?"
-#~ msgstr "Si è sicuri di voler eliminare il componente aggiuntivo \"%s\"?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected plugins?"
-#~ msgstr "Si è sicuri di voler eliminare il componente aggiuntivo \"%s\"?"
-
-#~ msgid "Use this theme"
-#~ msgstr "Usa questo tema"
-
-#~ msgid "Remove this theme"
-#~ msgstr "Elimina questo tema"
-
-#~ msgid "Are you sure you want to delete \"%s\" theme?"
-#~ msgstr "Si è sicuri di voler eliminare il tema \"%s\"?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected themes?"
-#~ msgstr "Si è sicuri di voler eliminare gli articoli selezionati (%s)?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete this backup?"
-#~ msgstr "Si è sicuri di voler eliminare questo commento?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to revert to this backup?"
-#~ msgstr "Si è sicuri voler eliminare questo allegato?"
-
-#~ msgid "Zip file content"
-#~ msgstr "Contenuto del file zip"
-
-#~ msgid "XHTML markup validator"
-#~ msgstr "Validatore XHTML"
-
-#~ msgid "XHTML content is valid."
-#~ msgstr "Il contenuto XHTML è valido."
-
-#~ msgid "There are XHTML markup errors."
-#~ msgstr "Sono stati trovati degli errori XHTML."
-
-#, fuzzy
-#~ msgid "Help:"
-#~ msgstr "Aiuto"
-
-#, fuzzy
-#~ msgid "Hide this notice"
-#~ msgstr "Usa questo tema"
-
-#~ msgid "You have unsaved changes."
-#~ msgstr "Sono presenti delle modifiche non salvate."
-
-#, fuzzy
-#~ msgid "Choose date"
-#~ msgstr "Seleziona file"
-
-#~ msgid "close"
-#~ msgstr "chiudi"
-
-#~ msgid "now"
-#~ msgstr "ora"
-
-#~ msgid "Temporarily activate enhanced uploader"
-#~ msgstr "Attiva il caricamento avanzato"
-
-#~ msgid "Temporarily disable enhanced uploader"
-#~ msgstr "Disattiva il caricamento avanzato"
-
-#~ msgid "Limit exceeded."
-#~ msgstr "Limite superato."
-
-#~ msgid "File size exceeds allowed limit."
-#~ msgstr "La dimensione del file supera il limite consentito."
-
-#~ msgid "Canceled."
-#~ msgstr "Annullato."
-
-#~ msgid "HTTP Error:"
-#~ msgstr "Errore HTTP:"
-
-#~ msgid "Clean"
-#~ msgstr "Pulisci"
-
-#~ msgid "File successfully uploaded."
-#~ msgstr "File caricato correttamente."
-
-#~ msgid "No file in queue."
-#~ msgstr "Nessun file in coda."
-
-#~ msgid "1 file in queue."
-#~ msgstr "1 file in coda."
-
-#~ msgid "%d files in queue."
-#~ msgstr "%d file in coda."
-
-#~ msgid "Queue error:"
-#~ msgstr "Errore coda:"
 
 #, fuzzy
 #~ msgid "Manage plugin"

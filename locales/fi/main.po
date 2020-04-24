@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 14:50+0200\n"
+"POT-Creation-Date: 2020-04-24 10:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -2946,6 +2946,239 @@ msgstr ""
 msgid "Page top"
 msgstr "Sivut"
 
+msgid "Go to dashboard"
+msgstr "Ohjaustauluun"
+
+msgid "Help about this page"
+msgstr "Tätä sivua koskeva ohje"
+
+#, php-format
+msgid "See also %s"
+msgstr "Katso myös %s"
+
+msgid "the global help"
+msgstr "yleisohje"
+
+msgid "uncover"
+msgstr "paljasta"
+
+msgid "hide"
+msgstr "piilota"
+
+msgid "Need help?"
+msgstr "Tarvitsetko apua?"
+
+msgid "new window"
+msgstr "uusi ikkuna"
+
+msgid "Hide"
+msgstr "Piilota"
+
+msgid "Select:"
+msgstr "Valitse:"
+
+msgid "no selection"
+msgstr "ei valintaa"
+
+msgid "select all"
+msgstr "valitse kaikki"
+
+msgid "Invert selection"
+msgstr "käänteisvalinta"
+
+#, fuzzy
+msgid "Edit entry"
+msgstr "%d merkintä"
+
+msgid "view entry"
+msgstr "tarkastele blogimerkintää"
+
+#, php-format
+msgid "Are you sure you want to delete selected entries (%s)?"
+msgstr "Oletko varma, että haluat poistaa valitut merkinnät (%s) ?"
+
+#, php-format
+msgid "Are you sure you want to delete selected medias (%d)?"
+msgstr "Oletko varma, että haluat poistaa valitut media-aineistot (%d) ?"
+
+#, php-format
+msgid "Are you sure you want to delete selected categories (%s)?"
+msgstr "Oletko varma, että haluat poistaa valitut kategoriat (%s) ?"
+
+msgid "Are you sure you want to delete this entry?"
+msgstr "Oletko varma, että haluat poistaa tämän blogimerkinnän?"
+
+msgid "Click here to unlock the field"
+msgstr "Paina tästä kentän lukituksen vapauttamiseksi"
+
+msgid "Are you sure you want to delete all spams?"
+msgstr "Oletko varma, että haluat poistaa kaikki roskaviestit? "
+
+#, php-format
+msgid "Are you sure you want to delete selected comments (%s)?"
+msgstr "Oletko varma, että haluat poistaa valitut kommentit (%s) ?"
+
+msgid "Are you sure you want to delete this comment?"
+msgstr "Oletko varma, että haluat poistaa tämän kommentin? "
+
+msgid "Users with posts cannot be deleted."
+msgstr "Käyttäjiä, joilla on blogimerkintöjä, ei voi poistaa."
+
+#, php-format
+msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "Oletko varma, että haluat poistaa valitut käyttäjät (%s) ?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
+msgstr "Oletko varma, että haluat poistaa valitut käyttäjät (%s) ?"
+
+#, php-format
+msgid "Are you sure you want to delete category \"%s\"?"
+msgstr "Oletko varma, että haluat poistaa kategorian \"%s\" ?"
+
+msgid "Are you sure you want to reorder all categories?"
+msgstr "Oletko varma, että haluat järjestää uudelleen kaikki kategoriat?"
+
+#, php-format
+msgid "Are you sure you want to remove media \"%s\"?"
+msgstr "Oletko varma, että haluat poistaa media-aineiston  \"%s\" ?"
+
+#, php-format
+msgid "Are you sure you want to remove directory \"%s\"?"
+msgstr "Oletko varma, että haluat poistaa hakemiston \"%s\" ?"
+
+msgid "Are you sure you want to extract archive in current directory?"
+msgstr "Oletko varma, että haluat purkaa arkiston nykyhakemistoon?"
+
+#, php-format
+msgid "Are you sure you want to remove attachment \"%s\"?"
+msgstr "Oletko varma, että haluat poistaa liitetiedoston \"%s\" ?"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" language?"
+msgstr "Oletko varma, että haluat poistaa kielen \"%s\" ?"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" plugin?"
+msgstr "Oletko varma, että haluat poistaa liitännäisen \"%s\" ?"
+
+msgid "Are you sure you want to delete selected plugins?"
+msgstr "Oletko varma, että haluat poistaa valitut liitännäiset?"
+
+msgid "Use this theme"
+msgstr "Käytä tätä teemaa"
+
+msgid "Remove this theme"
+msgstr "Poista tämä teema"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" theme?"
+msgstr "Olet varma, että haluat poistaa teeman \"%s\"?"
+
+msgid "Are you sure you want to delete selected themes?"
+msgstr "Olet varma, että haluat poistaa valitut teemat?"
+
+msgid "Are you sure you want to delete this backup?"
+msgstr "Olet varma, että haluat poistaa tämän varmistuksen?"
+
+msgid "Are you sure you want to revert to this backup?"
+msgstr "Olet varma, että haluat palata tähän varmistettuun versioon?"
+
+msgid "Zip file content"
+msgstr "Zip-tiedoston sisältö"
+
+msgid "XHTML markup validator"
+msgstr "XHTML-koodauksen tarkistus"
+
+msgid "XHTML content is valid."
+msgstr "XHTML-koodattu sisältö on kunnossa."
+
+msgid "There are XHTML markup errors."
+msgstr "XHTML-koodausvirheitä on."
+
+msgid "Attention: an audit of a content not yet registered."
+msgstr "Varoitus: tarkistus koskee sisältöä, jota ei ole vielä tallennettu."
+
+msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr "Muutoksia ei ole tallennettu. Muutokset eivät säily blogimerkinnän muotoa muutettaessa. Jatketaanko tästä huolimatta?"
+
+msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
+msgstr "Varoitus: muutettaessa blogimerkinnän muotoa olemassaoleva sisältö ei konvertoidu automaattisesti, vaan joudut tekemään konversion käsin itse. Jatketaanko tästä huolimatta?"
+
+msgid "Loading enhanced uploader, please wait."
+msgstr "Ladataan parannetun tiedostonlatauksen moduli, odota..."
+
+msgid "Details"
+msgstr "Tiedot"
+
+msgid "Support"
+msgstr "Tuki"
+
+msgid "Help:"
+msgstr "Ohje:"
+
+msgid "Section:"
+msgstr "Osa:"
+
+msgid "Tags:"
+msgstr "Avainsanat:"
+
+#, fuzzy
+msgid "Hide this notice"
+msgstr "Käytä tätä"
+
+msgid "You have unsaved changes."
+msgstr "Et ole tallentanut muutoksia."
+
+msgid "Choose date"
+msgstr "Valitse päiväys"
+
+msgid "close"
+msgstr "sulje"
+
+msgid "now"
+msgstr "nyt"
+
+msgid "Temporarily activate enhanced uploader"
+msgstr "Ota käyttöön parannettu tiedostonlataus väliaikaisesti"
+
+msgid "Temporarily disable enhanced uploader"
+msgstr "Poista käytöstä parannettu tiedostonlataus väliaikaisesti"
+
+msgid "Limit exceeded."
+msgstr "Raja ylitetty."
+
+msgid "File size exceeds allowed limit."
+msgstr "Tiedoston koko ylittää sallitun rajan."
+
+msgid "Canceled."
+msgstr "Peruutettu."
+
+msgid "HTTP Error:"
+msgstr "HTTP-virhe:"
+
+msgid "Clean"
+msgstr "Puhdista"
+
+msgid "File successfully uploaded."
+msgstr "Tiedosto lähetetty palvelimelle."
+
+msgid "No file in queue."
+msgstr "Jonossa ei tiedostoja."
+
+msgid "1 file in queue."
+msgstr "1 tiedosto jonossa."
+
+#, php-format
+msgid "%d files in queue."
+msgstr "%d tiedostoa jonossa."
+
+msgid "Queue error:"
+msgstr "Jonovirhe:"
+
+msgid "Cancel filters and display options"
+msgstr "Sulje suodattimet ja näyttövaihtoehdot"
+
 msgid "other"
 msgstr "muut"
 
@@ -2991,9 +3224,6 @@ msgstr "Versio"
 msgid "Current version"
 msgstr "Nykyversio"
 
-msgid "Details"
-msgstr "Tiedot"
-
 #, fuzzy, php-format
 msgid " (%s)"
 msgstr "(%s)"
@@ -3007,15 +3237,6 @@ msgstr ""
 
 msgid "Plugin from official distribution"
 msgstr "Viralliseen jakeluun kuuluva liitännäinen"
-
-msgid "Support"
-msgstr "Tuki"
-
-msgid "Section:"
-msgstr "Osa:"
-
-msgid "Tags:"
-msgstr "Avainsanat:"
 
 msgid "No plugins matched your search."
 msgstr "Mikään liitännäinen ei vastaa hakuasi."
@@ -3836,209 +4057,6 @@ msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
 
 #~ msgid "Go to search"
 #~ msgstr "Mene hakuun"
-
-#~ msgid "Go to dashboard"
-#~ msgstr "Ohjaustauluun"
-
-#~ msgid "Help about this page"
-#~ msgstr "Tätä sivua koskeva ohje"
-
-#~ msgid "See also %s"
-#~ msgstr "Katso myös %s"
-
-#~ msgid "the global help"
-#~ msgstr "yleisohje"
-
-#~ msgid "uncover"
-#~ msgstr "paljasta"
-
-#~ msgid "hide"
-#~ msgstr "piilota"
-
-#~ msgid "Need help?"
-#~ msgstr "Tarvitsetko apua?"
-
-#~ msgid "new window"
-#~ msgstr "uusi ikkuna"
-
-#~ msgid "Hide"
-#~ msgstr "Piilota"
-
-#~ msgid "Select:"
-#~ msgstr "Valitse:"
-
-#~ msgid "no selection"
-#~ msgstr "ei valintaa"
-
-#~ msgid "select all"
-#~ msgstr "valitse kaikki"
-
-#~ msgid "Invert selection"
-#~ msgstr "käänteisvalinta"
-
-#~ msgid "view entry"
-#~ msgstr "tarkastele blogimerkintää"
-
-#~ msgid "Are you sure you want to delete selected entries (%s)?"
-#~ msgstr "Oletko varma, että haluat poistaa valitut merkinnät (%s) ?"
-
-#~ msgid "Are you sure you want to delete selected medias (%d)?"
-#~ msgstr "Oletko varma, että haluat poistaa valitut media-aineistot (%d) ?"
-
-#~ msgid "Are you sure you want to delete selected categories (%s)?"
-#~ msgstr "Oletko varma, että haluat poistaa valitut kategoriat (%s) ?"
-
-#~ msgid "Are you sure you want to delete this entry?"
-#~ msgstr "Oletko varma, että haluat poistaa tämän blogimerkinnän?"
-
-#~ msgid "Click here to unlock the field"
-#~ msgstr "Paina tästä kentän lukituksen vapauttamiseksi"
-
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "Oletko varma, että haluat poistaa kaikki roskaviestit? "
-
-#~ msgid "Are you sure you want to delete selected comments (%s)?"
-#~ msgstr "Oletko varma, että haluat poistaa valitut kommentit (%s) ?"
-
-#~ msgid "Are you sure you want to delete this comment?"
-#~ msgstr "Oletko varma, että haluat poistaa tämän kommentin? "
-
-#~ msgid "Users with posts cannot be deleted."
-#~ msgstr "Käyttäjiä, joilla on blogimerkintöjä, ei voi poistaa."
-
-#~ msgid "Are you sure you want to delete selected users (%s)?"
-#~ msgstr "Oletko varma, että haluat poistaa valitut käyttäjät (%s) ?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected blogs (%s)?"
-#~ msgstr "Oletko varma, että haluat poistaa valitut käyttäjät (%s) ?"
-
-#~ msgid "Are you sure you want to delete category \"%s\"?"
-#~ msgstr "Oletko varma, että haluat poistaa kategorian \"%s\" ?"
-
-#~ msgid "Are you sure you want to reorder all categories?"
-#~ msgstr "Oletko varma, että haluat järjestää uudelleen kaikki kategoriat?"
-
-#~ msgid "Are you sure you want to remove media \"%s\"?"
-#~ msgstr "Oletko varma, että haluat poistaa media-aineiston  \"%s\" ?"
-
-#~ msgid "Are you sure you want to remove directory \"%s\"?"
-#~ msgstr "Oletko varma, että haluat poistaa hakemiston \"%s\" ?"
-
-#~ msgid "Are you sure you want to extract archive in current directory?"
-#~ msgstr "Oletko varma, että haluat purkaa arkiston nykyhakemistoon?"
-
-#~ msgid "Are you sure you want to remove attachment \"%s\"?"
-#~ msgstr "Oletko varma, että haluat poistaa liitetiedoston \"%s\" ?"
-
-#~ msgid "Are you sure you want to delete \"%s\" language?"
-#~ msgstr "Oletko varma, että haluat poistaa kielen \"%s\" ?"
-
-#~ msgid "Are you sure you want to delete \"%s\" plugin?"
-#~ msgstr "Oletko varma, että haluat poistaa liitännäisen \"%s\" ?"
-
-#~ msgid "Are you sure you want to delete selected plugins?"
-#~ msgstr "Oletko varma, että haluat poistaa valitut liitännäiset?"
-
-#~ msgid "Use this theme"
-#~ msgstr "Käytä tätä teemaa"
-
-#~ msgid "Remove this theme"
-#~ msgstr "Poista tämä teema"
-
-#~ msgid "Are you sure you want to delete \"%s\" theme?"
-#~ msgstr "Olet varma, että haluat poistaa teeman \"%s\"?"
-
-#~ msgid "Are you sure you want to delete selected themes?"
-#~ msgstr "Olet varma, että haluat poistaa valitut teemat?"
-
-#~ msgid "Are you sure you want to delete this backup?"
-#~ msgstr "Olet varma, että haluat poistaa tämän varmistuksen?"
-
-#~ msgid "Are you sure you want to revert to this backup?"
-#~ msgstr "Olet varma, että haluat palata tähän varmistettuun versioon?"
-
-#~ msgid "Zip file content"
-#~ msgstr "Zip-tiedoston sisältö"
-
-#~ msgid "XHTML markup validator"
-#~ msgstr "XHTML-koodauksen tarkistus"
-
-#~ msgid "XHTML content is valid."
-#~ msgstr "XHTML-koodattu sisältö on kunnossa."
-
-#~ msgid "There are XHTML markup errors."
-#~ msgstr "XHTML-koodausvirheitä on."
-
-#~ msgid "Attention: an audit of a content not yet registered."
-#~ msgstr "Varoitus: tarkistus koskee sisältöä, jota ei ole vielä tallennettu."
-
-#~ msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
-#~ msgstr "Muutoksia ei ole tallennettu. Muutokset eivät säily blogimerkinnän muotoa muutettaessa. Jatketaanko tästä huolimatta?"
-
-#~ msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
-#~ msgstr "Varoitus: muutettaessa blogimerkinnän muotoa olemassaoleva sisältö ei konvertoidu automaattisesti, vaan joudut tekemään konversion käsin itse. Jatketaanko tästä huolimatta?"
-
-#~ msgid "Loading enhanced uploader, please wait."
-#~ msgstr "Ladataan parannetun tiedostonlatauksen moduli, odota..."
-
-#~ msgid "Help:"
-#~ msgstr "Ohje:"
-
-#, fuzzy
-#~ msgid "Hide this notice"
-#~ msgstr "Käytä tätä"
-
-#~ msgid "You have unsaved changes."
-#~ msgstr "Et ole tallentanut muutoksia."
-
-#~ msgid "Choose date"
-#~ msgstr "Valitse päiväys"
-
-#~ msgid "close"
-#~ msgstr "sulje"
-
-#~ msgid "now"
-#~ msgstr "nyt"
-
-#~ msgid "Temporarily activate enhanced uploader"
-#~ msgstr "Ota käyttöön parannettu tiedostonlataus väliaikaisesti"
-
-#~ msgid "Temporarily disable enhanced uploader"
-#~ msgstr "Poista käytöstä parannettu tiedostonlataus väliaikaisesti"
-
-#~ msgid "Limit exceeded."
-#~ msgstr "Raja ylitetty."
-
-#~ msgid "File size exceeds allowed limit."
-#~ msgstr "Tiedoston koko ylittää sallitun rajan."
-
-#~ msgid "Canceled."
-#~ msgstr "Peruutettu."
-
-#~ msgid "HTTP Error:"
-#~ msgstr "HTTP-virhe:"
-
-#~ msgid "Clean"
-#~ msgstr "Puhdista"
-
-#~ msgid "File successfully uploaded."
-#~ msgstr "Tiedosto lähetetty palvelimelle."
-
-#~ msgid "No file in queue."
-#~ msgstr "Jonossa ei tiedostoja."
-
-#~ msgid "1 file in queue."
-#~ msgstr "1 tiedosto jonossa."
-
-#~ msgid "%d files in queue."
-#~ msgstr "%d tiedostoa jonossa."
-
-#~ msgid "Queue error:"
-#~ msgstr "Jonovirhe:"
-
-#~ msgid "Cancel filters and display options"
-#~ msgstr "Sulje suodattimet ja näyttövaihtoehdot"
 
 #, fuzzy
 #~ msgid "Manage plugin"

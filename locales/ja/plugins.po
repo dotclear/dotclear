@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 14:52+0200\n"
+"POT-Creation-Date: 2020-04-24 10:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -361,10 +361,6 @@ msgstr "フィルタの設定は正常に保存されました。"
 #, php-format
 msgid "%s configuration"
 msgstr "%s の設定"
-
-#, fuzzy
-msgid "Are you sure you want to delete all spams?"
-msgstr "本当に、このページを削除してもよろしいですか？"
 
 #, fuzzy, php-format
 msgid "%s filter configuration"
@@ -1795,9 +1791,6 @@ msgstr "Pingサービスのテスト"
 msgid "Simple menu"
 msgstr ""
 
-msgid "new window"
-msgstr ""
-
 #, fuzzy
 msgid "Active page"
 msgstr "有効"
@@ -2427,6 +2420,10 @@ msgstr "ウィジェットの削除"
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "本当に、このページを削除してもよろしいですか？"
 
 #~ msgid "Page top"
 #~ msgstr "ページトップ"

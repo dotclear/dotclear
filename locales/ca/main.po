@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 14:44+0200\n"
+"POT-Creation-Date: 2020-04-24 10:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Catalan\n"
@@ -3141,6 +3141,261 @@ msgstr ""
 msgid "Page top"
 msgstr "Pàgina(es)"
 
+#, fuzzy
+msgid "Go to dashboard"
+msgstr "Quadre de comandament"
+
+msgid "Help about this page"
+msgstr ""
+
+#, php-format
+msgid "See also %s"
+msgstr ""
+
+msgid "the global help"
+msgstr ""
+
+#, fuzzy
+msgid "uncover"
+msgstr "Recuperar"
+
+msgid "hide"
+msgstr ""
+
+msgid "Need help?"
+msgstr ""
+
+msgid "new window"
+msgstr ""
+
+msgid "Hide"
+msgstr ""
+
+#, fuzzy
+msgid "Select:"
+msgstr "Seleccionat:"
+
+#, fuzzy
+msgid "no selection"
+msgstr "invertir la selecció"
+
+msgid "select all"
+msgstr "Seleccionar tot"
+
+msgid "Invert selection"
+msgstr "invertir la selecció"
+
+#, fuzzy
+msgid "Edit entry"
+msgstr "%d entrada"
+
+msgid "view entry"
+msgstr "Veure l'entrada"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected entries (%s)?"
+msgstr "Està segur que vol suprimir les entrades seleccionades?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected medias (%d)?"
+msgstr "Està segur que vol suprimir les entrades seleccionades?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected categories (%s)?"
+msgstr "Està segur que vol suprimir les entrades seleccionades?"
+
+msgid "Are you sure you want to delete this entry?"
+msgstr "Està segur que vol suprimir aquesta entrada?"
+
+msgid "Click here to unlock the field"
+msgstr ""
+
+#, fuzzy
+msgid "Are you sure you want to delete all spams?"
+msgstr "Està segur que vol suprimir aquest comentari?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected comments (%s)?"
+msgstr "Està segur que vol suprimir els comentari seleccionats?"
+
+msgid "Are you sure you want to delete this comment?"
+msgstr "Està segur que vol suprimir aquest comentari?"
+
+#, fuzzy
+msgid "Users with posts cannot be deleted."
+msgstr "El directori no es pot suprimir."
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "Està segur que vol suprimir els usuaris seleccionats?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
+msgstr "Està segur que vol suprimir els usuaris seleccionats?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete category \"%s\"?"
+msgstr "Està segur que vol suprimir aquesta entrada?"
+
+#, fuzzy
+msgid "Are you sure you want to reorder all categories?"
+msgstr "Està segur que vol suprimir les categories seleccionades?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove media \"%s\"?"
+msgstr "Està segur que vol suprimir  %s?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove directory \"%s\"?"
+msgstr "Està segur que vol suprimir  %s?"
+
+#, fuzzy
+msgid "Are you sure you want to extract archive in current directory?"
+msgstr "Està segur que vol suprimir aquesta entrada?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove attachment \"%s\"?"
+msgstr "Està segur que vol suprimir aquest annex?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete \"%s\" language?"
+msgstr "Està segur que vol suprimir aquesta entrada?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete \"%s\" plugin?"
+msgstr "Està segur que vol suprimir les extensions seleccionades?"
+
+#, fuzzy
+msgid "Are you sure you want to delete selected plugins?"
+msgstr "Està segur que vol suprimir les extensions seleccionades?"
+
+#, fuzzy
+msgid "Use this theme"
+msgstr "Suprimir l'annex"
+
+#, fuzzy
+msgid "Remove this theme"
+msgstr "Suprimir l'annex"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete \"%s\" theme?"
+msgstr "Està segur que vol suprimir aquest comentari?"
+
+#, fuzzy
+msgid "Are you sure you want to delete selected themes?"
+msgstr "Està segur que vol suprimir les entrades seleccionades?"
+
+#, fuzzy
+msgid "Are you sure you want to delete this backup?"
+msgstr "Està segur que vol suprimir aquest comentari?"
+
+#, fuzzy
+msgid "Are you sure you want to revert to this backup?"
+msgstr "Està segur que vol suprimir aquest annex?"
+
+#, fuzzy
+msgid "Zip file content"
+msgstr "L'entrada no te contingut."
+
+msgid "XHTML markup validator"
+msgstr ""
+
+msgid "XHTML content is valid."
+msgstr ""
+
+msgid "There are XHTML markup errors."
+msgstr ""
+
+msgid "Attention: an audit of a content not yet registered."
+msgstr ""
+
+msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
+
+msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
+msgstr ""
+
+msgid "Loading enhanced uploader, please wait."
+msgstr ""
+
+#, fuzzy
+msgid "Details"
+msgstr "Detalls del blog"
+
+msgid "Support"
+msgstr ""
+
+msgid "Help:"
+msgstr ""
+
+#, fuzzy
+msgid "Section:"
+msgstr "Descripció:"
+
+msgid "Tags:"
+msgstr ""
+
+#, fuzzy
+msgid "Hide this notice"
+msgstr "Usuaris en aquest blog"
+
+msgid "You have unsaved changes."
+msgstr "No ha guardat els canvis."
+
+#, fuzzy
+msgid "Choose date"
+msgstr "Esculli un fitxer:"
+
+msgid "close"
+msgstr "tancar"
+
+msgid "now"
+msgstr "ara"
+
+msgid "Temporarily activate enhanced uploader"
+msgstr ""
+
+msgid "Temporarily disable enhanced uploader"
+msgstr ""
+
+msgid "Limit exceeded."
+msgstr ""
+
+msgid "File size exceeds allowed limit."
+msgstr ""
+
+#, fuzzy
+msgid "Canceled."
+msgstr "Anul·lar"
+
+#, fuzzy
+msgid "HTTP Error:"
+msgstr "Errors:"
+
+msgid "Clean"
+msgstr ""
+
+#, fuzzy
+msgid "File successfully uploaded."
+msgstr "Els fitxers s'han actualitzat amb èxit."
+
+#, fuzzy
+msgid "No file in queue."
+msgstr "Cap fitxer."
+
+msgid "1 file in queue."
+msgstr ""
+
+#, php-format
+msgid "%d files in queue."
+msgstr ""
+
+msgid "Queue error:"
+msgstr ""
+
+msgid "Cancel filters and display options"
+msgstr ""
+
 msgid "other"
 msgstr ""
 
@@ -3190,10 +3445,6 @@ msgstr "Versió"
 msgid "Current version"
 msgstr "definir els permisos"
 
-#, fuzzy
-msgid "Details"
-msgstr "Detalls del blog"
-
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -3206,16 +3457,6 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr ""
 
 msgid "Plugin from official distribution"
-msgstr ""
-
-msgid "Support"
-msgstr ""
-
-#, fuzzy
-msgid "Section:"
-msgstr "Descripció:"
-
-msgid "Tags:"
 msgstr ""
 
 msgid "No plugins matched your search."
@@ -4104,134 +4345,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Entries actions"
 #~ msgstr "Acció en les entrades seleccionades:"
-
-#, fuzzy
-#~ msgid "Go to dashboard"
-#~ msgstr "Quadre de comandament"
-
-#, fuzzy
-#~ msgid "Select:"
-#~ msgstr "Seleccionat:"
-
-#, fuzzy
-#~ msgid "no selection"
-#~ msgstr "invertir la selecció"
-
-#~ msgid "select all"
-#~ msgstr "Seleccionar tot"
-
-#~ msgid "Invert selection"
-#~ msgstr "invertir la selecció"
-
-#~ msgid "view entry"
-#~ msgstr "Veure l'entrada"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected entries (%s)?"
-#~ msgstr "Està segur que vol suprimir les entrades seleccionades?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected medias (%d)?"
-#~ msgstr "Està segur que vol suprimir les entrades seleccionades?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected categories (%s)?"
-#~ msgstr "Està segur que vol suprimir les entrades seleccionades?"
-
-#~ msgid "Are you sure you want to delete this entry?"
-#~ msgstr "Està segur que vol suprimir aquesta entrada?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "Està segur que vol suprimir aquest comentari?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected comments (%s)?"
-#~ msgstr "Està segur que vol suprimir els comentari seleccionats?"
-
-#~ msgid "Are you sure you want to delete this comment?"
-#~ msgstr "Està segur que vol suprimir aquest comentari?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected users (%s)?"
-#~ msgstr "Està segur que vol suprimir els usuaris seleccionats?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected blogs (%s)?"
-#~ msgstr "Està segur que vol suprimir els usuaris seleccionats?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete category \"%s\"?"
-#~ msgstr "Està segur que vol suprimir aquesta entrada?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to reorder all categories?"
-#~ msgstr "Està segur que vol suprimir les categories seleccionades?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to remove media \"%s\"?"
-#~ msgstr "Està segur que vol suprimir  %s?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to remove directory \"%s\"?"
-#~ msgstr "Està segur que vol suprimir  %s?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to extract archive in current directory?"
-#~ msgstr "Està segur que vol suprimir aquesta entrada?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to remove attachment \"%s\"?"
-#~ msgstr "Està segur que vol suprimir aquest annex?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete \"%s\" language?"
-#~ msgstr "Està segur que vol suprimir aquesta entrada?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete \"%s\" plugin?"
-#~ msgstr "Està segur que vol suprimir les extensions seleccionades?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected plugins?"
-#~ msgstr "Està segur que vol suprimir les extensions seleccionades?"
-
-#, fuzzy
-#~ msgid "Remove this theme"
-#~ msgstr "Suprimir l'annex"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete \"%s\" theme?"
-#~ msgstr "Està segur que vol suprimir aquest comentari?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected themes?"
-#~ msgstr "Està segur que vol suprimir les entrades seleccionades?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete this backup?"
-#~ msgstr "Està segur que vol suprimir aquest comentari?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to revert to this backup?"
-#~ msgstr "Està segur que vol suprimir aquest annex?"
-
-#, fuzzy
-#~ msgid "Hide this notice"
-#~ msgstr "Usuaris en aquest blog"
-
-#~ msgid "You have unsaved changes."
-#~ msgstr "No ha guardat els canvis."
-
-#, fuzzy
-#~ msgid "Choose date"
-#~ msgstr "Esculli un fitxer:"
-
-#~ msgid "close"
-#~ msgstr "tancar"
-
-#~ msgid "now"
-#~ msgstr "ara"
 
 #, fuzzy
 #~ msgid "Manage plugin"

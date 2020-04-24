@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 15:00+0200\n"
+"POT-Creation-Date: 2020-04-24 10:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: crm <admin@craftmerkezi.com>\n"
@@ -3094,6 +3094,249 @@ msgstr "\"%s\" kullandığınız için teşekkürler"
 msgid "Page top"
 msgstr "Sayfa(lar)"
 
+#, fuzzy
+msgid "Go to dashboard"
+msgstr "Gösterge"
+
+msgid "Help about this page"
+msgstr ""
+
+#, php-format
+msgid "See also %s"
+msgstr ""
+
+msgid "the global help"
+msgstr ""
+
+#, fuzzy
+msgid "uncover"
+msgstr "kurtar"
+
+msgid "hide"
+msgstr "gizle"
+
+msgid "Need help?"
+msgstr ""
+
+msgid "new window"
+msgstr ""
+
+msgid "Hide"
+msgstr ""
+
+#, fuzzy
+msgid "Select:"
+msgstr "Seçili:"
+
+#, fuzzy
+msgid "no selection"
+msgstr "Seçim yok"
+
+msgid "select all"
+msgstr "hepsini seç"
+
+msgid "Invert selection"
+msgstr "seçimi evir"
+
+#, fuzzy
+msgid "Edit entry"
+msgstr "%d yazı"
+
+msgid "view entry"
+msgstr "yazıyı gör"
+
+#, php-format
+msgid "Are you sure you want to delete selected entries (%s)?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete selected medias (%d)?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete selected categories (%s)?"
+msgstr ""
+
+msgid "Are you sure you want to delete this entry?"
+msgstr ""
+
+msgid "Click here to unlock the field"
+msgstr ""
+
+msgid "Are you sure you want to delete all spams?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete selected comments (%s)?"
+msgstr ""
+
+#, fuzzy
+msgid "Are you sure you want to delete this comment?"
+msgstr "Bu ahkamı düzenleyemezsiniz."
+
+#, fuzzy
+msgid "Users with posts cannot be deleted."
+msgstr "Dizin silinemedi."
+
+#, php-format
+msgid "Are you sure you want to delete selected users (%s)?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete category \"%s\"?"
+msgstr ""
+
+msgid "Are you sure you want to reorder all categories?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to remove media \"%s\"?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to remove directory \"%s\"?"
+msgstr ""
+
+#, fuzzy
+msgid "Are you sure you want to extract archive in current directory?"
+msgstr "Bulunduğu dizine aç"
+
+#, php-format
+msgid "Are you sure you want to remove attachment \"%s\"?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" language?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" plugin?"
+msgstr ""
+
+msgid "Are you sure you want to delete selected plugins?"
+msgstr ""
+
+msgid "Use this theme"
+msgstr "Bu temayı kullan"
+
+msgid "Remove this theme"
+msgstr "Bu temayı sil"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" theme?"
+msgstr ""
+
+msgid "Are you sure you want to delete selected themes?"
+msgstr ""
+
+msgid "Are you sure you want to delete this backup?"
+msgstr ""
+
+msgid "Are you sure you want to revert to this backup?"
+msgstr ""
+
+msgid "Zip file content"
+msgstr "ZIP dosyası içeriği"
+
+msgid "XHTML markup validator"
+msgstr "XHTML tastikle"
+
+msgid "XHTML content is valid."
+msgstr "XHTML içeriği geçerli."
+
+msgid "There are XHTML markup errors."
+msgstr "XHTML markup hataları var."
+
+msgid "Attention: an audit of a content not yet registered."
+msgstr ""
+
+msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
+
+msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
+msgstr ""
+
+msgid "Loading enhanced uploader, please wait."
+msgstr ""
+
+msgid "Details"
+msgstr "Ayrıntılar"
+
+msgid "Support"
+msgstr ""
+
+#, fuzzy
+msgid "Help:"
+msgstr "Yardım"
+
+#, fuzzy
+msgid "Section:"
+msgstr "Eylem"
+
+msgid "Tags:"
+msgstr ""
+
+#, fuzzy
+msgid "Hide this notice"
+msgstr "Bu temayı kullan"
+
+msgid "You have unsaved changes."
+msgstr "Kaydedilmemiş değişiklikler var."
+
+#, fuzzy
+msgid "Choose date"
+msgstr "Dosya seçimi"
+
+msgid "close"
+msgstr "kapat"
+
+msgid "now"
+msgstr "şimdi"
+
+msgid "Temporarily activate enhanced uploader"
+msgstr "Gelişmiş yükleyiciyi etkinleştir"
+
+msgid "Temporarily disable enhanced uploader"
+msgstr "Gelişmiş yükleyiciyi kapat"
+
+msgid "Limit exceeded."
+msgstr "Sınır aşıldı."
+
+msgid "File size exceeds allowed limit."
+msgstr "Dosya boyutu müsaadelinin üzerinde."
+
+msgid "Canceled."
+msgstr "İptallendi."
+
+msgid "HTTP Error:"
+msgstr "HTTP Hatası:"
+
+msgid "Clean"
+msgstr "Temizle"
+
+msgid "File successfully uploaded."
+msgstr "Dosya başarıyla yüklendi."
+
+msgid "No file in queue."
+msgstr "Kuyrukta dosya yok."
+
+msgid "1 file in queue."
+msgstr "kuyrukta 1 dosya var."
+
+#, php-format
+msgid "%d files in queue."
+msgstr "Kuyrukta %d dosya var."
+
+msgid "Queue error:"
+msgstr "Kuyruk hatası."
+
+msgid "Cancel filters and display options"
+msgstr ""
+
 msgid "other"
 msgstr ""
 
@@ -3143,9 +3386,6 @@ msgstr "Sürüm"
 msgid "Current version"
 msgstr "izinleri ayarla"
 
-msgid "Details"
-msgstr "Ayrıntılar"
-
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -3158,16 +3398,6 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr ""
 
 msgid "Plugin from official distribution"
-msgstr ""
-
-msgid "Support"
-msgstr ""
-
-#, fuzzy
-msgid "Section:"
-msgstr "Eylem"
-
-msgid "Tags:"
 msgstr ""
 
 msgid "No plugins matched your search."
@@ -4046,105 +4276,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Entries actions"
 #~ msgstr "Seçilmiş yazılara yap:"
-
-#, fuzzy
-#~ msgid "Go to dashboard"
-#~ msgstr "Gösterge"
-
-#~ msgid "hide"
-#~ msgstr "gizle"
-
-#, fuzzy
-#~ msgid "Select:"
-#~ msgstr "Seçili:"
-
-#, fuzzy
-#~ msgid "no selection"
-#~ msgstr "Seçim yok"
-
-#~ msgid "select all"
-#~ msgstr "hepsini seç"
-
-#~ msgid "Invert selection"
-#~ msgstr "seçimi evir"
-
-#~ msgid "view entry"
-#~ msgstr "yazıyı gör"
-
-#~ msgid "Use this theme"
-#~ msgstr "Bu temayı kullan"
-
-#~ msgid "Remove this theme"
-#~ msgstr "Bu temayı sil"
-
-#~ msgid "Zip file content"
-#~ msgstr "ZIP dosyası içeriği"
-
-#~ msgid "XHTML markup validator"
-#~ msgstr "XHTML tastikle"
-
-#~ msgid "XHTML content is valid."
-#~ msgstr "XHTML içeriği geçerli."
-
-#~ msgid "There are XHTML markup errors."
-#~ msgstr "XHTML markup hataları var."
-
-#, fuzzy
-#~ msgid "Help:"
-#~ msgstr "Yardım"
-
-#, fuzzy
-#~ msgid "Hide this notice"
-#~ msgstr "Bu temayı kullan"
-
-#~ msgid "You have unsaved changes."
-#~ msgstr "Kaydedilmemiş değişiklikler var."
-
-#, fuzzy
-#~ msgid "Choose date"
-#~ msgstr "Dosya seçimi"
-
-#~ msgid "close"
-#~ msgstr "kapat"
-
-#~ msgid "now"
-#~ msgstr "şimdi"
-
-#~ msgid "Temporarily activate enhanced uploader"
-#~ msgstr "Gelişmiş yükleyiciyi etkinleştir"
-
-#~ msgid "Temporarily disable enhanced uploader"
-#~ msgstr "Gelişmiş yükleyiciyi kapat"
-
-#~ msgid "Limit exceeded."
-#~ msgstr "Sınır aşıldı."
-
-#~ msgid "File size exceeds allowed limit."
-#~ msgstr "Dosya boyutu müsaadelinin üzerinde."
-
-#~ msgid "Canceled."
-#~ msgstr "İptallendi."
-
-#~ msgid "HTTP Error:"
-#~ msgstr "HTTP Hatası:"
-
-#~ msgid "Clean"
-#~ msgstr "Temizle"
-
-#~ msgid "File successfully uploaded."
-#~ msgstr "Dosya başarıyla yüklendi."
-
-#~ msgid "No file in queue."
-#~ msgstr "Kuyrukta dosya yok."
-
-#~ msgid "1 file in queue."
-#~ msgstr "kuyrukta 1 dosya var."
-
-#~ msgid "%d files in queue."
-#~ msgstr "Kuyrukta %d dosya var."
-
-#~ msgid "Queue error:"
-#~ msgstr "Kuyruk hatası."
 
 #, fuzzy
 #~ msgid "Manage plugin"

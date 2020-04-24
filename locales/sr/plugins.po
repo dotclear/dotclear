@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 14:59+0200\n"
+"POT-Creation-Date: 2020-04-24 10:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:53+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -338,9 +338,6 @@ msgstr ""
 
 #, php-format
 msgid "%s configuration"
-msgstr ""
-
-msgid "Are you sure you want to delete all spams?"
 msgstr ""
 
 #, php-format
@@ -1703,9 +1700,6 @@ msgid "Test ping services"
 msgstr ""
 
 msgid "Simple menu"
-msgstr ""
-
-msgid "new window"
 msgstr ""
 
 msgid "Active page"

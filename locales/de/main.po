@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 14:46+0200\n"
+"POT-Creation-Date: 2020-04-24 10:23+0200\n"
 "PO-Revision-Date: 2017-12-22 19:46+0100\n"
 "Last-Translator: Tin2 <sort300-blog@yahoo.com>\n"
 "Language-Team: \n"
@@ -2917,6 +2917,241 @@ msgstr "Danke für die Benutzung von %s."
 msgid "Page top"
 msgstr "Seitenbeginn"
 
+msgid "Go to dashboard"
+msgstr "Zum Dashboard wechseln"
+
+msgid "Help about this page"
+msgstr "Hilfe für diese Seite"
+
+#, php-format
+msgid "See also %s"
+msgstr "Siehe auch %s"
+
+msgid "the global help"
+msgstr "globalen Hilfe"
+
+msgid "uncover"
+msgstr "zeigen"
+
+msgid "hide"
+msgstr "verbergen"
+
+msgid "Need help?"
+msgstr "Hilfe nötig?"
+
+msgid "new window"
+msgstr "neues Fenster"
+
+msgid "Hide"
+msgstr "Verbergen"
+
+msgid "Select:"
+msgstr "Wählen:"
+
+msgid "no selection"
+msgstr "keine Auswahl"
+
+msgid "select all"
+msgstr "alles markieren"
+
+msgid "Invert selection"
+msgstr "Auswahl umkehren"
+
+#, fuzzy
+msgid "Edit entry"
+msgstr "% d Eintrag"
+
+msgid "view entry"
+msgstr "Eintrag zeigen"
+
+#, php-format
+msgid "Are you sure you want to delete selected entries (%s)?"
+msgstr "Ausgewählte Einträge (%s) wirklich löschen?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected medias (%d)?"
+msgstr "Ausgewählte Einträge (%s) wirklich löschen?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected categories (%s)?"
+msgstr "Ausgewählte Einträge (%s) wirklich löschen?"
+
+msgid "Are you sure you want to delete this entry?"
+msgstr "Ausgewählten Eintrag wirklich löschen?"
+
+msgid "Click here to unlock the field"
+msgstr "Hier klicken, um das Feld zu entsperren"
+
+msgid "Are you sure you want to delete all spams?"
+msgstr "Wirklich allen SPAM löschen?"
+
+#, php-format
+msgid "Are you sure you want to delete selected comments (%s)?"
+msgstr "Ausgewählte Kommentare (%s) wirklich löschen?"
+
+msgid "Are you sure you want to delete this comment?"
+msgstr "Ausgewählten Kommentar wirklich löschen?"
+
+msgid "Users with posts cannot be deleted."
+msgstr "Benutzernamen mit Einträgen können nicht entfernt werden."
+
+#, php-format
+msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "Ausgewählte Benutzer (%s) wirklich löschen?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
+msgstr "Ausgewählte Benutzer (%s) wirklich löschen?"
+
+#, php-format
+msgid "Are you sure you want to delete category \"%s\"?"
+msgstr "Kategorie \"%s\" wirklich löschen?"
+
+msgid "Are you sure you want to reorder all categories?"
+msgstr "Kategorien \"%s\" wirklich neu ordnen?"
+
+#, php-format
+msgid "Are you sure you want to remove media \"%s\"?"
+msgstr "Medium \"%s\" wirklich entfernen?"
+
+#, fuzzy, php-format
+msgid "Are you sure you want to remove directory \"%s\"?"
+msgstr "Medium \"%s\" wirklich entfernen?"
+
+msgid "Are you sure you want to extract archive in current directory?"
+msgstr "Archiv wirklich ins aktuelle Verzeichnis entpacken?"
+
+#, php-format
+msgid "Are you sure you want to remove attachment \"%s\"?"
+msgstr "Dateianlage \"%s\" wirklich entfernen?"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" language?"
+msgstr "Sprache \"%s\" wirklich löschen?"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" plugin?"
+msgstr "Plugin \"%s\" wirklich löschen?"
+
+#, fuzzy
+msgid "Are you sure you want to delete selected plugins?"
+msgstr "Plugin \"%s\" wirklich löschen?"
+
+msgid "Use this theme"
+msgstr "Benutze dieses Theme"
+
+msgid "Remove this theme"
+msgstr "Entferne dieses Theme"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" theme?"
+msgstr "Theme \"%s\" wirklich löschen?"
+
+msgid "Are you sure you want to delete selected themes?"
+msgstr "Wirklich alle ausgewählten Theme löschen?"
+
+#, fuzzy
+msgid "Are you sure you want to delete this backup?"
+msgstr "Ausgewählten Kommentar wirklich löschen?"
+
+#, fuzzy
+msgid "Are you sure you want to revert to this backup?"
+msgstr "Diesen Dateianhang wirklich entfernen?"
+
+msgid "Zip file content"
+msgstr "Inhalt des ZIP-Archivs"
+
+msgid "XHTML markup validator"
+msgstr "XHTML-Markup-Validator"
+
+msgid "XHTML content is valid."
+msgstr "XHTML-Inhalt ist überprüft."
+
+msgid "There are XHTML markup errors."
+msgstr "Es gibt XHTML-Markup-Fehler."
+
+msgid "Attention: an audit of a content not yet registered."
+msgstr ""
+
+msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr "Du hast Änderungen nicht gespeichert. Wenn du das Format des Eintrags änderst, gehen die Änderungen verloren. Trotzdem fortfahren?"
+
+msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
+msgstr ""
+
+msgid "Loading enhanced uploader, please wait."
+msgstr "Erweiterter Uploader wird geladen, bitte warten."
+
+msgid "Details"
+msgstr "Details"
+
+msgid "Support"
+msgstr "Unterstützung"
+
+msgid "Help:"
+msgstr "Hilfe:"
+
+msgid "Section:"
+msgstr "Sektion:"
+
+msgid "Tags:"
+msgstr "Tags:"
+
+msgid "Hide this notice"
+msgstr "Diese Notiz verbergen"
+
+msgid "You have unsaved changes."
+msgstr "Du hast Änderungen nicht gespeichert."
+
+msgid "Choose date"
+msgstr "Datum auswählen"
+
+msgid "close"
+msgstr "schließen"
+
+msgid "now"
+msgstr "sofort"
+
+msgid "Temporarily activate enhanced uploader"
+msgstr "Erweiterten Uploader starten"
+
+msgid "Temporarily disable enhanced uploader"
+msgstr "Erweiterten Uploader abschalten"
+
+msgid "Limit exceeded."
+msgstr "Limit überschritten."
+
+msgid "File size exceeds allowed limit."
+msgstr "Dateigröße überschreitet erlaubtes Limit."
+
+msgid "Canceled."
+msgstr "Abgebrochen."
+
+msgid "HTTP Error:"
+msgstr "HTTP-Fehler:"
+
+msgid "Clean"
+msgstr "Aufräumen"
+
+msgid "File successfully uploaded."
+msgstr "Datei erfolgreich hochgeladen."
+
+msgid "No file in queue."
+msgstr "Keine Datei vorgemerkt."
+
+msgid "1 file in queue."
+msgstr "1 Datei vorgesehen."
+
+#, php-format
+msgid "%d files in queue."
+msgstr "%d Dateien vorgesehen"
+
+msgid "Queue error:"
+msgstr "Fehler bei der Verarbeitung:"
+
+msgid "Cancel filters and display options"
+msgstr "Filter und Anzeige-Optionen ausblenden"
+
 msgid "other"
 msgstr "andere"
 
@@ -2962,9 +3197,6 @@ msgstr "Version"
 msgid "Current version"
 msgstr "Aktuelle Version"
 
-msgid "Details"
-msgstr "Details"
-
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -2978,15 +3210,6 @@ msgstr ""
 
 msgid "Plugin from official distribution"
 msgstr "Plugin von der originaler Distribution"
-
-msgid "Support"
-msgstr "Unterstützung"
-
-msgid "Section:"
-msgstr "Sektion:"
-
-msgid "Tags:"
-msgstr "Tags:"
 
 msgid "No plugins matched your search."
 msgstr "Kein Plugin in der Suche gefunden."
@@ -3808,208 +4031,6 @@ msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
 
 #~ msgid "Go to search"
 #~ msgstr "Zur Suche wechseln"
-
-#~ msgid "Go to dashboard"
-#~ msgstr "Zum Dashboard wechseln"
-
-#~ msgid "Help about this page"
-#~ msgstr "Hilfe für diese Seite"
-
-#~ msgid "See also %s"
-#~ msgstr "Siehe auch %s"
-
-#~ msgid "the global help"
-#~ msgstr "globalen Hilfe"
-
-#~ msgid "uncover"
-#~ msgstr "zeigen"
-
-#~ msgid "hide"
-#~ msgstr "verbergen"
-
-#~ msgid "Need help?"
-#~ msgstr "Hilfe nötig?"
-
-#~ msgid "new window"
-#~ msgstr "neues Fenster"
-
-#~ msgid "Hide"
-#~ msgstr "Verbergen"
-
-#~ msgid "Select:"
-#~ msgstr "Wählen:"
-
-#~ msgid "no selection"
-#~ msgstr "keine Auswahl"
-
-#~ msgid "select all"
-#~ msgstr "alles markieren"
-
-#~ msgid "Invert selection"
-#~ msgstr "Auswahl umkehren"
-
-#~ msgid "view entry"
-#~ msgstr "Eintrag zeigen"
-
-#~ msgid "Are you sure you want to delete selected entries (%s)?"
-#~ msgstr "Ausgewählte Einträge (%s) wirklich löschen?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected medias (%d)?"
-#~ msgstr "Ausgewählte Einträge (%s) wirklich löschen?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected categories (%s)?"
-#~ msgstr "Ausgewählte Einträge (%s) wirklich löschen?"
-
-#~ msgid "Are you sure you want to delete this entry?"
-#~ msgstr "Ausgewählten Eintrag wirklich löschen?"
-
-#~ msgid "Click here to unlock the field"
-#~ msgstr "Hier klicken, um das Feld zu entsperren"
-
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "Wirklich allen SPAM löschen?"
-
-#~ msgid "Are you sure you want to delete selected comments (%s)?"
-#~ msgstr "Ausgewählte Kommentare (%s) wirklich löschen?"
-
-#~ msgid "Are you sure you want to delete this comment?"
-#~ msgstr "Ausgewählten Kommentar wirklich löschen?"
-
-#~ msgid "Users with posts cannot be deleted."
-#~ msgstr "Benutzernamen mit Einträgen können nicht entfernt werden."
-
-#~ msgid "Are you sure you want to delete selected users (%s)?"
-#~ msgstr "Ausgewählte Benutzer (%s) wirklich löschen?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected blogs (%s)?"
-#~ msgstr "Ausgewählte Benutzer (%s) wirklich löschen?"
-
-#~ msgid "Are you sure you want to delete category \"%s\"?"
-#~ msgstr "Kategorie \"%s\" wirklich löschen?"
-
-#~ msgid "Are you sure you want to reorder all categories?"
-#~ msgstr "Kategorien \"%s\" wirklich neu ordnen?"
-
-#~ msgid "Are you sure you want to remove media \"%s\"?"
-#~ msgstr "Medium \"%s\" wirklich entfernen?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to remove directory \"%s\"?"
-#~ msgstr "Medium \"%s\" wirklich entfernen?"
-
-#~ msgid "Are you sure you want to extract archive in current directory?"
-#~ msgstr "Archiv wirklich ins aktuelle Verzeichnis entpacken?"
-
-#~ msgid "Are you sure you want to remove attachment \"%s\"?"
-#~ msgstr "Dateianlage \"%s\" wirklich entfernen?"
-
-#~ msgid "Are you sure you want to delete \"%s\" language?"
-#~ msgstr "Sprache \"%s\" wirklich löschen?"
-
-#~ msgid "Are you sure you want to delete \"%s\" plugin?"
-#~ msgstr "Plugin \"%s\" wirklich löschen?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete selected plugins?"
-#~ msgstr "Plugin \"%s\" wirklich löschen?"
-
-#~ msgid "Use this theme"
-#~ msgstr "Benutze dieses Theme"
-
-#~ msgid "Remove this theme"
-#~ msgstr "Entferne dieses Theme"
-
-#~ msgid "Are you sure you want to delete \"%s\" theme?"
-#~ msgstr "Theme \"%s\" wirklich löschen?"
-
-#~ msgid "Are you sure you want to delete selected themes?"
-#~ msgstr "Wirklich alle ausgewählten Theme löschen?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete this backup?"
-#~ msgstr "Ausgewählten Kommentar wirklich löschen?"
-
-#, fuzzy
-#~ msgid "Are you sure you want to revert to this backup?"
-#~ msgstr "Diesen Dateianhang wirklich entfernen?"
-
-#~ msgid "Zip file content"
-#~ msgstr "Inhalt des ZIP-Archivs"
-
-#~ msgid "XHTML markup validator"
-#~ msgstr "XHTML-Markup-Validator"
-
-#~ msgid "XHTML content is valid."
-#~ msgstr "XHTML-Inhalt ist überprüft."
-
-#~ msgid "There are XHTML markup errors."
-#~ msgstr "Es gibt XHTML-Markup-Fehler."
-
-#~ msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
-#~ msgstr "Du hast Änderungen nicht gespeichert. Wenn du das Format des Eintrags änderst, gehen die Änderungen verloren. Trotzdem fortfahren?"
-
-#~ msgid "Loading enhanced uploader, please wait."
-#~ msgstr "Erweiterter Uploader wird geladen, bitte warten."
-
-#~ msgid "Help:"
-#~ msgstr "Hilfe:"
-
-#~ msgid "Hide this notice"
-#~ msgstr "Diese Notiz verbergen"
-
-#~ msgid "You have unsaved changes."
-#~ msgstr "Du hast Änderungen nicht gespeichert."
-
-#~ msgid "Choose date"
-#~ msgstr "Datum auswählen"
-
-#~ msgid "close"
-#~ msgstr "schließen"
-
-#~ msgid "now"
-#~ msgstr "sofort"
-
-#~ msgid "Temporarily activate enhanced uploader"
-#~ msgstr "Erweiterten Uploader starten"
-
-#~ msgid "Temporarily disable enhanced uploader"
-#~ msgstr "Erweiterten Uploader abschalten"
-
-#~ msgid "Limit exceeded."
-#~ msgstr "Limit überschritten."
-
-#~ msgid "File size exceeds allowed limit."
-#~ msgstr "Dateigröße überschreitet erlaubtes Limit."
-
-#~ msgid "Canceled."
-#~ msgstr "Abgebrochen."
-
-#~ msgid "HTTP Error:"
-#~ msgstr "HTTP-Fehler:"
-
-#~ msgid "Clean"
-#~ msgstr "Aufräumen"
-
-#~ msgid "File successfully uploaded."
-#~ msgstr "Datei erfolgreich hochgeladen."
-
-#~ msgid "No file in queue."
-#~ msgstr "Keine Datei vorgemerkt."
-
-#~ msgid "1 file in queue."
-#~ msgstr "1 Datei vorgesehen."
-
-#~ msgid "%d files in queue."
-#~ msgstr "%d Dateien vorgesehen"
-
-#~ msgid "Queue error:"
-#~ msgstr "Fehler bei der Verarbeitung:"
-
-#~ msgid "Cancel filters and display options"
-#~ msgstr "Filter und Anzeige-Optionen ausblenden"
 
 #~ msgid "Manage plugin"
 #~ msgstr "Plugins Verwaltung"

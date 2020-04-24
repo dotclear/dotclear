@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 14:49+0200\n"
+"POT-Creation-Date: 2020-04-24 10:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -360,10 +360,6 @@ msgstr "La configuración de filtros ha sido almacenada con éxito."
 #, php-format
 msgid "%s configuration"
 msgstr "%s configuración"
-
-#, fuzzy
-msgid "Are you sure you want to delete all spams?"
-msgstr "¿Seguro que desea borrar esta página?"
 
 #, fuzzy, php-format
 msgid "%s filter configuration"
@@ -1795,9 +1791,6 @@ msgstr "Probar los servicios de ping"
 msgid "Simple menu"
 msgstr ""
 
-msgid "new window"
-msgstr ""
-
 #, fuzzy
 msgid "Active page"
 msgstr "Activo"
@@ -2427,6 +2420,10 @@ msgstr "Eliminar el componente"
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "¿Seguro que desea borrar esta página?"
 
 #~ msgid "Page top"
 #~ msgstr "Arriba"

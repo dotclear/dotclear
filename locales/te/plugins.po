@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 14:59+0200\n"
+"POT-Creation-Date: 2020-04-24 10:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -349,10 +349,6 @@ msgstr ""
 #, php-format
 msgid "%s configuration"
 msgstr ""
-
-#, fuzzy
-msgid "Are you sure you want to delete all spams?"
-msgstr "ఈ పేజీని మీరు నిజంగానే తొలగించాలనుకుంటున్నారా?"
 
 #, php-format
 msgid "%s filter configuration"
@@ -1746,9 +1742,6 @@ msgstr ""
 msgid "Simple menu"
 msgstr ""
 
-msgid "new window"
-msgstr ""
-
 #, fuzzy
 msgid "Active page"
 msgstr "పేజీని చూడండి"
@@ -2361,6 +2354,10 @@ msgstr ""
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "ఈ పేజీని మీరు నిజంగానే తొలగించాలనుకుంటున్నారా?"
 
 #~ msgid "or"
 #~ msgstr "లేదా"

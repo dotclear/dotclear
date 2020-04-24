@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 14:55+0200\n"
+"POT-Creation-Date: 2020-04-24 10:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -2973,6 +2973,244 @@ msgstr ""
 msgid "Page top"
 msgstr ""
 
+msgid "Go to dashboard"
+msgstr ""
+
+msgid "Help about this page"
+msgstr ""
+
+#, php-format
+msgid "See also %s"
+msgstr ""
+
+msgid "the global help"
+msgstr ""
+
+#, fuzzy
+msgid "uncover"
+msgstr "terughalen"
+
+msgid "hide"
+msgstr ""
+
+msgid "Need help?"
+msgstr ""
+
+msgid "new window"
+msgstr ""
+
+msgid "Hide"
+msgstr ""
+
+msgid "Select:"
+msgstr ""
+
+#, fuzzy
+msgid "no selection"
+msgstr "verwijder geselecteerd thema"
+
+#, fuzzy
+msgid "select all"
+msgstr "Verwijder een blog"
+
+msgid "Invert selection"
+msgstr ""
+
+msgid "Edit entry"
+msgstr ""
+
+msgid "view entry"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete selected entries (%s)?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete selected medias (%d)?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete selected categories (%s)?"
+msgstr ""
+
+msgid "Are you sure you want to delete this entry?"
+msgstr ""
+
+msgid "Click here to unlock the field"
+msgstr ""
+
+msgid "Are you sure you want to delete all spams?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete selected comments (%s)?"
+msgstr ""
+
+msgid "Are you sure you want to delete this comment?"
+msgstr ""
+
+msgid "Users with posts cannot be deleted."
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete selected users (%s)?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete category \"%s\"?"
+msgstr ""
+
+msgid "Are you sure you want to reorder all categories?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to remove media \"%s\"?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to remove directory \"%s\"?"
+msgstr ""
+
+msgid "Are you sure you want to extract archive in current directory?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to remove attachment \"%s\"?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" language?"
+msgstr ""
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" plugin?"
+msgstr ""
+
+msgid "Are you sure you want to delete selected plugins?"
+msgstr ""
+
+#, fuzzy
+msgid "Use this theme"
+msgstr "Gebruikers op deze blog"
+
+#, fuzzy
+msgid "Remove this theme"
+msgstr "verwijder geselecteerd thema"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" theme?"
+msgstr ""
+
+msgid "Are you sure you want to delete selected themes?"
+msgstr ""
+
+msgid "Are you sure you want to delete this backup?"
+msgstr ""
+
+msgid "Are you sure you want to revert to this backup?"
+msgstr ""
+
+msgid "Zip file content"
+msgstr ""
+
+msgid "XHTML markup validator"
+msgstr ""
+
+msgid "XHTML content is valid."
+msgstr ""
+
+msgid "There are XHTML markup errors."
+msgstr ""
+
+msgid "Attention: an audit of a content not yet registered."
+msgstr ""
+
+msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr ""
+
+msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
+msgstr ""
+
+msgid "Loading enhanced uploader, please wait."
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Support"
+msgstr ""
+
+msgid "Help:"
+msgstr ""
+
+msgid "Section:"
+msgstr ""
+
+msgid "Tags:"
+msgstr ""
+
+#, fuzzy
+msgid "Hide this notice"
+msgstr "Gebruikers op deze blog"
+
+msgid "You have unsaved changes."
+msgstr ""
+
+msgid "Choose date"
+msgstr ""
+
+msgid "close"
+msgstr ""
+
+msgid "now"
+msgstr ""
+
+msgid "Temporarily activate enhanced uploader"
+msgstr ""
+
+msgid "Temporarily disable enhanced uploader"
+msgstr ""
+
+msgid "Limit exceeded."
+msgstr ""
+
+msgid "File size exceeds allowed limit."
+msgstr ""
+
+msgid "Canceled."
+msgstr ""
+
+msgid "HTTP Error:"
+msgstr ""
+
+msgid "Clean"
+msgstr ""
+
+#, fuzzy
+msgid "File successfully uploaded."
+msgstr "Blog succesvol geupdate."
+
+msgid "No file in queue."
+msgstr ""
+
+msgid "1 file in queue."
+msgstr ""
+
+#, php-format
+msgid "%d files in queue."
+msgstr ""
+
+msgid "Queue error:"
+msgstr ""
+
+msgid "Cancel filters and display options"
+msgstr ""
+
 msgid "other"
 msgstr ""
 
@@ -3019,9 +3257,6 @@ msgstr ""
 msgid "Current version"
 msgstr ""
 
-msgid "Details"
-msgstr ""
-
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -3034,15 +3269,6 @@ msgid "This module cannot be enabled, because of the following reasons :"
 msgstr ""
 
 msgid "Plugin from official distribution"
-msgstr ""
-
-msgid "Support"
-msgstr ""
-
-msgid "Section:"
-msgstr ""
-
-msgid "Tags:"
 msgstr ""
 
 msgid "No plugins matched your search."
@@ -3878,10 +4104,6 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
-
-#, fuzzy
-#~ msgid "Hide this notice"
-#~ msgstr "Gebruikers op deze blog"
 
 #, fuzzy
 #~ msgid "Manage plugin"
