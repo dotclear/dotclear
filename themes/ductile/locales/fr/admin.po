@@ -1,20 +1,33 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
+"X-Generator: Poedit 2.3\n"
+
 msgid "Full"
 msgstr "Complet"
 
 msgid "Home (first page)"
-msgstr "Page d'accueil (premire page)"
+msgstr "Page d'accueil (première page)"
 
 msgid "Home (other pages)"
 msgstr "Page d'accueil (pages suivantes)"
 
 msgid "Entries for a category"
-msgstr "Billets d'une catgorie"
+msgstr "Billets d'une catégorie"
 
 msgid "Entries for a tag"
-msgstr "Billets pour un mot-cl"
+msgstr "Billets pour un mot-clé"
 
 msgid "Search result entries"
-msgstr "Billets rsultant d'une recherche"
+msgstr "Billets résultant d'une recherche"
 
 msgid "Month archive entries"
 msgstr "Billets d'une archive mensuelle"
@@ -59,10 +72,10 @@ msgid "stylesheet (Google)"
 msgstr "feuille de style (Google)"
 
 msgid "Theme configuration upgraded."
-msgstr "La configuration du thme a t mise  jour."
+msgstr "La configuration du thème a été mise à jour."
 
 msgid "Header"
-msgstr "Entte"
+msgstr "Entête"
 
 msgid "Hide blog description:"
 msgstr "Cacher la description du blog :"
@@ -72,16 +85,16 @@ msgstr "URL du logo :"
 
 #, php-format
 msgid "To configure the top menu go to the <a href=\"%s\">Simple Menu administration page</a>."
-msgstr "Pour configurer le menu allez  la <a href=\"%s\">page d'administration de Menu Simple</a>."
+msgstr "Pour configurer le menu allez à la <a href=\"%s\">page d'administration de Menu Simple</a>."
 
 msgid "Stickers"
-msgstr "tiquettes"
+msgstr "Étiquettes"
 
 msgid "Stickers (footer)"
-msgstr "tiquettes (pied de page)"
+msgstr "Étiquettes (pied de page)"
 
 msgid "Image"
-msgstr ""
+msgstr "Image"
 
 msgid "Entries list types and limits"
 msgstr "Types et limites des listes de billets"
@@ -99,49 +112,43 @@ msgid "Miscellaneous options"
 msgstr "Options diverses"
 
 msgid "Comment preview is not mandatory:"
-msgstr "Prvisualisation du commentaire non obligatoire :"
+msgstr "Prévisualisation du commentaire non obligatoire :"
 
 msgid "Presentation"
-msgstr "Prsentation"
+msgstr "Présentation"
 
 msgid "General settings"
-msgstr "Paramtres gnraux"
+msgstr "Paramètres généraux"
 
 msgid "Fonts"
-msgstr "Polices de caractre"
+msgstr "Polices de caractère"
 
-#, fuzzy
 msgid "Main text"
-msgstr "Contexte"
+msgstr "Text principal"
 
-#, fuzzy
 msgid "Main font:"
-msgstr "Principale :"
+msgstr "Fonte principale :"
 
-#, fuzzy
 msgid "Set to Default to use a webfont."
-msgstr "Mettre la police de caractre principale  Dfaut pour utiliser la fonte web ci-dessous."
+msgstr "Mettre la police de caractre principale à Défaut pour utiliser la fonte web ci-dessous."
 
 msgid "Webfont family:"
-msgstr "Famille"
+msgstr "Famille :"
 
 msgid "Webfont URL:"
-msgstr "URL de la fonte web"
+msgstr "URL de la fonte web :"
 
 msgid "Webfont API:"
-msgstr "Type d'API"
+msgstr "Type d'API :"
 
-#, fuzzy
 msgid "Secondary text"
-msgstr "Secondaire :"
+msgstr "Texte secondaire"
 
-#, fuzzy
 msgid "Secondary font:"
-msgstr "Secondaire :"
+msgstr "Fonte secondaire :"
 
-#, fuzzy
 msgid "Titles"
-msgstr "Titre"
+msgstr "Titres"
 
 msgid "Blog title"
 msgstr "Titre du blog"
@@ -150,7 +157,7 @@ msgid "In bold:"
 msgstr "En gras :"
 
 msgid "Font size (in em by default):"
-msgstr "Taille du texte courant (en em par dfaut) :"
+msgstr "Taille du texte courant (en em par défaut) :"
 
 msgid "Color:"
 msgstr "Couleur :"
@@ -165,10 +172,10 @@ msgid "Inside posts links"
 msgstr "Liens dans les billets"
 
 msgid "Normal and visited links color:"
-msgstr "Couleur des liens normaux et visits :"
+msgstr "Couleur des liens normaux et visités :"
 
 msgid "Active, hover and focus links color:"
 msgstr "Couleur des liens actifs, survols et ayant le focus :"
 
 msgid "Mobile specific settings"
-msgstr "Paramtres spcifiques pour les mobiles"
+msgstr "Paramètres spécifiques pour les mobiles"
