@@ -28,7 +28,6 @@ msgstr "%d rétroliens"
 msgid "%s reactions"
 msgstr "%s réactions"
 
-#, fuzzy
 msgid "Access to content"
 msgstr "Aller au contenu"
 
@@ -102,14 +101,13 @@ msgid "Entries feed"
 msgstr "Fil des billets"
 
 msgid "Etra menu"
-msgstr "Extra"
+msgstr "Menu extra"
 
 msgid "Explore archives"
-msgstr ""
+msgstr "Explorer les archives"
 
-#, fuzzy
 msgid "Extra menu"
-msgstr "Extra"
+msgstr "Menu extra"
 
 msgid "From"
 msgstr "De"
@@ -138,9 +136,8 @@ msgstr "Liens"
 msgid "Name or nickname"
 msgstr "Nom ou pseudo"
 
-#, fuzzy
 msgid "Next entry:"
-msgstr "billets suivants"
+msgstr "Billet suivant :"
 
 msgid "On"
 msgstr "Le"
@@ -163,9 +160,8 @@ msgstr "Propulsé par %s"
 msgid "Preview"
 msgstr "Prévisualiser"
 
-#, fuzzy
 msgid "Previous entry:"
-msgstr "billets précédents"
+msgstr "Billet précédent :"
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "Un fil RSS recueille les informations de mise à jour d'un site. Il fournit le contenu des billets ou des commentaires ou un extrait de ceux-ci, ainsi qu'un lien vers les versions complètes et quelques autres informations. Ce fil a pour vocation d'être lu par un <a href=\"http://fr.wikipedia.org/wiki/Agr%C3%A9gateur\">agrégateur</a> RSS."

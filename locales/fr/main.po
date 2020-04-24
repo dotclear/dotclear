@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: Dotclear\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-24 10:23+0200\n"
-"PO-Revision-Date: 2016-07-18 15:01+0200\n"
+"PO-Revision-Date: 2020-04-24 10:42+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
 "Language: fr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.3\n"
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear a été mis à jour."
@@ -2876,167 +2876,145 @@ msgstr "Merci d'utiliser %s."
 msgid "Page top"
 msgstr "Haut de page"
 
-#, fuzzy
 msgid "Go to dashboard"
 msgstr "Mon tableau de bord"
 
 msgid "Help about this page"
-msgstr ""
+msgstr "Aide à propos de cette page"
 
 #, php-format
 msgid "See also %s"
-msgstr ""
+msgstr "Voir aussi %s"
 
-#, fuzzy
 msgid "the global help"
 msgstr "Aide générale"
 
-#, fuzzy
 msgid "uncover"
 msgstr "récupérer"
 
 msgid "hide"
-msgstr ""
+msgstr "cacher"
 
 msgid "Need help?"
-msgstr ""
+msgstr "Besoin d'aide ?"
 
 msgid "new window"
-msgstr ""
+msgstr "nouvelle fenêtre"
 
 msgid "Hide"
-msgstr ""
+msgstr "Cacher"
 
-#, fuzzy
 msgid "Select:"
-msgstr "Sélectionner"
+msgstr "Sélectionner :"
 
-#, fuzzy
 msgid "no selection"
-msgstr "sélection courante"
+msgstr "pas de sélection"
 
-#, fuzzy
 msgid "select all"
-msgstr "sélectionner"
+msgstr "tout sélectionner"
 
-#, fuzzy
 msgid "Invert selection"
-msgstr "sélection courante"
+msgstr "Inverser la sélection"
 
-#, fuzzy
 msgid "Edit entry"
-msgstr "%d publication"
+msgstr "Éditer la publication"
 
-#, fuzzy
 msgid "view entry"
-msgstr "Billet suivant"
+msgstr "Voir la publication"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
-msgstr "Êtes-vous sûr·e de vouloir retirer les favoris sélectionnés ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les publications sélectionnées (%s) ?"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
-msgstr "Êtes-vous sûr·e de vouloir retirer les favoris sélectionnés ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les médias sélectionnés (%d) ?"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
-msgstr "Êtes-vous sûr·e de vouloir retirer les favoris sélectionnés ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les catégories sélectionnées (%s) ?"
 
-#, fuzzy
 msgid "Are you sure you want to delete this entry?"
-msgstr "Êtes-vous certain·e de vouloir supprimer cette annexe ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer cette publication ?"
 
 msgid "Click here to unlock the field"
 msgstr ""
 
-#, fuzzy
 msgid "Are you sure you want to delete all spams?"
-msgstr "Êtes-vous certain·e de vouloir supprimer %s ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer tous les indésirables ?"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
-msgstr "Êtes-vous sûr·e de vouloir retirer les favoris sélectionnés ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les commentaires sélectionnés (%s) ?"
 
-#, fuzzy
 msgid "Are you sure you want to delete this comment?"
-msgstr "Êtes-vous certain·e de vouloir supprimer cette annexe ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer ce commentaire ?"
 
-#, fuzzy
 msgid "Users with posts cannot be deleted."
-msgstr "Le blog courant ne peut être détruit."
+msgstr "Une utilisatrice ou un utilisateur avec des publications ne peut être supprimé."
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
-msgstr "Êtes-vous sûr·e de vouloir retirer les favoris sélectionnés ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les utilisatrices et les utilisateurs sélectionnées (%s) ?"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
-msgstr "Êtes-vous sûr·e de vouloir retirer les favoris sélectionnés ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les blogs sélectionnés (%s) ?"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
-msgstr "Êtes-vous certain·e de vouloir supprimer %s ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer la catégorie \"%s\" ?"
 
-#, fuzzy
 msgid "Are you sure you want to reorder all categories?"
-msgstr "Êtes-vous sûr·e de vouloir retirer les favoris sélectionnés ?"
+msgstr "Êtes-vous sûr·e de vouloir réordonner toutes les catégories ?"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
-msgstr "Êtes-vous certain·e de vouloir supprimer %s ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer le média \"%s\" ?"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
-msgstr "Êtes-vous certain·e de vouloir supprimer %s ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer le répertoire \"%s\" ?"
 
-#, fuzzy
 msgid "Are you sure you want to extract archive in current directory?"
-msgstr "Êtes-vous certain·e de vouloir supprimer cette annexe ?"
+msgstr "Êtes-vous certain·e de vouloir extraire cette archive dans le répertoire courant ?"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
-msgstr "Êtes-vous certain·e de vouloir supprimer cette annexe ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer l'annexe \"%s\" ?"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
-msgstr "Êtes-vous certain·e de vouloir supprimer %s ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer la langue \"%s\" ?"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr "Êtes-vous certain·e de vouloir supprimer %s ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer le plugin \"%s\" ?"
 
-#, fuzzy
 msgid "Are you sure you want to delete selected plugins?"
-msgstr "Êtes-vous sûr·e de vouloir retirer les favoris sélectionnés ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les plugins sélectionnés ?"
 
-#, fuzzy
 msgid "Use this theme"
-msgstr "Utiliser celui-ci"
+msgstr "Utiliser ce thème"
 
-#, fuzzy
 msgid "Remove this theme"
-msgstr "Supprimer l'annexe"
+msgstr "Supprimer ce thème"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
-msgstr "Êtes-vous certain·e de vouloir supprimer %s ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer le thème \"%s\" ?"
 
-#, fuzzy
 msgid "Are you sure you want to delete selected themes?"
-msgstr "Êtes-vous sûr·e de vouloir retirer les favoris sélectionnés ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les thèmes sélectionnés ?"
 
-#, fuzzy
 msgid "Are you sure you want to delete this backup?"
-msgstr "Êtes-vous certain·e de vouloir supprimer cette annexe ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer cette sauvegarde ?"
 
-#, fuzzy
 msgid "Are you sure you want to revert to this backup?"
-msgstr "Êtes-vous certain·e de vouloir supprimer cette annexe ?"
+msgstr "Êtes-vous certain·e de vouloir restaurer cette sauvegarde ?"
 
-#, fuzzy
 msgid "Zip file content"
-msgstr "Chemin du fichier zip :"
+msgstr "Contenu de l'archive Zip"
 
 msgid "XHTML markup validator"
 msgstr ""
@@ -3074,29 +3052,23 @@ msgstr "Section : "
 msgid "Tags:"
 msgstr "Mots-clés:"
 
-#, fuzzy
 msgid "Hide this notice"
-msgstr "Utiliser celui-ci"
+msgstr "Masquer ce message"
 
-#, fuzzy
 msgid "You have unsaved changes."
-msgstr "Vous avez un commentaire indésirable."
+msgstr "Vous avez des modifications non sauvegardées."
 
-#, fuzzy
 msgid "Choose date"
-msgstr "Choisir un fichier"
+msgstr "Choisir une date"
 
-#, fuzzy
 msgid "close"
-msgstr "Fermés"
+msgstr "fermer"
 
-#, fuzzy
 msgid "now"
-msgstr "inconnu"
+msgstr "maintenant"
 
-#, fuzzy
 msgid "Temporarily activate enhanced uploader"
-msgstr "Activer l'interface avancée de la médiathèque"
+msgstr "Activer temporairement l'interface avancée de la médiathèque"
 
 msgid "Temporarily disable enhanced uploader"
 msgstr ""
@@ -3107,24 +3079,20 @@ msgstr ""
 msgid "File size exceeds allowed limit."
 msgstr ""
 
-#, fuzzy
 msgid "Canceled."
-msgstr "Annuler"
+msgstr "Annulé."
 
-#, fuzzy
 msgid "HTTP Error:"
-msgstr "Erreur :"
+msgstr "Erreur HTTP :"
 
 msgid "Clean"
 msgstr ""
 
-#, fuzzy
 msgid "File successfully uploaded."
 msgstr "Le fichier a été chargé."
 
-#, fuzzy
 msgid "No file in queue."
-msgstr "Aucun fichier."
+msgstr "Aucun fichier en attente."
 
 msgid "1 file in queue."
 msgstr ""
@@ -3136,9 +3104,8 @@ msgstr ""
 msgid "Queue error:"
 msgstr ""
 
-#, fuzzy
 msgid "Cancel filters and display options"
-msgstr "Appliquer les filtres et options d'affichage"
+msgstr "Annuler les filtres et options d'affichage"
 
 msgid "other"
 msgstr "autres"
@@ -3459,9 +3426,8 @@ msgstr[1] ", <a href=\"%s\">non publiés</a> (%s)"
 msgid "Protected"
 msgstr "Protégé"
 
-#, fuzzy
 msgid "Attachments"
-msgstr "Annexes :"
+msgstr "Annexes"
 
 #, php-format
 msgid "%d attachment"
