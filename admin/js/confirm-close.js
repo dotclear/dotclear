@@ -24,11 +24,21 @@ confirmClose.prototype = {
     this.forms = [];
     for (let i = 0; i < formsInPage.length; i++) {
       const f = formsInPage[i];
+      // Loop on form elements
       let tmpForm = [];
       for (let j = 0; j < f.elements.length; j++) {
         const e = this.getFormElementValue(f[j]);
         if (e !== undefined) {
           tmpForm[eltRef(f[j])] = e;
+        }
+      }
+      // Loop on form iframes
+      const j = f.getElementsByTagName("iframe");
+      if (j !== undefined) {
+        for (let k = 0; k < j.length; k++) {
+          if (j[k].contentDocument.body.id !== undefined && j[k].contentDocument.body.id !== '') {
+            tmpForm[j[k].contentDocument.body.id] = j[k].contentDocument.body.innerHTML;
+          }
         }
       }
       this.forms.push(tmpForm);
@@ -51,11 +61,21 @@ confirmClose.prototype = {
     const formsInPage = this.getForms();
     for (let i = 0; i < formsInPage.length; i++) {
       const f = formsInPage[i];
+      // Loop on form elements
       let tmpForm = [];
       for (let j = 0; j < f.elements.length; j++) {
         const e = this.getFormElementValue(f[j]);
         if (e !== undefined) {
           tmpForm[eltRef(f[j])] = e;
+        }
+      }
+      // Loop on form iframes
+      const j = f.getElementsByTagName("iframe");
+      if (j !== undefined) {
+        for (let k = 0; k < j.length; k++) {
+          if (j[k].contentDocument.body.id !== undefined && j[k].contentDocument.body.id !== '') {
+            tmpForm[j[k].contentDocument.body.id] = j[k].contentDocument.body.innerHTML;
+          }
         }
       }
       if (!formMatch(tmpForm, this.forms[i])) {

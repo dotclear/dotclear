@@ -173,7 +173,7 @@ jsToolBar.prototype.initWindow = function() {
     <style type="text/css">${This.iframe_css}</style>
     ${This.base_url != '' ? `<base href="${This.base_url}" />` : ''}
   </head>
-  <body></body>
+  <body id="${This.textarea.id}-jstEditorIframe"></body>
 </html>`;
 
     doc.write(html);
