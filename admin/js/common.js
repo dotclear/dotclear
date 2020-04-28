@@ -104,11 +104,13 @@ jQuery.fn.toggleWithLegend = function(target, s) {
       b.firstChild.data = p.img_on_txt;
       b.setAttribute('value', p.img_on_txt);
       b.setAttribute('aria-label', p.img_on_alt);
+      b.setAttribute('aria-expanded', false);
       target.addClass('hide');
     } else {
       b.firstChild.data = p.img_off_txt;
       b.setAttribute('value', p.img_off_txt);
       b.setAttribute('aria-label', p.img_off_alt);
+      b.setAttribute('aria-expanded', true);
       target.removeClass('hide');
       if (p.fn) {
         p.fn.apply(target);
@@ -176,7 +178,7 @@ jQuery.fn.toggleWithLegend = function(target, s) {
     });
   };
   const singleExpander = function(line, callback) {
-    $(`<button type="button" class="details-cmd" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`).on(
+    $(`<button type="button" class="details-cmd" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`).on(
       'click',
       function(e) {
         toggleArrow(this);
@@ -185,7 +187,7 @@ jQuery.fn.toggleWithLegend = function(target, s) {
       }).prependTo($(line).children().get(0)); // first td
   };
   const multipleExpander = function(line, lines, callback) {
-    $(`<button type="button" class="details-cmd" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`).on(
+    $(`<button type="button" class="details-cmd" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`).on(
       'click',
       function(e) {
         var action = toggleArrow(this);
@@ -209,10 +211,12 @@ jQuery.fn.toggleWithLegend = function(target, s) {
       button.firstChild.data = dotclear.img_minus_txt;
       button.setAttribute('value', dotclear.img_minus_txt);
       button.setAttribute('aria-label', dotclear.img_minus_alt);
+      button.setAttribute('aria-expanded', true);
     } else {
       button.firstChild.data = dotclear.img_plus_txt;
       button.setAttribute('value', dotclear.img_plus_txt);
       button.setAttribute('aria-label', dotclear.img_plus_alt);
+      button.setAttribute('aria-expanded', false);
     }
     return action;
   };
