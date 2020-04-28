@@ -1,25 +1,20 @@
-# French translation of DotClear
-# Copyright (C) 2006.
-# Olivier Meunier <olivier@dotclear.net>, 2006.
-#
-# Translators:
-# Franck  <carnet.franck.paul@gmail.com>, 2011.
-# Stéphane Aulery <lkppo@free.fr>, 2012.
-# xave <xave@dotclear.net>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 14:50+0200\n"
-"PO-Revision-Date: 2016-07-18 15:01+0200\n"
+"POT-Creation-Date: 2020-04-24 10:23+0200\n"
+"PO-Revision-Date: 2020-04-28 14:46\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
+"Language-Team: French\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 1.8.8\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Language: fr\n"
+"X-Crowdin-File: /master/locales/en/main.po\n"
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear a été mis à jour."
@@ -764,7 +759,7 @@ msgid "Move entries to"
 msgstr "Déplacer les publications vers"
 
 msgid "OK"
-msgstr "OK"
+msgstr "Ok"
 
 msgid "Delete category"
 msgstr "Supprimer la catégorie"
@@ -859,20 +854,12 @@ msgid "Your comment on my blog %s"
 msgstr "Votre commentaire sur mon blog %s"
 
 #, php-format
-msgid ""
-"Hi!\n"
-"\n"
+msgid "Hi!\n\n"
 "You wrote a comment on:\n"
-"%s\n"
-"\n"
-"\n"
-msgstr ""
-"Bonjour,\n"
-"\n"
+"%s\n\n\n"
+msgstr "Bonjour,\n\n"
 "Vous avez déposé un commentaire sur :\n"
-"%s\n"
-"\n"
-"\n"
+"%s\n\n\n"
 
 msgid "Send an e-mail"
 msgstr "Envoyer un email"
@@ -1122,11 +1109,9 @@ msgstr "Ceci est votre premier billet. Quand vous serez prêt à bloguer, connec
 msgid "Dotclear Team"
 msgstr "L'équipe Dotclear"
 
-msgid ""
-"<p>This is a comment.</p>\n"
+msgid "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr ""
-"<p>Ceci est un commentaire</p>\n"
+msgstr "<p>Ceci est un commentaire</p>\n"
 "<p>Pour le supprimer, connectez-vous et affichez les commentaires de votre blog. Vous pourrez alors le supprimer ou le modifier.</p>"
 
 msgid "Dotclear Install"
@@ -1268,7 +1253,7 @@ msgid "MySQLi"
 msgstr "MySQLi"
 
 msgid "MySQLi (full UTF-8)"
-msgstr ""
+msgstr "MySQLi (UTF-8 complet)"
 
 msgid "PostgreSQL"
 msgstr "PostgreSQL"
@@ -1277,7 +1262,7 @@ msgid "SQLite"
 msgstr "SQLite"
 
 msgid "Driver"
-msgstr ""
+msgstr "Pilote"
 
 msgid "Database Host Name:"
 msgstr "Nom d'hôte de la base de données :"
@@ -1295,7 +1280,7 @@ msgid "Database Tables Prefix:"
 msgstr "Préfixe des tables de la base de données :"
 
 msgid "Prefix"
-msgstr ""
+msgstr "Préfixe"
 
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "Email principal : (utilisé pour l'envoi pour la récupération de mot de passe)"
@@ -1555,7 +1540,7 @@ msgstr "Nb d'éléments : %d"
 
 #, php-format
 msgid "In %s:"
-msgstr ""
+msgstr "Dans %s :"
 
 msgid "Create new directory"
 msgstr "Créer un répertoire"
@@ -2587,7 +2572,7 @@ msgid "User ID:"
 msgstr "Identifiant (login) :"
 
 msgid "Login"
-msgstr ""
+msgstr "Identifiant"
 
 msgid "Warning:"
 msgstr "Attention :"
@@ -2876,6 +2861,237 @@ msgstr "Merci d'utiliser %s."
 msgid "Page top"
 msgstr "Haut de page"
 
+msgid "Go to dashboard"
+msgstr "Aller au tableau de bord"
+
+msgid "Help about this page"
+msgstr "Aide à propos de cette page"
+
+#, php-format
+msgid "See also %s"
+msgstr "Voir aussi %s"
+
+msgid "the global help"
+msgstr "l'aide globale"
+
+msgid "uncover"
+msgstr "montrer"
+
+msgid "hide"
+msgstr "masquer"
+
+msgid "Need help?"
+msgstr "Besoin d'aide ?"
+
+msgid "new window"
+msgstr "nouvelle fenêtre"
+
+msgid "Hide"
+msgstr "Masquer"
+
+msgid "Select:"
+msgstr "Sélectionner :"
+
+msgid "no selection"
+msgstr "aucune sélection"
+
+msgid "select all"
+msgstr "tout sélectionner"
+
+msgid "Invert selection"
+msgstr "Inverser la sélection"
+
+msgid "Edit entry"
+msgstr "Modifier la publication"
+
+msgid "view entry"
+msgstr "visualiser la publication"
+
+#, php-format
+msgid "Are you sure you want to delete selected entries (%s)?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les publications sélectionnées (%s) ?"
+
+#, php-format
+msgid "Are you sure you want to delete selected medias (%d)?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les médias sélectionnés (%d) ?"
+
+#, php-format
+msgid "Are you sure you want to delete selected categories (%s)?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les catégories sélectionnées (%s) ?"
+
+msgid "Are you sure you want to delete this entry?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer cette publication ?"
+
+msgid "Click here to unlock the field"
+msgstr "Cliquez ici pour déverrouiller le champ"
+
+msgid "Are you sure you want to delete all spams?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer tous les spams ?"
+
+#, php-format
+msgid "Are you sure you want to delete selected comments (%s)?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les commentaires sélectionnés (%s) ?"
+
+msgid "Are you sure you want to delete this comment?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer ce commentaire ?"
+
+msgid "Users with posts cannot be deleted."
+msgstr "Les utilisatrices et les utilisateurs avec des publications ne peuvent pas être supprimés."
+
+#, php-format
+msgid "Are you sure you want to delete selected users (%s)?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les utilisateurs sélectionnés (%s) ?"
+
+#, php-format
+msgid "Are you sure you want to delete selected blogs (%s)?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les blogs sélectionnés (%s) ?"
+
+#, php-format
+msgid "Are you sure you want to delete category \"%s\"?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer la catégorie \"%s\" ?"
+
+msgid "Are you sure you want to reorder all categories?"
+msgstr "Êtes-vous sûr·e de vouloir réordonner toutes les catégories ?"
+
+#, php-format
+msgid "Are you sure you want to remove media \"%s\"?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer le média \"%s\" ?"
+
+#, php-format
+msgid "Are you sure you want to remove directory \"%s\"?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer le répertoire \"%s\" ?"
+
+msgid "Are you sure you want to extract archive in current directory?"
+msgstr "Êtes-vous sûr·e de vouloir extraire l'archive dans le répertoire courant ?"
+
+#, php-format
+msgid "Are you sure you want to remove attachment \"%s\"?"
+msgstr "Êtes-vous sûr de vouloir supprimer l'annexe \"%s\" ?"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" language?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer la langue \"%s\" ?"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" plugin?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer le plugin \"%s\" ?"
+
+msgid "Are you sure you want to delete selected plugins?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les plugins sélectionnés ?"
+
+msgid "Use this theme"
+msgstr "Utiliser ce thème"
+
+msgid "Remove this theme"
+msgstr "Supprimer ce thème"
+
+#, php-format
+msgid "Are you sure you want to delete \"%s\" theme?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer le thème \"%s\" ?"
+
+msgid "Are you sure you want to delete selected themes?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les thèmes sélectionnés ?"
+
+msgid "Are you sure you want to delete this backup?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer cette sauvegarde ?"
+
+msgid "Are you sure you want to revert to this backup?"
+msgstr "Êtes-vous sûr·e de vouloir restaurer cette sauvegarde ?"
+
+msgid "Zip file content"
+msgstr "Contenu du fichier Zip"
+
+msgid "XHTML markup validator"
+msgstr "Validateur XHTML"
+
+msgid "XHTML content is valid."
+msgstr "Le contenu XHTML est valide."
+
+msgid "There are XHTML markup errors."
+msgstr "Il y a des erreurs de balisage XHTML."
+
+msgid "Attention: an audit of a content not yet registered."
+msgstr "Attention : audit d'un contenu qui n'est pas encore enregistré."
+
+msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
+msgstr "Vous avez des modifications non enregistrées. Changer le format de publication va perdre ces modifications. Continuer quand même ?"
+
+msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
+msgstr "Attention : la modification du format de publication ne convertira pas le contenu existant. Vous devrez appliquer le nouveau format par vous-même. Continuer quand même ?"
+
+msgid "Loading enhanced uploader, please wait."
+msgstr "Chargement de l'interface améliorée, veuillez patienter."
+
+msgid "Details"
+msgstr "Détails"
+
+msgid "Support"
+msgstr "Assistance"
+
+msgid "Help:"
+msgstr "Aide :"
+
+msgid "Section:"
+msgstr "Section : "
+
+msgid "Tags:"
+msgstr "Mots-clés:"
+
+msgid "Hide this notice"
+msgstr "Masquer cette notification"
+
+msgid "You have unsaved changes."
+msgstr "Vous avez des modifications non enregistrées."
+
+msgid "Choose date"
+msgstr "Choisir la date"
+
+msgid "close"
+msgstr "fermer"
+
+msgid "now"
+msgstr "maintenant"
+
+msgid "Temporarily activate enhanced uploader"
+msgstr "Activer temporairement l'interface améliorée"
+
+msgid "Temporarily disable enhanced uploader"
+msgstr "Désactiver temporairement l'interface améliorée"
+
+msgid "Limit exceeded."
+msgstr "La limite est dépassée."
+
+msgid "File size exceeds allowed limit."
+msgstr "La taille du fichier dépasse la limite autorisée."
+
+msgid "Canceled."
+msgstr "Annulé."
+
+msgid "HTTP Error:"
+msgstr "Erreur HTTP :"
+
+msgid "Clean"
+msgstr "Vider"
+
+msgid "File successfully uploaded."
+msgstr "Fichier téléchargé avec succès."
+
+msgid "No file in queue."
+msgstr "Aucun fichier dans la file d'attente."
+
+msgid "1 file in queue."
+msgstr "1 fichier en file d'attente."
+
+#, php-format
+msgid "%d files in queue."
+msgstr "%d fichiers dans la file d'attente."
+
+msgid "Queue error:"
+msgstr "Erreur de file d'attente :"
+
+msgid "Cancel filters and display options"
+msgstr "Annuler les filtres et les options d'affichage"
+
 msgid "other"
 msgstr "autres"
 
@@ -2921,9 +3137,6 @@ msgstr "Version"
 msgid "Current version"
 msgstr "Version courante"
 
-msgid "Details"
-msgstr "Détails"
-
 #, php-format
 msgid " (%s)"
 msgstr " (%s)"
@@ -2937,15 +3150,6 @@ msgstr "Ce module ne peut activé pour les raisons suivantes :"
 
 msgid "Plugin from official distribution"
 msgstr "Plugin de la distribution officielle"
-
-msgid "Support"
-msgstr "Assistance"
-
-msgid "Section:"
-msgstr "Section : "
-
-msgid "Tags:"
-msgstr "Mots-clés:"
 
 msgid "No plugins matched your search."
 msgstr "Aucun plugin ne correspond à votre recherche."
@@ -3056,7 +3260,7 @@ msgstr "Retour"
 
 #, php-format
 msgid "Score: %s"
-msgstr "Score: %s"
+msgstr "Score : %s"
 
 #, php-format
 msgid "%s screenshot."
@@ -3207,9 +3411,8 @@ msgstr[1] ", <a href=\"%s\">non publiés</a> (%s)"
 msgid "Protected"
 msgstr "Protégé"
 
-#, fuzzy
 msgid "Attachments"
-msgstr "Annexes :"
+msgstr "Annexes"
 
 #, php-format
 msgid "%d attachment"
@@ -3361,16 +3564,16 @@ msgid "Plugins"
 msgstr "Plugins"
 
 msgid "moyenne"
-msgstr ""
+msgstr "moyenne"
 
 msgid "petite"
-msgstr ""
+msgstr "petite"
 
 msgid "vignette"
-msgstr ""
+msgstr "vignette"
 
 msgid "carrée"
-msgstr ""
+msgstr "carrée"
 
 msgid "Pages"
 msgstr "Pages"
@@ -3618,16 +3821,16 @@ msgid "Invalid setting namespace: %s"
 msgstr "Espace de nom du paramètre invalide : %s"
 
 msgid "SQL SELECT requires a FROM source"
-msgstr ""
+msgstr "SQL SELECT requiert une source FROM"
 
 msgid "SQL DELETE requires a FROM source"
-msgstr ""
+msgstr "SQL DELETE requiert une source FROM"
 
 msgid "SQL UPDATE requires an INTO source"
-msgstr ""
+msgstr "SQL UPDATE requiert une source INTO"
 
 msgid "SQL INSERT requires an INTO source"
-msgstr ""
+msgstr "SQL INSERT requiert une source INTO"
 
 msgid "Failed to read data feed"
 msgstr "Impossible de lire les données du flux."
@@ -3754,3 +3957,4 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
+
