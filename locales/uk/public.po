@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-24 10:24+0200\n"
+"POT-Creation-Date: 2020-04-29 12:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -98,9 +98,6 @@ msgid "Email address is not valid"
 msgstr ""
 
 msgid "Entries feed"
-msgstr ""
-
-msgid "Etra menu"
 msgstr ""
 
 msgid "Explore archives"

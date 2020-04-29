@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-24 10:24+0200\n"
+"POT-Creation-Date: 2020-04-29 12:41+0200\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -103,10 +103,6 @@ msgstr "Endereço de email inválido"
 
 msgid "Entries feed"
 msgstr "Feed das entradas"
-
-#, fuzzy
-msgid "Etra menu"
-msgstr "Para o menu"
 
 msgid "Explore archives"
 msgstr ""
@@ -347,9 +343,3 @@ msgstr "enviar"
 
 msgid "toDay"
 msgstr ""
-
-#~ msgid "This blog's entries RSS feed"
-#~ msgstr "Feed RSS para as entradas deste blog"
-
-#~ msgid "This post's comments RSS feed"
-#~ msgstr "Feed RSS para os comentários desta entrada"

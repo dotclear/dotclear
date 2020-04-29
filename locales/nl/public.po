@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-24 10:23+0200\n"
+"POT-Creation-Date: 2020-04-29 12:41+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Joran <LL@li.org>\n"
@@ -102,10 +102,6 @@ msgstr "Je moet een geldig emailadres invoeren"
 
 msgid "Entries feed"
 msgstr "Feed van post"
-
-#, fuzzy
-msgid "Etra menu"
-msgstr "Naar menu"
 
 msgid "Explore archives"
 msgstr ""

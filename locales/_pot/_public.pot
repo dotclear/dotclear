@@ -269,7 +269,7 @@ msgstr ""
 msgid "Blog menu"
 msgstr ""
 
-msgid "Etra menu"
+msgid "Extra menu"
 msgstr ""
 
 msgid "Blog info"
