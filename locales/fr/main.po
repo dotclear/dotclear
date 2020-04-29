@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-24 10:23+0200\n"
-"PO-Revision-Date: 2020-04-28 14:46\n"
+"PO-Revision-Date: 2020-04-29 07:28\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
@@ -2862,7 +2862,7 @@ msgid "Page top"
 msgstr "Haut de page"
 
 msgid "Go to dashboard"
-msgstr "Aller au tableau de bord"
+msgstr "Mon tableau de bord"
 
 msgid "Help about this page"
 msgstr "Aide à propos de cette page"
@@ -2872,13 +2872,13 @@ msgid "See also %s"
 msgstr "Voir aussi %s"
 
 msgid "the global help"
-msgstr "l'aide globale"
+msgstr "Aide générale"
 
 msgid "uncover"
-msgstr "montrer"
+msgstr "récupérer"
 
 msgid "hide"
-msgstr "masquer"
+msgstr "cacher"
 
 msgid "Need help?"
 msgstr "Besoin d'aide ?"
@@ -2887,13 +2887,13 @@ msgid "new window"
 msgstr "nouvelle fenêtre"
 
 msgid "Hide"
-msgstr "Masquer"
+msgstr "Cacher"
 
 msgid "Select:"
-msgstr "Sélectionner :"
+msgstr "Sélectionner :"
 
 msgid "no selection"
-msgstr "aucune sélection"
+msgstr "pas de sélection"
 
 msgid "select all"
 msgstr "tout sélectionner"
@@ -2902,10 +2902,10 @@ msgid "Invert selection"
 msgstr "Inverser la sélection"
 
 msgid "Edit entry"
-msgstr "Modifier la publication"
+msgstr "Éditer la publication"
 
 msgid "view entry"
-msgstr "visualiser la publication"
+msgstr "Voir la publication"
 
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
@@ -2920,27 +2920,27 @@ msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Êtes-vous sûr·e de vouloir supprimer les catégories sélectionnées (%s) ?"
 
 msgid "Are you sure you want to delete this entry?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer cette publication ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer cette publication ?"
 
 msgid "Click here to unlock the field"
 msgstr "Cliquez ici pour déverrouiller le champ"
 
 msgid "Are you sure you want to delete all spams?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer tous les spams ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer tous les indésirables ?"
 
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Êtes-vous sûr·e de vouloir supprimer les commentaires sélectionnés (%s) ?"
 
 msgid "Are you sure you want to delete this comment?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer ce commentaire ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer ce commentaire ?"
 
 msgid "Users with posts cannot be deleted."
-msgstr "Les utilisatrices et les utilisateurs avec des publications ne peuvent pas être supprimés."
+msgstr "Une utilisatrice ou un utilisateur avec des publications ne peut être supprimé."
 
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer les utilisateurs sélectionnés (%s) ?"
+msgstr "Êtes-vous sûr·e de vouloir supprimer les utilisatrices et les utilisateurs sélectionnées (%s) ?"
 
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
@@ -2948,33 +2948,33 @@ msgstr "Êtes-vous sûr·e de vouloir supprimer les blogs sélectionnés (%s) ?"
 
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer la catégorie \"%s\" ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer la catégorie \"%s\" ?"
 
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Êtes-vous sûr·e de vouloir réordonner toutes les catégories ?"
 
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer le média \"%s\" ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer le média \"%s\" ?"
 
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer le répertoire \"%s\" ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer le répertoire \"%s\" ?"
 
 msgid "Are you sure you want to extract archive in current directory?"
-msgstr "Êtes-vous sûr·e de vouloir extraire l'archive dans le répertoire courant ?"
+msgstr "Êtes-vous certain·e de vouloir extraire cette archive dans le répertoire courant ?"
 
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
-msgstr "Êtes-vous sûr de vouloir supprimer l'annexe \"%s\" ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer l'annexe \"%s\" ?"
 
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer la langue \"%s\" ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer la langue \"%s\" ?"
 
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer le plugin \"%s\" ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer le plugin \"%s\" ?"
 
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Êtes-vous sûr·e de vouloir supprimer les plugins sélectionnés ?"
@@ -2987,19 +2987,19 @@ msgstr "Supprimer ce thème"
 
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer le thème \"%s\" ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer le thème \"%s\" ?"
 
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Êtes-vous sûr·e de vouloir supprimer les thèmes sélectionnés ?"
 
 msgid "Are you sure you want to delete this backup?"
-msgstr "Êtes-vous sûr·e de vouloir supprimer cette sauvegarde ?"
+msgstr "Êtes-vous certain·e de vouloir supprimer cette sauvegarde ?"
 
 msgid "Are you sure you want to revert to this backup?"
-msgstr "Êtes-vous sûr·e de vouloir restaurer cette sauvegarde ?"
+msgstr "Êtes-vous certain·e de vouloir restaurer cette sauvegarde ?"
 
 msgid "Zip file content"
-msgstr "Contenu du fichier Zip"
+msgstr "Contenu de l'archive Zip"
 
 msgid "XHTML markup validator"
 msgstr "Validateur XHTML"
@@ -3038,13 +3038,13 @@ msgid "Tags:"
 msgstr "Mots-clés:"
 
 msgid "Hide this notice"
-msgstr "Masquer cette notification"
+msgstr "Masquer ce message"
 
 msgid "You have unsaved changes."
-msgstr "Vous avez des modifications non enregistrées."
+msgstr "Vous avez des modifications non sauvegardées."
 
 msgid "Choose date"
-msgstr "Choisir la date"
+msgstr "Choisir une date"
 
 msgid "close"
 msgstr "fermer"
@@ -3053,7 +3053,7 @@ msgid "now"
 msgstr "maintenant"
 
 msgid "Temporarily activate enhanced uploader"
-msgstr "Activer temporairement l'interface améliorée"
+msgstr "Activer temporairement l'interface avancée de la médiathèque"
 
 msgid "Temporarily disable enhanced uploader"
 msgstr "Désactiver temporairement l'interface améliorée"
@@ -3068,16 +3068,16 @@ msgid "Canceled."
 msgstr "Annulé."
 
 msgid "HTTP Error:"
-msgstr "Erreur HTTP :"
+msgstr "Erreur HTTP :"
 
 msgid "Clean"
 msgstr "Vider"
 
 msgid "File successfully uploaded."
-msgstr "Fichier téléchargé avec succès."
+msgstr "Le fichier a été chargé."
 
 msgid "No file in queue."
-msgstr "Aucun fichier dans la file d'attente."
+msgstr "Aucun fichier en attente."
 
 msgid "1 file in queue."
 msgstr "1 fichier en file d'attente."
@@ -3090,7 +3090,7 @@ msgid "Queue error:"
 msgstr "Erreur de file d'attente :"
 
 msgid "Cancel filters and display options"
-msgstr "Annuler les filtres et les options d'affichage"
+msgstr "Annuler les filtres et options d'affichage"
 
 msgid "other"
 msgstr "autres"
