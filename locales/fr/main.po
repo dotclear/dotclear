@@ -1,25 +1,20 @@
-# French translation of DotClear
-# Copyright (C) 2006.
-# Olivier Meunier <olivier@dotclear.net>, 2006.
-#
-# Translators:
-# Franck  <carnet.franck.paul@gmail.com>, 2011.
-# Stéphane Aulery <lkppo@free.fr>, 2012.
-# xave <xave@dotclear.net>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: Dotclear\n"
+"Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-24 10:23+0200\n"
-"PO-Revision-Date: 2020-04-24 10:42+0200\n"
+"PO-Revision-Date: 2020-04-29 10:29\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/dotclear/language/fr/)\n"
+"Language-Team: French\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Crowdin-Project: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
+"X-Crowdin-Language: fr\n"
+"X-Crowdin-File: /master/locales/en/main.po\n"
 
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear a été mis à jour."
@@ -764,7 +759,7 @@ msgid "Move entries to"
 msgstr "Déplacer les publications vers"
 
 msgid "OK"
-msgstr "OK"
+msgstr "Ok"
 
 msgid "Delete category"
 msgstr "Supprimer la catégorie"
@@ -859,20 +854,12 @@ msgid "Your comment on my blog %s"
 msgstr "Votre commentaire sur mon blog %s"
 
 #, php-format
-msgid ""
-"Hi!\n"
-"\n"
+msgid "Hi!\n\n"
 "You wrote a comment on:\n"
-"%s\n"
-"\n"
-"\n"
-msgstr ""
-"Bonjour,\n"
-"\n"
+"%s\n\n\n"
+msgstr "Bonjour,\n\n"
 "Vous avez déposé un commentaire sur :\n"
-"%s\n"
-"\n"
-"\n"
+"%s\n\n\n"
 
 msgid "Send an e-mail"
 msgstr "Envoyer un email"
@@ -1122,11 +1109,9 @@ msgstr "Ceci est votre premier billet. Quand vous serez prêt à bloguer, connec
 msgid "Dotclear Team"
 msgstr "L'équipe Dotclear"
 
-msgid ""
-"<p>This is a comment.</p>\n"
+msgid "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr ""
-"<p>Ceci est un commentaire</p>\n"
+msgstr "<p>Ceci est un commentaire</p>\n"
 "<p>Pour le supprimer, connectez-vous et affichez les commentaires de votre blog. Vous pourrez alors le supprimer ou le modifier.</p>"
 
 msgid "Dotclear Install"
@@ -1268,7 +1253,7 @@ msgid "MySQLi"
 msgstr "MySQLi"
 
 msgid "MySQLi (full UTF-8)"
-msgstr ""
+msgstr "MySQLi (UTF-8 complet)"
 
 msgid "PostgreSQL"
 msgstr "PostgreSQL"
@@ -1277,7 +1262,7 @@ msgid "SQLite"
 msgstr "SQLite"
 
 msgid "Driver"
-msgstr ""
+msgstr "Pilote"
 
 msgid "Database Host Name:"
 msgstr "Nom d'hôte de la base de données :"
@@ -1295,7 +1280,7 @@ msgid "Database Tables Prefix:"
 msgstr "Préfixe des tables de la base de données :"
 
 msgid "Prefix"
-msgstr ""
+msgstr "Préfixe"
 
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "Email principal : (utilisé pour l'envoi pour la récupération de mot de passe)"
@@ -1555,7 +1540,7 @@ msgstr "Nb d'éléments : %d"
 
 #, php-format
 msgid "In %s:"
-msgstr ""
+msgstr "Dans %s :"
 
 msgid "Create new directory"
 msgstr "Créer un répertoire"
@@ -2587,7 +2572,7 @@ msgid "User ID:"
 msgstr "Identifiant (login) :"
 
 msgid "Login"
-msgstr ""
+msgstr "Identifiant"
 
 msgid "Warning:"
 msgstr "Attention :"
@@ -2938,7 +2923,7 @@ msgid "Are you sure you want to delete this entry?"
 msgstr "Êtes-vous certain·e de vouloir supprimer cette publication ?"
 
 msgid "Click here to unlock the field"
-msgstr ""
+msgstr "Cliquez ici pour déverrouiller le champ"
 
 msgid "Are you sure you want to delete all spams?"
 msgstr "Êtes-vous certain·e de vouloir supprimer tous les indésirables ?"
@@ -3017,25 +3002,25 @@ msgid "Zip file content"
 msgstr "Contenu de l'archive Zip"
 
 msgid "XHTML markup validator"
-msgstr ""
+msgstr "Validateur XHTML"
 
 msgid "XHTML content is valid."
-msgstr ""
+msgstr "Le contenu XHTML est valide."
 
 msgid "There are XHTML markup errors."
-msgstr ""
+msgstr "Il y a des erreurs de balisage XHTML."
 
 msgid "Attention: an audit of a content not yet registered."
-msgstr ""
+msgstr "Attention : audit d'un contenu qui n'est pas encore enregistré."
 
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
-msgstr ""
+msgstr "Vous avez des modifications non enregistrées. Changer le format de publication va perdre ces modifications. Continuer quand même ?"
 
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
-msgstr ""
+msgstr "Attention : la modification du format de publication ne convertira pas le contenu existant. Vous devrez appliquer le nouveau format par vous-même. Continuer quand même ?"
 
 msgid "Loading enhanced uploader, please wait."
-msgstr ""
+msgstr "Chargement de l'interface améliorée, veuillez patienter."
 
 msgid "Details"
 msgstr "Détails"
@@ -3044,7 +3029,7 @@ msgid "Support"
 msgstr "Assistance"
 
 msgid "Help:"
-msgstr ""
+msgstr "Aide :"
 
 msgid "Section:"
 msgstr "Section : "
@@ -3071,13 +3056,13 @@ msgid "Temporarily activate enhanced uploader"
 msgstr "Activer temporairement l'interface avancée de la médiathèque"
 
 msgid "Temporarily disable enhanced uploader"
-msgstr ""
+msgstr "Désactiver temporairement l'interface améliorée"
 
 msgid "Limit exceeded."
-msgstr ""
+msgstr "La limite est dépassée."
 
 msgid "File size exceeds allowed limit."
-msgstr ""
+msgstr "La taille du fichier dépasse la limite autorisée."
 
 msgid "Canceled."
 msgstr "Annulé."
@@ -3086,7 +3071,7 @@ msgid "HTTP Error:"
 msgstr "Erreur HTTP :"
 
 msgid "Clean"
-msgstr ""
+msgstr "Vider"
 
 msgid "File successfully uploaded."
 msgstr "Le fichier a été chargé."
@@ -3095,14 +3080,14 @@ msgid "No file in queue."
 msgstr "Aucun fichier en attente."
 
 msgid "1 file in queue."
-msgstr ""
+msgstr "1 fichier en file d'attente."
 
 #, php-format
 msgid "%d files in queue."
-msgstr ""
+msgstr "%d fichiers dans la file d'attente."
 
 msgid "Queue error:"
-msgstr ""
+msgstr "Erreur de file d'attente :"
 
 msgid "Cancel filters and display options"
 msgstr "Annuler les filtres et options d'affichage"
@@ -3275,7 +3260,7 @@ msgstr "Retour"
 
 #, php-format
 msgid "Score: %s"
-msgstr "Score: %s"
+msgstr "Score : %s"
 
 #, php-format
 msgid "%s screenshot."
@@ -3579,16 +3564,16 @@ msgid "Plugins"
 msgstr "Plugins"
 
 msgid "moyenne"
-msgstr ""
+msgstr "moyenne"
 
 msgid "petite"
-msgstr ""
+msgstr "petite"
 
 msgid "vignette"
-msgstr ""
+msgstr "vignette"
 
 msgid "carrée"
-msgstr ""
+msgstr "carrée"
 
 msgid "Pages"
 msgstr "Pages"
@@ -3836,16 +3821,16 @@ msgid "Invalid setting namespace: %s"
 msgstr "Espace de nom du paramètre invalide : %s"
 
 msgid "SQL SELECT requires a FROM source"
-msgstr ""
+msgstr "SQL SELECT requiert une source FROM"
 
 msgid "SQL DELETE requires a FROM source"
-msgstr ""
+msgstr "SQL DELETE requiert une source FROM"
 
 msgid "SQL UPDATE requires an INTO source"
-msgstr ""
+msgstr "SQL UPDATE requiert une source INTO"
 
 msgid "SQL INSERT requires an INTO source"
-msgstr ""
+msgstr "SQL INSERT requiert une source INTO"
 
 msgid "Failed to read data feed"
 msgstr "Impossible de lire les données du flux."
@@ -3972,3 +3957,4 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
+
