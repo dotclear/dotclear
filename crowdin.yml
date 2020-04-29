@@ -13,27 +13,3 @@ files:
         pt-BR: pt-br
         zh-CN: zh-cn
         vls: nl
-
-  # Core help
-  - source: /locales/en/help/
-    translation: /locales/%two_letters_code%/help/%original_file_name%
-    languages_mapping:
-      two_letters_code:
-        # crowdin_language_code: local_name
-        es-AR: es-ar
-        pt-BR: pt-br
-        zh-CN: zh-cn
-        vls: nl
-
-  # Plugins
-  - source: /plugins/**/locales/en/help
-    ignore:
-      - '*.php'
-    translation: /plugins/**/locales/%two_letters_code%/help/%original_file_name%
-    languages_mapping:
-      two_letters_code:
-        # crowdin_language_code: local_name
-        es-AR: es-ar
-        pt-BR: pt-br
-        zh-CN: zh-cn
-        vls: nl
