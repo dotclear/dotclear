@@ -1,5 +1,7 @@
 # README
 
+[![Crowdin](https://badges.crowdin.net/e/d5f0441bf4f73af0177d34047b5b8482/localized.svg)](https://dotclear.crowdin.com/dotclear)
+
 ## WHAT IS DOTCLEAR ?
 
 Dotclear is an open-source web publishing software.
