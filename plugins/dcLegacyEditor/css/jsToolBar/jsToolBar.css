@@ -14,15 +14,6 @@
   padding: .5em 0 0 0;
   min-height: 100px;
 }
-.jstHandle {
-  height: 8px;
-  background: #ccc url(?pf=dcLegacyEditor/css/jsToolBar/resize.png) no-repeat center center;
-  font-size: 0.1em;
-  cursor: s-resize;
-  border-color: #ccc #ccc #ccc #000;
-  border-width: 0 1px 1px 1px;
-  border-style: solid;
-}
 .jstEditor textarea:focus, .jstEditor iframe:focus {
   border-color: #bee74b;
 }

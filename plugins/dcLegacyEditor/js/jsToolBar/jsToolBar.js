@@ -53,20 +53,6 @@ const jsToolBar = function(textarea) {
     this.editor.parentNode.insertBefore(this.toolbar, this.editor);
   }
 
-  // Dragable resizing (only for gecko)
-  if (navigator.appName == 'Microsoft Internet Explorer') {
-    if (this.editor.addEventListener) {
-      this.handle = document.createElement('div');
-      this.handle.className = 'jstHandle';
-      const dragStart = this.resizeDragStart;
-      const This = this;
-      this.handle.addEventListener('mousedown', function(event) {
-        dragStart.call(This, event);
-      }, false);
-      this.editor.parentNode.insertBefore(this.handle, this.editor.nextSibling);
-    }
-  }
-
   this.context = null;
   this.toolNodes = {}; // lorsque la toolbar est dessinée , cet objet est garni
   // de raccourcis vers les éléments DOM correspondants aux outils.
@@ -319,32 +305,6 @@ jsToolBar.prototype = {
 
     return url;
   }
-};
-
-/** Resizer
--------------------------------------------------------- */
-jsToolBar.prototype.resizeSetStartH = function() {
-  this.dragStartH = this.textarea.offsetHeight + 0;
-};
-jsToolBar.prototype.resizeDragStart = function(event) {
-  const This = this;
-  this.dragStartY = event.clientY;
-  this.resizeSetStartH();
-  document.addEventListener('mousemove', this.dragMoveHdlr = function(event) {
-    This.resizeDragMove(event);
-  }, false);
-  document.addEventListener('mouseup', this.dragStopHdlr = function(event) {
-    This.resizeDragStop(event);
-  }, false);
-};
-
-jsToolBar.prototype.resizeDragMove = function(event) {
-  this.textarea.style.height = (this.dragStartH + event.clientY - this.dragStartY) + 'px';
-};
-
-jsToolBar.prototype.resizeDragStop = function() {
-  document.removeEventListener('mousemove', this.dragMoveHdlr, false);
-  document.removeEventListener('mouseup', this.dragStopHdlr, false);
 };
 
 // Elements definition ------------------------------------
