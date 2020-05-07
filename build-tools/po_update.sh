@@ -209,7 +209,9 @@ else
     --package-name="Dotclear 2 `basename $PO_MODULE` module" \
     -o $PO_MODULE/locales/_pot/main.pot \
     -x $PO_MODULE/locales/_pot/admin.pot \
-    -x locales/_pot/date.pot -x locales/_pot/main.pot -x locales/_pot/public.pot -x locales/_pot/plugins.pot
+    -x locales/_pot/date.pot \
+    -x locales/_pot/public.pot \
+    -x locales/_pot/plugins.pot
 
   rm -f $PO_MODULE/__html_tpl_dummy.php
   if [ ! -s $PO_MODULE/locales/_pot/admin.pot ]; then
