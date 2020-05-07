@@ -157,12 +157,12 @@ $dragndrop_msg  = [
 if (!$core->auth->user_prefs->accessibility->nodragdrop) {
     $dragndrop_head = dcPage::jsJson('dotclear_dragndrop', $dragndrop_msg);
     $dragndrop      =
-    '<input type="checkbox" id="dragndrop" class="sr-only" title="' . $dragndrop_msg['dragndrop_off'] . '" />' .
-    '<label for="dragndrop">' .
-    '<svg aria-hidden="true" focusable="false" class="dragndrop-svg">' .
-    '<use xlink:href="images/dragndrop.svg#mask"></use>' .
-    '</svg>' .
-    '<span id="dragndrop-label" class="sr-only">' . $dragndrop_msg['dragndrop_off'] . '</span>' .
+        '<input type="checkbox" id="dragndrop" class="sr-only" title="' . $dragndrop_msg['dragndrop_off'] . '" />' .
+        '<label for="dragndrop">' .
+        '<svg aria-hidden="true" focusable="false" class="dragndrop-svg">' .
+        '<use xlink:href="images/dragndrop.svg#mask"></use>' .
+        '</svg>' .
+        '<span id="dragndrop-label" class="sr-only">' . $dragndrop_msg['dragndrop_off'] . '</span>' .
         '</label>';
 }
 
@@ -244,8 +244,10 @@ if (count($err) > 0) {
 # Plugins install messages
 if (!empty($plugins_install['success'])) {
     echo '<div class="success">' . __('Following plugins have been installed:') . '<ul>';
+    $list = new adminModulesList($core->plugins, DC_PLUGINS_ROOT, $core->blog->settings->system->store_plugin_url);
     foreach ($plugins_install['success'] as $k => $v) {
-        echo '<li>' . $k . '</li>';
+        $info = implode(' - ', $list->getSettingsUrls($core, $k, true));
+        echo '<li>' . $k . ($info !== '' ? ' → ' . $info : '') . '</li>';
     }
     echo '</ul></div>';
 }
