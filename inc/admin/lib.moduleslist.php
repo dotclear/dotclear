@@ -1807,7 +1807,8 @@ class adminThemesList extends adminModulesList
                 $this->core->blog->settings->system->put('theme', $id);
                 $this->core->blog->triggerBlog();
 
-                dcPage::addSuccessNotice(__('Theme has been successfully selected.'));
+                $module = $this->modules->getModules($id);
+                dcPage::addSuccessNotice(sprintf(__('Theme %s has been successfully selected.'), html::escapeHTML($module['name'])));
                 http::redirect($this->getURL() . '#themes');
             }
         } else {
