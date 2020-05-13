@@ -168,6 +168,8 @@ $posts_sortby_combo = [
     __('Number of comments')   => 'nb_comment',
     __('Number of trackbacks') => 'nb_trackback'
 ];
+# --BEHAVIOR-- adminPostsSortbyCombo
+$core->callBehavior('adminPostsSortbyCombo', [ & $posts_sortby_combo]);
 
 $comments_sortby_combo = [
     __('Date')        => 'comment_dt',
@@ -178,6 +180,8 @@ $comments_sortby_combo = [
     __('IP')          => 'comment_ip',
     __('Spam filter') => 'comment_spam_filter'
 ];
+# --BEHAVIOR-- adminCommentsSortbyCombo
+$core->callBehavior('adminCommentsSortbyCombo', [ & $comments_sortby_combo]);
 
 $blogs_sortby_combo = [
     __('Last update') => 'blog_upddt',
@@ -185,6 +189,8 @@ $blogs_sortby_combo = [
     __('Blog ID')     => 'B.blog_id',
     __('Status')      => 'blog_status'
 ];
+# --BEHAVIOR-- adminBlogsSortbyCombo
+$core->callBehavior('adminBlogsSortbyCombo', [ & $blogs_sortby_combo]);
 
 if ($core->auth->isSuperAdmin()) {
     $users_sortby_combo = [

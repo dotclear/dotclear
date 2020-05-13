@@ -130,11 +130,17 @@ $sortby_combo = [
     __('Number of trackbacks') => 'nb_trackback'
 ];
 
+# --BEHAVIOR-- adminPostsSortbyCombo
+$core->callBehavior('adminPostsSortbyCombo', [ & $sortby_combo]);
+
 $sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request
     'post_title' => 'post_title',
     'cat_title'  => 'cat_title',
     'user_id'    => 'P.user_id'];
+
+# --BEHAVIOR-- adminPostsSortbyLexCombo
+$core->callBehavior('adminPostsSortbyLexCombo', [ & $sortby_lex]);
 
 $order_combo = [
     __('Descending') => 'desc',

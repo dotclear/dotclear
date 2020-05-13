@@ -41,12 +41,17 @@ $sortby_combo = [
     __('Author')      => 'comment_author',
     __('Status')      => 'comment_status'
 ];
+# --BEHAVIOR-- adminCommentsSortbyCombo
+$core->callBehavior('adminCommentsSortbyCombo', [ & $sortby_combo]);
 
 $sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request
     'post_title'          => 'post_title',
     'comment_author'      => 'comment_author',
     'comment_spam_filter' => 'comment_spam_filter'];
+
+# --BEHAVIOR-- adminCommentsSortbyLexCombo
+$core->callBehavior('adminCommentsSortbyLexCombo', [ & $sortby_lex]);
 
 $order_combo = [
     __('Descending') => 'desc',

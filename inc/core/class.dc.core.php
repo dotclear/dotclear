@@ -533,16 +533,16 @@ class dcCore
                 'WHERE NULL IS NULL ';
         } else {
             $strReq =
-            'SELECT U.user_id,user_super,user_status,user_pwd,user_change_pwd,' .
-            'user_name,user_firstname,user_displayname,user_email,user_url,' .
-            'user_desc, user_lang,user_tz, user_post_status,user_options, ' .
-            'count(P.post_id) AS nb_post ';
-            if (!empty($params['custom_fields'])) {
+                'SELECT U.user_id,user_super,user_status,user_pwd,user_change_pwd,' .
+                'user_name,user_firstname,user_displayname,user_email,user_url,' .
+                'user_desc, user_lang,user_tz, user_post_status,user_options, ' .
+                'count(P.post_id) AS nb_post ';
+            if (!empty($params['columns'])) {
                 $strReq .= ',';
-                if (is_array($params['custom_fields'])) {
-                    $strReq .= implode(',', $params['custom_fields']);
+                if (is_array($params['columns'])) {
+                    $strReq .= implode(',', $params['columns']);
                 } else {
-                    $strReq .= $params['custom_fields'];
+                    $strReq .= $params['columns'];
                 }
                 $strReq .= ' ';
             }
@@ -972,9 +972,18 @@ class dcCore
                 '%2$s ';
         } else {
             $strReq =
-            'SELECT B.blog_id, blog_uid, blog_url, blog_name, blog_desc, blog_creadt, ' .
-            'blog_upddt, blog_status ' .
-            'FROM ' . $this->prefix . 'blog B ' .
+                'SELECT B.blog_id, blog_uid, blog_url, blog_name, blog_desc, blog_creadt, ' .
+                'blog_upddt, blog_status ';
+            if (!empty($params['columns'])) {
+                $strReq .= ',';
+                if (is_array($params['columns'])) {
+                    $strReq .= implode(',', $params['columns']);
+                } else {
+                    $strReq .= $params['columns'];
+                }
+                $strReq .= ' ';
+            }
+            $strReq .= 'FROM ' . $this->prefix . 'blog B ' .
                 '%1$s ' .
                 'WHERE NULL IS NULL ' .
                 '%2$s ';
