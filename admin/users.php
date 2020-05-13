@@ -20,12 +20,18 @@ $sortby_combo = [
     __('Number of entries') => 'nb_post'
 ];
 
+# --BEHAVIOR-- adminUsersSortbyCombo
+$core->callBehavior('adminUsersSortbyCombo', [ & $sortby_combo]);
+
 $sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request
     'user_id'          => 'U.user_id',
     'user_name'        => 'user_name',
     'user_firstname'   => 'user_firstname',
     'user_displayname' => 'user_displayname'];
+
+# --BEHAVIOR-- adminUsersSortbyLexCombo
+$core->callBehavior('adminUsersSortbyLexCombo', [ & $sortby_lex]);
 
 $order_combo = [
     __('Descending') => 'desc',
@@ -85,6 +91,10 @@ if ($sortby != $default_sortby || $order != $default_order) {
 
 # Get users
 try {
+    # --BEHAVIOR-- adminGetUsers
+    $params = new ArrayObject($params);
+    $core->callBehavior('adminGetUsers', $params);
+
     $rs       = $core->getUsers($params);
     $counter  = $core->getUsers($params, 1);
     $rsStatic = $rs->toStatic();

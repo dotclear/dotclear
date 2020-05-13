@@ -194,6 +194,8 @@ if ($core->auth->isSuperAdmin()) {
         __('Display name')      => 'user_displayname',
         __('Number of entries') => 'nb_post'
     ];
+    # --BEHAVIOR-- adminUsersSortbyCombo
+    $core->callBehavior('adminUsersSortbyCombo', [ & $users_sortby_combo]);
 }
 
 $order_combo = [

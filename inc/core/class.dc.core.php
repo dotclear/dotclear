@@ -536,7 +536,17 @@ class dcCore
             'SELECT U.user_id,user_super,user_status,user_pwd,user_change_pwd,' .
             'user_name,user_firstname,user_displayname,user_email,user_url,' .
             'user_desc, user_lang,user_tz, user_post_status,user_options, ' .
-            'count(P.post_id) AS nb_post ' .
+            'count(P.post_id) AS nb_post ';
+            if (!empty($params['custom_fields'])) {
+                $strReq .= ',';
+                if (is_array($params['custom_fields'])) {
+                    $strReq .= implode(',', $params['custom_fields']);
+                } else {
+                    $strReq .= $params['custom_fields'];
+                }
+                $strReq .= ' ';
+            }
+            $strReq .=
             'FROM ' . $this->prefix . 'user U ' .
             'LEFT JOIN ' . $this->prefix . 'post P ON U.user_id = P.user_id ' .
                 'WHERE NULL IS NULL ';
