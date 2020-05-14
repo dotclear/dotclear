@@ -1546,7 +1546,7 @@ class dcTemplate extends template
 
         return '<?php echo (($_ctx->posts->index()+1)%2 ? ' .
             '"' . addslashes($odd) . '" : ' .
-            '"' . addslashes($even) . '") ?>';
+            '"' . addslashes($even) . '"); ?>';
     }
 
     /*dtd
@@ -2552,7 +2552,7 @@ class dcTemplate extends template
 
         return '<?php echo (($_ctx->comments->index()+1)%2 ? ' .
             '"' . addslashes($odd) . '" : ' .
-            '"' . addslashes($even) . '") ?>';
+            '"' . addslashes($even) . '"); ?>';
     }
 
     /*dtd
@@ -2832,7 +2832,7 @@ class dcTemplate extends template
 
         return '<?php echo (($_ctx->pings->index()+1)%2 ? ' .
             '"' . addslashes($odd) . '" : ' .
-            '"' . addslashes($even) . '") ?>';
+            '"' . addslashes($even) . '"); ?>';
     }
 
     /*dtd
