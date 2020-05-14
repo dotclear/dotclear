@@ -1579,9 +1579,12 @@ class dcTemplate extends template
 
         if (!empty($attr['full'])) {
             return '<?php echo ' . sprintf($f,
-                '$_ctx->posts->getExcerpt(' . $urls . ')." ".$_ctx->posts->getContent(' . $urls . ')') . '; ?>';
+                '$_ctx->posts->getExcerpt(' . $urls . ').' .
+                '(strlen($_ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
+                '$_ctx->posts->getContent(' . $urls . ')') . '; ?>';
         } else {
-            return '<?php echo ' . sprintf($f, '$_ctx->posts->getContent(' . $urls . ')') . '; ?>';
+            return '<?php echo ' . sprintf($f,
+                '$_ctx->posts->getContent(' . $urls . ')') . '; ?>';
         }
     }
 
@@ -1594,7 +1597,7 @@ class dcTemplate extends template
      */
     public function EntryIfContentCut($attr, $content)
     {
-        if (empty($attr['cut_string']) || !empty($attr['full'])) {
+        if (empty($attr['cut_string'])) {
             return '';
         }
 
@@ -1609,10 +1612,25 @@ class dcTemplate extends template
         $full               = $this->getFilters($attr);
         $attr['cut_string'] = $cut;
 
-        return '<?php if (strlen(' . sprintf($full, '$_ctx->posts->getContent(' . $urls . ')') . ') > ' .
-        'strlen(' . sprintf($short, '$_ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        if (!empty($attr['full'])) {
+            return '<?php if (strlen(' . sprintf($full,
+                    '$_ctx->posts->getExcerpt(' . $urls . ').' .
+                    '(strlen($_ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
+                    '$_ctx->posts->getContent(' . $urls . ')') . ') > ' .
+                'strlen(' . sprintf($short,
+                    '$_ctx->posts->getExcerpt(' . $urls . ').' .
+                    '(strlen($_ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
+                    '$_ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
+                $content .
+                '<?php endif; ?>';
+        } else {
+            return '<?php if (strlen(' . sprintf($full,
+                    '$_ctx->posts->getContent(' . $urls . ')') . ') > ' .
+                'strlen(' . sprintf($short,
+                    '$_ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
+                $content .
+                '<?php endif; ?>';
+        }
     }
 
     /*dtd

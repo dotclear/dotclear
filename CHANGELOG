@@ -1,3 +1,9 @@
+Dotclear 2.16.5 - 2020-05-14
+===========================================================
+* Fix: tpl:EntryContent and tpl:EntryIfContentCut when using full="1" attribute
+* Fix: Take care of iframe content (used by wysiwyg/source dcLegacyEditor) for confirmation before closing modified forms
+* Remove all automatic translations in simpleMenu plugin, feature which caused unanticipated behaviours
+
 Dotclear 2.16.4 - 2020-04-24
 ===========================================================
 * Fix: Remove <sub>content</sub> (_<content>_) from authorized element in wiki links. - missing from 2.16.3
