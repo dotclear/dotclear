@@ -1533,16 +1533,20 @@ class dcTemplate extends template
     <!ELEMENT tpl:EntryIfOdd - O -- displays value if entry is in an odd position -->
     <!ATTLIST tpl:EntryIfOdd
     return    CDATA    #IMPLIED    -- value to display in case of success (default: odd)
+    even      CDATA    #IMPLIED    -- value to display in case of failure (default: <empty>)
     >
      */
     public function EntryIfOdd($attr)
     {
-        $ret = isset($attr['return']) ? $attr['return'] : 'odd';
-        $ret = html::escapeHTML($ret);
+        $odd = isset($attr['return']) ? $attr['return'] : 'odd';
+        $odd = html::escapeHTML($odd);
 
-        return
-        '<?php if (($_ctx->posts->index()+1)%2 == 1) { ' .
-        "echo '" . addslashes($ret) . "'; } ?>";
+        $even = isset($attr['even']) ? $attr['even'] : '';
+        $even = html::escapeHTML($even);
+
+        return '<?php echo (($_ctx->posts->index()+1)%2 ? ' .
+            '"' . addslashes($odd) . '" : ' .
+            '"' . addslashes($even) . '") ?>';
     }
 
     /*dtd
