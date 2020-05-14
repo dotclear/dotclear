@@ -2535,16 +2535,20 @@ class dcTemplate extends template
     <!ELEMENT tpl:CommentIfOdd - O -- displays value if comment is  at an odd position -->
     <!ATTLIST tpl:CommentIfOdd
     return    CDATA    #IMPLIED    -- value to display in case of success (default: odd)
+    even      CDATA    #IMPLIED    -- value to display in case of failure (default: <empty>)
     >
      */
     public function CommentIfOdd($attr)
     {
-        $ret = isset($attr['return']) ? $attr['return'] : 'odd';
-        $ret = html::escapeHTML($ret);
+        $odd = isset($attr['return']) ? $attr['return'] : 'odd';
+        $odd = html::escapeHTML($odd);
 
-        return
-        '<?php if (($_ctx->comments->index()+1)%2) { ' .
-        "echo '" . addslashes($ret) . "'; } ?>";
+        $even = isset($attr['even']) ? $attr['even'] : '';
+        $even = html::escapeHTML($even);
+
+        return '<?php echo (($_ctx->comments->index()+1)%2 ? ' .
+            '"' . addslashes($odd) . '" : ' .
+            '"' . addslashes($even) . '") ?>';
     }
 
     /*dtd
@@ -2811,16 +2815,20 @@ class dcTemplate extends template
     <!ELEMENT tpl:PingIfOdd - O -- displays value if trackback is  at an odd position -->
     <!ATTLIST tpl:PingIfOdd
     return    CDATA    #IMPLIED    -- value to display in case of success (default: odd)
+    even      CDATA    #IMPLIED    -- value to display in case of failure (default: <empty>)
     >
      */
     public function PingIfOdd($attr)
     {
-        $ret = isset($attr['return']) ? $attr['return'] : 'odd';
-        $ret = html::escapeHTML($ret);
+        $odd = isset($attr['return']) ? $attr['return'] : 'odd';
+        $odd = html::escapeHTML($odd);
 
-        return
-        '<?php if (($_ctx->pings->index()+1)%2) { ' .
-        "echo '" . addslashes($ret) . "'; } ?>";
+        $even = isset($attr['even']) ? $attr['even'] : '';
+        $even = html::escapeHTML($even);
+
+        return '<?php echo (($_ctx->pings->index()+1)%2 ? ' .
+            '"' . addslashes($odd) . '" : ' .
+            '"' . addslashes($even) . '") ?>';
     }
 
     /*dtd
