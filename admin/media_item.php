@@ -118,21 +118,25 @@ if ($file && !empty($_POST['media_file']) && $file->editable && $core_media_writ
     $newFile->media_dtstr = $_POST['media_dt'];
     $newFile->media_priv  = !empty($_POST['media_private']);
 
-    if (isset($_POST['media_desc'])) {
-        $desc = html::escapeHTML($_POST['media_desc']);
-        if ($file->media_meta instanceof SimpleXMLElement) {
-            if (count($file->media_meta) > 0) {
-                foreach ($file->media_meta as $k => $v) {
-                    if ((string) $v && ($k == 'Description')) {
-                        // Update value
-                        $v[0] = $desc;
-                    }
+    $desc = isset($_POST['media_desc']) ? html::escapeHTML($_POST['media_desc']) : '';
+
+    if ($file->media_meta instanceof SimpleXMLElement) {
+        if (count($file->media_meta) > 0) {
+            foreach ($file->media_meta as $k => $v) {
+                if ($k == 'Description') {
+                    // Update value
+                    $v[0] = $desc;
+                    break;
                 }
-            } else {
+            }
+        } else {
+            if ($desc) {
                 // Add value
                 $file->media_meta->addChild('Description', $desc);
             }
-        } else {
+        }
+    } else {
+        if ($desc) {
             // Create meta and add value
             $file->media_meta = simplexml_load_string('<meta></meta>');
             $file->media_meta->addChild('Description', $desc);
