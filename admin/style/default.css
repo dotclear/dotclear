@@ -345,7 +345,7 @@ h6 {
 
 #header {
   color: #fff;
-  background: #676e78;
+  background: #3a539b;
   border-bottom: 4px solid #a2cbe9;
   width: 99.99%;
   /* Bugfix Chrome >= 49.0.2623.108 */
@@ -512,7 +512,7 @@ h1,
 /* ---------------------------------------------------------------- layout: popups */
 .popup h1 {
   color: #fff;
-  background: #676e78;
+  background: #3a539b;
   display: block;
   width: 100%;
   margin: 0;
@@ -3398,10 +3398,11 @@ div.ui-sortable-handle {
 @media screen and (max-width: 80em) {
   #header,
   h1 {
-    background: #323232; }
+    background: #3a539b; }
 
   #top-info-user {
-    background: #676e78; }
+    background: #3a539b;
+    border-top: 1px solid #a2cbe9; }
     #top-info-user a.active {
       color: #fff;
       background: #868686; }

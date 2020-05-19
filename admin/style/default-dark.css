@@ -3401,7 +3401,8 @@ div.ui-sortable-handle {
     background: #595b5d; }
 
   #top-info-user {
-    background: #272b30; }
+    background: #272b30;
+    border-top: 1px solid #9ac123; }
     #top-info-user a.active {
       color: #fff;
       background: #86888c; }

@@ -9,6 +9,7 @@ $green:           #9ac123;
 $red:             #c44d58;
 $light-blue:      #a2cbe9;
 $orange:          #d33800;
+$marine:          #3a539b;
 
 $gray:            #b2b2b2;
 $gray-dark:       #676e78;
@@ -83,8 +84,8 @@ $title-alt-color:                 $orange;                            // #d33800
 // Layout
 
 $header-color:                    $white;                             // #ffffff
-$header-background:               $gray-dark;                         // #676e78
-$header-background-alt:           $gray-very-dark;                    // #323232
+$header-background:               $marine;
+$header-background-alt:           $marine;
 $header-border:                   $light-blue;                        // #a2cbe9
 $header-border-alt:               $gray-very-dark;                    // #323232
 $header-link-border:              $gray-semi-dark;                    // #868686
@@ -125,7 +126,7 @@ $collapser-focus:                 $light-blue;                        // #a2cbe9
 $collapser-background:            $gray-light;                        // #c9c9c9
 
 $popup-title-color:               $white;                             // #ffffff
-$popup-title-background:          $gray-dark;                         // #676e78
+$popup-title-background:          $marine;
 
 // Markup
 

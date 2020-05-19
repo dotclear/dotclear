@@ -9,6 +9,7 @@
   }
   #top-info-user {
     background: $header-background;
+    border-top: 1px solid $header-border;
     a.active {
       color: $header-active-color-alt;
       background: $header-active-background-alt;
