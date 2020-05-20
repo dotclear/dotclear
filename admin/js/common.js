@@ -11,6 +11,10 @@ const dotclear_init = getData('dotclear_init');
 if (typeof dotclear_init.htmlFontSize !== 'undefined') {
   document.documentElement.style.setProperty('--html-font-size', dotclear_init.htmlFontSize);
 }
+// set theme mode (dark/light)
+if (typeof dotclear_init.darkMode !== 'undefined') {
+  document.documentElement.style.setProperty('--dark-mode', dotclear_init.darkMode);
+}
 /* ChainHandler, py Peter van der Beken
 -------------------------------------------------------- */
 function chainHandler(obj, handlerName, handler) {
@@ -610,6 +614,10 @@ $(function() {
   Object.assign(dotclear, getData('dotclear'));
   Object.assign(dotclear.msg, getData('dotclear_msg'));
 
+  // set theme mode (dark/light)
+  if (typeof dotclear_init.darkMode !== 'undefined') {
+    $('body').addClass(dotclear_init.darkMode ? 'dark-mode' : 'light-mode');
+  }
   // remove class no-js from html tag; cf style/default.css for examples
   $('body').removeClass('no-js').addClass('with-js');
   $('body').contents().each(function() {
