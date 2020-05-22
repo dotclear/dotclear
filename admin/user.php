@@ -392,6 +392,20 @@ if ($user_id) {
         echo '<p>' . sprintf(__('%s is super admin (all rights on all blogs).'), '<strong>' . $user_id . '</strong>') . '</p>';
     }
     echo '</div>';
+
+    // Informations (direct links)
+    echo '<div class="clear fieldset">' .
+    '<h3>' . __('Direct links') . '</h3>';
+    echo '<p><a href="' . $core->adminurl->get('admin.posts',
+        ['user_id' => $user_id]
+    ) . '">' . __('List of posts') . '</a>';
+    echo '<p><a href="' . $core->adminurl->get('admin.comments',
+        [
+            'email' => $core->auth->getInfo('user_email', $user_id),
+            'site' => $core->auth->getInfo('user_url', $user_id),
+        ]
+    ) . '">' . __('List of comments') . '</a>';
+    echo '</div>';
 }
 
 dcPage::helpBlock('core_user');

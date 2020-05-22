@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-24 10:23+0200\n"
+"POT-Creation-Date: 2020-05-22 18:01+0200\n"
 "PO-Revision-Date: 2020-04-29 10:29\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French\n"
@@ -854,12 +854,20 @@ msgid "Your comment on my blog %s"
 msgstr "Votre commentaire sur mon blog %s"
 
 #, php-format
-msgid "Hi!\n\n"
+msgid ""
+"Hi!\n"
+"\n"
 "You wrote a comment on:\n"
-"%s\n\n\n"
-msgstr "Bonjour,\n\n"
+"%s\n"
+"\n"
+"\n"
+msgstr ""
+"Bonjour,\n"
+"\n"
 "Vous avez déposé un commentaire sur :\n"
-"%s\n\n\n"
+"%s\n"
+"\n"
+"\n"
 
 msgid "Send an e-mail"
 msgstr "Envoyer un email"
@@ -1109,9 +1117,11 @@ msgstr "Ceci est votre premier billet. Quand vous serez prêt à bloguer, connec
 msgid "Dotclear Team"
 msgstr "L'équipe Dotclear"
 
-msgid "<p>This is a comment.</p>\n"
+msgid ""
+"<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr "<p>Ceci est un commentaire</p>\n"
+msgstr ""
+"<p>Ceci est un commentaire</p>\n"
 "<p>Pour le supprimer, connectez-vous et affichez les commentaires de votre blog. Vous pourrez alors le supprimer ou le modifier.</p>"
 
 msgid "Dotclear Install"
@@ -2608,6 +2618,15 @@ msgstr "Blog :"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr "%s est super administrateur·rice (tous les droits sur tous les blogs)."
 
+msgid "Direct links"
+msgstr "Liens directs"
+
+msgid "List of posts"
+msgstr "Liste des billets"
+
+msgid "List of comments"
+msgstr "Liste des commentaires"
+
 msgid "Set permissions"
 msgstr "Définir les permissions"
 
@@ -3307,6 +3326,7 @@ msgstr "Mettre à jour tous les thèmes de cette liste"
 msgid "No such theme."
 msgstr "Thème inexistant."
 
+#, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "Le thème %s a été sélectionné."
 
@@ -3957,4 +3977,3 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
-
