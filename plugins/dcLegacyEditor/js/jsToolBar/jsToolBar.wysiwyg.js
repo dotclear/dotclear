@@ -514,8 +514,8 @@ jsToolBar.prototype.tagsoup2xhtml = function(html) {
   /* Trim only if there's no pre tag */
   const pattern_pre = /<pre>[\s\S]*<\/pre>/gi;
   if (!pattern_pre.test(html)) {
-    html = html.replace(/^\s+/gm, '');
-    html = html.replace(/\s+$/gm, '');
+    html = html.replace(/^\s+/g, '');
+    html = html.replace(/\s+$/g, '');
   }
 
   return html;
