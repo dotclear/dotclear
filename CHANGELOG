@@ -1,3 +1,11 @@
+Dotclear 2.16.6 - 2020-05-22
+===========================================================
+* Fix: Remove executable bit on non-executable files
+* Do not trim inside the content, only at the beginning and the end (dcLegacyEditor, XHTML mode only)
+* Fix media description management in media-manager (main/popup)
+* Fix insertion of figure (wiki / wysiwyg)
+* Fix caret position after inserting image in dcLegacyEditor (wiki)
+
 Dotclear 2.16.5 - 2020-05-14
 ===========================================================
 * Fix: tpl:EntryContent and tpl:EntryIfContentCut when using full="1" attribute
