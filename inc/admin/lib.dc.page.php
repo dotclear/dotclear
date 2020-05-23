@@ -372,6 +372,7 @@ EOT;
             '<footer id="footer" role="contentinfo">' .
             '<a href="https://dotclear.org/" title="' . $text . '">' .
             '<img src="style/dc_logos/w-dotclear90.png" alt="' . $text . '" /></a></footer>' . "\n" .
+            '<audio id="thanks" src="images/thanks.mp3" crossOrigin="anonymous" preload="none"></audio>' .
             "<!-- " . "\n" .
             $figure .
             " -->" . "\n";
