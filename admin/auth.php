@@ -280,7 +280,7 @@ echo dcPage::jsLoad('js/_auth.js');
 
 <?php
 if ($err) {
-    echo '<div class="error" role="alert">' . $err . '</div>';
+    echo '<div class="' . ($change_pwd ? 'info' : 'error') . '" role="alert">' . $err . '</div>';
 }
 if ($msg) {
     echo '<p class="success" role="alert">' . $msg . '</p>';
