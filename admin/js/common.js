@@ -632,8 +632,13 @@ $(function() {
   if (footer_target) {
     const footer_audio = document.querySelector('#thanks');
     if (footer_audio) {
-      footer_target.addEventListener('mouseenter', () => { footer_audio.load(); footer_audio.play(); });
-      footer_target.addEventListener('mouseleave', () => { footer_audio.pause(); });
+      footer_target.addEventListener('mouseenter', () => {
+        footer_audio.load();
+        footer_audio.play();
+      });
+      footer_target.addEventListener('mouseleave', () => {
+        footer_audio.pause();
+      });
     }
   }
   // manage outgoing links
@@ -768,5 +773,9 @@ $(function() {
       scrollTop: 0
     }, 800);
     e.preventDefault();
+  });
+  // Go back (aka Cancel) button
+  $('.go-back').on('click', () => {
+    history.back();
   });
 });

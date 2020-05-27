@@ -543,7 +543,8 @@ if ($can_edit_page) {
             $core->auth->userID() . '/' .
             http::browserUID(DC_MASTER_KEY . $core->auth->userID() . $core->auth->cryptLegacy($core->auth->userID())) .
             '/' . $post->post_url);
-        echo '<a id="post-preview" href="' . $preview_url . '" class="button" accesskey="p">' . __('Preview') . ' (p)' . '</a>';
+        echo '<a id="post-preview" href="' . $preview_url . '" class="button" accesskey="p">' . __('Preview') . ' (p)' . '</a>' .
+            ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />';
     } else {
         echo
         '<a id="post-cancel" href="' . $core->adminurl->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';

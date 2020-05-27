@@ -103,6 +103,7 @@ if (!$core->error->flag()) {
         '<p><label for="new_tag_id" class="classic">' . __('Rename') . '</label> ' .
         form::field('new_tag_id', 20, 255, html::escapeHTML($tag)) .
         '<input type="submit" value="' . __('OK') . '" />' .
+        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         $core->formNonce() .
             '</p></form>';
         # Remove tag

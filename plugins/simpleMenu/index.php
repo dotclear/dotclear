@@ -520,8 +520,10 @@ if (!$step) {
     echo '<form id="settings" action="' . $p_url . '" method="post">' .
     '<p>' . form::checkbox('active', 1, $menu_active) .
     '<label class="classic" for="active">' . __('Enable simple menu for this blog') . '</label>' . '</p>' .
-    '<p>' . $core->formNonce() . '<input type="submit" name="saveconfig" value="' . __('Save configuration') . '" />' . '</p>' .
-        '</form>';
+    '<p>' . $core->formNonce() . '<input type="submit" name="saveconfig" value="' . __('Save configuration') . '" />' .
+    ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+    '</p>' .
+    '</form>';
 }
 
 // Liste des items

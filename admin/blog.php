@@ -105,8 +105,10 @@ if (!empty($_REQUEST['id'])) {
             'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
         ]) . '</p>' .
 
-    '<p><input type="submit" accesskey="s" name="create" value="' . __('Create') . '" /></p>' .
-        '</form>';
+    '<p><input type="submit" accesskey="s" name="create" value="' . __('Create') . '" />' .
+    ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+    '</p>' .
+    '</form>';
 
     dcPage::helpBlock('core_blog_new');
     dcPage::close();

@@ -221,6 +221,7 @@ form::textarea('cat_desc', 50, 8,
 '</p>' .
 
 '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
+' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
 ($cat_id ? form::hidden('id', $cat_id) : '') .
 $core->formNonce() .
     '</p>' .

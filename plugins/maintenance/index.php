@@ -269,6 +269,7 @@ if ($task && ($res = $task->step()) !== null) {
             '<form action="' . $p_url . '" method="post">' .
             $res_group .
             '<p><input type="submit" value="' . __('Execute task') . '" /> ' .
+            ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
             form::hidden(['tab'], $tab_obj->id()) .
             $core->formNonce() . '</p>' .
             '<p class="form-note info">' . __('This may take a very long time.') . '</p>' .
@@ -290,6 +291,7 @@ if ($task && ($res = $task->step()) !== null) {
         '<form action="' . $p_url . '" method="post">' .
         $t->content() .
         '<p><input type="submit" value="' . __('Execute task') . '" /> ' .
+        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         form::hidden(['task'], $t->id()) .
         form::hidden(['tab'], $t->id()) .
         $core->formNonce() . '</p>' .
@@ -344,6 +346,7 @@ if ($task && ($res = $task->step()) !== null) {
 
     echo
     '<p class="field wide"><input type="submit" value="' . __('Save') . '" /> ' .
+    ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
     form::hidden(['tab'], 'settings') .
     form::hidden(['save_settings'], 1) .
     $core->formNonce() . '</p>' .
@@ -385,6 +388,7 @@ if ($task && ($res = $task->step()) !== null) {
 
         echo
         '<p class="field wide"><input type="submit" value="' . __('Save') . '" /> ' .
+        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         form::hidden(['tab'], 'system') .
         form::hidden(['save_system'], 1) .
         $core->formNonce() . '</p>' .

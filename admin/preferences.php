@@ -621,8 +621,10 @@ if ($core->auth->allowPassChange()) {
 echo
 '<p class="clear vertical-separator">' .
 $core->formNonce() .
-'<input type="submit" accesskey="s" value="' . __('Update my profile') . '" /></p>' .
-    '</form>' .
+'<input type="submit" accesskey="s" value="' . __('Update my profile') . '" />' .
+' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+'</p>' .
+'</form>' .
 
     '</div>';
 
@@ -814,8 +816,10 @@ $core->callBehavior('adminPreferencesForm', $core);
 echo
 '<p class="clear vertical-separator">' .
 $core->formNonce() .
-'<input type="submit" accesskey="s" value="' . __('Save my options') . '" /></p>' .
-    '</form>';
+'<input type="submit" accesskey="s" value="' . __('Save my options') . '" />' .
+' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+'</p>' .
+'</form>';
 
 echo '</div>';
 
@@ -991,8 +995,10 @@ echo
 '<p>' .
 form::hidden('db-options', '-') .
 $core->formNonce() .
-'<input type="submit" accesskey="s" value="' . __('Save my dashboard options') . '" /></p>' .
-    '</form>';
+'<input type="submit" accesskey="s" value="' . __('Save my dashboard options') . '" />' .
+' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+'</p>' .
+'</form>';
 
 # Dashboard items order (reset)
 echo '<form action="' . $core->adminurl->get("admin.user.preferences") . '" method="post" id="order-reset" class="two-boxes even">';

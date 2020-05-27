@@ -777,6 +777,7 @@ if ($blog_id) {
 
     echo
     '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
+    ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         (!$standalone ? form::hidden('id', $blog_id) : '') .
         '</p>' .
         '</form>';

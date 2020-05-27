@@ -334,6 +334,7 @@ form::password('your_pwd', 20, 255,
 '<p class="clear"><input type="submit" name="save" accesskey="s" value="' . __('Save') . '" />' .
 ($user_id != '' ? '' : ' <input type="submit" name="saveplus" value="' . __('Save and create another') . '" />') .
 ($user_id != '' ? form::hidden('id', $user_id) : '') .
+' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
 $core->formNonce() .
     '</p>' .
 

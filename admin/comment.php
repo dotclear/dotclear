@@ -238,10 +238,11 @@ if ($comment_id) {
 
     '<p>' . form::hidden('id', $comment_id) .
     $core->formNonce() .
-    '<input type="submit" accesskey="s" name="update" value="' . __('Save') . '" /> ';
+    '<input type="submit" accesskey="s" name="update" value="' . __('Save') . '" />' .
+    ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />';
 
     if ($can_delete) {
-        echo '<input type="submit" class="delete" name="delete" value="' . __('Delete') . '" />';
+        echo ' <input type="submit" class="delete" name="delete" value="' . __('Delete') . '" />';
     }
     echo
         '</p>' .
