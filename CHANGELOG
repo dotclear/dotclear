@@ -1,3 +1,11 @@
+Dotclear 2.16.7 - 2020-05-27
+===========================================================
+* 🛡 Security:Security: Password is now needed to export blog settings and contents (full/simple)
+* Fix: Remove absolute positionning of datepicker icon (media manager)
+* Fix: Cope with SURBL DNS query blocked access (if too much requests from same source) - Antispam LinksLookup filter
+* Fix: Remove wrapping p around figures (wiki)
+* Fix: CKEditor use now same font-size as other UI standard elements
+
 Dotclear 2.16.6 - 2020-05-22
 ===========================================================
 * Fix: Remove executable bit on non-executable files
