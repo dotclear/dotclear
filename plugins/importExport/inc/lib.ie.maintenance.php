@@ -33,13 +33,14 @@ class ieMaintenanceExportblog extends dcMaintenanceTask
     {
         global $core;
 
-        if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
-            $this->error = __('Password verification failed');
-            return false;
-        }
-
         // Create zip file
         if (!empty($_POST['file_name'])) {
+
+            if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
+                $this->error = __('Password verification failed');
+                return false;
+            }
+
             // This process make an http redirect
             $ie = new maintenanceDcExportFlat($this->core);
             $ie->setURL($this->id);
@@ -105,13 +106,14 @@ class ieMaintenanceExportfull extends dcMaintenanceTask
     {
         global $core;
 
-        if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
-            $this->error = __('Password verification failed');
-            return false;
-        }
-
         // Create zip file
         if (!empty($_POST['file_name'])) {
+
+            if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
+                $this->error = __('Password verification failed');
+                return false;
+            }
+
             // This process make an http redirect
             $ie = new maintenanceDcExportFlat($this->core);
             $ie->setURL($this->id);
