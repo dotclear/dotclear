@@ -74,7 +74,8 @@ class dcTemplate extends template
         $this->addValue('BlogPostsURL', [$this, 'BlogPostsURL']);
         $this->addBlock('IfBlogStaticEntryURL', [$this, 'IfBlogStaticEntryURL']);
         $this->addValue('BlogStaticEntryURL', [$this, 'BlogStaticEntryURL']);
-
+        $this->addValue('BlogNbEntriesFirstPage', [$this, 'BlogNbEntriesFirstPage']);
+        $this->addValue('BlogNbEntriesPerPage', [$this, 'BlogNbEntriesPerPage']);
 
         # Categories
         $this->addBlock('Categories', [$this, 'Categories']);
@@ -927,6 +928,24 @@ class dcTemplate extends template
         $p .= "\$params['post_url'] = " . sprintf($f, 'urldecode($core->blog->settings->system->static_home_url)') . ";\n";
 
         return "<?php\n" . $p . " ?>";
+    }
+
+    /*dtd
+    <!ELEMENT tpl:BlogNbEntriesFirstPage - O -- Number of entries for 1st page -->
+     */
+    public function BlogNbEntriesFirstPage($attr)
+    {
+        $f = $this->getFilters($attr);
+        return '<?php echo ' . sprintf($f, '$core->blog->settings->system->nb_post_for_home') . '; ?>';
+    }
+
+    /*dtd
+    <!ELEMENT tpl:BlogNbEntriesPerPage - O -- Number of entries per page -->
+     */
+    public function BlogNbEntriesPerPage($attr)
+    {
+        $f = $this->getFilters($attr);
+        return '<?php echo ' . sprintf($f, '$core->blog->settings->system->nb_post_per_page') . '; ?>';
     }
 
     /* Categories ----------------------------------------- */
