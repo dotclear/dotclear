@@ -809,7 +809,10 @@ EOT;
             'module_section'                       => __('Section:'),
             'module_tags'                          => __('Tags:'),
 
-            'close_notice'                         => __('Hide this notice')
+            'close_notice'                         => __('Hide this notice'),
+
+            'show_password'                        => __('Show password'),
+            'hide_password'                        => __('Hide password')
         ];
 
         return

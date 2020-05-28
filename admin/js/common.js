@@ -697,6 +697,34 @@ $(function() {
     }
     return true;
   });
+  // Password helper
+  $('input[type=password]').each(function() {
+    // Compose button
+    const xml = `<button type="button" class="pw-show" title="${dotclear.msg.show_password}"><span class="sr-only">${dotclear.msg.show_password}</span></button>`;
+    // Reduce size of password input
+    if ($('body').hasClass('auth')) {
+      const width = $(this).css('width');
+      $(this).css('width', `calc(${width} - .25em - 2.25em)`);
+    }
+    // Add show/hide button after password input
+    $(this).after(xml);
+    $(this).next().on('click', function(e) {
+      if ($(this).hasClass('pw-show')) {
+        $(this).removeClass('pw-show');
+        $(this).addClass('pw-hide');
+        $(this).prev().get(0).type = 'text';
+        $(this).prop('title', dotclear.msg.show_password);
+        $(this).children('span').text(dotclear.msg.show_password);
+      } else {
+        $(this).removeClass('pw-hide');
+        $(this).addClass('pw-show');
+        $(this).prev().get(0).type = 'password';
+        $(this).prop('title', dotclear.msg.hide_password);
+        $(this).children('span').text(dotclear.msg.hide_password);
+      }
+      e.preventDefault();
+    });
+  });
   // Cope with ellipsis'ed cells
   $('table .maximal').each(function() {
     if (this.offsetWidth < this.scrollWidth) {

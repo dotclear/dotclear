@@ -3059,6 +3059,12 @@ msgstr "Mots-clés:"
 msgid "Hide this notice"
 msgstr "Masquer ce message"
 
+msgid "Show password"
+msgstr "Montrer le mot de passe"
+
+msgid "Hide password"
+msgstr "Cacher le mot de passe"
+
 msgid "You have unsaved changes."
 msgstr "Vous avez des modifications non sauvegardées."
 
