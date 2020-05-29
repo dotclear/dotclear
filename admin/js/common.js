@@ -704,7 +704,8 @@ $(function() {
     // Reduce size of password input
     if ($('body').hasClass('auth')) {
       const width = $(this).css('width');
-      $(this).css('width', `calc(${width} - .25em - 2.25em)`);
+      // Set width = old width - left margin - button width - rounding tolerance
+      $(this).css('width', `calc(${width} - .25em - 2.25em - .01em)`);
     }
     // Add show/hide button after password input
     $(this).after(xml);
