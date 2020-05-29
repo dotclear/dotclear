@@ -93,6 +93,11 @@ Object.assign(dotclear, {
       }
     }
 
+    // Add sameSite=Lax if not present in options
+    if (options.sameSite === undefined) {
+      updatedCookie += "; " + 'sameSite=Lax';
+    }
+
     document.cookie = updatedCookie;
   },
 

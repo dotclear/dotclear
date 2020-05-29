@@ -71,8 +71,9 @@ jQuery.cookie = function(name, value, options) {
         }
         var path = options.path ? '; path=' + options.path : '';
         var domain = options.domain ? '; domain=' + options.domain : '';
+        var samesite = '; sameSite=' + (options.samesite ? options.samesite : 'Lax');
         var secure = options.secure ? '; secure' : '';
-        document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
+        document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, samesite, secure].join('');
 	   return null;
     } else { // only name given, get cookie
         var cookieValue = null;
