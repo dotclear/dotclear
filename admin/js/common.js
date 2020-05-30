@@ -714,14 +714,14 @@ $(function() {
         $(this).removeClass('pw-show');
         $(this).addClass('pw-hide');
         $(this).prev().get(0).type = 'text';
-        $(this).prop('title', dotclear.msg.show_password);
-        $(this).children('span').text(dotclear.msg.show_password);
+        $(this).prop('title', dotclear.msg.hide_password);
+        $(this).children('span').text(dotclear.msg.hide_password);
       } else {
         $(this).removeClass('pw-hide');
         $(this).addClass('pw-show');
         $(this).prev().get(0).type = 'password';
-        $(this).prop('title', dotclear.msg.hide_password);
-        $(this).children('span').text(dotclear.msg.hide_password);
+        $(this).prop('title', dotclear.msg.show_password);
+        $(this).children('span').text(dotclear.msg.show_password);
       }
       e.preventDefault();
     });
