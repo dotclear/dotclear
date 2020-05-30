@@ -150,6 +150,12 @@ msgstr "Mot de passe nécessaire"
 msgid "Password:"
 msgstr "Mot de passe :"
 
+msgid "Show password"
+msgstr "Montrer le mot de passe"
+
+msgid "Hide password"
+msgstr "Masquer le mot de passe"
+
 msgid "Permalink"
 msgstr "Lien permanent"
 
