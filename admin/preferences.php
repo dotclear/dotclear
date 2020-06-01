@@ -107,7 +107,7 @@ $htmlfontsize_combo = [
     __('Smaller')  => '50%',
     __('Default')  => '62.5%',
     __('Larger')   => '75%',
-    __('Largest')  => '87,5%'
+    __('Largest')  => '87.5%'
 ];
 # Ensure Font size is set to default is empty
 if ($user_ui_htmlfontsize == '') {
