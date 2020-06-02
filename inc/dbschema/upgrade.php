@@ -767,6 +767,15 @@ class dcUpgrade
             }
         }
 
+        if (version_compare($version, '2.16.9', '<')) {
+            // Fix 87,5% which should be 87.5% in pref for htmlfontsize
+            $strReq = 'UPDATE ' . $core->prefix . 'pref ' .
+                " SET pref_value = REPLACE(pref_value, '87,5%', '87.5%') " .
+                " WHERE pref_id = 'htmlfontsize' " .
+                " AND pref_ws = 'interface' ";
+            $core->con->execute($strReq);
+        }
+
         $core->setVersion('core', DC_VERSION);
         $core->blogDefaults();
 
