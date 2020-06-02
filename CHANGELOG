@@ -1,3 +1,9 @@
+Dotclear 2.16.9 - 2020-06-02
+===========================================================
+* Fix: Check password for export only if necessary
+* Fix: Cope with mod_access_compat plugin inactive with Apache 2.4+
+* Fix: Fix very large font size value (user prefs) with CKEditor
+
 Dotclear 2.16.8 - 2020-05-27
 ===========================================================
 * Fix: Clearbricks was not up to date in last release
