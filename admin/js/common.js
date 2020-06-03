@@ -602,6 +602,39 @@ const dotclear = {
         $elt.append(xml);
       }
     }
+  },
+
+  passwordHelpers: function() {
+
+    const togglePasswordHelper = function(e) {
+      e.preventDefault();
+      const button = e.currentTarget;
+      const isPasswordShown = button.classList.contains('pw-hide');
+
+      let inputType = isPasswordShown ? 'password' : 'text';
+      let buttonContent = isPasswordShown ? dotclear.msg.show_password : dotclear.msg.hide_password;
+
+      button.classList.toggle('pw-hide', !isPasswordShown);
+      button.classList.toggle('pw-show', isPasswordShown);
+
+      button.previousElementSibling.setAttribute('type', inputType);
+      button.setAttribute('title', buttonContent);
+      button.querySelector('span').textContent = buttonContent;
+    };
+
+    // Compose button
+    const buttonTemplate = new DOMParser().parseFromString(
+      `<button type="button" class="pw-show" title="${dotclear.msg.show_password}"><span class="sr-only">${dotclear.msg.show_password}</span></button>`,
+      'text/html'
+    ).body.firstChild;
+
+    const passwordFields = document.querySelectorAll('input[type=password]');
+
+    for (const passwordField of passwordFields) {
+      const button = buttonTemplate.cloneNode(true);
+      passwordField.after(button);
+      button.addEventListener('click', togglePasswordHelper);
+    }
   }
 };
 
@@ -685,6 +718,8 @@ $(function() {
     e.preventDefault();
     $(this).parent().hide();
   });
+  // Password helpers
+  dotclear.passwordHelpers();
   // Password
   $('form:has(input[type=password][name=your_pwd])').on('submit', function() {
     const e = this.elements.your_pwd;
@@ -696,35 +731,6 @@ $(function() {
       return false;
     }
     return true;
-  });
-  // Password helper
-  $('input[type=password]').each(function() {
-    // Compose button
-    const xml = `<button type="button" class="pw-show" title="${dotclear.msg.show_password}"><span class="sr-only">${dotclear.msg.show_password}</span></button>`;
-    // Reduce size of password input
-    if ($('body').hasClass('auth')) {
-      const width = $(this).css('width');
-      // Set width = old width - left margin - button width - rounding tolerance
-      $(this).css('width', `calc(${width} - .25em - 2.25em - .01em)`);
-    }
-    // Add show/hide button after password input
-    $(this).after(xml);
-    $(this).next().on('click', function(e) {
-      if ($(this).hasClass('pw-show')) {
-        $(this).removeClass('pw-show');
-        $(this).addClass('pw-hide');
-        $(this).prev().get(0).type = 'text';
-        $(this).prop('title', dotclear.msg.hide_password);
-        $(this).children('span').text(dotclear.msg.hide_password);
-      } else {
-        $(this).removeClass('pw-hide');
-        $(this).addClass('pw-show');
-        $(this).prev().get(0).type = 'password';
-        $(this).prop('title', dotclear.msg.show_password);
-        $(this).children('span').text(dotclear.msg.show_password);
-      }
-      e.preventDefault();
-    });
   });
   // Cope with ellipsis'ed cells
   $('table .maximal').each(function() {
