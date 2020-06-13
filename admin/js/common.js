@@ -185,8 +185,9 @@ jQuery.fn.toggleWithLegend = function(target, s) {
     $(`<button type="button" class="details-cmd" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`).on(
       'click',
       function(e) {
-        toggleArrow(this);
-        callback(line, '', e);
+        if (toggleArrow(this) !== '') {
+          callback(line, '', e);
+        }
         e.preventDefault();
       }).prependTo($(line).children().get(0)); // first td
   };
@@ -196,8 +197,9 @@ jQuery.fn.toggleWithLegend = function(target, s) {
       function(e) {
         var action = toggleArrow(this);
         lines.each(function() {
-          toggleArrow(this.firstChild.firstChild, action);
-          callback(this, action, e);
+          if (toggleArrow(this.firstChild.firstChild, action) !== '') {
+            callback(this, action, e);
+          }
         });
         e.preventDefault();
       }).prependTo($(line).children().get(0)); // first td
@@ -211,16 +213,18 @@ jQuery.fn.toggleWithLegend = function(target, s) {
         action = 'close';
       }
     }
-    if (action == 'open') {
+    if (action == 'open' && button.getAttribute('aria-expanded') == 'false') {
       button.firstChild.data = dotclear.img_minus_txt;
       button.setAttribute('value', dotclear.img_minus_txt);
       button.setAttribute('aria-label', dotclear.img_minus_alt);
       button.setAttribute('aria-expanded', true);
-    } else {
+    } else if (action == 'close' && button.getAttribute('aria-expanded') == 'true') {
       button.firstChild.data = dotclear.img_plus_txt;
       button.setAttribute('value', dotclear.img_plus_txt);
       button.setAttribute('aria-label', dotclear.img_plus_alt);
       button.setAttribute('aria-expanded', false);
+    } else {
+      action = '';
     }
     return action;
   };
