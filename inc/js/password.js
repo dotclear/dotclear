@@ -33,6 +33,7 @@
     for (const passwordField of passwordFields) {
       const button = buttonTemplate.cloneNode(true);
       passwordField.after(button);
+      passwordField.classList.add('pwd_helper');
       button.addEventListener('click', togglePasswordHelper);
     }
   }
