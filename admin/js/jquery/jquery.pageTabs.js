@@ -54,6 +54,16 @@
 
     if (subhash !== undefined) {
       const elt = document.getElementById(subhash);
+      // Check if currently hidden, and if so try to display it
+      if ($(elt).is(':hidden')) {
+        const prt = $(elt).closest(':visible');
+        if (prt.length) {
+          const btn = prt[0].querySelector('.details-cmd');
+          if (btn) {
+            btn.click();
+          }
+        }
+      }
       // Tab displayed, now scroll to the sub-part if defined in original document.location (#tab.sub-part)
       elt.scrollIntoView();
       // Give focus to the sub-part if possible
