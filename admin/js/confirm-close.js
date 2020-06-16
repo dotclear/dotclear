@@ -79,6 +79,11 @@ confirmClose.prototype = {
         }
       }
       if (!formMatch(tmpForm, this.forms[i])) {
+        if (dotclear.debug) {
+          console.log('Input data modified:');
+          console.log('Current form', tmpForm);
+          console.log('Saved form', this.forms[i]);
+        }
         return false;
       }
     }
@@ -160,6 +165,9 @@ window.addEventListener('beforeunload', (event) => {
   }
 
   if (dotclear.confirmClosePage !== undefined && !dotclear.confirmClosePage.form_submit && !dotclear.confirmClosePage.compareForms()) {
+    if (dotclear.debug) {
+      console.log('Confirmation before exiting is required.');
+    }
     event.preventDefault(); // HTML5 specification
     event.returnValue = ''; // Google Chrome requires returnValue to be set.
   }

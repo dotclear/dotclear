@@ -648,10 +648,11 @@ const dotclear = {
 $(function() {
   // Store preinit DATA in dotclear object
   dotclear.data = dotclear_init;
+  // Debug mode
+  dotclear.debug = dotclear.data.debug || false;
   // Get other DATA
   Object.assign(dotclear, getData('dotclear'));
   Object.assign(dotclear.msg, getData('dotclear_msg'));
-
   // set theme mode (dark/light)
   if (typeof dotclear_init.darkMode !== 'undefined') {
     $('body').addClass(dotclear_init.darkMode ? 'dark-mode' : 'light-mode');

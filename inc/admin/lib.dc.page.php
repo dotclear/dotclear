@@ -205,6 +205,8 @@ class dcPage
         $core->auth->user_prefs->addWorkspace('accessibility');
         $js['noDragDrop'] = (boolean) $core->auth->user_prefs->accessibility->nodragdrop;
 
+        $js['debug'] = !!DC_DEBUG;
+
         // Set some JSON data
         echo dcUtils::jsJson('dotclear_init', $js);
 
@@ -429,6 +431,8 @@ EOT;
 
         $core->auth->user_prefs->addWorkspace('accessibility');
         $js['noDragDrop'] = (boolean) $core->auth->user_prefs->accessibility->nodragdrop;
+
+        $js['debug'] = !!DC_DEBUG;
 
         // Set JSON data
         echo dcUtils::jsJson('dotclear_init', $js);
