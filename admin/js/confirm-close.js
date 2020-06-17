@@ -55,15 +55,18 @@ confirmClose.prototype = {
       return true;
     }
 
-    const formMatch = (current, source) => Object.keys(current).every(key => source.hasOwnProperty(key) && source[key] === current[key]);
+    const formMatch = (current, source) => Object.keys(current).every(
+      key => (!source.hasOwnProperty(key)) || (source.hasOwnProperty(key) && source[key] === current[key])
+    );
     const eltRef = (e) => e.id != undefined && e.id != '' ? e.id : e.name;
     const formFirstDiff = (current, source) => {
       let diff = '<none>';
-      Object.keys(source).every(key => {
-        if (current.hasOwnProperty(key) && current[key] !== source[key]) {
+      Object.keys(current).every(key => {
+        if (source.hasOwnProperty(key) && current[key] !== source[key]) {
           diff = `Key = [${key}] - Original = [${source[key]}] - Current = [${current[key]}]`;
           return false;
         }
+        return true;
       });
       return diff;
     };
