@@ -55,8 +55,18 @@ confirmClose.prototype = {
       return true;
     }
 
-    const formMatch = (source, obj) => Object.keys(source).every(key => obj.hasOwnProperty(key) && obj[key] === source[key]);
+    const formMatch = (current, source) => Object.keys(current).every(key => source.hasOwnProperty(key) && source[key] === current[key]);
     const eltRef = (e) => e.id != undefined && e.id != '' ? e.id : e.name;
+    const formFirstDiff = (current, source) => {
+      let diff = '<none>';
+      Object.keys(source).every(key => {
+        if (current.hasOwnProperty(key) && current[key] !== source[key]) {
+          diff = `Key = [${key}] - Original = [${source[key]}] - Current = [${current[key]}]`;
+          return false;
+        }
+      });
+      return diff;
+    };
 
     const formsInPage = this.getForms();
     for (let i = 0; i < formsInPage.length; i++) {
@@ -83,6 +93,7 @@ confirmClose.prototype = {
           console.log('Input data modified:');
           console.log('Current form', tmpForm);
           console.log('Saved form', this.forms[i]);
+          console.log('First difference:', formFirstDiff(tmpForm, this.forms[i]));
         }
         return false;
       }
