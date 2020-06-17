@@ -55,7 +55,9 @@ confirmClose.prototype = {
       return true;
     }
 
-    const formMatch = (source, obj) => Object.keys(source).every(key => obj.hasOwnProperty(key) && obj[key] === source[key]);
+    const formMatch = (current, source) => Object.keys(current).every(
+      key => (!source.hasOwnProperty(key)) || (source.hasOwnProperty(key) && source[key] === current[key])
+    );
     const eltRef = (e) => e.id != undefined && e.id != '' ? e.id : e.name;
 
     const formsInPage = this.getForms();
