@@ -219,7 +219,9 @@ class dcPage
         echo
         "</head>\n" .
         '<body id="dotclear-admin' .
-        ($safe_mode ? ' safe-mode' : '') . '" class="no-js' .
+        '" class="no-js' .
+        ($safe_mode ? ' safe-mode' : '') .
+        (DC_DEBUG ? ' debug-mode' : '') .
         ($core->auth->user_prefs->interface->dynfontsize ? ' responsive-font' : '') . '">' . "\n" .
 
         '<ul id="prelude">' .
@@ -443,6 +445,8 @@ EOT;
         echo
             "</head>\n" .
             '<body id="dotclear-admin" class="popup' .
+            ($safe_mode ? ' safe-mode' : '') .
+            (DC_DEBUG ? ' debug-mode' : '') .
             ($core->auth->user_prefs->interface->dynfontsize ? ' responsive-font' : '') . '">' . "\n" .
 
             '<h1>' . DC_VENDOR_NAME . '</h1>' . "\n";

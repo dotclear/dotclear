@@ -59,6 +59,17 @@ confirmClose.prototype = {
       key => (!source.hasOwnProperty(key)) || (source.hasOwnProperty(key) && source[key] === current[key])
     );
     const eltRef = (e) => e.id != undefined && e.id != '' ? e.id : e.name;
+    const formFirstDiff = (current, source) => {
+      let diff = '<none>';
+      Object.keys(current).every(key => {
+        if (source.hasOwnProperty(key) && current[key] !== source[key]) {
+          diff = `Key = [${key}] - Original = [${source[key]}] - Current = [${current[key]}]`;
+          return false;
+        }
+        return true;
+      });
+      return diff;
+    };
 
     const formsInPage = this.getForms();
     for (let i = 0; i < formsInPage.length; i++) {
@@ -81,6 +92,12 @@ confirmClose.prototype = {
         }
       }
       if (!formMatch(tmpForm, this.forms[i])) {
+        if (document.body.classList.contains('debug-mode')) {
+          console.log('Input data modified:');
+          console.log('Current form', tmpForm);
+          console.log('Saved form', this.forms[i]);
+          console.log('Form 1st difference:', formFirstDiff(tmpForm, this.forms[i]));
+        }
         return false;
       }
     }
@@ -162,6 +179,9 @@ window.addEventListener('beforeunload', (event) => {
   }
 
   if (dotclear.confirmClosePage !== undefined && !dotclear.confirmClosePage.form_submit && !dotclear.confirmClosePage.compareForms()) {
+    if (document.body.classList.contains('debug-mode')) {
+      console.log('Confirmation before exiting is required.');
+    }
     event.preventDefault(); // HTML5 specification
     event.returnValue = ''; // Google Chrome requires returnValue to be set.
   }
