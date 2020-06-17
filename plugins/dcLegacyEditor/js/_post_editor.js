@@ -63,7 +63,7 @@ $(function() {
   $('#comments').on('onetabload', function() {
     // Remove required attribut from #comment_content as textarea might be not more focusable
     if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#comment_content') !== -1) {
-      $('#comment_content').removeAttr('required');
+      $('#comment_content')[0].removeAttribute('required');
     }
   });
 
@@ -72,7 +72,7 @@ $(function() {
     // Remove required attribut from #post_content in XHTML mode as textarea is not more focusable
     if (formatField !== undefined && formatField.value == 'xhtml') {
       if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#post_content') !== -1) {
-        $('#post_content').removeAttr('required');
+        $('#post_content')[0].removeAttribute('required');
       }
     }
 
