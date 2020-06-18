@@ -218,8 +218,7 @@ class dcPage
 
         echo
         "</head>\n" .
-        '<body id="dotclear-admin' .
-        '" class="no-js' .
+        '<body id="dotclear-admin" class="no-js' .
         ($safe_mode ? ' safe-mode' : '') .
         (DC_DEBUG ? ' debug-mode' : '') .
         ($core->auth->user_prefs->interface->dynfontsize ? ' responsive-font' : '') . '">' . "\n" .
