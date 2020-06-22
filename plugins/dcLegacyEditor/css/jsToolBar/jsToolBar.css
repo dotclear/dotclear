@@ -21,10 +21,14 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 0 32px 0 1rem;
-  border: 1px solid #ccc;
+  padding: 3px 5px 3px 10px;
+  border: calc(1px * var(--dark-mode)) solid #fff;
   overflow: hidden;
-  background: #ccc;
+  background: linear-gradient(
+    #4c4d4f calc(100% * var(--dark-mode)),
+    #5e6ba5 calc(100% * var(--dark-mode)),
+    #5e6ba5 calc(100% * (1 - var(--dark-mode)))
+  );
   position: relative;
   line-height: 30px;
 }
@@ -33,7 +37,6 @@
 }
 .jstElements select {
   width: 12em;
-  margin-right: .6rem;
 }
 .jstElements button {
   width: 30px;
@@ -42,11 +45,12 @@
   border-width: 1px;
   margin-left: 2px;
   margin-bottom: 2px;
-  border-color: #e5e5e5 #ccc #ccc #e5e5e5;
+  border-color: #323232;
   background-color: #f7f7f7;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: inherit;
+  box-shadow: none;
 }
 .jstElements button:hover, .jstElements button:focus {
   border-color: #ddd;
