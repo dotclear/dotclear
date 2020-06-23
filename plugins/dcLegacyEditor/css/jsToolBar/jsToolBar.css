@@ -24,11 +24,7 @@
   padding: 3px 5px 3px 10px;
   border: calc(1px * var(--dark-mode)) solid #fff;
   overflow: hidden;
-  background: linear-gradient(
-    #4c4d4f calc(100% * var(--dark-mode)),
-    #5e6ba5 calc(100% * var(--dark-mode)),
-    #5e6ba5 calc(100% * (1 - var(--dark-mode)))
-  );
+  background: linear-gradient( #4c4d4f calc(100% * var(--dark-mode)), #5e6ba5 calc(100% * var(--dark-mode)), #5e6ba5 calc(100% * (1 - var(--dark-mode))));
   position: relative;
   line-height: 30px;
 }
@@ -143,12 +139,10 @@ button.jstb_post_link {
   background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_post.png);
 }
 button.jstb_removeFormat {
-  background-color: #e5e5e5;
   background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_clean.png);
   position: absolute;
-  right: 2px;
-  top: 1px;
-  border-color: #ccc;
+  right: 5px;
+  top: 4px;
 }
 /* WYSIWYG Iframe */
 
