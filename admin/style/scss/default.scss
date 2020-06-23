@@ -10,8 +10,9 @@
 /** --------------------------------------------------
   Colors
 --------------------------------------------------- */
-@import "themes/default";
-@import "themes/dark";
+@import "themes/default";           // Light theme
+@import "themes/dark";              // Dark theme
+@import "themes/themes";            // Theme selector
 
 /** --------------------------------------------------
     Common rules

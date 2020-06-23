@@ -297,6 +297,7 @@ h6 {
   --link-color: #2373a8;
   --link-border: #868686;
   --discrete-link-color: #323232;
+  --link-outline: #bee74b;
   --outgoing-link-filter: 50%;
   --fieldset-border: #caced2;
   --fieldset-background: #fff;
@@ -316,6 +317,7 @@ h6 {
   --input-file-background: var(--body-background);
   --form-note-color: #676e78;
   --error-background: #ffbaba;
+  --required: #ae323b;
   --button-color: #000;
   --button-border: #caced2;
   --button-shadow: rgba(0, 0, 0, 0.05);
@@ -562,6 +564,7 @@ h6 {
   --link-color: #76c2f1;
   --link-border: #82878f;
   --discrete-link-color: var(--body-color);
+  --link-outline: #bee74b;
   --outgoing-link-filter: 100%;
   --fieldset-border: #caced2;
   --fieldset-background: var(--body-background);
@@ -581,6 +584,7 @@ h6 {
   --input-file-background: var(--body-background);
   --form-note-color: #bce8f1;
   --error-background: #ffbaba;
+  --required: #f783b3;
   --button-color: #000;
   --button-border: #82878f;
   --button-shadow: rgba(0, 0, 0, 0.05);
@@ -828,6 +832,7 @@ h6 {
     --link-color: #76c2f1;
     --link-border: #82878f;
     --discrete-link-color: var(--body-color);
+    --link-outline: #bee74b;
     --outgoing-link-filter: 100%;
     --fieldset-border: #caced2;
     --fieldset-background: var(--body-background);
@@ -847,6 +852,7 @@ h6 {
     --input-file-background: var(--body-background);
     --form-note-color: #bce8f1;
     --error-background: #ffbaba;
+    --required: #f783b3;
     --button-color: #000;
     --button-border: #82878f;
     --button-shadow: rgba(0, 0, 0, 0.05);
@@ -1729,7 +1735,7 @@ a:link {
 
 a:focus,
 a:focus img {
-  outline: 2px solid #bee74b;
+  outline: 2px solid var(--link-outline);
   border-bottom: none;
   text-decoration: none; }
 
@@ -1937,7 +1943,7 @@ label.required {
   font-weight: bold; }
 
 label.required abbr {
-  color: #f783b3;
+  color: var(--required);
   font-size: 1.3em;
   text-decoration: none; }
 

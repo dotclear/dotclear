@@ -211,7 +211,7 @@ label.required {
   font-weight: bold;
 }
 label.required abbr {
-  color: $required;
+  color: var(--required);
   font-size: 1.3em;
   text-decoration: none;
 }
