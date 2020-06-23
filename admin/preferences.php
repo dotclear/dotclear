@@ -40,7 +40,7 @@ $core->auth->user_prefs->addWorkspace('accessibility');
 $user_acc_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
 
 $core->auth->user_prefs->addWorkspace('interface');
-$user_ui_darkmode         = $core->auth->user_prefs->interface->darkmode;
+$user_ui_theme            = $core->auth->user_prefs->interface->theme;
 $user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
 $user_ui_hidemoreinfo     = $core->auth->user_prefs->interface->hidemoreinfo;
 $user_ui_hidehelpbutton   = $core->auth->user_prefs->interface->hidehelpbutton;
@@ -100,6 +100,13 @@ if (is_dir($iconsets_root) && is_readable($iconsets_root)) {
         }
     }
 }
+
+# Themes
+$theme_combo = [
+    __('Light')     => 'light',
+    __('Dark')      => 'dark',
+    __('Automatic') => ''
+];
 
 # Body base font size (37.5% = 6px, 50% = 8px, 62.5% = 10px, 75% = 12px, 87.5% = 14px)
 $htmlfontsize_combo = [
@@ -314,7 +321,7 @@ if (isset($_POST['user_editor'])) {
 
         # Update user prefs
         $core->auth->user_prefs->accessibility->put('nodragdrop', !empty($_POST['user_acc_nodragdrop']), 'boolean');
-        $core->auth->user_prefs->interface->put('darkmode', !empty($_POST['user_ui_darkmode']), 'boolean');
+        $core->auth->user_prefs->interface->put('theme', $_POST['user_ui_theme'], 'string');
         $core->auth->user_prefs->interface->put('enhanceduploader', !empty($_POST['user_ui_enhanceduploader']), 'boolean');
         $core->auth->user_prefs->interface->put('hidemoreinfo', !empty($_POST['user_ui_hidemoreinfo']), 'boolean');
         $core->auth->user_prefs->interface->put('hidehelpbutton', !empty($_POST['user_ui_hidehelpbutton']), 'boolean');
@@ -623,8 +630,8 @@ echo
 $core->formNonce() .
 '<input type="submit" accesskey="s" value="' . __('Update my profile') . '" />' .
 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-'</p>' .
-'</form>' .
+    '</p>' .
+    '</form>' .
 
     '</div>';
 
@@ -639,9 +646,8 @@ echo
 '<div class="fieldset">' .
 '<h4 id="user_options_interface">' . __('Interface') . '</h4>' .
 
-'<p><label for="user_ui_darkmode" class="classic">' .
-form::checkbox('user_ui_darkmode', 1, $user_ui_darkmode) . ' ' .
-__('Activate dark mode') . '</label></p>' .
+'<p><label for="user_ui_theme" class="classic">' . __('Theme:') . '</label>' . ' ' .
+form::combo('user_ui_theme', $theme_combo, $user_ui_theme) . '</p>' .
 
 '<p><label for="user_ui_enhanceduploader" class="classic">' .
 form::checkbox('user_ui_enhanceduploader', 1, $user_ui_enhanceduploader) . ' ' .
@@ -818,8 +824,8 @@ echo
 $core->formNonce() .
 '<input type="submit" accesskey="s" value="' . __('Save my options') . '" />' .
 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-'</p>' .
-'</form>';
+    '</p>' .
+    '</form>';
 
 echo '</div>';
 
@@ -997,8 +1003,8 @@ form::hidden('db-options', '-') .
 $core->formNonce() .
 '<input type="submit" accesskey="s" value="' . __('Save my dashboard options') . '" />' .
 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-'</p>' .
-'</form>';
+    '</p>' .
+    '</form>';
 
 # Dashboard items order (reset)
 echo '<form action="' . $core->adminurl->get("admin.user.preferences") . '" method="post" id="order-reset" class="two-boxes even">';

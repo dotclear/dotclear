@@ -5,12 +5,12 @@
 	h3 {
 		margin: 0;
 		padding: 10px 0 10px 8px;
-		color: $main-menu-title-color;
+		color: var(--main-menu-title-color);
 		font-size: 1.15em;
 	}
 	a {
-		color: $main-menu-item-color;
-		border-bottom-color: $main-menu-item-border;
+		color: var(--main-menu-item-color);
+		border-bottom-color: var(--main-menu-item-border);
 	}
 	ul {
 		margin: 0 0 1.5em 0;
@@ -32,7 +32,7 @@
         right: 0;
       }
       &:hover {
-        background-color: $main-menu-active-background;
+        background-color: var(--main-menu-active-background);
       }
 			&:first-child {
 				margin-top: 0;
@@ -40,11 +40,11 @@
 		}
 	}
 	.active {
-		background-color: $main-menu-active-background;
+		background-color: var(--main-menu-active-background);
 		font-weight: bold;
 		a {
 			border-bottom: none;
-			color: $main-menu-active-color;
+			color: var(--main-menu-active-color);
 		}
 	}
 }
@@ -53,7 +53,7 @@
 #blog-menu,
 #system-menu,
 #plugins-menu {
-	border-bottom: 1px dashed $main-menu-border;
+	border-bottom: 1px dashed var(--main-menu-border);
 }
 
 #favorites-menu {

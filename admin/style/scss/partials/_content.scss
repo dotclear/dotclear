@@ -1,173 +1,173 @@
 .part-tabs {
-	ul {
-		padding: .5em 0 0 1em;
-		border-bottom: 1px solid $tabs-border;
-		line-height: 1.8;
-	}
-	li {
-		list-style: none;
-		margin: 0;
-		display: inline;
-		&:first-child a {
-			border-top-left-radius: 3px;
-		}
-		&:last-child a {
-			border-top-right-radius: 3px;
-		}
-		a {
-			padding: .33em 1.5em;
-			margin-right: -1px;
-			border: 1px solid $tabs-border;
-			border-bottom: none;
-			text-decoration: none;
-			color: $tabs-color;
-      background-color: $tabs-background;
-			display: inline-block;
-			&:hover,
-			&:focus {
-        color: $tabs-color;
-				background: $tabs-active-background;
-				border-bottom-color: $tabs-active-background;
-			}
+  ul {
+    padding: .5em 0 0 1em;
+    border-bottom: 1px solid var(--tabs-border);
+    line-height: 1.8;
+  }
+  li {
+    list-style: none;
+    margin: 0;
+    display: inline;
+    &:first-child a {
+      border-top-left-radius: 3px;
+    }
+    &:last-child a {
+      border-top-right-radius: 3px;
+    }
+    a {
+      padding: .33em 1.5em;
+      margin-right: -1px;
+      border: 1px solid var(--tabs-border);
+      border-bottom: none;
+      text-decoration: none;
+      color: var(--tabs-color);
+      background-color: var(--tabs-background);
+      display: inline-block;
+      &:hover,
+      &:focus {
+        color: var(--tabs-color);
+        background: var(--tabs-active-background);
+        border-bottom-color: var(--tabs-active-background);
+      }
       &:link {
         transition: unset;
       }
-		}
-		&.part-tabs-active a {
-      color: $tabs-active-color;
-			background: $tabs-active-background;
-			font-weight: bold;
-			border-bottom-color: $tabs-active-background;
-		}
-	}
+    }
+    &.part-tabs-active a {
+      color: var(--tabs-active-color);
+      background: var(--tabs-active-background);
+      font-weight: bold;
+      border-bottom-color: var(--tabs-active-background);
+    }
+  }
 }
 
 .multi-part {
-	padding-left: 1em;
+  padding-left: 1em;
 }
 
 .pseudo-tabs {
-	margin: -.75em 0 2em 0;
-	border-bottom: 1px solid $tabs-border;
-	display: table;
-	width: 100%;
-	padding: 0;
-	line-height: 24px;
-	border-collapse: collapse;
-	li {
-		display: table-cell;
-		border-width: 0 1px;
-		border-style: solid;
-		border-color: $tabs-border;
-		padding: 0;
-		margin: 0;
-		text-align: center;
-	}
-	a {
-		display: block;
-		font-weight: bold;
-		padding: 0 24px;
-		border-bottom: none;
-		&:hover,
-		&:focus {
-			background-color: $tabs-background;
-			color: $tabs-color;
-		}
-		&.active {
-			background-color: $tabs-active-background;
-			color: $tabs-active-color;
-		}
-	}
+  margin: -.75em 0 2em 0;
+  border-bottom: 1px solid var(--tabs-border);
+  display: table;
+  width: 100%;
+  padding: 0;
+  line-height: 24px;
+  border-collapse: collapse;
+  li {
+    display: table-cell;
+    border-width: 0 1px;
+    border-style: solid;
+    border-color: var(--tabs-border);
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  a {
+    display: block;
+    font-weight: bold;
+    padding: 0 24px;
+    border-bottom: none;
+    &:hover,
+    &:focus {
+      background-color: var(--tabs-background);
+      color: var(--tabs-color);
+    }
+    &.active {
+      background-color: var(--tabs-active-background);
+      color: var(--tabs-active-color);
+    }
+  }
 }
 
 
 /* contextual help */
 
 #help {
-	margin-top: 4em;
-	background: $help-background;
-	z-index: 100;
-	clear: both;
-	padding: 0 1em;
-	#content.with-help & {
-		display: block;
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 32rem; // 24em;
-		border-left: 2px solid $help-border;
-		border-top: 2px solid $help-border;
-		margin-top: 0;
-		padding: .5em 0 0 0;
-		overflow: auto;
-	}
+  margin-top: 4em;
+  background: var(--help-background);
+  z-index: 100;
+  clear: both;
+  padding: 0 1em;
+  #content.with-help & {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32rem; // 24em;
+    border-left: 2px solid var(--help-border);
+    border-top: 2px solid var(--help-border);
+    margin-top: 0;
+    padding: .5em 0 0 0;
+    overflow: auto;
+  }
 }
 
 #help-button {
-	background: transparent url(help-mini.png) no-repeat 6px center;
-	position: absolute;
-	top: 0;
-	right: 0;
-	padding: 0 1.5em 0 30px;
-	cursor: pointer;
-	color: $link;
-	line-height: 3;
-	&.floatable {
-		border-top: 2px solid $help-button-border;
-		border-left: 2px solid $help-button-border;
-		border-bottom: 2px solid $help-button-border;
-		border-bottom-left-radius: 1em;
-		border-top-left-radius: 1em;
-		background-color: $help-button-background;
-		position: fixed;
-		top: 10px;
-		-webkit-transform: translateZ(0); // Let GPU doing his job
-	}
-	.no-js & {
-		top: 1em;
-	}
-	span {
-		padding: .5em 0 .1em 0;
-	}
-	#content.with-help & {
-		right: 32rem; // 24em;
-		background-color: $help-background;
-		position: fixed;
-		top: 6em; // 50px;
-		z-index: 100;
-		border-top: 2px solid $help-border;
-		border-left: 2px solid $help-border;
-		border-bottom: 2px solid $help-border;
-		border-bottom-left-radius: 1em;
-		border-top-left-radius: 1em;
-	}
+  background: transparent url(help-mini.png) no-repeat 6px center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1.5em 0 30px;
+  cursor: pointer;
+  color: var(--link);
+  line-height: 3;
+  &.floatable {
+    border-top: 2px solid var(--help-button-border);
+    border-left: 2px solid var(--help-button-border);
+    border-bottom: 2px solid var(--help-button-border);
+    border-bottom-left-radius: 1em;
+    border-top-left-radius: 1em;
+    background-color: var(--help-button-background);
+    position: fixed;
+    top: 10px;
+    -webkit-transform: translateZ(0); // Let GPU doing his job
+  }
+  .no-js & {
+    top: 1em;
+  }
+  span {
+    padding: .5em 0 .1em 0;
+  }
+  #content.with-help & {
+    right: 32rem; // 24em;
+    background-color: var(--help-background);
+    position: fixed;
+    top: 6em; // 50px;
+    z-index: 100;
+    border-top: 2px solid var(--help-border);
+    border-left: 2px solid var(--help-border);
+    border-bottom: 2px solid var(--help-border);
+    border-bottom-left-radius: 1em;
+    border-top-left-radius: 1em;
+  }
 }
 
 .help-box {
-	display: none;
-	ul {
-		padding-left: 20px;
-		margin-left: 0;
-	}
+  display: none;
+  ul {
+    padding-left: 20px;
+    margin-left: 0;
+  }
 }
 
 .help-content {
-	#content.with-help & {
-		padding: 0 1em 1em;
-	}
-	dt {
-		font-weight: bold;
-		color: $help-title-color;
-		margin: 0;
-	}
-	dd {
-		margin: 0.3em 0 1.5em 0;
-	}
+  #content.with-help & {
+    padding: 0 1em 1em;
+  }
+  dt {
+    font-weight: bold;
+    color: var(--help-title-color);
+    margin: 0;
+  }
+  dd {
+    margin: 0.3em 0 1.5em 0;
+  }
 }
 
 
 /* lien d'aide générale dans le help content */
 
 #helplink p {
-	padding: 0 0 0 .5em;
+  padding: 0 0 0 .5em;
 }

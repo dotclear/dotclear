@@ -11,10 +11,18 @@ const dotclear_init = getData('dotclear_init');
 if (typeof dotclear_init.htmlFontSize !== 'undefined') {
   document.documentElement.style.setProperty('--html-font-size', dotclear_init.htmlFontSize);
 }
-// set theme mode (dark/light)
-if (typeof dotclear_init.darkMode !== 'undefined') {
-  document.documentElement.style.setProperty('--dark-mode', dotclear_init.darkMode);
+// set theme mode (dark/light/…)
+dotclear_init.theme = 'light';
+if (document.documentElement.getAttribute('data-theme') !== '') {
+  dotclear_init.theme = document.documentElement.getAttribute('data-theme');
+} else {
+  if (window.matchMedia) {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      dotclear_init.theme = 'dark';
+    }
+  }
 }
+document.documentElement.style.setProperty('--dark-mode', (dotclear_init.theme === 'dark' ? 1 : 0));
 /* ChainHandler, py Peter van der Beken
 -------------------------------------------------------- */
 function chainHandler(obj, handlerName, handler) {
@@ -653,9 +661,21 @@ $(function() {
   // Get other DATA
   Object.assign(dotclear, getData('dotclear'));
   Object.assign(dotclear.msg, getData('dotclear_msg'));
-  // set theme mode (dark/light)
-  if (typeof dotclear_init.darkMode !== 'undefined') {
-    $('body').addClass(dotclear_init.darkMode ? 'dark-mode' : 'light-mode');
+  // set theme class
+  $('body').addClass(`${dotclear.data.theme}-mode`);
+  dotclear.data.darkMode = dotclear.data.theme === 'dark' ? 1 : 0;
+  if (document.documentElement.getAttribute('data-theme') === '') {
+    // Theme is set to automatic, keep an eye on system change
+    dotclear.theme_OS = window.matchMedia('(prefers-color-scheme: dark)');
+    dotclear.theme_OS.addEventListener('change', function(e) {
+      let theme = e.matches ? 'dark' : 'light';
+      if (theme !== dotclear.data.theme) {
+        $('body').removeClass(`${dotclear.data.theme}-mode`);
+        dotclear.data.theme = theme;
+        $('body').addClass(`${dotclear.data.theme}-mode`);
+        document.documentElement.style.setProperty('--dark-mode', (dotclear.data.theme === 'dark' ? 1 : 0));
+      }
+    });
   }
   // remove class no-js from html tag; cf style/default.css for examples
   $('body').removeClass('no-js').addClass('with-js');

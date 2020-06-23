@@ -41,15 +41,15 @@ fieldset {
   padding: 1em 0.5em;
   border-width: 1px 0;
   border-style: solid;
-  border-color: $fieldset-border;
-  background: $fieldset-background;
+  border-color: var(--fieldset-border);
+  background: var(--fieldset-background);
   hr {
-    background-color: $fieldset-border;
+    background-color: var(--fieldset-border);
     border-width: 0;
     margin: 1em 0;
   }
   &:focus-within {
-    background-color: $fieldset-focus-background;
+    background-color: var(--fieldset-focus-background);
   }
 }
 input[type=text],
@@ -69,8 +69,8 @@ legend {
   padding: 0.2em 0.6em;
   border-width: 1px;
   border-style: solid;
-  border-color: $legend-border;
-  background: $legend-background;
+  border-color: var(--legend-border);
+  background: var(--legend-background);
   margin-bottom: 0.5em;
 }
 label .maximal, textarea.maximal, input.maximal, select.maximal {
@@ -88,7 +88,7 @@ input[type=file],
 input[type=number],
 textarea, select, input:not([type=file]):invalid, input:not([type=file]):invalid:placeholder-shown {
 //  color: $input-color;
-  box-shadow: 1px 1px 2px $input-shadow inset;
+  box-shadow: 1px 1px 2px var(--input-shadow) inset;
   padding: 3px;
   vertical-align: top;
 }
@@ -106,7 +106,7 @@ textarea, input:not([type=file]):invalid, input:not([type=file]):invalid:placeho
 //  background: $input-background;
   border-width: 1px;
   border-style: solid;
-  border-color: $input-border;
+  border-color: var(--input-border);
 }
 input[type=file] {
 //  color: $input-file-color;
@@ -114,16 +114,16 @@ input[type=file] {
 }
 // Special for invalid but not required fields
 input:invalid:not(:required), textarea:invalid:not(:required), select:invalid:not(:required), input:not([type=file]):invalid:not(:focus):not(:required) {
-  color: $invalid-input-color;
-  box-shadow: 0 0 0 3px $invalid-input-shadow;
+  color: var(--invalid-input-color);
+  box-shadow: 0 0 0 3px var(--invalid-input-shadow);
 }
 input:invalid:not(:required), textarea:invalid:not(:required), input:not([type=file]):invalid:not(:focus):not(:required) {
-  border: 1px solid $invalid-input-border;
-  background: $invalid-input-background;
+  border: 1px solid var(--invalid-input-border);
+  background: var(--invalid-input-background);
 }
 //
 input:focus, textarea:focus {
-  border-color: $input-focus;
+  border-color: var(--input-focus);
 }
 textarea {
   padding: 2px 0;
@@ -242,7 +242,7 @@ p.field {
 .form-note, .form-stats {
   font-style: italic;
   font-weight: normal;
-  color: $form-note-color;
+  color: var(--form-note-color);
 }
 p.form-note, p.form-stats {
   margin-top: -.7em;
@@ -257,7 +257,7 @@ span.form-note, span.form-stats {
 }
 @keyframes kf-missing {
   50% {
-    background-color: $error-background;
+    background-color: var(--error-background);
   }
 }
 .focus {
@@ -267,7 +267,7 @@ span.form-note, span.form-stats {
 }
 @keyframes kf-focus {
   50% {
-    background-color: $input-focus;
+    background-color: var(--input-focus);
   }
 }
 // .more-info Additional information on fieldset, field, … (may be hide from user-prefs)

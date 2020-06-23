@@ -1,58 +1,58 @@
 // mixin svg fallback
 @mixin svg(
-	$file-name,
-	$css-img-path: $css-img-path)
+  $file-name,
+  $css-img-path: $css-img-path)
 {
-	background-image: inline-image($file-name+'.png');
-	background-image: inline-image($file-name+'.svg'), none;
+  background-image: inline-image($file-name+'.png');
+  background-image: inline-image($file-name+'.svg'), none;
 }
 
 @mixin bg-with-svg(
-	$file-name,
-	$css-img-path: $css-img-path,
-	$repeat: no-repeat,
-	$position: 50% 50%,
-	$bg-color: transparent)
+  $file-name,
+  $css-img-path: $css-img-path,
+  $repeat: no-repeat,
+  $position: 50% 50%,
+  $bg-color: transparent)
 {
-	background: inline-image($file-name+'.png') $repeat, $position, $bg-color;
-	background-image: inline-image($file-name+'.svg'), none;
+  background: inline-image($file-name+'.png') $repeat, $position, $bg-color;
+  background-image: inline-image($file-name+'.svg'), none;
 }
 
 // Mix from Nico3333 (https://github.com/nico3333fr/ROCSSTI/blob/master/src/css/rocssti-fr.css#L637)
 // and ffood (http://www.ffoodd.fr/cache-cache-css/)
 @mixin visually-hidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	clip-path: inset(50%);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
-	white-space: nowrap;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
 }
 @mixin visually-hidden-focus {
-	clip: auto;
-	clip-path: none;
-	height: auto;
-	overflow: visible;
-	position: static;
-	width: auto;
-	white-space: normal;
+  clip: auto;
+  clip-path: none;
+  height: auto;
+  overflow: visible;
+  position: static;
+  width: auto;
+  white-space: normal;
 }
 
 // Remove any unit from a value
 @function strip-unit(
-	$value)
+  $value)
 {
-	@return $value / ($value * 0 + 1);
+  @return $value / ($value * 0 + 1);
 }
 
 // Compute absolute value (in em or rem) depending on font-size of the html element (given in %)
 @function relative-to-screen(
-	$value,             // em or rem value
-	$html-font-size)    // in %
+  $value,             // em or rem value
+  $html-font-size)    // in %
 {
-	@return $value / (strip-unit($html-font-size) / 100);
+  @return $value / (strip-unit($html-font-size) / 100);
 }

@@ -169,9 +169,11 @@ class dcPage
             header($value);
         }
 
+        $data_theme = $core->auth->user_prefs->interface->theme;
+
         echo
         '<!DOCTYPE html>' .
-        '<html lang="' . $core->auth->getInfo('user_lang') . '">' . "\n" .
+        '<html lang="' . $core->auth->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
         '  <meta charset="UTF-8" />' . "\n" .
         '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
@@ -179,13 +181,8 @@ class dcPage
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
         '  <title>' . $title . ' - ' . html::escapeHTML($core->blog->name) . ' - ' . html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n";
 
-        if ($core->auth->user_prefs->interface->darkmode) {
-            $js['darkMode'] = 1;
-            echo self::cssLoad('style/default-dark.css');
-        } else {
-            $js['darkMode'] = 0;
-            echo self::cssLoad('style/default.css');
-        }
+        echo self::cssLoad('style/default.css');
+
         if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
             echo self::cssLoad('style/default-rtl.css');
         }
@@ -401,9 +398,11 @@ EOT;
         # Prevents Clickjacking as far as possible
         header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
 
+        $data_theme = $core->auth->user_prefs->interface->theme;
+
         echo
         '<!DOCTYPE html>' .
-        '<html lang="' . $core->auth->getInfo('user_lang') . '">' . "\n" .
+        '<html lang="' . $core->auth->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
         '  <meta charset="UTF-8" />' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
@@ -411,13 +410,8 @@ EOT;
             '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
             '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
 
-        if ($core->auth->user_prefs->interface->darkmode) {
-            $js['darkMode'] = 1;
-            echo self::cssLoad('style/default-dark.css');
-        } else {
-            $js['darkMode'] = 0;
-            echo self::cssLoad('style/default.css');
-        }
+        echo self::cssLoad('style/default.css');
+
         if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
             echo self::cssLoad('style/default-rtl.css');
         }

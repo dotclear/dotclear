@@ -1,30 +1,30 @@
 .guideline {
-	#content h2 {
-		color: $charte-title;
-		padding: 2em 0 0 0;
-		margin: 1em 0;
-		font-size: 2em;
-		&:first-child {
-			margin-top: 0;
-			padding-top: .5em;
-		}
-	}
-	h3 {
-		margin-top: 2em;
-	}
-	.dc-update h3 {
-		margin-top: 0;
-	}
-	.one-box .box {
-		border: 1px solid $charte-one-box-border;
-		padding: 2px .5em;
-	}
-	#main-menu ul {
-		margin: 0;
-		padding: 0;
-		font-weight: normal;
-	}
-	#main-menu li {
-		padding-left: 1em;
-	}
+  #content h2 {
+    color: var(--charte-title);
+    padding: 2em 0 0 0;
+    margin: 1em 0;
+    font-size: 2em;
+    &:first-child {
+      margin-top: 0;
+      padding-top: .5em;
+    }
+  }
+  h3 {
+    margin-top: 2em;
+  }
+  .dc-update h3 {
+    margin-top: 0;
+  }
+  .one-box .box {
+    border: 1px solid var(--charte-one-box-border);
+    padding: 2px .5em;
+  }
+  #main-menu ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+  #main-menu li {
+    padding-left: 1em;
+  }
 }

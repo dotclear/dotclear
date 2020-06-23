@@ -1,0 +1,469 @@
+// ========================================================================== //
+// =Couleurs
+// ========================================================================== //
+
+// Palette de base
+
+$blue:            #137bbb;
+$green:           #9ac123;
+$red:             #c44d58;
+$light-blue:      #a2cbe9;
+$orange:          #d33800;
+$marine:          #3a539b;
+
+$gray:            #b2b2b2;
+$gray-dark:       #676e78;
+
+$gray-very-dark:    shade($gray, 72%);
+$gray-darker:       shade($gray, 50%);
+$gray-semi-dark:    shade($gray, 25%);
+$gray-light:        tint($gray, 30%);
+$gray-lighter:      tint($gray, 75%);
+$gray-very-light:   tint($gray, 85%);
+
+$white:           #fff;
+$black:           #000;
+
+// Palette secondaire
+
+$warning:         #fefacd;
+$warning-alt:     #ffd478;
+
+$info:            #d9edf7;
+$info-alt:        #bce8f1;
+
+$error:           #ffbaba;
+$error-alt:       #ae323b;
+
+$required:        #ae323b;
+
+$success:         #bee74b;
+$success-alt:     #9bca1c;
+
+$link:            #2373a8;
+$link-outline:    #bee74b;
+
+$current-page:    #d30e60;
+
+$legacy:          #eef1ec;
+$code:            #fefacd;
+$tooltip:         #910ed3;
+
+$pw-very-weak:    #c44d58;
+$pw-weak:         #e1732c;
+$pw-mediocre:     #ff9900;
+$pw-strong:       #cdad12;
+$pw-very-strong:  #9ac123;
+
+$submit:          #25a6e1;
+$submit-alt:      #188bc0;
+
+$reset:           #eaeaea;
+$reset-alt:       #f9f9f9;
+$reset-ter:       #dadada;
+
+$delete:          #ae323b;
+$delete-alt:      #b33630;
+$delete-ter:      #dc5f59;
+
+$add:             #bee74b;
+$add-alt:         #9bca1c;
+
+$badge:           #d54e21;
+$badge-soft:      #607d8b;
+$badge-info:      #3f51b5;
+
+:root, :root[data-theme="light"] {
+
+  // Common
+
+  --body-color:                      $gray-very-dark;
+  --body-background:                 $white;
+
+  --title-color:                     $gray-dark;
+  --title-alt-color:                 $orange;
+
+  // Layout
+
+  --header-color:                    $white;
+  --header-background:               $marine;
+  --header-background-alt:           $marine;
+  --header-border:                   $light-blue;
+  --header-border-alt:               $gray-very-dark;
+  --header-link-border:              $gray-semi-dark;
+  --header-active-color:             $orange;
+  --header-active-background:        $gray-very-light;
+  --header-active-color-alt:         $white;
+  --header-active-background-alt:    $gray-semi-dark;
+
+  --wrapper-background:              $white;
+
+  --content-background:              $white;
+
+  --tabs-color:                      $gray-very-dark;
+  --tabs-border:                     $gray-light;
+  --tabs-background:                 $gray-very-light;
+  --tabs-active-color:               $orange;
+  --tabs-active-background:          $white;
+
+  --main-menu-background:            $gray-very-light;
+  --main-menu-title-color:           $gray-dark;
+  --main-menu-item-color:            $gray-very-dark;
+  --main-menu-item-border:           tint($gray-dark, 66%);
+  --main-menu-active-color:          $current-page;
+  --main-menu-active-background:     $white;
+  --main-menu-border:                $light-blue;
+
+  --search-color:                    $gray-very-dark;
+  --search-border:                   $gray-semi-dark;
+  --search-background:               $gray-light;
+  --search-submit-color:             $white;
+  --search-submit-background:        $gray-semi-dark;
+  --search-outline:                  $link-outline;
+
+  --footer-background:               $white;
+  --footer-border:                   tint($gray-dark, 66%);
+
+  --collapser-focus:                 $light-blue;
+  --collapser-background:            $gray-light;
+
+  --popup-title-color:               $white;
+  --popup-title-background:          $marine;
+
+  // Markup
+
+  --breadcrumb-background:           $white;
+  --breadcrumb-border:               $gray-semi-dark;
+  --breadcrumb-current:              $current-page;
+
+  --fieldset-pretty-title-color:     $orange;
+  --fieldset-smart-title-color:      $gray-very-dark;
+  --entry-sidebar-title-color:       $gray-very-dark;
+  --title-label-color:               $gray-very-dark;
+
+  --table-caption-color:             $gray-very-dark;
+  --head-border:                     shade($gray-very-light, 10%);
+  --head-background:                 $gray-very-light;
+  --line-input-background:           $white;
+  --line-background-over:            $gray-very-light;
+  --line-focus-background:           shade($white, 7%);
+  --cell-border:                     $gray-lighter;
+  --cell-noborder-color:             shade($gray-very-light, 10%);
+
+  --hr-color:                        shade($gray-very-light, 10%);
+
+  --code-color:                      var(--body-color);
+  --code-background:                 $code;
+
+  --link-color:                      $link;
+  --link-border:                     $gray-semi-dark;
+  --discrete-link-color:             $gray-very-dark;
+
+  --outgoing-link-filter:            50%;
+
+  // Forms
+
+  --fieldset-border:                 tint($gray-dark, 66%);
+  --fieldset-background:             $white;
+  --fieldset-focus-background:       shade($white, 7%);
+
+  --legend-border:                   $gray-dark;
+  --legend-background:               $white;
+
+  --invalid-input-color:             $black;
+  --invalid-input-border:            $error-alt;
+  --invalid-input-background:        $error;
+  --invalid-input-shadow:            rgba($error-alt, 0.3);
+
+  --input-color:                     $black;
+  --input-background:                tint($gray-very-light, 50%);
+  --input-border:                    shade($gray-very-light, 10%);
+  --input-shadow:                    $gray-very-light;
+  --input-focus:                     $link-outline;
+
+  --input-file-color:                var(--body-color);
+  --input-file-background:           var(--body-background);
+
+  --form-note-color:                 $gray-dark;
+
+  --error-background:                $error;
+
+  // Buttons
+
+  --button-color:                    $black;
+  --button-border:                   tint($gray-dark, 66%);
+  --button-shadow:                   rgba($black, 0.05);
+
+  --submit-color:                    $white;
+  --submit-background:               $submit;
+  --submit-background-alt:           $submit-alt;
+  --submit-border:                   tint($gray-dark, 66%);
+
+  --reset-color:                     $black;
+  --reset-background:                $reset;
+  --reset-background-alt:            $reset-alt;
+  --reset-background-ter:            $reset-ter;
+  --reset-border:                    tint($gray-dark, 66%);
+
+  --delete-color:                    $delete;
+  --delete-hover-color:              $white;
+  --delete-hover-background:         $delete-alt;
+  --delete-hover-background-alt:     $delete-ter;
+  --delete-hover-border:             $delete-ter;
+
+  --add-color:                       $black;
+  --add-background:                  $add;
+  --add-background-alt:              $add-alt;
+  --add-border:                      $add;
+  --add-border-alt:                  $add-alt;
+
+  --button-disabled-color:           $gray-dark;
+  --button-disabled-background:      $gray-very-light;
+  --button-disabled-background-alt:  $gray-lighter;
+  --button-disabled-border:          tint($gray-dark, 66%);
+
+  --ajax-color:                      $gray-very-dark;
+  --ajax-background:                 $white;
+  --ajax-background-alt:             $light-blue;
+  --ajax-border:                     $gray-dark;
+
+  --gotop-color:                     $gray-very-dark;
+  --gotop-background:                transparent;
+  --gotop-border:                    none;
+
+  --addmeta-color:                   $black;
+  --addmeta-background:              transparent;
+  --addmeta-focus-color:             $black;
+  --addmeta-focus-background:        tint($light-blue, 10%);
+
+  // Messages
+
+  --msg-color:                       $white;
+  --msg-background:                  $gray-dark;
+  --msg-background-alt:              tint($gray-dark, 66%);
+  --msg-shadow:                      rgba($gray-very-dark, 0.1);
+
+  --msg-info-color:                  $gray-very-dark;
+  --msg-info-background:             $info;
+  --msg-info-border:                 $info-alt;
+
+  --msg-warn-color:                  $gray-very-dark;
+  --msg-warn-background:             $warning;
+  --msg-warn-background-alt:         $warning-alt;
+  --msg-warn-border:                 $warning-alt;
+
+  --msg-error-color:                 $black;
+  --msg-error-background:            $error;
+  --msg-error-background-alt:        $warning;
+
+  --msg-success-color:               $black;
+  --msg-success-background:          $success;
+  --msg-success-background-alt:      $success-alt;
+
+  --dc-update-color:                 $black;
+  --dc-update-background:            $light-blue;
+
+  --ajax-loader:                     shade($light-blue, 10%);
+
+  // Filters
+
+  --form-control-color:              $black;
+
+  --filter-border:                   $light-blue;
+  --filter-options-border:           $gray-light;
+  --filter-focus-background:         shade($white, 7%);
+
+  // Prelude
+
+  --prelude-color:                   $gray-very-dark;
+  --prelude-background:              $light-blue;
+  --prelude-background-alt:          $white;
+
+  // Help
+
+  --help-background:                 $gray-very-light;
+  --help-border:                     $warning-alt;
+  --help-button-border:              $gray-light;
+  --help-button-background:          $gray-very-light;
+  --help-title-color:                $gray-dark;
+
+  // Tooltip (in footer)
+
+  --tooltip-color:                   $tooltip;
+  --tooltip-background:              rgba($white, 0.9);
+
+  // Application pages:
+  // - Auth (white background page)
+
+  --login-fieldset-background:       $white;
+  --login-fieldset-border:           $success-alt;
+
+  // - Index
+
+  --index-link-color:                $gray-very-dark;
+  --index-link-border:               $gray-semi-dark;
+  --index-icon-background:           tint($gray-very-light, 50%);
+  --index-icon-border:               shade($gray-very-light, 10%);
+  --index-icon-outline:              $link-outline;
+  --index-icon-contrast:             100%;
+
+  --quick-background:                $gray-very-light;
+  --quick-border:                    shade($gray-very-light, 10%);
+  --quick-info-background:           $info;
+  --quick-info-border:               $info-alt;
+  --quick-info-color:                $gray-very-dark;
+
+  --index-box-border:                tint($gray-dark, 66%);
+
+  --drag-n-drop-off:                 $gray-semi-dark;
+  --drag-n-drop-on:                  $blue;
+
+  // - Blog params
+
+  --blog-user-border:                tint($gray-dark, 66%);
+  --blog-super-background:           rgba($info, 0.5);
+  --blog-super-border:               $link-outline;
+
+  // - Blog theme
+
+  --theme-box-border:                shade($gray-very-light, 10%);
+  --theme-box-over:                  $gray-very-light;
+
+  --theme-name-color:                $gray-dark;
+
+  --theme-img-background:            $gray-very-light;
+  --theme-img-border:                $white;
+  --theme-img-shadow:                rgba($gray-very-dark, 0.1);
+
+  --theme-action-background:         $gray-very-light;
+  --theme-action-border:             $gray-lighter;
+
+  --theme-current-background:        $gray-very-light;
+  --theme-current-border:            $gray-lighter;
+  --theme-current-shadow:            rgba($gray-very-dark, 0.1);
+
+  --theme-current-img-border:        $white;
+  --theme-current-name-color:        $orange;
+
+  // - Categories
+
+  --cat-placeholder-outline:         $link;
+
+  --cat-line-border:                 tint($gray-dark, 66%);
+  --subcat-line-border:              shade($gray-very-light, 10%);
+
+  --cat-post-counter:                $gray-very-dark;
+
+  // - Media
+
+  --media-folder-background:         transparent;
+  --media-folder-border:             $gray-lighter;
+  --media-folderup-border:           transparent;
+  --media-folder-link:               $gray-dark;
+  --media-item-border:               shade($gray-very-light, 10%);
+  --media-item-border-private:       $red;
+  --media-files-border:              shade($gray-very-light, 10%);
+
+  --upload-color:                    shade($success-alt, 45%);
+  --upload-filemsg-color:            $white;
+  --upload-progress-color:           $white;
+  --upload-progress-background:      shade($success-alt, 45%);
+  --upload-file-border:              shade($gray-very-light, 10%);
+  --upload-error-color:              $error-alt;
+
+  // - Plugins
+
+  --modules-background:              $gray-very-light;
+  --modules-border:                  $light-blue;
+
+  // - Entry
+
+  --entry-sb-title-border:           $gray-dark;
+  --entry-sb-background:             $gray-very-light;
+  --entry-sb-focus-background:       shade($white, 7%);
+
+  // - Preferences
+
+  --fav-list-background:             $gray-very-light;
+  --fav-list-background-over:        $gray-very-light;
+  --fav-list-border:                 $gray-lighter;
+  --fav-list-border-alt:             shade($gray-very-light, 10%);
+
+  --my-favs-border:                  $green;
+
+  // - Charte
+
+  --charte-title:                    $orange;
+  --charte-one-box-border:           shade($gray-very-light, 10%);
+
+  // Classes
+
+  --ac-results-background:           $white;
+  --ac-results-border:               $warning-alt;
+  --ac-results-over:                 $white;
+  --ac-results-over-background:      $link;
+
+  --nav-background:                  $white;
+  --nav-prevnext:                    $link;
+  --nav-prevnext-background:         $gray-very-light;
+  --nav-prevnext-border:             shade($gray-very-light, 10%);
+
+  --onblog-link:                     $gray-very-dark;
+  --onblog-link-background:          $gray-lighter;
+  --onblog-link-border:              $gray-lighter;
+  --onblog-link-shadow:              rgba($gray-very-dark, 0.3);
+
+  --pager-link:                      $link;
+  --pager-active:                    $gray-dark;
+  --pager-background:                $gray-very-light;
+  --pager-background-over:           shade($gray-very-light, 10%);
+  --pager-off-background:            $white;
+  --pager-input-background:          $white;
+  --pager-border:                    shade($gray-very-light, 10%);
+
+  --index-no-link:                   $gray-light;
+  --index-active:                    $white;
+  --index-active-background:         $gray-dark;
+
+  --step:                            $gray-dark;
+  --step-background:                 $gray-very-light;
+  --step-border:                     tint($gray-dark, 66%);
+
+  --offline:                         $gray-dark;
+  --offline-background:              $gray-very-light;
+
+  --mark-attach-img:                 url('../images/attach.svg');
+  --mark-attach-filter:              hue-rotate(300deg) saturate(.64);
+
+  --rch-table-1st-color:             $gray-light;
+  --rch-table-1st-background:        $gray-darker;
+  --rch-table-1st-border:            $gray-lighter;
+  --rch-table-expand-color:          var(--body-color);
+  --rch-table-expand-background:     var(--body-background);
+  --rch-table-expand-border:         $gray-lighter;
+
+  --pw-very-weak:                    $pw-very-weak;
+  --pw-weak:                         $pw-weak;
+  --pw-mediocre:                     $pw-mediocre;
+  --pw-strong:                       $pw-strong;
+  --pw-very-strong:                  $pw-very-strong;
+
+  // Utils
+
+  --color-picker-border:             $black;
+  --color-picker-background:         $white;
+
+  --color-div-border:                $gray-light;
+
+  --badge-color:                     $white;
+  --badge-border:                    transparent;
+  --badge-std-background:            $badge;
+  --badge-soft-background:           $badge-soft;
+  --badge-info-background:           $badge-info;
+
+  // Debug
+
+  --debug-color:                     $error-alt;
+  --debug-background:                $warning-alt;
+  --debug-border:                    $warning-alt;
+}

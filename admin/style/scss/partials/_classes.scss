@@ -2,8 +2,8 @@
 
 .ac_results {
   padding: 0px;
-  background-color: $ac-results-background;
-  border: 1px dotted $ac-results-border;
+  background-color: var(--ac-results-background);
+  border: 1px dotted var(--ac-results-border);
   overflow: hidden;
   z-index: 99999;
   ul {
@@ -29,12 +29,12 @@
 }
 
 .ac_odd {
-  background-color: $ac-results-background;
+  background-color: var(--ac-results-background);
 }
 
 .ac_over {
-  color: $ac-results-over;
-  background-color: $ac-results-over-background;
+  color: var(--ac-results-over);
+  background-color: var(--ac-results-over-background);
 }
 
 
@@ -98,27 +98,27 @@ body.auth {
 }
 
 .pw-very-weak .bar {
-  background: $pw-very-weak;
+  background: var(--pw-very-weak);
   width: 30px;
 }
 
 .pw-weak .bar {
-  background: $pw-weak;
+  background: var(--pw-weak);
   width: 60px;
 }
 
 .pw-mediocre .bar {
-  background: $pw-mediocre;
+  background: var(--pw-mediocre);
   width: 90px;
 }
 
 .pw-strong .bar {
-  background: $pw-strong;
+  background: var(--pw-strong);
   width: 120px;
 }
 
 .pw-very-strong .bar {
-  background: $pw-very-strong;
+  background: var(--pw-very-strong);
   width: 150px;
 }
 
@@ -129,7 +129,7 @@ body.auth {
 /* selects accès rapide */
 
 .anchor-nav {
-  background: $nav-background;
+  background: var(--nav-background);
   padding: 4px 1em;
   label {
     vertical-align: bottom;
@@ -141,16 +141,16 @@ body.auth {
 
 .nav_prevnext {
   margin-bottom: 2em;
-  color: $nav-background;
+  color: var(--nav-background);
 }
 
 .nav_prevnext a,
 a.back {
-  color: $nav-prevnext;
-  border: 1px solid $nav-prevnext-border;
+  color: var(--nav-prevnext);
+  border: 1px solid var(--nav-prevnext-border);
   padding: 2px 1.5em;
   border-radius: .75em;
-  background-color: $nav-prevnext-background;
+  background-color: var(--nav-prevnext-background);
 }
 
 a.back:before {
@@ -158,13 +158,13 @@ a.back:before {
 }
 
 a.onblog_link {
-  color: $onblog-link;
+  color: var(--onblog-link);
   float: right;
-  border: 1px solid $onblog-link-border;
+  border: 1px solid var(--onblog-link-border);
   padding: 2px 1.5em;
   border-radius: .75em;
-  background-color: $onblog-link-background;
-  box-shadow: 0 1px 1px $onblog-link-shadow;
+  background-color: var(--onblog-link-background);
+  box-shadow: 0 1px 1px var(--onblog-link-shadow);
 }
 
 
@@ -187,28 +187,28 @@ a.onblog_link {
     text-align: center;
   }
   .btn {
-    border: 1px solid $pager-border;
-    background-color: $pager-background;
-    color: $pager-link;
+    border: 1px solid var(--pager-border);
+    background-color: var(--pager-background);
+    color: var(--pager-link);
     border-radius: 3px;
     overflow: hidden;
     &.no-link {
-      border-color: $pager-border;
-      background-color: $pager-off-background;
+      border-color: var(--pager-border);
+      background-color: var(--pager-off-background);
       padding: 1px 3px 0;
     }
   }
   .active {
     padding: 4px 12px;
-    color: $pager-active;
+    color: var(--pager-active);
   }
   .direct-access {
     margin-left: 2em;
     input[type=text] {
-      border: 1px solid $pager-border;
+      border: 1px solid var(--pager-border);
       padding: 3px 8px;
       margin-left: .25em;
-      background-color: $pager-input-background;
+      background-color: var(--pager-input-background);
     }
     input[type=submit] {
       padding: 3px 6px;
@@ -220,7 +220,7 @@ a.onblog_link {
     border: none;
     &:hover,
     &:focus {
-      background-color: $pager-background-over;
+      background-color: var(--pager-background-over);
     }
   }
 }
@@ -238,12 +238,12 @@ a.onblog_link {
     font-weight: bold;
   }
   .btn.no-link {
-    color: $index-no-link;
+    color: var(--index-no-link);
   }
   .active {
     padding: 4px 8px;
-    color: $index-active;
-    background: $index-active-background;
+    color: var(--index-active);
+    background: var(--index-active-background);
     border-radius: 3px;
     font-variant: small-caps;
   }
@@ -257,9 +257,9 @@ a.onblog_link {
   float: left;
   margin: 3px 10px 2px 0;
   padding: 5px .5em;
-  color: $step;
-  background: $step-background;
-  border: 1px solid $step-border;
+  color: var(--step);
+  background: var(--step-background);
+  border: 1px solid var(--step-border);
   border-radius: 3px;
   font-weight: bold;
 }
@@ -281,8 +281,8 @@ a.onblog_link {
   width: 12px;
   height: 12px;
   padding-left: 12px;
-  background: $mark-attach-img no-repeat;
-  filter: $mark-attach-filter;
+  background: var(--mark-attach-img) no-repeat;
+  filter: var(--mark-attach-filter);
 }
 
 /* ---------------------------------------------------------------- utilisables partout  */
@@ -293,8 +293,8 @@ a.onblog_link {
 }
 
 .fieldset {
-  background: $fieldset-background;
-  border: 1px solid $fieldset-border;
+  background: var(--fieldset-background);
+  border: 1px solid var(--fieldset-border);
   border-radius: 3px;
   padding: 1em .7em .5em;
   margin-bottom: 1em;
@@ -302,12 +302,12 @@ a.onblog_link {
     margin-top: 0;
   }
   hr {
-    background-color: $fieldset-border;
+    background-color: var(--fieldset-border);
     border-width: 0;
     margin: 1em 0;
   }
   &:focus-within {
-    background-color: $fieldset-focus-background;
+    background-color: var(--fieldset-focus-background);
   }
 }
 
@@ -339,7 +339,7 @@ p.clear.vertical-separator {
 }
 
 .border-top {
-  border-top: 1px solid $link-border;
+  border-top: 1px solid var(--link-border);
   padding-top: 1em;
   margin-top: 1em;
 }
@@ -372,8 +372,8 @@ ul.from-left {
 }
 
 .offline {
-  color: $offline;
-  background: $offline-background;
+  color: var(--offline);
+  background: var(--offline-background);
 }
 
 

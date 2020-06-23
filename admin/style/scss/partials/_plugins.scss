@@ -1,78 +1,78 @@
 .modules td {
-	&.module-actions,
-	&.module-icon {
-		vertical-align: middle;
-	}
-	&.module-icon img {
-		&:last-child {
-			width: 16px;
-			height: 16px;
-		}
-		&.expand {
-			margin-bottom: 3px;
-		}
-	}
-	&.module-distrib img {
-		display: block;
-		float: right;
-	}
+  &.module-actions,
+  &.module-icon {
+    vertical-align: middle;
+  }
+  &.module-icon img {
+    &:last-child {
+      width: 16px;
+      height: 16px;
+    }
+    &.expand {
+      margin-bottom: 3px;
+    }
+  }
+  &.module-distrib img {
+    display: block;
+    float: right;
+  }
 }
 
 .modules tr.expand,
 .modules td.expand {
-	background: $modules-background;
-  border-color: $modules-border;
+  background: var(--modules-background);
+  border-color: var(--modules-border);
 }
 
 .modules tr.expand td:first-child {
-	font-weight: bold;
-	background: $modules-background;
+  font-weight: bold;
+  background: var(--modules-background);
 }
 
 .modules td.expand {
-	padding: 0 0 1em;
-	div {
-		display: inline-block;
-		vertical-align: top;
-		margin-right: 3em;
-	}
+  padding: 0 0 1em;
+  div {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 3em;
+  }
 }
 
 .modules dt {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .modules a {
-	&.module-details {
-		background: transparent url(search.svg) no-repeat 0 center;
-		padding: 4px 4px 0 20px;
-	}
-	&.module-support {
-		background: transparent url(help12.png) no-repeat 2px center;
-		padding: 4px 4px 0 20px;
-	}
-	&.module-config {
-		background: transparent url(settings.png) no-repeat 2px 6px;
-		padding: 4px 4px 0 18px;
-	}
+  &.module-details {
+    background: transparent url(search.svg) no-repeat 0 center;
+    padding: 4px 4px 0 20px;
+  }
+  &.module-support {
+    background: transparent url(help12.png) no-repeat 2px center;
+    padding: 4px 4px 0 20px;
+  }
+  &.module-config {
+    background: transparent url(settings.png) no-repeat 2px 6px;
+    padding: 4px 4px 0 18px;
+  }
 }
 
 #m_search {
-  color: $search-color;
-	background: transparent url(search.svg) no-repeat 0 center;
-	padding-left: 20px;
+  color: var(--search-color);
+  background: transparent url(search.svg) no-repeat 0 center;
+  padding-left: 20px;
 }
 
 .mod-more {
-	padding-top: .5em;
-	&,
-	li {
-		margin: .25em 0 0 1em;
-		padding: 0;
-		list-style-type: none;
-	}
+  padding-top: .5em;
+  &,
+  li {
+    margin: .25em 0 0 1em;
+    padding: 0;
+    list-style-type: none;
+  }
 }
 
 #plugin-update td {
-	vertical-align: baseline;
+  vertical-align: baseline;
 }

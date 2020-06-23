@@ -1,72 +1,72 @@
 #categories {
-	margin: 1em 0;
-	ul {
-		list-style: none;
-		margin-top: 2em;
-		padding: 0;
-		ul {
-			margin-right: 2em;
-			margin-left: 2em;
-		}
-	}
-	.placeholder {
-		outline: 1px dashed $cat-placeholder-outline;
-		min-height: 2.5em;
-	}
+  margin: 1em 0;
+  ul {
+    list-style: none;
+    margin-top: 2em;
+    padding: 0;
+    ul {
+      margin-right: 2em;
+      margin-left: 2em;
+    }
+  }
+  .placeholder {
+    outline: 1px dashed var(--cat-placeholder-outline);
+    min-height: 2.5em;
+  }
 }
 
 .cat-line {
-	position: relative;
-	margin: .66em 0;
-	padding: .66em 1em;
-	border: 1px solid $cat-line-border;
-	border-radius: 3px;
-	label {
-		margin-right: .25em;
-		a {
-			font-weight: bold;
-		}
-	}
-	p,
-	label {
-		margin: 0;
-		display: inline-block;
-	}
-	.cat-line {
-		border: 1px solid $subcat-line-border;
-	}
+  position: relative;
+  margin: .66em 0;
+  padding: .66em 1em;
+  border: 1px solid var(--cat-line-border);
+  border-radius: 3px;
+  label {
+    margin-right: .25em;
+    a {
+      font-weight: bold;
+    }
+  }
+  p,
+  label {
+    margin: 0;
+    display: inline-block;
+  }
+  .cat-line {
+    border: 1px solid var(--subcat-line-border);
+  }
 }
 
 p.cat-title {
-	margin-right: 1em;
+  margin-right: 1em;
 }
 
 .cat-nb-posts a {
-	color: $cat-post-counter;
+  color: var(--cat-post-counter);
 }
 
 .cat-url {
-	padding-left: 1em;
+  padding-left: 1em;
 }
 
 .cat-buttons {
-	float: right;
-	margin-top: -.2em;
-	font-size: .91em;
-	select {
-		padding: 1px 2px 3px 2px;
-		margin-right: .25em;
-	}
-	.reset {
-		padding-left: 4px;
-		padding-right: 4px;
-	}
+  float: right;
+  margin-top: -.2em;
+  font-size: .91em;
+  select {
+    padding: 1px 2px 3px 2px;
+    margin-right: .25em;
+  }
+  .reset {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
 }
 
 .cat-actions {
-	line-height: 2;
+  line-height: 2;
 }
 
 #del_cat {
-	width: 100%;
+  width: 100%;
 }

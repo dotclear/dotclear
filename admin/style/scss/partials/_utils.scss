@@ -4,29 +4,29 @@
 
 .sortable-area {
   border: 1px dashed currentColor;
-  background-color: $main-menu-background;
+  background-color: var(--main-menu-background);
 }
 
 div.ui-sortable-handle {
   border: 1px dashed currentColor !important;
   border-radius: .75em !important;
   & > .ui-sortable {
-//    border-color: $main-menu-border !important;
+//    border-color: var(--main-menu-border) !important;
   }
 }
 
 /* color-picker.js */
 
 .color-color-picker {
-	border: 1px solid $color-picker-border;
-	width: 195px;
-	background: $color-picker-background;
+  border: 1px solid var(--color-picker-border);
+  width: 195px;
+  background: var(--color-picker-background);
 }
 
 /* _media_item.js */
 
 .color-div {
-	border: 1px solid $color-div-border;
+  border: 1px solid var(--color-div-border);
 }
 
 /* Badges (common.js) */
@@ -38,26 +38,26 @@ div.ui-sortable-handle {
 
 /* Badge design */
 .badge {
-  color: $badge-color;
-  background-color: $badge-std-background;
-  border: 1px solid $badge-border;
+  color: var(--badge-color);
+  background-color: var(--badge-std-background);
+  border: 1px solid var(--badge-border);
   vertical-align: top;
   border-radius: 1em;
   padding: 0 .6em;
 }
 .badge-icon {
-  background-color: $badge-soft-background;
+  background-color: var(--badge-soft-background);
 }
 
 /* Badge background override */
 .badge-std {
-  background-color: $badge-std-background;
+  background-color: var(--badge-std-background);
 }
 .badge-info {
-  background-color: $badge-info-background;
+  background-color: var(--badge-info-background);
 }
 .badge-soft {
-  background-color: $badge-soft-background;
+  background-color: var(--badge-soft-background);
 }
 
 /* Badge position */
