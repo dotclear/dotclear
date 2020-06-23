@@ -677,6 +677,24 @@ $(function() {
       }
     });
   }
+  // Watch data-theme attribute modification
+  const observer = new MutationObserver((mutations) => {
+    for (let mutation of mutations) {
+      let theme = 'light';
+      if (mutation.target.getAttribute('data-theme') !== '') {
+        theme = mutation.target.getAttribute('data-theme');
+      } else {
+        theme = window.matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light';
+      }
+      $('body').removeClass(`${dotclear.data.theme}-mode`);
+      dotclear.data.theme = theme;
+      $('body').addClass(`${dotclear.data.theme}-mode`);
+      document.documentElement.style.setProperty('--dark-mode', (dotclear.data.theme === 'dark' ? 1 : 0));
+    }
+  });
+  observer.observe(document.documentElement, {
+    attributeFilter: ['data-theme']
+  });
   // remove class no-js from html tag; cf style/default.css for examples
   $('body').removeClass('no-js').addClass('with-js');
   $('body').contents().each(function() {
