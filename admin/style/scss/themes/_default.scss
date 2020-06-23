@@ -14,15 +14,18 @@ $marine:          #3a539b;
 $gray:            #b2b2b2;
 $gray-dark:       #676e78;
 
-$gray-very-dark:    shade($gray, 72%);
-$gray-darker:       shade($gray, 50%);
-$gray-semi-dark:    shade($gray, 25%);
-$gray-light:        tint($gray, 30%);
-$gray-lighter:      tint($gray, 75%);
-$gray-very-light:   tint($gray, 85%);
+$gray-very-dark:    scale-color($gray, $lightness: -72%);
+$gray-darker:       scale-color($gray, $lightness: -50%);
+$gray-semi-dark:    scale-color($gray, $lightness: -25%);
+$gray-light:        scale-color($gray, $lightness: 30%);
+$gray-lighter:      scale-color($gray, $lightness: 75%);
+$gray-very-light:   scale-color($gray, $lightness: 85%);
 
 $white:           #fff;
 $black:           #000;
+
+$soft-white:      #dcdee0;
+$soft-gray:       #272b30;
 
 // Palette secondaire
 
@@ -109,7 +112,7 @@ $badge-info:      #3f51b5;
   --main-menu-background:            $gray-very-light;
   --main-menu-title-color:           $gray-dark;
   --main-menu-item-color:            $gray-very-dark;
-  --main-menu-item-border:           tint($gray-dark, 66%);
+  --main-menu-item-border:           scale-color($gray-dark, $lightness: 66%);
   --main-menu-active-color:          $current-page;
   --main-menu-active-background:     $white;
   --main-menu-border:                $light-blue;
@@ -122,7 +125,7 @@ $badge-info:      #3f51b5;
   --search-outline:                  $link-outline;
 
   --footer-background:               $white;
-  --footer-border:                   tint($gray-dark, 66%);
+  --footer-border:                   scale-color($gray-dark, $lightness: 66%);
 
   --collapser-focus:                 $light-blue;
   --collapser-background:            $gray-light;
@@ -142,15 +145,15 @@ $badge-info:      #3f51b5;
   --title-label-color:               $gray-very-dark;
 
   --table-caption-color:             $gray-very-dark;
-  --head-border:                     shade($gray-very-light, 10%);
+  --head-border:                     scale-color($gray-very-light, $lightness: -10%);
   --head-background:                 $gray-very-light;
   --line-input-background:           $white;
   --line-background-over:            $gray-very-light;
-  --line-focus-background:           shade($white, 7%);
+  --line-focus-background:           scale-color($white, $lightness: -7%);
   --cell-border:                     $gray-lighter;
-  --cell-noborder-color:             shade($gray-very-light, 10%);
+  --cell-noborder-color:             scale-color($gray-very-light, $lightness: -10%);
 
-  --hr-color:                        shade($gray-very-light, 10%);
+  --hr-color:                        scale-color($gray-very-light, $lightness: -10%);
 
   --code-color:                      var(--body-color);
   --code-background:                 $code;
@@ -163,9 +166,9 @@ $badge-info:      #3f51b5;
 
   // Forms
 
-  --fieldset-border:                 tint($gray-dark, 66%);
+  --fieldset-border:                 scale-color($gray-dark, $lightness: 66%);
   --fieldset-background:             $white;
-  --fieldset-focus-background:       shade($white, 7%);
+  --fieldset-focus-background:       scale-color($white, $lightness: -7%);
 
   --legend-border:                   $gray-dark;
   --legend-background:               $white;
@@ -176,8 +179,8 @@ $badge-info:      #3f51b5;
   --invalid-input-shadow:            rgba($error-alt, 0.3);
 
   --input-color:                     $black;
-  --input-background:                tint($gray-very-light, 50%);
-  --input-border:                    shade($gray-very-light, 10%);
+  --input-background:                scale-color($gray-very-light, $lightness: 50%);
+  --input-border:                    scale-color($gray-very-light, $lightness: -10%);
   --input-shadow:                    $gray-very-light;
   --input-focus:                     $link-outline;
 
@@ -191,19 +194,19 @@ $badge-info:      #3f51b5;
   // Buttons
 
   --button-color:                    $black;
-  --button-border:                   tint($gray-dark, 66%);
+  --button-border:                   scale-color($gray-dark, $lightness: 66%);
   --button-shadow:                   rgba($black, 0.05);
 
   --submit-color:                    $white;
   --submit-background:               $submit;
   --submit-background-alt:           $submit-alt;
-  --submit-border:                   tint($gray-dark, 66%);
+  --submit-border:                   scale-color($gray-dark, $lightness: 66%);
 
   --reset-color:                     $black;
   --reset-background:                $reset;
   --reset-background-alt:            $reset-alt;
   --reset-background-ter:            $reset-ter;
-  --reset-border:                    tint($gray-dark, 66%);
+  --reset-border:                    scale-color($gray-dark, $lightness: 66%);
 
   --delete-color:                    $delete;
   --delete-hover-color:              $white;
@@ -220,7 +223,7 @@ $badge-info:      #3f51b5;
   --button-disabled-color:           $gray-dark;
   --button-disabled-background:      $gray-very-light;
   --button-disabled-background-alt:  $gray-lighter;
-  --button-disabled-border:          tint($gray-dark, 66%);
+  --button-disabled-border:          scale-color($gray-dark, $lightness: 66%);
 
   --ajax-color:                      $gray-very-dark;
   --ajax-background:                 $white;
@@ -234,13 +237,13 @@ $badge-info:      #3f51b5;
   --addmeta-color:                   $black;
   --addmeta-background:              transparent;
   --addmeta-focus-color:             $black;
-  --addmeta-focus-background:        tint($light-blue, 10%);
+  --addmeta-focus-background:        scale-color($light-blue, $lightness: 10%);
 
   // Messages
 
   --msg-color:                       $white;
   --msg-background:                  $gray-dark;
-  --msg-background-alt:              tint($gray-dark, 66%);
+  --msg-background-alt:              scale-color($gray-dark, $lightness: 66%);
   --msg-shadow:                      rgba($gray-very-dark, 0.1);
 
   --msg-info-color:                  $gray-very-dark;
@@ -263,7 +266,7 @@ $badge-info:      #3f51b5;
   --dc-update-color:                 $black;
   --dc-update-background:            $light-blue;
 
-  --ajax-loader:                     shade($light-blue, 10%);
+  --ajax-loader:                     scale-color($light-blue, $lightness: -10%);
 
   // Filters
 
@@ -271,7 +274,7 @@ $badge-info:      #3f51b5;
 
   --filter-border:                   $light-blue;
   --filter-options-border:           $gray-light;
-  --filter-focus-background:         shade($white, 7%);
+  --filter-focus-background:         scale-color($white, $lightness: -7%);
 
   // Prelude
 
@@ -302,31 +305,31 @@ $badge-info:      #3f51b5;
 
   --index-link-color:                $gray-very-dark;
   --index-link-border:               $gray-semi-dark;
-  --index-icon-background:           tint($gray-very-light, 50%);
-  --index-icon-border:               shade($gray-very-light, 10%);
+  --index-icon-background:           scale-color($gray-very-light, $lightness: 50%);
+  --index-icon-border:               scale-color($gray-very-light, $lightness: -10%);
   --index-icon-outline:              $link-outline;
   --index-icon-contrast:             100%;
 
   --quick-background:                $gray-very-light;
-  --quick-border:                    shade($gray-very-light, 10%);
+  --quick-border:                    scale-color($gray-very-light, $lightness: -10%);
   --quick-info-background:           $info;
   --quick-info-border:               $info-alt;
   --quick-info-color:                $gray-very-dark;
 
-  --index-box-border:                tint($gray-dark, 66%);
+  --index-box-border:                scale-color($gray-dark, $lightness: 66%);
 
   --drag-n-drop-off:                 $gray-semi-dark;
   --drag-n-drop-on:                  $blue;
 
   // - Blog params
 
-  --blog-user-border:                tint($gray-dark, 66%);
+  --blog-user-border:                scale-color($gray-dark, $lightness: 66%);
   --blog-super-background:           rgba($info, 0.5);
   --blog-super-border:               $link-outline;
 
   // - Blog theme
 
-  --theme-box-border:                shade($gray-very-light, 10%);
+  --theme-box-border:                scale-color($gray-very-light, $lightness: -10%);
   --theme-box-over:                  $gray-very-light;
 
   --theme-name-color:                $gray-dark;
@@ -349,8 +352,8 @@ $badge-info:      #3f51b5;
 
   --cat-placeholder-outline:         $link;
 
-  --cat-line-border:                 tint($gray-dark, 66%);
-  --subcat-line-border:              shade($gray-very-light, 10%);
+  --cat-line-border:                 scale-color($gray-dark, $lightness: 66%);
+  --subcat-line-border:              scale-color($gray-very-light, $lightness: -10%);
 
   --cat-post-counter:                $gray-very-dark;
 
@@ -360,15 +363,15 @@ $badge-info:      #3f51b5;
   --media-folder-border:             $gray-lighter;
   --media-folderup-border:           transparent;
   --media-folder-link:               $gray-dark;
-  --media-item-border:               shade($gray-very-light, 10%);
+  --media-item-border:               scale-color($gray-very-light, $lightness: -10%);
   --media-item-border-private:       $red;
-  --media-files-border:              shade($gray-very-light, 10%);
+  --media-files-border:              scale-color($gray-very-light, $lightness: -10%);
 
-  --upload-color:                    shade($success-alt, 45%);
+  --upload-color:                    scale-color($success-alt, $lightness: -45%);
   --upload-filemsg-color:            $white;
   --upload-progress-color:           $white;
-  --upload-progress-background:      shade($success-alt, 45%);
-  --upload-file-border:              shade($gray-very-light, 10%);
+  --upload-progress-background:      scale-color($success-alt, $lightness: -45%);
+  --upload-file-border:              scale-color($gray-very-light, $lightness: -10%);
   --upload-error-color:              $error-alt;
 
   // - Plugins
@@ -380,21 +383,21 @@ $badge-info:      #3f51b5;
 
   --entry-sb-title-border:           $gray-dark;
   --entry-sb-background:             $gray-very-light;
-  --entry-sb-focus-background:       shade($white, 7%);
+  --entry-sb-focus-background:       scale-color($white, $lightness: -7%);
 
   // - Preferences
 
   --fav-list-background:             $gray-very-light;
   --fav-list-background-over:        $gray-very-light;
   --fav-list-border:                 $gray-lighter;
-  --fav-list-border-alt:             shade($gray-very-light, 10%);
+  --fav-list-border-alt:             scale-color($gray-very-light, $lightness: -10%);
 
   --my-favs-border:                  $green;
 
   // - Charte
 
   --charte-title:                    $orange;
-  --charte-one-box-border:           shade($gray-very-light, 10%);
+  --charte-one-box-border:           scale-color($gray-very-light, $lightness: -10%);
 
   // Classes
 
@@ -406,7 +409,7 @@ $badge-info:      #3f51b5;
   --nav-background:                  $white;
   --nav-prevnext:                    $link;
   --nav-prevnext-background:         $gray-very-light;
-  --nav-prevnext-border:             shade($gray-very-light, 10%);
+  --nav-prevnext-border:             scale-color($gray-very-light, $lightness: -10%);
 
   --onblog-link:                     $gray-very-dark;
   --onblog-link-background:          $gray-lighter;
@@ -416,10 +419,10 @@ $badge-info:      #3f51b5;
   --pager-link:                      $link;
   --pager-active:                    $gray-dark;
   --pager-background:                $gray-very-light;
-  --pager-background-over:           shade($gray-very-light, 10%);
+  --pager-background-over:           scale-color($gray-very-light, $lightness: -10%);
   --pager-off-background:            $white;
   --pager-input-background:          $white;
-  --pager-border:                    shade($gray-very-light, 10%);
+  --pager-border:                    scale-color($gray-very-light, $lightness: -10%);
 
   --index-no-link:                   $gray-light;
   --index-active:                    $white;
@@ -427,7 +430,7 @@ $badge-info:      #3f51b5;
 
   --step:                            $gray-dark;
   --step-background:                 $gray-very-light;
-  --step-border:                     tint($gray-dark, 66%);
+  --step-border:                     scale-color($gray-dark, $lightness: 66%);
 
   --offline:                         $gray-dark;
   --offline-background:              $gray-very-light;
