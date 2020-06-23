@@ -1,0 +1,17 @@
+// ========================================================================== //
+// =Themes
+// ========================================================================== //
+
+:root, :root[data-theme="light"] {
+  @include theme-light;
+}
+
+:root[data-theme="dark"] {
+  @include theme-dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    @include theme-dark;
+  }
+}

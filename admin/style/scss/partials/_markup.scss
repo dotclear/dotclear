@@ -205,7 +205,7 @@ a:link {
 
 a:focus,
 a:focus img {
-  outline: 2px solid $link-outline;
+  outline: 2px solid var(--link-outline);
   border-bottom: none;
   text-decoration: none;
 }

@@ -2,81 +2,81 @@
 // =Couleurs
 // ========================================================================== //
 
-// Palette de base
+@mixin theme-light {
 
-$blue:            #137bbb;
-$green:           #9ac123;
-$red:             #c44d58;
-$light-blue:      #a2cbe9;
-$orange:          #d33800;
-$marine:          #3a539b;
+  // Palette de base
 
-$gray:            #b2b2b2;
-$gray-dark:       #676e78;
+  $blue:            #137bbb;
+  $green:           #9ac123;
+  $red:             #c44d58;
+  $light-blue:      #a2cbe9;
+  $orange:          #d33800;
+  $marine:          #3a539b;
 
-$gray-very-dark:    scale-color($gray, $lightness: -72%);
-$gray-darker:       scale-color($gray, $lightness: -50%);
-$gray-semi-dark:    scale-color($gray, $lightness: -25%);
-$gray-light:        scale-color($gray, $lightness: 30%);
-$gray-lighter:      scale-color($gray, $lightness: 75%);
-$gray-very-light:   scale-color($gray, $lightness: 85%);
+  $gray:            #b2b2b2;
+  $gray-dark:       #676e78;
 
-$white:           #fff;
-$black:           #000;
+  $gray-very-dark:    scale-color($gray, $lightness: -72%);
+  $gray-darker:       scale-color($gray, $lightness: -50%);
+  $gray-semi-dark:    scale-color($gray, $lightness: -25%);
+  $gray-light:        scale-color($gray, $lightness: 30%);
+  $gray-lighter:      scale-color($gray, $lightness: 75%);
+  $gray-very-light:   scale-color($gray, $lightness: 85%);
 
-$soft-white:      #dcdee0;
-$soft-gray:       #272b30;
+  $white:           #fff;
+  $black:           #000;
 
-// Palette secondaire
+  $soft-white:      #dcdee0;
+  $soft-gray:       #272b30;
 
-$warning:         #fefacd;
-$warning-alt:     #ffd478;
+  // Palette secondaire
 
-$info:            #d9edf7;
-$info-alt:        #bce8f1;
+  $warning:         #fefacd;
+  $warning-alt:     #ffd478;
 
-$error:           #ffbaba;
-$error-alt:       #ae323b;
+  $info:            #d9edf7;
+  $info-alt:        #bce8f1;
 
-$required:        #ae323b;
+  $error:           #ffbaba;
+  $error-alt:       #ae323b;
 
-$success:         #bee74b;
-$success-alt:     #9bca1c;
+  $required:        #ae323b;
 
-$link:            #2373a8;
-$link-outline:    #bee74b;
+  $success:         #bee74b;
+  $success-alt:     #9bca1c;
 
-$current-page:    #d30e60;
+  $link:            #2373a8;
+  $link-outline:    #bee74b;
 
-$legacy:          #eef1ec;
-$code:            #fefacd;
-$tooltip:         #910ed3;
+  $current-page:    #d30e60;
 
-$pw-very-weak:    #c44d58;
-$pw-weak:         #e1732c;
-$pw-mediocre:     #ff9900;
-$pw-strong:       #cdad12;
-$pw-very-strong:  #9ac123;
+  $legacy:          #eef1ec;
+  $code:            #fefacd;
+  $tooltip:         #910ed3;
 
-$submit:          #25a6e1;
-$submit-alt:      #188bc0;
+  $pw-very-weak:    #c44d58;
+  $pw-weak:         #e1732c;
+  $pw-mediocre:     #ff9900;
+  $pw-strong:       #cdad12;
+  $pw-very-strong:  #9ac123;
 
-$reset:           #eaeaea;
-$reset-alt:       #f9f9f9;
-$reset-ter:       #dadada;
+  $submit:          #25a6e1;
+  $submit-alt:      #188bc0;
 
-$delete:          #ae323b;
-$delete-alt:      #b33630;
-$delete-ter:      #dc5f59;
+  $reset:           #eaeaea;
+  $reset-alt:       #f9f9f9;
+  $reset-ter:       #dadada;
 
-$add:             #bee74b;
-$add-alt:         #9bca1c;
+  $delete:          #ae323b;
+  $delete-alt:      #b33630;
+  $delete-ter:      #dc5f59;
 
-$badge:           #d54e21;
-$badge-soft:      #607d8b;
-$badge-info:      #3f51b5;
+  $add:             #bee74b;
+  $add-alt:         #9bca1c;
 
-:root, :root[data-theme="light"] {
+  $badge:           #d54e21;
+  $badge-soft:      #607d8b;
+  $badge-info:      #3f51b5;
 
   // Common
 
@@ -161,6 +161,7 @@ $badge-info:      #3f51b5;
   --link-color:                      $link;
   --link-border:                     $gray-semi-dark;
   --discrete-link-color:             $gray-very-dark;
+  --link-outline:                    $link-outline;
 
   --outgoing-link-filter:            50%;
 
@@ -190,6 +191,8 @@ $badge-info:      #3f51b5;
   --form-note-color:                 $gray-dark;
 
   --error-background:                $error;
+
+  --required:                        $required;
 
   // Buttons
 
