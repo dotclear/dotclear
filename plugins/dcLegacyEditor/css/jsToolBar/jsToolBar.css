@@ -24,7 +24,7 @@
   padding: 3px 5px 3px 10px;
   border: calc(1px * var(--dark-mode)) solid #fff;
   overflow: hidden;
-  background: linear-gradient( #4c4d4f calc(100% * var(--dark-mode)), #5e6ba5 calc(100% * var(--dark-mode)), #5e6ba5 calc(100% * (1 - var(--dark-mode))));
+  background: linear-gradient(var(--header-background-alt) calc(100% * var(--dark-mode)), var(--header-active-background-alt) calc(100% * var(--dark-mode)), var(--header-active-background-alt) calc(100% * (1 - var(--dark-mode))));
   position: relative;
   line-height: 30px;
 }
