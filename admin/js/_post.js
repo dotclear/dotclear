@@ -74,6 +74,16 @@ $(function() {
       });
     }
   }
+  // Prevent history back if currently previewing Post (with magnificPopup
+  history.pushState(null, null);
+  window.addEventListener('popstate', function() {
+    if (document.querySelector('.mfp-ready')) {
+      // Prevent history back
+      history.go(1);
+      // Close current preview
+      $.magnificPopup.close();
+    }
+  });
 
   // Tabs events
   $('#edit-entry').on('onetabload', function() {
