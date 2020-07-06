@@ -54,10 +54,84 @@ class dcThemes extends dcModules
         $properties = array_merge(
             ['parent' => null, 'tplset' => DC_DEFAULT_TPLSET],
             $properties,
-            ['permissions' => 'admin'] // force themes perms
+            ['permissions' => 'admin']// force themes perms
         );
 
         parent::registerModule($name, $desc, $author, $version, $properties);
+    }
+
+    public function cloneModule($id, $new_name, $new_dir, $overwrite = false)
+    {
+        $root = end($this->path); // Use last folder set in folders list (should be only one for theme)
+        if (!is_dir($root) || !is_readable($root)) {
+            throw new Exception(__('Themes folder unreachable'));
+        }
+        if (substr($root, -1) != '/') {
+            $root .= '/';
+        }
+        if (($d = @dir($root)) === false) {
+            throw new Exception(__('Themes folder unreadable'));
+        }
+
+        if ($overwrite && is_dir($root . $new_dir)) {
+            // Remove existing folder
+            try {
+                files::deltree($root . $new_dir);
+            } catch (Exception $e) {
+                throw new Exception($e->getMessage());
+            }
+        }
+
+        if (!is_dir($root . $new_dir)) {
+            try {
+                // Create destination folder named $new_dir in themes folder
+                files::makeDir($root . $new_dir, false);
+                // Copy files
+                $content = files::getDirList($this->modules[$id]['root']);
+                foreach ($content['dirs'] as $dir) {
+                    $rel = substr($dir, strlen($this->modules[$id]['root']));
+                    if ($rel !== '') {
+                        files::makeDir($root . $new_dir . $rel);
+                    }
+                }
+                foreach ($content['files'] as $file) {
+                    $rel = substr($file, strlen($this->modules[$id]['root']));
+                    copy($file, $root . $new_dir . $rel);
+                    if ($rel === '/_define.php') {
+                        $buf = file_get_contents($root . $new_dir . $rel);
+                        // Find offset of registerModule function call
+                        $pos = strpos($buf, '$this->registerModule');
+                        // Change theme name to $new_name in _define.php
+                        if (preg_match('/(\$this->registerModule\(\s*)([^)]+?)(\s*\);\s*)/m', $buf, $matches)) {
+                            $matches[2] = str_replace($this->modules[$id]['name'], $new_name, $matches[2]);
+                        }
+                        $buf = substr($buf, 0, $pos) . $matches[1] . $matches[2] . $matches[3];
+                        $buf .= sprintf("\n// Cloned on %s.\n", date('c'));
+                        file_put_contents($root . $new_dir . $rel, $buf);
+                    }
+                    if (substr($rel, -4) === '.php') {
+                        // Change namespace in *.php
+                        // ex: namespace themes\berlin; → namespace themes\berlinClone;
+                        $buf = file_get_contents($root . $new_dir . $rel);
+                        if (preg_match('/^namespace\s*themes\\\([^;].*);$/m', $buf, $matches)) {
+                            // $matches[0] = full line
+                            $pos = strpos($buf, $matches[0]);
+                            $ns = preg_replace('/[^a-zA-Z0-9_]/', '', str_replace(['-', '.'], '', ucwords($new_dir, '_-.')));
+                            $buf =
+                                substr($buf, 0, $pos) .
+                                'namespace themes\\' . $ns . ';' .
+                                substr($buf, $pos + strlen($matches[0]));
+                            file_put_contents($root . $new_dir . $rel, $buf);
+                        }
+                    }
+                }
+            } catch (Exception $e) {
+                files::deltree($root . $new_dir);
+                throw new Exception($e->getMessage());
+            }
+        } else {
+            throw new Exception(__('Destination folder already exist'));
+        }
     }
 
     /**
