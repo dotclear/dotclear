@@ -102,12 +102,14 @@ class dcThemes extends dcModules
                         // Find offset of registerModule function call
                         $pos = strpos($buf, '$this->registerModule');
                         // Change theme name to $new_name in _define.php
-                        if (preg_match('/(\$this->registerModule\(\s*)([^)]+?)(\s*\);\s*)/m', $buf, $matches)) {
-                            $matches[2] = str_replace($this->modules[$id]['name'], $new_name, $matches[2]);
+                        if (preg_match('/(\$this->registerModule\(\s*)((\s*|.*)+?)(\s*\);+)/m', $buf, $matches)) {
+                            $matches[2] = preg_replace('/' . $this->modules[$id]['name'] . '/', $new_name, $matches[2], 1);
+                            $buf = substr($buf, 0, $pos) . $matches[1] . $matches[2] . $matches[4];
+                            $buf .= sprintf("\n\n// Cloned on %s from %s theme.\n", date('c'), $this->modules[$id]['name']);
+                            file_put_contents($root . $new_dir . $rel, $buf);
+                        } else {
+                            throw new Exception(__('Unable to modify _config.php'));
                         }
-                        $buf = substr($buf, 0, $pos) . $matches[1] . $matches[2] . $matches[3];
-                        $buf .= sprintf("\n// Cloned on %s.\n", date('c'));
-                        file_put_contents($root . $new_dir . $rel, $buf);
                     }
                     if (substr($rel, -4) === '.php') {
                         // Change namespace in *.php
