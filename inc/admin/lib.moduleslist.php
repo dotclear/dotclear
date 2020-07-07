@@ -937,6 +937,13 @@ class adminModulesList
                         '<input type="submit" class="delete ' . $dev . '" name="delete[' . html::escapeHTML($id) . ']" value="' . __('Delete') . '" />';
                     }break;
 
+                # Clone
+                case 'clone':if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
+                        $submits[] =
+                        '<input type="submit" class="button clone" name="clone[' . html::escapeHTML($id) . ']" value="' . __('Clone') . '" />';
+                    }break;
+
+
                 # Install (from store)
                 case 'install':if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
                         $submits[] =
@@ -1693,7 +1700,7 @@ class adminThemesList extends adminModulesList
             # _POST actions
             if (!empty($actions)) {
                 $line .=
-                '<p>' . implode(' ', $this->getActions($id, $module, $actions)) . '</p>';
+                '<p class="module-post-actions">' . implode(' ', $this->getActions($id, $module, $actions)) . '</p>';
             }
 
             $line .=

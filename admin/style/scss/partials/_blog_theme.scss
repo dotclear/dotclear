@@ -17,7 +17,7 @@
     background: var(--theme-box-over);
   }
   input {
-    margin-bottom: 1em;
+//    margin-bottom: 1em;
   }
 }
 
@@ -40,6 +40,14 @@
 
 .module-actions {
   margin-top: 1em;
+}
+
+.module-post-actions {
+  display: flex;
+  flex-wrap: wrap;
+  input {
+    margin: 0 .25em .25em 0;
+  }
 }
 
 .bloc-toggler {

@@ -74,6 +74,10 @@
   $add:             #bee74b;
   $add-alt:         #9bca1c;
 
+  $clone:           #7e2999;
+  $clone-alt:       #b456d2;
+  $clone-ter:       #9f34c1;
+
   $badge:           #d54e21;
   $badge-soft:      #607d8b;
   $badge-info:      #3f51b5;
@@ -222,6 +226,14 @@
   --add-background-alt:              $add-alt;
   --add-border:                      $add;
   --add-border-alt:                  $add-alt;
+
+  --clone-color:                     $clone;
+  --clone-background:                $reset;
+  --clone-background-alt:            $reset-alt;
+  --clone-hover-color:               $white;
+  --clone-hover-background:          $clone-ter;
+  --clone-hover-background-alt:      $clone-alt;
+  --clone-border:                    scale-color($gray-dark, $lightness: 66%);
 
   --button-disabled-color:           $gray-dark;
   --button-disabled-background:      $gray-very-light;

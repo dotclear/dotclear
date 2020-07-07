@@ -121,23 +121,14 @@ button[type=submit].delete,
 button.delete,
 a.button.delete {
   color: var(--delete-color);
-}
 
-input[type=submit].delete:hover,
-input.delete:hover,
-button[type=submit].delete:hover,
-button.delete:hover,
-a.button.delete:hover,
-input[type=submit].delete:focus,
-input.delete:focus,
-button[type=submit].delete:focus,
-button.delete:focus,
-a.button.delete:focus {
-  color: var(--delete-hover-color);
-  background-color: var(--delete-hover-background);
-  background-image: #{'linear-gradient(to bottom, var(--delete-hover-background-alt), var(--delete-hover-background))'};
-  background-repeat: repeat-x;
-  border-color: var(--delete-hover-border);
+  &:hover, &:focus {
+    color: var(--delete-hover-color);
+    background-color: var(--delete-hover-background);
+    background-image: #{'linear-gradient(to bottom, var(--delete-hover-background-alt), var(--delete-hover-background))'};
+    background-repeat: repeat-x;
+    border-color: var(--delete-hover-border);
+  }
 }
 
 #info-box a.button,
@@ -153,23 +144,34 @@ button.add {
   background-image: #{'linear-gradient(to bottom, var(--add-background), var(--add-background-alt))'};
   border-color: var(--add-border);
   padding: .33em 1.33em .5em;
-}
 
-.button.add:hover,
-.button.add:active,
-.button.add:focus,
-button.add:hover,
-button.add:active,
-button.add:focus {
-  background-color: var(--add-background-alt);
-  background-image: #{'linear-gradient(to bottom, var(--add-background-alt), var(--add-background))'};
-  border-color: var(--add-border-alt);
+  &:hover, &:active, &:focus {
+    background-color: var(--add-background-alt);
+    background-image: #{'linear-gradient(to bottom, var(--add-background-alt), var(--add-background))'};
+    border-color: var(--add-border-alt);
+  }
 }
 
 .button-add:focus {
   outline: dotted 1px;
 }
 
+input[type=submit].clone,
+input.clone,
+button.clone,
+button[type=submit].clone,
+a.button.clone {
+  color: var(--clone-color);
+  background-color: var(--clone-background);
+  background-image: #{'linear-gradient(to bottom, var(--clone-background-alt), var(--clone-background))'};
+  border-color: var(--clone-border);
+
+  &:hover, &:active, &:focus {
+    color: var(--clone-hover-color);
+    background-color: var(--clone-hover-background);
+    background-image: #{'linear-gradient(to bottom, var(--clone-hover-background-alt), var(--clone-hover-background))'};
+  }
+}
 
 /* paragraphe pour bouton Nouveau bidule */
 

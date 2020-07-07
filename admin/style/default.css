@@ -340,6 +340,13 @@ h6 {
   --add-background-alt: #9bca1c;
   --add-border: #bee74b;
   --add-border-alt: #9bca1c;
+  --clone-color: #7e2999;
+  --clone-background: #eaeaea;
+  --clone-background-alt: #f9f9f9;
+  --clone-hover-color: #fff;
+  --clone-hover-background: #9f34c1;
+  --clone-hover-background-alt: #b456d2;
+  --clone-border: #caced2;
   --button-disabled-color: #676e78;
   --button-disabled-background: #f3f3f3;
   --button-disabled-background-alt: #ececec;
@@ -607,6 +614,13 @@ h6 {
   --add-background-alt: #9bca1c;
   --add-border: #bee74b;
   --add-border-alt: #9bca1c;
+  --clone-color: #7e2999;
+  --clone-background: #eaeaea;
+  --clone-background-alt: #f9f9f9;
+  --clone-hover-color: #fff;
+  --clone-hover-background: #9f34c1;
+  --clone-hover-background-alt: #b456d2;
+  --clone-border: #82878f;
   --button-disabled-color: #676e78;
   --button-disabled-background: #f3f4f5;
   --button-disabled-background-alt: #ecedee;
@@ -875,6 +889,13 @@ h6 {
     --add-background-alt: #9bca1c;
     --add-border: #bee74b;
     --add-border-alt: #9bca1c;
+    --clone-color: #7e2999;
+    --clone-background: #eaeaea;
+    --clone-background-alt: #f9f9f9;
+    --clone-hover-color: #fff;
+    --clone-hover-background: #9f34c1;
+    --clone-hover-background-alt: #b456d2;
+    --clone-border: #82878f;
     --button-disabled-color: #676e78;
     --button-disabled-background: #f3f4f5;
     --button-disabled-background-alt: #ecedee;
@@ -2106,22 +2127,20 @@ button[type=submit].delete,
 button.delete,
 a.button.delete {
   color: var(--delete-color); }
-
-input[type=submit].delete:hover,
-input.delete:hover,
-button[type=submit].delete:hover,
-button.delete:hover,
-a.button.delete:hover,
-input[type=submit].delete:focus,
-input.delete:focus,
-button[type=submit].delete:focus,
-button.delete:focus,
-a.button.delete:focus {
-  color: var(--delete-hover-color);
-  background-color: var(--delete-hover-background);
-  background-image: linear-gradient(to bottom, var(--delete-hover-background-alt), var(--delete-hover-background));
-  background-repeat: repeat-x;
-  border-color: var(--delete-hover-border); }
+  input[type=submit].delete:hover, input[type=submit].delete:focus,
+  input.delete:hover,
+  input.delete:focus,
+  button[type=submit].delete:hover,
+  button[type=submit].delete:focus,
+  button.delete:hover,
+  button.delete:focus,
+  a.button.delete:hover,
+  a.button.delete:focus {
+    color: var(--delete-hover-color);
+    background-color: var(--delete-hover-background);
+    background-image: linear-gradient(to bottom, var(--delete-hover-background-alt), var(--delete-hover-background));
+    background-repeat: repeat-x;
+    border-color: var(--delete-hover-border); }
 
 #info-box a.button,
 #info-box button {
@@ -2135,19 +2154,42 @@ button.add {
   background-image: linear-gradient(to bottom, var(--add-background), var(--add-background-alt));
   border-color: var(--add-border);
   padding: .33em 1.33em .5em; }
-
-.button.add:hover,
-.button.add:active,
-.button.add:focus,
-button.add:hover,
-button.add:active,
-button.add:focus {
-  background-color: var(--add-background-alt);
-  background-image: linear-gradient(to bottom, var(--add-background-alt), var(--add-background));
-  border-color: var(--add-border-alt); }
+  .button.add:hover, .button.add:active, .button.add:focus,
+  button.add:hover,
+  button.add:active,
+  button.add:focus {
+    background-color: var(--add-background-alt);
+    background-image: linear-gradient(to bottom, var(--add-background-alt), var(--add-background));
+    border-color: var(--add-border-alt); }
 
 .button-add:focus {
   outline: dotted 1px; }
+
+input[type=submit].clone,
+input.clone,
+button.clone,
+button[type=submit].clone,
+a.button.clone {
+  color: var(--clone-color);
+  background-color: var(--clone-background);
+  background-image: linear-gradient(to bottom, var(--clone-background-alt), var(--clone-background));
+  border-color: var(--clone-border); }
+  input[type=submit].clone:hover, input[type=submit].clone:active, input[type=submit].clone:focus,
+  input.clone:hover,
+  input.clone:active,
+  input.clone:focus,
+  button.clone:hover,
+  button.clone:active,
+  button.clone:focus,
+  button[type=submit].clone:hover,
+  button[type=submit].clone:active,
+  button[type=submit].clone:focus,
+  a.button.clone:hover,
+  a.button.clone:active,
+  a.button.clone:focus {
+    color: var(--clone-hover-color);
+    background-color: var(--clone-hover-background);
+    background-image: linear-gradient(to bottom, var(--clone-hover-background-alt), var(--clone-hover-background)); }
 
 /* paragraphe pour bouton Nouveau bidule */
 p.top-add {
@@ -3172,8 +3214,6 @@ li.user_admin {
   position: relative; }
   .box.theme:hover {
     background: var(--theme-box-over); }
-  .box.theme input {
-    margin-bottom: 1em; }
 
 .module-name,
 .module-name label {
@@ -3191,6 +3231,12 @@ li.user_admin {
 
 .module-actions {
   margin-top: 1em; }
+
+.module-post-actions {
+  display: flex;
+  flex-wrap: wrap; }
+  .module-post-actions input {
+    margin: 0 .25em .25em 0; }
 
 .bloc-toggler {
   text-align: right; }

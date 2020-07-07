@@ -162,7 +162,7 @@ if (!empty($modules)) {
         ->setModules($modules)
         ->displayModules(
             /* cols */['sshot', 'distrib', 'name', 'config', 'desc', 'author', 'version', 'parent'],
-            /* actions */['select', 'behavior', 'deactivate', 'delete']
+            /* actions */['select', 'behavior', 'deactivate', 'clone', 'delete']
         );
 
     echo
