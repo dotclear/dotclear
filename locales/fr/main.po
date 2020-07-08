@@ -3209,6 +3209,9 @@ msgstr "Installer"
 msgid "Update"
 msgstr "Mise à jour"
 
+msgid "Clone"
+msgstr "Dupliquer"
+
 msgid "Activate selected plugins"
 msgstr "Activer les plugins sélectionnés"
 
@@ -3354,6 +3357,11 @@ msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Ce thème a été désactivé."
 msgstr[1] "Ces thèmes ont été désactivé."
+
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
+msgstr[0] "Ce thème a été dupliqué."
+msgstr[1] "Ces thèmes ont été dupliqués."
 
 msgid "You don't have permissions to delete this theme."
 msgstr "Vous n'avez pas les permissions pour supprimer ce thème."
@@ -3827,6 +3835,24 @@ msgstr "Le plugin ne peut pas être désactivé."
 
 msgid "Cannot activate plugin."
 msgstr "Le plugin ne peut pas être activé."
+
+msgid "Themes folder unreachable"
+msgstr "Le répertoire des thèmes n'est pas accessible"
+
+msgid "Themes folder unreadable"
+msgstr "Le répertoire des thèmes n'est pas lisible"
+
+msgid " (copy)"
+msgstr " (copie)"
+
+msgid " (copy #%s)"
+msgstr " (copie %s)"
+
+msgid "Unable to modify _config.php"
+msgstr "Impossible de modifier le fichier _config.php"
+
+msgid "Destination folder already exist"
+msgstr "Le répertoire de destination existe déjà"
 
 #, php-format
 msgid "Invalid setting dcNamespace: %s"

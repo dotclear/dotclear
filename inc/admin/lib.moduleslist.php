@@ -1901,6 +1901,34 @@ class adminThemesList extends adminModulesList
                     );
                 }
                 http::redirect($this->getURL());
+            } elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['clone'])) {
+
+                if (is_array($_POST['clone'])) {
+                    $modules = array_keys($_POST['clone']);
+                }
+
+                $count = 0;
+                foreach ($modules as $id) {
+
+                    if (!$this->modules->moduleExists($id)) {
+                        throw new Exception(__('No such theme.'));
+                    }
+
+                    # --BEHAVIOR-- themeBeforeClone
+                    $this->core->callBehavior('themeBeforeClone', $id);
+
+                    $this->modules->cloneModule($id);
+
+                    # --BEHAVIOR-- themeAfterClone
+                    $this->core->callBehavior('themeAfterClone', $id);
+
+                    $count++;
+                }
+
+                dcPage::addSuccessNotice(
+                    __('Theme has been successfully cloned.', 'Themes have been successuflly cloned.', $count)
+                );
+                http::redirect($this->getURL());
             } elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['delete'])) {
 
                 if (is_array($_POST['delete'])) {

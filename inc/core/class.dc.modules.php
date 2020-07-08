@@ -564,7 +564,7 @@ class dcModules
         }
     }
 
-    public function cloneModule($id, $new_name, $new_dir)
+    public function cloneModule($id)
     {
         return;
     }
