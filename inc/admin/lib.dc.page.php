@@ -1025,7 +1025,7 @@ EOT;
                 'name'  => $name,
                 'id'    => $id,
                 'mode'  => $mode,
-                'theme' => $theme
+                'theme' => $theme ?: 'default'
             ]];
         }
 
