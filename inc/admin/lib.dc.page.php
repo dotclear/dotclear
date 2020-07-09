@@ -995,7 +995,7 @@ EOT;
         self::jsLoad('js/filter-controls.js');
     }
 
-    public static function jsLoadCodeMirror($theme = '', $multi = true, $modes = ['css', 'htmlmixed', 'javascript', 'php', 'xml'])
+    public static function jsLoadCodeMirror($theme = '', $multi = true, $modes = ['css', 'htmlmixed', 'javascript', 'php', 'xml', 'clike'])
     {
         $ret =
         self::cssLoad('js/codemirror/lib/codemirror.css') .
@@ -1026,7 +1026,7 @@ EOT;
                 'name'  => $name,
                 'id'    => $id,
                 'mode'  => $mode,
-                'theme' => $theme
+                'theme' => $theme ?: 'default'
             ]];
         }
 

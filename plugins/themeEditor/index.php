@@ -38,6 +38,8 @@ try
             $file = $o->getFileContent('js', $_REQUEST['js']);
         } elseif (!empty($_REQUEST['po'])) {
             $file = $o->getFileContent('po', $_REQUEST['po']);
+        } elseif (!empty($_REQUEST['php'])) {
+            $file = $o->getFileContent('php', $_REQUEST['php']);
         }
     } catch (Exception $e) {
         $file = $file_default;
@@ -135,7 +137,9 @@ if ($file['c'] === null) {
         $editorMode =
             (!empty($_REQUEST['css']) ? "css" :
             (!empty($_REQUEST['js']) ? "javascript" :
-                (!empty($_REQUEST['po']) ? "text/plain" : "text/html")));
+            (!empty($_REQUEST['po']) ? "text/plain" :
+            (!empty($_REQUEST['php']) ? "php" :
+            "text/html"))));
         echo dcPage::jsJson('theme_editor_mode', ['mode' => $editorMode]);
         echo dcPage::jsLoad(dcPage::getPF('themeEditor/js/mode.js'));
         echo dcPage::jsRunCodeMirror('editor', 'file_content', 'dotclear', $user_ui_colorsyntax_theme);
@@ -157,6 +161,9 @@ if ($file['c'] === null) {
 
 <h3><?php echo __('Locales files'); ?></h3>
 <?php echo $o->filesList('po', '<a href="' . $p_url . '&amp;po=%2$s" class="po-link">%1$s</a>'); ?>
+
+<h3><?php echo __('PHP files'); ?></h3>
+<?php echo $o->filesList('php', '<a href="' . $p_url . '&amp;php=%2$s" class="php-link">%1$s</a>'); ?>
 </div>
 
 <?php dcPage::helpBlock('themeEditor');?>
