@@ -7,24 +7,25 @@
   overflow: hidden;
   background: var(--prelude-background);
   width: 100%;
+
   li {
     list-style-type: none;
     margin: 0;
     background: transparent;
     display: inline;
+
     a {
       padding: 3px 16px 3px 8px;
       color: var(--prelude-color);
       background: var(--prelude-background);
       text-decoration: underline;
-      &:hover,
-      &:focus {
+
+      &:hover, &:focus {
         background: var(--prelude-background-alt);
       }
     }
   }
 }
-
 
 /* si le prélude est affiché on repousse les trucs dessous */
 
@@ -37,13 +38,13 @@
   top: 1em;
 }
 
-
 /* header global h1, form#top-info-blog, ul#top-info-user */
 
 #header {
   a {
     color: var(--header-color);
   }
+
   img {
     vertical-align: middle;
     padding-left: .5em;
@@ -56,6 +57,7 @@
 h1 {
   text-indent: 100%;
   width: 16.5em;
+
   a {
     position: absolute;
     top: 0;
@@ -65,12 +67,13 @@ h1 {
     color: var(--header-color);
     background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
     transition: none;
-    &:hover,
-    &:focus {
+
+    &:hover, &:focus {
       background-position: 0 -94px;
       background-color: transparent;
       transition: none;
     }
+
     &:link {
       transition-timing-function: ease-in-out;
     }
@@ -84,18 +87,22 @@ h1 {
   select {
     max-width: 20em;
   }
+
   a {
     margin-left: 1.5em;
   }
+
   input[type=submit] {
     background: var(--submit-background);
     border-color: var(--submit-border);
     margin-left: .33em;
   }
+
   input[type=submit]:hover {
     color: var(--submit-color);
     background: var(--submit-background-alt);
   }
+
   p {
     display: inline-block;
     margin: 0;
@@ -109,15 +116,18 @@ h1 {
   padding-right: .5em;
   list-style-type: none;
   text-align: right;
+
   li {
     display: inline-block;
     margin-left: .5em;
     padding-left: .5em;
     border-left: 1px solid var(--header-link-border);
+
     &:first-child {
       border-left: none;
     }
   }
+
   a.active {
     border-width: 0;
     border-radius: 4px;
@@ -142,11 +152,13 @@ h1 {
 }
 
 @media screen and (max-width: $xs-screen) {
-  h1 a:link {
-    background: transparent url(dc_logos/b-dotclear120.png) no-repeat -270px 6px;
-  }
-  h1 a:hover,
-  h1 a:focus {
-    background: url(dc_logos/b-dotclear120.png) no-repeat -270px -94px;
+  h1 a {
+    &:link {
+      background: transparent url(dc_logos/b-dotclear120.png) no-repeat -270px 6px;
+    }
+
+    &:hover, &:focus {
+      background: url(dc_logos/b-dotclear120.png) no-repeat -270px -94px;
+    }
   }
 }

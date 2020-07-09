@@ -2,15 +2,18 @@
   list-style-type: none;
   margin-left: 0;
   padding-left: 0;
+
   #my-favs & {
     border-top: 1px solid var(--fav-list-border);
   }
+
   li {
     margin-left: 0;
     padding-left: 0;
     padding-top: 3px;
     padding-bottom: 3px;
     position: relative;
+
     #my-favs & {
       line-height: 2;
       border-bottom: 1px solid var(--fav-list-border);
@@ -18,12 +21,15 @@
       padding-bottom: 3px;
       position: relative;
     }
+
     #my-favs:focus-within & {
       border-bottom-color: var(--fav-list-border-alt);
     }
+
     span.zoom {
       display: none;
     }
+
     &:hover span.zoom {
       display: block;
       position: absolute;
@@ -35,6 +41,7 @@
       border-radius: .5em;
     }
   }
+
   img {
     vertical-align: middle;
     margin-right: .2em;
@@ -43,10 +50,10 @@
 
 #my-favs {
   border-color: var(--my-favs-border);
+
   input.position {
     margin: 0 0 .4em .2em;
   }
-
 }
 
 #available-favs {
@@ -56,9 +63,11 @@
     white-space: normal;
     display: inline;
   }
+
   label span.zoom {
     display: none;
   }
+
   li:hover label span.zoom {
     display: block;
     position: absolute;

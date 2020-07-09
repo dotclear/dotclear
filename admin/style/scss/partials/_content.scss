@@ -4,16 +4,20 @@
     border-bottom: 1px solid var(--tabs-border);
     line-height: 1.8;
   }
+
   li {
     list-style: none;
     margin: 0;
     display: inline;
+
     &:first-child a {
       border-top-left-radius: 3px;
     }
+
     &:last-child a {
       border-top-right-radius: 3px;
     }
+
     a {
       padding: .33em 1.5em;
       margin-right: -1px;
@@ -23,16 +27,18 @@
       color: var(--tabs-color);
       background-color: var(--tabs-background);
       display: inline-block;
-      &:hover,
-      &:focus {
+
+      &:hover, &:focus {
         color: var(--tabs-color);
         background: var(--tabs-active-background);
         border-bottom-color: var(--tabs-active-background);
       }
+
       &:link {
         transition: unset;
       }
     }
+
     &.part-tabs-active a {
       color: var(--tabs-active-color);
       background: var(--tabs-active-background);
@@ -54,6 +60,7 @@
   padding: 0;
   line-height: 24px;
   border-collapse: collapse;
+
   li {
     display: table-cell;
     border-width: 0 1px;
@@ -63,16 +70,18 @@
     margin: 0;
     text-align: center;
   }
+
   a {
     display: block;
     font-weight: bold;
     padding: 0 24px;
     border-bottom: none;
-    &:hover,
-    &:focus {
+
+    &:hover, &:focus {
       background-color: var(--tabs-background);
       color: var(--tabs-color);
     }
+
     &.active {
       background-color: var(--tabs-active-background);
       color: var(--tabs-active-color);
@@ -89,6 +98,7 @@
   z-index: 100;
   clear: both;
   padding: 0 1em;
+
   #content.with-help & {
     display: block;
     position: absolute;
@@ -112,6 +122,7 @@
   cursor: pointer;
   color: var(--link);
   line-height: 3;
+
   &.floatable {
     border-top: 2px solid var(--help-button-border);
     border-left: 2px solid var(--help-button-border);
@@ -123,12 +134,15 @@
     top: 10px;
     -webkit-transform: translateZ(0); // Let GPU doing his job
   }
+
   .no-js & {
     top: 1em;
   }
+
   span {
     padding: .5em 0 .1em 0;
   }
+
   #content.with-help & {
     right: 32rem; // 24em;
     background-color: var(--help-background);
@@ -145,6 +159,7 @@
 
 .help-box {
   display: none;
+
   ul {
     padding-left: 20px;
     margin-left: 0;
@@ -155,11 +170,13 @@
   #content.with-help & {
     padding: 0 1em 1em;
   }
+
   dt {
     font-weight: bold;
     color: var(--help-title-color);
     margin: 0;
   }
+
   dd {
     margin: 0.3em 0 1.5em 0;
   }

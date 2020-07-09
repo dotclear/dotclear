@@ -46,23 +46,13 @@ input.button.start {
   background-color: var(--submit-background);
   background-image: #{'linear-gradient(to bottom, var(--submit-background), var(--submit-background-alt))'};
   border-color: var(--submit-background);
-}
 
-input[type=submit]:hover,
-input[type=submit]:focus,
-button[type=submit]:hover,
-button[type=submit]:focus,
-input.button.start:hover,
-input.button.start:focus,
-button.submit:hover,
-button.submit:focus,
-a.button.submit:hover,
-a.button.submit:focus {
-  background-color: var(--submit-background-alt);
-  background-image: #{'linear-gradient(to bottom, var(--submit-background-alt), var(--submit-background))'};
-  border-color: var(--submit-background-alt);
+  &:hover, &:focus {
+    background-color: var(--submit-background-alt);
+    background-image: #{'linear-gradient(to bottom, var(--submit-background-alt), var(--submit-background))'};
+    border-color: var(--submit-background-alt);
+  }
 }
-
 
 /* suppression, reset, "neutres" fond gris */
 
@@ -82,36 +72,14 @@ a.button.reset {
   background-image: #{'linear-gradient(to bottom, var(--reset-background-alt), var(--reset-background))'};
   background-repeat: repeat-x;
   border-color: var(--reset-border);
-}
 
-button:hover,
-input[type=button]:hover,
-input.button:hover,
-button:focus,
-input[type=button]:focus,
-input.button:focus,
-input[type=reset]:hover,
-input[type=submit].reset:hover,
-input.reset:hover,
-input[type=reset]:focus,
-input[type=submit].reset:focus,
-input.reset:focus,
-input[type=submit].delete:hover,
-input.delete:hover,
-input[type=submit].delete:focus,
-input.delete:focus,
-a.button.delete:hover,
-a.button.reset:hover,
-a.button:hover,
-a.button.delete:focus,
-a.button.reset:focus,
-a.button:focus {
-  background-color: var(--reset-background-ter);
-  background-image: #{'linear-gradient(to bottom, var(--reset-background), var(--reset-background-ter))'};
-  background-repeat: repeat-x;
-  border-color: var(--reset-border);
+  &:hover, &:focus {
+    background-color: var(--reset-background-ter);
+    background-image: #{'linear-gradient(to bottom, var(--reset-background), var(--reset-background-ter))'};
+    background-repeat: repeat-x;
+    border-color: var(--reset-border);
+  }
 }
-
 
 /* suppression */
 
@@ -180,7 +148,6 @@ p.top-add {
   margin: 0;
 }
 
-
 /* disabled */
 
 input.disabled,
@@ -190,15 +157,12 @@ button[type=submit].disabled {
   color: var(--button-disabled-color);
   background: var(--button-disabled-background);
   border: 1px solid var(--button-disabled-border);
-}
 
-input.disabled:hover,
-input[type=submit].disabled:hover,
-button.disabled:hover,
-button[type=submit].disabled:hover {
-  color: var(--button-disabled-color);
-  background: var(--button-disabled-background-alt);
-  border: 1px solid var(--button-disabled-border);
+  &:hover {
+    color: var(--button-disabled-color);
+    background: var(--button-disabled-background-alt);
+    border: 1px solid var(--button-disabled-border);
+  }
 }
 
 /* Boutons javascript (dépliage/repliage, …) */
@@ -218,8 +182,8 @@ button.details-cmd {
   color: currentColor;
   background: transparent;
   box-shadow: none;
-  &:hover,
-  &:focus {
+
+  &:hover, &:focus {
     background: transparent;
     color: var(--input-focus);
   }
@@ -243,6 +207,7 @@ a.metaGetMore {
   border: 1px solid var(--ajax-border);
   margin-bottom: .25em;
   text-align: center;
+
   &:hover {
     background: var(--ajax-background-alt);
     box-shadow: none;
@@ -259,13 +224,13 @@ a.metaGetMore {
   width: 10em;
   padding: .25em;
   border-radius: .25em;
-  a,
-  a:link,
-  a:hover,
-  a:active {
-    color: var(--gotop-color);
-    background: var(--gotop-background);
-    border: var(--gotop-border);
+
+  a {
+    &, &:link, &:hover, &:active {
+      color: var(--gotop-color);
+      background: var(--gotop-background);
+      border: var(--gotop-border);
+    }
   }
 }
 
@@ -283,8 +248,8 @@ a.metaGetMore {
 .addMeta a:not(.metaGetMore) {
   box-shadow: initial;
   margin-bottom: 2px;
-  &:hover,
-  &:focus {
+
+  &:hover, &:focus {
     color: var(--addmeta-focus-color);
     background: var(--addmeta-focus-background);
   }

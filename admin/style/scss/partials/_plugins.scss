@@ -3,15 +3,18 @@
   &.module-icon {
     vertical-align: middle;
   }
+
   &.module-icon img {
     &:last-child {
       width: 16px;
       height: 16px;
     }
+
     &.expand {
       margin-bottom: 3px;
     }
   }
+
   &.module-distrib img {
     display: block;
     float: right;
@@ -31,6 +34,7 @@
 
 .modules td.expand {
   padding: 0 0 1em;
+
   div {
     display: inline-block;
     vertical-align: top;
@@ -47,10 +51,12 @@
     background: transparent url(search.svg) no-repeat 0 center;
     padding: 4px 4px 0 20px;
   }
+
   &.module-support {
     background: transparent url(help12.png) no-repeat 2px center;
     padding: 4px 4px 0 20px;
   }
+
   &.module-config {
     background: transparent url(settings.png) no-repeat 2px 6px;
     padding: 4px 4px 0 18px;
@@ -65,6 +71,7 @@
 
 .mod-more {
   padding-top: .5em;
+
   &,
   li {
     margin: .25em 0 0 1em;

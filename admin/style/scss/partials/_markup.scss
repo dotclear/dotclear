@@ -14,6 +14,7 @@
 
 .page-title {
   color: var(--breadcrumb-current);
+
   img {
     padding-left: .5em;
     vertical-align: middle;
@@ -63,13 +64,15 @@ h5 label {
   color: var(--title-label-color);
 }
 
-h2:first-child,
-h3:first-child,
-h4:first-child,
-h5:first-child,
-ul:first-child,
-p:first-child {
-  margin-top: 0;
+h2,
+h3,
+h4,
+h5,
+ul,
+p {
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 
@@ -130,6 +133,7 @@ hr {
   border-color: var(--hr-color);
   background: var(--hr-color);
   border-style: solid;
+
   &.clearer {
     clear: both;
   }
@@ -179,6 +183,7 @@ a:visited {
   border-bottom: 1px dotted var(--link-border);
   background-color: inherit;
   outline: 0;
+
   img {
     border: none;
     background: initial;
@@ -213,6 +218,7 @@ a:focus img {
 a.outgoing img, .outgoing-js {
   width: .75em;
   filter: contrast(var(--outgoing-link-filter));
+
   #header & {
     width: 1.25em;
     padding: 0 0 0 .5em;

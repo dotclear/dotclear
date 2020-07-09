@@ -13,6 +13,7 @@
     margin-left: 0;
     padding: 0;
   }
+
   li {
     list-style: square inside;
     margin: 0;
@@ -22,6 +23,7 @@
 
 #media-original-image {
   overflow: auto;
+
   &.overheight {
     height: 500px;
   }
@@ -32,9 +34,11 @@
   padding: .5em;
   border-left: 1px solid currentColor;
   overflow-wrap: break-word;
+
   .media-title {
     font-weight: bolder;
   }
+
   .media-desc {
     font-style: italic;
   }

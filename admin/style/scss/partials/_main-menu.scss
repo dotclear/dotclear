@@ -1,28 +1,33 @@
 #main-menu {
-	div:last-child {
-		border-bottom: none;
-	}
-	h3 {
-		margin: 0;
-		padding: 10px 0 10px 8px;
-		color: var(--main-menu-title-color);
-		font-size: 1.15em;
-	}
-	a {
-		color: var(--main-menu-item-color);
-		border-bottom-color: var(--main-menu-item-border);
-	}
-	ul {
-		margin: 0 0 1.5em 0;
-		padding: 0;
-		list-style: none;
-		li {
-			display: block;
-			margin: 0.5em 0 0;
-			padding: 4px 0 1px 32px;
-			background-repeat: no-repeat;
-			background-position: 8px .3em;
+  div:last-child {
+    border-bottom: none;
+  }
+
+  h3 {
+    margin: 0;
+    padding: 10px 0 10px 8px;
+    color: var(--main-menu-title-color);
+    font-size: 1.15em;
+  }
+
+  a {
+    color: var(--main-menu-item-color);
+    border-bottom-color: var(--main-menu-item-border);
+  }
+
+  ul {
+    margin: 0 0 1.5em 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: block;
+      margin: 0.5em 0 0;
+      padding: 4px 0 1px 32px;
+      background-repeat: no-repeat;
+      background-position: 8px .3em;
       position: relative;
+
       a::after {
         position: absolute;
         content: "";
@@ -31,52 +36,55 @@
         left: 0;
         right: 0;
       }
+
       &:hover {
         background-color: var(--main-menu-active-background);
       }
-			&:first-child {
-				margin-top: 0;
-			}
-		}
-	}
-	.active {
-		background-color: var(--main-menu-active-background);
-		font-weight: bold;
-		a {
-			border-bottom: none;
-			color: var(--main-menu-active-color);
-		}
-	}
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .active {
+    background-color: var(--main-menu-active-background);
+    font-weight: bold;
+
+    a {
+      border-bottom: none;
+      color: var(--main-menu-active-color);
+    }
+  }
 }
 
-#favorites-menu,
-#blog-menu,
-#system-menu,
-#plugins-menu {
-	border-bottom: 1px dashed var(--main-menu-border);
+#favorites-menu, #blog-menu, #system-menu, #plugins-menu {
+  border-bottom: 1px dashed var(--main-menu-border);
 }
 
 #favorites-menu {
-	h3 {
-		font-variant: small-caps;
-		padding-top: .2em;
-	}
+  h3 {
+    font-variant: small-caps;
+    padding-top: .2em;
+  }
 }
 
 #search-menu {
   padding: 4px 0 0 4px;
-    font-size: .91em;
-	p {
-		width: 95%;
+  font-size: .91em;
+
+  p {
+    width: 95%;
     margin: 0 0 .5em 0;
-	}
-	input[type="submit"] {
-		float: right;
-	}
+  }
+
+  input[type="submit"] {
+    float: right;
+  }
 }
 
 #qx {
   width: 75%;
-	background: transparent url(search.svg) no-repeat 0 center;
-	text-indent: 20px;
+  background: transparent url(search.svg) no-repeat 0 center;
+  text-indent: 20px;
 }

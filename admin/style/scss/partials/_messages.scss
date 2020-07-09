@@ -65,10 +65,12 @@ p.warning-msg {
   animation-name: kf-error;
   animation-duration: .5s;
 }
+
 @keyframes kf-error {
   0% {
     background-color: var(--msg-error-background-alt);
   }
+
   100% {
     background-color: var(--msg-error-background);
   }
@@ -79,14 +81,17 @@ p.warning-msg {
   color: var(--msg-color);
   background: var(--msg-background) url(msg-std.png) no-repeat .7em .7em;
 }
+
 .message {
   animation-name: kf-message;
   animation-duration: .5s;
 }
+
 @keyframes kf-message {
   0% {
     background-color: var(--msg-background-alt);
   }
+
   100% {
     background-color: var(--msg-background);
   }
@@ -108,10 +113,12 @@ p.warning-msg {
   animation-name: kf-success;
   animation-duration: .5s;
 }
+
 @keyframes kf-success {
   0% {
     background-color: var(--msg-success-background-alt);
   }
+
   100% {
     background-color: var(--msg-success-background);
   }
@@ -124,10 +131,12 @@ p.warning-msg {
   animation-name: kf-warning;
   animation-duration: .5s;
 }
+
 @keyframes kf-warning {
   0% {
     background-color: var(--msg-warn-background);
   }
+
   100% {
     background-color: var(--msg-warn-background-alt);
   }
@@ -142,19 +151,23 @@ p.warning-msg {
 .close-notice-parent {
   display: flex;
   justify-content: space-between;
+
   ul, p + p {
     flex: 1;
   }
+
   p + p {
     padding-left: .25em;
   }
 }
+
 .close-notice {
   background: none;
   border: none;
   border-radius: 0;
   box-shadow: none;
   padding-left: 1em;
+
   &:hover, &:focus {
     background: none;
   }
@@ -167,17 +180,21 @@ p.warning-msg {
   color: var(--dc-update-color);
   background: var(--dc-update-background) url(msg-success.png) no-repeat .7em .7em;
   box-shadow: 1px 1px 2px var(--msg-shadow);
+
   h3 {
     margin-top: 0;
     color: var(--dc-update-color);
   }
+
   p {
     display: inline-block;
     vertical-align: middle;
   }
+
   a {
     color: var(--dc-update-color);
     margin-right: 1em;
+
     &.button {
       padding: .5em 1em;
     }
@@ -195,6 +212,7 @@ body.ajax-loader {
     border-bottom-color: var(--ajax-loader);
     transition: border-bottom-color .3s ease;
   }
+
   #collapser {
     background-color: var(--ajax-loader);
     transition: background-color .3s ease;

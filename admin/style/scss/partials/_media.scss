@@ -2,6 +2,7 @@
   a {
     border-bottom: none;
   }
+
   img {
     margin-right: 1em;
   }
@@ -21,29 +22,36 @@ span.media-file-mode {
   vertical-align: top;
   min-height: 140px;
   word-wrap: break-word;
+
   p {
     margin: 0 0 .5em;
   }
+
   object {
     margin-top: .5em;
   }
+
   ul {
     display: block;
     list-style: none;
     margin: 0;
     padding: 0;
   }
+
   audio {
     width: 100%;
     margin-top: .5em;
   }
+
   &.media-private {
     border-color: var(--media-item-border-private);
+
     & img.media-private {
       padding-right: .5em;
     }
   }
 }
+
 tr.media-private img.media-private {
   padding-right: .5em;
 }
@@ -84,15 +92,19 @@ li.media-action {
   top: 4px;
   right: 8px;
   height: 16px;
+
   a {
     border: none;
+
     &.attach-media {
       margin-right: 5px;
     }
   }
+
   form {
     display: inline;
   }
+
   input {
     border: none;
   }
@@ -107,6 +119,7 @@ li.media-action {
 
 .folders-group .media-item {
   min-height: 70px;
+
   p {
     margin-bottom: 0;
   }
@@ -116,6 +129,7 @@ li.media-action {
   background: var(--media-folder-background);
   border-color: var(--media-folder-border);
   border-left-width: 8px;
+
   .media-link {
     font-size: 1.125em;
     margin-left: 2em;
@@ -126,6 +140,7 @@ li.media-action {
 
 tr.media-folder {
   background: var(--media-folder-background);
+
   .media-link {
     margin-left: 0;
   }
@@ -148,6 +163,7 @@ tr.media-folder {
 
 #media-fav-dir {
   border-bottom: none;
+
   img {
     vertical-align: middle;
   }
@@ -163,6 +179,7 @@ tr.media-folder {
   .start {
     margin-right: .4em;
   }
+
   #upfile {
     visibility: hidden;
     width: 0;
@@ -172,15 +189,19 @@ tr.media-folder {
     filter: alpha(opacity=0);
     cursor: pointer;
   }
+
   .button.choose_files {
     display: inline-block;
   }
+
   .max-size {
     display: block;
   }
+
   .one-file {
     display: none;
   }
+
   p.clear {
     padding-top: 1em;
     margin-bottom: 1em;
@@ -208,6 +229,7 @@ label span.one-file {
   margin-left: 0;
   padding-left: 0;
   border-bottom: 1px solid var(--media-files-border);
+
   li {
     margin-left: 0;
     padding-left: 0;
@@ -216,6 +238,7 @@ label span.one-file {
 
 .upload-msg {
   font-weight: bold;
+
   &.upload-error {
     color: var(--upload-error-color);
   }
@@ -235,14 +258,17 @@ label span.one-file {
 
 .upload-fileinfo {
   margin-left: 0;
+
   input {
     position: absolute;
     top: .5em;
     right: .5em;
   }
+
   span {
     padding-right: 8px;
   }
+
   .upload-filecancel {
     display: block;
     padding-right: 0;
@@ -259,6 +285,7 @@ label span.one-file {
 .upload-filemsg {
   font-weight: bold;
   color: var(--upload-filemsg-color);
+
   &.upload-error {
     color: var(--upload-error-color);
   }
@@ -266,6 +293,7 @@ label span.one-file {
 
 .upload-progress {
   padding: .3em 0;
+
   div {
     width: 0;
     height: 1.2em;

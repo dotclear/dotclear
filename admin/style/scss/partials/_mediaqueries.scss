@@ -7,17 +7,21 @@
   h1 {
     background: var(--header-background-alt);
   }
+
   #top-info-user {
     background: var(--header-background);
     border-top: 1px solid var(--header-border);
+
     a.active {
       color: var(--header-active-color-alt);
       background: var(--header-active-background-alt);
     }
   }
+
   #wrapper {
     background: var(--wrapper-background);
   }
+
   .modules {
     th.module-desc,
     td.module-desc {
@@ -40,29 +44,36 @@
     &:link {
       border-right: 1px solid var(--tabs-border);
     }
+
     &:hover,
     &:focus {
       border-right: 1px solid var(--tabs-border);
     }
   }
+
   #dashboard-main {
     padding: 0;
   }
+
   #content,
   .hide-mm #content {
     padding: 0 .5em !important;
   }
+
   #main #content > h2 {
     padding: 6px 30px 4px .5em;
   }
+
   .cell,
   #filters-form .cell {
     border: none;
     padding: 1em;
   }
+
   .pseudo-tabs li {
     border-top: 1px solid var(--tabs-border);
     padding: .25em;
+
     &:first-child,
     &:nth-of-type(2) {
       border-top: none;
@@ -75,31 +86,40 @@
   h1 a {
     border-right: var(--header-border-alt) !important;
   }
+
   #content.with-help #help {
     font-size: 1.2rem // 12px;
   }
+
   p.top-add {
     text-align: center;
   }
+
   .multi-part {
     padding-left: 0;
   }
+
   .part-tabs ul {
     padding: 0 .5em;
   }
+
   #icons p {
     padding: 1em .25em;
   }
+
   .box.current-theme {
     padding: 10px;
   }
+
   th,
   td {
     padding: 0.3em 1em 0.3em 0;
   }
+
   .pseudo-tabs li {
     border-top: 1px solid var(--tabs-border) !important;
   }
+
   .pseudo-tabs li:first-child {
     border-top: none;
   }

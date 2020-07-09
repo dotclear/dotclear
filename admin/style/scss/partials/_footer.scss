@@ -1,9 +1,19 @@
+span.tooltip {
+  position: absolute;
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
 #footer {
   p {
     margin: 0;
     padding: 0 1em;
     font-size: 1em;
   }
+
   a:hover span.tooltip {
     padding: 10px;
     color: var(--tooltip-color);
@@ -24,13 +34,4 @@
 span.credit {
   font-size: 1em;
   font-weight: normal;
-}
-
-span.tooltip {
-  position: absolute;
-  padding: 0;
-  border: 0;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
 }

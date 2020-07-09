@@ -10,8 +10,9 @@
 div.ui-sortable-handle {
   border: 1px dashed currentColor !important;
   border-radius: .75em !important;
+
   & > .ui-sortable {
-//    border-color: var(--main-menu-border) !important;
+    // border-color: var(--main-menu-border) !important;
   }
 }
 
@@ -32,11 +33,12 @@ div.ui-sortable-handle {
 /* Badges (common.js) */
 
 .badgeable {
-  /* class to set to badge parent's, not mandatory for menu items */
+  // class to set to badge parent's, not mandatory for menu items
   position: relative;
 }
 
-/* Badge design */
+// Badge design
+
 .badge {
   color: var(--badge-color);
   background-color: var(--badge-std-background);
@@ -45,58 +47,69 @@ div.ui-sortable-handle {
   border-radius: 1em;
   padding: 0 .6em;
 }
+
 .badge-icon {
   background-color: var(--badge-soft-background);
+  // Dashboard icon → badge on top right
+  right: 20px;
 }
 
-/* Badge background override */
+// Badge background override
+
 .badge-std {
   background-color: var(--badge-std-background);
 }
+
 .badge-info {
   background-color: var(--badge-info-background);
 }
+
 .badge-soft {
   background-color: var(--badge-soft-background);
 }
 
-/* Badge position */
+// Badge position
+
 .badge-block {
-  /* Dashboard module → badge on top right */
+  // Dashboard module → badge on top right
   position: absolute;
   top: -10px;
   right: -10px;
 }
-.badge-icon {
-  /* Dashboard icon → badge on top right */
-  right: 20px;
-}
+
 .badge-inline {
-  /* Menu item */
+  // Menu item
   margin-left: .5em;
 }
+
 .badge-left {
   right: auto;
   left: -10px;
+
   &.badge-icon {
     left: 20px;
   }
 }
 
-/* Badge design option */
+// Badge design option
+
 .badge-noborder {
   border: none;
 }
+
 .badge-small {
   font-size: smaller;
+
   &.badge-icon {
     right: 25px;
+
     &.badge-left {
       right: auto;
       left: 25px;
     }
   }
 }
+
 .badge-square {
   border-radius: 0;
 }

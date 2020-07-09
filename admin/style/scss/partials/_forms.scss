@@ -11,30 +11,20 @@ input[type=password],
 input[type=submit],
 input[type=button],
 input[type=reset],
-a.button, button, textarea, select, legend {
+a.button,
+button,
+textarea,
+legend {
   max-width: 100%;
-}
-input[type=text],
-input[type=color],
-input[type=email],
-input[type=url],
-input[type=datetime-local],
-input[type=date],
-input[type=time],
-input[type=file],
-input[type=number],
-input[type=password],
-input[type=submit],
-input[type=button],
-input[type=reset],
-a.button, button, textarea, legend {
   border-radius: 3px;
 }
+
 form {
   display: block;
   margin: 0;
   padding: 0;
 }
+
 fieldset {
   display: block;
   margin: 1em 0;
@@ -43,15 +33,18 @@ fieldset {
   border-style: solid;
   border-color: var(--fieldset-border);
   background: var(--fieldset-background);
+
   hr {
     background-color: var(--fieldset-border);
     border-width: 0;
     margin: 1em 0;
   }
+
   &:focus-within {
     background-color: var(--fieldset-focus-background);
   }
 }
+
 input[type=text],
 input[type=color],
 input[type=email],
@@ -65,6 +58,7 @@ textarea {
   font-family: $sans-serif-input;
   font-size: 100%;
 }
+
 legend {
   padding: 0.2em 0.6em;
   border-width: 1px;
@@ -73,9 +67,11 @@ legend {
   background: var(--legend-background);
   margin-bottom: 0.5em;
 }
+
 label .maximal, textarea.maximal, input.maximal, select.maximal {
   width: 99%;
 }
+
 input[type=text],
 input[type=password],
 input[type=color],
@@ -86,61 +82,74 @@ input[type=date],
 input[type=time],
 input[type=file],
 input[type=number],
-textarea, select, input:not([type=file]):invalid, input:not([type=file]):invalid:placeholder-shown {
-//  color: $input-color;
+textarea,
+input:not([type=file]):invalid,
+input:not([type=file]):invalid:placeholder-shown {
+
+  // color: $input-color;
+  // background: $input-background;
   box-shadow: 1px 1px 2px var(--input-shadow) inset;
   padding: 3px;
   vertical-align: top;
-}
-input[type=text],
-input[type=password],
-input[type=color],
-input[type=email],
-input[type=url],
-input[type=datetime-local],
-input[type=date],
-input[type=time],
-input[type=file],
-input[type=number],
-textarea, input:not([type=file]):invalid, input:not([type=file]):invalid:placeholder-shown {
-//  background: $input-background;
   border-width: 1px;
   border-style: solid;
   border-color: var(--input-border);
 }
-input[type=file] {
-//  color: $input-file-color;
-//  background: $input-file-background;
+
+select {
+  max-width: 100%;
+  // color: $input-color;
+  box-shadow: 1px 1px 2px var(--input-shadow) inset;
+  padding: 3px;
+  vertical-align: top;
 }
+
+input[type=file] {
+  // color: $input-file-color;
+  // background: $input-file-background;
+}
+
 // Special for invalid but not required fields
-input:invalid:not(:required), textarea:invalid:not(:required), select:invalid:not(:required), input:not([type=file]):invalid:not(:focus):not(:required) {
+input:invalid:not(:required),
+textarea:invalid:not(:required),
+select:invalid:not(:required),
+input:not([type=file]):invalid:not(:focus):not(:required) {
   color: var(--invalid-input-color);
   box-shadow: 0 0 0 3px var(--invalid-input-shadow);
 }
-input:invalid:not(:required), textarea:invalid:not(:required), input:not([type=file]):invalid:not(:focus):not(:required) {
+
+input:invalid:not(:required),
+textarea:invalid:not(:required),
+input:not([type=file]):invalid:not(:focus):not(:required) {
   border: 1px solid var(--invalid-input-border);
   background: var(--invalid-input-background);
 }
-//
-input:focus, textarea:focus {
+
+input:focus,
+textarea:focus {
   border-color: var(--input-focus);
 }
+
 textarea {
   padding: 2px 0;
+
   &.maximal {
     resize: vertical;
   }
+
   .area & {
     display: block;
     width: 100%;
     resize: vertical;
   }
 }
+
 select {
   padding: 2px 0;
   vertical-align: middle;
 }
-@media not all and (min-resolution:.001dpcm) {
+
+@media not all and (min-resolution: .001dpcm) {
   @supports (-webkit-appearance: none) {
     /* Safari 10.1+ only (https://browserstrangeness.bitbucket.io/css_hacks.html#webkit) */
     select {
@@ -148,12 +157,15 @@ select {
     }
   }
 }
+
 select.l10n option {
   padding-left: 16px;
 }
+
 option.avail10n {
   background: transparent url(../images/check-on.png) no-repeat 0 50%;
 }
+
 input[type=text],
 input[type=color],
 input[type=email],
@@ -166,112 +178,148 @@ input[type=password],
 textarea {
   margin-right: .3em;
 }
+
 input[type=checkbox], input[type=radio], input[type=file] {
   border: none;
   margin: 0 .33em 0 0;
   padding: 0;
-//  background: transparent;
+  // background: transparent;
 }
-input+input[type=checkbox] {
+
+input + input[type=checkbox] {
   // Used for js expand/hide (lists, options, ...)
   margin-left: .33em;
 }
+
 a input {
   // Used for js expand/hide (lists, options, ...)
   margin-right: .33em;
 }
+
 input[type=file] {
   margin-top: .3em;
   margin-bottom: .3em;
 }
+
 input[type=color] {
   width: 4em;
   height: 3em;
 }
+
 optgroup {
   font-weight: bold;
   font-style: normal;
 }
+
 option {
   font-weight: normal;
 }
-label, label span {
+
+label,
+label span {
   display: block;
 }
+
 label.ib, input.ib {
   display: inline-block;
 }
+
 label.classic {
   display: inline;
 }
-label.classic input, label span input, label.classic select, label span select {
+
+label.classic input,
+label span input,
+label.classic select,
+label span select {
   display: inline;
 }
+
 label.required {
   font-weight: bold;
 }
+
 label.required abbr {
   color: var(--required);
   font-size: 1.3em;
   text-decoration: none;
 }
+
 label.bold {
   text-transform: uppercase;
   font-weight: bold;
   margin-top: 2em;
 }
-label.area, p.area, div.area {
+
+label.area,
+p.area,
+div.area {
   width: inherit !important;
 }
+
 div.area {
   margin-bottom: 1em;
 }
+
 p.field {
   position: relative;
+
   label {
     display: inline-block;
     width: 14em;
   }
+
   &.wide label {
     width: 21em;
   }
-  input, select {
+
+  input,
+  select {
     display: inline-block;
   }
 }
+
 .form-note, .form-stats {
   font-style: italic;
   font-weight: normal;
   color: var(--form-note-color);
 }
+
 p.form-note, p.form-stats {
   margin-top: -.7em;
 }
+
 span.form-note, span.form-stats {
   text-transform: none;
 }
+
 .missing {
   background-color: inherit;
   animation-name: kf-missing;
   animation-duration: 1s;
 }
+
 @keyframes kf-missing {
   50% {
     background-color: var(--error-background);
   }
 }
+
 .focus {
   background-color: inherit;
   animation-name: kf-focus;
   animation-duration: 1s;
 }
+
 @keyframes kf-focus {
   50% {
     background-color: var(--input-focus);
   }
 }
+
 // .more-info Additional information on fieldset, field, … (may be hide from user-prefs)
 .more-info {}
+
 .no-more-info {
   display: none;
 }

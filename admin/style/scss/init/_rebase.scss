@@ -1,8 +1,8 @@
 /* largeur des paddings et border compris dans "width" */
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -21,13 +21,16 @@ body {
 
 a {
   background: transparent;
+
   &:focus {
     outline: thin dotted;
   }
+
   &:active,
   &:hover {
     outline: none;
   }
+
   img {
     border: none;
   }
@@ -38,8 +41,8 @@ cite {
   font-style: italic;
 }
 
-q:before,
-q:after {
+q::before,
+q::after {
   content: "";
 }
 
@@ -250,6 +253,7 @@ h6 {
 
 .visually-hidden {
   @include visually-hidden;
+
   &:focus,
   &:active {
     @include visually-hidden-focus;

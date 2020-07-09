@@ -28,27 +28,19 @@
   input[type=file],
   input[type=number],
   input[type=password],
-  input[type=submit],
-  input[type=text]:focus,
-  input[type=color]:focus,
-  input[type=email]:focus,
-  input[type=url]:focus,
-  input[type=datetime-local]:focus,
-  input[type=date]:focus,
-  input[type=time]:focus,
-  input[type=file]:focus,
-  input[type=number]:focus,
-  input[type=password]:focus,
-  input[type=submit]:focus {
-    width: 100%;
-    margin: 0;
-    padding: 5px 3px;
+  input[type=submit] {
+    &, &:focus {
+      width: 100%;
+      margin: 0;
+      padding: 5px 3px;
+    }
   }
-  input.login,
-  input.login:focus {
-    padding-top: 6px;
-    padding-bottom: 6px;
-    font-size: 1em;
+  input.login {
+    &, &:focus {
+      padding-top: 6px;
+      padding-bottom: 6px;
+      font-size: 1em;
+    }
   }
   #issue {
     margin-left: 1.33em;

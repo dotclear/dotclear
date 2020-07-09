@@ -4,8 +4,8 @@
 --------------------------------------------------- */
 /* largeur des paddings et border compris dans "width" */
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: border-box; }
 
 html {
@@ -32,8 +32,8 @@ q,
 cite {
   font-style: italic; }
 
-q:before,
-q:after {
+q::before,
+q::after {
   content: ""; }
 
 sup,
@@ -1084,20 +1084,14 @@ body {
       line-height: 1.5; } }
   @media screen and (min-width: 26.5em) and (max-width: 120em) {
     body.responsive-font {
-      font-size: calc( 1.2rem + 0.4 * (100vw - 42.4rem) / (192 - 42.4));
-      line-height: calc( 1.3em + (1.5 - 1.3) * (100vw - 42.4rem) / (192 - 42.4)); } }
+      font-size: calc(1.2rem + 0.4 * (100vw - 42.4rem) / (192 - 42.4));
+      line-height: calc(1.3em + (1.5 - 1.3) * (100vw - 42.4rem) / (192 - 42.4)); } }
 
 @media screen and (max-width: 26.5em) {
   #wrapper {
     font-size: 1.2em; } }
 
-h2,
-h3,
-.as_h3,
-h4,
-.as_h4,
-h5,
-h6 {
+h2, h3, .as_h3, h4, .as_h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 1em; }
 
@@ -1108,16 +1102,14 @@ h2 {
   line-height: 1.25;
   padding: 0 0 1.5em; }
 
-h3,
-.as_h3 {
+h3, .as_h3 {
   color: var(--title-alt-color);
   font-size: 1.34em;
   font-weight: normal;
   line-height: 1.5;
   margin-top: 1em; }
 
-h4,
-.as_h4 {
+h4, .as_h4 {
   color: var(--title-color);
   font-size: 1.16em;
   line-height: 1.5; }
@@ -1381,12 +1373,12 @@ h1,
   font-size: 1px; }
 
 /* Micro clearfix thx to Nicolas Gallagher */
-.clearfix:before,
-.clearfix:after {
+.clearfix::before,
+.clearfix::after {
   content: " ";
   display: table; }
 
-.clearfix:after {
+.clearfix::after {
   clear: both; }
 
 .box {
@@ -1782,23 +1774,11 @@ input[type=password],
 input[type=submit],
 input[type=button],
 input[type=reset],
-a.button, button, textarea, select, legend {
-  max-width: 100%; }
-
-input[type=text],
-input[type=color],
-input[type=email],
-input[type=url],
-input[type=datetime-local],
-input[type=date],
-input[type=time],
-input[type=file],
-input[type=number],
-input[type=password],
-input[type=submit],
-input[type=button],
-input[type=reset],
-a.button, button, textarea, legend {
+a.button,
+button,
+textarea,
+legend {
+  max-width: 100%;
   border-radius: 3px; }
 
 form {
@@ -1855,35 +1835,37 @@ input[type=date],
 input[type=time],
 input[type=file],
 input[type=number],
-textarea, select, input:not([type=file]):invalid, input:not([type=file]):invalid:placeholder-shown {
+textarea,
+input:not([type=file]):invalid,
+input:not([type=file]):invalid:placeholder-shown {
   box-shadow: 1px 1px 2px var(--input-shadow) inset;
   padding: 3px;
-  vertical-align: top; }
-
-input[type=text],
-input[type=password],
-input[type=color],
-input[type=email],
-input[type=url],
-input[type=datetime-local],
-input[type=date],
-input[type=time],
-input[type=file],
-input[type=number],
-textarea, input:not([type=file]):invalid, input:not([type=file]):invalid:placeholder-shown {
+  vertical-align: top;
   border-width: 1px;
   border-style: solid;
   border-color: var(--input-border); }
 
-input:invalid:not(:required), textarea:invalid:not(:required), select:invalid:not(:required), input:not([type=file]):invalid:not(:focus):not(:required) {
+select {
+  max-width: 100%;
+  box-shadow: 1px 1px 2px var(--input-shadow) inset;
+  padding: 3px;
+  vertical-align: top; }
+
+input:invalid:not(:required),
+textarea:invalid:not(:required),
+select:invalid:not(:required),
+input:not([type=file]):invalid:not(:focus):not(:required) {
   color: var(--invalid-input-color);
   box-shadow: 0 0 0 3px var(--invalid-input-shadow); }
 
-input:invalid:not(:required), textarea:invalid:not(:required), input:not([type=file]):invalid:not(:focus):not(:required) {
+input:invalid:not(:required),
+textarea:invalid:not(:required),
+input:not([type=file]):invalid:not(:focus):not(:required) {
   border: 1px solid var(--invalid-input-border);
   background: var(--invalid-input-background); }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   border-color: var(--input-focus); }
 
 textarea {
@@ -1948,7 +1930,8 @@ optgroup {
 option {
   font-weight: normal; }
 
-label, label span {
+label,
+label span {
   display: block; }
 
 label.ib, input.ib {
@@ -1957,7 +1940,10 @@ label.ib, input.ib {
 label.classic {
   display: inline; }
 
-label.classic input, label span input, label.classic select, label span select {
+label.classic input,
+label span input,
+label.classic select,
+label span select {
   display: inline; }
 
 label.required {
@@ -1973,7 +1959,9 @@ label.bold {
   font-weight: bold;
   margin-top: 2em; }
 
-label.area, p.area, div.area {
+label.area,
+p.area,
+div.area {
   width: inherit !important; }
 
 div.area {
@@ -1986,7 +1974,8 @@ p.field {
     width: 14em; }
   p.field.wide label {
     width: 21em; }
-  p.field input, p.field select {
+  p.field input,
+  p.field select {
     display: inline-block; }
 
 .form-note, .form-stats {
@@ -2060,20 +2049,18 @@ input.button.start {
   background-color: var(--submit-background);
   background-image: linear-gradient(to bottom, var(--submit-background), var(--submit-background-alt));
   border-color: var(--submit-background); }
-
-input[type=submit]:hover,
-input[type=submit]:focus,
-button[type=submit]:hover,
-button[type=submit]:focus,
-input.button.start:hover,
-input.button.start:focus,
-button.submit:hover,
-button.submit:focus,
-a.button.submit:hover,
-a.button.submit:focus {
-  background-color: var(--submit-background-alt);
-  background-image: linear-gradient(to bottom, var(--submit-background-alt), var(--submit-background));
-  border-color: var(--submit-background-alt); }
+  input[type=submit]:hover, input[type=submit]:focus,
+  button[type=submit]:hover,
+  button[type=submit]:focus,
+  a.button.submit:hover,
+  a.button.submit:focus,
+  button.submit:hover,
+  button.submit:focus,
+  input.button.start:hover,
+  input.button.start:focus {
+    background-color: var(--submit-background-alt);
+    background-image: linear-gradient(to bottom, var(--submit-background-alt), var(--submit-background));
+    border-color: var(--submit-background-alt); }
 
 /* suppression, reset, "neutres" fond gris */
 button,
@@ -2092,33 +2079,31 @@ a.button.reset {
   background-image: linear-gradient(to bottom, var(--reset-background-alt), var(--reset-background));
   background-repeat: repeat-x;
   border-color: var(--reset-border); }
-
-button:hover,
-input[type=button]:hover,
-input.button:hover,
-button:focus,
-input[type=button]:focus,
-input.button:focus,
-input[type=reset]:hover,
-input[type=submit].reset:hover,
-input.reset:hover,
-input[type=reset]:focus,
-input[type=submit].reset:focus,
-input.reset:focus,
-input[type=submit].delete:hover,
-input.delete:hover,
-input[type=submit].delete:focus,
-input.delete:focus,
-a.button.delete:hover,
-a.button.reset:hover,
-a.button:hover,
-a.button.delete:focus,
-a.button.reset:focus,
-a.button:focus {
-  background-color: var(--reset-background-ter);
-  background-image: linear-gradient(to bottom, var(--reset-background), var(--reset-background-ter));
-  background-repeat: repeat-x;
-  border-color: var(--reset-border); }
+  button:hover, button:focus,
+  input[type=button]:hover,
+  input[type=button]:focus,
+  input.button:hover,
+  input.button:focus,
+  input[type=reset]:hover,
+  input[type=reset]:focus,
+  input[type=submit].reset:hover,
+  input[type=submit].reset:focus,
+  input.reset:hover,
+  input.reset:focus,
+  input[type=submit].delete:hover,
+  input[type=submit].delete:focus,
+  input.delete:hover,
+  input.delete:focus,
+  a.button:hover,
+  a.button:focus,
+  a.button.delete:hover,
+  a.button.delete:focus,
+  a.button.reset:hover,
+  a.button.reset:focus {
+    background-color: var(--reset-background-ter);
+    background-image: linear-gradient(to bottom, var(--reset-background), var(--reset-background-ter));
+    background-repeat: repeat-x;
+    border-color: var(--reset-border); }
 
 /* suppression */
 input[type=submit].delete,
@@ -2204,14 +2189,13 @@ button[type=submit].disabled {
   color: var(--button-disabled-color);
   background: var(--button-disabled-background);
   border: 1px solid var(--button-disabled-border); }
-
-input.disabled:hover,
-input[type=submit].disabled:hover,
-button.disabled:hover,
-button[type=submit].disabled:hover {
-  color: var(--button-disabled-color);
-  background: var(--button-disabled-background-alt);
-  border: 1px solid var(--button-disabled-border); }
+  input.disabled:hover,
+  input[type=submit].disabled:hover,
+  button.disabled:hover,
+  button[type=submit].disabled:hover {
+    color: var(--button-disabled-color);
+    background: var(--button-disabled-background-alt);
+    border: 1px solid var(--button-disabled-border); }
 
 /* Boutons javascript (dépliage/repliage, …) */
 .void-btn {
@@ -2269,10 +2253,7 @@ a.metaGetMore {
   width: 10em;
   padding: .25em;
   border-radius: .25em; }
-  #gototop a,
-  #gototop a:link,
-  #gototop a:hover,
-  #gototop a:active {
+  #gototop a, #gototop a:link, #gototop a:hover, #gototop a:active {
     color: var(--gotop-color);
     background: var(--gotop-background);
     border: var(--gotop-border); }
@@ -2565,9 +2546,7 @@ h1 {
 @media screen and (max-width: 38em) {
   h1 a:link {
     background: transparent url(dc_logos/b-dotclear120.png) no-repeat -270px 6px; }
-
-  h1 a:hover,
-  h1 a:focus {
+  h1 a:hover, h1 a:focus {
     background: url(dc_logos/b-dotclear120.png) no-repeat -270px -94px; } }
 #main-menu div:last-child {
   border-bottom: none; }
@@ -2608,10 +2587,7 @@ h1 {
     border-bottom: none;
     color: var(--main-menu-active-color); }
 
-#favorites-menu,
-#blog-menu,
-#system-menu,
-#plugins-menu {
+#favorites-menu, #blog-menu, #system-menu, #plugins-menu {
   border-bottom: 1px dashed var(--main-menu-border); }
 
 #favorites-menu h3 {
@@ -2769,6 +2745,14 @@ h1 {
 #helplink p {
   padding: 0 0 0 .5em; }
 
+span.tooltip {
+  position: absolute;
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden; }
+
 #footer p {
   margin: 0;
   padding: 0 1em;
@@ -2791,14 +2775,6 @@ h1 {
 span.credit {
   font-size: 1em;
   font-weight: normal; }
-
-span.tooltip {
-  position: absolute;
-  padding: 0;
-  border: 0;
-  height: 1px;
-  width: 1px;
-  overflow: hidden; }
 
 /** --------------------------------------------------
     Tables and Filters
@@ -2930,6 +2906,13 @@ a.form-control {
   a.form-control.open::before {
     content: "▼"; }
 
+span.ib {
+  width: 7em; }
+
+span.ibw {
+  width: 9em;
+  display: inline-block; }
+
 #filters-form {
   border: 1px solid var(--filter-border);
   border-radius: .3em;
@@ -2953,22 +2936,13 @@ a.form-control {
   #filters-form h4 {
     margin-top: 0;
     margin-bottom: 2em; }
-  #filters-form label.ib,
-  #filters-form span.ib {
+  #filters-form label.ib {
     width: 7em; }
-  #filters-form label.ibw,
-  #filters-form span.ibw {
+  #filters-form label.ibw {
     width: 9em;
     display: inline-block; }
   #filters-form:focus-within {
     background-color: var(--filter-focus-background); }
-
-span.ib {
-  width: 7em; }
-
-span.ibw {
-  width: 9em;
-  display: inline-block; }
 
 /** --------------------------------------------------
     Pages
@@ -2991,33 +2965,31 @@ span.ibw {
     background: var(--login-fieldset-background);
     margin-bottom: 0;
     margin-top: 1em; }
-  #login-screen input[type=text],
+  #login-screen input[type=text], #login-screen input[type=text]:focus,
   #login-screen input[type=color],
-  #login-screen input[type=email],
-  #login-screen input[type=url],
-  #login-screen input[type=datetime-local],
-  #login-screen input[type=date],
-  #login-screen input[type=time],
-  #login-screen input[type=file],
-  #login-screen input[type=number],
-  #login-screen input[type=password],
-  #login-screen input[type=submit],
-  #login-screen input[type=text]:focus,
   #login-screen input[type=color]:focus,
+  #login-screen input[type=email],
   #login-screen input[type=email]:focus,
+  #login-screen input[type=url],
   #login-screen input[type=url]:focus,
+  #login-screen input[type=datetime-local],
   #login-screen input[type=datetime-local]:focus,
+  #login-screen input[type=date],
   #login-screen input[type=date]:focus,
+  #login-screen input[type=time],
   #login-screen input[type=time]:focus,
+  #login-screen input[type=file],
   #login-screen input[type=file]:focus,
+  #login-screen input[type=number],
   #login-screen input[type=number]:focus,
+  #login-screen input[type=password],
   #login-screen input[type=password]:focus,
+  #login-screen input[type=submit],
   #login-screen input[type=submit]:focus {
     width: 100%;
     margin: 0;
     padding: 5px 3px; }
-  #login-screen input.login,
-  #login-screen input.login:focus {
+  #login-screen input.login, #login-screen input.login:focus {
     padding-top: 6px;
     padding-bottom: 6px;
     font-size: 1em; }
@@ -3869,19 +3841,19 @@ div.template-upload {
 --------------------------------------------------- */
 /* jQuery Autocomplete plugin */
 .ac_results {
-  padding: 0px;
+  padding: 0;
   background-color: var(--ac-results-background);
   border: 1px dotted var(--ac-results-border);
   overflow: hidden;
   z-index: 99999; }
   .ac_results ul {
     width: 100%;
-    list-style-position: outside;
     list-style: none;
+    list-style-position: outside;
     padding: 0;
     margin: 0; }
   .ac_results li {
-    margin: 0px;
+    margin: 0;
     padding: 2px 5px;
     cursor: default;
     display: block;
@@ -3981,7 +3953,7 @@ a.back {
   border-radius: .75em;
   background-color: var(--nav-prevnext-background); }
 
-a.back:before {
+a.back::before {
   content: "\ab\a0"; }
 
 a.onblog_link {
@@ -4196,10 +4168,8 @@ div.ui-sortable-handle {
 
 /* Badges (common.js) */
 .badgeable {
-  /* class to set to badge parent's, not mandatory for menu items */
   position: relative; }
 
-/* Badge design */
 .badge {
   color: var(--badge-color);
   background-color: var(--badge-std-background);
@@ -4209,9 +4179,9 @@ div.ui-sortable-handle {
   padding: 0 .6em; }
 
 .badge-icon {
-  background-color: var(--badge-soft-background); }
+  background-color: var(--badge-soft-background);
+  right: 20px; }
 
-/* Badge background override */
 .badge-std {
   background-color: var(--badge-std-background); }
 
@@ -4221,19 +4191,12 @@ div.ui-sortable-handle {
 .badge-soft {
   background-color: var(--badge-soft-background); }
 
-/* Badge position */
 .badge-block {
-  /* Dashboard module → badge on top right */
   position: absolute;
   top: -10px;
   right: -10px; }
 
-.badge-icon {
-  /* Dashboard icon → badge on top right */
-  right: 20px; }
-
 .badge-inline {
-  /* Menu item */
   margin-left: .5em; }
 
 .badge-left {
@@ -4242,7 +4205,6 @@ div.ui-sortable-handle {
   .badge-left.badge-icon {
     left: 20px; }
 
-/* Badge design option */
 .badge-noborder {
   border: none; }
 
@@ -4741,11 +4703,9 @@ img.mfp-img {
   background: var(--debug-background);
   padding: 3px 0.5em 2px; }
 
-input[type=submit].delete.debug,
-a.delete.debug {
+input[type=submit].delete.debug, a.delete.debug {
   border-color: var(--debug-border); }
-  input[type=submit].delete.debug:hover,
-  a.delete.debug:hover {
+  input[type=submit].delete.debug:hover, a.delete.debug:hover {
     background: var(--debug-background);
     color: var(--debug-color);
     border-color: var(--debug-border); }
