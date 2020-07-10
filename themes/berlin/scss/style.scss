@@ -11,6 +11,7 @@
     Common rules
 --------------------------------------------------- */
 @import "partials/common";          // headings, links
+@import "partials/a11y";            // accessibility
 @import "partials/icons";           // icons
 
 /** --------------------------------------------------
@@ -31,5 +32,5 @@
 
 /*** dev only ***/
 #main {
-    //@include debug-vertical-alignment;
+  //@include debug-vertical-alignment;
 }
