@@ -41,6 +41,10 @@
       border: 1px solid var(--index-icon-border);
       display: inline-block;
       filter: contrast(var(--index-icon-contrast));
+      width: calc(5em + 3em);
+      max-width: calc(64px + 3em);
+      height: calc(5em + 3em);
+      max-height: calc(64px + 3em);
     }
 
     &:focus {

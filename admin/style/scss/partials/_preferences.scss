@@ -28,6 +28,13 @@
 
     span.zoom {
       display: none;
+
+      img {
+        width: 5em;
+        max-width: 64px;
+        height: 5em;
+        max-height: 64px;
+      }
     }
 
     &:hover span.zoom {
@@ -45,6 +52,8 @@
   img {
     vertical-align: middle;
     margin-right: .2em;
+    width: 1em;
+    height: 1em;
   }
 }
 

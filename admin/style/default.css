@@ -2565,9 +2565,10 @@ h1 {
   #main-menu ul li {
     display: block;
     margin: 0.5em 0 0;
-    padding: 4px 0 1px 32px;
+    padding: 4px 0 1px 2.125em;
     background-repeat: no-repeat;
-    background-position: 8px .3em;
+    background-position: 8px .625em;
+    background-size: 1em 1em;
     position: relative; }
     #main-menu ul li a::after {
       position: absolute;
@@ -3031,7 +3032,11 @@ span.ibw {
     border-radius: 8px;
     border: 1px solid var(--index-icon-border);
     display: inline-block;
-    filter: contrast(var(--index-icon-contrast)); }
+    filter: contrast(var(--index-icon-contrast));
+    width: calc(5em + 3em);
+    max-width: calc(64px + 3em);
+    height: calc(5em + 3em);
+    max-height: calc(64px + 3em); }
   #icons a:focus {
     outline: 0; }
     #icons a:focus span {
@@ -3758,6 +3763,11 @@ div.template-upload {
       border-bottom-color: var(--fav-list-border-alt); }
     .fav-list li span.zoom {
       display: none; }
+      .fav-list li span.zoom img {
+        width: 5em;
+        max-width: 64px;
+        height: 5em;
+        max-height: 64px; }
     .fav-list li:hover span.zoom {
       display: block;
       position: absolute;
@@ -3769,7 +3779,9 @@ div.template-upload {
       border-radius: .5em; }
   .fav-list img {
     vertical-align: middle;
-    margin-right: .2em; }
+    margin-right: .2em;
+    width: 1em;
+    height: 1em; }
 
 #my-favs {
   border-color: var(--my-favs-border); }
@@ -4202,7 +4214,7 @@ div.ui-sortable-handle {
 
 .badge-icon {
   /* Dashboard icon → badge on top right */
-  right: 20px; }
+  right: 1.8em; }
 
 .badge-inline {
   /* Menu item */

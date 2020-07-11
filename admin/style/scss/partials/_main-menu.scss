@@ -23,9 +23,10 @@
     li {
       display: block;
       margin: 0.5em 0 0;
-      padding: 4px 0 1px 32px;
+      padding: 4px 0 1px 2.125em;
       background-repeat: no-repeat;
-      background-position: 8px .3em;
+      background-position: 8px .625em;
+      background-size: 1em 1em;       // useful for SVG
       position: relative;
 
       a::after {

@@ -51,7 +51,7 @@ function dc_admin_icon_url($img)
             if ($m[1]) {
                 $icon = path::real(dirname(__FILE__) . '/../../admin/images/iconset/' . $user_ui_iconset . '/' . $m[1], false);
                 if ($icon !== false) {
-                    $allow_types = ['png', 'jpg', 'jpeg', 'gif'];
+                    $allow_types = ['svg', 'png', 'jpg', 'jpeg', 'gif'];
                     if (is_file($icon) && is_readable($icon) && in_array(files::getExtension($icon), $allow_types)) {
                         return DC_ADMIN_URL . 'images/iconset/' . $user_ui_iconset . '/' . $m[1];
                     }
