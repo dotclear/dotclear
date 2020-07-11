@@ -4168,8 +4168,10 @@ div.ui-sortable-handle {
 
 /* Badges (common.js) */
 .badgeable {
+  /* class to set to badge parent's, not mandatory for menu items */
   position: relative; }
 
+/* Badge design */
 .badge {
   color: var(--badge-color);
   background-color: var(--badge-std-background);
@@ -4179,9 +4181,9 @@ div.ui-sortable-handle {
   padding: 0 .6em; }
 
 .badge-icon {
-  background-color: var(--badge-soft-background);
-  right: 20px; }
+  background-color: var(--badge-soft-background); }
 
+/* Badge background override */
 .badge-std {
   background-color: var(--badge-std-background); }
 
@@ -4191,12 +4193,19 @@ div.ui-sortable-handle {
 .badge-soft {
   background-color: var(--badge-soft-background); }
 
+/* Badge position */
 .badge-block {
+  /* Dashboard module → badge on top right */
   position: absolute;
   top: -10px;
   right: -10px; }
 
+.badge-icon {
+  /* Dashboard icon → badge on top right */
+  right: 20px; }
+
 .badge-inline {
+  /* Menu item */
   margin-left: .5em; }
 
 .badge-left {
@@ -4205,6 +4214,7 @@ div.ui-sortable-handle {
   .badge-left.badge-icon {
     left: 20px; }
 
+/* Badge design option */
 .badge-noborder {
   border: none; }
 
