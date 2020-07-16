@@ -776,6 +776,16 @@ class dcUpgrade
             $core->con->execute($strReq);
         }
 
+        if (version_compare($version, '2.17', '<')) {
+            # A bit of housecleaning for no longer needed files
+            $remfiles = [
+                'inc/admin/class.dc.notices.php'
+            ];
+            foreach ($remfiles as $f) {
+                @unlink(DC_ROOT . '/' . $f);
+            }
+        }
+
         $core->setVersion('core', DC_VERSION);
         $core->blogDefaults();
 
