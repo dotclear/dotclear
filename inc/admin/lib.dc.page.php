@@ -265,46 +265,29 @@ class dcPage
         echo $breadcrumb;
 
         // Display notices and errors
-        echo $core->notices->getNotices();
+        echo dcAdminNotices::getNotices();
     }
 
-    /**
-    @deprecated Please use $core->notices->getNotices()
-     **/
     public static function notices()
     {
-        $core = self::getCore();
-        return $core->notices->getNotices();
+        return dcAdminNotices::getNotices();
     }
 
-    /**
-    @deprecated Please use $core->notices->addNotice()
-     **/
     public static function addNotice($type, $message, $options = [])
     {
-        $core = self::getCore();
-        $core->notices->addNotice($type, $message, $options);
+        dcAdminNotices::addNotice($type, $message, $options);
     }
 
-    /**
-    @deprecated Please use $core->notices->addSuccessNotice()
-     **/
     public static function addSuccessNotice($message, $options = [])
     {
         self::addNotice("success", $message, $options);
     }
 
-    /**
-    @deprecated Please use $core->notices->addWarningNotice()
-     **/
     public static function addWarningNotice($message, $options = [])
     {
         self::addNotice("warning", $message, $options);
     }
 
-    /**
-    @deprecated Please use $core->notices->addErrorNotice()
-     **/
     public static function addErrorNotice($message, $options = [])
     {
         self::addNotice("error", $message, $options);
@@ -455,7 +438,7 @@ EOT;
         echo $breadcrumb;
 
         // Display notices and errors
-        echo $core->notices->getNotices();
+        echo dcAdminNotices::getNotices();
     }
 
     public static function closePopup()
@@ -498,26 +481,16 @@ EOT;
         return $res;
     }
 
-    /**
-    @deprecated Please use $core->notices->message()
-     **/
     public static function message($msg, $timestamp = true, $div = false, $echo = true, $class = 'message')
     {
-        $core = self::getCore();
-        return $core->notices->message($msg, $timestamp, $div, $echo, $class);
+        return dcAdminNotices::message($msg, $timestamp, $div, $echo, $class);
     }
 
-    /**
-    @deprecated Please use $core->notices->success()
-     **/
     public static function success($msg, $timestamp = true, $div = false, $echo = true)
     {
         return self::message($msg, $timestamp, $div, $echo, "success");
     }
 
-    /**
-    @deprecated Please use $core->notices->warning()
-     **/
     public static function warning($msg, $timestamp = true, $div = false, $echo = true)
     {
         return self::message($msg, $timestamp, $div, $echo, "warning-msg");
