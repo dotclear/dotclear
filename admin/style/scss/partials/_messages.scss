@@ -148,17 +148,19 @@ p.warning-msg {
   color: var(--msg-info-color);
 }
 
+.notice-ts {
+  font-size: .875em;
+  padding: 2px .5em;
+  margin-right: 0.5em;
+  border: 1px solid;
+  border-radius: .25em;
+  color: var(--body-color);
+  background: var(--body-background);
+}
+
 .close-notice-parent {
-  display: flex;
-  justify-content: space-between;
-
-  ul, p + p {
-    flex: 1;
-  }
-
-  p + p {
-    padding-left: .25em;
-  }
+  position: relative;
+  padding-right: 3em;
 }
 
 .close-notice {
@@ -166,7 +168,9 @@ p.warning-msg {
   border: none;
   border-radius: 0;
   box-shadow: none;
-  padding-left: 1em;
+  position: absolute;
+  top: 1em;
+  right: .5em;
 
   &:hover, &:focus {
     background: none;

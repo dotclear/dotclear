@@ -2392,20 +2392,27 @@ p.warning-msg {
 .info a {
   color: var(--msg-info-color); }
 
+.notice-ts {
+  font-size: .875em;
+  padding: 2px .5em;
+  margin-right: 0.5em;
+  border: 1px solid;
+  border-radius: .25em;
+  color: var(--body-color);
+  background: var(--body-background); }
+
 .close-notice-parent {
-  display: flex;
-  justify-content: space-between; }
-  .close-notice-parent ul, .close-notice-parent p + p {
-    flex: 1; }
-  .close-notice-parent p + p {
-    padding-left: .25em; }
+  position: relative;
+  padding-right: 3em; }
 
 .close-notice {
   background: none;
   border: none;
   border-radius: 0;
   box-shadow: none;
-  padding-left: 1em; }
+  position: absolute;
+  top: 1em;
+  right: .5em; }
   .close-notice:hover, .close-notice:focus {
     background: none; }
 
