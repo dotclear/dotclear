@@ -154,8 +154,16 @@ class dcAdminNotices
     {
         $res = '';
         if ($msg != '') {
+            $ts = '';
+            if ($timestamp) {
+                $ts = '<span class="notice-ts">' .
+                    '<time datetime="' . dt::iso8601(time(), self::$core->auth->getInfo('user_tz')) . '">' .
+                    dt::str(__('%H:%M:%S'), null, self::$core->auth->getInfo('user_tz')) .
+                    '</time>' .
+                    '</span> ';
+            }
             $res = ($div ? '<div class="' . $class . '">' : '') . '<p' . ($div ? '' : ' class="' . $class . '"') . '>' .
-                ($timestamp ? dt::str(__('[%H:%M:%S]'), null, self::$core->auth->getInfo('user_tz')) . ' ' : '') . $msg .
+                $ts . $msg .
                 '</p>' . ($div ? '</div>' : '');
             if ($echo) {
                 echo $res;
