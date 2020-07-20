@@ -784,6 +784,18 @@ class dcUpgrade
             foreach ($remfiles as $f) {
                 @unlink(DC_ROOT . '/' . $f);
             }
+            $remtree = scandir(DC_ROOT . '/locales');
+            $remfiles = [
+                'help/blowupConfig.html',
+                'help/themeEditor.html'
+            ];
+            foreach ($remtree as $dir) {
+                if (is_dir(DC_ROOT . '/' . 'locales' . '/' . $dir) && $dir !== '.' && $dir !== '.') {
+                    foreach ($remfiles as $f) {
+                        @unlink(DC_ROOT . '/' . 'locales' . '/' . $dir . '/' . $f);
+                    }
+                }
+            }
         }
 
         $core->setVersion('core', DC_VERSION);
