@@ -781,9 +781,17 @@ class dcUpgrade
             $remfiles = [
                 'inc/admin/class.dc.notices.php'
             ];
+            $remfolders = [
+                // Oldest jQuery public lib
+                'inc/js/jquery/3.4.1'
+            ];
             foreach ($remfiles as $f) {
                 @unlink(DC_ROOT . '/' . $f);
             }
+            foreach ($remfolders as $f) {
+                @rmdir(DC_ROOT . '/' . $f);
+            }
+            # Help specific (files was moved)
             $remtree = scandir(DC_ROOT . '/locales');
             $remfiles = [
                 'help/blowupConfig.html',

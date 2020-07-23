@@ -179,7 +179,7 @@ jQuery.fn.toggleWithLegend = function(target, s) {
 
 (function($) {
   $.expandContent = function(opts) {
-    if (opts == undefined || opts.callback == undefined || !$.isFunction(opts.callback)) {
+    if (opts == undefined || opts.callback == undefined || typeof opts.callback !== 'function') {
       return;
     }
     if (opts.line != undefined) {

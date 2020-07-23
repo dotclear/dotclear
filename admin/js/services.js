@@ -22,7 +22,7 @@ dotclear.getEntryContent = function(postId, callback, options) {
   }, options);
 
   // Check callback fn()
-  if (!$.isFunction(callback)) {
+  if (typeof callback !== 'function') {
     return;
   }
 
@@ -107,7 +107,7 @@ dotclear.getCommentContent = function(commentId, callback, options) {
   }, options);
 
   // Check callback fn()
-  if (!$.isFunction(callback)) {
+  if (typeof callback !== 'function') {
     return;
   }
 

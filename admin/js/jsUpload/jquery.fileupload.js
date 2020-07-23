@@ -283,7 +283,7 @@
             if (typeof options.formData === 'function') {
                 return options.formData(options.form);
             }
-            if ($.isArray(options.formData)) {
+            if (Array.isArray(options.formData)) {
                 return options.formData;
             }
             if ($.type(options.formData) === 'object') {
@@ -512,7 +512,7 @@
                 if (!paramName.length) {
                     paramName = [fileInput.prop('name') || 'files[]'];
                 }
-            } else if (!$.isArray(paramName)) {
+            } else if (!Array.isArray(paramName)) {
                 paramName = [paramName];
             }
             return paramName;
@@ -601,7 +601,8 @@
                 if (resolveFunc || rejectFunc) {
                     data._processQueue = this._processQueue =
                         (this._processQueue || getPromise(this))
-                            .pipe(resolveFunc, rejectFunc);
+//                            .pipe(resolveFunc, rejectFunc);
+                            .then(resolveFunc, rejectFunc);
                 }
                 return this._processQueue || getPromise(this);
             };
@@ -945,7 +946,8 @@
             // without loosing the file input value:
             input.after(inputClone).detach();
             // Avoid memory leaks with the detached file input:
-            $.cleanData(input.unbind('remove'));
+//            $.cleanData(input.unbind('remove'));
+            $.cleanData(input.off('remove'));
             // Replace the original file input element in the fileInput
             // elements set with the clone, which has been copied including
             // event handlers:
