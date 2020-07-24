@@ -208,9 +208,12 @@
       if ("data" in arguments[1])
         cache.populate();
     }).on("unautocomplete", function() {
-      select.unbind();
-      $input.unbind();
-      $(input.form).unbind(".autocomplete");
+//      select.unbind();
+      select.off();
+//      $input.unbind();
+      $input.off();
+//      $(input.form).unbind(".autocomplete");
+      $(input.form).off(".autocomplete");
     });
 
     function selectCurrent() {

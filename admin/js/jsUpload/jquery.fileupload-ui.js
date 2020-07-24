@@ -10,7 +10,7 @@
  */
 
 /*jslint nomen: true, unparam: true, regexp: true */
-/*global define, window, URL, webkitURL, FileReader */
+/*global define, window */
 
 (function (factory) {
     'use strict';
@@ -348,7 +348,8 @@
                 url = link.prop('href'),
                 name = link.prop('download'),
                 type = 'application/octet-stream';
-            link.bind('dragstart', function (e) {
+//            link.bind('dragstart', function (e) {
+            link.on('dragstart', function (e) {
                 try {
                     e.originalEvent.dataTransfer.setData(
                         'DownloadURL',
@@ -487,13 +488,15 @@
         _transition: function (node) {
             var dfd = $.Deferred();
             if ($.support.transition && node.hasClass('fade') && node.is(':visible')) {
-                node.bind(
+//                node.bind(
+                node.on(
                     $.support.transition.end,
                     function (e) {
                         // Make sure we don't respond to other transitions events
                         // in the container element, e.g. from button elements:
                         if (e.target === node[0]) {
-                            node.unbind($.support.transition.end);
+//                            node.unbind($.support.transition.end);
+                            node.off($.support.transition.end);
                             dfd.resolveWith(node);
                         }
                     }

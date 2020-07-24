@@ -65,13 +65,16 @@
                     iframe = $(
                         '<iframe src="javascript:false;" name="iframe-transport-' +
                             counter + '"></iframe>'
-                    ).bind('load', function () {
+//                    ).bind('load', function () {
+                    ).on('load', function () {
                         var fileInputClones,
                             paramNames = Array.isArray(options.paramName) ?
                                     options.paramName : [options.paramName];
                         iframe
-                            .unbind('load')
-                            .bind('load', function () {
+//                            .unbind('load')
+//                            .bind('load', function () {
+                            .off('load')
+                            .on('load', function () {
                                 var response;
                                 // Wrap in a try/catch block to catch exceptions thrown
                                 // when trying to access cross-domain iframe contents:
@@ -158,7 +161,8 @@
                         // and prevents warning popups on HTTPS in IE6.
                         // concat is used to avoid the "Script URL" JSLint error:
                         iframe
-                            .unbind('load')
+//                            .unbind('load')
+                            .off('load')
                             .prop('src', 'javascript'.concat(':false;'));
                     }
                     if (form) {
