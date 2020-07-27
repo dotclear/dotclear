@@ -2781,16 +2781,16 @@ msgstr "Merkitse odottavaksi"
 msgid "Mark as junk"
 msgstr "Merkitse roskaksi"
 
-msgid "Blacklist IP"
+msgid "Blocklist IP"
 msgstr "Lisää mustalle listalle"
 
-msgid "Blacklist IP (global)"
+msgid "Blocklist IP (global)"
 msgstr "Lisää mustalle listalle (kaikkien blogien osalta)"
 
 msgid "No comment selected"
 msgstr "Ei valittua kommenttia"
 
-msgid "IP addresses for selected comments have been blacklisted."
+msgid "IP addresses for selected comments have been blocklisted."
 msgstr "Valituttujen kommenttien IP-osoitteet on pantu mustalle listalle."
 
 msgid "Back to entries list"

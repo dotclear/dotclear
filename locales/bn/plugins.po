@@ -207,7 +207,7 @@ msgstr ""
 msgid "(including %d spam comments)"
 msgstr ""
 
-msgid "IP Blacklist / Whitelist Filter"
+msgid "IP Blocklist / Allowlist Filter"
 msgstr "IP কালোতালিকা / সাদাতালিকা ফিল্টার"
 
 #, php-format
@@ -220,10 +220,10 @@ msgstr "IP এড্রেস সফলভাবে যোগ করা হয�
 msgid "IP addresses have been successfully removed."
 msgstr "IP এড্রেসসমূহ সফলভাবে মুছে ফেলা হয়েছে।"
 
-msgid "Blacklist"
+msgid "Blocklist"
 msgstr "কালোতালিকা"
 
-msgid "Whitelist"
+msgid "Allowlist"
 msgstr "সাদাতালিকা"
 
 #, fuzzy
@@ -268,7 +268,7 @@ msgstr ""
 msgid "Checks links in comments against surbl.org"
 msgstr ""
 
-msgid "Words Blacklist"
+msgid "Words Blocklist"
 msgstr "শব্দের কালোতালিকা"
 
 #, php-format

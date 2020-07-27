@@ -203,8 +203,8 @@ msgstr "(mit %d Spam-Kommentar)"
 msgid "(including %d spam comments)"
 msgstr "(mit %d Spam-Kommentaren)"
 
-msgid "IP Blacklist / Whitelist Filter"
-msgstr "IP-Blacklist-/Whitelist-Filter"
+msgid "IP Blocklist / Allowlist Filter"
+msgstr "IP-Blocklist-/Allowlist-Filter"
 
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
@@ -216,11 +216,11 @@ msgstr "IP-Adresse wurde erfolgreich hinzugefügt."
 msgid "IP addresses have been successfully removed."
 msgstr "IP-Adresse wurde erfolgreich entfernt."
 
-msgid "Blacklist"
-msgstr "Blacklist"
+msgid "Blocklist"
+msgstr "Blocklist"
 
-msgid "Whitelist"
-msgstr "Whitelist"
+msgid "Allowlist"
+msgstr "Allowlist"
 
 msgid "Add an IP address: "
 msgstr "Eine IP-Adresse einfügen"
@@ -262,8 +262,8 @@ msgstr "Gib hier eine mit Komma getrennte Liste von Servern ein."
 msgid "Checks links in comments against surbl.org"
 msgstr "Überprüft Links in Kommentare mit surbl.org"
 
-msgid "Words Blacklist"
-msgstr "Wort-Blackliste"
+msgid "Words Blocklist"
+msgstr "Wort-Blockliste"
 
 #, php-format
 msgid "Filtered by %1$s with word %2$s."

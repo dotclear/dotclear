@@ -2725,17 +2725,17 @@ msgstr "Mettre en attente"
 msgid "Mark as junk"
 msgstr "Mettre en indésirable"
 
-msgid "Blacklist IP"
-msgstr "Ajouter en liste noire"
+msgid "Blocklist IP"
+msgstr "Ajouter en liste de blocage"
 
-msgid "Blacklist IP (global)"
-msgstr "Ajouter en liste noire (pour tous les blogs)"
+msgid "Blocklist IP (global)"
+msgstr "Ajouter en liste de blocage (pour tous les blogs)"
 
 msgid "No comment selected"
 msgstr "Aucun commentaire sélectionné."
 
-msgid "IP addresses for selected comments have been blacklisted."
-msgstr "Les adresses IP des commentaires sélectionnés ont été ajoutées en liste noire."
+msgid "IP addresses for selected comments have been blocklisted."
+msgstr "Les adresses IP des commentaires sélectionnés ont été ajoutées en liste de blocage."
 
 msgid "Back to entries list"
 msgstr "Retour à la liste des billets"

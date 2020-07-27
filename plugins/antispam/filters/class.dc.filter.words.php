@@ -29,7 +29,7 @@ class dcFilterWords extends dcSpamFilter
 
     protected function setInfo()
     {
-        $this->description = __('Words Blacklist');
+        $this->description = __('Words Blocklist');
     }
 
     public function getStatusMessage($status, $comment_id)

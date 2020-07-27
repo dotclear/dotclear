@@ -218,8 +218,8 @@ msgstr "(įskaitant %d spamo komentarą)"
 msgid "(including %d spam comments)"
 msgstr "(įskaitant %d spamo komentarus)"
 
-msgid "IP Blacklist / Whitelist Filter"
-msgstr "IP Blacklist sąrašas / Whitelist filtras"
+msgid "IP Blocklist / Allowlist Filter"
+msgstr "IP Blocklist sąrašas / Allowlist filtras"
 
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
@@ -231,11 +231,11 @@ msgstr "IP adresas sėkmingai pridėtas."
 msgid "IP addresses have been successfully removed."
 msgstr "IP adresas sųkmingai pašalintas."
 
-msgid "Blacklist"
-msgstr "Blacklist"
+msgid "Blocklist"
+msgstr "Blocklist"
 
-msgid "Whitelist"
-msgstr "Whitelist"
+msgid "Allowlist"
+msgstr "Allowlist"
 
 #, fuzzy
 msgid "Add an IP address: "
@@ -279,8 +279,8 @@ msgstr "Čia pridėkite kableliais atskirtų serverių sąrašą."
 msgid "Checks links in comments against surbl.org"
 msgstr "Patikrinkite komentarų nuorodos pagal surbl.org"
 
-msgid "Words Blacklist"
-msgstr "Žodžių Blacklist"
+msgid "Words Blocklist"
+msgstr "Žodžių Blocklist"
 
 #, php-format
 msgid "Filtered by %1$s with word %2$s."

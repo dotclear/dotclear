@@ -219,7 +219,7 @@ msgstr "(%d spam megjegyzést hozzászámolva)"
 msgid "(including %d spam comments)"
 msgstr "(%d spam megjegyzést hozzászámolva)"
 
-msgid "IP Blacklist / Whitelist Filter"
+msgid "IP Blocklist / Allowlist Filter"
 msgstr "IP Feketelista / Fehérlista szűrő"
 
 #, php-format
@@ -232,10 +232,10 @@ msgstr "Az IP címet sikeresen hozzáadtam."
 msgid "IP addresses have been successfully removed."
 msgstr "Az IP címet sikeresen eltávolítottam."
 
-msgid "Blacklist"
+msgid "Blocklist"
 msgstr "Feketelista"
 
-msgid "Whitelist"
+msgid "Allowlist"
 msgstr "Fehérlista"
 
 #, fuzzy
@@ -280,7 +280,7 @@ msgstr "Pontosvesszővel elválasztott kiszolgálólistát itt tudod hozzáadni.
 msgid "Checks links in comments against surbl.org"
 msgstr "Hozzászólás linkjeinek ellenőrzése surbl.org ellen"
 
-msgid "Words Blacklist"
+msgid "Words Blocklist"
 msgstr "Szó feketelista"
 
 #, php-format

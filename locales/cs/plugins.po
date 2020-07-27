@@ -218,8 +218,8 @@ msgstr "(obsahuje %d spamový komentář)"
 msgid "(including %d spam comments)"
 msgstr "(obsahuje %d spamových komentářů)"
 
-msgid "IP Blacklist / Whitelist Filter"
-msgstr "IP blacklist / whitelist filtr"
+msgid "IP Blocklist / Allowlist Filter"
+msgstr "IP blocklist / allowlist filtr"
 
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
@@ -231,11 +231,11 @@ msgstr "IP adresa byla úspěšně přidána."
 msgid "IP addresses have been successfully removed."
 msgstr "IP adresa byla úspěšně odstraněna."
 
-msgid "Blacklist"
-msgstr "Blacklist"
+msgid "Blocklist"
+msgstr "Blocklist"
 
-msgid "Whitelist"
-msgstr "Whitelist"
+msgid "Allowlist"
+msgstr "Allowlist"
 
 #, fuzzy
 msgid "Add an IP address: "
@@ -279,8 +279,8 @@ msgstr "Zde vložte seznam serverů oddělených čárkou."
 msgid "Checks links in comments against surbl.org"
 msgstr "Zkontrolovat odkazy v komentářích pomocí surbl.org"
 
-msgid "Words Blacklist"
-msgstr "Slovní blacklist"
+msgid "Words Blocklist"
+msgstr "Slovní blocklist"
 
 #, php-format
 msgid "Filtered by %1$s with word %2$s."

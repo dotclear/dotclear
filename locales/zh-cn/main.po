@@ -2927,10 +2927,10 @@ msgstr "标记为待审核"
 msgid "Mark as junk"
 msgstr "标记为垃圾评论"
 
-msgid "Blacklist IP"
+msgid "Blocklist IP"
 msgstr ""
 
-msgid "Blacklist IP (global)"
+msgid "Blocklist IP (global)"
 msgstr ""
 
 #, fuzzy
@@ -2938,7 +2938,7 @@ msgid "No comment selected"
 msgstr "没有评论"
 
 #, fuzzy
-msgid "IP addresses for selected comments have been blacklisted."
+msgid "IP addresses for selected comments have been blocklisted."
 msgstr "成功更新评论。"
 
 #, fuzzy

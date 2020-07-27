@@ -221,7 +221,7 @@ msgstr "(incluyendo %d comentario basura)"
 msgid "(including %d spam comments)"
 msgstr "(incluyendo %d comentarios basura)"
 
-msgid "IP Blacklist / Whitelist Filter"
+msgid "IP Blocklist / Allowlist Filter"
 msgstr "Lista negra / Lista blanca de IP"
 
 #, php-format
@@ -234,10 +234,10 @@ msgstr "La dirección IP a sido añadida con éxito."
 msgid "IP addresses have been successfully removed."
 msgstr "La dirección IP fue eliminada con éxito."
 
-msgid "Blacklist"
+msgid "Blocklist"
 msgstr "Lista negra"
 
-msgid "Whitelist"
+msgid "Allowlist"
 msgstr "Lista blanca"
 
 #, fuzzy
@@ -282,7 +282,7 @@ msgstr "Añada aquí una lista de servidores, separados por comas."
 msgid "Checks links in comments against surbl.org"
 msgstr "Verificar los enlaces de los comentarios en surbl.org"
 
-msgid "Words Blacklist"
+msgid "Words Blocklist"
 msgstr "Lista de palabras prohibidas"
 
 #, php-format

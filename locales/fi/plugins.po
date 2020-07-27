@@ -201,7 +201,7 @@ msgstr "(joista %d spämmikommentti)"
 msgid "(including %d spam comments)"
 msgstr "(joista %d spämmikommenttia)"
 
-msgid "IP Blacklist / Whitelist Filter"
+msgid "IP Blocklist / Allowlist Filter"
 msgstr "IP-osoitteiden suodatus mustan ja valkoisen listan mukaan"
 
 #, php-format
@@ -214,10 +214,10 @@ msgstr "IP-osoite saatiin lisätyksi."
 msgid "IP addresses have been successfully removed."
 msgstr "IP-osoite saatiin poistetuksi."
 
-msgid "Blacklist"
+msgid "Blocklist"
 msgstr "Musta lista"
 
-msgid "Whitelist"
+msgid "Allowlist"
 msgstr "Valkoinen lista"
 
 msgid "Add an IP address: "
@@ -260,7 +260,7 @@ msgstr "Lisää tähän palvelinten luettelo pilkuilla eroteltuina."
 msgid "Checks links in comments against surbl.org"
 msgstr "Tarkista kommenttien linkit surbl.orgista"
 
-msgid "Words Blacklist"
+msgid "Words Blocklist"
 msgstr "Kiellettyjen sanojen luettelo"
 
 #, php-format

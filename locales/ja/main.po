@@ -2945,10 +2945,10 @@ msgstr "保留に指定"
 msgid "Mark as junk"
 msgstr "ジャンクに指定"
 
-msgid "Blacklist IP"
+msgid "Blocklist IP"
 msgstr ""
 
-msgid "Blacklist IP (global)"
+msgid "Blocklist IP (global)"
 msgstr ""
 
 #, fuzzy
@@ -2956,7 +2956,7 @@ msgid "No comment selected"
 msgstr "コメントはありません"
 
 #, fuzzy
-msgid "IP addresses for selected comments have been blacklisted."
+msgid "IP addresses for selected comments have been blocklisted."
 msgstr "コメントは正常に更新されました。"
 
 #, fuzzy
