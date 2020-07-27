@@ -219,7 +219,7 @@ msgstr "(스팸 댓글 %d 개 포함)"
 msgid "(including %d spam comments)"
 msgstr "(스팸 댓글 %d 개 포함)"
 
-msgid "IP Blacklist / Whitelist Filter"
+msgid "IP Blocklist / Allowlist Filter"
 msgstr "접속 거부/허용 IP 리스트 필터"
 
 #, php-format
@@ -232,10 +232,10 @@ msgstr "IP 주소가 성공적으로 추가되었습니다."
 msgid "IP addresses have been successfully removed."
 msgstr "IP 주소가 성공적으로 제거되었습니다."
 
-msgid "Blacklist"
+msgid "Blocklist"
 msgstr "접속거부 IP 목록"
 
-msgid "Whitelist"
+msgid "Allowlist"
 msgstr "접속허용 IP 목록"
 
 #, fuzzy
@@ -280,7 +280,7 @@ msgstr "여기에 서버 목록을 쉼표로 분리하여 추가하세요."
 msgid "Checks links in comments against surbl.org"
 msgstr "surbl.org 에서 댓글 링크 체크"
 
-msgid "Words Blacklist"
+msgid "Words Blocklist"
 msgstr "금지어 목록"
 
 #, php-format

@@ -213,8 +213,8 @@ msgstr "(incluzând %d comentariu spam)"
 msgid "(including %d spam comments)"
 msgstr "(incluzând %d comentarii spam)"
 
-msgid "IP Blacklist / Whitelist Filter"
-msgstr "IP Blacklist / Filtru Whitelist"
+msgid "IP Blocklist / Allowlist Filter"
+msgstr "IP Blocklist / Filtru Allowlist"
 
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
@@ -226,10 +226,10 @@ msgstr "Adresa IP a fost adăugată cu succes."
 msgid "IP addresses have been successfully removed."
 msgstr "Adresele IP au fost șterse cu succes."
 
-msgid "Blacklist"
+msgid "Blocklist"
 msgstr "Lista neagră"
 
-msgid "Whitelist"
+msgid "Allowlist"
 msgstr "Listă excepții"
 
 #, fuzzy
@@ -274,7 +274,7 @@ msgstr "Adaugă aici o listă de servere separate prin virgulă"
 msgid "Checks links in comments against surbl.org"
 msgstr "Verifică legăturile în comentarii cu surbl.org"
 
-msgid "Words Blacklist"
+msgid "Words Blocklist"
 msgstr "Listă de cuvinte interzise"
 
 #, php-format

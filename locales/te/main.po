@@ -2923,10 +2923,10 @@ msgstr "వేచివుంది"
 msgid "Mark as junk"
 msgstr "వేచివుంది"
 
-msgid "Blacklist IP"
+msgid "Blocklist IP"
 msgstr ""
 
-msgid "Blacklist IP (global)"
+msgid "Blocklist IP (global)"
 msgstr ""
 
 #, fuzzy
@@ -2934,7 +2934,7 @@ msgid "No comment selected"
 msgstr "వ్యాఖ్యలు లేవు"
 
 #, fuzzy
-msgid "IP addresses for selected comments have been blacklisted."
+msgid "IP addresses for selected comments have been blocklisted."
 msgstr "వ్యాఖ్యని విజయవంతంగా తాజాకరించాం."
 
 #, fuzzy

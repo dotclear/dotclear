@@ -209,7 +209,7 @@ msgstr ""
 msgid "(including %d spam comments)"
 msgstr ""
 
-msgid "IP Blacklist / Whitelist Filter"
+msgid "IP Blocklist / Allowlist Filter"
 msgstr ""
 
 #, php-format
@@ -222,10 +222,10 @@ msgstr ""
 msgid "IP addresses have been successfully removed."
 msgstr ""
 
-msgid "Blacklist"
+msgid "Blocklist"
 msgstr "Karaliste"
 
-msgid "Whitelist"
+msgid "Allowlist"
 msgstr "Beyazliste"
 
 msgid "Add an IP address: "
@@ -268,7 +268,7 @@ msgstr ""
 msgid "Checks links in comments against surbl.org"
 msgstr ""
 
-msgid "Words Blacklist"
+msgid "Words Blocklist"
 msgstr ""
 
 #, php-format

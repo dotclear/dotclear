@@ -2887,10 +2887,10 @@ msgstr "marker som ventende"
 msgid "Mark as junk"
 msgstr "marker som junk"
 
-msgid "Blacklist IP"
+msgid "Blocklist IP"
 msgstr ""
 
-msgid "Blacklist IP (global)"
+msgid "Blocklist IP (global)"
 msgstr ""
 
 #, fuzzy
@@ -2898,7 +2898,7 @@ msgid "No comment selected"
 msgstr "Ingen kommentar"
 
 #, fuzzy
-msgid "IP addresses for selected comments have been blacklisted."
+msgid "IP addresses for selected comments have been blocklisted."
 msgstr "Kommentaren er opdateret."
 
 #, fuzzy

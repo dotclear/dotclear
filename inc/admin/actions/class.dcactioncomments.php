@@ -157,14 +157,14 @@ class dcDefaultCommentActions
         }
 
         if ($ip_filter_active) {
-            $blacklist_actions = [__('Blacklist IP') => 'blacklist'];
+            $blocklist_actions = [__('Blocklist IP') => 'blocklist'];
             if ($core->auth->isSuperAdmin()) {
-                $blacklist_actions[__('Blacklist IP (global)')] = 'blacklist_global';
+                $blocklist_actions[__('Blocklist IP (global)')] = 'blocklist_global';
             }
 
             $ap->addAction(
-                [__('IP address') => $blacklist_actions],
-                ['dcDefaultCommentActions', 'doBlacklistIP']
+                [__('IP address') => $blocklist_actions],
+                ['dcDefaultCommentActions', 'doBlocklistIP']
             );
         }
     }
@@ -213,7 +213,7 @@ class dcDefaultCommentActions
         $ap->redirect(false);
     }
 
-    public static function doBlacklistIP($core, dcCommentsActionsPage $ap, $post)
+    public static function doBlocklistIP($core, dcCommentsActionsPage $ap, $post)
     {
         $action = $ap->getAction();
         $co_ids = $ap->getIDs();
@@ -221,7 +221,7 @@ class dcDefaultCommentActions
             throw new Exception(__('No comment selected'));
         }
 
-        $global = !empty($action) && $action == 'blacklist_global' && $core->auth->isSuperAdmin();
+        $global = !empty($action) && $action == 'blocklist_global' && $core->auth->isSuperAdmin();
 
         $ip_filter = new dcFilterIP($core);
         $rs        = $ap->getRS();
@@ -229,7 +229,7 @@ class dcDefaultCommentActions
             $ip_filter->addIP('black', $rs->comment_ip, $global);
         }
 
-        dcPage::addSuccessNotice(__('IP addresses for selected comments have been blacklisted.'));
+        dcPage::addSuccessNotice(__('IP addresses for selected comments have been blocklisted.'));
         $ap->redirect(true);
     }
 }
