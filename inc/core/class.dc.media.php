@@ -1115,6 +1115,9 @@ class dcMedia extends filemanager
             }
         }
 
+        # --BEHAVIOR-- coreBeforeImageMetaCreate
+        $this->core->callBehavior('coreBeforeImageMetaCreate', $c);
+
         $c->update('WHERE media_id = ' . $id);
     }
 
