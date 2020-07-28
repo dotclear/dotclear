@@ -25,6 +25,7 @@
   overflow: hidden;
   line-height: 30px;
   border: 1px solid;
+  position: relative;
 }
 .jstElements select, .jstElements button {
   vertical-align: middle;
