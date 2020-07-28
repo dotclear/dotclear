@@ -114,12 +114,12 @@
 					//&& itemElement.parentNode == this.placeholder[0].parentNode // only rearrange items within the same container
 				) {
 
-					$(itemElement).mouseenter();
+					$(itemElement).trigger("mouseenter");
 
 					this.direction = intersection == 1 ? "down" : "up";
 
 					if (this.options.tolerance == "pointer" || this._intersectsWithSides(item)) {
-						$(itemElement).mouseleave();
+						$(itemElement).trigger("mouseleave");
 						this._rearrange(event, item);
 					} else {
 						break;
