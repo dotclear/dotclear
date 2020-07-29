@@ -90,7 +90,6 @@ input:not([type=file]):invalid:placeholder-shown {
   // background: $input-background;
   box-shadow: 1px 1px 2px var(--input-shadow) inset;
   padding: 3px;
-  vertical-align: top;
   border-width: 1px;
   border-style: solid;
   border-color: var(--input-border);
