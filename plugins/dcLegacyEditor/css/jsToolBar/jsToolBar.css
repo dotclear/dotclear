@@ -141,7 +141,7 @@ button.jstb_removeFormat {
   background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_clean.png);
   position: absolute;
   right: 5px;
-  top: 4px;
+  bottom: 3px;
 }
 /* WYSIWYG Iframe */
 
