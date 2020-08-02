@@ -90,8 +90,7 @@ fieldset {
 input,
 button,
 select {
-  vertical-align: middle;
-  }
+  vertical-align: middle; }
 
 button,
 input,
@@ -311,7 +310,7 @@ h6 {
   --invalid-input-shadow: rgba(174, 50, 59, 0.3);
   --input-color: #000;
   --input-background: #f9f9f9;
-  --input-border: #dbdbdb;
+  --input-border: #595959;
   --input-shadow: #f3f3f3;
   --input-focus: #bee74b;
   --input-file-color: var(--body-color);
@@ -2396,10 +2395,10 @@ p.warning-msg {
   font-size: .875em;
   padding: 2px .5em;
   margin-right: 0.5em;
-  border: 1px solid;
   border-radius: .25em;
   color: var(--body-color);
-  background: var(--body-background); }
+  background: var(--body-background);
+  filter: opacity(0.85); }
 
 .close-notice-parent {
   position: relative;

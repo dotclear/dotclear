@@ -152,10 +152,10 @@ p.warning-msg {
   font-size: .875em;
   padding: 2px .5em;
   margin-right: 0.5em;
-  border: 1px solid;
   border-radius: .25em;
   color: var(--body-color);
   background: var(--body-background);
+  filter: opacity(0.85);
 }
 
 .close-notice-parent {

@@ -373,6 +373,8 @@ EOT;
         $core = self::getCore();
         $js   = [];
 
+        $safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
+
         # Display
         header('Content-Type: text/html; charset=UTF-8');
 

@@ -185,7 +185,7 @@
 
   --input-color:                     $black;
   --input-background:                scale-color($gray-very-light, $lightness: 50%);
-  --input-border:                    scale-color($gray-very-light, $lightness: -10%);
+  --input-border:                    $gray-darker;
   --input-shadow:                    $gray-very-light;
   --input-focus:                     $link-outline;
 
