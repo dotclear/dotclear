@@ -2540,8 +2540,7 @@ h1 {
     padding: 2px 8px 3px;
     color: var(--header-active-color);
     background-color: var(--header-active-background);
-    font-weight: bold;
-    }
+    font-weight: bold; }
 
 /* ------------------------------------------------------------------------------------
                               UN POIL DE MEDIA QUERIES
@@ -3901,6 +3900,9 @@ div.template-upload {
     background-repeat: no-repeat; }
   .pw-show:hover, .pw-show:focus, .pw-show:active, .pw-hide:hover, .pw-hide:focus, .pw-hide:active {
     background-color: #fff; }
+
+input.maximal.pwd_helper {
+  max-width: calc(100% - 3em); }
 
 body.auth .pw-show, body.auth .pw-hide {
   height: 2em; }

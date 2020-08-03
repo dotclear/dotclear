@@ -109,7 +109,7 @@ $(function() {
       user_pref: 'dcx_post_lang',
       legend_click: true
     });
-    $('#post_password').parent().children('label').toggleWithLegend($('#post_password'), {
+    $('#post_password').parent().children('label').toggleWithLegend($('#post_password').parent().children().not('label'), {
       user_pref: 'dcx_post_password',
       legend_click: true,
       hide: $('#post_password').val() == ''
