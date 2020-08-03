@@ -504,6 +504,7 @@ datePicker.prototype = {
     const imgE = document.createElement('img');
     imgE.src = this.img_src;
     imgE.alt = this.img_alt;
+    imgE.className = 'date-picker-btn';
     imgE.obj = this;
     imgE.fn = this.show;
     imgE.onclick = function() {

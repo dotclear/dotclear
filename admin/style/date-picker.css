@@ -1,42 +1,45 @@
+.date-picker-btn {
+  vertical-align: middle;
+}
 .date-picker {
-	border-collapse: collapse;
-	background: #fff;
-	color: #e2e2e2;
-	border: 1px solid #666;
-	width: auto;
+  border-collapse: collapse;
+  background: #fff;
+  color: #e2e2e2;
+  border: 1px solid #666;
+  width: auto;
 }
 .date-picker th {
-	border: none;
-	background-color: #2b90d8;
-	color: #fff;
-	text-align: center;
+  border: none;
+  background-color: #2b90d8;
+  color: #fff;
+  text-align: center;
 }
 .date-picker td {
-	border: none;
-	text-align: center;
-	padding : 4px 6px;
+  border: none;
+  text-align: center;
+  padding : 4px 6px;
 }
 th.date-picker-month {
-	text-align: left;
+  text-align: left;
 }
 th.date-picker-year {
-	text-align: right;
+  text-align: right;
 }
 .date-picker-control, th.date-picker-control {
-	color: #eee;
-	cursor: pointer;
+  color: #eee;
+  cursor: pointer;
 }
 .date-picker-day, .date-picker-today {
-	color: #000;
-	background: #e2e2e2;
-	cursor: pointer;
+  color: #000;
+  background: #e2e2e2;
+  cursor: pointer;
 }
 .date-picker-today {
-	color: #fff;
-	background: rgb(239, 83, 80);
-	font-weight: bold;
+  color: #fff;
+  background: rgb(239, 83, 80);
+  font-weight: bold;
 }
 .date-picker input {
-	border: 1px solid #eee;
-	padding: .125em .5em;
+  border: 1px solid #eee;
+  padding: .125em .5em;
 }
