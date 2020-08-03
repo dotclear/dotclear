@@ -2540,7 +2540,8 @@ h1 {
     padding: 2px 8px 3px;
     color: var(--header-active-color);
     background-color: var(--header-active-background);
-    font-weight: bold; }
+    font-weight: bold;
+    }
 
 /* ------------------------------------------------------------------------------------
                               UN POIL DE MEDIA QUERIES
@@ -2708,9 +2709,9 @@ h1 {
   color: var(--link);
   line-height: 3; }
   #help-button.floatable {
-    border-top: 2px solid var(--help-button-border);
-    border-left: 2px solid var(--help-button-border);
-    border-bottom: 2px solid var(--help-button-border);
+    border-top: 1px solid var(--help-button-border);
+    border-left: 1px solid var(--help-button-border);
+    border-bottom: 1px solid var(--help-button-border);
     border-bottom-left-radius: 1em;
     border-top-left-radius: 1em;
     background-color: var(--help-button-background);
@@ -3061,6 +3062,7 @@ span.ibw {
   padding: 1em;
   background: var(--quick-background);
   border: 1px solid var(--quick-border);
+  border-radius: 3px;
   text-align: left; }
   #quick h3 {
     margin-bottom: 0.2em;

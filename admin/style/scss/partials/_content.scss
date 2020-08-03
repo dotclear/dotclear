@@ -124,9 +124,9 @@
   line-height: 3;
 
   &.floatable {
-    border-top: 2px solid var(--help-button-border);
-    border-left: 2px solid var(--help-button-border);
-    border-bottom: 2px solid var(--help-button-border);
+    border-top: 1px solid var(--help-button-border);
+    border-left: 1px solid var(--help-button-border);
+    border-bottom: 1px solid var(--help-button-border);
     border-bottom-left-radius: 1em;
     border-top-left-radius: 1em;
     background-color: var(--help-button-background);
