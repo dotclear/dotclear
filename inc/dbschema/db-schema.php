@@ -223,6 +223,18 @@ $_s->pref
     ->unique('uk_pref', 'pref_ws', 'pref_id', 'user_id')
 ;
 
+$_s->notice
+    ->notice_id('bigint', 0, false)
+    ->ses_id('varchar', 40, false)
+    ->notice_type('varchar', 32, true)
+    ->notice_ts('timestamp', 0, false, 'now()')
+    ->notice_msg('text', 0, true, null)
+    ->notice_format('varchar', 32, true, "'text'")
+    ->notice_options('text', 0, true, null)
+
+    ->primary('pk_notice', 'notice_id')
+;
+
 /* References indexes
 -------------------------------------------------------- */
 $_s->category->index('idx_category_blog_id', 'btree', 'blog_id');
@@ -271,6 +283,7 @@ $_s->comment->reference('fk_comment_post', 'post_id', 'post', 'post_id', 'cascad
 $_s->log->reference('fk_log_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'set null');
 $_s->meta->reference('fk_meta_post', 'post_id', 'post', 'post_id', 'cascade', 'cascade');
 $_s->pref->reference('fk_pref_user', 'user_id', 'user', 'user_id', 'cascade', 'cascade');
+$_s->notice->reference('fk_notice_session', 'ses_id', 'session', 'ses_id', 'cascade', 'cascade');
 
 /* PostgreSQL specific indexes
 -------------------------------------------------------- */

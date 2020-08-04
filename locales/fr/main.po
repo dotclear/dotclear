@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-24 10:23+0200\n"
+"POT-Creation-Date: 2020-05-22 18:01+0200\n"
 "PO-Revision-Date: 2020-04-29 10:29\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French\n"
@@ -854,12 +854,20 @@ msgid "Your comment on my blog %s"
 msgstr "Votre commentaire sur mon blog %s"
 
 #, php-format
-msgid "Hi!\n\n"
+msgid ""
+"Hi!\n"
+"\n"
 "You wrote a comment on:\n"
-"%s\n\n\n"
-msgstr "Bonjour,\n\n"
+"%s\n"
+"\n"
+"\n"
+msgstr ""
+"Bonjour,\n"
+"\n"
 "Vous avez déposé un commentaire sur :\n"
-"%s\n\n\n"
+"%s\n"
+"\n"
+"\n"
 
 msgid "Send an e-mail"
 msgstr "Envoyer un email"
@@ -1109,9 +1117,11 @@ msgstr "Ceci est votre premier billet. Quand vous serez prêt à bloguer, connec
 msgid "Dotclear Team"
 msgstr "L'équipe Dotclear"
 
-msgid "<p>This is a comment.</p>\n"
+msgid ""
+"<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr "<p>Ceci est un commentaire</p>\n"
+msgstr ""
+"<p>Ceci est un commentaire</p>\n"
 "<p>Pour le supprimer, connectez-vous et affichez les commentaires de votre blog. Vous pourrez alors le supprimer ou le modifier.</p>"
 
 msgid "Dotclear Install"
@@ -2225,6 +2235,12 @@ msgstr "Interface"
 msgid "Activate dark mode"
 msgstr "Activer le mode sombre"
 
+msgid "Light"
+msgstr "Clair"
+
+msgid "Dark"
+msgstr "Sombre"
+
 msgid "Activate enhanced uploader in media manager"
 msgstr "Activer l'interface avancée de la médiathèque"
 
@@ -2608,6 +2624,15 @@ msgstr "Blog :"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr "%s est super administrateur·rice (tous les droits sur tous les blogs)."
 
+msgid "Direct links"
+msgstr "Liens directs"
+
+msgid "List of posts"
+msgstr "Liste des billets"
+
+msgid "List of comments"
+msgstr "Liste des commentaires"
+
 msgid "Set permissions"
 msgstr "Définir les permissions"
 
@@ -2700,17 +2725,17 @@ msgstr "Mettre en attente"
 msgid "Mark as junk"
 msgstr "Mettre en indésirable"
 
-msgid "Blacklist IP"
-msgstr "Ajouter en liste noire"
+msgid "Blocklist IP"
+msgstr "Ajouter en liste de blocage"
 
-msgid "Blacklist IP (global)"
-msgstr "Ajouter en liste noire (pour tous les blogs)"
+msgid "Blocklist IP (global)"
+msgstr "Ajouter en liste de blocage (pour tous les blogs)"
 
 msgid "No comment selected"
 msgstr "Aucun commentaire sélectionné."
 
-msgid "IP addresses for selected comments have been blacklisted."
-msgstr "Les adresses IP des commentaires sélectionnés ont été ajoutées en liste noire."
+msgid "IP addresses for selected comments have been blocklisted."
+msgstr "Les adresses IP des commentaires sélectionnés ont été ajoutées en liste de blocage."
 
 msgid "Back to entries list"
 msgstr "Retour à la liste des billets"
@@ -3040,6 +3065,12 @@ msgstr "Mots-clés:"
 msgid "Hide this notice"
 msgstr "Masquer ce message"
 
+msgid "Show password"
+msgstr "Montrer le mot de passe"
+
+msgid "Hide password"
+msgstr "Cacher le mot de passe"
+
 msgid "You have unsaved changes."
 msgstr "Vous avez des modifications non sauvegardées."
 
@@ -3178,6 +3209,9 @@ msgstr "Installer"
 msgid "Update"
 msgstr "Mise à jour"
 
+msgid "Clone"
+msgstr "Dupliquer"
+
 msgid "Activate selected plugins"
 msgstr "Activer les plugins sélectionnés"
 
@@ -3307,8 +3341,9 @@ msgstr "Mettre à jour tous les thèmes de cette liste"
 msgid "No such theme."
 msgstr "Thème inexistant."
 
-msgid "Theme has been successfully selected."
-msgstr "Ce thème a été sélectionné."
+#, php-format
+msgid "Theme %s has been successfully selected."
+msgstr "Le thème %s a été sélectionné."
 
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
@@ -3322,6 +3357,11 @@ msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Ce thème a été désactivé."
 msgstr[1] "Ces thèmes ont été désactivé."
+
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
+msgstr[0] "Ce thème a été dupliqué."
+msgstr[1] "Ces thèmes ont été dupliqués."
 
 msgid "You don't have permissions to delete this theme."
 msgstr "Vous n'avez pas les permissions pour supprimer ce thème."
@@ -3796,6 +3836,24 @@ msgstr "Le plugin ne peut pas être désactivé."
 msgid "Cannot activate plugin."
 msgstr "Le plugin ne peut pas être activé."
 
+msgid "Themes folder unreachable"
+msgstr "Le répertoire des thèmes n'est pas accessible"
+
+msgid "Themes folder unreadable"
+msgstr "Le répertoire des thèmes n'est pas lisible"
+
+msgid " (copy)"
+msgstr " (copie)"
+
+msgid " (copy #%s)"
+msgstr " (copie %s)"
+
+msgid "Unable to modify _config.php"
+msgstr "Impossible de modifier le fichier _config.php"
+
+msgid "Destination folder already exist"
+msgstr "Le répertoire de destination existe déjà"
+
 #, php-format
 msgid "Invalid setting dcNamespace: %s"
 msgstr "Espace de nom du paramètre invalide : %s"
@@ -3957,4 +4015,3 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
-

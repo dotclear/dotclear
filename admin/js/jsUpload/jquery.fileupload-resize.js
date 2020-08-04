@@ -114,7 +114,7 @@
                 var that = this,
                     file = data.files[data.index],
                     dfd = $.Deferred();
-                if (($.type(options.maxFileSize) === 'number' &&
+                if ((typeof options.maxFileSize === 'number' &&
                             file.size > options.maxFileSize) ||
                         (options.fileTypes &&
                             !options.fileTypes.test(file.type)) ||

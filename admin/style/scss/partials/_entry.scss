@@ -1,67 +1,76 @@
 #entry-form {
-	display: flex;
-	flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #entry-wrapper {
-	flex-grow: 1;
-	width: calc(100% - 19em);
-	@media screen and (max-width: $xl-screen) {
-		width: 100%;
-	}
+  flex-grow: 1;
+  width: calc(100% - 19em);
+
+  @media screen and (max-width: $xl-screen) {
+    width: 100%;
+  }
 }
 
 #entry-content {
-	margin-left: 0;
-	@media screen and (min-width: $xl-screen + 0.01em ) {
-		// Large padding on big screens
-		padding-right: 3em;
-	}
-	@media screen and (max-width: $xs-screen) {
-		// Small padding on medium screens
-		padding-right: 1em;
-	}
-	@media screen and (max-width: $xxs-screen) {
-		// No padding on small screens
-		padding-right: 0;
-	}
+  margin-left: 0;
+
+  @media screen and (min-width: $xl-screen + 0.01em) {
+    // Large padding on big screens
+    padding-right: 3em;
+  }
+
+  @media screen and (max-width: $xs-screen) {
+    // Small padding on medium screens
+    padding-right: 1em;
+  }
+
+  @media screen and (max-width: $xxs-screen) {
+    // No padding on small screens
+    padding-right: 0;
+  }
 }
 
 #entry-sidebar {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
-	@media screen and (max-width: $xl-screen) {
-		flex-direction: row;
-	}
-	@media screen and (max-width: $xs-screen) {
-		padding-right: 1em;
-	}
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 
-	h4 {
-		font-size: 1.08em;
-		margin-top: .3em;
-		border-bottom: 1px solid $entry-sb-title-border;
-	}
-	select {
-		width: 100%;
-	}
-	input#post_position {
-		width: 4em;
-	}
+  @media screen and (max-width: $xl-screen) {
+    flex-direction: row;
+  }
+
+  @media screen and (max-width: $xs-screen) {
+    padding-right: 1em;
+  }
+
+  h4 {
+    font-size: 1.08em;
+    margin-top: .3em;
+    border-bottom: 1px solid var(--entry-sb-title-border);
+  }
+
+  select {
+    width: 100%;
+  }
+
+  input#post_position {
+    width: 4em;
+  }
 }
 
 .sb-box {
-	width: 18em;
-	margin-bottom: 1em;
-	margin-right: 1em;
-	padding: .5em 1em;
-	background-color: $entry-sb-background;
-	&:focus-within {
-		background-color: $entry-sb-focus-background;
-	}
+  width: 18em;
+  margin-bottom: 1em;
+  margin-right: 1em;
+  padding: .5em 1em;
+  background-color: var(--entry-sb-background);
+
+  &:focus-within {
+    background-color: var(--entry-sb-focus-background);
+  }
 }
 
 #tb_excerpt {
-	width: 100%;
+  width: 100%;
 }

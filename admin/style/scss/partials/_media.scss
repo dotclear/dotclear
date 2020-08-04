@@ -1,287 +1,315 @@
 .media-file-mode {
-	a {
-		border-bottom: none;
-	}
-	img {
-		margin-right: 1em;
-	}
+  a {
+    border-bottom: none;
+  }
+
+  img {
+    margin-right: 1em;
+  }
 }
 
 span.media-file-mode {
-	margin-right: 1em;
+  margin-right: 1em;
 }
 
 .media-item {
-	position: relative;
-	border: 1px solid $media-item-border;
-	margin: 9px;
-	padding: 10px 12px 6px;
-	width: 320px;
-	display: inline-block;
-	vertical-align: top;
-	min-height: 140px;
-	word-wrap: break-word;
-	p {
-		margin: 0 0 .5em;
-	}
-	object {
-		margin-top: .5em;
-	}
-	ul {
-		display: block;
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-	audio {
-		width: 100%;
-		margin-top: .5em;
-	}
+  position: relative;
+  border: 1px solid var(--media-item-border);
+  margin: 9px;
+  padding: 10px 12px 6px;
+  width: 320px;
+  display: inline-block;
+  vertical-align: top;
+  min-height: 140px;
+  word-wrap: break-word;
+
+  p {
+    margin: 0 0 .5em;
+  }
+
+  object {
+    margin-top: .5em;
+  }
+
+  ul {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  audio {
+    width: 100%;
+    margin-top: .5em;
+  }
+
   &.media-private {
-    border-color: $media-item-border-private;
+    border-color: var(--media-item-border-private);
+
     & img.media-private {
       padding-right: .5em;
     }
   }
 }
+
 tr.media-private img.media-private {
   padding-right: .5em;
 }
 
 a.media-icon {
-	display: block;
-	border-bottom: none;
-	margin: 0 auto;
+  display: block;
+  border-bottom: none;
+  margin: 0 auto;
 }
 
 .media-icon img {
-	display: block;
+  display: block;
 }
 
 a.media-flag {
-	border-bottom: none;
+  border-bottom: none;
 }
 
 .media-flag img {
-	float: left;
-	margin-right: .5em;
+  float: left;
+  margin-right: .5em;
 }
 
 .media-link {
-	font-size: 1.1em;
+  font-size: 1.1em;
 }
 
 .media-action-box {
-	position: relative;
-	margin: 3em 3em 1em 1em;
-	display: inline-block;
-	vertical-align: top;
+  position: relative;
+  margin: 3em 3em 1em 1em;
+  display: inline-block;
+  vertical-align: top;
 }
 
 li.media-action {
-	display: block;
-	position: absolute;
-	top: 4px;
-	right: 8px;
-	height: 16px;
-	a {
-		border: none;
-		&.attach-media {
-			margin-right: 5px;
-		}
-	}
-	form {
-		display: inline;
-	}
-	input {
-		border: none;
-	}
+  display: block;
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  height: 16px;
+
+  a {
+    border: none;
+
+    &.attach-media {
+      margin-right: 5px;
+    }
+  }
+
+  form {
+    display: inline;
+  }
+
+  input {
+    border: none;
+  }
 }
 
 #entry-sidebar .media-item {
-	width: 100%;
-	min-height: 0;
-	padding: 4px;
-	margin: .33em 0;
+  width: 100%;
+  min-height: 0;
+  padding: 4px;
+  margin: .33em 0;
 }
 
 .folders-group .media-item {
-	min-height: 70px;
-	p {
-		margin-bottom: 0;
-	}
+  min-height: 70px;
+
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .media-folder {
-	background: $media-folder-background;
-	border-color: $media-folder-border;
+  background: var(--media-folder-background);
+  border-color: var(--media-folder-border);
   border-left-width: 8px;
-	.media-link {
-		font-size: 1.125em;
-		margin-left: 2em;
-		color: $media-folder-link;
-		border-bottom: none;
-	}
+
+  .media-link {
+    font-size: 1.125em;
+    margin-left: 2em;
+    color: var(--media-folder-link);
+    border-bottom: none;
+  }
 }
 
 tr.media-folder {
-	background: $media-folder-background;
-	.media-link {
-		margin-left: 0;
-	}
+  background: var(--media-folder-background);
+
+  .media-link {
+    margin-left: 0;
+  }
 }
 
 .media-folder-up {
-	border-color: $media-folderup-border;
-	padding-bottom: 6px;
+  border-color: var(--media-folderup-border);
+  padding-bottom: 6px;
 }
 
 .medias-delete,
 .medias-select {
-	text-align: right;
+  text-align: right;
 }
 
 .media-recent {
-	float: left;
-	margin-right: 2em;
+  float: left;
+  margin-right: 2em;
 }
 
 #media-fav-dir {
-	border-bottom: none;
-	img {
-		vertical-align: middle;
-	}
+  border-bottom: none;
+
+  img {
+    vertical-align: middle;
+  }
 }
 
 
 /* upload multiple */
 
 .enhanced_uploader {
-	.choose_files,
-	.cancel,
-	.clean,
-	.start {
-		margin-right: .4em;
-	}
-	#upfile {
-		visibility: hidden;
-		width: 0;
-		height: 0;
-		margin: 0;
-		opacity: 0;
-		filter: alpha(opacity=0);
-		cursor: pointer;
-	}
-	.button.choose_files {
-		display: inline-block;
-	}
-	.max-size {
-		display: block;
-	}
-	.one-file {
-		display: none;
-	}
-	p.clear {
-		padding-top: 1em;
-		margin-bottom: 1em;
-	}
+  .choose_files,
+  .cancel,
+  .clean,
+  .start {
+    margin-right: .4em;
+  }
+
+  #upfile {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    margin: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+  }
+
+  .button.choose_files {
+    display: inline-block;
+  }
+
+  .max-size {
+    display: block;
+  }
+
+  .one-file {
+    display: none;
+  }
+
+  p.clear {
+    padding-top: 1em;
+    margin-bottom: 1em;
+  }
 }
 
 .button.clean,
 .button.cancel,
 .button.choose_files {
-	display: none;
+  display: none;
 }
 
 label span.one-file {
-	display: inline;
+  display: inline;
 }
 
 #add-file-f p.clear {
-	margin-top: 1em;
-	margin-bottom: 0;
-	clear: both;
+  margin-top: 1em;
+  margin-bottom: 0;
+  clear: both;
 }
 
 .files {
-	list-style-type: none;
-	margin-left: 0;
-	padding-left: 0;
-	border-bottom: 1px solid $media-files-border;
-	li {
-		margin-left: 0;
-		padding-left: 0;
-	}
+  list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+  border-bottom: 1px solid var(--media-files-border);
+
+  li {
+    margin-left: 0;
+    padding-left: 0;
+  }
 }
 
 .upload-msg {
-	font-weight: bold;
-	&.upload-error {
-		color: $upload-error-color;
-	}
+  font-weight: bold;
+
+  &.upload-error {
+    color: var(--upload-error-color);
+  }
 }
 
 .upload-files {
-	padding: 0 0.5em;
-	margin: 1em 0;
+  padding: 0 0.5em;
+  margin: 1em 0;
 }
 
 .upload-file {
-	margin: 0;
-	padding: .3em 0;
-	border-top: 1px solid $upload-file-border;
-	position: relative;
+  margin: 0;
+  padding: .3em 0;
+  border-top: 1px solid var(--upload-file-border);
+  position: relative;
 }
 
 .upload-fileinfo {
-	margin-left: 0;
-	input {
-		position: absolute;
-		top: .5em;
-		right: .5em;
-	}
-	span {
-		padding-right: 8px;
-	}
-	.upload-filecancel {
-		display: block;
-		padding-right: 0;
-		margin-top: 3px;
-		width: 20px;
-		height: 20px;
-		background: transparent url("cancel.png") no-repeat left top;
-		text-indent: -1000px;
-		cursor: pointer;
-		float: left;
-	}
+  margin-left: 0;
+
+  input {
+    position: absolute;
+    top: .5em;
+    right: .5em;
+  }
+
+  span {
+    padding-right: 8px;
+  }
+
+  .upload-filecancel {
+    display: block;
+    padding-right: 0;
+    margin-top: 3px;
+    width: 20px;
+    height: 20px;
+    background: transparent url("cancel.png") no-repeat left top;
+    text-indent: -1000px;
+    cursor: pointer;
+    float: left;
+  }
 }
 
 .upload-filemsg {
-	font-weight: bold;
-	color: $upload-filemsg-color;
-	&.upload-error {
-		color: $upload-error-color;
-	}
+  font-weight: bold;
+  color: var(--upload-filemsg-color);
+
+  &.upload-error {
+    color: var(--upload-error-color);
+  }
 }
 
 .upload-progress {
-	padding: .3em 0;
-	div {
-		width: 0;
-		height: 1.2em;
-		font-weight: bold;
-		line-height: 1.2em;
-		text-align: right;
-		background: $upload-progress-background url(loader.png) repeat-x left top;
-		color: $upload-progress-color;
-		border-radius: 3px;
-	}
+  padding: .3em 0;
+
+  div {
+    width: 0;
+    height: 1.2em;
+    font-weight: bold;
+    line-height: 1.2em;
+    text-align: right;
+    background: var(--upload-progress-background) url(loader.png) repeat-x left top;
+    color: var(--upload-progress-color);
+    border-radius: 3px;
+  }
 }
 
 div.template-upload {
-	clear: both;
+  clear: both;
 }
 
 .queue-message {
-	font-weight: bold;
+  font-weight: bold;
 }

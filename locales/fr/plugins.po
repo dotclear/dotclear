@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-24 10:23+0200\n"
+"POT-Creation-Date: 2020-05-22 18:01+0200\n"
 "PO-Revision-Date: 2020-04-29 10:29\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French\n"
@@ -202,8 +202,8 @@ msgstr "(dont %d indésirable)"
 msgid "(including %d spam comments)"
 msgstr "(dont %d indésirables)"
 
-msgid "IP Blacklist / Whitelist Filter"
-msgstr "Filtre de liste noire et blanche d'IP"
+msgid "IP Blocklist / Allowlist Filter"
+msgstr "Filtre de liste de blocage et d'autorisation d'IP"
 
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
@@ -215,11 +215,11 @@ msgstr "L'adresse IP a été ajoutée."
 msgid "IP addresses have been successfully removed."
 msgstr "L'adresse IP a été retirée."
 
-msgid "Blacklist"
-msgstr "Liste noire"
+msgid "Blocklist"
+msgstr "Liste de blocage"
 
-msgid "Whitelist"
-msgstr "Liste blanche"
+msgid "Allowlist"
+msgstr "Liste d'autorisation"
 
 msgid "Add an IP address: "
 msgstr "Ajouter une adresse IP : "
@@ -261,7 +261,7 @@ msgstr "Ajouter ici la liste des serveurs séparés par des virgules."
 msgid "Checks links in comments against surbl.org"
 msgstr "Contrôle les liens des commentaires via surbl.org"
 
-msgid "Words Blacklist"
+msgid "Words Blocklist"
 msgstr "Liste de mots interdits"
 
 #, php-format
@@ -2275,4 +2275,3 @@ msgstr "Retirer le widget"
 
 msgid "Drag widgets here to remove."
 msgstr "Glisser les widgets ici pour les retirer du volet."
-

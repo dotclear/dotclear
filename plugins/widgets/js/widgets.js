@@ -126,7 +126,7 @@ $(function() {
   });
 
   // HTML text editor
-  if (typeof jsToolBar !== 'undefined' && $.isFunction(jsToolBar)) {
+  if (typeof jsToolBar === 'function') {
     $('#sidebarsWidgets textarea:not(.noeditor)').each(function() {
       let tbWidgetText = new jsToolBar(this);
       tbWidgetText.draw('xhtml');

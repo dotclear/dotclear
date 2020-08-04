@@ -520,8 +520,10 @@ if (!$step) {
     echo '<form id="settings" action="' . $p_url . '" method="post">' .
     '<p>' . form::checkbox('active', 1, $menu_active) .
     '<label class="classic" for="active">' . __('Enable simple menu for this blog') . '</label>' . '</p>' .
-    '<p>' . $core->formNonce() . '<input type="submit" name="saveconfig" value="' . __('Save configuration') . '" />' . '</p>' .
-        '</form>';
+    '<p>' . $core->formNonce() . '<input type="submit" name="saveconfig" value="' . __('Save configuration') . '" />' .
+    ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+    '</p>' .
+    '</form>';
 }
 
 // Liste des items
@@ -575,25 +577,25 @@ if (count($menu)) {
                 'max'        => count($menu),
                 'default'    => $count,
                 'class'      => 'position',
-                'extra_html' => 'title="' . sprintf(__('position of %s'), html::escapeHTML(__($m['label']))) . '"'
+                'extra_html' => 'title="' . sprintf(__('position of %s'), html::escapeHTML($m['label'])) . '"'
             ]) .
             form::hidden(['dynorder[]', 'dynorder-' . $i], $i) . '</td>';
             echo '<td class="minimal">' . form::checkbox(['items_selected[]', 'ims-' . $i], $i) . '</td>';
             echo '<td class="nowrap" scope="row">' . form::field(['items_label[]', 'iml-' . $i], '', 255,
                 [
-                    'default'    => html::escapeHTML(__($m['label'])),
+                    'default'    => html::escapeHTML($m['label']),
                     'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
                 ]) . '</td>';
             echo '<td class="nowrap">' . form::field(['items_descr[]', 'imd-' . $i], '30', 255,
                 [
-                    'default'    => html::escapeHTML(__($m['descr'])),
+                    'default'    => html::escapeHTML($m['descr']),
                     'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
                 ]) . '</td>';
             echo '<td class="nowrap">' . form::field(['items_url[]', 'imu-' . $i], '30', 255, html::escapeHTML($m['url'])) . '</td>';
             echo '<td class="nowrap">' . form::checkbox('items_targetBlank' . $i, 'blank', $targetBlank) . '</td>';
         } else {
-            echo '<td class="nowrap" scope="row">' . html::escapeHTML(__($m['label'])) . '</td>';
-            echo '<td class="nowrap">' . html::escapeHTML(__($m['descr'])) . '</td>';
+            echo '<td class="nowrap" scope="row">' . html::escapeHTML($m['label']) . '</td>';
+            echo '<td class="nowrap">' . html::escapeHTML($m['descr']) . '</td>';
             echo '<td class="nowrap">' . html::escapeHTML($m['url']) . '</td>';
             echo '<td class="nowrap">' . $targetBlankStr . '</td>';
 

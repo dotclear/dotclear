@@ -74,7 +74,8 @@ class dcTemplate extends template
         $this->addValue('BlogPostsURL', [$this, 'BlogPostsURL']);
         $this->addBlock('IfBlogStaticEntryURL', [$this, 'IfBlogStaticEntryURL']);
         $this->addValue('BlogStaticEntryURL', [$this, 'BlogStaticEntryURL']);
-
+        $this->addValue('BlogNbEntriesFirstPage', [$this, 'BlogNbEntriesFirstPage']);
+        $this->addValue('BlogNbEntriesPerPage', [$this, 'BlogNbEntriesPerPage']);
 
         # Categories
         $this->addBlock('Categories', [$this, 'Categories']);
@@ -929,6 +930,24 @@ class dcTemplate extends template
         return "<?php\n" . $p . " ?>";
     }
 
+    /*dtd
+    <!ELEMENT tpl:BlogNbEntriesFirstPage - O -- Number of entries for 1st page -->
+     */
+    public function BlogNbEntriesFirstPage($attr)
+    {
+        $f = $this->getFilters($attr);
+        return '<?php echo ' . sprintf($f, '$core->blog->settings->system->nb_post_for_home') . '; ?>';
+    }
+
+    /*dtd
+    <!ELEMENT tpl:BlogNbEntriesPerPage - O -- Number of entries per page -->
+     */
+    public function BlogNbEntriesPerPage($attr)
+    {
+        $f = $this->getFilters($attr);
+        return '<?php echo ' . sprintf($f, '$core->blog->settings->system->nb_post_per_page') . '; ?>';
+    }
+
     /* Categories ----------------------------------------- */
 
     /*dtd
@@ -1533,16 +1552,20 @@ class dcTemplate extends template
     <!ELEMENT tpl:EntryIfOdd - O -- displays value if entry is in an odd position -->
     <!ATTLIST tpl:EntryIfOdd
     return    CDATA    #IMPLIED    -- value to display in case of success (default: odd)
+    even      CDATA    #IMPLIED    -- value to display in case of failure (default: <empty>)
     >
      */
     public function EntryIfOdd($attr)
     {
-        $ret = isset($attr['return']) ? $attr['return'] : 'odd';
-        $ret = html::escapeHTML($ret);
+        $odd = isset($attr['return']) ? $attr['return'] : 'odd';
+        $odd = html::escapeHTML($odd);
 
-        return
-        '<?php if (($_ctx->posts->index()+1)%2 == 1) { ' .
-        "echo '" . addslashes($ret) . "'; } ?>";
+        $even = isset($attr['even']) ? $attr['even'] : '';
+        $even = html::escapeHTML($even);
+
+        return '<?php echo (($_ctx->posts->index()+1)%2 ? ' .
+            '"' . addslashes($odd) . '" : ' .
+            '"' . addslashes($even) . '"); ?>';
     }
 
     /*dtd
@@ -1579,9 +1602,12 @@ class dcTemplate extends template
 
         if (!empty($attr['full'])) {
             return '<?php echo ' . sprintf($f,
-                '$_ctx->posts->getExcerpt(' . $urls . ')." ".$_ctx->posts->getContent(' . $urls . ')') . '; ?>';
+                '$_ctx->posts->getExcerpt(' . $urls . ').' .
+                '(strlen($_ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
+                '$_ctx->posts->getContent(' . $urls . ')') . '; ?>';
         } else {
-            return '<?php echo ' . sprintf($f, '$_ctx->posts->getContent(' . $urls . ')') . '; ?>';
+            return '<?php echo ' . sprintf($f,
+                '$_ctx->posts->getContent(' . $urls . ')') . '; ?>';
         }
     }
 
@@ -1594,7 +1620,7 @@ class dcTemplate extends template
      */
     public function EntryIfContentCut($attr, $content)
     {
-        if (empty($attr['cut_string']) || !empty($attr['full'])) {
+        if (empty($attr['cut_string'])) {
             return '';
         }
 
@@ -1609,10 +1635,25 @@ class dcTemplate extends template
         $full               = $this->getFilters($attr);
         $attr['cut_string'] = $cut;
 
-        return '<?php if (strlen(' . sprintf($full, '$_ctx->posts->getContent(' . $urls . ')') . ') > ' .
-        'strlen(' . sprintf($short, '$_ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
-            $content .
-            '<?php endif; ?>';
+        if (!empty($attr['full'])) {
+            return '<?php if (strlen(' . sprintf($full,
+                    '$_ctx->posts->getExcerpt(' . $urls . ').' .
+                    '(strlen($_ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
+                    '$_ctx->posts->getContent(' . $urls . ')') . ') > ' .
+                'strlen(' . sprintf($short,
+                    '$_ctx->posts->getExcerpt(' . $urls . ').' .
+                    '(strlen($_ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
+                    '$_ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
+                $content .
+                '<?php endif; ?>';
+        } else {
+            return '<?php if (strlen(' . sprintf($full,
+                    '$_ctx->posts->getContent(' . $urls . ')') . ') > ' .
+                'strlen(' . sprintf($short,
+                    '$_ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
+                $content .
+                '<?php endif; ?>';
+        }
     }
 
     /*dtd
@@ -2517,16 +2558,20 @@ class dcTemplate extends template
     <!ELEMENT tpl:CommentIfOdd - O -- displays value if comment is  at an odd position -->
     <!ATTLIST tpl:CommentIfOdd
     return    CDATA    #IMPLIED    -- value to display in case of success (default: odd)
+    even      CDATA    #IMPLIED    -- value to display in case of failure (default: <empty>)
     >
      */
     public function CommentIfOdd($attr)
     {
-        $ret = isset($attr['return']) ? $attr['return'] : 'odd';
-        $ret = html::escapeHTML($ret);
+        $odd = isset($attr['return']) ? $attr['return'] : 'odd';
+        $odd = html::escapeHTML($odd);
 
-        return
-        '<?php if (($_ctx->comments->index()+1)%2) { ' .
-        "echo '" . addslashes($ret) . "'; } ?>";
+        $even = isset($attr['even']) ? $attr['even'] : '';
+        $even = html::escapeHTML($even);
+
+        return '<?php echo (($_ctx->comments->index()+1)%2 ? ' .
+            '"' . addslashes($odd) . '" : ' .
+            '"' . addslashes($even) . '"); ?>';
     }
 
     /*dtd
@@ -2793,16 +2838,20 @@ class dcTemplate extends template
     <!ELEMENT tpl:PingIfOdd - O -- displays value if trackback is  at an odd position -->
     <!ATTLIST tpl:PingIfOdd
     return    CDATA    #IMPLIED    -- value to display in case of success (default: odd)
+    even      CDATA    #IMPLIED    -- value to display in case of failure (default: <empty>)
     >
      */
     public function PingIfOdd($attr)
     {
-        $ret = isset($attr['return']) ? $attr['return'] : 'odd';
-        $ret = html::escapeHTML($ret);
+        $odd = isset($attr['return']) ? $attr['return'] : 'odd';
+        $odd = html::escapeHTML($odd);
 
-        return
-        '<?php if (($_ctx->pings->index()+1)%2) { ' .
-        "echo '" . addslashes($ret) . "'; } ?>";
+        $even = isset($attr['even']) ? $attr['even'] : '';
+        $even = html::escapeHTML($even);
+
+        return '<?php echo (($_ctx->pings->index()+1)%2 ? ' .
+            '"' . addslashes($odd) . '" : ' .
+            '"' . addslashes($even) . '"); ?>';
     }
 
     /*dtd

@@ -533,10 +533,20 @@ class dcCore
                 'WHERE NULL IS NULL ';
         } else {
             $strReq =
-            'SELECT U.user_id,user_super,user_status,user_pwd,user_change_pwd,' .
-            'user_name,user_firstname,user_displayname,user_email,user_url,' .
-            'user_desc, user_lang,user_tz, user_post_status,user_options, ' .
-            'count(P.post_id) AS nb_post ' .
+                'SELECT U.user_id,user_super,user_status,user_pwd,user_change_pwd,' .
+                'user_name,user_firstname,user_displayname,user_email,user_url,' .
+                'user_desc, user_lang,user_tz, user_post_status,user_options, ' .
+                'count(P.post_id) AS nb_post ';
+            if (!empty($params['columns'])) {
+                $strReq .= ',';
+                if (is_array($params['columns'])) {
+                    $strReq .= implode(',', $params['columns']);
+                } else {
+                    $strReq .= $params['columns'];
+                }
+                $strReq .= ' ';
+            }
+            $strReq .=
             'FROM ' . $this->prefix . 'user U ' .
             'LEFT JOIN ' . $this->prefix . 'post P ON U.user_id = P.user_id ' .
                 'WHERE NULL IS NULL ';
@@ -962,9 +972,18 @@ class dcCore
                 '%2$s ';
         } else {
             $strReq =
-            'SELECT B.blog_id, blog_uid, blog_url, blog_name, blog_desc, blog_creadt, ' .
-            'blog_upddt, blog_status ' .
-            'FROM ' . $this->prefix . 'blog B ' .
+                'SELECT B.blog_id, blog_uid, blog_url, blog_name, blog_desc, blog_creadt, ' .
+                'blog_upddt, blog_status ';
+            if (!empty($params['columns'])) {
+                $strReq .= ',';
+                if (is_array($params['columns'])) {
+                    $strReq .= implode(',', $params['columns']);
+                } else {
+                    $strReq .= $params['columns'];
+                }
+                $strReq .= ' ';
+            }
+            $strReq .= 'FROM ' . $this->prefix . 'blog B ' .
                 '%1$s ' .
                 'WHERE NULL IS NULL ' .
                 '%2$s ';
@@ -1219,6 +1238,7 @@ class dcCore
             'active_sup'          => 1,
             'active_sub'          => 1,
             'active_i'            => 1,
+            'active_span'         => 1,
             'parse_pre'           => 1,
             'active_fr_syntax'    => 0,
             'first_title_level'   => 3,
@@ -1273,6 +1293,7 @@ class dcCore
             'active_sup'          => 0,
             'active_sub'          => 0,
             'active_i'            => 0,
+            'active_span'         => 0,
             'parse_pre'           => 0,
             'active_fr_syntax'    => 0
         ]);
@@ -1321,6 +1342,7 @@ class dcCore
             'active_sup'          => 1,
             'active_sub'          => 1,
             'active_i'            => 1,
+            'active_span'         => 0,
             'parse_pre'           => 0,
             'active_fr_syntax'    => 0
         ]);

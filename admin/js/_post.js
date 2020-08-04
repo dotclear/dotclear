@@ -74,6 +74,16 @@ $(function() {
       });
     }
   }
+  // Prevent history back if currently previewing Post (with magnificPopup
+  history.pushState(null, null);
+  window.addEventListener('popstate', function() {
+    if (document.querySelector('.mfp-ready')) {
+      // Prevent history back
+      history.go(1);
+      // Close current preview
+      $.magnificPopup.close();
+    }
+  });
 
   // Tabs events
   $('#edit-entry').on('onetabload', function() {
@@ -99,7 +109,7 @@ $(function() {
       user_pref: 'dcx_post_lang',
       legend_click: true
     });
-    $('#post_password').parent().children('label').toggleWithLegend($('#post_password'), {
+    $('#post_password').parent().children('label').toggleWithLegend($('#post_password').parent().children().not('label'), {
       user_pref: 'dcx_post_password',
       legend_click: true,
       hide: $('#post_password').val() == ''

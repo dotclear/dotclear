@@ -23,6 +23,8 @@ $sortby_combo = [
     __('Blog ID')     => 'B.blog_id',
     __('Status')      => 'blog_status'
 ];
+# --BEHAVIOR-- adminBlogsSortbyCombo
+$core->callBehavior('adminBlogsSortbyCombo', [ & $sortby_combo]);
 
 $order_combo = [
     __('Descending') => 'desc',
@@ -89,6 +91,10 @@ if ($sortby != $default_sortby || $order != $default_order) {
 $params['limit'] = [(($page - 1) * $nb_per_page), $nb_per_page];
 
 try {
+    # --BEHAVIOR-- adminGetBlogs
+    $params = new ArrayObject($params);
+    $core->callBehavior('adminGetBlogs', $params);
+
     $counter  = $core->getBlogs($params, 1);
     $rs       = $core->getBlogs($params);
     $nb_blog  = $counter->f(0);

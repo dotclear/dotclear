@@ -2,451 +2,486 @@
 // =Couleurs
 // ========================================================================== //
 
-// Palette de base
+@mixin theme-dark {
 
-$blue:            #76c2f1;
-$green:           #9ac123;
-$red:             #c44d58;
-$light-blue:      #a2cbe9;
-$orange:          #ff6e3a;
+  // Palette de base
 
-$gray:            #b2b5ba;
-$gray-dark:       #676e78;
+  $blue:            #76c2f1;
+  $green:           #9ac123;
+  $red:             #c44d58;
+  $light-blue:      #a2cbe9;
+  $orange:          #ff6e3a;
+  $marine:          #3a539b;
 
-$gray-very-dark:    shade($gray, 72%);  // #323232
-$gray-darker:       shade($gray, 50%);  // #595b5d
-$gray-semi-dark:    shade($gray, 25%);  // #868686
-$gray-light:        tint($gray, 30%);   // #c9c9c9
-$gray-lighter:      tint($gray, 75%);   // #ececec
-$gray-very-light:   tint($gray, 85%);   // #f3f3f3
+  $gray:            #b2b5ba;
+  $gray-dark:       #676e78;
 
-$white:           #fff;
-$black:           #000;
+  $gray-very-dark:    scale-color($gray, $lightness: -72%);
+  $gray-darker:       scale-color($gray, $lightness: -50%);
+  $gray-semi-dark:    scale-color($gray, $lightness: -25%);
+  $gray-light:        scale-color($gray, $lightness: 30%);
+  $gray-lighter:      scale-color($gray, $lightness: 75%);
+  $gray-very-light:   scale-color($gray, $lightness: 85%);
 
-// Palette secondaire
+  $white:           #fff;
+  $black:           #000;
 
-$warning:         #fefacd;
-$warning-alt:     #ffd478;
+  $soft-white:      #dcdee0;
+  $soft-gray:       #272b30;
 
-$info:            #d9edf7;
-$info-alt:        #bce8f1;
+  // Palette secondaire
 
-$error:           #ffbaba;
-$error-alt:       #ae323b;
+  $warning:         #fefacd;
+  $warning-alt:     #ffd478;
 
-$required:        #f783b3;
+  $info:            #d9edf7;
+  $info-alt:        #bce8f1;
 
-$success:         #bee74b;
-$success-alt:     #9bca1c;
+  $error:           #ffbaba;
+  $error-alt:       #ae323b;
 
-$link:            #76c2f1;
-$link-outline:    #bee74b;
+  $required:        #f783b3;
 
-$current-page:    #f783b3;
+  $success:         #bee74b;
+  $success-alt:     #9bca1c;
 
-$legacy:          #eef1ec;
-$code:            #fefacd;
-$tooltip:         #910ed3;
+  $link:            #76c2f1;
+  $link-outline:    #bee74b;
 
-$pw-very-weak:    #c44d58;
-$pw-weak:         #e1732c;
-$pw-mediocre:     #ff9900;
-$pw-strong:       #cdad12;
-$pw-very-strong:  #9ac123;
+  $current-page:    #f783b3;
 
-$submit:          #25a6e1;
-$submit-alt:      #188bc0;
+  $legacy:          #eef1ec;
+  $code:            #fefacd;
+  $tooltip:         #910ed3;
 
-$reset:           #eaeaea;
-$reset-alt:       #f9f9f9;
-$reset-ter:       #dadada;
+  $pw-very-weak:    #c44d58;
+  $pw-weak:         #e1732c;
+  $pw-mediocre:     #ff9900;
+  $pw-strong:       #cdad12;
+  $pw-very-strong:  #9ac123;
 
-$delete:          #ae323b;
-$delete-alt:      #b33630;
-$delete-ter:      #dc5f59;
+  $submit:          #25a6e1;
+  $submit-alt:      #188bc0;
 
-$add:             #bee74b;
-$add-alt:         #9bca1c;
+  $reset:           #eaeaea;
+  $reset-alt:       #f9f9f9;
+  $reset-ter:       #dadada;
 
-$badge:           #d54e21;  /* bright red */
-$badge-soft:      #607d8b;  /* slategray */
-$badge-info:      #3f51b5;  /* soft dark blue */
+  $delete:          #ae323b;
+  $delete-alt:      #b33630;
+  $delete-ter:      #dc5f59;
 
-// Common
+  $add:             #bee74b;
+  $add-alt:         #9bca1c;
 
-$body-color:                      #dcdee0;
-$body-background:                 #272b30;
+  $clone:           #7e2999;
+  $clone-alt:       #b456d2;
+  $clone-ter:       #9f34c1;
 
-$title-color:                     $gray;
-$title-alt-color:                 $orange;
+  $badge:           #d54e21;
+  $badge-soft:      #607d8b;
+  $badge-info:      #3f51b5;
 
-// Layout
+  // Common
 
-$header-color:                    $body-color;
-$header-background:               $body-background;
-$header-background-alt:           $gray-darker;
-$header-border:                   $green;
-$header-border-alt:               $gray-very-dark;
-$header-link-border:              $gray-semi-dark;
-$header-active-color:             $white;
-$header-active-background:        $gray-semi-dark;
-$header-active-color-alt:         $white;
-$header-active-background-alt:    $gray-semi-dark;
+  --body-color:                      $soft-white;
+  --body-background:                 $soft-gray;
 
-$wrapper-background:              $body-background;
+  --title-color:                     $gray;
+  --title-alt-color:                 $orange;
 
-$content-background:              $body-background;
+  // Layout
 
-$tabs-color:                      $gray-very-dark;
-$tabs-border:                     $gray-lighter;
-$tabs-background:                 $gray-light;
-$tabs-active-color:               $white;
-$tabs-active-background:          $gray-semi-dark;
+  --header-color:                    var(--body-color);
+  --header-background:               var(--body-background);
+  --header-background-alt:           $gray-darker;
+  --header-border:                   $green;
+  --header-border-alt:               $gray-very-dark;
+  --header-link-border:              $gray-semi-dark;
+  --header-active-color:             $white;
+  --header-active-background:        $gray-semi-dark;
+  --header-active-color-alt:         $white;
+  --header-active-background-alt:    $gray-semi-dark;
 
-$main-menu-background:            shade($gray-darker, 15%);
-$main-menu-title-color:           $gray-light;
-$main-menu-item-color:            $body-color;
-$main-menu-item-border:           tint($gray-dark, 66%);
-$main-menu-active-color:          $white;
-$main-menu-active-background:     $gray-semi-dark;
-$main-menu-border:                $light-blue;
+  --wrapper-background:              var(--body-background);
 
-$search-color:                    $white;
-$search-border:                   $gray-light;
-$search-background:               $submit;
-$search-submit-color:             $white;
-$search-submit-background:        $submit-alt;
-$search-outline:                  $link-outline;
-
-$footer-background:               $body-background;
-$footer-border:                   tint($gray-dark, 66%);
-
-$collapser-focus:                 $green;
-$collapser-background:            $gray-darker;
-
-$popup-title-color:               $body-color;
-$popup-title-background:          $gray-darker;
-
-// Markup
-
-$breadcrumb-background:           $body-background;
-$breadcrumb-border:               $gray-semi-dark;
-$breadcrumb-current:              $current-page;
-
-$fieldset-pretty-title-color:     $orange;
-$fieldset-smart-title-color:      $gray-very-light;
-$entry-sidebar-title-color:       $gray-lighter;
-$title-label-color:               $gray-lighter;
-
-$table-caption-color:             $body-color;
-$head-border:                     shade($gray-very-light, 10%);
-$head-background:                 $gray-darker;
-$line-input-background:           $gray-light;
-$line-background-over:            shade($gray-darker, 15%);
-$line-focus-background:           shade($gray-darker, 15%);
-$cell-border:                     $gray-lighter;
-$cell-noborder-color:             shade($gray-very-light, 10%);
-
-$hr-color:                        $gray-light;
-
-$code-color:                      $body-background;
-$code-background:                 $code;
-
-$link-color:                      $link;
-$link-border:                     $gray-semi-dark;
-$discrete-link-color:             $body-color;
-
-$outgoing-link-filter:            100%;
-
-// Forms
-
-$fieldset-border:                 tint($gray-dark, 66%);
-$fieldset-background:             $body-background;
-$fieldset-focus-background:       tint($body-background, 7%);
-
-$legend-border:                   tint($gray-dark, 66%);
-$legend-background:               $gray-darker;
+  --content-background:              var(--body-background);
 
-$invalid-input-color:             $black;
-$invalid-input-border:            $error-alt;
-$invalid-input-background:        $error;
-$invalid-input-shadow:            rgba($error-alt, 0.3);
+  --tabs-color:                      $gray-very-dark;
+  --tabs-border:                     $gray-lighter;
+  --tabs-background:                 $gray-light;
+  --tabs-active-color:               $white;
+  --tabs-active-background:          $gray-semi-dark;
 
-$input-color:                     $black;
-$input-background:                $gray-lighter;
-$input-border:                    tint($gray-dark, 10%);
-$input-shadow:                    $gray-lighter;
-$input-focus:                     $link-outline;
+  --main-menu-background:            scale-color($gray-darker, $lightness: -15%);
+  --main-menu-title-color:           $gray-light;
+  --main-menu-item-color:            var(--body-color);
+  --main-menu-item-border:           scale-color($gray-dark, $lightness: 66%);
+  --main-menu-active-color:          $white;
+  --main-menu-active-background:     $gray-semi-dark;
+  --main-menu-border:                $light-blue;
 
-$input-file-color:                $body-color;
-$input-file-background:           $body-background;
+  --search-color:                    $white;
+  --search-border:                   $gray-light;
+  --search-background:               $submit;
+  --search-submit-color:             $white;
+  --search-submit-background:        $submit-alt;
+  --search-outline:                  $link-outline;
 
-$form-note-color:                 $info-alt;
+  --footer-background:               var(--body-background);
+  --footer-border:                   scale-color($gray-dark, $lightness: 66%);
 
-$error-background:                $error;
+  --collapser-focus:                 $green;
+  --collapser-background:            $gray-darker;
+
+  --popup-title-color:               var(--body-color);
+  --popup-title-background:          $gray-darker;
+
+  // Markup
+
+  --breadcrumb-background:           var(--body-background);
+  --breadcrumb-border:               $gray-semi-dark;
+  --breadcrumb-current:              $current-page;
+
+  --fieldset-pretty-title-color:     $orange;
+  --fieldset-smart-title-color:      $gray-very-light;
+  --entry-sidebar-title-color:       $gray-lighter;
+  --title-label-color:               $gray-lighter;
+
+  --table-caption-color:             var(--body-color);
+  --head-border:                     scale-color($gray-very-light, $lightness: -10%);
+  --head-background:                 $gray-darker;
+  --line-input-background:           $gray-light;
+  --line-background-over:            scale-color($gray-darker, $lightness: -15%);
+  --line-focus-background:           scale-color($gray-darker, $lightness: -15%);
+  --cell-border:                     $gray-lighter;
+  --cell-noborder-color:             scale-color($gray-very-light, $lightness: -10%);
+
+  --hr-color:                        $gray-light;
+
+  --code-color:                      var(--body-background);
+  --code-background:                 $code;
+
+  --link-color:                      $link;
+  --link-border:                     $gray-semi-dark;
+  --discrete-link-color:             var(--body-color);
+  --link-outline:                    $link-outline;
+
+  --outgoing-link-filter:            100%;
+
+  // Forms
+
+  --fieldset-border:                 scale-color($gray-dark, $lightness: 66%);
+  --fieldset-background:             var(--body-background);
+  --fieldset-focus-background:       scale-color($soft-gray, $lightness: 7%);
+
+  --legend-border:                   scale-color($gray-dark, $lightness: 66%);
+  --legend-background:               $gray-darker;
+
+  --invalid-input-color:             $black;
+  --invalid-input-border:            $error-alt;
+  --invalid-input-background:        $error;
+  --invalid-input-shadow:            rgba($error-alt, 0.3);
+
+  --input-color:                     $black;
+  --input-background:                $gray-lighter;
+  --input-border:                    scale-color($gray-dark, $lightness: 10%);
+  --input-shadow:                    $gray-lighter;
+  --input-focus:                     $link-outline;
 
-// Buttons
+  --input-file-color:                var(--body-color);
+  --input-file-background:           var(--body-background);
 
-$button-color:                    $black;
-$button-border:                   $gray-semi-dark;
-$button-shadow:                   rgba($black, 0.05);
+  --form-note-color:                 $info-alt;
 
-$submit-color:                    $white;
-$submit-background:               $submit;
-$submit-background-alt:           $submit-alt;
-$submit-border:                   $gray-semi-dark;
+  --error-background:                $error;
 
-$reset-color:                     $black;
-$reset-background:                $reset;
-$reset-background-alt:            $reset-alt;
-$reset-background-ter:            $reset-ter;
-$reset-border:                    $gray-semi-dark;
+  --required:                        $required;
 
-$delete-color:                    $delete;
-$delete-hover-color:              $white;
-$delete-hover-background:         $delete-alt;
-$delete-hover-background-alt:     $delete-ter;
-$delete-hover-border:             $delete-ter;
+  // Buttons
 
-$add-color:                       $black;
-$add-background:                  $add;
-$add-background-alt:              $add-alt;
-$add-border:                      $add;
-$add-border-alt:                  $add-alt;
+  --button-color:                    $black;
+  --button-border:                   $gray-semi-dark;
+  --button-shadow:                   rgba($black, 0.05);
 
-$button-disabled-color:           $gray-dark;
-$button-disabled-background:      $gray-very-light;
-$button-disabled-background-alt:  $gray-lighter;
-$button-disabled-border:          $gray-semi-dark;
+  --submit-color:                    $white;
+  --submit-background:               $submit;
+  --submit-background-alt:           $submit-alt;
+  --submit-border:                   $gray-semi-dark;
 
-$ajax-color:                      $gray-very-dark;
-$ajax-background:                 $white;
-$ajax-background-alt:             $light-blue;
-$ajax-border:                     $gray-dark;
+  --reset-color:                     $black;
+  --reset-background:                $reset;
+  --reset-background-alt:            $reset-alt;
+  --reset-background-ter:            $reset-ter;
+  --reset-border:                    $gray-semi-dark;
 
-$gotop-color:                     $gray-very-dark;
-$gotop-background:                transparent;
-$gotop-border:                    none;
+  --delete-color:                    $delete;
+  --delete-hover-color:              $white;
+  --delete-hover-background:         $delete-alt;
+  --delete-hover-background-alt:     $delete-ter;
+  --delete-hover-border:             $delete-ter;
 
-$addmeta-color:                   $white;
-$addmeta-background:              transparent;
-$addmeta-focus-color:             $black;
-$addmeta-focus-background:        tint($light-blue, 10%);
+  --add-color:                       $black;
+  --add-background:                  $add;
+  --add-background-alt:              $add-alt;
+  --add-border:                      $add;
+  --add-border-alt:                  $add-alt;
 
-// Messages
+  --clone-color:                     $clone;
+  --clone-background:                $reset;
+  --clone-background-alt:            $reset-alt;
+  --clone-hover-color:               $white;
+  --clone-hover-background:          $clone-ter;
+  --clone-hover-background-alt:      $clone-alt;
+  --clone-border:                    $gray-semi-dark;
 
-$msg-color:                       $white;
-$msg-background:                  $gray-dark;
-$msg-background-alt:              tint($gray-dark, 66%);
-$msg-shadow:                      rgba($gray-very-dark, 0.1);
+  --button-disabled-color:           $gray-dark;
+  --button-disabled-background:      $gray-very-light;
+  --button-disabled-background-alt:  $gray-lighter;
+  --button-disabled-border:          $gray-semi-dark;
 
-$msg-info-color:                  $gray-very-dark;
-$msg-info-background:             $info;
-$msg-info-border:                 $info-alt;
+  --ajax-color:                      $gray-very-dark;
+  --ajax-background:                 $white;
+  --ajax-background-alt:             $light-blue;
+  --ajax-border:                     $gray-dark;
 
-$msg-warn-color:                  $gray-very-dark;
-$msg-warn-background:             $warning;
-$msg-warn-background-alt:         $warning-alt;
-$msg-warn-border:                 $warning-alt;
+  --gotop-color:                     $gray-very-dark;
+  --gotop-background:                transparent;
+  --gotop-border:                    none;
 
-$msg-error-color:                 $black;
-$msg-error-background:            $error;
-$msg-error-background-alt:        $warning;
+  --addmeta-color:                   $white;
+  --addmeta-background:              transparent;
+  --addmeta-focus-color:             $black;
+  --addmeta-focus-background:        scale-color($light-blue, $lightness: 10%);
 
-$msg-success-color:               $black;
-$msg-success-background:          $success;
-$msg-success-background-alt:      $success-alt;
+  // Messages
 
-$dc-update-color:                 $black;
-$dc-update-background:            $light-blue;
+  --msg-color:                       $white;
+  --msg-background:                  $gray-dark;
+  --msg-background-alt:              scale-color($gray-dark, $lightness: 66%);
+  --msg-shadow:                      rgba($gray-very-dark, 0.1);
 
-$ajax-loader:                     shade($light-blue, 10%);
+  --msg-info-color:                  $gray-very-dark;
+  --msg-info-background:             $info;
+  --msg-info-border:                 $info-alt;
 
-// Filters
+  --msg-warn-color:                  $gray-very-dark;
+  --msg-warn-background:             $warning;
+  --msg-warn-background-alt:         $warning-alt;
+  --msg-warn-border:                 $warning-alt;
 
-$form-control-color:              $white;
+  --msg-error-color:                 $black;
+  --msg-error-background:            $error;
+  --msg-error-background-alt:        $warning;
 
-$filter-border:                   $light-blue;
-$filter-options-border:           $gray-light;
-$filter-focus-background:         shade($gray-darker, 15%);
+  --msg-success-color:               $black;
+  --msg-success-background:          $success;
+  --msg-success-background-alt:      $success-alt;
 
-// Prelude
+  --dc-update-color:                 $black;
+  --dc-update-background:            $light-blue;
 
-$prelude-color:                   $gray-very-dark;
-$prelude-background:              $light-blue;
-$prelude-background-alt:          $white;
+  --ajax-loader:                     scale-color($light-blue, $lightness: -10%);
 
-// Help
+  // Filters
 
-$help-background:                 $gray-very-dark;
-$help-border:                     $warning-alt;
-$help-button-border:              $gray-dark;
-$help-button-background:          $gray-very-dark;
-$help-title-color:                $light-blue;
+  --form-control-color:              $white;
 
-// Tooltip (in footer)
+  --filter-border:                   $light-blue;
+  --filter-options-border:           $gray-light;
+  --filter-focus-background:         scale-color($gray-darker, $lightness: -15%);
 
-$tooltip-color:                   $tooltip;
-$tooltip-background:              $gray-very-light;
+  // Prelude
 
-// Application pages:
-// - Auth (white background page)
+  --prelude-color:                   $gray-very-dark;
+  --prelude-background:              $light-blue;
+  --prelude-background-alt:          $white;
 
-$login-fieldset-background:       $white;
-$login-fieldset-border:           $success-alt;
+  // Help
 
-// - Index
+  --help-background:                 $gray-very-dark;
+  --help-border:                     $warning-alt;
+  --help-button-border:              $gray-dark;
+  --help-button-background:          $gray-very-dark;
+  --help-title-color:                $light-blue;
 
-$index-link-color:                $gray-lighter;
-$index-link-border:               $gray-semi-dark;
-$index-icon-background:           $gray-darker;
-$index-icon-border:               $gray-lighter;
-$index-icon-outline:              $link-outline;
-$index-icon-contrast:             130%;
+  // Tooltip (in footer)
 
-$quick-background:                $gray-very-dark;
-$quick-border:                    shade($gray-very-light, 10%);
-$quick-info-background:           $info;
-$quick-info-border:               $info-alt;
-$quick-info-color:                $gray-very-dark;
+  --tooltip-color:                   $tooltip;
+  --tooltip-background:              $gray-very-light;
 
-$index-box-border:                tint($gray-dark, 66%);
+  // Application pages:
+  // - Auth (white background page)
 
-$drag-n-drop-off:                 $gray-semi-dark;
-$drag-n-drop-on:                  $success;
+  --login-fieldset-background:       $gray-very-dark;
+  --login-fieldset-border:           $success-alt;
 
-// - Blog params
+  // - Index
 
-$blog-user-border:                tint($gray-dark, 66%);
-$blog-super-background:           rgba($info, 0.15);
-$blog-super-border:               $link-outline;
+  --index-link-color:                $gray-lighter;
+  --index-link-border:               $gray-semi-dark;
+  --index-icon-background:           $gray-darker;
+  --index-icon-border:               $gray-lighter;
+  --index-icon-outline:              $link-outline;
+  --index-icon-contrast:             130%;
 
-// - Blog theme
+  --quick-background:                $gray-very-dark;
+  --quick-border:                    scale-color($gray-very-light, $lightness: -10%);
+  --quick-info-background:           $info;
+  --quick-info-border:               $info-alt;
+  --quick-info-color:                $gray-very-dark;
 
-$theme-box-border:                shade($gray-very-light, 10%);
-$theme-box-over:                  $gray-darker;
+  --index-box-border:                scale-color($gray-dark, $lightness: 66%);
 
-$theme-name-color:                $gray-light;
+  --drag-n-drop-off:                 $gray-semi-dark;
+  --drag-n-drop-on:                  $success;
 
-$theme-img-background:            $gray-very-light;
-$theme-img-border:                $white;
-$theme-img-shadow:                rgba($gray-very-dark, 0.1);
+  // - Blog params
 
-$theme-action-background:         $gray-darker;
-$theme-action-border:             transparent;
+  --blog-user-border:                scale-color($gray-dark, $lightness: 66%);
+  --blog-super-background:           rgba($info, 0.15);
+  --blog-super-border:               $link-outline;
 
-$theme-current-background:        $gray-darker;
-$theme-current-border:            $gray-lighter;
-$theme-current-shadow:            rgba($gray-very-dark, 0.1);
+  // - Blog theme
 
-$theme-current-img-border:        $white;
-$theme-current-name-color:        $orange;
+  --theme-box-border:                scale-color($gray-very-light, $lightness: -10%);
+  --theme-box-over:                  $gray-darker;
 
-// - Categories
+  --theme-name-color:                $gray-light;
 
-$cat-placeholder-outline:         $link;
+  --theme-img-background:            $gray-very-light;
+  --theme-img-border:                $white;
+  --theme-img-shadow:                rgba($gray-very-dark, 0.1);
 
-$cat-line-border:                 tint($gray-dark, 66%);
-$subcat-line-border:              shade($gray-very-light, 10%);
+  --theme-action-background:         $gray-darker;
+  --theme-action-border:             transparent;
 
-$cat-post-counter:                $gray-very-light;
+  --theme-current-background:        $gray-darker;
+  --theme-current-border:            $gray-lighter;
+  --theme-current-shadow:            rgba($gray-very-dark, 0.1);
 
-// - Media
+  --theme-current-img-border:        $white;
+  --theme-current-name-color:        $orange;
 
-$media-folder-background:         transparent;
-$media-folder-border:             $gray-lighter;
-$media-folderup-border:           transparent;
-$media-folder-link:               $gray-light;
-$media-item-border:               shade($gray-very-light, 10%);
-$media-item-border-private:       $red;
-$media-files-border:              shade($gray-very-light, 10%);
+  // - Categories
 
-$upload-color:                    shade($success-alt, 45%);
-$upload-filemsg-color:            $white;
-$upload-progress-color:           $white;
-$upload-progress-background:      shade($success-alt, 45%);
-$upload-file-border:              shade($gray-very-light, 10%);
-$upload-error-color:              $error-alt;
+  --cat-placeholder-outline:         $link;
 
-// - Plugins
+  --cat-line-border:                 scale-color($gray-dark, $lightness: 66%);
+  --subcat-line-border:              scale-color($gray-very-light, $lightness: -10%);
 
-$modules-background:              $gray-very-dark;
-$modules-border:                  $light-blue;
+  --cat-post-counter:                $gray-very-light;
 
-// - Entry
+  // - Media
 
-$entry-sb-title-border:           $white;
-$entry-sb-background:             shade($gray-darker, 15%);
-$entry-sb-focus-background:       $gray-darker;
+  --media-folder-background:         transparent;
+  --media-folder-border:             $gray-lighter;
+  --media-folderup-border:           transparent;
+  --media-folder-link:               $gray-light;
+  --media-item-border:               scale-color($gray-very-light, $lightness: -10%);
+  --media-item-border-private:       $red;
+  --media-files-border:              scale-color($gray-very-light, $lightness: -10%);
 
-// - Preferences
+  --upload-color:                    scale-color($success-alt, $lightness: -45%);
+  --upload-filemsg-color:            $white;
+  --upload-progress-color:           $white;
+  --upload-progress-background:      scale-color($success-alt, $lightness: -45%);
+  --upload-file-border:              scale-color($gray-very-light, $lightness: -10%);
+  --upload-error-color:              $error-alt;
 
-$fav-list-background:             $gray-very-dark;
-$fav-list-background-over:        $gray-darker;
-$fav-list-border:                 $gray-lighter;
-$fav-list-border-alt:             shade($gray-very-light, 10%);
+  // - Plugins
 
-$my-favs-border:                  $green;
+  --modules-background:              $gray-very-dark;
+  --modules-border:                  $light-blue;
 
-// - Charte
+  // - Entry
 
-$charte-title:                    $orange;
-$charte-one-box-border:           shade($gray-very-light, 10%);
+  --entry-sb-title-border:           $white;
+  --entry-sb-background:             scale-color($gray-darker, $lightness: -15%);
+  --entry-sb-focus-background:       $gray-darker;
 
-// Classes
+  // - Preferences
 
-$ac-results-background:           $gray-very-dark;
-$ac-results-border:               $warning-alt;
-$ac-results-over:                 $white;
-$ac-results-over-background:      shade($link, 20%);
+  --fav-list-background:             $gray-very-dark;
+  --fav-list-background-over:        $gray-darker;
+  --fav-list-border:                 $gray-lighter;
+  --fav-list-border-alt:             scale-color($gray-very-light, $lightness: -10%);
 
-$nav-background:                  $body-background;
-$nav-prevnext:                    $link;
-$nav-prevnext-background:         $gray-very-dark;
-$nav-prevnext-border:             shade($gray-very-light, 10%);
+  --my-favs-border:                  $green;
 
-$onblog-link:                     $gray-very-dark;
-$onblog-link-background:          $gray-lighter;
-$onblog-link-border:              $gray-lighter;
-$onblog-link-shadow:              rgba($gray-very-dark, 0.3);
+  // - Charte
 
-$pager-link:                      $link;
-$pager-active:                    $gray-light;
-$pager-background:                $gray-very-light;
-$pager-background-over:           shade($gray-very-light, 10%);
-$pager-off-background:            $white;
-$pager-input-background:          $white;
-$pager-border:                    shade($gray-very-light, 10%);
+  --charte-title:                    $orange;
+  --charte-one-box-border:           scale-color($gray-very-light, $lightness: -10%);
 
-$index-no-link:                   $gray-light;
-$index-active:                    $white;
-$index-active-background:         $gray-dark;
+  // Classes
 
-$step:                            $gray-dark;
-$step-background:                 $gray-very-light;
-$step-border:                     tint($gray-dark, 66%);
+  --ac-results-background:           $gray-very-dark;
+  --ac-results-border:               $warning-alt;
+  --ac-results-over:                 $white;
+  --ac-results-over-background:      scale-color($link, $lightness: -20%);
 
-$offline:                         $gray-semi-dark;
-$offline-background:              $gray-very-dark;
+  --nav-background:                  var(--body-background);
+  --nav-prevnext:                    $link;
+  --nav-prevnext-background:         $gray-very-dark;
+  --nav-prevnext-border:             scale-color($gray-very-light, $lightness: -10%);
 
-$mark-attach-img:                 url('../images/attach.svg');
-$mark-attach-filter:              hue-rotate(260deg) saturate(100) saturate(.2) brightness(220%);
+  --onblog-link:                     $gray-very-dark;
+  --onblog-link-background:          $gray-lighter;
+  --onblog-link-border:              $gray-lighter;
+  --onblog-link-shadow:              rgba($gray-very-dark, 0.3);
 
-// Utils
+  --pager-link:                      $link;
+  --pager-active:                    $gray-light;
+  --pager-background:                $gray-very-light;
+  --pager-background-over:           scale-color($gray-very-light, $lightness: -10%);
+  --pager-off-background:            $white;
+  --pager-input-background:          $white;
+  --pager-border:                    scale-color($gray-very-light, $lightness: -10%);
 
-$color-picker-border:             $black;
-$color-picker-background:         $white;
+  --index-no-link:                   $gray-light;
+  --index-active:                    $white;
+  --index-active-background:         $gray-dark;
 
-$color-div-border:                $gray-light;
+  --step:                            $gray-dark;
+  --step-background:                 $gray-very-light;
+  --step-border:                     scale-color($gray-dark, $lightness: 66%);
 
-$badge-color:                     $white;                             // #ffffff
-$badge-border:                    $body-color;
-$badge-std-background:            $badge;                             // #d54e21
-$badge-soft-background:           $badge-soft;
-$badge-info-background:           $badge-info;
+  --offline:                         $gray-semi-dark;
+  --offline-background:              $gray-very-dark;
 
-// Debug
+  --mark-attach-img:                 url('../images/attach.svg');
+  --mark-attach-filter:              hue-rotate(260deg) saturate(100) saturate(.2) brightness(220%);
 
-$debug-color:                     $error-alt;
-$debug-background:                $warning-alt;
-$debug-border:                    $warning-alt;
+  --rch-table-1st-color:             $gray-light;
+  --rch-table-1st-background:        $gray-darker;
+  --rch-table-1st-border-top:        $gray-lighter;
+  --rch-table-expand-color:          var(--body-color);
+  --rch-table-expand-background:     var(--body-background);
+  --rch-table-expand-border-top:     $gray-lighter;
+
+  --pw-very-weak:                    $pw-very-weak;
+  --pw-weak:                         $pw-weak;
+  --pw-mediocre:                     $pw-mediocre;
+  --pw-strong:                       $pw-strong;
+  --pw-very-strong:                  $pw-very-strong;
+
+  // Utils
+
+  --color-picker-border:             $black;
+  --color-picker-background:         $white;
+
+  --color-div-border:                $gray-light;
+
+  --badge-color:                     $white;
+  --badge-border:                    var(--body-color);
+  --badge-std-background:            $badge;
+  --badge-soft-background:           $badge-soft;
+  --badge-info-background:           $badge-info;
+
+  // Debug
+
+  --debug-color:                     $error-alt;
+  --debug-background:                $warning-alt;
+  --debug-border:                    $warning-alt;
+}

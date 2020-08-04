@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:42+0200\n"
+"POT-Creation-Date: 2020-05-22 18:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1724,7 +1724,7 @@ msgstr ""
 msgid "File is not a full export."
 msgstr ""
 
-#: plugins/importExport/inc/flat/class.flat.import.php:724
+#: plugins/importExport/inc/flat/class.flat.import.php:725
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr ""

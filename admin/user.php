@@ -334,6 +334,7 @@ form::password('your_pwd', 20, 255,
 '<p class="clear"><input type="submit" name="save" accesskey="s" value="' . __('Save') . '" />' .
 ($user_id != '' ? '' : ' <input type="submit" name="saveplus" value="' . __('Save and create another') . '" />') .
 ($user_id != '' ? form::hidden('id', $user_id) : '') .
+' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
 $core->formNonce() .
     '</p>' .
 
@@ -391,6 +392,20 @@ if ($user_id) {
     } else {
         echo '<p>' . sprintf(__('%s is super admin (all rights on all blogs).'), '<strong>' . $user_id . '</strong>') . '</p>';
     }
+    echo '</div>';
+
+    // Informations (direct links)
+    echo '<div class="clear fieldset">' .
+    '<h3>' . __('Direct links') . '</h3>';
+    echo '<p><a href="' . $core->adminurl->get('admin.posts',
+        ['user_id' => $user_id]
+    ) . '">' . __('List of posts') . '</a>';
+    echo '<p><a href="' . $core->adminurl->get('admin.comments',
+        [
+            'email' => $core->auth->getInfo('user_email', $user_id),
+            'site' => $core->auth->getInfo('user_url', $user_id),
+        ]
+    ) . '">' . __('List of comments') . '</a>';
     echo '</div>';
 }
 

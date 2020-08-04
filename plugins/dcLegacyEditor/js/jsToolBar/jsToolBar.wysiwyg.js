@@ -173,7 +173,7 @@ jsToolBar.prototype.initWindow = function() {
     <style type="text/css">${This.iframe_css}</style>
     ${This.base_url != '' ? `<base href="${This.base_url}" />` : ''}
   </head>
-  <body></body>
+  <body id="${This.textarea.id}-jstEditorIframe"></body>
 </html>`;
 
     doc.write(html);
@@ -514,8 +514,8 @@ jsToolBar.prototype.tagsoup2xhtml = function(html) {
   /* Trim only if there's no pre tag */
   const pattern_pre = /<pre>[\s\S]*<\/pre>/gi;
   if (!pattern_pre.test(html)) {
-    html = html.replace(/^\s+/gm, '');
-    html = html.replace(/\s+$/gm, '');
+    html = html.replace(/^\s+/g, '');
+    html = html.replace(/\s+$/g, '');
   }
 
   return html;

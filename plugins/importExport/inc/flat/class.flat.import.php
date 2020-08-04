@@ -490,6 +490,7 @@ class flatImport extends flatBackup
         $this->cur_post->nb_comment         = (integer) $post->nb_comment;
         $this->cur_post->nb_trackback       = (integer) $post->nb_trackback;
         $this->cur_post->post_position      = (integer) $post->post_position;
+        $this->cur_post->post_firstpub      = (integer) $post->post_firstpub;
 
         $this->cur_post->post_tz = $post->exists('post_tz') ? (string) $post->post_tz : 'UTC';
 

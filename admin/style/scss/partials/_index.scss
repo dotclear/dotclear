@@ -1,9 +1,11 @@
 #dashboard-main {
   text-align: center;
-  &>*:last-child {
+
+  & > *:last-child {
     margin-bottom: 1em;
   }
 }
+
 /* raccourcis */
 
 #icons {
@@ -11,6 +13,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
   p {
     width: 13em;
     margin: 1em 0 2em;
@@ -19,74 +22,93 @@
     justify-content: flex-start;
     align-items: center;
   }
+
   a {
     &, &:link, &:visited, &:hover, &:focus {
       border-bottom-width: 0;
       text-decoration: none;
     }
+
     span {
-      color: $index-link-color;
-      border-bottom: 1px dotted $index-link-border;
+      color: var(--index-link-color);
+      border-bottom: 1px dotted var(--index-link-border);
     }
+
     img {
       padding: 1.5em;
-      background-color: $index-icon-background;
+      background-color: var(--index-icon-background);
       border-radius: 8px;
-      border: 1px solid $index-icon-border;
+      border: 1px solid var(--index-icon-border);
       display: inline-block;
-      filter: contrast($index-icon-contrast);
+      filter: contrast(var(--index-icon-contrast));
+      width: calc(5em + 3em);
+      max-width: calc(64px + 3em);
+      height: calc(5em + 3em);
+      max-height: calc(64px + 3em);
     }
+
     &:focus {
       outline: 0;
+
       span {
-        border: 2px solid $index-icon-outline;
+        border: 2px solid var(--index-icon-outline);
       }
     }
+
     &:focus, &:hover {
       img {
-        background: $index-icon-outline;
+        background: var(--index-icon-outline);
         outline: 0;
-        border-color: $index-icon-border;
+        border-color: var(--index-icon-border);
       }
+
       span {
         border-bottom-style: solid;
       }
     }
   }
 }
+
 /* billet rapide */
 
 #quick {
   max-width: 72em;
   margin: 1em auto 2em;
   padding: 1em;
-  background: $quick-background;
-  border: 1px solid $quick-border;
+  background: var(--quick-background);
+  border: 1px solid var(--quick-border);
+  border-radius: 3px;
   text-align: left;
+
   h3 {
     margin-bottom: 0.2em;
     font-size: 1.2em;
   }
+
   p.qinfo {
     margin: -.7em -1em 1em;
-    background: $quick-info-background url(msg-info.png) no-repeat .2em .2em;
-    border: 1px solid $quick-info-border;
+    background: var(--quick-info-background) url(msg-info.png) no-repeat .2em .2em;
+    border: 1px solid var(--quick-info-border);
     padding: .2em 1em .1em 24px;
-    color: $quick-info-color;
+    color: var(--quick-info-color);
   }
+
   #new_cat, .q-cat, .q-cat label {
     display: inline-block;
     vertical-align: top;
     margin-right: 1em;
     margin-top: 0;
   }
+
   .q-cat label {
     margin-right: .3em;
   }
+
   #new_cat {
     margin-bottom: 2em;
   }
 }
+
 /* modules additionnels */
 
 #dashboard-boxes {
@@ -94,15 +116,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
   .box {
     padding: 10px;
-    border: 1px solid $index-box-border;
+    border: 1px solid var(--index-box-border);
     border-radius: 3px;
     min-height: 200px;
     margin: 10px;
     text-align: left;
   }
 }
+
 .db-items, .db-contents {
   //  display: inline-block;
   //  text-align: center;
@@ -110,54 +134,68 @@
   flex-wrap: wrap;
   justify-content: center;
   flex: 1 1 auto;
+
   img {
     vertical-align: middle;
   }
+
   ul {
     display: block;
     padding-left: 1.5em;
     list-style: square;
   }
+
   li {
     margin: 0.25em 0 0 0;
   }
 }
+
 .no-js .outgoing img {
   display: none;
 }
+
 .dc-box {
   background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right;
 }
+
 #news {
   dt {
     font-weight: bold;
     margin: 0 0 0.4em 0;
   }
+
   dd {
     margin: 0 0 1em 0;
+
     p {
       margin: 0.2em 0 0 0;
     }
   }
 }
+
 // Drag'n'drop of dashboard areas
+
 #dragndrop {
   .no-js & {
     display: none;
   }
+
   position: absolute;
-  &+label {
+
+  & + label {
     position: absolute;
     display: inline-block;
     line-height: 1;
   }
-  &+label .dragndrop-svg {
+
+  & + label .dragndrop-svg {
     width: 2em;
     height: 1.5em;
-    fill: $drag-n-drop-off;
+    fill: var(--drag-n-drop-off);
   }
-  &:checked+label .dragndrop-svg {
-    fill: $drag-n-drop-on;
+
+  &:checked + label .dragndrop-svg {
+    fill: var(--drag-n-drop-on);
     background-color: var(--body-background);
   }
 }

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:41+0200\n"
+"POT-Creation-Date: 2020-05-22 18:01+0200\n"
 "PO-Revision-Date: 2016-07-18 15:46+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -203,7 +203,7 @@ msgstr ""
 msgid "(including %d spam comments)"
 msgstr ""
 
-msgid "IP Blacklist / Whitelist Filter"
+msgid "IP Blocklist / Allowlist Filter"
 msgstr ""
 
 #, php-format
@@ -216,10 +216,10 @@ msgstr ""
 msgid "IP addresses have been successfully removed."
 msgstr ""
 
-msgid "Blacklist"
+msgid "Blocklist"
 msgstr ""
 
-msgid "Whitelist"
+msgid "Allowlist"
 msgstr ""
 
 msgid "Add an IP address: "
@@ -262,7 +262,7 @@ msgstr ""
 msgid "Checks links in comments against surbl.org"
 msgstr ""
 
-msgid "Words Blacklist"
+msgid "Words Blocklist"
 msgstr ""
 
 #, php-format

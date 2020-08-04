@@ -1,92 +1,85 @@
 /* Typographie */
 
 :root {
-	// May be superseed by user pref (typically from 50% to 75%, default 62.5%)
-	--html-font-size: #{$html-font-size};
-  // Main colors
-  --body-color: #{$body-color};
-  --body-background: #{$body-background};
+  // May be superseed by user pref (typically from 50% to 75%, default 62.5%)
+  --html-font-size: #{$html-font-size};
 }
 
 // base //
 html {
-	font-size: $html-font-size; // html font-size for IE and Edge
-	font-size: var(--html-font-size); // html font-size for modern browsers
+  font-size: $html-font-size; // html font-size for IE and Edge
+  font-size: var(--html-font-size); // html font-size for modern browsers
 }
 
 body {
-  color: $body-color;
-  background: $body-background;
-	font-size: $body-font-size;
-	line-height: 1.5;
-	font-family: $sans-serif;
-	&.responsive-font {
-		@media screen and(max-width: $small-screen) {
-			font-size: $body-font-size-small;
-			line-height: 1.3;
-		}
-		@media screen and(min-width: $large-screen) {
-			font-size: $body-font-size-large;
-			line-height: 1.5;
-		}
-		@media screen and(min-width: $small-screen) and (max-width: $large-screen) {
-			font-size: calc( #{$body-font-size-small} + #{strip-unit($body-font-size-large - $body-font-size-small)} * (100vw - #{strip-unit(relative-to-screen($small-screen,$html-font-size))}rem) / (#{strip-unit(relative-to-screen($large-screen,$html-font-size))} - #{strip-unit(relative-to-screen($small-screen,$html-font-size))}));
-			line-height: calc( 1.3em + (1.5 - 1.3) * (100vw - #{strip-unit(relative-to-screen($small-screen,$html-font-size))}rem) / (#{strip-unit(relative-to-screen($large-screen,$html-font-size))} - #{strip-unit(relative-to-screen($small-screen,$html-font-size))}));
-		}
-	}
+  color: var(--body-color);
+  background: var(--body-background);
+  font-size: $body-font-size;
+  line-height: 1.5;
+  font-family: $sans-serif;
+
+  &.responsive-font {
+    @media screen and(max-width: $small-screen) {
+      font-size: $body-font-size-small;
+      line-height: 1.3;
+    }
+
+    @media screen and(min-width: $large-screen) {
+      font-size: $body-font-size-large;
+      line-height: 1.5;
+    }
+
+    @media screen and(min-width: $small-screen) and (max-width: $large-screen) {
+      font-size: calc(#{$body-font-size-small} + #{strip-unit($body-font-size-large - $body-font-size-small)} * (100vw - #{strip-unit(relative-to-screen($small-screen, $html-font-size))}rem) / (#{strip-unit(relative-to-screen($large-screen, $html-font-size))} - #{strip-unit(relative-to-screen($small-screen, $html-font-size))}));
+      line-height: calc(1.3em + (1.5 - 1.3) * (100vw - #{strip-unit(relative-to-screen($small-screen, $html-font-size))}rem) / (#{strip-unit(relative-to-screen($large-screen, $html-font-size))} - #{strip-unit(relative-to-screen($small-screen, $html-font-size))}));
+    }
+  }
 }
 
 #wrapper {
-	@media screen and (max-width: $small-screen) {
-		font-size: 1.2em;
-	}
+  @media screen and (max-width: $small-screen) {
+    font-size: 1.2em;
+  }
 }
 
 // titres //
-h2,
-h3,
-.as_h3,
-h4,
-.as_h4,
-h5,
-h6 {
-	margin-top: 0;
-	margin-bottom: 1em;
+
+h2, h3, .as_h3, h4, .as_h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 1em;
 }
 
 h2 {
-  color: $title-color;
-	font-size: 1.5em;
-	font-weight: normal;
-	line-height: 1.25;
-	padding: 0 0 1.5em;
+  color: var(--title-color);
+  font-size: 1.5em;
+  font-weight: normal;
+  line-height: 1.25;
+  padding: 0 0 1.5em;
 }
 
-h3,
-.as_h3 {
-  color: $title-alt-color;
-	font-size: 1.34em;
-	font-weight: normal;
-	line-height: 1.5;
-	margin-top: 1em;
+h3, .as_h3 {
+  color: var(--title-alt-color);
+  font-size: 1.34em;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-top: 1em;
 }
 
-h4,
-.as_h4 {
-  color: $title-color;
-	font-size: 1.16em;
-	line-height: 1.5;
+h4, .as_h4 {
+  color: var(--title-color);
+  font-size: 1.16em;
+  line-height: 1.5;
 }
 
 h5 {
-  color: $title-color;
-	font-size: 1em;
-	line-height: 1.5;
-	font-weight: bold;
+  color: var(--title-color);
+  font-size: 1em;
+  line-height: 1.5;
+  font-weight: bold;
 }
 
 h6 {
-  color: $title-color;
-	font-size: 1em;
-	line-height: 1.5;
+  color: var(--title-color);
+  font-size: 1em;
+  line-height: 1.5;
 }

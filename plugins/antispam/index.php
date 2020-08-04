@@ -230,8 +230,10 @@ if ($filter_gui !== false) {
     '</tbody></table></div>' .
     '<p>' . form::hidden('filters_order', '') .
     $core->formNonce() .
-    '<input type="submit" name="filters_upd" value="' . __('Save') . '" /></p>' .
-        '</form>';
+    '<input type="submit" name="filters_upd" value="' . __('Save') . '" />' .
+    ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+    '</p>' .
+    '</form>';
 
     # Syndication
     if (DC_ADMIN_URL) {

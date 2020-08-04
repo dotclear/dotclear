@@ -31,8 +31,16 @@ class ieMaintenanceExportblog extends dcMaintenanceTask
 
     public function execute()
     {
+        global $core;
+
         // Create zip file
         if (!empty($_POST['file_name'])) {
+
+            if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
+                $this->error = __('Password verification failed');
+                return false;
+            }
+
             // This process make an http redirect
             $ie = new maintenanceDcExportFlat($this->core);
             $ie->setURL($this->id);
@@ -48,6 +56,7 @@ class ieMaintenanceExportblog extends dcMaintenanceTask
     {
         // Download zip file
         if (isset($_SESSION['export_file']) && file_exists($_SESSION['export_file'])) {
+
             // Log task execution here as we sent file and stop script
             $this->log();
 
@@ -63,7 +72,15 @@ class ieMaintenanceExportblog extends dcMaintenanceTask
             '<p><label for="file_zip" class="classic">' .
             form::checkbox('file_zip', 1) . ' ' .
             __('Compress file') . '</label>' .
-                '</p>';
+            '</p>' .
+            '<p><label for="your_pwd" class="required">' .
+            '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label>' .
+            form::password('your_pwd', 20, 255,
+                [
+                    'extra_html'   => 'required placeholder="' . __('Password') . '"',
+                    'autocomplete' => 'current-password'
+                ]
+            ) . '</p>';
         }
     }
 }
@@ -87,8 +104,16 @@ class ieMaintenanceExportfull extends dcMaintenanceTask
 
     public function execute()
     {
+        global $core;
+
         // Create zip file
         if (!empty($_POST['file_name'])) {
+
+            if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
+                $this->error = __('Password verification failed');
+                return false;
+            }
+
             // This process make an http redirect
             $ie = new maintenanceDcExportFlat($this->core);
             $ie->setURL($this->id);
@@ -119,7 +144,15 @@ class ieMaintenanceExportfull extends dcMaintenanceTask
             '<p><label for="file_zip" class="classic">' .
             form::checkbox('file_zip', 1) . ' ' .
             __('Compress file') . '</label>' .
-                '</p>';
+            '</p>' .
+            '<p><label for="your_pwd" class="required">' .
+            '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label>' .
+            form::password('your_pwd', 20, 255,
+                [
+                    'extra_html'   => 'required placeholder="' . __('Password') . '"',
+                    'autocomplete' => 'current-password'
+                ]
+            ) . '</p>';
         }
     }
 }

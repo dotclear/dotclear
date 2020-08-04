@@ -34,7 +34,7 @@ $(function() {
         $('#file-chooser').empty();
         $(res).find('#file-chooser').children().appendTo('#file-chooser');
 
-        if ($.isFunction(confirmClosePage.getCurrentForms)) {
+        if (typeof confirmClosePage.getCurrentForms === 'function') {
           confirmClosePage.forms = [];
           confirmClosePage.getCurrentForms();
         }

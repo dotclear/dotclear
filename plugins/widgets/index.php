@@ -294,8 +294,10 @@ echo
 '<p id="sidebarsControl">' .
 $core->formNonce() .
 '<input type="submit" name="wup" value="' . __('Update sidebars') . '" /> ' .
-'<input type="submit" class="reset" name="wreset" value="' . __('Reset sidebars') . '" /></p>' .
-    '</form>';
+'<input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" /> ' .
+'<input type="submit" class="reset" name="wreset" value="' . __('Reset sidebars') . '" />' .
+'</p>' .
+'</form>';
 
 $widget_elements          = new stdClass;
 $widget_elements->content = '<dl>';

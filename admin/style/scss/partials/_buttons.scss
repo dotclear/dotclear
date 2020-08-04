@@ -4,8 +4,8 @@ button::-moz-focus-inner,
 input[type=button]::-moz-focus-inner,
 input[type=reset]::-moz-focus-inner,
 input[type=submit]::-moz-focus-inner {
-	border: 0;
-	padding: 0;
+  border: 0;
+  padding: 0;
 }
 
 
@@ -16,23 +16,23 @@ a.button,
 input[type=button],
 input[type=reset],
 input[type=submit] {
-	border: 1px solid $button-border;
-	font-family: $sans-serif-input;
-	padding: 3px 10px;
-	line-height: normal !important;
-	display: inline-block;
-	font-size: 100%;
-	text-align: center;
-	text-decoration: none;
-	cursor: pointer;
-	position: relative;
-	box-shadow: 0 1px 3px $button-shadow;
-	border-style: solid;
-	border-width: 1px;
+  border: 1px solid var(--button-border);
+  font-family: $sans-serif-input;
+  padding: 3px 10px;
+  line-height: normal !important;
+  display: inline-block;
+  font-size: 100%;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 1px 3px var(--button-shadow);
+  border-style: solid;
+  border-width: 1px;
 }
 
 a.button {
-	vertical-align: middle;
+  vertical-align: middle;
 }
 
 /* validation */
@@ -42,27 +42,17 @@ button[type=submit],
 a.button.submit,
 button.submit,
 input.button.start {
-	color: $submit-color;
-	background-color: $submit-background;
-	@include background-image(linear-gradient(to bottom, $submit-background, $submit-background-alt));
-	border-color: $submit-background;
-}
+  color: var(--submit-color);
+  background-color: var(--submit-background);
+  background-image: #{'linear-gradient(to bottom, var(--submit-background), var(--submit-background-alt))'};
+  border-color: var(--submit-background);
 
-input[type=submit]:hover,
-input[type=submit]:focus,
-button[type=submit]:hover,
-button[type=submit]:focus,
-input.button.start:hover,
-input.button.start:focus,
-button.submit:hover,
-button.submit:focus,
-a.button.submit:hover,
-a.button.submit:focus {
-	background-color: $submit-background-alt;
-	@include background-image(linear-gradient(to bottom, $submit-background-alt, $submit-background));
-	border-color: $submit-background-alt;
+  &:hover, &:focus {
+    background-color: var(--submit-background-alt);
+    background-image: #{'linear-gradient(to bottom, var(--submit-background-alt), var(--submit-background))'};
+    border-color: var(--submit-background-alt);
+  }
 }
-
 
 /* suppression, reset, "neutres" fond gris */
 
@@ -77,41 +67,19 @@ input.delete,
 a.button,
 a.button.delete,
 a.button.reset {
-	color: $reset-color;
-	background-color: $reset-background;
-	@include background-image(linear-gradient(to bottom, $reset-background-alt, $reset-background));
-	background-repeat: repeat-x;
-  border-color: $reset-border;
-}
+  color: var(--reset-color);
+  background-color: var(--reset-background);
+  background-image: #{'linear-gradient(to bottom, var(--reset-background-alt), var(--reset-background))'};
+  background-repeat: repeat-x;
+  border-color: var(--reset-border);
 
-button:hover,
-input[type=button]:hover,
-input.button:hover,
-button:focus,
-input[type=button]:focus,
-input.button:focus,
-input[type=reset]:hover,
-input[type=submit].reset:hover,
-input.reset:hover,
-input[type=reset]:focus,
-input[type=submit].reset:focus,
-input.reset:focus,
-input[type=submit].delete:hover,
-input.delete:hover,
-input[type=submit].delete:focus,
-input.delete:focus,
-a.button.delete:hover,
-a.button.reset:hover,
-a.button:hover,
-a.button.delete:focus,
-a.button.reset:focus,
-a.button:focus {
-	background-color: $reset-background-ter;
-	@include background-image(linear-gradient(to bottom, $reset-background, $reset-background-ter));
-	background-repeat: repeat-x;
-  border-color: $reset-border;
+  &:hover, &:focus {
+    background-color: var(--reset-background-ter);
+    background-image: #{'linear-gradient(to bottom, var(--reset-background), var(--reset-background-ter))'};
+    background-repeat: repeat-x;
+    border-color: var(--reset-border);
+  }
 }
-
 
 /* suppression */
 
@@ -120,64 +88,65 @@ input.delete,
 button[type=submit].delete,
 button.delete,
 a.button.delete {
-  color: $delete-color;
-}
+  color: var(--delete-color);
 
-input[type=submit].delete:hover,
-input.delete:hover,
-button[type=submit].delete:hover,
-button.delete:hover,
-a.button.delete:hover,
-input[type=submit].delete:focus,
-input.delete:focus,
-button[type=submit].delete:focus,
-button.delete:focus,
-a.button.delete:focus {
-	color: $delete-hover-color;
-	background-color: $delete-hover-background;
-	@include background-image(linear-gradient(to bottom, $delete-hover-background-alt, $delete-hover-background));
-	background-repeat: repeat-x;
-	border-color: $delete-hover-border;
+  &:hover, &:focus {
+    color: var(--delete-hover-color);
+    background-color: var(--delete-hover-background);
+    background-image: #{'linear-gradient(to bottom, var(--delete-hover-background-alt), var(--delete-hover-background))'};
+    background-repeat: repeat-x;
+    border-color: var(--delete-hover-border);
+  }
 }
 
 #info-box a.button,
 #info-box button {
-	padding: 0 .5em;
-	margin-left: 2em;
+  padding: 0 .5em;
+  margin-left: 2em;
 }
 
 .button.add,
 button.add {
-	color: $add-color;
-	background-color: $add-background;
-	@include background-image(linear-gradient(to bottom, $add-background, $add-background-alt));
-	border-color: $add-border;
-	padding: .33em 1.33em .5em;
-}
+  color: var(--add-color);
+  background-color: var(--add-background);
+  background-image: #{'linear-gradient(to bottom, var(--add-background), var(--add-background-alt))'};
+  border-color: var(--add-border);
+  padding: .33em 1.33em .5em;
 
-.button.add:hover,
-.button.add:active,
-.button.add:focus,
-button.add:hover,
-button.add:active,
-button.add:focus {
-	background-color: $add-background-alt;
-	@include background-image(linear-gradient(to bottom, $add-background-alt, $add-background));
-	border-color: $add-border-alt;
+  &:hover, &:active, &:focus {
+    background-color: var(--add-background-alt);
+    background-image: #{'linear-gradient(to bottom, var(--add-background-alt), var(--add-background))'};
+    border-color: var(--add-border-alt);
+  }
 }
 
 .button-add:focus {
-	outline: dotted 1px;
+  outline: dotted 1px;
 }
 
+input[type=submit].clone,
+input.clone,
+button.clone,
+button[type=submit].clone,
+a.button.clone {
+  color: var(--clone-color);
+  background-color: var(--clone-background);
+  background-image: #{'linear-gradient(to bottom, var(--clone-background-alt), var(--clone-background))'};
+  border-color: var(--clone-border);
+
+  &:hover, &:active, &:focus {
+    color: var(--clone-hover-color);
+    background-color: var(--clone-hover-background);
+    background-image: #{'linear-gradient(to bottom, var(--clone-hover-background-alt), var(--clone-hover-background))'};
+  }
+}
 
 /* paragraphe pour bouton Nouveau bidule */
 
 p.top-add {
-	text-align: right;
-	margin: 0;
+  text-align: right;
+  margin: 0;
 }
-
 
 /* disabled */
 
@@ -185,18 +154,15 @@ input.disabled,
 input[type=submit].disabled,
 button.disabled,
 button[type=submit].disabled {
-	color: $button-disabled-color;
-	background: $button-disabled-background;
-	border: 1px solid $button-disabled-border;
-}
+  color: var(--button-disabled-color);
+  background: var(--button-disabled-background);
+  border: 1px solid var(--button-disabled-border);
 
-input.disabled:hover,
-input[type=submit].disabled:hover,
-button.disabled:hover,
-button[type=submit].disabled:hover {
-	color: $button-disabled-color;
-	background: $button-disabled-background-alt;
-	border: 1px solid $button-disabled-border;
+  &:hover {
+    color: var(--button-disabled-color);
+    background: var(--button-disabled-background-alt);
+    border: 1px solid var(--button-disabled-border);
+  }
 }
 
 /* Boutons javascript (dépliage/repliage, …) */
@@ -216,10 +182,10 @@ button.details-cmd {
   color: currentColor;
   background: transparent;
   box-shadow: none;
-  &:hover,
-  &:focus {
+
+  &:hover, &:focus {
     background: transparent;
-    color: $input-focus;
+    color: var(--input-focus);
   }
 }
 
@@ -234,56 +200,57 @@ a.checkbox-helper,
 a#gototop,
 a.metaGetList,
 a.metaGetMore {
-	font-size: 0.825em;
-	color: $ajax-color;
-	background: $ajax-background;
-	box-shadow: none;
-	border: 1px solid $ajax-border;
-	margin-bottom: .25em;
-	text-align: center;
-	&:hover {
-		background: $ajax-background-alt;
-		box-shadow: none;
-		border: 1px solid $ajax-border;
-	}
+  font-size: 0.825em;
+  color: var(--ajax-color);
+  background: var(--ajax-background);
+  box-shadow: none;
+  border: 1px solid var(--ajax-border);
+  margin-bottom: .25em;
+  text-align: center;
+
+  &:hover {
+    background: var(--ajax-background-alt);
+    box-shadow: none;
+    border: 1px solid var(--ajax-border);
+  }
 }
 
 #gototop {
-	display: none;
-	z-index: 1000;
-	position: fixed;
-	bottom: 0;
-	right: .5em;
-	width: 10em;
-	padding: .25em;
-	border-radius: .25em;
-	a,
-	a:link,
-	a:hover,
-	a:active {
-		color: $gotop-color;
-		background: $gotop-background;
-		border: $gotop-border;
-	}
+  display: none;
+  z-index: 1000;
+  position: fixed;
+  bottom: 0;
+  right: .5em;
+  width: 10em;
+  padding: .25em;
+  border-radius: .25em;
+
+  a {
+    &, &:link, &:hover, &:active {
+      color: var(--gotop-color);
+      background: var(--gotop-background);
+      border: var(--gotop-border);
+    }
+  }
 }
 
 .metaRemove,
 .addMeta button:not(.metaGetMore),
 .addMeta a:not(.metaGetMore) {
-	border: none;
-	border-radius: 0;
-	padding: 0;
-  color: $addmeta-color;
-	background: $addmeta-background;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  color: var(--addmeta-color);
+  background: var(--addmeta-background);
 }
 
 .addMeta button:not(.metaGetMore),
 .addMeta a:not(.metaGetMore) {
-	box-shadow: initial;
-	margin-bottom: 2px;
-	&:hover,
-	&:focus {
-    color: $addmeta-focus-color;
-    background: $addmeta-focus-background;
-	}
+  box-shadow: initial;
+  margin-bottom: 2px;
+
+  &:hover, &:focus {
+    color: var(--addmeta-focus-color);
+    background: var(--addmeta-focus-background);
+  }
 }

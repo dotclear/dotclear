@@ -11,9 +11,12 @@ require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 $core->auth->user_prefs->addWorkspace('interface');
+
+$js = [];
+$data_theme = $core->auth->user_prefs->interface->theme;
 ?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="<?php echo $data_theme; ?>">
 <head>
   <meta charset="UTF-8" />
     <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />
@@ -22,12 +25,9 @@ $core->auth->user_prefs->addWorkspace('interface');
     <title>Bibliothèque de styles - Dotclear - 2.7</title>
     <link rel="icon" type="image/png" href="images/favicon96-login.png" />
 <?php
-$js = [];
-if ($core->auth->user_prefs->interface->darkmode) {
-    echo dcPage::cssLoad('style/default-dark.css');
-} else {
-    echo dcPage::cssLoad('style/default.css');
-}
+
+echo dcPage::cssLoad('style/default.css');
+
 if ($core->auth->user_prefs->interface->htmlfontsize) {
     $js['htmlFontSize'] = $core->auth->user_prefs->interface->htmlfontsize;
 }

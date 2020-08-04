@@ -4,72 +4,75 @@
 /* fil d'ariane */
 
 #content > h2 {
-	padding: 0 1em .5em 1em;
-	margin: 0 -1em 1em -1em;
-	background: $breadcrumb-background;
-  border-bottom: 1px solid $breadcrumb-border;
+  padding: 0 1em .5em 1em;
+  margin: 0 -1em 1em -1em;
+  background: var(--breadcrumb-background);
+  border-bottom: 1px solid var(--breadcrumb-border);
 }
 
 /* page courante dans le fil d'ariane */
 
 .page-title {
-	color: $breadcrumb-current;
-	img {
-		padding-left: .5em;
-		vertical-align: middle;
-	}
+  color: var(--breadcrumb-current);
+
+  img {
+    padding-left: .5em;
+    vertical-align: middle;
+  }
 }
 
 
 /* autres titres */
 
 #main-menu h3 {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .fieldset h3,
 .fieldset h4,
 .pretty-title {
-	color: $fieldset-pretty-title-color;
-	font-size: 1em;
-	font-weight: bold;
+  color: var(--fieldset-pretty-title-color);
+  font-size: 1em;
+  font-weight: bold;
 }
 
 .fieldset h3 {
-	font-size: 1.17em;
+  font-size: 1.17em;
 }
 
 .fieldset h3.smart-title,
 .fieldset h4.smart-title,
 .smart-title {
-	font-size: 1em;
-	text-transform: uppercase;
-	font-weight: bold;
-	color: $fieldset-smart-title-color;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--fieldset-smart-title-color);
 }
 
 #entry-sidebar h5 {
-	font-weight: normal;
-	color: $entry-sidebar-title-color;
+  font-weight: normal;
+  color: var(--entry-sidebar-title-color);
 }
 
 .entry-status img.img_select_option {
-	padding-left: 4px;
-	vertical-align: -1px;
+  padding-left: 4px;
+  vertical-align: -1px;
 }
 
 h4 label,
 h5 label {
-	color: $title-label-color;
+  color: var(--title-label-color);
 }
 
-h2:first-child,
-h3:first-child,
-h4:first-child,
-h5:first-child,
-ul:first-child,
-p:first-child {
-	margin-top: 0;
+h2,
+h3,
+h4,
+h5,
+ul,
+p {
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 
@@ -77,85 +80,86 @@ p:first-child {
 
 
 /*  Pour autoriser le scroll sur les petites largeurs
-	envelopper les tableaux dans une div.table-outer */
+  envelopper les tableaux dans une div.table-outer */
 
 .table-outer {
-	width: 100%;
-	overflow: auto;
+  width: 100%;
+  overflow: auto;
 }
 
 table {
-	font-size: 1em;
-	border-collapse: collapse;
-	margin: 0 0 1em 0;
-	width: 100%;
+  font-size: 1em;
+  border-collapse: collapse;
+  margin: 0 0 1em 0;
+  width: 100%;
 }
 
 caption {
-	color: $table-caption-color;
-	font-weight: bold;
-	text-align: left;
-	margin-bottom: .5em;
+  color: var(--table-caption-color);
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: .5em;
 }
 
 th:not(.module-name) {
-	border-width: 1px 0 1px 0;
-	border-style: solid;
-	border-color: $head-border;
-  background: $head-background;
-	padding: .4em 1em .4em .5em;
-	vertical-align: top;
-	text-align: left;
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+  border-color: var(--head-border);
+  background: var(--head-background);
+  padding: .4em 1em .4em .5em;
+  vertical-align: top;
+  text-align: left;
 }
 
 td, th.module-name {
   font-weight: normal;
-	border-width: 0 0 1px 0;
-	border-style: solid;
-	border-color: $cell-border;
-	padding: .4em 1em .4em .5em;
-	vertical-align: top;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: var(--cell-border);
+  padding: .4em 1em .4em .5em;
+  vertical-align: top;
 }
 
 
 /* ---------------------------------------------------------- autres balises */
 
 p {
-	margin: 0 0 1em 0;
+  margin: 0 0 1em 0;
 }
 
 hr {
-	height: 1px;
-	border-width: 1px 0 0;
-	border-color: $hr-color;
-	background: $hr-color;
-	border-style: solid;
-	&.clearer {
-		clear: both;
-	}
+  height: 1px;
+  border-width: 1px 0 0;
+  border-color: var(--hr-color);
+  background: var(--hr-color);
+  border-style: solid;
+
+  &.clearer {
+    clear: both;
+  }
 }
 
 pre,
 code,
 #debug {
-	font: 100% $monospace;
+  font: 100% $monospace;
 }
 
 code {
-  color: $code-color;
-	background: $code-background;
+  color: var(--code-color);
+  background: var(--code-background);
 }
 
 pre {
-	white-space: pre;
-	white-space: -moz-pre-wrap;
-	white-space: pre-wrap;
-	white-space: pre-line;
-	word-wrap: break-word;
+  white-space: pre;
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word;
 }
 
 abbr {
-	cursor: help;
+  cursor: help;
 }
 
 input,
@@ -165,7 +169,7 @@ option,
 optgroup,
 legend,
 label {
-	font-size: 1em;
+  font-size: 1em;
 }
 
 
@@ -174,45 +178,47 @@ label {
 a,
 a:link,
 a:visited {
-  color: $link-color;
-	text-decoration: none;
-	border-bottom: 1px dotted $link-border;
-	background-color: inherit;
-	outline: 0;
-	img {
-		border: none;
-		background: initial;
-	}
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--link-border);
+  background-color: inherit;
+  outline: 0;
+
+  img {
+    border: none;
+    background: initial;
+  }
 }
 
 a:hover,
 a:active {
-	border-bottom-style: solid;
+  border-bottom-style: solid;
 }
 
 h1 a:link,
 h1 a:visited {
-	border: none;
+  border: none;
 }
 
 .discrete a {
-	color: $discrete-link-color;
+  color: var(--discrete-link-color);
 }
 
 a:link {
-	transition: .5s;
+  transition: .5s;
 }
 
 a:focus,
 a:focus img {
-	outline: 2px solid $link-outline;
-	border-bottom: none;
-	text-decoration: none;
+  outline: 2px solid var(--link-outline);
+  border-bottom: none;
+  text-decoration: none;
 }
 
 a.outgoing img, .outgoing-js {
   width: .75em;
-  filter: contrast($outgoing-link-filter);
+  filter: contrast(var(--outgoing-link-filter));
+
   #header & {
     width: 1.25em;
     padding: 0 0 0 .5em;

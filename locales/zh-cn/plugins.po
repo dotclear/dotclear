@@ -219,7 +219,7 @@ msgstr "(包括 %d 个垃圾评论)"
 msgid "(including %d spam comments)"
 msgstr "(包括 %d 个垃圾评论)"
 
-msgid "IP Blacklist / Whitelist Filter"
+msgid "IP Blocklist / Allowlist Filter"
 msgstr "IP 黑名单／白名单过滤"
 
 #, php-format
@@ -232,10 +232,10 @@ msgstr "成功添加 IP 地址。"
 msgid "IP addresses have been successfully removed."
 msgstr "成功删除 IP 地址。"
 
-msgid "Blacklist"
+msgid "Blocklist"
 msgstr "黑名单"
 
-msgid "Whitelist"
+msgid "Allowlist"
 msgstr "白名单"
 
 #, fuzzy
@@ -280,7 +280,7 @@ msgstr "添加一个由逗号分隔的服务器列表。"
 msgid "Checks links in comments against surbl.org"
 msgstr "从 surbl.org 查询评论中的链接"
 
-msgid "Words Blacklist"
+msgid "Words Blocklist"
 msgstr "关键字黑名单"
 
 #, php-format

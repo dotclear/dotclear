@@ -1,24 +1,24 @@
 #login-screen {
-	display: block;
-	width: 20em;
-	margin: 1.5em auto 0;
-	font-size: 1.16em;
-	h1 {
-		text-indent: -2000px;
-		background: transparent url(dc_logos/w-dotclear240.png) no-repeat top left;
-		height: 66px;
-		width: 20em;
-		margin-bottom: .5em;
-		margin-left: 0;
-	}
-	.fieldset {
-		border: 1px solid $login-fieldset-border;
-		padding: 1em 1em 0 1em;
-		background: $login-fieldset-background;
-		margin-bottom: 0;
-		margin-top: 1em;
-	}
-	input[type=text],
+  display: block;
+  width: 20em;
+  margin: 1.5em auto 0;
+  font-size: 1.16em;
+  h1 {
+    text-indent: -2000px;
+    background: transparent url(dc_logos/w-dotclear240.png) no-repeat top left;
+    height: 66px;
+    width: 20em;
+    margin-bottom: .5em;
+    margin-left: 0;
+  }
+  .fieldset {
+    border: 1px solid var(--login-fieldset-border);
+    padding: 1em 1em 0 1em;
+    background: var(--login-fieldset-background);
+    margin-bottom: 0;
+    margin-top: 1em;
+  }
+  input[type=text],
   input[type=color],
   input[type=email],
   input[type=url],
@@ -27,37 +27,29 @@
   input[type=time],
   input[type=file],
   input[type=number],
-	input[type=password],
-	input[type=submit],
-	input[type=text]:focus,
-  input[type=color]:focus,
-  input[type=email]:focus,
-  input[type=url]:focus,
-  input[type=datetime-local]:focus,
-  input[type=date]:focus,
-  input[type=time]:focus,
-  input[type=file]:focus,
-  input[type=number]:focus,
-	input[type=password]:focus,
-	input[type=submit]:focus {
-		width: 100%;
-		margin: 0;
-		padding: 5px 3px;
-	}
-	input.login,
-	input.login:focus {
-		padding-top: 6px;
-		padding-bottom: 6px;
-		font-size: 1em;
-	}
-	#issue {
-		margin-left: 1.33em;
-		font-size: .91em;
-		p:first-child {
-			text-align: right;
-		}
-		strong {
-			font-weight: normal;
-		}
-	}
+  input[type=password],
+  input[type=submit] {
+    &, &:focus {
+      width: 100%;
+      margin: 0;
+      padding: 5px 3px;
+    }
+  }
+  input.login {
+    &, &:focus {
+      padding-top: 6px;
+      padding-bottom: 6px;
+      font-size: 1em;
+    }
+  }
+  #issue {
+    margin-left: 1.33em;
+    font-size: .91em;
+    p:first-child {
+      text-align: right;
+    }
+    strong {
+      font-weight: normal;
+    }
+  }
 }

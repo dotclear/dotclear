@@ -11,6 +11,18 @@ const dotclear_init = getData('dotclear_init');
 if (typeof dotclear_init.htmlFontSize !== 'undefined') {
   document.documentElement.style.setProperty('--html-font-size', dotclear_init.htmlFontSize);
 }
+// set theme mode (dark/light/…)
+dotclear_init.theme = 'light';
+if (document.documentElement.getAttribute('data-theme') !== '') {
+  dotclear_init.theme = document.documentElement.getAttribute('data-theme');
+} else {
+  if (window.matchMedia) {
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      dotclear_init.theme = 'dark';
+    }
+  }
+}
+document.documentElement.style.setProperty('--dark-mode', (dotclear_init.theme === 'dark' ? 1 : 0));
 /* ChainHandler, py Peter van der Beken
 -------------------------------------------------------- */
 function chainHandler(obj, handlerName, handler) {
@@ -167,7 +179,7 @@ jQuery.fn.toggleWithLegend = function(target, s) {
 
 (function($) {
   $.expandContent = function(opts) {
-    if (opts == undefined || opts.callback == undefined || !$.isFunction(opts.callback)) {
+    if (opts == undefined || opts.callback == undefined || typeof opts.callback !== 'function') {
       return;
     }
     if (opts.line != undefined) {
@@ -181,8 +193,9 @@ jQuery.fn.toggleWithLegend = function(target, s) {
     $(`<button type="button" class="details-cmd" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`).on(
       'click',
       function(e) {
-        toggleArrow(this);
-        callback(line, '', e);
+        if (toggleArrow(this) !== '') {
+          callback(line, '', e);
+        }
         e.preventDefault();
       }).prependTo($(line).children().get(0)); // first td
   };
@@ -192,8 +205,9 @@ jQuery.fn.toggleWithLegend = function(target, s) {
       function(e) {
         var action = toggleArrow(this);
         lines.each(function() {
-          toggleArrow(this.firstChild.firstChild, action);
-          callback(this, action, e);
+          if (toggleArrow(this.firstChild.firstChild, action) !== '') {
+            callback(this, action, e);
+          }
         });
         e.preventDefault();
       }).prependTo($(line).children().get(0)); // first td
@@ -207,16 +221,18 @@ jQuery.fn.toggleWithLegend = function(target, s) {
         action = 'close';
       }
     }
-    if (action == 'open') {
+    if (action == 'open' && button.getAttribute('aria-expanded') == 'false') {
       button.firstChild.data = dotclear.img_minus_txt;
       button.setAttribute('value', dotclear.img_minus_txt);
       button.setAttribute('aria-label', dotclear.img_minus_alt);
       button.setAttribute('aria-expanded', true);
-    } else {
+    } else if (action == 'close' && button.getAttribute('aria-expanded') == 'true') {
       button.firstChild.data = dotclear.img_plus_txt;
       button.setAttribute('value', dotclear.img_plus_txt);
       button.setAttribute('aria-label', dotclear.img_plus_alt);
       button.setAttribute('aria-expanded', false);
+    } else {
+      action = '';
     }
     return action;
   };
@@ -598,6 +614,40 @@ const dotclear = {
         $elt.append(xml);
       }
     }
+  },
+
+  passwordHelpers: function() {
+
+    const togglePasswordHelper = function(e) {
+      e.preventDefault();
+      const button = e.currentTarget;
+      const isPasswordShown = button.classList.contains('pw-hide');
+
+      let inputType = isPasswordShown ? 'password' : 'text';
+      let buttonContent = isPasswordShown ? dotclear.msg.show_password : dotclear.msg.hide_password;
+
+      button.classList.toggle('pw-hide', !isPasswordShown);
+      button.classList.toggle('pw-show', isPasswordShown);
+
+      button.previousElementSibling.setAttribute('type', inputType);
+      button.setAttribute('title', buttonContent);
+      button.querySelector('span').textContent = buttonContent;
+    };
+
+    // Compose button
+    const buttonTemplate = new DOMParser().parseFromString(
+      `<button type="button" class="pw-show" title="${dotclear.msg.show_password}"><span class="sr-only">${dotclear.msg.show_password}</span></button>`,
+      'text/html'
+    ).body.firstChild;
+
+    const passwordFields = document.querySelectorAll('input[type=password]');
+
+    for (const passwordField of passwordFields) {
+      const button = buttonTemplate.cloneNode(true);
+      passwordField.after(button);
+      passwordField.classList.add('pwd_helper');
+      button.addEventListener('click', togglePasswordHelper);
+    }
   }
 };
 
@@ -606,10 +656,45 @@ const dotclear = {
 $(function() {
   // Store preinit DATA in dotclear object
   dotclear.data = dotclear_init;
+  // Debug mode
+  dotclear.debug = dotclear.data.debug || false;
   // Get other DATA
   Object.assign(dotclear, getData('dotclear'));
   Object.assign(dotclear.msg, getData('dotclear_msg'));
-
+  // set theme class
+  $('body').addClass(`${dotclear.data.theme}-mode`);
+  dotclear.data.darkMode = dotclear.data.theme === 'dark' ? 1 : 0;
+  if (document.documentElement.getAttribute('data-theme') === '') {
+    // Theme is set to automatic, keep an eye on system change
+    dotclear.theme_OS = window.matchMedia('(prefers-color-scheme: dark)');
+    dotclear.theme_OS.addEventListener('change', function(e) {
+      let theme = e.matches ? 'dark' : 'light';
+      if (theme !== dotclear.data.theme) {
+        $('body').removeClass(`${dotclear.data.theme}-mode`);
+        dotclear.data.theme = theme;
+        $('body').addClass(`${dotclear.data.theme}-mode`);
+        document.documentElement.style.setProperty('--dark-mode', (dotclear.data.theme === 'dark' ? 1 : 0));
+      }
+    });
+  }
+  // Watch data-theme attribute modification
+  const observer = new MutationObserver((mutations) => {
+    for (let mutation of mutations) {
+      let theme = 'light';
+      if (mutation.target.getAttribute('data-theme') !== '') {
+        theme = mutation.target.getAttribute('data-theme');
+      } else {
+        theme = window.matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light';
+      }
+      $('body').removeClass(`${dotclear.data.theme}-mode`);
+      dotclear.data.theme = theme;
+      $('body').addClass(`${dotclear.data.theme}-mode`);
+      document.documentElement.style.setProperty('--dark-mode', (dotclear.data.theme === 'dark' ? 1 : 0));
+    }
+  });
+  observer.observe(document.documentElement, {
+    attributeFilter: ['data-theme']
+  });
   // remove class no-js from html tag; cf style/default.css for examples
   $('body').removeClass('no-js').addClass('with-js');
   $('body').contents().each(function() {
@@ -619,6 +704,20 @@ $(function() {
       $(`<span class="tooltip" aria-hidden="true">${$('#footer a').prop('title')}${data}</span>`).appendTo('#footer a');
     }
   });
+  // Footer effect
+  const footer_target = document.querySelector('#footer a');
+  if (footer_target) {
+    const footer_audio = document.querySelector('#thanks');
+    if (footer_audio) {
+      footer_target.addEventListener('mouseenter', () => {
+        footer_audio.load();
+        footer_audio.play();
+      });
+      footer_target.addEventListener('mouseleave', () => {
+        footer_audio.pause();
+      });
+    }
+  }
   // manage outgoing links
   dotclear.outgoingLinks('a');
   // Popups: dealing with Escape key fired
@@ -663,6 +762,8 @@ $(function() {
     e.preventDefault();
     $(this).parent().hide();
   });
+  // Password helpers
+  dotclear.passwordHelpers();
   // Password
   $('form:has(input[type=password][name=your_pwd])').on('submit', function() {
     const e = this.elements.your_pwd;
@@ -751,5 +852,9 @@ $(function() {
       scrollTop: 0
     }, 800);
     e.preventDefault();
+  });
+  // Go back (aka Cancel) button
+  $('.go-back').on('click', () => {
+    history.back();
   });
 });

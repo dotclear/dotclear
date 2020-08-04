@@ -59,7 +59,7 @@ dotclear.dbPostsCount = function() {
 };
 $(function() {
   function quickPost(f, status) {
-    if (typeof jsToolBar !== 'undefined' && $.isFunction(jsToolBar) && contentTb.getMode() == 'wysiwyg') {
+    if (typeof jsToolBar === 'function' && contentTb.getMode() == 'wysiwyg') {
       contentTb.syncContents('iframe');
     }
 
@@ -95,7 +95,7 @@ $(function() {
         $('#post_title', f).val('');
         $('#post_content', f).val('');
         $('#post_content', f).change();
-        if (typeof jsToolBar !== 'undefined' && $.isFunction(jsToolBar) && contentTb.getMode() == 'wysiwyg') {
+        if (typeof jsToolBar === 'function' && contentTb.getMode() == 'wysiwyg') {
           contentTb.syncContents('textarea');
         }
         $('#cat_id', f).val('0');
@@ -109,7 +109,7 @@ $(function() {
 
   const f = $('#quick-entry');
   if (f.length > 0) {
-    if (typeof jsToolBar !== 'undefined' && $.isFunction(jsToolBar)) {
+    if (typeof jsToolBar === 'function') {
       var contentTb = new jsToolBar($('#post_content', f)[0]);
       contentTb.switchMode($('#post_format', f).val());
     }

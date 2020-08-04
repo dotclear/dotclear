@@ -40,7 +40,7 @@ $core->auth->user_prefs->addWorkspace('accessibility');
 $user_acc_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
 
 $core->auth->user_prefs->addWorkspace('interface');
-$user_ui_darkmode         = $core->auth->user_prefs->interface->darkmode;
+$user_ui_theme            = $core->auth->user_prefs->interface->theme;
 $user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
 $user_ui_hidemoreinfo     = $core->auth->user_prefs->interface->hidemoreinfo;
 $user_ui_hidehelpbutton   = $core->auth->user_prefs->interface->hidehelpbutton;
@@ -101,13 +101,20 @@ if (is_dir($iconsets_root) && is_readable($iconsets_root)) {
     }
 }
 
+# Themes
+$theme_combo = [
+    __('Light')     => 'light',
+    __('Dark')      => 'dark',
+    __('Automatic') => ''
+];
+
 # Body base font size (37.5% = 6px, 50% = 8px, 62.5% = 10px, 75% = 12px, 87.5% = 14px)
 $htmlfontsize_combo = [
     __('Smallest') => '37.5%',
     __('Smaller')  => '50%',
     __('Default')  => '62.5%',
     __('Larger')   => '75%',
-    __('Largest')  => '87,5%'
+    __('Largest')  => '87.5%'
 ];
 # Ensure Font size is set to default is empty
 if ($user_ui_htmlfontsize == '') {
@@ -168,6 +175,8 @@ $posts_sortby_combo = [
     __('Number of comments')   => 'nb_comment',
     __('Number of trackbacks') => 'nb_trackback'
 ];
+# --BEHAVIOR-- adminPostsSortbyCombo
+$core->callBehavior('adminPostsSortbyCombo', [ & $posts_sortby_combo]);
 
 $comments_sortby_combo = [
     __('Date')        => 'comment_dt',
@@ -178,6 +187,8 @@ $comments_sortby_combo = [
     __('IP')          => 'comment_ip',
     __('Spam filter') => 'comment_spam_filter'
 ];
+# --BEHAVIOR-- adminCommentsSortbyCombo
+$core->callBehavior('adminCommentsSortbyCombo', [ & $comments_sortby_combo]);
 
 $blogs_sortby_combo = [
     __('Last update') => 'blog_upddt',
@@ -185,6 +196,8 @@ $blogs_sortby_combo = [
     __('Blog ID')     => 'B.blog_id',
     __('Status')      => 'blog_status'
 ];
+# --BEHAVIOR-- adminBlogsSortbyCombo
+$core->callBehavior('adminBlogsSortbyCombo', [ & $blogs_sortby_combo]);
 
 if ($core->auth->isSuperAdmin()) {
     $users_sortby_combo = [
@@ -194,6 +207,8 @@ if ($core->auth->isSuperAdmin()) {
         __('Display name')      => 'user_displayname',
         __('Number of entries') => 'nb_post'
     ];
+    # --BEHAVIOR-- adminUsersSortbyCombo
+    $core->callBehavior('adminUsersSortbyCombo', [ & $users_sortby_combo]);
 }
 
 $order_combo = [
@@ -306,7 +321,7 @@ if (isset($_POST['user_editor'])) {
 
         # Update user prefs
         $core->auth->user_prefs->accessibility->put('nodragdrop', !empty($_POST['user_acc_nodragdrop']), 'boolean');
-        $core->auth->user_prefs->interface->put('darkmode', !empty($_POST['user_ui_darkmode']), 'boolean');
+        $core->auth->user_prefs->interface->put('theme', $_POST['user_ui_theme'], 'string');
         $core->auth->user_prefs->interface->put('enhanceduploader', !empty($_POST['user_ui_enhanceduploader']), 'boolean');
         $core->auth->user_prefs->interface->put('hidemoreinfo', !empty($_POST['user_ui_hidemoreinfo']), 'boolean');
         $core->auth->user_prefs->interface->put('hidehelpbutton', !empty($_POST['user_ui_hidehelpbutton']), 'boolean');
@@ -613,7 +628,9 @@ if ($core->auth->allowPassChange()) {
 echo
 '<p class="clear vertical-separator">' .
 $core->formNonce() .
-'<input type="submit" accesskey="s" value="' . __('Update my profile') . '" /></p>' .
+'<input type="submit" accesskey="s" value="' . __('Update my profile') . '" />' .
+' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+    '</p>' .
     '</form>' .
 
     '</div>';
@@ -629,9 +646,8 @@ echo
 '<div class="fieldset">' .
 '<h4 id="user_options_interface">' . __('Interface') . '</h4>' .
 
-'<p><label for="user_ui_darkmode" class="classic">' .
-form::checkbox('user_ui_darkmode', 1, $user_ui_darkmode) . ' ' .
-__('Activate dark mode') . '</label></p>' .
+'<p><label for="user_ui_theme" class="classic">' . __('Theme:') . '</label>' . ' ' .
+form::combo('user_ui_theme', $theme_combo, $user_ui_theme) . '</p>' .
 
 '<p><label for="user_ui_enhanceduploader" class="classic">' .
 form::checkbox('user_ui_enhanceduploader', 1, $user_ui_enhanceduploader) . ' ' .
@@ -806,7 +822,9 @@ $core->callBehavior('adminPreferencesForm', $core);
 echo
 '<p class="clear vertical-separator">' .
 $core->formNonce() .
-'<input type="submit" accesskey="s" value="' . __('Save my options') . '" /></p>' .
+'<input type="submit" accesskey="s" value="' . __('Save my options') . '" />' .
+' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+    '</p>' .
     '</form>';
 
 echo '</div>';
@@ -983,7 +1001,9 @@ echo
 '<p>' .
 form::hidden('db-options', '-') .
 $core->formNonce() .
-'<input type="submit" accesskey="s" value="' . __('Save my dashboard options') . '" /></p>' .
+'<input type="submit" accesskey="s" value="' . __('Save my dashboard options') . '" />' .
+' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+    '</p>' .
     '</form>';
 
 # Dashboard items order (reset)

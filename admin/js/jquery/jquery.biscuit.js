@@ -71,15 +71,16 @@ jQuery.cookie = function(name, value, options) {
         }
         var path = options.path ? '; path=' + options.path : '';
         var domain = options.domain ? '; domain=' + options.domain : '';
+        var samesite = '; sameSite=' + (options.samesite ? options.samesite : 'Lax');
         var secure = options.secure ? '; secure' : '';
-        document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, secure].join('');
+        document.cookie = [name, '=', encodeURIComponent(value), expires, path, domain, samesite, secure].join('');
 	   return null;
     } else { // only name given, get cookie
         var cookieValue = null;
         if (document.cookie && document.cookie != '') {
             var cookies = document.cookie.split(';');
             for (var i = 0; i < cookies.length; i++) {
-                var cookie = jQuery.trim(cookies[i]);
+                var cookie = cookies[i].trim();
                 // Does this cookie string begin with the name we want?
                 if (cookie.substring(0, name.length + 1) == (name + '=')) {
                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));

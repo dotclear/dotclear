@@ -22,6 +22,7 @@
         <input type="hidden" name="p" value="dcLegacyEditor"/>
         <?php echo $core->formNonce(); ?>
         <input type="submit" name="saveconfig" value="<?php echo __('Save configuration'); ?>" />
+        <input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
         </p>
       </form>
     <?php endif;?>

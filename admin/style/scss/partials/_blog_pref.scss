@@ -1,52 +1,52 @@
 #media_img_title_pattern {
-	margin-right: 1em;
+  margin-right: 1em;
 }
 
 #part-users > div {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: left;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
 }
 
 .user-perm {
-	margin: 0 1em 1em 0;
-	background: transparent url(user.png) no-repeat .5em .5em;
-	width: 20em;
-	border: 1px solid $blog-user-border;
-	border-radius: .5em;
-	padding: 0 1em .5em;
-	h4,
-	h5,
-	p,
-	ul,
-	li {
-		margin: .5em 0 .33em;
-		padding: 0;
-	}
-	h4 {
-		padding-left: 28px;
-	}
-	h5 {
-		margin: 1em 0 0 0;
-	}
-	li {
-		margin-left: 1em;
-		padding-left: 0;
-	}
-	&.user_super {
-    border-color: $blog-super-border;
-    background-color: $blog-super-background;
-	}
+  margin: 0 1em 1em 0;
+  background: transparent url(user.png) no-repeat .5em .5em;
+  width: 20em;
+  border: 1px solid var(--blog-user-border);
+  border-radius: .5em;
+  padding: 0 1em .5em;
+  h4,
+  h5,
+  p,
+  ul,
+  li {
+    margin: .5em 0 .33em;
+    padding: 0;
+  }
+  h4 {
+    padding-left: 28px;
+  }
+  h5 {
+    margin: 1em 0 0 0;
+  }
+  li {
+    margin-left: 1em;
+    padding-left: 0;
+  }
+  &.user_super {
+    border-color: var(--blog-super-border);
+    background-color: var(--blog-super-background);
+  }
 }
 
 li.user_super,
 li.user_admin {
-	margin-left: 0;
-	padding-left: 20px;
-	list-style: none;
-	background: transparent url(../images/superadmin.png) no-repeat 0 .3em;
+  margin-left: 0;
+  padding-left: 20px;
+  list-style: none;
+  background: transparent url(../images/superadmin.png) no-repeat 0 .3em;
 }
 
 li.user_admin {
-	background-image: url(../images/admin.png);
+  background-image: url(../images/admin.png);
 }

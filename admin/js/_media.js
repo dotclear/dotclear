@@ -66,20 +66,20 @@
         downloadTemplateId: null,
         uploadTemplate: template_upload,
         downloadTemplate: template_download
-      }).bind('fileuploadadd', function() {
+      }).on('fileuploadadd', function() {
         $('.button.cancel').css('display', 'inline-block');
         $('#fileupload .fileupload-buttonbar').show();
         enableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
-      }).bind('fileuploadadded', function() {
+      }).on('fileuploadadded', function() {
         displayMessageInQueue($('.files .template-upload', me).length);
-      }).bind('fileuploaddone', function(e, data) {
+      }).on('fileuploaddone', function(e, data) {
         if (data.result.files[0].html !== undefined) {
           $('.media-list .files-group').append(data.result.files[0].html);
           $('#form-medias .hide').removeClass('hide');
         }
         $('.button.clean').css('display', 'inline-block');
         $(me).show();
-      }).bind('fileuploadalways', function() {
+      }).on('fileuploadalways', function() {
         displayMessageInQueue($('.files .template-upload', me).length);
         if ($('.fileupload-ctrl .files .template-upload', me).length == 0) {
           $('.button.cancel', '#fileupload .fileupload-buttonbar').hide();

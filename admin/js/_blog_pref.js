@@ -42,7 +42,7 @@ $(function() {
   });
 
   // HTML text editor
-  if (typeof jsToolBar !== 'undefined' && $.isFunction(jsToolBar)) {
+  if (typeof jsToolBar === 'function') {
     $('#blog_desc').each(function() {
       let tbWidgetText = new jsToolBar(this);
       tbWidgetText.context = 'blog_desc';

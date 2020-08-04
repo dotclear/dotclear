@@ -164,6 +164,7 @@ foreach ($prefs as $ws => $s) {
 ?>
 
 <p><input type="submit" value="<?php echo __('Save'); ?>" />
+<input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
 <input type="hidden" name="p" value="userPref" />
 <?php echo $core->formNonce(); ?></p>
 </form>
@@ -213,6 +214,7 @@ foreach ($prefs as $ws => $s) {
 ?>
 
 <p><input type="submit" value="<?php echo __('Save'); ?>" />
+<input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
 <input type="hidden" name="p" value="userPref" />
 <?php echo $core->formNonce(); ?></p>
 </form>

@@ -125,13 +125,13 @@ class tplSimpleMenu
 
                 if ($m['descr']) {
                     if (($description == 'title' || $description == 'both') && $targetBlank) {
-                        $title = html::escapeHTML(__($m['descr'])) . ' (' .
+                        $title = html::escapeHTML($m['descr']) . ' (' .
                         __('new window') . ')';
                     } elseif ($description == 'title' || $description == 'both') {
-                        $title = html::escapeHTML(__($m['descr']));
+                        $title = html::escapeHTML($m['descr']);
                     }
                     if ($description == 'span' || $description == 'both') {
-                        $span = ' <span class="simple-menu-descr">' . html::escapeHTML(__($m['descr'])) . '</span>';
+                        $span = ' <span class="simple-menu-descr">' . html::escapeHTML($m['descr']) . '</span>';
                     }
                 }
 
@@ -142,7 +142,7 @@ class tplSimpleMenu
                     $title = (empty($title) ? __('Active page') : $title . ' (' . __('active page') . ')');
                 }
 
-                $label = html::escapeHTML(__($m['label']));
+                $label = html::escapeHTML($m['label']);
 
                 $item = new ArrayObject([
                     'url'    => $href,   // URL

@@ -268,6 +268,7 @@ if (!empty($extraPlugins) && count($extraPlugins) > 0) {
     CKEDITOR.on('instanceReady',function(e) {
         if (dotclear && dotclear.data && dotclear.data.htmlFontSize) {
             e.editor.document.$.documentElement.style.setProperty('--html-font-size',dotclear.data.htmlFontSize);
+            e.editor.document.$.querySelector('body').style.setProperty('font-size','calc(var(--html-font-size) * 1.4)');
         }
 
         if ($('label[for="post_excerpt"] button').attr('aria-label') == dotclear.img_minus_alt) {

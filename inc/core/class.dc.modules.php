@@ -564,6 +564,11 @@ class dcModules
         }
     }
 
+    public function cloneModule($id)
+    {
+        return;
+    }
+
     /**
     This method will search for file <var>$file</var> in language
     <var>$lang</var> for module <var>$id</var>.

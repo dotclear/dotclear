@@ -248,7 +248,9 @@ echo
     form::hidden(['p'], 'blogroll') .
     $core->formNonce();
     ?>
-<input type="submit" name="saveorder" value="<?php echo __('Save order'); ?>" /></p>
+<input type="submit" name="saveorder" value="<?php echo __('Save order'); ?>" />
+<input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
+</p>
 <p class="col right"><input id="remove-action" type="submit" class="delete" name="removeaction"
      value="<?php echo __('Delete selected links'); ?>"
      onclick="return window.confirm(<?php echo html::escapeJS(__('Are you sure you want to delete selected links?')); ?>');" /></p>
@@ -291,9 +293,11 @@ form::field('link_lang', 5, 5, $link_lang) .
 '</p>' .
 '<p>' . form::hidden(['p'], 'blogroll') .
 $core->formNonce() .
-'<input type="submit" name="add_link" value="' . __('Save') . '" /></p>' .
-    '</form>' .
-    '</div>';
+'<input type="submit" name="add_link" value="' . __('Save') . '" />' .
+' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+'</p>' .
+'</form>' .
+'</div>';
 
 echo
 '<div class="multi-part" id="add-cat" title="' . __('Add a category') . '">' .
@@ -304,12 +308,14 @@ form::field('cat_title', 30, 255, [
     'default'    => $cat_title,
     'extra_html' => 'required placeholder="' . __('Title') . '"'
 ]) .
-' ' .
-form::hidden(['p'], 'blogroll') .
+'</p>' .
+'<p>'. form::hidden(['p'], 'blogroll') .
 $core->formNonce() .
-'<input type="submit" name="add_cat" value="' . __('Save') . '" /></p>' .
-    '</form>' .
-    '</div>';
+'<input type="submit" name="add_cat" value="' . __('Save') . '" />'.
+' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+'</p>' .
+'</form>' .
+'</div>';
 
 echo
 '<div class="multi-part" id="import-links" title="' . __('Import links') . '">';
@@ -321,8 +327,10 @@ if (!isset($imported)) {
     '<input type="file" id="links_file" name="links_file" required /></p>' .
     '<p>' . form::hidden(['p'], 'blogroll') .
     $core->formNonce() .
-    '<input type="submit" name="import_links" value="' . __('Import') . '" /></p>' .
-        '</form>';
+    '<input type="submit" name="import_links" value="' . __('Import') . '" />' .
+    ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
+    '</p>' .
+    '</form>';
 } else {
     echo
     '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" id="import-links-form">' .

@@ -937,6 +937,13 @@ class adminModulesList
                         '<input type="submit" class="delete ' . $dev . '" name="delete[' . html::escapeHTML($id) . ']" value="' . __('Delete') . '" />';
                     }break;
 
+                # Clone
+                case 'clone':if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
+                        $submits[] =
+                        '<input type="submit" class="button clone" name="clone[' . html::escapeHTML($id) . ']" value="' . __('Clone') . '" />';
+                    }break;
+
+
                 # Install (from store)
                 case 'install':if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
                         $submits[] =
@@ -1693,7 +1700,7 @@ class adminThemesList extends adminModulesList
             # _POST actions
             if (!empty($actions)) {
                 $line .=
-                '<p>' . implode(' ', $this->getActions($id, $module, $actions)) . '</p>';
+                '<p class="module-post-actions">' . implode(' ', $this->getActions($id, $module, $actions)) . '</p>';
             }
 
             $line .=
@@ -1807,7 +1814,8 @@ class adminThemesList extends adminModulesList
                 $this->core->blog->settings->system->put('theme', $id);
                 $this->core->blog->triggerBlog();
 
-                dcPage::addSuccessNotice(__('Theme has been successfully selected.'));
+                $module = $this->modules->getModules($id);
+                dcPage::addSuccessNotice(sprintf(__('Theme %s has been successfully selected.'), html::escapeHTML($module['name'])));
                 http::redirect($this->getURL() . '#themes');
             }
         } else {
@@ -1892,6 +1900,34 @@ class adminThemesList extends adminModulesList
                         __('Theme has been successfully deactivated.', 'Themes have been successuflly deactivated.', $count)
                     );
                 }
+                http::redirect($this->getURL());
+            } elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['clone'])) {
+
+                if (is_array($_POST['clone'])) {
+                    $modules = array_keys($_POST['clone']);
+                }
+
+                $count = 0;
+                foreach ($modules as $id) {
+
+                    if (!$this->modules->moduleExists($id)) {
+                        throw new Exception(__('No such theme.'));
+                    }
+
+                    # --BEHAVIOR-- themeBeforeClone
+                    $this->core->callBehavior('themeBeforeClone', $id);
+
+                    $this->modules->cloneModule($id);
+
+                    # --BEHAVIOR-- themeAfterClone
+                    $this->core->callBehavior('themeAfterClone', $id);
+
+                    $count++;
+                }
+
+                dcPage::addSuccessNotice(
+                    __('Theme has been successfully cloned.', 'Themes have been successuflly cloned.', $count)
+                );
                 http::redirect($this->getURL());
             } elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['delete'])) {
 

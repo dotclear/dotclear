@@ -29,7 +29,7 @@ class dcFilterIP extends dcSpamFilter
 
     protected function setInfo()
     {
-        $this->description = __('IP Blacklist / Whitelist Filter');
+        $this->description = __('IP Blocklist / Allowlist Filter');
     }
 
     public function getStatusMessage($status, $comment_id)
@@ -97,8 +97,8 @@ class dcFilterIP extends dcSpamFilter
         $res = dcPage::notices();
 
         $res .=
-        $this->displayForms($url, 'black', __('Blacklist')) .
-        $this->displayForms($url, 'white', __('Whitelist'));
+        $this->displayForms($url, 'black', __('Blocklist')) .
+        $this->displayForms($url, 'white', __('Allowlist'));
 
         return $res;
     }

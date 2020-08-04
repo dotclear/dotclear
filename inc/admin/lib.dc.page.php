@@ -169,9 +169,11 @@ class dcPage
             header($value);
         }
 
+        $data_theme = $core->auth->user_prefs->interface->theme;
+
         echo
         '<!DOCTYPE html>' .
-        '<html lang="' . $core->auth->getInfo('user_lang') . '">' . "\n" .
+        '<html lang="' . $core->auth->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
         '  <meta charset="UTF-8" />' . "\n" .
         '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
@@ -179,13 +181,8 @@ class dcPage
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
         '  <title>' . $title . ' - ' . html::escapeHTML($core->blog->name) . ' - ' . html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n";
 
-        if ($core->auth->user_prefs->interface->darkmode) {
-            $js['darkMode'] = 1;
-            echo self::cssLoad('style/default-dark.css');
-        } else {
-            $js['darkMode'] = 0;
-            echo self::cssLoad('style/default.css');
-        }
+        echo self::cssLoad('style/default.css');
+
         if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
             echo self::cssLoad('style/default-rtl.css');
         }
@@ -205,6 +202,8 @@ class dcPage
         $core->auth->user_prefs->addWorkspace('accessibility');
         $js['noDragDrop'] = (boolean) $core->auth->user_prefs->accessibility->nodragdrop;
 
+        $js['debug'] = !!DC_DEBUG;
+
         // Set some JSON data
         echo dcUtils::jsJson('dotclear_init', $js);
 
@@ -218,8 +217,9 @@ class dcPage
 
         echo
         "</head>\n" .
-        '<body id="dotclear-admin' .
-        ($safe_mode ? ' safe-mode' : '') . '" class="no-js' .
+        '<body id="dotclear-admin" class="no-js' .
+        ($safe_mode ? ' safe-mode' : '')  .
+        (DC_DEBUG ? ' debug-mode' : '') .
         ($core->auth->user_prefs->interface->dynfontsize ? ' responsive-font' : '') . '">' . "\n" .
 
         '<ul id="prelude">' .
@@ -266,46 +266,29 @@ class dcPage
         echo $breadcrumb;
 
         // Display notices and errors
-        echo $core->notices->getNotices();
+        echo dcAdminNotices::getNotices();
     }
 
-    /**
-    @deprecated Please use $core->notices->getNotices()
-     **/
     public static function notices()
     {
-        $core = self::getCore();
-        return $core->notices->getNotices();
+        return dcAdminNotices::getNotices();
     }
 
-    /**
-    @deprecated Please use $core->notices->addNotice()
-     **/
     public static function addNotice($type, $message, $options = [])
     {
-        $core = self::getCore();
-        $core->notices->addNotice($type, $message, $options);
+        dcAdminNotices::addNotice($type, $message, $options);
     }
 
-    /**
-    @deprecated Please use $core->notices->addSuccessNotice()
-     **/
     public static function addSuccessNotice($message, $options = [])
     {
         self::addNotice("success", $message, $options);
     }
 
-    /**
-    @deprecated Please use $core->notices->addWarningNotice()
-     **/
     public static function addWarningNotice($message, $options = [])
     {
         self::addNotice("warning", $message, $options);
     }
 
-    /**
-    @deprecated Please use $core->notices->addErrorNotice()
-     **/
     public static function addErrorNotice($message, $options = [])
     {
         self::addNotice("error", $message, $options);
@@ -372,6 +355,7 @@ EOT;
             '<footer id="footer" role="contentinfo">' .
             '<a href="https://dotclear.org/" title="' . $text . '">' .
             '<img src="style/dc_logos/w-dotclear90.png" alt="' . $text . '" /></a></footer>' . "\n" .
+            '<audio id="thanks" src="images/thanks.mp3" crossOrigin="anonymous" preload="none"></audio>' .
             "<!-- " . "\n" .
             $figure .
             " -->" . "\n";
@@ -389,6 +373,8 @@ EOT;
         $core = self::getCore();
         $js   = [];
 
+        $safe_mode = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
+
         # Display
         header('Content-Type: text/html; charset=UTF-8');
 
@@ -398,9 +384,11 @@ EOT;
         # Prevents Clickjacking as far as possible
         header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
 
+        $data_theme = $core->auth->user_prefs->interface->theme;
+
         echo
         '<!DOCTYPE html>' .
-        '<html lang="' . $core->auth->getInfo('user_lang') . '">' . "\n" .
+        '<html lang="' . $core->auth->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
         '  <meta charset="UTF-8" />' . "\n" .
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
@@ -408,13 +396,8 @@ EOT;
             '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
             '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
 
-        if ($core->auth->user_prefs->interface->darkmode) {
-            $js['darkMode'] = 1;
-            echo self::cssLoad('style/default-dark.css');
-        } else {
-            $js['darkMode'] = 0;
-            echo self::cssLoad('style/default.css');
-        }
+        echo self::cssLoad('style/default.css');
+
         if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
             echo self::cssLoad('style/default-rtl.css');
         }
@@ -428,6 +411,8 @@ EOT;
 
         $core->auth->user_prefs->addWorkspace('accessibility');
         $js['noDragDrop'] = (boolean) $core->auth->user_prefs->accessibility->nodragdrop;
+
+        $js['debug'] = !!DC_DEBUG;
 
         // Set JSON data
         echo dcUtils::jsJson('dotclear_init', $js);
@@ -443,6 +428,8 @@ EOT;
         echo
             "</head>\n" .
             '<body id="dotclear-admin" class="popup' .
+            ($safe_mode ? ' safe-mode' : '') .
+            (DC_DEBUG ? ' debug-mode' : '') .
             ($core->auth->user_prefs->interface->dynfontsize ? ' responsive-font' : '') . '">' . "\n" .
 
             '<h1>' . DC_VENDOR_NAME . '</h1>' . "\n";
@@ -456,7 +443,7 @@ EOT;
         echo $breadcrumb;
 
         // Display notices and errors
-        echo $core->notices->getNotices();
+        echo dcAdminNotices::getNotices();
     }
 
     public static function closePopup()
@@ -499,26 +486,16 @@ EOT;
         return $res;
     }
 
-    /**
-    @deprecated Please use $core->notices->message()
-     **/
     public static function message($msg, $timestamp = true, $div = false, $echo = true, $class = 'message')
     {
-        $core = self::getCore();
-        return $core->notices->message($msg, $timestamp, $div, $echo, $class);
+        return dcAdminNotices::message($msg, $timestamp, $div, $echo, $class);
     }
 
-    /**
-    @deprecated Please use $core->notices->success()
-     **/
     public static function success($msg, $timestamp = true, $div = false, $echo = true)
     {
         return self::message($msg, $timestamp, $div, $echo, "success");
     }
 
-    /**
-    @deprecated Please use $core->notices->warning()
-     **/
     public static function warning($msg, $timestamp = true, $div = false, $echo = true)
     {
         return self::message($msg, $timestamp, $div, $echo, "warning-msg");
@@ -808,7 +785,10 @@ EOT;
             'module_section'                       => __('Section:'),
             'module_tags'                          => __('Tags:'),
 
-            'close_notice'                         => __('Hide this notice')
+            'close_notice'                         => __('Hide this notice'),
+
+            'show_password'                        => __('Show password'),
+            'hide_password'                        => __('Hide password')
         ];
 
         return
@@ -993,7 +973,7 @@ EOT;
         self::jsLoad('js/filter-controls.js');
     }
 
-    public static function jsLoadCodeMirror($theme = '', $multi = true, $modes = ['css', 'htmlmixed', 'javascript', 'php', 'xml'])
+    public static function jsLoadCodeMirror($theme = '', $multi = true, $modes = ['css', 'htmlmixed', 'javascript', 'php', 'xml', 'clike'])
     {
         $ret =
         self::cssLoad('js/codemirror/lib/codemirror.css') .
@@ -1024,7 +1004,7 @@ EOT;
                 'name'  => $name,
                 'id'    => $id,
                 'mode'  => $mode,
-                'theme' => $theme
+                'theme' => $theme ?: 'default'
             ]];
         }
 

@@ -51,7 +51,7 @@ function dc_admin_icon_url($img)
             if ($m[1]) {
                 $icon = path::real(dirname(__FILE__) . '/../../admin/images/iconset/' . $user_ui_iconset . '/' . $m[1], false);
                 if ($icon !== false) {
-                    $allow_types = ['png', 'jpg', 'jpeg', 'gif'];
+                    $allow_types = ['svg', 'png', 'jpg', 'jpeg', 'gif'];
                     if (is_file($icon) && is_readable($icon) && in_array(files::getExtension($icon), $allow_types)) {
                         return DC_ADMIN_URL . 'images/iconset/' . $user_ui_iconset . '/' . $m[1];
                     }
@@ -228,9 +228,8 @@ if ($core->auth->userID() && $core->blog !== null) {
     $core->auth->user_prefs->addWorkspace('interface');
     $user_ui_nofavmenu = $core->auth->user_prefs->interface->nofavmenu;
 
-    $core->favs    = new dcFavorites($core);
     $core->notices = new dcNotices($core);
-
+    $core->favs    = new dcFavorites($core);
     # [] : Title, URL, small icon, large icon, permissions, id, class
     # NB : '*' in permissions means any, null means super admin only
 

@@ -767,6 +767,45 @@ class dcUpgrade
             }
         }
 
+        if (version_compare($version, '2.16.9', '<')) {
+            // Fix 87,5% which should be 87.5% in pref for htmlfontsize
+            $strReq = 'UPDATE ' . $core->prefix . 'pref ' .
+                " SET pref_value = REPLACE(pref_value, '87,5%', '87.5%') " .
+                " WHERE pref_id = 'htmlfontsize' " .
+                " AND pref_ws = 'interface' ";
+            $core->con->execute($strReq);
+        }
+
+        if (version_compare($version, '2.17', '<')) {
+            # A bit of housecleaning for no longer needed files
+            $remfiles = [
+                'inc/admin/class.dc.notices.php'
+            ];
+            $remfolders = [
+                // Oldest jQuery public lib
+                'inc/js/jquery/3.4.1'
+            ];
+            foreach ($remfiles as $f) {
+                @unlink(DC_ROOT . '/' . $f);
+            }
+            foreach ($remfolders as $f) {
+                @rmdir(DC_ROOT . '/' . $f);
+            }
+            # Help specific (files was moved)
+            $remtree = scandir(DC_ROOT . '/locales');
+            $remfiles = [
+                'help/blowupConfig.html',
+                'help/themeEditor.html'
+            ];
+            foreach ($remtree as $dir) {
+                if (is_dir(DC_ROOT . '/' . 'locales' . '/' . $dir) && $dir !== '.' && $dir !== '.') {
+                    foreach ($remfiles as $f) {
+                        @unlink(DC_ROOT . '/' . 'locales' . '/' . $dir . '/' . $f);
+                    }
+                }
+            }
+        }
+
         $core->setVersion('core', DC_VERSION);
         $core->blogDefaults();
 

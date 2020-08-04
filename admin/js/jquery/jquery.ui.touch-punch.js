@@ -1,3 +1,6 @@
+/*global jQuery */
+'use strict';
+
 /*!
  * jQuery UI Touch Punch 0.2.3
  *
@@ -156,7 +159,8 @@
     var self = this;
 
     // Delegate the touch handlers to the widget's element
-    self.element.bind({
+//    self.element.bind({
+    self.element.on({
       touchstart: $.proxy(self, '_touchStart'),
       touchmove: $.proxy(self, '_touchMove'),
       touchend: $.proxy(self, '_touchEnd')
@@ -174,7 +178,8 @@
     var self = this;
 
     // Delegate the touch handlers to the widget's element
-    self.element.unbind({
+//    self.element.unbind({
+    self.element.off({
       touchstart: $.proxy(self, '_touchStart'),
       touchmove: $.proxy(self, '_touchMove'),
       touchend: $.proxy(self, '_touchEnd')

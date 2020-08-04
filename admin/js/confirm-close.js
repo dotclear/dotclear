@@ -24,11 +24,21 @@ confirmClose.prototype = {
     this.forms = [];
     for (let i = 0; i < formsInPage.length; i++) {
       const f = formsInPage[i];
+      // Loop on form elements
       let tmpForm = [];
       for (let j = 0; j < f.elements.length; j++) {
         const e = this.getFormElementValue(f[j]);
         if (e !== undefined) {
           tmpForm[eltRef(f[j])] = e;
+        }
+      }
+      // Loop on form iframes
+      const j = f.getElementsByTagName("iframe");
+      if (j !== undefined) {
+        for (let k = 0; k < j.length; k++) {
+          if (j[k].contentDocument.body.id !== undefined && j[k].contentDocument.body.id !== '') {
+            tmpForm[j[k].contentDocument.body.id] = j[k].contentDocument.body.innerHTML;
+          }
         }
       }
       this.forms.push(tmpForm);
@@ -45,12 +55,26 @@ confirmClose.prototype = {
       return true;
     }
 
-    const formMatch = (source, obj) => Object.keys(source).every(key => obj.hasOwnProperty(key) && obj[key] === source[key]);
+    const formMatch = (current, source) => Object.keys(current).every(
+      key => (!source.hasOwnProperty(key)) || (source.hasOwnProperty(key) && source[key] === current[key])
+    );
     const eltRef = (e) => e.id != undefined && e.id != '' ? e.id : e.name;
+    const formFirstDiff = (current, source) => {
+      let diff = '<none>';
+      Object.keys(current).every(key => {
+        if (source.hasOwnProperty(key) && current[key] !== source[key]) {
+          diff = `Key = [${key}] - Original = [${source[key]}] - Current = [${current[key]}]`;
+          return false;
+        }
+        return true;
+      });
+      return diff;
+    };
 
     const formsInPage = this.getForms();
     for (let i = 0; i < formsInPage.length; i++) {
       const f = formsInPage[i];
+      // Loop on form elements
       let tmpForm = [];
       for (let j = 0; j < f.elements.length; j++) {
         const e = this.getFormElementValue(f[j]);
@@ -58,7 +82,22 @@ confirmClose.prototype = {
           tmpForm[eltRef(f[j])] = e;
         }
       }
+      // Loop on form iframes
+      const j = f.getElementsByTagName("iframe");
+      if (j !== undefined) {
+        for (let k = 0; k < j.length; k++) {
+          if (j[k].contentDocument.body.id !== undefined && j[k].contentDocument.body.id !== '') {
+            tmpForm[j[k].contentDocument.body.id] = j[k].contentDocument.body.innerHTML;
+          }
+        }
+      }
       if (!formMatch(tmpForm, this.forms[i])) {
+        if (dotclear.debug) {
+          console.log('Input data modified:');
+          console.log('Current form', tmpForm);
+          console.log('Saved form', this.forms[i]);
+          console.log('First difference:', formFirstDiff(tmpForm, this.forms[i]));
+        }
         return false;
       }
     }
@@ -140,6 +179,9 @@ window.addEventListener('beforeunload', (event) => {
   }
 
   if (dotclear.confirmClosePage !== undefined && !dotclear.confirmClosePage.form_submit && !dotclear.confirmClosePage.compareForms()) {
+    if (dotclear.debug) {
+      console.log('Confirmation before exiting is required.');
+    }
     event.preventDefault(); // HTML5 specification
     event.returnValue = ''; // Google Chrome requires returnValue to be set.
   }

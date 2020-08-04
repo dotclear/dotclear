@@ -58,10 +58,14 @@ class dcUtils
         }
 
         foreach ($ids as $id) {
-            $id = abs((integer) $id);
+            if (is_array($id)) {
+                $clean_ids = array_merge($clean_ids, self::cleanIds($id));
+            } else {
+                $id = abs((integer) $id);
 
-            if (!empty($id)) {
-                $clean_ids[] = $id;
+                if (!empty($id)) {
+                    $clean_ids[] = $id;
+                }
             }
         }
         return $clean_ids;

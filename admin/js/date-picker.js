@@ -504,16 +504,13 @@ datePicker.prototype = {
     const imgE = document.createElement('img');
     imgE.src = this.img_src;
     imgE.alt = this.img_alt;
-    imgE.style.position = 'absolute';
-    imgE.style.top = this.img_top;
-    imgE.style.left = (this.target.clientWidth + 4) + 'px';
+    imgE.className = 'date-picker-btn';
     imgE.obj = this;
     imgE.fn = this.show;
     imgE.onclick = function() {
       this.fn.apply(this.obj);
     };
 
-    this.target.parentNode.style.position = 'relative';
     this.target.parentNode.insertBefore(imgE, this.target.nextSibling);
   }
 };

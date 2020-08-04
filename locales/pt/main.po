@@ -2936,10 +2936,10 @@ msgstr "Marcar como pendente"
 msgid "Mark as junk"
 msgstr "marcar como lixo"
 
-msgid "Blacklist IP"
+msgid "Blocklist IP"
 msgstr ""
 
-msgid "Blacklist IP (global)"
+msgid "Blocklist IP (global)"
 msgstr ""
 
 #, fuzzy
@@ -2947,7 +2947,7 @@ msgid "No comment selected"
 msgstr "Sem comentário"
 
 #, fuzzy
-msgid "IP addresses for selected comments have been blacklisted."
+msgid "IP addresses for selected comments have been blocklisted."
 msgstr "O comentário foi actualizado com sucesso."
 
 #, fuzzy

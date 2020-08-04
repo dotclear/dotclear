@@ -1,41 +1,41 @@
 .warn,
 .warning,
 .info {
-	font-style: normal;
-	padding: .2em .66em .2em;
-	text-indent: 24px;
-	display: inline-block;
-	line-height: 1.5em;
-	border-radius: 3px;
+  font-style: normal;
+  padding: .2em .66em .2em;
+  text-indent: 24px;
+  display: inline-block;
+  line-height: 1.5em;
+  border-radius: 3px;
 }
 
 .info {
-  color: $msg-info-color;
-	background: $msg-info-background url(msg-info.png) no-repeat .3em .3em;
-	border: 1px solid $msg-info-border;
+  color: var(--msg-info-color);
+  background: var(--msg-info-background) url(msg-info.png) no-repeat .3em .3em;
+  border: 1px solid var(--msg-info-border);
 }
 
 .warn,
 .warning {
-  color: $msg-warn-color;
-  background: $msg-warn-background url(msg-warning.png) no-repeat .3em .3em;
-  border: 1px solid $msg-warn-border;
+  color: var(--msg-warn-color);
+  background: var(--msg-warn-background) url(msg-warning.png) no-repeat .3em .3em;
+  border: 1px solid var(--msg-warn-border);
 }
 
 div.warn,
 div.warning,
 div.info {
-	display: block;
-	padding: 1em 1em .33em 1em;
-	margin-bottom: 1em;
+  display: block;
+  padding: 1em 1em .33em 1em;
+  margin-bottom: 1em;
 }
 
 span.warn,
 span.warning,
 span.info {
-	padding-top: 1px;
-	padding-bottom: 1px;
-	background-position: .3em .2em;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  background-position: .3em .2em;
 }
 
 .error,
@@ -43,10 +43,10 @@ span.info {
 .static-msg,
 .success,
 .warning-msg {
-	padding: 1em 0.5em 0.5em 48px;
-	margin-bottom: 1em;
-	border-radius: 8px;
-	box-shadow: 1px 1px 2px $msg-shadow;
+  padding: 1em 0.5em 0.5em 48px;
+  margin-bottom: 1em;
+  border-radius: 8px;
+  box-shadow: 1px 1px 2px var(--msg-shadow);
 }
 
 p.error,
@@ -54,41 +54,46 @@ p.message,
 p.static-msg,
 p.success,
 p.warning-msg {
-	padding-top: 1em;
-	padding-bottom: 1em;
-	margin-top: .5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-top: .5em;
 }
 
 .error {
-	background: $msg-error-background url(msg-error.png) no-repeat .7em .7em;
-	color: $msg-error-color;
+  background: var(--msg-error-background) url(msg-error.png) no-repeat .7em .7em;
+  color: var(--msg-error-color);
   animation-name: kf-error;
   animation-duration: .5s;
 }
+
 @keyframes kf-error {
   0% {
-    background-color: $msg-error-background-alt;
+    background-color: var(--msg-error-background-alt);
   }
+
   100% {
-    background-color: $msg-error-background;
+    background-color: var(--msg-error-background);
   }
 }
 
 .message,
 .static-msg {
-  color: $msg-color;
-	background: $msg-background url(msg-std.png) no-repeat .7em .7em;
+  color: var(--msg-color);
+  background: var(--msg-background) url(msg-std.png) no-repeat .7em .7em;
 }
+
 .message {
   animation-name: kf-message;
   animation-duration: .5s;
 }
+
 @keyframes kf-message {
   0% {
-    background-color: $msg-background-alt;
+    background-color: var(--msg-background-alt);
   }
+
   100% {
-    background-color: $msg-background;
+    background-color: var(--msg-background);
   }
 }
 
@@ -96,107 +101,124 @@ p.warning-msg {
 .static-msg a,
 .message h3,
 .static-msg h3 {
-	color: $msg-color;
+  color: var(--msg-color);
 }
 
 .success {
-	color: $msg-success-color;
+  color: var(--msg-success-color);
 }
 
 .success {
-	background: $msg-success-background url(msg-success.png) no-repeat .7em .7em;
+  background: var(--msg-success-background) url(msg-success.png) no-repeat .7em .7em;
   animation-name: kf-success;
   animation-duration: .5s;
 }
+
 @keyframes kf-success {
   0% {
-    background-color: $msg-success-background-alt;
+    background-color: var(--msg-success-background-alt);
   }
+
   100% {
-    background-color: $msg-success-background;
+    background-color: var(--msg-success-background);
   }
 }
 
 .warning-msg {
-  color: $msg-warn-color;
-	background: $msg-warn-background-alt url(msg-warning.png) no-repeat .7em .7em;
-	border: 1px solid $msg-warn-border;
+  color: var(--msg-warn-color);
+  background: var(--msg-warn-background-alt) url(msg-warning.png) no-repeat .7em .7em;
+  border: 1px solid var(--msg-warn-border);
   animation-name: kf-warning;
   animation-duration: .5s;
 }
+
 @keyframes kf-warning {
   0% {
-    background-color: $msg-warn-background;
+    background-color: var(--msg-warn-background);
   }
+
   100% {
-    background-color: $msg-warn-background-alt;
+    background-color: var(--msg-warn-background-alt);
   }
 }
 
 .success a,
 .warning-msg a,
 .info a {
-	color: $msg-info-color;
+  color: var(--msg-info-color);
+}
+
+.notice-ts {
+  font-size: .875em;
+  padding: 2px .5em;
+  margin-right: 0.5em;
+  border-radius: .25em;
+  color: var(--body-color);
+  background: var(--body-background);
+  filter: opacity(0.85);
 }
 
 .close-notice-parent {
-	display: flex;
-	justify-content: space-between;
-	ul, p + p {
-		flex: 1;
-	}
-	p + p {
-		padding-left: .25em;
-	}
+  position: relative;
+  padding-right: 3em;
 }
+
 .close-notice {
-	background: none;
-	border:	none;
-	border-radius: 0;
-	box-shadow: none;
-	padding-left: 1em;
-	&:hover, &:focus {
-		background: none;
-	}
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  position: absolute;
+  top: 1em;
+  right: .5em;
+
+  &:hover, &:focus {
+    background: none;
+  }
 }
 
 .dc-update {
-	padding: 1em 48px 0.5em 48px;
-	margin-bottom: 1em;
-	border-radius: 8px;
-  color: $dc-update-color;
-	background: $dc-update-background url(msg-success.png) no-repeat .7em .7em;
-	box-shadow: 1px 1px 2px $msg-shadow;
-	h3 {
-		margin-top: 0;
-		color: $dc-update-color;
-	}
-	p {
-		display: inline-block;
-		vertical-align: middle;
-	}
-	a {
-		color: $dc-update-color;
-		margin-right: 1em;
-		&.button {
-			padding: .5em 1em;
-		}
-	}
+  padding: 1em 48px 0.5em 48px;
+  margin-bottom: 1em;
+  border-radius: 8px;
+  color: var(--dc-update-color);
+  background: var(--dc-update-background) url(msg-success.png) no-repeat .7em .7em;
+  box-shadow: 1px 1px 2px var(--msg-shadow);
+
+  h3 {
+    margin-top: 0;
+    color: var(--dc-update-color);
+  }
+
+  p {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  a {
+    color: var(--dc-update-color);
+    margin-right: 1em;
+
+    &.button {
+      padding: .5em 1em;
+    }
+  }
 }
 
 .updt-info a {
-	margin-left: 2em;
-	border-color: $dc-update-color;
-	font-weight: bold;
+  margin-left: 2em;
+  border-color: var(--dc-update-color);
+  font-weight: bold;
 }
 
 body.ajax-loader {
-	#header {
-		border-bottom-color: $ajax-loader;
-		transition: border-bottom-color .3s ease;
-	}
-	#collapser {
-		background-color: $ajax-loader;
-		transition: background-color .3s ease;
-	}
+  #header {
+    border-bottom-color: var(--ajax-loader);
+    transition: border-bottom-color .3s ease;
+  }
+
+  #collapser {
+    background-color: var(--ajax-loader);
+    transition: background-color .3s ease;
+  }
 }

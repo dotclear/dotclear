@@ -340,7 +340,6 @@ class dcUrlHandlers extends urlHandler
         $_ctx = &$GLOBALS['_ctx'];
         $core = &$GLOBALS['core'];
 
-        $year = $month = $cat_url = null;
         # Nothing or year and month
         if ($args == '') {
             self::serveDocument('archive.html');

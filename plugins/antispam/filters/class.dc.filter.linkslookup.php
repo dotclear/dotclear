@@ -54,7 +54,8 @@ class dcFilterLinksLookup extends dcSpamFilter
             do {
                 $host = $domain_elem[$i - 1] . '.' . $host;
                 $i--;
-                if (substr(gethostbyname($host . '.' . $this->server), 0, 3) == "127") {
+                $response = gethostbyname($host . '.' . $this->server);
+                if (substr($response, 0, 3) === '127' && substr($response, 8) !== '1') {
                     $status = substr($domain, 0, 128);
                     return true;
                 }

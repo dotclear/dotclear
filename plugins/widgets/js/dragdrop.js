@@ -74,7 +74,7 @@ $(function() {
     stop: function(event, ui) {
       if (!dotclear.widget_noeditor) {
         ui.helper.find('textarea:not(.noeditor)').each(function() {
-          if (typeof jsToolBar !== 'undefined' && $.isFunction(jsToolBar)) {
+          if (typeof jsToolBar === 'function') {
             const tbWidgetText = new jsToolBar(this);
             tbWidgetText.draw('xhtml');
           }

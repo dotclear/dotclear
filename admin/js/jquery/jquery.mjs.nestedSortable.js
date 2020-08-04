@@ -40,7 +40,8 @@
 		destroy: function() {
 			this.element
 				.removeData("nestedSortable")
-				.unbind(".nestedSortable");
+//        .unbind(".nestedSortable");
+				.off(".nestedSortable");
 			return $.ui.sortable.prototype.destroy.apply(this, arguments);
 		},
 
@@ -113,12 +114,12 @@
 					//&& itemElement.parentNode == this.placeholder[0].parentNode // only rearrange items within the same container
 				) {
 
-					$(itemElement).mouseenter();
+					$(itemElement).trigger("mouseenter");
 
 					this.direction = intersection == 1 ? "down" : "up";
 
 					if (this.options.tolerance == "pointer" || this._intersectsWithSides(item)) {
-						$(itemElement).mouseleave();
+						$(itemElement).trigger("mouseleave");
 						this._rearrange(event, item);
 					} else {
 						break;
@@ -168,7 +169,7 @@
 			var newList = document.createElement(o.listType);
 
 			this.beyondMaxLevels = 0;
-			
+
 			// If the item is moved to the left, send it to its parent's level unless there are siblings below it.
 			if (parentItem != null && nextItem == null &&
 					(o.rtl && (this.positionAbs.left + this.helper.outerWidth() > parentItem.offset().left + parentItem.outerWidth()) ||
@@ -372,7 +373,7 @@
 
 			if (this.options.listType) {
 				var list = item.closest(this.options.listType);
-				while (list && list.length > 0 && 
+				while (list && list.length > 0 &&
                     	!list.is('.ui-sortable')) {
 					level++;
 					list = list.parent().closest(this.options.listType);

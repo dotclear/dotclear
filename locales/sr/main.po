@@ -2928,10 +2928,10 @@ msgstr "Mettre en attente"
 msgid "Mark as junk"
 msgstr "indésirable"
 
-msgid "Blacklist IP"
+msgid "Blocklist IP"
 msgstr ""
 
-msgid "Blacklist IP (global)"
+msgid "Blocklist IP (global)"
 msgstr ""
 
 #, fuzzy
@@ -2939,7 +2939,7 @@ msgid "No comment selected"
 msgstr "Aucun commentaire"
 
 #, fuzzy
-msgid "IP addresses for selected comments have been blacklisted."
+msgid "IP addresses for selected comments have been blocklisted."
 msgstr "Commentaire mis à jour avec succès."
 
 #, fuzzy

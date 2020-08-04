@@ -99,6 +99,7 @@ form::url(['pings_srv_uri[]', 'pings_srv_uri2'], 40) .
 __('Auto pings all services on first publication of entry (current blog only)') . '</label></p>' .
 
 '<p><input type="submit" value="' . __('Save') . '" />' .
+' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
 $core->formNonce() . '</p>' .
     '</form>';
 

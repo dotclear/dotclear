@@ -1,3 +1,65 @@
+Dotclear 2.17 - 2020-08-13
+===========================================================
+* 🐘 PHP 5.6+ is required, PHP 7.4 compliance
+* 🛡 Security: Password is now needed to export blog settings and contents (full/simple)
+* Theme can now be cloned
+* New helper button (show/hide) for password fields
+* Enhancement of filter/sort usage for lists (posts, comments, …)
+* 3rd automatic theme for backend theme (which follow OS setting)
+* Authentication (backend) and password form (public for password protected entry) have been redesigned
+* Add a Cancel button wherever relevant in backend
+* PHP files can now be edited in Theme editor
+* Plugins may now use SVG icon rather than JPG/PNG
+* Black/White list names become Block/Allow list (antispam)
+* Wiki: subscript syntax changed from _subscript_ to ,,subscript,,
+* Wiki: add ;;span-content;; syntax
+* Wiki: add §§attributes[|list attributes]§§ for blocks (at end of the 1st line of block)
+* Wiki: add §attributes§ for inline elements (just before closing marker, warning: cannot be nested)
+* Tpl: Add {{tpl:BlogNbEntriesFirstPage}} and {{tpl:BlogNbEntriesPerPage}}
+* Tpl: Add optional even attribute to <tpl:EntryIfOdd>, <tpl:CommentIfOdd> and <tpl:PingIfOdd>
+* Tpl: Add author="…" as attribute of <tpl:EntryIf>
+* a11y: Reduce motion if required in provided themes and backend
+* Lib: Update jQuery to 3.5.1 (backend and public)
+* Lib: Update Codemirror to 5.55.0
+* Lib: CKEditor new color palette (configurable)
+* Fix: Notification system refactored (now based on db rather than PHP Session)
+* Fix: Missing confirmation before closing modified forms / unecessary confirmation asked before closing not modified forms
+* i18n: Switch from Transifex to Crowdin for localisation purpose (https://dotclear.crowdin.com/)
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
+Dotclear 2.16.9 - 2020-06-02
+===========================================================
+* Fix: Check password for export only if necessary
+* Fix: Cope with mod_access_compat plugin inactive with Apache 2.4+
+* Fix: Fix very large font size value (user prefs) with CKEditor
+
+Dotclear 2.16.8 - 2020-05-27
+===========================================================
+* Fix: Clearbricks was not up to date in last release
+
+Dotclear 2.16.7 - 2020-05-27
+===========================================================
+* 🛡 Security: Password is now needed to export blog settings and contents (full/simple)
+* Fix: Remove absolute positionning of datepicker icon (media manager)
+* Fix: Cope with SURBL DNS query blocked access (if too much requests from same source) - Antispam LinksLookup filter
+* Fix: Remove wrapping p around figures (wiki)
+* Fix: CKEditor use now same font-size as other UI standard elements
+
+Dotclear 2.16.6 - 2020-05-22
+===========================================================
+* Fix: Remove executable bit on non-executable files
+* Do not trim inside the content, only at the beginning and the end (dcLegacyEditor, XHTML mode only)
+* Fix media description management in media-manager (main/popup)
+* Fix insertion of figure (wiki / wysiwyg)
+* Fix caret position after inserting image in dcLegacyEditor (wiki)
+
+Dotclear 2.16.5 - 2020-05-14
+===========================================================
+* Fix: tpl:EntryContent and tpl:EntryIfContentCut when using full="1" attribute
+* Fix: Take care of iframe content (used by wysiwyg/source dcLegacyEditor) for confirmation before closing modified forms
+* Remove all automatic translations in simpleMenu plugin, feature which caused unanticipated behaviours
+
 Dotclear 2.16.4 - 2020-04-24
 ===========================================================
 * Fix: Remove <sub>content</sub> (_<content>_) from authorized element in wiki links. - missing from 2.16.3

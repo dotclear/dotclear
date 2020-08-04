@@ -26,6 +26,7 @@ class dcThemeEditor
     public $css = [];
     public $js  = [];
     public $po  = [];
+    public $php = [];
 
     public function __construct($core)
     {
@@ -50,6 +51,7 @@ class dcThemeEditor
         $this->findStyles();
         $this->findScripts();
         $this->findLocales();
+        $this->findCodes();
     }
 
     public function filesList($type, $item = '%1$s', $split = true)
@@ -254,6 +256,8 @@ class dcThemeEditor
                 return $this->js;
             case 'po':
                 return $this->po;
+            case 'php':
+                return $this->php;
             default:
                 return [];
         }
@@ -273,6 +277,9 @@ class dcThemeEditor
                 break;
             case 'po':
                 $list = &$this->po;
+                break;
+            case 'php':
+                $list = &$this->php;
                 break;
             default:
                 return;
@@ -327,6 +334,11 @@ class dcThemeEditor
             }
             $this->po = array_merge($this->po, $this->getFilesInDir($this->user_theme . '/locales/' . $v, 'po', $v . '/'));
         }
+    }
+
+    protected function findCodes()
+    {
+        $this->php = $this->getFilesInDir($this->user_theme, 'php');
     }
 
     protected function getFilesInDir($dir, $ext = null, $prefix = '', $model = null)

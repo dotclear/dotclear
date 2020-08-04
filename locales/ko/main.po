@@ -2942,10 +2942,10 @@ msgstr "미지정으로 표시"
 msgid "Mark as junk"
 msgstr "스팸으로 표시"
 
-msgid "Blacklist IP"
+msgid "Blocklist IP"
 msgstr ""
 
-msgid "Blacklist IP (global)"
+msgid "Blocklist IP (global)"
 msgstr ""
 
 #, fuzzy
@@ -2953,7 +2953,7 @@ msgid "No comment selected"
 msgstr "댓글이 없습니다."
 
 #, fuzzy
-msgid "IP addresses for selected comments have been blacklisted."
+msgid "IP addresses for selected comments have been blocklisted."
 msgstr "댓글이 성공적으로 갱신되었습니다."
 
 #, fuzzy

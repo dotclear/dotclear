@@ -2756,17 +2756,17 @@ msgstr "Als offen markieren"
 msgid "Mark as junk"
 msgstr "Als Müll markieren"
 
-msgid "Blacklist IP"
+msgid "Blocklist IP"
 msgstr "Sperrliste IP"
 
-msgid "Blacklist IP (global)"
-msgstr "Blacklist IP (global)"
+msgid "Blocklist IP (global)"
+msgstr "Blocklist IP (global)"
 
 msgid "No comment selected"
 msgstr "Kein Kommentar ausgewählt"
 
-msgid "IP addresses for selected comments have been blacklisted."
-msgstr "IP-Adressen für ausgewählte Kommentare wurden auf Blackliste gesetzt."
+msgid "IP addresses for selected comments have been blocklisted."
+msgstr "IP-Adressen für ausgewählte Kommentare wurden auf Blockliste gesetzt."
 
 msgid "Back to entries list"
 msgstr "Zurück zu den Einträgen"

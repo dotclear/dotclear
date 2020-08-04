@@ -1,7 +1,7 @@
 .jstEditor {
   border-width: 0 1px 1px 1px;
   border-style: solid;
-  border-color: #ddd;
+  border-color: var(--body-color);
   background: #f7f7f7;
 }
 .jstEditor textarea, .jstEditor iframe {
@@ -14,15 +14,6 @@
   padding: .5em 0 0 0;
   min-height: 100px;
 }
-.jstHandle {
-  height: 8px;
-  background: #ccc url(?pf=dcLegacyEditor/css/jsToolBar/resize.png) no-repeat center center;
-  font-size: 0.1em;
-  cursor: s-resize;
-  border-color: #ccc #ccc #ccc #000;
-  border-width: 0 1px 1px 1px;
-  border-style: solid;
-}
 .jstEditor textarea:focus, .jstEditor iframe:focus {
   border-color: #bee74b;
 }
@@ -30,19 +21,17 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 0 32px 0 1rem;
-  border: 1px solid #ccc;
+  padding: 3px 5px 3px 10px;
   overflow: hidden;
-  background: #ccc;
-  position: relative;
   line-height: 30px;
+  border: 1px solid;
+  position: relative;
 }
 .jstElements select, .jstElements button {
   vertical-align: middle;
 }
 .jstElements select {
   width: 12em;
-  margin-right: .6rem;
 }
 .jstElements button {
   width: 30px;
@@ -51,11 +40,12 @@
   border-width: 1px;
   margin-left: 2px;
   margin-bottom: 2px;
-  border-color: #e5e5e5 #ccc #ccc #e5e5e5;
+  border-color: #323232;
   background-color: #f7f7f7;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: inherit;
+  box-shadow: none;
 }
 .jstElements button:hover, .jstElements button:focus {
   border-color: #ddd;
@@ -72,17 +62,17 @@ span.jstSpacer {
   width: 8px;
 }
 .jstSwitcher {
-  display: block;
+  display: flex;
   list-style: none;
   margin: 0;
-  padding: 0 0 5px 0;
+  padding: inherit;
   background: #dfdfdf;
   border-top: 1px solid #999;
 }
 .jstSwitcher li {
   display: inline;
-  margin: 0 0 0 5px;
-  padding: 2px 8px;
+  margin: 0;
+  padding: .125em 1em;
 }
 .jstSwitcher li.jstSwitcherCurrent {
   color: #fff;
@@ -90,6 +80,7 @@ span.jstSpacer {
   border-radius: 0 0 2px 2px;
 }
 .jstSwitcher a {
+  color: #333;
   font-weight: normal;
   border-bottom: none !important;
 }
@@ -148,12 +139,10 @@ button.jstb_post_link {
   background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_post.png);
 }
 button.jstb_removeFormat {
-  background-color: #e5e5e5;
   background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_clean.png);
   position: absolute;
-  right: 2px;
-  top: 1px;
-  border-color: #ccc;
+  right: 5px;
+  bottom: 3px;
 }
 /* WYSIWYG Iframe */
 

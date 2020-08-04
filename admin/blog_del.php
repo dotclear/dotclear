@@ -67,6 +67,7 @@ if (!$core->error->flag()) {
     '<p><label for="pwd">' . __('Your password:') . '</label> ' .
     form::password('pwd', 20, 255, ['autocomplete' => 'current-password']) . '</p>' .
     '<p><input type="submit" class="delete" name="del" value="' . __('Delete this blog') . '" />' .
+    ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
     form::hidden('blog_id', $blog_id) . '</p>' .
         '</form>';
 }
