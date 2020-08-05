@@ -617,12 +617,17 @@ class adminModulesList
 
             if (in_array('icon', $cols)) {
                 $tds++;
+                if (file_exists($module['root'] . '/icon.svg')) {
+                    $icon = dcPage::getPF($id . '/icon.svg');
+                } elseif (file_exists($module['root'] . '/icon.png')) {
+                    $icon = dcPage::getPF($id . '/icon.png');
+                } else {
+                    $icon = 'images/module.png';
+                }
                 echo
-                '<td class="module-icon nowrap">' . sprintf(
-                    '<img alt="%1$s" title="%1$s" src="%2$s" />',
-                    html::escapeHTML($id), file_exists($module['root'] . '/icon.png') ?
-                    dcPage::getPF($id . '/icon.png') : 'images/module.png'
-                ) . '</td>';
+                '<td class="module-icon nowrap">' .
+                sprintf('<img alt="%1$s" title="%1$s" src="%2$s" />', html::escapeHTML($id), $icon) .
+                '</td>';
             }
 
             $tds++;
