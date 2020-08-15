@@ -632,7 +632,7 @@ if ($can_edit_post) {
                 '</div>',
                 'post_password'        =>
                 '<p><label for="post_password">' . __('Password') . '</label>' .
-                form::password('post_password', 10, 32, html::escapeHTML($post_password), 'maximal') .
+                form::field('post_password', 10, 32, html::escapeHTML($post_password), 'maximal') .
                 '</p>',
                 'post_url'             =>
                 '<div class="lockable">' .
