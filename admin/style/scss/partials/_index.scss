@@ -87,7 +87,8 @@
 
   p.qinfo {
     margin: -.7em -1em 1em;
-    background: var(--quick-info-background) url(msg-info.png) no-repeat .2em .2em;
+    background: url(msg-info.png) no-repeat .2em .2em;
+    background-color: var(--quick-info-background);
     border: 1px solid var(--quick-info-border);
     padding: .2em 1em .1em 24px;
     color: var(--quick-info-color);
@@ -155,7 +156,8 @@
 }
 
 .dc-box {
-  background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right;
+  background: url(dc_logos/sq-logo-32.png) no-repeat top right;
+  background-color: transparent;
 }
 
 #news {

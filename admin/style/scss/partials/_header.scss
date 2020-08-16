@@ -65,7 +65,8 @@ h1 {
     width: 150px;
     height: 36px; // was 3em;
     color: var(--header-color);
-    background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
+    background: url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
+    background-color: transparent;
     transition: none;
 
     &:hover, &:focus {
@@ -154,7 +155,8 @@ h1 {
 @media screen and (max-width: $xs-screen) {
   h1 a {
     &:link {
-      background: transparent url(dc_logos/b-dotclear120.png) no-repeat -270px 6px;
+      background: url(dc_logos/b-dotclear120.png) no-repeat -270px 6px;
+      background-color: transparent;
     }
 
     &:hover, &:focus {

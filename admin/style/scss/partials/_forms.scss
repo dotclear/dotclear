@@ -162,7 +162,8 @@ select.l10n option {
 }
 
 option.avail10n {
-  background: transparent url(../images/check-on.png) no-repeat 0 50%;
+  background: url(../images/check-on.png) no-repeat 0 50%;
+  background-color: transparent;
 }
 
 input[type=text],

@@ -27,7 +27,8 @@
 }
 
 .ac_loading {
-  background: transparent url('loader.gif') right center no-repeat;
+  background: url('loader.gif') right center no-repeat;
+  background-color: transparent;
 }
 
 .ac_odd {
@@ -374,7 +375,8 @@ p.clear.vertical-separator {
 }
 
 .grid {
-  background: transparent repeat url('grid.png') 0 0;
+  background: url('grid.png') repeat 0 0;
+  background-color: transparent;
 }
 
 ul.nice {

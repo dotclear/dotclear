@@ -125,7 +125,8 @@ td.expand {
 
 .handler {
   cursor: move;
-  background: transparent url(drag.png) no-repeat 0 50%;
+  background: url(drag.png) no-repeat 0 50%;
+  background-color: transparent;
   padding-left: 15px;
 }
 

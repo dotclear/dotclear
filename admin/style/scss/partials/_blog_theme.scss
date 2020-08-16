@@ -102,7 +102,8 @@ On adapte largeur et hauteur en fonction
   /* Thèmes désactivés */
   width: 278px;
   &:hover {
-    background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right;
+    background: url(dc_logos/sq-logo-32.png) no-repeat top right;
+    background-color: transparent;
   }
 }
 
@@ -182,5 +183,6 @@ On adapte largeur et hauteur en fonction
   width: auto;
   overflow: hidden;
   padding-top: 2em;
-  background: transparent url(../images/minus-theme.png) no-repeat left top;
+  background: url(../images/minus-theme.png) no-repeat left top;
+  background-color: transparent;
 }

@@ -275,7 +275,8 @@ label span.one-file {
     margin-top: 3px;
     width: 20px;
     height: 20px;
-    background: transparent url("cancel.png") no-repeat left top;
+    background: url("cancel.png") no-repeat left top;
+    background-color: transparent;
     text-indent: -1000px;
     cursor: pointer;
     float: left;
@@ -300,7 +301,8 @@ label span.one-file {
     font-weight: bold;
     line-height: 1.2em;
     text-align: right;
-    background: var(--upload-progress-background) url(loader.png) repeat-x left top;
+    background: url(loader.png) repeat-x left top;
+    background-color: var(--upload-progress-background);
     color: var(--upload-progress-color);
     border-radius: 3px;
   }
