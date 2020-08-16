@@ -7,24 +7,24 @@ msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-29 12:41+0200\n"
-"PO-Revision-Date: 2016-07-18 15:50+0200\n"
-"Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
+"PO-Revision-Date: 2020-08-15 16:09+0200\n"
+"Last-Translator: Quentin PAGÈS\n"
 "Language-Team: Occitan\n"
 "Language: oc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.4.1\n"
 
 msgid "Dotclear has been upgraded."
-msgstr "Dotclear es estat mes a jorn"
+msgstr "Dotclear es estat mes a jorn."
 
 msgid "Password reset"
 msgstr "Reïnicializar lo senhal"
 
 msgid "Someone has requested to reset the password for the following site and username."
-msgstr "Qualqu’un a demandat la reïnicializacion lo senhal pel site e nom d’utilizaire seguent"
+msgstr "Qualqu’un a demandat la reïnicializacion lo senhal pel site e nom d’utilizaire seguent."
 
 msgid "Username:"
 msgstr "Nom d’utilizaire :"
@@ -49,7 +49,7 @@ msgid "Passwords don't match"
 msgstr "Los senhals correspondon pas"
 
 msgid "You didn't change your password."
-msgstr "Avètz pas cambiat de senhal"
+msgstr "Avètz pas cambiat de senhal."
 
 msgid "You have to change your password before you can login."
 msgstr "Vos cal cambiar lo senhal abans de vos connectar."
@@ -61,11 +61,10 @@ msgid "Safe Mode can only be used for super administrators."
 msgstr "Lo mòde segur es pas qu’utilizable pels super administrators."
 
 msgid "Insufficient permissions"
-msgstr ""
+msgstr "Autorizacions insufisentas"
 
-#, fuzzy
 msgid "Administration session expired"
-msgstr "Interfàcia d’administracion"
+msgstr "Session administracion expirada"
 
 msgid "Wrong username or password"
 msgstr "Marrit senhal o nom d’utilizaire"
@@ -91,7 +90,6 @@ msgstr "Nòu senhal :"
 msgid "Confirm password:"
 msgstr "Confirmatz lo senhal :"
 
-#, fuzzy
 msgid "change"
 msgstr "cambiar"
 
@@ -148,7 +146,7 @@ msgid "Blog ID"
 msgstr "ID del blòg"
 
 msgid "At least 2 characters using letters, numbers or symbols."
-msgstr "Almens 2 caractèrs en utilizant de letras, nombres e simbòl"
+msgstr "Almens 2 caractèrs en utilizant de letras, nombres e simbòl."
 
 msgid "Blog name:"
 msgstr "Nom del blòg :"
@@ -159,9 +157,8 @@ msgstr "Nom del blòg"
 msgid "Blog URL:"
 msgstr "Url del blòg :"
 
-#, fuzzy
 msgid "Blog URL"
-msgstr "URL del blòg :"
+msgstr "URL del blòg"
 
 msgid "Blog description:"
 msgstr "Descripcion del blòg :"
@@ -316,7 +313,7 @@ msgid "Blog editor name:"
 msgstr ""
 
 msgid "Default language:"
-msgstr "Lenga per defaut"
+msgstr "Lenga per defaut :"
 
 msgid "Blog timezone:"
 msgstr ""
@@ -368,8 +365,9 @@ msgstr "Format de la data :"
 msgid "Pattern of date"
 msgstr ""
 
+#, fuzzy
 msgid "Sample:"
-msgstr ""
+msgstr "Escandalhatge :"
 
 msgid "Time format:"
 msgstr "Format orari :"
@@ -411,9 +409,8 @@ msgstr ""
 msgid "Entry URL (its content will be used for the static home page):"
 msgstr ""
 
-#, fuzzy
 msgid "Choose an entry"
-msgstr "Causir un fichièr"
+msgstr "Causir una entrada"
 
 msgid "Leave empty to use the default presentation."
 msgstr ""
@@ -448,7 +445,6 @@ msgstr ""
 msgid "Width"
 msgstr "Largor"
 
-#, fuzzy
 msgid "Height"
 msgstr "Nautor"
 
@@ -545,7 +541,6 @@ msgstr "Seguretat del blòg"
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr ""
 
-#, fuzzy
 msgid "Plugins parameters"
 msgstr "Paramètres de las extensions"
 
@@ -570,11 +565,10 @@ msgstr ""
 msgid "Publications on this blog:"
 msgstr ""
 
-#, php-format
+#, fuzzy, php-format
 msgid "%1$s: %2$s"
-msgstr ""
+msgstr "%1$s : %2$s"
 
-#, fuzzy
 msgid "Permissions:"
 msgstr "Autorizacions :"
 
@@ -594,7 +588,6 @@ msgstr ""
 msgid "Change permissions"
 msgstr ""
 
-#, fuzzy
 msgid "Blog appearance"
 msgstr "Aparéncia del blòg"
 
@@ -660,10 +653,10 @@ msgid "Status"
 msgstr "Estatut"
 
 msgid "Descending"
-msgstr ""
+msgstr "Descreissent"
 
 msgid "Ascending"
-msgstr ""
+msgstr "Creissent"
 
 msgid "List of blogs"
 msgstr "Lista dels blògs"
@@ -683,9 +676,8 @@ msgstr "Recercar :"
 msgid "Status:"
 msgstr "Estatut :"
 
-#, fuzzy
 msgid "Display options"
-msgstr "Documentason"
+msgstr "Opcions d'afichatge"
 
 msgid "Order by:"
 msgstr "Ordonar per :"
@@ -699,9 +691,8 @@ msgstr "Mostrar"
 msgid "blogs per page"
 msgstr "blògs per pagina"
 
-#, fuzzy
 msgid "Save current options"
-msgstr "Revirada"
+msgstr "Enregistrar las opcions actualas"
 
 msgid "Apply filters and display options"
 msgstr ""
@@ -709,12 +700,11 @@ msgstr ""
 msgid "Selected blogs action:"
 msgstr ""
 
-#, fuzzy
 msgid "Actions"
-msgstr "Accions :"
+msgstr "Accions"
 
 msgid "ok"
-msgstr "D’acòrdi"
+msgstr "d’acòrdi"
 
 msgid "Please give your password to confirm blog(s) deletion:"
 msgstr ""
@@ -768,14 +758,12 @@ msgstr "total :"
 msgid "URL:"
 msgstr "URL :"
 
-#, fuzzy
 msgid "Move entries to"
 msgstr "Desplaçar las entradas cap a"
 
 msgid "OK"
 msgstr "OK"
 
-#, fuzzy
 msgid "Delete category"
 msgstr "Suprimir la categoria"
 
@@ -810,9 +798,8 @@ msgstr ""
 msgid "Name:"
 msgstr "Nom :"
 
-#, fuzzy
 msgid "Name"
-msgstr "Nom :"
+msgstr "Nom"
 
 msgid "Parent:"
 msgstr "Parent :"
@@ -826,7 +813,6 @@ msgstr "Descripcion :"
 msgid "Move this category"
 msgstr "Desplaçar aquesta categoria"
 
-#, fuzzy
 msgid "Category parent"
 msgstr "Parent de la categoria"
 
@@ -837,16 +823,14 @@ msgstr "Categòria"
 msgid "Move current category"
 msgstr ""
 
-#, fuzzy
 msgid "after"
 msgstr "aprèp"
 
 msgid "before"
 msgstr "abans"
 
-#, fuzzy
 msgid "position: "
-msgstr "posicion :"
+msgstr "posicion : "
 
 msgid "Entry does not exist."
 msgstr ""
@@ -913,9 +897,8 @@ msgstr "Comentari :"
 msgid "Delete"
 msgstr "Supremir"
 
-#, fuzzy
 msgid "Comment"
-msgstr "Comentari :"
+msgstr "Comentari"
 
 msgid "Trackback"
 msgstr ""
@@ -926,7 +909,6 @@ msgstr "Data"
 msgid "Entry title"
 msgstr "Nom de l’entrada"
 
-#, fuzzy
 msgid "Entry date"
 msgstr "Data de l’entrada"
 
@@ -949,14 +931,14 @@ msgid "You have one spam comment."
 msgstr ""
 
 msgid "Show it."
-msgstr "Mostrar"
+msgstr "Mostratz-lo."
 
 #, php-format
 msgid "You have %s spam comments."
 msgstr ""
 
 msgid "Show them."
-msgstr "Los mostrar"
+msgstr "Los mostrar."
 
 msgid "Delete all spams"
 msgstr ""
@@ -977,7 +959,7 @@ msgstr "Ajuda globala"
 msgid "An update is available"
 msgid_plural "%s updates are available."
 msgstr[0] "Una mesa a jorn es disponibla"
-msgstr[1] "%s mesas a jorn son disponiblas"
+msgstr[1] "%s mesas a jorn son disponiblas."
 
 #, fuzzy
 msgid "Documentation and support"
@@ -1044,9 +1026,8 @@ msgstr "Títol :"
 msgid "Content:"
 msgstr "Contengut :"
 
-#, fuzzy
 msgid "Content"
-msgstr "Contengut :"
+msgstr "Contengut"
 
 msgid "Category:"
 msgstr "Categoria :"
@@ -1057,7 +1038,6 @@ msgstr "Ajustar una categoria novèla"
 msgid "This category will be created when you will save your post."
 msgstr ""
 
-#, fuzzy
 msgid "Save and publish"
 msgstr "Salvar e publicar"
 
@@ -1144,9 +1124,9 @@ msgstr ""
 msgid "Dotclear Install"
 msgstr "Installacion de Dotclear"
 
-#, fuzzy, php-format
+#, php-format
 msgid "Password strength: %s"
-msgstr "Fòrça del senhal :"
+msgstr "Fòrça del senhal : %s"
 
 msgid "very weak"
 msgstr "febla febla"
@@ -1185,24 +1165,20 @@ msgstr "Informacions utilizaire"
 msgid "Please provide the following information needed to create the first user."
 msgstr ""
 
-#, fuzzy
 msgid "First Name:"
 msgstr "Prenom :"
 
-#, fuzzy
 msgid "Last Name:"
 msgstr "Nom :"
 
 msgid "Username and password"
 msgstr "Nom d’utilizaire e senhal"
 
-#, fuzzy
 msgid "Username"
-msgstr "Nom d’utilizaire :"
+msgstr "Nom d'_utilizaire"
 
-#, fuzzy
 msgid "Password"
-msgstr "Senhal:"
+msgstr "Senhal"
 
 msgid "All done!"
 msgstr "Tot es prest !"
@@ -1216,13 +1192,11 @@ msgstr "Vòstre compte"
 msgid "Your blog"
 msgstr "Vòstre blòg"
 
-#, fuzzy
 msgid "Blog address:"
 msgstr "Adreça del blògs :"
 
-#, fuzzy
 msgid "Administration interface:"
-msgstr "Interfàcia d’administracion"
+msgstr "Interfàcia d’administracion :"
 
 msgid "Manage your blog now"
 msgstr "Gerir lo blòg ara"
@@ -1249,7 +1223,7 @@ msgstr ""
 
 #, php-format
 msgid "File %s does not exist."
-msgstr ""
+msgstr "Lo fichièr %s existís pas."
 
 #, php-format
 msgid "Cannot write %s file."
@@ -1277,7 +1251,7 @@ msgid "Please provide the following information needed to create your configurat
 msgstr ""
 
 msgid "Database type:"
-msgstr "Tipe de basa de donadas"
+msgstr "Tipe de basa de donadas :"
 
 msgid "MySQL (deprecated)"
 msgstr "MySQL (obsolèt)"
@@ -1318,12 +1292,11 @@ msgstr "Prefix"
 msgid "Master Email: (used as sender for password recovery)"
 msgstr ""
 
-#, fuzzy
 msgid "Continue"
-msgstr "Contengut :"
+msgstr "Contunhar"
 
 msgid "Invalid language zip file."
-msgstr "Archiu de lenga invalid"
+msgstr "Archiu de lenga invalid."
 
 msgid "The zip file does not appear to be a valid Dotclear language pack."
 msgstr "Lo fichièr zip sembla pas èsser un paquet de lenga valid per Dotclear."
@@ -1371,7 +1344,6 @@ msgstr "Lengas installadas"
 msgid "No additional language is installed."
 msgstr "Cap de lenga suplementària es pas installada."
 
-#, fuzzy
 msgid "Language"
 msgstr "Lenga"
 
@@ -1392,9 +1364,8 @@ msgstr "Lengas disponiblas"
 msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
 msgstr ""
 
-#, fuzzy
 msgid "Language:"
-msgstr "Lenga :"
+msgstr "Lenga :"
 
 msgid "Install language"
 msgstr "Installar la lenga"
@@ -1432,13 +1403,11 @@ msgstr ""
 msgid "Insert this file into entry"
 msgstr ""
 
-#, fuzzy
 msgid "delete"
-msgstr "supremir"
+msgstr "suprimir"
 
-#, fuzzy
 msgid "private media"
-msgstr "Privat"
+msgstr "mèdia privat"
 
 msgid "open"
 msgstr "dobrir"
@@ -1481,13 +1450,13 @@ msgstr ""
 
 #, php-format
 msgid "Are you sure you want to remove %s?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
 msgid "Cancel"
 msgstr "Anullar"
 
 msgid "Yes"
-msgstr "òc"
+msgstr "Òc"
 
 #, php-format
 msgid "%s file found"
@@ -1548,7 +1517,7 @@ msgid "Will search into media filename (including path), title and description"
 msgstr ""
 
 msgid "No file."
-msgstr "Cap de fichièr"
+msgstr "Cap de fichièr."
 
 msgid "Grid display mode"
 msgstr ""
@@ -1562,9 +1531,8 @@ msgstr ""
 msgid "Number of elements displayed per page:"
 msgstr ""
 
-#, fuzzy
 msgid "Media list"
-msgstr "Fichièr media intèrn"
+msgstr "Lista dels mèdias"
 
 msgid "Size"
 msgstr "Talha"
@@ -1650,7 +1618,7 @@ msgid "Image size:"
 msgstr ""
 
 msgid "Select"
-msgstr ""
+msgstr "Seleccionar"
 
 msgid "Insert media item"
 msgstr ""
@@ -1658,9 +1626,8 @@ msgstr ""
 msgid "Image legend and title"
 msgstr ""
 
-#, fuzzy
 msgid "Title: "
-msgstr "Títol :"
+msgstr "Títol : "
 
 msgid "Legend: "
 msgstr ""
@@ -1687,14 +1654,13 @@ msgid "Please note that you cannot insert video files with visual editor."
 msgstr ""
 
 msgid "Video size"
-msgstr ""
+msgstr "Talha de la vidèo"
 
 msgid "Width:"
-msgstr ""
+msgstr "Largor :"
 
-#, fuzzy
 msgid "Height:"
-msgstr "Drecha"
+msgstr "_Nautor :"
 
 msgid "Video disposition"
 msgstr ""
@@ -1720,12 +1686,11 @@ msgstr ""
 msgid "Image width:"
 msgstr ""
 
-#, fuzzy
 msgid "Image height:"
-msgstr "Drecha"
+msgstr "Nautor d'imatge :"
 
 msgid "File size:"
-msgstr ""
+msgstr "Talha del fichièr :"
 
 msgid "File URL:"
 msgstr ""
@@ -1755,7 +1720,7 @@ msgid "scheduled"
 msgstr ""
 
 msgid "pending"
-msgstr ""
+msgstr "en espèra"
 
 msgid "Image details"
 msgstr ""
@@ -1779,7 +1744,7 @@ msgid "Extract in current directory"
 msgstr ""
 
 msgid "Extract archive"
-msgstr ""
+msgstr "Traire l'archiu"
 
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr ""
@@ -1791,20 +1756,19 @@ msgid "Extract mode:"
 msgstr ""
 
 msgid "Extract"
-msgstr ""
+msgstr "Traire"
 
 msgid "Change media properties"
 msgstr ""
 
 msgid "File name:"
-msgstr ""
+msgstr "Nom de fichièrs :"
 
 msgid "File title:"
 msgstr ""
 
-#, fuzzy
 msgid "File description:"
-msgstr "Descripcion del blòg :"
+msgstr "Descripcion del fichèr :"
 
 msgid "File date:"
 msgstr ""
@@ -1823,7 +1787,7 @@ msgid "Maximum size %s"
 msgstr ""
 
 msgid "Send"
-msgstr ""
+msgstr "Mandar"
 
 msgid "Delete this media"
 msgstr ""
@@ -1859,7 +1823,7 @@ msgid "Force checking update of plugins"
 msgstr ""
 
 msgid "Installed plugins"
-msgstr ""
+msgstr "Empeutons installats"
 
 msgid "Activated plugins"
 msgstr ""
@@ -1873,9 +1837,8 @@ msgstr ""
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr ""
 
-#, fuzzy
 msgid "Add plugins"
-msgstr "Apondre un ligam"
+msgstr "Apondre un lempeuton"
 
 msgid "Add plugins from repository"
 msgstr ""
@@ -1895,13 +1858,11 @@ msgstr "Apondre un ligam"
 msgid "Link URL:"
 msgstr "Ligam URL:"
 
-#, fuzzy
 msgid "URL"
-msgstr "URL:"
+msgstr "URL"
 
-#, fuzzy
 msgid "Link title:"
-msgstr "títol"
+msgstr "Títol del ligam :"
 
 msgid "Link language:"
 msgstr ""
@@ -1913,7 +1874,7 @@ msgid "Entry type:"
 msgstr ""
 
 msgid "Ok"
-msgstr ""
+msgstr "D’acòrdi"
 
 msgid "Search entry:"
 msgstr ""
@@ -1921,9 +1882,8 @@ msgstr ""
 msgid "Search"
 msgstr "Recercar"
 
-#, fuzzy
 msgid "cancel"
-msgstr "dirimir"
+msgstr "anullar"
 
 msgid "Edit post"
 msgstr ""
@@ -1950,19 +1910,17 @@ msgstr ""
 msgid "Entry has been successfully created."
 msgstr ""
 
-#, fuzzy
 msgid "Published"
-msgstr "escridar"
+msgstr "Publicat"
 
-#, fuzzy
 msgid "Unpublished"
-msgstr "escridar"
+msgstr "Des-publicar"
 
 msgid "Scheduled"
-msgstr ""
+msgstr "Programada"
 
 msgid "Pending"
-msgstr ""
+msgstr "En espèra"
 
 #, php-format
 msgid "&ldquo;%s&rdquo;"
@@ -1987,13 +1945,13 @@ msgid "Go to this entry on the site"
 msgstr ""
 
 msgid "IP address"
-msgstr ""
+msgstr "Adreça IP"
 
 msgid "Edit"
-msgstr ""
+msgstr "Modificar"
 
 msgid "Junk"
-msgstr ""
+msgstr "Corrièr indesirable"
 
 msgid "select this comment"
 msgstr ""
@@ -2010,9 +1968,8 @@ msgstr ""
 msgid "Publication date and hour"
 msgstr ""
 
-#, fuzzy
 msgid "Entry language"
-msgstr "Lenga?"
+msgstr "Lenga de l’entrada"
 
 msgid "Text formatting"
 msgstr ""
@@ -2062,16 +2019,14 @@ msgstr ""
 msgid "Personal notes:"
 msgstr ""
 
-#, fuzzy
 msgid "Unpublished notes."
-msgstr "escridar"
+msgstr ""
 
-#, fuzzy
 msgid "Preview"
-msgstr "previstalejar"
+msgstr "Apercebut"
 
 msgid "Comments"
-msgstr ""
+msgstr "Comentaris"
 
 msgid "Add a comment"
 msgstr ""
@@ -2111,7 +2066,7 @@ msgid "Remove attachment"
 msgstr ""
 
 msgid "Attachment"
-msgstr ""
+msgstr "Pèça junta"
 
 msgid "Are you sure you want to remove this attachment?"
 msgstr ""
@@ -2120,7 +2075,7 @@ msgid "(No cat)"
 msgstr ""
 
 msgid "Selected"
-msgstr ""
+msgstr "Seleccionat"
 
 msgid "Not selected"
 msgstr ""
@@ -2128,9 +2083,8 @@ msgstr ""
 msgid "Opened"
 msgstr ""
 
-#, fuzzy
 msgid "Closed"
-msgstr "barrar"
+msgstr "Tampat"
 
 msgid "With attachments"
 msgstr ""
@@ -2138,7 +2092,6 @@ msgstr ""
 msgid "Without attachments"
 msgstr ""
 
-#, fuzzy
 msgid "With password"
 msgstr "Amb senhal"
 
@@ -2158,23 +2111,22 @@ msgid "Selected entries have been successfully deleted."
 msgstr ""
 
 msgid "Format:"
-msgstr ""
+msgstr "Format :"
 
 msgid "Selected:"
-msgstr ""
+msgstr "Seleccionat :"
 
 msgid "Attachments:"
 msgstr ""
 
 msgid "Month:"
-msgstr "Mes:"
+msgstr "Mes :"
 
 msgid "Lang:"
 msgstr "Lenga :"
 
-#, fuzzy
 msgid "Comments:"
-msgstr "Comentari :"
+msgstr "Comentaris :"
 
 msgid "Trackbacks:"
 msgstr ""
@@ -2189,31 +2141,28 @@ msgid "Smallest"
 msgstr ""
 
 msgid "Smaller"
-msgstr ""
+msgstr "Mai pichon"
 
 msgid "Larger"
-msgstr ""
+msgstr "Mai grand"
 
 msgid "Largest"
-msgstr ""
+msgstr "Lo mai grand"
 
 msgid "Blog description (in blog parameters)"
 msgstr ""
 
-#, fuzzy
 msgid "Category description"
-msgstr "Categòria"
+msgstr "Descripcion de la categoria"
 
-#, fuzzy
 msgid "Last Name"
 msgstr "Nom"
 
-#, fuzzy
 msgid "First Name"
-msgstr "Reirenom"
+msgstr "Pichon nom"
 
 msgid "Display name"
-msgstr ""
+msgstr "Escais-nom"
 
 msgid "Number of entries"
 msgstr ""
@@ -2261,9 +2210,8 @@ msgstr "Lenga de mon interfàcia :"
 msgid "My timezone:"
 msgstr ""
 
-#, fuzzy
 msgid "Change my password"
-msgstr "Cambiar mon senhal"
+msgstr "Modificar mon senhal"
 
 msgid "Confirm new password:"
 msgstr ""
@@ -2305,7 +2253,7 @@ msgid "Show asynchronous requests indicator"
 msgstr ""
 
 msgid "Font size:"
-msgstr ""
+msgstr "Talha de la poliça :"
 
 msgid "Activate adpative font size"
 msgstr ""
@@ -2351,7 +2299,7 @@ msgid "Choose an editor"
 msgstr ""
 
 msgid "Preferred format:"
-msgstr ""
+msgstr "Format preferit :"
 
 msgid "Default entry status:"
 msgstr ""
@@ -2446,9 +2394,8 @@ msgstr ""
 msgid "Save my dashboard options"
 msgstr ""
 
-#, fuzzy
 msgid "Dashboard items order"
-msgstr "Tablèu de bòrd"
+msgstr "L'òrdre de triada dels elements del tablèu"
 
 msgid "Reset dashboard items order"
 msgstr ""
@@ -2459,9 +2406,8 @@ msgstr ""
 msgid "Query:"
 msgstr ""
 
-#, fuzzy
 msgid "Search in entries"
-msgstr "Recercar"
+msgstr "Cercar dins las entradas"
 
 #, fuzzy
 msgid "Search in comments"
@@ -2515,7 +2461,7 @@ msgid "Upgrade now"
 msgstr ""
 
 msgid "Remind me later"
-msgstr ""
+msgstr "Lo me remembrar pus tard"
 
 msgid "Information about this version"
 msgstr ""
@@ -2543,7 +2489,7 @@ msgid "Backup directory does not exist"
 msgstr "Aquesta categoria existís pas."
 
 msgid "Access denied"
-msgstr ""
+msgstr "Accès refusat"
 
 #, php-format
 msgid "Unable to delete file %s"
@@ -2618,7 +2564,7 @@ msgid "Finish the update."
 msgstr ""
 
 msgid "New user"
-msgstr ""
+msgstr "Nòu utilizaire"
 
 msgid "User has been successfully updated."
 msgstr ""
@@ -2636,13 +2582,11 @@ msgstr ""
 msgid "User profile"
 msgstr ""
 
-#, fuzzy
 msgid "User ID:"
-msgstr "Utilizaire:"
+msgstr "ID utilizaire :"
 
-#, fuzzy
 msgid "Login"
-msgstr "Login:"
+msgstr "Connexion"
 
 msgid "Warning:"
 msgstr "Avertiment:"
@@ -2657,13 +2601,13 @@ msgid "Mandatory for password recovering procedure."
 msgstr ""
 
 msgid "Timezone:"
-msgstr ""
+msgstr "Zòna orària :"
 
 msgid "Save and create another"
 msgstr ""
 
 msgid "Permissions"
-msgstr ""
+msgstr "Permissions"
 
 msgid "Add new permissions"
 msgstr ""
@@ -2710,10 +2654,10 @@ msgid "No blog"
 msgstr ""
 
 msgid "Entries"
-msgstr ""
+msgstr "Entradas"
 
 msgid "select"
-msgstr ""
+msgstr "seleccionar"
 
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
@@ -2730,9 +2674,8 @@ msgstr "Acceptar los comentaris"
 msgid "Blogs actions"
 msgstr "Blògs"
 
-#, fuzzy
 msgid "Blog id"
-msgstr "Blòg"
+msgstr "ID blòg"
 
 msgid "Set online"
 msgstr ""
@@ -2763,13 +2706,11 @@ msgstr "Acceptar los comentaris"
 msgid "Comments actions"
 msgstr ""
 
-#, fuzzy
 msgid "Publish"
-msgstr "escridar"
+msgstr "Publicar"
 
-#, fuzzy
 msgid "Unpublish"
-msgstr "escridar"
+msgstr "Des-publicar"
 
 msgid "Mark as pending"
 msgstr ""
@@ -2797,10 +2738,10 @@ msgid "Posts actions"
 msgstr ""
 
 msgid "Schedule"
-msgstr ""
+msgstr "Planificacion"
 
 msgid "Mark"
-msgstr ""
+msgstr "Marcar"
 
 msgid "Mark as selected"
 msgstr ""
@@ -2808,17 +2749,14 @@ msgstr ""
 msgid "Mark as unselected"
 msgstr ""
 
-#, fuzzy
 msgid "Change"
-msgstr "Dirimir"
+msgstr "Cambiar"
 
-#, fuzzy
 msgid "Change category"
-msgstr "Categòria"
+msgstr "Cambiar de categoria"
 
-#, fuzzy
 msgid "Change language"
-msgstr "Lenga?"
+msgstr "Cambiar la lenga"
 
 msgid "Change author"
 msgstr ""
@@ -2887,18 +2825,16 @@ msgid "Change language for this selection"
 msgstr ""
 
 msgid "Available"
-msgstr ""
+msgstr "Disponible"
 
 msgid "Most used"
 msgstr ""
 
-#, fuzzy
 msgid "Entry language:"
-msgstr "Lenga?"
+msgstr "Lenga de l’entrada :"
 
-#, fuzzy
 msgid "Languages"
-msgstr "Lenga?"
+msgstr "Lengas"
 
 msgid "[%H:%M:%S]"
 msgstr ""
@@ -2907,7 +2843,7 @@ msgid "Change blog"
 msgstr ""
 
 msgid "Blogs:"
-msgstr "Blògs:"
+msgstr "Blògs :"
 
 msgid "Go to the content"
 msgstr ""
@@ -2944,9 +2880,8 @@ msgstr ""
 msgid "Page top"
 msgstr ""
 
-#, fuzzy
 msgid "Go to dashboard"
-msgstr "Tablèu de bòrd"
+msgstr "Anar al tablèu de bòrd"
 
 msgid "Help about this page"
 msgstr ""
@@ -2955,39 +2890,36 @@ msgstr ""
 msgid "See also %s"
 msgstr ""
 
-#, fuzzy
 msgid "the global help"
-msgstr "Ajuda globala"
+msgstr "l’ajuda globala"
 
 #, fuzzy
 msgid "uncover"
 msgstr "recuperar"
 
 msgid "hide"
-msgstr ""
+msgstr "amagar"
 
 msgid "Need help?"
-msgstr ""
+msgstr "Besonh d'ajuda ?"
 
 msgid "new window"
 msgstr ""
 
 msgid "Hide"
-msgstr ""
+msgstr "Amagar"
 
 msgid "Select:"
-msgstr ""
+msgstr "Seleccionar :"
 
-#, fuzzy
 msgid "no selection"
-msgstr "Descriveson:"
+msgstr "pas cap de seleccion"
 
-#, fuzzy
 msgid "select all"
-msgstr "Tot escafar"
+msgstr "seleccionar tot"
 
 msgid "Invert selection"
-msgstr ""
+msgstr "Inversar la seleccion"
 
 #, fuzzy
 msgid "Edit entry"
@@ -3072,9 +3004,8 @@ msgstr ""
 msgid "Use this theme"
 msgstr ""
 
-#, fuzzy
 msgid "Remove this theme"
-msgstr "Desplaçar aquesta categoria"
+msgstr "Suprimir aqueste tèma"
 
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
@@ -3114,18 +3045,16 @@ msgid "Loading enhanced uploader, please wait."
 msgstr ""
 
 msgid "Details"
-msgstr ""
+msgstr "Detalhs"
 
 msgid "Support"
-msgstr ""
+msgstr "Sosténer"
 
-#, fuzzy
 msgid "Help:"
-msgstr "Ajuda"
+msgstr "Ajuda :"
 
-#, fuzzy
 msgid "Section:"
-msgstr "Descriveson:"
+msgstr "Seccion :"
 
 msgid "Tags:"
 msgstr ""
@@ -3136,9 +3065,8 @@ msgstr ""
 msgid "You have unsaved changes."
 msgstr ""
 
-#, fuzzy
 msgid "Choose date"
-msgstr "Causir un fichièr"
+msgstr "Causir una data"
 
 msgid "close"
 msgstr "barrar"
@@ -3158,16 +3086,14 @@ msgstr ""
 msgid "File size exceeds allowed limit."
 msgstr ""
 
-#, fuzzy
 msgid "Canceled."
-msgstr "Anullar"
+msgstr "Anullat."
 
-#, fuzzy
 msgid "HTTP Error:"
-msgstr "Error :"
+msgstr "Error HTTP :"
 
 msgid "Clean"
-msgstr "Boissar"
+msgstr "Escafar"
 
 #, fuzzy
 msgid "File successfully uploaded."
@@ -3191,7 +3117,7 @@ msgid "Cancel filters and display options"
 msgstr ""
 
 msgid "other"
-msgstr ""
+msgstr "autre"
 
 #, fuzzy
 msgid "Search in repository:"
@@ -3228,7 +3154,7 @@ msgid "Plugins list"
 msgstr ""
 
 msgid "Score"
-msgstr ""
+msgstr "Marca"
 
 msgid "Version"
 msgstr "Revirada"
@@ -3265,18 +3191,17 @@ msgstr ""
 msgid "Plugin settings"
 msgstr ""
 
-#, fuzzy
 msgid "Activate"
-msgstr "Privat"
+msgstr "Activar"
 
 msgid "Deactivate"
-msgstr ""
+msgstr "Desactivar"
 
 msgid "Install"
-msgstr ""
+msgstr "Installar"
 
 msgid "Update"
-msgstr ""
+msgstr "Mesa a jorn"
 
 msgid "Activate selected plugins"
 msgstr ""
@@ -3343,7 +3268,7 @@ msgid "Zip file URL:"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "Telecargament"
 
 msgid "Unknow plugin ID"
 msgstr ""
@@ -3356,7 +3281,7 @@ msgid "Configure \"%s\""
 msgstr ""
 
 msgid "Back"
-msgstr ""
+msgstr "Precedent"
 
 #, php-format
 msgid "Score: %s"
@@ -3370,13 +3295,13 @@ msgstr ""
 msgid "by %s"
 msgstr "per %s"
 
-#, fuzzy, php-format
+#, php-format
 msgid "version %s"
-msgstr "Revirada"
+msgstr "version %s"
 
-#, fuzzy, php-format
+#, php-format
 msgid "(current version %s)"
-msgstr "Revirada"
+msgstr "(version actuala %s)"
 
 #, php-format
 msgid "(built on \"%s\")"
@@ -3444,18 +3369,15 @@ msgid_plural "Themes have been successuflly updated."
 msgstr[0] ""
 msgstr[1] ""
 
-#, fuzzy
 msgid "First page"
-msgstr "Reirenom"
+msgstr "Primièra pagina"
 
-#, fuzzy
 msgid "Previous page"
-msgstr "previstalejar"
+msgstr "Pagina precedenta"
 
 msgid "Next page"
 msgstr ""
 
-#, fuzzy
 msgid "Last page"
 msgstr "Nom"
 
@@ -3512,11 +3434,10 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Protected"
-msgstr ""
+msgstr "Protegida"
 
-#, fuzzy
 msgid "Attachments"
-msgstr "Acceptar los comentaris"
+msgstr "Pèças juntas"
 
 #, php-format
 msgid "%d attachment"
@@ -3526,9 +3447,8 @@ msgstr ""
 msgid "%d attachments"
 msgstr ""
 
-#, fuzzy
 msgid "Entries list"
-msgstr "Categòria"
+msgstr "Lista de las entradas"
 
 msgid "No comments or trackbacks matches the filter"
 msgstr ""
@@ -3553,7 +3473,7 @@ msgid "Type"
 msgstr "Tipe"
 
 msgid "Entry"
-msgstr ""
+msgstr "Entrada"
 
 #, php-format
 msgid "Edit the %1$s from %2$s"
@@ -3614,12 +3534,11 @@ msgstr ""
 msgid "List of %s users match the filter."
 msgstr ""
 
-#, fuzzy
 msgid "Users list"
-msgstr "Categòria"
+msgstr "Lista d’utilizaires"
 
 msgid "admin"
-msgstr ""
+msgstr "admin"
 
 msgid "superadmin"
 msgstr ""
@@ -3656,19 +3575,19 @@ msgid "Uploaded image is not %s pixels wide."
 msgstr ""
 
 msgid "Database error"
-msgstr ""
+msgstr "Error de la banca de donadas"
 
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr ""
 
 msgid "System settings"
-msgstr ""
+msgstr "Paramètres del sistèma"
 
 msgid "Blog"
 msgstr "Blòg"
 
 msgid "Plugins"
-msgstr ""
+msgstr "Empeutons"
 
 msgid "moyenne"
 msgstr ""
@@ -3683,7 +3602,7 @@ msgid "carrée"
 msgstr ""
 
 msgid "Pages"
-msgstr ""
+msgstr "Paginas"
 
 msgid "administrator"
 msgstr "administrador"
@@ -3770,10 +3689,10 @@ msgid "No entry content"
 msgstr ""
 
 msgid "Notes"
-msgstr ""
+msgstr "Nòtas"
 
 msgid "Note"
-msgstr ""
+msgstr "Nòta"
 
 msgid "Empty entry URL"
 msgstr ""
@@ -3820,9 +3739,8 @@ msgstr ""
 msgid "No log message"
 msgstr ""
 
-#, fuzzy
 msgid "unknown"
-msgstr "ara"
+msgstr "desconegut(da)"
 
 msgid "No blog defined."
 msgstr ""
@@ -3831,7 +3749,7 @@ msgid "You are not a super administrator."
 msgstr ""
 
 msgid "Permission denied."
-msgstr ""
+msgstr "Permission refusada."
 
 msgid "You are not the file owner."
 msgstr ""
@@ -4056,8 +3974,9 @@ msgstr ""
 msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
 msgstr ""
 
+#, fuzzy
 msgid "Unable to connect to database"
-msgstr ""
+msgstr "Impossible de se connectar a la banca de donadas"
 
 #, php-format
 msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
@@ -4106,10 +4025,10 @@ msgstr ""
 #~ msgstr "Ligam"
 
 #~ msgid "URL?"
-#~ msgstr "URL?"
+#~ msgstr "URL ?"
 
 #~ msgid "Language?"
-#~ msgstr "Lenga?"
+#~ msgstr "Lenga ?"
 
 #~ msgid "External image"
 #~ msgstr "Ligam fichièr media"
