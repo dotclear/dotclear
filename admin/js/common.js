@@ -667,15 +667,28 @@ $(function() {
   if (document.documentElement.getAttribute('data-theme') === '') {
     // Theme is set to automatic, keep an eye on system change
     dotclear.theme_OS = window.matchMedia('(prefers-color-scheme: dark)');
-    dotclear.theme_OS.addEventListener('change', function(e) {
-      let theme = e.matches ? 'dark' : 'light';
-      if (theme !== dotclear.data.theme) {
-        $('body').removeClass(`${dotclear.data.theme}-mode`);
-        dotclear.data.theme = theme;
-        $('body').addClass(`${dotclear.data.theme}-mode`);
-        document.documentElement.style.setProperty('--dark-mode', (dotclear.data.theme === 'dark' ? 1 : 0));
+    let switchScheme = function(e) {
+        let theme = e.matches ? 'dark' : 'light';
+        if (theme !== dotclear.data.theme) {
+          $('body').removeClass(`${dotclear.data.theme}-mode`);
+          dotclear.data.theme = theme;
+          $('body').addClass(`${dotclear.data.theme}-mode`);
+          document.documentElement.style.setProperty('--dark-mode', (dotclear.data.theme === 'dark' ? 1 : 0));
+        }
+    };
+    try {
+      dotclear.theme_OS.addEventListener('change', (e) => switchScheme(e));
+    } catch(e) {
+      try {
+        dotclear.theme_OS.addListener((e) => switchScheme(e));
+      } catch(e) {
+        try {
+          dotclear.theme_OS.onchange((e) => switchScheme(e));
+        } catch(e) {
+          console.log(e);
+        }
       }
-    });
+    }
   }
   // Watch data-theme attribute modification
   const observer = new MutationObserver((mutations) => {

@@ -114,7 +114,8 @@
 }
 
 #help-button {
-  background: transparent url(help-mini.png) no-repeat 6px center;
+  background: url(help-mini.png) no-repeat 6px center;
+  background-color: transparent;
   position: absolute;
   top: 0;
   right: 0;

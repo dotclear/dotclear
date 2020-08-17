@@ -11,14 +11,16 @@
 
 .info {
   color: var(--msg-info-color);
-  background: var(--msg-info-background) url(msg-info.png) no-repeat .3em .3em;
+  background: url(msg-info.png) no-repeat .3em .3em;
+  background-color: var(--msg-info-background);
   border: 1px solid var(--msg-info-border);
 }
 
 .warn,
 .warning {
   color: var(--msg-warn-color);
-  background: var(--msg-warn-background) url(msg-warning.png) no-repeat .3em .3em;
+  background: url(msg-warning.png) no-repeat .3em .3em;
+  background-color: var(--msg-warn-background);
   border: 1px solid var(--msg-warn-border);
 }
 
@@ -60,7 +62,8 @@ p.warning-msg {
 }
 
 .error {
-  background: var(--msg-error-background) url(msg-error.png) no-repeat .7em .7em;
+  background: url(msg-error.png) no-repeat .7em .7em;
+  background-color: var(--msg-error-background);
   color: var(--msg-error-color);
   animation-name: kf-error;
   animation-duration: .5s;
@@ -79,7 +82,8 @@ p.warning-msg {
 .message,
 .static-msg {
   color: var(--msg-color);
-  background: var(--msg-background) url(msg-std.png) no-repeat .7em .7em;
+  background: url(msg-std.png) no-repeat .7em .7em;
+  background-color: var(--msg-background);
 }
 
 .message {
@@ -109,7 +113,8 @@ p.warning-msg {
 }
 
 .success {
-  background: var(--msg-success-background) url(msg-success.png) no-repeat .7em .7em;
+  background: url(msg-success.png) no-repeat .7em .7em;
+  background-color: var(--msg-success-background);
   animation-name: kf-success;
   animation-duration: .5s;
 }
@@ -126,7 +131,8 @@ p.warning-msg {
 
 .warning-msg {
   color: var(--msg-warn-color);
-  background: var(--msg-warn-background-alt) url(msg-warning.png) no-repeat .7em .7em;
+  background: url(msg-warning.png) no-repeat .7em .7em;
+  background-color: var(--msg-warn-background-alt);
   border: 1px solid var(--msg-warn-border);
   animation-name: kf-warning;
   animation-duration: .5s;
@@ -182,7 +188,8 @@ p.warning-msg {
   margin-bottom: 1em;
   border-radius: 8px;
   color: var(--dc-update-color);
-  background: var(--dc-update-background) url(msg-success.png) no-repeat .7em .7em;
+  background: url(msg-success.png) no-repeat .7em .7em;
+  background-color: var(--dc-update-background);
   box-shadow: 1px 1px 2px var(--msg-shadow);
 
   h3 {

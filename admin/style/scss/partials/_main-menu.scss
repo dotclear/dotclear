@@ -86,6 +86,7 @@
 
 #qx {
   width: 75%;
-  background: transparent url(search.svg) no-repeat 0 center;
+  background: url(search.svg) no-repeat 0 center;
+  background-color: transparent;
   text-indent: 20px;
 }

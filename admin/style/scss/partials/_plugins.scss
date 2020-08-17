@@ -48,24 +48,28 @@
 
 .modules a {
   &.module-details {
-    background: transparent url(search.svg) no-repeat 0 center;
+    background: url(search.svg) no-repeat 0 center;
+    background-color: transparent;
     padding: 4px 4px 0 20px;
   }
 
   &.module-support {
-    background: transparent url(help12.png) no-repeat 2px center;
+    background: url(help12.png) no-repeat 2px center;
+    background-color: transparent;
     padding: 4px 4px 0 20px;
   }
 
   &.module-config {
-    background: transparent url(settings.png) no-repeat 2px 6px;
+    background: url(settings.png) no-repeat 2px 6px;
+    background-color: transparent;
     padding: 4px 4px 0 18px;
   }
 }
 
 #m_search {
   color: var(--search-color);
-  background: transparent url(search.svg) no-repeat 0 center;
+  background: url(search.svg) no-repeat 0 center;
+  background-color: transparent;
   padding-left: 20px;
 }
 

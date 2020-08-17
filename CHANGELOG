@@ -1,3 +1,9 @@
+Dotclear 2.17.2 - 2020-08-17
+===========================================================
+* Fix: Cope with Safari which does not handle addEventListener method on MediaQueryList object (dark/light OS preference).
+* Fix: Separate CSS background and background-color as some CSS rendering engine (Safari) does not cope with all in same declaration.
+* i18n: Updated translations for occitan.
+
 Dotclear 2.17.1 - 2020-08-15
 ===========================================================
 * Fix: revert optional password fields (post/page) to text field to avoid unexpected behavior with Chrome

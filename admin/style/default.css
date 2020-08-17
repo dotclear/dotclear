@@ -1889,7 +1889,8 @@ select.l10n option {
   padding-left: 16px; }
 
 option.avail10n {
-  background: transparent url(../images/check-on.png) no-repeat 0 50%; }
+  background: url(../images/check-on.png) no-repeat 0 50%;
+  background-color: transparent; }
 
 input[type=text],
 input[type=color],
@@ -2288,13 +2289,15 @@ a.metaGetMore {
 
 .info {
   color: var(--msg-info-color);
-  background: var(--msg-info-background) url(msg-info.png) no-repeat 0.3em 0.3em;
+  background: url(msg-info.png) no-repeat 0.3em 0.3em;
+  background-color: var(--msg-info-background);
   border: 1px solid var(--msg-info-border); }
 
 .warn,
 .warning {
   color: var(--msg-warn-color);
-  background: var(--msg-warn-background) url(msg-warning.png) no-repeat 0.3em 0.3em;
+  background: url(msg-warning.png) no-repeat 0.3em 0.3em;
+  background-color: var(--msg-warn-background);
   border: 1px solid var(--msg-warn-border); }
 
 div.warn,
@@ -2331,7 +2334,8 @@ p.warning-msg {
   margin-top: .5em; }
 
 .error {
-  background: var(--msg-error-background) url(msg-error.png) no-repeat 0.7em 0.7em;
+  background: url(msg-error.png) no-repeat 0.7em 0.7em;
+  background-color: var(--msg-error-background);
   color: var(--msg-error-color);
   animation-name: kf-error;
   animation-duration: .5s; }
@@ -2344,7 +2348,8 @@ p.warning-msg {
 .message,
 .static-msg {
   color: var(--msg-color);
-  background: var(--msg-background) url(msg-std.png) no-repeat 0.7em 0.7em; }
+  background: url(msg-std.png) no-repeat 0.7em 0.7em;
+  background-color: var(--msg-background); }
 
 .message {
   animation-name: kf-message;
@@ -2365,7 +2370,8 @@ p.warning-msg {
   color: var(--msg-success-color); }
 
 .success {
-  background: var(--msg-success-background) url(msg-success.png) no-repeat 0.7em 0.7em;
+  background: url(msg-success.png) no-repeat 0.7em 0.7em;
+  background-color: var(--msg-success-background);
   animation-name: kf-success;
   animation-duration: .5s; }
 
@@ -2376,7 +2382,8 @@ p.warning-msg {
     background-color: var(--msg-success-background); } }
 .warning-msg {
   color: var(--msg-warn-color);
-  background: var(--msg-warn-background-alt) url(msg-warning.png) no-repeat 0.7em 0.7em;
+  background: url(msg-warning.png) no-repeat 0.7em 0.7em;
+  background-color: var(--msg-warn-background-alt);
   border: 1px solid var(--msg-warn-border);
   animation-name: kf-warning;
   animation-duration: .5s; }
@@ -2420,7 +2427,8 @@ p.warning-msg {
   margin-bottom: 1em;
   border-radius: 8px;
   color: var(--dc-update-color);
-  background: var(--dc-update-background) url(msg-success.png) no-repeat 0.7em 0.7em;
+  background: url(msg-success.png) no-repeat 0.7em 0.7em;
+  background-color: var(--dc-update-background);
   box-shadow: 1px 1px 2px var(--msg-shadow); }
   .dc-update h3 {
     margin-top: 0;
@@ -2496,7 +2504,8 @@ h1 {
     width: 150px;
     height: 36px;
     color: var(--header-color);
-    background: transparent url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
+    background: url(dc_logos/b-dotclear120.png) no-repeat 0 6px;
+    background-color: transparent;
     transition: none; }
     h1 a:hover, h1 a:focus {
       background-position: 0 -94px;
@@ -2551,7 +2560,8 @@ h1 {
     padding: 0; } }
 @media screen and (max-width: 38em) {
   h1 a:link {
-    background: transparent url(dc_logos/b-dotclear120.png) no-repeat -270px 6px; }
+    background: url(dc_logos/b-dotclear120.png) no-repeat -270px 6px;
+    background-color: transparent; }
   h1 a:hover, h1 a:focus {
     background: url(dc_logos/b-dotclear120.png) no-repeat -270px -94px; } }
 #main-menu div:last-child {
@@ -2612,7 +2622,8 @@ h1 {
 
 #qx {
   width: 75%;
-  background: transparent url(search.svg) no-repeat 0 center;
+  background: url(search.svg) no-repeat 0 center;
+  background-color: transparent;
   text-indent: 20px; }
 
 .part-tabs ul {
@@ -2699,7 +2710,8 @@ h1 {
     overflow: auto; }
 
 #help-button {
-  background: transparent url(help-mini.png) no-repeat 6px center;
+  background: url(help-mini.png) no-repeat 6px center;
+  background-color: transparent;
   position: absolute;
   top: 0;
   right: 0;
@@ -2861,7 +2873,8 @@ td.expand {
 
 .handler {
   cursor: move;
-  background: transparent url(drag.png) no-repeat 0 50%;
+  background: url(drag.png) no-repeat 0 50%;
+  background-color: transparent;
   padding-left: 15px; }
 
 /* Responsive Cell Header */
@@ -2961,7 +2974,8 @@ span.ibw {
   font-size: 1.16em; }
   #login-screen h1 {
     text-indent: -2000px;
-    background: transparent url(dc_logos/w-dotclear240.png) no-repeat top left;
+    background: url(dc_logos/w-dotclear240.png) no-repeat top left;
+    background-color: transparent;
     height: 66px;
     width: 20em;
     margin-bottom: .5em;
@@ -3068,7 +3082,8 @@ span.ibw {
     font-size: 1.2em; }
   #quick p.qinfo {
     margin: -.7em -1em 1em;
-    background: var(--quick-info-background) url(msg-info.png) no-repeat 0.2em 0.2em;
+    background: url(msg-info.png) no-repeat 0.2em 0.2em;
+    background-color: var(--quick-info-background);
     border: 1px solid var(--quick-info-border);
     padding: .2em 1em .1em 24px;
     color: var(--quick-info-color); }
@@ -3114,7 +3129,8 @@ span.ibw {
   display: none; }
 
 .dc-box {
-  background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right; }
+  background: url(dc_logos/sq-logo-32.png) no-repeat top right;
+  background-color: transparent; }
 
 #news dt {
   font-weight: bold;
@@ -3150,7 +3166,8 @@ span.ibw {
 
 .user-perm {
   margin: 0 1em 1em 0;
-  background: transparent url(user.png) no-repeat 0.5em 0.5em;
+  background: url(user.png) no-repeat 0.5em 0.5em;
+  background-color: transparent;
   width: 20em;
   border: 1px solid var(--blog-user-border);
   border-radius: .5em;
@@ -3178,7 +3195,8 @@ li.user_admin {
   margin-left: 0;
   padding-left: 20px;
   list-style: none;
-  background: transparent url(../images/superadmin.png) no-repeat 0 0.3em; }
+  background: url(../images/superadmin.png) no-repeat 0 0.3em;
+  background-color: transparent; }
 
 li.user_admin {
   background-image: url(../images/admin.png); }
@@ -3263,7 +3281,8 @@ On adapte largeur et hauteur en fonction
   /* Thèmes désactivés */
   width: 278px; }
   #theme-deactivate .box.theme:hover {
-    background: transparent url(dc_logos/sq-logo-32.png) no-repeat top right; }
+    background: url(dc_logos/sq-logo-32.png) no-repeat top right;
+    background-color: transparent; }
 
 #theme-activate .box.theme {
   /* Thèmes installés */
@@ -3325,7 +3344,8 @@ On adapte largeur et hauteur en fonction
   width: auto;
   overflow: hidden;
   padding-top: 2em;
-  background: transparent url(../images/minus-theme.png) no-repeat left top; }
+  background: url(../images/minus-theme.png) no-repeat left top;
+  background-color: transparent; }
 
 #categories {
   margin: 1em 0; }
@@ -3578,7 +3598,8 @@ label span.one-file {
     margin-top: 3px;
     width: 20px;
     height: 20px;
-    background: transparent url("cancel.png") no-repeat left top;
+    background: url("cancel.png") no-repeat left top;
+    background-color: transparent;
     text-indent: -1000px;
     cursor: pointer;
     float: left; }
@@ -3597,7 +3618,8 @@ label span.one-file {
     font-weight: bold;
     line-height: 1.2em;
     text-align: right;
-    background: var(--upload-progress-background) url(loader.png) repeat-x left top;
+    background: url(loader.png) repeat-x left top;
+    background-color: var(--upload-progress-background);
     color: var(--upload-progress-color);
     border-radius: 3px; }
 
@@ -3669,18 +3691,22 @@ div.template-upload {
   font-weight: bold; }
 
 .modules a.module-details {
-  background: transparent url(search.svg) no-repeat 0 center;
+  background: url(search.svg) no-repeat 0 center;
+  background-color: transparent;
   padding: 4px 4px 0 20px; }
 .modules a.module-support {
-  background: transparent url(help12.png) no-repeat 2px center;
+  background: url(help12.png) no-repeat 2px center;
+  background-color: transparent;
   padding: 4px 4px 0 20px; }
 .modules a.module-config {
-  background: transparent url(settings.png) no-repeat 2px 6px;
+  background: url(settings.png) no-repeat 2px 6px;
+  background-color: transparent;
   padding: 4px 4px 0 18px; }
 
 #m_search {
   color: var(--search-color);
-  background: transparent url(search.svg) no-repeat 0 center;
+  background: url(search.svg) no-repeat 0 center;
+  background-color: transparent;
   padding-left: 20px; }
 
 .mod-more {
@@ -3881,7 +3907,8 @@ div.template-upload {
     overflow: hidden; }
 
 .ac_loading {
-  background: transparent url("loader.gif") right center no-repeat; }
+  background: url("loader.gif") right center no-repeat;
+  background-color: transparent; }
 
 .ac_odd {
   background-color: var(--ac-results-background); }
@@ -4117,7 +4144,8 @@ p.clear.vertical-separator {
   margin-top: 1em; }
 
 .grid {
-  background: transparent repeat url("grid.png") 0 0; }
+  background: url("grid.png") repeat 0 0;
+  background-color: transparent; }
 
 ul.nice {
   margin: 1em 0;
