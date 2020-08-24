@@ -1,7 +1,7 @@
-/*global $, getData */
+/*global $, dotclear */
 'use strict';
 
-const dotclear_berlin = getData('dotclear_berlin');
+const dotclear_berlin = dotclear.getData('dotclear_berlin');
 
 $('html').addClass('js');
 // Show/Hide main menu

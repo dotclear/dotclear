@@ -1,8 +1,8 @@
-/*global getData, getCookie, setCookie, deleteCookie */
+/*global dotclear */
 'use strict';
 
 if (typeof post_remember_str === 'undefined' && typeof getData !== 'undefined') {
-  var post_remember_str = getData('dc_post_remember_str').post_remember_str;
+  var post_remember_str = dotclear.getData('dc_post_remember_str').post_remember_str;
 }
 
 window.addEventListener('load', () => {
@@ -27,7 +27,7 @@ window.addEventListener('load', () => {
 
   const remember_cookie_name = 'comment_info';
 
-  let cookie = readRememberCookie(getCookie(remember_cookie_name));
+  let cookie = readRememberCookie(dotclear.getCookie(remember_cookie_name));
 
   if (cookie != false) {
     document.getElementById('c_name').setAttribute('value', cookie[0]);
@@ -62,14 +62,14 @@ window.addEventListener('load', () => {
 
     cpath = !cpath ? '/' : cpath.replace(/.*:\/\/[^\/]*([^?]*).*/g, '$1');
 
-    setCookie(remember_cookie_name, `${name}\n${mail}\n${site}`, {
+    dotclear.setCookie(remember_cookie_name, `${name}\n${mail}\n${site}`, {
       expires: 60, // keep cookie for 2 months (60 days)
       path: cpath
     });
   }
 
   function dropRememberCookie() {
-    deleteCookie(remember_cookie_name);
+    dotclear.deleteCookie(remember_cookie_name);
   }
 
   function readRememberCookie(cookie) {
