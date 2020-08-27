@@ -76,7 +76,7 @@ $site   = !empty($_GET['site']) ? $_GET['site'] : '';
 $sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : $default_sortby;
 $order  = !empty($_GET['order']) ? $_GET['order'] : $default_order;
 
-$with_spam = $author || $status || $type || $sortby != 'comment_dt' || $order != 'desc' || $ip;
+$with_spam = $author || $status || $type || $sortby != $default_sortby || $order != $default_order || $ip || $email || $site;
 
 $show_filters = false;
 
