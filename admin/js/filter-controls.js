@@ -22,8 +22,16 @@ $(function() {
   }
   if (getData('filter_options').auto_filter) {
     $('#filters-form input[type="submit"]').parent().hide();
-    $('#filters-form input[type!="submit"], #filters-form select').on('input', function() {
+    $('#filters-form select').on('input', function() {
       $filtersform[0].submit();
+    });
+    $('#filters-form input[type!="submit"]').on('focusin', function() {
+      $(this).data('val', $(this).val());
+    });
+    $('#filters-form input[type!="submit"]').on('focusout', function() {
+      if ($(this).val() !== $(this).data('val')) {
+        $filtersform[0].submit();
+      }
     });
   }
 
