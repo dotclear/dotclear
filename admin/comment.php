@@ -11,6 +11,8 @@ require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
+$show_ip = $core->auth->check('contentadmin', $core->blog->id);
+
 $comment_id          = null;
 $comment_dt          = '';
 $comment_author      = '';
@@ -195,10 +197,15 @@ if ($comment_id) {
     echo
     '<form action="' . $core->adminurl->get("admin.comment") . '" method="post" id="comment-form">' .
     '<div class="fieldset">' .
-    '<h3>' . __('Information collected') . '</h3>' .
-    '<p>' . __('IP address:') . ' ' .
-    '<a href="' . $core->adminurl->get("admin.comments", ['ip' => $comment_ip]) . '">' . $comment_ip . '</a></p>' .
+    '<h3>' . __('Information collected') . '</h3>';
 
+    if ($show_ip) {
+        echo
+        '<p>' . __('IP address:') . ' ' .
+        '<a href="' . $core->adminurl->get("admin.comments", ['ip' => $comment_ip]) . '">' . $comment_ip . '</a></p>';
+    }
+
+    echo
     '<p>' . __('Date:') . ' ' .
     dt::dt2str(__('%Y-%m-%d %H:%M'), $comment_dt) . '</p>' .
     '</div>' .

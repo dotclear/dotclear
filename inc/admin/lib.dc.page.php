@@ -204,6 +204,8 @@ class dcPage
 
         $js['debug'] = !!DC_DEBUG;
 
+        $js['showIp'] = $core->blog && $core->blog->id ? $core->auth->check('contentadmin', $core->blog->id) : false;
+
         // Set some JSON data
         echo dcUtils::jsJson('dotclear_init', $js);
 

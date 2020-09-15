@@ -146,7 +146,7 @@ dotclear.getCommentContent = function(commentId, callback, options) {
             content += `<p>
               <strong>${dotclear.msg.website}</strong> ${comment_site}<br />
               <strong>${dotclear.msg.email}</strong> ${comment_email}`;
-            if (opt.ip) {
+            if (opt.ip && dotclear.data.showIp) {
               content += `<br />
                 <strong>${dotclear.msg.ip_address}</strong> <a href="comments.php?ip=${comment_ip}">${comment_ip}</a>`;
             }
