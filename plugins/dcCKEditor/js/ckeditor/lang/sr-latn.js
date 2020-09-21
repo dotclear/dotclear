@@ -3,6 +3,11 @@ Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['sr-latn'] = {
+    widget : 
+    {
+    	move : 'Kliknite i povucite da bi pomerali',
+    	label : '%1 modul'
+    },
     undo : 
     {
     	redo : 'Ponovi ',
@@ -88,7 +93,7 @@ CKEDITOR.lang['sr-latn'] = {
     	headersColumn : 'Prva kolona',
     	headersNone : 'Nema',
     	headersRow : 'Prvi red',
-    	heightUnit : 'height unit',
+    	heightUnit : 'Jedinica visine',
     	invalidBorder : 'Veličina okvira mora biti broj.',
     	invalidCellPadding : 'Padding polja mora biti pozitivan broj.',
     	invalidCellSpacing : 'Razmak između ćelija mora biti pozitivan broj.',

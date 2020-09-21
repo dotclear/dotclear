@@ -3,6 +3,11 @@ Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['uk'] = {
+    widget : 
+    {
+    	move : 'Клікніть і потягніть для переміщення',
+    	label : '%1 віджет'
+    },
     undo : 
     {
     	redo : 'Повторити',
@@ -88,7 +93,7 @@ CKEDITOR.lang['uk'] = {
     	headersColumn : 'Стовбці',
     	headersNone : 'Без заголовків',
     	headersRow : 'Рядки',
-    	heightUnit : 'height unit',
+    	heightUnit : 'одиниця висоти',
     	invalidBorder : 'Розмір рамки повинен бути цілим числом.',
     	invalidCellPadding : 'Внутр. відступ комірки повинен бути цілим числом.',
     	invalidCellSpacing : 'Проміжок між комірками повинен бути цілим числом.',
@@ -110,7 +115,7 @@ CKEDITOR.lang['uk'] = {
     	toolbar : 'Таблиця',
     	widthPc : 'відсотків',
     	widthPx : 'пікселів',
-    	widthUnit : 'Одиниці вимір.'
+    	widthUnit : 'одиниця ширини'
     },
     stylescombo : 
     {
@@ -188,8 +193,8 @@ CKEDITOR.lang['uk'] = {
     },
     list : 
     {
-    	bulletedlist : 'Маркірований список',
-    	numberedlist : 'Нумерований список'
+    	bulletedlist : 'Вставити/видалити маркований список',
+    	numberedlist : 'Вставити/видалити нумерований список'
     },
     link : 
     {

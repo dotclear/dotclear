@@ -128,7 +128,7 @@ if (!empty($extraPlugins) && count($extraPlugins) > 0) {
     $(dotclear.ckeditor_tags_context[dotclear.ckeditor_context].join(',')).ckeditor({
 
 <?php
-$defautExtraPlugins = 'entrylink,dclink,media,justify,colorbutton,format,img';
+$defautExtraPlugins = 'entrylink,dclink,media,justify,colorbutton,format,img,footnotes';
 if (!empty($extraPlugins) && count($extraPlugins) > 0) {
     foreach ($extraPlugins as $plugin) {
         $defautExtraPlugins .= ',' . $plugin['name'];
@@ -218,7 +218,7 @@ if (!empty($extraPlugins) && count($extraPlugins) > 0) {
             {
                 name: 'custom',
                 items: [
-                    'EntryLink','dcLink','Media','img','-',
+                    'EntryLink','dcLink','Media','img','Footnotes','-',
                     'Source'
 
 <?php if (!empty($dcckeditor_textcolor_button)): ?>
@@ -290,6 +290,27 @@ if (!empty($extraPlugins) && count($extraPlugins) > 0) {
                 CKEDITOR.replace(e.editor.name, config);
             }
         }
+
+        // footnotes related
+        let config = e.editor.config;
+<?php
+        switch ($core->blog->settings->system->note_title_tag) {
+            case 1:
+                $tag = 'h3';
+                break;
+            case 2:
+                $tag = 'p';
+                break;
+            default:
+                $tag = 'h4';
+                break;
+        }
+        $notes_tag = sprintf("['<%s>', '</%s>']", $tag, $tag);
+        $notes_title = sprintf('"%s"', __('Note(s)'));
+?>
+        config.footnotesHeaderEls = <?php printf($notes_tag); ?>;
+        config.footnotesTitle = <?php printf($notes_title); ?>;
+        CKEDITOR.replace(e.editor.name, config);
     });
 
     // @TODO: find a better way to retrieve active editor

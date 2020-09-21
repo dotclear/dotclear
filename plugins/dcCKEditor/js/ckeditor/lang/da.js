@@ -3,6 +3,11 @@ Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['da'] = {
+    widget : 
+    {
+    	move : 'Klik og træk for at flytte',
+    	label : '%1 widget'
+    },
     undo : 
     {
     	redo : 'Annullér fortryd',
@@ -88,7 +93,7 @@ CKEDITOR.lang['da'] = {
     	headersColumn : 'Første kolonne',
     	headersNone : 'Ingen',
     	headersRow : 'Første række',
-    	heightUnit : 'height unit',
+    	heightUnit : 'højde enhed',
     	invalidBorder : 'Rammetykkelse skal være et tal.',
     	invalidCellPadding : 'Cellemargen skal være et tal.',
     	invalidCellSpacing : 'Celleafstand skal være et tal.',
@@ -115,16 +120,16 @@ CKEDITOR.lang['da'] = {
     stylescombo : 
     {
     	label : 'Typografi',
-    	panelTitle : 'Formattering på stylesheet',
-    	panelTitle1 : 'Block typografi',
+    	panelTitle : 'Formatering på stylesheet',
+    	panelTitle1 : 'Blok typografi',
     	panelTitle2 : 'Inline typografi',
-    	panelTitle3 : 'Object typografi'
+    	panelTitle3 : 'Objekt typografi'
     },
     specialchar : 
     {
-    	options : 'Muligheder for specialkarakterer',
-    	title : 'Vælg symbol',
-    	toolbar : 'Indsæt symbol'
+    	options : 'Muligheder for specielle karakterer',
+    	title : 'Vælg specielle karakterer',
+    	toolbar : 'Indsæt specielle karakterer'
     },
     sourcearea : 
     {
@@ -145,7 +150,7 @@ CKEDITOR.lang['da'] = {
     pastetext : 
     {
     	button : 'Indsæt som ikke-formateret tekst',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Klik %1 for at indsætte. Din browser understøtter ikke indsæt med tastatur eller kontekstmenu-valg.',
     	title : 'Indsæt som ikke-formateret tekst'
     },
     pastefromword : 
@@ -157,7 +162,7 @@ CKEDITOR.lang['da'] = {
     },
     notification : 
     {
-    	closed : 'Notefikation lukket.'
+    	closed : 'Notifikation lukket.'
     },
     maximize : 
     {
@@ -226,9 +231,9 @@ CKEDITOR.lang['da'] = {
     	noAnchors : '(Ingen bogmærker i dokumentet)',
     	noEmail : 'Indtast e-mailadresse!',
     	noUrl : 'Indtast hyperlink-URL!',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Indtast venligst et telefonnummer',
     	other : '<anden>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Telefonnummer',
     	popupDependent : 'Koblet/dependent (Netscape)',
     	popupFeatures : 'Egenskaber for popup',
     	popupFullScreen : 'Fuld skærm (IE)',
@@ -253,7 +258,7 @@ CKEDITOR.lang['da'] = {
     	toAnchor : 'Bogmærke på denne side',
     	toEmail : 'E-mail',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Telefon',
     	toolbar : 'Indsæt/redigér hyperlink',
     	type : 'Type',
     	unlink : 'Fjern hyperlink',

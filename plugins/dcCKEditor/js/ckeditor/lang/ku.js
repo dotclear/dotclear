@@ -3,6 +3,11 @@ Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ku'] = {
+    widget : 
+    {
+    	move : 'کرتەبکە و ڕایبکێشە بۆ جوڵاندن',
+    	label : '%1 ویجێت'
+    },
     undo : 
     {
     	redo : 'هەڵگەڕاندنەوە',
@@ -88,7 +93,7 @@ CKEDITOR.lang['ku'] = {
     	headersColumn : 'یەکەم ئەستوون',
     	headersNone : 'هیچ',
     	headersRow : 'یەکەم ڕیز',
-    	heightUnit : 'height unit',
+    	heightUnit : 'یەکەی بەرز',
     	invalidBorder : 'ژمارەی پەراوێز دەبێت تەنها ژماره بێت.',
     	invalidCellPadding : 'ناوپۆشی خانه دەبێت ژمارەکی درووست بێت.',
     	invalidCellSpacing : 'بۆشایی خانه دەبێت ژمارەکی درووست بێت.',
@@ -226,9 +231,9 @@ CKEDITOR.lang['ku'] = {
     	noAnchors : '(هیچ جۆرێکی لەنگەر ئامادە نیە لەم پەڕەیه)',
     	noEmail : 'تکایە ناونیشانی ئیمەیل بنووسە',
     	noUrl : 'تکایە ناونیشانی بەستەر بنووسە',
-    	noTel : 'Please type the phone number',
+    	noTel : 'تکایە ژمارەی تەلەفۆن دابنێ',
     	other : '<هیتر>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'ژمارەی تەلەفۆن',
     	popupDependent : 'پێوەبەستراو (Netscape)',
     	popupFeatures : 'خاسیەتی پەنجەرەی سەرهەڵدەر',
     	popupFullScreen : 'پڕ بەپڕی شاشە (IE)',
@@ -253,7 +258,7 @@ CKEDITOR.lang['ku'] = {
     	toAnchor : 'بەستەر بۆ لەنگەر له دەق',
     	toEmail : 'ئیمەیل',
     	toUrl : 'ناونیشانی بەستەر',
-    	toPhone : 'Phone',
+    	toPhone : 'تەلەفۆن',
     	toolbar : 'دانان/ڕێکخستنی بەستەر',
     	type : 'جۆری بەستەر',
     	unlink : 'لابردنی بەستەر',

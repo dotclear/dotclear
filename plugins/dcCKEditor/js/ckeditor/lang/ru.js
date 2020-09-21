@@ -3,6 +3,11 @@ Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ru'] = {
+    widget : 
+    {
+    	move : 'Нажмите и перетащите, чтобы переместить',
+    	label : '%1 виджет'
+    },
     undo : 
     {
     	redo : 'Повторить',
@@ -171,9 +176,9 @@ CKEDITOR.lang['ru'] = {
     liststyle : 
     {
     	bulletedTitle : 'Свойства маркированного списка',
-    	circle : 'Круг',
+    	circle : 'Окружность',
     	decimal : 'Десятичные (1, 2, 3, и т.д.)',
-    	disc : 'Окружность',
+    	disc : 'Круг',
     	lowerAlpha : 'Строчные латинские (a, b, c, d, e, и т.д.)',
     	lowerRoman : 'Строчные римские (i, ii, iii, iv, v, и т.д.)',
     	none : 'Нет',

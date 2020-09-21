@@ -3,6 +3,11 @@ Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['et'] = {
+    widget : 
+    {
+    	move : 'Liigutamiseks klõpsa ja lohista',
+    	label : '%1 vidin'
+    },
     undo : 
     {
     	redo : 'Toimingu kordamine',
@@ -88,7 +93,7 @@ CKEDITOR.lang['et'] = {
     	headersColumn : 'Esimene tulp',
     	headersNone : 'Puudub',
     	headersRow : 'Esimene rida',
-    	heightUnit : 'height unit',
+    	heightUnit : 'kõrgusühik',
     	invalidBorder : 'Äärise suurus peab olema number.',
     	invalidCellPadding : 'Lahtrite polsterdus (padding) peab olema positiivne arv.',
     	invalidCellSpacing : 'Lahtrite vahe peab olema positiivne arv.',

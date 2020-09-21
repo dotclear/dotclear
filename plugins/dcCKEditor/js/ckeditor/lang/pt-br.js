@@ -3,6 +3,11 @@ Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['pt-br'] = {
+    widget : 
+    {
+    	move : 'Click e arraste para mover',
+    	label : '%1 widget'
+    },
     undo : 
     {
     	redo : 'Refazer',
@@ -88,7 +93,7 @@ CKEDITOR.lang['pt-br'] = {
     	headersColumn : 'Primeira coluna',
     	headersNone : 'Nenhum',
     	headersRow : 'Primeira linha',
-    	heightUnit : 'height unit',
+    	heightUnit : 'Unidade para altura',
     	invalidBorder : 'O tamanho da borda tem que ser um número.',
     	invalidCellPadding : 'A margem interna das células tem que ser um número.',
     	invalidCellSpacing : 'O espaçamento das células tem que ser um número.',
@@ -166,7 +171,7 @@ CKEDITOR.lang['pt-br'] = {
     },
     magicline : 
     {
-    	title : 'Insera um parágrafo aqui'
+    	title : 'Inserir um parágrafo aqui'
     },
     liststyle : 
     {

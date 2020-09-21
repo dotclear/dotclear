@@ -3,6 +3,11 @@ Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['lv'] = {
+    widget : 
+    {
+    	move : 'Klikšķina un velc, lai pārvietotu',
+    	label : 'logrīks %1'
+    },
     undo : 
     {
     	redo : 'Atkārtot',

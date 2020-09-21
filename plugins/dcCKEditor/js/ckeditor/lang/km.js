@@ -3,6 +3,11 @@ Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['km'] = {
+    widget : 
+    {
+    	move : 'ចុច\u200bហើយ\u200bទាញ\u200bដើម្បី\u200bផ្លាស់\u200bទី',
+    	label : '%1 widget'
+    },
     undo : 
     {
     	redo : 'ធ្វើ\u200bឡើង\u200bវិញ',

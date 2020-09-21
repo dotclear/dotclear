@@ -41,6 +41,7 @@ var CKBUILDER_CONFIG = {
 		elementspath: 1,
 		enterkey: 1,
 		floatingspace: 1,
+    footnotes: 1,
 		format: 1,
 		horizontalrule: 1,
 		htmlwriter: 1,

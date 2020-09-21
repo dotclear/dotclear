@@ -3,6 +3,11 @@ Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['sr'] = {
+    widget : 
+    {
+    	move : 'Кликните и повуците да би померали',
+    	label : '%1 модул'
+    },
     undo : 
     {
     	redo : 'Понови ',
@@ -88,7 +93,7 @@ CKEDITOR.lang['sr'] = {
     	headersColumn : 'Прва колона',
     	headersNone : 'Нема',
     	headersRow : 'Први ред',
-    	heightUnit : 'height unit',
+    	heightUnit : 'Јединица висине',
     	invalidBorder : 'Величина ивице треба да буде цифра.',
     	invalidCellPadding : 'Пуњење ћелије треба да буде позитивна цифра.',
     	invalidCellSpacing : 'Размак ћелије треба да буде позитивна цифра.',

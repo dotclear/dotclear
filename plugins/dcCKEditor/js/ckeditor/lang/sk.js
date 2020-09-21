@@ -3,6 +3,11 @@ Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['sk'] = {
+    widget : 
+    {
+    	move : 'Kliknite a potiahnite pre presunutie',
+    	label : '%1 widget'
+    },
     undo : 
     {
     	redo : 'Znovu',
@@ -88,7 +93,7 @@ CKEDITOR.lang['sk'] = {
     	headersColumn : 'Prvý stĺpec',
     	headersNone : 'Žiadne',
     	headersRow : 'Prvý riadok',
-    	heightUnit : 'height unit',
+    	heightUnit : 'jednotka výšky',
     	invalidBorder : 'Šírka orámovania musí byť číslo.',
     	invalidCellPadding : 'Odsadenie v bunkách (cell padding) musí byť kladné číslo.',
     	invalidCellSpacing : 'Medzera mädzi bunkami (cell spacing) musí byť kladné číslo.',
