@@ -871,7 +871,7 @@ class dcCore
             'enable_wysiwyg' => true,
             'toolbar_bottom' => false,
             'editor'         => ['xhtml' => 'dcCKEditor', 'wiki' => 'dcLegacyEditor'],
-            'post_format'    => 'wiki'
+            'post_format'    => 'xhtml'
         ];
     }
     //@}
