@@ -474,7 +474,7 @@ class adminPostMiniList extends adminGenericList
 
 class adminCommentList extends adminGenericList
 {
-    public function display($page, $nb_per_page, $enclose_block = '', $filter = false, $spam = false)
+    public function display($page, $nb_per_page, $enclose_block = '', $filter = false, $spam = false, $show_ip = true)
     {
         if ($this->rs->isEmpty()) {
             if ($filter) {

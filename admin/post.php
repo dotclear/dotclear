@@ -11,6 +11,8 @@ require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
+$show_ip = $core->auth->check('contentadmin', $core->blog->id);
+
 $post_id            = '';
 $cat_id             = '';
 $post_dt            = '';
@@ -476,14 +478,14 @@ $isContributionAllowed = function ($id, $dt, $com = true) {
 };
 
 # Show comments or trackbacks
-$showComments = function ($rs, $has_action, $tb = false) {
+$showComments = function ($rs, $has_action, $tb = false, $show_ip = true) {
     global $core;
     echo
     '<div class="table-outer">' .
     '<table class="comments-list"><tr>' .
     '<th colspan="2" class="first">' . __('Author') . '</th>' .
     '<th>' . __('Date') . '</th>' .
-    '<th class="nowrap">' . __('IP address') . '</th>' .
+    ($show_ip ? '<th class="nowrap">' . __('IP address') . '</th>' : '') .
     '<th>' . __('Status') . '</th>' .
     '<th>' . __('Edit') . '</th>' .
         '</tr>';
@@ -531,7 +533,8 @@ $showComments = function ($rs, $has_action, $tb = false) {
         ) : '') . '</td>' .
         '<td class="maximal">' . html::escapeHTML($rs->comment_author) . '</td>' .
         '<td class="nowrap">' . dt::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) . '</td>' .
-        '<td class="nowrap"><a href="' . $core->adminurl->get("admin.comments", ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>' .
+        ($show_ip ?
+            '<td class="nowrap"><a href="' . $core->adminurl->get("admin.comments", ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>' : '') .
         '<td class="nowrap status">' . $img_status . '</td>' .
         '<td class="nowrap status"><a href="' . $comment_url . '">' .
         '<img src="images/edit-mini.png" alt="" title="' . __('Edit this comment') . '" /> ' . __('Edit') . '</a></td>' .
@@ -774,7 +777,7 @@ if ($post_id) {
 
     echo '<h3>' . __('Comments') . '</h3>';
     if (!$comments->isEmpty()) {
-        $showComments($comments, $has_action);
+        $showComments($comments, $has_action, false, $show_ip);
     } else {
         echo '<p>' . __('No comments') . '</p>';
     }
@@ -864,7 +867,7 @@ if ($post_id && $post_status == 1) {
     echo '<h3>' . __('Trackbacks received') . '</h3>';
 
     if (!$trackbacks->isEmpty()) {
-        $showComments($trackbacks, $has_action, true);
+        $showComments($trackbacks, $has_action, true, $show_ip);
     } else {
         echo '<p>' . __('No trackback') . '</p>';
     }

@@ -11,6 +11,8 @@ require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
+$show_ip = $core->auth->check('contentadmin', $core->blog->id);
+
 if (!empty($_POST['delete_all_spam'])) {
     try {
         $core->blog->delJunkComments();
@@ -76,11 +78,11 @@ $site   = !empty($_GET['site']) ? $_GET['site'] : '';
 $sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : $default_sortby;
 $order  = !empty($_GET['order']) ? $_GET['order'] : $default_order;
 
-$with_spam = $author || $status || $type || $sortby != 'comment_dt' || $order != 'desc' || $ip;
+$with_spam = $author || $status || $type || $sortby != $default_sortby || $order != $default_order || $ip || $email || $site;
 
 $show_filters = false;
 
-$page        = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
+$page = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
 
 if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
     if ($nb_per_page != (integer) $_GET['nb']) {
@@ -119,10 +121,12 @@ if ($status !== '' && in_array($status, $status_combo)) {
     $status = '';
 }
 
+if ($show_ip) {
 # - IP filter
-if ($ip) {
-    $params['comment_ip'] = $ip;
-    $show_filters         = true;
+    if ($ip) {
+        $params['comment_ip'] = $ip;
+        $show_filters         = true;
+    }
 }
 
 # - email filter
@@ -139,7 +143,9 @@ if ($site) {
 
 // Add some sort order if spams displayed
 if ($with_spam || ($status == -2)) {
-    $sortby_combo[__('IP')]          = 'comment_ip';
+    if ($show_ip) {
+        $sortby_combo[__('IP')] = 'comment_ip';
+    }
     $sortby_combo[__('Spam filter')] = 'comment_spam_filter';
 }
 
@@ -243,9 +249,15 @@ if (!$core->error->flag()) {
 
     '<div class="cell filters-sibling-cell">' .
     '<p><label for="author" class="ib">' . __('Author:') . '</label> ' .
-    form::field('author', 20, 255, html::escapeHTML($author)) . '</p>' .
-    '<p><label for="ip" class="ib">' . __('IP address:') . '</label> ' .
-    form::field('ip', 20, 39, html::escapeHTML($ip)) . '</p>' .
+    form::field('author', 20, 255, html::escapeHTML($author)) . '</p>';
+
+    if ($show_ip) {
+        echo
+        '<p><label for="ip" class="ib">' . __('IP address:') . '</label> ' .
+        form::field('ip', 20, 39, html::escapeHTML($ip)) . '</p>';
+    }
+
+    echo
     '<p><label for="email" class="ib">' . __('Email:') . '</label> ' .
     form::field('email', 20, 255, html::escapeHTML($email)) . '</p>' .
     '<p><label for="site" class="ib">' . __('Web site:') . '</label> ' .
@@ -300,7 +312,8 @@ if (!$core->error->flag()) {
 
         '</form>',
         $show_filters,
-        ($with_spam || ($status == -2))
+        ($with_spam || ($status == -2)),
+        $show_ip
     );
 }
 
