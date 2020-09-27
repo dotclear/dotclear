@@ -103,7 +103,7 @@ Object.assign(dotclear, {
 
   // Delete a cookie
   deleteCookie: function(name) {
-    setCookie(name, "", {
+    this.setCookie(name, "", {
       'expires': -1
     });
   }
