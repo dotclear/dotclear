@@ -115,16 +115,16 @@ if (!empty($_REQUEST['id'])) {
 
         if ($next_rs !== null) {
             $next_link = sprintf($post_link, $next_rs->post_id,
-                html::escapeHTML($next_rs->post_title), __('Next entry') . '&nbsp;&#187;');
+                html::escapeHTML(trim(html::clean($next_rs->post_title))), __('Next entry') . '&nbsp;&#187;');
             $next_headlink = sprintf($post_headlink, 'next',
-                html::escapeHTML($next_rs->post_title), $next_rs->post_id);
+                html::escapeHTML(trim(html::clean($next_rs->post_title))), $next_rs->post_id);
         }
 
         if ($prev_rs !== null) {
             $prev_link = sprintf($post_link, $prev_rs->post_id,
-                html::escapeHTML($prev_rs->post_title), '&#171;&nbsp;' . __('Previous entry'));
+                html::escapeHTML(trim(html::clean($prev_rs->post_title))), '&#171;&nbsp;' . __('Previous entry'));
             $prev_headlink = sprintf($post_headlink, 'previous',
-                html::escapeHTML($prev_rs->post_title), $prev_rs->post_id);
+                html::escapeHTML(trim(html::clean($prev_rs->post_title))), $prev_rs->post_id);
         }
 
         try {
@@ -265,7 +265,6 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt) {
 
     $cur = $core->con->openCursor($core->prefix . 'post');
 
-    $cur->post_title         = $post_title;
     $cur->cat_id             = ($cat_id ?: null);
     $cur->post_dt            = $post_dt ? date('Y-m-d H:i:00', strtotime($post_dt)) : '';
     $cur->post_format        = $post_format;
@@ -296,7 +295,7 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt) {
 
             # --BEHAVIOR-- adminAfterPostUpdate
             $core->callBehavior('adminAfterPostUpdate', $cur, $post_id);
-            dcPage::addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), html::escapeHTML($cur->post_title)));
+            dcPage::addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), html::escapeHTML(trim(html::clean($cur->post_title)))));
             $core->adminurl->redirect(
                 'admin.post',
                 ['id' => $post_id]
@@ -361,7 +360,7 @@ if ($post_id) {
             $img_status = '';
     }
     $edit_entry_str  = __('&ldquo;%s&rdquo;');
-    $page_title_edit = sprintf($edit_entry_str, html::escapeHTML($post_title)) . ' ' . $img_status;
+    $page_title_edit = sprintf($edit_entry_str, html::escapeHTML(trim(html::clean($post_title)))) . ' ' . $img_status;
 } else {
     $img_status = '';
 }
@@ -435,7 +434,7 @@ if (!empty($_GET['xconv'])) {
 }
 
 if ($post_id && $post->post_status == 1) {
-    echo '<p><a class="onblog_link outgoing" href="' . $post->getURL() . '" title="' . html::escapeHTML($post_title) . '">' . __('Go to this entry on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
+    echo '<p><a class="onblog_link outgoing" href="' . $post->getURL() . '" title="' . html::escapeHTML(trim(html::clean($post_title))) . '">' . __('Go to this entry on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
 }
 if ($post_id) {
     echo '<p class="nav_prevnext">';

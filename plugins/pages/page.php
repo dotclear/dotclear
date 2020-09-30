@@ -112,16 +112,16 @@ if (!empty($_REQUEST['id'])) {
 
         if ($next_rs !== null) {
             $next_link = sprintf($post_link, $next_rs->post_id,
-                html::escapeHTML($next_rs->post_title), __('Next page') . '&nbsp;&#187;');
+                html::escapeHTML(trim(html::clean($next_rs->post_title))), __('Next page') . '&nbsp;&#187;');
             $next_headlink = sprintf($post_headlink, 'next',
-                html::escapeHTML($next_rs->post_title), $next_rs->post_id);
+                html::escapeHTML(trim(html::clean($next_rs->post_title))), $next_rs->post_id);
         }
 
         if ($prev_rs !== null) {
             $prev_link = sprintf($post_link, $prev_rs->post_id,
-                html::escapeHTML($prev_rs->post_title), '&#171;&nbsp;' . __('Previous page'));
+                html::escapeHTML(trim(html::clean($prev_rs->post_title))), '&#171;&nbsp;' . __('Previous page'));
             $prev_headlink = sprintf($post_headlink, 'previous',
-                html::escapeHTML($prev_rs->post_title), $prev_rs->post_id);
+                html::escapeHTML(trim(html::clean($prev_rs->post_title))), $prev_rs->post_id);
         }
 
         try {
@@ -200,7 +200,6 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_page && !$bad_dt) {
     $core->blog->settings->system->post_url_format = $page_url_format;
 
     $cur->post_type          = 'page';
-    $cur->post_title         = $post_title;
     $cur->post_dt            = $post_dt ? date('Y-m-d H:i:00', strtotime($post_dt)) : '';
     $cur->post_format        = $post_format;
     $cur->post_password      = $post_password;
@@ -327,7 +326,7 @@ if ($post_id) {
         default:
             $img_status = '';
     }
-    $edit_entry_title = '&ldquo;' . html::escapeHTML($post_title) . '&rdquo;' . ' ' . $img_status;
+    $edit_entry_title = '&ldquo;' . html::escapeHTML(trim(html::clean($post_title))) . '&rdquo;' . ' ' . $img_status;
 } else {
     $edit_entry_title = $page_title;
 }
@@ -358,7 +357,7 @@ if (!empty($_GET['xconv'])) {
 }
 
 if ($post_id && $post->post_status == 1) {
-    echo '<p><a class="onblog_link outgoing" href="' . $post->getURL() . '" title="' . html::escapeHTML($post_title) . '">' . __('Go to this page on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
+    echo '<p><a class="onblog_link outgoing" href="' . $post->getURL() . '" title="' . html::escapeHTML(trim(html::clean($post_title))) . '">' . __('Go to this page on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
 }
 
 echo '';

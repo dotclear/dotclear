@@ -338,7 +338,7 @@ class adminPostList extends adminGenericList
             '</td>',
             'title'      => '<td class="maximal" scope="row"><a href="' .
             $this->core->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '">' .
-            html::escapeHTML($this->rs->post_title) . '</a></td>',
+            html::escapeHTML(trim(html::clean($this->rs->post_title))) . '</a></td>',
             'date'       => '<td class="nowrap count">' . dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) . '</td>',
             'category'   => '<td class="nowrap">' . $cat_title . '</td>',
             'author'     => '<td class="nowrap">' . html::escapeHTML($this->rs->user_id) . '</td>',
@@ -453,7 +453,7 @@ class adminPostMiniList extends adminGenericList
             'title'  => '<td scope="row" class="maximal"><a href="' .
             $this->core->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '" ' .
             'title="' . html::escapeHTML($this->rs->getURL()) . '">' .
-            html::escapeHTML($this->rs->post_title) . '</a></td>',
+            html::escapeHTML(trim(html::clean($this->rs->post_title))) . '</a></td>',
             'date'   => '<td class="nowrap count">' . dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) . '</td>',
             'author' => '<td class="nowrap">' . html::escapeHTML($this->rs->user_id) . '</td>',
             'status' => '<td class="nowrap status">' . $img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach . '</td>'
@@ -633,7 +633,7 @@ class adminCommentList extends adminGenericList
                 break;
         }
 
-        $post_title = html::escapeHTML($this->rs->post_title);
+        $post_title = html::escapeHTML(trim(html::clean($this->rs->post_title)));
         if (mb_strlen($post_title) > 70) {
             $post_title = mb_strcut($post_title, 0, 67) . '...';
         }
