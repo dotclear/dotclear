@@ -98,7 +98,7 @@ class dcPrefs
     @param    newws     <b>string</b>     New workspace name
     @return     <b>boolean</b>
      */
-    public function renWorkspace($oldNs, $newNs)
+    public function renWorkspace($oldWs, $newWs)
     {
         if (!array_key_exists($oldWs, $this->workspaces) || array_key_exists($newWs, $this->workspaces)) {
             return false;
