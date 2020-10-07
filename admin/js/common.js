@@ -1,4 +1,4 @@
-/*global $, jQuery, getData */
+/*global $, jQuery, getData, isObject, mergeDeep */
 /*exported chainHandler */
 'use strict';
 
@@ -661,6 +661,16 @@ $(function() {
   // Get other DATA
   Object.assign(dotclear, getData('dotclear'));
   Object.assign(dotclear.msg, getData('dotclear_msg'));
+  // Function's aliases (from prepend.js)
+  if (typeof getData === 'function') {
+    dotclear.getData = dotclear.getData || getData;
+  }
+  if (typeof isObject === 'function') {
+    dotclear.isObject = dotclear.isObject || isObject;
+  }
+  if (typeof mergeDeep === 'function') {
+    dotclear.mergeDeep = dotclear.mergeDeep || mergeDeep;
+  }
   // set theme class
   $('body').addClass(`${dotclear.data.theme}-mode`);
   dotclear.data.darkMode = dotclear.data.theme === 'dark' ? 1 : 0;
