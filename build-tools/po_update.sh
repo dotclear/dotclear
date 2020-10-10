@@ -7,6 +7,8 @@
 # Usage (from dotclear root)
 # po_update.sh <lang> [plugin-or-theme-path]
 
+set -e
+
 export LANG=C
 
 XGETTEXT=xgettext

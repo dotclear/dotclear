@@ -15,6 +15,8 @@
 # $ cd themes/my-theme
 # $ ../../build-tools/build-module.sh theme
 
+set -e
+
 # Module type
 MOD_TYPE="plugin"
 
