@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:41+0200\n"
+"POT-Creation-Date: 2020-10-10 19:08+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -174,6 +174,9 @@ msgstr "Blog leírása:"
 
 msgid "Create"
 msgstr ""
+
+msgid "Cancel"
+msgstr "vissza"
 
 msgid "No such blog ID"
 msgstr "Nincs ilyen azonosítójú blog"
@@ -1564,9 +1567,6 @@ msgstr "törlés megerősítése"
 msgid "Are you sure you want to remove %s?"
 msgstr "Biztosan szeretnéd a %s-t törölni?"
 
-msgid "Cancel"
-msgstr "vissza"
-
 msgid "Yes"
 msgstr "igen"
 
@@ -2322,6 +2322,16 @@ msgid "Selected entries action:"
 msgstr "Teendő a kijelöltekkel:"
 
 #, fuzzy
+msgid "Light"
+msgstr "Jobbra"
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+#, fuzzy
 msgid "Smallest"
 msgstr "Kicsi:"
 
@@ -2436,8 +2446,8 @@ msgid "Interface"
 msgstr "XML/RPC interfész"
 
 #, fuzzy
-msgid "Activate dark mode"
-msgstr "Bekapcsol"
+msgid "Theme:"
+msgstr "Témák"
 
 #, fuzzy
 msgid "Activate enhanced uploader in media manager"
@@ -2864,6 +2874,17 @@ msgstr "Blog:"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
+msgid "Direct links"
+msgstr ""
+
+#, fuzzy
+msgid "List of posts"
+msgstr "Blogok listája"
+
+#, fuzzy
+msgid "List of comments"
+msgstr "Nincs hozzászólás"
+
 msgid "Set permissions"
 msgstr "jogok beállítása"
 
@@ -3106,7 +3127,7 @@ msgstr "Nyelv:"
 msgid "Languages"
 msgstr "Nyelv?"
 
-msgid "[%H:%M:%S]"
+msgid "%H:%M:%S"
 msgstr ""
 
 msgid "Change blog"
@@ -3345,6 +3366,14 @@ msgstr ""
 msgid "Hide this notice"
 msgstr "Ezt használd"
 
+#, fuzzy
+msgid "Show password"
+msgstr "Új jelszó:"
+
+#, fuzzy
+msgid "Hide password"
+msgstr "Új jelszó:"
+
 msgid "You have unsaved changes."
 msgstr "Vannak nem mentett változásaid."
 
@@ -3483,6 +3512,9 @@ msgstr "Bekapcsol"
 
 msgid "Deactivate"
 msgstr "Kikapcsolás"
+
+msgid "Clone"
+msgstr ""
 
 #, fuzzy
 msgid "Install"
@@ -3642,8 +3674,8 @@ msgstr ""
 msgid "No such theme."
 msgstr "Nincs ilyen modul."
 
-#, fuzzy
-msgid "Theme has been successfully selected."
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
 msgstr "A téma sikeresen törlődött."
 
 #, fuzzy
@@ -3658,6 +3690,12 @@ msgstr ""
 #, fuzzy
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
+msgstr[0] "A téma sikeresen törlődött."
+msgstr[1] "A téma sikeresen törlődött."
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "A téma sikeresen törlődött."
 msgstr[1] "A téma sikeresen törlődött."
 
@@ -3926,16 +3964,19 @@ msgstr "Blog"
 msgid "Plugins"
 msgstr "Kiegészítők"
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "medium"
+msgstr "Közepes:"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Kicsi:"
 
-msgid "vignette"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Előnézet:"
 
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4184,6 +4225,10 @@ msgid "No namespace specified"
 msgstr "Nincs meghatározva név"
 
 #, fuzzy
+msgid "No notice message"
+msgstr "Nincs blognév"
+
+#, fuzzy
 msgid "Unable to retrieve workspaces:"
 msgstr "Nem lehet a beállításokat lekérni:"
 
@@ -4218,6 +4263,27 @@ msgstr "Feedek megcsonkítása"
 #, fuzzy
 msgid "An error occurred while downloading the file."
 msgstr "Hiba történt a fájl letöltése közben."
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to modify _config.php"
+msgstr "Nem lehet megnyitni a fájlt."
+
+#, fuzzy
+msgid "Destination folder already exist"
+msgstr "A(z) %s célmappa már létezik."
 
 #, php-format
 msgid "%s has still been pinged"
@@ -4345,6 +4411,10 @@ msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Activate dark mode"
+#~ msgstr "Bekapcsol"
+
+#, fuzzy
 #~ msgid "Are you sure to delete this media?"
 #~ msgstr "Biztosan szeretnéd törölni a hozzászólást?"
 
@@ -4356,18 +4426,6 @@ msgstr ""
 #~ msgid "Manage plugin"
 #~ msgstr "Blog témái"
 
-#, fuzzy
-#~ msgid "medium"
-#~ msgstr "Közepes:"
-
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "Kicsi:"
-
-#, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "Előnézet:"
-
 #~ msgid "Unable to open directory."
 #~ msgstr "Nem lehet megnyitni a mappát."
 
@@ -4376,9 +4434,6 @@ msgstr ""
 
 #~ msgid "File is not writable."
 #~ msgstr "A fájl nem írható."
-
-#~ msgid "Unable to open file."
-#~ msgstr "Nem lehet megnyitni a fájlt."
 
 #~ msgid "Not an uploaded file."
 #~ msgstr "Nem egy feltöltött fájl."
@@ -4512,9 +4567,6 @@ msgstr ""
 
 #~ msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
 #~ msgstr "Ahhoz, hogy telepíts vagy frissíts egy témát, csak fel kell azt töltened a \"Téma telepítése és frissítése\" résznél."
-
-#~ msgid "Themes"
-#~ msgstr "Témák"
 
 #~ msgid "You are currently using <strong>%s</strong>"
 #~ msgstr "A \"%s\"-t használod"

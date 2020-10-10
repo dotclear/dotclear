@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:40+0200\n"
+"POT-Creation-Date: 2020-10-10 19:07+0200\n"
 "PO-Revision-Date: 2017-12-22 19:26+0100\n"
 "Last-Translator: Tin2 <sort300-blog@yahoo.com>\n"
 "Language-Team: \n"
@@ -829,6 +829,9 @@ msgstr "Alle Tags"
 
 msgid "404"
 msgstr "404"
+
+msgid "Note(s)"
+msgstr ""
 
 msgid "The configuration has been updated."
 msgstr "Konfiguration wurde erfolgreich aktualisiert."
@@ -1996,9 +1999,6 @@ msgstr "Syntaxhervorhebung"
 msgid "Syntax highlighting in theme editor"
 msgstr "Syntax Hilighting im Theme Editor"
 
-msgid "Theme:"
-msgstr "Theme:"
-
 msgid "No file"
 msgstr "Keine Datei"
 
@@ -2075,6 +2075,10 @@ msgstr "JavaScript-Dateien"
 
 msgid "Locales files"
 msgstr "Lokale Dateien"
+
+#, fuzzy
+msgid "PHP files"
+msgstr "CSS-Dateien"
 
 msgid "Preferences successfully updated"
 msgstr "Konfiguration wurden aktualisiert"
@@ -2290,6 +2294,9 @@ msgstr "Widget entfernen"
 
 msgid "Drag widgets here to remove."
 msgstr "Widgets hierhin ziehen zum Löschen."
+
+#~ msgid "Theme:"
+#~ msgstr "Theme:"
 
 #, fuzzy
 #~ msgid "Are you sure you want to delete all spams?"

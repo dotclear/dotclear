@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:41+0200\n"
+"POT-Creation-Date: 2020-10-10 19:09+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -852,6 +852,9 @@ msgid "All tags"
 msgstr "Wszystkie tagi"
 
 msgid "404"
+msgstr ""
+
+msgid "Note(s)"
 msgstr ""
 
 #, fuzzy
@@ -2108,9 +2111,6 @@ msgstr ""
 msgid "Syntax highlighting in theme editor"
 msgstr ""
 
-msgid "Theme:"
-msgstr ""
-
 msgid "No file"
 msgstr "Brak plików"
 
@@ -2189,6 +2189,10 @@ msgstr "Pliki JavaScript"
 #, fuzzy
 msgid "Locales files"
 msgstr "Pliki szablonu"
+
+#, fuzzy
+msgid "PHP files"
+msgstr "Pliki CSS"
 
 msgid "Preferences successfully updated"
 msgstr "Ustawienia zostały zaktualizowane"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:41+0200\n"
+"POT-Creation-Date: 2020-10-10 19:08+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -857,6 +857,9 @@ msgid "All tags"
 msgstr "Todas las etiquetas"
 
 msgid "404"
+msgstr ""
+
+msgid "Note(s)"
 msgstr ""
 
 #, fuzzy
@@ -2108,9 +2111,6 @@ msgstr ""
 msgid "Syntax highlighting in theme editor"
 msgstr ""
 
-msgid "Theme:"
-msgstr ""
-
 msgid "No file"
 msgstr "Ningún fichero"
 
@@ -2189,6 +2189,10 @@ msgstr "Ficheros JavaScript"
 #, fuzzy
 msgid "Locales files"
 msgstr "Ficheros de plantilla"
+
+#, fuzzy
+msgid "PHP files"
+msgstr "Ficheros CSS"
 
 #, fuzzy
 msgid "Preferences successfully updated"

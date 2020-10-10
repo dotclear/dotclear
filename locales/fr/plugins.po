@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-22 18:01+0200\n"
+"POT-Creation-Date: 2020-10-10 18:57+0200\n"
 "PO-Revision-Date: 2020-04-29 10:29\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French\n"
@@ -828,6 +828,9 @@ msgstr "Tous les mots-clés"
 
 msgid "404"
 msgstr "404"
+
+msgid "Note(s)"
+msgstr "Note(s)"
 
 msgid "The configuration has been updated."
 msgstr "La configuration a été enregistrée."
@@ -1981,9 +1984,6 @@ msgstr "Coloration syntaxique"
 msgid "Syntax highlighting in theme editor"
 msgstr "Coloration syntaxique de l'éditeur de thème"
 
-msgid "Theme:"
-msgstr "Thème :"
-
 msgid "No file"
 msgstr "Aucun fichier"
 
@@ -2060,6 +2060,10 @@ msgstr "Fichiers JavaScript"
 
 msgid "Locales files"
 msgstr "Fichiers de traduction"
+
+#, fuzzy
+msgid "PHP files"
+msgstr "Fichiers CSS"
 
 msgid "Preferences successfully updated"
 msgstr "Les préférences ont été mises à jour."
@@ -2275,3 +2279,6 @@ msgstr "Retirer le widget"
 
 msgid "Drag widgets here to remove."
 msgstr "Glisser les widgets ici pour les retirer du volet."
+
+#~ msgid "Theme:"
+#~ msgstr "Thème :"

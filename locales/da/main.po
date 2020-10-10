@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:40+0200\n"
+"POT-Creation-Date: 2020-10-10 19:07+0200\n"
 "PO-Revision-Date: 2016-07-18 15:45+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Team DSLJ <maniactor@gmail.com>\n"
@@ -168,6 +168,9 @@ msgid "Blog description:"
 msgstr "Blog beskrivelse:"
 
 msgid "Create"
+msgstr ""
+
+msgid "Cancel"
 msgstr ""
 
 msgid "No such blog ID"
@@ -1529,9 +1532,6 @@ msgstr ""
 msgid "Are you sure you want to remove %s?"
 msgstr ""
 
-msgid "Cancel"
-msgstr ""
-
 msgid "Yes"
 msgstr ""
 
@@ -2260,6 +2260,15 @@ msgstr "Kommentarer pr. side"
 msgid "Selected entries action:"
 msgstr ""
 
+msgid "Light"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
 #, fuzzy
 msgid "Smallest"
 msgstr "Small:"
@@ -2372,8 +2381,8 @@ msgid "Interface"
 msgstr "XML/RPC interface"
 
 #, fuzzy
-msgid "Activate dark mode"
-msgstr "Slet valgte tema"
+msgid "Theme:"
+msgstr "Temaer"
 
 msgid "Activate enhanced uploader in media manager"
 msgstr ""
@@ -2782,6 +2791,17 @@ msgstr ""
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
+msgid "Direct links"
+msgstr ""
+
+#, fuzzy
+msgid "List of posts"
+msgstr "Liste af blogs"
+
+#, fuzzy
+msgid "List of comments"
+msgstr "Ingen kommentar"
+
 msgid "Set permissions"
 msgstr ""
 
@@ -3016,7 +3036,7 @@ msgstr "Installer sprog"
 msgid "Languages"
 msgstr ""
 
-msgid "[%H:%M:%S]"
+msgid "%H:%M:%S"
 msgstr ""
 
 msgid "Change blog"
@@ -3253,6 +3273,14 @@ msgid "Hide this notice"
 msgstr "Brugere på denne blog"
 
 #, fuzzy
+msgid "Show password"
+msgstr "Nyt kodeord:"
+
+#, fuzzy
+msgid "Hide password"
+msgstr "Nyt kodeord:"
+
+#, fuzzy
 msgid "You have unsaved changes."
 msgstr "Du har en spam kommentar."
 
@@ -3388,6 +3416,9 @@ msgid "Activate"
 msgstr ""
 
 msgid "Deactivate"
+msgstr ""
+
+msgid "Clone"
 msgstr ""
 
 #, fuzzy
@@ -3540,8 +3571,8 @@ msgstr ""
 msgid "No such theme."
 msgstr "Ingen sådan blog."
 
-#, fuzzy
-msgid "Theme has been successfully selected."
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
 msgstr "Temaet er slettet."
 
 #, fuzzy
@@ -3556,6 +3587,12 @@ msgstr ""
 #, fuzzy
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
+msgstr[0] "Temaet er slettet."
+msgstr[1] "Temaet er slettet."
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Temaet er slettet."
 msgstr[1] "Temaet er slettet."
 
@@ -3817,16 +3854,19 @@ msgstr ""
 msgid "Plugins"
 msgstr ""
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "medium"
+msgstr "Medium:"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Small:"
 
-msgid "vignette"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Thumbnails:"
 
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4068,6 +4108,9 @@ msgstr ""
 msgid "No namespace specified"
 msgstr ""
 
+msgid "No notice message"
+msgstr ""
+
 msgid "Unable to retrieve workspaces:"
 msgstr ""
 
@@ -4099,6 +4142,26 @@ msgstr "Truncate feeds"
 
 msgid "An error occurred while downloading the file."
 msgstr "Der skete en fejl ved download af filen."
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+msgid "Unable to modify _config.php"
+msgstr ""
+
+#, fuzzy
+msgid "Destination folder already exist"
+msgstr "Filen %s eksisterer ikke."
 
 #, php-format
 msgid "%s has still been pinged"
@@ -4218,24 +4281,16 @@ msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Activate dark mode"
+#~ msgstr "Slet valgte tema"
+
+#, fuzzy
 #~ msgid "Entries actions"
 #~ msgstr "Indlæg"
 
 #, fuzzy
 #~ msgid "Manage plugin"
 #~ msgstr "Blgo temaer"
-
-#, fuzzy
-#~ msgid "medium"
-#~ msgstr "Medium:"
-
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "Small:"
-
-#, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "Thumbnails:"
 
 #, fuzzy
 #~ msgid "Invalid range"
@@ -4277,9 +4332,6 @@ msgstr ""
 
 #~ msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
 #~ msgstr "For at installere eller opgrade et tema skal du oploade det til \"Installer eller opgrader et tema\" sektionen."
-
-#~ msgid "Themes"
-#~ msgstr "Temaer"
 
 #~ msgid "You are currently using <strong>%s</strong>"
 #~ msgstr "Du bruger lige nu \"%s\""

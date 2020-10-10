@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:41+0200\n"
+"POT-Creation-Date: 2020-10-10 19:09+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -178,6 +178,9 @@ msgstr "ブログの説明："
 
 msgid "Create"
 msgstr ""
+
+msgid "Cancel"
+msgstr "キャンセル"
 
 msgid "No such blog ID"
 msgstr "指定されたブログIDはありません"
@@ -1545,9 +1548,6 @@ msgstr "削除の確認"
 msgid "Are you sure you want to remove %s?"
 msgstr "本当に、%s を削除してもよろしいですか？"
 
-msgid "Cancel"
-msgstr "キャンセル"
-
 msgid "Yes"
 msgstr "はい"
 
@@ -2299,6 +2299,16 @@ msgid "Selected entries action:"
 msgstr "選択されたエントリに実行："
 
 #, fuzzy
+msgid "Light"
+msgstr "右"
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+#, fuzzy
 msgid "Smallest"
 msgstr "スモール："
 
@@ -2413,8 +2423,8 @@ msgid "Interface"
 msgstr "XML/RPC インターフェイス"
 
 #, fuzzy
-msgid "Activate dark mode"
-msgstr "有効化"
+msgid "Theme:"
+msgstr "テーマ"
 
 #, fuzzy
 msgid "Activate enhanced uploader in media manager"
@@ -2837,6 +2847,17 @@ msgstr "ブログ："
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
+msgid "Direct links"
+msgstr ""
+
+#, fuzzy
+msgid "List of posts"
+msgstr "ブログ一覧"
+
+#, fuzzy
+msgid "List of comments"
+msgstr "コメントはありません"
+
 msgid "Set permissions"
 msgstr "パーミッションを設定"
 
@@ -3070,7 +3091,7 @@ msgstr "エントリの言語："
 msgid "Languages"
 msgstr "言語"
 
-msgid "[%H:%M:%S]"
+msgid "%H:%M:%S"
 msgstr ""
 
 msgid "Change blog"
@@ -3309,6 +3330,14 @@ msgstr ""
 msgid "Hide this notice"
 msgstr "このテーマを使用"
 
+#, fuzzy
+msgid "Show password"
+msgstr "新しいパスワード："
+
+#, fuzzy
+msgid "Hide password"
+msgstr "新しいパスワード："
+
 msgid "You have unsaved changes."
 msgstr "保存されていない変更があります。"
 
@@ -3445,6 +3474,9 @@ msgstr "有効化"
 
 msgid "Deactivate"
 msgstr "無効化"
+
+msgid "Clone"
+msgstr ""
 
 #, fuzzy
 msgid "Install"
@@ -3599,8 +3631,8 @@ msgstr ""
 msgid "No such theme."
 msgstr "指定されたモジュールはありません。"
 
-#, fuzzy
-msgid "Theme has been successfully selected."
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
 msgstr "テーマは正常に削除されました。"
 
 #, fuzzy
@@ -3614,6 +3646,11 @@ msgstr ""
 #, fuzzy
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
+msgstr[0] "テーマは正常に削除されました。"
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "テーマは正常に削除されました。"
 
 #, fuzzy
@@ -3871,16 +3908,19 @@ msgstr "ブログ"
 msgid "Plugins"
 msgstr "プラグイン"
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "medium"
+msgstr "ミディアム："
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "スモール："
 
-msgid "vignette"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "サムネイル："
 
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4129,6 +4169,10 @@ msgid "No namespace specified"
 msgstr "ネームスペースが指定されていません"
 
 #, fuzzy
+msgid "No notice message"
+msgstr "ブログ名がありません"
+
+#, fuzzy
 msgid "Unable to retrieve workspaces:"
 msgstr "設定を取り出すことができません："
 
@@ -4162,6 +4206,27 @@ msgstr "フィードの切り詰め"
 
 msgid "An error occurred while downloading the file."
 msgstr "ファイルのダウンロード中にエラーが発生しました。"
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to modify _config.php"
+msgstr "ファイルが開けません。"
+
+#, fuzzy
+msgid "Destination folder already exist"
+msgstr "展開先のディレクトリ %s はすでに存在します。"
 
 #, php-format
 msgid "%s has still been pinged"
@@ -4284,6 +4349,10 @@ msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Activate dark mode"
+#~ msgstr "有効化"
+
+#, fuzzy
 #~ msgid "Are you sure to delete this media?"
 #~ msgstr "本当に、このコメントを削除してもよろしいですか？"
 
@@ -4295,18 +4364,6 @@ msgstr ""
 #~ msgid "Manage plugin"
 #~ msgstr "ブログのテーマ"
 
-#, fuzzy
-#~ msgid "medium"
-#~ msgstr "ミディアム："
-
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "スモール："
-
-#, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "サムネイル："
-
 #~ msgid "Unable to open directory."
 #~ msgstr "ディレクトが開けません。"
 
@@ -4315,9 +4372,6 @@ msgstr ""
 
 #~ msgid "File is not writable."
 #~ msgstr "ファイルが書き込み可能ではありません。"
-
-#~ msgid "Unable to open file."
-#~ msgstr "ファイルが開けません。"
 
 #~ msgid "Not an uploaded file."
 #~ msgstr "アップロードされたファイルではありません。"
@@ -4451,9 +4505,6 @@ msgstr ""
 
 #~ msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
 #~ msgstr "テーマのインストールやアップグレードを行うには、通常は「テーマのインストール／アップグレード」セクションでそれをアップロードする必要があります。"
-
-#~ msgid "Themes"
-#~ msgstr "テーマ"
 
 #~ msgid "You are currently using <strong>%s</strong>"
 #~ msgstr "現在使用中のテーマ： %s"

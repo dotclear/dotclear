@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:41+0200\n"
+"POT-Creation-Date: 2020-10-10 19:09+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -167,6 +167,9 @@ msgid "Blog description:"
 msgstr "Blog beschrijving:"
 
 msgid "Create"
+msgstr ""
+
+msgid "Cancel"
 msgstr ""
 
 msgid "No such blog ID"
@@ -1488,9 +1491,6 @@ msgstr ""
 msgid "Are you sure you want to remove %s?"
 msgstr ""
 
-msgid "Cancel"
-msgstr ""
-
 msgid "Yes"
 msgstr ""
 
@@ -2202,6 +2202,15 @@ msgstr "Geef %s posts weer per pagina"
 msgid "Selected entries action:"
 msgstr ""
 
+msgid "Light"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
 #, fuzzy
 msgid "Smallest"
 msgstr "Klein:"
@@ -2311,8 +2320,8 @@ msgid "Interface"
 msgstr "XML/RPC interface"
 
 #, fuzzy
-msgid "Activate dark mode"
-msgstr "verwijder geselecteerd thema"
+msgid "Theme:"
+msgstr "Thema's"
 
 msgid "Activate enhanced uploader in media manager"
 msgstr ""
@@ -2708,6 +2717,16 @@ msgstr ""
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
+msgid "Direct links"
+msgstr ""
+
+msgid "List of posts"
+msgstr ""
+
+#, fuzzy
+msgid "List of comments"
+msgstr "Beheer comments"
+
 msgid "Set permissions"
 msgstr ""
 
@@ -2929,7 +2948,7 @@ msgstr "Standaard taal:"
 msgid "Languages"
 msgstr ""
 
-msgid "[%H:%M:%S]"
+msgid "%H:%M:%S"
 msgstr ""
 
 msgid "Change blog"
@@ -3158,6 +3177,14 @@ msgstr ""
 msgid "Hide this notice"
 msgstr "Gebruikers op deze blog"
 
+#, fuzzy
+msgid "Show password"
+msgstr "Nieuw wachtwoord:"
+
+#, fuzzy
+msgid "Hide password"
+msgstr "Nieuw wachtwoord:"
+
 msgid "You have unsaved changes."
 msgstr ""
 
@@ -3292,6 +3319,9 @@ msgid "Activate"
 msgstr ""
 
 msgid "Deactivate"
+msgstr ""
+
+msgid "Clone"
 msgstr ""
 
 msgid "Install"
@@ -3438,8 +3468,8 @@ msgstr ""
 msgid "No such theme."
 msgstr "Die blog bestaat niet."
 
-#, fuzzy
-msgid "Theme has been successfully selected."
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
 msgstr "Thema succesvol verwijderd."
 
 #, fuzzy
@@ -3454,6 +3484,12 @@ msgstr ""
 #, fuzzy
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
+msgstr[0] "Thema succesvol verwijderd."
+msgstr[1] "Thema succesvol verwijderd."
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Thema succesvol verwijderd."
 msgstr[1] "Thema succesvol verwijderd."
 
@@ -3709,16 +3745,19 @@ msgstr ""
 msgid "Plugins"
 msgstr ""
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "medium"
+msgstr "Medium:"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Klein:"
 
-msgid "vignette"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Miniaturen"
 
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 msgid "Pages"
@@ -3956,6 +3995,9 @@ msgstr ""
 msgid "No namespace specified"
 msgstr ""
 
+msgid "No notice message"
+msgstr ""
+
 msgid "Unable to retrieve workspaces:"
 msgstr ""
 
@@ -3987,6 +4029,25 @@ msgstr "Verklein feeds"
 
 msgid "An error occurred while downloading the file."
 msgstr "Er was een error toen het bestand gedownload werd."
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+msgid "Unable to modify _config.php"
+msgstr ""
+
+msgid "Destination folder already exist"
+msgstr ""
 
 #, php-format
 msgid "%s has still been pinged"
@@ -4106,20 +4167,12 @@ msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Activate dark mode"
+#~ msgstr "verwijder geselecteerd thema"
+
+#, fuzzy
 #~ msgid "Manage plugin"
 #~ msgstr "Blog instellingen"
-
-#, fuzzy
-#~ msgid "medium"
-#~ msgstr "Medium:"
-
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "Klein:"
-
-#, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "Miniaturen"
 
 #, fuzzy
 #~ msgid "Invalid range"
@@ -4153,9 +4206,6 @@ msgstr ""
 
 #~ msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
 #~ msgstr "Om een thema te installeren of te upgraden, moet je het uploaden in de \"Installeer of upgrade een theme\" sectie."
-
-#~ msgid "Themes"
-#~ msgstr "Thema's"
 
 #~ msgid "You are currently using <strong>%s</strong>"
 #~ msgstr "Je gebruikt nu \"%s\""

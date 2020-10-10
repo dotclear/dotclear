@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:41+0200\n"
+"POT-Creation-Date: 2020-10-10 19:08+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -170,6 +170,9 @@ msgstr "Descrizione del blog:"
 
 msgid "Create"
 msgstr ""
+
+msgid "Cancel"
+msgstr "annulla"
 
 msgid "No such blog ID"
 msgstr "Non è stato trovato un blog con tale ID"
@@ -1535,9 +1538,6 @@ msgstr "conferma eliminazione"
 msgid "Are you sure you want to remove %s?"
 msgstr "Si è sicuri di voler eliminare %s?"
 
-msgid "Cancel"
-msgstr "annulla"
-
 msgid "Yes"
 msgstr "sì"
 
@@ -2289,6 +2289,16 @@ msgid "Selected entries action:"
 msgstr "Azione sui post selezionati:"
 
 #, fuzzy
+msgid "Light"
+msgstr "Destra"
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+#, fuzzy
 msgid "Smallest"
 msgstr "Piccola:"
 
@@ -2401,8 +2411,8 @@ msgid "Interface"
 msgstr "Interfaccia XML/RPC"
 
 #, fuzzy
-msgid "Activate dark mode"
-msgstr "Attiva"
+msgid "Theme:"
+msgstr "Temi"
 
 #, fuzzy
 msgid "Activate enhanced uploader in media manager"
@@ -2827,6 +2837,17 @@ msgstr "Blog:"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
+msgid "Direct links"
+msgstr ""
+
+#, fuzzy
+msgid "List of posts"
+msgstr "Lista dei blog"
+
+#, fuzzy
+msgid "List of comments"
+msgstr "Nessun commento"
+
 msgid "Set permissions"
 msgstr "imposta permessi"
 
@@ -3059,7 +3080,7 @@ msgstr "Lingua articolo:"
 msgid "Languages"
 msgstr "Lingue"
 
-msgid "[%H:%M:%S]"
+msgid "%H:%M:%S"
 msgstr ""
 
 msgid "Change blog"
@@ -3296,6 +3317,14 @@ msgstr ""
 msgid "Hide this notice"
 msgstr "Usa questo tema"
 
+#, fuzzy
+msgid "Show password"
+msgstr "Nuova password:"
+
+#, fuzzy
+msgid "Hide password"
+msgstr "Nuova password:"
+
 msgid "You have unsaved changes."
 msgstr "Sono presenti delle modifiche non salvate."
 
@@ -3434,6 +3463,9 @@ msgstr "Attiva"
 
 msgid "Deactivate"
 msgstr "Disattiva"
+
+msgid "Clone"
+msgstr ""
 
 #, fuzzy
 msgid "Install"
@@ -3593,8 +3625,8 @@ msgstr ""
 msgid "No such theme."
 msgstr "Modulo inesistente."
 
-#, fuzzy
-msgid "Theme has been successfully selected."
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
 msgstr "Tema eliminato correttamente."
 
 #, fuzzy
@@ -3609,6 +3641,12 @@ msgstr ""
 #, fuzzy
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
+msgstr[0] "Tema eliminato correttamente."
+msgstr[1] "Tema eliminato correttamente."
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Tema eliminato correttamente."
 msgstr[1] "Tema eliminato correttamente."
 
@@ -3876,16 +3914,19 @@ msgstr "Blog"
 msgid "Plugins"
 msgstr "Componenti aggiuntivi"
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "medium"
+msgstr "Media:"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Piccola:"
 
-msgid "vignette"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Anteprime:"
 
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4132,6 +4173,10 @@ msgid "No namespace specified"
 msgstr "Nessun namespace specificato"
 
 #, fuzzy
+msgid "No notice message"
+msgstr "Nessun messaggio di log"
+
+#, fuzzy
 msgid "Unable to retrieve workspaces:"
 msgstr "Impossibile ottenere i namespace:"
 
@@ -4164,6 +4209,27 @@ msgstr "Tronca i feed"
 
 msgid "An error occurred while downloading the file."
 msgstr "Si è verificato un errore durante lo scaricamento del file."
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to modify _config.php"
+msgstr "Impossibile aprire il file."
+
+#, fuzzy
+msgid "Destination folder already exist"
+msgstr "La cartella di destinazione %s esiste già."
 
 #, php-format
 msgid "%s has still been pinged"
@@ -4285,6 +4351,10 @@ msgid "The following error was encountered while trying to read the database:"
 msgstr "Si è verificato il seguente errore durante il tentativo di connessione al database:"
 
 #, fuzzy
+#~ msgid "Activate dark mode"
+#~ msgstr "Attiva"
+
+#, fuzzy
 #~ msgid "Are you sure to delete this media?"
 #~ msgstr "Si è sicuri di voler eliminare questo commento?"
 
@@ -4295,18 +4365,6 @@ msgstr "Si è verificato il seguente errore durante il tentativo di connessione 
 #, fuzzy
 #~ msgid "Manage plugin"
 #~ msgstr "Temi del blog"
-
-#, fuzzy
-#~ msgid "medium"
-#~ msgstr "Media:"
-
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "Piccola:"
-
-#, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "Anteprime:"
 
 #~ msgid "Embedded Audio Player"
 #~ msgstr "Riproduttore audio incorporato"
@@ -4322,9 +4380,6 @@ msgstr "Si è verificato il seguente errore durante il tentativo di connessione 
 
 #~ msgid "File is not writable."
 #~ msgstr "Il file non è accessibile in scrittura."
-
-#~ msgid "Unable to open file."
-#~ msgstr "Impossibile aprire il file."
 
 #~ msgid "Not an uploaded file."
 #~ msgstr "Non è un file caricato."
@@ -4464,9 +4519,6 @@ msgstr "Si è verificato il seguente errore durante il tentativo di connessione 
 
 #~ msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
 #~ msgstr "Per installare o aggiornare un tema è sufficiente caricarlo nella sezione \"Installa o aggiorna un tema\"."
-
-#~ msgid "Themes"
-#~ msgstr "Temi"
 
 #~ msgid "You are currently using <strong>%s</strong>"
 #~ msgstr "Attualmente è in uso \"%s\""

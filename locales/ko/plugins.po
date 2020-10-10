@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:41+0200\n"
+"POT-Creation-Date: 2020-10-10 19:09+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -856,6 +856,9 @@ msgid "All tags"
 msgstr "모든 분류딱지"
 
 msgid "404"
+msgstr ""
+
+msgid "Note(s)"
 msgstr ""
 
 #, fuzzy
@@ -2112,9 +2115,6 @@ msgstr ""
 msgid "Syntax highlighting in theme editor"
 msgstr ""
 
-msgid "Theme:"
-msgstr ""
-
 msgid "No file"
 msgstr "파일 없음"
 
@@ -2193,6 +2193,10 @@ msgstr "자바스크립트 파일들"
 #, fuzzy
 msgid "Locales files"
 msgstr "템플릿 파일들"
+
+#, fuzzy
+msgid "PHP files"
+msgstr "CSS 파일들"
 
 #, fuzzy
 msgid "Preferences successfully updated"

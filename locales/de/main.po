@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:40+0200\n"
+"POT-Creation-Date: 2020-10-10 19:07+0200\n"
 "PO-Revision-Date: 2017-12-22 19:46+0100\n"
 "Last-Translator: Tin2 <sort300-blog@yahoo.com>\n"
 "Language-Team: \n"
@@ -167,6 +167,9 @@ msgstr "Beschreibung des Blogs:"
 
 msgid "Create"
 msgstr "Erstellen"
+
+msgid "Cancel"
+msgstr "Abbrechen"
 
 msgid "No such blog ID"
 msgstr "Blog-ID existiert nicht"
@@ -1480,9 +1483,6 @@ msgstr "Löschung bestätigen"
 msgid "Are you sure you want to remove %s?"
 msgstr "Willst Du wirklich %s löschen?"
 
-msgid "Cancel"
-msgstr "Abbrechen"
-
 msgid "Yes"
 msgstr "Ja"
 
@@ -2172,6 +2172,16 @@ msgstr "Einträge pro Seite"
 msgid "Selected entries action:"
 msgstr "Wähle eine Aktion für die Einträge:"
 
+#, fuzzy
+msgid "Light"
+msgstr "Rechts"
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
 msgid "Smallest"
 msgstr "Kleinste"
 
@@ -2267,8 +2277,8 @@ msgid "Interface"
 msgstr "Interface"
 
 #, fuzzy
-msgid "Activate dark mode"
-msgstr "Adpative Schriftgröße aktivieren"
+msgid "Theme:"
+msgstr "Themes"
 
 msgid "Activate enhanced uploader in media manager"
 msgstr "Erweiterte Uploader im Medienmanager aktivieren"
@@ -2664,6 +2674,17 @@ msgstr "Blog:"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr "%s ist Super Admin (alle Rechte für alle Blogs)."
 
+msgid "Direct links"
+msgstr ""
+
+#, fuzzy
+msgid "List of posts"
+msgstr "Liste der Blogs"
+
+#, fuzzy
+msgid "List of comments"
+msgstr "Kein Kommentar"
+
 msgid "Set permissions"
 msgstr "Setze Rechte"
 
@@ -2873,7 +2894,8 @@ msgstr "Sprache der Einträge:"
 msgid "Languages"
 msgstr "Sprachen"
 
-msgid "[%H:%M:%S]"
+#, fuzzy
+msgid "%H:%M:%S"
 msgstr "[% H: M: %s]"
 
 msgid "Change blog"
@@ -3100,6 +3122,14 @@ msgstr "Tags:"
 msgid "Hide this notice"
 msgstr "Diese Notiz verbergen"
 
+#, fuzzy
+msgid "Show password"
+msgstr "Neues Passwort:"
+
+#, fuzzy
+msgid "Hide password"
+msgstr "Neues Passwort:"
+
 msgid "You have unsaved changes."
 msgstr "Du hast Änderungen nicht gespeichert."
 
@@ -3231,6 +3261,9 @@ msgstr "Aktivieren"
 
 msgid "Deactivate"
 msgstr "Deaktivieren"
+
+msgid "Clone"
+msgstr ""
 
 msgid "Install"
 msgstr "Installieren"
@@ -3367,7 +3400,8 @@ msgstr "Alle Themen dieser Liste aktualisieren"
 msgid "No such theme."
 msgstr "Kein solches Theme."
 
-msgid "Theme has been successfully selected."
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
 msgstr "Theme wurde erfolgreich gewählt."
 
 msgid "Theme has been successfully activated."
@@ -3382,6 +3416,12 @@ msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Theme wurde erfolgreich deaktiviert."
 msgstr[1] "Theme wurden erfolgreich deaktiviert."
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
+msgstr[0] "Theme wurde erfolgreich gelöscht."
+msgstr[1] "Theme wurde erfolgreich gelöscht."
 
 msgid "You don't have permissions to delete this theme."
 msgstr "Du darfst diese Theme nicht löschen."
@@ -3625,17 +3665,17 @@ msgstr "Blog"
 msgid "Plugins"
 msgstr "Plugins"
 
-msgid "moyenne"
-msgstr ""
+msgid "medium"
+msgstr "mittel"
 
-msgid "petite"
-msgstr ""
+msgid "small"
+msgstr "klein"
 
-msgid "vignette"
-msgstr ""
+msgid "thumbnail"
+msgstr "Vorschaubild"
 
-msgid "carrée"
-msgstr ""
+msgid "square"
+msgstr "quadratisch"
 
 msgid "Pages"
 msgstr "Seiten"
@@ -3872,6 +3912,10 @@ msgstr "%s ist keine gültige ID für Einstellungen"
 msgid "No namespace specified"
 msgstr "Kein Namespace festgelegt"
 
+#, fuzzy
+msgid "No notice message"
+msgstr "Keine Lognachricht vorhanden"
+
 msgid "Unable to retrieve workspaces:"
 msgstr "Nicht in der Lage, Arbeitsbereich abzurufen:"
 
@@ -3903,6 +3947,27 @@ msgstr "Falscher Data Feed"
 
 msgid "An error occurred while downloading the file."
 msgstr "Fehler beim Herunterladen der Datei."
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to modify _config.php"
+msgstr "Datei konnte nicht geöffnet werden."
+
+#, fuzzy
+msgid "Destination folder already exist"
+msgstr "Ziel-Verzeichnis %s fürs Entpacken ist schon vorhanden."
 
 #, php-format
 msgid "%s has still been pinged"
@@ -4023,6 +4088,10 @@ msgstr "<p>Dies bedeutet, dass entweder dein Benutzername und dein Passwort in d
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
 
+#, fuzzy
+#~ msgid "Activate dark mode"
+#~ msgstr "Adpative Schriftgröße aktivieren"
+
 #~ msgid "Are you sure to delete this media?"
 #~ msgstr "Sind Sie sicher, dass Sie dieses Medium löschen wollen?"
 
@@ -4034,18 +4103,6 @@ msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
 
 #~ msgid "Manage plugin"
 #~ msgstr "Plugins Verwaltung"
-
-#~ msgid "medium"
-#~ msgstr "mittel"
-
-#~ msgid "small"
-#~ msgstr "klein"
-
-#~ msgid "thumbnail"
-#~ msgstr "Vorschaubild"
-
-#~ msgid "square"
-#~ msgstr "quadratisch"
 
 #~ msgid "Embedded Audio Player"
 #~ msgstr "Eingebetteter Audio-Player"
@@ -4061,9 +4118,6 @@ msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
 
 #~ msgid "File is not writable."
 #~ msgstr "Datei ist nicht beschreibbar."
-
-#~ msgid "Unable to open file."
-#~ msgstr "Datei konnte nicht geöffnet werden."
 
 #~ msgid "Not an uploaded file."
 #~ msgstr "Keine hochgeladene Datei."
@@ -4214,9 +4268,6 @@ msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
 
 #~ msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
 #~ msgstr "Wenn Du ein Theme installieren oder aktualisieren willst, solltest du das in der Sektion \"Installiere oder aktualisiere ein Theme\" erledigen."
-
-#~ msgid "Themes"
-#~ msgstr "Themes"
 
 #~ msgid "You are currently using <strong>%s</strong>"
 #~ msgstr "Du verwendest gerade \"%s\""

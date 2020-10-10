@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:40+0200\n"
+"POT-Creation-Date: 2020-10-10 19:07+0200\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Catalan\n"
@@ -173,6 +173,9 @@ msgstr "Descripció del blog :"
 
 msgid "Create"
 msgstr ""
+
+msgid "Cancel"
+msgstr "Anul·lar"
 
 msgid "No such blog ID"
 msgstr "Identificador de blog desconegut"
@@ -1561,9 +1564,6 @@ msgstr "Confirmar la supressió"
 msgid "Are you sure you want to remove %s?"
 msgstr "Està segur que vol suprimir  %s?"
 
-msgid "Cancel"
-msgstr "Anul·lar"
-
 msgid "Yes"
 msgstr "Sí"
 
@@ -2319,6 +2319,16 @@ msgid "Selected entries action:"
 msgstr "Acció en les entrades seleccionades:"
 
 #, fuzzy
+msgid "Light"
+msgstr "Dreta"
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+#, fuzzy
 msgid "Smallest"
 msgstr "Correu electrònic:"
 
@@ -2430,8 +2440,8 @@ msgid "Interface"
 msgstr "Interfície XML/RPC"
 
 #, fuzzy
-msgid "Activate dark mode"
-msgstr "Privat"
+msgid "Theme:"
+msgstr "Temes"
 
 msgid "Activate enhanced uploader in media manager"
 msgstr ""
@@ -2854,6 +2864,17 @@ msgstr "Blog:"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
+msgid "Direct links"
+msgstr ""
+
+#, fuzzy
+msgid "List of posts"
+msgstr "Llistat de blogs"
+
+#, fuzzy
+msgid "List of comments"
+msgstr "Sense comentaris"
+
 msgid "Set permissions"
 msgstr "definir els permisos"
 
@@ -3095,7 +3116,7 @@ msgstr "Idioma de l'entrada:"
 msgid "Languages"
 msgstr "Idioma?"
 
-msgid "[%H:%M:%S]"
+msgid "%H:%M:%S"
 msgstr ""
 
 msgid "Change blog"
@@ -3339,6 +3360,14 @@ msgstr ""
 msgid "Hide this notice"
 msgstr "Usuaris en aquest blog"
 
+#, fuzzy
+msgid "Show password"
+msgstr "Nova contrasenya:"
+
+#, fuzzy
+msgid "Hide password"
+msgstr "Nova contrasenya:"
+
 msgid "You have unsaved changes."
 msgstr "No ha guardat els canvis."
 
@@ -3481,6 +3510,9 @@ msgid "Activate"
 msgstr "Privat"
 
 msgid "Deactivate"
+msgstr ""
+
+msgid "Clone"
 msgstr ""
 
 #, fuzzy
@@ -3637,8 +3669,8 @@ msgstr ""
 msgid "No such theme."
 msgstr "Blog inexistent."
 
-#, fuzzy
-msgid "Theme has been successfully selected."
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
 msgstr "El tema s'ha canviat amb èxit."
 
 #, fuzzy
@@ -3653,6 +3685,12 @@ msgstr ""
 #, fuzzy
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
+msgstr[0] "El tema s'ha canviat amb èxit."
+msgstr[1] "El tema s'ha canviat amb èxit."
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "El tema s'ha canviat amb èxit."
 msgstr[1] "El tema s'ha canviat amb èxit."
 
@@ -3918,16 +3956,18 @@ msgstr "Blog"
 msgid "Plugins"
 msgstr "Extensions"
 
-msgid "moyenne"
+msgid "medium"
 msgstr ""
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Correu electrònic:"
 
-msgid "vignette"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Detalls de la imatge"
 
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4176,6 +4216,10 @@ msgid "No namespace specified"
 msgstr "Cap espai de nom especificat"
 
 #, fuzzy
+msgid "No notice message"
+msgstr "Cap nom de blog"
+
+#, fuzzy
 msgid "Unable to retrieve workspaces:"
 msgstr "Impossible obtenir els paràmetres:"
 
@@ -4210,6 +4254,27 @@ msgstr "Registres truncats"
 #, fuzzy
 msgid "An error occurred while downloading the file."
 msgstr "Ha succeït un error mentre s'estava descarregant el fitxer."
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to modify _config.php"
+msgstr "Impossible obrir l'arxiu."
+
+#, fuzzy
+msgid "Destination folder already exist"
+msgstr "El directori de destinació no és gravable."
 
 #, php-format
 msgid "%s has still been pinged"
@@ -4339,6 +4404,10 @@ msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Activate dark mode"
+#~ msgstr "Privat"
+
+#, fuzzy
 #~ msgid "Are you sure to delete this media?"
 #~ msgstr "Està segur que vol suprimir aquest comentari?"
 
@@ -4350,10 +4419,6 @@ msgstr ""
 #~ msgid "Manage plugin"
 #~ msgstr "Temes del blog"
 
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "Correu electrònic:"
-
 #~ msgid "Unable to open directory."
 #~ msgstr "Impossible obrir el directori."
 
@@ -4362,9 +4427,6 @@ msgstr ""
 
 #~ msgid "File is not writable."
 #~ msgstr "L'arxiu no es gravable."
-
-#~ msgid "Unable to open file."
-#~ msgstr "Impossible obrir l'arxiu."
 
 #~ msgid "Not an uploaded file."
 #~ msgstr "Arxiu no carregable."
@@ -4439,9 +4501,6 @@ msgstr ""
 
 #~ msgid "XML/RPC interface is not active. Change settings to enable it."
 #~ msgstr "La interfície XML/RPC no està activada. Canvii els paràmetres per tal d'activar-la."
-
-#~ msgid "Themes"
-#~ msgstr "Temes"
 
 #, fuzzy
 #~ msgid "Delete selected theme"

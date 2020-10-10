@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:41+0200\n"
+"POT-Creation-Date: 2020-10-10 19:09+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Occitan\n"
@@ -145,6 +145,9 @@ msgstr "Sus"
 
 msgid "Page top"
 msgstr "Naut de la pagina"
+
+msgid "Pagination"
+msgstr ""
 
 msgid "Password needed"
 msgstr "Senhal requesit"

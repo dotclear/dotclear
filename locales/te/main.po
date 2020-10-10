@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:42+0200\n"
+"POT-Creation-Date: 2020-10-10 19:10+0200\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -171,6 +171,9 @@ msgstr "బ్లాగు వివరణ:"
 
 msgid "Create"
 msgstr ""
+
+msgid "Cancel"
+msgstr "రద్దుచేయి"
 
 msgid "No such blog ID"
 msgstr "అటువండి బ్లాగు ID లేదు"
@@ -1534,9 +1537,6 @@ msgstr "తొలగింపుని నిర్ధారించండి"
 msgid "Are you sure you want to remove %s?"
 msgstr "%sని మీరు నిజంగానే తొలగించాలనుకుంటున్నారా?"
 
-msgid "Cancel"
-msgstr "రద్దుచేయి"
-
 msgid "Yes"
 msgstr "అవును"
 
@@ -2283,6 +2283,16 @@ msgid "Selected entries action:"
 msgstr "ఎంచుకున్న వాటిపై చర్య:"
 
 #, fuzzy
+msgid "Light"
+msgstr "కుడి"
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+#, fuzzy
 msgid "Smallest"
 msgstr "చిన్న:"
 
@@ -2393,8 +2403,8 @@ msgid "Interface"
 msgstr ""
 
 #, fuzzy
-msgid "Activate dark mode"
-msgstr "చేతనంచేయి"
+msgid "Theme:"
+msgstr "అలంకారాలు"
 
 msgid "Activate enhanced uploader in media manager"
 msgstr ""
@@ -2814,6 +2824,17 @@ msgstr "బ్లాగు:"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
+msgid "Direct links"
+msgstr ""
+
+#, fuzzy
+msgid "List of posts"
+msgstr "బ్లాగుల జాబితా"
+
+#, fuzzy
+msgid "List of comments"
+msgstr "వ్యాఖ్యలు లేవు"
+
 msgid "Set permissions"
 msgstr "అనుమతులు ఇవ్వండి"
 
@@ -3051,7 +3072,7 @@ msgstr "టపా భాష:"
 msgid "Languages"
 msgstr "భాషలు"
 
-msgid "[%H:%M:%S]"
+msgid "%H:%M:%S"
 msgstr ""
 
 msgid "Change blog"
@@ -3291,6 +3312,14 @@ msgstr ""
 msgid "Hide this notice"
 msgstr "ఈ అలంకారాన్ని వాడు"
 
+#, fuzzy
+msgid "Show password"
+msgstr "కొత్త సంకేతపదం:"
+
+#, fuzzy
+msgid "Hide password"
+msgstr "కొత్త సంకేతపదం:"
+
 msgid "You have unsaved changes."
 msgstr "భద్రపరచని మార్పులున్నాయి."
 
@@ -3429,6 +3458,9 @@ msgid "Activate"
 msgstr "చేతనంచేయి"
 
 msgid "Deactivate"
+msgstr ""
+
+msgid "Clone"
 msgstr ""
 
 #, fuzzy
@@ -3583,8 +3615,8 @@ msgstr ""
 msgid "No such theme."
 msgstr "అటువంటి బ్లాగు లేదు."
 
-#, fuzzy
-msgid "Theme has been successfully selected."
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
 msgstr "అలంకారాన్ని విజయవంతంగా తొలగించాం."
 
 #, fuzzy
@@ -3599,6 +3631,12 @@ msgstr ""
 #, fuzzy
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
+msgstr[0] "అలంకారాన్ని విజయవంతంగా తొలగించాం."
+msgstr[1] "అలంకారాన్ని విజయవంతంగా తొలగించాం."
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "అలంకారాన్ని విజయవంతంగా తొలగించాం."
 msgstr[1] "అలంకారాన్ని విజయవంతంగా తొలగించాం."
 
@@ -3866,16 +3904,19 @@ msgstr "బ్లాగు"
 msgid "Plugins"
 msgstr "ప్లగిన్లు"
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "medium"
+msgstr "మధ్యమ:"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "చిన్న:"
 
-msgid "vignette"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "నఖచిత్రాలు:"
 
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4124,6 +4165,10 @@ msgid "No namespace specified"
 msgstr ""
 
 #, fuzzy
+msgid "No notice message"
+msgstr "బ్లాగు పేరు లేదు"
+
+#, fuzzy
 msgid "Unable to retrieve workspaces:"
 msgstr "తప్పుడు ఈమెయిల్ చిరునామా"
 
@@ -4155,6 +4200,26 @@ msgstr ""
 
 msgid "An error occurred while downloading the file."
 msgstr ""
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+msgid "Unable to modify _config.php"
+msgstr ""
+
+#, fuzzy
+msgid "Destination folder already exist"
+msgstr "ఈ ఫైలు ఇప్పటికే ఉంది."
 
 #, php-format
 msgid "%s has still been pinged"
@@ -4279,6 +4344,10 @@ msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Activate dark mode"
+#~ msgstr "చేతనంచేయి"
+
+#, fuzzy
 #~ msgid "Are you sure to delete this media?"
 #~ msgstr "ఈ వ్యాఖ్యని నిజంగానే తొలగించాలా?"
 
@@ -4289,18 +4358,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Manage plugin"
 #~ msgstr "బ్లాగు అలంకారాలు"
-
-#, fuzzy
-#~ msgid "medium"
-#~ msgstr "మధ్యమ:"
-
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "చిన్న:"
-
-#, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "నఖచిత్రాలు:"
 
 #~ msgid "File is not writable."
 #~ msgstr "ఫైలుని వ్రాయలేం."
@@ -4353,9 +4410,6 @@ msgstr ""
 
 #~ msgid "You can find additional themes for your blog on %s."
 #~ msgstr "మీ బ్లాగు కోసం మరిన్ని అలంకారాలను %s వద్ద చూడవచ్చు."
-
-#~ msgid "Themes"
-#~ msgstr "అలంకారాలు"
 
 #~ msgid "You are currently using <strong>%s</strong>"
 #~ msgstr "మీరు ప్రస్తుతం \"%s\" ని వాడుతున్నారు"

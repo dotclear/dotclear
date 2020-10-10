@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:42+0200\n"
+"POT-Creation-Date: 2020-10-10 19:10+0200\n"
 "PO-Revision-Date: 2016-07-18 15:55+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -170,6 +170,9 @@ msgstr "博客描述："
 
 msgid "Create"
 msgstr ""
+
+msgid "Cancel"
+msgstr "取消"
 
 msgid "No such blog ID"
 msgstr "没有这样的博客 ID"
@@ -1533,9 +1536,6 @@ msgstr "确认清除"
 msgid "Are you sure you want to remove %s?"
 msgstr "您确定要移除 %s 吗？"
 
-msgid "Cancel"
-msgstr "取消"
-
 msgid "Yes"
 msgstr "是"
 
@@ -2286,6 +2286,16 @@ msgid "Selected entries action:"
 msgstr "已选择的文章的动作："
 
 #, fuzzy
+msgid "Light"
+msgstr "右"
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+#, fuzzy
 msgid "Smallest"
 msgstr "小："
 
@@ -2398,8 +2408,8 @@ msgid "Interface"
 msgstr "XML/RPC 接口"
 
 #, fuzzy
-msgid "Activate dark mode"
-msgstr "激活"
+msgid "Theme:"
+msgstr "主题"
 
 #, fuzzy
 msgid "Activate enhanced uploader in media manager"
@@ -2822,6 +2832,17 @@ msgstr "博客："
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
+msgid "Direct links"
+msgstr ""
+
+#, fuzzy
+msgid "List of posts"
+msgstr "博客列表"
+
+#, fuzzy
+msgid "List of comments"
+msgstr "没有评论"
+
 msgid "Set permissions"
 msgstr "设置权限"
 
@@ -3046,7 +3067,7 @@ msgstr "文章语言："
 msgid "Languages"
 msgstr "语言"
 
-msgid "[%H:%M:%S]"
+msgid "%H:%M:%S"
 msgstr ""
 
 msgid "Change blog"
@@ -3284,6 +3305,14 @@ msgstr ""
 msgid "Hide this notice"
 msgstr "使用这个主题"
 
+#, fuzzy
+msgid "Show password"
+msgstr "新密码："
+
+#, fuzzy
+msgid "Hide password"
+msgstr "新密码："
+
 msgid "You have unsaved changes."
 msgstr "您有未保存的改动。"
 
@@ -3420,6 +3449,9 @@ msgstr "激活"
 
 msgid "Deactivate"
 msgstr "禁用"
+
+msgid "Clone"
+msgstr ""
 
 #, fuzzy
 msgid "Install"
@@ -3574,8 +3606,8 @@ msgstr ""
 msgid "No such theme."
 msgstr "没有这样的模块。"
 
-#, fuzzy
-msgid "Theme has been successfully selected."
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
 msgstr "成功删除主题。"
 
 #, fuzzy
@@ -3589,6 +3621,11 @@ msgstr ""
 #, fuzzy
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
+msgstr[0] "成功删除主题。"
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "成功删除主题。"
 
 #, fuzzy
@@ -3847,16 +3884,19 @@ msgstr "博客"
 msgid "Plugins"
 msgstr "插件"
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "medium"
+msgstr "中："
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "小："
 
-msgid "vignette"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "缩略图："
 
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4106,6 +4146,10 @@ msgid "No namespace specified"
 msgstr "没有指定命名空间"
 
 #, fuzzy
+msgid "No notice message"
+msgstr "没有博客名称"
+
+#, fuzzy
 msgid "Unable to retrieve workspaces:"
 msgstr "无法检索设置："
 
@@ -4139,6 +4183,27 @@ msgstr "截断 feeds"
 
 msgid "An error occurred while downloading the file."
 msgstr "当下载这个文件时产生错误。"
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to modify _config.php"
+msgstr "无法打开文件。"
+
+#, fuzzy
+msgid "Destination folder already exist"
+msgstr "解压缩目标目录 %s 已经存在。"
 
 #, php-format
 msgid "%s has still been pinged"
@@ -4261,6 +4326,10 @@ msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Activate dark mode"
+#~ msgstr "激活"
+
+#, fuzzy
 #~ msgid "Are you sure to delete this media?"
 #~ msgstr "您确定您要删除这个评论吗？"
 
@@ -4272,18 +4341,6 @@ msgstr ""
 #~ msgid "Manage plugin"
 #~ msgstr "博客主题"
 
-#, fuzzy
-#~ msgid "medium"
-#~ msgstr "中："
-
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "小："
-
-#, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "缩略图："
-
 #~ msgid "Unable to open directory."
 #~ msgstr "无法打开目录。"
 
@@ -4292,9 +4349,6 @@ msgstr ""
 
 #~ msgid "File is not writable."
 #~ msgstr "文件不可写。"
-
-#~ msgid "Unable to open file."
-#~ msgstr "无法打开文件。"
 
 #~ msgid "Not an uploaded file."
 #~ msgstr "不是一个上传的文件。"
@@ -4430,9 +4484,6 @@ msgstr ""
 
 #~ msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
 #~ msgstr "要安装或者升级一个主题，您一般仅需要在“安装或升级一个主题”中上传它。"
-
-#~ msgid "Themes"
-#~ msgstr "主题"
 
 #~ msgid "You are currently using <strong>%s</strong>"
 #~ msgstr "您正在使用“%s”"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:41+0200\n"
+"POT-Creation-Date: 2020-10-10 19:09+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -170,6 +170,9 @@ msgstr "Blogo aprašymas:"
 
 msgid "Create"
 msgstr ""
+
+msgid "Cancel"
+msgstr "Atšaukti"
 
 msgid "No such blog ID"
 msgstr "Tokio blogo ID nėra"
@@ -1537,9 +1540,6 @@ msgstr "patvirtinti pašalinimą"
 msgid "Are you sure you want to remove %s?"
 msgstr "Ar tikrai norite pašalinti %s?"
 
-msgid "Cancel"
-msgstr "Atšaukti"
-
 #, fuzzy
 msgid "Yes"
 msgstr "taip"
@@ -2291,6 +2291,16 @@ msgid "Selected entries action:"
 msgstr "Pasirinktų įrašų veiksmas:"
 
 #, fuzzy
+msgid "Light"
+msgstr "Dešinė"
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+#, fuzzy
 msgid "Smallest"
 msgstr "Mažos:"
 
@@ -2403,8 +2413,8 @@ msgid "Interface"
 msgstr "XML/RPC sąsaja"
 
 #, fuzzy
-msgid "Activate dark mode"
-msgstr "Įjungti"
+msgid "Theme:"
+msgstr "Temos"
 
 #, fuzzy
 msgid "Activate enhanced uploader in media manager"
@@ -2829,6 +2839,17 @@ msgstr "Blogas:"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
+msgid "Direct links"
+msgstr ""
+
+#, fuzzy
+msgid "List of posts"
+msgstr "Blogų sąrašas"
+
+#, fuzzy
+msgid "List of comments"
+msgstr "Komentarų nėra."
+
 msgid "Set permissions"
 msgstr "Nustatyti teises"
 
@@ -3069,7 +3090,7 @@ msgstr "Įrašo kalba:"
 msgid "Languages"
 msgstr "Kalbos"
 
-msgid "[%H:%M:%S]"
+msgid "%H:%M:%S"
 msgstr ""
 
 msgid "Change blog"
@@ -3305,6 +3326,14 @@ msgstr ""
 msgid "Hide this notice"
 msgstr "Naudoti šią temą"
 
+#, fuzzy
+msgid "Show password"
+msgstr "Naujas slaptažodis:"
+
+#, fuzzy
+msgid "Hide password"
+msgstr "Naujas slaptažodis:"
+
 msgid "You have unsaved changes."
 msgstr "Yra neišsaugotų pakeitimų. "
 
@@ -3444,6 +3473,9 @@ msgstr "Įjungti"
 
 msgid "Deactivate"
 msgstr "Išjungti"
+
+msgid "Clone"
+msgstr ""
 
 #, fuzzy
 msgid "Install"
@@ -3607,8 +3639,8 @@ msgstr ""
 msgid "No such theme."
 msgstr "Nėra tokio modulio."
 
-#, fuzzy
-msgid "Theme has been successfully selected."
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
 msgstr "Tema sėkmingai ištrinta."
 
 #, fuzzy
@@ -3624,6 +3656,13 @@ msgstr ""
 #, fuzzy
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
+msgstr[0] "Tema sėkmingai ištrinta."
+msgstr[1] "Tema sėkmingai ištrinta."
+msgstr[2] ""
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Tema sėkmingai ištrinta."
 msgstr[1] "Tema sėkmingai ištrinta."
 msgstr[2] ""
@@ -3902,17 +3941,17 @@ msgstr "Blogas"
 msgid "Plugins"
 msgstr "Plugin'ai"
 
-msgid "moyenne"
-msgstr ""
+msgid "medium"
+msgstr "Vidutinis:"
 
-msgid "petite"
-msgstr ""
+msgid "small"
+msgstr "Mažas:"
 
-msgid "vignette"
-msgstr ""
+msgid "thumbnail"
+msgstr "Miniatiūra:"
 
-msgid "carrée"
-msgstr ""
+msgid "square"
+msgstr "kvadratas"
 
 #, fuzzy
 msgid "Pages"
@@ -4158,6 +4197,10 @@ msgid "No namespace specified"
 msgstr "Namespace nenurodytas."
 
 #, fuzzy
+msgid "No notice message"
+msgstr "Nėra registro žinutės"
+
+#, fuzzy
 msgid "Unable to retrieve workspaces:"
 msgstr "Nepavyko gauti namespaces:"
 
@@ -4190,6 +4233,27 @@ msgstr "Trumpinti kanalus"
 
 msgid "An error occurred while downloading the file."
 msgstr "Atsisiunčiant failą įvyko klaida"
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to modify _config.php"
+msgstr "Nepavyksta atidaryti failo."
+
+#, fuzzy
+msgid "Destination folder already exist"
+msgstr "Išarchyvuojama direktorija %s jau egzistuoja."
 
 #, php-format
 msgid "%s has still been pinged"
@@ -4311,6 +4375,10 @@ msgid "The following error was encountered while trying to read the database:"
 msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
 
 #, fuzzy
+#~ msgid "Activate dark mode"
+#~ msgstr "Įjungti"
+
+#, fuzzy
 #~ msgid "Are you sure to delete this media?"
 #~ msgstr "Ar tikrai norite ištrinti šį komentarą?"
 
@@ -4321,18 +4389,6 @@ msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
 #, fuzzy
 #~ msgid "Manage plugin"
 #~ msgstr "Įkelti plugin'ą"
-
-#~ msgid "medium"
-#~ msgstr "Vidutinis:"
-
-#~ msgid "small"
-#~ msgstr "Mažas:"
-
-#~ msgid "thumbnail"
-#~ msgstr "Miniatiūra:"
-
-#~ msgid "square"
-#~ msgstr "kvadratas"
 
 #~ msgid "Embedded Audio Player"
 #~ msgstr "Embedded Audio Player"
@@ -4348,9 +4404,6 @@ msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
 
 #~ msgid "File is not writable."
 #~ msgstr "Failui nesuteiktos rašymo teisės."
-
-#~ msgid "Unable to open file."
-#~ msgstr "Nepavyksta atidaryti failo."
 
 #~ msgid "Not an uploaded file."
 #~ msgstr "Ne įkeltas failas."
@@ -4493,9 +4546,6 @@ msgstr "Bandant nuskaityti duomenų bazę įvyko tokios klaidos:"
 
 #~ msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
 #~ msgstr "Paprastai norint atnaujinti temą tereikia ją įkelti į \"Install or upgrade a theme\" skyrių"
-
-#~ msgid "Themes"
-#~ msgstr "Temos"
 
 #~ msgid "You are currently using <strong>%s</strong>"
 #~ msgstr "Šiuo metu jūs naudojate \"%s\""

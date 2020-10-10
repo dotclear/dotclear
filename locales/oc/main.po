@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:41+0200\n"
+"POT-Creation-Date: 2020-10-10 19:09+0200\n"
 "PO-Revision-Date: 2020-08-15 16:09+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: Occitan\n"
@@ -165,6 +165,9 @@ msgstr "Descripcion del blòg :"
 
 msgid "Create"
 msgstr "Crear"
+
+msgid "Cancel"
+msgstr "Anullar"
 
 msgid "No such blog ID"
 msgstr "Cap d’ID de blòg correspondent"
@@ -1452,9 +1455,6 @@ msgstr ""
 msgid "Are you sure you want to remove %s?"
 msgstr "Sètz segur que volètz suprimir %s ?"
 
-msgid "Cancel"
-msgstr "Anullar"
-
 msgid "Yes"
 msgstr "Òc"
 
@@ -2137,6 +2137,16 @@ msgstr ""
 msgid "Selected entries action:"
 msgstr ""
 
+#, fuzzy
+msgid "Light"
+msgstr "Drecha"
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
 msgid "Smallest"
 msgstr ""
 
@@ -2231,8 +2241,8 @@ msgstr "Mas opcions"
 msgid "Interface"
 msgstr "Interfàcia"
 
-msgid "Activate dark mode"
-msgstr "Activar lo mòde fosc"
+msgid "Theme:"
+msgstr ""
 
 msgid "Activate enhanced uploader in media manager"
 msgstr ""
@@ -2622,6 +2632,17 @@ msgstr "Blòg:"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
+msgid "Direct links"
+msgstr ""
+
+#, fuzzy
+msgid "List of posts"
+msgstr "Lista dels blògs"
+
+#, fuzzy
+msgid "List of comments"
+msgstr "Cap de comentari"
+
 msgid "Set permissions"
 msgstr ""
 
@@ -2836,7 +2857,7 @@ msgstr "Lenga de l’entrada :"
 msgid "Languages"
 msgstr "Lengas"
 
-msgid "[%H:%M:%S]"
+msgid "%H:%M:%S"
 msgstr ""
 
 msgid "Change blog"
@@ -3062,6 +3083,14 @@ msgstr ""
 msgid "Hide this notice"
 msgstr ""
 
+#, fuzzy
+msgid "Show password"
+msgstr "Nòu senhal :"
+
+#, fuzzy
+msgid "Hide password"
+msgstr "Nòu senhal :"
+
 msgid "You have unsaved changes."
 msgstr ""
 
@@ -3196,6 +3225,9 @@ msgstr "Activar"
 
 msgid "Deactivate"
 msgstr "Desactivar"
+
+msgid "Clone"
+msgstr ""
 
 msgid "Install"
 msgstr "Installar"
@@ -3332,8 +3364,9 @@ msgstr ""
 msgid "No such theme."
 msgstr ""
 
-msgid "Theme has been successfully selected."
-msgstr ""
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
+msgstr "Creacion corrècta del fichièr de configuracion."
 
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
@@ -3347,6 +3380,12 @@ msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] ""
 msgstr[1] ""
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
+msgstr[0] "Email corrèctament enviat a %s."
+msgstr[1] "Email corrèctament enviat a %s."
 
 msgid "You don't have permissions to delete this theme."
 msgstr ""
@@ -3589,16 +3628,19 @@ msgstr "Blòg"
 msgid "Plugins"
 msgstr "Empeutons"
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "medium"
+msgstr "Mejana"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Pichona"
 
-msgid "vignette"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Minuatura"
 
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 msgid "Pages"
@@ -3836,6 +3878,9 @@ msgstr ""
 msgid "No namespace specified"
 msgstr ""
 
+msgid "No notice message"
+msgstr ""
+
 msgid "Unable to retrieve workspaces:"
 msgstr ""
 
@@ -3865,6 +3910,25 @@ msgid "Wrong data feed"
 msgstr ""
 
 msgid "An error occurred while downloading the file."
+msgstr ""
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+msgid "Unable to modify _config.php"
+msgstr ""
+
+msgid "Destination folder already exist"
 msgstr ""
 
 #, php-format
@@ -3984,6 +4048,9 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Activate dark mode"
+#~ msgstr "Activar lo mòde fosc"
 
 #~ msgid "publish"
 #~ msgstr "escridar"

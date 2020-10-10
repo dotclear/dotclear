@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-22 18:01+0200\n"
+"POT-Creation-Date: 2020-10-10 18:57+0200\n"
 "PO-Revision-Date: 2020-04-29 10:29\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French\n"
@@ -164,6 +164,9 @@ msgstr "Description du blog :"
 
 msgid "Create"
 msgstr "Créer"
+
+msgid "Cancel"
+msgstr "Annuler"
 
 msgid "No such blog ID"
 msgstr "Identifiant de blog inconnu"
@@ -1455,9 +1458,6 @@ msgstr "Confirmer la suppression"
 msgid "Are you sure you want to remove %s?"
 msgstr "Êtes-vous certain·e de vouloir supprimer %s ?"
 
-msgid "Cancel"
-msgstr "Annuler"
-
 msgid "Yes"
 msgstr "oui"
 
@@ -2139,6 +2139,15 @@ msgstr "billets par page"
 msgid "Selected entries action:"
 msgstr "Action sur les billets sélectionnés :"
 
+msgid "Light"
+msgstr "Clair"
+
+msgid "Dark"
+msgstr "Sombre"
+
+msgid "Automatic"
+msgstr "Automatique"
+
 msgid "Smallest"
 msgstr "Très petite"
 
@@ -2232,14 +2241,8 @@ msgstr "Mes options"
 msgid "Interface"
 msgstr "Interface"
 
-msgid "Activate dark mode"
-msgstr "Activer le mode sombre"
-
-msgid "Light"
-msgstr "Clair"
-
-msgid "Dark"
-msgstr "Sombre"
+msgid "Theme:"
+msgstr "Thème :"
 
 msgid "Activate enhanced uploader in media manager"
 msgstr "Activer l'interface avancée de la médiathèque"
@@ -2842,7 +2845,8 @@ msgstr "Langue du billet :"
 msgid "Languages"
 msgstr "Langues"
 
-msgid "[%H:%M:%S]"
+#, fuzzy
+msgid "%H:%M:%S"
 msgstr "[%H:%M:%S]"
 
 msgid "Change blog"
@@ -3203,14 +3207,14 @@ msgstr "Activer"
 msgid "Deactivate"
 msgstr "Désactiver"
 
+msgid "Clone"
+msgstr "Dupliquer"
+
 msgid "Install"
 msgstr "Installer"
 
 msgid "Update"
 msgstr "Mise à jour"
-
-msgid "Clone"
-msgstr "Dupliquer"
 
 msgid "Activate selected plugins"
 msgstr "Activer les plugins sélectionnés"
@@ -3603,16 +3607,16 @@ msgstr "Blog"
 msgid "Plugins"
 msgstr "Plugins"
 
-msgid "moyenne"
+msgid "medium"
 msgstr "moyenne"
 
-msgid "petite"
+msgid "small"
 msgstr "petite"
 
-msgid "vignette"
+msgid "thumbnail"
 msgstr "vignette"
 
-msgid "carrée"
+msgid "square"
 msgstr "carrée"
 
 msgid "Pages"
@@ -3836,24 +3840,6 @@ msgstr "Le plugin ne peut pas être désactivé."
 msgid "Cannot activate plugin."
 msgstr "Le plugin ne peut pas être activé."
 
-msgid "Themes folder unreachable"
-msgstr "Le répertoire des thèmes n'est pas accessible"
-
-msgid "Themes folder unreadable"
-msgstr "Le répertoire des thèmes n'est pas lisible"
-
-msgid " (copy)"
-msgstr " (copie)"
-
-msgid " (copy #%s)"
-msgstr " (copie %s)"
-
-msgid "Unable to modify _config.php"
-msgstr "Impossible de modifier le fichier _config.php"
-
-msgid "Destination folder already exist"
-msgstr "Le répertoire de destination existe déjà"
-
 #, php-format
 msgid "Invalid setting dcNamespace: %s"
 msgstr "Espace de nom du paramètre invalide : %s"
@@ -3867,6 +3853,9 @@ msgstr "%s n'est pas un identifiant de paramètre valide"
 
 msgid "No namespace specified"
 msgstr "Aucun espace de nom spécifié"
+
+msgid "No notice message"
+msgstr "Pas de message"
 
 msgid "Unable to retrieve workspaces:"
 msgstr "Impossible d'obtenir les espaces de travail :"
@@ -3898,6 +3887,25 @@ msgstr "Données du flux incorrectes"
 
 msgid "An error occurred while downloading the file."
 msgstr "Une erreur est survenue pendant le téléchargement du fichier."
+
+msgid "Themes folder unreachable"
+msgstr "Le répertoire des thèmes n'est pas accessible"
+
+msgid "Themes folder unreadable"
+msgstr "Le répertoire des thèmes n'est pas lisible"
+
+#, php-format
+msgid " (copy #%s)"
+msgstr " (copie %s)"
+
+msgid " (copy)"
+msgstr " (copie)"
+
+msgid "Unable to modify _config.php"
+msgstr "Impossible de modifier le fichier _config.php"
+
+msgid "Destination folder already exist"
+msgstr "Le répertoire de destination existe déjà"
 
 #, php-format
 msgid "%s has still been pinged"
@@ -4015,3 +4023,18 @@ msgstr "<p>Cela signifie soit que les informations d'identifiant ou de mot de pa
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "L'erreur suivante a été rencontrée lors de la tentative d'accès à la base de données :"
+
+#~ msgid "Activate dark mode"
+#~ msgstr "Activer le mode sombre"
+
+#~ msgid "moyenne"
+#~ msgstr "moyenne"
+
+#~ msgid "petite"
+#~ msgstr "petite"
+
+#~ msgid "vignette"
+#~ msgstr "vignette"
+
+#~ msgid "carrée"
+#~ msgstr "carrée"

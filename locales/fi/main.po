@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:41+0200\n"
+"POT-Creation-Date: 2020-10-10 19:08+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -165,6 +165,9 @@ msgstr "Blogin kuvaus:"
 
 msgid "Create"
 msgstr "Luo"
+
+msgid "Cancel"
+msgstr "Peruuta"
 
 msgid "No such blog ID"
 msgstr "Tuntemanton blogin tunniste"
@@ -1482,9 +1485,6 @@ msgstr "vahvista poisto"
 msgid "Are you sure you want to remove %s?"
 msgstr "Oletko varma, että haluat poistaa tämän: %s?"
 
-msgid "Cancel"
-msgstr "Peruuta"
-
 msgid "Yes"
 msgstr "Kyllä"
 
@@ -2187,6 +2187,16 @@ msgid "Selected entries action:"
 msgstr "Tee valituille merkinnöille:"
 
 #, fuzzy
+msgid "Light"
+msgstr "Oikealla"
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+#, fuzzy
 msgid "Smallest"
 msgstr "Pieni"
 
@@ -2283,9 +2293,8 @@ msgstr "Omat asetukseni"
 msgid "Interface"
 msgstr "Käyttöliittymä"
 
-#, fuzzy
-msgid "Activate dark mode"
-msgstr "Ota käyttöön"
+msgid "Theme:"
+msgstr ""
 
 msgid "Activate enhanced uploader in media manager"
 msgstr "Ota käyttöön parannettu tiedostonlataus medianhallinnassa"
@@ -2682,6 +2691,17 @@ msgstr "Blogi:"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr "%s on superjärjestelmänvalvoja (kaikki käyttöoikeudet kaikkiin blogeihin)."
 
+msgid "Direct links"
+msgstr ""
+
+#, fuzzy
+msgid "List of posts"
+msgstr "Blogien luettelo"
+
+#, fuzzy
+msgid "List of comments"
+msgstr "Ei kommentteja"
+
 msgid "Set permissions"
 msgstr "Aseta käyttöoikeudet"
 
@@ -2898,7 +2918,8 @@ msgstr "Merkinnän kieli:"
 msgid "Languages"
 msgstr "Kielet"
 
-msgid "[%H:%M:%S]"
+#, fuzzy
+msgid "%H:%M:%S"
 msgstr "[%H:%M:%S]"
 
 msgid "Change blog"
@@ -3127,6 +3148,14 @@ msgstr "Avainsanat:"
 msgid "Hide this notice"
 msgstr "Käytä tätä"
 
+#, fuzzy
+msgid "Show password"
+msgstr "Uusi salasana:"
+
+#, fuzzy
+msgid "Hide password"
+msgstr "Uusi salasana:"
+
 msgid "You have unsaved changes."
 msgstr "Et ole tallentanut muutoksia."
 
@@ -3259,6 +3288,9 @@ msgstr "Ota käyttöön"
 
 msgid "Deactivate"
 msgstr "Poista käytöstä"
+
+msgid "Clone"
+msgstr ""
 
 msgid "Install"
 msgstr "Asenna"
@@ -3395,7 +3427,8 @@ msgstr "Päivitä kaikki tämän luettelon teemat"
 msgid "No such theme."
 msgstr "Teemaa ei ole."
 
-msgid "Theme has been successfully selected."
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
 msgstr "Teema on valittu."
 
 msgid "Theme has been successfully activated."
@@ -3410,6 +3443,12 @@ msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Teema on poistettu käytöstä."
 msgstr[1] "Teemat on poistettu käytöstä."
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
+msgstr[0] "Tämä teema on poistettu."
+msgstr[1] "Nämä teemat on poistettu."
 
 msgid "You don't have permissions to delete this theme."
 msgstr "Sinulla ei ole oikeuksia poistaa tätä teemaa."
@@ -3653,17 +3692,17 @@ msgstr "Blogi"
 msgid "Plugins"
 msgstr "Liitännäiset"
 
-msgid "moyenne"
-msgstr ""
+msgid "medium"
+msgstr "keskikoko"
 
-msgid "petite"
-msgstr ""
+msgid "small"
+msgstr "pieni"
 
-msgid "vignette"
-msgstr ""
+msgid "thumbnail"
+msgstr "pikkukuva"
 
-msgid "carrée"
-msgstr ""
+msgid "square"
+msgstr "neliö"
 
 msgid "Pages"
 msgstr "Sivut"
@@ -3901,6 +3940,10 @@ msgstr "%s ei ole kelvollinen asetuksen tunniste"
 msgid "No namespace specified"
 msgstr "Ei määriteltyä nimiavaruutta"
 
+#, fuzzy
+msgid "No notice message"
+msgstr "Lokissa ei viestejä"
+
 msgid "Unable to retrieve workspaces:"
 msgstr "Työavaruuksia ei saatu luettua:"
 
@@ -3931,6 +3974,27 @@ msgstr "Väärä tietosyöte"
 
 msgid "An error occurred while downloading the file."
 msgstr "Virhe tiedostoa koneelle ladattaessa."
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to modify _config.php"
+msgstr "Tiedostoa ei saa auki."
+
+#, fuzzy
+msgid "Destination folder already exist"
+msgstr "Purkamisen kohdehakemisto %s on jo olemassa."
 
 #, php-format
 msgid "%s has still been pinged"
@@ -4049,6 +4113,10 @@ msgstr "<p>Tämä tarkoittaa joko sitä, että käyttäjänimi- ja salasanatieto
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
 
+#, fuzzy
+#~ msgid "Activate dark mode"
+#~ msgstr "Ota käyttöön"
+
 #~ msgid "Are you sure to delete this media?"
 #~ msgstr "Haluatko poistaa tämän mediatiedoston?"
 
@@ -4061,18 +4129,6 @@ msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
 #, fuzzy
 #~ msgid "Manage plugin"
 #~ msgstr "Määritä liitännäisen asetukset"
-
-#~ msgid "medium"
-#~ msgstr "keskikoko"
-
-#~ msgid "small"
-#~ msgstr "pieni"
-
-#~ msgid "thumbnail"
-#~ msgstr "pikkukuva"
-
-#~ msgid "square"
-#~ msgstr "neliö"
 
 #~ msgid "Embedded Audio Player"
 #~ msgstr "Upotettu äänisoitin"
@@ -4088,9 +4144,6 @@ msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
 
 #~ msgid "File is not writable."
 #~ msgstr "Tiedostoon ei voi kirjoittaa."
-
-#~ msgid "Unable to open file."
-#~ msgstr "Tiedostoa ei saa auki."
 
 #~ msgid "Not an uploaded file."
 #~ msgstr "Ei palvelimelle ladattu tiedosto."

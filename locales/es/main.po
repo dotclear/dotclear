@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:41+0200\n"
+"POT-Creation-Date: 2020-10-10 19:08+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -172,6 +172,9 @@ msgstr "Descripción del blog:"
 
 msgid "Create"
 msgstr ""
+
+msgid "Cancel"
+msgstr "cancelar"
 
 msgid "No such blog ID"
 msgstr "ID del blog desconocido"
@@ -1538,9 +1541,6 @@ msgstr "confirmar la eliminación"
 msgid "Are you sure you want to remove %s?"
 msgstr "¿Seguro que desea eliminar %s ?"
 
-msgid "Cancel"
-msgstr "cancelar"
-
 msgid "Yes"
 msgstr "sí"
 
@@ -2293,6 +2293,16 @@ msgid "Selected entries action:"
 msgstr "Acción sobre las entradas seleccionadas:"
 
 #, fuzzy
+msgid "Light"
+msgstr "Derecha"
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+#, fuzzy
 msgid "Smallest"
 msgstr "Pequeño:"
 
@@ -2405,8 +2415,8 @@ msgid "Interface"
 msgstr "Interfaz XML/RPC"
 
 #, fuzzy
-msgid "Activate dark mode"
-msgstr "Activar"
+msgid "Theme:"
+msgstr "Temas"
 
 #, fuzzy
 msgid "Activate enhanced uploader in media manager"
@@ -2837,6 +2847,17 @@ msgstr "Blog:"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
+msgid "Direct links"
+msgstr ""
+
+#, fuzzy
+msgid "List of posts"
+msgstr "Lista de blogs"
+
+#, fuzzy
+msgid "List of comments"
+msgstr "Ningún comentario"
+
 msgid "Set permissions"
 msgstr "establecer los permisos"
 
@@ -3069,7 +3090,7 @@ msgstr "Idioma de la entrada:"
 msgid "Languages"
 msgstr "Idiomas"
 
-msgid "[%H:%M:%S]"
+msgid "%H:%M:%S"
 msgstr ""
 
 msgid "Change blog"
@@ -3316,6 +3337,14 @@ msgstr ""
 msgid "Hide this notice"
 msgstr "Usar este tema"
 
+#, fuzzy
+msgid "Show password"
+msgstr "Nueva contraseña:"
+
+#, fuzzy
+msgid "Hide password"
+msgstr "Nueva contraseña:"
+
 msgid "You have unsaved changes."
 msgstr "No ha guardado sus modificaciones."
 
@@ -3454,6 +3483,9 @@ msgstr "Activar"
 
 msgid "Deactivate"
 msgstr "Desactivar"
+
+msgid "Clone"
+msgstr ""
 
 #, fuzzy
 msgid "Install"
@@ -3615,8 +3647,8 @@ msgstr ""
 msgid "No such theme."
 msgstr "Módulo inexistente."
 
-#, fuzzy
-msgid "Theme has been successfully selected."
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
 msgstr "El tema se ha borrado con éxito."
 
 #, fuzzy
@@ -3631,6 +3663,12 @@ msgstr ""
 #, fuzzy
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
+msgstr[0] "El tema se ha borrado con éxito."
+msgstr[1] "El tema se ha borrado con éxito."
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "El tema se ha borrado con éxito."
 msgstr[1] "El tema se ha borrado con éxito."
 
@@ -3900,16 +3938,19 @@ msgstr "Blog"
 msgid "Plugins"
 msgstr "Complementos"
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "medium"
+msgstr "Medio:"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Pequeño:"
 
-msgid "vignette"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Miniaturas:"
 
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4160,6 +4201,10 @@ msgid "No namespace specified"
 msgstr "No se ha indicado ningún espacio de nombres"
 
 #, fuzzy
+msgid "No notice message"
+msgstr "Blog sin nombre"
+
+#, fuzzy
 msgid "Unable to retrieve workspaces:"
 msgstr "No es posible obtener los ajustes:"
 
@@ -4194,6 +4239,28 @@ msgstr "Omitir las fuentes"
 
 msgid "An error occurred while downloading the file."
 msgstr "Se produjo un error durante la descarga del fichero."
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to modify _config.php"
+msgstr "El fichero no se puede abrir."
+
+# , php-format
+#, fuzzy
+msgid "Destination folder already exist"
+msgstr "El directorio de destino de extracción %s ya existe."
 
 #, php-format
 msgid "%s has still been pinged"
@@ -4317,6 +4384,10 @@ msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Activate dark mode"
+#~ msgstr "Activar"
+
+#, fuzzy
 #~ msgid "Are you sure to delete this media?"
 #~ msgstr "¿Seguro que desea borrar este comentario?"
 
@@ -4328,18 +4399,6 @@ msgstr ""
 #~ msgid "Manage plugin"
 #~ msgstr "Temas del blog"
 
-#, fuzzy
-#~ msgid "medium"
-#~ msgstr "Medio:"
-
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "Pequeño:"
-
-#, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "Miniaturas:"
-
 #~ msgid "Unable to open directory."
 #~ msgstr "No es posible abrir el directorio."
 
@@ -4348,9 +4407,6 @@ msgstr ""
 
 #~ msgid "File is not writable."
 #~ msgstr "El fichero no se puede modificar."
-
-#~ msgid "Unable to open file."
-#~ msgstr "El fichero no se puede abrir."
 
 #~ msgid "Not an uploaded file."
 #~ msgstr "No hay fichero."
@@ -4483,9 +4539,6 @@ msgstr ""
 
 #~ msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
 #~ msgstr "Para instalar o actualizar un tema, generalmente sólo necesita enviarlo a la sección «Instalar o actualizar un tema»."
-
-#~ msgid "Themes"
-#~ msgstr "Temas"
 
 #~ msgid "You are currently using <strong>%s</strong>"
 #~ msgstr "Actualmente está usando «%s»"

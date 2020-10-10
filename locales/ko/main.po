@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:41+0200\n"
+"POT-Creation-Date: 2020-10-10 19:09+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -174,6 +174,9 @@ msgstr "블로그 간략 소개:"
 
 msgid "Create"
 msgstr ""
+
+msgid "Cancel"
+msgstr "취소"
 
 msgid "No such blog ID"
 msgstr "존재하지 않는 블로그 아이디입니다."
@@ -1542,9 +1545,6 @@ msgstr "삭제 확인"
 msgid "Are you sure you want to remove %s?"
 msgstr "%s을 삭제하시려는 게 확실하십니까?"
 
-msgid "Cancel"
-msgstr "취소"
-
 msgid "Yes"
 msgstr "예"
 
@@ -2296,6 +2296,16 @@ msgid "Selected entries action:"
 msgstr "선택된 글꼭지들에 대한 작업 :"
 
 #, fuzzy
+msgid "Light"
+msgstr "오른쪽"
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+#, fuzzy
 msgid "Smallest"
 msgstr "작은 크기 :"
 
@@ -2410,8 +2420,8 @@ msgid "Interface"
 msgstr "XML/RPC 인터페이스"
 
 #, fuzzy
-msgid "Activate dark mode"
-msgstr "작동켜기"
+msgid "Theme:"
+msgstr "테마"
 
 #, fuzzy
 msgid "Activate enhanced uploader in media manager"
@@ -2834,6 +2844,17 @@ msgstr "블로그 :"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
+msgid "Direct links"
+msgstr ""
+
+#, fuzzy
+msgid "List of posts"
+msgstr "블로그 목록"
+
+#, fuzzy
+msgid "List of comments"
+msgstr "댓글이 없습니다."
+
 msgid "Set permissions"
 msgstr "권한 설정"
 
@@ -3067,7 +3088,7 @@ msgstr "글꼭지 언어 :"
 msgid "Languages"
 msgstr "언어"
 
-msgid "[%H:%M:%S]"
+msgid "%H:%M:%S"
 msgstr ""
 
 msgid "Change blog"
@@ -3306,6 +3327,14 @@ msgstr ""
 msgid "Hide this notice"
 msgstr "이 테마를 사용"
 
+#, fuzzy
+msgid "Show password"
+msgstr "새 비밀번호 :"
+
+#, fuzzy
+msgid "Hide password"
+msgstr "새 비밀번호 :"
+
 msgid "You have unsaved changes."
 msgstr "변경하신 내용을 저장하지 않았습니다."
 
@@ -3442,6 +3471,9 @@ msgstr "작동켜기"
 
 msgid "Deactivate"
 msgstr "작동끄기"
+
+msgid "Clone"
+msgstr ""
 
 #, fuzzy
 msgid "Install"
@@ -3596,8 +3628,8 @@ msgstr ""
 msgid "No such theme."
 msgstr "존재하지 않는 모듈입니다."
 
-#, fuzzy
-msgid "Theme has been successfully selected."
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
 msgstr "테마가 성공적으로 삭제되었습니다."
 
 #, fuzzy
@@ -3611,6 +3643,11 @@ msgstr ""
 #, fuzzy
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
+msgstr[0] "테마가 성공적으로 삭제되었습니다."
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "테마가 성공적으로 삭제되었습니다."
 
 #, fuzzy
@@ -3868,16 +3905,19 @@ msgstr "블로그"
 msgid "Plugins"
 msgstr "플러그인"
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "medium"
+msgstr "중간 크키 :"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "작은 크기 :"
 
-msgid "vignette"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "꼬맹이사진 :"
 
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4126,6 +4166,10 @@ msgid "No namespace specified"
 msgstr "정해진 영역이름이 없습니다"
 
 #, fuzzy
+msgid "No notice message"
+msgstr "블로그 이름이 없습니다."
+
+#, fuzzy
 msgid "Unable to retrieve workspaces:"
 msgstr "설정값을 읽어볼 수 없게함 :"
 
@@ -4159,6 +4203,27 @@ msgstr "글꼭지 타래소식에 글꼭지 일부만 보냄"
 
 msgid "An error occurred while downloading the file."
 msgstr "파일 내려받기 중 에러 발생."
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to modify _config.php"
+msgstr "파일을 열 수 없습니다."
+
+#, fuzzy
+msgid "Destination folder already exist"
+msgstr "압축풀기 목표폴더 %s가 이미 존재합니다."
 
 #, php-format
 msgid "%s has still been pinged"
@@ -4281,6 +4346,10 @@ msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Activate dark mode"
+#~ msgstr "작동켜기"
+
+#, fuzzy
 #~ msgid "Are you sure to delete this media?"
 #~ msgstr "이 댓글을 삭제하시려는 게 확실합니까 ?"
 
@@ -4292,18 +4361,6 @@ msgstr ""
 #~ msgid "Manage plugin"
 #~ msgstr "테마"
 
-#, fuzzy
-#~ msgid "medium"
-#~ msgstr "중간 크키 :"
-
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "작은 크기 :"
-
-#, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "꼬맹이사진 :"
-
 #~ msgid "Unable to open directory."
 #~ msgstr "해당 폴더를 열 수 없습니다."
 
@@ -4312,9 +4369,6 @@ msgstr ""
 
 #~ msgid "File is not writable."
 #~ msgstr "파일이 쓰기 금지 상태입니다."
-
-#~ msgid "Unable to open file."
-#~ msgstr "파일을 열 수 없습니다."
 
 #~ msgid "Not an uploaded file."
 #~ msgstr "해당하는 파일이 없습니다."
@@ -4450,9 +4504,6 @@ msgstr ""
 
 #~ msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
 #~ msgstr "테마를 설치하거나 갱신하려면, \"테마 설치 또는 갱신\" 난에 테마파일을 올리시면 됩니다."
-
-#~ msgid "Themes"
-#~ msgstr "테마"
 
 #~ msgid "You are currently using <strong>%s</strong>"
 #~ msgstr "현재 사용 중인 테마 : \"%s\""

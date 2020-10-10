@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: main\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:42+0200\n"
+"POT-Creation-Date: 2020-10-10 19:10+0200\n"
 "PO-Revision-Date: 2016-07-18 15:53+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: ru_RU <en@li.org>\n"
@@ -171,6 +171,9 @@ msgstr "Описание блога :"
 
 msgid "Create"
 msgstr ""
+
+msgid "Cancel"
+msgstr "отмена"
 
 msgid "No such blog ID"
 msgstr "Блог с таким ID не существует"
@@ -1538,9 +1541,6 @@ msgstr "Подтвердите удаление"
 msgid "Are you sure you want to remove %s?"
 msgstr "Вы уверены, что хотите удалить %s ?"
 
-msgid "Cancel"
-msgstr "отмена"
-
 msgid "Yes"
 msgstr "да"
 
@@ -2293,6 +2293,16 @@ msgid "Selected entries action:"
 msgstr "Действия над выбранными записями:"
 
 #, fuzzy
+msgid "Light"
+msgstr "Правый"
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+#, fuzzy
 msgid "Smallest"
 msgstr "Маленький:"
 
@@ -2405,8 +2415,8 @@ msgid "Interface"
 msgstr "Интерфейс XML/RPC"
 
 #, fuzzy
-msgid "Activate dark mode"
-msgstr "Активировать"
+msgid "Theme:"
+msgstr "Темы"
 
 #, fuzzy
 msgid "Activate enhanced uploader in media manager"
@@ -2833,6 +2843,17 @@ msgstr "Блог:"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
+msgid "Direct links"
+msgstr ""
+
+#, fuzzy
+msgid "List of posts"
+msgstr "Список блогов"
+
+#, fuzzy
+msgid "List of comments"
+msgstr "Нет комментариев"
+
 msgid "Set permissions"
 msgstr "установить права доступа"
 
@@ -3073,7 +3094,7 @@ msgstr "Язык записи:"
 msgid "Languages"
 msgstr "Языки"
 
-msgid "[%H:%M:%S]"
+msgid "%H:%M:%S"
 msgstr ""
 
 msgid "Change blog"
@@ -3309,6 +3330,14 @@ msgstr ""
 msgid "Hide this notice"
 msgstr "Использовать  эту тему"
 
+#, fuzzy
+msgid "Show password"
+msgstr "Новый пароль:"
+
+#, fuzzy
+msgid "Hide password"
+msgstr "Новый пароль:"
+
 msgid "You have unsaved changes."
 msgstr "Вы не сохранили изменения."
 
@@ -3449,6 +3478,9 @@ msgstr "Активировать"
 
 msgid "Deactivate"
 msgstr "Деактивировать"
+
+msgid "Clone"
+msgstr ""
 
 #, fuzzy
 msgid "Install"
@@ -3613,8 +3645,8 @@ msgstr ""
 msgid "No such theme."
 msgstr "Нет такого модуля."
 
-#, fuzzy
-msgid "Theme has been successfully selected."
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
 msgstr "Тема удалена."
 
 #, fuzzy
@@ -3630,6 +3662,13 @@ msgstr ""
 #, fuzzy
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
+msgstr[0] "Тема удалена."
+msgstr[1] "Тема удалена."
+msgstr[2] ""
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Тема удалена."
 msgstr[1] "Тема удалена."
 msgstr[2] ""
@@ -3908,17 +3947,17 @@ msgstr "Блог"
 msgid "Plugins"
 msgstr "Плагины"
 
-msgid "moyenne"
-msgstr ""
+msgid "medium"
+msgstr "Средний:"
 
-msgid "petite"
-msgstr ""
+msgid "small"
+msgstr "Маленький:"
 
-msgid "vignette"
-msgstr ""
+msgid "thumbnail"
+msgstr "Уменьшенное изображение:"
 
-msgid "carrée"
-msgstr ""
+msgid "square"
+msgstr "квадрат"
 
 #, fuzzy
 msgid "Pages"
@@ -4164,6 +4203,10 @@ msgid "No namespace specified"
 msgstr "Не указано пространство имен"
 
 #, fuzzy
+msgid "No notice message"
+msgstr "В журналенет сообщений"
+
+#, fuzzy
 msgid "Unable to retrieve workspaces:"
 msgstr "Невозможно извлечь параметры:"
 
@@ -4196,6 +4239,27 @@ msgstr "Обрезать ленты новостей"
 
 msgid "An error occurred while downloading the file."
 msgstr "При загрузке файла произошла ошибка."
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to modify _config.php"
+msgstr "Невозможно открыть файл."
+
+#, fuzzy
+msgid "Destination folder already exist"
+msgstr "Директория для извлечения %s уже существует."
 
 #, php-format
 msgid "%s has still been pinged"
@@ -4317,6 +4381,10 @@ msgid "The following error was encountered while trying to read the database:"
 msgstr "При попытке чтения базы данных обнаружена следующая ошибка:"
 
 #, fuzzy
+#~ msgid "Activate dark mode"
+#~ msgstr "Активировать"
+
+#, fuzzy
 #~ msgid "Are you sure to delete this media?"
 #~ msgstr "Вы уверены, что хотите удалить этот комментарий?"
 
@@ -4327,18 +4395,6 @@ msgstr "При попытке чтения базы данных обнаруж�
 #, fuzzy
 #~ msgid "Manage plugin"
 #~ msgstr "Темы блога"
-
-#~ msgid "medium"
-#~ msgstr "Средний:"
-
-#~ msgid "small"
-#~ msgstr "Маленький:"
-
-#~ msgid "thumbnail"
-#~ msgstr "Уменьшенное изображение:"
-
-#~ msgid "square"
-#~ msgstr "квадрат"
 
 #~ msgid "Embedded Audio Player"
 #~ msgstr "Встроенный аудио-плеер"
@@ -4354,9 +4410,6 @@ msgstr "При попытке чтения базы данных обнаруж�
 
 #~ msgid "File is not writable."
 #~ msgstr "Файл не доступен для записи."
-
-#~ msgid "Unable to open file."
-#~ msgstr "Невозможно открыть файл."
 
 # pas compris
 #~ msgid "Not an uploaded file."
@@ -4497,9 +4550,6 @@ msgstr "При попытке чтения базы данных обнаруж�
 
 #~ msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
 #~ msgstr "Чтобы установить или обновить тему, вам как правило нужно просто загрузить её в секцию \"Установить или обновить тему\"."
-
-#~ msgid "Themes"
-#~ msgstr "Темы"
 
 #~ msgid "You are currently using <strong>%s</strong>"
 #~ msgstr "В данный момент вы используете \"%s\""

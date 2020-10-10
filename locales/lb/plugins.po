@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:41+0200\n"
+"POT-Creation-Date: 2020-10-10 19:09+0200\n"
 "PO-Revision-Date: 2017-01-15 21:29+0100\n"
 "Last-Translator: Alain Vagner <alain.vagner@sous-anneau.org>\n"
 "Language-Team: \n"
@@ -828,6 +828,9 @@ msgid "All tags"
 msgstr ""
 
 msgid "404"
+msgstr ""
+
+msgid "Note(s)"
 msgstr ""
 
 msgid "The configuration has been updated."
@@ -1983,9 +1986,6 @@ msgstr ""
 msgid "Syntax highlighting in theme editor"
 msgstr ""
 
-msgid "Theme:"
-msgstr ""
-
 msgid "No file"
 msgstr ""
 
@@ -2061,6 +2061,9 @@ msgid "JavaScript files"
 msgstr ""
 
 msgid "Locales files"
+msgstr ""
+
+msgid "PHP files"
 msgstr ""
 
 msgid "Preferences successfully updated"

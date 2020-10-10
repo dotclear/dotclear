@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:40+0200\n"
+"POT-Creation-Date: 2020-10-10 19:07+0200\n"
 "PO-Revision-Date: 2016-07-18 15:44+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -169,6 +169,9 @@ msgstr "Popis blogu:"
 
 msgid "Create"
 msgstr ""
+
+msgid "Cancel"
+msgstr "zrušit"
 
 msgid "No such blog ID"
 msgstr "Žádné podobné ID blogu"
@@ -1537,9 +1540,6 @@ msgstr "potvrdit odstranění"
 msgid "Are you sure you want to remove %s?"
 msgstr "Jeste si jisti, že chcete odstranit %s?"
 
-msgid "Cancel"
-msgstr "zrušit"
-
 msgid "Yes"
 msgstr "ano"
 
@@ -2293,6 +2293,16 @@ msgid "Selected entries action:"
 msgstr "Vybrané články:"
 
 #, fuzzy
+msgid "Light"
+msgstr "Vpravo"
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+#, fuzzy
 msgid "Smallest"
 msgstr "Malý:"
 
@@ -2405,8 +2415,8 @@ msgid "Interface"
 msgstr "XML/RPC rozhraní"
 
 #, fuzzy
-msgid "Activate dark mode"
-msgstr "Aktivovat"
+msgid "Theme:"
+msgstr "Vzhledy"
 
 #, fuzzy
 msgid "Activate enhanced uploader in media manager"
@@ -2833,6 +2843,17 @@ msgstr "Blog:"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
+msgid "Direct links"
+msgstr ""
+
+#, fuzzy
+msgid "List of posts"
+msgstr "Seznam blogů"
+
+#, fuzzy
+msgid "List of comments"
+msgstr "Žádné komentáře"
+
 msgid "Set permissions"
 msgstr "Nastavit oprávnění"
 
@@ -3072,7 +3093,7 @@ msgstr "Jazyk:"
 msgid "Languages"
 msgstr "Jazyky"
 
-msgid "[%H:%M:%S]"
+msgid "%H:%M:%S"
 msgstr ""
 
 msgid "Change blog"
@@ -3309,6 +3330,14 @@ msgstr ""
 msgid "Hide this notice"
 msgstr "Použít tento vzhled"
 
+#, fuzzy
+msgid "Show password"
+msgstr "Nové heslo:"
+
+#, fuzzy
+msgid "Hide password"
+msgstr "Nové heslo:"
+
 msgid "You have unsaved changes."
 msgstr "Nemáte uloženy všechny změny."
 
@@ -3449,6 +3478,9 @@ msgstr "Aktivovat"
 
 msgid "Deactivate"
 msgstr "Deaktivovat"
+
+msgid "Clone"
+msgstr ""
 
 #, fuzzy
 msgid "Install"
@@ -3613,8 +3645,8 @@ msgstr ""
 msgid "No such theme."
 msgstr "Žádný takový modul."
 
-#, fuzzy
-msgid "Theme has been successfully selected."
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
 msgstr "Vzhled byl úspěšně odstraněn."
 
 #, fuzzy
@@ -3630,6 +3662,13 @@ msgstr ""
 #, fuzzy
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
+msgstr[0] "Vzhled byl úspěšně odstraněn."
+msgstr[1] "Vzhled byl úspěšně odstraněn."
+msgstr[2] "Vzhled byl úspěšně odstraněn."
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Vzhled byl úspěšně odstraněn."
 msgstr[1] "Vzhled byl úspěšně odstraněn."
 msgstr[2] "Vzhled byl úspěšně odstraněn."
@@ -3908,16 +3947,19 @@ msgstr "Blog"
 msgid "Plugins"
 msgstr "Pluginy"
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "medium"
+msgstr "Střední:"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Malý:"
 
-msgid "vignette"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Náhledy:"
 
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4164,6 +4206,10 @@ msgid "No namespace specified"
 msgstr "Nebyl specifikován žádný jmenný prostor"
 
 #, fuzzy
+msgid "No notice message"
+msgstr "Žádná log zpráva"
+
+#, fuzzy
 msgid "Unable to retrieve workspaces:"
 msgstr "Nelze získat jmenný prostor:"
 
@@ -4196,6 +4242,27 @@ msgstr "Vypráznit feed"
 
 msgid "An error occurred while downloading the file."
 msgstr "Při pokusu o download souboru nastala chyba."
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to modify _config.php"
+msgstr "Nelze otevřít soubor."
+
+#, fuzzy
+msgid "Destination folder already exist"
+msgstr "Cílový adresář rozbalení %s již existuje."
 
 #, php-format
 msgid "%s has still been pinged"
@@ -4317,6 +4384,10 @@ msgid "The following error was encountered while trying to read the database:"
 msgstr "Nastaly následujíci chyby při čtení z databáze:"
 
 #, fuzzy
+#~ msgid "Activate dark mode"
+#~ msgstr "Aktivovat"
+
+#, fuzzy
 #~ msgid "Are you sure to delete this media?"
 #~ msgstr "Jste si jisti, že chcete smazat tento komentář?"
 
@@ -4327,18 +4398,6 @@ msgstr "Nastaly následujíci chyby při čtení z databáze:"
 #, fuzzy
 #~ msgid "Manage plugin"
 #~ msgstr "Vzhledy blogu"
-
-#, fuzzy
-#~ msgid "medium"
-#~ msgstr "Střední:"
-
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "Malý:"
-
-#, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "Náhledy:"
 
 #~ msgid "Embedded Audio Player"
 #~ msgstr "Vestavěný hudební přehrávač"
@@ -4354,9 +4413,6 @@ msgstr "Nastaly následujíci chyby při čtení z databáze:"
 
 #~ msgid "File is not writable."
 #~ msgstr "Soubor není schopen zápisu."
-
-#~ msgid "Unable to open file."
-#~ msgstr "Nelze otevřít soubor."
 
 #~ msgid "Not an uploaded file."
 #~ msgstr "Není nahrán soubor."
@@ -4493,9 +4549,6 @@ msgstr "Nastaly následujíci chyby při čtení z databáze:"
 
 #~ msgid "To install or upgrade a theme you generally just need to upload it in \"Install or upgrade a theme\" section."
 #~ msgstr "Pro instalaci nebo aktualizaci vzhledu potřebujete h opouze nahrát v sekci \"Instalace a aktualizace vzhledu\"."
-
-#~ msgid "Themes"
-#~ msgstr "Vzhledy"
 
 #~ msgid "You are currently using <strong>%s</strong>"
 #~ msgstr "Používáte \"%s\" vzhled"

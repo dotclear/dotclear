@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:42+0200\n"
+"POT-Creation-Date: 2020-10-10 19:10+0200\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: crm <admin@craftmerkezi.com>\n"
@@ -172,6 +172,9 @@ msgstr "Blog açıklaması"
 
 msgid "Create"
 msgstr ""
+
+msgid "Cancel"
+msgstr "iptal"
 
 msgid "No such blog ID"
 msgstr ""
@@ -1523,9 +1526,6 @@ msgstr "kaldırmayı onayla"
 msgid "Are you sure you want to remove %s?"
 msgstr ""
 
-msgid "Cancel"
-msgstr "iptal"
-
 msgid "Yes"
 msgstr "evet"
 
@@ -2275,6 +2275,16 @@ msgid "Selected entries action:"
 msgstr "Seçilmiş yazılara yap:"
 
 #, fuzzy
+msgid "Light"
+msgstr "Sağ"
+
+msgid "Dark"
+msgstr ""
+
+msgid "Automatic"
+msgstr ""
+
+#, fuzzy
 msgid "Smallest"
 msgstr "Küçük:"
 
@@ -2385,8 +2395,8 @@ msgid "Interface"
 msgstr ""
 
 #, fuzzy
-msgid "Activate dark mode"
-msgstr "Etkinleştir"
+msgid "Theme:"
+msgstr "Temalar"
 
 #, fuzzy
 msgid "Activate enhanced uploader in media manager"
@@ -2807,6 +2817,17 @@ msgstr "Blog:"
 msgid "%s is super admin (all rights on all blogs)."
 msgstr ""
 
+msgid "Direct links"
+msgstr ""
+
+#, fuzzy
+msgid "List of posts"
+msgstr "Blog listesi"
+
+#, fuzzy
+msgid "List of comments"
+msgstr "Ahkam yok"
+
 msgid "Set permissions"
 msgstr "izinleri ayarla"
 
@@ -3048,7 +3069,7 @@ msgstr "Yazı dili:"
 msgid "Languages"
 msgstr "Diller"
 
-msgid "[%H:%M:%S]"
+msgid "%H:%M:%S"
 msgstr ""
 
 msgid "Change blog"
@@ -3284,6 +3305,14 @@ msgstr ""
 msgid "Hide this notice"
 msgstr "Bu temayı kullan"
 
+#, fuzzy
+msgid "Show password"
+msgstr "Yeni parola:"
+
+#, fuzzy
+msgid "Hide password"
+msgstr "Yeni parola:"
+
 msgid "You have unsaved changes."
 msgstr "Kaydedilmemiş değişiklikler var."
 
@@ -3422,6 +3451,9 @@ msgstr "Etkinleştir"
 
 msgid "Deactivate"
 msgstr "Etkisizleştir"
+
+msgid "Clone"
+msgstr ""
 
 #, fuzzy
 msgid "Install"
@@ -3580,8 +3612,8 @@ msgstr ""
 msgid "No such theme."
 msgstr "Böyle bi modül yok."
 
-#, fuzzy
-msgid "Theme has been successfully selected."
+#, fuzzy, php-format
+msgid "Theme %s has been successfully selected."
 msgstr "Tema silinimi başarılı."
 
 #, fuzzy
@@ -3596,6 +3628,12 @@ msgstr ""
 #, fuzzy
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
+msgstr[0] "Tema silinimi başarılı."
+msgstr[1] "Tema silinimi başarılı."
+
+#, fuzzy
+msgid "Theme has been successfully cloned."
+msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Tema silinimi başarılı."
 msgstr[1] "Tema silinimi başarılı."
 
@@ -3863,16 +3901,19 @@ msgstr "Blog"
 msgid "Plugins"
 msgstr "Eklentiler"
 
-msgid "moyenne"
-msgstr ""
+#, fuzzy
+msgid "medium"
+msgstr "Orta:"
 
-msgid "petite"
-msgstr ""
+#, fuzzy
+msgid "small"
+msgstr "Küçük:"
 
-msgid "vignette"
-msgstr ""
+#, fuzzy
+msgid "thumbnail"
+msgstr "Pullar:"
 
-msgid "carrée"
+msgid "square"
 msgstr ""
 
 #, fuzzy
@@ -4121,6 +4162,10 @@ msgid "No namespace specified"
 msgstr "Namespace belirlenmedi"
 
 #, fuzzy
+msgid "No notice message"
+msgstr "Blog adı yok"
+
+#, fuzzy
 msgid "Unable to retrieve workspaces:"
 msgstr "Dosya yeniden adlandırılamadı."
 
@@ -4153,6 +4198,27 @@ msgstr ""
 
 msgid "An error occurred while downloading the file."
 msgstr ""
+
+msgid "Themes folder unreachable"
+msgstr ""
+
+msgid "Themes folder unreadable"
+msgstr ""
+
+#, php-format
+msgid " (copy #%s)"
+msgstr ""
+
+msgid " (copy)"
+msgstr ""
+
+#, fuzzy
+msgid "Unable to modify _config.php"
+msgstr "Dosya açılamadı."
+
+#, fuzzy
+msgid "Destination folder already exist"
+msgstr "Yeni dosya evvelce mevcut."
 
 #, php-format
 msgid "%s has still been pinged"
@@ -4274,24 +4340,16 @@ msgid "The following error was encountered while trying to read the database:"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Activate dark mode"
+#~ msgstr "Etkinleştir"
+
+#, fuzzy
 #~ msgid "Entries actions"
 #~ msgstr "Seçilmiş yazılara yap:"
 
 #, fuzzy
 #~ msgid "Manage plugin"
 #~ msgstr "Blog temaları"
-
-#, fuzzy
-#~ msgid "medium"
-#~ msgstr "Orta:"
-
-#, fuzzy
-#~ msgid "small"
-#~ msgstr "Küçük:"
-
-#, fuzzy
-#~ msgid "thumbnail"
-#~ msgstr "Pullar:"
 
 #~ msgid "Unable to open directory."
 #~ msgstr "Dizin açılamadı."
@@ -4301,9 +4359,6 @@ msgstr ""
 
 #~ msgid "File is not writable."
 #~ msgstr "Dosya yazılabilir değil."
-
-#~ msgid "Unable to open file."
-#~ msgstr "Dosya açılamadı."
 
 #~ msgid "Not an uploaded file."
 #~ msgstr "Yüklenmiş bir dosya değil."
@@ -4379,9 +4434,6 @@ msgstr ""
 
 #~ msgid "You can find additional themes for your blog on %s."
 #~ msgstr "Blogunuz için ilave temaları %s adresinde bulabilirsiniz."
-
-#~ msgid "Themes"
-#~ msgstr "Temalar"
 
 #~ msgid "You are currently using <strong>%s</strong>"
 #~ msgstr "Şimdi \"%s\" kullanıyorsunuz."
