@@ -2303,7 +2303,7 @@ msgstr "Édition"
 
 #, php-format
 msgid "Preferred editor for %s:"
-msgstr "Editeur préféré pour le format %s :"
+msgstr "Éditeur préféré pour le format %s :"
 
 msgid "Choose an editor"
 msgstr "Choisissez un éditeur"
