@@ -2894,9 +2894,8 @@ msgstr "Sprache der Einträge:"
 msgid "Languages"
 msgstr "Sprachen"
 
-#, fuzzy
 msgid "%H:%M:%S"
-msgstr "[% H: M: %s]"
+msgstr ""
 
 msgid "Change blog"
 msgstr "Ändere Blog"

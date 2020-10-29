@@ -2918,9 +2918,8 @@ msgstr "Merkinnän kieli:"
 msgid "Languages"
 msgstr "Kielet"
 
-#, fuzzy
 msgid "%H:%M:%S"
-msgstr "[%H:%M:%S]"
+msgstr ""
 
 msgid "Change blog"
 msgstr "Vaihda blogia"

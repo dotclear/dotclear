@@ -2845,9 +2845,8 @@ msgstr "Langue du billet :"
 msgid "Languages"
 msgstr "Langues"
 
-#, fuzzy
 msgid "%H:%M:%S"
-msgstr "[%H:%M:%S]"
+msgstr ""
 
 msgid "Change blog"
 msgstr "Changer de blog"
