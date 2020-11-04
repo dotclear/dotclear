@@ -865,6 +865,9 @@ echo
 if ($popup || $select) {
     echo
         '</div>';
+} else {
+    # Go back button
+    echo '<p><input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" /></p>';
 }
 
 call_user_func($close_f);

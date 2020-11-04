@@ -1044,6 +1044,9 @@ if ((!$query) && ($core_media_writable || $core_media_archivable)) {
 if (!$popup) {
     echo '<div class="info"><p>' . sprintf(__('Current settings for medias and images are defined in %s'),
         '<a href="' . $core->adminurl->get("admin.blog.pref") . '#medias-settings">' . __('Blog parameters') . '</a>') . '</p></div>';
+
+    # Go back button
+    echo '<p><input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" /></p>';
 }
 
 call_user_func($close_f);
