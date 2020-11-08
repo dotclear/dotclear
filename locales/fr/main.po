@@ -2773,6 +2773,9 @@ msgstr "Changer l'auteur·rice"
 msgid "No entry selected"
 msgstr "Aucune publication sélectionnée"
 
+msgid "Published entries cannot be set to scheduled"
+msgstr "Les billets publiés ne peuvent être positionnés au statut programmé"
+
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""

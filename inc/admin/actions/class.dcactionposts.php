@@ -63,7 +63,7 @@ class dcPostsActionsPage extends dcActionsPage
             [
                 html::escapeHTML($this->core->blog->name) => '',
                 $this->getCallerTitle()                   => $this->getRedirection(true),
-                __('Posts actions')                     => ''
+                __('Posts actions')                       => ''
             ])
         );
         $this->endPage();
@@ -166,6 +166,25 @@ class dcDefaultPostActions
         if (empty($posts_ids)) {
             throw new Exception(__('No entry selected'));
         }
+        // Do not switch to scheduled already published entries
+        if ($status == -1) {
+            $rs           = $ap->getRS();
+            $excluded_ids = [];
+            if ($rs->rows()) {
+                while ($rs->fetch()) {
+                    if ((int) $rs->post_status === 1) {
+                        $excluded_ids[] = (int) $rs->post_id;
+                    }
+                }
+            }
+            if (count($excluded_ids)) {
+                $posts_ids = array_diff($posts_ids, $excluded_ids);
+            }
+        }
+        if (count($posts_ids) === 0) {
+            throw new Exception(__('Published entries cannot be set to scheduled'));
+        }
+        // Set status of remaining entries
         $core->blog->updPostsStatus($posts_ids, $status);
         dcPage::addSuccessNotice(sprintf(
             __(
