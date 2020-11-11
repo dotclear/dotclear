@@ -150,7 +150,7 @@ CKEDITOR.lang['nb'] = {
     pastetext : 
     {
     	button : 'Lim inn som ren tekst',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Trykk %1 for å lime inn. Nettleseren din støtter ikke å lime inn med knappen i verktøylinjen eller høyreklikkmenyen.',
     	title : 'Lim inn som ren tekst'
     },
     pastefromword : 

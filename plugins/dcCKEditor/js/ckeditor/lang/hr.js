@@ -150,7 +150,7 @@ CKEDITOR.lang['hr'] = {
     pastetext : 
     {
     	button : 'Zalijepi kao čisti tekst',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Vaš preglednik Vam ne dozvoljava lijepljenje običnog teksta na ovaj način. Za lijepljenje, pritisnite %1.',
     	title : 'Zalijepi kao čisti tekst'
     },
     pastefromword : 

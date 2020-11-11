@@ -150,7 +150,7 @@ CKEDITOR.lang['sv'] = {
     pastetext : 
     {
     	button : 'Klistra in som vanlig text',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Tryck på %1 för att klistra in. Din webbläsare stödjer inte inklistring via verktygsfältet eller snabbmenyn.',
     	title : 'Klistra in som vanlig text'
     },
     pastefromword : 

@@ -6,7 +6,7 @@ CKEDITOR.lang['ug'] = {
     widget : 
     {
     	move : 'يۆتكەشتە چېكىپ سۆرەڭ',
-    	label : '%1 widget'
+    	label : '1% بېزەك'
     },
     undo : 
     {
