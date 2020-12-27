@@ -271,15 +271,21 @@ class dcWidget
     public function setting($name, $title, $value, $type = 'text')
     {
         if ($type == 'combo' || $type == 'radio') {
-            $options = @func_get_arg(4);
-            if (!is_array($options)) {
-                return false;
+            if (func_num_args() > 4) {
+                $options = func_get_arg(4);
+                if (!is_array($options)) {
+                    return false;
+                }
             }
             // If any, the 5th argument should be an array (key → value) of opts
-            $opts = @func_get_arg(5);
+            if (func_num_args() > 5) {
+                $opts = func_get_arg(5);
+            }
         } else {
             // If any, the 4th argument should be an array (key → value) of opts
-            $opts = @func_get_arg(4);
+            if (func_num_args() > 4) {
+                $opts = func_get_arg(4);
+            }
         }
 
         $this->settings[$name] = [
@@ -378,9 +384,9 @@ class dcWidget
 
 class dcWidgetExt extends dcWidget
 {
-    const ALL_PAGES   = 0;  // Widget displayed on every page
-    const HOME_ONLY   = 1;  // Widget displayed on home page only
-    const EXCEPT_HOME = 2;  // Widget displayed on every page but home page
+    const ALL_PAGES   = 0; // Widget displayed on every page
+    const HOME_ONLY   = 1; // Widget displayed on home page only
+    const EXCEPT_HOME = 2; // Widget displayed on every page but home page
 
     public function addTitle($title = '')
     {
@@ -398,7 +404,7 @@ class dcWidgetExt extends dcWidget
         global $core;
 
         if (($this->homeonly == self::HOME_ONLY && !$core->url->isHome($type) && $alt_not_home) ||
-            ($this->homeonly == self::EXCEPT_HOME && ($core->url->isHome($type) || $alt_home ))) {
+            ($this->homeonly == self::EXCEPT_HOME && ($core->url->isHome($type) || $alt_home))) {
             return false;
         }
         return true;
