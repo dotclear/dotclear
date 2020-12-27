@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-10 19:10+0200\n"
+"POT-Creation-Date: 2020-12-27 09:06+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -246,11 +246,11 @@ msgstr ""
 
 #: admin/blog.php:109 admin/blog_del.php:70 admin/blog_pref.php:780
 #: admin/category.php:224 admin/comment.php:249 admin/media.php:544
-#: admin/media_item.php:381 admin/media_item.php:564 admin/popup_link.php:43
-#: admin/post.php:721 admin/post.php:724 admin/post_media.php:69
-#: admin/preferences.php:632 admin/preferences.php:826
-#: admin/preferences.php:1005 admin/search.php:95 admin/user.php:337
-#: inc/admin/lib.dc.page.php:930
+#: admin/media.php:1049 admin/media_item.php:381 admin/media_item.php:564
+#: admin/media_item.php:870 admin/popup_link.php:43 admin/post.php:721
+#: admin/post.php:724 admin/post_media.php:69 admin/preferences.php:632
+#: admin/preferences.php:826 admin/preferences.php:1005 admin/search.php:95
+#: admin/user.php:337 inc/admin/lib.dc.page.php:930
 msgid "Cancel"
 msgstr ""
 
@@ -772,9 +772,9 @@ msgstr ""
 #: admin/category.php:254 admin/comment.php:248 admin/index.php:402
 #: admin/install/index.php:365 admin/media_item.php:830 admin/post.php:713
 #: admin/post.php:834 admin/user.php:334 admin/users_actions.php:291
-#: inc/admin/actions/class.dcactionposts.php:315
-#: inc/admin/actions/class.dcactionposts.php:383
-#: inc/admin/actions/class.dcactionposts.php:443
+#: inc/admin/actions/class.dcactionposts.php:334
+#: inc/admin/actions/class.dcactionposts.php:402
+#: inc/admin/actions/class.dcactionposts.php:462
 #: inc/admin/lib.moduleslist.php:1467
 msgid "Save"
 msgstr ""
@@ -1150,7 +1150,7 @@ msgid "Name"
 msgstr ""
 
 #: admin/category.php:195 admin/category.php:238 admin/index.php:396
-#: admin/post.php:603 inc/admin/actions/class.dcactionposts.php:305
+#: admin/post.php:603 inc/admin/actions/class.dcactionposts.php:324
 msgid "Parent:"
 msgstr ""
 
@@ -1460,7 +1460,7 @@ msgstr ""
 
 #: admin/index.php:379 admin/index.php:394 admin/media.php:991
 #: admin/post.php:601 admin/post.php:652
-#: inc/admin/actions/class.dcactionposts.php:303
+#: inc/admin/actions/class.dcactionposts.php:322
 msgid "Title:"
 msgstr ""
 
@@ -1473,7 +1473,7 @@ msgid "Content"
 msgstr ""
 
 #: admin/index.php:389 admin/post.php:595 admin/posts.php:334
-#: inc/admin/actions/class.dcactionposts.php:296
+#: inc/admin/actions/class.dcactionposts.php:315
 msgid "Category:"
 msgstr ""
 
@@ -3829,102 +3829,106 @@ msgid "Change author"
 msgstr ""
 
 #: inc/admin/actions/class.dcactionposts.php:167
-#: inc/admin/actions/class.dcactionposts.php:186
-#: inc/admin/actions/class.dcactionposts.php:217
-#: inc/admin/actions/class.dcactionposts.php:246
-#: inc/admin/actions/class.dcactionposts.php:328
-#: inc/admin/actions/class.dcactionposts.php:392
+#: inc/admin/actions/class.dcactionposts.php:205
+#: inc/admin/actions/class.dcactionposts.php:236
+#: inc/admin/actions/class.dcactionposts.php:265
+#: inc/admin/actions/class.dcactionposts.php:347
+#: inc/admin/actions/class.dcactionposts.php:411
 msgid "No entry selected"
 msgstr ""
 
-#: inc/admin/actions/class.dcactionposts.php:172
+#: inc/admin/actions/class.dcactionposts.php:185
+msgid "Published entries cannot be set to scheduled"
+msgstr ""
+
+#: inc/admin/actions/class.dcactionposts.php:191
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/admin/actions/class.dcactionposts.php:193
+#: inc/admin/actions/class.dcactionposts.php:212
 #, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/admin/actions/class.dcactionposts.php:202
+#: inc/admin/actions/class.dcactionposts.php:221
 #, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/admin/actions/class.dcactionposts.php:231
+#: inc/admin/actions/class.dcactionposts.php:250
 #, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/admin/actions/class.dcactionposts.php:270
+#: inc/admin/actions/class.dcactionposts.php:289
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/admin/actions/class.dcactionposts.php:286
+#: inc/admin/actions/class.dcactionposts.php:305
 msgid "Change category for this selection"
 msgstr ""
 
-#: inc/admin/actions/class.dcactionposts.php:302
+#: inc/admin/actions/class.dcactionposts.php:321
 msgid "Create a new category for the post(s)"
 msgstr ""
 
-#: inc/admin/actions/class.dcactionposts.php:331
+#: inc/admin/actions/class.dcactionposts.php:350
 msgid "This user does not exist"
 msgstr ""
 
-#: inc/admin/actions/class.dcactionposts.php:339
+#: inc/admin/actions/class.dcactionposts.php:358
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/admin/actions/class.dcactionposts.php:369
+#: inc/admin/actions/class.dcactionposts.php:388
 msgid "Change author for this selection"
 msgstr ""
 
-#: inc/admin/actions/class.dcactionposts.php:377
+#: inc/admin/actions/class.dcactionposts.php:396
 msgid "New author (author ID):"
 msgstr ""
 
-#: inc/admin/actions/class.dcactionposts.php:401
+#: inc/admin/actions/class.dcactionposts.php:420
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\""
 msgid_plural "%d entries have been successfully set to language \"%s\""
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/admin/actions/class.dcactionposts.php:415
+#: inc/admin/actions/class.dcactionposts.php:434
 msgid "Change language for this selection"
 msgstr ""
 
-#: inc/admin/actions/class.dcactionposts.php:421
-#: inc/admin/actions/class.dcactionposts.php:425
+#: inc/admin/actions/class.dcactionposts.php:440
+#: inc/admin/actions/class.dcactionposts.php:444
 #: inc/admin/lib.admincombos.php:109 inc/admin/lib.admincombos.php:113
 msgid "Available"
 msgstr ""
 
-#: inc/admin/actions/class.dcactionposts.php:421
-#: inc/admin/actions/class.dcactionposts.php:424
-#: inc/admin/actions/class.dcactionposts.php:427
+#: inc/admin/actions/class.dcactionposts.php:440
+#: inc/admin/actions/class.dcactionposts.php:443
+#: inc/admin/actions/class.dcactionposts.php:446
 #: inc/admin/lib.admincombos.php:109 inc/admin/lib.admincombos.php:112
 #: inc/admin/lib.admincombos.php:115
 msgid "Most used"
 msgstr ""
 
-#: inc/admin/actions/class.dcactionposts.php:437
+#: inc/admin/actions/class.dcactionposts.php:456
 msgid "Entry language:"
 msgstr ""
 

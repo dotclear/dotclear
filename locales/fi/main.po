@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-10 19:10+0200\n"
+"POT-Creation-Date: 2020-12-27 09:06+0100\n"
 "PO-Revision-Date: 2020-12-16 19:29\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
@@ -17,5473 +17,4012 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 262\n"
 
-#: admin/auth.php:45
 msgid "Dotclear has been upgraded."
 msgstr "Dotclear on päivitetty."
 
-#: admin/auth.php:79
 msgid "Password reset"
 msgstr "Salasana nollattu"
 
-#: admin/auth.php:81
 msgid "Someone has requested to reset the password for the following site and username."
 msgstr "On pyydetty, että salasana nollattaisiin seuraavan sivuston ja käyttäjätunnuksen osalta:"
 
-#: admin/auth.php:82 admin/auth.php:103 admin/auth.php:294 admin/auth.php:356
-#: admin/install/index.php:337 admin/install/index.php:394
 msgid "Username:"
 msgstr "Käyttäjä:"
 
-#: admin/auth.php:83
 msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
 msgstr "Jos haluat vaihtaa salasanasi käy seuraavassa osoitteessa, muutoin jättämällä tämän sähköpostiviestin huomioitta mitään ei tapahdu."
 
-#: admin/auth.php:90
 #, php-format
 msgid "The e-mail was sent successfully to %s."
 msgstr "Sähköpostin lähettäminen osoitteeseen %s onnistui."
 
-#: admin/auth.php:101
 msgid "Your new password"
 msgstr "Uusi salasanasi"
 
-#: admin/auth.php:104 admin/auth.php:364 admin/blog_pref.php:727
-#: admin/install/index.php:395 admin/posts.php:340 admin/user.php:214
 msgid "Password:"
 msgstr "Salasana:"
 
-#: admin/auth.php:111
 msgid "Your new password is in your mailbox."
 msgstr "Uusi salasanasi on lähetetty sähköpostitse."
 
-#: admin/auth.php:153 admin/install/index.php:79 admin/preferences.php:269
-#: admin/user.php:96
 msgid "Passwords don't match"
 msgstr "Salasanat eivät täsmää"
 
-#: admin/auth.php:157
 msgid "You didn't change your password."
 msgstr "Et vaihtanut salasanaasi."
 
-#: admin/auth.php:199
 msgid "You have to change your password before you can login."
 msgstr "Salasana on vaihdettava ennen kuin voit kirjautua sisään."
 
-#: admin/auth.php:201
 msgid "In order to login, you have to change your password now."
 msgstr "Kirjautumiseen vaaditaan, että vaihdat salasanasi nyt."
 
-#: admin/auth.php:205
 msgid "Safe Mode can only be used for super administrators."
 msgstr "Vikasietotila on vain superjärjestelmänvalvojien käytössä."
 
-#: admin/auth.php:226
 msgid "Insufficient permissions"
 msgstr "Oikeudet eivät riitä"
 
-#: admin/auth.php:228
 msgid "Administration session expired"
 msgstr "Käyttöliittymä:"
 
-#: admin/auth.php:228
 msgid "Wrong username or password"
 msgstr "Väärä käyttäjänimi tai salasana"
 
-#: admin/auth.php:290 admin/auth.php:317
 msgid "Back to login screen"
 msgstr "Takaisin kirjautumisruutuun"
 
-#: admin/auth.php:293
 msgid "Request a new password"
 msgstr "Hanki uusi salasana"
 
-#: admin/auth.php:303 admin/blog_pref.php:842 admin/comment.php:221
-#: admin/comments.php:261 admin/install/index.php:327 admin/post.php:814
-#: admin/preferences.php:574 admin/user.php:277 inc/admin/lib.dc.page.php:742
 msgid "Email:"
 msgstr "Sähköposti:"
 
-#: admin/auth.php:312
 msgid "recover"
 msgstr "palauta"
 
-#: admin/auth.php:321
 msgid "Change your password"
 msgstr "Vaihda salasanasi"
 
-#: admin/auth.php:322 admin/install/index.php:346 admin/preferences.php:600
-#: admin/user.php:214
 msgid "New password:"
 msgstr "Uusi salasana:"
 
-#: admin/auth.php:329 admin/install/index.php:357 admin/user.php:230
 msgid "Confirm password:"
 msgstr "Vahvista salasana:"
 
-#: admin/auth.php:337
 msgid "change"
 msgstr "muuta"
 
-#: admin/auth.php:345
 msgid "Safe mode login"
 msgstr "Vikasietotila"
 
-#: admin/auth.php:348
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems"
 msgstr "Tässä tilassa voit kirjautua ilman liitännäisten käynnistämistä. Näin voit yrittää ratkaista yhteensopivuusongelmia."
 
-#: admin/auth.php:349
 msgid "Disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
 msgstr "Ota pois käytöstä tai poista liittännäinen, jota epäilet ongelman aiheuttajaksi, kirjaudu ulos ja kirjaudu sitten uudelleen sisään normaalisti."
 
-#: admin/auth.php:374
 msgid "Remember my ID on this device"
 msgstr "Muista minut tällä tietokoneella"
 
-#: admin/auth.php:376
 msgid "log in"
 msgstr "kirjaudu"
 
-#: admin/auth.php:389
 msgid "You must accept cookies in order to use the private area."
 msgstr "Evästeiden käyttö on sallittava, jotta voit käyttää yksityisaluetta."
 
-#: admin/auth.php:395
 msgid "Get back to normal authentication"
 msgstr "Paluu normaaliin todentamisruutuun"
 
-#: admin/auth.php:397
 msgid "Connection issue?"
 msgstr "Yhteysongelmako?"
 
-#: admin/auth.php:399
 msgid "I forgot my password"
 msgstr "Unohdin salasanani"
 
-#: admin/auth.php:401
 msgid "I want to log in in safe mode"
 msgstr "Vikasietotilaan kirjautuminen"
 
-#: admin/blog.php:49
 #, php-format
 msgid "Blog \"%s\" successfully created"
 msgstr "Blogi \"%s\" on luotu"
 
-#: admin/blog.php:60 admin/blog.php:65
 msgid "New blog"
 msgstr "Uusi blogi"
 
-#: admin/blog.php:63 admin/blog_del.php:51 admin/blog_pref.php:307
-#: admin/blogs.php:120 admin/langs.php:161 admin/plugin.php:88
-#: admin/plugins.php:85 admin/update.php:24 admin/update.php:42
-#: admin/update.php:190 admin/user.php:173 admin/users.php:119
-#: admin/users_actions.php:117 admin/users_actions.php:124
 msgid "System"
 msgstr "Järjestelmä"
 
-#: admin/blog.php:64 admin/blog_del.php:52 admin/blog_pref.php:308
-#: admin/preferences.php:746 inc/admin/actions/class.dcactionblogs.php:19
-#: inc/admin/actions/class.dcactionblogs.php:34
-#: inc/admin/actions/class.dcactionblogs.php:41
-#: inc/admin/actions/class.dcactionblogs.php:61
-#: inc/admin/class.dc.favorites.php:469 inc/admin/prepend.php:284
 msgid "Blogs"
 msgstr "Blogit"
 
-#: admin/blog.php:73 admin/blog_pref.php:643 admin/blog_pref.php:728
 msgid "Blog ID:"
 msgstr "Blogin tunniste:"
 
-#: admin/blog.php:73 admin/blog.php:83 admin/blog.php:92
-#: admin/blog_pref.php:355 admin/blog_pref.php:643 admin/blog_pref.php:649
-#: admin/category.php:186 admin/comment.php:214 admin/index.php:379
-#: admin/index.php:386 admin/install/index.php:337 admin/install/index.php:346
-#: admin/install/index.php:357 admin/install/wizard.php:195
-#: admin/install/wizard.php:211 admin/langs.php:252 admin/langs.php:270
-#: admin/langs.php:272 admin/popup_link.php:29 admin/post.php:652
-#: admin/post.php:672 admin/post.php:807 admin/post.php:822 admin/user.php:194
-#: admin/user.php:213 admin/user.php:230 admin/user.php:327
-#: admin/users_actions.php:284 inc/admin/lib.moduleslist.php:1321
-#: inc/admin/lib.moduleslist.php:1323 inc/admin/lib.moduleslist.php:1338
-#: inc/admin/lib.moduleslist.php:1343
 msgid "Required field"
 msgstr "Vaadittu kenttä"
 
-#: admin/blog.php:77 admin/blog_pref.php:644 admin/blogs.php:23
-#: admin/preferences.php:196 admin/users_actions.php:188
 msgid "Blog ID"
 msgstr "Blogin tunniste"
 
-#: admin/blog.php:80 admin/blog_pref.php:645 admin/user.php:201
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Ainakin 2 merkkiä, kirjaimia, numeroita tai symboleita."
 
-#: admin/blog.php:83 admin/blog_pref.php:355
 msgid "Blog name:"
 msgstr "Blogin nimi:"
 
-#: admin/blog.php:87 admin/blog_pref.php:359 admin/blogs.php:22
-#: admin/preferences.php:195 admin/users_actions.php:189
-#: inc/admin/actions/class.dcactionblogs.php:86 inc/admin/lib.pager.php:712
 msgid "Blog name"
 msgstr "Blogin nimi"
 
-#: admin/blog.php:92 admin/blog_pref.php:649
 msgid "Blog URL:"
 msgstr "Blogin verkko-osoite:"
 
-#: admin/blog.php:97 admin/blog_pref.php:654
 msgid "Blog URL"
 msgstr "Blogin verkko-osoite:"
 
-#: admin/blog.php:101 admin/blog_pref.php:365
 msgid "Blog description:"
 msgstr "Blogin kuvaus:"
 
-#: admin/blog.php:108 admin/media.php:939
 msgid "Create"
 msgstr "Luo"
 
-#: admin/blog.php:109 admin/blog_del.php:70 admin/blog_pref.php:780
-#: admin/category.php:224 admin/comment.php:249 admin/media.php:544
-#: admin/media_item.php:381 admin/media_item.php:564 admin/popup_link.php:43
-#: admin/post.php:721 admin/post.php:724 admin/post_media.php:69
-#: admin/preferences.php:632 admin/preferences.php:826
-#: admin/preferences.php:1005 admin/search.php:95 admin/user.php:337
-#: inc/admin/lib.dc.page.php:930
 msgid "Cancel"
 msgstr "Peruuta"
 
-#: admin/blog_del.php:25
 msgid "No such blog ID"
 msgstr "Tuntemanton blogin tunniste"
 
-#: admin/blog_del.php:35 admin/langs.php:87 admin/langs.php:127
-#: admin/user.php:70 admin/users_actions.php:84
-#: inc/admin/actions/class.dcactionblogs.php:174
-#: inc/admin/lib.moduleslist.php:1267 inc/admin/lib.moduleslist.php:2065
 msgid "Password verification failed"
 msgstr "Salasanaa ei saatu todennettua"
 
-#: admin/blog_del.php:39
 #, php-format
 msgid "Blog \"%s\" successfully deleted"
 msgstr "\"%s\" -niminen blogi poistettiin."
 
-#: admin/blog_del.php:48 admin/blog_del.php:53
 msgid "Delete a blog"
 msgstr "Poista blogi"
 
-#: admin/blog_del.php:59
 msgid "Warning"
 msgstr "Varoitus"
 
-#: admin/blog_del.php:60
 #, php-format
 msgid "You are about to delete the blog %s. Every entry, comment and category will be deleted."
 msgstr "Olet poistamassa blogia %s. Sen kaikki artikkelit, kommentit ja luokat poistetaan samalla."
 
-#: admin/blog_del.php:62
 msgid "Please give your password to confirm the blog deletion."
 msgstr "Anna sanasana blogin poistamisen vahvistamiseksi."
 
-#: admin/blog_del.php:67 admin/langs.php:252 admin/langs.php:272
-#: admin/user.php:327 admin/users_actions.php:284
-#: inc/admin/lib.moduleslist.php:1323 inc/admin/lib.moduleslist.php:1343
 msgid "Your password:"
 msgstr "Salasanasi:"
 
-#: admin/blog_del.php:69 admin/blog_pref.php:788
 msgid "Delete this blog"
 msgstr "Poista tämä blogi"
 
-#: admin/blog_pref.php:31
 msgid "No given blog id."
 msgstr "Blogilla ei tunnistetta."
 
-#: admin/blog_pref.php:36
 msgid "No such blog."
 msgstr "Blogia ei ole."
 
-#: admin/blog_pref.php:80
 msgid "year/month/day/title"
 msgstr "vuosi/kuukausi/päivä/otsikko"
 
-#: admin/blog_pref.php:81
 msgid "year/month/title"
 msgstr "vuosi/kuukausi/otsikko"
 
-#: admin/blog_pref.php:82
 msgid "year/title"
 msgstr "vuosi/otsikko"
 
-#: admin/blog_pref.php:83
 msgid "title"
 msgstr "otsikko"
 
-#: admin/blog_pref.php:84
 msgid "post id/title"
 msgstr "merkinnän tunniste/otsikko"
 
-#: admin/blog_pref.php:85
 msgid "post id"
 msgstr "merkinnän tunniste"
 
-#: admin/blog_pref.php:93
 msgid "H4"
 msgstr "H4"
 
-#: admin/blog_pref.php:94
 msgid "H3"
 msgstr "H3"
 
-#: admin/blog_pref.php:95
 msgid "P"
 msgstr "P"
 
-#: admin/blog_pref.php:100 admin/blog_pref.php:843 admin/category.php:197
-#: admin/media_item.php:462 admin/media_item.php:464
 msgid "(none)"
 msgstr "(ei ole)"
 
-#: admin/blog_pref.php:101 admin/blog_pref.php:133 admin/index.php:382
-#: admin/media_item.php:456 admin/post.php:656 admin/posts.php:124
-#: admin/preferences.php:170 inc/admin/actions/class.dcaction.php:75
-#: inc/admin/actions/class.dcactioncomments.php:82 inc/admin/lib.pager.php:223
-#: inc/admin/lib.pager.php:376
 msgid "Title"
 msgstr "Otsikko"
 
-#: admin/blog_pref.php:102
 msgid "Title, Date"
 msgstr "Otsikko, päiväys"
 
-#: admin/blog_pref.php:103
 msgid "Title, Country, Date"
 msgstr "Otsikko, maa, päiväys"
 
-#: admin/blog_pref.php:104
 msgid "Title, City, Country, Date"
 msgstr "Otsikko, kaupunki, maa, päiväys"
 
-#: admin/blog_pref.php:114 admin/media_item.php:367 admin/media_item.php:443
-#: admin/media_item.php:630
 msgid "original"
 msgstr "alkuperäinen"
 
-#: admin/blog_pref.php:124 admin/blog_pref.php:134 admin/media_item.php:459
-#: admin/media_item.php:472 admin/media_item.php:505 admin/media_item.php:540
 msgid "None"
 msgstr "Ei käytössä"
 
-#: admin/blog_pref.php:125 admin/media_item.php:473 admin/media_item.php:506
-#: admin/media_item.php:541
 msgid "Left"
 msgstr "Vasemmalla"
 
-#: admin/blog_pref.php:126 admin/media_item.php:474 admin/media_item.php:507
-#: admin/media_item.php:542
 msgid "Right"
 msgstr "Oikealla"
 
-#: admin/blog_pref.php:127 admin/media_item.php:475 admin/media_item.php:508
-#: admin/media_item.php:543
 msgid "Center"
 msgstr "Keskellä"
 
-#: admin/blog_pref.php:132 admin/media_item.php:453
 msgid "Legend and title"
 msgstr "Lisätyn kuvan otsikko"
 
-#: admin/blog_pref.php:139
 msgid "I would like search engines and archivers to index and archive my blog's content."
 msgstr "Haluan, että hakukoneet ja arkistointiohjelmat indeksoivat ja tallettavat blogini sisällön."
 
-#: admin/blog_pref.php:140
 msgid "I would like search engines and archivers to index but not archive my blog's content."
 msgstr "Haluan, että hakukoneet ja arkistointiohjelmat vain indeksoivat blogini sisällön, mutta eivät talleta sitä."
 
-#: admin/blog_pref.php:141
 msgid "I would like to prevent search engines and archivers from indexing or archiving my blog's content."
 msgstr "Haluan, että hakukoneet ja arkistointiohjelmat eivät indeksoisi tai tallettaisi blogini sisältöä."
 
-#: admin/blog_pref.php:146 admin/preferences.php:92 admin/preferences.php:115
 msgid "Default"
 msgstr "Oletus"
 
-#: admin/blog_pref.php:204
 msgid "This blog ID is already used."
 msgstr "Tämä tunniste on jo käytössä."
 
-#: admin/blog_pref.php:212
 msgid "Invalid language code"
 msgstr "Virheellinen kielikoodi"
 
-#: admin/blog_pref.php:287 admin/blog_pref.php:342
 msgid "Blog has been successfully updated."
 msgstr "Blogi on päivitetty."
 
-#: admin/blog_pref.php:301 admin/blog_pref.php:309 admin/blog_pref.php:320
-#: inc/admin/class.dc.favorites.php:457 inc/admin/prepend.php:261
 msgid "Blog settings"
 msgstr "Blogin asetukset"
 
-#: admin/blog_pref.php:322
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"/\" in your blog URL in PATH_INFO mode."
 msgstr "Varoitus: erikoistapaukset pois lukien on yleensä suositeltavaa, että blogisi verkko-osoite päättyy \"/\" -merkkiin PATH_INFO-moodissa."
 
-#: admin/blog_pref.php:323
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr "Varoitus: erikoistapaukset pois lukien on yleensä suositeltavaa, että blogisi verkko-osoite päättyy  \"?\"  -merkkiin QUERY_STRING-moodissa."
 
-#: admin/blog_pref.php:338
 msgid "Blog has been successfully created."
 msgstr "Blogin luominen onnistui."
 
-#: admin/blog_pref.php:346
 msgid "Parameters"
 msgstr "Parametrit"
 
-#: admin/blog_pref.php:347 admin/media.php:1046
 msgid "Blog parameters"
 msgstr "Blogin asetukset"
 
-#: admin/blog_pref.php:351 admin/blog_pref.php:641
 msgid "Blog details"
 msgstr "Blogin tiedot"
 
-#: admin/blog_pref.php:374
 msgid "Blog status:"
 msgstr "Blogin tila:"
 
-#: admin/blog_pref.php:392 admin/blog_pref.php:701
 msgid "Blog configuration"
 msgstr "Blogin asetukset"
 
-#: admin/blog_pref.php:394
 msgid "Blog editor name:"
 msgstr "Bloginpitäjän nimi:"
 
-#: admin/blog_pref.php:398
 msgid "Default language:"
 msgstr "Oletuskieli:"
 
-#: admin/blog_pref.php:402
 msgid "Blog timezone:"
 msgstr "Blogin aikavyöhyke:"
 
-#: admin/blog_pref.php:406
 msgid "Copyright notice:"
 msgstr "Copyright-merkintä:"
 
-#: admin/blog_pref.php:417 admin/comments.php:190 admin/comments.php:195
 msgid "Comments and trackbacks"
 msgstr "Kommentit ja takaisinviittaukset"
 
-#: admin/blog_pref.php:424 admin/post.php:617
 msgid "Accept comments"
 msgstr "Kommentointi on hyväksyttyä"
 
-#: admin/blog_pref.php:427
 msgid "Moderate comments"
 msgstr "Kommentit esitarkastetaan"
 
-#: admin/blog_pref.php:428
 #, php-format
 msgid "Leave comments open for %s days"
 msgstr "Jätä kommentit auki %s päiväksi"
 
-#: admin/blog_pref.php:435 admin/blog_pref.php:458
 msgid "No limit: leave blank."
 msgstr "Jos ei rajaa: jätä tyhjäksi."
 
-#: admin/blog_pref.php:438
 msgid "Wiki syntax for comments"
 msgstr "Salli wikisyntaksi kommentoitaessa"
 
-#: admin/blog_pref.php:441
 msgid "Preview of comment before submit is not mandatory"
 msgstr "Kommentin esikatselu ennen julkaisua ei ole pakollista"
 
-#: admin/blog_pref.php:447 admin/post.php:627
 msgid "Accept trackbacks"
 msgstr "Takaisinviittaaminen on hyväksyttyä"
 
-#: admin/blog_pref.php:450
 msgid "Moderate trackbacks"
 msgstr "Takaisinviittaukset esitarkastetaan"
 
-#: admin/blog_pref.php:451
 #, php-format
 msgid "Leave trackbacks open for %s days"
 msgstr "Jätä takaisinviittaukset auki %s päiväksi"
 
-#: admin/blog_pref.php:461
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Lisää \"nofollow\" kommentti- ja takaisinviittauslinkkeihin"
 
-#: admin/blog_pref.php:470
 msgid "Blog presentation"
 msgstr "Blogin ulkoasu"
 
-#: admin/blog_pref.php:473
 msgid "Date format:"
 msgstr "Päiväysten muoto:"
 
-#: admin/blog_pref.php:475
 msgid "Pattern of date"
 msgstr "Päiväyskaava"
 
-#: admin/blog_pref.php:477 admin/blog_pref.php:483 admin/blog_pref.php:706
 msgid "Sample:"
 msgstr "Esimerkki:"
 
-#: admin/blog_pref.php:479
 msgid "Time format:"
 msgstr "Ajan esitysmuoto:"
 
-#: admin/blog_pref.php:481
 msgid "Pattern of time"
 msgstr "Aikakaava"
 
-#: admin/blog_pref.php:487
 msgid "Display smilies on entries and comments"
 msgstr "Käytä hymiöitä blogimerkinnöissä ja kommenteissa"
 
-#: admin/blog_pref.php:491
 msgid "Disable internal search system"
 msgstr "Poista sisäinen hakujärjestelmä käytöstä"
 
-#: admin/blog_pref.php:497
 #, php-format
 msgid "Display %s entries on first page"
 msgstr "Näytä %s merkintää etusivulla"
 
-#: admin/blog_pref.php:505
 #, php-format
 msgid "Display %s entries per page"
 msgstr "Näytä %s merkintää sivua kohti"
 
-#: admin/blog_pref.php:513
 #, php-format
 msgid "Display %s entries per feed"
 msgstr "Näytä %s merkintää syötettä kohti"
 
-#: admin/blog_pref.php:521
 #, php-format
 msgid "Display %s comments per feed"
 msgstr "Näytä %s kommenttia syötettä kohti"
 
-#: admin/blog_pref.php:531
 msgid "Truncate feeds"
 msgstr "Lyhennä syötteet"
 
-#: admin/blog_pref.php:535
 msgid "Include sub-categories in category page and category posts feed"
 msgstr "Käytä aliluokkia luokkasivulla ja luokkamerkintöjen syötteessä"
 
-#: admin/blog_pref.php:544
 msgid "Display an entry as static home page"
 msgstr "Näytä %s merkintää etusivulla"
 
-#: admin/blog_pref.php:546
 msgid "Entry URL (its content will be used for the static home page):"
 msgstr "Aloitus-URL (jonka sisältöä käytetään muuttumattomana kotisivuna):"
 
-#: admin/blog_pref.php:548
 msgid "Choose an entry"
 msgstr "Valitse merkintä"
 
-#: admin/blog_pref.php:550
 msgid "Leave empty to use the default presentation."
 msgstr "Jätä tyhjäksi käyttääksi oletusesitystapaa."
 
-#: admin/blog_pref.php:555
 msgid "Media and images"
 msgstr "Media-aineistot ja kuvat"
 
-#: admin/blog_pref.php:557
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
 msgstr "Huomaa, että jos muutat allaolevia nykyasetuksia, muutokset vaikuttavat kaikkiin uusiin kuviin medianhallinnassa."
 
-#: admin/blog_pref.php:558
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "Ole varovainen, jos asetuksia käyttää useampi kuin yksi luomasi blogi."
 
-#: admin/blog_pref.php:559
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr "Aseta arvoksi -1 valitaksesi oletuskoon, arvolla 0 tätä pikkukuvakokoa ei hyödynnetä (pelkät kuvat)."
 
-#: admin/blog_pref.php:563
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Luotujen kuvien koot (pikseleinä)"
 
-#: admin/blog_pref.php:564
 msgid "Thumbnail"
 msgstr "Pikkukuva"
 
-#: admin/blog_pref.php:572
 msgid "Small"
 msgstr "Pieni"
 
-#: admin/blog_pref.php:580
 msgid "Medium"
 msgstr "Keskikokoinen"
 
-#: admin/blog_pref.php:588
 msgid "Default size of the inserted video (in pixels)"
 msgstr "Kuvanlisäyksen oletusarvot"
 
-#: admin/blog_pref.php:589
 msgid "Width"
 msgstr "Leveys:"
 
-#: admin/blog_pref.php:597
 msgid "Height"
 msgstr "Korkeus:"
 
-#: admin/blog_pref.php:607
 msgid "Default image insertion attributes"
 msgstr "Kuvanlisäyksen oletusarvot"
 
-#: admin/blog_pref.php:608
 msgid "Inserted image title"
 msgstr "Lisätyn kuvan otsikko"
 
-#: admin/blog_pref.php:612
 msgid "Use original media date if possible"
 msgstr "Käytä alkuperäisen mediatiedoston päiväystä, mikäli mahdollista"
 
-#: admin/blog_pref.php:615
 msgid "Do not display date if alone in title"
 msgstr "Älä näytä päiväystä, jos se on ainoa otsikkotieto"
 
-#: admin/blog_pref.php:616
 msgid "It is retrieved from the picture's metadata."
 msgstr "Nämä tiedot noudetaan kuvan metatiedoista."
 
-#: admin/blog_pref.php:618
 msgid "Size of inserted image:"
 msgstr "Lisätyn kuvan koko:"
 
-#: admin/blog_pref.php:622
 msgid "Image alignment:"
 msgstr "Kuvan kohdistus:"
 
-#: admin/blog_pref.php:627
 msgid "Insert a link to the original image"
 msgstr "Lisää linkki alkuperäiseen kuvaan"
 
-#: admin/blog_pref.php:628
 msgid "Image legend and title:"
 msgstr "Kuvan kohdistus:"
 
-#: admin/blog_pref.php:638
 msgid "Advanced parameters"
 msgstr "Blogin asetukset"
 
-#: admin/blog_pref.php:646
 msgid "Please note that changing your blog ID may require changes in your public index.php file."
 msgstr "Huomaa, että blogin tunnisteeen muuttaminen voi edellyttää muutoksia verkossa näkyvään index.php-tiedostoosi."
 
-#: admin/blog_pref.php:658
 msgid "URL scan method:"
 msgstr "URL-osoitteen lukutapa:"
 
-#: admin/blog_pref.php:681
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status)."
 msgstr "Blogin URL tai sen lukutapa ei tunnu olevan kunnossa (<code>%s</code> antaa tulokseksi <strong>%s-tilan</strong>)."
 
-#: admin/blog_pref.php:689
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr "Blogin URL tai sen lukutapa ei tunnu olevan kunnossa (<code>%s</code> ei anna tulokseksi ATOM-syötettä)."
 
-#: admin/blog_pref.php:703
 msgid "New post URL format:"
 msgstr "Uusien blogimerkintöjen URL-muoto:"
 
-#: admin/blog_pref.php:706
 msgid "Dotclear"
 msgstr "Dotclear"
 
-#: admin/blog_pref.php:709
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "Blogia koskevien merkintöjen otsikon HTML-koodi:"
 
-#: admin/blog_pref.php:715
 msgid "Enable XML/RPC interface"
 msgstr "Ota käyttöön XML/RPC"
 
-#: admin/blog_pref.php:716
 msgid "XML/RPC interface allows you to edit your blog with an external client."
 msgstr "XML/RPC mahdollistaa blogin muokkauksen ulkopuolisella asiakassovelluksella."
 
-#: admin/blog_pref.php:720
 msgid "XML/RPC interface is active. You should set the following parameters on your XML/RPC client:"
 msgstr "XML/RPC on käytössä. Aseta seuraavat parametrit XML/RPC-asiakassovelluksessa:"
 
-#: admin/blog_pref.php:722
 msgid "Server URL:"
 msgstr "Palvelimen osoite:"
 
-#: admin/blog_pref.php:725
 msgid "Blogging system:"
 msgstr "Blogijärjestelmä:"
 
-#: admin/blog_pref.php:726
 msgid "User name:"
 msgstr "Käyttäjä:"
 
-#: admin/blog_pref.php:727
 msgid "your password"
 msgstr "salasanasi"
 
-#: admin/blog_pref.php:736
 msgid "Search engines robots policy"
 msgstr "Hakukoneiden hakurobottien ohjaus"
 
-#: admin/blog_pref.php:747
 msgid "jQuery javascript library"
 msgstr "jQuery-javascriptkirjasto"
 
-#: admin/blog_pref.php:751
 msgid "Load the jQuery library"
 msgstr "Lataa jQuery-kirjasto"
 
-#: admin/blog_pref.php:753
 msgid "jQuery version to be loaded for this blog:"
 msgstr "Tätä blogia varten ladattava jQuery-versio:"
 
-#: admin/blog_pref.php:760
 msgid "Blog security"
 msgstr "Blogin turvallisuus"
 
-#: admin/blog_pref.php:764
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr "Suojaa blogia klikkaustenkaappaamiselta (katso Wikipedian artikkelia <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Clickjacking</a>)"
 
-#: admin/blog_pref.php:771
 msgid "Plugins parameters"
 msgstr "Blogin asetukset"
 
-#: admin/blog_pref.php:779 admin/category.php:223 admin/category.php:240
-#: admin/category.php:254 admin/comment.php:248 admin/index.php:402
-#: admin/install/index.php:365 admin/media_item.php:830 admin/post.php:713
-#: admin/post.php:834 admin/user.php:334 admin/users_actions.php:291
-#: inc/admin/actions/class.dcactionposts.php:315
-#: inc/admin/actions/class.dcactionposts.php:383
-#: inc/admin/actions/class.dcactionposts.php:443
-#: inc/admin/lib.moduleslist.php:1467
 msgid "Save"
 msgstr "Tallenna"
 
-#: admin/blog_pref.php:794 inc/admin/actions/class.dcactionblogs.php:180
 msgid "The current blog cannot be deleted."
 msgstr "Tätä blogia ei voi poistaa."
 
-#: admin/blog_pref.php:796
 msgid "Only superadmin can delete a blog."
 msgstr "Vain superjärjestelmänvalvoja voi poistaa blogin."
 
-#: admin/blog_pref.php:809 admin/preferences.php:757 admin/user.php:174
-#: admin/users.php:115 admin/users.php:120 admin/users_actions.php:118
-#: admin/users_actions.php:125 admin/users_actions.php:131
-#: inc/admin/class.dc.favorites.php:475 inc/admin/prepend.php:282
 msgid "Users"
 msgstr "Käyttäjät"
 
-#: admin/blog_pref.php:810
 msgid "Users on this blog"
 msgstr "Tämän blogin käyttäjät"
 
-#: admin/blog_pref.php:813
 msgid "No users"
 msgstr "Ei käyttäjiä"
 
-#: admin/blog_pref.php:848
 msgid "Publications on this blog:"
 msgstr "Tässä blogissa on julkaistu:"
 
-#: admin/blog_pref.php:855
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: admin/blog_pref.php:861
 msgid "Permissions:"
 msgstr "Käyttöoikeudet:"
 
-#: admin/blog_pref.php:864 admin/user.php:253
 msgid "Super administrator"
 msgstr "Superjärjestelmänvalvoja"
 
-#: admin/blog_pref.php:865
 msgid "All rights on all blogs."
 msgstr "Kaikki käyttöoikeudet kaikkiin blogeihin."
 
-#: admin/blog_pref.php:871 admin/users_actions.php:275
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (käyttöoikeuteen ei viittausta)"
 
-#: admin/blog_pref.php:875
 msgid "All rights on this blog."
 msgstr "Kaikki tämän blogin käyttöoikeudet."
 
-#: admin/blog_pref.php:886 admin/user.php:380
 msgid "Change permissions"
 msgstr "Muuta käyttöoikeuksia"
 
-#: admin/blog_theme.php:58 admin/blog_theme.php:67 admin/blog_theme.php:100
-#: inc/admin/class.dc.favorites.php:463 inc/admin/prepend.php:259
 msgid "Blog appearance"
 msgstr "Blogin ulkoasu"
 
-#: admin/blog_theme.php:68
 msgid "Theme configuration"
 msgstr "Teeman asetukset"
 
-#: admin/blog_theme.php:90
 msgid "Themes management"
 msgstr "Teemojen hallinta"
 
-#: admin/blog_theme.php:109
 msgid "Manual checking of themes update done successfully."
 msgstr "Päivityksen itse käynnistetty tarkistus onnistui."
 
-#: admin/blog_theme.php:117 admin/blog_theme.php:118
 msgid "Update themes"
 msgstr "Päivitä teemat"
 
-#: admin/blog_theme.php:120
 #, php-format
 msgid "There is one theme to update available from repository."
 msgid_plural "There are %s themes to update available from repository."
 msgstr[0] "Yksi teema voidaan päivittää teemasäilöstä."
 msgstr[1] "%s teemaa voidaan päivittää teemasäilöstä."
 
-#: admin/blog_theme.php:135 admin/blog_theme.php:220 admin/plugins.php:148
-#: admin/plugins.php:231
 #, php-format
 msgid "Visit %s repository, the resources center for Dotclear."
 msgstr "Käy %s-säilössä, jossa Dotclear-resursseja pidetään."
 
-#: admin/blog_theme.php:145
 msgid "Force checking update of themes"
 msgstr "Pakota Dotclearin päivityksen tarkistus"
 
-#: admin/blog_theme.php:155 admin/blog_theme.php:156
 msgid "Installed themes"
 msgstr "Asennetut teemat"
 
-#: admin/blog_theme.php:157
 msgid "You can configure and manage installed themes from this list."
 msgstr "Voit säätää ja hallita tämän luettelon asennettuja teemoja."
 
-#: admin/blog_theme.php:177 admin/blog_theme.php:178
 msgid "Deactivated themes"
 msgstr "Käytöstä poistetut teemat"
 
-#: admin/blog_theme.php:179
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr "Käytöstä poistetut teemat ovat asennettuja, mutta eivät käytettävissä. Voit ottaa ne käyttöön täältä."
 
-#: admin/blog_theme.php:202
 msgid "Add themes"
 msgstr "Lisää teemoja"
 
-#: admin/blog_theme.php:203
 msgid "Add themes from repository"
 msgstr "Lisää teemoja säilöstä"
 
-#: admin/blog_theme.php:230 admin/plugins.php:241
 msgid "Install or upgrade manually"
 msgstr "Asenna tai päivitä käsin"
 
-#: admin/blog_theme.php:231
 msgid "Add themes from a package"
 msgstr "Lisää teemoja ohjelmapaketista"
 
-#: admin/blog_theme.php:232
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Voit asentaa teemoja zip-tiedostoina lataamalla ne omalta koneeltasi tai verkkosijainnista palvelimelle."
 
-#: admin/blog_theme.php:246
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "Jotkin toiminnot ovat pois käytöstä, anna teemoillesi kirjoitusoikeus liitännäishakemistoosi, jotta voisit hyödyntää niitä."
 
-#: admin/blogs.php:21 admin/preferences.php:194 inc/admin/lib.pager.php:715
 msgid "Last update"
 msgstr "Viimeisin päivitys"
 
-#: admin/blogs.php:24 admin/comments.php:44 admin/post.php:488
-#: admin/post.php:552 admin/posts.php:127 admin/preferences.php:173
-#: admin/preferences.php:186 admin/preferences.php:197
-#: admin/users_actions.php:192 inc/admin/actions/class.dcactionblogs.php:117
-#: inc/admin/actions/class.dcactioncomments.php:133
-#: inc/admin/actions/class.dcactionposts.php:109 inc/admin/lib.pager.php:231
-#: inc/admin/lib.pager.php:379 inc/admin/lib.pager.php:549
-#: inc/admin/lib.pager.php:716
 msgid "Status"
 msgstr "Tila"
 
-#: admin/blogs.php:30 admin/comments.php:59 admin/posts.php:146
-#: admin/preferences.php:215 admin/users.php:37
 msgid "Descending"
 msgstr "Laskeva"
 
-#: admin/blogs.php:31 admin/comments.php:60 admin/posts.php:147
-#: admin/preferences.php:216 admin/users.php:38
 msgid "Ascending"
 msgstr "Nouseva"
 
-#: admin/blogs.php:116 admin/blogs.php:121
 msgid "List of blogs"
 msgstr "Blogien luettelo"
 
-#: admin/blogs.php:127
 msgid "Create a new blog"
 msgstr "Luo uusi blogi"
 
-#: admin/blogs.php:132 admin/comments.php:239 admin/posts.php:327
-#: admin/users.php:135 inc/admin/lib.dc.page.php:969
 msgid "Show filters and display options"
 msgstr "Näytä suodattimet ja näyttövaihtoehdot"
 
-#: admin/blogs.php:136 admin/comments.php:243 admin/posts.php:331
-#: admin/users.php:139
 msgid "Filters"
 msgstr "Suodattimet"
 
-#: admin/blogs.php:137 admin/media.php:580 admin/media.php:814
-#: admin/users.php:140 inc/admin/lib.dc.page.php:320
 msgid "Search:"
 msgstr "Haku:"
 
-#: admin/blogs.php:140 admin/comment.php:230 admin/comments.php:246
-#: admin/posts.php:336
 msgid "Status:"
 msgstr "Tila:"
 
-#: admin/blogs.php:145 admin/comments.php:268 admin/posts.php:360
-#: admin/users.php:145
 msgid "Display options"
 msgstr "Näyttövaihtoehdot"
 
-#: admin/blogs.php:146 admin/comments.php:269 admin/posts.php:361
-#: admin/preferences.php:728 admin/preferences.php:737
-#: admin/preferences.php:747 admin/preferences.php:758 admin/users.php:146
 msgid "Order by:"
 msgstr "Millä perusteella järjestetään:"
 
-#: admin/blogs.php:148 admin/comments.php:271 admin/posts.php:363
-#: admin/preferences.php:730 admin/preferences.php:739
-#: admin/preferences.php:749 admin/preferences.php:760 admin/users.php:148
 msgid "Sort:"
 msgstr "Lajittelu:"
 
-#: admin/blogs.php:150 admin/comments.php:273 admin/posts.php:365
-#: admin/preferences.php:732 admin/preferences.php:741
-#: admin/preferences.php:751 admin/preferences.php:762 admin/users.php:150
 msgid "Show"
 msgstr "Näytä"
 
-#: admin/blogs.php:151 admin/preferences.php:753
 msgid "blogs per page"
 msgstr "blogia sivua kohti"
 
-#: admin/blogs.php:154 admin/comments.php:278 admin/posts.php:370
-#: admin/users.php:154
 msgid "Save current options"
 msgstr "Tallenna asetukseni"
 
-#: admin/blogs.php:159 admin/comments.php:283 admin/posts.php:375
-#: admin/users.php:159
 msgid "Apply filters and display options"
 msgstr "Käytä näitä suodattimia ja näyttövaihtoehtoja"
 
-#: admin/blogs.php:174
 msgid "Selected blogs action:"
 msgstr "Valittuihin käyttäjiin kohdistuva toimi:"
 
-#: admin/blogs.php:176 admin/comments.php:298 admin/users_actions.php:126
 msgid "Actions"
 msgstr "Toimet"
 
-#: admin/blogs.php:178 admin/comments.php:300 admin/post.php:794
-#: admin/post.php:884 admin/posts.php:390 admin/search.php:122
-#: admin/search.php:149 admin/users.php:176 inc/admin/lib.dc.page.php:90
-#: inc/admin/lib.pager.php:119
 msgid "ok"
 msgstr "ok"
 
-#: admin/blogs.php:181
 msgid "Please give your password to confirm blog(s) deletion:"
 msgstr "Anna sanasana blogin poistamisen vahvistamiseksi."
 
-#: admin/categories.php:22 inc/core/class.dc.xmlrpc.php:1107
 msgid "This category does not exist."
 msgstr "Asianomaista luokkaa ei ole."
 
-#: admin/categories.php:31
 #, php-format
 msgid "The category \"%s\" has been successfully deleted."
 msgstr "Luokka \"%s\" on poistettu."
 
-#: admin/categories.php:50
 msgid "Category where to move entries does not exist"
 msgstr "Luokkaa, johon merkinnät voitaisiin siirtää, ei ole"
 
-#: admin/categories.php:59
 #, php-format
 msgid "The entries have been successfully moved to category \"%s\""
 msgstr "Merkinnät on siirretty luokkaan \"%s\""
 
-#: admin/categories.php:77 admin/categories.php:122
 msgid "Categories have been successfully reordered."
 msgstr "Luokat on järjestetty uudelleen."
 
-#: admin/categories.php:86
 msgid "Categories order has been successfully reset."
 msgstr "Luokkien järjestys on nyt oletusarvoinen."
 
-#: admin/categories.php:110 admin/categories.php:114 admin/category.php:156
-#: inc/admin/class.dc.favorites.php:445 inc/admin/prepend.php:265
 msgid "Categories"
 msgstr "Luokat"
 
-#: admin/categories.php:119
 msgid "The category has been successfully removed."
 msgstr "Luokka on poistettu."
 
-#: admin/categories.php:125
 msgid "Entries have been successfully moved to the category you choose."
 msgstr "Merkinnät on siirretty valitsemaasi luokkaan."
 
-#: admin/categories.php:131 admin/category.php:152
 msgid "New category"
 msgstr "Uusi luokka"
 
-#: admin/categories.php:136
 msgid "No category so far."
 msgstr "Ei vielä luokkia."
 
-#: admin/categories.php:161
 #, php-format
 msgid "%d entries"
 msgstr "%d merkintää"
 
-#: admin/categories.php:161
 #, php-format
 msgid "%d entry"
 msgstr "%d merkintä"
 
-#: admin/categories.php:162
 msgid "total:"
 msgstr "yhteensä:"
 
-#: admin/categories.php:163 admin/category.php:208 admin/preferences.php:581
-#: admin/user.php:285
 msgid "URL:"
 msgstr "URL:"
 
-#: admin/categories.php:170
 msgid "Move entries to"
 msgstr "Siirrä merkinnät kohteeseen"
 
-#: admin/categories.php:174 admin/media.php:816 admin/media.php:850
-#: admin/media_item.php:578 inc/admin/lib.dc.page.php:321
-#: inc/admin/lib.moduleslist.php:263
 msgid "OK"
 msgstr "OK"
 
-#: admin/categories.php:183
 msgid "Delete category"
 msgstr "Poista luokka"
 
-#: admin/categories.php:199
 msgid "To rearrange categories order, move items by drag and drop, then click on “Save categories order” button."
 msgstr "Luokkien järjestyksen muuttaminen tapahtuu vetämällä ja pudottamalla ja klikkaamaalla “Tallenna luokkien järjestys” -nappia."
 
-#: admin/categories.php:204
 msgid "Save categories order"
 msgstr "Tallenna luokkien järjestys"
 
-#: admin/categories.php:211
 msgid "Reorder all categories on the top level"
 msgstr "Järjestä kaikki ylimmän tason luokat uudelleen"
 
-#: admin/category.php:47
 msgid "Top level"
 msgstr "Ylin taso"
 
-#: admin/category.php:82 admin/category.php:94
 msgid "The category has been successfully moved"
 msgstr "Luokka on siirretty."
 
-#: admin/category.php:129
 msgid "The category has been successfully updated."
 msgstr "Luokka on päivitetty."
 
-#: admin/category.php:143
 #, php-format
 msgid "The category \"%s\" has been successfully created."
 msgstr "Luokka \"%s\"on luotu."
 
-#: admin/category.php:180
 msgid "Category has been successfully updated."
 msgstr "Luokka on päivitetty."
 
-#: admin/category.php:185
 msgid "Category information"
 msgstr "Luokan tiedot"
 
-#: admin/category.php:186 admin/post.php:807
 msgid "Name:"
 msgstr "Nimi:"
 
-#: admin/category.php:189 admin/media.php:867
-#: inc/admin/lib.moduleslist.php:547
 msgid "Name"
 msgstr "Nimi"
 
-#: admin/category.php:195 admin/category.php:238 admin/index.php:396
-#: admin/post.php:603 inc/admin/actions/class.dcactionposts.php:305
 msgid "Parent:"
 msgstr "Emo:"
 
-#: admin/category.php:212
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Varoitus: Jos asetat verkko-osoitteen itse, se voi olla ristiriidassa toisen luokan kanssa."
 
-#: admin/category.php:215
 msgid "Description:"
 msgstr "Kuvaus:"
 
-#: admin/category.php:232
 msgid "Move this category"
 msgstr "Siirrä tämä luokka"
 
-#: admin/category.php:237
 msgid "Category parent"
 msgstr "Emoluokka"
 
-#: admin/category.php:249
 msgid "Category sibling"
 msgstr "Sukulaisluokka"
 
-#: admin/category.php:250
 msgid "Move current category"
 msgstr "Siirrä tämä luokka"
 
-#: admin/category.php:251
 msgid "after"
 msgstr "jälkeen"
 
-#: admin/category.php:251
 msgid "before"
 msgstr "ennen"
 
-#: admin/category.php:252
 msgid "position: "
 msgstr "paikka:"
 
-#: admin/comment.php:39
 msgid "Entry does not exist."
 msgstr "Merkintää ei ole."
 
-#: admin/comment.php:58 admin/post.php:421
 msgid "Comment has been successfully created."
 msgstr "Kommentti saatiin luoduksi."
 
-#: admin/comment.php:91 admin/post.php:781 inc/admin/lib.pager.php:483
 msgid "No comments"
 msgstr "Ei kommentteja"
 
-#: admin/comment.php:130 admin/comment.php:185
 msgid "Comment has been successfully updated."
 msgstr "Kommentti saatiin päivitettyä."
 
-#: admin/comment.php:144
 msgid "Comment has been successfully deleted."
 msgstr "Kommentti saatiin poistettua."
 
-#: admin/comment.php:152
 msgid "You can't edit this comment."
 msgstr "Et voi muokata tätä kommenttia."
 
-#: admin/comment.php:163 admin/comment.php:170 admin/comment.php:174
 msgid "Edit comment"
 msgstr "Kommentin muokkaus"
 
-#: admin/comment.php:191
 #, php-format
 msgid "Your comment on my blog %s"
 msgstr "Kommenttisi %s-blogissani"
 
-#: admin/comment.php:193
 #, php-format
-msgid "Hi!\n\n"
+msgid ""
+"Hi!\n"
+"\n"
 "You wrote a comment on:\n"
-"%s\n\n\n"
-msgstr "Hei,\n\n"
+"%s\n"
+"\n"
+"\n"
+msgstr ""
+"Hei,\n"
+"\n"
 "Olet kommentoinut:\n"
-"%s\n\n\n"
+"%s\n"
+"\n"
+"\n"
 
-#: admin/comment.php:194
 msgid "Send an e-mail"
 msgstr "Lähetä sähköposti"
 
-#: admin/comment.php:200
 msgid "Information collected"
 msgstr "Kootut tiedot"
 
-#: admin/comment.php:204 admin/comments.php:256 inc/admin/lib.dc.page.php:743
 msgid "IP address:"
 msgstr "IP-osoite:"
 
-#: admin/comment.php:209
 msgid "Date:"
 msgstr "Päiväys:"
 
-#: admin/comment.php:213
 msgid "Comment submitted"
 msgstr "Jätetty kommentti"
 
-#: admin/comment.php:214 admin/comments.php:251 admin/posts.php:332
-#: inc/admin/lib.dc.page.php:783 inc/admin/lib.moduleslist.php:736
 msgid "Author:"
 msgstr "Kirjoittanut:"
 
-#: admin/comment.php:217 admin/comments.php:43 admin/post.php:485
-#: admin/post.php:810 admin/posts.php:126 admin/preferences.php:149
-#: admin/preferences.php:172 admin/preferences.php:185
-#: inc/admin/actions/class.dcactioncomments.php:82 inc/admin/lib.pager.php:226
-#: inc/admin/lib.pager.php:378 inc/admin/lib.pager.php:547
 msgid "Author"
 msgstr "Tekijä"
 
-#: admin/comment.php:226 admin/comments.php:263 admin/post.php:818
-#: inc/admin/lib.dc.page.php:741
 msgid "Web site:"
 msgstr "Sivusto:"
 
-#: admin/comment.php:238 admin/post.php:823
 msgid "Comment:"
 msgstr "Kommentti:"
 
-#: admin/comment.php:252 admin/langs.php:220 admin/media.php:236
-#: admin/post.php:728 admin/users.php:44
-#: inc/admin/actions/class.dcactionblogs.php:125
-#: inc/admin/actions/class.dcactionblogs.php:126
-#: inc/admin/actions/class.dcactioncomments.php:145
-#: inc/admin/actions/class.dcactioncomments.php:146
-#: inc/admin/actions/class.dcactionposts.php:146
-#: inc/admin/actions/class.dcactionposts.php:147
-#: inc/admin/lib.moduleslist.php:942
 msgid "Delete"
 msgstr "Poista"
 
-#: admin/comments.php:35 admin/post.php:826
 msgid "Comment"
 msgstr "Kommentti"
 
-#: admin/comments.php:36
 msgid "Trackback"
 msgstr "Takaisinviittaus"
 
-#: admin/comments.php:40 admin/media.php:868 admin/post.php:486
-#: admin/posts.php:123 admin/preferences.php:147 admin/preferences.php:169
-#: admin/preferences.php:182 inc/admin/lib.pager.php:224
-#: inc/admin/lib.pager.php:377 inc/admin/lib.pager.php:548
 msgid "Date"
 msgstr "Päiväys"
 
-#: admin/comments.php:41 admin/preferences.php:183
 msgid "Entry title"
 msgstr "Blogimerkinnän otsikko"
 
-#: admin/comments.php:42 admin/preferences.php:184
 msgid "Entry date"
 msgstr "Blogimerkinnän otsikko"
 
-#: admin/comments.php:147 admin/preferences.php:187
-#: inc/admin/lib.pager.php:552
 msgid "IP"
 msgstr "P"
 
-#: admin/comments.php:149 admin/preferences.php:188
-#: inc/admin/lib.pager.php:553
 msgid "Spam filter"
 msgstr "Spämmisuodatin"
 
-#: admin/comments.php:199 inc/admin/actions/class.dcactioncomments.php:192
 msgid "Selected comments have been successfully updated."
 msgstr "Valitut kommentit on päivitetty."
 
-#: admin/comments.php:201 inc/admin/actions/class.dcactioncomments.php:212
 msgid "Selected comments have been successfully deleted."
 msgstr "Valitut kommentit on poistettu."
 
-#: admin/comments.php:206
 msgid "Spam comments have been successfully deleted."
 msgstr "Turhat kommentit on poistettu."
 
-#: admin/comments.php:218
 msgid "You have one spam comment."
 msgstr "Blogissa on yksi spämmikommentti."
 
-#: admin/comments.php:219
 msgid "Show it."
 msgstr "Näytä se!"
 
-#: admin/comments.php:221
 #, php-format
 msgid "You have %s spam comments."
 msgstr "Blogissa on %s spämmikommenttia."
 
-#: admin/comments.php:222
 msgid "Show them."
 msgstr "Näytä ne!"
 
-#: admin/comments.php:229
 msgid "Delete all spams"
 msgstr "Poista kaikki spämmit"
 
-#: admin/comments.php:244
 msgid "Type:"
 msgstr "Tyyppi:"
 
-#: admin/comments.php:275 admin/preferences.php:743
 msgid "comments per page"
 msgstr "kommenttia sivua kohti"
 
-#: admin/comments.php:296 admin/post.php:789 admin/search.php:147
 msgid "Selected comments action:"
 msgstr "Tee valituille kommenteille:"
 
-#: admin/help.php:73 admin/help.php:79 admin/help.php:85
-#: inc/admin/class.dc.favorites.php:490 inc/admin/lib.dc.page.php:307
 msgid "Global help"
 msgstr "Yleisohje"
 
-#: admin/index.php:95
 #, php-format
 msgid "An update is available"
 msgid_plural "%s updates are available."
 msgstr[0] "Päivitys on saatavana."
 msgstr[1] "%s päivitystä on saatavana."
 
-#: admin/index.php:117
 msgid "Documentation and support"
 msgstr "Dokumentaatio ja tuki"
 
-#: admin/index.php:154
 msgid "Dashboard area's drag and drop is disabled"
 msgstr "Ohjaustaulun vedä ja pudota -ominaisuus ei ole käytössä"
 
-#: admin/index.php:155
 msgid "Dashboard area's drag and drop is enabled"
 msgstr "Ohjaustaulun vedä ja pudota -ominaisuus on käytössä"
 
-#: admin/index.php:171 admin/index.php:181
 msgid "Dashboard"
 msgstr "Ohjaustaulu"
 
-#: admin/index.php:189
 msgid "Make this blog my default blog"
 msgstr "Tee tästä blogista oletusblogini"
 
-#: admin/index.php:193
 msgid "This blog is offline"
 msgstr "Tämä blogi ei näy nyt verkossa"
 
-#: admin/index.php:195
 msgid "This blog is removed"
 msgstr "Tämä blogi on poistettu"
 
-#: admin/index.php:201 admin/index.php:209
 #, php-format
 msgid "%s is not defined, you should edit your configuration file."
 msgstr "%s ei ole määritelty, muokkaa asetustiedostoasi."
 
-#: admin/index.php:202 admin/index.php:210
 msgid "See <a href=\"https://dotclear.org/documentation/2.0/admin/config\">documentation</a> for more information."
 msgstr "Katso tarkemmin <a href=\"https://dotclear.org/documentation/2.0/admin/config\">dokumentaatiosta</a>."
 
-#: admin/index.php:219
 msgid "The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file."
 msgstr "Välimuistihakemistoa ei ole tai sinne ei voida kirjoittaa. Luo tämä hakemisto riittävin oikeuksin sekä merkitse kyseinen hakemisto-osoite kohtaan \"DC_TPL_CACHE\" tiedostossa inc/config.php."
 
-#: admin/index.php:223
 msgid "The cache directory does not exist or is not writable. You should contact your administrator."
 msgstr "Välimuistihakemistoa ei ole tai sinne ei voida kirjoittaa. Ota yhteys järjestelmänvalvojaasi."
 
-#: admin/index.php:230 inc/core/class.dc.media.php:74
 msgid "There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."
 msgstr "Kirjoitusoikeuksilla varustettua hakemistoa /public/ ei ole siellä, mihin \"public_path\" viittaa kohdassa about:config. Kyseinen hakemisto on luotava riittävin oikeuksin (tai muutettava  \"public_path\" -asetusta)."
 
-#: admin/index.php:234 inc/core/class.dc.media.php:76
 msgid "There is no writable root directory for the media manager. You should contact your administrator."
 msgstr "Medianhallintaa varten ei ole kirjoitettavaa hakemistoa. Ota yhteys järjestelmänvalvojaan."
 
-#: admin/index.php:240 inc/admin/lib.dc.notices.php:45
-#: inc/admin/lib.dc.page.php:744 inc/admin/lib.dc.page.php:927
 msgid "Error:"
 msgstr "Virhe:"
 
-#: admin/index.php:246 admin/install/index.php:371 admin/plugins.php:93
 msgid "Following plugins have been installed:"
 msgstr "Seuraavat liitännäiset on asennettu:"
 
-#: admin/index.php:255 admin/install/index.php:378 admin/plugins.php:106
 msgid "Following plugins have not been installed:"
 msgstr "Seuraavia liitännäisiä ei ole asennettu:"
 
-#: admin/index.php:266
 msgid "Errors have occured with following plugins:"
 msgstr "Seuraavat liitännäiset ovat aiheuttaneet virheitä:"
 
-#: admin/index.php:376
 msgid "Quick post"
 msgstr "Nopea merkintä"
 
-#: admin/index.php:378 admin/post.php:35 admin/post.php:695
-#: admin/posts.php:325 inc/admin/class.dc.favorites.php:419
-#: inc/admin/prepend.php:273
 msgid "New post"
 msgstr "Uusi merkintä"
 
-#: admin/index.php:379 admin/index.php:394 admin/media.php:991
-#: admin/post.php:601 admin/post.php:652
-#: inc/admin/actions/class.dcactionposts.php:303
 msgid "Title:"
 msgstr "Otsikko:"
 
-#: admin/index.php:386 admin/post.php:672
 msgid "Content:"
 msgstr "Sisältö:"
 
-#: admin/index.php:387 admin/post.php:676
 msgid "Content"
 msgstr "Sisältö:"
 
-#: admin/index.php:389 admin/post.php:595 admin/posts.php:334
-#: inc/admin/actions/class.dcactionposts.php:296
 msgid "Category:"
 msgstr "Luokka:"
 
-#: admin/index.php:393 admin/post.php:600
 msgid "Add a new category"
 msgstr "Lisää uusi luokka"
 
-#: admin/index.php:399
 msgid "This category will be created when you will save your post."
 msgstr "Tämä luokka luodaan, kun tallennat blogimerkintäsi."
 
-#: admin/index.php:404
 msgid "Save and publish"
 msgstr "Tallenna ja julkaise"
 
-#: admin/install/check.php:17
 #, php-format
 msgid "PHP version is %s (5.6 or earlier needed)."
 msgstr "PHP-versio on %s (tarvitaan 5.6 tai uudempi)."
 
-#: admin/install/check.php:21
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "Monitavumerkkijonomoduulia (mbstring) ei löydy."
 
-#: admin/install/check.php:25
 msgid "Iconv module is not available."
 msgstr "Iconv-moduulia ei löydy."
 
-#: admin/install/check.php:29
 msgid "Output control functions are not available."
 msgstr "PHP-tulostuksenhallintafunktioita ei löydy."
 
-#: admin/install/check.php:33
 msgid "SimpleXML module is not available."
 msgstr "SimpleXML-moduulia ei löydy."
 
-#: admin/install/check.php:37
 msgid "DOM XML module is not available."
 msgstr "DOM XML -moduulia ei löydy."
 
-#: admin/install/check.php:42
 msgid "PCRE engine does not support UTF-8 strings."
 msgstr "PCRE-moottori ei hyväksy UTF-8-merkkijonoja."
 
-#: admin/install/check.php:46
 msgid "SPL module is not available."
 msgstr "SPL-moduulia ei löydy."
 
-#: admin/install/check.php:51
 #, php-format
 msgid "MySQL version is %s (4.1 or earlier needed)."
 msgstr "MySQL-versio on %s (tarvitaan 4.1 tai uudempi)."
 
-#: admin/install/check.php:63
 msgid "MySQL InnoDB engine is not available."
 msgstr "MySQL InnoDB-tallennusmoottoria ei löydy."
 
-#: admin/install/check.php:68
 #, php-format
 msgid "PostgreSQL version is %s (8.0 or earlier needed)."
 msgstr "PostgreSQL-versio on %s (vaaditaan 8.0 tai uudempi)."
 
-#: admin/install/index.php:35
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr "Aseta pääavain (DC_MASTER_KEY) asetustiedostossa."
 
-#: admin/install/index.php:42 admin/install/wizard.php:94
 msgid "Dotclear is already installed."
 msgstr "Dotclear on jo asennettu."
 
-#: admin/install/index.php:48 admin/install/wizard.php:88
 msgid "Dotclear cannot be installed."
 msgstr "Dotclearia ei voi asentaa."
 
-#: admin/install/index.php:66 inc/core/class.dc.core.php:610
 msgid "No user ID given"
 msgstr "Ei käyttäjän tunnistetta"
 
-#: admin/install/index.php:69 inc/core/class.dc.core.php:832
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "Käyttäjän tunnisteen tulee sisältää ainakin 2 merkkiä, jotka voivat olla kirjaimia, numeroita tai symboleja."
 
-#: admin/install/index.php:72
 msgid "Invalid email address"
 msgstr "Virheellinen sähköpostiosoite"
 
-#: admin/install/index.php:76 inc/core/class.dc.core.php:614
 msgid "No password given"
 msgstr "Salasanaa ei ole annettu"
 
-#: admin/install/index.php:82 admin/user.php:227
-#: inc/core/class.dc.core.php:843
 msgid "Password must contain at least 6 characters."
 msgstr "Salasanan tulee käsittää ainakin 6 merkkiä."
 
-#: admin/install/index.php:135
 msgid "My first blog"
 msgstr "Ensimmäinen blogini"
 
-#: admin/install/index.php:147
 msgid "%A, %B %e %Y"
 msgstr "%A %e %B %Y"
 
-#: admin/install/index.php:200
 msgid "Welcome to Dotclear!"
 msgstr "Tervetuloa käyttämään Dotclearia!"
 
-#: admin/install/index.php:201
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
 msgstr "Tämä on ensimmäinen blogimerkintäsi. Kun olet valmis aloittamaan bloggauksen, kirjaudu sisään ja muokkaa tai poista se."
 
-#: admin/install/index.php:213
 msgid "Dotclear Team"
 msgstr "Dotclear-tiimi"
 
-#: admin/install/index.php:216
-msgid "<p>This is a comment.</p>\n"
+msgid ""
+"<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
-msgstr "<p>Tämä on esimerkkikommentti.</p>\n"
+msgstr ""
+"<p>Tämä on esimerkkikommentti.</p>\n"
 "<p>Voit poistaa tämän ja muokata tätä kirjautumalla sisään ja selaamalla blogisi kommentteja.</p>"
 
-#: admin/install/index.php:269
 msgid "Dotclear Install"
 msgstr "Dotclearin asennus"
 
-#: admin/install/index.php:277 admin/install/index.php:278
-#: admin/install/index.php:279 admin/install/index.php:280
-#: admin/install/index.php:281 admin/preferences.php:526
-#: admin/preferences.php:527 admin/preferences.php:528
-#: admin/preferences.php:529 admin/preferences.php:530 admin/user.php:162
-#: admin/user.php:163 admin/user.php:164 admin/user.php:165 admin/user.php:166
 #, php-format
 msgid "Password strength: %s"
 msgstr "Salasanan vahvuus: %s"
 
-#: admin/install/index.php:277 admin/preferences.php:526 admin/user.php:162
 msgid "very weak"
 msgstr "erittäin heikko"
 
-#: admin/install/index.php:278 admin/preferences.php:527 admin/user.php:163
 msgid "weak"
 msgstr "heikko"
 
-#: admin/install/index.php:279 admin/preferences.php:528 admin/user.php:164
 msgid "mediocre"
 msgstr "keskinkertainen"
 
-#: admin/install/index.php:280 admin/preferences.php:529 admin/user.php:165
 msgid "strong"
 msgstr "vahva"
 
-#: admin/install/index.php:281 admin/preferences.php:530 admin/user.php:166
 msgid "very strong"
 msgstr "erittäin vahva"
 
-#: admin/install/index.php:284
 msgid "show"
 msgstr "näytä"
 
-#: admin/install/index.php:292
 msgid "Dotclear installation"
 msgstr "Dotclearin asennus"
 
-#: admin/install/index.php:296
 #, php-format
 msgid "Cache directory %s is not writable."
 msgstr "Välimuistihakemistoon %s ei voi kirjoittaa."
 
-#: admin/install/index.php:300 admin/install/index.php:412
-#: admin/install/wizard.php:176 inc/admin/lib.dc.notices.php:45
 msgid "Errors:"
 msgstr "Virheet:"
 
-#: admin/install/index.php:304
 msgid "Configuration file has been successfully created."
 msgstr "Asetustiedosto on luotu."
 
-#: admin/install/index.php:309 admin/install/index.php:314
 msgid "User information"
 msgstr "Käyttäjän tiedot"
 
-#: admin/install/index.php:311
 msgid "Please provide the following information needed to create the first user."
 msgstr "Anna seuraavat tiedot ensimmäisen käyttäjän luomiseksi."
 
-#: admin/install/index.php:315 admin/preferences.php:560 admin/user.php:263
 msgid "First Name:"
 msgstr "Etunimi:"
 
-#: admin/install/index.php:321 admin/preferences.php:553 admin/user.php:256
 msgid "Last Name:"
 msgstr "Sukunimi:"
 
-#: admin/install/index.php:336
 msgid "Username and password"
 msgstr "Käyttäjätunnus ja salasana"
 
-#: admin/install/index.php:340 admin/preferences.php:204 admin/users.php:16
-#: inc/admin/lib.pager.php:845
 msgid "Username"
 msgstr "Käyttäjänimi"
 
-#: admin/install/index.php:348 admin/install/index.php:359 admin/langs.php:255
-#: admin/langs.php:275 admin/post.php:636 admin/user.php:218
-#: admin/user.php:233 admin/user.php:330 admin/users_actions.php:287
-#: inc/admin/lib.moduleslist.php:1326 inc/admin/lib.moduleslist.php:1346
 msgid "Password"
 msgstr "Salasana"
 
-#: admin/install/index.php:386
 msgid "All done!"
 msgstr "Valmista!"
 
-#: admin/install/index.php:390
 msgid "Dotclear has been successfully installed. Here is some useful information you should keep."
 msgstr "Dotclear on asennettu. Talleta seuraavat tiedot varmaan paikkaan."
 
-#: admin/install/index.php:392
 msgid "Your account"
 msgstr "Tilisi"
 
-#: admin/install/index.php:398
 msgid "Your blog"
 msgstr "Blogisi"
 
-#: admin/install/index.php:400
 msgid "Blog address:"
 msgstr "Blogin verkko-osoite:"
 
-#: admin/install/index.php:401
 msgid "Administration interface:"
 msgstr "Käyttöliittymä:"
 
-#: admin/install/index.php:405
 msgid "Manage your blog now"
 msgstr "Hallinnoi blogiasi nyt"
 
-#: admin/install/index.php:411
 msgid "Installation can not be completed"
 msgstr "Asennusta ei voi saada päätökseen"
 
-#: admin/install/index.php:413
 msgid "For the said reasons, Dotclear can not be installed. Please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to correct the problem."
 msgstr "Yllämainituista syistä Dotclearia ei saatu asennettua. Katso <a href=\"https://dotclear.org/documentation/2.0/admin/install\">asennusohjeesta</a>, kuinka ongelma ratkaistaan."
 
-#: admin/install/wizard.php:45
 #, php-format
 msgid "Path <strong>%s</strong> is not writable."
 msgstr "Polkuun <strong>%s</strong> ei voida kirjoittaa."
 
-#: admin/install/wizard.php:46
 msgid "Dotclear installation wizard could not create configuration file for you. You must change folder right or create the <strong>config.php</strong> file manually, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to do this."
 msgstr "Dotclear-asennusvelho ei kyennyt luomaan asetustiedostoa puolestasi. Muuta hakemiston käyttöoikeuksia tai luo <strong>config.php</strong> itse, katso toimintaohjeita <a href=\"https://dotclear.org/documentation/2.0/admin/install\">asennusohjeesta</a>."
 
-#: admin/install/wizard.php:71
 #, php-format
 msgid "Cannot write \"%s\" directory."
 msgstr "Tähän hakemistoon ei voi kirjoittaa."
 
-#: admin/install/wizard.php:98
 msgid "Master email is not valid."
 msgstr "Sähköpostiosoite ei kelpaa."
 
-#: admin/install/wizard.php:104
 #, php-format
 msgid "File %s does not exist."
 msgstr "Tiedostoa %s ei ole."
 
-#: admin/install/wizard.php:109 admin/install/wizard.php:130
 #, php-format
 msgid "Cannot write %s file."
 msgstr "Tiedostoa %s ei saatu luotua."
 
-#: admin/install/wizard.php:164 admin/install/wizard.php:172
 msgid "Dotclear installation wizard"
 msgstr "Dotclear-asennusvelho"
 
-#: admin/install/wizard.php:178
 msgid "Welcome"
 msgstr "Tervetuloa"
 
-#: admin/install/wizard.php:179
 msgid "To complete your Dotclear installation and start writing on your blog, we just need to know how to access your database and who you are. Just fill this two steps wizard with this information and we will be done."
 msgstr "Dotclearin asennuksen loppuunsaattamiseksi tarvitaan enää tieto siitä, miten tietokantaasi pääsee käsiksi ja kuka olet. Kun olet täyttänyt nämä tiedot tässä kaksivaiheisessa asennusvelhossa, asennus on valmis."
 
-#: admin/install/wizard.php:182
 msgid "Attention:"
 msgstr "Tärkeä huomautus:"
 
-#: admin/install/wizard.php:183
 msgid "this wizard may not function on every host. If it does not work for you, please refer to <a href=\"https://dotclear.org/documentation/2.0/admin/install\">the documentation</a> to learn how to create the <strong>config.php</strong> file manually."
 msgstr "Tämä asennusvelho ei ehkä toimi kaikissa verkkopalvelimissa. Jos et onnistu asentamaan näin, lue <a href=\"https://dotclear.org/documentation/2.0/admin/install\">asennusohjeesta</a>, kuinka voit itse luoda <strong>config.php</strong>-tiedoston."
 
-#: admin/install/wizard.php:190
 msgid "System information"
 msgstr "Järjestelmän tiedot"
 
-#: admin/install/wizard.php:192
 msgid "Please provide the following information needed to create your configuration file."
 msgstr "Anna seuraavat asetustiedoston luomiseksi tarvittavat tiedot."
 
-#: admin/install/wizard.php:195
 msgid "Database type:"
 msgstr "Tietokannan tyyppi:"
 
-#: admin/install/wizard.php:197
 msgid "MySQL (deprecated)"
 msgstr "MySQL (vanhentunut)"
 
-#: admin/install/wizard.php:198
 msgid "MySQLi"
 msgstr "MySQLi"
 
-#: admin/install/wizard.php:199
 msgid "MySQLi (full UTF-8)"
 msgstr "MySQLi (täysi UTF-8)"
 
-#: admin/install/wizard.php:200
 msgid "PostgreSQL"
 msgstr "PostgreSQL"
 
-#: admin/install/wizard.php:201
 msgid "SQLite"
 msgstr "MySQLi"
 
-#: admin/install/wizard.php:202
 msgid "Driver"
 msgstr "Ajuri"
 
-#: admin/install/wizard.php:203
 msgid "Database Host Name:"
 msgstr "Tietokantapalvelimen nimi:"
 
-#: admin/install/wizard.php:205
 msgid "Database Name:"
 msgstr "Tietokannan nimi:"
 
-#: admin/install/wizard.php:207
 msgid "Database User Name:"
 msgstr "Tietokannan käyttäjänimi:"
 
-#: admin/install/wizard.php:209
 msgid "Database Password:"
 msgstr "Tietokannan salasana:"
 
-#: admin/install/wizard.php:211
 msgid "Database Tables Prefix:"
 msgstr "Tietokantataulujen etuliite:"
 
-#: admin/install/wizard.php:214
 msgid "Prefix"
 msgstr "Etuliite"
 
-#: admin/install/wizard.php:217
 msgid "Master Email: (used as sender for password recovery)"
 msgstr "Mastersähköposti: (käytetään lähettäjänä salasanan palautuksessa)"
 
-#: admin/install/wizard.php:225
 msgid "Continue"
 msgstr "Jatka"
 
-#: admin/langs.php:36
 msgid "Invalid language zip file."
 msgstr "Virheellinen kielen zip-tiedosto."
 
-#: admin/langs.php:40
 msgid "The zip file does not appear to be a valid Dotclear language pack."
 msgstr "Zip-tiedosto ei liene kelvollinen Dotclear-kielitiedosto."
 
-#: admin/langs.php:49
 msgid "An error occurred during language upgrade."
 msgstr "Kielen päivittäminen epäonnistui."
 
-#: admin/langs.php:64
 msgid "No such installed language"
 msgstr "Kyseistä kieltä ei ole asennettu"
 
-#: admin/langs.php:68
 msgid "You can't remove English language."
 msgstr "Englannin kieltä ei voi poistaa."
 
-#: admin/langs.php:72
 msgid "Permissions to delete language denied."
 msgstr "Ei oikeutta poistaa kieltä."
 
-#: admin/langs.php:75 admin/langs.php:167
 msgid "Language has been successfully deleted."
 msgstr "Kieli poistettu."
 
-#: admin/langs.php:93
 msgid "Invalid language file URL."
 msgstr "Kielitiedoston verkko-osoite virheellinen."
 
-#: admin/langs.php:112 admin/langs.php:145 admin/langs.php:171
 msgid "Language has been successfully upgraded"
 msgstr "Kieli päivitetty."
 
-#: admin/langs.php:114 admin/langs.php:147 admin/langs.php:171
 msgid "Language has been successfully installed."
 msgstr "Kieli asennettu."
 
-#: admin/langs.php:133 inc/admin/lib.moduleslist.php:1275
-#: inc/admin/lib.moduleslist.php:2073
 msgid "Unable to move uploaded file."
 msgstr "Ei voida siirtää verkkosijaintiin ladattua tiedostoa."
 
-#: admin/langs.php:157 admin/langs.php:162
 msgid "Languages management"
 msgstr "Kielten hallinta"
 
-#: admin/langs.php:175
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr "Voit tästä asentaa, päivittää tai poistaa Dotcleariin asentamiasi kieliä."
 
-#: admin/langs.php:177
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
 msgstr "Voit vaihtaa käyttöliittymäkielesi Dotclear-järjestelmän <a href=\"%1$s\">asetuksista</a> tai blogisi pääkielen <a href=\"%2$s\">blogin asetuksista</a>."
 
-#: admin/langs.php:182
 msgid "Installed languages"
 msgstr "Asennetut kielet"
 
-#: admin/langs.php:196
 msgid "No additional language is installed."
 msgstr "Lisäkieliä ei ole asennettu."
 
-#: admin/langs.php:201
 msgid "Language"
 msgstr "Kieli"
 
-#: admin/langs.php:202 inc/admin/lib.moduleslist.php:577
 msgid "Action"
 msgstr "Toimenpide"
 
-#: admin/langs.php:230
 msgid "Install or upgrade languages"
 msgstr "Asenna tai päivitä kieliä"
 
-#: admin/langs.php:233
 #, php-format
 msgid "You can install or remove a language by adding or removing the relevant directory in your %s folder."
 msgstr "Voit asentaa tai poistaa kielen lisäämällä tai poistamalla ao. alihakemiston %s-kansiossasi."
 
-#: admin/langs.php:247
 msgid "Available languages"
 msgstr "Saatavilla olevat kielet"
 
-#: admin/langs.php:248
 #, php-format
 msgid "You can download and install a additional language directly from Dotclear.net. Proposed languages are based on your version: %s."
 msgstr "Voit ladata ja asentaa lisäkieliä suoraan Dotclear.netistä. Ehdotetut kielet perustuvat käyttämääsi versioon: %s."
 
-#: admin/langs.php:250 admin/user.php:297
 msgid "Language:"
 msgstr "Kieli:"
 
-#: admin/langs.php:258
 msgid "Install language"
 msgstr "Asenna kieli"
 
-#: admin/langs.php:268 inc/admin/lib.moduleslist.php:1320
 msgid "Upload a zip file"
 msgstr "Lataa zip-tiedosto palvelimelle"
 
-#: admin/langs.php:269
 msgid "You can install languages by uploading zip files."
 msgstr "Voit asentaa kieliä lataamalla palvelimelle zip-tiedostoja."
 
-#: admin/langs.php:270
 msgid "Language zip file:"
 msgstr "Kielen zip-tiedosto:"
 
-#: admin/langs.php:278
 msgid "Upload language"
 msgstr "Lataa kieli palvelimelle"
 
-#: admin/media.php:61
 msgid "By names, in ascending order"
 msgstr "Nimien mukaan nousevassa järjestyksessä"
 
-#: admin/media.php:62
 msgid "By names, in descending order"
 msgstr "Nimien mukaan laskevassa järjestyksessä"
 
-#: admin/media.php:63
 msgid "By dates, in ascending order"
 msgstr "Päiväysten mukaan nousevassa järjestyksessä"
 
-#: admin/media.php:64
 msgid "By dates, in descending order"
 msgstr "Päiväysten mukaan laskevassa järjestyksessä"
 
-#: admin/media.php:197 admin/media.php:198 admin/media.php:737
 msgid "Select this file"
 msgstr "Poista tämä blogi"
 
-#: admin/media.php:208 admin/media.php:212 admin/media.php:749
-#: admin/media.php:757
 msgid "Attach this file to entry"
 msgstr "Liitä tämä tiedosto merkintään"
 
-#: admin/media.php:217 admin/media.php:218
 msgid "Insert this file into entry"
 msgstr "Liitä tämä tiedosto merkintään"
 
-#: admin/media.php:236
 msgid "delete"
 msgstr "poista"
 
-#: admin/media.php:252 admin/media.php:273
 msgid "private media"
 msgstr "Yksityinen"
 
-#: admin/media.php:256 admin/media.php:276
 msgid "open"
 msgstr "avaa"
 
-#: admin/media.php:331
 msgid "Not a valid directory"
 msgstr "Kelpaamaton tiedosto"
 
-#: admin/media.php:400
 #, php-format
 msgid "Directory or file \"%s\" already exists."
 msgstr "Käyttäjä \"%s\" on jo olemassa."
 
-#: admin/media.php:407
 #, php-format
 msgid "Directory \"%s\" has been successfully created."
 msgstr "Hakemisto \"%s\" on luotu."
 
-#: admin/media.php:460 admin/media.php:709
 msgid "Files have been successfully uploaded."
 msgstr "Tiedosto on siirretty palvelimelle."
 
-#: admin/media.php:475
 #, php-format
 msgid "Successfully delete one media."
 msgid_plural "Successfully delete %d medias."
 msgstr[0] "Yksi mediatiedosto poistettu."
 msgstr[1] "%d mediatiedostoa poistettu."
 
-#: admin/media.php:495 admin/media.php:717
 msgid "Directory has been successfully removed."
 msgstr "Hakemisto on poistettu."
 
-#: admin/media.php:499 admin/media.php:713
 msgid "File has been successfully removed."
 msgstr "Tiedosto on poistettu."
 
-#: admin/media.php:518
 #, php-format
 msgid "Directory \"%s\" has been successfully rebuilt."
 msgstr "Hakemisto \"%s\" on rakennettu uudelleen."
 
-#: admin/media.php:529 admin/media.php:533 admin/media.php:566
-#: admin/media.php:579 admin/media.php:593 admin/media.php:604
-#: admin/media.php:688 admin/media.php:923 admin/media.php:950
-#: admin/media_item.php:275 admin/media_item.php:282
-#: inc/admin/class.dc.favorites.php:451 inc/admin/prepend.php:263
 msgid "Media manager"
 msgstr "Medianhallinta"
 
-#: admin/media.php:534 admin/post_media.php:64
 msgid "confirm removal"
 msgstr "vahvista poisto"
 
-#: admin/media.php:542
 #, php-format
 msgid "Are you sure you want to remove %s?"
 msgstr "Oletko varma, että haluat poistaa tämän: %s?"
 
-#: admin/media.php:545 admin/post_media.php:70
 msgid "Yes"
 msgstr "Kyllä"
 
-#: admin/media.php:580
 #, php-format
 msgid "%s file found"
 msgid_plural "%s files found"
 msgstr[0] "%s löydetty tiedosto"
 msgstr[1] "%s löydettya tiedostoa"
 
-#: admin/media.php:644
 msgid "Remove this folder from your favorites"
 msgstr "Poista tämä kansio suosikeista"
 
-#: admin/media.php:671
 msgid "Add this folder to your favorites"
 msgstr "Lisää tämä kansio suosikkeihin"
 
-#: admin/media.php:679
 msgid "Goto recent folder:"
 msgstr "Siirry aiempaan kansioon:"
 
-#: admin/media.php:701
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "Sinulla ei ole riittäviä oikeuksia tähän kansioon kirjoittamiseksi."
 
-#: admin/media.php:705
 msgid "Directory has been successfully created."
 msgstr "Hakemisto on luotu."
 
-#: admin/media.php:721
 msgid "Directory has been successfully rebuilt."
 msgstr "Hakemisto on rakennettu uudelleen."
 
-#: admin/media.php:725 admin/media_item.php:176
 msgid "Zip file has been successfully extracted."
 msgstr "Zip-tiedosto on purettu."
 
-#: admin/media.php:737
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "Valitse merkintään liitettävä tiedosto painamalla %s."
 
-#: admin/media.php:739 admin/media.php:797
 msgid "Choose selected medias"
 msgstr "Poista valitut media-aineistot"
 
-#: admin/media.php:739
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "Valitse tiedostot ja paina <strong>%s</strong>-nappia"
 
-#: admin/media.php:742 admin/media.php:751 admin/media.php:759
 msgid "or"
 msgstr "tai"
 
-#: admin/media.php:742 admin/media.php:751 admin/media.php:759
 msgid "upload a new file"
 msgstr "Lataa zip-tiedosto palvelimelle"
 
-#: admin/media.php:747
 #, php-format
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Valitse tiedosto, joka liitetään blogimerkintään %s painamalla %s"
 
-#: admin/media.php:756
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "Valitse merkintään liitettävä tiedosto painamalla %s"
 
-#: admin/media.php:801
 msgid "Remove selected medias"
 msgstr "Poista valitut media-aineistot"
 
-#: admin/media.php:817
 msgid "Will search into media filename (including path), title and description"
 msgstr "Haku media-aineistojen tiedostonnimistä (polkuineen), otsikoista ja kuvauksista"
 
-#: admin/media.php:828
 msgid "No file."
 msgstr "Ei tiedostoa."
 
-#: admin/media.php:839 admin/media.php:840
 msgid "Grid display mode"
 msgstr "Näyttöruudukko"
 
-#: admin/media.php:842 admin/media.php:843
 msgid "List display mode"
 msgstr "Näyttöluettelo"
 
-#: admin/media.php:846
 msgid "Sort files:"
 msgstr "Lajittele tiedostot:"
 
-#: admin/media.php:848
 msgid "Number of elements displayed per page:"
 msgstr "Sivua kohti näytettävien kohteiden lukumäärä:"
 
-#: admin/media.php:865
 msgid "Media list"
 msgstr "Media-aineistoluettelo"
 
-#: admin/media.php:869
 msgid "Size"
 msgstr "Koko"
 
-#: admin/media.php:906
 #, php-format
 msgid "Nb of items: %d → %d folder(s) + %d file(s)"
 msgstr "Kohteiden määrä: %d → %d kansio(ta) + %d tiedosto(a)"
 
-#: admin/media.php:907
 #, php-format
 msgid "Nb of items: %d"
 msgstr "Kohteiden määrä: %d"
 
-#: admin/media.php:923
 #, php-format
 msgid "In %s:"
 msgstr "%s:n sisällä:"
 
-#: admin/media.php:935
 msgid "Create new directory"
 msgstr "Luo uusi hakemisto"
 
-#: admin/media.php:937
 msgid "Directory Name:"
 msgstr "Hakemiston nimi:"
 
-#: admin/media.php:950
 #, php-format
 msgid "Backup content of %s"
 msgstr "Varmista %s:n sisältö"
 
-#: admin/media.php:952
 msgid "Download zip file"
 msgstr "Lataa zip-tiedosto"
 
-#: admin/media.php:972
 msgid "Add files"
 msgstr "Lisää tiedostoja"
 
-#: admin/media.php:973
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "Varo julkaisemasta media-aineistoja, joita et omista tai jotka ovat tekijänoikeudellisesti suojattuja."
 
-#: admin/media.php:983 inc/admin/lib.dc.page.php:928
 msgid "Choose file"
 msgstr "Valitse tiedosto"
 
-#: admin/media.php:984 inc/admin/lib.dc.page.php:929
 msgid "Choose files"
 msgstr "Valitse tiedostot"
 
-#: admin/media.php:988
 msgid "Maximum file size allowed:"
 msgstr "Suurin sallittu tiedostokoko:"
 
-#: admin/media.php:992 admin/media_item.php:827
 msgid "Private"
 msgstr "Yksityinen"
 
-#: admin/media.php:997
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "Jotta voisit lähettää useita tiedostoja samalla kertaa, voit ottaa parannetun tiedostonlatauksen käyttöön kohdassa"
 
-#: admin/media.php:998 admin/preferences.php:14
-#: inc/admin/class.dc.favorites.php:414 inc/admin/lib.dc.page.php:244
 msgid "My preferences"
 msgstr "Asetukset"
 
-#: admin/media.php:1002
 msgid "Refresh"
 msgstr "Päivitä"
 
-#: admin/media.php:1003
 msgid "Clear all"
 msgstr "Peruuta kaikki"
 
-#: admin/media.php:1004 inc/admin/lib.dc.page.php:932
-#: inc/admin/lib.moduleslist.php:1330
 msgid "Upload"
 msgstr "Lähetä palvelimelle"
 
-#: admin/media.php:1045
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "Media-aineistojen ja kuvien nykyasetukset on määritelty kohdassa %s"
 
-#: admin/media_item.php:68
 msgid "Not a valid file"
 msgstr "Kelpaamaton tiedosto"
 
-#: admin/media_item.php:95 admin/media_item.php:149 admin/media_item.php:303
 msgid "File has been successfully updated."
 msgstr "Tiedosto on päivitetty."
 
-#: admin/media_item.php:163 admin/media_item.php:306
 msgid "Thumbnails have been successfully updated."
 msgstr "Pikkukuvat on päivitetty."
 
-#: admin/media_item.php:204 admin/media_item.php:309
 msgid "Default media insertion settings have been successfully updated."
 msgstr "Media-aineistojen liittämisen oletusarvot on päivitetty."
 
-#: admin/media_item.php:326 admin/media_item.php:327
 msgid "Select media item"
 msgstr "Liitä tämä mediatiedosto"
 
-#: admin/media_item.php:355 admin/media_item.php:432
 msgid "Image size:"
 msgstr "Kuvan koko:"
 
-#: admin/media_item.php:380
 msgid "Select"
 msgstr "Valitse:"
 
-#: admin/media_item.php:402 admin/media_item.php:403
 msgid "Insert media item"
 msgstr "Liitä tämä mediatiedosto"
 
-#: admin/media_item.php:449
 msgid "Image legend and title"
 msgstr "Kuvan teksti ja otsikko"
 
-#: admin/media_item.php:462
 msgid "Title: "
 msgstr "Otsikko:"
 
-#: admin/media_item.php:464 inc/admin/lib.pager.php:259
-#: inc/admin/lib.pager.php:581 inc/admin/lib.pager.php:752
-#: inc/admin/lib.pager.php:875
 msgid "Legend: "
 msgstr "Teksti:"
 
-#: admin/media_item.php:470
 msgid "Image alignment"
 msgstr "Kuvan kohdistus"
 
-#: admin/media_item.php:488
 msgid "Image insertion"
 msgstr "Kuvan liittäminen"
 
-#: admin/media_item.php:491
 msgid "As a single image"
 msgstr "Yksittäisenä kuvana"
 
-#: admin/media_item.php:493
 msgid "As a link to the original image"
 msgstr "Linkkinä alkuperäiseen kuvaan"
 
-#: admin/media_item.php:501
 msgid "MP3 disposition"
 msgstr "MP3-dispositio"
 
-#: admin/media_item.php:502
 msgid "Please note that you cannot insert mp3 files with visual editor."
 msgstr "Huomaa, että et voi liittää mp3-tiedostoja WYSIWYG-muokkaimella."
 
-#: admin/media_item.php:523
 msgid "Please note that you cannot insert video files with visual editor."
 msgstr "Huomaa, että et voi liittää videotiedostoja WYSIWYG-muokkaimella."
 
-#: admin/media_item.php:527
 msgid "Video size"
 msgstr "Videon koko"
 
-#: admin/media_item.php:528
 msgid "Width:"
 msgstr "Leveys:"
 
-#: admin/media_item.php:530
 msgid "Height:"
 msgstr "Korkeus:"
 
-#: admin/media_item.php:537
 msgid "Video disposition"
 msgstr "Videodispositio"
 
-#: admin/media_item.php:558
 msgid "Media item will be inserted as a link."
 msgstr "Mediatiedosto liitetään linkkinä."
 
-#: admin/media_item.php:563 admin/popup_link.php:44
 msgid "Insert"
 msgstr "Liitä"
 
-#: admin/media_item.php:577
 msgid "Make current settings as default"
 msgstr "Tallenna nykyasetukset oletuksiksi"
 
-#: admin/media_item.php:593 admin/media_item.php:595 admin/media_item.php:661
 msgid "Media details"
 msgstr "Mediatiedoston tiedot"
 
-#: admin/media_item.php:624
 msgid "Available sizes:"
 msgstr "Tarjolla olevat koot:"
 
-#: admin/media_item.php:641
 msgid "Thumbnail details"
 msgstr "Pikkukuvan tiedot"
 
-#: admin/media_item.php:643 admin/media_item.php:668
 msgid "Image width:"
 msgstr "Kuvan koko:"
 
-#: admin/media_item.php:644 admin/media_item.php:669
 msgid "Image height:"
 msgstr "Kuvan kohdistus:"
 
-#: admin/media_item.php:645 admin/media_item.php:673
 msgid "File size:"
 msgstr "Tiedoston koko:"
 
-#: admin/media_item.php:646 admin/media_item.php:674
 msgid "File URL:"
 msgstr "Tiedoston verkko-osoite:"
 
-#: admin/media_item.php:663
 msgid "File owner:"
 msgstr "Tiedoston omistaja:"
 
-#: admin/media_item.php:664
 msgid "File type:"
 msgstr "Tiedostotyyppi:"
 
-#: admin/media_item.php:680
 msgid "Show entries containing this media"
 msgstr "Näytä blogimerkinnät, joissa on tämä mediatiedosto"
 
-#: admin/media_item.php:682
 msgid "Entries containing this media"
 msgstr "Tämän mediatiedoston sisältävät merkinnät"
 
-#: admin/media_item.php:711
 msgid "No entry seems contain this media."
 msgstr "Mikään merkintä ei sisältäne tätä mediatiedostoa."
 
-#: admin/media_item.php:718
 msgid "published"
 msgstr "julkaistu"
 
-#: admin/media_item.php:721
 msgid "unpublished"
 msgstr "julkaisematon"
 
-#: admin/media_item.php:724
 msgid "scheduled"
 msgstr "ajastettu"
 
-#: admin/media_item.php:727
 msgid "pending"
 msgstr "odottaa"
 
-#: admin/media_item.php:740
 msgid "Image details"
 msgstr "Kuvan tiedot"
 
-#: admin/media_item.php:753
 msgid "No detail"
 msgstr "Ei tietoja"
 
-#: admin/media_item.php:759
 msgid "Updates and modifications"
 msgstr "Päivitykset ja muutokset"
 
-#: admin/media_item.php:765 admin/media_item.php:767
 msgid "Update thumbnails"
 msgstr "Päivitä pikkukuvat"
 
-#: admin/media_item.php:766
 msgid "This will create or update thumbnails for this image."
 msgstr "Näin luot tai päivität tämän kuvan pikkukuvat."
 
-#: admin/media_item.php:775 admin/media_item.php:783
 msgid "Extract in a new directory"
 msgstr "Pura uudessa hakemistossa"
 
-#: admin/media_item.php:776 admin/media_item.php:785
 msgid "Extract in current directory"
 msgstr "Pura nykyhakemistossa"
 
-#: admin/media_item.php:781
 msgid "Extract archive"
 msgstr "Pura arkisto"
 
-#: admin/media_item.php:784
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Näin purat arkiston uudessa hakemistossa, jota ei pitäisi vielä olla olemassa."
 
-#: admin/media_item.php:786
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Näin purat arkiston nykyhakemistossa samalla päällekirjoittaen olemassaolevat tiedostot tai hakemiston."
 
-#: admin/media_item.php:788
 msgid "Extract mode:"
 msgstr "Purkutapa:"
 
-#: admin/media_item.php:790
 msgid "Extract"
 msgstr "Pura"
 
-#: admin/media_item.php:798
 msgid "Change media properties"
 msgstr "Muuta mediatiedoston ominaisuuksia"
 
-#: admin/media_item.php:799
 msgid "File name:"
 msgstr "Tiedostonimi:"
 
-#: admin/media_item.php:801
 msgid "File title:"
 msgstr "Tiedoston otsikko:"
 
-#: admin/media_item.php:809
 msgid "File description:"
 msgstr "Blogin kuvaus:"
 
-#: admin/media_item.php:815
 msgid "File date:"
 msgstr "Tiedoston päiväys:"
 
-#: admin/media_item.php:828
 msgid "New directory:"
 msgstr "Uusi hakemisto:"
 
-#: admin/media_item.php:837
 msgid "Change file"
 msgstr "Vaihda tiedosto"
 
-#: admin/media_item.php:839
 msgid "Choose a file:"
 msgstr "Valitse tiedosto:"
 
-#: admin/media_item.php:840
 #, php-format
 msgid "Maximum size %s"
 msgstr "Suurin koko %s"
 
-#: admin/media_item.php:843 inc/admin/lib.dc.page.php:933
 msgid "Send"
 msgstr "Lähetä"
 
-#: admin/media_item.php:851
 msgid "Delete this media"
 msgstr "Poista tämä mediatiedosto"
 
-#: admin/plugin.php:39
 msgid "No content found on this plugin."
 msgstr "Tällä liitännäisellä ei ole sisältöä."
 
-#: admin/plugin.php:85 admin/plugin.php:89
 msgid "Plugin not found"
 msgstr "Liitännäistä ei löydy"
 
-#: admin/plugin.php:93
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr "Etsimäänne liitännäistä ei ole tai sillä ei ole admin-sivua."
 
-#: admin/plugins.php:39 admin/plugins.php:47 admin/plugins.php:76
-#: admin/plugins.php:86 inc/admin/class.dc.favorites.php:480
-#: inc/admin/prepend.php:280
 msgid "Plugins management"
 msgstr "Liitännäisten hallinta"
 
-#: admin/plugins.php:48
 msgid "Plugin configuration"
 msgstr "Liitännäisen asetukset"
 
-#: admin/plugins.php:122
 msgid "Manual checking of plugins update done successfully."
 msgstr "Päivityksen itse käynnistetty tarkistus onnistui."
 
-#: admin/plugins.php:130 admin/plugins.php:131
 msgid "Update plugins"
 msgstr "Liitännäisten päivitys"
 
-#: admin/plugins.php:133
 #, php-format
 msgid "There is one plugin to update available from repository."
 msgid_plural "There are %s plugins to update available from repository."
 msgstr[0] "Säilöstä voidaan päivittää yksi liitännäinen."
 msgstr[1] "Säilöstä voidaan päivittää %s liitännäistä."
 
-#: admin/plugins.php:158
 msgid "Force checking update of plugins"
 msgstr "Pakota Dotclearin päivityksen tarkistus"
 
-#: admin/plugins.php:164 admin/plugins.php:171
 msgid "Installed plugins"
 msgstr "Asennetut liitännäiset"
 
-#: admin/plugins.php:171
 msgid "Activated plugins"
 msgstr "Käytössä olevat liitännäiset"
 
-#: admin/plugins.php:172
 msgid "You can configure and manage installed plugins from this list."
 msgstr "Voit hallita asennettuja liitännäisiä ja määritellä niiden asetukset tästä luettelosta."
 
-#: admin/plugins.php:189
 msgid "Deactivated plugins"
 msgstr "Käytöstä poistetut liitännäiset"
 
-#: admin/plugins.php:190
 msgid "Deactivated plugins are installed but not usable. You can activate them from here."
 msgstr "Käytöstä poistetut liitännäiset ovat asennettuja, mutta niitä ei voi käyttää. Voit ottaa ne käyttöön täältä."
 
-#: admin/plugins.php:214
 msgid "Add plugins"
 msgstr "Lisää liitännäisiä"
 
-#: admin/plugins.php:215
 msgid "Add plugins from repository"
 msgstr "Lisää liitännäisiä säilöstä"
 
-#: admin/plugins.php:242
 msgid "Add plugins from a package"
 msgstr "Lisää liitännäisiä ohjelmapaketista"
 
-#: admin/plugins.php:243
 msgid "You can install plugins by uploading or downloading zip files."
 msgstr "Voit asentaa liitännäisiä zip-tiedostoina lataamalla ne omalta koneeltasi tai verkkosijainnista palvelimelle."
 
-#: admin/plugins.php:257
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Jotkin toiminnot ovat pois käytöstä, anna kirjoitusoikeus liitännäishakemistoosi, jotta voisit hyödyntää niitä."
 
-#: admin/popup_link.php:19 admin/popup_link.php:21
 msgid "Add a link"
 msgstr "Lisää linkki"
 
-#: admin/popup_link.php:29
 msgid "Link URL:"
 msgstr "Linkin verkko-osoite:"
 
-#: admin/popup_link.php:32 admin/users_actions.php:190
-#: inc/admin/lib.moduleslist.php:1340 inc/admin/lib.pager.php:713
 msgid "URL"
 msgstr "URL:"
 
-#: admin/popup_link.php:35
 msgid "Link title:"
 msgstr "Linkin otsikko:"
 
-#: admin/popup_link.php:37
 msgid "Link language:"
 msgstr "Linkin kieli:"
 
-#: admin/popup_posts.php:43 admin/popup_posts.php:48
 msgid "Add a link to an entry"
 msgstr "Lisää linkki blogimerkintään"
 
-#: admin/popup_posts.php:51
 msgid "Entry type:"
 msgstr "Merkinnän tyyppi:"
 
-#: admin/popup_posts.php:52
 msgid "Ok"
 msgstr "Ok"
 
-#: admin/popup_posts.php:57
 msgid "Search entry:"
 msgstr "Etsi merkintää:"
 
-#: admin/popup_posts.php:58 admin/search.php:80 admin/search.php:84
-#: admin/search.php:94 inc/admin/class.dc.favorites.php:439
-#: inc/admin/prepend.php:267
 msgid "Search"
 msgstr "Haku"
 
-#: admin/popup_posts.php:75
 msgid "cancel"
 msgstr "peruuta"
 
-#: admin/post.php:82 admin/post.php:695 admin/post.php:701
 msgid "Edit post"
 msgstr "Muokkaa merkintää"
 
-#: admin/post.php:89
 msgid "This entry does not exist."
 msgstr "Tämä merkintä ei ole olemassa."
 
-#: admin/post.php:118
 msgid "Next entry"
 msgstr "Seuraava merkintä"
 
-#: admin/post.php:125
 msgid "Previous entry"
 msgstr "Edellinen merkintä"
 
-#: admin/post.php:177 admin/post.php:424
 msgid "All pings sent."
 msgstr "Kaikki takaisinviittaukset on lähetetty."
 
-#: admin/post.php:208
 msgid "Invalid publication date"
 msgstr "Virheellinen julkaisupäiväys"
 
-#: admin/post.php:298
 #, php-format
 msgid "The post \"%s\" has been successfully updated"
 msgstr "Merkintä \"%s\" on päivitetty."
 
-#: admin/post.php:318 admin/post.php:413 inc/admin/lib.dc.page.php:745
 msgid "Entry has been successfully created."
 msgstr "Merkintä on luotu."
 
-#: admin/post.php:348 admin/post.php:505 inc/admin/lib.pager.php:260
-#: inc/admin/lib.pager.php:294 inc/admin/lib.pager.php:415
-#: inc/admin/lib.pager.php:582 inc/admin/lib.pager.php:619
-#: inc/core/class.dc.blog.php:90 inc/core/class.dc.blog.php:95
 msgid "Published"
 msgstr "Julkaistu"
 
-#: admin/post.php:351 admin/post.php:509 inc/admin/lib.pager.php:261
-#: inc/admin/lib.pager.php:298 inc/admin/lib.pager.php:419
-#: inc/admin/lib.pager.php:583 inc/admin/lib.pager.php:623
-#: inc/core/class.dc.blog.php:89 inc/core/class.dc.blog.php:94
 msgid "Unpublished"
 msgstr "Julkaisematon"
 
-#: admin/post.php:354 inc/admin/lib.pager.php:262 inc/admin/lib.pager.php:302
-#: inc/admin/lib.pager.php:423 inc/core/class.dc.blog.php:88
 msgid "Scheduled"
 msgstr "Ajastettu"
 
-#: admin/post.php:357 admin/post.php:513 inc/admin/lib.pager.php:263
-#: inc/admin/lib.pager.php:306 inc/admin/lib.pager.php:427
-#: inc/admin/lib.pager.php:584 inc/admin/lib.pager.php:627
-#: inc/core/class.dc.blog.php:87 inc/core/class.dc.blog.php:93
 msgid "Pending"
 msgstr "Odottaa"
 
-#: admin/post.php:362
 #, php-format
 msgid "&ldquo;%s&rdquo;"
 msgstr "&rdquo;%s&rdquo;"
 
-#: admin/post.php:388 admin/post.php:402 admin/posts.php:310
-#: admin/posts.php:315 admin/preferences.php:146 admin/preferences.php:727
-#: inc/admin/actions/class.dcactionposts.php:34
-#: inc/admin/actions/class.dcactionposts.php:41
-#: inc/admin/class.dc.favorites.php:425 inc/admin/prepend.php:271
-#: inc/core/_fake_l10n.php:11
 msgid "Posts"
 msgstr "Blogimerkinnät"
 
-#: admin/post.php:411
 msgid "Entry has been successfully updated."
 msgstr "Merkintä on päivitetty."
 
-#: admin/post.php:415
 msgid "File has been successfully attached."
 msgstr "Tiedosto on liitetty."
 
-#: admin/post.php:417 admin/post_media.php:55
 msgid "Attachment has been successfully removed."
 msgstr "Liitetiedosto poistettu."
 
-#: admin/post.php:433
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Talleta merkintä XHTML-muunnoksen oikeellisuuden tarkistamiseksi."
 
-#: admin/post.php:437
 msgid "Go to this entry on the site"
 msgstr "Hyppää tähän merkintää verkkosivustossa"
 
-#: admin/post.php:487 inc/admin/actions/class.dcactioncomments.php:166
 msgid "IP address"
 msgstr "IP-osoite"
 
-#: admin/post.php:489 admin/post.php:539 inc/admin/lib.pager.php:653
 msgid "Edit"
 msgstr "Muokkaa"
 
-#: admin/post.php:517 inc/admin/lib.pager.php:585 inc/admin/lib.pager.php:631
-#: inc/core/class.dc.blog.php:92
 msgid "Junk"
 msgstr "Roska"
 
-#: admin/post.php:530
 msgid "select this comment"
 msgstr "Valitse tämä kommentti"
 
-#: admin/post.php:530
 msgid "select this trackback"
 msgstr "Valitse tämä takaisinviittaus"
 
-#: admin/post.php:539
 msgid "Edit this comment"
 msgstr "Muokkaa tätä kommenttia"
 
-#: admin/post.php:555
 msgid "Entry status"
 msgstr "Merkinnän tila"
 
-#: admin/post.php:560
 msgid "Publication date and hour"
 msgstr "Julkaisupäivä ja -aika"
 
-#: admin/post.php:573
 msgid "Entry language"
 msgstr "Merkinnän kieli"
 
-#: admin/post.php:578
 msgid "Text formatting"
 msgstr "Tekstin muotoilu"
 
-#: admin/post.php:584
 msgid "Convert to XHTML"
 msgstr "Muunna XHTML-muotoon"
 
-#: admin/post.php:586
 msgid "Filing"
 msgstr "Arkistointi"
 
-#: admin/post.php:591
 msgid "Selected entry"
 msgstr "Valittu merkintä"
 
-#: admin/post.php:594 admin/posts.php:125 admin/preferences.php:148
-#: admin/preferences.php:171 inc/admin/lib.pager.php:225
 msgid "Category"
 msgstr "Luokka"
 
-#: admin/post.php:610 admin/user.php:295
 msgid "Options"
 msgstr "Lisäasetukset"
 
-#: admin/post.php:614
 msgid "Comments and trackbacks list"
 msgstr "Kommenttien ja takaisinviittausten luettelo"
 
-#: admin/post.php:622
 msgid "Warning: Comments are not more accepted for this entry."
 msgstr "Varoitus: Tätä blogimerkintää ei voi enää kommentoida."
 
-#: admin/post.php:624
 msgid "Comments are not accepted on this blog so far."
 msgstr "Tällä hetkellä blogissa ei ole kommentointimahdollisuutta."
 
-#: admin/post.php:632
 msgid "Warning: Trackbacks are not more accepted for this entry."
 msgstr "Varoitus: Tähän blogimerkintään ei voi enää takaisinviitata."
 
-#: admin/post.php:633
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "Tällä hetkellä blogissa ei ole takaisinviittausmahdollisuutta."
 
-#: admin/post.php:641
 msgid "Edit basename"
 msgstr "Muokkaa tiedostonnimen kantaosaa"
 
-#: admin/post.php:645
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "Varoitus: Jos asetat itse tiedosto-osoitteen, voi syntyä ristiriita toisen samannimisen merkinnän kanssa."
 
-#: admin/post.php:661
 msgid "Excerpt:"
 msgstr "Ote blogimerkinnästä:"
 
-#: admin/post.php:662
 msgid "Introduction to the post."
 msgstr "Johdanto varsinaiseen blogimerkintään."
 
-#: admin/post.php:681
 msgid "Personal notes:"
 msgstr "Yksityisiä merkintöjä:"
 
-#: admin/post.php:682
 msgid "Unpublished notes."
 msgstr "Huomautuksia, joita ei ole tarkoitettu julkaistavaksi."
 
-#: admin/post.php:720
 msgid "Preview"
 msgstr "Esikatsele"
 
-#: admin/post.php:767 admin/post.php:777 admin/preferences.php:150
-#: admin/preferences.php:736 inc/admin/actions/class.dcactioncomments.php:20
-#: inc/admin/actions/class.dcactioncomments.php:35
-#: inc/admin/actions/class.dcactioncomments.php:42
-#: inc/admin/actions/class.dcactioncomments.php:63
-#: inc/admin/class.dc.favorites.php:432 inc/admin/lib.pager.php:227
-#: inc/admin/lib.pager.php:228 inc/admin/prepend.php:269
 msgid "Comments"
 msgstr "Kommentit"
 
-#: admin/post.php:771 admin/post.php:803
 msgid "Add a comment"
 msgstr "Lisää kommentti"
 
-#: admin/post.php:859 admin/preferences.php:151 inc/admin/lib.pager.php:229
-#: inc/admin/lib.pager.php:230
 msgid "Trackbacks"
 msgstr "Takaisinviittaukset"
 
-#: admin/post.php:866
 msgid "Trackbacks received"
 msgstr "Vastaanotetut takaisinviittaukset"
 
-#: admin/post.php:871
 msgid "No trackback"
 msgstr "Ei takaisinviittausta"
 
-#: admin/post.php:879
 msgid "Selected trackbacks action:"
 msgstr "Tee valittuille takaisinviittauksille:"
 
-#: admin/post.php:896 admin/post.php:907
 msgid "Ping blogs"
 msgstr "Lähetä takaisinviittaukset"
 
-#: admin/post.php:898
 msgid "URLs to ping:"
 msgstr "Takaisinviitattavat verkko-osoitteet:"
 
-#: admin/post.php:902
 msgid "Excerpt to send:"
 msgstr "Lähetettävä ote:"
 
-#: admin/post.php:911
 msgid "Auto discover ping URLs"
 msgstr "Takaisinviittausosoitteiden automaattinen tunnistus"
 
-#: admin/post.php:919
 msgid "Previously sent pings"
 msgstr "Aiemmin lähetetyt takaisinviittaukset"
 
-#: admin/post_media.php:43
 msgid "This attachment does not exist"
 msgstr "Tätä liitettä ei ole"
 
-#: admin/post_media.php:62
 msgid "Remove attachment"
 msgstr "Poista liite"
 
-#: admin/post_media.php:64
 msgid "Attachment"
 msgstr "Liite"
 
-#: admin/post_media.php:68
 msgid "Are you sure you want to remove this attachment?"
 msgstr "Oletko varma, että haluat poistaa tämän liitetiedoston?"
 
-#: admin/posts.php:53 inc/admin/lib.admincombos.php:33
-#: inc/admin/lib.pager.php:287
 msgid "(No cat)"
 msgstr "(ei mitään)"
 
-#: admin/posts.php:70 admin/posts.php:128 admin/preferences.php:174
-#: inc/admin/lib.pager.php:265 inc/admin/lib.pager.php:318
-#: inc/admin/lib.pager.php:439
 msgid "Selected"
 msgstr "Valittu"
 
-#: admin/posts.php:71
 msgid "Not selected"
 msgstr "Ei valittu"
 
-#: admin/posts.php:76 admin/posts.php:82
 msgid "Opened"
 msgstr "Auki"
 
-#: admin/posts.php:77 admin/posts.php:83
 msgid "Closed"
 msgstr "Kiinni"
 
-#: admin/posts.php:88
 msgid "With attachments"
 msgstr "Liitteiden kera"
 
-#: admin/posts.php:89
 msgid "Without attachments"
 msgstr "Ilman liitteitä"
 
-#: admin/posts.php:94
 msgid "With password"
 msgstr "Salasanan kera"
 
-#: admin/posts.php:95
 msgid "Without password"
 msgstr "Ilman salasanaa"
 
-#: admin/posts.php:129 admin/preferences.php:175
 msgid "Number of comments"
 msgstr "Kommenttien lukumäärä"
 
-#: admin/posts.php:130 admin/preferences.php:176
 msgid "Number of trackbacks"
 msgstr "Takaisinviittausten lukumäärä"
 
-#: admin/posts.php:319
 msgid "Selected entries have been successfully updated."
 msgstr "Valitut merkinnät on päivitetty."
 
-#: admin/posts.php:321
 msgid "Selected entries have been successfully deleted."
 msgstr "Valitut merkinnät on poistettu."
 
-#: admin/posts.php:338
 msgid "Format:"
 msgstr "Muoto:"
 
-#: admin/posts.php:345
 msgid "Selected:"
 msgstr "Valittu:"
 
-#: admin/posts.php:347
 msgid "Attachments:"
 msgstr "Liitteet:"
 
-#: admin/posts.php:349
 msgid "Month:"
 msgstr "Kuukausi:"
 
-#: admin/posts.php:351
 msgid "Lang:"
 msgstr "Kieli:"
 
-#: admin/posts.php:353
 msgid "Comments:"
 msgstr "Kommentit"
 
-#: admin/posts.php:355
 msgid "Trackbacks:"
 msgstr "Takaisinviittaukset"
 
-#: admin/posts.php:367 admin/preferences.php:734
 msgid "entries per page"
 msgstr "merkintää sivua kohti"
 
-#: admin/posts.php:388 admin/search.php:120
 msgid "Selected entries action:"
 msgstr "Tee valituille merkinnöille:"
 
-#: admin/preferences.php:106
 msgid "Light"
 msgstr "Vaalea"
 
-#: admin/preferences.php:107
 msgid "Dark"
 msgstr "Tumma"
 
-#: admin/preferences.php:108
 msgid "Automatic"
 msgstr "Auto"
 
-#: admin/preferences.php:113
 msgid "Smallest"
 msgstr "Pienin"
 
-#: admin/preferences.php:114
 msgid "Smaller"
 msgstr "Pienempi"
 
-#: admin/preferences.php:116
 msgid "Larger"
 msgstr "Suurempi"
 
-#: admin/preferences.php:117
 msgid "Largest"
 msgstr "Suurin"
 
-#: admin/preferences.php:129
 msgid "Blog description (in blog parameters)"
 msgstr "Blogin kuvaus (blogin parametrit)"
 
-#: admin/preferences.php:130
 msgid "Category description"
 msgstr "Luokkien kuvaus"
 
-#: admin/preferences.php:205 admin/users.php:17 inc/admin/lib.pager.php:847
 msgid "Last Name"
 msgstr "Sukunimi"
 
-#: admin/preferences.php:206 admin/users.php:18 inc/admin/lib.pager.php:846
 msgid "First Name"
 msgstr "Etunimi"
 
-#: admin/preferences.php:207 admin/users.php:19 inc/admin/lib.pager.php:848
 msgid "Display name"
 msgstr "Näytettävä nimi"
 
-#: admin/preferences.php:208 admin/users.php:20
 msgid "Number of entries"
 msgstr "Blogimerkintöjen määrä"
 
-#: admin/preferences.php:248 admin/preferences.php:265
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Sähköpostiosoitteesi tai salasanasi vaihtamiseen vaaditaan nykyinen salasana."
 
-#: admin/preferences.php:284
 msgid "Personal information has been successfully updated."
 msgstr "Henkilökohtaiset tietosi on päivitetty."
 
-#: admin/preferences.php:388
 msgid "Personal options has been successfully updated."
 msgstr "Henkilökohtaiset asetukset on päivitetty."
 
-#: admin/preferences.php:416
 msgid "Dashboard options has been successfully updated."
 msgstr "Ohjaustaulun asetukset on päivitetty."
 
-#: admin/preferences.php:427 admin/preferences.php:450
 msgid "No favorite selected"
 msgstr "Ei valittua suosikkia"
 
-#: admin/preferences.php:438
 msgid "Favorites have been successfully added."
 msgstr "Suosikit on lisätty."
 
-#: admin/preferences.php:463
 msgid "Favorites have been successfully removed."
 msgstr "Suosikit on poistettu."
 
-#: admin/preferences.php:489
 msgid "Favorites have been successfully updated."
 msgstr "Suosikit on päivitetty."
 
-#: admin/preferences.php:500
 msgid "Default favorites have been successfully updated."
 msgstr "Oletussuosikit on päivitetty."
 
-#: admin/preferences.php:513
 msgid "Dashboard items order have been successfully reset."
 msgstr "Luokkien järjestys on nyt oletusarvoinen."
 
-#: admin/preferences.php:547 admin/preferences.php:550
 msgid "My profile"
 msgstr "Oma käyttäjäprofiili"
 
-#: admin/preferences.php:567 admin/user.php:270
 msgid "Display name:"
 msgstr "Näytettävä nimi:"
 
-#: admin/preferences.php:589
 msgid "Language for my interface:"
 msgstr "Käyttöliittymäni kieli:"
 
-#: admin/preferences.php:592
 msgid "My timezone:"
 msgstr "Aikavyöhykkeeni:"
 
-#: admin/preferences.php:597
 msgid "Change my password"
 msgstr "Vaihda salasanani"
 
-#: admin/preferences.php:612
 msgid "Confirm new password:"
 msgstr "Vahvista uusi salasana"
 
-#: admin/preferences.php:618
 msgid "Your current password:"
 msgstr "Nykyinen salasanasi:"
 
-#: admin/preferences.php:624
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Joudut antamaan nykyisen salasanasi, jotta voisit tallentaa muutetun sähköpostiosoitteesi tai salasanasi."
 
-#: admin/preferences.php:631
 msgid "Update my profile"
 msgstr "Päivitä profiilini"
 
-#: admin/preferences.php:639 admin/preferences.php:643
 msgid "My options"
 msgstr "Omat asetukseni"
 
-#: admin/preferences.php:647 admin/user.php:296
 msgid "Interface"
 msgstr "Käyttöliittymä"
 
-#: admin/preferences.php:649
 msgid "Theme:"
 msgstr "Teema:"
 
-#: admin/preferences.php:654
 msgid "Activate enhanced uploader in media manager"
 msgstr "Ota käyttöön parannettu tiedostonlataus medianhallinnassa"
 
-#: admin/preferences.php:658
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Poista javascriptilla toteutettu vedä-ja-pudota -toiminto käytöstä hallintaliittymässä"
 
-#: admin/preferences.php:659
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Tämän valitsemalla voi kirjoittaa elementin järjestysnumeron numeerisiin kenttiin."
 
-#: admin/preferences.php:663
 msgid "Hide all secondary information and notes"
 msgstr "Piilota kaikki lisätiedot ja huomautukset"
 
-#: admin/preferences.php:667
 msgid "Hide help button"
 msgstr "Piilota ohje-nappi"
 
-#: admin/preferences.php:671
 msgid "Show asynchronous requests indicator"
 msgstr "Näytä asynkronipyyntöjen osoitin"
 
-#: admin/preferences.php:673
 msgid "Font size:"
 msgstr "Tiedoston koko:"
 
-#: admin/preferences.php:678
 msgid "Activate adpative font size"
 msgstr "Ota käyttöön mukautuva merkistökoko"
 
-#: admin/preferences.php:679
 msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
 msgstr "Mikäli käytössä, merkistön koko vaihtelee katselunäkymän koon mukaan (12px–16px merkistön oletuskoolla)."
 
-#: admin/preferences.php:682
 msgid "Number of elements displayed per page in media manager:"
 msgstr "Näytettävien kohteiden määrä sivua kohti medianhallinnassa:"
 
-#: admin/preferences.php:686
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Ehdotettavien aiempien kansioiden määrä medianhallinnassa:"
 
-#: admin/preferences.php:688
 msgid "Leave empty to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Jätä tyhjäksi, jos et halua muutosta, näytetään vain jos Javascript on käytössä selaimessa."
 
-#: admin/preferences.php:694
 msgid "Do not use standard favicon"
 msgstr "Älä käytä Dotclear-vakiokuvaketta"
 
-#: admin/preferences.php:695
 msgid "This will be applied for all users"
 msgstr "Tämä valinta koskee kaikkia käyttäjiä"
 
-#: admin/preferences.php:704
 msgid "Optional columns displayed in lists"
 msgstr "Valinnaiset luetteloissa näytetyt sarakkeet"
 
-#: admin/preferences.php:721
 msgid "Options for lists"
 msgstr "Luetteloiden asetukset"
 
-#: admin/preferences.php:724
 msgid "Apply filters on the fly"
 msgstr "Ryhdy käyttämään suodattimia saman tien"
 
-#: admin/preferences.php:764 admin/users.php:151
 msgid "users per page"
 msgstr "käyttäjää sivua kohti"
 
-#: admin/preferences.php:772 admin/user.php:305
 msgid "Edition"
 msgstr "Sisällönmuokkaus"
 
-#: admin/preferences.php:777
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Muotoa %s varten valittu ensisijainen muokkain:"
 
-#: admin/preferences.php:780
 msgid "Choose an editor"
 msgstr "Valitse muokkain"
 
-#: admin/preferences.php:785 admin/user.php:306
 msgid "Preferred format:"
 msgstr "Ensisijainen muokkausmuoto:"
 
-#: admin/preferences.php:789 admin/user.php:310
 msgid "Default entry status:"
 msgstr "Merkintöjen oletustila:"
 
-#: admin/preferences.php:792 admin/user.php:314
 msgid "Entry edit field height:"
 msgstr "Merkinnän muokkauskentän korkeus:"
 
-#: admin/preferences.php:797
 msgid "Enable WYSIWYG mode"
 msgstr "Käytä WYSIWYG-muokkausta"
 
-#: admin/preferences.php:801
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Näytä muokkaimen työkalupalkki tekstialueen alapuolella (jos mahdollista)"
 
-#: admin/preferences.php:806
 msgid "Use xhtml editor for:"
 msgstr "Käytä xhtml-muokkainta muokattaessa:"
 
-#: admin/preferences.php:817
 msgid "Other options"
 msgstr "Muut asetukset"
 
-#: admin/preferences.php:825
 msgid "Save my options"
 msgstr "Tallenna asetukseni"
 
-#: admin/preferences.php:833 admin/preferences.php:835
-#: inc/admin/lib.dc.page.php:242
 msgid "My dashboard"
 msgstr "Ohjaustaulu"
 
-#: admin/preferences.php:840 inc/admin/class.dc.favorites.php:304
 msgid "My favorites"
 msgstr "Suosikit"
 
-#: admin/preferences.php:860
 #, php-format
 msgid "position of %s"
 msgstr "%s:n sijainti"
 
-#: admin/preferences.php:876
 msgid "Save order"
 msgstr "Tallenna järjestys"
 
-#: admin/preferences.php:879
 msgid "Delete selected favorites"
 msgstr "Poista valitut suosikit"
 
-#: admin/preferences.php:881
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Oletko varma, että haluat poistaa valitut suosikit?"
 
-#: admin/preferences.php:885
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Jos olet superjärjestelmänvalvoja, voit määrittää tämän suosikkikokoelman oletuksena käytettäväksi kaikissa tähän asennukseen kuuluvissa blogeissa."
 
-#: admin/preferences.php:886
 msgid "Define as default favorites"
 msgstr "Määritä oletussuosikeiksi"
 
-#: admin/preferences.php:894
 msgid "Currently no personal favorites."
 msgstr "Ei omia suosikkeja tällä hetkellä"
 
-#: admin/preferences.php:906
 msgid "Other available favorites"
 msgstr "Muut valittavissa olevat suosikit"
 
-#: admin/preferences.php:930
 msgid "(default favorite)"
 msgstr "(oletussuosikki)"
 
-#: admin/preferences.php:940
 msgid "Add to my favorites"
 msgstr "Lisää suosikkeihin"
 
-#: admin/preferences.php:950
 msgid "Menu"
 msgstr "Valikko"
 
-#: admin/preferences.php:953
 msgid "Display favorites at the top of the menu"
 msgstr "Näytä suosikit valikon yläosassa"
 
-#: admin/preferences.php:957
 msgid "Dashboard icons"
 msgstr "Ohjaustaulun kuvakkeet"
 
-#: admin/preferences.php:960
 msgid "Display dashboard icons"
 msgstr "Ohjaustaulun kuvakkeet"
 
-#: admin/preferences.php:964
 msgid "Iconset:"
 msgstr "Kuvakesarja:"
 
-#: admin/preferences.php:974
 msgid "Dashboard modules"
 msgstr "Ohjaustaulun moduulit"
 
-#: admin/preferences.php:978
 msgid "Display documentation links"
 msgstr "Näytä linkit dokumentaatioon"
 
-#: admin/preferences.php:982
 msgid "Display Dotclear news"
 msgstr "Näytä Dotclear news"
 
-#: admin/preferences.php:986
 msgid "Display quick entry form"
 msgstr "Näytä pikasyöttölomake"
 
-#: admin/preferences.php:992
 msgid "Do not display Dotclear updates"
 msgstr "Älä näytä Dotclear-päivityksiä"
 
-#: admin/preferences.php:1004
 msgid "Save my dashboard options"
 msgstr "Tallenna ohjaustauluasetukseni"
 
-#: admin/preferences.php:1011
 msgid "Dashboard items order"
 msgstr "Ohjaustaulun moduulit"
 
-#: admin/preferences.php:1015
 msgid "Reset dashboard items order"
 msgstr "Palauta ohjaustaulun kohteiden oletusjärjestys"
 
-#: admin/search.php:90
 msgid "Search options"
 msgstr "Hakuasetukset"
 
-#: admin/search.php:91
 msgid "Query:"
 msgstr "Kysely:"
 
-#: admin/search.php:92
 msgid "Search in entries"
 msgstr "Haku merkinnöistä"
 
-#: admin/search.php:93
 msgid "Search in comments"
 msgstr "Haku kommenteista"
 
-#: admin/search.php:108
 #, php-format
 msgid "%d entries found"
 msgstr "%d löydettyä merkintää"
 
-#: admin/search.php:108
 #, php-format
 msgid "%d entry found"
 msgstr "%d löydetty merkintä"
 
-#: admin/search.php:135
 #, php-format
 msgid "%d comment found"
 msgstr "%d löydetty kommentti"
 
-#: admin/search.php:135
 #, php-format
 msgid "%d comments found"
 msgstr "%d löydettyä kommenttia"
 
-#: admin/services.php:44 inc/admin/class.dc.favorites.php:500
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
 msgstr[0] "%d merkintä"
 msgstr[1] "%d merkintää"
 
-#: admin/services.php:61 inc/admin/class.dc.favorites.php:507
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
 msgstr[0] "%d kommentti"
 msgstr[1] "%d kommenttia"
 
-#: admin/services.php:75
 msgid "Dotclear news not available"
 msgstr "Dotclear news ei ole saatavana"
 
-#: admin/services.php:90
 msgid "Dotclear news"
 msgstr "Dotclear news"
 
-#: admin/services.php:99 admin/services.php:104
 msgid "%d %B %Y:"
 msgstr "%d.%m.%Y:"
 
-#: admin/services.php:124
 msgid "Dotclear update not available"
 msgstr "Dotclear-päivitystä ei ole tarjolla"
 
-#: admin/services.php:136
 #, php-format
 msgid "Dotclear %s is available!"
 msgstr "Dotclearin versio %s on saatavana!"
 
-#: admin/services.php:137
 msgid "Upgrade now"
 msgstr "Päivitä nyt"
 
-#: admin/services.php:138
 msgid "Remind me later"
 msgstr "Muistuta myöhemmin"
 
-#: admin/services.php:140 admin/update.php:212 admin/update.php:213
 msgid "Information about this version"
 msgstr "Tietoja tästä versiosta"
 
-#: admin/services.php:144
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %s, your's is currently %s"
 msgstr "Uusi versio Dotclearista on tarjolla, mutta se vaatii PHP-versiota, joka on ≥ %s, käyttämäsi PHP-versio on nyt %s"
 
-#: admin/services.php:152
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr "Seuraavat versiot Dotclearista eivät tue PHP-versiota, joka on < %s, käyttämäsi PHP-versio on nyt %s"
 
-#: admin/services.php:650
 msgid "List options saved"
 msgstr "Luetteloasetukset tallennettu"
 
-#: admin/update.php:20 admin/update.php:25 admin/update.php:38
-#: admin/update.php:43 admin/update.php:183 admin/update.php:191
-#: admin/update.php:202
 msgid "Dotclear update"
 msgstr "Dotclearin päivitys"
 
-#: admin/update.php:29 admin/update.php:47
 msgid "Precheck update error"
 msgstr "Virhe ennen päivitystä"
 
-#: admin/update.php:30
 msgid "Backup directory does not exist"
 msgstr "Varmistushakemistoa ei ole"
 
-#: admin/update.php:48
 msgid "Access denied"
 msgstr "Lupa evätty."
 
-#: admin/update.php:94
 #, php-format
 msgid "Unable to delete file %s"
 msgstr "Tiedostoa %s ei voi poistaa"
 
-#: admin/update.php:125
 #, php-format
 msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
 msgstr "Ladattu Dotclear-ohjelmapaketti vaikuttaa vialliselta. Koeta <a %s>ladata se</a> uudestaan."
 
-#: admin/update.php:128
 msgid "If this problem persists try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr "Jos ongelma jatkuu, koeta <a href=\"https://dotclear.org/download\">ladata tästä</a> ja päivittää itse käsin."
 
-#: admin/update.php:154
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr "Koska seuraavia Dotclear-tiedostoja on muutettu, asennustasi ei voida päivittää automaattisesti. Joudut <a href=\"https://dotclear.org/download\">lataaman päivityksen tästä</a> ja suorittamaan päivityksen itse käsin."
 
-#: admin/update.php:159
 #, php-format
 msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
 msgstr "Seuraaravia Dotclear-asennukseesi kuuluvia tiedostoja ei voitu lukea. Korjaa tämä asiaintila tai luo %s-niminen varmistustiedosto itse käsin."
 
-#: admin/update.php:164
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"https://dotclear.org/download\">update manually</a>."
 msgstr "Seuraaravia Dotclear-asennukseesi kuuluvia tiedostoja ei voitu kirjoittaa. Korjaa tämä asiaintila tai <a href=\"https://dotclear.org/download\">ladata tästä</a> ja päivittää itse käsin."
 
-#: admin/update.php:197
 msgid "Manual checking of update done successfully."
 msgstr "Päivityksen itse käynnistetty tarkistus onnistui."
 
-#: admin/update.php:204
 msgid "No newer Dotclear version available."
 msgstr "Ei uudempaa Dotclear-versiota."
 
-#: admin/update.php:207
 msgid "Force checking update Dotclear"
 msgstr "Pakota Dotclearin päivityksen tarkistus"
 
-#: admin/update.php:211
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s on saatavilla."
 
-#: admin/update.php:217
 #, php-format
 msgid "PHP version is %s (%s or earlier needed)."
 msgstr "PHP-versiosi on %s (tarvitaan %s tai uudempi)."
 
-#: admin/update.php:220
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
 msgstr "Dotclear-asennuksesi päivittämiseksi paina seuraavaa nappia. Nykyinen asennuksesi varmistetaan juurihakemistoosi luotavaan tiedostoon."
 
-#: admin/update.php:224
 msgid "Update Dotclear"
 msgstr "Päivitä Dotclear"
 
-#: admin/update.php:231
 msgid "Manage backup files"
 msgstr "Hallinnoi varmistustiedostoja"
 
-#: admin/update.php:234
 msgid "Update backup files"
 msgstr "Päivitysten varmistustiedostot"
 
-#: admin/update.php:235
 msgid "The following files are backups of previously updates. You can revert your previous installation or delete theses files."
 msgstr "Seuraavat tiedostot ovat aiempien päivitysten varmistuksia. Voit palata aiempaan asennukseesi tai poistaa nämä tiedostot."
 
-#: admin/update.php:246
 msgid "Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version."
 msgstr "Huomaa, että aiempaan Dotclear-versioosi palaamisella voi olla haitallisia sivuvaikutuksia. Palauta vanha versio vain, jos uusi versio aiheuttaa isoja ongelmia."
 
-#: admin/update.php:248
 #, php-format
 msgid "You should not revert to version prior to last one (%s)."
 msgstr "Viimeisintä versiota (%s) aiempaan versioon ei tulisi palata."
 
-#: admin/update.php:250
 msgid "Delete selected file"
 msgstr "Poista valittu tiedosto"
 
-#: admin/update.php:251
 msgid "Revert to selected file"
 msgstr "Palauta valittu tiedosto"
 
-#: admin/update.php:260
 msgid "Congratulations, you're one click away from the end of the update."
 msgstr "Onnittelut, päivitys on valmis yhden napin painalluksen jälkeen."
 
-#: admin/update.php:261
 msgid "Finish the update."
 msgstr "Suorita päivitys loppuun."
 
-#: admin/user.php:14 admin/users.php:133
 msgid "New user"
 msgstr "Uusi käyttäjä"
 
-#: admin/user.php:126 admin/user.php:180 admin/users_actions.php:106
 msgid "User has been successfully updated."
 msgstr "Käyttäjä on päivitetty"
 
-#: admin/user.php:132
 #, php-format
 msgid "User \"%s\" already exists."
 msgstr "Käyttäjä \"%s\" on jo olemassa."
 
-#: admin/user.php:143 admin/user.php:184
 msgid "User has been successfully created."
 msgstr "Käyttäjä on luotu."
 
-#: admin/user.php:144
 msgid "User has no permission, he will not be able to login yet. See below to add some."
 msgstr "Käyttäjällä ei ole käyttölupaa, eikä hän voi kirjautua sisään vielä. Katso alempaa kuinka toimia."
 
-#: admin/user.php:192
 msgid "User profile"
 msgstr "Käyttäjäprofiili"
 
-#: admin/user.php:194
 msgid "User ID:"
 msgstr "Käyttäjänimi:"
 
-#: admin/user.php:197
 msgid "Login"
 msgstr "Käyttäjätunnus"
 
-#: admin/user.php:205
 msgid "Warning:"
 msgstr "Varoitus:"
 
-#: admin/user.php:206
 msgid "If you change your username, you will have to log in again."
 msgstr "Jos muutat käyttäjänimeäsi, joudut kirjautumaan uudelleen sisään."
 
-#: admin/user.php:241
 msgid "Password change required to connect"
 msgstr "Salasana on vaihdettava ensi kertaa kirjauduttaessa"
 
-#: admin/user.php:283
 msgid "Mandatory for password recovering procedure."
 msgstr "Pakollinen unohtunutta salasanaa palautettaessa."
 
-#: admin/user.php:301
 msgid "Timezone:"
 msgstr "Aikavyöhyke:"
 
-#: admin/user.php:335
 msgid "Save and create another"
 msgstr "Tallenna ja luo toinen"
 
-#: admin/user.php:345 admin/users_actions.php:119
 msgid "Permissions"
 msgstr "Käyttöoikeudet"
 
-#: admin/user.php:350
 msgid "Add new permissions"
 msgstr "Lisää uusia käyttöoikeuksia"
 
-#: admin/user.php:362
 msgid "No permissions so far."
 msgstr "Ei käyttöoikeuksia toistaiseksi."
 
-#: admin/user.php:368 inc/admin/lib.dc.page.php:74
 msgid "Blog:"
 msgstr "Blogi:"
 
-#: admin/user.php:393
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr "%s on superjärjestelmänvalvoja (kaikki käyttöoikeudet kaikkiin blogeihin)."
 
-#: admin/user.php:399
 msgid "Direct links"
 msgstr "Suorat linkit"
 
-#: admin/user.php:402
 msgid "List of posts"
 msgstr "Blogimerkintöjen luettelo"
 
-#: admin/user.php:408
 msgid "List of comments"
 msgstr "Kommenttien luettelo"
 
-#: admin/users.php:43 admin/users_actions.php:220
 msgid "Set permissions"
 msgstr "Aseta käyttöoikeudet"
 
-#: admin/users.php:126
 msgid "User has been successfully removed."
 msgstr "Käyttäjä on poistettu."
 
-#: admin/users.php:129
 msgid "The permissions have been successfully updated."
 msgstr "Käyttöoikeudet on päivitetty."
 
-#: admin/users.php:173
 msgid "Selected users action:"
 msgstr "Valittuihin käyttäjiin kohdistuva toimi:"
 
-#: admin/users_actions.php:50
 msgid "No blog or user given."
 msgstr "Ei annettu blogia tai käyttäjää."
 
-#: admin/users_actions.php:62
 msgid "You cannot delete yourself."
 msgstr "Et voi poistaa itseäsi."
 
-#: admin/users_actions.php:74
 msgid "User has been successfully deleted."
 msgstr "Käyttäjä on poistettu."
 
-#: admin/users_actions.php:159
 msgid "Back to user profile"
 msgstr "Paluu käyttäjäprofiiliin"
 
-#: admin/users_actions.php:177
 #, php-format
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
 msgstr "Valitse yksi tai useampi blogi, joihin seuraavilla käyttäjillä on käyttöoikeudet: %s."
 
-#: admin/users_actions.php:182 inc/admin/lib.pager.php:696
 msgid "No blog"
 msgstr "Ei blogia"
 
-#: admin/users_actions.php:191 inc/admin/actions/class.dcaction.php:79
 msgid "Entries"
 msgstr "Merkinnät"
 
-#: admin/users_actions.php:205
 msgid "select"
 msgstr "valitse"
 
-#: admin/users_actions.php:240
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
 msgstr "Olet muuttamassa käyttäjien %s käyttöoikeuksia näiden blogien suhteen."
 
-#: admin/users_actions.php:283
 msgid "Validate permissions"
 msgstr "Käyttöoikeuksien tarkistus"
 
-#: inc/admin/actions/class.dcactionblogs.php:47
 msgid "Back to blogs list"
 msgstr "Paluu kommenttien luetteloon"
 
-#: inc/admin/actions/class.dcactionblogs.php:62
 msgid "Blogs actions"
 msgstr "Blogien luettelo"
 
-#: inc/admin/actions/class.dcactionblogs.php:86 inc/admin/lib.pager.php:711
 msgid "Blog id"
 msgstr "Blogin tunniste"
 
-#: inc/admin/actions/class.dcactionblogs.php:118
 msgid "Set online"
 msgstr "Aseta: verkossa"
 
-#: inc/admin/actions/class.dcactionblogs.php:119
 msgid "Set offline"
 msgstr "Aseta: ei verkossa"
 
-#: inc/admin/actions/class.dcactionblogs.php:120
 msgid "Set as removed"
 msgstr "Aseta: poistettu"
 
-#: inc/admin/actions/class.dcactionblogs.php:140
-#: inc/admin/actions/class.dcactionblogs.php:170
 msgid "No blog selected"
 msgstr "Ei valittua blogia"
 
-#: inc/admin/actions/class.dcactionblogs.php:158
 msgid "Selected blogs have been successfully updated."
 msgstr "Valitut blogit on päivitetty."
 
-#: inc/admin/actions/class.dcactionblogs.php:196
 #, php-format
 msgid "%d blog has been successfully deleted"
 msgid_plural "%d blogs have been successfully deleted"
 msgstr[0] "%d blogin poisto onnistui."
 msgstr[1] "%d blogin poisto onnistui."
 
-#: inc/admin/actions/class.dcactioncomments.php:49
 msgid "Back to comments list"
 msgstr "Paluu kommenttien luetteloon"
 
-#: inc/admin/actions/class.dcactioncomments.php:64
 msgid "Comments actions"
 msgstr "Toimet kommenttien suhteen"
 
-#: inc/admin/actions/class.dcactioncomments.php:134
-#: inc/admin/actions/class.dcactionposts.php:110
 msgid "Publish"
 msgstr "Julkaise"
 
-#: inc/admin/actions/class.dcactioncomments.php:135
-#: inc/admin/actions/class.dcactionposts.php:111
 msgid "Unpublish"
 msgstr "Poista verkosta"
 
-#: inc/admin/actions/class.dcactioncomments.php:136
-#: inc/admin/actions/class.dcactionposts.php:113
 msgid "Mark as pending"
 msgstr "Merkitse odottavaksi"
 
-#: inc/admin/actions/class.dcactioncomments.php:137
 msgid "Mark as junk"
 msgstr "Merkitse roskaksi"
 
-#: inc/admin/actions/class.dcactioncomments.php:160
 msgid "Blocklist IP"
 msgstr "Estä IP"
 
-#: inc/admin/actions/class.dcactioncomments.php:162
 msgid "Blocklist IP (global)"
 msgstr "Estä IP (kaikki blogit)"
 
-#: inc/admin/actions/class.dcactioncomments.php:177
-#: inc/admin/actions/class.dcactioncomments.php:200
-#: inc/admin/actions/class.dcactioncomments.php:221
 msgid "No comment selected"
 msgstr "Ei valittua kommenttia"
 
-#: inc/admin/actions/class.dcactioncomments.php:232
 msgid "IP addresses for selected comments have been blocklisted."
 msgstr "Valittujen kommenttien laatijoiden IP-osoitteet estetään."
 
-#: inc/admin/actions/class.dcactionposts.php:47
 msgid "Back to entries list"
 msgstr "Paluu blogimerkintäluetteloon"
 
-#: inc/admin/actions/class.dcactionposts.php:66
 msgid "Posts actions"
 msgstr "Toimet merkintöjen suhteen"
 
-#: inc/admin/actions/class.dcactionposts.php:112
 msgid "Schedule"
 msgstr "Ajasta"
 
-#: inc/admin/actions/class.dcactionposts.php:119
 msgid "Mark"
 msgstr "Merkitse"
 
-#: inc/admin/actions/class.dcactionposts.php:120
 msgid "Mark as selected"
 msgstr "Merkitse valituksi"
 
-#: inc/admin/actions/class.dcactionposts.php:121
 msgid "Mark as unselected"
 msgstr "Poista valituksi merkintä"
 
-#: inc/admin/actions/class.dcactionposts.php:126
-#: inc/admin/actions/class.dcactionposts.php:132
-#: inc/admin/actions/class.dcactionposts.php:139
 msgid "Change"
 msgstr "Vaihda"
 
-#: inc/admin/actions/class.dcactionposts.php:127
 msgid "Change category"
 msgstr "Vaihda luokka"
 
-#: inc/admin/actions/class.dcactionposts.php:133
 msgid "Change language"
 msgstr "Vaihda kieli"
 
-#: inc/admin/actions/class.dcactionposts.php:140
 msgid "Change author"
 msgstr "Vaihda kirjoittaja"
 
-#: inc/admin/actions/class.dcactionposts.php:167
-#: inc/admin/actions/class.dcactionposts.php:186
-#: inc/admin/actions/class.dcactionposts.php:217
-#: inc/admin/actions/class.dcactionposts.php:246
-#: inc/admin/actions/class.dcactionposts.php:328
-#: inc/admin/actions/class.dcactionposts.php:392
 msgid "No entry selected"
 msgstr "Ei valittua merkintää"
 
-#: inc/admin/actions/class.dcactionposts.php:172
+msgid "Published entries cannot be set to scheduled"
+msgstr ""
+
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\""
 msgid_plural "%d entries have been successfully updated to status : \"%s\""
 msgstr[0] "%d merkintä on päivitetty tilaan \"%s\"."
 msgstr[1] "%d merkintää on päivitetty tilaan \"%s\"."
 
-#: inc/admin/actions/class.dcactionposts.php:193
 #, php-format
 msgid "%d entry has been successfully marked as selected"
 msgid_plural "%d entries have been successfully marked as selected"
 msgstr[0] "%d merkintä on merkitty valituksi"
 msgstr[1] "%d merkintää on merkitty valituksi"
 
-#: inc/admin/actions/class.dcactionposts.php:202
 #, php-format
 msgid "%d entry has been successfully marked as unselected"
 msgid_plural "%d entries have been successfully marked as unselected"
 msgstr[0] "%d merkintä on merkitty ei-valituksi"
 msgstr[1] "%d merkintää on merkitty ei-valituksi"
 
-#: inc/admin/actions/class.dcactionposts.php:231
 #, php-format
 msgid "%d entry has been successfully deleted"
 msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "%d merkintä on poistettu"
 msgstr[1] "%d merkintää on poistettu"
 
-#: inc/admin/actions/class.dcactionposts.php:270
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\""
 msgid_plural "%d entries have been successfully moved to category \"%s\""
 msgstr[0] "%d merkintä on siirretty luokkaan \"%s\"."
 msgstr[1] "%d merkintää on siirretty luokkaan \"%s\"."
 
-#: inc/admin/actions/class.dcactionposts.php:286
 msgid "Change category for this selection"
 msgstr "Vaihda luokka tämän valinnan osalta"
 
-#: inc/admin/actions/class.dcactionposts.php:302
 msgid "Create a new category for the post(s)"
 msgstr "Luo uusi luokka tällä merkinnälle (näille merkinnöille)"
 
-#: inc/admin/actions/class.dcactionposts.php:331
 msgid "This user does not exist"
 msgstr "Kyseistä käyttäjää ei ole"
 
-#: inc/admin/actions/class.dcactionposts.php:339
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\""
 msgid_plural "%d entries have been successfully set to user \"%s\""
 msgstr[0] "%d merkintä on määritelty käyttäjälle \"%s\"."
 msgstr[1] "%d merkintää on määritelty käyttäjälle \"%s\"."
 
-#: inc/admin/actions/class.dcactionposts.php:369
 msgid "Change author for this selection"
 msgstr "Vaihda kirjoittaja tämän valinnan osalta"
 
-#: inc/admin/actions/class.dcactionposts.php:377
 msgid "New author (author ID):"
 msgstr "Uusi kirjoittaja (kirjoittajan tunniste):"
 
-#: inc/admin/actions/class.dcactionposts.php:401
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\""
 msgid_plural "%d entries have been successfully set to language \"%s\""
 msgstr[0] "%d merkinnän kieleksi on asetettu \"%s\"."
 msgstr[1] "%d merkinnän kieleksi on asetettu \"%s\"."
 
-#: inc/admin/actions/class.dcactionposts.php:415
 msgid "Change language for this selection"
 msgstr "Vaihda kieltä tämän valinnan osalta"
 
-#: inc/admin/actions/class.dcactionposts.php:421
-#: inc/admin/actions/class.dcactionposts.php:425
-#: inc/admin/lib.admincombos.php:109 inc/admin/lib.admincombos.php:113
 msgid "Available"
 msgstr "Käytettävissä"
 
-#: inc/admin/actions/class.dcactionposts.php:421
-#: inc/admin/actions/class.dcactionposts.php:424
-#: inc/admin/actions/class.dcactionposts.php:427
-#: inc/admin/lib.admincombos.php:109 inc/admin/lib.admincombos.php:112
-#: inc/admin/lib.admincombos.php:115
 msgid "Most used"
 msgstr "Eniten käytetty"
 
-#: inc/admin/actions/class.dcactionposts.php:437
 msgid "Entry language:"
 msgstr "Merkinnän kieli:"
 
-#: inc/admin/class.dc.favorites.php:485 inc/admin/prepend.php:278
 msgid "Languages"
 msgstr "Kielet"
 
-#: inc/admin/lib.dc.notices.php:143 inc/admin/lib.dc.notices.php:161
 msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
-#: inc/admin/lib.dc.page.php:78
 msgid "Change blog"
 msgstr "Vaihda blogia"
 
-#: inc/admin/lib.dc.page.php:87
 msgid "Blogs:"
 msgstr "Blogit:"
 
-#: inc/admin/lib.dc.page.php:228
 msgid "Go to the content"
 msgstr "Sisältöön"
 
-#: inc/admin/lib.dc.page.php:229
 msgid "Go to the menu"
 msgstr "Valikkoon"
 
-#: inc/admin/lib.dc.page.php:230
 msgid "Go to help"
 msgstr "Ohjeeseen"
 
-#: inc/admin/lib.dc.page.php:238 inc/admin/lib.dc.page.php:239
 msgid "Go to site"
 msgstr "Sivustolle"
 
-#: inc/admin/lib.dc.page.php:245
 #, php-format
 msgid "Logout %s"
 msgstr "Kirjaa %s ulos"
 
-#: inc/admin/lib.dc.page.php:253
 msgid "Hide main menu"
 msgstr "Piilota päävalikko"
 
-#: inc/admin/lib.dc.page.php:254
 msgid "Show main menu"
 msgstr "Näytä päävalikko"
 
-#: inc/admin/lib.dc.page.php:262
 msgid "Safe mode"
 msgstr "Vikasietotila"
 
-#: inc/admin/lib.dc.page.php:263
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities"
 msgstr "Olet vikasietotilassa. Kaikki liitännäiset on tilapäisesti poistettu käytöstä. Muista ensin kirjautua ulos ja sitten sisään normaalisti, jotta saat kaikki toiminnot käyttöön."
 
-#: inc/admin/lib.dc.page.php:328
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Käytät versiota %s. Kiitos!"
 
-#: inc/admin/lib.dc.page.php:341 inc/admin/lib.dc.page.php:458
 msgid "Page top"
 msgstr "Sivun ylälaitaan"
 
-#: inc/admin/lib.dc.page.php:473
 msgid "Go to dashboard"
 msgstr "Ohjaustauluun"
 
-#: inc/admin/lib.dc.page.php:606
 msgid "Help about this page"
 msgstr "Täman sivun ohje"
 
-#: inc/admin/lib.dc.page.php:611
 #, php-format
 msgid "See also %s"
 msgstr "Katso myös %s"
 
-#: inc/admin/lib.dc.page.php:611
 msgid "the global help"
 msgstr "yleisohje"
 
-#: inc/admin/lib.dc.page.php:715 inc/admin/lib.dc.page.php:726
 msgid "uncover"
 msgstr "paljasta"
 
-#: inc/admin/lib.dc.page.php:719 inc/admin/lib.dc.page.php:730
 msgid "hide"
 msgstr "piilota"
 
-#: inc/admin/lib.dc.page.php:734
 msgid "Need help?"
 msgstr "Ohjeita?"
 
-#: inc/admin/lib.dc.page.php:735
 msgid "new window"
 msgstr "uusi ikkuna"
 
-#: inc/admin/lib.dc.page.php:736
 msgid "Hide"
 msgstr "Piilota"
 
-#: inc/admin/lib.dc.page.php:737
 msgid "Select:"
 msgstr "Valitse:"
 
-#: inc/admin/lib.dc.page.php:738
 msgid "no selection"
 msgstr "ei valintaa"
 
-#: inc/admin/lib.dc.page.php:739
 msgid "select all"
 msgstr "valitse kaikki"
 
-#: inc/admin/lib.dc.page.php:740
 msgid "Invert selection"
 msgstr "käänteisvalinta"
 
-#: inc/admin/lib.dc.page.php:746
 msgid "Edit entry"
 msgstr "Muokkaa merkintää"
 
-#: inc/admin/lib.dc.page.php:747
 msgid "view entry"
 msgstr "Katso merkintää"
 
-#: inc/admin/lib.dc.page.php:748
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Oletko varma, että haluat poistaa valitut merkinnät (%s) ?"
 
-#: inc/admin/lib.dc.page.php:749
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Oletko varma, että haluat poistaa valitut media-aineistot (%d) ?"
 
-#: inc/admin/lib.dc.page.php:750
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Oletko varma, että haluat poistaa valitut luokat (%s) ?"
 
-#: inc/admin/lib.dc.page.php:751
 msgid "Are you sure you want to delete this entry?"
 msgstr "Oletko varma, että haluat poistaa tämän blogimerkinnän?"
 
-#: inc/admin/lib.dc.page.php:752
 msgid "Click here to unlock the field"
 msgstr "Paina tästä kentän lukituksen vapauttamiseksi"
 
-#: inc/admin/lib.dc.page.php:753
 msgid "Are you sure you want to delete all spams?"
 msgstr "Oletko varma, että haluat poistaa kaikki roskaviestit? "
 
-#: inc/admin/lib.dc.page.php:754
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Oletko varma, että haluat poistaa valitut kommentit (%s) ?"
 
-#: inc/admin/lib.dc.page.php:755
 msgid "Are you sure you want to delete this comment?"
 msgstr "Oletko varma, että haluat poistaa tämän kommentin? "
 
-#: inc/admin/lib.dc.page.php:756
 msgid "Users with posts cannot be deleted."
 msgstr "Käyttäjiä, joilla on blogimerkintöjä, ei voi poistaa."
 
-#: inc/admin/lib.dc.page.php:757
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Oletko varma, että haluat poistaa valitut käyttäjät (%s) ?"
 
-#: inc/admin/lib.dc.page.php:758
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Oletko varma, että haluat poistaa valitut blogit (%s) ?"
 
-#: inc/admin/lib.dc.page.php:759
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Oletko varma, että haluat poistaa luokan \"%s\" ?"
 
-#: inc/admin/lib.dc.page.php:760
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Oletko varma, että haluat järjestää uudelleen kaikki luokat?"
 
-#: inc/admin/lib.dc.page.php:761
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Oletko varma, että haluat poistaa media-aineiston  \"%s\" ?"
 
-#: inc/admin/lib.dc.page.php:762
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Oletko varma, että haluat poistaa hakemiston \"%s\" ?"
 
-#: inc/admin/lib.dc.page.php:763
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Oletko varma, että haluat purkaa arkiston nykyhakemistoon?"
 
-#: inc/admin/lib.dc.page.php:764
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Oletko varma, että haluat poistaa liitetiedoston \"%s\" ?"
 
-#: inc/admin/lib.dc.page.php:765
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Oletko varma, että haluat poistaa kielen \"%s\" ?"
 
-#: inc/admin/lib.dc.page.php:766
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Oletko varma, että haluat poistaa liitännäisen \"%s\" ?"
 
-#: inc/admin/lib.dc.page.php:767
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Oletko varma, että haluat poistaa valitut liitännäiset?"
 
-#: inc/admin/lib.dc.page.php:768
 msgid "Use this theme"
 msgstr "Käytä tätä teemaa"
 
-#: inc/admin/lib.dc.page.php:769
 msgid "Remove this theme"
 msgstr "Poista tämä teema"
 
-#: inc/admin/lib.dc.page.php:770
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Olet varma, että haluat poistaa teeman \"%s\"?"
 
-#: inc/admin/lib.dc.page.php:771
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Olet varma, että haluat poistaa valitut teemat?"
 
-#: inc/admin/lib.dc.page.php:772
 msgid "Are you sure you want to delete this backup?"
 msgstr "Olet varma, että haluat poistaa tämän varmistuksen?"
 
-#: inc/admin/lib.dc.page.php:773
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Olet varma, että haluat palata tähän varmistettuun versioon?"
 
-#: inc/admin/lib.dc.page.php:774
 msgid "Zip file content"
 msgstr "Zip-tiedoston sisältö"
 
-#: inc/admin/lib.dc.page.php:775
 msgid "XHTML markup validator"
 msgstr "XHTML-koodauksen tarkistus"
 
-#: inc/admin/lib.dc.page.php:776
 msgid "XHTML content is valid."
 msgstr "XHTML-koodattu sisältö on kunnossa."
 
-#: inc/admin/lib.dc.page.php:777
 msgid "There are XHTML markup errors."
 msgstr "XHTML-koodausvirheitä on."
 
-#: inc/admin/lib.dc.page.php:778
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Varoitus: tarkistus koskee vielä kirjaamatonta sisältöä."
 
-#: inc/admin/lib.dc.page.php:779
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Muutoksia ei ole tallennettu. Muutokset eivät säily blogimerkinnän muotoa muutettaessa. Jatketaanko tästä huolimatta?"
 
-#: inc/admin/lib.dc.page.php:780
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Varoitus: muutettaessa blogimerkinnän muotoa olemassaoleva sisältö ei konvertoidu automaattisesti, vaan joudut tekemään konversion käsin itse. Jatketaanko tästä huolimatta?"
 
-#: inc/admin/lib.dc.page.php:781
 msgid "Loading enhanced uploader, please wait."
 msgstr "Ladataan parannetun tiedostonlatauksen moduuli, odota..."
 
-#: inc/admin/lib.dc.page.php:784 inc/admin/lib.moduleslist.php:567
-#: inc/admin/lib.moduleslist.php:741 inc/admin/lib.moduleslist.php:1660
 msgid "Details"
 msgstr "Tiedot"
 
-#: inc/admin/lib.dc.page.php:785 inc/admin/lib.moduleslist.php:745
-#: inc/admin/lib.moduleslist.php:1665
 msgid "Support"
 msgstr "Tuki"
 
-#: inc/admin/lib.dc.page.php:786
 msgid "Help:"
 msgstr "Ohje:"
 
-#: inc/admin/lib.dc.page.php:787 inc/admin/lib.moduleslist.php:771
 msgid "Section:"
 msgstr "Osa:"
 
-#: inc/admin/lib.dc.page.php:788 inc/admin/lib.moduleslist.php:776
 msgid "Tags:"
 msgstr "Avainsanat:"
 
-#: inc/admin/lib.dc.page.php:790
 msgid "Hide this notice"
 msgstr "Piilota tämä ilmoitus"
 
-#: inc/admin/lib.dc.page.php:792
 msgid "Show password"
 msgstr "Näytä salasana"
 
-#: inc/admin/lib.dc.page.php:793
 msgid "Hide password"
 msgstr "Piilota salasana"
 
-#: inc/admin/lib.dc.page.php:828
 msgid "You have unsaved changes."
 msgstr "Et ole tallentanut muutoksia."
 
-#: inc/admin/lib.dc.page.php:888
 msgid "Choose date"
 msgstr "Valitse päiväys"
 
-#: inc/admin/lib.dc.page.php:889
 msgid "close"
 msgstr "sulje"
 
-#: inc/admin/lib.dc.page.php:890
 msgid "now"
 msgstr "nyt"
 
-#: inc/admin/lib.dc.page.php:918
 msgid "Temporarily activate enhanced uploader"
 msgstr "Ota käyttöön parannettu tiedostonlataus väliaikaisesti"
 
-#: inc/admin/lib.dc.page.php:919
 msgid "Temporarily disable enhanced uploader"
 msgstr "Poista käytöstä parannettu tiedostonlataus väliaikaisesti"
 
-#: inc/admin/lib.dc.page.php:923
 msgid "Limit exceeded."
 msgstr "Raja ylitetty."
 
-#: inc/admin/lib.dc.page.php:924
 msgid "File size exceeds allowed limit."
 msgstr "Tiedoston koko ylittää sallitun rajan."
 
-#: inc/admin/lib.dc.page.php:925
 msgid "Canceled."
 msgstr "Peruutettu."
 
-#: inc/admin/lib.dc.page.php:926
 msgid "HTTP Error:"
 msgstr "HTTP-virhe:"
 
-#: inc/admin/lib.dc.page.php:931
 msgid "Clean"
 msgstr "Puhdista"
 
-#: inc/admin/lib.dc.page.php:934
 msgid "File successfully uploaded."
 msgstr "Tiedosto lähetetty palvelimelle."
 
-#: inc/admin/lib.dc.page.php:935
 msgid "No file in queue."
 msgstr "Jonossa ei tiedostoja."
 
-#: inc/admin/lib.dc.page.php:936
 msgid "1 file in queue."
 msgstr "1 tiedosto jonossa."
 
-#: inc/admin/lib.dc.page.php:937
 #, php-format
 msgid "%d files in queue."
 msgstr "%d tiedostoa jonossa."
 
-#: inc/admin/lib.dc.page.php:938
 msgid "Queue error:"
 msgstr "Jonovirhe:"
 
-#: inc/admin/lib.dc.page.php:970
 msgid "Cancel filters and display options"
 msgstr "Peru suodattimet ja näyttövaihtoehdot"
 
-#: inc/admin/lib.moduleslist.php:69
 msgid "other"
 msgstr "muut"
 
-#: inc/admin/lib.moduleslist.php:261
 msgid "Search in repository:"
 msgstr "Etsi säilöstä:"
 
-#: inc/admin/lib.moduleslist.php:267
 msgid "Reset search"
 msgstr "Nollaa haku"
 
-#: inc/admin/lib.moduleslist.php:273
 msgid "Search is allowed on multiple terms longer than 2 chars, terms must be separated by space."
 msgstr "Useampia, 2 merkkiä pidempiä, välilyönnillä eroteltuja, termejä voi hakea hakutoiminnolla."
 
-#: inc/admin/lib.moduleslist.php:280
 #, php-format
 msgid "Found %d result for search \"%s\":"
 msgid_plural "Found %d results for search \"%s\":"
 msgstr[0] "Löydetty %d tulos haulla \"%s\":"
 msgstr[1] "Löydetty %d tulosta haulla \"%s\":"
 
-#: inc/admin/lib.moduleslist.php:347
 msgid "current selection"
 msgstr "nykyvalinta"
 
-#: inc/admin/lib.moduleslist.php:351
 #, php-format
 msgid "%d result"
 msgid_plural "%d results"
 msgstr[0] "%d tulos"
 msgstr[1] "%d tulosta"
 
-#: inc/admin/lib.moduleslist.php:356
 msgid "no results"
 msgstr "ei tuloksia"
 
-#: inc/admin/lib.moduleslist.php:360
 msgid "Browse index:"
 msgstr "Hakemiston selaus:"
 
-#: inc/admin/lib.moduleslist.php:536
 msgid "Plugins list"
 msgstr "Liitännäisten luettelo"
 
-#: inc/admin/lib.moduleslist.php:552
 msgid "Score"
 msgstr "Pistemäärä"
 
-#: inc/admin/lib.moduleslist.php:557
 msgid "Version"
 msgstr "Versio"
 
-#: inc/admin/lib.moduleslist.php:562
 msgid "Current version"
 msgstr "Nykyversio"
 
-#: inc/admin/lib.moduleslist.php:639 inc/admin/lib.moduleslist.php:643
-#: inc/admin/lib.moduleslist.php:648
 #, php-format
 msgid " (%s)"
 msgstr "(%s)"
 
-#: inc/admin/lib.moduleslist.php:681
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s"
 msgstr "Tätä moduulia ei voi poistaa käytöstä, koska seuraavat moduulit ovat käytössä: %s"
 
-#: inc/admin/lib.moduleslist.php:688
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Tätä moduulia ei voi ottaa käyttöön seuraavista syistä:"
 
-#: inc/admin/lib.moduleslist.php:705 inc/admin/lib.moduleslist.php:706
 msgid "Plugin from official distribution"
 msgstr "Viralliseen jakeluun kuuluva liitännäinen"
 
-#: inc/admin/lib.moduleslist.php:794
 msgid "No plugins matched your search."
 msgstr "Mikään liitännäinen ei vastaa hakuasi."
 
-#: inc/admin/lib.moduleslist.php:846
 msgid "Configure plugin"
 msgstr "Määritä liitännäisen asetukset"
 
-#: inc/admin/lib.moduleslist.php:858
 msgid "Plugin settings (in blog parameters)"
 msgstr "Liitännäisen asetukset (blogin parametreissä)"
 
-#: inc/admin/lib.moduleslist.php:867
 msgid "Plugin settings (in user preferences)"
 msgstr "Liitännäisen asetukset (käyttäjän valitsemissa asetuksissa)"
 
-#: inc/admin/lib.moduleslist.php:877 inc/admin/lib.moduleslist.php:889
-#: inc/admin/lib.moduleslist.php:901
 msgid "Plugin settings"
 msgstr "Liitännäisen asetukset"
 
-#: inc/admin/lib.moduleslist.php:929
 msgid "Activate"
 msgstr "Ota käyttöön"
 
-#: inc/admin/lib.moduleslist.php:935
 msgid "Deactivate"
 msgstr "Poista käytöstä"
 
-#: inc/admin/lib.moduleslist.php:948
 msgid "Clone"
 msgstr "Kloonaa"
 
-#: inc/admin/lib.moduleslist.php:955
 msgid "Install"
 msgstr "Asenna"
 
-#: inc/admin/lib.moduleslist.php:961 inc/admin/prepend.php:276
 msgid "Update"
 msgstr "Päivitä"
 
-#: inc/admin/lib.moduleslist.php:999
 msgid "Activate selected plugins"
 msgstr "Ota valitut liitännäiset käyttöön"
 
-#: inc/admin/lib.moduleslist.php:1000
 msgid "Activate all plugins from this list"
 msgstr "Ota kaikki luettelon liitännäiset käyttöön"
 
-#: inc/admin/lib.moduleslist.php:1008
 msgid "Deactivate selected plugins"
 msgstr "Poista valitut liitännäiset käytöstä"
 
-#: inc/admin/lib.moduleslist.php:1009
 msgid "Deactivate all plugins from this list"
 msgstr "Poista kaikki luettelon liitännäiset käytöstä"
 
-#: inc/admin/lib.moduleslist.php:1017
 msgid "Update selected plugins"
 msgstr "Päivitä valitut liitännäiset"
 
-#: inc/admin/lib.moduleslist.php:1018
 msgid "Update all plugins from this list"
 msgstr "Päivitä kaikki luettelon liitännäiset"
 
-#: inc/admin/lib.moduleslist.php:1068 inc/admin/lib.moduleslist.php:1112
-#: inc/admin/lib.moduleslist.php:1147 inc/admin/lib.moduleslist.php:1180
-#: inc/admin/lib.moduleslist.php:1225
 msgid "No such plugin."
 msgstr "Kyseistä liitännäistä ei ole."
 
-#: inc/admin/lib.moduleslist.php:1094
 msgid "You don't have permissions to delete this plugin."
 msgstr "Käyttöoikeutesi eivät riitä tämän liitännäisen poistamiseen."
 
-#: inc/admin/lib.moduleslist.php:1096
 msgid "Some plugins have not been delete."
 msgstr "Joitain liitännäisiä ei voitu poistaa."
 
-#: inc/admin/lib.moduleslist.php:1099
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "Tämä liitännäinen on poistettu."
 msgstr[1] "Nämä liitännäiset on poistettu."
 
-#: inc/admin/lib.moduleslist.php:1136 inc/admin/lib.moduleslist.php:1293
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successuflly installed."
 msgstr[0] "Tämä liitännäinen on asennettu."
 msgstr[1] "Nämä liitännäiset on asennettu."
 
-#: inc/admin/lib.moduleslist.php:1169
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "Tämä liitännäinen on otettu käyttöön."
 msgstr[1] "Nämä liitännäiset on otettu käyttöön."
 
-#: inc/admin/lib.moduleslist.php:1210
 msgid "Some plugins have not been deactivated."
 msgstr "Joitain liitännäisiä ei saatu pois käytöstä."
 
-#: inc/admin/lib.moduleslist.php:1213
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Tämä liitännäinen on saatu pois käytöstä."
 msgstr[1] "Nämä liitännäiset on saatu pois käytöstä."
 
-#: inc/admin/lib.moduleslist.php:1258 inc/admin/lib.moduleslist.php:1292
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successuflly updated."
 msgstr[0] "Tämä liitännäinen on päivitetty."
 msgstr[1] "Nämä liitännäiset on päivitetty."
 
-#: inc/admin/lib.moduleslist.php:1321
 msgid "Zip file path:"
 msgstr "Zip-tiedoston polku:"
 
-#: inc/admin/lib.moduleslist.php:1337
 msgid "Download a zip file"
 msgstr "Lataa zip-tiedosto"
 
-#: inc/admin/lib.moduleslist.php:1338
 msgid "Zip file URL:"
 msgstr "Zip-tiedoston verkko-osoite:"
 
-#: inc/admin/lib.moduleslist.php:1350
 msgid "Download"
 msgstr "Lataa"
 
-#: inc/admin/lib.moduleslist.php:1387
 msgid "Unknow plugin ID"
 msgstr "Tuntematon liitännäisen tunniste"
 
-#: inc/admin/lib.moduleslist.php:1396
 msgid "This plugin has no configuration file."
 msgstr "Tällä liitännäisellä ei ole asetustiedostoa."
 
-#: inc/admin/lib.moduleslist.php:1459
 #, php-format
 msgid "Configure \"%s\""
 msgstr "Määritä \"%s\""
 
-#: inc/admin/lib.moduleslist.php:1460
 msgid "Back"
 msgstr "Takaisin"
 
-#: inc/admin/lib.moduleslist.php:1574
 #, php-format
 msgid "Score: %s"
 msgstr "Pistemäärä: %s"
 
-#: inc/admin/lib.moduleslist.php:1593
 #, php-format
 msgid "%s screenshot."
 msgstr "%s:n ruutukaappaus."
 
-#: inc/admin/lib.moduleslist.php:1629
 #, php-format
 msgid "by %s"
 msgstr "luonut %s"
 
-#: inc/admin/lib.moduleslist.php:1634
 #, php-format
 msgid "version %s"
 msgstr "versio %s"
 
-#: inc/admin/lib.moduleslist.php:1639
 #, php-format
 msgid "(current version %s)"
 msgstr "(nykyversio %s)"
 
-#: inc/admin/lib.moduleslist.php:1645
 #, php-format
 msgid "(built on \"%s\")"
 msgstr "(tehty \"%s\":n perustalle)"
 
-#: inc/admin/lib.moduleslist.php:1648
 #, php-format
 msgid "(requires \"%s\")"
 msgstr "(vaatii \"%s\")"
 
-#: inc/admin/lib.moduleslist.php:1688
 msgid "View stylesheet"
 msgstr "Tarkastele tyyliarkkia"
 
-#: inc/admin/lib.moduleslist.php:1695
 msgid "Configure theme"
 msgstr "Säädä teeman asetuksia"
 
-#: inc/admin/lib.moduleslist.php:1728
 msgid "No themes matched your search."
 msgstr "Mikään teema ei vastannut hakuasi."
 
-#: inc/admin/lib.moduleslist.php:1757
 msgid "Use this one"
 msgstr "Käytä tätä"
 
-#: inc/admin/lib.moduleslist.php:1778
 msgid "Update selected themes"
 msgstr "Päivitä valitut teemat"
 
-#: inc/admin/lib.moduleslist.php:1779
 msgid "Update all themes from this list"
 msgstr "Päivitä kaikki tämän luettelon teemat"
 
-#: inc/admin/lib.moduleslist.php:1815 inc/admin/lib.moduleslist.php:1839
-#: inc/admin/lib.moduleslist.php:1872 inc/admin/lib.moduleslist.php:1919
-#: inc/admin/lib.moduleslist.php:1951 inc/admin/lib.moduleslist.php:1995
-#: inc/admin/lib.moduleslist.php:2030
 msgid "No such theme."
 msgstr "Teemaa ei ole."
 
-#: inc/admin/lib.moduleslist.php:1823
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "Teema on valittu."
 
-#: inc/admin/lib.moduleslist.php:1861
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "Teema on otettu käyttöön."
 msgstr[1] "Teemat on otettu käyttöön."
 
-#: inc/admin/lib.moduleslist.php:1902
 msgid "Some themes have not been deactivated."
 msgstr "Joitain teemoja ei saatu pois käytöstä."
 
-#: inc/admin/lib.moduleslist.php:1905
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Teema on poistettu käytöstä."
 msgstr[1] "Teemat on poistettu käytöstä."
 
-#: inc/admin/lib.moduleslist.php:1934
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Teema on kloonattu."
 msgstr[1] "Teemat on kloonattu."
 
-#: inc/admin/lib.moduleslist.php:1977
 msgid "You don't have permissions to delete this theme."
 msgstr "Sinulla ei ole oikeuksia poistaa tätä teemaa."
 
-#: inc/admin/lib.moduleslist.php:1979
 msgid "Some themes have not been delete."
 msgstr "Joitain teemoja ei ole saatu poistettua."
 
-#: inc/admin/lib.moduleslist.php:1982
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "Tämä teema on poistettu."
 msgstr[1] "Nämä teemat on poistettu."
 
-#: inc/admin/lib.moduleslist.php:2019 inc/admin/lib.moduleslist.php:2091
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successuflly installed."
 msgstr[0] "Tämä teema on asennettu."
 msgstr[1] "Nämä teemat on asennettu."
 
-#: inc/admin/lib.moduleslist.php:2056 inc/admin/lib.moduleslist.php:2090
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successuflly updated."
 msgstr[0] "Tämä teema on päivitetty."
 msgstr[1] "Nämä teemat on päivitetty."
 
-#: inc/admin/lib.pager.php:83
 msgid "First page"
 msgstr "Ensimmäinen sivu"
 
-#: inc/admin/lib.pager.php:91
 msgid "Previous page"
 msgstr "Edellinen sivu"
 
-#: inc/admin/lib.pager.php:99
 msgid "Next page"
 msgstr "Seuraava sivu"
 
-#: inc/admin/lib.pager.php:107
 msgid "Last page"
 msgstr "Viimeinen sivu"
 
-#: inc/admin/lib.pager.php:112
 #, php-format
 msgid "Page %s / %s"
 msgstr "Sivu %s/%s"
 
-#: inc/admin/lib.pager.php:117
 #, php-format
 msgid "Direct access page %s"
 msgstr "Suoraan sivulle %s"
 
-#: inc/admin/lib.pager.php:151
 msgid "&#171; prev."
 msgstr "&#171; ed."
 
-#: inc/admin/lib.pager.php:152
 msgid "next &#187;"
 msgstr "seur. &#187;"
 
-#: inc/admin/lib.pager.php:176
 msgid "No entry matches the filter"
 msgstr "Suodatinta ei vastaa mikään merkintä"
 
-#: inc/admin/lib.pager.php:178 inc/admin/lib.pager.php:367
 msgid "No entry"
 msgstr "Ei merkintöjä"
 
-#: inc/admin/lib.pager.php:193
 #, php-format
 msgid "List of %s entries matching the filter."
 msgstr "Suodatinta vastaavan %s merkinnän luettelo"
 
-#: inc/admin/lib.pager.php:200
 #, php-format
 msgid "List of entries (%s)"
 msgstr "Blogimerkintöjen (%s) luettelo"
 
-#: inc/admin/lib.pager.php:203 inc/admin/lib.pager.php:526
 #, php-format
 msgid ", <a href=\"%s\">published</a> (1)"
 msgid_plural ", <a href=\"%s\">published</a> (%s)"
 msgstr[0] ", <a href=\"%s\">julkaistu</a> (1)"
 msgstr[1] ", <a href=\"%s\">julkaistut</a> (%s)"
 
-#: inc/admin/lib.pager.php:208 inc/admin/lib.pager.php:535
 #, php-format
 msgid ", <a href=\"%s\">pending</a> (1)"
 msgid_plural ", <a href=\"%s\">pending</a> (%s)"
 msgstr[0] ", <a href=\"%s\">odottava</a> (1)"
 msgstr[1] ", <a href=\"%s\">odottavat</a> (%s)"
 
-#: inc/admin/lib.pager.php:212
 #, php-format
 msgid ", <a href=\"%s\">programmed</a> (1)"
 msgid_plural ", <a href=\"%s\">programmed</a> (%s)"
 msgstr[0] ", <a href=\"%s\">ajastettu</a> (1)"
 msgstr[1] ", <a href=\"%s\">ajastetut</a> (%s)"
 
-#: inc/admin/lib.pager.php:216 inc/admin/lib.pager.php:539
 #, php-format
 msgid ", <a href=\"%s\">unpublished</a> (1)"
 msgid_plural ", <a href=\"%s\">unpublished</a> (%s)"
 msgstr[0] ", <a href=\"%s\">julkaisematon</a> (1)"
 msgstr[1] ", <a href=\"%s\">julkaisemattomat</a> (%s)"
 
-#: inc/admin/lib.pager.php:264 inc/admin/lib.pager.php:313
-#: inc/admin/lib.pager.php:434
 msgid "Protected"
 msgstr "Suojattu"
 
-#: inc/admin/lib.pager.php:266
 msgid "Attachments"
 msgstr "Liitteet:"
 
-#: inc/admin/lib.pager.php:324 inc/admin/lib.pager.php:445
 #, php-format
 msgid "%d attachment"
 msgstr "%d liite"
 
-#: inc/admin/lib.pager.php:324 inc/admin/lib.pager.php:445
 #, php-format
 msgid "%d attachments"
 msgstr "%d liitettä"
 
-#: inc/admin/lib.pager.php:373
 msgid "Entries list"
 msgstr "Blogimerkintöjen luettelo"
 
-#: inc/admin/lib.pager.php:481
 msgid "No comments or trackbacks matches the filter"
 msgstr "Suodatinta ei vastaa mikään kommentti tai takaisinviittaus"
 
-#: inc/admin/lib.pager.php:513
 #, php-format
 msgid "Comment or trackback matching the filter."
 msgid_plural "List of %s comments or trackbacks matching the filter."
 msgstr[0] "Suodatinta vastaava kommentti tai takaisinviittaus"
 msgstr[1] "Luettelo suodatinta vastaavista %s kommenteista tai takaisinviittauksista"
 
-#: inc/admin/lib.pager.php:523
 #, php-format
 msgid "List of comments and trackbacks (%s)"
 msgstr "Kommenttien ja takaisinviitausten luettelo (%s)"
 
-#: inc/admin/lib.pager.php:531
 #, php-format
 msgid ", <a href=\"%s\">spam</a> (1)"
 msgid_plural ", <a href=\"%s\">spam</a> (%s)"
 msgstr[0] ", <a href=\"%s\">roskaviesti</a> (1)"
 msgstr[1] ", <a href=\"%s\">roskaviestit</a> (%s)"
 
-#: inc/admin/lib.pager.php:546
 msgid "Type"
 msgstr "Tyyppi"
 
-#: inc/admin/lib.pager.php:555
 msgid "Entry"
 msgstr "Merkintä"
 
-#: inc/admin/lib.pager.php:640
 #, php-format
 msgid "Edit the %1$s from %2$s"
 msgstr "Muokkaa %1$s (%2$s)"
 
-#: inc/admin/lib.pager.php:641 inc/admin/lib.pager.php:654
 msgid "comment"
 msgstr "kommentti"
 
-#: inc/admin/lib.pager.php:641 inc/admin/lib.pager.php:654
 msgid "trackback"
 msgstr "takaisinviittaus"
 
-#: inc/admin/lib.pager.php:651
 msgid "Type and author"
 msgstr "Tyyppi ja kirjoittaja"
 
-#: inc/admin/lib.pager.php:694
 msgid "No blog matches the filter"
 msgstr "Mikään blogi ei vastaa suodatinta"
 
-#: inc/admin/lib.pager.php:714 inc/admin/lib.pager.php:849
 msgid "Entries (all types)"
 msgstr "Merkinnät (kaikki lajit)"
 
-#: inc/admin/lib.pager.php:726
 #, php-format
 msgid "%d blog matches the filter."
 msgid_plural "%d blogs match the filter."
 msgstr[0] "%d blogi vastaa suodatinta."
 msgstr[1] "%d blogia vastaa suodatinta."
 
-#: inc/admin/lib.pager.php:729
 msgid "Blogs list"
 msgstr "Blogien luettelo"
 
-#: inc/admin/lib.pager.php:753 inc/core/class.dc.core.php:154
 msgid "online"
 msgstr "verkossa"
 
-#: inc/admin/lib.pager.php:754 inc/core/class.dc.core.php:155
 msgid "offline"
 msgstr "ei verkossa"
 
-#: inc/admin/lib.pager.php:755 inc/core/class.dc.core.php:156
 msgid "removed"
 msgstr "poistettu"
 
-#: inc/admin/lib.pager.php:778
 #, php-format
 msgid "Edit blog settings for %s"
 msgstr "Muuta %s-blogin asetuksia"
 
-#: inc/admin/lib.pager.php:779
 msgid "Edit blog settings"
 msgstr "Muuta blogin asetuksia"
 
-#: inc/admin/lib.pager.php:785
 #, php-format
 msgid "Switch to blog %s"
 msgstr "Siirry blogiin %s"
 
-#: inc/admin/lib.pager.php:827
 msgid "No user matches the filter"
 msgstr "Suodatinta ei vastaa mikään käyttäjä"
 
-#: inc/admin/lib.pager.php:829
 msgid "No user"
 msgstr "Ei käyttäjiä"
 
-#: inc/admin/lib.pager.php:839
 #, php-format
 msgid "List of %s users match the filter."
 msgstr "Suodatinta vastaa %s käyttäjän luettelo."
 
-#: inc/admin/lib.pager.php:841
 msgid "Users list"
 msgstr "Käyttäjäluettelo"
 
-#: inc/admin/lib.pager.php:876 inc/admin/lib.pager.php:894
 msgid "admin"
 msgstr "järjestelmänvalvoja"
 
-#: inc/admin/lib.pager.php:877 inc/admin/lib.pager.php:897
 msgid "superadmin"
 msgstr "superjärjestelmänvalvoja"
 
-#: inc/admin/lib.themeconfig.php:133
 #, php-format
 msgid "ratio %.1f"
 msgstr "suhde %.1f"
 
-#: inc/admin/lib.themeconfig.php:134
 #, php-format
 msgid "(%s)"
 msgstr "(%s)"
 
-#: inc/admin/lib.themeconfig.php:257 inc/admin/lib.themeconfig.php:406
 msgid "The 'public' directory does not exist."
 msgstr "Hakemistoa \"public\" ei ole."
 
-#: inc/admin/lib.themeconfig.php:263 inc/admin/lib.themeconfig.php:273
-#: inc/admin/lib.themeconfig.php:412 inc/admin/lib.themeconfig.php:422
 #, php-format
 msgid "The '%s' directory cannot be modified."
 msgstr "Hakemistoa \"%s\" ei voi muokata."
 
-#: inc/admin/lib.themeconfig.php:400
 msgid "At least one of the following functions is not available: imagecreatetruecolor, imagepng & imagecreatefrompng."
 msgstr "Ainakin yksi seuraavista toiminnoista ei ole käytettävissä: imagecreatetruecolor, imagepng & imagecreatefrompng."
 
-#: inc/admin/lib.themeconfig.php:441
 msgid "Unable to create images."
 msgstr "Kuvien luonti ei onnistu."
 
-#: inc/admin/lib.themeconfig.php:448
 msgid "Invalid file type."
 msgstr "Virheellinen tiedostotyyppi."
 
-#: inc/admin/lib.themeconfig.php:454
 msgid "An error occurred while writing the file."
 msgstr "Virhe tiedostoa kirjoitettaessa."
 
-#: inc/admin/lib.themeconfig.php:460
 #, php-format
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Palvelimelle lähetetty kuva ei ole %s pikseliä leveä."
 
-#: inc/admin/prepend.php:113
 msgid "Database error"
 msgstr "Tietokantavirhe"
 
-#: inc/admin/prepend.php:114
 msgid "There seems to be no Session table in your database. Is Dotclear completly installed?"
 msgstr "Tietokannassasi ei ole taulua nimeltä \"Session\". Onko Dotclearin asennus saatu loppuun suoritetuksi?"
 
-#: inc/admin/prepend.php:255
 msgid "System settings"
 msgstr "Järjestelmän asetukset"
 
-#: inc/admin/prepend.php:256
 msgid "Blog"
 msgstr "Blogi"
 
-#: inc/admin/prepend.php:257
 msgid "Plugins"
 msgstr "Liitännäiset"
 
-#: inc/core/_fake_l10n.php:4
 msgid "medium"
 msgstr "keskikoko"
 
-#: inc/core/_fake_l10n.php:5
 msgid "small"
 msgstr "pieni"
 
-#: inc/core/_fake_l10n.php:6
 msgid "thumbnail"
 msgstr "pikkukuva"
 
-#: inc/core/_fake_l10n.php:7
 msgid "square"
 msgstr "neliö"
 
-#: inc/core/_fake_l10n.php:12
 msgid "Pages"
 msgstr "Sivut"
 
-#: inc/core/class.dc.auth.php:68
 msgid "administrator"
 msgstr "järjestelmänvalvoja"
 
-#: inc/core/class.dc.auth.php:69
 msgid "manage their own entries and comments"
 msgstr "hallita omia blogimerkintöjään ja kommenttejaan"
 
-#: inc/core/class.dc.auth.php:70
 msgid "publish entries and comments"
 msgstr "julkaista merkintöjä ja kommentteja"
 
-#: inc/core/class.dc.auth.php:71
 msgid "delete entries and comments"
 msgstr "poistaa merkintöjä ja kommentteja"
 
-#: inc/core/class.dc.auth.php:72
 msgid "manage all entries and comments"
 msgstr "hallita kaikkia merkintöjä ja kommentteja"
 
-#: inc/core/class.dc.auth.php:73
 msgid "manage categories"
 msgstr "hallita luokkia"
 
-#: inc/core/class.dc.auth.php:74
 msgid "manage their own media items"
 msgstr "hallita omia media-aineistojaan"
 
-#: inc/core/class.dc.auth.php:75
 msgid "manage all media items"
 msgstr "hallita kaikkia media-aineistoja"
 
-#: inc/core/class.dc.auth.php:592
 msgid "That user does not exist in the database."
 msgstr "Käyttäjää ei ole tietokannassa."
 
-#: inc/core/class.dc.auth.php:624
 msgid "That key does not exist in the database."
 msgstr "Avainta ei ole tietokannassa."
 
-#: inc/core/class.dc.blog.php:531
 msgid "You are not allowed to add categories"
 msgstr "Sinulla ei ole oikeutta lisätä luokkia"
 
-#: inc/core/class.dc.blog.php:582
 msgid "You are not allowed to update categories"
 msgstr "Sinulla ei ole oikeutta päivittää luokkia"
 
-#: inc/core/class.dc.blog.php:671
 msgid "You are not allowed to delete categories"
 msgstr "Sinulla ei ole oikeutta poistaa luokkia"
 
-#: inc/core/class.dc.blog.php:682
 msgid "This category is not empty."
 msgstr "Luokka ei ole tyhjä."
 
-#: inc/core/class.dc.blog.php:695
 msgid "You are not allowed to reset categories order"
 msgstr "Sinulla ei ole oikeutta palauttaa luokkien järjestystä oletusarvoon"
 
-#: inc/core/class.dc.blog.php:750
 msgid "Empty category URL"
 msgstr "Tyhjän luokan verkko-osoite"
 
-#: inc/core/class.dc.blog.php:759
 msgid "You must provide a category title"
 msgstr "Luokalle täytyy antaa otsikko"
 
-#: inc/core/class.dc.blog.php:769
 msgid "You must provide a category URL"
 msgstr "Luokalle täytyy antaa verkko-osoite"
 
-#: inc/core/class.dc.blog.php:1281
 msgid "You are not allowed to create an entry"
 msgstr "Sinulla ei ole oikeutta luoda blogimerkintöjä"
 
-#: inc/core/class.dc.blog.php:1339
 msgid "You are not allowed to update entries"
 msgstr "Sinulla ei ole oikeutta päivittää blogimerkintöjä"
 
-#: inc/core/class.dc.blog.php:1345 inc/core/class.dc.blog.php:1572
 msgid "No such entry ID"
 msgstr "Tuntematon merkinnän tunniste"
 
-#: inc/core/class.dc.blog.php:1373
 msgid "You are not allowed to edit this entry"
 msgstr "Sinulla ei ole oikeutta muokata tätä merkintää"
 
-#: inc/core/class.dc.blog.php:1410 inc/core/class.dc.meta.php:160
-#: inc/core/class.dc.meta.php:173
 msgid "You are not allowed to change this entry status"
 msgstr "Sinulla ei ole oikeutta muuttaa tämän merkinnän tilaa"
 
-#: inc/core/class.dc.blog.php:1455 inc/core/class.dc.blog.php:1498
 msgid "You are not allowed to change this entry category"
 msgstr "Sinulla ei ole oikeutta muuttaa tämän merkinnän luokkaa"
 
-#: inc/core/class.dc.blog.php:1530
 msgid "You are not allowed to change entries category"
 msgstr "Sinulla ei ole oikeutta muuttaa blogimerkintöjen luokkaa"
 
-#: inc/core/class.dc.blog.php:1566
 msgid "You are not allowed to delete entries"
 msgstr "Sinulla ei ole oikeutta poistaa blogimerkintöjä"
 
-#: inc/core/class.dc.blog.php:1764
 msgid "No entry title"
 msgstr "Merkinnällä ei otsikkoa"
 
-#: inc/core/class.dc.blog.php:1768 inc/core/class.dc.blog.php:1784
 msgid "No entry content"
 msgstr "Merkinnällä ei sisältöä"
 
-#: inc/core/class.dc.blog.php:1850
 msgid "Notes"
 msgstr "Huomautuksia"
 
-#: inc/core/class.dc.blog.php:1852
 msgid "Note"
 msgstr "Huomautus"
 
-#: inc/core/class.dc.blog.php:1961
 msgid "Empty entry URL"
 msgstr "Tyhjä merkinnän verkko-osoite"
 
-#: inc/core/class.dc.blog.php:2210
 msgid "You are not allowed to update comments"
 msgstr "Sinulla ei ole oikeutta päivittää kommentteja"
 
-#: inc/core/class.dc.blog.php:2216 inc/core/class.dc.blog.php:2222
-#: inc/core/class.dc.blog.php:2320
 msgid "No such comment ID"
 msgstr "Tuntematon kommentin tunniste"
 
-#: inc/core/class.dc.blog.php:2228
 msgid "You are not allowed to update this comment"
 msgstr "Sinulla ei ole oikeutta päivittää tätä kommenttia"
 
-#: inc/core/class.dc.blog.php:2272
 msgid "You are not allowed to change this comment's status"
 msgstr "Sinulla ei ole oikeutta muuttaa tämän kommentin tilaa "
 
-#: inc/core/class.dc.blog.php:2314 inc/core/class.dc.blog.php:2357
 msgid "You are not allowed to delete comments"
 msgstr "Sinulla ei ole oikeutta poistaa kommentteja "
 
-#: inc/core/class.dc.blog.php:2379
 msgid "You must provide a comment"
 msgstr "Kirjoita kommentti"
 
-#: inc/core/class.dc.blog.php:2383
 msgid "You must provide an author name"
 msgstr "Anna kirjoittajan nimi"
 
-#: inc/core/class.dc.blog.php:2387
 msgid "Email address is not valid."
 msgstr "Sähköpostiosoite ei kelpaa."
 
-#: inc/core/class.dc.core.php:606 inc/core/class.dc.core.php:643
-#: inc/core/class.dc.core.php:677 inc/core/class.dc.core.php:762
-#: inc/core/class.dc.core.php:787 inc/core/class.dc.core.php:1045
-#: inc/core/class.dc.core.php:1105
 msgid "You are not an administrator"
 msgstr "Et ole järjestelmänvalvoja"
 
-#: inc/core/class.dc.core.php:849
 msgid "Invalid user language code"
 msgstr "Käyttäjän kielikoodi ei kelpaa"
 
-#: inc/core/class.dc.core.php:1077
 msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "Blogin tunnisteessa tulee olla ainakin 2 merkkiä, jotka voivat olla kirjaimia, numeroita tai symboleja."
 
-#: inc/core/class.dc.core.php:1082
 msgid "No blog name"
 msgstr "Blogilla ei nimeä"
 
-#: inc/core/class.dc.core.php:1087
 msgid "No blog URL"
 msgstr "Blogilla ei verkko-osoitetta"
 
-#: inc/core/class.dc.log.php:158
 msgid "No log message"
 msgstr "Lokissa ei viestejä"
 
-#: inc/core/class.dc.log.php:189
 msgid "unknown"
 msgstr "tuntematon"
 
-#: inc/core/class.dc.media.php:59
 msgid "No blog defined."
 msgstr "Ei määriteltyä blogia."
 
-#: inc/core/class.dc.media.php:621
 msgid "You are not a super administrator."
 msgstr "Et ole superjärjestelmänvalvoja."
 
-#: inc/core/class.dc.media.php:689 inc/core/class.dc.media.php:766
-#: inc/core/class.dc.media.php:830 inc/core/class.dc.media.php:849
-#: inc/core/class.dc.media.php:867
 msgid "Permission denied."
 msgstr "Lupa evätty."
 
-#: inc/core/class.dc.media.php:777
 msgid "You are not the file owner."
 msgstr "Et ole tiedoston omistaja."
 
-#: inc/core/class.dc.media.php:792
 msgid "This file is not allowed."
 msgstr "Luvaton tiedosto."
 
-#: inc/core/class.dc.media.php:796
 msgid "New file already exists."
 msgstr "Uusi tiedosto on jo."
 
-#: inc/core/class.dc.media.php:883
 msgid "File does not exist in the database."
 msgstr "Tiedostoa ei ole tietokannassa."
 
-#: inc/core/class.dc.media.php:940
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "Purkamisen kohdehakemisto %s on jo olemassa."
 
-#: inc/core/class.dc.modules.php:73
 #, php-format
 msgid "Requires %s module which is not installed"
 msgstr "Edellyttää moduulia %s, jota ei ole asennettu"
 
-#: inc/core/class.dc.modules.php:78
 #, php-format
 msgid "Requires Dotclear version %s, but version %s is installed"
 msgstr "Vaatii Dotclearin versiota %s (versio %s on asennettuna)"
 
-#: inc/core/class.dc.modules.php:81
 #, php-format
 msgid "Requires %s module version %s, but version %s is installed"
 msgstr "Vaatii moduulin %s versiota %s (versio %s on asennettuna)"
 
-#: inc/core/class.dc.modules.php:86
 #, php-format
 msgid "Requires %s module which is disabled"
 msgstr "Vaatii moduulia %s, joka ei ole käytössä"
 
-#: inc/core/class.dc.modules.php:131
 msgid "The following extensions have been disabled :"
 msgstr "Seuraavat liitännäiset on poistettu käytöstä:"
 
-#: inc/core/class.dc.modules.php:322
 #, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."
 msgstr "Moduuli \"%s\" on tyyppia \"%s\", joka ei vastaa vaadittua moduulityyppiä \"%s\"."
 
-#: inc/core/class.dc.modules.php:361
 #, php-format
 msgid "Module \"%s\" is installed twice in \"%s\" and \"%s\"."
 msgstr "Moduuli \"%s\" on asennettu kahdesti sijainteihin \"%s\" ja \"%s\"."
 
-#: inc/core/class.dc.modules.php:399
 msgid "Empty module zip file."
 msgstr "Tyhjä moduulin zip-tiedosto."
 
-#: inc/core/class.dc.modules.php:405
 msgid "The zip file does not appear to be a valid Dotclear module."
 msgstr "Zip-tiedosto ei tunnu oleva kelvollinen Dotclear-moduuli."
 
-#: inc/core/class.dc.modules.php:451
 msgid "An error occurred during module deletion."
 msgstr "Moduulia poistettaessa tapahtui virhe."
 
-#: inc/core/class.dc.modules.php:457
 #, php-format
 msgid "Unable to upgrade \"%s\". (older or same version)"
 msgstr "\"%s\" ei voitu päivittää (vanhempi tai sama versio)."
 
-#: inc/core/class.dc.modules.php:462
 msgid "Unable to read new _define.php file"
 msgstr "Uutta _define.php-tiedostoa ei voi lukea."
 
-#: inc/core/class.dc.modules.php:529 inc/core/class.dc.modules.php:540
-#: inc/core/class.dc.modules.php:555
 msgid "No such module."
 msgstr "Moduulia ei ole."
 
-#: inc/core/class.dc.modules.php:533
 msgid "Cannot remove module files"
 msgstr "Moduuliin kuuluvia tiedostoja ei voi poistaa"
 
-#: inc/core/class.dc.modules.php:544 inc/core/class.dc.modules.php:548
 msgid "Cannot deactivate plugin."
 msgstr "Liitännäistä ei voi poistaa käytöstä."
 
-#: inc/core/class.dc.modules.php:559 inc/core/class.dc.modules.php:563
 msgid "Cannot activate plugin."
 msgstr "Liitännäistä ei voi ottaa käyttöön."
 
-#: inc/core/class.dc.namespace.php:36
 #, php-format
 msgid "Invalid setting dcNamespace: %s"
 msgstr "Virheellinen dcNamespace-asetus: %s"
 
-#: inc/core/class.dc.namespace.php:60
 msgid "Unable to retrieve settings:"
 msgstr "Asetuksia ei saatu luettua:"
 
-#: inc/core/class.dc.namespace.php:213
 #, php-format
 msgid "%s is not a valid setting id"
 msgstr "%s ei ole kelvollinen asetuksen tunniste"
 
-#: inc/core/class.dc.namespace.php:305 inc/core/class.dc.namespace.php:333
-#: inc/core/class.dc.namespace.php:359 inc/core/class.dc.namespace.php:380
-#: inc/core/class.dc.settings.php:218 inc/core/class.dc.settings.php:275
 msgid "No namespace specified"
 msgstr "Ei määriteltyä nimiavaruutta"
 
-#: inc/core/class.dc.notices.php:146
 msgid "No notice message"
 msgstr "Ei ilmoitusviestejä"
 
-#: inc/core/class.dc.prefs.php:42
 msgid "Unable to retrieve workspaces:"
 msgstr "Työavaruuksia ei saatu luettua:"
 
-#: inc/core/class.dc.settings.php:59
 msgid "Unable to retrieve namespaces:"
 msgstr "Nimiavaruuksia ei saatu luettua:"
 
-#: inc/core/class.dc.settings.php:247
 #, php-format
 msgid "Invalid setting namespace: %s"
 msgstr "Nimiavaruus, asetus ei kelpaa: %s"
 
-#: inc/core/class.dc.sql.statement.php:512
 msgid "SQL SELECT requires a FROM source"
 msgstr "SQL SELECT vaatii FROM-lähteen"
 
-#: inc/core/class.dc.sql.statement.php:603
 msgid "SQL DELETE requires a FROM source"
 msgstr "SQL DELETE vaatii FROM-lähteen"
 
-#: inc/core/class.dc.sql.statement.php:770
 msgid "SQL UPDATE requires an INTO source"
 msgstr "SQL UPDATE vaatii INTO-lähteen"
 
-#: inc/core/class.dc.sql.statement.php:891
 msgid "SQL INSERT requires an INTO source"
 msgstr "SQL INSERT vaatii INTO-lähteen"
 
-#: inc/core/class.dc.store.parser.php:35
 msgid "Failed to read data feed"
 msgstr "Syötetietoja ei saatu luettua"
 
-#: inc/core/class.dc.store.parser.php:42
 msgid "Wrong data feed"
 msgstr "Väärä tietosyöte"
 
-#: inc/core/class.dc.store.php:210 inc/core/class.dc.store.php:213
 msgid "An error occurred while downloading the file."
 msgstr "Virhe tiedostoa koneelle ladattaessa."
 
-#: inc/core/class.dc.themes.php:67
 msgid "Themes folder unreachable"
 msgstr "Teemakansioon ei pääsyä"
 
-#: inc/core/class.dc.themes.php:73
 msgid "Themes folder unreadable"
 msgstr "Teemakansio ei luettavissa"
 
-#: inc/core/class.dc.themes.php:81
 #, php-format
 msgid " (copy #%s)"
 msgstr " (kopio %s)"
 
-#: inc/core/class.dc.themes.php:81
 msgid " (copy)"
 msgstr " (kopio)"
 
-#: inc/core/class.dc.themes.php:111
 msgid "Unable to modify _config.php"
 msgstr "_config.php-tiedostoa ei voi muokata"
 
-#: inc/core/class.dc.themes.php:135
 msgid "Destination folder already exist"
 msgstr "Kohdehakemisto on jo olemassa"
 
-#: inc/core/class.dc.trackback.php:76
 #, php-format
 msgid "%s has still been pinged"
 msgstr "Kohteeseen %s on kohdistettu jo ping"
 
-#: inc/core/class.dc.trackback.php:96 inc/core/class.dc.trackback.php:120
-#: inc/core/class.dc.trackback.php:145
 msgid "Unable to ping URL"
 msgstr "URLin ping ei onnistu"
 
-#: inc/core/class.dc.trackback.php:101
 msgid "Bad server response code"
 msgstr "Palvelin vastaa väärin"
 
-#: inc/core/class.dc.trackback.php:129
 #, php-format
 msgid "%s is not a ping URL"
 msgstr "%s ei ole ping-URL"
 
-#: inc/core/class.dc.trackback.php:150
 #, php-format
 msgid "%s, ping error:"
 msgstr "%s, ping-virhe:"
 
-#: inc/core/class.dc.trackback.php:298
 msgid "Don't repeat yourself, please."
 msgstr "Turha jankata. Asia on loppuun käsitelty."
 
-#: inc/core/class.dc.trackback.php:305 inc/core/class.dc.trackback.php:379
 msgid "Where's your title?"
 msgstr "Otsikko puuttuu?"
 
-#: inc/core/class.dc.trackback.php:336
 msgid "Sorry, an internal problem has occured."
 msgstr "Valitan, sisäinen ongelma."
 
-#: inc/core/class.dc.trackback.php:339
 msgid "Thanks, mate. It was a pleasure."
 msgstr "Kiitos. Ilo on minun puolellani."
 
-#: inc/core/class.dc.trackback.php:551
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr "Etkö haluaisi takaisinviitata sisältöihini? Eikö tosiaankaan?"
 
-#: inc/core/class.dc.trackback.php:568
 msgid "Sorry but you can not ping this type of content."
 msgstr "Valitan, tämäntyyppistä sisältöä ei voi takaisinviitata."
 
-#: inc/core/class.dc.trackback.php:580
 msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
 msgstr "Oho, ei löytynyt. Tarkista kohdeverkko-osoite uudestaan."
 
-#: inc/core/class.dc.trackback.php:585
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
 msgstr "Valitan, tähän blogimerkintään ei voi tällä hetkellä takaisinviitata."
 
-#: inc/core/class.dc.trackback.php:608
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
 msgstr "Lähdeverkko-osoitteesi ei tunnu olevan tuettua tyyppiä. Ei mahda mitään!"
 
-#: inc/core/class.dc.trackback.php:805
 msgid "No valid source URL provided? Try again!"
 msgstr "Ei kelvollista lähdeverkko-osoitetta? Yritä uudestaan!"
 
-#: inc/core/class.dc.trackback.php:809
 msgid "No valid target URL provided? Try again!"
 msgstr "Ei kelvollista kohdeverkko-osoitetta? Yritä uudestaan!"
 
-#: inc/core/class.dc.trackback.php:813
 msgid "LOL!"
 msgstr "LOL!"
 
-#: inc/core/class.dc.update.php:196
 msgid "Digests file not found."
 msgstr "Ei tiivistelmätiedostoa."
 
-#: inc/core/class.dc.update.php:218
 msgid "No file to download"
 msgstr "Ei ladattavaa tiedostoa"
 
-#: inc/core/class.dc.update.php:222 inc/core/class.dc.update.php:289
 msgid "Root directory is not writable."
 msgstr "Juurihakemistoon ei voi kirjoittaa."
 
-#: inc/core/class.dc.update.php:259
 msgid "An error occurred while downloading archive."
 msgstr "Arkistoa koneelle ladattaessa sattui virhe."
 
-#: inc/core/class.dc.update.php:279 inc/core/class.dc.update.php:354
 msgid "Archive not found."
 msgstr "Arkistoa ei löydy."
 
-#: inc/core/class.dc.update.php:284 inc/core/class.dc.update.php:359
 msgid "Unable to read current digests file."
 msgstr "Nykytiivistelmätiedostoa ei voitu lukea."
 
-#: inc/core/class.dc.update.php:306 inc/core/class.dc.update.php:366
 msgid "Downloaded file does not seem to be a valid archive."
 msgstr "Ladattu tiedosto ei tunnu olevan kelvollinen arkisto."
 
-#: inc/core/class.dc.update.php:388
 msgid "Incomplete archive."
 msgstr "Puutteellinen arkisto."
 
-#: inc/core/class.dc.update.php:460
 msgid "Unable to read digests file."
 msgstr "Tiivistelmätiedostoa ei saatu luettua."
 
-#: inc/core/class.dc.update.php:484
 msgid "Invalid digests file."
 msgstr "Tiivistelmätiedosto ei kelpaa."
 
-#: inc/core/class.dc.workspace.php:36
 #, php-format
 msgid "Invalid dcWorkspace: %s"
 msgstr "dcWorkspace ei kelpaa: %s"
 
-#: inc/core/class.dc.workspace.php:45
 msgid "Unable to retrieve prefs:"
 msgstr "Käyttäjän asetuksia (prefs) ei saatu luettua:"
 
-#: inc/core/class.dc.workspace.php:216
 #, php-format
 msgid "%s is not a valid pref id"
 msgstr "%s ei ole käypä pref-tunniste"
 
-#: inc/core/class.dc.workspace.php:308 inc/core/class.dc.workspace.php:337
-#: inc/core/class.dc.workspace.php:375 inc/core/class.dc.workspace.php:396
 msgid "No workspace specified"
 msgstr "Ei määriteltyä työavaruutta"
 
-#: inc/dbschema/upgrade.php:54
 msgid "Something went wrong with auto upgrade:"
 msgstr "Automaattinen päivitys ei onnistunut:"
 
-#: inc/prepend.php:244
 msgid "Site temporarily unavailable"
 msgstr "Sivusto väliaikaisesti saavuttamattomissa"
 
-#: inc/prepend.php:245
 msgid "<p>We apologize for this temporary unavailability.<br />Thank you for your understanding.</p>"
 msgstr "<p>Valitamme tätä tilapäistä häiriötä.<br />Kiitos, että ymmärrätte tilanteen.</p>"
 
-#: inc/prepend.php:249
 msgid "Unable to connect to database"
 msgstr "Tietokantaan ei saada yhteyttä"
 
-#: inc/prepend.php:251
 #, php-format
 msgid "<p>This either means that the username and password information in your <strong>config.php</strong> file is incorrect or we can't contact the database server at \"<em>%s</em>\". This could mean your host's database server is down.</p> <ul><li>Are you sure you have the correct username and password?</li><li>Are you sure that you have typed the correct hostname?</li><li>Are you sure that the database server is running?</li></ul><p>If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\"https://forum.dotclear.net/\">Dotclear Support Forums</a>.</p>"
 msgstr "<p>Tämä tarkoittaa joko sitä, että käyttäjänimi- ja salasanatietonne <strong>config.php-tiedostossanne</strong> ovat virheellisiä, tai että tietokantapalvelimeen ei saada yhteyttä osoitteessa \"<em>%s</em>\". Tämä voi merkitä sitä, että palvelun isäntäkoneen tietokantapalvelin on kaatunut.</p> <ul><li>Oletko varma, että käyttäjänimesi ja salasanasi ovat oikein?</li> <li>Oletko varma, että olet syöttänyt oikean isäntäkoneen nimen?</li> <li>Oletko varma, että tietokantapalvelin on toiminnassa?</li></ul> <p>Jos olet epävarma näistä seikoista, kannattaa ottaa yhteys isäntäkoneen ylläpitäjään tai palveluntarjoajaasi. Apua on myös tarjolla <a href=\"https://forum.dotclear.net/\">Dotclearin tukipalstoilta</a>.</p>"
 
-#: inc/prepend.php:262
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
-

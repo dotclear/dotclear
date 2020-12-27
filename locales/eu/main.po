@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-10 19:08+0200\n"
+"POT-Creation-Date: 2020-12-27 09:06+0100\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -2764,6 +2764,9 @@ msgid "Change author"
 msgstr ""
 
 msgid "No entry selected"
+msgstr ""
+
+msgid "Published entries cannot be set to scheduled"
 msgstr ""
 
 #, php-format
