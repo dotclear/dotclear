@@ -512,6 +512,8 @@ class dcUrlHandlers extends urlHandler
                                 $redir_arg = 'pub=0';
                             }
 
+                            $redir_arg .= filter_var($core->callBehavior('publicBeforeCommentRedir', $cur), FILTER_SANITIZE_URL);
+
                             header('Location: ' . $redir . $redir_arg);
                         } catch (Exception $e) {
                             $_ctx->form_error = $e->getMessage();
