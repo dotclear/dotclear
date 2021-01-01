@@ -22,6 +22,12 @@ if (document.documentElement.getAttribute('data-theme') !== '') {
     }
   }
 }
+dotclear_init.lowdata = false;
+if (window.matchMedia) {
+  if (window.matchMedia("(prefers-reduced-data: reduce)").matches) {
+    dotclear_init.lowdata = true;
+  }
+}
 document.documentElement.style.setProperty('--dark-mode', (dotclear_init.theme === 'dark' ? 1 : 0));
 /* ChainHandler, py Peter van der Beken
 -------------------------------------------------------- */
@@ -728,17 +734,19 @@ $(function() {
     }
   });
   // Footer effect
-  const footer_target = document.querySelector('#footer a');
-  if (footer_target) {
-    const footer_audio = document.querySelector('#thanks');
-    if (footer_audio) {
-      footer_target.addEventListener('mouseenter', () => {
-        footer_audio.load();
-        footer_audio.play();
-      });
-      footer_target.addEventListener('mouseleave', () => {
-        footer_audio.pause();
-      });
+  if (!dotclear.lowdata) {
+    const footer_target = document.querySelector('#footer a');
+    if (footer_target) {
+      const footer_audio = document.querySelector('#thanks');
+      if (footer_audio) {
+        footer_target.addEventListener('mouseenter', () => {
+          footer_audio.load();
+          footer_audio.play();
+        });
+        footer_target.addEventListener('mouseleave', () => {
+          footer_audio.pause();
+        });
+      }
     }
   }
   // manage outgoing links
