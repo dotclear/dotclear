@@ -60,6 +60,10 @@ class tplBreadcrumb
                 } else {
                     // Home (first page only)
                     $ret = '<span id="bc-home">' . __('Home') . '</span>';
+                    if ($_ctx->cur_lang) {
+                        $langs = l10n::getISOCodes();
+                        $ret .= $separator . (isset($langs[$_ctx->cur_lang]) ? $langs[$_ctx->cur_lang] : $_ctx->cur_lang);
+                    }
                 }
                 break;
 
@@ -68,6 +72,11 @@ class tplBreadcrumb
                 $ret = '<a id="bc-home" href="' . $core->blog->url . '">' . __('Home') . '</a>';
                 if ($core->blog->settings->system->static_home) {
                     $ret .= $separator . '<a href="' . $core->blog->url . $core->url->getURLFor('posts') . '">' . __('Blog') . '</a>';
+                } else {
+                    if ($_ctx->cur_lang) {
+                        $langs = l10n::getISOCodes();
+                        $ret .= $separator . (isset($langs[$_ctx->cur_lang]) ? $langs[$_ctx->cur_lang] : $_ctx->cur_lang);
+                    }
                 }
                 $ret .= $separator . sprintf(__('page %d'), $page);
                 break;
