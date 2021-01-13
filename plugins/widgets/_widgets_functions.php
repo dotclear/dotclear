@@ -175,7 +175,7 @@ class defaultWidgets
             return;
         }
 
-        if (!$w->checkHomeOnly($core->url->type, ($core->url->type != 'lang'), ($core->url->type == 'lang'))) {
+        if (!$w->checkHomeOnly($core->url->type)) {
             return;
         }
 
