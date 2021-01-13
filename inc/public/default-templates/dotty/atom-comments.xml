@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{tpl:BlogLanguage}}">
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{tpl:FeedLanguage}}">
 	<title type="html">{{tpl:BlogName encode_xml="1"}}{{tpl:SysFeedSubtitle encode_xml="1"}} - {{tpl:lang Comments}}</title>
 	<subtitle type="html">{{tpl:BlogDescription encode_xml="1"}}</subtitle>
 	<link href="{{tpl:SysSelfURI}}" rel="self" type="application/atom+xml" />
-	<link href="{{tpl:BlogURL}}" rel="alternate" type="text/html" title="{{tpl:BlogDescription remove_html=" 1 " encode_xml="1 "}}"/>
+	<link href="{{tpl:BlogLanguageURL}}" rel="alternate" type="text/html" title="{{tpl:BlogDescription remove_html=" 1 " encode_xml="1 "}}"/>
 	<updated>{{tpl:BlogUpdateDate iso8601="1"}}</updated>
 	<author>
 		<name>{{tpl:BlogEditor encode_xml="1"}}</name>
