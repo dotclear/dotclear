@@ -223,7 +223,9 @@ class defaultWidgets
 
         $type = ($w->type == 'atom' || $w->type == 'rss2') ? $w->type : 'rss2';
         $mime = $type == 'rss2' ? 'application/rss+xml' : 'application/atom+xml';
-        $type = $_ctx->exists('cur_lang') ? $_ctx->cur_lang . '/' . $type : $type;
+        if ($_ctx->exists('cur_lang')) {
+            $type = $_ctx->cur_lang . '/' . $type;
+        }
 
         $p_title = __('This blog\'s entries %s feed');
         $c_title = __('This blog\'s comments %s feed');
