@@ -2184,6 +2184,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
         return '<?php if ($_ctx->exists("cur_lang")) echo ' . sprintf($f, '$_ctx->cur_lang') . ';
+            elseif ($_ctx->exists("posts") && $_ctx->posts->exists("post_lang")) echo ' . sprintf($f, '$_ctx->posts->post_lang') . '; 
             else echo ' . sprintf($f, '$core->blog->settings->system->lang') . '; ?>';
     }
 
