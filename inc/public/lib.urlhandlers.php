@@ -208,7 +208,8 @@ class dcUrlHandlers extends urlHandler
 
     public static function home($args)
     {
-        $n = self::getPageNumber($args);
+        // Page number may have been set by self::lang() which ends with a call to self::home(null)
+        $n = $args ? self::getPageNumber($args) : (isset($GLOBALS['_page_number']) ? $GLOBALS['_page_number'] : 0);
 
         if ($args && !$n) {
             # Then specified URL went unrecognized by all URL handlers and
