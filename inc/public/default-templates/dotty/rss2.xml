@@ -3,10 +3,10 @@
 	<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
 		<channel>
 			<title>{{tpl:BlogName encode_xml="1"}}{{tpl:SysFeedSubtitle encode_xml="1"}}</title>
-			<link>{{tpl:BlogURL}}</link>
+			<link>{{tpl:BlogLanguageURL}}</link>
 			<atom:link href="{{tpl:SysSelfURI}}" rel="self" type="application/rss+xml" />
 			<description>{{tpl:BlogDescription remove_html="1" encode_xml="1"}}</description>
-			<language>{{tpl:BlogLanguage}}</language>
+			<language>{{tpl:FeedLanguage}}</language>
 			<pubDate>{{tpl:BlogUpdateDate rfc822="1"}}</pubDate>
 			<copyright>{{tpl:BlogCopyrightNotice encode_xml="1"}}</copyright>
 			<docs>http://blogs.law.harvard.edu/tech/rss</docs>

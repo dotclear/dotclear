@@ -61,6 +61,7 @@ class dcTemplate extends template
         $this->addValue('BlogRSDURL', [$this, 'BlogRSDURL']);
         $this->addValue('BlogName', [$this, 'BlogName']);
         $this->addValue('BlogLanguage', [$this, 'BlogLanguage']);
+        $this->addValue('BlogLanguageURL', [$this, 'BlogLanguageURL']);
         $this->addValue('BlogThemeURL', [$this, 'BlogThemeURL']);
         $this->addValue('BlogParentThemeURL', [$this, 'BlogParentThemeURL']);
         $this->addValue('BlogUpdateDate', [$this, 'BlogUpdateDate']);
@@ -175,6 +176,7 @@ class dcTemplate extends template
         $this->addValue('LanguageCode', [$this, 'LanguageCode']);
         $this->addBlock('LanguageIfCurrent', [$this, 'LanguageIfCurrent']);
         $this->addValue('LanguageURL', [$this, 'LanguageURL']);
+        $this->addValue('FeedLanguage', [$this, 'FeedLanguage']);
 
         # Pagination
         $this->addBlock('Pagination', [$this, 'Pagination']);
@@ -770,6 +772,17 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
         return '<?php echo ' . sprintf($f, '$core->blog->settings->system->lang') . '; ?>';
+    }
+
+    /*dtd
+    <!ELEMENT tpl:BlogLanguageURL - O -- Blog Localized URL -->
+     */
+    public function BlogLanguageURL($attr)
+    {
+        $f = $this->getFilters($attr);
+        return '<?php if ($_ctx->exists("cur_lang")) echo ' . sprintf($f, '$core->blog->url.$core->url->getURLFor("lang",' .
+            '$_ctx->cur_lang)') . '; 
+            else echo ' . sprintf($f, '$core->blog->url') . '; ?>';
     }
 
     /*dtd
@@ -2162,6 +2175,17 @@ class dcTemplate extends template
         $f = $this->getFilters($attr);
         return '<?php echo ' . sprintf($f, '$core->blog->url.$core->url->getURLFor("lang",' .
             '$_ctx->langs->post_lang)') . '; ?>';
+    }
+
+    /*dtd
+    <!ELEMENT tpl:FeedLanguage - O -- Feed Language -->
+     */
+    public function FeedLanguage($attr)
+    {
+        $f = $this->getFilters($attr);
+        return '<?php if ($_ctx->exists("cur_lang")) echo ' . sprintf($f, '$_ctx->cur_lang') . ';
+            elseif ($_ctx->exists("posts") && $_ctx->posts->exists("post_lang")) echo ' . sprintf($f, '$_ctx->posts->post_lang') . '; 
+            else echo ' . sprintf($f, '$core->blog->settings->system->lang') . '; ?>';
     }
 
     /* Pagination ------------------------------------- */
