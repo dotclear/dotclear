@@ -781,7 +781,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
         return '<?php if ($_ctx->exists("cur_lang")) echo ' . sprintf($f, '$core->blog->url.$core->url->getURLFor("lang",' .
-            '$_ctx->cur_lang)') . '; 
+            '$_ctx->cur_lang)') . ';
             else echo ' . sprintf($f, '$core->blog->url') . '; ?>';
     }
 
@@ -1529,8 +1529,8 @@ class dcTemplate extends template
         if (isset($attr['author'])) {
             $author = trim($attr['author']);
             if (substr($author, 0, 1) == '!') {
-                $author  = substr($author, 1);
-                $if[] = '$_ctx->posts->user_id != "' . $author . '"';
+                $author = substr($author, 1);
+                $if[]   = '$_ctx->posts->user_id != "' . $author . '"';
             } else {
                 $if[] = '$_ctx->posts->user_id == "' . $author . '"';
             }
@@ -1577,8 +1577,8 @@ class dcTemplate extends template
         $even = html::escapeHTML($even);
 
         return '<?php echo (($_ctx->posts->index()+1)%2 ? ' .
-            '"' . addslashes($odd) . '" : ' .
-            '"' . addslashes($even) . '"); ?>';
+        '"' . addslashes($odd) . '" : ' .
+        '"' . addslashes($even) . '"); ?>';
     }
 
     /*dtd
@@ -1650,20 +1650,20 @@ class dcTemplate extends template
 
         if (!empty($attr['full'])) {
             return '<?php if (strlen(' . sprintf($full,
-                    '$_ctx->posts->getExcerpt(' . $urls . ').' .
-                    '(strlen($_ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
-                    '$_ctx->posts->getContent(' . $urls . ')') . ') > ' .
-                'strlen(' . sprintf($short,
-                    '$_ctx->posts->getExcerpt(' . $urls . ').' .
-                    '(strlen($_ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
-                    '$_ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
+                '$_ctx->posts->getExcerpt(' . $urls . ').' .
+                '(strlen($_ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
+                '$_ctx->posts->getContent(' . $urls . ')') . ') > ' .
+            'strlen(' . sprintf($short,
+                '$_ctx->posts->getExcerpt(' . $urls . ').' .
+                '(strlen($_ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
+                '$_ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
                 $content .
                 '<?php endif; ?>';
         } else {
             return '<?php if (strlen(' . sprintf($full,
-                    '$_ctx->posts->getContent(' . $urls . ')') . ') > ' .
-                'strlen(' . sprintf($short,
-                    '$_ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
+                '$_ctx->posts->getContent(' . $urls . ')') . ') > ' .
+            'strlen(' . sprintf($short,
+                '$_ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
                 $content .
                 '<?php endif; ?>';
         }
@@ -2184,8 +2184,8 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
         return '<?php if ($_ctx->exists("cur_lang")) echo ' . sprintf($f, '$_ctx->cur_lang') . ';
-            elseif ($_ctx->exists("posts") && $_ctx->posts->exists("post_lang")) echo ' . sprintf($f, '$_ctx->posts->post_lang') . '; 
-            else echo ' . sprintf($f, '$core->blog->settings->system->lang') . '; ?>';
+            elseif ($_ctx->exists("posts") && $_ctx->posts->exists("post_lang")) { echo ' . sprintf($f, '$_ctx->posts->post_lang') . '} ;
+            else { echo ' . sprintf($f, '$core->blog->settings->system->lang') . '; } ?>';
     }
 
     /* Pagination ------------------------------------- */
@@ -2594,8 +2594,8 @@ class dcTemplate extends template
         $even = html::escapeHTML($even);
 
         return '<?php echo (($_ctx->comments->index()+1)%2 ? ' .
-            '"' . addslashes($odd) . '" : ' .
-            '"' . addslashes($even) . '"); ?>';
+        '"' . addslashes($odd) . '" : ' .
+        '"' . addslashes($even) . '"); ?>';
     }
 
     /*dtd
@@ -2874,8 +2874,8 @@ class dcTemplate extends template
         $even = html::escapeHTML($even);
 
         return '<?php echo (($_ctx->pings->index()+1)%2 ? ' .
-            '"' . addslashes($odd) . '" : ' .
-            '"' . addslashes($even) . '"); ?>';
+        '"' . addslashes($odd) . '" : ' .
+        '"' . addslashes($even) . '"); ?>';
     }
 
     /*dtd
