@@ -727,7 +727,9 @@ EOT;
 
             'img_minus_theme_src' => 'images/minus-theme.png',
             'img_minus_theme_txt' => '▼',
-            'img_minus_theme_alt' => __('hide')
+            'img_minus_theme_alt' => __('hide'),
+
+            'adblocker_check'     => (!defined('DC_ADBLOCKER_CHECK') || DC_ADBLOCKER_CHECK === true)
         ];
 
         $js_msg = [
@@ -790,7 +792,9 @@ EOT;
             'close_notice'                         => __('Hide this notice'),
 
             'show_password'                        => __('Show password'),
-            'hide_password'                        => __('Hide password')
+            'hide_password'                        => __('Hide password'),
+
+            'adblocker'                            => __('An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it.')
         ];
 
         return
@@ -809,6 +813,7 @@ EOT;
         self::jsJson('dotclear', $js) .
         self::jsJson('dotclear_msg', $js_msg) .
 
+        self::jsLoad('js/adblocker.js') .
         self::jsLoad('js/common.js') .
         self::jsLoad('js/services.js') .
         self::jsLoad('js/prelude.js');

@@ -262,4 +262,8 @@ $(function() {
       }
     });
   }
+
+  if(dotclear.adblocker_check && !document.getElementById('WJxYFNKPMRlS')) {
+    window.alert(dotclear.msg.adblocker);
+  }
 });

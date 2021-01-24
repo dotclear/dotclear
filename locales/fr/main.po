@@ -3077,6 +3077,9 @@ msgstr "Montrer le mot de passe"
 msgid "Hide password"
 msgstr "Cacher le mot de passe"
 
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it."
+msgstr "Une bloqueur de publicité a été détecté sur ce tableau de bord de Dotclear (Ghostery, Adblock plus, uBlock origin, …) et il peut perturber certaines fonctionnalités. Dans ce cas vous devriez le désactiver."
+
 msgid "You have unsaved changes."
 msgstr "Vous avez des modifications non sauvegardées."
 
