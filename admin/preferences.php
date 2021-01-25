@@ -54,6 +54,7 @@ $user_ui_iconset            = @$core->auth->user_prefs->interface->iconset;
 $user_ui_nofavmenu          = $core->auth->user_prefs->interface->nofavmenu;
 $user_ui_media_by_page      = ($core->auth->user_prefs->interface->media_by_page ?: 30);
 $user_ui_media_nb_last_dirs = $core->auth->user_prefs->interface->media_nb_last_dirs;
+$user_ui_nocheckadblocker   = $core->auth->user_prefs->interface->nocheckadblocker;
 
 $default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'user-profile';
 
@@ -336,6 +337,7 @@ if (isset($_POST['user_editor'])) {
         $core->auth->user_prefs->interface->put('media_nb_last_dirs', (integer) $_POST['user_ui_media_nb_last_dirs'], 'integer');
         $core->auth->user_prefs->interface->put('media_last_dirs', [], 'array', null, false);
         $core->auth->user_prefs->interface->put('media_fav_dirs', [], 'array', null, false);
+        $core->auth->user_prefs->interface->put('nocheckadblocker', !empty($_POST['user_ui_nocheckadblocker']), 'boolean');
 
         # Update user columns (lists)
         $cu = [];
@@ -695,6 +697,12 @@ if ($core->auth->isSuperAdmin()) {
     '<span class="clear form-note warn">' . __('This will be applied for all users') . '.</span>' .
         '</p>'; //Opera sucks;
 }
+
+echo
+'<p><label for="user_ui_nocheckadblocker" class="classic">' .
+form::checkbox('user_ui_nocheckadblocker', 1, $user_ui_nocheckadblocker) . ' ' .
+__('Disable Ad-blocker check') . '</label></p>' .
+'<p class="clear form-note">' . __('Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend.') . '</p>';
 
 echo
     '</div>';

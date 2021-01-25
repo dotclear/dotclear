@@ -2286,6 +2286,12 @@ msgstr "Ne pas utiliser le favicon standard de Dotclear"
 msgid "This will be applied for all users"
 msgstr "Ce choix sera appliqué pour tous les utilisateur·rice·s"
 
+msgid "Disable Ad-blocker check"
+msgstr "Désactiver la détection de bloqueurs de publicité"
+
+msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
+msgstr "Certains bloqueurs de publicité (Ghostery, Adblock plus, uBloc origin, …) peuvent interférer avec certaines fonctionnalités comme l'insertion de lien ou de média dans les entrées avec CKEditor ; dans ce cas vous devriez les désactiver pour cette installation Dotclear (administration seulement). Notez que Dotclear n'ajoute aucune publicité ou pisteur dans les pages de l'administration."
+
 msgid "Optional columns displayed in lists"
 msgstr "Colonnes optionnelles affichées dans les listes"
 

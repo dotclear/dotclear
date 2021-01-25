@@ -220,7 +220,7 @@ class dcPage
         echo
         "</head>\n" .
         '<body id="dotclear-admin" class="no-js' .
-        ($safe_mode ? ' safe-mode' : '')  .
+        ($safe_mode ? ' safe-mode' : '') .
         (DC_DEBUG ? ' debug-mode' : '') .
         ($core->auth->user_prefs->interface->dynfontsize ? ' responsive-font' : '') . '">' . "\n" .
 
@@ -706,6 +706,7 @@ EOT;
     public static function jsCommon()
     {
         $core = self::getCore();
+        $core->auth->user_prefs->addWorkspace('interface');
 
         $js = [
             'nonce'               => $core->getNonce(),
@@ -729,7 +730,13 @@ EOT;
             'img_minus_theme_txt' => '▼',
             'img_minus_theme_alt' => __('hide'),
 
-            'adblocker_check'     => (!defined('DC_ADBLOCKER_CHECK') || DC_ADBLOCKER_CHECK === true)
+            'adblocker_check'     => (
+                (
+                    !defined('DC_ADBLOCKER_CHECK') ||
+                    DC_ADBLOCKER_CHECK === true
+                ) &&
+                $core->auth->user_prefs->interface->nocheckadblocker !== true
+            )
         ];
 
         $js_msg = [
@@ -969,7 +976,7 @@ EOT;
     public static function jsFilterControl($show = true)
     {
         $core = self::getCore();
-        $js = [
+        $js   = [
             'show_filters'      => (boolean) $show,
             'filter_posts_list' => __('Show filters and display options'),
             'cancel_the_filter' => __('Cancel filters and display options')

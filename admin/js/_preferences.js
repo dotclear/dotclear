@@ -1,4 +1,4 @@
-/*global $, getData */
+/*global $, dotclear, getData */
 'use strict';
 
 $(function() {
@@ -24,4 +24,8 @@ $(function() {
     }
     return true;
   });
+
+  if(dotclear.adblocker_check && !document.getElementById('WJxYFNKPMRlS')) {
+    window.alert(dotclear.msg.adblocker);
+  }
 });
