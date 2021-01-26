@@ -706,7 +706,9 @@ EOT;
     public static function jsCommon()
     {
         $core = self::getCore();
-        $core->auth->user_prefs->addWorkspace('interface');
+        if ($core->auth->user_prefs) {
+            $core->auth->user_prefs->addWorkspace('interface');
+        }
 
         $js = [
             'nonce'               => $core->getNonce(),
@@ -735,6 +737,7 @@ EOT;
                     !defined('DC_ADBLOCKER_CHECK') ||
                     DC_ADBLOCKER_CHECK === true
                 ) &&
+                $core->auth->user_prefs !== null &&
                 $core->auth->user_prefs->interface->nocheckadblocker !== true
             )
         ];
