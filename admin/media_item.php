@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('media,media_admin');
@@ -56,8 +55,8 @@ if ($popup) {
 }
 
 $core_media_writable = false;
-try
-{
+
+try {
     $core->media = new dcMedia($core);
 
     if ($id) {
@@ -101,7 +100,6 @@ if ($file && !empty($_FILES['upfile']) && $file->editable && $core_media_writabl
 
 # Update file
 if ($file && !empty($_POST['media_file']) && $file->editable && $core_media_writable) {
-
     $newFile = clone $file;
 
     $newFile->basename = $_POST['media_file'];
@@ -126,6 +124,7 @@ if ($file && !empty($_POST['media_file']) && $file->editable && $core_media_writ
                 if ($k == 'Description') {
                     // Update value
                     $v[0] = $desc;
+
                     break;
                 }
             }
@@ -187,6 +186,7 @@ if (!empty($_POST['save_blog_prefs'])) {
         foreach (array_reverse($file->media_thumb) as $s => $v) {
             if ($v == $_POST['pref_src']) {
                 $core->blog->settings->system->put('media_img_default_size', $s);
+
                 break;
             }
         }
@@ -244,6 +244,7 @@ $get_img_title = function ($file, $pattern, $dto_first = false, $no_date_alone =
         // On ne laisse pas les dates seules, sauf si ce sont les seuls items du pattern (hors séparateur)
         return '';
     }
+
     return implode($sep, $res);
 };
 
@@ -255,6 +256,7 @@ $get_img_desc = function ($file, $default = '') {
             }
         }
     }
+
     return $default;
 };
 
@@ -366,7 +368,6 @@ if ($select) {
         echo '<label class="classic">' .
         form::radio(['src'], $file->file_url, $s_checked) . ' ' . __('original') . '</label><br /> ';
         echo '</p>';
-
     } elseif ($file_type[0] == 'audio') {
         $media_type = 'mp3';
     } elseif ($file_type[0] == 'video') {
@@ -499,7 +500,7 @@ if ($popup && !$select) {
         echo
         '<div class="two-boxes">' .
         '<h3>' . __('MP3 disposition') . '</h3>';
-        dcPage::message(__("Please note that you cannot insert mp3 files with visual editor."), false);
+        dcPage::message(__('Please note that you cannot insert mp3 files with visual editor.'), false);
 
         $i_align = [
             'none'   => [__('None'), ($media_img_default_alignment == 'none' ? 1 : 0)],
@@ -520,7 +521,7 @@ if ($popup && !$select) {
     } elseif ($file_type[0] == 'video') {
         $media_type = 'flv';
 
-        dcPage::message(__("Please note that you cannot insert video files with visual editor."), false);
+        dcPage::message(__('Please note that you cannot insert video files with visual editor.'), false);
 
         echo
         '<div class="two-boxes">' .
@@ -625,9 +626,9 @@ if ($file->media_image) {
     foreach (array_reverse($file->media_thumb) as $s => $v) {
         $strong_link = ($s == $thumb_size) ? '<strong>%s</strong>' : '%s';
         printf($strong_link, '<a href="' . $core->adminurl->get('admin.media.item', array_merge($page_url_params,
-            ["size" => $s, 'tab' => 'media-details-tab'])) . '">' . $core->media->thumb_sizes[$s][2] . '</a> | ');
+            ['size' => $s, 'tab' => 'media-details-tab'])) . '">' . $core->media->thumb_sizes[$s][2] . '</a> | ');
     }
-    echo '<a href="' . $core->adminurl->get('admin.media.item', array_merge($page_url_params, ["size" => "o", "tab" => "media-details-tab"])) . '">' . __('original') . '</a>';
+    echo '<a href="' . $core->adminurl->get('admin.media.item', array_merge($page_url_params, ['size' => 'o', 'tab' => 'media-details-tab'])) . '">' . __('original') . '</a>';
     echo '</p>';
 
     if ($thumb_size != 'o' && isset($file->media_thumb[$thumb_size])) {
@@ -679,7 +680,7 @@ echo
 
 if (empty($_GET['find_posts'])) {
     echo
-    '<p><a class="button" href="' . $core->adminurl->get('admin.media.item', array_merge($page_url_params, ["find_posts" => 1, "tab" => "media-details-tab"])) . '">' .
+    '<p><a class="button" href="' . $core->adminurl->get('admin.media.item', array_merge($page_url_params, ['find_posts' => 1, 'tab' => 'media-details-tab'])) . '">' .
     __('Show entries containing this media') . '</a></p>';
 } else {
     echo '<h3>' . __('Entries containing this media') . '</h3>';
@@ -719,15 +720,19 @@ if (empty($_GET['find_posts'])) {
             switch ($rs->post_status) {
                 case 1:
                     $img_status = sprintf($img, __('published'), 'check-on.png');
+
                     break;
                 case 0:
                     $img_status = sprintf($img, __('unpublished'), 'check-off.png');
+
                     break;
                 case -1:
                     $img_status = sprintf($img, __('scheduled'), 'scheduled.png');
+
                     break;
                 case -2:
                     $img_status = sprintf($img, __('pending'), 'check-wrn.png');
+
                     break;
             }
             echo '<li>' . $img_status . ' ' . '<a href="' . $core->getPostAdminURL($rs->post_type, $rs->post_id) . '">' .
@@ -764,7 +769,7 @@ echo '<h3>' . __('Updates and modifications') . '</h3>';
 if ($file->editable && $core_media_writable) {
     if ($file->media_type == 'image') {
         echo
-        '<form class="clear fieldset" action="' . $core->adminurl->get("admin.media.item") . '" method="post">' .
+        '<form class="clear fieldset" action="' . $core->adminurl->get('admin.media.item') . '" method="post">' .
         '<h4>' . __('Update thumbnails') . '</h4>' .
         '<p class="more-info">' . __('This will create or update thumbnails for this image.') . '</p>' .
         '<p><input type="submit" name="thumbs" value="' . __('Update thumbnails') . '" />' .
@@ -780,7 +785,7 @@ if ($file->editable && $core_media_writable) {
         ];
 
         echo
-        '<form class="clear fieldset" id="file-unzip" action="' . $core->adminurl->get("admin.media.item") . '" method="post">' .
+        '<form class="clear fieldset" id="file-unzip" action="' . $core->adminurl->get('admin.media.item') . '" method="post">' .
         '<h4>' . __('Extract archive') . '</h4>' .
         '<ul>' .
         '<li><strong>' . __('Extract in a new directory') . '</strong> : ' .
@@ -797,7 +802,7 @@ if ($file->editable && $core_media_writable) {
     }
 
     echo
-    '<form class="clear fieldset" action="' . $core->adminurl->get("admin.media.item") . '" method="post">' .
+    '<form class="clear fieldset" action="' . $core->adminurl->get('admin.media.item') . '" method="post">' .
     '<h4>' . __('Change media properties') . '</h4>' .
     '<p><label for="media_file">' . __('File name:') . '</label>' .
     form::field('media_file', 30, 255, html::escapeHTML($file->basename)) . '</p>' .
@@ -836,7 +841,7 @@ if ($file->editable && $core_media_writable) {
         '</form>';
 
     echo
-    '<form class="clear fieldset" action="' . $core->adminurl->get("admin.media.item") . '" method="post" enctype="multipart/form-data">' .
+    '<form class="clear fieldset" action="' . $core->adminurl->get('admin.media.item') . '" method="post" enctype="multipart/form-data">' .
     '<h4>' . __('Change file') . '</h4>' .
     '<div>' . form::hidden(['MAX_FILE_SIZE'], DC_MAX_UPLOAD_SIZE) . '</div>' .
     '<p><label for="upfile">' . __('Choose a file:') .
@@ -850,7 +855,7 @@ if ($file->editable && $core_media_writable) {
 
     if ($file->del) {
         echo
-        '<form id="delete-form" method="post" action="' . $core->adminurl->getBase("admin.media") . '">' .
+        '<form id="delete-form" method="post" action="' . $core->adminurl->getBase('admin.media') . '">' .
         '<p><input name="delete" type="submit" class="delete" value="' . __('Delete this media') . '" />' .
         form::hidden('remove', rawurlencode($file->basename)) .
         form::hidden('rmyes', 1) .
