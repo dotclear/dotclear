@@ -633,7 +633,10 @@ if ($file->media_image) {
     if ($thumb_size != 'o' && isset($file->media_thumb[$thumb_size])) {
         $p          = path::info($file->file);
         $alpha      = ($p['extension'] == 'png') || ($p['extension'] == 'PNG');
-        $thumb      = sprintf(($alpha ? $core->media->thumb_tp_alpha : $core->media->thumb_tp), $p['dirname'], $p['base'], '%s');
+        $alpha      = strtolower($p['extension']) === 'png';
+        $webp       = strtolower($p['extension']) === 'webp';
+        $thumb_tp   = ($alpha ? $core->media->thumb_tp_alpha : ($webp ? $core->media->thumb_tp_webp : $core->media->thumb_tp));
+        $thumb      = sprintf($thumb_tp, $p['dirname'], $p['base'], '%s');
         $thumb_file = sprintf($thumb, $thumb_size);
         $T          = getimagesize($thumb_file);
         $stats      = stat($thumb_file);
