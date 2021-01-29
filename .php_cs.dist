@@ -26,15 +26,19 @@ $finder = PhpCsFixer\Finder::create()
 return PhpCsFixer\Config::create()
     ->setRules([
         '@PSR2' => true,
-        'allow_single_line_closure' => true,
+        'array_indentation' => true,
         'array_syntax' => [ 'syntax' => 'short' ],
-        'binary_operator_spaces' => [ 'align_equals' => true, 'align_double_arrow' => true ],
+        'binary_operator_spaces' => [ 'default' => 'align_single_space_minimal'],
+        'blank_line_before_statement' => true,
+        'braces' => [ 'allow_single_line_closure' => true ],
         'cast_spaces' => true,
         'combine_consecutive_unsets' => true,
         'concat_space' => [ 'spacing' => 'one' ],
         'linebreak_after_opening_tag' => true,
+        'method_argument_space' => ['ensure_fully_multiline' => false],
         'no_blank_lines_after_class_opening' => true,
         'no_blank_lines_after_phpdoc' => true,
+        'no_break_comment' => false,
         'no_extra_consecutive_blank_lines' => true,
         'no_trailing_comma_in_singleline_array' => true,
         'no_whitespace_in_blank_line' => true,
@@ -51,8 +55,5 @@ return PhpCsFixer\Config::create()
         'ternary_to_null_coalescing' => true,
         'trailing_comma_in_multiline_array' => false,
         'trim_array_spaces' => true,
-        'method_argument_space' => ['ensure_fully_multiline' => false],
-        'no_break_comment' => false,
-        'blank_line_before_statement' => true,
     ])
     ->setFinder($finder);
