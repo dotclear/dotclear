@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcNamespace
 {
@@ -111,6 +112,7 @@ class dcNamespace
     public function settingExists($id, $global = false)
     {
         $array = $global ? 'global' : 'local';
+
         return isset($this->{$array . '_settings'}[$id]);
     }
 
@@ -125,8 +127,6 @@ class dcNamespace
         if (isset($this->settings[$n]['value'])) {
             return $this->settings[$n]['value'];
         }
-
-        return;
     }
 
     /**
@@ -140,8 +140,6 @@ class dcNamespace
         if (isset($this->global_settings[$n]['value'])) {
             return $this->global_settings[$n]['value'];
         }
-
-        return;
     }
 
     /**
@@ -155,8 +153,6 @@ class dcNamespace
         if (isset($this->local_settings[$n]['value'])) {
             return $this->local_settings[$n]['value'];
         }
-
-        return;
     }
 
     /**
@@ -265,7 +261,7 @@ class dcNamespace
         if (!$global && $this->settingExists($id, true)) {
             $g            = $this->global_settings[$id];
             $same_setting = $g['ns'] == $this->ns && $g['value'] == $value
-                && $g['type'] == $type && $g['label'] == $label;
+                                                  && $g['type']        == $type                                   && $g['label']        == $label;
 
             # Drop setting if same value as global
             if ($same_setting && $this->settingExists($id, false)) {
@@ -309,6 +305,10 @@ class dcNamespace
             return false;
         }
 
+        if (!preg_match('/^[a-zA-Z][a-zA-Z0-9_]+$/', $newId)) {
+            throw new Exception(sprintf(__('%s is not a valid setting id'), $newId));
+        }
+
         // Rename the setting in the settings array
         $this->settings[$newId] = $this->settings[$oldId];
         unset($this->settings[$oldId]);
@@ -319,6 +319,7 @@ class dcNamespace
         " WHERE setting_ns = '" . $this->con->escape($this->ns) . "' " .
         " AND setting_id = '" . $this->con->escape($oldId) . "' ";
         $this->con->execute($strReq);
+
         return true;
     }
 
@@ -441,5 +442,4 @@ class dcNamespace
     {
         return $this->global_settings;
     }
-
 }

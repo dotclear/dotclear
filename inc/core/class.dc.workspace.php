@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcWorkspace
 {
@@ -40,7 +41,9 @@ class dcWorkspace
         $this->table   = $core->prefix . 'pref';
         $this->user_id = &$user_id;
 
-        try { $this->getPrefs($rs);} catch (Exception $e) {
+        try {
+            $this->getPrefs($rs);
+        } catch (Exception $e) {
             if (version_compare($core->getVersion('core'), '2.3', '>')) {
                 trigger_error(__('Unable to retrieve prefs:') . ' ' . $this->con->error(), E_USER_ERROR);
             }
@@ -115,6 +118,7 @@ class dcWorkspace
     public function prefExists($id, $global = false)
     {
         $array = $global ? 'global' : 'local';
+
         return isset($this->{$array . '_prefs'}[$id]);
     }
 
@@ -129,8 +133,6 @@ class dcWorkspace
         if (isset($this->prefs[$n]['value'])) {
             return $this->prefs[$n]['value'];
         }
-
-        return;
     }
 
     /**
@@ -144,8 +146,6 @@ class dcWorkspace
         if (isset($this->global_prefs[$n]['value'])) {
             return $this->global_prefs[$n]['value'];
         }
-
-        return;
     }
 
     /**
@@ -159,8 +159,6 @@ class dcWorkspace
         if (isset($this->local_prefs[$n]['value'])) {
             return $this->local_prefs[$n]['value'];
         }
-
-        return;
     }
     /**
     Magic __get method.
@@ -268,7 +266,7 @@ class dcWorkspace
         if (!$global && $this->prefExists($id, true)) {
             $g         = $this->global_prefs[$id];
             $same_pref = $g['ws'] == $this->ws && $g['value'] == $value
-                && $g['type'] == $type && $g['label'] == $label;
+                                               && $g['type']     == $type                                && $g['label']     == $label;
 
             # Drop pref if same value as global
             if ($same_pref && $this->prefExists($id, false)) {
@@ -312,6 +310,10 @@ class dcWorkspace
             return false;
         }
 
+        if (!preg_match('/^[a-zA-Z][a-zA-Z0-9_]+$/', $newId)) {
+            throw new Exception(sprintf(__('%s is not a valid pref id'), $newId));
+        }
+
         // Rename the pref in the prefs array
         $this->prefs[$newId] = $this->prefs[$oldId];
         unset($this->prefs[$oldId]);
@@ -322,6 +324,7 @@ class dcWorkspace
         " WHERE pref_ws = '" . $this->con->escape($this->ws) . "' " .
         " AND pref_id = '" . $this->con->escape($oldId) . "' ";
         $this->con->execute($strReq);
+
         return true;
     }
 
@@ -457,5 +460,4 @@ class dcWorkspace
     {
         return $this->global_prefs;
     }
-
 }
