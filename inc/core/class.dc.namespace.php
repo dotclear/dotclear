@@ -260,8 +260,8 @@ class dcNamespace
         #If we are local, compare to global value
         if (!$global && $this->settingExists($id, true)) {
             $g            = $this->global_settings[$id];
-            $same_setting = $g['ns'] == $this->ns && $g['value'] == $value
-                                                  && $g['type']        == $type                                   && $g['label']        == $label;
+            $same_setting = $g['ns']                                                       == $this->ns && $g['value']                                                       == $value
+                                                                                                        && $g['type'] == $type                            && $g['label'] == $label;
 
             # Drop setting if same value as global
             if ($same_setting && $this->settingExists($id, false)) {
@@ -360,12 +360,11 @@ class dcNamespace
             throw new Exception(__('No namespace specified'));
         }
 
-        $strReq = 'DELETE FROM ' . $this->table . ' ';
+        $strReq = 'DELETE FROM ' . $this->table . ' WHERE ';
         if (!$global) {
-            $strReq .= 'WHERE blog_id IS NOT NULL ';
+            $strReq .= 'blog_id IS NOT NULL AND ';
         }
-        $strReq .= "AND setting_id = '" . $this->con->escape($id) . "' ";
-        $strReq .= "AND setting_ns = '" . $this->con->escape($this->ns) . "' ";
+        $strReq .= "setting_id = '" . $this->con->escape($id) . "' AND setting_ns = '" . $this->con->escape($this->ns) . "' ";
 
         $this->con->execute($strReq);
     }

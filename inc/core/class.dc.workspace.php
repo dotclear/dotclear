@@ -265,8 +265,8 @@ class dcWorkspace
         #If we are local, compare to global value
         if (!$global && $this->prefExists($id, true)) {
             $g         = $this->global_prefs[$id];
-            $same_pref = $g['ws'] == $this->ws && $g['value'] == $value
-                                               && $g['type']     == $type                                && $g['label']     == $label;
+            $same_pref = $g['ws']                                                                                  == $this->ws && $g['value']                                                                                  == $value
+                                                                                                                                && $g['type'] == $type                            && $g['label'] == $label;
 
             # Drop pref if same value as global
             if ($same_pref && $this->prefExists($id, false)) {
@@ -378,12 +378,11 @@ class dcWorkspace
             throw new Exception(__('No workspace specified'));
         }
 
-        $strReq = 'DELETE FROM ' . $this->table . ' ';
+        $strReq = 'DELETE FROM ' . $this->table . ' WHERE ';
         if (!$global) {
-            $strReq .= 'WHERE user_id IS NOT NULL ';
+            $strReq .= 'user_id IS NOT NULL AND ';
         }
-        $strReq .= "AND pref_id = '" . $this->con->escape($id) . "' ";
-        $strReq .= "AND pref_ws = '" . $this->con->escape($this->ws) . "' ";
+        $strReq .= "pref_id = '" . $this->con->escape($id) . "' AND pref_ws = '" . $this->con->escape($this->ws) . "' ";
 
         $this->con->execute($strReq);
     }
