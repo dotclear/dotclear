@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcImportWP extends dcIeModule
 {
@@ -116,12 +117,14 @@ class dcImportWP extends dcIeModule
                 $db->close();
                 $this->step = 2;
                 echo $this->progressBar(1);
+
                 break;
             case 'step2':
                 $this->step = 2;
                 $this->importUsers();
                 $this->step = 3;
                 echo $this->progressBar(3);
+
                 break;
             case 'step3':
                 $this->step = 3;
@@ -133,12 +136,14 @@ class dcImportWP extends dcIeModule
                     $this->step = 5;
                     echo $this->progressBar(7);
                 }
+
                 break;
             case 'step4':
                 $this->step = 4;
                 $this->importLinks();
                 $this->step = 5;
                 echo $this->progressBar(7);
+
                 break;
             case 'step5':
                 $this->step        = 5;
@@ -148,12 +153,14 @@ class dcImportWP extends dcIeModule
                 } else {
                     echo $this->progressBar(ceil($percent * 0.93) + 7);
                 }
+
                 break;
             case 'ok':
                 $this->resetVars();
                 $this->core->blog->triggerBlog();
                 $this->step = 6;
                 echo $this->progressBar(100);
+
                 break;
         }
     }
@@ -225,21 +232,25 @@ class dcImportWP extends dcIeModule
                     '<p><label for="comment_formater">' . __('Comment content formatter:') . '</label> '
                     . form::combo('comment_formater', $this->formaters, $this->vars['comment_formater']) . '</p>'
                 );
+
                 break;
             case 2:
                 printf($this->imForm(2, __('Importing users')),
                     $this->autoSubmit()
                 );
+
                 break;
             case 3:
                 printf($this->imForm(3, __('Importing categories')),
                     $this->autoSubmit()
                 );
+
                 break;
             case 4:
                 printf($this->imForm(4, __('Importing blogroll')),
                     $this->autoSubmit()
                 );
+
                 break;
             case 5:
                 $t = sprintf(__('Importing entries from %d to %d / %d'), $this->post_offset,
@@ -248,6 +259,7 @@ class dcImportWP extends dcIeModule
                     form::hidden(['offset'], $this->post_offset) .
                     $this->autoSubmit()
                 );
+
                 break;
             case 6:
                 echo
@@ -255,6 +267,7 @@ class dcImportWP extends dcIeModule
                     'and will need to ask for a new one by following the "I forgot my password" link on the login page ' .
                     '(Their registered email address has to be valid.)') . '</p>' .
                 $this->congratMessage();
+
                 break;
         }
     }
@@ -287,7 +300,7 @@ class dcImportWP extends dcIeModule
     # Database init
     protected function db()
     {
-        $db = dbLayer::init('mysql', $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
+        $db = dbLayer::init('mysqli', $this->vars['db_host'], $this->vars['db_name'], $this->vars['db_user'], $this->vars['db_pwd']);
 
         $rs = $db->select("SHOW TABLES LIKE '" . $this->vars['db_prefix'] . "%'");
         if ($rs->isEmpty()) {
@@ -301,13 +314,14 @@ class dcImportWP extends dcIeModule
         # Set this to read data as they were written
         try {
             $db->execute('SET NAMES DEFAULT');
-        } catch (Exception $e) {}
+        } catch (Exception $e) {
+        }
 
         $db->execute('SET CHARACTER SET DEFAULT');
-        $db->execute("SET COLLATION_CONNECTION = DEFAULT");
-        $db->execute("SET COLLATION_SERVER = DEFAULT");
-        $db->execute("SET CHARACTER_SET_SERVER = DEFAULT");
-        $db->execute("SET CHARACTER_SET_DATABASE = DEFAULT");
+        $db->execute('SET COLLATION_CONNECTION = DEFAULT');
+        $db->execute('SET COLLATION_SERVER = DEFAULT');
+        $db->execute('SET CHARACTER_SET_SERVER = DEFAULT');
+        $db->execute('SET CHARACTER_SET_DATABASE = DEFAULT');
 
         $this->post_count = $db->select(
             'SELECT COUNT(ID) FROM ' . $this->vars['db_prefix'] . 'posts ' .
@@ -329,8 +343,7 @@ class dcImportWP extends dcIeModule
         $prefix = $this->vars['db_prefix'];
         $rs     = $db->select('SELECT * FROM ' . $prefix . 'users');
 
-        try
-        {
+        try {
             $this->con->begin();
 
             while ($rs->fetch()) {
@@ -353,33 +366,40 @@ class dcImportWP extends dcIeModule
                         switch ($rs_meta->meta_key) {
                             case 'first_name':
                                 $cur->user_firstname = $this->cleanStr($rs_meta->meta_value);
+
                                 break;
                             case 'last_name':
                                 $cur->user_name = $this->cleanStr($rs_meta->meta_value);
+
                                 break;
                             case 'description':
                                 $cur->user_desc = $this->cleanStr($rs_meta->meta_value);
+
                                 break;
                             case 'rich_editing':
                                 $cur->user_options = new ArrayObject([
                                     'enable_wysiwyg' => $rs_meta->meta_value == 'true' ? true : false
                                 ]);
+
                                 break;
                             case 'wp_user_level':
                                 switch ($rs_meta->meta_value) {
                                     case '0': # Subscriber
                                         $cur->user_status = 0;
+
                                         break;
                                     case '1': # Contributor
                                         $permissions['usage']   = true;
                                         $permissions['publish'] = true;
                                         $permissions['delete']  = true;
+
                                         break;
                                     case '2': # Author
                                     case '3':
                                     case '4':
                                         $permissions['contentadmin'] = true;
                                         $permissions['media']        = true;
+
                                         break;
                                     case '5': # Editor
                                     case '6':
@@ -389,13 +409,16 @@ class dcImportWP extends dcIeModule
                                         $permissions['media_admin']  = true;
                                         $permissions['pages']        = true;
                                         $permissions['blogroll']     = true;
+
                                         break;
                                     case '8': # Administrator
                                     case '9':
                                     case '10':
                                         $permissions['admin'] = true;
+
                                         break;
                                 }
+
                                 break;
                         }
                     }
@@ -412,6 +435,7 @@ class dcImportWP extends dcIeModule
         } catch (Exception $e) {
             $this->con->rollback();
             $db->close();
+
             throw $e;
         }
     }
@@ -429,8 +453,7 @@ class dcImportWP extends dcIeModule
             'ORDER BY t.term_id ASC'
         );
 
-        try
-        {
+        try {
             $this->con->execute(
                 'DELETE FROM ' . $this->prefix . 'category ' .
                 "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
@@ -456,6 +479,7 @@ class dcImportWP extends dcIeModule
             $db->close();
         } catch (Exception $e) {
             $db->close();
+
             throw $e;
         }
     }
@@ -467,8 +491,7 @@ class dcImportWP extends dcIeModule
         $prefix = $this->vars['db_prefix'];
         $rs     = $db->select('SELECT * FROM ' . $prefix . 'links ORDER BY link_id ASC');
 
-        try
-        {
+        try {
             $this->con->execute(
                 'DELETE FROM ' . $this->prefix . 'link ' .
                 "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
@@ -491,6 +514,7 @@ class dcImportWP extends dcIeModule
             $db->close();
         } catch (Exception $e) {
             $db->close();
+
             throw $e;
         }
     }
@@ -516,8 +540,7 @@ class dcImportWP extends dcIeModule
             $db->limit($this->post_offset, $this->post_limit)
         );
 
-        try
-        {
+        try {
             if ($this->post_offset == 0) {
                 $this->con->execute(
                     'DELETE FROM ' . $this->prefix . 'post ' .
@@ -532,14 +555,14 @@ class dcImportWP extends dcIeModule
             $db->close();
         } catch (Exception $e) {
             $db->close();
+
             throw $e;
         }
 
         if ($rs->count() < $this->post_limit) {
             return -1;
-        } else {
-            $this->post_offset += $this->post_limit;
         }
+        $this->post_offset += $this->post_limit;
 
         if ($this->post_offset > $this->post_count) {
             $percent = 100;
@@ -625,12 +648,15 @@ class dcImportWP extends dcIeModule
         switch ($rs->post_status) {
             case 'publish':
                 $cur->post_status = 1;
+
                 break;
             case 'draft':
                 $cur->post_status = 0;
+
                 break;
             case 'pending':
                 $cur->post_status = -2;
+
                 break;
             default:
                 $cur->post_status = -2;
@@ -638,7 +664,7 @@ class dcImportWP extends dcIeModule
         $cur->post_type         = $rs->post_type;
         $cur->post_password     = $rs->post_password ?: null;
         $cur->post_open_comment = $rs->comment_status == 'open' ? 1 : 0;
-        $cur->post_open_tb      = $rs->ping_status == 'open' ? 1 : 0;
+        $cur->post_open_tb      = $rs->ping_status    == 'open' ? 1 : 0;
 
         $cur->post_words = implode(' ', text::splitWords(
             $cur->post_title . ' ' .

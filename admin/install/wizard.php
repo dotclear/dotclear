@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 if (isset($_SERVER['DC_RC_PATH'])) {
     define('DC_RC_PATH', $_SERVER['DC_RC_PATH']);
 } elseif (isset($_SERVER['REDIRECT_DC_RC_PATH'])) {
@@ -50,7 +49,7 @@ if (!is_writable(dirname(DC_RC_PATH))) {
         'the documentation</a> to learn how to do this.') . '</p>';
 }
 
-$DBDRIVER      = !empty($_POST['DBDRIVER']) ? $_POST['DBDRIVER'] : (function_exists('mysqli_connect') ? 'mysqli' : 'mysql');
+$DBDRIVER      = !empty($_POST['DBDRIVER']) ? $_POST['DBDRIVER'] : 'mysqli';
 $DBHOST        = !empty($_POST['DBHOST']) ? $_POST['DBHOST'] : '';
 $DBNAME        = !empty($_POST['DBNAME']) ? $_POST['DBNAME'] : '';
 $DBUSER        = !empty($_POST['DBUSER']) ? $_POST['DBUSER'] : '';
@@ -59,8 +58,7 @@ $DBPREFIX      = !empty($_POST['DBPREFIX']) ? $_POST['DBPREFIX'] : 'dc_';
 $ADMINMAILFROM = !empty($_POST['ADMINMAILFROM']) ? $_POST['ADMINMAILFROM'] : '';
 
 if (!empty($_POST)) {
-    try
-    {
+    try {
         if ($DBDRIVER == 'sqlite') {
             if (strpos($DBNAME, '/') === false) {
                 $sqlite_db_directory = dirname(DC_RC_PATH) . '/../db/';
@@ -85,6 +83,7 @@ if (!empty($_POST)) {
         require dirname(__FILE__) . '/check.php';
         if (!dcSystemCheck($con, $_e)) {
             $can_install = false;
+
             throw new Exception('<p>' . __('Dotclear cannot be installed.') . '</p><ul><li>' . implode('</li><li>', $_e) . '</li></ul>');
         }
 
@@ -194,7 +193,6 @@ echo
 '<form action="wizard.php" method="post">' .
 '<p><label class="required" for="DBDRIVER"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Database type:') . '</label> ' .
 form::combo('DBDRIVER', [
-    __('MySQL (deprecated)')  => 'mysql',
     __('MySQLi')              => 'mysqli',
     __('MySQLi (full UTF-8)') => 'mysqlimb4',
     __('PostgreSQL')          => 'pgsql',

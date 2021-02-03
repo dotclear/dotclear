@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcImportDC1 extends dcIeModule
 {
@@ -28,7 +29,7 @@ class dcImportDC1 extends dcIeModule
 
     protected $vars;
     protected $base_vars = [
-        'db_driver'  => 'mysql',
+        'db_driver'  => 'mysqli',
         'db_host'    => '',
         'db_name'    => '',
         'db_user'    => '',
@@ -89,12 +90,14 @@ class dcImportDC1 extends dcIeModule
                 $db->close();
                 $this->step = 2;
                 echo $this->progressBar(1);
+
                 break;
             case 'step2':
                 $this->step = 2;
                 $this->importUsers();
                 $this->step = 3;
                 echo $this->progressBar(3);
+
                 break;
             case 'step3':
                 $this->step = 3;
@@ -106,12 +109,14 @@ class dcImportDC1 extends dcIeModule
                     $this->step = 5;
                     echo $this->progressBar(7);
                 }
+
                 break;
             case 'step4':
                 $this->step = 4;
                 $this->importLinks();
                 $this->step = 5;
                 echo $this->progressBar(7);
+
                 break;
             case 'step5':
                 $this->step        = 5;
@@ -121,12 +126,14 @@ class dcImportDC1 extends dcIeModule
                 } else {
                     echo $this->progressBar(ceil($percent * 0.93) + 7);
                 }
+
                 break;
             case 'ok':
                 $this->resetVars();
                 $this->core->blog->triggerBlog();
                 $this->step = 6;
                 echo $this->progressBar(100);
+
                 break;
         }
     }
@@ -141,7 +148,6 @@ class dcImportDC1 extends dcIeModule
 
         # db drivers
         $db_drivers = [
-            'mysql'  => 'mysql',
             'mysqli' => 'mysqli'
         ];
 
@@ -155,7 +161,7 @@ class dcImportDC1 extends dcIeModule
 
                 printf($this->imForm(1, __('General information'), __('Import my blog now')),
                     '<p>' . __('We first need some information about your old Dotclear 1.2 installation.') . '</p>' .
-                    '<p><label for="db_driver">' . __('Database driver (must be mysqli if PHP 7 or higher):') . '</label> ' .
+                    '<p><label for="db_driver">' . __('Database driver:') . '</label> ' .
                     form::combo('db_driver', $db_drivers, html::escapeHTML($this->vars['db_driver'])) . '</p>' .
                     '<p><label for="db_host">' . __('Database Host Name:') . '</label> ' .
                     form::field('db_host', 30, 255, html::escapeHTML($this->vars['db_host'])) . '</p>' .
@@ -171,21 +177,25 @@ class dcImportDC1 extends dcIeModule
                     '<p><label for="post_limit">' . __('Number of entries to import at once:') . '</label> ' .
                     form::number('post_limit', 0, 999, html::escapeHTML($this->vars['post_limit'])) . '</p>'
                 );
+
                 break;
             case 2:
                 printf($this->imForm(2, __('Importing users')),
                     $this->autoSubmit()
                 );
+
                 break;
             case 3:
                 printf($this->imForm(3, __('Importing categories')),
                     $this->autoSubmit()
                 );
+
                 break;
             case 4:
                 printf($this->imForm(4, __('Importing blogroll')),
                     $this->autoSubmit()
                 );
+
                 break;
             case 5:
                 $t = sprintf(__('Importing entries from %d to %d / %d'), $this->post_offset,
@@ -194,6 +204,7 @@ class dcImportDC1 extends dcIeModule
                     form::hidden(['offset'], $this->post_offset) .
                     $this->autoSubmit()
                 );
+
                 break;
             case 6:
                 echo
@@ -256,13 +267,14 @@ class dcImportDC1 extends dcIeModule
         # Set this to read data as they were written in Dotclear 1
         try {
             $db->execute('SET NAMES DEFAULT');
-        } catch (Exception $e) {}
+        } catch (Exception $e) {
+        }
 
         $db->execute('SET CHARACTER SET DEFAULT');
-        $db->execute("SET COLLATION_CONNECTION = DEFAULT");
-        $db->execute("SET COLLATION_SERVER = DEFAULT");
-        $db->execute("SET CHARACTER_SET_SERVER = DEFAULT");
-        $db->execute("SET CHARACTER_SET_DATABASE = DEFAULT");
+        $db->execute('SET COLLATION_CONNECTION = DEFAULT');
+        $db->execute('SET COLLATION_SERVER = DEFAULT');
+        $db->execute('SET CHARACTER_SET_SERVER = DEFAULT');
+        $db->execute('SET CHARACTER_SET_DATABASE = DEFAULT');
 
         $this->post_count = $db->select(
             'SELECT COUNT(post_id) FROM ' . $this->vars['db_prefix'] . 'post '
@@ -283,8 +295,7 @@ class dcImportDC1 extends dcIeModule
         $prefix = $this->vars['db_prefix'];
         $rs     = $db->select('SELECT * FROM ' . $prefix . 'user');
 
-        try
-        {
+        try {
             $this->con->begin();
 
             while ($rs->fetch()) {
@@ -308,17 +319,21 @@ class dcImportDC1 extends dcIeModule
                     switch ($rs->user_level) {
                         case '0':
                             $cur->user_status = 0;
+
                             break;
                         case '1': # editor
                             $permissions['usage'] = true;
+
                             break;
                         case '5': # advanced editor
                             $permissions['contentadmin'] = true;
                             $permissions['categories']   = true;
                             $permissions['media_admin']  = true;
+
                             break;
                         case '9': # admin
                             $permissions['admin'] = true;
+
                             break;
                     }
 
@@ -336,6 +351,7 @@ class dcImportDC1 extends dcIeModule
         } catch (Exception $e) {
             $this->con->rollback();
             $db->close();
+
             throw $e;
         }
     }
@@ -347,8 +363,7 @@ class dcImportDC1 extends dcIeModule
         $prefix = $this->vars['db_prefix'];
         $rs     = $db->select('SELECT * FROM ' . $prefix . 'categorie ORDER BY cat_ord ASC');
 
-        try
-        {
+        try {
             $this->con->execute(
                 'DELETE FROM ' . $this->prefix . 'category ' .
                 "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
@@ -374,6 +389,7 @@ class dcImportDC1 extends dcIeModule
             $db->close();
         } catch (Exception $e) {
             $db->close();
+
             throw $e;
         }
     }
@@ -385,8 +401,7 @@ class dcImportDC1 extends dcIeModule
         $prefix = $this->vars['db_prefix'];
         $rs     = $db->select('SELECT * FROM ' . $prefix . 'link ORDER BY link_id ASC');
 
-        try
-        {
+        try {
             $this->con->execute(
                 'DELETE FROM ' . $this->prefix . 'link ' .
                 "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' "
@@ -411,6 +426,7 @@ class dcImportDC1 extends dcIeModule
             $db->close();
         } catch (Exception $e) {
             $db->close();
+
             throw $e;
         }
     }
@@ -428,8 +444,7 @@ class dcImportDC1 extends dcIeModule
             $db->limit($this->post_offset, $this->post_limit)
         );
 
-        try
-        {
+        try {
             if ($this->post_offset == 0) {
                 $this->con->execute(
                     'DELETE FROM ' . $this->prefix . 'post ' .
@@ -444,14 +459,14 @@ class dcImportDC1 extends dcIeModule
             $db->close();
         } catch (Exception $e) {
             $db->close();
+
             throw $e;
         }
 
         if ($rs->count() < $this->post_limit) {
             return -1;
-        } else {
-            $this->post_offset += $this->post_limit;
         }
+        $this->post_offset += $this->post_limit;
 
         if ($this->post_offset > $this->post_count) {
             $percent = 100;
