@@ -117,7 +117,8 @@ if [ -z "$PO_MODULE" ]; then
   find ./inc/public/default-templates -name '*.html' -exec grep -o '{{tpl:lang [^}]*}}' {} \; | \
     sed 's/{{tpl:lang \(.*\)}}$/__\("\1")/' | sort -u \
     >> ./__html_tpl_dummy.php
-  sed -i "" 's/\$/\\\$/g' ./__html_tpl_dummy.php
+  sed -i.bak 's/\$/\\\$/g' ./__html_tpl_dummy.php
+  rm -- ./__html_tpl_dummy.php.bak
   find . -name '__html_tpl_dummy.php' -print | \
     extract_strings \
     --package-name="Dotclear 2" \
@@ -204,7 +205,8 @@ else
   echo '<?php' > $PO_MODULE/__html_tpl_dummy.php
   find $PO_MODULE -name '*.html' -exec grep -o '{{tpl:lang [^}]*}}' {} \; | sed 's/{{tpl:lang \(.*\)}}$/__\("\1")/' | sort -u \
     >> $PO_MODULE/__html_tpl_dummy.php
-  sed -i "" 's/\$/\\\$/g' $PO_MODULE/__html_tpl_dummy.php
+  sed -i.bak 's/\$/\\\$/g' $PO_MODULE/__html_tpl_dummy.php
+  rm -- $PO_MODULE/__html_tpl_dummy.php.bak
 
   find $PO_MODULE -name '*.php' -not -regex '.*/_config.php' -print | \
     extract_strings \
