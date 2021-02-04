@@ -1118,8 +1118,8 @@ msgid "Save and publish"
 msgstr "uložit a publikovat"
 
 #, fuzzy, php-format
-msgid "PHP version is %s (5.6 or earlier needed)."
-msgstr "PHP verze je %s (je třeba verze 5.6 a vyšší.)"
+msgid "PHP version is %s (7.0 or earlier needed)."
+msgstr "PHP verze je %s (je třeba verze 7.0 a vyšší.)"
 
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "Multibyte string modul (mbstring) není dostupný!"

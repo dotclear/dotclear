@@ -6,15 +6,16 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 function dcSystemCheck($con, &$err)
 {
     $err = [];
 
-    if (version_compare(phpversion(), '5.6', '<')) {
-        $err[] = sprintf(__('PHP version is %s (5.6 or earlier needed).'), phpversion());
+    if (version_compare(phpversion(), '7.0', '<')) {
+        $err[] = sprintf(__('PHP version is %s (7.0 or earlier needed).'), phpversion());
     }
 
     if (!function_exists('mb_detect_encoding')) {
@@ -42,7 +43,7 @@ function dcSystemCheck($con, &$err)
         $err[] = __('PCRE engine does not support UTF-8 strings.');
     }
 
-    if (!function_exists("spl_classes")) {
+    if (!function_exists('spl_classes')) {
         $err[] = __('SPL module is not available.');
     }
 
@@ -55,6 +56,7 @@ function dcSystemCheck($con, &$err)
             while ($rs->fetch()) {
                 if (strtolower($rs->f(0)) == 'innodb' && strtolower($rs->f(1)) != 'disabled' && strtolower($rs->f(1)) != 'no') {
                     $innodb = true;
+
                     break;
                 }
             }

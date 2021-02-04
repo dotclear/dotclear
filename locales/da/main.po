@@ -1108,8 +1108,8 @@ msgid "Save and publish"
 msgstr "gem og udgiv"
 
 #, fuzzy, php-format
-msgid "PHP version is %s (5.6 or earlier needed)."
-msgstr "PHP version er %s (5.6 eller tidligere behøves)."
+msgid "PHP version is %s (7.0 or earlier needed)."
+msgstr "PHP version er %s (7.0 eller tidligere behøves)."
 
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "Multibyte string modul (mbstring) er ikke tilgængelig."

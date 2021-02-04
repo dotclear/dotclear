@@ -1108,7 +1108,7 @@ msgid "Save and publish"
 msgstr "kaydet ve yayınla"
 
 #, php-format
-msgid "PHP version is %s (5.6 or earlier needed)."
+msgid "PHP version is %s (7.0 or earlier needed)."
 msgstr ""
 
 msgid "Multibyte string module (mbstring) is not available."

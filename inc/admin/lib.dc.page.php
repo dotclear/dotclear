@@ -6,8 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 define('DC_AUTH_PAGE', 'auth.php');
 
@@ -70,12 +71,11 @@ class dcPage
 
         # List of user's blogs
         if ($core->auth->getBlogCount() == 1 || $core->auth->getBlogCount() > 20) {
-            $blog_box =
-            '<p>' . __('Blog:') . ' <strong title="' . html::escapeHTML($core->blog->url) . '">' .
+            $blog_box = '<p>' . __('Blog:') . ' <strong title="' . html::escapeHTML($core->blog->url) . '">' .
             html::escapeHTML($core->blog->name) . '</strong>';
 
             if ($core->auth->getBlogCount() > 20) {
-                $blog_box .= ' - <a href="' . $core->adminurl->get("admin.blogs") . '">' . __('Change blog') . '</a>';
+                $blog_box .= ' - <a href="' . $core->adminurl->get('admin.blogs') . '">' . __('Change blog') . '</a>';
             }
             $blog_box .= '</p>';
         } else {
@@ -113,7 +113,7 @@ class dcPage
             // Get directives from settings if exist, else set defaults
             $csp = new ArrayObject([]);
 
-                                                                                // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
+            // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
                                                                                 // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
             $csp_prefix = $core->con->syntax() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks syntax
             $csp_suffix = $core->con->syntax() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks syntax
@@ -130,8 +130,8 @@ class dcPage
             # Cope with blog post preview (via public URL in iframe)
             if (!is_null($core->blog->host)) {
                 $csp['default-src'] .= ' ' . parse_url($core->blog->host, PHP_URL_HOST);
-                $csp['script-src'] .= ' ' . parse_url($core->blog->host, PHP_URL_HOST);
-                $csp['style-src'] .= ' ' . parse_url($core->blog->host, PHP_URL_HOST);
+                $csp['script-src']  .= ' ' . parse_url($core->blog->host, PHP_URL_HOST);
+                $csp['style-src']   .= ' ' . parse_url($core->blog->host, PHP_URL_HOST);
             }
             # Cope with media display in media manager (via public URL)
             if (!is_null($core->media)) {
@@ -141,7 +141,7 @@ class dcPage
                 $csp['img-src'] .= ' ' . parse_url($core->blog->host, PHP_URL_HOST);
             }
             # Allow everything in iframe (used by editors to preview public content)
-            $csp['frame-src'] = "*";
+            $csp['frame-src'] = '*';
 
             # --BEHAVIOR-- adminPageHTTPHeaderCSP
             $core->callBehavior('adminPageHTTPHeaderCSP', $csp);
@@ -154,12 +154,9 @@ class dcPage
                 }
             }
             if (count($directives)) {
-                if (version_compare(phpversion(), '5.4', '>=')) {
-                    // csp_report.php needs PHP ≥ 5.4
-                    $directives[] = "report-uri " . DC_ADMIN_URL . "csp_report.php";
-                }
+                $directives[]   = 'report-uri ' . DC_ADMIN_URL . 'csp_report.php';
                 $report_only    = ($core->blog->settings->system->csp_admin_report_only) ? '-Report-Only' : '';
-                $headers['csp'] = "Content-Security-Policy" . $report_only . ": " . implode(" ; ", $directives);
+                $headers['csp'] = 'Content-Security-Policy' . $report_only . ': ' . implode(' ; ', $directives);
             }
         }
 
@@ -230,19 +227,19 @@ class dcPage
         '<li><a href="#help">' . __('Go to help') . '</a></li>' .
         '</ul>' . "\n" .
         '<header id="header" role="banner">' .
-        '<h1><a href="' . $core->adminurl->get("admin.home") . '"><span class="hidden">' . DC_VENDOR_NAME . '</span></a></h1>' . "\n";
+        '<h1><a href="' . $core->adminurl->get('admin.home') . '"><span class="hidden">' . DC_VENDOR_NAME . '</span></a></h1>' . "\n";
 
         echo
-        '<form action="' . $core->adminurl->get("admin.home") . '" method="post" id="top-info-blog">' .
+        '<form action="' . $core->adminurl->get('admin.home') . '" method="post" id="top-info-blog">' .
         $blog_box .
         '<p><a href="' . $core->blog->url . '" class="outgoing" title="' . __('Go to site') .
         '">' . __('Go to site') . '<img src="images/outgoing-link.svg" alt="" /></a>' .
         '</p></form>' .
         '<ul id="top-info-user">' .
-        '<li><a class="' . (preg_match('/' . preg_quote($core->adminurl->get('admin.home')) . '$/', $_SERVER['REQUEST_URI']) ? ' active' : '') . '" href="' . $core->adminurl->get("admin.home") . '">' . __('My dashboard') . '</a></li>' .
+        '<li><a class="' . (preg_match('/' . preg_quote($core->adminurl->get('admin.home')) . '$/', $_SERVER['REQUEST_URI']) ? ' active' : '') . '" href="' . $core->adminurl->get('admin.home') . '">' . __('My dashboard') . '</a></li>' .
         '<li><a class="smallscreen' . (preg_match('/' . preg_quote($core->adminurl->get('admin.user.preferences')) . '(\?.*)?$/', $_SERVER['REQUEST_URI']) ? ' active' : '') .
-        '" href="' . $core->adminurl->get("admin.user.preferences") . '">' . __('My preferences') . '</a></li>' .
-        '<li><a href="' . $core->adminurl->get("admin.home", ['logout' => 1]) . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), $core->auth->userID()) .
+        '" href="' . $core->adminurl->get('admin.user.preferences') . '">' . __('My preferences') . '</a></li>' .
+        '<li><a href="' . $core->adminurl->get('admin.home', ['logout' => 1]) . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), $core->auth->userID()) .
             '</span><img src="images/logout.png" alt="" /></a></li>' .
             '</ul>' .
             '</header>'; // end header
@@ -283,17 +280,17 @@ class dcPage
 
     public static function addSuccessNotice($message, $options = [])
     {
-        self::addNotice("success", $message, $options);
+        self::addNotice('success', $message, $options);
     }
 
     public static function addWarningNotice($message, $options = [])
     {
-        self::addNotice("warning", $message, $options);
+        self::addNotice('warning', $message, $options);
     }
 
     public static function addErrorNotice($message, $options = [])
     {
-        self::addNotice("error", $message, $options);
+        self::addNotice('error', $message, $options);
     }
 
     public static function close()
@@ -303,7 +300,7 @@ class dcPage
         if (!$GLOBALS['__resources']['ctxhelp']) {
             if (!$core->auth->user_prefs->interface->hidehelpbutton) {
                 echo
-                '<p id="help-button"><a href="' . $core->adminurl->get("admin.help") . '" class="outgoing" title="' .
+                '<p id="help-button"><a href="' . $core->adminurl->get('admin.help') . '" class="outgoing" title="' .
                 __('Global help') . '">' . __('Global help') . '</a></p>';
             }
         }
@@ -316,7 +313,7 @@ class dcPage
 
         '<nav id="main-menu" role="navigation">' . "\n" .
 
-        '<form id="search-menu" action="' . $core->adminurl->get("admin.search") . '" method="get" role="search">' .
+        '<form id="search-menu" action="' . $core->adminurl->get('admin.search') . '" method="get" role="search">' .
         '<p><label for="qx" class="hidden">' . __('Search:') . ' </label>' . form::field('qx', 30, 255, '') .
         '<input type="submit" value="' . __('OK') . '" /></p>' .
             '</form>';
@@ -358,9 +355,9 @@ EOT;
             '<a href="https://dotclear.org/" title="' . $text . '">' .
             '<img src="style/dc_logos/w-dotclear90.png" alt="' . $text . '" /></a></footer>' . "\n" .
             '<audio id="thanks" src="images/thanks.mp3" crossOrigin="anonymous" preload="none"></audio>' .
-            "<!-- " . "\n" .
+            '<!-- ' . "\n" .
             $figure .
-            " -->" . "\n";
+            ' -->' . "\n";
 
         if (defined('DC_DEV') && DC_DEV === true) {
             echo self::debugInfo();
@@ -465,12 +462,12 @@ EOT;
     {
         $core = self::getCore();
 
-        $with_home_link = isset($options['home_link']) ? $options['home_link'] : true;
-        $hl             = isset($options['hl']) ? $options['hl'] : true;
-        $hl_pos         = isset($options['hl_pos']) ? $options['hl_pos'] : -1;
+        $with_home_link = $options['home_link'] ?? true;
+        $hl             = $options['hl']        ?? true;
+        $hl_pos         = $options['hl_pos']    ?? -1;
         // First item of array elements should be blog's name, System or Plugins
         $res = '<h2>' . ($with_home_link ?
-            '<a class="go_home" href="' . $core->adminurl->get("admin.home") . '"><img src="style/dashboard.png" alt="' . __('Go to dashboard') . '" /></a>' :
+            '<a class="go_home" href="' . $core->adminurl->get('admin.home') . '"><img src="style/dashboard.png" alt="' . __('Go to dashboard') . '" /></a>' :
             '<img src="style/dashboard-alt.png" alt="" />');
         $index = 0;
         if ($hl_pos < 0) {
@@ -485,6 +482,7 @@ EOT;
             $index++;
         }
         $res .= '</h2>';
+
         return $res;
     }
 
@@ -495,20 +493,19 @@ EOT;
 
     public static function success($msg, $timestamp = true, $div = false, $echo = true)
     {
-        return self::message($msg, $timestamp, $div, $echo, "success");
+        return self::message($msg, $timestamp, $div, $echo, 'success');
     }
 
     public static function warning($msg, $timestamp = true, $div = false, $echo = true)
     {
-        return self::message($msg, $timestamp, $div, $echo, "warning-msg");
+        return self::message($msg, $timestamp, $div, $echo, 'warning-msg');
     }
 
     private static function debugInfo()
     {
         $global_vars = implode(', ', array_keys($GLOBALS));
 
-        $res =
-        '<div id="debug"><div>' .
+        $res = '<div id="debug"><div>' .
         '<p>memory usage: ' . memory_get_usage() . ' (' . files::size(memory_get_usage()) . ')</p>';
 
         if (function_exists('xdebug_get_profiler_filename')) {
@@ -521,7 +518,7 @@ EOT;
                 $prof_url = http::getSelfURI();
                 $prof_url .= (strpos($prof_url, '?') === false) ? '?' : '&';
                 $prof_url .= 'XDEBUG_PROFILE';
-                $res .= '<p><a href="' . html::escapeURL($prof_url) . '">Trigger profiler</a></p>';
+                $res      .= '<p><a href="' . html::escapeURL($prof_url) . '">Trigger profiler</a></p>';
             }
 
             /* xdebug configuration:
@@ -538,8 +535,7 @@ EOT;
          */
         }
 
-        $res .=
-            '<p>Global vars: ' . $global_vars . '</p>' .
+        $res .= '<p>Global vars: ' . $global_vars . '</p>' .
             '</div></div>';
 
         return $res;
@@ -576,6 +572,7 @@ EOT;
         foreach ($args as $v) {
             if (is_object($v) && isset($v->content)) {
                 $content .= $v->content;
+
                 continue;
             }
 
@@ -608,7 +605,7 @@ EOT;
         '</div>' .
         '<div id="helplink"><hr />' .
         '<p>' .
-        sprintf(__('See also %s'), sprintf('<a href="' . $core->adminurl->get("admin.help") . '">%s</a>', __('the global help'))) .
+        sprintf(__('See also %s'), sprintf('<a href="' . $core->adminurl->get('admin.help') . '">%s</a>', __('the global help'))) .
             '.</p>' .
             '</div></div>';
     }
@@ -630,6 +627,7 @@ EOT;
         if (!isset(self::$loaded_js[$escaped_src])) {
             self::$loaded_js[$escaped_src] = true;
             $escaped_src                   = self::appendVersion($escaped_src, $v);
+
             return '<script src="' . $escaped_src . '"></script>' . "\n";
         }
     }
@@ -642,6 +640,7 @@ EOT;
         } else {
             $src .= ($v === '' ? DC_VERSION : $v);
         }
+
         return $src;
     }
 
@@ -698,6 +697,7 @@ EOT;
                 }
             }
         }
+
         return
         self::jsJson('dotclear_toggles', $js) .
         self::jsLoad('js/toggles.js');
@@ -711,34 +711,31 @@ EOT;
         }
 
         $js = [
-            'nonce'               => $core->getNonce(),
+            'nonce' => $core->getNonce(),
 
-            'img_plus_src'        => 'images/expand.png',
-            'img_plus_txt'        => '►',
-            'img_plus_alt'        => __('uncover'),
+            'img_plus_src' => 'images/expand.png',
+            'img_plus_txt' => '►',
+            'img_plus_alt' => __('uncover'),
 
-            'img_minus_src'       => 'images/hide.png',
-            'img_minus_txt'       => '▼',
-            'img_minus_alt'       => __('hide'),
+            'img_minus_src' => 'images/hide.png',
+            'img_minus_txt' => '▼',
+            'img_minus_alt' => __('hide'),
 
-            'img_menu_on'         => 'images/menu_on.png',
-            'img_menu_off'        => 'images/menu_off.png',
+            'img_menu_on'  => 'images/menu_on.png',
+            'img_menu_off' => 'images/menu_off.png',
 
-            'img_plus_theme_src'  => 'images/plus-theme.png',
-            'img_plus_theme_txt'  => '►',
-            'img_plus_theme_alt'  => __('uncover'),
+            'img_plus_theme_src' => 'images/plus-theme.png',
+            'img_plus_theme_txt' => '►',
+            'img_plus_theme_alt' => __('uncover'),
 
             'img_minus_theme_src' => 'images/minus-theme.png',
             'img_minus_theme_txt' => '▼',
             'img_minus_theme_alt' => __('hide'),
 
-            'adblocker_check'     => (
+            'adblocker_check' => (
                 (
-                    !defined('DC_ADBLOCKER_CHECK') ||
-                    DC_ADBLOCKER_CHECK === true
-                ) &&
-                $core->auth->user_prefs !== null &&
-                $core->auth->user_prefs->interface->nocheckadblocker !== true
+                    !defined('DC_ADBLOCKER_CHECK') || DC_ADBLOCKER_CHECK === true
+                ) && $core->auth->user_prefs !== null && $core->auth->user_prefs->interface->nocheckadblocker !== true
             )
         ];
 
@@ -757,11 +754,11 @@ EOT;
             'entry_created'                        => __('Entry has been successfully created.'),
             'edit_entry'                           => __('Edit entry'),
             'view_entry'                           => __('view entry'),
-            'confirm_delete_posts'                 => __("Are you sure you want to delete selected entries (%s)?"),
-            'confirm_delete_medias'                => __("Are you sure you want to delete selected medias (%d)?"),
-            'confirm_delete_categories'            => __("Are you sure you want to delete selected categories (%s)?"),
-            'confirm_delete_post'                  => __("Are you sure you want to delete this entry?"),
-            'click_to_unlock'                      => __("Click here to unlock the field"),
+            'confirm_delete_posts'                 => __('Are you sure you want to delete selected entries (%s)?'),
+            'confirm_delete_medias'                => __('Are you sure you want to delete selected medias (%d)?'),
+            'confirm_delete_categories'            => __('Are you sure you want to delete selected categories (%s)?'),
+            'confirm_delete_post'                  => __('Are you sure you want to delete this entry?'),
+            'click_to_unlock'                      => __('Click here to unlock the field'),
             'confirm_spam_delete'                  => __('Are you sure you want to delete all spams?'),
             'confirm_delete_comments'              => __('Are you sure you want to delete selected comments (%s)?'),
             'confirm_delete_comment'               => __('Are you sure you want to delete this comment?'),
@@ -789,22 +786,22 @@ EOT;
             'xhtml_not_valid'                      => __('There are XHTML markup errors.'),
             'warning_validate_no_save_content'     => __('Attention: an audit of a content not yet registered.'),
             'confirm_change_post_format'           => __('You have unsaved changes. Switch post format will loose these changes. Proceed anyway?'),
-            'confirm_change_post_format_noconvert' => __("Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"),
+            'confirm_change_post_format_noconvert' => __('Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?'),
             'load_enhanced_uploader'               => __('Loading enhanced uploader, please wait.'),
 
-            'module_author'                        => __('Author:'),
-            'module_details'                       => __('Details'),
-            'module_support'                       => __('Support'),
-            'module_help'                          => __('Help:'),
-            'module_section'                       => __('Section:'),
-            'module_tags'                          => __('Tags:'),
+            'module_author'  => __('Author:'),
+            'module_details' => __('Details'),
+            'module_support' => __('Support'),
+            'module_help'    => __('Help:'),
+            'module_section' => __('Section:'),
+            'module_tags'    => __('Tags:'),
 
-            'close_notice'                         => __('Hide this notice'),
+            'close_notice' => __('Hide this notice'),
 
-            'show_password'                        => __('Show password'),
-            'hide_password'                        => __('Hide password'),
+            'show_password' => __('Show password'),
+            'hide_password' => __('Hide password'),
 
-            'adblocker'                            => __('An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it.')
+            'adblocker' => __('An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it.')
         ];
 
         return
@@ -843,6 +840,7 @@ EOT;
             'prompt' => __('You have unsaved changes.'),
             'forms'  => $args
         ];
+
         return
         self::jsJson('confirm_close', $js) .
         self::jsLoad('js/confirm-close.js');
@@ -853,6 +851,7 @@ EOT;
         $js = [
             'default' => $default
         ];
+
         return
         self::jsJson('page_tabs', $js) .
         self::jsLoad('js/jquery/jquery.pageTabs.js') .
@@ -876,7 +875,7 @@ EOT;
     public static function jsDatePicker()
     {
         $js = [
-            'months'    => [
+            'months' => [
                 __('January'),
                 __('February'),
                 __('March'),
@@ -890,7 +889,7 @@ EOT;
                 __('November'),
                 __('December')
             ],
-            'days'      => [
+            'days' => [
                 __('Monday'),
                 __('Tuesday'),
                 __('Wednesday'),
@@ -904,6 +903,7 @@ EOT;
             'close_msg' => __('close'),
             'now_msg'   => __('now')
         ];
+
         return
         self::cssLoad('style/date-picker.css') .
         self::jsJson('date_picker', $js) .
@@ -934,7 +934,7 @@ EOT;
             'enhanced_uploader_disable'  => __('Temporarily disable enhanced uploader')
         ];
         $js = [
-            'msg'      => [
+            'msg' => [
                 'limit_exceeded'             => __('Limit exceeded.'),
                 'size_limit_exceeded'        => __('File size exceeds allowed limit.'),
                 'canceled'                   => __('Canceled.'),
@@ -984,6 +984,7 @@ EOT;
             'filter_posts_list' => __('Show filters and display options'),
             'cancel_the_filter' => __('Cancel filters and display options')
         ];
+
         return
         self::jsJson('filter_controls', $js) .
         self::jsJson('filter_options', ['auto_filter' => $core->auth->user_prefs->interface->auto_filter]) .
@@ -992,8 +993,7 @@ EOT;
 
     public static function jsLoadCodeMirror($theme = '', $multi = true, $modes = ['css', 'htmlmixed', 'javascript', 'php', 'xml', 'clike'])
     {
-        $ret =
-        self::cssLoad('js/codemirror/lib/codemirror.css') .
+        $ret = self::cssLoad('js/codemirror/lib/codemirror.css') .
         self::jsLoad('js/codemirror/lib/codemirror.js');
         if ($multi) {
             $ret .= self::jsLoad('js/codemirror/addon/mode/multiplex.js');
@@ -1001,14 +1001,14 @@ EOT;
         foreach ($modes as $mode) {
             $ret .= self::jsLoad('js/codemirror/mode/' . $mode . '/' . $mode . '.js');
         }
-        $ret .=
-        self::jsLoad('js/codemirror/addon/edit/closebrackets.js') .
+        $ret .= self::jsLoad('js/codemirror/addon/edit/closebrackets.js') .
         self::jsLoad('js/codemirror/addon/edit/matchbrackets.js') .
         self::cssLoad('js/codemirror/addon/display/fullscreen.css') .
         self::jsLoad('js/codemirror/addon/display/fullscreen.js');
         if ($theme != '') {
             $ret .= self::cssLoad('js/codemirror/theme/' . $theme . '.css');
         }
+
         return $ret;
     }
 
@@ -1025,9 +1025,9 @@ EOT;
             ]];
         }
 
-        $ret =
-        self::jsJson('codemirror', $js) .
+        $ret = self::jsJson('codemirror', $js) .
         self::jsLoad('js/codemirror.js');
+
         return $ret;
     }
 
@@ -1045,18 +1045,21 @@ EOT;
                 sort($themes);
             }
         }
+
         return $themes;
     }
 
     public static function getPF($file)
     {
         $core = self::getCore();
+
         return $core->adminurl->get('load.plugin.file', ['pf' => $file]);
     }
 
     public static function getVF($file)
     {
         $core = self::getCore();
+
         return $core->adminurl->get('load.var.file', ['vf' => $file]);
     }
 
@@ -1069,7 +1072,7 @@ EOT;
         if ($origin !== null) {
             $url                        = parse_url($origin);
             $headers['x-frame-options'] = sprintf('X-Frame-Options: %s', is_array($url) && isset($url['host']) ?
-                ("ALLOW-FROM " . (isset($url['scheme']) ? $url['scheme'] . ':' : '') . '//' . $url['host']) :
+                ('ALLOW-FROM ' . (isset($url['scheme']) ? $url['scheme'] . ':' : '') . '//' . $url['host']) :
                 'SAMEORIGIN');
         } else {
             $headers['x-frame-options'] = 'X-Frame-Options: SAMEORIGIN'; // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+

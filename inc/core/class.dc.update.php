@@ -6,8 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcUpdate
 {
@@ -25,7 +26,7 @@ class dcUpdate
         'href'     => null,
         'checksum' => null,
         'info'     => null,
-        'php'      => '5.6',
+        'php'      => '7.0',
         'notify'   => true
     ];
 
@@ -75,6 +76,7 @@ class dcUpdate
             $c = @unserialize($c);
             if (is_array($c)) {
                 $this->version_info = $c;
+
                 return;
             }
         }
@@ -98,8 +100,7 @@ class dcUpdate
         }
 
         # Try to get latest version number
-        try
-        {
+        try {
             $path   = '';
             $status = 0;
 
@@ -111,6 +112,7 @@ class dcUpdate
                     $client->get($path);
                     $status = (int) $client->getStatus();
                 }
+
                 return $client;
             };
 
@@ -181,7 +183,6 @@ class dcUpdate
      */
     public function setNotify($n)
     {
-
         if (!is_writable($this->cache_file)) {
             return;
         }
@@ -201,6 +202,7 @@ class dcUpdate
         if (!empty($changes)) {
             $e            = new Exception('Some files have changed.', self::ERR_FILES_CHANGED);
             $e->bad_files = $changes;
+
             throw $e;
         }
 
@@ -222,8 +224,7 @@ class dcUpdate
             throw new Exception(__('Root directory is not writable.'));
         }
 
-        try
-        {
+        try {
             $path   = '';
             $status = 0;
 
@@ -238,6 +239,7 @@ class dcUpdate
                     $client->get($path);
                     $status = (int) $client->getStatus();
                 }
+
                 return $client;
             };
 
@@ -253,6 +255,7 @@ class dcUpdate
             }
             if ($status != 200) {
                 @unlink($dest);
+
                 throw new Exception();
             }
         } catch (Exception $e) {
@@ -281,6 +284,7 @@ class dcUpdate
 
         if (!is_readable($root_digests)) {
             @unlink($zip_file);
+
             throw new Exception(__('Unable to read current digests file.'));
         }
 
@@ -303,6 +307,7 @@ class dcUpdate
 
         if (!$zip->hasFile($zip_digests)) {
             @unlink($zip_file);
+
             throw new Exception(__('Downloaded file does not seem to be a valid archive.'));
         }
 
@@ -335,6 +340,7 @@ class dcUpdate
         if (!empty($not_readable)) {
             $e            = new Exception('Some files are not readable.', self::ERR_FILES_UNREADABLE);
             $e->bad_files = $not_readable;
+
             throw $e;
         }
 
@@ -356,6 +362,7 @@ class dcUpdate
 
         if (!is_readable($root_digests)) {
             @unlink($zip_file);
+
             throw new Exception(__('Unable to read current digests file.'));
         }
 
@@ -363,6 +370,7 @@ class dcUpdate
 
         if (!$zip->hasFile($zip_digests)) {
             @unlink($zip_file);
+
             throw new Exception(__('Downloaded file does not seem to be a valid archive.'));
         }
 
@@ -385,15 +393,16 @@ class dcUpdate
 
             if (!$zip->hasFile($zip_root . '/' . $file)) {
                 @unlink($zip_file);
+
                 throw new Exception(__('Incomplete archive.'));
             }
 
             $dest = $dest_dir = $root . '/' . $file;
             while (!is_dir($dest_dir = dirname($dest_dir)));
 
-            if ((file_exists($dest) && !is_writable($dest)) ||
-                (!file_exists($dest) && !is_writable($dest_dir))) {
+            if ((file_exists($dest) && !is_writable($dest)) || (!file_exists($dest) && !is_writable($dest_dir))) {
                 $not_writable[] = $file;
+
                 continue;
             }
 
@@ -404,6 +413,7 @@ class dcUpdate
         if (!empty($not_writable)) {
             $e            = new Exception('Some files are not writable', self::ERR_FILES_UNWRITALBE);
             $e->bad_files = $not_writable;
+
             throw $e;
         }
 
@@ -436,8 +446,7 @@ class dcUpdate
 
     protected function readVersion($str)
     {
-        try
-        {
+        try {
             $xml = new SimpleXMLElement($str, LIBXML_NOERROR);
             $r   = $xml->xpath("/versions/subject[@name='" . $this->subject . "']/release[@name='" . $this->version . "']");
 
@@ -500,15 +509,14 @@ class dcUpdate
     {
         if (md5_file($filename) == $md5) {
             return true;
-        } else {
-            $filecontent = file_get_contents($filename);
-            $filecontent = str_replace("\r\n", "\n", $filecontent);
-            $filecontent = str_replace("\r", "\n", $filecontent);
-            if (md5($filecontent) == $md5) {
-                return true;
-            }
-
         }
+        $filecontent = file_get_contents($filename);
+        $filecontent = str_replace("\r\n", "\n", $filecontent);
+        $filecontent = str_replace("\r", "\n", $filecontent);
+        if (md5($filecontent) == $md5) {
+            return true;
+        }
+
         return false;
     }
 }
