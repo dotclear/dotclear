@@ -23,6 +23,9 @@ class dcWorkspace
     protected $prefs        = []; ///< <b>array</b> Associative prefs array
     protected $ws;                ///< <b>string</b> Current workspace
 
+    const WS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
+    const WS_ID_SCHEMA   = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
+
     /**
     Object constructor. Retrieves user prefs and puts them in $prefs
     array. Local (user) prefs have a highest priority than global prefs.
@@ -31,7 +34,7 @@ class dcWorkspace
      */
     public function __construct(&$core, $user_id, $name, $rs = null)
     {
-        if (preg_match('/^[a-zA-Z][a-zA-Z0-9]+$/', $name)) {
+        if (preg_match(self::WS_NAME_SCHEMA, $name)) {
             $this->ws = $name;
         } else {
             throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $name));
@@ -210,7 +213,7 @@ class dcWorkspace
      */
     public function put($id, $value, $type = null, $label = null, $value_change = true, $global = false)
     {
-        if (!preg_match('/^[a-zA-Z][a-zA-Z0-9_]+$/', $id)) {
+        if (!preg_match(self::WS_ID_SCHEMA, $id)) {
             throw new Exception(sprintf(__('%s is not a valid pref id'), $id));
         }
 
@@ -265,8 +268,7 @@ class dcWorkspace
         #If we are local, compare to global value
         if (!$global && $this->prefExists($id, true)) {
             $g         = $this->global_prefs[$id];
-            $same_pref = $g['ws']                                                                                  == $this->ws && $g['value']                                                                                  == $value
-                                                                                                                                && $g['type'] == $type                            && $g['label'] == $label;
+            $same_pref = ($g['ws'] == $this->ws && $g['value'] == $value && $g['type'] == $type && $g['label'] == $label);
 
             # Drop pref if same value as global
             if ($same_pref && $this->prefExists($id, false)) {
@@ -310,7 +312,7 @@ class dcWorkspace
             return false;
         }
 
-        if (!preg_match('/^[a-zA-Z][a-zA-Z0-9_]+$/', $newId)) {
+        if (!preg_match(self::WS_ID_SCHEMA, $newId)) {
             throw new Exception(sprintf(__('%s is not a valid pref id'), $newId));
         }
 

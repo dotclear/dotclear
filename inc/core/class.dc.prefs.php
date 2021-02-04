@@ -12,8 +12,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcPrefs
 {
@@ -24,6 +25,8 @@ class dcPrefs
     protected $workspaces = []; ///< <b>array</b> Associative workspaces array
 
     protected $ws; ///< <b>string</b> Current workspace
+
+    const WS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
 
     /**
     Object constructor. Retrieves user prefs and puts them in $workspaces
@@ -37,7 +40,10 @@ class dcPrefs
         $this->con     = &$core->con;
         $this->table   = $core->prefix . 'pref';
         $this->user_id = &$user_id;
-        try { $this->loadPrefs();} catch (Exception $e) {
+
+        try {
+            $this->loadPrefs();
+        } catch (Exception $e) {
             if (version_compare($core->getVersion('core'), '2.3', '>')) {
                 trigger_error(__('Unable to retrieve workspaces:') . ' ' . $this->con->error(), E_USER_ERROR);
             }
@@ -55,6 +61,7 @@ class dcPrefs
         "WHERE user_id = '" . $this->con->escape($this->user_id) . "' " .
             'OR user_id IS NULL ' .
             'ORDER BY pref_ws ASC, pref_id ASC';
+
         try {
             $rs = $this->con->select($strReq);
         } catch (Exception $e) {
@@ -88,6 +95,7 @@ class dcPrefs
         if (!array_key_exists($ws, $this->workspaces)) {
             $this->workspaces[$ws] = new dcWorkspace($GLOBALS['core'], $this->user_id, $ws);
         }
+
         return $this->workspaces[$ws];
     }
 
@@ -104,6 +112,10 @@ class dcPrefs
             return false;
         }
 
+        if (!preg_match(self::WS_NAME_SCHEMA, $newNs)) {
+            throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $ns));
+        }
+
         // Rename the workspace in the workspace array
         $this->workspaces[$newWs] = $this->workspaces[$oldWs];
         unset($this->workspaces[$oldWs]);
@@ -113,6 +125,7 @@ class dcPrefs
         " SET pref_ws = '" . $this->con->escape($newWs) . "' " .
         " WHERE pref_ws = '" . $this->con->escape($oldWs) . "' ";
         $this->con->execute($strReq);
+
         return true;
     }
 
@@ -135,6 +148,7 @@ class dcPrefs
         $strReq = 'DELETE FROM ' . $this->table .
         " WHERE pref_ws = '" . $this->con->escape($ws) . "' ";
         $this->con->execute($strReq);
+
         return true;
     }
 
@@ -149,8 +163,6 @@ class dcPrefs
         if (array_key_exists($ws, $this->workspaces)) {
             return $this->workspaces[$ws];
         }
-
-        return;
     }
 
     /**
@@ -171,5 +183,4 @@ class dcPrefs
     {
         return $this->workspaces;
     }
-
 }
