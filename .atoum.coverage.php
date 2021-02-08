@@ -1,8 +1,7 @@
 <?php
 
-use mageekguy\atoum\reports;
-use mageekguy\atoum\reports\coverage;
-use mageekguy\atoum\writers\std;
+use atoum\atoum\reports\coverage;
+use atoum\atoum\writers\std;
 
 $script->addDefaultReport();
 

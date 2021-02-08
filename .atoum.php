@@ -1,7 +1,7 @@
 <?php
 
-use mageekguy\atoum;
-use mageekguy\atoum\reports;
+use atoum\atoum;
+use atoum\atoum\reports;
 
 // Enable extension
 $extension = new reports\extension($script);
