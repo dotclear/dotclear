@@ -1372,14 +1372,9 @@ h1,
   height: 1px;
   font-size: 1px; }
 
-/* Micro clearfix thx to Nicolas Gallagher */
-.clearfix::before,
-.clearfix::after {
-  content: " ";
-  display: table; }
-
-.clearfix::after {
-  clear: both; }
+/* Micro clearfix thx to Nicolas Gallagher, replaced by display: flow-root (see https://css-tricks.com/display-flow-root/) */
+.clearfix {
+  display: flow-root; }
 
 .box {
   display: inline-block;

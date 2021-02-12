@@ -320,16 +320,10 @@ h1,
 }
 
 
-/* Micro clearfix thx to Nicolas Gallagher */
+/* Micro clearfix thx to Nicolas Gallagher, replaced by display: flow-root (see https://css-tricks.com/display-flow-root/) */
 
-.clearfix::before,
-.clearfix::after {
-  content: " ";
-  display: table;
-}
-
-.clearfix::after {
-  clear: both;
+.clearfix {
+  display: flow-root;
 }
 
 .box {
