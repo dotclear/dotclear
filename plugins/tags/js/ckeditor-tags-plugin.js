@@ -3,11 +3,11 @@
 
 Object.assign(dotclear.msg, getData('ck_editor_tags'));
 
-(function() {
+(function () {
   CKEDITOR.plugins.add('dctags', {
-    init: function(editor) {
+    init: function (editor) {
       editor.addCommand('dcTagsCommand', {
-        exec: function(editor) {
+        exec: function (editor) {
           if (editor.getSelection().getNative().toString().replace(/\s*/, '') != '') {
             const str = editor.getSelection().getNative().toString().replace(/\s*/, '');
             const url = dotclear.msg.tag_url;
@@ -16,15 +16,15 @@ Object.assign(dotclear.msg, getData('ck_editor_tags'));
             const element = CKEDITOR.dom.element.createFromHtml(link);
             editor.insertElement(element);
           }
-        }
+        },
       });
 
       editor.ui.addButton('dcTags', {
         label: dotclear.msg.tag_title,
         command: 'dcTagsCommand',
         toolbar: 'insert',
-        icon: this.path + 'tag.png'
+        icon: this.path + 'tag.png',
       });
-    }
+    },
   });
 })();

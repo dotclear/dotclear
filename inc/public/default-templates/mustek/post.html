@@ -1,46 +1,42 @@
 {{tpl:extends parent="__layout.html"}}
-
 <tpl:Block name="head-title">
   <title>{{tpl:EntryTitle encode_html="1"}} - {{tpl:BlogName encode_html="1"}}</title>
 </tpl:Block>
-
 <tpl:Block name="meta-entry">
   <meta name="description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryContent full="1" encode_html="1" remove_html="1" cut_string="180"}}" />
   <meta name="author" content="{{tpl:EntryAuthorCommonName encode_html="1"}}" />
   <meta name="date" content="{{tpl:EntryDate iso8601="1"}}" />
 </tpl:Block>
-
 <tpl:Block name="head-linkrel">
   <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
-  <tpl:EntryIf pings_active="1"><link rel="pingback" href="{{tpl:BlogXMLRPCURL}}" /></tpl:EntryIf>
-
-  <tpl:EntryNext><link rel="next" href="{{tpl:EntryURL}}"
-  title="{{tpl:EntryTitle encode_html="1"}}" /></tpl:EntryNext>
-
-  <tpl:EntryPrevious><link rel="prev" href="{{tpl:EntryURL}}"
-  title="{{tpl:EntryTitle encode_html="1"}}" /></tpl:EntryPrevious>
-
+  <tpl:EntryIf pings_active="1">
+    <link rel="pingback" href="{{tpl:BlogXMLRPCURL}}" />
+  </tpl:EntryIf>
+  <tpl:EntryNext>
+    <link rel="next" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" />
+  </tpl:EntryNext>
+  <tpl:EntryPrevious>
+    <link rel="prev" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" />
+  </tpl:EntryPrevious>
   <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
 </tpl:Block>
-
 <tpl:Block name="html-head">
   {{tpl:parent}}
-
   <tpl:EntryIf comments_active="1">
     <script type="application/json" id="dc_post_remember_str-data">
-      {"post_remember_str": "{{tpl:lang Remember me on this blog}}"}
+    { "post_remember_str": "{{tpl:lang Remember me on this blog}}" }
     </script>
     <script src="{{tpl:BlogQmarkURL}}pf=post.js"></script>
   </tpl:EntryIf>
 </tpl:Block>
+<tpl:Block name="body-tag">
 
-<tpl:Block name="body-tag"><body class="dc-post"></tpl:Block>
-
+  <body class="dc-post">
+</tpl:Block>
 <tpl:Block name="page-top">
   {{tpl:EntryPingData}}
   {{tpl:parent}}
 </tpl:Block>
-
 <tpl:Block name="main-content">
   <p id="navlinks">
     <tpl:EntryPrevious><a href="{{tpl:EntryURL}}"
@@ -50,105 +46,93 @@
     title="{{tpl:EntryTitle encode_html="1"}}" class="next">{{tpl:EntryTitle encode_html="1"
     cut_string="50"}} &#187;</a></tpl:EntryNext>
   </p>
-
   <div id="p{{tpl:EntryID}}" class="post" role="article">
     <h2 class="post-title">{{tpl:EntryTitle encode_html="1"}}</h2>
-
     <p class="post-info">{{tpl:lang By}} {{tpl:EntryAuthorLink}}
-    {{tpl:lang on}} {{tpl:EntryDate}}, {{tpl:EntryTime}}
-    <tpl:EntryIf has_category="1">
-    - <a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a>
-    </tpl:EntryIf>
-    - <a href="{{tpl:EntryURL}}">{{tpl:lang Permalink}}</a>
+      {{tpl:lang on}} {{tpl:EntryDate}}, {{tpl:EntryTime}}
+      <tpl:EntryIf has_category="1">
+        - <a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a>
+      </tpl:EntryIf>
+      - <a href="{{tpl:EntryURL}}">{{tpl:lang Permalink}}</a>
     </p>
-
     <tpl:EntryTags>
-    <tpl:TagsHeader><ul class="post-tags"></tpl:TagsHeader>
-    <li><a href="{{tpl:TagURL}}" rel="tag">{{tpl:TagID}}</a></li>
-    <tpl:TagsFooter></ul></tpl:TagsFooter>
+      <tpl:TagsHeader>
+        <ul class="post-tags">
+      </tpl:TagsHeader>
+      <li><a href="{{tpl:TagURL}}" rel="tag">{{tpl:TagID}}</a></li>
+      <tpl:TagsFooter>
+        </ul>
+      </tpl:TagsFooter>
     </tpl:EntryTags>
-
     <!-- # --BEHAVIOR-- publicEntryBeforeContent -->
     {{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
-
     <!-- # Entry with an excerpt -->
     <tpl:EntryIf extended="1">
       <div class="post-excerpt">{{tpl:EntryExcerpt}}</div>
     </tpl:EntryIf>
-
     <div class="post-content">{{tpl:EntryContent}}</div>
-
     <!-- # --BEHAVIOR-- publicEntryAfterContent -->
     {{tpl:SysBehavior behavior="publicEntryAfterContent"}}
   </div>
-
   <!-- # Attachments -->
   <tpl:Attachments>
     <tpl:AttachmentsHeader>
       <div id="attachments">
-      <h3>{{tpl:lang Attachments}}</h3>
-      <ul>
+        <h3>{{tpl:lang Attachments}}</h3>
+        <ul>
     </tpl:AttachmentsHeader>
-      <li class="{{tpl:AttachmentType}}">
-        <tpl:AttachmentIf is_audio="1">
-          {{tpl:include src="_audio_player.html"}}
-        </tpl:AttachmentIf>
-        <tpl:AttachmentIf is_video="1">
-          {{tpl:include src="_video_player.html"}}
-        </tpl:AttachmentIf>
-        <tpl:AttachmentIf is_audio="0" is_video="0">
-           <a href="{{tpl:AttachmentURL}}" title="{{tpl:AttachmentFileName}} ({{tpl:AttachmentSize}})">{{tpl:AttachmentTitle}}</a>
-        </tpl:AttachmentIf>
-      </li>
+    <li class="{{tpl:AttachmentType}}">
+      <tpl:AttachmentIf is_audio="1">
+        {{tpl:include src="_audio_player.html"}}
+      </tpl:AttachmentIf>
+      <tpl:AttachmentIf is_video="1">
+        {{tpl:include src="_video_player.html"}}
+      </tpl:AttachmentIf>
+      <tpl:AttachmentIf is_audio="0" is_video="0">
+        <a href="{{tpl:AttachmentURL}}" title="{{tpl:AttachmentFileName}} ({{tpl:AttachmentSize}})">{{tpl:AttachmentTitle}}</a>
+      </tpl:AttachmentIf>
+    </li>
     <tpl:AttachmentsFooter>
       </ul>
       </div>
     </tpl:AttachmentsFooter>
   </tpl:Attachments>
-
   <!-- # Comments -->
   <tpl:EntryIf show_comments="1">
     <tpl:Comments>
-    <tpl:CommentsHeader>
-      <div id="comments">
-        <h3>{{tpl:lang Comments}}</h3>
-      <dl>
-    </tpl:CommentsHeader>
+      <tpl:CommentsHeader>
+        <div id="comments">
+          <h3>{{tpl:lang Comments}}</h3>
+          <dl>
+      </tpl:CommentsHeader>
       <dt id="c{{tpl:CommentID}}" class="{{tpl:CommentIfMe}} {{tpl:CommentIfOdd}} {{tpl:CommentIfFirst}}"><a
       href="#c{{tpl:CommentID}}" class="comment-number">{{tpl:CommentOrderNumber}}.</a>
-      {{tpl:lang On}} {{tpl:CommentDate}}, {{tpl:CommentTime}}
-      {{tpl:lang by}} {{tpl:CommentAuthorLink}}</dt>
-
+        {{tpl:lang On}} {{tpl:CommentDate}}, {{tpl:CommentTime}}
+        {{tpl:lang by}} {{tpl:CommentAuthorLink}}</dt>
       <dd class="{{tpl:CommentIfMe}} {{tpl:CommentIfOdd}} {{tpl:CommentIfFirst}}">
-      <!-- # --BEHAVIOR-- publicCommentBeforeContent -->
-      {{tpl:SysBehavior behavior="publicCommentBeforeContent"}}
-
-      {{tpl:CommentContent}}
-
-      <!-- # --BEHAVIOR-- publicCommentAfterContent -->
-      {{tpl:SysBehavior behavior="publicCommentAfterContent"}}
+        <!-- # --BEHAVIOR-- publicCommentBeforeContent -->
+        {{tpl:SysBehavior behavior="publicCommentBeforeContent"}}
+        {{tpl:CommentContent}}
+        <!-- # --BEHAVIOR-- publicCommentAfterContent -->
+        {{tpl:SysBehavior behavior="publicCommentAfterContent"}}
       </dd>
-    <tpl:CommentsFooter>
-      </dl>
-      </div>
-    </tpl:CommentsFooter>
+      <tpl:CommentsFooter>
+        </dl>
+        </div>
+      </tpl:CommentsFooter>
     </tpl:Comments>
   </tpl:EntryIf>
-
   <tpl:EntryIf comments_active="1">
     <tpl:SysIfFormError>
       <p class="error" id="pr">{{tpl:SysFormError}}</p>
     </tpl:SysIfFormError>
-
     <tpl:SysIfCommentPublished>
       <p class="message" id="pr">{{tpl:lang Your comment has been published.}}</p>
     </tpl:SysIfCommentPublished>
-
     <tpl:SysIfCommentPending>
       <p class="message" id="pr">{{tpl:lang Your comment has been submitted and
-      will be reviewed for publication.}}</p>
+        will be reviewed for publication.}}</p>
     </tpl:SysIfCommentPending>
-
     <!-- # Comment form -->
     <form action="{{tpl:EntryURL}}#pr" method="post" id="comment-form" role="form">
       <tpl:IfCommentPreview>
@@ -160,84 +144,66 @@
           <p class="buttons"><input type="submit" class="submit" value="{{tpl:lang send}}" /></p>
         </div>
       </tpl:IfCommentPreview>
-
       <h3>{{tpl:lang Add a comment}}</h3>
       <fieldset>
         <!-- # --BEHAVIOR-- publicCommentFormBeforeContent -->
         {{tpl:SysBehavior behavior="publicCommentFormBeforeContent"}}
-
         <p class="field"><label for="c_name">{{tpl:lang Name or nickname}}&nbsp;:</label>
-        <input name="c_name" id="c_name" type="text" size="30" maxlength="255"
-        value="{{tpl:CommentPreviewName encode_html="1"}}" />
+          <input name="c_name" id="c_name" type="text" size="30" maxlength="255" value="{{tpl:CommentPreviewName encode_html="1"}}" />
         </p>
-
         <p class="field"><label for="c_mail">{{tpl:lang Email address}}&nbsp;:</label>
-        <input name="c_mail" id="c_mail" type="text" size="30" maxlength="255"
-        value="{{tpl:CommentPreviewEmail encode_html="1"}}" />
+          <input name="c_mail" id="c_mail" type="text" size="30" maxlength="255" value="{{tpl:CommentPreviewEmail encode_html="1"}}" />
         </p>
-
         <p class="field"><label for="c_site">{{tpl:lang Website}} ({{tpl:lang optional}})&nbsp;:</label>
-        <input name="c_site" id="c_site" type="text" size="30" maxlength="255"
-        value="{{tpl:CommentPreviewSite encode_html="1"}}" />
+          <input name="c_site" id="c_site" type="text" size="30" maxlength="255" value="{{tpl:CommentPreviewSite encode_html="1"}}" />
         </p>
-
-        <p style="display:none"><input name="f_mail" type="text" size="30"
-        maxlength="255" value="" /></p>
-
+        <p style="display:none"><input name="f_mail" type="text" size="30" maxlength="255" value="" /></p>
         <p class="field"><label for="c_content">{{tpl:lang Comment}}&nbsp;:</label>
-        <textarea name="c_content" id="c_content" cols="35"
-        rows="7">{{tpl:CommentPreviewContent raw="1" encode_html="1"}}</textarea>
+          <textarea name="c_content" id="c_content" cols="35" rows="7">{{tpl:CommentPreviewContent raw="1" encode_html="1"}}</textarea>
         </p>
         <p class="form-help">{{tpl:CommentHelp}}</p>
-
         <!-- # --BEHAVIOR-- publicCommentFormAfterContent -->
         {{tpl:SysBehavior behavior="publicCommentFormAfterContent"}}
       </fieldset>
-
       <fieldset>
         <p class="buttons"><input type="submit" class="preview" name="preview" value="{{tpl:lang preview}}" />
-        <tpl:IfCommentPreviewOptional><input type="submit" class="submit" value="{{tpl:lang send}}" /></tpl:IfCommentPreviewOptional></p>
+          <tpl:IfCommentPreviewOptional><input type="submit" class="submit" value="{{tpl:lang send}}" /></tpl:IfCommentPreviewOptional>
+        </p>
       </fieldset>
     </form>
   </tpl:EntryIf>
-
   <!-- # Trackbacks -->
   <tpl:EntryIf show_pings="1">
     <div id="pings">
       <h3>{{tpl:lang They posted on the same topic}}</h3>
       <tpl:Pings>
         <tpl:PingsHeader>
-        <dl>
+          <dl>
         </tpl:PingsHeader>
-          <dt id="c{{tpl:PingID}}" class="{{tpl:PingIfOdd}} {{tpl:PingIfFirst}}"><a href="#c{{tpl:PingID}}"
+        <dt id="c{{tpl:PingID}}" class="{{tpl:PingIfOdd}} {{tpl:PingIfFirst}}"><a href="#c{{tpl:PingID}}"
           class="ping-number">{{tpl:PingOrderNumber}}.</a>
           {{tpl:lang On}} {{tpl:PingDate}}, {{tpl:PingTime}}
           {{tpl:lang by}} {{tpl:PingBlogName encode_html="1"}}</dt>
-
-          <dd class="{{tpl:PingIfOdd}} {{tpl:PingIfFirst}}">
+        <dd class="{{tpl:PingIfOdd}} {{tpl:PingIfFirst}}">
           <!-- # --BEHAVIOR-- publicPingBeforeContent -->
           {{tpl:SysBehavior behavior="publicPingBeforeContent"}}
-
           <p><a href="{{tpl:PingAuthorURL}}"
           {{tpl:PingNoFollow}}>{{tpl:PingTitle encode_html="1"}}</a></p>
           {{tpl:PingContent}}
-
           <!-- # --BEHAVIOR-- publicPingAfterContent -->
           {{tpl:SysBehavior behavior="publicPingAfterContent"}}
-          </dd>
+        </dd>
         <tpl:PingsFooter>
-        </dl>
+          </dl>
         </tpl:PingsFooter>
       </tpl:Pings>
     </div>
   </tpl:EntryIf>
-
   <tpl:EntryIf pings_active="1">
     <p id="ping-url">{{tpl:lang Trackback URL}}&nbsp;: {{tpl:EntryPingLink}}</p>
   </tpl:EntryIf>
-
   <tpl:EntryIf operator="or" comments_active="1" pings_active="1">
-  <p id="comments-feed"><a class="feed" href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}"
+    <p id="comments-feed"><a class="feed" href="{{tpl:BlogFeedURL type="atom"}}/comments/{{tpl:EntryID}}"
   title="{{tpl:lang This post's comments Atom feed}}">{{tpl:lang This post's comments feed}}</a></p>
   </tpl:EntryIf>
 </tpl:Block>

@@ -1,7 +1,7 @@
 /*global $ */
 'use strict';
 
-$(function() {
+$(function () {
   // Set focus on #type input
   $('#type').trigger('focus');
 });

@@ -1,7 +1,7 @@
 /*global $, reorder, dotclear, jsToolBar */
 'use strict';
 
-$(function() {
+$(function () {
   // clean
   $('.remove-if-drag').remove();
   $('.hidden-if-drag').hide();
@@ -17,11 +17,11 @@ $(function() {
     placeholder: 'ui-sortable-placeholder',
     items: 'li:not(.sortable-delete-placeholder,.empty-widgets)',
     connectWith: '.connected, .sortable-delete',
-    start: function(event, ui) {
+    start: function (event, ui) {
       // petit décalage esthétique
       ui.item.css('left', ui.item.position().left + 20);
     },
-    update: function(event, ui) {
+    update: function (event, ui) {
       const ul = $(this);
       const widget = ui.item;
       const field = ul.parents('.widgets');
@@ -43,7 +43,7 @@ $(function() {
 
       // remove
       if (widget.parents('ul').is('.sortable-delete')) {
-        widget.hide('slow', function() {
+        widget.hide('slow', function () {
           $(this).remove();
         });
       }
@@ -56,7 +56,7 @@ $(function() {
         dotclear.widgetExpander(widget);
         dotclear.viewWidgetContent(widget, 'close');
       }
-    }
+    },
   });
 
   // add
@@ -66,26 +66,24 @@ $(function() {
     connectToSortable: '.connected',
     helper: 'clone',
     revert: 'invalid',
-    start: function(event, ui) {
+    start: function (event, ui) {
       ui.helper.css({
-        'width': $('#widgets-ref > li').css('width')
+        width: $('#widgets-ref > li').css('width'),
       });
     },
-    stop: function(event, ui) {
+    stop: function (event, ui) {
       if (!dotclear.widget_noeditor) {
-        ui.helper.find('textarea:not(.noeditor)').each(function() {
+        ui.helper.find('textarea:not(.noeditor)').each(function () {
           if (typeof jsToolBar === 'function') {
             const tbWidgetText = new jsToolBar(this);
             tbWidgetText.draw('xhtml');
           }
         });
       }
-    }
+    },
   });
 
-  $('li.ui-draggable, ul.ui-sortable li')
-    .not('ul.sortable-delete li, li.empty-widgets')
-    .css({
-      'cursor': 'move'
-    });
+  $('li.ui-draggable, ul.ui-sortable li').not('ul.sortable-delete li, li.empty-widgets').css({
+    cursor: 'move',
+  });
 });

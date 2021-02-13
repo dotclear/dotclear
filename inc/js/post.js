@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
     document.getElementById('c_remember').setAttribute('checked', 'checked');
   }
 
-  document.getElementById('c_remember').onclick = function(e) {
+  document.getElementById('c_remember').onclick = function (e) {
     if (e.target.checked) {
       setRememberCookie();
     } else {
@@ -44,7 +44,7 @@ window.addEventListener('load', () => {
     }
   };
 
-  let copeWithModifiedInfo = function() {
+  let copeWithModifiedInfo = function () {
     if (document.getElementById('c_remember').checked) {
       setRememberCookie();
     }
@@ -64,7 +64,7 @@ window.addEventListener('load', () => {
 
     dotclear.setCookie(remember_cookie_name, `${name}\n${mail}\n${site}`, {
       expires: 60, // keep cookie for 2 months (60 days)
-      path: cpath
+      path: cpath,
     });
   }
 

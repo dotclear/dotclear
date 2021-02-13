@@ -1,12 +1,12 @@
 /*global $, dotclear */
 'use strict';
 
-dotclear.dbSpamsCount = function() {
+dotclear.dbSpamsCount = function () {
   const params = {
     f: 'getSpamsCount',
     xd_check: dotclear.nonce,
   };
-  $.get('services.php', params, function(data) {
+  $.get('services.php', params, function (data) {
     if ($('rsp[status=failed]', data).length > 0) {
       // For debugging purpose only:
       // console.log($('rsp',data).attr('message'));
@@ -39,7 +39,7 @@ dotclear.dbSpamsCount = function() {
   });
 };
 
-$(function() {
+$(function () {
   // run counters' update on some dashboard icons
   // Spam comments
   const icon_spam = $('#dashboard-main #icons p a[href="comments.php"]');

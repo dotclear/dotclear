@@ -1,36 +1,33 @@
 {{tpl:extends parent="__layout.html"}}
-
 <tpl:Block name="head-title">
   <title>{{tpl:BlogName encode_html="1"}}</title>
 </tpl:Block>
-
 <tpl:Block name="meta-entry">
   <meta name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription cut_string="180" remove_html="1" encode_html="1"}}" />
   <meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
   <meta name="date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
-</tpl:Block>  <!-- # meta-entry -->
-
+</tpl:Block> <!-- # meta-entry -->
 <tpl:Block name="head-linkrel">
   <link rel="contents" title="{{tpl:lang Entries}}" href="{{tpl:BlogPostsURL}}" />
   <link rel="contents" title="{{tpl:lang Archives}}" href="{{tpl:BlogArchiveURL}}" />
   <tpl:Categories>
     <link rel="section" href="{{tpl:CategoryURL}}" title="{{tpl:CategoryTitle encode_html="1"}}" />
   </tpl:Categories>
-
   <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
   <link rel="EditURI" type="application/rsd+xml" title="RSD" href="{{tpl:BlogRSDURL}}" />
   <link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}" />
-</tpl:Block>  <!-- # head-linkrel -->
+</tpl:Block> <!-- # head-linkrel -->
+<tpl:Block name="body-tag">
 
-<tpl:Block name="body-tag"><body class="dc-home dc-home-static"></tpl:Block>
-
+  <body class="dc-home dc-home-static">
+</tpl:Block>
 <tpl:Block name="main-content">
   <tpl:IfBlogStaticEntryURL>
     {{tpl:BlogStaticEntryURL}}
     <tpl:Entries>
       <div class="content-inner">{{tpl:EntryExcerpt}}{{tpl:EntryContent}}</div>
     </tpl:Entries>
-  {{tpl:else}}
+    {{tpl:else}}
     <header id="content-info">
       <h2>{{tpl:lang Welcome}}</h2>
     </header>

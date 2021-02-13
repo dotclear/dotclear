@@ -1,56 +1,53 @@
 {{tpl:extends parent="__layout.html"}}
-
 <tpl:Block name="head-title">
-	<title>{{tpl:lang Archives}} - {{tpl:ArchiveDate}} - {{tpl:BlogName encode_html="1"}}</title>
+  <title>{{tpl:lang Archives}} - {{tpl:ArchiveDate}} - {{tpl:BlogName encode_html="1"}}</title>
 </tpl:Block>
-
 <tpl:Block name="meta-robots">
-	<meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX"}}" />
+  <meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX"}}" />
 </tpl:Block>
-
 <tpl:Block name="head-linkrel">
-	<link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
-	<tpl:ArchiveNext><link rel="next" href="{{tpl:ArchiveURL}}"
-	title="{{tpl:ArchiveDate encode_html="1"}}" /></tpl:ArchiveNext>
-	<tpl:ArchivePrevious><link rel="prev" href="{{tpl:ArchiveURL}}"
-	title="{{tpl:ArchiveDate encode_html="1"}}" /></tpl:ArchivePrevious>
-
-	<tpl:Entries no_content="1">
-		<link rel="chapter" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" />
-	</tpl:Entries>
+  <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
+  <tpl:ArchiveNext>
+    <link rel="next" href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}" />
+  </tpl:ArchiveNext>
+  <tpl:ArchivePrevious>
+    <link rel="prev" href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}" />
+  </tpl:ArchivePrevious>
+  <tpl:Entries no_content="1">
+    <link rel="chapter" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" />
+  </tpl:Entries>
 </tpl:Block>
+<tpl:Block name="body-tag">
 
-<tpl:Block name="body-tag"><body class="dc-archive-month"></tpl:Block>
-
+  <body class="dc-archive-month">
+</tpl:Block>
 <tpl:Block name="main-content">
-	<p id="navlinks">
-		<tpl:ArchivePrevious><a href="{{tpl:ArchiveURL}}" class="prev">&#171; {{tpl:ArchiveDate encode_html="1"}}</a>
-		- </tpl:ArchivePrevious>
-		<a href="{{tpl:BlogArchiveURL}}">{{tpl:lang Archives}}</a>
-		<tpl:ArchiveNext> - <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &#187;</a></tpl:ArchiveNext>
-	</p>
-
-	<div id="content-info">
-		<h2>{{tpl:ArchiveDate}}</h2>
-	</div>
-
-	<div class="content-inner">
-		<tpl:Entries no_content="1">
-			<!-- # New day date -->
-			<tpl:DateHeader><p class="day-date">{{tpl:EntryDate}}</p></tpl:DateHeader>
-
-			<h2 id="p{{tpl:EntryID}}" class="post-title" lang="{{tpl:EntryLang}}"><a
-			href="{{tpl:EntryURL}}" title="{{tpl:lang Read}} {{tpl:EntryTitle encode_html="1"}}">{{tpl:EntryTitle encode_html="1"}}</a></h2>
-
-			<p class="post-info">{{tpl:lang By}} {{tpl:EntryAuthorLink}}
-			<tpl:EntryIf show_comments="1">
-			- <a href="{{tpl:EntryURL}}#comments">{{tpl:EntryCommentCount}}</a>
-			</tpl:EntryIf>
-			<tpl:EntryIf show_pings="1">
-			- <a href="{{tpl:EntryURL}}#pings">{{tpl:EntryPingCount}}</a></tpl:EntryIf>
-			<tpl:EntryIf has_attachment="1">
-			- <a href="{{tpl:EntryURL}}#attachments">{{tpl:EntryAttachmentCount}}</a></tpl:EntryIf>
-			</p>
-		</tpl:Entries>
-	</div>
+  <p id="navlinks">
+    <tpl:ArchivePrevious><a href="{{tpl:ArchiveURL}}" class="prev">&#171; {{tpl:ArchiveDate encode_html="1"}}</a>
+      - </tpl:ArchivePrevious>
+    <a href="{{tpl:BlogArchiveURL}}">{{tpl:lang Archives}}</a>
+    <tpl:ArchiveNext> - <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &#187;</a></tpl:ArchiveNext>
+  </p>
+  <div id="content-info">
+    <h2>{{tpl:ArchiveDate}}</h2>
+  </div>
+  <div class="content-inner">
+    <tpl:Entries no_content="1">
+      <!-- # New day date -->
+      <tpl:DateHeader>
+        <p class="day-date">{{tpl:EntryDate}}</p>
+      </tpl:DateHeader>
+      <h2 id="p{{tpl:EntryID}}" class="post-title" lang="{{tpl:EntryLang}}"><a
+      href="{{tpl:EntryURL}}" title="{{tpl:lang Read}} {{tpl:EntryTitle encode_html="1"}}">{{tpl:EntryTitle encode_html="1"}}</a></h2>
+      <p class="post-info">{{tpl:lang By}} {{tpl:EntryAuthorLink}}
+        <tpl:EntryIf show_comments="1">
+          - <a href="{{tpl:EntryURL}}#comments">{{tpl:EntryCommentCount}}</a>
+        </tpl:EntryIf>
+        <tpl:EntryIf show_pings="1">
+          - <a href="{{tpl:EntryURL}}#pings">{{tpl:EntryPingCount}}</a></tpl:EntryIf>
+        <tpl:EntryIf has_attachment="1">
+          - <a href="{{tpl:EntryURL}}#attachments">{{tpl:EntryAttachmentCount}}</a></tpl:EntryIf>
+      </p>
+    </tpl:Entries>
+  </div>
 </tpl:Block>

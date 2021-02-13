@@ -1,8 +1,7 @@
 /*global $, dotclear, jsToolBar, mergeDeep, getData */
 'use strict';
 
-dotclear.widgetExpander = function(line) {
-
+dotclear.widgetExpander = function (line) {
   const title = $(line).find('.widget-name');
   title.find('.form-note').remove();
 
@@ -19,18 +18,18 @@ dotclear.widgetExpander = function(line) {
   b.setAttribute('aria-label', dotclear.img_plus_alt);
   const t = document.createTextNode(dotclear.img_plus_txt);
   b.appendChild(t);
-  b.onclick = function(e) {
+  b.onclick = function (e) {
     e.preventDefault();
     dotclear.viewWidgetContent($(this).parents('li'));
   };
-  link.on('click', function(e) {
+  link.on('click', function (e) {
     e.preventDefault();
     dotclear.viewWidgetContent($(this).parents('li'));
   });
   title.prepend(b);
 };
 
-dotclear.viewWidgetContent = function(line, action) {
+dotclear.viewWidgetContent = function (line, action) {
   action = action || 'toogle';
   const img = line.find('.details-cmd');
   const isopen = img.attr('aria-label') == dotclear.img_plus_alt;
@@ -46,21 +45,20 @@ dotclear.viewWidgetContent = function(line, action) {
     img.attr('value', dotclear.img_minus_txt);
     img.attr('aria-label', dotclear.img_minus_alt);
   }
-
 };
 
 function reorder(ul) {
   // réordonne
   if (ul.attr('id')) {
     const $list = ul.find('li').not('.empty-widgets');
-    $list.each(function(i) {
+    $list.each(function (i) {
       const $this = $(this);
 
       // trouve la zone de réception
       const name = ul.attr('id').split('dnd').join('');
 
       // modifie le name en conséquence
-      $this.find('*[name^=w]').each(function() {
+      $this.find('*[name^=w]').each(function () {
         var tab = $(this).attr('name').split('][');
         tab[0] = 'w[' + name;
         tab[1] = i;
@@ -85,40 +83,38 @@ function reorder(ul) {
         $this.find('input.downWidget').removeAttr('disabled');
         $this.find('input.downWidget').prop('src', 'images/down.png');
       }
-
     });
   }
 }
 
-$(function() {
-
+$(function () {
   mergeDeep(dotclear, getData('widgets'));
 
   // reset
-  $('input[name="wreset"]').on('click', function() {
+  $('input[name="wreset"]').on('click', function () {
     return window.confirm(dotclear.msg.confirm_widgets_reset);
   });
 
   // plier/déplier
-  $('#dndnav > li, #dndextra > li, #dndcustom > li').each(function() {
+  $('#dndnav > li, #dndextra > li, #dndcustom > li').each(function () {
     dotclear.widgetExpander(this);
     dotclear.viewWidgetContent($(this), 'close');
   });
 
   // remove
-  $('input[name*=_rem]').on('click', function(e) {
+  $('input[name*=_rem]').on('click', function (e) {
     e.preventDefault();
     $(this).parents('li').remove();
   });
 
   // move
-  $('input[name*=_down]').on('click', function(e) {
+  $('input[name*=_down]').on('click', function (e) {
     e.preventDefault();
     const $li = $(this).parents('li');
     $li.next().after($li);
     reorder($(this).parents('ul.connected'));
   });
-  $('input[name*=_up]').on('click', function(e) {
+  $('input[name*=_up]').on('click', function (e) {
     e.preventDefault();
     const $li = $(this).parents('li');
     $li.prev().before($li);
@@ -127,10 +123,9 @@ $(function() {
 
   // HTML text editor
   if (typeof jsToolBar === 'function') {
-    $('#sidebarsWidgets textarea:not(.noeditor)').each(function() {
+    $('#sidebarsWidgets textarea:not(.noeditor)').each(function () {
       let tbWidgetText = new jsToolBar(this);
       tbWidgetText.draw('xhtml');
     });
   }
-
 });

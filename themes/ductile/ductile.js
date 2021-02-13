@@ -1,11 +1,9 @@
 /*global $ */
 'use strict';
 
-$(document).ready(function() {
+$(document).ready(function () {
   if ($(window).width() < 1024) {
-
-    const create_name = function(text) {
-
+    const create_name = function (text) {
       // Convert text to lower case.
       let name = text.toLowerCase();
 
@@ -32,8 +30,7 @@ $(document).ready(function() {
     $('#sidebar div div h2').nextAll().hide();
 
     // Add a link to each h2.toggle element.
-    $('h2.toggle').each(function() {
-
+    $('h2.toggle').each(function () {
       // Convert the h2 element text into a value that
       // is safe to use in a name attribute.
       const name = create_name($(this).text());
@@ -45,24 +42,20 @@ $(document).ready(function() {
       // Replace the h2.toggle element with a link to the
       // fragment anchor.  Use the h2 text to create the
       // link title attribute.
-      $(this).html(
-        '<a href="#' + name + '" title="Reveal ' +
-        $(this).text() + ' content">' +
-        $(this).html() + '</a>');
+      $(this).html('<a href="#' + name + '" title="Reveal ' + $(this).text() + ' content">' + $(this).html() + '</a>');
     });
 
     // Add a click event handler to all h2.toggle elements.
-    $('h2.toggle').on('click', function(event) {
+    $('h2.toggle').on('click', function (event) {
       event.preventDefault();
       // Toggle the 'expanded' class of the h2.toggle
       // element, then apply the slideToggle effect
       // to all siblings.
-      $(this).toggleClass('expanded').
-      nextAll().slideToggle('fast');
+      $(this).toggleClass('expanded').nextAll().slideToggle('fast');
     });
 
     // Remove the focus from the link tag when accessed with a mouse.
-    $('h2.toggle a').on('mouseup', function() {
+    $('h2.toggle a').on('mouseup', function () {
       // Use the blur() method to remove focus.
       $(this).trigger('blur');
     });

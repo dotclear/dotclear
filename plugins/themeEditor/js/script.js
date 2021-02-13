@@ -5,16 +5,16 @@
 Object.assign(dotclear.msg, getData('theme_editor_msg'));
 Object.assign(dotclear, getData('dotclear_colorsyntax'));
 
-$(function() {
+$(function () {
   // Cope with saving
   let msg = false;
-  $('#file-form input[name="write"]').on('click', function(e) {
+  $('#file-form input[name="write"]').on('click', function (e) {
     const f = this.form;
 
     const data = {
-      file_content: (!dotclear.colorsyntax ? $(f).find('#file_content').get(0).value : codemirror_instance.editor.getValue()),
+      file_content: !dotclear.colorsyntax ? $(f).find('#file_content').get(0).value : codemirror_instance.editor.getValue(),
       xd_check: $(f).find('input[name="xd_check"]').get(0).value,
-      write: 1
+      write: 1,
     };
 
     if (msg == false) {
@@ -24,7 +24,7 @@ $(function() {
 
     msg.text(dotclear.msg.saving_document);
 
-    $.post(document.location.href, data, function(res) {
+    $.post(document.location.href, data, function (res) {
       const err = $(res).find('div.error li:first');
       if (err.length > 0) {
         msg.text(dotclear.msg.error_occurred + ' ' + err.text());
@@ -45,8 +45,7 @@ $(function() {
   });
 
   // Confirm for deleting current file
-  $('#file-form input[name="delete"]').on('click', function() {
+  $('#file-form input[name="delete"]').on('click', function () {
     return window.confirm(dotclear.msg.confirm_reset_file);
   });
-
 });

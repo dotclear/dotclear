@@ -1,31 +1,31 @@
 /*global $, dotclear */
 'use strict';
 
-$(function() {
+$(function () {
   // expand a module line
-  $('table.modules.expandable tr.line').each(function() {
+  $('table.modules.expandable tr.line').each(function () {
     $('td.module-name, th.module-name', this).toggleWithLegend($(this).next('.module-more'), {
       img_on_txt: dotclear.img_plus_txt,
       img_on_alt: dotclear.img_plus_alt,
       img_off_txt: dotclear.img_minus_txt,
       img_off_alt: dotclear.img_minus_alt,
-      legend_click: true
+      legend_click: true,
     });
   });
 
   // checkboxes selection
-  $('.checkboxes-helpers').each(function() {
+  $('.checkboxes-helpers').each(function () {
     dotclear.checkboxesHelpers(this);
   });
 
   // actions tests
-  $('.modules-form-actions').each(function() {
+  $('.modules-form-actions').each(function () {
     const rxActionType = /^[^\[]+/;
     const rxActionValue = /([^\[]+)\]$/;
     const checkboxes = $(this).find('input[type=checkbox]');
 
     // check if submit is a global action or one line action
-    $('input[type=submit]', this).on('click', function() {
+    $('input[type=submit]', this).on('click', function () {
       const keyword = $(this).attr('name');
       if (!keyword) {
         return true;
@@ -41,7 +41,7 @@ $(function() {
         // check if there is checkboxes in form
         if (checkboxes.length > 0) {
           // check if there is at least one checkbox checked
-          $(checkboxes).each(function() {
+          $(checkboxes).each(function () {
             if (this.checked) {
               checked = true;
             }

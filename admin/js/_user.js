@@ -1,12 +1,12 @@
 /*global $, getData */
 'use strict';
 
-$(function() {
+$(function () {
   if ($('#new_pwd').length == 0) {
     return;
   }
   const texts = getData('user');
   $('#new_pwd').pwstrength({
-    texts: texts
+    texts: texts,
   });
 });

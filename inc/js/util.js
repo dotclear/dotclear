@@ -4,7 +4,6 @@
 /* Dotclear common object */
 var dotclear = dotclear || {};
 Object.assign(dotclear, {
-
   /**
    * Gets application/json data (JSON format).
    * @param      {string}   id              element identifier
@@ -12,7 +11,7 @@ Object.assign(dotclear, {
    * @param      {boolean}  [remove=false]  remove element
    * @return     {object}   data object
    */
-  getData: function(id, clear = true, remove = false) {
+  getData: function (id, clear = true, remove = false) {
     let data = {};
     // Read the JSON-formatted data from the DOM. (from https://mathiasbynens.be/notes/json-dom-csp)
     // To be use with: <script type="application/json" id="myid-data">{"key":value, …}</script>
@@ -27,14 +26,15 @@ Object.assign(dotclear, {
           // Clear the element’s contents
           element.innerHTML = '';
         }
-        if (clear) {}
+        if (clear) {
+        }
       } catch (e) {}
     }
     return data;
   },
 
-  isObject: function(item) {
-    return (item && typeof item === 'object' && !Array.isArray(item));
+  isObject: function (item) {
+    return item && typeof item === 'object' && !Array.isArray(item);
   },
 
   /**
@@ -42,19 +42,20 @@ Object.assign(dotclear, {
    * @param target
    * @param ...sources
    */
-  mergeDeep: function(target, ...sources) {
+  mergeDeep: function (target, ...sources) {
     if (!sources.length) return target;
     const source = sources.shift();
     if (this.isObject(target) && this.isObject(source)) {
       for (const key in source) {
         if (this.isObject(source[key])) {
-          if (!target[key]) Object.assign(target, {
-            [key]: {}
-          });
+          if (!target[key])
+            Object.assign(target, {
+              [key]: {},
+            });
           this.mergeDeep(target[key], source[key]);
         } else {
           Object.assign(target, {
-            [key]: source[key]
+            [key]: source[key],
           });
         }
       }
@@ -63,17 +64,16 @@ Object.assign(dotclear, {
   },
 
   // Returns the cookie with the given name or false if not found
-  getCookie: function(name) {
-    let matches = document.cookie.match(new RegExp(
-      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-    ));
+  getCookie: function (name) {
+    let matches = document.cookie.match(
+      new RegExp('(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)')
+    );
     return matches ? decodeURIComponent(matches[1]) : false; // may be undefined rather than false?
   },
 
   // Set a new cookie
   // usage: setCookie('user', 'John', {secure: true, 'expires': 60});
-  setCookie: function(name, value, options = {}) {
-
+  setCookie: function (name, value, options = {}) {
     if (typeof options.expires === 'number') {
       // Cope with expires option given in number of days from now
       options.expires = new Date(Date.now() + options.expires * 864e5);
@@ -83,30 +83,30 @@ Object.assign(dotclear, {
       options.expires = options.expires.toUTCString();
     }
 
-    let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+    let updatedCookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
 
     for (let optionKey in options) {
-      updatedCookie += "; " + optionKey;
+      updatedCookie += '; ' + optionKey;
       let optionValue = options[optionKey];
       if (optionValue !== true) {
-        updatedCookie += "=" + optionValue;
+        updatedCookie += '=' + optionValue;
       }
     }
 
     // Add sameSite=Lax if not present in options
     if (options.sameSite === undefined) {
-      updatedCookie += "; " + 'sameSite=Lax';
+      updatedCookie += '; ' + 'sameSite=Lax';
     }
 
     document.cookie = updatedCookie;
   },
 
   // Delete a cookie
-  deleteCookie: function(name) {
-    this.setCookie(name, "", {
-      'expires': -1
+  deleteCookie: function (name) {
+    this.setCookie(name, '', {
+      expires: -1,
     });
-  }
+  },
 });
 
 // for compatibility
@@ -114,47 +114,59 @@ Object.assign(dotclear, {
 /**
  * @deprecated use dotclear.getData
  */
-var getData = getData || function getData(id, clear = true, remove = false) {
-  console.warn('getData is deprecated. Use dotclear.getData');
-  return dotclear.getData(id, clear, remove);
-};
+var getData =
+  getData ||
+  function getData(id, clear = true, remove = false) {
+    console.warn('getData is deprecated. Use dotclear.getData');
+    return dotclear.getData(id, clear, remove);
+  };
 
 /**
  * @deprecated use dotclear.isObject
  */
-var isObject = isObject || function isObject(item) {
-  console.warn('isObject is deprecated. Use dotclear.isObject');
-  return dotclear.isObject(item);
-};
+var isObject =
+  isObject ||
+  function isObject(item) {
+    console.warn('isObject is deprecated. Use dotclear.isObject');
+    return dotclear.isObject(item);
+  };
 
 /**
  * @deprecated use dotclear.mergeDeep
  */
-var mergeDeep = mergeDeep || function mergeDeep(target, ...sources) {
-  console.warn('mergeDeep is deprecated. Use dotclear.mergeDeep');
-  return dotclear.mergeDeep(target, ...sources);
-};
+var mergeDeep =
+  mergeDeep ||
+  function mergeDeep(target, ...sources) {
+    console.warn('mergeDeep is deprecated. Use dotclear.mergeDeep');
+    return dotclear.mergeDeep(target, ...sources);
+  };
 
 /**
  * @deprecated use dotclear.getCookie
  */
-var getCookie = getCookie || function getCookie(name) {
-  console.warn('getCookie is deprecated. Use dotclear.getCookie');
-  return dotclear.getCookie(name);
-};
+var getCookie =
+  getCookie ||
+  function getCookie(name) {
+    console.warn('getCookie is deprecated. Use dotclear.getCookie');
+    return dotclear.getCookie(name);
+  };
 
 /**
  * @deprecated use dotclear.setCookie
  */
-var setCookie = setCookie || function setCookie(name, value, options = {}) {
-  console.warn('setCookie is deprecated. Use dotclear.setCookie');
-  return dotclear.setCookie(name, value, options);
-};
+var setCookie =
+  setCookie ||
+  function setCookie(name, value, options = {}) {
+    console.warn('setCookie is deprecated. Use dotclear.setCookie');
+    return dotclear.setCookie(name, value, options);
+  };
 
 /**
  * @deprecated use dotclear.deleteCookie
  */
-var deleteCookie = deleteCookie || function deleteCookie(name) {
-  console.warn('deleteCookie is deprecated. Use dotclear.deleteCookie');
-  return dotclear.deleteCookie(name);
-};
+var deleteCookie =
+  deleteCookie ||
+  function deleteCookie(name) {
+    console.warn('deleteCookie is deprecated. Use dotclear.deleteCookie');
+    return dotclear.deleteCookie(name);
+  };

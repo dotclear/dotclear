@@ -1,7 +1,7 @@
 /*global $, dotclear, datePicker */
 'use strict';
 
-$(function() {
+$(function () {
   // Add datePicker if possible
   const media_dt = document.getElementById('media_dt');
   if (media_dt != undefined) {
@@ -12,11 +12,11 @@ $(function() {
 
   // Preview media
   $('.modal-image').magnificPopup({
-    type: 'image'
+    type: 'image',
   });
 
   // Display zip file content
-  $('#file-unzip').each(function() {
+  $('#file-unzip').each(function () {
     const a = document.createElement('a');
     const mediaId = $(this).find('input[name=id]').val();
     const This = $(this);
@@ -26,48 +26,54 @@ $(function() {
     This.before(a);
     $(a).wrap('<p></p>');
 
-    $(a).on('click', function() {
-      $.get('services.php', {
-        f: 'getZipMediaContent',
-        id: mediaId
-      }, function(data) {
-        const rsp = $(data).children('rsp')[0];
+    $(a).on('click', function () {
+      $.get(
+        'services.php',
+        {
+          f: 'getZipMediaContent',
+          id: mediaId,
+        },
+        function (data) {
+          const rsp = $(data).children('rsp')[0];
 
-        if (rsp.attributes[0].value == 'ok') {
-          const div = document.createElement('div');
-          const list = document.createElement('ul');
-          let expanded = false;
+          if (rsp.attributes[0].value == 'ok') {
+            const div = document.createElement('div');
+            const list = document.createElement('ul');
+            let expanded = false;
 
-          $(div).css({
-            overflow: 'auto',
-            margin: '1em 0',
-            padding: '1px 0.5em'
-          });
-          $(div).addClass('color-div');
-          $(div).append(list);
-          This.before(div);
-          $(a).hide();
-          $(div).before('<h3>' + dotclear.msg.zip_file_content + '</h3>');
+            $(div).css({
+              overflow: 'auto',
+              margin: '1em 0',
+              padding: '1px 0.5em',
+            });
+            $(div).addClass('color-div');
+            $(div).append(list);
+            This.before(div);
+            $(a).hide();
+            $(div).before('<h3>' + dotclear.msg.zip_file_content + '</h3>');
 
-          $(rsp).find('file').each(function() {
-            $(list).append('<li>' + $(this).text() + '</li>');
-            if ($(div).height() > 200 && !expanded) {
-              $(div).css({
-                height: '200px'
+            $(rsp)
+              .find('file')
+              .each(function () {
+                $(list).append('<li>' + $(this).text() + '</li>');
+                if ($(div).height() > 200 && !expanded) {
+                  $(div).css({
+                    height: '200px',
+                  });
+                  expanded = true;
+                }
               });
-              expanded = true;
-            }
-          });
-        } else {
-          window.alert($(rsp).find('message').text());
+          } else {
+            window.alert($(rsp).find('message').text());
+          }
         }
-      });
+      );
       return false;
     });
   });
 
   // Confirm for inflating in current directory
-  $('#file-unzip').on('submit', function() {
+  $('#file-unzip').on('submit', function () {
     if ($(this).find('#inflate_mode').val() == 'current') {
       return window.confirm(dotclear.msg.confirm_extract_current);
     }
@@ -75,13 +81,13 @@ $(function() {
   });
 
   // Confirm for deleting current medoa
-  $('#delete-form input[name="delete"]').on('click', function() {
+  $('#delete-form input[name="delete"]').on('click', function () {
     let m_name = $('#delete-form input[name="remove"]').val();
     return window.confirm(dotclear.msg.confirm_delete_media.replace('%s', m_name));
   });
 
   // Get current insertion settings
-  $('#save_settings').on('submit', function() {
+  $('#save_settings').on('submit', function () {
     $('input[name="pref_src"]').val($('input[name="src"][type=radio]:checked').attr('value'));
     $('input[name="pref_alignment"]').val($('input[name="alignment"][type=radio]:checked').attr('value'));
     $('input[name="pref_insertion"]').val($('input[name="insertion"][type=radio]:checked').attr('value'));
@@ -89,7 +95,9 @@ $(function() {
   });
 
   // Set focus if in popup mode
-  $('#media-insert-form :input:visible:enabled:checked:first, #media-insert-form :input:visible:enabled:first').trigger('focus');
+  $('#media-insert-form :input:visible:enabled:checked:first, #media-insert-form :input:visible:enabled:first').trigger(
+    'focus'
+  );
 
   // Deal with enter key on media insert popup form : every form element will be filtered but Cancel button
   dotclear.enterKeyInForm('#media-insert-form', '#media-insert-ok', '#media-insert-cancel');

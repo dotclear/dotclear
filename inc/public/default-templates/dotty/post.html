@@ -1,53 +1,52 @@
 {{tpl:extends parent="__layout.html"}}
-
 <tpl:Block name="head-title">
-	<title>{{tpl:EntryTitle encode_html="1"}} - {{tpl:BlogName encode_html="1"}}</title>
+  <title>{{tpl:EntryTitle encode_html="1"}} - {{tpl:BlogName encode_html="1"}}</title>
 </tpl:Block>
-
 <tpl:Block name="meta-entry">
-	<meta name="description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryContent full="1" encode_html="1" remove_html="1" cut_string="180"}}" />
-	<meta name="author" content="{{tpl:EntryAuthorCommonName encode_html="1"}}" />
-	<meta name="date" content="{{tpl:EntryDate iso8601="1"}}" />
+  <meta name="description" lang="{{tpl:EntryLang}}" content="{{tpl:EntryContent full="1" encode_html="1" remove_html="1" cut_string="180"}}" />
+  <meta name="author" content="{{tpl:EntryAuthorCommonName encode_html="1"}}" />
+  <meta name="date" content="{{tpl:EntryDate iso8601="1"}}" />
 </tpl:Block>
-
 <tpl:Block name="head-linkrel">
-	<link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
-	<tpl:EntryIf pings_active="1"><link rel="pingback" href="{{tpl:BlogXMLRPCURL}}" /></tpl:EntryIf>
-	<tpl:EntryNext><link rel="next" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" /></tpl:EntryNext>
-	<tpl:EntryPrevious><link rel="prev" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" /></tpl:EntryPrevious>
-	<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
+  <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
+  <tpl:EntryIf pings_active="1">
+    <link rel="pingback" href="{{tpl:BlogXMLRPCURL}}" />
+  </tpl:EntryIf>
+  <tpl:EntryNext>
+    <link rel="next" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" />
+  </tpl:EntryNext>
+  <tpl:EntryPrevious>
+    <link rel="prev" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" />
+  </tpl:EntryPrevious>
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
 </tpl:Block>
-
 <tpl:Block name="html-head">
-	{{tpl:parent}}
-
+  {{tpl:parent}}
   <tpl:EntryIf comments_active="1">
     <script type="application/json" id="dc_post_remember_str-data">
-      {"post_remember_str": "{{tpl:lang Remember me on this blog}}"}
+    { "post_remember_str": "{{tpl:lang Remember me on this blog}}" }
     </script>
     <script src="{{tpl:BlogQmarkURL}}pf=post.js"></script>
   </tpl:EntryIf>
 </tpl:Block>
+<tpl:Block name="body-tag">
 
-<tpl:Block name="body-tag"><body class="dc-post"></tpl:Block>
-
-<tpl:Block name="page-top">
-	{{tpl:EntryPingData}}
-	{{tpl:parent}}
+  <body class="dc-post">
 </tpl:Block>
-
+<tpl:Block name="page-top">
+  {{tpl:EntryPingData}}
+  {{tpl:parent}}
+</tpl:Block>
 <tpl:Block name="main-content">
-	<nav class="navlinks topnl" role="navigation" aria-label="{{tpl:lang Entries}}">
-		<tpl:EntryPrevious><a href="{{tpl:EntryURL}}" class="prev"><span aria-hidden="true">&#171; </span><span class="sr">{{tpl:lang Previous entry:}} </span>{{tpl:EntryTitle encode_html="1"
-		 cut_string="50"}}</a></tpl:EntryPrevious>
-		<tpl:EntryNext> <span>-</span> <a href="{{tpl:EntryURL}}" class="next"><span class="sr">{{tpl:lang Next entry:}} </span>{{tpl:EntryTitle encode_html="1" cut_string="50"}}<span aria-hidden="true"> &#187;</span></a></tpl:EntryNext>
-	</nav>
-
-	{{tpl:include src="_simple-entry.html"}}
-
-	<nav class="navlinks" role="navigation" aria-label="{{tpl:lang Entries}}">
-		<tpl:EntryPrevious><a href="{{tpl:EntryURL}}" class="prev"><span aria-hidden="true">&#171; </span><span class="sr">{{tpl:lang Previous entry:}} </span>{{tpl:EntryTitle encode_html="1"
-		 cut_string="50"}}</a></tpl:EntryPrevious>
-		<tpl:EntryNext> <span>-</span> <a href="{{tpl:EntryURL}}" class="next"><span class="sr">{{tpl:lang Next entry:}} </span>{{tpl:EntryTitle encode_html="1" cut_string="50"}}<span aria-hidden="true"> &#187;</span></a></tpl:EntryNext>
-	</nav>
+  <nav class="navlinks topnl" role="navigation" aria-label="{{tpl:lang Entries}}">
+    <tpl:EntryPrevious><a href="{{tpl:EntryURL}}" class="prev"><span aria-hidden="true">&#171; </span><span class="sr">{{tpl:lang Previous entry:}} </span>{{tpl:EntryTitle encode_html="1"
+     cut_string="50"}}</a></tpl:EntryPrevious>
+    <tpl:EntryNext> <span>-</span> <a href="{{tpl:EntryURL}}" class="next"><span class="sr">{{tpl:lang Next entry:}} </span>{{tpl:EntryTitle encode_html="1" cut_string="50"}}<span aria-hidden="true"> &#187;</span></a></tpl:EntryNext>
+  </nav>
+  {{tpl:include src="_simple-entry.html"}}
+  <nav class="navlinks" role="navigation" aria-label="{{tpl:lang Entries}}">
+    <tpl:EntryPrevious><a href="{{tpl:EntryURL}}" class="prev"><span aria-hidden="true">&#171; </span><span class="sr">{{tpl:lang Previous entry:}} </span>{{tpl:EntryTitle encode_html="1"
+     cut_string="50"}}</a></tpl:EntryPrevious>
+    <tpl:EntryNext> <span>-</span> <a href="{{tpl:EntryURL}}" class="next"><span class="sr">{{tpl:lang Next entry:}} </span>{{tpl:EntryTitle encode_html="1" cut_string="50"}}<span aria-hidden="true"> &#187;</span></a></tpl:EntryNext>
+  </nav>
 </tpl:Block>

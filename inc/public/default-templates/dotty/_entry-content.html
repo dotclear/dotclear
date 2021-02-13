@@ -1,65 +1,58 @@
 <article class="post simple" id="p{{tpl:EntryID}}" role="article" lang="{{tpl:EntryLang}}">
-	<header>
-		<h2 class="post-title">{{tpl:EntryTitle encode_html="1"}}</h2>
-
-		<div class="post-meta">
-			<p class="post-info">
-				<span class="post-author">{{tpl:lang By}} {{tpl:EntryAuthorLink}}, </span>
-				<span class="post-date"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate}}</time>. </span>
-				<span class="post-permalink"><a href="{{tpl:EntryURL}}">{{tpl:lang Permalink}}</a></span>
-				<tpl:EntryIf has_category="1">
-					<span class="post-cat"><tpl:EntryCategoriesBreadcrumb><a
-					href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> › </tpl:EntryCategoriesBreadcrumb><a
-					href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a></span>
-				</tpl:EntryIf>
-			</p>
-
-			<tpl:EntryTags>
-				<tpl:TagsHeader>
-					<ul class="post-tags-list">
-				</tpl:TagsHeader>
-					<li class="post-tags-item"><a href="{{tpl:TagURL}}">{{tpl:TagID}}</a></li>
-				<tpl:TagsFooter>
-					</ul>
-				</tpl:TagsFooter>
-			</tpl:EntryTags>
-		</div>
-	</header>
-
-	<!-- # --BEHAVIOR-- publicEntryBeforeContent -->
-	{{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
-
-	<!-- # Entry with an excerpt -->
-	<tpl:EntryIf extended="1">
-		<div class="post-excerpt">{{tpl:EntryExcerpt}}</div>
-	</tpl:EntryIf>
-
-	<div class="post-content">{{tpl:EntryContent}}</div>
-
-	<!-- # --BEHAVIOR-- publicEntryAfterContent -->
-	{{tpl:SysBehavior behavior="publicEntryAfterContent"}}
-
-<!-- # Attachments -->
-<tpl:Attachments>
-	<tpl:AttachmentsHeader>
-		<footer class="post-attachments" id="attachments">
-			<h3 class="post-attachments-title">{{tpl:lang Attachments}}</h3>
-			<ul class="post-attachments-list">
-	</tpl:AttachmentsHeader>
-				<li class="post-attachments-item {{tpl:AttachmentType}}">
-          <tpl:AttachmentIf is_audio="1">
-            {{tpl:include src="_audio_player.html"}}
-          </tpl:AttachmentIf>
-          <tpl:AttachmentIf is_video="1">
-            {{tpl:include src="_video_player.html"}}
-          </tpl:AttachmentIf>
-          <tpl:AttachmentIf is_audio="0" is_video="0">
-             <a href="{{tpl:AttachmentURL}}" title="{{tpl:AttachmentFileName}} ({{tpl:AttachmentSize}})">{{tpl:AttachmentTitle}}</a>
-          </tpl:AttachmentIf>
-				</li>
-	<tpl:AttachmentsFooter>
-			</ul>
-		</footer>
-	</tpl:AttachmentsFooter>
-</tpl:Attachments>
+  <header>
+    <h2 class="post-title">{{tpl:EntryTitle encode_html="1"}}</h2>
+    <div class="post-meta">
+      <p class="post-info">
+        <span class="post-author">{{tpl:lang By}} {{tpl:EntryAuthorLink}}, </span>
+        <span class="post-date"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate}}</time>. </span>
+        <span class="post-permalink"><a href="{{tpl:EntryURL}}">{{tpl:lang Permalink}}</a></span>
+        <tpl:EntryIf has_category="1">
+          <span class="post-cat"><tpl:EntryCategoriesBreadcrumb><a
+          href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> › </tpl:EntryCategoriesBreadcrumb><a
+          href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a></span>
+        </tpl:EntryIf>
+      </p>
+      <tpl:EntryTags>
+        <tpl:TagsHeader>
+          <ul class="post-tags-list">
+        </tpl:TagsHeader>
+        <li class="post-tags-item"><a href="{{tpl:TagURL}}">{{tpl:TagID}}</a></li>
+        <tpl:TagsFooter>
+          </ul>
+        </tpl:TagsFooter>
+      </tpl:EntryTags>
+    </div>
+  </header>
+  <!-- # --BEHAVIOR-- publicEntryBeforeContent -->
+  {{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
+  <!-- # Entry with an excerpt -->
+  <tpl:EntryIf extended="1">
+    <div class="post-excerpt">{{tpl:EntryExcerpt}}</div>
+  </tpl:EntryIf>
+  <div class="post-content">{{tpl:EntryContent}}</div>
+  <!-- # --BEHAVIOR-- publicEntryAfterContent -->
+  {{tpl:SysBehavior behavior="publicEntryAfterContent"}}
+  <!-- # Attachments -->
+  <tpl:Attachments>
+    <tpl:AttachmentsHeader>
+      <footer class="post-attachments" id="attachments">
+        <h3 class="post-attachments-title">{{tpl:lang Attachments}}</h3>
+        <ul class="post-attachments-list">
+    </tpl:AttachmentsHeader>
+    <li class="post-attachments-item {{tpl:AttachmentType}}">
+      <tpl:AttachmentIf is_audio="1">
+        {{tpl:include src="_audio_player.html"}}
+      </tpl:AttachmentIf>
+      <tpl:AttachmentIf is_video="1">
+        {{tpl:include src="_video_player.html"}}
+      </tpl:AttachmentIf>
+      <tpl:AttachmentIf is_audio="0" is_video="0">
+        <a href="{{tpl:AttachmentURL}}" title="{{tpl:AttachmentFileName}} ({{tpl:AttachmentSize}})">{{tpl:AttachmentTitle}}</a>
+      </tpl:AttachmentIf>
+    </li>
+    <tpl:AttachmentsFooter>
+      </ul>
+      </footer>
+    </tpl:AttachmentsFooter>
+  </tpl:Attachments>
 </article>

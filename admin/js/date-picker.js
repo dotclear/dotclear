@@ -40,7 +40,7 @@ function datePicker(target) {
   nav.appendChild(document.createTextNode(String.fromCharCode(171)));
   nav.fn = this.changeMonth;
   nav.obj = this;
-  nav.onclick = function() {
+  nav.onclick = function () {
     this.fn.call(this.obj, -1);
   };
   nav.className = 'date-picker-control';
@@ -52,7 +52,7 @@ function datePicker(target) {
   nav.appendChild(document.createTextNode(String.fromCharCode(187)));
   nav.fn = this.changeMonth;
   nav.obj = this;
-  nav.onclick = function() {
+  nav.onclick = function () {
     this.fn.call(this.obj, +1);
   };
   nav.className = 'date-picker-control';
@@ -77,7 +77,7 @@ function datePicker(target) {
   nav.appendChild(document.createTextNode(String.fromCharCode(171)));
   nav.fn = this.changeYear;
   nav.obj = this;
-  nav.onclick = function() {
+  nav.onclick = function () {
     this.fn.call(this.obj, -1);
   };
   nav.className = 'date-picker-control';
@@ -89,7 +89,7 @@ function datePicker(target) {
   nav.appendChild(document.createTextNode(String.fromCharCode(187)));
   nav.fn = this.changeYear;
   nav.obj = this;
-  nav.onclick = function() {
+  nav.onclick = function () {
     this.fn.call(this.obj, +1);
   };
   nav.className = 'date-picker-control';
@@ -116,8 +116,7 @@ function datePicker(target) {
 
     for (let j = 0; j < 7; j++) {
       this.oDates[cur] = document.createElement('td');
-      this.oDates[cur].appendChild(document.createTextNode(
-        String.fromCharCode(160)));
+      this.oDates[cur].appendChild(document.createTextNode(String.fromCharCode(160)));
       oRow.appendChild(this.oDates[cur]);
       cur++;
     }
@@ -134,7 +133,7 @@ function datePicker(target) {
   oHeading.setAttribute('title', this.now_msg);
   oHeading.fn = this.sendNow;
   oHeading.obj = this;
-  oHeading.onclick = function() {
+  oHeading.onclick = function () {
     this.fn.call(this.obj);
   };
 
@@ -148,7 +147,7 @@ function datePicker(target) {
   oSpan.appendChild(document.createTextNode('-'));
   oSpan.fn = this.changeHour;
   oSpan.obj = this;
-  oSpan.onclick = function() {
+  oSpan.onclick = function () {
     this.fn.call(this.obj, -1);
   };
   oHeading.appendChild(oSpan);
@@ -158,7 +157,7 @@ function datePicker(target) {
   oSpan.appendChild(document.createTextNode('+'));
   oSpan.fn = this.changeHour;
   oSpan.obj = this;
-  oSpan.onclick = function() {
+  oSpan.onclick = function () {
     this.fn.call(this.obj, +1);
   };
   oHeading.appendChild(oSpan);
@@ -178,7 +177,7 @@ function datePicker(target) {
   oSpan.appendChild(document.createTextNode('-'));
   oSpan.fn = this.changeMinute;
   oSpan.obj = this;
-  oSpan.onclick = function() {
+  oSpan.onclick = function () {
     this.fn.call(this.obj, -1);
   };
   oHeading.appendChild(oSpan);
@@ -188,7 +187,7 @@ function datePicker(target) {
   oSpan.appendChild(document.createTextNode('+'));
   oSpan.fn = this.changeMinute;
   oSpan.obj = this;
-  oSpan.onclick = function() {
+  oSpan.onclick = function () {
     this.fn.call(this.obj, +1);
   };
 
@@ -203,7 +202,7 @@ function datePicker(target) {
   oHeading.setAttribute('title', this.close_msg);
   oHeading.fn = this.close;
   oHeading.obj = this;
-  oHeading.onclick = function() {
+  oHeading.onclick = function () {
     this.fn.call(this.obj);
   };
 
@@ -224,13 +223,24 @@ datePicker.prototype = {
   now_msg: 'now',
   close_msg: 'close',
 
-  days: new Array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
-    'Saturday', 'Sunday'),
+  days: new Array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'),
 
-  months: new Array('January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'),
+  months: new Array(
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ),
 
-  setDate: function() {
+  setDate: function () {
     if (this.numberOfDays() < this.day) {
       this.day = this.numberOfDays();
     }
@@ -243,8 +253,7 @@ datePicker.prototype = {
     while (this.oMonth.hasChildNodes()) {
       this.oMonth.removeChild(this.oMonth.firstChild);
     }
-    this.oMonth.appendChild(document.createTextNode(
-      this.months[this.month - 1]));
+    this.oMonth.appendChild(document.createTextNode(this.months[this.month - 1]));
 
     const firstDay = this.firstDay();
     const nbDays = this.numberOfDays();
@@ -256,7 +265,7 @@ datePicker.prototype = {
       }
       this.oDates[i].appendChild(document.createTextNode('-'));
       this.oDates[i].className = '';
-      this.oDates[i].onclick = function() {
+      this.oDates[i].onclick = function () {
         return;
       };
     }
@@ -273,7 +282,7 @@ datePicker.prototype = {
       this.oDates[j].index = i;
       this.oDates[j].fn = this.sendDate;
       this.oDates[j].obj = this;
-      this.oDates[j].onclick = function() {
+      this.oDates[j].onclick = function () {
         this.fn.call(this.obj, this.index);
       };
       if (i == this.day) {
@@ -288,7 +297,7 @@ datePicker.prototype = {
     this.setMinute(this.minute);
   },
 
-  setHour: function(h) {
+  setHour: function (h) {
     if (h < 0) {
       h = 23;
     }
@@ -303,7 +312,7 @@ datePicker.prototype = {
     this.oHour.value = h;
   },
 
-  setMinute: function(m) {
+  setMinute: function (m) {
     if (m < 0) {
       m = 59;
     }
@@ -318,7 +327,7 @@ datePicker.prototype = {
     this.oMinute.value = m;
   },
 
-  changeMonth: function(dir) {
+  changeMonth: function (dir) {
     const m = this.month + dir;
 
     if (m > 12) {
@@ -334,20 +343,20 @@ datePicker.prototype = {
     this.setDate();
   },
 
-  changeYear: function(dir) {
+  changeYear: function (dir) {
     this.year = this.year + dir;
     this.setDate();
   },
 
-  changeHour: function(dir) {
+  changeHour: function (dir) {
     this.setHour(this.hour * 1 + dir);
   },
 
-  changeMinute: function(dir) {
+  changeMinute: function (dir) {
     this.setMinute(this.minute * 1 + dir);
   },
 
-  sendDate: function(d) {
+  sendDate: function (d) {
     let m = this.month;
     let hour = this.oHour.value * 1;
     let minute = this.oMinute.value * 1;
@@ -376,7 +385,7 @@ datePicker.prototype = {
     this.close();
   },
 
-  sendNow: function() {
+  sendNow: function () {
     let dt = new Date();
     const y = dt.getFullYear();
     let m = dt.getMonth() + 1;
@@ -401,19 +410,17 @@ datePicker.prototype = {
     this.close();
   },
 
-  close: function() {
+  close: function () {
     document.body.removeChild(this.oTable);
   },
 
-  numberOfDays: function() {
+  numberOfDays: function () {
     let res = 31;
-    if (this.month == 4 || this.month == 6 || this.month == 9 ||
-      this.month == 11) {
+    if (this.month == 4 || this.month == 6 || this.month == 9 || this.month == 11) {
       res = 30;
     } else if (this.month == 2) {
       res = 28;
-      if (this.year % 4 == 0 && (this.year % 100 != 0 ||
-          this.year % 400 == 0)) {
+      if (this.year % 4 == 0 && (this.year % 100 != 0 || this.year % 400 == 0)) {
         res = 29;
       }
     }
@@ -421,7 +428,7 @@ datePicker.prototype = {
     return res;
   },
 
-  firstDay: function() {
+  firstDay: function () {
     let dt = new Date(this.year, this.month - 1, 1);
     let res = dt.getDay();
 
@@ -432,7 +439,7 @@ datePicker.prototype = {
     return res;
   },
 
-  show: function() {
+  show: function () {
     // Parsing target value
     const re = /(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2})/;
     const match = re.exec(this.target.value);
@@ -458,7 +465,7 @@ datePicker.prototype = {
     this.oHour.focus();
   },
 
-  setPosition: function() {
+  setPosition: function () {
     const t_x = this.findPosX(this.target);
     const t_y = this.findPosY(this.target);
 
@@ -468,7 +475,7 @@ datePicker.prototype = {
     this.oTable.style.left = t_x + 'px';
   },
 
-  findPosX: function(obj) {
+  findPosX: function (obj) {
     let curleft = 0;
     if (obj.offsetParent) {
       while (1) {
@@ -484,7 +491,7 @@ datePicker.prototype = {
     return curleft;
   },
 
-  findPosY: function(obj) {
+  findPosY: function (obj) {
     let curtop = 0;
     if (obj.offsetParent) {
       while (1) {
@@ -500,19 +507,19 @@ datePicker.prototype = {
     return curtop;
   },
 
-  draw: function() {
+  draw: function () {
     const imgE = document.createElement('img');
     imgE.src = this.img_src;
     imgE.alt = this.img_alt;
     imgE.className = 'date-picker-btn';
     imgE.obj = this;
     imgE.fn = this.show;
-    imgE.onclick = function() {
+    imgE.onclick = function () {
       this.fn.apply(this.obj);
     };
 
     this.target.parentNode.insertBefore(imgE, this.target.nextSibling);
-  }
+  },
 };
 
 // Get some DATA

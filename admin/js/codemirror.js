@@ -14,10 +14,10 @@ for (let i of getData('codemirror')) {
     matchBrackets: 1,
     autoCloseBrackets: 1,
     extraKeys: {
-      'F11': function(cm) {
-        cm.setOption("fullScreen", !cm.getOption("fullScreen"));
-      }
+      F11: function (cm) {
+        cm.setOption('fullScreen', !cm.getOption('fullScreen'));
+      },
     },
-    theme: i.theme
+    theme: i.theme,
   });
 }

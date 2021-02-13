@@ -1,7 +1,7 @@
 /*global $ */
 'use strict';
 
-$(window).on('load', function() {
+$(window).on('load', function () {
   let uid = $('input[name=user_id]');
   let upw = $('input[name=user_pwd]');
   uid.trigger('focus');
@@ -9,7 +9,7 @@ $(window).on('load', function() {
   if (upw.length == 0) {
     return;
   }
-  uid.keypress(evt => {
+  uid.keypress((evt) => {
     if (evt.which == 13 && upw.val() == '') {
       upw.trigger('focus');
       return false;
@@ -21,7 +21,7 @@ $(window).on('load', function() {
   if ($.cookie('dc_admin_test_cookie')) {
     $('#cookie_help').hide();
     $.cookie('dc_admin_test_cookie', '', {
-      'expires': -1
+      expires: -1,
     });
   } else {
     $('#cookie_help').show();

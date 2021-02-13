@@ -1,7 +1,7 @@
 /*global $ */
 'use strict';
 
-$(function() {
+$(function () {
   let e = document.createElement('div');
   e.id = 'WJxYFNKPMRlS';
   e.style.display = 'none';

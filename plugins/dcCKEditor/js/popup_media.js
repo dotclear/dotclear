@@ -1,12 +1,12 @@
 /*global $ */
 'use strict';
 
-$(function() {
-  $('#media-insert-cancel').on('click', function() {
+$(function () {
+  $('#media-insert-cancel').on('click', function () {
     window.close();
   });
 
-  $('#media-insert-ok').on('click', function() {
+  $('#media-insert-ok').on('click', function () {
     const insert_form = $('#media-insert-form').get(0);
     if (insert_form === undefined) {
       return;
@@ -18,25 +18,18 @@ $(function() {
     const media_align_grid = {
       left: 'float: left; margin: 0 1em 1em 0;',
       right: 'float: right; margin: 0 0 1em 1em;',
-      center: 'margin: 0 auto; display: table;'
+      center: 'margin: 0 auto; display: table;',
     };
 
     if (type == 'image') {
       if (editor.mode == 'wysiwyg') {
-
         const align = $('input[name="alignment"]:checked', insert_form).val();
         let media_legend = $('input[name="legend"]:checked', insert_form).val();
         const img_description = $('input[name="description"]', insert_form).val();
         let style = '';
         let template = '';
-        let template_figure = [
-          '',
-          ''
-        ];
-        let template_link = [
-          '',
-          ''
-        ];
+        let template_figure = ['', ''];
+        let template_link = ['', ''];
         let template_image = '';
 
         if (media_legend != '' && media_legend != 'title' && media_legend != 'none') {
@@ -71,7 +64,8 @@ $(function() {
         // Set parameters for template
         if (media_legend != '' && media_legend != 'none') {
           params.imgAlt = window.opener.CKEDITOR.tools.htmlEncodeAttr(
-            window.opener.$.stripBaseURL($('input[name="title"]', insert_form).val()));
+            window.opener.$.stripBaseURL($('input[name="title"]', insert_form).val())
+          );
         } else {
           params.imgAlt = '';
         }
@@ -85,12 +79,9 @@ $(function() {
         }
 
         // Insert element
-        const figure = window.opener.CKEDITOR.dom.element.createFromHtml(
-          block.output(params), editor.document
-        );
+        const figure = window.opener.CKEDITOR.dom.element.createFromHtml(block.output(params), editor.document);
         editor.insertElement(figure);
       }
-
     } else if (type == 'mp3') {
       // Audio media
       let player_audio = $('#public_player').val();
@@ -105,7 +96,6 @@ $(function() {
         player_audio = `<div style="${media_align_grid[align_audio]}">${player_audio}</div>`;
       }
       editor.insertElement(window.opener.CKEDITOR.dom.element.createFromHtml(player_audio));
-
     } else if (type == 'flv') {
       // Video media
       const oplayer = $(`<div>${$('#public_player').val()}</div>`);
@@ -136,7 +126,6 @@ $(function() {
         player_video = `<div style="${media_align_grid[align_video]}">${player_video}</div>`;
       }
       editor.insertElement(window.opener.CKEDITOR.dom.element.createFromHtml(player_video));
-
     } else {
       // Unknown media type
       const url = window.opener.$.stripBaseURL($('input[name="url"]', insert_form).val());

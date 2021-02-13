@@ -1,17 +1,13 @@
 <p id="gotop"><a href="#prelude">{{tpl:lang Page top}}</a></p>
-
 <footer class="footer" id="footer" role="contentinfo">
-	<tpl:IfWidgets type="custom">
-		<div class="widgets footer__widgets" id="blogcustom">
-	        <h2 class="blogcustom__title">{{tpl:lang Blog info}}</h2>
-			{{tpl:Widgets type="custom"}}
-		</div> <!-- # End #custom widgets -->
-	</tpl:IfWidgets>
-
-	{{tpl:SysBehavior behavior="publicInsideFooter"}}
-
-	<p>{{tpl:SysPoweredBy}}</p>
+  <tpl:IfWidgets type="custom">
+    <div class="widgets footer__widgets" id="blogcustom">
+      <h2 class="blogcustom__title">{{tpl:lang Blog info}}</h2>
+      {{tpl:Widgets type="custom"}}
+    </div> <!-- # End #custom widgets -->
+  </tpl:IfWidgets>
+  {{tpl:SysBehavior behavior="publicInsideFooter"}}
+  <p>{{tpl:SysPoweredBy}}</p>
 </footer>
 {{tpl:SysBehavior behavior="publicFooterContent"}}
-
 {{tpl:include src="user_footer.html"}}

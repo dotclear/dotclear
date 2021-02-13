@@ -1,24 +1,24 @@
 /*global $, dotclear */
 'use strict';
 
-$(function() {
+$(function () {
   $('#links-list').sortable({
-    'cursor': 'move'
+    cursor: 'move',
   });
   $('#links-list tr')
-    .on('mouseenter', function() {
+    .on('mouseenter', function () {
       $(this).css({
-        'cursor': 'move'
+        cursor: 'move',
       });
     })
-    .on('mouseleave', function() {
+    .on('mouseleave', function () {
       $(this).css({
-        'cursor': 'auto'
+        cursor: 'auto',
       });
     });
-  $('#links-form').on('submit', function() {
+  $('#links-form').on('submit', function () {
     let order = [];
-    $('#links-list tr td input.position').each(function() {
+    $('#links-list tr td input.position').each(function () {
       order.push(this.name.replace(/^order\[([^\]]+)\]$/, '$1'));
     });
     $('input[name=links_order]')[0].value = order.join(',');

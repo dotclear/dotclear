@@ -4,13 +4,15 @@
 // Get context
 Object.assign(dotclear, getData('legacy_editor_ctx'));
 
-$(function() {
+$(function () {
   if ($('#edit-entry').length == 0) {
     return;
   }
 
-  if (dotclear.legacy_editor_context === undefined ||
-    dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context] === undefined) {
+  if (
+    dotclear.legacy_editor_context === undefined ||
+    dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context] === undefined
+  ) {
     return;
   }
 
@@ -19,12 +21,14 @@ $(function() {
   let excerptTb;
   let contentTb;
 
-  if ((dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#post_content') !== -1) &&
-    (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#post_excerpt') !== -1)) {
+  if (
+    dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#post_content') !== -1 &&
+    dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#post_excerpt') !== -1
+  ) {
     // Get document format and prepare toolbars
     formatField = $('#post_format').get(0);
     let last_post_format = $(formatField).val();
-    $(formatField).on('change', function() {
+    $(formatField).on('change', function () {
       if (this.value != 'dcLegacyEditor') {
         return;
       }
@@ -60,15 +64,14 @@ $(function() {
     }
   }
 
-  $('#comments').on('onetabload', function() {
+  $('#comments').on('onetabload', function () {
     // Remove required attribut from #comment_content as textarea might be not more focusable
     if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#comment_content') !== -1) {
       $('#comment_content')[0].removeAttribute('required');
     }
   });
 
-  $('#edit-entry').on('onetabload', function() {
-
+  $('#edit-entry').on('onetabload', function () {
     // Remove required attribut from #post_content in XHTML mode as textarea is not more focusable
     if (formatField !== undefined && formatField.value == 'xhtml') {
       if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#post_content') !== -1) {
@@ -85,7 +88,7 @@ $(function() {
     // Check unsaved changes before XHTML conversion
     const excerpt = $('#post_excerpt').val();
     const content = $('#post_content').val();
-    $('#convert-xhtml').on('click', function() {
+    $('#convert-xhtml').on('click', function () {
       if (excerpt != $('#post_excerpt').val() || content != $('#post_content').val()) {
         return window.confirm(dotclear.msg.confirm_change_post_format);
       }

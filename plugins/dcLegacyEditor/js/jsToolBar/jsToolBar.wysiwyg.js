@@ -23,7 +23,7 @@
  * ***** END LICENSE BLOCK *****
  */
 
-jsToolBar.prototype.can_wwg = (document.designMode != undefined);
+jsToolBar.prototype.can_wwg = document.designMode != undefined;
 jsToolBar.prototype.iframe = null;
 jsToolBar.prototype.iwin = null;
 jsToolBar.prototype.ibody = null;
@@ -32,7 +32,7 @@ jsToolBar.prototype.iframe_css = null;
 /* Editor methods
 -------------------------------------------------------- */
 jsToolBar.prototype.drawToolBar = jsToolBar.prototype.draw;
-jsToolBar.prototype.draw = function(mode) {
+jsToolBar.prototype.draw = function (mode) {
   mode = mode || 'xhtml';
 
   if (this.can_wwg) {
@@ -44,7 +44,7 @@ jsToolBar.prototype.draw = function(mode) {
   }
 };
 
-jsToolBar.prototype.switchMode = function(mode) {
+jsToolBar.prototype.switchMode = function (mode) {
   mode = mode || 'xhtml';
 
   if (mode == 'xhtml') {
@@ -61,7 +61,7 @@ jsToolBar.prototype.switchMode = function(mode) {
   }
 };
 
-jsToolBar.prototype.syncContents = function(from) {
+jsToolBar.prototype.syncContents = function (from) {
   from = from || 'textarea';
   const This = this;
   if (from == 'textarea') {
@@ -84,9 +84,10 @@ jsToolBar.prototype.syncContents = function(from) {
 
     if (This.textarea.value != '' && This.textarea.value != '<p></p>') {
       This.ibody.innerHTML = This.applyWysiwygFilters(This.textarea.value);
-      if (This.ibody.createTextRange) { //cursor at the begin for IE
+      if (This.ibody.createTextRange) {
+        //cursor at the begin for IE
         const IErange = This.ibody.createTextRange();
-        IErange.execCommand("SelectAll");
+        IErange.execCommand('SelectAll');
         IErange.collapse();
         IErange.select();
       }
@@ -102,25 +103,25 @@ jsToolBar.prototype.syncContents = function(from) {
   }
 };
 jsToolBar.prototype.htmlFilters = {
-  tagsoup: function(str) {
+  tagsoup: function (str) {
     return this.tagsoup2xhtml(str);
-  }
+  },
 };
-jsToolBar.prototype.applyHtmlFilters = function(str) {
+jsToolBar.prototype.applyHtmlFilters = function (str) {
   for (let fn in this.htmlFilters) {
     str = this.htmlFilters[fn].call(this, str);
   }
   return str;
 };
 jsToolBar.prototype.wysiwygFilters = {};
-jsToolBar.prototype.applyWysiwygFilters = function(str) {
+jsToolBar.prototype.applyWysiwygFilters = function (str) {
   for (let fn in this.wysiwygFilters) {
     str = this.wysiwygFilters[fn].call(this, str);
   }
   return str;
 };
 
-jsToolBar.prototype.switchEdit = function() {
+jsToolBar.prototype.switchEdit = function () {
   if (this.wwg_mode) {
     this.textarea.style.display = '';
     this.iframe.style.display = 'none';
@@ -141,7 +142,7 @@ jsToolBar.prototype.switchEdit = function() {
 
 /** Creates iframe for editor, inits a blank document
  */
-jsToolBar.prototype.initWindow = function() {
+jsToolBar.prototype.initWindow = function () {
   const This = this;
 
   this.iframe = document.createElement('iframe');
@@ -166,8 +167,7 @@ jsToolBar.prototype.initWindow = function() {
     }
 
     doc.open();
-    const html =
-`<html>
+    const html = `<html>
   <head>
     <link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
     <style type="text/css">${This.iframe_css}</style>
@@ -178,7 +178,8 @@ jsToolBar.prototype.initWindow = function() {
 
     doc.write(html);
     doc.close();
-    if (document.all) { // for IE
+    if (document.all) {
+      // for IE
       doc.designMode = 'on';
       // warning : doc is now inaccessible for IE6 sp1
     }
@@ -208,7 +209,7 @@ jsToolBar.prototype.initWindow = function() {
 
     // update textarea on submit
     if (This.textarea.form) {
-      chainHandler(This.textarea.form, 'onsubmit', function() {
+      chainHandler(This.textarea.form, 'onsubmit', function () {
         if (This.wwg_mode) {
           This.syncContents('iframe');
         }
@@ -229,36 +230,41 @@ jsToolBar.prototype.initWindow = function() {
   }
   initIframe();
 };
-jsToolBar.prototype.addIwinEvent = function(target, type, fn, scope) {
-  const myFn = function(e) {
+jsToolBar.prototype.addIwinEvent = function (target, type, fn, scope) {
+  const myFn = function (e) {
     fn.call(scope, e);
   };
   addEvent(target, type, myFn, true);
   // fix memory leak
-  addEvent(scope.iwin, 'unload', function() {
-    removeEvent(target, type, myFn, true);
-  }, true);
+  addEvent(
+    scope.iwin,
+    'unload',
+    function () {
+      removeEvent(target, type, myFn, true);
+    },
+    true
+  );
 };
 jsToolBar.prototype.iwinEvents = {
   block1: {
     type: 'mouseup',
-    fn: function() {
+    fn: function () {
       this.adjustBlockLevelCombo();
-    }
+    },
   },
   block2: {
     type: 'keyup',
-    fn: function() {
+    fn: function () {
       this.adjustBlockLevelCombo();
-    }
-  }
+    },
+  },
 };
 
 /** Insert a mode switcher after editor area
  */
 jsToolBar.prototype.switcher_visual_title = 'visual';
 jsToolBar.prototype.switcher_source_title = 'source';
-jsToolBar.prototype.setSwitcher = function() {
+jsToolBar.prototype.setSwitcher = function () {
   while (this.switcher.hasChildNodes()) {
     this.switcher.removeChild(this.switcher.firstChild);
   }
@@ -272,7 +278,7 @@ jsToolBar.prototype.setSwitcher = function() {
       a = document.createElement('a');
       a.href = '#';
       a.editor = This;
-      a.onclick = function() {
+      a.onclick = function () {
         this.editor.switchEdit();
         return false;
       };
@@ -292,7 +298,7 @@ jsToolBar.prototype.setSwitcher = function() {
 
 /** Removes editor area and mode switcher
  */
-jsToolBar.prototype.removeEditor = function() {
+jsToolBar.prototype.removeEditor = function () {
   if (this.iframe != null) {
     this.iframe.parentNode.removeChild(this.iframe);
     this.iframe = null;
@@ -305,13 +311,13 @@ jsToolBar.prototype.removeEditor = function() {
 
 /** Focus on the editor area
  */
-jsToolBar.prototype.focusEditor = function() {
+jsToolBar.prototype.focusEditor = function () {
   if (this.wwg_mode) {
     try {
       this.iwin.document.designMode = 'on';
     } catch (e) {} // Firefox needs this
     const This = this;
-    setTimeout(function() {
+    setTimeout(function () {
       This.iframe.contentWindow.focus();
     }, 1);
   } else {
@@ -321,14 +327,14 @@ jsToolBar.prototype.focusEditor = function() {
 
 /** Resizer
  */
-jsToolBar.prototype.resizeSetStartH = function() {
+jsToolBar.prototype.resizeSetStartH = function () {
   if (this.wwg_mode && this.iframe != undefined) {
     this.dragStartH = this.iframe.offsetHeight;
     return;
   }
   this.dragStartH = this.textarea.offsetHeight + 0;
 };
-jsToolBar.prototype.resizeDragMove = function(event) {
+jsToolBar.prototype.resizeDragMove = function (event) {
   const new_height = `${this.dragStartH + event.clientY - this.dragStartY}px`;
   if (this.iframe != undefined) {
     this.iframe.style.height = new_height;
@@ -340,10 +346,11 @@ jsToolBar.prototype.resizeDragMove = function(event) {
 -------------------------------------------------------- */
 /** Replaces current selection by given node
  */
-jsToolBar.prototype.insertNode = function(node) {
+jsToolBar.prototype.insertNode = function (node) {
   let range;
 
-  if (this.iwin.getSelection) { // Gecko
+  if (this.iwin.getSelection) {
+    // Gecko
     const sel = this.iwin.getSelection();
     range = sel.getRangeAt(0);
 
@@ -358,8 +365,7 @@ jsToolBar.prototype.insertNode = function(node) {
 
     range.selectNodeContents(node);
     range.setEndAfter(node);
-    if (range.endContainer.childNodes.length > range.endOffset &&
-      range.endContainer.nodeType != Node.TEXT_NODE) {
+    if (range.endContainer.childNodes.length > range.endOffset && range.endContainer.nodeType != Node.TEXT_NODE) {
       range.setEnd(range.endContainer.childNodes[range.endOffset], 0);
     } else {
       range.setEnd(range.endContainer.childNodes[0]);
@@ -367,7 +373,8 @@ jsToolBar.prototype.insertNode = function(node) {
     sel.addRange(range);
 
     sel.collapseToEnd();
-  } else { // IE
+  } else {
+    // IE
     // lambda element
     const p = this.iwin.document.createElement('div');
     p.appendChild(node);
@@ -383,14 +390,16 @@ jsToolBar.prototype.insertNode = function(node) {
 
 /** Returns a document fragment with selected nodes
  */
-jsToolBar.prototype.getSelectedNode = function() {
+jsToolBar.prototype.getSelectedNode = function () {
   let sel;
   var content;
-  if (this.iwin.getSelection) { // Gecko
+  if (this.iwin.getSelection) {
+    // Gecko
     sel = this.iwin.getSelection();
     const range = sel.getRangeAt(0);
     content = range.cloneContents();
-  } else { // IE
+  } else {
+    // IE
     sel = this.iwin.document.selection;
     const d = this.iwin.document.createElement('div');
     d.innerHTML = sel.createRange().htmlText;
@@ -404,16 +413,18 @@ jsToolBar.prototype.getSelectedNode = function() {
 
 /** Returns string representation for selected node
  */
-jsToolBar.prototype.getSelectedText = function() {
-  if (this.iwin.getSelection) { // Gecko
+jsToolBar.prototype.getSelectedText = function () {
+  if (this.iwin.getSelection) {
+    // Gecko
     return this.iwin.getSelection().toString();
-  } else { // IE
+  } else {
+    // IE
     const range = this.iwin.document.selection.createRange();
     return range.text;
   }
 };
 
-jsToolBar.prototype.replaceNodeByContent = function(node) {
+jsToolBar.prototype.replaceNodeByContent = function (node) {
   const content = this.iwin.document.createDocumentFragment();
   for (let i = 0; i < node.childNodes.length; i++) {
     content.appendChild(node.childNodes[i].cloneNode(true));
@@ -421,19 +432,21 @@ jsToolBar.prototype.replaceNodeByContent = function(node) {
   node.parentNode.replaceChild(content, node);
 };
 
-jsToolBar.prototype.getBlockLevel = function() {
+jsToolBar.prototype.getBlockLevel = function () {
   const blockElts = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
   let range;
   let commonAncestorContainer;
-  if (this.iwin.getSelection) { //gecko
+  if (this.iwin.getSelection) {
+    //gecko
     const selection = this.iwin.getSelection();
     range = selection.getRangeAt(0);
     commonAncestorContainer = range.commonAncestorContainer;
     while (commonAncestorContainer.nodeType != 1) {
       commonAncestorContainer = commonAncestorContainer.parentNode;
     }
-  } else { //ie
+  } else {
+    //ie
     range = this.iwin.document.selection.createRange();
     commonAncestorContainer = range.parentElement();
   }
@@ -446,10 +459,9 @@ jsToolBar.prototype.getBlockLevel = function() {
   if (ancestorTagName == 'body') return null;
   else return commonAncestorContainer;
 };
-jsToolBar.prototype.adjustBlockLevelCombo = function() {
+jsToolBar.prototype.adjustBlockLevelCombo = function () {
   const blockLevel = this.getBlockLevel();
-  if (blockLevel !== null)
-    this.toolNodes.blocks.value = blockLevel.tagName.toLowerCase();
+  if (blockLevel !== null) this.toolNodes.blocks.value = blockLevel.tagName.toLowerCase();
   else {
     if (this.mode == 'wysiwyg') this.toolNodes.blocks.value = 'none';
     if (this.mode == 'xhtml') this.toolNodes.blocks.value = 'nonebis';
@@ -460,21 +472,106 @@ jsToolBar.prototype.adjustBlockLevelCombo = function() {
 -------------------------------------------------------- */
 jsToolBar.prototype.simpleCleanRegex = new Array(
   /* Remove every tags we don't need */
-  [/<meta[\w\W]*?>/gim, ''], [/<style[\w\W]*?>[\w\W]*?<\/style>/gim, ''], [/<\/?font[\w\W]*?>/gim, ''],
+  [/<meta[\w\W]*?>/gim, ''],
+  [/<style[\w\W]*?>[\w\W]*?<\/style>/gim, ''],
+  [/<\/?font[\w\W]*?>/gim, ''],
 
   /* Replacements */
-  [/<(\/?)(B|b|STRONG)([\s>\/])/g, "<$1strong$3"], [/<(\/?)(I|i|EM)([\s>\/])/g, "<$1em$3"], [/<IMG ([^>]*?[^\/])>/gi, "<img $1 />"], [/<INPUT ([^>]*?[^\/])>/gi, "<input $1 />"], [/<COL ([^>]*?[^\/])>/gi, "<col $1 />"], [/<AREA ([^>]*?[^\/])>/gi, "<area $1 />"], [/<PARAM ([^>]*?[^\/])>/gi, "<param $1 />"], [/<HR ([^>]*?[^\/])>/gi, "<hr $1/>"], [/<BR ([^>]*?[^\/])>/gi, "<br $1/>"], [/<(\/?)U([\s>\/])/gi, "<$1ins$2"], [/<(\/?)STRIKE([\s>\/])/gi, "<$1del$2"], [/<span style="font-weight: normal;">([\w\W]*?)<\/span>/gm, "$1"], [/<span style="font-weight: bold;">([\w\W]*?)<\/span>/gm, "<strong>$1</strong>"], [/<span style="font-style: italic;">([\w\W]*?)<\/span>/gm, "<em>$1</em>"], [/<span style="text-decoration: underline;">([\w\W]*?)<\/span>/gm, "<ins>$1</ins>"], [/<span style="text-decoration: line-through;">([\w\W]*?)<\/span>/gm, "<del>$1</del>"], [/<span style="text-decoration: underline line-through;">([\w\W]*?)<\/span>/gm, "<del><ins>$1</ins></del>"], [/<span style="(font-weight: bold; ?|font-style: italic; ?){2}">([\w\W]*?)<\/span>/gm, "<strong><em>$2</em></strong>"], [/<span style="(font-weight: bold; ?|text-decoration: underline; ?){2}">([\w\W]*?)<\/span>/gm, "<ins><strong>$2</strong></ins>"], [/<span style="(font-weight: italic; ?|text-decoration: underline; ?){2}">([\w\W]*?)<\/span>/gm, "<ins><em>$2</em></ins>"], [/<span style="(font-weight: bold; ?|text-decoration: line-through; ?){2}">([\w\W]*?)<\/span>/gm, "<del><strong>$2</strong></del>"], [/<span style="(font-weight: italic; ?|text-decoration: line-through; ?){2}">([\w\W]*?)<\/span>/gm, "<del><em>$2</em></del>"], [/<span style="(font-weight: bold; ?|font-style: italic; ?|text-decoration: underline; ?){3}">([\w\W]*?)<\/span>/gm, "<ins><strong><em>$2</em></strong></ins>"], [/<span style="(font-weight: bold; ?|font-style: italic; ?|text-decoration: line-through; ?){3}">([\w\W]*?)<\/span>/gm, "<del><strong><em>$2</em></strong></del>"], [/<span style="(font-weight: bold; ?|font-style: italic; ?|text-decoration: underline line-through; ?){3}">([\w\W]*?)<\/span>/gm, "<del><ins><strong><em>$2</em></strong></ins></del>"], [/<strong style="font-weight: normal;">([\w\W]*?)<\/strong>/gm, "$1"], [/<([a-z]+) style="font-weight: normal;">([\w\W]*?)<\/\1>/gm, "<$1>$2</$1>"], [/<([a-z]+) style="font-weight: bold;">([\w\W]*?)<\/\1>/gm, "<$1><strong>$2</strong></$1>"], [/<([a-z]+) style="font-style: italic;">([\w\W]*?)<\/\1>/gm, "<$1><em>$2</em></$1>"], [/<([a-z]+) style="text-decoration: underline;">([\w\W]*?)<\/\1>/gm, "<ins><$1>$2</$1></ins>"], [/<([a-z]+) style="text-decoration: line-through;">([\w\W]*?)<\/\1>/gm, "<del><$1>$2</$1></del>"], [/<([a-z]+) style="text-decoration: underline line-through;">([\w\W]*?)<\/\1>/gm, "<del><ins><$1>$2</$1></ins></del>"], [/<([a-z]+) style="(font-weight: bold; ?|font-style: italic; ?){2}">([\w\W]*?)<\/\1>/gm, "<$1><strong><em>$3</em></strong></$1>"], [/<([a-z]+) style="(font-weight: bold; ?|text-decoration: underline; ?){2}">([\w\W]*?)<\/\1>/gm, "<ins><$1><strong>$3</strong></$1></ins>"], [/<([a-z]+) style="(font-weight: italic; ?|text-decoration: underline; ?){2}">([\w\W]*?)<\/\1>/gm, "<ins><$1><em>$3</em></$1></ins>"], [/<([a-z]+) style="(font-weight: bold; ?|text-decoration: line-through; ?){2}">([\w\W]*?)<\/\1>/gm, "<del><$1><strong>$3</strong></$1></del>"], [/<([a-z]+) style="(font-weight: italic; ?|text-decoration: line-through; ?){2}">([\w\W]*?)<\/\1>/gm, "<del><$1><em>$3</em></$1></del>"], [/<([a-z]+) style="(font-weight: bold; ?|font-style: italic; ?|text-decoration: underline; ?){3}">([\w\W]*?)<\/\1>/gm, "<ins><$1><strong><em>$3</em></strong></$1></ins>"], [/<([a-z]+) style="(font-weight: bold; ?|font-style: italic; ?|text-decoration: line-through; ?){3}">([\w\W]*?)<\/\1>/gm, "<del><$1><strong><em>$3</em></strong></$1></del>"], [/<([a-z]+) style="(font-weight: bold; ?|font-style: italic; ?|text-decoration: underline line-through; ?){3}">([\w\W]*?)<\/\1>/gm, "<del><ins><$1><strong><em>$3</em></strong></$1></ins></del>"], [/<p><blockquote>(.*)(\n)+<\/blockquote><\/p>/i, "<blockquote>$1</blockquote>\n"],
+  [/<(\/?)(B|b|STRONG)([\s>\/])/g, '<$1strong$3'],
+  [/<(\/?)(I|i|EM)([\s>\/])/g, '<$1em$3'],
+  [/<IMG ([^>]*?[^\/])>/gi, '<img $1 />'],
+  [/<INPUT ([^>]*?[^\/])>/gi, '<input $1 />'],
+  [/<COL ([^>]*?[^\/])>/gi, '<col $1 />'],
+  [/<AREA ([^>]*?[^\/])>/gi, '<area $1 />'],
+  [/<PARAM ([^>]*?[^\/])>/gi, '<param $1 />'],
+  [/<HR ([^>]*?[^\/])>/gi, '<hr $1/>'],
+  [/<BR ([^>]*?[^\/])>/gi, '<br $1/>'],
+  [/<(\/?)U([\s>\/])/gi, '<$1ins$2'],
+  [/<(\/?)STRIKE([\s>\/])/gi, '<$1del$2'],
+  [/<span style="font-weight: normal;">([\w\W]*?)<\/span>/gm, '$1'],
+  [/<span style="font-weight: bold;">([\w\W]*?)<\/span>/gm, '<strong>$1</strong>'],
+  [/<span style="font-style: italic;">([\w\W]*?)<\/span>/gm, '<em>$1</em>'],
+  [/<span style="text-decoration: underline;">([\w\W]*?)<\/span>/gm, '<ins>$1</ins>'],
+  [/<span style="text-decoration: line-through;">([\w\W]*?)<\/span>/gm, '<del>$1</del>'],
+  [/<span style="text-decoration: underline line-through;">([\w\W]*?)<\/span>/gm, '<del><ins>$1</ins></del>'],
+  [/<span style="(font-weight: bold; ?|font-style: italic; ?){2}">([\w\W]*?)<\/span>/gm, '<strong><em>$2</em></strong>'],
+  [
+    /<span style="(font-weight: bold; ?|text-decoration: underline; ?){2}">([\w\W]*?)<\/span>/gm,
+    '<ins><strong>$2</strong></ins>',
+  ],
+  [/<span style="(font-weight: italic; ?|text-decoration: underline; ?){2}">([\w\W]*?)<\/span>/gm, '<ins><em>$2</em></ins>'],
+  [
+    /<span style="(font-weight: bold; ?|text-decoration: line-through; ?){2}">([\w\W]*?)<\/span>/gm,
+    '<del><strong>$2</strong></del>',
+  ],
+  [/<span style="(font-weight: italic; ?|text-decoration: line-through; ?){2}">([\w\W]*?)<\/span>/gm, '<del><em>$2</em></del>'],
+  [
+    /<span style="(font-weight: bold; ?|font-style: italic; ?|text-decoration: underline; ?){3}">([\w\W]*?)<\/span>/gm,
+    '<ins><strong><em>$2</em></strong></ins>',
+  ],
+  [
+    /<span style="(font-weight: bold; ?|font-style: italic; ?|text-decoration: line-through; ?){3}">([\w\W]*?)<\/span>/gm,
+    '<del><strong><em>$2</em></strong></del>',
+  ],
+  [
+    /<span style="(font-weight: bold; ?|font-style: italic; ?|text-decoration: underline line-through; ?){3}">([\w\W]*?)<\/span>/gm,
+    '<del><ins><strong><em>$2</em></strong></ins></del>',
+  ],
+  [/<strong style="font-weight: normal;">([\w\W]*?)<\/strong>/gm, '$1'],
+  [/<([a-z]+) style="font-weight: normal;">([\w\W]*?)<\/\1>/gm, '<$1>$2</$1>'],
+  [/<([a-z]+) style="font-weight: bold;">([\w\W]*?)<\/\1>/gm, '<$1><strong>$2</strong></$1>'],
+  [/<([a-z]+) style="font-style: italic;">([\w\W]*?)<\/\1>/gm, '<$1><em>$2</em></$1>'],
+  [/<([a-z]+) style="text-decoration: underline;">([\w\W]*?)<\/\1>/gm, '<ins><$1>$2</$1></ins>'],
+  [/<([a-z]+) style="text-decoration: line-through;">([\w\W]*?)<\/\1>/gm, '<del><$1>$2</$1></del>'],
+  [/<([a-z]+) style="text-decoration: underline line-through;">([\w\W]*?)<\/\1>/gm, '<del><ins><$1>$2</$1></ins></del>'],
+  [
+    /<([a-z]+) style="(font-weight: bold; ?|font-style: italic; ?){2}">([\w\W]*?)<\/\1>/gm,
+    '<$1><strong><em>$3</em></strong></$1>',
+  ],
+  [
+    /<([a-z]+) style="(font-weight: bold; ?|text-decoration: underline; ?){2}">([\w\W]*?)<\/\1>/gm,
+    '<ins><$1><strong>$3</strong></$1></ins>',
+  ],
+  [
+    /<([a-z]+) style="(font-weight: italic; ?|text-decoration: underline; ?){2}">([\w\W]*?)<\/\1>/gm,
+    '<ins><$1><em>$3</em></$1></ins>',
+  ],
+  [
+    /<([a-z]+) style="(font-weight: bold; ?|text-decoration: line-through; ?){2}">([\w\W]*?)<\/\1>/gm,
+    '<del><$1><strong>$3</strong></$1></del>',
+  ],
+  [
+    /<([a-z]+) style="(font-weight: italic; ?|text-decoration: line-through; ?){2}">([\w\W]*?)<\/\1>/gm,
+    '<del><$1><em>$3</em></$1></del>',
+  ],
+  [
+    /<([a-z]+) style="(font-weight: bold; ?|font-style: italic; ?|text-decoration: underline; ?){3}">([\w\W]*?)<\/\1>/gm,
+    '<ins><$1><strong><em>$3</em></strong></$1></ins>',
+  ],
+  [
+    /<([a-z]+) style="(font-weight: bold; ?|font-style: italic; ?|text-decoration: line-through; ?){3}">([\w\W]*?)<\/\1>/gm,
+    '<del><$1><strong><em>$3</em></strong></$1></del>',
+  ],
+  [
+    /<([a-z]+) style="(font-weight: bold; ?|font-style: italic; ?|text-decoration: underline line-through; ?){3}">([\w\W]*?)<\/\1>/gm,
+    '<del><ins><$1><strong><em>$3</em></strong></$1></ins></del>',
+  ],
+  [/<p><blockquote>(.*)(\n)+<\/blockquote><\/p>/i, '<blockquote>$1</blockquote>\n'],
   /* mise en forme identique contigue */
-  [/<\/(strong|em|ins|del|q|code)>(\s*?)<\1>/gim, "$2"], [/<(br|BR)>/g, "<br />"], [/<(hr|HR)>/g, "<hr />"],
+  [/<\/(strong|em|ins|del|q|code)>(\s*?)<\1>/gim, '$2'],
+  [/<(br|BR)>/g, '<br />'],
+  [/<(hr|HR)>/g, '<hr />'],
   /* opera est trop strict ;)) */
-  [/([^\s])\/>/g, "$1 />"],
+  [/([^\s])\/>/g, '$1 />'],
   /* br intempestifs de fin de block */
-  [/<br \/>\s*<\/(h1|h2|h3|h4|h5|h6|ul|ol|li|p|blockquote|div)/gi, "</$1"], [/<\/(h1|h2|h3|h4|h5|h6|ul|ol|li|p|blockquote)>([^\n\u000B\r\f])/gi, "</$1>\n$2"], [/<hr style="width: 100%; height: 2px;" \/>/g, "<hr />"]
+  [/<br \/>\s*<\/(h1|h2|h3|h4|h5|h6|ul|ol|li|p|blockquote|div)/gi, '</$1'],
+  [/<\/(h1|h2|h3|h4|h5|h6|ul|ol|li|p|blockquote)>([^\n\u000B\r\f])/gi, '</$1>\n$2'],
+  [/<hr style="width: 100%; height: 2px;" \/>/g, '<hr />']
 );
 
 /** Cleanup HTML code
  */
-jsToolBar.prototype.tagsoup2xhtml = function(html) {
+jsToolBar.prototype.tagsoup2xhtml = function (html) {
   for (let reg in this.simpleCleanRegex) {
     html = html.replace(this.simpleCleanRegex[reg][0], this.simpleCleanRegex[reg][1]);
   }
@@ -482,18 +579,17 @@ jsToolBar.prototype.tagsoup2xhtml = function(html) {
   /* note : on tente de ne pas tenir compte des commentaires html, ceux-ci
      permettent entre autre d'inserer des commentaires conditionnels pour ie */
   while (/(<[^\/!]>|<[^\/!][^>]*[^\/]>)\s*<\/[^>]*[^-]>/.test(html)) {
-    html = html.replace(/(<[^\/!]>|<[^\/!][^>]*[^\/]>)\s*<\/[^>]*[^-]>/g, "");
+    html = html.replace(/(<[^\/!]>|<[^\/!][^>]*[^\/]>)\s*<\/[^>]*[^-]>/g, '');
   }
 
   /* tous les tags en minuscule */
-  html = html.replace(/<(\/?)([A-Z0-9]+)/g,
-    function(match0, match1, match2) {
-      return "<" + match1 + match2.toLowerCase();
-    });
+  html = html.replace(/<(\/?)([A-Z0-9]+)/g, function (match0, match1, match2) {
+    return '<' + match1 + match2.toLowerCase();
+  });
 
   /* IE laisse souvent des attributs sans guillemets */
   const myRegexp = /<[^>]+((\s+\w+\s*=\s*)([^"'][\w~@+$,%\/:.#?=&;!*()-]*))[^>]*?>/;
-  const myQuoteFn = function(str, val1, val2, val3) {
+  const myQuoteFn = function (str, val1, val2, val3) {
     const tamponRegex = new RegExp(regexpEscape(val1));
     return str.replace(tamponRegex, val2 + '"' + val3 + '"');
   };
@@ -504,12 +600,12 @@ jsToolBar.prototype.tagsoup2xhtml = function(html) {
   /* les navigateurs rajoutent une unite aux longueurs css nulles */
   /* note: a ameliorer ! */
   while (/(<[^>]+style=(["'])[^>]+[\s:]+)0(pt|px)(\2|\s|;)/.test(html)) {
-    html = html.replace(/(<[^>]+style=(["'])[^>]+[\s:]+)0(pt|px)(\2|\s|;)/gi, "$1" + "0$4");
+    html = html.replace(/(<[^>]+style=(["'])[^>]+[\s:]+)0(pt|px)(\2|\s|;)/gi, '$1' + '0$4');
   }
 
   /* correction des fins de lignes : le textarea edite contient des \n
    * le wysiwyg des \r\n , et le textarea mis a jour SANS etre affiche des \r\n ! */
-  html = html.replace(/\r\n/g, "\n");
+  html = html.replace(/\r\n/g, '\n');
 
   /* Trim only if there's no pre tag */
   const pattern_pre = /<pre>[\s\S]*<\/pre>/gi;
@@ -520,9 +616,26 @@ jsToolBar.prototype.tagsoup2xhtml = function(html) {
 
   return html;
 };
-jsToolBar.prototype.validBlockquote = function() {
-  const blockElts = ['address', 'blockquote', 'dl', 'div', 'fieldset', 'form', 'h1',
-    'h2', 'h3', 'h4', 'h5', 'h6', 'hr', 'ol', 'p', 'pre', 'table', 'ul'
+jsToolBar.prototype.validBlockquote = function () {
+  const blockElts = [
+    'address',
+    'blockquote',
+    'dl',
+    'div',
+    'fieldset',
+    'form',
+    'h1',
+    'h2',
+    'h3',
+    'h4',
+    'h5',
+    'h6',
+    'hr',
+    'ol',
+    'p',
+    'pre',
+    'table',
+    'ul',
   ];
   const BQs = this.iwin.document.getElementsByTagName('blockquote');
   let bqChilds;
@@ -531,9 +644,11 @@ jsToolBar.prototype.validBlockquote = function() {
   for (let bq = 0; bq < BQs.length; bq++) {
     bqChilds = BQs[bq].childNodes;
     let frag = this.iwin.document.createDocumentFragment();
-    for (let i = (bqChilds.length - 1); i >= 0; i--) {
-      if (bqChilds[i].nodeType == 1 && // Node.ELEMENT_NODE
-        arrayIndexOf(blockElts, bqChilds[i].tagName.toLowerCase()) >= 0) {
+    for (let i = bqChilds.length - 1; i >= 0; i--) {
+      if (
+        bqChilds[i].nodeType == 1 && // Node.ELEMENT_NODE
+        arrayIndexOf(blockElts, bqChilds[i].tagName.toLowerCase()) >= 0
+      ) {
         if (frag.childNodes.length > 0) {
           p = this.iwin.document.createElement('p');
           p.appendChild(frag);
@@ -555,22 +670,35 @@ jsToolBar.prototype.validBlockquote = function() {
 
 /* Removing text formating */
 jsToolBar.prototype.removeFormatRegexp = new Array(
-  [/(<[a-z][^>]*)margin\s*:[^;]*;/mg, "$1"], [/(<[a-z][^>]*)margin-bottom\s*:[^;]*;/mg, "$1"], [/(<[a-z][^>]*)margin-left\s*:[^;]*;/mg, "$1"], [/(<[a-z][^>]*)margin-right\s*:[^;]*;/mg, "$1"], [/(<[a-z][^>]*)margin-top\s*:[^;]*;/mg, "$1"],
+  [/(<[a-z][^>]*)margin\s*:[^;]*;/gm, '$1'],
+  [/(<[a-z][^>]*)margin-bottom\s*:[^;]*;/gm, '$1'],
+  [/(<[a-z][^>]*)margin-left\s*:[^;]*;/gm, '$1'],
+  [/(<[a-z][^>]*)margin-right\s*:[^;]*;/gm, '$1'],
+  [/(<[a-z][^>]*)margin-top\s*:[^;]*;/gm, '$1'],
 
-  [/(<[a-z][^>]*)padding\s*:[^;]*;/mg, "$1"], [/(<[a-z][^>]*)padding-bottom\s*:[^;]*;/mg, "$1"], [/(<[a-z][^>]*)padding-left\s*:[^;]*;/mg, "$1"], [/(<[a-z][^>]*)padding-right\s*:[^;]*;/mg, "$1"], [/(<[a-z][^>]*)padding-top\s*:[^;]*;/mg, "$1"],
+  [/(<[a-z][^>]*)padding\s*:[^;]*;/gm, '$1'],
+  [/(<[a-z][^>]*)padding-bottom\s*:[^;]*;/gm, '$1'],
+  [/(<[a-z][^>]*)padding-left\s*:[^;]*;/gm, '$1'],
+  [/(<[a-z][^>]*)padding-right\s*:[^;]*;/gm, '$1'],
+  [/(<[a-z][^>]*)padding-top\s*:[^;]*;/gm, '$1'],
 
-  [/(<[a-z][^>]*)font\s*:[^;]*;/mg, "$1"], [/(<[a-z][^>]*)font-family\s*:[^;]*;/mg, "$1"], [/(<[a-z][^>]*)font-size\s*:[^;]*;/mg, "$1"], [/(<[a-z][^>]*)font-style\s*:[^;]*;/mg, "$1"], [/(<[a-z][^>]*)font-variant\s*:[^;]*;/mg, "$1"], [/(<[a-z][^>]*)font-weight\s*:[^;]*;/mg, "$1"],
+  [/(<[a-z][^>]*)font\s*:[^;]*;/gm, '$1'],
+  [/(<[a-z][^>]*)font-family\s*:[^;]*;/gm, '$1'],
+  [/(<[a-z][^>]*)font-size\s*:[^;]*;/gm, '$1'],
+  [/(<[a-z][^>]*)font-style\s*:[^;]*;/gm, '$1'],
+  [/(<[a-z][^>]*)font-variant\s*:[^;]*;/gm, '$1'],
+  [/(<[a-z][^>]*)font-weight\s*:[^;]*;/gm, '$1'],
 
-  [/(<[a-z][^>]*)color\s*:[^;]*;/mg, "$1"]
+  [/(<[a-z][^>]*)color\s*:[^;]*;/gm, '$1']
 );
 
-jsToolBar.prototype.removeTextFormating = function(html) {
+jsToolBar.prototype.removeTextFormating = function (html) {
   for (let reg in this.removeFormatRegexp) {
     html = html.replace(this.removeFormatRegexp[reg][0], this.removeFormatRegexp[reg][1]);
   }
 
   html = this.tagsoup2xhtml(html);
-  html = html.replace(/style="\s*?"/mgi, '');
+  html = html.replace(/style="\s*?"/gim, '');
   return html;
 };
 
@@ -578,7 +706,7 @@ jsToolBar.prototype.removeTextFormating = function(html) {
 -------------------------------------------------------- */
 jsToolBar.prototype.elements.blocks.wysiwyg = {
   list: ['none', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-  fn: function(opt) {
+  fn: function (opt) {
     if (opt == 'none') {
       const blockLevel = this.getBlockLevel();
       if (blockLevel !== null) {
@@ -591,90 +719,92 @@ jsToolBar.prototype.elements.blocks.wysiwyg = {
       } catch (e) {}
       this.iwin.focus();
     }
-  }
+  },
 };
 
-jsToolBar.prototype.elements.strong.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.strong.fn.wysiwyg = function () {
   this.iwin.document.execCommand('bold', false, null);
   this.iwin.focus();
 };
 
-jsToolBar.prototype.elements.em.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.em.fn.wysiwyg = function () {
   this.iwin.document.execCommand('italic', false, null);
   this.iwin.focus();
 };
 
-jsToolBar.prototype.elements.ins.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.ins.fn.wysiwyg = function () {
   this.iwin.document.execCommand('underline', false, null);
   this.iwin.focus();
 };
 
-jsToolBar.prototype.elements.del.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.del.fn.wysiwyg = function () {
   this.iwin.document.execCommand('strikethrough', false, null);
   this.iwin.focus();
 };
 
-jsToolBar.prototype.elements.quote.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.quote.fn.wysiwyg = function () {
   const n = this.getSelectedNode();
   const q = this.iwin.document.createElement('q');
   q.appendChild(n);
   this.insertNode(q);
 };
 
-jsToolBar.prototype.elements.code.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.code.fn.wysiwyg = function () {
   const n = this.getSelectedNode();
   const code = this.iwin.document.createElement('code');
   code.appendChild(n);
   this.insertNode(code);
 };
 
-jsToolBar.prototype.elements.mark.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.mark.fn.wysiwyg = function () {
   const n = this.getSelectedNode();
   const mark = this.iwin.document.createElement('mark');
   mark.appendChild(n);
   this.insertNode(mark);
 };
 
-jsToolBar.prototype.elements.br.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.br.fn.wysiwyg = function () {
   const n = this.iwin.document.createElement('br');
   this.insertNode(n);
 };
 
-jsToolBar.prototype.elements.blockquote.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.blockquote.fn.wysiwyg = function () {
   const n = this.getSelectedNode();
   const q = this.iwin.document.createElement('blockquote');
   q.appendChild(n);
   this.insertNode(q);
 };
 
-jsToolBar.prototype.elements.pre.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.pre.fn.wysiwyg = function () {
   this.iwin.document.execCommand('formatblock', false, '<pre>');
   this.iwin.focus();
 };
 
-jsToolBar.prototype.elements.ul.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.ul.fn.wysiwyg = function () {
   this.iwin.document.execCommand('insertunorderedlist', false, null);
   this.iwin.focus();
 };
 
-jsToolBar.prototype.elements.ol.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.ol.fn.wysiwyg = function () {
   this.iwin.document.execCommand('insertorderedlist', false, null);
   this.iwin.focus();
 };
 
-jsToolBar.prototype.elements.link.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.link.fn.wysiwyg = function () {
   let href;
   let hreflang;
   let range;
   let commonAncestorContainer;
-  if (this.iwin.getSelection) { //gecko
+  if (this.iwin.getSelection) {
+    //gecko
     const selection = this.iwin.getSelection();
     range = selection.getRangeAt(0);
     commonAncestorContainer = range.commonAncestorContainer;
     while (commonAncestorContainer.nodeType != 1) {
       commonAncestorContainer = commonAncestorContainer.parentNode;
     }
-  } else { //ie
+  } else {
+    //ie
     range = this.iwin.document.selection.createRange();
     commonAncestorContainer = range.parentElement();
   }
@@ -725,15 +855,15 @@ jsToolBar.prototype.elements.link.fn.wysiwyg = function() {
 jsToolBar.prototype.elements.removeFormat = {
   type: 'button',
   title: 'Remove text formating',
-  fn: {}
+  fn: {},
 };
 jsToolBar.prototype.elements.removeFormat.disabled = !jsToolBar.prototype.can_wwg;
-jsToolBar.prototype.elements.removeFormat.fn.xhtml = function() {
+jsToolBar.prototype.elements.removeFormat.fn.xhtml = function () {
   let html = this.textarea.value;
   html = this.removeTextFormating(html);
   this.textarea.value = html;
 };
-jsToolBar.prototype.elements.removeFormat.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.removeFormat.fn.wysiwyg = function () {
   let html = this.iwin.document.body.innerHTML;
   html = this.removeTextFormating(html);
   this.iwin.document.body.innerHTML = html;
@@ -761,7 +891,7 @@ function addEvent(obj, evType, fn, useCapture) {
     obj.addEventListener(evType, fn, useCapture);
     return true;
   } else if (obj.attachEvent) {
-    const r = obj.attachEvent("on" + evType, fn);
+    const r = obj.attachEvent('on' + evType, fn);
     return r;
   } else {
     return false;
@@ -773,7 +903,7 @@ function removeEvent(obj, evType, fn, useCapture) {
     obj.removeEventListener(evType, fn, useCapture);
     return true;
   } else if (obj.detachEvent) {
-    const r = obj.detachEvent("on" + evType, fn);
+    const r = obj.detachEvent('on' + evType, fn);
     return r;
   } else {
     return false;
@@ -781,5 +911,5 @@ function removeEvent(obj, evType, fn, useCapture) {
 }
 
 function regexpEscape(s) {
-  return s.replace(/([\\\^\$*+[\]?{}.=!:(|)])/g, "\\$1");
+  return s.replace(/([\\\^\$*+[\]?{}.=!:(|)])/g, '\\$1');
 }

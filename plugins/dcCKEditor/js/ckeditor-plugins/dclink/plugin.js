@@ -1,31 +1,36 @@
 /*global CKEDITOR, dotclear, $ */
 'use strict';
 
-(function() {
+(function () {
   CKEDITOR.plugins.add('dclink', {
     icons: 'dclink',
-    init: function(editor) {
+    init: function (editor) {
       editor.addCommand('dcLinkCommand', {
-        exec: function(editor) {
-          if (editor.getSelection().getSelectedElement() != null ||
-            editor.getSelection().getNative().toString().replace(/\s*/, '') != '') {
+        exec: function (editor) {
+          if (
+            editor.getSelection().getSelectedElement() != null ||
+            editor.getSelection().getNative().toString().replace(/\s*/, '') != ''
+          ) {
             $.toolbarPopup('popup_link.php?plugin_id=dcCKEditor');
           }
-        }
+        },
       });
 
       editor.ui.addButton('dcLink', {
         label: dotclear.msg.link_title,
         command: 'dcLinkCommand',
-        toolbar: 'insert'
+        toolbar: 'insert',
       });
 
-      editor.on('doubleclick', function(e) {
+      editor.on('doubleclick', function (e) {
         const element = CKEDITOR.plugins.link.getSelectedLink(editor) || e.data.element;
         if (!element.isReadOnly()) {
-          if (element.is('a') &&
+          if (
+            element.is('a') &&
             !element.hasClass('media-link') && // link to original media @see js/popup_media.js
-            !element.hasClass('ref-post')) { // link to an entry @see js/popup_posts.js
+            !element.hasClass('ref-post')
+          ) {
+            // link to an entry @see js/popup_posts.js
 
             editor.getSelection().selectElement(element);
 
@@ -45,6 +50,6 @@
           }
         }
       });
-    }
+    },
   });
 })();

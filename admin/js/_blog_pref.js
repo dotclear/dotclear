@@ -3,10 +3,10 @@
 
 Object.assign(dotclear.msg, getData('blog_pref'));
 
-$(function() {
+$(function () {
   const blog_url = $('#blog_url');
   if (blog_url.length > 0 && !blog_url.is(':hidden')) {
-    const checkQueryString = function() {
+    const checkQueryString = function () {
       const url = blog_url[0].value;
       const scan = $('#url_scan')[0].value;
       let msg = '';
@@ -25,7 +25,7 @@ $(function() {
     $('body').on('change', '#url_scan', checkQueryString);
   }
 
-  $('#date_format_select,#time_format_select').on('change', function() {
+  $('#date_format_select,#time_format_select').on('change', function () {
     if ($(this).prop('value') == '') {
       return;
     }
@@ -33,17 +33,19 @@ $(function() {
     $(this).parent().next('.chosen').html($(this).find(':selected').prop('label'));
   });
 
-  $('#static_home_url_selector').on('click', function(e) {
-    window.open('popup_posts.php?plugin_id=admin.blog_pref&type=page', 'dc_popup',
-      'alwaysRaised=yes,dependent=yes,toolbar=yes,height=500,width=760,' +
-      'menubar=no,resizable=yes,scrollbars=yes,status=no');
+  $('#static_home_url_selector').on('click', function (e) {
+    window.open(
+      'popup_posts.php?plugin_id=admin.blog_pref&type=page',
+      'dc_popup',
+      'alwaysRaised=yes,dependent=yes,toolbar=yes,height=500,width=760,' + 'menubar=no,resizable=yes,scrollbars=yes,status=no'
+    );
     e.preventDefault();
     return false;
   });
 
   // HTML text editor
   if (typeof jsToolBar === 'function') {
-    $('#blog_desc').each(function() {
+    $('#blog_desc').each(function () {
       let tbWidgetText = new jsToolBar(this);
       tbWidgetText.context = 'blog_desc';
       tbWidgetText.draw('xhtml');

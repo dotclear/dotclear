@@ -1,7 +1,7 @@
 /*global getData, dotclear */
 'use strict';
 
-const confirmClose = function() {
+const confirmClose = function () {
   if (arguments.length > 0) {
     for (let i = 0; i < arguments.length; i++) {
       this.forms_id.push(arguments[i]);
@@ -15,10 +15,10 @@ confirmClose.prototype = {
   forms: [],
   form_submit: false,
 
-  getCurrentForms: function() {
+  getCurrentForms: function () {
     // Store current form's element's values
 
-    const eltRef = (e) => e.id != undefined && e.id != '' ? e.id : e.name;
+    const eltRef = (e) => (e.id != undefined && e.id != '' ? e.id : e.name);
 
     const formsInPage = this.getForms();
     this.forms = [];
@@ -33,7 +33,7 @@ confirmClose.prototype = {
         }
       }
       // Loop on form iframes
-      const j = f.getElementsByTagName("iframe");
+      const j = f.getElementsByTagName('iframe');
       if (j !== undefined) {
         for (let k = 0; k < j.length; k++) {
           if (j[k].contentDocument.body.id !== undefined && j[k].contentDocument.body.id !== '') {
@@ -43,11 +43,11 @@ confirmClose.prototype = {
       }
       this.forms.push(tmpForm);
 
-      f.addEventListener('submit', () => this.form_submit = true);
+      f.addEventListener('submit', () => (this.form_submit = true));
     }
   },
 
-  compareForms: function() {
+  compareForms: function () {
     // Compare current form's element's values to their original values
     // Return false if any difference, else true
 
@@ -55,13 +55,14 @@ confirmClose.prototype = {
       return true;
     }
 
-    const formMatch = (current, source) => Object.keys(current).every(
-      key => (!source.hasOwnProperty(key)) || (source.hasOwnProperty(key) && source[key] === current[key])
-    );
-    const eltRef = (e) => e.id != undefined && e.id != '' ? e.id : e.name;
+    const formMatch = (current, source) =>
+      Object.keys(current).every(
+        (key) => !source.hasOwnProperty(key) || (source.hasOwnProperty(key) && source[key] === current[key])
+      );
+    const eltRef = (e) => (e.id != undefined && e.id != '' ? e.id : e.name);
     const formFirstDiff = (current, source) => {
       let diff = '<none>';
-      Object.keys(current).every(key => {
+      Object.keys(current).every((key) => {
         if (source.hasOwnProperty(key) && current[key] !== source[key]) {
           diff = `Key = [${key}] - Original = [${source[key]}] - Current = [${current[key]}]`;
           return false;
@@ -83,7 +84,7 @@ confirmClose.prototype = {
         }
       }
       // Loop on form iframes
-      const j = f.getElementsByTagName("iframe");
+      const j = f.getElementsByTagName('iframe');
       if (j !== undefined) {
         for (let k = 0; k < j.length; k++) {
           if (j[k].contentDocument.body.id !== undefined && j[k].contentDocument.body.id !== '') {
@@ -105,7 +106,7 @@ confirmClose.prototype = {
     return true;
   },
 
-  getForms: function() {
+  getForms: function () {
     // Get current list of forms as HTMLCollection(s)
 
     if (!document.getElementsByTagName || !document.getElementById) {
@@ -128,12 +129,12 @@ confirmClose.prototype = {
     return [];
   },
 
-  getFormElementValue: function(e) {
+  getFormElementValue: function (e) {
     // Return current value of an form element
 
     if (
       // Unknown object
-      (e === undefined) ||
+      e === undefined ||
       // Ignore unidentified object
       ((e.id === undefined || e.id === '') && (e.name === undefined || e.name === '')) ||
       // Ignore button element
@@ -141,16 +142,17 @@ confirmClose.prototype = {
       // Ignore submit element
       (e.type !== undefined && e.type === 'submit') ||
       // Ignore readonly element
-      (e.hasAttribute('readonly')) ||
+      e.hasAttribute('readonly') ||
       // Ignore some application helper element
-      (e.classList.contains('meta-helper') || e.classList.contains('checkbox-helper'))
+      e.classList.contains('meta-helper') ||
+      e.classList.contains('checkbox-helper')
     ) {
       return undefined;
     }
 
     if (e.type !== undefined && (e.type === 'radio' || e.type === 'checkbox')) {
       // Return actual radio button value if selected, else null
-      return (e.checked ? e.value : null);
+      return e.checked ? e.value : null;
     } else if (e.type !== undefined && e.type === 'password') {
       // Ignore password element
       return null;
@@ -161,7 +163,7 @@ confirmClose.prototype = {
       // Every other case, return null
       return null;
     }
-  }
+  },
 };
 
 window.addEventListener('load', () => {
@@ -178,7 +180,11 @@ window.addEventListener('beforeunload', (event) => {
     event = window.event;
   }
 
-  if (dotclear.confirmClosePage !== undefined && !dotclear.confirmClosePage.form_submit && !dotclear.confirmClosePage.compareForms()) {
+  if (
+    dotclear.confirmClosePage !== undefined &&
+    !dotclear.confirmClosePage.form_submit &&
+    !dotclear.confirmClosePage.compareForms()
+  ) {
     if (dotclear.debug) {
       console.log('Confirmation before exiting is required.');
     }

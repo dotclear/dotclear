@@ -1,25 +1,29 @@
 /*global $, dotclear */
 'use strict';
 
-$(function() {
-  $('.checkboxes-helpers').each(function() {
+$(function () {
+  $('.checkboxes-helpers').each(function () {
     dotclear.checkboxesHelpers(this, undefined, '#form-users input[type="checkbox"]', '#form-users #do-action');
   });
   dotclear.condSubmit('#form-users input[type="checkbox"]', '#form-users #do-action');
   dotclear.responsiveCellHeaders(document.querySelector('#form-users table'), '#form-users table', 1);
-  $('#form-users').submit(function() {
+  $('#form-users').submit(function () {
     const action = $(this).find('select[name="action"]').val();
     let user_ids = [];
     let nb_posts = [];
     let i;
     let msg_cannot_delete = false;
 
-    $(this).find('input[name="users[]"]').each(function() {
-      user_ids.push(this);
-    });
-    $(this).find('input[name="nb_post[]"]').each(function() {
-      nb_posts.push(this.value);
-    });
+    $(this)
+      .find('input[name="users[]"]')
+      .each(function () {
+        user_ids.push(this);
+      });
+    $(this)
+      .find('input[name="nb_post[]"]')
+      .each(function () {
+        nb_posts.push(this.value);
+      });
 
     if (action == 'deleteuser') {
       for (i = 0; i < user_ids.length; i++) {

@@ -1,19 +1,19 @@
 /*global $ */
 'use strict';
 
-$(function() {
+$(function () {
   $('#my-favs ul').sortable({
-    'cursor': 'move'
+    cursor: 'move',
   });
   $('#my-favs ul, #my-favs ul *').css({
-    'cursor': 'move'
+    cursor: 'move',
   });
   $('#my-favs ul input').css({
-    'cursor': 'auto'
+    cursor: 'auto',
   });
-  $('#favs-form').on('submit', function() {
+  $('#favs-form').on('submit', function () {
     let order = [];
-    $('#my-favs ul li input.position').each(function() {
+    $('#my-favs ul li input.position').each(function () {
       order.push(this.name.replace(/^order\[([^\]]+)\]$/, '$1'));
     });
     $('input[name=favs_order]')[0].value = order.join(',');

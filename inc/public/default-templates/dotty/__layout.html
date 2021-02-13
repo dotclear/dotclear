@@ -1,116 +1,102 @@
 <!DOCTYPE html>
 <html lang="{{tpl:BlogLanguage}}">
+
 <head>
-	<tpl:Block name="html-head">
-		<meta charset="UTF-8" />
-
-		<tpl:Block name="head-title">
-			<title>{{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
-		</tpl:Block>	<!-- # head-title -->
-
-		<tpl:Block name="head-meta">
-			<meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
-			<tpl:Block name="meta-robots">
-				<meta name="ROBOTS" content="{{tpl:BlogMetaRobots}}" />
-			</tpl:Block>	<!-- # meta-robots -->
-			<tpl:Block name="meta-entry">
-				<meta name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription cut_string="180" remove_html="1" encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
-				<meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
-				<meta name="date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
-			</tpl:Block>	<!-- # meta-entry -->
-		</tpl:Block>	<!-- # head-meta -->
-
-		<tpl:Block name="head-linkrel">
-			<link rel="contents" title="{{tpl:lang Archives}}" href="{{tpl:BlogArchiveURL}}" />
-			<tpl:Categories>
-				<link rel="section" href="{{tpl:CategoryURL}}" title="{{tpl:CategoryTitle encode_html="1"}}" />
-			</tpl:Categories>
-
-			<tpl:Entries no_content="1">
-				<tpl:EntriesHeader>
-					<tpl:Pagination>
-						<tpl:PaginationIf end="0">
-							<link rel="prev" title="{{tpl:lang previous entries}}" href="{{tpl:PaginationURL offset="1"}}" />
-						</tpl:PaginationIf>
-
-						<tpl:PaginationIf start="0">
-							<link rel="next" title="{{tpl:lang next entries}}" href="{{tpl:PaginationURL offset="-1"}}" />
-						</tpl:PaginationIf>
-					</tpl:Pagination>
-				</tpl:EntriesHeader>
-
-				<link rel="chapter" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" />
-			</tpl:Entries>
-
-			<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
-			<link rel="EditURI" type="application/rsd+xml" title="RSD" href="{{tpl:BlogRSDURL}}" />
-			<link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}" />
-		</tpl:Block>	<!-- # head-linkrel -->
-
-		{{tpl:include src="_head.html"}}
-	</tpl:Block>	<!-- # html-head -->
+  <tpl:Block name="html-head">
+    <meta charset="UTF-8" />
+    <tpl:Block name="head-title">
+      <title>{{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>
+      </title>
+    </tpl:Block> <!-- # head-title -->
+    <tpl:Block name="head-meta">
+      <meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
+      <tpl:Block name="meta-robots">
+        <meta name="ROBOTS" content="{{tpl:BlogMetaRobots}}" />
+      </tpl:Block> <!-- # meta-robots -->
+      <tpl:Block name="meta-entry">
+        <meta name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription cut_string="180" remove_html="1" encode_html="1"}}<tpl:PaginationIf start=" 0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
+        <meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
+        <meta name="date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
+      </tpl:Block> <!-- # meta-entry -->
+    </tpl:Block> <!-- # head-meta -->
+    <tpl:Block name="head-linkrel">
+      <link rel="contents" title="{{tpl:lang Archives}}" href="{{tpl:BlogArchiveURL}}" />
+      <tpl:Categories>
+        <link rel="section" href="{{tpl:CategoryURL}}" title="{{tpl:CategoryTitle encode_html="1"}}" />
+      </tpl:Categories>
+      <tpl:Entries no_content="1">
+        <tpl:EntriesHeader>
+          <tpl:Pagination>
+            <tpl:PaginationIf end="0">
+              <link rel="prev" title="{{tpl:lang previous entries}}" href="{{tpl:PaginationURL offset="1"}}" />
+            </tpl:PaginationIf>
+            <tpl:PaginationIf start="0">
+              <link rel="next" title="{{tpl:lang next entries}}" href="{{tpl:PaginationURL offset="-1"}}" />
+            </tpl:PaginationIf>
+          </tpl:Pagination>
+        </tpl:EntriesHeader>
+        <link rel="chapter" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" />
+      </tpl:Entries>
+      <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
+      <link rel="EditURI" type="application/rsd+xml" title="RSD" href="{{tpl:BlogRSDURL}}" />
+      <link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}" />
+    </tpl:Block> <!-- # head-linkrel -->
+    {{tpl:include src="_head.html"}}
+  </tpl:Block> <!-- # html-head -->
 </head>
 <tpl:Block name="body-tag">
-	<body class="dc-home <tpl:SysIf current_mode="default">dc-home-first</tpl:SysIf>">
+
+  <body class="dc-home <tpl:SysIf current_mode=" default">dc-home-first</tpl:SysIf>">
 </tpl:Block>
-	<tpl:Block name="html-body">
-		<div id="page">
-			<tpl:Block name="body-page">
-				<tpl:Block name="page-top">
-					{{tpl:include src="_top.html"}}
-				</tpl:Block>	<!-- # page-top -->
-
-				<div id="wrapper">
-					<tpl:Block name="page-wrapper">
-						<main id="main" role="main">
-							<tpl:Block name="wrapper-main">
-								<tpl:Block name="main-breadcrumb">
-									{{tpl:Breadcrumb}}
-								</tpl:Block>
-								<section id="content">
-									<tpl:Block name="main-content">
-
-										<tpl:Entries>
-
-											<!-- # First page -->
-											<tpl:SysIf current_mode="default">
-												<tpl:LoopPosition start="1" length="1">
-													{{tpl:include src="_entry-full.html"}}
-												</tpl:LoopPosition>
-
-												<tpl:LoopPosition start="2">
-													{{tpl:include src="_entry-short.html"}}
-												</tpl:LoopPosition>
-											</tpl:SysIf>
-
-											<!-- # Next pages -->
-											<tpl:SysIf current_mode="!default">
-												{{tpl:include src="_entry-short.html"}}
-											</tpl:SysIf>
-
-											<!-- # Pagination -->
-											<tpl:EntriesFooter>
-												{{tpl:include src="_pagination.html"}}
-											</tpl:EntriesFooter>
-
-										</tpl:Entries>
-
-									</tpl:Block>	<!-- # main-content -->
-								</section> <!-- # End #content -->
-							</tpl:Block>	<!-- # wrapper-main -->
-						</main> <!-- # End #main -->
-
-						<tpl:Block name="wrapper-sidebar">
-							{{tpl:include src="_sidebar.html"}}
-						</tpl:Block>	<!-- # wrapper-sidebar -->
-					</tpl:Block>	<!-- # page-wrapper -->
-				</div> <!-- # End #wrapper -->
-
-				<tpl:Block name="page-footer">
-					{{tpl:include src="_footer.html"}}
-				</tpl:Block>	<!-- # page-footer -->
-			</tpl:Block>	<!-- # body-page -->
-		</div> <!-- # End #page -->
-	</tpl:Block>	<!-- # html-body -->
+<tpl:Block name="html-body">
+  <div id="page">
+    <tpl:Block name="body-page">
+      <tpl:Block name="page-top">
+        {{tpl:include src="_top.html"}}
+      </tpl:Block> <!-- # page-top -->
+      <div id="wrapper">
+        <tpl:Block name="page-wrapper">
+          <main id="main" role="main">
+            <tpl:Block name="wrapper-main">
+              <tpl:Block name="main-breadcrumb">
+                {{tpl:Breadcrumb}}
+              </tpl:Block>
+              <section id="content">
+                <tpl:Block name="main-content">
+                  <tpl:Entries>
+                    <!-- # First page -->
+                    <tpl:SysIf current_mode="default">
+                      <tpl:LoopPosition start="1" length="1">
+                        {{tpl:include src="_entry-full.html"}}
+                      </tpl:LoopPosition>
+                      <tpl:LoopPosition start="2">
+                        {{tpl:include src="_entry-short.html"}}
+                      </tpl:LoopPosition>
+                    </tpl:SysIf>
+                    <!-- # Next pages -->
+                    <tpl:SysIf current_mode="!default">
+                      {{tpl:include src="_entry-short.html"}}
+                    </tpl:SysIf>
+                    <!-- # Pagination -->
+                    <tpl:EntriesFooter>
+                      {{tpl:include src="_pagination.html"}}
+                    </tpl:EntriesFooter>
+                  </tpl:Entries>
+                </tpl:Block> <!-- # main-content -->
+              </section> <!-- # End #content -->
+            </tpl:Block> <!-- # wrapper-main -->
+          </main> <!-- # End #main -->
+          <tpl:Block name="wrapper-sidebar">
+            {{tpl:include src="_sidebar.html"}}
+          </tpl:Block> <!-- # wrapper-sidebar -->
+        </tpl:Block> <!-- # page-wrapper -->
+      </div> <!-- # End #wrapper -->
+      <tpl:Block name="page-footer">
+        {{tpl:include src="_footer.html"}}
+      </tpl:Block> <!-- # page-footer -->
+    </tpl:Block> <!-- # body-page -->
+  </div> <!-- # End #page -->
+</tpl:Block> <!-- # html-body -->
 </body>
+
 </html>

@@ -1,35 +1,33 @@
 {{tpl:extends parent="__layout.html"}}
-
 <tpl:Block name="head-title">
-	<title>{{tpl:lang Archives}} - {{tpl:BlogName encode_html="1"}}</title>
+  <title>{{tpl:lang Archives}} - {{tpl:BlogName encode_html="1"}}</title>
 </tpl:Block>
-
 <tpl:Block name="head-linkrel">
-	<tpl:Archives>
-		<link rel="chapter" href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}" />
-	</tpl:Archives>
-	<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
+  <tpl:Archives>
+    <link rel="chapter" href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}" />
+  </tpl:Archives>
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
 </tpl:Block>
+<tpl:Block name="body-tag">
 
-<tpl:Block name="body-tag"><body class="dc-archive"></tpl:Block>
-
+  <body class="dc-archive">
+</tpl:Block>
 <tpl:Block name="main-content">
-	<div id="content-info">
-		<h2>{{tpl:lang Archives}}</h2>
-	</div>
-
-	<div class="content-inner">
-		<tpl:Archives>
-			<tpl:ArchivesYearHeader>
-				<h3>{{tpl:ArchiveDate format="%Y"}}</h3>
-				<ul>
-			</tpl:ArchivesYearHeader>
-			<li><a href="{{tpl:ArchiveURL}}"
-			title="{{tpl:ArchiveDate encode_html="1"}}">{{tpl:ArchiveDate encode_html="1" format="%B"}}</a>
-			({{tpl:ArchiveEntriesCount}})</li>
-			<tpl:ArchivesYearFooter>
-				</ul>
-			</tpl:ArchivesYearFooter>
-		</tpl:Archives>
-	</div>
+  <div id="content-info">
+    <h2>{{tpl:lang Archives}}</h2>
+  </div>
+  <div class="content-inner">
+    <tpl:Archives>
+      <tpl:ArchivesYearHeader>
+        <h3>{{tpl:ArchiveDate format="%Y"}}</h3>
+        <ul>
+      </tpl:ArchivesYearHeader>
+      <li><a href="{{tpl:ArchiveURL}}"
+      title="{{tpl:ArchiveDate encode_html="1"}}">{{tpl:ArchiveDate encode_html="1" format="%B"}}</a>
+        ({{tpl:ArchiveEntriesCount}})</li>
+      <tpl:ArchivesYearFooter>
+        </ul>
+      </tpl:ArchivesYearFooter>
+    </tpl:Archives>
+  </div>
 </tpl:Block>

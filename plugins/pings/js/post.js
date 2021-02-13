@@ -1,8 +1,8 @@
 /*global $, dotclear */
 'use strict';
 
-$(function() {
-  $('#edit-entry').on('onetabload', function() {
+$(function () {
+  $('#edit-entry').on('onetabload', function () {
     if ($('p.ping-services').length > 0) {
       const p = $('<p></p>');
       p.addClass('ping-services');
@@ -11,7 +11,7 @@ $(function() {
     }
     $('h5.ping-services').toggleWithLegend($('p.ping-services'), {
       user_pref: 'dcx_ping_services',
-      legend_click: true
+      legend_click: true,
     });
   });
 });

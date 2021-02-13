@@ -1,13 +1,13 @@
 /*global $ */
 'use strict';
 
-$(function() {
-  $('#media-insert').on('onetabload', function() {
-    $('#media-insert-cancel').on('click', function() {
+$(function () {
+  $('#media-insert').on('onetabload', function () {
+    $('#media-insert-cancel').on('click', function () {
       window.close();
     });
 
-    $('#media-insert-ok').on('click', function() {
+    $('#media-insert-ok').on('click', function () {
       sendClose();
       window.close();
     });
@@ -24,7 +24,7 @@ $(function() {
     const media_align_grid = {
       left: 'float: left; margin: 0 1em 1em 0;',
       right: 'float: right; margin: 0 0 1em 1em;',
-      center: 'text-align: center;'
+      center: 'text-align: center;',
     };
     let align;
     let player;
@@ -65,8 +65,8 @@ $(function() {
 
       tb.elements.mp3_insert.data.player = player.replace(/>/g, '>\n');
       tb.elements.mp3_insert.fncall[tb.mode].call(tb);
-    } else if (type == 'flv') // may be all video media, not only flv
-    {
+    } else if (type == 'flv') {
+      // may be all video media, not only flv
       var oplayer = $(`<div>${$('#public_player').val()}</div>`);
 
       align = $('input[name="alignment"]:checked', insert_form).val();

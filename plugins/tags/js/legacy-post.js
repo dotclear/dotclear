@@ -5,25 +5,25 @@
 jsToolBar.prototype.elements.tagSpace = {
   type: 'space',
   format: {
-    wysiwyg:  true,
-    wiki:     true,
-    xhtml:    true,
-    markdown: true
-  }
+    wysiwyg: true,
+    wiki: true,
+    xhtml: true,
+    markdown: true,
+  },
 };
 
 jsToolBar.prototype.elements.tag = {
   type: 'button',
   title: 'Keyword',
-  fn: {}
+  fn: {},
 };
 
 mergeDeep(jsToolBar.prototype.elements, getData('legacy_editor_tags'));
 
 jsToolBar.prototype.elements.tag.context = 'post';
 jsToolBar.prototype.elements.tag.icon = 'index.php?pf=tags/img/tag-add.png';
-jsToolBar.prototype.elements.tag.fn.wiki = function() {
-  this.encloseSelection('', '', function(str) {
+jsToolBar.prototype.elements.tag.fn.wiki = function () {
+  this.encloseSelection('', '', function (str) {
     if (str == '') {
       window.alert(dotclear.msg.no_selection);
       return '';
@@ -36,9 +36,9 @@ jsToolBar.prototype.elements.tag.fn.wiki = function() {
     }
   });
 };
-jsToolBar.prototype.elements.tag.fn.markdown = function() {
+jsToolBar.prototype.elements.tag.fn.markdown = function () {
   const url = this.elements.tag.url;
-  this.encloseSelection('', '', function(str) {
+  this.encloseSelection('', '', function (str) {
     if (str == '') {
       window.alert(dotclear.msg.no_selection);
       return '';
@@ -51,9 +51,9 @@ jsToolBar.prototype.elements.tag.fn.markdown = function() {
     }
   });
 };
-jsToolBar.prototype.elements.tag.fn.xhtml = function() {
+jsToolBar.prototype.elements.tag.fn.xhtml = function () {
   const url = this.elements.tag.url;
-  this.encloseSelection('', '', function(str) {
+  this.encloseSelection('', '', function (str) {
     if (str == '') {
       window.alert(dotclear.msg.no_selection);
       return '';
@@ -66,7 +66,7 @@ jsToolBar.prototype.elements.tag.fn.xhtml = function() {
     }
   });
 };
-jsToolBar.prototype.elements.tag.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.tag.fn.wysiwyg = function () {
   const t = this.getSelectedText();
 
   if (t == '') {

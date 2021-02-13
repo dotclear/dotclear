@@ -1,9 +1,8 @@
 /*global $, jQuery */
 'use strict';
 
-jQuery.fn.updatePagesPermissionsForm = function() {
-  return this.each(function() {
-
+jQuery.fn.updatePagesPermissionsForm = function () {
+  return this.each(function () {
     let perms = {};
     const re = /^perm\[(.+?)\]\[(.+?)\]$/;
 
@@ -28,7 +27,7 @@ jQuery.fn.updatePagesPermissionsForm = function() {
         if (e.checked) {
           admin(e, perms, re);
         }
-        $(e).on('click', function() {
+        $(e).on('click', function () {
           admin(this, perms, re);
         });
       }
@@ -43,6 +42,6 @@ jQuery.fn.updatePagesPermissionsForm = function() {
   });
 };
 
-$(function() {
+$(function () {
   $('#permissions-form').updatePagesPermissionsForm();
 });

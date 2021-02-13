@@ -8,18 +8,21 @@
  * @param      function    callback  The callback
  * @param      object      options   The options
  */
-dotclear.getEntryContent = function(postId, callback, options) {
+dotclear.getEntryContent = function (postId, callback, options) {
   let res = '';
-  const opt = $.extend({
-    // Entry type (default: post)
-    type: '',
-    // Alert on error
-    alert: true,
-    // Clean content (useful for potential XSS in spam)
-    clean: false,
-    // Cut content after length chars (-1 to not cut)
-    length: -1,
-  }, options);
+  const opt = $.extend(
+    {
+      // Entry type (default: post)
+      type: '',
+      // Alert on error
+      alert: true,
+      // Clean content (useful for potential XSS in spam)
+      clean: false,
+      // Cut content after length chars (-1 to not cut)
+      length: -1,
+    },
+    options
+  );
 
   // Check callback fn()
   if (typeof callback !== 'function') {
@@ -28,12 +31,12 @@ dotclear.getEntryContent = function(postId, callback, options) {
 
   // Get entry content
   $.get('services.php', {
-      f: 'getPostById',
-      id: postId,
-      post_type: opt.type,
-      xd_check: dotclear.nonce
-    })
-    .done(function(data) {
+    f: 'getPostById',
+    id: postId,
+    post_type: opt.type,
+    xd_check: dotclear.nonce,
+  })
+    .done(function (data) {
       // Response received
       const rsp = $(data).children('rsp')[0];
       if (rsp.attributes[0].value == 'ok') {
@@ -58,7 +61,7 @@ dotclear.getEntryContent = function(postId, callback, options) {
           }
           // Cut content if requested
           if (opt.length > -1) {
-            content = trimHtml(content, {limit: opt.length}).html;
+            content = trimHtml(content, { limit: opt.length }).html;
           }
           if (opt.clean && content) {
             content = `<pre>${content}</pre>`;
@@ -71,14 +74,16 @@ dotclear.getEntryContent = function(postId, callback, options) {
         }
       }
     })
-    .fail(function(jqXHR, textStatus, errorThrown) {
+    .fail(function (jqXHR, textStatus, errorThrown) {
       // No response
-      window.console.log(`AJAX ${textStatus} (status: ${jqXHR.status} ${errorThrown})`);
+      window.console.log(
+        `AJAX ${textStatus} (status: ${jqXHR.status} ${errorThrown})`
+      );
       if (opt.alert) {
         window.alert('Server error');
       }
     })
-    .always(function() {
+    .always(function () {
       // Finally
       callback(res);
     });
@@ -91,20 +96,23 @@ dotclear.getEntryContent = function(postId, callback, options) {
  * @param      function    callback   The callback
  * @param      object      options    The options
  */
-dotclear.getCommentContent = function(commentId, callback, options) {
+dotclear.getCommentContent = function (commentId, callback, options) {
   let res = '';
-  const opt = $.extend({
-    // Get comment metadata (email, site, …)
-    metadata: true,
-    // Show IP in metadata
-    ip: true,
-    // Alert on error
-    alert: true,
-    // Clean content (useful for potential XSS in spam)
-    clean: false,
-    // Cut content after length chars (-1 to not cut)
-    length: -1,
-  }, options);
+  const opt = $.extend(
+    {
+      // Get comment metadata (email, site, …)
+      metadata: true,
+      // Show IP in metadata
+      ip: true,
+      // Alert on error
+      alert: true,
+      // Clean content (useful for potential XSS in spam)
+      clean: false,
+      // Cut content after length chars (-1 to not cut)
+      length: -1,
+    },
+    options
+  );
 
   // Check callback fn()
   if (typeof callback !== 'function') {
@@ -113,11 +121,11 @@ dotclear.getCommentContent = function(commentId, callback, options) {
 
   // Get comment content
   $.get('services.php', {
-      f: 'getCommentById',
-      id: commentId,
-      xd_check: dotclear.nonce
-    })
-    .done(function(data) {
+    f: 'getCommentById',
+    id: commentId,
+    xd_check: dotclear.nonce,
+  })
+    .done(function (data) {
       // Response received
       const rsp = $(data).children('rsp')[0];
       if (rsp.attributes[0].value == 'ok') {
@@ -131,7 +139,7 @@ dotclear.getCommentContent = function(commentId, callback, options) {
           }
           // Cut content if requested
           if (opt.length > -1) {
-            content = trimHtml(content, {limit: opt.length}).html;
+            content = trimHtml(content, { limit: opt.length }).html;
           }
           if (opt.clean && content) {
             content = `<pre>${content}</pre>`;
@@ -160,14 +168,16 @@ dotclear.getCommentContent = function(commentId, callback, options) {
         }
       }
     })
-    .fail(function(jqXHR, textStatus, errorThrown) {
+    .fail(function (jqXHR, textStatus, errorThrown) {
       // No response
-      window.console.log(`AJAX ${textStatus} (status: ${jqXHR.status} ${errorThrown})`);
+      window.console.log(
+        `AJAX ${textStatus} (status: ${jqXHR.status} ${errorThrown})`
+      );
       if (opt.alert) {
         window.alert('Server error');
       }
     })
-    .always(function() {
+    .always(function () {
       // Finally
       callback(res);
     });

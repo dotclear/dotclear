@@ -1,12 +1,12 @@
 /*global $, dotclear, jsToolBar, getData */
 'use strict';
 
-dotclear.dbCommentsCount = function() {
+dotclear.dbCommentsCount = function () {
   const params = {
     f: 'getCommentsCount',
     xd_check: dotclear.nonce,
   };
-  $.get('services.php', params, function(data) {
+  $.get('services.php', params, function (data) {
     if ($('rsp[status=failed]', data).length > 0) {
       // For debugging purpose only:
       // console.log($('rsp',data).attr('message'));
@@ -29,12 +29,12 @@ dotclear.dbCommentsCount = function() {
     }
   });
 };
-dotclear.dbPostsCount = function() {
+dotclear.dbPostsCount = function () {
   const params = {
     f: 'getPostsCount',
     xd_check: dotclear.nonce,
   };
-  $.get('services.php', params, function(data) {
+  $.get('services.php', params, function (data) {
     if ($('rsp[status=failed]', data).length > 0) {
       // For debugging purpose only:
       // console.log($('rsp',data).attr('message'));
@@ -57,7 +57,7 @@ dotclear.dbPostsCount = function() {
     }
   });
 };
-$(function() {
+$(function () {
   function quickPost(f, status) {
     if (typeof jsToolBar === 'function' && contentTb.getMode() == 'wysiwyg') {
       contentTb.syncContents('iframe');
@@ -73,23 +73,26 @@ $(function() {
       post_format: $('#post_format', f).val(),
       post_lang: $('#post_lang', f).val(),
       new_cat_title: $('#new_cat_title', f).val(),
-      new_cat_parent: $('#new_cat_parent', f).val()
+      new_cat_parent: $('#new_cat_parent', f).val(),
     };
 
     $('p.qinfo', f).remove();
 
-    $.post('services.php', params, function(data) {
+    $.post('services.php', params, function (data) {
       let msg;
       if ($('rsp[status=failed]', data).length > 0) {
-        msg = '<p class="qinfo"><strong>' + dotclear.msg.error +
-          '</strong> ' + $('rsp', data).text() + '</p>';
+        msg = '<p class="qinfo"><strong>' + dotclear.msg.error + '</strong> ' + $('rsp', data).text() + '</p>';
       } else {
-        msg = '<p class="qinfo">' + dotclear.msg.entry_created +
-          ' - <a href="post.php?id=' + $('rsp>post', data).attr('id') + '">' +
-          dotclear.msg.edit_entry + '</a>';
+        msg =
+          '<p class="qinfo">' +
+          dotclear.msg.entry_created +
+          ' - <a href="post.php?id=' +
+          $('rsp>post', data).attr('id') +
+          '">' +
+          dotclear.msg.edit_entry +
+          '</a>';
         if ($('rsp>post', data).attr('post_status') == 1) {
-          msg += ' - <a href="' + $('rsp>post', data).attr('post_url') + '">' +
-            dotclear.msg.view_entry + '</a>';
+          msg += ' - <a href="' + $('rsp>post', data).attr('post_url') + '">' + dotclear.msg.view_entry + '</a>';
         }
         msg += '</p>';
         $('#post_title', f).val('');
@@ -114,7 +117,7 @@ $(function() {
       contentTb.switchMode($('#post_format', f).val());
     }
 
-    $('input[name=save]', f).on('click', function() {
+    $('input[name=save]', f).on('click', function () {
       quickPost(f, -2);
       return false;
     });
@@ -123,7 +126,7 @@ $(function() {
       var btn = $('<input type="submit" value="' + $('input[name=save-publish]', f).val() + '" />');
       $('input[name=save-publish]', f).remove();
       $('input[name=save]', f).after(btn).after(' ');
-      btn.on('click', function() {
+      btn.on('click', function () {
         quickPost(f, 1);
         return false;
       });
@@ -131,22 +134,22 @@ $(function() {
 
     $('#new_cat').toggleWithLegend($('#new_cat').parent().children().not('#new_cat'), {
       // no cookie on new category as we don't use this every day
-      legend_click: true
+      legend_click: true,
     });
   }
 
   // allow to hide quick entry div, and remember choice
   $('#quick h3').toggleWithLegend($('#quick').children().not('h3'), {
     legend_click: true,
-    user_pref: 'dcx_quick_entry'
+    user_pref: 'dcx_quick_entry',
   });
 
   // check if core update available
   let params = {
     f: 'checkCoreUpdate',
-    xd_check: dotclear.nonce
+    xd_check: dotclear.nonce,
   };
-  $.post('services.php', params, function(data) {
+  $.post('services.php', params, function (data) {
     if ($('rsp[status=failed]', data).length > 0) {
       // Silently fail as a forced checked my be done with admin update page
     } else {
@@ -163,9 +166,9 @@ $(function() {
   // check if some news are available
   params = {
     f: 'checkNewsUpdate',
-    xd_check: dotclear.nonce
+    xd_check: dotclear.nonce,
   };
-  $.post('services.php', params, function(data) {
+  $.post('services.php', params, function (data) {
     if ($('rsp[status=failed]', data).length > 0) {
       // Silently fail
     } else {
@@ -207,36 +210,36 @@ $(function() {
 
   if (!dotclear.data.noDragDrop) {
     // Dashboard boxes and their children are sortable
-    const set_positions = function(sel, id) {
-      const list = $(sel).sortable("toArray").join();
+    const set_positions = function (sel, id) {
+      const list = $(sel).sortable('toArray').join();
       // Save positions (via services) for id
       const params = {
         f: 'setDashboardPositions',
         xd_check: dotclear.nonce,
         id: id,
-        list: list
+        list: list,
       };
-      $.post('services.php', params, function() {});
+      $.post('services.php', params, function () {});
     };
-    const init_positions = function(sel, id) {
+    const init_positions = function (sel, id) {
       $(sel).sortable({
         cursor: 'move',
         opacity: 0.5,
         delay: 200,
         distance: 10,
-        tolerance: "pointer",
-        update: function() {
+        tolerance: 'pointer',
+        update: function () {
           set_positions(sel, id);
         },
-        start: function() {
+        start: function () {
           $(sel).addClass('sortable-area');
         },
-        stop: function() {
+        stop: function () {
           $(sel).removeClass('sortable-area');
-        }
+        },
       });
     };
-    const reset_positions = function(sel) {
+    const reset_positions = function (sel) {
       $(sel).sortable('destroy');
     };
     // List of sortable areas
@@ -244,26 +247,26 @@ $(function() {
       ['#dashboard-main', 'main_order'],
       ['#dashboard-boxes', 'boxes_order'],
       ['#db-items', 'boxes_items_order'],
-      ['#db-contents', 'boxes_contents_order']
+      ['#db-contents', 'boxes_contents_order'],
     ];
     // Set or reset sortable depending on #dragndrop checbkox value
-    $('#dragndrop').on('click', function() {
+    $('#dragndrop').on('click', function () {
       Object.assign(dotclear, getData('dotclear_dragndrop'));
       if ($(this).is(':checked')) {
         // Activate sorting feature
-        areas.forEach(element => init_positions(element[0], element[1]));
+        areas.forEach((element) => init_positions(element[0], element[1]));
         $(this).prop('title', dotclear.dragndrop_on);
         $('#dragndrop-label').text(dotclear.dragndrop_on);
       } else {
         // Deactivate sorting feature
-        areas.forEach(element => reset_positions(element[0]));
+        areas.forEach((element) => reset_positions(element[0]));
         $(this).prop('title', dotclear.dragndrop_off);
         $('#dragndrop-label').text(dotclear.dragndrop_off);
       }
     });
   }
 
-  if(dotclear.adblocker_check && !document.getElementById('WJxYFNKPMRlS')) {
+  if (dotclear.adblocker_check && !document.getElementById('WJxYFNKPMRlS')) {
     window.alert(dotclear.msg.adblocker);
   }
 });

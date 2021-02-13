@@ -1,14 +1,13 @@
 /*global $, jQuery, dotclear */
 'use strict';
 
-jQuery.fn.updatePermissionsForm = function() {
-  return this.each(function() {
-
+jQuery.fn.updatePermissionsForm = function () {
+  return this.each(function () {
     let perms = {};
     const re = /^perm\[(.+?)\]\[(.+?)\]$/;
     let e, prop;
 
-    const admin = function(E, perms, re) {
+    const admin = function (E, perms, re) {
       const P = E.name.match(re);
 
       perms[P[1]].usage.checked = E.checked;
@@ -28,7 +27,7 @@ jQuery.fn.updatePermissionsForm = function() {
       perms[P[1]].media_admin.disabled = E.checked;
     };
 
-    const contentadmin = function(E, perms, re) {
+    const contentadmin = function (E, perms, re) {
       const P = E.name.match(re);
 
       perms[P[1]].usage.checked = E.checked;
@@ -40,7 +39,7 @@ jQuery.fn.updatePermissionsForm = function() {
       perms[P[1]].delete.disabled = E.checked;
     };
 
-    const mediaadmin = function(E, perms, re) {
+    const mediaadmin = function (E, perms, re) {
       const P = E.name.match(re);
 
       perms[P[1]].media.checked = E.checked;
@@ -75,7 +74,7 @@ jQuery.fn.updatePermissionsForm = function() {
           if (e.checked) {
             admin(e, perms, re);
           }
-          $(e).on('click', function() {
+          $(e).on('click', function () {
             admin(this, perms, re);
           });
         } else if (prop[2] == 'contentadmin') {
@@ -83,7 +82,7 @@ jQuery.fn.updatePermissionsForm = function() {
           if (e.checked) {
             contentadmin(e, perms, re);
           }
-          $(e).on('click', function() {
+          $(e).on('click', function () {
             contentadmin(this, perms, re);
           });
         } else if (prop[2] == 'media_admin') {
@@ -91,7 +90,7 @@ jQuery.fn.updatePermissionsForm = function() {
           if (e.checked) {
             mediaadmin(e, perms, re);
           }
-          $(e).on('click', function() {
+          $(e).on('click', function () {
             mediaadmin(this, perms, re);
           });
         }
@@ -100,8 +99,8 @@ jQuery.fn.updatePermissionsForm = function() {
   });
 };
 
-$(function() {
-  $('.checkboxes-helpers').each(function() {
+$(function () {
+  $('.checkboxes-helpers').each(function () {
     dotclear.checkboxesHelpers(this, undefined, '#form-blogs input[type="checkbox"]', '#form-blogs #do-action');
   });
   dotclear.condSubmit('#form-blogs input[type="checkbox"]', '#form-blogs #do-action');

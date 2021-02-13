@@ -1,7 +1,7 @@
 /*global $, dotclear, getData */
 'use strict';
 
-$(function() {
+$(function () {
   // Get some DATA
   Object.assign(dotclear.msg, getData('filter_controls'));
 
@@ -11,24 +11,24 @@ $(function() {
   }
 
   const $filtersform = $('#filters-form');
-  $filtersform.before(`<p><a id="filter-control" class="form-control" href="${reset_url}" style="display:inline">${dotclear.msg.filter_posts_list}</a></p>`);
+  $filtersform.before(
+    `<p><a id="filter-control" class="form-control" href="${reset_url}" style="display:inline">${dotclear.msg.filter_posts_list}</a></p>`
+  );
 
   if (!dotclear.msg.show_filters) {
     $filtersform.hide();
   } else {
-    $('#filter-control')
-      .addClass('open')
-      .text(dotclear.msg.cancel_the_filter);
+    $('#filter-control').addClass('open').text(dotclear.msg.cancel_the_filter);
   }
   if (getData('filter_options').auto_filter) {
     $('#filters-form input[type="submit"]').parent().hide();
-    $('#filters-form select').on('input', function() {
+    $('#filters-form select').on('input', function () {
       $filtersform[0].submit();
     });
-    $('#filters-form input[type!="submit"]').on('focusin', function() {
+    $('#filters-form input[type!="submit"]').on('focusin', function () {
       $(this).data('val', $(this).val());
     });
-    $('#filters-form input[type!="submit"]').on('focusout', function() {
+    $('#filters-form input[type!="submit"]').on('focusout', function () {
       if ($(this).val() !== $(this).data('val')) {
         $filtersform[0].submit();
       }
@@ -38,24 +38,22 @@ $(function() {
   // Deal with enter key on filters form : every form element will be filtered but Cancel button
   dotclear.enterKeyInForm('#filters-form', '#filters-form input[type="submit"]', '#filter-control');
 
-  $('#filter-control').on('click', function() {
+  $('#filter-control').on('click', function () {
     if ($(this).hasClass('open')) {
       if (dotclear.msg.show_filters) {
         return true;
       } else {
         $filtersform.hide();
-        $(this).removeClass('open')
-          .text(dotclear.msg.filter_posts_list);
+        $(this).removeClass('open').text(dotclear.msg.filter_posts_list);
       }
     } else {
       $filtersform.show();
-      $(this).addClass('open')
-        .text(dotclear.msg.cancel_the_filter);
+      $(this).addClass('open').text(dotclear.msg.cancel_the_filter);
     }
     return false;
   });
 
-  $('#filter-options-save').on('click', function() {
+  $('#filter-options-save').on('click', function () {
     // Save list options (via services)
     const param = {
       f: 'setListsOptions',
@@ -63,10 +61,10 @@ $(function() {
       id: $('#filters-options-id').val(),
       sort: $('#sortby').val(),
       order: $('#order').val(),
-      nb_per_page: $('#nb').val()
+      nb_per_page: $('#nb').val(),
     };
     $.post('services.php', param)
-      .done(function(data) {
+      .done(function (data) {
         const rsp = $(data).children('rsp')[0];
         if (rsp) {
           const res = $(rsp).find('result')[0];
@@ -79,7 +77,7 @@ $(function() {
           }
         }
       })
-      .fail(function(jqXHR, textStatus, errorThrown) {
+      .fail(function (jqXHR, textStatus, errorThrown) {
         // No response
         window.console.log(`AJAX ${textStatus} (status: ${jqXHR.status} ${errorThrown})`);
         window.alert('Server error');

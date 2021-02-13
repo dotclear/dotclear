@@ -1,133 +1,123 @@
 {{tpl:extends parent="__layout.html"}}
-
 <tpl:Block name="head-title">
-	<title>{{tpl:CategoryTitle encode_html="1"}} - {{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
+  <title>{{tpl:CategoryTitle encode_html="1"}} - {{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>
+  </title>
 </tpl:Block>
-
 <tpl:Block name="meta-robots">
-	<meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX"}}" />
+  <meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX"}}" />
 </tpl:Block>
-
 <tpl:Block name="meta-entry">
-	<meta name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:CategoryDescription encode_html="1" cut_string="180" remove_html="1"}}" />
-	<meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
-	<meta name="date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
+  <meta name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:CategoryDescription encode_html="1" cut_string="180" remove_html="1"}}" />
+  <meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
+  <meta name="date" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
 </tpl:Block>
-
 <tpl:Block name="head-linkrel">
-	<link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
-	<tpl:Entries no_content="1">
-		<tpl:EntriesHeader>
-			<tpl:Pagination>
-				<tpl:PaginationIf end="0">
-					<link rel="prev" title="{{tpl:lang previous entries}}" href="{{tpl:PaginationURL offset="1"}}" />
-				</tpl:PaginationIf>
-
-				<tpl:PaginationIf start="0">
-					<link rel="next" title="{{tpl:lang next entries}}" href="{{tpl:PaginationURL offset="-1"}}" />
-				</tpl:PaginationIf>
-			</tpl:Pagination>
-		</tpl:EntriesHeader>
-
-		<link rel="chapter" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" />
-	</tpl:Entries>
-
-	<link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:CategoryFeedURL type="atom"}}" />
+  <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
+  <tpl:Entries no_content="1">
+    <tpl:EntriesHeader>
+      <tpl:Pagination>
+        <tpl:PaginationIf end="0">
+          <link rel="prev" title="{{tpl:lang previous entries}}" href="{{tpl:PaginationURL offset="1"}}" />
+        </tpl:PaginationIf>
+        <tpl:PaginationIf start="0">
+          <link rel="next" title="{{tpl:lang next entries}}" href="{{tpl:PaginationURL offset="-1"}}" />
+        </tpl:PaginationIf>
+      </tpl:Pagination>
+    </tpl:EntriesHeader>
+    <link rel="chapter" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" />
+  </tpl:Entries>
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:CategoryFeedURL type="atom"}}" />
 </tpl:Block>
+<tpl:Block name="body-tag">
 
-<tpl:Block name="body-tag"><body class="dc-category"></tpl:Block>
-
+  <body class="dc-category">
+</tpl:Block>
 <tpl:Block name="main-content">
-	<div id="content-info">
-		<h2><tpl:CategoryParents><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> &rsaquo; </tpl:CategoryParents>
-		{{tpl:CategoryTitle encode_html="1"}}</h2>
-		{{tpl:CategoryDescription}}
-
-		<tpl:CategoryIf has_entries="1">
-			<p><a type="application/atom+xml" href="{{tpl:CategoryFeedURL type="atom"}}"
-			title="{{tpl:lang This category's entries Atom feed}}" class="feed">{{tpl:lang Entries feed}}</a>
-
-			<tpl:SysIf operator="or" comments_active="1" pings_active="1">
-			- <a type="application/atom+xml" href="{{tpl:CategoryFeedURL type="atom"}}/comments"
-			title="{{tpl:lang This category's comments Atom feed}}" class="feed">{{tpl:lang Comments feed}}</a>
-			</tpl:SysIf>
-			</p>
-		</tpl:CategoryIf>
-	</div>
-
-	<tpl:CategoryFirstChildren>
-		<tpl:CategoriesHeader>
-			<div id="subcategories">
-				<h3>{{tpl:lang Subcategories}}</h3>
-				<ul>
-		</tpl:CategoriesHeader>
-				<li><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a></li>
-		<tpl:CategoriesFooter>
-				</ul>
-			</div>
-		</tpl:CategoriesFooter>
-	</tpl:CategoryFirstChildren>
-
-	<tpl:Entries>
-		<div id="p{{tpl:EntryID}}" class="post {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}" lang="{{tpl:EntryLang}}" role="article">
-			<!-- # New day date -->
-			<tpl:DateHeader><p class="day-date">{{tpl:EntryDate}}</p></tpl:DateHeader>
-
-			<h2 class="post-title"><a
-			href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></h2>
-
-			<p class="post-info">{{tpl:lang By}} {{tpl:EntryAuthorLink}}
-			{{tpl:lang on}} {{tpl:EntryDate}}, {{tpl:EntryTime}}</p>
-
-			<tpl:EntryTags>
-				<tpl:TagsHeader><ul class="post-tags"></tpl:TagsHeader>
-				<li><a href="{{tpl:TagURL}}">{{tpl:TagID}}</a></li>
-				<tpl:TagsFooter></ul></tpl:TagsFooter>
-			</tpl:EntryTags>
-
-			<!-- # --BEHAVIOR-- publicEntryBeforeContent -->
-			{{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
-
-			<!-- # Entry with an excerpt -->
-			<tpl:EntryIf extended="1">
-				<div class="post-content">{{tpl:EntryExcerpt}}</div>
-				<p class="read-it"><a href="{{tpl:EntryURL}}"
-				title="{{tpl:lang Continue reading}} {{tpl:EntryTitle encode_html="1"}}">{{tpl:lang Continue
-				reading}}</a><span class="readmore-ellipsis">...</span></p>
-			</tpl:EntryIf>
-
-			<!-- # Entry without excerpt -->
-			<tpl:EntryIf extended="0">
-				<div class="post-content">{{tpl:EntryContent}}</div>
-			</tpl:EntryIf>
-
-			<!-- # --BEHAVIOR-- publicEntryAfterContent -->
-			{{tpl:SysBehavior behavior="publicEntryAfterContent"}}
-
-			<!-- # Number of comments, trackbacks and attachments -->
-			<tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
-				<p class="post-info-co">
-			</tpl:EntryIf>
-			<tpl:EntryIf show_comments="1">
-				<a href="{{tpl:EntryURL}}#comments" class="comment_count">{{tpl:EntryCommentCount}}</a>
-			</tpl:EntryIf>
-			<tpl:EntryIf show_pings="1">
-				<a href="{{tpl:EntryURL}}#pings" class="ping_count">{{tpl:EntryPingCount}}</a></tpl:EntryIf>
-			<tpl:EntryIf has_attachment="1">
-				<a href="{{tpl:EntryURL}}#attachments" class="attach_count">{{tpl:EntryAttachmentCount}}</a></tpl:EntryIf>
-			<tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
-			  </p>
-			</tpl:EntryIf>
-		</div>
-
-		<tpl:EntriesFooter>
-			<tpl:Pagination>
-				<p class="pagination"><tpl:PaginationIf end="0"><a href="{{tpl:PaginationURL offset="+1"}}" class="prev">&#171;
-				{{tpl:lang previous entries}}</a> - </tpl:PaginationIf>
-				{{tpl:lang page}} {{tpl:PaginationCurrent}} {{tpl:lang of}} {{tpl:PaginationCounter}}
-				<tpl:PaginationIf start="0"> - <a href="{{tpl:PaginationURL offset="-1"}}" class="next">{{tpl:lang next entries}}
-				&#187;</a></tpl:PaginationIf></p>
-			</tpl:Pagination>
-		</tpl:EntriesFooter>
-	</tpl:Entries>
+  <div id="content-info">
+    <h2><tpl:CategoryParents><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> &rsaquo; </tpl:CategoryParents>
+    {{tpl:CategoryTitle encode_html="1"}}</h2>
+    {{tpl:CategoryDescription}}
+    <tpl:CategoryIf has_entries="1">
+      <p><a type="application/atom+xml" href="{{tpl:CategoryFeedURL type="atom"}}"
+      title="{{tpl:lang This category's entries Atom feed}}" class="feed">{{tpl:lang Entries feed}}</a>
+        <tpl:SysIf operator="or" comments_active="1" pings_active="1">
+          - <a type="application/atom+xml" href="{{tpl:CategoryFeedURL type="atom"}}/comments"
+      title="{{tpl:lang This category's comments Atom feed}}" class="feed">{{tpl:lang Comments feed}}</a>
+        </tpl:SysIf>
+      </p>
+    </tpl:CategoryIf>
+  </div>
+  <tpl:CategoryFirstChildren>
+    <tpl:CategoriesHeader>
+      <div id="subcategories">
+        <h3>{{tpl:lang Subcategories}}</h3>
+        <ul>
+    </tpl:CategoriesHeader>
+    <li><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a></li>
+    <tpl:CategoriesFooter>
+      </ul>
+      </div>
+    </tpl:CategoriesFooter>
+  </tpl:CategoryFirstChildren>
+  <tpl:Entries>
+    <div id="p{{tpl:EntryID}}" class="post {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}" lang="{{tpl:EntryLang}}" role="article">
+      <!-- # New day date -->
+      <tpl:DateHeader>
+        <p class="day-date">{{tpl:EntryDate}}</p>
+      </tpl:DateHeader>
+      <h2 class="post-title"><a
+      href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></h2>
+      <p class="post-info">{{tpl:lang By}} {{tpl:EntryAuthorLink}}
+        {{tpl:lang on}} {{tpl:EntryDate}}, {{tpl:EntryTime}}</p>
+      <tpl:EntryTags>
+        <tpl:TagsHeader>
+          <ul class="post-tags">
+        </tpl:TagsHeader>
+        <li><a href="{{tpl:TagURL}}">{{tpl:TagID}}</a></li>
+        <tpl:TagsFooter>
+          </ul>
+        </tpl:TagsFooter>
+      </tpl:EntryTags>
+      <!-- # --BEHAVIOR-- publicEntryBeforeContent -->
+      {{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
+      <!-- # Entry with an excerpt -->
+      <tpl:EntryIf extended="1">
+        <div class="post-content">{{tpl:EntryExcerpt}}</div>
+        <p class="read-it"><a href="{{tpl:EntryURL}}"
+        title="{{tpl:lang Continue reading}} {{tpl:EntryTitle encode_html="1"}}">{{tpl:lang Continue
+        reading}}</a><span class="readmore-ellipsis">...</span></p>
+      </tpl:EntryIf>
+      <!-- # Entry without excerpt -->
+      <tpl:EntryIf extended="0">
+        <div class="post-content">{{tpl:EntryContent}}</div>
+      </tpl:EntryIf>
+      <!-- # --BEHAVIOR-- publicEntryAfterContent -->
+      {{tpl:SysBehavior behavior="publicEntryAfterContent"}}
+      <!-- # Number of comments, trackbacks and attachments -->
+      <tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
+        <p class="post-info-co">
+      </tpl:EntryIf>
+      <tpl:EntryIf show_comments="1">
+        <a href="{{tpl:EntryURL}}#comments" class="comment_count">{{tpl:EntryCommentCount}}</a>
+      </tpl:EntryIf>
+      <tpl:EntryIf show_pings="1">
+        <a href="{{tpl:EntryURL}}#pings" class="ping_count">{{tpl:EntryPingCount}}</a></tpl:EntryIf>
+      <tpl:EntryIf has_attachment="1">
+        <a href="{{tpl:EntryURL}}#attachments" class="attach_count">{{tpl:EntryAttachmentCount}}</a></tpl:EntryIf>
+      <tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
+        </p>
+      </tpl:EntryIf>
+    </div>
+    <tpl:EntriesFooter>
+      <tpl:Pagination>
+        <p class="pagination">
+          <tpl:PaginationIf end="0"><a href="{{tpl:PaginationURL offset="+1"}}" class="prev">&#171;
+        {{tpl:lang previous entries}}</a> - </tpl:PaginationIf>
+          {{tpl:lang page}} {{tpl:PaginationCurrent}} {{tpl:lang of}} {{tpl:PaginationCounter}}
+          <tpl:PaginationIf start="0"> - <a href="{{tpl:PaginationURL offset="-1"}}" class="next">{{tpl:lang next entries}}
+        &#187;</a></tpl:PaginationIf>
+        </p>
+      </tpl:Pagination>
+    </tpl:EntriesFooter>
+  </tpl:Entries>
 </tpl:Block>

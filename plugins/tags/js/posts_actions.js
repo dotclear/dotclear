@@ -3,7 +3,7 @@
 
 mergeDeep(dotclear.msg, getData('editor_tags_msg'));
 
-$(function() {
+$(function () {
   const tag_field = $('#new_tags');
 
   tag_field.after('<div id="tags_list"></div>');
@@ -20,46 +20,47 @@ $(function() {
 
   mEdit.addMetaDialog();
 
-  $('input[name="save_tags"]').on('click', function() {
+  $('input[name="save_tags"]').on('click', function () {
     tag_field.val($('#post_meta_tag_input').val());
   });
 
   $('#post_meta_tag_input').autocomplete(mEdit.service_uri, {
     extraParams: {
-      'f': 'searchMeta',
-      'metaType': 'tag'
+      f: 'searchMeta',
+      metaType: 'tag',
     },
     delay: 1000,
     multiple: true,
     matchSubset: false,
     matchContains: true,
-    parse: function(xml) {
+    parse: function (xml) {
       let results = [];
-      $(xml).find('meta').each(function() {
-        results[results.length] = {
-          data: {
-            'id': $(this).text(),
-            'count': $(this).attr('count'),
-            'percent': $(this).attr('roundpercent')
-          },
-          result: $(this).text()
-        };
-      });
+      $(xml)
+        .find('meta')
+        .each(function () {
+          results[results.length] = {
+            data: {
+              id: $(this).text(),
+              count: $(this).attr('count'),
+              percent: $(this).attr('roundpercent'),
+            },
+            result: $(this).text(),
+          };
+        });
       return results;
     },
-    formatItem: function(tag) {
-      return tag.id + ' <em>(' +
-        dotclear.msg.tags_autocomplete.
-      replace('%p', tag.percent).
-      replace('%e', tag.count + ' ' +
-          (tag.count > 1 ?
-            dotclear.msg.entries :
-            dotclear.msg.entry)
-        ) +
-        ')</em>';
+    formatItem: function (tag) {
+      return (
+        tag.id +
+        ' <em>(' +
+        dotclear.msg.tags_autocomplete
+          .replace('%p', tag.percent)
+          .replace('%e', tag.count + ' ' + (tag.count > 1 ? dotclear.msg.entries : dotclear.msg.entry)) +
+        ')</em>'
+      );
     },
-    formatResult: function(tag) {
+    formatResult: function (tag) {
       return tag.result;
-    }
+    },
   });
 });

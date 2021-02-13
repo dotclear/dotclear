@@ -1,9 +1,9 @@
 /*global $, jQuery, dotclear, template_upload, template_download */
 'use strict';
 
-(function($) {
-  $.fn.enhancedUploader = function() {
-    return this.each(function() {
+(function ($) {
+  $.fn.enhancedUploader = function () {
+    return this.each(function () {
       const me = $(this);
       const $container = $(me).parent();
 
@@ -28,7 +28,7 @@
         $('.queue-message', me).html(msg);
       }
 
-      $('.button.choose_files').on('click', function(e) {
+      $('.button.choose_files').on('click', function (e) {
         if ($container.hasClass('enhanced_uploader')) {
           // Use the native click() of the file input.
           $('#upfile').trigger('click');
@@ -36,13 +36,13 @@
         }
       });
 
-      $('.button.cancel', '#fileupload .fileupload-buttonbar').on('click', function() {
+      $('.button.cancel', '#fileupload .fileupload-buttonbar').on('click', function () {
         $('.button.cancel', '#fileupload .fileupload-buttonbar').hide();
         disableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
         displayMessageInQueue(0);
       });
 
-      $(me).on('click', '.cancel', function() {
+      $(me).on('click', '.cancel', function () {
         if ($('.fileupload-ctrl .files .template-upload', me).length == 0) {
           $('.button.cancel', '#fileupload .fileupload-buttonbar').hide();
           disableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
@@ -50,42 +50,47 @@
         displayMessageInQueue($('.files .template-upload', me).length);
       });
 
-      $('.button.clean', me).on('click', function(e) {
-        $('.fileupload-ctrl .files .template-download', me).slideUp(500, function() {
+      $('.button.clean', me).on('click', function (e) {
+        $('.fileupload-ctrl .files .template-download', me).slideUp(500, function () {
           $(this).remove();
         });
         $(this).hide();
         e.preventDefault();
       });
 
-      $(me).fileupload({
-        url: $(me).attr('action'),
-        autoUpload: false,
-        sequentialUploads: true,
-        uploadTemplateId: null,
-        downloadTemplateId: null,
-        uploadTemplate: template_upload,
-        downloadTemplate: template_download
-      }).on('fileuploadadd', function() {
-        $('.button.cancel').css('display', 'inline-block');
-        $('#fileupload .fileupload-buttonbar').show();
-        enableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
-      }).on('fileuploadadded', function() {
-        displayMessageInQueue($('.files .template-upload', me).length);
-      }).on('fileuploaddone', function(e, data) {
-        if (data.result.files[0].html !== undefined) {
-          $('.media-list .files-group').append(data.result.files[0].html);
-          $('#form-medias .hide').removeClass('hide');
-        }
-        $('.button.clean').css('display', 'inline-block');
-        $(me).show();
-      }).on('fileuploadalways', function() {
-        displayMessageInQueue($('.files .template-upload', me).length);
-        if ($('.fileupload-ctrl .files .template-upload', me).length == 0) {
-          $('.button.cancel', '#fileupload .fileupload-buttonbar').hide();
-          disableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
-        }
-      });
+      $(me)
+        .fileupload({
+          url: $(me).attr('action'),
+          autoUpload: false,
+          sequentialUploads: true,
+          uploadTemplateId: null,
+          downloadTemplateId: null,
+          uploadTemplate: template_upload,
+          downloadTemplate: template_download,
+        })
+        .on('fileuploadadd', function () {
+          $('.button.cancel').css('display', 'inline-block');
+          $('#fileupload .fileupload-buttonbar').show();
+          enableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
+        })
+        .on('fileuploadadded', function () {
+          displayMessageInQueue($('.files .template-upload', me).length);
+        })
+        .on('fileuploaddone', function (e, data) {
+          if (data.result.files[0].html !== undefined) {
+            $('.media-list .files-group').append(data.result.files[0].html);
+            $('#form-medias .hide').removeClass('hide');
+          }
+          $('.button.clean').css('display', 'inline-block');
+          $(me).show();
+        })
+        .on('fileuploadalways', function () {
+          displayMessageInQueue($('.files .template-upload', me).length);
+          if ($('.fileupload-ctrl .files .template-upload', me).length == 0) {
+            $('.button.cancel', '#fileupload .fileupload-buttonbar').hide();
+            disableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
+          }
+        });
 
       let $msg;
       let label;
@@ -94,7 +99,7 @@
         $msg = dotclear.msg.enhanced_uploader_disable;
         label = dotclear.jsUpload.msg.choose_files;
         $(me).fileupload({
-          disabled: false
+          disabled: false,
         });
         displayMessageInQueue(0);
         disableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
@@ -102,60 +107,62 @@
         $msg = dotclear.msg.enhanced_uploader_activate;
         label = dotclear.jsUpload.msg.choose_file;
         $(me).fileupload({
-          disabled: true
+          disabled: true,
         });
       }
 
-      $(`<p class="clear"><button type="button" class="enhanced-toggle">${$msg}</button></p>`).on('click', function(e) {
-        if ($container.hasClass('enhanced_uploader')) {
-          $msg = dotclear.msg.enhanced_uploader_activate;
-          label = dotclear.jsUpload.msg.choose_file;
-          $('#upfile').attr('multiple', false);
-          enableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
+      $(`<p class="clear"><button type="button" class="enhanced-toggle">${$msg}</button></p>`)
+        .on('click', function (e) {
+          if ($container.hasClass('enhanced_uploader')) {
+            $msg = dotclear.msg.enhanced_uploader_activate;
+            label = dotclear.jsUpload.msg.choose_file;
+            $('#upfile').attr('multiple', false);
+            enableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
 
-          // when a user has clicked enhanced_uploader, and has added files
-          // We must remove files in table
-          $('.files .upload-file', me).remove();
-          $('.button.cancel,.button.clean', '#fileupload .fileupload-buttonbar').hide();
-          $(me).fileupload({
-            disabled: true
-          });
-          $('.queue-message', me).html('').hide();
-        } else {
-          $msg = dotclear.msg.enhanced_uploader_disable;
-          label = dotclear.jsUpload.msg.choose_files;
-          $('#upfile').attr('multiple', true);
-          const startButton = $('.button.start');
-          const buttonBar = $('#fileupload .fileupload-buttonbar');
-          disableButton(startButton);
-          disableButton(buttonBar);
-          startButton.css('display', 'inline-block');
-          buttonBar.show();
-          $(me).fileupload({
-            disabled: false
-          });
-          $('.queue-message', me).show();
-          displayMessageInQueue(0);
-        }
-        $(this).find('button').text($msg);
-        $('.add-label', me).text(label);
+            // when a user has clicked enhanced_uploader, and has added files
+            // We must remove files in table
+            $('.files .upload-file', me).remove();
+            $('.button.cancel,.button.clean', '#fileupload .fileupload-buttonbar').hide();
+            $(me).fileupload({
+              disabled: true,
+            });
+            $('.queue-message', me).html('').hide();
+          } else {
+            $msg = dotclear.msg.enhanced_uploader_disable;
+            label = dotclear.jsUpload.msg.choose_files;
+            $('#upfile').attr('multiple', true);
+            const startButton = $('.button.start');
+            const buttonBar = $('#fileupload .fileupload-buttonbar');
+            disableButton(startButton);
+            disableButton(buttonBar);
+            startButton.css('display', 'inline-block');
+            buttonBar.show();
+            $(me).fileupload({
+              disabled: false,
+            });
+            $('.queue-message', me).show();
+            displayMessageInQueue(0);
+          }
+          $(this).find('button').text($msg);
+          $('.add-label', me).text(label);
 
-        $container.toggleClass('enhanced_uploader');
-        e.preventDefault();
-      }).appendTo(me);
+          $container.toggleClass('enhanced_uploader');
+          e.preventDefault();
+        })
+        .appendTo(me);
     });
   };
 })(jQuery);
 
-$(function() {
+$(function () {
   $('#fileupload').enhancedUploader();
 
-  $('.checkboxes-helpers').each(function() {
+  $('.checkboxes-helpers').each(function () {
     dotclear.checkboxesHelpers(this, undefined, '#form-medias input[type="checkbox"]', '#form-medias #delete_medias');
   });
   dotclear.condSubmit('#form-medias input[type="checkbox"]', '#form-medias #delete_medias');
 
-  $('#form-medias #delete_medias').on('click', function(e) {
+  $('#form-medias #delete_medias').on('click', function (e) {
     const count_checked = $('input[name="medias[]"]:checked', $('#form-medias')).length;
     if (count_checked == 0) {
       e.preventDefault();
@@ -166,11 +173,11 @@ $(function() {
 
   // Preview media
   $('.modal-image').magnificPopup({
-    type: 'image'
+    type: 'image',
   });
 
   // attach media
-  $('#form-medias').on('click', '.media-item .attach-media', function(e) {
+  $('#form-medias').on('click', '.media-item .attach-media', function (e) {
     const parts = $(this).prop('href').split('?');
     const str_params = parts[1].split('&');
     let postData = {};
@@ -181,7 +188,7 @@ $(function() {
     }
     postData.xd_check = dotclear.nonce;
 
-    $.post(parts[0], postData, function(data) {
+    $.post(parts[0], postData, function (data) {
       if (data.url !== undefined) {
         document.location = data.url;
       }
@@ -194,7 +201,7 @@ $(function() {
   fileRemoveAct();
 
   function fileRemoveAct() {
-    $('body').on('click', 'a.media-remove', function() {
+    $('body').on('click', 'a.media-remove', function () {
       const m_name = $(this).parents('.media-item').find('a.media-link').text();
       let m_text = '';
       if ($(this).parents('div.media-folder').length == 0) {
@@ -215,7 +222,7 @@ $(function() {
   // Switch folder
   const urlmenu = document.getElementById('switchfolder');
   if (urlmenu) {
-    urlmenu.onchange = function() {
+    urlmenu.onchange = function () {
       window.location = this.options[this.selectedIndex].value;
     };
   }

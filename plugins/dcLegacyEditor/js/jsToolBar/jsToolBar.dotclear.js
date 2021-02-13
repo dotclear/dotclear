@@ -7,22 +7,24 @@ jsToolBar.prototype.elements.link.data = {};
 jsToolBar.prototype.elements.link.fncall = {};
 jsToolBar.prototype.elements.link.open_url = 'popup_link.php?plugin_id=dcLegacyEditor';
 
-jsToolBar.prototype.elements.link.popup = function(args) {
+jsToolBar.prototype.elements.link.popup = function (args) {
   window.the_toolbar = this;
   args = args || '';
 
   this.elements.link.data = {};
   const url = this.elements.link.open_url + args;
 
-  window.open(url, 'dc_popup',
-    'alwaysRaised=yes,dependent=yes,toolbar=yes,height=420,width=520,' +
-    'menubar=no,resizable=yes,scrollbars=yes,status=no');
+  window.open(
+    url,
+    'dc_popup',
+    'alwaysRaised=yes,dependent=yes,toolbar=yes,height=420,width=520,' + 'menubar=no,resizable=yes,scrollbars=yes,status=no'
+  );
 };
 
-jsToolBar.prototype.elements.link.fn.wiki = function() {
+jsToolBar.prototype.elements.link.fn.wiki = function () {
   this.elements.link.popup.call(this, '&hreflang=' + this.elements.link.default_hreflang);
 };
-jsToolBar.prototype.elements.link.fncall.wiki = function() {
+jsToolBar.prototype.elements.link.fncall.wiki = function () {
   const data = this.elements.link.data;
 
   if (data.href == '') {
@@ -48,10 +50,10 @@ jsToolBar.prototype.elements.link.fncall.wiki = function() {
   }
 };
 
-jsToolBar.prototype.elements.link.fn.xhtml = function() {
+jsToolBar.prototype.elements.link.fn.xhtml = function () {
   this.elements.link.popup.call(this, `&hreflang=${this.elements.link.default_hreflang}`);
 };
-jsToolBar.prototype.elements.link.fncall.xhtml = function() {
+jsToolBar.prototype.elements.link.fncall.xhtml = function () {
   const data = this.elements.link.data;
 
   if (data.href == '') {
@@ -70,7 +72,7 @@ jsToolBar.prototype.elements.link.fncall.xhtml = function() {
   const etag = '</a>';
 
   if (data.content) {
-    this.encloseSelection('', '', function() {
+    this.encloseSelection('', '', function () {
       return stag + data.content + etag;
     });
   } else {
@@ -78,7 +80,7 @@ jsToolBar.prototype.elements.link.fncall.xhtml = function() {
   }
 };
 
-jsToolBar.prototype.elements.link.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.link.fn.wysiwyg = function () {
   let href;
   let title;
   let hreflang;
@@ -95,7 +97,7 @@ jsToolBar.prototype.elements.link.fn.wysiwyg = function() {
 
   this.elements.link.popup.call(this, `&href=${href}&hreflang=${hreflang}&title=${title}`);
 };
-jsToolBar.prototype.elements.link.fncall.wysiwyg = function() {
+jsToolBar.prototype.elements.link.fncall.wysiwyg = function () {
   const data = this.elements.link.data;
 
   let a = this.getAncestor();
@@ -137,19 +139,21 @@ jsToolBar.prototype.elements.link.fncall.wysiwyg = function() {
   a.appendChild(n);
   this.insertNode(a);
 };
-jsToolBar.prototype.getAncestor = function() {
+jsToolBar.prototype.getAncestor = function () {
   let res = {};
   let range;
   let commonAncestorContainer;
 
-  if (this.iwin.getSelection) { //gecko
+  if (this.iwin.getSelection) {
+    //gecko
     const selection = this.iwin.getSelection();
     range = selection.getRangeAt(0);
     commonAncestorContainer = range.commonAncestorContainer;
     while (commonAncestorContainer.nodeType != 1) {
       commonAncestorContainer = commonAncestorContainer.parentNode;
     }
-  } else { //ie
+  } else {
+    //ie
     range = this.iwin.document.selection.createRange();
     commonAncestorContainer = range.parentElement();
   }
@@ -176,26 +180,28 @@ jsToolBar.prototype.elements.img_select = {
   fncall: {},
   open_url: 'media.php?popup=1&plugin_id=dcLegacyEditor',
   data: {},
-  popup: function() {
+  popup: function () {
     window.the_toolbar = this;
     this.elements.img_select.data = {};
 
-    window.open(this.elements.img_select.open_url, 'dc_popup',
-      'alwaysRaised=yes,dependent=yes,toolbar=yes,height=500,width=760,' +
-      'menubar=no,resizable=yes,scrollbars=yes,status=no');
-  }
+    window.open(
+      this.elements.img_select.open_url,
+      'dc_popup',
+      'alwaysRaised=yes,dependent=yes,toolbar=yes,height=500,width=760,' + 'menubar=no,resizable=yes,scrollbars=yes,status=no'
+    );
+  },
 };
-jsToolBar.prototype.elements.img_select.fn.wiki = function() {
+jsToolBar.prototype.elements.img_select.fn.wiki = function () {
   this.elements.img_select.popup.call(this);
 };
-jsToolBar.prototype.elements.img_select.fncall.wiki = function() {
+jsToolBar.prototype.elements.img_select.fncall.wiki = function () {
   var d = this.elements.img_select.data;
   if (d.src == undefined) {
     return;
   }
 
-  this.encloseSelection('', '', function(str) {
-    const alt = (str) ? str : d.title;
+  this.encloseSelection('', '', function (str) {
+    const alt = str ? str : d.title;
     let res = `((${d.src}|${alt}`;
 
     if (d.alignment == 'left') {
@@ -217,24 +223,28 @@ jsToolBar.prototype.elements.img_select.fncall.wiki = function() {
     res += '))';
 
     if (d.link) {
-      res = `[${res}|${d.url}${(alt) ? `||${alt}` : ''}]`;
+      res = `[${res}|${d.url}${alt ? `||${alt}` : ''}]`;
     }
 
     return res;
   });
 };
-jsToolBar.prototype.elements.img_select.fn.xhtml = function() {
+jsToolBar.prototype.elements.img_select.fn.xhtml = function () {
   this.elements.img_select.popup.call(this);
 };
-jsToolBar.prototype.elements.img_select.fncall.xhtml = function() {
+jsToolBar.prototype.elements.img_select.fncall.xhtml = function () {
   const d = this.elements.img_select.data;
   if (d.src == undefined) {
     return;
   }
 
-  this.encloseSelection('', '', function(str) {
-    const alt = (str) ? str : d.title;
-    let res = `<img src="${d.src}" alt="${alt.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')}"`;
+  this.encloseSelection('', '', function (str) {
+    const alt = str ? str : d.title;
+    let res = `<img src="${d.src}" alt="${alt
+      .replace('&', '&amp;')
+      .replace('>', '&gt;')
+      .replace('<', '&lt;')
+      .replace('"', '&quot;')}"`;
 
     if (d.alignment == 'left') {
       res += ' style="float: left; margin: 0 1em 1em 0;"';
@@ -251,7 +261,9 @@ jsToolBar.prototype.elements.img_select.fncall.xhtml = function() {
     res += ' />';
 
     if (d.link) {
-      const ltitle = (alt) ? ` title="${alt.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')}"` : '';
+      const ltitle = alt
+        ? ` title="${alt.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')}"`
+        : '';
       res = `<a href="${d.url}"${ltitle}>${res}</a>`;
     }
 
@@ -259,7 +271,7 @@ jsToolBar.prototype.elements.img_select.fncall.xhtml = function() {
   });
 };
 
-jsToolBar.prototype.elements.img.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.img.fn.wysiwyg = function () {
   const src = this.elements.img.prompt.call(this);
   if (!src) {
     return;
@@ -272,12 +284,12 @@ jsToolBar.prototype.elements.img.fn.wysiwyg = function() {
   this.insertNode(img);
 };
 
-jsToolBar.prototype.elements.img_select.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.img_select.fn.wysiwyg = function () {
   this.elements.img_select.popup.call(this);
 };
-jsToolBar.prototype.elements.img_select.fncall.wysiwyg = function() {
+jsToolBar.prototype.elements.img_select.fncall.wysiwyg = function () {
   const d = this.elements.img_select.data;
-  const alt = (this.getSelectedText()) ? this.getSelectedText() : d.title;
+  const alt = this.getSelectedText() ? this.getSelectedText() : d.title;
   if (d.src == undefined) {
     return;
   }
@@ -346,58 +358,58 @@ jsToolBar.prototype.elements.img_select.fncall.wysiwyg = function() {
 // MP3 helpers
 jsToolBar.prototype.elements.mp3_insert = {
   fncall: {},
-  data: {}
+  data: {},
 };
-jsToolBar.prototype.elements.mp3_insert.fncall.wiki = function() {
+jsToolBar.prototype.elements.mp3_insert.fncall.wiki = function () {
   const d = this.elements.mp3_insert.data;
   if (d.player == undefined) {
     return;
   }
 
-  this.encloseSelection('', '', function() {
+  this.encloseSelection('', '', function () {
     return '\n///html\n' + d.player + '///\n';
   });
 };
-jsToolBar.prototype.elements.mp3_insert.fncall.xhtml = function() {
+jsToolBar.prototype.elements.mp3_insert.fncall.xhtml = function () {
   const d = this.elements.mp3_insert.data;
   if (d.player == undefined) {
     return;
   }
 
-  this.encloseSelection('', '', function() {
+  this.encloseSelection('', '', function () {
     return '\n' + d.player + '\n';
   });
 };
-jsToolBar.prototype.elements.mp3_insert.fncall.wysiwyg = function() {
+jsToolBar.prototype.elements.mp3_insert.fncall.wysiwyg = function () {
   return;
 };
 
 // FLV helpers
 jsToolBar.prototype.elements.flv_insert = {
   fncall: {},
-  data: {}
+  data: {},
 };
-jsToolBar.prototype.elements.flv_insert.fncall.wiki = function() {
+jsToolBar.prototype.elements.flv_insert.fncall.wiki = function () {
   const d = this.elements.flv_insert.data;
   if (d.player == undefined) {
     return;
   }
 
-  this.encloseSelection('', '', function() {
+  this.encloseSelection('', '', function () {
     return '\n///html\n' + d.player + '///\n';
   });
 };
-jsToolBar.prototype.elements.flv_insert.fncall.xhtml = function() {
+jsToolBar.prototype.elements.flv_insert.fncall.xhtml = function () {
   const d = this.elements.flv_insert.data;
   if (d.player == undefined) {
     return;
   }
 
-  this.encloseSelection('', '', function() {
+  this.encloseSelection('', '', function () {
     return '\n' + d.player + '\n';
   });
 };
-jsToolBar.prototype.elements.flv_insert.fncall.wysiwyg = function() {
+jsToolBar.prototype.elements.flv_insert.fncall.wysiwyg = function () {
   return;
 };
 
@@ -409,22 +421,24 @@ jsToolBar.prototype.elements.post_link = {
   fn: {},
   open_url: 'popup_posts.php?plugin_id=dcLegacyEditor',
   data: {},
-  popup: function() {
+  popup: function () {
     window.the_toolbar = this;
     this.elements.img_select.data = {};
 
-    window.open(this.elements.post_link.open_url, 'dc_popup',
-      'alwaysRaised=yes,dependent=yes,toolbar=yes,height=500,width=760,' +
-      'menubar=no,resizable=yes,scrollbars=yes,status=no');
-  }
+    window.open(
+      this.elements.post_link.open_url,
+      'dc_popup',
+      'alwaysRaised=yes,dependent=yes,toolbar=yes,height=500,width=760,' + 'menubar=no,resizable=yes,scrollbars=yes,status=no'
+    );
+  },
 };
-jsToolBar.prototype.elements.post_link.fn.wiki = function() {
+jsToolBar.prototype.elements.post_link.fn.wiki = function () {
   this.elements.post_link.popup.call(this);
 };
-jsToolBar.prototype.elements.post_link.fn.xhtml = function() {
+jsToolBar.prototype.elements.post_link.fn.xhtml = function () {
   this.elements.post_link.popup.call(this);
 };
-jsToolBar.prototype.elements.post_link.fn.wysiwyg = function() {
+jsToolBar.prototype.elements.post_link.fn.wysiwyg = function () {
   this.elements.post_link.popup.call(this);
 };
 
@@ -434,6 +448,6 @@ jsToolBar.prototype.elements.space3 = {
   format: {
     wysiwyg: true,
     wiki: true,
-    xhtml: true
-  }
+    xhtml: true,
+  },
 };
