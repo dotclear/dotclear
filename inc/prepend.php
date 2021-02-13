@@ -147,7 +147,7 @@ if (!defined('DC_DEBUG')) {
 
 # Constants
 define('DC_ROOT', path::real(dirname(__FILE__) . '/..'));
-define('DC_VERSION', '2.18.0');
+define('DC_VERSION', '2.18.1');
 define('DC_DIGESTS', dirname(__FILE__) . '/digests');
 define('DC_L10N_ROOT', dirname(__FILE__) . '/../locales');
 define('DC_L10N_UPDATE_URL', 'https://services.dotclear.net/dc2.l10n/?version=%s');
@@ -246,8 +246,7 @@ try {
                 'Thank you for your understanding.</p>'),
             20);
     } else {
-        __error(__('Unable to connect to database')
-            , $e->getCode() == 0 ?
+        __error(__('Unable to connect to database'), $e->getCode() == 0 ?
             sprintf(__('<p>This either means that the username and password information in ' .
                 'your <strong>config.php</strong> file is incorrect or we can\'t contact ' .
                 'the database server at "<em>%s</em>". This could mean your ' .
@@ -259,11 +258,9 @@ try {
                 'your host. If you still need help you can always visit the ' .
                 '<a href="https://forum.dotclear.net/">Dotclear Support Forums</a>.</p>') .
                 (DC_DEBUG ?
-                    __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' : '')
-                , (DC_DBHOST != '' ? DC_DBHOST : 'localhost')
+                    __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' : ''), (DC_DBHOST != '' ? DC_DBHOST : 'localhost')
             )
-            : ''
-            , 20);
+            : '', 20);
     }
 }
 
@@ -276,6 +273,7 @@ if (isset($__top_behaviors) && is_array($__top_behaviors)) {
 }
 
 http::trimRequest();
+
 try {
     http::unsetGlobals();
 } catch (Exception $e) {
@@ -309,7 +307,7 @@ if ($p_max_size < $u_max_size) {
     $u_max_size = $p_max_size;
 }
 define('DC_MAX_UPLOAD_SIZE', $u_max_size);
-unset($u_max_size);unset($p_max_size);
+unset($u_max_size, $p_max_size);
 
 # Register supplemental mime types
 files::registerMimeTypes([
@@ -342,7 +340,8 @@ function __shutdown()
         if (session_id()) {
             session_write_close();
         }
-    } catch (Exception $e) {}
+    } catch (Exception $e) {
+    }
     $GLOBALS['core']->con->close();
 }
 
@@ -360,14 +359,13 @@ function __error($summary, $message, $code = 0)
     if (CLI_MODE) {
         trigger_error($summary, E_USER_ERROR);
         exit(1);
-    } else {
-        if (defined('DC_ERRORFILE') && is_file(DC_ERRORFILE)) {
-            include DC_ERRORFILE;
-        } else {
-            include dirname(__FILE__) . '/core_error.php';
-        }
-        exit;
     }
+    if (defined('DC_ERRORFILE') && is_file(DC_ERRORFILE)) {
+        include DC_ERRORFILE;
+    } else {
+        include dirname(__FILE__) . '/core_error.php';
+    }
+    exit;
 }
 
 function init_prepend_l10n()
@@ -377,6 +375,7 @@ function init_prepend_l10n()
     foreach ($dlang as $l) {
         if ($l == 'en' || l10n::set(dirname(__FILE__) . '/../locales/' . $l . '/main') !== false) {
             l10n::lang($l);
+
             break;
         }
     }
