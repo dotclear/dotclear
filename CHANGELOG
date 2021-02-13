@@ -1,3 +1,10 @@
+Dotclear 2.18.1 - 2021-02-13
+===========================================================
+* Fix: Adjust top and bottom border of textarea when dcLegacyEditor toolbar is set in bottom
+* Fix: Add missing support for webp and svg image format for <tpl:EntryFirstImage>
+* Fix: Switch from programmed to published status for an entry causes error notice
+* Enforce robustness of workspaces/namespaces (settings/blog parameters) methods
+
 Dotclear 2.18 - 2020-11-13
 ===========================================================
 * IP is now displayed in backend only for admins

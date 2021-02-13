@@ -49,8 +49,10 @@ const jsToolBar = function(textarea) {
 
   if (this.toolbar_bottom) {
     this.editor.parentNode.insertBefore(this.toolbar, this.editor.nextSibling);
+    this.editor.parentNode.classList.add('toolbar_bottom');
   } else {
     this.editor.parentNode.insertBefore(this.toolbar, this.editor);
+    this.editor.parentNode.classList.add('toolbar_top');
   }
 
   this.context = null;

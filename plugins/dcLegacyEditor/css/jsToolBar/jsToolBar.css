@@ -17,6 +17,9 @@
 .jstEditor textarea:focus, .jstEditor iframe:focus {
   border-color: #bee74b;
 }
+.toolbar_bottom .jstEditor {
+  border-top-width: 1px;
+}
 .jstElements {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -26,6 +29,9 @@
   line-height: 30px;
   border: 1px solid;
   position: relative;
+}
+.toolbar_bottom .jstElements {
+  border-top-width: 0;
 }
 .jstElements select, .jstElements button {
   vertical-align: middle;

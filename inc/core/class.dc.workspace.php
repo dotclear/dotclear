@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcWorkspace
 {
@@ -22,6 +23,9 @@ class dcWorkspace
     protected $prefs        = []; ///< <b>array</b> Associative prefs array
     protected $ws;                ///< <b>string</b> Current workspace
 
+    const WS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
+    const WS_ID_SCHEMA   = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
+
     /**
     Object constructor. Retrieves user prefs and puts them in $prefs
     array. Local (user) prefs have a highest priority than global prefs.
@@ -30,7 +34,7 @@ class dcWorkspace
      */
     public function __construct(&$core, $user_id, $name, $rs = null)
     {
-        if (preg_match('/^[a-zA-Z][a-zA-Z0-9]+$/', $name)) {
+        if (preg_match(self::WS_NAME_SCHEMA, $name)) {
             $this->ws = $name;
         } else {
             throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $name));
@@ -40,7 +44,9 @@ class dcWorkspace
         $this->table   = $core->prefix . 'pref';
         $this->user_id = &$user_id;
 
-        try { $this->getPrefs($rs);} catch (Exception $e) {
+        try {
+            $this->getPrefs($rs);
+        } catch (Exception $e) {
             if (version_compare($core->getVersion('core'), '2.3', '>')) {
                 trigger_error(__('Unable to retrieve prefs:') . ' ' . $this->con->error(), E_USER_ERROR);
             }
@@ -115,6 +121,7 @@ class dcWorkspace
     public function prefExists($id, $global = false)
     {
         $array = $global ? 'global' : 'local';
+
         return isset($this->{$array . '_prefs'}[$id]);
     }
 
@@ -129,8 +136,6 @@ class dcWorkspace
         if (isset($this->prefs[$n]['value'])) {
             return $this->prefs[$n]['value'];
         }
-
-        return;
     }
 
     /**
@@ -144,8 +149,6 @@ class dcWorkspace
         if (isset($this->global_prefs[$n]['value'])) {
             return $this->global_prefs[$n]['value'];
         }
-
-        return;
     }
 
     /**
@@ -159,8 +162,6 @@ class dcWorkspace
         if (isset($this->local_prefs[$n]['value'])) {
             return $this->local_prefs[$n]['value'];
         }
-
-        return;
     }
     /**
     Magic __get method.
@@ -212,7 +213,7 @@ class dcWorkspace
      */
     public function put($id, $value, $type = null, $label = null, $value_change = true, $global = false)
     {
-        if (!preg_match('/^[a-zA-Z][a-zA-Z0-9_]+$/', $id)) {
+        if (!preg_match(self::WS_ID_SCHEMA, $id)) {
             throw new Exception(sprintf(__('%s is not a valid pref id'), $id));
         }
 
@@ -267,8 +268,7 @@ class dcWorkspace
         #If we are local, compare to global value
         if (!$global && $this->prefExists($id, true)) {
             $g         = $this->global_prefs[$id];
-            $same_pref = $g['ws'] == $this->ws && $g['value'] == $value
-                && $g['type'] == $type && $g['label'] == $label;
+            $same_pref = ($g['ws'] == $this->ws && $g['value'] == $value && $g['type'] == $type && $g['label'] == $label);
 
             # Drop pref if same value as global
             if ($same_pref && $this->prefExists($id, false)) {
@@ -312,6 +312,10 @@ class dcWorkspace
             return false;
         }
 
+        if (!preg_match(self::WS_ID_SCHEMA, $newId)) {
+            throw new Exception(sprintf(__('%s is not a valid pref id'), $newId));
+        }
+
         // Rename the pref in the prefs array
         $this->prefs[$newId] = $this->prefs[$oldId];
         unset($this->prefs[$oldId]);
@@ -322,6 +326,7 @@ class dcWorkspace
         " WHERE pref_ws = '" . $this->con->escape($this->ws) . "' " .
         " AND pref_id = '" . $this->con->escape($oldId) . "' ";
         $this->con->execute($strReq);
+
         return true;
     }
 
@@ -375,12 +380,11 @@ class dcWorkspace
             throw new Exception(__('No workspace specified'));
         }
 
-        $strReq = 'DELETE FROM ' . $this->table . ' ';
+        $strReq = 'DELETE FROM ' . $this->table . ' WHERE ';
         if (!$global) {
-            $strReq .= 'WHERE user_id IS NOT NULL ';
+            $strReq .= 'user_id IS NOT NULL AND ';
         }
-        $strReq .= "AND pref_id = '" . $this->con->escape($id) . "' ";
-        $strReq .= "AND pref_ws = '" . $this->con->escape($this->ws) . "' ";
+        $strReq .= "pref_id = '" . $this->con->escape($id) . "' AND pref_ws = '" . $this->con->escape($this->ws) . "' ";
 
         $this->con->execute($strReq);
     }
@@ -457,5 +461,4 @@ class dcWorkspace
     {
         return $this->global_prefs;
     }
-
 }

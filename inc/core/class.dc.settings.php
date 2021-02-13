@@ -12,8 +12,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcSettings
 {
@@ -25,6 +26,8 @@ class dcSettings
     protected $namespaces = []; ///< <b>array</b> Associative namespaces array
 
     protected $ns; ///< <b>string</b> Current namespace
+
+    const NS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
 
     /**
     Object constructor. Retrieves blog settings and puts them in $namespaces
@@ -53,6 +56,7 @@ class dcSettings
         "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' " .
             'OR blog_id IS NULL ' .
             'ORDER BY setting_ns ASC, setting_id DESC';
+
         try {
             $rs = $this->con->select($strReq);
         } catch (Exception $e) {
@@ -86,6 +90,7 @@ class dcSettings
         if (!array_key_exists($ns, $this->namespaces)) {
             $this->namespaces[$ns] = new dcNamespace($this->core, $this->blog_id, $ns);
         }
+
         return $this->namespaces[$ns];
     }
 
@@ -102,6 +107,10 @@ class dcSettings
             return false;
         }
 
+        if (!preg_match(self::NS_NAME_SCHEMA, $newNs)) {
+            throw new Exception(sprintf(__('Invalid setting namespace: %s'), $ns));
+        }
+
         // Rename the namespace in the namespace array
         $this->namespaces[$newNs] = $this->namespaces[$oldNs];
         unset($this->namespaces[$oldNs]);
@@ -111,6 +120,7 @@ class dcSettings
         " SET setting_ns = '" . $this->con->escape($newNs) . "' " .
         " WHERE setting_ns = '" . $this->con->escape($oldNs) . "' ";
         $this->con->execute($strReq);
+
         return true;
     }
 
@@ -133,6 +143,7 @@ class dcSettings
         $strReq = 'DELETE FROM ' . $this->table .
         " WHERE setting_ns = '" . $this->con->escape($ns) . "' ";
         $this->con->execute($strReq);
+
         return true;
     }
 
@@ -157,8 +168,10 @@ class dcSettings
             // For backward compatibility only: the developer tried to access
             // a setting directly, without passing via a namespace.
             $this->raiseDeprecated('old_style_get');
+
             return $this->getSetting($n);
         }
+
         return $this->get($n);
     }
 
@@ -241,7 +254,7 @@ class dcSettings
     public function setNamespace($ns)
     {
         $this->raiseDeprecated('setNamespace');
-        if (preg_match('/^[a-zA-Z][a-zA-Z0-9]+$/', $ns)) {
+        if (preg_match(self::NS_NAME_SCHEMA, $ns)) {
             $this->ns = $ns;
         } else {
             throw new Exception(sprintf(__('Invalid setting namespace: %s'), $ns));
@@ -294,17 +307,14 @@ class dcSettings
         if ($this->namespaces['system']->get($n) != null) {
             // Give preference to system settings
             return $this->namespaces['system']->get($n);
-        } else {
-            // Parse all the namespaces
-            foreach (array_keys($this->namespaces) as $id => $ns) {
-                if ($this->namespaces[$ns]->get($n) != null) {
-                    // Return the first setting with matching name
-                    return $this->namespaces[$ns]->get($n);
-                }
+        }
+        // Parse all the namespaces
+        foreach (array_keys($this->namespaces) as $id => $ns) {
+            if ($this->namespaces[$ns]->get($n) != null) {
+                // Return the first setting with matching name
+                return $this->namespaces[$ns]->get($n);
             }
         }
-
-        return;
     }
 
     /**
@@ -364,7 +374,7 @@ class dcSettings
      */
     public function getGlobalSettings($params = [])
     {
-        $strReq = "SELECT * from " . $this->table . " ";
+        $strReq = 'SELECT * from ' . $this->table . ' ';
         $where  = [];
         if (!empty($params['ns'])) {
             $where[] = "setting_ns = '" . $this->con->escape($params['ns']) . "'";
@@ -376,13 +386,14 @@ class dcSettings
             if (!empty($params['blog_id'])) {
                 $where[] = "blog_id = '" . $this->con->escape($params['blog_id']) . "'";
             } else {
-                $where[] = "blog_id IS NULL";
+                $where[] = 'blog_id IS NULL';
             }
         }
         if (count($where) != 0) {
-            $strReq .= " WHERE " . join(" AND ", $where);
+            $strReq .= ' WHERE ' . join(' AND ', $where);
         }
-        $strReq .= " ORDER by blog_id";
+        $strReq .= ' ORDER by blog_id';
+
         return $this->con->select($strReq);
     }
 
@@ -416,13 +427,14 @@ class dcSettings
      */
     public function dropSetting($rs)
     {
-        $strReq = "DELETE FROM " . $this->table . ' ';
+        $strReq = 'DELETE FROM ' . $this->table . ' ';
         if ($rs->blog_id == null) {
             $strReq .= 'WHERE blog_id IS NULL ';
         } else {
             $strReq .= "WHERE blog_id = '" . $this->con->escape($rs->blog_id) . "' ";
         }
         $strReq .= "AND setting_id = '" . $this->con->escape($rs->setting_id) . "' AND setting_ns = '" . $this->con->escape($rs->setting_ns) . "' ";
+
         return $this->con->execute($strReq);
     }
 }

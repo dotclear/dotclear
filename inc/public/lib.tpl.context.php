@@ -104,7 +104,7 @@ class context
         $encode_xml, $remove_html, $cut_string, $lower_case, $upper_case, $encode_url, $tag = '') {
         return self::global_filters(
             $str,
-            [0       => null,
+            [0            => null,
                 'encode_xml'  => $encode_xml,
                 'remove_html' => $remove_html,
                 'cut_string'  => $cut_string,
@@ -483,7 +483,7 @@ class context
             $p_root = $core->blog->public_path;
 
             $pattern = '(?:' . preg_quote($p_site, '/') . ')?' . preg_quote($p_url, '/');
-            $pattern = sprintf('/<img.+?src="%s(.*?\.(?:jpg|jpeg|gif|png))"[^>]+/msui', $pattern);
+            $pattern = sprintf('/<img.+?src="%s(.*?\.(?:jpg|jpeg|gif|png|svg|webp))"[^>]+/msui', $pattern);
 
             $src = '';
             $alt = '';
@@ -538,6 +538,9 @@ class context
     {
         global $core;
 
+        # Image extensions
+        $formats = ['jpg', 'jpeg', 'png', 'gif', 'svg', 'wepb'];
+
         # Get base name and extension
         $info = path::info($img);
         $base = $info['base'];
@@ -554,26 +557,22 @@ class context
                 $res = '.' . $base . '_' . $size . '.jpg';
             } elseif ($size != 'o' && file_exists($root . '/' . $info['dirname'] . '/.' . $base . '_' . $size . '.png')) {
                 $res = '.' . $base . '_' . $size . '.png';
+            } elseif ($size != 'o' && file_exists($root . '/' . $info['dirname'] . '/.' . $base . '_' . $size . '.webp')) {
+                $res = '.' . $base . '_' . $size . '.webp';
             } else {
                 $f = $root . '/' . $info['dirname'] . '/' . $base;
                 if (file_exists($f . '.' . $info['extension'])) {
                     $res = $base . '.' . $info['extension'];
-                } elseif (file_exists($f . '.jpg')) {
-                    $res = $base . '.jpg';
-                } elseif (file_exists($f . '.jpeg')) {
-                    $res = $base . '.jpeg';
-                } elseif (file_exists($f . '.png')) {
-                    $res = $base . '.png';
-                } elseif (file_exists($f . '.gif')) {
-                    $res = $base . '.gif';
-                } elseif (file_exists($f . '.JPG')) {
-                    $res = $base . '.JPG';
-                } elseif (file_exists($f . '.JPEG')) {
-                    $res = $base . '.JPEG';
-                } elseif (file_exists($f . '.PNG')) {
-                    $res = $base . '.PNG';
-                } elseif (file_exists($f . '.GIF')) {
-                    $res = $base . '.GIF';
+                } else {
+                    foreach ($formats as $format) {
+                        if (file_exists($f . '.' . $format)) {
+                            $res = $base . '.' . $format;
+                            break;
+                        } elseif (file_exists($f . '.' . strtoupper($format))) {
+                            $res = $base . '.' . strtoupper($format);
+                            break;
+                        }
+                    }
                 }
             }
         } catch (Exception $e) {
