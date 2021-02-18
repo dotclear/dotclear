@@ -183,13 +183,10 @@ if (!empty($_POST['unzip']) && $file->type == 'application/zip' && $file->editab
 # Save media insertion settings for the blog
 if (!empty($_POST['save_blog_prefs'])) {
     if (!empty($_POST['pref_src'])) {
-        foreach (array_reverse($file->media_thumb) as $s => $v) {
-            if ($v == $_POST['pref_src']) {
-                $core->blog->settings->system->put('media_img_default_size', $s);
-
-                break;
-            }
+        if (!($s = array_search($_POST['pref_src'], $file->media_thumb))) {
+            $s = 'o';
         }
+        $core->blog->settings->system->put('media_img_default_size', $s);
     }
     if (!empty($_POST['pref_alignment'])) {
         $core->blog->settings->system->put('media_img_default_alignment', $_POST['pref_alignment']);
@@ -262,8 +259,7 @@ $get_img_desc = function ($file, $default = '') {
 
 /* DISPLAY Main page
 -------------------------------------------------------- */
-$starting_scripts =
-dcPage::jsModal() .
+$starting_scripts = dcPage::jsModal() .
 dcPage::jsLoad('js/_media_item.js');
 if ($popup && !empty($plugin_id)) {
     $starting_scripts .= $core->callBehavior('adminPopupMedia', $plugin_id);
