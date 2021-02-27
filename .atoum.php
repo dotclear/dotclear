@@ -14,5 +14,13 @@ $stdOutWriter = new atoum\writers\std\out();
 $cliReport = new atoum\reports\realtime\cli();
 $cliReport->addWriter($stdOutWriter);
 
-$runner->addTestsFromDirectory('tests/unit/');
+// Xunit report
+$xunit = new atoum\reports\asynchronous\xunit();
+$runner->addReport($xunit);
+
+// Xunit writer
+$writer = new atoum\writers\file('tests/atoum.xunit.xml');
+$xunit->addWriter($writer);
+
+$runner->addTestsFromDirectory('tests/unit/');;
 $runner->addReport($cliReport);

@@ -18,7 +18,6 @@ $__autoload                     = [];
 $__autoload['dbLayer']          = CLEARBRICKS_PATH . '/dblayer/dblayer.php';
 $__autoload['staticRecord']     = CLEARBRICKS_PATH . '/dblayer/dblayer.php';
 $__autoload['sqliteConnection'] = CLEARBRICKS_PATH . '/dblayer/class.sqlite.php';
-$__autoload['mysqlConnection']  = CLEARBRICKS_PATH . '/dblayer/class.mysql.php';
 $__autoload['mysqliConnection'] = CLEARBRICKS_PATH . '/dblayer/class.mysqli.php';
 $__autoload['pgsqlConnection']  = CLEARBRICKS_PATH . '/dblayer/class.pgsql.php';
 $__autoload['record']           = CLEARBRICKS_PATH . '/dblayer/dblayer.php';

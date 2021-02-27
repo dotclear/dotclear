@@ -13,8 +13,8 @@
 		"php": ">=7.0.0"
 	},
 	"require-dev": {
-		"atoum/atoum": "dev-master",
-		"fzaninotto/faker": "dev-master",
+    "atoum/atoum": "dev-master",
+    "fzaninotto/faker": "dev-master",
     "atoum/reports-extension": "dev-master",
 		"behat/behat": "<3",
 		"behat/common-contexts": "1.2.*",

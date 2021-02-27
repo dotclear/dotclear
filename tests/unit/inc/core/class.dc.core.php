@@ -24,7 +24,7 @@ class dcCore extends atoum
 
     private function getConnection($driver)
     {
-        $controller              = new \atoum\mock\controller();
+        $controller              = new \atoum\atoum\mock\controller();
         $controller->__construct = function () {};
 
         $class_name                  = sprintf('\mock\%sConnection', $driver);
@@ -45,7 +45,7 @@ class dcCore extends atoum
     {
         $con = $this->getConnection($driver);
 
-        $controller              = new \atoum\mock\controller();
+        $controller              = new \atoum\atoum\mock\controller();
         $controller->__construct = function () {};
 
         $query = 'SELECT U.user_id,user_super,user_status,user_pwd,user_change_pwd,user_name,user_firstname,user_displayname,user_email,user_url,user_desc, user_lang,user_tz, user_post_status,user_options, count(P.post_id) AS nb_post FROM user U LEFT JOIN post P ON U.user_id = P.user_id WHERE NULL IS NULL GROUP BY U.user_id,user_super,user_status,user_pwd,user_change_pwd,user_name,user_firstname,user_displayname,user_email,user_url,user_desc, user_lang,user_tz,user_post_status,user_options ORDER BY U.user_id ASC ';
@@ -64,7 +64,7 @@ class dcCore extends atoum
     {
         $con = $this->getConnection($driver);
 
-        $controller              = new \atoum\mock\controller();
+        $controller              = new \atoum\atoum\mock\controller();
         $controller->__construct = function () {};
 
         $core      = new \mock\dcCore(null, null, null, null, null, null, null, $controller);
@@ -83,12 +83,9 @@ class dcCore extends atoum
      **/
     protected function testGetUsersDataProvider()
     {
-        $query = [];
-
         return [
             ['pgsql'],
             ['sqlite'],
-            ['mysql'],
             ['mysqli']
         ];
     }
@@ -100,8 +97,6 @@ class dcCore extends atoum
         return [
             ['pgsql', ['order' => 'user_id asc'], $base_query . 'U.user_id asc '],
             ['pgsql', ['order' => 'U.user_id asc'], $base_query . 'U.user_id asc '],
-            ['mysql', ['order' => 'user_id asc'], $base_query . 'U.user_id asc '],
-            ['mysql', ['order' => 'U.user_id asc'], $base_query . 'U.user_id asc '],
             ['mysqli', ['order' => 'user_id asc'], $base_query . 'U.user_id asc '],
             ['mysqli', ['order' => 'U.user_id asc'], $base_query . 'U.user_id asc '],
             ['sqlite', ['order' => 'user_id asc'], $base_query . 'U.user_id asc '],
@@ -109,8 +104,6 @@ class dcCore extends atoum
 
             ['pgsql', ['order' => 'nb_post desc'], $base_query . 'P.nb_post desc '],
             ['pgsql', ['order' => 'P.nb_post desc'], $base_query . 'P.nb_post desc '],
-            ['mysql', ['order' => 'nb_post desc'], $base_query . 'P.nb_post desc '],
-            ['mysql', ['order' => 'P.nb_post desc'], $base_query . 'P.nb_post desc '],
             ['mysqli', ['order' => 'nb_post desc'], $base_query . 'P.nb_post desc '],
             ['mysqli', ['order' => 'P.nb_post desc'], $base_query . 'P.nb_post desc '],
             ['sqlite', ['order' => 'nb_post desc'], $base_query . 'P.nb_post desc '],

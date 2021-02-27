@@ -22,11 +22,12 @@ class dcTemplate extends atoum
 {
     private function getCore()
     {
-        $controller              = new \atoum\mock\controller();
+        $controller              = new \atoum\atoum\mock\controller();
         $controller->__construct = function () {};
 
         $core       = new \mock\dcCore(null, null, null, null, null, null, $controller);
         $core->blog = json_decode('{"settings": {"system": {"tpl_allow_php":false,"tpl_use_cache":true}}}', false);
+
         return $core;
     }
 
@@ -34,7 +35,7 @@ class dcTemplate extends atoum
     {
         // copy from ../../../../inc/public/class.dc.template.php:getSortByStr()
         $default_alias = [
-            'post'    => [
+            'post' => [
                 'title'     => 'post_title',
                 'selected'  => 'post_selected',
                 'author'    => 'user_id',
