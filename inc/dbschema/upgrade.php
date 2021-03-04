@@ -804,6 +804,16 @@ class dcUpgrade
                     }
                 }
             }
+
+        if (version_compare($version, '2.19', '<')) {
+            # A bit of housecleaning for no longer needed files
+            $remfolders = [
+                // Oldest jQuery public lib
+                'inc/js/jquery/3.5.1'
+            ];
+            foreach ($remfolders as $f) {
+                @rmdir(DC_ROOT . '/' . $f);
+            }
         }
 
         $core->setVersion('core', DC_VERSION);
