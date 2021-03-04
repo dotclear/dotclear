@@ -102,11 +102,11 @@ class dcCore extends atoum
             ['sqlite', ['order' => 'user_id asc'], $base_query . 'U.user_id asc '],
             ['sqlite', ['order' => 'U.user_id asc'], $base_query . 'U.user_id asc '],
 
-            ['pgsql', ['order' => 'nb_post desc'], $base_query . 'P.nb_post desc '],
+            ['pgsql', ['order' => 'nb_post desc'], $base_query . 'nb_post desc '],
             ['pgsql', ['order' => 'P.nb_post desc'], $base_query . 'P.nb_post desc '],
-            ['mysqli', ['order' => 'nb_post desc'], $base_query . 'P.nb_post desc '],
+            ['mysqli', ['order' => 'nb_post desc'], $base_query . 'nb_post desc '],
             ['mysqli', ['order' => 'P.nb_post desc'], $base_query . 'P.nb_post desc '],
-            ['sqlite', ['order' => 'nb_post desc'], $base_query . 'P.nb_post desc '],
+            ['sqlite', ['order' => 'nb_post desc'], $base_query . 'nb_post desc '],
             ['sqlite', ['order' => 'P.nb_post desc'], $base_query . 'P.nb_post desc ']
         ];
     }
