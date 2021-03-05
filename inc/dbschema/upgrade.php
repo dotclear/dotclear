@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcUpgrade
 {
@@ -22,8 +23,7 @@ class dcUpgrade
         }
 
         if (version_compare($version, DC_VERSION, '<') == 1 || strpos(DC_VERSION, 'dev')) {
-            try
-            {
+            try {
                 if ($core->con->driver() == 'sqlite') {
                     return false; // Need to find a way to upgrade sqlite database
                 }
@@ -47,7 +47,8 @@ class dcUpgrade
                 # Empty templates cache directory
                 try {
                     $core->emptyTemplatesCache();
-                } catch (Exception $e) {}
+                } catch (Exception $e) {
+                }
 
                 return $changes;
             } catch (Exception $e) {
@@ -152,8 +153,7 @@ class dcUpgrade
             }
 
             # Tags template class has been renamed
-            $sqlstr =
-            'SELECT blog_id, setting_id, setting_value ' .
+            $sqlstr = 'SELECT blog_id, setting_id, setting_value ' .
             'FROM ' . $core->prefix . 'setting ' .
                 'WHERE (setting_id = \'widgets_nav\' OR setting_id = \'widgets_extra\') ' .
                 'AND setting_ns = \'widgets\';';
@@ -192,10 +192,10 @@ class dcUpgrade
 
             $count = 0;
             foreach ($init_fav as $k => $f) {
-                $t = ['name' => $f[0], 'title'       => $f[1], 'url' => $f[2], 'small-icon' => $f[3],
-                    'large-icon'      => $f[4], 'permissions' => $f[5], 'id'  => $f[6], 'class'      => $f[7]];
+                $t = ['name'     => $f[0], 'title' => $f[1], 'url' => $f[2], 'small-icon' => $f[3],
+                    'large-icon' => $f[4], 'permissions' => $f[5], 'id' => $f[6], 'class' => $f[7]];
                 $sqlstr = 'INSERT INTO ' . $core->prefix . 'pref (pref_id, user_id, pref_ws, pref_value, pref_type, pref_label) VALUES (' .
-                '\'' . sprintf("g%03s", $count) . '\',NULL,\'favorites\',\'' . serialize($t) . '\',\'string\',NULL);';
+                '\'' . sprintf('g%03s', $count) . '\',NULL,\'favorites\',\'' . serialize($t) . '\',\'string\',NULL);';
                 $core->con->execute($sqlstr);
                 $count++;
             }
@@ -526,7 +526,7 @@ class dcUpgrade
             $core->con->execute(
                 sprintf($strReq, 'csp_admin_report_only', false, 'boolean', 'CSP Report only violations (admin)'));
 
-                                                                                // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
+            // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
                                                                                 // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
             $csp_prefix = $core->con->driver() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
             $csp_suffix = $core->con->driver() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
@@ -621,7 +621,7 @@ class dcUpgrade
         }
 
         if (version_compare($version, '2.12.2', '<')) {
-                                                                                // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
+            // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
                                                                                 // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
             $csp_prefix = $core->con->driver() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
 
@@ -670,7 +670,6 @@ class dcUpgrade
             foreach ($remfiles as $f) {
                 @unlink(DC_ROOT . '/' . $f);
             }
-
         }
 
         if (version_compare($version, '2.15.1', '<')) {
@@ -792,7 +791,7 @@ class dcUpgrade
                 @rmdir(DC_ROOT . '/' . $f);
             }
             # Help specific (files was moved)
-            $remtree = scandir(DC_ROOT . '/locales');
+            $remtree  = scandir(DC_ROOT . '/locales');
             $remfiles = [
                 'help/blowupConfig.html',
                 'help/themeEditor.html'
@@ -804,6 +803,7 @@ class dcUpgrade
                     }
                 }
             }
+        }
 
         if (version_compare($version, '2.19', '<')) {
             # A bit of housecleaning for no longer needed files
@@ -831,8 +831,7 @@ class dcUpgrade
     {
         global $core;
 
-        $strReqSelect =
-        "SELECT setting_id,blog_id,setting_ns,setting_type,setting_value FROM " . $core->prefix . "setting " .
+        $strReqSelect = 'SELECT setting_id,blog_id,setting_ns,setting_type,setting_value FROM ' . $core->prefix . 'setting ' .
             "WHERE setting_id = '%s' " .
             "AND setting_ns = '%s' " .
             "AND setting_type = 'string'";
@@ -844,12 +843,12 @@ class dcUpgrade
             }
             settype($value, 'array');
             $value = json_encode($value);
-            $rs2   = "UPDATE " . $core->prefix . "setting " .
+            $rs2   = 'UPDATE ' . $core->prefix . 'setting ' .
             "SET setting_type='array', setting_value = '" . $core->con->escape($value) . "' " .
             "WHERE setting_id='" . $core->con->escape($rs->setting_id) . "' " .
             "AND setting_ns='" . $core->con->escape($rs->setting_ns) . "' ";
             if ($rs->blog_id == '') {
-                $rs2 .= "AND blog_id IS null";
+                $rs2 .= 'AND blog_id IS null';
             } else {
                 $rs2 .= "AND blog_id = '" . $core->con->escape($rs->blog_id) . "'";
             }
@@ -866,8 +865,7 @@ class dcUpgrade
     {
         global $core;
 
-        $strReqSelect =
-        "SELECT pref_id,user_id,pref_ws,pref_type,pref_value FROM " . $core->prefix . "pref " .
+        $strReqSelect = 'SELECT pref_id,user_id,pref_ws,pref_type,pref_value FROM ' . $core->prefix . 'pref ' .
             "WHERE pref_id = '%s' " .
             "AND pref_ws = '%s' " .
             "AND pref_type = 'string'";
@@ -879,12 +877,12 @@ class dcUpgrade
             }
             settype($value, 'array');
             $value = json_encode($value);
-            $rs2   = "UPDATE " . $core->prefix . "pref " .
+            $rs2   = 'UPDATE ' . $core->prefix . 'pref ' .
             "SET pref_type='array', pref_value = '" . $core->con->escape($value) . "' " .
             "WHERE pref_id='" . $core->con->escape($rs->pref_id) . "' " .
             "AND pref_ws='" . $core->con->escape($rs->pref_ws) . "' ";
             if ($rs->user_id == '') {
-                $rs2 .= "AND user_id IS null";
+                $rs2 .= 'AND user_id IS null';
             } else {
                 $rs2 .= "AND user_id = '" . $core->con->escape($rs->user_id) . "'";
             }
