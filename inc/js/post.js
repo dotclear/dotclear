@@ -25,28 +25,28 @@ window.addEventListener('load', () => {
     return;
   }
 
-  const remember_cookie_name = 'comment_info';
+  const remember_me_name = 'comment_info';
 
-  let cookie = readRememberCookie(dotclear.getCookie(remember_cookie_name));
+  let info = readRememberInfo();
 
-  if (cookie != false) {
-    document.getElementById('c_name').setAttribute('value', cookie[0]);
-    document.getElementById('c_mail').setAttribute('value', cookie[1]);
-    document.getElementById('c_site').setAttribute('value', cookie[2]);
+  if (info !== false) {
+    document.getElementById('c_name').setAttribute('value', info.name);
+    document.getElementById('c_mail').setAttribute('value', info.mail);
+    document.getElementById('c_site').setAttribute('value', info.site);
     document.getElementById('c_remember').setAttribute('checked', 'checked');
   }
 
   document.getElementById('c_remember').onclick = function (e) {
     if (e.target.checked) {
-      setRememberCookie();
+      setRememberInfo();
     } else {
-      dropRememberCookie();
+      dropRememberInfo();
     }
   };
 
   let copeWithModifiedInfo = function () {
     if (document.getElementById('c_remember').checked) {
-      setRememberCookie();
+      setRememberInfo();
     }
   };
 
@@ -54,33 +54,32 @@ window.addEventListener('load', () => {
   document.getElementById('c_mail').onchange = copeWithModifiedInfo;
   document.getElementById('c_site').onchange = copeWithModifiedInfo;
 
-  function setRememberCookie() {
-    let name = document.getElementById('c_name').value;
-    let mail = document.getElementById('c_mail').value;
-    let site = document.getElementById('c_site').value;
-    let cpath = document.querySelector('h1 a').getAttribute('href');
-
-    cpath = !cpath ? '/' : cpath.replace(/.*:\/\/[^\/]*([^?]*).*/g, '$1');
-
-    dotclear.setCookie(remember_cookie_name, `${name}\n${mail}\n${site}`, {
-      expires: 60, // keep cookie for 2 months (60 days)
-      path: cpath,
-    });
+  function setRememberInfo() {
+    localStorage.setItem(
+      remember_me_name,
+      JSON.stringify({
+        name: document.getElementById('c_name').value,
+        mail: document.getElementById('c_mail').value,
+        site: document.getElementById('c_site').value,
+      })
+    );
   }
 
-  function dropRememberCookie() {
-    dotclear.deleteCookie(remember_cookie_name);
+  function dropRememberInfo() {
+    localStorage.removeItem(remember_me_name);
   }
 
-  function readRememberCookie(cookie) {
-    if (!cookie) {
+  function readRememberInfo() {
+    let info = localStorage.getItem(remember_me_name);
+
+    if (info === null) {
       return false;
     }
 
-    let result = cookie.split('\n');
+    let result = JSON.parse(info);
 
-    if (result.length != 3) {
-      dropRememberCookie();
+    if (Object.keys(result).length != 3) {
+      dropRememberInfo();
       return false;
     }
 
