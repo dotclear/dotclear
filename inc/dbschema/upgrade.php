@@ -807,10 +807,19 @@ class dcUpgrade
 
         if (version_compare($version, '2.19', '<')) {
             # A bit of housecleaning for no longer needed files
+            $remfiles = [
+                // No more used in Berlin theme
+                'themes/berlin/scripts/boxsizing.htc'
+            ];
             $remfolders = [
                 // Oldest jQuery public lib
-                'inc/js/jquery/3.5.1'
+                'inc/js/jquery/3.5.1',
+                // No more used in Berlin theme
+                'themes/berlin/scripts'
             ];
+            foreach ($remfiles as $f) {
+                @unlink(DC_ROOT . '/' . $f);
+            }
             foreach ($remfolders as $f) {
                 @rmdir(DC_ROOT . '/' . $f);
             }

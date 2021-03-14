@@ -1,10 +1,8 @@
 // ----------------- LIBRAIRIES ------------------- //
 
 // ----------------- Compass config --------------- //
-// Do not support IE less than IE11
-$browser-minimum-versions: (
-  "ie": "11"
-);
+// Do not support IE
+$supported-browsers: reject(browsers(), "ie");
 $graceful-usage-threshold: 100;
 $critical-usage-threshold: 100;
 
