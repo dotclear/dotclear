@@ -1073,7 +1073,7 @@ body {
   background: var(--body-background);
   font-size: 1.4rem;
   line-height: 1.5;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
   @media screen and (max-width: 26.5em) {
     body.responsive-font {
       font-size: 1.2rem;
@@ -4363,7 +4363,7 @@ div.ui-sortable-handle {
 /* dcLegacyEditor */
 /* WYSIWYG Document */
 body.wysiwygDoc {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
 
 .wysiwygDoc pre, .wysiwygDoc code, .wysiwygDoc kbd, .wysiwygDoc samp {
   font-family: "Andale Mono", AndaleMono, Consolas, Monaco, "Courier New", monospace; }
