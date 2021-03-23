@@ -165,14 +165,16 @@ header,
 hgroup,
 main,
 nav,
-section,
-summary {
+section {
   display: block; }
 
 audio,
 canvas,
 video {
   display: inline-block; }
+
+summary {
+  display: list-item; }
 
 audio:not([controls]) {
   display: none;
