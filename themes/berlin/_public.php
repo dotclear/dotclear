@@ -8,10 +8,11 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 namespace themes\berlin;
 
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 \l10n::set(dirname(__FILE__) . '/locales/' . $_lang . '/main');
 //__('Show menu').__('Hide menu').__('Navigation');
@@ -23,7 +24,6 @@ class behaviorBerlinTheme
     public static function publicHeadContent()
     {
         echo
-        \dcUtils::jsLoad($GLOBALS['core']->blog->getPF('util.js')) .
         \dcUtils::jsJson('dotclear_berlin', [
             'show_menu'  => __('Show menu'),
             'hide_menu'  => __('Hide menu'),
