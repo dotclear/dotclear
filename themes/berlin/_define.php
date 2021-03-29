@@ -16,7 +16,7 @@ $this->registerModule(
     'Berlin',                      // Name
     'Dotclear 2.7+ default theme', // Description
     'Dotclear Team',               // Author
-    '1.3',                         // Version
+    '1.4',                         // Version
     [                              // Properties
         'type'   => 'theme',
         'tplset' => 'dotty'
