@@ -1122,8 +1122,8 @@ msgid "Save and publish"
 msgstr "no publicat"
 
 #, fuzzy, php-format
-msgid "PHP version is %s (7.0 or earlier needed)."
-msgstr "La versió PHP és %s (7.0 o més recent és necessaria)"
+msgid "PHP version is %s (7.3 or earlier needed)."
+msgstr "La versió PHP és %s (7.3 o més recent és necessaria)"
 
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "El mòdul de serie Multibyte (mbstring) no està disponible."

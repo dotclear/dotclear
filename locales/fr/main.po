@@ -1046,8 +1046,8 @@ msgid "Save and publish"
 msgstr "Enregister et publier"
 
 #, php-format
-msgid "PHP version is %s (7.0 or earlier needed)."
-msgstr "La version de PHP est %s (7.0 ou plus récente nécessaire)."
+msgid "PHP version is %s (7.3 or earlier needed)."
+msgstr "La version de PHP est %s (7.3 ou plus récente nécessaire)."
 
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "Le support des chaînes multi-octets (mbstring) n'est pas disponible."

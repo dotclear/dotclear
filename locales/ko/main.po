@@ -1120,8 +1120,8 @@ msgid "Save and publish"
 msgstr "저장하고 공개하기"
 
 #, fuzzy, php-format
-msgid "PHP version is %s (7.0 or earlier needed)."
-msgstr "PHP 버전은 %s 입니다 (7.0 또는 이후 버전 요구됨.)"
+msgid "PHP version is %s (7.3 or earlier needed)."
+msgstr "PHP 버전은 %s 입니다 (7.3 또는 이후 버전 요구됨.)"
 
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "다중바이트 문자열 모듈(mbstring)을 사용할 수 없습니다."

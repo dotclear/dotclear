@@ -1132,8 +1132,8 @@ msgid "Save and publish"
 msgstr "despublicar"
 
 #, fuzzy, php-format
-msgid "PHP version is %s (7.0 or earlier needed)."
-msgstr "A versão de PHP é %s (7.0 ou mais recente necessário)."
+msgid "PHP version is %s (7.3 or earlier needed)."
+msgstr "A versão de PHP é %s (7.3 ou mais recente necessário)."
 
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "O suporte das seqüências multibytes (mbstring) não está disponível."

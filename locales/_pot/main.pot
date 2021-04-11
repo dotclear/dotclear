@@ -1491,7 +1491,7 @@ msgstr ""
 
 #: admin/install/check.php:17
 #, php-format
-msgid "PHP version is %s (7.0 or earlier needed)."
+msgid "PHP version is %s (7.3 or earlier needed)."
 msgstr ""
 
 #: admin/install/check.php:21
