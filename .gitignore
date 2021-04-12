@@ -6,3 +6,4 @@ behat.yml
 build-tools/ckeditor/ckbuilder.jar
 var
 doxygen
+coverage
