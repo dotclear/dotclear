@@ -1,3 +1,5 @@
 [submodule "inc/libs/clearbricks"]
   path = inc/libs/clearbricks
   url  = git@git.dotclear.org:dev/clearbricks.git
+  branch = master
+
