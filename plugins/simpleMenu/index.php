@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 dcPage::check('admin');
 
@@ -51,22 +52,24 @@ while ($rs->fetch()) {
     if (($last_year == 0) || ($rs->year() > $last_year)) {
         $last_year = $rs->year();
     }
-
 }
 unset($rs);
 
 # Liste des pages -- Doit être pris en charge plus tard par le plugin ?
 $pages_combo = [];
+
 try {
     $rs = $core->blog->getPosts(['post_type' => 'page']);
     while ($rs->fetch()) {
         $pages_combo[$rs->post_title] = $rs->getURL();
     }
     unset($rs);
-} catch (Exception $e) {}
+} catch (Exception $e) {
+}
 
 # Liste des tags -- Doit être pris en charge plus tard par le plugin ?
 $tags_combo = [];
+
 try {
     $rs                         = $core->meta->getMetadata(['meta_type' => 'tag']);
     $tags_combo[__('All tags')] = '-';
@@ -74,7 +77,8 @@ try {
         $tags_combo[$rs->meta_id] = $rs->meta_id;
     }
     unset($rs);
-} catch (Exception $e) {}
+} catch (Exception $e) {
+}
 
 # Liste des types d'item de menu
 $items         = new ArrayObject();
@@ -97,13 +101,11 @@ if ($core->plugins->moduleExists('pages')) {
     if (count($pages_combo)) {
         $items['pages'] = new ArrayObject([__('Page'), true]);
     }
-
 }
 if ($core->plugins->moduleExists('tags')) {
     if (count($tags_combo) > 1) {
         $items['tags'] = new ArrayObject([__('Tags'), true]);
     }
-
 }
 
 # --BEHAVIOR-- adminSimpleMenuAddType
@@ -128,8 +130,7 @@ $menu_active = (boolean) $core->blog->settings->system->simpleMenu_active;
 
 // Saving new configuration
 if (!empty($_POST['saveconfig'])) {
-    try
-    {
+    try {
         $menu_active = (empty($_POST['active'])) ? false : true;
         $core->blog->settings->system->put('simpleMenu_active', $menu_active, 'boolean');
         $core->blog->triggerBlog();
@@ -142,11 +143,11 @@ if (!empty($_POST['saveconfig'])) {
     }
 } else {
     # Récupération paramètres postés
-    $item_type        = isset($_POST['item_type']) ? $_POST['item_type'] : '';
-    $item_select      = isset($_POST['item_select']) ? $_POST['item_select'] : '';
-    $item_label       = isset($_POST['item_label']) ? $_POST['item_label'] : '';
-    $item_descr       = isset($_POST['item_descr']) ? $_POST['item_descr'] : '';
-    $item_url         = isset($_POST['item_url']) ? $_POST['item_url'] : '';
+    $item_type        = $_POST['item_type']   ?? '';
+    $item_select      = $_POST['item_select'] ?? '';
+    $item_label       = $_POST['item_label']  ?? '';
+    $item_descr       = $_POST['item_descr']  ?? '';
+    $item_url         = $_POST['item_url']    ?? '';
     $item_targetBlank = isset($_POST['item_targetBlank']) ? (empty($_POST['item_targetBlank'])) ? false : true : false;
     # Traitement
     $step = (!empty($_GET['add']) ? (integer) $_GET['add'] : 0);
@@ -163,11 +164,13 @@ if (!empty($_POST['saveconfig'])) {
             case 1:
                 // First step, menu item type to be selected
                 $item_type = $item_select = '';
+
                 break;
             case 2:
                 if ($items[$item_type][1]) {
                     // Second step (optional), menu item sub-type to be selected
                     $item_select = '';
+
                     break;
                 }
             case 3:
@@ -180,23 +183,27 @@ if (!empty($_POST['saveconfig'])) {
                     case 'home':
                         $item_label = __('Home');
                         $item_descr = $core->blog->settings->system->static_home ? __('Home page') : __('Recent posts');
+
                         break;
                     case 'posts':
                         $item_label = __('Posts');
                         $item_descr = __('Recent posts');
                         $item_url .= $core->url->getURLFor('posts');
+
                         break;
                     case 'lang':
                         $item_select_label = array_search($item_select, $langs_combo);
                         $item_label        = $item_select_label;
                         $item_descr        = sprintf(__('Switch to %s language'), $item_select_label);
                         $item_url .= $core->url->getURLFor('lang', $item_select);
+
                         break;
                     case 'category':
                         $item_select_label = $categories_label[$item_select];
                         $item_label        = $item_select_label;
                         $item_descr        = __('Recent Posts from this category');
                         $item_url .= $core->url->getURLFor('category', $item_select);
+
                         break;
                     case 'archive':
                         $item_select_label = array_search($item_select, $months_combo);
@@ -209,12 +216,14 @@ if (!empty($_POST['saveconfig'])) {
                             $item_descr = sprintf(__('Posts from %s'), $item_select_label);
                             $item_url .= $core->url->getURLFor('archive', substr($item_select, 0, 4) . '/' . substr($item_select, -2));
                         }
+
                         break;
                     case 'pages':
                         $item_select_label = array_search($item_select, $pages_combo);
                         $item_label        = $item_select_label;
                         $item_descr        = '';
                         $item_url          = html::stripHostURL($item_select);
+
                         break;
                     case 'tags':
                         $item_select_label = array_search($item_select, $tags_combo);
@@ -227,6 +236,7 @@ if (!empty($_POST['saveconfig'])) {
                             $item_descr = sprintf(__('Recent posts for %s tag'), $item_select_label);
                             $item_url .= $core->url->getURLFor('tag', $item_select);
                         }
+
                         break;
                     case 'special':
                         break;
@@ -235,9 +245,11 @@ if (!empty($_POST['saveconfig'])) {
                         # Should modify if necessary $item_label, $item_descr and $item_url
                         # Should set if necessary $item_select_label (displayed on further admin step only)
                         $core->callBehavior('adminSimpleMenuBeforeEdit', $item_type, $item_select,
-                            [ & $item_label, &$item_descr, &$item_url, &$item_select_label]);
+                            [& $item_label, &$item_descr, &$item_url, &$item_select_label]);
+
                         break;
                 }
+
                 break;
             case 4:
                 // Fourth step, menu item to be added
@@ -266,6 +278,7 @@ if (!empty($_POST['saveconfig'])) {
                 } catch (Exception $e) {
                     $core->error->add($e->getMessage());
                 }
+
                 break;
         }
     } else {
@@ -311,13 +324,11 @@ if (!empty($_POST['saveconfig'])) {
                     if (!$v) {
                         throw new Exception(__('Label is mandatory.'));
                     }
-
                 }
                 foreach ($_POST['items_url'] as $k => $v) {
                     if (!$v) {
                         throw new Exception(__('URL is mandatory.'));
                     }
-
                 }
                 $newmenu = [];
                 for ($i = 0; $i < count($_POST['items_label']); $i++) {
@@ -397,10 +408,12 @@ if ($step) {
     switch ($step) {
         case 1:
             $step_label = __('Step #1');
+
             break;
         case 2:
             if ($items[$item_type][1]) {
                 $step_label = __('Step #2');
+
                 break;
             }
         case 3:
@@ -409,6 +422,7 @@ if ($step) {
             } else {
                 $step_label = __('Step #2');
             }
+
             break;
     }
     echo dcPage::breadcrumb(
@@ -442,6 +456,7 @@ if ($step) {
             echo '<p>' . $core->formNonce() . '<input type="submit" name="appendaction" value="' . __('Continue...') . '" />' . '</p>';
             echo '</fieldset>';
             echo '</form>';
+
             break;
         case 2:
             if ($items[$item_type][1]) {
@@ -452,22 +467,27 @@ if ($step) {
                     case 'lang':
                         echo '<p class="field"><label for="item_select" class="classic">' . __('Select language:') . '</label>' .
                         form::combo('item_select', $langs_combo);
+
                         break;
                     case 'category':
                         echo '<p class="field"><label for="item_select" class="classic">' . __('Select category:') . '</label>' .
                         form::combo('item_select', $categories_combo);
+
                         break;
                     case 'archive':
                         echo '<p class="field"><label for="item_select" class="classic">' . __('Select month (if necessary):') . '</label>' .
                         form::combo('item_select', $months_combo);
+
                         break;
                     case 'pages':
                         echo '<p class="field"><label for="item_select" class="classic">' . __('Select page:') . '</label>' .
                         form::combo('item_select', $pages_combo);
+
                         break;
                     case 'tags':
                         echo '<p class="field"><label for="item_select" class="classic">' . __('Select tag (if necessary):') . '</label>' .
                         form::combo('item_select', $tags_combo);
+
                         break;
                     default:
                         echo
@@ -479,6 +499,7 @@ if ($step) {
                 echo '<p>' . $core->formNonce() . '<input type="submit" name="appendaction" value="' . __('Continue...') . '" /></p>';
                 echo '</fieldset>';
                 echo '</form>';
+
                 break;
             }
         case 3:
@@ -511,6 +532,7 @@ if ($step) {
             echo '<p>' . $core->formNonce() . '<input type="submit" name="appendaction" value="' . __('Add this item') . '" /></p>';
             echo '</fieldset>';
             echo '</form>';
+
             break;
     }
 }
@@ -581,24 +603,23 @@ if (count($menu)) {
             ]) .
             form::hidden(['dynorder[]', 'dynorder-' . $i], $i) . '</td>';
             echo '<td class="minimal">' . form::checkbox(['items_selected[]', 'ims-' . $i], $i) . '</td>';
-            echo '<td class="nowrap" scope="row">' . form::field(['items_label[]', 'iml-' . $i], '', 255,
+            echo '<td class="nowrap" scope="row">' . form::field(['items_label[]', 'iml-' . $i], null, 255,
                 [
                     'default'    => html::escapeHTML($m['label']),
                     'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
                 ]) . '</td>';
-            echo '<td class="nowrap">' . form::field(['items_descr[]', 'imd-' . $i], '30', 255,
+            echo '<td class="nowrap">' . form::field(['items_descr[]', 'imd-' . $i], 30, 255,
                 [
                     'default'    => html::escapeHTML($m['descr']),
                     'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
                 ]) . '</td>';
-            echo '<td class="nowrap">' . form::field(['items_url[]', 'imu-' . $i], '30', 255, html::escapeHTML($m['url'])) . '</td>';
+            echo '<td class="nowrap">' . form::field(['items_url[]', 'imu-' . $i], 30, 255, html::escapeHTML($m['url'])) . '</td>';
             echo '<td class="nowrap">' . form::checkbox('items_targetBlank' . $i, 'blank', $targetBlank) . '</td>';
         } else {
             echo '<td class="nowrap" scope="row">' . html::escapeHTML($m['label']) . '</td>';
             echo '<td class="nowrap">' . html::escapeHTML($m['descr']) . '</td>';
             echo '<td class="nowrap">' . html::escapeHTML($m['url']) . '</td>';
             echo '<td class="nowrap">' . $targetBlankStr . '</td>';
-
         }
         echo '</tr>';
     }
