@@ -22,7 +22,8 @@
 		"symfony/dom-crawler": ">=2.0,<2.4-dev",
 		"symfony/translation": "<2.3.0",
 		"behat/mink-extension": "1.3.*",
-		"behat/mink-goutte-driver": "1.*"
+		"behat/mink-goutte-driver": "1.*",
+		"phpstan/phpstan": "0.12.x-dev"
 	},
 	"config": {
 		"bin-dir": "bin/"

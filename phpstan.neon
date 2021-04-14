@@ -1,0 +1,18 @@
+parameters:
+  level: 8
+
+  paths:
+    - admin
+    - inc
+    - plugins
+    - themes/berlin
+    - themes/blueSilence
+    - themes/customCSS
+    - themes/default
+    - themes/ductile
+
+  excludePaths:
+    - inc/libs/cleabricks/debian/*
+    - inc/libs/cleabricks/tests/*
+
+  reportUnmatchedIgnoredErrors: false

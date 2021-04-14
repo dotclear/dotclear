@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc42b1e538e02ad4230b7f75cba1aa05",
+    "content-hash": "79dbc09ff5e214f3b8a6889ab5b17efc",
     "packages": [],
     "packages-dev": [
         {
@@ -1105,6 +1105,67 @@
                 "source": "https://github.com/phpspec/prophecy/tree/master"
             },
             "time": "2015-08-13T10:07:40+00:00"
+        },
+        {
+            "name": "phpstan/phpstan",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan.git",
+                "reference": "99b5b7cb4a93e16c29bbe50b9b019ac176dc987b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/99b5b7cb4a93e16c29bbe50b9b019ac176dc987b",
+                "reference": "99b5b7cb4a93e16c29bbe50b9b019ac176dc987b",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1|^8.0"
+            },
+            "conflict": {
+                "phpstan/phpstan-shim": "*"
+            },
+            "default-branch": true,
+            "bin": [
+                "phpstan",
+                "phpstan.phar"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.12-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHPStan - PHP Static Analysis Tool",
+            "support": {
+                "issues": "https://github.com/phpstan/phpstan/issues",
+                "source": "https://github.com/phpstan/phpstan/tree/master"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/ondrejmirtes",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpstan",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpstan/phpstan",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-04-12T16:42:14+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2967,7 +3028,8 @@
         "fzaninotto/faker": 20,
         "atoum/reports-extension": 20,
         "behat/mink": 20,
-        "symfony/dom-crawler": 20
+        "symfony/dom-crawler": 20,
+        "phpstan/phpstan": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
