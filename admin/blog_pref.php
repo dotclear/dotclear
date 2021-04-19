@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 $standalone = !isset($edit_blog_mode);
 
 $blog_id = false;
@@ -21,12 +20,12 @@ if ($standalone) {
     $blog_settings = $core->blog->settings;
     $blog_url      = $core->blog->url;
 
-    $action = $core->adminurl->get("admin.blog.pref");
-    $redir  = $core->adminurl->get("admin.blog.pref");
+    $action = $core->adminurl->get('admin.blog.pref');
+    $redir  = $core->adminurl->get('admin.blog.pref');
 } else {
     dcPage::checkSuper();
-    try
-    {
+
+    try {
         if (empty($_REQUEST['id'])) {
             throw new Exception(__('No given blog id.'));
         }
@@ -46,8 +45,8 @@ if ($standalone) {
         $core->error->add($e->getMessage());
     }
 
-    $action = $core->adminurl->get("admin.blog");
-    $redir  = $core->adminurl->get("admin.blog", ['id' => "%s"], '&', true);
+    $action = $core->adminurl->get('admin.blog');
+    $redir  = $core->adminurl->get('admin.blog', ['id' => '%s'], '&', true);
 }
 
 # Language codes
@@ -109,6 +108,7 @@ if (!in_array($blog_settings->system->media_img_title_pattern, $img_title_combo)
 
 # Image default size combo
 $img_default_size_combo = [];
+
 try {
     $media                                  = new dcMedia($core);
     $img_default_size_combo[__('original')] = 'o';
@@ -169,34 +169,51 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin', $blog_id)) {
     }
 
     $media_img_t_size = (integer) $_POST['media_img_t_size'];
-    if ($media_img_t_size < 0) {$media_img_t_size = 100;}
+    if ($media_img_t_size < 0) {
+        $media_img_t_size = 100;
+    }
 
     $media_img_s_size = (integer) $_POST['media_img_s_size'];
-    if ($media_img_s_size < 0) {$media_img_s_size = 240;}
+    if ($media_img_s_size < 0) {
+        $media_img_s_size = 240;
+    }
 
     $media_img_m_size = (integer) $_POST['media_img_m_size'];
-    if ($media_img_m_size < 0) {$media_img_m_size = 448;}
+    if ($media_img_m_size < 0) {
+        $media_img_m_size = 448;
+    }
 
     $media_video_width = (integer) $_POST['media_video_width'];
-    if ($media_video_width < 0) {$media_video_width = 400;}
+    if ($media_video_width < 0) {
+        $media_video_width = 400;
+    }
 
     $media_video_height = (integer) $_POST['media_video_height'];
-    if ($media_video_height < 0) {$media_video_height = 300;}
+    if ($media_video_height < 0) {
+        $media_video_height = 300;
+    }
 
     $nb_post_for_home = abs((integer) $_POST['nb_post_for_home']);
-    if ($nb_post_for_home < 1) {$nb_post_for_home = 1;}
+    if ($nb_post_for_home < 1) {
+        $nb_post_for_home = 1;
+    }
 
     $nb_post_per_page = abs((integer) $_POST['nb_post_per_page']);
-    if ($nb_post_per_page < 1) {$nb_post_per_page = 1;}
+    if ($nb_post_per_page < 1) {
+        $nb_post_per_page = 1;
+    }
 
     $nb_post_per_feed = abs((integer) $_POST['nb_post_per_feed']);
-    if ($nb_post_per_feed < 1) {$nb_post_per_feed = 1;}
+    if ($nb_post_per_feed < 1) {
+        $nb_post_per_feed = 1;
+    }
 
     $nb_comment_per_feed = abs((integer) $_POST['nb_comment_per_feed']);
-    if ($nb_comment_per_feed < 1) {$nb_comment_per_feed = 1;}
+    if ($nb_comment_per_feed < 1) {
+        $nb_comment_per_feed = 1;
+    }
 
-    try
-    {
+    try {
         if ($cur->blog_id != null && $cur->blog_id != $blog_id) {
             $rs = $core->getBlog($cur->blog_id);
 
@@ -275,6 +292,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin', $blog_id)) {
         $blog_settings->system->put('jquery_needed', !empty($_POST['jquery_needed']));
         $blog_settings->system->put('jquery_version', $_POST['jquery_version']);
         $blog_settings->system->put('prevents_clickjacking', !empty($_POST['prevents_clickjacking']));
+        $blog_settings->system->put('prevents_floc', !empty($_POST['prevents_floc']));
         $blog_settings->system->put('static_home', !empty($_POST['static_home']));
         $blog_settings->system->put('static_home_url', $_POST['static_home_url']);
 
@@ -305,7 +323,7 @@ if ($standalone) {
     $breadcrumb = dcPage::breadcrumb(
         [
             __('System')                                               => '',
-            __('Blogs')                                                => $core->adminurl->get("admin.blogs"),
+            __('Blogs')                                                => $core->adminurl->get('admin.blogs'),
             __('Blog settings') . ' : ' . html::escapeHTML($blog_name) => ''
         ]);
 }
@@ -373,7 +391,6 @@ if ($blog_id) {
         echo
         '<p><label for="blog_status">' . __('Blog status:') . '</label>' .
         form::combo('blog_status', $status_combo, $blog_status) . '</p>';
-
     } else {
         /*
         Only super admins can change the blog ID and URL, but we need to pass
@@ -658,8 +675,7 @@ if ($blog_id) {
         '<p><label for="url_scan">' . __('URL scan method:') . '</label>' .
         form::combo('url_scan', $url_scan_combo, $blog_settings->system->url_scan) . '</p>';
 
-        try
-        {
+        try {
             # Test URL of blog by testing it's ATOM feed
             $file    = $blog_url . $core->url->getURLFor('feed', 'atom');
             $path    = '';
@@ -762,6 +778,9 @@ if ($blog_id) {
     '<p><label for="prevents_clickjacking" class="classic">' .
     form::checkbox('prevents_clickjacking', '1', $blog_settings->system->prevents_clickjacking) .
     __('Protect the blog from Clickjacking (see <a href="https://en.wikipedia.org/wiki/Clickjacking">Wikipedia</a>)') . '</label></p>' .
+    '<p><label for="prevents_floc" class="classic">' .
+    form::checkbox('prevents_floc', '1', $blog_settings->system->prevents_floc) .
+    __('Protect the blog from FLoC tracking (see <a href="https://github.com/WICG/floc" hreflang="en">FLoC</a>)') . '</label></p>' .
     '<br class="clear" />' . //Opera sucks
 
     '</div>';
@@ -784,7 +803,7 @@ if ($blog_id) {
 
     if ($core->auth->isSuperAdmin() && $blog_id != $core->blog->id) {
         echo
-        '<form action="' . $core->adminurl->get("admin.blog.del") . '" method="post">' .
+        '<form action="' . $core->adminurl->get('admin.blog.del') . '" method="post">' .
         '<p><input type="submit" class="delete" value="' . __('Delete this blog') . '" />' .
         form::hidden(['blog_id'], $blog_id) .
         $core->formNonce() . '</p>' .
@@ -813,7 +832,7 @@ if ($blog_id) {
         echo '<p>' . __('No users') . '</p>';
     } else {
         if ($core->auth->isSuperAdmin()) {
-            $user_url_p = '<a href="' . $core->adminurl->get("admin.user", ['id' => '%1$s'], '&amp;', true) . '">%1$s</a>';
+            $user_url_p = '<a href="' . $core->adminurl->get('admin.user', ['id' => '%1$s'], '&amp;', true) . '">%1$s</a>';
         } else {
             $user_url_p = '%1$s';
         }
@@ -884,7 +903,7 @@ if ($blog_id) {
                     echo
                     '<form action="' . $core->adminurl->get('admin.user.actions') . '" method="post">' .
                     '<p class="change-user-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '" />' .
-                    form::hidden(['redir'], $core->adminurl->get("admin.blog.pref", ['id' => $k], '&')) .
+                    form::hidden(['redir'], $core->adminurl->get('admin.blog.pref', ['id' => $k], '&')) .
                     form::hidden(['action'], 'perms') .
                     form::hidden(['users[]'], $k) .
                     form::hidden(['blogs[]'], $blog_id) .

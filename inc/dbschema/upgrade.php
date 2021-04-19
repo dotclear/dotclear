@@ -823,6 +823,15 @@ class dcUpgrade
             foreach ($remfolders as $f) {
                 @rmdir(DC_ROOT . '/' . $f);
             }
+
+            # Global settings
+            $strReq = 'INSERT INTO ' . $core->prefix . 'setting' .
+                ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
+                ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
+            $core->con->execute(
+                sprintf($strReq, 'prevents_clickjacking', true, 'boolean', 'Prevents Clickjacking'));
+            $core->con->execute(
+                sprintf($strReq, 'prevents_floc', true, 'boolean', 'Prevents FLoC tracking'));
         }
 
         $core->setVersion('core', DC_VERSION);

@@ -541,6 +541,9 @@ msgstr "Sécurité du blog"
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr "Protéger le blog des détournements de clic ou Clickjacking (voir <a href=\"https://fr.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 
+msgid "Protect the blog from FLoC tracking (see <a href="https://github.com/WICG/floc" hreflang="en">FLoC</a>)"
+msgstr "Protéger le blog contre le suivi FLoC (voir <a href="https://github.com/WICG/floc" hreflang="en">FLoC</a>)"
+
 msgid "Plugins parameters"
 msgstr "Paramètres des plugins pour ce blog"
 

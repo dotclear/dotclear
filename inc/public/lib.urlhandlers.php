@@ -6,8 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcUrlHandlers extends urlHandler
 {
@@ -16,6 +17,7 @@ class dcUrlHandlers extends urlHandler
     protected function getHomeType()
     {
         $core = &$GLOBALS['core'];
+
         return $core->blog->settings->system->static_home ? 'static' : 'default';
     }
 
@@ -27,7 +29,7 @@ class dcUrlHandlers extends urlHandler
     public function getURLFor($type, $value = '')
     {
         $core = &$GLOBALS['core'];
-        $url  = $core->callBehavior("publicGetURLFor", $type, $value);
+        $url  = $core->callBehavior('publicGetURLFor', $type, $value);
         if (!$url) {
             $url = $this->getBase($type);
             if ($value) {
@@ -37,6 +39,7 @@ class dcUrlHandlers extends urlHandler
                 $url .= $value;
             }
         }
+
         return $url;
     }
 
@@ -44,13 +47,13 @@ class dcUrlHandlers extends urlHandler
     {
         $core = &$GLOBALS['core'];
         $t    = new ArrayObject([$type, $url, $representation, $handler]);
-        $core->callBehavior("publicRegisterURL", $t);
+        $core->callBehavior('publicRegisterURL', $t);
         parent::register($t[0], $t[1], $t[2], $t[3]);
     }
 
     public static function p404()
     {
-        throw new Exception("Page not found", 404);
+        throw new Exception('Page not found', 404);
     }
 
     public static function default404($args, $type, $e)
@@ -80,6 +83,7 @@ class dcUrlHandlers extends urlHandler
             $n = (integer) $m[2];
             if ($n > 0) {
                 $args = preg_replace('#(^|/)page/([0-9]+)$#', '', $args);
+
                 return $n;
             }
         }
@@ -126,12 +130,15 @@ class dcUrlHandlers extends urlHandler
             if ($_ctx->exists('xframeoption')) {
                 $url    = parse_url($_ctx->xframeoption);
                 $header = sprintf('X-Frame-Options: %s',
-                    is_array($url) ? ("ALLOW-FROM " . $url['scheme'] . '://' . $url['host']) : 'SAMEORIGIN');
+                    is_array($url) ? ('ALLOW-FROM ' . $url['scheme'] . '://' . $url['host']) : 'SAMEORIGIN');
             } else {
-                                                         // Prevents Clickjacking as far as possible
+                // Prevents Clickjacking as far as possible
                 $header = 'X-Frame-Options: SAMEORIGIN'; // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
             }
             $headers[] = $header;
+        }
+        if ($core->blog->settings->system->prevents_floc) {
+            $headers[] = 'Permissions-Policy: interest-cohort=()';
         }
         # --BEHAVIOR-- urlHandlerServeDocumentHeaders
         $core->callBehavior('urlHandlerServeDocumentHeaders', $headers);
@@ -182,9 +189,9 @@ class dcUrlHandlers extends urlHandler
                 foreach ($qs as $k => $v) {
                     if ($v === null) {
                         $part = $k;
-                        unset($_GET[$k]);
-                        unset($_REQUEST[$k]);
+                        unset($_GET[$k], $_REQUEST[$k]);
                     }
+
                     break;
                 }
             }
@@ -209,7 +216,7 @@ class dcUrlHandlers extends urlHandler
     public static function home($args)
     {
         // Page number may have been set by self::lang() which ends with a call to self::home(null)
-        $n = $args ? self::getPageNumber($args) : (isset($GLOBALS['_page_number']) ? $GLOBALS['_page_number'] : 0);
+        $n = $args ? self::getPageNumber($args) : ($GLOBALS['_page_number'] ?? 0);
 
         if ($args && !$n) {
             # Then specified URL went unrecognized by all URL handlers and
@@ -263,9 +270,7 @@ class dcUrlHandlers extends urlHandler
 
             # Search is disabled for this blog.
             self::p404();
-
         } else {
-
             $core->url->type = 'search';
 
             $GLOBALS['_search'] = !empty($_GET['q']) ? html::escapeHTML(rawurldecode($_GET['q'])) : '';
@@ -425,14 +430,12 @@ class dcUrlHandlers extends urlHandler
                         setcookie('dc_passwd', json_encode($pwd_cookie), 0, '/');
                     } else {
                         self::serveDocument('password-form.html', 'text/html', false);
+
                         return;
                     }
                 }
 
-                $post_comment =
-                isset($_POST['c_name']) && isset($_POST['c_mail']) &&
-                isset($_POST['c_site']) && isset($_POST['c_content']) &&
-                $_ctx->posts->commentsActive();
+                $post_comment = isset($_POST['c_name']) && isset($_POST['c_mail']) && isset($_POST['c_site']) && isset($_POST['c_content']) && $_ctx->posts->commentsActive();
 
                 # Posting a comment
                 if ($post_comment) {
@@ -440,7 +443,7 @@ class dcUrlHandlers extends urlHandler
                     if (!empty($_POST['f_mail'])) {
                         http::head(412, 'Precondition Failed');
                         header('Content-Type: text/plain');
-                        echo "So Long, and Thanks For All the Fish";
+                        echo 'So Long, and Thanks For All the Fish';
                         # Exits immediately the application to preserve the server.
                         exit;
                     }
@@ -492,8 +495,7 @@ class dcUrlHandlers extends urlHandler
                         $redir = $_ctx->posts->getURL();
                         $redir .= $core->blog->settings->system->url_scan == 'query_string' ? '&' : '?';
 
-                        try
-                        {
+                        try {
                             if (!text::isEmail($cur->comment_email)) {
                                 throw new Exception(__('You must provide a valid email address.'));
                             }
@@ -525,7 +527,7 @@ class dcUrlHandlers extends urlHandler
 
                 # The entry
                 if ($_ctx->posts->trackbacksActive()) {
-                    header('X-Pingback: ' . $core->blog->url . $core->url->getURLFor("xmlrpc", $core->blog->id));
+                    header('X-Pingback: ' . $core->blog->url . $core->url->getURLFor('xmlrpc', $core->blog->id));
                     header('Link: <' . $core->blog->url . $core->url->getURLFor('webmention') . '>; rel="webmention"');
                 }
                 self::serveDocument('post.html');
@@ -550,7 +552,7 @@ class dcUrlHandlers extends urlHandler
                 self::p404();
             } else {
                 $_ctx->preview = true;
-                if (defined("DC_ADMIN_URL")) {
+                if (defined('DC_ADMIN_URL')) {
                     $_ctx->xframeoption = DC_ADMIN_URL;
                 }
                 self::post($post_url);
@@ -583,15 +585,16 @@ class dcUrlHandlers extends urlHandler
             if ($_ctx->langs->isEmpty()) {
                 # The specified language does not exist.
                 self::p404();
+
                 return;
-            } else {
-                $_ctx->cur_lang = $m[1];
             }
+            $_ctx->cur_lang = $m[1];
         }
 
         if (preg_match('#^rss2/xslt$#', $args, $m)) {
             # RSS XSLT stylesheet
             self::serveDocument('rss2.xsl', 'text/xml');
+
             return;
         } elseif (preg_match('#^(atom|rss2)/comments/([0-9]+)$#', $args, $m)) {
             # Post comments feed
@@ -608,6 +611,7 @@ class dcUrlHandlers extends urlHandler
         } else {
             # The specified Feed URL is malformed.
             self::p404();
+
             return;
         }
 
@@ -623,6 +627,7 @@ class dcUrlHandlers extends urlHandler
             if ($_ctx->categories->isEmpty()) {
                 # The specified category does no exist.
                 self::p404();
+
                 return;
             }
 
@@ -639,6 +644,7 @@ class dcUrlHandlers extends urlHandler
             if ($_ctx->posts->isEmpty()) {
                 # The specified post does not exist.
                 self::p404();
+
                 return;
             }
 
