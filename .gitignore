@@ -1,13 +1,13 @@
-cache
-inc/config.php
+/cache
+/inc/config.php
 \.htaccess
-public
-behat.yml
-build-tools/ckeditor/ckbuilder.jar
-var
+/public
+/behat.yml
+/build-tools/ckeditor/ckbuilder.jar
+/var
 
 # composer stuff
-vendor
-composer.phar
-coverage
-doxygen
+/vendor
+/composer.phar
+/coverage
+/doxygen
