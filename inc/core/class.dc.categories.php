@@ -10,10 +10,10 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcCategories extends nestedTree
 {
@@ -36,18 +36,21 @@ class dcCategories extends nestedTree
     public function getChildren($start = 0, $id = null, $sort = 'asc', $fields = [])
     {
         $fields = array_merge(['cat_title', 'cat_url', 'cat_desc'], $fields);
+
         return parent::getChildren($start, $id, $sort, $fields);
     }
 
     public function getParents($id, $fields = [])
     {
         $fields = array_merge(['cat_title', 'cat_url', 'cat_desc'], $fields);
+
         return parent::getParents($id, $fields);
     }
 
     public function getParent($id, $fields = [])
     {
         $fields = array_merge(['cat_title', 'cat_url', 'cat_desc'], $fields);
+
         return parent::getParent($id, $fields);
     }
 }
@@ -155,8 +158,8 @@ abstract class nestedTree
 
         # We want to put it at the end
         $this->con->writeLock($this->table);
-        try
-        {
+
+        try {
             $rs = $this->con->select('SELECT MAX(' . $this->f_id . ') as n_id FROM ' . $this->table);
             $id = $rs->n_id;
 
@@ -167,18 +170,22 @@ abstract class nestedTree
             );
             $last = $rs->n_r == 0 ? 1 : $rs->n_r;
 
-            $data->{$this->f_id}    = $id + 1;
+            $data->{$this->f_id}    = $id   + 1;
             $data->{$this->f_left}  = $last + 1;
             $data->{$this->f_right} = $last + 2;
 
             $data->insert();
             $this->con->unlock();
+
             try {
                 $this->setNodeParent($id + 1, $target);
+
                 return $data->{$this->f_id};
-            } catch (Exception $e) {} # We don't mind error in this case
+            } catch (Exception $e) {
+            } # We don't mind error in this case
         } catch (Exception $e) {
             $this->con->unlock();
+
             throw $e;
         }
     }
@@ -195,11 +202,13 @@ abstract class nestedTree
         . $this->getCondition();
 
         $this->con->begin();
+
         try {
             $this->con->execute($sql);
             $this->con->commit();
         } catch (Exception $e) {
             $this->con->rollback();
+
             throw $e;
         }
     }
@@ -215,8 +224,7 @@ abstract class nestedTree
         $node_left  = (integer) $rs->{$this->f_left};
         $node_right = (integer) $rs->{$this->f_right};
 
-        try
-        {
+        try {
             $this->con->begin();
 
             if ($keep_children) {
@@ -263,6 +271,7 @@ abstract class nestedTree
             $this->con->commit();
         } catch (Exception $e) {
             $this->con->rollback();
+
             throw $e;
         }
     }
@@ -278,8 +287,8 @@ abstract class nestedTree
 
         $lft = 2;
         $this->con->begin();
-        try
-        {
+
+        try {
             while ($rs->fetch()) {
                 $this->con->execute(
                     'UPDATE ' . $this->table . ' SET '
@@ -292,6 +301,7 @@ abstract class nestedTree
             $this->con->commit();
         } catch (Exception $e) {
             $this->con->rollback();
+
             throw $e;
         }
     }
@@ -475,6 +485,7 @@ abstract class nestedTree
         foreach ($this->add_condition as $c => $n) {
             $w[] = $prefix . $c . ' = ' . $n;
         }
+
         return ' ' . $start . ' ' . implode(' AND ', $w) . ' ';
     }
 }

@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 /**
 Main class to call everything related to maintenance.
@@ -178,6 +179,7 @@ class dcMaintenance
         foreach ($this->tasks as $task) {
             $res .= $task->header();
         }
+
         return $res;
     }
     //@}

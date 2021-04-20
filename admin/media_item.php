@@ -56,6 +56,8 @@ if ($popup) {
 
 $core_media_writable = false;
 
+$dirs_combo = [];
+
 try {
     $core->media = new dcMedia($core);
 
@@ -71,7 +73,6 @@ try {
     $core_media_writable = $core->media->writable();
 
     # Prepare directories combo box
-    $dirs_combo = [];
     foreach ($core->media->getDBDirs() as $v) {
         $dirs_combo['/' . $v] = $v;
     }
@@ -712,7 +713,8 @@ if (empty($_GET['find_posts'])) {
     } else {
         echo '<ul>';
         while ($rs->fetch()) {
-            $img = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
+            $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
+            $img_status = '';
             switch ($rs->post_status) {
                 case 1:
                     $img_status = sprintf($img, __('published'), 'check-on.png');

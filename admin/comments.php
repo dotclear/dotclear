@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
@@ -17,7 +16,7 @@ if (!empty($_POST['delete_all_spam'])) {
     try {
         $core->blog->delJunkComments();
         $_SESSION['comments_del_spam'] = true;
-        $core->adminurl->redirect("admin.comments");
+        $core->adminurl->redirect('admin.comments');
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
     }
@@ -44,7 +43,7 @@ $sortby_combo = [
     __('Status')      => 'comment_status'
 ];
 # --BEHAVIOR-- adminCommentsSortbyCombo
-$core->callBehavior('adminCommentsSortbyCombo', [ & $sortby_combo]);
+$core->callBehavior('adminCommentsSortbyCombo', [& $sortby_combo]);
 
 $sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request
@@ -53,7 +52,7 @@ $sortby_lex = [
     'comment_spam_filter' => 'comment_spam_filter'];
 
 # --BEHAVIOR-- adminCommentsSortbyLexCombo
-$core->callBehavior('adminCommentsSortbyLexCombo', [ & $sortby_lex]);
+$core->callBehavior('adminCommentsSortbyLexCombo', [& $sortby_lex]);
 
 $order_combo = [
     __('Descending') => 'desc',
@@ -68,8 +67,8 @@ $default_order  = $core->auth->user_prefs->interface->comments_order ?: 'desc';
 $nb_per_page    = $core->auth->user_prefs->interface->nb_comments_per_page ?: 30;
 
 # Filters
-$author = isset($_GET['author']) ? $_GET['author'] : '';
-$status = isset($_GET['status']) ? $_GET['status'] : '';
+$author = $_GET['author'] ?? '';
+$status = $_GET['status'] ?? '';
 $type   = !empty($_GET['type']) ? $_GET['type'] : '';
 $ip     = !empty($_GET['ip']) ? $_GET['ip'] : '';
 $email  = !empty($_GET['email']) ? $_GET['email'] : '';
@@ -122,7 +121,7 @@ if ($status !== '' && in_array($status, $status_combo)) {
 }
 
 if ($show_ip) {
-# - IP filter
+    # - IP filter
     if ($ip) {
         $params['comment_ip'] = $ip;
         $show_filters         = true;
@@ -168,7 +167,7 @@ if ($core->auth->check('delete,contentadmin', $core->blog->id) && $status == -2)
     $default = 'delete';
 }
 
-$comments_actions_page = new dcCommentsActionsPage($core, $core->adminurl->get("admin.comments"));
+$comments_actions_page = new dcCommentsActionsPage($core, $core->adminurl->get('admin.comments'));
 
 if ($comments_actions_page->process()) {
     return;
@@ -176,6 +175,8 @@ if ($comments_actions_page->process()) {
 
 /* Get comments
 -------------------------------------------------------- */
+$comment_list = null;
+
 try {
     $comments     = $core->blog->getComments($params);
     $counter      = $core->blog->getComments($params, true);
@@ -209,17 +210,16 @@ if (!$core->error->flag()) {
 
     $spam_count = $core->blog->getComments(['comment_status' => -2], true)->f(0);
     if ($spam_count > 0) {
-
         echo
-        '<form action="' . $core->adminurl->get("admin.comments") . '" method="post" class="fieldset">';
+        '<form action="' . $core->adminurl->get('admin.comments') . '" method="post" class="fieldset">';
 
         if (!$with_spam || ($status != -2)) {
             if ($spam_count == 1) {
                 echo '<p>' . sprintf(__('You have one spam comment.'), '<strong>' . $spam_count . '</strong>') . ' ' .
-                '<a href="' . $core->adminurl->get("admin.comments", ['status' => -2]) . '">' . __('Show it.') . '</a></p>';
+                '<a href="' . $core->adminurl->get('admin.comments', ['status' => -2]) . '">' . __('Show it.') . '</a></p>';
             } elseif ($spam_count > 1) {
                 echo '<p>' . sprintf(__('You have %s spam comments.'), '<strong>' . $spam_count . '</strong>') . ' ' .
-                '<a href="' . $core->adminurl->get("admin.comments", ['status' => -2]) . '">' . __('Show them.') . '</a></p>';
+                '<a href="' . $core->adminurl->get('admin.comments', ['status' => -2]) . '">' . __('Show them.') . '</a></p>';
             }
         }
 
@@ -235,7 +235,7 @@ if (!$core->error->flag()) {
     }
 
     echo
-    '<form action="' . $core->adminurl->get("admin.comments") . '" method="get" id="filters-form">' .
+    '<form action="' . $core->adminurl->get('admin.comments') . '" method="get" id="filters-form">' .
     '<h3 class="out-of-screen-if-js">' . __('Show filters and display options') . '</h3>' .
 
     '<div class="table">' .
@@ -286,7 +286,7 @@ if (!$core->error->flag()) {
 
     # Show comments
     $comment_list->display($page, $nb_per_page,
-        '<form action="' . $core->adminurl->get("admin.comments") . '" method="post" id="form-comments">' .
+        '<form action="' . $core->adminurl->get('admin.comments') . '" method="post" id="form-comments">' .
 
         '%s' .
 

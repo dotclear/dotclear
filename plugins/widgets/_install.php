@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 $version = $core->plugins->moduleInfo('widgets', 'version');
 if (version_compare($core->getVersion('widgets'), $version, '>=')) {
@@ -36,4 +37,5 @@ if ($settings->widgets->widgets_custom != null) {
     $settings->widgets->put('widgets_custom', '', 'string', 'Custom widgets', false);
 }
 $core->setVersion('widgets', $version);
+
 return true;

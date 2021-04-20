@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/prepend.php';
 
 if (isset($_SERVER['PATH_INFO'])) {

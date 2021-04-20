@@ -6,8 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcLog
 {
@@ -45,8 +46,7 @@ class dcLog
         if ($count_only) {
             $f = 'COUNT(log_id)';
         } else {
-            $f =
-                'L.log_id, L.user_id, L.log_table, L.log_dt, ' .
+            $f = 'L.log_id, L.user_id, L.log_table, L.log_dt, ' .
                 'L.log_ip, L.log_msg, L.blog_id, U.user_name, ' .
                 'U.user_firstname, U.user_displayname, U.user_url';
         }
@@ -54,14 +54,13 @@ class dcLog
         $strReq = 'SELECT ' . $f . ' FROM ' . $this->prefix . 'log L ';
 
         if (!$count_only) {
-            $strReq .=
-            'LEFT JOIN ' . $this->prefix . 'user U ' .
+            $strReq .= 'LEFT JOIN ' . $this->prefix . 'user U ' .
                 'ON U.user_id = L.user_id ';
         }
 
         if (!empty($params['blog_id'])) {
             if ($params['blog_id'] === 'all') {
-                $strReq .= "WHERE NULL IS NULL ";
+                $strReq .= 'WHERE NULL IS NULL ';
             } else {
                 $strReq .= "WHERE L.blog_id = '" . $this->core->con->escape($params['blog_id']) . "' ";
             }
@@ -108,8 +107,7 @@ class dcLog
     {
         $this->core->con->writeLock($this->prefix . 'log');
 
-        try
-        {
+        try {
             # Get ID
             $rs = $this->core->con->select(
                 'SELECT MAX(log_id) ' .
@@ -129,6 +127,7 @@ class dcLog
             $this->core->con->unlock();
         } catch (Exception $e) {
             $this->core->con->unlock();
+
             throw $e;
         }
 

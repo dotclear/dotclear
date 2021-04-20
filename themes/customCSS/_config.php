@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 l10n::set(dirname(__FILE__) . '/locales/' . $_lang . '/main');
 $css_file = path::real($core->blog->public_path) . '/custom_style.css';

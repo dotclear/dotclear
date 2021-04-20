@@ -6,12 +6,13 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
 # Getting categories
+$categories = null;
+
 try {
     $categories = $core->blog->getCategories();
 } catch (Exception $e) {
@@ -19,6 +20,8 @@ try {
 }
 
 # Getting authors
+$users = null;
+
 try {
     $users = $core->blog->getPostsUsers();
 } catch (Exception $e) {
@@ -26,6 +29,8 @@ try {
 }
 
 # Getting dates
+$dates = null;
+
 try {
     $dates = $core->blog->getDates(['type' => 'month']);
 } catch (Exception $e) {
@@ -33,6 +38,8 @@ try {
 }
 
 # Getting langs
+$langs = null;
+
 try {
     $langs = $core->blog->getLangs();
 } catch (Exception $e) {
@@ -131,7 +138,7 @@ $sortby_combo = [
 ];
 
 # --BEHAVIOR-- adminPostsSortbyCombo
-$core->callBehavior('adminPostsSortbyCombo', [ & $sortby_combo]);
+$core->callBehavior('adminPostsSortbyCombo', [& $sortby_combo]);
 
 $sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request
@@ -140,7 +147,7 @@ $sortby_lex = [
     'user_id'    => 'P.user_id'];
 
 # --BEHAVIOR-- adminPostsSortbyLexCombo
-$core->callBehavior('adminPostsSortbyLexCombo', [ & $sortby_lex]);
+$core->callBehavior('adminPostsSortbyLexCombo', [& $sortby_lex]);
 
 $order_combo = [
     __('Descending') => 'desc',
@@ -149,7 +156,7 @@ $order_combo = [
 
 # Actions combo box
 
-$posts_actions_page = new dcPostsActionsPage($core, $core->adminurl->get("admin.posts"));
+$posts_actions_page = new dcPostsActionsPage($core, $core->adminurl->get('admin.posts'));
 
 if ($posts_actions_page->process()) {
     return;
@@ -165,12 +172,12 @@ $nb_per_page    = $core->auth->user_prefs->interface->nb_posts_per_page ?: 30;
 # Filters
 $user_id    = !empty($_GET['user_id']) ? $_GET['user_id'] : '';
 $cat_id     = !empty($_GET['cat_id']) ? $_GET['cat_id'] : '';
-$status     = isset($_GET['status']) ? $_GET['status'] : '';
-$password   = isset($_GET['password']) ? $_GET['password'] : '';
-$selected   = isset($_GET['selected']) ? $_GET['selected'] : '';
-$comment    = isset($_GET['comment']) ? $_GET['comment'] : '';
-$trackback  = isset($_GET['trackback']) ? $_GET['trackback'] : '';
-$attachment = isset($_GET['attachment']) ? $_GET['attachment'] : '';
+$status     = $_GET['status']     ?? '';
+$password   = $_GET['password']   ?? '';
+$selected   = $_GET['selected']   ?? '';
+$comment    = $_GET['comment']    ?? '';
+$trackback  = $_GET['trackback']  ?? '';
+$attachment = $_GET['attachment'] ?? '';
 $month      = !empty($_GET['month']) ? $_GET['month'] : '';
 $lang       = !empty($_GET['lang']) ? $_GET['lang'] : '';
 $format     = !empty($_GET['format']) ? $_GET['format'] : '';
@@ -296,6 +303,8 @@ if ($sortby != $default_sortby || $order != $default_order) {
 }
 
 # Get posts
+$post_list = null;
+
 try {
     $posts     = $core->blog->getPosts($params);
     $counter   = $core->blog->getPosts($params, true);
@@ -322,8 +331,8 @@ if (!empty($_GET['upd'])) {
 }
 if (!$core->error->flag()) {
     echo
-    '<p class="top-add"><a class="button add" href="' . $core->adminurl->get("admin.post") . '">' . __('New post') . '</a></p>' .
-    '<form action="' . $core->adminurl->get("admin.posts") . '" method="get" id="filters-form">' .
+    '<p class="top-add"><a class="button add" href="' . $core->adminurl->get('admin.post') . '">' . __('New post') . '</a></p>' .
+    '<form action="' . $core->adminurl->get('admin.posts') . '" method="get" id="filters-form">' .
     '<h3 class="out-of-screen-if-js">' . __('Show filters and display options') . '</h3>' .
 
     '<div class="table">' .
@@ -378,7 +387,7 @@ if (!$core->error->flag()) {
 
     # Show posts
     $post_list->display($page, $nb_per_page,
-        '<form action="' . $core->adminurl->get("admin.posts") . '" method="post" id="form-entries">' .
+        '<form action="' . $core->adminurl->get('admin.posts') . '" method="post" id="form-entries">' .
 
         '%s' .
 

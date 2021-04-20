@@ -6,12 +6,12 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 /**
  * dcFavorites -- Favorites handling facilities
- *
  */
 class dcFavorites
 {
@@ -70,7 +70,6 @@ class dcFavorites
      *            This method is to be called after loading plugins
      *
      * @access public
-     *
      */
     public function setup()
     {
@@ -116,6 +115,7 @@ class dcFavorites
         } elseif (!$this->core->auth->isSuperAdmin()) {
             return false;
         }
+
         return $fattr;
     }
 
@@ -137,6 +137,7 @@ class dcFavorites
                 $prefs[$id] = $f;
             }
         }
+
         return $prefs;
     }
 
@@ -148,7 +149,6 @@ class dcFavorites
      *                 * a failback list "new post" (shall never be empty)
      *                This method is called by ::setup()
      * @access protected
-     *
      */
     protected function setUserPrefs()
     {
@@ -166,10 +166,10 @@ class dcFavorites
                 // Use callback if defined to match whether favorite is active or not
                 $v['active'] = call_user_func($v['active_cb'], $u[0], $_REQUEST);
             } else {
-                                     // Failback active detection. We test against URI name & parameters
+                // Failback active detection. We test against URI name & parameters
                 $v['active'] = true; // true until something proves it is false
                 $u           = explode('?', $v['url'], 2);
-                if (!preg_match('/' . preg_quote($u[0], "/") . '/', $_SERVER['REQUEST_URI'])) {
+                if (!preg_match('/' . preg_quote($u[0], '/') . '/', $_SERVER['REQUEST_URI'])) {
                     $v['active'] = false; // no URI match
                 }
                 if (count($u) == 2) {
@@ -189,7 +189,6 @@ class dcFavorites
      * migrateFavorites - migrate dc < 2.6 favorites to new format
      *
      * @access protected
-     *
      */
     protected function migrateFavorites()
     {
@@ -215,7 +214,6 @@ class dcFavorites
      * legacyFavorites - handle legacy favorites using adminDashboardFavs behavior
      *
      * @access protected
-     *
      */
     protected function legacyFavorites()
     {
@@ -233,7 +231,6 @@ class dcFavorites
             ];
             $this->register($v[0], $fav);
         }
-
     }
 
     /**
@@ -366,6 +363,7 @@ class dcFavorites
     public function register($id, $data)
     {
         $this->fav_defs[$id] = $data;
+
         return $this;
     }
 
@@ -381,6 +379,7 @@ class dcFavorites
         foreach ($data as $k => $v) {
             $this->register($k, $v);
         }
+
         return $this;
     }
 
@@ -397,12 +396,10 @@ class dcFavorites
     {
         return isset($this->fav_defs[$id]);
     }
-
 }
 
 /**
  * defaultFavorites -- default favorites definition
- *
  */
 class defaultFavorites
 {
@@ -410,85 +407,85 @@ class defaultFavorites
     {
         $core = &$GLOBALS['core'];
         $favs->registerMultiple([
-            'prefs'      => [
+            'prefs' => [
                 'title'      => __('My preferences'),
-                'url'        => $core->adminurl->get("admin.user.preferences"),
+                'url'        => $core->adminurl->get('admin.user.preferences'),
                 'small-icon' => 'images/menu/user-pref.png',
                 'large-icon' => 'images/menu/user-pref-b.png'],
-            'new_post'   => [
+            'new_post' => [
                 'title'       => __('New post'),
-                'url'         => $core->adminurl->get("admin.post"),
+                'url'         => $core->adminurl->get('admin.post'),
                 'small-icon'  => 'images/menu/edit.png',
                 'large-icon'  => 'images/menu/edit-b.png',
                 'permissions' => 'usage,contentadmin'],
-            'posts'      => [
+            'posts' => [
                 'title'        => __('Posts'),
-                'url'          => $core->adminurl->get("admin.posts"),
+                'url'          => $core->adminurl->get('admin.posts'),
                 'small-icon'   => 'images/menu/entries.png',
                 'large-icon'   => 'images/menu/entries-b.png',
                 'permissions'  => 'usage,contentadmin',
                 'dashboard_cb' => ['defaultFavorites', 'postsDashboard']],
-            'comments'   => [
+            'comments' => [
                 'title'        => __('Comments'),
-                'url'          => $core->adminurl->get("admin.comments"),
+                'url'          => $core->adminurl->get('admin.comments'),
                 'small-icon'   => 'images/menu/comments.png',
                 'large-icon'   => 'images/menu/comments-b.png',
                 'permissions'  => 'usage,contentadmin',
                 'dashboard_cb' => ['defaultFavorites', 'commentsDashboard']],
-            'search'     => [
+            'search' => [
                 'title'       => __('Search'),
-                'url'         => $core->adminurl->get("admin.search"),
+                'url'         => $core->adminurl->get('admin.search'),
                 'small-icon'  => 'images/menu/search.png',
                 'large-icon'  => 'images/menu/search-b.png',
                 'permissions' => 'usage,contentadmin'],
             'categories' => [
                 'title'       => __('Categories'),
-                'url'         => $core->adminurl->get("admin.categories"),
+                'url'         => $core->adminurl->get('admin.categories'),
                 'small-icon'  => 'images/menu/categories.png',
                 'large-icon'  => 'images/menu/categories-b.png',
                 'permissions' => 'categories'],
-            'media'      => [
+            'media' => [
                 'title'       => __('Media manager'),
-                'url'         => $core->adminurl->get("admin.media"),
+                'url'         => $core->adminurl->get('admin.media'),
                 'small-icon'  => 'images/menu/media.png',
                 'large-icon'  => 'images/menu/media-b.png',
                 'permissions' => 'media,media_admin'],
-            'blog_pref'  => [
+            'blog_pref' => [
                 'title'       => __('Blog settings'),
-                'url'         => $core->adminurl->get("admin.blog.pref"),
+                'url'         => $core->adminurl->get('admin.blog.pref'),
                 'small-icon'  => 'images/menu/blog-pref.png',
                 'large-icon'  => 'images/menu/blog-pref-b.png',
                 'permissions' => 'admin'],
             'blog_theme' => [
                 'title'       => __('Blog appearance'),
-                'url'         => $core->adminurl->get("admin.blog.theme"),
+                'url'         => $core->adminurl->get('admin.blog.theme'),
                 'small-icon'  => 'images/menu/themes.png',
                 'large-icon'  => 'images/menu/blog-theme-b.png',
                 'permissions' => 'admin'],
-            'blogs'      => [
+            'blogs' => [
                 'title'       => __('Blogs'),
-                'url'         => $core->adminurl->get("admin.blogs"),
+                'url'         => $core->adminurl->get('admin.blogs'),
                 'small-icon'  => 'images/menu/blogs.png',
                 'large-icon'  => 'images/menu/blogs-b.png',
                 'permissions' => 'usage,contentadmin'],
-            'users'      => [
+            'users' => [
                 'title'      => __('Users'),
-                'url'        => $core->adminurl->get("admin.users"),
+                'url'        => $core->adminurl->get('admin.users'),
                 'small-icon' => 'images/menu/users.png',
                 'large-icon' => 'images/menu/users-b.png'],
-            'plugins'    => [
+            'plugins' => [
                 'title'      => __('Plugins management'),
-                'url'        => $core->adminurl->get("admin.plugins"),
+                'url'        => $core->adminurl->get('admin.plugins'),
                 'small-icon' => 'images/menu/plugins.png',
                 'large-icon' => 'images/menu/plugins-b.png'],
-            'langs'      => [
+            'langs' => [
                 'title'      => __('Languages'),
-                'url'        => $core->adminurl->get("admin.langs"),
+                'url'        => $core->adminurl->get('admin.langs'),
                 'small-icon' => 'images/menu/langs.png',
                 'large-icon' => 'images/menu/langs-b.png'],
-            'help'       => [
+            'help' => [
                 'title'      => __('Global help'),
-                'url'        => $core->adminurl->get("admin.help"),
+                'url'        => $core->adminurl->get('admin.help'),
                 'small-icon' => 'images/menu/help.png',
                 'large-icon' => 'images/menu/help-b.png']
         ]);

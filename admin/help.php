@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
@@ -29,6 +28,7 @@ $helpPage = function (...$args) {
     foreach ($args as $v) {
         if (is_object($v) && isset($v->content)) {
             $content .= $v->content;
+
             continue;
         }
 
@@ -59,6 +59,7 @@ $helpPage = function (...$args) {
     if ($title != '') {
         $ret['title'] = $title;
     }
+
     return $ret;
 };
 
@@ -70,7 +71,7 @@ if (($content_array['content'] == '') || ($help_page == 'index')) {
 if ($content_array['title'] != '') {
     $breadcrumb = dcPage::breadcrumb(
         [
-            __('Global help')       => $core->adminurl->get("admin.help"),
+            __('Global help')       => $core->adminurl->get('admin.help'),
             $content_array['title'] => ''
         ]);
 } else {

@@ -8,18 +8,26 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 $id = html::escapeHTML($_REQUEST['id']);
 
+$rs = null;
+
 try {
-    $rs = $blogroll->getLink($id);
+    $rs = $blogroll->getLink($id);  // @phpstan-ignore-line
 } catch (Exception $e) {
     $core->error->add($e->getMessage());
 }
 
 if (!$core->error->flag() && $rs->isEmpty()) {
+    $link_title = '';
+    $link_href  = '';
+    $link_desc  = '';
+    $link_lang  = '';
+    $link_xfn   = '';
     $core->error->add(__('No such link or title'));
 } else {
     $link_title = $rs->link_title;
@@ -62,7 +70,7 @@ if (isset($rs) && !$rs->is_cat && !empty($_POST['edit_link'])) {
     }
 
     try {
-        $blogroll->updateLink($id, $link_title, $link_href, $link_desc, $link_lang, trim($link_xfn));
+        $blogroll->updateLink($id, $link_title, $link_href, $link_desc, $link_lang, trim($link_xfn));   // @phpstan-ignore-line
         dcPage::addSuccessNotice(__('Link has been successfully updated'));
         http::redirect($p_url . '&edit=1&id=' . $id);
     } catch (Exception $e) {
@@ -75,7 +83,7 @@ if (isset($rs) && $rs->is_cat && !empty($_POST['edit_cat'])) {
     $link_desc = html::escapeHTML($_POST['link_desc']);
 
     try {
-        $blogroll->updateCategory($id, $link_desc);
+        $blogroll->updateCategory($id, $link_desc); // @phpstan-ignore-line
         dcPage::addSuccessNotice(__('Category has been successfully updated'));
         http::redirect($p_url . '&edit=1&id=' . $id);
     } catch (Exception $e) {
@@ -84,7 +92,7 @@ if (isset($rs) && $rs->is_cat && !empty($_POST['edit_cat'])) {
 }
 
 # Languages combo
-$links      = $blogroll->getLangs(['order' => 'asc']);
+$links      = $blogroll->getLangs(['order' => 'asc']);  // @phpstan-ignore-line
 $lang_combo = dcAdminCombos::getLangsCombo($links, true);
 
 ?>
@@ -124,7 +132,6 @@ if (isset($rs) && $rs->is_cat) {
         '</form>';
 }
 if (isset($rs) && !$rs->is_cat) {
-
     echo
     '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" class="two-cols fieldset">' .
 

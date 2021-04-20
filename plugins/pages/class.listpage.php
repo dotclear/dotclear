@@ -25,19 +25,18 @@ class adminPagesList extends adminGenericList
                     $entries[(integer) $v] = true;
                 }
             }
-            $html_block =
-                '<div class="table-outer">' .
+            $html_block = '<div class="table-outer">' .
                 '<table class="maximal dragable"><thead><tr>';
 
             $cols = [
-                'title'      => '<th colspan="3" scope="col" class="first">' . __('Title') . '</th>',
-                'date'       => '<th scope="col">' . __('Date') . '</th>',
-                'author'     => '<th scope="col">' . __('Author') . '</th>',
-                'comments'   => '<th scope="col"><img src="images/comments.png" alt="" title="' . __('Comments') .
+                'title'    => '<th colspan="3" scope="col" class="first">' . __('Title') . '</th>',
+                'date'     => '<th scope="col">' . __('Date') . '</th>',
+                'author'   => '<th scope="col">' . __('Author') . '</th>',
+                'comments' => '<th scope="col"><img src="images/comments.png" alt="" title="' . __('Comments') .
                 '" /><span class="hidden">' . __('Comments') . '</span></th>',
                 'trackbacks' => '<th scope="col"><img src="images/trackbacks.png" alt="" title="' . __('Trackbacks') .
                 '" /><span class="hidden">' . __('Trackbacks') . '</span></th>',
-                'status'     => '<th scope="col">' . __('Status') . '</th>'
+                'status' => '<th scope="col">' . __('Status') . '</th>'
             ];
 
             $cols = new ArrayObject($cols);
@@ -67,7 +66,7 @@ class adminPagesList extends adminGenericList
 
             echo $blocks[1];
 
-            $fmt = function($title, $image) {
+            $fmt = function ($title, $image) {
                 return sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
             };
             echo '<p class="info">' . __('Legend: ') .
@@ -88,24 +87,29 @@ class adminPagesList extends adminGenericList
 
     private function postLine($count, $checked)
     {
-        $img       = '<img alt="%1$s" title="%1$s" src="images/%2$s" class="mark mark-%3$s" />';
-        $sts_class = '';
+        $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" class="mark mark-%3$s" />';
+        $sts_class  = '';
+        $img_status = '';
         switch ($this->rs->post_status) {
             case 1:
                 $img_status = sprintf($img, __('Published'), 'check-on.png', 'published');
                 $sts_class  = 'sts-online';
+
                 break;
             case 0:
                 $img_status = sprintf($img, __('Unpublished'), 'check-off.png', 'unpublished');
                 $sts_class  = 'sts-offline';
+
                 break;
             case -1:
                 $img_status = sprintf($img, __('Scheduled'), 'scheduled.png', 'scheduled');
                 $sts_class  = 'sts-scheduled';
+
                 break;
             case -2:
                 $img_status = sprintf($img, __('Pending'), 'check-wrn.png', 'pending');
                 $sts_class  = 'sts-pending';
+
                 break;
         }
 
@@ -130,7 +134,7 @@ class adminPagesList extends adminGenericList
         ' id="p' . $this->rs->post_id . '">';
 
         $cols = [
-            'position'   => '<td class="nowrap handle minimal">' .
+            'position' => '<td class="nowrap handle minimal">' .
             form::number(['order[' . $this->rs->post_id . ']'], [
                 'min'        => 1,
                 'default'    => $count + 1,
@@ -138,7 +142,7 @@ class adminPagesList extends adminGenericList
                 'extra_html' => 'title="' . sprintf(__('position of %s'), html::escapeHTML($this->rs->post_title)) . '"'
             ]) .
             '</td>',
-            'check'      => '<td class="nowrap">' .
+            'check' => '<td class="nowrap">' .
             form::checkbox(['entries[]'], $this->rs->post_id,
                 [
                     'checked'    => $checked,
@@ -146,7 +150,7 @@ class adminPagesList extends adminGenericList
                     'extra_html' => 'title="' . __('Select this page') . '"'
                 ]
             ) . '</td>',
-            'title'      => '<td class="maximal" scope="row"><a href="' .
+            'title' => '<td class="maximal" scope="row"><a href="' .
             $this->core->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '">' .
             html::escapeHTML($this->rs->post_title) . '</a></td>',
             'date'       => '<td class="nowrap">' . dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) . '</td>',

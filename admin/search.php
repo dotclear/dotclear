@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
@@ -21,6 +20,13 @@ $starting_scripts = '';
 
 $page        = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
 $nb_per_page = 30;
+
+$counter      = null;
+$post_list    = null;
+$comment_list = null;
+
+$posts_actions_page    = null;
+$comments_actions_page = null;
 
 if ($q) {
     $q = html::escapeHTML($q);
@@ -64,13 +70,13 @@ if ($q) {
 }
 
 if ($qtype == 'p') {
-    $posts_actions_page = new dcPostsActionsPage($core, $core->adminurl->get("admin.search"), ['q' => $q, 'qtype' => $qtype]);
+    $posts_actions_page = new dcPostsActionsPage($core, $core->adminurl->get('admin.search'), ['q' => $q, 'qtype' => $qtype]);
 
     if ($posts_actions_page->process()) {
         return;
     }
 } else {
-    $comments_actions_page = new dcCommentsActionsPage($core, $core->adminurl->get("admin.search"), ['q' => $q, 'qtype' => $qtype]);
+    $comments_actions_page = new dcCommentsActionsPage($core, $core->adminurl->get('admin.search'), ['q' => $q, 'qtype' => $qtype]);
 
     if ($comments_actions_page->process()) {
         return;
@@ -86,7 +92,7 @@ dcPage::open(__('Search'), $starting_scripts,
 );
 
 echo
-'<form action="' . $core->adminurl->get("admin.search") . '" method="get" role="search">' .
+'<form action="' . $core->adminurl->get('admin.search') . '" method="get" role="search">' .
 '<div class="fieldset"><h3>' . __('Search options') . '</h3>' .
 '<p><label for="q">' . __('Query:') . ' </label>' . form::field('q', 30, 255, $q) . '</p>' .
 '<p><label for="qtype1" class="classic">' . form::radio(['qtype', 'qtype1'], 'p', $qtype == 'p') . ' ' . __('Search in entries') . '</label> ' .
@@ -102,7 +108,6 @@ if ($q && !$core->error->flag()) {
 
     # Show posts
     if ($qtype == 'p') {
-
         if ($counter->f(0) > 0) {
             printf('<h3>' .
                 ($counter->f(0) == 1 ? __('%d entry found') : __('%d entries found')) .
@@ -110,7 +115,7 @@ if ($q && !$core->error->flag()) {
         }
 
         $post_list->display($page, $nb_per_page,
-            '<form action="' . $core->adminurl->get("admin.search") . '" method="post" id="form-entries">' .
+            '<form action="' . $core->adminurl->get('admin.search') . '" method="post" id="form-entries">' .
 
             '%s' .
 
@@ -137,7 +142,7 @@ if ($q && !$core->error->flag()) {
         }
 
         $comment_list->display($page, $nb_per_page,
-            '<form action="' . $core->adminurl->get("admin.search") . '" method="post" id="form-comments">' .
+            '<form action="' . $core->adminurl->get('admin.search') . '" method="post" id="form-comments">' .
 
             '%s' .
 

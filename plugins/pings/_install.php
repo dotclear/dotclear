@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 $version = $core->plugins->moduleInfo('pings', 'version');
 if (version_compare($core->getVersion('pings'), $version, '>=')) {
@@ -28,4 +29,5 @@ $core->blog->settings->pings->put('pings_auto', 0, 'boolean', 'Auto pings on 1st
 $core->blog->settings->pings->put('pings_uris', $default_pings_uris, 'array', 'Pings services URIs', false, true);
 
 $core->setVersion('pings', $version);
+
 return true;

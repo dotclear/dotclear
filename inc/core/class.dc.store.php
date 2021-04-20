@@ -12,8 +12,9 @@
  *
  * @since 2.6
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcStore
 {
@@ -125,6 +126,7 @@ class dcStore
     public function search($pattern)
     {
         $result = [];
+        $sorter = [];
 
         # Split query into small clean words
         if (!($patterns = self::patternize($pattern))) {
@@ -168,6 +170,7 @@ class dcStore
         if (!empty($result)) {
             array_multisort($sorter, SORT_DESC, $result);
         }
+
         return $result;
     }
 
@@ -181,6 +184,7 @@ class dcStore
     public function process($url, $dest)
     {
         $this->download($url, $dest);
+
         return $this->install($dest);
     }
 
@@ -207,6 +211,7 @@ class dcStore
                 unset($client);
             } catch (Exception $e) {
                 unset($client);
+
                 throw new Exception(__('An error occurred while downloading the file.'));
             }
         } else {
@@ -287,6 +292,7 @@ class dcStore
         if ($c == $d) {
             return 0;
         }
+
         return ($c < $d) ? -1 : 1;
     }
 }

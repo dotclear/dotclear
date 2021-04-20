@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('categories');
@@ -21,6 +20,12 @@ $blog_settings = new dcSettings($core, $core->blog->id);
 $blog_lang     = $blog_settings->system->lang;
 
 # Getting existing category
+$rs              = null;
+$parents         = null;
+$cat_parent      = 0;
+$siblings        = [];
+$allowed_parents = [];
+
 if (!empty($_REQUEST['id'])) {
     try {
         $rs = $core->blog->getCategory($_REQUEST['id']);
@@ -63,8 +68,7 @@ if (!empty($_REQUEST['id'])) {
     unset($rs);
 
     # Allowed siblings list
-    $siblings = [];
-    $rs       = $core->blog->getCategoryFirstChildren($cat_parent);
+    $rs = $core->blog->getCategoryFirstChildren($cat_parent);
     while ($rs->fetch()) {
         if ($rs->cat_id != $cat_id) {
             $siblings[html::escapeHTML($rs->cat_title)] = $rs->cat_id;
@@ -80,7 +84,7 @@ if ($cat_id && isset($_POST['cat_parent'])) {
         try {
             $core->blog->setCategoryParent($cat_id, $new_parent);
             dcPage::addSuccessNotice(__('The category has been successfully moved'));
-            $core->adminurl->redirect("admin.categories");
+            $core->adminurl->redirect('admin.categories');
         } catch (Exception $e) {
             $core->error->add($e->getMessage());
         }
@@ -92,7 +96,7 @@ if ($cat_id && isset($_POST['cat_sibling'])) {
     try {
         $core->blog->setCategoryPosition($cat_id, (integer) $_POST['cat_sibling'], $_POST['cat_move']);
         dcPage::addSuccessNotice(__('The category has been successfully moved'));
-        $core->adminurl->redirect("admin.categories");
+        $core->adminurl->redirect('admin.categories');
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
     }
@@ -114,8 +118,7 @@ if (isset($_POST['cat_title'])) {
         $cur->cat_url = $cat_url;
     }
 
-    try
-    {
+    try {
         # Update category
         if ($cat_id) {
             # --BEHAVIOR-- adminBeforeCategoryUpdate
@@ -128,7 +131,7 @@ if (isset($_POST['cat_title'])) {
 
             dcPage::addSuccessNotice(__('The category has been successfully updated.'));
 
-            $core->adminurl->redirect("admin.category", ['id' => $_POST['id']]);
+            $core->adminurl->redirect('admin.category', ['id' => $_POST['id']]);
         }
         # Create category
         else {
@@ -142,7 +145,7 @@ if (isset($_POST['cat_title'])) {
 
             dcPage::addSuccessNotice(sprintf(__('The category "%s" has been successfully created.'),
                 html::escapeHTML($cur->cat_title)));
-            $core->adminurl->redirect("admin.categories");
+            $core->adminurl->redirect('admin.categories');
         }
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
@@ -153,11 +156,11 @@ $title = $cat_id ? html::escapeHTML($cat_title) : __('New category');
 
 $elements = [
     html::escapeHTML($core->blog->name) => '',
-    __('Categories')                    => $core->adminurl->get("admin.categories")
+    __('Categories')                    => $core->adminurl->get('admin.categories')
 ];
 if ($cat_id) {
     while ($parents->fetch()) {
-        $elements[html::escapeHTML($parents->cat_title)] = $core->adminurl->get("admin.category", ['id' => $parents->cat_id]);
+        $elements[html::escapeHTML($parents->cat_title)] = $core->adminurl->get('admin.category', ['id' => $parents->cat_id]);
     }
 }
 $elements[$title] = '';
@@ -181,7 +184,7 @@ if (!empty($_GET['upd'])) {
 }
 
 echo
-'<form action="' . $core->adminurl->get("admin.category") . '" method="post" id="category-form">' .
+'<form action="' . $core->adminurl->get('admin.category') . '" method="post" id="category-form">' .
 '<h3>' . __('Category information') . '</h3>' .
 '<p><label class="required" for="cat_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label> ' .
 form::field('cat_title', 40, 255, [
@@ -233,7 +236,7 @@ if ($cat_id) {
     '<div class="two-cols">' .
     '<div class="col">' .
 
-    '<form action="' . $core->adminurl->get("admin.category") . '" method="post" class="fieldset">' .
+    '<form action="' . $core->adminurl->get('admin.category') . '" method="post" class="fieldset">' .
     '<h4>' . __('Category parent') . '</h4>' .
     '<p><label for="cat_parent" class="classic">' . __('Parent:') . '</label> ' .
     form::combo('cat_parent', $allowed_parents, $cat_parent) . '</p>' .
@@ -245,7 +248,7 @@ if ($cat_id) {
     if (count($siblings) > 0) {
         echo
         '<div class="col">' .
-        '<form action="' . $core->adminurl->get("admin.category") . '" method="post" class="fieldset">' .
+        '<form action="' . $core->adminurl->get('admin.category') . '" method="post" class="fieldset">' .
         '<h4>' . __('Category sibling') . '</h4>' .
         '<p><label class="classic" for="cat_sibling">' . __('Move current category') . '</label> ' .
         form::combo('cat_move', [__('before') => 'before', __('after') => 'after'],

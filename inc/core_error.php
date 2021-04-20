@@ -6,9 +6,8 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 header('Content-Type: text/html; charset=utf-8');
-header("HTTP/1.0 " . $code . " " . $summary);
+header('HTTP/1.0 ' . $code . ' ' . $summary);   // @phpstan-ignore-line
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +52,7 @@ header("HTTP/1.0 " . $code . " " . $summary);
 <body>
 <div id="content">
 <h1>Dotclear</h1>
-<h2><?php echo $summary; ?></h2>
-<?php echo $message; ?></div>
+<h2><?php echo $summary; /* @phpstan-ignore-line */ ?></h2>
+<?php echo $message; /* @phpstan-ignore-line */ ?></div>
 </body>
 </html>

@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $core->addBehavior('coreBlogBeforeGetPosts', ['publicPages', 'coreBlogBeforeGetPosts']);
 
@@ -106,14 +107,12 @@ class urlPages extends dcUrlHandlers
                         setcookie('dc_passwd', json_encode($pwd_cookie), 0, '/');
                     } else {
                         self::serveDocument('password-form.html', 'text/html', false);
+
                         return;
                     }
                 }
 
-                $post_comment =
-                isset($_POST['c_name']) && isset($_POST['c_mail']) &&
-                isset($_POST['c_site']) && isset($_POST['c_content']) &&
-                $_ctx->posts->commentsActive();
+                $post_comment = isset($_POST['c_name']) && isset($_POST['c_mail']) && isset($_POST['c_site']) && isset($_POST['c_content']) && $_ctx->posts->commentsActive();
 
                 # Posting a comment
                 if ($post_comment) {
@@ -121,7 +120,7 @@ class urlPages extends dcUrlHandlers
                     if (!empty($_POST['f_mail'])) {
                         http::head(412, 'Precondition Failed');
                         header('Content-Type: text/plain');
-                        echo "So Long, and Thanks For All the Fish";
+                        echo 'So Long, and Thanks For All the Fish';
                         # Exits immediately the application to preserve the server.
                         exit;
                     }
@@ -173,8 +172,7 @@ class urlPages extends dcUrlHandlers
                         $redir = $_ctx->posts->getURL();
                         $redir .= $core->blog->settings->system->url_scan == 'query_string' ? '&' : '?';
 
-                        try
-                        {
+                        try {
                             if (!text::isEmail($cur->comment_email)) {
                                 throw new Exception(__('You must provide a valid email address.'));
                             }
@@ -204,7 +202,7 @@ class urlPages extends dcUrlHandlers
 
                 # The entry
                 if ($_ctx->posts->trackbacksActive()) {
-                    header('X-Pingback: ' . $core->blog->url . $core->url->getURLFor("xmlrpc", $core->blog->id));
+                    header('X-Pingback: ' . $core->blog->url . $core->url->getURLFor('xmlrpc', $core->blog->id));
                 }
 
                 $tplset = $core->themes->moduleInfo($core->blog->settings->system->theme, 'tplset');
@@ -235,7 +233,7 @@ class urlPages extends dcUrlHandlers
                 self::p404();
             } else {
                 $_ctx->preview = true;
-                if (defined("DC_ADMIN_URL")) {
+                if (defined('DC_ADMIN_URL')) {
                     $_ctx->xframeoption = DC_ADMIN_URL;
                 }
 
@@ -256,8 +254,7 @@ class tplPages
             return;
         }
 
-        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) ||
-            ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
+        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) || ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
             return;
         }
 

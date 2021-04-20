@@ -8,7 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 class dcCKEditorBehaviors
 {
     protected static $p_url      = 'index.php?pf=dcCKEditor';
@@ -24,15 +23,16 @@ class dcCKEditorBehaviors
      */
     public static function adminPostEditor($editor = '', $context = '', array $tags = [], $syntax = 'xhtml')
     {
-        if (empty($editor) || $editor != 'dcCKEditor' || $syntax != 'xhtml') {return;}
+        if (empty($editor) || $editor != 'dcCKEditor' || $syntax != 'xhtml') {
+            return;
+        }
 
         $config_js = self::$config_url;
         if (!empty($context)) {
             $config_js .= '&context=' . $context;
         }
 
-        $res =
-        dcPage::jsJson('ck_editor_ctx', [
+        $res = dcPage::jsJson('ck_editor_ctx', [
             'ckeditor_context'      => $context,
             'ckeditor_tags_context' => [$context => $tags],
             'admin_base_url'        => DC_ADMIN_URL,
@@ -62,21 +62,27 @@ class dcCKEditorBehaviors
 
     public static function adminPopupMedia($editor = '')
     {
-        if (empty($editor) || $editor != 'dcCKEditor') {return;}
+        if (empty($editor) || $editor != 'dcCKEditor') {
+            return;
+        }
 
         return dcPage::jsLoad(self::$p_url . '/js/popup_media.js');
     }
 
     public static function adminPopupLink($editor = '')
     {
-        if (empty($editor) || $editor != 'dcCKEditor') {return;}
+        if (empty($editor) || $editor != 'dcCKEditor') {
+            return;
+        }
 
         return dcPage::jsLoad(self::$p_url . '/js/popup_link.js');
     }
 
     public static function adminPopupPosts($editor = '')
     {
-        if (empty($editor) || $editor != 'dcCKEditor') {return;}
+        if (empty($editor) || $editor != 'dcCKEditor') {
+            return;
+        }
 
         return dcPage::jsLoad(self::$p_url . '/js/popup_posts.js');
     }
@@ -86,11 +92,6 @@ class dcCKEditorBehaviors
         if (!empty($_GET['editor'])) {
             $p['editor'] = html::sanitizeURL($_GET['editor']);
         }
-    }
-
-    public static function getTagsContext()
-    {
-        return self::$tagsContext;
     }
 
     public static function adminPageHTTPHeaderCSP($csp)

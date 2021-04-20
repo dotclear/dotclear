@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 define('DC_CONTEXT_ADMIN', true);
 define('DC_ADMIN_CONTEXT', true); // For dyslexic devs ;-)
 
@@ -17,7 +16,7 @@ header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
 
 // HTTP/1.0
-header("Pragma: no-cache");
+header('Pragma: no-cache');
 
 function dc_load_locales()
 {
@@ -46,8 +45,7 @@ function dc_admin_icon_url($img)
     $user_ui_iconset = @$core->auth->user_prefs->interface->iconset;
     if (($user_ui_iconset) && ($img)) {
         $icon = false;
-        if ((preg_match('/^images\/menu\/(.+)$/', $img, $m)) ||
-            (preg_match('/^index\.php\?pf=(.+)$/', $img, $m))) {
+        if ((preg_match('/^images\/menu\/(.+)$/', $img, $m)) || (preg_match('/^index\.php\?pf=(.+)$/', $img, $m))) {
             if ($m[1]) {
                 $icon = path::real(dirname(__FILE__) . '/../../admin/images/iconset/' . $user_ui_iconset . '/' . $m[1], false);
                 if ($icon !== false) {
@@ -59,6 +57,7 @@ function dc_admin_icon_url($img)
             }
         }
     }
+
     return $img;
 }
 
@@ -110,9 +109,7 @@ if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID')) {
             http::redirect('auth.php');
         }
     } catch (Exception $e) {
-        __error(__('Database error')
-            , __('There seems to be no Session table in your database. Is Dotclear completly installed?')
-            , 20);
+        __error(__('Database error'), __('There seems to be no Session table in your database. Is Dotclear completly installed?'), 20);
     }
 
     # Check nonce from POST requests
@@ -282,8 +279,7 @@ if ($core->auth->userID() && $core->blog !== null) {
     addMenuItem('System', __('Users'), 'admin.users', 'images/menu/users.png',
         $core->auth->isSuperAdmin());
     addMenuItem('System', __('Blogs'), 'admin.blogs', 'images/menu/blogs.png',
-        $core->auth->isSuperAdmin() ||
-        $core->auth->check('usage,contentadmin', $core->blog->id) && $core->auth->getBlogCount() > 1);
+        $core->auth->isSuperAdmin() || $core->auth->check('usage,contentadmin', $core->blog->id) && $core->auth->getBlogCount() > 1);
 
     if (empty($core->blog->settings->system->jquery_migrate_mute)) {
         $core->blog->settings->system->put('jquery_migrate_mute', true, 'boolean', 'Mute warnings for jquery migrate plugin ?', false);

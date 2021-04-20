@@ -8,13 +8,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $this->registerModule(
-    "Tags",            // Name
-    "Tags for posts",  // Description
-    "Olivier Meunier", // Author
+    'Tags',            // Name
+    'Tags for posts',  // Description
+    'Olivier Meunier', // Author
     '1.6',             // Version
     [
         'permissions' => 'usage,contentadmin',

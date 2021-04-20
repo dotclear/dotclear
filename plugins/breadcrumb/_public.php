@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 # Breadcrumb template functions
 $core->tpl->addValue('Breadcrumb', ['tplBreadcrumb', 'breadcrumb']);
@@ -19,7 +20,7 @@ class tplBreadcrumb
     # Template function
     public static function breadcrumb($attr)
     {
-        $separator = isset($attr['separator']) ? $attr['separator'] : '';
+        $separator = $attr['separator'] ?? '';
 
         return '<?php echo tplBreadcrumb::displayBreadcrumb(' .
         "'" . addslashes($separator) . "'" .
@@ -50,6 +51,7 @@ class tplBreadcrumb
             case 'static':
                 // Static home
                 $ret = '<span id="bc-home">' . __('Home') . '</span>';
+
                 break;
 
             case 'default':
@@ -62,9 +64,10 @@ class tplBreadcrumb
                     $ret = '<span id="bc-home">' . __('Home') . '</span>';
                     if ($_ctx->cur_lang) {
                         $langs = l10n::getISOCodes();
-                        $ret .= $separator . (isset($langs[$_ctx->cur_lang]) ? $langs[$_ctx->cur_lang] : $_ctx->cur_lang);
+                        $ret .= $separator . ($langs[$_ctx->cur_lang] ?? $_ctx->cur_lang);
                     }
                 }
+
                 break;
 
             case 'default-page':
@@ -75,10 +78,11 @@ class tplBreadcrumb
                 } else {
                     if ($_ctx->cur_lang) {
                         $langs = l10n::getISOCodes();
-                        $ret .= $separator . (isset($langs[$_ctx->cur_lang]) ? $langs[$_ctx->cur_lang] : $_ctx->cur_lang);
+                        $ret .= $separator . ($langs[$_ctx->cur_lang] ?? $_ctx->cur_lang);
                     }
                 }
                 $ret .= $separator . sprintf(__('page %d'), $page);
+
                 break;
 
             case 'category':
@@ -94,6 +98,7 @@ class tplBreadcrumb
                     $ret .= $separator . '<a href="' . $core->blog->url . $core->url->getURLFor('category', $_ctx->categories->cat_url) . '">' . $_ctx->categories->cat_title . '</a>';
                     $ret .= $separator . sprintf(__('page %d'), $page);
                 }
+
                 break;
 
             case 'post':
@@ -110,13 +115,15 @@ class tplBreadcrumb
                     $ret .= $separator . '<a href="' . $core->blog->url . $core->url->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
                 }
                 $ret .= $separator . $_ctx->posts->post_title;
+
                 break;
 
             case 'lang':
                 // Lang
                 $ret   = '<a id="bc-home" href="' . $core->blog->url . '">' . __('Home') . '</a>';
                 $langs = l10n::getISOCodes();
-                $ret .= $separator . (isset($langs[$_ctx->cur_lang]) ? $langs[$_ctx->cur_lang] : $_ctx->cur_lang);
+                $ret .= $separator . ($langs[$_ctx->cur_lang] ?? $_ctx->cur_lang);
+
                 break;
 
             case 'archive':
@@ -127,33 +134,37 @@ class tplBreadcrumb
                     $ret .= $separator . __('Archives');
                 } else {
                     // Month archive
-                    $ret .= $separator . '<a href="' . $core->blog->url . $core->url->getURLFor("archive") . '">' . __('Archives') . '</a>';
+                    $ret .= $separator . '<a href="' . $core->blog->url . $core->url->getURLFor('archive') . '">' . __('Archives') . '</a>';
                     $ret .= $separator . dt::dt2str('%B %Y', $_ctx->archives->dt);
                 }
+
                 break;
 
             case 'pages':
                 // Page
                 $ret = '<a id="bc-home" href="' . $core->blog->url . '">' . __('Home') . '</a>';
                 $ret .= $separator . $_ctx->posts->post_title;
+
                 break;
 
             case 'tags':
                 // All tags
                 $ret = '<a id="bc-home" href="' . $core->blog->url . '">' . __('Home') . '</a>';
                 $ret .= $separator . __('All tags');
+
                 break;
 
             case 'tag':
                 // Tag
                 $ret = '<a id="bc-home" href="' . $core->blog->url . '">' . __('Home') . '</a>';
-                $ret .= $separator . '<a href="' . $core->blog->url . $core->url->getURLFor("tags") . '">' . __('All tags') . '</a>';
+                $ret .= $separator . '<a href="' . $core->blog->url . $core->url->getURLFor('tags') . '">' . __('All tags') . '</a>';
                 if ($page == 0) {
                     $ret .= $separator . $_ctx->meta->meta_id;
                 } else {
-                    $ret .= $separator . '<a href="' . $core->blog->url . $core->url->getURLFor("tag", rawurlencode($_ctx->meta->meta_id)) . '">' . $_ctx->meta->meta_id . '</a>';
+                    $ret .= $separator . '<a href="' . $core->blog->url . $core->url->getURLFor('tag', rawurlencode($_ctx->meta->meta_id)) . '">' . $_ctx->meta->meta_id . '</a>';
                     $ret .= $separator . sprintf(__('page %d'), $page);
                 }
+
                 break;
 
             case 'search':
@@ -165,12 +176,14 @@ class tplBreadcrumb
                     $ret .= $separator . '<a href="' . $core->blog->url . '?q=' . rawurlencode($GLOBALS['_search']) . '">' . __('Search:') . ' ' . $GLOBALS['_search'] . '</a>';
                     $ret .= $separator . sprintf(__('page %d'), $page);
                 }
+
                 break;
 
             case '404':
                 // 404
                 $ret = '<a id="bc-home" href="' . $core->blog->url . '">' . __('Home') . '</a>';
                 $ret .= $separator . __('404');
+
                 break;
 
             default:
@@ -181,6 +194,7 @@ class tplBreadcrumb
                 if ($special) {
                     $ret .= $separator . $special;
                 }
+
                 break;
         }
 

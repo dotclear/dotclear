@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
@@ -64,8 +63,7 @@ if (!empty($_REQUEST['id'])) {
 
 # Add or update user
 if (isset($_POST['user_name'])) {
-    try
-    {
+    try {
         if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
             throw new Exception(__('Password verification failed'));
         }
@@ -94,9 +92,8 @@ if (isset($_POST['user_name'])) {
         if (!empty($_POST['new_pwd'])) {
             if ($_POST['new_pwd'] != $_POST['new_pwd_c']) {
                 throw new Exception(__("Passwords don't match"));
-            } else {
-                $cur->user_pwd = $_POST['new_pwd'];
             }
+            $cur->user_pwd = $_POST['new_pwd'];
         }
 
         $user_options['post_format'] = html::escapeHTML($_POST['user_post_format']);
@@ -118,13 +115,12 @@ if (isset($_POST['user_name'])) {
             # --BEHAVIOR-- adminAfterUserUpdate
             $core->callBehavior('adminAfterUserUpdate', $cur, $new_id);
 
-            if ($user_id == $core->auth->userID() &&
-                $user_id != $new_id) {
+            if ($user_id == $core->auth->userID() && $user_id != $new_id) {
                 $core->session->destroy();
             }
 
             dcPage::addSuccessNotice(__('User has been successfully updated.'));
-            $core->adminurl->redirect("admin.user", ['id' => $new_id]);
+            $core->adminurl->redirect('admin.user', ['id' => $new_id]);
         }
         # Add user
         else {
@@ -143,9 +139,9 @@ if (isset($_POST['user_name'])) {
             dcPage::addSuccessNotice(__('User has been successfully created.'));
             dcPage::addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
             if (!empty($_POST['saveplus'])) {
-                $core->adminurl->redirect("admin.user");
+                $core->adminurl->redirect('admin.user');
             } else {
-                $core->adminurl->redirect("admin.user", ['id' => $new_id]);
+                $core->adminurl->redirect('admin.user', ['id' => $new_id]);
             }
         }
     } catch (Exception $e) {
@@ -171,7 +167,7 @@ dcPage::open($page_title,
     dcPage::breadcrumb(
         [
             __('System') => '',
-            __('Users')  => $core->adminurl->get("admin.users"),
+            __('Users')  => $core->adminurl->get('admin.users'),
             $page_title  => ''
         ])
 );
@@ -185,7 +181,7 @@ if (!empty($_GET['add'])) {
 }
 
 echo
-'<form action="' . $core->adminurl->get("admin.user") . '" method="post" id="user-form">' .
+'<form action="' . $core->adminurl->get('admin.user') . '" method="post" id="user-form">' .
 '<div class="two-cols">' .
 
 '<div class="col">' .
@@ -214,7 +210,7 @@ echo
 ($user_id != '' ? __('New password:') : __('Password:')) . '</label>' .
 form::password('new_pwd', 20, 255,
     [
-        'extra_html'   => 'data-indicator="pwindicator"' .
+        'extra_html' => 'data-indicator="pwindicator"' .
         ($user_id != '' ? '' : ' required placeholder="' . __('Password') . '"'),
         'autocomplete' => 'new-password']
 ) .
@@ -316,7 +312,7 @@ form::number('user_edit_size', 10, 999, (integer) $user_options['edit_size']) .
     '</p>';
 
 # --BEHAVIOR-- adminUserForm
-$core->callBehavior('adminUserForm', isset($rs) ? $rs : null);
+$core->callBehavior('adminUserForm', $rs ?? null);
 
 echo
     '</div>' .
@@ -346,9 +342,9 @@ if ($user_id) {
 
     if (!$user_super) {
         echo
-        '<form action="' . $core->adminurl->get("admin.user.actions") . '" method="post">' .
+        '<form action="' . $core->adminurl->get('admin.user.actions') . '" method="post">' .
         '<p><input type="submit" value="' . __('Add new permissions') . '" />' .
-        form::hidden(['redir'], $core->adminurl->get("admin.user", ['id' => $user_id])) .
+        form::hidden(['redir'], $core->adminurl->get('admin.user', ['id' => $user_id])) .
         form::hidden(['action'], 'blogs') .
         form::hidden(['users[]'], $user_id) .
         $core->formNonce() .
@@ -364,9 +360,9 @@ if ($user_id) {
             foreach ($permissions as $k => $v) {
                 if (count($v['p']) > 0) {
                     echo
-                    '<form action="' . $core->adminurl->get("admin.user.actions") . '" method="post" class="perm-block">' .
+                    '<form action="' . $core->adminurl->get('admin.user.actions') . '" method="post" class="perm-block">' .
                     '<p class="blog-perm">' . __('Blog:') . ' <a href="' .
-                    $core->adminurl->get("admin.blog", ['id' => html::escapeHTML($k)]) . '">' .
+                    $core->adminurl->get('admin.blog', ['id' => html::escapeHTML($k)]) . '">' .
                     html::escapeHTML($v['name']) . '</a> (' . html::escapeHTML($k) . ')</p>';
 
                     echo '<ul class="ul-perm">';
@@ -378,7 +374,7 @@ if ($user_id) {
                     echo
                     '</ul>' .
                     '<p class="add-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '" />' .
-                    form::hidden(['redir'], $core->adminurl->get("admin.user", ['id' => $user_id])) .
+                    form::hidden(['redir'], $core->adminurl->get('admin.user', ['id' => $user_id])) .
                     form::hidden(['action'], 'perms') .
                     form::hidden(['users[]'], $user_id) .
                     form::hidden(['blogs[]'], $k) .
@@ -388,7 +384,6 @@ if ($user_id) {
                 }
             }
         }
-
     } else {
         echo '<p>' . sprintf(__('%s is super admin (all rights on all blogs).'), '<strong>' . $user_id . '</strong>') . '</p>';
     }
@@ -403,7 +398,7 @@ if ($user_id) {
     echo '<p><a href="' . $core->adminurl->get('admin.comments',
         [
             'email' => $core->auth->getInfo('user_email', $user_id),
-            'site' => $core->auth->getInfo('user_url', $user_id),
+            'site'  => $core->auth->getInfo('user_url', $user_id),
         ]
     ) . '">' . __('List of comments') . '</a>';
     echo '</div>';

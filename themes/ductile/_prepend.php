@@ -8,13 +8,16 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 namespace themes\ductile;
 
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 // public part below
 
-if (!defined('DC_CONTEXT_ADMIN')) {return false;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return false;
+}
 // admin part below
 
 # Behaviors
@@ -25,7 +28,9 @@ class tplDuctileThemeAdmin
     public static function adminPageHTMLHead()
     {
         global $core;
-        if ($core->blog->settings->system->theme != 'ductile') {return;}
+        if ($core->blog->settings->system->theme != 'ductile') {
+            return;
+        }
 
         echo "\n" . '<!-- Header directives for Ductile configuration -->' . "\n";
         $core->auth->user_prefs->addWorkspace('accessibility');
@@ -56,6 +61,5 @@ $(function() {
 </script>
 EOT;
         }
-
     }
 }

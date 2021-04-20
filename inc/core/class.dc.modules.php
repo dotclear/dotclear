@@ -10,8 +10,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcModules
 {
@@ -70,20 +71,19 @@ class dcModules
                     // grab missing dependencies
                     if (!isset($this->all_modules[$dep[0]]) && ($dep[0] != 'core')) {
                         // module not present
-                        $missing[$dep[0]] = sprintf(__("Requires %s module which is not installed"), $dep[0]);
-                    } elseif ((count($dep) > 1) &&
-                        version_compare(($dep[0] == 'core' ? $dc_version : $this->all_modules[$dep[0]]['version']), $dep[1]) == -1) {
+                        $missing[$dep[0]] = sprintf(__('Requires %s module which is not installed'), $dep[0]);
+                    } elseif ((count($dep) > 1) && version_compare(($dep[0] == 'core' ? $dc_version : $this->all_modules[$dep[0]]['version']), $dep[1]) == -1) {
                         // module present, but version missing
                         if ($dep[0] == 'core') {
-                            $missing[$dep[0]] = sprintf(__("Requires Dotclear version %s, but version %s is installed"),
+                            $missing[$dep[0]] = sprintf(__('Requires Dotclear version %s, but version %s is installed'),
                                 $dep[1], $dc_version);
                         } else {
-                            $missing[$dep[0]] = sprintf(__("Requires %s module version %s, but version %s is installed"),
+                            $missing[$dep[0]] = sprintf(__('Requires %s module version %s, but version %s is installed'),
                                 $dep[0], $dep[1], $this->all_modules[$dep[0]]['version']);
                         }
                     } elseif (($dep[0] != 'core') && !$this->all_modules[$dep[0]]['enabled']) {
                         // module disabled
-                        $missing[$dep[0]] = sprintf(__("Requires %s module which is disabled"), $dep[0]);
+                        $missing[$dep[0]] = sprintf(__('Requires %s module which is disabled'), $dep[0]);
                     }
                     $this->all_modules[$dep[0]]['implies'][] = $k;
                 }
@@ -122,20 +122,22 @@ class dcModules
         foreach ($this->to_disable as $module) {
             try {
                 $this->deactivateModule($module['name']);
-                $reason[] = sprintf("<li>%s : %s</li>", $module['name'], join(',', $module['reason']));
+                $reason[] = sprintf('<li>%s : %s</li>', $module['name'], join(',', $module['reason']));
             } catch (Exception $e) {
             }
         }
         if (count($reason)) {
-            $message = sprintf("<p>%s</p><ul>%s</ul>",
+            $message = sprintf('<p>%s</p><ul>%s</ul>',
                 __('The following extensions have been disabled :'),
                 join('', $reason)
             );
             dcPage::addWarningNotice($message, ['divtag' => true, 'with_ts' => false]);
-            $url = $redir_url . (strpos($redir_url, "?") ? '&' : '?') . 'dep=1';
+            $url = $redir_url . (strpos($redir_url, '?') ? '&' : '?') . 'dep=1';
             http::redirect($url);
+
             return true;
         }
+
         return false;
     }
 
@@ -158,7 +160,7 @@ class dcModules
         $this->ns   = $ns;
 
         $disabled = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
-        $disabled = $disabled && !get_parent_class($this) ? true : false;
+        $disabled = $disabled                          && !get_parent_class($this) ? true : false;
 
         $ignored = [];
 
@@ -220,6 +222,7 @@ class dcModules
                 # If _prepend.php file returns null (ie. it has a void return statement)
                 if (is_null($r)) {
                     $ignored[] = $id;
+
                     continue;
                 }
                 unset($r);
@@ -289,6 +292,7 @@ class dcModules
                     'root_writable' => is_writable($this->mroot)
                 ]
             );
+
             return;
         }
         # Fallback to legacy registerModule parameters
@@ -324,6 +328,7 @@ class dcModules
                 '<em>' . html::escapeHTML($properties['type']) . '</em>',
                 '<em>' . html::escapeHTML(self::$type) . '</em>'
             );
+
             return;
         }
 
@@ -355,8 +360,8 @@ class dcModules
                     ]
                 );
             } else {
-                $path1          = path::real($this->moduleInfo($name, 'root'));
-                $path2          = path::real($this->mroot);
+                $path1          = path::real($this->moduleInfo($name, 'root') ?? '');
+                $path2          = path::real($this->mroot ?? '');
                 $this->errors[] = sprintf(
                     __('Module "%s" is installed twice in "%s" and "%s".'),
                     '<strong>' . $name . '</strong>',
@@ -396,12 +401,14 @@ class dcModules
         if ($zip->isEmpty()) {
             $zip->close();
             unlink($zip_file);
+
             throw new Exception(__('Empty module zip file.'));
         }
 
         if (!$has_define) {
             $zip->close();
             unlink($zip_file);
+
             throw new Exception(__('The zip file does not appear to be a valid Dotclear module.'));
         }
 
@@ -421,6 +428,7 @@ class dcModules
                 $new_errors = $sandbox->getErrors();
                 if (!empty($new_errors)) {
                     $new_errors = is_array($new_errors) ? implode(" \n", $new_errors) : $new_errors;
+
                     throw new Exception($new_errors);
                 }
 
@@ -429,6 +437,7 @@ class dcModules
                 $zip->close();
                 unlink($zip_file);
                 files::deltree($destination);
+
                 throw new Exception($e->getMessage());
             }
         } else {
@@ -454,17 +463,20 @@ class dcModules
                 } else {
                     $zip->close();
                     unlink($zip_file);
+
                     throw new Exception(sprintf(__('Unable to upgrade "%s". (older or same version)'), basename($destination)));
                 }
             } else {
                 $zip->close();
                 unlink($zip_file);
+
                 throw new Exception(sprintf(__('Unable to read new _define.php file')));
             }
         }
         $zip->unzipAll($target);
         $zip->close();
         unlink($zip_file);
+
         return $ret_code;
     }
 
@@ -504,6 +516,7 @@ class dcModules
         if (!isset($this->modules[$id])) {
             return;
         }
+
         try {
             $i = $this->loadModuleFile($this->modules[$id]['root'] . '/_install.php');
             if ($i === true) {
@@ -511,10 +524,9 @@ class dcModules
             }
         } catch (Exception $e) {
             $msg = $e->getMessage();
+
             return false;
         }
-
-        return;
     }
 
     public function deleteModule($id, $disabled = false)
@@ -566,7 +578,6 @@ class dcModules
 
     public function cloneModule($id)
     {
-        return;
     }
 
     /**
@@ -615,6 +626,7 @@ class dcModules
         if ($id && isset($this->modules[$id])) {
             return $this->modules[$id];
         }
+
         return $this->modules;
     }
 
@@ -666,7 +678,7 @@ class dcModules
      */
     public function moduleInfo($id, $info)
     {
-        return isset($this->modules[$id][$info]) ? $this->modules[$id][$info] : null;
+        return $this->modules[$id][$info] ?? null;
     }
 
     /**
@@ -696,12 +708,15 @@ class dcModules
         switch ($ns) {
             case 'admin':
                 $this->loadModuleFile($this->modules[$id]['root'] . '/_admin.php');
+
                 break;
             case 'public':
                 $this->loadModuleFile($this->modules[$id]['root'] . '/_public.php');
+
                 break;
             case 'xmlrpc':
                 $this->loadModuleFile($this->modules[$id]['root'] . '/_xmlrpc.php');
+
                 break;
         }
     }
@@ -730,6 +745,7 @@ class dcModules
             ob_start();
             $ret = require $________;
             ob_end_clean();
+
             return $ret;
         }
 

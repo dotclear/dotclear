@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcAntispam
 {
@@ -81,11 +82,12 @@ class dcAntispam
     {
         if (($count = self::countSpam($core)) > 0) {
             $str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
+
             return '</span></a> <a href="' . $core->adminurl->get('admin.comments', ['status' => '-2']) . '"><span class="db-icon-title-spam">' .
             sprintf($str, $count);
-        } else {
-            return '';
         }
+
+        return '';
     }
 
     public static function dashboardHeaders()
@@ -105,8 +107,7 @@ class dcAntispam
 
     public static function delAllSpam($core, $beforeDate = null)
     {
-        $strReq =
-        'SELECT comment_id ' .
+        $strReq = 'SELECT comment_id ' .
         'FROM ' . $core->prefix . 'comment C ' .
         'JOIN ' . $core->prefix . 'post P ON P.post_id = C.post_id ' .
         "WHERE blog_id = '" . $core->con->escape($core->blog->id) . "' " .
@@ -125,8 +126,7 @@ class dcAntispam
             return;
         }
 
-        $strReq =
-        'DELETE FROM ' . $core->prefix . 'comment ' .
+        $strReq = 'DELETE FROM ' . $core->prefix . 'comment ' .
         'WHERE comment_id ' . $core->con->in($r) . ' ';
 
         $core->con->execute($strReq);
@@ -134,9 +134,9 @@ class dcAntispam
 
     public static function getUserCode($core)
     {
-        $code =
-        pack('a32', $core->auth->userID()) .
+        $code = pack('a32', $core->auth->userID()) .
         hash(DC_CRYPT_ALGO, $core->auth->cryptLegacy($core->auth->getInfo('user_pwd')));
+
         return bin2hex($code);
     }
 

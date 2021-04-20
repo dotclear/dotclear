@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 include dirname(__FILE__) . '/_default_widgets.php';
 
@@ -39,6 +40,7 @@ function literalNullString($v)
     if ($v == '') {
         return '&lt;' . __('empty string') . '&gt;';
     }
+
     return $v;
 }
 
@@ -76,12 +78,15 @@ if (!empty($_POST['append']) && is_array($_POST['addw'])) {
                 switch ($v) {
                     case 'nav':
                         $widgets_nav->append($__widgets->{$k});
+
                         break;
                     case 'extra':
                         $widgets_extra->append($__widgets->{$k});
+
                         break;
                     case 'custom':
                         $widgets_custom->append($__widgets->{$k});
+
                         break;
                 }
             }
@@ -107,6 +112,7 @@ if (isset($_POST['w']) && is_array($_POST['w'])) {
         foreach ($nsw as $i => $v) {
             if (!empty($v['_rem'])) {
                 $removing = true;
+
                 break 2;
             }
         }
@@ -146,13 +152,13 @@ if (!empty($_POST['wup']) || $removing || $move) {
         $_POST['w'] = [];
     }
 
-    try
-    {
+    try {
         # Removing mark as _rem widgets
         foreach ($_POST['w'] as $nsid => $nsw) {
             foreach ($nsw as $i => $v) {
                 if (!empty($v['_rem'])) {
                     unset($_POST['w'][$nsid][$i]);
+
                     continue;
                 }
             }
@@ -184,8 +190,7 @@ if (!empty($_POST['wup']) || $removing || $move) {
         $core->error->add($e->getMessage());
     }
 } elseif (!empty($_POST['wreset'])) {
-    try
-    {
+    try {
         $core->blog->settings->addNamespace('widgets');
         $core->blog->settings->widgets->put('widgets_nav', '');
         $core->blog->settings->widgets->put('widgets_extra', '');
@@ -227,7 +232,7 @@ if ($rte_flag) {
     echo $core->callBehavior('adminPostEditor', $widget_editor['xhtml'], 'widget',
         ['#sidebarsWidgets textarea:not(.noeditor)'], 'xhtml');
 }
-echo (dcPage::jsConfirmClose('sidebarsWidgets'));
+echo(dcPage::jsConfirmClose('sidebarsWidgets'));
 ?>
 </head>
 <body>
@@ -302,8 +307,7 @@ $core->formNonce() .
 $widget_elements          = new stdClass;
 $widget_elements->content = '<dl>';
 foreach ($__widgets->elements() as $w) {
-    $widget_elements->content .=
-    '<dt><strong>' . html::escapeHTML($w->name()) . '</strong> (' .
+    $widget_elements->content .= '<dt><strong>' . html::escapeHTML($w->name()) . '</strong> (' .
     __('Widget ID:') . ' <strong>' . html::escapeHTML($w->id()) . '</strong>)' .
         ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') . '</dt>' .
         '<dd>';
@@ -316,21 +320,23 @@ foreach ($__widgets->elements() as $w) {
         foreach ($w->settings() as $n => $s) {
             switch ($s['type']) {
                 case 'check':
-                    $s_type = __('boolean') . ", " . __('possible values:') . " <code>0</code> " . __('or') . " <code>1</code>";
+                    $s_type = __('boolean') . ', ' . __('possible values:') . ' <code>0</code> ' . __('or') . ' <code>1</code>';
+
                     break;
                 case 'combo':
-                    $s['options'] = array_map("literalNullString", $s['options']);
-                    $s_type       = __('listitem') . ", " . __('possible values:') . " <code>" . implode('</code>, <code>', $s['options']) . "</code>";
+                    $s['options'] = array_map('literalNullString', $s['options']);
+                    $s_type       = __('listitem') . ', ' . __('possible values:') . ' <code>' . implode('</code>, <code>', $s['options']) . '</code>';
+
                     break;
                 case 'text':
                 case 'textarea':
                 default:
                     $s_type = __('string');
+
                     break;
             }
 
-            $widget_elements->content .=
-            '<li>' .
+            $widget_elements->content .= '<li>' .
             __('Setting name:') . ' <strong>' . html::escapeHTML($n) . '</strong>' .
                 ' (' . $s_type . ')' .
                 '</li>';
@@ -364,8 +370,7 @@ function sidebarWidgets($id, $title, $widgets, $pr, $default_widgets, &$j)
 
         $iname = 'w[' . $pr . '][' . $i . ']';
 
-        $res .=
-        '<li>' . form::hidden([$iname . '[id]'], html::escapeHTML($w->id())) .
+        $res .= '<li>' . form::hidden([$iname . '[id]'], html::escapeHTML($w->id())) .
         '<p class="widget-name">' . form::number([$iname . '[order]'], [
             'default'    => $i,
             'class'      => 'hidden',

@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $core->addBehavior('initWidgets', ['blogrollWidgets', 'initWidgets']);
 $core->addBehavior('initDefaultWidgets', ['blogrollWidgets', 'initDefaultWidgets']);

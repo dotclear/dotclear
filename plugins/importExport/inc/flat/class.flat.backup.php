@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class flatBackup
 {
@@ -66,14 +67,13 @@ class flatBackup
             $res = [];
 
             for ($i = 0; $i < count($line); $i++) {
-                $res[$this->line_cols[$i]] =
-                    preg_replace(array_keys($this->replacement), array_values($this->replacement), $line[$i]);
+                $res[$this->line_cols[$i]] = preg_replace(array_keys($this->replacement), array_values($this->replacement), $line[$i]);
             }
 
             return new flatBackupItem($this->line_name, $res, $this->line_num);
-        } else {
-            return $this->getLine();
         }
+
+        return $this->getLine();
     }
 
     private function nextLine()

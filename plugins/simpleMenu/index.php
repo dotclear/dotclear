@@ -40,7 +40,7 @@ $langs_combo = dcAdminCombos::getLangscombo(
 $rs           = $core->blog->getDates(['type' => 'month']);
 $months_combo = array_merge(
     [__('All months') => '-'],
-    dcAdmincombos::getDatesCombo($rs)
+    dcAdminCombos::getDatesCombo($rs)
 );
 
 $first_year = $last_year = 0;
@@ -129,6 +129,16 @@ if (!is_array($menu)) {
 $menu_active = (boolean) $core->blog->settings->system->simpleMenu_active;
 
 // Saving new configuration
+$item_type         = '';
+$item_select       = '';
+$item_select_label = '';
+$item_label        = '';
+$item_descr        = '';
+$item_url          = '';
+$item_type_label   = '';
+$item_targetBlank  = false;
+$step              = 0;
+$step_label        = '';
 if (!empty($_POST['saveconfig'])) {
     try {
         $menu_active = (empty($_POST['active'])) ? false : true;

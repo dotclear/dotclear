@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class defaultWidgets
 {
@@ -53,20 +54,17 @@ class defaultWidgets
             return;
         }
 
-        $res =
-            ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
+        $res = ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
             '<nav role="navigation"><ul>';
 
         if ($core->url->type != 'default') {
-            $res .=
-            '<li class="topnav-home">' .
+            $res .= '<li class="topnav-home">' .
             '<a href="' . $core->blog->url . '">' . __('Home') . '</a>' .
                 '</li>';
         }
 
-        $res .=
-        '<li class="topnav-arch">' .
-        '<a href="' . $core->blog->url . $core->url->getURLFor("archive") . '">' .
+        $res .= '<li class="topnav-arch">' .
+        '<a href="' . $core->blog->url . $core->url->getURLFor('archive') . '">' .
         __('Archives') . '</a></li>' .
             '</ul></nav>';
 
@@ -90,8 +88,7 @@ class defaultWidgets
             return;
         }
 
-        $res =
-            ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '');
+        $res = ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '');
 
         $ref_level = $level = $rs->level - 1;
         while ($rs->fetch()) {
@@ -111,8 +108,7 @@ class defaultWidgets
                 $res .= '</li><li' . $class . '>';
             }
 
-            $res .=
-            '<a href="' . $core->blog->url . $core->url->getURLFor('category', $rs->cat_url) . '">' .
+            $res .= '<a href="' . $core->blog->url . $core->url->getURLFor('category', $rs->cat_url) . '">' .
             html::escapeHTML($rs->cat_title) . '</a>' .
                 ($w->postcount ? ' <span>(' . ($w->subcatscount ? $rs->nb_total : $rs->nb_post) . ')</span>' : '');
 
@@ -150,8 +146,7 @@ class defaultWidgets
             return;
         }
 
-        $res =
-            ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
+        $res = ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
             '<ul>';
 
         while ($rs->fetch()) {
@@ -186,17 +181,15 @@ class defaultWidgets
         }
 
         $langs = l10n::getISOcodes();
-        $res   =
-            ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
+        $res   = ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
             '<ul>';
 
         while ($rs->fetch()) {
             $l = ($_ctx->cur_lang == $rs->post_lang) ? '<strong>%s</strong>' : '%s';
 
-            $lang_name = isset($langs[$rs->post_lang]) ? $langs[$rs->post_lang] : $rs->post_lang;
+            $lang_name = $langs[$rs->post_lang] ?? $rs->post_lang;
 
-            $res .=
-            ' <li>' .
+            $res .= ' <li>' .
             sprintf($l,
                 '<a href="' . $core->blog->url . $core->url->getURLFor('lang', $rs->post_lang) . '" ' .
                 'class="lang-' . $rs->post_lang . '">' .
@@ -230,19 +223,16 @@ class defaultWidgets
         $p_title = __('This blog\'s entries %s feed');
         $c_title = __('This blog\'s comments %s feed');
 
-        $res =
-            ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
+        $res = ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
             '<ul>';
 
-        $res .=
-        '<li><a type="' . $mime . '" ' .
+        $res .= '<li><a type="' . $mime . '" ' .
         'href="' . $core->blog->url . $core->url->getURLFor('feed', $type) . '" ' .
         'title="' . sprintf($p_title, ($type == 'atom' ? 'Atom' : 'RSS')) . '" class="feed">' .
         __('Entries feed') . '</a></li>';
 
         if ($core->blog->settings->system->allow_comments || $core->blog->settings->system->allow_trackbacks) {
-            $res .=
-            '<li><a type="' . $mime . '" ' .
+            $res .= '<li><a type="' . $mime . '" ' .
             'href="' . $core->blog->url . $core->url->getURLFor('feed', $type . '/comments') . '" ' .
             'title="' . sprintf($c_title, ($type == 'atom' ? 'Atom' : 'RSS')) . '" class="feed">' .
             __('Comments feed') . '</a></li>';
@@ -280,14 +270,13 @@ class defaultWidgets
             return;
         }
 
-        $res =
-            ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
+        $res = ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
             '<ul>';
 
         $i = 0;
         foreach ($feed->items as $item) {
             $title = isset($item->title) && strlen(trim($item->title)) ? $item->title : '';
-            $link  = isset($item->link) && strlen(trim($item->link)) ? $item->link : '';
+            $link  = isset($item->link)  && strlen(trim($item->link)) ? $item->link : '';
 
             if (!$link && !$title) {
                 continue;
@@ -364,8 +353,7 @@ class defaultWidgets
             return;
         }
 
-        $res =
-            ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
+        $res = ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
             '<ul>';
 
         while ($rs->fetch()) {

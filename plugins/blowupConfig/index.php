@@ -8,61 +8,63 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 require dirname(__FILE__) . '/lib/class.blowup.config.php';
 
 $can_write_images = blowupConfig::canWriteImages();
 $can_write_css    = blowupConfig::canWriteCss();
 
+$notices = '';
 if ($core->error->flag()) {
     $notices = $core->error->toHTML();
     $core->error->reset();
 }
 
 $blowup_base = [
-    'body_bg_c'           => null,
-    'body_bg_g'           => 'light',
+    'body_bg_c' => null,
+    'body_bg_g' => 'light',
 
-    'body_txt_f'          => null,
-    'body_txt_s'          => null,
-    'body_txt_c'          => null,
-    'body_line_height'    => null,
+    'body_txt_f'       => null,
+    'body_txt_s'       => null,
+    'body_txt_c'       => null,
+    'body_line_height' => null,
 
-    'top_image'           => 'default',
-    'top_height'          => null,
-    'uploaded'            => null,
+    'top_image'  => 'default',
+    'top_height' => null,
+    'uploaded'   => null,
 
-    'blog_title_hide'     => null,
-    'blog_title_f'        => null,
-    'blog_title_s'        => null,
-    'blog_title_c'        => null,
-    'blog_title_a'        => null,
-    'blog_title_p'        => null,
+    'blog_title_hide' => null,
+    'blog_title_f'    => null,
+    'blog_title_s'    => null,
+    'blog_title_c'    => null,
+    'blog_title_a'    => null,
+    'blog_title_p'    => null,
 
-    'body_link_c'         => null,
-    'body_link_f_c'       => null,
-    'body_link_v_c'       => null,
+    'body_link_c'   => null,
+    'body_link_f_c' => null,
+    'body_link_v_c' => null,
 
-    'sidebar_position'    => null,
-    'sidebar_text_f'      => null,
-    'sidebar_text_s'      => null,
-    'sidebar_text_c'      => null,
-    'sidebar_title_f'     => null,
-    'sidebar_title_s'     => null,
-    'sidebar_title_c'     => null,
-    'sidebar_title2_f'    => null,
-    'sidebar_title2_s'    => null,
-    'sidebar_title2_c'    => null,
-    'sidebar_line_c'      => null,
-    'sidebar_link_c'      => null,
-    'sidebar_link_f_c'    => null,
-    'sidebar_link_v_c'    => null,
+    'sidebar_position' => null,
+    'sidebar_text_f'   => null,
+    'sidebar_text_s'   => null,
+    'sidebar_text_c'   => null,
+    'sidebar_title_f'  => null,
+    'sidebar_title_s'  => null,
+    'sidebar_title_c'  => null,
+    'sidebar_title2_f' => null,
+    'sidebar_title2_s' => null,
+    'sidebar_title2_c' => null,
+    'sidebar_line_c'   => null,
+    'sidebar_link_c'   => null,
+    'sidebar_link_f_c' => null,
+    'sidebar_link_v_c' => null,
 
-    'date_title_f'        => null,
-    'date_title_s'        => null,
-    'date_title_c'        => null,
+    'date_title_f' => null,
+    'date_title_s' => null,
+    'date_title_c' => null,
 
     'post_title_f'        => null,
     'post_title_s'        => null,
@@ -72,14 +74,14 @@ $blowup_base = [
     'post_commentmy_bg_c' => null,
     'post_commentmy_c'    => null,
 
-    'prelude_c'           => null,
-    'footer_f'            => null,
-    'footer_s'            => null,
-    'footer_c'            => null,
-    'footer_l_c'          => null,
-    'footer_bg_c'         => null,
+    'prelude_c'   => null,
+    'footer_f'    => null,
+    'footer_s'    => null,
+    'footer_c'    => null,
+    'footer_l_c'  => null,
+    'footer_bg_c' => null,
 
-    'extra_css'           => null
+    'extra_css' => null
 ];
 
 $blowup_user = $core->blog->settings->themes->blowup_style;
@@ -102,8 +104,7 @@ $top_images = [__('Custom...') => 'custom'];
 $top_images = array_merge($top_images, array_flip(blowupConfig::$top_images));
 
 if (!empty($_POST)) {
-    try
-    {
+    try {
         $blowup_user['body_txt_f']       = $_POST['body_txt_f'];
         $blowup_user['body_txt_s']       = dcThemeConfig::adjustFontSize($_POST['body_txt_s']);
         $blowup_user['body_txt_c']       = dcThemeConfig::adjustColor($_POST['body_txt_c']);
@@ -111,9 +112,7 @@ if (!empty($_POST)) {
 
         $blowup_user['blog_title_hide'] = (integer) !empty($_POST['blog_title_hide']);
         $update_blog_title              = !$blowup_user['blog_title_hide'] && (
-            !empty($_POST['blog_title_f']) || !empty($_POST['blog_title_s']) ||
-            !empty($_POST['blog_title_c']) || !empty($_POST['blog_title_a']) ||
-            !empty($_POST['blog_title_p'])
+            !empty($_POST['blog_title_f']) || !empty($_POST['blog_title_s']) || !empty($_POST['blog_title_c']) || !empty($_POST['blog_title_a']) || !empty($_POST['blog_title_p'])
         );
 
         if ($update_blog_title) {
@@ -204,13 +203,13 @@ if (!empty($_POST)) {
   <title><?php echo __('Blowup configuration'); ?></title>
   <?php
 $js = [
-    'blowup_public_url' => blowupConfig::imagesURL(),
-    'msg'               => [
-        'predefined_styles'      => __('Predefined styles'),
-        'apply_code'             => __('Apply code'),
-        'predefined_style_title' => __('Choose a predefined style')
-    ]
-];
+      'blowup_public_url' => blowupConfig::imagesURL(),
+      'msg'               => [
+          'predefined_styles'      => __('Predefined styles'),
+          'apply_code'             => __('Apply code'),
+          'predefined_style_title' => __('Choose a predefined style')
+      ]
+  ];
 echo dcPage::jsJson('blowup', $js);
 echo dcPage::jsLoad(dcPage::getPF('blowupConfig/js/config.js'));
 ?>

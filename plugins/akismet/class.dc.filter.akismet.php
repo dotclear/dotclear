@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcFilterAkismet extends dcSpamFilter
 {
@@ -56,8 +57,7 @@ class dcFilterAkismet extends dcSpamFilter
 
         $blog = &$this->core->blog;
 
-        try
-        {
+        try {
             if ($ak->verify()) {
                 $post = $blog->getPosts(['post_id' => $post_id]);
 
@@ -72,10 +72,12 @@ class dcFilterAkismet extends dcSpamFilter
 
                 if ($c) {
                     $status = 'Filtered by Akismet';
+
                     return true;
                 }
             }
-        } catch (Exception $e) {} # If http or akismet is dead, we don't need to know it
+        } catch (Exception $e) {
+        } # If http or akismet is dead, we don't need to know it
     }
 
     public function trainFilter($status, $filter, $type, $author, $email, $site, $ip, $content, $rs)
@@ -91,12 +93,12 @@ class dcFilterAkismet extends dcSpamFilter
             return;
         }
 
-        try
-        {
+        try {
             if ($ak->verify()) {
                 $ak->{$f}($rs->getPostURL(), $type, $author, $email, $site, $content);
             }
-        } catch (Exception $e) {} # If http or akismet is dead, we don't need to know it
+        } catch (Exception $e) {
+        } # If http or akismet is dead, we don't need to know it
     }
 
     public function gui($url)
@@ -108,8 +110,7 @@ class dcFilterAkismet extends dcSpamFilter
         $ak_verified = null;
 
         if (isset($_POST['ak_key'])) {
-            try
-            {
+            try {
                 $ak_key = $_POST['ak_key'];
 
                 $blog->settings->akismet->put('ak_key', $ak_key, 'string');
@@ -132,8 +133,7 @@ class dcFilterAkismet extends dcSpamFilter
 
         $res = dcPage::notices();
 
-        $res .=
-        '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
+        $res .= '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
         '<p><label for="ak_key" class="classic">' . __('Akismet API key:') . '</label> ' .
         form::field('ak_key', 12, 128, $ak_key);
 
@@ -147,8 +147,7 @@ class dcFilterAkismet extends dcSpamFilter
 
         $res .= '</p>';
 
-        $res .=
-        '<p><a href="https://akismet.com/">' . __('Get your own API key') . '</a></p>' .
+        $res .= '<p><a href="https://akismet.com/">' . __('Get your own API key') . '</a></p>' .
         '<p><input type="submit" value="' . __('Save') . '" />' .
         $this->core->formNonce() . '</p>' .
             '</form>';
@@ -214,19 +213,21 @@ class akismet extends netHttp
     public function submit_spam($permalink, $type, $author, $email, $url, $content)
     {
         $this->callFunc('submit-spam', $permalink, $type, $author, $email, $url, $content);
+
         return true;
     }
 
     public function submit_ham($permalink, $type, $author, $email, $url, $content)
     {
         $this->callFunc('submit-ham', $permalink, $type, $author, $email, $url, $content);
+
         return true;
     }
 
     protected function callFunc($function, $permalink, $type, $author, $email, $url, $content, $info = [])
     {
-        $ua      = isset($info['HTTP_USER_AGENT']) ? $info['HTTP_USER_AGENT'] : '';
-        $referer = isset($info['HTTP_REFERER']) ? $info['HTTP_REFERER'] : '';
+        $ua      = $info['HTTP_USER_AGENT'] ?? '';
+        $referer = $info['HTTP_REFERER']    ?? '';
 
         # Prepare comment data
         $data = [
@@ -248,7 +249,7 @@ class akismet extends netHttp
         $path       = sprintf($this->ak_path, $function);
 
         if (!$this->post($path, $data, 'UTF-8')) {
-            throw new Exception('HTTP error: ' . $this->getError());
+            throw new Exception('HTTP error: ' . $this->getError());    // @phpstan-ignore-line
         }
 
         return $this->getContent() == 'true';

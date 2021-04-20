@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
@@ -20,6 +19,7 @@ $nb_per_page = 10;
 $type = !empty($_GET['type']) ? $_GET['type'] : null;
 
 $post_types = $core->getPostTypes();
+$type_combo = [];
 foreach ($post_types as $k => $v) {
     $type_combo[__($k)] = (string) $k;
 }
@@ -59,6 +59,8 @@ echo '<form action="' . $core->adminurl->get('admin.popup_posts') . '" method="g
 form::hidden('plugin_id', html::escapeHTML($plugin_id)) .
 form::hidden('type', html::escapeHTML($type)) .
     '</p></form>';
+
+$post_list = null;
 
 try {
     $posts     = $core->blog->getPosts($params);

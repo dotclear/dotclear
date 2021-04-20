@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 $version = $core->plugins->moduleInfo('simpleMenu', 'version');
 if (version_compare($core->getVersion('simpleMenu'), $version, '>=')) {
@@ -26,4 +27,5 @@ $core->blog->settings->system->put('simpleMenu', $menu_default, 'array', 'simple
 $core->blog->settings->system->put('simpleMenu_active', true, 'boolean', 'Active', false, true);
 
 $core->setVersion('simpleMenu', $version);
+
 return true;

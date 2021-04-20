@@ -6,13 +6,12 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 $core->auth->user_prefs->addWorkspace('interface');
 
-$js = [];
+$js         = [];
 $data_theme = $core->auth->user_prefs->interface->theme;
 ?>
 <!DOCTYPE html>

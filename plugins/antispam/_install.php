@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 $version = $core->plugins->moduleInfo('antispam', 'version');
 if (version_compare($core->getVersion('antispam'), $version, '>=')) {
@@ -52,4 +53,5 @@ $settings->addNamespace('antispam');
 $settings->antispam->put('antispam_moderation_ttl', 0, 'integer', 'Antispam Moderation TTL (days)', false);
 
 $core->setVersion('antispam', $version);
+
 return true;

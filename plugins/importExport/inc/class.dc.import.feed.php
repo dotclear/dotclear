@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcImportFeed extends dcIeModule
 {
@@ -27,9 +28,9 @@ class dcImportFeed extends dcIeModule
         $dns = $this->gethostbynamel6($host, $try_a);
         if ($dns == false) {
             return false;
-        } else {
-            return $dns[0];
         }
+
+        return $dns[0];
     }
     private function gethostbynamel6($host, $try_a = false)
     {
@@ -48,26 +49,26 @@ class dcImportFeed extends dcIeModule
         $ip6 = [];
         $ip4 = [];
         foreach ($dns as $record) {
-            if ($record["type"] == "A") {
-                $ip4[] = $record["ip"];
+            if ($record['type'] == 'A') {
+                $ip4[] = $record['ip'];
             }
-            if ($record["type"] == "AAAA") {
-                $ip6[] = $record["ipv6"];
+            if ($record['type'] == 'AAAA') {
+                $ip6[] = $record['ipv6'];
             }
         }
         if (count($ip6) < 1) {
             if ($try_a == true) {
                 if (count($ip4) < 1) {
                     return false;
-                } else {
-                    return $ip4;
                 }
-            } else {
-                return false;
+
+                return $ip4;
             }
-        } else {
-            return $ip6;
+
+            return false;
         }
+
+        return $ip6;
     }
 
     public function setInfo()
@@ -81,6 +82,7 @@ class dcImportFeed extends dcIeModule
     {
         if ($do == 'ok') {
             $this->status = true;
+
             return;
         }
 
@@ -149,6 +151,7 @@ class dcImportFeed extends dcIeModule
                 $post_id = $this->core->blog->addPost($cur);
             } catch (Exception $e) {
                 $this->core->con->rollback();
+
                 throw $e;
             }
 
@@ -159,7 +162,6 @@ class dcImportFeed extends dcIeModule
 
         $this->core->con->commit();
         http::redirect($this->getURL() . '&do=ok');
-
     }
 
     public function gui()

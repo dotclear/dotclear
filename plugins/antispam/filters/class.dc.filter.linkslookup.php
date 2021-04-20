@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcFilterLinksLookup extends dcSpamFilter
 {
@@ -43,7 +44,7 @@ class dcFilterLinksLookup extends dcSpamFilter
             }
 
             $domain      = preg_replace('/^[\w]{2,6}:\/\/([\w\d\.\-]+).*$/', '$1', $b['host']);
-            $domain_elem = explode(".", $domain);
+            $domain_elem = explode('.', $domain);
 
             $i = count($domain_elem) - 1;
             if ($i == 0) {
@@ -57,6 +58,7 @@ class dcFilterLinksLookup extends dcSpamFilter
                 $response = gethostbyname($host . '.' . $this->server);
                 if (substr($response, 0, 3) === '127' && substr($response, 8) !== '1') {
                     $status = substr($domain, 0, 128);
+
                     return true;
                 }
             } while ($i > 0);

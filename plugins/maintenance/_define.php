@@ -8,13 +8,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $this->registerModule(
-    "Maintenance",                            // Name
-    "Maintain your installation",             // Description
-    "Olivier Meunier & Association Dotclear", // Author
+    'Maintenance',                            // Name
+    'Maintain your installation',             // Description
+    'Olivier Meunier & Association Dotclear', // Author
     '1.3.1',                                  // Version
     [
         'permissions' => 'admin',

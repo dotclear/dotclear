@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
@@ -24,8 +23,7 @@ if (!isset($_POST['id']) && (isset($_POST['create']))) {
     $blog_name = $cur->blog_name = $_POST['blog_name'];
     $blog_desc = $cur->blog_desc = $_POST['blog_desc'];
 
-    try
-    {
+    try {
         # --BEHAVIOR-- adminBeforeBlogCreate
         $core->callBehavior('adminBeforeBlogCreate', $cur, $blog_id);
 
@@ -47,7 +45,7 @@ if (!isset($_POST['id']) && (isset($_POST['create']))) {
         # --BEHAVIOR-- adminAfterBlogCreate
         $core->callBehavior('adminAfterBlogCreate', $cur, $blog_id, $blog_settings);
         dcPage::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), html::escapeHTML($cur->blog_name)));
-        $core->adminurl->redirect("admin.blog", ['id' => $cur->blog_id]);
+        $core->adminurl->redirect('admin.blog', ['id' => $cur->blog_id]);
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
     }
@@ -61,13 +59,13 @@ if (!empty($_REQUEST['id'])) {
         dcPage::breadcrumb(
             [
                 __('System')   => '',
-                __('Blogs')    => $core->adminurl->get("admin.blogs"),
+                __('Blogs')    => $core->adminurl->get('admin.blogs'),
                 __('New blog') => ''
             ])
     );
 
     echo
-    '<form action="' . $core->adminurl->get("admin.blog") . '" method="post" id="blog-form">' .
+    '<form action="' . $core->adminurl->get('admin.blog') . '" method="post" id="blog-form">' .
 
     '<div>' . $core->formNonce() . '</div>' .
     '<p><label class="required" for="blog_id"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog ID:') . '</label> ' .

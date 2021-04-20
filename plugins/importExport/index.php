@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 function listImportExportModules($core, $modules)
 {
@@ -17,12 +18,12 @@ function listImportExportModules($core, $modules)
     foreach ($modules as $id) {
         $o = new $id($core);
 
-        $res .=
-        '<dt><a href="' . $o->getURL(true) . '">' . html::escapeHTML($o->name) . '</a></dt>' .
+        $res .= '<dt><a href="' . $o->getURL(true) . '">' . html::escapeHTML($o->name) . '</a></dt>' .
         '<dd>' . html::escapeHTML($o->description) . '</dd>';
 
         unset($o);
     }
+
     return '<dl class="modules">' . $res . '</dl>';
 }
 
@@ -38,9 +39,7 @@ if (!empty($_REQUEST['type']) && in_array($_REQUEST['type'], ['export', 'import'
 
 $module = null;
 if ($type && !empty($_REQUEST['module'])) {
-
     if (isset($modules[$type]) && in_array($_REQUEST['module'], $modules[$type])) {
-
         $module = new $_REQUEST['module']($core);
         $module->init();
     }

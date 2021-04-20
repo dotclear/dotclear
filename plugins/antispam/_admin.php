@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 if (!defined('DC_ANTISPAM_CONF_SUPER')) {
     define('DC_ANTISPAM_CONF_SUPER', false);
@@ -67,6 +68,7 @@ class antispamBehaviors
         foreach ($blocks as $block) {
             if ($block == 'core_comments') {
                 $found = true;
+
                 break;
             }
         }

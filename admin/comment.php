@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
@@ -31,8 +30,7 @@ $status_combo = dcAdminCombos::getCommentStatusescombo();
 
 # Adding comment (comming from post form, comments tab)
 if (!empty($_POST['add']) && !empty($_POST['post_id'])) {
-    try
-    {
+    try {
         $rs = $core->blog->getPosts(['post_id' => $_POST['post_id'], 'post_type' => '']);
 
         if ($rs->isEmpty()) {
@@ -61,6 +59,11 @@ if (!empty($_POST['add']) && !empty($_POST['post_id'])) {
     }
     http::redirect($core->getPostAdminURL($rs->post_type, $rs->post_id, false) . '&co=1');
 }
+
+$rs         = null;
+$post_id    = '';
+$post_type  = '';
+$post_title = '';
 
 if (!empty($_REQUEST['id'])) {
     $params['comment_id'] = $_REQUEST['id'];
@@ -91,6 +94,7 @@ if (!$comment_id && !$core->error->flag()) {
     $core->error->add(__('No comments'));
 }
 
+$can_edit = $can_delete = $can_publish = false;
 if (!$core->error->flag() && isset($rs)) {
     $can_edit = $can_delete = $can_publish = $core->auth->check('contentadmin', $core->blog->id);
 
@@ -117,8 +121,7 @@ if (!$core->error->flag() && isset($rs)) {
             $cur->comment_status = (integer) $_POST['comment_status'];
         }
 
-        try
-        {
+        try {
             # --BEHAVIOR-- adminBeforeCommentUpdate
             $core->callBehavior('adminBeforeCommentUpdate', $cur, $comment_id);
 
@@ -128,7 +131,7 @@ if (!$core->error->flag() && isset($rs)) {
             $core->callBehavior('adminAfterCommentUpdate', $cur, $comment_id);
 
             dcPage::addSuccessNotice(__('Comment has been successfully updated.'));
-            $core->adminurl->redirect("admin.comment", ['id' => $comment_id]);
+            $core->adminurl->redirect('admin.comment', ['id' => $comment_id]);
         } catch (Exception $e) {
             $core->error->add($e->getMessage());
         }
@@ -142,7 +145,7 @@ if (!$core->error->flag() && isset($rs)) {
             $core->blog->delComment($comment_id);
 
             dcPage::addSuccessNotice(__('Comment has been successfully deleted.'));
-            http::redirect($core->getPostAdminURL($rs->post_type, $rs->post_id) . '&co=1', false);
+            http::redirect($core->getPostAdminURL($rs->post_type, $rs->post_id) . '&co=1');
         } catch (Exception $e) {
             $core->error->add($e->getMessage());
         }
@@ -195,14 +198,14 @@ if ($comment_id) {
     }
 
     echo
-    '<form action="' . $core->adminurl->get("admin.comment") . '" method="post" id="comment-form">' .
+    '<form action="' . $core->adminurl->get('admin.comment') . '" method="post" id="comment-form">' .
     '<div class="fieldset">' .
     '<h3>' . __('Information collected') . '</h3>';
 
     if ($show_ip) {
         echo
         '<p>' . __('IP address:') . ' ' .
-        '<a href="' . $core->adminurl->get("admin.comments", ['ip' => $comment_ip]) . '">' . $comment_ip . '</a></p>';
+        '<a href="' . $core->adminurl->get('admin.comments', ['ip' => $comment_ip]) . '">' . $comment_ip . '</a></p>';
     }
 
     echo

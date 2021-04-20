@@ -8,13 +8,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $this->registerModule(
-    "simpleMenu",               // Name
-    "Simple menu for Dotclear", // Description
-    "Franck Paul",              // Author
+    'simpleMenu',               // Name
+    'Simple menu for Dotclear', // Description
+    'Franck Paul',              // Author
     '1.6',                      // Version
     [
         'permissions' => 'admin',

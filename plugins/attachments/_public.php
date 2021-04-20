@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 # Attachments
 $core->tpl->addBlock('Attachments', ['attachmentTpl', 'Attachments']);
@@ -31,14 +32,12 @@ $core->addBehavior('tplIfConditions', ['attachmentBehavior', 'tplIfConditions'])
 
 class attachmentTpl
 {
-
     /*dtd
     <!ELEMENT tpl:Attachments - - -- Post Attachments loop -->
      */
     public static function Attachments($attr, $content)
     {
-        $res =
-            "<?php\n" .
+        $res = "<?php\n" .
             'if ($_ctx->posts !== null && $core->media) {' . "\n" .
             '$_ctx->attachments = new ArrayObject($core->media->getPostMedia($_ctx->posts->post_id,null,"attachment"));' . "\n" .
             "?>\n" .
@@ -60,9 +59,9 @@ class attachmentTpl
     public static function AttachmentsHeader($attr, $content)
     {
         return
-            "<?php if (\$attach_i == 0) : ?>" .
+            '<?php if ($attach_i == 0) : ?>' .
             $content .
-            "<?php endif; ?>";
+            '<?php endif; ?>';
     }
 
     /*dtd
@@ -71,9 +70,9 @@ class attachmentTpl
     public static function AttachmentsFooter($attr, $content)
     {
         return
-            "<?php if (\$attach_i+1 == count(\$_ctx->attachments)) : ?>" .
+            '<?php if ($attach_i+1 == count($_ctx->attachments)) : ?>' .
             $content .
-            "<?php endif; ?>";
+            '<?php endif; ?>';
     }
 
     /*dtd
@@ -132,9 +131,9 @@ class attachmentTpl
 
         if (count($if) != 0) {
             return '<?php if(' . implode(' ' . $operator . ' ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
-        } else {
-            return $content;
         }
+
+        return $content;
     }
 
     /*dtd
@@ -143,6 +142,7 @@ class attachmentTpl
     public static function AttachmentMimeType($attr)
     {
         $f = $GLOBALS['core']->tpl->getFilters($attr);
+
         return '<?php echo ' . sprintf($f, '$attach_f->type') . '; ?>';
     }
 
@@ -152,6 +152,7 @@ class attachmentTpl
     public static function AttachmentType($attr)
     {
         $f = $GLOBALS['core']->tpl->getFilters($attr);
+
         return '<?php echo ' . sprintf($f, '$attach_f->media_type') . '; ?>';
     }
 
@@ -161,6 +162,7 @@ class attachmentTpl
     public static function AttachmentFileName($attr)
     {
         $f = $GLOBALS['core']->tpl->getFilters($attr);
+
         return '<?php echo ' . sprintf($f, '$attach_f->basename') . '; ?>';
     }
 
@@ -176,6 +178,7 @@ class attachmentTpl
         if (!empty($attr['full'])) {
             return '<?php echo ' . sprintf($f, '$attach_f->size') . '; ?>';
         }
+
         return '<?php echo ' . sprintf($f, 'files::size($attach_f->size)') . '; ?>';
     }
 
@@ -185,6 +188,7 @@ class attachmentTpl
     public static function AttachmentTitle($attr)
     {
         $f = $GLOBALS['core']->tpl->getFilters($attr);
+
         return '<?php echo ' . sprintf($f, '$attach_f->media_title') . '; ?>';
     }
 
@@ -194,6 +198,7 @@ class attachmentTpl
     public static function AttachmentThumbnailURL($attr)
     {
         $f = $GLOBALS['core']->tpl->getFilters($attr);
+
         return
         '<?php ' .
         'if (isset($attach_f->media_thumb[\'sq\'])) {' .
@@ -208,12 +213,14 @@ class attachmentTpl
     public static function AttachmentURL($attr)
     {
         $f = $GLOBALS['core']->tpl->getFilters($attr);
+
         return '<?php echo ' . sprintf($f, '$attach_f->file_url') . '; ?>';
     }
 
     public static function MediaURL($attr)
     {
         $f = $GLOBALS['core']->tpl->getFilters($attr);
+
         return '<?php echo ' . sprintf($f, '$_ctx->file_url') . '; ?>';
     }
 
@@ -228,6 +235,7 @@ class attachmentTpl
     public static function EntryAttachmentCount($attr)
     {
         global $core;
+
         return $core->tpl->displayCounter(
             '$_ctx->posts->countMedia(\'attachment\')',
             [
@@ -245,7 +253,7 @@ class attachmentBehavior
 {
     public static function tplIfConditions($tag, $attr, $content, $if)
     {
-        if ($tag == "EntryIf" && isset($attr['has_attachment'])) {
+        if ($tag == 'EntryIf' && isset($attr['has_attachment'])) {
             $sign = (boolean) $attr['has_attachment'] ? '' : '!';
             $if[] = $sign . '$_ctx->posts->countMedia(\'attachment\')';
         }

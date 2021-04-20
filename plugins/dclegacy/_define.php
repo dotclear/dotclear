@@ -8,13 +8,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $this->registerModule(
-    "dcLegacy",                    // Name
-    "Legacy modules for dotclear", // Description
-    "dc Team",                     // Author
+    'dcLegacy',                    // Name
+    'Legacy modules for dotclear', // Description
+    'dc Team',                     // Author
     '1.0',                         // Version
     [
         'priority' => 500,

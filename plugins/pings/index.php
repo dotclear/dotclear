@@ -8,13 +8,13 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 dcPage::checkSuper();
 
-try
-{
+try {
     $pings_uris = $core->blog->settings->pings->pings_uris;
     if (!$pings_uris) {
         $pings_uris = [];

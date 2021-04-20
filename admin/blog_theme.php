@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('admin');
@@ -26,7 +25,6 @@ adminThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
 # -- Theme screenshot --
 if (!empty($_GET['shot']) && $list->modules->moduleExists($_GET['shot'])) {
-
     $f = path::real(empty($_GET['src']) ?
         $core->blog->themes_path . '/' . $_GET['shot'] . '/screenshot.jpg' :
         $core->blog->themes_path . '/' . $_GET['shot'] . '/' . path::clean($_GET['src'])
@@ -103,7 +101,6 @@ dcPage::open(__('Themes management'),
 
 # -- Display modules lists --
 if ($core->auth->isSuperAdmin()) {
-
     if (!$core->error->flag()) {
         if (!empty($_GET['nocache'])) {
             dcPage::success(__('Manual checking of themes update done successfully.'));
@@ -132,7 +129,7 @@ if ($core->auth->isSuperAdmin()) {
 
         echo
         '<p class="info vertical-separator">' . sprintf(
-            __("Visit %s repository, the resources center for Dotclear."),
+            __('Visit %s repository, the resources center for Dotclear.'),
             '<a href="https://themes.dotaddict.org/galerie-dc2/">Dotaddict</a>'
         ) .
             '</p>' .
@@ -150,7 +147,6 @@ if ($core->auth->isSuperAdmin()) {
 # Activated modules
 $modules = $list->modules->getModules();
 if (!empty($modules)) {
-
     echo
     '<div class="multi-part" id="themes" title="' . __('Installed themes') . '">' .
     '<h3>' . __('Installed themes') . '</h3>' .
@@ -172,7 +168,6 @@ if (!empty($modules)) {
 # Deactivated modules
 $modules = $list->modules->getDisabledModules();
 if (!empty($modules)) {
-
     echo
     '<div class="multi-part" id="deactivate" title="' . __('Deactivated themes') . '">' .
     '<h3>' . __('Deactivated themes') . '</h3>' .
@@ -217,7 +212,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 
         echo
         '<p class="info vertical-separator">' . sprintf(
-            __("Visit %s repository, the resources center for Dotclear."),
+            __('Visit %s repository, the resources center for Dotclear.'),
             '<a href="https://themes.dotaddict.org/galerie-dc2/">Dotaddict</a>'
         ) .
             '</p>' .

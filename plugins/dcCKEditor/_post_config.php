@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 header('Content-type: text/javascript');
 
@@ -108,7 +109,7 @@ $(function() {
     <?php if (!empty($dcckeditor_custom_color_list)) : ?>
         CKEDITOR.config.colorButton_colors = '<?php echo $dcckeditor_custom_color_list; ?>';
     <?php endif;?>
-    CKEDITOR.config.colorButton_colorsPerRow = <?php echo ($dcckeditor_colors_per_row ?: 6) ?>;
+    CKEDITOR.config.colorButton_colorsPerRow = <?php echo($dcckeditor_colors_per_row ?: 6); /* @phpstan-ignore-line */ ?>;
 <?php endif;?>
 
     CKEDITOR.config.defaultLanguage = dotclear.user_language;
@@ -297,15 +298,18 @@ if (!empty($extraPlugins) && count($extraPlugins) > 0) {
         switch ($core->blog->settings->system->note_title_tag) {
             case 1:
                 $tag = 'h3';
+
                 break;
             case 2:
                 $tag = 'p';
+
                 break;
             default:
                 $tag = 'h4';
+
                 break;
         }
-        $notes_tag = sprintf("['<%s>', '</%s>']", $tag, $tag);
+        $notes_tag   = sprintf("['<%s>', '</%s>']", $tag, $tag);
         $notes_title = sprintf('"%s"', __('Note(s)'));
 ?>
         config.footnotesHeaderEls = <?php printf($notes_tag); ?>;

@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 $GLOBALS['core']->addBehavior('adminPostsActionsPage', ['dcLegacyPosts', 'adminPostsActionsPage']);
 $GLOBALS['core']->addBehavior('adminPagesActionsPage', ['dcLegacyPages', 'adminPagesActionsPage']);
@@ -40,7 +41,6 @@ class dcLegacyPosts
             $core->callBehavior('adminPostsActionsHeaders'), '');
         $core->callBehavior('adminPostsActionsContent', $core, $as->getAction(), $as->getHiddenFields(true));
         $as->endPage();
-
     }
 }
 
@@ -71,10 +71,9 @@ class dcLegacyComments
         $core->callBehavior('adminCommentsActionsContent', $core, $as->getAction(), $as->getHiddenFields(true));
         $res = ob_get_contents();
         ob_end_clean();
-        $res = str_replace("comments_actions.php", $as->getURI(), $res);
+        $res = str_replace('comments_actions.php', $as->getURI(), $res);
         echo $res;
         $as->endPage();
-
     }
 }
 /* Handle deprecated behaviors :
@@ -104,7 +103,7 @@ class dcLegacyPages
         $core->callBehavior('adminPostsActionsContent', $core, $as->getAction(), $as->getHiddenFields(true));
         $res = ob_get_contents();
         ob_end_clean();
-        $res = str_replace("posts_actions.php", "plugin.php", $res);
+        $res = str_replace('posts_actions.php', 'plugin.php', $res);
         echo $res;
         $as->endPage();
     }

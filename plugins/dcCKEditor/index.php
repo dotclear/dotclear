@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 $is_admin = $core->auth->check('admin,contentadmin', $core->blog->id) || $core->auth->isSuperAdmin();
 
@@ -33,6 +34,5 @@ if (!empty($_GET['config'])) {
     // text/javascript response stop stream just after including file
     include_once dirname(__FILE__) . '/_post_config.php';
     exit();
-} else {
-    include_once dirname(__FILE__) . '/inc/_config.php';
 }
+    include_once dirname(__FILE__) . '/inc/_config.php';

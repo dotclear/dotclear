@@ -6,12 +6,12 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 /**
  * dcNotices -- Backend notices handling facilities
- *
  */
 class dcAdminNotices
 {
@@ -20,11 +20,11 @@ class dcAdminNotices
 
     private static $N_TYPES = [
         // id → CSS class
-        "success" => "success",
-        "warning" => "warning-msg",
-        "error"   => "error",
-        "message" => "message",
-        "static"  => "static-msg"];
+        'success' => 'success',
+        'warning' => 'warning-msg',
+        'error'   => 'error',
+        'message' => 'message',
+        'static'  => 'static-msg'];
 
     private static $error_displayed = false;
 
@@ -103,9 +103,9 @@ class dcAdminNotices
     {
         $cur = self::$core->con->openCursor(self::$core->prefix . self::$core->notices->getTable());
 
-        $cur->notice_type = $type;
-        $cur->notice_ts = isset($options['ts']) && $options['ts'] ? $options['ts'] : date('Y-m-d H:i:s');
-        $cur->notice_msg = $message;
+        $cur->notice_type    = $type;
+        $cur->notice_ts      = isset($options['ts']) && $options['ts'] ? $options['ts'] : date('Y-m-d H:i:s');
+        $cur->notice_msg     = $message;
         $cur->notice_options = json_encode($options);
 
         if (isset($options['divtag']) && $options['divtag']) {
@@ -120,17 +120,17 @@ class dcAdminNotices
 
     public static function addSuccessNotice($message, $options = [])
     {
-        self::addNotice("success", $message, $options);
+        self::addNotice('success', $message, $options);
     }
 
     public static function addWarningNotice($message, $options = [])
     {
-        self::addNotice("warning", $message, $options);
+        self::addNotice('warning', $message, $options);
     }
 
     public static function addErrorNotice($message, $options = [])
     {
-        self::addNotice("error", $message, $options);
+        self::addNotice('error', $message, $options);
     }
 
     private static function getNotification($n)
@@ -145,6 +145,7 @@ class dcAdminNotices
                 '</span> ';
         }
         $res = '<' . $tag . ' class="' . $n['class'] . '" role="alert">' . $ts . $n['text'] . '</' . $tag . '>';
+
         return $res;
     }
 
@@ -169,17 +170,18 @@ class dcAdminNotices
                 echo $res;
             }
         }
+
         return $res;
     }
 
     public static function success($msg, $timestamp = true, $div = false, $echo = true)
     {
-        return self::message($msg, $timestamp, $div, $echo, "success");
+        return self::message($msg, $timestamp, $div, $echo, 'success');
     }
 
     public static function warning($msg, $timestamp = true, $div = false, $echo = true)
     {
-        return self::message($msg, $timestamp, $div, $echo, "warning-msg");
+        return self::message($msg, $timestamp, $div, $echo, 'warning-msg');
     }
 }
 dcAdminNotices::$core = $GLOBALS['core'];

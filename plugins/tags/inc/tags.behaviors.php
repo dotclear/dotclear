@@ -36,7 +36,6 @@ class tagsBehaviors
                 'tag_url'   => $tag_url
             ]);
         }
-        return;
     }
 
     public static function ckeditorExtraPlugins(ArrayObject $extraPlugins, $context)
@@ -59,6 +58,7 @@ class tagsBehaviors
         foreach ($blocks as $block) {
             if ($block == 'core_post') {
                 $found = true;
+
                 break;
             }
         }
@@ -107,8 +107,7 @@ class tagsBehaviors
         } else {
             $value = ($post) ? $meta->getMetaStr($post->post_meta, 'tag') : '';
         }
-        $sidebar['metas-box']['items']['post_tags'] =
-        '<h5><label class="s-tags" for="post_tags">' . __('Tags') . '</label></h5>' .
+        $sidebar['metas-box']['items']['post_tags'] = '<h5><label class="s-tags" for="post_tags">' . __('Tags') . '</label></h5>' .
         '<div class="p s-tags" id="tags-edit">' . form::textarea('post_tags', 20, 3, $value, 'maximal') . '</div>';
     }
 
@@ -175,7 +174,7 @@ class tagsBehaviors
             $tag_url = $core->blog->url . $core->url->getURLFor('tag');
 
             $opts = $core->auth->getOptions();
-            $type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
+            $type = $opts['tag_list_format'] ?? 'more';
 
             $editor_tags_options = [
                 'meta_url'            => 'plugin.php?p=tags&m=tag_posts&amp;tag=',
@@ -223,8 +222,7 @@ class tagsBehaviors
     }
     public static function adminRemoveTags($core, dcPostsActionsPage $ap, $post)
     {
-        if (!empty($post['meta_id']) &&
-            $core->auth->check('delete,contentadmin', $core->blog->id)) {
+        if (!empty($post['meta_id']) && $core->auth->check('delete,contentadmin', $core->blog->id)) {
             $meta  = &$core->meta;
             $posts = $ap->getRS();
             while ($posts->fetch()) {
@@ -292,7 +290,6 @@ class tagsBehaviors
                 '</p></div></form>';
             $ap->endPage();
         }
-
     }
 
     public static function postHeaders()
@@ -300,7 +297,7 @@ class tagsBehaviors
         $tag_url = $GLOBALS['core']->blog->url . $GLOBALS['core']->url->getURLFor('tag');
 
         $opts = $GLOBALS['core']->auth->getOptions();
-        $type = isset($opts['tag_list_format']) ? $opts['tag_list_format'] : 'more';
+        $type = $opts['tag_list_format'] ?? 'more';
 
         $editor_tags_options = [
             'meta_url'            => 'plugin.php?p=tags&m=tag_posts&amp;tag=',

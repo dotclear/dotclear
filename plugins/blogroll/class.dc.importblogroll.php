@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class linksImporter
 {
@@ -33,7 +34,7 @@ class linksImporter
             throw new Exception(__('File is not in XML format.'));
         }
 
-        $outlines = $xml->xpath("//outline");
+        $outlines = $xml->xpath('//outline');
 
         $this->entries = [];
         foreach ($outlines as $outline) {
@@ -63,7 +64,7 @@ class linksImporter
             throw new Exception(__('File is not in XML format.'));
         }
 
-        $outlines = $xml->xpath("//bookmark");
+        $outlines = $xml->xpath('//bookmark');
 
         $this->entries = [];
         foreach ($outlines as $outline) {
@@ -90,19 +91,19 @@ class linksImporter
 
         return $this->entries;
     }
-
 }
 
 class dcImportBlogroll
 {
-
     public static function loadFile($file)
     {
         if (file_exists($file) && is_readable($file)) {
             $importer = new linksImporter();
             $importer->parse(file_get_contents($file));
+
             return $importer->getAll();
         }
+
         return false;
     }
 }

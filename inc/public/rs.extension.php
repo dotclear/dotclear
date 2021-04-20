@@ -6,8 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $core->addBehavior('coreBlogGetPosts', ['rsExtendPublic', 'coreBlogGetPosts']);
 $core->addBehavior('coreBlogGetComments', ['rsExtendPublic', 'coreBlogGetComments']);
@@ -36,8 +37,7 @@ class rsExtPostPublic extends rsExtPost
             $c    = context::remove_html($c);
             $c    = context::cut_string($c, 350);
 
-            $c =
-            '<p>' . $c . '... ' .
+            $c = '<p>' . $c . '... ' .
             '<a href="' . $rs->getURL() . '"><em>' . __('Read') . '</em> ' .
             html::escapeHTML($rs->post_title) . '</a></p>';
 
@@ -65,6 +65,7 @@ class rsExtPostPublic extends rsExtPost
         if (!isset($GLOBALS['__smilies'])) {
             $GLOBALS['__smilies'] = context::getSmilies($blog);
         }
+
         return context::addSmilies($c);
     }
 }
@@ -79,6 +80,7 @@ class rsExtCommentPublic extends rsExtComment
             if (!isset($GLOBALS['__smilies'])) {
                 $GLOBALS['__smilies'] = context::getSmilies($rs->core->blog);
             }
+
             return context::addSmilies($c);
         }
 

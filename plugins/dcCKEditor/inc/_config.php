@@ -8,10 +8,11 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
-
-$dcckeditor_was_actived = $dcckeditor_active;
+$dcckeditor_was_actived = $dcckeditor_active;   // @phpstan-ignore-line
 
 if (!empty($_POST['saveconfig'])) {
     try {
@@ -45,21 +46,21 @@ if (!empty($_POST['saveconfig'])) {
             $core->blog->settings->dcckeditor->put('format_select', $dcckeditor_format_select, 'boolean');
 
             // default tags : p;h1;h2;h3;h4;h5;h6;pre;address
-            $allowed_tags = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'pre', 'address'];
+            $dcckeditor_format_tags = 'p;h1;h2;h3;h4;h5;h6;pre;address';
+            $allowed_tags           = explode(';', $dcckeditor_format_tags);
             if (!empty($_POST['dcckeditor_format_tags'])) {
                 $tags     = explode(';', $_POST['dcckeditor_format_tags']);
                 $new_tags = true;
                 foreach ($tags as $tag) {
                     if (!in_array($tag, $allowed_tags)) {
                         $new_tags = false;
+
                         break;
                     }
                 }
                 if ($new_tags) {
                     $dcckeditor_format_tags = $_POST['dcckeditor_format_tags'];
                 }
-            } else {
-                $dcckeditor_format_tags = 'p;h1;h2;h3;h4;h5;h6;pre;address';
             }
             $core->blog->settings->dcckeditor->put('format_tags', $dcckeditor_format_tags, 'string');
 

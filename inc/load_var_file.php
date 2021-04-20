@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 if (@is_dir('/usr/lib/clearbricks')) {
     define('CLEARBRICKS_PATH', '/usr/lib/clearbricks');
 } elseif (is_dir(dirname(__FILE__) . '/libs/clearbricks')) {

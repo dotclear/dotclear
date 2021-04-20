@@ -6,17 +6,16 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 /**
 @brief Admin combo library
 
 Dotclear utility class that provides reuseable combos across all admin
-
  */
 class dcAdminCombos
 {
-
     /** @var dcCore dcCore instance */
     public static $core;
 
@@ -40,6 +39,7 @@ class dcAdminCombos
                 ($categories->level - 1 ? 'sub-option' . ($categories->level - 1) : '')
             );
         }
+
         return $categories_combo;
     }
 
@@ -54,6 +54,7 @@ class dcAdminCombos
         foreach (self::$core->blog->getAllPostStatus() as $k => $v) {
             $status_combo[$v] = (string) $k;
         }
+
         return $status_combo;
     }
 
@@ -76,6 +77,7 @@ class dcAdminCombos
 
             $users_combo[$user_cn] = $users->user_id;
         }
+
         return $users_combo;
     }
 
@@ -91,6 +93,7 @@ class dcAdminCombos
         while ($dates->fetch()) {
             $dt_m_combo[dt::str('%B %Y', $dates->ts())] = $dates->year() . $dates->month();
         }
+
         return $dt_m_combo;
     }
 
@@ -118,11 +121,12 @@ class dcAdminCombos
         } else {
             $langs_combo = [];
             while ($langs->fetch()) {
-                $lang_name               = isset($all_langs[$langs->post_lang]) ? $all_langs[$langs->post_lang] : $langs->post_lang;
+                $lang_name               = $all_langs[$langs->post_lang] ?? $langs->post_lang;
                 $langs_combo[$lang_name] = $langs->post_lang;
             }
         }
         unset($all_langs);
+
         return $langs_combo;
     }
 
@@ -139,6 +143,7 @@ class dcAdminCombos
             $lang_avail   = $v == 'en' || is_dir(DC_L10N_ROOT . '/' . $v);
             $lang_combo[] = new formSelectOption($k, $v, $lang_avail ? 'avail10n' : '');
         }
+
         return $lang_combo;
     }
 
@@ -194,6 +199,7 @@ class dcAdminCombos
         foreach (self::$core->getAllBlogStatus() as $k => $v) {
             $status_combo[$v] = (string) $k;
         }
+
         return $status_combo;
     }
 
@@ -208,6 +214,7 @@ class dcAdminCombos
         foreach (self::$core->blog->getAllCommentStatus() as $k => $v) {
             $status_combo[$v] = (string) $k;
         }
+
         return $status_combo;
     }
 }

@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 $core->rest->addFunction('getPostsCount', ['dcRestMethods', 'getPostsCount']);
@@ -75,9 +74,7 @@ class dcRestMethods
         $ret        = __('Dotclear news not available');
 
         if ($core->auth->user_prefs->dashboard->dcnews) {
-            try
-            {
-
+            try {
                 if (empty($GLOBALS['__resources']['rss_news'])) {
                     throw new Exception();
                 }
@@ -94,24 +91,26 @@ class dcRestMethods
                         $item->title . ' <img src="images/outgoing-link.svg" alt="" /></a>' : $item->title;
 
                         if ($i < 3) {
-                            $ret .=
-                            '<dt>' . $dt . '</dt>' .
+                            $ret .= '<dt>' . $dt . '</dt>' .
                             '<dd><p><strong>' . dt::dt2str(__('%d %B %Y:'), $item->pubdate, 'Europe/Paris') . '</strong> ' .
                             '<em>' . text::cutString(html::clean($item->content), 120) . '...</em></p></dd>';
                         } else {
-                            $ret .=
-                            '<dt>' . $dt . '</dt>' .
+                            $ret .= '<dt>' . $dt . '</dt>' .
                             '<dd>' . dt::dt2str(__('%d %B %Y:'), $item->pubdate, 'Europe/Paris') . '</dd>';
                         }
                         $i++;
-                        if ($i > 2) {break;}
+                        if ($i > 2) {
+                            break;
+                        }
                     }
                     $ret .= '</dl></div>';
                     $rsp->check = true;
                 }
-            } catch (Exception $e) {}
+            } catch (Exception $e) {
+            }
         }
         $rsp->ret = $ret;
+
         return $rsp;
     }
 
@@ -123,8 +122,7 @@ class dcRestMethods
         $rsp->check = false;
         $ret        = __('Dotclear update not available');
 
-        if ($core->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) &&
-            !$core->auth->user_prefs->dashboard->nodcupdate) {
+        if ($core->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) && !$core->auth->user_prefs->dashboard->nodcupdate) {
             $updater      = new dcUpdate(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
             $new_v        = $updater->check(DC_VERSION);
             $version_info = $new_v ? $updater->getInfoURL() : '';
@@ -132,10 +130,9 @@ class dcRestMethods
             if ($updater->getNotify() && $new_v) {
                 // Check PHP version required
                 if (version_compare(phpversion(), $updater->getPHPVersion()) >= 0) {
-                    $ret =
-                    '<div class="dc-update" id="ajax-update"><h3>' . sprintf(__('Dotclear %s is available!'), $new_v) . '</h3> ' .
-                    '<p><a class="button submit" href="' . $core->adminurl->get("admin.update") . '">' . sprintf(__('Upgrade now'), $new_v) . '</a> ' .
-                    '<a class="button" href="' . $core->adminurl->get("admin.update", ['hide_msg' => 1]) . '">' . __('Remind me later') . '</a>' .
+                    $ret = '<div class="dc-update" id="ajax-update"><h3>' . sprintf(__('Dotclear %s is available!'), $new_v) . '</h3> ' .
+                    '<p><a class="button submit" href="' . $core->adminurl->get('admin.update') . '">' . sprintf(__('Upgrade now'), $new_v) . '</a> ' .
+                    '<a class="button" href="' . $core->adminurl->get('admin.update', ['hide_msg' => 1]) . '">' . __('Remind me later') . '</a>' .
                         ($version_info ? ' </p>' .
                         '<p class="updt-info"><a href="' . $version_info . '">' . __('Information about this version') . '</a>' : '') . '</p>' .
                         '</div>';
@@ -157,6 +154,7 @@ class dcRestMethods
             }
         }
         $rsp->ret = $ret;
+
         return $rsp;
     }
 
@@ -269,7 +267,6 @@ class dcRestMethods
     {
         # Create category
         if (!empty($post['new_cat_title']) && $core->auth->check('categories', $core->blog->id)) {
-
             $cur_cat            = $core->con->openCursor($core->prefix . 'category');
             $cur_cat->cat_title = $post['new_cat_title'];
             $cur_cat->cat_url   = '';
@@ -312,6 +309,7 @@ class dcRestMethods
 
         $rsp->post_status = $post->post_status;
         $rsp->post_url    = $post->getURL();
+
         return $rsp;
     }
 
@@ -364,10 +362,13 @@ class dcRestMethods
             throw new Exception('Permission denied');
         }
 
+        $file = null;
+
         try {
             $core->media = new dcMedia($core);
             $file        = $core->media->getFile($id);
-        } catch (Exception $e) {}
+        } catch (Exception $e) {
+        }
 
         if ($file === null || $file->type != 'application/zip' || !$file->editable) {
             throw new Exception('Not a valid file');
@@ -401,17 +402,20 @@ class dcRestMethods
 
         $sortby = explode(',', $sortby);
         $sort   = $sortby[0];
-        $order  = isset($sortby[1]) ? $sortby[1] : 'asc';
+        $order  = $sortby[1] ?? 'asc';
 
         switch ($sort) {
             case 'metaId':
                 $sort = 'meta_id_lower';
+
                 break;
             case 'count':
                 $sort = 'count';
+
                 break;
             case 'metaType':
                 $sort = 'meta_type';
+
                 break;
             default:
                 $sort = 'meta_type';
@@ -499,17 +503,20 @@ class dcRestMethods
 
         $sortby = explode(',', $sortby);
         $sort   = $sortby[0];
-        $order  = isset($sortby[1]) ? $sortby[1] : 'asc';
+        $order  = $sortby[1] ?? 'asc';
 
         switch ($sort) {
             case 'metaId':
                 $sort = 'meta_id_lower';
+
                 break;
             case 'count':
                 $sort = 'count';
+
                 break;
             case 'metaType':
                 $sort = 'meta_type';
+
                 break;
             default:
                 $sort = 'meta_type';
@@ -564,6 +571,7 @@ class dcRestMethods
             };
         }
         $core->auth->user_prefs->toggles->put('unfolded_sections', join(',', $toggles));
+
         return true;
     }
 
@@ -584,6 +592,7 @@ class dcRestMethods
         $order = $post['list'];
 
         $core->auth->user_prefs->dashboard->put($zone, $order);
+
         return true;
     }
 
@@ -612,6 +621,7 @@ class dcRestMethods
                 if (isset($post['order'])) {
                     $core->auth->user_prefs->interface->put('posts_order', $post['order']);
                 }
+
                 break;
             case 'comments':
                 if (isset($post['nb_per_page'])) {
@@ -623,6 +633,7 @@ class dcRestMethods
                 if (isset($post['order'])) {
                     $core->auth->user_prefs->interface->put('comments_order', $post['order']);
                 }
+
                 break;
             case 'blogs':
                 if (isset($post['nb_per_page'])) {
@@ -634,6 +645,7 @@ class dcRestMethods
                 if (isset($post['order'])) {
                     $core->auth->user_prefs->interface->put('blogs_order', $post['order']);
                 }
+
                 break;
             case 'users':
                 if (isset($post['nb_per_page'])) {
@@ -645,6 +657,7 @@ class dcRestMethods
                 if (isset($post['order'])) {
                     $core->auth->user_prefs->interface->put('users_order', $post['order']);
                 }
+
                 break;
         }
         $res->msg = __('List options saved');
@@ -683,9 +696,8 @@ class dcRestMethods
                 throw new Exception('Unknow module ID');
             }
             $module = $modules[$id];
-        } else {
-            // behavior not implemented yet
         }
+        // behavior not implemented yet
 
         if (empty($module)) {
             throw new Exception('Unknow module ID');

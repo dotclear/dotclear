@@ -6,8 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcCommentsActionsPage extends dcActionsPage
 {
@@ -17,7 +18,7 @@ class dcCommentsActionsPage extends dcActionsPage
         $this->redirect_fields = ['type', 'author', 'status',
             'sortby', 'ip', 'order', 'page', 'nb', 'section'];
         $this->field_entries = 'comments';
-        $this->title_cb      = __('Comments');
+        $this->cb_title      = __('Comments');
         $this->loadDefaults();
         $core->callBehavior('adminCommentsActionsPage', $core, $this);
     }
@@ -44,7 +45,6 @@ class dcCommentsActionsPage extends dcActionsPage
                 $head,
                 $breadcrumb
             );
-
         }
         echo '<p><a class="back" href="' . $this->getRedirection(true) . '">' . __('Back to comments list') . '</a></p>';
     }
@@ -77,13 +77,11 @@ class dcCommentsActionsPage extends dcActionsPage
      */
     public function getCheckboxes()
     {
-        $ret =
-        '<table class="posts-list"><tr>' .
+        $ret = '<table class="posts-list"><tr>' .
         '<th colspan="2">' . __('Author') . '</th><th>' . __('Title') . '</th>' .
             '</tr>';
         foreach ($this->entries as $id => $title) {
-            $ret .=
-            '<tr><td class="minimal">' .
+            $ret .= '<tr><td class="minimal">' .
             form::checkbox([$this->field_entries . '[]'], $id,
                 [
                     'checked' => true
@@ -92,6 +90,7 @@ class dcCommentsActionsPage extends dcActionsPage
                 '<td>' . $title['author'] . '</td><td>' . $title['title'] . '</td></tr>';
         }
         $ret .= '</table>';
+
         return $ret;
     }
 
@@ -178,12 +177,16 @@ class dcDefaultCommentActions
         }
         switch ($action) {
             case 'unpublish':$status = 0;
+
                 break;
             case 'pending':$status = -1;
+
                 break;
             case 'junk':$status = -2;
+
                 break;
             default:$status = 1;
+
                 break;
         }
 

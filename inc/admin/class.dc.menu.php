@@ -6,12 +6,16 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcMenu
 {
     private $id;
+    protected $itemSpace;
+    protected $pinned;
+    protected $items;
     public $title;
 
     public function __construct($id, $title, $itemSpace = '')
@@ -53,8 +57,7 @@ class dcMenu
             return '';
         }
 
-        $res =
-        '<div id="' . $this->id . '">' .
+        $res = '<div id="' . $this->id . '">' .
             ($this->title ? '<h3>' . $this->title . '</h3>' : '') .
             '<ul>' . "\n";
 

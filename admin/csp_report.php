@@ -30,11 +30,11 @@ $data = file_get_contents('php://input');
 if ($data = json_decode($data, true)) {
 
     // get source-file and blocked-URI to perform some tests
-    $source_file        = isset($data['csp-report']['source-file']) ? $data['csp-report']['source-file'] : '';
-    $line_number        = isset($data['csp-report']['line-number']) ? $data['csp-report']['line-number'] : '';
-    $blocked_uri        = isset($data['csp-report']['blocked-uri']) ? $data['csp-report']['blocked-uri'] : '';
-    $document_uri       = isset($data['csp-report']['document-uri']) ? $data['csp-report']['document-uri'] : '';
-    $violated_directive = isset($data['csp-report']['violated-directive']) ? $data['csp-report']['violated-directive'] : '';
+    $source_file        = $data['csp-report']['source-file']        ?? '';
+    $line_number        = $data['csp-report']['line-number']        ?? '';
+    $blocked_uri        = $data['csp-report']['blocked-uri']        ?? '';
+    $document_uri       = $data['csp-report']['document-uri']       ?? '';
+    $violated_directive = $data['csp-report']['violated-directive'] ?? '';
 
     if (
         // avoid false positives notifications coming from Chrome extensions (Wappalyzer, MuteTab, etc.)
@@ -98,7 +98,6 @@ if ($data = json_decode($data, true)) {
             // The file content will have to be enclosed in brackets [] before
             // beeing decoded with json_decoded(<content>,true);
             fprintf($fp, ($contents != '' ? ',' : '') . '%s', $output);
-
         } catch (Exception $e) {
             return;
         }

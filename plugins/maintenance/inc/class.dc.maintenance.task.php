@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 /**
 @brief Maintenance plugin task class.
@@ -89,7 +90,6 @@ class dcMaintenanceTask
      */
     protected function init()
     {
-        return;
     }
 
     /**
@@ -164,6 +164,7 @@ class dcMaintenanceTask
                 }
             }
         }
+
         return $this->expired;
     }
 
@@ -290,7 +291,6 @@ class dcMaintenanceTask
      */
     public function header()
     {
-        return;
     }
 
     /**
@@ -302,7 +302,6 @@ class dcMaintenanceTask
      */
     public function content()
     {
-        return;
     }
 
     /**
@@ -315,7 +314,6 @@ class dcMaintenanceTask
      */
     public function execute()
     {
-        return;
     }
 
     /**
@@ -323,7 +321,6 @@ class dcMaintenanceTask
      *
      * Sometimes we need to log task execution
      * direct from task itself.
-     *
      */
     protected function log()
     {
@@ -332,6 +329,5 @@ class dcMaintenanceTask
 
     public function help()
     {
-        return;
     }
 }

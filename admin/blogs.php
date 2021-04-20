@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
@@ -24,7 +23,7 @@ $sortby_combo = [
     __('Status')      => 'blog_status'
 ];
 # --BEHAVIOR-- adminBlogsSortbyCombo
-$core->callBehavior('adminBlogsSortbyCombo', [ & $sortby_combo]);
+$core->callBehavior('adminBlogsSortbyCombo', [& $sortby_combo]);
 
 $order_combo = [
     __('Descending') => 'desc',
@@ -33,8 +32,9 @@ $order_combo = [
 
 # Actions
 
+$blogs_actions_page = null;
 if ($core->auth->isSuperAdmin()) {
-    $blogs_actions_page = new dcBlogsActionsPage($core, $core->adminurl->get("admin.blogs"));
+    $blogs_actions_page = new dcBlogsActionsPage($core, $core->adminurl->get('admin.blogs'));
     if ($blogs_actions_page->process()) {
         return;
     }
@@ -47,7 +47,7 @@ $nb_per_page    = $core->auth->user_prefs->interface->nb_blogs_per_page ?: 30;
 
 # Requests
 $q      = !empty($_GET['q']) ? $_GET['q'] : '';
-$status = isset($_GET['status']) ? $_GET['status'] : '';
+$status = $_GET['status'] ?? '';
 $sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : $default_sortby;
 $order  = !empty($_GET['order']) ? $_GET['order'] : $default_order;
 
@@ -90,6 +90,8 @@ if ($sortby != $default_sortby || $order != $default_order) {
 
 $params['limit'] = [(($page - 1) * $nb_per_page), $nb_per_page];
 
+$blog_list = null;
+
 try {
     # --BEHAVIOR-- adminGetBlogs
     $params = new ArrayObject($params);
@@ -124,11 +126,11 @@ dcPage::open(__('List of blogs'),
 
 if (!$core->error->flag()) {
     if ($core->auth->isSuperAdmin()) {
-        echo '<p class="top-add"><a class="button add" href="' . $core->adminurl->get("admin.blog") . '">' . __('Create a new blog') . '</a></p>';
+        echo '<p class="top-add"><a class="button add" href="' . $core->adminurl->get('admin.blog') . '">' . __('Create a new blog') . '</a></p>';
     }
 
     echo
-    '<form action="' . $core->adminurl->get("admin.blogs") . '" method="get" id="filters-form">' .
+    '<form action="' . $core->adminurl->get('admin.blogs') . '" method="get" id="filters-form">' .
     '<h3 class="out-of-screen-if-js">' . __('Show filters and display options') . '</h3>' .
 
     '<div class="table">' .
@@ -163,7 +165,7 @@ if (!$core->error->flag()) {
     # Show blogs
     $blog_list->display($page, $nb_per_page,
         ($core->auth->isSuperAdmin() ?
-            '<form action="' . $core->adminurl->get("admin.blogs") . '" method="post" id="form-blogs">' : '') .
+            '<form action="' . $core->adminurl->get('admin.blogs') . '" method="post" id="form-blogs">' : '') .
 
         '%s' .
 

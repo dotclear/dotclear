@@ -39,12 +39,7 @@ class dcSqlStatement
         $this->con  = &$core->con;
         $this->ctx  = $ctx;
 
-        $this->columns =
-        $this->from    =
-        $this->where   =
-        $this->cond    =
-        $this->sql     =
-        [];
+        $this->columns = $this->from = $this->where = $this->cond = $this->sql = [];
     }
 
     /**
@@ -60,7 +55,6 @@ class dcSqlStatement
             return $this->$property;
         }
         trigger_error('Unknown property ' . $property, E_USER_ERROR);
-        return;
     }
 
     /**
@@ -78,6 +72,7 @@ class dcSqlStatement
         } else {
             trigger_error('Unknown property ' . $property, E_USER_ERROR);
         }
+
         return $this;
     }
 
@@ -91,6 +86,7 @@ class dcSqlStatement
     public function ctx($c)
     {
         $this->ctx = $c;
+
         return $this;
     }
 
@@ -112,6 +108,7 @@ class dcSqlStatement
         } else {
             array_push($this->columns, $c);
         }
+
         return $this;
     }
 
@@ -152,6 +149,7 @@ class dcSqlStatement
             $c = trim(ltrim($c, ',')); // Cope with legacy code
             array_push($this->from, $c);
         }
+
         return $this;
     }
 
@@ -173,6 +171,7 @@ class dcSqlStatement
         } else {
             array_push($this->where, $c);
         }
+
         return $this;
     }
 
@@ -194,6 +193,7 @@ class dcSqlStatement
         } else {
             array_push($this->cond, $c);
         }
+
         return $this;
     }
 
@@ -215,6 +215,7 @@ class dcSqlStatement
         } else {
             array_push($this->sql, $c);
         }
+
         return $this;
     }
 
@@ -288,9 +289,9 @@ class dcSqlStatement
             $clause = "~ '^" . $this->escape(preg_quote($value)) . "[0-9]+$'";
         } else {
             $clause = "LIKE '" .
-            $this->escape(preg_replace(['%', '_', '!'], ['!%', '!_', '!!'], $value)) .
-                "%' ESCAPE '!'";
+            $this->escape(preg_replace(['%', '_', '!'], ['!%', '!_', '!!'], $value)) . "%' ESCAPE '!'"; // @phpstan-ignore-line
         }
+
         return $clause;
     }
 
@@ -321,8 +322,10 @@ class dcSqlStatement
             foreach ($patterns as $pattern => $replace) {
                 $s = preg_replace('!' . $pattern . '!', $replace, $s);
             }
+
             return trim($s);
         };
+
         return ($filter($local) === $filter($external));
     }
 }
@@ -348,11 +351,7 @@ class dcSelectStatement extends dcSqlStatement
      */
     public function __construct(&$core, $ctx = null)
     {
-        $this->join   =
-        $this->having =
-        $this->order  =
-        $this->group  =
-        [];
+        $this->join = $this->having = $this->order = $this->group = [];
 
         $this->limit    = null;
         $this->offset   = null;
@@ -379,6 +378,7 @@ class dcSelectStatement extends dcSqlStatement
         } else {
             array_push($this->join, $c);
         }
+
         return $this;
     }
 
@@ -400,6 +400,7 @@ class dcSelectStatement extends dcSqlStatement
         } else {
             array_push($this->having, $c);
         }
+
         return $this;
     }
 
@@ -421,6 +422,7 @@ class dcSelectStatement extends dcSqlStatement
         } else {
             array_push($this->order, $c);
         }
+
         return $this;
     }
 
@@ -442,6 +444,7 @@ class dcSelectStatement extends dcSqlStatement
         } else {
             array_push($this->group, $c);
         }
+
         return $this;
     }
 
@@ -463,13 +466,14 @@ class dcSelectStatement extends dcSqlStatement
                 $offset = $limit[0];
                 $limit  = $limit[1];
             } else {
-                $limit = limit[0];
+                $limit = $limit[0];
             }
         }
         $this->limit = $limit;
         if ($offset !== null) {
             $this->offset = $offset;
         }
+
         return $this;
     }
 
@@ -482,6 +486,7 @@ class dcSelectStatement extends dcSqlStatement
     public function offset($offset)
     {
         $this->offset = $offset;
+
         return $this;
     }
 
@@ -494,6 +499,7 @@ class dcSelectStatement extends dcSqlStatement
     public function distinct($distinct = true)
     {
         $this->distinct = $distinct;
+
         return $this;
     }
 
@@ -510,6 +516,7 @@ class dcSelectStatement extends dcSqlStatement
         // Check if source given
         if (!count($this->from)) {
             trigger_error(__('SQL SELECT requires a FROM source'), E_USER_ERROR);
+
             return '';
         }
 
@@ -601,6 +608,7 @@ class dcDeleteStatement extends dcSqlStatement
         // Check if source given
         if (!count($this->from)) {
             trigger_error(__('SQL DELETE requires a FROM source'), E_USER_ERROR);
+
             return '';
         }
 
@@ -701,6 +709,7 @@ class dcUpdateStatement extends dcSqlStatement
         } else {
             array_push($this->set, $c);
         }
+
         return $this;
     }
 
@@ -768,6 +777,7 @@ class dcUpdateStatement extends dcSqlStatement
         // Check if source given
         if (!count($this->from)) {
             trigger_error(__('SQL UPDATE requires an INTO source'), E_USER_ERROR);
+
             return '';
         }
 
@@ -860,6 +870,7 @@ class dcInsertStatement extends dcSqlStatement
         } else {
             array_push($this->lines, $c);
         }
+
         return $this;
     }
 
@@ -889,6 +900,7 @@ class dcInsertStatement extends dcSqlStatement
         // Check if source given
         if (!count($this->from)) {
             trigger_error(__('SQL INSERT requires an INTO source'), E_USER_ERROR);
+
             return '';
         }
 

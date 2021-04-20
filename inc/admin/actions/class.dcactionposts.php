@@ -6,8 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcPostsActionsPage extends dcActionsPage
 {
@@ -25,7 +26,6 @@ class dcPostsActionsPage extends dcActionsPage
         // to be setup first
         dcDefaultPostActions::adminPostsActionsPage($this->core, $this);
         $this->core->callBehavior('adminPostsActionsPage', $this->core, $this);
-
     }
 
     public function beginPage($breadcrumb = '', $head = '')
@@ -154,12 +154,16 @@ class dcDefaultPostActions
     {
         switch ($ap->getAction()) {
             case 'unpublish':$status = 0;
+
                 break;
             case 'schedule':$status = -1;
+
                 break;
             case 'pending':$status = -2;
+
                 break;
             default:$status = 1;
+
                 break;
         }
         $posts_ids = $ap->getIDs();
@@ -230,7 +234,6 @@ class dcDefaultPostActions
 
     public static function doDeletePost($core, dcPostsActionsPage $ap, $post)
     {
-
         $posts_ids = $ap->getIDs();
         if (empty($posts_ids)) {
             throw new Exception(__('No entry selected'));
@@ -296,7 +299,6 @@ class dcDefaultPostActions
 
             $ap->redirect(true);
         } else {
-
             $ap->beginPage(
                 dcPage::breadcrumb(
                     [
@@ -334,9 +336,7 @@ class dcDefaultPostActions
             '<input type="submit" value="' . __('Save') . '" /></p>' .
                 '</form>';
             $ap->endPage();
-
         }
-
     }
     public static function doChangePostAuthor($core, dcPostsActionsPage $ap, $post)
     {
@@ -446,8 +446,7 @@ class dcDefaultPostActions
                     $lang_combo[__('Most used')][$rs->post_lang] = $rs->post_lang;
                 }
             }
-            unset($all_langs);
-            unset($rs);
+            unset($all_langs, $rs);
 
             echo
             '<form action="' . $ap->getURI() . '" method="post">' .

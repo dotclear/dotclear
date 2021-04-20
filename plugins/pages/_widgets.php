@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $core->addBehavior('initWidgets', ['pagesWidgets', 'initWidgets']);
 $core->addBehavior('initDefaultWidgets', ['pagesWidgets', 'initDefaultWidgets']);
@@ -29,7 +30,7 @@ class pagesWidgets
                 ])
             ->setting('orderby', __('Sort:'), 'asc', 'combo',
                 [
-                    __('Ascending') => 'asc',
+                    __('Ascending')  => 'asc',
                     __('Descending') => 'desc'
                 ])
             ->addHomeOnly()

@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class pingsAPI extends xmlrpcClient
 {
@@ -56,14 +57,12 @@ class pingsAdminBehaviors
         $item = '<h5 class="ping-services">' . __('Pings') . '</h5>';
         $i    = 0;
         foreach ($pings_uris as $k => $v) {
-            $item .=
-            '<p class="ping-services"><label for="pings_do-' . $i . '" class="classic">' .
+            $item .= '<p class="ping-services"><label for="pings_do-' . $i . '" class="classic">' .
             form::checkbox(['pings_do[]', 'pings_do-' . $i], html::escapeHTML($v), in_array($v, $pings_do), 'check-ping-services') . ' ' .
             html::escapeHTML($k) . '</label></p>';
             $i++;
         }
         $sidebar['options-box']['items']['pings'] = $item;
-
     }
 
     public static function doPings($cur, $post_id)
@@ -86,7 +85,8 @@ class pingsAdminBehaviors
             if (in_array($uri, $pings_uris)) {
                 try {
                     pingsAPI::doPings($uri, $core->blog->name, $core->blog->url);
-                } catch (Exception $e) {}
+                } catch (Exception $e) {
+                }
             }
         }
     }
@@ -111,7 +111,8 @@ class pingsCoreBehaviour
         foreach ($pings_uris as $uri) {
             try {
                 pingsAPI::doPings($uri, $blog->name, $blog->url);
-            } catch (Exception $e) {}
+            } catch (Exception $e) {
+            }
         }
     }
 }

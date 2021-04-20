@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 /**
 @brief Simple descriptor for tabs, groups and more
@@ -67,7 +68,7 @@ class dcMaintenanceDescriptor
      */
     public function option($key)
     {
-        return isset($this->options[$key]) ? $this->options[$key] : null;
+        return $this->options[$key] ?? null;
     }
 
     /* @ignore */

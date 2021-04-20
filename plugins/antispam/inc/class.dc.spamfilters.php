@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcSpamFilters
 {
@@ -64,6 +65,7 @@ class dcSpamFilters
             $ip      = $cur->comment_ip;
             $content = $cur->comment_content;
             $post_id = $cur->post_id;
+            $status  = null;
 
             $is_spam = $f->isSpam($type, $author, $email, $site, $ip, $content, $post_id, $status);
 
@@ -75,6 +77,7 @@ class dcSpamFilters
                     $cur->comment_spam_status = $status;
                     $cur->comment_spam_filter = $fid;
                 }
+
                 return true;
             } elseif ($is_spam === false) {
                 return false;
@@ -104,15 +107,14 @@ class dcSpamFilters
 
     public function statusMessage($rs, $filter_name)
     {
-        $f = isset($this->filters[$filter_name]) ? $this->filters[$filter_name] : null;
+        $f = $this->filters[$filter_name] ?? null;
 
         if ($f === null) {
             return __('Unknown filter.');
-        } else {
-            $status = $rs->exists('comment_spam_status') ? $rs->comment_spam_status : null;
-
-            return $f->getStatusMessage($status, $rs->comment_id);
         }
+        $status = $rs->exists('comment_spam_status') ? $rs->comment_spam_status : null;
+
+        return $f->getStatusMessage($status, $rs->comment_id);
     }
 
     public function saveFilterOpts($opts, $global = false)
@@ -138,9 +140,9 @@ class dcSpamFilters
 
         foreach ($this->filters_opt as $k => $o) {
             if (isset($this->filters[$k]) && is_array($o)) {
-                $this->filters[$k]->active      = isset($o[0]) ? $o[0] : false;
-                $this->filters[$k]->order       = isset($o[1]) ? $o[1] : 0;
-                $this->filters[$k]->auto_delete = isset($o[2]) ? $o[2] : false;
+                $this->filters[$k]->active      = $o[0] ?? false;
+                $this->filters[$k]->order       = $o[1] ?? 0;
+                $this->filters[$k]->auto_delete = $o[2] ?? false;
             }
         }
     }

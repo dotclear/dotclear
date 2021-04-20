@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 dcPage::check('admin');
 
 dcAntispam::initFilters();
@@ -18,9 +19,9 @@ $filters = dcAntispam::$filters->getFilters();
 $page_name   = __('Antispam');
 $filter_gui  = false;
 $default_tab = null;
+$filter      = null;
 
-try
-{
+try {
     # Show filter configuration GUI
     if (!empty($_GET['f'])) {
         if (!isset($filters[$_GET['f']])) {
@@ -94,7 +95,7 @@ try
 ?>
 <html>
 <head>
-  <title><?php echo ($filter_gui !== false ? sprintf(__('%s configuration'), $filter->name) . ' - ' : '') . $page_name; ?></title>
+  <title><?php echo($filter_gui !== false ? sprintf(__('%s configuration'), $filter->name) . ' - ' : '') . $page_name; ?></title>
   <?php
 echo dcPage::jsPageTabs($default_tab);
 $core->auth->user_prefs->addWorkspace('accessibility');
@@ -115,8 +116,8 @@ echo
 if ($filter_gui !== false) {
     echo dcPage::breadcrumb(
         [
-            __('Plugins')                                         => '',
-            $page_name                                            => $p_url,
+            __('Plugins') => '',
+            $page_name    => $p_url,
             sprintf(__('%s filter configuration'), $filter->name) => ''
         ]) .
     dcPage::notices();
@@ -192,8 +193,7 @@ if ($filter_gui !== false) {
     foreach ($filters as $fid => $f) {
         $gui_link = '&nbsp;';
         if ($f->hasGUI()) {
-            $gui_link =
-            '<a href="' . html::escapeHTML($f->guiURL()) . '">' .
+            $gui_link = '<a href="' . html::escapeHTML($f->guiURL()) . '">' .
             '<img src="images/edit-mini.png" alt="' . __('Filter configuration') . '" ' .
             'title="' . __('Filter configuration') . '" /></a>';
         }

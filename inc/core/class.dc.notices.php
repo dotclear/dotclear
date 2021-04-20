@@ -6,12 +6,12 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 /**
  * dcNotices -- Backend notices handling facilities
- *
  */
 class dcNotices
 {
@@ -57,13 +57,13 @@ class dcNotices
         if (isset($params['ses_id']) && $params['ses_id'] !== '') {
             $strReq .= (string) $params['ses_id'];
         } else {
-            $strReq .=  (string) session_id();
+            $strReq .= (string) session_id();
         }
         $strReq .= "' ";
 
         if (isset($params['notice_id']) && $params['notice_id'] !== '') {
             if (is_array($params['notice_id'])) {
-                array_walk($params['notice_id'], function (&$v, $k) {if ($v !== null) {$v = (integer) $v;}});
+                array_walk($params['notice_id'], function (&$v, $k) { if ($v !== null) {$v = (integer) $v;}});
             } else {
                 $params['notice_id'] = [(integer) $params['notice_id']];
             }
@@ -111,7 +111,7 @@ class dcNotices
             );
 
             $cur->notice_id = (integer) $rs->f(0) + 1;
-            $cur->ses_id = (string) session_id();
+            $cur->ses_id    = (string) session_id();
 
             $this->getNoticeCursor($cur, $cur->notice_id);
 
@@ -122,6 +122,7 @@ class dcNotices
             $this->core->con->unlock();
         } catch (Exception $e) {
             $this->core->con->unlock();
+
             throw $e;
         }
 

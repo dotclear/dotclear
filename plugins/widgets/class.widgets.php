@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcWidgets
 {
@@ -21,9 +22,9 @@ class dcWidgets
 
         if ($o instanceof self) {
             return $o;
-        } else {
-            return self::loadArray($o, $GLOBALS['__widgets']);
         }
+
+        return self::loadArray($o, $GLOBALS['__widgets']);
     }
 
     public function store()
@@ -32,6 +33,7 @@ class dcWidgets
         foreach ($this->__widgets as $pos => $w) {
             $serialized[] = ($w->serialize($pos));
         }
+
         return base64_encode(serialize($serialized));
     }
 
@@ -63,6 +65,7 @@ class dcWidgets
         if ($sorted) {
             uasort($this->__widgets, ['self', 'sort']);
         }
+
         return $this->__widgets;
     }
 
@@ -71,6 +74,7 @@ class dcWidgets
         if (!isset($this->__widgets[$id])) {
             return;
         }
+
         return $this->__widgets[$id];
     }
 
@@ -97,8 +101,8 @@ class dcWidgets
                 $w = clone $widgets->{$v['id']};
 
                 # Settings
-                unset($v['id']);
-                unset($v['order']);
+                unset($v['id'], $v['order']);
+
                 foreach ($v as $sid => $s) {
                     $w->{$sid} = $s;
                 }
@@ -115,6 +119,7 @@ class dcWidgets
         if ($a['order'] == $b['order']) {
             return 0;
         }
+
         return $a['order'] > $b['order'] ? 1 : -1;
     }
 
@@ -125,6 +130,7 @@ class dcWidgets
         if ($c == $d) {
             return 0;
         }
+
         return ($c < $d) ? -1 : 1;
     }
 }
@@ -147,6 +153,7 @@ class dcWidget
 
         $values['id']    = $this->id;
         $values['order'] = $order;
+
         return $values;
     }
 
@@ -183,6 +190,7 @@ class dcWidget
         if (is_callable($this->public_callback)) {
             return call_user_func($this->public_callback, $this, $i);
         }
+
         return '<p>Callback not found for widget ' . $this->id . '</p>';
     }
 
@@ -248,6 +256,7 @@ class dcWidget
         }
 
         $ret = sprintf($wtscheme, $title);
+
         return $ret;
     }
 
@@ -258,7 +267,6 @@ class dcWidget
         if (isset($this->settings[$n])) {
             return $this->settings[$n]['value'];
         }
-        return;
     }
 
     public function __set($n, $v)
@@ -297,7 +305,7 @@ class dcWidget
         if (isset($options)) {
             $this->settings[$name]['options'] = $options;
         }
-        if (isset($opt)) {
+        if (isset($opts)) {
             $this->settings[$name]['opts'] = $opts;
         }
 
@@ -325,13 +333,12 @@ class dcWidget
         global $core;
 
         $res   = '';
-        $wfid  = "wf-" . $i;
+        $wfid  = 'wf-' . $i;
         $iname = $pr ? $pr . '[' . $id . ']' : $id;
         $class = (isset($s['opts']) && isset($s['opts']['class']) ? ' ' . $s['opts']['class'] : '');
         switch ($s['type']) {
             case 'text':
-                $res .=
-                '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
+                $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
                 form::field([$iname, $wfid], 20, 255,
                     [
                         'default'    => html::escapeHTML($s['value']),
@@ -339,10 +346,10 @@ class dcWidget
                         'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
                     ]) .
                     '</p>';
+
                 break;
             case 'textarea':
-                $res .=
-                '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
+                $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
                 form::textarea([$iname, $wfid], 30, 8,
                     [
                         'default'    => html::escapeHTML($s['value']),
@@ -350,34 +357,36 @@ class dcWidget
                         'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
                     ]) .
                     '</p>';
+
                 break;
             case 'check':
-                $res .=
-                '<p>' . form::hidden([$iname], '0') .
+                $res .= '<p>' . form::hidden([$iname], '0') .
                 '<label class="classic" for="' . $wfid . '">' .
                 form::checkbox([$iname, $wfid], '1', $s['value'], $class) . ' ' . $s['title'] .
                     '</label></p>';
+
                 break;
             case 'radio':
                 $res .= '<p>' . ($s['title'] ? '<label class="classic">' . $s['title'] . '</label><br/>' : '');
                 if (!empty($s['options'])) {
                     foreach ($s['options'] as $k => $v) {
                         $res .= $k > 0 ? '<br/>' : '';
-                        $res .=
-                        '<label class="classic" for="' . $wfid . '-' . $k . '">' .
+                        $res .= '<label class="classic" for="' . $wfid . '-' . $k . '">' .
                         form::radio([$iname, $wfid . '-' . $k], $v[1], $s['value'] == $v[1], $class) . ' ' . $v[0] .
                             '</label>';
                     }
                 }
                 $res .= '</p>';
+
                 break;
             case 'combo':
-                $res .=
-                '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
+                $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
                 form::combo([$iname, $wfid], $s['options'], $s['value'], $class) .
                     '</p>';
+
                 break;
         }
+
         return $res;
     }
 }
@@ -395,7 +404,7 @@ class dcWidgetExt extends dcWidget
 
     public function addHomeOnly()
     {
-        return $this->setting('homeonly', __('Display on:'), 0, 'combo',
+        return $this->setting('homeonly', __('Display on:'), self::ALL_PAGES, 'combo',
             [__('All pages') => self::ALL_PAGES, __('Home page only') => self::HOME_ONLY, __('Except on home page') => self::EXCEPT_HOME]);
     }
 
@@ -403,10 +412,11 @@ class dcWidgetExt extends dcWidget
     {
         global $core;
 
-        if (($this->homeonly == self::HOME_ONLY && !$core->url->isHome($type) && $alt_not_home) ||
-            ($this->homeonly == self::EXCEPT_HOME && ($core->url->isHome($type) || $alt_home))) {
+        /* @phpstan-ignore-next-line */
+        if (($this->homeonly == self::HOME_ONLY && !$core->url->isHome($type) && $alt_not_home) || ($this->homeonly == self::EXCEPT_HOME && ($core->url->isHome($type) || $alt_home))) {
             return false;
         }
+
         return true;
     }
 

@@ -8,13 +8,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $this->registerModule(
-    "Custom theme",             // Name
-    "A CSS customizable theme", // Description
-    "Olivier",                  // Author
+    'Custom theme',             // Name
+    'A CSS customizable theme', // Description
+    'Olivier',                  // Author
     '1.2',                      // Version
     [
         'type' => 'theme'

@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 # Localized string we find in template
 __("This tag's comments Atom feed");
@@ -82,7 +83,6 @@ class behaviorsTags
             $core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__) . '/default-templates/' . DC_DEFAULT_TPLSET);
         }
     }
-
 }
 
 class tplTags
@@ -105,17 +105,15 @@ class tplTags
             $order = 'desc';
         }
 
-        $res =
-            "<?php\n" .
+        $res = "<?php\n" .
             "\$_ctx->meta = \$core->meta->computeMetaStats(\$core->meta->getMetadata(['meta_type'=>'"
             . $type . "','limit'=>" . $limit .
-            ($sortby != 'meta_id_lower' ? ",'order'=>'" . $sortby . ' ' . ($order == 'asc' ? 'ASC' : 'DESC' ) . "'" : '')  .
-            "])); " .
+            ($sortby != 'meta_id_lower' ? ",'order'=>'" . $sortby . ' ' . ($order == 'asc' ? 'ASC' : 'DESC') . "'" : '') .
+            '])); ' .
             "\$_ctx->meta->sort('" . $sortby . "','" . $order . "'); " .
             '?>';
 
-        $res .=
-            '<?php while ($_ctx->meta->fetch()) : ?>' . $content . '<?php endwhile; ' .
+        $res .= '<?php while ($_ctx->meta->fetch()) : ?>' . $content . '<?php endwhile; ' .
             '$_ctx->meta = null; ?>';
 
         return $res;
@@ -124,17 +122,17 @@ class tplTags
     public static function TagsHeader($attr, $content)
     {
         return
-            "<?php if (\$_ctx->meta->isStart()) : ?>" .
+            '<?php if ($_ctx->meta->isStart()) : ?>' .
             $content .
-            "<?php endif; ?>";
+            '<?php endif; ?>';
     }
 
     public static function TagsFooter($attr, $content)
     {
         return
-            "<?php if (\$_ctx->meta->isEnd()) : ?>" .
+            '<?php if ($_ctx->meta->isEnd()) : ?>' .
             $content .
-            "<?php endif; ?>";
+            '<?php endif; ?>';
     }
 
     public static function EntryTags($attr, $content)
@@ -153,14 +151,12 @@ class tplTags
             $order = 'desc';
         }
 
-        $res =
-            "<?php\n" .
+        $res = "<?php\n" .
             "\$_ctx->meta = \$core->meta->getMetaRecordset(\$_ctx->posts->post_meta,'" . $type . "'); " .
             "\$_ctx->meta->sort('" . $sortby . "','" . $order . "'); " .
             '?>';
 
-        $res .=
-            '<?php while ($_ctx->meta->fetch()) : ?>' . $content . '<?php endwhile; ' .
+        $res .= '<?php while ($_ctx->meta->fetch()) : ?>' . $content . '<?php endwhile; ' .
             '$_ctx->meta = null; ?>';
 
         return $res;
@@ -178,14 +174,15 @@ class tplTags
 
         if (!empty($if)) {
             return '<?php if(' . implode(' ' . $operateur . ' ', $if) . ') : ?>' . $content . '<?php endif; ?>';
-        } else {
-            return $content;
         }
+
+        return $content;
     }
 
     public static function TagID($attr)
     {
         $f = $GLOBALS['core']->tpl->getFilters($attr);
+
         return '<?php echo ' . sprintf($f, '$_ctx->meta->meta_id') . '; ?>';
     }
 
@@ -207,6 +204,7 @@ class tplTags
     public static function TagURL($attr)
     {
         $f = $GLOBALS['core']->tpl->getFilters($attr);
+
         return '<?php echo ' . sprintf($f, '$core->blog->url.$core->url->getURLFor("tag",' .
             'rawurlencode($_ctx->meta->meta_id))') . '; ?>';
     }
@@ -214,6 +212,7 @@ class tplTags
     public static function TagCloudURL($attr)
     {
         $f = $GLOBALS['core']->tpl->getFilters($attr);
+
         return '<?php echo ' . sprintf($f, '$core->blog->url.$core->url->getURLFor("tags")') . '; ?>';
     }
 
@@ -226,6 +225,7 @@ class tplTags
         }
 
         $f = $GLOBALS['core']->tpl->getFilters($attr);
+
         return '<?php echo ' . sprintf($f, '$core->blog->url.$core->url->getURLFor("tag_feed",' .
             'rawurlencode($_ctx->meta->meta_id)."/' . $type . '")') . '; ?>';
     }
@@ -239,8 +239,7 @@ class tplTags
             return;
         }
 
-        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) ||
-            ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
+        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) || ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
             return;
         }
 
@@ -279,8 +278,7 @@ class tplTags
             $rs->sort($sort, $order);
         }
 
-        $res =
-            ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
+        $res = ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
             '<ul>';
 
         if ($core->url->type == 'post' && $_ctx->posts instanceof record) {
@@ -292,12 +290,12 @@ class tplTags
                 while ($_ctx->meta->fetch()) {
                     if ($_ctx->meta->meta_id == $rs->meta_id) {
                         $class = ' class="tag-current"';
+
                         break;
                     }
                 }
             }
-            $res .=
-            '<li' . $class . '><a href="' . $core->blog->url . $core->url->getURLFor('tag', rawurlencode($rs->meta_id)) . '" ' .
+            $res .= '<li' . $class . '><a href="' . $core->blog->url . $core->url->getURLFor('tag', rawurlencode($rs->meta_id)) . '" ' .
             'class="tag' . $rs->roundpercent . '">' .
             $rs->meta_id . '</a> </li>';
         }
@@ -305,8 +303,7 @@ class tplTags
         $res .= '</ul>';
 
         if ($core->url->getURLFor('tags') && !is_null($w->alltagslinktitle) && $w->alltagslinktitle !== '') {
-            $res .=
-            '<p><strong><a href="' . $core->blog->url . $core->url->getURLFor("tags") . '">' .
+            $res .= '<p><strong><a href="' . $core->blog->url . $core->url->getURLFor('tags') . '">' .
             html::escapeHTML($w->alltagslinktitle) . '</a></strong></p>';
         }
 

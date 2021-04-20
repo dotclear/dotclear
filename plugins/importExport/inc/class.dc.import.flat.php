@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcImportFlat extends dcIeModule
 {
@@ -26,6 +27,7 @@ class dcImportFlat extends dcIeModule
     {
         if ($do == 'single' || $do == 'full') {
             $this->status = $do;
+
             return;
         }
 
@@ -52,6 +54,8 @@ class dcImportFlat extends dcIeModule
                 $file = $_POST['public_single_file'];
             }
 
+            $unzip_file = '';
+
             try {
                 # Try to unzip file
                 $unzip_file = $this->unzip($file);
@@ -69,6 +73,7 @@ class dcImportFlat extends dcIeModule
                 if ($to_unlink) {
                     @unlink($file);
                 }
+
                 throw $e;
             }
             @unlink($unzip_file);
@@ -102,6 +107,8 @@ class dcImportFlat extends dcIeModule
                 $file = $_POST['public_full_file'];
             }
 
+            $unzip_file = '';
+
             try {
                 # Try to unzip file
                 $unzip_file = $this->unzip($file);
@@ -119,6 +126,7 @@ class dcImportFlat extends dcIeModule
                 if ($to_unlink) {
                     @unlink($file);
                 }
+
                 throw $e;
             }
             @unlink($unzip_file);
@@ -139,10 +147,12 @@ class dcImportFlat extends dcIeModule
     {
         if ($this->status == 'single') {
             dcPage::success(__('Single blog successfully imported.'));
+
             return;
         }
         if ($this->status == 'full') {
             dcPage::success(__('Content successfully imported.'));
+
             return;
         }
 
@@ -234,6 +244,7 @@ class dcImportFlat extends dcIeModule
                 }
             }
         }
+
         return $public_files;
     }
 
@@ -254,6 +265,7 @@ class dcImportFlat extends dcIeModule
 
         if ($zip->isEmpty()) {
             $zip->close();
+
             return false; //throw new Exception(__('File is empty or not a compressed file.'));
         }
 
@@ -267,6 +279,7 @@ class dcImportFlat extends dcIeModule
             $content = $zip->unzip($zip_file);
             if (strpos($content, '///DOTCLEAR|') !== 0) {
                 unset($content);
+
                 continue;
             }
 
@@ -276,6 +289,7 @@ class dcImportFlat extends dcIeModule
             if (file_exists($target)) {
                 $zip->close();
                 unset($content);
+
                 throw new Exception(__('Another file with same name exists.'));
             }
 
@@ -283,6 +297,7 @@ class dcImportFlat extends dcIeModule
             if (file_put_contents($target, $content) === false) {
                 $zip->close();
                 unset($content);
+
                 throw new Exception(__('Failed to extract backup file.'));
             }
 
@@ -294,6 +309,7 @@ class dcImportFlat extends dcIeModule
         }
 
         $zip->close();
+
         throw new Exception(__('No backup in compressed file.'));
     }
 }

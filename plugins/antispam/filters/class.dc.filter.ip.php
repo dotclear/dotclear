@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcFilterIP extends dcSpamFilter
 {
@@ -51,6 +52,7 @@ class dcFilterIP extends dcSpamFilter
         # Black list check
         if (($s = $this->checkIP($ip, 'black')) !== false) {
             $status = $s;
+
             return true;
         }
     }
@@ -69,8 +71,7 @@ class dcFilterIP extends dcSpamFilter
 
         # Add IP to list
         if (!empty($_POST['addip'])) {
-            try
-            {
+            try {
                 $global = !empty($_POST['globalip']) && $core->auth->isSuperAdmin();
 
                 $this->addIP($ip_type, $_POST['addip'], $global);
@@ -96,8 +97,7 @@ class dcFilterIP extends dcSpamFilter
         ---------------------------------------------- */
         $res = dcPage::notices();
 
-        $res .=
-        $this->displayForms($url, 'black', __('Blocklist')) .
+        $res .= $this->displayForms($url, 'black', __('Blocklist')) .
         $this->displayForms($url, 'white', __('Allowlist'));
 
         return $res;
@@ -107,8 +107,7 @@ class dcFilterIP extends dcSpamFilter
     {
         $core = &$this->core;
 
-        $res =
-        '<div class="multi-part" id="tab_' . $type . '" title="' . $title . '">' .
+        $res = '<div class="multi-part" id="tab_' . $type . '" title="' . $title . '">' .
 
         '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
 
@@ -121,8 +120,7 @@ class dcFilterIP extends dcSpamFilter
             __('Global IP (used for all blogs)') . '</label> ';
         }
 
-        $res .=
-        $core->formNonce() .
+        $res .= $core->formNonce() .
         '</p>' .
         '<p><input type="submit" value="' . __('Add') . '"/></p>' .
             '</form>';
@@ -132,8 +130,7 @@ class dcFilterIP extends dcSpamFilter
         if ($rs->isEmpty()) {
             $res .= '<p><strong>' . __('No IP address in list.') . '</strong></p>';
         } else {
-            $res .=
-            '<form action="' . html::escapeURL($url) . '" method="post">' .
+            $res .= '<form action="' . html::escapeURL($url) . '" method="post">' .
             '<h3>' . __('IP list') . '</h3>' .
                 '<div class="antispam">';
 
@@ -152,8 +149,7 @@ class dcFilterIP extends dcSpamFilter
                     $p_style .= ' global';
                 }
 
-                $item =
-                '<p class="' . $p_style . '"><label class="classic" for="' . $type . '-ip-' . $rs->rule_id . '">' .
+                $item = '<p class="' . $p_style . '"><label class="classic" for="' . $type . '-ip-' . $rs->rule_id . '">' .
                 form::checkbox(['delip[]', $type . '-ip-' . $rs->rule_id], $rs->rule_id,
                     [
                         'disabled' => $disabled_ip
@@ -178,8 +174,7 @@ class dcFilterIP extends dcSpamFilter
             }
             $res .= $res_local . $res_global;
 
-            $res .=
-            '</div>' .
+            $res .= '</div>' .
             '<p><input class="submit delete" type="submit" value="' . __('Delete') . '"/>' .
             $core->formNonce() .
             form::hidden(['ip_type'], $type) .
@@ -197,7 +192,7 @@ class dcFilterIP extends dcSpamFilter
         $bits = explode('/', $pattern);
 
         # Set IP
-        $bits[0] .= str_repeat(".0", 3 - substr_count($bits[0], "."));
+        $bits[0] .= str_repeat('.0', 3 - substr_count($bits[0], '.'));
         $ip = ip2long($bits[0]);
 
         if (!$ip || $ip == -1) {
@@ -249,8 +244,7 @@ class dcFilterIP extends dcSpamFilter
 
     private function getRules($type = 'all')
     {
-        $strReq =
-        'SELECT rule_id, rule_type, blog_id, rule_content ' .
+        $strReq = 'SELECT rule_id, rule_type, blog_id, rule_content ' .
         'FROM ' . $this->table . ' ' .
         "WHERE rule_type = '" . $this->con->escape($type) . "' " .
         "AND (blog_id = '" . $this->core->blog->id . "' OR blog_id IS NULL) " .
@@ -261,10 +255,9 @@ class dcFilterIP extends dcSpamFilter
 
     private function getRuleCIDR($type, $global, $ip, $mask)
     {
-        $strReq =
-        'SELECT * FROM ' . $this->table . ' ' .
+        $strReq = 'SELECT * FROM ' . $this->table . ' ' .
         "WHERE rule_type = '" . $this->con->escape($type) . "' " .
-        "AND rule_content LIKE '%:" . (integer) $ip . ":" . (integer) $mask . "' " .
+        "AND rule_content LIKE '%:" . (integer) $ip . ':' . (integer) $mask . "' " .
             'AND blog_id ' . ($global ? 'IS NULL ' : "= '" . $this->core->blog->id . "' ");
 
         return $this->con->select($strReq);
@@ -274,8 +267,7 @@ class dcFilterIP extends dcSpamFilter
     {
         $core = &$this->core;
 
-        $strReq =
-        'SELECT DISTINCT(rule_content) ' .
+        $strReq = 'SELECT DISTINCT(rule_content) ' .
         'FROM ' . $this->table . ' ' .
         "WHERE rule_type = '" . $this->con->escape($type) . "' " .
         "AND (blog_id = '" . $this->core->blog->id . "' OR blog_id IS NULL) " .
@@ -288,6 +280,7 @@ class dcFilterIP extends dcSpamFilter
                 return $pattern;
             }
         }
+
         return false;
     }
 

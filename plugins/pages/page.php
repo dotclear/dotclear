@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 dcPage::check('pages,contentadmin');
 
 $redir_url = $p_url . '&act=page';
@@ -74,6 +75,7 @@ $lang_combo = dcAdminCombos::getLangsCombo($rs, true);
 $bad_dt = false;
 
 # Get page informations
+$post = null;
 if (!empty($_REQUEST['id'])) {
     $params['post_type'] = 'page';
     $params['post_id']   = $_REQUEST['id'];
@@ -148,11 +150,11 @@ if (!empty($_POST) && $can_edit_page) {
     if (empty($_POST['post_dt'])) {
         $post_dt = '';
     } else {
-        try
-        {
+        try {
             $post_dt = strtotime($_POST['post_dt']);
             if ($post_dt == false || $post_dt == -1) {
                 $bad_dt = true;
+
                 throw new Exception(__('Invalid publication date'));
             }
             $post_dt = date('Y-m-d H:i', $post_dt);
@@ -197,7 +199,7 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_page && !$bad_dt) {
     $cur = $core->con->openCursor($core->prefix . 'post');
 
     # Magic tweak :)
-    $core->blog->settings->system->post_url_format = $page_url_format;
+    $core->blog->settings->system->post_url_format = $GLOBALS['page_url_format'];
 
     $cur->post_type          = 'page';
     $cur->post_dt            = $post_dt ? date('Y-m-d H:i:00', strtotime($post_dt)) : '';
@@ -222,8 +224,7 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_page && !$bad_dt) {
 
     # Update post
     if ($post_id) {
-        try
-        {
+        try {
             # --BEHAVIOR-- adminBeforePageUpdate
             $core->callBehavior('adminBeforePageUpdate', $cur, $post_id);
 
@@ -239,8 +240,7 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_page && !$bad_dt) {
     } else {
         $cur->user_id = $core->auth->userID();
 
-        try
-        {
+        try {
             # --BEHAVIOR-- adminBeforePageCreate
             $core->callBehavior('adminBeforePageCreate', $cur);
 
@@ -293,7 +293,7 @@ if ($post_editor) {
   <?php echo
 dcPage::jsDatePicker() .
 dcPage::jsModal() .
-dcPage::jsJson('pages_page', ['confirm_delete_post' => __("Are you sure you want to delete this page?")]) .
+dcPage::jsJson('pages_page', ['confirm_delete_post' => __('Are you sure you want to delete this page?')]) .
 dcPage::jsLoad('js/_post.js') .
 dcPage::jsLoad(dcPage::getPF('pages/js/page.js')) .
 $admin_post_behavior .
@@ -309,22 +309,25 @@ dcPage::jsPageTabs($default_tab) .
 
 <?php
 
+$img_status = '';
 if ($post_id) {
     switch ($post_status) {
         case 1:
             $img_status = sprintf($img_status_pattern, __('Published'), 'check-on.png');
+
             break;
         case 0:
             $img_status = sprintf($img_status_pattern, __('Unpublished'), 'check-off.png');
+
             break;
         case -1:
             $img_status = sprintf($img_status_pattern, __('Scheduled'), 'scheduled.png');
+
             break;
         case -2:
             $img_status = sprintf($img_status_pattern, __('Pending'), 'check-wrn.png');
+
             break;
-        default:
-            $img_status = '';
     }
     $edit_entry_title = '&ldquo;' . html::escapeHTML(trim(html::clean($post_title))) . '&rdquo;' . ' ' . $img_status;
 } else {
@@ -364,12 +367,18 @@ echo '';
 
 if ($post_id) {
     echo '<p class="nav_prevnext">';
-    if ($prev_link) {echo $prev_link;}
-    if ($next_link && $prev_link) {echo ' | ';}
-    if ($next_link) {echo $next_link;}
+    if ($prev_link) {
+        echo $prev_link;
+    }
+    if ($next_link && $prev_link) {
+        echo ' | ';
+    }
+    if ($next_link) {
+        echo $next_link;
+    }
 
     # --BEHAVIOR-- adminPageNavLinks
-    $core->callBehavior('adminPageNavLinks', isset($post) ? $post : null);
+    $core->callBehavior('adminPageNavLinks', $post ?? null);
 
     echo '</p>';
 }
@@ -377,6 +386,7 @@ if ($post_id) {
 # Exit if we cannot view page
 if (!$can_view_page) {
     echo '</body></html>';
+
     return;
 }
 
@@ -384,16 +394,14 @@ if (!$can_view_page) {
 -------------------------------------------------------- */
 if ($can_edit_page) {
     $sidebar_items = new ArrayObject([
-        'status-box'  => [
+        'status-box' => [
             'title' => __('Status'),
             'items' => [
-                'post_status' =>
-                '<p><label for="post_status">' . __('Page status') . '</label> ' .
+                'post_status' => '<p><label for="post_status">' . __('Page status') . '</label> ' .
                 form::combo('post_status', $status_combo,
                     ['default' => $post_status, 'disabled' => !$can_publish]) .
                 '</p>',
-                'post_dt'     =>
-                '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
+                'post_dt' => '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
                 form::field('post_dt', 16, 16, $post_dt, ($bad_dt ? 'invalid' : '')) .
                 /*
                 Previous line will be replaced by this one as soon as every browser will support datetime-local input type
@@ -405,23 +413,20 @@ if ($can_edit_page) {
                 ]) .
                  */
                 '</p>',
-                'post_lang'   =>
-                '<p><label for="post_lang">' . __('Page language') . '</label>' .
+                'post_lang' => '<p><label for="post_lang">' . __('Page language') . '</label>' .
                 form::combo('post_lang', $lang_combo, $post_lang) .
                 '</p>',
-                'post_format' =>
-                '<div>' .
+                'post_format' => '<div>' .
                 '<h5 id="label_format"><label for="post_format" class="classic">' . __('Text formatting') . '</label></h5>' .
                 '<p>' . form::combo('post_format', $available_formats, $post_format, 'maximal') . '</p>' .
                 '<p class="format_control control_wiki">' .
                 '<a id="convert-xhtml" class="button' . ($post_id && $post_format != 'wiki' ? ' hide' : '') .
                 '" href="' . html::escapeURL($redir_url) . '&amp;id=' . $post_id . '&amp;xconv=1">' .
                 __('Convert to XHTML') . '</a></p></div>']],
-        'metas-box'   => [
+        'metas-box' => [
             'title' => __('Filing'),
             'items' => [
-                'post_position' =>
-                '<p><label for="post_position" class="classic">' . __('Page position') . '</label> ' .
+                'post_position' => '<p><label for="post_position" class="classic">' . __('Page position') . '</label> ' .
                 form::number('post_position', [
                     'default' => $post_position
                 ]) .
@@ -429,8 +434,7 @@ if ($can_edit_page) {
         'options-box' => [
             'title' => __('Options'),
             'items' => [
-                'post_open_comment_tb' =>
-                '<div>' .
+                'post_open_comment_tb' => '<div>' .
                 '<h5 id="label_comment_tb">' . __('Comments and trackbacks list') . '</h5>' .
                 '<p><label for="post_open_comment" class="classic">' .
                 form::checkbox('post_open_comment', 1, $post_open_comment) . ' ' .
@@ -452,16 +456,13 @@ if ($can_edit_page) {
                         __('Warning: Trackbacks are not more accepted for this entry.') . '</p>') :
                     '<p class="form-note warn">' . __('Trackbacks are not accepted on this blog so far.') . '</p>') .
                 '</div>',
-                'post_hide'            =>
-                '<p><label for="post_selected" class="classic">' . form::checkbox('post_selected', 1, $post_selected) . ' ' .
+                'post_hide' => '<p><label for="post_selected" class="classic">' . form::checkbox('post_selected', 1, $post_selected) . ' ' .
                 __('Hide in widget Pages') . '</label>' .
                 '</p>',
-                'post_password'        =>
-                '<p><label for="post_password">' . __('Password') . '</label>' .
+                'post_password' => '<p><label for="post_password">' . __('Password') . '</label>' .
                 form::field('post_password', 10, 32, html::escapeHTML($post_password), 'maximal') .
                 '</p>',
-                'post_url'             =>
-                '<div class="lockable">' .
+                'post_url' => '<div class="lockable">' .
                 '<p><label for="post_url">' . __('Edit basename') . '</label>' .
                 form::field('post_url', 10, 255, html::escapeHTML($post_url), 'maximal') .
                 '</p>' .
@@ -470,8 +471,7 @@ if ($can_edit_page) {
                 '</p></div>'
             ]]]);
     $main_items = new ArrayObject([
-        "post_title"   =>
-        '<p class="col">' .
+        'post_title' => '<p class="col">' .
         '<label class="required no-margin bold" for="post_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
         form::field('post_title', 20, 255, [
             'default'    => html::escapeHTML($post_title),
@@ -480,8 +480,7 @@ if ($can_edit_page) {
         ]) .
         '</p>',
 
-        "post_excerpt" =>
-        '<p class="area" id="excerpt-area"><label for="post_excerpt" class="bold">' . __('Excerpt:') . ' <span class="form-note">' .
+        'post_excerpt' => '<p class="area" id="excerpt-area"><label for="post_excerpt" class="bold">' . __('Excerpt:') . ' <span class="form-note">' .
         __('Introduction to the page.') . '</span></label> ' .
         form::textarea('post_excerpt', 50, 5,
             [
@@ -490,8 +489,7 @@ if ($can_edit_page) {
             ]) .
         '</p>',
 
-        "post_content" =>
-        '<p class="area" id="content-area"><label class="required bold" ' .
+        'post_content' => '<p class="area" id="content-area"><label class="required bold" ' .
         'for="post_content"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Content:') . '</label> ' .
         form::textarea('post_content', 50, $core->auth->getOption('edit_size'),
             [
@@ -500,12 +498,11 @@ if ($can_edit_page) {
             ]) .
         '</p>',
 
-        "post_notes"   =>
-        '<p class="area" id="notes-area"><label for="post_notes" class="bold">' . __('Personal notes:') . ' <span class="form-note">' .
+        'post_notes' => '<p class="area" id="notes-area"><label for="post_notes" class="bold">' . __('Personal notes:') . ' <span class="form-note">' .
         __('Unpublished notes.') . '</span></label>' .
         form::textarea('post_notes', 50, 5,
             [
-                'default' => html::escapeHTML($post_notes),
+                'default'    => html::escapeHTML($post_notes),
                 'extra_html' => 'lang="' . $post_lang . '" spellcheck="true"'
             ]) .
         '</p>'
@@ -513,7 +510,7 @@ if ($can_edit_page) {
     );
 
     # --BEHAVIOR-- adminPostFormItems
-    $core->callBehavior('adminPageFormItems', $main_items, $sidebar_items, isset($post) ? $post : null);
+    $core->callBehavior('adminPageFormItems', $main_items, $sidebar_items, $post ?? null);
 
     echo '<div class="multi-part" title="' . ($post_id ? __('Edit page') : __('New page')) .
     sprintf(' &rsaquo; %s', $post_format) . '" id="edit-entry">';
@@ -528,7 +525,7 @@ if ($can_edit_page) {
     }
 
     # --BEHAVIOR-- adminPageForm
-    $core->callBehavior('adminPageForm', isset($post) ? $post : null);
+    $core->callBehavior('adminPageForm', $post ?? null);
 
     echo
     '<p class="border-top">' .
@@ -549,8 +546,7 @@ if ($can_edit_page) {
         '<a id="post-cancel" href="' . $core->adminurl->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
     }
 
-    echo
-    ($can_delete ? ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete" />' : '') .
+    echo($can_delete ? ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete" />' : '') .
     $core->formNonce() .
         '</p>';
 
@@ -569,14 +565,14 @@ if ($can_edit_page) {
     }
 
     # --BEHAVIOR-- adminPageFormSidebar
-    $core->callBehavior('adminPageFormSidebar', isset($post) ? $post : null);
+    $core->callBehavior('adminPageFormSidebar', $post ?? null);
 
     echo '</div>'; // End #entry-sidebar
 
     echo '</form>';
 
     # --BEHAVIOR-- adminPostForm
-    $core->callBehavior('adminPageAfterForm', isset($post) ? $post : null);
+    $core->callBehavior('adminPageAfterForm', $post ?? null);
 
     echo '</div>'; // End
 
@@ -707,16 +703,15 @@ function isContributionAllowed($id, $dt, $com = true)
         return true;
     }
     if ($com) {
-        if (($core->blog->settings->system->comments_ttl == 0) ||
-            (time() - $core->blog->settings->system->comments_ttl * 86400 < $dt)) {
+        if (($core->blog->settings->system->comments_ttl == 0) || (time() - $core->blog->settings->system->comments_ttl * 86400 < $dt)) {
             return true;
         }
     } else {
-        if (($core->blog->settings->system->trackbacks_ttl == 0) ||
-            (time() - $core->blog->settings->system->trackbacks_ttl * 86400 < $dt)) {
+        if (($core->blog->settings->system->trackbacks_ttl == 0) || (time() - $core->blog->settings->system->trackbacks_ttl * 86400 < $dt)) {
             return true;
         }
     }
+
     return false;
 }
 
@@ -743,18 +738,26 @@ function showComments($rs, $has_action)
             case 1:
                 $img_status = sprintf($img, __('Published'), 'check-on.png');
                 $sts_class  = 'sts-online';
+
                 break;
             case 0:
                 $img_status = sprintf($img, __('Unpublished'), 'check-off.png');
                 $sts_class  = 'sts-offline';
+
                 break;
             case -1:
                 $img_status = sprintf($img, __('Pending'), 'check-wrn.png');
                 $sts_class  = 'sts-pending';
+
                 break;
             case -2:
                 $img_status = sprintf($img, __('Junk'), 'junk.png');
                 $sts_class  = 'sts-junk';
+
+                break;
+            default:
+                $img_status = '';
+
                 break;
         }
 

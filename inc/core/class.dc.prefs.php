@@ -112,8 +112,8 @@ class dcPrefs
             return false;
         }
 
-        if (!preg_match(self::WS_NAME_SCHEMA, $newNs)) {
-            throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $ns));
+        if (!preg_match(self::WS_NAME_SCHEMA, $newWs)) {
+            throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $newWs));
         }
 
         // Rename the workspace in the workspace array

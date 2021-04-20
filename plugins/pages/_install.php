@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 $version = $core->plugins->moduleInfo('pages', 'version');
 if (version_compare($core->getVersion('pages'), $version, '>=')) {
@@ -28,7 +29,6 @@ if ($core->getVersion('pages') == null) {
     $counter = $core->blog->getPosts($params, true);
 
     if ($counter->f(0) == 0 && $core->blog->settings->pages->firstpage == null) {
-
         $core->blog->settings->pages->put('firstpage', true, 'boolean');
 
         $cur                     = $core->con->openCursor($core->prefix . 'post');
@@ -49,4 +49,5 @@ if ($core->getVersion('pages') == null) {
 }
 
 $core->setVersion('pages', $version);
+
 return true;

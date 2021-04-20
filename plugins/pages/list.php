@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 dcPage::check('pages,contentadmin');
 
 /* Getting pages
@@ -29,6 +30,8 @@ $params['limit']      = [(($page - 1) * $nb_per_page), $nb_per_page];
 $params['no_content'] = true;
 $params['order']      = 'post_position ASC, post_title ASC';
 
+$post_list = null;
+
 try {
     $pages     = $core->blog->getPosts($params);
     $counter   = $core->blog->getPosts($params, true);
@@ -43,12 +46,11 @@ $pages_actions_page = new dcPagesActionsPage($core, 'plugin.php', ['p' => 'pages
 
 if (!$pages_actions_page->process()) {
 
-# --BEHAVIOR-- adminPagesActionsCombo
-    $core->callBehavior('adminPagesActionsCombo', [&$combo_action]);
+    # --BEHAVIOR-- adminPagesActionsCombo
+    $core->callBehavior('adminPagesActionsCombo', [&$combo_action]);    // @phpstan-ignore-line
 
-/* Display
--------------------------------------------------------- */
-    ?>
+    /* Display
+    -------------------------------------------------------- */ ?>
 <html>
 <head>
   <title><?php echo __('Pages'); ?></title>
@@ -56,7 +58,7 @@ if (!$pages_actions_page->process()) {
 echo
     dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
     dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-    dcPage::jsJson('pages_list', ['confirm_delete_posts' => __("Are you sure you want to delete selected pages?")]) .
+    dcPage::jsJson('pages_list', ['confirm_delete_posts' => __('Are you sure you want to delete selected pages?')]) .
     dcPage::jsLoad(dcPage::getPF('pages/js/list.js'))
   ?>
 </head>
@@ -104,8 +106,7 @@ echo dcPage::breadcrumb(
             '<p><input type="submit" value="' . __('Save pages order') . '" name="reorder" class="clear" /></p>' .
             '</form>');
     }
-    dcPage::helpBlock('pages');
-    ?>
+    dcPage::helpBlock('pages'); ?>
 </body>
 </html>
 <?php

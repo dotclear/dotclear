@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
@@ -116,7 +115,6 @@ if (!empty($plugins_install['failure'])) {
 
 # -- Display modules lists --
 if ($core->auth->isSuperAdmin()) {
-
     if (!$core->error->flag()) {
         if (!empty($_GET['nocache'])) {
             dcPage::success(__('Manual checking of plugins update done successfully.'));
@@ -145,7 +143,7 @@ if ($core->auth->isSuperAdmin()) {
 
         echo
         '<p class="info vertical-separator">' . sprintf(
-            __("Visit %s repository, the resources center for Dotclear."),
+            __('Visit %s repository, the resources center for Dotclear.'),
             '<a href="https://plugins.dotaddict.org/dc2/">Dotaddict</a>'
         ) .
             '</p>' .
@@ -166,7 +164,6 @@ echo
 # Activated modules
 $modules = $list->modules->getModules();
 if (!empty($modules)) {
-
     echo
     '<h3>' . ($core->auth->isSuperAdmin() ? __('Activated plugins') : __('Installed plugins')) . '</h3>' .
     '<p class="more-info">' . __('You can configure and manage installed plugins from this list.') . '</p>';
@@ -228,7 +225,7 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 
         echo
         '<p class="info vertical-separator">' . sprintf(
-            __("Visit %s repository, the resources center for Dotclear."),
+            __('Visit %s repository, the resources center for Dotclear.'),
             '<a href="https://plugins.dotaddict.org/dc2/">Dotaddict</a>'
         ) .
             '</p>' .

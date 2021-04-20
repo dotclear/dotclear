@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 # If we have a session cookie, go to index.php
@@ -40,6 +39,7 @@ $err        = $msg        = null;
 # Auto upgrade
 if (empty($_GET) && empty($_POST)) {
     require dirname(__FILE__) . '/../inc/dbschema/upgrade.php';
+
     try {
         if (($changes = dcUpgrade::dotclearUpgrade($core)) !== false) {
             $msg = __('Dotclear has been upgraded.') . '<!-- ' . $changes . ' -->';
@@ -72,13 +72,12 @@ elseif (isset($_COOKIE['dc_admin']) && strlen($_COOKIE['dc_admin']) == 104) {
 if ($recover && !empty($_POST['user_id']) && !empty($_POST['user_email'])) {
     $user_id    = !empty($_POST['user_id']) ? $_POST['user_id'] : null;
     $user_email = !empty($_POST['user_email']) ? html::escapeHTML($_POST['user_email']) : '';
-    try
-    {
+
+    try {
         $recover_key = $core->auth->setRecoverKey($user_id, $user_email);
 
         $subject = mail::B64Header('Dotclear ' . __('Password reset'));
-        $message =
-        __('Someone has requested to reset the password for the following site and username.') . "\n\n" .
+        $message = __('Someone has requested to reset the password for the following site and username.') . "\n\n" .
         $page_url . "\n" . __('Username:') . ' ' . $user_id . "\n\n" .
         __('To reset your password visit the following address, otherwise just ignore this email and nothing will happen.') . "\n" .
             $page_url . '?akey=' . $recover_key;
@@ -94,13 +93,11 @@ if ($recover && !empty($_POST['user_id']) && !empty($_POST['user_email'])) {
 }
 # Send new password
 elseif ($akey) {
-    try
-    {
+    try {
         $recover_res = $core->auth->recoverUserPassword($akey);
 
         $subject = mb_encode_mimeheader('Dotclear ' . __('Your new password'), 'UTF-8', 'B');
-        $message =
-        __('Username:') . ' ' . $recover_res['user_id'] . "\n" .
+        $message = __('Username:') . ' ' . $recover_res['user_id'] . "\n" .
         __('Password:') . ' ' . $recover_res['new_pass'] . "\n\n" .
         preg_replace('/\?(.*)$/', '', $page_url);
 
@@ -115,8 +112,7 @@ elseif ($akey) {
 }
 # Change password and retry to log
 elseif ($change_pwd) {
-    try
-    {
+    try {
         $tmp_data = explode('/', $_POST['login_data']);
         if (count($tmp_data) != 3) {
             throw new Exception();
@@ -146,6 +142,7 @@ elseif ($change_pwd) {
 
         if (!$core->auth->allowPassChange() || !$check_user) {
             $change_pwd = false;
+
             throw new Exception();
         }
 

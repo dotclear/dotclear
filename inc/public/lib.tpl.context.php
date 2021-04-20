@@ -6,8 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class context
 {
@@ -35,8 +36,6 @@ class context
         if ($n > 0) {
             return $this->stack[$name][($n - 1)];
         }
-
-        return;
     }
 
     public function exists($name)
@@ -58,7 +57,7 @@ class context
     # Loop position tests
     public function loopPosition($start, $length = null, $even = null, $modulo = null)
     {
-        if (!$this->cur_loop) {
+        if (!$this->cur_loop) { // @phpstan-ignore-line
             return false;
         }
 
@@ -101,10 +100,11 @@ class context
     @deprecated since version 2.11 , use tpl_context::global_filters instead
      */
     public static function global_filter($str,
-        $encode_xml, $remove_html, $cut_string, $lower_case, $upper_case, $encode_url, $tag = '') {
+        $encode_xml, $remove_html, $cut_string, $lower_case, $upper_case, $encode_url, $tag = '')
+    {
         return self::global_filters(
             $str,
-            [0            => null,
+            [0                => null,
                 'encode_xml'  => $encode_xml,
                 'remove_html' => $remove_html,
                 'cut_string'  => $cut_string,
@@ -143,6 +143,7 @@ class context
             case 'encode_url':
                 return self::encode_url($str);
         }
+
         return $str;
     }
 
@@ -226,6 +227,7 @@ class context
         if ($str != '') {
             $str[0] = mb_strtoupper($str[0]);
         }
+
         return $str;
     }
 
@@ -286,9 +288,9 @@ class context
 
         if ($p > $n || $p <= 0) {
             return 1;
-        } else {
-            return $p;
         }
+
+        return $p;
     }
 
     public static function PaginationStart()
@@ -329,6 +331,7 @@ class context
             $s = strpos($url, '?') !== false ? '&amp;' : '?';
             $url .= $s . 'q=' . rawurlencode($_GET['q']);
         }
+
         return $url;
     }
 
@@ -374,9 +377,11 @@ class context
         foreach ($path as $t) {
             if (file_exists(sprintf($definition, $t))) {
                 $base_url = sprintf($base_url, $t);
+
                 return self::smiliesDefinition(sprintf($definition, $t), $base_url);
             }
         }
+
         return false;
     }
 
@@ -411,7 +416,7 @@ class context
         $in_pre = 0; # Keep track of when we're inside <pre> or <code> tags.
 
         foreach ($tokens as $cur_token) {
-            if ($cur_token[0] == "tag") {
+            if ($cur_token[0] == 'tag') {
                 # Don't mess with quotes inside tags.
                 $result .= $cur_token[1];
                 if (preg_match('@<(/?)(?:pre|code|kbd|script|math)[\s>]@', $cur_token[1], $matches)) {
@@ -462,13 +467,13 @@ class context
             } else {
                 $tokens[] = ['tag', $part];
             }
-
         }
+
         return $tokens;
     }
 
     # First post image helpers
-    public static function EntryFirstImageHelper($size, $with_category, $class = "", $no_tag = false, $content_only = false, $cat_only = false)
+    public static function EntryFirstImageHelper($size, $with_category, $class = '', $no_tag = false, $content_only = false, $cat_only = false)
     {
         global $core, $_ctx;
 
@@ -499,6 +504,7 @@ class context
                             if (preg_match('/alt="([^"]+)"/', $m[0][$i], $malt)) {
                                 $alt = $malt[1];
                             }
+
                             break;
                         }
                     }
@@ -515,6 +521,7 @@ class context
                             if (preg_match('/alt="([^"]+)"/', $m[0][$i], $malt)) {
                                 $alt = $malt[1];
                             }
+
                             break;
                         }
                     }
@@ -524,11 +531,10 @@ class context
             if ($src) {
                 if ($no_tag) {
                     return $src;
-                } else {
-                    return '<img alt="' . $alt . '" src="' . $src . '" class="' . $class . '" />';
                 }
-            }
 
+                return '<img alt="' . $alt . '" src="' . $src . '" class="' . $class . '" />';
+            }
         } catch (Exception $e) {
             $core->error->add($e->getMessage());
         }
@@ -544,6 +550,8 @@ class context
         # Get base name and extension
         $info = path::info($img);
         $base = $info['base'];
+
+        $res = false;
 
         try {
             $media = new dcMedia($core);
@@ -567,9 +575,11 @@ class context
                     foreach ($formats as $format) {
                         if (file_exists($f . '.' . $format)) {
                             $res = $base . '.' . $format;
+
                             break;
                         } elseif (file_exists($f . '.' . strtoupper($format))) {
                             $res = $base . '.' . strtoupper($format);
+
                             break;
                         }
                     }
@@ -582,6 +592,7 @@ class context
         if ($res) {
             return $res;
         }
+
         return false;
     }
 }

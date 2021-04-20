@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 # Local navigation
 if (!empty($_POST['gs_nav'])) {
@@ -23,8 +24,7 @@ if (!empty($_POST['ls_nav'])) {
 
 # Local settings update
 if (!empty($_POST['s']) && is_array($_POST['s'])) {
-    try
-    {
+    try {
         foreach ($_POST['s'] as $ns => $s) {
             $core->blog->settings->addNamespace($ns);
             foreach ($s as $k => $v) {
@@ -45,8 +45,7 @@ if (!empty($_POST['s']) && is_array($_POST['s'])) {
 
 # Global settings update
 if (!empty($_POST['gs']) && is_array($_POST['gs'])) {
-    try
-    {
+    try {
         foreach ($_POST['gs'] as $ns => $s) {
             $core->blog->settings->addNamespace($ns);
             foreach ($s as $k => $v) {

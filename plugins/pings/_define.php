@@ -8,13 +8,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $this->registerModule(
-    "Pings",           // Name
-    "Ping services",   // Description
-    "Olivier Meunier", // Author
+    'Pings',           // Name
+    'Ping services',   // Description
+    'Olivier Meunier', // Author
     '1.3',             // Version
     [
         'permissions' => 'usage,contentadmin',

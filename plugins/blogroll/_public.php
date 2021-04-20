@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 require dirname(__FILE__) . '/_widgets.php';
 
@@ -46,13 +47,14 @@ class tplBlogroll
 
         return
             '<?php ' .
-            "echo tplBlogroll::getList('" . $category . "','" . $block . "','" . $item . "'," . $only_cat . "); " .
+            "echo tplBlogroll::getList('" . $category . "','" . $block . "','" . $item . "'," . $only_cat . '); ' .
             '?>';
     }
 
     public static function blogrollXbelLink($attr)
     {
         $f = $GLOBALS['core']->tpl->getFilters($attr);
+
         return '<?php echo ' . sprintf($f, '$core->blog->url.$core->url->getURLFor("xbel")') . '; ?>';
     }
 
@@ -114,8 +116,7 @@ class tplBlogroll
             $lang  = $v['link_lang'];
             $xfn   = $v['link_xfn'];
 
-            $link =
-            '<a href="' . html::escapeHTML($href) . '"' .
+            $link = '<a href="' . html::escapeHTML($href) . '"' .
             ((!$lang) ? '' : ' hreflang="' . html::escapeHTML($lang) . '"') .
             ((!$desc) ? '' : ' title="' . html::escapeHTML($desc) . '"') .
             ((!$xfn) ? '' : ' rel="' . html::escapeHTML($xfn) . '"') .
@@ -140,8 +141,7 @@ class tplBlogroll
             return;
         }
 
-        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) ||
-            ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
+        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) || ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
             return;
         }
 
@@ -167,11 +167,13 @@ class urlBlogroll extends dcUrlHandlers
             $links = $blogroll->getLinks();
         } catch (Exception $e) {
             self::p404();
+
             return;
         }
 
         if ($args) {
             self::p404();
+
             return;
         }
 
@@ -192,7 +194,7 @@ class urlBlogroll extends dcUrlHandlers
             if ($cat_title != '') {
                 echo
                 '<folder>' . "\n" .
-                "<title>" . html::escapeHTML($cat_title) . "</title>\n";
+                '<title>' . html::escapeHTML($cat_title) . "</title>\n";
             }
 
             foreach ($links as $k => $v) {

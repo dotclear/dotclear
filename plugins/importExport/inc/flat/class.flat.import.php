@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class flatImport extends flatBackup
 {
@@ -18,14 +19,32 @@ class flatImport extends flatBackup
     private $prefix;
 
     private $dc_version;
-    private $dc_major;
+    private $dc_major_version;
     private $mode;
 
     private $blog_url;
     private $blog_name;
     private $blog_desc;
+    private $blog_id;
 
     private $users = [];
+
+    private $cur_blog;
+    private $cur_category;
+    private $cur_link;
+    private $cur_setting;
+    private $cur_user;
+    private $cur_pref;
+    private $cur_permissions;
+    private $cur_post;
+    private $cur_meta;
+    private $cur_media;
+    private $cur_post_media;
+    private $cur_log;
+    private $cur_ping;
+    private $cur_comment;
+    private $cur_spamrule;
+    private $cur_version;
 
     public $old_ids = [
         'category' => [],
@@ -68,8 +87,7 @@ class flatImport extends flatBackup
             $this->mode = 'single';
         }
 
-        if (version_compare('1.2', $this->dc_version, '<=') &&
-            version_compare('1.3', $this->dc_version, '>')) {
+        if (version_compare('1.2', $this->dc_version, '<=') && version_compare('1.3', $this->dc_version, '>')) {
             $this->dc_major_version = '1.2';
         } else {
             $this->dc_major_version = '2.0';
@@ -153,8 +171,9 @@ class flatImport extends flatBackup
 
         $this->con->begin();
 
-        try
-        {
+        $line = false;
+
+        try {
             $last_line_name = '';
             $constrained    = ['post', 'meta', 'post_media', 'ping', 'comment'];
 
@@ -174,7 +193,6 @@ class flatImport extends flatBackup
                         if ($this->con->syntax() == 'postgresql') {
                             $this->con->execute('SET CONSTRAINTS ALL DEFERRED');
                         }
-
                     }
 
                     if (in_array($line->__name, $constrained)) {
@@ -186,7 +204,6 @@ class flatImport extends flatBackup
                         if ($this->con->syntax() == 'postgresql') {
                             $this->con->execute('SET CONSTRAINTS ALL IMMEDIATE');
                         }
-
                     }
 
                     $last_line_name = $line->__name;
@@ -195,27 +212,35 @@ class flatImport extends flatBackup
                 switch ($line->__name) {
                     case 'category':
                         $this->insertCategorySingle($line);
+
                         break;
                     case 'link':
                         $this->insertLinkSingle($line);
+
                         break;
                     case 'post':
                         $this->insertPostSingle($line);
+
                         break;
                     case 'meta':
                         $this->insertMetaSingle($line);
+
                         break;
                     case 'media':
                         $this->insertMediaSingle($line);
+
                         break;
                     case 'post_media':
                         $this->insertPostMediaSingle($line);
+
                         break;
                     case 'ping':
                         $this->insertPingSingle($line);
+
                         break;
                     case 'comment':
                         $this->insertCommentSingle($line);
+
                         break;
                 }
 
@@ -230,10 +255,10 @@ class flatImport extends flatBackup
             if ($this->con->syntax() == 'postgresql') {
                 $this->con->execute('SET CONSTRAINTS ALL DEFERRED');
             }
-
         } catch (Exception $e) {
             @fclose($this->fp);
             $this->con->rollback();
+
             throw new Exception($e->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line->__line));
         }
         @fclose($this->fp);
@@ -257,54 +282,70 @@ class flatImport extends flatBackup
         $this->con->execute('DELETE FROM ' . $this->prefix . 'setting');
         $this->con->execute('DELETE FROM ' . $this->prefix . 'log');
 
-        try
-        {
+        $line = false;
+
+        try {
             while (($line = $this->getLine()) !== false) {
                 switch ($line->__name) {
                     case 'blog':
                         $this->insertBlog($line);
+
                         break;
                     case 'category':
                         $this->insertCategory($line);
+
                         break;
                     case 'link':
                         $this->insertLink($line);
+
                         break;
                     case 'setting':
                         $this->insertSetting($line);
+
                         break;
                     case 'user':
                         $this->insertUser($line);
+
                         break;
                     case 'pref':
                         $this->insertPref($line);
+
                         break;
                     case 'permissions':
                         $this->insertPermissions($line);
+
                         break;
                     case 'post':
                         $this->insertPost($line);
+
                         break;
                     case 'meta':
                         $this->insertMeta($line);
+
                         break;
                     case 'media':
                         $this->insertMedia($line);
+
                         break;
                     case 'post_media':
                         $this->insertPostMedia($line);
+
                         break;
-                    case 'log';
+                    case 'log':
                         $this->insertLog($line);
+
                         break;
                     case 'ping':
                         $this->insertPing($line);
+
                         break;
                     case 'comment':
                         $this->insertComment($line);
+
                         break;
                     case 'spamrule':
                         $this->insertSpamRule($line);
+
                         break;
                 }
                 # --BEHAVIOR-- importFull
@@ -313,6 +354,7 @@ class flatImport extends flatBackup
         } catch (Exception $e) {
             @fclose($this->fp);
             $this->con->rollback();
+
             throw new Exception($e->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line->__line));
         }
         @fclose($this->fp);
@@ -680,8 +722,7 @@ class flatImport extends flatBackup
 
     private function insertPostMediaSingle($post_media)
     {
-        if (isset($this->old_ids['media'][(integer) $post_media->media_id]) &&
-            isset($this->old_ids['post'][(integer) $post_media->post_id])) {
+        if (isset($this->old_ids['media'][(integer) $post_media->media_id]) && isset($this->old_ids['post'][(integer) $post_media->post_id])) {
             $post_media->media_id = $this->old_ids['media'][(integer) $post_media->media_id];
             $post_media->post_id  = $this->old_ids['post'][(integer) $post_media->post_id];
 
@@ -780,6 +821,7 @@ class flatImport extends flatBackup
         $rs = $this->con->select($strReq);
 
         $this->stack['users'][$user_id] = !$rs->isEmpty();
+
         return $this->stack['users'][$user_id];
     }
 
@@ -790,7 +832,7 @@ class flatImport extends flatBackup
         "WHERE pref_id = '" . $this->con->escape($pref_id) . "' " .
         "AND pref_ws = '" . $this->con->escape($pref_ws) . "' ";
         if (!$user_id) {
-            $strReq .= "AND user_id IS NULL ";
+            $strReq .= 'AND user_id IS NULL ';
         } else {
             $strReq .= "AND user_id = '" . $this->con->escape($user_id) . "' ";
         }
@@ -825,6 +867,7 @@ class flatImport extends flatBackup
                 $line->substitute('cat_libelle_url', 'cat_url');
                 $line->__name  = 'category';
                 $line->blog_id = 'default';
+
                 break;
             case 'link':
                 $line->substitute('href', 'link_href');
@@ -834,6 +877,7 @@ class flatImport extends flatBackup
                 $line->substitute('rel', 'link_xfn');
                 $line->substitute('position', 'link_position');
                 $line->blog_id = 'default';
+
                 break;
             case 'post':
                 $line->substitute('post_titre', 'post_title');
@@ -865,6 +909,7 @@ class flatImport extends flatBackup
                 $line->substitute('meta_value', 'meta_id');
                 $line->__name  = 'meta';
                 $line->blog_id = 'default';
+
                 break;
             case 'comment':
                 $line->substitute('comment_auteur', 'comment_author');
@@ -873,6 +918,7 @@ class flatImport extends flatBackup
                 }
                 $line->comment_status = (integer) $line->comment_pub;
                 $line->drop('comment_pub');
+
                 break;
         }
 

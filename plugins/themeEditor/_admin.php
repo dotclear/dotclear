@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 if (!isset($__resources['help']['themeEditor'])) {
     $__resources['help']['themeEditor'] = dirname(__FILE__) . '/help.html';
@@ -35,6 +36,7 @@ class themeEditorBehaviors
 
         // Get and store user's prefs for plugin options
         $core->auth->user_prefs->addWorkspace('interface');
+
         try {
             $core->auth->user_prefs->interface->put('colorsyntax', !empty($_POST['colorsyntax']), 'boolean');
             $core->auth->user_prefs->interface->put('colorsyntax_theme',

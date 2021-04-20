@@ -25,6 +25,12 @@ if ($standalone) {
 } else {
     dcPage::checkSuper();
 
+    $blog_status   = 0;
+    $blog_name     = '';
+    $blog_desc     = '';
+    $blog_settings = null;
+    $blog_url      = '';
+
     try {
         if (empty($_REQUEST['id'])) {
             throw new Exception(__('No given blog id.'));
@@ -736,7 +742,7 @@ if ($blog_id) {
         '<p>' . __('XML/RPC interface is active. You should set the following parameters on your XML/RPC client:') . '</p>' .
         '<ul>' .
         '<li>' . __('Server URL:') . ' <strong><code>' .
-        sprintf(DC_XMLRPC_URL, $core->blog->url, $core->blog->id) .
+        sprintf(DC_XMLRPC_URL, $core->blog->url, $core->blog->id) . // @phpstan-ignore-line
         '</code></strong></li>' .
         '<li>' . __('Blogging system:') . ' <strong><code>Movable Type</code></strong></li>' .
         '<li>' . __('User name:') . ' <strong><code>' . $core->auth->userID() . '</code></strong></li>' .

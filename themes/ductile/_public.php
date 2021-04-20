@@ -8,10 +8,11 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 namespace themes\ductile;
 
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 \l10n::set(dirname(__FILE__) . '/locales/' . $_lang . '/main');
 
@@ -30,10 +31,12 @@ class tplDuctileTheme
 {
     public static function ductileNbEntryPerPage($attr)
     {
-        return '<?php ' . __NAMESPACE__ . '\tplDuctileTheme::ductileNbEntryPerPageHelper(); ?>';
+        $nb = $attr['nb'] ?? null;
+
+        return '<?php ' . __NAMESPACE__ . '\tplDuctileTheme::ductileNbEntryPerPageHelper(' . sprintf((int) $nb) . '); ?>';
     }
 
-    public static function ductileNbEntryPerPageHelper()
+    public static function ductileNbEntryPerPageHelper(int $nb)
     {
         global $_ctx;
 
@@ -52,21 +55,23 @@ class tplDuctileTheme
                         if (isset($s['default-page'])) {
                             $nb_other = (integer) $s['default-page'];
                         }
+
                         break;
                     default:
                         if (isset($s[$GLOBALS['core']->url->type])) {
                             // Nb de billets par page défini par la config du thème
                             $nb_first = $nb_other = (integer) $s[$GLOBALS['core']->url->type];
                         }
+
                         break;
                 }
             }
         }
 
         if ($nb_other == 0) {
-            if (!empty($attr['nb'])) {
+            if ($nb) {
                 // Nb de billets par page défini par défaut dans le template
-                $nb_other = $nb_first = (integer) $attr['nb'];
+                $nb_other = $nb_first = $nb;
             }
         }
 
@@ -151,10 +156,12 @@ class tplDuctileTheme
             if (is_array($s)) {
                 if (isset($s[$GLOBALS['core']->url->type])) {
                     $model = $s[$GLOBALS['core']->url->type];
+
                     return $model;
                 }
             }
         }
+
         return $default;
     }
 
@@ -208,6 +215,7 @@ class tplDuctileTheme
                 }
             }
         }
+
         return '';
     }
 
@@ -259,6 +267,7 @@ class tplDuctileTheme
                 }
             }
         }
+
         return false;
     }
 
@@ -311,9 +320,11 @@ class tplDuctileTheme
                 switch ($s['body_webfont_api']) {
                     case 'js':
                         $ret .= sprintf('<script src="%s"></script>', $s['body_webfont_url']) . "\n";
+
                         break;
                     case 'css':
                         $ret .= sprintf('<link type="text/css" href="%s" rel="stylesheet" />', $s['body_webfont_url']) . "\n";
+
                         break;
                 }
                 # Main font
@@ -328,9 +339,11 @@ class tplDuctileTheme
                     switch ($s['alternate_webfont_api']) {
                         case 'js':
                             $ret .= sprintf('<script src="%s"></script>', $s['alternate_webfont_url']) . "\n";
+
                             break;
                         case 'css':
                             $ret .= sprintf('<link type="text/css" href="%s" rel="stylesheet" />', $s['alternate_webfont_url']) . "\n";
+
                             break;
                     }
                 }
@@ -537,24 +550,24 @@ class tplDuctileTheme
         'Ductile alternate' => '"Franklin gothic medium", "arial narrow", "DejaVu Sans Condensed", "helvetica neue", helvetica, sans-serif',
 
         // Serif families
-        'Times New Roman'   => 'Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif',
-        'Georgia'           => 'Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif',
-        'Garamond'          => '"Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif',
+        'Times New Roman' => 'Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif',
+        'Georgia'         => 'Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif',
+        'Garamond'        => '"Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif',
 
         // Sans-serif families
-        'Helvetica/Arial'   => 'Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif',
-        'Verdana'           => 'Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif',
-        'Trebuchet MS'      => '"Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif',
+        'Helvetica/Arial' => 'Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif',
+        'Verdana'         => 'Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif',
+        'Trebuchet MS'    => '"Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif',
 
         // Cursive families
-        'Impact'            => 'Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif',
+        'Impact' => 'Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif',
 
         // Monospace families
-        'Monospace'         => 'Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace'
+        'Monospace' => 'Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace'
     ];
 
     protected static function fontDef($c)
     {
-        return isset(self::$fonts[$c]) ? self::$fonts[$c] : null;
+        return self::$fonts[$c] ?? null;
     }
 }

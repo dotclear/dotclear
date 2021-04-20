@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 $_menu['Blog']->addItem(__('Pings'),
     $core->adminurl->get('admin.plugin.pings'),
@@ -44,6 +45,7 @@ function pingsPageHelpBlock($blocks)
     foreach ($blocks as $block) {
         if ($block == 'core_post') {
             $found = true;
+
             break;
         }
     }

@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcFilterWords extends dcSpamFilter
 {
@@ -55,6 +56,7 @@ class dcFilterWords extends dcSpamFilter
 
             if (preg_match('/' . $reg . '/msiu', $str)) {
                 $status = $word;
+
                 return true;
             }
         }
@@ -103,8 +105,7 @@ class dcFilterWords extends dcSpamFilter
         ---------------------------------------------- */
         $res = dcPage::notices();
 
-        $res .=
-        '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
+        $res .= '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
         '<p><label class="classic" for="swa">' . __('Add a word ') . '</label> ' . form::field('swa', 20, 128);
 
         if ($core->auth->isSuperAdmin()) {
@@ -112,8 +113,7 @@ class dcFilterWords extends dcSpamFilter
             __('Global word (used for all blogs)') . '</label> ';
         }
 
-        $res .=
-        $core->formNonce() .
+        $res .= $core->formNonce() .
         '</p>' .
         '<p><input type="submit" value="' . __('Add') . '"/></p>' .
             '</form>';
@@ -122,8 +122,7 @@ class dcFilterWords extends dcSpamFilter
         if ($rs->isEmpty()) {
             $res .= '<p><strong>' . __('No word in list.') . '</strong></p>';
         } else {
-            $res .=
-            '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
+            $res .= '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
             '<h3>' . __('List of bad words') . '</h3>' .
                 '<div class="antispam">';
 
@@ -165,8 +164,7 @@ class dcFilterWords extends dcSpamFilter
             $res .= '<div class="local">' . $res_local . '</div>';
             $res .= '<div class="global">' . $res_global . '</div>';
 
-            $res .=
-            '</div>' .
+            $res .= '</div>' .
             '<p>' . form::hidden(['spamwords'], 1) .
             $core->formNonce() .
             '<input class="submit delete" type="submit" value="' . __('Delete selected words') . '"/></p>' .
@@ -174,8 +172,7 @@ class dcFilterWords extends dcSpamFilter
         }
 
         if ($core->auth->isSuperAdmin()) {
-            $res .=
-            '<form action="' . html::escapeURL($url) . '" method="post">' .
+            $res .= '<form action="' . html::escapeURL($url) . '" method="post">' .
             '<p><input type="submit" value="' . __('Create default wordlist') . '" />' .
             form::hidden(['spamwords'], 1) .
             form::hidden(['createlist'], 1) .
@@ -192,7 +189,7 @@ class dcFilterWords extends dcSpamFilter
         'FROM ' . $this->table . ' ' .
         "WHERE rule_type = 'word' " .
         "AND ( blog_id = '" . $this->con->escape($this->core->blog->id) . "' " .
-            "OR blog_id IS NULL ) " .
+            'OR blog_id IS NULL ) ' .
             'ORDER BY blog_id ASC, rule_content ASC ';
 
         return $this->con->select($strReq);
@@ -358,7 +355,8 @@ class dcFilterWords extends dcSpamFilter
         foreach ($words as $w) {
             try {
                 $this->addRule($w, true);
-            } catch (Exception $e) {}
+            } catch (Exception $e) {
+            }
         }
     }
 }

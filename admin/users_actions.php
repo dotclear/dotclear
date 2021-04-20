@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
@@ -31,13 +30,14 @@ if (!empty($_POST['blogs']) && is_array($_POST['blogs'])) {
 
 /* Actions
 -------------------------------------------------------- */
+$action = null;
 if (!empty($_POST['action']) && !empty($_POST['users'])) {
     $action = $_POST['action'];
 
     if (isset($_POST['redir']) && strpos($_POST['redir'], '://') === false) {
         $redir = $_POST['redir'];
     } else {
-        $redir = $core->adminurl->get("admin.users", [
+        $redir = $core->adminurl->get('admin.users', [
             'q'      => $_POST['q'],
             'sortby' => $_POST['sortby'],
             'order'  => $_POST['order'],
@@ -56,8 +56,7 @@ if (!empty($_POST['action']) && !empty($_POST['users'])) {
     # Delete users
     if ($action == 'deleteuser' && !empty($users)) {
         foreach ($users as $u) {
-            try
-            {
+            try {
                 if ($u == $core->auth->userID()) {
                     throw new Exception(__('You cannot delete yourself.'));
                 }
@@ -78,8 +77,7 @@ if (!empty($_POST['action']) && !empty($_POST['users'])) {
 
     # Update users perms
     if ($action == 'updateperm' && !empty($users) && !empty($blogs)) {
-        try
-        {
+        try {
             if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
                 throw new Exception(__('Password verification failed'));
             }
@@ -115,14 +113,14 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
     $breadcrumb = dcPage::breadcrumb(
         [
             __('System')      => '',
-            __('Users')       => $core->adminurl->get("admin.users"),
+            __('Users')       => $core->adminurl->get('admin.users'),
             __('Permissions') => ''
         ]);
 } else {
     $breadcrumb = dcPage::breadcrumb(
         [
             __('System')  => '',
-            __('Users')   => $core->adminurl->get("admin.users"),
+            __('Users')   => $core->adminurl->get('admin.users'),
             __('Actions') => ''
         ]);
 }
@@ -148,28 +146,31 @@ foreach ($users as $u) {
 if (isset($_POST['redir']) && strpos($_POST['redir'], '://') === false) {
     $hidden_fields .= form::hidden(['redir'], html::escapeURL($_POST['redir']));
 } else {
-    $hidden_fields .=
-    form::hidden(['q'], html::escapeHTML($_POST['q'])) .
+    $hidden_fields .= form::hidden(['q'], html::escapeHTML($_POST['q'])) .
     form::hidden(['sortby'], $_POST['sortby']) .
     form::hidden(['order'], $_POST['order']) .
     form::hidden(['page'], $_POST['page']) .
     form::hidden(['nb'], $_POST['nb']);
 }
 
-echo '<p><a class="back" href="' . html::escapeURL($redir) . '">' . __('Back to user profile') . '</a></p>';
+echo '<p><a class="back" href="' . html::escapeURL($redir) . '">' . __('Back to user profile') . '</a></p>';    // @phpstan-ignore-line
 
 # --BEHAVIOR-- adminUsersActionsContent
 $core->callBehavior('adminUsersActionsContent', $core, $action, $hidden_fields);
 
 # Blog list where to set permissions
 if (!empty($users) && empty($blogs) && $action == 'blogs') {
+    $rs      = null;
+    $nb_blog = 0;
+
     try {
         $rs      = $core->getBlogs();
         $nb_blog = $rs->count();
-    } catch (Exception $e) {}
+    } catch (Exception $e) {
+    }
 
     foreach ($users as $u) {
-        $user_list[] = '<a href="' . $core->adminurl->get("admin.user", ['id' => $u]) . '">' . $u . '</a>';
+        $user_list[] = '<a href="' . $core->adminurl->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
     }
 
     echo
@@ -182,7 +183,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
         echo '<p><strong>' . __('No blog') . '</strong></p>';
     } else {
         echo
-        '<form action="' . $core->adminurl->get("admin.user.actions") . '" method="post" id="form-blogs">' .
+        '<form action="' . $core->adminurl->get('admin.user.actions') . '" method="post" id="form-blogs">' .
         '<div class="table-outer clear">' .
         '<table><tr>' .
         '<th class="nowrap" colspan="2">' . __('Blog ID') . '</th>' .
@@ -232,7 +233,7 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms') {
     }
 
     foreach ($users as $u) {
-        $user_list[] = '<a href="' . $core->adminurl->get("admin.user", ['id' => $u]) . '">' . $u . '</a>';
+        $user_list[] = '<a href="' . $core->adminurl->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
     }
 
     echo
@@ -240,10 +241,10 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms') {
         __('You are about to change permissions on the following blogs for users %s.'),
         implode(', ', $user_list)
     ) . '</p>' .
-    '<form id="permissions-form" action="' . $core->adminurl->get("admin.user.actions") . '" method="post">';
+    '<form id="permissions-form" action="' . $core->adminurl->get('admin.user.actions') . '" method="post">';
 
     foreach ($blogs as $b) {
-        echo '<h3>' . ('Blog:') . ' <a href="' . $core->adminurl->get("admin.blog", ['id' => html::escapeHTML($b)]) . '">' . html::escapeHTML($b) . '</a>' .
+        echo '<h3>' . ('Blog:') . ' <a href="' . $core->adminurl->get('admin.blog', ['id' => html::escapeHTML($b)]) . '">' . html::escapeHTML($b) . '</a>' .
         form::hidden(['blogs[]'], $b) . '</h3>';
         $unknown_perms = $user_perm;
         foreach ($core->auth->getPermissionsTypes() as $perm_id => $perm) {
@@ -263,7 +264,6 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms') {
             __($perm) . '</label></p>';
         }
         if (isset($unknown_perms[$b])) {
-
             foreach ($unknown_perms[$b]['p'] as $perm_id => $v) {
                 $checked = isset($user_perm[$b]['p'][$perm_id]) && $user_perm[$b]['p'][$perm_id];
                 echo

@@ -6,13 +6,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
 
 $blog_id   = '';
 $blog_name = '';
+
+$rs = null;
 
 if (!empty($_POST['blog_id'])) {
     try {
@@ -38,7 +39,7 @@ if (!$core->error->flag() && $blog_id && !empty($_POST['del'])) {
             $core->delBlog($blog_id);
             dcPage::addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), html::escapeHTML($blog_name)));
 
-            $core->adminurl->redirect("admin.blogs");
+            $core->adminurl->redirect('admin.blogs');
         } catch (Exception $e) {
             $core->error->add($e->getMessage());
         }
@@ -49,7 +50,7 @@ dcPage::open(__('Delete a blog'), '',
     dcPage::breadcrumb(
         [
             __('System')        => '',
-            __('Blogs')         => $core->adminurl->get("admin.blogs"),
+            __('Blogs')         => $core->adminurl->get('admin.blogs'),
             __('Delete a blog') => ''
         ])
 );
@@ -62,7 +63,7 @@ if (!$core->error->flag()) {
     '<p>' . __('Please give your password to confirm the blog deletion.') . '</p>';
 
     echo
-    '<form action="' . $core->adminurl->get("admin.blog.del") . '" method="post">' .
+    '<form action="' . $core->adminurl->get('admin.blog.del') . '" method="post">' .
     '<div>' . $core->formNonce() . '</div>' .
     '<p><label for="pwd">' . __('Your password:') . '</label> ' .
     form::password('pwd', 20, 255, ['autocomplete' => 'current-password']) . '</p>' .

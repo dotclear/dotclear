@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
@@ -31,15 +30,15 @@ try {
             header('Content-type: application/json');
             echo json_encode(['url' => $core->getPostAdminURL($rs->post_type, $post_id, false)]);
             exit();
-        } else {
-            http::redirect($core->getPostAdminURL($rs->post_type, $post_id, false));
         }
+        http::redirect($core->getPostAdminURL($rs->post_type, $post_id, false));
     }
 
     $core->media = new dcMedia($core);
     $f           = $core->media->getPostMedia($post_id, $media_id, $link_type);
     if (empty($f)) {
         $post_id = $media_id = null;
+
         throw new Exception(__('This attachment does not exist'));
     }
     $f = $f[0];
@@ -64,7 +63,7 @@ if (($post_id && $media_id) || $core->error->flag()) {
         echo '<h2>' . __('Attachment') . ' &rsaquo; <span class="page-title">' . __('confirm removal') . '</span></h2>';
 
         echo
-        '<form action="' . $core->adminurl->get("admin.post.media") . '" method="post">' .
+        '<form action="' . $core->adminurl->get('admin.post.media') . '" method="post">' .
         '<p>' . __('Are you sure you want to remove this attachment?') . '</p>' .
         '<p><input type="submit" class="reset" value="' . __('Cancel') . '" /> ' .
         ' &nbsp; <input type="submit" class="delete" name="remove" value="' . __('Yes') . '" />' .

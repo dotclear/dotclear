@@ -8,7 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 class dcMaintenanceBuildtools extends dcMaintenanceTask
 {
     protected $tab   = 'dev';
@@ -25,11 +24,12 @@ class dcMaintenanceBuildtools extends dcMaintenanceTask
     public function execute()
     {
         global $core;
-        $widget = $this->core->plugins->getModules("widgets");
+        $widget = $this->core->plugins->getModules('widgets');
         include $widget['root'] . '/_default_widgets.php';
 
         $faker = new l10nFaker($GLOBALS['core']);
         $faker->generate_file();
+
         return true;
     }
 }
@@ -85,7 +85,7 @@ class l10nFaker
         foreach ($widgets as $w) {
             $plugin .= $this->fake_l10n($w->desc());
         }
-        mkdir(dirname(__FILE__) . "/../_fake_plugin");
+        mkdir(dirname(__FILE__) . '/../_fake_plugin');
         file_put_contents(dirname(__FILE__) . '/../_fake_plugin/_fake_l10n.php', $plugin);
     }
 }

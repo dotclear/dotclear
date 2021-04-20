@@ -8,7 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 if (!defined('DC_RC_PATH')) {
     return;
 }
@@ -23,6 +22,7 @@ abstract class dcIeModule
     protected $import_url;
     protected $export_url;
     protected $core;
+    protected $url;
 
     public function __construct($core)
     {
@@ -62,6 +62,7 @@ abstract class dcIeModule
         if ($percent > 100) {
             $percent = 100;
         }
+
         return '<div class="ie-progress"><div style="width:' . $percent . '%">' . $percent . ' %</div></div>';
     }
 

@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 if (!empty($_GET['pf'])) {
     require dirname(__FILE__) . '/../inc/load_plugin_file.php';
     exit;
@@ -22,7 +21,7 @@ require dirname(__FILE__) . '/../inc/admin/prepend.php';
 if (!empty($_GET['default_blog'])) {
     try {
         $core->setUserDefaultBlog($core->auth->userID(), $core->blog->id);
-        $core->adminurl->redirect("admin.home");
+        $core->adminurl->redirect('admin.home');
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
     }
@@ -41,7 +40,7 @@ if (!empty($_GET['logout'])) {
         unset($_COOKIE['dc_admin']);
         setcookie('dc_admin', false, -600, '', '', DC_ADMIN_SSL);
     }
-    $core->adminurl->redirect("admin.auth");
+    $core->adminurl->redirect('admin.auth');
     exit;
 }
 
@@ -156,8 +155,7 @@ $dragndrop_msg  = [
 ];
 if (!$core->auth->user_prefs->accessibility->nodragdrop) {
     $dragndrop_head = dcPage::jsJson('dotclear_dragndrop', $dragndrop_msg);
-    $dragndrop      =
-        '<input type="checkbox" id="dragndrop" class="sr-only" title="' . $dragndrop_msg['dragndrop_off'] . '" />' .
+    $dragndrop      = '<input type="checkbox" id="dragndrop" class="sr-only" title="' . $dragndrop_msg['dragndrop_off'] . '" />' .
         '<label for="dragndrop">' .
         '<svg aria-hidden="true" focusable="false" class="dragndrop-svg">' .
         '<use xlink:href="images/dragndrop.svg#mask"></use>' .
@@ -186,7 +184,7 @@ dcPage::open(__('Dashboard'),
 
 if ($core->auth->getInfo('user_default_blog') != $core->blog->id && $core->auth->getBlogCount() > 1) {
     echo
-    '<p><a href="' . $core->adminurl->get("admin.home", ['default_blog' => 1]) . '" class="button">' . __('Make this blog my default blog') . '</a></p>';
+    '<p><a href="' . $core->adminurl->get('admin.home', ['default_blog' => 1]) . '" class="button">' . __('Make this blog my default blog') . '</a></p>';
 }
 
 if ($core->blog->status == 0) {
@@ -216,29 +214,29 @@ $err = [];
 # Check cache directory
 if ($core->auth->isSuperAdmin()) {
     if (!is_dir(DC_TPL_CACHE) || !is_writable(DC_TPL_CACHE)) {
-        $err[] = '<p>' . __("The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to \"DC_TPL_CACHE\" in inc/config.php file.") . '</p>';
+        $err[] = '<p>' . __('The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to "DC_TPL_CACHE" in inc/config.php file.') . '</p>';
     }
 } else {
     if (!is_dir(DC_TPL_CACHE) || !is_writable(DC_TPL_CACHE)) {
-        $err[] = '<p>' . __("The cache directory does not exist or is not writable. You should contact your administrator.") . '</p>';
+        $err[] = '<p>' . __('The cache directory does not exist or is not writable. You should contact your administrator.') . '</p>';
     }
 }
 
 # Check public directory
 if ($core->auth->isSuperAdmin()) {
     if (!is_dir($core->blog->public_path) || !is_writable($core->blog->public_path)) {
-        $err[] = '<p>' . __("There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting).") . '</p>';
+        $err[] = '<p>' . __('There is no writable directory /public/ at the location set in about:config "public_path". You must create this directory with sufficient rights (or change this setting).') . '</p>';
     }
 } else {
     if (!is_dir($core->blog->public_path) || !is_writable($core->blog->public_path)) {
-        $err[] = '<p>' . __("There is no writable root directory for the media manager. You should contact your administrator.") . '</p>';
+        $err[] = '<p>' . __('There is no writable root directory for the media manager. You should contact your administrator.') . '</p>';
     }
 }
 
 # Error list
 if (count($err) > 0) {
     echo '<div class="error"><p><strong>' . __('Error:') . '</strong></p>' .
-    '<ul><li>' . implode("</li><li>", $err) . '</li></ul></div>';
+    '<ul><li>' . implode('</li><li>', $err) . '</li></ul></div>';
 }
 
 # Plugins install messages
@@ -285,7 +283,6 @@ $boxes_contents_order = $core->auth->user_prefs->dashboard->boxes_contents_order
 $boxes_contents_order = ($boxes_contents_order != '' ? explode(',', $boxes_contents_order) : []);
 
 $composeItems = function ($list, $blocks, $flat = false) {
-
     $ret   = [];
     $items = [];
 
@@ -371,8 +368,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
             $core->blog->getCategories([])
         );
 
-        $dashboardQuickEntry =
-        '<div id="quick">' .
+        $dashboardQuickEntry = '<div id="quick">' .
         '<h3>' . __('Quick post') . sprintf(' &rsaquo; %s', $core->auth->getOption('post_format')) . '</h3>' .
         '<form id="quick-entry" action="' . $core->adminurl->get('admin.post') . '" method="post" class="fieldset">' .
         '<h4>' . __('New post') . '</h4>' .

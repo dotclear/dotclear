@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 if (isset($_SERVER['DC_RC_PATH'])) {
     $rc_path = $_SERVER['DC_RC_PATH'];
 } elseif (isset($_SERVER['REDIRECT_DC_RC_PATH'])) {
@@ -49,8 +48,13 @@ if (!dcSystemCheck($core->con, $_e)) {
 }
 
 # Get information and perform install
-$u_email   = $u_firstname   = $u_name   = $u_login   = $u_pwd   = '';
+$u_email = $u_firstname = $u_name = $u_login = $u_pwd = '';
+
+$root_url  = '';
+$admin_url = '';
+
 $mail_sent = false;
+
 if ($can_install && !empty($_POST)) {
     $u_email     = !empty($_POST['u_email']) ? $_POST['u_email'] : null;
     $u_firstname = !empty($_POST['u_firstname']) ? $_POST['u_firstname'] : null;
@@ -59,8 +63,7 @@ if ($can_install && !empty($_POST)) {
     $u_pwd       = !empty($_POST['u_pwd']) ? $_POST['u_pwd'] : null;
     $u_pwd2      = !empty($_POST['u_pwd2']) ? $_POST['u_pwd2'] : null;
 
-    try
-    {
+    try {
         # Check user information
         if (empty($u_login)) {
             throw new Exception(__('No user ID given'));
@@ -274,12 +277,12 @@ header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ 
   <?php echo dcPage::jsLoad('../js/jquery/jquery.js'); ?>
   <?php echo dcPage::jsLoad('../js/jquery/jquery.pwstrength.js'); ?>
   <?php echo dcPage::jsJson('install', [
-            sprintf(__('Password strength: %s'), __('very weak')),
-            sprintf(__('Password strength: %s'), __('weak')),
-            sprintf(__('Password strength: %s'), __('mediocre')),
-            sprintf(__('Password strength: %s'), __('strong')),
-            sprintf(__('Password strength: %s'), __('very strong'))
-        ]);
+      sprintf(__('Password strength: %s'), __('very weak')),
+      sprintf(__('Password strength: %s'), __('weak')),
+      sprintf(__('Password strength: %s'), __('mediocre')),
+      sprintf(__('Password strength: %s'), __('strong')),
+      sprintf(__('Password strength: %s'), __('very strong'))
+  ]);
   ?>
   <?php echo dcPage::jsJson('install_show', __('show')); ?>
   <?php echo dcPage::jsLoad('../js/_install.js'); ?>

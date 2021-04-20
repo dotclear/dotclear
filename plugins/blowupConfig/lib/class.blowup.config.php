@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class blowupConfig
 {
@@ -25,13 +26,13 @@ class blowupConfig
             'ss5' => 'Impact, Charcoal, sans-serif'
         ],
 
-        'serif'      => [
+        'serif' => [
             's1' => 'Times, "Times New Roman", serif',
             's2' => 'Georgia, serif',
             's3' => 'Baskerville, "Palatino Linotype", serif'
         ],
 
-        'monospace'  => [
+        'monospace' => [
             'm1' => '"Andale Mono", "Courier New", monospace',
             'm2' => '"Courier New", Courier, mono, monospace'
         ]
@@ -85,7 +86,7 @@ class blowupConfig
             }
         }
 
-        return isset(self::$fonts_list[$c]) ? self::$fonts_list[$c] : null;
+        return self::$fonts_list[$c] ?? null;
     }
 
     public static function cssPath()
@@ -330,7 +331,7 @@ class blowupConfig
             'dark'   => dirname(__FILE__) . '/../alpha-img/gradient-d.png'
         ];
 
-        $body_g = isset($body_fill[$gradient]) ? $body_fill[$gradient] : false;
+        $body_g = $body_fill[$gradient] ?? false;
 
         if ($top_image == 'custom' && $uploaded) {
             $page_t = $uploaded;
@@ -355,6 +356,8 @@ class blowupConfig
         $body_color    = dcThemeConfig::adjustColor($body_color);
         $prelude_color = dcThemeConfig::adjustColor($prelude_color);
         $comment_color = dcThemeConfig::adjustColor($comment_color);
+
+        $d_body_bg = false;
 
         if ($top_image || $body_color || $gradient != 'light' || $prelude_color || $uploaded) {
             if (!$body_color) {
@@ -493,5 +496,4 @@ class blowupConfig
         imagedestroy($d_comment_b);
         imagedestroy($s_comment_b);
     }
-
 }

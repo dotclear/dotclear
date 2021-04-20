@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 // Sidebar menu
 $_menu['Plugins']->addItem(
@@ -158,8 +159,7 @@ class dcMaintenanceAdmin
                 continue;
             }
 
-            $lines[] =
-            '<li title="' . ($ts === null ?
+            $lines[] = '<li title="' . ($ts === null ?
                 __('This task has never been executed.')
                 :
                 sprintf(__('Last execution of this task was on %s.'),
@@ -245,6 +245,7 @@ class dcMaintenanceAdmin
         foreach ($blocks as $block) {
             if ($block == 'maintenancetasks') {
                 $found = true;
+
                 break;
             }
         }
@@ -265,16 +266,14 @@ class dcMaintenanceAdmin
                         continue;
                     }
                     if (($desc = $t->description()) != '') {
-                        $res_task .=
-                        '<dt>' . $t->task() . '</dt>' .
+                        $res_task .= '<dt>' . $t->task() . '</dt>' .
                             '<dd>' . $desc . '</dd>';
                     }
                 }
                 if (!empty($res_task)) {
                     $desc = $group_obj->description ?: $group_obj->summary;
 
-                    $res_group .=
-                    '<h5>' . $group_obj->name() . '</h5>' .
+                    $res_group .= '<h5>' . $group_obj->name() . '</h5>' .
                         ($desc ? '<p>' . $desc . '</p>' : '') .
                         '<dl>' . $res_task . '</dl>';
                 }
@@ -282,8 +281,7 @@ class dcMaintenanceAdmin
             if (!empty($res_group)) {
                 $desc = $tab_obj->description ?: $tab_obj->summary;
 
-                $res_tab .=
-                '<h4>' . $tab_obj->name() . '</h4>' .
+                $res_tab .= '<h4>' . $tab_obj->name() . '</h4>' .
                     ($desc ? '<p>' . $desc . '</p>' : '') .
                     $res_group;
             }

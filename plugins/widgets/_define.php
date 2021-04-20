@@ -8,13 +8,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $this->registerModule(
-    "Widgets",                         // Name
-    "Widgets for your blog sidebars",  // Description
-    "Olivier Meunier & Dotclear Team", // Author
+    'Widgets',                         // Name
+    'Widgets for your blog sidebars',  // Description
+    'Olivier Meunier & Dotclear Team', // Author
     '3.5',                             // Version
     [
         'permissions' => 'admin',

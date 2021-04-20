@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $core->addBehavior('xmlrpcGetPostInfo', ['tagsXMLRPCbehaviors', 'getPostInfo']);
 $core->addBehavior('xmlrpcAfterNewPost', ['tagsXMLRPCbehaviors', 'editPost']);

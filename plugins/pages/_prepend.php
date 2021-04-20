@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $__autoload['dcPagesActionsPage'] = dirname(__FILE__) . '/class.actionpage.php';
 $__autoload['adminPagesList']     = dirname(__FILE__) . '/class.listpage.php';

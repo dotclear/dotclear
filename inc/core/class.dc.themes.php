@@ -11,8 +11,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcThemes extends dcModules
 {
@@ -81,7 +82,6 @@ class dcThemes extends dcModules
         $new_name = $this->modules[$id]['name'] . ($counter ? sprintf(__(' (copy #%s)'), $counter) : __(' (copy)'));
 
         if (!is_dir($new_dir)) {
-
             try {
                 // Create destination folder named $new_dir in themes folder
                 files::makeDir($new_dir, false);
@@ -104,7 +104,7 @@ class dcThemes extends dcModules
                         if (preg_match('/(\$this->registerModule\(\s*)((\s*|.*)+?)(\s*\);+)/m', $buf, $matches)) {
                             // Change only first occurence in registerModule parameters (should be the theme name)
                             $matches[2] = preg_replace('/' . preg_quote($this->modules[$id]['name']) . '/', $new_name, $matches[2], 1);
-                            $buf = substr($buf, 0, $pos) . $matches[1] . $matches[2] . $matches[4];
+                            $buf        = substr($buf, 0, $pos) . $matches[1] . $matches[2] . $matches[4];
                             $buf .= sprintf("\n\n// Cloned on %s from %s theme.\n", date('c'), $this->modules[$id]['name']);
                             file_put_contents($new_dir . $rel, $buf);
                         } else {
@@ -116,11 +116,10 @@ class dcThemes extends dcModules
                         // ex: namespace themes\berlin; → namespace themes\berlinClone;
                         $buf = file_get_contents($new_dir . $rel);
                         if (preg_match('/^namespace\s*themes\\\([^;].*);$/m', $buf, $matches)) {
-                            $pos = strpos($buf, $matches[0]);
+                            $pos     = strpos($buf, $matches[0]);
                             $rel_dir = substr($new_dir, strlen($root));
-                            $ns = preg_replace('/[^a-zA-Z0-9_]/', '', str_replace(['-', '.'], '', ucwords($rel_dir, '_-.')));
-                            $buf =
-                                substr($buf, 0, $pos) .
+                            $ns      = preg_replace('/[^a-zA-Z0-9_]/', '', str_replace(['-', '.'], '', ucwords($rel_dir, '_-.')));
+                            $buf     = substr($buf, 0, $pos) .
                                 'namespace themes\\' . $ns . ';' .
                                 substr($buf, $pos + strlen($matches[0]));
                             file_put_contents($new_dir . $rel, $buf);
@@ -129,6 +128,7 @@ class dcThemes extends dcModules
                 }
             } catch (Exception $e) {
                 files::deltree($new_dir);
+
                 throw new Exception($e->getMessage());
             }
         } else {
@@ -156,6 +156,7 @@ class dcThemes extends dcModules
                     $this->loadModuleFile($this->modules[$parent]['root'] . '/_public.php');
                 }
                 $this->loadModuleFile($this->modules[$id]['root'] . '/_public.php');
+
                 break;
         }
     }

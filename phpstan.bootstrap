@@ -1,0 +1,37 @@
+<?php
+// Mock some global constants
+define('DC_ADMIN_SSL', '');
+define('DC_ADMIN_URL', '');
+define('DC_ALLOW_MULTI_MODULES', '');
+define('DC_CRYPT_ALGO', '');
+define('DC_DBDRIVER', '');
+define('DC_DBHOST', '');
+define('DC_DBNAME', '');
+define('DC_DBPASSWORD', '');
+define('DC_DBPREFIX', '');
+define('DC_DBUSER', '');
+define('DC_DEBUG', '');
+define('DC_DEFAULT_JQUERY', '');
+define('DC_DEFAULT_TPLSET', '');
+define('DC_DIGESTS', '');
+define('DC_DISTRIB_PLUGINS', '');
+define('DC_DISTRIB_THEMES', '');
+define('DC_FAIRTRACKBACKS_FORCE', '');
+define('DC_L10N_ROOT', '');
+define('DC_L10N_UPDATE_URL', '');
+define('DC_MASTER_KEY', '');
+define('DC_MAX_UPLOAD_SIZE', '');
+define('DC_NEXT_REQUIRED_PHP', '');
+define('DC_NOT_UPDATE', '');
+define('DC_PLUGINS_ROOT', '');
+define('DC_RC_PATH', '');
+define('DC_ROOT', '');
+define('DC_SESSION_NAME', '');
+define('DC_SESSION_TTL', '');
+define('DC_TPL_CACHE', '');
+define('DC_UPDATE_URL', '');
+define('DC_UPDATE_VERSION', '');
+define('DC_VAR', '');
+define('DC_VENDOR_NAME', '');
+define('DC_VERSION', '');
+define('DC_XMLRPC_URL', '');

@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcFilterIpLookup extends dcSpamFilter
 {
@@ -51,6 +52,7 @@ class dcFilterIpLookup extends dcSpamFilter
             if ($this->dnsblLookup($ip, $bl)) {
                 // Pass by reference $status to contain matching DNSBL
                 $status = $bl;
+
                 return true;
             }
         }
@@ -58,6 +60,8 @@ class dcFilterIpLookup extends dcSpamFilter
 
     public function gui($url)
     {
+        global $core;
+
         $bls = $this->getServers();
 
         if (isset($_POST['bls'])) {
@@ -75,8 +79,7 @@ class dcFilterIpLookup extends dcSpamFilter
         ---------------------------------------------- */
         $res = dcPage::notices();
 
-        $res .=
-        '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
+        $res .= '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
         '<h3>' . __('IP Lookup servers') . '</h3>' .
         '<p><label for="bls">' . __('Add here a coma separated list of servers.') . '</label>' .
         form::textarea('bls', 40, 3, html::escapeHTML($bls), 'maximal') .
@@ -94,6 +97,7 @@ class dcFilterIpLookup extends dcSpamFilter
         if ($bls === null) {
             $this->core->blog->settings->addNamespace('antispam');
             $this->core->blog->settings->antispam->put('antispam_dnsbls', $this->default_bls, 'string', 'Antispam DNSBL servers', true, false);
+
             return $this->default_bls;
         }
 

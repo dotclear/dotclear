@@ -12,8 +12,9 @@
  *
  * @since 2.6
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcStoreReader extends netHttp
 {
@@ -97,6 +98,7 @@ class dcStoreReader extends netHttp
 
         if (!empty($dir) && is_dir($dir) && is_writeable($dir)) {
             $this->cache_dir = $dir;
+
             return true;
         }
 
@@ -190,6 +192,7 @@ class dcStoreReader extends netHttp
                 # Connection failed - fetched from cache
                 return unserialize(file_get_contents($cached_file));
             }
+
             return false;
         }
 
@@ -198,6 +201,7 @@ class dcStoreReader extends netHttp
             # Not modified, use cache
             case '304':
                 @files::touch($cached_file);
+
                 return unserialize(file_get_contents($cached_file));
             # Ok, parse feed
             case '200':
@@ -213,6 +217,7 @@ class dcStoreReader extends netHttp
                         fclose($fp);
                         files::inheritChmod($cached_file);
                     }
+
                     return $modules;
                 }
         }

@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcMaintenanceSynchpostsmeta extends dcMaintenanceTask
 {
@@ -66,7 +67,7 @@ class dcMaintenanceSynchpostsmeta extends dcMaintenanceTask
         while ($rs->fetch()) {
             $rs_meta = $this->core->con->select('SELECT meta_id, meta_type FROM ' . $this->core->prefix . 'meta WHERE post_id = ' . $rs->post_id . ' ');
 
-            $meta = array();
+            $meta = [];
             while ($rs_meta->fetch()) {
                 $meta[$rs_meta->meta_type][] = $rs_meta->meta_id;
             }

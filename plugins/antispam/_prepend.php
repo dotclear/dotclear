@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $__autoload['dcSpamFilter']  = dirname(__FILE__) . '/inc/class.dc.spamfilter.php';
 $__autoload['dcSpamFilters'] = dirname(__FILE__) . '/inc/class.dc.spamfilters.php';
@@ -26,7 +27,9 @@ $core->spamfilters = ['dcFilterIP', 'dcFilterIpLookup', 'dcFilterWords', 'dcFilt
 $core->url->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', ['dcAntispamURL', 'spamFeed']);
 $core->url->register('hamfeed', 'hamfeed', '^hamfeed/(.+)$', ['dcAntispamURL', 'hamFeed']);
 
-if (!defined('DC_CONTEXT_ADMIN')) {return false;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return false;
+}
 
 // Admin mode
 

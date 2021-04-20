@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 $version = $core->plugins->moduleInfo('blogroll', 'version');
 
@@ -42,4 +43,5 @@ $si      = new dbStruct($core->con, $core->prefix);
 $changes = $si->synchronize($s);
 
 $core->setVersion('blogroll', $version);
+
 return true;

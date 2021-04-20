@@ -6,12 +6,12 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 /**
 @brief URL Handler for admin urls
-
  */
 class dcAdminURL
 {
@@ -86,6 +86,7 @@ class dcAdminURL
             // Dirty hack to get back %[n$]s instead of %25[{0..9}%24]s in URLs used with (s)printf(), as http_build_query urlencode() its result.
             $u = preg_replace('/\%25(([0-9])+?\%24)*?s/', '%$2s', $u);
         }
+
         return $u;
     }
 
@@ -98,7 +99,7 @@ class dcAdminURL
      * @param  string $suffix suffix to be added to the QS parameters
      * @return string            the forged url
      */
-    public function redirect($name, $params = [], $suffix = "")
+    public function redirect($name, $params = [], $suffix = '')
     {
         if (!isset($this->urls[$name])) {
             throw new exception('Unknown URL handler for ' . $name);
@@ -118,6 +119,7 @@ class dcAdminURL
         if (!isset($this->urls[$name])) {
             throw new exception('Unknown URL handler for ' . $name);
         }
+
         return $this->urls[$name]['url'];
     }
 
@@ -140,6 +142,7 @@ class dcAdminURL
         foreach ((array) $p as $k => $v) {
             $str .= form::hidden([$k], $v);
         }
+
         return $str;
     }
 

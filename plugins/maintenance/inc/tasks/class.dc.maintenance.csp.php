@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcMaintenanceCSP extends dcMaintenanceTask
 {
@@ -21,7 +22,7 @@ class dcMaintenanceCSP extends dcMaintenanceTask
         $this->success = __('Content-Security-Policy report file has been deleted.');
         $this->error   = __('Failed to delete the Content-Security-Policy report file.');
 
-        $this->description = __("Remove the Content-Security-Policy report file.");
+        $this->description = __('Remove the Content-Security-Policy report file.');
     }
 
     public function execute()

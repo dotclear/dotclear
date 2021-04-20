@@ -11,6 +11,9 @@ class dcTemplate extends template
     private $core;
     private $current_tag;
 
+    private $tag_block;
+    private $tag_value;
+
     protected $unknown_value_handler = null;
     protected $unknown_block_handler = null;
 

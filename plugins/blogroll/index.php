@@ -8,13 +8,15 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 $blogroll = new dcBlogroll($core->blog);
 
 if (!empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
     include dirname(__FILE__) . '/edit.php';
+
     return;
 }
 
@@ -26,8 +28,7 @@ $cat_title   = '';
 if (!empty($_POST['import_links']) && !empty($_FILES['links_file'])) {
     $default_tab = 'import-links';
 
-    try
-    {
+    try {
         files::uploadStatus($_FILES['links_file']);
         $ifile = DC_TPL_CACHE . '/' . md5(uniqid());
         if (!move_uploaded_file($_FILES['links_file']['tmp_name'], $ifile)) {
@@ -35,16 +36,19 @@ if (!empty($_POST['import_links']) && !empty($_FILES['links_file'])) {
         }
 
         require_once dirname(__FILE__) . '/class.dc.importblogroll.php';
+
         try {
             $imported = dcImportBlogroll::loadFile($ifile);
             @unlink($ifile);
         } catch (Exception $e) {
             @unlink($ifile);
+
             throw $e;
         }
 
         if (empty($imported)) {
             unset($imported);
+
             throw new Exception(__('Nothing to import'));
         }
     } catch (Exception $e) {
@@ -57,6 +61,7 @@ if (!empty($_POST['import_links_do'])) {
         $link_title = html::escapeHTML($_POST['title'][$idx]);
         $link_href  = html::escapeHTML($_POST['url'][$idx]);
         $link_desc  = html::escapeHTML($_POST['desc'][$idx]);
+
         try {
             $blogroll->addLink($link_title, $link_href, $link_desc, '');
         } catch (Exception $e) {
@@ -113,6 +118,7 @@ if (!empty($_POST['removeaction']) && !empty($_POST['remove'])) {
             $blogroll->delItem($v);
         } catch (Exception $e) {
             $core->error->add($e->getMessage());
+
             break;
         }
     }
@@ -151,6 +157,8 @@ if (!empty($_POST['saveorder']) && !empty($order)) {
 }
 
 # Get links
+$rs = null;
+
 try {
     $rs = $blogroll->getLinks();
 } catch (Exception $e) {
@@ -235,8 +243,7 @@ while ($rs->fetch()) {
         }
 
         echo '</tr>';
-    }
-    ?>
+    } ?>
 </tbody>
 </table></div>
 
@@ -246,8 +253,7 @@ while ($rs->fetch()) {
 echo
     form::hidden('links_order', '') .
     form::hidden(['p'], 'blogroll') .
-    $core->formNonce();
-    ?>
+    $core->formNonce(); ?>
 <input type="submit" name="saveorder" value="<?php echo __('Save order'); ?>" />
 <input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
 </p>
@@ -259,8 +265,8 @@ echo
 
 <?php
 } else {
-    echo '<div><p>' . __('The link list is empty.') . '</p></div>';
-}
+        echo '<div><p>' . __('The link list is empty.') . '</p></div>';
+    }
 ?>
 
 </div>
@@ -309,9 +315,9 @@ form::field('cat_title', 30, 255, [
     'extra_html' => 'required placeholder="' . __('Title') . '"'
 ]) .
 '</p>' .
-'<p>'. form::hidden(['p'], 'blogroll') .
+'<p>' . form::hidden(['p'], 'blogroll') .
 $core->formNonce() .
-'<input type="submit" name="add_cat" value="' . __('Save') . '" />'.
+'<input type="submit" name="add_cat" value="' . __('Save') . '" />' .
 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
 '</p>' .
 '</form>' .

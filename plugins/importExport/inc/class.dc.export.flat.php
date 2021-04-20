@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcExportFlat extends dcIeModule
 {
@@ -27,8 +28,7 @@ class dcExportFlat extends dcIeModule
             $fullname = $this->core->blog->public_path . '/.backup_' . sha1(uniqid());
             $blog_id  = $this->core->con->escape($this->core->blog->id);
 
-            try
-            {
+            try {
                 $exp = new flatExport($this->core->con, $fullname, $this->core->prefix);
                 fwrite($exp->fp, '///DOTCLEAR|' . DC_VERSION . "|single\n");
 
@@ -86,6 +86,7 @@ class dcExportFlat extends dcIeModule
                 http::redirect($this->getURL() . '&do=ok');
             } catch (Exception $e) {
                 @unlink($fullname);
+
                 throw $e;
             }
         }
@@ -93,8 +94,8 @@ class dcExportFlat extends dcIeModule
         # Export all content
         if ($do == 'export_all' && $this->core->auth->isSuperAdmin()) {
             $fullname = $this->core->blog->public_path . '/.backup_' . sha1(uniqid());
-            try
-            {
+
+            try {
                 $exp = new flatExport($this->core->con, $fullname, $this->core->prefix);
                 fwrite($exp->fp, '///DOTCLEAR|' . DC_VERSION . "|full\n");
                 $exp->exportTable('blog');
@@ -123,6 +124,7 @@ class dcExportFlat extends dcIeModule
                 http::redirect($this->getURL() . '&do=ok');
             } catch (Exception $e) {
                 @unlink($fullname);
+
                 throw $e;
             }
         }
@@ -141,7 +143,6 @@ class dcExportFlat extends dcIeModule
 
             # Flat export
             if (empty($_SESSION['export_filezip'])) {
-
                 header('Content-Disposition: attachment;filename=' . $_SESSION['export_filename']);
                 header('Content-Type: text/plain; charset=UTF-8');
                 readfile($_SESSION['export_file']);
@@ -151,29 +152,27 @@ class dcExportFlat extends dcIeModule
                 exit;
             }
             # Zip export
-            else {
-                try
-                {
-                    $file_zipname = $_SESSION['export_filename'] . '.zip';
 
-                    $fp  = fopen('php://output', 'wb');
-                    $zip = new fileZip($fp);
-                    $zip->addFile($_SESSION['export_file'], $_SESSION['export_filename']);
+            try {
+                $file_zipname = $_SESSION['export_filename'] . '.zip';
 
-                    header('Content-Disposition: attachment;filename=' . $file_zipname);
-                    header('Content-Type: application/x-zip');
+                $fp  = fopen('php://output', 'wb');
+                $zip = new fileZip($fp);
+                $zip->addFile($_SESSION['export_file'], $_SESSION['export_filename']);
 
-                    $zip->write();
+                header('Content-Disposition: attachment;filename=' . $file_zipname);
+                header('Content-Type: application/x-zip');
 
-                    unlink($_SESSION['export_file']);
-                    unset($zip, $_SESSION['export_file'], $_SESSION['export_filename'], $file_zipname);
-                    exit;
-                } catch (Exception $e) {
-                    unset($zip, $_SESSION['export_file'], $_SESSION['export_filename'], $file_zipname);
-                    @unlink($_SESSION['export_file']);
+                $zip->write();
 
-                    throw new Exception(__('Failed to compress export file.'));
-                }
+                unlink($_SESSION['export_file']);
+                unset($zip, $_SESSION['export_file'], $_SESSION['export_filename'], $file_zipname);
+                exit;
+            } catch (Exception $e) {
+                unset($zip, $_SESSION['export_file'], $_SESSION['export_filename'], $file_zipname);
+                @unlink($_SESSION['export_file']);
+
+                throw new Exception(__('Failed to compress export file.'));
             }
         }
     }

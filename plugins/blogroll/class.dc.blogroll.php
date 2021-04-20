@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcBlogroll
 {
@@ -52,7 +53,7 @@ class dcBlogroll
         'FROM ' . $this->table . ' ' .
         "WHERE blog_id = '" . $this->con->escape($this->blog->id) . "' " .
             "AND link_lang <> '' " .
-            "AND link_lang IS NOT NULL ";
+            'AND link_lang IS NOT NULL ';
 
         if (isset($params['lang'])) {
             $strReq .= "AND link_lang = '" . $this->con->escape($params['lang']) . "' ";

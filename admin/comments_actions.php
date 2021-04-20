@@ -8,7 +8,6 @@
  *
  * @deprecated It is only used for plugins compatibility
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
@@ -21,7 +20,7 @@ if (isset($_REQUEST['redir'])) {
     }
     $args['redir'] = $_REQUEST['redir'];
 } else {
-    $uri  = $core->adminurl->get("admin.comments");
+    $uri  = $core->adminurl->get('admin.comments');
     $args = [];
 }
 

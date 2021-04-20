@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
@@ -21,7 +20,7 @@ $sortby_combo = [
 ];
 
 # --BEHAVIOR-- adminUsersSortbyCombo
-$core->callBehavior('adminUsersSortbyCombo', [ & $sortby_combo]);
+$core->callBehavior('adminUsersSortbyCombo', [& $sortby_combo]);
 
 $sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request
@@ -31,7 +30,7 @@ $sortby_lex = [
     'user_displayname' => 'user_displayname'];
 
 # --BEHAVIOR-- adminUsersSortbyLexCombo
-$core->callBehavior('adminUsersSortbyLexCombo', [ & $sortby_lex]);
+$core->callBehavior('adminUsersSortbyLexCombo', [& $sortby_lex]);
 
 $order_combo = [
     __('Descending') => 'desc',
@@ -45,7 +44,7 @@ $combo_action = [
 ];
 
 # --BEHAVIOR-- adminUsersActionsCombo
-$core->callBehavior('adminUsersActionsCombo', [ & $combo_action]);
+$core->callBehavior('adminUsersActionsCombo', [& $combo_action]);
 
 /* Get users
 -------------------------------------------------------- */
@@ -60,7 +59,7 @@ $order  = !empty($_GET['order']) ? $_GET['order'] : $default_order;
 
 $show_filters = false;
 
-$page        = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
+$page = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
 
 if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
     if ($nb_per_page != (integer) $_GET['nb']) {
@@ -90,6 +89,8 @@ if ($sortby != $default_sortby || $order != $default_order) {
 }
 
 # Get users
+$user_list = null;
+
 try {
     # --BEHAVIOR-- adminGetUsers
     $params = new ArrayObject($params);
@@ -130,8 +131,8 @@ if (!$core->error->flag()) {
     }
 
     echo
-    '<p class="top-add"><strong><a class="button add" href="' . $core->adminurl->get("admin.user") . '">' . __('New user') . '</a></strong></p>' .
-    '<form action="' . $core->adminurl->get("admin.users") . '" method="get" id="filters-form">' .
+    '<p class="top-add"><strong><a class="button add" href="' . $core->adminurl->get('admin.user') . '">' . __('New user') . '</a></strong></p>' .
+    '<form action="' . $core->adminurl->get('admin.users') . '" method="get" id="filters-form">' .
     '<h3 class="out-of-screen-if-js">' . __('Show filters and display options') . '</h3>' .
 
     '<div class="table">' .
@@ -162,7 +163,7 @@ if (!$core->error->flag()) {
 
     # Show users
     $user_list->display($page, $nb_per_page,
-        '<form action="' . $core->adminurl->get("admin.user.actions") . '" method="post" id="form-users">' .
+        '<form action="' . $core->adminurl->get('admin.user.actions') . '" method="post" id="form-users">' .
 
         '%s' .
 

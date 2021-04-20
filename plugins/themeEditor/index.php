@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 require dirname(__FILE__) . '/class.themeEditor.php';
 
@@ -26,10 +27,8 @@ $core->themes->loadModules($core->blog->themes_path, null);
 $T = $core->themes->getModules($core->blog->settings->system->theme);
 $o = new dcThemeEditor($core);
 
-try
-{
-    try
-    {
+try {
+    try {
         if (!empty($_REQUEST['tpl'])) {
             $file = $o->getFileContent('tpl', $_REQUEST['tpl']);
         } elseif (!empty($_REQUEST['css'])) {
@@ -43,6 +42,7 @@ try
         }
     } catch (Exception $e) {
         $file = $file_default;
+
         throw $e;
     }
 
@@ -71,10 +71,10 @@ if ($user_ui_colorsyntax) {
     echo dcPage::jsJson('dotclear_colorsyntax', ['colorsyntax' => $user_ui_colorsyntax]);
 }
 echo dcPage::jsJson('theme_editor_msg', [
-    'saving_document'    => __("Saving document..."),
-    'document_saved'     => __("Document saved"),
-    'error_occurred'     => __("An error occurred:"),
-    'confirm_reset_file' => __("Are you sure you want to reset this file?")
+    'saving_document'    => __('Saving document...'),
+    'document_saved'     => __('Document saved'),
+    'error_occurred'     => __('An error occurred:'),
+    'confirm_reset_file' => __('Are you sure you want to reset this file?')
 ]) .
 dcPage::jsLoad(dcPage::getPF('themeEditor/js/script.js')) .
 dcPage::jsConfirmClose('file-form') ;
@@ -134,12 +134,11 @@ if ($file['c'] === null) {
         '</div></form>';
 
     if ($user_ui_colorsyntax) {
-        $editorMode =
-            (!empty($_REQUEST['css']) ? "css" :
-            (!empty($_REQUEST['js']) ? "javascript" :
-            (!empty($_REQUEST['po']) ? "text/plain" :
-            (!empty($_REQUEST['php']) ? "php" :
-            "text/html"))));
+        $editorMode = (!empty($_REQUEST['css']) ? 'css' :
+            (!empty($_REQUEST['js']) ? 'javascript' :
+            (!empty($_REQUEST['po']) ? 'text/plain' :
+            (!empty($_REQUEST['php']) ? 'php' :
+            'text/html'))));
         echo dcPage::jsJson('theme_editor_mode', ['mode' => $editorMode]);
         echo dcPage::jsLoad(dcPage::getPF('themeEditor/js/mode.js'));
         echo dcPage::jsRunCodeMirror('editor', 'file_content', 'dotclear', $user_ui_colorsyntax_theme);

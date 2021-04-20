@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcFilterFairTrackbacks extends dcSpamFilter
 {
@@ -34,8 +35,7 @@ class dcFilterFairTrackbacks extends dcSpamFilter
             return;
         }
 
-        try
-        {
+        try {
             $default_parse = ['scheme' => '', 'host' => '', 'path' => '', 'query' => ''];
             $S             = array_merge($default_parse, parse_url($site));
 

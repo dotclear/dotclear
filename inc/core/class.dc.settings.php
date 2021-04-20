@@ -57,6 +57,8 @@ class dcSettings
             'OR blog_id IS NULL ' .
             'ORDER BY setting_ns ASC, setting_id DESC';
 
+        $rs = null;
+
         try {
             $rs = $this->con->select($strReq);
         } catch (Exception $e) {
@@ -108,7 +110,7 @@ class dcSettings
         }
 
         if (!preg_match(self::NS_NAME_SCHEMA, $newNs)) {
-            throw new Exception(sprintf(__('Invalid setting namespace: %s'), $ns));
+            throw new Exception(sprintf(__('Invalid setting namespace: %s'), $newNs));
         }
 
         // Rename the namespace in the namespace array

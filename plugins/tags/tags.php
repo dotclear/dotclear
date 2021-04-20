@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 ?>
 <html>
@@ -47,8 +48,7 @@ while ($tags->fetch()) {
         $cols[$col] .= '<tr class="tagLetter"><td colspan="2"><span>' . $letter . '</span></td></tr>';
     }
 
-    $cols[$col] .=
-    '<tr class="line">' .
+    $cols[$col] .= '<tr class="line">' .
     '<td class="maximal"><a href="' . $p_url .
     '&amp;m=tag_posts&amp;tag=' . rawurlencode($tags->meta_id) . '">' . $tags->meta_id . '</a></td>' .
     '<td class="nowrap"><strong>' . $tags->count . '</strong> ' .

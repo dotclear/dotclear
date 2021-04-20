@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 include dirname(__FILE__) . '/_default_widgets.php';
 require_once dirname(__FILE__) . '/_widgets_functions.php';
@@ -22,7 +23,7 @@ class publicWidgets
 {
     public static function tplWidgets($attr)
     {
-        $type = isset($attr['type']) ? $attr['type'] : '';
+        $type = $attr['type'] ?? '';
 
         # widgets to disable
         $disable = isset($attr['disable']) ? trim($attr['disable']) : '';
@@ -37,6 +38,7 @@ class publicWidgets
             }
             $res = "publicWidgets::widgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "');";
         }
+
         return '<?php ' . $res . ' ?>';
     }
 
@@ -72,7 +74,7 @@ class publicWidgets
 
     public static function tplIfWidgets($attr, $content)
     {
-        $type = isset($attr['type']) ? $attr['type'] : '';
+        $type = $attr['type'] ?? '';
 
         # widgets to disable
         $disable = isset($attr['disable']) ? trim($attr['disable']) : '';
@@ -87,6 +89,7 @@ class publicWidgets
             }
             $res = "publicWidgets::ifWidgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "')";
         }
+
         return '<?php if(' . $res . ') : ?>' . $content . '<?php endif; ?>';
     }
 
@@ -146,7 +149,8 @@ class publicWidgets
         $xml = '<?xml version="1.0" encoding="utf-8" ?><widget>' . $xml . '</widget>';
         $xml = @simplexml_load_string($xml);
         if (!($xml instanceof SimpleXMLElement)) {
-            echo "Invalid widget XML fragment";
+            echo 'Invalid widget XML fragment';
+
             return;
         }
 

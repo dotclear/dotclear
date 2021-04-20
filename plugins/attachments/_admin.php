@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 $core->addBehavior('adminPostFormItems', ['attachmentAdmin', 'adminPostFormItems']);
 $core->addBehavior('adminPostAfterForm', ['attachmentAdmin', 'adminPostAfterForm']);
@@ -27,6 +28,7 @@ class attachmentAdmin
         foreach ($blocks as $block) {
             if ($block == 'core_post') {
                 $found = true;
+
                 break;
             }
         }
@@ -38,6 +40,7 @@ class attachmentAdmin
     public static function postHeaders()
     {
         $core = &$GLOBALS['core'];
+
         return dcPage::jsLoad(dcPage::getPF('attachments/js/post.js'));
     }
     public static function adminPostFormItems($main, $sidebar, $post)
@@ -53,8 +56,7 @@ class attachmentAdmin
                 if (strlen($ftitle) > 18) {
                     $ftitle = substr($ftitle, 0, 16) . '...';
                 }
-                $item .=
-                '<div class="media-item s-attachments">' .
+                $item .= '<div class="media-item s-attachments">' .
                 '<a class="media-icon" href="' . $core->adminurl->get('admin.media.item', ['id' => $f->media_id]) . '">' .
                 '<img src="' . $f->media_icon . '" alt="" title="' . $f->basename . '" /></a>' .
                 '<ul>' .
@@ -82,8 +84,7 @@ class attachmentAdmin
             if (empty($post_media)) {
                 $item .= '<p class="form-note s-attachments">' . __('No attachment.') . '</p>';
             }
-            $item .=
-            '<p class="s-attachments"><a class="button" href="' . $core->adminurl->get('admin.media', ['post_id' => $post->post_id, 'link_type' => 'attachment']) . '">' .
+            $item .= '<p class="s-attachments"><a class="button" href="' . $core->adminurl->get('admin.media', ['post_id' => $post->post_id, 'link_type' => 'attachment']) . '">' .
             __('Add files to this entry') . '</a></p>';
             $sidebar['metas-box']['items']['attachments'] = $item;
         }

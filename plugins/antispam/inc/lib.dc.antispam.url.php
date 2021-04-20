@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcAntispamURL extends dcUrlHandlers
 {
@@ -30,6 +31,7 @@ class dcAntispamURL extends dcUrlHandlers
 
         if ($user_id === false) {
             self::p404();
+
             return;
         }
 

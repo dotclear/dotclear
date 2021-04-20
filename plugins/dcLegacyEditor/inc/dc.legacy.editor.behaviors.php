@@ -8,7 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 class dcLegacyEditorBehaviors
 {
     protected static $p_url = 'index.php?pf=dcLegacyEditor';
@@ -23,11 +22,13 @@ class dcLegacyEditorBehaviors
      */
     public static function adminPostEditor($editor = '', $context = '', array $tags = [], $syntax = '')
     {
-        if (empty($editor) || $editor != 'dcLegacyEditor') {return;}
+        if (empty($editor) || $editor != 'dcLegacyEditor') {
+            return;
+        }
 
         $js = [
-            'legacy_editor_context' => $context,
-            'legacy_editor_syntax' => $syntax,
+            'legacy_editor_context'      => $context,
+            'legacy_editor_syntax'       => $syntax,
             'legacy_editor_tags_context' => [$context => $tags]
         ];
 
@@ -39,21 +40,27 @@ class dcLegacyEditorBehaviors
 
     public static function adminPopupMedia($editor = '')
     {
-        if (empty($editor) || $editor != 'dcLegacyEditor') {return;}
+        if (empty($editor) || $editor != 'dcLegacyEditor') {
+            return;
+        }
 
         return dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/popup_media.js'));
     }
 
     public static function adminPopupLink($editor = '')
     {
-        if (empty($editor) || $editor != 'dcLegacyEditor') {return;}
+        if (empty($editor) || $editor != 'dcLegacyEditor') {
+            return;
+        }
 
         return dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/popup_link.js'));
     }
 
     public static function adminPopupPosts($editor = '')
     {
-        if (empty($editor) || $editor != 'dcLegacyEditor') {return;}
+        if (empty($editor) || $editor != 'dcLegacyEditor') {
+            return;
+        }
 
         return dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/popup_posts.js'));
     }
@@ -86,50 +93,50 @@ EOT;
             'switcher_source_title' => __('source'),
             'legend_msg'            => __('You can use the following shortcuts to format your text.'),
             'elements'              => [
-                    'blocks' => ['options' => [
-                        'none' => __('-- none --'),
-                        'nonebis' => __('-- block format --'),
-                        'p' => __('Paragraph'),
-                        'h1' => __('Level 1 header'),
-                        'h2' => __('Level 2 header'),
-                        'h3' => __('Level 3 header'),
-                        'h4' => __('Level 4 header'),
-                        'h5' => __('Level 5 header'),
-                        'h6' => __('Level 6 header'),
-                    ]],
+                'blocks' => ['options' => [
+                    'none'    => __('-- none --'),
+                    'nonebis' => __('-- block format --'),
+                    'p'       => __('Paragraph'),
+                    'h1'      => __('Level 1 header'),
+                    'h2'      => __('Level 2 header'),
+                    'h3'      => __('Level 3 header'),
+                    'h4'      => __('Level 4 header'),
+                    'h5'      => __('Level 5 header'),
+                    'h6'      => __('Level 6 header'),
+                ]],
 
-                    'strong' => ['title' => __('Strong emphasis')],
-                    'em' => ['title' => __('Emphasis')],
-                    'ins' => ['title' => __('Inserted')],
-                    'del' => ['title' => __('Deleted')],
-                    'quote' => ['title' => __('Inline quote')],
-                    'code' => ['title' => __('Code')],
-                    'mark' => ['title' => __('Mark')],
-                    'br' => ['title' => __('Line break')],
-                    'blockquote' => ['title' => __('Blockquote')],
-                    'pre' => ['title' => __('Preformated text')],
-                    'ul' => ['title' => __('Unordered list')],
-                    'ol' => ['title' => __('Ordered list')],
+                'strong'     => ['title' => __('Strong emphasis')],
+                'em'         => ['title' => __('Emphasis')],
+                'ins'        => ['title' => __('Inserted')],
+                'del'        => ['title' => __('Deleted')],
+                'quote'      => ['title' => __('Inline quote')],
+                'code'       => ['title' => __('Code')],
+                'mark'       => ['title' => __('Mark')],
+                'br'         => ['title' => __('Line break')],
+                'blockquote' => ['title' => __('Blockquote')],
+                'pre'        => ['title' => __('Preformated text')],
+                'ul'         => ['title' => __('Unordered list')],
+                'ol'         => ['title' => __('Ordered list')],
 
-                    'link' => [
-                        'title' => __('Link'),
-                        'accesskey' => __('l'),
-                        'href_prompt' => __('URL?'),
-                        'hreflang_prompt' => __('Language?')
-                    ],
+                'link' => [
+                    'title'           => __('Link'),
+                    'accesskey'       => __('l'),
+                    'href_prompt'     => __('URL?'),
+                    'hreflang_prompt' => __('Language?')
+                ],
 
-                    'img' => [
-                        'title' => __('External image'),
-                        'src_prompt' => __('URL?')
-                    ],
+                'img' => [
+                    'title'      => __('External image'),
+                    'src_prompt' => __('URL?')
+                ],
 
-                    'img_select' => [
-                        'title' => __('Media chooser'),
-                        'accesskey' => __('m')
-                    ],
+                'img_select' => [
+                    'title'     => __('Media chooser'),
+                    'accesskey' => __('m')
+                ],
 
-                    'post_link' => ['title' => __('Link to an entry')],
-                    'removeFormat' => ['title' => __('Remove text formating')]
+                'post_link'    => ['title' => __('Link to an entry')],
+                'removeFormat' => ['title' => __('Remove text formating')]
             ],
             'toolbar_bottom' => (boolean) isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('toolbar_bottom')
         ];
@@ -137,8 +144,7 @@ EOT;
             $js['elements']['img_select']['disabled'] = true;
         }
 
-        $res =
-        dcPage::jsJson('legacy_editor', $js) .
+        $res = dcPage::jsJson('legacy_editor', $js) .
         dcPage::cssLoad(dcPage::getPF('dcLegacyEditor/css/jsToolBar/jsToolBar.css')) .
         dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/jsToolBar.js'));
 
@@ -146,8 +152,7 @@ EOT;
             $res .= dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/jsToolBar.wysiwyg.js'));
         }
 
-        $res .=
-        dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/jsToolBar.dotclear.js')) .
+        $res .= dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/jsToolBar.dotclear.js')) .
         dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/jsToolBar.config.js'));
 
         return $res;

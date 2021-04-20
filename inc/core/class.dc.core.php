@@ -11,7 +11,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 class dcCore
 {
     public $con;        ///< <b>connection</b>        Database connection object
@@ -28,6 +27,7 @@ class dcCore
     public $rest;       ///< <b>dcRestServer</b>    dcRestServer object
     public $log;        ///< <b>dcLog</b>            dcLog object
     public $stime;      ///< <b>float</b>            starting time
+    public $meta;       ///< <b>dcMeta</b>          dcMeta object
 
     private $versions   = null;
     private $formaters  = [];
@@ -57,9 +57,7 @@ class dcCore
         $this->con = dbLayer::init($driver, $host, $db, $user, $password, $persist);
 
         # define weak_locks for mysql
-        if ($this->con instanceof mysqlConnection) {
-            mysqlConnection::$weak_locks = true;
-        } elseif ($this->con instanceof mysqliConnection) {
+        if ($this->con instanceof mysqliConnection) {
             mysqliConnection::$weak_locks = true;
         } elseif ($this->con instanceof mysqlimb4Connection) {
             mysqlimb4Connection::$weak_locks = true;
@@ -171,6 +169,7 @@ class dcCore
         if (isset($r[$s])) {
             return $r[$s];
         }
+
         return $r[0];
     }
     //@}
@@ -398,6 +397,7 @@ class dcCore
         }
 
         $url = sprintf($this->post_types[$type]['admin_url'], $post_id);
+
         return $escaped ? html::escapeURL($url) : $url;
     }
 
@@ -408,6 +408,7 @@ class dcCore
         }
 
         $url = sprintf($this->post_types[$type]['public_url'], $post_url);
+
         return $escaped ? html::escapeURL($url) : $url;
     }
 
@@ -448,8 +449,6 @@ class dcCore
 
         if (isset($this->versions[$module])) {
             return $this->versions[$module];
-        } else {
-            return;
         }
     }
 
@@ -483,8 +482,7 @@ class dcCore
      */
     public function delVersion($module)
     {
-        $strReq =
-        'DELETE FROM ' . $this->prefix . 'version ' .
+        $strReq = 'DELETE FROM ' . $this->prefix . 'version ' .
         "WHERE module = '" . $this->con->escape($module) . "' ";
 
         $this->con->execute($strReq);
@@ -527,13 +525,11 @@ class dcCore
     public function getUsers($params = [], $count_only = false)
     {
         if ($count_only) {
-            $strReq =
-            'SELECT count(U.user_id) ' .
+            $strReq = 'SELECT count(U.user_id) ' .
             'FROM ' . $this->prefix . 'user U ' .
                 'WHERE NULL IS NULL ';
         } else {
-            $strReq =
-                'SELECT U.user_id,user_super,user_status,user_pwd,user_change_pwd,' .
+            $strReq = 'SELECT U.user_id,user_super,user_status,user_pwd,user_change_pwd,' .
                 'user_name,user_firstname,user_displayname,user_email,user_url,' .
                 'user_desc, user_lang,user_tz, user_post_status,user_options, ' .
                 'count(P.post_id) AS nb_post ';
@@ -546,8 +542,7 @@ class dcCore
                 }
                 $strReq .= ' ';
             }
-            $strReq .=
-            'FROM ' . $this->prefix . 'user U ' .
+            $strReq .= 'FROM ' . $this->prefix . 'user U ' .
             'LEFT JOIN ' . $this->prefix . 'post P ON U.user_id = P.user_id ' .
                 'WHERE NULL IS NULL ';
         }
@@ -591,6 +586,7 @@ class dcCore
         }
         $rs = $this->con->select($strReq);
         $rs->extend('rsExtUser');
+
         return $rs;
     }
 
@@ -638,8 +634,7 @@ class dcCore
     {
         $this->getUserCursor($cur);
 
-        if (($cur->user_id !== null || $id != $this->auth->userID()) &&
-            !$this->auth->isSuperAdmin()) {
+        if (($cur->user_id !== null || $id != $this->auth->userID()) && !$this->auth->isSuperAdmin()) {
             throw new Exception(__('You are not an administrator'));
         }
 
@@ -896,18 +891,16 @@ class dcCore
      */
     public function getBlogPermissions($id, $with_super = true)
     {
-        $strReq =
-        'SELECT U.user_id AS user_id, user_super, user_name, user_firstname, ' .
+        $strReq = 'SELECT U.user_id AS user_id, user_super, user_name, user_firstname, ' .
         'user_displayname, user_email, permissions ' .
         'FROM ' . $this->prefix . 'user U ' .
         'JOIN ' . $this->prefix . 'permissions P ON U.user_id = P.user_id ' .
         "WHERE blog_id = '" . $this->con->escape($id) . "' ";
 
         if ($with_super) {
-            $strReq .=
-            'UNION ' .
+            $strReq .= 'UNION ' .
             'SELECT U.user_id AS user_id, user_super, user_name, user_firstname, ' .
-            "user_displayname, user_email, NULL AS permissions " .
+            'user_displayname, user_email, NULL AS permissions ' .
             'FROM ' . $this->prefix . 'user U ' .
                 'WHERE user_super = 1 ';
         }
@@ -971,8 +964,7 @@ class dcCore
                 'WHERE NULL IS NULL ' .
                 '%2$s ';
         } else {
-            $strReq =
-                'SELECT B.blog_id, blog_uid, blog_url, blog_name, blog_desc, blog_creadt, ' .
+            $strReq = 'SELECT B.blog_id, blog_uid, blog_url, blog_name, blog_desc, blog_creadt, ' .
                 'blog_upddt, blog_status ';
             if (!empty($params['columns'])) {
                 $strReq .= ',';
@@ -1001,10 +993,9 @@ class dcCore
 
         if ($this->auth->userID() && !$this->auth->isSuperAdmin()) {
             $join  = 'INNER JOIN ' . $this->prefix . 'permissions PE ON B.blog_id = PE.blog_id ';
-            $where =
-            "AND PE.user_id = '" . $this->con->escape($this->auth->userID()) . "' " .
+            $where = "AND PE.user_id = '" . $this->con->escape($this->auth->userID()) . "' " .
                 "AND (permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%') " .
-                "AND blog_status IN (1,0) ";
+                'AND blog_status IN (1,0) ';
         } elseif (!$this->auth->userID()) {
             $where = 'AND blog_status IN (1,0) ';
         }
@@ -1022,8 +1013,7 @@ class dcCore
 
         if (!empty($params['q'])) {
             $params['q'] = strtolower(str_replace('*', '%', $params['q']));
-            $where .=
-            'AND (' .
+            $where .= 'AND (' .
             "LOWER(B.blog_id) LIKE '" . $this->con->escape($params['q']) . "' " .
             "OR LOWER(B.blog_name) LIKE '" . $this->con->escape($params['q']) . "' " .
             "OR LOWER(B.blog_url) LIKE '" . $this->con->escape($params['q']) . "' " .
@@ -1031,6 +1021,7 @@ class dcCore
         }
 
         $strReq = sprintf($strReq, $join, $where);
+
         return $this->con->select($strReq);
     }
 
@@ -1072,18 +1063,15 @@ class dcCore
     private function getBlogCursor($cur)
     {
         if (($cur->blog_id !== null
-            && !preg_match('/^[A-Za-z0-9._-]{2,}$/', $cur->blog_id)) ||
-            (!$cur->blog_id)) {
+            && !preg_match('/^[A-Za-z0-9._-]{2,}$/', $cur->blog_id)) || (!$cur->blog_id)) {
             throw new Exception(__('Blog ID must contain at least 2 characters using letters, numbers or symbols.'));
         }
 
-        if (($cur->blog_name !== null && $cur->blog_name == '') ||
-            (!$cur->blog_name)) {
+        if (($cur->blog_name !== null && $cur->blog_name == '') || (!$cur->blog_name)) {
             throw new Exception(__('No blog name'));
         }
 
-        if (($cur->blog_url !== null && $cur->blog_url == '') ||
-            (!$cur->blog_url)) {
+        if (($cur->blog_url !== null && $cur->blog_url == '') || (!$cur->blog_url)) {
             throw new Exception(__('No blog URL'));
         }
 
@@ -1174,6 +1162,7 @@ class dcCore
 
         $filter = new htmlFilter($options['keep_aria'], $options['keep_data'], $options['keep_js']);
         $str    = trim($filter->apply($str));
+
         return $str;
     }
     //@}
@@ -1196,6 +1185,7 @@ class dcCore
         if (!($this->wiki2xhtml instanceof wiki2xhtml)) {
             $this->initWiki();
         }
+
         return $this->wiki2xhtml->transform($str);
     }
 
@@ -1317,7 +1307,6 @@ class dcCore
             'active_defl'         => 0,
             'active_quote'        => 1,
             'active_pre'          => 1,
-            'active_aside'        => 0,
             'active_empty'        => 0,
             'active_auto_br'      => 1,
             'active_auto_urls'    => 1,
@@ -1538,6 +1527,7 @@ class dcCore
         if ($start + $limit > $count) {
             return;
         }
+
         return $start + $limit;
     }
 
@@ -1576,6 +1566,7 @@ class dcCore
         if ($start + $limit > $count) {
             return;
         }
+
         return $start + $limit;
     }
 
@@ -1584,7 +1575,6 @@ class dcCore
      */
     public function countAllComments()
     {
-
         $updCommentReq = 'UPDATE ' . $this->prefix . 'post P ' .
         'SET nb_comment = (' .
         'SELECT COUNT(C.comment_id) from ' . $this->prefix . 'comment C ' .
@@ -1621,10 +1611,9 @@ class dcCore
     {
         if ($mtime !== null) {
             return $mtime - $this->stime;
-        } else {
-            return microtime(true) - $this->stime;
         }
+
+        return microtime(true) - $this->stime;
     }
     //@}
-
 }

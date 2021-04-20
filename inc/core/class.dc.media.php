@@ -10,8 +10,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcMedia extends filemanager
 {
@@ -21,6 +22,9 @@ class dcMedia extends filemanager
     protected $type;  ///< <b>string</b> Media type filter
     protected $postmedia;
     protected $file_sort = 'name-asc';
+
+    protected $path;
+    protected $relpwd;
 
     protected $file_handler = []; ///< <b>array</b> Array of callbacks
 
@@ -71,10 +75,10 @@ class dcMedia extends filemanager
         if (!is_dir($root)) {
             # Check public directory
             if ($core->auth->isSuperAdmin()) {
-                throw new Exception(__("There is no writable directory /public/ at the location set in about:config \"public_path\". You must create this directory with sufficient rights (or change this setting)."));
-            } else {
-                throw new Exception(__("There is no writable root directory for the media manager. You should contact your administrator."));
+                throw new Exception(__('There is no writable directory /public/ at the location set in about:config "public_path". You must create this directory with sufficient rights (or change this setting).'));
             }
+
+            throw new Exception(__('There is no writable root directory for the media manager. You should contact your administrator.'));
         }
 
         $this->type = $type;
@@ -190,13 +194,15 @@ class dcMedia extends filemanager
                 }
             }
         }
-        return $res;
 
+        return $res;
     }
 
     protected function fileRecord($rs)
     {
-        if ($rs->isEmpty()) {return;}
+        if ($rs->isEmpty()) {
+            return;
+        }
 
         if (!$this->isFileExclude($this->root . '/' . $rs->media_file) && is_file($this->root . '/' . $rs->media_file)) {
             $f = new fileItem($this->root . '/' . $rs->media_file, $this->root, $this->root_url);
@@ -231,15 +237,19 @@ class dcMedia extends filemanager
                 case 'image':
                     $f->media_image = true;
                     $f->media_icon  = 'image';
+
                     break;
                 case 'audio':
                     $f->media_icon = 'audio';
+
                     break;
                 case 'text':
                     $f->media_icon = 'text';
+
                     break;
                 case 'video':
                     $f->media_icon = 'video';
+
                     break;
                 default:
                     $f->media_icon = 'blank';
@@ -251,16 +261,19 @@ class dcMedia extends filemanager
                 case 'application/pdf':
                 case 'application/postscript':
                     $f->media_icon = 'document';
+
                     break;
                 case 'application/msexcel':
                 case 'application/vnd.oasis.opendocument.spreadsheet':
                 case 'application/vnd.sun.xml.calc':
                     $f->media_icon = 'spreadsheet';
+
                     break;
                 case 'application/mspowerpoint':
                 case 'application/vnd.oasis.opendocument.presentation':
                 case 'application/vnd.sun.xml.impress':
                     $f->media_icon = 'presentation';
+
                     break;
                 case 'application/x-debian-package':
                 case 'application/x-bzip':
@@ -272,18 +285,23 @@ class dcMedia extends filemanager
                 case 'application/x-gtar':
                 case 'application/zip':
                     $f->media_icon = 'package';
+
                     break;
                 case 'application/octet-stream':
                     $f->media_icon = 'executable';
+
                     break;
                 case 'application/x-shockwave-flash':
                     $f->media_icon = 'video';
+
                     break;
                 case 'application/ogg':
                     $f->media_icon = 'audio';
+
                     break;
                 case 'text/html':
                     $f->media_icon = 'html';
+
                     break;
             }
 
@@ -310,6 +328,9 @@ class dcMedia extends filemanager
             $thumb_url = preg_replace('#\./#', '/', $thumb_url);
             $thumb_url = preg_replace('#(?<!:)/+#', '/', $thumb_url);
 
+            $thumb_alt     = '';
+            $thumb_url_alt = '';
+
             if ($alpha || $webp) {
                 $thumb_alt     = sprintf($this->thumb_tp, $this->root . '/' . $p['dirname'], $p['base'], '%s');
                 $thumb_url_alt = sprintf($this->thumb_tp, $this->root_url . $p['dirname'], $p['base'], '%s');
@@ -332,8 +353,6 @@ class dcMedia extends filemanager
 
             return $f;
         }
-
-        return;
     }
 
     public function setFileSort($type = 'name')
@@ -353,11 +372,13 @@ class dcMedia extends filemanager
                 if ($a->media_dt == $b->media_dt) {
                     return 0;
                 }
+
                 return ($a->media_dt < $b->media_dt) ? -1 : 1;
             case 'date-desc':
                 if ($a->media_dt == $b->media_dt) {
                     return 0;
                 }
+
                 return ($a->media_dt > $b->media_dt) ? -1 : 1;
             case 'name-desc':
                 return strcasecmp($b->basename, $a->basename);
@@ -369,7 +390,6 @@ class dcMedia extends filemanager
 
     /**
     Gets current working directory content (using filesystem)
-
      */
     public function getFSDir()
     {
@@ -389,8 +409,7 @@ class dcMedia extends filemanager
 
         $media_dir = $this->relpwd ?: '.';
 
-        $strReq =
-        'SELECT media_file, media_id, media_path, media_title, media_meta, media_dt, ' .
+        $strReq = 'SELECT media_file, media_id, media_path, media_title, media_meta, media_dt, ' .
         'media_creadt, media_upddt, media_private, user_id ' .
         'FROM ' . $this->table . ' ' .
         "WHERE media_path = '" . $this->path . "' " .
@@ -437,7 +456,7 @@ class dcMedia extends filemanager
                         # time to do a bit of house cleaning.
                         $this->con->execute(
                             'DELETE FROM ' . $this->table . ' ' .
-                            "WHERE media_id = " . $this->fileRecord($rs)->media_id
+                            'WHERE media_id = ' . $this->fileRecord($rs)->media_id
                         );
                     } else {
                         $f_res[]                = $this->fileRecord($rs);
@@ -473,9 +492,11 @@ class dcMedia extends filemanager
                 }
             }
         }
+
         try {
             usort($this->dir['files'], [$this, 'sortFileHandler']);
-        } catch (Exception $e) {}
+        } catch (Exception $e) {
+        }
     }
 
     /**
@@ -486,8 +507,7 @@ class dcMedia extends filemanager
      */
     public function getFile($id)
     {
-        $strReq =
-        'SELECT media_id, media_path, media_title, ' .
+        $strReq = 'SELECT media_id, media_path, media_title, ' .
         'media_file, media_meta, media_dt, media_creadt, ' .
         'media_upddt, media_private, user_id ' .
         'FROM ' . $this->table . ' ' .
@@ -504,6 +524,7 @@ class dcMedia extends filemanager
         }
 
         $rs = $this->con->select($strReq);
+
         return $this->fileRecord($rs);
     }
 
@@ -519,8 +540,7 @@ class dcMedia extends filemanager
             return false;
         }
 
-        $strReq =
-        'SELECT media_file, media_id, media_path, media_title, media_meta, media_dt, ' .
+        $strReq = 'SELECT media_file, media_id, media_path, media_title, media_meta, media_dt, ' .
         'media_creadt, media_upddt, media_private, user_id ' .
         'FROM ' . $this->table . ' ' .
         "WHERE media_path = '" . $this->path . "' " .
@@ -551,7 +571,8 @@ class dcMedia extends filemanager
 
         try {
             usort($this->dir['files'], [$this, 'sortFileHandler']);
-        } catch (Exception $e) {}
+        } catch (Exception $e) {
+        }
 
         return (count($f_res) > 0 ? true : false);
     }
@@ -628,7 +649,7 @@ class dcMedia extends filemanager
 
         foreach ($dir['dirs'] as $d) {
             if (!$d->parent) {
-                $this->rebuild($d->relname, false);
+                $this->rebuild($d->relname);
             }
         }
 
@@ -644,8 +665,7 @@ class dcMedia extends filemanager
     {
         $media_dir = $pwd ?: '.';
 
-        $strReq =
-        'SELECT media_file, media_id ' .
+        $strReq = 'SELECT media_file, media_id ' .
         'FROM ' . $this->table . ' ' .
         "WHERE media_path = '" . $this->path . "' " .
         "AND media_dir = '" . $this->con->escape($media_dir) . "' ";
@@ -708,8 +728,8 @@ class dcMedia extends filemanager
 
         if ($rs->isEmpty()) {
             $this->con->writeLock($this->table);
-            try
-            {
+
+            try {
                 $rs       = $this->con->select('SELECT MAX(media_id) FROM ' . $this->table);
                 $media_id = (integer) $rs->f(0) + 1;
 
@@ -734,11 +754,13 @@ class dcMedia extends filemanager
                     $cur->insert();
                 } catch (Exception $e) {
                     @unlink($name);
+
                     throw $e;
                 }
                 $this->con->unlock();
             } catch (Exception $e) {
                 $this->con->unlock();
+
                 throw $e;
             }
         } else {
@@ -898,10 +920,10 @@ class dcMedia extends filemanager
      */
     public function getDBDirs()
     {
+        $dir       = [];
         $media_dir = $this->relpwd ?: '.';
 
-        $strReq =
-        'SELECT distinct media_dir ' .
+        $strReq = 'SELECT distinct media_dir ' .
         'FROM ' . $this->table . ' ' .
         "WHERE media_path = '" . $this->path . "'";
         $rs = $this->con->select($strReq);
@@ -909,7 +931,6 @@ class dcMedia extends filemanager
             if (is_dir($this->root . '/' . $rs->media_dir)) {
                 $dir[] = ($rs->media_dir == '.' ? '' : $rs->media_dir);
             }
-
         }
 
         return $dir;
@@ -951,6 +972,7 @@ class dcMedia extends filemanager
         $clean = function ($name) {
             $n = text::deaccent($name);
             $n = preg_replace('/^[.]/u', '', $n);
+
             return preg_replace('/[^A-Za-z0-9._\-\/]/u', '_', $n);
         };
         foreach ($list as $zk => $zv) {
@@ -978,6 +1000,7 @@ class dcMedia extends filemanager
         $zip  = new fileUnzip($f->file);
         $list = $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
         $zip->close();
+
         return $list;
     }
 
@@ -1010,8 +1033,7 @@ class dcMedia extends filemanager
                 $this->thumb_tp)),
             $p['dirname'], $p['base'], '%s');
 
-        try
-        {
+        try {
             $img = new imageTools();
             $img->loadImage($file);
 
@@ -1024,8 +1046,7 @@ class dcMedia extends filemanager
 
             foreach ($this->thumb_sizes as $suffix => $s) {
                 $thumb_file = sprintf($thumb, $suffix);
-                if (!file_exists($thumb_file) && $s[0] > 0 &&
-                    ($suffix == 'sq' || $w > $s[0] || $h > $s[0])) {
+                if (!file_exists($thumb_file) && $s[0] > 0 && ($suffix == 'sq' || $w > $s[0] || $h > $s[0])) {
                     $rate = ($s[0] < 100 ? 95 : ($s[0] < 600 ? 90 : 85));
                     $img->resize($s[0], $s[0], $s[1]);
                     $img->output(($alpha || $webp ? strtolower($p['extension']) : 'jpeg'), $thumb_file, $rate);
@@ -1063,7 +1084,8 @@ class dcMedia extends filemanager
             foreach ($this->thumb_sizes as $suffix => $s) {
                 try {
                     parent::moveFile(sprintf($thumb_old, $suffix), sprintf($thumb_new, $suffix));
-                } catch (Exception $e) {}
+                } catch (Exception $e) {
+                }
             }
         }
     }
@@ -1081,7 +1103,8 @@ class dcMedia extends filemanager
         foreach ($this->thumb_sizes as $suffix => $s) {
             try {
                 parent::removeFile(sprintf($thumb, $suffix));
-            } catch (Exception $e) {}
+            } catch (Exception $e) {
+            }
         }
     }
 
@@ -1168,8 +1191,7 @@ class dcMedia extends filemanager
                 }
             }
 
-            $video =
-                '<video controls preload="' . ($preload ? 'auto' : 'none') . '"' .
+            $video = '<video controls preload="' . ($preload ? 'auto' : 'none') . '"' .
                 ($width ? ' width="' . $width . '"' : '') .
                 ($height ? ' height="' . $height . '"' : '') . '>' .
                 '<source src="' . $url . '">' .

@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcThemeEditor
 {
@@ -22,6 +23,8 @@ class dcThemeEditor
     protected $parent_name;
     protected $tplset_name;
 
+    protected $tpl_model;
+
     public $tpl = [];
     public $css = [];
     public $js  = [];
@@ -30,11 +33,10 @@ class dcThemeEditor
 
     public function __construct($core)
     {
-        $this->core          = &$core;
-        $this->default_theme = path::real($this->core->blog->themes_path . '/default');
-        $this->user_theme    = path::real($this->core->blog->themes_path . '/' . $this->core->blog->settings->system->theme);
-        $this->tplset_theme  = DC_ROOT . '/inc/public/default-templates/' . DC_DEFAULT_TPLSET;
-        $this->tplset_name   = DC_DEFAULT_TPLSET;
+        $this->core         = &$core;
+        $this->user_theme   = path::real($this->core->blog->themes_path . '/' . $this->core->blog->settings->system->theme);
+        $this->tplset_theme = DC_ROOT . '/inc/public/default-templates/' . DC_DEFAULT_TPLSET;
+        $this->tplset_name  = DC_DEFAULT_TPLSET;
         if (null !== $this->core->themes) {
             $parent_theme = $this->core->themes->moduleInfo($this->core->blog->settings->system->theme, 'parent');
             if ($parent_theme) {
@@ -129,8 +131,7 @@ class dcThemeEditor
             throw new Exception(__('File does not exist.'));
         }
 
-        try
-        {
+        try {
             $dest = $this->getDestinationFile($type, $f);
 
             if ($dest == false) {
@@ -182,6 +183,7 @@ class dcThemeEditor
                 }
             }
         }
+
         return false;
     }
 
@@ -197,8 +199,7 @@ class dcThemeEditor
             throw new Exception(__('File does not exist.'));
         }
 
-        try
-        {
+        try {
             $dest = $this->getDestinationFile($type, $f);
             if ($dest) {
                 // File exists and may be deleted
@@ -268,18 +269,23 @@ class dcThemeEditor
         switch ($type) {
             case 'tpl':
                 $list = &$this->tpl;
+
                 break;
             case 'css':
                 $list = &$this->css;
+
                 break;
             case 'js':
                 $list = &$this->js;
+
                 break;
             case 'po':
                 $list = &$this->po;
+
                 break;
             case 'php':
                 $list = &$this->php;
+
                 break;
             default:
                 return;

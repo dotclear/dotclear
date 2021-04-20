@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class ieMaintenanceExportblog extends dcMaintenanceTask
 {
@@ -35,9 +36,9 @@ class ieMaintenanceExportblog extends dcMaintenanceTask
 
         // Create zip file
         if (!empty($_POST['file_name'])) {
-
             if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
                 $this->error = __('Password verification failed');
+
                 return false;
             }
 
@@ -108,9 +109,9 @@ class ieMaintenanceExportfull extends dcMaintenanceTask
 
         // Create zip file
         if (!empty($_POST['file_name'])) {
-
             if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
                 $this->error = __('Password verification failed');
+
                 return false;
             }
 

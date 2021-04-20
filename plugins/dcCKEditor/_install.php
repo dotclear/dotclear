@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 $version = $core->plugins->moduleInfo('dcCKEditor', 'version');
 if (version_compare($core->getVersion('dcCKEditor'), $version, '>=')) {
@@ -33,4 +34,5 @@ $settings->dcckeditor->put('action_buttons', true, 'boolean', 'Add undo/redo but
 $settings->dcckeditor->put('disable_native_spellchecker', true, 'boolean', 'Disables the built-in spell checker if the browser provides one?', false, true);
 
 $core->setVersion('dcCKEditor', $version);
+
 return true;

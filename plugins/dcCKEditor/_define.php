@@ -8,14 +8,15 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $this->registerModule(
-    "dcCKEditor",                    // Name
-    "dotclear CKEditor integration", // Description
-    "dotclear Team",                 // Author
-    "1.2",                           // Version
+    'dcCKEditor',                    // Name
+    'dotclear CKEditor integration', // Description
+    'dotclear Team',                 // Author
+    '1.2',                           // Version
     [
         'permissions' => 'usage,contentadmin',
         'type'        => 'plugin',

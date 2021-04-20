@@ -10,8 +10,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcMeta
 {
@@ -143,6 +144,7 @@ class dcMeta
     public static function getMetaRecord($core, $str, $type)
     {
         $meta = new self($core);
+
         return $meta->getMetaRecordset($str, $type);
     }
 
@@ -300,6 +302,7 @@ class dcMeta
         }
 
         $rs = $this->getMetadata($params, false);
+
         return $this->computeMetaStats($rs);
     }
 
@@ -327,8 +330,7 @@ class dcMeta
             $strReq = 'SELECT M.meta_id, M.meta_type, COUNT(M.post_id) as count, MAX(P.post_dt) as latest, MIN(P.post_dt) as oldest ';
         }
 
-        $strReq .=
-        'FROM ' . $this->table . ' M LEFT JOIN ' . $this->core->prefix . 'post P ' .
+        $strReq .= 'FROM ' . $this->table . ' M LEFT JOIN ' . $this->core->prefix . 'post P ' .
         'ON M.post_id = P.post_id ' .
         "WHERE P.blog_id = '" . $this->con->escape($this->core->blog->id) . "' ";
 
@@ -364,8 +366,7 @@ class dcMeta
                 $params['order'] = 'count DESC';
             }
 
-            $strReq .=
-                'GROUP BY meta_id,meta_type,P.blog_id ' .
+            $strReq .= 'GROUP BY meta_id,meta_type,P.blog_id ' .
                 'ORDER BY ' . $params['order'];
 
             if (isset($params['limit'])) {
@@ -374,6 +375,7 @@ class dcMeta
         }
 
         $rs = $this->con->select($strReq);
+
         return $rs;
     }
 
@@ -426,7 +428,9 @@ class dcMeta
         $this->checkPermissionsOnPost($post_id);
 
         $value = trim($value);
-        if ($value === false) {return;}
+        if ($value === false) {
+            return;
+        }
 
         $cur = $this->con->openCursor($this->table);
 

@@ -6,8 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcXmlRpc extends xmlrpcIntrospectionServer
 {
@@ -218,9 +219,9 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
             'Notify a link to a post.');
     }
 
-    public function serve($data = false, $encoding = 'UTF-8')
+    public function serve($data = false)
     {
-        parent::serve(false, $encoding);
+        parent::serve(false);
     }
 
     public function call($methodname, $args)
@@ -228,9 +229,11 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         try {
             $rsp = @parent::call($methodname, $args);
             $this->debugTrace($methodname, $args, $rsp);
+
             return $rsp;
         } catch (Exception $e) {
             $this->debugTrace($methodname, $args, [$e->getMessage(), $e->getCode()]);
+
             throw $e;
         }
     }
@@ -282,13 +285,13 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 
         if (!$this->core->blog->id) {
             $this->core->blog = null;
+
             throw new Exception('Blog does not exist.');
         }
 
-        if (!$bypass &&
-            (!$this->core->blog->settings->system->enable_xmlrpc ||
-                !$this->core->auth->check('usage,contentadmin', $this->core->blog->id))) {
+        if (!$bypass && (!$this->core->blog->settings->system->enable_xmlrpc || !$this->core->auth->check('usage,contentadmin', $this->core->blog->id))) {
             $this->core->blog = null;
+
             throw new Exception('Not enough permissions on this blog.');
         }
 
@@ -333,8 +336,8 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         $excerpt      = !empty($struct['mt_excerpt']) ? $struct['mt_excerpt'] : '';
         $description  = !empty($struct['description']) ? $struct['description'] : null;
         $dateCreated  = !empty($struct['dateCreated']) ? $struct['dateCreated'] : null;
-        $open_comment = isset($struct['mt_allow_comments']) ? $struct['mt_allow_comments'] : 1;
-        $open_tb      = isset($struct['mt_allow_pings']) ? $struct['mt_allow_pings'] : 1;
+        $open_comment = $struct['mt_allow_comments'] ?? 1;
+        $open_tb      = $struct['mt_allow_pings']    ?? 1;
 
         if ($description !== null) {
             $content = $description;
@@ -654,8 +657,9 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 
         $res = [];
 
-        $l     = $rs->level;
-        $stack = ['', $rs->cat_url];
+        $l      = $rs->level;
+        $stack  = ['', $rs->cat_url];
+        $parent = '';
 
         while ($rs->fetch()) {
             $d = $rs->level - $l;
@@ -679,7 +683,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
                 'categoryName' => $rs->cat_url,
                 'htmlUrl'      => $this->core->blog->url .
                 $this->core->url->getURLFor('category', $rs->cat_url),
-                'rssUrl'       => $this->core->blog->url .
+                'rssUrl' => $this->core->blog->url .
                 $this->core->url->getURLFor('feed', 'category/' . $rs->cat_url . '/rss2')
             ];
 
@@ -716,6 +720,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         foreach ($categories as $v) {
             if (isset($v['isPrimary']) && $v['isPrimary']) {
                 $cat_id = $v['categoryId'];
+
                 break;
             }
         }
@@ -787,6 +792,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         $media_id = $media->uploadBits($file_name, $file_bits);
 
         $f = $media->getFile($media_id);
+
         return [
             'file' => $file_name,
             'url'  => $f->file_url,
@@ -806,10 +812,11 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 
         if (is_int($s)) {
             $status = array_flip($status);
-            return isset($status[$s]) ? $status[$s] : $status[-2];
-        } else {
-            return isset($status[$s]) ? $status[$s] : $status['pending'];
+
+            return $status[$s] ?? $status[-2];
         }
+
+        return $status[$s] ?? $status['pending'];
     }
 
     private function translateWpCommentstatus($s)
@@ -822,10 +829,11 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 
         if (is_int($s)) {
             $status = array_flip($status);
-            return isset($status[$s]) ? $status[$s] : $status[0];
-        } else {
-            return isset($status[$s]) ? $status[$s] : $status['approve'];
+
+            return $status[$s] ?? $status[0];
         }
+
+        return $status[$s] ?? $status['approve'];
     }
 
     private function translateWpOptions($options = [])
@@ -836,7 +844,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         }
 
         $res = [
-            'software_name'    => [
+            'software_name' => [
                 'desc'     => 'Software Name',
                 'readonly' => true,
                 'value'    => 'Dotclear'
@@ -846,32 +854,32 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
                 'readonly' => true,
                 'value'    => DC_VERSION
             ],
-            'blog_url'         => [
+            'blog_url' => [
                 'desc'     => 'Blog URL',
                 'readonly' => true,
                 'value'    => $this->core->blog->url
             ],
-            'time_zone'        => [
+            'time_zone' => [
                 'desc'     => 'Time Zone',
                 'readonly' => true,
                 'value'    => (string) $timezone
             ],
-            'blog_title'       => [
+            'blog_title' => [
                 'desc'     => 'Blog Title',
                 'readonly' => false,
                 'value'    => $this->core->blog->name
             ],
-            'blog_tagline'     => [
+            'blog_tagline' => [
                 'desc'     => 'Blog Tagline',
                 'readonly' => false,
                 'value'    => $this->core->blog->desc
             ],
-            'date_format'      => [
+            'date_format' => [
                 'desc'     => 'Date Format',
                 'readonly' => false,
                 'value'    => $this->core->blog->settings->system->date_format
             ],
-            'time_format'      => [
+            'time_format' => [
                 'desc'     => 'Time Format',
                 'readonly' => false,
                 'value'    => $this->core->blog->settings->system->time_format
@@ -885,6 +893,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
                     $r[$v] = $res[$v];
                 }
             }
+
             return $r;
         }
 
@@ -953,30 +962,30 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         $res = [];
         while ($posts->fetch()) {
             $tres = [
-                "dateCreated"            => new xmlrpcDate($posts->getTS()),
-                "userid"                 => $posts->user_id,
-                "page_id"                => $posts->post_id,
-                "page_status"            => $this->translateWpStatus((integer) $posts->post_status),
-                "description"            => $posts->post_content_xhtml,
-                "title"                  => $posts->post_title,
-                "link"                   => $posts->getURL(),
-                "permaLink"              => $posts->getURL(),
-                "categories"             => [],
-                "excerpt"                => $posts->post_excerpt_xhtml,
-                "text_more"              => '',
-                "mt_allow_comments"      => (integer) $posts->post_open_comment,
-                "mt_allow_pings"         => (integer) $posts->post_open_tb,
-                "wp_slug"                => $posts->post_url,
-                "wp_password"            => $posts->post_password,
-                "wp_author"              => $posts->getAuthorCN(),
-                "wp_page_parent_id"      => 0,
-                "wp_page_parent_title"   => '',
-                "wp_page_order"          => $posts->post_position,
-                "wp_author_id"           => $posts->user_id,
-                "wp_author_display_name" => $posts->getAuthorCN(),
-                "date_created_gmt"       => new xmlrpcDate(dt::iso8601($posts->getTS(), $posts->post_tz)),
-                "custom_fields"          => [],
-                "wp_page_template"       => 'default'
+                'dateCreated'            => new xmlrpcDate($posts->getTS()),
+                'userid'                 => $posts->user_id,
+                'page_id'                => $posts->post_id,
+                'page_status'            => $this->translateWpStatus((integer) $posts->post_status),
+                'description'            => $posts->post_content_xhtml,
+                'title'                  => $posts->post_title,
+                'link'                   => $posts->getURL(),
+                'permaLink'              => $posts->getURL(),
+                'categories'             => [],
+                'excerpt'                => $posts->post_excerpt_xhtml,
+                'text_more'              => '',
+                'mt_allow_comments'      => (integer) $posts->post_open_comment,
+                'mt_allow_pings'         => (integer) $posts->post_open_tb,
+                'wp_slug'                => $posts->post_url,
+                'wp_password'            => $posts->post_password,
+                'wp_author'              => $posts->getAuthorCN(),
+                'wp_page_parent_id'      => 0,
+                'wp_page_parent_title'   => '',
+                'wp_page_order'          => $posts->post_position,
+                'wp_author_id'           => $posts->user_id,
+                'wp_author_display_name' => $posts->getAuthorCN(),
+                'date_created_gmt'       => new xmlrpcDate(dt::iso8601($posts->getTS(), $posts->post_tz)),
+                'custom_fields'          => [],
+                'wp_page_template'       => 'default'
             ];
 
             # --BEHAVIOR-- xmlrpcGetPageInfo
@@ -1039,6 +1048,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
                 'display_name' => dcUtils::getUserCN($k, $v['name'], $v['firstname'], $v['displayname'])
             ];
         }
+
         return $res;
     }
 
@@ -1065,6 +1075,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
                 'rss_url'  => sprintf($f_url, $tags->meta_id)
             ];
         }
+
         return $res;
     }
 
@@ -1094,6 +1105,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 
         $id = $this->core->blog->addCategory($cur, $parent);
         $rs = $this->core->blog->getCategory($id);
+
         return $rs->cat_url;
     }
 
@@ -1110,6 +1122,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         unset($c);
 
         $this->core->blog->delCategory((integer) $cat_id);
+
         return true;
     }
 
@@ -1133,6 +1146,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
                 'category_name' => $rs->cat_url
             ];
         }
+
         return $res;
     }
 
@@ -1159,6 +1173,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
                 $res['awaiting_moderation']++;
             }
         }
+
         return $res;
     }
 
@@ -1204,6 +1219,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
                 'author_ip'        => $rs->comment_ip
             ];
         }
+
         return $res;
     }
 
@@ -1236,6 +1252,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         $cur->post_id         = (integer) $post_id;
 
         $id = $this->core->blog->addComment($cur);
+
         return $id;
     }
 
@@ -1276,6 +1293,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         }
 
         $this->core->blog->updComment($comment_id, $cur);
+
         return true;
     }
 
@@ -1285,6 +1303,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         $this->setBlog();
 
         $this->core->blog->delComment($comment_id);
+
         return true;
     }
 
@@ -1440,6 +1459,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
                 'date_created_gmt' => $v['date_created_gmt']
             ];
         }
+
         return $res;
     }
 
@@ -1528,19 +1548,23 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
                     $blog_changes   = true;
                     $cur->blog_name = $value;
                     $done[]         = $name;
+
                     break;
                 case 'blog_tagline':
                     $blog_changes   = true;
                     $cur->blog_desc = $value;
                     $done[]         = $name;
+
                     break;
                 case 'date_format':
                     $this->core->blog->settings->system->put('date_format', $value);
                     $done[] = $name;
+
                     break;
                 case 'time_format':
                     $this->core->blog->settings->system->put('time_format', $value);
                     $done[] = $name;
+
                     break;
             }
         }
@@ -1616,6 +1640,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         $this->core->callBehavior('publicBeforeReceiveTrackback', $this->core, $args);
 
         $tb = new dcTrackback($this->core);
+
         return $tb->receivePingback($from_url, $to_url);
     }
 }

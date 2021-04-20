@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 require dirname(__FILE__) . '/_widgets.php';
 
@@ -57,8 +58,7 @@ class tplSimpleMenu
             return;
         }
 
-        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) ||
-            ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
+        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) || ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
             return;
         }
 
@@ -114,11 +114,7 @@ class tplSimpleMenu
 
                 # Active item test
                 $active = false;
-                if (($url == $href) ||
-                    ($abs_url == $href) ||
-                    ($_SERVER['URL_REQUEST_PART'] == $href) ||
-                    (($href_part != '') && ($_SERVER['URL_REQUEST_PART'] == $href_part)) ||
-                    (($_SERVER['URL_REQUEST_PART'] == '') && (($href == $home_url) || ($href == $home_directory)))) {
+                if (($url == $href) || ($abs_url == $href) || ($_SERVER['URL_REQUEST_PART'] == $href) || (($href_part != '') && ($_SERVER['URL_REQUEST_PART'] == $href_part)) || (($_SERVER['URL_REQUEST_PART'] == '') && (($href == $home_url) || ($href == $home_directory)))) {
                     $active = true;
                 }
                 $title = $span = '';
@@ -163,7 +159,7 @@ class tplSimpleMenu
                     ($item['class'] ? ' ' . $item['class'] : '') .
                     '">' .
                     '<a href="' . $href . '"' .
-                    (!empty($item['title']) ? ' title="'. $label . ' - ' . $item['title'] . '"' : '') .
+                    (!empty($item['title']) ? ' title="' . $label . ' - ' . $item['title'] . '"' : '') .
                     (($targetBlank) ? ' target="_blank" rel="noopener noreferrer"' : '') . '>' .
                     '<span class="simple-menu-label">' . $item['label'] . '</span>' .
                     $item['span'] . '</a>' .

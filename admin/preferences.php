@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
@@ -32,6 +31,7 @@ $user_dm_doclinks   = $core->auth->user_prefs->dashboard->doclinks;
 $user_dm_dcnews     = $core->auth->user_prefs->dashboard->dcnews;
 $user_dm_quickentry = $core->auth->user_prefs->dashboard->quickentry;
 $user_dm_nofavicons = $core->auth->user_prefs->dashboard->nofavicons;
+$user_dm_nodcupdate = false;
 if ($core->auth->isSuperAdmin()) {
     $user_dm_nodcupdate = $core->auth->user_prefs->dashboard->nodcupdate;
 }
@@ -47,6 +47,7 @@ $user_ui_hidehelpbutton   = $core->auth->user_prefs->interface->hidehelpbutton;
 $user_ui_showajaxloader   = $core->auth->user_prefs->interface->showajaxloader;
 $user_ui_htmlfontsize     = $core->auth->user_prefs->interface->htmlfontsize;
 $user_ui_dynfontsize      = $core->auth->user_prefs->interface->dynfontsize;
+$user_ui_hide_std_favicon = false;
 if ($core->auth->isSuperAdmin()) {
     $user_ui_hide_std_favicon = $core->auth->user_prefs->interface->hide_std_favicon;
 }
@@ -58,9 +59,7 @@ $user_ui_nocheckadblocker   = $core->auth->user_prefs->interface->nocheckadblock
 
 $default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'user-profile';
 
-if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder']) ||
-    !empty($_GET['replaced']) || !empty($_POST['appendaction']) || !empty($_POST['removeaction']) ||
-    !empty($_GET['db-updated']) || !empty($_POST['resetorder'])) {
+if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder']) || !empty($_GET['replaced']) || !empty($_POST['appendaction']) || !empty($_POST['removeaction']) || !empty($_GET['db-updated']) || !empty($_POST['resetorder'])) {
     $default_tab = 'user-favorites';
 } elseif (!empty($_GET['updated'])) {
     $default_tab = 'user-options';
@@ -177,7 +176,7 @@ $posts_sortby_combo = [
     __('Number of trackbacks') => 'nb_trackback'
 ];
 # --BEHAVIOR-- adminPostsSortbyCombo
-$core->callBehavior('adminPostsSortbyCombo', [ & $posts_sortby_combo]);
+$core->callBehavior('adminPostsSortbyCombo', [& $posts_sortby_combo]);
 
 $comments_sortby_combo = [
     __('Date')        => 'comment_dt',
@@ -189,7 +188,7 @@ $comments_sortby_combo = [
     __('Spam filter') => 'comment_spam_filter'
 ];
 # --BEHAVIOR-- adminCommentsSortbyCombo
-$core->callBehavior('adminCommentsSortbyCombo', [ & $comments_sortby_combo]);
+$core->callBehavior('adminCommentsSortbyCombo', [& $comments_sortby_combo]);
 
 $blogs_sortby_combo = [
     __('Last update') => 'blog_upddt',
@@ -198,8 +197,9 @@ $blogs_sortby_combo = [
     __('Status')      => 'blog_status'
 ];
 # --BEHAVIOR-- adminBlogsSortbyCombo
-$core->callBehavior('adminBlogsSortbyCombo', [ & $blogs_sortby_combo]);
+$core->callBehavior('adminBlogsSortbyCombo', [& $blogs_sortby_combo]);
 
+$users_sortby_combo = [];
 if ($core->auth->isSuperAdmin()) {
     $users_sortby_combo = [
         __('Username')          => 'user_id',
@@ -209,7 +209,7 @@ if ($core->auth->isSuperAdmin()) {
         __('Number of entries') => 'nb_post'
     ];
     # --BEHAVIOR-- adminUsersSortbyCombo
-    $core->callBehavior('adminUsersSortbyCombo', [ & $users_sortby_combo]);
+    $core->callBehavior('adminUsersSortbyCombo', [& $users_sortby_combo]);
 }
 
 $order_combo = [
@@ -230,6 +230,9 @@ $nb_comments_per_page = $core->auth->user_prefs->interface->nb_comments_per_page
 $blogs_sortby      = $core->auth->user_prefs->interface->blogs_sortby ?: 'blog_upddt';
 $blogs_order       = $core->auth->user_prefs->interface->blogs_order ?: 'desc';
 $nb_blogs_per_page = $core->auth->user_prefs->interface->nb_blogs_per_page;
+$users_sortby      = '';
+$users_order       = '';
+$nb_users_per_page = 0;
 if ($core->auth->isSuperAdmin()) {
     // Users
     $users_sortby      = $core->auth->user_prefs->interface->users_sortby ?: 'user_id';
@@ -241,8 +244,7 @@ $auto_filter = $core->auth->user_prefs->interface->auto_filter;
 
 # Add or update user
 if (isset($_POST['user_name'])) {
-    try
-    {
+    try {
         $pwd_check = !empty($_POST['cur_pwd']) && $core->auth->checkPassword($_POST['cur_pwd']);
 
         if ($core->auth->allowPassChange() && !$pwd_check && $user_email != $_POST['user_email']) {
@@ -284,7 +286,7 @@ if (isset($_POST['user_name'])) {
 
         dcPage::addSuccessNotice(__('Personal information has been successfully updated.'));
 
-        $core->adminurl->redirect("admin.user.preferences");
+        $core->adminurl->redirect('admin.user.preferences');
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
     }
@@ -292,8 +294,7 @@ if (isset($_POST['user_name'])) {
 
 # Update user options
 if (isset($_POST['user_editor'])) {
-    try
-    {
+    try {
         $cur = $core->con->openCursor($core->prefix . 'user');
 
         $cur->user_name        = $user_name;
@@ -388,7 +389,7 @@ if (isset($_POST['user_editor'])) {
         $core->callBehavior('adminAfterUserOptionsUpdate', $cur, $core->auth->userID());
 
         dcPage::addSuccessNotice(__('Personal options has been successfully updated.'));
-        $core->adminurl->redirect("admin.user.preferences", [], '#user-options');
+        $core->adminurl->redirect('admin.user.preferences', [], '#user-options');
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
     }
@@ -396,8 +397,7 @@ if (isset($_POST['user_editor'])) {
 
 # Dashboard options
 if (isset($_POST['db-options'])) {
-    try
-    {
+    try {
         # --BEHAVIOR-- adminBeforeUserOptionsUpdate
         $core->callBehavior('adminBeforeDashboardOptionsUpdate', $core->auth->userID());
 
@@ -416,7 +416,7 @@ if (isset($_POST['db-options'])) {
         $core->callBehavior('adminAfterDashboardOptionsUpdate', $core->auth->userID());
 
         dcPage::addSuccessNotice(__('Dashboard options has been successfully updated.'));
-        $core->adminurl->redirect("admin.user.preferences", [], '#user-favorites');
+        $core->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
     }
@@ -438,7 +438,7 @@ if (!empty($_POST['appendaction'])) {
 
         if (!$core->error->flag()) {
             dcPage::addSuccessNotice(__('Favorites have been successfully added.'));
-            $core->adminurl->redirect("admin.user.preferences", [], '#user-favorites');
+            $core->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
         }
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
@@ -463,7 +463,7 @@ if (!empty($_POST['removeaction'])) {
         $core->favs->setFavoriteIDs(array_keys($user_fav_ids), false);
         if (!$core->error->flag()) {
             dcPage::addSuccessNotice(__('Favorites have been successfully removed.'));
-            $core->adminurl->redirect("admin.user.preferences", [], '#user-favorites');
+            $core->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
         }
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
@@ -489,7 +489,7 @@ if (!empty($_POST['saveorder']) && !empty($order)) {
     $core->favs->setFavoriteIDs($order, false);
     if (!$core->error->flag()) {
         dcPage::addSuccessNotice(__('Favorites have been successfully updated.'));
-        $core->adminurl->redirect("admin.user.preferences", [], '#user-favorites');
+        $core->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
     }
 }
 
@@ -500,7 +500,7 @@ if (!empty($_POST['replace']) && $core->auth->isSuperAdmin()) {
 
     if (!$core->error->flag()) {
         dcPage::addSuccessNotice(__('Default favorites have been successfully updated.'));
-        $core->adminurl->redirect("admin.user.preferences", [], '#user-favorites');
+        $core->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
     }
 }
 
@@ -513,7 +513,7 @@ if (!empty($_POST['resetorder'])) {
 
     if (!$core->error->flag()) {
         dcPage::addSuccessNotice(__('Dashboard items order have been successfully reset.'));
-        $core->adminurl->redirect("admin.user.preferences", [], '#user-favorites');
+        $core->adminurl->redirect('admin.user.preferences', [], '#user-favorites');
     }
 }
 
@@ -550,7 +550,7 @@ echo '<div class="multi-part" id="user-profile" title="' . __('My profile') . '"
 
 echo
 '<h3>' . __('My profile') . '</h3>' .
-'<form action="' . $core->adminurl->get("admin.user.preferences") . '" method="post" id="user-form">' .
+'<form action="' . $core->adminurl->get('admin.user.preferences') . '" method="post" id="user-form">' .
 
 '<p><label for="user_name">' . __('Last Name:') . '</label>' .
 form::field('user_name', 20, 255, [
@@ -641,7 +641,7 @@ $core->formNonce() .
 echo '<div class="multi-part" id="user-options" title="' . __('My options') . '">';
 
 echo
-'<form action="' . $core->adminurl->get("admin.user.preferences") . '#user-options" method="post" id="opts-forms">' .
+'<form action="' . $core->adminurl->get('admin.user.preferences') . '#user-options" method="post" id="opts-forms">' .
 '<h3>' . __('My options') . '</h3>';
 
 echo
@@ -843,7 +843,7 @@ $ws = $core->auth->user_prefs->addWorkspace('favorites');
 echo '<h3>' . __('My dashboard') . '</h3>';
 
 # Favorites
-echo '<form action="' . $core->adminurl->get("admin.user.preferences") . '" method="post" id="favs-form" class="two-boxes odd">';
+echo '<form action="' . $core->adminurl->get('admin.user.preferences') . '" method="post" id="favs-form" class="two-boxes odd">';
 
 echo '<div id="my-favs" class="fieldset"><h4>' . __('My favorites') . '</h4>';
 
@@ -952,7 +952,7 @@ echo '</form>';
 
 # Dashboard items
 echo
-'<form action="' . $core->adminurl->get("admin.user.preferences") . '" method="post" id="db-forms" class="two-boxes even">' .
+'<form action="' . $core->adminurl->get('admin.user.preferences') . '" method="post" id="db-forms" class="two-boxes even">' .
 
 '<div class="fieldset">' .
 '<h4>' . __('Menu') . '</h4>' .
@@ -1015,7 +1015,7 @@ $core->formNonce() .
     '</form>';
 
 # Dashboard items order (reset)
-echo '<form action="' . $core->adminurl->get("admin.user.preferences") . '" method="post" id="order-reset" class="two-boxes even">';
+echo '<form action="' . $core->adminurl->get('admin.user.preferences') . '" method="post" id="order-reset" class="two-boxes even">';
 echo '<div class="fieldset"><h4>' . __('Dashboard items order') . '</h4>';
 echo
 '<p>' .

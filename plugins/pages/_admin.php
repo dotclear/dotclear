@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 $core->addBehavior('adminColumnsLists', ['pagesColumnsLists', 'adminColumnsLists']);
 $core->addBehavior('adminDashboardFavorites', ['pagesDashboard', 'pagesDashboardFavs']);
@@ -65,16 +66,14 @@ class pagesDashboard
 
     public static function pagesActiveCB($request, $params)
     {
-        return ($request == "plugin.php") &&
-        isset($params['p']) && $params['p'] == 'pages'
-        && !(isset($params['act']) && $params['act'] == 'page');
+        return ($request == 'plugin.php') && isset($params['p']) && $params['p'] == 'pages'
+                                          && !(isset($params['act']) && $params['act'] == 'page');
     }
 
     public static function newPageActiveCB($request, $params)
     {
-        return ($request == "plugin.php") &&
-        isset($params['p']) && $params['p'] == 'pages'
-        && isset($params['act']) && $params['act'] == 'page';
+        return ($request == 'plugin.php') && isset($params['p']) && $params['p'] == 'pages'
+                                          && isset($params['act'])                                   && $params['act']                               == 'page';
     }
 }
 

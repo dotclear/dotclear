@@ -8,13 +8,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $this->registerModule(
-    "attachments",             // Name
-    "Manage post attachments", // Description
-    "Dotclear Team",           // Author
+    'attachments',             // Name
+    'Manage post attachments', // Description
+    'Dotclear Team',           // Author
     '1.1',                     // Version
     [
         'permissions' => 'usage,contentadmin,pages',

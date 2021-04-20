@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 # Local navigation
 if (!empty($_POST['gp_nav'])) {
@@ -23,8 +24,7 @@ if (!empty($_POST['lp_nav'])) {
 
 # Local prefs update
 if (!empty($_POST['s']) && is_array($_POST['s'])) {
-    try
-    {
+    try {
         foreach ($_POST['s'] as $ws => $s) {
             $core->auth->user_prefs->addWorkspace($ws);
             foreach ($s as $k => $v) {
@@ -44,8 +44,7 @@ if (!empty($_POST['s']) && is_array($_POST['s'])) {
 
 # Global prefs update
 if (!empty($_POST['gs']) && is_array($_POST['gs'])) {
-    try
-    {
+    try {
         foreach ($_POST['gs'] as $ws => $s) {
             $core->auth->user_prefs->addWorkspace($ws);
             foreach ($s as $k => $v) {

@@ -8,8 +8,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 // Set env
 
@@ -60,7 +61,6 @@ if ($task && !empty($_POST['task']) && $task->id() == $_POST['task']) {
 // Save settings
 
 if (!empty($_POST['save_settings'])) {
-
     try {
         $core->blog->settings->maintenance->put(
             'plugin_message',
@@ -101,7 +101,6 @@ if (!empty($_POST['save_settings'])) {
 // Save system settings
 
 if (!empty($_POST['save_system'])) {
-
     try {
         // Default (global) settings
         $core->blog->settings->system->put('csp_admin_on', !empty($_POST['system_csp_global']), null, null, true, true);
@@ -225,8 +224,7 @@ if ($task && ($res = $task->step()) !== null) {
                     continue;
                 }
 
-                $res_task .=
-                '<p>' . form::radio(['task', $t->id()], $t->id()) . ' ' .
+                $res_task .= '<p>' . form::radio(['task', $t->id()], $t->id()) . ' ' .
                 '<label class="classic" for="' . $t->id() . '">' .
                 html::escapeHTML($t->task()) . '</label>';
 
@@ -234,13 +232,11 @@ if ($task && ($res = $task->step()) !== null) {
                 $ts = $t->expired();
                 if ($core->blog->settings->maintenance->plugin_message && $ts !== false) {
                     if ($ts === null) {
-                        $res_task .=
-                        '<br /> <span class="warn">' .
+                        $res_task .= '<br /> <span class="warn">' .
                         __('This task has never been executed.') . ' ' .
                         __('You should execute it now.') . '</span>';
                     } else {
-                        $res_task .=
-                        '<br /> <span class="warn">' . sprintf(
+                        $res_task .= '<br /> <span class="warn">' . sprintf(
                             __('Last execution of this task was on %s.'),
                             dt::str($core->blog->settings->system->date_format, $ts) . ' ' .
                             dt::str($core->blog->settings->system->time_format, $ts)
@@ -253,8 +249,7 @@ if ($task && ($res = $task->step()) !== null) {
             }
 
             if (!empty($res_task)) {
-                $res_group .=
-                '<div class="fieldset">' .
+                $res_group .= '<div class="fieldset">' .
                 '<h4 id="' . $group_obj->id() . '">' . $group_obj->name() . '</h4>' .
                     $res_task .
                     '</div>';
@@ -395,7 +390,6 @@ if ($task && ($res = $task->step()) !== null) {
             '</form>' .
             '</div>';
     }
-
 }
 
 dcPage::helpBlock('maintenance', 'maintenancetasks');

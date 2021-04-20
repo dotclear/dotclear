@@ -8,7 +8,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 class dcPagesActionsPage extends dcPostsActionsPage
 {
     public function __construct($core, $uri, $redirect_args = [])
@@ -16,7 +15,6 @@ class dcPagesActionsPage extends dcPostsActionsPage
         parent::__construct($core, $uri, $redirect_args);
         $this->redirect_fields = [];
         $this->caller_title    = __('Pages');
-
     }
 
     public function error(Exception $e)
@@ -40,7 +38,6 @@ class dcPagesActionsPage extends dcPostsActionsPage
             '</script></head><body>' .
             $breadcrumb;
         echo '<p><a class="back" href="' . $this->getRedirection(true) . '">' . __('Back to pages list') . '</a></p>';
-
     }
 
     public function endPage()
@@ -53,7 +50,6 @@ class dcPagesActionsPage extends dcPostsActionsPage
         DefaultPagesActions::adminPagesActionsPage($this->core, $this);
         $this->actions['reorder'] = ['dcPagesActionsPage', 'doReorderPages'];
         $this->core->callBehavior('adminPagesActionsPage', $this->core, $this);
-
     }
     public function process()
     {
@@ -62,6 +58,7 @@ class dcPagesActionsPage extends dcPostsActionsPage
             $this->from['action'] = 'reorder';
         }
         $this->from['post_type'] = 'page';
+
         return parent::process();
     }
 
@@ -73,7 +70,7 @@ class dcPagesActionsPage extends dcPostsActionsPage
             }
 
             $strReq = "WHERE blog_id = '" . $core->con->escape($core->blog->id) . "' " .
-            "AND post_id " . $core->con->in($post_id);
+            'AND post_id ' . $core->con->in($post_id);
 
             #If user can only publish, we need to check the post's owner
             if (!$core->auth->check('contentadmin', $core->blog->id)) {
@@ -87,7 +84,6 @@ class dcPagesActionsPage extends dcPostsActionsPage
 
             $cur->update($strReq);
             $core->blog->triggerBlog();
-
         }
 
         dcPage::addSuccessNotice(__('Selected pages have been successfully reordered.'));

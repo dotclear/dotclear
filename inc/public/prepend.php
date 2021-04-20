@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 if (!empty($_GET['pf'])) {
     require dirname(__FILE__) . '/../load_plugin_file.php';
     exit;
@@ -30,25 +29,19 @@ if (defined('DC_BLOG_ID')) {
         $core->setBlog(DC_BLOG_ID);
     } catch (Exception $e) {
         init_prepend_l10n();
-        __error(__('Database problem')
-            , DC_DEBUG ?
+        __error(__('Database problem'), DC_DEBUG ?
             __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' :
-            __('Something went wrong while trying to read the database.')
-            , 620);
+            __('Something went wrong while trying to read the database.'), 620);
     }
 }
 
 if ($core->blog->id == null) {
-    __error(__('Blog is not defined.')
-        , __('Did you change your Blog ID?')
-        , 630);
+    __error(__('Blog is not defined.'), __('Did you change your Blog ID?'), 630);
 }
 
 if ((boolean) !$core->blog->status) {
     $core->unsetBlog();
-    __error(__('Blog is offline.')
-        , __('This blog is offline. Please try again later.')
-        , 670);
+    __error(__('Blog is offline.'), __('This blog is offline. Please try again later.'), 670);
 }
 
 # Cope with static home page option
@@ -59,16 +52,16 @@ if ($core->blog->settings->system->static_home) {
 # Loading media
 try {
     $core->media = new dcMedia($core);
-} catch (Exception $e) {}
+} catch (Exception $e) {
+}
 
 # Creating template context
 $_ctx = new context();
+
 try {
     $core->tpl = new dcTemplate(DC_TPL_CACHE, '$core->tpl', $core);
 } catch (Exception $e) {
-    __error(__('Can\'t create template files.')
-        , $e->getMessage()
-        , 640);
+    __error(__('Can\'t create template files.'), $e->getMessage(), 640);
 }
 
 # Loading locales
@@ -88,7 +81,8 @@ dcUtils::setlexicalLang('public', $_lang);
 # Loading plugins
 try {
     $core->plugins->loadModules(DC_PLUGINS_ROOT, 'public', $_lang);
-} catch (Exception $e) {}
+} catch (Exception $e) {
+}
 
 # Loading themes
 $core->themes = new dcThemes($core);
@@ -113,11 +107,9 @@ if ($__parent_theme) {
 
 # If theme doesn't exist, stop everything
 if (!$core->themes->moduleExists($__theme)) {
-    __error(__('Default theme not found.')
-        , __('This either means you removed your default theme or set a wrong theme ' .
+    __error(__('Default theme not found.'), __('This either means you removed your default theme or set a wrong theme ' .
             'path in your blog configuration. Please check theme_path value in ' .
-            'about:config module or reinstall default theme. (' . $__theme . ')')
-        , 650);
+            'about:config module or reinstall default theme. (' . $__theme . ')'), 650);
 }
 
 # Loading _public.php file for selected theme
@@ -165,7 +157,5 @@ try {
     # --BEHAVIOR-- publicAfterDocument
     $core->callBehavior('publicAfterDocument', $core);
 } catch (Exception $e) {
-    __error($e->getMessage()
-        , __('Something went wrong while loading template file for your blog.')
-        , 660);
+    __error($e->getMessage(), __('Something went wrong while loading template file for your blog.'), 660);
 }

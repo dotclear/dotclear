@@ -6,8 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcBlogsActionsPage extends dcActionsPage
 {
@@ -16,7 +17,7 @@ class dcBlogsActionsPage extends dcActionsPage
         parent::__construct($core, $uri, $redirect_args);
         $this->redirect_fields = ['status', 'sortby', 'order', 'page', 'nb'];
         $this->field_entries   = 'blogs';
-        $this->title_cb        = __('Blogs');
+        $this->cb_title        = __('Blogs');
         $this->loadDefaults();
         $core->callBehavior('adminBlogsActionsPage', $core, $this);
     }
@@ -69,8 +70,7 @@ class dcBlogsActionsPage extends dcActionsPage
     {
         $ret = '';
         foreach ($this->entries as $id => $res) {
-            $ret .=
-            '<tr>' .
+            $ret .= '<tr>' .
             '<td class="minimal">' . form::checkbox([$this->field_entries . '[]'], $id,
                 [
                     'checked' => true
@@ -141,12 +141,16 @@ class dcDefaultBlogActions
         }
         switch ($action) {
             case 'online':$status = 1;
+
                 break;
             case 'offline':$status = 0;
+
                 break;
             case 'remove':$status = -1;
+
                 break;
             default:$status = 1;
+
                 break;
         }
 

@@ -6,12 +6,12 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 /**
  * dcActionsPage -- handler for action page on selected entries
- *
  */
 abstract class dcActionsPage
 {
@@ -136,6 +136,7 @@ abstract class dcActionsPage
                 $this->actions[$v] = $callback;
             }
         }
+
         return $this;
     }
 
@@ -176,6 +177,7 @@ abstract class dcActionsPage
         foreach ($this->entries as $id => $v) {
             $ret .= form::hidden($this->field_entries . '[]', $id);
         }
+
         return $ret;
     }
 
@@ -197,6 +199,7 @@ abstract class dcActionsPage
         if ($with_ids) {
             $ret .= $this->getIDsHidden();
         }
+
         return $ret;
     }
 
@@ -254,6 +257,7 @@ abstract class dcActionsPage
         if ($with_selected_entries && $this->enable_redir_selection) {
             $redir_args[$this->field_entries] = array_keys($this->entries);
         }
+
         return $this->uri . '?' . http_build_query($redir_args) . $this->redir_anchor;
     }
 
@@ -316,11 +320,11 @@ abstract class dcActionsPage
      */
     public function process()
     {
-
         $this->setupRedir($this->from);
         $this->fetchEntries($this->from);
         if (isset($this->from['action'])) {
             $this->action = $this->from['action'];
+
             try {
                 $performed = false;
                 foreach ($this->actions as $k => $v) {
@@ -333,7 +337,7 @@ abstract class dcActionsPage
                     return true;
                 }
             } catch (Exception $e) {
-                $this->error($e);
+                // $this->error($e);
                 return true;
             }
         }
@@ -349,13 +353,11 @@ abstract class dcActionsPage
      */
     public function getCheckboxes()
     {
-        $ret =
-        '<table class="posts-list"><tr>' .
+        $ret = '<table class="posts-list"><tr>' .
         '<th colspan="2">' . $this->cb_title . '</th>' .
             '</tr>';
         foreach ($this->entries as $id => $title) {
-            $ret .=
-            '<tr><td class="minimal">' .
+            $ret .= '<tr><td class="minimal">' .
             form::checkbox([$this->field_entries . '[]'], $id, [
                 'checked' => true
             ]) .
@@ -363,6 +365,7 @@ abstract class dcActionsPage
                 '<td>' . $title . '</td></tr>';
         }
         $ret .= '</table>';
+
         return $ret;
     }
 
@@ -388,5 +391,4 @@ abstract class dcActionsPage
      * @access protected
      */
     abstract protected function fetchEntries($from);
-
 }

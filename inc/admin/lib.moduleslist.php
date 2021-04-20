@@ -6,8 +6,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
 /**
  * @brief Helper for admin list of modules.
@@ -239,6 +240,7 @@ class adminModulesList
     public function getSearch()
     {
         $query = !empty($_REQUEST['m_search']) ? trim($_REQUEST['m_search']) : null;
+
         return strlen($query) > 2 ? $query : null;
     }
 
@@ -417,6 +419,7 @@ class adminModulesList
                 $this->data[$id] = self::sanitizeModule($id, $module);
             }
         }
+
         return $this;
     }
 
@@ -503,11 +506,11 @@ class adminModulesList
      */
     public static function sortModules($modules, $field, $asc = true)
     {
-        $origin = $sorter = [];
+        $origin = $sorter = $final = [];
 
         foreach ($modules as $id => $module) {
             $origin[] = $module;
-            $sorter[] = isset($module[$field]) ? $module[$field] : $field;
+            $sorter[] = $module[$field] ?? $field;
         }
 
         array_multisort($sorter, $asc ? SORT_ASC : SORT_DESC, $origin);
@@ -694,7 +697,6 @@ class adminModulesList
                         '</span>';
                 }
                 echo '</td>';
-
             }
 
             if (in_array('distrib', $cols)) {
@@ -834,9 +836,7 @@ class adminModulesList
         }
         if ($config || $index || !empty($settings)) {
             if ($config) {
-                if (!$check ||
-                    $core->auth->isSuperAdmin() ||
-                    $core->auth->check($core->plugins->moduleInfo($id, 'permissions'), $core->blog->id)) {
+                if (!$check || $core->auth->isSuperAdmin() || $core->auth->check($core->plugins->moduleInfo($id, 'permissions'), $core->blog->id)) {
                     $params = ['module' => $id, 'conf' => '1'];
                     if (!$core->plugins->moduleInfo($id, 'standalone_config') && !$self) {
                         $params['redir'] = $core->adminurl->get('admin.plugin.' . $id);
@@ -850,28 +850,24 @@ class adminModulesList
                 foreach ($settings as $sk => $sv) {
                     switch ($sk) {
                         case 'blog':
-                            if (!$check ||
-                                $core->auth->isSuperAdmin() ||
-                                $core->auth->check('admin', $core->blog->id)) {
+                            if (!$check || $core->auth->isSuperAdmin() || $core->auth->check('admin', $core->blog->id)) {
                                 $st[] = '<a class="module-config" href="' .
                                 $core->adminurl->get('admin.blog.pref') . $sv .
                                 '">' . __('Plugin settings (in blog parameters)') . '</a>';
                             }
+
                             break;
                         case 'pref':
-                            if (!$check ||
-                                $core->auth->isSuperAdmin() ||
-                                $core->auth->check('usage,contentadmin', $core->blog->id)) {
+                            if (!$check || $core->auth->isSuperAdmin() || $core->auth->check('usage,contentadmin', $core->blog->id)) {
                                 $st[] = '<a class="module-config" href="' .
                                 $core->adminurl->get('admin.user.preferences') . $sv .
                                 '">' . __('Plugin settings (in user preferences)') . '</a>';
                             }
+
                             break;
                         case 'self':
                             if ($self) {
-                                if (!$check ||
-                                    $core->auth->isSuperAdmin() ||
-                                    $core->auth->check($core->plugins->moduleInfo($id, 'permissions'), $core->blog->id)) {
+                                if (!$check || $core->auth->isSuperAdmin() || $core->auth->check($core->plugins->moduleInfo($id, 'permissions'), $core->blog->id)) {
                                     $st[] = '<a class="module-config" href="' .
                                     $core->adminurl->get('admin.plugin.' . $id) . $sv .
                                     '">' . __('Plugin settings') . '</a>';
@@ -879,29 +875,26 @@ class adminModulesList
                                 // No need to use default index.php
                                 $index = false;
                             }
+
                             break;
                         case 'other':
-                            if (!$check ||
-                                $core->auth->isSuperAdmin() ||
-                                $core->auth->check($core->plugins->moduleInfo($id, 'permissions'), $core->blog->id)) {
+                            if (!$check || $core->auth->isSuperAdmin() || $core->auth->check($core->plugins->moduleInfo($id, 'permissions'), $core->blog->id)) {
                                 $st[] = '<a class="module-config" href="' .
                                 $sv .
                                 '">' . __('Plugin settings') . '</a>';
                             }
+
                             break;
                     }
                 }
             }
             if ($index && $self) {
-                if (!$check ||
-                    $core->auth->isSuperAdmin() ||
-                    $core->auth->check($core->plugins->moduleInfo($id, 'permissions'), $core->blog->id)) {
+                if (!$check || $core->auth->isSuperAdmin() || $core->auth->check($core->plugins->moduleInfo($id, 'permissions'), $core->blog->id)) {
                     $st[] = '<a class="module-config" href="' .
                     $core->adminurl->get('admin.plugin.' . $id) .
                     '">' . __('Plugin settings') . '</a>';
                 }
             }
-
         }
 
         return $st;
@@ -924,42 +917,47 @@ class adminModulesList
             switch ($action) {
 
                 # Deactivate
-                case 'activate':if ($this->core->auth->isSuperAdmin() && $module['root_writable'] && !isset($module['cannot_enable'])) {
-                        $submits[] =
-                        '<input type="submit" name="activate[' . html::escapeHTML($id) . ']" value="' . __('Activate') . '" />';
-                    }break;
+                case 'activate': if ($this->core->auth->isSuperAdmin() && $module['root_writable'] && !isset($module['cannot_enable'])) {
+                    $submits[] = '<input type="submit" name="activate[' . html::escapeHTML($id) . ']" value="' . __('Activate') . '" />';
+                }
+
+break;
 
                 # Activate
-                case 'deactivate':if ($this->core->auth->isSuperAdmin() && $module['root_writable'] && !isset($module['cannot_disable'])) {
-                        $submits[] =
-                        '<input type="submit" name="deactivate[' . html::escapeHTML($id) . ']" value="' . __('Deactivate') . '" class="reset" />';
-                    }break;
+                case 'deactivate': if ($this->core->auth->isSuperAdmin() && $module['root_writable'] && !isset($module['cannot_disable'])) {
+                    $submits[] = '<input type="submit" name="deactivate[' . html::escapeHTML($id) . ']" value="' . __('Deactivate') . '" class="reset" />';
+                }
+
+break;
 
                 # Delete
-                case 'delete':if ($this->core->auth->isSuperAdmin() && $this->isDeletablePath($module['root']) && !isset($module['cannot_disable'])) {
-                        $dev       = !preg_match('!^' . $this->path_pattern . '!', $module['root']) && defined('DC_DEV') && DC_DEV ? ' debug' : '';
-                        $submits[] =
-                        '<input type="submit" class="delete ' . $dev . '" name="delete[' . html::escapeHTML($id) . ']" value="' . __('Delete') . '" />';
-                    }break;
+                case 'delete': if ($this->core->auth->isSuperAdmin() && $this->isDeletablePath($module['root']) && !isset($module['cannot_disable'])) {
+                    $dev       = !preg_match('!^' . $this->path_pattern . '!', $module['root']) && defined('DC_DEV') && DC_DEV ? ' debug' : '';
+                    $submits[] = '<input type="submit" class="delete ' . $dev . '" name="delete[' . html::escapeHTML($id) . ']" value="' . __('Delete') . '" />';
+                }
+
+break;
 
                 # Clone
-                case 'clone':if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                        $submits[] =
-                        '<input type="submit" class="button clone" name="clone[' . html::escapeHTML($id) . ']" value="' . __('Clone') . '" />';
-                    }break;
+                case 'clone': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
+                    $submits[] = '<input type="submit" class="button clone" name="clone[' . html::escapeHTML($id) . ']" value="' . __('Clone') . '" />';
+                }
 
+break;
 
                 # Install (from store)
-                case 'install':if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                        $submits[] =
-                        '<input type="submit" name="install[' . html::escapeHTML($id) . ']" value="' . __('Install') . '" />';
-                    }break;
+                case 'install': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
+                    $submits[] = '<input type="submit" name="install[' . html::escapeHTML($id) . ']" value="' . __('Install') . '" />';
+                }
+
+break;
 
                 # Update (from store)
-                case 'update':if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                        $submits[] =
-                        '<input type="submit" name="update[' . html::escapeHTML($id) . ']" value="' . __('Update') . '" />';
-                    }break;
+                case 'update': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
+                    $submits[] = '<input type="submit" name="update[' . html::escapeHTML($id) . ']" value="' . __('Update') . '" />';
+                }
+
+break;
 
                 # Behavior
                 case 'behavior':
@@ -970,6 +968,7 @@ class adminModulesList
                     if (!empty($tmp)) {
                         $submits[] = $tmp;
                     }
+
                     break;
             }
         }
@@ -993,31 +992,34 @@ class adminModulesList
             switch ($action) {
 
                 # Deactivate
-                case 'activate':if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                        $submits[] =
-                            '<input type="submit" name="activate" value="' . ($with_selection ?
+                case 'activate': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
+                    $submits[] = '<input type="submit" name="activate" value="' . ($with_selection ?
                             __('Activate selected plugins') :
                             __('Activate all plugins from this list')
                         ) . '" />';
-                    }break;
+                }
+
+break;
 
                 # Activate
-                case 'deactivate':if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                        $submits[] =
-                            '<input type="submit" name="deactivate" value="' . ($with_selection ?
+                case 'deactivate': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
+                    $submits[] = '<input type="submit" name="deactivate" value="' . ($with_selection ?
                             __('Deactivate selected plugins') :
                             __('Deactivate all plugins from this list')
                         ) . '" />';
-                    }break;
+                }
+
+break;
 
                 # Update (from store)
-                case 'update':if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                        $submits[] =
-                            '<input type="submit" name="update" value="' . ($with_selection ?
+                case 'update': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
+                    $submits[] = '<input type="submit" name="update" value="' . ($with_selection ?
                             __('Update selected plugins') :
                             __('Update all plugins from this list')
                         ) . '" />';
-                    }break;
+                }
+
+break;
 
                 # Behavior
                 case 'behavior':
@@ -1028,6 +1030,7 @@ class adminModulesList
                     if (!empty($tmp)) {
                         $submits[] = $tmp;
                     }
+
                     break;
             }
         }
@@ -1052,7 +1055,6 @@ class adminModulesList
         $modules = !empty($_POST['modules']) && is_array($_POST['modules']) ? array_values($_POST['modules']) : [];
 
         if ($this->core->auth->isSuperAdmin() && !empty($_POST['delete'])) {
-
             if (is_array($_POST['delete'])) {
                 $modules = array_keys($_POST['delete']);
             }
@@ -1063,7 +1065,6 @@ class adminModulesList
             $count  = 0;
             foreach ($modules as $id) {
                 if (!isset($list[$id])) {
-
                     if (!$this->modules->moduleExists($id)) {
                         throw new Exception(__('No such plugin.'));
                     }
@@ -1073,6 +1074,7 @@ class adminModulesList
 
                     if (!$this->isDeletablePath($module['root'])) {
                         $failed = true;
+
                         continue;
                     }
 
@@ -1101,7 +1103,6 @@ class adminModulesList
             }
             http::redirect($this->getURL());
         } elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['install'])) {
-
             if (is_array($_POST['install'])) {
                 $modules = array_keys($_POST['install']);
             }
@@ -1114,7 +1115,6 @@ class adminModulesList
 
             $count = 0;
             foreach ($list as $id => $module) {
-
                 if (!in_array($id, $modules)) {
                     continue;
                 }
@@ -1137,7 +1137,6 @@ class adminModulesList
             );
             http::redirect($this->getURL());
         } elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['activate'])) {
-
             if (is_array($_POST['activate'])) {
                 $modules = array_keys($_POST['activate']);
             }
@@ -1149,7 +1148,6 @@ class adminModulesList
 
             $count = 0;
             foreach ($list as $id => $module) {
-
                 if (!in_array($id, $modules)) {
                     continue;
                 }
@@ -1170,7 +1168,6 @@ class adminModulesList
             );
             http::redirect($this->getURL());
         } elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['deactivate'])) {
-
             if (is_array($_POST['deactivate'])) {
                 $modules = array_keys($_POST['deactivate']);
             }
@@ -1183,13 +1180,13 @@ class adminModulesList
             $failed = false;
             $count  = 0;
             foreach ($list as $id => $module) {
-
                 if (!in_array($id, $modules)) {
                     continue;
                 }
 
                 if (!$module['root_writable']) {
                     $failed = true;
+
                     continue;
                 }
 
@@ -1215,7 +1212,6 @@ class adminModulesList
             }
             http::redirect($this->getURL());
         } elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['update'])) {
-
             if (is_array($_POST['update'])) {
                 $modules = array_keys($_POST['update']);
             }
@@ -1227,7 +1223,6 @@ class adminModulesList
 
             $count = 0;
             foreach ($list as $module) {
-
                 if (!in_array($module['id'], $modules)) {
                     continue;
                 }
@@ -1297,10 +1292,7 @@ class adminModulesList
 
             # --BEHAVIOR-- adminModulesListDoActions
             $this->core->callBehavior('adminModulesListDoActions', $this, $modules, 'plugin');
-
         }
-
-        return;
     }
 
     /**
@@ -1385,6 +1377,7 @@ class adminModulesList
 
         if (!$this->modules->moduleExists($id)) {
             $this->core->error->add(__('Unknow plugin ID'));
+
             return false;
         }
 
@@ -1394,6 +1387,7 @@ class adminModulesList
 
         if (!file_exists($file)) {
             $this->core->error->add(__('This plugin has no configuration file.'));
+
             return false;
         }
 
@@ -1452,7 +1446,6 @@ class adminModulesList
     public function displayConfiguration()
     {
         if ($this->config_file) {
-
             if (!$this->config_module['standalone_config']) {
                 echo
                 '<form id="module_config" action="' . $this->getURL('conf=1') . '" method="post" enctype="multipart/form-data">' .
@@ -1543,35 +1536,28 @@ class adminThemesList extends adminModulesList
             $current = $this->core->blog->settings->system->theme == $id && $this->modules->moduleExists($id);
             $distrib = self::isDistributedModule($id) ? ' dc-box' : '';
 
-            $line =
-                '<div class="box ' . ($current ? 'medium current-theme' : 'theme') . $distrib . '">';
+            $line = '<div class="box ' . ($current ? 'medium current-theme' : 'theme') . $distrib . '">';
 
             if (in_array('name', $cols) && !$current) {
-                $line .=
-                    '<h4 class="module-name">';
+                $line .= '<h4 class="module-name">';
 
                 if (in_array('checkbox', $cols)) {
-                    $line .=
-                    '<label for="' . html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id) . '">' .
+                    $line .= '<label for="' . html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id) . '">' .
                     form::checkbox(['modules[' . $count . ']', html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id)], html::escapeHTML($id)) .
                     html::escapeHTML($module['name']) .
                         '</label>';
-
                 } else {
-                    $line .=
-                    form::hidden(['modules[' . $count . ']'], html::escapeHTML($id)) .
+                    $line .= form::hidden(['modules[' . $count . ']'], html::escapeHTML($id)) .
                     html::escapeHTML($module['name']);
                 }
 
-                $line .=
-                $this->core->formNonce() .
+                $line .= $this->core->formNonce() .
                     '</h4>';
             }
 
             # Display score only for debug purpose
             if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {
-                $line .=
-                '<p class="module-score debug">' . sprintf(__('Score: %s'), $module['score']) . '</p>';
+                $line .= '<p class="module-score debug">' . sprintf(__('Score: %s'), $module['score']) . '</p>';
             }
 
             if (in_array('sshot', $cols)) {
@@ -1588,93 +1574,74 @@ class adminThemesList extends adminModulesList
                     $sshot = 'images/noscreenshot.png';
                 }
 
-                $line .=
-                '<div class="module-sshot"><img src="' . $sshot . '" alt="' .
+                $line .= '<div class="module-sshot"><img src="' . $sshot . '" alt="' .
                 sprintf(__('%s screenshot.'), html::escapeHTML($module['name'])) . '" /></div>';
             }
 
-            $line .=
-                '<div class="module-infos toggle-bloc">';
+            $line .= '<div class="module-infos toggle-bloc">';
 
             if (in_array('name', $cols) && $current) {
-                $line .=
-                    '<h4 class="module-name">';
+                $line .= '<h4 class="module-name">';
 
                 if (in_array('checkbox', $cols)) {
-                    $line .=
-                    '<label for="' . html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id) . '">' .
+                    $line .= '<label for="' . html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id) . '">' .
                     form::checkbox(['modules[' . $count . ']', html::escapeHTML($this->list_id) . '_modules_' . html::escapeHTML($id)], html::escapeHTML($id)) .
                     html::escapeHTML($module['name']) .
                         '</label>';
                 } else {
-                    $line .=
-                    form::hidden(['modules[' . $count . ']'], html::escapeHTML($id)) .
+                    $line .= form::hidden(['modules[' . $count . ']'], html::escapeHTML($id)) .
                     html::escapeHTML($module['name']);
                 }
 
-                $line .=
-                    '</h4>';
+                $line .= '</h4>';
             }
 
-            $line .=
-                '<p>';
+            $line .= '<p>';
 
             if (in_array('desc', $cols)) {
-                $line .=
-                '<span class="module-desc">' . html::escapeHTML(__($module['desc'])) . '</span> ';
+                $line .= '<span class="module-desc">' . html::escapeHTML(__($module['desc'])) . '</span> ';
             }
 
             if (in_array('author', $cols)) {
-                $line .=
-                '<span class="module-author">' . sprintf(__('by %s'), html::escapeHTML($module['author'])) . '</span> ';
+                $line .= '<span class="module-author">' . sprintf(__('by %s'), html::escapeHTML($module['author'])) . '</span> ';
             }
 
             if (in_array('version', $cols)) {
-                $line .=
-                '<span class="module-version">' . sprintf(__('version %s'), html::escapeHTML($module['version'])) . '</span> ';
+                $line .= '<span class="module-version">' . sprintf(__('version %s'), html::escapeHTML($module['version'])) . '</span> ';
             }
 
             if (in_array('current_version', $cols)) {
-                $line .=
-                '<span class="module-current-version">' . sprintf(__('(current version %s)'), html::escapeHTML($module['current_version'])) . '</span> ';
+                $line .= '<span class="module-current-version">' . sprintf(__('(current version %s)'), html::escapeHTML($module['current_version'])) . '</span> ';
             }
 
             if (in_array('parent', $cols) && !empty($module['parent'])) {
                 if ($this->modules->moduleExists($module['parent'])) {
-                    $line .=
-                    '<span class="module-parent-ok">' . sprintf(__('(built on "%s")'), html::escapeHTML($module['parent'])) . '</span> ';
+                    $line .= '<span class="module-parent-ok">' . sprintf(__('(built on "%s")'), html::escapeHTML($module['parent'])) . '</span> ';
                 } else {
-                    $line .=
-                    '<span class="module-parent-missing">' . sprintf(__('(requires "%s")'), html::escapeHTML($module['parent'])) . '</span> ';
+                    $line .= '<span class="module-parent-missing">' . sprintf(__('(requires "%s")'), html::escapeHTML($module['parent'])) . '</span> ';
                 }
             }
 
             $has_details = in_array('details', $cols) && !empty($module['details']);
             $has_support = in_array('support', $cols) && !empty($module['support']);
             if ($has_details || $has_support) {
-                $line .=
-                    '<span class="mod-more">';
+                $line .= '<span class="mod-more">';
 
                 if ($has_details) {
-                    $line .=
-                    '<a class="module-details" href="' . $module['details'] . '">' . __('Details') . '</a>';
+                    $line .= '<a class="module-details" href="' . $module['details'] . '">' . __('Details') . '</a>';
                 }
 
                 if ($has_support) {
-                    $line .=
-                    ' - <a class="module-support" href="' . $module['support'] . '">' . __('Support') . '</a>';
+                    $line .= ' - <a class="module-support" href="' . $module['support'] . '">' . __('Support') . '</a>';
                 }
 
-                $line .=
-                    '</span>';
+                $line .= '</span>';
             }
 
-            $line .=
-                '</p>' .
+            $line .= '</p>' .
                 '</div>';
 
-            $line .=
-                '<div class="module-actions toggle-bloc">';
+            $line .= '<div class="module-actions toggle-bloc">';
 
             # Plugins actions
             if ($current) {
@@ -1684,35 +1651,29 @@ class adminThemesList extends adminModulesList
                     $theme_url = preg_match('#^http(s)?://#', $this->core->blog->settings->system->themes_url) ?
                     http::concatURL($this->core->blog->settings->system->themes_url, '/' . $id) :
                     http::concatURL($this->core->blog->url, $this->core->blog->settings->system->themes_url . '/' . $id);
-                    $line .=
-                    '<p><a href="' . $theme_url . '/style.css">' . __('View stylesheet') . '</a></p>';
+                    $line .= '<p><a href="' . $theme_url . '/style.css">' . __('View stylesheet') . '</a></p>';
                 }
 
                 $line .= '<div class="current-actions">';
 
                 if (file_exists(path::real($this->core->blog->themes_path . '/' . $id) . '/_config.php')) {
-                    $line .=
-                    '<p><a href="' . $this->getURL('module=' . $id . '&amp;conf=1', false) . '" class="button submit">' . __('Configure theme') . '</a></p>';
+                    $line .= '<p><a href="' . $this->getURL('module=' . $id . '&amp;conf=1', false) . '" class="button submit">' . __('Configure theme') . '</a></p>';
                 }
 
                 # --BEHAVIOR-- adminCurrentThemeDetails
-                $line .=
-                $this->core->callBehavior('adminCurrentThemeDetails', $this->core, $id, $module);
+                $line .= $this->core->callBehavior('adminCurrentThemeDetails', $this->core, $id, $module);
 
                 $line .= '</div>';
             }
 
             # _POST actions
             if (!empty($actions)) {
-                $line .=
-                '<p class="module-post-actions">' . implode(' ', $this->getActions($id, $module, $actions)) . '</p>';
+                $line .= '<p class="module-post-actions">' . implode(' ', $this->getActions($id, $module, $actions)) . '</p>';
             }
 
-            $line .=
-                '</div>';
+            $line .= '</div>';
 
-            $line .=
-                '</div>';
+            $line .= '</div>';
 
             $count++;
 
@@ -1753,8 +1714,7 @@ class adminThemesList extends adminModulesList
 
             # Select theme to use on curent blog
             if (in_array('select', $actions)) {
-                $submits[] =
-                '<input type="submit" name="select[' . html::escapeHTML($id) . ']" value="' . __('Use this one') . '" />';
+                $submits[] = '<input type="submit" name="select[' . html::escapeHTML($id) . ']" value="' . __('Use this one') . '" />';
             }
         }
 
@@ -1772,13 +1732,14 @@ class adminThemesList extends adminModulesList
             switch ($action) {
 
                 # Update (from store)
-                case 'update':if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                        $submits[] =
-                        '<input type="submit" name="update" value="' . ($with_selection ?
+                case 'update': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
+                    $submits[] = '<input type="submit" name="update" value="' . ($with_selection ?
                             __('Update selected themes') :
                             __('Update all themes from this list')
                         ) . '" />' . $this->core->formNonce();
-                    }break;
+                }
+
+break;
 
                 # Behavior
                 case 'behavior':
@@ -1789,6 +1750,7 @@ class adminThemesList extends adminModulesList
                     if (!empty($tmp)) {
                         $submits[] = $tmp;
                     }
+
                     break;
             }
         }
@@ -1829,7 +1791,6 @@ class adminThemesList extends adminModulesList
             }
 
             if ($this->core->auth->isSuperAdmin() && !empty($_POST['activate'])) {
-
                 if (is_array($_POST['activate'])) {
                     $modules = array_keys($_POST['activate']);
                 }
@@ -1841,7 +1802,6 @@ class adminThemesList extends adminModulesList
 
                 $count = 0;
                 foreach ($list as $id => $module) {
-
                     if (!in_array($id, $modules)) {
                         continue;
                     }
@@ -1862,7 +1822,6 @@ class adminThemesList extends adminModulesList
                 );
                 http::redirect($this->getURL());
             } elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['deactivate'])) {
-
                 if (is_array($_POST['deactivate'])) {
                     $modules = array_keys($_POST['deactivate']);
                 }
@@ -1875,13 +1834,13 @@ class adminThemesList extends adminModulesList
                 $failed = false;
                 $count  = 0;
                 foreach ($list as $id => $module) {
-
                     if (!in_array($id, $modules)) {
                         continue;
                     }
 
                     if (!$module['root_writable']) {
                         $failed = true;
+
                         continue;
                     }
 
@@ -1907,14 +1866,12 @@ class adminThemesList extends adminModulesList
                 }
                 http::redirect($this->getURL());
             } elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['clone'])) {
-
                 if (is_array($_POST['clone'])) {
                     $modules = array_keys($_POST['clone']);
                 }
 
                 $count = 0;
                 foreach ($modules as $id) {
-
                     if (!$this->modules->moduleExists($id)) {
                         throw new Exception(__('No such theme.'));
                     }
@@ -1935,7 +1892,6 @@ class adminThemesList extends adminModulesList
                 );
                 http::redirect($this->getURL());
             } elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['delete'])) {
-
                 if (is_array($_POST['delete'])) {
                     $modules = array_keys($_POST['delete']);
                 }
@@ -1946,7 +1902,6 @@ class adminThemesList extends adminModulesList
                 $count  = 0;
                 foreach ($modules as $id) {
                     if (!isset($list[$id])) {
-
                         if (!$this->modules->moduleExists($id)) {
                             throw new Exception(__('No such theme.'));
                         }
@@ -1956,6 +1911,7 @@ class adminThemesList extends adminModulesList
 
                         if (!$this->isDeletablePath($module['root'])) {
                             $failed = true;
+
                             continue;
                         }
 
@@ -1984,7 +1940,6 @@ class adminThemesList extends adminModulesList
                 }
                 http::redirect($this->getURL());
             } elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['install'])) {
-
                 if (is_array($_POST['install'])) {
                     $modules = array_keys($_POST['install']);
                 }
@@ -1997,7 +1952,6 @@ class adminThemesList extends adminModulesList
 
                 $count = 0;
                 foreach ($list as $id => $module) {
-
                     if (!in_array($id, $modules)) {
                         continue;
                     }
@@ -2020,7 +1974,6 @@ class adminThemesList extends adminModulesList
                 );
                 http::redirect($this->getURL());
             } elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['update'])) {
-
                 if (is_array($_POST['update'])) {
                     $modules = array_keys($_POST['update']);
                 }
@@ -2032,7 +1985,6 @@ class adminThemesList extends adminModulesList
 
                 $count = 0;
                 foreach ($list as $module) {
-
                     if (!in_array($module['id'], $modules)) {
                         continue;
                     }
@@ -2095,10 +2047,7 @@ class adminThemesList extends adminModulesList
 
                 # --BEHAVIOR-- adminModulesListDoActions
                 $this->core->callBehavior('adminModulesListDoActions', $this, $modules, 'theme');
-
             }
         }
-
-        return;
     }
 }

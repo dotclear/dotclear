@@ -8,13 +8,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $this->registerModule(
-    "Import / Export",                // Name
-    "Import and Export your blog",    // Description
-    "Olivier Meunier & Contributors", // Author
+    'Import / Export',                // Name
+    'Import and Export your blog',    // Description
+    'Olivier Meunier & Contributors', // Author
     '3.2',                            // Version
     [
         'permissions' => 'admin',

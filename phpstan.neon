@@ -1,5 +1,18 @@
+#
+# To run analyse:
+# bin/phpstan analyse --memory-limit=-1
+#
+# or (replacing conf level by 1, … up to 8):
+# bin/phpstan analyse -l 1 --memory-limit=-1
+
 parameters:
-  level: 8
+  level: 5
+
+  bootstrapFiles:
+    - phpstan.bootstrap
+
+  scanFiles:
+    - index.php
 
   paths:
     - admin
@@ -12,7 +25,43 @@ parameters:
     - themes/ductile
 
   excludePaths:
-    - inc/libs/cleabricks/debian/*
-    - inc/libs/cleabricks/tests/*
+    - inc/libs/clearbricks/debian/*
+    - inc/libs/clearbricks/tests/unit/*/*
 
   reportUnmatchedIgnoredErrors: false
+
+  ignoreErrors:
+
+    # $core variable may be defined (globally)
+    - message: '#Variable \$core might not be defined#'
+      path: %currentWorkingDirectory%
+
+    # $_lang variable may be defined (globally)
+    - message: '#Variable \$_lang might not be defined#'
+      path: %currentWorkingDirectory%
+
+    # $p_url variable may be defined (plugins)
+    - message: '#Variable \$p_url might not be defined#'
+      path: plugins/*/*.php
+
+    # $__widgets variable may be defined (plugins)
+    - message: '#Variable \$__widgets might not be defined#'
+      path: plugins/*/*.php
+
+    # $__default_widgets variable may be defined (plugins)
+    - message: '#Variable \$__default_widgets might not be defined#'
+      path: plugins/*/*.php
+
+    # $this variable may be defined (plugins/themes)
+    - message: '#Variable \$this might not be defined#'
+      path: */*/_define.php
+
+    # $_menu variable may be defined (plugins/themes)
+    - message: '#Variable \$_menu might not be defined#'
+      path: */*/_admin.php
+
+
+# Notes:
+#
+# Use /* @phpstan-ignore-next-line */ or // @phpstan-ignore-line
+# to ignore some specific lines in code

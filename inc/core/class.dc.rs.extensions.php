@@ -14,8 +14,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class rsExtPost
 {
@@ -89,6 +90,7 @@ class rsExtPost
         $rs->movePrev();
         $ndate = date('Ymd', strtotime($rs->post_dt));
         $rs->moveNext();
+
         return $ndate != $cdate;
     }
 
@@ -108,6 +110,7 @@ class rsExtPost
         $rs->moveNext();
         $ndate = date('Ymd', strtotime($rs->post_dt));
         $rs->movePrev();
+
         return $ndate != $cdate;
     }
 
@@ -121,9 +124,8 @@ class rsExtPost
     {
         return
         $rs->core->blog->settings->system->allow_comments
-        && $rs->post_open_comment
-            && ($rs->core->blog->settings->system->comments_ttl == 0 ||
-            time() - ($rs->core->blog->settings->system->comments_ttl * 86400) < $rs->getTS());
+            && $rs->post_open_comment
+            && ($rs->core->blog->settings->system->comments_ttl == 0 || time() - ($rs->core->blog->settings->system->comments_ttl * 86400) < $rs->getTS());
     }
 
     /**
@@ -136,9 +138,8 @@ class rsExtPost
     {
         return
         $rs->core->blog->settings->system->allow_trackbacks
-        && $rs->post_open_tb
-            && ($rs->core->blog->settings->system->trackbacks_ttl == 0 ||
-            time() - ($rs->core->blog->settings->system->trackbacks_ttl * 86400) < $rs->getTS());
+            && $rs->post_open_tb
+            && ($rs->core->blog->settings->system->trackbacks_ttl == 0 || time() - ($rs->core->blog->settings->system->trackbacks_ttl * 86400) < $rs->getTS());
     }
 
     /**
@@ -220,9 +221,9 @@ class rsExtPost
             return strtotime($rs->post_upddt);
         } elseif ($type == 'creadt') {
             return strtotime($rs->post_creadt);
-        } else {
-            return strtotime($rs->post_dt);
         }
+
+        return strtotime($rs->post_dt);
     }
 
     /**
@@ -236,9 +237,9 @@ class rsExtPost
     {
         if ($type == 'upddt' || $type == 'creadt') {
             return dt::iso8601($rs->getTS($type) + dt::getTimeOffset($rs->post_tz), $rs->post_tz);
-        } else {
-            return dt::iso8601($rs->getTS(), $rs->post_tz);
         }
+
+        return dt::iso8601($rs->getTS(), $rs->post_tz);
     }
 
     /**
@@ -252,9 +253,9 @@ class rsExtPost
     {
         if ($type == 'upddt' || $type == 'creadt') {
             return dt::rfc822($rs->getTS($type) + dt::getTimeOffset($rs->post_tz), $rs->post_tz);
-        } else {
-            return dt::rfc822($rs->getTS($type), $rs->post_tz);
         }
+
+        return dt::rfc822($rs->getTS($type), $rs->post_tz);
     }
 
     /**
@@ -276,9 +277,9 @@ class rsExtPost
             return dt::dt2str($format, $rs->post_upddt, $rs->post_tz);
         } elseif ($type == 'creadt') {
             return dt::dt2str($format, $rs->post_creadt, $rs->post_tz);
-        } else {
-            return dt::dt2str($format, $rs->post_dt);
         }
+
+        return dt::dt2str($format, $rs->post_dt);
     }
 
     /**
@@ -300,9 +301,9 @@ class rsExtPost
             return dt::dt2str($format, $rs->post_upddt, $rs->post_tz);
         } elseif ($type == 'creadt') {
             return dt::dt2str($format, $rs->post_creadt, $rs->post_tz);
-        } else {
-            return dt::dt2str($format, $rs->post_dt);
         }
+
+        return dt::dt2str($format, $rs->post_dt);
     }
 
     /**
@@ -349,6 +350,7 @@ class rsExtPost
         if ($encoded) {
             return strtr($rs->user_email, ['@' => '%40', '.' => '%2e']);
         }
+
         return $rs->user_email;
     }
 
@@ -383,7 +385,7 @@ class rsExtPost
         '  dc:title="' . htmlspecialchars($rs->post_title, ENT_COMPAT, 'UTF-8') . '"' . "\n" .
         '  trackback:ping="' . $rs->getTrackbackLink() . '" />' . "\n" .
             "</rdf:RDF>\n" .
-            ($format == 'xml' ? "<!]]><!--" : '') .
+            ($format == 'xml' ? '<!]]><!--' : '') .
             "-->\n";
     }
 
@@ -410,9 +412,9 @@ class rsExtPost
     {
         if ($absolute_urls) {
             return html::absoluteURLs($rs->post_content_xhtml, $rs->getURL());
-        } else {
-            return $rs->post_content_xhtml;
         }
+
+        return $rs->post_content_xhtml;
     }
 
     /**
@@ -427,9 +429,9 @@ class rsExtPost
     {
         if ($absolute_urls) {
             return html::absoluteURLs($rs->post_excerpt_xhtml, $rs->getURL());
-        } else {
-            return $rs->post_excerpt_xhtml;
         }
+
+        return $rs->post_excerpt_xhtml;
     }
 
     /**
@@ -442,19 +444,18 @@ class rsExtPost
     {
         if (isset($rs->_nb_media[$rs->index()])) {
             return $rs->_nb_media[$rs->index()];
-        } else {
-            $strReq =
-            'SELECT count(media_id) ' .
+        }
+        $strReq = 'SELECT count(media_id) ' .
             'FROM ' . $rs->core->prefix . 'post_media ' .
             'WHERE post_id = ' . (integer) $rs->post_id . ' ';
-            if ($link_type != null) {
-                $strReq .= "AND link_type = '" . $rs->core->con->escape($link_type) . "'";
-            }
-
-            $res                         = (integer) $rs->core->con->select($strReq)->f(0);
-            $rs->_nb_media[$rs->index()] = $res;
-            return $res;
+        if ($link_type != null) {
+            $strReq .= "AND link_type = '" . $rs->core->con->escape($link_type) . "'";
         }
+
+        $res                         = (integer) $rs->core->con->select($strReq)->f(0);
+        $rs->_nb_media[$rs->index()] = $res;
+
+        return $res;
     }
 
     /**
@@ -501,9 +502,9 @@ class rsExtComment
 
         if ($type == 'upddt') {
             return dt::dt2str($format, $rs->comment_upddt, $rs->comment_tz);
-        } else {
-            return dt::dt2str($format, $rs->comment_dt);
         }
+
+        return dt::dt2str($format, $rs->comment_dt);
     }
 
     /**
@@ -523,9 +524,9 @@ class rsExtComment
 
         if ($type == 'upddt') {
             return dt::dt2str($format, $rs->comment_updt, $rs->comment_tz);
-        } else {
-            return dt::dt2str($format, $rs->comment_dt);
         }
+
+        return dt::dt2str($format, $rs->comment_dt);
     }
 
     /**
@@ -539,9 +540,9 @@ class rsExtComment
     {
         if ($type == 'upddt') {
             return strtotime($rs->comment_upddt);
-        } else {
-            return strtotime($rs->comment_dt);
         }
+
+        return strtotime($rs->comment_dt);
     }
 
     /**
@@ -555,9 +556,9 @@ class rsExtComment
     {
         if ($type == 'upddt') {
             return dt::iso8601($rs->getTS($type) + dt::getTimeOffset($rs->comment_tz), $rs->comment_tz);
-        } else {
-            return dt::iso8601($rs->getTS(), $rs->comment_tz);
         }
+
+        return dt::iso8601($rs->getTS(), $rs->comment_tz);
     }
 
     /**
@@ -571,9 +572,9 @@ class rsExtComment
     {
         if ($type == 'upddt') {
             return dt::rfc822($rs->getTS($type) + dt::getTimeOffset($rs->comment_tz), $rs->comment_tz);
-        } else {
-            return dt::rfc822($rs->getTS(), $rs->comment_tz);
         }
+
+        return dt::rfc822($rs->getTS(), $rs->comment_tz);
     }
 
     /**
@@ -587,7 +588,6 @@ class rsExtComment
     public static function getContent($rs, $absolute_urls = false)
     {
         $res = $rs->comment_content;
-
 
         if ($rs->core->blog->settings->system->comments_nofollow) {
             $res = preg_replace_callback('#<a(.*?href=".*?".*?)>#ms', ['self', 'noFollowURL'], $res);
@@ -681,6 +681,7 @@ class rsExtComment
         if ($encoded) {
             return strtr($rs->comment_email, ['@' => '%40', '.' => '%2e']);
         }
+
         return $rs->comment_email;
     }
 
@@ -692,8 +693,7 @@ class rsExtComment
      */
     public static function getTrackbackTitle($rs)
     {
-        if ($rs->comment_trackback == 1 &&
-            preg_match('|<p><strong>(.*?)</strong></p>|msU', $rs->comment_content,
+        if ($rs->comment_trackback == 1 && preg_match('|<p><strong>(.*?)</strong></p>|msU', $rs->comment_content,
                 $match)) {
             return html::decodeEntities($match[1]);
         }
@@ -733,9 +733,7 @@ class rsExtComment
     public static function isMe($rs)
     {
         return
-        $rs->comment_email && $rs->comment_site &&
-        $rs->comment_email == $rs->user_email &&
-        $rs->comment_site == $rs->user_url;
+        $rs->comment_email && $rs->comment_site && $rs->comment_email == $rs->user_email && $rs->comment_site == $rs->user_url;
     }
 }
 
@@ -837,10 +835,11 @@ class rsExtDates
         if ($rs->moveNext()) {
             $ny = $rs->year();
             $rs->movePrev();
+
             return $y != $ny;
         }
-        return false;
 
+        return false;
     }
 }
 
@@ -873,7 +872,6 @@ class rsExtUser
         if (isset($options[$name])) {
             return $options[$name];
         }
-        return;
     }
 
     /**
@@ -888,6 +886,7 @@ class rsExtUser
         if (is_array($options)) {
             return $options;
         }
+
         return [];
     }
 
@@ -901,6 +900,7 @@ class rsExtUser
         if ($rs instanceof extStaticRecord) {
             return $rs;
         }
+
         return new extStaticRecord($rs);
     }
 }
@@ -919,6 +919,7 @@ class rsExtBlog
         if ($rs instanceof extStaticRecord) {
             return $rs;
         }
+
         return new extStaticRecord($rs);
     }
 }
@@ -958,6 +959,7 @@ class extStaticRecord extends staticRecord
         if ($a == (string) (integer) $a && $b == (string) (integer) $b) {
             $a = (integer) $a;
             $b = (integer) $b;
+
             return ($a - $b) * $this->sortsign;
         }
 

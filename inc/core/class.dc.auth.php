@@ -11,8 +11,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcAuth
 {
@@ -25,6 +26,8 @@ class dcAuth
     protected $user_table;
     /** @var string Perm table name */
     protected $perm_table;
+    /** @var string Blog table name */
+    protected $blog_table;
 
     /** @var string Current user ID */
     protected $user_id;
@@ -103,11 +106,13 @@ class dcAuth
             $rs = $this->con->select($strReq);
         } catch (Exception $e) {
             $err = $e->getMessage();
+
             return false;
         }
 
         if ($rs->isEmpty()) {
             sleep(rand(2, 5));
+
             return false;
         }
 
@@ -133,11 +138,13 @@ class dcAuth
                     } else {
                         // Password KO
                         sleep(rand(2, 5));
+
                         return false;
                     }
                 } else {
                     // Password KO
                     sleep(rand(2, 5));
+
                     return false;
                 }
             }
@@ -181,6 +188,7 @@ class dcAuth
         if ($check_blog && ($this->findUserBlog() === false)) {
             return false;
         }
+
         return true;
     }
 
@@ -243,6 +251,7 @@ class dcAuth
         # If session does not exist, logout.
         if (!isset($_SESSION['sess_user_id'])) {
             $this->core->session->destroy();
+
             return false;
         }
 
@@ -254,6 +263,7 @@ class dcAuth
 
         if (!$user_can_log) {
             $this->core->session->destroy();
+
             return false;
         }
 
@@ -328,9 +338,9 @@ class dcAuth
     //@{
     public function getUserCode()
     {
-        $code =
-        pack('a32', $this->userID()) .
+        $code = pack('a32', $this->userID()) .
         pack('H*', $this->crypt($this->getInfo('user_pwd')));
+
         return bin2hex($code);
     }
 
@@ -384,11 +394,13 @@ class dcAuth
             $res = call_user_func_array($f, $args);
         } else {
             $this->user_admin = true;
+
             try {
                 $res              = call_user_func_array($f, $args);
                 $this->user_admin = false;
             } catch (Exception $e) {
                 $this->user_admin = false;
+
                 throw $e;
             }
         }
@@ -451,27 +463,26 @@ class dcAuth
     {
         if ($blog_id && $this->getPermissions($blog_id) !== false) {
             return $blog_id;
-        } else {
-            if ($this->user_admin) {
-                $strReq = 'SELECT blog_id ' .
+        }
+        if ($this->user_admin) {
+            $strReq = 'SELECT blog_id ' .
                 'FROM ' . $this->blog_table . ' ' .
                 'ORDER BY blog_id ASC ' .
                 $this->con->limit(1);
-            } else {
-                $strReq = 'SELECT P.blog_id ' .
+        } else {
+            $strReq = 'SELECT P.blog_id ' .
                 'FROM ' . $this->perm_table . ' P, ' . $this->blog_table . ' B ' .
                 "WHERE user_id = '" . $this->con->escape($this->user_id) . "' " .
-                "AND P.blog_id = B.blog_id " .
+                'AND P.blog_id = B.blog_id ' .
                 "AND (permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%') " .
-                "AND blog_status >= 0 " .
+                'AND blog_status >= 0 ' .
                 'ORDER BY P.blog_id ASC ' .
                 $this->con->limit(1);
-            }
+        }
 
-            $rs = $this->con->select($strReq);
-            if (!$rs->isEmpty()) {
-                return $rs->blog_id;
-            }
+        $rs = $this->con->select($strReq);
+        if (!$rs->isEmpty()) {
+            return $rs->blog_id;
         }
 
         return false;
@@ -498,8 +509,6 @@ class dcAuth
         if (isset($this->user_info[$n])) {
             return $this->user_info[$n];
         }
-
-        return;
     }
 
     /**
@@ -513,7 +522,6 @@ class dcAuth
         if (isset($this->user_options[$n])) {
             return $this->user_options[$n];
         }
-        return;
     }
 
     /**
@@ -544,6 +552,7 @@ class dcAuth
         foreach (explode('|', $level) as $v) {
             $res[$v] = true;
         }
+
         return $res;
     }
 
@@ -652,7 +661,8 @@ class dcAuth
      * @param cursor    $cur            User cursor
      */
     public function afterAddUser($cur)
-    {}
+    {
+    }
 
     /**
      * Called after core->updUser
@@ -661,7 +671,8 @@ class dcAuth
      * @param cursor    $cur            User cursor
      */
     public function afterUpdUser($id, $cur)
-    {}
+    {
+    }
 
     /**
      * Called after core->delUser
@@ -669,6 +680,7 @@ class dcAuth
      * @param string    $id            User ID
      */
     public function afterDelUser($id)
-    {}
+    {
+    }
     //@}
 }

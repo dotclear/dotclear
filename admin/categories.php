@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('categories');
@@ -20,7 +19,7 @@ if (!empty($_POST['delete'])) {
     $c = $core->blog->getCategory((integer) $cat_id);
     if ($c->isEmpty()) {
         dcPage::addErrorNotice(__('This category does not exist.'));
-        $core->adminurl->redirect("admin.categories");
+        $core->adminurl->redirect('admin.categories');
     }
     $name = $c->cat_title;
     unset($c);
@@ -29,7 +28,7 @@ if (!empty($_POST['delete'])) {
         # Delete category
         $core->blog->delCategory($cat_id);
         dcPage::addSuccessNotice(sprintf(__('The category "%s" has been successfully deleted.'), html::escapeHTML($name)));
-        $core->adminurl->redirect("admin.categories");
+        $core->adminurl->redirect('admin.categories');
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
     }
@@ -44,6 +43,7 @@ if (!empty($_POST['mov']) && !empty($_POST['mov_cat'])) {
         $mov_cat = (int) $_POST['mov_cat'][$cat_id];
 
         $mov_cat = $mov_cat ?: null;
+        $name    = '';
         if ($mov_cat !== null) {
             $c = $core->blog->getCategory($mov_cat);
             if ($c->isEmpty()) {
@@ -58,7 +58,7 @@ if (!empty($_POST['mov']) && !empty($_POST['mov_cat'])) {
         }
         dcPage::addSuccessNotice(sprintf(__('The entries have been successfully moved to category "%s"'),
             html::escapeHTML($name)));
-        $core->adminurl->redirect("admin.categories");
+        $core->adminurl->redirect('admin.categories');
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
     }
@@ -75,16 +75,15 @@ if (!empty($_POST['save_order']) && !empty($_POST['categories_order'])) {
     }
 
     dcPage::addSuccessNotice(__('Categories have been successfully reordered.'));
-    $core->adminurl->redirect("admin.categories");
+    $core->adminurl->redirect('admin.categories');
 }
 
 # Reset order
 if (!empty($_POST['reset'])) {
-    try
-    {
+    try {
         $core->blog->resetCategoriesOrder();
         dcPage::addSuccessNotice(__('Categories order has been successfully reset.'));
-        $core->adminurl->redirect("admin.categories");
+        $core->adminurl->redirect('admin.categories');
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
     }
@@ -94,7 +93,7 @@ if (!empty($_POST['reset'])) {
 -------------------------------------------------------- */
 $rs = $core->blog->getCategories();
 
-$starting_script = "";
+$starting_script = '';
 
 $core->auth->user_prefs->addWorkspace('accessibility');
 if (!$core->auth->user_prefs->accessibility->nodragdrop
@@ -128,7 +127,7 @@ if (!empty($_GET['move'])) {
 $categories_combo = dcAdminCombos::getCategoriesCombo($rs);
 
 echo
-'<p class="top-add"><a class="button add" href="' . $core->adminurl->get("admin.category") . '">' . __('New category') . '</a></p>';
+'<p class="top-add"><a class="button add" href="' . $core->adminurl->get('admin.category') . '">' . __('New category') . '</a></p>';
 
 echo
     '<div class="col">';
@@ -136,7 +135,7 @@ if ($rs->isEmpty()) {
     echo '<p>' . __('No category so far.') . '</p>';
 } else {
     echo
-    '<form action="' . $core->adminurl->get("admin.categories") . '" method="post" id="form-categories">' .
+    '<form action="' . $core->adminurl->get('admin.categories') . '" method="post" id="form-categories">' .
         '<div id="categories">';
 
     $ref_level = $level = $rs->level - 1;
@@ -155,9 +154,9 @@ if ($rs->isEmpty()) {
 
         echo
         '<p class="cat-title"><label class="classic" for="cat_' . $rs->cat_id . '"><a href="' .
-        $core->adminurl->get("admin.category", ['id' => $rs->cat_id]) . '">' . html::escapeHTML($rs->cat_title) .
+        $core->adminurl->get('admin.category', ['id' => $rs->cat_id]) . '">' . html::escapeHTML($rs->cat_title) .
         '</a></label> </p>' .
-        '<p class="cat-nb-posts">(<a href="' . $core->adminurl->get("admin.posts", ['cat_id' => $rs->cat_id]) . '">' .
+        '<p class="cat-nb-posts">(<a href="' . $core->adminurl->get('admin.posts', ['cat_id' => $rs->cat_id]) . '">' .
         sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry')), $rs->nb_post) . '</a>' .
         ', ' . __('total:') . ' ' . $rs->nb_total . ')</p>' .
         '<p class="cat-url">' . __('URL:') . ' <code>' . html::escapeHTML($rs->cat_url) . '</code></p>';

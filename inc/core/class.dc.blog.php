@@ -1927,8 +1927,7 @@ class dcBlog
                 $clause = "~ '^" . $this->con->escape(preg_quote($url)) . "[0-9]+$'";
             } else {
                 $clause = "LIKE '" .
-                $this->con->escape(preg_replace(['%', '_', '!'], ['!%', '!_', '!!'], $url)) .
-                    "%' ESCAPE '!'";
+                $this->con->escape(preg_replace(['%', '_', '!'], ['!%', '!_', '!!'], $url)) . "%' ESCAPE '!'";  // @phpstan-ignore-line
             }
             $strReq = 'SELECT post_url FROM ' . $this->prefix . 'post ' .
             'WHERE post_url ' . $clause . ' ' .

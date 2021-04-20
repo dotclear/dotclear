@@ -8,13 +8,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 $this->registerModule(
-    "Ductile",                              // Name
-    "Mediaqueries compliant elegant theme", // Description
-    "Dotclear Team",                        // Author
+    'Ductile',                              // Name
+    'Mediaqueries compliant elegant theme', // Description
+    'Dotclear Team',                        // Author
     '1.5',                                  // Version
     [                                  // Properties
         'standalone_config' => true,

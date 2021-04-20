@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
@@ -20,12 +19,14 @@ $feed_reader = new feedReader;
 $feed_reader->setCacheDir(DC_TPL_CACHE);
 $feed_reader->setTimeout(5);
 $feed_reader->setUserAgent('Dotclear - https://dotclear.org/');
+
 try {
-    $dc_langs = $feed_reader->parse(sprintf(DC_L10N_UPDATE_URL, DC_VERSION));
+    $dc_langs = $feed_reader->parse(sprintf(DC_L10N_UPDATE_URL, DC_VERSION));   // @phpstan-ignore-line
     if ($dc_langs !== false) {
         $dc_langs = $dc_langs->items;
     }
-} catch (Exception $e) {}
+} catch (Exception $e) {
+}
 
 # Language installation function
 $lang_install = function ($file) {
@@ -52,13 +53,13 @@ $lang_install = function ($file) {
     }
 
     $zip->unzipAll($target);
+
     return $res;
 };
 
 # Delete a language pack
 if ($is_writable && !empty($_POST['delete']) && !empty($_POST['locale_id'])) {
-    try
-    {
+    try {
         $locale_id = $_POST['locale_id'];
         if (!isset($iso_codes[$locale_id]) || !is_dir(DC_L10N_ROOT . '/' . $locale_id)) {
             throw new Exception(__('No such installed language'));
@@ -73,7 +74,7 @@ if ($is_writable && !empty($_POST['delete']) && !empty($_POST['locale_id'])) {
         }
 
         dcPage::addSuccessNotice(__('Language has been successfully deleted.'));
-        $core->adminurl->redirect("admin.langs");
+        $core->adminurl->redirect('admin.langs');
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
     }
@@ -81,8 +82,7 @@ if ($is_writable && !empty($_POST['delete']) && !empty($_POST['locale_id'])) {
 
 # Download a language pack
 if ($is_writable && !empty($_POST['pkg_url'])) {
-    try
-    {
+    try {
         if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
             throw new Exception(__('Password verification failed'));
         }
@@ -104,6 +104,7 @@ if ($is_writable && !empty($_POST['pkg_url'])) {
             $ret_code = $lang_install($dest);
         } catch (Exception $e) {
             @unlink($dest);
+
             throw $e;
         }
 
@@ -113,7 +114,7 @@ if ($is_writable && !empty($_POST['pkg_url'])) {
         } else {
             dcPage::addSuccessNotice(__('Language has been successfully installed.'));
         }
-        $core->adminurl->redirect("admin.langs");
+        $core->adminurl->redirect('admin.langs');
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
     }
@@ -121,8 +122,7 @@ if ($is_writable && !empty($_POST['pkg_url'])) {
 
 # Upload a language pack
 if ($is_writable && !empty($_POST['upload_pkg'])) {
-    try
-    {
+    try {
         if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
             throw new Exception(__('Password verification failed'));
         }
@@ -137,6 +137,7 @@ if ($is_writable && !empty($_POST['upload_pkg'])) {
             $ret_code = $lang_install($dest);
         } catch (Exception $e) {
             @unlink($dest);
+
             throw $e;
         }
 
@@ -146,7 +147,7 @@ if ($is_writable && !empty($_POST['upload_pkg'])) {
         } else {
             dcPage::addSuccessNotice(__('Language has been successfully installed.'));
         }
-        $core->adminurl->redirect("admin.langs");
+        $core->adminurl->redirect('admin.langs');
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
     }
@@ -176,7 +177,7 @@ echo
     'installation.') . '</p>' .
 '<p>' . sprintf(__('You can change your user language in your <a href="%1$s">preferences</a> or ' .
     'change your blog\'s main language in your <a href="%2$s">blog settings</a>.'),
-    $core->adminurl->get("admin.user.preferences"), $core->adminurl->get("admin.blog.pref")) . '</p>';
+    $core->adminurl->get('admin.user.preferences'), $core->adminurl->get('admin.blog.pref')) . '</p>';
 
 echo
 '<h3>' . __('Installed languages') . '</h3>';
@@ -213,7 +214,7 @@ if (empty($locales_content)) {
 
         if ($is_deletable) {
             echo
-            '<form action="' . $core->adminurl->get("admin.langs") . '" method="post">' .
+            '<form action="' . $core->adminurl->get('admin.langs') . '" method="post">' .
             '<div>' .
             $core->formNonce() .
             form::hidden(['locale_id'], html::escapeHTML($k)) .
@@ -243,7 +244,7 @@ if (!empty($dc_langs) && $is_writable) {
     }
 
     echo
-    '<form method="post" action="' . $core->adminurl->get("admin.langs") . '" enctype="multipart/form-data" class="fieldset">' .
+    '<form method="post" action="' . $core->adminurl->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
     '<h4>' . __('Available languages') . '</h4>' .
     '<p>' . sprintf(__('You can download and install a additional language directly from Dotclear.net. ' .
         'Proposed languages are based on your version: %s.'), '<strong>' . DC_VERSION . '</strong>') . '</p>' .
@@ -264,7 +265,7 @@ if (!empty($dc_langs) && $is_writable) {
 if ($is_writable) {
     # 'Upload language pack' form
     echo
-    '<form method="post" action="' . $core->adminurl->get("admin.langs") . '" enctype="multipart/form-data" class="fieldset">' .
+    '<form method="post" action="' . $core->adminurl->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
     '<h4>' . __('Upload a zip file') . '</h4>' .
     '<p>' . __('You can install languages by uploading zip files.') . '</p>' .
     '<p class="field"><label for="pkg_file" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Language zip file:') . '</label> ' .

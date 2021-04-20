@@ -9,11 +9,11 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
-if (!defined('DC_RC_PATH')) {return;}
-
-try
-{
+try {
     if (isset($_SERVER['argv'][1])) {
         $dc_conf = $_SERVER['argv'][1];
     } elseif (isset($_SERVER['DC_RC_PATH'])) {
@@ -33,10 +33,12 @@ try
 
     echo "Starting upgrade process\n";
     $core->con->begin();
+
     try {
         $changes = dcUpgrade::dotclearUpgrade($core);
     } catch (Exception $e) {
         $core->con->rollback();
+
         throw $e;
     }
     $core->con->commit();

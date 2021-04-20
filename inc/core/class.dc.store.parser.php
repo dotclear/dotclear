@@ -12,8 +12,9 @@
  *
  * @since 2.6
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcStoreParser
 {
@@ -44,8 +45,7 @@ class dcStoreParser
 
         $this->_parse();
 
-        unset($data);
-        unset($this->xml);
+        unset($data, $this->xml);
     }
 
     /**

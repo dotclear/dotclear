@@ -8,10 +8,11 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+if (!defined('DC_CONTEXT_ADMIN')) {
+    return;
+}
 
-if (!defined('DC_CONTEXT_ADMIN')) {return;}
-
-$tag = isset($_REQUEST['tag']) ? $_REQUEST['tag'] : '';
+$tag = $_REQUEST['tag'] ?? '';
 
 $this_url = $p_url . '&amp;m=tag_posts&amp;tag=' . rawurlencode($tag);
 
@@ -21,6 +22,7 @@ $nb_per_page = 30;
 # Rename a tag
 if (isset($_POST['new_tag_id'])) {
     $new_id = dcMeta::sanitizeMetaID($_POST['new_tag_id']);
+
     try {
         if ($core->meta->updateMeta($tag, $new_id, 'tag')) {
             dcPage::addSuccessNotice(__('Tag has been successfully renamed'));
@@ -51,6 +53,9 @@ $params['meta_type'] = 'tag';
 $params['post_type'] = '';
 
 # Get posts
+$posts     = null;
+$post_list = null;
+
 try {
     $posts     = $core->meta->getPostsByMeta($params);
     $counter   = $core->meta->getPostsByMeta($params, true);

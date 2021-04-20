@@ -11,8 +11,9 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!defined('DC_RC_PATH')) {return;}
+if (!defined('DC_RC_PATH')) {
+    return;
+}
 
 class dcTrackback
 {
@@ -27,7 +28,6 @@ class dcTrackback
     public function __construct($core)
     {
         $this->core  = &$core;
-        $this->con   = &$this->core->con;
         $this->table = $this->core->prefix . 'ping';
     }
 
@@ -45,7 +45,7 @@ class dcTrackback
         'FROM ' . $this->table . ' ' .
         'WHERE post_id = ' . (integer) $post_id;
 
-        return $this->con->select($strReq);
+        return $this->core->con->select($strReq);
     }
 
     /**
@@ -68,15 +68,17 @@ class dcTrackback
         # Check for previously done trackback
         $strReq = 'SELECT post_id, ping_url FROM ' . $this->table . ' ' .
         'WHERE post_id = ' . $post_id . ' ' .
-        "AND ping_url = '" . $this->con->escape($url) . "' ";
+        "AND ping_url = '" . $this->core->con->escape($url) . "' ";
 
-        $rs = $this->con->select($strReq);
+        $rs = $this->core->con->select($strReq);
 
         if (!$rs->isEmpty()) {
             throw new Exception(sprintf(__('%s has still been pinged'), $url));
         }
 
         $ping_parts = explode('|', $url);
+        $ping_msg   = '';
+
         # Maybe a webmention
         if (count($ping_parts) == 3) {
             $payload = http_build_query([
@@ -120,8 +122,7 @@ class dcTrackback
                 throw new Exception(__('Unable to ping URL'));
             }
 
-            $pattern =
-                '|<response>.*<error>(.*)</error>(.*)' .
+            $pattern = '|<response>.*<error>(.*)</error>(.*)' .
                 '(<message>(.*)</message>(.*))?' .
                 '</response>|msU';
 
@@ -148,15 +149,14 @@ class dcTrackback
 
         if ($ping_error != '0') {
             throw new Exception(sprintf(__('%s, ping error:'), $url) . ' ' . $ping_msg);
-        } else {
-            # Notify ping result in database
-            $cur           = $this->con->openCursor($this->table);
-            $cur->post_id  = $post_id;
-            $cur->ping_url = $url;
-            $cur->ping_dt  = date('Y-m-d H:i:s');
-
-            $cur->insert();
         }
+        # Notify ping result in database
+        $cur           = $this->core->con->openCursor($this->table);
+        $cur->post_id  = $post_id;
+        $cur->ping_url = $url;
+        $cur->ping_dt  = date('Y-m-d H:i:s');
+
+        $cur->insert();
     }
     //@}
 
@@ -177,7 +177,8 @@ class dcTrackback
                 "<response>\n" .
                 "  <error>1</error>\n" .
                 "  <message>POST request needed</message>\n" .
-                "</response>";
+                '</response>';
+
             return;
         }
 
@@ -259,8 +260,7 @@ class dcTrackback
             }
         }
 
-        $resp =
-        '<?xml version="1.0" encoding="utf-8"?>' . "\n" .
+        $resp = '<?xml version="1.0" encoding="utf-8"?>' . "\n" .
         "<response>\n" .
         '  <error>' . (integer) $err . "</error>\n";
 
@@ -269,8 +269,7 @@ class dcTrackback
         }
 
         if (!empty($_POST['__debug'])) {
-            $resp .=
-                "  <debug>\n" .
+            $resp .= "  <debug>\n" .
                 '    <title>' . $title . "</title>\n" .
                 '    <excerpt>' . $excerpt . "</excerpt>\n" .
                 '    <url>' . $url . "</url>\n" .
@@ -280,7 +279,7 @@ class dcTrackback
                 "  </debug>\n";
         }
 
-        echo $resp . "</response>";
+        echo $resp . '</response>';
     }
 
     /**
@@ -319,8 +318,9 @@ class dcTrackback
             $excerpt = '';
             foreach ($source as $line) {
                 if (strpos($line, $to_url) !== false) {
-                    if (preg_match("!<a[^>]+?" . $to_url . "[^>]*>([^>]+?)</a>!", $line, $m)) {
+                    if (preg_match('!<a[^>]+?' . $to_url . '[^>]*>([^>]+?)</a>!', $line, $m)) {
                         $excerpt = strip_tags($line);
+
                         break;
                     }
                 }
@@ -393,8 +393,9 @@ class dcTrackback
             $excerpt = '';
             foreach ($source as $line) {
                 if (strpos($line, $to_url) !== false) {
-                    if (preg_match("!<a[^>]+?" . $to_url . "[^>]*>([^>]+?)</a>!", $line, $m)) {
+                    if (preg_match('!<a[^>]+?' . $to_url . '[^>]*>([^>]+?)</a>!', $line, $m)) {
                         $excerpt = strip_tags($line);
+
                         break;
                     }
                 }
@@ -410,6 +411,7 @@ class dcTrackback
             # All done, thanks
             $code = $this->core->blog->settings->system->trackbacks_pub ? 200 : 202;
             http::head($code);
+
             return;
         } catch (Exception $e) {
             $err = $e->getMessage();
@@ -417,7 +419,6 @@ class dcTrackback
 
         http::head(400);
         echo $err ?: 'Something went wrong.';
-        return;
     }
 
     /**
@@ -460,8 +461,7 @@ class dcTrackback
             $blog_name = ($title ?: 'Anonymous blog');
         }
 
-        $comment =
-            "<!-- TB -->\n" .
+        $comment = "<!-- TB -->\n" .
             '<p><strong>' . ($title ?: $blog_name) . "</strong></p>\n" .
             '<p>' . $excerpt . '</p>';
 
@@ -492,7 +492,7 @@ class dcTrackback
      */
     private function delBacklink($post_id, $url)
     {
-        $this->con->execute(
+        $this->core->con->execute(
             'DELETE FROM ' . $this->core->prefix . 'comment ' .
             'WHERE post_id = ' . ((integer) $post_id) . ' ' .
             "AND comment_site = '" . $this->core->con->escape((string) $url) . "' " .
@@ -517,8 +517,6 @@ class dcTrackback
                 return $m[1];
             }
         }
-
-        return;
     }
 
     /**
@@ -555,11 +553,13 @@ class dcTrackback
         $url_part   = $m[1];
         $p_type     = '';
         $post_types = $this->core->getPostTypes();
+        $post_url   = '';
         foreach ($post_types as $k => $v) {
             $reg = '!^' . preg_quote(str_replace('%s', '', $v['public_url'])) . '(.*)!';
             if (preg_match($reg, $url_part, $n)) {
                 $p_type   = $k;
                 $post_url = $n[1];
+
                 break;
             }
         }
@@ -703,8 +703,7 @@ class dcTrackback
         }
 
         # Let's check for an elderly trackback data chunk...
-        $pattern_rdf =
-            '/<rdf:RDF.*?>.*?' .
+        $pattern_rdf = '/<rdf:RDF.*?>.*?' .
             '<rdf:Description\s+(.*?)\/>' .
             '.*?<\/rdf:RDF>' .
             '/msi';
@@ -716,8 +715,7 @@ class dcTrackback
 
         for ($i = 0; $i < count($rdf_all); $i++) {
             $rdf = $rdf_all[$i][1];
-            if (preg_match('/dc:identifier="' . preg_quote($url, '/') . '"/msi', $rdf) ||
-                preg_match('/dc:identifier="' . preg_quote($sanitized_url, '/') . '"/msi', $rdf)) {
+            if (preg_match('/dc:identifier="' . preg_quote($url, '/') . '"/msi', $rdf) || preg_match('/dc:identifier="' . preg_quote($sanitized_url, '/') . '"/msi', $rdf)) {
                 if (preg_match('/trackback:ping="(.*?)"/msi', $rdf, $tb_link)) {
                     return $tb_link[1];
                 }
@@ -770,8 +768,6 @@ class dcTrackback
         if ($wm_api) {
             return $wm_api . '|' . $url . '|webmention';
         }
-
-        return;
     }
     //@}
 
