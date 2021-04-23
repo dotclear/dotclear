@@ -36,10 +36,10 @@ class dcUpdate
     /**
      * Constructor
      *
-     * @param url            string    Versions file URL
-     * @param subject        string    Subject to check
-     * @param version        string    Version type
-     * @param cache_dir     string    Directory cache path
+     * @param string $url           Versions file URL
+     * @param string $subject       Subject to check
+     * @param string $version       Version type
+     * @param string $cache_dir     Directory cache path
      */
     public function __construct($url, $subject, $version, $cache_dir)
     {
@@ -53,9 +53,10 @@ class dcUpdate
      * Checks for Dotclear updates.
      * Returns latest version if available or false.
      *
-     * @param version        string    Current version to compare
-     * @param nocache        boolean   Force checking
-     * @return string                Latest version if available
+     * @param   string  $version    Current version to compare
+     * @param   boolean $nocache    Force checking
+     *
+     * @return  string  Latest version if available
      */
     public function check($version, $nocache = false)
     {
@@ -201,7 +202,7 @@ class dcUpdate
 
         if (!empty($changes)) {
             $e            = new Exception('Some files have changed.', self::ERR_FILES_CHANGED);
-            $e->bad_files = $changes;
+            $e->bad_files = $changes;   // @phpstan-ignore-line
 
             throw $e;
         }
@@ -339,7 +340,7 @@ class dcUpdate
         # If only one file is not readable, stop everything now
         if (!empty($not_readable)) {
             $e            = new Exception('Some files are not readable.', self::ERR_FILES_UNREADABLE);
-            $e->bad_files = $not_readable;
+            $e->bad_files = $not_readable;  // @phpstan-ignore-line
 
             throw $e;
         }
@@ -412,7 +413,7 @@ class dcUpdate
         # If only one file is not writable, stop everything now
         if (!empty($not_writable)) {
             $e            = new Exception('Some files are not writable', self::ERR_FILES_UNWRITALBE);
-            $e->bad_files = $not_writable;
+            $e->bad_files = $not_writable;  // @phpstan-ignore-line
 
             throw $e;
         }

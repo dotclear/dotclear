@@ -53,10 +53,10 @@ class adminModulesList
      *
      * Note that this creates dcStore instance.
      *
-     * @param    object    $modules        dcModules instance
-     * @param    string    $modules_root   Modules root directories
-     * @param    string    $xml_url        URL of modules feed from repository
-     * @param    boolean   $force          Force query repository
+     * @param    dcModules    $modules        dcModules instance
+     * @param    string       $modules_root   Modules root directories
+     * @param    string       $xml_url        URL of modules feed from repository
+     * @param    boolean      $force          Force query repository
      */
     public function __construct(dcModules $modules, $modules_root, $xml_url, $force = false)
     {
@@ -74,6 +74,7 @@ class adminModulesList
      * Begin a new list.
      *
      * @param    string    $id        New list ID
+     *
      * @return    adminModulesList self instance
      */
     public function setList($id)
@@ -101,6 +102,7 @@ class adminModulesList
      * Set path info.
      *
      * @param    string    $root        Modules root directories
+     *
      * @return    adminModulesList self instance
      */
     protected function setPath($root)
@@ -121,7 +123,7 @@ class adminModulesList
     /**
      * Get modules root directory.
      *
-     * @return    Path to work on
+     * @return    string    directory to work on
      */
     public function getPath()
     {
@@ -131,7 +133,7 @@ class adminModulesList
     /**
      * Check if modules root directory is writable.
      *
-     * @return    True if directory is writable
+     * @return    bool  True if directory is writable
      */
     public function isWritablePath()
     {
@@ -142,7 +144,8 @@ class adminModulesList
      * Check if root directory of a module is deletable.
      *
      * @param    string    $root        Module root directory
-     * @return    True if directory is delatable
+     *
+     * @return    bool  True if directory is delatable
      */
     public function isDeletablePath($root)
     {
@@ -158,6 +161,7 @@ class adminModulesList
      * Set page base URL.
      *
      * @param    string    $url        Page base URL
+     *
      * @return    adminModulesList self instance
      */
     public function setURL($url)
@@ -172,8 +176,9 @@ class adminModulesList
      * Get page URL.
      *
      * @param    string|array    $queries    Additionnal query string
-     * @param    booleany    $with_tab        Add current tab to URL end
-     * @return    Clean page URL
+     * @param    bool    $with_tab        Add current tab to URL end
+     *
+     * @return   string Clean page URL
      */
     public function getURL($queries = '', $with_tab = true)
     {
@@ -187,6 +192,7 @@ class adminModulesList
      * Set page tab.
      *
      * @param    string    $tab        Page tab
+     *
      * @return    adminModulesList self instance
      */
     public function setTab($tab)
@@ -199,7 +205,7 @@ class adminModulesList
     /**
      * Get page tab.
      *
-     * @return    Page tab
+     * @return  string  Page tab
      */
     public function getTab()
     {
@@ -210,6 +216,7 @@ class adminModulesList
      * Set page redirection.
      *
      * @param    string    $default        Default redirection
+     *
      * @return    adminModulesList self instance
      */
     public function setRedir($default = '')
@@ -222,7 +229,7 @@ class adminModulesList
     /**
      * Get page redirection.
      *
-     * @return    Page redirection
+     * @return  string  Page redirection
      */
     public function getRedir()
     {
@@ -235,7 +242,7 @@ class adminModulesList
     /**
      * Get search query.
      *
-     * @return    Search query
+     * @return  mixed  Search query
      */
     public function getSearch()
     {
@@ -308,7 +315,7 @@ class adminModulesList
     /**
      * Get index from query.
      *
-     * @return    Query index or default one
+     * @return  mixed  Query index or default one
      */
     public function getIndex()
     {
@@ -383,7 +390,7 @@ class adminModulesList
     /**
      * Get sort field from query.
      *
-     * @return    Query sort field or default one
+     * @return    string    Query sort field or default one
      */
     public function getSort()
     {
@@ -394,6 +401,7 @@ class adminModulesList
      * Display sort field form.
      *
      * @note    This method is not implemented yet
+     *
      * @return    adminModulesList self instance
      */
     public function displaySort()
@@ -426,7 +434,7 @@ class adminModulesList
     /**
      * Get modules currently set.
      *
-     * @return    Array of modules
+     * @return    array        Array of modules
      */
     public function getModules()
     {
@@ -440,7 +448,7 @@ class adminModulesList
      * and clean some of them, sanitize module can safely
      * be used in lists.
      *
-     * @return    Array of the module informations
+     * @return   array  Array of the module informations
      */
     public static function sanitizeModule($id, $module)
     {
@@ -487,7 +495,8 @@ class adminModulesList
      * Check if a module is part of the distribution.
      *
      * @param    string    $id        Module root directory
-     * @return    True if module is part of the distribution
+     *
+     * @return   bool  True if module is part of the distribution
      */
     public static function isDistributedModule($id)
     {
@@ -499,10 +508,11 @@ class adminModulesList
     /**
      * Sort modules list by specific field.
      *
-     * @param    string    $module        Array of modules
+     * @param    string    $modules      Array of modules
      * @param    string    $field        Field to sort from
-     * @param    bollean    $asc        Sort asc if true, else decs
-     * @return    Array of sorted modules
+     * @param    bool      $asc          Sort asc if true, else decs
+     *
+     * @return   array  Array of sorted modules
      */
     public static function sortModules($modules, $field, $asc = true)
     {
@@ -528,6 +538,7 @@ class adminModulesList
      * @param    array    $cols        List of colones (module field) to display
      * @param    array    $actions    List of predefined actions to show on form
      * @param    boolean    $nav_limit    Limit list to previously selected index
+     *
      * @return    adminModulesList self instance
      */
     public function displayModules($cols = ['name', 'version', 'desc'], $actions = [], $nav_limit = false)
@@ -819,7 +830,8 @@ class adminModulesList
      * @param string $id module ID
      * @param boolean $check check permission
      * @param boolean $self include self URL (→ plugin index.php URL)
-     * @return Array of settings URLs
+     *
+     * @return array    Array of settings URLs
      */
     public static function getSettingsUrls($core, $id, $check = false, $self = true)
     {
@@ -906,7 +918,8 @@ class adminModulesList
      * @param    string    $id            Module ID
      * @param    array    $module        Module info
      * @param    array    $actions    Actions keys
-     * @return    Array of actions buttons
+     *
+     * @return   array    Array of actions buttons
      */
     protected function getActions($id, $module, $actions)
     {
@@ -917,47 +930,53 @@ class adminModulesList
             switch ($action) {
 
                 # Deactivate
-                case 'activate': if ($this->core->auth->isSuperAdmin() && $module['root_writable'] && !isset($module['cannot_enable'])) {
-                    $submits[] = '<input type="submit" name="activate[' . html::escapeHTML($id) . ']" value="' . __('Activate') . '" />';
-                }
+                case 'activate':
+                    if ($this->core->auth->isSuperAdmin() && $module['root_writable'] && !isset($module['cannot_enable'])) {
+                        $submits[] = '<input type="submit" name="activate[' . html::escapeHTML($id) . ']" value="' . __('Activate') . '" />';
+                    }
 
-break;
+                    break;
 
                 # Activate
-                case 'deactivate': if ($this->core->auth->isSuperAdmin() && $module['root_writable'] && !isset($module['cannot_disable'])) {
-                    $submits[] = '<input type="submit" name="deactivate[' . html::escapeHTML($id) . ']" value="' . __('Deactivate') . '" class="reset" />';
-                }
+                case 'deactivate':
+                    if ($this->core->auth->isSuperAdmin() && $module['root_writable'] && !isset($module['cannot_disable'])) {
+                        $submits[] = '<input type="submit" name="deactivate[' . html::escapeHTML($id) . ']" value="' . __('Deactivate') . '" class="reset" />';
+                    }
 
-break;
+                    break;
 
                 # Delete
-                case 'delete': if ($this->core->auth->isSuperAdmin() && $this->isDeletablePath($module['root']) && !isset($module['cannot_disable'])) {
-                    $dev       = !preg_match('!^' . $this->path_pattern . '!', $module['root']) && defined('DC_DEV') && DC_DEV ? ' debug' : '';
-                    $submits[] = '<input type="submit" class="delete ' . $dev . '" name="delete[' . html::escapeHTML($id) . ']" value="' . __('Delete') . '" />';
-                }
+                case 'delete':
+                    if ($this->core->auth->isSuperAdmin() && $this->isDeletablePath($module['root']) && !isset($module['cannot_disable'])) {
+                        $dev       = !preg_match('!^' . $this->path_pattern . '!', $module['root']) && defined('DC_DEV') && DC_DEV ? ' debug' : '';
+                        $submits[] = '<input type="submit" class="delete ' . $dev . '" name="delete[' . html::escapeHTML($id) . ']" value="' . __('Delete') . '" />';
+                    }
 
-break;
+                    break;
 
                 # Clone
-                case 'clone': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                    $submits[] = '<input type="submit" class="button clone" name="clone[' . html::escapeHTML($id) . ']" value="' . __('Clone') . '" />';
-                }
+                case 'clone':
+                    if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
+                        $submits[] = '<input type="submit" class="button clone" name="clone[' . html::escapeHTML($id) . ']" value="' . __('Clone') . '" />';
+                    }
 
-break;
+                    break;
 
                 # Install (from store)
-                case 'install': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                    $submits[] = '<input type="submit" name="install[' . html::escapeHTML($id) . ']" value="' . __('Install') . '" />';
-                }
+                case 'install':
+                    if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
+                        $submits[] = '<input type="submit" name="install[' . html::escapeHTML($id) . ']" value="' . __('Install') . '" />';
+                    }
 
-break;
+                    break;
 
                 # Update (from store)
-                case 'update': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                    $submits[] = '<input type="submit" name="update[' . html::escapeHTML($id) . ']" value="' . __('Update') . '" />';
-                }
+                case 'update':
+                    if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
+                        $submits[] = '<input type="submit" name="update[' . html::escapeHTML($id) . ']" value="' . __('Update') . '" />';
+                    }
 
-break;
+                    break;
 
                 # Behavior
                 case 'behavior':
@@ -981,7 +1000,8 @@ break;
      *
      * @param    array    $actions          Actions keys
      * @param boolean   $with_selection Limit action to selected modules
-     * @return    Array of actions buttons
+     *
+     * @return  array  Array of actions buttons
      */
     protected function getGlobalActions($actions, $with_selection = false)
     {
@@ -992,34 +1012,37 @@ break;
             switch ($action) {
 
                 # Deactivate
-                case 'activate': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                    $submits[] = '<input type="submit" name="activate" value="' . ($with_selection ?
+                case 'activate':
+                    if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
+                        $submits[] = '<input type="submit" name="activate" value="' . ($with_selection ?
                             __('Activate selected plugins') :
                             __('Activate all plugins from this list')
                         ) . '" />';
-                }
+                    }
 
-break;
+                    break;
 
                 # Activate
-                case 'deactivate': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                    $submits[] = '<input type="submit" name="deactivate" value="' . ($with_selection ?
+                case 'deactivate':
+                    if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
+                        $submits[] = '<input type="submit" name="deactivate" value="' . ($with_selection ?
                             __('Deactivate selected plugins') :
                             __('Deactivate all plugins from this list')
                         ) . '" />';
-                }
+                    }
 
-break;
+                    break;
 
                 # Update (from store)
-                case 'update': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                    $submits[] = '<input type="submit" name="update" value="' . ($with_selection ?
+                case 'update':
+                    if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
+                        $submits[] = '<input type="submit" name="update" value="' . ($with_selection ?
                             __('Update selected plugins') :
                             __('Update all plugins from this list')
                         ) . '" />';
-                }
+                    }
 
-break;
+                    break;
 
                 # Behavior
                 case 'behavior':
@@ -1042,8 +1065,8 @@ break;
      * Execute POST action.
      *
      * @note    Set a notice on success through dcPage::addSuccessNotice
-     * @throw    Exception    Module not find or command failed
-     * @return    Null
+     *
+     * @throws    Exception    Module not find or command failed
      */
     public function doActions()
     {
@@ -1363,7 +1386,8 @@ break;
      * $xxx->displayConfiguration();
      *
      * @param    string    $id        Module to work on or it gather through REQUEST
-     * @return    True if config set
+     *
+     * @return   bool  True if config set
      */
     public function setConfiguration($id = null)
     {
@@ -1406,7 +1430,8 @@ break;
      * Get path of module configuration file.
      *
      * @note Required previously set file info
-     * @return Full path of config file or null
+     *
+     * @return mixed    Full path of config file or null
      */
     public function includeConfiguration()
     {
@@ -1424,7 +1449,8 @@ break;
      * Gather module configuration file content.
      *
      * @note Required previously file inclusion
-     * @return True if content has been captured
+     *
+     * @return bool     True if content has been captured
      */
     public function getConfiguration()
     {
@@ -1441,6 +1467,7 @@ break;
      * Display module configuration form.
      *
      * @note Required previously gathered content
+     *
      * @return    adminModulesList self instance
      */
     public function displayConfiguration()
@@ -1475,7 +1502,8 @@ break;
      * Used for search or id.
      *
      * @param    string    $str        String to sanitize
-     * @return    Sanitized string
+     *
+     * @return   string     Sanitized string
      */
     public static function sanitizeString($str)
     {
@@ -1495,10 +1523,10 @@ class adminThemesList extends adminModulesList
      *
      * Note that this creates dcStore instance.
      *
-     * @param    object    $modules        dcModules instance
-     * @param    string    $modules_root   Modules root directories
-     * @param    string    $xml_url        URL of modules feed from repository
-     * @param    boolean   $force          Force query repository
+     * @param    dcModules    $modules        dcModules instance
+     * @param    string       $modules_root   Modules root directories
+     * @param    string       $xml_url        URL of modules feed from repository
+     * @param    boolean      $force          Force query repository
      */
     public function __construct(dcModules $modules, $modules_root, $xml_url, $force = false)
     {
@@ -1506,6 +1534,13 @@ class adminThemesList extends adminModulesList
         $this->page_url = $this->core->adminurl->get('admin.blog.theme');
     }
 
+    /**
+     * Display themes list
+     *
+     * @param      array  $cols       The cols
+     * @param      array  $actions    The actions
+     * @param      bool   $nav_limit  The navigation limit
+     */
     public function displayModules($cols = ['name', 'config', 'version', 'desc'], $actions = [], $nav_limit = false)
     {
         echo
@@ -1705,6 +1740,15 @@ class adminThemesList extends adminModulesList
         return $this;
     }
 
+    /**
+     * Gets the actions.
+     *
+     * @param      string  $id       The identifier
+     * @param      array   $module   The module
+     * @param      array   $actions  The actions
+     *
+     * @return     array  The actions.
+     */
     protected function getActions($id, $module, $actions)
     {
         $submits = [];
@@ -1724,6 +1768,14 @@ class adminThemesList extends adminModulesList
         );
     }
 
+    /**
+     * Gets the global actions.
+     *
+     * @param      array   $actions         The actions
+     * @param      bool    $with_selection  The with selection
+     *
+     * @return     array   The global actions.
+     */
     protected function getGlobalActions($actions, $with_selection = false)
     {
         $submits = [];
@@ -1732,14 +1784,16 @@ class adminThemesList extends adminModulesList
             switch ($action) {
 
                 # Update (from store)
-                case 'update': if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                    $submits[] = '<input type="submit" name="update" value="' . ($with_selection ?
+                case 'update':
+
+                    if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
+                        $submits[] = '<input type="submit" name="update" value="' . ($with_selection ?
                             __('Update selected themes') :
                             __('Update all themes from this list')
                         ) . '" />' . $this->core->formNonce();
-                }
+                    }
 
-break;
+                    break;
 
                 # Behavior
                 case 'behavior':
@@ -1758,6 +1812,11 @@ break;
         return $submits;
     }
 
+    /**
+     * Does actions.
+     *
+     * @throws     Exception
+     */
     public function doActions()
     {
         if (empty($_POST) || !empty($_REQUEST['conf'])) {

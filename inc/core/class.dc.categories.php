@@ -24,7 +24,12 @@ class dcCategories extends nestedTree
     protected $core;
     protected $blog_id;
 
-    public function __construct($core)
+    /**
+     * Constructs a new instance.
+     *
+     * @param      dcCore  $core   The core
+     */
+    public function __construct(dcCore $core)
     {
         $this->core          = &$core;
         $this->con           = &$core->con;
@@ -33,6 +38,16 @@ class dcCategories extends nestedTree
         $this->add_condition = ['blog_id' => "'" . $this->con->escape($this->blog_id) . "'"];
     }
 
+    /**
+     * Gets the category children.
+     *
+     * @param      int     $start   The start
+     * @param      mixed   $id      The identifier
+     * @param      string  $sort    The sort
+     * @param      array   $fields  The fields
+     *
+     * @return     record  The children.
+     */
     public function getChildren($start = 0, $id = null, $sort = 'asc', $fields = [])
     {
         $fields = array_merge(['cat_title', 'cat_url', 'cat_desc'], $fields);
@@ -40,6 +55,14 @@ class dcCategories extends nestedTree
         return parent::getChildren($start, $id, $sort, $fields);
     }
 
+    /**
+     * Gets the parents.
+     *
+     * @param      int     $id      The category identifier
+     * @param      array   $fields  The fields
+     *
+     * @return     record  The parents.
+     */
     public function getParents($id, $fields = [])
     {
         $fields = array_merge(['cat_title', 'cat_url', 'cat_desc'], $fields);
@@ -47,6 +70,14 @@ class dcCategories extends nestedTree
         return parent::getParents($id, $fields);
     }
 
+    /**
+     * Gets the parent.
+     *
+     * @param      integer  $id      The category identifier
+     * @param      array    $fields  The fields
+     *
+     * @return     record  The parent.
+     */
     public function getParent($id, $fields = [])
     {
         $fields = array_merge(['cat_title', 'cat_url', 'cat_desc'], $fields);
@@ -68,11 +99,26 @@ abstract class nestedTree
 
     protected $parents;
 
+    /**
+     * Constructs a new instance.
+     *
+     * @param      mixed  $con    The con
+     */
     public function __construct($con)
     {
         $this->con = &$con;
     }
 
+    /**
+     * Gets the children.
+     *
+     * @param      mixed         $start   The start
+     * @param      mixed         $id      The identifier
+     * @param      string        $sort    The sort
+     * @param      array         $fields  The fields
+     *
+     * @return     record        The children.
+     */
     public function getChildren($start = 0, $id = null, $sort = 'asc', $fields = [])
     {
         $fields = count($fields) > 0 ? ', C2.' . implode(', C2.', $fields) : '';
@@ -105,6 +151,14 @@ abstract class nestedTree
         return $this->con->select($sql);
     }
 
+    /**
+     * Gets the parents.
+     *
+     * @param      mixed         $id      The identifier
+     * @param      array         $fields  The fields
+     *
+     * @return     record        The parents.
+     */
     public function getParents($id, $fields = [])
     {
         $fields = count($fields) > 0 ? ', C1.' . implode(', C1.', $fields) : '';
@@ -121,6 +175,14 @@ abstract class nestedTree
         );
     }
 
+    /**
+     * Gets the parent.
+     *
+     * @param      mixed        $id      The identifier
+     * @param      array        $fields  The fields
+     *
+     * @return     record        The parent.
+     */
     public function getParent($id, $fields = [])
     {
         $fields = count($fields) > 0 ? ', C1.' . implode(', C1.', $fields) : '';
@@ -141,6 +203,16 @@ abstract class nestedTree
     /* ------------------------------------------------
      * Tree manipulations
      * ---------------------------------------------- */
+    /**
+     * Adds a node.
+     *
+     * @param      mixed      $data    The data
+     * @param      int        $target  The target
+     *
+     * @throws     Exception
+     *
+     * @return     mixed
+     */
     public function addNode($data, $target = 0)
     {
         if (!is_array($data) && !($data instanceof cursor)) {
@@ -190,6 +262,13 @@ abstract class nestedTree
         }
     }
 
+    /**
+     * Update position
+     *
+     * @param      mixed  $id     The identifier
+     * @param      mixed  $left   The left
+     * @param      mixed  $right  The right
+     */
     public function updatePosition($id, $left, $right)
     {
         $node_left  = (integer) $left;
@@ -213,6 +292,14 @@ abstract class nestedTree
         }
     }
 
+    /**
+     * Delete a node
+     *
+     * @param      mixed      $node           The node
+     * @param      bool       $keep_children  keep children
+     *
+     * @throws     Exception
+     */
     public function deleteNode($node, $keep_children = true)
     {
         $node = (integer) $node;
@@ -276,6 +363,9 @@ abstract class nestedTree
         }
     }
 
+    /**
+     * Reset order
+     */
     public function resetOrder()
     {
         $rs = $this->con->select(
@@ -306,6 +396,14 @@ abstract class nestedTree
         }
     }
 
+    /**
+     * Sets the node parent.
+     *
+     * @param      mixed        $node    The node
+     * @param      mixed        $target  The target
+     *
+     * @throws     Exception
+     */
     public function setNodeParent($node, $target = 0)
     {
         if ($node == $target) {
@@ -403,6 +501,15 @@ abstract class nestedTree
         $this->con->execute($sql);
     }
 
+    /**
+     * Sets the node position.
+     *
+     * @param      mixed     $nodeA     The node a
+     * @param      mixed     $nodeB     The node b
+     * @param      string    $position  The position
+     *
+     * @throws     Exception
+     */
     public function setNodePosition($nodeA, $nodeB, $position = 'after')
     {
         $nodeA = (integer) $nodeA;
@@ -475,6 +582,14 @@ abstract class nestedTree
         $this->con->execute($sql);
     }
 
+    /**
+     * Gets the condition.
+     *
+     * @param      string  $start   The start
+     * @param      string  $prefix  The prefix
+     *
+     * @return     string  The condition.
+     */
     protected function getCondition($start = 'AND', $prefix = '')
     {
         if (empty($this->add_condition)) {

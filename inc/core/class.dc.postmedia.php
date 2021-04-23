@@ -17,11 +17,11 @@ class dcPostMedia
     protected $table; ///< <b>string</b> Post-Media table name
 
     /**
-    Object constructor.
-
-    @param    core        <b>dcCore</b>        dcCore instance
+     * Constructs a new instance.
+     *
+     * @param      dcCore  $core   The core
      */
-    public function __construct($core)
+    public function __construct(dcCore $core)
     {
         $this->core  = &$core;
         $this->con   = &$core->con;
@@ -29,12 +29,11 @@ class dcPostMedia
     }
 
     /**
-    Returns media items attached to a blog post. Result is an array containing
-    fileItems objects.
-
-    @param    post_id    <b>integer</b>        Post ID
-    @param    media_id    <b>integer</b>        Optionnal media ID
-    @return    <b>array</b> Array of fileItems
+     * Returns media items attached to a blog post.
+     *
+     * @param      array   $params  The parameters
+     *
+     * @return     record  The post media.
      */
     public function getPostMedia($params = [])
     {
@@ -80,11 +79,11 @@ class dcPostMedia
     }
 
     /**
-    Attaches a media to a post.
-
-    @param    post_id        <b>integer</b>        Post ID
-    @param    media_id    <b>integer</b>        Optionnal media ID
-    @param    link_type    <b>string</b>        Optionnal link type (default: attachment)
+     * Attaches a media to a post.
+     *
+     * @param      mixed   $post_id    The post identifier
+     * @param      mixed   $media_id   The media identifier
+     * @param      string  $link_type  The link type (default: attachment)
      */
     public function addPostMedia($post_id, $media_id, $link_type = 'attachment')
     {
@@ -107,11 +106,11 @@ class dcPostMedia
     }
 
     /**
-    Detaches a media from a post.
-
-    @param    post_id        <b>integer</b>        Post ID
-    @param    media_id    <b>integer</b>        Optionnal media ID
-    @param    link_type    <b>string</b>        Optionnal link type
+     * Detaches a media from a post.
+     *
+     * @param      mixed   $post_id    The post identifier
+     * @param      mixed   $media_id   The media identifier
+     * @param      mixed   $link_type  The link type
      */
     public function removePostMedia($post_id, $media_id, $link_type = null)
     {

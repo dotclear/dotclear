@@ -274,7 +274,7 @@ class context
     public static function PaginationPosition($offset = 0)
     {
         if (isset($GLOBALS['_page_number'])) {
-            $p = $GLOBALS['_page_number'];
+            $p = (integer) $GLOBALS['_page_number'];
         } else {
             $p = 1;
         }

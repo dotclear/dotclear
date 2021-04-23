@@ -208,7 +208,7 @@ class dcFilterIP extends dcSpamFilter
                 $mask = -1;
             }
         } else {
-            $mask = ~((1 << (32 - $bits[1])) - 1);
+            $mask = ~((1 << (32 - (integer) $bits[1])) - 1);
         }
     }
 

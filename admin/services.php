@@ -5,6 +5,8 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
+ *
+ * @var dcCore $core
  */
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
@@ -34,8 +36,8 @@ class dcRestMethods
     /**
      * Serve method to get number of posts (whatever are their status) for current blog.
      *
-     * @param     core     <b>dcCore</b>     dcCore instance
-     * @param     get     <b>array</b>     cleaned $_GET
+     * @param     dcCore  $core     dcCore instance
+     * @param     array   $get     cleaned $_GET
      */
     public static function getPostsCount($core, $get)
     {
@@ -51,8 +53,8 @@ class dcRestMethods
     /**
      * Serve method to get number of comments (whatever are their status) for current blog.
      *
-     * @param     core     <b>dcCore</b>     dcCore instance
-     * @param     get     <b>array</b>     cleaned $_GET
+     * @param     dcCore  $core     dcCore instance
+     * @param     array   $get     cleaned $_GET
      */
     public static function getCommentsCount($core, $get)
     {
@@ -87,7 +89,9 @@ class dcRestMethods
                     $ret = '<div class="box medium dc-box" id="ajax-news"><h3>' . __('Dotclear news') . '</h3><dl id="news">';
                     $i   = 1;
                     foreach ($feed->items as $item) {
+                        /* @phpstan-ignore-next-line */
                         $dt = isset($item->link) ? '<a href="' . $item->link . '" class="outgoing" title="' . $item->title . '">' .
+                        /* @phpstan-ignore-next-line */
                         $item->title . ' <img src="images/outgoing-link.svg" alt="" /></a>' : $item->title;
 
                         if ($i < 3) {

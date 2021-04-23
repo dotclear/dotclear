@@ -21,11 +21,11 @@ class dcTrackback
     public $table; ///< <b>string</b> done pings table name
 
     /**
-    Object constructor
-
-    @param    core        <b>dcCore</b>        dcCore instance
+     * Object constructor
+     *
+     * @param    dcCore $core  dcCore instance
      */
-    public function __construct($core)
+    public function __construct(dcCore $core)
     {
         $this->core  = &$core;
         $this->table = $this->core->prefix . 'ping';
@@ -34,10 +34,11 @@ class dcTrackback
     /// @name Send
     //@{
     /**
-    Get all pings sent for a given post.
-
-    @param    post_id    <b>integer</b>        Post ID
-    @return    <b>record</b>
+     * Get all pings sent for a given post.
+     *
+     * @param      integer  $post_id  The post identifier
+     *
+     * @return     record   The post pings.
      */
     public function getPostPings($post_id)
     {
@@ -49,13 +50,17 @@ class dcTrackback
     }
 
     /**
-    Sends a ping to given <var>$url</var>.
-
-    @param    url            <b>string</b>        URL to ping
-    @param    post_id        <b>integer</b>        Post ID
-    @param    post_title    <b>string</b>        Post title
-    @param    post_excerpt    <b>string</b>        Post excerpt
-    @param    post_url        <b>string</b>        Post URL
+     * Sends a ping to given <var>$url</var>.
+     *
+     * @param      string     $url           The url
+     * @param      string     $post_id       The post identifier
+     * @param      string     $post_title    The post title
+     * @param      string     $post_excerpt  The post excerpt
+     * @param      string     $post_url      The post url
+     *
+     * @throws     Exception
+     *
+     * @return     mixed    false if error
      */
     public function ping($url, $post_id, $post_title, $post_excerpt, $post_url)
     {
@@ -163,9 +168,9 @@ class dcTrackback
     /// @name Receive
     //@{
     /**
-    Receives a trackback and insert it as a comment of given post.
-
-    @param    post_id        <b>integer</b>        Post ID
+     * Receives a trackback and insert it as a comment of given post.
+     *
+     * @param      integer  $post_id  The post identifier
      */
     public function receiveTrackback($post_id)
     {
@@ -283,10 +288,14 @@ class dcTrackback
     }
 
     /**
-    Receives a pingback and insert it as a comment of given post.
-
-    @param    from_url        <b>string</b>        Source URL
-    @param    to_url            <b>string</b>        Target URL
+     * Receives a pingback and insert it as a comment of given post.
+     *
+     * @param      string     $from_url  Source URL
+     * @param      string     $to_url    Target URL
+     *
+     * @throws     Exception
+     *
+     * @return     string
      */
     public function receivePingback($from_url, $to_url)
     {
@@ -340,11 +349,11 @@ class dcTrackback
     }
 
     /**
-    Receives a webmention and insert it as a comment of given post.
-
-    NB: plugin Fair Trackback check source content to find url.
-
-    @return    <b>null</b>    Null on success, else throw an exception
+     * Receives a webmention and insert it as a comment of given post.
+     *
+     * NB: plugin Fair Trackback check source content to find url.
+     *
+     * @throws     Exception
      */
     public function receiveWebmention()
     {
@@ -422,11 +431,12 @@ class dcTrackback
     }
 
     /**
-    Check if a post previously received a ping a from an URL.
-
-    @param    post_id    <b>integer</b>        Post ID
-    @param    from_url    <b>string</b>        Source URL
-    @return    <b>boolean</b>
+     * Check if a post previously received a ping a from an URL.
+     *
+     * @param      integer  $post_id   The post identifier
+     * @param      string   $from_url  The from url
+     *
+     * @return     bool
      */
     private function pingAlreadyDone($post_id, $from_url)
     {
@@ -445,14 +455,14 @@ class dcTrackback
     }
 
     /**
-    Create a comment marked as trackback for a given post.
-
-    @param    post_id    <b>integer</b>        Post ID
-    @param    url        <b>string</b>        Discovered URL
-    @param    blog name    <b>string</b>        Source blog name
-    @param    title    <b>string</b>        Comment title
-    @param    excerpt    <b>string</b>        Source excerpt
-    @param    comment    <b>string</b>        Comment content
+     * Create a comment marked as trackback for a given post.
+     *
+     * @param      integer  $post_id    The post identifier
+     * @param      string   $url        The url
+     * @param      string   $blog_name  The blog name
+     * @param      string   $title      The title
+     * @param      string   $excerpt    The excerpt
+     * @param      string   $comment    The comment
      */
     private function addBacklink($post_id, $url, $blog_name, $title, $excerpt, &$comment)
     {
@@ -485,10 +495,10 @@ class dcTrackback
     }
 
     /**
-    Delete previously received comment made from an URL for a given post.
-
-    @param    post_id    <b>integer</b>        Post ID
-    @param    url        <b>string</b>        Source URL
+     * Delete previously received comment made from an URL for a given post.
+     *
+     * @param      integer  $post_id  The post identifier
+     * @param      string   $url      The url
      */
     private function delBacklink($post_id, $url)
     {
@@ -501,10 +511,11 @@ class dcTrackback
     }
 
     /**
-    Find Charset from HTTP headers.
-
-    @param    header    <b>string</b>        Source header
-    @return    <b>string</b>
+     * Gets the charset from HTTP headers.
+     *
+     * @param      string  $header  The header
+     *
+     * @return     mixed   The charset from request.
      */
     private static function getCharsetFromRequest($header = '')
     {
@@ -520,10 +531,11 @@ class dcTrackback
     }
 
     /**
-    Detect encoding.
-
-    @param    content        <b>string</b>        Source URL
-    @return    <b>string</b>
+     * Detect encoding.
+     *
+     * @param      string  $content  The content
+     *
+     * @return     string
      */
     private static function detectCharset($content)
     {
@@ -534,10 +546,13 @@ class dcTrackback
     }
 
     /**
-    Retreive local post from a given URL
-
-    @param    to_url        <b>string</b>        Target URL
-    @return    <b>string</b>
+     * Retrieve local post from a given URL.
+     *
+     * @param      string     $to_url  To url
+     *
+     * @throws     Exception
+     *
+     * @return     mixed     The target post.
      */
     private function getTargetPost($to_url)
     {
@@ -589,10 +604,13 @@ class dcTrackback
     }
 
     /**
-    Returns content of a distant page
-
-    @param    from_url        <b>string</b>        Target URL
-    @return    <b>string</b>
+     * Returns content of a distant page.
+     *
+     * @param      string     $from_url  Target URL
+     *
+     * @throws     Exception
+     *
+     * @return     string
      */
     private function getRemoteContent($from_url)
     {
@@ -629,11 +647,11 @@ class dcTrackback
     /// @name Discover
     //@{
     /**
-    Returns an array containing all discovered trackbacks URLs in
-    <var>$text</var>.
-
-    @param    text        <b>string</b>        Input text
-    @return    <b>array</b>
+     * Returns an array containing all discovered trackbacks URLs in <var>$text</var>.
+     *
+     * @param      string  $text   The text
+     *
+     * @return     array
      */
     public function discover($text)
     {
@@ -649,10 +667,11 @@ class dcTrackback
     }
 
     /**
-    Find links into a text.
-
-    @param    text        <b>string</b>        Text to scan
-    @return    <b>array</b>
+     * Find links into a text.
+     *
+     * @param      string  $text   The text
+     *
+     * @return     array  The text links.
      */
     private function getTextLinks($text)
     {
@@ -681,10 +700,11 @@ class dcTrackback
     }
 
     /**
-    Check remote header/content to find api trace.
-
-    @param    url        <b>string</b>        URL to scan
-    @return    <b>string</b>
+     * Check remote header/content to find API trace.
+     *
+     * @param      string  $url    The url
+     *
+     * @return     mixed   The ping url.
      */
     private function getPingURL($url)
     {
@@ -772,11 +792,12 @@ class dcTrackback
     //@}
 
     /**
-    HTTP helper.
-
-    @param    url        <b>string</b>        URL
-    @param    path        <b>string</b>        Path
-    @return    <b>object</b>
+     * HTTP helper.
+     *
+     * @param      string  $url    The url
+     * @param      string  $path   The path
+     *
+     * @return     netHttp
      */
     private static function initHttp($url, &$path)
     {
@@ -790,10 +811,12 @@ class dcTrackback
     }
 
     /**
-    URL helper.
-
-    @param    from_url        <b>string</b>        URL a
-    @param    to_url        <b>string</b>        URL b
+     * URL helper.
+     *
+     * @param      string     $from_url  The from url
+     * @param      string     $to_url    To url
+     *
+     * @throws     Exception
      */
     public static function checkURLs($from_url, $to_url)
     {

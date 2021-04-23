@@ -107,7 +107,7 @@ abstract class dcActionsPage
      * @param string $actions the actions names as if it was a standalone combo array.
      *                           It will be merged with other actions.
      *                           Can be bound to multiple values, if the same callback is to be called
-     * @param callback $callback the callback for the action.
+     * @param callable $callback the callback for the action.
      *
      * @access public
      *
@@ -206,11 +206,9 @@ abstract class dcActionsPage
     /**
      * getRS() - get record from DB Query containing requested IDs
      *
-     * @param boolean $with_ids if true, also include ids in HTML code
-     *
      * @access public
      *
-     * @return string the HTML code for hidden fields
+     * @return record the HTML code for hidden fields
      */
     public function getRS()
     {

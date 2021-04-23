@@ -15,12 +15,14 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 class dcAntispamRest
 {
     /**
-     * Serve method to get number of spams for current blog.
+     * Gets the spams count.
      *
-     * @param     core     <b>dcCore</b>     dcCore instance
-     * @param     get     <b>array</b>     cleaned $_GET
+     * @param      dcCore  $core   The core
+     * @param      array   $get    The cleaned $_GET
+     *
+     * @return     xmlTag  The spams count.
      */
-    public static function getSpamsCount($core, $get)
+    public static function getSpamsCount(dcCore $core, $get)
     {
         $count = dcAntispam::countSpam($core);
         if ($count > 0) {

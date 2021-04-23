@@ -20,11 +20,11 @@ class dcRestServer extends restServer
     public $core; ///< dcCore instance
 
     /**
-    Object constructor.
-
-    @param    core        <b>dcCore</b>        dcCore instance
+     * Constructs a new instance.
+     *
+     * @param      dcCore  $core   The core
      */
-    public function __construct($core)
+    public function __construct(dcCore $core)
     {
         parent::__construct();
 
@@ -32,12 +32,13 @@ class dcRestServer extends restServer
     }
 
     /**
-    Rest method call.
-
-    @param    name        <b>string</b>        Method name
-    @param    get        <b>array</b>        GET parameters copy
-    @param    post        <b>array</b>        POST parameters copy
-    @return    <b>mixed</b>    Rest method result
+     * Rest method call.
+     *
+     * @param      string  $name   The method name
+     * @param      array   $get    The GET parameters copy
+     * @param      array   $post   The POST parameters copy
+     *
+     * @return     mixed    Rest method result
      */
     protected function callFunction($name, $get, $post)
     {

@@ -7,6 +7,8 @@
  * @copyright GPL-2.0-only
  *
  * @deprecated It is only used for plugins compatibility
+ *
+ * @var dcCore $core
  */
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 

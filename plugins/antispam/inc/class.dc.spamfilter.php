@@ -27,11 +27,11 @@ class dcSpamFilter
     protected $core;
 
     /**
-    Object constructor
-
-    @param    core        <b>dcCore</b>        Dotclear core object
+     * Constructs a new instance.
+     *
+     * @param      dcCore  $core   The core
      */
-    public function __construct($core)
+    public function __construct(dcCore $core)
     {
         $this->core = &$core;
         $this->setInfo();
@@ -55,54 +55,52 @@ class dcSpamFilter
     }
 
     /**
-    This method should return if a comment is a spam or not. If it returns true
-    or false, execution of next filters will be stoped. If should return nothing
-    to let next filters apply.
-
-    Your filter should also fill $status variable with its own information if
-    comment is a spam.
-
-    @param        type        <b>string</b>        Comment type (comment or trackback)
-    @param        author    <b>string</b>        Comment author
-    @param        email    <b>string</b>        Comment author email
-    @param        site        <b>string</b>        Comment author website
-    @param        ip        <b>string</b>        Comment author IP address
-    @param        content    <b>string</b>        Comment content
-    @param        post_id    <b>integer</b>        Comment post_id
-    @param[out]    status    <b>integer</b>        Comment status
-    @return    <b>boolean</b>
+     * This method should return if a comment is a spam or not. If it returns true
+     * or false, execution of next filters will be stoped. If should return nothing
+     * to let next filters apply.
+     *
+     * Your filter should also fill $status variable with its own information if
+     * comment is a spam.
+     *
+     * @param      string  $type     The comment type (comment / trackback)
+     * @param      string  $author   The comment author
+     * @param      string  $email    The comment author email
+     * @param      string  $site     The comment author site
+     * @param      string  $ip       The comment author IP
+     * @param      string  $content  The comment content
+     * @param      integer $post_id  The comment post_id
+     * @param      integer $status   The comment status
      */
     public function isSpam($type, $author, $email, $site, $ip, $content, $post_id, &$status)
     {
     }
 
     /**
-    This method is called when a non-spam (ham) comment becomes spam or when a
-    spam becomes a ham.
-
-    @param    type        <b>string</b>        Comment type (comment or trackback)
-    @param    filter    <b>string</b>        Filter name
-    @param    author    <b>string</b>        Comment author
-    @param    email    <b>string</b>        Comment author email
-    @param    site        <b>string</b>        Comment author website
-    @param    ip        <b>string</b>        Comment author IP address
-    @param    content    <b>string</b>        Comment content
-    @param    post_url    <b>string</b>        Post URL
-    @param    rs        <b>record</b>        Comment record
-    @return    <b>boolean</b>
+     * { function_description }
+     *
+     * @param      string  $status   The comment status
+     * @param      string  $filter   The filter
+     * @param      string  $type     The comment type
+     * @param      string  $author   The comment author
+     * @param      string  $email    The comment author email
+     * @param      string  $site     The comment author site
+     * @param      string  $ip       The comment author IP
+     * @param      string  $content  The comment content
+     * @param      record  $rs       The comment record
      */
     public function trainFilter($status, $filter, $type, $author, $email, $site, $ip, $content, $rs)
     {
     }
 
     /**
-    This method returns filter status message. You can overload this method to
-    return a custom message. Message is shown in comment details and in
-    comments list.
-
-    @param    status        <b>string</b>        Filter status.
-    @param    comment_id    <b>record</b>        Comment record
-    @return    <b>string</b>
+     * This method returns filter status message. You can overload this method to
+     * return a custom message. Message is shown in comment details and in
+     * comments list.
+     *
+     * @param      string  $status      The status
+     * @param      integer $comment_id  The comment identifier
+     *
+     * @return     string  The status message.
      */
     public function getStatusMessage($status, $comment_id)
     {
@@ -110,13 +108,10 @@ class dcSpamFilter
     }
 
     /**
-    This method is called when you enter filter configuration. Your class should
-    have $has_gui property set to "true" to enable GUI.
-
-    In this method you should put everything related to filter configuration.
-    $url variable is the URL of GUI <i>unescaped</i>.
-
-    @param    url        <b>string</b>        GUI URL.
+     * This method is called when you enter filter configuration. Your class should
+     * have $has_gui property set to "true" to enable GUI.
+     *
+     * @param      string  $url    The GUI url
      */
     public function gui($url)
     {
@@ -145,10 +140,10 @@ class dcSpamFilter
     }
 
     /**
-    Returns a link to filter GUI if exists or only filter name if has_gui
-    property is false.
-
-    @return    <b>string</b>
+     * Returns a link to filter GUI if exists or only filter name if has_gui
+     * property is false.
+     *
+     * @return     string
      */
     public function guiLink()
     {

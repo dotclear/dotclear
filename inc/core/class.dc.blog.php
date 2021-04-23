@@ -18,7 +18,7 @@ class dcBlog
 {
     /** @var dcCore dcCore instance */
     protected $core;
-    /** @var connection Database connection object */
+    /** @var object Database connection object */
     public $con;
     /** @var string Database table prefix */
     public $prefix;
@@ -58,12 +58,12 @@ class dcBlog
     public $without_password = true;
 
     /**
-    Inits dcBlog object
-
-    @param    core        <b>dcCore</b>        Dotclear core reference
-    @param    id        <b>string</b>        Blog ID
+     * Constructs a new instance.
+     *
+     * @param      dcCore  $core   The core
+     * @param      string  $id     The blog identifier
      */
-    public function __construct($core, $id)
+    public function __construct(dcCore $core, $id)
     {
         $this->con    = &$core->con;
         $this->prefix = $core->prefix;
@@ -103,7 +103,9 @@ class dcBlog
     /// @name Common public methods
     //@{
     /**
-    Returns blog URL ending with a question mark.
+     * Returns blog URL ending with a question mark.
+     *
+     * @return     string  The qmark url.
      */
     public function getQmarkURL()
     {
@@ -115,7 +117,9 @@ class dcBlog
     }
 
     /**
-    Returns jQuery version selected for the blog.
+     * Gets the jQuery version.
+     *
+     * @return     string
      */
     public function getJsJQuery()
     {
@@ -136,7 +140,12 @@ class dcBlog
     }
 
     /**
-    Returns public URL of specified plugin file.
+     * Returns public URL of specified plugin file.
+     *
+     * @param      string  $pf          plugin file
+     * @param      bool    $strip_host  Strip host in URL
+     *
+     * @return     string
      */
     public function getPF($pf, $strip_host = true)
     {
@@ -149,7 +158,12 @@ class dcBlog
     }
 
     /**
-    Returns public URL of specified var file.
+     * Returns public URL of specified var file.
+     *
+     * @param      string  $vf          var file
+     * @param      bool    $strip_host  Strip host in URL
+     *
+     * @return     string
      */
     public function getVF($vf, $strip_host = true)
     {
@@ -162,11 +176,12 @@ class dcBlog
     }
 
     /**
-    Returns an entry status name given to a code. Status are translated, never
-    use it for tests. If status code does not exist, returns <i>unpublished</i>.
-
-    @param    s    <b>integer</b> Status code
-    @return    <b>string</b> Blog status name
+     * Returns an entry status name given to a code. Status are translated, never
+     * use it for tests. If status code does not exist, returns <i>unpublished</i>.
+     *
+     * @param      integer  $s      The status code
+     *
+     * @return     string  The post status.
      */
     public function getPostStatus($s)
     {
@@ -178,9 +193,9 @@ class dcBlog
     }
 
     /**
-    Returns an array of available entry status codes and names.
-
-    @return    <b>array</b> Simple array with codes in keys and names in value
+     * Returns an array of available entry status codes and names.
+     *
+     * @return     array  Simple array with codes in keys and names in value.
      */
     public function getAllPostStatus()
     {
@@ -188,9 +203,9 @@ class dcBlog
     }
 
     /**
-    Returns an array of available comment status codes and names.
-
-    @return    <b>array</b> Simple array with codes in keys and names in value
+     * Returns an array of available comment status codes and names.
+     *
+     * @return    array Simple array with codes in keys and names in value
      */
     public function getAllCommentStatus()
     {
@@ -198,10 +213,10 @@ class dcBlog
     }
 
     /**
-    Disallows entries password protection. You need to set it to
-    <var>false</var> while serving a public blog.
-
-    @param    v        <b>boolean</b>
+     * Disallows entries password protection. You need to set it to
+     * <var>false</var> while serving a public blog.
+     *
+     * @param      mixed  $v
      */
     public function withoutPassword($v)
     {
@@ -212,8 +227,8 @@ class dcBlog
     /// @name Triggers methods
     //@{
     /**
-    Updates blog last update date. Should be called every time you change
-    an element related to the blog.
+     * Updates blog last update date. Should be called every time you change
+     * an element related to the blog.
      */
     public function triggerBlog()
     {
@@ -228,11 +243,11 @@ class dcBlog
     }
 
     /**
-    Updates comment and trackback counters in post table. Should be called
-    every time a comment or trackback is added, removed or changed its status.
-
-    @param    id        <b>integer</b>        Comment ID
-    @param    del        <b>boolean</b>        If comment is delete, set this to true
+     * Updates comment and trackback counters in post table. Should be called
+     * every time a comment or trackback is added, removed or changed its status.
+     *
+     * @param      integer  $id     The comment identifier
+     * @param      bool     $del    If comment is deleted, set this to true
      */
     public function triggerComment($id, $del = false)
     {
@@ -240,12 +255,12 @@ class dcBlog
     }
 
     /**
-    Updates comments and trackbacks counters in post table. Should be called
-    every time comments or trackbacks are added, removed or changed their status.
-
-    @param    ids        <b>mixed</b>        Comment(s) ID(s)
-    @param    del        <b>boolean</b>        If comment is delete, set this to true
-    @param    affected_posts        <b>mixed</b>        Posts(s) ID(s)
+     * Updates comments and trackbacks counters in post table. Should be called
+     * every time comments or trackbacks are added, removed or changed their status.
+     *
+     * @param      mixed   $ids             The identifiers
+     * @param      bool    $del             If comment is delete, set this to true
+     * @param      mixed   $affected_posts  The affected posts IDs
      */
     public function triggerComments($ids, $del = false, $affected_posts = null)
     {
@@ -308,6 +323,11 @@ class dcBlog
 
     /// @name Categories management methods
     //@{
+    /**
+     * Get dcCategories instance
+     *
+     * @return     dcCategories
+     */
     public function categories()
     {
         if (!($this->categories instanceof dcCategories)) {
@@ -318,17 +338,18 @@ class dcBlog
     }
 
     /**
-    Retrieves categories. <var>$params</var> is an associative array which can
-    take the following parameters:
-
-    - post_type: Get only entries with given type (default "post")
-    - cat_url: filter on cat_url field
-    - cat_id: filter on cat_id field
-    - start: start with a given category
-    - level: categories level to retrieve
-
-    @param    params    <b>array</b>        Parameters
-    @return    <b>record</b>
+     * Retrieves categories. <var>$params</var> is an associative array which can
+     * take the following parameters:
+     *
+     * - post_type: Get only entries with given type (default "post")
+     * - cat_url: filter on cat_url field
+     * - cat_id: filter on cat_id field
+     * - start: start with a given category
+     * - level: categories level to retrieve
+     *
+     * @param      array   $params  The parameters
+     *
+     * @return     record  The categories.
      */
     public function getCategories($params = [])
     {
@@ -428,10 +449,11 @@ class dcBlog
     }
 
     /**
-    Retrieves a category by its ID.
-
-    @param    id        <b>integer</b>        Category ID
-    @return    <b>record</b>
+     * Gets the category by its ID.
+     *
+     * @param      integer  $id     The category identifier
+     *
+     * @return     record  The category.
      */
     public function getCategory($id)
     {
@@ -439,10 +461,11 @@ class dcBlog
     }
 
     /**
-    Retrieves parents of a given category.
-
-    @param    id        <b>integer</b>        Category ID
-    @return    <b>record</b>
+     * Gets the category parents.
+     *
+     * @param      integer  $id     The category identifier
+     *
+     * @return     record  The category parents.
      */
     public function getCategoryParents($id)
     {
@@ -450,10 +473,11 @@ class dcBlog
     }
 
     /**
-    Retrieves first parent of a given category.
-
-    @param    id        <b>integer</b>        Category ID
-    @return    <b>record</b>
+     * Gets the category first parent.
+     *
+     * @param      integer  $id     The category identifier
+     *
+     * @return     record  The category parent.
      */
     public function getCategoryParent($id)
     {
@@ -461,10 +485,11 @@ class dcBlog
     }
 
     /**
-    Retrieves all category's first children
-
-    @param    id        <b>integer</b>        Category ID
-    @return    <b>record</b>
+     * Gets all category's first children.
+     *
+     * @param      int     $id     The category identifier
+     *
+     * @return     record  The category first children.
      */
     public function getCategoryFirstChildren($id)
     {
@@ -497,6 +522,13 @@ class dcBlog
         return false;
     }
 
+    /**
+     * Gets the categories posts counter.
+     *
+     * @param      array  $params  The parameters
+     *
+     * @return     array  The categories counter.
+     */
     private function getCategoriesCounter($params = [])
     {
         $strReq = 'SELECT  C.cat_id, COUNT(P.post_id) AS nb_post ' .
@@ -524,11 +556,14 @@ class dcBlog
     }
 
     /**
-    Creates a new category. Takes a cursor as input and returns the new category
-    ID.
-
-    @param    cur        <b>cursor</b>        Category cursor
-    @return    <b>integer</b>        New category ID
+     * Adds a new category. Takes a cursor as input and returns the new category ID.
+     *
+     * @param      cursor        $cur     The category cursor
+     * @param      int           $parent  The parent category ID
+     *
+     * @throws     Exception
+     *
+     * @return     int  New category ID
      */
     public function addCategory($cur, $parent = 0)
     {
@@ -576,10 +611,12 @@ class dcBlog
     }
 
     /**
-    Updates an existing category.
-
-    @param    id        <b>integer</b>        Category ID
-    @param    cur        <b>cursor</b>        Category cursor
+     * Updates an existing category.
+     *
+     * @param      integer     $id     The category ID
+     * @param      cursor      $cur    The category cursor
+     *
+     * @throws     Exception
      */
     public function updCategory($id, $cur)
     {
@@ -616,11 +653,11 @@ class dcBlog
     }
 
     /**
-    Set category position
-
-    @param  id              <b>integer</b>          Category ID
-    @param  left            <b>integer</b>          Category ID before
-    @param  right           <b>integer</b>          Category ID after
+     * Set category position.
+     *
+     * @param      integer  $id     The category ID
+     * @param      integer  $left   The category ID before
+     * @param      integer  $right  The category ID after
      */
     public function updCategoryPosition($id, $left, $right)
     {
@@ -629,21 +666,10 @@ class dcBlog
     }
 
     /**
-    DEPRECATED METHOD. Use dcBlog::setCategoryParent and dcBlog::moveCategory
-    instead.
-
-    @param    id        <b>integer</b>        Category ID
-    @param    order    <b>integer</b>        Category position
-     */
-    public function updCategoryOrder($id, $order)
-    {
-    }
-
-    /**
-    Set a category parent
-
-    @param    id        <b>integer</b>        Category ID
-    @param    parent    <b>integer</b>        Parent Category ID
+     * Sets the category parent.
+     *
+     * @param      integer  $id      The category ID
+     * @param      integer  $parent  The parent category ID
      */
     public function setCategoryParent($id, $parent)
     {
@@ -652,11 +678,11 @@ class dcBlog
     }
 
     /**
-    Set category position
-
-    @param    id        <b>integer</b>        Category ID
-    @param    sibling    <b>integer</b>        Sibling Category ID
-    @param    move        <b>integer</b>        Order (before|after)
+     * Sets the category position.
+     *
+     * @param      integer  $id       The category ID
+     * @param      integer  $sibling  The sibling category ID
+     * @param      string   $move     The move (before|after)
      */
     public function setCategoryPosition($id, $sibling, $move)
     {
@@ -665,9 +691,11 @@ class dcBlog
     }
 
     /**
-    Deletes a category.
-
-    @param    id        <b>integer</b>        Category ID
+     * Delete a category.
+     *
+     * @param      integer     $id     The category ID
+     *
+     * @throws     Exception
      */
     public function delCategory($id)
     {
@@ -691,7 +719,7 @@ class dcBlog
     }
 
     /**
-    Reset categories order and relocate them to first level
+     * Reset categories order and relocate them to first level
      */
     public function resetCategoriesOrder()
     {
@@ -703,6 +731,15 @@ class dcBlog
         $this->triggerBlog();
     }
 
+    /**
+     * Check if the category title and url are unique.
+     *
+     * @param      string  $title  The title
+     * @param      string  $url    The url
+     * @param      mixed   $id     The identifier
+     *
+     * @return     string
+     */
     private function checkCategory($title, $url, $id = null)
     {
         # Let's check if URL is taken...
@@ -755,6 +792,14 @@ class dcBlog
         return $url;
     }
 
+    /**
+     * Gets the category cursor.
+     *
+     * @param      cursor     $cur    The category cursor
+     * @param      mixed      $id     The category ID
+     *
+     * @throws     Exception
+     */
     private function getCategoryCursor($cur, $id = null)
     {
         if ($cur->cat_title == '') {
@@ -784,39 +829,40 @@ class dcBlog
     /// @name Entries management methods
     //@{
     /**
-    Retrieves entries. <b>$params</b> is an array taking the following
-    optionnal parameters:
-
-    - no_content: Don't retrieve entry content (excerpt and content)
-    - post_type: Get only entries with given type (default "post", array for many types and '' for no type)
-    - post_id: (integer or array) Get entry with given post_id
-    - post_url: Get entry with given post_url field
-    - user_id: (integer) Get entries belonging to given user ID
-    - cat_id: (string or array) Get entries belonging to given category ID
-    - cat_id_not: deprecated (use cat_id with "id ?not" instead)
-    - cat_url: (string or array) Get entries belonging to given category URL
-    - cat_url_not: deprecated (use cat_url with "url ?not" instead)
-    - post_status: (integer) Get entries with given post_status
-    - post_selected: (boolean) Get select flaged entries
-    - post_year: (integer) Get entries with given year
-    - post_month: (integer) Get entries with given month
-    - post_day: (integer) Get entries with given day
-    - post_lang: Get entries with given language code
-    - search: Get entries corresponding of the following search string
-    - columns: (array) More columns to retrieve
-    - sql: Append SQL string at the end of the query
-    - from: Append SQL string after "FROM" statement in query
-    - order: Order of results (default "ORDER BY post_dt DES")
-    - limit: Limit parameter
-    - sql_only : return the sql request instead of results. Only ids are selected
-    - exclude_post_id : (integer or array) Exclude entries with given post_id
-
-    Please note that on every cat_id or cat_url, you can add ?not to exclude
-    the category and ?sub to get subcategories.
-
-    @param    params        <b>array</b>        Parameters
-    @param    count_only    <b>boolean</b>        Only counts results
-    @return    <b>record</b>    A record with some more capabilities or the SQL request
+     * Retrieves entries. <b>$params</b> is an array taking the following
+     * optionnal parameters:
+     *
+     * - no_content: Don't retrieve entry content (excerpt and content)
+     * - post_type: Get only entries with given type (default "post", array for many types and '' for no type)
+     * - post_id: (integer or array) Get entry with given post_id
+     * - post_url: Get entry with given post_url field
+     * - user_id: (integer) Get entries belonging to given user ID
+     * - cat_id: (string or array) Get entries belonging to given category ID
+     * - cat_id_not: deprecated (use cat_id with "id ?not" instead)
+     * - cat_url: (string or array) Get entries belonging to given category URL
+     * - cat_url_not: deprecated (use cat_url with "url ?not" instead)
+     * - post_status: (integer) Get entries with given post_status
+     * - post_selected: (boolean) Get select flaged entries
+     * - post_year: (integer) Get entries with given year
+     * - post_month: (integer) Get entries with given month
+     * - post_day: (integer) Get entries with given day
+     * - post_lang: Get entries with given language code
+     * - search: Get entries corresponding of the following search string
+     * - columns: (array) More columns to retrieve
+     * - sql: Append SQL string at the end of the query
+     * - from: Append SQL string after "FROM" statement in query
+     * - order: Order of results (default "ORDER BY post_dt DES")
+     * - limit: Limit parameter
+     * - sql_only : return the sql request instead of results. Only ids are selected
+     * - exclude_post_id : (integer or array) Exclude entries with given post_id
+     *
+     * Please note that on every cat_id or cat_url, you can add ?not to exclude
+     * the category and ?sub to get subcategories.
+     *
+     * @param    array  $params        Parameters
+     * @param    bool   $count_only    Only counts results
+     *
+     * @return   record    A record with some more capabilities or the SQL request
      */
     public function getPosts($params = [], $count_only = false)
     {
@@ -1036,15 +1082,16 @@ class dcBlog
     }
 
     /**
-    Returns a record with post id, title and date for next or previous post
-    according to the post ID.
-    $dir could be 1 (next post) or -1 (previous post).
-
-    @param    post_id                <b>integer</b>        Post ID
-    @param    dir                    <b>integer</b>        Search direction
-    @param    restrict_to_category    <b>boolean</b>        Restrict to post with same category
-    @param    restrict_to_lang        <b>boolean</b>        Restrict to post with same lang
-    @return    record
+     * Returns a record with post id, title and date for next or previous post
+     * according to the post ID.
+     * $dir could be 1 (next post) or -1 (previous post).
+     *
+     * @param      record  $post                  The post ID
+     * @param      int     $dir                   The search direction
+     * @param      bool    $restrict_to_category  Restrict to same category
+     * @param      bool    $restrict_to_lang      Restrict to same language
+     *
+     * @return     record  The next post.
      */
     public function getNextPost($post, $dir, $restrict_to_category = false, $restrict_to_lang = false)
     {
@@ -1085,16 +1132,17 @@ class dcBlog
     }
 
     /**
-    Retrieves different languages and post count on blog, based on post_lang
-    field. <var>$params</var> is an array taking the following optionnal
-    parameters:
-
-    - post_type: Get only entries with given type (default "post", '' for no type)
-    - lang: retrieve post count for selected lang
-    - order: order statement (default post_lang DESC)
-
-    @param    params    <b>array</b>        Parameters
-    @return    record
+     * Retrieves different languages and post count on blog, based on post_lang
+     * field. <var>$params</var> is an array taking the following optionnal
+     * parameters:
+     *
+     * - post_type: Get only entries with given type (default "post", '' for no type)
+     * - lang: retrieve post count for selected lang
+     * - order: order statement (default post_lang DESC)
+     *
+     * @param      array   $params  The parameters
+     *
+     * @return     record  The langs.
      */
     public function getLangs($params = [])
     {
@@ -1143,22 +1191,23 @@ class dcBlog
     }
 
     /**
-    Returns a record with all distinct blog dates and post count.
-    <var>$params</var> is an array taking the following optionnal parameters:
-
-    - type: (day|month|year) Get days, months or years
-    - year: (integer) Get dates for given year
-    - month: (integer) Get dates for given month
-    - day: (integer) Get dates for given day
-    - cat_id: (integer) Category ID filter
-    - cat_url: Category URL filter
-    - post_lang: lang of the posts
-    - next: Get date following match
-    - previous: Get date before match
-    - order: Sort by date "ASC" or "DESC"
-
-    @param    params    <b>array</b>        Parameters array
-    @return    record
+     * Returns a record with all distinct blog dates and post count.
+     * <var>$params</var> is an array taking the following optionnal parameters:
+     *
+     * - type: (day|month|year) Get days, months or years
+     * - year: (integer) Get dates for given year
+     * - month: (integer) Get dates for given month
+     * - day: (integer) Get dates for given day
+     * - cat_id: (integer) Category ID filter
+     * - cat_url: Category URL filter
+     * - post_lang: lang of the posts
+     * - next: Get date following match
+     * - previous: Get date before match
+     * - order: Sort by date "ASC" or "DESC"
+     *
+     * @param      array   $params  The parameters
+     *
+     * @return     record  The dates.
      */
     public function getDates($params = [])
     {
@@ -1265,11 +1314,13 @@ class dcBlog
     }
 
     /**
-    Creates a new entry. Takes a cursor as input and returns the new entry
-    ID.
-
-    @param    cur        <b>cursor</b>        Post cursor
-    @return    <b>integer</b>        New post ID
+     * Creates a new entry. Takes a cursor as input and returns the new entry ID.
+     *
+     * @param      cursor     $cur    The post cursor
+     *
+     * @throws     Exception
+     *
+     * @return     integer
      */
     public function addPost($cur)
     {
@@ -1325,10 +1376,12 @@ class dcBlog
     }
 
     /**
-    Updates an existing post.
-
-    @param    id        <b>integer</b>        Post ID
-    @param    cur        <b>cursor</b>        Post cursor
+     * Updates an existing post.
+     *
+     * @param      integer     $id     The post identifier
+     * @param      cursor      $cur    The post cursor
+     *
+     * @throws     Exception
      */
     public function updPost($id, $cur)
     {
@@ -1385,10 +1438,10 @@ class dcBlog
     }
 
     /**
-    Updates post status.
-
-    @param    id        <b>integer</b>        Post ID
-    @param    status    <b>integer</b>        Post status
+     * Update post status.
+     *
+     * @param      integer  $id      The identifier
+     * @param      integer  $status  The status
      */
     public function updPostStatus($id, $status)
     {
@@ -1396,10 +1449,12 @@ class dcBlog
     }
 
     /**
-    Updates posts status.
-
-    @param    ids        <b>mixed</b>        Post(s) ID(s)
-    @param    status    <b>integer</b>        Post status
+     * Updates posts status.
+     *
+     * @param      mixed       $ids     The identifiers
+     * @param      integer     $status  The status
+     *
+     * @throws     Exception
      */
     public function updPostsStatus($ids, $status)
     {
@@ -1430,10 +1485,10 @@ class dcBlog
     }
 
     /**
-    Updates post selection.
-
-    @param    id        <b>integer</b>        Post ID
-    @param    selected    <b>integer</b>        Is selected post
+     * Updates post selection.
+     *
+     * @param      integer  $id        The identifier
+     * @param      mixed    $selected  The selected flag
      */
     public function updPostSelected($id, $selected)
     {
@@ -1441,10 +1496,12 @@ class dcBlog
     }
 
     /**
-    Updates posts selection.
-
-    @param    ids        <b>mixed</b>        Post(s) ID(s)
-    @param    selected    <b>integer</b>        Is selected post(s)
+     * Updates posts selection.
+     *
+     * @param      mixed      $ids       The identifiers
+     * @param      mixed      $selected  The selected flag
+     *
+     * @throws     Exception
      */
     public function updPostsSelected($ids, $selected)
     {
@@ -1473,10 +1530,10 @@ class dcBlog
     }
 
     /**
-    Updates post category. <var>$cat_id</var> can be null.
-
-    @param    id        <b>integer</b>        Post ID
-    @param    cat_id    <b>integer</b>        Category ID
+     * Updates post category. <var>$cat_id</var> can be null.
+     *
+     * @param      integer  $id      The identifier
+     * @param      mixed    $cat_id  The cat identifier
      */
     public function updPostCategory($id, $cat_id)
     {
@@ -1484,10 +1541,12 @@ class dcBlog
     }
 
     /**
-    Updates posts category. <var>$cat_id</var> can be null.
-
-    @param    ids        <b>mixed</b>        Post(s) ID(s)
-    @param    cat_id    <b>integer</b>        Category ID
+     * Updates posts category. <var>$cat_id</var> can be null.
+     *
+     * @param      mixed      $ids     The identifiers
+     * @param      mixed      $cat_id  The cat identifier
+     *
+     * @throws     Exception
      */
     public function updPostsCategory($ids, $cat_id)
     {
@@ -1516,10 +1575,12 @@ class dcBlog
     }
 
     /**
-    Updates posts category. <var>$new_cat_id</var> can be null.
-
-    @param    old_cat_id    <b>integer</b>        Old category ID
-    @param    new_cat_id    <b>integer</b>        New category ID
+     * Updates posts category. <var>$new_cat_id</var> can be null.
+     *
+     * @param      mixed    $old_cat_id  The old cat identifier
+     * @param      mixed    $new_cat_id  The new cat identifier
+     *
+     * @throws     Exception
      */
     public function changePostsCategory($old_cat_id, $new_cat_id)
     {
@@ -1543,9 +1604,9 @@ class dcBlog
     }
 
     /**
-    Deletes a post.
-
-    @param    id        <b>integer</b>        Post ID
+     * Deletes a post.
+     *
+     * @param      integer  $id     The post identifier
      */
     public function delPost($id)
     {
@@ -1553,9 +1614,11 @@ class dcBlog
     }
 
     /**
-    Deletes multiple posts.
-
-    @param    ids        <b>mixed</b>        Post(s) ID(s)
+     * Deletes multiple posts.
+     *
+     * @param      mixed     $ids    The posts identifiers
+     *
+     * @throws     Exception
      */
     public function delPosts($ids)
     {
@@ -1583,7 +1646,7 @@ class dcBlog
     }
 
     /**
-    Publishes all entries flaged as "scheduled".
+     * Publishes all entries flaged as "scheduled".
      */
     public function publishScheduledEntries()
     {
@@ -1632,9 +1695,9 @@ class dcBlog
     }
 
     /**
-    First publication mecanism (on post create, update, publish, status)
-
-    @param    ids        <b>mixed</b>        Post(s) ID(s)
+     * First publication mecanism (on post create, update, publish, status)
+     *
+     * @param      mixed  $ids    The posts identifiers
      */
     public function firstPublicationEntries($ids)
     {
@@ -1662,10 +1725,11 @@ class dcBlog
     }
 
     /**
-    Retrieves all users having posts on current blog.
-
-    @param    post_type        <b>string</b>        post_type filter (post)
-    @return    record
+     * Retrieves all users having posts on current blog.
+     *
+     * @param    string     $post_type post_type filter (post)
+     *
+     * @return    record
      */
     public function getPostsUsers($post_type = 'post')
     {
@@ -1755,6 +1819,14 @@ class dcBlog
         return implode(' AND ', $sql);
     }
 
+    /**
+     * Gets the post cursor.
+     *
+     * @param      cursor      $cur      The post cursor
+     * @param      integer     $post_id  The post identifier
+     *
+     * @throws     Exception
+     */
     private function getPostCursor($cur, $post_id = null)
     {
         if ($cur->post_title == '') {
@@ -1796,6 +1868,12 @@ class dcBlog
         }
     }
 
+    /**
+     * Gets the post content.
+     *
+     * @param      cursor  $cur      The post cursor
+     * @param      integer $post_id  The post identifier
+     */
     private function getPostContent($cur, $post_id)
     {
         $post_excerpt       = $cur->post_excerpt;
@@ -1816,15 +1894,15 @@ class dcBlog
     }
 
     /**
-    Creates post HTML content, taking format and lang into account.
-
-    @param        post_id        <b>integer</b>        Post ID
-    @param        format        <b>string</b>        Post format
-    @param        lang            <b>string</b>        Post lang
-    @param        excerpt        <b>string</b>        Post excerpt
-    @param[out]    excerpt_xhtml    <b>string</b>        Post excerpt HTML
-    @param        content        <b>string</b>        Post content
-    @param[out]    content_xhtml    <b>string</b>        Post content HTML
+     * Creates post HTML content, taking format and lang into account.
+     *
+     * @param      integer  $post_id        The post identifier
+     * @param      string   $format         The format
+     * @param      string   $lang           The language
+     * @param      string   $excerpt        The excerpt
+     * @param      string   $excerpt_xhtml  The excerpt xhtml
+     * @param      string   $content        The content
+     * @param      string   $content_xhtml  The content xhtml
      */
     public function setPostContent($post_id, $format, $lang, &$excerpt, &$excerpt_xhtml, &$content, &$content_xhtml)
     {
@@ -1878,14 +1956,15 @@ class dcBlog
     }
 
     /**
-    Returns URL for a post according to blog setting <var>post_url_format</var>.
-    It will try to guess URL and append some figures if needed.
-
-    @param    url            <b>string</b>        Origin URL, could be empty
-    @param    post_dt        <b>string</b>        Post date (in YYYY-MM-DD HH:mm:ss)
-    @param    post_title    <b>string</b>        Post title
-    @param    post_id        <b>integer</b>        Post ID
-    @return    <b>string</b>    result URL
+     * Returns URL for a post according to blog setting <var>post_url_format</var>.
+     * It will try to guess URL and append some figures if needed.
+     *
+     * @param      string   $url         The url
+     * @param      string   $post_dt     The post dt
+     * @param      string   $post_title  The post title
+     * @param      integer  $post_id     The post identifier
+     *
+     * @return     string  The post url.
      */
     public function getPostURL($url, $post_dt, $post_title, $post_id)
     {
@@ -1966,30 +2045,31 @@ class dcBlog
     /// @name Comments management methods
     //@{
     /**
-    Retrieves comments. <b>$params</b> is an array taking the following
-    optionnal parameters:
-
-    - no_content: Don't retrieve comment content
-    - post_type: Get only entries with given type (default no type, array for many types)
-    - post_id: (integer) Get comments belonging to given post_id
-    - cat_id: (integer or array) Get comments belonging to entries of given category ID
-    - comment_id: (integer or array) Get comment with given ID (or IDs)
-    - comment_site: (string) Get comments with given comment_site
-    - comment_status: (integer) Get comments with given comment_status
-    - comment_trackback: (integer) Get only comments (0) or trackbacks (1)
-    - comment_ip: (string) Get comments with given IP address
-    - post_url: Get entry with given post_url field
-    - user_id: (integer) Get entries belonging to given user ID
-    - q_author: Search comments by author
-    - sql: Append SQL string at the end of the query
-    - from: Append SQL string after "FROM" statement in query
-    - order: Order of results (default "ORDER BY comment_dt DES")
-    - limit: Limit parameter
-    - sql_only : return the sql request instead of results. Only ids are selected
-
-    @param    params        <b>array</b>        Parameters
-    @param    count_only    <b>boolean</b>        Only counts results
-    @return    <b>record</b>    A record with some more capabilities
+     * Retrieves comments. <b>$params</b> is an array taking the following
+     * optionnal parameters:
+     *
+     * - no_content: Don't retrieve comment content
+     * - post_type: Get only entries with given type (default no type, array for many types)
+     * - post_id: (integer) Get comments belonging to given post_id
+     * - cat_id: (integer or array) Get comments belonging to entries of given category ID
+     * - comment_id: (integer or array) Get comment with given ID (or IDs)
+     * - comment_site: (string) Get comments with given comment_site
+     * - comment_status: (integer) Get comments with given comment_status
+     * - comment_trackback: (integer) Get only comments (0) or trackbacks (1)
+     * - comment_ip: (string) Get comments with given IP address
+     * - post_url: Get entry with given post_url field
+     * - user_id: (integer) Get entries belonging to given user ID
+     * - q_author: Search comments by author
+     * - sql: Append SQL string at the end of the query
+     * - from: Append SQL string after "FROM" statement in query
+     * - order: Order of results (default "ORDER BY comment_dt DES")
+     * - limit: Limit parameter
+     * - sql_only : return the sql request instead of results. Only ids are selected
+     *
+     * @param    array      $params        Parameters
+     * @param    bool       $count_only    Only counts results
+     *
+     * @return   record    A record with some more capabilities
      */
     public function getComments($params = [], $count_only = false)
     {
@@ -2143,11 +2223,11 @@ class dcBlog
     }
 
     /**
-    Creates a new comment. Takes a cursor as input and returns the new comment
-    ID.
-
-    @param    cur        <b>cursor</b>        Comment cursor
-    @return    <b>integer</b>        New comment ID
+     * Creates a new comment. Takes a cursor as input and returns the new comment ID.
+     *
+     * @param      cursor  $cur    The comment cursor
+     *
+     * @return     integer
      */
     public function addComment($cur)
     {
@@ -2196,10 +2276,12 @@ class dcBlog
     }
 
     /**
-    Updates an existing comment.
-
-    @param    id        <b>integer</b>        Comment ID
-    @param    cur        <b>cursor</b>        Comment cursor
+     * Updates an existing comment.
+     *
+     * @param      integer     $id     The comment identifier
+     * @param      cursor      $cur    The comment cursor
+     *
+     * @throws     Exception
      */
     public function updComment($id, $cur)
     {
@@ -2247,10 +2329,10 @@ class dcBlog
     }
 
     /**
-    Updates comment status.
-
-    @param    id        <b>integer</b>        Comment ID
-    @param    status    <b>integer</b>        Comment status
+     * Updates comment status.
+     *
+     * @param      integer  $id      The comment identifier
+     * @param      mixed    $status  The comment status
      */
     public function updCommentStatus($id, $status)
     {
@@ -2258,10 +2340,12 @@ class dcBlog
     }
 
     /**
-    Updates comments status.
-
-    @param    ids        <b>mixed</b>        Comment(s) ID(s)
-    @param    status    <b>integer</b>        Comment status
+     * Updates comments status.
+     *
+     * @param      mixed      $ids     The identifiers
+     * @param      mixed      $status  The status
+     *
+     * @throws     Exception
      */
     public function updCommentsStatus($ids, $status)
     {
@@ -2288,9 +2372,9 @@ class dcBlog
     }
 
     /**
-    Delete a comment
-
-    @param    id        <b>integer</b>        Comment ID
+     * Delete a comment.
+     *
+     * @param      integer  $id     The comment identifier
      */
     public function delComment($id)
     {
@@ -2298,9 +2382,11 @@ class dcBlog
     }
 
     /**
-    Delete comments
-
-    @param    ids        <b>mixed</b>        Comment(s) ID(s)
+     * Delete comments.
+     *
+     * @param      mixed     $ids    The comments identifiers
+     *
+     * @throws     Exception
      */
     public function delComments($ids)
     {
@@ -2342,6 +2428,11 @@ class dcBlog
         $this->triggerBlog();
     }
 
+    /**
+     * Delete Junk comments
+     *
+     * @throws     Exception  (description)
+     */
     public function delJunkComments()
     {
         if (!$this->core->auth->check('delete,contentadmin', $this->id)) {
@@ -2362,6 +2453,13 @@ class dcBlog
         $this->triggerBlog();
     }
 
+    /**
+     * Gets the comment cursor.
+     *
+     * @param      cursor     $cur    The comment cursor
+     *
+     * @throws     Exception
+     */
     private function getCommentCursor($cur)
     {
         if ($cur->comment_content !== null && $cur->comment_content == '') {

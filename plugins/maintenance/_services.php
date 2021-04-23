@@ -24,11 +24,13 @@ class dcMaintenanceRest
     /**
      * Serve method to do step by step task for maintenance.
      *
-     * @param    core    <b>dcCore</b>    dcCore instance
-     * @param    get        <b>array</b>    cleaned $_GET
-     * @param    post    <b>array</b>    cleaned $_POST
+     * @param      dcCore     $core   dcCore instance
+     * @param      array      $get    cleaned $_GET
+     * @param      array      $post   cleaned $_POST
      *
-     * @return    <b>xmlTag</b>    XML representation of response
+     * @throws     Exception  (description)
+     *
+     * @return     xmlTag     XML representation of response.
      */
     public static function step($core, $get, $post)
     {

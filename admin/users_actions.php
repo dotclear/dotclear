@@ -5,6 +5,8 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
+ *
+ * @var dcCore $core
  */
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 

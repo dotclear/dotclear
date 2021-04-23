@@ -33,7 +33,7 @@ class dcSqlStatement
      * @param dcCore    $core   dcCore instance
      * @param mixed     $ctx    optional context
      */
-    public function __construct(&$core, $ctx = null)
+    public function __construct(dcCore &$core, $ctx = null)
     {
         $this->core = &$core;
         $this->con  = &$core->con;

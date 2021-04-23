@@ -36,11 +36,9 @@ class dcFavorites
     /**
      * Class constructor
      *
-     * @param mixed  $core   dotclear core
+     * @param dcCore   $core   dotclear core
      *
      * @access public
-     *
-     * @return mixed Value.
      */
     public function __construct($core)
     {
@@ -82,7 +80,7 @@ class dcFavorites
     /**
      * getFavorite - retrieves a favorite (complete description) from its id.
      *
-     * @param string  $id   the favorite id, or an array having 1 key 'name' set to id, ther keys are merged to favorite.
+     * @param mixed  $p   the favorite id, or an array having 1 key 'name' set to id, ther keys are merged to favorite.
      *
      * @access public
      *
@@ -122,7 +120,7 @@ class dcFavorites
     /**
      * getFavorites - retrieves a list of favorites.
      *
-     * @param string  $ids   an array of ids, as defined in getFavorite.
+     * @param array  $ids   an array of ids, as defined in getFavorite.
      *
      * @access public
      *
@@ -148,6 +146,7 @@ class dcFavorites
      *                 * globally-defined favorites
      *                 * a failback list "new post" (shall never be empty)
      *                This method is called by ::setup()
+     *
      * @access protected
      */
     protected function setUserPrefs()
@@ -284,7 +283,7 @@ class dcFavorites
      */
     public function getAvailableFavoritesIDs()
     {
-        return array_keys($this->fav_defs->getArrayCopy());
+        return array_keys($this->fav_defs->getArrayCopy()); // @phpstan-ignore-line
     }
 
     /**
@@ -359,6 +358,8 @@ class dcFavorites
      *    'active_cb' => (optional) callback to tell whether current page matches favorite or not, for complex pages
      *
      * @access public
+     *
+     * @return dcFavorites instance
      */
     public function register($id, $data)
     {
@@ -370,9 +371,11 @@ class dcFavorites
     /**
      * registerMultiple - registers a list of favorites definition
      *
-     * @param array an array defining all favorites key is the id, value is the data.
+     * @param array $data an array defining all favorites key is the id, value is the data.
      *                see register method for data format
      * @access public
+     *
+     * @return dcFavorites instance
      */
     public function registerMultiple($data)
     {
@@ -403,6 +406,11 @@ class dcFavorites
  */
 class defaultFavorites
 {
+    /**
+     * Initializes the default favorites.
+     *
+     * @param      dcFavorites  $favs   The favs
+     */
     public static function initDefaultFavorites($favs)
     {
         $core = &$GLOBALS['core'];
@@ -491,6 +499,12 @@ class defaultFavorites
         ]);
     }
 
+    /**
+     * Helper for posts icon on dashboard
+     *
+     * @param      dcCore  $core   The core
+     * @param      mixed   $v      { parameter_description }
+     */
     public static function postsDashboard($core, $v)
     {
         $post_count  = $core->blog->getPosts([], true)->f(0);
@@ -498,6 +512,12 @@ class defaultFavorites
         $v['title']  = sprintf($str_entries, $post_count);
     }
 
+    /**
+     * Helper for comments icon on dashboard
+     *
+     * @param      dcCore  $core   The core
+     * @param      mixed   $v      { parameter_description }
+     */
     public static function commentsDashboard($core, $v)
     {
         $comment_count = $core->blog->getComments([], true)->f(0);

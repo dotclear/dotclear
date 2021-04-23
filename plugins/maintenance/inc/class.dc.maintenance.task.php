@@ -46,10 +46,11 @@ class dcMaintenanceTask
      * If your task required something on construct,
      * use method init() to do it.
      *
-     * @param    maintenance    <b>dcMaintenance</b>    dcMaintenance instance
-     * @param    p_url    <b>string</b>    Maintenance plugin url
+     * @param      dcMaintenance  $maintenance  The maintenance
+     *
+     * @return     bool
      */
-    public function __construct($maintenance)
+    public function __construct(dcMaintenance $maintenance)
     {
         $this->maintenance = $maintenance;
         $this->core        = $maintenance->core;
@@ -98,7 +99,7 @@ class dcMaintenanceTask
      * Return user permission required to run this task
      * or null for super admin.
      *
-     * @return <b>mixed</b> Permission.
+     * @return mixed Permission.
      */
     public function perm()
     {
@@ -110,7 +111,7 @@ class dcMaintenanceTask
      *.
      * Is task limited to current blog.
      *
-     * @return <b>boolean</b> Limit to blog
+     * @return boolean Limit to blog
      */
     public function blog()
     {
@@ -120,7 +121,7 @@ class dcMaintenanceTask
     /**
      * Set $code for task having multiple steps.
      *
-     * @param    code    <b>integer</b>    Code used for task execution
+     * @param    integer $code    Code used for task execution
      */
     public function code($code)
     {
@@ -130,7 +131,7 @@ class dcMaintenanceTask
     /**
      * Get timestamp between maintenances.
      *
-     * @return    <b>intetger</b>    Timestamp
+     * @return     integer  Timestamp
      */
     public function ts()
     {
@@ -141,11 +142,11 @@ class dcMaintenanceTask
      * Get task expired.
      *
      * This return:
-     * - Timstamp of last update if it expired
+     * - Timestamp of last update if it expired
      * - False if it not expired or has no recall time
      * - Null if it has never been executed
      *
-     * @return    <b>mixed</b>    Last update
+     * @return    mixed    Last update
      */
     public function expired()
     {
@@ -171,7 +172,7 @@ class dcMaintenanceTask
     /**
      * Get task ID.
      *
-     * @return    <b>string</b>    Task ID (class name)
+     * @return    string    Task ID (class name)
      */
     public function id()
     {
@@ -181,7 +182,7 @@ class dcMaintenanceTask
     /**
      * Get task name.
      *
-     * @return    <b>string</b>    Task name
+     * @return    string    Task name
      */
     public function name()
     {
@@ -191,7 +192,7 @@ class dcMaintenanceTask
     /**
      * Get task description.
      *
-     * @return    <b>string</b>    Description
+     * @return    string    Description
      */
     public function description()
     {
@@ -201,7 +202,7 @@ class dcMaintenanceTask
     /**
      * Get task tab.
      *
-     * @return    <b>mixed</b>    Task tab ID or null
+     * @return    mixed    Task tab ID or null
      */
     public function tab()
     {
@@ -214,7 +215,7 @@ class dcMaintenanceTask
      * If task required a full tab,
      * this must be returned null.
      *
-     * @return    <b>mixed</b>    Task group ID or null
+     * @return    mixed    Task group ID or null
      */
     public function group()
     {
@@ -227,7 +228,7 @@ class dcMaintenanceTask
      * Is task use maintenance ajax script
      * for steps process.
      *
-     * @return    <b>boolean</b>    Use ajax
+     * @return    boolean    Use ajax
      */
     public function ajax()
     {
@@ -239,7 +240,7 @@ class dcMaintenanceTask
      *
      * This message is used on form button.
      *
-     * @return    <b>string</b>    Message
+     * @return    string    Message
      */
     public function task()
     {
@@ -251,7 +252,7 @@ class dcMaintenanceTask
      *
      * This message is displayed during task step execution.
      *
-     * @return    <b>mixed</b>    Message or null
+     * @return    mixed    Message or null
      */
     public function step()
     {
@@ -263,7 +264,7 @@ class dcMaintenanceTask
      *
      * This message is displayed when task is accomplished.
      *
-     * @return    <b>mixed</b>    Message or null
+     * @return    mixed    Message or null
      */
     public function success()
     {
@@ -275,7 +276,7 @@ class dcMaintenanceTask
      *
      * This message is displayed on error.
      *
-     * @return    <b>mixed</b>    Message or null
+     * @return    mixed    Message or null
      */
     public function error()
     {
@@ -287,7 +288,7 @@ class dcMaintenanceTask
      *
      * Headers required on maintenance page.
      *
-     * @return     <b>mixed</b>    Message or null
+     * @return     mixed    Message or null
      */
     public function header()
     {
@@ -298,7 +299,7 @@ class dcMaintenanceTask
      *
      * Content for full tab task.
      *
-     * @return    <b>string</b>    Tab's content
+     * @return    mixed    Tab's content
      */
     public function content()
     {
@@ -307,7 +308,7 @@ class dcMaintenanceTask
     /**
      * Execute task.
      *
-     * @return    <b>mixed</b>    :
+     * @return    mixed    :
      *    - FALSE on error,
      *    - TRUE if task is finished
      *    - INTEGER if task required a next step
@@ -327,6 +328,9 @@ class dcMaintenanceTask
         $this->maintenance->setLog($this->id);
     }
 
+    /**
+     * Help function.
+     */
     public function help()
     {
     }

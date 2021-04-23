@@ -211,7 +211,7 @@ dcPage::notices();
 <tbody id="links-list">
 <?php
 while ($rs->fetch()) {
-        $position = (string) $rs->index() + 1;
+        $position = (string) ($rs->index() + 1);
 
         echo
         '<tr class="line" id="l_' . $rs->link_id . '">' .

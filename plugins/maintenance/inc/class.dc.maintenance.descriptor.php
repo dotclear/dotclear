@@ -25,11 +25,11 @@ class dcMaintenanceDescriptor
     protected $options;
 
     /**
-     * Constructor (really ?!).
+     * Constructs a new instance.
      *
-     * @param    id        <b>string<b> Tab ID
-     * @param    name    <b>string<b> Tab name
-     * @param    options    <b>string<b> Options
+     * @param      string  $id       The identifier
+     * @param      string  $name     The name
+     * @param      array   $options  The options
      */
     public function __construct($id, $name, $options = [])
     {
@@ -41,7 +41,7 @@ class dcMaintenanceDescriptor
     /**
      * Get ID.
      *
-     * @return <b>string</b>    ID
+     * @return string    ID
      */
     public function id()
     {
@@ -51,7 +51,7 @@ class dcMaintenanceDescriptor
     /**
      * Get name.
      *
-     * @return <b>string</b>    Name
+     * @return string    Name
      */
     public function name()
     {
@@ -63,8 +63,9 @@ class dcMaintenanceDescriptor
      *
      * Option called "summary" and "description" are used.
      *
-     * @param    key        <b>string<b> Option key
-     * @return <b>string</b>    Option value
+     * @param      string  $key    Option key
+     *
+     * @return     string  Option value
      */
     public function option($key)
     {

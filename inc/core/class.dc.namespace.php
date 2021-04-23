@@ -27,12 +27,17 @@ class dcNamespace
     const NS_ID_SCHEMA   = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
 
     /**
-    Object constructor. Retrieves blog settings and puts them in $settings
-    array. Local (blog) settings have a highest priority than global settings.
-
-    @param    name        <b>string</b>        ID for this namespace
+     * Object constructor. Retrieves blog settings and puts them in $settings
+     * array. Local (blog) settings have a highest priority than global settings.
+     *
+     * @param      dcCore     $core     The core
+     * @param      string     $blog_id  The blog identifier
+     * @param      string     $name     The namespace ID
+     * @param      mixed      $rs
+     *
+     * @throws     Exception  (description)
      */
-    public function __construct(&$core, $blog_id, $name, $rs = null)
+    public function __construct(dcCore &$core, $blog_id, $name, $rs = null)
     {
         if (preg_match(self::NS_NAME_SCHEMA, $name)) {
             $this->ns = $name;
@@ -120,10 +125,11 @@ class dcNamespace
     }
 
     /**
-    Returns setting value if exists.
-
-    @param    n        <b>string</b>        Setting name
-    @return    <b>mixed</b>
+     * Returns setting value if exists.
+     *
+     * @param      string  $n      Setting name
+     *
+     * @return     mixed
      */
     public function get($n)
     {
@@ -133,10 +139,11 @@ class dcNamespace
     }
 
     /**
-    Returns global setting value if exists.
-
-    @param    n        <b>string</b>        setting name
-    @return    <b>mixed</b>
+     * Returns global setting value if exists.
+     *
+     * @param      string  $n      Setting name
+     *
+     * @return     mixed
      */
     public function getGlobal($n)
     {
@@ -146,10 +153,11 @@ class dcNamespace
     }
 
     /**
-    Returns local setting value if exists.
-
-    @param    n        <b>string</b>        setting name
-    @return    <b>mixed</b>
+     * Returns local setting value if exists.
+     *
+     * @param      string  $n      Setting name
+     *
+     * @return     mixed
      */
     public function getLocal($n)
     {
@@ -159,8 +167,13 @@ class dcNamespace
     }
 
     /**
-    Magic __get method.
-    @copydoc ::get
+     * Magic __get method.
+     *
+     * @copydoc ::get
+     *
+     * @param      string  $n      Setting name
+     *
+     * @return     mixed
      */
     public function __get($n)
     {
@@ -168,11 +181,11 @@ class dcNamespace
     }
 
     /**
-    Sets a setting in $settings property. This sets the setting for script
-    execution time only and if setting exists.
-
-    @param    n        <b>string</b>        Setting name
-    @param    v        <b>mixed</b>        Setting value
+     * Sets a setting in $settings property. This sets the setting for script
+     * execution time only and if setting exists.
+     *
+     * @param      string  $n      The setting name
+     * @param      mixed   $v      The setting value
      */
     public function set($n, $v)
     {
@@ -182,8 +195,12 @@ class dcNamespace
     }
 
     /**
-    Magic __set method.
-    @copydoc ::set
+     * Magic __set method.
+     *
+     * @copydoc ::set
+     *
+     * @param      string  $n      The setting name
+     * @param      mixed   $v      The setting value
      */
     public function __set($n, $v)
     {
@@ -191,20 +208,22 @@ class dcNamespace
     }
 
     /**
-    Creates or updates a setting.
-
-    $type could be 'string', 'integer', 'float', 'boolean' or null. If $type is
-    null and setting exists, it will keep current setting type.
-
-    $value_change allow you to not change setting. Useful if you need to change
-    a setting label or type and don't want to change its value.
-
-    @param    id            <b>string</b>        Setting ID
-    @param    value        <b>mixed</b>        Setting value
-    @param    type            <b>string</b>        Setting type
-    @param    label        <b>string</b>        Setting label
-    @param    value_change    <b>boolean</b>        Change setting value or not
-    @param    global        <b>boolean</b>        Setting is global
+     * Creates or updates a setting.
+     *
+     * $type could be 'string', 'integer', 'float', 'boolean' or null. If $type is
+     * null and setting exists, it will keep current setting type.
+     *
+     * $value_change allow you to not change setting. Useful if you need to change
+     * a setting label or type and don't want to change its value.
+     *
+     * @param      string     $id            The setting identifier
+     * @param      mixed      $value         The setting value
+     * @param      string     $type          The setting type
+     * @param      string     $label         The setting label
+     * @param      bool       $value_change  Change setting value or not
+     * @param      bool       $global        Setting is global
+     *
+     * @throws     Exception
      */
     public function put($id, $value, $type = null, $label = null, $value_change = true, $global = false)
     {
@@ -291,11 +310,14 @@ class dcNamespace
     }
 
     /**
-    Rename an existing setting in a Namespace
-
-    @param     $oldId     <b>string</b>     Current setting name
-    @param     $newId     <b>string</b>     New setting name
-    @return     <b>boolean</b>
+     * Rename an existing setting in a Namespace
+     *
+     * @param      string     $oldId  The old setting identifier
+     * @param      string     $newId  The new setting identifier
+     *
+     * @throws     Exception
+     *
+     * @return     bool
      */
     public function rename($oldId, $newId)
     {
@@ -326,9 +348,11 @@ class dcNamespace
     }
 
     /**
-    Removes an existing setting in a Namespace
-
-    @param    id        <b>string</b>        Setting ID
+     * Removes an existing setting in a Namespace.
+     *
+     * @param      string     $id     The setting identifier
+     *
+     * @throws     Exception
      */
     public function drop($id)
     {
@@ -355,6 +379,8 @@ class dcNamespace
      *
      * @param      string     $id      Setting ID
      * @param      boolean    $global  Remove global setting too
+     *
+     * @throws     Exception
      */
     public function dropEvery($id, $global = false)
     {
@@ -372,9 +398,11 @@ class dcNamespace
     }
 
     /**
-    Removes all existing settings in a Namespace
-
-    @param    force_global    <b>boolean</b>    Force global pref drop
+     * Removes all existing settings in a Namespace.
+     *
+     * @param      bool       $force_global  Force global pref drop
+     *
+     * @throws     Exception
      */
     public function dropAll($force_global = false)
     {
@@ -405,9 +433,9 @@ class dcNamespace
     }
 
     /**
-    Returns $ns property content.
-
-    @return    <b>string</b>
+     * Dumps a namespace.
+     *
+     * @return     string
      */
     public function dumpNamespace()
     {
@@ -415,9 +443,9 @@ class dcNamespace
     }
 
     /**
-    Returns $settings property content.
-
-    @return    <b>array</b>
+     * Dumps settings.
+     *
+     * @return     array
      */
     public function dumpSettings()
     {
@@ -425,9 +453,9 @@ class dcNamespace
     }
 
     /**
-    Returns $local_settings property content.
-
-    @return    <b>array</b>
+     * Dumps local settings.
+     *
+     * @return     array
      */
     public function dumpLocalSettings()
     {
@@ -435,9 +463,9 @@ class dcNamespace
     }
 
     /**
-    Returns $global_settings property content.
-
-    @return    <b>array</b>
+     * Dumps global settings.
+     *
+     * @return     array
      */
     public function dumpGlobalSettings()
     {

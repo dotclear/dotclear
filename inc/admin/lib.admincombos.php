@@ -10,9 +10,10 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 /**
-@brief Admin combo library
-
-Dotclear utility class that provides reuseable combos across all admin
+ * @brief Admin combo library
+ *
+ * Dotclear utility class that provides reuseable combos across all admin
+ * form::combo -compatible format
  */
 class dcAdminCombos
 {
@@ -20,10 +21,13 @@ class dcAdminCombos
     public static $core;
 
     /**
-    Returns an hierarchical categories combo from a category record
-
-    @param    categories        <b>record</b>        the category record
-    @return    <b>array</b> the combo box (form::combo -compatible format)
+     * Returns an hierarchical categories combo from a category record
+     *
+     * @param      record  $categories     The categories
+     * @param      bool    $include_empty  Includes empty categories
+     * @param      bool    $use_url        Use url or ID
+     *
+     * @return     array   The categories combo.
      */
     public static function getCategoriesCombo($categories, $include_empty = true, $use_url = false)
     {
@@ -44,9 +48,9 @@ class dcAdminCombos
     }
 
     /**
-    Returns available post status combo
-
-    @return    <b>array</b> the combo box (form::combo -compatible format)
+     * Returns available post status combo.
+     *
+     * @return     array  The post statuses combo.
      */
     public static function getPostStatusesCombo()
     {
@@ -59,10 +63,11 @@ class dcAdminCombos
     }
 
     /**
-    Returns an users combo from a users record
-
-    @param    users        <b>record</b>        the users record
-    @return    <b>array</b> the combo box (form::combo -compatible format)
+     * Returns an users combo from a users record.
+     *
+     * @param      record  $users  The users
+     *
+     * @return     array   The users combo.
      */
     public static function getUsersCombo($users)
     {
@@ -82,10 +87,11 @@ class dcAdminCombos
     }
 
     /**
-    Returns an date combo from a date record
-
-    @param    dates        <b>record</b>        the dates record
-    @return    <b>array</b> the combo box (form::combo -compatible format)
+     * Gets the dates combo.
+     *
+     * @param      record  $dates  The dates
+     *
+     * @return     array   The dates combo.
      */
     public static function getDatesCombo($dates)
     {
@@ -98,12 +104,13 @@ class dcAdminCombos
     }
 
     /**
-    Returns an lang combo from a lang record
-
-    @param    langs        <b>record</b>        the langs record
-    @param    with_available    <b>boolean</b>    if false, only list items from record
-    if true, also list available languages
-    @return    <b>array</b> the combo box (form::combo -compatible format)
+     * Gets the langs combo.
+     *
+     * @param      record  $langs           The langs
+     * @param      bool    $with_available  If false, only list items from
+     * record if true, also list available languages
+     *
+     * @return     array   The langs combo.
      */
     public static function getLangsCombo($langs, $with_available = false)
     {
@@ -131,9 +138,9 @@ class dcAdminCombos
     }
 
     /**
-    Returns a combo containing all available and installed languages for administration pages
-
-    @return    <b>array</b> the combo box (form::combo -compatible format)
+     * Returns a combo containing all available and installed languages for administration pages.
+     *
+     * @return     array  The admin langs combo.
      */
     public static function getAdminLangsCombo()
     {
@@ -148,9 +155,9 @@ class dcAdminCombos
     }
 
     /**
-    Returns a combo containing all available editors in admin
-
-    @return    <b>array</b> the combo box (form::combo -compatible format)
+     * Returns a combo containing all available editors in admin.
+     *
+     * @return     array  The editors combo.
      */
     public static function getEditorsCombo()
     {
@@ -164,10 +171,11 @@ class dcAdminCombos
     }
 
     /**
-    Returns a combo containing all available formaters by editor in admin
-
-    @param    editor_id    <b>string</b>    Editor id (dcLegacyEditor, dcCKEditor, ...)
-    @return    <b>array</b> the combo box (form::combo -compatible format)
+     * Returns a combo containing all available formaters by editor in admin.
+     *
+     * @param      string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
+     *
+     * @return     array   The formaters combo.
      */
     public static function getFormatersCombo($editor_id = '')
     {
@@ -189,9 +197,9 @@ class dcAdminCombos
     }
 
     /**
-    Returns a combo containing available blog statuses
-
-    @return    <b>array</b> the combo box (form::combo -compatible format)
+     * Gets the blog statuses combo.
+     *
+     * @return     array  The blog statuses combo.
      */
     public static function getBlogStatusesCombo()
     {
@@ -204,11 +212,11 @@ class dcAdminCombos
     }
 
     /**
-    Returns a combo containing available comment statuses
-
-    @return    <b>array</b> the combo box (form::combo -compatible format)
+     * Gets the comment statuses combo.
+     *
+     * @return     array  The comment statuses combo.
      */
-    public static function getCommentStatusescombo()
+    public static function getCommentStatusesCombo()
     {
         $status_combo = [];
         foreach (self::$core->blog->getAllCommentStatus() as $k => $v) {
@@ -218,4 +226,7 @@ class dcAdminCombos
         return $status_combo;
     }
 }
+/*
+ * Store current dcCore instance
+ */
 dcAdminCombos::$core = $GLOBALS['core'];

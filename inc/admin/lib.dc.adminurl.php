@@ -20,11 +20,11 @@ class dcAdminURL
     protected $urls;
 
     /**
-    Inits dcAdminURL object
-
-    @param    core        <b>dcCore</b>        Dotclear core reference
+     * Constructs a new instance.
+     *
+     * @param      dcCore  $core   The core
      */
-    public function __construct($core)
+    public function __construct(dcCore $core)
     {
         $this->core = $core;
         $this->urls = new ArrayObject();
@@ -32,6 +32,7 @@ class dcAdminURL
 
     /**
      * Registers a new url
+     *
      * @param  string $name   the url name
      * @param  string $url    url value
      * @param  array  $params query string params (optional)
@@ -43,8 +44,9 @@ class dcAdminURL
 
     /**
      * Registers a new url as a copy of an existing one
+     *
      * @param  string $name   url name
-     * @param  streing $orig   url to copy information from
+     * @param  string $orig   url to copy information from
      * @param  array  $params extra parameters to add
      * @param  string $newurl new url if different from the original
      */
@@ -66,9 +68,9 @@ class dcAdminURL
      *
      * @param  string $name      URL Name
      * @param  array  $params    query string parameters, given as an associative array
-     * @param  boolean $urlencode set to true if url may not be encoded
      * @param  string $separator separator to use between QS parameters
      * @param  boolean $parametric set to true if url will be used as (s)printf() format.
+     *
      * @return string            the forged url
      */
     public function get($name, $params = [], $separator = '&amp;', $parametric = false)
@@ -91,13 +93,11 @@ class dcAdminURL
     }
 
     /**
-     * retrieves a URL given its name, and optional parameters
+     * Redirect to an URL given its name, and optional parameters
      *
      * @param  string $name      URL Name
      * @param  array  $params    query string parameters, given as an associative array
-     * @param  boolean $urlencode set to true if url may not be encoded
      * @param  string $suffix suffix to be added to the QS parameters
-     * @return string            the forged url
      */
     public function redirect($name, $params = [], $suffix = '')
     {

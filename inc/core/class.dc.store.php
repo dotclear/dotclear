@@ -36,7 +36,7 @@ class dcStore
     /**
      * Constructor.
      *
-     * @param    object    $modules        dcModules instance
+     * @param    dcModules $modules        dcModules instance
      * @param    string    $xml_url        XML feed URL
      * @param    boolean   $force          Force query repository
      */

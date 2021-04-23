@@ -18,6 +18,13 @@ class dcMenu
     protected $items;
     public $title;
 
+    /**
+     * Constructs a new instance.
+     *
+     * @param      string  $id         The identifier
+     * @param      string  $title      The title
+     * @param      string  $itemSpace  The item space
+     */
     public function __construct($id, $title, $itemSpace = '')
     {
         $this->id        = $id;
@@ -27,6 +34,18 @@ class dcMenu
         $this->items     = [];
     }
 
+    /**
+     * Adds an item.
+     *
+     * @param      string  $title   The title
+     * @param      string  $url     The url
+     * @param      string  $img     The image
+     * @param      mixed   $active  The active flag
+     * @param      bool    $show    The show flag
+     * @param      mixed   $id      The identifier
+     * @param      mixed   $class   The class
+     * @param      bool    $pinned  The pinned flag
+     */
     public function addItem($title, $url, $img, $active, $show = true, $id = null, $class = null, $pinned = false)
     {
         if ($show) {
@@ -39,6 +58,18 @@ class dcMenu
         }
     }
 
+    /**
+     * Prepends an item.
+     *
+     * @param      string  $title   The title
+     * @param      string  $url     The url
+     * @param      string  $img     The image
+     * @param      mixed   $active  The active flag
+     * @param      bool    $show    The show flag
+     * @param      mixed   $id      The identifier
+     * @param      mixed   $class   The class
+     * @param      bool    $pinned  The pinned flag
+     */
     public function prependItem($title, $url, $img, $active, $show = true, $id = null, $class = null, $pinned = false)
     {
         if ($show) {
@@ -51,6 +82,11 @@ class dcMenu
         }
     }
 
+    /**
+     * Draw a menu
+     *
+     * @return     string  ( description_of_the_return_value )
+     */
     public function draw()
     {
         if (count($this->items) + count($this->pinned) == 0) {
@@ -89,6 +125,18 @@ class dcMenu
         return $res;
     }
 
+    /**
+     * Get a menu item HTML code
+     *
+     * @param      string  $title   The title
+     * @param      string  $url     The url
+     * @param      string  $img     The image
+     * @param      mixed   $active  The active flag
+     * @param      mixed   $id      The identifier
+     * @param      mixed   $class   The class
+     *
+     * @return     string  ( description_of_the_return_value )
+     */
     protected function itemDef($title, $url, $img, $active, $id = null, $class = null)
     {
         if (is_array($url)) {

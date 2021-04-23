@@ -1057,7 +1057,8 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         $this->setUser($user, $pwd);
         $this->setBlog();
 
-        $tags = $this->core->meta->getMeta('tag');
+        $tags = $this->core->meta->getMetadata(['meta_type' => 'tag']);
+        $tags = $this->core->meta->computeMetaStats($tags);
         $tags->sort('meta_id_lower', 'asc');
 
         $res = [];

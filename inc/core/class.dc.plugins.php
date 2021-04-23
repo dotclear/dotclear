@@ -25,18 +25,18 @@ class dcPlugins extends dcModules
     protected static $type = 'plugin';
 
     /**
-    This method registers a plugin in modules list. You should use this to
-    register a new plugin.
-
-    <var>$priority</var> is an integer. Modules are sorted by priority and name.
-    Lowest priority comes first. This property is currently ignored when dealing
-    with themes.
-
-    @param    name            <b>string</b>        Module name
-    @param    desc            <b>string</b>        Module description
-    @param    author        <b>string</b>        Module author name
-    @param    version        <b>string</b>        Module version
-    @param    properties    <b>array</b>        extra properties (currently available keys : permissions, priority, standalone_config, type)
+     *  This method registers a plugin in modules list. You should use this to
+     *  register a new plugin.
+     *
+     * <var>$priority</var> is an integer. Modules are sorted by priority and name.
+     * Lowest priority comes first. This property is currently ignored when dealing
+     * with themes.
+     *
+     * @param      string  $name        The name
+     * @param      string  $desc        The description
+     * @param      string  $author      The author
+     * @param      string  $version     The version
+     * @param      mixed   $properties  The properties
      */
     public function registerModule($name, $desc, $author, $version, $properties = [])
     {

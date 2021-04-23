@@ -40,22 +40,22 @@ class dcModules
     public $core; ///< <b>dcCore</b>    dcCore instance
 
     /**
-    Object constructor.
-
-    @param    core        <b>dcCore</b>    dcCore instance
+     * Constructs a new instance.
+     *
+     * @param      dcCore  $core   The core
      */
-    public function __construct($core)
+    public function __construct(dcCore $core)
     {
         $this->core = &$core;
     }
 
     /**
      * Checks all modules dependencies
+     *
      *     Fills in the following information in module :
      *       * cannot_enable : list reasons why module cannot be enabled. Not set if module can be enabled
      *       * cannot_disable : list reasons why module cannot be disabled. Not set if module can be disabled
      *       * implies : reverse dependencies
-     * @return array list of enabled modules with unmet dependencies, and that must be disabled.
      */
     public function checkDependencies()
     {
@@ -109,8 +109,13 @@ class dcModules
 
     /**
      * Checks all modules dependencies, and disable unmet dependencies
+     */
+    /**
+     * Disables the dep modules.
+     *
      * @param  string $redir_url URL to redirect if modules are to disable
-     * @return boolean, true if a redirection has been performed
+     *
+     * @return bool  true if a redirection has been performed
      */
     public function disableDepModules($redir_url)
     {
@@ -142,17 +147,21 @@ class dcModules
     }
 
     /**
-    Loads modules. <var>$path</var> could be a separated list of paths
-    (path separator depends on your OS).
-
-    <var>$ns</var> indicates if an additionnal file needs to be loaded on plugin
-    load, value could be:
-    - admin (loads module's _admin.php)
-    - public (loads module's _public.php)
-    - xmlrpc (loads module's _xmlrpc.php)
-
-    <var>$lang</var> indicates if we need to load a lang file on plugin
-    loading.
+     * Loads modules. <var>$path</var> could be a separated list of paths
+     * (path separator depends on your OS).
+     *
+     * <var>$ns</var> indicates if an additionnal file needs to be loaded on plugin
+     * load, value could be:
+     * - admin (loads module's _admin.php)
+     * - public (loads module's _public.php)
+     * - xmlrpc (loads module's _xmlrpc.php)
+     *
+     * <var>$lang</var> indicates if we need to load a lang file on plugin
+     * loading.
+     *
+     * @param      string  $path   The path
+     * @param      mixed   $ns
+     * @param      mixed   $lang   The language
      */
     public function loadModules($path, $ns = null, $lang = null)
     {
@@ -260,22 +269,21 @@ class dcModules
     }
 
     /**
-    This method registers a module in modules list. You should use this to
-    register a new module.
-
-    <var>$permissions</var> is a comma separated list of permissions for your
-    module. If <var>$permissions</var> is null, only super admin has access to
-    this module.
-
-    <var>$priority</var> is an integer. Modules are sorted by priority and name.
-    Lowest priority comes first.
-
-    @param    name            <b>string</b>        Module name
-    @param    desc            <b>string</b>        Module description
-    @param    author        <b>string</b>        Module author name
-    @param    version        <b>string</b>        Module version
-    @param    properties    <b>array</b>        extra properties
-    (currently available keys : permissions, priority, type)
+     * This method registers a module in modules list. You should use this to
+     * register a new module.
+     *
+     * <var>$permissions</var> is a comma separated list of permissions for your
+     * module. If <var>$permissions</var> is null, only super admin has access to
+     * this module.
+     *
+     * <var>$priority</var> is an integer. Modules are sorted by priority and name.
+     * Lowest priority comes first.
+     *
+     * @param      string  $name        The module name
+     * @param      string  $desc        The module description
+     * @param      string  $author      The module author
+     * @param      string  $version     The module version
+     * @param      mixed   $properties  The properties
      */
     public function registerModule($name, $desc, $author, $version, $properties = [])
     {
@@ -372,6 +380,9 @@ class dcModules
         }
     }
 
+    /**
+     * Reset modules list
+     */
     public function resetModulesList()
     {
         $this->modules       = [];
@@ -379,6 +390,16 @@ class dcModules
         $this->errors        = [];
     }
 
+    /**
+     * Install a Package
+     *
+     * @param      string     $zip_file  The zip file
+     * @param      dcModules  $modules   The modules
+     *
+     * @throws     Exception
+     *
+     * @return     int
+     */
     public static function installPackage($zip_file, dcModules &$modules)
     {
         $zip = new fileUnzip($zip_file);
@@ -481,9 +502,14 @@ class dcModules
     }
 
     /**
-    This method installs all modules having a _install file.
 
-    @see dcModules::installModule
+     */
+    /**
+     * This method installs all modules having a _install file.
+     *
+     * @see dcModules::installModule
+     *
+     * @return     array
      */
     public function installModules()
     {
@@ -501,15 +527,16 @@ class dcModules
     }
 
     /**
-    This method installs module with ID <var>$id</var> and having a _install
-    file. This file should throw exception on failure or true if it installs
-    successfully.
-
-    <var>$msg</var> is an out parameter that handle installer message.
-
-    @param    id        <b>string</b>        Module ID
-    @param    msg        <b>string</b>        Module installer message
-    @return    <b>boolean</b>
+     * This method installs module with ID <var>$id</var> and having a _install
+     * file. This file should throw exception on failure or true if it installs
+     * successfully.
+     *
+     * <var>$msg</var> is an out parameter that handle installer message.
+     *
+     * @param      string  $id     The identifier
+     * @param      string  $msg    The message
+     *
+     * @return     mixed
      */
     public function installModule($id, &$msg)
     {
@@ -529,6 +556,14 @@ class dcModules
         }
     }
 
+    /**
+     * Delete a module
+     *
+     * @param      string     $id        The module identifier
+     * @param      bool       $disabled  Is module disabled
+     *
+     * @throws     Exception  (description)
+     */
     public function deleteModule($id, $disabled = false)
     {
         if ($disabled) {
@@ -546,6 +581,13 @@ class dcModules
         }
     }
 
+    /**
+     * Deactivate a module
+     *
+     * @param      string     $id     The identifier
+     *
+     * @throws     Exception
+     */
     public function deactivateModule($id)
     {
         if (!isset($this->modules[$id])) {
@@ -561,6 +603,13 @@ class dcModules
         }
     }
 
+    /**
+     * Activate a module
+     *
+     * @param      string     $id     The identifier
+     *
+     * @throws     Exception
+     */
     public function activateModule($id)
     {
         if (!isset($this->disabled[$id])) {
@@ -576,19 +625,24 @@ class dcModules
         }
     }
 
+    /**
+     * Clone a module
+     *
+     * @param      string  $id     The module identifier
+     */
     public function cloneModule($id)
     {
     }
 
     /**
-    This method will search for file <var>$file</var> in language
-    <var>$lang</var> for module <var>$id</var>.
-
-    <var>$file</var> should not have any extension.
-
-    @param    id        <b>string</b>        Module ID
-    @param    lang        <b>string</b>        Language code
-    @param    file        <b>string</b>        File name (without extension)
+     * This method will search for file <var>$file</var> in language
+     * <var>$lang</var> for module <var>$id</var>.
+     *
+     * <var>$file</var> should not have any extension.
+     *
+     * @param      string  $id     The module identifier
+     * @param      string  $lang   The language code
+     * @param      string  $file   The filename (without extension)
      */
     public function loadModuleL10N($id, $lang, $file)
     {
@@ -602,6 +656,12 @@ class dcModules
         }
     }
 
+    /**
+     * Loads module l10n resources.
+     *
+     * @param      string  $id     The module identifier
+     * @param      string  $lang   The language code
+     */
     public function loadModuleL10Nresources($id, $lang)
     {
         if (!$lang || !isset($this->modules[$id])) {
@@ -615,11 +675,12 @@ class dcModules
     }
 
     /**
-    Returns all modules associative array or only one module if <var>$id</var>
-    is present.
-
-    @param    id        <b>string</b>        Optionnal module ID
-    @return    <b>array</b>
+     * Returns all modules associative array or only one module if <var>$id</var>
+     * is present.
+     *
+     * @param      mixed  $id     The optionnal module identifier
+     *
+     * @return     mixed  The modules.
      */
     public function getModules($id = null)
     {
@@ -631,10 +692,11 @@ class dcModules
     }
 
     /**
-    Returns true if the module with ID <var>$id</var> exists.
-
-    @param    id        <b>string</b>        Module ID
-    @return    <b>boolean</b>
+     * Determines if module exists.
+     *
+     * @param      string  $id     The module identifier
+     *
+     * @return     bool  True if module exists, False otherwise.
      */
     public function moduleExists($id)
     {
@@ -642,9 +704,9 @@ class dcModules
     }
 
     /**
-    Returns all disabled modules in an array
-
-    @return    <b>array</b>
+     * Gets the disabled modules.
+     *
+     * @return     array  The disabled modules.
      */
     public function getDisabledModules()
     {
@@ -652,10 +714,11 @@ class dcModules
     }
 
     /**
-    Returns root path for module with ID <var>$id</var>.
-
-    @param    id        <b>string</b>        Module ID
-    @return    <b>string</b>
+     * Returns root path for module with ID <var>$id</var>.
+     *
+     * @param      string  $id     The module identifier
+     *
+     * @return     string
      */
     public function moduleRoot($id)
     {
@@ -663,18 +726,20 @@ class dcModules
     }
 
     /**
-    Returns a module information that could be:
-    - root
-    - name
-    - desc
-    - author
-    - version
-    - permissions
-    - priority
-
-    @param    id        <b>string</b>        Module ID
-    @param    info        <b>string</b>        Information to retrieve
-    @return    <b>string</b>
+     * Returns a module information that could be:
+     * - root
+     * - name
+     * - desc
+     * - author
+     * - version
+     * - permissions
+     * - priority
+     * - …
+     *
+     * @param      string  $id     The module identifier
+     * @param      string  $info   The information
+     *
+     * @return     mixed
      */
     public function moduleInfo($id, $info)
     {
@@ -682,9 +747,9 @@ class dcModules
     }
 
     /**
-    Loads namespace <var>$ns</var> specific files for all modules.
-
-    @param    ns        <b>string</b>        Namespace name
+     * Loads namespace <var>$ns</var> specific files for all modules.
+     *
+     * @param      mixed  $ns
      */
     public function loadNsFiles($ns = null)
     {
@@ -694,11 +759,11 @@ class dcModules
     }
 
     /**
-    Loads namespace <var>$ns</var> specific file for module with ID
-    <var>$id</var>
-
-    @param    id        <b>string</b>        Module ID
-    @param    ns        <b>string</b>        Namespace name
+     * Loads namespace <var>$ns</var> specific file for module with ID
+     * <var>$id</var>
+     *
+     * @param      string  $id     The module identifier
+     * @param      mixed   $ns     Namespace name
      */
     public function loadNsFile($id, $ns = null)
     {
@@ -721,6 +786,11 @@ class dcModules
         }
     }
 
+    /**
+     * Gets the errors.
+     *
+     * @return     array  The errors.
+     */
     public function getErrors()
     {
         return $this->errors;

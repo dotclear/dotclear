@@ -28,6 +28,11 @@ class dcAdminNotices
 
     private static $error_displayed = false;
 
+    /**
+     * Gets the HTML code of notices.
+     *
+     * @return     string  The notices.
+     */
     public static function getNotices()
     {
         $res = '';
@@ -99,6 +104,13 @@ class dcAdminNotices
         return $res;
     }
 
+    /**
+     * Adds a notice.
+     *
+     * @param      string  $type     The type
+     * @param      string  $message  The message
+     * @param      array   $options  The options
+     */
     public static function addNotice($type, $message, $options = [])
     {
         $cur = self::$core->con->openCursor(self::$core->prefix . self::$core->notices->getTable());
@@ -118,21 +130,46 @@ class dcAdminNotices
         self::$core->notices->addNotice($cur);
     }
 
+    /**
+     * Adds a success notice.
+     *
+     * @param      string  $message  The message
+     * @param      array   $options  The options
+     */
     public static function addSuccessNotice($message, $options = [])
     {
         self::addNotice('success', $message, $options);
     }
 
+    /**
+     * Adds a warning notice.
+     *
+     * @param      string  $message  The message
+     * @param      array   $options  The options
+     */
     public static function addWarningNotice($message, $options = [])
     {
         self::addNotice('warning', $message, $options);
     }
 
+    /**
+     * Adds an error notice.
+     *
+     * @param      string  $message  The message
+     * @param      array   $options  The options
+     */
     public static function addErrorNotice($message, $options = [])
     {
         self::addNotice('error', $message, $options);
     }
 
+    /**
+     * Gets the notification.
+     *
+     * @param      array  $n      The notification
+     *
+     * @return     string  The notification.
+     */
     private static function getNotification($n)
     {
         $tag = (isset($n['format']) && $n['format'] === 'html') ? 'div' : 'p';
@@ -149,8 +186,19 @@ class dcAdminNotices
         return $res;
     }
 
-    /* Direct messages, usually immediately displayed */
+    /*  */
 
+    /**
+     * Direct messages, usually immediately displayed
+     *
+     * @param      string  $msg        The message
+     * @param      bool    $timestamp  With the timestamp
+     * @param      bool    $div        Inside a div (else in a p)
+     * @param      bool    $echo       Display the message?
+     * @param      string  $class      The class of block (div/p)
+     *
+     * @return     string
+     */
     public static function message($msg, $timestamp = true, $div = false, $echo = true, $class = 'message')
     {
         $res = '';
@@ -174,14 +222,37 @@ class dcAdminNotices
         return $res;
     }
 
+    /**
+     * Display a success message
+     *
+     * @param      string  $msg        The message
+     * @param      bool    $timestamp  With the timestamp
+     * @param      bool    $div        Inside a div (else in a p)
+     * @param      bool    $echo       Display the message?
+     *
+     * @return     string
+     */
     public static function success($msg, $timestamp = true, $div = false, $echo = true)
     {
         return self::message($msg, $timestamp, $div, $echo, 'success');
     }
 
+    /**
+     * Display a warning message
+     *
+     * @param      string  $msg        The message
+     * @param      bool    $timestamp  With the timestamp
+     * @param      bool    $div        Inside a div (else in a p)
+     * @param      bool    $echo       Display the message?
+     *
+     * @return     string
+     */
     public static function warning($msg, $timestamp = true, $div = false, $echo = true)
     {
         return self::message($msg, $timestamp, $div, $echo, 'warning-msg');
     }
 }
+/*
+ * Store current dcCore instance
+ */
 dcAdminNotices::$core = $GLOBALS['core'];

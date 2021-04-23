@@ -19,7 +19,7 @@ class dcAuth
 {
     /** @var dcCore dcCore instance */
     protected $core;
-    /** @var connection Database connection object */
+    /** @var object Database connection object */
     protected $con;
 
     /** @var string User table name */
@@ -59,7 +59,7 @@ class dcAuth
      *
      * @param dcCore    $core        dcCore object
      */
-    public function __construct($core)
+    public function __construct(dcCore $core)
     {
         $this->core       = &$core;
         $this->con        = &$core->con;
@@ -90,6 +90,7 @@ class dcAuth
      * @param string    $pwd            User password
      * @param string    $user_key        User key check
      * @param boolean    $check_blog    checks if user is associated to a blog or not.
+     *
      * @return boolean
      */
     public function checkUser($user_id, $pwd = null, $user_key = null, $check_blog = true)
@@ -196,6 +197,7 @@ class dcAuth
      * This method crypt given string (password, session_id, …).
      *
      * @param string $pwd string to be crypted
+     *
      * @return string crypted value
      */
     public function crypt($pwd)
@@ -207,6 +209,7 @@ class dcAuth
      * This method crypt given string (password, session_id, …).
      *
      * @param string $pwd string to be crypted
+     *
      * @return string crypted value
      */
     public function cryptLegacy($pwd)
@@ -218,6 +221,7 @@ class dcAuth
      * This method only check current user password.
      *
      * @param string    $pwd            User password
+     *
      * @return boolean
      */
     public function checkPassword($pwd)
@@ -297,6 +301,7 @@ class dcAuth
      *
      * @param string    $permissions    Permissions list
      * @param string    $blog_id        Blog ID
+     *
      * @return boolean
      */
     public function check($permissions, $blog_id)
@@ -336,6 +341,12 @@ class dcAuth
 
     /// @name User code handlers
     //@{
+
+    /**
+     * Gets the user code.
+     *
+     * @return     string  The user code.
+     */
     public function getUserCode()
     {
         $code = pack('a32', $this->userID()) .
@@ -344,6 +355,13 @@ class dcAuth
         return bin2hex($code);
     }
 
+    /**
+     * Check user code
+     *
+     * @param      string  $code   The code
+     *
+     * @return     bool
+     */
     public function checkUserCode($code)
     {
         $code = @pack('H*', $code);
@@ -381,7 +399,8 @@ class dcAuth
      * Calls $f function with super admin rights.
      * Returns the function result.
      *
-     * @param callback    $f            Callback function
+     * @param callable    $f            Callback function
+     *
      * @return mixed
      */
     public function sudo($f, ...$args)
@@ -419,6 +438,7 @@ class dcAuth
      *    - ...
      *
      * @param string    $blog_id        Blog ID
+     *
      * @return array
      */
     public function getPermissions($blog_id)
@@ -450,6 +470,11 @@ class dcAuth
         return $this->blogs[$blog_id];
     }
 
+    /**
+     * Gets the blog count.
+     *
+     * @return     integer  The blog count.
+     */
     public function getBlogCount()
     {
         if ($this->blog_count === null) {
@@ -459,6 +484,13 @@ class dcAuth
         return $this->blog_count;
     }
 
+    /**
+     * Finds an user blog.
+     *
+     * @param      mixed  $blog_id  The blog identifier
+     *
+     * @return     mixed
+     */
     public function findUserBlog($blog_id = null)
     {
         if ($blog_id && $this->getPermissions($blog_id) !== false) {
@@ -502,7 +534,8 @@ class dcAuth
      * Returns information about a user .
      *
      * @param string    $n            Information name
-     * @return string
+     *
+     * @return mixed
      */
     public function getInfo($n)
     {
@@ -515,7 +548,8 @@ class dcAuth
      * Returns a specific user option
      *
      * @param string    $n            Option name
-     * @return string
+     *
+     * @return mixed
      */
     public function getOption($n)
     {
@@ -541,6 +575,7 @@ class dcAuth
      * Returns an array with permissions parsed from the string <var>$level</var>
      *
      * @param string    $level        Permissions string
+     *
      * @return array
      */
     public function parsePermissions($level)
@@ -586,6 +621,7 @@ class dcAuth
      *
      * @param string    $user_id        User ID
      * @param string    $user_email    User Email
+     *
      * @return string
      */
     public function setRecoverKey($user_id, $user_email)
@@ -619,6 +655,7 @@ class dcAuth
      * - new_pass
      *
      * @param string    $recover_key    Recovery key
+     *
      * @return array
      */
     public function recoverUserPassword($recover_key)
@@ -658,6 +695,7 @@ class dcAuth
     /**
      * Called after core->addUser
      * @see dcCore::addUser
+     *
      * @param cursor    $cur            User cursor
      */
     public function afterAddUser($cur)
@@ -667,6 +705,7 @@ class dcAuth
     /**
      * Called after core->updUser
      * @see dcCore::updUser
+     *
      * @param string    $id            User ID
      * @param cursor    $cur            User cursor
      */
@@ -677,6 +716,7 @@ class dcAuth
     /**
      * Called after core->delUser
      * @see dcCore::delUser
+     *
      * @param string    $id            User ID
      */
     public function afterDelUser($id)

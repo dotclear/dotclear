@@ -15,6 +15,18 @@ class dcPager extends pager
     protected $form_action;
     protected $form_hidden;
 
+    /**
+     * Gets the link.
+     *
+     * @param      string  $li_class        The li class
+     * @param      string  $href            The href
+     * @param      string  $img_src         The image source
+     * @param      string  $img_src_nolink  The image source nolink
+     * @param      string  $img_alt         The image alternate
+     * @param      bool    $enable_link     The enable link
+     *
+     * @return     string  The link.
+     */
     protected function getLink($li_class, $href, $img_src, $img_src_nolink, $img_alt, $enable_link)
     {
         if ($enable_link) {
@@ -26,6 +38,10 @@ class dcPager extends pager
 
         return sprintf($formatter, $li_class, $img_src_nolink, $img_alt);
     }
+
+    /**
+     * Sets the url.
+     */
     public function setURL()
     {
         parent::setURL();
@@ -141,7 +157,14 @@ class adminGenericList
     protected $html_prev;
     protected $html_next;
 
-    public function __construct($core, $rs, $rs_count)
+    /**
+     * Constructs a new instance.
+     *
+     * @param      dcCore  $core      The core
+     * @param      record  $rs        The record
+     * @param      mixed   $rs_count  The rs count
+     */
+    public function __construct(dcCore $core, $rs, $rs_count)
     {
         $this->core      = &$core;
         $this->rs        = &$rs;
@@ -150,6 +173,12 @@ class adminGenericList
         $this->html_next = __('next &#187;');
     }
 
+    /**
+     * Get user defined columns
+     *
+     * @param      string  $type   The type
+     * @param      array   $cols   The columns
+     */
     public function userColumns($type, $cols)
     {
         $cols_user = @$this->core->auth->user_prefs->interface->cols;
@@ -167,6 +196,14 @@ class adminGenericList
 
 class adminPostList extends adminGenericList
 {
+    /**
+     * Display admin post list
+     *
+     * @param      integer  $page           The page
+     * @param      integer  $nb_per_page    The number of per page
+     * @param      string   $enclose_block  The enclose block
+     * @param      bool     $filter         The filter
+     */
     public function display($page, $nb_per_page, $enclose_block = '', $filter = false)
     {
         if ($this->rs->isEmpty()) {
@@ -269,6 +306,13 @@ class adminPostList extends adminGenericList
         }
     }
 
+    /**
+     * Get a line.
+     *
+     * @param      bool  $checked  The checked flag
+     *
+     * @return     string
+     */
     private function postLine($checked)
     {
         if ($this->core->auth->check('categories', $this->core->blog->id)) {
@@ -363,6 +407,13 @@ class adminPostList extends adminGenericList
 
 class adminPostMiniList extends adminGenericList
 {
+    /**
+     * Display a mini post list
+     *
+     * @param      integer  $page           The page
+     * @param      integer  $nb_per_page    The number of per page
+     * @param      string   $enclose_block  The enclose block
+     */
     public function display($page, $nb_per_page, $enclose_block = '')
     {
         if ($this->rs->isEmpty()) {
@@ -407,6 +458,11 @@ class adminPostMiniList extends adminGenericList
         }
     }
 
+    /**
+     * Get a line.
+     *
+     * @return     string
+     */
     private function postLine()
     {
         $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
@@ -480,6 +536,16 @@ class adminPostMiniList extends adminGenericList
 
 class adminCommentList extends adminGenericList
 {
+    /**
+     * Display a comment list
+     *
+     * @param      integer  $page           The page
+     * @param      integer  $nb_per_page    The number of per page
+     * @param      string   $enclose_block  The enclose block
+     * @param      bool     $filter         The filter flag
+     * @param      bool     $spam           The spam flag
+     * @param      bool     $show_ip        The show ip flag
+     */
     public function display($page, $nb_per_page, $enclose_block = '', $filter = false, $spam = false, $show_ip = true)
     {
         if ($this->rs->isEmpty()) {
@@ -596,6 +662,15 @@ class adminCommentList extends adminGenericList
         }
     }
 
+    /**
+     * Get a comment line
+     *
+     * @param      bool    $checked  The checked flag
+     * @param      bool    $spam     The spam flag
+     * @param      array   $filters  The filters
+     *
+     * @return     string
+     */
     private function commentLine($checked = false, $spam = false, $filters = [])
     {
         global $core, $author, $status, $sortby, $order, $nb_per_page;
@@ -695,6 +770,14 @@ class adminCommentList extends adminGenericList
 
 class adminBlogList extends adminGenericList
 {
+    /**
+     * Display a blog list
+     *
+     * @param      integer  $page           The page
+     * @param      integer  $nb_per_page    The number of per page
+     * @param      string   $enclose_block  The enclose block
+     * @param      bool     $filter         The filter flag
+     */
     public function display($page, $nb_per_page, $enclose_block = '', $filter = false)
     {
         if ($this->rs->isEmpty()) {
@@ -768,6 +851,13 @@ class adminBlogList extends adminGenericList
         }
     }
 
+    /**
+     * Get a blog line
+     *
+     * @param      bool    $checked  The checked flag
+     *
+     * @return     string
+     */
     private function blogLine($checked = false)
     {
         $blog_id = html::escapeHTML($this->rs->blog_id);
@@ -820,6 +910,14 @@ class adminBlogList extends adminGenericList
 
 class adminUserList extends adminGenericList
 {
+    /**
+     * Display a user list
+     *
+     * @param      integer  $page           The page
+     * @param      integer  $nb_per_page    The number of per page
+     * @param      string   $enclose_block  The enclose block
+     * @param      bool     $filter         The filter flag
+     */
     public function display($page, $nb_per_page, $enclose_block = '', $filter = false)
     {
         if ($this->rs->isEmpty()) {
@@ -882,6 +980,11 @@ class adminUserList extends adminGenericList
         }
     }
 
+    /**
+     * Get a user line
+     *
+     * @return     string
+     */
     private function userLine()
     {
         $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';

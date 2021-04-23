@@ -176,16 +176,20 @@ class dcDefaultCommentActions
             throw new Exception(__('No comment selected'));
         }
         switch ($action) {
-            case 'unpublish':$status = 0;
+            case 'unpublish':
+                $status = 0;
 
                 break;
-            case 'pending':$status = -1;
+            case 'pending':
+                $status = -1;
 
                 break;
-            case 'junk':$status = -2;
+            case 'junk':
+                $status = -2;
 
                 break;
-            default:$status = 1;
+            default:
+                $status = 1;
 
                 break;
         }

@@ -15,15 +15,16 @@ if (!defined('DC_RC_PATH')) {
 class dcUtils
 {
     /**
-    Static function that returns user's common name given to his
-    <var>user_id</var>, <var>user_name</var>, <var>user_firstname</var> and
-    <var>user_displayname</var>.
-
-    @param    user_id            <b>string</b>    User ID
-    @param    user_name            <b>string</b>    User's name
-    @param    user_firstname        <b>string</b>    User's first name
-    @param    user_displayname    <b>string</b>    User's display name
-    @return    <b>string</b>
+     * Static function that returns user's common name given to his
+     * <var>user_id</var>, <var>user_name</var>, <var>user_firstname</var> and
+     * <var>user_displayname</var>.
+     *
+     * @param      string  $user_id           The user identifier
+     * @param      string  $user_name         The user name
+     * @param      string  $user_firstname    The user firstname
+     * @param      string  $user_displayname  The user displayname
+     *
+     * @return     string  The user cn.
      */
     public static function getUserCN($user_id, $user_name, $user_firstname, $user_displayname)
     {
@@ -45,10 +46,11 @@ class dcUtils
     }
 
     /**
-    Cleanup a list of IDs
-
-    @param    ids            <b>mixed</b>    ID(s)
-    @return    <b>array</b>
+     * Cleanup a list of IDs
+     *
+     * @param      mixed  $ids    The identifiers
+     *
+     * @return     array
      */
     public static function cleanIds($ids)
     {
@@ -80,6 +82,7 @@ class dcUtils
      * @param  string    $required_version    Required version
      * @param  string    $operator            Comparison operand
      * @param  boolean    $strict                Use full version
+     *
      * @return boolean    True if comparison success
      */
     public static function versionsCompare($current_version, $required_version, $operator = '>=', $strict = true)
@@ -153,7 +156,7 @@ class dcUtils
      * @deprecated 2.15 use dcUtils::jsJson() and getData()/mergeDeep() in javascript
      *
      * @param      string  $n      variable name
-     * @param      various  $v      value
+     * @param      mixed   $v      value
      *
      * @return     string  javascript code
      */

@@ -21,10 +21,11 @@ if (!defined('DC_RC_PATH')) {
 class rsExtPost
 {
     /**
-    Returns whether post is editable.
-
-    @param    rs    Invisible parameter
-    @return    <b>boolean</b>
+     * Determines whether the specified post is editable.
+     *
+     * @param      record  $rs     Invisible parameter
+     *
+     * @return     bool    True if the specified rs is editable, False otherwise.
      */
     public static function isEditable($rs)
     {
@@ -48,10 +49,11 @@ class rsExtPost
     }
 
     /**
-    Returns whether post is deletable
-
-    @param    rs    Invisible parameter
-    @return    <b>boolean</b>
+     * Determines whether the specified post is deletable.
+     *
+     * @param      record  $rs     Invisible parameter
+     *
+     * @return     bool    True if the specified rs is deletable, False otherwise.
      */
     public static function isDeletable($rs)
     {
@@ -75,10 +77,11 @@ class rsExtPost
     }
 
     /**
-    Returns whether post is the first one of its day.
-
-    @param    rs    Invisible parameter
-    @return    <b>boolean</b>
+     * Returns whether post is the first one of its day.
+     *
+     * @param      record  $rs     Invisible parameter
+     *
+     * @return     bool
      */
     public static function firstPostOfDay($rs)
     {
@@ -95,10 +98,11 @@ class rsExtPost
     }
 
     /**
-    Returns whether post is the last one of its day.
-
-    @param    rs    Invisible parameter
-    @return    <b>boolean</b>
+     * Returns whether post is the last one of its day.
+     *
+     * @param      record  $rs     Invisible parameter
+     *
+     * @return     bool
      */
     public static function lastPostOfDay($rs)
     {
@@ -115,10 +119,11 @@ class rsExtPost
     }
 
     /**
-    Returns whether comments are enabled on post.
-
-    @param    rs    Invisible parameter
-    @return    <b>boolean</b>
+     * Returns whether comments are enabled on post.
+     *
+     * @param      record  $rs     Invisible parameter
+     *
+     * @return     bool
      */
     public static function commentsActive($rs)
     {
@@ -129,10 +134,11 @@ class rsExtPost
     }
 
     /**
-    Returns whether trackbacks are enabled on post.
-
-    @param    rs    Invisible parameter
-    @return    <b>boolean</b>
+     * Returns whether trackbacks are enabled on post.
+     *
+     * @param      record  $rs     Invisible parameter
+     *
+     * @return     bool
      */
     public static function trackbacksActive($rs)
     {
@@ -143,10 +149,11 @@ class rsExtPost
     }
 
     /**
-    Returns whether post has at least one comment.
-
-    @param    rs    Invisible parameter
-    @return    <b>boolean</b>
+     * Returns whether post has at least one comment.
+     *
+     * @param      record  $rs     Invisible parameter
+     *
+     * @return     bool
      */
     public static function hasComments($rs)
     {
@@ -154,9 +161,11 @@ class rsExtPost
     }
 
     /**
-    Returns whether post has at least one trackbacks.
-
-    @return    <b>boolean</b>
+     * Returns whether post has at least one trackbacks.
+     *
+     * @param      record  $rs     Invisible parameter
+     *
+     * @return     bool
      */
     public static function hasTrackbacks($rs)
     {
@@ -164,9 +173,11 @@ class rsExtPost
     }
 
     /**
-    Returns whether post has been updated since publication.
-
-    @return <b>boolean</b>
+     * Returns whether post has been updated since publication.
+     *
+     * @param      record  $rs     Invisible parameter
+     *
+     * @return     bool
      */
     public static function isRepublished($rs)
     {
@@ -174,10 +185,11 @@ class rsExtPost
     }
 
     /**
-    Returns full post URL.
-
-    @param    rs    Invisible parameter
-    @return    <b>string</b>
+     * Gets the full post url.
+     *
+     * @param      record  $rs     Invisible parameter
+     *
+     * @return     string  The url.
      */
     public static function getURL($rs)
     {
@@ -187,10 +199,11 @@ class rsExtPost
     }
 
     /**
-    Returns full post category URL.
-
-    @param    rs    Invisible parameter
-    @return    <b>string</b>
+     * Returns full post category URL.
+     *
+     * @param      record  $rs     Invisible parameter
+     *
+     * @return     string  The category url.
      */
     public static function getCategoryURL($rs)
     {
@@ -198,10 +211,11 @@ class rsExtPost
     }
 
     /**
-    Returns whether post has an excerpt.
-
-    @param    rs    Invisible parameter
-    @return    <b>boolean</b>
+     * Returns whether post has an excerpt.
+     *
+     * @param      record  $rs     Invisible parameter
+     *
+     * @return     bool
      */
     public static function isExtended($rs)
     {
@@ -209,11 +223,12 @@ class rsExtPost
     }
 
     /**
-    Returns post timestamp.
-
-    @param    rs    Invisible parameter
-    @param    type    <b>string</b>        (dt|upddt|creadt) defaults to post_dt
-    @return    <b>integer</b>
+     * Gets the post timestamp.
+     *
+     * @param      record  $rs     Invisible parameter
+     * @param      string  $type   The type, (dt|upddt|creadt) defaults to post_dt
+     *
+     * @return     integer  The ts.
      */
     public static function getTS($rs, $type = '')
     {
@@ -227,11 +242,12 @@ class rsExtPost
     }
 
     /**
-    Returns post date formating according to the ISO 8601 standard.
-
-    @param    rs    Invisible parameter
-    @param    type    <b>string</b>        (dt|upddt|creadt) defaults to post_dt
-    @return    <b>string</b>
+     * Returns post date formating according to the ISO 8601 standard.
+     *
+     * @param      record  $rs     Invisible parameter
+     * @param      string  $type   The type, (dt|upddt|creadt) defaults to post_dt
+     *
+     * @return     string  The iso 8601 date.
      */
     public static function getISO8601Date($rs, $type = '')
     {
@@ -243,11 +259,12 @@ class rsExtPost
     }
 
     /**
-    Returns post date formating according to RFC 822.
-
-    @param    rs    Invisible parameter
-    @param    type    <b>string</b>        (dt|upddt|creadt) defaults to post_dt
-    @return    <b>string</b>
+     * Returns post date formating according to RFC 822.
+     *
+     * @param      record  $rs     Invisible parameter
+     * @param      string  $type   The type, (dt|upddt|creadt) defaults to post_dt
+     *
+     * @return     string  The rfc 822 date.
      */
     public static function getRFC822Date($rs, $type = '')
     {
@@ -259,13 +276,14 @@ class rsExtPost
     }
 
     /**
-    Returns post date with <var>$format</var> as formatting pattern. If format
-    is empty, uses <var>date_format</var> blog setting.
-
-    @param    rs    Invisible parameter
-    @param    format    <b>string</b>        Date format pattern
-    @param    type    <b>string</b>        (dt|upddt|creadt) defaults to post_dt
-    @return    <b>string</b>
+     * Returns post date with <var>$format</var> as formatting pattern. If format
+     * is empty, uses <var>date_format</var> blog setting.
+     *
+     * @param      record  $rs      Invisible parameter
+     * @param      string  $format  The date format pattern
+     * @param      string  $type    The type, (dt|upddt|creadt) defaults to post_dt
+     *
+     * @return     string  The date.
      */
     public static function getDate($rs, $format, $type = '')
     {
@@ -283,13 +301,14 @@ class rsExtPost
     }
 
     /**
-    Returns post time with <var>$format</var> as formatting pattern. If format
-    is empty, uses <var>time_format</var> blog setting.
-
-    @param    rs    Invisible parameter
-    @param    format    <b>string</b>        Time format pattern
-    @param    type    <b>string</b>        (dt|upddt|creadt) defaults to post_dt
-    @return    <b>string</b>
+     * Returns post time with <var>$format</var> as formatting pattern. If format
+     * is empty, uses <var>time_format</var> blog setting.
+     *
+     * @param      record  $rs      Invisible parameter
+     * @param      string  $format  The time format pattern
+     * @param      string  $type    The type, (dt|upddt|creadt) defaults to post_dt
+     *
+     * @return     string  The time.
      */
     public static function getTime($rs, $format, $type = '')
     {
@@ -307,11 +326,12 @@ class rsExtPost
     }
 
     /**
-    Returns author common name using user_id, user_name, user_firstname and
-    user_displayname fields.
-
-    @param    rs    Invisible parameter
-    @return    <b>string</b>
+     * Returns author common name using user_id, user_name, user_firstname and
+     * user_displayname fields.
+     *
+     * @param      record  $rs      Invisible parameter
+     *
+     * @return     string  The author common name.
      */
     public static function getAuthorCN($rs)
     {
@@ -320,11 +340,11 @@ class rsExtPost
     }
 
     /**
-    Returns author common name with a link if he specified one in its
-    preferences.
-
-    @param    rs    Invisible parameter
-    @return    <b>string</b>
+     * Returns author common name with a link if he specified one in its preferences.
+     *
+     * @param      record  $rs      Invisible parameter
+     *
+     * @return     string
      */
     public static function getAuthorLink($rs)
     {
@@ -338,12 +358,13 @@ class rsExtPost
     }
 
     /**
-    Returns author e-mail address. If <var>$encoded</var> is true, "@" sign is
-    replaced by "%40" and "." by "%2e".
-
-    @param    rs    Invisible parameter
-    @param    encoded    <b>boolean</b>        Encode address.
-    @return    <b>string</b>
+     * Returns author e-mail address. If <var>$encoded</var> is true, "@" sign is
+     * replaced by "%40" and "." by "%2e".
+     *
+     * @param      record  $rs       Invisible parameter
+     * @param      bool    $encoded  Encode address
+     *
+     * @return     string  The author email.
      */
     public static function getAuthorEmail($rs, $encoded = true)
     {
@@ -355,10 +376,11 @@ class rsExtPost
     }
 
     /**
-    Returns post feed unique ID.
-
-    @param    rs    Invisible parameter
-    @return    <b>string</b>
+     * Gets the post feed unique id.
+     *
+     * @param      record  $rs       Invisible parameter
+     *
+     * @return     string  The feed id.
      */
     public static function getFeedID($rs)
     {
@@ -366,10 +388,12 @@ class rsExtPost
     }
 
     /**
-    Returns trackback RDF information block in HTML comment.
-
-    @param    rs    Invisible parameter
-    @return    <b>string</b>
+     * Returns trackback RDF information block in HTML comment.
+     *
+     * @param      record  $rs       Invisible parameter
+     * @param      string  $format   The format (html|xml)
+     *
+     * @return     string
      */
     public static function getTrackbackData($rs, $format = 'html')
     {
@@ -390,10 +414,11 @@ class rsExtPost
     }
 
     /**
-    Returns post trackback full URL.
-
-    @param    rs    Invisible parameter
-    @return    <b>string</b>
+     * Gets the post trackback full URL.
+     *
+     * @param      record  $rs       Invisible parameter
+     *
+     * @return     string  The trackback link.
      */
     public static function getTrackbackLink($rs)
     {
@@ -401,12 +426,13 @@ class rsExtPost
     }
 
     /**
-    Returns post content. If <var>$absolute_urls</var> is true, appends full
-    blog URL to each relative post URLs.
-
-    @param    rs    Invisible parameter
-    @param    absolute_urls    <b>boolean</b>        With absolute URLs
-    @return    <b>string</b>
+     * Returns post content. If <var>$absolute_urls</var> is true, appends full
+     * blog URL to each relative post URLs.
+     *
+     * @param      record  $rs              Invisible parameter
+     * @param      bool    $absolute_urls   With absolute URLs
+     *
+     * @return     string  The content.
      */
     public static function getContent($rs, $absolute_urls = false)
     {
@@ -418,12 +444,13 @@ class rsExtPost
     }
 
     /**
-    Returns post excerpt. If <var>$absolute_urls</var> is true, appends full
-    blog URL to each relative post URLs.
-
-    @param    rs    Invisible parameter
-    @param    absolute_urls    <b>boolean</b>        With absolute URLs
-    @return    <b>string</b>
+     * Returns post excerpt. If <var>$absolute_urls</var> is true, appends full
+     * blog URL to each relative post URLs.
+     *
+     * @param      record  $rs              Invisible parameter
+     * @param      bool    $absolute_urls   With absolute URLs
+     *
+     * @return     string  The excerpt.
      */
     public static function getExcerpt($rs, $absolute_urls = false)
     {
@@ -435,10 +462,12 @@ class rsExtPost
     }
 
     /**
-    Returns post media count using a subquery.
-
-    @param    rs    Invisible parameter
-    @return    <b>integer</b>
+     * Returns post media count using a subquery.
+     *
+     * @param      record  $rs              Invisible parameter
+     * @param      mixed   $link_type  The link type
+     *
+     * @return     integer Number of media.
      */
     public static function countMedia($rs, $link_type = null)
     {
@@ -486,13 +515,14 @@ function.
 class rsExtComment
 {
     /**
-    Returns comment date with <var>$format</var> as formatting pattern. If
-    format is empty, uses <var>date_format</var> blog setting.
-
-    @param    rs    Invisible parameter
-    @param    format    <b>string</b>        Date format pattern
-    @param    type    <b>string</b>        (dt|upddt) defaults to comment_dt
-    @return    <b>string</b>
+     * Returns comment date with <var>$format</var> as formatting pattern. If
+     * format is empty, uses <var>date_format</var> blog setting.
+     *
+     * @param      record  $rs      Invisible parameter
+     * @param      string  $format  The date format pattern
+     * @param      string  $type    The type, (dt|upddt) defaults to comment_dt
+     *
+     * @return     string  The date.
      */
     public static function getDate($rs, $format, $type = '')
     {
@@ -508,13 +538,14 @@ class rsExtComment
     }
 
     /**
-    Returns comment time with <var>$format</var> as formatting pattern. If
-    format is empty, uses <var>time_format</var> blog setting.
-
-    @param    rs    Invisible parameter
-    @param    format    <b>string</b>        Date format pattern
-    @param    type    <b>string</b>        (dt|upddt) defaults to comment_dt
-    @return    <b>string</b>
+     * Returns comment time with <var>$format</var> as formatting pattern. If
+     * format is empty, uses <var>time_format</var> blog setting.
+     *
+     * @param      record  $rs      Invisible parameter
+     * @param      string  $format  The date format pattern
+     * @param      string  $type    The type, (dt|upddt) defaults to comment_dt
+     *
+     * @return     string  The time.
      */
     public static function getTime($rs, $format, $type = '')
     {
@@ -530,11 +561,12 @@ class rsExtComment
     }
 
     /**
-    Returns comment timestamp.
-
-    @param    rs    Invisible parameter
-    @param    type    <b>string</b>        (dt|upddt) defaults to comment_dt
-    @return    <b>integer</b>
+     * Returns comment timestamp.
+     *
+     * @param      record  $rs      Invisible parameter
+     * @param      string  $type    The type, (dt|upddt) defaults to comment_dt
+     *
+     * @return     integer The timestamp.
      */
     public static function getTS($rs, $type = '')
     {
@@ -546,11 +578,12 @@ class rsExtComment
     }
 
     /**
-    Returns comment date formating according to the ISO 8601 standard.
-
-    @param    rs    Invisible parameter
-    @param    type    <b>string</b>        (dt|upddt) defaults to comment_dt
-    @return    <b>string</b>
+     * Returns comment date formating according to the ISO 8601 standard.
+     *
+     * @param      record  $rs      Invisible parameter
+     * @param      string  $type    The type, (dt|upddt) defaults to comment_dt
+     *
+     * @return     string  The iso 8601 date.
      */
     public static function getISO8601Date($rs, $type = '')
     {
@@ -562,11 +595,12 @@ class rsExtComment
     }
 
     /**
-    Returns comment date formating according to RFC 822.
-
-    @param    rs    Invisible parameter
-    @param    type    <b>string</b>        (dt|upddt) defaults to comment_dt
-    @return    <b>string</b>
+     * Returns comment date formating according to RFC 822.
+     *
+     * @param      record  $rs      Invisible parameter
+     * @param      string  $type    The type, (dt|upddt) defaults to comment_dt
+     *
+     * @return     string  The rfc 822 date.
      */
     public static function getRFC822Date($rs, $type = '')
     {
@@ -578,12 +612,13 @@ class rsExtComment
     }
 
     /**
-    Returns comment content. If <var>$absolute_urls</var> is true, appends full
-    blog URL to each relative post URLs.
-
-    @param    rs    Invisible parameter
-    @param    absolute_urls    <b>boolean</b>        With absolute URLs
-    @return    <b>string</b>
+     * Returns comment content. If <var>$absolute_urls</var> is true, appends full
+     * blog URL to each relative post URLs.
+     *
+     * @param      record  $rs              Invisible parameter
+     * @param      bool    $absolute_urls   With absolute URLs
+     *
+     * @return     string  The content.
      */
     public static function getContent($rs, $absolute_urls = false)
     {
@@ -621,10 +656,11 @@ class rsExtComment
     }
 
     /**
-    Returns comment author link to his website if he specified one.
-
-    @param    rs    Invisible parameter
-    @return    <b>string</b>
+     * Returns comment author link to his website if he specified one.
+     *
+     * @param      record  $rs     Invisible parameter
+     *
+     * @return     mixed  The author url.
      */
     public static function getAuthorURL($rs)
     {
@@ -634,10 +670,11 @@ class rsExtComment
     }
 
     /**
-    Returns comment post full URL.
-
-    @param    rs    Invisible parameter
-    @return    <b>string</b>
+     * Returns comment post full URL.
+     *
+     * @param      record  $rs     Invisible parameter
+     *
+     * @return     string  The comment post url.
      */
     public static function getPostURL($rs)
     {
@@ -647,10 +684,11 @@ class rsExtComment
     }
 
     /**
-    Returns comment author name in a link to his website if he specified one.
-
-    @param    rs    Invisible parameter
-    @return    <b>string</b>
+     * Returns comment author name in a link to his website if he specified one.
+     *
+     * @param      record  $rs     Invisible parameter
+     *
+     * @return     string  The author link.
      */
     public static function getAuthorLink($rs)
     {
@@ -669,27 +707,25 @@ class rsExtComment
     }
 
     /**
-    Returns comment author e-mail address. If <var>$encoded</var> is true,
-    "@" sign is replaced by "%40" and "." by "%2e".
-
-    @param    rs    Invisible parameter
-    @param    encoded    <b>boolean</b>        Encode address.
-    @return    <b>string</b>
+     * Returns comment author e-mail address. If <var>$encoded</var> is true,
+     * "@" sign is replaced by "%40" and "." by "%2e".
+     *
+     * @param      record  $rs       Invisible parameter
+     * @param      bool    $encoded  Encode address
+     *
+     * @return     string  The email.
      */
     public static function getEmail($rs, $encoded = true)
     {
-        if ($encoded) {
-            return strtr($rs->comment_email, ['@' => '%40', '.' => '%2e']);
-        }
-
-        return $rs->comment_email;
+        return $encoded ? strtr($rs->comment_email, ['@' => '%40', '.' => '%2e']) : $rs->comment_email;
     }
 
     /**
-    Returns trackback site title if comment is a trackback.
-
-    @param    rs    Invisible parameter
-    @return    <b>string</b>
+     * Returns trackback site title if comment is a trackback.
+     *
+     * @param      record  $rs       Invisible parameter
+     *
+     * @return     mixed  The trackback title.
      */
     public static function getTrackbackTitle($rs)
     {
@@ -700,10 +736,11 @@ class rsExtComment
     }
 
     /**
-    Returns trackback content if comment is a trackback.
-
-    @param    rs    Invisible parameter
-    @return    <b>string</b>
+     * Returns trackback content if comment is a trackback.
+     *
+     * @param      record  $rs       Invisible parameter
+     *
+     * @return     mixed  The trackback content.
      */
     public static function getTrackbackContent($rs)
     {
@@ -714,10 +751,11 @@ class rsExtComment
     }
 
     /**
-    Returns comment feed unique ID.
-
-    @param    rs    Invisible parameter
-    @return    <b>string</b>
+     * Returns comment feed unique ID.
+     *
+     * @param      record  $rs       Invisible parameter
+     *
+     * @return     string  The feed id.
      */
     public static function getFeedID($rs)
     {
@@ -725,10 +763,11 @@ class rsExtComment
     }
 
     /**
-    Returns whether comment is from the post author.
-
-    @param    rs    Invisible parameter
-    @return    <b>boolean</b>
+     * Determines whether the specified comment is from the post author.
+     *
+     * @param      record  $rs       Invisible parameter
+     *
+     * @return     bool    True if the specified comment is from the post author, False otherwise.
      */
     public static function isMe($rs)
     {
@@ -750,8 +789,11 @@ function.
 class rsExtDates
 {
     /**
-    @param    rs    Invisible parameter
-    @return    <b>integer</b>        Date timestamp
+     * Convert date to timestamp
+     *
+     * @param      record  $rs       Invisible parameter
+     *
+     * @return     integer
      */
     public static function ts($rs)
     {
@@ -759,8 +801,11 @@ class rsExtDates
     }
 
     /**
-    @param    rs    Invisible parameter
-    @return    <b>string</b>        Date year
+     * Get date year
+     *
+     * @param      record  $rs       Invisible parameter
+     *
+     * @return     string
      */
     public static function year($rs)
     {
@@ -768,8 +813,11 @@ class rsExtDates
     }
 
     /**
-    @param    rs    Invisible parameter
-    @return    <b>string</b>        Date month
+     * Get date month
+     *
+     * @param      record  $rs       Invisible parameter
+     *
+     * @return     string
      */
     public static function month($rs)
     {
@@ -777,8 +825,11 @@ class rsExtDates
     }
 
     /**
-    @param    rs    Invisible parameter
-    @return    <b>integer</b>        Date day
+     * Get date day
+     *
+     * @param      record  $rs       Invisible parameter
+     *
+     * @return     string
      */
     public static function day($rs)
     {
@@ -786,13 +837,14 @@ class rsExtDates
     }
 
     /**
-    Returns date month archive full URL.
-
-    @param    rs    Invisible parameter
-    @param    core        <b>dcCore</b>        dcCore instance
-    @return    <b>integer</b>
+     * Returns date month archive full URL.
+     *
+     * @param      record  $rs       Invisible parameter
+     * @param      dcCore  $core     The core
+     *
+     * @return     string
      */
-    public static function url($rs, $core)
+    public static function url($rs, dcCore $core)
     {
         $url = date('Y/m', strtotime($rs->dt));
 
@@ -800,10 +852,11 @@ class rsExtDates
     }
 
     /**
-    Returns whether date is the first of year.
-
-    @param    rs    Invisible parameter
-    @return    <b>boolean</b>
+     * Returns whether date is the first of year.
+     *
+     * @param      record  $rs       Invisible parameter
+     *
+     * @return     bool
      */
     public static function yearHeader($rs)
     {
@@ -820,10 +873,11 @@ class rsExtDates
     }
 
     /**
-    Returns whether date is the last of year.
-
-    @param    rs    Invisible parameter
-    @return    <b>boolean</b>
+     * Returns whether date is the last of year.
+     *
+     * @param      record  $rs       Invisible parameter
+     *
+     * @return     bool
      */
     public static function yearFooter($rs)
     {
@@ -858,12 +912,14 @@ class rsExtUser
 {
     private static $sortfield;
     private static $sortsign;
-    /**
-    Returns a user option.
 
-    @param    rs    Invisible parameter
-    @param    name        <b>string</b>        Option name
-    @return    <b>string</b>
+    /**
+     * Returns a user option.
+     *
+     * @param      record  $rs       Invisible parameter
+     * @param      string  $name     The name of option
+     *
+     * @return     mixed
      */
     public static function option($rs, $name)
     {
@@ -875,10 +931,11 @@ class rsExtUser
     }
 
     /**
-    Returns all user options.
-
-    @param    rs    Invisible parameter
-    @return    <b>array</b>
+     * Returns all user options.
+     *
+     * @param      record  $rs       Invisible parameter
+     *
+     * @return     array
      */
     public static function options($rs)
     {
@@ -891,9 +948,11 @@ class rsExtUser
     }
 
     /**
-    Converts this record to a {@link extStaticRecord} instance.
-
-    @param     rs     Invisible parameter
+     * Converts this record to a {@link extStaticRecord} instance.
+     *
+     * @param      record  $rs       Invisible parameter
+     *
+     * @return     extStaticRecord  The extent static record.
      */
     public static function toExtStatic($rs)
     {
@@ -909,10 +968,13 @@ class rsExtBlog
 {
     private static $sortfield;
     private static $sortsign;
-    /**
-    Converts this record to a {@link extStaticRecord} instance.
 
-    @param     rs     Invisible parameter
+    /**
+     * Converts this record to a {@link extStaticRecord} instance.
+     *
+     * @param      record  $rs       Invisible parameter
+     *
+     * @return     extStaticRecord  The extent static record.
      */
     public static function toExtStatic($rs)
     {
@@ -935,10 +997,10 @@ class extStaticRecord extends staticRecord
     }
 
     /**
-    Lexically sort.
-
-    @param     field     <b>string<b>    sort field
-    @param  order     <b>string<b>    sort order
+     * Lexically sort.
+     *
+     * @param      string  $field  The field
+     * @param      string  $order  The order
      */
     public function lexicalSort($field, $order = 'asc')
     {

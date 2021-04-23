@@ -28,9 +28,9 @@ class dcMaintenance
     /**
      * Constructor.
      *
-     * @param    core    <b>dcCore</b>    dcCore instance
+     * @param    dcCore    $core    dcCore instance
      */
-    public function __construct($core)
+    public function __construct(dcCore $core)
     {
         $this->core  = $core;
         $this->p_url = $core->adminurl->get('admin.plugin.maintenance');
@@ -54,12 +54,13 @@ class dcMaintenance
     /// @name Tab methods
     //@{
     /**
-     * Add a tab.
+     * Adds a tab.
      *
-     * @param    id        <b>string<b> Tab ID
-     * @param    name    <b>string<b> Tab name
-     * @param    options    <b>string<b> Options
-     * @return <b>dcMaintenance</b>    Self
+     * @param      string  $id       The identifier
+     * @param      string  $name     The name
+     * @param      array   $options  The options
+     *
+     * @return     self
      */
     public function addTab($id, $name, $options = [])
     {
@@ -69,10 +70,11 @@ class dcMaintenance
     }
 
     /**
-     * Get a tab.
+     * Gets the tab.
      *
-     * @param    id    <b>string</b> Tab ID
-     * @return    <b>object</b> dcMaintenanceDescriptor of a tab
+     * @param      string  $id     The identifier
+     *
+     * @return     dcMaintenanceDescriptor|null  The tab.
      */
     public function getTab($id)
     {
@@ -80,9 +82,9 @@ class dcMaintenance
     }
 
     /**
-     * Get tabs.
+     * Gets the tabs.
      *
-     * @return    <b>array</b> Array of tabs ID and name
+     * @return     array  The tabs.
      */
     public function getTabs()
     {
@@ -93,12 +95,13 @@ class dcMaintenance
     /// @name Group methods
     //@{
     /**
-     * Add a group.
+     * Adds a group.
      *
-     * @param    id        <b>string<b> Group ID
-     * @param    name    <b>string<b> Group name
-     * @param    options    <b>string<b> Options
-     * @return <b>dcMaintenance</b>    Self
+     * @param      string  $id       The identifier
+     * @param      string  $name     The name
+     * @param      array   $options  The options
+     *
+     * @return     self
      */
     public function addGroup($id, $name, $options = [])
     {
@@ -108,10 +111,11 @@ class dcMaintenance
     }
 
     /**
-     * Get a group.
+     * Gets the group.
      *
-     * @param    id    <b>string</b> Group ID
-     * @return    <b>object</b> dcMaintenanceDescriptor of a group
+     * @param      string  $id     The identifier
+     *
+     * @return     dcMaintenanceDescriptor|null  The group.
      */
     public function getGroup($id)
     {
@@ -119,9 +123,9 @@ class dcMaintenance
     }
 
     /**
-     * Get groups.
+     * Gets the groups.
      *
-     * @return    <b>array</b> Array of groups ID and descriptor
+     * @return     array  The groups.
      */
     public function getGroups()
     {
@@ -132,11 +136,11 @@ class dcMaintenance
     /// @name Task methods
     //@{
     /**
-     * Add a task.
+     * Adds a task.
      *
-     * @param    task <b>mixed<b> Class name or object
-     * @return    <b>boolean</b>    True if it is added
-     * @return <b>dcMaintenance</b>    Self
+     * @param      mixed  $task   The task, Class name or object
+     *
+     * @return     self
      */
     public function addTask($task)
     {
@@ -148,10 +152,11 @@ class dcMaintenance
     }
 
     /**
-     * Get a task object.
+     * Gets the task.
      *
-     * @param    id    <b>string</b> task ID
-     * @return    <b>mixed</b> Task object or null if not exists
+     * @param      string  $id     The identifier
+     *
+     * @return     mixed  The task.
      */
     public function getTask($id)
     {
@@ -159,9 +164,9 @@ class dcMaintenance
     }
 
     /**
-     * Get tasks.
+     * Gets the tasks.
      *
-     * @return    <b>array</b> Array of tasks objects
+     * @return     array  The tasks.
      */
     public function getTasks()
     {
@@ -169,9 +174,9 @@ class dcMaintenance
     }
 
     /**
-     * Get headers for plugin maintenance admin page.
+     * Gets the headers for plugin maintenance admin page.
      *
-     * @return    <b>string</b> Page headers
+     * @return     string  The headers.
      */
     public function getHeaders()
     {
@@ -187,9 +192,9 @@ class dcMaintenance
     /// @name Log methods
     //@{
     /**
-     * Set log for a task.
+     * Sets the log for a task.
      *
-     * @param    id    <b>string</b>    Task ID
+     * @param      string  $id     Task ID
      */
     public function setLog($id)
     {
@@ -258,7 +263,7 @@ class dcMaintenance
      *        ]
      * ]
      *
-     * @return    <b>array</b> List of logged tasks
+     * @return    array List of logged tasks
      */
     public function getLogs()
     {

@@ -29,13 +29,13 @@ class dcPrefs
     const WS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
 
     /**
-    Object constructor. Retrieves user prefs and puts them in $workspaces
-    array. Local (user) prefs have a highest priority than global prefs.
-
-    @param    core        <b>dcCore</b>        dcCore object
-    @param    user_id    <b>string</b>        User ID
+     * Object constructor. Retrieves user prefs and puts them in $workspaces
+     * array. Local (user) prefs have a highest priority than global prefs.
+     *
+     * @param      dcCore   $core     The core
+     * @param      string   $user_id  The user identifier
      */
-    public function __construct($core, $user_id)
+    public function __construct(dcCore $core, $user_id)
     {
         $this->con     = &$core->con;
         $this->table   = $core->prefix . 'pref';
@@ -85,10 +85,11 @@ class dcPrefs
     }
 
     /**
-    Create a new workspace. If the workspace already exists, return it without modification.
-
-    @param    ws    <b>string</b>        Workspace name
-    @return    <b>dcWorkspace</b>    The workspace created
+     * Create a new workspace. If the workspace already exists, return it without modification.
+     *
+     * @param      string  $ws     Workspace name
+     *
+     * @return     dcWorkspace
      */
     public function addWorkspace($ws)
     {
@@ -100,11 +101,14 @@ class dcPrefs
     }
 
     /**
-    Rename a workspace.
-
-    @param    oldWs     <b>string</b>     Old workspace name
-    @param    newws     <b>string</b>     New workspace name
-    @return     <b>boolean</b>
+     * Rename a workspace.
+     *
+     * @param      string     $oldWs  The old workspace name
+     * @param      string     $newWs  The new workspace name
+     *
+     * @throws     Exception  (description)
+     *
+     * @return     bool
      */
     public function renWorkspace($oldWs, $newWs)
     {
@@ -130,10 +134,11 @@ class dcPrefs
     }
 
     /**
-    Delete a whole workspace with all preferences pertaining to it.
-
-    @param     ws     <b>string</b>     Workspace name
-    @return     <b>boolean</b>
+     * Delete a whole workspace with all preferences pertaining to it.
+     *
+     * @param      string  $ws     Workspace name
+     *
+     * @return     bool
      */
     public function delWorkspace($ws)
     {
@@ -153,10 +158,11 @@ class dcPrefs
     }
 
     /**
-    Returns full workspace with all prefs pertaining to it.
-
-    @param    ws    <b>string</b>        Workspace name
-    @return    <b>dcWorkspace</b>
+     * Returns full workspace with all prefs pertaining to it.
+     *
+     * @param      string  $ws     Workspace name
+     *
+     * @return     mixed
      */
     public function get($ws)
     {
@@ -166,8 +172,13 @@ class dcPrefs
     }
 
     /**
-    Magic __get method.
-    @copydoc ::get
+     * Magic __get method.
+     *
+     * @copydoc ::get
+     *
+     * @param      string  $n     Workspace name
+     *
+     * @return     mixed
      */
     public function __get($n)
     {
@@ -175,9 +186,9 @@ class dcPrefs
     }
 
     /**
-    Returns $workspaces property content.
-
-    @return    <b>array</b>
+     * Dumps workspaces.
+     *
+     * @return     array
      */
     public function dumpWorkspaces()
     {

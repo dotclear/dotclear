@@ -16,30 +16,31 @@ class dcLog
     protected $prefix;
 
     /**
-    Object constructor.
-
-    @param    core        <b>dcCore</b>    dcCore instance
+     * Constructs a new instance.
+     *
+     * @param      dcCore  $core   The core
      */
-    public function __construct($core)
+    public function __construct(dcCore $core)
     {
         $this->core   = &$core;
         $this->prefix = $core->prefix;
     }
 
     /**
-    Retrieves logs. <b>$params</b> is an array taking the following
-    optionnal parameters:
-
-    - blog_id: Get logs belonging to given blog ID
-    - user_id: Get logs belonging to given user ID
-    - log_ip: Get logs belonging to given IP address
-    - log_table: Get logs belonging to given log table
-    - order: Order of results (default "ORDER BY log_dt DESC")
-    - limit: Limit parameter
-
-    @param    params        <b>array</b>        Parameters
-    @param    count_only    <b>boolean</b>        Only counts results
-    @return    <b>record</b>    A record with some more capabilities
+     * Retrieves logs. <b>$params</b> is an array taking the following
+     * optionnal parameters:
+     *
+     * - blog_id: Get logs belonging to given blog ID
+     * - user_id: Get logs belonging to given user ID
+     * - log_ip: Get logs belonging to given IP address
+     * - log_table: Get logs belonging to given log table
+     * - order: Order of results (default "ORDER BY log_dt DESC")
+     * - limit: Limit parameter
+     *
+     * @param      array   $params      The parameters
+     * @param      bool    $count_only  Count only resultats
+     *
+     * @return     record  The logs.
      */
     public function getLogs($params = [], $count_only = false)
     {
@@ -97,11 +98,11 @@ class dcLog
     }
 
     /**
-    Creates a new log. Takes a cursor as input and returns the new log
-    ID.
-
-    @param    cur        <b>cursor</b>        Log cursor
-    @return    <b>integer</b>        New log ID
+     * Creates a new log. Takes a cursor as input and returns the new log ID.
+     *
+     * @param      cursor  $cur    The current
+     *
+     * @return     integer
      */
     public function addLog($cur)
     {
@@ -138,9 +139,10 @@ class dcLog
     }
 
     /**
-    Deletes a log.
-
-    @param    id        <b>integer</b>        Log ID
+     * Deletes a log.
+     *
+     * @param      integer  $id     The identifier
+     * @param      bool     $all    Remove all logs
      */
     public function delLogs($id, $all = false)
     {
@@ -151,6 +153,14 @@ class dcLog
         $this->core->con->execute($strReq);
     }
 
+    /**
+     * Gets the log cursor.
+     *
+     * @param      cursor     $cur     The current
+     * @param      mixed      $log_id  The log identifier
+     *
+     * @throws     Exception
+     */
     private function getLogCursor($cur, $log_id = null)
     {
         if ($cur->log_msg === '') {
@@ -177,8 +187,18 @@ class dcLog
     }
 }
 
+/**
+ * Extent log record class.
+ */
 class rsExtLog
 {
+    /**
+     * Gets the user cn.
+     *
+     * @param      record  $rs     Invisible parameter
+     *
+     * @return     string  The user cn.
+     */
     public static function getUserCN($rs)
     {
         $user = dcUtils::getUserCN($rs->user_id, $rs->user_name,

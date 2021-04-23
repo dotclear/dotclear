@@ -27,10 +27,15 @@ class dcWorkspace
     const WS_ID_SCHEMA   = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
 
     /**
-    Object constructor. Retrieves user prefs and puts them in $prefs
-    array. Local (user) prefs have a highest priority than global prefs.
-
-    @param    name        <b>string</b>        ID for this workspace
+     * Object constructor. Retrieves user prefs and puts them in $prefs
+     * array. Local (user) prefs have a highest priority than global prefs.
+     *
+     * @param      dcCore     $core     The core
+     * @param      string     $user_id  The user identifier
+     * @param      string     $name     The name
+     * @param      mixed      $rs       The recordset
+     *
+     * @throws     Exception
      */
     public function __construct(&$core, $user_id, $name, $rs = null)
     {
@@ -126,10 +131,11 @@ class dcWorkspace
     }
 
     /**
-    Returns pref value if exists.
-
-    @param    n        <b>string</b>        Pref name
-    @return    <b>mixed</b>
+     * Returns pref value if exists.
+     *
+     * @param      string  $n      Pref name
+     *
+     * @return     mixed
      */
     public function get($n)
     {
@@ -139,10 +145,11 @@ class dcWorkspace
     }
 
     /**
-    Returns global pref value if exists.
-
-    @param    n        <b>string</b>        Pref name
-    @return    <b>mixed</b>
+     * Returns global pref value if exists.
+     *
+     * @param      string  $n      Pref name
+     *
+     * @return     mixed
      */
     public function getGlobal($n)
     {
@@ -152,10 +159,11 @@ class dcWorkspace
     }
 
     /**
-    Returns local pref value if exists.
-
-    @param    n        <b>string</b>        Pref name
-    @return    <b>mixed</b>
+     * Returns local pref value if exists.
+     *
+     * @param      string  $n      Pref name
+     *
+     * @return     mixed
      */
     public function getLocal($n)
     {
@@ -164,8 +172,16 @@ class dcWorkspace
         }
     }
     /**
-    Magic __get method.
-    @copydoc ::get
+
+     */
+    /**
+     * Magic __get method.
+     *
+     * @copydoc ::get
+     *
+     * @param      string  $n      Pref name
+     *
+     * @return     mixed
      */
     public function __get($n)
     {
@@ -173,11 +189,11 @@ class dcWorkspace
     }
 
     /**
-    Sets a pref in $prefs property. This sets the pref for script
-    execution time only and if pref exists.
-
-    @param    n        <b>string</b>        Pref name
-    @param    v        <b>mixed</b>        Pref value
+     * Sets a pref in $prefs property. This sets the pref for script
+     * execution time only and if pref exists.
+     *
+     * @param      string  $n      The pref name
+     * @param      mixed   $v      The pref value
      */
     public function set($n, $v)
     {
@@ -187,8 +203,12 @@ class dcWorkspace
     }
 
     /**
-    Magic __set method.
-    @copydoc ::set
+     * Magic __set method.
+     *
+     * @copydoc ::set
+     *
+     * @param      string  $n      The pref name
+     * @param      mixed   $v      The pref value
      */
     public function __set($n, $v)
     {
@@ -196,20 +216,22 @@ class dcWorkspace
     }
 
     /**
-    Creates or updates a pref.
-
-    $type could be 'string', 'integer', 'float', 'boolean' or null. If $type is
-    null and pref exists, it will keep current pref type.
-
-    $value_change allow you to not change pref. Useful if you need to change
-    a pref label or type and don't want to change its value.
-
-    @param    id            <b>string</b>        Pref ID
-    @param    value        <b>mixed</b>        Pref value
-    @param    type            <b>string</b>        Pref type
-    @param    label        <b>string</b>        Pref label
-    @param    value_change    <b>boolean</b>        Change pref value or not
-    @param    global        <b>boolean</b>        Pref is global
+     * Creates or updates a pref.
+     *
+     * $type could be 'string', 'integer', 'float', 'boolean' or null. If $type is
+     * null and pref exists, it will keep current pref type.
+     *
+     * $value_change allow you to not change pref. Useful if you need to change
+     * a pref label or type and don't want to change its value.
+     *
+     * @param      string     $id            The pref identifier
+     * @param      mixed      $value         The pref value
+     * @param      string     $type          The pref type
+     * @param      string     $label         The pref label
+     * @param      bool       $value_change  Change pref value or not
+     * @param      bool       $global        Pref is global
+     *
+     * @throws     Exception
      */
     public function put($id, $value, $type = null, $label = null, $value_change = true, $global = false)
     {
@@ -296,11 +318,14 @@ class dcWorkspace
     }
 
     /**
-    Rename an existing pref in a Workspace
-
-    @param     $oldId     <b>string</b>     Current pref name
-    @param     $newId     <b>string</b>     New pref name
-    @return     <b>boolean</b>
+     * Rename an existing pref in a Workspace
+     *
+     * @param      string     $oldId  The old identifier
+     * @param      string     $newId  The new identifier
+     *
+     * @throws     Exception
+     *
+     * @return     bool       false is error, true if renamed
      */
     public function rename($oldId, $newId)
     {
@@ -331,10 +356,12 @@ class dcWorkspace
     }
 
     /**
-    Removes an existing pref. Workspace
-
-    @param    id        <b>string</b>        Pref ID
-    @param    force_global    <b>boolean</b>    Force global pref drop
+     * Removes an existing pref. Workspace
+     *
+     * @param      string     $id            The pref identifier
+     * @param      bool       $force_global  Force global pref drop
+     *
+     * @throws     Exception  (description)
      */
     public function drop($id, $force_global = false)
     {
@@ -390,9 +417,11 @@ class dcWorkspace
     }
 
     /**
-    Removes all existing pref. in a Workspace
-
-    @param    force_global    <b>boolean</b>    Force global pref drop
+     * Removes all existing pref. in a Workspace
+     *
+     * @param      bool       $force_global  Remove global prefs too
+     *
+     * @throws     Exception
      */
     public function dropAll($force_global = false)
     {
@@ -423,9 +452,9 @@ class dcWorkspace
     }
 
     /**
-    Returns $ws property content.
-
-    @return    <b>string</b>
+     * Dumps a workspace.
+     *
+     * @return     string
      */
     public function dumpWorkspace()
     {
@@ -433,9 +462,9 @@ class dcWorkspace
     }
 
     /**
-    Returns $prefs property content.
-
-    @return    <b>array</b>
+     * Dumps preferences.
+     *
+     * @return     array
      */
     public function dumpPrefs()
     {
@@ -443,9 +472,9 @@ class dcWorkspace
     }
 
     /**
-    Returns $local_prefs property content.
-
-    @return    <b>array</b>
+     * Dumps local preferences.
+     *
+     * @return     array
      */
     public function dumpLocalPrefs()
     {
@@ -453,9 +482,9 @@ class dcWorkspace
     }
 
     /**
-    Returns $global_prefs property content.
-
-    @return    <b>array</b>
+     * Dumps global preferences.
+     *
+     * @return     array
      */
     public function dumpGlobalPrefs()
     {

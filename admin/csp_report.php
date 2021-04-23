@@ -5,6 +5,8 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
+ *
+ * @var dcCore $core
  */
 
 // From: https://github.com/nico3333fr/CSP-useful

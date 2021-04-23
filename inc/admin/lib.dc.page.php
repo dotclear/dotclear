@@ -23,7 +23,12 @@ class dcPage
         return $GLOBALS['core'];
     }
 
-    # Auth check
+    /**
+     * Auth check
+     *
+     * @param      string  $permissions  The permissions
+     * @param      bool    $home         The home
+     */
     public static function check($permissions, $home = false)
     {
         $core = self::getCore();
@@ -44,7 +49,11 @@ class dcPage
         http::redirect(DC_AUTH_PAGE);
     }
 
-    # Check super admin
+    /**
+     * Check super admin
+     *
+     * @param      bool  $home   The home
+     */
     public static function checkSuper($home = false)
     {
         $core = self::getCore();
@@ -63,7 +72,14 @@ class dcPage
         }
     }
 
-    # Top of admin page
+    /**
+     * Top of admin page
+     *
+     * @param      string  $title       The title
+     * @param      string  $head        The head
+     * @param      string  $breadcrumb  The breadcrumb
+     * @param      array   $options     The options
+     */
     public static function open($title = '', $head = '', $breadcrumb = '', $options = [])
     {
         $core = self::getCore();
@@ -296,6 +312,9 @@ class dcPage
         self::addNotice('error', $message, $options);
     }
 
+    /**
+     * The end
+     */
     public static function close()
     {
         $core = self::getCore();
@@ -370,6 +389,13 @@ EOT;
             '</body></html>';
     }
 
+    /**
+     * The top of a popup.
+     *
+     * @param      string  $title       The title
+     * @param      string  $head        The head
+     * @param      string  $breadcrumb  The breadcrumb
+     */
     public static function openPopup($title = '', $head = '', $breadcrumb = '')
     {
         $core = self::getCore();
@@ -448,6 +474,9 @@ EOT;
         echo dcAdminNotices::getNotices();
     }
 
+    /**
+     * The end of a popup.
+     */
     public static function closePopup()
     {
         echo
@@ -461,6 +490,14 @@ EOT;
             '</body></html>';
     }
 
+    /**
+     * Get breadcrumb
+     *
+     * @param      mixed   $elements  The elements
+     * @param      array   $options   The options
+     *
+     * @return     string
+     */
     public static function breadcrumb($elements = null, $options = [])
     {
         $core = self::getCore();
@@ -504,6 +541,11 @@ EOT;
         return self::message($msg, $timestamp, $div, $echo, 'warning-msg');
     }
 
+    /**
+     * Get HTML code of debug information
+     *
+     * @return     string
+     */
     private static function debugInfo()
     {
         $global_vars = implode(', ', array_keys($GLOBALS));
@@ -549,6 +591,11 @@ EOT;
         # Deprecated but we keep this for plugins.
     }
 
+    /**
+     * Display Help block
+     *
+     * @param      mixed  ...$params  The parameters
+     */
     public static function helpBlock(...$params)
     {
         $core = self::getCore();
@@ -613,6 +660,15 @@ EOT;
             '</div></div>';
     }
 
+    /**
+     * Get HTML code to load CSS stylesheet
+     *
+     * @param      string  $src    The source
+     * @param      string  $media  The media
+     * @param      string  $v      The version
+     *
+     * @return     mixed
+     */
     public static function cssLoad($src, $media = 'screen', $v = '')
     {
         $escaped_src = html::escapeHTML($src);
@@ -624,6 +680,14 @@ EOT;
         }
     }
 
+    /**
+     * Get HTML code to load JS script
+     *
+     * @param      string  $src    The source
+     * @param      string  $v      The version
+     *
+     * @return     mixed
+     */
     public static function jsLoad($src, $v = '')
     {
         $escaped_src = html::escapeHTML($src);
@@ -635,6 +699,14 @@ EOT;
         }
     }
 
+    /**
+     * Appends a version to force cache refresh if necessary.
+     *
+     * @param      string  $src    The source
+     * @param      string  $v      The version
+     *
+     * @return     string
+     */
     private static function appendVersion($src, $v = '')
     {
         $src .= (strpos($src, '?') === false ? '?' : '&amp;') . 'v=';
@@ -653,7 +725,7 @@ EOT;
      * @deprecated 2.15 use dcPage::jsJson() and getData()/mergeDeep() in javascript
      *
      * @param      string  $n      variable name
-     * @param      various  $v      value
+     * @param      mixed   $v      value
      *
      * @return     string  javascript code
      */
@@ -682,11 +754,24 @@ EOT;
         return $ret;
     }
 
+    /**
+     * Get HTML code to load JS variables encoded as JSON
+     *
+     * @param      string  $id     The identifier
+     * @param      mixed   $vars   The variables
+     *
+     * @return     string
+     */
     public static function jsJson($id, $vars)
     {
         return dcUtils::jsJson($id, $vars);
     }
 
+    /**
+     * Get HTML code to load toggles JS
+     *
+     * @return     string
+     */
     public static function jsToggles()
     {
         $core = self::getCore();
@@ -706,6 +791,11 @@ EOT;
         self::jsLoad('js/toggles.js');
     }
 
+    /**
+     * Get HTML code to load common JS for admin pages
+     *
+     * @return     string
+     */
     public static function jsCommon()
     {
         $core = self::getCore();
@@ -830,13 +920,22 @@ EOT;
     }
 
     /**
-    @deprecated since version 2.11
+     * @deprecated since version 2.11
+     *
+     * @return     string  ( description_of_the_return_value )
      */
     public static function jsLoadIE7()
     {
         return '';
     }
 
+    /**
+     * Get HTML code to load ConfirmClose JS
+     *
+     * @param      mixed  ...$args  The arguments
+     *
+     * @return     string
+     */
     public static function jsConfirmClose(...$args)
     {
         $js = [
@@ -849,6 +948,13 @@ EOT;
         self::jsLoad('js/confirm-close.js');
     }
 
+    /**
+     * Get HTML code to load page tabs JS
+     *
+     * @param      mixed   $default  The default
+     *
+     * @return     string
+     */
     public static function jsPageTabs($default = null)
     {
         $js = [
@@ -861,6 +967,11 @@ EOT;
         self::jsLoad('js/page-tabs.js');
     }
 
+    /**
+     * Get HTML code to load Magnific popup JS
+     *
+     * @return     string
+     */
     public static function jsModal()
     {
         return
@@ -868,13 +979,20 @@ EOT;
     }
 
     /**
-    @deprecated since version 2.16
+     * @deprecated since version 2.16
+     *
+     * @return     string
      */
     public static function jsColorPicker()
     {
         return '';
     }
 
+    /**
+     * Get HTML code for date picker JS utility
+     *
+     * @return     string
+     */
     public static function jsDatePicker()
     {
         $js = [
@@ -918,6 +1036,14 @@ EOT;
         # Deprecated but we keep this for plugins.
     }
 
+    /**
+     * Get HTML to load Upload JS utility
+     *
+     * @param      array   $params    The parameters
+     * @param      mixed   $base_url  The base url
+     *
+     * @return     string
+     */
     public static function jsUpload($params = [], $base_url = null)
     {
         $core = self::getCore();
@@ -974,11 +1100,23 @@ EOT;
         self::jsLoad('js/jsUpload/jquery.fileupload-ui.js');
     }
 
+    /**
+     * Get HTML code to load meta editor
+     *
+     * @return     string
+     */
     public static function jsMetaEditor()
     {
         return self::jsLoad('js/meta-editor.js');
     }
 
+    /**
+     * Get HTML code for filters control JS utility
+     *
+     * @param      bool    $show   Show filters?
+     *
+     * @return     string
+     */
     public static function jsFilterControl($show = true)
     {
         $core = self::getCore();
@@ -994,6 +1132,15 @@ EOT;
         self::jsLoad('js/filter-controls.js');
     }
 
+    /**
+     * Get HTML code to load Codemirror
+     *
+     * @param      string  $theme  The theme
+     * @param      bool    $multi  Is multiplex?
+     * @param      array   $modes  The modes
+     *
+     * @return     string
+     */
     public static function jsLoadCodeMirror($theme = '', $multi = true, $modes = ['css', 'htmlmixed', 'javascript', 'php', 'xml', 'clike'])
     {
         $ret = self::cssLoad('js/codemirror/lib/codemirror.css') .
@@ -1015,6 +1162,16 @@ EOT;
         return $ret;
     }
 
+    /**
+     * Get HTML code to run Codemirror
+     *
+     * @param      string       $name   The HTML name attribute
+     * @param      mixed        $id     The HTML id attribute
+     * @param      mixed        $mode   The Codemirror mode
+     * @param      string       $theme  The theme
+     *
+     * @return     string
+     */
     public static function jsRunCodeMirror($name, $id = null, $mode = null, $theme = '')
     {
         if (is_array($name)) {
@@ -1034,6 +1191,11 @@ EOT;
         return $ret;
     }
 
+    /**
+     * Gets the codemirror themes list.
+     *
+     * @return     array  The code mirror themes.
+     */
     public static function getCodeMirrorThemes()
     {
         $themes      = [];
@@ -1052,6 +1214,13 @@ EOT;
         return $themes;
     }
 
+    /**
+     * Gets plugin file.
+     *
+     * @param      string  $file   The filename
+     *
+     * @return     string  The URL.
+     */
     public static function getPF($file)
     {
         $core = self::getCore();
@@ -1059,6 +1228,13 @@ EOT;
         return $core->adminurl->get('load.plugin.file', ['pf' => $file]);
     }
 
+    /**
+     * Gets var file.
+     *
+     * @param      string  $file   The filename
+     *
+     * @return     string  The URL.
+     */
     public static function getVF($file)
     {
         $core = self::getCore();
@@ -1066,6 +1242,12 @@ EOT;
         return $core->adminurl->get('load.var.file', ['vf' => $file]);
     }
 
+    /**
+     * Sets the x frame options.
+     *
+     * @param      array   $headers  The headers
+     * @param      mixed   $origin   The origin
+     */
     public static function setXFrameOptions($headers, $origin = null)
     {
         if (self::$xframe_loaded) {

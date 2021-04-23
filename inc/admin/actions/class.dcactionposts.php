@@ -153,16 +153,20 @@ class dcDefaultPostActions
     public static function doChangePostStatus($core, dcPostsActionsPage $ap, $post)
     {
         switch ($ap->getAction()) {
-            case 'unpublish':$status = 0;
+            case 'unpublish':
+                $status = 0;
 
                 break;
-            case 'schedule':$status = -1;
+            case 'schedule':
+                $status = -1;
 
                 break;
-            case 'pending':$status = -2;
+            case 'pending':
+                $status = -2;
 
                 break;
-            default:$status = 1;
+            default:
+                $status = 1;
 
                 break;
         }

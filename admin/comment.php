@@ -5,6 +5,8 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
+ *
+ * @var dcCore $core
  */
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
@@ -26,7 +28,7 @@ $comment_spam_status = '';
 $comment_editor = $core->auth->getOption('editor');
 
 # Status combo
-$status_combo = dcAdminCombos::getCommentStatusescombo();
+$status_combo = dcAdminCombos::getCommentStatusesCombo();
 
 # Adding comment (comming from post form, comments tab)
 if (!empty($_POST['add']) && !empty($_POST['post_id'])) {

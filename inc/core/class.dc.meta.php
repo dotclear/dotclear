@@ -21,11 +21,11 @@ class dcMeta
     private $table; ///< <b>string</b> Media table name
 
     /**
-    Object constructor.
-
-    @param    core        <b>dcCore</b>        dcCore instance
+     * Constructs a new instance.
+     *
+     * @param      dcCore  $core   The core
      */
-    public function __construct($core)
+    public function __construct(dcCore $core)
     {
         $this->core  = &$core;
         $this->con   = &$this->core->con;
@@ -33,12 +33,12 @@ class dcMeta
     }
 
     /**
-    Splits up comma-separated values into an array of
-    unique, URL-proof metadata values.
-
-    @param    str        <b>string</b>        Comma-separated metadata.
-
-    @return    <b>Array</b>    The array of sanitized metadata
+     * Splits up comma-separated values into an array of
+     * unique, URL-proof metadata values.
+     *
+     * @param      string  $str    Comma-separated metadata
+     *
+     * @return     array  The array of sanitized metadata
      */
     public function splitMetaValues($str)
     {
@@ -56,11 +56,11 @@ class dcMeta
     }
 
     /**
-    Make a metadata ID URL-proof.
-
-    @param    str        <b>string</b>    the metadata ID.
-
-    @return    <b>string</b>    The sanitized metadata
+     * Make a metadata ID URL-proof.
+     *
+     * @param      string  $str    The metadata ID
+     *
+     * @return     string
      */
     public static function sanitizeMetaID($str)
     {
@@ -68,12 +68,12 @@ class dcMeta
     }
 
     /**
-    Converts serialized metadata (for instance in dc_post post_meta)
-    into a meta array.
-
-    @param    str        <b>string</b>    the serialized metadata.
-
-    @return    <b>Array</b>    the resulting array of post meta
+     * Converts serialized metadata (for instance in dc_post post_meta)
+     * into a meta array.
+     *
+     * @param      string  $str    The serialized metadata
+     *
+     * @return     array   The meta array.
      */
     public function getMetaArray($str)
     {
@@ -87,13 +87,13 @@ class dcMeta
     }
 
     /**
-    Converts serialized metadata (for instance in dc_post post_meta)
-    into a comma-separated meta list for a given type.
-
-    @param    str        <b>string</b>    the serialized metadata.
-    @param    type    <b>string</b>    meta type to retrieve metaIDs from.
-
-    @return    <b>string</b>    the comma-separated list of meta
+     * Converts serialized metadata (for instance in dc_post post_meta)
+     * into a comma-separated meta list for a given type.
+     *
+     * @param      string  $str    The serialized metadata
+     * @param      string  $type   The meta type to retrieve metaIDs from
+     *
+     * @return     string  The comma-separated list of meta.
      */
     public function getMetaStr($str, $type)
     {
@@ -107,13 +107,13 @@ class dcMeta
     }
 
     /**
-    Converts serialized metadata (for instance in dc_post post_meta)
-    into a "fetchable" metadata record.
-
-    @param    str        <b>string</b>    the serialized metadata.
-    @param    type    <b>string</b>    meta type to retrieve metaIDs from.
-
-    @return    <b>record</b>    the meta recordset
+     * Converts serialized metadata (for instance in dc_post post_meta)
+     * into a "fetchable" metadata record.
+     *
+     * @param      string  $str    The serialized metadata
+     * @param      string  $type   The meta type to retrieve metaIDs from
+     *
+     * @return     staticRecord  The meta recordset.
      */
     public function getMetaRecordset($str, $type)
     {
@@ -137,22 +137,12 @@ class dcMeta
     }
 
     /**
-    @deprecated since version 2.2 : $core->meta is always defined
-    @see getMetaRecordset
-    static version of getMetaRecordset
-     */
-    public static function getMetaRecord($core, $str, $type)
-    {
-        $meta = new self($core);
-
-        return $meta->getMetaRecordset($str, $type);
-    }
-
-    /**
-    Checks whether the current user is allowed to change post meta
-    An exception is thrown if user is not allowed.
-
-    @param    post_id    <b>string</b>    the post_id to check.
+     * Checks whether the current user is allowed to change post meta
+     * An exception is thrown if user is not allowed.
+     *
+     * @param      string     $post_id  The post identifier
+     *
+     * @throws     Exception
      */
     private function checkPermissionsOnPost($post_id)
     {
@@ -178,9 +168,9 @@ class dcMeta
     }
 
     /**
-    Updates serialized post_meta information with dc_meta table information.
-
-    @param    post_id    <b>string</b>    the post_id to update.
+     * Updates serialized post_meta information with dc_meta table information.
+     *
+     * @param      string  $post_id  The post identifier
      */
     private function updatePostMeta($post_id)
     {
@@ -207,15 +197,15 @@ class dcMeta
     }
 
     /**
-    Retrieves posts corresponding to given meta criteria.
-    <b>$params</b> is an array taking the following optional parameters:
-    - meta_id : get posts having meta id
-    - meta_type : get posts having meta type
-
-    @param    params    <b>array</b>    Parameters
-    @param    count_only    <b>boolean</b>        Only counts results
-
-    @return    <b>record</b>    the resulting posts record
+     * Retrieves posts corresponding to given meta criteria.
+     * <b>$params</b> is an array taking the following optional parameters:
+     * - meta_id : get posts having meta id
+     * - meta_type : get posts having meta type
+     *
+     * @param      array   $params      The parameters
+     * @param      bool    $count_only  Only count results
+     *
+     * @return     record  The resulting posts record.
      */
     public function getPostsByMeta($params = [], $count_only = false)
     {
@@ -239,15 +229,15 @@ class dcMeta
     }
 
     /**
-    Retrieves comments to posts corresponding to given meta criteria.
-    <b>$params</b> is an array taking the following optional parameters:
-    - meta_id : get comments to posts having meta id
-    - meta_type : get comments to posts having meta type
-
-    @param    params    <b>array</b>    Parameters
-    @param    count_only    <b>boolean</b>        Only counts results
-
-    @return    <b>record</b>    the resulting comments record
+     * Retrieves comments corresponding to given meta criteria.
+     * <b>$params</b> is an array taking the following optional parameters:
+     * - meta_id : get posts having meta id
+     * - meta_type : get posts having meta type
+     *
+     * @param      array   $params      The parameters
+     * @param      bool    $count_only  Only count results
+     *
+     * @return     record  The resulting comments record.
      */
     public function getCommentsByMeta($params = [], $count_only = false)
     {
@@ -268,59 +258,20 @@ class dcMeta
     }
 
     /**
-    @deprecated since 2.2. Use getMetadata and computeMetaStats instead.
-    Generic-purpose metadata retrieval : gets metadatas according to given
-    criteria. Metadata get enriched with stastistics columns (only relevant
-    if limit parameter is not set). Metadata are sorted by post count
-    descending
-
-    @param    type    <b>string</b>    if not null, get metas having the given type
-    @param    limit    <b>string</b>    if not null, number of max fetched metas
-    @param    meta_id    <b>string</b>    if not null, get metas having the given id
-    @param    post_id    <b>string</b>    if not null, get metas for the given post id
-
-    @return    <b>record</b>    the meta recordset
-     */
-    public function getMeta($type = null, $limit = null, $meta_id = null, $post_id = null)
-    {
-        $params = [];
-
-        if ($type != null) {
-            $params['meta_type'] = $type;
-        }
-
-        if ($limit != null) {
-            $params['limit'] = $limit;
-        }
-
-        if ($meta_id != null) {
-            $params['meta_id'] = $meta_id;
-        }
-
-        if ($meta_id != null) {
-            $params['post_id'] = $post_id;
-        }
-
-        $rs = $this->getMetadata($params, false);
-
-        return $this->computeMetaStats($rs);
-    }
-
-    /**
-    Generic-purpose metadata retrieval : gets metadatas according to given
-    criteria. <b>$params</b> is an array taking the following
-    optionnal parameters:
-
-    - type: get metas having the given type
-    - meta_id: if not null, get metas having the given id
-    - post_id: get metas for the given post id
-    - limit: number of max fetched metas
-    - order: results order (default : posts count DESC)
-
-    @param    params        <b>array</b>        Parameters
-    @param    count_only    <b>boolean</b>        Only counts results
-
-    @return    <b>record</b>    the resulting comments record
+     * Generic-purpose metadata retrieval : gets metadatas according to given
+     * criteria. <b>$params</b> is an array taking the following
+     * optionnal parameters:
+     *
+     * - type: get metas having the given type
+     * - meta_id: if not null, get metas having the given id
+     * - post_id: get metas for the given post id
+     * - limit: number of max fetched metas
+     * - order: results order (default : posts count DESC)
+     *
+     * @param      array   $params      The parameters
+     * @param      bool    $count_only  Only counts results
+     *
+     * @return     record  The metadata.
      */
     public function getMetadata($params = [], $count_only = false)
     {
@@ -380,12 +331,12 @@ class dcMeta
     }
 
     /**
-    Computes statistics from a metadata recordset.
-    Each record gets enriched with lowercase name, percent and roundpercent columns
-
-    @param    rs    <b>record</b>    recordset to enrich
-
-    @return    <b>record</b>    the enriched recordset
+     * Computes statistics from a metadata recordset.
+     * Each record gets enriched with lowercase name, percent and roundpercent columns
+     *
+     * @param      record  $rs     The metadata recordset
+     *
+     * @return     staticRecord  The meta statistics.
      */
     public function computeMetaStats($rs)
     {
@@ -417,11 +368,11 @@ class dcMeta
     }
 
     /**
-    Adds a metadata to a post.
-
-    @param    post_id    <b>integer</b>    the post id
-    @param    type    <b>string</b>    meta type
-    @param    value    <b>integer</b>    meta value
+     * Adds a metadata to a post.
+     *
+     * @param      mixed   $post_id  The post identifier
+     * @param      mixed   $type     The type
+     * @param      mixed   $value    The value
      */
     public function setPostMeta($post_id, $type, $value)
     {
@@ -443,11 +394,11 @@ class dcMeta
     }
 
     /**
-    Removes metadata from a post.
-
-    @param    post_id    <b>integer</b>    the post id
-    @param    type    <b>string</b>    meta type (if null, delete all types)
-    @param    value    <b>integer</b>    meta value (if null, delete all values)
+     * Removes metadata from a post.
+     *
+     * @param      mixed   $post_id  The post identifier
+     * @param      mixed   $type     The meta type (if null, delete all types)
+     * @param      mixed   $meta_id  The meta identifier (if null, delete all values)
      */
     public function delPostMeta($post_id, $type = null, $meta_id = null)
     {
@@ -471,13 +422,14 @@ class dcMeta
     }
 
     /**
-    Mass updates metadata for a given post_type.
-
-    @param    meta_id        <b>integer</b>    old value
-    @param    new_meta    <b>integer</b>    new value
-    @param    type    <b>string</b>    meta type (if null, select all types)
-    @param    post_type    <b>integer</b>    impacted post_type (if null, select all types)
-    @return    <b>boolean</b>    true if at least 1 post has been impacted
+     * Mass updates metadata for a given post_type.
+     *
+     * @param      string  $meta_id      The old meta value
+     * @param      string  $new_meta_id  The new meta value
+     * @param      mixed   $type         The type (if null, select all types)
+     * @param      mixed   $post_type    The post type (if null, select all types)
+     *
+     * @return     bool   true if at least 1 post has been impacted
      */
     public function updateMeta($meta_id, $new_meta_id, $type = null, $post_type = null)
     {
@@ -564,12 +516,13 @@ class dcMeta
     }
 
     /**
-    Mass delete metadata for a given post_type.
-
-    @param    meta_id        <b>integer</b>    meta value
-    @param    type    <b>string</b>    meta type (if null, select all types)
-    @param    post_type    <b>integer</b>    impacted post_type (if null, select all types)
-    @return    <b>Array</b>    the list of impacted post_ids
+     * Mass delete metadata for a given post_type.
+     *
+     * @param      string  $meta_id    The meta identifier
+     * @param      mixed   $type       The meta type (if null, select all types)
+     * @param      mixed   $post_type  The post type (if null, select all types)
+     *
+     * @return     array   The list of impacted post_ids
      */
     public function delMeta($meta_id, $type = null, $post_type = null)
     {

@@ -842,8 +842,9 @@ class dcUpgrade
 
     /**
      * Convert old-fashion serialized array setting to new-fashion json encoded array
-     * @param  $ns      namespace
-     * @param  $setting setting name (id)
+     *
+     * @param      string  $ns        namespace name
+     * @param      string  $setting   The setting ID
      */
     public static function settings2array($ns, $setting)
     {
@@ -876,8 +877,9 @@ class dcUpgrade
 
     /**
      * Convert old-fashion serialized array pref to new-fashion json encoded array
-     * @param  $ws      workspace
-     * @param  $pref     pref name (id)
+     *
+     * @param      string  $ws     workspace name
+     * @param      string  $pref   The preference ID
      */
     public static function prefs2array($ws, $pref)
     {

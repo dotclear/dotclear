@@ -5,6 +5,8 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
+ *
+ * @var dcCore $core
  */
 $standalone = !isset($edit_blog_mode);
 

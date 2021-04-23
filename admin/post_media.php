@@ -5,6 +5,8 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
+ *
+ * @var dcCore $core
  */
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
@@ -25,7 +27,7 @@ if ($rs->isEmpty()) {
 try {
     if ($post_id && $media_id && !empty($_REQUEST['attach'])) {
         $core->media = new dcMedia($core);
-        $core->media->addPostMedia($post_id, $media_id, $link_type);
+        $core->media->postmedia->addPostMedia($post_id, $media_id, $link_type);  // @phpstan-ignore-line
         if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
             header('Content-type: application/json');
             echo json_encode(['url' => $core->getPostAdminURL($rs->post_type, $post_id, false)]);
@@ -49,7 +51,7 @@ try {
 # Remove a media from en
 if (($post_id && $media_id) || $core->error->flag()) {
     if (!empty($_POST['remove'])) {
-        $core->media->removePostMedia($post_id, $media_id, $link_type);
+        $core->media->postmedia->removePostMedia($post_id, $media_id, $link_type);
 
         dcPage::addSuccessNotice(__('Attachment has been successfully removed.'));
         http::redirect($core->getPostAdminURL($rs->post_type, $post_id, false));

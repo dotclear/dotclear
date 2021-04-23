@@ -38,7 +38,7 @@ class dcLegacyPosts
         $as->beginPage('',
             dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
             dcPage::jsMetaEditor() .
-            $core->callBehavior('adminPostsActionsHeaders'), '');
+            $core->callBehavior('adminPostsActionsHeaders'));
         $core->callBehavior('adminPostsActionsContent', $core, $as->getAction(), $as->getHiddenFields(true));
         $as->endPage();
     }
@@ -66,7 +66,7 @@ class dcLegacyComments
         $as->beginPage('',
             dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
             dcPage::jsMetaEditor() .
-            $core->callBehavior('adminCommentsActionsHeaders'), '');
+            $core->callBehavior('adminCommentsActionsHeaders'));
         ob_start();
         $core->callBehavior('adminCommentsActionsContent', $core, $as->getAction(), $as->getHiddenFields(true));
         $res = ob_get_contents();
@@ -98,7 +98,7 @@ class dcLegacyPages
         $as->beginPage('',
             dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
             dcPage::jsMetaEditor() .
-            $core->callBehavior('adminPostsActionsHeaders'), '');
+            $core->callBehavior('adminPostsActionsHeaders'));
         ob_start();
         $core->callBehavior('adminPostsActionsContent', $core, $as->getAction(), $as->getHiddenFields(true));
         $res = ob_get_contents();

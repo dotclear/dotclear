@@ -140,16 +140,20 @@ class dcDefaultBlogActions
             throw new Exception(__('No blog selected'));
         }
         switch ($action) {
-            case 'online':$status = 1;
+            case 'online':
+                $status = 1;
 
                 break;
-            case 'offline':$status = 0;
+            case 'offline':
+                $status = 0;
 
                 break;
-            case 'remove':$status = -1;
+            case 'remove':
+                $status = -1;
 
                 break;
-            default:$status = 1;
+            default:
+                $status = 1;
 
                 break;
         }

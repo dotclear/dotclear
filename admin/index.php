@@ -5,6 +5,8 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
+ *
+ * @var dcCore $core
  */
 if (!empty($_GET['pf'])) {
     require dirname(__FILE__) . '/../inc/load_plugin_file.php';

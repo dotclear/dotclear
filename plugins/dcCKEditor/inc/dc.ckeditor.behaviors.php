@@ -16,10 +16,12 @@ class dcCKEditorBehaviors
     /**
      * adminPostEditor add javascript to the DOM to load ckeditor depending on context
      *
-     * @param editor   <b>string</b> wanted editor
-     * @param context  <b>string</b> page context (post,page,comment,event,...)
-     * @param tags     <b>array</b>  array of elt ids (textarea) where inject editor
-     * @param syntax   <b>string</b> wanted syntax (xhtml)
+     * @param      string  $editor   The wanted editor
+     * @param      string  $context  The page context (post,page,comment,event,...)
+     * @param      array   $tags     The array of ids to inject editor
+     * @param      string  $syntax   The wanted syntax (wiki,markdown,...)
+     *
+     * @return     mixed
      */
     public static function adminPostEditor($editor = '', $context = '', array $tags = [], $syntax = 'xhtml')
     {

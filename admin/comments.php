@@ -5,6 +5,8 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
+ *
+ * @var dcCore $core
  */
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
@@ -26,7 +28,7 @@ if (!empty($_POST['delete_all_spam'])) {
 # Filter form we'll put in html_block
 $status_combo = array_merge(
     ['-' => ''],
-    dcAdminCombos::getCommentStatusescombo()
+    dcAdminCombos::getCommentStatusesCombo()
 );
 
 $type_combo = [

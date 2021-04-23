@@ -13,21 +13,26 @@
  */
 class dcCore
 {
-    public $con;        ///< <b>connection</b>        Database connection object
-    public $prefix;     ///< <b>string</b>            Database tables prefix
-    public $blog;       ///< <b>dcBlog</b>            dcBlog object
-    public $error;      ///< <b>dcError</b>            dcError object
-    public $auth;       ///< <b>dcAuth</b>            dcAuth object
-    public $session;    ///< <b>sessionDB</b>        sessionDB object
-    public $url;        ///< <b>urlHandler</b>        urlHandler object
-    public $wiki2xhtml; ///< <b>wiki2xhtml</b>        wiki2xhtml object
-    public $plugins;    ///< <b>dcModules</b>        dcModules object
-    public $media;      ///< <b>dcMedia</b>            dcMedia object
-    public $postmedia;  ///< <b>dcPostMedia</b>        dcPostMedia object
-    public $rest;       ///< <b>dcRestServer</b>    dcRestServer object
-    public $log;        ///< <b>dcLog</b>            dcLog object
-    public $stime;      ///< <b>float</b>            starting time
-    public $meta;       ///< <b>dcMeta</b>          dcMeta object
+    public $con;        ///< <b>connection</b>          Database connection object
+    public $prefix;     ///< <b>string</b>              Database tables prefix
+    public $blog;       ///< <b>dcBlog</b>              dcBlog object
+    public $error;      ///< <b>dcError</b>             dcError object
+    public $auth;       ///< <b>dcAuth</b>              dcAuth object
+    public $session;    ///< <b>sessionDB</b>           sessionDB object
+    public $url;        ///< <b>urlHandler</b>          urlHandler object
+    public $wiki2xhtml; ///< <b>wiki2xhtml</b>          wiki2xhtml object
+    public $plugins;    ///< <b>dcModules</b>           dcModules object
+    public $themes;     ///< <b>dcThemes</b>            dcThemes object
+    public $media;      ///< <b>dcMedia</b>             dcMedia object
+    public $postmedia;  ///< <b>dcPostMedia</b>         dcPostMedia object
+    public $rest;       ///< <b>dcRestServer</b>        dcRestServer object
+    public $log;        ///< <b>dcLog</b>               dcLog object
+    public $stime;      ///< <b>float</b>               starting time
+    public $meta;       ///< <b>dcMeta</b>              dcMeta object
+
+    public $adminurl;   ///< <b>dcAdminURL</b>          dcAdminURL object
+    public $notices;    ///< <b>dcAdminNotices</b>      dcNotices object
+    public $favs;       ///< <b>dcFavorites</b>         dcFavorites object
 
     private $versions   = null;
     private $formaters  = [];
@@ -35,16 +40,16 @@ class dcCore
     private $post_types = [];
 
     /**
-    dcCore constructor inits everything related to Dotclear. It takes arguments
-    to init database connection.
-
-    @param    driver    <b>string</b>    Database driver name
-    @param    host        <b>string</b>    Database hostname
-    @param    db        <b>string</b>    Database name
-    @param    user        <b>string</b>    Database username
-    @param    password    <b>string</b>    Database password
-    @param    prefix    <b>string</b>    DotClear tables prefix
-    @param    persist    <b>boolean</b>    Persistent database connection
+     * dcCore constructor inits everything related to Dotclear. It takes arguments
+     * to init database connection.
+     *
+     * @param      string  $driver    The db driver
+     * @param      string  $host      The db host
+     * @param      string  $db        The db name
+     * @param      string  $user      The db user
+     * @param      string  $password  The db password
+     * @param      string  $prefix    The tables prefix
+     * @param      bool    $persist   Persistent database connection
      */
     public function __construct($driver, $host, $db, $user, $password, $prefix, $persist)
     {
@@ -121,9 +126,9 @@ class dcCore
     /// @name Blog init methods
     //@{
     /**
-    Sets a blog to use in <var>blog</var> property.
-
-    @param    id        <b>string</b>        Blog ID
+     * Sets the blog to use.
+     *
+     * @param      string  $id     The blog ID
      */
     public function setBlog($id)
     {
@@ -131,7 +136,7 @@ class dcCore
     }
 
     /**
-    Unsets <var>blog</var> property.
+     * Unsets blog property
      */
     public function unsetBlog()
     {
@@ -142,9 +147,9 @@ class dcCore
     /// @name Blog status methods
     //@{
     /**
-    Returns an array of available blog status codes and names.
-
-    @return    <b>array</b> Simple array with codes in keys and names in value
+     * Gets all blog status.
+     *
+     * @return     array  An array of available blog status codes and names.
      */
     public function getAllBlogStatus()
     {
@@ -156,12 +161,13 @@ class dcCore
     }
 
     /**
-    Returns a blog status name given to a code. This is intended to be
-    human-readable and will be translated, so never use it for tests.
-    If status code does not exist, returns <i>offline</i>.
-
-    @param    s    <b>integer</b> Status code
-    @return    <b>string</b> Blog status name
+     * Returns a blog status name given to a code. This is intended to be
+     * human-readable and will be translated, so never use it for tests.
+     * If status code does not exist, returns <i>offline</i>.
+     *
+     * @param      integer  $s      Status code
+     *
+     * @return     string   The blog status name.
      */
     public function getBlogStatus($s)
     {
@@ -177,11 +183,23 @@ class dcCore
     /// @name Admin nonce secret methods
     //@{
 
+    /**
+     * Gets the nonce.
+     *
+     * @return     string  The nonce.
+     */
     public function getNonce()
     {
         return $this->auth->cryptLegacy(session_id());
     }
 
+    /**
+     * Check the nonce
+     *
+     * @param      string  $secret  The nonce
+     *
+     * @return     bool
+     */
     public function checkNonce($secret)
     {
         // 40 alphanumeric characters min
@@ -192,6 +210,11 @@ class dcCore
         return $secret == $this->auth->cryptLegacy(session_id());
     }
 
+    /**
+     * Get the nonce HTML code
+     *
+     * @return     mixed
+     */
     public function formNonce()
     {
         if (!session_id()) {
@@ -205,13 +228,13 @@ class dcCore
     /// @name Text Formatters methods
     //@{
     /**
-    Adds a new text formater which will call the function <var>$func</var> to
-    transform text. The function must be a valid callback and takes one
-    argument: the string to transform. It returns the transformed string.
-
-    @param    editor_id    <b>string</b>    Editor id (dcLegacyEditor, dcCKEditor, ...)
-    @param    name        <b>string</b>    Formater name
-    @param    func        <b>callback</b>    Function to use, must be a valid and callable callback
+     * Adds a new text formater which will call the function <var>$func</var> to
+     * transform text. The function must be a valid callback and takes one
+     * argument: the string to transform. It returns the transformed string.
+     *
+     * @param      string    $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
+     * @param      string    $name       The formater name
+     * @param      callable  $func       The function to use, must be a valid and callable callback
      */
     public function addEditorFormater($editor_id, $name, $func)
     {
@@ -230,15 +253,24 @@ class dcCore
     @param    name        <b>string</b>        Formater name
     @param    func        <b>callback</b>    Function to use, must be a valid and callable callback
      */
+
+    /**
+     * Adds a new dcLegacyEditor text formater which will call the function
+     * <var>$func</var> to transform text. The function must be a valid callback
+     * and takes one argument: the string to transform. It returns the transformed string.
+     *
+     * @param      string    $name       The formater name
+     * @param      callable  $func       The function to use, must be a valid and callable callback
+     */
     public function addFormater($name, $func)
     {
         $this->addEditorFormater('dcLegacyEditor', $name, $func);
     }
 
     /**
-    Returns editors list
-
-    @return    <b>array</b> An array of editors values.
+     * Gets the editors list.
+     *
+     * @return     array  The editors.
      */
     public function getEditors()
     {
@@ -254,17 +286,25 @@ class dcCore
     /**
     Returns formaters list by editor
 
-    @param    editor_id    <b>string</b>    Editor id (dcLegacyEditor, dcCKEditor, ...)
+    @param    editor_id    <b>string</b>    Editor id
     @return    <b>array</b> An array of formaters names in values.
 
     /**
-    if @param editor_id is empty:
-    return all formaters sorted by actives editors
-
-    if @param editor_id is not empty
-    return formaters for an editor if editor is active
-    return empty() array if editor is not active.
-    It can happens when a user choose an editor and admin deactivate that editor later
+     */
+    /**
+     * Gets the formaters.
+     *
+     * if @param editor_id is empty:
+     * return all formaters sorted by actives editors
+     *
+     * if @param editor_id is not empty
+     * return formaters for an editor if editor is active
+     * return empty() array if editor is not active.
+     * It can happens when a user choose an editor and admin deactivate that editor later
+     *
+     * @param      string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
+     *
+     * @return     array   The formaters.
      */
     public function getFormaters($editor_id = '')
     {
@@ -284,13 +324,14 @@ class dcCore
     }
 
     /**
-    If <var>$name</var> is a valid formater, it returns <var>$str</var>
-    transformed using that formater.
-
-    @param    editor_id    <b>string</b>    Editor id (dcLegacyEditor, dcCKEditor, ...)
-    @param    name        <b>string</b>    Formater name
-    @param    str            <b>string</b>    String to transform
-    @return    <b>string</b>    String transformed
+     * If <var>$name</var> is a valid formater, it returns <var>$str</var>
+     * transformed using that formater.
+     *
+     * @param      string  $editor_id  The editor identifier (dcLegacyEditor, dcCKEditor, ...)
+     * @param      string  $name       The formater name
+     * @param      string  $str        The string to transform
+     *
+     * @return     string
      */
     public function callEditorFormater($editor_id, $name, $str)
     {
@@ -303,12 +344,13 @@ class dcCore
     //@}
 
     /**
-    If <var>$name</var> is a valid formater, it returns <var>$str</var>
-    transformed using that formater.
-
-    @param    name        <b>string</b>        Formater name
-    @param    str            <b>string</b>        String to transform
-    @return    <b>string</b>    String transformed
+     * If <var>$name</var> is a valid dcLegacyEditor formater, it returns
+     * <var>$str</var> transformed using that formater.
+     *
+     * @param      string  $name   The name
+     * @param      string  $str    The string
+     *
+     * @return     string
      */
     public function callFormater($name, $str)
     {
@@ -319,11 +361,11 @@ class dcCore
     /// @name Behaviors methods
     //@{
     /**
-    Adds a new behavior to behaviors stack. <var>$func</var> must be a valid
-    and callable callback.
-
-    @param    behavior    <b>string</b>        Behavior name
-    @param    func        <b>callback</b>    Function to call
+     * Adds a new behavior to behaviors stack. <var>$func</var> must be a valid
+     * and callable callback.
+     *
+     * @param      string    $behavior  The behavior
+     * @param      callable  $func      The function
      */
     public function addBehavior($behavior, $func)
     {
@@ -333,10 +375,11 @@ class dcCore
     }
 
     /**
-    Tests if a particular behavior exists in behaviors stack.
-
-    @param    behavior    <b>string</b>    Behavior name
-    @return    <b>boolean</b>
+     * Determines if behavior exists in behaviors stack.
+     *
+     * @param      string  $behavior  The behavior
+     *
+     * @return     bool    True if behavior exists, False otherwise.
      */
     public function hasBehavior($behavior)
     {
@@ -344,10 +387,11 @@ class dcCore
     }
 
     /**
-    Get behaviors stack (or part of).
-
-    @param    behavior    <b>string</b>        Behavior name
-    @return    <b>array</b>
+     * Gets the behaviors stack (or part of).
+     *
+     * @param      string  $behavior  The behavior
+     *
+     * @return     mixed   The behaviors.
      */
     public function getBehaviors($behavior = '')
     {
@@ -365,14 +409,16 @@ class dcCore
     }
 
     /**
-    Calls every function in behaviors stack for a given behavior and returns
-    concatened result of each function.
-
-    Every parameters added after <var>$behavior</var> will be pass to
-    behavior calls.
-
-    @param    behavior    <b>string</b>    Behavior name
-    @return    <b>string</b> Behavior concatened result
+     * Calls every function in behaviors stack for a given behavior and returns
+     * concatened result of each function.
+     *
+     * Every parameters added after <var>$behavior</var> will be pass to
+     * behavior calls.
+     *
+     * @param      string  $behavior  The behavior
+     * @param      mixed   ...$args   The arguments
+     *
+     * @return     mixed   Behavior concatened result
      */
     public function callBehavior($behavior, ...$args)
     {
@@ -390,6 +436,16 @@ class dcCore
 
     /// @name Post types URLs management
     //@{
+
+    /**
+     * Gets the post admin url.
+     *
+     * @param      string  $type     The type
+     * @param      mixed   $post_id  The post identifier
+     * @param      bool    $escaped  Escape the URL
+     *
+     * @return     string    The post admin url.
+     */
     public function getPostAdminURL($type, $post_id, $escaped = true)
     {
         if (!isset($this->post_types[$type])) {
@@ -401,6 +457,15 @@ class dcCore
         return $escaped ? html::escapeURL($url) : $url;
     }
 
+    /**
+     * Gets the post public url.
+     *
+     * @param      string  $type      The type
+     * @param      string  $post_url  The post url
+     * @param      bool    $escaped   Escape the URL
+     *
+     * @return     string    The post public url.
+     */
     public function getPostPublicURL($type, $post_url, $escaped = true)
     {
         if (!isset($this->post_types[$type])) {
@@ -412,6 +477,14 @@ class dcCore
         return $escaped ? html::escapeURL($url) : $url;
     }
 
+    /**
+     * Sets the post type.
+     *
+     * @param      string  $type        The type
+     * @param      string  $admin_url   The admin url
+     * @param      string  $public_url  The public url
+     * @param      string  $label       The label
+     */
     public function setPostType($type, $admin_url, $public_url, $label = '')
     {
         $this->post_types[$type] = [
@@ -421,6 +494,11 @@ class dcCore
         ];
     }
 
+    /**
+     * Gets the post types.
+     *
+     * @return     array  The post types.
+     */
     public function getPostTypes()
     {
         return $this->post_types;
@@ -430,10 +508,11 @@ class dcCore
     /// @name Versions management methods
     //@{
     /**
-    Returns a given $module version.
-
-    @param    module    <b>string</b>    Module name
-    @return    <b>string</b>    Module version
+     * Gets the version of a module.
+     *
+     * @param      string  $module  The module
+     *
+     * @return     mixed  The version.
      */
     public function getVersion($module = 'core')
     {
@@ -453,10 +532,10 @@ class dcCore
     }
 
     /**
-    Sets $version to given $module.
-
-    @param    module    <b>string</b>    Module name
-    @param    version    <b>string</b>    Module version
+     * Sets the version of a module.
+     *
+     * @param      string  $module   The module
+     * @param      string  $version  The version
      */
     public function setVersion($module, $version)
     {
@@ -476,9 +555,9 @@ class dcCore
     }
 
     /**
-    Removes given $module version entry.
-
-    @param    module    <b>string</b>    Module name
+     * Remove a module version entry
+     *
+     * @param      string  $module  The module
      */
     public function delVersion($module)
     {
@@ -497,10 +576,11 @@ class dcCore
     /// @name Users management methods
     //@{
     /**
-    Returns a user by its ID.
-
-    @param    id        <b>string</b>        User ID
-    @return    <b>record</b>
+     * Gets the user by its ID.
+     *
+     * @param      string  $id     The identifier
+     *
+     * @return     record  The user.
      */
     public function getUser($id)
     {
@@ -510,17 +590,18 @@ class dcCore
     }
 
     /**
-    Returns a users list. <b>$params</b> is an array with the following
-    optionnal parameters:
-
-    - <var>q</var>: search string (on user_id, user_name, user_firstname)
-    - <var>user_id</var>: user ID
-    - <var>order</var>: ORDER BY clause (default: user_id ASC)
-    - <var>limit</var>: LIMIT clause (should be an array ![limit,offset])
-
-    @param    params        <b>array</b>        Parameters
-    @param    count_only    <b>boolean</b>        Only counts results
-    @return    <b>record</b>
+     * Returns a users list. <b>$params</b> is an array with the following
+     * optionnal parameters:
+     *
+     * - <var>q</var>: search string (on user_id, user_name, user_firstname)
+     * - <var>user_id</var>: user ID
+     * - <var>order</var>: ORDER BY clause (default: user_id ASC)
+     * - <var>limit</var>: LIMIT clause (should be an array ![limit,offset])
+     *
+     * @param      array   $params      The parameters
+     * @param      bool    $count_only  Count only results
+     *
+     * @return     record  The users.
      */
     public function getUsers($params = [], $count_only = false)
     {
@@ -591,10 +672,13 @@ class dcCore
     }
 
     /**
-    Create a new user. Takes a cursor as input and returns the new user ID.
-
-    @param    cur        <b>cursor</b>        User cursor
-    @return    <b>string</b>
+     * Adds a new user. Takes a cursor as input and returns the new user ID.
+     *
+     * @param      cursor     $cur    The user cursor
+     *
+     * @throws     Exception
+     *
+     * @return     string
      */
     public function addUser($cur)
     {
@@ -624,11 +708,14 @@ class dcCore
     }
 
     /**
-    Updates an existing user. Returns the user ID.
-
-    @param    id        <b>string</b>        User ID
-    @param    cur        <b>cursor</b>        User cursor
-    @return    <b>string</b>
+     * Updates an existing user. Returns the user ID.
+     *
+     * @param      string     $id     The user identifier
+     * @param      cursor     $cur    The cursor
+     *
+     * @throws     Exception
+     *
+     * @return     string
      */
     public function updUser($id, $cur)
     {
@@ -662,9 +749,11 @@ class dcCore
     }
 
     /**
-    Deletes a user.
-
-    @param    id        <b>string</b>        User ID
+     * Deletes a user.
+     *
+     * @param      string     $id     The user identifier
+     *
+     * @throws     Exception
      */
     public function delUser($id)
     {
@@ -691,10 +780,11 @@ class dcCore
     }
 
     /**
-    Checks whether a user exists.
-
-    @param    id        <b>string</b>        User ID
-    @return    <b>boolean</b>
+     * Determines if user exists.
+     *
+     * @param      string  $id     The identifier
+     *
+     * @return      bool  True if user exists, False otherwise.
      */
     public function userExists($id)
     {
@@ -708,17 +798,18 @@ class dcCore
     }
 
     /**
-    Returns all user permissions as an array which looks like:
-
-    - [blog_id]
-    - [name] => Blog name
-    - [url] => Blog URL
-    - [p]
-    - [permission] => true
-    - ...
-
-    @param    id        <b>string</b>        User ID
-    @return    <b>array</b>
+     * Returns all user permissions as an array which looks like:
+     *
+     * - [blog_id]
+     * - [name] => Blog name
+     * - [url] => Blog URL
+     * - [p]
+     * - [permission] => true
+     * - ...
+     *
+     * @param      string  $id     The user identifier
+     *
+     * @return     array   The user permissions.
      */
     public function getUserPermissions($id)
     {
@@ -743,13 +834,15 @@ class dcCore
     }
 
     /**
-    Sets user permissions. The <var>$perms</var> array looks like:
-
-    - [blog_id] => '|perm1|perm2|'
-    - ...
-
-    @param    id        <b>string</b>        User ID
-    @param    perms    <b>array</b>        Permissions array
+     * Sets user permissions. The <var>$perms</var> array looks like:
+     *
+     * - [blog_id] => '|perm1|perm2|'
+     * - ...
+     *
+     * @param      string     $id     The user identifier
+     * @param      array      $perms  The permissions
+     *
+     * @throws     Exception
      */
     public function setUserPermissions($id, $perms)
     {
@@ -768,13 +861,14 @@ class dcCore
     }
 
     /**
-    Sets user permissions for a given blog. <var>$perms</var> is an array with
-    permissions in values
-
-    @param    id            <b>string</b>        User ID
-    @param    blog_id        <b>string</b>        Blog ID
-    @param    perms        <b>array</b>        Permissions
-    @param    delete_first    <b>boolean</b>        Delete permissions before
+     * Sets the user blog permissions.
+     *
+     * @param      string     $id            The user identifier
+     * @param      string     $blog_id       The blog identifier
+     * @param      array      $perms         The permissions
+     * @param      bool       $delete_first  Delete permissions first
+     *
+     * @throws     Exception  (description)
      */
     public function setUserBlogPermissions($id, $blog_id, $perms, $delete_first = true)
     {
@@ -806,10 +900,10 @@ class dcCore
     }
 
     /**
-    Sets a user default blog. This blog will be selected when user log in.
-
-    @param    id            <b>string</b>        User ID
-    @param    blog_id        <b>string</b>        Blog ID
+     * Sets the user default blog. This blog will be selected when user log in.
+     *
+     * @param      string  $id       The user identifier
+     * @param      string  $blog_id  The blog identifier
      */
     public function setUserDefaultBlog($id, $blog_id)
     {
@@ -820,6 +914,13 @@ class dcCore
         $cur->update("WHERE user_id = '" . $this->con->escape($id) . "'");
     }
 
+    /**
+     * Gets the user cursor.
+     *
+     * @param      cursor     $cur    The user cursor
+     *
+     * @throws     Exception
+     */
     private function getUserCursor($cur)
     {
         if ($cur->isField('user_id')
@@ -854,10 +955,9 @@ class dcCore
     }
 
     /**
-    Returns user default settings in an associative array with setting names in
-    keys.
-
-    @return    <b>array</b>
+     * Returns user default settings in an associative array with setting names in keys.
+     *
+     * @return     array
      */
     public function userDefaults()
     {
@@ -874,20 +974,21 @@ class dcCore
     /// @name Blog management methods
     //@{
     /**
-    Returns all blog permissions (users) as an array which looks like:
-
-    - [user_id]
-    - [name] => User name
-    - [firstname] => User firstname
-    - [displayname] => User displayname
-    - [super] => (true|false) super admin
-    - [p]
-    - [permission] => true
-    - ...
-
-    @param    id            <b>string</b>        Blog ID
-    @param    with_super    <b>boolean</b>        Includes super admins in result
-    @return    <b>array</b>
+     * Returns all blog permissions (users) as an array which looks like:
+     *
+     * - [user_id]
+     * - [name] => User name
+     * - [firstname] => User firstname
+     * - [displayname] => User displayname
+     * - [super] => (true|false) super admin
+     * - [p]
+     * - [permission] => true
+     * - ...
+     *
+     * @param      string  $id          The blog identifier
+     * @param      bool    $with_super  Includes super admins in result
+     *
+     * @return     array   The blog permissions.
      */
     public function getBlogPermissions($id, $with_super = true)
     {
@@ -924,10 +1025,11 @@ class dcCore
     }
 
     /**
-    Returns a blog of given ID.
-
-    @param    id        <b>string</b>        Blog ID
-    @return    <b>record</b>
+     * Gets the blog.
+     *
+     * @param      string  $id     The blog identifier
+     *
+     * @return     record    The blog.
      */
     public function getBlog($id)
     {
@@ -941,16 +1043,17 @@ class dcCore
     }
 
     /**
-    Returns a record of blogs. <b>$params</b> is an array with the following
-    optionnal parameters:
-
-    - <var>blog_id</var>: Blog ID
-    - <var>q</var>: Search string on blog_id, blog_name and blog_url
-    - <var>limit</var>: limit results
-
-    @param    params        <b>array</b>        Parameters
-    @param    count_only    <b>boolean</b>        Count only results
-    @return    <b>record</b>
+     * Returns a record of blogs. <b>$params</b> is an array with the following
+     * optionnal parameters:
+     *
+     * - <var>blog_id</var>: Blog ID
+     * - <var>q</var>: Search string on blog_id, blog_name and blog_url
+     * - <var>limit</var>: limit results
+     *
+     * @param      array   $params      The parameters
+     * @param      bool    $count_only  Count only results
+     *
+     * @return     record  The blogs.
      */
     public function getBlogs($params = [], $count_only = false)
     {
@@ -1026,9 +1129,11 @@ class dcCore
     }
 
     /**
-    Creates a new blog.
-
-    @param    cur            <b>cursor</b>        Blog cursor
+     * Adds a new blog.
+     *
+     * @param      cursor     $cur    The blog cursor
+     *
+     * @throws     Exception
      */
     public function addBlog($cur)
     {
@@ -1046,10 +1151,10 @@ class dcCore
     }
 
     /**
-    Updates a given blog.
-
-    @param    id        <b>string</b>        Blog ID
-    @param    cur        <b>cursor</b>        Blog cursor
+     * Updates a given blog.
+     *
+     * @param      string  $id     The blog identifier
+     * @param      cursor  $cur    The cursor
      */
     public function updBlog($id, $cur)
     {
@@ -1060,6 +1165,13 @@ class dcCore
         $cur->update("WHERE blog_id = '" . $this->con->escape($id) . "'");
     }
 
+    /**
+     * Gets the blog cursor.
+     *
+     * @param      cursor  $cur    The cursor
+     *
+     * @throws     Exception
+     */
     private function getBlogCursor($cur)
     {
         if (($cur->blog_id !== null
@@ -1081,11 +1193,13 @@ class dcCore
     }
 
     /**
-    Removes a given blog.
-    @warning This will remove everything related to the blog (posts,
-    categories, comments, links...)
-
-    @param    id        <b>string</b>        Blog ID
+     * Removes a given blog.
+     * @warning This will remove everything related to the blog (posts,
+     * categories, comments, links...)
+     *
+     * @param      string     $id     The blog identifier
+     *
+     * @throws     Exception
      */
     public function delBlog($id)
     {
@@ -1100,10 +1214,11 @@ class dcCore
     }
 
     /**
-    Checks if a blog exist.
-
-    @param    id        <b>string</b>        Blog ID
-    @return    <b>boolean</b>
+     * Determines if blog exists.
+     *
+     * @param      string  $id     The blog identifier
+     *
+     * @return     bool  True if blog exists, False otherwise.
      */
     public function blogExists($id)
     {
@@ -1117,11 +1232,12 @@ class dcCore
     }
 
     /**
-    Count posts on a blog
-
-    @param    id        <b>string</b>        Blog ID
-    @param    type        <b>string</b>        Post type
-    @return    <b>boolean</b>
+     * Counts the number of blog posts.
+     *
+     * @param      string  $id     The blog identifier
+     * @param      mixed   $type   The post type
+     *
+     * @return     integer  Number of blog posts.
      */
     public function countBlogPosts($id, $type = null)
     {
@@ -1140,12 +1256,13 @@ class dcCore
     /// @name HTML Filter methods
     //@{
     /**
-    Calls HTML filter to drop bad tags and produce valid XHTML output (if
-    tidy extension is present). If <b>enable_html_filter</b> blog setting is
-    false, returns not filtered string.
-
-    @param    str    <b>string</b>        String to filter
-    @return    <b>string</b> Filtered string.
+     * Calls HTML filter to drop bad tags and produce valid XHTML output (if
+     * tidy extension is present). If <b>enable_html_filter</b> blog setting is
+     * false, returns not filtered string.
+     *
+     * @param      string  $str    The string
+     *
+     * @return     string
      */
     public function HTMLfilter($str)
     {
@@ -1169,16 +1286,21 @@ class dcCore
 
     /// @name wiki2xhtml methods
     //@{
+
+    /**
+     * Initializes the wiki2xhtml methods.
+     */
     private function initWiki()
     {
         $this->wiki2xhtml = new wiki2xhtml;
     }
 
     /**
-    Returns a transformed string with wiki2xhtml.
-
-    @param    str        <b>string</b>        String to transform
-    @return    <b>string</b>    Transformed string
+     * Returns a transformed string with wiki2xhtml.
+     *
+     * @param      string  $str    The string
+     *
+     * @return     string
      */
     public function wikiTransform($str)
     {
@@ -1190,7 +1312,7 @@ class dcCore
     }
 
     /**
-    Inits <var>wiki2xhtml</var> property for blog post.
+     * Inits <var>wiki2xhtml</var> property for blog post.
      */
     public function initWikiPost()
     {
@@ -1244,7 +1366,7 @@ class dcCore
     }
 
     /**
-    Inits <var>wiki2xhtml</var> property for simple blog comment (basic syntax).
+     * Inits <var>wiki2xhtml</var> property for simple blog comment (basic syntax).
      */
     public function initWikiSimpleComment()
     {
@@ -1293,7 +1415,7 @@ class dcCore
     }
 
     /**
-    Inits <var>wiki2xhtml</var> property for blog comment.
+     * Inits <var>wiki2xhtml</var> property for blog comment.
      */
     public function initWikiComment()
     {
@@ -1340,6 +1462,14 @@ class dcCore
         $this->callBehavior('coreInitWikiComment', $this->wiki2xhtml);
     }
 
+    /**
+     * Get info about a post:id wiki macro
+     *
+     * @param      string  $url      The post url
+     * @param      string  $content  The content
+     *
+     * @return     array
+     */
     public function wikiPostLink($url, $content)
     {
         if (!($this->blog instanceof dcBlog)) {
@@ -1378,10 +1508,10 @@ class dcCore
     /// @name Maintenance methods
     //@{
     /**
-    Creates default settings for active blog. Optionnal parameter
-    <var>defaults</var> replaces default params while needed.
-
-    @param    defaults        <b>array</b>    Default parameters
+     * Creates default settings for active blog. Optionnal parameter
+     * <var>defaults</var> replaces default params while needed.
+     *
+     * @param      array  $defaults  The defaults settings
      */
     public function blogDefaults($defaults = null)
     {
@@ -1490,12 +1620,12 @@ class dcCore
     }
 
     /**
-    Recreates entries search engine index.
-
-    @param    start    <b>integer</b>        Start entry index
-    @param    limit    <b>integer</b>        Number of entry to index
-
-    @return    <b>integer</b>        <var>$start</var> and <var>$limit</var> sum
+     * Recreates entries search engine index.
+     *
+     * @param      mixed   $start  The start entry index
+     * @param      mixed   $limit  The limit of entry to index
+     *
+     * @return     int   sum of <var>$start</var> and <var>$limit</var>
      */
     public function indexAllPosts($start = null, $limit = null)
     {
@@ -1532,12 +1662,12 @@ class dcCore
     }
 
     /**
-    Recreates comments search engine index.
-
-    @param    start    <b>integer</b>        Start comment index
-    @param    limit    <b>integer</b>        Number of comments to index
-
-    @return    <b>integer</b>        <var>$start</var> and <var>$limit</var> sum
+     * Recreates comments search engine index.
+     *
+     * @param      mixed   $start  The start comment index
+     * @param      mixed   $limit  The limit of comment to index
+     *
+     * @return     int   sum of <var>$start</var> and <var>$limit</var>
      */
     public function indexAllComments($start = null, $limit = null)
     {
@@ -1571,7 +1701,7 @@ class dcCore
     }
 
     /**
-    Reinits nb_comment and nb_trackback in post table.
+     * Reinits nb_comment and nb_trackback in post table.
      */
     public function countAllComments()
     {
@@ -1592,7 +1722,7 @@ class dcCore
     }
 
     /**
-    Empty templates cache directory
+     * Empty templates cache directory
      */
     public function emptyTemplatesCache()
     {
@@ -1602,10 +1732,12 @@ class dcCore
     }
 
     /**
-    Return elapsed time since script has been started
-    @param      $mtime <b>float</b> timestamp (microtime format) to evaluate delta from
-    current time is taken if null
-    @return <b>float</b>         elapsed time
+     * Return elapsed time since script has been started
+     *
+     * @param      mixed   $mtime  timestamp (microtime format) to evaluate
+     * delta from current time is taken if null
+     *
+     * @return     mixed   The elapsed time.
      */
     public function getElapsedTime($mtime = null)
     {

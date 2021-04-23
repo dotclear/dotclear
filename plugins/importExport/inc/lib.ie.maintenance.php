@@ -165,7 +165,7 @@ class maintenanceDcExportFlat extends dcExportFlat
      *
      * Bad hack to change redirection of dcExportFlat::process()
      *
-     * @param    id    <b>string</b>    Task id
+     * @param      string  $id     Task ID
      */
     public function setURL($id)
     {

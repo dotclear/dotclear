@@ -146,7 +146,7 @@ class dcThemeConfig
      *
      * @param  string $s font size
      *
-     * @return string    checked font size
+     * @return mixed    checked font size
      */
     public static function adjustFontSize($s)
     {
@@ -351,7 +351,7 @@ class dcThemeConfig
      *
      * @param  string $folder CSS folder
      *
-     * @return string         CSS file URL
+     * @return mixed         CSS file URL
      */
     public static function publicCssUrlHelper($folder)
     {

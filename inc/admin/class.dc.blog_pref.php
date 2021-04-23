@@ -12,6 +12,13 @@ if (!defined('DC_RC_PATH')) {
 
 class dcAdminBlogPref
 {
+    /**
+     * JS Popup helper for static home linked to an entry
+     *
+     * @param      string  $editor  The editor
+     *
+     * @return     string
+     */
     public static function adminPopupPosts($editor = '')
     {
         if (empty($editor) || $editor != 'admin.blog_pref') {

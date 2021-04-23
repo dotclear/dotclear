@@ -32,11 +32,13 @@ class dcMedia extends filemanager
     public $thumb_tp_alpha = '%s/.%s_%s.png';  ///< <b>string</b> Thumbnail file pattern (with alpha layer)
     public $thumb_tp_webp  = '%s/.%s_%s.webp'; ///< <b>string</b> Thumbnail file pattern (webp)
     /**
-    <b>array</b> Tubmnail sizes:
-    - m: medium image
-    - s: small image
-    - t: thumbnail image
-    - sq: square image
+     * Tubmnail sizes:
+     * - m: medium image
+     * - s: small image
+     * - t: thumbnail image
+     * - sq: square image
+     *
+     * @var        array
      */
     public $thumb_sizes = [
         'm'  => [448, 'ratio', 'medium'],
@@ -48,12 +50,14 @@ class dcMedia extends filemanager
     public $icon_img = 'images/media/%s.png'; ///< <b>string</b> Icon file pattern
 
     /**
-    Object constructor.
-
-    @param    core        <b>dcCore</b>        dcCore instance
-    @param    type        <b>string</b>        Media type filter
+     * Constructs a new instance.
+     *
+     * @param      dcCore     $core   The core
+     * @param      string     $type   The media type filter
+     *
+     * @throws     Exception  (description)
      */
-    public function __construct($core, $type = '')
+    public function __construct(dcCore $core, $type = '')
     {
         $this->core      = &$core;
         $this->con       = &$core->con;
@@ -133,9 +137,9 @@ class dcMedia extends filemanager
     }
 
     /**
-    Changes working directory.
-
-    @param    dir        <b>string</b>        Directory name.
+     * Changes working directory.
+     *
+     * @param      string  $dir    The directory name
      */
     public function chdir($dir)
     {
@@ -144,16 +148,16 @@ class dcMedia extends filemanager
     }
 
     /**
-    Adds a new file handler for a given media type and event.
-
-    Available events are:
-    - create: file creation
-    - update: file update
-    - remove: file deletion
-
-    @param    type        <b>string</b>        Media type
-    @param    event    <b>string</b>        Event
-    @param    function    <b>callback</b>
+     * Adds a new file handler for a given media type and event.
+     *
+     * Available events are:
+     * - create: file creation
+     * - update: file update
+     * - remove: file deletion
+     *
+     * @param      string    $type      The media type
+     * @param      string    $event     The event
+     * @param      callable  $function  The callback
      */
     public function addFileHandler($type, $event, $function)
     {
@@ -172,11 +176,12 @@ class dcMedia extends filemanager
     }
 
     /**
-    Returns HTML breadCrumb for media manager navigation.
-
-    @param    href        <b>string</b>        URL pattern
-    @param    last        <b>string</b>        Last item pattern
-    @return    <b>string</b> HTML code
+     * Returns HTML breadCrumb for media manager navigation.
+     *
+     * @param      string  $href   The URL pattern
+     * @param      string  $last   The last item pattern
+     *
+     * @return     string  HTML code
      */
     public function breadCrumb($href, $last = '')
     {
@@ -355,6 +360,11 @@ class dcMedia extends filemanager
         }
     }
 
+    /**
+     * Sets the file sort.
+     *
+     * @param      string  $type   The type
+     */
     public function setFileSort($type = 'name')
     {
         if (in_array($type, ['name-asc', 'name-desc', 'date-asc', 'date-desc'])) {
@@ -389,7 +399,7 @@ class dcMedia extends filemanager
     }
 
     /**
-    Gets current working directory content (using filesystem)
+     * Gets current working directory content (using filesystem).
      */
     public function getFSDir()
     {
@@ -397,9 +407,11 @@ class dcMedia extends filemanager
     }
 
     /**
-    Gets current working directory content.
-
-    @param    type        <b>string</b>        Media type filter
+     * Gets current working directory content.
+     *
+     * @param      mixed      $type   The media type filter
+     *
+     * @throws     Exception
      */
     public function getDir($type = null)
     {
@@ -500,10 +512,11 @@ class dcMedia extends filemanager
     }
 
     /**
-    Gets file by its id. Returns a filteItem object.
-
-    @param    id        <b>integer</b>        File ID
-    @return    <b>fileItem</b>
+     * Gets file by its id. Returns a filteItem object.
+     *
+     * @param      string  $id     The file identifier
+     *
+     * @return     fileItem  The file.
      */
     public function getFile($id)
     {
@@ -529,10 +542,11 @@ class dcMedia extends filemanager
     }
 
     /**
-    Search into media db (only).
-
-    @param    query        <b>string</b>        Search query
-    @return boolean     true or false if nothing found
+     * Search into media db (only).
+     *
+     * @param      string  $query  The search query
+     *
+     * @return     bool    true or false if nothing found
      */
     public function searchMedia($query)
     {
@@ -578,13 +592,14 @@ class dcMedia extends filemanager
     }
 
     /**
-    Returns media items attached to a blog post. Result is an array containing
-    fileItems objects.
-
-    @param    post_id        <b>integer</b>        Post ID
-    @param    media_id    <b>integer</b>        Optionnal media ID
-    @param    link_type    <b>string</b>        Optionnal link type
-    @return    <b>array</b> Array of fileItems
+     * Returns media items attached to a blog post. Result is an array containing
+     * fileItems objects.
+     *
+     * @param      integer  $post_id    The post identifier
+     * @param      mixed    $media_id   The media identifier
+     * @param      mixed    $link_type  The link type
+     *
+     * @return     array   Array of fileItems.
      */
     public function getPostMedia($post_id, $media_id = null, $link_type = null)
     {
@@ -613,28 +628,12 @@ class dcMedia extends filemanager
     }
 
     /**
-    @deprecated since version 2.4
-    @see dcPostMedia::addPostMedia
-     */
-    public function addPostMedia($post_id, $media_id, $link_type = 'attachment')
-    {
-        $this->postmedia->addPostMedia($post_id, $media_id, $link_type);
-    }
-
-    /**
-    @deprecated since version 2.4
-    @see dcPostMedia::removePostMedia
-     */
-    public function removePostMedia($post_id, $media_id, $link_type = 'attachment')
-    {
-        $this->postmedia->removePostMedia($post_id, $media_id, $link_type);
-    }
-
-    /**
-    Rebuilds database items collection. Optional <var>$pwd</var> parameter is
-    the path where to start rebuild.
-
-    @param    pwd        <b>string</b>        Directory to rebuild
+     * Rebuilds database items collection. Optional <var>$pwd</var> parameter is
+     * the path where to start rebuild.
+     *
+     * @param      string     $pwd    The directory to rebuild
+     *
+     * @throws     Exception
      */
     public function rebuild($pwd = '')
     {
@@ -687,6 +686,11 @@ class dcMedia extends filemanager
         }
     }
 
+    /**
+     * Makes a dir.
+     *
+     * @param      string  $d      the directory to create
+     */
     public function makeDir($d)
     {
         $d = files::tidyFileName($d);
@@ -694,14 +698,18 @@ class dcMedia extends filemanager
     }
 
     /**
-    Creates or updates a file in database. Returns new media ID or false if
-    file does not exist.
-
-    @param    name        <b>string</b>        File name (relative to working directory)
-    @param    title    <b>string</b>        File title
-    @param    private    <b>boolean</b>        File is private
-    @param    dt        <b>string</b>        File date
-    @return    <b>integer</b> New media ID
+     * Creates or updates a file in database. Returns new media ID or false if
+     * file does not exist.
+     *
+     * @param      string     $name     The file name (relative to working directory)
+     * @param      mixed      $title    The file title
+     * @param      bool       $private  File is private
+     * @param      mixed      $dt       File date
+     * @param      bool       $force    The force flag
+     *
+     * @throws     Exception
+     *
+     * @return     integer|bool     New media ID or false
      */
     public function createFile($name, $title = null, $private = false, $dt = null, $force = true)
     {
@@ -777,10 +785,12 @@ class dcMedia extends filemanager
     }
 
     /**
-    Updates a file in database.
-
-    @param    file        <b>fileItem</b>    Current fileItem object
-    @param    newFile    <b>fileItem</b>    New fileItem object
+     * Updates a file in database.
+     *
+     * @param      fileItem     $file     The file
+     * @param      fileItem     $newFile  The new file
+     *
+     * @throws     Exception
      */
     public function updateFile($file, $newFile)
     {
@@ -839,12 +849,17 @@ class dcMedia extends filemanager
     }
 
     /**
-    Uploads a file.
-
-    @param    tmp        <b>string</b>        Full path of temporary uploaded file
-    @param    name        <b>string</b>        File name (relative to working directory)
-    @param    title    <b>string</b>        File title
-    @param    private    <b>boolean</b>        File is private
+     * Uploads a file.
+     *
+     * @param      string     $tmp        The full path of temporary uploaded file
+     * @param      string     $name       The file name (relative to working directory)me
+     * @param      mixed      $title      The file title
+     * @param      bool       $private    File is private
+     * @param      bool       $overwrite  File should be overwrite
+     *
+     * @throws     Exception
+     *
+     * @return     integer|bool     New media ID or false
      */
     public function uploadFile($tmp, $name, $title = null, $private = false, $overwrite = false)
     {
@@ -860,10 +875,14 @@ class dcMedia extends filemanager
     }
 
     /**
-    Creates a file from binary content.
-
-    @param    name        <b>string</b>        File name (relative to working directory)
-    @param    bits        <b>string</b>        Binary file content
+     * Creates a file from binary content.
+     *
+     * @param      string     $name   The file name (relative to working directory)
+     * @param      mixed      $bits   The binary file contentits
+     *
+     * @throws     Exception
+     *
+     * @return     integer|bool     New media ID or false
      */
     public function uploadBits($name, $bits)
     {
@@ -879,9 +898,11 @@ class dcMedia extends filemanager
     }
 
     /**
-    Removes a file.
-
-    @param    f        <b>fileItem</b>    fileItem object
+     * Removes a file.
+     *
+     * @param      string     $f      filename
+     *
+     * @throws     Exception
      */
     public function removeFile($f)
     {
@@ -916,6 +937,7 @@ class dcMedia extends filemanager
      * Returns an array of directory under {@link $root} directory.
      *
      * @uses fileItem
+     *
      * @return array
      */
     public function getDBDirs()
@@ -937,9 +959,14 @@ class dcMedia extends filemanager
     }
 
     /**
-    Extract zip file in current location
-
-    @param    f        <b>fileRecord</b>    fileRecord object
+     * Extract zip file in current location.
+     *
+     * @param      fileItem     $f           fileItem object
+     * @param      bool         $create_dir  Create dir
+     *
+     * @throws     Exception
+     *
+     * @return     string     destination
      */
     public function inflateZipFile($f, $create_dir = true)
     {
@@ -990,10 +1017,11 @@ class dcMedia extends filemanager
     }
 
     /**
-    Returns zip file content
-
-    @param    f        <b>fileRecord</b>    fileRecord object
-    @return <b>array</b>
+     * Gets the zip content.
+     *
+     * @param      fileItem  $f      fileItem object
+     *
+     * @return     array  The zip content.
      */
     public function getZipContent($f)
     {
@@ -1005,9 +1033,9 @@ class dcMedia extends filemanager
     }
 
     /**
-    Calls file handlers registered for recreate event
-
-    @param    f    <b>fileItem</b>    fileItem object
+     * Calls file handlers registered for recreate event.
+     *
+     * @param      fileItem  $f      fileItem object
      */
     public function mediaFireRecreateEvent($f)
     {
@@ -1017,6 +1045,15 @@ class dcMedia extends filemanager
 
     /* Image handlers
     ------------------------------------------------------- */
+    /**
+     * Create image thumbnails
+     *
+     * @param      cursor  $cur    The cursor
+     * @param      string  $f      Image filename
+     * @param      bool    $force  Force creation
+     *
+     * @return     mixed
+     */
     public function imageThumbCreate($cur, $f, $force = true)
     {
         $file = $this->pwd . '/' . $f;
@@ -1062,6 +1099,12 @@ class dcMedia extends filemanager
         }
     }
 
+    /**
+     * Update image thumbnails
+     *
+     * @param      fileItem  $file     The file
+     * @param      fileItem  $newFile  The new file
+     */
     protected function imageThumbUpdate($file, $newFile)
     {
         if ($file->relname != $newFile->relname) {
@@ -1090,6 +1133,11 @@ class dcMedia extends filemanager
         }
     }
 
+    /**
+     * Remove image thumbnails
+     *
+     * @param      string  $f      Image filename
+     */
     public function imageThumbRemove($f)
     {
         $p     = path::info($f);
@@ -1108,6 +1156,15 @@ class dcMedia extends filemanager
         }
     }
 
+    /**
+     * Create image meta
+     *
+     * @param      cursor  $cur    The cursor
+     * @param      string  $f      Image filename
+     * @param      mixed   $id     The media identifier
+     *
+     * @return     mixed
+     */
     protected function imageMetaCreate($cur, $f, $id)
     {
         $file = $this->pwd . '/' . $f;
@@ -1145,15 +1202,16 @@ class dcMedia extends filemanager
     }
 
     /**
-    Returns HTML code for audio player (HTML5, Flash player fallback is obsolete since 2.15)
-
-    @param  type        <b>string</b>         audio mime type
-    @param    url            <b>string</b>        audio URL to play
-    @param    player        <b>string</b>        Player URL (flash player fallback, obsolete)
-    @param    args        <b>array</b>        Player parameters (flash player fallback, obsolete)
-    @param  fallback     <b>boolean</b>        Include Flash player fallback (obsolete)
-    @param     preload        <b>boolean</b>        Add preload="auto" attribute if true, else preload="none"
-    @return    <b>string</b>
+     * Returns HTML code for audio player (HTML5)
+     *
+     * @param      string  $type      The audio mime type (not used)
+     * @param      string  $url       The audio URL to play
+     * @param      mixed   $player    The player URL (not used)
+     * @param      mixed   $args      The player arguments (not used)
+     * @param      bool    $fallback  The fallback (not more used)
+     * @param      bool    $preload   Add preload="auto" attribute if true, else preload="none"
+     *
+     * @return     string
      */
     public static function audioPlayer($type, $url, $player = null, $args = null, $fallback = false, $preload = true)
     {
@@ -1164,15 +1222,16 @@ class dcMedia extends filemanager
     }
 
     /**
-    Returns HTML code for video player (HTML5, Flash player fallback is obsolete since 2.15)
-
-    @param  type        <b>string</b>         video mime type
-    @param    url            <b>string</b>        video URL to play
-    @param    player        <b>string</b>        Player URL (flash player fallback, obsolete)
-    @param    args        <b>array</b>        Player parameters (flash player fallback, obsolete)
-    @param  fallback     <b>boolean</b>        Include Flash player fallback (if not .flv, obsolete)
-    @param     preload        <b>boolean</b>        Add preload="auto" attribute if true, else preload="none"
-    @return    <b>string</b>
+     * Returns HTML code for video player (HTML5)
+     *
+     * @param      string  $type      The video mime type
+     * @param      string  $url       The video URL to play
+     * @param      mixed   $player    The player URL
+     * @param      mixed   $args      The player arguments
+     * @param      bool    $fallback  The fallback (not more used)
+     * @param      bool    $preload   Add preload="auto" attribute if true, else preload="none"
+     *
+     * @return     string
      */
     public static function videoPlayer($type, $url, $player = null, $args = null, $fallback = false, $preload = true)
     {
@@ -1202,30 +1261,31 @@ class dcMedia extends filemanager
     }
 
     /**
-    Returns HTML code for MP3 player (Flash player fallback is obsolete since 2.15)
-
-    @param    url            <b>string</b>        MP3 URL to play
-    @param    player        <b>string</b>        Player URL
-    @param    args        <b>array</b>        Player parameters
-    @param  fallback     <b>boolean</b>        Include Flash player fallback (obsolete)
-    @param     preload        <b>boolean</b>        Add preload="auto" attribute if true, else preload="none"
-    @return    <b>string</b>
+     * Returns HTML code for MP3 player (HTML5)
+     *
+     * @param      string  $url       The audio URL to play
+     * @param      mixed   $player    The player URL
+     * @param      mixed   $args      The player arguments
+     * @param      bool    $fallback  The fallback (not more used)
+     * @param      bool    $preload   Add preload="auto" attribute if true, else preload="none"
+     *
+     * @return     string
      */
     public static function mp3player($url, $player = null, $args = null, $fallback = false, $preload = true)
     {
-        return
-            '<audio controls preload="' . ($preload ? 'auto' : 'none') . '">' .
-            '<source src="' . $url . '" type="audio/mpeg">' .
-            '</audio>';
+        return self::audioPlayer('audio/mp3', $url, $player, $args, false, $preload);
     }
 
     /**
-    Returns HTML code for FLV player (obsolete since 2.15)
-
-    @param    url        <b>string</b>        FLV URL to play
-    @param    player    <b>string</b>        Player URL
-    @param    args        <b>array</b>        Player parameters
-    @return    <b>string</b>
+     * Returns HTML code for FLV player
+     *
+     * @obsolete since 2.15
+     *
+     * @param      string  $url     The url
+     * @param      mixed   $player  The player
+     * @param      mixed   $args    The arguments
+     *
+     * @return     string
      */
     public static function flvplayer($url, $player = null, $args = null)
     {

@@ -42,9 +42,9 @@ class dcMaintenanceAdmin
     /**
      * Register default tasks.
      *
-     * @param    $maintenance    <b>dcMaintenance</b>    dcMaintenance instance
+     * @param      dcMaintenance  $maintenance  dcMaintenance instance
      */
-    public static function dcMaintenanceInit($maintenance)
+    public static function dcMaintenanceInit(dcMaintenance $maintenance)
     {
         $maintenance
             ->addTab('maintenance', __('Servicing'), ['summary' => __('Tools to maintain the performance of your blogs.')])
@@ -74,12 +74,12 @@ class dcMaintenanceAdmin
     }
 
     /**
-     * Favorites.
+     * Favorites
      *
-     * @param    $core    <b>dcCore</b>    dcCore instance
-     * @param    $favs    <b>arrayObject</b>    Array of favs
+     * @param      dcCore        $core   dcCore instance
+     * @param      dcFavorites   $favs   favs
      */
-    public static function adminDashboardFavorites($core, $favs)
+    public static function adminDashboardFavorites(dcCore $core, dcFavorites $favs)
     {
         $favs->register('maintenance', [
             'title'        => __('Maintenance'),
@@ -93,10 +93,12 @@ class dcMaintenanceAdmin
     }
 
     /**
-     * Favorites selection.
+     * Is maintenance plugin active
      *
-     * @param    $request    <b>string</b>    Requested page
-     * @param    $params        <b>array</b>    Requested parameters
+     * @param      string  $request  The request
+     * @param      array   $params   The parameters
+     *
+     * @return     bool    true if maintenance plugin is active else false
      */
     public static function adminDashboardFavoritesActive($request, $params)
     {
@@ -109,10 +111,10 @@ class dcMaintenanceAdmin
      * This updates maintenance fav icon text
      * if there are tasks required maintenance.
      *
-     * @param    $core    <b>dcCore</b>    dcCore instance
-     * @param    $fav    <b>arrayObject</b>    fav attributes
+     * @param      dcCore       $core   The core
+     * @param      arrayObject  $fav    The fav
      */
-    public static function adminDashboardFavoritesCallback($core, $fav)
+    public static function adminDashboardFavoritesCallback(dcCore $core, $fav)
     {
         // Check user option
         $core->auth->user_prefs->addWorkspace('maintenance');
@@ -140,10 +142,10 @@ class dcMaintenanceAdmin
     /**
      * Dashboard items stack.
      *
-     * @param    $core    <b>dcCore</b>    dcCore instance
-     * @param    $items    <b>arrayObject</b>    Dashboard items
+     * @param      dcCore       $core   The core
+     * @param      arrayObject  $items  The items
      */
-    public static function adminDashboardItems($core, $items)
+    public static function adminDashboardItems(dcCore $core, $items)
     {
         $core->auth->user_prefs->addWorkspace('maintenance');
         if (!$core->auth->user_prefs->maintenance->dashboard_item) {
@@ -189,9 +191,9 @@ class dcMaintenanceAdmin
      * This add options for superadmin user
      * to show or not expired taks.
      *
-     * @param    $args    <b>object</b>    dcCore instance or record
+     * @param      dcCore  $core   The core
      */
-    public static function adminDashboardOptionsForm($core)
+    public static function adminDashboardOptionsForm(dcCore $core)
     {
         $core->auth->user_prefs->addWorkspace('maintenance');
 
@@ -213,7 +215,7 @@ class dcMaintenanceAdmin
     /**
      * User preferences update.
      *
-     * @param    $user_id    <b>string</b>    User ID
+     * @param      string  $user_id  The user identifier
      */
     public static function adminAfterDashboardOptionsUpdate($user_id = null)
     {
@@ -237,7 +239,7 @@ class dcMaintenanceAdmin
      * but keep it for exemple of how to use behavior adminPageHelpBlock.
      * Cheers, JC
      *
-     * @param    $block    <b>arrayObject</b>    Called helpblocks
+     * @param      arrayObject  $blocks  The blocks
      */
     public static function adminPageHelpBlock($blocks)
     {
@@ -288,7 +290,7 @@ class dcMaintenanceAdmin
         }
         if (!empty($res_tab)) {
             $res          = new ArrayObject();
-            $res->content = $res_tab;
+            $res->content = $res_tab;   // @phpstan-ignore-line
             $blocks[]     = $res;
         }
     }
@@ -296,11 +298,12 @@ class dcMaintenanceAdmin
     /**
      * Add javascript for plugin configuration.
      *
-     * @param    $core    <b>dcCore</b>    dcCore instance
-     * @param    $module    <b>mixed</b>    Module ID or false if none
-     * @return    <b>string</b>    Header code for js inclusion
+     * @param      dcCore  $core    The core
+     * @param      string  $module  The module
+     *
+     * @return     mixed
      */
-    public static function pluginsToolsHeaders($core, $module)
+    public static function pluginsToolsHeaders(dcCore $core, $module)
     {
         if ($module == 'maintenance') {
             return dcPage::jsLoad(dcPage::getPF('maintenance/js/settings.js'));
