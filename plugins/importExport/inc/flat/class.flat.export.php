@@ -28,7 +28,7 @@ class flatExport
         $this->prefix = $prefix;
 
         if (($this->fp = fopen($out, 'w')) === false) {
-            return false;
+            throw new Exception(__('Unable to create output file.'));
         }
         @set_time_limit(300);
     }

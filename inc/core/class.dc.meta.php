@@ -205,7 +205,7 @@ class dcMeta
      * @param      array   $params      The parameters
      * @param      bool    $count_only  Only count results
      *
-     * @return     record  The resulting posts record.
+     * @return     mixed   The resulting posts record.
      */
     public function getPostsByMeta($params = [], $count_only = false)
     {
@@ -237,7 +237,7 @@ class dcMeta
      * @param      array   $params      The parameters
      * @param      bool    $count_only  Only count results
      *
-     * @return     record  The resulting comments record.
+     * @return     mixed   The resulting comments record.
      */
     public function getCommentsByMeta($params = [], $count_only = false)
     {

@@ -478,7 +478,7 @@ class dcAuth
     public function getBlogCount()
     {
         if ($this->blog_count === null) {
-            $this->blog_count = $this->core->getBlogs([], true)->f(0);
+            $this->blog_count = $this->core->getBlogs([], true)->f(0);  // @phpstan-ignore-line
         }
 
         return $this->blog_count;

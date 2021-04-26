@@ -18,7 +18,7 @@ class dcFavorites
     /** @var dcCore dotclear core instance */
     protected $core;
 
-    /** @var array list of favorite definitions  */
+    /** @var ArrayObject list of favorite definitions  */
     protected $fav_defs;
 
     /** @var dcWorkspace current favorite landing workspace */
@@ -84,7 +84,7 @@ class dcFavorites
      *
      * @access public
      *
-     * @return array the favorite, false if not found (or not permitted)
+     * @return mixed    array the favorite, false if not found (or not permitted)
      */
     public function getFavorite($p)
     {
@@ -393,7 +393,7 @@ class dcFavorites
      *
      * @access public
      *
-     * @return true if the fav definition exists, false otherwise
+     * @return bool true if the fav definition exists, false otherwise
      */
     public function exists($id)
     {

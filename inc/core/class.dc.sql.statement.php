@@ -81,7 +81,7 @@ class dcSqlStatement
      *
      * @param mixed     $c      the context(s)
      *
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function ctx($c)
     {
@@ -96,7 +96,7 @@ class dcSqlStatement
      * @param mixed     $c      the column(s)
      * @param boolean   $reset  reset previous column(s) first
      *
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function columns($c, $reset = false)
     {
@@ -118,7 +118,7 @@ class dcSqlStatement
      * @param      mixed    $c      the column(s)
      * @param      boolean  $reset  reset previous column(s) first
      *
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function column($c, $reset = false)
     {
@@ -131,7 +131,7 @@ class dcSqlStatement
      * @param mixed     $c      the from clause(s)
      * @param boolean   $reset  reset previous from(s) first
      *
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function from($c, $reset = false)
     {
@@ -159,7 +159,7 @@ class dcSqlStatement
      * @param mixed     $c      the clause(s)
      * @param boolean   $reset  reset previous where(s) first
      *
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function where($c, $reset = false)
     {
@@ -181,7 +181,7 @@ class dcSqlStatement
      * @param mixed     $c      the clause(s)
      * @param boolean   $reset  reset previous condition(s) first
      *
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function cond($c, $reset = false)
     {
@@ -203,7 +203,7 @@ class dcSqlStatement
      * @param mixed     $c      the clause(s)
      * @param boolean   $reset  reset previous generic clause(s) first
      *
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function sql($c, $reset = false)
     {
@@ -366,7 +366,7 @@ class dcSelectStatement extends dcSqlStatement
      * @param mixed     $c      the join clause(s)
      * @param boolean   $reset  reset previous join(s) first
      *
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function join($c, $reset = false)
     {
@@ -388,7 +388,7 @@ class dcSelectStatement extends dcSqlStatement
      * @param mixed     $c      the clause(s)
      * @param boolean   $reset  reset previous having(s) first
      *
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function having($c, $reset = false)
     {
@@ -410,7 +410,7 @@ class dcSelectStatement extends dcSqlStatement
      * @param mixed     $c      the clause(s)
      * @param boolean   $reset  reset previous order(s) first
      *
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function order($c, $reset = false)
     {
@@ -432,7 +432,7 @@ class dcSelectStatement extends dcSqlStatement
      * @param mixed     $c      the clause(s)
      * @param boolean   $reset  reset previous group(s) first
      *
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function group($c, $reset = false)
     {
@@ -452,7 +452,7 @@ class dcSelectStatement extends dcSqlStatement
      * Defines the LIMIT for select
      *
      * @param mixed $limit
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function limit($limit)
     {
@@ -481,7 +481,7 @@ class dcSelectStatement extends dcSqlStatement
      * Defines the OFFSET for select
      *
      * @param integer $offset
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function offset($offset)
     {
@@ -494,7 +494,7 @@ class dcSelectStatement extends dcSqlStatement
      * Defines the DISTINCT flag for select
      *
      * @param boolean $distinct
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function distinct($distinct = true)
     {
@@ -671,11 +671,13 @@ class dcUpdateStatement extends dcSqlStatement
      * @param mixed     $c      the reference clause(s)
      * @param boolean   $reset  reset previous reference first
      *
-     * @return dcUpdateStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function reference($c, $reset = false)
     {
-        return $this->from($c, $reset);
+        $this->from($c, $reset);
+
+        return $this;
     }
 
     /**
@@ -684,7 +686,7 @@ class dcUpdateStatement extends dcSqlStatement
      * @param mixed     $c      the reference clause(s)
      * @param boolean   $reset  reset previous reference first
      *
-     * @return dcUpdateStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function ref($c, $reset = false)
     {
@@ -697,7 +699,7 @@ class dcUpdateStatement extends dcSqlStatement
      * @param mixed     $c      the udpate values(s)
      * @param boolean   $reset  reset previous update value(s) first
      *
-     * @return dcUpdateStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function set($c, $reset = false)
     {
@@ -719,7 +721,7 @@ class dcUpdateStatement extends dcSqlStatement
      * @param      mixed    $c      the update value(s)
      * @param      boolean  $reset  reset previous update value(s) first
      *
-     * @return dcUpdateStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function sets($c, $reset = false)
     {
@@ -730,6 +732,8 @@ class dcUpdateStatement extends dcSqlStatement
      * Returns the WHERE part of update statement
      *
      * Useful to construct the where clause used with cursor->update() method
+     *
+     * @return string The where part of update statement
      */
     public function whereStatement()
     {
@@ -845,11 +849,13 @@ class dcInsertStatement extends dcSqlStatement
      * @param mixed     $c      the into clause(s)
      * @param boolean   $reset  reset previous into first
      *
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function into($c, $reset = false)
     {
-        return $this->into($c, $reset);
+        $this->into($c, $reset);
+
+        return $this;
     }
 
     /**
@@ -858,7 +864,7 @@ class dcInsertStatement extends dcSqlStatement
      * @param mixed     $c      the insert values(s)
      * @param boolean   $reset  reset previous insert value(s) first
      *
-     * @return dcSelectStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function lines($c, $reset = false)
     {
@@ -880,7 +886,7 @@ class dcInsertStatement extends dcSqlStatement
      * @param      mixed    $c      the insert value(s)
      * @param      boolean  $reset  reset previous insert value(s) first
      *
-     * @return dcInsertStatement self instance, enabling to chain calls
+     * @return self instance, enabling to chain calls
      */
     public function line($c, $reset = false)
     {

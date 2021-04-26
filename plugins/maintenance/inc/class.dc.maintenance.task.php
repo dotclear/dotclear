@@ -47,8 +47,6 @@ class dcMaintenanceTask
      * use method init() to do it.
      *
      * @param      dcMaintenance  $maintenance  The maintenance
-     *
-     * @return     bool
      */
     public function __construct(dcMaintenance $maintenance)
     {
@@ -79,8 +77,6 @@ class dcMaintenanceTask
         $ts = $this->core->blog->settings->maintenance->get('ts_' . $this->id);
 
         $this->ts = abs((integer) $ts);
-
-        return true;
     }
 
     /**

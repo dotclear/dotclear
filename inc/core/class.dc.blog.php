@@ -35,9 +35,9 @@ class dcBlog
     public $url;
     /** @var string Blog host */
     public $host;
-    /** @var string Blog creation date */
+    /** @var mixed Blog creation date */
     public $creadt;
-    /** @var string Blog last update date */
+    /** @var mixed Blog last update date */
     public $upddt;
     /** @var string Blog status */
     public $status;
@@ -862,7 +862,7 @@ class dcBlog
      * @param    array  $params        Parameters
      * @param    bool   $count_only    Only counts results
      *
-     * @return   record    A record with some more capabilities or the SQL request
+     * @return   mixed    A record with some more capabilities or the SQL request
      */
     public function getPosts($params = [], $count_only = false)
     {
@@ -1091,7 +1091,7 @@ class dcBlog
      * @param      bool    $restrict_to_category  Restrict to same category
      * @param      bool    $restrict_to_lang      Restrict to same language
      *
-     * @return     record  The next post.
+     * @return     mixed   The next post.
      */
     public function getNextPost($post, $dir, $restrict_to_category = false, $restrict_to_lang = false)
     {
@@ -2069,7 +2069,7 @@ class dcBlog
      * @param    array      $params        Parameters
      * @param    bool       $count_only    Only counts results
      *
-     * @return   record    A record with some more capabilities
+     * @return   mixed      A record with some more capabilities
      */
     public function getComments($params = [], $count_only = false)
     {

@@ -17,7 +17,7 @@ class dcAdminBlogPref
      *
      * @param      string  $editor  The editor
      *
-     * @return     string
+     * @return     mixed
      */
     public static function adminPopupPosts($editor = '')
     {

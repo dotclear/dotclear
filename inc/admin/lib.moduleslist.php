@@ -508,7 +508,7 @@ class adminModulesList
     /**
      * Sort modules list by specific field.
      *
-     * @param    string    $modules      Array of modules
+     * @param    array     $modules      Array of modules
      * @param    string    $field        Field to sort from
      * @param    bool      $asc          Sort asc if true, else decs
      *
@@ -1321,7 +1321,7 @@ class adminModulesList
     /**
      * Display tab for manual installation.
      *
-     * @return    adminModulesList self instance
+     * @return    mixed self instance or null
      */
     public function displayManualForm()
     {

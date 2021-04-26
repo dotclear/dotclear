@@ -1029,7 +1029,7 @@ class dcCore
      *
      * @param      string  $id     The blog identifier
      *
-     * @return     record    The blog.
+     * @return     mixed    The blog.
      */
     public function getBlog($id)
     {
@@ -1625,7 +1625,7 @@ class dcCore
      * @param      mixed   $start  The start entry index
      * @param      mixed   $limit  The limit of entry to index
      *
-     * @return     int   sum of <var>$start</var> and <var>$limit</var>
+     * @return     mixed   sum of <var>$start</var> and <var>$limit</var>
      */
     public function indexAllPosts($start = null, $limit = null)
     {
@@ -1667,7 +1667,7 @@ class dcCore
      * @param      mixed   $start  The start comment index
      * @param      mixed   $limit  The limit of comment to index
      *
-     * @return     int   sum of <var>$start</var> and <var>$limit</var>
+     * @return     mixed   sum of <var>$start</var> and <var>$limit</var>
      */
     public function indexAllComments($start = null, $limit = null)
     {

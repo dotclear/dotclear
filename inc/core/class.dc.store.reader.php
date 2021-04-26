@@ -24,11 +24,11 @@ class dcStoreReader extends netHttp
     protected $timeout = 5;
     /** @var    array     HTTP Cache validators */
     protected $validators = null;
-    /** @var    string    Cache temporary directory */
+    /** @var    mixed     Cache temporary directory */
     protected $cache_dir = null;
     /** @var    string    Cache file prefix */
     protected $cache_file_prefix = 'dcrepo';
-    /** @var    integer    Cache TTL */
+    /** @var    string    Cache TTL */
     protected $cache_ttl = '-30 minutes';
     /** @var    boolean    'Cache' TTL on server failed */
     protected $cache_touch_on_fail = true;
@@ -50,7 +50,7 @@ class dcStoreReader extends netHttp
      * Parse modules feed.
      *
      * @param    string    $url        XML feed URL
-     * @return    object    dcStore instance
+     * @return   mixed     dcStore instance
      */
     public function parse($url)
     {
@@ -133,7 +133,7 @@ class dcStoreReader extends netHttp
      * Get repository XML feed URL content.
      *
      * @param    string    $url        XML feed URL
-     * @return    string    Feed content
+     * @return   mixed     Feed content
      */
     protected function getModulesXML($url)
     {
@@ -156,7 +156,7 @@ class dcStoreReader extends netHttp
      * Get repository modules list using cache.
      *
      * @param    string    $url        XML feed URL
-     * @return    array    Feed content or False on fail
+     * @return   mixed     Feed content or False on fail
      */
     protected function withCache($url)
     {

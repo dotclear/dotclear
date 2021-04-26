@@ -56,7 +56,7 @@ class dcUpdate
      * @param   string  $version    Current version to compare
      * @param   boolean $nocache    Force checking
      *
-     * @return  string  Latest version if available
+     * @return  mixed   Latest version if available
      */
     public function check($version, $nocache = false)
     {

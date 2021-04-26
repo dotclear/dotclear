@@ -859,7 +859,7 @@ class dcMedia extends filemanager
      *
      * @throws     Exception
      *
-     * @return     integer|bool     New media ID or false
+     * @return     mixed      New media ID or false
      */
     public function uploadFile($tmp, $name, $title = null, $private = false, $overwrite = false)
     {
@@ -882,7 +882,7 @@ class dcMedia extends filemanager
      *
      * @throws     Exception
      *
-     * @return     integer|bool     New media ID or false
+     * @return     mixed      New media ID or false
      */
     public function uploadBits($name, $bits)
     {

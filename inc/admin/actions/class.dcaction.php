@@ -21,7 +21,7 @@ abstract class dcActionsPage
     protected $core;
     /** @var array action combo box */
     protected $combo;
-    /** @var array list of defined actions (callbacks) */
+    /** @var ArrayObject list of defined actions (callbacks) */
     protected $actions;
     /** @var array selected entries (each key is the entry id, value contains the entry description) */
     protected $entries;
@@ -36,7 +36,7 @@ abstract class dcActionsPage
 
     /** @var string current action, if any */
     protected $action;
-    /** @var array list of url parameters (usually $_POST) */
+    /** @var ArrayObject list of url parameters (usually $_POST) */
     protected $from;
     /** @var string form field name for "entries" (usually "entries") */
     protected $field_entries;
@@ -104,7 +104,7 @@ abstract class dcActionsPage
     /**
      * addAction - adds an action
      *
-     * @param string $actions the actions names as if it was a standalone combo array.
+     * @param array    $actions  the actions names as if it was a standalone combo array.
      *                           It will be merged with other actions.
      *                           Can be bound to multiple values, if the same callback is to be called
      * @param callable $callback the callback for the action.
