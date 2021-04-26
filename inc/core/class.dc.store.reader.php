@@ -205,21 +205,21 @@ class dcStoreReader extends netHttp
                 return unserialize(file_get_contents($cached_file));
             # Ok, parse feed
             case '200':
-                if ($modules = new dcStoreParser($this->getContent())) {
-                    try {
-                        files::makeDir(dirname($cached_file), true);
-                    } catch (Exception $e) {
-                        return $modules;
-                    }
+                $modules = new dcStoreParser($this->getContent());
 
-                    if (($fp = @fopen($cached_file, 'wb'))) {
-                        fwrite($fp, serialize($modules));
-                        fclose($fp);
-                        files::inheritChmod($cached_file);
-                    }
-
+                try {
+                    files::makeDir(dirname($cached_file), true);
+                } catch (Exception $e) {
                     return $modules;
                 }
+
+                if (($fp = @fopen($cached_file, 'wb'))) {
+                    fwrite($fp, serialize($modules));
+                    fclose($fp);
+                    files::inheritChmod($cached_file);
+                }
+
+                return $modules;
         }
 
         return false;

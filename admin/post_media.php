@@ -25,7 +25,7 @@ if ($rs->isEmpty()) {
 }
 
 try {
-    if ($post_id && $media_id && !empty($_REQUEST['attach'])) {
+    if ($post_id && $media_id && !empty($_REQUEST['attach'])) { // @phpstan-ignore-line
         $core->media = new dcMedia($core);
         $core->media->postmedia->addPostMedia($post_id, $media_id, $link_type);  // @phpstan-ignore-line
         if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {

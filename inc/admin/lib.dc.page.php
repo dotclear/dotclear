@@ -218,7 +218,7 @@ class dcPage
         $core->auth->user_prefs->addWorkspace('accessibility');
         $js['noDragDrop'] = (boolean) $core->auth->user_prefs->accessibility->nodragdrop;
 
-        $js['debug'] = !!DC_DEBUG;
+        $js['debug'] = !!DC_DEBUG;  // @phpstan-ignore-line
 
         $js['showIp'] = $core->blog && $core->blog->id ? $core->auth->check('contentadmin', $core->blog->id) : false;
 
@@ -237,7 +237,9 @@ class dcPage
         "</head>\n" .
         '<body id="dotclear-admin" class="no-js' .
         ($safe_mode ? ' safe-mode' : '') .
-        (DC_DEBUG ? ' debug-mode' : '') .
+        (DC_DEBUG ? // @phpstan-ignore-line
+            ' debug-mode' :
+            '') .
         ($core->auth->user_prefs->interface->dynfontsize ? ' responsive-font' : '') . '">' . "\n" .
 
         '<ul id="prelude">' .
@@ -440,7 +442,7 @@ EOT;
         $core->auth->user_prefs->addWorkspace('accessibility');
         $js['noDragDrop'] = (boolean) $core->auth->user_prefs->accessibility->nodragdrop;
 
-        $js['debug'] = !!DC_DEBUG;
+        $js['debug'] = !!DC_DEBUG;  // @phpstan-ignore-line
 
         // Set JSON data
         echo dcUtils::jsJson('dotclear_init', $js);
@@ -457,7 +459,9 @@ EOT;
             "</head>\n" .
             '<body id="dotclear-admin" class="popup' .
             ($safe_mode ? ' safe-mode' : '') .
-            (DC_DEBUG ? ' debug-mode' : '') .
+            (DC_DEBUG ? // @phpstan-ignore-line
+                ' debug-mode' :
+                '') .
             ($core->auth->user_prefs->interface->dynfontsize ? ' responsive-font' : '') . '">' . "\n" .
 
             '<h1>' . DC_VENDOR_NAME . '</h1>' . "\n";
@@ -900,7 +904,7 @@ EOT;
         return
         self::jsLoad('js/prepend.js') .
         self::jsLoad('js/jquery/jquery.js') .
-        (DC_DEBUG ?
+        (DC_DEBUG ? // @phpstan-ignore-line
             self::jsJson('dotclear_jquery', [
                 'mute' => (empty($core->blog) || $core->blog->settings->system->jquery_migrate_mute)
             ]) .
@@ -1165,7 +1169,7 @@ EOT;
     /**
      * Get HTML code to run Codemirror
      *
-     * @param      string       $name   The HTML name attribute
+     * @param      mixed        $name   The HTML name attribute
      * @param      mixed        $id     The HTML id attribute
      * @param      mixed        $mode   The Codemirror mode
      * @param      string       $theme  The theme

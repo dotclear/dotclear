@@ -520,7 +520,6 @@ class dcUrlHandlers extends urlHandler
                             header('Location: ' . $redir . $redir_arg);
                         } catch (Exception $e) {
                             $_ctx->form_error = $e->getMessage();
-                            $_ctx->form_error;
                         }
                     }
                 }

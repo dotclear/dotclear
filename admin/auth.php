@@ -124,7 +124,7 @@ elseif ($change_pwd) {
             'cookie_admin'  => $tmp_data[1],
             'user_remember' => $tmp_data[2] == '1'
         ];
-        if ($data['user_id'] === false) {
+        if ($data['user_id'] === false) {   // @phpstan-ignore-line
             throw new Exception();
         }
 

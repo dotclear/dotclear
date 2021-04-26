@@ -561,7 +561,7 @@ class adminModulesList
             '<th class="first nowrap"' . ($colspan > 1 ? ' colspan="' . $colspan . '"' : '') . '>' . __('Name') . '</th>';
         }
 
-        if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {
+        if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {   // @phpstan-ignore-line
             echo
             '<th class="nowrap">' . __('Score') . '</th>';
         }
@@ -667,7 +667,7 @@ class adminModulesList
                 '</td>';
 
             # Display score only for debug purpose
-            if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {
+            if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {   // @phpstan-ignore-line
                 $tds++;
                 echo
                     '<td class="module-version nowrap count"><span class="debug">' . $module['score'] . '</span></td>';
@@ -1591,7 +1591,7 @@ class adminThemesList extends adminModulesList
             }
 
             # Display score only for debug purpose
-            if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {
+            if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {   // @phpstan-ignore-line
                 $line .= '<p class="module-score debug">' . sprintf(__('Score: %s'), $module['score']) . '</p>';
             }
 

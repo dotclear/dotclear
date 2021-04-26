@@ -129,7 +129,7 @@ class dcMenu
      * Get a menu item HTML code
      *
      * @param      string  $title   The title
-     * @param      string  $url     The url
+     * @param      mixed   $url     The url
      * @param      string  $img     The image
      * @param      mixed   $active  The active flag
      * @param      mixed   $id      The identifier

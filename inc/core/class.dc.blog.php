@@ -1016,12 +1016,10 @@ class dcBlog
                     $this->core->callBehavior('corePostSearch', $this->core, [&$words, &$strReq, &$params]);
                 }
 
-                if ($words) {
-                    foreach ($words as $i => $w) {
-                        $words[$i] = "post_words LIKE '%" . $this->con->escape($w) . "%'";
-                    }
-                    $strReq .= 'AND ' . implode(' AND ', $words) . ' ';
+                foreach ($words as $i => $w) {
+                    $words[$i] = "post_words LIKE '%" . $this->con->escape($w) . "%'";
                 }
+                $strReq .= 'AND ' . implode(' AND ', $words) . ' ';
             }
         }
 
@@ -1074,7 +1072,7 @@ class dcBlog
         # --BEHAVIOR-- coreBlogAfterGetPosts
         $alt = new arrayObject(['rs' => null, 'params' => $params, 'count_only' => $count_only]);
         $this->core->callBehavior('coreBlogAfterGetPosts', $rs, $alt);
-        if ($alt['rs'] instanceof record) {
+        if ($alt['rs'] instanceof record) { // @phpstan-ignore-line
             $rs = $alt['rs'];
         }
 
@@ -2183,12 +2181,10 @@ class dcBlog
                     $this->core->callBehavior('coreCommentSearch', $this->core, [&$words, &$strReq, &$params]);
                 }
 
-                if ($words) {
-                    foreach ($words as $i => $w) {
-                        $words[$i] = "comment_words LIKE '%" . $this->con->escape($w) . "%'";
-                    }
-                    $strReq .= 'AND ' . implode(' AND ', $words) . ' ';
+                foreach ($words as $i => $w) {
+                    $words[$i] = "comment_words LIKE '%" . $this->con->escape($w) . "%'";
                 }
+                $strReq .= 'AND ' . implode(' AND ', $words) . ' ';
             }
         }
 

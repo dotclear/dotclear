@@ -379,7 +379,7 @@ class dcMeta
         $this->checkPermissionsOnPost($post_id);
 
         $value = trim($value);
-        if ($value === false) {
+        if ($value === '') {
             return;
         }
 

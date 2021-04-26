@@ -1082,7 +1082,7 @@ class dcTemplate extends template
 
         if (isset($attr['urls'])) {
             $urls = explode(',', addslashes(trim($attr['urls'])));
-            if (is_array($urls) && count($urls)) {
+            if (is_array($urls)) {
                 foreach ($urls as $url) {
                     $args = preg_split('/\s*[?]\s*/', trim($url), -1, PREG_SPLIT_NO_EMPTY);
                     $url  = array_shift($args);
@@ -1461,7 +1461,7 @@ class dcTemplate extends template
 
         if (isset($attr['categories'])) {
             $categories = explode(',', addslashes(trim($attr['categories'])));
-            if (is_array($categories) && count($categories)) {
+            if (is_array($categories)) {
                 foreach ($categories as $category) {
                     $args     = preg_split('/\s*[?]\s*/', trim($category), -1, PREG_SPLIT_NO_EMPTY);
                     $category = array_shift($args);

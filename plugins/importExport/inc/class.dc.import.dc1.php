@@ -555,7 +555,7 @@ class dcImportDC1 extends dcIeModule
                 $cur->comment_site = substr('http://' . $cur->comment_site, 0, 255);
             }
 
-            if ($rs->exists('spam') && $rs->spam && $rs->comment_status = 0) {
+            if ($rs->exists('spam') && $rs->spam && $rs->comment_status == 0) {
                 $cur->comment_status = -2;
             }
 

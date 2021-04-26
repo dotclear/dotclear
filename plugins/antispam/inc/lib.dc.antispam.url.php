@@ -58,8 +58,9 @@ class dcAntispamURL extends dcUrlHandlers
         'xmlns:content="http://purl.org/rss/1.0/modules/content/">' . "\n" .
         '<channel>' . "\n" .
         '<title>' . html::escapeHTML($title) . '</title>' . "\n" .
-            '<link>' . (DC_ADMIN_URL ? DC_ADMIN_URL . 'comments.php' . $end_url : 'about:blank') . '</link>' . "\n" .
-            '<description></description>' . "\n";
+        /* @phpstan-ignore-next-line */
+        '<link>' . (DC_ADMIN_URL ? DC_ADMIN_URL . 'comments.php' . $end_url : 'about:blank') . '</link>' . "\n" .
+        '<description></description>' . "\n";
 
         $rs       = $core->blog->getComments($params);
         $maxitems = 20;
@@ -67,6 +68,7 @@ class dcAntispamURL extends dcUrlHandlers
 
         while ($rs->fetch() && ($nbitems < $maxitems)) {
             $nbitems++;
+            /* @phpstan-ignore-next-line */
             $uri    = DC_ADMIN_URL ? DC_ADMIN_URL . 'comment.php?id=' . $rs->comment_id : 'about:blank';
             $author = $rs->comment_author;
             $title  = $rs->post_title . ' - ' . $author;

@@ -147,7 +147,7 @@ class dcAntispam
         $user_id = trim(@pack('a32', substr($code, 0, 32)));
         $pwd     = substr($code, 32);
 
-        if ($user_id === false || $pwd === false) {
+        if ($user_id === '' || $pwd === '') {
             return false;
         }
 

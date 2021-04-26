@@ -571,7 +571,7 @@ if (!isset($core->media)) {
     $home_params      = $page_url_params;
     $home_params['d'] = '';
     $home_params['q'] = '';
-    if ($query || (!$query && $q)) {
+    if ($query || $q) {
         $count      = $query ? count($dir['files']) : 0;
         $breadcrumb = dcPage::breadcrumb(
             [

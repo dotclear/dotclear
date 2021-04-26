@@ -16,7 +16,7 @@ if (!defined('DC_FAIRTRACKBACKS_FORCE')) {
     define('DC_FAIRTRACKBACKS_FORCE', false);
 }
 
-if (!DC_FAIRTRACKBACKS_FORCE) {
+if (!DC_FAIRTRACKBACKS_FORCE) { // @phpstan-ignore-line
     $__autoload['dcFilterFairTrackbacks'] = dirname(__FILE__) . '/class.dc.filter.fairtrackbacks.php';
     $core->spamfilters[]                  = 'dcFilterFairTrackbacks';
 }

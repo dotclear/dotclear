@@ -139,8 +139,6 @@ class dcImportFlat extends dcIeModule
         header('content-type:text/plain');
         var_dump($_POST);
         exit;
-
-        $this->status = true;
     }
 
     public function gui()

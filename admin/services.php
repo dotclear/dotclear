@@ -93,15 +93,9 @@ class dcRestMethods
                         $dt = isset($item->link) ? '<a href="' . $item->link . '" class="outgoing" title="' . $item->title . '">' .
                         /* @phpstan-ignore-next-line */
                         $item->title . ' <img src="images/outgoing-link.svg" alt="" /></a>' : $item->title;
-
-                        if ($i < 3) {
-                            $ret .= '<dt>' . $dt . '</dt>' .
-                            '<dd><p><strong>' . dt::dt2str(__('%d %B %Y:'), $item->pubdate, 'Europe/Paris') . '</strong> ' .
-                            '<em>' . text::cutString(html::clean($item->content), 120) . '...</em></p></dd>';
-                        } else {
-                            $ret .= '<dt>' . $dt . '</dt>' .
-                            '<dd>' . dt::dt2str(__('%d %B %Y:'), $item->pubdate, 'Europe/Paris') . '</dd>';
-                        }
+                        $ret .= '<dt>' . $dt . '</dt>' .
+                        '<dd><p><strong>' . dt::dt2str(__('%d %B %Y:'), $item->pubdate, 'Europe/Paris') . '</strong> ' .
+                        '<em>' . text::cutString(html::clean($item->content), 120) . '...</em></p></dd>';
                         $i++;
                         if ($i > 2) {
                             break;
@@ -126,6 +120,7 @@ class dcRestMethods
         $rsp->check = false;
         $ret        = __('Dotclear update not available');
 
+        /* @phpstan-ignore-next-line */
         if ($core->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) && !$core->auth->user_prefs->dashboard->nodcupdate) {
             $updater      = new dcUpdate(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
             $new_v        = $updater->check(DC_VERSION);

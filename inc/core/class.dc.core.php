@@ -81,7 +81,7 @@ class dcCore
         $this->prefix = $prefix;
 
         $ttl = DC_SESSION_TTL;
-        if (!is_null($ttl)) {
+        if (!is_null($ttl)) {   // @phpstan-ignore-line
             if (substr(trim($ttl), 0, 1) != '-') {
                 // Clearbricks requires negative session TTL
                 $ttl = '-' . trim($ttl);
@@ -646,7 +646,7 @@ class dcCore
                 'user_name,user_firstname,user_displayname,user_email,user_url,' .
                 'user_desc, user_lang,user_tz,user_post_status,user_options ';
 
-            if (!empty($params['order']) && !$count_only) {
+            if (!empty($params['order'])) {
                 if (preg_match('`^([^. ]+) (?:asc|desc)`i', $params['order'], $matches)) {
                     if (in_array($matches[1], ['user_id', 'user_name', 'user_firstname', 'user_displayname'])) {
                         $table_prefix = 'U.';

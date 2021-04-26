@@ -61,7 +61,10 @@ class dcStore
         if (!$this->xml_url) {
             return false;
         }
-        if (($parser = dcStoreReader::quickParse($this->xml_url, DC_TPL_CACHE, $force)) === false) {
+
+        try {
+            $parser = dcStoreReader::quickParse($this->xml_url, DC_TPL_CACHE, $force);
+        } catch (Exception $e) {
             return false;
         }
 

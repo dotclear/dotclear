@@ -195,7 +195,6 @@ class urlPages extends dcUrlHandlers
                             header('Location: ' . $redir . $redir_arg);
                         } catch (Exception $e) {
                             $_ctx->form_error = $e->getMessage();
-                            $_ctx->form_error;
                         }
                     }
                 }

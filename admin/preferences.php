@@ -349,7 +349,7 @@ if (isset($_POST['user_editor'])) {
             foreach ($cols_list[1] as $col_name => $col_data) {
                 $ct[$col_name] = isset($_POST['cols_' . $col_type]) && in_array($col_name, $_POST['cols_' . $col_type], true) ? true : false;
             }
-            if (count($ct)) {
+            if (count($ct)) {   // @phpstan-ignore-line
                 $cu[$col_type] = $ct;
             }
         }

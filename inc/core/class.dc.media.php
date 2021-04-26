@@ -1048,7 +1048,7 @@ class dcMedia extends filemanager
     /**
      * Create image thumbnails
      *
-     * @param      cursor  $cur    The cursor
+     * @param      mixed   $cur    The cursor
      * @param      string  $f      Image filename
      * @param      bool    $force  Force creation
      *

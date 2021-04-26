@@ -117,7 +117,7 @@ $(function() {
     CKEDITOR.config.contentsLanguage = dotclear.user_language;
 
 <?php
-if (!empty($extraPlugins) && count($extraPlugins) > 0) {
+if (!empty($extraPlugins)) {
     foreach ($extraPlugins as $plugin) {
         printf("\tCKEDITOR.plugins.addExternal('%s','%s');\n", $plugin['name'], $plugin['url']);
     }
@@ -130,7 +130,7 @@ if (!empty($extraPlugins) && count($extraPlugins) > 0) {
 
 <?php
 $defautExtraPlugins = 'entrylink,dclink,media,justify,colorbutton,format,img,footnotes';
-if (!empty($extraPlugins) && count($extraPlugins) > 0) {
+if (!empty($extraPlugins)) {
     foreach ($extraPlugins as $plugin) {
         $defautExtraPlugins .= ',' . $plugin['name'];
     }
@@ -239,7 +239,7 @@ if (!empty($extraPlugins) && count($extraPlugins) > 0) {
             },
 
 <?php // add extra buttons comming from dotclear plugins
-if (!empty($extraPlugins) && count($extraPlugins) > 0) {
+if (!empty($extraPlugins)) {
     $extraPlugins_str = "{name: 'extra', items: [%s]},\n";
     $extra_icons      = '';
     foreach ($extraPlugins as $plugin) {

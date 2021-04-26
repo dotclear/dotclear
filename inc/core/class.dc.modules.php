@@ -169,7 +169,7 @@ class dcModules
         $this->ns   = $ns;
 
         $disabled = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
-        $disabled = $disabled                          && !get_parent_class($this) ? true : false;
+        $disabled = $disabled                          && !get_parent_class($this) ? true : false;  // @phpstan-ignore-line
 
         $ignored = [];
 
@@ -354,7 +354,7 @@ class dcModules
         if ($this->id) {
             $module_exists    = array_key_exists($name, $this->modules_names);
             $module_overwrite = $module_exists ? version_compare($this->modules_names[$name], $version, '<') : false;
-            if (!$module_exists || ($module_exists && $module_overwrite)) {
+            if (!$module_exists || $module_overwrite) {
                 $this->modules_names[$name] = $version;
                 $this->modules[$this->id]   = array_merge(
                     $properties,
@@ -448,7 +448,7 @@ class dcModules
 
                 $new_errors = $sandbox->getErrors();
                 if (!empty($new_errors)) {
-                    $new_errors = is_array($new_errors) ? implode(" \n", $new_errors) : $new_errors;
+                    $new_errors = implode(" \n", $new_errors);
 
                     throw new Exception($new_errors);
                 }
