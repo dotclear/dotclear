@@ -114,9 +114,9 @@ class dcAdminCombos
      */
     public static function getLangsCombo($langs, $with_available = false)
     {
-        $all_langs = l10n::getISOcodes(0, 1);
+        $all_langs = l10n::getISOcodes(false, true);
         if ($with_available) {
-            $langs_combo = ['' => '', __('Most used') => [], __('Available') => l10n::getISOcodes(1, 1)];
+            $langs_combo = ['' => '', __('Most used') => [], __('Available') => l10n::getISOcodes(true, true)];
             while ($langs->fetch()) {
                 if (isset($all_langs[$langs->post_lang])) {
                     $langs_combo[__('Most used')][$all_langs[$langs->post_lang]] = $langs->post_lang;
@@ -145,7 +145,7 @@ class dcAdminCombos
     public static function getAdminLangsCombo()
     {
         $lang_combo = [];
-        $langs      = l10n::getISOcodes(1, 1);
+        $langs      = l10n::getISOcodes(true, true);
         foreach ($langs as $k => $v) {
             $lang_avail   = $v == 'en' || is_dir(DC_L10N_ROOT . '/' . $v);
             $lang_combo[] = new formSelectOption($k, $v, $lang_avail ? 'avail10n' : '');

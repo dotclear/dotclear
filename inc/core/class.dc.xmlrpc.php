@@ -248,11 +248,11 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
             fwrite($fp, '[' . date('r') . ']' . ' ' . $methodname);
 
             if ($this->trace_args) {
-                fwrite($fp, "\n- args ---\n" . var_export($args, 1));
+                fwrite($fp, "\n- args ---\n" . var_export($args, true));
             }
 
             if ($this->trace_response) {
-                fwrite($fp, "\n- response ---\n" . var_export($rsp, 1));
+                fwrite($fp, "\n- response ---\n" . var_export($rsp, true));
             }
             fwrite($fp, "\n");
             fclose($fp);

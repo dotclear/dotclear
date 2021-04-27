@@ -99,7 +99,7 @@ try {
     $params = new ArrayObject($params);
     $core->callBehavior('adminGetBlogs', $params);
 
-    $counter  = $core->getBlogs($params, 1);
+    $counter  = $core->getBlogs($params, true);
     $rs       = $core->getBlogs($params);
     $nb_blog  = $counter->f(0);
     $rsStatic = $rs->toStatic();

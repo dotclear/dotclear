@@ -176,13 +176,13 @@ class adminGenericList
     /**
      * Get user defined columns
      *
-     * @param      string  $type   The type
-     * @param      array   $cols   The columns
+     * @param      string               $type   The type
+     * @param      array|ArrayObject    $cols   The columns
      */
     public function userColumns($type, $cols)
     {
         $cols_user = @$this->core->auth->user_prefs->interface->cols;
-        if (is_array($cols_user)) {
+        if (is_array($cols_user) || $cols_user instanceof ArrayObject) {
             if (isset($cols_user[$type])) {
                 foreach ($cols_user[$type] as $cn => $cd) {
                     if (!$cd && isset($cols[$cn])) {

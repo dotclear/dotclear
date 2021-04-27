@@ -256,7 +256,7 @@ class dcStoreReader extends netHttp
      * Tweak query cache validator.
      *
      * @param    string    $key        Validator key
-     * @param    string    $value        Validator value
+     * @param    mixed     $value      Validator value
      */
     private function setValidator($key, $value)
     {

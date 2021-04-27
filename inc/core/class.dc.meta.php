@@ -140,7 +140,7 @@ class dcMeta
      * Checks whether the current user is allowed to change post meta
      * An exception is thrown if user is not allowed.
      *
-     * @param      string     $post_id  The post identifier
+     * @param      mixed     $post_id  The post identifier
      *
      * @throws     Exception
      */
@@ -170,7 +170,7 @@ class dcMeta
     /**
      * Updates serialized post_meta information with dc_meta table information.
      *
-     * @param      string  $post_id  The post identifier
+     * @param      mixed  $post_id  The post identifier
      */
     private function updatePostMeta($post_id)
     {

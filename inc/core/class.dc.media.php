@@ -514,7 +514,7 @@ class dcMedia extends filemanager
     /**
      * Gets file by its id. Returns a filteItem object.
      *
-     * @param      string  $id     The file identifier
+     * @param      mixed  $id     The file identifier
      *
      * @return     fileItem  The file.
      */
@@ -894,7 +894,7 @@ class dcMedia extends filemanager
 
         parent::uploadBits($name, $bits);
 
-        return $this->createFile($name, null, null);
+        return $this->createFile($name, null, false);
     }
 
     /**

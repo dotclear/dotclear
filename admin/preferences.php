@@ -684,11 +684,11 @@ __('Activate adpative font size') . '</label></p>' .
 
 echo
 '<p><label for="user_ui_media_by_page" class="classic">' . __('Number of elements displayed per page in media manager:') . '</label> ' .
-form::number('user_ui_media_by_page', 0, 999, (integer) $user_ui_media_by_page) . '</p>';
+form::number('user_ui_media_by_page', 0, 999, $user_ui_media_by_page) . '</p>';
 
 echo
 '<p><label for="user_ui_media_nb_last_dirs" class="classic">' . __('Number of recent folders proposed in media manager:') . '</label> ' .
-form::number('user_ui_media_nb_last_dirs', 0, 999, (integer) $user_ui_media_nb_last_dirs) . '</p>' .
+form::number('user_ui_media_nb_last_dirs', 0, 999, $user_ui_media_nb_last_dirs) . '</p>' .
 '<p class="clear form-note">' . __('Leave empty to ignore, displayed only if Javascript is enabled in your browser.') . '</p>';
 
 if ($core->auth->isSuperAdmin()) {
@@ -800,7 +800,7 @@ echo
 form::combo('user_post_status', $status_combo, $user_post_status) . '</p>' .
 
 '<p class="field"><label for="user_edit_size">' . __('Entry edit field height:') . '</label>' .
-form::number('user_edit_size', 10, 999, (integer) $user_options['edit_size']) . '</p>' .
+form::number('user_edit_size', 10, 999, $user_options['edit_size']) . '</p>' .
 
 '<p><label for="user_wysiwyg" class="classic">' .
 form::checkbox('user_wysiwyg', 1, $user_options['enable_wysiwyg']) . ' ' .

@@ -67,8 +67,10 @@ $part = !empty($_GET['part']) && $_GET['part'] == 'global' ? 'global' : 'local';
 function prefLine($id, $s, $ws, $field_name, $strong_label)
 {
     if ($s['type'] == 'boolean') {
-        $field = form::combo([$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
-            [__('yes') => 1, __('no') => 0], $s['value'] ? 1 : 0);
+        $field = form::combo(
+            [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id],
+            [__('yes') => 1, __('no') => 0],
+            $s['value'] ? 1 : 0);
     } else {
         if ($s['type'] == 'array') {
             $field = form::field([$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id], 40, null,

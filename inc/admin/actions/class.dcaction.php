@@ -220,7 +220,7 @@ abstract class dcActionsPage
      *  by default, $_POST fields as defined in redirect_fields attributes
      *  are set into redirect_args.
      *
-     * @param array $from input to parse fields from (usually $_POST)
+     * @param array|ArrayObject     $from   input to parse fields from (usually $_POST)
      *
      * @access protected
      */

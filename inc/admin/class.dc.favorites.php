@@ -290,7 +290,7 @@ class dcFavorites
      * appendMenuTitle - adds favorites section title to sidebar menu
      *                    shall not be called outside admin/prepend.php...
      *
-     * @param dcMenu  $menu   admin menu instance
+     * @param array|ArrayObject  $menu   admin menu
      *
      * @access public
      */
@@ -304,7 +304,7 @@ class dcFavorites
      * appendMenu - adds favorites items title to sidebar menu
      *                    shall not be called outside admin/prepend.php...
      *
-     * @param dcMenu  $menu   admin menu instance
+     * @param array|ArrayObject  $menu   admin menu
      *
      * @access public
      */

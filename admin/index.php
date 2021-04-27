@@ -40,7 +40,7 @@ if (!empty($_GET['logout'])) {
     $core->session->destroy();
     if (isset($_COOKIE['dc_admin'])) {
         unset($_COOKIE['dc_admin']);
-        setcookie('dc_admin', false, -600, '', '', DC_ADMIN_SSL);
+        setcookie('dc_admin', '', -600, '', '', DC_ADMIN_SSL);
     }
     $core->adminurl->redirect('admin.auth');
     exit;

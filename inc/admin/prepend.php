@@ -232,7 +232,7 @@ if ($core->auth->userID() && $core->blog !== null) {
 
     # Menus creation
     $_menu              = new ArrayObject();
-    $_menu['Dashboard'] = new dcMenu('dashboard-menu', null);
+    $_menu['Dashboard'] = new dcMenu('dashboard-menu', '');
     if (!$user_ui_nofavmenu) {
         $core->favs->appendMenuTitle($_menu);
     }

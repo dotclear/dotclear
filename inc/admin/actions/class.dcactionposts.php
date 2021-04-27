@@ -440,8 +440,8 @@ class dcDefaultPostActions
             # lang list
             # Languages combo
             $rs         = $core->blog->getLangs(['order' => 'asc']);
-            $all_langs  = l10n::getISOcodes(0, 1);
-            $lang_combo = ['' => '', __('Most used') => [], __('Available') => l10n::getISOcodes(1, 1)];
+            $all_langs  = l10n::getISOcodes(false, true);
+            $lang_combo = ['' => '', __('Most used') => [], __('Available') => l10n::getISOcodes(true, true)];
             while ($rs->fetch()) {
                 if (isset($all_langs[$rs->post_lang])) {
                     $lang_combo[__('Most used')][$all_langs[$rs->post_lang]] = $rs->post_lang;

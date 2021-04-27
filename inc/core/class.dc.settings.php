@@ -33,8 +33,8 @@ class dcSettings
      * Object constructor. Retrieves blog settings and puts them in $namespaces
      * array. Local (blog) settings have a highest priority than global settings.
      *
-     * @param      dcCore  $core     The core
-     * @param      string  $blog_id  The blog identifier
+     * @param      dcCore   $core     The core
+     * @param      mixed    $blog_id  The blog identifier
      */
     public function __construct(dcCore $core, $blog_id)
     {

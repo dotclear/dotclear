@@ -32,7 +32,6 @@ if (!isset($_POST['id']) && (isset($_POST['create']))) {
         $core->addBlog($cur);
 
         # Default settings and override some
-        $core->blogDefaults($cur->blog_id);
         $blog_settings = new dcSettings($core, $cur->blog_id);
         $blog_settings->addNamespace('system');
         $blog_settings->system->put('lang', $core->auth->getInfo('user_lang'));

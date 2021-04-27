@@ -66,10 +66,10 @@ class dcAdminURL
     /**
      * retrieves a URL given its name, and optional parameters
      *
-     * @param  string $name      URL Name
-     * @param  array  $params    query string parameters, given as an associative array
-     * @param  string $separator separator to use between QS parameters
-     * @param  boolean $parametric set to true if url will be used as (s)printf() format.
+     * @param  string   $name       URL Name
+     * @param  array    $params     query string parameters, given as an associative array
+     * @param  string   $separator  separator to use between QS parameters
+     * @param  boolean  $parametric set to true if url will be used as (s)printf() format.
      *
      * @return string            the forged url
      */
@@ -158,7 +158,7 @@ class dcAdminURL
      */
     public function decode($name, $params = [], $separator = '&')
     {
-        return urldecode($this->get($name, $params, false, $separator));
+        return urldecode($this->get($name, $params, $separator));
     }
 
     /**

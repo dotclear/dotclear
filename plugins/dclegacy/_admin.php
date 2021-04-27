@@ -28,7 +28,7 @@ class dcLegacyPosts
         $stub_actions = new ArrayObject();
         $core->callBehavior('adminPostsActionsCombo', [$stub_actions]);
         if (!empty($stub_actions)) {
-            $as->addAction($stub_actions, ['dcLegacyPosts', 'onActionLegacy']);
+            $as->addAction($stub_actions->getArrayCopy(), ['dcLegacyPosts', 'onActionLegacy']);
         }
     }
 
@@ -56,7 +56,7 @@ class dcLegacyComments
         $stub_actions = new ArrayObject();
         $core->callBehavior('adminCommentsActionsCombo', [$stub_actions]);
         if (!empty($stub_actions)) {
-            $as->addAction($stub_actions, ['dcLegacyComments', 'onActionLegacy']);
+            $as->addAction($stub_actions->getArrayCopy(), ['dcLegacyComments', 'onActionLegacy']);
         }
     }
 
@@ -88,7 +88,7 @@ class dcLegacyPages
         $stub_actions = new ArrayObject();
         $core->callBehavior('adminPagesActionsCombo', [$stub_actions]);
         if (!empty($stub_actions)) {
-            $as->addAction($stub_actions, ['dcLegacyPages', 'onActionLegacy']);
+            $as->addAction($stub_actions->getArrayCopy(), ['dcLegacyPages', 'onActionLegacy']);
         }
     }
 

@@ -598,8 +598,8 @@ class dcCore
      * - <var>order</var>: ORDER BY clause (default: user_id ASC)
      * - <var>limit</var>: LIMIT clause (should be an array ![limit,offset])
      *
-     * @param      array   $params      The parameters
-     * @param      bool    $count_only  Count only results
+     * @param      array|ArrayObject    $params      The parameters
+     * @param      bool                 $count_only  Count only results
      *
      * @return     record  The users.
      */
@@ -1050,8 +1050,8 @@ class dcCore
      * - <var>q</var>: Search string on blog_id, blog_name and blog_url
      * - <var>limit</var>: limit results
      *
-     * @param      array   $params      The parameters
-     * @param      bool    $count_only  Count only results
+     * @param      array|ArrayObject    $params      The parameters
+     * @param      bool                 $count_only  Count only results
      *
      * @return     record  The blogs.
      */

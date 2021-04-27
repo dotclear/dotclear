@@ -30,7 +30,7 @@ class dcMaintenanceZipmedia extends dcMaintenanceTask
     {
         // Instance media
         $this->core->media = new dcMedia($this->core);
-        $this->core->media->chdir(null);
+        $this->core->media->chdir('');
         $this->core->media->getDir();
 
         // Create zip

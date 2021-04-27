@@ -310,7 +310,7 @@ form::combo('user_post_status', $status_combo, $user_post_status) .
 '</p>' .
 
 '<p><label for="user_edit_size">' . __('Entry edit field height:') . '</label> ' .
-form::number('user_edit_size', 10, 999, (integer) $user_options['edit_size']) .
+form::number('user_edit_size', 10, 999, $user_options['edit_size']) .
     '</p>';
 
 # --BEHAVIOR-- adminUserForm

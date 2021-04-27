@@ -333,7 +333,7 @@ class dcThemeEditor
 
     protected function findLocales()
     {
-        $langs = l10n::getISOcodes(1, 1);
+        $langs = l10n::getISOcodes(true, true);
         foreach ($langs as $k => $v) {
             if ($this->parent_theme) {
                 $this->po = array_merge($this->po, $this->getFilesInDir($this->parent_theme . '/locales/' . $v, 'po', $v . '/'));

@@ -140,7 +140,7 @@ try {
         $core->media->getDir();
     } else {
         $d = null;
-        $core->media->chdir($d);
+        $core->media->chdir('');
     }
     $core_media_writable = $core->media->writable();
     $dir                 = &$core->media->dir;
@@ -838,7 +838,7 @@ if (count($items) == 0) {
     '<p class="three-boxes"><label for="file_sort" class="classic">' . __('Sort files:') . '</label> ' .
     form::combo('file_sort', $sort_combo, $file_sort) . '</p>' .
     '<p class="three-boxes"><label for="nb_per_page" class="classic">' . __('Number of elements displayed per page:') . '</label> ' .
-    form::number('nb_per_page', 0, 999, $nb_per_page) . ' ' .
+    form::number('nb_per_page', 0, 999, strval($nb_per_page)) . ' ' .
     '<input type="submit" value="' . __('OK') . '" />' .
     form::hidden(['popup'], $popup) .
     form::hidden(['select'], $select) .

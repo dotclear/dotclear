@@ -33,7 +33,7 @@ class tplDuctileTheme
     {
         $nb = $attr['nb'] ?? null;
 
-        return '<?php ' . __NAMESPACE__ . '\tplDuctileTheme::ductileNbEntryPerPageHelper(' . sprintf((int) $nb) . '); ?>';
+        return '<?php ' . __NAMESPACE__ . '\tplDuctileTheme::ductileNbEntryPerPageHelper(' . strval((int) $nb) . '); ?>';
     }
 
     public static function ductileNbEntryPerPageHelper(int $nb)

@@ -48,9 +48,8 @@ if ($core->getVersion('antispam') === null) {
     unset($_o);
 }
 
-$settings = new dcSettings($core, null);
-$settings->addNamespace('antispam');
-$settings->antispam->put('antispam_moderation_ttl', 0, 'integer', 'Antispam Moderation TTL (days)', false);
+$core->blog->settings->addNamespace('antispam');
+$core->blog->settings->antispam->put('antispam_moderation_ttl', 0, 'integer', 'Antispam Moderation TTL (days)', false);
 
 $core->setVersion('antispam', $version);
 

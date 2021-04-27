@@ -138,7 +138,7 @@ elseif ($change_pwd) {
                 $user_key   = substr($data['cookie_admin'], 0, 40);
                 $check_user = $core->auth->checkUser($user_id, null, $user_key) === true;
             } else {
-                $user_id = trim($user_id);
+                $user_id = trim($user_id);  // @phpstan-ignore-line
             }
         }
 
@@ -228,7 +228,7 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null)) {
         }
         if (isset($_COOKIE['dc_admin'])) {
             unset($_COOKIE['dc_admin']);
-            setcookie('dc_admin', false, -600, '', '', DC_ADMIN_SSL);
+            setcookie('dc_admin', '', -600, '', '', DC_ADMIN_SSL);
         }
     }
 }

@@ -17,9 +17,8 @@ if (version_compare($core->getVersion('blowupConfig'), $version, '>=')) {
     return;
 }
 
-$settings = new dcSettings($core, null);
-$settings->addNamespace('themes');
-$settings->themes->put('blowup_style', '', 'string', 'Blow Up  custom style', false);
+$core->blog->settings->addNamespace('themes');
+$core->blog->settings->themes->put('blowup_style', '', 'string', 'Blow Up  custom style', false);
 
 $core->setVersion('blowupConfig', $version);
 

@@ -137,7 +137,9 @@ if ($can_install && !empty($_POST)) {
         $cur->blog_url  = http::getHost() . $root_url . '/index.php?';
         $cur->blog_name = __('My first blog');
         $core->addBlog($cur);
-        $core->blogDefaults($cur->blog_id);
+
+        # Create global blog settings
+        $core->blogDefaults();
 
         $blog_settings = new dcSettings($core, 'default');
         $blog_settings->addNamespace('system');

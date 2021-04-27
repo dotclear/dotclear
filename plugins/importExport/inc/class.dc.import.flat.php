@@ -167,7 +167,7 @@ class dcImportFlat extends dcIeModule
         '<p>' . sprintf(__('This will import a single blog backup as new content in the current blog: <strong>%s</strong>.'), html::escapeHTML($this->core->blog->name)) . '</p>' .
 
         '<p><label for="up_single_file">' . __('Upload a backup file') .
-        ' (' . sprintf(__('maximum size %s'), files::size(DC_MAX_UPLOAD_SIZE)) . ')' . ' </label>' .
+        ' (' . sprintf(__('maximum size %s'), files::size((int) DC_MAX_UPLOAD_SIZE)) . ')' . ' </label>' .
             ' <input type="file" id="up_single_file" name="up_single_file" size="20" />' .
             '</p>';
 
@@ -182,7 +182,7 @@ class dcImportFlat extends dcIeModule
         '<p>' .
         $this->core->formNonce() .
         form::hidden(['do'], 1) .
-        form::hidden(['MAX_FILE_SIZE'], DC_MAX_UPLOAD_SIZE) .
+        form::hidden(['MAX_FILE_SIZE'], (int) DC_MAX_UPLOAD_SIZE) .
         '<input type="submit" value="' . __('Import') . '" /></p>' .
 
             '</form>';
@@ -194,7 +194,7 @@ class dcImportFlat extends dcIeModule
             '<p class="warning">' . __('This will reset all the content of your database, except users.') . '</p>' .
 
             '<p><label for="up_full_file">' . __('Upload a backup file') . ' ' .
-            ' (' . sprintf(__('maximum size %s'), files::size(DC_MAX_UPLOAD_SIZE)) . ')' . ' </label>' .
+            ' (' . sprintf(__('maximum size %s'), files::size((int) DC_MAX_UPLOAD_SIZE)) . ')' . ' </label>' .
                 '<input type="file" id="up_full_file" name="up_full_file" size="20" />' .
                 '</p>';
 

@@ -1249,8 +1249,8 @@ EOT;
     /**
      * Sets the x frame options.
      *
-     * @param      array   $headers  The headers
-     * @param      mixed   $origin   The origin
+     * @param      array|ArrayObject    $headers  The headers
+     * @param      mixed                $origin   The origin
      */
     public static function setXFrameOptions($headers, $origin = null)
     {

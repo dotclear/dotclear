@@ -99,7 +99,7 @@ try {
     $core->callBehavior('adminGetUsers', $params);
 
     $rs       = $core->getUsers($params);
-    $counter  = $core->getUsers($params, 1);
+    $counter  = $core->getUsers($params, true);
     $rsStatic = $rs->toStatic();
     if ($sortby != 'nb_post') {
         // Sort user list using lexical order if necessary
