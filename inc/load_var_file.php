@@ -54,7 +54,7 @@ if (count($_GET) > 1) {
     exit;
 }
 
-$allow_types = ['png', 'jpg', 'jpeg', 'gif', 'webp', 'css', 'js', 'swf', 'svg', 'html', 'xml', 'json', 'txt'];
+$allow_types = ['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'css', 'js', 'swf', 'svg', 'html', 'xml', 'json', 'txt'];
 
 $vf = path::clean($_GET['vf']);
 $VF = path::real(DC_VAR . '/' . $vf);

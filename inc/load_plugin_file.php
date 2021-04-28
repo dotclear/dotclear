@@ -54,7 +54,7 @@ if (count($_GET) > 1) {
     exit;
 }
 
-$allow_types = ['png', 'jpg', 'jpeg', 'gif', 'webp', 'css', 'js', 'swf', 'svg', 'woff', 'woff2', 'ttf', 'otf', 'eot'];
+$allow_types = ['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'css', 'js', 'swf', 'svg', 'woff', 'woff2', 'ttf', 'otf', 'eot'];
 
 $pf = path::clean($_GET['pf']);
 
