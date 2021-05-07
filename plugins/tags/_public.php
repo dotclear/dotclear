@@ -61,7 +61,7 @@ class behaviorsTags
                 "?>\n";
         } elseif (empty($attr['no_context']) && ($b == 'Entries' || $b == 'Comments')) {
             return
-                '<?php if ($_ctx->exists("meta") && ($_ctx->meta->meta_type == "tag")) { ' .
+                '<?php if ($_ctx->exists("meta") && $_ctx->meta->rows() && ($_ctx->meta->meta_type == "tag")) { ' .
                 "if (!isset(\$params)) { \$params = []; }\n" .
                 "if (!isset(\$params['from'])) { \$params['from'] = ''; }\n" .
                 "if (!isset(\$params['sql'])) { \$params['sql'] = ''; }\n" .
