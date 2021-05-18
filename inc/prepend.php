@@ -135,8 +135,7 @@ require DC_RC_PATH;
 if (!defined('DC_DEBUG')) {
     define('DC_DEBUG', true);
 }
-/* @phpstan-ignore-next-line */
-if (DC_DEBUG) {
+if (DC_DEBUG) { // @phpstan-ignore-line
     ini_set('display_errors', '1');
     error_reporting(E_ALL | E_STRICT);
 }
