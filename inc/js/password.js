@@ -1,7 +1,7 @@
 /*global dotclear */
 'use strict';
 
-(function () {
+(function() {
   // Get locales
   const msg = dotclear.getData('dc_password_msg');
 

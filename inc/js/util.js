@@ -11,7 +11,7 @@ Object.assign(dotclear, {
    * @param      {boolean}  [remove=false]  remove element
    * @return     {object}   data object
    */
-  getData: function (id, clear = true, remove = false) {
+  getData: function(id, clear = true, remove = false) {
     let data = {};
     // Read the JSON-formatted data from the DOM. (from https://mathiasbynens.be/notes/json-dom-csp)
     // To be use with: <script type="application/json" id="myid-data">{"key":value, …}</script>
@@ -26,14 +26,12 @@ Object.assign(dotclear, {
           // Clear the element’s contents
           element.innerHTML = '';
         }
-        if (clear) {
-        }
       } catch (e) {}
     }
     return data;
   },
 
-  isObject: function (item) {
+  isObject: function(item) {
     return item && typeof item === 'object' && !Array.isArray(item);
   },
 
@@ -42,7 +40,7 @@ Object.assign(dotclear, {
    * @param target
    * @param ...sources
    */
-  mergeDeep: function (target, ...sources) {
+  mergeDeep: function(target, ...sources) {
     if (!sources.length) return target;
     const source = sources.shift();
     if (this.isObject(target) && this.isObject(source)) {
@@ -64,7 +62,7 @@ Object.assign(dotclear, {
   },
 
   // Returns the cookie with the given name or false if not found
-  getCookie: function (name) {
+  getCookie: function(name) {
     let matches = document.cookie.match(
       new RegExp('(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)')
     );
@@ -73,7 +71,7 @@ Object.assign(dotclear, {
 
   // Set a new cookie
   // usage: setCookie('user', 'John', {secure: true, 'expires': 60});
-  setCookie: function (name, value, options = {}) {
+  setCookie: function(name, value, options = {}) {
     if (typeof options.expires === 'number') {
       // Cope with expires option given in number of days from now
       options.expires = new Date(Date.now() + options.expires * 864e5);
@@ -102,7 +100,7 @@ Object.assign(dotclear, {
   },
 
   // Delete a cookie
-  deleteCookie: function (name) {
+  deleteCookie: function(name) {
     this.setCookie(name, '', {
       expires: -1,
     });
