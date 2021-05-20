@@ -312,9 +312,10 @@ if ($akey) {
     form::hidden('recover', 1) . '</p>' .
     '</div>' .
 
-    '<div id="issue">' .
+    '<details open id="issue">' . "\n" .
+    '<summary>' . __('Other option') . '</summary>' . "\n" .
     '<p><a href="' . $core->adminurl->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>' .
-        '</div>';
+    '</details>';
 } elseif ($change_pwd) {
     echo
     '<div class="fieldset"><h2>' . __('Change your password') . '</h2>' .
@@ -387,20 +388,19 @@ if ($akey) {
         echo
         '<p id="cookie_help" class="error">' . __('You must accept cookies in order to use the private area.') . '</p>';
 
-        echo '<div id="issue">';
-
+        echo '<details ' . ($safe_mode ? 'open ' : '') . 'id="issue">' . "\n";
         if ($safe_mode) {
+            echo '<summary>' . __('Other option') . '</summary>' . "\n";
             echo
             '<p><a href="' . $core->adminurl->get('admin.auth') . '" id="normal_mode_link">' . __('Get back to normal authentication') . '</a></p>';
         } else {
-            echo '<p id="more"><strong>' . __('Connection issue?') . '</strong></p>';
+            echo '<summary>' . __('Connection issue?') . '</summary>' . "\n";
             if ($core->auth->allowPassChange()) {
                 echo '<p><a href="' . $core->adminurl->get('admin.auth', ['recover' => 1]) . '">' . __('I forgot my password') . '</a></p>';
             }
             echo '<p><a href="' . $core->adminurl->get('admin.auth', ['safe_mode' => 1]) . '" id="safe_mode_link">' . __('I want to log in in safe mode') . '</a></p>';
         }
-
-        echo '</div>';
+        echo '</details>';
     }
 }
 ?>

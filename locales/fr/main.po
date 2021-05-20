@@ -68,6 +68,9 @@ msgstr "Session d'administration expirée"
 msgid "Wrong username or password"
 msgstr "Nom d'utilisateur·rice ou mot de passe incorrect"
 
+msgid "Other option"
+msgstr "Autre possibilité"
+
 msgid "Back to login screen"
 msgstr "Retour à l'écran de connexion"
 

@@ -26,5 +26,4 @@ $(window).on('load', function () {
   } else {
     $('#cookie_help').show();
   }
-  $('#issue #more').toggleWithLegend($('#issue').children().not('#more'));
 });

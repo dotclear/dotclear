@@ -2977,6 +2977,8 @@ span.ibw {
     width: 20em;
     margin-bottom: .5em;
     margin-left: 0; }
+  #login-screen h2 {
+    padding: 0; }
   #login-screen .fieldset {
     border: 1px solid var(--login-fieldset-border);
     padding: 1em 1em 0 1em;
@@ -3012,8 +3014,11 @@ span.ibw {
     padding-bottom: 6px;
     font-size: 1em; }
   #login-screen #issue {
+    margin-top: 1em;
     margin-left: 1.33em;
     font-size: .91em; }
+    #login-screen #issue summary {
+      margin-bottom: 1em; }
     #login-screen #issue p:first-child {
       text-align: right; }
     #login-screen #issue strong {
