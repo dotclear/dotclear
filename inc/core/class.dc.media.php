@@ -27,7 +27,7 @@ class dcMedia extends filemanager
 
     protected $file_handler = []; ///< <b>array</b> Array of callbacks
 
-    public $postmedia;
+    protected $postmedia;
 
     public $thumb_tp       = '%s/.%s_%s.jpg';  ///< <b>string</b> Thumbnail file pattern
     public $thumb_tp_alpha = '%s/.%s_%s.png';  ///< <b>string</b> Thumbnail file pattern (with alpha layer)
