@@ -20,13 +20,14 @@ class dcMedia extends filemanager
     protected $con;   ///< <b>connection</b> Database connection
     protected $table; ///< <b>string</b> Media table name
     protected $type;  ///< <b>string</b> Media type filter
-    protected $postmedia;
     protected $file_sort = 'name-asc';
 
     protected $path;
     protected $relpwd;
 
     protected $file_handler = []; ///< <b>array</b> Array of callbacks
+
+    public $postmedia;
 
     public $thumb_tp       = '%s/.%s_%s.jpg';  ///< <b>string</b> Thumbnail file pattern
     public $thumb_tp_alpha = '%s/.%s_%s.png';  ///< <b>string</b> Thumbnail file pattern (with alpha layer)

@@ -27,7 +27,7 @@ if ($rs->isEmpty()) {
 try {
     if ($post_id && $media_id && !empty($_REQUEST['attach'])) { // @phpstan-ignore-line
         $core->media = new dcMedia($core);
-        $core->media->postmedia->addPostMedia($post_id, $media_id, $link_type);  // @phpstan-ignore-line
+        $core->media->postmedia->addPostMedia($post_id, $media_id, $link_type);
         if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
             header('Content-type: application/json');
             echo json_encode(['url' => $core->getPostAdminURL($rs->post_type, $post_id, false)]);
