@@ -809,7 +809,9 @@ class dcUpgrade
             # A bit of housecleaning for no longer needed files
             $remfiles = [
                 // No more used in Berlin theme
-                'themes/berlin/scripts/boxsizing.htc'
+                'themes/berlin/scripts/boxsizing.htc',
+                // That old easter egg is not more present
+                'admin/images/thanks.mp3'
             ];
             $remfolders = [
                 // Oldest jQuery public lib

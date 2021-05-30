@@ -770,22 +770,6 @@ $(function () {
         $(`<span class="tooltip" aria-hidden="true">${$('#footer a').prop('title')}${data}</span>`).appendTo('#footer a');
       }
     });
-  // Footer effect
-  if (!dotclear.lowdata) {
-    const footer_target = document.querySelector('#footer a');
-    if (footer_target) {
-      const footer_audio = document.querySelector('#thanks');
-      if (footer_audio) {
-        footer_target.addEventListener('mouseenter', () => {
-          footer_audio.load();
-          footer_audio.play();
-        });
-        footer_target.addEventListener('mouseleave', () => {
-          footer_audio.pause();
-        });
-      }
-    }
-  }
   // manage outgoing links
   dotclear.outgoingLinks('a');
   // Popups: dealing with Escape key fired
