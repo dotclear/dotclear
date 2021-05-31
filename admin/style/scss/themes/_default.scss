@@ -54,12 +54,6 @@
   $code:            #fefacd;
   $tooltip:         #910ed3;
 
-  $pw-very-weak:    #c44d58;
-  $pw-weak:         #e1732c;
-  $pw-mediocre:     #ff9900;
-  $pw-strong:       #cdad12;
-  $pw-very-strong:  #9ac123;
-
   $submit:          #25a6e1;
   $submit-alt:      #188bc0;
 
@@ -459,12 +453,6 @@
   --rch-table-expand-color:          var(--body-color);
   --rch-table-expand-background:     var(--body-background);
   --rch-table-expand-border:         $gray-lighter;
-
-  --pw-very-weak:                    $pw-very-weak;
-  --pw-weak:                         $pw-weak;
-  --pw-mediocre:                     $pw-mediocre;
-  --pw-strong:                       $pw-strong;
-  --pw-very-strong:                  $pw-very-strong;
 
   // Utils
 

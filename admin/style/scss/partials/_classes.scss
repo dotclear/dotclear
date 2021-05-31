@@ -86,55 +86,10 @@ body.auth {
   }
 }
 
-/* password indicator */
-
-.pw-table {
-  display: table;
-  margin-bottom: 1em;
+/* password strength indicator */
+.pw-strength-meter {
+  display: block;
 }
-
-.pw-cell {
-  display: table-cell;
-  margin-bottom: 1em;
-}
-
-#pwindicator {
-  display: table-cell;
-  vertical-align: bottom;
-  padding-left: 1.5em;
-  height: 3.8em;
-
-  .bar {
-    height: 6px;
-    margin-bottom: 4px;
-  }
-}
-
-.pw-very-weak .bar {
-  background: var(--pw-very-weak);
-  width: 30px;
-}
-
-.pw-weak .bar {
-  background: var(--pw-weak);
-  width: 60px;
-}
-
-.pw-mediocre .bar {
-  background: var(--pw-mediocre);
-  width: 90px;
-}
-
-.pw-strong .bar {
-  background: var(--pw-strong);
-  width: 120px;
-}
-
-.pw-very-strong .bar {
-  background: var(--pw-very-strong);
-  width: 150px;
-}
-
 
 /* ------------------------------------------------------------------ navigation */
 

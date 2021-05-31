@@ -155,14 +155,12 @@ if (isset($_POST['user_name'])) {
 -------------------------------------------------------- */
 dcPage::open($page_title,
     dcPage::jsConfirmClose('user-form') .
-    dcPage::jsLoad('js/jquery/jquery.pwstrength.js') .
-    dcPage::jsJson('user', [
-        sprintf(__('Password strength: %s'), __('very weak')),
-        sprintf(__('Password strength: %s'), __('weak')),
-        sprintf(__('Password strength: %s'), __('mediocre')),
-        sprintf(__('Password strength: %s'), __('strong')),
-        sprintf(__('Password strength: %s'), __('very strong'))
+    dcPage::jsJson('pwstrength', [
+        'min' => sprintf(__('Password strength: %s'), __('weak')),
+        'avg' => sprintf(__('Password strength: %s'), __('medium')),
+        'max' => sprintf(__('Password strength: %s'), __('strong'))
     ]) .
+    dcPage::jsLoad('js/pwstrength.js') .
     dcPage::jsLoad('js/_user.js') .
     $core->callBehavior('adminUserHeaders'),
 
@@ -205,23 +203,17 @@ if ($user_id == $core->auth->userID()) {
 }
 
 echo
-'<div class="pw-table">' .
-'<p class="pw-cell">' .
+'<p>' .
 '<label for="new_pwd" ' . ($user_id != '' ? '' : 'class="required"') . '>' .
 ($user_id != '' ? '' : '<abbr title="' . __('Required field') . '">*</abbr> ') .
 ($user_id != '' ? __('New password:') : __('Password:')) . '</label>' .
 form::password('new_pwd', 20, 255,
     [
-        'extra_html' => 'data-indicator="pwindicator"' .
-        ($user_id != '' ? '' : ' required placeholder="' . __('Password') . '"'),
+        'class'        => 'pw-strength',
+        'extra_html'   => ($user_id != '' ? '' : 'required placeholder="' . __('Password') . '"'),
         'autocomplete' => 'new-password']
 ) .
 '</p>' .
-'<div id="pwindicator">' .
-'    <div class="bar"></div>' .
-'    <p class="label no-margin"></p>' .
-'</div>' .
-'</div>' .
 '<p class="form-note info">' . __('Password must contain at least 6 characters.') . '</p>' .
 
 '<p><label for="new_pwd_c" ' . ($user_id != '' ? '' : 'class="required"') . '>' .

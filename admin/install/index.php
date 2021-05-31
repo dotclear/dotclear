@@ -275,19 +275,19 @@ header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ 
 
     <link rel="stylesheet" href="../style/install.css" type="text/css" media="screen" />
 
-  <?php echo dcPage::jsLoad('../js/prepend.js'); ?>
-  <?php echo dcPage::jsLoad('../js/jquery/jquery.js'); ?>
-  <?php echo dcPage::jsLoad('../js/jquery/jquery.pwstrength.js'); ?>
-  <?php echo dcPage::jsJson('install', [
-      sprintf(__('Password strength: %s'), __('very weak')),
-      sprintf(__('Password strength: %s'), __('weak')),
-      sprintf(__('Password strength: %s'), __('mediocre')),
-      sprintf(__('Password strength: %s'), __('strong')),
-      sprintf(__('Password strength: %s'), __('very strong'))
-  ]);
-  ?>
-  <?php echo dcPage::jsJson('install_show', __('show')); ?>
-  <?php echo dcPage::jsLoad('../js/_install.js'); ?>
+  <?php
+  echo
+    dcPage::jsLoad('../js/prepend.js') .
+    dcPage::jsLoad('../js/mini-common.js') .
+    dcPage::jsJson('pwstrength', [
+        'min' => sprintf(__('Password strength: %s'), __('weak')),
+        'avg' => sprintf(__('Password strength: %s'), __('medium')),
+        'max' => sprintf(__('Password strength: %s'), __('strong'))
+    ]) .
+    dcPage::jsLoad('../js/pwstrength.js') .
+    dcPage::jsLoad('../js/jquery/jquery.js') .
+    dcPage::jsJson('install_show', __('show')) .
+    dcPage::jsLoad('../js/_install.js'); ?>
 </head>
 
 <body id="dotclear-admin" class="install">
@@ -346,19 +346,14 @@ if ($can_install && $step == 0) {
         'autocomplete' => 'username'
     ]) .
     '</label></p>' .
-    '<div class="pw-table">' .
-    '<p class="pw-cell">' .
+    '<p>' .
     '<label for="u_pwd" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('New password:') . '</label>' .
     form::password('u_pwd', 30, 255, [
+        'class'        => 'pw-strength',
         'extra_html'   => 'data-indicator="pwindicator" required placeholder="' . __('Password') . '"',
         'autocomplete' => 'new-password'
     ]) .
     '</p>' .
-    '<div id="pwindicator">' .
-    '    <div class="bar"></div>' .
-    '    <p class="label no-margin"></p>' .
-    '</div>' .
-    '</div>' .
     '<p><label for="u_pwd2" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Confirm password:') . ' ' .
     form::password('u_pwd2', 30, 255, [
         'extra_html'   => 'required placeholder="' . __('Password') . '"',

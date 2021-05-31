@@ -1140,20 +1140,11 @@ msgstr "Installation de Dotclear"
 msgid "Password strength: %s"
 msgstr "Force du mot de passe : %s"
 
-msgid "very weak"
-msgstr "très faible"
-
 msgid "weak"
 msgstr "faible"
 
-msgid "mediocre"
-msgstr "moyen"
-
 msgid "strong"
-msgstr "fort"
-
-msgid "very strong"
-msgstr "très fort"
+msgstr "forte"
 
 msgid "show"
 msgstr "voir"

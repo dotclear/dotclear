@@ -1,12 +1,11 @@
-/*global $, getData */
+/*global $, dotclear */
 'use strict';
 
 $(function () {
   if ($('#new_pwd').length == 0) {
     return;
   }
-  const texts = getData('user');
-  $('#new_pwd').pwstrength({
-    texts: texts,
-  });
+  // Password strength
+  const opts = dotclear.getData('pwstrength');
+  dotclear.passwordStrength(opts);
 });

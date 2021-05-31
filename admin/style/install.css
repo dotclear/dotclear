@@ -1,192 +1,445 @@
+/* Rebase */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
-	font-size: 62.5%;
-}
-body.install {
-	font: 1.2rem/1.5 Arial,Helvetica,sans-serif;
-	color: #333;
-	background: #fff;
-	margin: 0;
-	padding: 0;
-}
-body.install #content {
-	width:32em;
-	margin:1em auto;
-}
-body.install #main {
-	padding:1em 2em;
-	border:1px #ccc solid;
-	border-radius: 8px;
-}
-body.install h1,h2 {
-	font-family: arial,Helvetica,sans-serif;
-}
-body.install h1 {
-	background: url(install/w-logo.png) no-repeat top center;
-	font-size:1.8em;
-	font-weight:normal;
-	text-align:center;
-	color: #666;
-	padding-top: 70px;
-	margin: 0 0 0.75em 0;
-}
-body.install h2 {
-	color: #f90;
-}
-body.install h3 {
-	margin-top:0;
-}
-body.install label {
-	color: #555;
+  font-size: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-body.install .msg {
-	padding:10px 10px 10px 60px;
-	border-radius:8px;
-}
-body.install .warning {
-	background: #ffc url(install/important.png) no-repeat 10px 10px;
-}
-body.install .notice {
-	background: #eef url(install/note.png) no-repeat 10px 10px;
-}
-a, a:link, a:visited {
-	color: #2373A8;
-	text-decoration: none;
-	border-bottom: 1px dotted #f90;
-}
-a:hover, a:active, a:focus {
-	text-decoration: underline;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-div.error, p.error, div.message, p.message, div.static-msg, p.static-msg {
-	padding: 0.5em 0.5em 0.5em 60px;
-	margin-bottom: 1em;
-	border-radius: 8px;
-}
-p.error, p.message, p.static-msg {
-	padding-top: 1em;
-	padding-bottom: 1em;
-}
-div.error, p.error {
-	background: #e5bfbf url(install/process_warning.png) no-repeat 5px 5px;
-	color: #600;
-}
-div.message, p.message, div.static-msg, p.static-msg {
-	background: #666 url(install/note.png) no-repeat 5px 5px;
-	color: #fff;
-}
-div.message a, p.message a, div.static-msg a, p.static-msg a {
-	color: #fff;
-}
-label {
-	display : block;
-}
-label input, label select, label span {
-	display : block;
+a {
+  background: transparent;
+
+  &:focus {
+    outline: thin dotted;
+  }
+
+  &:active,
+  &:hover {
+    outline: none;
+  }
+
+  img {
+    border: none;
+  }
 }
 
-label.required {
-	font-weight : bold;
-}
-label.required abbr {
-	color: #900;
-	font-size: 1.3em;
+q,
+cite {
+  font-style: italic;
 }
 
-form {
-	display : block;
-	margin : 0;
-	padding : 0;
+q::before,
+q::after {
+  content: "";
+}
+
+sup,
+sub {
+  font-size: .75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+b,
+strong {
+  font-weight: bold;
+  font-size: 0.9375em;
+}
+
+small {
+  font-size: 80%;
+}
+
+dfn {
+  font-style: italic;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+pre {
+  white-space: pre-wrap;
 }
 
 fieldset {
-	display : block;
-	margin : 0 0 1em 0;
-	padding : 1em 0.5em;
-	border-width : 1px 0;
-	border-style: solid;
-	border-color: #ccc;
-	background: #f5f5f5;
-}
-legend {
-	font-weight : bold;
-	padding: 0.2em 0.6em;
-	border-width: 1px;
-	border-style: solid;
-	border-color: #ccc;
-	background: #f5f5f5;
-	margin-bottom: 0.5em;
-}
-a#obfus {
-	color: #fff;
-	background-color: #666;
-	padding: 0 10px;
-	border-radius: 2px;
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
-input[type=submit]{
-	font-size: 1.05em;
-	display: inline-block;
-	outline: none;
-	cursor: pointer;
-	text-align: center;
-	text-decoration: none;
-	padding: .1em .5em;
-	text-shadow: 0 1px 1px rgba(0,0,0,.3);
-	border-radius: .2em;
-	margin-bottom: .1em;
-	color: #fff;
-	border: 1px solid #2373A8;
-	background: #2373A8;
-	background: -webkit-gradient(linear, left top, left bottom, from(#2C8FD1), to(#2373A8));
-	background: -moz-linear-gradient(top,  #2C8FD1,  #2373A8);
-	width: 100%;
+input,
+button,
+select {
+  vertical-align: middle;
 }
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+}
+
+button,
+input {
+  line-height: normal;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  padding: 0;
+  border: none;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 1.5em;
+}
+
+td,
+th {
+  padding: 1px;
+  vertical-align: top;
+  text-align: left;
+}
+
+td:first-child,
+th:first-child {
+  empty-cells: hide;
+}
+
+/* scripts */
+
+body > script {
+  display: none !important;
+}
+
+/* HTML5 for old browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+summary {
+  display: list-item;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+[hidden],
+template {
+  display: none;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Headings reset */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1em;
+  font-weight: normal;
+  margin: 0;
+}
+
+/* Install */
+
+a,
+a:link,
+a:visited {
+  color: #2373a8;
+  text-decoration: none;
+  border-bottom: 1px dotted #f90;
+}
+
+a:hover,
+a:active,
+a:focus {
+  text-decoration: underline;
+}
+
+div.error,
+p.error,
+div.message,
+p.message,
+div.static-msg,
+p.static-msg {
+  padding: 0.5em 0.5em 0.5em 60px;
+  margin-bottom: 1em;
+  border-radius: 8px;
+}
+
+p.error,
+p.message,
+p.static-msg {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+div.error,
+p.error {
+  background: #e5bfbf url(install/process_warning.png) no-repeat 5px 5px;
+  color: #600;
+}
+
+div.message,
+p.message,
+div.static-msg,
+p.static-msg {
+  background: #666 url(install/note.png) no-repeat 5px 5px;
+  color: #fff;
+}
+
+div.message a,
+p.message a,
+div.static-msg a,
+p.static-msg a {
+  color: #fff;
+}
+
+label {
+  display: block;
+}
+
+label input,
+label select,
+label span {
+  display: block;
+}
+
+label.required {
+  font-weight: bold;
+}
+
+label.required abbr {
+  color: #900;
+  font-size: 1.3em;
+}
+
+form {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+fieldset {
+  display: block;
+  margin: 0 0 1em 0;
+  padding: 1em 0.5em;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #ccc;
+  background: #f5f5f5;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0.2em 0.6em;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ccc;
+  background: #f5f5f5;
+  margin-bottom: 0.5em;
+}
+
+a#obfus {
+  color: #fff;
+  background-color: #666;
+  padding: 0 10px;
+  border-radius: 2px;
+}
+
+input[type=submit] {
+  font-size: 1.05em;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  padding: .1em .5em;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+  border-radius: .2em;
+  margin-bottom: .1em;
+  color: #fff;
+  border: 1px solid #2373a8;
+  background: #2373a8;
+  background: linear-gradient(to bottom, #2c8fd1, #2373a8);
+  width: 100%;
+}
+
 input[type=submit]:hover,
 input[type=submit]:focus {
-	background: #2373A8;
-	background: -webkit-gradient(linear, left top, left bottom, from(#2373A8), to(#2C8FD1));
-	background: -moz-linear-gradient(top,  #2373A8,  #2C8FD1);
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#2373A8', endColorstr='#2C8FD1');
-	border: 1px solid #2C8FD1;
+  background: #2373a8;
+  background: linear-gradient(to bottom, #2373a8, #2c8fd1);
+  border: 1px solid #2c8fd1;
 }
 
+body.install {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
 
-/* --------------------------------------------------------------- password indcator */
-.pw-table {
-	display: block;
-	margin-bottom: .25em;
+body.install #content {
+  width: 32em;
+  margin: 1em auto;
 }
-.pw-cell {
-	display: block;
-	margin-bottom: .25em;
+
+body.install #main {
+  padding: 1em 2em;
+  border: 1px #ccc solid;
+  border-radius: 8px;
 }
-#pwindicator {
-	display: block;
-	vertical-align: bottom;
-	padding-left: 1.5em;
+
+body.install h1,
+h2 {
+  font-family: arial, Helvetica, sans-serif;
 }
-#pwindicator .bar {
-	height: 6px;
-	margin-bottom: 4px;
+
+body.install h1 {
+  background: url(install/w-logo.png) no-repeat top center;
+  font-size: 1.8em;
+  font-weight: normal;
+  text-align: center;
+  color: #666;
+  padding-top: 70px;
+  margin: 0 0 0.75em 0;
 }
-.pw-very-weak .bar {
-	background: #900;
-	width: 30px;
+
+body.install h2 {
+  color: #f90;
 }
-.pw-weak .bar {
-	background: #c00;
-	width: 60px;
+
+body.install h3 {
+  margin-top: 0;
 }
-.pw-mediocre .bar {
-	background: #f90;
-	width: 90px;
+
+body.install label {
+  color: #555;
 }
-.pw-strong .bar {
-	background: #080;
-	width: 120px;
+
+body.install .msg {
+  padding: 10px 10px 10px 60px;
+  border-radius: 8px;
 }
-.pw-very-strong .bar {
-	background: #0c0;
-	width: 150px;
+
+body.install .warning {
+  background: #ffc url(install/important.png) no-repeat 10px 10px;
+}
+
+body.install .notice {
+  background: #eef url(install/note.png) no-repeat 10px 10px;
+}
+
+/* password strength indicator */
+.pw-strength-meter {
+  display: block;
 }

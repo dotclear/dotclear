@@ -525,14 +525,12 @@ dcPage::open($page_title,
     ($user_acc_nodragdrop ? '' : dcPage::jsLoad('js/_preferences-dragdrop.js')) .
     dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
     dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-    dcPage::jsLoad('js/jquery/jquery.pwstrength.js') .
-    dcPage::jsJson('preferences', [
-        sprintf(__('Password strength: %s'), __('very weak')),
-        sprintf(__('Password strength: %s'), __('weak')),
-        sprintf(__('Password strength: %s'), __('mediocre')),
-        sprintf(__('Password strength: %s'), __('strong')),
-        sprintf(__('Password strength: %s'), __('very strong'))
+    dcPage::jsJson('pwstrength', [
+        'min' => sprintf(__('Password strength: %s'), __('weak')),
+        'avg' => sprintf(__('Password strength: %s'), __('medium')),
+        'max' => sprintf(__('Password strength: %s'), __('strong'))
     ]) .
+    dcPage::jsLoad('js/pwstrength.js') .
     dcPage::jsLoad('js/_preferences.js') .
     dcPage::jsPageTabs($default_tab) .
     dcPage::jsConfirmClose('user-form', 'opts-forms', 'favs-form', 'db-forms') .
@@ -600,18 +598,13 @@ if ($core->auth->allowPassChange()) {
     echo
     '<h4 class="vertical-separator pretty-title">' . __('Change my password') . '</h4>' .
 
-    '<div class="pw-table">' .
-    '<p class="pw-cell"><label for="new_pwd">' . __('New password:') . '</label>' .
+    '<p><label for="new_pwd">' . __('New password:') . '</label>' .
     form::password('new_pwd', 20, 255,
         [
-            'extra_html'   => 'data-indicator="pwindicator"',
+            'class'        => 'pw-strength',
             'autocomplete' => 'new-password']
-    ) . '</p>' .
-    '<div id="pwindicator">' .
-    '    <div class="bar"></div>' .
-    '    <p class="label no-margin"></p>' .
-    '</div>' .
-    '</div>' .
+    ) .
+    '</p>' .
 
     '<p><label for="new_pwd_c">' . __('Confirm new password:') . '</label>' .
     form::password('new_pwd_c', 20, 255,

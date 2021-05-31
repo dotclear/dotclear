@@ -1,4 +1,4 @@
-/*global $, getData */
+/*global $, dotclear */
 'use strict';
 
 $(function () {
@@ -10,16 +10,15 @@ $(function () {
     $(this).val(this.value.replace(login_re, ''));
   });
 
-  const texts = getData('install');
-  $('#u_pwd').pwstrength({
-    texts: texts,
-  });
+  // Password strength
+  const opts = dotclear.getData('pwstrength');
+  dotclear.passwordStrength(opts);
 
   $('#u_login')
     .parent()
     .after($('<input type="hidden" name="u_date" value="' + Date().toLocaleString() + '" />'));
 
-  const show = getData('install_show');
+  const show = dotclear.getData('install_show');
   const password_link = $('<a href="#" id="obfus">' + show + '</a>').on('click', function () {
     $('#password').show();
     $(this).remove();

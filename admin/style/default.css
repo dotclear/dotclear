@@ -494,11 +494,6 @@ h6 {
   --rch-table-expand-color: var(--body-color);
   --rch-table-expand-background: var(--body-background);
   --rch-table-expand-border: #ececec;
-  --pw-very-weak: #c44d58;
-  --pw-weak: #e1732c;
-  --pw-mediocre: #ff9900;
-  --pw-strong: #cdad12;
-  --pw-very-strong: #9ac123;
   --color-picker-border: #000;
   --color-picker-background: #fff;
   --color-div-border: #c9c9c9;
@@ -768,11 +763,6 @@ h6 {
   --rch-table-expand-color: var(--body-color);
   --rch-table-expand-background: var(--body-background);
   --rch-table-expand-border-top: #ecedee;
-  --pw-very-weak: #c44d58;
-  --pw-weak: #e1732c;
-  --pw-mediocre: #ff9900;
-  --pw-strong: #cdad12;
-  --pw-very-strong: #9ac123;
   --color-picker-border: #000;
   --color-picker-background: #fff;
   --color-div-border: #c9cbcf;
@@ -1043,11 +1033,6 @@ h6 {
     --rch-table-expand-color: var(--body-color);
     --rch-table-expand-background: var(--body-background);
     --rch-table-expand-border-top: #ecedee;
-    --pw-very-weak: #c44d58;
-    --pw-weak: #e1732c;
-    --pw-mediocre: #ff9900;
-    --pw-strong: #cdad12;
-    --pw-very-strong: #9ac123;
     --color-picker-border: #000;
     --color-picker-background: #fff;
     --color-div-border: #c9cbcf;
@@ -3945,43 +3930,9 @@ body.auth .pw-show, body.auth .pw-hide {
 #login-screen #user_pwd.pwd_helper, #login-screen #new_pwd.pwd_helper, #login-screen #new_pwd_c.pwd_helper {
   width: calc(100% - 2.51em); }
 
-/* password indicator */
-.pw-table {
-  display: table;
-  margin-bottom: 1em; }
-
-.pw-cell {
-  display: table-cell;
-  margin-bottom: 1em; }
-
-#pwindicator {
-  display: table-cell;
-  vertical-align: bottom;
-  padding-left: 1.5em;
-  height: 3.8em; }
-  #pwindicator .bar {
-    height: 6px;
-    margin-bottom: 4px; }
-
-.pw-very-weak .bar {
-  background: var(--pw-very-weak);
-  width: 30px; }
-
-.pw-weak .bar {
-  background: var(--pw-weak);
-  width: 60px; }
-
-.pw-mediocre .bar {
-  background: var(--pw-mediocre);
-  width: 90px; }
-
-.pw-strong .bar {
-  background: var(--pw-strong);
-  width: 120px; }
-
-.pw-very-strong .bar {
-  background: var(--pw-very-strong);
-  width: 150px; }
+/* password strength indicator */
+.pw-strength-meter {
+  display: block; }
 
 /* ------------------------------------------------------------------ navigation */
 /* selects accès rapide */
