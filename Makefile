@@ -81,10 +81,6 @@ config: clean config-stamp
 
 dist: config dist-tgz dist-zip dist-l10n
 
-deb:
-	cp ./README.md debian/README
-	dpkg-buildpackage -rfakeroot
-
 dist-tgz:
 	[ -f config-stamp ]
 	cd $(DIST) && tar cfz dotclear-$$(grep DC_VERSION dotclear/inc/prepend.php | cut -d"'" -f4).tar.gz ./dotclear
