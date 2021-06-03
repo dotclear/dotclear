@@ -1762,6 +1762,11 @@ class adminThemesList extends adminModulesList
             }
         }
 
+        if (self::isDistributedModule($id) && ($pos = array_search('delete', $actions, true))) {
+            // Remove 'delete' action for officially distributed themes
+            unset($actions[$pos]);
+        }
+
         return array_merge(
             $submits,
             parent::getActions($id, $module, $actions)
