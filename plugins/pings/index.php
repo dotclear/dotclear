@@ -15,7 +15,8 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 dcPage::checkSuper();
 
 try {
-    $pings_uris = $core->blog->settings->pings->pings_uris;
+    // Pings URIs are managed globally (for all blogs)
+    $pings_uris = $core->blog->settings->pings->getGlobal('pings_uris');
     if (!$pings_uris) {
         $pings_uris = [];
     }
@@ -30,7 +31,6 @@ try {
                 $pings_uris[trim($v)] = trim($pings_srv_uri[$k]);
             }
         }
-
         $core->blog->settings->addNamespace('pings');
         // Settings for all blogs
         $core->blog->settings->pings->put('pings_active', !empty($_POST['pings_active']), null, null, true, true);

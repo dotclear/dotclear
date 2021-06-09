@@ -16,7 +16,7 @@ $this->registerModule(
     'Pings',           // Name
     'Ping services',   // Description
     'Olivier Meunier', // Author
-    '1.3',             // Version
+    '1.4',             // Version
     [
         'permissions' => 'usage,contentadmin',
         'type'        => 'plugin',

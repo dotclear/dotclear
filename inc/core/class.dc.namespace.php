@@ -210,7 +210,7 @@ class dcNamespace
     /**
      * Creates or updates a setting.
      *
-     * $type could be 'string', 'integer', 'float', 'boolean' or null. If $type is
+     * $type could be 'string', 'integer', 'float', 'boolean', 'array' or null. If $type is
      * null and setting exists, it will keep current setting type.
      *
      * $value_change allow you to not change setting. Useful if you need to change
