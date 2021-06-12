@@ -14,6 +14,8 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 dcPage::checkSuper();
 
+$pings_uris = [];
+
 try {
     // Pings URIs are managed globally (for all blogs)
     $pings_uris = $core->blog->settings->pings->getGlobal('pings_uris');
