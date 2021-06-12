@@ -1613,7 +1613,8 @@ class adminThemesList extends adminModulesList
                 sprintf(__('%s screenshot.'), html::escapeHTML($module['name'])) . '" /></div>';
             }
 
-            $line .= '<div class="module-infos toggle-bloc">';
+            $line .= $current ? '' : '<details><summary>' . __('Details') . '</summary>';
+            $line .= '<div class="module-infos">';
 
             if (in_array('name', $cols) && $current) {
                 $line .= '<h4 class="module-name">';
@@ -1675,8 +1676,7 @@ class adminThemesList extends adminModulesList
 
             $line .= '</p>' .
                 '</div>';
-
-            $line .= '<div class="module-actions toggle-bloc">';
+            $line .= '<div class="module-actions">';
 
             # Plugins actions
             if ($current) {
@@ -1707,6 +1707,7 @@ class adminThemesList extends adminModulesList
             }
 
             $line .= '</div>';
+            $line .= $current ? '' : '</details>';
 
             $line .= '</div>';
 

@@ -67,15 +67,9 @@ span.module-version::before {
   content: "- ";
 }
 
-.toggle-bloc .mod-more {
-  display: block;
-  margin-left: 0;
-}
-
 .module-name input[type="checkbox"] {
   margin-bottom: 0;
 }
-
 
 /**
 Les screenshots des thèmes ont deux tailles possibles :
@@ -112,31 +106,6 @@ On adapte largeur et hauteur en fonction
   width: 318px;
   min-height: 304px;
   max-width: 100%;
-}
-
-
-/* si js est là, les infos viennent par dessus le screenshot */
-
-.with-js #theme-new {
-  .module-infos.toggle-bloc,
-  .module-actions.toggle-bloc {
-    position: absolute;
-    left: 10px;
-    width: 239px;
-    margin: 0;
-    padding: 10px;
-    background: var(--theme-action-background);
-  }
-  .module-infos.toggle-bloc {
-    top: 128px;
-    height: 80px;
-    border-top: 1px solid var(--theme-action-border);
-  }
-  .module-actions.toggle-bloc {
-    top: 208px;
-    height: 40px;
-    border-bottom: 1px solid var(--theme-action-border);
-  }
 }
 
 .with-js .module-sshot:hover {
