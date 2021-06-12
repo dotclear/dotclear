@@ -20,9 +20,6 @@ class tplCustomTheme
 {
     public static function publicHeadContent($core)
     {
-        echo
-        '<style type="text/css">' . "\n" .
-        '@import url(' . $core->blog->settings->system->public_url . '/custom_style.css);' . "\n" .
-            "</style>\n";
+        echo '<link rel="stylesheet" type="text/css" href="' . $core->blog->settings->system->public_url . '/custom_style.css" media="screen">' . "\n";
     }
 }
