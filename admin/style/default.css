@@ -173,9 +173,6 @@ canvas,
 video {
   display: inline-block; }
 
-summary {
-  display: list-item; }
-
 audio:not([controls]) {
   display: none;
   height: 0; }
