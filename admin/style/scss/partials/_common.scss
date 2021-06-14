@@ -17,23 +17,6 @@ body {
   font-size: $body-font-size;
   line-height: 1.5;
   font-family: $sans-serif;
-
-  &.responsive-font {
-    @media screen and(max-width: $small-screen) {
-      font-size: $body-font-size-small;
-      line-height: 1.3;
-    }
-
-    @media screen and(min-width: $large-screen) {
-      font-size: $body-font-size-large;
-      line-height: 1.5;
-    }
-
-    @media screen and(min-width: $small-screen) and (max-width: $large-screen) {
-      font-size: calc(#{$body-font-size-small} + #{strip-unit($body-font-size-large - $body-font-size-small)} * (100vw - #{strip-unit(relative-to-screen($small-screen, $html-font-size))}rem) / (#{strip-unit(relative-to-screen($large-screen, $html-font-size))} - #{strip-unit(relative-to-screen($small-screen, $html-font-size))}));
-      line-height: calc(1.3em + (1.5 - 1.3) * (100vw - #{strip-unit(relative-to-screen($small-screen, $html-font-size))}rem) / (#{strip-unit(relative-to-screen($large-screen, $html-font-size))} - #{strip-unit(relative-to-screen($small-screen, $html-font-size))}));
-    }
-  }
 }
 
 #wrapper {

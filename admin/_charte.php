@@ -46,7 +46,7 @@ echo dcUtils::jsJson('dotclear_init', $js);
     <script src="js/_charte.js"></script>
 </head>
 
-<body id="dotclear-admin" class="no-js guideline<?php $core->auth->user_prefs->interface->dynfontsize ? ' responsive-font' : '';?>">
+<body id="dotclear-admin" class="no-js guideline">
     <ul id="prelude">
         <li><a href="#content">Aller au contenu</a></li>
         <li><a href="#main-menu">Aller au menu</a></li>

@@ -240,7 +240,7 @@ class dcPage
         (DC_DEBUG ? // @phpstan-ignore-line
             ' debug-mode' :
             '') .
-        ($core->auth->user_prefs->interface->dynfontsize ? ' responsive-font' : '') . '">' . "\n" .
+        '">' . "\n" .
 
         '<ul id="prelude">' .
         '<li><a href="#content">' . __('Go to the content') . '</a></li>' .
@@ -453,7 +453,7 @@ EOT;
             (DC_DEBUG ? // @phpstan-ignore-line
                 ' debug-mode' :
                 '') .
-            ($core->auth->user_prefs->interface->dynfontsize ? ' responsive-font' : '') . '">' . "\n" .
+            '">' . "\n" .
 
             '<h1>' . DC_VENDOR_NAME . '</h1>' . "\n";
 
