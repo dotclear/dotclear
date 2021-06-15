@@ -1,42 +1,31 @@
 /*global $, dotclear */
+/*exported metaEditor */
 'use strict';
 
-function metaEditor(target, meta_field, meta_type, meta_options) {
-  /*jshint validthis: true */
-  this.target = target;
-  this.meta_field = meta_field;
-  this.meta_type = meta_type;
+class metaEditor {
+  constructor(target, meta_field, meta_type, meta_options) {
 
-  // options
-  meta_options = meta_options || {};
-  this.meta_url = meta_options.meta_url || this.meta_url;
-  this.list_type = meta_options.list_type || this.list_type;
-  this.text_confirm_remove = meta_options.text_confirm_remove || this.text_confirm_remove;
-  this.text_add_meta = meta_options.text_add_meta || this.text_add_meta;
-  this.text_choose = meta_options.text_choose || this.text_choose;
-  this.text_all = meta_options.text_all || this.text_all;
-  this.text_separation = meta_options.text_separation || this.text_separation;
-}
+    meta_options = meta_options || {};
 
-metaEditor.prototype = {
-  meta_url: '',
-  text_confirm_remove: 'Are you sure you want to remove this %s?',
-  text_add_meta: 'Add a %s to this entry',
-  text_choose: 'Choose from list',
-  text_all: 'all',
-  text_separation: 'Separate each %s by comas',
-  list_type: 'more',
+    this.meta_url = meta_options.meta_url || '';
+    this.text_confirm_remove = meta_options.text_confirm_remove || 'Are you sure you want to remove this %s?';
+    this.text_add_meta = meta_options.text_add_meta || 'Add a %s to this entry';
+    this.text_choose = meta_options.text_choose || 'Choose from list';
+    this.text_all = meta_options.text_all || 'all';
+    this.text_separation = meta_options.text_separation || 'Separate each %s by comas';
+    this.list_type = meta_options.list_type || 'more';
 
-  target: null,
-  meta_type: null,
-  meta_dialog: null,
-  meta_field: null,
-  submit_button: null,
-  post_id: false,
+    this.target = target;
+    this.meta_type = meta_type;
+    this.meta_dialog = null;
+    this.meta_field = meta_field;
+    this.submit_button = null;
+    this.post_id = false;
 
-  service_uri: 'services.php',
+    this.service_uri = 'services.php';
+  }
 
-  displayMeta: function (type, post_id, input_id = 'post_meta_input') {
+  displayMeta(type, post_id, input_id = 'post_meta_input') {
     this.meta_type = type;
     this.post_id = post_id;
     this.target.empty();
@@ -72,9 +61,9 @@ metaEditor.prototype = {
       this.target.append(this.meta_field);
     }
     this.displayMetaList();
-  },
+  }
 
-  displayMetaList: function () {
+  displayMetaList() {
     let li;
     if (this.meta_list == undefined) {
       this.meta_list = $('<ul class="metaList"></ul>');
@@ -133,9 +122,9 @@ metaEditor.prototype = {
         });
       });
     }
-  },
+  }
 
-  addMetaDialog: function () {
+  addMetaDialog() {
     if (this.submit_button == null) {
       this.target.append($('<p></p>').append(this.meta_dialog));
     } else {
@@ -147,9 +136,9 @@ metaEditor.prototype = {
     }
 
     this.showMetaList(this.list_type, this.target);
-  },
+  }
 
-  showMetaList: function (list_type, target) {
+  showMetaList(list_type, target) {
     const params = {
       f: 'getMeta',
       metaType: this.meta_type,
@@ -218,9 +207,9 @@ metaEditor.prototype = {
         pl.empty();
       }
     });
-  },
+  }
 
-  addMeta: function (str) {
+  addMeta(str) {
     str = this.splitMetaValues(str).join(',');
     if (this.post_id == false) {
       str = this.splitMetaValues(this.meta_field.val() + ',' + str);
@@ -247,9 +236,9 @@ metaEditor.prototype = {
         }
       });
     }
-  },
+  }
 
-  removeMeta: function (meta_id) {
+  removeMeta(meta_id) {
     if (this.post_id == false) {
       let meta = this.splitMetaValues(this.meta_field.val());
       for (let i = 0; i < meta.length; i++) {
@@ -282,9 +271,9 @@ metaEditor.prototype = {
         });
       }
     }
-  },
+  }
 
-  splitMetaValues: function (str) {
+  splitMetaValues(str) {
     function inArray(needle, stack) {
       for (var i = 0; i < stack.length; i++) {
         if (stack[i] == needle) {
@@ -305,5 +294,5 @@ metaEditor.prototype = {
     }
     res.sort();
     return res;
-  },
-};
+  }
+}
