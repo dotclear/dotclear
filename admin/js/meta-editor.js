@@ -241,11 +241,9 @@ class metaEditor {
   removeMeta(meta_id) {
     if (this.post_id == false) {
       let meta = this.splitMetaValues(this.meta_field.val());
-      for (let i = 0; i < meta.length; i++) {
-        if (meta[i] == meta_id) {
-          meta.splice(i, 1);
-          break;
-        }
+      const i = meta.indexOf(meta_id);
+      if (i >= 0) {
+        meta.splice(i, 1);
       }
       this.meta_field.val(meta.join(','));
       this.displayMetaList();
@@ -274,25 +272,7 @@ class metaEditor {
   }
 
   splitMetaValues(str) {
-    function inArray(needle, stack) {
-      for (var i = 0; i < stack.length; i++) {
-        if (stack[i] == needle) {
-          return true;
-        }
-      }
-      return false;
-    }
-
-    let res = [];
-    let v = str.split(',');
-    v.sort();
-    for (let i = 0; i < v.length; i++) {
-      v[i] = v[i].replace(/^\s*/, '').replace(/\s*$/, '');
-      if (v[i] != '' && !inArray(v[i], res)) {
-        res.push(v[i]);
-      }
-    }
-    res.sort();
-    return res;
+    let list = new Set(str.split(',').map(s => s.trim()).filter(i => i));
+    return [...list].sort((a, b) => a.localeCompare(b));
   }
 }
