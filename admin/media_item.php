@@ -84,6 +84,12 @@ try {
         $dirs_combo['/' . $v->relname] = $v->relname;
     }
     ksort($dirs_combo);
+
+    if ($core->themes === null) {
+        # -- Loading themes, may be useful for some configurable theme --
+        $core->themes = new dcThemes($core);
+        $core->themes->loadModules($core->blog->themes_path, null);
+    }
 } catch (Exception $e) {
     $core->error->add($e->getMessage());
 }
