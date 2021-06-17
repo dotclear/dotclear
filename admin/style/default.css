@@ -1873,7 +1873,7 @@ textarea {
 
 input[type=checkbox], input[type=radio], input[type=file] {
   border: none;
-  margin: 0 .33em 0 0;
+  margin: -.235ex .33em 0 0;
   padding: 0; }
 
 input + input[type=checkbox] {
@@ -3762,6 +3762,7 @@ div.template-upload {
       border-radius: .5em; }
   .fav-list img {
     vertical-align: middle;
+    margin-top: -.235ex;
     margin-right: .2em;
     width: 1em;
     height: 1em; }
