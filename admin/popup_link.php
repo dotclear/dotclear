@@ -17,6 +17,12 @@ $hreflang  = !empty($_GET['hreflang']) ? $_GET['hreflang'] : '';
 $title     = !empty($_GET['title']) ? $_GET['title'] : '';
 $plugin_id = !empty($_GET['plugin_id']) ? html::sanitizeURL($_GET['plugin_id']) : '';
 
+if ($core->themes === null) {
+    # -- Loading themes, may be useful for some configurable theme --
+    $core->themes = new dcThemes($core);
+    $core->themes->loadModules($core->blog->themes_path, null);
+}
+
 dcPage::openPopup(__('Add a link'), dcPage::jsLoad('js/_popup_link.js') . $core->callBehavior('adminPopupLink', $plugin_id));
 
 echo '<h2 class="page-title">' . __('Add a link') . '</h2>';

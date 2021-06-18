@@ -42,6 +42,12 @@ if ($type) {
     $params['post_type'] = $type;
 }
 
+if ($core->themes === null) {
+    # -- Loading themes, may be useful for some configurable theme --
+    $core->themes = new dcThemes($core);
+    $core->themes->loadModules($core->blog->themes_path, null);
+}
+
 dcPage::openPopup(__('Add a link to an entry'),
     dcPage::jsLoad('js/_posts_list.js') .
     dcPage::jsLoad('js/_popup_posts.js') .
