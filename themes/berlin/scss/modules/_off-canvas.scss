@@ -43,7 +43,6 @@
     #offcanvas-on {
         display: block;
         background-color: $white;
-        background-image: inline-image('icon_open-sidebar.png');
         background-image: inline-image('icon_open-sidebar.svg'), none;
         border: .1em solid $gray-dark;
         border-radius: .25em;
@@ -51,7 +50,6 @@
     // fermeture
     #offcanvas-off {
         background-color: $gray-very-dark;
-        background-image: inline-image('icon_close.png');
         background-image: inline-image('icon_close.svg'), none;
         border: 1px solid $white;
     }

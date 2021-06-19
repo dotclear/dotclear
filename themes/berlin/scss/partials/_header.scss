@@ -105,7 +105,6 @@ a.site-title__link:visited {
         border-color: $link;
     }
     &.open {
-    background-image: inline-image('icon_close.png');
     background-image: inline-image('icon_close.svg'), none;
     }
 }

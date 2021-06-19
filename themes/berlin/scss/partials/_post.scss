@@ -81,7 +81,6 @@
     box-shadow: 0 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.2);
 }
 .post-attachments:before {
-    content: inline-image('icon_attachments.png');
     content: inline-image('icon_attachments.svg');
     display: block;
     position: absolute;
