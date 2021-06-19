@@ -57,10 +57,22 @@ class defaultWidgets
         $res = ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
             '<nav role="navigation"><ul>';
 
-        if ($core->url->type != 'default') {
+        if (!$core->url->isHome($core->url->type)) {
+            // Not on home page (standard or static), add home link
             $res .= '<li class="topnav-home">' .
-            '<a href="' . $core->blog->url . '">' . __('Home') . '</a>' .
-                '</li>';
+            '<a href="' . $core->blog->url . '">' . __('Home') . '</a></li>';
+            if ($core->blog->settings->system->static_home) {
+                // Static mode: add recent posts link
+                $res .= '<li class="topnav-posts">' .
+                '<a href="' . $core->blog->url . $core->url->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
+            }
+        } else {
+            // On home page (standard or static)
+            if ($core->blog->settings->system->static_home) {
+                // Static mode: add recent posts link
+                $res .= '<li class="topnav-posts">' .
+                '<a href="' . $core->blog->url . $core->url->getURLFor('posts') . '">' . __('Recent posts') . '</a></li>';
+            }
         }
 
         $res .= '<li class="topnav-arch">' .
