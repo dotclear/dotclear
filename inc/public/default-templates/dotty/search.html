@@ -23,39 +23,60 @@
   </tpl:Entries>
   <link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}" />
 </tpl:Block>
-<tpl:Block name="body-tag">
 
+<tpl:Block name="body-tag">
   <body class="dc-search">
 </tpl:Block>
+
 <tpl:Block name="main-content">
-  <header id="content-info">
-    <h2>{{tpl:lang Search}}</h2>
-    <tpl:SysIf search_count="==0">
-      <p>{{tpl:SysSearchString encode_html="1" string="Your search for <em>%1$s</em> returned no result."}}</p>
-    </tpl:SysIf>
-    <tpl:SysIf search_count="==1">
-      <p>{{tpl:SysSearchString encode_html="1" string="Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."}}</p>
-    </tpl:SysIf>
-    <tpl:SysIf search_count="&gt;1">
-      <p>{{tpl:SysSearchString encode_html="1" string="Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."}}</p>
-    </tpl:SysIf>
-  </header>
-  <div class="content-inner">
-    <tpl:Entries>
-      {{tpl:include src="_entry-short.html"}}
-      <tpl:EntriesFooter>
-        <tpl:Pagination>
-          <p class="pagination">
-            <tpl:PaginationIf end="0">
-              <a href="{{tpl:PaginationURL offset="+1"}}" class="prev">&#171; {{tpl:lang previous entries}}</a> -
-            </tpl:PaginationIf>
-            {{tpl:lang page}} {{tpl:PaginationCurrent}} {{tpl:lang of}} {{tpl:PaginationCounter}}
-            <tpl:PaginationIf start="0">
-              - <a href="{{tpl:PaginationURL offset="-1"}}" class="next">{{tpl:lang next entries}} &#187;</a>
-            </tpl:PaginationIf>
-          </p>
-        </tpl:Pagination>
-      </tpl:EntriesFooter>
-    </tpl:Entries>
-  </div> <!-- # End #content-inner -->
+  <tpl:Block name="main-content-before"></tpl:Block>
+  <tpl:Block name="content-info-header">
+    <header id="content-info">
+      <tpl:Block name="content-info-title">
+        <h2>{{tpl:lang Search}}</h2>
+      </tpl:Block>
+      <tpl:Block name="content-info-main">
+        <tpl:SysIf search_count="==0">
+          <p>{{tpl:SysSearchString encode_html="1" string="Your search for <em>%1$s</em> returned no result."}}</p>
+        </tpl:SysIf>
+        <tpl:SysIf search_count="==1">
+          <p>{{tpl:SysSearchString encode_html="1" string="Your search for <em>%1$s</em> returned <strong>%2$s</strong> result."}}</p>
+        </tpl:SysIf>
+        <tpl:SysIf search_count="&gt;1">
+          <p>{{tpl:SysSearchString encode_html="1" string="Your search for <em>%1$s</em> returned <strong>%2$s</strong> results."}}</p>
+        </tpl:SysIf>
+      </tpl:Block>
+      <tpl:Block name="content-info-footer">
+      </tpl:Block>
+    </header>
+  </tpl:Block>
+  <tpl:Block name="content-inner">
+    <div class="content-inner">
+      <tpl:Block name="content-inner-entries">
+        <tpl:Entries>
+          <tpl:Block name="content-inner-entry">
+            {{tpl:include src="_entry-short.html"}}
+          </tpl:Block>
+          <tpl:Block name="content-inner-pagination">
+            <tpl:EntriesFooter>
+              <tpl:Pagination>
+                <p class="pagination">
+                  <tpl:PaginationIf end="0">
+                    <a href="{{tpl:PaginationURL offset="+1"}}" class="prev">&#171; {{tpl:lang previous entries}}</a> -
+                  </tpl:PaginationIf>
+                  {{tpl:lang page}} {{tpl:PaginationCurrent}} {{tpl:lang of}} {{tpl:PaginationCounter}}
+                  <tpl:PaginationIf start="0">
+                    - <a href="{{tpl:PaginationURL offset="-1"}}" class="next">{{tpl:lang next entries}} &#187;</a>
+                  </tpl:PaginationIf>
+                </p>
+              </tpl:Pagination>
+            </tpl:EntriesFooter>
+          </tpl:Block>
+        </tpl:Entries>
+      </tpl:Block>
+      <tpl:Block name="content-inner-footer">
+      </tpl:Block>
+    </div> <!-- # End #content-inner -->
+  </tpl:Block>
+  <tpl:Block name="main-content-after"></tpl:Block>
 </tpl:Block>

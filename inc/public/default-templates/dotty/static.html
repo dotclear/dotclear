@@ -17,22 +17,35 @@
   <link rel="EditURI" type="application/rsd+xml" title="RSD" href="{{tpl:BlogRSDURL}}" />
   <link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}" />
 </tpl:Block> <!-- # head-linkrel -->
-<tpl:Block name="body-tag">
 
+<tpl:Block name="body-tag">
   <body class="dc-home dc-home-static">
 </tpl:Block>
+
 <tpl:Block name="main-content">
-  <tpl:IfBlogStaticEntryURL>
-    {{tpl:BlogStaticEntryURL}}
-    <tpl:Entries>
-      <div class="content-inner">{{tpl:EntryExcerpt}}{{tpl:EntryContent}}</div>
-    </tpl:Entries>
+  <tpl:Block name="main-content-before"></tpl:Block>
+  <tpl:Block name="main-content-main">
+    <tpl:IfBlogStaticEntryURL>
+      <tpl:Block name="main-content-static-entry">
+        {{tpl:BlogStaticEntryURL}}
+        <tpl:Entries>
+          <div class="content-inner">{{tpl:EntryExcerpt}}{{tpl:EntryContent}}</div>
+        </tpl:Entries>
+      </tpl:Block>
     {{tpl:else}}
-    <header id="content-info">
-      <h2>{{tpl:lang Welcome}}</h2>
-    </header>
-    <div class="content-inner">
-      <p>{{tpl:lang The list of recents posts is available}} <a href="{{tpl:BlogPostsURL}}">{{tpl:lang here}}</a>.</p>
-    </div>
-  </tpl:IfBlogStaticEntryURL>
+      <tpl:Block name="main-content-static-default">
+        <tpl:Block name="main-content-static-header">
+          <header id="content-info">
+            <h2>{{tpl:lang Welcome}}</h2>
+          </header>
+        </tpl:Block>
+        <tpl:Block name="main-content-inner">
+          <div class="content-inner">
+            <p>{{tpl:lang The list of recents posts is available}} <a href="{{tpl:BlogPostsURL}}">{{tpl:lang here}}</a>.</p>
+          </div>
+        </tpl:Block>
+      </tpl:Block>
+    </tpl:IfBlogStaticEntryURL>
+  </tpl:Block>
+  <tpl:Block name="main-content-after"></tpl:Block>
 </tpl:Block>

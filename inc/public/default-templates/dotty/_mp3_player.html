@@ -1,3 +1,7 @@
-<audio controls preload="auto">
-  <source src="{{tpl:MediaURL}}" type="audio/mpeg" />
-</audio>
+<tpl:Block name="_mp3_player-header"></tpl:Block>
+<tpl:Block name="_mp3_player-content">
+  <audio controls preload="auto">
+    <source src="{{tpl:MediaURL}}" type="audio/mpeg" />
+  </audio>
+</tpl:Block>
+<tpl:Block name="_mp3_player-footer"></tpl:Block>

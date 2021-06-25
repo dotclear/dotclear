@@ -1,11 +1,15 @@
-<tpl:Pagination>
-  <nav class="pagination" aria-label="{{tpl:lang Pagination}}" role="navigation">
-    <tpl:PaginationIf end="0">
-      <a href="{{tpl:PaginationURL offset="+1"}}" class="prev"><span aria-hidden="true">&#171; </span>{{tpl:lang previous entries}}</a> -
-    </tpl:PaginationIf>
-    <span class="visually-hidden">{{tpl:lang Active page}}"></span>{{tpl:lang page}} {{tpl:PaginationCurrent}} {{tpl:lang of}} {{tpl:PaginationCounter}}
-    <tpl:PaginationIf start="0"> - <a href="{{tpl:PaginationURL offset="-1"}}" class="next">
-      {{tpl:lang next entries}}<span aria-hidden="true"> &#187;</span></a>
-    </tpl:PaginationIf>
-  </nav>
-</tpl:Pagination>
+<tpl:Block name="_pagination-before"></tpl:Block>
+<tpl:Block name="_pagination-content">
+  <tpl:Pagination>
+    <nav class="pagination" aria-label="{{tpl:lang Pagination}}" role="navigation">
+      <tpl:PaginationIf end="0">
+        <a href="{{tpl:PaginationURL offset="+1"}}" class="prev"><span aria-hidden="true">&#171; </span>{{tpl:lang previous entries}}</a> -
+      </tpl:PaginationIf>
+      <span class="visually-hidden">{{tpl:lang Active page}}"></span>{{tpl:lang page}} {{tpl:PaginationCurrent}} {{tpl:lang of}} {{tpl:PaginationCounter}}
+      <tpl:PaginationIf start="0"> - <a href="{{tpl:PaginationURL offset="-1"}}" class="next">
+        {{tpl:lang next entries}}<span aria-hidden="true"> &#187;</span></a>
+      </tpl:PaginationIf>
+    </nav>
+  </tpl:Pagination>
+</tpl:Block>
+<tpl:Block name="_pagination-after"></tpl:Block>

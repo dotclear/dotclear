@@ -1,13 +1,35 @@
-<p id="gotop"><a href="#prelude">{{tpl:lang Page top}}</a></p>
-<footer class="footer" id="footer" role="contentinfo">
-  <tpl:IfWidgets type="custom">
-    <div class="widgets footer__widgets" id="blogcustom">
-      <h2 class="blogcustom__title">{{tpl:lang Blog info}}</h2>
-      {{tpl:Widgets type="custom"}}
-    </div> <!-- # End #custom widgets -->
-  </tpl:IfWidgets>
-  {{tpl:SysBehavior behavior="publicInsideFooter"}}
-  <p>{{tpl:SysPoweredBy}}</p>
-</footer>
-{{tpl:SysBehavior behavior="publicFooterContent"}}
-{{tpl:include src="user_footer.html"}}
+<tpl:Block name="_footer-before"></tpl:Block>
+<tpl:Block name="_footer-content">
+  <tpl:Block name="_footer-gotop">
+    <p id="gotop"><a href="#prelude">{{tpl:lang Page top}}</a></p>
+  </tpl:Block>
+  <tpl:Block name="_footer-main">
+    <footer class="footer" id="footer" role="contentinfo">
+      <tpl:Block name="_footer-blogcustom">
+        <tpl:IfWidgets type="custom">
+          <div class="widgets footer__widgets" id="blogcustom">
+            <tpl:Block name="_footer-blogcustom-title">
+              <h2 class="blogcustom__title">{{tpl:lang Blog info}}</h2>
+            </tpl:Block>
+            <tpl:Block name="_footer-blogcustom-content">
+              {{tpl:Widgets type="custom"}}
+            </tpl:Block>
+          </div> <!-- # End #custom widgets -->
+        </tpl:IfWidgets>
+      </tpl:Block>
+      <tpl:Block name="_footer-behavior-inside">
+        {{tpl:SysBehavior behavior="publicInsideFooter"}}
+      </tpl:Block>
+      <tpl:Block name="_footer-engine">
+        <p>{{tpl:SysPoweredBy}}</p>
+      </tpl:Block>
+    </footer>
+  </tpl:Block>
+  <tpl:Block name="_footer-behavior">
+    {{tpl:SysBehavior behavior="publicFooterContent"}}
+  </tpl:Block>
+  <tpl:Block name="_footer-user-footer">
+    {{tpl:include src="user_footer.html"}}
+  </tpl:Block>
+</tpl:Block>
+<tpl:Block name="_footer-after"></tpl:Block>

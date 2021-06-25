@@ -64,6 +64,7 @@
               </tpl:Block>
               <section id="content">
                 <tpl:Block name="main-content">
+                  <tpl:Block name="main-content-before"></tpl:Block>
                   <tpl:Entries>
                     <!-- # First page -->
                     <tpl:SysIf current_mode="default">
@@ -83,6 +84,7 @@
                       {{tpl:include src="_pagination.html"}}
                     </tpl:EntriesFooter>
                   </tpl:Entries>
+                  <tpl:Block name="main-content-after"></tpl:Block>
                 </tpl:Block> <!-- # main-content -->
               </section> <!-- # End #content -->
             </tpl:Block> <!-- # wrapper-main -->

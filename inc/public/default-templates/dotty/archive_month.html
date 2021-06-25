@@ -17,29 +17,40 @@
     <link rel="chapter" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" />
   </tpl:Entries>
 </tpl:Block>
-<tpl:Block name="body-tag">
 
+<tpl:Block name="body-tag">
   <body class="dc-archive-month">
 </tpl:Block>
+
 <tpl:Block name="main-content">
-  <nav class="navlinks topnl">
-    <tpl:ArchivePrevious><a href="{{tpl:ArchiveURL}}" class="prev">&#171; {{tpl:ArchiveDate encode_html="1"}}</a> - </tpl:ArchivePrevious>
-    {{tpl:ArchiveDate}}
-    <tpl:ArchiveNext> - <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &#187;</a></tpl:ArchiveNext>
-  </nav>
-  <header id="content-info">
-    <h2>
-      <time datetime="{{tpl:ArchiveDate format="%Y-%m"}}">{{tpl:ArchiveDate}}</time> <span>({{tpl:ArchiveEntriesCount}})</span>
-    </h2>
-  </header>
-  <div class="content-inner">
-    <tpl:Entries>
-      {{tpl:include src="_entry-short.html"}}
-    </tpl:Entries>
-  </div>
-  <nav class="navlinks">
-    <tpl:ArchivePrevious><a href="{{tpl:ArchiveURL}}" class="prev">&#171; {{tpl:ArchiveDate encode_html="1"}}</a> - </tpl:ArchivePrevious>
-    {{tpl:ArchiveDate}}
-    <tpl:ArchiveNext> - <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &#187;</a></tpl:ArchiveNext>
-  </nav>
+  <tpl:Block name="main-content-before"></tpl:Block>
+  <tpl:Block name="main-content-navigation-before">
+    <nav class="navlinks topnl">
+      <tpl:ArchivePrevious><a href="{{tpl:ArchiveURL}}" class="prev">&#171; {{tpl:ArchiveDate encode_html="1"}}</a> - </tpl:ArchivePrevious>
+      {{tpl:ArchiveDate}}
+      <tpl:ArchiveNext> - <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &#187;</a></tpl:ArchiveNext>
+    </nav>
+  </tpl:Block>
+  <tpl:Block name="main-content-info">
+    <header id="content-info">
+      <h2>
+        <time datetime="{{tpl:ArchiveDate format="%Y-%m"}}">{{tpl:ArchiveDate}}</time> <span>({{tpl:ArchiveEntriesCount}})</span>
+      </h2>
+    </header>
+  </tpl:Block>
+  <tpl:Block name="main-content-inner">
+    <div class="content-inner">
+      <tpl:Entries>
+        {{tpl:include src="_entry-short.html"}}
+      </tpl:Entries>
+    </div>
+  </tpl:Block>
+  <tpl:Block name="main-content-navigation-after">
+    <nav class="navlinks">
+      <tpl:ArchivePrevious><a href="{{tpl:ArchiveURL}}" class="prev">&#171; {{tpl:ArchiveDate encode_html="1"}}</a> - </tpl:ArchivePrevious>
+      {{tpl:ArchiveDate}}
+      <tpl:ArchiveNext> - <a href="{{tpl:ArchiveURL}}" class="next">{{tpl:ArchiveDate encode_html="1"}} &#187;</a></tpl:ArchiveNext>
+    </nav>
+  </tpl:Block>
+  <tpl:Block name="main-content-after"></tpl:Block>
 </tpl:Block>

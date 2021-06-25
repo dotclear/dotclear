@@ -28,50 +28,67 @@
   </tpl:Entries>
   <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:CategoryFeedURL type="atom"}}" />
 </tpl:Block>
-<tpl:Block name="body-tag">
 
+<tpl:Block name="body-tag">
   <body class="dc-category">
 </tpl:Block>
+
 <tpl:Block name="main-content">
-  <header id="content-info">
-    <h2>
-      <tpl:CategoryParents>
-        <a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> &rsaquo;
-      </tpl:CategoryParents>
-      {{tpl:CategoryTitle encode_html="1"}}
-    </h2>
-    <tpl:CategoryIf has_entries="1">
-      <ul class="content-info__feed">
-        <li><a type="application/atom+xml" href="{{tpl:CategoryFeedURL type="atom"}}"
-         title="{{tpl:lang This category's entries Atom feed}}" class="feed">{{tpl:lang Entries feed}}</a></li>
-        <tpl:SysIf operator="or" comments_active="1" pings_active="1">
-          <li><a type="application/atom+xml" href="{{tpl:CategoryFeedURL type="atom"}}/comments"
-           title="{{tpl:lang This category's comments Atom feed}}" class="feed">{{tpl:lang Comments feed}}</a></li>
-        </tpl:SysIf>
-      </ul>
-    </tpl:CategoryIf>
-    <div class="content-info__cat-desc">
-      {{tpl:CategoryDescription}}
-    </div>
-    <tpl:CategoryFirstChildren>
-      <tpl:CategoriesHeader>
-        <div id="subcategories" class="content-info__sub-cat">
-          <h3>{{tpl:lang Subcategories}}</h3>
-          <ul>
-      </tpl:CategoriesHeader>
-      <li class="post-cat"><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a></li>
-      <tpl:CategoriesFooter>
-        </ul>
-        </div>
-      </tpl:CategoriesFooter>
-    </tpl:CategoryFirstChildren>
-  </header> <!-- # End #content-info -->
-  <div class="content-inner">
-    <tpl:Entries>
-      {{tpl:include src="_entry-short.html"}}
-      <tpl:EntriesFooter>
-        {{tpl:include src="_pagination.html"}}
-      </tpl:EntriesFooter>
-    </tpl:Entries>
-  </div> <!-- # End #content-inner -->
+  <tpl:Block name="main-content-before"></tpl:Block>
+  <tpl:Block name="main-content-main">
+    <tpl:Block name="main-content-header">
+      <header id="content-info">
+        <tpl:Block name="main-content-header-title">
+          <h2>
+            <tpl:CategoryParents>
+              <a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> &rsaquo;
+            </tpl:CategoryParents>
+            {{tpl:CategoryTitle encode_html="1"}}
+          </h2>
+        </tpl:Block>
+        <tpl:Block name="main-content-header-feed">
+          <tpl:CategoryIf has_entries="1">
+            <ul class="content-info__feed">
+              <li><a type="application/atom+xml" href="{{tpl:CategoryFeedURL type="atom"}}"
+               title="{{tpl:lang This category's entries Atom feed}}" class="feed">{{tpl:lang Entries feed}}</a></li>
+              <tpl:SysIf operator="or" comments_active="1" pings_active="1">
+                <li><a type="application/atom+xml" href="{{tpl:CategoryFeedURL type="atom"}}/comments"
+                 title="{{tpl:lang This category's comments Atom feed}}" class="feed">{{tpl:lang Comments feed}}</a></li>
+              </tpl:SysIf>
+            </ul>
+          </tpl:CategoryIf>
+        </tpl:Block>
+        <tpl:Block name="main-content-header-desc">
+          <div class="content-info__cat-desc">
+            {{tpl:CategoryDescription}}
+          </div>
+        </tpl:Block>
+        <tpl:Block name="main-content-header-subcats">
+          <tpl:CategoryFirstChildren>
+            <tpl:CategoriesHeader>
+              <div id="subcategories" class="content-info__sub-cat">
+                <h3>{{tpl:lang Subcategories}}</h3>
+                <ul>
+            </tpl:CategoriesHeader>
+            <li class="post-cat"><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a></li>
+            <tpl:CategoriesFooter>
+              </ul>
+              </div>
+            </tpl:CategoriesFooter>
+          </tpl:CategoryFirstChildren>
+        </tpl:Block>
+      </header> <!-- # End #content-info -->
+    </tpl:Block>
+    <tpl:Block name="main-content-inner"></tpl:Block>
+      <div class="content-inner">
+        <tpl:Entries>
+          {{tpl:include src="_entry-short.html"}}
+          <tpl:EntriesFooter>
+            {{tpl:include src="_pagination.html"}}
+          </tpl:EntriesFooter>
+        </tpl:Entries>
+      </div> <!-- # End #content-inner -->
+    </tpl:Block>
+  </tpl:Block>
+  <tpl:Block name="main-content-after"></tpl:Block>
 </tpl:Block>

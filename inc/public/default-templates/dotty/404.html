@@ -9,21 +9,38 @@
   <link rel="contents" title="{{tpl:lang Archives}}" href="{{tpl:BlogArchiveURL}}" />
   <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
 </tpl:Block>
-<tpl:Block name="body-tag">
 
+<tpl:Block name="body-tag">
   <body class="dc-404">
 </tpl:Block>
+
 <tpl:Block name="main-content">
-  <header id="content-info">
-    <h2>{{tpl:lang Document not found}}</h2>
-    <p>{{tpl:lang URL you've tried has typos, or the page has been deleted or moved.}}</p>
-  </header>
-  <div class="content-inner">
-    <h3>{{tpl:lang Suggestions:}}</h3>
-    <ul>
-      <li><a href="{{tpl:BlogURL}}">{{tpl:lang Go to homepage}}</a></li>
-      <li><a href="#search">{{tpl:lang Use search form}}</a></li>
-      <li><a href="{{tpl:BlogURL}}archive">{{tpl:lang Explore archives}}</a></li>
-    </ul>
-  </div> <!-- # End #content-inner -->
+  <tpl:Block name="main-content-before"></tpl:Block>
+  <tpl:Block name="content-info-header">
+    <header id="content-info">
+      <tpl:Block name="content-info-header-title">
+        <h2>{{tpl:lang Document not found}}</h2>
+      </tpl:Block>
+      <tpl:Block name="content-info-header-content">
+        <p>{{tpl:lang URL you've tried has typos, or the page has been deleted or moved.}}</p>
+      </tpl:Block>
+    </header>
+  </tpl:Block>
+  <tpl:Block name="content-inner">
+    <tpl:Block name="content-inner-before"></tpl:Block>
+    <div class="content-inner">
+      <tpl:Block name="content-inner-header">
+        <h3>{{tpl:lang Suggestions:}}</h3>
+      </tpl:Block>
+      <tpl:Block name="content-inner-content">
+        <ul>
+          <li><a href="{{tpl:BlogURL}}">{{tpl:lang Go to homepage}}</a></li>
+          <li><a href="#search">{{tpl:lang Use search form}}</a></li>
+          <li><a href="{{tpl:BlogURL}}archive">{{tpl:lang Explore archives}}</a></li>
+        </ul>
+      </tpl:Block>
+    </div> <!-- # End #content-inner -->
+    <tpl:Block name="content-inner-after"></tpl:Block>
+  </tpl:Block>
+  <tpl:Block name="main-content-after"></tpl:Block>
 </tpl:Block>

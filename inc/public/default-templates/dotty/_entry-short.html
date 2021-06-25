@@ -1,72 +1,94 @@
-<article id="p{{tpl:EntryID}}" class="post short {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}" lang="{{tpl:EntryLang}}" role="article">
-  <header>
-    <!-- # New day date -->
-    <tpl:DateHeader>
-      <p class="post-day-date"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate}}</time></p>
-    </tpl:DateHeader>
-    <h2 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></h2>
-  </header>
-  <!-- # --BEHAVIOR-- publicEntryBeforeContent -->
-  {{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
-  <!-- # Entry with an excerpt -->
-  <tpl:EntryIf extended="1">
-    <div class="post-content">
-      {{tpl:EntryFirstImage size="t" class="post-icon"}}
-      {{tpl:EntryExcerpt}}
-    </div>
-    <p class="post-read-it"><a href="{{tpl:EntryURL}}"
-     title="{{tpl:lang Continue reading}} {{tpl:EntryTitle encode_html="1"}}">{{tpl:lang Continue reading}}</a></p>
-  </tpl:EntryIf>
-  <!-- # Entry without excerpt -->
-  <tpl:EntryIf extended="0">
-    <div class="post-content">
-      {{tpl:EntryFirstImage size="t" class="post-icon"}}
-      <p>
-        {{tpl:EntryContent encode_html="1" remove_html="1" cut_string="300"}}
-        <tpl:EntryIfContentCut encode_html="1" remove_html="1" cut_string="300">
-          <span class="ellipsis">&nbsp;[&#8230;]</span>
-        </tpl:EntryIfContentCut>
-      </p>
-    </div>
-    <tpl:EntryIfContentCut encode_html="1" remove_html="1" cut_string="300">
-      <p class="post-read-it"><a href="{{tpl:EntryURL}}"
-       title="{{tpl:lang Continue reading}} {{tpl:EntryTitle encode_html="1"}}">{{tpl:lang Continue reading}}</a></p>
-    </tpl:EntryIfContentCut>
-  </tpl:EntryIf>
-  <!-- # --BEHAVIOR-- publicEntryAfterContent -->
-  {{tpl:SysBehavior behavior="publicEntryAfterContent"}}
-  <footer class="post-meta">
-    <p class="post-info">
-      <span class="post-author">{{tpl:lang By}} {{tpl:EntryAuthorLink}}, </span>
-      <span class="post-date"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate}}</time>.</span>
-      <tpl:EntryIf has_category="1">
-        <span class="post-cat"><tpl:EntryCategoriesBreadcrumb><a
-        href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> › </tpl:EntryCategoriesBreadcrumb><a
-        href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a></span>
-      </tpl:EntryIf>
-    </p>
-    <tpl:EntryTags>
-      <tpl:TagsHeader>
-        <ul class="post-tags-list">
-      </tpl:TagsHeader>
-      <li class="post-tags-item"><a href="{{tpl:TagURL}}">{{tpl:TagID}}</a></li>
-      <tpl:TagsFooter>
-        </ul>
-      </tpl:TagsFooter>
-    </tpl:EntryTags>
-    <!-- # Number of comments, trackbacks and attachments -->
-    <tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
-      <p class="post-info-co">
-    </tpl:EntryIf>
-    <tpl:EntryIf show_comments="1">
-      <a href="{{tpl:EntryURL}}#comments" class="comment_count">{{tpl:EntryCommentCount}}</a>
-    </tpl:EntryIf>
-    <tpl:EntryIf show_pings="1">
-      <a href="{{tpl:EntryURL}}#pings" class="ping_count">{{tpl:EntryPingCount}}</a></tpl:EntryIf>
-    <tpl:EntryIf has_attachment="1">
-      <a href="{{tpl:EntryURL}}#attachments" class="attach_count">{{tpl:EntryAttachmentCount}}</a></tpl:EntryIf>
-    <tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
-      </p>
-    </tpl:EntryIf>
-  </footer>
-</article>
+<tpl:Block name="_entry-short-before"></tpl:Block>
+<tpl:Block name="_entry-short-main">
+  <article id="p{{tpl:EntryID}}" class="post short {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}" lang="{{tpl:EntryLang}}" role="article">
+    <tpl:Block name="_entry-short-header">
+      <header>
+        <!-- # New day date -->
+        <tpl:DateHeader>
+          <p class="post-day-date"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate}}</time></p>
+        </tpl:DateHeader>
+        <h2 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></h2>
+      </header>
+    </tpl:Block>
+    <tpl:Block name="_entry-short-behavior-before-content">
+      <!-- # --BEHAVIOR-- publicEntryBeforeContent -->
+      {{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
+    </tpl:Block>
+    <tpl:Block name="_entry-short-content">
+      <tpl:Block name="_entry-short-content-excerpt">
+        <!-- # Entry with an excerpt -->
+        <tpl:EntryIf extended="1">
+          <div class="post-content">
+            {{tpl:EntryFirstImage size="t" class="post-icon"}}
+            {{tpl:EntryExcerpt}}
+          </div>
+          <p class="post-read-it"><a href="{{tpl:EntryURL}}"
+           title="{{tpl:lang Continue reading}} {{tpl:EntryTitle encode_html="1"}}">{{tpl:lang Continue reading}}</a></p>
+        </tpl:EntryIf>
+      </tpl:Block>
+      <tpl:Block name="_entry-short-content-main">
+        <!-- # Entry without excerpt -->
+        <tpl:EntryIf extended="0">
+          <div class="post-content">
+            {{tpl:EntryFirstImage size="t" class="post-icon"}}
+            <p>
+              {{tpl:EntryContent encode_html="1" remove_html="1" cut_string="300"}}
+              <tpl:EntryIfContentCut encode_html="1" remove_html="1" cut_string="300">
+                <span class="ellipsis">&nbsp;[&#8230;]</span>
+              </tpl:EntryIfContentCut>
+            </p>
+          </div>
+          <tpl:EntryIfContentCut encode_html="1" remove_html="1" cut_string="300">
+            <p class="post-read-it"><a href="{{tpl:EntryURL}}"
+             title="{{tpl:lang Continue reading}} {{tpl:EntryTitle encode_html="1"}}">{{tpl:lang Continue reading}}</a></p>
+          </tpl:EntryIfContentCut>
+        </tpl:EntryIf>
+      </tpl:Block>
+    </tpl:Block>
+    <tpl:Block name="_entry-short-behavior-after-content">
+      <!-- # --BEHAVIOR-- publicEntryAfterContent -->
+      {{tpl:SysBehavior behavior="publicEntryAfterContent"}}
+    </tpl:Block>
+    <tpl:Block name="_entry-short-footer">
+      <footer class="post-meta">
+        <tpl:Block name="_entry-short-footer-info">
+          <p class="post-info">
+            <span class="post-author">{{tpl:lang By}} {{tpl:EntryAuthorLink}}, </span>
+            <span class="post-date"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate}}</time>.</span>
+            <tpl:EntryIf has_category="1">
+              <span class="post-cat"><tpl:EntryCategoriesBreadcrumb><a
+              href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> › </tpl:EntryCategoriesBreadcrumb><a
+              href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a></span>
+            </tpl:EntryIf>
+          </p>
+          <tpl:EntryTags>
+            <tpl:TagsHeader>
+              <ul class="post-tags-list">
+            </tpl:TagsHeader>
+            <li class="post-tags-item"><a href="{{tpl:TagURL}}">{{tpl:TagID}}</a></li>
+            <tpl:TagsFooter>
+              </ul>
+            </tpl:TagsFooter>
+          </tpl:EntryTags>
+        </tpl:Block>
+        <tpl:Block name="_entry-short-footer-counters">
+          <!-- # Number of comments, trackbacks and attachments -->
+          <tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
+            <p class="post-info-co">
+          </tpl:EntryIf>
+          <tpl:EntryIf show_comments="1">
+            <a href="{{tpl:EntryURL}}#comments" class="comment_count">{{tpl:EntryCommentCount}}</a>
+          </tpl:EntryIf>
+          <tpl:EntryIf show_pings="1">
+            <a href="{{tpl:EntryURL}}#pings" class="ping_count">{{tpl:EntryPingCount}}</a></tpl:EntryIf>
+          <tpl:EntryIf has_attachment="1">
+            <a href="{{tpl:EntryURL}}#attachments" class="attach_count">{{tpl:EntryAttachmentCount}}</a></tpl:EntryIf>
+          <tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
+            </p>
+          </tpl:EntryIf>
+        </tpl:Block>
+      </footer>
+    </tpl:Block>
+  </article>
+</tpl:Block>
+<tpl:Block name="_entry-short-after"></tpl:Block>
