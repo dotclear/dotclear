@@ -44,10 +44,11 @@
     {{tpl:include src="_head.html"}}
   </tpl:Block> <!-- # html-head -->
 </head>
-<tpl:Block name="body-tag">
 
-  <body class="dc-home <tpl:SysIf current_mode=" default">dc-home-first</tpl:SysIf>">
+<tpl:Block name="body-tag">
+  <body class="dc-home <tpl:SysIf current_mode="default">dc-home-first</tpl:SysIf>">
 </tpl:Block>
+
 <tpl:Block name="html-body">
   <div id="page">
     <tpl:Block name="body-page">
