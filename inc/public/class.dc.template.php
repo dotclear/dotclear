@@ -88,6 +88,7 @@ class dcTemplate extends template
         $this->addBlock('CategoryFirstChildren', [$this, 'CategoryFirstChildren']);
         $this->addBlock('CategoryParents', [$this, 'CategoryParents']);
         $this->addValue('CategoryFeedURL', [$this, 'CategoryFeedURL']);
+        $this->addValue('CategoryID', [$this, 'CategoryID']);
         $this->addValue('CategoryURL', [$this, 'CategoryURL']);
         $this->addValue('CategoryShortURL', [$this, 'CategoryShortURL']);
         $this->addValue('CategoryDescription', [$this, 'CategoryDescription']);
@@ -1164,6 +1165,16 @@ class dcTemplate extends template
 
         return '<?php echo ' . sprintf($f, '$core->blog->url.$core->url->getURLFor("feed","category/".' .
             '$_ctx->categories->cat_url."/' . $type . '")') . '; ?>';
+    }
+
+    /*dtd
+    <!ELEMENT tpl:CategoryID - O -- Category ID -->
+     */
+    public function CategoryID($attr)
+    {
+        $f = $this->getFilters($attr);
+
+        return '<?php echo ' . sprintf($f, '$_ctx->categories->cat_id') . '; ?>';
     }
 
     /*dtd
