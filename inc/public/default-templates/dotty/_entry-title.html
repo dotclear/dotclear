@@ -3,11 +3,15 @@
   <article id="p{{tpl:EntryID}}" class="post {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} title" lang="{{tpl:EntryLang}}" role="article">
     <tpl:Block name="_entry-title-header">
       <header>
-        <!-- # New day date -->
-        <tpl:DateHeader>
-          <p class="day-date"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate}}</time></p>
-        </tpl:DateHeader>
-        <h2 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></h2>
+        <tpl:Block name="_entry-title-header-date">
+          <!-- # New day date -->
+          <tpl:DateHeader>
+            <p class="day-date"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate}}</time></p>
+          </tpl:DateHeader>
+        </tpl:Block>
+        <tpl:Block name="_entry-title-header-title">
+          <h2 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></h2>
+        </tpl:Block>
       </header>
     </tpl:Block>
     <tpl:Block name="_entry-title-behavior-before-content">
