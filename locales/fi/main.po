@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:06+0100\n"
+"POT-Creation-Date: 2021-07-04 16:23+0200\n"
 "PO-Revision-Date: 2020-12-16 19:29\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
@@ -80,6 +80,10 @@ msgstr "Sähköposti:"
 
 msgid "recover"
 msgstr "palauta"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Muut asetukset"
 
 msgid "Change your password"
 msgstr "Vaihda salasanasi"
@@ -540,6 +544,10 @@ msgid "Blog security"
 msgstr "Blogin turvallisuus"
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
+msgstr "Suojaa blogia klikkaustenkaappaamiselta (katso Wikipedian artikkelia <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Clickjacking</a>)"
+
+#, fuzzy
+msgid "Protect the blog from FLoC tracking (see <a href=\"https://github.com/WICG/floc\" hreflang=\"en\">FLoC</a>)"
 msgstr "Suojaa blogia klikkaustenkaappaamiselta (katso Wikipedian artikkelia <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Clickjacking</a>)"
 
 msgid "Plugins parameters"
@@ -1135,20 +1143,14 @@ msgstr "Dotclearin asennus"
 msgid "Password strength: %s"
 msgstr "Salasanan vahvuus: %s"
 
-msgid "very weak"
-msgstr "erittäin heikko"
-
 msgid "weak"
 msgstr "heikko"
 
-msgid "mediocre"
-msgstr "keskinkertainen"
+msgid "medium"
+msgstr "keskikoko"
 
 msgid "strong"
 msgstr "vahva"
-
-msgid "very strong"
-msgstr "erittäin vahva"
 
 msgid "show"
 msgstr "näytä"
@@ -1259,9 +1261,6 @@ msgstr "Anna seuraavat asetustiedoston luomiseksi tarvittavat tiedot."
 
 msgid "Database type:"
 msgstr "Tietokannan tyyppi:"
-
-msgid "MySQL (deprecated)"
-msgstr "MySQL (vanhentunut)"
 
 msgid "MySQLi"
 msgstr "MySQLi"
@@ -2266,12 +2265,6 @@ msgstr "Näytä asynkronipyyntöjen osoitin"
 msgid "Font size:"
 msgstr "Tiedoston koko:"
 
-msgid "Activate adpative font size"
-msgstr "Ota käyttöön mukautuva merkistökoko"
-
-msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
-msgstr "Mikäli käytössä, merkistön koko vaihtelee katselunäkymän koon mukaan (12px–16px merkistön oletuskoolla)."
-
 msgid "Number of elements displayed per page in media manager:"
 msgstr "Näytettävien kohteiden määrä sivua kohti medianhallinnassa:"
 
@@ -2286,6 +2279,12 @@ msgstr "Älä käytä Dotclear-vakiokuvaketta"
 
 msgid "This will be applied for all users"
 msgstr "Tämä valinta koskee kaikkia käyttäjiä"
+
+msgid "Disable Ad-blocker check"
+msgstr ""
+
+msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
+msgstr ""
 
 msgid "Optional columns displayed in lists"
 msgstr "Valinnaiset luetteloissa näytetyt sarakkeet"
@@ -3078,6 +3077,9 @@ msgstr "Näytä salasana"
 msgid "Hide password"
 msgstr "Piilota salasana"
 
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it."
+msgstr ""
+
 msgid "You have unsaved changes."
 msgstr "Et ole tallentanut muutoksia."
 
@@ -3251,8 +3253,9 @@ msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "Tämä liitännäinen on poistettu."
 msgstr[1] "Nämä liitännäiset on poistettu."
 
+#, fuzzy
 msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successuflly installed."
+msgid_plural "Plugins have been successfully installed."
 msgstr[0] "Tämä liitännäinen on asennettu."
 msgstr[1] "Nämä liitännäiset on asennettu."
 
@@ -3269,10 +3272,19 @@ msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Tämä liitännäinen on saatu pois käytöstä."
 msgstr[1] "Nämä liitännäiset on saatu pois käytöstä."
 
+#, fuzzy
 msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successuflly updated."
+msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Tämä liitännäinen on päivitetty."
 msgstr[1] "Nämä liitännäiset on päivitetty."
+
+#, fuzzy
+msgid "The plugin has been successfully updated."
+msgstr "Tämä liitännäinen on päivitetty."
+
+#, fuzzy
+msgid "The plugin has been successfully installed."
+msgstr "Tämä liitännäinen on asennettu."
 
 msgid "Zip file path:"
 msgstr "Zip-tiedoston polku:"
@@ -3381,15 +3393,25 @@ msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "Tämä teema on poistettu."
 msgstr[1] "Nämä teemat on poistettu."
 
+#, fuzzy
 msgid "Theme has been successfully installed."
-msgid_plural "Themes have been successuflly installed."
+msgid_plural "Themes have been successfully installed."
 msgstr[0] "Tämä teema on asennettu."
 msgstr[1] "Nämä teemat on asennettu."
 
+#, fuzzy
 msgid "Theme has been successfully updated."
-msgid_plural "Themes have been successuflly updated."
+msgid_plural "Themes have been successfully updated."
 msgstr[0] "Tämä teema on päivitetty."
 msgstr[1] "Nämä teemat on päivitetty."
+
+#, fuzzy
+msgid "The theme has been successfully updated."
+msgstr "Tämä teema on päivitetty."
+
+#, fuzzy
+msgid "The theme has been successfully installed."
+msgstr "Tämä teema on asennettu."
 
 msgid "First page"
 msgstr "Ensimmäinen sivu"
@@ -3609,9 +3631,6 @@ msgstr "Blogi"
 
 msgid "Plugins"
 msgstr "Liitännäiset"
-
-msgid "medium"
-msgstr "keskikoko"
 
 msgid "small"
 msgstr "pieni"
@@ -3863,6 +3882,10 @@ msgstr "Ei ilmoitusviestejä"
 msgid "Unable to retrieve workspaces:"
 msgstr "Työavaruuksia ei saatu luettua:"
 
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "dcWorkspace ei kelpaa: %s"
+
 msgid "Unable to retrieve namespaces:"
 msgstr "Nimiavaruuksia ei saatu luettua:"
 
@@ -3994,10 +4017,6 @@ msgstr "Tiivistelmätiedostoa ei saatu luettua."
 msgid "Invalid digests file."
 msgstr "Tiivistelmätiedosto ei kelpaa."
 
-#, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "dcWorkspace ei kelpaa: %s"
-
 msgid "Unable to retrieve prefs:"
 msgstr "Käyttäjän asetuksia (prefs) ei saatu luettua:"
 
@@ -4026,3 +4045,25 @@ msgstr "<p>Tämä tarkoittaa joko sitä, että käyttäjänimi- ja salasanatieto
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
+
+#, fuzzy
+#~ msgid "large"
+#~ msgstr "Suurempi"
+
+#~ msgid "very weak"
+#~ msgstr "erittäin heikko"
+
+#~ msgid "mediocre"
+#~ msgstr "keskinkertainen"
+
+#~ msgid "very strong"
+#~ msgstr "erittäin vahva"
+
+#~ msgid "MySQL (deprecated)"
+#~ msgstr "MySQL (vanhentunut)"
+
+#~ msgid "Activate adpative font size"
+#~ msgstr "Ota käyttöön mukautuva merkistökoko"
+
+#~ msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
+#~ msgstr "Mikäli käytössä, merkistön koko vaihtelee katselunäkymän koon mukaan (12px–16px merkistön oletuskoolla)."

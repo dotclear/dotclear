@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:06+0100\n"
+"POT-Creation-Date: 2021-07-04 16:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:55+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -1138,8 +1138,9 @@ msgstr "现在导入我的博客"
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "我们首先需要关于您的 Dotclear 1.2 的一些信息。"
 
-msgid "Database driver (must be mysqli if PHP 7 or higher):"
-msgstr ""
+#, fuzzy
+msgid "Database driver:"
+msgstr "纯文本导出"
 
 msgid "Entries import options"
 msgstr "文章导入选项"
@@ -1290,6 +1291,10 @@ msgstr "WordPress 表没有找到"
 
 msgid "No file to read."
 msgstr "没有文件要读取。"
+
+#, fuzzy
+msgid "Unable to create output file."
+msgstr "无法创建图片。"
 
 msgid "File is not a DotClear backup."
 msgstr "文件不是一个 Dotclear 备份。"
@@ -2419,6 +2424,14 @@ msgstr "移除小工具"
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
+#, fuzzy
+#~ msgid "Liste des auteurs"
+#~ msgstr "所有分类目录"
+
+#, fuzzy
+#~ msgid "Liste des séries"
+#~ msgstr "最新文章"
 
 #, fuzzy
 #~ msgid "Are you sure you want to delete all spams?"

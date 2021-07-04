@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:06+0100\n"
+"POT-Creation-Date: 2021-07-04 16:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -1137,8 +1137,9 @@ msgstr "Importuoti mano blogą"
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Pirmiausiai mums reikalinga informacija apie jūsų seną Dotclear 1.2 instaliaciją."
 
-msgid "Database driver (must be mysqli if PHP 7 or higher):"
-msgstr ""
+#, fuzzy
+msgid "Database driver:"
+msgstr "Paprasto failo eksportavimas"
 
 msgid "Entries import options"
 msgstr "Įrašų importavimo pasirinkimai"
@@ -1289,6 +1290,10 @@ msgstr "Nerastos Wordpress lentelės"
 
 msgid "No file to read."
 msgstr "Nėra skaitomo failo."
+
+#, fuzzy
+msgid "Unable to create output file."
+msgstr "Nepavyksta sukurti paveikslėlių."
 
 msgid "File is not a DotClear backup."
 msgstr "Tai nėra Dotclear atsarginės kopijos failas."
@@ -2418,6 +2423,14 @@ msgstr "Pašalinti valdiklį"
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
+#, fuzzy
+#~ msgid "Liste des auteurs"
+#~ msgstr "Visos kategorijos"
+
+#, fuzzy
+#~ msgid "Liste des séries"
+#~ msgstr "Paskutiniai įrašai"
 
 #, fuzzy
 #~ msgid "Are you sure you want to delete all spams?"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:06+0100\n"
+"POT-Creation-Date: 2021-07-04 16:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
@@ -1114,7 +1114,7 @@ msgstr ""
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr ""
 
-msgid "Database driver (must be mysqli if PHP 7 or higher):"
+msgid "Database driver:"
 msgstr ""
 
 msgid "Entries import options"
@@ -1263,6 +1263,9 @@ msgid "WordPress tables not found"
 msgstr ""
 
 msgid "No file to read."
+msgstr ""
+
+msgid "Unable to create output file."
 msgstr ""
 
 msgid "File is not a DotClear backup."
@@ -2350,6 +2353,10 @@ msgstr ""
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
+#, fuzzy
+#~ msgid "Liste des auteurs"
+#~ msgstr "Toate categoriile"
 
 #, fuzzy
 #~ msgid "Are you sure you want to delete all spams?"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:06+0100\n"
+"POT-Creation-Date: 2021-07-04 16:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -1136,8 +1136,9 @@ msgstr "Zaimportuj mój blog teraz"
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Najpierw potrzebujemy kilku informacji o Twojej starej instalacji Dotclear 1.2"
 
-msgid "Database driver (must be mysqli if PHP 7 or higher):"
-msgstr ""
+#, fuzzy
+msgid "Database driver:"
+msgstr "Eksport do pojedynczego pliku"
 
 msgid "Entries import options"
 msgstr "Opcje importu wpisów:"
@@ -1288,6 +1289,10 @@ msgstr "Nie znaleziono tabel WordPressa"
 
 msgid "No file to read."
 msgstr "Brak pliku do odczytania."
+
+#, fuzzy
+msgid "Unable to create output file."
+msgstr "Nie można utworzyć obrazów."
 
 msgid "File is not a DotClear backup."
 msgstr "Plik nie jest kopią zapasową DotClear."
@@ -2423,6 +2428,14 @@ msgstr "Usuń widget"
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
+#, fuzzy
+#~ msgid "Liste des auteurs"
+#~ msgstr "Wszystkie kategorie"
+
+#, fuzzy
+#~ msgid "Liste des séries"
+#~ msgstr "Ostatnie wpisy"
 
 #, fuzzy
 #~ msgid "Are you sure you want to delete all spams?"

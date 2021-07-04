@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:06+0100\n"
+"POT-Creation-Date: 2021-07-04 16:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -90,6 +90,10 @@ msgstr "メール："
 
 msgid "recover"
 msgstr "回復"
+
+#, fuzzy
+msgid "Other option"
+msgstr "検索オプション"
 
 msgid "Change your password"
 msgstr "パスワードの変更"
@@ -573,6 +577,9 @@ msgid "Blog security"
 msgstr "ブログの説明："
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
+msgstr ""
+
+msgid "Protect the blog from FLoC tracking (see <a href=\"https://github.com/WICG/floc\" hreflang=\"en\">FLoC</a>)"
 msgstr ""
 
 #, fuzzy
@@ -1213,19 +1220,14 @@ msgstr "Dotclear のインストール"
 msgid "Password strength: %s"
 msgstr "パスワードのリセット"
 
-msgid "very weak"
-msgstr ""
-
 msgid "weak"
 msgstr ""
 
-msgid "mediocre"
-msgstr ""
+#, fuzzy
+msgid "medium"
+msgstr "ミディアム："
 
 msgid "strong"
-msgstr ""
-
-msgid "very strong"
 msgstr ""
 
 msgid "show"
@@ -1344,9 +1346,6 @@ msgstr "環境設定ファイルの作成に必要な、以下の情報を提供
 
 msgid "Database type:"
 msgstr "データベースのタイプ："
-
-msgid "MySQL (deprecated)"
-msgstr ""
 
 msgid "MySQLi"
 msgstr ""
@@ -2449,12 +2448,6 @@ msgstr ""
 msgid "Font size:"
 msgstr "ファイルサイズ："
 
-msgid "Activate adpative font size"
-msgstr ""
-
-msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
-msgstr ""
-
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
@@ -2468,6 +2461,12 @@ msgid "Do not use standard favicon"
 msgstr ""
 
 msgid "This will be applied for all users"
+msgstr ""
+
+msgid "Disable Ad-blocker check"
+msgstr ""
+
+msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr ""
 
 msgid "Optional columns displayed in lists"
@@ -3341,6 +3340,9 @@ msgstr "新しいパスワード："
 msgid "Hide password"
 msgstr "新しいパスワード："
 
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it."
+msgstr ""
+
 msgid "You have unsaved changes."
 msgstr "保存されていない変更があります。"
 
@@ -3528,7 +3530,7 @@ msgstr[0] "プラグインは正常に削除されました。"
 
 #, fuzzy
 msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successuflly installed."
+msgid_plural "Plugins have been successfully installed."
 msgstr[0] "プラグインは正常にインストールされました。"
 
 #, fuzzy
@@ -3547,8 +3549,16 @@ msgstr[0] "プラグインは正常に削除されました。"
 
 #, fuzzy
 msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successuflly updated."
+msgid_plural "Plugins have been successfully updated."
 msgstr[0] "プラグインは正常にアップグレードされました。"
+
+#, fuzzy
+msgid "The plugin has been successfully updated."
+msgstr "プラグインは正常にアップグレードされました。"
+
+#, fuzzy
+msgid "The plugin has been successfully installed."
+msgstr "プラグインは正常にインストールされました。"
 
 #, fuzzy
 msgid "Zip file path:"
@@ -3670,13 +3680,21 @@ msgstr[0] "テーマは正常に削除されました。"
 
 #, fuzzy
 msgid "Theme has been successfully installed."
-msgid_plural "Themes have been successuflly installed."
+msgid_plural "Themes have been successfully installed."
 msgstr[0] "テーマは正常にインストールされました。"
 
 #, fuzzy
 msgid "Theme has been successfully updated."
-msgid_plural "Themes have been successuflly updated."
+msgid_plural "Themes have been successfully updated."
 msgstr[0] "テーマは正常にアップグレードされました。"
+
+#, fuzzy
+msgid "The theme has been successfully updated."
+msgstr "テーマは正常にアップグレードされました。"
+
+#, fuzzy
+msgid "The theme has been successfully installed."
+msgstr "テーマは正常にインストールされました。"
 
 #, fuzzy
 msgid "First page"
@@ -3910,10 +3928,6 @@ msgstr "ブログ"
 
 msgid "Plugins"
 msgstr "プラグイン"
-
-#, fuzzy
-msgid "medium"
-msgstr "ミディアム："
 
 #, fuzzy
 msgid "small"
@@ -4179,6 +4193,10 @@ msgstr "ブログ名がありません"
 msgid "Unable to retrieve workspaces:"
 msgstr "設定を取り出すことができません："
 
+#, fuzzy, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "無効なネームスペースの設定です： %s"
+
 #, fuzzy
 msgid "Unable to retrieve namespaces:"
 msgstr "設定を取り出すことができません："
@@ -4315,10 +4333,6 @@ msgstr "ダイジェストファイルが読めません。"
 
 msgid "Invalid digests file."
 msgstr "無効なダイジェストファイルです。"
-
-#, fuzzy, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "無効なネームスペースの設定です： %s"
 
 #, fuzzy
 msgid "Unable to retrieve prefs:"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:06+0100\n"
+"POT-Creation-Date: 2021-07-04 16:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
@@ -81,6 +81,9 @@ msgid "Email:"
 msgstr ""
 
 msgid "recover"
+msgstr ""
+
+msgid "Other option"
 msgstr ""
 
 msgid "Change your password"
@@ -542,6 +545,9 @@ msgid "Blog security"
 msgstr ""
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
+msgstr ""
+
+msgid "Protect the blog from FLoC tracking (see <a href=\"https://github.com/WICG/floc\" hreflang=\"en\">FLoC</a>)"
 msgstr ""
 
 msgid "Plugins parameters"
@@ -1131,19 +1137,13 @@ msgstr ""
 msgid "Password strength: %s"
 msgstr ""
 
-msgid "very weak"
-msgstr ""
-
 msgid "weak"
 msgstr ""
 
-msgid "mediocre"
+msgid "medium"
 msgstr ""
 
 msgid "strong"
-msgstr ""
-
-msgid "very strong"
 msgstr ""
 
 msgid "show"
@@ -1254,9 +1254,6 @@ msgid "Please provide the following information needed to create your configurat
 msgstr ""
 
 msgid "Database type:"
-msgstr ""
-
-msgid "MySQL (deprecated)"
 msgstr ""
 
 msgid "MySQLi"
@@ -2265,12 +2262,6 @@ msgstr ""
 msgid "Font size:"
 msgstr ""
 
-msgid "Activate adpative font size"
-msgstr ""
-
-msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
-msgstr ""
-
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
@@ -2284,6 +2275,12 @@ msgid "Do not use standard favicon"
 msgstr ""
 
 msgid "This will be applied for all users"
+msgstr ""
+
+msgid "Disable Ad-blocker check"
+msgstr ""
+
+msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr ""
 
 msgid "Optional columns displayed in lists"
@@ -3087,6 +3084,9 @@ msgstr ""
 msgid "Hide password"
 msgstr ""
 
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it."
+msgstr ""
+
 msgid "You have unsaved changes."
 msgstr ""
 
@@ -3264,7 +3264,7 @@ msgstr[1] ""
 msgstr[2] ""
 
 msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successuflly installed."
+msgid_plural "Plugins have been successfully installed."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -3285,10 +3285,16 @@ msgstr[1] ""
 msgstr[2] ""
 
 msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successuflly updated."
+msgid_plural "Plugins have been successfully updated."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+
+msgid "The plugin has been successfully updated."
+msgstr ""
+
+msgid "The plugin has been successfully installed."
+msgstr ""
 
 msgid "Zip file path:"
 msgstr ""
@@ -3402,16 +3408,22 @@ msgstr[1] ""
 msgstr[2] ""
 
 msgid "Theme has been successfully installed."
-msgid_plural "Themes have been successuflly installed."
+msgid_plural "Themes have been successfully installed."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
 msgid "Theme has been successfully updated."
-msgid_plural "Themes have been successuflly updated."
+msgid_plural "Themes have been successfully updated."
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
+
+msgid "The theme has been successfully updated."
+msgstr ""
+
+msgid "The theme has been successfully installed."
+msgstr ""
 
 msgid "First page"
 msgstr ""
@@ -3637,9 +3649,6 @@ msgid "Blog"
 msgstr ""
 
 msgid "Plugins"
-msgstr ""
-
-msgid "medium"
 msgstr ""
 
 msgid "small"
@@ -3892,6 +3901,10 @@ msgstr ""
 msgid "Unable to retrieve workspaces:"
 msgstr ""
 
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr ""
+
 msgid "Unable to retrieve namespaces:"
 msgstr ""
 
@@ -4021,10 +4034,6 @@ msgid "Unable to read digests file."
 msgstr ""
 
 msgid "Invalid digests file."
-msgstr ""
-
-#, php-format
-msgid "Invalid dcWorkspace: %s"
 msgstr ""
 
 msgid "Unable to retrieve prefs:"

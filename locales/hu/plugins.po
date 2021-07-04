@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:06+0100\n"
+"POT-Creation-Date: 2021-07-04 16:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -1135,8 +1135,9 @@ msgstr "Blog importálása most"
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Először is szükségünk van néhány információra a régi Dotclear 1.2 telepítésedről."
 
-msgid "Database driver (must be mysqli if PHP 7 or higher):"
-msgstr ""
+#, fuzzy
+msgid "Database driver:"
+msgstr "Flat file export"
 
 msgid "Entries import options"
 msgstr "Bejegyzés importálásának beállításai"
@@ -1295,6 +1296,10 @@ msgstr "Wordpress táblákat nem találtam."
 
 msgid "No file to read."
 msgstr "Nincs olvasható fájl."
+
+#, fuzzy
+msgid "Unable to create output file."
+msgstr "Nem lehet a képet létrehozni."
 
 msgid "File is not a DotClear backup."
 msgstr "A fájl nem Dotclear mentés."
@@ -2427,6 +2432,14 @@ msgstr "Kütyü eltávolítása"
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
+#, fuzzy
+#~ msgid "Liste des auteurs"
+#~ msgstr "Összes kategória"
+
+#, fuzzy
+#~ msgid "Liste des séries"
+#~ msgstr "Legutolsó bejegyzések"
 
 #, fuzzy
 #~ msgid "Are you sure you want to delete all spams?"

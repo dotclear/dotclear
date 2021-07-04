@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:06+0100\n"
+"POT-Creation-Date: 2021-07-04 16:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -1139,8 +1139,9 @@ msgstr "ブログをインポート"
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "はじめに、古い Dotclear 1.2 インストールに関するいくつかの情報が必要です。"
 
-msgid "Database driver (must be mysqli if PHP 7 or higher):"
-msgstr ""
+#, fuzzy
+msgid "Database driver:"
+msgstr "フラットファイルのエクスポート"
 
 msgid "Entries import options"
 msgstr "エントリのインポートオプション"
@@ -1293,6 +1294,10 @@ msgstr "WordPress テーブルが見つかりませんでした"
 
 msgid "No file to read."
 msgstr "ファイルが読み込めません。"
+
+#, fuzzy
+msgid "Unable to create output file."
+msgstr "画像が作成できません。"
 
 msgid "File is not a DotClear backup."
 msgstr "ファイルはDotClearのバックアップではありません。"
@@ -2424,6 +2429,14 @@ msgstr "ウィジェットの削除"
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
+#, fuzzy
+#~ msgid "Liste des auteurs"
+#~ msgstr "すべてのカテゴリ"
+
+#, fuzzy
+#~ msgid "Liste des séries"
+#~ msgstr "最終エントリ"
 
 #, fuzzy
 #~ msgid "Are you sure you want to delete all spams?"

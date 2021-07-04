@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:06+0100\n"
+"POT-Creation-Date: 2021-07-04 16:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -83,6 +83,10 @@ msgstr "El. paštas:"
 
 msgid "recover"
 msgstr "atstatyti"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Paieškos nustatymai"
 
 msgid "Change your password"
 msgstr "Slaptawodžio keitimas"
@@ -564,6 +568,9 @@ msgid "Blog security"
 msgstr "Blogo aprašymas:"
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
+msgstr ""
+
+msgid "Protect the blog from FLoC tracking (see <a href=\"https://github.com/WICG/floc\" hreflang=\"en\">FLoC</a>)"
 msgstr ""
 
 #, fuzzy
@@ -1208,19 +1215,13 @@ msgstr "Dotclear instaliacija"
 msgid "Password strength: %s"
 msgstr "Naujo slaptažodžio nustatymas"
 
-msgid "very weak"
-msgstr ""
-
 msgid "weak"
 msgstr ""
 
-msgid "mediocre"
-msgstr ""
+msgid "medium"
+msgstr "Vidutinis:"
 
 msgid "strong"
-msgstr ""
-
-msgid "very strong"
 msgstr ""
 
 msgid "show"
@@ -1335,9 +1336,6 @@ msgstr "Pateikite informaciją reikalingą tam, kad sukrti konfigūracinį fail�
 
 msgid "Database type:"
 msgstr "Database type:"
-
-msgid "MySQL (deprecated)"
-msgstr ""
 
 msgid "MySQLi"
 msgstr ""
@@ -2439,12 +2437,6 @@ msgstr ""
 msgid "Font size:"
 msgstr "Failo dydis:"
 
-msgid "Activate adpative font size"
-msgstr ""
-
-msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
-msgstr ""
-
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
@@ -2458,6 +2450,12 @@ msgid "Do not use standard favicon"
 msgstr ""
 
 msgid "This will be applied for all users"
+msgstr ""
+
+msgid "Disable Ad-blocker check"
+msgstr ""
+
+msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr ""
 
 msgid "Optional columns displayed in lists"
@@ -3337,6 +3335,9 @@ msgstr "Naujas slaptažodis:"
 msgid "Hide password"
 msgstr "Naujas slaptažodis:"
 
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it."
+msgstr ""
+
 msgid "You have unsaved changes."
 msgstr "Yra neišsaugotų pakeitimų. "
 
@@ -3529,7 +3530,7 @@ msgstr[2] ""
 
 #, fuzzy
 msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successuflly installed."
+msgid_plural "Plugins have been successfully installed."
 msgstr[0] "Plugin'as sėkmingai instaliuotas."
 msgstr[1] "Plugin'as sėkmingai instaliuotas."
 msgstr[2] ""
@@ -3554,10 +3555,18 @@ msgstr[2] ""
 
 #, fuzzy
 msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successuflly updated."
+msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Plugin'as sėkmingai atnaujintas."
 msgstr[1] "Plugin'as sėkmingai atnaujintas."
 msgstr[2] ""
+
+#, fuzzy
+msgid "The plugin has been successfully updated."
+msgstr "Plugin'as sėkmingai atnaujintas."
+
+#, fuzzy
+msgid "The plugin has been successfully installed."
+msgstr "Plugin'as sėkmingai instaliuotas."
 
 #, fuzzy
 msgid "Zip file path:"
@@ -3687,17 +3696,25 @@ msgstr[2] ""
 
 #, fuzzy
 msgid "Theme has been successfully installed."
-msgid_plural "Themes have been successuflly installed."
+msgid_plural "Themes have been successfully installed."
 msgstr[0] "Tema sėkmingai instaliuota."
 msgstr[1] "Tema sėkmingai instaliuota."
 msgstr[2] ""
 
 #, fuzzy
 msgid "Theme has been successfully updated."
-msgid_plural "Themes have been successuflly updated."
+msgid_plural "Themes have been successfully updated."
 msgstr[0] "Tema sėkmingai atnaujinta."
 msgstr[1] "Tema sėkmingai atnaujinta."
 msgstr[2] ""
+
+#, fuzzy
+msgid "The theme has been successfully updated."
+msgstr "Tema sėkmingai atnaujinta."
+
+#, fuzzy
+msgid "The theme has been successfully installed."
+msgstr "Tema sėkmingai instaliuota."
 
 #, fuzzy
 msgid "First page"
@@ -3943,9 +3960,6 @@ msgstr "Blogas"
 
 msgid "Plugins"
 msgstr "Plugin'ai"
-
-msgid "medium"
-msgstr "Vidutinis:"
 
 msgid "small"
 msgstr "Mažas:"
@@ -4207,6 +4221,10 @@ msgstr "Nėra registro žinutės"
 msgid "Unable to retrieve workspaces:"
 msgstr "Nepavyko gauti namespaces:"
 
+#, fuzzy, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "Negaliojantis nustatymas dcNamespace: %s"
+
 msgid "Unable to retrieve namespaces:"
 msgstr "Nepavyko gauti namespaces:"
 
@@ -4341,10 +4359,6 @@ msgstr "Nepavyksta perskaityti digests failo."
 
 msgid "Invalid digests file."
 msgstr "Negaliojantis digests failas."
-
-#, fuzzy, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "Negaliojantis nustatymas dcNamespace: %s"
 
 #, fuzzy
 msgid "Unable to retrieve prefs:"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:05+0100\n"
+"POT-Creation-Date: 2021-07-04 16:23+0200\n"
 "PO-Revision-Date: 2017-12-22 19:26+0100\n"
 "Last-Translator: Tin2 <sort300-blog@yahoo.com>\n"
 "Language-Team: \n"
@@ -1095,8 +1095,9 @@ msgstr "Jetzt den Blog importieren"
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Wir brauchen erst einige Informationen über deine alte Dotclear 1.2-Installation."
 
-msgid "Database driver (must be mysqli if PHP 7 or higher):"
-msgstr "Datenbank Treiber (muss mysqli sein für PHP7 oder grösser):"
+#, fuzzy
+msgid "Database driver:"
+msgstr "Datenbank exportieren"
 
 msgid "Entries import options"
 msgstr "Import-Optionen der Einträge"
@@ -1245,6 +1246,10 @@ msgstr "Wordpress-Tabelle nicht gefunden"
 
 msgid "No file to read."
 msgstr "Keine Datei zum Einlesen."
+
+#, fuzzy
+msgid "Unable to create output file."
+msgstr "Konnte CSS Datei nicht erstellen."
 
 msgid "File is not a DotClear backup."
 msgstr "Die Datei ist kein Dotclear-Backup."
@@ -2294,6 +2299,17 @@ msgstr "Widget entfernen"
 
 msgid "Drag widgets here to remove."
 msgstr "Widgets hierhin ziehen zum Löschen."
+
+#, fuzzy
+#~ msgid "Liste des auteurs"
+#~ msgstr "Liste der Kategorien"
+
+#, fuzzy
+#~ msgid "Liste des séries"
+#~ msgstr "Neuste Einträge"
+
+#~ msgid "Database driver (must be mysqli if PHP 7 or higher):"
+#~ msgstr "Datenbank Treiber (muss mysqli sein für PHP7 oder grösser):"
 
 #~ msgid "Theme:"
 #~ msgstr "Theme:"

@@ -1156,7 +1156,7 @@ class adminModulesList
             }
 
             dcPage::addSuccessNotice(
-                __('Plugin has been successfully installed.', 'Plugins have been successuflly installed.', $count)
+                __('Plugin has been successfully installed.', 'Plugins have been successfully installed.', $count)
             );
             http::redirect($this->getURL());
         } elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['activate'])) {
@@ -1273,7 +1273,7 @@ class adminModulesList
             $tab = $count && $count == count($list) ? '#plugins' : '#update';
 
             dcPage::addSuccessNotice(
-                __('Plugin has been successfully updated.', 'Plugins have been successuflly updated.', $count)
+                __('Plugin has been successfully updated.', 'Plugins have been successfully updated.', $count)
             );
             http::redirect($this->getURL() . $tab);
         }
@@ -1307,8 +1307,8 @@ class adminModulesList
             $this->core->callBehavior('pluginAfterAdd', null);
 
             dcPage::addSuccessNotice($ret_code == 2 ?
-                __('Plugin has been successfully updated.') :
-                __('Plugin has been successfully installed.')
+                __('The plugin has been successfully updated.') :
+                __('The plugin has been successfully installed.')
             );
             http::redirect($this->getURL() . '#plugins');
         } else {
@@ -2035,7 +2035,7 @@ class adminThemesList extends adminModulesList
                 }
 
                 dcPage::addSuccessNotice(
-                    __('Theme has been successfully installed.', 'Themes have been successuflly installed.', $count)
+                    __('Theme has been successfully installed.', 'Themes have been successfully installed.', $count)
                 );
                 http::redirect($this->getURL());
             } elseif ($this->core->auth->isSuperAdmin() && !empty($_POST['update'])) {
@@ -2070,7 +2070,7 @@ class adminThemesList extends adminModulesList
                 $tab = $count && $count == count($list) ? '#themes' : '#update';
 
                 dcPage::addSuccessNotice(
-                    __('Theme has been successfully updated.', 'Themes have been successuflly updated.', $count)
+                    __('Theme has been successfully updated.', 'Themes have been successfully updated.', $count)
                 );
                 http::redirect($this->getURL() . $tab);
             }
@@ -2104,8 +2104,8 @@ class adminThemesList extends adminModulesList
                 $this->core->callBehavior('themeAfterAdd', null);
 
                 dcPage::addSuccessNotice($ret_code == 2 ?
-                    __('Theme has been successfully updated.') :
-                    __('Theme has been successfully installed.')
+                    __('The theme has been successfully updated.') :
+                    __('The theme has been successfully installed.')
                 );
                 http::redirect($this->getURL() . '#themes');
             } else {

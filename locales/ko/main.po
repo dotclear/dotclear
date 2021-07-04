@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:06+0100\n"
+"POT-Creation-Date: 2021-07-04 16:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -86,6 +86,10 @@ msgstr "이메일:"
 
 msgid "recover"
 msgstr "되살리기"
+
+#, fuzzy
+msgid "Other option"
+msgstr "찾을 내용 지정"
 
 msgid "Change your password"
 msgstr "비밀번호 변경"
@@ -569,6 +573,9 @@ msgid "Blog security"
 msgstr "블로그 간략 소개:"
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
+msgstr ""
+
+msgid "Protect the blog from FLoC tracking (see <a href=\"https://github.com/WICG/floc\" hreflang=\"en\">FLoC</a>)"
 msgstr ""
 
 #, fuzzy
@@ -1209,19 +1216,14 @@ msgstr "Dotclear 설치"
 msgid "Password strength: %s"
 msgstr "비밀번호 수정"
 
-msgid "very weak"
-msgstr ""
-
 msgid "weak"
 msgstr ""
 
-msgid "mediocre"
-msgstr ""
+#, fuzzy
+msgid "medium"
+msgstr "중간 크키 :"
 
 msgid "strong"
-msgstr ""
-
-msgid "very strong"
 msgstr ""
 
 msgid "show"
@@ -1341,9 +1343,6 @@ msgstr "당신의 설정파일 생성을 위해 다음 사항들을 적어주세
 
 msgid "Database type:"
 msgstr "데이터베이스 종류 :"
-
-msgid "MySQL (deprecated)"
-msgstr ""
 
 msgid "MySQLi"
 msgstr ""
@@ -2446,12 +2445,6 @@ msgstr ""
 msgid "Font size:"
 msgstr "파일 크기 :"
 
-msgid "Activate adpative font size"
-msgstr ""
-
-msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
-msgstr ""
-
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
@@ -2465,6 +2458,12 @@ msgid "Do not use standard favicon"
 msgstr ""
 
 msgid "This will be applied for all users"
+msgstr ""
+
+msgid "Disable Ad-blocker check"
+msgstr ""
+
+msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr ""
 
 msgid "Optional columns displayed in lists"
@@ -3338,6 +3337,9 @@ msgstr "새 비밀번호 :"
 msgid "Hide password"
 msgstr "새 비밀번호 :"
 
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it."
+msgstr ""
+
 msgid "You have unsaved changes."
 msgstr "변경하신 내용을 저장하지 않았습니다."
 
@@ -3525,7 +3527,7 @@ msgstr[0] "플러그인이 성공적으로 삭제되었습니다."
 
 #, fuzzy
 msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successuflly installed."
+msgid_plural "Plugins have been successfully installed."
 msgstr[0] "플러그인이 성공적으로 설치되었습니다."
 
 #, fuzzy
@@ -3544,8 +3546,16 @@ msgstr[0] "플러그인이 성공적으로 삭제되었습니다."
 
 #, fuzzy
 msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successuflly updated."
+msgid_plural "Plugins have been successfully updated."
 msgstr[0] "플러그인이 성공적으로 갱신되었습니다."
+
+#, fuzzy
+msgid "The plugin has been successfully updated."
+msgstr "플러그인이 성공적으로 갱신되었습니다."
+
+#, fuzzy
+msgid "The plugin has been successfully installed."
+msgstr "플러그인이 성공적으로 설치되었습니다."
 
 #, fuzzy
 msgid "Zip file path:"
@@ -3667,13 +3677,21 @@ msgstr[0] "테마가 성공적으로 삭제되었습니다."
 
 #, fuzzy
 msgid "Theme has been successfully installed."
-msgid_plural "Themes have been successuflly installed."
+msgid_plural "Themes have been successfully installed."
 msgstr[0] "테마가 성공적으로 설치되었습니다."
 
 #, fuzzy
 msgid "Theme has been successfully updated."
-msgid_plural "Themes have been successuflly updated."
+msgid_plural "Themes have been successfully updated."
 msgstr[0] "테마가 성공적으로 갱신되었습니다."
+
+#, fuzzy
+msgid "The theme has been successfully updated."
+msgstr "테마가 성공적으로 갱신되었습니다."
+
+#, fuzzy
+msgid "The theme has been successfully installed."
+msgstr "테마가 성공적으로 설치되었습니다."
 
 #, fuzzy
 msgid "First page"
@@ -3907,10 +3925,6 @@ msgstr "블로그"
 
 msgid "Plugins"
 msgstr "플러그인"
-
-#, fuzzy
-msgid "medium"
-msgstr "중간 크키 :"
 
 #, fuzzy
 msgid "small"
@@ -4176,6 +4190,10 @@ msgstr "블로그 이름이 없습니다."
 msgid "Unable to retrieve workspaces:"
 msgstr "설정값을 읽어볼 수 없게함 :"
 
+#, fuzzy, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "바르지 않은 영역이름 : %s"
+
 #, fuzzy
 msgid "Unable to retrieve namespaces:"
 msgstr "설정값을 읽어볼 수 없게함 :"
@@ -4312,10 +4330,6 @@ msgstr "컨트롤파일(digests)을 읽을 수 없습니다."
 
 msgid "Invalid digests file."
 msgstr "컨트롤파일(digests)이 비정상적입니다."
-
-#, fuzzy, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "바르지 않은 영역이름 : %s"
 
 #, fuzzy
 msgid "Unable to retrieve prefs:"

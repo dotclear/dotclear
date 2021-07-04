@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-rc1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:05+0100\n"
+"POT-Creation-Date: 2021-07-04 16:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Catalan\n"
@@ -85,6 +85,10 @@ msgstr "Correu electrònic:"
 
 msgid "recover"
 msgstr "Recuperar"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Descripció"
 
 msgid "Change your password"
 msgstr "Canviar la seva contrasenya"
@@ -565,6 +569,9 @@ msgid "Blog security"
 msgstr "Descripció del blog :"
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
+msgstr ""
+
+msgid "Protect the blog from FLoC tracking (see <a href=\"https://github.com/WICG/floc\" hreflang=\"en\">FLoC</a>)"
 msgstr ""
 
 #, fuzzy
@@ -1211,19 +1218,13 @@ msgstr "Instal·lació de Dotclear"
 msgid "Password strength: %s"
 msgstr "Reinicialització de contrasenya"
 
-msgid "very weak"
-msgstr ""
-
 msgid "weak"
 msgstr ""
 
-msgid "mediocre"
+msgid "medium"
 msgstr ""
 
 msgid "strong"
-msgstr ""
-
-msgid "very strong"
 msgstr ""
 
 msgid "show"
@@ -1346,9 +1347,6 @@ msgstr "Si us plau, faciliti la informació següent necessària per a crear l'a
 
 msgid "Database type:"
 msgstr "Tipus de base de dades:"
-
-msgid "MySQL (deprecated)"
-msgstr ""
 
 msgid "MySQLi"
 msgstr ""
@@ -2465,12 +2463,6 @@ msgstr ""
 msgid "Font size:"
 msgstr "Mida del fitxer:"
 
-msgid "Activate adpative font size"
-msgstr ""
-
-msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
-msgstr ""
-
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
@@ -2484,6 +2476,12 @@ msgid "Do not use standard favicon"
 msgstr ""
 
 msgid "This will be applied for all users"
+msgstr ""
+
+msgid "Disable Ad-blocker check"
+msgstr ""
+
+msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr ""
 
 msgid "Optional columns displayed in lists"
@@ -3371,6 +3369,9 @@ msgstr "Nova contrasenya:"
 msgid "Hide password"
 msgstr "Nova contrasenya:"
 
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it."
+msgstr ""
+
 msgid "You have unsaved changes."
 msgstr "No ha guardat els canvis."
 
@@ -3565,7 +3566,7 @@ msgstr[0] "Les extensions s'han suprimit amb èxit."
 msgstr[1] "Les extensions s'han suprimit amb èxit."
 
 msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successuflly installed."
+msgid_plural "Plugins have been successfully installed."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -3587,9 +3588,17 @@ msgstr[1] "Les extensions s'han suprimit amb èxit."
 
 #, fuzzy
 msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successuflly updated."
+msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Les extensions s'han suprimit amb èxit."
 msgstr[1] "Les extensions s'han suprimit amb èxit."
+
+#, fuzzy
+msgid "The plugin has been successfully updated."
+msgstr "Les extensions s'han suprimit amb èxit."
+
+#, fuzzy
+msgid "The plugin has been successfully installed."
+msgstr "El fitxer s'ha adjuntat amb èxit."
 
 msgid "Zip file path:"
 msgstr ""
@@ -3710,15 +3719,23 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Theme has been successfully installed."
-msgid_plural "Themes have been successuflly installed."
+msgid_plural "Themes have been successfully installed."
 msgstr[0] ""
 msgstr[1] ""
 
 #, fuzzy
 msgid "Theme has been successfully updated."
-msgid_plural "Themes have been successuflly updated."
+msgid_plural "Themes have been successfully updated."
 msgstr[0] "L'usuari s'ha actualitzat amb èxit."
 msgstr[1] "L'usuari s'ha actualitzat amb èxit."
+
+#, fuzzy
+msgid "The theme has been successfully updated."
+msgstr "L'usuari s'ha actualitzat amb èxit."
+
+#, fuzzy
+msgid "The theme has been successfully installed."
+msgstr "El tema s'ha canviat amb èxit."
 
 #, fuzzy
 msgid "First page"
@@ -3958,9 +3975,6 @@ msgstr "Blog"
 
 msgid "Plugins"
 msgstr "Extensions"
-
-msgid "medium"
-msgstr ""
 
 #, fuzzy
 msgid "small"
@@ -4226,6 +4240,10 @@ msgstr "Cap nom de blog"
 msgid "Unable to retrieve workspaces:"
 msgstr "Impossible obtenir els paràmetres:"
 
+#, fuzzy, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "Adreça de correu electrònica incorrecte"
+
 #, fuzzy
 msgid "Unable to retrieve namespaces:"
 msgstr "Impossible obtenir els paràmetres:"
@@ -4369,10 +4387,6 @@ msgstr "Impossible re-nombrar l'arxiu."
 
 msgid "Invalid digests file."
 msgstr ""
-
-#, fuzzy, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "Adreça de correu electrònica incorrecte"
 
 #, fuzzy
 msgid "Unable to retrieve prefs:"
@@ -4727,9 +4741,6 @@ msgstr ""
 
 #~ msgid "Plugins root is not writable."
 #~ msgstr "L'arrel de l'extensió no és gravable."
-
-#~ msgid "Description"
-#~ msgstr "Descripció"
 
 #~ msgid "Entry preview"
 #~ msgstr "Vista prèvia de l'entrada"

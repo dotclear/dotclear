@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:06+0100\n"
+"POT-Creation-Date: 2021-07-04 16:23+0200\n"
 "PO-Revision-Date: 2020-04-29 10:29\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French\n"
@@ -1086,8 +1086,8 @@ msgstr "Importer mon blog maintenant"
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "Nous avons besoin au préalable de quelques informations à propos de votre installation Dotclear 1.2."
 
-msgid "Database driver (must be mysqli if PHP 7 or higher):"
-msgstr "Driver de base de données (doit être mysqli si PHP 7 ou supérieur) :"
+msgid "Database driver:"
+msgstr "Moteur de la base de données :"
 
 msgid "Entries import options"
 msgstr "Options d'importation des billets"
@@ -1235,6 +1235,9 @@ msgstr "Les tables WordPress n'ont pu être trouvées."
 
 msgid "No file to read."
 msgstr "Aucun fichier à lire."
+
+msgid "Unable to create output file."
+msgstr "Impossible de créer le fichier d'exportation."
 
 msgid "File is not a DotClear backup."
 msgstr "Ce fichier n'est pas un fichier de sauvegarde Dotclear."
@@ -2061,9 +2064,8 @@ msgstr "Fichiers JavaScript"
 msgid "Locales files"
 msgstr "Fichiers de traduction"
 
-#, fuzzy
 msgid "PHP files"
-msgstr "Fichiers CSS"
+msgstr "Fichiers PHP"
 
 msgid "Preferences successfully updated"
 msgstr "Les préférences ont été mises à jour."
@@ -2279,6 +2281,3 @@ msgstr "Retirer le widget"
 
 msgid "Drag widgets here to remove."
 msgstr "Glisser les widgets ici pour les retirer du volet."
-
-#~ msgid "Theme:"
-#~ msgstr "Thème :"

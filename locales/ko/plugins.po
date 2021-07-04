@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:06+0100\n"
+"POT-Creation-Date: 2021-07-04 16:23+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -1137,8 +1137,9 @@ msgstr "내 블로그를 지금 가져오기"
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "먼저, 당신이 쓰던 Dotclear 1.2 실행본에 대한 몇 가지 정보가 필요합니다."
 
-msgid "Database driver (must be mysqli if PHP 7 or higher):"
-msgstr ""
+#, fuzzy
+msgid "Database driver:"
+msgstr "일반텍스트 파일로 내보내기"
 
 msgid "Entries import options"
 msgstr "글꼭지 가져오기 선택사항"
@@ -1296,6 +1297,10 @@ msgstr "Wordpress 테이블이 발견되지 않았습니다"
 
 msgid "No file to read."
 msgstr "읽을 파일이 없습니다."
+
+#, fuzzy
+msgid "Unable to create output file."
+msgstr "이미지를 생성할 수 없습니다."
 
 msgid "File is not a DotClear backup."
 msgstr "이 파일은 DotClear 백업파일이 아닙니다."
@@ -2428,6 +2433,14 @@ msgstr "위젯 삭제"
 
 msgid "Drag widgets here to remove."
 msgstr ""
+
+#, fuzzy
+#~ msgid "Liste des auteurs"
+#~ msgstr "모든 링크분류 포함"
+
+#, fuzzy
+#~ msgid "Liste des séries"
+#~ msgstr "최근 글꼭지"
 
 #, fuzzy
 #~ msgid "Are you sure you want to delete all spams?"

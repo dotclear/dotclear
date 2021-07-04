@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:05+0100\n"
+"POT-Creation-Date: 2021-07-04 16:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:45+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Team DSLJ <maniactor@gmail.com>\n"
@@ -82,6 +82,10 @@ msgstr "Email:"
 
 msgid "recover"
 msgstr "gendan"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Handling"
 
 msgid "Change your password"
 msgstr "Skift dit kodeord"
@@ -557,6 +561,9 @@ msgid "Blog security"
 msgstr "Blog beskrivelse:"
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
+msgstr ""
+
+msgid "Protect the blog from FLoC tracking (see <a href=\"https://github.com/WICG/floc\" hreflang=\"en\">FLoC</a>)"
 msgstr ""
 
 #, fuzzy
@@ -1197,19 +1204,14 @@ msgstr "Dotclear installation"
 msgid "Password strength: %s"
 msgstr "Kodeordet er nulstillet"
 
-msgid "very weak"
-msgstr ""
-
 msgid "weak"
 msgstr ""
 
-msgid "mediocre"
-msgstr ""
+#, fuzzy
+msgid "medium"
+msgstr "Medium:"
 
 msgid "strong"
-msgstr ""
-
-msgid "very strong"
 msgstr ""
 
 msgid "show"
@@ -1329,9 +1331,6 @@ msgstr "Venligst indtast følgende informationer som er nødvendige for at opret
 
 msgid "Database type:"
 msgstr "Database type:"
-
-msgid "MySQL (deprecated)"
-msgstr ""
 
 msgid "MySQLi"
 msgstr ""
@@ -2405,12 +2404,6 @@ msgstr ""
 msgid "Font size:"
 msgstr ""
 
-msgid "Activate adpative font size"
-msgstr ""
-
-msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
-msgstr ""
-
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
@@ -2424,6 +2417,12 @@ msgid "Do not use standard favicon"
 msgstr ""
 
 msgid "This will be applied for all users"
+msgstr ""
+
+msgid "Disable Ad-blocker check"
+msgstr ""
+
+msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr ""
 
 msgid "Optional columns displayed in lists"
@@ -3283,6 +3282,9 @@ msgstr "Nyt kodeord:"
 msgid "Hide password"
 msgstr "Nyt kodeord:"
 
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it."
+msgstr ""
+
 #, fuzzy
 msgid "You have unsaved changes."
 msgstr "Du har en spam kommentar."
@@ -3466,7 +3468,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successuflly installed."
+msgid_plural "Plugins have been successfully installed."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -3488,9 +3490,17 @@ msgstr[1] "Bloggen er slettet."
 
 #, fuzzy
 msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successuflly updated."
+msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Bloggen er opdateret uden fejl."
 msgstr[1] "Bloggen er opdateret uden fejl."
+
+#, fuzzy
+msgid "The plugin has been successfully updated."
+msgstr "Bloggen er opdateret uden fejl."
+
+#, fuzzy
+msgid "The plugin has been successfully installed."
+msgstr "Temaet er blevet installeret."
 
 msgid "Zip file path:"
 msgstr ""
@@ -3613,15 +3623,23 @@ msgstr[1] "Temaet er slettet."
 
 #, fuzzy
 msgid "Theme has been successfully installed."
-msgid_plural "Themes have been successuflly installed."
+msgid_plural "Themes have been successfully installed."
 msgstr[0] "Temaet er blevet installeret."
 msgstr[1] "Temaet er blevet installeret."
 
 #, fuzzy
 msgid "Theme has been successfully updated."
-msgid_plural "Themes have been successuflly updated."
+msgid_plural "Themes have been successfully updated."
 msgstr[0] "Temaet er opdateret"
 msgstr[1] "Temaet er opdateret"
+
+#, fuzzy
+msgid "The theme has been successfully updated."
+msgstr "Temaet er opdateret"
+
+#, fuzzy
+msgid "The theme has been successfully installed."
+msgstr "Temaet er blevet installeret."
 
 #, fuzzy
 msgid "First page"
@@ -3856,10 +3874,6 @@ msgstr ""
 
 msgid "Plugins"
 msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Medium:"
 
 #, fuzzy
 msgid "small"
@@ -4117,6 +4131,10 @@ msgstr ""
 msgid "Unable to retrieve workspaces:"
 msgstr ""
 
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr ""
+
 msgid "Unable to retrieve namespaces:"
 msgstr ""
 
@@ -4248,10 +4266,6 @@ msgid "Unable to read digests file."
 msgstr ""
 
 msgid "Invalid digests file."
-msgstr ""
-
-#, php-format
-msgid "Invalid dcWorkspace: %s"
 msgstr ""
 
 msgid "Unable to retrieve prefs:"

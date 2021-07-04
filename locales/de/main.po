@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:05+0100\n"
+"POT-Creation-Date: 2021-07-04 16:23+0200\n"
 "PO-Revision-Date: 2017-12-22 19:46+0100\n"
 "Last-Translator: Tin2 <sort300-blog@yahoo.com>\n"
 "Language-Team: \n"
@@ -81,6 +81,10 @@ msgstr "E-Mail:"
 
 msgid "recover"
 msgstr "wiederherstellen"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Andere Optionen"
 
 msgid "Change your password"
 msgstr "Ändere dein Passwort"
@@ -546,6 +550,9 @@ msgid "Blog security"
 msgstr "Blogsicherheit"
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
+msgstr ""
+
+msgid "Protect the blog from FLoC tracking (see <a href=\"https://github.com/WICG/floc\" hreflang=\"en\">FLoC</a>)"
 msgstr ""
 
 msgid "Plugins parameters"
@@ -1156,20 +1163,14 @@ msgstr "Dotclear-Installation"
 msgid "Password strength: %s"
 msgstr "Passwort Stärke: %s"
 
-msgid "very weak"
-msgstr "sehr schwach"
-
 msgid "weak"
 msgstr "schwach"
 
-msgid "mediocre"
-msgstr "mittelmässig"
+msgid "medium"
+msgstr "mittel"
 
 msgid "strong"
 msgstr "stark"
-
-msgid "very strong"
-msgstr "sehr stark"
 
 msgid "show"
 msgstr "Anzeigen"
@@ -1281,9 +1282,6 @@ msgstr "Bitte gib folgende Informationen an, um die Konfigurationsdatei zu erste
 
 msgid "Database type:"
 msgstr "Datenbank-Typ:"
-
-msgid "MySQL (deprecated)"
-msgstr "MySQL (veraltet)"
 
 msgid "MySQLi"
 msgstr "MySQLi"
@@ -2302,12 +2300,6 @@ msgstr ""
 msgid "Font size:"
 msgstr "Schriftgrösse:"
 
-msgid "Activate adpative font size"
-msgstr "Adpative Schriftgröße aktivieren"
-
-msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
-msgstr ""
-
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
@@ -2322,6 +2314,12 @@ msgstr "Standard-Favicon nicht benützen"
 
 msgid "This will be applied for all users"
 msgstr "Diese Einstellung wirkt sich auf alle Benutzer aus"
+
+msgid "Disable Ad-blocker check"
+msgstr ""
+
+msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
+msgstr ""
 
 msgid "Optional columns displayed in lists"
 msgstr ""
@@ -3132,6 +3130,9 @@ msgstr "Neues Passwort:"
 msgid "Hide password"
 msgstr "Neues Passwort:"
 
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it."
+msgstr ""
+
 msgid "You have unsaved changes."
 msgstr "Du hast Änderungen nicht gespeichert."
 
@@ -3305,8 +3306,9 @@ msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "Plugin wurde erfolgreich gelöscht."
 msgstr[1] "Plugin wurde erfolgreich gelöscht."
 
+#, fuzzy
 msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successuflly installed."
+msgid_plural "Plugins have been successfully installed."
 msgstr[0] "Plugin wurde erfolgreich installiert."
 msgstr[1] "Plugins wurden erfolgreich installiert."
 
@@ -3323,10 +3325,19 @@ msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Plugin wurde erfolgreich deaktiviert."
 msgstr[1] "Plugins wurden erfolgreich gelöscht."
 
+#, fuzzy
 msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successuflly updated."
+msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Plugin wurde erfolgreich aktualisiert."
 msgstr[1] "Plugins wurden erfolgreich aktualisiert."
+
+#, fuzzy
+msgid "The plugin has been successfully updated."
+msgstr "Plugin wurde erfolgreich aktualisiert."
+
+#, fuzzy
+msgid "The plugin has been successfully installed."
+msgstr "Plugin wurde erfolgreich installiert."
 
 msgid "Zip file path:"
 msgstr "ZIP Datei Pfad:"
@@ -3436,15 +3447,25 @@ msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "Theme wurde erfolgreich gelöscht."
 msgstr[1] "Theme wurde erfolgreich gelöscht."
 
+#, fuzzy
 msgid "Theme has been successfully installed."
-msgid_plural "Themes have been successuflly installed."
+msgid_plural "Themes have been successfully installed."
 msgstr[0] "Theme wurde erfolgreich installiert."
 msgstr[1] "Theme wurde erfolgreich installiert."
 
+#, fuzzy
 msgid "Theme has been successfully updated."
-msgid_plural "Themes have been successuflly updated."
+msgid_plural "Themes have been successfully updated."
 msgstr[0] "Thema wurde erfolgreich aktualisiert."
 msgstr[1] "Theme wurde erfolgreich aktualisiert."
+
+#, fuzzy
+msgid "The theme has been successfully updated."
+msgstr "Thema wurde erfolgreich aktualisiert."
+
+#, fuzzy
+msgid "The theme has been successfully installed."
+msgstr "Theme wurde erfolgreich installiert."
 
 msgid "First page"
 msgstr "Erste Seite"
@@ -3666,9 +3687,6 @@ msgstr "Blog"
 
 msgid "Plugins"
 msgstr "Plugins"
-
-msgid "medium"
-msgstr "mittel"
 
 msgid "small"
 msgstr "klein"
@@ -3921,6 +3939,10 @@ msgstr "Keine Lognachricht vorhanden"
 msgid "Unable to retrieve workspaces:"
 msgstr "Nicht in der Lage, Arbeitsbereich abzurufen:"
 
+#, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "Ungültiger DcWorkspace: %s"
+
 msgid "Unable to retrieve namespaces:"
 msgstr "Kann Namespaces nicht abrufen:"
 
@@ -4056,10 +4078,6 @@ msgstr "Kann die Auswertungsdatei nicht lesen."
 msgid "Invalid digests file."
 msgstr "Ungültige Auswertungsdatei."
 
-#, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "Ungültiger DcWorkspace: %s"
-
 #, fuzzy
 msgid "Unable to retrieve prefs:"
 msgstr "Kann die Einstellungen zum Namespace nicht abrufen:"
@@ -4089,6 +4107,25 @@ msgstr "<p>Dies bedeutet, dass entweder dein Benutzername und dein Passwort in d
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Bei dem Versuch, Deine Datenbank zu lesen, trat folgender Fehler auf:"
+
+#, fuzzy
+#~ msgid "large"
+#~ msgstr "Grösser"
+
+#~ msgid "very weak"
+#~ msgstr "sehr schwach"
+
+#~ msgid "mediocre"
+#~ msgstr "mittelmässig"
+
+#~ msgid "very strong"
+#~ msgstr "sehr stark"
+
+#~ msgid "MySQL (deprecated)"
+#~ msgstr "MySQL (veraltet)"
+
+#~ msgid "Activate adpative font size"
+#~ msgstr "Adpative Schriftgröße aktivieren"
 
 #, fuzzy
 #~ msgid "Activate dark mode"

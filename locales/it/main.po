@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-27 09:06+0100\n"
+"POT-Creation-Date: 2021-07-04 16:23+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -83,6 +83,10 @@ msgstr "Email:"
 
 msgid "recover"
 msgstr "recupera"
+
+#, fuzzy
+msgid "Other option"
+msgstr "Opzioni di ricerca"
 
 msgid "Change your password"
 msgstr "Cambia password"
@@ -564,6 +568,9 @@ msgid "Blog security"
 msgstr "Descrizione del blog:"
 
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
+msgstr ""
+
+msgid "Protect the blog from FLoC tracking (see <a href=\"https://github.com/WICG/floc\" hreflang=\"en\">FLoC</a>)"
 msgstr ""
 
 #, fuzzy
@@ -1206,19 +1213,14 @@ msgstr "Installazione di Dotclear"
 msgid "Password strength: %s"
 msgstr "Sostituzione password"
 
-msgid "very weak"
-msgstr ""
-
 msgid "weak"
 msgstr ""
 
-msgid "mediocre"
-msgstr ""
+#, fuzzy
+msgid "medium"
+msgstr "Media:"
 
 msgid "strong"
-msgstr ""
-
-msgid "very strong"
 msgstr ""
 
 msgid "show"
@@ -1333,9 +1335,6 @@ msgstr "Forniree le seguenti informazioni per creare il file di configurazione."
 
 msgid "Database type:"
 msgstr "Tipo di database:"
-
-msgid "MySQL (deprecated)"
-msgstr ""
 
 msgid "MySQLi"
 msgstr ""
@@ -2437,12 +2436,6 @@ msgstr ""
 msgid "Font size:"
 msgstr "Dimensione file:"
 
-msgid "Activate adpative font size"
-msgstr ""
-
-msgid "If checked, font size will vary depending on viewport size (from 12px to 16px with default font size selected)."
-msgstr ""
-
 msgid "Number of elements displayed per page in media manager:"
 msgstr ""
 
@@ -2456,6 +2449,12 @@ msgid "Do not use standard favicon"
 msgstr ""
 
 msgid "This will be applied for all users"
+msgstr ""
+
+msgid "Disable Ad-blocker check"
+msgstr ""
+
+msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr ""
 
 msgid "Optional columns displayed in lists"
@@ -3328,6 +3327,9 @@ msgstr "Nuova password:"
 msgid "Hide password"
 msgstr "Nuova password:"
 
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it."
+msgstr ""
+
 msgid "You have unsaved changes."
 msgstr "Sono presenti delle modifiche non salvate."
 
@@ -3518,7 +3520,7 @@ msgstr[1] "Componente aggiuntivo eliminato correttamente."
 
 #, fuzzy
 msgid "Plugin has been successfully installed."
-msgid_plural "Plugins have been successuflly installed."
+msgid_plural "Plugins have been successfully installed."
 msgstr[0] "Componente aggiuntivo installato correttamente."
 msgstr[1] "Componente aggiuntivo installato correttamente."
 
@@ -3540,9 +3542,17 @@ msgstr[1] "Componente aggiuntivo eliminato correttamente."
 
 #, fuzzy
 msgid "Plugin has been successfully updated."
-msgid_plural "Plugins have been successuflly updated."
+msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Componente aggiuntivo aggiornato correttamente."
 msgstr[1] "Componente aggiuntivo aggiornato correttamente."
+
+#, fuzzy
+msgid "The plugin has been successfully updated."
+msgstr "Componente aggiuntivo aggiornato correttamente."
+
+#, fuzzy
+msgid "The plugin has been successfully installed."
+msgstr "Componente aggiuntivo installato correttamente."
 
 #, fuzzy
 msgid "Zip file path:"
@@ -3669,15 +3679,23 @@ msgstr[1] "Tema eliminato correttamente."
 
 #, fuzzy
 msgid "Theme has been successfully installed."
-msgid_plural "Themes have been successuflly installed."
+msgid_plural "Themes have been successfully installed."
 msgstr[0] "Tema installato correttamente."
 msgstr[1] "Tema installato correttamente."
 
 #, fuzzy
 msgid "Theme has been successfully updated."
-msgid_plural "Themes have been successuflly updated."
+msgid_plural "Themes have been successfully updated."
 msgstr[0] "Tema aggiornato correttamente."
 msgstr[1] "Tema aggiornato correttamente."
+
+#, fuzzy
+msgid "The theme has been successfully updated."
+msgstr "Tema aggiornato correttamente."
+
+#, fuzzy
+msgid "The theme has been successfully installed."
+msgstr "Tema installato correttamente."
 
 #, fuzzy
 msgid "First page"
@@ -3916,10 +3934,6 @@ msgstr "Blog"
 
 msgid "Plugins"
 msgstr "Componenti aggiuntivi"
-
-#, fuzzy
-msgid "medium"
-msgstr "Media:"
 
 #, fuzzy
 msgid "small"
@@ -4183,6 +4197,10 @@ msgstr "Nessun messaggio di log"
 msgid "Unable to retrieve workspaces:"
 msgstr "Impossibile ottenere i namespace:"
 
+#, fuzzy, php-format
+msgid "Invalid dcWorkspace: %s"
+msgstr "Impostazione non valida dcNamespace: %s"
+
 msgid "Unable to retrieve namespaces:"
 msgstr "Impossibile ottenere i namespace:"
 
@@ -4317,10 +4335,6 @@ msgstr "Impossibile leggere il file di verifica."
 
 msgid "Invalid digests file."
 msgstr "File di verifica non valido."
-
-#, fuzzy, php-format
-msgid "Invalid dcWorkspace: %s"
-msgstr "Impostazione non valida dcNamespace: %s"
 
 #, fuzzy
 msgid "Unable to retrieve prefs:"
