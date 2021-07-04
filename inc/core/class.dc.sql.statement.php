@@ -49,7 +49,7 @@ class dcSqlStatement
      *
      * @return     mixed   property value if property exists
      */
-    public function __get($property)
+    public function __get(string $property)
     {
         if (property_exists($this, $property)) {
             return $this->$property;
@@ -65,7 +65,7 @@ class dcSqlStatement
      *
      * @return     self
      */
-    public function __set($property, $value)
+    public function __set(string $property, $value)
     {
         if (property_exists($this, $property)) {
             $this->$property = $value;
@@ -83,7 +83,7 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function ctx($c)
+    public function ctx($c): dcSqlStatement
     {
         $this->ctx = $c;
 
@@ -98,7 +98,7 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function columns($c, $reset = false)
+    public function columns($c, bool $reset = false): dcSqlStatement
     {
         if ($reset) {
             $this->columns = [];
@@ -120,7 +120,7 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function column($c, $reset = false)
+    public function column($c, bool $reset = false): dcSqlStatement
     {
         return $this->columns($c, $reset);
     }
@@ -133,7 +133,7 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function from($c, $reset = false)
+    public function from($c, bool $reset = false): dcSqlStatement
     {
         if ($reset) {
             $this->from = [];
@@ -161,7 +161,7 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function where($c, $reset = false)
+    public function where($c, bool $reset = false): dcSqlStatement
     {
         if ($reset) {
             $this->where = [];
@@ -183,7 +183,7 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function cond($c, $reset = false)
+    public function cond($c, bool $reset = false): dcSqlStatement
     {
         if ($reset) {
             $this->cond = [];
@@ -205,7 +205,7 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function sql($c, $reset = false)
+    public function sql($c, bool $reset = false): dcSqlStatement
     {
         if ($reset) {
             $this->sql = [];
@@ -228,7 +228,7 @@ class dcSqlStatement
      *
      * @return     string
      */
-    public function escape($value)
+    public function escape(string $value): string
     {
         return $this->con->escape($value);
     }
@@ -241,7 +241,7 @@ class dcSqlStatement
      *
      * @return     string
      */
-    public function quote($value, $escape = true)
+    public function quote($value, bool $escape = true): string
     {
         return
             (is_string($value) ? "'" : '') .
@@ -256,7 +256,7 @@ class dcSqlStatement
      *
      * @return     string
      */
-    public function in($list)
+    public function in($list): string
     {
         return $this->con->in($list);
     }
@@ -269,7 +269,7 @@ class dcSqlStatement
      *
      * @return     string
      */
-    public function dateFormat($field, $pattern)
+    public function dateFormat(string $field, string $pattern): string
     {
         return $this->con->dateFormat($field, $pattern);
     }
@@ -281,7 +281,7 @@ class dcSqlStatement
      *
      * @return     string
      */
-    public function regexp($value)
+    public function regexp(string $value): string
     {
         if ($this->con->syntax() == 'mysql') {
             $clause = "REGEXP '^" . $this->escape(preg_quote($value)) . "[0-9]+$'";
@@ -300,8 +300,8 @@ class dcSqlStatement
      *
      * May be used for debugging purpose as:
      *
-     * if (!$sql->isSame($sql->statement(), $oldRequest)) {
-     *     trigger_error('SQL statement error: ' . $sql->statement() . ' / ' . $oldRequest, E_USER_ERROR);
+     * if (!$sql->isSame($sql->statement(), $strReq)) {
+     *     trigger_error('SQL statement error: ' . $sql->statement() . ' / ' . $strReq, E_USER_ERROR);
      * }
      *
      * @param      string   $local     The local
@@ -309,7 +309,7 @@ class dcSqlStatement
      *
      * @return     boolean  True if same, False otherwise.
      */
-    public function isSame($local, $external)
+    public function isSame(string $local, string $external): bool
     {
         $filter = function ($s) {
             $s        = strtoupper($s);
@@ -349,7 +349,7 @@ class dcSelectStatement extends dcSqlStatement
      * @param dcCore    $core   dcCore instance
      * @param mixed     $ctx    optional context
      */
-    public function __construct(&$core, $ctx = null)
+    public function __construct(dcCore &$core, $ctx = null)
     {
         $this->join = $this->having = $this->order = $this->group = [];
 
@@ -368,7 +368,7 @@ class dcSelectStatement extends dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function join($c, $reset = false)
+    public function join($c, bool $reset = false): dcSelectStatement
     {
         if ($reset) {
             $this->join = [];
@@ -390,7 +390,7 @@ class dcSelectStatement extends dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function having($c, $reset = false)
+    public function having($c, bool $reset = false): dcSelectStatement
     {
         if ($reset) {
             $this->having = [];
@@ -412,7 +412,7 @@ class dcSelectStatement extends dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function order($c, $reset = false)
+    public function order($c, bool $reset = false): dcSelectStatement
     {
         if ($reset) {
             $this->order = [];
@@ -434,7 +434,7 @@ class dcSelectStatement extends dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function group($c, $reset = false)
+    public function group($c, bool $reset = false): dcSelectStatement
     {
         if ($reset) {
             $this->group = [];
@@ -454,7 +454,7 @@ class dcSelectStatement extends dcSqlStatement
      * @param mixed $limit
      * @return self instance, enabling to chain calls
      */
-    public function limit($limit)
+    public function limit($limit): dcSelectStatement
     {
         $offset = null;
         if (is_array($limit)) {
@@ -483,7 +483,7 @@ class dcSelectStatement extends dcSqlStatement
      * @param integer $offset
      * @return self instance, enabling to chain calls
      */
-    public function offset($offset)
+    public function offset(int $offset): dcSelectStatement
     {
         $this->offset = $offset;
 
@@ -496,7 +496,7 @@ class dcSelectStatement extends dcSqlStatement
      * @param boolean $distinct
      * @return self instance, enabling to chain calls
      */
-    public function distinct($distinct = true)
+    public function distinct(bool $distinct = true): dcSelectStatement
     {
         $this->distinct = $distinct;
 
@@ -508,7 +508,7 @@ class dcSelectStatement extends dcSqlStatement
      *
      * @return string the statement
      */
-    public function statement()
+    public function statement(): string
     {
         # --BEHAVIOR-- coreBeforeSelectStatement
         $this->core->callBehavior('coreBeforeSelectStatement', $this);
@@ -600,7 +600,7 @@ class dcDeleteStatement extends dcSqlStatement
      *
      * @return string the statement
      */
-    public function statement()
+    public function statement(): string
     {
         # --BEHAVIOR-- coreBeforeDeleteStatement
         $this->core->callBehavior('coreBeforeDeleteStatement', $this);
@@ -658,7 +658,7 @@ class dcUpdateStatement extends dcSqlStatement
      * @param dcCore    $core   dcCore instance
      * @param mixed     $ctx    optional context
      */
-    public function __construct(&$core, $ctx = null)
+    public function __construct(dcCore &$core, $ctx = null)
     {
         $this->set = [];
 
@@ -673,7 +673,7 @@ class dcUpdateStatement extends dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function reference($c, $reset = false)
+    public function reference($c, bool $reset = false): dcUpdateStatement
     {
         $this->from($c, $reset);
 
@@ -688,7 +688,7 @@ class dcUpdateStatement extends dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function ref($c, $reset = false)
+    public function ref($c, bool $reset = false): dcUpdateStatement
     {
         return $this->reference($c, $reset);
     }
@@ -701,7 +701,7 @@ class dcUpdateStatement extends dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function set($c, $reset = false)
+    public function set($c, bool $reset = false): dcUpdateStatement
     {
         if ($reset) {
             $this->set = [];
@@ -723,7 +723,7 @@ class dcUpdateStatement extends dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function sets($c, $reset = false)
+    public function sets($c, bool $reset = false): dcUpdateStatement
     {
         return $this->set($c, $reset);
     }
@@ -735,7 +735,7 @@ class dcUpdateStatement extends dcSqlStatement
      *
      * @return string The where part of update statement
      */
-    public function whereStatement()
+    public function whereStatement(): string
     {
         # --BEHAVIOR-- coreBeforeUpdateWhereStatement
         $this->core->callBehavior('coreBeforeUpdateWhereStatement', $this);
@@ -773,7 +773,7 @@ class dcUpdateStatement extends dcSqlStatement
      *
      * @return string the statement
      */
-    public function statement()
+    public function statement(): string
     {
         # --BEHAVIOR-- coreBeforeUpdateStatement
         $this->core->callBehavior('coreBeforeUpdateStatement', $this);
@@ -836,7 +836,7 @@ class dcInsertStatement extends dcSqlStatement
      * @param dcCore    $core   dcCore instance
      * @param mixed     $ctx    optional context
      */
-    public function __construct(&$core, $ctx = null)
+    public function __construct(dcCore &$core, $ctx = null)
     {
         $this->lines = [];
 
@@ -851,7 +851,7 @@ class dcInsertStatement extends dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function into($c, $reset = false)
+    public function into($c, bool $reset = false): dcInsertStatement
     {
         $this->into($c, $reset);
 
@@ -866,7 +866,7 @@ class dcInsertStatement extends dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function lines($c, $reset = false)
+    public function lines($c, bool $reset = false): dcInsertStatement
     {
         if ($reset) {
             $this->lines = [];
@@ -888,7 +888,7 @@ class dcInsertStatement extends dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function line($c, $reset = false)
+    public function line($c, bool $reset = false): dcInsertStatement
     {
         return $this->lines($c, $reset);
     }
@@ -898,7 +898,7 @@ class dcInsertStatement extends dcSqlStatement
      *
      * @return string the statement
      */
-    public function statement()
+    public function statement(): string
     {
         # --BEHAVIOR-- coreBeforeInsertStatement
         $this->core->callBehavior('coreBeforeInsertStatement', $this);
