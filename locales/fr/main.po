@@ -3813,7 +3813,7 @@ msgid "Requires %s module which is disabled"
 msgstr "Requiert le module %s qui est désactivé"
 
 msgid "The following extensions have been disabled :"
-msgstr "Les plugins suivants ont été désactivés :"
+msgstr "Les éléments suivants ont été désactivés :"
 
 #, php-format
 msgid "Module \"%s\" has type \"%s\" that mismatch required module type \"%s\"."

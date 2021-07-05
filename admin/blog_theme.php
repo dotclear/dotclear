@@ -25,6 +25,10 @@ $list = new adminThemesList(
 );
 adminThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
+if ($core->themes->disableDepModules($core->adminurl->get('admin.blog.theme', []))) {
+    exit;
+}
+
 # -- Theme screenshot --
 if (!empty($_GET['shot']) && $list->modules->moduleExists($_GET['shot'])) {
     $f = path::real(empty($_GET['src']) ?
