@@ -266,8 +266,8 @@ CKEDITOR.lang['de'] = {
     },
     indent : 
     {
-    	indent : 'Einzug erhöhen',
-    	outdent : 'Einzug verringern'
+    	indent : 'Einzug vergrößern',
+    	outdent : 'Einzug verkleinern'
     },
     image : 
     {
@@ -419,7 +419,7 @@ CKEDITOR.lang['de'] = {
     clipboard : 
     {
     	copy : 'Kopieren',
-    	copyError : 'Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch kopieren. Bitte benutzen Sie die System-Zwischenablage über STRG-C (kopieren).',
+    	copyError : 'Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch zu kopieren. Bitte benutzen Sie die System-Zwischenablage über STRG-C (kopieren).',
     	cut : 'Ausschneiden',
     	cutError : 'Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch auszuschneiden. Bitte benutzen Sie die System-Zwischenablage über STRG-X (ausschneiden) und STRG-V (einfügen).',
     	paste : 'Einfügen',
@@ -486,7 +486,7 @@ CKEDITOR.lang['de'] = {
     	generalTab : 'Allgemein',
     	advancedTab : 'Erweitert',
     	validateNumberFailed : 'Dieser Wert ist keine Nummer.',
-    	confirmNewPage : 'Alle nicht gespeicherten Änderungen gehen verloren. Sind Sie sicher die neue Seite zu laden?',
+    	confirmNewPage : 'Alle nicht gespeicherten Änderungen gehen verloren. Sind Sie sicher, die neue Seite zu laden?',
     	confirmCancel : 'Einige Optionen wurden geändert. Wollen Sie den Dialog dennoch schließen?',
     	options : 'Optionen',
     	target : 'Zielseite',

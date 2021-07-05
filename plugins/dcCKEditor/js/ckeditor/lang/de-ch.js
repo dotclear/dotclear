@@ -6,7 +6,7 @@ CKEDITOR.lang['de-ch'] = {
     widget : 
     {
     	move : 'Zum Verschieben anwählen und ziehen',
-    	label : '%1 widget'
+    	label : '%1 Steuerelement'
     },
     undo : 
     {
@@ -93,13 +93,13 @@ CKEDITOR.lang['de-ch'] = {
     	headersColumn : 'Erste Spalte',
     	headersNone : 'Keine',
     	headersRow : 'Erste Zeile',
-    	heightUnit : 'height unit',
+    	heightUnit : 'Höheneinheit',
     	invalidBorder : 'Die Rahmenbreite muss eine Zahl sein.',
     	invalidCellPadding : 'Der Zellenabstand innen muss eine positive Zahl sein.',
     	invalidCellSpacing : 'Der Zellenabstand aussen muss eine positive Zahl sein.',
-    	invalidCols : 'Die Anzahl der Spalten muß grösser als 0 sein..',
+    	invalidCols : 'Die Anzahl der Spalten muss grösser als 0 sein..',
     	invalidHeight : 'Die Tabellenbreite muss eine Zahl sein.',
-    	invalidRows : 'Die Anzahl der Zeilen muß grösser als 0 sein.',
+    	invalidRows : 'Die Anzahl der Zeilen muss grösser als 0 sein.',
     	invalidWidth : 'Die Tabellenbreite muss eine Zahl sein.',
     	menu : 'Tabellen-Eigenschaften',
     	row : 
@@ -115,7 +115,7 @@ CKEDITOR.lang['de-ch'] = {
     	toolbar : 'Tabelle',
     	widthPc : '%',
     	widthPx : 'Pixel',
-    	widthUnit : 'Breite Einheit'
+    	widthUnit : 'Breiteneinheit'
     },
     stylescombo : 
     {
@@ -150,13 +150,13 @@ CKEDITOR.lang['de-ch'] = {
     pastetext : 
     {
     	button : 'Als Klartext einfügen',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Drücken Sie %1 zum Einfügen. Ihr Browser unterstützt nicht das Einfügen über dem Knopf in der Werkzeugleiste oder dem Kontextmenü.',
     	title : 'Als Klartext einfügen'
     },
     pastefromword : 
     {
     	confirmCleanup : 'Der Text, den Sie einfügen möchten, scheint aus MS-Word kopiert zu sein. Möchten Sie ihn zuvor bereinigen lassen?',
-    	error : 'Aufgrund eines internen Fehlers war es nicht möglich die eingefügten Daten zu bereinigen',
+    	error : 'Aufgrund eines internen Fehlers war es nicht möglich, die eingefügten Daten zu bereinigen',
     	title : 'Aus Word einfügen',
     	toolbar : 'Aus Word einfügen'
     },
@@ -215,8 +215,8 @@ CKEDITOR.lang['de-ch'] = {
     	anchorName : 'Nach Ankername',
     	charset : 'Verknüpfter Ressourcenzeichensatz',
     	cssClasses : 'Formatvorlagenklasse',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Herunterladen erzwingen',
+    	displayText : 'Anzeigetext',
     	emailAddress : 'E-Mail-Adresse',
     	emailBody : 'Nachrichtentext',
     	emailSubject : 'Betreffzeile',
@@ -231,9 +231,9 @@ CKEDITOR.lang['de-ch'] = {
     	noAnchors : '(Keine Anker im Dokument vorhanden)',
     	noEmail : 'Bitte geben Sie E-Mail-Adresse an',
     	noUrl : 'Bitte geben Sie die Link-URL an',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Bitte geben Sie die Telefonnummer ein',
     	other : '<andere>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Telefonnummer',
     	popupDependent : 'Abhängig (Netscape)',
     	popupFeatures : 'Pop-up Fenstereigenschaften',
     	popupFullScreen : 'Vollbild (IE)',
@@ -258,7 +258,7 @@ CKEDITOR.lang['de-ch'] = {
     	toAnchor : 'Anker in dieser Seite',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Telefon',
     	toolbar : 'Link einfügen/editieren',
     	type : 'Link-Typ',
     	unlink : 'Link entfernen',
@@ -266,8 +266,8 @@ CKEDITOR.lang['de-ch'] = {
     },
     indent : 
     {
-    	indent : 'Einzug erhöhen',
-    	outdent : 'Einzug verringern'
+    	indent : 'Einzug vergrössern',
+    	outdent : 'Einzug verkleinern'
     },
     image : 
     {
@@ -330,14 +330,14 @@ CKEDITOR.lang['de-ch'] = {
     	cssClassInputLabel : 'Formatvorlagenklasse',
     	edit : 'Div bearbeiten',
     	inlineStyleInputLabel : 'Inline Stil',
-    	langDirLTRLabel : 'Links nach Rechs (LTR)',
+    	langDirLTRLabel : 'Links nach Rechts (LTR)',
     	langDirLabel : 'Sprachrichtung',
-    	langDirRTLLabel : 'Rechs nach Links (RTL)',
+    	langDirRTLLabel : 'Rechts nach Links (RTL)',
     	languageCodeInputLabel : 'Sprachcode',
     	remove : 'Div entfernen',
     	styleSelectLabel : 'Stil',
-    	title : 'Div Container erzeugen',
-    	toolbar : 'Div Container erzeugen'
+    	title : 'Div-Container erzeugen',
+    	toolbar : 'Div-Container erzeugen'
     },
     contextmenu : 
     {
@@ -389,28 +389,28 @@ CKEDITOR.lang['de-ch'] = {
     		F0F8FF : 'Alice Blau',
     		E6E6FA : 'Lavendel',
     		FFF : 'Weiss',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
+    		'1ABC9C' : 'Kräftiges Türkis',
+    		'2ECC71' : 'Smaragdgrün',
+    		'3498DB' : 'Helles Blau',
+    		'9B59B6' : 'Amethystblau',
+    		'4E5F70' : 'Graublau',
+    		F1C40F : 'Lebhaftes Gelb',
+    		'16A085' : 'Dunkeltürkis',
+    		'27AE60' : 'Dunkles Smaragdgrün',
+    		'2980B9' : 'Kräftiges Blau',
+    		'8E44AD' : 'Dunkelvilolett',
+    		'2C3E50' : 'Entsättigtes blau',
     		F39C12 : 'Orange',
-    		E67E22 : 'Carrot',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
-    		BDC3C7 : 'Silver',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		E67E22 : 'Karotte',
+    		E74C3C : 'Blassrot',
+    		ECF0F1 : 'Glänzendes Silber',
+    		'95A5A6' : 'Helles Graublau',
+    		DDD : 'Hellgrau',
+    		D35400 : 'Kürbisfarben',
+    		C0392B : 'Kräftiges Rot',
+    		BDC3C7 : 'Silber',
+    		'7F8C8D' : 'Graucyan',
+    		'999' : 'Dunkelgrau'
     	},
     	more : 'Weitere Farben...',
     	panelTitle : 'Farben',
@@ -419,13 +419,13 @@ CKEDITOR.lang['de-ch'] = {
     clipboard : 
     {
     	copy : 'Kopieren',
-    	copyError : 'Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch kopieren. Bitte benutzen Sie die System-Zwischenablage über STRG-C (kopieren).',
+    	copyError : 'Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch zu kopieren. Bitte benutzen Sie die System-Zwischenablage über STRG-C (kopieren).',
     	cut : 'Ausschneiden',
     	cutError : 'Die Sicherheitseinstellungen Ihres Browsers lassen es nicht zu, den Text automatisch auszuschneiden. Bitte benutzen Sie die System-Zwischenablage über STRG-X (ausschneiden) und STRG-V (einfügen).',
     	paste : 'Einfügen',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Drücken Sie %1 zum Einfügen. Ihr Browser unterstützt nicht das Einfügen über dem Knopf in der Werkzeugleiste oder dem Kontextmenü.',
     	pasteArea : 'Einfügebereich',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Fügen Sie den Inhalt in den unteren Bereich ein und drücken Sie OK.'
     },
     blockquote : 
     {
@@ -444,7 +444,7 @@ CKEDITOR.lang['de-ch'] = {
     {
     	copy : 'Copyright &copy; $1. Alle Rechte vorbehalten.',
     	dlgTitle : 'Über CKEditor 4',
-    	moreInfo : 'Für Informationen über unsere Lizenzbestimmungen besuchen sie bitte unsere Webseite:'
+    	moreInfo : 'Für Informationen über unsere Lizenzbestimmungen besuchen Sie bitte unsere Webseite:'
     },
     editor : 'WYSIWYG-Editor',
     editorPanel : 'WYSIWYG-Editor-Leiste',
@@ -486,7 +486,7 @@ CKEDITOR.lang['de-ch'] = {
     	generalTab : 'Allgemein',
     	advancedTab : 'Erweitert',
     	validateNumberFailed : 'Dieser Wert ist keine Nummer.',
-    	confirmNewPage : 'Alle nicht gespeicherten Änderungen gehen verlohren. Sind Sie sicher die neue Seite zu laden?',
+    	confirmNewPage : 'Alle nicht gespeicherten Änderungen gehen verloren. Sind Sie sicher, die neue Seite zu laden?',
     	confirmCancel : 'Einige Optionen wurden geändert. Wollen Sie den Dialog dennoch schliessen?',
     	options : 'Optionen',
     	target : 'Zielseite',
@@ -507,7 +507,7 @@ CKEDITOR.lang['de-ch'] = {
     	justify : 'Blocksatz',
     	alignLeft : 'Linksbündig',
     	alignRight : 'Rechtsbündig',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Zentriert',
     	alignTop : 'Oben',
     	alignMiddle : 'Mitte',
     	alignBottom : 'Unten',
@@ -515,11 +515,11 @@ CKEDITOR.lang['de-ch'] = {
     	invalidValue : 'Ungültiger Wert.',
     	invalidHeight : 'Höhe muss eine Zahl sein.',
     	invalidWidth : 'Breite muss eine Zahl sein.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
-    	invalidCssLength : 'Wert spezifiziert für "%1" Feld muss ein positiver numerischer Wert sein mit oder ohne korrekte CSS Messeinheit (px, %, in, cm, mm, em, ex, pt oder pc).',
-    	invalidHtmlLength : 'Wert spezifiziert für "%1" Feld muss ein positiver numerischer Wert sein mit oder ohne korrekte HTML Messeinheit (px oder %).',
-    	invalidInlineStyle : 'Wert spezifiziert für inline Stilart muss enthalten ein oder mehr Tupels mit dem Format "Name : Wert" getrennt mit Semikolons.',
-    	cssLengthTooltip : 'Gebe eine Zahl ein für ein Wert in pixels oder eine Zahl mit einer korrekten CSS Messeinheit (px, %, in, cm, mm, em, ex, pt oder pc).',
+    	invalidLength : 'Wert spezifiziert für "%1" Feld muss ein positiver numerischer Wert sein mit oder ohne korrekter HTML-Masseinheit (px oder %).',
+    	invalidCssLength : 'Wert spezifiziert für "%1" Feld muss ein positiver numerischer Wert sein mit oder ohne korrekter CSS-Masseinheit (px, %, in, cm, mm, em, ex, pt oder pc).',
+    	invalidHtmlLength : 'Wert spezifiziert für "%1" Feld muss ein positiver numerischer Wert sein mit oder ohne korrekter HTML-Masseinheit (px oder %).',
+    	invalidInlineStyle : 'Wert spezifiziert für inline Stilart muss enthalten ein oder mehr Wertepaare mit dem Format "Name : Wert" getrennt durch Semikolons.',
+    	cssLengthTooltip : 'Geben Sie eine Zahl ein für ein Wert in Pixel oder eine Zahl mit einer korrekten CSS-Masseinheit (px, %, in, cm, mm, em, ex, pt oder pc).',
     	unavailable : '%1<span class="cke_accessibility">, nicht verfügbar</span>',
     	keyboard : 
     	{
@@ -528,7 +528,7 @@ CKEDITOR.lang['de-ch'] = {
     		'16' : 'Umschalt',
     		'17' : 'Strg',
     		'18' : 'Alt',
-    		'32' : 'Space',
+    		'32' : 'Leertaste',
     		'35' : 'Ende',
     		'36' : 'Pos1',
     		'46' : 'Entfernen',
@@ -556,8 +556,8 @@ CKEDITOR.lang['de-ch'] = {
     		'133' : 'F22',
     		'134' : 'F23',
     		'135' : 'F24',
-    		'224' : 'Command'
+    		'224' : 'Befehl'
     	},
-    	keyboardShortcut : 'Keyboard shortcut',
-    	optionDefault : 'Default'
+    	keyboardShortcut : 'Tastaturkürzel',
+    	optionDefault : 'Standard'
     } }; 

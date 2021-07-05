@@ -193,8 +193,8 @@ CKEDITOR.lang['lv'] = {
     },
     list : 
     {
-    	bulletedlist : 'Pievienot/Noņemt vienkāršu sarakstu',
-    	numberedlist : 'Numurēts saraksts'
+    	bulletedlist : 'Ievietot/noņemt sarakstu ar aizzīmēm',
+    	numberedlist : 'Ievietot/noņemt numurētu sarakstu'
     },
     link : 
     {
@@ -218,22 +218,22 @@ CKEDITOR.lang['lv'] = {
     	download : 'Piespiedu ielāde',
     	displayText : 'Attēlot tekstu',
     	emailAddress : 'E-pasta adrese',
-    	emailBody : 'Ziņas saturs',
-    	emailSubject : 'Ziņas tēma',
+    	emailBody : 'Ziņojuma pamatteksts',
+    	emailSubject : 'Ziņojuma tēma',
     	id : 'ID',
-    	info : 'Hipersaites informācija',
+    	info : 'Saites informācija',
     	langCode : 'Valodas kods',
     	langDir : 'Valodas lasīšanas virziens',
     	langDirLTR : 'No kreisās uz labo (LTR)',
     	langDirRTL : 'No labās uz kreiso (RTL)',
-    	menu : 'Labot hipersaiti',
+    	menu : 'Rediģēt saiti',
     	name : 'Nosaukums',
     	noAnchors : '(Šajā dokumentā nav iezīmju)',
-    	noEmail : 'Lūdzu norādi e-pasta adresi',
-    	noUrl : 'Lūdzu norādi hipersaiti',
-    	noTel : 'Please type the phone number',
+    	noEmail : 'Lūdzu, ievadiet e-pasta adresi',
+    	noUrl : 'Lūdzu, ievadiet saites URL',
+    	noTel : 'Lūdzu, ievadiet tālruņa numuru',
     	other : '<cits>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Tālruņa numurs',
     	popupDependent : 'Atkarīgs (Netscape)',
     	popupFeatures : 'Uznirstošā loga nosaukums īpašības',
     	popupFullScreen : 'Pilnā ekrānā (IE)',
@@ -254,14 +254,14 @@ CKEDITOR.lang['lv'] = {
     	targetFrameName : 'Mērķa ietvara nosaukums',
     	targetPopup : '<uznirstošā logā>',
     	targetPopupName : 'Uznirstošā loga nosaukums',
-    	title : 'Hipersaite',
+    	title : 'Saite',
     	toAnchor : 'Iezīme šajā lapā',
     	toEmail : 'E-pasts',
     	toUrl : 'Adrese',
-    	toPhone : 'Phone',
-    	toolbar : 'Ievietot/Labot hipersaiti',
-    	type : 'Hipersaites tips',
-    	unlink : 'Noņemt hipersaiti',
+    	toPhone : 'Tālrunis',
+    	toolbar : 'Saite',
+    	type : 'Saites tips',
+    	unlink : 'Atsaistīt',
     	upload : 'Augšupielādēt'
     },
     indent : 
@@ -278,7 +278,7 @@ CKEDITOR.lang['lv'] = {
     	hSpace : 'Horizontālā telpa',
     	img2Button : 'Vai vēlaties pārveidot izvēlēto attēlu uz attēla pogas?',
     	infoTab : 'Informācija par attēlu',
-    	linkTab : 'Hipersaite',
+    	linkTab : 'Saite',
     	lockRatio : 'Nemainīga Augstuma/Platuma attiecība',
     	menu : 'Attēla īpašības',
     	resetSize : 'Atjaunot sākotnējo izmēru',
@@ -298,17 +298,17 @@ CKEDITOR.lang['lv'] = {
     format : 
     {
     	label : 'Formāts',
-    	panelTitle : 'Formāts',
+    	panelTitle : 'Rindkopas formāts',
     	tag_address : 'Adrese',
-    	tag_div : 'Rindkopa (DIV)',
+    	tag_div : 'Parastais (DIV)',
     	tag_h1 : 'Virsraksts 1',
     	tag_h2 : 'Virsraksts 2',
     	tag_h3 : 'Virsraksts 3',
     	tag_h4 : 'Virsraksts 4',
     	tag_h5 : 'Virsraksts 5',
     	tag_h6 : 'Virsraksts 6',
-    	tag_p : 'Normāls teksts',
-    	tag_pre : 'Formatēts teksts'
+    	tag_p : 'Parastais',
+    	tag_pre : 'Formatēts'
     },
     fakeobjects : 
     {
@@ -433,12 +433,12 @@ CKEDITOR.lang['lv'] = {
     },
     basicstyles : 
     {
-    	bold : 'Treknināts',
-    	italic : 'Kursīvs',
-    	strike : 'Pārsvītrots',
-    	subscript : 'Apakšrakstā',
-    	superscript : 'Augšrakstā',
-    	underline : 'Pasvītrots'
+    	bold : 'Treknraksts',
+    	italic : 'Slīpraksts',
+    	strike : 'Pārsvītrojums',
+    	subscript : 'Apakšraksts',
+    	superscript : 'Augšraksts',
+    	underline : 'Pasvītrojums'
     },
     about : 
     {
