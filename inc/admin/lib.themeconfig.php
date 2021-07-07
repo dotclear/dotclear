@@ -150,7 +150,7 @@ class dcThemeConfig
      */
     public static function adjustFontSize($s)
     {
-        if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem)?$/', $s, $m)) {
+        if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', $s, $m)) {
             if (empty($m[2])) {
                 $m[2] = 'em';
             }
