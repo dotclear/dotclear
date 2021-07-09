@@ -1,5 +1,21 @@
-/*exported getData, isObject, mergeDeep, trimHtml */
+/*exported storeLocalData, dropLocalData, readLocalData, getData, isObject, mergeDeep, trimHtml */
 'use strict';
+
+function storeLocalData(id, value = null) {
+  localStorage.setItem(id, JSON.stringify(value));
+}
+
+function dropLocalData(id) {
+  localStorage.removeItem(id);
+}
+
+function readLocalData(id) {
+  let info = localStorage.getItem(id);
+  if (info !== null) {
+    info = JSON.parse(info);
+  }
+  return info;
+}
 
 /**
  * Gets application/json data (JSON format).

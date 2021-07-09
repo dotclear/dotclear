@@ -1,4 +1,4 @@
-/*global getData, isObject, mergeDeep */
+/*global storeLocalData, dropLocalData, readLocalData, getData, isObject, mergeDeep */
 /*exported dotclear */
 'use strict';
 
@@ -15,6 +15,15 @@ const dotclear = {};
 -------------------------------------------------------- */
 document.addEventListener("DOMContentLoaded", function() {
   // Function's aliases (from prepend.js)
+  if (typeof storeLocalData === 'function') {
+    dotclear.storeLocalData = dotclear.storeLocalData || storeLocalData;
+  }
+  if (typeof dropLocalData === 'function') {
+    dotclear.dropLocalData = dotclear.dropLocalData || dropLocalData;
+  }
+  if (typeof readLocalData === 'function') {
+    dotclear.readLocalData = dotclear.readLocalData || readLocalData;
+  }
   if (typeof getData === 'function') {
     dotclear.getData = dotclear.getData || getData;
   }

@@ -1,4 +1,4 @@
-/*global $, jQuery, getData, isObject, mergeDeep */
+/*global $, jQuery, storeLocalData, dropLocalData, readLocalData, getData, isObject, mergeDeep */
 /*exported chainHandler */
 'use strict';
 
@@ -703,6 +703,15 @@ $(function () {
   Object.assign(dotclear, getData('dotclear'));
   Object.assign(dotclear.msg, getData('dotclear_msg'));
   // Function's aliases (from prepend.js)
+  if (typeof storeLocalData === 'function') {
+    dotclear.storeLocalData = dotclear.storeLocalData || storeLocalData;
+  }
+  if (typeof dropLocalData === 'function') {
+    dotclear.dropLocalData = dotclear.dropLocalData || dropLocalData;
+  }
+  if (typeof readLocalData === 'function') {
+    dotclear.readLocalData = dotclear.readLocalData || readLocalData;
+  }
   if (typeof getData === 'function') {
     dotclear.getData = dotclear.getData || getData;
   }
@@ -885,40 +894,33 @@ $(function () {
       $('div.ajax-loader').hide();
     });
   }
+
   // Main menu collapser
   const objMain = $('#wrapper');
+  const hideMainMenu = 'hide_main_menu';
 
-  function showSidebar() {
-    // Show sidebar
-    objMain.removeClass('hide-mm');
-    $.cookie('sidebar-pref', null, {
-      expires: 30,
-    });
-  }
-
-  function hideSidebar() {
-    // Hide sidebar
-    objMain.addClass('hide-mm');
-    $.cookie('sidebar-pref', 'hide-mm', {
-      expires: 30,
-    });
-  }
   // Sidebar separator
   $('#collapser').on('click', function (e) {
     e.preventDefault();
     if (objMain.hasClass('hide-mm')) {
-      showSidebar();
+      // Show sidebar
+      objMain.removeClass('hide-mm');
+      dotclear.dropLocalData(hideMainMenu);
       $('#main-menu input#qx').trigger('focus');
     } else {
-      hideSidebar();
+    // Hide sidebar
+      objMain.addClass('hide-mm');
+      dotclear.storeLocalData(hideMainMenu, true);
       $('#content a.go_home').trigger('focus');
     }
   });
-  if ($.cookie('sidebar-pref') == 'hide-mm') {
+  // Cope with current stored state of collapser
+  if (readLocalData(hideMainMenu) === true) {
     objMain.addClass('hide-mm');
   } else {
     objMain.removeClass('hide-mm');
   }
+
   // totop scroll
   $(window).on('scroll', function () {
     if ($(this).scrollTop() != 0) {
