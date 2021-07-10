@@ -812,8 +812,9 @@ class dcUpgrade
                 'themes/berlin/scripts/boxsizing.htc',
                 // That old easter egg is not more present
                 'admin/images/thanks.mp3',
-                // No more used jQuery pwd strength
-                'admin/js/jquery/jquery.pwstrength.js'
+                // No more used jQuery pwd strength and cookie plugins
+                'admin/js/jquery/jquery.pwstrength.js',
+                'admin/js/jquery/jquery.biscuit.js'
             ];
             $remfolders = [
                 // Oldest jQuery public lib
