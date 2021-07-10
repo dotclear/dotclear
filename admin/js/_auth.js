@@ -17,12 +17,8 @@ $(window).on('load', function () {
     return true;
   });
 
-  $.cookie('dc_admin_test_cookie', true);
-  if ($.cookie('dc_admin_test_cookie')) {
+  if (navigator.cookieEnabled) {
     $('#cookie_help').hide();
-    $.cookie('dc_admin_test_cookie', '', {
-      expires: -1,
-    });
   } else {
     $('#cookie_help').show();
   }
