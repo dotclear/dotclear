@@ -903,7 +903,6 @@ EOT;
             self::jsLoad('js/jquery/jquery-migrate.js') :
             ''
         ) .
-        self::jsLoad('js/jquery/jquery.biscuit.js') .
 
         self::jsJson('dotclear', $js) .
         self::jsJson('dotclear_msg', $js_msg) .
