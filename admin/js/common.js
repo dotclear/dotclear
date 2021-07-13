@@ -22,6 +22,7 @@ if (document.documentElement.getAttribute('data-theme') !== '') {
     }
   }
 }
+// Cope with low data requirement
 dotclear_init.lowdata = false;
 if (window.matchMedia) {
   if (window.matchMedia('(prefers-reduced-data: reduce)').matches) {
@@ -29,6 +30,7 @@ if (window.matchMedia) {
   }
 }
 document.documentElement.style.setProperty('--dark-mode', dotclear_init.theme === 'dark' ? 1 : 0);
+
 /* ChainHandler, py Peter van der Beken
 -------------------------------------------------------- */
 function chainHandler(obj, handlerName, handler) {
@@ -39,6 +41,7 @@ function chainHandler(obj, handlerName, handler) {
     };
   })(handlerName in obj ? obj[handlerName] : null);
 }
+
 /* jQuery extensions
 -------------------------------------------------------- */
 jQuery.fn.check = function () {
@@ -48,6 +51,7 @@ jQuery.fn.check = function () {
     }
   });
 };
+
 jQuery.fn.unCheck = function () {
   return this.each(function () {
     if (this.checked != undefined) {
@@ -55,6 +59,7 @@ jQuery.fn.unCheck = function () {
     }
   });
 };
+
 jQuery.fn.setChecked = function (status) {
   return this.each(function () {
     if (this.checked != undefined) {
@@ -62,6 +67,7 @@ jQuery.fn.setChecked = function (status) {
     }
   });
 };
+
 jQuery.fn.toggleCheck = function () {
   return this.each(function () {
     if (this.checked != undefined) {
@@ -69,6 +75,7 @@ jQuery.fn.toggleCheck = function () {
     }
   });
 };
+
 jQuery.fn.enableShiftClick = function () {
   this.on('click', function (event) {
     if (event.shiftKey) {
@@ -91,6 +98,7 @@ jQuery.fn.enableShiftClick = function () {
     return true;
   });
 };
+
 jQuery.fn.toggleWithLegend = function (target, s) {
   const defaults = {
     img_on_txt: dotclear.img_plus_txt,
@@ -102,15 +110,11 @@ jQuery.fn.toggleWithLegend = function (target, s) {
     legend_click: false,
     fn: false, // A function called on first display,
     user_pref: false,
-    reverse_user_pref: false, // Reverse cookie behavior
+    reverse_user_pref: false, // Reverse user pref behavior
   };
   const p = jQuery.extend(defaults, s);
   if (!target) {
     return this;
-  }
-  const set_cookie = p.hide ^ p.reverse_cookie;
-  if (p.cookie && jQuery.cookie(p.cookie)) {
-    p.hide = p.reverse_cookie;
   }
   let set_user_pref = p.hide ^ p.reverse_user_pref;
   if (p.user_pref && p.unfolded_sections !== undefined && p.user_pref in p.unfolded_sections) {
@@ -133,17 +137,6 @@ jQuery.fn.toggleWithLegend = function (target, s) {
       if (p.fn) {
         p.fn.apply(target);
         p.fn = false;
-      }
-    }
-    if (p.cookie && set_cookie) {
-      if (p.hide ^ p.reverse_cookie) {
-        jQuery.cookie(p.cookie, '', {
-          expires: -1,
-        });
-      } else {
-        jQuery.cookie(p.cookie, 1, {
-          expires: 30,
-        });
       }
     }
     p.hide = !p.hide;
@@ -174,9 +167,6 @@ jQuery.fn.toggleWithLegend = function (target, s) {
           },
           function () {}
         );
-        jQuery.cookie(p.user_pref, '', {
-          expires: -1,
-        });
       }
       toggle(b);
       e.preventDefault();
@@ -251,6 +241,7 @@ jQuery.fn.toggleWithLegend = function (target, s) {
     return action;
   };
 })(jQuery);
+
 jQuery.fn.helpViewer = function () {
   if (this.length < 1) {
     return this;
@@ -501,6 +492,7 @@ const dotclear = {
     });
   },
 
+  // Outgoing links
   outgoingLinks: function (target) {
     $(target)
       .filter(function () {
@@ -557,6 +549,7 @@ const dotclear = {
     }
   },
 
+  // Badge helper
   badge: function ($elt, options = null) {
     // Cope with selector given as string or DOM element rather than a jQuery object
     if (typeof $elt === 'string' || $elt instanceof Element) {
@@ -658,6 +651,7 @@ const dotclear = {
     }
   },
 
+  // Password helper
   passwordHelpers: function () {
     const togglePasswordHelper = function (e) {
       e.preventDefault();
@@ -695,13 +689,17 @@ const dotclear = {
 /* On document ready
 -------------------------------------------------------- */
 $(function () {
+
   // Store preinit DATA in dotclear object
   dotclear.data = dotclear_init;
+
   // Debug mode
   dotclear.debug = dotclear.data.debug || false;
+
   // Get other DATA
   Object.assign(dotclear, getData('dotclear'));
   Object.assign(dotclear.msg, getData('dotclear_msg'));
+
   // Function's aliases (from prepend.js)
   if (typeof storeLocalData === 'function') {
     dotclear.storeLocalData = dotclear.storeLocalData || storeLocalData;
@@ -721,6 +719,7 @@ $(function () {
   if (typeof mergeDeep === 'function') {
     dotclear.mergeDeep = dotclear.mergeDeep || mergeDeep;
   }
+
   // set theme class
   $('body').addClass(`${dotclear.data.theme}-mode`);
   dotclear.data.darkMode = dotclear.data.theme === 'dark' ? 1 : 0;
@@ -750,6 +749,7 @@ $(function () {
       }
     }
   }
+
   // Watch data-theme attribute modification
   const observer = new MutationObserver((mutations) => {
     for (let mutation of mutations) {
@@ -768,6 +768,7 @@ $(function () {
   observer.observe(document.documentElement, {
     attributeFilter: ['data-theme'],
   });
+
   // remove class no-js from html tag; cf style/default.css for examples
   $('body').removeClass('no-js').addClass('with-js');
   $('body')
@@ -779,8 +780,10 @@ $(function () {
         $(`<span class="tooltip" aria-hidden="true">${$('#footer a').prop('title')}${data}</span>`).appendTo('#footer a');
       }
     });
+
   // manage outgoing links
   dotclear.outgoingLinks('a');
+
   // Popups: dealing with Escape key fired
   $('#dotclear-admin.popup').on('keyup', function (e) {
     if (e.key == 'Escape') {
@@ -789,10 +792,13 @@ $(function () {
       return false;
     }
   });
+
   // Blog switcher
   $('#switchblog').on('change', function () {
     this.form.submit();
   });
+
+  // Menu state
   const menu_settings = {
     img_on_src: dotclear.img_menu_off,
     img_off_src: dotclear.img_menu_on,
@@ -837,7 +843,9 @@ $(function () {
       menu_settings
     )
   );
+
   $('#help').helpViewer();
+
   // Notices
   $('p.success,p.warning,p.error,div.error').each(function () {
     $(this).addClass('close-notice-parent');
@@ -849,6 +857,7 @@ $(function () {
     e.preventDefault();
     $(this).parent().hide();
   });
+
   // Password helpers
   dotclear.passwordHelpers();
   // Password
@@ -865,6 +874,7 @@ $(function () {
     }
     return true;
   });
+
   // Cope with ellipsis'ed cells
   $('table .maximal').each(function () {
     if (this.offsetWidth < this.scrollWidth) {
@@ -879,10 +889,12 @@ $(function () {
       this.title = this.innerText;
     }
   });
+
   // Advanced users
   if (dotclear.data.hideMoreInfo) {
     $('.more-info,.form-note:not(.warn,.warning,.info)').addClass('no-more-info');
   }
+
   // Ajax loader activity indicator
   if (dotclear.data.showAjaxLoader) {
     $(document).ajaxStart(function () {
@@ -938,6 +950,7 @@ $(function () {
     );
     e.preventDefault();
   });
+
   // Go back (aka Cancel) button
   $('.go-back').on('click', () => {
     history.back();
