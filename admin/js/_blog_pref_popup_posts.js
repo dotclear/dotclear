@@ -12,8 +12,7 @@ $(function () {
   $('#form-entries tr>td.maximal>a').on('click', function () {
     function stripBaseURL(url) {
       if (dotclear.base_url != '') {
-        var pos = url.indexOf(dotclear.base_url);
-        if (pos == 0) {
+        if (url.indexOf(dotclear.base_url) == 0) {
           url = url.substr(dotclear.base_url.length);
         }
       }

@@ -206,7 +206,7 @@ jQuery.fn.toggleWithLegend = function (target, s) {
       `<button type="button" class="details-cmd" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`
     )
       .on('click', function (e) {
-        var action = toggleArrow(this);
+        const action = toggleArrow(this);
         lines.each(function () {
           if (toggleArrow(this.firstChild.firstChild, action) !== '') {
             callback(this, action, e);

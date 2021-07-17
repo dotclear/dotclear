@@ -92,11 +92,11 @@
           }
         });
 
-      let $msg;
+      let msg;
       let label;
 
       if ($container.hasClass('enhanced_uploader')) {
-        $msg = dotclear.msg.enhanced_uploader_disable;
+        msg = dotclear.msg.enhanced_uploader_disable;
         label = dotclear.jsUpload.msg.choose_files;
         $(me).fileupload({
           disabled: false,
@@ -104,17 +104,17 @@
         displayMessageInQueue(0);
         disableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
       } else {
-        $msg = dotclear.msg.enhanced_uploader_activate;
+        msg = dotclear.msg.enhanced_uploader_activate;
         label = dotclear.jsUpload.msg.choose_file;
         $(me).fileupload({
           disabled: true,
         });
       }
 
-      $(`<p class="clear"><button type="button" class="enhanced-toggle">${$msg}</button></p>`)
+      $(`<p class="clear"><button type="button" class="enhanced-toggle">${msg}</button></p>`)
         .on('click', function (e) {
           if ($container.hasClass('enhanced_uploader')) {
-            $msg = dotclear.msg.enhanced_uploader_activate;
+            msg = dotclear.msg.enhanced_uploader_activate;
             label = dotclear.jsUpload.msg.choose_file;
             $('#upfile').attr('multiple', false);
             enableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
@@ -128,7 +128,7 @@
             });
             $('.queue-message', me).html('').hide();
           } else {
-            $msg = dotclear.msg.enhanced_uploader_disable;
+            msg = dotclear.msg.enhanced_uploader_disable;
             label = dotclear.jsUpload.msg.choose_files;
             $('#upfile').attr('multiple', true);
             const startButton = $('.button.start');
@@ -143,7 +143,7 @@
             $('.queue-message', me).show();
             displayMessageInQueue(0);
           }
-          $(this).find('button').text($msg);
+          $(this).find('button').text(msg);
           $('.add-label', me).text(label);
 
           $container.toggleClass('enhanced_uploader');

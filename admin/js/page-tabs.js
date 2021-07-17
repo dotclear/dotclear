@@ -1,7 +1,7 @@
 /*global $, getData */
 'use strict';
 
-const page_tabs = getData('page_tabs');
 $(function () {
+  const page_tabs = getData('page_tabs');
   $.pageTabs(page_tabs.default);
 });

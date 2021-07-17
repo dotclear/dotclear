@@ -2,8 +2,8 @@
 'use strict';
 
 $(window).on('load', function () {
-  let uid = $('input[name=user_id]');
-  let upw = $('input[name=user_pwd]');
+  const uid = $('input[name=user_id]');
+  const upw = $('input[name=user_pwd]');
   uid.trigger('focus');
 
   if (upw.length == 0) {

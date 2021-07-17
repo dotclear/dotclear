@@ -11,8 +11,7 @@ $(function () {
   });
 
   // Password strength
-  const opts = dotclear.getData('pwstrength');
-  dotclear.passwordStrength(opts);
+  dotclear.passwordStrength(dotclear.getData('pwstrength'));
 
   $('#u_login')
     .parent()

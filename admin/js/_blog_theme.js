@@ -10,7 +10,7 @@ $(function () {
         .children('img')
         .on('click', function () {
           // Click on theme thumbnail
-          let details_element = $(this).parent().parent().children('details');
+          const details_element = $(this).parent().parent().children('details');
           details_element.attr('open', details_element.attr('open') ? null : 'true');
         });
     });
