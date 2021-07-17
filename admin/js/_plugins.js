@@ -59,11 +59,9 @@ $(function () {
 
         // action on one module
       } else {
-        const module = mvalues[1];
-
         // confirm delete
         if (action == 'delete') {
-          return window.confirm(dotclear.msg.confirm_delete_plugin.replace('%s', module));
+          return window.confirm(dotclear.msg.confirm_delete_plugin.replace('%s', mvalues[1]));
         }
       }
 

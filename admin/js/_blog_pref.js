@@ -46,7 +46,7 @@ $(function () {
   // HTML text editor
   if (typeof jsToolBar === 'function') {
     $('#blog_desc').each(function () {
-      let tbWidgetText = new jsToolBar(this);
+      const tbWidgetText = new jsToolBar(this);
       tbWidgetText.context = 'blog_desc';
       tbWidgetText.draw('xhtml');
     });

@@ -2,7 +2,7 @@
 'use strict';
 
 $(function () {
-  let e = document.createElement('div');
+  const e = document.createElement('div');
   e.id = 'WJxYFNKPMRlS';
   e.style.display = 'none';
   document.body.appendChild(e);

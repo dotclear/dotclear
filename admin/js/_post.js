@@ -48,23 +48,23 @@ dotclear.viewCommentContent = function (line, action, e) {
 
 $(function () {
   // Post preview
-  let $preview_url = $('#post-preview').attr('href');
-  if ($preview_url) {
-    // Make $preview_url absolute
+  let preview_url = $('#post-preview').attr('href');
+  if (preview_url) {
+    // Make preview_url absolute
     let $a = document.createElement('a');
     $a.href = $('#post-preview').attr('href');
-    $preview_url = $a.href;
+    preview_url = $a.href;
 
     // Check if admin and blog have same protocol (ie not mixed-content)
-    if (window.location.protocol == $preview_url.substring(0, window.location.protocol.length)) {
+    if (window.location.protocol == preview_url.substring(0, window.location.protocol.length)) {
       // Open preview in a modal iframe
       $('#post-preview').magnificPopup({
         type: 'iframe',
         iframe: {
           patterns: {
             dotclear_preview: {
-              index: $preview_url,
-              src: $preview_url,
+              index: preview_url,
+              src: preview_url,
             },
           },
         },
@@ -160,7 +160,7 @@ $(function () {
       this.href = '';
       const m_name = $(this).parents('ul').find('li:first>a').attr('title');
       if (window.confirm(dotclear.msg.confirm_remove_attachment.replace('%s', m_name))) {
-        var f = $('#attachment-remove-hide').get(0);
+        const f = $('#attachment-remove-hide').get(0);
         f.elements.media_id.value = this.id.substring(11);
         f.submit();
       }

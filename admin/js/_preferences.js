@@ -7,7 +7,7 @@ $(function () {
   }
   const user_email = $('#user_email').val();
   $('#user-form').on('submit', function () {
-    var e = this.elements.cur_pwd;
+    const e = this.elements.cur_pwd;
     if (e.value != '') {
       return true;
     }
@@ -27,6 +27,5 @@ $(function () {
     window.alert(dotclear.msg.adblocker);
   }
   // Password strength
-  const opts = dotclear.getData('pwstrength');
-  dotclear.passwordStrength(opts);
+  dotclear.passwordStrength(dotclear.getData('pwstrength'));
 });

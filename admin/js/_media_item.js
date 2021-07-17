@@ -82,7 +82,7 @@ $(function () {
 
   // Confirm for deleting current medoa
   $('#delete-form input[name="delete"]').on('click', function () {
-    let m_name = $('#delete-form input[name="remove"]').val();
+    const m_name = $('#delete-form input[name="remove"]').val();
     return window.confirm(dotclear.msg.confirm_delete_media.replace('%s', m_name));
   });
 

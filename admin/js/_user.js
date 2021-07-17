@@ -6,6 +6,5 @@ $(function () {
     return;
   }
   // Password strength
-  const opts = dotclear.getData('pwstrength');
-  dotclear.passwordStrength(opts);
+  dotclear.passwordStrength(dotclear.getData('pwstrength'));
 });
