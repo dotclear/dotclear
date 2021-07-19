@@ -1,4 +1,4 @@
-/*global jQuery, chainHandler */
+/*global jQuery */
 'use strict';
 
 (function($) {
@@ -129,36 +129,3 @@
     return sh[1];
   };
 })(jQuery);
-
-// The next 2 function (tabload and onetabload) should be deleted in the next 2.17 major release
-jQuery.fn.tabload = function(f) {
-  console.warn("jQuery.fn.tabload() is deprecated and will be soon removed; use the .on('tabload', ...) method");
-  this.each(function() {
-    if (f) {
-      chainHandler(this, 'tabload', f);
-    } else {
-      const h = this.tabload;
-      if (h) {
-        h.apply(this);
-      }
-    }
-  });
-  return this;
-};
-
-jQuery.fn.onetabload = function(f) {
-  console.warn("jQuery.fn.onetabload() is deprecated and will be soon removed; use the .on('onetabload', ...) method");
-  this.each(function() {
-    if (f) {
-      chainHandler(this, 'onetabload', f);
-    } else {
-      const h = this.onetabload;
-      if (h != null) {
-        h.apply(this);
-        this.onetabload = null;
-      }
-    }
-  });
-  return this;
-};
-
