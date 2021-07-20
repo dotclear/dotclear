@@ -47,7 +47,7 @@ dotclear.viewWidgetContent = function (line, action) {
   }
 };
 
-function reorder(ul) {
+dotclear.reorder = function (ul) {
   // réordonne
   if (ul.attr('id')) {
     const $list = ul.find('li').not('.empty-widgets');
@@ -85,7 +85,7 @@ function reorder(ul) {
       }
     });
   }
-}
+};
 
 $(function () {
   mergeDeep(dotclear, getData('widgets'));
@@ -112,13 +112,13 @@ $(function () {
     e.preventDefault();
     const $li = $(this).parents('li');
     $li.next().after($li);
-    reorder($(this).parents('ul.connected'));
+    dotclear.reorder($(this).parents('ul.connected'));
   });
   $('input[name*=_up]').on('click', function (e) {
     e.preventDefault();
     const $li = $(this).parents('li');
     $li.prev().before($li);
-    reorder($(this).parents('ul.connected'));
+    dotclear.reorder($(this).parents('ul.connected'));
   });
 
   // HTML text editor

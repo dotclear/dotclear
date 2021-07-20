@@ -1,4 +1,4 @@
-/*global $, reorder, dotclear, jsToolBar */
+/*global $, dotclear, jsToolBar */
 'use strict';
 
 $(function () {
@@ -49,7 +49,7 @@ $(function () {
       }
 
       // réordonne
-      reorder(ul);
+      dotclear.reorder(ul);
 
       // expand
       if (widget.find('.details-cmd').length == 0) {
