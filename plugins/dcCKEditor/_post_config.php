@@ -285,15 +285,11 @@ if (!empty($extraPlugins)) {
         const ta = document.getElementById(e.editor.name);
         if (ta !== undefined) {
             if (ta.lang && e.editor.config.contentsLanguage !== ta.lang) {
-                let config = e.editor.config;
-                config.contentsLanguage = ta.lang;
-//                e.editor.destroy();
-                CKEDITOR.replace(e.editor.name, config);
+                e.editor.config.contentsLanguage = ta.lang;
             }
         }
 
         // footnotes related
-        let config = e.editor.config;
 <?php
         switch ($core->blog->settings->system->note_title_tag) {
             case 1:
@@ -312,9 +308,8 @@ if (!empty($extraPlugins)) {
         $notes_tag   = sprintf("['<%s>', '</%s>']", $tag, $tag);
         $notes_title = sprintf('"%s"', __('Note(s)'));
 ?>
-        config.footnotesHeaderEls = <?php printf($notes_tag); ?>;
-        config.footnotesTitle = <?php printf($notes_title); ?>;
-        CKEDITOR.replace(e.editor.name, config);
+        e.editor.config.footnotesHeaderEls = <?php printf($notes_tag); ?>;
+        e.editor.config.footnotesTitle = <?php printf($notes_title); ?>;
     });
 
     // @TODO: find a better way to retrieve active editor
