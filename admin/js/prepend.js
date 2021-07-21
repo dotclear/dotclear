@@ -1,21 +1,29 @@
-/*exported storeLocalData, dropLocalData, readLocalData, getData, isObject, mergeDeep, trimHtml */
+/*exported dotclear, storeLocalData, dropLocalData, readLocalData, getData, isObject, mergeDeep, trimHtml */
 'use strict';
 
-function storeLocalData(id, value = null) {
+/* Dotclear common object
+-------------------------------------------------------- */
+const dotclear = {
+  msg: {}
+};
+
+/* Local storage utilities
+-------------------------------------------------------- */
+dotclear.storeLocalData = (id, value = null) => {
   localStorage.setItem(id, JSON.stringify(value));
-}
+};
 
-function dropLocalData(id) {
+dotclear.dropLocalData = (id) => {
   localStorage.removeItem(id);
-}
+};
 
-function readLocalData(id) {
+dotclear.readLocalData = (id) => {
   let info = localStorage.getItem(id);
   if (info !== null) {
     info = JSON.parse(info);
   }
   return info;
-}
+};
 
 /**
  * Gets application/json data (JSON format).
@@ -24,7 +32,7 @@ function readLocalData(id) {
  * @param      {boolean}  [remove=false]  remove element
  * @return     {object}   data object
  */
-function getData(id, clear = true, remove = false) {
+dotclear.getData = (id, clear = true, remove = false) => {
   let data = {};
   // Read the JSON-formatted data from the DOM. (from https://mathiasbynens.be/notes/json-dom-csp)
   // To be use with: <script type="application/json" id="myid-data">{"key":value, …}</script>
@@ -42,28 +50,28 @@ function getData(id, clear = true, remove = false) {
     } catch (e) {}
   }
   return data;
-}
+};
 
-function isObject(item) {
+dotclear.isObject = (item) => {
   return item && typeof item === 'object' && !Array.isArray(item);
-}
+};
 
 /**
  * Deep merge two objects.
  * @param target
  * @param ...sources
  */
-function mergeDeep(target, ...sources) {
+dotclear.mergeDeep = (target, ...sources) => {
   if (!sources.length) return target;
   const source = sources.shift();
-  if (isObject(target) && isObject(source)) {
+  if (dotclear.isObject(target) && dotclear.isObject(source)) {
     for (const key in source) {
-      if (isObject(source[key])) {
+      if (dotclear.isObject(source[key])) {
         if (!target[key])
           Object.assign(target, {
             [key]: {},
           });
-        mergeDeep(target[key], source[key]);
+        dotclear.mergeDeep(target[key], source[key]);
       } else {
         Object.assign(target, {
           [key]: source[key],
@@ -71,8 +79,8 @@ function mergeDeep(target, ...sources) {
       }
     }
   }
-  return mergeDeep(target, ...sources);
-}
+  return dotclear.mergeDeep(target, ...sources);
+};
 
 /**
  * Gracefully cut an HTML string
@@ -82,7 +90,7 @@ function mergeDeep(target, ...sources) {
  *
  * Source: Muhammad Tahir (https://stackoverflow.com/questions/830283/cutting-html-strings-without-breaking-html-tags)
  */
-function trimHtml(html, options) {
+dotclear.trimHtml = (html, options) => {
   options = options || {};
 
   let limit = options.limit || 100;
@@ -190,4 +198,12 @@ function trimHtml(html, options) {
     html: arr.join('\n').replace(/\n/g, ''),
     more: more,
   };
-}
+};
+
+/* Obsolete global function, for compatibility purpose, will be removed in a future release */
+const storeLocalData = dotclear.storeLocalData;
+const dropLocalData = dotclear.dropLocalData;
+const readLocalData = dotclear.readLocalData;
+const getData = dotclear.getData;
+const isObject = dotclear.isObject;
+const mergeDeep = dotclear.mergeDeep;

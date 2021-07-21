@@ -814,7 +814,9 @@ class dcUpgrade
                 'admin/images/thanks.mp3',
                 // No more used jQuery pwd strength and cookie plugins
                 'admin/js/jquery/jquery.pwstrength.js',
-                'admin/js/jquery/jquery.biscuit.js'
+                'admin/js/jquery/jquery.biscuit.js',
+                // No more need of this fake common.js (was used by install)
+                'admin/js/mini-common.js'
             ];
             $remfolders = [
                 // Oldest jQuery public lib

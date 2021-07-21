@@ -1,9 +1,9 @@
-/*global $, jQuery, storeLocalData, dropLocalData, readLocalData, getData, isObject, mergeDeep */
+/*global $, jQuery, dotclear */
 /*exported chainHandler */
 'use strict';
 
 /* Get PreInit JSON data */
-const dotclear_init = getData('dotclear_init');
+const dotclear_init = dotclear.getData('dotclear_init');
 
 /* Set some CSS variables here
 -------------------------------------------------------- */
@@ -330,360 +330,356 @@ jQuery.fn.helpViewer = function () {
   return this;
 };
 
-/* Dotclear common object
+/* Dotclear common methods
 -------------------------------------------------------- */
-const dotclear = {
-  msg: {},
-
-  enterKeyInForm: function (frm_id, ok_id, cancel_id) {
-    $(frm_id + ':not(' + cancel_id + ')').on('keyup', function (e) {
-      if (e.key == 'Enter' && $(ok_id).prop('disabled') !== true) {
-        e.preventDefault();
-        e.stopPropagation();
-        $(ok_id).trigger('click');
-      }
-    });
-  },
-
-  condSubmit: function (chkboxes, target) {
-    const checkboxes = $(chkboxes),
-      submitButt = $(target);
-    if (checkboxes === undefined || submitButt === undefined) {
-      return;
+dotclear.enterKeyInForm = function (frm_id, ok_id, cancel_id) {
+  $(frm_id + ':not(' + cancel_id + ')').on('keyup', function (e) {
+    if (e.key == 'Enter' && $(ok_id).prop('disabled') !== true) {
+      e.preventDefault();
+      e.stopPropagation();
+      $(ok_id).trigger('click');
     }
-    // Set initial state
+  });
+};
+
+dotclear.condSubmit = function (chkboxes, target) {
+  const checkboxes = $(chkboxes),
+    submitButt = $(target);
+  if (checkboxes === undefined || submitButt === undefined) {
+    return;
+  }
+  // Set initial state
+  submitButt.attr('disabled', !checkboxes.is(':checked'));
+  if (!checkboxes.is(':checked')) {
+    submitButt.addClass('disabled');
+  } else {
+    submitButt.removeClass('disabled');
+  }
+  checkboxes.on('click', function () {
+    // Update target state
     submitButt.attr('disabled', !checkboxes.is(':checked'));
     if (!checkboxes.is(':checked')) {
       submitButt.addClass('disabled');
     } else {
       submitButt.removeClass('disabled');
     }
-    checkboxes.on('click', function () {
-      // Update target state
-      submitButt.attr('disabled', !checkboxes.is(':checked'));
-      if (!checkboxes.is(':checked')) {
-        submitButt.addClass('disabled');
-      } else {
-        submitButt.removeClass('disabled');
-      }
-    });
-  },
+  });
+};
 
-  hideLockable: function () {
-    $('div.lockable').each(function () {
-      const current_lockable_div = this;
-      $(this).find('p.form-note').hide();
-      $(this)
-        .find('input')
-        .each(function () {
-          this.disabled = true;
-          $(this).width(`${$(this).width() - 14}px`);
-          const imgE = document.createElement('img');
-          imgE.src = 'images/locker.png';
-          imgE.style.position = 'absolute';
-          imgE.style.top = '1.8em';
-          imgE.style.left = `${$(this).width() + 14}px`;
-          imgE.alt = dotclear.msg.click_to_unlock;
-          $(imgE).css('cursor', 'pointer');
-          $(imgE).on('click', function () {
-            $(this).hide();
-            $(this)
-              .prev('input')
-              .each(function () {
-                this.disabled = false;
-                $(this).width($(this).width() + 14 + 'px');
-              });
-            $(current_lockable_div).find('p.form-note').show();
-          });
-          $(this).parent().css('position', 'relative');
-          $(this).after(imgE);
-        });
-    });
-  },
-
-  checkboxesHelpers: function (e, target, c, s) {
-    $(e).append(document.createTextNode(dotclear.msg.to_select));
-    $(e).append(document.createTextNode(' '));
-    $(`<button type="button" class="checkbox-helper select-all">${dotclear.msg.select_all}</button>`)
-      .on('click', function () {
-        if (target !== undefined) {
-          target.check();
-        } else {
-          $(e).parents('form').find('input[type="checkbox"]').check();
-        }
-        if (c !== undefined && s !== undefined) {
-          dotclear.condSubmit(c, s);
-        }
-        return false;
-      })
-      .appendTo($(e));
-    $(e).append(document.createTextNode(' '));
-    $(`<button type="button" class="checkbox-helper select-none">${dotclear.msg.no_selection}</button>`)
-      .on('click', function () {
-        if (target !== undefined) {
-          target.unCheck();
-        } else {
-          $(e).parents('form').find('input[type="checkbox"]').unCheck();
-        }
-        if (c !== undefined && s !== undefined) {
-          dotclear.condSubmit(c, s);
-        }
-        return false;
-      })
-      .appendTo($(e));
-    $(e).append(document.createTextNode(' '));
-    $(`<button type="button" class="checkbox-helper select-reverse">${dotclear.msg.invert_sel}</button>`)
-      .on('click', function () {
-        if (target !== undefined) {
-          target.toggleCheck();
-        } else {
-          $(e).parents('form').find('input[type="checkbox"]').toggleCheck();
-        }
-        if (c !== undefined && s !== undefined) {
-          dotclear.condSubmit(c, s);
-        }
-        return false;
-      })
-      .appendTo($(e));
-  },
-
-  postsActionsHelper: function () {
-    $('#form-entries').on('submit', function () {
-      const action = $(this).find('select[name="action"]').val();
-      if (action === undefined) {
-        return;
-      }
-      let checked = false;
-      $(this)
-        .find('input[name="entries[]"]')
-        .each(function () {
-          if (this.checked) {
-            checked = true;
-          }
-        });
-      if (!checked) {
-        return false;
-      }
-      if (action == 'delete') {
-        return window.confirm(dotclear.msg.confirm_delete_posts.replace('%s', $('input[name="entries[]"]:checked').length));
-      }
-      return true;
-    });
-  },
-
-  commentsActionsHelper: function () {
-    $('#form-comments').on('submit', function () {
-      const action = $(this).find('select[name="action"]').val();
-      let checked = false;
-      $(this)
-        .find('input[name="comments[]"]')
-        .each(function () {
-          if (this.checked) {
-            checked = true;
-          }
-        });
-      if (!checked) {
-        return false;
-      }
-      if (action == 'delete') {
-        return window.confirm(dotclear.msg.confirm_delete_comments.replace('%s', $('input[name="comments[]"]:checked').length));
-      }
-      return true;
-    });
-  },
-
-  // Outgoing links
-  outgoingLinks: function (target) {
-    $(target)
-      .filter(function () {
-        return (
-          (this.hostname &&
-            this.hostname != location.hostname &&
-            !$(this).hasClass('modal') &&
-            !$(this).hasClass('modal-image')) ||
-          $(this).hasClass('outgoing')
-        );
-      })
+dotclear.hideLockable = function () {
+  $('div.lockable').each(function () {
+    const current_lockable_div = this;
+    $(this).find('p.form-note').hide();
+    $(this)
+      .find('input')
       .each(function () {
-        $(this).prop('title', `${$(this).prop('title')} (${dotclear.msg.new_window})`);
-        if (!$(this).hasClass('outgoing')) {
-          $(this).append('&nbsp;<img class="outgoing-js" src="images/outgoing-link.svg" alt=""/>');
-        }
-      })
-      .on('click', function (e) {
-        e.preventDefault();
-        window.open($(this).attr('href'));
+        this.disabled = true;
+        $(this).width(`${$(this).width() - 14}px`);
+        const imgE = document.createElement('img');
+        imgE.src = 'images/locker.png';
+        imgE.style.position = 'absolute';
+        imgE.style.top = '1.8em';
+        imgE.style.left = `${$(this).width() + 14}px`;
+        imgE.alt = dotclear.msg.click_to_unlock;
+        $(imgE).css('cursor', 'pointer');
+        $(imgE).on('click', function () {
+          $(this).hide();
+          $(this)
+            .prev('input')
+            .each(function () {
+              this.disabled = false;
+              $(this).width($(this).width() + 14 + 'px');
+            });
+          $(current_lockable_div).find('p.form-note').show();
+        });
+        $(this).parent().css('position', 'relative');
+        $(this).after(imgE);
       });
-  },
+  });
+};
 
-  /**
-   * Add headers on each cells (responsive tables)
-   *
-   * @param      DOM elt   table         The table
-   * @param      string    selector      The selector
-   * @param      number    [offset=0]    The offset = number of firsts columns to ignore
-   * @param      boolean   [thead=false] True if titles are in thead rather than in the first tr of the body
-   */
-  responsiveCellHeaders: function (table, selector, offset = 0, thead = false) {
-    try {
-      let THarray = [];
-      const ths = table.getElementsByTagName('th');
-      for (let i = 0; i < ths.length; i++) {
-        for (let colspan = ths[i].colSpan; colspan > 0; colspan--) {
-          THarray.push(ths[i].innerText.replace('►', ''));
-        }
-      }
-      let styleElm = document.createElement('style');
-      let styleSheet;
-      document.head.appendChild(styleElm);
-      styleSheet = styleElm.sheet;
-      for (let i = offset; i < THarray.length; i++) {
-        styleSheet.insertRule(
-          selector + ' td:nth-child(' + (i + 1) + ')::before {content:"' + THarray[i] + ' ";}',
-          styleSheet.cssRules.length
-        );
-      }
-      table.className += (table.className !== '' ? ' ' : '') + 'rch' + (thead ? ' rch-thead' : '');
-    } catch (e) {
-      console.log('responsiveCellHeaders(): ' + e);
-    }
-  },
-
-  // Badge helper
-  badge: function ($elt, options = null) {
-    // Cope with selector given as string or DOM element rather than a jQuery object
-    if (typeof $elt === 'string' || $elt instanceof Element) {
-      $elt = $($elt);
-    }
-
-    // Return if elt does not exist
-    if (!$elt.length) return;
-
-    // Cope with options
-    const opt = $.extend(
-      {
-        /* sibling: define if the given element is a sibling of the badge or it's parent
-         *  true: use $elt.after() to add badge
-         *  false: use $elt.parent().append() to add badge (default)
-         */
-        sibling: false,
-        /* id: badge unique class
-         *  this class will be used to delete all corresponding badge (used for removing and updating)
-         */
-        id: 'default',
-        /* remove: will remove the badge if set to true */
-        remove: false,
-        /* value: badge value */
-        value: null,
-        /* inline: if set to true, the badge is an inline element (useful for menu item) rather than a block */
-        inline: false,
-        /* icon: if set to true, the badge is attached to a dashboard icon (needed for correct positionning) */
-        icon: false,
-        /* type: Override default background (which may vary)
-         *  by default badge background are soft grey for dashboard icons (see opt.icon) and bright red for all other elements
-         *  possible values:
-         *    'std':  bright red
-         *    'info': blue
-         *    'soft': soft grey
-         */
-        type: '',
-        /* left: display badge on the left rather than on the right (unused for inline badge) */
-        left: false,
-        /* noborder: do not display the badge border */
-        noborder: false,
-        /* small: use a smaller font-size */
-        small: false,
-        /* classes: additionnal badge classes */
-        classes: '',
-      },
-      options
-    );
-
-    // Set some constants
-    const classid = `span.badge.badge-${opt.id}`; // Pseudo unique class
-
-    // Set badgeable class to elt parent's (if sibling) or elt itself, if it is necessary
-    const $parent = opt.sibling ? $elt.parent() : $elt;
-    if (!opt.inline && !opt.remove && !$parent.hasClass('badgeable')) {
-      $parent.addClass('badgeable');
-    }
-
-    // Remove existing badge if exists
-    const $badge = opt.sibling ? $parent.children(classid) : $elt.children(classid);
-    if ($badge.length) {
-      $badge.remove();
-    }
-
-    // Add the new badge if any
-    if (!opt.remove && opt.value !== null) {
-      // Compose badge classes
-      let classes = ['badge'];
-      classes.push(`badge-${opt.id}`);
-      classes.push(opt.inline ? 'badge-inline' : 'badge-block');
-      if (opt.icon) {
-        classes.push('badge-icon');
-      }
-      if (opt.type) {
-        classes.push(`badge-${opt.type}`);
-      }
-      if (opt.left) {
-        classes.push('badge-left');
-      }
-      if (opt.noborder) {
-        classes.push('badge-noborder');
-      }
-      if (opt.small) {
-        classes.push('badge-small');
-      }
-      if (opt.classes) {
-        classes.push(`${opt.classes}`);
-      }
-      const cls = classes.join(' ');
-      // Compose badge
-      const xml = `<span class="${cls}" aria-hidden="true">${opt.value}</span>`;
-      if (opt.sibling) {
-        // Add badge after it's sibling
-        $elt.after(xml);
+dotclear.checkboxesHelpers = function (e, target, c, s) {
+  $(e).append(document.createTextNode(dotclear.msg.to_select));
+  $(e).append(document.createTextNode(' '));
+  $(`<button type="button" class="checkbox-helper select-all">${dotclear.msg.select_all}</button>`)
+    .on('click', function () {
+      if (target !== undefined) {
+        target.check();
       } else {
-        // Append badge to the elt
-        $elt.append(xml);
+        $(e).parents('form').find('input[type="checkbox"]').check();
+      }
+      if (c !== undefined && s !== undefined) {
+        dotclear.condSubmit(c, s);
+      }
+      return false;
+    })
+    .appendTo($(e));
+  $(e).append(document.createTextNode(' '));
+  $(`<button type="button" class="checkbox-helper select-none">${dotclear.msg.no_selection}</button>`)
+    .on('click', function () {
+      if (target !== undefined) {
+        target.unCheck();
+      } else {
+        $(e).parents('form').find('input[type="checkbox"]').unCheck();
+      }
+      if (c !== undefined && s !== undefined) {
+        dotclear.condSubmit(c, s);
+      }
+      return false;
+    })
+    .appendTo($(e));
+  $(e).append(document.createTextNode(' '));
+  $(`<button type="button" class="checkbox-helper select-reverse">${dotclear.msg.invert_sel}</button>`)
+    .on('click', function () {
+      if (target !== undefined) {
+        target.toggleCheck();
+      } else {
+        $(e).parents('form').find('input[type="checkbox"]').toggleCheck();
+      }
+      if (c !== undefined && s !== undefined) {
+        dotclear.condSubmit(c, s);
+      }
+      return false;
+    })
+    .appendTo($(e));
+};
+
+dotclear.postsActionsHelper = function () {
+  $('#form-entries').on('submit', function () {
+    const action = $(this).find('select[name="action"]').val();
+    if (action === undefined) {
+      return;
+    }
+    let checked = false;
+    $(this)
+      .find('input[name="entries[]"]')
+      .each(function () {
+        if (this.checked) {
+          checked = true;
+        }
+      });
+    if (!checked) {
+      return false;
+    }
+    if (action == 'delete') {
+      return window.confirm(dotclear.msg.confirm_delete_posts.replace('%s', $('input[name="entries[]"]:checked').length));
+    }
+    return true;
+  });
+};
+
+dotclear.commentsActionsHelper = function () {
+  $('#form-comments').on('submit', function () {
+    const action = $(this).find('select[name="action"]').val();
+    let checked = false;
+    $(this)
+      .find('input[name="comments[]"]')
+      .each(function () {
+        if (this.checked) {
+          checked = true;
+        }
+      });
+    if (!checked) {
+      return false;
+    }
+    if (action == 'delete') {
+      return window.confirm(dotclear.msg.confirm_delete_comments.replace('%s', $('input[name="comments[]"]:checked').length));
+    }
+    return true;
+  });
+};
+
+// Outgoing links
+dotclear.outgoingLinks = function (target) {
+  $(target)
+    .filter(function () {
+      return (
+        (this.hostname &&
+          this.hostname != location.hostname &&
+          !$(this).hasClass('modal') &&
+          !$(this).hasClass('modal-image')) ||
+        $(this).hasClass('outgoing')
+      );
+    })
+    .each(function () {
+      $(this).prop('title', `${$(this).prop('title')} (${dotclear.msg.new_window})`);
+      if (!$(this).hasClass('outgoing')) {
+        $(this).append('&nbsp;<img class="outgoing-js" src="images/outgoing-link.svg" alt=""/>');
+      }
+    })
+    .on('click', function (e) {
+      e.preventDefault();
+      window.open($(this).attr('href'));
+    });
+};
+
+/**
+ * Add headers on each cells (responsive tables)
+ *
+ * @param      DOM elt   table         The table
+ * @param      string    selector      The selector
+ * @param      number    [offset=0]    The offset = number of firsts columns to ignore
+ * @param      boolean   [thead=false] True if titles are in thead rather than in the first tr of the body
+ */
+dotclear.responsiveCellHeaders = function (table, selector, offset = 0, thead = false) {
+  try {
+    let THarray = [];
+    const ths = table.getElementsByTagName('th');
+    for (let i = 0; i < ths.length; i++) {
+      for (let colspan = ths[i].colSpan; colspan > 0; colspan--) {
+        THarray.push(ths[i].innerText.replace('►', ''));
       }
     }
-  },
-
-  // Password helper
-  passwordHelpers: function () {
-    const togglePasswordHelper = function (e) {
-      e.preventDefault();
-      const button = e.currentTarget;
-      const isPasswordShown = button.classList.contains('pw-hide');
-
-      let inputType = isPasswordShown ? 'password' : 'text';
-      let buttonContent = isPasswordShown ? dotclear.msg.show_password : dotclear.msg.hide_password;
-
-      button.classList.toggle('pw-hide', !isPasswordShown);
-      button.classList.toggle('pw-show', isPasswordShown);
-
-      button.previousElementSibling.setAttribute('type', inputType);
-      button.setAttribute('title', buttonContent);
-      button.querySelector('span').textContent = buttonContent;
-    };
-
-    // Compose button
-    const buttonTemplate = new DOMParser().parseFromString(
-      `<button type="button" class="pw-show" title="${dotclear.msg.show_password}"><span class="sr-only">${dotclear.msg.show_password}</span></button>`,
-      'text/html'
-    ).body.firstChild;
-
-    const passwordFields = document.querySelectorAll('input[type=password]');
-
-    for (const passwordField of passwordFields) {
-      const button = buttonTemplate.cloneNode(true);
-      passwordField.after(button);
-      passwordField.classList.add('pwd_helper');
-      button.addEventListener('click', togglePasswordHelper);
+    let styleElm = document.createElement('style');
+    let styleSheet;
+    document.head.appendChild(styleElm);
+    styleSheet = styleElm.sheet;
+    for (let i = offset; i < THarray.length; i++) {
+      styleSheet.insertRule(
+        selector + ' td:nth-child(' + (i + 1) + ')::before {content:"' + THarray[i] + ' ";}',
+        styleSheet.cssRules.length
+      );
     }
-  },
+    table.className += (table.className !== '' ? ' ' : '') + 'rch' + (thead ? ' rch-thead' : '');
+  } catch (e) {
+    console.log('responsiveCellHeaders(): ' + e);
+  }
+};
+
+// Badge helper
+dotclear.badge = function ($elt, options = null) {
+  // Cope with selector given as string or DOM element rather than a jQuery object
+  if (typeof $elt === 'string' || $elt instanceof Element) {
+    $elt = $($elt);
+  }
+
+  // Return if elt does not exist
+  if (!$elt.length) return;
+
+  // Cope with options
+  const opt = $.extend(
+    {
+      /* sibling: define if the given element is a sibling of the badge or it's parent
+       *  true: use $elt.after() to add badge
+       *  false: use $elt.parent().append() to add badge (default)
+       */
+      sibling: false,
+      /* id: badge unique class
+       *  this class will be used to delete all corresponding badge (used for removing and updating)
+       */
+      id: 'default',
+      /* remove: will remove the badge if set to true */
+      remove: false,
+      /* value: badge value */
+      value: null,
+      /* inline: if set to true, the badge is an inline element (useful for menu item) rather than a block */
+      inline: false,
+      /* icon: if set to true, the badge is attached to a dashboard icon (needed for correct positionning) */
+      icon: false,
+      /* type: Override default background (which may vary)
+       *  by default badge background are soft grey for dashboard icons (see opt.icon) and bright red for all other elements
+       *  possible values:
+       *    'std':  bright red
+       *    'info': blue
+       *    'soft': soft grey
+       */
+      type: '',
+      /* left: display badge on the left rather than on the right (unused for inline badge) */
+      left: false,
+      /* noborder: do not display the badge border */
+      noborder: false,
+      /* small: use a smaller font-size */
+      small: false,
+      /* classes: additionnal badge classes */
+      classes: '',
+    },
+    options
+  );
+
+  // Set some constants
+  const classid = `span.badge.badge-${opt.id}`; // Pseudo unique class
+
+  // Set badgeable class to elt parent's (if sibling) or elt itself, if it is necessary
+  const $parent = opt.sibling ? $elt.parent() : $elt;
+  if (!opt.inline && !opt.remove && !$parent.hasClass('badgeable')) {
+    $parent.addClass('badgeable');
+  }
+
+  // Remove existing badge if exists
+  const $badge = opt.sibling ? $parent.children(classid) : $elt.children(classid);
+  if ($badge.length) {
+    $badge.remove();
+  }
+
+  // Add the new badge if any
+  if (!opt.remove && opt.value !== null) {
+    // Compose badge classes
+    let classes = ['badge'];
+    classes.push(`badge-${opt.id}`);
+    classes.push(opt.inline ? 'badge-inline' : 'badge-block');
+    if (opt.icon) {
+      classes.push('badge-icon');
+    }
+    if (opt.type) {
+      classes.push(`badge-${opt.type}`);
+    }
+    if (opt.left) {
+      classes.push('badge-left');
+    }
+    if (opt.noborder) {
+      classes.push('badge-noborder');
+    }
+    if (opt.small) {
+      classes.push('badge-small');
+    }
+    if (opt.classes) {
+      classes.push(`${opt.classes}`);
+    }
+    const cls = classes.join(' ');
+    // Compose badge
+    const xml = `<span class="${cls}" aria-hidden="true">${opt.value}</span>`;
+    if (opt.sibling) {
+      // Add badge after it's sibling
+      $elt.after(xml);
+    } else {
+      // Append badge to the elt
+      $elt.append(xml);
+    }
+  }
+};
+
+// Password helper
+dotclear.passwordHelpers = function () {
+  const togglePasswordHelper = function (e) {
+    e.preventDefault();
+    const button = e.currentTarget;
+    const isPasswordShown = button.classList.contains('pw-hide');
+
+    let inputType = isPasswordShown ? 'password' : 'text';
+    let buttonContent = isPasswordShown ? dotclear.msg.show_password : dotclear.msg.hide_password;
+
+    button.classList.toggle('pw-hide', !isPasswordShown);
+    button.classList.toggle('pw-show', isPasswordShown);
+
+    button.previousElementSibling.setAttribute('type', inputType);
+    button.setAttribute('title', buttonContent);
+    button.querySelector('span').textContent = buttonContent;
+  };
+
+  // Compose button
+  const buttonTemplate = new DOMParser().parseFromString(
+    `<button type="button" class="pw-show" title="${dotclear.msg.show_password}"><span class="sr-only">${dotclear.msg.show_password}</span></button>`,
+    'text/html'
+  ).body.firstChild;
+
+  const passwordFields = document.querySelectorAll('input[type=password]');
+
+  for (const passwordField of passwordFields) {
+    const button = buttonTemplate.cloneNode(true);
+    passwordField.after(button);
+    passwordField.classList.add('pwd_helper');
+    button.addEventListener('click', togglePasswordHelper);
+  }
 };
 
 /* On document ready
@@ -697,28 +693,8 @@ $(function () {
   dotclear.debug = dotclear.data.debug || false;
 
   // Get other DATA
-  Object.assign(dotclear, getData('dotclear'));
-  Object.assign(dotclear.msg, getData('dotclear_msg'));
-
-  // Function's aliases (from prepend.js)
-  if (typeof storeLocalData === 'function') {
-    dotclear.storeLocalData = dotclear.storeLocalData || storeLocalData;
-  }
-  if (typeof dropLocalData === 'function') {
-    dotclear.dropLocalData = dotclear.dropLocalData || dropLocalData;
-  }
-  if (typeof readLocalData === 'function') {
-    dotclear.readLocalData = dotclear.readLocalData || readLocalData;
-  }
-  if (typeof getData === 'function') {
-    dotclear.getData = dotclear.getData || getData;
-  }
-  if (typeof isObject === 'function') {
-    dotclear.isObject = dotclear.isObject || isObject;
-  }
-  if (typeof mergeDeep === 'function') {
-    dotclear.mergeDeep = dotclear.mergeDeep || mergeDeep;
-  }
+  Object.assign(dotclear, dotclear.getData('dotclear'));
+  Object.assign(dotclear.msg, dotclear.getData('dotclear_msg'));
 
   // set theme class
   $('body').addClass(`${dotclear.data.theme}-mode`);
@@ -927,7 +903,7 @@ $(function () {
     }
   });
   // Cope with current stored state of collapser
-  if (readLocalData(hideMainMenu) === true) {
+  if (dotclear.readLocalData(hideMainMenu) === true) {
     objMain.addClass('hide-mm');
   } else {
     objMain.removeClass('hide-mm');
