@@ -1,7 +1,7 @@
-/*global $, dotclear, getData */
+/*global $, dotclear */
 'use strict';
 
-Object.assign(dotclear.msg, getData('antispam'));
+Object.assign(dotclear.msg, dotclear.getData('antispam'));
 
 $(function () {
   $('#filters-list').sortable({

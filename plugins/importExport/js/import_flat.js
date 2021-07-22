@@ -1,7 +1,7 @@
-/*global $, dotclear, getData */
+/*global $, dotclear */
 'use strict';
 
-Object.assign(dotclear.msg, getData('ie_import_flat_msg'));
+Object.assign(dotclear.msg, dotclear.getData('ie_import_flat_msg'));
 
 $(function () {
   $('#up_single_file').on('change', function () {

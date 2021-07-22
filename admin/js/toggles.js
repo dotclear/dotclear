@@ -1,4 +1,4 @@
-/*global dotclear, getData */
+/*global dotclear */
 'use strict';
 
-dotclear.unfolded_sections = getData('dotclear_toggles');
+dotclear.unfolded_sections = dotclear.getData('dotclear_toggles');

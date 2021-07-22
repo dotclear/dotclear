@@ -133,7 +133,7 @@ class dcUtils
     /**
      * return a list of javascript variables définitions code
      *
-     * @deprecated 2.15 use dcUtils::jsJson() and getData()/mergeDeep() in javascript
+     * @deprecated 2.15 use dcUtils::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript
      *
      * @param      array  $vars   The variables
      *
@@ -153,7 +153,7 @@ class dcUtils
     /**
      * return a javascript variable definition line code
      *
-     * @deprecated 2.15 use dcUtils::jsJson() and getData()/mergeDeep() in javascript
+     * @deprecated 2.15 use dcUtils::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript
      *
      * @param      string  $n      variable name
      * @param      mixed   $v      value
@@ -167,7 +167,7 @@ class dcUtils
 
     public static function jsJson($id, $vars)
     {
-        // Use echo dcUtils::jsLoad($core->blog->getPF('util.js')); to use the JS getData() decoder in public mode
+        // Use echo dcUtils::jsLoad($core->blog->getPF('util.js')); to use the JS dotclear.getData() decoder in public mode
         $ret = '<script type="application/json" id="' . html::escapeHTML($id) . '-data">' . "\n" .
             json_encode($vars, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES) . "\n" . '</script>';
 

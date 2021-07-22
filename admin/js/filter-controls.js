@@ -1,9 +1,9 @@
-/*global $, dotclear, getData */
+/*global $, dotclear */
 'use strict';
 
 $(function () {
   // Get some DATA
-  Object.assign(dotclear.msg, getData('filter_controls'));
+  Object.assign(dotclear.msg, dotclear.getData('filter_controls'));
 
   let reset_url = '?';
   if (dotclear.filter_reset_url != undefined) {
@@ -20,7 +20,7 @@ $(function () {
   } else {
     $('#filter-control').addClass('open').text(dotclear.msg.cancel_the_filter);
   }
-  if (getData('filter_options').auto_filter) {
+  if (dotclear.getData('filter_options').auto_filter) {
     $('#filters-form input[type="submit"]').parent().hide();
     $('#filters-form select').on('input', function () {
       $filtersform[0].submit();

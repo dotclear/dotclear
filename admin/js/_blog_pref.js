@@ -1,7 +1,7 @@
-/*global $, dotclear, jsToolBar, getData */
+/*global $, dotclear, jsToolBar */
 'use strict';
 
-Object.assign(dotclear.msg, getData('blog_pref'));
+Object.assign(dotclear.msg, dotclear.getData('blog_pref'));
 
 $(function () {
   const blog_url = $('#blog_url');

@@ -717,7 +717,7 @@ EOT;
     /**
      * return a javascript variable definition line code
      *
-     * @deprecated 2.15 use dcPage::jsJson() and getData()/mergeDeep() in javascript
+     * @deprecated 2.15 use dcPage::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript
      *
      * @param      string  $n      variable name
      * @param      mixed   $v      value
@@ -732,7 +732,7 @@ EOT;
     /**
      * return a list of javascript variables définitions code
      *
-     * @deprecated 2.15 use dcPage::jsJson() and getData()/mergeDeep() in javascript
+     * @deprecated 2.15 use dcPage::jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript
      *
      * @param      array  $vars   The variables
      *

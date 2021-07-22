@@ -1,4 +1,4 @@
-/*global dotclear, jsToolBar, mergeDeep, getData */
+/*global dotclear, jsToolBar */
 'use strict';
 
 // Toolbar button for tags
@@ -18,7 +18,7 @@ jsToolBar.prototype.elements.tag = {
   fn: {},
 };
 
-mergeDeep(jsToolBar.prototype.elements, getData('legacy_editor_tags'));
+dotclear.mergeDeep(jsToolBar.prototype.elements, dotclear.getData('legacy_editor_tags'));
 
 jsToolBar.prototype.elements.tag.context = 'post';
 jsToolBar.prototype.elements.tag.icon = 'index.php?pf=tags/img/tag-add.png';

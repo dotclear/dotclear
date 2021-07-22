@@ -1,10 +1,10 @@
-/*global $, CodeMirror, getData */
+/*global $, CodeMirror, dotclear */
 'use strict';
 
 $(function () {
   //const input = document.getElementById("colorsyntax_theme");
   //var theme = input.options[input.selectedIndex].textContent;
-  const current = getData('theme_editor_current');
+  const current = dotclear.getData('theme_editor_current');
   var editor = CodeMirror.fromTextArea(document.getElementById('codemirror'), {
     mode: 'javascript',
     tabMode: 'indent',

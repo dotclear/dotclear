@@ -1,8 +1,8 @@
-/*global $, dotclear, jsToolBar, getData */
+/*global $, dotclear, jsToolBar */
 'use strict';
 
 // Get context
-Object.assign(dotclear, getData('legacy_editor_ctx'));
+Object.assign(dotclear, dotclear.getData('legacy_editor_ctx'));
 
 $(function () {
   if ($('#edit-entry').length == 0) {

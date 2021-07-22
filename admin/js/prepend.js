@@ -4,7 +4,7 @@
 /* Dotclear common object
 -------------------------------------------------------- */
 const dotclear = {
-  msg: {}
+  msg: {},
 };
 
 /* Local storage utilities
@@ -94,10 +94,8 @@ dotclear.trimHtml = (html, options) => {
   options = options || {};
 
   let limit = options.limit || 100;
-  let preserveTags =
-    typeof options.preserveTags !== 'undefined' ? options.preserveTags : true;
-  let wordBreak =
-    typeof options.wordBreak !== 'undefined' ? options.wordBreak : false;
+  let preserveTags = typeof options.preserveTags !== 'undefined' ? options.preserveTags : true;
+  let wordBreak = typeof options.wordBreak !== 'undefined' ? options.wordBreak : false;
   let suffix = options.suffix || '...';
   let moreLink = options.moreLink || '';
 
@@ -200,10 +198,28 @@ dotclear.trimHtml = (html, options) => {
   };
 };
 
-/* Obsolete global function, for compatibility purpose, will be removed in a future release */
-const storeLocalData = dotclear.storeLocalData;
-const dropLocalData = dotclear.dropLocalData;
-const readLocalData = dotclear.readLocalData;
-const getData = dotclear.getData;
-const isObject = dotclear.isObject;
-const mergeDeep = dotclear.mergeDeep;
+/* Obsolete global functions, for compatibility purpose, will be removed in a future release */
+const storeLocalData = (id, value = null) => {
+  console.warn('Dotclear: storeLocalData() is deprecated. Use dotclear.storeLocalData().');
+  dotclear.storeLocalData(id, value);
+};
+const dropLocalData = (id) => {
+  console.warn('Dotclear: dropLocalData() is deprecated. Use dotclear.dropLocalData().');
+  dotclear.dropLocalData(id);
+};
+const readLocalData = (id) => {
+  console.warn('Dotclear: readLocalData() is deprecated. Use dotclear.readLocalData().');
+  return dotclear.readLocalData(id);
+};
+const getData = (id, clear = true, remove = false) => {
+  console.warn('Dotclear: getData() is deprecated. Use dotclear.getData().');
+  return dotclear.getData(id, clear, remove);
+};
+const isObject = (item) => {
+  console.warn('Dotclear: isObject() is deprecated. Use dotclear.isObject().');
+  return dotclear.isObject(item);
+};
+const mergeDeep = (target, ...sources) => {
+  console.warn('Dotclear: mergeDeep() is deprecated. Use dotclear.mergeDeep().');
+  return dotclear.mergeDeep(target, ...sources);
+};

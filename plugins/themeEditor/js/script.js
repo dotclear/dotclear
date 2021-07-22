@@ -1,9 +1,9 @@
-/*global $, dotclear, confirmClosePage, getData, codemirror_instance */
+/*global $, dotclear, confirmClosePage, codemirror_instance */
 'use strict';
 
 // Get locales and setting
-Object.assign(dotclear.msg, getData('theme_editor_msg'));
-Object.assign(dotclear, getData('dotclear_colorsyntax'));
+Object.assign(dotclear.msg, dotclear.getData('theme_editor_msg'));
+Object.assign(dotclear, dotclear.getData('dotclear_colorsyntax'));
 
 $(function () {
   // Cope with saving

@@ -1,4 +1,4 @@
-/*global jQuery, getData */
+/*global jQuery, dotclear */
 'use strict';
 
-jQuery.migrateMute = getData('dotclear_jquery').mute;
+jQuery.migrateMute = dotclear.getData('dotclear_jquery').mute;

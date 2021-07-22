@@ -1,7 +1,7 @@
-/*global $, dotclear, metaEditor, getData, mergeDeep */
+/*global $, dotclear, metaEditor */
 'use strict';
 
-mergeDeep(dotclear.msg, getData('editor_tags_msg'));
+dotclear.mergeDeep(dotclear.msg, dotclear.getData('editor_tags_msg'));
 
 $(function () {
   const tag_field = $('#new_tags');
@@ -10,7 +10,7 @@ $(function () {
   tag_field.hide();
 
   const target = $('#tags_list');
-  let mEdit = new metaEditor(target, tag_field, 'tag', getData('editor_tags_options'));
+  let mEdit = new metaEditor(target, tag_field, 'tag', dotclear.getData('editor_tags_options'));
   mEdit.meta_url = 'plugin.php?p=tags&m=tag_posts&amp;tag=';
 
   mEdit.meta_dialog = $('<input type="text" />');

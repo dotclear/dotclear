@@ -1,7 +1,7 @@
-/*global $, dotclear, getData */
+/*global $, dotclear */
 'use strict';
 
-Object.assign(dotclear.msg, getData('pages_list'));
+Object.assign(dotclear.msg, dotclear.getData('pages_list'));
 
 dotclear.viewPostContent = function (line, action, e) {
   action = action || 'toggle';

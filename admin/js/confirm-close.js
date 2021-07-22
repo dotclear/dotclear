@@ -1,4 +1,4 @@
-/*global getData, dotclear */
+/*global dotclear */
 'use strict';
 
 const confirmClose = function () {
@@ -167,7 +167,7 @@ confirmClose.prototype = {
 };
 
 window.addEventListener('load', () => {
-  const confirm_close = getData('confirm_close');
+  const confirm_close = dotclear.getData('confirm_close');
   confirmClose.prototype.prompt = confirm_close.prompt;
 
   dotclear.confirmClosePage = new confirmClose(...confirm_close.forms);

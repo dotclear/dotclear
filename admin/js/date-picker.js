@@ -1,4 +1,4 @@
-/*global getData */
+/*global dotclear */
 /*exported datePicker */
 'use strict';
 
@@ -523,4 +523,4 @@ datePicker.prototype = {
 };
 
 // Get some DATA
-Object.assign(datePicker.prototype, getData('date_picker'));
+Object.assign(datePicker.prototype, dotclear.getData('date_picker'));

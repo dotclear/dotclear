@@ -1,4 +1,4 @@
-/*global $, dotclear, jsToolBar, mergeDeep, getData */
+/*global $, dotclear, jsToolBar */
 'use strict';
 
 dotclear.widgetExpander = function (line) {
@@ -88,7 +88,7 @@ dotclear.reorder = function (ul) {
 };
 
 $(function () {
-  mergeDeep(dotclear, getData('widgets'));
+  dotclear.mergeDeep(dotclear, dotclear.getData('widgets'));
 
   // reset
   $('input[name="wreset"]').on('click', function () {

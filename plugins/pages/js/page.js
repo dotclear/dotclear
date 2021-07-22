@@ -1,9 +1,9 @@
-/*global $, dotclear, getData */
+/*global $, dotclear */
 'use strict';
 
 $(function () {
   // Update page/post deletion message
-  Object.assign(dotclear.msg, getData('pages_page'));
+  Object.assign(dotclear.msg, dotclear.getData('pages_page'));
 
   $('#comments').on('onetabload', function () {
     $.expandContent({

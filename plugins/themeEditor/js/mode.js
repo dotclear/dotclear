@@ -1,8 +1,8 @@
-/*global CodeMirror, getData */
+/*global CodeMirror, dotclear */
 'use strict';
 
 window.CodeMirror.defineMode('dotclear', function (config) {
-  const mode = getData('theme_editor_mode');
+  const mode = dotclear.getData('theme_editor_mode');
 
   return CodeMirror.multiplexingMode(
     CodeMirror.getMode(config, mode.mode),

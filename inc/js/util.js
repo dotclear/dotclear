@@ -125,7 +125,7 @@ var getData =
 var isObject =
   isObject ||
   function isObject(item) {
-    console.warn('isObject is deprecated. Use dotclear.isObject');
+    console.warn('isObject() is deprecated. Use dotclear.isObject()');
     return dotclear.isObject(item);
   };
 
@@ -135,7 +135,7 @@ var isObject =
 var mergeDeep =
   mergeDeep ||
   function mergeDeep(target, ...sources) {
-    console.warn('mergeDeep is deprecated. Use dotclear.mergeDeep');
+    console.warn('mergeDeep() is deprecated. Use dotclear.mergeDeep()');
     return dotclear.mergeDeep(target, ...sources);
   };
 
@@ -145,7 +145,7 @@ var mergeDeep =
 var getCookie =
   getCookie ||
   function getCookie(name) {
-    console.warn('getCookie is deprecated. Use dotclear.getCookie');
+    console.warn('getCookie() is deprecated. Use dotclear.getCookie()');
     return dotclear.getCookie(name);
   };
 
@@ -155,7 +155,7 @@ var getCookie =
 var setCookie =
   setCookie ||
   function setCookie(name, value, options = {}) {
-    console.warn('setCookie is deprecated. Use dotclear.setCookie');
+    console.warn('setCookie() is deprecated. Use dotclear.setCookie()');
     return dotclear.setCookie(name, value, options);
   };
 
@@ -165,6 +165,6 @@ var setCookie =
 var deleteCookie =
   deleteCookie ||
   function deleteCookie(name) {
-    console.warn('deleteCookie is deprecated. Use dotclear.deleteCookie');
+    console.warn('deleteCookie() is deprecated. Use dotclear.deleteCookie()');
     return dotclear.deleteCookie(name);
   };

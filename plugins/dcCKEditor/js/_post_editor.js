@@ -1,13 +1,13 @@
-/*global dotclear, getData */
+/*global dotclear */
 /*exported CKEDITOR_GETURL */
 'use strict';
 
 // Get context
-Object.assign(dotclear, getData('ck_editor_ctx'));
+Object.assign(dotclear, dotclear.getData('ck_editor_ctx'));
 // Get messages
-Object.assign(dotclear.msg, getData('ck_editor_msg'));
+Object.assign(dotclear.msg, dotclear.getData('ck_editor_msg'));
 // Get CK Editor variables
-Object.assign(window, getData('ck_editor_var'));
+Object.assign(window, dotclear.getData('ck_editor_var'));
 
 var CKEDITOR_GETURL = function (resource) {
   // If this is not a full or absolute path.

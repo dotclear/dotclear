@@ -1,12 +1,11 @@
-/*global getData, CodeMirror */
+/*global dotclear, CodeMirror */
 'use strict';
 
 // Store all instances
 let codemirror_instance = {};
 
 // Launch all requested codemirror instance
-// We use getData() rather than dotclear.getData() as DOM content ready has not been fired yet
-for (let i of getData('codemirror')) {
+for (let i of dotclear.getData('codemirror')) {
   codemirror_instance[i.name] = CodeMirror.fromTextArea(document.getElementById(i.id), {
     mode: i.mode,
     tabMode: 'indent',

@@ -1,7 +1,7 @@
-/*global $, dotclear, metaEditor, mergeDeep, getData */
+/*global $, dotclear, metaEditor */
 'use strict';
 
-mergeDeep(dotclear.msg, getData('editor_tags_msg'));
+dotclear.mergeDeep(dotclear.msg, dotclear.getData('editor_tags_msg'));
 
 $(function () {
   $('#edit-entry').on('onetabload', function () {
@@ -16,7 +16,7 @@ $(function () {
         meta_field = $('<input type="hidden" name="post_tags" />');
         meta_field.val($('#post_tags').val());
       }
-      mEdit = new metaEditor(tags_edit, meta_field, 'tag', getData('editor_tags_options'));
+      mEdit = new metaEditor(tags_edit, meta_field, 'tag', dotclear.getData('editor_tags_options'));
       mEdit.meta_url = 'plugin.php?p=tags&m=tag_posts&amp;tag=';
       mEdit.displayMeta('tag', post_id, 'post_meta_tag_input');
 

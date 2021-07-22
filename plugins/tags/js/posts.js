@@ -1,7 +1,7 @@
-/*global $, dotclear, mergeDeep, getData */
+/*global $, dotclear */
 'use strict';
 
-mergeDeep(dotclear.msg, getData('posts_tags_msg'));
+dotclear.mergeDeep(dotclear.msg, dotclear.getData('posts_tags_msg'));
 
 $(function () {
   $('#tag_delete').on('submit', function () {
