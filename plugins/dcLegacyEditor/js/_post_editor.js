@@ -59,8 +59,8 @@ $(function () {
 
   if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#comment_content') !== -1) {
     if ($('#comment_content').length > 0) {
-      let commentTb = new jsToolBar(document.getElementById('comment_content'));
-      commentTb.draw('xhtml');
+      dotclear.commentTb = new jsToolBar(document.getElementById('comment_content'));
+      dotclear.commentTb.draw('xhtml');
     }
   }
 

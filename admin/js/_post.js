@@ -1,4 +1,4 @@
-/*global $, dotclear, datePicker, commentTb */
+/*global $, dotclear, datePicker */
 'use strict';
 
 dotclear.viewCommentContent = function (line, action, e) {
@@ -195,6 +195,6 @@ $(function () {
   });
 
   $('#add-comment').on('onetabload', function () {
-    commentTb.draw('xhtml');
+    dotclear.commentTb.draw('xhtml');
   });
 });

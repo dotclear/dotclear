@@ -1,4 +1,4 @@
-/*global $, jQuery, dotclear, template_upload, template_download */
+/*global $, jQuery, dotclear */
 'use strict';
 
 (function ($) {
@@ -65,8 +65,8 @@
           sequentialUploads: true,
           uploadTemplateId: null,
           downloadTemplateId: null,
-          uploadTemplate: template_upload,
-          downloadTemplate: template_download,
+          uploadTemplate: dotclear.jsUpload.template_upload,
+          downloadTemplate: dotclear.jsUpload.template_download,
         })
         .on('fileuploadadd', function () {
           $('.button.cancel').css('display', 'inline-block');
