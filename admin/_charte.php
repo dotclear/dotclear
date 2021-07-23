@@ -39,7 +39,6 @@ echo dcUtils::jsJson('dotclear_init', $js);
     <script src="js/jquery/jquery-ui.custom.js"></script>
     <script src="js/jquery/jquery.ui.touch-punch.js"></script>
     <script src="js/jquery/jquery.pageTabs.js"></script>
-    <script src="js/jquery/jquery.biscuit.js"></script>
     <script src="js/prepend.js"></script>
     <script src="js/common.js"></script>
     <script src="js/prelude.js"></script>
