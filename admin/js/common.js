@@ -3,33 +3,33 @@
 'use strict';
 
 /* Get PreInit JSON data */
-const dotclear_init = dotclear.getData('dotclear_init');
+dotclear.data = dotclear.getData('dotclear_init');
 
 /* Set some CSS variables here
 -------------------------------------------------------- */
 // set base font-size of body (62.5% default, usually : 50% to 75%)
-if (typeof dotclear_init.htmlFontSize !== 'undefined') {
-  document.documentElement.style.setProperty('--html-font-size', dotclear_init.htmlFontSize);
+if (typeof dotclear.data.htmlFontSize !== 'undefined') {
+  document.documentElement.style.setProperty('--html-font-size', dotclear.data.htmlFontSize);
 }
 // set theme mode (dark/light/…)
-dotclear_init.theme = 'light';
+dotclear.data.theme = 'light';
 if (document.documentElement.getAttribute('data-theme') !== '') {
-  dotclear_init.theme = document.documentElement.getAttribute('data-theme');
+  dotclear.data.theme = document.documentElement.getAttribute('data-theme');
 } else {
   if (window.matchMedia) {
     if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      dotclear_init.theme = 'dark';
+      dotclear.data.theme = 'dark';
     }
   }
 }
 // Cope with low data requirement
-dotclear_init.lowdata = false;
+dotclear.data.lowdata = false;
 if (window.matchMedia) {
   if (window.matchMedia('(prefers-reduced-data: reduce)').matches) {
-    dotclear_init.lowdata = true;
+    dotclear.data.lowdata = true;
   }
 }
-document.documentElement.style.setProperty('--dark-mode', dotclear_init.theme === 'dark' ? 1 : 0);
+document.documentElement.style.setProperty('--dark-mode', dotclear.data.theme === 'dark' ? 1 : 0);
 
 /* ChainHandler, py Peter van der Beken
 -------------------------------------------------------- */
@@ -685,9 +685,6 @@ dotclear.passwordHelpers = function () {
 /* On document ready
 -------------------------------------------------------- */
 $(function () {
-
-  // Store preinit DATA in dotclear object
-  dotclear.data = dotclear_init;
 
   // Debug mode
   dotclear.debug = dotclear.data.debug || false;
