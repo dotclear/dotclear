@@ -87,7 +87,7 @@ jsToolBar.prototype.elements.link.fn.wysiwyg = function () {
   href = title = hreflang = '';
   hreflang = this.elements.link.default_hreflang;
 
-  var a = this.getAncestor();
+  const a = this.getAncestor();
 
   if (a.tagName == 'a') {
     href = a.tag.href || '';
@@ -195,7 +195,7 @@ jsToolBar.prototype.elements.img_select.fn.wiki = function () {
   this.elements.img_select.popup.call(this);
 };
 jsToolBar.prototype.elements.img_select.fncall.wiki = function () {
-  var d = this.elements.img_select.data;
+  const d = this.elements.img_select.data;
   if (d.src == undefined) {
     return;
   }

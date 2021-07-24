@@ -392,7 +392,7 @@ jsToolBar.prototype.insertNode = function (node) {
  */
 jsToolBar.prototype.getSelectedNode = function () {
   let sel;
-  var content;
+  let content;
   if (this.iwin.getSelection) {
     // Gecko
     sel = this.iwin.getSelection();

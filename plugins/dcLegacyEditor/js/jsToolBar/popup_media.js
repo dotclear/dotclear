@@ -67,12 +67,12 @@ $(function () {
       tb.elements.mp3_insert.fncall[tb.mode].call(tb);
     } else if (type == 'flv') {
       // may be all video media, not only flv
-      var oplayer = $(`<div>${$('#public_player').val()}</div>`);
+      const oplayer = $(`<div>${$('#public_player').val()}</div>`);
 
       align = $('input[name="alignment"]:checked', insert_form).val();
 
-      var vw = $('#video_w').val();
-      var vh = $('#video_h').val();
+      const vw = $('#video_w').val();
+      const vh = $('#video_h').val();
 
       if (vw > 0) {
         $('video', oplayer).attr('width', vw);

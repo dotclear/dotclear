@@ -1,13 +1,13 @@
 /*global dotclear */
 'use strict';
 
-if (typeof post_remember_str === 'undefined' && typeof dotclear.getData !== 'undefined') {
-  var post_remember_str = dotclear.getData('dc_post_remember_str').post_remember_str;
+if (typeof dotclear.post_remember_str === 'undefined' && typeof dotclear.getData !== 'undefined') {
+  dotclear.post_remember_str = dotclear.getData('dc_post_remember_str').post_remember_str;
 }
 
 window.addEventListener('load', () => {
   let bloc = new DOMParser().parseFromString(
-    `<p class="remember"><input type="checkbox" id="c_remember" name="c_remember" /> <label for="c_remember">${post_remember_str}</label></p>`,
+    `<p class="remember"><input type="checkbox" id="c_remember" name="c_remember" /> <label for="c_remember">${dotclear.post_remember_str}</label></p>`,
     'text/html'
   ).body.firstChild;
   // Looks for a preview input

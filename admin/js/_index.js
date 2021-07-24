@@ -59,8 +59,8 @@ dotclear.dbPostsCount = function () {
 };
 $(function () {
   function quickPost(f, status) {
-    if (typeof jsToolBar === 'function' && contentTb.getMode() == 'wysiwyg') {
-      contentTb.syncContents('iframe');
+    if (typeof jsToolBar === 'function' && dotclear.contentTb.getMode() == 'wysiwyg') {
+      dotclear.contentTb.syncContents('iframe');
     }
 
     const params = {
@@ -98,8 +98,8 @@ $(function () {
         $('#post_title', f).val('');
         $('#post_content', f).val('');
         $('#post_content', f).change();
-        if (typeof jsToolBar === 'function' && contentTb.getMode() == 'wysiwyg') {
-          contentTb.syncContents('textarea');
+        if (typeof jsToolBar === 'function' && dotclear.contentTb.getMode() == 'wysiwyg') {
+          dotclear.contentTb.syncContents('textarea');
         }
         $('#cat_id', f).val('0');
         $('#new_cat_title', f).val('');
@@ -113,8 +113,8 @@ $(function () {
   const f = $('#quick-entry');
   if (f.length > 0) {
     if (typeof jsToolBar === 'function') {
-      var contentTb = new jsToolBar($('#post_content', f)[0]);
-      contentTb.switchMode($('#post_format', f).val());
+      dotclear.contentTb = new jsToolBar($('#post_content', f)[0]);
+      dotclear.contentTb.switchMode($('#post_format', f).val());
     }
 
     $('input[name=save]', f).on('click', function () {

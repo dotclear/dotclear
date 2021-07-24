@@ -59,7 +59,7 @@ dotclear.reorder = function (ul) {
 
       // modifie le name en conséquence
       $this.find('*[name^=w]').each(function () {
-        var tab = $(this).attr('name').split('][');
+        const tab = $(this).attr('name').split('][');
         tab[0] = 'w[' + name;
         tab[1] = i;
         $(this).attr('name', tab.join(']['));

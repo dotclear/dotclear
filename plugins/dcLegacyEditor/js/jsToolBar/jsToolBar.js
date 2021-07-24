@@ -123,7 +123,6 @@ jsCombo.prototype.draw = function () {
   select.title = this.title;
 
   for (let o in this.options) {
-    //var opt = this.options[o];
     const option = document.createElement('option');
     option.value = o;
     option.appendChild(document.createTextNode(this.options[o]));
@@ -609,23 +608,23 @@ jsToolBar.prototype.elements.link = {
 };
 
 jsToolBar.prototype.elements.link.fn.xhtml = function () {
-  var link = this.elements.link.prompt.call(this);
+  const link = this.elements.link.prompt.call(this);
   if (link) {
-    var stag = '<a href="' + link.href + '"';
+    let stag = '<a href="' + link.href + '"';
     if (link.hreflang) {
       stag = stag + ' hreflang="' + link.hreflang + '"';
     }
     stag = stag + '>';
-    var etag = '</a>';
+    const etag = '</a>';
 
     this.encloseSelection(stag, etag);
   }
 };
 jsToolBar.prototype.elements.link.fn.wiki = function () {
-  var link = this.elements.link.prompt.call(this);
+  const link = this.elements.link.prompt.call(this);
   if (link) {
-    var stag = '[';
-    var etag = '|' + link.href;
+    const stag = '[';
+    let etag = '|' + link.href;
     if (link.hreflang) {
       etag = etag + '|' + link.hreflang;
     }
@@ -647,7 +646,7 @@ jsToolBar.prototype.elements.img = {
   },
 };
 jsToolBar.prototype.elements.img.fn.xhtml = function () {
-  var src = this.elements.img.prompt.call(this);
+  const src = this.elements.img.prompt.call(this);
   if (src) {
     this.encloseSelection('', '', function (str) {
       if (str) {
@@ -659,7 +658,7 @@ jsToolBar.prototype.elements.img.fn.xhtml = function () {
   }
 };
 jsToolBar.prototype.elements.img.fn.wiki = function () {
-  var src = this.elements.img.prompt.call(this);
+  const src = this.elements.img.prompt.call(this);
   if (src) {
     this.encloseSelection('', '', function (str) {
       if (str) {

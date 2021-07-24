@@ -1,3 +1,6 @@
+/*global CKEDITOR, dotclear */
+'use strict';
+
 CKEDITOR.dialog.add('imgDialog', function (editor) {
   return {
     title: dotclear.msg.img_title,
@@ -17,10 +20,8 @@ CKEDITOR.dialog.add('imgDialog', function (editor) {
       },
     ],
     onOk: function () {
-      var dialog = this;
-      var src = dialog.getValueOf('main-tab', 'url');
-
-      var img = editor.document.createElement('img');
+      const src = this.getValueOf('main-tab', 'url');
+      const img = editor.document.createElement('img');
       img.setAttribute('src', src);
       img.setAttribute('alt', src);
       editor.insertElement(img);
