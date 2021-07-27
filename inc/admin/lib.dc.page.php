@@ -907,8 +907,8 @@ EOT;
         self::jsJson('dotclear', $js) .
         self::jsJson('dotclear_msg', $js_msg) .
 
-        self::jsLoad('js/adblocker.js') .
         self::jsLoad('js/common.js') .
+        self::jsLoad('js/ads.js') .
         self::jsLoad('js/services.js') .
         self::jsLoad('js/prelude.js');
     }
