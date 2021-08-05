@@ -1,3 +1,48 @@
+Dotclear 2.19 - 2021-08-13
+===========================================================
+* 🐘 PHP 7.3+ is required, PHP 8 compliance
+* jQuery: Remove old jQuery biscuit plugin and replace it by "modern JS"
+* jQuery: Remove old jQuery pwstrength plugin and replace it by "modern JS"
+* Js: Use dotclear global object rather than global constants, var and methods (AFAP)
+* Js: No more need of global dotclear_init const as dotclear global object is initialized before (prepend.js)
+* Js: Rewrite metaEditor script
+* Template: Add {{tpl:CategoryID}} template
+* Template: Refine granularity of tpl:Blocks in dotty template set, will simplify inheritance and overload of themes
+* Template: Add dc-home-first class to body tag if it is the first page (standard mode)
+* Template: {{tpl:FeedLanguage}} consider lang in post context
+* Admin UI: Remove some PNG fallback image when SVG are available as every modern browsers support SVG format
+* Admin UI: Bye bye responsive font size, thanks for all the fish!
+* Admin UI: Blog appearance, use details HTML5 element rather than div and JS to display theme details
+* Admin UI: Add system-ui (cross-platform default user interface font) in 1st position of font-family
+* Admin UX: Load themes in some admin popups as some configurable theme may use a link/post/page selector
+* Admin UX: Load themes in media/media-item admin pages as some configurable theme may use a media selector
+* Admin UX: Disable deletion and modification of officially distributed themes
+* Admin UX: Remove Google Blog Search from pings URIs (service stopped) and fix pings global settings management
+* Admin UX: Check themes dependencies (with core, plugins)
+* Admin UX: Management of attachments, allow using media->postmedia property
+* Admin UX: Use details HTML5 element rather than div and JS for authentication additional options
+* Admin UX: Add Ad-blocker detection (may be disabled) as it may interfere with CKEditor (may be other features).
+* a11y: Cope with mediaquery prefers-reduced-data (experimental)
+* Public UX: Fix navigation widget to cope with static mode
+* Public UX: Add language information (if any) in breadcrumb
+* Public UX: Use localStorage rather than cookie to store comment's author info ("remember me" checkbox)
+* Public UX: Subscribe widget and feeds handling language context
+* Theme: Use <link rel… rather than <style @import… for CustomCSS theme
+* Theme: Align right field's labels (single line fields only) of Berlin theme
+* Theme: No need to load again util.js in _public.php as it's already loaded by dotty/_head.html
+* Core: Add .svg in allowed var/plugin loaded files
+* Core: Add .webp in allowed var/plugin loaded files and ope with wepb thumbnails
+* Core: Remove mysql driver support, obsolete in PHP 7+
+* Core: Forget about URL type = lang as it cannot be set as this by the URL handler
+* Core: Add publicBeforeCommentRedir behavior - useful to add parameters on redir URL
+* Core: Globally disable (Google) FLoC tracking by default
+* Fix: Cope with original size when storing current media insertion settings
+* Lib: Update jQuery from 3.5.1 to 3.6.0
+* Lib: Update Codemirror 5.58.2 from to 5.62.0
+* Lib: Update CKEditor from 4.16.0 to 4.16.1 (and fix CKEditor jQuery adapter warnings)
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.18.1 - 2021-02-13
 ===========================================================
 * Fix: Adjust top and bottom border of textarea when dcLegacyEditor toolbar is set in bottom
