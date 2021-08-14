@@ -68,6 +68,10 @@ class dcStore
             return false;
         }
 
+        if (!$parser) {
+            return false;
+        }
+
         $raw_datas = $parser->getModules();
 
         uasort($raw_datas, ['self', 'sort']);
