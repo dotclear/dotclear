@@ -257,7 +257,7 @@ if (!$step) {
     echo
     '<p class="message">' .
     __("Congratulations, you're one click away from the end of the update.") .
-    ' <strong><a href="index.php?logout=1">' . __('Finish the update.') . '</a></strong>' .
+    ' <strong><a href="index.php?logout=1" class="button submit">' . __('Finish the update.') . '</a></strong>' .
         '</p>';
 }
 
