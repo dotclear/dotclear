@@ -68,7 +68,7 @@ class dcStore
             return false;
         }
 
-        if (!$parser) {
+        if (!$parser) { // @phpstan-ignore-line
             return false;
         }
 
