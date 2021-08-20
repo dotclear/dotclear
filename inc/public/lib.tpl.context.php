@@ -174,7 +174,7 @@ class context
                 default:
                     // 3rd party filter applied and should continue
                     // Apply default filter
-                    if ($args[$filter]) {
+                    if (isset($args[$filter]) && $args[$filter]) {
                         $str = self::default_filters($filter, $str, $args[$filter]);
                     }
             }
