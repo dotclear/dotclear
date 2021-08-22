@@ -25,7 +25,7 @@ class adminModulesList
     public static $allow_multi_install = false; /**< @var    boolean    Work with multiple root directories */
     public static $distributed_modules = []; /**< @var    array    List of modules distributed with Dotclear */
 
-    protected $list_id = 'unknow'; /**< @var    string    Current list ID */
+    protected $list_id = 'unknown'; /**< @var    string    Current list ID */
     protected $data    = []; /**< @var    array    Current modules */
 
     protected $config_module  = ''; /**< @var    string    Module ID to configure */
@@ -1400,7 +1400,7 @@ class adminModulesList
         }
 
         if (!$this->modules->moduleExists($id)) {
-            $this->core->error->add(__('Unknow plugin ID'));
+            $this->core->error->add(__('Unknown plugin ID'));
 
             return false;
         }

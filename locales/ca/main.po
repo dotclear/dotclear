@@ -3613,7 +3613,7 @@ msgstr "Fitxer URL:"
 msgid "Download"
 msgstr ""
 
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr ""
 
 #, fuzzy

@@ -3619,7 +3619,7 @@ msgid "Download"
 msgstr "Téma letöltése"
 
 #, fuzzy
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr "Feltölt"
 
 #, fuzzy

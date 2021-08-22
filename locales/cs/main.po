@@ -3590,7 +3590,7 @@ msgid "Download"
 msgstr "Stáhnout vzhled"
 
 #, fuzzy
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr "Nahrát plugin"
 
 #, fuzzy

@@ -3543,7 +3543,7 @@ msgid "Download"
 msgstr "থিম ডাউনলোড"
 
 #, fuzzy
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr "প্লাগইন আপলোড"
 
 msgid "This plugin has no configuration file."

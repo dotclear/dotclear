@@ -3558,7 +3558,7 @@ msgid "Download"
 msgstr "Tema indir"
 
 #, fuzzy
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr "Eklenti yükle"
 
 msgid "This plugin has no configuration file."

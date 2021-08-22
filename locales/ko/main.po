@@ -3573,7 +3573,7 @@ msgid "Download"
 msgstr "테마 내려받기"
 
 #, fuzzy
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr "플러그인 올리기"
 
 #, fuzzy

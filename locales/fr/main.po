@@ -3291,7 +3291,7 @@ msgstr "URL du fichier zip :"
 msgid "Download"
 msgstr "Télécharger"
 
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr "ID de plugin inconnu"
 
 msgid "This plugin has no configuration file."

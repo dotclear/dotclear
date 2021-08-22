@@ -3551,7 +3551,7 @@ msgid "Download"
 msgstr "下载主题"
 
 #, fuzzy
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr "上传插件"
 
 #, fuzzy

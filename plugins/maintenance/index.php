@@ -33,7 +33,7 @@ if (!empty($_REQUEST['task'])) {
     $task = $maintenance->getTask($_REQUEST['task']);
 
     if ($task === null) {
-        $core->error->add('Unknow task ID');
+        $core->error->add('Unknown task ID');
     }
 
     $task->code($code);

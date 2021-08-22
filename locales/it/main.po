@@ -3570,7 +3570,7 @@ msgid "Download"
 msgstr "Scarica tema"
 
 #, fuzzy
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr "Caricamento componente aggiuntivo"
 
 #, fuzzy

@@ -3576,7 +3576,7 @@ msgid "Download"
 msgstr "テーマをダウンロード"
 
 #, fuzzy
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr "プラグインをアップロード"
 
 #, fuzzy

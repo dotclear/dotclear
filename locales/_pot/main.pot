@@ -4517,7 +4517,7 @@ msgid "Download"
 msgstr ""
 
 #: inc/admin/lib.moduleslist.php:1403
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr ""
 
 #: inc/admin/lib.moduleslist.php:1413

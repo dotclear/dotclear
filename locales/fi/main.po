@@ -3298,7 +3298,7 @@ msgstr "Zip-tiedoston verkko-osoite:"
 msgid "Download"
 msgstr "Lataa"
 
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr "Tuntematon liitännäisen tunniste"
 
 msgid "This plugin has no configuration file."

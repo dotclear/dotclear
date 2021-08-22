@@ -3576,7 +3576,7 @@ msgid "Download"
 msgstr "Pobierz motyw"
 
 #, fuzzy
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr "Wyślij wtyczkę"
 
 #, fuzzy

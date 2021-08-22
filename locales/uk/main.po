@@ -3284,7 +3284,7 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr ""
 
 msgid "This plugin has no configuration file."

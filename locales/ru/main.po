@@ -3589,7 +3589,7 @@ msgid "Download"
 msgstr "Загрузить тему"
 
 #, fuzzy
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr "Загрузить плагин"
 
 #, fuzzy
