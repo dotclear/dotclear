@@ -680,7 +680,7 @@ class dcRestMethods
         if ($list == 'plugin-activate') {
             $modules = $core->plugins->getModules();
             if (empty($modules) || !isset($modules[$id])) {
-                throw new Exception('Unknow module ID');
+                throw new Exception('Unknown module ID');
             }
             $module = $modules[$id];
         } elseif ($list == 'plugin-new') {
@@ -692,14 +692,14 @@ class dcRestMethods
 
             $modules = $store->get();
             if (empty($modules) || !isset($modules[$id])) {
-                throw new Exception('Unknow module ID');
+                throw new Exception('Unknown module ID');
             }
             $module = $modules[$id];
         }
         // behavior not implemented yet
 
         if (empty($module)) {
-            throw new Exception('Unknow module ID');
+            throw new Exception('Unknown module ID');
         }
 
         $module = adminModulesList::sanitizeModule($id, $module);

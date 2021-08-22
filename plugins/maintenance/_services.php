@@ -43,7 +43,7 @@ class dcMaintenanceRest
 
         $maintenance = new dcMaintenance($core);
         if (($task = $maintenance->getTask($post['task'])) === null) {
-            throw new Exception('Unknow task ID');
+            throw new Exception('Unknown task ID');
         }
 
         $task->code((integer) $post['code']);

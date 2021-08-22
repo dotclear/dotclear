@@ -3584,7 +3584,7 @@ msgid "Download"
 msgstr "Atsisiųsti temą"
 
 #, fuzzy
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr "Įkelti plugin'ą"
 
 msgid "This plugin has no configuration file."

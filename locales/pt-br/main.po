@@ -3649,7 +3649,7 @@ msgid "Download"
 msgstr "Baixar o tema"
 
 #, fuzzy
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr "Enviar o plugin"
 
 #, fuzzy

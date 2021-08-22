@@ -3561,7 +3561,7 @@ msgstr "ఫైలు URL:"
 msgid "Download"
 msgstr "అలంకారాన్ని దిగుమతిచేసుకోండి"
 
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr ""
 
 msgid "This plugin has no configuration file."

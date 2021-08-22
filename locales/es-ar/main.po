@@ -3583,7 +3583,7 @@ msgid "Download"
 msgstr "Descargar tema"
 
 #, fuzzy
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr "Subir agregado"
 
 #, fuzzy

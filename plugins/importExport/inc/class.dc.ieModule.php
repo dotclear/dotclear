@@ -30,7 +30,7 @@ abstract class dcIeModule
         $this->setInfo();
 
         if (!in_array($this->type, ['import', 'export'])) {
-            throw new Exception(sprintf('Unknow type for module %s', get_class($this)));
+            throw new Exception(sprintf('Unknown type for module %s', get_class($this)));
         }
 
         if (!$this->name) {

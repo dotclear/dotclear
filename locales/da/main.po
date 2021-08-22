@@ -3516,7 +3516,7 @@ msgstr "Tema zip fil URL:"
 msgid "Download"
 msgstr "Download tema"
 
-msgid "Unknow plugin ID"
+msgid "Unknown plugin ID"
 msgstr ""
 
 #, fuzzy
