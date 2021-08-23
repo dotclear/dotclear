@@ -1609,7 +1609,7 @@ class adminThemesList extends adminModulesList
                     $sshot = 'images/noscreenshot.png';
                 }
 
-                $line .= '<div class="module-sshot"><img src="' . $sshot . '" alt="' .
+                $line .= '<div class="module-sshot"><img src="' . $sshot . '" loading="lazy" alt="' .
                 sprintf(__('%s screenshot.'), html::escapeHTML($module['name'])) . '" /></div>';
             }
 
