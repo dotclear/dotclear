@@ -30,7 +30,7 @@ if ($core->themes->disableDepModules($core->adminurl->get('admin.blog.theme', []
 }
 
 # -- Theme screenshot --
-if (!empty($_GET['shot']) && $list->modules->moduleExists($_GET['shot'])) {
+if (!empty($_GET['shot'])) {
     $f = path::real(empty($_GET['src']) ?
         $core->blog->themes_path . '/' . $_GET['shot'] . '/screenshot.jpg' :
         $core->blog->themes_path . '/' . $_GET['shot'] . '/' . path::clean($_GET['src'])
@@ -184,7 +184,7 @@ if (!empty($modules)) {
         ->setTab('themes')
         ->setModules($modules)
         ->displayModules(
-            /* cols */['name', 'distrib'],
+            /* cols */['sshot', 'name', 'distrib', 'desc', 'author', 'version'],
             /* actions */['activate', 'delete']
         );
 
