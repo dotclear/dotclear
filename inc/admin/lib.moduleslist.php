@@ -476,7 +476,8 @@ class adminModulesList
                 'score'             => 0,
                 'type'              => null,
                 'require'           => [],
-                'settings'          => []
+                'settings'          => [],
+                'repository'        => ''
             ],
             # Module's values
             $module,
@@ -564,6 +565,11 @@ class adminModulesList
         if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {   // @phpstan-ignore-line
             echo
             '<th class="nowrap">' . __('Score') . '</th>';
+        }
+
+        if (in_array('repository', $cols)) {
+            echo
+            '<th class="nowrap count" scope="col">' . __('Repository') . '</th>';
         }
 
         if (in_array('version', $cols)) {
@@ -673,6 +679,12 @@ class adminModulesList
                     '<td class="module-version nowrap count"><span class="debug">' . $module['score'] . '</span></td>';
             }
 
+            if (in_array('repository', $cols)) {
+                $tds++;
+                echo
+                '<td class="module-repository nowrap count">' . ($module['thirdparty'] ? __('Third-party') : __('Official')) . '</td>';
+            }
+
             if (in_array('version', $cols)) {
                 $tds++;
                 echo
@@ -770,13 +782,17 @@ class adminModulesList
                 $config = !empty($module['root']) && file_exists(path::real($module['root'] . '/_config.php'));
                 $index  = !empty($module['root']) && file_exists(path::real($module['root'] . '/index.php'));
 
-                if ($config || $index || !empty($module['section']) || !empty($module['tags']) || !empty($module['settings'])) {
+                if ($config || $index || !empty($module['section']) || !empty($module['tags']) || !empty($module['settings']) || !empty($module['repository'])) {
                     echo
                         '<div><ul class="mod-more">';
 
                     $settings = $this->getSettingsUrls($this->core, $id);
                     if (!empty($settings) && $module['enabled']) {
                         echo '<li>' . implode(' - ', $settings) . '</li>';
+                    }
+
+                    if (!empty($module['repository'])) {
+                        echo '<liclass="modules-repository"><a href="' . $module['repository']. '">' . __('Third-party repository') . '</a></li>';
                     }
 
                     if (!empty($module['section'])) {

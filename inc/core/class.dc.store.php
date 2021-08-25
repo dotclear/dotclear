@@ -86,6 +86,7 @@ class dcStore
         $updates = [];
         $current = $this->modules->getModules();
         foreach ($current as $p_id => $p_infos) {
+            // priority to main repository
             if (isset($raw_datas[$p_id])) {
                 if (dcUtils::versionsCompare($raw_datas[$p_id]['version'], $p_infos['version'], '>')) {
                     $updates[$p_id]                    = $raw_datas[$p_id];
@@ -94,6 +95,25 @@ class dcStore
                     $updates[$p_id]['current_version'] = $p_infos['version'];
                 }
                 unset($raw_datas[$p_id]);
+            }
+            // third-party repository
+            if (!empty($p_infos['repository'])) {
+                try {
+                    $alt_parser = dcStoreReader::quickParse($p_infos['repository'], DC_TPL_CACHE, $force);
+                    if ($alt_parser !== false) {
+                        $alt_raw_datas = $alt_parser->getModules();
+                        if (isset($alt_raw_datas[$p_id]) && dcUtils::versionsCompare($alt_raw_datas[$p_id]['version'], $p_infos['version'], '>')) {
+                                $alt_raw_datas[$p_id]['thirdparty'] = true;
+                                $updates[$p_id]                    = $alt_raw_datas[$p_id];
+                                $updates[$p_id]['root']            = $p_infos['root'];
+                                $updates[$p_id]['root_writable']   = $p_infos['root_writable'];
+                                $updates[$p_id]['current_version'] = $p_infos['version'];
+                        }
+                    }
+                } catch (Exception $e) {
+         
+                }
+
             }
         }
 
