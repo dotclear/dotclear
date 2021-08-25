@@ -7,7 +7,7 @@ xmlns="http://www.w3.org/1999/xhtml">
 <xsl:output method="html"/>
 
 <xsl:template match="/">
-	<html>
+	<html lang="{{tpl:BlogLanguage}}">
 		<head>
 			<title>{{tpl:lang Subscribe to}} <xsl:value-of select="/rss/channel/title"/></title>
 			<style type="text/css">
@@ -83,27 +83,27 @@ xmlns="http://www.w3.org/1999/xhtml">
 		</head>
 		<body>
 			<div id="page">
-				<div id="top">
+				<header id="top" role="banner">
 					<h1><a href="{/rss/channel/link}"><xsl:value-of select="/rss/channel/title"/></a></h1>
 					<p><xsl:value-of select="/rss/channel/description"/></p>
-				</div>
+				</header>
 				<div id="what">
-					<h3>{{tpl:lang What is an RSS feed?}}</h3>
+					<h2>{{tpl:lang What is an RSS feed?}}</h2>
 					<p>{{tpl:lang RSS feed is a free blog summary. It provides content
 					(either posts or comments) or  summaries of content, together with links
 					to the full versions, and other metadata. The last published items may
 					then be read by your favorite RSS
 					<a href="http://en.wikipedia.org/wiki/Aggregator">aggregator</a>.}}</p>
 					<h3>{{tpl:lang Subscribe}}</h3>
-					<p>{{tpl:lang Simply copy the following URL into your aggregator:}}</p>
+					<p><label for="feedurl">{{tpl:lang Simply copy the following URL into your aggregator:}}</label></p>
 					<p><input type="text" size="60" value="" id="feedurl" /></p>
 				</div>
-				<div id="items">
+				<main id="items" role="main">
 					<xsl:apply-templates select="//item"/>
-				</div>
-				<div id="footer">
+				</main>
+				<footer id="footer" role="contentinfo">
 					<p><xsl:value-of select="/rss/channel/copyright"/></p>
-				</div>
+				</footer>
 			</div>
 		</body>
 	</html>
