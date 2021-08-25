@@ -97,7 +97,7 @@ class dcStore
                 unset($raw_datas[$p_id]);
             }
             // third-party repository
-            if (!empty($p_infos['repository'])) {
+            if (!empty($p_infos['repository']) && empty($updates[$p_id])) {
                 try {
                     $alt_parser = dcStoreReader::quickParse($p_infos['repository'], DC_TPL_CACHE, $force);
                     if ($alt_parser !== false) {
