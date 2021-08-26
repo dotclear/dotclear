@@ -86,7 +86,7 @@ class dcStore
         $updates = [];
         $current = $this->modules->getModules();
         foreach ($current as $p_id => $p_infos) {
-            // priority to main repository
+            # main repository
             if (isset($raw_datas[$p_id])) {
                 if (dcUtils::versionsCompare($raw_datas[$p_id]['version'], $p_infos['version'], '>')) {
                     $updates[$p_id]                    = $raw_datas[$p_id];
@@ -96,14 +96,15 @@ class dcStore
                 }
                 unset($raw_datas[$p_id]);
             }
-            // third-party repository
+            # per module third-party repository
             if (!empty($p_infos['repository']) && empty($updates[$p_id])) {
                 try {
-                    $alt_parser = dcStoreReader::quickParse($p_infos['repository'], DC_TPL_CACHE, $force);
+                    $dcstore_url = substr($p_infos['repository'], -12, 12) == '/dcstore.xml' ? $p_infos['repository'] : http::concatURL($p_infos['repository'], 'dcstore.xml');
+                    $alt_parser = dcStoreReader::quickParse($dcstore_url, DC_TPL_CACHE, $force);
                     if ($alt_parser !== false) {
                         $alt_raw_datas = $alt_parser->getModules();
                         if (isset($alt_raw_datas[$p_id]) && dcUtils::versionsCompare($alt_raw_datas[$p_id]['version'], $p_infos['version'], '>')) {
-                                $alt_raw_datas[$p_id]['thirdparty'] = true;
+                                $alt_raw_datas[$p_id]['dcstore']   = true;
                                 $updates[$p_id]                    = $alt_raw_datas[$p_id];
                                 $updates[$p_id]['root']            = $p_infos['root'];
                                 $updates[$p_id]['root_writable']   = $p_infos['root_writable'];
@@ -111,9 +112,8 @@ class dcStore
                         }
                     }
                 } catch (Exception $e) {
-         
-                }
 
+                }
             }
         }
 

@@ -567,11 +567,6 @@ class adminModulesList
             '<th class="nowrap">' . __('Score') . '</th>';
         }
 
-        if (in_array('repository', $cols)) {
-            echo
-            '<th class="nowrap count" scope="col">' . __('Repository') . '</th>';
-        }
-
         if (in_array('version', $cols)) {
             echo
             '<th class="nowrap count" scope="col">' . __('Version') . '</th>';
@@ -585,6 +580,11 @@ class adminModulesList
         if (in_array('desc', $cols)) {
             echo
             '<th class="nowrap module-desc" scope="col">' . __('Details') . '</th>';
+        }
+
+        if (in_array('repository', $cols)) {
+            echo
+            '<th class="nowrap count" scope="col">' . __('Repository') . '</th>';
         }
 
         if (in_array('distrib', $cols)) {
@@ -679,12 +679,6 @@ class adminModulesList
                     '<td class="module-version nowrap count"><span class="debug">' . $module['score'] . '</span></td>';
             }
 
-            if (in_array('repository', $cols)) {
-                $tds++;
-                echo
-                '<td class="module-repository nowrap count">' . ($module['thirdparty'] ? __('Third-party') : __('Official')) . '</td>';
-            }
-
             if (in_array('version', $cols)) {
                 $tds++;
                 echo
@@ -720,6 +714,12 @@ class adminModulesList
                         '</span>';
                 }
                 echo '</td>';
+            }
+
+            if (in_array('repository', $cols)) {
+                $tds++;
+                echo
+                '<td class="module-repository nowrap count">' . (!empty($module['dcstore']) ? __('Third-party repository') : __('Official repository')) . '</td>';
             }
 
             if (in_array('distrib', $cols)) {
@@ -792,7 +792,7 @@ class adminModulesList
                     }
 
                     if (!empty($module['repository'])) {
-                        echo '<liclass="modules-repository"><a href="' . $module['repository']. '">' . __('Third-party repository') . '</a></li>';
+                        echo '<li class="modules-repository"><a href="' . $module['repository']. '">' . __('Third-party repository') . '</a></li>';
                     }
 
                     if (!empty($module['section'])) {
@@ -1672,6 +1672,10 @@ class adminThemesList extends adminModulesList
                 } else {
                     $line .= '<span class="module-parent-missing">' . sprintf(__('(requires "%s")'), html::escapeHTML($module['parent'])) . '</span> ';
                 }
+            }
+
+            if (in_array('repository', $cols)) {
+                $line .= '<span class="module-repository">' . (!empty($module['dcstore']) ? __('Third-party repository') : __('Official repository')) . '</span> ';
             }
 
             $has_details = in_array('details', $cols) && !empty($module['details']);
