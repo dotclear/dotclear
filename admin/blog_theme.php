@@ -129,7 +129,7 @@ if ($core->auth->isSuperAdmin()) {
             ->setTab('themes')
             ->setModules($modules)
             ->displayModules(
-                /*cols */['checkbox', 'name', 'sshot', 'desc', 'author', 'version', 'current_version', 'parent'],
+                /*cols */['checkbox', 'name', 'sshot', 'desc', 'author', 'version', 'current_version', 'repository', 'parent'],
                 /* actions */['update', 'delete']
             );
 

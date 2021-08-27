@@ -139,7 +139,7 @@ if ($core->auth->isSuperAdmin()) {
             ->setTab('update')
             ->setModules($modules)
             ->displayModules(
-                /*cols */['checkbox', 'icon', 'name', 'version', 'current_version', 'desc'],
+                /*cols */['checkbox', 'icon', 'name', 'version', 'repository', 'current_version', 'desc'],
                 /* actions */['update']
             );
 
