@@ -202,13 +202,31 @@ class context
         return html::escapeHTML($str);
     }
 
+    public static function remove_isolated_figcaption($str)
+    {
+        // When using remove_html() or stript_tags(), we may have remaining figcaption's text without any image/audio media
+        // This function will remove those cases from string
+
+        // <figure><img …><figcaption>isolated text</figcaption></figure>
+        $str = preg_replace('/<figure[^>]*>([\t\n\r\s]*)(a[^>]*>)*<img[^>]*>([\t\n\r\s]*)(\/a[^>]*>)*([\t\n\r\s]*)<figcaption[^>]*>(.*?)<\/figcaption>([\t\n\r\s]*)<\/figure>/', '', $str);
+
+        // <figure><figcaption>isolated text</figcaption><audio…>…</audio></figure>
+        $str = preg_replace('/<figure[^>]*>([\t\n\r\s]*)<figcaption[^>]*>(.*)<\/figcaption>([\t\n\r\s]*)<audio[^>]*>(([\t\n\r\s]|.)*)<\/audio>([\t\n\r\s]*)<\/figure>/', '', $str);
+
+        return $str;
+    }
+
     public static function remove_html($str)
     {
+        $str = self::remove_isolated_figcaption($str);
+
         return html::decodeEntities(html::clean($str));
     }
 
     public static function strip_tags($str)
     {
+        $str = self::remove_isolated_figcaption($str);
+
         return trim(preg_replace('/ {2,}/', ' ', str_replace(["\r", "\n", "\t"], ' ', html::clean($str))));
     }
 
