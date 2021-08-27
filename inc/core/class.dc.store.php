@@ -97,18 +97,20 @@ class dcStore
                 unset($raw_datas[$p_id]);
             }
             # per module third-party repository
-            if (!empty($p_infos['repository']) && empty($updates[$p_id])) {
+            if (!empty($p_infos['repository'])) {
                 try {
-                    $dcstore_url = substr($p_infos['repository'], -12, 12) == '/dcstore.xml' ? $p_infos['repository'] : http::concatURL($p_infos['repository'], 'dcstore.xml');
-                    $alt_parser = dcStoreReader::quickParse($dcstore_url, DC_TPL_CACHE, $force);
-                    if ($alt_parser !== false) {
-                        $alt_raw_datas = $alt_parser->getModules();
-                        if (isset($alt_raw_datas[$p_id]) && dcUtils::versionsCompare($alt_raw_datas[$p_id]['version'], $p_infos['version'], '>')) {
-                                $alt_raw_datas[$p_id]['dcstore']   = true;
-                                $updates[$p_id]                    = $alt_raw_datas[$p_id];
+                    $dcs_url = substr($p_infos['repository'], -12, 12) == '/dcstore.xml' ? $p_infos['repository'] : http::concatURL($p_infos['repository'], 'dcstore.xml');
+                    $dcs_parser = dcStoreReader::quickParse($dcs_url, DC_TPL_CACHE, $force);
+                    if ($dcs_parser !== false) {
+                        $dcs_raw_datas = $dcs_parser->getModules();
+                        if (isset($dcs_raw_datas[$p_id]) && dcUtils::versionsCompare($dcs_raw_datas[$p_id]['version'], $p_infos['version'], '>')) {
+                            if (!isset($updates[$p_id]) || dcUtils::versionsCompare($dcs_raw_datas[$p_id]['version'], $updates[$p_id]['version'], '>')) {
+                                $dcs_raw_datas[$p_id]['dcstore']   = true;
+                                $updates[$p_id]                    = $dcs_raw_datas[$p_id];
                                 $updates[$p_id]['root']            = $p_infos['root'];
                                 $updates[$p_id]['root_writable']   = $p_infos['root_writable'];
                                 $updates[$p_id]['current_version'] = $p_infos['version'];
+                            }
                         }
                     }
                 } catch (Exception $e) {
