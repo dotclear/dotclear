@@ -27,7 +27,7 @@ class themeEditorBehaviors
     {
         if ($id != 'default' && $core->auth->isSuperAdmin()) {
             // Check if it's not an officially distributed theme
-            if (!adminThemesList::isDistributedModule($id)) {
+            if ($core->blog->settings->system->themes_path !== $core->blog->settings->system->getGlobal('themes_path') || !adminThemesList::isDistributedModule($id)) {
                 return '<p><a href="' . $core->adminurl->get('admin.plugin.themeEditor') . '" class="button">' . __('Edit theme files') . '</a></p>';
             }
         }
