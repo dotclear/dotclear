@@ -12,50 +12,7 @@ xmlns="http://www.w3.org/1999/xhtml">
 			<title>{{tpl:lang Subscribe to}} <xsl:value-of select="/rss/channel/title"/></title>
 			<style type="text/css">
 			<![CDATA[
-			body {
-				font: 80% Verdana,Arial,sans-serif;
-				margin: 20px 0;
-				padding: 0 0;
-				background: #fff;
-				color: #000;
-			}
-			a { color: #039; }
-			h1, h2 { font-family: Arial,sans-serif; }
-			h1 { font-size: 160%; margin: 0; }
-			h2 { font-size: 140%; font-weight: bold; margin: 0.5em 0 0.2em 0; }
-			h2 a { text-decoration: none; }
-			p { margin: 0 0 0.5em 0; }
-			#page {
-				margin: 0 80px;
-			}
-			#top {
-				background: #036;
-				padding : 1em;
-				color: #fff;
-			}
-			#top a {
-				color: #fff;
-				text-decoration: none;
-			}
-			#what {
-				padding: 1em;
-				background: #eee;
-				border-bottom: 1px solid #000;
-				font-size: 80%;
-			}
-			#what p {
-				margin: 0 0 0.5em 0;
-			}
-			#footer {
-				border-top: 1px solid #000;
-			}
-			#items {
-				background: #fff;
-				color: inherit;
-			}
-			#items div {
-				margin: 0 0 1em 0;
-			}
+			body{font:80% Verdana,Arial,sans-serif;padding:0;background:#fff;color:#000}a{color:#039}h1,h2{font-family:Arial,sans-serif}h1{font-size:160%;margin:0}h2{font-size:140%;font-weight:bold;margin:0.5em 0 0.2em}h2 a{text-decoration:none}p{margin:0 0 0.5em}@media (min-width: 53.125em){#page{margin:0 5em}body{margin:1.5em 0}}#top{background:#036;padding:1em;color:#fff}#top a{color:#fff;text-decoration:none}#what{padding:1em;background:#eee;border-bottom:1px solid #000;font-size:80%}#what p{margin:0 0 0.5em}#footer{border-top:1px solid #000}#items{background:#fff;color:inherit}#items div{margin:0 0 1em}input{width:90%}
 			]]>
 			</style>
 			<script type="text/javascript"><![CDATA[
@@ -96,7 +53,7 @@ xmlns="http://www.w3.org/1999/xhtml">
 					<a href="http://en.wikipedia.org/wiki/Aggregator">aggregator</a>.}}</p>
 					<h3>{{tpl:lang Subscribe}}</h3>
 					<p><label for="feedurl">{{tpl:lang Simply copy the following URL into your aggregator:}}</label></p>
-					<p><input type="text" size="60" value="" id="feedurl" /></p>
+					<p><input type="text" value="" id="feedurl" /></p>
 				</div>
 				<main id="items" role="main">
 					<xsl:apply-templates select="//item"/>
