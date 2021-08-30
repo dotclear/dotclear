@@ -135,10 +135,10 @@ class dcUrlHandlers extends urlHandler
                 // Prevents Clickjacking as far as possible
                 $header = 'X-Frame-Options: SAMEORIGIN'; // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
             }
-            $headers[] = $header;
+            $headers->append($header);
         }
         if ($core->blog->settings->system->prevents_floc) {
-            $headers[] = 'Permissions-Policy: interest-cohort=()';
+            $headers->append('Permissions-Policy: interest-cohort=()');
         }
         # --BEHAVIOR-- urlHandlerServeDocumentHeaders
         $core->callBehavior('urlHandlerServeDocumentHeaders', $headers);
