@@ -324,7 +324,8 @@ class dcModules
                 'type'              => null,
                 'enabled'           => true,
                 'requires'          => [],
-                'settings'          => []
+                'settings'          => [],
+                'repository'        => ''
             ], $properties
         );
 

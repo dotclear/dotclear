@@ -476,7 +476,8 @@ class adminModulesList
                 'score'             => 0,
                 'type'              => null,
                 'require'           => [],
-                'settings'          => []
+                'settings'          => [],
+                'repository'        => ''
             ],
             # Module's values
             $module,
@@ -579,6 +580,11 @@ class adminModulesList
         if (in_array('desc', $cols)) {
             echo
             '<th class="nowrap module-desc" scope="col">' . __('Details') . '</th>';
+        }
+
+        if (in_array('repository', $cols)) {
+            echo
+            '<th class="nowrap count" scope="col">' . __('Repository') . '</th>';
         }
 
         if (in_array('distrib', $cols)) {
@@ -710,6 +716,12 @@ class adminModulesList
                 echo '</td>';
             }
 
+            if (in_array('repository', $cols)) {
+                $tds++;
+                echo
+                '<td class="module-repository nowrap count">' . (!empty($module['dcstore']) ? __('Third-party repository') : __('Official repository')) . '</td>';
+            }
+
             if (in_array('distrib', $cols)) {
                 $tds++;
                 echo
@@ -770,13 +782,17 @@ class adminModulesList
                 $config = !empty($module['root']) && file_exists(path::real($module['root'] . '/_config.php'));
                 $index  = !empty($module['root']) && file_exists(path::real($module['root'] . '/index.php'));
 
-                if ($config || $index || !empty($module['section']) || !empty($module['tags']) || !empty($module['settings'])) {
+                if ($config || $index || !empty($module['section']) || !empty($module['tags']) || !empty($module['settings']) || !empty($module['repository'])) {
                     echo
                         '<div><ul class="mod-more">';
 
                     $settings = $this->getSettingsUrls($this->core, $id);
                     if (!empty($settings) && $module['enabled']) {
                         echo '<li>' . implode(' - ', $settings) . '</li>';
+                    }
+
+                    if (!empty($module['repository'])) {
+                        echo '<li class="modules-repository"><a href="' . $module['repository']. '">' . __('Third-party repository') . '</a></li>';
                     }
 
                     if (!empty($module['section'])) {
@@ -1656,6 +1672,10 @@ class adminThemesList extends adminModulesList
                 } else {
                     $line .= '<span class="module-parent-missing">' . sprintf(__('(requires "%s")'), html::escapeHTML($module['parent'])) . '</span> ';
                 }
+            }
+
+            if (in_array('repository', $cols)) {
+                $line .= '<span class="module-repository">' . (!empty($module['dcstore']) ? __('Third-party repository') : __('Official repository')) . '</span> ';
             }
 
             $has_details = in_array('details', $cols) && !empty($module['details']);
