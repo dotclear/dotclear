@@ -190,15 +190,15 @@ echo
 '<p><label for="user_id" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('User ID:') . '</label> ' .
 form::field('user_id', 20, 255, [
     'default'      => html::escapeHTML($user_id),
-    'extra_html'   => 'required placeholder="' . __('Login') . '"',
+    'extra_html'   => 'required placeholder="' . __('Login') . '" aria-describedby="user_id_help user_id_warning"',
     'autocomplete' => 'username'
 ]) .
 '</p>' .
-'<p class="form-note info">' . __('At least 2 characters using letters, numbers or symbols.') . '</p>';
+'<p class="form-note info" id="user_id_help">' . __('At least 2 characters using letters, numbers or symbols.') . '</p>';
 
 if ($user_id == $core->auth->userID()) {
     echo
-    '<p class="warning">' . __('Warning:') . ' ' .
+    '<p class="warning" id="user_id_warning">' . __('Warning:') . ' ' .
     __('If you change your username, you will have to log in again.') . '</p>';
 }
 
@@ -210,11 +210,11 @@ echo
 form::password('new_pwd', 20, 255,
     [
         'class'        => 'pw-strength',
-        'extra_html'   => ($user_id != '' ? '' : 'required placeholder="' . __('Password') . '"'),
+        'extra_html'   => ($user_id != '' ? '' : 'aria-describedby="new_pwd_help" required placeholder="' . __('Password') . '"'),
         'autocomplete' => 'new-password']
 ) .
 '</p>' .
-'<p class="form-note info">' . __('Password must contain at least 6 characters.') . '</p>' .
+'<p class="form-note info" id="new_pwd_help">' . __('Password must contain at least 6 characters.') . '</p>' .
 
 '<p><label for="new_pwd_c" ' . ($user_id != '' ? '' : 'class="required"') . '>' .
 ($user_id != '' ? '' : '<abbr title="' . __('Required field') . '">*</abbr> ') . __('Confirm password:') . '</label> ' .
@@ -267,10 +267,11 @@ form::field('user_displayname', 20, 255, [
 '<p><label for="user_email">' . __('Email:') . '</label> ' .
 form::email('user_email', [
     'default'      => html::escapeHTML($user_email),
+    'extra_html' => 'aria-describedby="user_email_help"'
     'autocomplete' => 'email'
 ]) .
 '</p>' .
-'<p class="form-note">' . __('Mandatory for password recovering procedure.') . '</p>' .
+'<p class="form-note" id="user_email_help">' . __('Mandatory for password recovering procedure.') . '</p>' .
 
 '<p><label for="user_url">' . __('URL:') . '</label> ' .
 form::url('user_url', [
