@@ -382,7 +382,7 @@ if ($blog_id) {
     form::field('blog_name', 30, 255,
         [
             'default'    => html::escapeHTML($blog_name),
-            'extra_html' => 'required placeholder="' . __('Blog name') . ' lang="'. $blog_settings->system->lang .'" spellcheck="true"'
+            'extra_html' => 'required placeholder="' . __('Blog name') . '" lang="'. $blog_settings->system->lang .'" spellcheck="true"'
         ]
     ) . '</p>';
 
@@ -431,7 +431,7 @@ if ($blog_id) {
     form::field('copyright_notice', 30, 255,
         [
             'default'    => html::escapeHTML($blog_settings->system->copyright_notice),
-            'extra_html' => 'lang="' . $blog_settings->system->lang . '" spellcheck="true"'
+            'extra_html' => 'lang="'. $blog_settings->system->lang .'" spellcheck="true"'
         ]) .
         '</p>' .
 
