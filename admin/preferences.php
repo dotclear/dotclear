@@ -613,9 +613,11 @@ if ($core->auth->allowPassChange()) {
     '<p><label for="cur_pwd">' . __('Your current password:') . '</label>' .
     form::password('cur_pwd', 20, 255,
         [
-            'autocomplete' => 'current-password']
+            'autocomplete' => 'current-password',
+            'extra_html' => 'aria-describedby="cur_pwd_help"'
+        ]
     ) . '</p>' .
-    '<p class="form-note warn">' .
+    '<p class="form-note warn" id="cur_pwd_help">' .
     __('If you have changed your email or password you must provide your current password to save these modifications.') .
         '</p>';
 }
@@ -649,9 +651,9 @@ form::checkbox('user_ui_enhanceduploader', 1, $user_ui_enhanceduploader) . ' ' .
 __('Activate enhanced uploader in media manager') . '</label></p>' .
 
 '<p><label for="user_acc_nodragdrop" class="classic">' .
-form::checkbox('user_acc_nodragdrop', 1, $user_acc_nodragdrop) . ' ' .
+form::checkbox('user_acc_nodragdrop', 1, $user_acc_nodragdrop, '', '', false, 'aria-describedby="user_acc_nodragdrop_help"') . ' ' .
 __('Disable javascript powered drag and drop for ordering items') . '</label></p>' .
-'<p class="clear form-note">' . __('If checked, numeric fields will allow to type the elements\' ordering number.') . '</p>' .
+'<p class="clear form-note" id="user_acc_nodragdrop_help">' . __('If checked, numeric fields will allow to type the elements\' ordering number.') . '</p>' .
 
 '<p><label for="user_ui_hidemoreinfo" class="classic">' .
 form::checkbox('user_ui_hidemoreinfo', 1, $user_ui_hidemoreinfo) . ' ' .
@@ -674,23 +676,23 @@ form::number('user_ui_media_by_page', 0, 999, $user_ui_media_by_page) . '</p>';
 
 echo
 '<p><label for="user_ui_media_nb_last_dirs" class="classic">' . __('Number of recent folders proposed in media manager:') . '</label> ' .
-form::number('user_ui_media_nb_last_dirs', 0, 999, $user_ui_media_nb_last_dirs) . '</p>' .
-'<p class="clear form-note">' . __('Leave empty to ignore, displayed only if Javascript is enabled in your browser.') . '</p>';
+form::number('user_ui_media_nb_last_dirs', 0, 999, $user_ui_media_nb_last_dirs, '', '', false, 'aria-describedby="user_ui_media_nb_last_dirs_help"') . '</p>' .
+'<p class="clear form-note" id="user_ui_media_nb_last_dirs_help">' . __('Leave empty to ignore, displayed only if Javascript is enabled in your browser.') . '</p>';
 
 if ($core->auth->isSuperAdmin()) {
     echo
     '<p><label for="user_ui_hide_std_favicon" class="classic">' .
-    form::checkbox('user_ui_hide_std_favicon', 1, $user_ui_hide_std_favicon) . ' ' .
+    form::checkbox('user_ui_hide_std_favicon', 1, $user_ui_hide_std_favicon, '', '', false, 'aria-describedby="user_ui_hide_std_favicon_help"') . ' ' .
     __('Do not use standard favicon') . '</label> ' .
-    '<span class="clear form-note warn">' . __('This will be applied for all users') . '.</span>' .
+    '<span class="clear form-note warn" id="user_ui_hide_std_favicon_help">' . __('This will be applied for all users') . '.</span>' .
         '</p>'; //Opera sucks;
 }
 
 echo
 '<p><label for="user_ui_nocheckadblocker" class="classic">' .
-form::checkbox('user_ui_nocheckadblocker', 1, $user_ui_nocheckadblocker) . ' ' .
+form::checkbox('user_ui_nocheckadblocker', 1, $user_ui_nocheckadblocker, '', '', false, 'aria-describedby="user_ui_nocheckadblocker_help"') . ' ' .
 __('Disable Ad-blocker check') . '</label></p>' .
-'<p class="clear form-note">' . __('Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend.') . '</p>';
+'<p class="clear form-note" id="user_ui_nocheckadblocker_help">' . __('Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend.') . '</p>';
 
 echo
     '</div>';
