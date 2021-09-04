@@ -382,8 +382,7 @@ if ($blog_id) {
     form::field('blog_name', 30, 255,
         [
             'default'    => html::escapeHTML($blog_name),
-            'extra_html' => 'required placeholder="' . __('Blog name') . ' lang="' . $blog_settings->system->lang .
-            '" spellcheck="true"'
+            'extra_html' => 'required placeholder="' . __('Blog name') . '" lang="'. $blog_settings->system->lang .'" spellcheck="true"'
         ]
     ) . '</p>';
 
@@ -432,7 +431,7 @@ if ($blog_id) {
     form::field('copyright_notice', 30, 255,
         [
             'default'    => html::escapeHTML($blog_settings->system->copyright_notice),
-            'extra_html' => 'lang="' . $blog_settings->system->lang . '" spellcheck="true"'
+            'extra_html' => 'lang="'. $blog_settings->system->lang .'" spellcheck="true"'
         ]) .
         '</p>' .
 
@@ -454,10 +453,11 @@ if ($blog_id) {
         form::number('comments_ttl', [
             'min'     => 0,
             'max'     => 999,
-            'default' => $blog_settings->system->comments_ttl]
+            'default' => $blog_settings->system->comments_ttl,
+            'extra_html' => 'aria-describedby="comments_ttl_help"']
         )) .
     '</label></p>' .
-    '<p class="form-note">' . __('No limit: leave blank.') . '</p>' .
+    '<p class="form-note" id="comments_ttl_help">' . __('No limit: leave blank.') . '</p>' .
     '<p><label for="wiki_comments" class="classic">' .
     form::checkbox('wiki_comments', '1', $blog_settings->system->wiki_comments) .
     __('Wiki syntax for comments') . '</label></p>' .
@@ -477,10 +477,11 @@ if ($blog_id) {
         form::number('trackbacks_ttl', [
             'min'     => 0,
             'max'     => 999,
-            'default' => $blog_settings->system->trackbacks_ttl]
+            'default' => $blog_settings->system->trackbacks_ttl,
+            'extra_html' => 'aria-describedby="trackbacks_ttl_help"']
         )) .
     '</label></p>' .
-    '<p class="form-note">' . __('No limit: leave blank.') . '</p>' .
+    '<p class="form-note" id="trackbacks_ttl_help">' . __('No limit: leave blank.') . '</p>' .
     '<p><label for="comments_nofollow" class="classic">' .
     form::checkbox('comments_nofollow', '1', $blog_settings->system->comments_nofollow) .
     __('Add "nofollow" relation on comments and trackbacks links') . '</label></p>' .
@@ -496,16 +497,16 @@ if ($blog_id) {
     '<div class="two-cols">' .
     '<div class="col">' .
     '<p><label for="date_format">' . __('Date format:') . '</label> ' .
-    form::field('date_format', 30, 255, html::escapeHTML($blog_settings->system->date_format)) .
+    form::field('date_format', 30, 255, html::escapeHTML($blog_settings->system->date_format), '', '', false, 'aria-describedby="date_format_help"') .
     form::combo('date_format_select', $date_formats_combo, ['extra_html' => 'title="' . __('Pattern of date') . '"']) .
     '</p>' .
-    '<p class="chosen form-note">' . __('Sample:') . ' ' . dt::str(html::escapeHTML($blog_settings->system->date_format)) . '</p>' .
+    '<p class="chosen form-note" id="date_format_help">' . __('Sample:') . ' ' . dt::str(html::escapeHTML($blog_settings->system->date_format)) . '</p>' .
 
     '<p><label for="time_format">' . __('Time format:') . '</label>' .
-    form::field('time_format', 30, 255, html::escapeHTML($blog_settings->system->time_format)) .
+    form::field('time_format', 30, 255, html::escapeHTML($blog_settings->system->time_format), '', '', false, 'aria-describedby="time_format_help"') .
     form::combo('time_format_select', $time_formats_combo, ['extra_html' => 'title="' . __('Pattern of time') . '"']) .
     '</p>' .
-    '<p class="chosen form-note">' . __('Sample:') . ' ' . dt::str(html::escapeHTML($blog_settings->system->time_format)) . '</p>' .
+    '<p class="chosen form-note" id="time_format_help">' . __('Sample:') . ' ' . dt::str(html::escapeHTML($blog_settings->system->time_format)) . '</p>' .
 
     '<p><label for="use_smilies" class="classic">' .
     form::checkbox('use_smilies', '1', $blog_settings->system->use_smilies) .
@@ -569,10 +570,10 @@ if ($blog_id) {
     __('Display an entry as static home page') . '</label></p>' .
 
     '<p><label for="static_home_url" class="classic">' . __('Entry URL (its content will be used for the static home page):') . '</label> ' .
-    form::field('static_home_url', 30, 255, html::escapeHTML($blog_settings->system->static_home_url)) .
+    form::field('static_home_url', 30, 255, html::escapeHTML($blog_settings->system->static_home_url), '', '', false, 'aria-describedby="static_home_url_help"') .
     ' <button type="button" id="static_home_url_selector">' . __('Choose an entry') . '</button>' .
     '</p>' .
-    '<p class="form-note">' . __('Leave empty to use the default presentation.') . '</p> ' .
+    '<p class="form-note" id="static_home_url_help">' . __('Leave empty to use the default presentation.') . '</p> ' .
 
     '</div>';
 
@@ -636,9 +637,9 @@ if ($blog_id) {
     form::checkbox('media_img_use_dto_first', '1', $blog_settings->system->media_img_use_dto_first) .
     __('Use original media date if possible') . '</label></p>' .
     '<p><label for="media_img_no_date_alone" class="classic">' .
-    form::checkbox('media_img_no_date_alone', '1', $blog_settings->system->media_img_no_date_alone) .
+    form::checkbox('media_img_no_date_alone', '1', $blog_settings->system->media_img_no_date_alone, '', '', false, 'aria-describedby="media_img_no_date_alone_help"') .
     __('Do not display date if alone in title') . '</label></p>' .
-    '<p class="form-note info">' . __('It is retrieved from the picture\'s metadata.') . '</p>' .
+    '<p class="form-note info" id="media_img_no_date_alone_help">' . __('It is retrieved from the picture\'s metadata.') . '</p>' .
 
     '<p class="field vertical-separator"><label for="media_img_default_size">' . __('Size of inserted image:') . '</label>' .
     form::combo('media_img_default_size', $img_default_size_combo,
@@ -666,9 +667,9 @@ if ($blog_id) {
         echo '<div class="fieldset"><h4>' . __('Blog details') . '</h4>';
         echo
         '<p><label for="blog_id" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog ID:') . '</label>' .
-        form::field('blog_id', 30, 32, html::escapeHTML($blog_id), '', '', false, 'required placeholder="' . __('Blog ID') . '"') . '</p>' .
-        '<p class="form-note">' . __('At least 2 characters using letters, numbers or symbols.') . '</p> ' .
-        '<p class="form-note warn">' . __('Please note that changing your blog ID may require changes in your public index.php file.') . '</p>';
+        form::field('blog_id', 30, 32, html::escapeHTML($blog_id), '', '', false, 'required placeholder="' . __('Blog ID') . '" aria-describedby="blog_id_help blog_id_warn"') . '</p>' .
+        '<p class="form-note" id="blog_id_help">' . __('At least 2 characters using letters, numbers or symbols.') . '</p> ' .
+        '<p class="form-note warn" id="blog_id_warn">' . __('Please note that changing your blog ID may require changes in your public index.php file.') . '</p>';
 
         echo
         '<p><label for="blog_url" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog URL:') . '</label>' .
@@ -725,9 +726,9 @@ if ($blog_id) {
     '<div class="fieldset"><h4>' . __('Blog configuration') . '</h4>' .
 
     '<p><label for="post_url_format">' . __('New post URL format:') . '</label>' .
-    form::combo('post_url_format', $post_url_combo, html::escapeHTML($blog_settings->system->post_url_format)) .
+    form::combo('post_url_format', $post_url_combo, html::escapeHTML($blog_settings->system->post_url_format), '', '', false, 'aria-describedby="post_url_format_help"') .
     '</p>' .
-    '<p class="chosen form-note">' . __('Sample:') . ' ' . $core->blog->getPostURL('', date('Y-m-d H:i:00', $now), __('Dotclear'), 42) . '</p>' .
+    '<p class="chosen form-note" id="post_url_format_help">' . __('Sample:') . ' ' . $core->blog->getPostURL('', date('Y-m-d H:i:00', $now), __('Dotclear'), 42) . '</p>' .
     '</p>' .
 
     '<p><label for="note_title_tag">' . __('HTML tag for the title of the notes on the blog:') . '</label>' .
@@ -735,9 +736,9 @@ if ($blog_id) {
     '</p>' .
 
     '<p><label for="enable_xmlrpc" class="classic">' .
-    form::checkbox('enable_xmlrpc', '1', $blog_settings->system->enable_xmlrpc) .
+    form::checkbox('enable_xmlrpc', '1', $blog_settings->system->enable_xmlrpc, '', '', false, 'aria-describedby="enable_xmlrpc_help"') .
     __('Enable XML/RPC interface') . '</label>' . '</p>' .
-    '<p class="form-note info">' . __('XML/RPC interface allows you to edit your blog with an external client.') . '</p>';
+    '<p class="form-note info" id="enable_xmlrpc_help">' . __('XML/RPC interface allows you to edit your blog with an external client.') . '</p>';
 
     if ($blog_settings->system->enable_xmlrpc) {
         echo
