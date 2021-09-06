@@ -113,6 +113,9 @@ if (!$core->themes->moduleExists($__theme)) {
             'about:config module or reinstall default theme. (' . $__theme . ')'), 650);
 }
 
+# Ensure theme's settings namespace exists
+$core->blog->settings->addNamespace('themes');
+
 # Loading _public.php file for selected theme
 $core->themes->loadNsFile($__theme, 'public');
 
