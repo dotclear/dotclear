@@ -57,6 +57,29 @@ dotclear.dbPostsCount = function () {
     }
   });
 };
+dotclear.dbStoreUpdate = function (store, icon, image) {
+  const params = {
+    f: 'checkStoreUpdate',
+    xd_check: dotclear.nonce,
+    store: store,
+  };
+  $.post('services.php', params, function (data) {
+    if ($('rsp[status=failed]', data).length > 0) {
+      // Silently fail as a forced checked may be done with module update page
+    } else {
+      if ($('rsp>update', data).attr('check') == 1) {
+        // Something has to be displayed
+        const xml = $('rsp>update', data).attr('ret');
+        // update link to details
+        icon.children('a').attr('href', icon.children('a').attr('href')+'#update');
+        // update icon, cope with dc_admin_icon_url() and iconset
+        icon.children('a').children('img').attr('src', icon.children('a').children('img').attr('src').replace(/([^\/]+)$/g, image+'-b-update.png'));
+        // add icon text says there is an update
+        icon.children().append('<br />').append(xml);
+      }
+    }
+  });
+};
 $(function () {
   function quickPost(f, status) {
     if (typeof jsToolBar === 'function' && dotclear.contentTb.getMode() == 'wysiwyg') {
@@ -162,6 +185,16 @@ $(function () {
       }
     }
   });
+
+  // check if store update available, if db has icon
+  if ($('#dashboard-main #icons p a[href="plugins.php"]').length) {
+    const plugins_db_icon = $('#dashboard-main #icons p a[href="plugins.php"]').parent();
+    dotclear.dbStoreUpdate('plugins', plugins_db_icon, 'plugins');
+  }
+  if ($('#dashboard-main #icons p a[href="blog_theme.php"]').length) {
+    const themes_db_icon = $('#dashboard-main #icons p a[href="blog_theme.php"]').parent();
+    dotclear.dbStoreUpdate('themes', themes_db_icon, 'blog-theme');
+  }
 
   // check if some news are available
   params = {

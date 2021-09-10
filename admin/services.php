@@ -14,6 +14,7 @@ $core->rest->addFunction('getPostsCount', ['dcRestMethods', 'getPostsCount']);
 $core->rest->addFunction('getCommentsCount', ['dcRestMethods', 'getCommentsCount']);
 $core->rest->addFunction('checkNewsUpdate', ['dcRestMethods', 'checkNewsUpdate']);
 $core->rest->addFunction('checkCoreUpdate', ['dcRestMethods', 'checkCoreUpdate']);
+$core->rest->addFunction('checkStoreUpdate', ['dcRestMethods', 'checkStoreUpdate']);
 $core->rest->addFunction('getPostById', ['dcRestMethods', 'getPostById']);
 $core->rest->addFunction('getCommentById', ['dcRestMethods', 'getCommentById']);
 $core->rest->addFunction('quickPost', ['dcRestMethods', 'quickPost']);
@@ -152,6 +153,48 @@ class dcRestMethods
                 }
             }
         }
+        $rsp->ret = $ret;
+
+        return $rsp;
+    }
+
+    public static function checkStoreUpdate($core, $get, $post)
+    {
+        # Dotclear store updates notifications
+
+        $rsp        = new xmlTag('update');
+        $rsp->check = false;
+        $ret        = __('Store update not available');
+        $mod = $url = '';
+
+        if (empty($post['store'])) {
+            throw new Exception('No store type');
+        }
+
+        if ($post['store'] == 'themes') {
+            $mod = new dcThemes($core);
+            $mod->loadModules($core->blog->themes_path, null);
+            $url = $core->blog->settings->system->store_theme_url;
+        } elseif ($post['store'] == 'plugins') {
+            $mod = $core->plugins;
+            $url = $core->blog->settings->system->store_plugin_url;
+        } else {
+
+            # --BEHAVIOR-- restCheckStoreUpdate
+            $core->callBehavior('restCheckStoreUpdate', $core, $post['store'], [& $mod], [& $url]);
+
+            if (empty($mod) || empty($url)) {
+                throw new Exception('Unknown store type');
+            }
+        }
+
+        $repo = new dcStore($mod, $url);
+        $upd  = $repo->get(true);
+        if (!empty($upd)) {
+            $ret = sprintf(__('An update is available', '%s updates are available.', count($upd)), count($upd));
+            $rsp->check = true;
+        }
+
         $rsp->ret = $ret;
 
         return $rsp;
