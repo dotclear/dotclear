@@ -75,7 +75,7 @@ dotclear.dbStoreUpdate = function (store, icon, image) {
         // update icon, cope with dc_admin_icon_url() and iconset
         icon.children('a').children('img').attr('src', icon.children('a').children('img').attr('src').replace(/([^\/]+)$/g, image+'-b-update.png'));
         // add icon text says there is an update
-        icon.children().append('<br />').append(xml);
+        icon.children('a').children('.db-icon-title').append('<br />').append(xml);
       }
     }
   });
