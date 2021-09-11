@@ -56,6 +56,10 @@ if (count($_GET) > 1) {
 
 $allow_types = ['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'css', 'js', 'swf', 'svg', 'html', 'xml', 'json', 'txt'];
 
+if (!defined('DC_VAR')) {
+    define('DC_VAR', path::real(dirname(__FILE__) . '/..') . '/var');
+}
+
 $vf = path::clean($_GET['vf']);
 $VF = path::real(DC_VAR . '/' . $vf);
 
