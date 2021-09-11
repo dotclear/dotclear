@@ -88,25 +88,6 @@ $__dashboard_icons = new ArrayObject();
 $favs = $core->favs->getUserFavorites();
 $core->favs->appendDashboardIcons($__dashboard_icons);
 
-# Check plugins and themes update from repository
-$checkStoreUpdate = function ($mod, $url, $img, $icon) {
-    $repo = new dcStore($mod, $url);
-    $upd  = $repo->get(true);
-    if (!empty($upd)) {
-        $icon[0] .= '<br />' . sprintf(__('An update is available', '%s updates are available.', count($upd)), count($upd));
-        $icon[1] .= '#update';
-        $icon[2] = 'images/menu/' . $img . '-b-update.png';
-    }
-};
-if (isset($__dashboard_icons['plugins'])) {
-    $checkStoreUpdate($core->plugins, $core->blog->settings->system->store_plugin_url, 'plugins', $__dashboard_icons['plugins']);
-}
-if (isset($__dashboard_icons['blog_theme'])) {
-    $themes = new dcThemes($core);
-    $themes->loadModules($core->blog->themes_path, null);
-    $checkStoreUpdate($themes, $core->blog->settings->system->store_theme_url, 'blog-theme', $__dashboard_icons['blog_theme']);
-}
-
 # Latest news for dashboard
 $__dashboard_items = new ArrayObject([new ArrayObject(), new ArrayObject()]);
 
