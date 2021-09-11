@@ -164,8 +164,10 @@ class dcRestMethods
 
         $rsp        = new xmlTag('update');
         $rsp->check = false;
-        $ret        = __('Store update not available');
-        $mod = $url = '';
+        $rsp->nb    = 0;
+        $ret        = __('No updates are available');
+        $mod        = '';
+        $url        = '';
 
         if (empty($post['store'])) {
             throw new Exception('No store type');
@@ -191,8 +193,9 @@ class dcRestMethods
         $repo = new dcStore($mod, $url);
         $upd  = $repo->get(true);
         if (!empty($upd)) {
-            $ret = sprintf(__('An update is available', '%s updates are available.', count($upd)), count($upd));
+            $ret        = sprintf(__('An update is available', '%s updates are available.', count($upd)), count($upd));
             $rsp->check = true;
+            $rsp->nb    = count($upd);
         }
 
         $rsp->ret = $ret;

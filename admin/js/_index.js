@@ -76,6 +76,14 @@ dotclear.dbStoreUpdate = function (store, icon, image) {
         icon.children('a').children('img').attr('src', icon.children('a').children('img').attr('src').replace(/([^\/]+)$/g, image+'-b-update.png'));
         // add icon text says there is an update
         icon.children('a').children('.db-icon-title').append('<br />').append(xml);
+        // Badge (info) on dashboard icon
+        const nb = Number($('rsp>update', data).attr('nb'));
+        dotclear.badge(icon, {
+          id: 'mu-' + store,
+          value: nb,
+          icon: true,
+          type: 'info'
+        });
       }
     }
   });

@@ -966,6 +966,9 @@ msgstr "Action sur les commentaires sélectionnés :"
 msgid "Global help"
 msgstr "Aide générale"
 
+msgid "No updates are available"
+msgstr "Aucune mise à jour n'est disponible"
+
 #, php-format
 msgid "An update is available"
 msgid_plural "%s updates are available."
