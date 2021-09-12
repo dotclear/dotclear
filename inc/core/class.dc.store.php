@@ -97,7 +97,7 @@ class dcStore
                 unset($raw_datas[$p_id]);
             }
             # per module third-party repository
-            if (!empty($p_infos['repository'])) {
+            if (!empty($p_infos['repository']) && DC_ALLOW_REPOSITORIES) {
                 try {
                     $dcs_url = substr($p_infos['repository'], -12, 12) == '/dcstore.xml' ? $p_infos['repository'] : http::concatURL($p_infos['repository'], 'dcstore.xml');
                     $dcs_parser = dcStoreReader::quickParse($dcs_url, DC_TPL_CACHE, $force);
