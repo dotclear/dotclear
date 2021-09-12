@@ -791,8 +791,8 @@ class adminModulesList
                         echo '<li>' . implode(' - ', $settings) . '</li>';
                     }
 
-                    if (!empty($module['repository'])) {
-                        echo '<li class="modules-repository"><a href="' . $module['repository']. '">' . __('Third-party repository') . '</a></li>';
+                    if (!empty($module['repository']) && DC_DEBUG) {
+                        echo '<li class="modules-repository"><a href="' . $module['repository'] . '">' . __('Third-party repository') . '</a></li>';
                     }
 
                     if (!empty($module['section'])) {
