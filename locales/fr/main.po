@@ -3188,6 +3188,12 @@ msgstr "Ce module ne peut être désactivé ou supprimé car les modules suivant
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Ce module ne peut activé pour les raisons suivantes :"
 
+msgid "Official repository"
+msgstr "Dépôt officiel"
+
+msgid "Third-party repository"
+msgstr "Dépôt alternatif"
+
 msgid "Plugin from official distribution"
 msgstr "Plugin de la distribution officielle"
 
