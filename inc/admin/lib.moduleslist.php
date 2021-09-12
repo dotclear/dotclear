@@ -719,7 +719,7 @@ class adminModulesList
             if (in_array('repository', $cols)) {
                 $tds++;
                 echo
-                '<td class="module-repository nowrap count">' . (!empty($module['dcstore']) ? __('Third-party repository') : __('Official repository')) . '</td>';
+                '<td class="module-repository nowrap count">' . (!empty($module['repository']) ? __('Third-party repository') : __('Official repository')) . '</td>';
             }
 
             if (in_array('distrib', $cols)) {
