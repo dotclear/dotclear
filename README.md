@@ -100,6 +100,10 @@ You can submit a pull request, or feel free to use any other way you'd prefer.
 <https://git.dotclear.org/dotclear/> (official)
 <https://github.com/dotclear/dotclear> (Github mirror)
 
+<https://dotclear.crowdin.com/dotclear> (online translations)
+
+----
+
 [1]: https://download.dotclear.org/loader/dotclear-loader.php
 [2]: https://dotclear.org/documentation/2.0/admin/install
 [3]: https://dotclear.org/download
