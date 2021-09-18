@@ -240,6 +240,8 @@ if ($core->auth->isSuperAdmin()) {
     $users_order       = $core->auth->user_prefs->interface->users_order ?: 'asc';
     $nb_users_per_page = $core->auth->user_prefs->interface->nb_users_per_page;
 }
+// Search
+$nb_searchresults_per_page = $core->auth->user_prefs->interface->nb_searchresults_per_page;
 // All filters
 $auto_filter = $core->auth->user_prefs->interface->auto_filter;
 
@@ -372,6 +374,8 @@ if (isset($_POST['user_editor'])) {
             $core->auth->user_prefs->interface->put('users_order', $_POST['user_ui_users_order'], 'string');
             $core->auth->user_prefs->interface->put('nb_users_per_page', (integer) $_POST['user_ui_nb_users_per_page'], 'integer');
         }
+        // Search
+        $core->auth->user_prefs->interface->put('nb_searchresults_per_page', (integer) $_POST['user_ui_nb_searchresults_per_page'], 'integer');
         // All filters
         $core->auth->user_prefs->interface->put('auto_filter', !empty($_POST['user_ui_auto_filter']), 'boolean');
 
@@ -762,6 +766,13 @@ if ($core->auth->isSuperAdmin()) {
     __('users per page') . '</label></p>';
 }
 echo
+'</div>' .
+'<div class="two-boxes odd">' .
+'<hr />' . 
+'<h5>' . __('Search') . '</h5>' .
+'<p><span class="label ib">' . __('Show') . '</span> <label for="user_ui_nb_searchresults_per_page" class="classic">' .
+form::number('user_ui_nb_searchresults_per_page', 0, 999, $nb_searchresults_per_page) . ' ' .
+__('results per page') . '</label></p>' .
     '</div>' .
     '</div>';
 

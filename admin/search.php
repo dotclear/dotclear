@@ -12,77 +12,43 @@ require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
+$core->addBehavior('adminSearchPageCombo', ['adminSearchPageDefault','typeCombo']);
+$core->addBehavior('adminSearchPageHead', ['adminSearchPageDefault','pageHead']);
+// posts search
+$core->addBehavior('adminSearchPageProcess', ['adminSearchPageDefault','processPosts']);
+$core->addBehavior('adminSearchPageDisplay', ['adminSearchPageDefault','displayPosts']);
+// comments search
+$core->addBehavior('adminSearchPageProcess', ['adminSearchPageDefault','processComments']);
+$core->addBehavior('adminSearchPageDisplay', ['adminSearchPageDefault','displayComments']);
+
+$qtype_combo = [];
+
+# --BEHAVIOR-- adminSearchPageCombo
+$core->callBehavior('adminSearchPageCombo', $core, [& $qtype_combo]);
+
 $q     = !empty($_REQUEST['q']) ? $_REQUEST['q'] : (!empty($_REQUEST['qx']) ? $_REQUEST['qx'] : null);
 $qtype = !empty($_REQUEST['qtype']) ? $_REQUEST['qtype'] : 'p';
-if ($qtype != 'c' && $qtype != 'p') {
+if (!empty($q) && !in_array($qtype, $qtype_combo)) {
     $qtype = 'p';
 }
 
-$starting_scripts = '';
-
+$core->auth->user_prefs->addWorkspace('interface');
 $page        = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
-$nb_per_page = 30;
-
-$counter      = null;
-$post_list    = null;
-$comment_list = null;
-
-$posts_actions_page    = null;
-$comments_actions_page = null;
-
-if ($q) {
-    $q = html::escapeHTML($q);
-
-    $params = [];
-
-    # Get posts
-    if ($qtype == 'p') {
-        $starting_scripts .= dcPage::jsLoad('js/_posts_list.js');
-
-        $params['search']     = $q;
-        $params['limit']      = [(($page - 1) * $nb_per_page), $nb_per_page];
-        $params['no_content'] = true;
-        $params['order']      = 'post_dt DESC';
-
-        try {
-            $posts     = $core->blog->getPosts($params);
-            $counter   = $core->blog->getPosts($params, true);
-            $post_list = new adminPostList($core, $posts, $counter->f(0));
-        } catch (Exception $e) {
-            $core->error->add($e->getMessage());
-        }
-    }
-    # Get comments
-    elseif ($qtype == 'c') {
-        $starting_scripts .= dcPage::jsLoad('js/_comments.js');
-
-        $params['search']     = $q;
-        $params['limit']      = [(($page - 1) * $nb_per_page), $nb_per_page];
-        $params['no_content'] = true;
-        $params['order']      = 'comment_dt DESC';
-
-        try {
-            $comments     = $core->blog->getComments($params);
-            $counter      = $core->blog->getComments($params, true);
-            $comment_list = new adminCommentList($core, $comments, $counter->f(0));
-        } catch (Exception $e) {
-            $core->error->add($e->getMessage());
-        }
-    }
+$nb = $core->auth->user_prefs->interface->nb_searchresults_per_page ?: 30;
+if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
+    $nb = (integer) $_GET['nb'];
 }
 
-if ($qtype == 'p') {
-    $posts_actions_page = new dcPostsActionsPage($core, $core->adminurl->get('admin.search'), ['q' => $q, 'qtype' => $qtype]);
+$args = ['q' => $q, 'qtype' => $qtype, 'page' => $page, 'nb' => $nb];
 
-    if ($posts_actions_page->process()) {
-        return;
-    }
-} else {
-    $comments_actions_page = new dcCommentsActionsPage($core, $core->adminurl->get('admin.search'), ['q' => $q, 'qtype' => $qtype]);
+# --BEHAVIOR-- adminSearchPageHead
+$starting_scripts = $q ? $core->callBehavior('adminSearchPageHead', $core, $args) : '';
 
-    if ($comments_actions_page->process()) {
-        return;
-    }
+if ($q) {
+
+    # --BEHAVIOR-- adminSearchPageProcess
+    $core->callBehavior('adminSearchPageProcess', $core, $args);
+
 }
 
 dcPage::open(__('Search'), $starting_scripts,
@@ -96,27 +62,88 @@ dcPage::open(__('Search'), $starting_scripts,
 echo
 '<form action="' . $core->adminurl->get('admin.search') . '" method="get" role="search">' .
 '<div class="fieldset"><h3>' . __('Search options') . '</h3>' .
-'<p><label for="q">' . __('Query:') . ' </label>' . form::field('q', 30, 255, $q) . '</p>' .
-'<p><label for="qtype1" class="classic">' . form::radio(['qtype', 'qtype1'], 'p', $qtype == 'p') . ' ' . __('Search in entries') . '</label> ' .
-'<label for="qtype2" class="classic">' . form::radio(['qtype', 'qtype2'], 'c', $qtype == 'c') . ' ' . __('Search in comments') . '</label></p>' .
+'<p><label for="q">' . __('Query:') . ' </label>' .
+form::field('q', 30, 255, html::escapeHTML($q)) . '</p>' .
+'<p><label for="qtype">' . __('Place:') . '</label> ' .
+form::combo('qtype', $qtype_combo, $qtype) . '</p>' .
 '<p><input type="submit" value="' . __('Search') . '" />' .
 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
 '</p>' .
-    '</div>' .
-    '</form>';
+'</div>' .
+'</form>';
 
 if ($q && !$core->error->flag()) {
-    $redir = html::escapeHTML($_SERVER['REQUEST_URI']);
+    ob_start();
 
-    # Show posts
-    if ($qtype == 'p') {
-        if ($counter->f(0) > 0) {
-            printf('<h3>' .
-                ($counter->f(0) == 1 ? __('%d entry found') : __('%d entries found')) .
-                '</h3>', $counter->f(0));
+    # --BEHAVIOR-- adminSearchPageDisplay
+    $core->callBehavior('adminSearchPageDisplay', $core, $args);
+
+    $res = ob_get_contents();
+    ob_end_clean();
+    echo $res ?: '<p>' . __('No results found') . '</p>';
+}
+
+dcPage::helpBlock('core_search');
+dcPage::close();
+
+class adminSearchPageDefault
+{
+    protected static $count = null;
+    protected static $list = null;
+    protected static $actions = null;
+
+    public static function typeCombo(dcCore $core, array $combo)
+    {
+        $combo[0][__('Search in entries')]  = 'p';
+        $combo[0][__('Search in comments')] = 'c';
+    }
+
+    public static function pageHead(dcCore $core, array $args)
+    {
+        if ($args['qtype'] == 'p') {
+            return dcPage::jsLoad('js/_posts_list.js');
+        } elseif ($args['qtype'] == 'c') {
+            return dcPage::jsLoad('js/_comments.js');
+        }
+    }
+
+    public static function processPosts(dcCore $core, array $args)
+    {
+        if ($args['qtype'] != 'p') {
+            return null;
         }
 
-        $post_list->display($page, $nb_per_page,
+        $params = [
+            'search'     => $args['q'],
+            'limit'      => [(($args['page'] - 1) * $args['nb']), $args['nb']],
+            'no_content' => true,
+            'order'      => 'post_dt DESC'
+        ];
+
+        try {
+            self::$count = $core->blog->getPosts($params, true)->f(0);
+            self::$list   = new adminPostList($core, $core->blog->getPosts($params), self::$count);
+            self::$actions = new dcPostsActionsPage($core, $core->adminurl->get('admin.search'), $args);
+            if (self::$actions->process()) {
+                return;
+            }
+
+        } catch (Exception $e) {
+            $core->error->add($e->getMessage());
+        }
+    }
+
+    public static function displayPosts(dcCore $core, array $args)
+    {
+        if ($args['qtype'] != 'p' || self::$count === null) {
+            return null;
+        }
+
+        if (self::$count > 0) {
+            printf('<h3>' . __('one enrty found', __('%d entries found'), self::$count) . '</h3>', self::$count);
+        }
+
+        self::$list->display($args['page'], $args['nb'],
             '<form action="' . $core->adminurl->get('admin.search') . '" method="post" id="form-entries">' .
 
             '%s' .
@@ -124,26 +151,53 @@ if ($q && !$core->error->flag()) {
             '<div class="two-cols">' .
             '<p class="col checkboxes-helpers"></p>' .
 
-            '<p class="col right"><label for="action1" class="classic">' . __('Selected entries action:') . '</label> ' .
-            form::combo(['action', 'action1'], $posts_actions_page->getCombo()) .
+            '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
+            form::combo('action', self::$actions->getCombo()) .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
             $core->formNonce() .
-            $posts_actions_page->getHiddenFields() .
+            self::$actions->getHiddenFields() .
             '</div>' .
             '</form>'
         );
     }
-    # Show posts
-    elseif ($qtype == 'c') {
-        # Actions combo box
 
-        if ($counter->f(0) > 0) {
-            printf('<h3>' .
-                ($counter->f(0) == 1 ? __('%d comment found') : __('%d comments found')) .
-                '</h3>', $counter->f(0));
+    public static function processComments(dcCore $core, array $args)
+    {
+        if ($args['qtype'] != 'c') {
+            return null;
         }
 
-        $comment_list->display($page, $nb_per_page,
+        $params = [
+            'search'     => $args['q'],
+            'limit'      => [(($args['page'] - 1) * $args['nb']), $args['nb']],
+            'no_content' => true,
+            'order'      => 'comment_dt DESC'
+        ];
+
+        try {
+            self::$count = $core->blog->getComments($params, true)->f(0);
+            self::$list   = new adminCommentList($core, $core->blog->getComments($params), self::$count);
+            self::$actions = new dcCommentsActionsPage($core, $core->adminurl->get('admin.search'), $args);
+            if (self::$actions->process()) {
+                return;
+            }
+
+        } catch (Exception $e) {
+            $core->error->add($e->getMessage());
+        }
+    }
+
+    public static function displayComments(dcCore $core, array $args)
+    {
+        if ($args['qtype'] != 'c' || self::$count === null) {
+            return null;
+        }
+
+        if (self::$count > 0) {
+            printf('<h3>' . __('one comment found', __('%d comments found'), self::$count) . '</h3>', self::$count);
+        }
+
+        self::$list->display($args['page'], $args['nb'],
             '<form action="' . $core->adminurl->get('admin.search') . '" method="post" id="form-comments">' .
 
             '%s' .
@@ -151,16 +205,13 @@ if ($q && !$core->error->flag()) {
             '<div class="two-cols">' .
             '<p class="col checkboxes-helpers"></p>' .
 
-            '<p class="col right"><label for="action2" class="classic">' . __('Selected comments action:') . '</label> ' .
-            form::combo(['action', 'action2'], $comments_actions_page->getCombo()) .
+            '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
+            form::combo('action', self::$actions->getCombo()) .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
             $core->formNonce() .
-            $comments_actions_page->getHiddenFields() .
+            self::$actions->getHiddenFields() .
             '</div>' .
             '</form>'
         );
     }
 }
-
-dcPage::helpBlock('core_search');
-dcPage::close();
