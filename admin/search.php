@@ -33,8 +33,8 @@ if (!empty($q) && !in_array($qtype, $qtype_combo)) {
 }
 
 $core->auth->user_prefs->addWorkspace('interface');
-$page        = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
-$nb = $core->auth->user_prefs->interface->nb_searchresults_per_page ?: 30;
+$page = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
+$nb   = $core->auth->user_prefs->interface->nb_searchresults_per_page ?: 30;
 if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
     $nb = (integer) $_GET['nb'];
 }
@@ -48,7 +48,6 @@ if ($q) {
 
     # --BEHAVIOR-- adminSearchPageProcess
     $core->callBehavior('adminSearchPageProcess', $core, $args);
-
 }
 
 dcPage::open(__('Search'), $starting_scripts,
@@ -64,7 +63,7 @@ echo
 '<div class="fieldset"><h3>' . __('Search options') . '</h3>' .
 '<p><label for="q">' . __('Query:') . ' </label>' .
 form::field('q', 30, 255, html::escapeHTML($q)) . '</p>' .
-'<p><label for="qtype">' . __('Place:') . '</label> ' .
+'<p><label for="qtype">' . __('In:') . '</label> ' .
 form::combo('qtype', $qtype_combo, $qtype) . '</p>' .
 '<p><input type="submit" value="' . __('Search') . '" />' .
 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
@@ -88,8 +87,8 @@ dcPage::close();
 
 class adminSearchPageDefault
 {
-    protected static $count = null;
-    protected static $list = null;
+    protected static $count   = null;
+    protected static $list    = null;
     protected static $actions = null;
 
     public static function typeCombo(dcCore $core, array $combo)
@@ -121,13 +120,12 @@ class adminSearchPageDefault
         ];
 
         try {
-            self::$count = $core->blog->getPosts($params, true)->f(0);
-            self::$list   = new adminPostList($core, $core->blog->getPosts($params), self::$count);
+            self::$count   = $core->blog->getPosts($params, true)->f(0);
+            self::$list    = new adminPostList($core, $core->blog->getPosts($params), self::$count);
             self::$actions = new dcPostsActionsPage($core, $core->adminurl->get('admin.search'), $args);
             if (self::$actions->process()) {
                 return;
             }
-
         } catch (Exception $e) {
             $core->error->add($e->getMessage());
         }
@@ -140,7 +138,7 @@ class adminSearchPageDefault
         }
 
         if (self::$count > 0) {
-            printf('<h3>' . __('one enrty found', __('%d entries found'), self::$count) . '</h3>', self::$count);
+            printf('<h3>' . __('one result', __('%d results'), self::$count) . '</h3>', self::$count);
         }
 
         self::$list->display($args['page'], $args['nb'],
@@ -175,13 +173,12 @@ class adminSearchPageDefault
         ];
 
         try {
-            self::$count = $core->blog->getComments($params, true)->f(0);
-            self::$list   = new adminCommentList($core, $core->blog->getComments($params), self::$count);
+            self::$count   = $core->blog->getComments($params, true)->f(0);
+            self::$list    = new adminCommentList($core, $core->blog->getComments($params), self::$count);
             self::$actions = new dcCommentsActionsPage($core, $core->adminurl->get('admin.search'), $args);
             if (self::$actions->process()) {
                 return;
             }
-
         } catch (Exception $e) {
             $core->error->add($e->getMessage());
         }

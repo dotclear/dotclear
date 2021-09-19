@@ -2136,6 +2136,12 @@ msgstr "Rétroliens :"
 msgid "entries per page"
 msgstr "billets par page"
 
+#, php-format
+msgid "one result"
+msgid_plural "%d results"
+msgstr[0] "un résultat"
+msgstr[1] "%d résultats"
+
 msgid "Selected entries action:"
 msgstr "Action sur les billets sélectionnés :"
 
@@ -2298,6 +2304,9 @@ msgstr "Appliquer les filtres à la volée"
 msgid "users per page"
 msgstr "utilisateur·rice·s par page"
 
+msgid "results per page"
+msgstr "résultats par page"
+
 msgid "Edition"
 msgstr "Édition"
 
@@ -2413,6 +2422,9 @@ msgstr "Options de recherche"
 
 msgid "Query:"
 msgstr "Requête :"
+
+msgid "In:"
+msgstr "Où :"
 
 msgid "Search in entries"
 msgstr "Rechercher dans les billets"
@@ -3438,10 +3450,10 @@ msgid "next &#187;"
 msgstr "suiv. &#187;"
 
 msgid "No entry matches the filter"
-msgstr "Aucune publication correspondant au filtre"
+msgstr "Aucune résultat correspondant au filtre"
 
 msgid "No entry"
-msgstr "Pas de billet"
+msgstr "Pas de résultat"
 
 #, php-format
 msgid "List of %s entries matching the filter."
