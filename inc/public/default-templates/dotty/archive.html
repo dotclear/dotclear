@@ -30,22 +30,26 @@
         <article id="time-criteria">
           <!-- # entries sorted by date -->
           <div id="arch-by-year" class="arch-block arch-by-year">
-            <h3>{{tpl:lang By date}}</h3>
-            <p class="fromto">{{tpl:lang FromDay}} <tpl:Entries no_content="1" order="asc" lastn="1"><a href="{{tpl:EntryURL}}"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate format="%e %B %Y"}}</time></a></tpl:Entries> {{tpl:lang toDay}} <tpl:Entries no_content="1" order="desc" lastn="1"><a href="{{tpl:EntryURL}}"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate format="%e %B %Y"}}</time></a></tpl:Entries>
-            </p>
-            <tpl:Archives order="asc">
-              <tpl:ArchivesYearHeader>
-                <div class="arch-by-year__each-year">
-                  <h4><time datetime="{{tpl:ArchiveDate format="%Y"}}">{{tpl:ArchiveDate format="%Y"}}</time></h4>
-                  <ul class="arch-list arch-year-list">
-              </tpl:ArchivesYearHeader>
-                    <li><a href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}"><time datetime="{{tpl:ArchiveDate format="%Y-%m"}}">{{tpl:ArchiveDate encode_html="1" format="%B"}}</time></a>
-                    <span>({{tpl:ArchiveEntriesCount}})</span></li>
-              <tpl:ArchivesYearFooter>
-                  </ul>
-                </div>
-              </tpl:ArchivesYearFooter>
-            </tpl:Archives>
+            <tpl:Block name="main-content-time-title">
+              <h3>{{tpl:lang By date}}</h3>
+              <p class="fromto">{{tpl:lang FromDay}} <tpl:Entries no_content="1" order="asc" lastn="1"><a href="{{tpl:EntryURL}}"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate format="%e %B %Y"}}</time></a></tpl:Entries> {{tpl:lang toDay}} <tpl:Entries no_content="1" order="desc" lastn="1"><a href="{{tpl:EntryURL}}"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate format="%e %B %Y"}}</time></a></tpl:Entries>
+              </p>
+            </tpl:Block>
+            <tpl:Block name="main-content-time-content">
+              <tpl:Archives order="asc">
+                <tpl:ArchivesYearHeader>
+                  <div class="arch-by-year__each-year">
+                    <h4><time datetime="{{tpl:ArchiveDate format="%Y"}}">{{tpl:ArchiveDate format="%Y"}}</time></h4>
+                    <ul class="arch-list arch-year-list">
+                </tpl:ArchivesYearHeader>
+                      <li><a href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}"><time datetime="{{tpl:ArchiveDate format="%Y-%m"}}">{{tpl:ArchiveDate encode_html="1" format="%B"}}</time></a>
+                      <span>({{tpl:ArchiveEntriesCount}})</span></li>
+                <tpl:ArchivesYearFooter>
+                    </ul>
+                  </div>
+                </tpl:ArchivesYearFooter>
+              </tpl:Archives>
+            </tpl:Block>
           </div>
         </article>
       </tpl:Block>
