@@ -255,7 +255,7 @@ header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><?php echo html::escapeHTML(DC_VENDOR_NAME); ?></title>
   <link rel="icon" type="image/png" href="images/favicon96-logout.png" />
-  <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 
 
 <?php
