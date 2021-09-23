@@ -340,10 +340,9 @@ if ($akey) {
             'autocomplete' => 'new-password'
         ]
     ) . '</p>' .
-    '</div>' .
-
     '<p><input type="submit" value="' . __('change') . '" />' .
-    form::hidden('login_data', $login_data) . '</p>';
+    form::hidden('login_data', $login_data) . '</p>' .
+    '</div>';
 } else {
     if (is_callable([$core->auth, 'authForm'])) {
         echo $core->auth->authForm($user_id);
