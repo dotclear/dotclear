@@ -96,15 +96,16 @@ class dcAuth
     public function checkUser($user_id, $pwd = null, $user_key = null, $check_blog = true)
     {
         # Check user and password
-        $strReq = 'SELECT user_id, user_super, user_pwd, user_change_pwd, ' .
-        'user_name, user_firstname, user_displayname, user_email, ' .
-        'user_url, user_default_blog, user_options, ' .
-        'user_lang, user_tz, user_post_status, user_creadt, user_upddt ' .
-        'FROM ' . $this->con->escapeSystem($this->user_table) . ' ' .
-        "WHERE user_id = '" . $this->con->escape($user_id) . "' ";
+        $sql = new dcSelectStatement($this->core, 'coreAuthCheckUser');
+        $sql
+            ->columns(['user_id', 'user_super', 'user_pwd', 'user_change_pwd', 'user_name', 'user_firstname',
+                'user_displayname', 'user_email', 'user_url', 'user_default_blog', 'user_options', 'user_lang', 'user_tz',
+                'user_post_status', 'user_creadt', 'user_upddt'])
+            ->from($this->user_table)
+            ->where('user_id = ' . $sql->quote($user_id));
 
         try {
-            $rs = $this->con->select($strReq);
+            $rs = $this->con->select($sql->statement());
         } catch (Exception $e) {
             $err = $e->getMessage();
 
@@ -151,9 +152,9 @@ class dcAuth
             }
             if ($rehash) {
                 // Store new hash in DB
-                $cur           = $this->con->openCursor($this->user_table);
-                $cur->user_pwd = (string) $rs->user_pwd;
-                $cur->update("WHERE user_id = '" . $rs->user_id . "'");
+                $sql = new dcUpdateStatement($this->core, 'coreAuthCheckUser');
+                $sql->where('user_id = ' . $sql->quote($rs->user_id));
+                $cur->update($sql->whereStatement());
             }
         } elseif ($user_key != '') {
             if (http::browserUID(DC_MASTER_KEY . $rs->user_id . $this->cryptLegacy($rs->user_id)) != $user_key) {
@@ -339,60 +340,6 @@ class dcAuth
     }
     //@}
 
-    /// @name User code handlers
-    //@{
-
-    /**
-     * Gets the user code.
-     *
-     * @return     string  The user code.
-     */
-    public function getUserCode()
-    {
-        $code = pack('a32', $this->userID()) .
-        pack('H*', $this->crypt($this->getInfo('user_pwd')));
-
-        return bin2hex($code);
-    }
-
-    /**
-     * Check user code
-     *
-     * @param      string  $code   The code
-     *
-     * @return     bool
-     */
-    public function checkUserCode($code)
-    {
-        $code = @pack('H*', $code);
-
-        $user_id = trim(@pack('a32', substr($code, 0, 32)));
-        $pwd     = @unpack('H*hex', substr($code, 32));
-
-        if ($user_id === '' || $pwd === false) {
-            return false;
-        }
-
-        $pwd = $pwd['hex'];
-
-        $strReq = 'SELECT user_id, user_pwd ' .
-        'FROM ' . $this->user_table . ' ' .
-        "WHERE user_id = '" . $this->con->escape($user_id) . "' ";
-
-        $rs = $this->con->select($strReq);
-
-        if ($rs->isEmpty()) {
-            return false;
-        }
-
-        if ($this->crypt($rs->user_pwd) != $pwd) {
-            return false;
-        }
-
-        return $rs->user_id;
-    }
-    //@}
-
     /// @name Sudo
     //@{
     /**
@@ -448,22 +395,28 @@ class dcAuth
         }
 
         if ($this->user_admin) {
-            $strReq = 'SELECT blog_id ' .
-            'from ' . $this->blog_table . ' ' .
-            "WHERE blog_id = '" . $this->con->escape($blog_id) . "' ";
-            $rs = $this->con->select($strReq);
+            $sql = new dcSelectStatement($this->core, 'coreAuthGetPermissions');
+            $sql
+                ->column('blog_id')
+                ->from($this->blog_table)
+                ->where('blog_id = ' . $sql->quote($blog_id));
+
+            $rs = $this->con->select($sql->statement());
 
             $this->blogs[$blog_id] = $rs->isEmpty() ? false : ['admin' => true];
 
             return $this->blogs[$blog_id];
         }
 
-        $strReq = 'SELECT permissions ' .
-        'FROM ' . $this->perm_table . ' ' .
-        "WHERE user_id = '" . $this->con->escape($this->user_id) . "' " .
-        "AND blog_id = '" . $this->con->escape($blog_id) . "' " .
-            "AND (permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%') ";
-        $rs = $this->con->select($strReq);
+        $sql = new dcSelectStatement($this->core, 'coreAuthGetPermissions');
+        $sql
+            ->column('permissions')
+            ->from($this->perm_table)
+            ->where('user_id = ' . $sql->quote($this->user_id))
+            ->and('blog_id = ' . $sql->quote($blog_id))
+            ->and("(permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%')");
+
+        $rs = $this->con->select($sql->statement());
 
         $this->blogs[$blog_id] = $rs->isEmpty() ? false : $this->parsePermissions($rs->permissions);
 
@@ -496,23 +449,31 @@ class dcAuth
         if ($blog_id && $this->getPermissions($blog_id) !== false) {
             return $blog_id;
         }
+
+        $sql = new dcSelectStatement($this->core, 'coreAuthFindUserBlog');
+
         if ($this->user_admin) {
-            $strReq = 'SELECT blog_id ' .
-                'FROM ' . $this->blog_table . ' ' .
-                'ORDER BY blog_id ASC ' .
-                $this->con->limit(1);
+            $sql
+                ->column('blog_id')
+                ->from($this->blog_table)
+                ->order('blog_id ASC')
+                ->limit(1);
         } else {
-            $strReq = 'SELECT P.blog_id ' .
-                'FROM ' . $this->perm_table . ' P, ' . $this->blog_table . ' B ' .
-                "WHERE user_id = '" . $this->con->escape($this->user_id) . "' " .
-                'AND P.blog_id = B.blog_id ' .
-                "AND (permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%') " .
-                'AND blog_status >= 0 ' .
-                'ORDER BY P.blog_id ASC ' .
-                $this->con->limit(1);
+            $sql
+                ->column('P.blog_id')
+                ->from([
+                    $this->perm_table . ' P',
+                    $this->blog_table . ' B'
+                ])
+                ->where('user_id = ' . $sql->quote($this->user_id))
+                ->and('P.blog_id = B.blog_id')
+                ->and("(permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%')")
+                ->and('blog_status >= 0')
+                ->order('P.blog_id ASC')
+                ->limit(1);
         }
 
-        $rs = $this->con->select($strReq);
+        $rs = $this->con->select($sql->statement());
         if (!$rs->isEmpty()) {
             return $rs->blog_id;
         }
@@ -631,7 +592,14 @@ class dcAuth
         "WHERE user_id = '" . $this->con->escape($user_id) . "' " .
         "AND user_email = '" . $this->con->escape($user_email) . "' ";
 
-        $rs = $this->con->select($strReq);
+        $sql = new dcSelectStatement($this->core, 'coreAuthSetRecoverKey');
+        $sql
+            ->column('user_id')
+            ->from($this->user_table)
+            ->where('user_id = ' . $sql->quote($user_id))
+            ->and('user_email = ' . $sql->quote($user_email));
+
+        $rs = $this->con->select($sql->statement());
 
         if ($rs->isEmpty()) {
             throw new Exception(__('That user does not exist in the database.'));
@@ -642,7 +610,9 @@ class dcAuth
         $cur                   = $this->con->openCursor($this->user_table);
         $cur->user_recover_key = $key;
 
-        $cur->update("WHERE user_id = '" . $this->con->escape($user_id) . "'");
+        $sql = new dcUpdateStatement($this->core, 'coreAuthSetRecoverKey');
+        $sql->where('user_id = ' . $sql->quote($user_id));
+        $cur->update($sql->whereStatement());
 
         return $key;
     }
@@ -664,7 +634,13 @@ class dcAuth
         'FROM ' . $this->user_table . ' ' .
         "WHERE user_recover_key = '" . $this->con->escape($recover_key) . "' ";
 
-        $rs = $this->con->select($strReq);
+        $sql = new dcSelectStatement($this->core, 'coreAuthRecoverUserPassword');
+        $sql
+            ->columns(['user_id', 'user_email'])
+            ->from($this->user_table)
+            ->where('user_recover_key = ' . $sql->quote($recover_key));
+
+        $rs = $this->con->select($sql->statement());
 
         if ($rs->isEmpty()) {
             throw new Exception(__('That key does not exist in the database.'));
@@ -677,7 +653,9 @@ class dcAuth
         $cur->user_recover_key = null;
         $cur->user_change_pwd  = 1; // User will have to change this temporary password at next login
 
-        $cur->update("WHERE user_recover_key = '" . $this->con->escape($recover_key) . "'");
+        $sql = new dcUpdateStatement($this->core, 'coreAuthRecoverUserPassword');
+        $sql->where('user_recover_key = ' . $sql->quote($recover_key));
+        $cur->update($sql->whereStatement());
 
         return ['user_email' => $rs->user_email, 'user_id' => $rs->user_id, 'new_pass' => $new_pass];
     }

@@ -198,6 +198,32 @@ class dcSqlStatement
     }
 
     /**
+     * Adds additional WHERE AND clause condition(s)
+     *
+     * @param mixed     $c      the clause(s)
+     * @param boolean   $reset  reset previous condition(s) first
+     *
+     * @return self instance, enabling to chain calls
+     */
+    public function and($c, bool $reset = false): dcSqlStatement
+    {
+        return $this->cond(array_map(function ($v) {return 'AND ' . $v;}, is_array($c) ? $c : [$c]), $reset);
+    }
+
+    /**
+     * Adds additional WHERE OR clause condition(s)
+     *
+     * @param mixed     $c      the clause(s)
+     * @param boolean   $reset  reset previous condition(s) first
+     *
+     * @return self instance, enabling to chain calls
+     */
+    public function or($c, bool $reset = false): dcSqlStatement
+    {
+        return $this->cond(array_map(function ($v) {return 'OR ' . $v;}, is_array($c) ? $c : [$c]), $reset);
+    }
+
+    /**
      * Adds generic clause(s)
      *
      * @param mixed     $c      the clause(s)
@@ -243,10 +269,7 @@ class dcSqlStatement
      */
     public function quote($value, bool $escape = true): string
     {
-        return
-            (is_string($value) ? "'" : '') .
-            ($escape ? $this->con->escape($value) : $value) .
-            (is_string($value) ? "'" : '');
+        return is_string($value) ? "'" . ($escape ? $this->con->escape($value) : $value) . "'" : $value;
     }
 
     /**
@@ -534,8 +557,7 @@ class dcSelectStatement extends dcSqlStatement
         $query .= 'FROM ' . $this->from[0] . ' ';
         $query .= join(' ', $this->join) . ' ';
         if (count($this->from) > 1) {
-            array_shift($this->from);
-            $query .= ', ' . join(', ', $this->from) . ' '; // All other from(s)
+            $query .= ', ' . join(', ', array_slice($this->from, 1)) . ' '; // All other from(s)
         }
 
         // Where clause(s)
