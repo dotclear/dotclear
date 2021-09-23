@@ -1,4 +1,4 @@
-/*global $ */
+/*global $, dotclear */
 'use strict';
 
 $(window).on('load', function () {
@@ -22,4 +22,9 @@ $(window).on('load', function () {
   } else {
     $('#cookie_help').show();
   }
+});
+
+$(function () {
+  // Password strength
+  dotclear.passwordStrength(dotclear.getData('pwstrength'));
 });

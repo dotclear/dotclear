@@ -268,7 +268,14 @@ echo dcPage::jsCommon();
 # --BEHAVIOR-- loginPageHTMLHead
 $core->callBehavior('loginPageHTMLHead');
 
-echo dcPage::jsLoad('js/_auth.js');
+echo
+    dcPage::jsJson('pwstrength', [
+        'min' => sprintf(__('Password strength: %s'), __('weak')),
+        'avg' => sprintf(__('Password strength: %s'), __('medium')),
+        'max' => sprintf(__('Password strength: %s'), __('strong'))
+    ]) .
+    dcPage::jsLoad('js/pwstrength.js') .
+    dcPage::jsLoad('js/_auth.js');
 ?>
 </head>
 
@@ -322,7 +329,8 @@ if ($akey) {
     '<p><label for="new_pwd">' . __('New password:') . '</label> ' .
     form::password('new_pwd', 20, 255,
         [
-            'autocomplete' => 'new-password'
+            'autocomplete' => 'new-password',
+            'class'        => 'pw-strength'
         ]
     ) . '</p>' .
 
