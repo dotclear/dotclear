@@ -269,7 +269,7 @@ class dcSqlStatement
      */
     public function quote($value, bool $escape = true): string
     {
-        return is_string($value) ? "'" . ($escape ? $this->con->escape($value) : $value) . "'" : $value;
+        return "'" . ($escape ? $this->con->escape($value) : $value) . "'";
     }
 
     /**
