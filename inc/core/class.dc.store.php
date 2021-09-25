@@ -97,9 +97,9 @@ class dcStore
                 unset($raw_datas[$p_id]);
             }
             # per module third-party repository
-            if (!empty($p_infos['repository']) && DC_ALLOW_REPOSITORIES) {
+            if (!empty($p_infos['repository']) && DC_ALLOW_REPOSITORIES) {  // @phpstan-ignore-line
                 try {
-                    $dcs_url = substr($p_infos['repository'], -12, 12) == '/dcstore.xml' ? $p_infos['repository'] : http::concatURL($p_infos['repository'], 'dcstore.xml');
+                    $dcs_url    = substr($p_infos['repository'], -12, 12) == '/dcstore.xml' ? $p_infos['repository'] : http::concatURL($p_infos['repository'], 'dcstore.xml');
                     $dcs_parser = dcStoreReader::quickParse($dcs_url, DC_TPL_CACHE, $force);
                     if ($dcs_parser !== false) {
                         $dcs_raw_datas = $dcs_parser->getModules();
@@ -114,7 +114,6 @@ class dcStore
                         }
                     }
                 } catch (Exception $e) {
-
                 }
             }
         }

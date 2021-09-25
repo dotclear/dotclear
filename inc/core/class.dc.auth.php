@@ -457,12 +457,14 @@ class dcAuth
         $sql = new dcSelectStatement($this->core, 'coreAuthFindUserBlog');
 
         if ($this->user_admin) {
+            /* @phpstan-ignore-next-line */
             $sql
                 ->column('blog_id')
                 ->from($this->blog_table)
                 ->order('blog_id ASC')
                 ->limit(1);
         } else {
+            /* @phpstan-ignore-next-line */
             $sql
                 ->column('P.blog_id')
                 ->from([

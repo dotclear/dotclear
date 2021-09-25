@@ -582,7 +582,7 @@ class adminModulesList
             '<th class="nowrap module-desc" scope="col">' . __('Details') . '</th>';
         }
 
-        if (in_array('repository', $cols) && DC_ALLOW_REPOSITORIES) {
+        if (in_array('repository', $cols) && DC_ALLOW_REPOSITORIES) {   // @phpstan-ignore-line
             echo
             '<th class="nowrap count" scope="col">' . __('Repository') . '</th>';
         }
@@ -716,7 +716,7 @@ class adminModulesList
                 echo '</td>';
             }
 
-            if (in_array('repository', $cols) && DC_ALLOW_REPOSITORIES) {
+            if (in_array('repository', $cols) && DC_ALLOW_REPOSITORIES) {   // @phpstan-ignore-line
                 $tds++;
                 echo
                 '<td class="module-repository nowrap count">' . (!empty($module['repository']) ? __('Third-party repository') : __('Official repository')) . '</td>';
@@ -782,9 +782,8 @@ class adminModulesList
                 $config = !empty($module['root']) && file_exists(path::real($module['root'] . '/_config.php'));
                 $index  = !empty($module['root']) && file_exists(path::real($module['root'] . '/index.php'));
 
-                if ($config || $index || !empty($module['section']) || !empty($module['tags']) || !empty($module['settings']) 
-                    || !empty($module['repository']) && DC_DEBUG && DC_ALLOW_REPOSITORIES
-                ) {
+                /* @phpstan-ignore-next-line */
+                if ($config || $index || !empty($module['section']) || !empty($module['tags']) || !empty($module['settings']) || !empty($module['repository']) && DC_DEBUG && DC_ALLOW_REPOSITORIES) {
                     echo
                         '<div><ul class="mod-more">';
 
@@ -793,7 +792,7 @@ class adminModulesList
                         echo '<li>' . implode(' - ', $settings) . '</li>';
                     }
 
-                    if (!empty($module['repository']) && DC_DEBUG && DC_ALLOW_REPOSITORIES) {
+                    if (!empty($module['repository']) && DC_DEBUG && DC_ALLOW_REPOSITORIES) {   // @phpstan-ignore-line
                         echo '<li class="modules-repository"><a href="' . $module['repository'] . '">' . __('Third-party repository') . '</a></li>';
                     }
 
@@ -1676,7 +1675,7 @@ class adminThemesList extends adminModulesList
                 }
             }
 
-            if (in_array('repository', $cols) &&  DC_ALLOW_REPOSITORIES) {
+            if (in_array('repository', $cols) && DC_ALLOW_REPOSITORIES) {   // @phpstan-ignore-line
                 $line .= '<span class="module-repository">' . (!empty($module['repository']) ? __('Third-party repository') : __('Official repository')) . '</span> ';
             }
 
