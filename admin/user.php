@@ -267,7 +267,7 @@ form::field('user_displayname', 20, 255, [
 '<p><label for="user_email">' . __('Email:') . '</label> ' .
 form::email('user_email', [
     'default'      => html::escapeHTML($user_email),
-    'extra_html' => 'aria-describedby="user_email_help"',
+    'extra_html'   => 'aria-describedby="user_email_help"',
     'autocomplete' => 'email'
 ]) .
 '</p>' .
