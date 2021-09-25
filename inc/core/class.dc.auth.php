@@ -152,8 +152,12 @@ class dcAuth
             }
             if ($rehash) {
                 // Store new hash in DB
+                $cur           = $this->con->openCursor($this->user_table);
+                $cur->user_pwd = (string) $rs->user_pwd;
+
                 $sql = new dcUpdateStatement($this->core, 'coreAuthCheckUser');
                 $sql->where('user_id = ' . $sql->quote($rs->user_id));
+
                 $cur->update($sql->whereStatement());
             }
         } elseif ($user_key != '') {

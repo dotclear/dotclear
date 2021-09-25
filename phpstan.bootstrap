@@ -3,6 +3,7 @@
 define('DC_ADMIN_SSL', true);
 define('DC_ADMIN_URL', '');
 define('DC_ALLOW_MULTI_MODULES', true);
+define('DC_ALLOW_REPOSITORIES', true);
 define('DC_CRYPT_ALGO', 'md5');
 define('DC_DBDRIVER', '');
 define('DC_DBHOST', '');
