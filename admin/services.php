@@ -651,10 +651,10 @@ class dcRestMethods
         }
 
         $sorts = array_merge(
-            dcAdminCombos::getPostsSortsCombo(),
-            dcAdminCombos::getCommentsSortsCombo(),
-            dcAdminCombos::getBlogsSortsCombo(),
-            dcAdminCombos::getUsersSortsCombo(),
+            dcAdminCombos::getPostsSortsCombo(true),
+            dcAdminCombos::getCommentsSortsCombo(true),
+            dcAdminCombos::getBlogsSortsCombo(true),
+            dcAdminCombos::getUsersSortsCombo(true),
             ['search' => [__('Search'), null, null, null, [__('results per page'), 20]]]
         );
         $sorts = new arrayObject($sorts);

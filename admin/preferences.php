@@ -153,7 +153,10 @@ $cols = [
     ]]
 ];
 $cols = new arrayObject($cols);
+
+# --BEHAVIOR-- adminColumnsLists
 $core->callBehavior('adminColumnsLists', $core, $cols);
+
 # Load user settings
 $cols_user = @$core->auth->user_prefs->interface->cols;
 if (is_array($cols_user)) {
@@ -168,14 +171,17 @@ if (is_array($cols_user)) {
 
 # Get default sortby, order, nbperpage (admin lists)
 $sorts = array_merge(
-    dcAdminCombos::getPostsSortsCombo(),
-    dcAdminCombos::getCommentsSortsCombo(),
-    dcAdminCombos::getBlogsSortsCombo(),
-    dcAdminCombos::getUsersSortsCombo(),
+    dcAdminCombos::getPostsSortsCombo(true),
+    dcAdminCombos::getCommentsSortsCombo(true),
+    dcAdminCombos::getBlogsSortsCombo(true),
+    dcAdminCombos::getUsersSortsCombo(true),
     ['search' => [__('Search'), null, null, null, [__('results per page'), 20]]]
 );
 $sorts = new arrayObject($sorts);
+
+# --BEHAVIOR-- adminSortsLists
 $core->callBehavior('adminSortsLists', $core, $sorts);
+
 # Load user settings
 //ex: $sorts_user = [blogs => [blog_id, desc, 20]]
 $sorts_user = @$core->auth->user_prefs->interface->sorts;
