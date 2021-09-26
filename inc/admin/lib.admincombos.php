@@ -225,6 +225,76 @@ class dcAdminCombos
 
         return $status_combo;
     }
+
+    public static function getPostsSortsCombo()
+    {
+        $posts_sortby_combo = [
+            __('Date')                 => 'post_dt',
+            __('Title')                => 'post_title',
+            __('Category')             => 'cat_title',
+            __('Author')               => 'user_id',
+            __('Status')               => 'post_status',
+            __('Selected')             => 'post_selected',
+            __('Number of comments')   => 'nb_comment',
+            __('Number of trackbacks') => 'nb_trackback'
+        ];
+        # --BEHAVIOR-- adminPostsSortbyCombo
+        self::$core->callBehavior('adminPostsSortbyCombo', [& $posts_sortby_combo]);
+
+        return ['posts' => [__('Posts'), $posts_sortby_combo, 'post_dt', 'desc', [__('entries per page'), 0]]];
+    }
+
+    public static function getCommentsSortsCombo()
+    {
+        $comments_sortby_combo = [
+            __('Date')        => 'comment_dt',
+            __('Entry title') => 'post_title',
+            __('Entry date')  => 'post_dt',
+            __('Author')      => 'comment_author',
+            __('Status')      => 'comment_status',
+            __('IP')          => 'comment_ip',
+            __('Spam filter') => 'comment_spam_filter'
+        ];
+        # --BEHAVIOR-- adminCommentsSortbyCombo
+        self::$core->callBehavior('adminCommentsSortbyCombo', [& $comments_sortby_combo]);
+
+        return ['comments' => [__('Comments'), $comments_sortby_combo, 'comment_dt', 'desc', [__('comments per page'), 0]]];
+    }
+
+    public static function getBlogsSortsCombo()
+    {
+        $blogs_sortby_combo = [
+            __('Last update') => 'blog_upddt',
+            __('Blog name')   => 'UPPER(blog_name)',
+            __('Blog ID')     => 'B.blog_id',
+            __('Status')      => 'blog_status'
+        ];
+        # --BEHAVIOR-- adminBlogsSortbyCombo
+        self::$core->callBehavior('adminBlogsSortbyCombo', [& $blogs_sortby_combo]);
+
+        return ['blogs' => [__('Blogs'), $blogs_sortby_combo, 'blog_upddt', 'desc', [__('blogs per page'), 0]]];
+    }
+
+    public static function getUsersSortsCombo()
+    {
+        $combo = ['users' => [null, null, null, null, null]];
+
+        if (self::$core->auth->isSuperAdmin()) {
+            $users_sortby_combo = [
+                __('Username')          => 'user_id',
+                __('Last Name')         => 'user_name',
+                __('First Name')        => 'user_firstname',
+                __('Display name')      => 'user_displayname',
+                __('Number of entries') => 'nb_post'
+            ];
+            # --BEHAVIOR-- adminUsersSortbyCombo
+            self::$core->callBehavior('adminUsersSortbyCombo', [& $users_sortby_combo]);
+
+            $combo = ['users' => [__('Users'), $users_sortby_combo, 'user_id', 'asc', [__('users per page'), 0]]];
+        }
+
+        return $combo;
+    }
 }
 /*
  * Store current dcCore instance

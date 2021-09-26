@@ -15,6 +15,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 $GLOBALS['core']->addBehavior('adminPostsActionsPage', ['dcLegacyPosts', 'adminPostsActionsPage']);
 $GLOBALS['core']->addBehavior('adminPagesActionsPage', ['dcLegacyPages', 'adminPagesActionsPage']);
 $GLOBALS['core']->addBehavior('adminCommentsActionsPage', ['dcLegacyComments', 'adminCommentsActionsPage']);
+$GLOBALS['core']->addBehavior('adminSortsLists', ['dcLegacyPreferences', 'adminSortsLists']);
 
 /* Handle deprecated behaviors :
  * adminPostsActionsCombo
@@ -106,5 +107,36 @@ class dcLegacyPages
         $res = str_replace('posts_actions.php', 'plugin.php', $res);
         echo $res;
         $as->endPage();
+    }
+}
+
+/* Handle deprecated 2.20 filter-controls user preferences :
+ * Now all in $core->auth->user_prefs->interface->sorts
+ */
+class dcLegacyPreferences
+{
+    public static function adminSortsLists($core, $sorts)
+    {
+        $core->auth->user_prefs->addWorkspace('interface');
+
+        $sorts['posts'][2]        = $core->auth->user_prefs->interface->posts_sortby ?: 'post_dt';
+        $sorts['posts'][3]        = $core->auth->user_prefs->interface->posts_order ?: 'desc';
+        $sorts['posts'][4][1]     = $core->auth->user_prefs->interface->nb_posts_per_page;
+
+        $sorts['comments'][2]     = $core->auth->user_prefs->interface->comments_sortby ?: 'comment_dt';
+        $sorts['comments'][3]     = $core->auth->user_prefs->interface->comments_order ?: 'desc';
+        $sorts['comments'][4][1]  = $core->auth->user_prefs->interface->nb_comments_per_page;
+
+        $sorts['blogs'][2]        = $core->auth->user_prefs->interface->blogs_sortby ?: 'blog_upddt';
+        $sorts['blogs'][3]        = $core->auth->user_prefs->interface->blogs_order ?: 'desc';
+        $sorts['blogs'][4][1]     = $core->auth->user_prefs->interface->nb_blogs_per_page;
+
+        if ($core->auth->isSuperAdmin()) {
+            $sorts['users'][2]    = $core->auth->user_prefs->interface->users_sortby ?: 'user_id';
+            $sorts['users'][3]    = $core->auth->user_prefs->interface->users_order ?: 'asc';
+            $sorts['users'][4][1] = $core->auth->user_prefs->interface->nb_users_per_page;
+        }
+
+        $sorts['search'][4][1]    = $core->auth->user_prefs->interface->nb_searchresults_per_page;
     }
 }
