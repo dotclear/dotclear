@@ -278,22 +278,35 @@ class dcWidget
 
     public function setting($name, $title, $value, $type = 'text')
     {
-        if ($type == 'combo' || $type == 'radio') {
-            if (func_num_args() > 4) {
-                $options = func_get_arg(4);
-                if (!is_array($options)) {
-                    return false;
-                }
+        $types = [
+            // type (string) => list of items may be provided (boolean)
+            'text'     => false,
+            'textarea' => false,
+            'check'    => false,
+            'radio'    => true,
+            'combo'    => true,
+            'color'    => false,
+            'email'    => false,
+            'number'   => false
+        ];
+
+        if (!array_key_exists($type, $types)) {
+            return false;
+        }
+
+        $index = 4; // 1st optional argument (after type)
+
+        if ($types[$type] && func_num_args() > $index) {
+            $options = func_get_arg($index);
+            if (!is_array($options)) {
+                return false;
             }
-            // If any, the 5th argument should be an array (key → value) of opts
-            if (func_num_args() > 5) {
-                $opts = func_get_arg(5);
-            }
-        } else {
-            // If any, the 4th argument should be an array (key → value) of opts
-            if (func_num_args() > 4) {
-                $opts = func_get_arg(4);
-            }
+            $index++;
+        }
+
+        // If any, the last argument should be an array (key → value) of opts
+        if (func_num_args() > $index) {
+            $opts = func_get_arg($index);
         }
 
         $this->settings[$name] = [
@@ -339,31 +352,29 @@ class dcWidget
         switch ($s['type']) {
             case 'text':
                 $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
-                form::field([$iname, $wfid], 20, 255,
-                    [
-                        'default'    => html::escapeHTML($s['value']),
-                        'class'      => 'maximal' . $class,
-                        'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
-                    ]) .
-                    '</p>';
+                form::field([$iname, $wfid], 20, 255, [
+                    'default'    => html::escapeHTML($s['value']),
+                    'class'      => 'maximal' . $class,
+                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
+                ]) .
+                '</p>';
 
                 break;
             case 'textarea':
                 $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
-                form::textarea([$iname, $wfid], 30, 8,
-                    [
-                        'default'    => html::escapeHTML($s['value']),
-                        'class'      => 'maximal' . $class,
-                        'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
-                    ]) .
-                    '</p>';
+                form::textarea([$iname, $wfid], 30, 8, [
+                    'default'    => html::escapeHTML($s['value']),
+                    'class'      => 'maximal' . $class,
+                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
+                ]) .
+                '</p>';
 
                 break;
             case 'check':
                 $res .= '<p>' . form::hidden([$iname], '0') .
                 '<label class="classic" for="' . $wfid . '">' .
                 form::checkbox([$iname, $wfid], '1', $s['value'], $class) . ' ' . $s['title'] .
-                    '</label></p>';
+                '</label></p>';
 
                 break;
             case 'radio':
@@ -382,7 +393,32 @@ class dcWidget
             case 'combo':
                 $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
                 form::combo([$iname, $wfid], $s['options'], $s['value'], $class) .
-                    '</p>';
+                '</p>';
+
+                break;
+            case 'color':
+                $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
+                form::color([$iname, $wfid], [
+                    'default' => $s['value']
+                ]) .
+                '</p>';
+
+                break;
+            case 'email':
+                $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
+                form::email([$iname, $wfid], [
+                    'default'      => html::escapeHTML($s['value']),
+                    'autocomplete' => 'email'
+                ]) .
+                '</p>';
+
+                break;
+            case 'number':
+                $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
+                form::number([$iname, $wfid], [
+                    'default' => $s['value']
+                ]) .
+                '</p>';
 
                 break;
         }
