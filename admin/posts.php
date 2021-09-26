@@ -128,19 +128,7 @@ $format_combo = array_merge(
     $available_formats
 );
 
-$sortby_combo = [
-    __('Date')                 => 'post_dt',
-    __('Title')                => 'post_title',
-    __('Category')             => 'cat_title',
-    __('Author')               => 'user_id',
-    __('Status')               => 'post_status',
-    __('Selected')             => 'post_selected',
-    __('Number of comments')   => 'nb_comment',
-    __('Number of trackbacks') => 'nb_trackback'
-];
-
-# --BEHAVIOR-- adminPostsSortbyCombo
-$core->callBehavior('adminPostsSortbyCombo', [& $sortby_combo]);
+$sortby_combo = dcAdminCombos::getPostsSortsCombo();
 
 $sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request
@@ -167,9 +155,15 @@ if ($posts_actions_page->process()) {
 /* Get posts
 -------------------------------------------------------- */
 $core->auth->user_prefs->addWorkspace('interface');
+// deprecated 2.20 keep for compatibility
 $default_sortby = $core->auth->user_prefs->interface->posts_sortby ?: 'post_dt';
 $default_order  = $core->auth->user_prefs->interface->posts_order ?: 'desc';
 $nb_per_page    = $core->auth->user_prefs->interface->nb_posts_per_page ?: 30;
+
+$sorts_user = @$core->auth->user_prefs->interface->sorts;
+$default_sortby = $sorts_user['posts'][0] ?? $default_sortby;
+$default_order  = $sorts_user['posts'][1] ?? $default_order;
+$nb_per_page    = $sorts_user['posts'][2] ?? $nb_per_page;
 
 # Filters
 $user_id    = !empty($_GET['user_id']) ? $_GET['user_id'] : '';
