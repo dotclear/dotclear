@@ -18,14 +18,7 @@ $status_combo = array_merge(
     dcAdminCombos::getBlogStatusesCombo()
 );
 
-$sortby_combo = [
-    __('Last update') => 'blog_upddt',
-    __('Blog name')   => 'UPPER(blog_name)',
-    __('Blog ID')     => 'B.blog_id',
-    __('Status')      => 'blog_status'
-];
-# --BEHAVIOR-- adminBlogsSortbyCombo
-$core->callBehavior('adminBlogsSortbyCombo', [& $sortby_combo]);
+$sortby_combo = dcAdminCombos::getBlogsSortsCombo();
 
 $order_combo = [
     __('Descending') => 'desc',
@@ -43,9 +36,15 @@ if ($core->auth->isSuperAdmin()) {
 }
 
 $core->auth->user_prefs->addWorkspace('interface');
+// deprecated 2.20 keep for compatibility
 $default_sortby = $core->auth->user_prefs->interface->blogs_sortby ?: 'blog_upddt';
 $default_order  = $core->auth->user_prefs->interface->blogs_order ?: 'desc';
 $nb_per_page    = $core->auth->user_prefs->interface->nb_blogs_per_page ?: 30;
+
+$sorts_user = @$core->auth->user_prefs->interface->sorts;
+$default_sortby = $sorts_user['blogs'][0] ?? $default_sortby;
+$default_order  = $sorts_user['blogs'][1] ?? $default_order;
+$nb_per_page    = $sorts_user['blogs'][2] ?? $nb_per_page;
 
 # Requests
 $q      = !empty($_GET['q']) ? $_GET['q'] : '';

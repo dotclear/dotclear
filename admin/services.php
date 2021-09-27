@@ -646,65 +646,57 @@ class dcRestMethods
         if (empty($post['id'])) {
             throw new Exception('No list name');
         }
-        if (!in_array($post['id'], ['posts', 'comments', 'blogs', 'users'])) {
+        if ($core->auth->user_prefs->interface === null) {
+            $core->auth->user_prefs->addWorkspace('interface');
+        }
+
+        $sorts = array_merge(
+            dcAdminCombos::getPostsSortsCombo(true),
+            dcAdminCombos::getCommentsSortsCombo(true),
+            dcAdminCombos::getBlogsSortsCombo(true),
+            dcAdminCombos::getUsersSortsCombo(true),
+            ['search' => [__('Search'), null, null, null, [__('results per page'), 20]]]
+        );
+        $sorts = new arrayObject($sorts);
+
+        # --BEHAVIOR-- adminSortsLists
+        $core->callBehavior('adminSortsLists', $core, $sorts);
+
+        $sorts_user = @$core->auth->user_prefs->interface->sorts;
+        if (is_array($sorts_user)) {
+            foreach ($sorts_user as $st => $sf) {
+                if (null !== $sorts[$st][1] && in_array($sf[0], $sorts[$st][1])) {
+                    $sorts[$st][2] = $sf[0];
+                }
+                if (null !== $sorts[$st][3] && in_array($sf[1], ['asc', 'desc'])) {
+                    $sorts[$st][3] = $sf[1];
+                }
+                if (null !== $sorts[$st][4] && is_int($sf[2])) {
+                    $sorts[$st][4][1] = abs($sf[2]);
+                }
+            }
+        }
+
+        if (!isset($sorts[$post['id']])) {
             throw new Exception('List name invalid');
         }
 
         $res = new xmlTag('result');
 
-        if ($core->auth->user_prefs->interface === null) {
-            $core->auth->user_prefs->addWorkspace('interface');
+        if (null !== $sorts[$post['id']][1]) {
+            $k = 'sort';
+            $sorts_user[$post['id']][0] = isset($post[$k]) && in_array($post[$k], $sorts[$post['id']][1]) ? $post[$k] : $sorts[$post['id']][2];
         }
-        switch ($post['id']) {
-            case 'posts':
-                if (isset($post['nb_per_page'])) {
-                    $core->auth->user_prefs->interface->put('nb_posts_per_page', (integer) $post['nb_per_page']);
-                }
-                if (isset($post['sort'])) {
-                    $core->auth->user_prefs->interface->put('posts_sortby', $post['sort']);
-                }
-                if (isset($post['order'])) {
-                    $core->auth->user_prefs->interface->put('posts_order', $post['order']);
-                }
-
-                break;
-            case 'comments':
-                if (isset($post['nb_per_page'])) {
-                    $core->auth->user_prefs->interface->put('nb_comments_per_page', (integer) $post['nb_per_page']);
-                }
-                if (isset($post['sort'])) {
-                    $core->auth->user_prefs->interface->put('comments_sortby', $post['sort']);
-                }
-                if (isset($post['order'])) {
-                    $core->auth->user_prefs->interface->put('comments_order', $post['order']);
-                }
-
-                break;
-            case 'blogs':
-                if (isset($post['nb_per_page'])) {
-                    $core->auth->user_prefs->interface->put('nb_blogs_per_page', (integer) $post['nb_per_page']);
-                }
-                if (isset($post['sort'])) {
-                    $core->auth->user_prefs->interface->put('blogs_sortby', $post['sort']);
-                }
-                if (isset($post['order'])) {
-                    $core->auth->user_prefs->interface->put('blogs_order', $post['order']);
-                }
-
-                break;
-            case 'users':
-                if (isset($post['nb_per_page'])) {
-                    $core->auth->user_prefs->interface->put('nb_users_per_page', (integer) $post['nb_per_page']);
-                }
-                if (isset($post['sort'])) {
-                    $core->auth->user_prefs->interface->put('users_sortby', $post['sort']);
-                }
-                if (isset($post['order'])) {
-                    $core->auth->user_prefs->interface->put('users_order', $post['order']);
-                }
-
-                break;
+        if (null !== $sorts[$post['id']][3]) {
+            $k = 'order';
+            $sorts_user[$post['id']][1] = isset($post[$k]) && in_array($post[$k], ['asc', 'desc']) ? $post[$k] : $sorts[$post['id']][3];
         }
+        if (null !== $sorts[$post['id']][4]) {
+            $k = 'nb_per_page';
+            $sorts_user[$post['id']][2] = isset($post[$k]) ? abs((integer) $post[$k]) : 0;
+        }
+        $core->auth->user_prefs->interface->put('sorts', $sorts_user, 'array');
+
         $res->msg = __('List options saved');
 
         return $res;

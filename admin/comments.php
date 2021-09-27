@@ -37,15 +37,7 @@ $type_combo = [
     __('Trackback') => 'tb'
 ];
 
-$sortby_combo = [
-    __('Date')        => 'comment_dt',
-    __('Entry title') => 'post_title',
-    __('Entry date')  => 'post_dt',
-    __('Author')      => 'comment_author',
-    __('Status')      => 'comment_status'
-];
-# --BEHAVIOR-- adminCommentsSortbyCombo
-$core->callBehavior('adminCommentsSortbyCombo', [& $sortby_combo]);
+$sortby_combo = dcAdminCombos::getCommentsSortsCombo();
 
 $sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request
@@ -64,9 +56,15 @@ $order_combo = [
 /* Get comments
 -------------------------------------------------------- */
 $core->auth->user_prefs->addWorkspace('interface');
+// deprecated 2.20 keep for compatibility
 $default_sortby = $core->auth->user_prefs->interface->comments_sortby ?: 'comment_dt';
 $default_order  = $core->auth->user_prefs->interface->comments_order ?: 'desc';
 $nb_per_page    = $core->auth->user_prefs->interface->nb_comments_per_page ?: 30;
+
+$sorts_user = @$core->auth->user_prefs->interface->sorts;
+$default_sortby = $sorts_user['comments'][0] ?? $default_sortby;
+$default_order  = $sorts_user['comments'][1] ?? $default_order;
+$nb_per_page    = $sorts_user['comments'][2] ?? $nb_per_page;
 
 # Filters
 $author = $_GET['author'] ?? '';

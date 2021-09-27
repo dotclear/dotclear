@@ -12,17 +12,7 @@ require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
 
-# Creating filter combo boxes
-$sortby_combo = [
-    __('Username')          => 'user_id',
-    __('Last Name')         => 'user_name',
-    __('First Name')        => 'user_firstname',
-    __('Display name')      => 'user_displayname',
-    __('Number of entries') => 'nb_post'
-];
-
-# --BEHAVIOR-- adminUsersSortbyCombo
-$core->callBehavior('adminUsersSortbyCombo', [& $sortby_combo]);
+$sortby_combo = dcAdminCombos::getUsersSortsCombo();
 
 $sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request
@@ -51,9 +41,15 @@ $core->callBehavior('adminUsersActionsCombo', [& $combo_action]);
 /* Get users
 -------------------------------------------------------- */
 $core->auth->user_prefs->addWorkspace('interface');
+// deprecated 2.20 keep for compatibility
 $default_sortby = $core->auth->user_prefs->interface->users_sortby ?: 'user_id';
 $default_order  = $core->auth->user_prefs->interface->users_order ?: 'asc';
 $nb_per_page    = $core->auth->user_prefs->interface->nb_users_per_page ?: 30;
+
+$sorts_user = @$core->auth->user_prefs->interface->sorts;
+$default_sortby = $sorts_user['users'][0] ?? $default_sortby;
+$default_order  = $sorts_user['users'][1] ?? $default_order;
+$nb_per_page    = $sorts_user['users'][2] ?? $nb_per_page;
 
 $q      = !empty($_GET['q']) ? $_GET['q'] : '';
 $sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : $default_sortby;
