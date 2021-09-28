@@ -193,7 +193,7 @@ if (is_array($sorts_user)) {
         if (null !== $sorts[$st][3] && in_array($sf[1], ['asc', 'desc'])) {
             $sorts[$st][3] = $sf[1];
         }
-        if (null !== $sorts[$st][4] && is_int($sf[2])) {
+        if (is_array($sorts[$st][4]) && is_int($sf[2])) {
             $sorts[$st][4][1] = abs($sf[2]);
         }
     }
@@ -698,7 +698,7 @@ foreach ($sorts as $sort_type => $sort_data) {
         '<p class="field"><label for="sorts_' . $sort_type . '_order">' . __('Sort:') . '</label> ' .
         form::combo('sorts_' . $sort_type . '_order', $order_combo, $sort_data[3]) . '</p>';
     }
-    if (null != $sort_data[4]) {
+    if (is_array($sort_data[4])) {
         echo
         '<p><span class="label ib">' . __('Show') . '</span> <label for="sorts_' . $sort_type . '_nb_per_page" class="classic">' .
         form::number('sorts_' . $sort_type . '_nb_per_page', 0, 999, $sort_data[4][1]) . ' ' .
