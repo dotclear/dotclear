@@ -163,7 +163,7 @@ $nb_per_page    = $core->auth->user_prefs->interface->nb_posts_per_page ?: 30;
 $sorts_user = @$core->auth->user_prefs->interface->sorts;
 $default_sortby = $sorts_user['posts'][0] ?? $default_sortby;
 $default_order  = $sorts_user['posts'][1] ?? $default_order;
-$nb_per_page    = $sorts_user['posts'][2] ?? $nb_per_page;
+$nb_per_page    = !empty($sorts_user['posts'][2]) ? $sorts_user['posts'][2] : $nb_per_page;
 
 # Filters
 $user_id    = !empty($_GET['user_id']) ? $_GET['user_id'] : '';

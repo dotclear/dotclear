@@ -671,7 +671,7 @@ class dcRestMethods
                 if (null !== $sorts[$st][3] && in_array($sf[1], ['asc', 'desc'])) {
                     $sorts[$st][3] = $sf[1];
                 }
-                if (null !== $sorts[$st][4] && is_int($sf[2])) {
+                if (is_array($sorts[$st][4]) && is_int($sf[2])) {
                     $sorts[$st][4][1] = abs($sf[2]);
                 }
             }

@@ -49,7 +49,7 @@ $nb_per_page    = $core->auth->user_prefs->interface->nb_users_per_page ?: 30;
 $sorts_user = @$core->auth->user_prefs->interface->sorts;
 $default_sortby = $sorts_user['users'][0] ?? $default_sortby;
 $default_order  = $sorts_user['users'][1] ?? $default_order;
-$nb_per_page    = $sorts_user['users'][2] ?? $nb_per_page;
+$nb_per_page    = !empty($sorts_user['users'][2]) ? $sorts_user['users'][2] : $nb_per_page;
 
 $q      = !empty($_GET['q']) ? $_GET['q'] : '';
 $sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : $default_sortby;
