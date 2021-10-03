@@ -153,7 +153,7 @@ class adminSearchPageDefault
             form::combo('action', self::$actions->getCombo()) .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
             $core->formNonce() .
-            self::$actions->getHiddenFields() .
+            preg_replace('/%/','%%', self::$actions->getHiddenFields()) .
             '</div>' .
             '</form>'
         );
@@ -206,7 +206,7 @@ class adminSearchPageDefault
             form::combo('action', self::$actions->getCombo()) .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
             $core->formNonce() .
-            self::$actions->getHiddenFields() .
+            preg_replace('/%/','%%', self::$actions->getHiddenFields()) .
             '</div>' .
             '</form>'
         );
