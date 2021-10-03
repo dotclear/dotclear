@@ -37,7 +37,7 @@ $type_combo = [
     __('Trackback') => 'tb'
 ];
 
-$sortby_combo = dcAdminCombos::getCommentsSortsCombo();
+$sortby_combo = dcAdminCombos::getCommentsSortbyCombo();
 
 $sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request

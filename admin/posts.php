@@ -128,7 +128,7 @@ $format_combo = array_merge(
     $available_formats
 );
 
-$sortby_combo = dcAdminCombos::getPostsSortsCombo();
+$sortby_combo = dcAdminCombos::getPostsSortbyCombo();
 
 $sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request
