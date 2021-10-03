@@ -181,16 +181,7 @@ class adminGenericList
      */
     public function userColumns($type, $cols)
     {
-        $cols_user = @$this->core->auth->user_prefs->interface->cols;
-        if (is_array($cols_user) || $cols_user instanceof ArrayObject) {
-            if (isset($cols_user[$type])) {
-                foreach ($cols_user[$type] as $cn => $cd) {
-                    if (!$cd && isset($cols[$cn])) {
-                        unset($cols[$cn]);
-                    }
-                }
-            }
-        }
+        $cols = adminUserPref::getUserColumns($type, $cols);
     }
 }
 
