@@ -55,12 +55,18 @@ class adminUserPref
                         $cols[$ct][1][$cn][0] = $cd;
 
                         # remove unselected columns if type is given
-                        if (!$cd && !empty($type) && is_array($columns) && $ct == $type && in_array($columns, $cn)) {
-                            unset($cols[$ct][1][$cn]);
+                        if (!$cd && !empty($type) && !empty($columns) && $ct == $type && isset($columns[$cn])) {
+                            unset($columns[$cn]);
                         }
                     }
                 }
             }
+        }
+        if ($columns !== null) {
+            return $columns;
+        }
+        if ($type !== null) {
+            return $cols[$type] ?? [];
         }
         return $cols;
     }
