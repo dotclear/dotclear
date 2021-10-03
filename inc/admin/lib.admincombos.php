@@ -226,7 +226,15 @@ class dcAdminCombos
         return $status_combo;
     }
 
-    public static function getPostsSortsCombo($full = false)
+    public static function getOrderCombo()
+    {
+        return [
+            __('Descending') => 'desc',
+            __('Ascending')  => 'asc'
+        ];
+    }
+
+    public static function getPostsSortbyCombo()
     {
         $sortby_combo = [
             __('Date')                 => 'post_dt',
@@ -241,12 +249,10 @@ class dcAdminCombos
         # --BEHAVIOR-- adminPostsSortbyCombo
         self::$core->callBehavior('adminPostsSortbyCombo', [& $sortby_combo]);
 
-        return $full ?
-            ['posts' => [__('Posts'), $sortby_combo, 'post_dt', 'desc', [__('entries per page'), 0]]] :
-            $sortby_combo;
+        return $sortby_combo;
     }
 
-    public static function getCommentsSortsCombo($full = false)
+    public static function getCommentsSortbyCombo()
     {
         $sortby_combo = [
             __('Date')        => 'comment_dt',
@@ -260,12 +266,10 @@ class dcAdminCombos
         # --BEHAVIOR-- adminCommentsSortbyCombo
         self::$core->callBehavior('adminCommentsSortbyCombo', [& $sortby_combo]);
 
-        return $full ?
-            ['comments' => [__('Comments'), $sortby_combo, 'comment_dt', 'desc', [__('comments per page'), 0]]] :
-            $sortby_combo;
+        return $sortby_combo;
     }
 
-    public static function getBlogsSortsCombo($full = false)
+    public static function getBlogsSortbyCombo()
     {
         $sortby_combo = [
             __('Last update') => 'blog_upddt',
@@ -276,16 +280,12 @@ class dcAdminCombos
         # --BEHAVIOR-- adminBlogsSortbyCombo
         self::$core->callBehavior('adminBlogsSortbyCombo', [& $sortby_combo]);
 
-        return $full ?
-            ['blogs' => [__('Blogs'), $sortby_combo, 'blog_upddt', 'desc', [__('blogs per page'), 0]]] :
-            $sortby_combo;
+        return $sortby_combo;
     }
 
-    public static function getUsersSortsCombo($full = false)
+    public static function getUsersSortbyCombo()
     {
-        $combo = ['users' => [null, null, null, null, null]];
         $sortby_combo = [];
-
         if (self::$core->auth->isSuperAdmin()) {
             $sortby_combo = [
                 __('Username')          => 'user_id',
@@ -296,11 +296,8 @@ class dcAdminCombos
             ];
             # --BEHAVIOR-- adminUsersSortbyCombo
             self::$core->callBehavior('adminUsersSortbyCombo', [& $sortby_combo]);
-
-            $combo = ['users' => [__('Users'), $sortby_combo, 'user_id', 'asc', [__('users per page'), 0]]];
         }
-
-        return $full ? $combo : $sortby_combo;
+        return $sortby_combo;
     }
 }
 /*

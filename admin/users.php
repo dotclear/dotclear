@@ -12,7 +12,7 @@ require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
 
-$sortby_combo = dcAdminCombos::getUsersSortsCombo();
+$sortby_combo = dcAdminCombos::getUsersSortbyCombo();
 
 $sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request

@@ -18,7 +18,7 @@ $status_combo = array_merge(
     dcAdminCombos::getBlogStatusesCombo()
 );
 
-$sortby_combo = dcAdminCombos::getBlogsSortsCombo();
+$sortby_combo = dcAdminCombos::getBlogsSortbyCombo();
 
 $order_combo = [
     __('Descending') => 'desc',

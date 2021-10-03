@@ -181,16 +181,7 @@ class adminGenericList
      */
     public function userColumns($type, $cols)
     {
-        $cols_user = @$this->core->auth->user_prefs->interface->cols;
-        if (is_array($cols_user) || $cols_user instanceof ArrayObject) {
-            if (isset($cols_user[$type])) {
-                foreach ($cols_user[$type] as $cn => $cd) {
-                    if (!$cd && isset($cols[$cn])) {
-                        unset($cols[$cn]);
-                    }
-                }
-            }
-        }
+        $cols = adminUserPref::getUserColumns($type, $cols);
     }
 }
 
@@ -673,10 +664,10 @@ class adminCommentList extends adminGenericList
      */
     private function commentLine($checked = false, $spam = false, $filters = [])
     {
-        global $core, $author, $status, $sortby, $order, $nb_per_page;
+        global $author, $status, $sortby, $order, $nb;
 
         $author_url = $this->core->adminurl->get('admin.comments', [
-            'n'      => $nb_per_page,
+            'nb'     => $nb,
             'status' => $status,
             'sortby' => $sortby,
             'order'  => $order,
@@ -751,7 +742,7 @@ class adminCommentList extends adminGenericList
                 }
             }
             $cols['ip'] = '<td class="nowrap"><a href="' .
-            $core->adminurl->get('admin.comments', ['ip' => $this->rs->comment_ip]) . '">' .
+            $this->core->adminurl->get('admin.comments', ['ip' => $this->rs->comment_ip]) . '">' .
             $this->rs->comment_ip . '</a></td>';
             $cols['spam_filter'] = '<td class="nowrap">' . $filter_name . '</td>';
         }

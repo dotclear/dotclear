@@ -143,61 +143,11 @@ if (is_array($rte_flags)) {
 }
 
 # Get default colums (admin lists)
-$cols = [
-    'posts' => [__('Posts'), [
-        'date'       => [true, __('Date')],
-        'category'   => [true, __('Category')],
-        'author'     => [true, __('Author')],
-        'comments'   => [true, __('Comments')],
-        'trackbacks' => [true, __('Trackbacks')]
-    ]]
-];
-$cols = new arrayObject($cols);
-
-# --BEHAVIOR-- adminColumnsLists
-$core->callBehavior('adminColumnsLists', $core, $cols);
-
-# Load user settings
-$cols_user = @$core->auth->user_prefs->interface->cols;
-if (is_array($cols_user)) {
-    foreach ($cols_user as $ct => $cv) {
-        foreach ($cv as $cn => $cd) {
-            if (isset($cols[$ct][1][$cn])) {
-                $cols[$ct][1][$cn][0] = $cd;
-            }
-        }
-    }
-}
+$cols = adminUserPref::getUserColumns();
 
 # Get default sortby, order, nbperpage (admin lists)
-$sorts = array_merge(
-    dcAdminCombos::getPostsSortsCombo(true),
-    dcAdminCombos::getCommentsSortsCombo(true),
-    dcAdminCombos::getBlogsSortsCombo(true),
-    dcAdminCombos::getUsersSortsCombo(true),
-    ['search' => [__('Search'), null, null, null, [__('results per page'), 20]]]
-);
-$sorts = new arrayObject($sorts);
+$sorts = adminUserPref::getUserFilters();
 
-# --BEHAVIOR-- adminSortsLists
-$core->callBehavior('adminSortsLists', $core, $sorts);
-
-# Load user settings
-//ex: $sorts_user = [blogs => [blog_id, desc, 20]]
-$sorts_user = @$core->auth->user_prefs->interface->sorts;
-if (is_array($sorts_user)) {
-    foreach ($sorts_user as $st => $sf) {
-        if (null !== $sorts[$st][1] && in_array($sf[0], $sorts[$st][1])) {
-            $sorts[$st][2] = $sf[0];
-        }
-        if (null !== $sorts[$st][3] && in_array($sf[1], ['asc', 'desc'])) {
-            $sorts[$st][3] = $sf[1];
-        }
-        if (is_array($sorts[$st][4]) && is_int($sf[2])) {
-            $sorts[$st][4][1] = abs($sf[2]);
-        }
-    }
-}
 $order_combo = [
     __('Descending') => 'desc',
     __('Ascending')  => 'asc'
@@ -327,8 +277,8 @@ if (isset($_POST['user_editor'])) {
                 $su[$sort_type][1] = isset($_POST[$k]) && in_array($_POST[$k], ['asc', 'desc']) ? $_POST[$k] : $sort_data[3];
             }
             if (null !== $sort_data[4]) {
-                $k = 'sorts_' . $sort_type . '_nb_per_page';
-                $su[$sort_type][2] = isset($_POST[$k]) ? abs((integer) $_POST[$k]) : 0;
+                $k = 'sorts_' . $sort_type . '_nb';
+                $su[$sort_type][2] = isset($_POST[$k]) ? abs((integer) $_POST[$k]) : $sort_data[4][1];
             }
         }
         $core->auth->user_prefs->interface->put('sorts', $su, 'array');
@@ -700,8 +650,8 @@ foreach ($sorts as $sort_type => $sort_data) {
     }
     if (is_array($sort_data[4])) {
         echo
-        '<p><span class="label ib">' . __('Show') . '</span> <label for="sorts_' . $sort_type . '_nb_per_page" class="classic">' .
-        form::number('sorts_' . $sort_type . '_nb_per_page', 0, 999, $sort_data[4][1]) . ' ' .
+        '<p><span class="label ib">' . __('Show') . '</span> <label for="sorts_' . $sort_type . '_nb" class="classic">' .
+        form::number('sorts_' . $sort_type . '_nb', 0, 999, $sort_data[4][1]) . ' ' .
         $sort_data[4][0] . '</label></p>';
     }
     echo '</div>';

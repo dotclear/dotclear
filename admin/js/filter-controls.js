@@ -61,7 +61,7 @@ $(function () {
       id: $('#filters-options-id').val(),
       sort: $('#sortby').val(),
       order: $('#order').val(),
-      nb_per_page: $('#nb').val(),
+      nb: $('#nb').val(),
     };
     $.post('services.php', param)
       .done(function (data) {
