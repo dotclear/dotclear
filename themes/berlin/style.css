@@ -734,6 +734,10 @@ a.site-title__link:visited {
   .sidebar li:hover, .sidebar li:focus {
     background-color: #d52125; }
 
+aside.sidebar {
+  border-left: none;
+  }
+
 .blognav__title,
 .blogextra__title {
   border: 0;
