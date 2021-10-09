@@ -343,7 +343,7 @@ dd {
   padding-left: 1em;
   color: #555; }
 
-aside {
+aside:not(#sidebar) {
   background-color: #fafafa;
   color: #636363;
   width: 20em;
@@ -733,10 +733,6 @@ a.site-title__link:visited {
   .sidebar a:hover, .sidebar a:focus, .sidebar a:active,
   .sidebar li:hover, .sidebar li:focus {
     background-color: #d52125; }
-
-aside.sidebar {
-  border-left: none;
-  }
 
 .blognav__title,
 .blogextra__title {

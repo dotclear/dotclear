@@ -14,9 +14,6 @@
         background-color: $link;
     }
 }
-aside.sidebar {
-    border-left: none;
-}
 .blognav__title,
 .blogextra__title {
     @include visually-hidden;
