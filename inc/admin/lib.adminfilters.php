@@ -14,7 +14,6 @@ if (!defined('DC_RC_PATH')) {
 
 /**
  * @brief Generic class for admin list filters form
- *
  */
 class adminGenericFilter
 {
@@ -41,8 +40,8 @@ class adminGenericFilter
      */
     public function __construct(dcCore $core, string $type)
     {
-        $this->core     = &$core;
-        $this->type     = $type;
+        $this->core = &$core;
+        $this->type = $type;
 
         $this->parseOptions();
     }
@@ -115,9 +114,10 @@ class adminGenericFilter
     public function values($escape = false)
     {
         $res = [];
-        foreach($this->filters as $id => $filter) {
+        foreach ($this->filters as $id => $filter) {
             $res[$id] = $filter->value;
         }
+
         return $escape ? preg_replace('/%/', '%%', $res) : $res;
     }
 
@@ -160,9 +160,10 @@ class adminGenericFilter
 
         # multiple filters
         if (is_array($filter)) {
-            foreach($filter as $f) {
+            foreach ($filter as $f) {
                 $this->add($f);
             }
+
             return null;
         }
 
@@ -172,7 +173,7 @@ class adminGenericFilter
         }
 
         # not well formed filter or reserved id
-        if (!($filter instanceOf dcAdminFilter) || $filter->id == '') {
+        if (!($filter instanceof dcAdminFilter) || $filter->id == '') {
             return null;
         }
 
@@ -211,10 +212,10 @@ class adminGenericFilter
             $params['order'] = $filters['sortby'] . ' ' . $filters['order'];
         }
 
-        foreach($this->filters as $filter) {
+        foreach ($this->filters as $filter) {
             if ($filter->value !== '') {
                 $filters[0] = $filter->value;
-                foreach($filter->params as $p) {
+                foreach ($filter->params as $p) {
                     if (is_callable($p[1])) {
                         $p[1] = call_user_func($p[1], $filters);
                     }
@@ -229,6 +230,7 @@ class adminGenericFilter
                 }
             }
         }
+
         return $params;
     }
 
@@ -243,6 +245,7 @@ class adminGenericFilter
         if ($set === true) {
             $this->show = true;
         }
+
         return $this->show;
     }
 
@@ -260,11 +263,11 @@ class adminGenericFilter
      * @param  array|string     $adminurl   The registered adminurl
      * @param  string           $extra      The extra contents
      */
-    public function display(array|string $adminurl, string $extra = '')
+    public function display($adminurl, string $extra = '')
     {
         $tab = '';
         if (is_array($adminurl)) {
-            $tab = $adminurl[1];
+            $tab      = $adminurl[1];
             $adminurl = $adminurl[0];
         }
 
@@ -275,8 +278,8 @@ class adminGenericFilter
         '<div class="table">';
 
         $prime = true;
-        $cols = [];
-        foreach($this->filters as $filter) {
+        $cols  = [];
+        foreach ($this->filters as $filter) {
             if (in_array($filter->id, ['sortby', 'order', 'nb'])) {
                 continue;
             }
@@ -285,7 +288,7 @@ class adminGenericFilter
             }
         }
         sort($cols);
-        foreach($cols as $col) {
+        foreach ($cols as $col) {
             echo sprintf(
                 $prime ?
                     '<div class="cell"><h4>' . __('Filters') . '</h4>%s</div>' :
@@ -396,6 +399,7 @@ class adminPostFilter extends adminGenericFilter
     public function getPostUserFilter(): ?dcAdminFilter
     {
         $users = null;
+
         try {
             $users = $this->core->blog->getPostsUsers();
             if ($users->isEmpty()) {
@@ -403,6 +407,7 @@ class adminPostFilter extends adminGenericFilter
             }
         } catch (Exception $e) {
             $this->core->error->add($e->getMessage());
+
             return null;
         }
 
@@ -425,6 +430,7 @@ class adminPostFilter extends adminGenericFilter
     public function getPostCategoriesFilter(): ?dcAdminFilter
     {
         $categories = null;
+
         try {
             $categories = $this->core->blog->getCategories();
             if ($categories->isEmpty()) {
@@ -432,12 +438,13 @@ class adminPostFilter extends adminGenericFilter
             }
         } catch (Exception $e) {
             $this->core->error->add($e->getMessage());
+
             return null;
         }
 
         $combo = [
-            '-' => '',
-            __('(No cat)') =>  'NULL'
+            '-'            => '',
+            __('(No cat)') => 'NULL'
         ];
         while ($categories->fetch()) {
             $combo[
@@ -554,6 +561,7 @@ class adminPostFilter extends adminGenericFilter
     public function getPostMonthFilter(): ?dcAdminFilter
     {
         $dates = null;
+
         try {
             $dates = $this->core->blog->getDates(['type' => 'month']);
             if ($dates->isEmpty()) {
@@ -561,6 +569,7 @@ class adminPostFilter extends adminGenericFilter
             }
         } catch (Exception $e) {
             $this->core->error->add($e->getMessage());
+
             return null;
         }
 
@@ -590,6 +599,7 @@ class adminPostFilter extends adminGenericFilter
     public function getPostLangFilter(): ?dcAdminFilter
     {
         $langs = null;
+
         try {
             $langs = $this->core->blog->getLangs();
             if ($langs->isEmpty()) {
@@ -597,6 +607,7 @@ class adminPostFilter extends adminGenericFilter
             }
         } catch (Exception $e) {
             $this->core->error->add($e->getMessage());
+
             return null;
         }
 
@@ -878,9 +889,9 @@ class dcAdminFilter
         if (isset($this->properties[$property]) && method_exists($this, $property)) {
             return call_user_func([$this, $property], $value);
         }
+
         return $this;
     }
-
 
     /**
      * Set filter form type
@@ -893,6 +904,7 @@ class dcAdminFilter
         if (in_array($type, ['none', 'input', 'select', 'html'])) {
             $this->properties['form'] = $type;
         }
+
         return $this;
     }
 
@@ -924,6 +936,7 @@ class dcAdminFilter
         if ($set_form) {
             $this->form('select');
         }
+
         return $this;
     }
 
@@ -966,6 +979,7 @@ class dcAdminFilter
         if ($set_form) {
             $this->form('html');
         }
+
         return $this;
     }
 
@@ -984,7 +998,7 @@ class dcAdminFilter
         }
         # filter value as param value
         if (null === $value) {
-            $value = function($f){ return $f[0]; };
+            $value = function ($f) { return $f[0]; };
         }
         $this->properties['params'][] = [$name, $value];
 
@@ -1080,7 +1094,7 @@ class dcAdminFilters
     {
         return (new dcAdminFilter($id))
             ->value(!empty($_GET[$id]) ? max(1, (integer) $_GET[$id]) : 1)
-            ->param('limit', function($f){ return [(($f[0] - 1) * $f['nb']), $f['nb']]; });
+            ->param('limit', function ($f) { return [(($f[0] - 1) * $f['nb']), $f['nb']]; });
     }
 
     /**
@@ -1089,7 +1103,7 @@ class dcAdminFilters
     public static function getSearchFilter(): dcAdminFilter
     {
         return (new dcAdminFilter('q'))
-            ->param('q', function($f){ return $f['q']; })
+            ->param('q', function ($f) { return $f['q']; })
             ->form('input')
             ->title(__('Search:'))
             ->prime(true);
