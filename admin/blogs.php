@@ -12,21 +12,8 @@ require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
-# Filters
-$status_combo = array_merge(
-    ['-' => ''],
-    dcAdminCombos::getBlogStatusesCombo()
-);
-
-$sortby_combo = dcAdminCombos::getBlogsSortbyCombo();
-
-$order_combo = [
-    __('Descending') => 'desc',
-    __('Ascending')  => 'asc'
-];
-
-# Actions
-
+/* Actions
+-------------------------------------------------------- */
 $blogs_actions_page = null;
 if ($core->auth->isSuperAdmin()) {
     $blogs_actions_page = new dcBlogsActionsPage($core, $core->adminurl->get('admin.blogs'));
@@ -35,62 +22,15 @@ if ($core->auth->isSuperAdmin()) {
     }
 }
 
-$core->auth->user_prefs->addWorkspace('interface');
-// deprecated 2.20 keep for compatibility
-$default_sortby = $core->auth->user_prefs->interface->blogs_sortby ?: 'blog_upddt';
-$default_order  = $core->auth->user_prefs->interface->blogs_order ?: 'desc';
-$nb_per_page    = $core->auth->user_prefs->interface->nb_blogs_per_page ?: 30;
+/* Filters
+-------------------------------------------------------- */
+$blog_filter = new adminBlogFilter($core);
 
-$sorts_user = @$core->auth->user_prefs->interface->sorts;
-$default_sortby = $sorts_user['blogs'][0] ?? $default_sortby;
-$default_order  = $sorts_user['blogs'][1] ?? $default_order;
-$nb_per_page    = !empty($sorts_user['blogs'][2]) ? $sorts_user['blogs'][2] : $nb_per_page;
+# get list params
+$params = $blog_filter->params();
 
-# Requests
-$q      = !empty($_GET['q']) ? $_GET['q'] : '';
-$status = $_GET['status'] ?? '';
-$sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : $default_sortby;
-$order  = !empty($_GET['order']) ? $_GET['order'] : $default_order;
-
-$show_filters = false;
-
-$page = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
-
-if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
-    if ($nb_per_page != (integer) $_GET['nb']) {
-        $show_filters = true;
-    }
-    $nb_per_page = (integer) $_GET['nb'];
-}
-
-# - Search filter
-if ($q) {
-    $params['q']  = $q;
-    $show_filters = true;
-}
-
-# - Status filter
-if ($status !== '' && in_array($status, $status_combo, true)) {
-    $params['blog_status'] = $status;
-    $show_filters          = true;
-} else {
-    $status = '';
-}
-
-# - Sortby and order filter
-if (!in_array($sortby, $sortby_combo, true)) {
-    $sortby = $default_sortby;
-}
-if (!in_array($order, $order_combo, true)) {
-    $order = $default_order;
-}
-$params['order'] = $sortby . ' ' . $order;
-if ($sortby != $default_sortby || $order != $default_order) {
-    $show_filters = true;
-}
-
-$params['limit'] = [(($page - 1) * $nb_per_page), $nb_per_page];
-
+/* List
+-------------------------------------------------------- */
 $blog_list = null;
 
 try {
@@ -102,11 +42,11 @@ try {
     $rs       = $core->getBlogs($params);
     $nb_blog  = $counter->f(0);
     $rsStatic = $rs->toStatic();
-    if (($sortby != 'blog_upddt') && ($sortby != 'blog_status')) {
+    if (($blog_filter->sortby != 'blog_upddt') && ($blog_filter->sortby != 'blog_status')) {
         // Sort blog list using lexical order if necessary
         $rsStatic->extend('rsExtUser');
         $rsStatic = $rsStatic->toExtStatic();
-        $rsStatic->lexicalSort(($sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), $order);
+        $rsStatic->lexicalSort(($blog_filter->sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), $blog_filter->order);
     }
     $blog_list = new adminBlogList($core, $rs, $counter->f(0));
 } catch (Exception $e) {
@@ -117,7 +57,7 @@ try {
 -------------------------------------------------------- */
 
 dcPage::open(__('List of blogs'),
-    dcPage::jsLoad('js/_blogs.js') . dcPage::jsFilterControl($show_filters),
+    dcPage::jsLoad('js/_blogs.js') . $blog_filter->js(),
     dcPage::breadcrumb(
         [
             __('System')        => '',
@@ -130,41 +70,10 @@ if (!$core->error->flag()) {
         echo '<p class="top-add"><a class="button add" href="' . $core->adminurl->get('admin.blog') . '">' . __('Create a new blog') . '</a></p>';
     }
 
-    echo
-    '<form action="' . $core->adminurl->get('admin.blogs') . '" method="get" id="filters-form">' .
-    '<h3 class="out-of-screen-if-js">' . __('Show filters and display options') . '</h3>' .
-
-    '<div class="table">' .
-    '<div class="cell">' .
-    '<h4>' . __('Filters') . '</h4>' .
-    '<p><label for="q" class="ib">' . __('Search:') . '</label> ' .
-    form::field('q', 20, 255, html::escapeHTML($q)) . '</p>' .
-    ($core->auth->isSuperAdmin() ?
-        '<p><label for="status" class="ib">' . __('Status:') . '</label> ' .
-        form::combo('status', $status_combo, $status) . '</p>' : '') .
-    '</div>' .
-
-    '<div class="cell filters-options">' .
-    '<h4>' . __('Display options') . '</h4>' .
-    '<p><label for="sortby" class="ib">' . __('Order by:') . '</label> ' .
-    form::combo('sortby', $sortby_combo, html::escapeHTML($sortby)) . '</p>' .
-    '<p><label for="order" class="ib">' . __('Sort:') . '</label> ' .
-    form::combo('order', $order_combo, html::escapeHTML($order)) . '</p>' .
-    '<p><span class="label ib">' . __('Show') . '</span> <label for="nb" class="classic">' .
-    form::number('nb', 0, 999, $nb_per_page) . ' ' . __('blogs per page') . '</label></p>' .
-
-    form::hidden('filters-options-id', 'blogs') .
-    '<p class="hidden-if-no-js"><a href="#" id="filter-options-save">' . __('Save current options') . '</a></p>' .
-
-    '</div>' .
-    '</div>' .
-
-    '<p><input type="submit" value="' . __('Apply filters and display options') . '" />' .
-    '<br class="clear" /></p>' . //Opera sucks
-    '</form>';
+    $blog_filter->display('admin.blogs');
 
     # Show blogs
-    $blog_list->display($page, $nb_per_page,
+    $blog_list->display($blog_filter->page, $blog_filter->nb,
         ($core->auth->isSuperAdmin() ?
             '<form action="' . $core->adminurl->get('admin.blogs') . '" method="post" id="form-blogs">' : '') .
 
@@ -184,14 +93,9 @@ if (!$core->error->flag()) {
             '<p><label for="pwd" class="classic">' . __('Please give your password to confirm blog(s) deletion:') . '</label> ' .
             form::password('pwd', 20, 255, ['autocomplete' => 'current-password']) . '</p>' .
 
-            form::hidden(['sortby'], $sortby) .
-            form::hidden(['order'], $order) .
-            form::hidden(['status'], $status) .
-            form::hidden(['page'], $page) .
-            form::hidden(['nb'], $nb_per_page) .
-
+            $core->adminurl->getHiddenFormFields('admin.blogs', $blog_filter->values(true)) .
             '</form>' : ''),
-        $show_filters
+        $blog_filter->show()
     );
 }
 

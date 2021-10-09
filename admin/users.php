@@ -12,8 +12,24 @@ require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
 
-$sortby_combo = dcAdminCombos::getUsersSortbyCombo();
+/* Actions
+-------------------------------------------------------- */
+$combo_action = [
+    __('Set permissions') => 'blogs',
+    __('Delete')          => 'deleteuser'
+];
 
+# --BEHAVIOR-- adminUsersActionsCombo
+$core->callBehavior('adminUsersActionsCombo', [& $combo_action]);
+
+/* Filters
+-------------------------------------------------------- */
+$user_filter = new adminUserFilter($core);
+
+# get list params
+$params = $user_filter->params();
+
+# lexical sort
 $sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request
     'user_id'          => 'U.user_id',
@@ -24,69 +40,12 @@ $sortby_lex = [
 # --BEHAVIOR-- adminUsersSortbyLexCombo
 $core->callBehavior('adminUsersSortbyLexCombo', [& $sortby_lex]);
 
-$order_combo = [
-    __('Descending') => 'desc',
-    __('Ascending')  => 'asc'
-];
+$params['order'] = (array_key_exists($user_filter->sortby, $sortby_lex) ?
+    $core->con->lexFields($sortby_lex[$user_filter->sortby]) :
+    $user_filter->sortby) . ' ' . $user_filter->order;
 
-# Actions combo box
-$combo_action = [
-    __('Set permissions') => 'blogs',
-    __('Delete')          => 'deleteuser'
-];
-
-# --BEHAVIOR-- adminUsersActionsCombo
-$core->callBehavior('adminUsersActionsCombo', [& $combo_action]);
-
-/* Get users
+/* List
 -------------------------------------------------------- */
-$core->auth->user_prefs->addWorkspace('interface');
-// deprecated 2.20 keep for compatibility
-$default_sortby = $core->auth->user_prefs->interface->users_sortby ?: 'user_id';
-$default_order  = $core->auth->user_prefs->interface->users_order ?: 'asc';
-$nb_per_page    = $core->auth->user_prefs->interface->nb_users_per_page ?: 30;
-
-$sorts_user = @$core->auth->user_prefs->interface->sorts;
-$default_sortby = $sorts_user['users'][0] ?? $default_sortby;
-$default_order  = $sorts_user['users'][1] ?? $default_order;
-$nb_per_page    = !empty($sorts_user['users'][2]) ? $sorts_user['users'][2] : $nb_per_page;
-
-$q      = !empty($_GET['q']) ? $_GET['q'] : '';
-$sortby = !empty($_GET['sortby']) ? $_GET['sortby'] : $default_sortby;
-$order  = !empty($_GET['order']) ? $_GET['order'] : $default_order;
-
-$show_filters = false;
-
-$page = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
-
-if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
-    if ($nb_per_page != (integer) $_GET['nb']) {
-        $show_filters = true;
-    }
-    $nb_per_page = (integer) $_GET['nb'];
-}
-
-$params['limit'] = [(($page - 1) * $nb_per_page), $nb_per_page];
-
-# - Search filter
-if ($q) {
-    $params['q']  = $q;
-    $show_filters = true;
-}
-
-# - Sortby and order filter
-if (!in_array($sortby, $sortby_combo, true)) {
-    $sortby = $default_sortby;
-}
-if (!in_array($order, $order_combo, true)) {
-    $order = $default_order;
-}
-$params['order'] = (array_key_exists($sortby, $sortby_lex) ? $core->con->lexFields($sortby_lex[$sortby]) : $sortby) . ' ' . $order;
-if ($sortby != $default_sortby || $order != $default_order) {
-    $show_filters = true;
-}
-
-# Get users
 $user_list = null;
 
 try {
@@ -97,11 +56,11 @@ try {
     $rs       = $core->getUsers($params);
     $counter  = $core->getUsers($params, true);
     $rsStatic = $rs->toStatic();
-    if ($sortby != 'nb_post') {
+    if ($user_filter->sortby != 'nb_post') {
         // Sort user list using lexical order if necessary
         $rsStatic->extend('rsExtUser');
         $rsStatic = $rsStatic->toExtStatic();
-        $rsStatic->lexicalSort($sortby, $order);
+        $rsStatic->lexicalSort($user_filter->sortby, $user_filter->order);
     }
     $user_list = new adminUserList($core, $rsStatic, $counter->f(0));
 } catch (Exception $e) {
@@ -112,7 +71,7 @@ try {
 -------------------------------------------------------- */
 
 dcPage::open(__('Users'),
-    dcPage::jsLoad('js/_users.js') . dcPage::jsFilterControl($show_filters),
+    dcPage::jsLoad('js/_users.js') . $user_filter->js(),
     dcPage::breadcrumb(
         [
             __('System') => '',
@@ -128,39 +87,10 @@ if (!$core->error->flag()) {
         dcPage::message(__('The permissions have been successfully updated.'));
     }
 
-    echo
-    '<p class="top-add"><strong><a class="button add" href="' . $core->adminurl->get('admin.user') . '">' . __('New user') . '</a></strong></p>' .
-    '<form action="' . $core->adminurl->get('admin.users') . '" method="get" id="filters-form">' .
-    '<h3 class="out-of-screen-if-js">' . __('Show filters and display options') . '</h3>' .
-
-    '<div class="table">' .
-    '<div class="cell">' .
-    '<h4>' . __('Filters') . '</h4>' .
-    '<p><label for="q" class="ib">' . __('Search:') . '</label> ' .
-    form::field('q', 20, 255, html::escapeHTML($q)) . '</p>' .
-    '</div>' .
-
-    '<div class="cell filters-options">' .
-    '<h4>' . __('Display options') . '</h4>' .
-    '<p><label for="sortby" class="ib">' . __('Order by:') . '</label> ' .
-    form::combo('sortby', $sortby_combo, $sortby) . '</p> ' .
-    '<p><label for="order" class="ib">' . __('Sort:') . '</label> ' .
-    form::combo('order', $order_combo, $order) . '</p>' .
-    '<p><span class="label ib">' . __('Show') . '</span> <label for="nb" class="classic">' .
-    form::number('nb', 0, 999, $nb_per_page) . ' ' . __('users per page') . '</label></p> ' .
-
-    form::hidden('filters-options-id', 'users') .
-    '<p class="hidden-if-no-js"><a href="#" id="filter-options-save">' . __('Save current options') . '</a></p>' .
-
-    '</div>' .
-    '</div>' .
-
-    '<p><input type="submit" value="' . __('Apply filters and display options') . '" />' .
-    '<br class="clear" /></p>' . //Opera sucks
-    '</form>';
+    $user_filter->display('admin.users');
 
     # Show users
-    $user_list->display($page, $nb_per_page,
+    $user_list->display($user_filter->page, $user_filter->nb,
         '<form action="' . $core->adminurl->get('admin.user.actions') . '" method="post" id="form-users">' .
 
         '%s' .
@@ -173,16 +103,12 @@ if (!$core->error->flag()) {
         form::combo('action', $combo_action) .
         '</label> ' .
         '<input id="do-action" type="submit" value="' . __('ok') . '" />' .
-        form::hidden(['q'], html::escapeHTML($q)) .
-        form::hidden(['sortby'], $sortby) .
-        form::hidden(['order'], $order) .
-        form::hidden(['page'], $page) .
-        form::hidden(['nb'], $nb_per_page) .
+        $core->adminurl->getHiddenFormFields('admin.users', $user_filter->values(true)) .
         $core->formNonce() .
         '</p>' .
         '</div>' .
         '</form>',
-        $show_filters
+        $user_filter->show()
     );
 }
 dcPage::helpBlock('core_users');
