@@ -41,7 +41,13 @@ class dcFilterIpLookup extends dcSpamFilter
 
     public function isSpam($type, $author, $email, $site, $ip, $content, $post_id, &$status)
     {
-        if (!$ip || long2ip(ip2long($ip)) != $ip) {
+        if (!$ip) {
+            // No IP given
+            return;
+        }
+
+        if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 | FILTER_FLAG_NO_PRIV_RANGE) && !filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 | FILTER_FLAG_NO_PRIV_RANGE)) {
+            // Not an IPv4 IP (excludind private range) not an IPv6 IP (excludind private range)
             return;
         }
 
