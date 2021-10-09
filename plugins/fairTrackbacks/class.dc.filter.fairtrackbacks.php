@@ -39,7 +39,7 @@ class dcFilterFairTrackbacks extends dcSpamFilter
             $default_parse = ['scheme' => '', 'host' => '', 'path' => '', 'query' => ''];
             $S             = array_merge($default_parse, parse_url($site));
 
-            if ($S['scheme'] != 'http' || !$S['host'] || !$S['path']) {
+            if (($S['scheme'] != 'http' && $S['scheme'] != 'https') || !$S['host'] || !$S['path']) {
                 throw new Exception('Invalid URL');
             }
 

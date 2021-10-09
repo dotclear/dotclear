@@ -16,7 +16,7 @@ $this->registerModule(
     'Fair Trackbacks',          // Name
     'Trackback validity check', // Description
     'Olivier Meunier',          // Author
-    '1.1',                      // Version
+    '1.1.1',                    // Version
     [
         'permissions' => 'usage,contentadmin',
         'priority'    => 200,
