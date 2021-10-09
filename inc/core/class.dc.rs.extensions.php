@@ -181,7 +181,7 @@ class rsExtPost
      */
     public static function isRepublished($rs)
     {
-        return ($rs->getTS('upddt') + dt::getTimeOffset($rs->post_tz)) > $rs->getTS();
+        return ($rs->getTS('upddt') !== $rs->getTS('creadt'));
     }
 
     /**

@@ -1,6 +1,6 @@
 <tpl:Block name="_entry-title-before"></tpl:Block>
 <tpl:Block name="_entry-title-main">
-  <article id="p{{tpl:EntryID}}" class="post {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} title" lang="{{tpl:EntryLang}}" role="article">
+  <article id="p{{tpl:EntryID}}" class="post <tpl:EntryIf republished="1">updated</tpl:EntryIf> {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} title" lang="{{tpl:EntryLang}}" role="article">
     <tpl:Block name="_entry-title-header">
       <header>
         <tpl:Block name="_entry-title-header-date">

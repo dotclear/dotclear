@@ -1,6 +1,6 @@
 <tpl:Block name="_entry-short-before"></tpl:Block>
 <tpl:Block name="_entry-short-main">
-  <article id="p{{tpl:EntryID}}" class="post short {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}" lang="{{tpl:EntryLang}}" role="article">
+  <article id="p{{tpl:EntryID}}" class="post <tpl:EntryIf republished="1">updated</tpl:EntryIf> short {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}" lang="{{tpl:EntryLang}}" role="article">
     <tpl:Block name="_entry-short-header">
       <header>
         <tpl:Block name="_entry-short-header-date">

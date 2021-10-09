@@ -1,6 +1,6 @@
 <tpl:Block name="_entry-full-before"></tpl:Block>
 <tpl:Block name="_entry-full-main">
-  <article id="p{{tpl:EntryID}}" class="post {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} full" lang="{{tpl:EntryLang}}" role="article">
+  <article id="p{{tpl:EntryID}}" class="post {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} <tpl:EntryIf republished="1">updated</tpl:EntryIf> full" lang="{{tpl:EntryLang}}" role="article">
     <tpl:Block name="_entry-full-header">
       <header>
         <tpl:Block name="_entry-full-header-date">
