@@ -193,6 +193,11 @@ class dcFilterIP extends dcSpamFilter
 
         # Set IP
         $bits[0] .= str_repeat('.0', 3 - substr_count($bits[0], '.'));
+
+        if (!filter_var($bits[0], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+            throw new Exception('Invalid IPv4 address');
+        }
+
         $ip = ip2long($bits[0]);
 
         if (!$ip || $ip == -1) {
