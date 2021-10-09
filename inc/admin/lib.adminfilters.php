@@ -251,10 +251,16 @@ class adminGenericFilter
 
     /**
      * Get js filters foldable form control
+     *
+     * @param string $reset_url     The filter reset url
      */
-    public function js()
+    public function js(string $reset_url = '')
     {
-        return dcPage::jsFilterControl($this->show());
+        $var = '';
+        if (!empty($reset_url)) {
+            $var = dcPage::jsVars(['dotclear.filter_reset_url' => $reset_url]);
+        }
+        return $var . dcPage::jsFilterControl($this->show());
     }
 
     /**
