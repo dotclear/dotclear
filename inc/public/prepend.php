@@ -45,6 +45,9 @@ if ((boolean) !$core->blog->status) {
     __error(__('Blog is offline.'), __('This blog is offline. Please try again later.'), 670);
 }
 
+# Prepare for further notices, if any
+$core->notices = new dcNotices($core);
+
 # Cope with static home page option
 if ($core->blog->settings->system->static_home) {
     $core->url->registerDefault(['dcUrlHandlers', 'static_home']);
