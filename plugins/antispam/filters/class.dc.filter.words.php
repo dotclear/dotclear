@@ -103,8 +103,6 @@ class dcFilterWords extends dcSpamFilter
 
         /* DISPLAY
         ---------------------------------------------- */
-        $res = dcPage::notices();
-
         $res .= '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
         '<p><label class="classic" for="swa">' . __('Add a word ') . '</label> ' . form::field('swa', 20, 128);
 
