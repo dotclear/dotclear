@@ -387,9 +387,16 @@ class adminGenericFilter
 
 class adminPostFilter extends adminGenericFilter
 {
-    public function __construct(dcCore $core)
+    protected $post_type = 'post';
+
+    public function __construct(dcCore $core, string $type = 'posts', string $post_type = '')
     {
-        parent::__construct($core, 'posts');
+        parent::__construct($core, $type);
+
+        if (!empty($post_type) && array_key_exists($post_type, $core->getPostTypes())) {
+            $this->post_type = $post_type;
+            $this->add((new dcAdminFilter('post_type', $post_type))->param('post_type'));
+        }
 
         $filters = new arrayObject([
             dcAdminFilters::getPageFilter(),
@@ -422,7 +429,7 @@ class adminPostFilter extends adminGenericFilter
         $users = null;
 
         try {
-            $users = $this->core->blog->getPostsUsers();
+            $users = $this->core->blog->getPostsUsers($this->post_type);
             if ($users->isEmpty()) {
                 return null;
             }
@@ -453,7 +460,7 @@ class adminPostFilter extends adminGenericFilter
         $categories = null;
 
         try {
-            $categories = $this->core->blog->getCategories();
+            $categories = $this->core->blog->getCategories(['post_type' => $this->post_type]);
             if ($categories->isEmpty()) {
                 return null;
             }
@@ -584,7 +591,10 @@ class adminPostFilter extends adminGenericFilter
         $dates = null;
 
         try {
-            $dates = $this->core->blog->getDates(['type' => 'month']);
+            $dates = $this->core->blog->getDates([
+                'type'      => 'month',
+                'post_type' => $this->post_type
+            ]);
             if ($dates->isEmpty()) {
                 return null;
             }
@@ -622,7 +632,7 @@ class adminPostFilter extends adminGenericFilter
         $langs = null;
 
         try {
-            $langs = $this->core->blog->getLangs();
+            $langs = $this->core->blog->getLangs(['post_type' => $this->post_type]);
             if ($langs->isEmpty()) {
                 return null;
             }
