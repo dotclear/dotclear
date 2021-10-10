@@ -20,7 +20,7 @@ $params = [
 ];
 
 $page        = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
-$nb_per_page = 30;
+$nb_per_page = adminUserPref::getUserFilters('pages', 'nb');
 
 if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
     $nb_per_page = (integer) $_GET['nb'];

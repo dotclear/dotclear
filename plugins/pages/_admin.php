@@ -12,11 +12,12 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$core->addBehavior('adminColumnsLists', ['pagesColumnsLists', 'adminColumnsLists']);
+$core->addBehavior('adminColumnsLists', ['pagesUserPref', 'adminColumnsLists']);
+$core->addBehavior('adminFiltersLists', ['pagesUserPref', 'adminFiltersLists']);
 $core->addBehavior('adminDashboardFavorites', ['pagesDashboard', 'pagesDashboardFavs']);
 $core->addBehavior('adminUsersActionsHeaders', 'pages_users_actions_headers');
 
-class pagesColumnsLists
+class pagesUserPref
 {
     public static function adminColumnsLists($core, $cols)
     {
@@ -27,6 +28,17 @@ class pagesColumnsLists
             'comments'   => [true, __('Comments')],
             'trackbacks' => [true, __('Trackbacks')]
         ]];
+    }
+
+    public static function adminFiltersLists($core, $sorts)
+    {
+        $sorts['pages'] = [
+            __('Pages'),
+            null,
+            null,
+            null,
+            [__('entries per page'), 30]
+        ];
     }
 }
 
