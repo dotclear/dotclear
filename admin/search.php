@@ -34,7 +34,7 @@ if (!empty($q) && !in_array($qtype, $qtype_combo)) {
 
 $core->auth->user_prefs->addWorkspace('interface');
 $page = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
-$nb   = $core->auth->user_prefs->interface->nb_searchresults_per_page ?: 30;
+$nb = adminUserPref::getUserFilters('search', 'nb');
 if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
     $nb = (integer) $_GET['nb'];
 }
