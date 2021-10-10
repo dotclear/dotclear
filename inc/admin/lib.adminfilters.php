@@ -193,6 +193,21 @@ class adminGenericFilter
     }
 
     /**
+     * Remove a filter
+     *
+     * @param  string $id   The filter id
+     * @return boolean      The success
+     */
+    public function remove(string $id)
+    {
+        if (array_key_exists($id, $this->filters)) {
+            unset($this->filters[$id]);
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Get list query params
      *
      * @return array    The query params
