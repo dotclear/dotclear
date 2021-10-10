@@ -181,9 +181,8 @@ class rsExtPost
      */
     public static function isRepublished($rs)
     {
-        // Take care of post_dt does not store seconds and assume possible time season difference (winter/summer)
-        // Wich may give up to 3660 seconds of difference, so before this lap, the post will assume not updated
-        return (($rs->getTS('upddt') + dt::getTimeOffset($rs->post_tz)) > ($rs->getTS() + 3600 + 60));
+        // Take care of post_dt does not store seconds
+        return (($rs->getTS('upddt') + dt::getTimeOffset($rs->post_tz, $rs->getTS('upddt'))) > ($rs->getTS() + 60));
     }
 
     /**
