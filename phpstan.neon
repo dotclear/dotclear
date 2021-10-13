@@ -103,6 +103,14 @@ parameters:
     - message: '#Call to an undefined method record::#'
       path: %currentWorkingDirectory%
 
+    # Intensive use of magic __set/__get/__call/__invoke causes theses wrong warnings
+    - message: '#Call to an undefined method form[a-zA-Z0-9\\_]+::#'
+      path: %currentWorkingDirectory%
+
+    # Intensive use of magic __set/__get/__call/__invoke causes theses wrong warnings
+    - message: '#Access to an undefined property form[a-zA-Z0-9\\_]+::#'
+      path: %currentWorkingDirectory%
+
 # Notes:
 #
 # Use /* @phpstan-ignore-next-line */ or // @phpstan-ignore-line
