@@ -83,7 +83,7 @@ class dcFilterIpLookup extends dcSpamFilter
 
         /* DISPLAY
         ---------------------------------------------- */
-        $res .= '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
+        $res = '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
         '<h3>' . __('IP Lookup servers') . '</h3>' .
         '<p><label for="bls">' . __('Add here a coma separated list of servers.') . '</label>' .
         form::textarea('bls', 40, 3, html::escapeHTML($bls), 'maximal') .

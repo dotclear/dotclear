@@ -29,11 +29,11 @@ class adminUserPref
     public static function getDefaultColumns()
     {
         return ['posts' => [__('Posts'), [
-                'date'       => [true, __('Date')],
-                'category'   => [true, __('Category')],
-                'author'     => [true, __('Author')],
-                'comments'   => [true, __('Comments')],
-                'trackbacks' => [true, __('Trackbacks')]
+            'date'       => [true, __('Date')],
+            'category'   => [true, __('Category')],
+            'author'     => [true, __('Author')],
+            'comments'   => [true, __('Comments')],
+            'trackbacks' => [true, __('Trackbacks')]
         ]]];
     }
 
@@ -68,6 +68,7 @@ class adminUserPref
         if ($type !== null) {
             return $cols[$type] ?? [];
         }
+
         return $cols;
     }
 
@@ -106,7 +107,7 @@ class adminUserPref
                 'desc',
                 [__('blogs per page'), 30]
             ],
-            'users' => $users,
+            'users'  => $users,
             'search' => [
                 __('Search'),
                 null,
@@ -121,7 +122,6 @@ class adminUserPref
      * Get sorts filters users preference for a given type
      *
      * @param       string      $type   The filter list type
-     * @param       null|string $filter The filter field
      * @return      mixed               Filters or typed filter or field value(s)
      */
     public static function getUserFilters($type = null, $option = null)
@@ -169,6 +169,7 @@ class adminUserPref
                 return abs((integer) self::$sorts[$type][4][1]);
             }
         }
+
         return null;
     }
 }

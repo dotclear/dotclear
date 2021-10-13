@@ -95,7 +95,7 @@ class dcFilterIP extends dcSpamFilter
 
         /* DISPLAY
         ---------------------------------------------- */
-        $res .= $this->displayForms($url, 'black', __('Blocklist')) .
+        $res = $this->displayForms($url, 'black', __('Blocklist')) .
         $this->displayForms($url, 'white', __('Allowlist'));
 
         return $res;

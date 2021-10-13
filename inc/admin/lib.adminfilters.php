@@ -50,7 +50,8 @@ class adminGenericFilter
      * Get user defined filter options (sortby, order, nb)
      *
      * @param   string   $option     The option
-     * @return                       User option
+     *
+     * @return  mixed                User option
      */
     public function userOptions(?string $option = null)
     {
@@ -109,6 +110,7 @@ class adminGenericFilter
      * Get filters key/value pairs
      *
      * @param  boolean $escape  Escape widlcard %
+     *
      * @return array            The filters
      */
     public function values($escape = false)
@@ -126,6 +128,7 @@ class adminGenericFilter
      *
      * @param  string $id The filter id
      * @param  string $id The filter value if not exists
+     *
      * @return mixed      The filter value
      */
     public function value(string $id, $undefined = null)
@@ -137,6 +140,7 @@ class adminGenericFilter
      * Magic get filter value
      *
      * @param  string   $id     The filter id
+     *
      * @return mixed            The filter value
      */
     public function __get($id)
@@ -149,6 +153,7 @@ class adminGenericFilter
      *
      * @param array|string|dcAdminFilter|null   $filter     The filter(s) array or id or object
      * @param mixed                             $value      The filter value if $filter is id
+     *
      * @return mixed                                        The filter value
      */
     public function add($filter = null, $value = null)
@@ -196,14 +201,17 @@ class adminGenericFilter
      * Remove a filter
      *
      * @param  string $id   The filter id
+     *
      * @return boolean      The success
      */
     public function remove(string $id)
     {
         if (array_key_exists($id, $this->filters)) {
             unset($this->filters[$id]);
+
             return true;
         }
+
         return false;
     }
 
@@ -253,6 +261,7 @@ class adminGenericFilter
      * Show foldable filters form
      *
      * @param  boolean  $set    Force to show filter form
+     *
      * @return boolean          Show filter form
      */
     public function show($set = false): bool
@@ -275,6 +284,7 @@ class adminGenericFilter
         if (!empty($reset_url)) {
             $var = dcPage::jsVars(['dotclear.filter_reset_url' => $reset_url]);
         }
+
         return $var . dcPage::jsFilterControl($this->show());
     }
 
@@ -874,6 +884,7 @@ class dcAdminFilter
      * Magic isset filter properties
      *
      * @param  string  $property    The property
+     *
      * @return boolean              Is set
      */
     public function __isset(string $property)
@@ -893,6 +904,7 @@ class dcAdminFilter
      * Get a filter property
      *
      * @param  string $property     The property
+     *
      * @return mixed                The value
      */
     public function get(string $property)
@@ -913,6 +925,7 @@ class dcAdminFilter
      *
      * @param string $property  The property
      * @param mixed  $value     The value
+     *
      * @return dcAdminFilter    The filter instance
      */
     public function set($property, $value)
@@ -928,6 +941,7 @@ class dcAdminFilter
      * Set filter form type
      *
      * @param string $type      The type
+     *
      * @return dcAdminFilter    The filter instance
      */
     public function form(string $type)
@@ -943,6 +957,7 @@ class dcAdminFilter
      * Set filter form title
      *
      * @param string $title     The title
+     *
      * @return dcAdminFilter    The filter instance
      */
     public function title(string $title)
@@ -957,8 +972,9 @@ class dcAdminFilter
      *
      * If filter form is a select box, this is the select options
      *
-     * @param string    $options    The options
+     * @param array     $options    The options
      * @param boolean   $set_form   Auto set form type
+     *
      * @return dcAdminFilter        The filter instance
      */
     public function options(array $options, $set_form = true)
@@ -975,6 +991,7 @@ class dcAdminFilter
      * Set filter value
      *
      * @param mixed $value      The value
+     *
      * @return dcAdminFilter    The filter instance
      */
     public function value($value)
@@ -988,6 +1005,7 @@ class dcAdminFilter
      * Set filter column in form
      *
      * @param boolean $prime    First column
+     *
      * @return dcAdminFilter    The filter instance
      */
     public function prime(bool $prime)
@@ -1002,6 +1020,7 @@ class dcAdminFilter
      *
      * @param string    $contents   The contents
      * @param boolean   $set_form   Auto set form type
+     *
      * @return dcAdminFilter        The filter instance
      */
     public function html(string $contents, $set_form = true)
@@ -1017,9 +1036,10 @@ class dcAdminFilter
     /**
      * Set filter param (list query param)
      *
-     * @param  string|null          $name  The param name
-     * @param  strin|function|null  $value The param value
-     * @return dcAdminFilter        The filter instance
+     * @param  string|null           $name  The param name
+     * @param  mixed                 $value The param value
+     *
+     * @return dcAdminFilter         The filter instance
      */
     public function param($name = null, $value = null)
     {

@@ -111,6 +111,14 @@ parameters:
     - message: '#Access to an undefined property form[a-zA-Z0-9\\_]+::#'
       path: %currentWorkingDirectory%
 
+    # form<*>filters
+    - message: '#Access to an undefined property admin[a-zA-Z0-9\\_]+Filter::\$[a-zA-Z0-9\\_]+.#'
+      path: %currentWorkingDirectory%
+
+    # dcAdminfilters
+    - message: '#Access to an undefined property dcAdminFilter::\$[a-zA-Z0-9\\_]+.#'
+      path: %currentWorkingDirectory%
+
 # Notes:
 #
 # Use /* @phpstan-ignore-next-line */ or // @phpstan-ignore-line
