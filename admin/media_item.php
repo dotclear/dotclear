@@ -266,6 +266,33 @@ $get_img_desc = function ($file, $default = '') {
     return $default;
 };
 
+$get_img_def = function ($file) {
+    global $core;
+
+    $defaults = [
+        'size'      => $core->blog->settings->system->media_img_default_size ?: 'm',
+        'alignment' => $core->blog->settings->system->media_img_default_alignment ?: 'none',
+        'link'      => (boolean) $core->blog->settings->system->media_img_default_link,
+        'legend'    => $core->blog->settings->system->media_img_default_legend ?: 'legend',
+        'mediadef'  => false
+    ];
+
+    try {
+        $local = $core->media->root . '/' . dirname($file->relname) . '/' . '.mediadef';
+        if (file_exists($local)) {
+            if ($specifics = json_decode(file_get_contents($local) ?? '', true)) {
+                foreach ($defaults as $key => $value) {
+                    $defaults[$key]       = $specifics[$key] ?? $defaults[$key];
+                    $defaults['mediadef'] = true;
+                }
+            }
+        }
+    } catch (Exception $e) {
+    }
+
+    return $defaults;
+};
+
 /* DISPLAY Main page
 -------------------------------------------------------- */
 $starting_scripts = dcPage::jsModal() .
@@ -328,25 +355,12 @@ if ($select) {
     }
 
     $media_desc = $get_img_desc($file, $media_title);
+    $defaults   = $get_img_def($file);
 
     echo
     '<div id="media-select" class="multi-part" title="' . __('Select media item') . '">' .
     '<h3>' . __('Select media item') . '</h3>' .
         '<form id="media-select-form" action="" method="get">';
-
-    $media_img_default_size = $core->blog->settings->system->media_img_default_size;
-    if ($media_img_default_size == '') {
-        $media_img_default_size = 'm';
-    }
-    $media_img_default_alignment = $core->blog->settings->system->media_img_default_alignment;
-    if ($media_img_default_alignment == '') {
-        $media_img_default_alignment = 'none';
-    }
-    $media_img_default_link   = (boolean) $core->blog->settings->system->media_img_default_link;
-    $media_img_default_legend = $core->blog->settings->system->media_img_default_legend;
-    if ($media_img_default_legend == '') {
-        $media_img_default_legend = 'legend';
-    }
 
     if ($file->media_type == 'image') {
         $media_type  = 'image';
@@ -364,12 +378,12 @@ if ($select) {
         $s_checked = false;
         echo '<p>';
         foreach (array_reverse($file->media_thumb) as $s => $v) {
-            $s_checked = ($s == $media_img_default_size);
+            $s_checked = ($s == $defaults['size']);
             echo '<label class="classic">' .
             form::radio(['src'], html::escapeHTML($v), $s_checked) . ' ' .
             $core->media->thumb_sizes[$s][2] . '</label><br /> ';
         }
-        $s_checked = (!isset($file->media_thumb[$media_img_default_size]));
+        $s_checked = (!isset($file->media_thumb[$defaults['size']]));
         echo '<label class="classic">' .
         form::radio(['src'], $file->file_url, $s_checked) . ' ' . __('original') . '</label><br /> ';
         echo '</p>';
@@ -403,25 +417,12 @@ if ($popup && !$select) {
     }
 
     $media_desc = $get_img_desc($file, $media_title);
+    $defaults   = $get_img_def($file);
 
     echo
     '<div id="media-insert" class="multi-part" title="' . __('Insert media item') . '">' .
     '<h3>' . __('Insert media item') . '</h3>' .
         '<form id="media-insert-form" action="" method="get">';
-
-    $media_img_default_size = $core->blog->settings->system->media_img_default_size;
-    if ($media_img_default_size == '') {
-        $media_img_default_size = 'm';
-    }
-    $media_img_default_alignment = $core->blog->settings->system->media_img_default_alignment;
-    if ($media_img_default_alignment == '') {
-        $media_img_default_alignment = 'none';
-    }
-    $media_img_default_link   = (boolean) $core->blog->settings->system->media_img_default_link;
-    $media_img_default_legend = $core->blog->settings->system->media_img_default_legend;
-    if ($media_img_default_legend == '') {
-        $media_img_default_legend = 'legend';
-    }
 
     if ($file->media_type == 'image') {
         $media_type  = 'image';
@@ -439,12 +440,12 @@ if ($popup && !$select) {
         $s_checked = false;
         echo '<p>';
         foreach (array_reverse($file->media_thumb) as $s => $v) {
-            $s_checked = ($s == $media_img_default_size);
+            $s_checked = ($s == $defaults['size']);
             echo '<label class="classic">' .
             form::radio(['src'], html::escapeHTML($v), $s_checked) . ' ' .
             $core->media->thumb_sizes[$s][2] . '</label><br /> ';
         }
-        $s_checked = (!isset($file->media_thumb[$media_img_default_size]));
+        $s_checked = (!isset($file->media_thumb[$defaults['size']]));
         echo '<label class="classic">' .
         form::radio(['src'], $file->file_url, $s_checked) . ' ' . __('original') . '</label><br /> ';
         echo '</p>';
@@ -455,13 +456,13 @@ if ($popup && !$select) {
         '<h3>' . __('Image legend and title') . '</h3>' .
         '<p>' .
         '<label for="legend1" class="classic">' . form::radio(['legend', 'legend1'], 'legend',
-            ($media_img_default_legend == 'legend')) .
+            ($defaults['legend'] == 'legend')) .
         __('Legend and title') . '</label><br />' .
         '<label for="legend2" class="classic">' . form::radio(['legend', 'legend2'], 'title',
-            ($media_img_default_legend == 'title')) .
+            ($defaults['legend'] == 'title')) .
         __('Title') . '</label><br />' .
         '<label for="legend3" class="classic">' . form::radio(['legend', 'legend3'], 'none',
-            ($media_img_default_legend == 'none')) .
+            ($defaults['legend'] == 'none')) .
         __('None') . '</label>' .
         '</p>' .
         '<p id="media-attribute">' .
@@ -475,10 +476,10 @@ if ($popup && !$select) {
         '<div class="two-boxes">' .
         '<h3>' . __('Image alignment') . '</h3>';
         $i_align = [
-            'none'   => [__('None'), ($media_img_default_alignment == 'none' ? 1 : 0)],
-            'left'   => [__('Left'), ($media_img_default_alignment == 'left' ? 1 : 0)],
-            'right'  => [__('Right'), ($media_img_default_alignment == 'right' ? 1 : 0)],
-            'center' => [__('Center'), ($media_img_default_alignment == 'center' ? 1 : 0)]
+            'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
+            'left'   => [__('Left'), ($defaults['alignment'] == 'left' ? 1 : 0)],
+            'right'  => [__('Right'), ($defaults['alignment'] == 'right' ? 1 : 0)],
+            'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)]
         ];
 
         echo '<p>';
@@ -493,9 +494,9 @@ if ($popup && !$select) {
         '<div class="two-boxes">' .
         '<h3>' . __('Image insertion') . '</h3>' .
         '<p>' .
-        '<label for="insert1" class="classic">' . form::radio(['insertion', 'insert1'], 'simple', !$media_img_default_link) .
+        '<label for="insert1" class="classic">' . form::radio(['insertion', 'insert1'], 'simple', !$defaults['link']) .
         __('As a single image') . '</label><br />' .
-        '<label for="insert2" class="classic">' . form::radio(['insertion', 'insert2'], 'link', $media_img_default_link) .
+        '<label for="insert2" class="classic">' . form::radio(['insertion', 'insert2'], 'link', $defaults['link']) .
         __('As a link to the original image') . '</label>' .
             '</p>' .
             '</div>';
@@ -508,10 +509,10 @@ if ($popup && !$select) {
         dcPage::message(__('Please note that you cannot insert mp3 files with visual editor.'), false);
 
         $i_align = [
-            'none'   => [__('None'), ($media_img_default_alignment == 'none' ? 1 : 0)],
-            'left'   => [__('Left'), ($media_img_default_alignment == 'left' ? 1 : 0)],
-            'right'  => [__('Right'), ($media_img_default_alignment == 'right' ? 1 : 0)],
-            'center' => [__('Center'), ($media_img_default_alignment == 'center' ? 1 : 0)]
+            'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
+            'left'   => [__('Left'), ($defaults['alignment'] == 'left' ? 1 : 0)],
+            'right'  => [__('Right'), ($defaults['alignment'] == 'right' ? 1 : 0)],
+            'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)]
         ];
 
         echo '<p>';
@@ -543,10 +544,10 @@ if ($popup && !$select) {
         '<h3>' . __('Video disposition') . '</h3>';
 
         $i_align = [
-            'none'   => [__('None'), ($media_img_default_alignment == 'none' ? 1 : 0)],
-            'left'   => [__('Left'), ($media_img_default_alignment == 'left' ? 1 : 0)],
-            'right'  => [__('Right'), ($media_img_default_alignment == 'right' ? 1 : 0)],
-            'center' => [__('Center'), ($media_img_default_alignment == 'center' ? 1 : 0)]
+            'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
+            'left'   => [__('Left'), ($defaults['alignment'] == 'left' ? 1 : 0)],
+            'right'  => [__('Right'), ($defaults['alignment'] == 'right' ? 1 : 0)],
+            'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)]
         ];
 
         echo '<p>';
