@@ -279,6 +279,9 @@ $get_img_def = function ($file) {
 
     try {
         $local = $core->media->root . '/' . dirname($file->relname) . '/' . '.mediadef';
+        if (!file_exists($local)) {
+            $local .= '.json';
+        }
         if (file_exists($local)) {
             if ($specifics = json_decode(file_get_contents($local) ?? '', true)) {
                 foreach ($defaults as $key => $value) {
