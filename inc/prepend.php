@@ -228,6 +228,24 @@ if (!defined('DC_CRYPT_ALGO')) {
     }
 }
 
+if (!defined('DC_TPL_CACHE')) {
+    define('DC_TPL_CACHE', path::real(dirname(__FILE__) . '/..') . '/cache');
+}
+// Check existence of cache directory
+if (!is_dir(DC_TPL_CACHE)) {
+    // Try to create it
+    @files::makeDir(DC_TPL_CACHE);
+    if (!is_dir(DC_TPL_CACHE)) {
+        // Admin must create it
+        if (!defined('DC_CONTEXT_ADMIN')) {
+            __error('Server error', 'Site temporarily unavailable');
+        } else {
+            __error('Dotclear error', DC_TPL_CACHE . ' directory does not exist. Please create it.');
+        }
+        exit;
+    }
+}
+
 if (!defined('DC_VAR')) {
     define('DC_VAR', path::real(dirname(__FILE__) . '/..') . '/var');
 }
