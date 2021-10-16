@@ -2,6 +2,7 @@
 Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or http://ckeditor.com/license
 */
+
 /*
 editor.css
 ============
@@ -10,6 +11,7 @@ style all elements inside its main interface.
 To make it easier to maintain, instead of including all styles here, we import
 other files.
 */
+
 /* "Reset" styles, necessary to avoid the editor UI being broken by external CSS. */
 .cke_reset {
   margin: 0;
@@ -41,7 +43,7 @@ other files.
   position: static;
   transition: none;
   border-collapse: collapse;
-  font: normal normal normal 1em Arial, Helvetica, Tahoma, Verdana, Sans-Serif;
+  font: normal normal normal 1em Arial, Helvetica, Tahoma, Verdana, sans-serif;
   color: #000;
   text-align: left;
   white-space: nowrap;
@@ -75,7 +77,7 @@ other files.
 
 .cke_reset_all fieldset {
   padding: 10px;
-  border: 2px groove #E0DFE3;
+  border: 2px groove #e0dfe3;
 }
 
 .cke_reset_all select {
@@ -91,7 +93,6 @@ other files.
   display: block;
   border: 1px solid #b6b6b6;
   padding: 0;
-  box-shadow: 0 0 3px rgba(0, 0, 0, .15);
 }
 
 .cke_inner {
@@ -120,10 +121,8 @@ other files.
   border-bottom: 1px solid #b6b6b6;
   padding: 6px 8px 2px;
   white-space: normal;
-  box-shadow: 0 1px 0 #fff inset;
   background: #cfd1cf;
   background-image: linear-gradient(to bottom, #f5f5f5, #cfd1cf);
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#f5f5f5', endColorstr='#cfd1cf');
 }
 
 .cke_float .cke_top {
@@ -135,10 +134,8 @@ other files.
   padding: 6px 8px 2px;
   position: relative;
   border-top: 1px solid #bfbfbf;
-  box-shadow: 0 1px 0 #fff inset;
   background: #cfd1cf;
   background-image: linear-gradient(to bottom, #ebebeb, #cfd1cf);
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#ebebeb', endColorstr='#cfd1cf');
 }
 
 .cke_browser_ios .cke_contents {
@@ -150,9 +147,6 @@ other files.
   width: 0;
   height: 0;
   overflow: hidden;
-  width: 0;
-  height: 0;
-  overflow: hidden;
   border-width: 10px 10px 0 0;
   border-color: transparent #666 transparent transparent;
   border-style: dashed solid dashed dashed;
@@ -160,7 +154,6 @@ other files.
   vertical-align: bottom;
   margin-top: 6px;
   margin-bottom: 2px;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, .3);
 }
 
 .cke_hc .cke_resizer {
@@ -178,7 +171,7 @@ other files.
 
 .cke_resizer_rtl {
   border-width: 10px 0 0 10px;
-  border-color: transparent transparent transparent #A5A5A5;
+  border-color: transparent transparent transparent #a5a5a5;
   border-style: dashed dashed dashed solid;
   cursor: sw-resize;
   float: left;
@@ -206,7 +199,6 @@ other files.
   border: 1px solid #b6b6b6;
   border-bottom-color: #999;
   border-radius: 3px;
-  box-shadow: 0 0 3px rgba(0, 0, 0, .15);
 }
 
 .cke_menu_panel {
@@ -260,14 +252,13 @@ other files.
   color: #000;
 }
 
-*:first-child+html .cke_panel_listItem a {
+*:first-child + html .cke_panel_listItem a {
   color: #000;
 }
 
 .cke_panel_listItem.cke_selected a {
   border: 1px solid #dedede;
   background-color: #f2f2f2;
-  box-shadow: 0 0 2px rgba(0, 0, 0, .1) inset;
 }
 
 .cke_panel_listItem a:hover,
@@ -275,7 +266,6 @@ other files.
 .cke_panel_listItem a:active {
   border-color: #dedede;
   background-color: #f2f2f2;
-  box-shadow: 0 0 2px rgba(0, 0, 0, .1) inset;
 }
 
 .cke_hc .cke_panel_listItem a {
@@ -297,13 +287,10 @@ other files.
   margin: 0;
   padding: 4px 6px;
   color: #474747;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .75);
   border-bottom: 1px solid #b6b6b6;
   border-radius: 2px 2px 0 0;
-  box-shadow: 0 1px 0 #fff inset;
   background: #cfd1cf;
   background-image: linear-gradient(to bottom, #f5f5f5, #cfd1cf);
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#f5f5f5', endColorstr='#cfd1cf');
 }
 
 .cke_panel_listItem p,
@@ -314,15 +301,15 @@ other files.
 .cke_panel_listItem h5,
 .cke_panel_listItem h6,
 .cke_panel_listItem pre {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* Styles the color panel displayed by the color buttons. */
 .cke_colorblock {
   padding: 3px;
   font-size: 1em;
-  font-family: 'Microsoft Sans Serif', Tahoma, Arial, Verdana, Sans-Serif;
+  font-family: 'Microsoft Sans Serif', Tahoma, Arial, Verdana, sans-serif;
 }
 
 .cke_colorblock,
@@ -395,10 +382,8 @@ a:active.cke_colormore {
   border: 1px solid #a6a6a6;
   border-bottom-color: #979797;
   border-radius: 3px;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, .5), 0 0 2px rgba(255, 255, 255, .15) inset, 0 1px 0 rgba(255, 255, 255, .15) inset;
   background: #e4e4e4;
   background-image: linear-gradient(to bottom, #ffffff, #e4e4e4);
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#ffffff', endColorstr='#e4e4e4');
 }
 
 .cke_hc .cke_toolgroup {
@@ -444,10 +429,8 @@ a.cke_button {
 }
 
 a.cke_button_on {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, .6) inset, 0 1px 0 rgba(0, 0, 0, .2);
   background: #b5b5b5;
   background-image: linear-gradient(to bottom, #aaa, #cacaca);
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#aaaaaa', endColorstr='#cacaca');
 }
 
 .cke_hc .cke_button_on,
@@ -469,22 +452,14 @@ a.cke_button_on {
   opacity: 0.5;
 }
 
-a.cke_button_on:hover,
-a.cke_button_on:focus,
-a.cke_button_on:active {
-  box-shadow: 0 1px 6px rgba(0, 0, 0, .7) inset, 0 1px 0 rgba(0, 0, 0, .2);
-}
-
 a.cke_button_off:hover,
 a.cke_button_off:focus,
 a.cke_button_off:active,
 a.cke_button_disabled:hover,
 a.cke_button_disabled:focus,
 a.cke_button_disabled:active {
-  box-shadow: 0 0 1px rgba(0, 0, 0, .3) inset;
   background: #ccc;
   background-image: linear-gradient(to bottom, #f2f2f2, #ccc);
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#f2f2f2', endColorstr='#cccccc');
 }
 
 .cke_button_icon {
@@ -514,7 +489,6 @@ a.cke_button_disabled:active {
   float: left;
   cursor: default;
   color: #474747;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
 }
 
 .cke_rtl .cke_button_label {
@@ -560,18 +534,16 @@ a.cke_button_disabled:active {
   margin: 5px 2px 0;
   height: 18px;
   width: 1px;
-  box-shadow: 1px 0 1px rgba(255, 255, 255, .5);
 }
 
 .cke_rtl .cke_toolbar_separator {
   float: right;
-  box-shadow: -1px 0 1px rgba(255, 255, 255, .1);
 }
 
 .cke_hc .cke_toolbar_separator {
   width: 0;
   border-left: 1px solid;
-  margin: 1px 5px 0 0px;
+  margin: 1px 5px 0 0;
 }
 
 .cke_toolbar_break {
@@ -594,16 +566,13 @@ a.cke_toolbox_collapser {
   border: 1px solid #a6a6a6;
   border-bottom-color: #979797;
   border-radius: 3px;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, .5), 0 0 2px rgba(255, 255, 255, .15) inset, 0 1px 0 rgba(255, 255, 255, .15) inset;
   background: #e4e4e4;
   background-image: linear-gradient(to bottom, #ffffff, #e4e4e4);
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#ffffff', endColorstr='#e4e4e4');
 }
 
 .cke_toolbox_collapser:hover {
   background: #ccc;
   background-image: linear-gradient(to bottom, #f2f2f2, #ccc);
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#f2f2f2', endColorstr='#cccccc');
 }
 
 .cke_toolbox_collapser.cke_toolbox_collapser_min {
@@ -652,7 +621,7 @@ a.cke_toolbox_collapser {
 .cke_menubutton:hover,
 .cke_menubutton:focus,
 .cke_menubutton:active {
-  background-color: #D3D3D3;
+  background-color: #d3d3d3;
   display: block;
 }
 
@@ -678,8 +647,8 @@ a.cke_toolbox_collapser {
 }
 
 .cke_menubutton_icon {
-  background-color: #D7D8D7;
-  opacity: 0.70;
+  background-color: #d7d8d7;
+  opacity: 0.7;
   filter: alpha(opacity=70);
   padding: 4px;
 }
@@ -693,7 +662,7 @@ a.cke_toolbox_collapser {
 .cke_menubutton:hover .cke_menubutton_icon,
 .cke_menubutton:focus .cke_menubutton_icon,
 .cke_menubutton:active .cke_menubutton_icon {
-  background-color: #D0D2D0;
+  background-color: #d0d2d0;
 }
 
 .cke_menubutton_disabled:hover .cke_menubutton_icon,
@@ -722,7 +691,6 @@ a.cke_toolbox_collapser {
 .cke_menubutton_on {
   border: 1px solid #dedede;
   background-color: #f2f2f2;
-  box-shadow: 0 0 2px rgba(0, 0, 0, .1) inset;
 }
 
 .cke_menubutton_on .cke_menubutton_icon {
@@ -732,7 +700,7 @@ a.cke_toolbox_collapser {
 .cke_menubutton:hover,
 .cke_menubutton:focus,
 .cke_menubutton:active {
-  background-color: #EFF0EF;
+  background-color: #eff0ef;
 }
 
 .cke_panel_frame .cke_menubutton_label {
@@ -740,10 +708,10 @@ a.cke_toolbox_collapser {
 }
 
 .cke_menuseparator {
-  background-color: #D3D3D3;
+  background-color: #d3d3d3;
   height: 1px;
   filter: alpha(opacity=70);
-  opacity: 0.70;
+  opacity: 0.7;
 }
 
 .cke_menuarrow {
@@ -803,33 +771,22 @@ a.cke_combo_button {
   border: 1px solid #a6a6a6;
   border-bottom-color: #979797;
   border-radius: 3px;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, .5), 0 0 2px rgba(255, 255, 255, .15) inset, 0 1px 0 rgba(255, 255, 255, .15) inset;
   background: #e4e4e4;
   background-image: linear-gradient(to bottom, #ffffff, #e4e4e4);
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#ffffff', endColorstr='#e4e4e4');
 }
 
 .cke_combo_off a.cke_combo_button:hover,
 .cke_combo_off a.cke_combo_button:focus {
   background: #ccc;
   background-image: linear-gradient(to bottom, #f2f2f2, #ccc);
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#f2f2f2', endColorstr='#cccccc');
   outline: none;
 }
 
 .cke_combo_off a.cke_combo_button:active,
 .cke_combo_on a.cke_combo_button {
   border: 1px solid #777;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, .5), 0 1px 5px rgba(0, 0, 0, .6) inset;
   background: #b5b5b5;
   background-image: linear-gradient(to bottom, #aaa, #cacaca);
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#aaaaaa', endColorstr='#cacaca');
-}
-
-.cke_combo_on a.cke_combo_button:hover,
-.cke_combo_on a.cke_combo_button:focus,
-.cke_combo_on a.cke_combo_button:active {
-  box-shadow: 0 1px 6px rgba(0, 0, 0, .7) inset, 0 1px 0 rgba(0, 0, 0, .2);
 }
 
 .cke_rtl .cke_combo_button {
@@ -858,7 +815,6 @@ a.cke_combo_button {
   float: left;
   cursor: default;
   color: #474747;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
   width: 60px;
 }
 
@@ -912,7 +868,7 @@ a.cke_combo_button {
   opacity: 0.3;
 }
 
-/* Styles the elements path bar, available at the bottom of the editor UI.*/
+/* Styles the elements path bar, available at the bottom of the editor UI. */
 .cke_path {
   float: left;
   margin: -2px 0 2px;
@@ -929,7 +885,6 @@ span.cke_path_empty {
   outline: 0;
   border: 0;
   color: #4c4c4c;
-  text-shadow: 0 1px 0 #fff;
   font-weight: bold;
   font-size: 1em;
 }
@@ -945,9 +900,7 @@ a.cke_path_item:focus,
 a.cke_path_item:active {
   background-color: #bfbfbf;
   color: #333;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
   border-radius: 2px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, .5) inset, 0 1px 0 rgba(255, 255, 255, .5);
 }
 
 .cke_hc a.cke_path_item:hover,
@@ -973,7 +926,7 @@ a.cke_path_item:active {
 }
 
 textarea.cke_source {
-  font-family: 'Courier New', Monospace;
+  font-family: 'Courier New', monospace;
   font-size: small;
   background-color: #fff;
   white-space: pre-wrap;
@@ -1003,13 +956,12 @@ textarea.cke_source {
   text-align: center;
   opacity: 0.95;
   filter: alpha(opacity=95);
-  box-shadow: 2px 2px 3px 0px rgba(50, 50, 50, 0.3);
-  -webkit-animation: fadeIn 0.7s;
+  -webkit-animation: fadein 0.7s;
   animation: fadeIn 0.7s;
 }
 
 .cke_notification_message a {
-  color: #12306F;
+  color: #12306f;
 }
 
 @-webkit-keyframes fadeIn {
@@ -1033,22 +985,22 @@ textarea.cke_source {
 }
 
 .cke_notification_success {
-  background: #72B572;
-  border: 1px solid #63A563;
+  background: #72b572;
+  border: 1px solid #63a563;
 }
 
 .cke_notification_warning {
-  background: #C83939;
-  border: 1px solid #902B2B;
+  background: #c83939;
+  border: 1px solid #902b2b;
 }
 
 .cke_notification_info {
-  background: #2E9AD0;
-  border: 1px solid #0F74A8;
+  background: #2e9ad0;
+  border: 1px solid #0f74a8;
 }
 
 .cke_notification_info span.cke_notification_progress {
-  background-color: #0F74A8;
+  background-color: #0f74a8;
   display: block;
   padding: 0;
   margin: 0;
