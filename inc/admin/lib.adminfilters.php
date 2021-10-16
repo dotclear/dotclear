@@ -110,14 +110,21 @@ class adminGenericFilter
      * Get filters key/value pairs
      *
      * @param  boolean $escape  Escape widlcard %
+     * @param  boolean $ui_only Limit to filters with ui
      *
      * @return array            The filters
      */
-    public function values($escape = false)
+    public function values($escape = false, $ui_only = false)
     {
         $res = [];
         foreach ($this->filters as $id => $filter) {
-            $res[$id] = $filter->value;
+            if ($ui_only) {
+                if (in_array($id, ['sortby', 'order', 'nb']) || $filter->html != '') {
+                    $res[$id] = $filter->value;
+                }
+            } else {
+                $res[$id] = $filter->value;
+            }
         }
 
         return $escape ? preg_replace('/%/', '%%', $res) : $res;
