@@ -107,7 +107,18 @@ class adminUserPref
                 'desc',
                 [__('blogs per page'), 30]
             ],
-            'users'  => $users,
+            'users' => $users,
+            'media' => [
+                __('Media manager'),
+                [
+                    __('Name') => 'name',
+                    __('Date') => 'date',
+                    __('Size') => 'size'
+                ],
+                'name',
+                'asc',
+                [__('media per page'), 30]
+            ],
             'search' => [
                 __('Search'),
                 null,

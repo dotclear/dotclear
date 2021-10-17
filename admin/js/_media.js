@@ -78,7 +78,7 @@
         })
         .on('fileuploaddone', function (e, data) {
           if (data.result.files[0].html !== undefined) {
-            $('.media-list .files-group').append(data.result.files[0].html);
+            $('.media-list .media-items-bloc').append(data.result.files[0].html);
             $('#form-medias .hide').removeClass('hide');
           }
           $('.button.clean').css('display', 'inline-block');
@@ -202,7 +202,7 @@ $(function () {
 
   function fileRemoveAct() {
     $('body').on('click', 'a.media-remove', function () {
-      const m_name = $(this).parents('.media-item').find('a.media-link').text();
+      const m_name = $(this).parents('.media-item-bloc').find('a.media-link').text();
       let m_text = '';
       if ($(this).parents('div.media-folder').length == 0) {
         m_text = dotclear.msg.confirm_delete_media.replace('%s', m_name);
