@@ -368,7 +368,7 @@ class dcMedia extends filemanager
      */
     public function setFileSort($type = 'name')
     {
-        if (in_array($type, ['name-asc', 'name-desc', 'date-asc', 'date-desc'])) {
+        if (in_array($type, ['size-asc', 'size-desc', 'name-asc', 'name-desc', 'date-asc', 'date-desc'])) {
             $this->file_sort = $type;
         }
     }
@@ -379,6 +379,18 @@ class dcMedia extends filemanager
             return (is_null($a) ? 1 : -1);
         }
         switch ($this->file_sort) {
+            case 'size-asc':
+                if ($a->size == $b->size) {
+                    return 0;
+                }
+
+                return ($a->size < $b->size) ? -1 : 1;
+            case 'size-desc':
+                if ($a->size == $b->size) {
+                    return 0;
+                }
+
+                return ($a->size > $b->size) ? -1 : 1;
             case 'date-asc':
                 if ($a->media_dt == $b->media_dt) {
                     return 0;

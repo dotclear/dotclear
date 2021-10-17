@@ -145,6 +145,10 @@ class dcLegacyPreferences
             }
         }
 
+        if (0 < ($nb = $core->auth->user_prefs->interface->media_by_page)) {
+            $sorts['media'][4][1] = $nb;
+        }
+
         if (0 < ($nb = $core->auth->user_prefs->interface->nb_searchresults_per_page)) {
             $sorts['search'][4][1] = $nb;
         }

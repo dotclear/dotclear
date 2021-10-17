@@ -54,7 +54,6 @@ if ($core->auth->isSuperAdmin()) {
 }
 $user_ui_iconset            = @$core->auth->user_prefs->interface->iconset;
 $user_ui_nofavmenu          = $core->auth->user_prefs->interface->nofavmenu;
-$user_ui_media_by_page      = ($core->auth->user_prefs->interface->media_by_page ?: 30);
 $user_ui_media_nb_last_dirs = $core->auth->user_prefs->interface->media_nb_last_dirs;
 $user_ui_nocheckadblocker   = $core->auth->user_prefs->interface->nocheckadblocker;
 
@@ -246,7 +245,6 @@ if (isset($_POST['user_editor'])) {
             # Applied to all users
             $core->auth->user_prefs->interface->put('hide_std_favicon', !empty($_POST['user_ui_hide_std_favicon']), 'boolean', null, true, true);
         }
-        $core->auth->user_prefs->interface->put('media_by_page', (integer) $_POST['user_ui_media_by_page'], 'integer');
         $core->auth->user_prefs->interface->put('media_nb_last_dirs', (integer) $_POST['user_ui_media_nb_last_dirs'], 'integer');
         $core->auth->user_prefs->interface->put('media_last_dirs', [], 'array', null, false);
         $core->auth->user_prefs->interface->put('media_fav_dirs', [], 'array', null, false);
@@ -579,10 +577,6 @@ __('Show asynchronous requests indicator') . '</label></p>' .
 
 '<p><label for="user_ui_htmlfontsize" class="classic">' . __('Font size:') . '</label>' . ' ' .
 form::combo('user_ui_htmlfontsize', $htmlfontsize_combo, $user_ui_htmlfontsize) . '</p>';
-
-echo
-'<p><label for="user_ui_media_by_page" class="classic">' . __('Number of elements displayed per page in media manager:') . '</label> ' .
-form::number('user_ui_media_by_page', 0, 999, $user_ui_media_by_page) . '</p>';
 
 echo
 '<p><label for="user_ui_media_nb_last_dirs" class="classic">' . __('Number of recent folders proposed in media manager:') . '</label> ' .
