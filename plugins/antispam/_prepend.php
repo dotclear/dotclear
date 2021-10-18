@@ -18,11 +18,17 @@ $__autoload['dcAntispam']    = dirname(__FILE__) . '/inc/lib.dc.antispam.php';
 $__autoload['dcAntispamURL'] = dirname(__FILE__) . '/inc/lib.dc.antispam.url.php';
 
 $__autoload['dcFilterIP']          = dirname(__FILE__) . '/filters/class.dc.filter.ip.php';
+$__autoload['dcFilterIPv6']        = dirname(__FILE__) . '/filters/class.dc.filter.ipv6.php';
 $__autoload['dcFilterIpLookup']    = dirname(__FILE__) . '/filters/class.dc.filter.iplookup.php';
 $__autoload['dcFilterLinksLookup'] = dirname(__FILE__) . '/filters/class.dc.filter.linkslookup.php';
 $__autoload['dcFilterWords']       = dirname(__FILE__) . '/filters/class.dc.filter.words.php';
 
 $core->spamfilters = ['dcFilterIP', 'dcFilterIpLookup', 'dcFilterWords', 'dcFilterLinksLookup'];
+
+// IP v6 filter depends on some math libraries, so enable it only if one of them is available
+if (function_exists('gmp_init') || function_exists('bcadd')) {
+    $core->spamfilters[] = 'dcFilterIPv6';
+}
 
 $core->url->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', ['dcAntispamURL', 'spamFeed']);
 $core->url->register('hamfeed', 'hamfeed', '^hamfeed/(.+)$', ['dcAntispamURL', 'hamFeed']);
