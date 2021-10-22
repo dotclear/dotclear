@@ -134,7 +134,7 @@ class dcStore
      */
     public function get($update = false)
     {
-        return $this->data[$update ? 'update' : 'new'];
+        return is_array($this->data) ? $this->data[$update ? 'update' : 'new'] : [];
     }
 
     /**
