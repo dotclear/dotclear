@@ -693,7 +693,7 @@ if ($blog_id) {
 
             $client = netHttp::initClient($file, $path);
             if ($client !== false) {
-                $client->setTimeout(4);
+                $client->setTimeout(DC_QUERY_TIMEOUT);
                 $client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
                 $client->get($path);
                 $status  = $client->getStatus();

@@ -166,8 +166,6 @@ class akismet extends netHttp
     protected $ak_key = null;
     protected $blog_url;
 
-    protected $timeout = 3;
-
     public function __construct($blog_url, $api_key)
     {
         $this->blog_url = $blog_url;
@@ -176,7 +174,7 @@ class akismet extends netHttp
         $this->ak_path = sprintf($this->ak_path, $this->ak_version, '%s');
         $this->ak_host = $this->ak_key . '.' . $this->base_host;
 
-        parent::__construct($this->ak_host, 80);
+        parent::__construct($this->ak_host, 80, DC_QUERY_TIMEOUT);
     }
 
     public function verify()

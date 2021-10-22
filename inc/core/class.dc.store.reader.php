@@ -20,8 +20,6 @@ class dcStoreReader extends netHttp
 {
     /** @var    string    User agent used to query repository */
     protected $user_agent = 'DotClear.org RepoBrowser/0.1';
-    /** @var    integer    User agent used to query repository */
-    protected $timeout = 5;
     /** @var    array     HTTP Cache validators */
     protected $validators = null;
     /** @var    mixed     Cache temporary directory */
@@ -44,6 +42,7 @@ class dcStoreReader extends netHttp
     {
         parent::__construct('');
         $this->setUserAgent(sprintf('Dotclear/%s)', DC_VERSION));
+        $this->setTimeout(DC_QUERY_TIMEOUT);
     }
 
     /**
