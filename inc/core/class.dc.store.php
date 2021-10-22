@@ -68,11 +68,7 @@ class dcStore
             return false;
         }
 
-        if (!$parser) { // @phpstan-ignore-line
-            return false;
-        }
-
-        $raw_datas = $parser->getModules();
+        $raw_datas = !$parser ? [] : $parser->getModules();
 
         uasort($raw_datas, ['self', 'sort']);
 
