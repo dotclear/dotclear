@@ -53,7 +53,7 @@ class dcFilterFairTrackbacks extends dcSpamFilter
             }
 
             $o = netHttp::initClient($site, $path);
-            $o->setTimeout(3);
+            $o->setTimeout(DC_QUERY_TIMEOUT);
             $o->get($path);
 
             # Trackback source does not return 200 status code

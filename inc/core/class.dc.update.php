@@ -108,7 +108,7 @@ class dcUpdate
             $http_get = function ($http_url) use (&$status, $path) {
                 $client = netHttp::initClient($http_url, $path);
                 if ($client !== false) {
-                    $client->setTimeout(4);
+                    $client->setTimeout(DC_QUERY_TIMEOUT);
                     $client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
                     $client->get($path);
                     $status = (int) $client->getStatus();
@@ -232,7 +232,7 @@ class dcUpdate
             $http_get = function ($http_url) use (&$status, $dest, $path) {
                 $client = netHttp::initClient($http_url, $path);
                 if ($client !== false) {
-                    $client->setTimeout(4);
+                    $client->setTimeout(DC_QUERY_TIMEOUT);
                     $client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
                     $client->useGzip(false);
                     $client->setPersistReferers(false);

@@ -216,6 +216,10 @@ if (!defined('DC_ALLOW_REPOSITORIES')) {
     define('DC_ALLOW_REPOSITORIES', true);
 }
 
+if (!defined('DC_QUERY_TIMEOUT')) {
+    define('DC_QUERY_TIMEOUT', 4);
+}
+
 if (!defined('DC_CRYPT_ALGO')) {
     define('DC_CRYPT_ALGO', 'sha1'); // As in Dotclear 2.9 and previous
 } else {

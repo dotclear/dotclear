@@ -802,7 +802,7 @@ class dcTrackback
     private static function initHttp($url, &$path)
     {
         $client = netHttp::initClient($url, $path);
-        $client->setTimeout(5);
+        $client->setTimeout(DC_QUERY_TIMEOUT);
         $client->setUserAgent('Dotclear - https://dotclear.org/');
         $client->useGzip(false);
         $client->setPersistReferers(false);
