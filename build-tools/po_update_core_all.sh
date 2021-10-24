@@ -12,7 +12,7 @@ if [ ! -d ./inc/core ]; then
   exit 1
 fi
 
-LANGS=$(cd locales && ls -d */ | sed -e "s/\///g" | grep -v "_pot")
+LANGS=$(cd locales && ls -d -- */ | sed -e "s/\///g" | grep -v "_pot")
 for l in $LANGS; do
-  ./build-tools/po_update.sh $l
+  ./build-tools/po_update.sh "$l"
 done
