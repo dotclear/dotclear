@@ -82,6 +82,10 @@ class dcStore
         $updates = [];
         $current = $this->modules->getModules();
         foreach ($current as $p_id => $p_infos) {
+            # non privileged user has no info
+            if (!is_array($p_infos)) {
+                continue;
+            }
             # main repository
             if (isset($raw_datas[$p_id])) {
                 if (dcUtils::versionsCompare($raw_datas[$p_id]['version'], $p_infos['version'], '>')) {

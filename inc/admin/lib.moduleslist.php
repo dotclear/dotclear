@@ -1432,6 +1432,14 @@ class adminModulesList
             return false;
         }
 
+        if (!$this->core->auth->isSuperAdmin()
+            && !$this->core->auth->check($this->core->plugins->moduleInfo($id, 'permissions'), $this->core->blog->id)
+        ) {
+            $this->core->error->add(__('Insufficient permissions'));
+
+            return false;
+        }
+
         $this->config_module  = $module;
         $this->config_file    = $file;
         $this->config_content = '';

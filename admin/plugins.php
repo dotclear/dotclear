@@ -10,8 +10,6 @@
  */
 require dirname(__FILE__) . '/../inc/admin/prepend.php';
 
-dcPage::checkSuper();
-
 # -- Page helper --
 $list = new adminModulesList(
     $core->plugins,
@@ -59,6 +57,8 @@ if ($list->setConfiguration()) {
     # Stop reading code here
     return;
 }
+
+dcPage::checkSuper();
 
 # -- Execute actions --
 try {
