@@ -69,13 +69,13 @@ class dcAuth
 
         $this->perm_types = [
             'admin'        => __('administrator'),
+            'contentadmin' => __('manage all entries and comments'),
             'usage'        => __('manage their own entries and comments'),
             'publish'      => __('publish entries and comments'),
             'delete'       => __('delete entries and comments'),
-            'contentadmin' => __('manage all entries and comments'),
             'categories'   => __('manage categories'),
-            'media'        => __('manage their own media items'),
-            'media_admin'  => __('manage all media items')
+            'media_admin'  => __('manage all media items'),
+            'media'        => __('manage their own media items')
         ];
     }
 
