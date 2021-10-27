@@ -1020,6 +1020,10 @@ class extStaticRecord extends staticRecord
     }
     private function lexicalSortCallback($a, $b)
     {
+        if (!isset($a[$this->sortfield]) || !isset($b[$this->sortfield])) {
+            return 0;
+        }
+
         $a = $a[$this->sortfield];
         $b = $b[$this->sortfield];
 
