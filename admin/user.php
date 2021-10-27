@@ -29,6 +29,9 @@ $user_post_status = '';
 
 $user_options = $core->userDefaults();
 
+$user_profile_mails = '';
+$user_profile_urls  = '';
+
 # Formaters combo
 $formaters_combo = dcAdminCombos::getFormatersCombo();
 
@@ -56,6 +59,11 @@ if (!empty($_REQUEST['id'])) {
         $user_post_status = $rs->user_post_status;
 
         $user_options = array_merge($user_options, $rs->options());
+
+        $user_prefs = new dcPrefs($core, $user_id);
+        $user_prefs->addWorkspace('profile');
+        $user_profile_mails = $user_prefs->profile->mails;
+        $user_profile_urls  = $user_prefs->profile->urls;
 
         $page_title = $user_id;
     } catch (Exception $e) {
@@ -114,6 +122,20 @@ if (isset($_POST['user_name'])) {
 
             $new_id = $core->updUser($user_id, $cur);
 
+            # Update profile
+            # Sanitize list of secondary mails and urls if any
+            $mails = $urls = '';
+            if (!empty($_POST['user_profile_mails'])) {
+                $mails = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_mails'])), FILTER_VALIDATE_EMAIL)));
+            }
+            if (!empty($_POST['user_profile_urls'])) {
+                $urls = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
+            }
+            $user_prefs = new dcPrefs($core, $user_id);
+            $user_prefs->addWorkspace('profile');
+            $user_prefs->profile->put('mails', $mails, 'string');
+            $user_prefs->profile->put('urls', $urls, 'string');
+
             # --BEHAVIOR-- adminAfterUserUpdate
             $core->callBehavior('adminAfterUserUpdate', $cur, $new_id);
 
@@ -134,6 +156,20 @@ if (isset($_POST['user_name'])) {
             $core->callBehavior('adminBeforeUserCreate', $cur);
 
             $new_id = $core->addUser($cur);
+
+            # Update profile
+            # Sanitize list of secondary mails and urls if any
+            $mails = $urls = '';
+            if (!empty($_POST['user_profile_mails'])) {
+                $mails = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_mails'])), FILTER_VALIDATE_EMAIL)));
+            }
+            if (!empty($_POST['user_profile_urls'])) {
+                $urls = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
+            }
+            $user_prefs = new dcPrefs($core, $new_id);
+            $user_prefs->addWorkspace('profile');
+            $user_prefs->profile->put('mails', $mails, 'string');
+            $user_prefs->profile->put('urls', $urls, 'string');
 
             # --BEHAVIOR-- adminAfterUserCreate
             $core->callBehavior('adminAfterUserCreate', $cur, $new_id);
@@ -273,6 +309,13 @@ form::email('user_email', [
 '</p>' .
 '<p class="form-note" id="user_email_help">' . __('Mandatory for password recovering procedure.') . '</p>' .
 
+'<p><label for="user_profile_mails">' . __('Alternate emails (comma separated list):') . '</label>' .
+form::field('user_profile_mails', 50, 255, [
+    'default' => html::escapeHTML($user_profile_mails)
+]) .
+'</p>' .
+'<p class="form-note info" id="sanitize_emails">' . __('Invalid emails will be automatically removed from list.') . '</p>' .
+
 '<p><label for="user_url">' . __('URL:') . '</label> ' .
 form::url('user_url', [
     'size'         => 30,
@@ -280,6 +323,14 @@ form::url('user_url', [
     'autocomplete' => 'url'
 ]) .
 '</p>' .
+
+'<p><label for="user_profile_urls">' . __('Alternate URLs (comma separated list):') . '</label>' .
+form::field('user_profile_urls', 50, 255, [
+    'default' => html::escapeHTML($user_profile_urls)
+]) .
+'</p>' .
+'<p class="form-note info" id="sanitize_urls">' . __('Invalid URLs will be automatically removed from list.') . '</p>' .
+
 '</div>' .
 
 '<div class="col">' .

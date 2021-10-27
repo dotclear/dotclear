@@ -28,6 +28,10 @@ if (empty($user_options['editor']) || !is_array($user_options['editor'])) {
     $user_options['editor'] = [];
 }
 
+$core->auth->user_prefs->addWorkspace('profile');
+$user_profile_mails = $core->auth->user_prefs->profile->mails;
+$user_profile_urls  = $core->auth->user_prefs->profile->urls;
+
 $core->auth->user_prefs->addWorkspace('dashboard');
 $user_dm_doclinks   = $core->auth->user_prefs->dashboard->doclinks;
 $user_dm_dcnews     = $core->auth->user_prefs->dashboard->dcnews;
@@ -193,6 +197,18 @@ if (isset($_POST['user_name'])) {
         # Udate user
         $core->updUser($core->auth->userID(), $cur);
 
+        # Update profile
+        # Sanitize list of secondary mails and urls if any
+        $mails = $urls = '';
+        if (!empty($_POST['user_profile_mails'])) {
+            $mails = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_mails'])), FILTER_VALIDATE_EMAIL)));
+        }
+        if (!empty($_POST['user_profile_urls'])) {
+            $urls = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
+        }
+        $core->auth->user_prefs->profile->put('mails', $mails, 'string');
+        $core->auth->user_prefs->profile->put('urls', $urls, 'string');
+
         # --BEHAVIOR-- adminAfterUserUpdate
         $core->callBehavior('adminAfterUserProfileUpdate', $cur, $core->auth->userID());
 
@@ -268,14 +284,17 @@ if (isset($_POST['user_editor'])) {
         foreach ($sorts as $sort_type => $sort_data) {
             if (null !== $sort_data[1]) {
                 $k = 'sorts_' . $sort_type . '_sortby';
+
                 $su[$sort_type][0] = isset($_POST[$k]) && in_array($_POST[$k], $sort_data[1]) ? $_POST[$k] : $sort_data[2];
             }
             if (null !== $sort_data[3]) {
                 $k = 'sorts_' . $sort_type . '_order';
+
                 $su[$sort_type][1] = isset($_POST[$k]) && in_array($_POST[$k], ['asc', 'desc']) ? $_POST[$k] : $sort_data[3];
             }
             if (null !== $sort_data[4]) {
                 $k = 'sorts_' . $sort_type . '_nb';
+
                 $su[$sort_type][2] = isset($_POST[$k]) ? abs((integer) $_POST[$k]) : $sort_data[4][1];
             }
         }
@@ -486,6 +505,13 @@ form::email('user_email', [
 ]) .
 '</p>' .
 
+'<p><label for="user_profile_mails">' . __('Alternate emails (comma separated list):') . '</label>' .
+form::field('user_profile_mails', 50, 255, [
+    'default' => html::escapeHTML($user_profile_mails)
+]) .
+'</p>' .
+'<p class="form-note info" id="sanitize_emails">' . __('Invalid emails will be automatically removed from list.') . '</p>' .
+
 '<p><label for="user_url">' . __('URL:') . '</label>' .
 form::url('user_url', [
     'size'         => 30,
@@ -493,6 +519,13 @@ form::url('user_url', [
     'autocomplete' => 'url'
 ]) .
 '</p>' .
+
+'<p><label for="user_profile_urls">' . __('Alternate URLs (comma separated list):') . '</label>' .
+form::field('user_profile_urls', 50, 255, [
+    'default' => html::escapeHTML($user_profile_urls)
+]) .
+'</p>' .
+'<p class="form-note info" id="sanitize_urls">' . __('Invalid URLs will be automatically removed from list.') . '</p>' .
 
 '<p><label for="user_lang">' . __('Language for my interface:') . '</label>' .
 form::combo('user_lang', $lang_combo, $user_lang, 'l10n') . '</p>' .
@@ -522,7 +555,7 @@ if ($core->auth->allowPassChange()) {
     form::password('cur_pwd', 20, 255,
         [
             'autocomplete' => 'current-password',
-            'extra_html' => 'aria-describedby="cur_pwd_help"'
+            'extra_html'   => 'aria-describedby="cur_pwd_help"'
         ]
     ) . '</p>' .
     '<p class="form-note warn" id="cur_pwd_help">' .

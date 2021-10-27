@@ -772,8 +772,13 @@ class rsExtComment
      */
     public static function isMe($rs)
     {
+        $user_prefs = new dcPrefs($rs->core, $rs->user_id);
+        $user_prefs->addWorkspace('profile');
+        $user_profile_mails = explode(',', $user_prefs->profile->mails);
+        $user_profile_urls  = explode(',', $user_prefs->profile->urls);
+
         return
-        $rs->comment_email && $rs->comment_site && $rs->comment_email == $rs->user_email && $rs->comment_site == $rs->user_url;
+            ($rs->comment_email && $rs->comment_site) && ($rs->comment_email == $rs->user_email || in_array($rs->comment_email, $user_profile_mails)) && ($rs->comment_site == $rs->user_url || in_array($rs->comment_site, $user_profile_urls));
     }
 }
 

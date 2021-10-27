@@ -2617,6 +2617,18 @@ msgstr "Changement de mot de passe requis à la prochaine connexion"
 msgid "Mandatory for password recovering procedure."
 msgstr "Indispensable pour la procédure de récupération de mot de passe."
 
+msgid "Alternate emails (comma separated list):"
+msgstr "Emails alternatifs (liste séparée par des virgules) :"
+
+msgid "Invalid emails will be automatically removed from list."
+msgstr "Les emails invalides seront automatiquement retirés de la liste."
+
+msgid "Alternate URLs (comma separated list):"
+msgstr "URLs alternatives (liste séparée par des virgules) :"
+
+msgid "Invalid URLs will be automatically removed from list."
+msgstr "Les URLs invalides seront automatiquement retirées de la liste."
+
 msgid "Timezone:"
 msgstr "Fuseau horaire :"
 
