@@ -18,25 +18,25 @@ dcPage::check('media,media_admin');
 class adminMediaPage extends adminMediaFilter
 {
     /** @var boolean Page has a valid query */
-    protected $media_has_query  = false;
+    protected $media_has_query = false;
 
     /** @var boolean Media dir is writable */
-    protected $media_writable   = false;
+    protected $media_writable = false;
 
     /** @var boolean Media dir is archivable */
     protected $media_archivable = null;
 
     /** @var array Dirs and files fileItem objects */
-    protected $media_dir        = null;
+    protected $media_dir = null;
 
     /** @var array User media recents */
-    protected $media_last       = null;
+    protected $media_last = null;
 
     /** @var array User media favorites */
-    protected $media_fav        = null;
+    protected $media_fav = null;
 
     /** @var boolean Uses enhance uploader */
-    protected $media_uploader   = null;
+    protected $media_uploader = null;
 
     /**
      * Constructs a new instance.
@@ -113,6 +113,7 @@ class adminMediaPage extends adminMediaFilter
     {
         if ($this->media_archivable === null) {
             $rs = $this->getDirsRecord();
+
             $this->media_archivable = $this->core->auth->check('media_admin', $this->core->blog->id)
                 && !(count($rs) == 0 || (count($rs) == 1 && $rs->__data[0]->parent));
         }
@@ -130,7 +131,7 @@ class adminMediaPage extends adminMediaFilter
     public function getDirs($type = '')
     {
         if (!empty($type)) {
-            return isset($this->media_dir[$type]) ? $this->media_dir[$type] : null;
+            return $this->media_dir[$type] ?? null;
         }
 
         return $this->media_dir;
@@ -228,7 +229,7 @@ class adminMediaPage extends adminMediaFilter
             return false;
         }
 
-        $done = false;
+        $done      = false;
         $last_dirs = $this->getLast();
 
         if ($remove) {
@@ -298,7 +299,7 @@ class adminMediaPage extends adminMediaFilter
             return false;
         }
 
-        $done = false;
+        $done     = false;
         $fav_dirs = $this->getFav();
         if (!in_array($dir, $fav_dirs) && !$remove) {
             array_unshift($fav_dirs, $dir);
@@ -319,7 +320,7 @@ class adminMediaPage extends adminMediaFilter
     /**
      * The top of media page or popup
      *
-     * @param array  $breadcrumb    The breadcrumb
+     * @param string $breadcrumb    The breadcrumb
      * @param string $header        The headers
      */
     public function openPage($breadcrumb, $header = '')
@@ -340,7 +341,7 @@ class adminMediaPage extends adminMediaFilter
             dcPage::closePopup();
         } else {
             dcPage::helpBlock('core_media');
-            dcpage::close();
+            dcPage::close();
         }
     }
 
@@ -362,11 +363,12 @@ class adminMediaPage extends adminMediaFilter
             ];
 
             if ($this->media_has_query || $this->q) {
-                $count      = $this->media_has_query ? count($this->getDirs('files')) : 0;
+                $count = $this->media_has_query ? count($this->getDirs('files')) : 0;
+
                 $element[__('Search:') . ' ' . $this->q . ' (' . sprintf(__('%s file found', '%s files found', $count), $count) . ')'] = '';
             } else {
-                $bc_url     = $this->core->adminurl->get('admin.media', array_merge($this->values(), ['d' => '%s']), true);
-                $bc_media   = $this->core->media->breadCrumb($bc_url, '<span class="page-title">%s</span>');
+                $bc_url   = $this->core->adminurl->get('admin.media', array_merge($this->values(), ['d' => '%s']), true);
+                $bc_media = $this->core->media->breadCrumb($bc_url, '<span class="page-title">%s</span>');
                 if ($bc_media != '') {
                     $element[$bc_media] = '';
                     $option['hl']       = true;
@@ -376,7 +378,7 @@ class adminMediaPage extends adminMediaFilter
 
         $elements = [
             html::escapeHTML($this->core->blog->name) => '',
-            __('Media manager') => empty($param) ? '' :
+            __('Media manager')                       => empty($param) ? '' :
                 $this->core->adminurl->get('admin.media', array_merge($this->values(), array_merge($this->values(), $param)))
         ];
         $options = [
@@ -698,7 +700,7 @@ if ($page->select) {
     }
 }
 
-$rs = $page->getDirsRecord();
+$rs         = $page->getDirsRecord();
 $media_list = new adminMediaList($core, $rs, $rs->count());
 
 // add file mode into the filter box

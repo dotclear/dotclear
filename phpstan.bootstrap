@@ -25,6 +25,7 @@ define('DC_MAX_UPLOAD_SIZE', 42);
 define('DC_NEXT_REQUIRED_PHP', '');
 define('DC_NOT_UPDATE', false);
 define('DC_PLUGINS_ROOT', '');
+define('DC_QUERY_TIMEOUT', 4);
 define('DC_RC_PATH', '');
 define('DC_ROOT', '');
 define('DC_SESSION_NAME', '');

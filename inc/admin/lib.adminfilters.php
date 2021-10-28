@@ -857,9 +857,9 @@ class adminMediaFilter extends adminGenericFilter
     protected $post_type  = '';
     protected $post_title = '';
 
-    public function __construct(dcCore $core)
+    public function __construct(dcCore $core, string $type = 'media')
     {
-        parent::__construct($core, 'media');
+        parent::__construct($core, $type);
 
         $filters = new arrayObject([
             dcAdminFilters::getPageFilter(),
@@ -893,7 +893,7 @@ class adminMediaFilter extends adminGenericFilter
 
         $this->core->callBehavior('adminMediaURLParams', $values);
 
-        foreach($values->getArrayCopy() as $filter => $new_value) {
+        foreach ($values->getArrayCopy() as $filter => $new_value) {
             if (isset($this->filters[$filter])) {
                 $this->filters[$filter]->value($new_value);
             } else {
@@ -1008,7 +1008,7 @@ class dcAdminFilter
      * Constructs a new filter.
      *
      * @param string    $id     The filter id
-     * @param string    $value  The filter value
+     * @param mixed     $value  The filter value
      */
     public function __construct(string $id, $value = null)
     {
@@ -1033,6 +1033,10 @@ class dcAdminFilter
 
     /**
      * Magic get
+     *
+     * @param  string $property     The property
+     *
+     * @return mixed  Property
      */
     public function __get($property)
     {
@@ -1053,6 +1057,11 @@ class dcAdminFilter
 
     /**
      * Magic set
+     *
+     * @param string $property  The property
+     * @param mixed  $value     The value
+     *
+     * @return dcAdminFilter    The filter instance
      */
     public function __set($property, $value)
     {

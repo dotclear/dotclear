@@ -304,6 +304,7 @@ class dcFilterIPv6 extends dcSpamFilter
         $this->ipmask($pattern, $ipmin, $mask);
         $value = $this->ip2long_v6($value);
 
+        $ipmax = '';
         if (strpos($mask, ':')) {
             // the mask is the last address of range
             $ipmax = $this->ip2long_v6($mask);
@@ -315,12 +316,13 @@ class dcFilterIPv6 extends dcSpamFilter
             if (function_exists('gmp_init')) {
                 $ipmax = gmp_add(gmp_init($ipmin, 10), gmp_sub(gmp_init($mask, 10), gmp_init(1)));
             } elseif (function_exists('bcadd')) {
-                $ipmax = bcadd($ipmin, bcsub($mask, 1));
+                $ipmax = bcadd($ipmin, bcsub($mask, 1));    // @phpstan-ignore-line
             } else {
                 trigger_error('GMP or BCMATH extension not installed!', E_USER_ERROR);
             }
         }
 
+        $min = $max = 0;
         if (function_exists('gmp_init')) {
             $min = gmp_cmp(gmp_init($value, 10), gmp_init($ipmin, 10));
             $max = gmp_cmp(gmp_init($value, 10), $ipmax);
@@ -365,7 +367,7 @@ class dcFilterIPv6 extends dcSpamFilter
             if (function_exists('gmp_init')) {
                 $mask = gmp_mul(gmp_init(1), gmp_pow(gmp_init(2), 128 - min((integer) $bits[1], 128)));
             } elseif (function_exists('bcadd')) {
-                $mask = bcmul(1, bcpow(2, 128 - min((integer) $bits[1], 128)));
+                $mask = bcmul(1, bcpow(2, 128 - min((integer) $bits[1], 128))); // @phpstan-ignore-line
             } else {
                 trigger_error('GMP or BCMATH extension not installed!', E_USER_ERROR);
             }
@@ -397,6 +399,7 @@ class dcFilterIPv6 extends dcSpamFilter
 
     private function long2ip_v6($dec)
     {
+        $bin = '';
         // Convert long integer to IP v6
         if (function_exists('gmp_init')) {
             $bin = gmp_strval(gmp_init($dec, 10), 2);

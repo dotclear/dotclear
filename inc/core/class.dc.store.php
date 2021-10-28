@@ -68,7 +68,7 @@ class dcStore
             return false;
         }
 
-        $raw_datas = !$parser ? [] : $parser->getModules();
+        $raw_datas = !$parser ? [] : $parser->getModules(); // @phpstan-ignore-line
 
         uasort($raw_datas, ['self', 'sort']);
 
@@ -130,10 +130,12 @@ class dcStore
      * Get a list of modules.
      *
      * @param    boolean    $update    True to get update modules, false for new ones
+     *
      * @return    array    List of update/new modules
      */
     public function get($update = false)
     {
+        /* @phpstan-ignore-next-line */
         return is_array($this->data) ? $this->data[$update ? 'update' : 'new'] : [];
     }
 

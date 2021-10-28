@@ -87,6 +87,10 @@ parameters:
     - message : '#Access to an undefined property dcSettings::#'
       path: %currentWorkingDirectory%
 
+    # dcPrefs object and auto properties
+    - message : '#Access to an undefined property dcPrefs::#'
+      path: %currentWorkingDirectory%
+
     # dbStruct object and auto properties
     - message : '#Access to an undefined property dbStruct::#'
       path: %currentWorkingDirectory%
@@ -117,6 +121,10 @@ parameters:
 
     # dcAdminfilters
     - message: '#Access to an undefined property dcAdminFilter::\$[a-zA-Z0-9\\_]+.#'
+      path: %currentWorkingDirectory%
+
+    # adminMediaPage
+    - message: '#Access to an undefined property adminMediaPage::\$[a-zA-Z0-9\\_]+.#'
       path: %currentWorkingDirectory%
 
 # Notes:
