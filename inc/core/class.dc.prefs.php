@@ -32,17 +32,18 @@ class dcPrefs
      * Object constructor. Retrieves user prefs and puts them in $workspaces
      * array. Local (user) prefs have a highest priority than global prefs.
      *
-     * @param      dcCore   $core     The core
-     * @param      string   $user_id  The user identifier
+     * @param      dcCore      $core      The core
+     * @param      string      $user_id   The user identifier
+     * @param      string|null $workspace The workspace to load
      */
-    public function __construct(dcCore $core, $user_id)
+    public function __construct(dcCore $core, $user_id, $workspace = null)
     {
         $this->con     = &$core->con;
         $this->table   = $core->prefix . 'pref';
         $this->user_id = &$user_id;
 
         try {
-            $this->loadPrefs();
+            $this->loadPrefs($workspace);
         } catch (Exception $e) {
             if (version_compare($core->getVersion('core'), '2.3', '>')) {
                 trigger_error(__('Unable to retrieve workspaces:') . ' ' . $this->con->error(), E_USER_ERROR);
@@ -51,16 +52,18 @@ class dcPrefs
     }
 
     /**
-    Retrieves all workspaces (and their prefs) from database, with one query.
+    Retrieves all (or only one) workspaces (and their prefs) from database, with one query.
      */
-    private function loadPrefs()
+    private function loadPrefs($workspace = null)
     {
         $strReq = 'SELECT user_id, pref_id, pref_value, ' .
         'pref_type, pref_label, pref_ws ' .
         'FROM ' . $this->table . ' ' .
-        "WHERE user_id = '" . $this->con->escape($this->user_id) . "' " .
-            'OR user_id IS NULL ' .
-            'ORDER BY pref_ws ASC, pref_id ASC';
+        "WHERE (user_id = '" . $this->con->escape($this->user_id) . "' " . 'OR user_id IS NULL ) ';
+        if ($workspace !== null) {
+            $strReq .= "AND pref_ws = '" . $this->con->escape($workspace) . "' ";
+        }
+        $strReq .= 'ORDER BY pref_ws ASC, pref_id ASC';
 
         try {
             $rs = $this->con->select($strReq);

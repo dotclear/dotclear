@@ -60,7 +60,7 @@ if (!empty($_REQUEST['id'])) {
 
         $user_options = array_merge($user_options, $rs->options());
 
-        $user_prefs = new dcPrefs($core, $user_id);
+        $user_prefs = new dcPrefs($core, $user_id, 'profile');
         $user_prefs->addWorkspace('profile');
         $user_profile_mails = $user_prefs->profile->mails;
         $user_profile_urls  = $user_prefs->profile->urls;
@@ -131,7 +131,7 @@ if (isset($_POST['user_name'])) {
             if (!empty($_POST['user_profile_urls'])) {
                 $urls = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
             }
-            $user_prefs = new dcPrefs($core, $user_id);
+            $user_prefs = new dcPrefs($core, $user_id, 'profile');
             $user_prefs->addWorkspace('profile');
             $user_prefs->profile->put('mails', $mails, 'string');
             $user_prefs->profile->put('urls', $urls, 'string');
@@ -166,7 +166,7 @@ if (isset($_POST['user_name'])) {
             if (!empty($_POST['user_profile_urls'])) {
                 $urls = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
             }
-            $user_prefs = new dcPrefs($core, $new_id);
+            $user_prefs = new dcPrefs($core, $new_id, 'profile');
             $user_prefs->addWorkspace('profile');
             $user_prefs->profile->put('mails', $mails, 'string');
             $user_prefs->profile->put('urls', $urls, 'string');
