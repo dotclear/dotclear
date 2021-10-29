@@ -1,7 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-$(function () {
+$(() => {
   // Enable submet button only if mandotory field is not empty
   $('#link-insert-ok').prop('disabled', true);
   $('#link-insert-ok').addClass('disabled');

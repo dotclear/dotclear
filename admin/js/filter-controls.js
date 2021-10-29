@@ -1,7 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-$(function () {
+$(() => {
   // Get some DATA
   Object.assign(dotclear.msg, dotclear.getData('filter_controls'));
 
@@ -22,7 +22,7 @@ $(function () {
   }
   if (dotclear.getData('filter_options').auto_filter) {
     $('#filters-form input[type="submit"]').parent().hide();
-    $('#filters-form select').on('input', function () {
+    $('#filters-form select').on('input', () => {
       $filtersform[0].submit();
     });
     $('#filters-form input[type!="submit"]').on('focusin', function () {
@@ -53,7 +53,7 @@ $(function () {
     return false;
   });
 
-  $('#filter-options-save').on('click', function () {
+  $('#filter-options-save').on('click', () => {
     // Save list options (via services)
     const param = {
       f: 'setListsOptions',
@@ -64,20 +64,18 @@ $(function () {
       nb: $('#nb').val(),
     };
     $.post('services.php', param)
-      .done(function (data) {
+      .done((data) => {
         const rsp = $(data).children('rsp')[0];
         if (rsp) {
           const res = $(rsp).find('result')[0];
           if (res) {
             window.alert(res.getAttribute('msg'));
-          } else {
-            if (rsp.getAttribute('status') !== 'ok') {
-              window.console.log('Dotclear REST server error');
-            }
+          } else if (rsp.getAttribute('status') !== 'ok') {
+            window.console.log('Dotclear REST server error');
           }
         }
       })
-      .fail(function (jqXHR, textStatus, errorThrown) {
+      .fail((jqXHR, textStatus, errorThrown) => {
         // No response
         window.console.log(`AJAX ${textStatus} (status: ${jqXHR.status} ${errorThrown})`);
         window.alert('Server error');

@@ -23,7 +23,7 @@ dotclear.mergeDeep(jsToolBar.prototype.elements, dotclear.getData('legacy_editor
 jsToolBar.prototype.elements.tag.context = 'post';
 jsToolBar.prototype.elements.tag.icon = 'index.php?pf=tags/img/tag-add.png';
 jsToolBar.prototype.elements.tag.fn.wiki = function () {
-  this.encloseSelection('', '', function (str) {
+  this.encloseSelection('', '', (str) => {
     if (str == '') {
       window.alert(dotclear.msg.no_selection);
       return '';
@@ -32,7 +32,7 @@ jsToolBar.prototype.elements.tag.fn.wiki = function () {
       return str;
     } else {
       window.dc_tag_editor.addMeta(str);
-      return '[' + str + '|tag:' + str + ']';
+      return `[${str}|tag:${str}]`;
     }
   });
 };
@@ -47,7 +47,7 @@ jsToolBar.prototype.elements.tag.fn.markdown = function () {
       return str;
     } else {
       window.dc_tag_editor.addMeta(str);
-      return '[' + str + '](' + this.stripBaseURL(url + '/' + str) + ')';
+      return `[${str}](${this.stripBaseURL(`${url}/${str}`)})`;
     }
   });
 };
@@ -62,7 +62,7 @@ jsToolBar.prototype.elements.tag.fn.xhtml = function () {
       return str;
     } else {
       window.dc_tag_editor.addMeta(str);
-      return '<a href="' + this.stripBaseURL(url + '/' + str) + '">' + str + '</a>';
+      return `<a href="${this.stripBaseURL(`${url}/${str}`)}">${str}</a>`;
     }
   });
 };
@@ -79,7 +79,7 @@ jsToolBar.prototype.elements.tag.fn.wysiwyg = function () {
 
   const n = this.getSelectedNode();
   const a = document.createElement('a');
-  a.href = this.stripBaseURL(this.elements.tag.url + '/' + t);
+  a.href = this.stripBaseURL(`${this.elements.tag.url}/${t}`);
   a.appendChild(n);
   this.insertNode(a);
   window.dc_tag_editor.addMeta(t);

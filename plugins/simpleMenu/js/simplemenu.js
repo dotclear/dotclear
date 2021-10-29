@@ -1,7 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-$(function () {
+$(() => {
   $('#menuitemslist').sortable({
     cursor: 'move',
   });
@@ -16,7 +16,7 @@ $(function () {
         cursor: 'auto',
       });
     });
-  $('#menuitems').on('submit', function () {
+  $('#menuitems').on('submit', () => {
     let order = [];
     $('#menuitemslist tr td input.position').each(function () {
       order.push(this.name.replace(/^order\[([^\]]+)\]$/, '$1'));

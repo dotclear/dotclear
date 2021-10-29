@@ -19,7 +19,7 @@ CKEDITOR.dialog.add('imgDialog', function (editor) {
         ],
       },
     ],
-    onOk: function () {
+    onOk() {
       const src = this.getValueOf('main-tab', 'url');
       const img = editor.document.createElement('img');
       img.setAttribute('src', src);

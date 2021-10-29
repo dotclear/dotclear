@@ -1,7 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-$(function () {
+$(() => {
   // expand a module line
   $('table.modules.expandable tr.line').each(function () {
     $('td.module-name, th.module-name', this).toggleWithLegend($(this).next('.module-more'), {

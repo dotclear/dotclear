@@ -4,8 +4,8 @@
 // Get context
 Object.assign(dotclear, dotclear.getData('admin.blog_pref'));
 
-$(function () {
-  $('#link-insert-cancel').on('click', function () {
+$(() => {
+  $('#link-insert-cancel').on('click', () => {
     window.close();
   });
 
@@ -13,7 +13,7 @@ $(function () {
     function stripBaseURL(url) {
       if (dotclear.base_url != '') {
         if (url.indexOf(dotclear.base_url) == 0) {
-          url = url.substr(dotclear.base_url.length);
+          return url.substr(dotclear.base_url.length);
         }
       }
 

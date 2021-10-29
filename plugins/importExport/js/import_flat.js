@@ -3,7 +3,7 @@
 
 Object.assign(dotclear.msg, dotclear.getData('ie_import_flat_msg'));
 
-$(function () {
+$(() => {
   $('#up_single_file').on('change', function () {
     if (this.value != '') {
       $('#public_single_file').val('');
@@ -24,7 +24,5 @@ $(function () {
       $('#up_full_file').val('');
     }
   });
-  $('#formfull').on('submit', function () {
-    return window.confirm(dotclear.msg.confirm_full_import);
-  });
+  $('#formfull').on('submit', () => window.confirm(dotclear.msg.confirm_full_import));
 });

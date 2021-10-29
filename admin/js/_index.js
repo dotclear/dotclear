@@ -1,12 +1,12 @@
 /*global $, dotclear, jsToolBar */
 'use strict';
 
-dotclear.dbCommentsCount = function () {
+dotclear.dbCommentsCount = () => {
   const params = {
     f: 'getCommentsCount',
     xd_check: dotclear.nonce,
   };
-  $.get('services.php', params, function (data) {
+  $.get('services.php', params, (data) => {
     if ($('rsp[status=failed]', data).length > 0) {
       // For debugging purpose only:
       // console.log($('rsp',data).attr('message'));
@@ -29,12 +29,12 @@ dotclear.dbCommentsCount = function () {
     }
   });
 };
-dotclear.dbPostsCount = function () {
+dotclear.dbPostsCount = () => {
   const params = {
     f: 'getPostsCount',
     xd_check: dotclear.nonce,
   };
-  $.get('services.php', params, function (data) {
+  $.get('services.php', params, (data) => {
     if ($('rsp[status=failed]', data).length > 0) {
       // For debugging purpose only:
       // console.log($('rsp',data).attr('message'));
@@ -57,38 +57,44 @@ dotclear.dbPostsCount = function () {
     }
   });
 };
-dotclear.dbStoreUpdate = function (store, icon, image) {
+dotclear.dbStoreUpdate = (store, icon, image) => {
   const params = {
     f: 'checkStoreUpdate',
     xd_check: dotclear.nonce,
-    store: store,
+    store,
   };
-  $.post('services.php', params, function (data) {
-    if ($('rsp[status=failed]', data).length > 0) {
-      // Silently fail as a forced checked may be done with module update page
-    } else {
-      if ($('rsp>update', data).attr('check') == 1) {
-        // Something has to be displayed
-        const xml = $('rsp>update', data).attr('ret');
-        // update link to details
-        icon.children('a').attr('href', icon.children('a').attr('href')+'#update');
-        // update icon, cope with dc_admin_icon_url() and iconset
-        icon.children('a').children('img').attr('src', icon.children('a').children('img').attr('src').replace(/([^\/]+)$/g, image+'-b-update.png'));
-        // add icon text says there is an update
-        icon.children('a').children('.db-icon-title').append('<br />').append(xml);
-        // Badge (info) on dashboard icon
-        const nb = Number($('rsp>update', data).attr('nb'));
-        dotclear.badge(icon, {
-          id: 'mu-' + store,
-          value: nb,
-          icon: true,
-          type: 'info'
-        });
-      }
+  $.post('services.php', params, (data) => {
+    if ($('rsp[status=failed]', data).length === 0 && $('rsp>update', data).attr('check') == 1) {
+      // Something has to be displayed
+      const xml = $('rsp>update', data).attr('ret');
+      // update link to details
+      icon.children('a').attr('href', `${icon.children('a').attr('href')}#update`);
+      // update icon, cope with dc_admin_icon_url() and iconset
+      icon
+        .children('a')
+        .children('img')
+        .attr(
+          'src',
+          icon
+            .children('a')
+            .children('img')
+            .attr('src')
+            .replace(/([^\/]+)$/g, `${image}-b-update.png`)
+        );
+      // add icon text says there is an update
+      icon.children('a').children('.db-icon-title').append('<br />').append(xml);
+      // Badge (info) on dashboard icon
+      const nb = Number($('rsp>update', data).attr('nb'));
+      dotclear.badge(icon, {
+        id: `mu-${store}`,
+        value: nb,
+        icon: true,
+        type: 'info',
+      });
     }
   });
 };
-$(function () {
+$(() => {
   function quickPost(f, status) {
     if (typeof jsToolBar === 'function' && dotclear.contentTb.getMode() == 'wysiwyg') {
       dotclear.contentTb.syncContents('iframe');
@@ -109,10 +115,10 @@ $(function () {
 
     $('p.qinfo', f).remove();
 
-    $.post('services.php', params, function (data) {
+    $.post('services.php', params, (data) => {
       let msg;
       if ($('rsp[status=failed]', data).length > 0) {
-        msg = '<p class="qinfo"><strong>' + dotclear.msg.error + '</strong> ' + $('rsp', data).text() + '</p>';
+        msg = `<p class="qinfo"><strong>${dotclear.msg.error}</strong> ${$('rsp', data).text()}</p>`;
       } else {
         msg =
           '<p class="qinfo">' +
@@ -123,7 +129,7 @@ $(function () {
           dotclear.msg.edit_entry +
           '</a>';
         if ($('rsp>post', data).attr('post_status') == 1) {
-          msg += ' - <a href="' + $('rsp>post', data).attr('post_url') + '">' + dotclear.msg.view_entry + '</a>';
+          msg += ` - <a href="${$('rsp>post', data).attr('post_url')}">${dotclear.msg.view_entry}</a>`;
         }
         msg += '</p>';
         $('#post_title', f).val('');
@@ -148,16 +154,16 @@ $(function () {
       dotclear.contentTb.switchMode($('#post_format', f).val());
     }
 
-    $('input[name=save]', f).on('click', function () {
+    $('input[name=save]', f).on('click', () => {
       quickPost(f, -2);
       return false;
     });
 
     if ($('input[name=save-publish]', f).length > 0) {
-      const btn = $('<input type="submit" value="' + $('input[name=save-publish]', f).val() + '" />');
+      const btn = $(`<input type="submit" value="${$('input[name=save-publish]', f).val()}" />`);
       $('input[name=save-publish]', f).remove();
       $('input[name=save]', f).after(btn).after(' ');
-      btn.on('click', function () {
+      btn.on('click', () => {
         quickPost(f, 1);
         return false;
       });
@@ -180,17 +186,13 @@ $(function () {
     f: 'checkCoreUpdate',
     xd_check: dotclear.nonce,
   };
-  $.post('services.php', params, function (data) {
-    if ($('rsp[status=failed]', data).length > 0) {
-      // Silently fail as a forced checked my be done with admin update page
-    } else {
-      if ($('rsp>update', data).attr('check') == 1) {
-        // Something has to be displayed
-        const xml = $('rsp>update', data).attr('ret');
-        $('#content h2').after(xml);
-        // manage outgoing links
-        dotclear.outgoingLinks('#ajax-update a');
-      }
+  $.post('services.php', params, (data) => {
+    if ($('rsp[status=failed]', data).length === 0 && $('rsp>update', data).attr('check') == 1) {
+      // Something has to be displayed
+      const xml = $('rsp>update', data).attr('ret');
+      $('#content h2').after(xml);
+      // manage outgoing links
+      dotclear.outgoingLinks('#ajax-update a');
     }
   });
 
@@ -209,25 +211,21 @@ $(function () {
     f: 'checkNewsUpdate',
     xd_check: dotclear.nonce,
   };
-  $.post('services.php', params, function (data) {
-    if ($('rsp[status=failed]', data).length > 0) {
-      // Silently fail
-    } else {
-      if ($('rsp>news', data).attr('check') == 1) {
-        // Something has to be displayed
-        const xml = $('rsp>news', data).attr('ret');
-        if ($('#dashboard-boxes').length == 0) {
-          // Create the #dashboard-boxes container
-          $('#dashboard-main').append('<div id="dashboard-boxes"></div>');
-        }
-        if ($('#dashboard-boxes div.db-items').length == 0) {
-          // Create the #dashboard-boxes div.db-items container
-          $('#dashboard-boxes').prepend('<div class="db-items"></div>');
-        }
-        $('#dashboard-boxes div.db-items').prepend(xml);
-        // manage outgoing links
-        dotclear.outgoingLinks('#ajax-news a');
+  $.post('services.php', params, (data) => {
+    if ($('rsp[status=failed]', data).length === 0 && $('rsp>news', data).attr('check') == 1) {
+      // Something has to be displayed
+      const xml = $('rsp>news', data).attr('ret');
+      if ($('#dashboard-boxes').length == 0) {
+        // Create the #dashboard-boxes container
+        $('#dashboard-main').append('<div id="dashboard-boxes"></div>');
       }
+      if ($('#dashboard-boxes div.db-items').length == 0) {
+        // Create the #dashboard-boxes div.db-items container
+        $('#dashboard-boxes').prepend('<div class="db-items"></div>');
+      }
+      $('#dashboard-boxes div.db-items').prepend(xml);
+      // manage outgoing links
+      dotclear.outgoingLinks('#ajax-news a');
     }
   });
 
@@ -251,36 +249,36 @@ $(function () {
 
   if (!dotclear.data.noDragDrop) {
     // Dashboard boxes and their children are sortable
-    const set_positions = function (sel, id) {
+    const set_positions = (sel, id) => {
       const list = $(sel).sortable('toArray').join();
       // Save positions (via services) for id
       const params = {
         f: 'setDashboardPositions',
         xd_check: dotclear.nonce,
-        id: id,
-        list: list,
+        id,
+        list,
       };
-      $.post('services.php', params, function () {});
+      $.post('services.php', params, () => {});
     };
-    const init_positions = function (sel, id) {
+    const init_positions = (sel, id) => {
       $(sel).sortable({
         cursor: 'move',
         opacity: 0.5,
         delay: 200,
         distance: 10,
         tolerance: 'pointer',
-        update: function () {
+        update() {
           set_positions(sel, id);
         },
-        start: function () {
+        start() {
           $(sel).addClass('sortable-area');
         },
-        stop: function () {
+        stop() {
           $(sel).removeClass('sortable-area');
         },
       });
     };
-    const reset_positions = function (sel) {
+    const reset_positions = (sel) => {
       $(sel).sortable('destroy');
     };
     // List of sortable areas

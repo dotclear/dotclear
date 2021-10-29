@@ -3,10 +3,7 @@
 'use strict';
 
 class metaEditor {
-  constructor(target, meta_field, meta_type, meta_options) {
-
-    meta_options = meta_options || {};
-
+  constructor(target, meta_field, meta_type, meta_options = {}) {
     this.meta_url = meta_options.meta_url || '';
     this.text_confirm_remove = meta_options.text_confirm_remove || 'Are you sure you want to remove this %s?';
     this.text_add_meta = meta_options.text_add_meta || 'Add a %s to this entry';
@@ -49,9 +46,8 @@ class metaEditor {
     const This = this;
 
     this.submit_button = $('<input type="button" value="ok" class="ib meta-helper" />');
-    this.submit_button.on('click', function () {
-      const v = This.meta_dialog.val();
-      This.addMeta(v);
+    this.submit_button.on('click', () => {
+      This.addMeta(This.meta_dialog.val());
       return false;
     });
 
@@ -97,7 +93,7 @@ class metaEditor {
         postId: this.post_id,
       };
 
-      $.get(this.service_uri, params, function (data) {
+      $.get(this.service_uri, params, (data) => {
         data = $(data);
 
         if (data.find('rsp').attr('status') != 'ok') {
@@ -151,7 +147,7 @@ class metaEditor {
 
     const This = this;
 
-    $.get(this.service_uri, params, function (data) {
+    $.get(this.service_uri, params, (data) => {
       const pl = $('<p class="addMeta"></p>');
 
       $(target).find('.addMeta').remove();
@@ -165,7 +161,7 @@ class metaEditor {
             const meta_link = $(`<button type="button" class="metaItem meta-helper">${$(this).text()}</button>`);
             meta_link.get(0).meta_id = $(this).text();
             meta_link.on('click', function () {
-              const v = This.splitMetaValues(This.meta_dialog.val() + ',' + this.meta_id);
+              const v = This.splitMetaValues(`${This.meta_dialog.val()},${this.meta_id}`);
               This.meta_dialog.val(v.join(','));
               return false;
             });
@@ -179,7 +175,7 @@ class metaEditor {
         if (list_type == 'more') {
           const a_more = $('<button type="button" class="button metaGetMore meta-helper"></button>');
           a_more.append(This.text_all + String.fromCharCode(160) + String.fromCharCode(187));
-          a_more.on('click', function () {
+          a_more.on('click', () => {
             This.showMetaList('more-all', target);
             return false;
           });
@@ -212,7 +208,7 @@ class metaEditor {
   addMeta(str) {
     str = this.splitMetaValues(str).join(',');
     if (this.post_id == false) {
-      str = this.splitMetaValues(this.meta_field.val() + ',' + str);
+      str = this.splitMetaValues(`${this.meta_field.val()},${str}`);
       this.meta_field.val(str);
 
       this.meta_dialog.val('');
@@ -227,7 +223,7 @@ class metaEditor {
       };
 
       const This = this;
-      $.post(this.service_uri, params, function (data) {
+      $.post(this.service_uri, params, (data) => {
         if ($(data).find('rsp').attr('status') == 'ok') {
           This.meta_dialog.val('');
           This.displayMetaList();
@@ -260,7 +256,7 @@ class metaEditor {
           metaType: this.meta_type,
         };
 
-        $.post(this.service_uri, params, function (data) {
+        $.post(this.service_uri, params, (data) => {
           if ($(data).find('rsp').attr('status') == 'ok') {
             This.displayMetaList();
           } else {
@@ -272,7 +268,7 @@ class metaEditor {
   }
 
   splitMetaValues(str) {
-    let list = new Set(str.split(',').map(s => s.trim()).filter(i => i));
+    let list = new Set(str.split(',').map((s) => s.trim()).filter((i) => i));
     return [...list].sort((a, b) => a.localeCompare(b));
   }
 }

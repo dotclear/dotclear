@@ -1,29 +1,23 @@
 /*global $ */
 'use strict';
 
-$(function () {
-  $('#link-insert-cancel').on('click', function () {
+$(() => {
+  $('#link-insert-cancel').on('click', () => {
     window.close();
   });
 
-  $('#link-insert-ok').on('click', function () {
+  $('#link-insert-ok').on('click', () => {
     const insert_form = $('#link-insert-form').get(0);
     if (insert_form == undefined) {
       return;
     }
 
-    const editor_name = window.opener.$.getEditorName();
-    const editor = window.opener.CKEDITOR.instances[editor_name];
-    let link = '';
-    let selected_element;
-    if (editor.getSelection().getSelectedElement() != null) {
-      selected_element = editor.getSelection().getSelectedElement();
-    } else {
-      selected_element = editor.getSelection().getNative().toString();
-    }
+    const editor = window.opener.CKEDITOR.instances[window.opener.$.getEditorName()];
 
     if (editor.mode == 'wysiwyg') {
-      link = editor.document.createElement('a');
+      const selected_element = editor.getSelection().getSelectedElement() ?? editor.getSelection().getNative().toString();
+      const link = editor.document.createElement('a');
+
       link.setAttribute('href', insert_form.elements.href.value);
       if (insert_form.elements.title.value != '') {
         link.setAttribute('title', window.opener.CKEDITOR.tools.htmlEncodeAttr(insert_form.elements.title.value));

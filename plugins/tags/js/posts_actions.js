@@ -3,7 +3,7 @@
 
 dotclear.mergeDeep(dotclear.msg, dotclear.getData('editor_tags_msg'));
 
-$(function () {
+$(() => {
   const tag_field = $('#new_tags');
 
   tag_field.after('<div id="tags_list"></div>');
@@ -11,6 +11,7 @@ $(function () {
 
   const target = $('#tags_list');
   let mEdit = new metaEditor(target, tag_field, 'tag', dotclear.getData('editor_tags_options'));
+
   mEdit.meta_url = 'plugin.php?p=tags&m=tag_posts&amp;tag=';
 
   mEdit.meta_dialog = $('<input type="text" />');
@@ -20,7 +21,7 @@ $(function () {
 
   mEdit.addMetaDialog();
 
-  $('input[name="save_tags"]').on('click', function () {
+  $('input[name="save_tags"]').on('click', () => {
     tag_field.val($('#post_meta_tag_input').val());
   });
 
@@ -33,7 +34,7 @@ $(function () {
     multiple: true,
     matchSubset: false,
     matchContains: true,
-    parse: function (xml) {
+    parse(xml) {
       let results = [];
       $(xml)
         .find('meta')
@@ -49,17 +50,17 @@ $(function () {
         });
       return results;
     },
-    formatItem: function (tag) {
+    formatItem(tag) {
       return (
         tag.id +
         ' <em>(' +
         dotclear.msg.tags_autocomplete
           .replace('%p', tag.percent)
-          .replace('%e', tag.count + ' ' + (tag.count > 1 ? dotclear.msg.entries : dotclear.msg.entry)) +
+          .replace('%e', `${tag.count} ${tag.count > 1 ? dotclear.msg.entries : dotclear.msg.entry}`) +
         ')</em>'
       );
     },
-    formatResult: function (tag) {
+    formatResult(tag) {
       return tag.result;
     },
   });

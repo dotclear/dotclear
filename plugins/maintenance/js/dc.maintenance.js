@@ -3,7 +3,7 @@
 
 Object.assign(dotclear.msg, dotclear.getData('maintenance'));
 
-$(function () {
+$(() => {
   $('.step-box').each(function () {
     const code = $('input[name=code]', this).val();
 
@@ -18,9 +18,9 @@ $(function () {
         f: 'dcMaintenanceStep',
         xd_check: dotclear.nonce,
         task: $(box).attr('id'),
-        code: code,
+        code,
       };
-      $.post('services.php', params, function (data) {
+      $.post('services.php', params, (data) => {
         if ($('rsp[status=failed]', data).length > 0) {
           $('.step-msg', box).text($('rsp', data).text());
           $('.step-wait', box).remove();

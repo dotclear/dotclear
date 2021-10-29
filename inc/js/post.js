@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
     document.getElementById('c_remember').setAttribute('checked', 'checked');
   }
 
-  document.getElementById('c_remember').onclick = function(e) {
+  document.getElementById('c_remember').onclick = (e) => {
     if (e.target.checked) {
       setRememberInfo();
     } else {
@@ -44,7 +44,7 @@ window.addEventListener('load', () => {
     }
   };
 
-  let copeWithModifiedInfo = function() {
+  let copeWithModifiedInfo = () => {
     if (document.getElementById('c_remember').checked) {
       setRememberInfo();
     }

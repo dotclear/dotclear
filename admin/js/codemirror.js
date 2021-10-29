@@ -14,7 +14,7 @@ for (let i of dotclear.getData('codemirror')) {
     matchBrackets: 1,
     autoCloseBrackets: 1,
     extraKeys: {
-      F11: function (cm) {
+      F11(cm) {
         cm.setOption('fullScreen', !cm.getOption('fullScreen'));
       },
     },

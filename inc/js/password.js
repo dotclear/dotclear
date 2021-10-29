@@ -1,7 +1,7 @@
 /*global dotclear */
 'use strict';
 
-(function() {
+(() => {
   // Get locales
   const msg = dotclear.getData('dc_password_msg');
 
@@ -9,14 +9,12 @@
     e.preventDefault();
     const button = e.currentTarget;
     const isPasswordShown = button.classList.contains('pw-hide');
-
-    let inputType = isPasswordShown ? 'password' : 'text';
-    let buttonContent = isPasswordShown ? msg.show_password : msg.hide_password;
+    const buttonContent = isPasswordShown ? msg.show_password : msg.hide_password;
 
     button.classList.toggle('pw-hide', !isPasswordShown);
     button.classList.toggle('pw-show', isPasswordShown);
 
-    button.previousElementSibling.setAttribute('type', inputType);
+    button.previousElementSibling.setAttribute('type', isPasswordShown ? 'password' : 'text');
     button.setAttribute('title', buttonContent);
     button.querySelector('span').textContent = buttonContent;
   }

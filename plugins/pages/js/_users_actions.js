@@ -3,45 +3,47 @@
 
 jQuery.fn.updatePagesPermissionsForm = function () {
   return this.each(function () {
-    let perms = {};
-    const re = /^perm\[(.+?)\]\[(.+?)\]$/;
+    let permissions = {};
+    const perm_reg_expr = /^perm\[(.+?)\]\[(.+?)\]$/;
+
+    const admin = (dom_element) => {
+      const matches = dom_element.name.match(perm_reg_expr);
+
+      permissions[matches[1]].pages.checked = dom_element.checked;
+      permissions[matches[1]].pages.disabled = dom_element.checked;
+    };
+
+    const doEventAdmin = (evt) => {
+      admin(evt.data.form_element);
+    };
 
     // Building a nice object of form elements
     for (let i = 0; i < this.elements.length; i++) {
-      const e = this.elements[i];
+      const form_element = this.elements[i];
 
-      if (e.name == undefined) {
+      if (form_element.name == undefined) {
         continue;
       }
-      const prop = e.name.match(re);
-      if (!prop) {
+      const matches = form_element.name.match(perm_reg_expr);
+      if (!matches) {
         continue;
       }
-      if (perms[prop[1]] == undefined) {
-        perms[prop[1]] = {};
+      if (permissions[matches[1]] == undefined) {
+        permissions[matches[1]] = {};
       }
-      perms[prop[1]][prop[2]] = e;
+      permissions[matches[1]][matches[2]] = form_element;
 
       // select related permissions for admin
-      if (prop[2] == 'admin') {
-        if (e.checked) {
-          admin(e, perms, re);
+      if (matches[2] == 'admin') {
+        if (form_element.checked) {
+          admin(form_element);
         }
-        $(e).on('click', function () {
-          admin(this, perms, re);
-        });
+        $(form_element).on('click', { form_element }, doEventAdmin);
       }
-    }
-
-    function admin(E, perms, re) {
-      const P = E.name.match(re);
-
-      perms[P[1]].pages.checked = E.checked;
-      perms[P[1]].pages.disabled = E.checked;
     }
   });
 };
 
-$(function () {
+$(() => {
   $('#permissions-form').updatePagesPermissionsForm();
 });

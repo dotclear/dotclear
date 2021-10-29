@@ -20,7 +20,7 @@ function datePicker(target) {
   this.oYear = document.createElement('span');
   this.oHour = document.createElement('input');
   this.oMinute = document.createElement('input');
-  this.oTable.id = 'dc_datepicker_' + target.id;
+  this.oTable.id = `dc_datepicker_${target.id}`;
   this.oTable.className = 'date-picker';
 
   let cur = 1;
@@ -240,7 +240,7 @@ datePicker.prototype = {
     'December'
   ),
 
-  setDate: function () {
+  setDate() {
     if (this.numberOfDays() < this.day) {
       this.day = this.numberOfDays();
     }
@@ -265,7 +265,7 @@ datePicker.prototype = {
       }
       this.oDates[i].appendChild(document.createTextNode('-'));
       this.oDates[i].className = '';
-      this.oDates[i].onclick = function () {
+      this.oDates[i].onclick = () => {
         return;
       };
     }
@@ -297,7 +297,7 @@ datePicker.prototype = {
     this.setMinute(this.minute);
   },
 
-  setHour: function (h) {
+  setHour(h) {
     if (h < 0) {
       h = 23;
     }
@@ -305,14 +305,14 @@ datePicker.prototype = {
       h = 0;
     }
     if (h < 10) {
-      h = '0' + h;
+      h = `0${h}`;
     }
 
     this.hour = h * 1;
     this.oHour.value = h;
   },
 
-  setMinute: function (m) {
+  setMinute(m) {
     if (m < 0) {
       m = 59;
     }
@@ -320,14 +320,14 @@ datePicker.prototype = {
       m = 0;
     }
     if (m < 10) {
-      m = '0' + m;
+      m = `0${m}`;
     }
 
     this.minute = m * 1;
     this.oMinute.value = m;
   },
 
-  changeMonth: function (dir) {
+  changeMonth(dir) {
     const m = this.month + dir;
 
     if (m > 12) {
@@ -343,20 +343,20 @@ datePicker.prototype = {
     this.setDate();
   },
 
-  changeYear: function (dir) {
+  changeYear(dir) {
     this.year = this.year + dir;
     this.setDate();
   },
 
-  changeHour: function (dir) {
+  changeHour(dir) {
     this.setHour(this.hour * 1 + dir);
   },
 
-  changeMinute: function (dir) {
+  changeMinute(dir) {
     this.setMinute(this.minute * 1 + dir);
   },
 
-  sendDate: function (d) {
+  sendDate(d) {
     let m = this.month;
     let hour = this.oHour.value * 1;
     let minute = this.oMinute.value * 1;
@@ -369,23 +369,23 @@ datePicker.prototype = {
     }
 
     if (m < 10) {
-      m = '0' + m;
+      m = `0${m}`;
     }
     if (d < 10) {
-      d = '0' + d;
+      d = `0${d}`;
     }
     if (hour < 10) {
-      hour = '0' + hour;
+      hour = `0${hour}`;
     }
     if (minute < 10) {
-      minute = '0' + minute;
+      minute = `0${minute}`;
     }
 
     this.target.value = `${this.year}-${m}-${d} ${hour}:${minute}`;
     this.close();
   },
 
-  sendNow: function () {
+  sendNow() {
     let dt = new Date();
     const y = dt.getFullYear();
     let m = dt.getMonth() + 1;
@@ -394,52 +394,48 @@ datePicker.prototype = {
     let i = dt.getMinutes();
 
     if (m < 10) {
-      m = '0' + m;
+      m = `0${m}`;
     }
     if (d < 10) {
-      d = '0' + d;
+      d = `0${d}`;
     }
     if (h < 10) {
-      h = '0' + h;
+      h = `0${h}`;
     }
     if (i < 10) {
-      i = '0' + i;
+      i = `0${i}`;
     }
 
     this.target.value = `${y}-${m}-${d} ${h}:${i}`;
     this.close();
   },
 
-  close: function () {
+  close() {
     document.body.removeChild(this.oTable);
   },
 
-  numberOfDays: function () {
-    let res = 31;
+  numberOfDays() {
     if (this.month == 4 || this.month == 6 || this.month == 9 || this.month == 11) {
-      res = 30;
+      return 30;
     } else if (this.month == 2) {
-      res = 28;
-      if (this.year % 4 == 0 && (this.year % 100 != 0 || this.year % 400 == 0)) {
-        res = 29;
-      }
+      return this.year % 4 == 0 && (this.year % 100 != 0 || this.year % 400 == 0) ? 29 : 28;
     }
 
-    return res;
+    return 31;
   },
 
-  firstDay: function () {
+  firstDay() {
     let dt = new Date(this.year, this.month - 1, 1);
     let res = dt.getDay();
 
     if (res == 0) {
-      res = 7;
+      return 7;
     }
 
     return res;
   },
 
-  show: function () {
+  show() {
     // Parsing target value
     const re = /(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2})/;
     const match = re.exec(this.target.value);
@@ -465,17 +461,17 @@ datePicker.prototype = {
     this.oHour.focus();
   },
 
-  setPosition: function () {
+  setPosition() {
     const t_x = this.findPosX(this.target);
     const t_y = this.findPosY(this.target);
 
     this.oTable.style.position = 'absolute';
     this.oTable.style.zIndex = '100';
-    this.oTable.style.top = t_y + 'px';
-    this.oTable.style.left = t_x + 'px';
+    this.oTable.style.top = `${t_y}px`;
+    this.oTable.style.left = `${t_x}px`;
   },
 
-  findPosX: function (obj) {
+  findPosX(obj) {
     let curleft = 0;
     if (obj.offsetParent) {
       while (1) {
@@ -491,7 +487,7 @@ datePicker.prototype = {
     return curleft;
   },
 
-  findPosY: function (obj) {
+  findPosY(obj) {
     let curtop = 0;
     if (obj.offsetParent) {
       while (1) {
@@ -507,7 +503,7 @@ datePicker.prototype = {
     return curtop;
   },
 
-  draw: function () {
+  draw() {
     const imgE = document.createElement('img');
     imgE.src = this.img_src;
     imgE.alt = this.img_alt;

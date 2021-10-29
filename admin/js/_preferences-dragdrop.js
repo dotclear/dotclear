@@ -1,7 +1,7 @@
 /*global $ */
 'use strict';
 
-$(function () {
+$(() => {
   $('#my-favs ul').sortable({
     cursor: 'move',
   });
@@ -11,7 +11,7 @@ $(function () {
   $('#my-favs ul input').css({
     cursor: 'auto',
   });
-  $('#favs-form').on('submit', function () {
+  $('#favs-form').on('submit', () => {
     let order = [];
     $('#my-favs ul li input.position').each(function () {
       order.push(this.name.replace(/^order\[([^\]]+)\]$/, '$1'));

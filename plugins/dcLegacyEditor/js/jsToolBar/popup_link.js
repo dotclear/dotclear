@@ -1,12 +1,12 @@
 /*global $ */
 'use strict';
 
-$(function () {
-  $('#link-insert-cancel').on('click', function () {
+$(() => {
+  $('#link-insert-cancel').on('click', () => {
     window.close();
   });
 
-  $('#link-insert-ok').on('click', function () {
+  $('#link-insert-ok').on('click', () => {
     sendClose();
     window.close();
   });

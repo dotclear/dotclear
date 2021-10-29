@@ -1,8 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-dotclear.viewPostContent = function (line, action, e) {
-  action = action || 'toggle';
+dotclear.viewPostContent = (line, action = 'toggle', e = null) => {
   if ($(line).attr('id') == undefined) {
     return;
   }
@@ -15,7 +14,7 @@ dotclear.viewPostContent = function (line, action, e) {
     // Get post content if possible
     dotclear.getEntryContent(
       postId,
-      function (content) {
+      (content) => {
         if (content) {
           // Content found
           tr = document.createElement('tr');
@@ -41,7 +40,7 @@ dotclear.viewPostContent = function (line, action, e) {
   }
 };
 
-$(function () {
+$(() => {
   // Entry type switcher
   $('#type').on('change', function () {
     this.form.submit();

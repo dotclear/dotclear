@@ -1,7 +1,7 @@
 /*global $, jQuery, dotclear */
 'use strict';
 
-(function ($) {
+(($) => {
   $.fn.enhancedUploader = function () {
     return this.each(function () {
       const me = $(this);
@@ -28,7 +28,7 @@
         $('.queue-message', me).html(msg);
       }
 
-      $('.button.choose_files').on('click', function (e) {
+      $('.button.choose_files').on('click', (e) => {
         if ($container.hasClass('enhanced_uploader')) {
           // Use the native click() of the file input.
           $('#upfile').trigger('click');
@@ -36,13 +36,13 @@
         }
       });
 
-      $('.button.cancel', '#fileupload .fileupload-buttonbar').on('click', function () {
+      $('.button.cancel', '#fileupload .fileupload-buttonbar').on('click', () => {
         $('.button.cancel', '#fileupload .fileupload-buttonbar').hide();
         disableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
         displayMessageInQueue(0);
       });
 
-      $(me).on('click', '.cancel', function () {
+      $(me).on('click', '.cancel', () => {
         if ($('.fileupload-ctrl .files .template-upload', me).length == 0) {
           $('.button.cancel', '#fileupload .fileupload-buttonbar').hide();
           disableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
@@ -68,15 +68,15 @@
           uploadTemplate: dotclear.jsUpload.template_upload,
           downloadTemplate: dotclear.jsUpload.template_download,
         })
-        .on('fileuploadadd', function () {
+        .on('fileuploadadd', () => {
           $('.button.cancel').css('display', 'inline-block');
           $('#fileupload .fileupload-buttonbar').show();
           enableButton($('.button.start', '#fileupload .fileupload-buttonbar'));
         })
-        .on('fileuploadadded', function () {
+        .on('fileuploadadded', () => {
           displayMessageInQueue($('.files .template-upload', me).length);
         })
-        .on('fileuploaddone', function (e, data) {
+        .on('fileuploaddone', (e, data) => {
           if (data.result.files[0].html !== undefined) {
             $('.media-list .media-items-bloc').append(data.result.files[0].html);
             $('#form-medias .hide').removeClass('hide');
@@ -84,7 +84,7 @@
           $('.button.clean').css('display', 'inline-block');
           $(me).show();
         })
-        .on('fileuploadalways', function () {
+        .on('fileuploadalways', () => {
           displayMessageInQueue($('.files .template-upload', me).length);
           if ($('.fileupload-ctrl .files .template-upload', me).length == 0) {
             $('.button.cancel', '#fileupload .fileupload-buttonbar').hide();
@@ -154,7 +154,7 @@
   };
 })(jQuery);
 
-$(function () {
+$(() => {
   $('#fileupload').enhancedUploader();
 
   $('.checkboxes-helpers').each(function () {
@@ -162,7 +162,7 @@ $(function () {
   });
   dotclear.condSubmit('#form-medias input[type="checkbox"]', '#form-medias #delete_medias');
 
-  $('#form-medias #delete_medias').on('click', function (e) {
+  $('#form-medias #delete_medias').on('click', (e) => {
     const count_checked = $('input[name="medias[]"]:checked', $('#form-medias')).length;
     if (count_checked == 0) {
       e.preventDefault();
@@ -188,7 +188,7 @@ $(function () {
     }
     postData.xd_check = dotclear.nonce;
 
-    $.post(parts[0], postData, function (data) {
+    $.post(parts[0], postData, (data) => {
       if (data.url !== undefined) {
         document.location = data.url;
       }
@@ -204,11 +204,10 @@ $(function () {
     $('body').on('click', 'a.media-remove', function () {
       const m_name = $(this).parents('.media-item-bloc').find('a.media-link').text();
       let m_text = '';
-      if ($(this).parents('div.media-folder').length == 0) {
-        m_text = dotclear.msg.confirm_delete_media.replace('%s', m_name);
-      } else {
-        m_text = dotclear.msg.confirm_delete_directory.replace('%s', m_name);
-      }
+      m_text =
+        $(this).parents('div.media-folder').length == 0 ?
+          dotclear.msg.confirm_delete_media.replace('%s', m_name) :
+          dotclear.msg.confirm_delete_directory.replace('%s', m_name);
       if (window.confirm(m_text)) {
         const f = $('#media-remove-hide').get(0);
         f.elements.remove.value = this.href.replace(/^(.*)&remove=(.*?)(&|$)/, '$2');

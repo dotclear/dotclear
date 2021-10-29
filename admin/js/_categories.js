@@ -1,7 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-$(function () {
+$(() => {
   if ($.fn.nestedSortable !== undefined) {
     $('#categories ul li').css('cursor', 'move');
     $('#save-set-order').prop('disabled', true).addClass('disabled');
@@ -9,7 +9,7 @@ $(function () {
       listType: 'ul',
       items: 'li',
       placeholder: 'placeholder',
-      update: function () {
+      update() {
         $('#categories_order').attr('value', JSON.stringify($('#categories ul').nestedSortable('toArray')));
         $('#save-set-order').prop('disabled', false).removeClass('disabled');
       },
@@ -22,7 +22,5 @@ $(function () {
     );
   });
 
-  $('input[name="reset"]').on('click', function () {
-    return window.confirm(dotclear.msg.confirm_reorder_categories);
-  });
+  $('input[name="reset"]').on('click', () => window.confirm(dotclear.msg.confirm_reorder_categories));
 });

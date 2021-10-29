@@ -15,16 +15,14 @@ confirmClose.prototype = {
   forms: [],
   form_submit: false,
 
-  getCurrentForms: function () {
+  getCurrentForms() {
     // Store current form's element's values
 
     const eltRef = (e) => (e.id != undefined && e.id != '' ? e.id : e.name);
 
     const formsInPage = this.getForms();
     this.forms = [];
-    for (let i = 0; i < formsInPage.length; i++) {
-      const f = formsInPage[i];
-      // Loop on form elements
+    for (const f of formsInPage) {
       let tmpForm = [];
       for (let j = 0; j < f.elements.length; j++) {
         const e = this.getFormElementValue(f[j]);
@@ -47,7 +45,7 @@ confirmClose.prototype = {
     }
   },
 
-  compareForms: function () {
+  compareForms() {
     // Compare current form's element's values to their original values
     // Return false if any difference, else true
 
@@ -106,7 +104,7 @@ confirmClose.prototype = {
     return true;
   },
 
-  getForms: function () {
+  getForms() {
     // Get current list of forms as HTMLCollection(s)
 
     if (!document.getElementsByTagName || !document.getElementById) {
@@ -129,7 +127,7 @@ confirmClose.prototype = {
     return [];
   },
 
-  getFormElementValue: function (e) {
+  getFormElementValue(e) {
     // Return current value of an form element
 
     if (

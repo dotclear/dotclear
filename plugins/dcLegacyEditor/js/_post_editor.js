@@ -4,7 +4,7 @@
 // Get context
 Object.assign(dotclear, dotclear.getData('legacy_editor_ctx'));
 
-$(function () {
+$(() => {
   if ($('#edit-entry').length == 0) {
     return;
   }
@@ -46,7 +46,7 @@ $(function () {
       }
 
       $('.format_control > *').addClass('hide');
-      $('.format_control:not(.control_no_' + post_format + ') > *').removeClass('hide');
+      $(`.format_control:not(.control_no_${post_format}) > *`).removeClass('hide');
     });
 
     excerptTb = new jsToolBar(document.getElementById('post_excerpt'));
@@ -54,29 +54,32 @@ $(function () {
     excerptTb.context = contentTb.context = 'post';
 
     $('.format_control > *').addClass('hide');
-    $('.format_control:not(.control_no_' + last_post_format + ') > *').removeClass('hide');
+    $(`.format_control:not(.control_no_${last_post_format}) > *`).removeClass('hide');
   }
 
-  if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#comment_content') !== -1) {
-    if ($('#comment_content').length > 0) {
-      dotclear.commentTb = new jsToolBar(document.getElementById('comment_content'));
-      dotclear.commentTb.draw('xhtml');
-    }
+  if (
+    dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#comment_content') !== -1 &&
+    $('#comment_content').length > 0
+  ) {
+    dotclear.commentTb = new jsToolBar(document.getElementById('comment_content'));
+    dotclear.commentTb.draw('xhtml');
   }
 
-  $('#comments').on('onetabload', function () {
+  $('#comments').on('onetabload', () => {
     // Remove required attribut from #comment_content as textarea might be not more focusable
     if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#comment_content') !== -1) {
       $('#comment_content')[0].removeAttribute('required');
     }
   });
 
-  $('#edit-entry').on('onetabload', function () {
+  $('#edit-entry').on('onetabload', () => {
     // Remove required attribut from #post_content in XHTML mode as textarea is not more focusable
-    if (formatField !== undefined && formatField.value == 'xhtml') {
-      if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#post_content') !== -1) {
-        $('#post_content')[0].removeAttribute('required');
-      }
+    if (
+      formatField !== undefined &&
+      formatField.value == 'xhtml' &&
+      dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#post_content') !== -1
+    ) {
+      $('#post_content')[0].removeAttribute('required');
     }
 
     // Load toolbars
@@ -88,7 +91,7 @@ $(function () {
     // Check unsaved changes before XHTML conversion
     const excerpt = $('#post_excerpt').val();
     const content = $('#post_content').val();
-    $('#convert-xhtml').on('click', function () {
+    $('#convert-xhtml').on('click', () => {
       if (excerpt != $('#post_excerpt').val() || content != $('#post_content').val()) {
         return window.confirm(dotclear.msg.confirm_change_post_format);
       }

@@ -1,7 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-$(function () {
+$(() => {
   $('.recall-for-all').attr('disabled', 'disabled');
   $('#settings_recall_all').on('change', function () {
     if ($(this).attr('selected') != 'selected') {

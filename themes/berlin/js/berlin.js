@@ -11,7 +11,7 @@ $('.header__nav')
 $('#hamburger').on('click', function () {
   $(this).attr('aria-expanded', $(this).attr('aria-expanded') == 'true' ? 'false' : 'true');
   $(this).toggleClass('open');
-  $('.header__nav').toggle('easing', function () {
+  $('.header__nav').toggle('easing', () => {
     if ($('#hamburger').hasClass('open')) {
       $('.header__nav li:first a')[0].focus();
     }
@@ -21,7 +21,7 @@ $('#hamburger').on('click', function () {
 $('#main').prepend(
   `<button id="offcanvas-on" type="button"><span class="visually-hidden">${dotclear_berlin.show_menu}</span></button>`
 );
-$('#offcanvas-on').on('click', function () {
+$('#offcanvas-on').on('click', () => {
   const btn = $(
     `<button id="offcanvas-off" type="button"><span class="visually-hidden">${dotclear_berlin.hide_menu}</span></button>`
   );
@@ -31,14 +31,14 @@ $('#offcanvas-on').on('click', function () {
   btn[0].focus({
     preventScroll: true,
   });
-  btn.on('click', function (evt) {
+  btn.on('click', (evt) => {
     $('#wrapper').removeClass('off-canvas');
     $('#footer').removeClass('off-canvas');
     evt.target.remove();
     $('#offcanvas-on')[0].focus();
   });
 });
-$(document).ready(function () {
+$(document).ready(() => {
   // totop scroll
   $(window).scroll(function () {
     if ($(this).scrollTop() != 0) {
@@ -47,7 +47,7 @@ $(document).ready(function () {
       $('#gotop').fadeOut();
     }
   });
-  $('#gotop').on('click', function (e) {
+  $('#gotop').on('click', (e) => {
     $('body,html').animate(
       {
         scrollTop: 0,

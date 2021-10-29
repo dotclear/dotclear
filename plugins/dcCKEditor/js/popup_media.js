@@ -1,12 +1,12 @@
 /*global $ */
 'use strict';
 
-$(function () {
-  $('#media-insert-cancel').on('click', function () {
+$(() => {
+  $('#media-insert-cancel').on('click', () => {
     window.close();
   });
 
-  $('#media-insert-ok').on('click', function () {
+  $('#media-insert-ok').on('click', () => {
     const insert_form = $('#media-insert-form').get(0);
     if (insert_form === undefined) {
       return;
@@ -43,12 +43,12 @@ $(function () {
         }
         if (media_legend == 'legend') {
           // With a legend
-          template_figure[0] = '<figure' + style + '>';
+          template_figure[0] = `<figure${style}>`;
           style = ''; // Do not use style further
           if (img_description != '') {
             template_figure[1] = '<figcaption>{figCaption}</figcaption>';
           }
-          template_figure[1] = template_figure[1] + '</figure>';
+          template_figure[1] = `${template_figure[1]}</figure$>`;
         }
         template_image = `<img class="media" src="{imgSrc}" alt="{imgAlt}"${style}/>`;
         if ($('input[name="insertion"]:checked', insert_form).val() == 'link') {

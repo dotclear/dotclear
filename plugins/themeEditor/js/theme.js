@@ -1,7 +1,7 @@
 /*global $, CodeMirror, dotclear */
 'use strict';
 
-$(function () {
+$(() => {
   const current = dotclear.getData('theme_editor_current');
   const editor = CodeMirror.fromTextArea(document.getElementById('codemirror'), {
     mode: 'javascript',
@@ -13,11 +13,11 @@ $(function () {
     theme: current.theme || 'default',
   });
 
-  $('#part-tabs-user-options').on('click', function () {
+  $('#part-tabs-user-options').on('click', () => {
     editor.refresh();
   });
 
-  $('#colorsyntax_theme').on('change', function () {
+  $('#colorsyntax_theme').on('change', () => {
     const input = document.getElementById('colorsyntax_theme');
     editor.setOption('theme', input.options[input.selectedIndex].value || 'default');
     editor.refresh();

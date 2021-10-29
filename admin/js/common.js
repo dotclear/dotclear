@@ -15,31 +15,24 @@ if (typeof dotclear.data.htmlFontSize !== 'undefined') {
 dotclear.data.theme = 'light';
 if (document.documentElement.getAttribute('data-theme') !== '') {
   dotclear.data.theme = document.documentElement.getAttribute('data-theme');
-} else {
-  if (window.matchMedia) {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      dotclear.data.theme = 'dark';
-    }
-  }
+} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  dotclear.data.theme = 'dark';
 }
 // Cope with low data requirement
 dotclear.data.lowdata = false;
-if (window.matchMedia) {
-  if (window.matchMedia('(prefers-reduced-data: reduce)').matches) {
-    dotclear.data.lowdata = true;
-  }
+if (window.matchMedia && window.matchMedia('(prefers-reduced-data: reduce)').matches) {
+  dotclear.data.lowdata = true;
 }
 document.documentElement.style.setProperty('--dark-mode', dotclear.data.theme === 'dark' ? 1 : 0);
 
 /* ChainHandler, py Peter van der Beken
 -------------------------------------------------------- */
 function chainHandler(obj, handlerName, handler) {
-  obj[handlerName] = (function (existingFunction) {
-    return function () {
+  obj[handlerName] = ((existingFunction) =>
+    function () {
       handler.apply(this, arguments);
       if (existingFunction) existingFunction.apply(this, arguments);
-    };
-  })(handlerName in obj ? obj[handlerName] : null);
+    })(handlerName in obj ? obj[handlerName] : null);
 }
 
 /* jQuery extensions
@@ -83,11 +76,7 @@ jQuery.fn.enableShiftClick = function () {
         let range;
         const trparent = $(this).parents('tr');
         const id = `#${dotclear.lastclicked}`;
-        if (trparent.nextAll(id).length != 0) {
-          range = trparent.nextUntil(id);
-        } else {
-          range = trparent.prevUntil(id);
-        }
+        range = trparent.nextAll(id).length != 0 ? trparent.nextUntil(id) : trparent.prevUntil(id);
         range.find('input[type=checkbox]').setChecked(dotclear.lastclickedstatus);
         this.checked = dotclear.lastclickedstatus;
       }
@@ -120,7 +109,7 @@ jQuery.fn.toggleWithLegend = function (target, s) {
   if (p.user_pref && p.unfolded_sections !== undefined && p.user_pref in p.unfolded_sections) {
     p.hide = p.reverse_user_pref;
   }
-  const toggle = function (i) {
+  const toggle = (i) => {
     const b = $(i).get(0);
     if (p.hide) {
       b.firstChild.data = p.img_on_txt;
@@ -155,7 +144,7 @@ jQuery.fn.toggleWithLegend = function (target, s) {
     if (p.legend_click) {
       $(ctarget).find('label').css('cursor', 'pointer');
     }
-    $(ctarget).on('click', function (e) {
+    $(ctarget).on('click', (e) => {
       if (p.user_pref && set_user_pref) {
         jQuery.post(
           'services.php',
@@ -165,7 +154,7 @@ jQuery.fn.toggleWithLegend = function (target, s) {
             value: p.hide ^ p.reverse_user_pref ? 1 : 0,
             xd_check: dotclear.nonce,
           },
-          function () {}
+          () => {}
         );
       }
       toggle(b);
@@ -177,8 +166,8 @@ jQuery.fn.toggleWithLegend = function (target, s) {
   });
 };
 
-(function ($) {
-  $.expandContent = function (opts) {
+(($) => {
+  $.expandContent = (opts) => {
     if (opts == undefined || opts.callback == undefined || typeof opts.callback !== 'function') {
       return;
     }
@@ -189,7 +178,7 @@ jQuery.fn.toggleWithLegend = function (target, s) {
       singleExpander(this, opts.callback);
     });
   };
-  const singleExpander = function (line, callback) {
+  const singleExpander = (line, callback) => {
     $(
       `<button type="button" class="details-cmd" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`
     )
@@ -201,7 +190,7 @@ jQuery.fn.toggleWithLegend = function (target, s) {
       })
       .prependTo($(line).children().get(0)); // first td
   };
-  const multipleExpander = function (line, lines, callback) {
+  const multipleExpander = (line, lines, callback) => {
     $(
       `<button type="button" class="details-cmd" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`
     )
@@ -216,14 +205,9 @@ jQuery.fn.toggleWithLegend = function (target, s) {
       })
       .prependTo($(line).children().get(0)); // first td
   };
-  const toggleArrow = function (button, action) {
-    action = action || '';
+  const toggleArrow = (button, action = '') => {
     if (action == '') {
-      if (button.getAttribute('aria-label') == dotclear.img_plus_alt) {
-        action = 'open';
-      } else {
-        action = 'close';
-      }
+      action = button.getAttribute('aria-label') == dotclear.img_plus_alt ? 'open' : 'close';
     }
     if (action == 'open' && button.getAttribute('aria-expanded') == 'false') {
       button.firstChild.data = dotclear.img_minus_txt;
@@ -236,7 +220,7 @@ jQuery.fn.toggleWithLegend = function (target, s) {
       button.setAttribute('aria-label', dotclear.img_plus_alt);
       button.setAttribute('aria-expanded', false);
     } else {
-      action = '';
+      return '';
     }
     return action;
   };
@@ -254,7 +238,7 @@ jQuery.fn.helpViewer = function () {
     img_off_alt: dotclear.img_minus_alt,
   };
   const This = this;
-  const toggle = function () {
+  const toggle = () => {
     $('#content').toggleClass('with-help');
     if (document.all) {
       if ($('#content').hasClass('with-help')) {
@@ -267,13 +251,13 @@ jQuery.fn.helpViewer = function () {
     sizeBox();
     return false;
   };
-  const sizeBox = function () {
+  const sizeBox = () => {
     This.css('height', 'auto');
     if ($('#wrapper').height() > This.height()) {
-      This.css('height', $('#wrapper').height() + 'px');
+      This.css('height', `${$('#wrapper').height()}px`);
     }
   };
-  const textToggler = function (o) {
+  const textToggler = (o) => {
     const b = $(`<button type="button" class="details-cmd" aria-label="${p.img_on_alt}">${p.img_on_txt}</button>`);
     o.css('cursor', 'pointer');
     let hide = true;
@@ -310,7 +294,7 @@ jQuery.fn.helpViewer = function () {
   this.find('h4:first').nextAll('*:not(h4)').hide();
   sizeBox();
   const img = $(`<p id="help-button"><span><a href="">${dotclear.msg.help}</a></span></p>`);
-  img.on('click', function (e) {
+  img.on('click', (e) => {
     e.preventDefault();
     return toggle();
   });
@@ -320,7 +304,7 @@ jQuery.fn.helpViewer = function () {
   $('#help-button').addClass('floatable');
   const peInFloat = $('#help-button').offset().top - $(window).scrollTop();
   $('#help-button').removeClass('floatable');
-  $(window).on('scroll', function () {
+  $(window).on('scroll', () => {
     if ($(window).scrollTop() >= peInPage - peInFloat) {
       $('#help-button').addClass('floatable');
     } else {
@@ -332,8 +316,8 @@ jQuery.fn.helpViewer = function () {
 
 /* Dotclear common methods
 -------------------------------------------------------- */
-dotclear.enterKeyInForm = function (frm_id, ok_id, cancel_id) {
-  $(frm_id + ':not(' + cancel_id + ')').on('keyup', function (e) {
+dotclear.enterKeyInForm = (frm_id, ok_id, cancel_id) => {
+  $(`${frm_id}:not(${cancel_id})`).on('keyup', (e) => {
     if (e.key == 'Enter' && $(ok_id).prop('disabled') !== true) {
       e.preventDefault();
       e.stopPropagation();
@@ -342,7 +326,7 @@ dotclear.enterKeyInForm = function (frm_id, ok_id, cancel_id) {
   });
 };
 
-dotclear.condSubmit = function (chkboxes, target) {
+dotclear.condSubmit = (chkboxes, target) => {
   const checkboxes = $(chkboxes),
     submitButt = $(target);
   if (checkboxes === undefined || submitButt === undefined) {
@@ -355,7 +339,7 @@ dotclear.condSubmit = function (chkboxes, target) {
   } else {
     submitButt.removeClass('disabled');
   }
-  checkboxes.on('click', function () {
+  checkboxes.on('click', () => {
     // Update target state
     submitButt.attr('disabled', !checkboxes.is(':checked'));
     if (!checkboxes.is(':checked')) {
@@ -366,7 +350,7 @@ dotclear.condSubmit = function (chkboxes, target) {
   });
 };
 
-dotclear.hideLockable = function () {
+dotclear.hideLockable = () => {
   $('div.lockable').each(function () {
     const current_lockable_div = this;
     $(this).find('p.form-note').hide();
@@ -388,7 +372,7 @@ dotclear.hideLockable = function () {
             .prev('input')
             .each(function () {
               this.disabled = false;
-              $(this).width($(this).width() + 14 + 'px');
+              $(this).width(`${$(this).width() + 14}px`);
             });
           $(current_lockable_div).find('p.form-note').show();
         });
@@ -398,11 +382,11 @@ dotclear.hideLockable = function () {
   });
 };
 
-dotclear.checkboxesHelpers = function (e, target, c, s) {
+dotclear.checkboxesHelpers = (e, target, c, s) => {
   $(e).append(document.createTextNode(dotclear.msg.to_select));
   $(e).append(document.createTextNode(' '));
   $(`<button type="button" class="checkbox-helper select-all">${dotclear.msg.select_all}</button>`)
-    .on('click', function () {
+    .on('click', () => {
       if (target !== undefined) {
         target.check();
       } else {
@@ -416,7 +400,7 @@ dotclear.checkboxesHelpers = function (e, target, c, s) {
     .appendTo($(e));
   $(e).append(document.createTextNode(' '));
   $(`<button type="button" class="checkbox-helper select-none">${dotclear.msg.no_selection}</button>`)
-    .on('click', function () {
+    .on('click', () => {
       if (target !== undefined) {
         target.unCheck();
       } else {
@@ -430,7 +414,7 @@ dotclear.checkboxesHelpers = function (e, target, c, s) {
     .appendTo($(e));
   $(e).append(document.createTextNode(' '));
   $(`<button type="button" class="checkbox-helper select-reverse">${dotclear.msg.invert_sel}</button>`)
-    .on('click', function () {
+    .on('click', () => {
       if (target !== undefined) {
         target.toggleCheck();
       } else {
@@ -444,7 +428,7 @@ dotclear.checkboxesHelpers = function (e, target, c, s) {
     .appendTo($(e));
 };
 
-dotclear.postsActionsHelper = function () {
+dotclear.postsActionsHelper = () => {
   $('#form-entries').on('submit', function () {
     const action = $(this).find('select[name="action"]').val();
     if (action === undefined) {
@@ -468,7 +452,7 @@ dotclear.postsActionsHelper = function () {
   });
 };
 
-dotclear.commentsActionsHelper = function () {
+dotclear.commentsActionsHelper = () => {
   $('#form-comments').on('submit', function () {
     const action = $(this).find('select[name="action"]').val();
     let checked = false;
@@ -490,7 +474,7 @@ dotclear.commentsActionsHelper = function () {
 };
 
 // Outgoing links
-dotclear.outgoingLinks = function (target) {
+dotclear.outgoingLinks = (target) => {
   $(target)
     .filter(function () {
       return (
@@ -521,7 +505,7 @@ dotclear.outgoingLinks = function (target) {
  * @param      number    [offset=0]    The offset = number of firsts columns to ignore
  * @param      boolean   [thead=false] True if titles are in thead rather than in the first tr of the body
  */
-dotclear.responsiveCellHeaders = function (table, selector, offset = 0, thead = false) {
+dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) => {
   try {
     let THarray = [];
     const ths = table.getElementsByTagName('th');
@@ -536,18 +520,18 @@ dotclear.responsiveCellHeaders = function (table, selector, offset = 0, thead = 
     styleSheet = styleElm.sheet;
     for (let i = offset; i < THarray.length; i++) {
       styleSheet.insertRule(
-        selector + ' td:nth-child(' + (i + 1) + ')::before {content:"' + THarray[i] + ' ";}',
+        `${selector} td:nth-child(${i + 1})::before {content:"${THarray[i]} ";}`,
         styleSheet.cssRules.length
       );
     }
-    table.className += (table.className !== '' ? ' ' : '') + 'rch' + (thead ? ' rch-thead' : '');
+    table.className += `${table.className !== '' ? ' ' : ''}rch${thead ? ' rch-thead' : ''}`;
   } catch (e) {
-    console.log('responsiveCellHeaders(): ' + e);
+    console.log(`responsiveCellHeaders(): ${e}`);
   }
 };
 
 // Badge helper
-dotclear.badge = function ($elt, options = null) {
+dotclear.badge = ($elt, options = null) => {
   // Cope with selector given as string or DOM element rather than a jQuery object
   if (typeof $elt === 'string' || $elt instanceof Element) {
     $elt = $($elt);
@@ -649,19 +633,17 @@ dotclear.badge = function ($elt, options = null) {
 };
 
 // Password helper
-dotclear.passwordHelpers = function () {
-  const togglePasswordHelper = function (e) {
+dotclear.passwordHelpers = () => {
+  const togglePasswordHelper = (e) => {
     e.preventDefault();
     const button = e.currentTarget;
     const isPasswordShown = button.classList.contains('pw-hide');
-
-    let inputType = isPasswordShown ? 'password' : 'text';
-    let buttonContent = isPasswordShown ? dotclear.msg.show_password : dotclear.msg.hide_password;
+    const buttonContent = isPasswordShown ? dotclear.msg.show_password : dotclear.msg.hide_password;
 
     button.classList.toggle('pw-hide', !isPasswordShown);
     button.classList.toggle('pw-show', isPasswordShown);
 
-    button.previousElementSibling.setAttribute('type', inputType);
+    button.previousElementSibling.setAttribute('type', isPasswordShown ? 'password' : 'text');
     button.setAttribute('title', buttonContent);
     button.querySelector('span').textContent = buttonContent;
   };
@@ -684,8 +666,7 @@ dotclear.passwordHelpers = function () {
 
 /* On document ready
 -------------------------------------------------------- */
-$(function () {
-
+$(() => {
   // Debug mode
   dotclear.debug = dotclear.data.debug || false;
 
@@ -699,8 +680,8 @@ $(function () {
   if (document.documentElement.getAttribute('data-theme') === '') {
     // Theme is set to automatic, keep an eye on system change
     dotclear.theme_OS = window.matchMedia('(prefers-color-scheme: dark)');
-    let switchScheme = function (e) {
-      let theme = e.matches ? 'dark' : 'light';
+    const switchScheme = (e) => {
+      const theme = e.matches ? 'dark' : 'light';
       if (theme !== dotclear.data.theme) {
         $('body').removeClass(`${dotclear.data.theme}-mode`);
         dotclear.data.theme = theme;
@@ -758,7 +739,7 @@ $(function () {
   dotclear.outgoingLinks('a');
 
   // Popups: dealing with Escape key fired
-  $('#dotclear-admin.popup').on('keyup', function (e) {
+  $('#dotclear-admin.popup').on('keyup', (e) => {
     if (e.key == 'Escape') {
       e.preventDefault();
       window.close();
@@ -850,11 +831,9 @@ $(function () {
 
   // Cope with ellipsis'ed cells
   $('table .maximal').each(function () {
-    if (this.offsetWidth < this.scrollWidth) {
-      if (this.title == '') {
-        this.title = this.innerText;
-        $(this).addClass('ellipsis');
-      }
+    if (this.offsetWidth < this.scrollWidth && this.title == '') {
+      this.title = this.innerText;
+      $(this).addClass('ellipsis');
     }
   });
   $('table .maximal.ellipsis a').each(function () {
@@ -870,11 +849,11 @@ $(function () {
 
   // Ajax loader activity indicator
   if (dotclear.data.showAjaxLoader) {
-    $(document).ajaxStart(function () {
+    $(document).ajaxStart(() => {
       $('body').addClass('ajax-loader');
       $('div.ajax-loader').show();
     });
-    $(document).ajaxStop(function () {
+    $(document).ajaxStop(() => {
       $('body').removeClass('ajax-loader');
       $('div.ajax-loader').hide();
     });
@@ -885,7 +864,7 @@ $(function () {
   const hideMainMenu = 'hide_main_menu';
 
   // Sidebar separator
-  $('#collapser').on('click', function (e) {
+  $('#collapser').on('click', (e) => {
     e.preventDefault();
     if (objMain.hasClass('hide-mm')) {
       // Show sidebar
@@ -893,7 +872,7 @@ $(function () {
       dotclear.dropLocalData(hideMainMenu);
       $('#main-menu input#qx').trigger('focus');
     } else {
-    // Hide sidebar
+      // Hide sidebar
       objMain.addClass('hide-mm');
       dotclear.storeLocalData(hideMainMenu, true);
       $('#content a.go_home').trigger('focus');
@@ -914,7 +893,7 @@ $(function () {
       $('#gototop').fadeOut();
     }
   });
-  $('#gototop').on('click', function (e) {
+  $('#gototop').on('click', (e) => {
     $('body,html').animate(
       {
         scrollTop: 0,

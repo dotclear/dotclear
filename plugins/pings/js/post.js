@@ -1,8 +1,8 @@
 /*global $, dotclear */
 'use strict';
 
-$(function () {
-  $('#edit-entry').on('onetabload', function () {
+$(() => {
+  $('#edit-entry').on('onetabload', () => {
     if ($('p.ping-services').length > 0) {
       const p = $('<p></p>');
       p.addClass('ping-services');

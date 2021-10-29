@@ -1,7 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-$(function () {
+$(() => {
   $('.checkboxes-helpers').each(function () {
     dotclear.checkboxesHelpers(this, undefined, '#form-users input[type="checkbox"]', '#form-users #do-action');
   });
@@ -27,11 +27,9 @@ $(function () {
 
     if (action == 'deleteuser') {
       for (i = 0; i < user_ids.length; i++) {
-        if (nb_posts[i] > 0) {
-          if (user_ids[i].checked == true) {
-            msg_cannot_delete = true;
-            user_ids[i].checked = false;
-          }
+        if (nb_posts[i] > 0 && user_ids[i].checked == true) {
+          msg_cannot_delete = true;
+          user_ids[i].checked = false;
         }
       }
       if (msg_cannot_delete == true) {

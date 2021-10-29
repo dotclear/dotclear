@@ -1,7 +1,7 @@
 /*global $, dotclear, jsToolBar */
 'use strict';
 
-dotclear.widgetExpander = function (line) {
+dotclear.widgetExpander = (line) => {
   const title = $(line).find('.widget-name');
   title.find('.form-note').remove();
 
@@ -29,8 +29,7 @@ dotclear.widgetExpander = function (line) {
   title.prepend(b);
 };
 
-dotclear.viewWidgetContent = function (line, action) {
-  action = action || 'toogle';
+dotclear.viewWidgetContent = (line, action = 'toogle') => {
   const img = line.find('.details-cmd');
   const isopen = img.attr('aria-label') == dotclear.img_plus_alt;
 
@@ -47,7 +46,7 @@ dotclear.viewWidgetContent = function (line, action) {
   }
 };
 
-dotclear.reorder = function (ul) {
+dotclear.reorder = (ul) => {
   // réordonne
   if (ul.attr('id')) {
     const $list = ul.find('li').not('.empty-widgets');
@@ -60,7 +59,7 @@ dotclear.reorder = function (ul) {
       // modifie le name en conséquence
       $this.find('*[name^=w]').each(function () {
         const tab = $(this).attr('name').split('][');
-        tab[0] = 'w[' + name;
+        tab[0] = `w[${name}`;
         tab[1] = i;
         $(this).attr('name', tab.join(']['));
       });
@@ -87,13 +86,11 @@ dotclear.reorder = function (ul) {
   }
 };
 
-$(function () {
+$(() => {
   dotclear.mergeDeep(dotclear, dotclear.getData('widgets'));
 
   // reset
-  $('input[name="wreset"]').on('click', function () {
-    return window.confirm(dotclear.msg.confirm_widgets_reset);
-  });
+  $('input[name="wreset"]').on('click', () => window.confirm(dotclear.msg.confirm_widgets_reset));
 
   // plier/déplier
   $('#dndnav > li, #dndextra > li, #dndcustom > li').each(function () {

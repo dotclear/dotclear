@@ -1,8 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-dotclear.viewCommentContent = function (line, action, e) {
-  action = action || 'toggle';
+dotclear.viewCommentContent = (line, action = 'toggle', e = null) => {
   if ($(line).attr('id') == undefined) {
     return;
   }
@@ -18,7 +17,7 @@ dotclear.viewCommentContent = function (line, action, e) {
     // Get comment content if possible
     dotclear.getCommentContent(
       commentId,
-      function (content) {
+      (content) => {
         if (content) {
           // Content found
           tr = document.createElement('tr');
@@ -36,7 +35,7 @@ dotclear.viewCommentContent = function (line, action, e) {
         }
       },
       {
-        clean: clean,
+        clean,
       }
     );
   } else {
@@ -45,7 +44,7 @@ dotclear.viewCommentContent = function (line, action, e) {
   }
 };
 
-$(function () {
+$(() => {
   $.expandContent({
     line: $('#form-comments tr:not(.line)'),
     lines: $('#form-comments tr.line'),
@@ -58,7 +57,5 @@ $(function () {
   dotclear.commentsActionsHelper();
   dotclear.condSubmit('#form-comments td input[type=checkbox]', '#form-comments #do-action');
   dotclear.responsiveCellHeaders(document.querySelector('#form-comments table'), '#form-comments table', 1);
-  $('form input[type=submit][name=delete_all_spam]').on('click', function () {
-    return window.confirm(dotclear.msg.confirm_spam_delete);
-  });
+  $('form input[type=submit][name=delete_all_spam]').on('click', () => window.confirm(dotclear.msg.confirm_spam_delete));
 });

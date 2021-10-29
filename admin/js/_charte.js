@@ -1,7 +1,7 @@
 /*global $ */
 'use strict';
 
-$(function () {
+$(() => {
   $.pageTabs('two-boxes');
   $('#pageslist').sortable({
     cursor: 'move',

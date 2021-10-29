@@ -62,7 +62,7 @@ const jsToolBar = function (textarea) {
 
 const jsButton = function (title, fn, scope, className, accesskey) {
   this.title = title || null;
-  this.fn = fn || function () {};
+  this.fn = fn || (() => {});
   this.scope = scope || null;
   this.className = className || null;
   this.accesskey = accesskey || null;
@@ -80,7 +80,7 @@ jsButton.prototype.draw = function () {
   button.appendChild(span);
 
   if (this.icon != undefined) {
-    button.style.backgroundImage = 'url(' + this.icon + ')';
+    button.style.backgroundImage = `url(${this.icon})`;
   }
   if (typeof this.fn == 'function') {
     const This = this;
@@ -103,7 +103,7 @@ jsSpace.prototype.draw = function () {
   if (this.id) span.id = this.id;
   span.appendChild(document.createTextNode(String.fromCharCode(160)));
   span.className = 'jstSpacer';
-  if (this.width) span.style.marginRight = this.width + 'px';
+  if (this.width) span.style.marginRight = `${this.width}px`;
 
   return span;
 };
@@ -112,7 +112,7 @@ const jsCombo = function (title, options, scope, fn, className) {
   this.title = title || null;
   this.options = options || null;
   this.scope = scope || null;
-  this.fn = fn || function () {};
+  this.fn = fn || (() => {});
   this.className = className || null;
 };
 jsCombo.prototype.draw = function () {
@@ -149,29 +149,28 @@ jsToolBar.prototype = {
   elements: {},
   toolbar_bottom: false,
 
-  getMode: function () {
+  getMode() {
     return this.mode;
   },
 
-  setMode: function (mode) {
-    this.mode = mode || 'xhtml';
+  setMode(mode = 'xhtml') {
+    this.mode = mode;
   },
 
-  switchMode: function (mode) {
-    mode = mode || 'xhtml';
+  switchMode(mode = 'xhtml') {
     this.draw(mode);
   },
 
-  button: function (toolName) {
+  button(toolName) {
     const tool = this.elements[toolName];
     if (typeof tool.fn[this.mode] != 'function') return null;
-    const b = new jsButton(tool.title, tool.fn[this.mode], this, 'jstb_' + toolName, tool.accesskey);
+    const b = new jsButton(tool.title, tool.fn[this.mode], this, `jstb_${toolName}`, tool.accesskey);
     if (tool.icon != undefined) {
       b.icon = tool.icon;
     }
     return b;
   },
-  space: function (toolName) {
+  space(toolName) {
     const tool = new jsSpace(toolName);
     if (this.elements[toolName].format != undefined && !this.elements[toolName].format[this.mode]) return null;
     if (this.elements[toolName].width !== undefined) {
@@ -179,7 +178,7 @@ jsToolBar.prototype = {
     }
     return tool;
   },
-  combo: function (toolName) {
+  combo(toolName) {
     const tool = this.elements[toolName];
 
     if (tool[this.mode] != undefined) {
@@ -197,7 +196,7 @@ jsToolBar.prototype = {
       }
     }
   },
-  draw: function (mode) {
+  draw(mode) {
     this.setMode(mode);
 
     // Empty toolbar
@@ -231,10 +230,7 @@ jsToolBar.prototype = {
     }
   },
 
-  singleTag: function (stag, etag) {
-    stag = stag || null;
-    etag = etag || stag;
-
+  singleTag(stag = null, etag = stag) {
     if (!stag || !etag) {
       return;
     }
@@ -242,11 +238,8 @@ jsToolBar.prototype = {
     this.encloseSelection(stag, etag);
   },
 
-  encloseSelection: function (prefix, suffix, fn) {
+  encloseSelection(prefix = '', suffix = '', fn = null) {
     this.textarea.focus();
-
-    prefix = prefix || '';
-    suffix = suffix || '';
 
     let start;
     let end;
@@ -267,7 +260,7 @@ jsToolBar.prototype = {
     if (sel.match(/ $/)) {
       // exclude ending space char, if any
       sel = sel.substring(0, sel.length - 1);
-      suffix = suffix + ' ';
+      suffix = `${suffix} `;
     }
 
     if (typeof fn == 'function') {
@@ -285,20 +278,18 @@ jsToolBar.prototype = {
       this.textarea.value = this.textarea.value.substring(0, start) + subst + this.textarea.value.substring(end);
       if (sel || typeof fn == 'function') {
         this.textarea.setSelectionRange(start + subst.length, start + subst.length);
-      } else {
-        if (typeof fn != 'function') {
-          this.textarea.setSelectionRange(start + prefix.length, start + prefix.length);
-        }
+      } else if (typeof fn != 'function') {
+        this.textarea.setSelectionRange(start + prefix.length, start + prefix.length);
       }
       this.textarea.scrollTop = scrollPos;
     }
   },
 
-  stripBaseURL: function (url) {
+  stripBaseURL(url) {
     if (this.base_url != '') {
       const pos = url.indexOf(this.base_url);
       if (pos == 0) {
-        url = url.substr(this.base_url.length);
+        return url.substr(this.base_url.length);
       }
     }
 
@@ -324,7 +315,7 @@ jsToolBar.prototype.elements.blocks = {
   },
   xhtml: {
     list: ['nonebis', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-    fn: function (opt) {
+    fn(opt) {
       if (opt == 'nonebis') this.textarea.focus();
       else
         try {
@@ -335,7 +326,7 @@ jsToolBar.prototype.elements.blocks = {
   },
   wiki: {
     list: ['nonebis', 'h3', 'h4', 'h5'],
-    fn: function (opt) {
+    fn(opt) {
       switch (opt) {
         case 'nonebis':
           this.textarea.focus();
@@ -370,10 +361,10 @@ jsToolBar.prototype.elements.strong = {
   type: 'button',
   title: 'Strong emphasis',
   fn: {
-    wiki: function () {
+    wiki() {
       this.singleTag('__');
     },
-    xhtml: function () {
+    xhtml() {
       this.singleTag('<strong>', '</strong>');
     },
   },
@@ -384,10 +375,10 @@ jsToolBar.prototype.elements.em = {
   type: 'button',
   title: 'Emphasis',
   fn: {
-    wiki: function () {
+    wiki() {
       this.singleTag("''");
     },
-    xhtml: function () {
+    xhtml() {
       this.singleTag('<em>', '</em>');
     },
   },
@@ -398,10 +389,10 @@ jsToolBar.prototype.elements.ins = {
   type: 'button',
   title: 'Inserted',
   fn: {
-    wiki: function () {
+    wiki() {
       this.singleTag('++');
     },
-    xhtml: function () {
+    xhtml() {
       this.singleTag('<ins>', '</ins>');
     },
   },
@@ -412,10 +403,10 @@ jsToolBar.prototype.elements.del = {
   type: 'button',
   title: 'Deleted',
   fn: {
-    wiki: function () {
+    wiki() {
       this.singleTag('--');
     },
-    xhtml: function () {
+    xhtml() {
       this.singleTag('<del>', '</del>');
     },
   },
@@ -426,10 +417,10 @@ jsToolBar.prototype.elements.quote = {
   type: 'button',
   title: 'Inline quote',
   fn: {
-    wiki: function () {
+    wiki() {
       this.singleTag('{{', '}}');
     },
-    xhtml: function () {
+    xhtml() {
       this.singleTag('<q>', '</q>');
     },
   },
@@ -440,10 +431,10 @@ jsToolBar.prototype.elements.code = {
   type: 'button',
   title: 'Code',
   fn: {
-    wiki: function () {
+    wiki() {
       this.singleTag('@@');
     },
-    xhtml: function () {
+    xhtml() {
       this.singleTag('<code>', '</code>');
     },
   },
@@ -454,10 +445,10 @@ jsToolBar.prototype.elements.mark = {
   type: 'button',
   title: 'Mark',
   fn: {
-    wiki: function () {
+    wiki() {
       this.singleTag('""');
     },
-    xhtml: function () {
+    xhtml() {
       this.singleTag('<mark>', '</mark>');
     },
   },
@@ -478,10 +469,10 @@ jsToolBar.prototype.elements.br = {
   type: 'button',
   title: 'Line break',
   fn: {
-    wiki: function () {
+    wiki() {
       this.encloseSelection('%%%\n', '');
     },
-    xhtml: function () {
+    xhtml() {
       this.encloseSelection('<br />\n', '');
     },
   },
@@ -502,14 +493,11 @@ jsToolBar.prototype.elements.blockquote = {
   type: 'button',
   title: 'Blockquote',
   fn: {
-    xhtml: function () {
+    xhtml() {
       this.singleTag('<blockquote>', '</blockquote>');
     },
-    wiki: function () {
-      this.encloseSelection('\n', '', function (str) {
-        str = str.replace(/\r/g, '');
-        return '> ' + str.replace(/\n/g, '\n> ');
-      });
+    wiki() {
+      this.encloseSelection('\n', '', (str) => `> ${str.replace(/\r/g, '').replace(/\n/g, '\n> ')}`);
     },
   },
 };
@@ -519,10 +507,10 @@ jsToolBar.prototype.elements.pre = {
   type: 'button',
   title: 'Preformated text',
   fn: {
-    wiki: function () {
+    wiki() {
       this.singleTag('///\n', '\n///');
     },
-    xhtml: function () {
+    xhtml() {
       this.singleTag('<pre>', '</pre>');
     },
   },
@@ -533,18 +521,11 @@ jsToolBar.prototype.elements.ul = {
   type: 'button',
   title: 'Unordered list',
   fn: {
-    wiki: function () {
-      this.encloseSelection('', '', function (str) {
-        str = str.replace(/\r/g, '');
-        return '* ' + str.replace(/\n/g, '\n* ');
-      });
+    wiki() {
+      this.encloseSelection('', '', (str) => `* ${str.replace(/\r/g, '').replace(/\n/g, '\n* ')}`);
     },
-    xhtml: function () {
-      this.encloseSelection('', '', function (str) {
-        str = str.replace(/\r/g, '');
-        str = str.replace(/\n/g, '</li>\n <li>');
-        return '<ul>\n <li>' + str + '</li>\n</ul>';
-      });
+    xhtml() {
+      this.encloseSelection('', '', (str) => `<ul>\n <li>${str.replace(/\r/g, '').replace(/\n/g, '</li>\n <li>')}</li>\n</ul>`);
     },
   },
 };
@@ -554,18 +535,11 @@ jsToolBar.prototype.elements.ol = {
   type: 'button',
   title: 'Ordered list',
   fn: {
-    wiki: function () {
-      this.encloseSelection('', '', function (str) {
-        str = str.replace(/\r/g, '');
-        return '# ' + str.replace(/\n/g, '\n# ');
-      });
+    wiki() {
+      this.encloseSelection('', '', (str) => `# ${str.replace(/\r/g, '').replace(/\n/g, '\n# ')}`);
     },
-    xhtml: function () {
-      this.encloseSelection('', '', function (str) {
-        str = str.replace(/\r/g, '');
-        str = str.replace(/\n/g, '</li>\n <li>');
-        return '<ol>\n <li>' + str + '</li>\n</ol>';
-      });
+    xhtml() {
+      this.encloseSelection('', '', (str) => `<ol>\n <li>${str.replace(/\r/g, '').replace(/\n/g, '</li>\n <li>')}</li>\n</ol>`);
     },
   },
 };
@@ -589,8 +563,7 @@ jsToolBar.prototype.elements.link = {
   href_prompt: 'Please give page URL:',
   hreflang_prompt: 'Language of this page:',
   default_hreflang: '',
-  prompt: function (href, hreflang) {
-    href = href || '';
+  prompt(href = '', hreflang = '') {
     hreflang = hreflang || this.elements.link.default_hreflang;
 
     href = window.prompt(this.elements.link.href_prompt, href);
@@ -602,7 +575,7 @@ jsToolBar.prototype.elements.link = {
 
     return {
       href: this.stripBaseURL(href),
-      hreflang: hreflang,
+      hreflang,
     };
   },
 };
@@ -610,11 +583,11 @@ jsToolBar.prototype.elements.link = {
 jsToolBar.prototype.elements.link.fn.xhtml = function () {
   const link = this.elements.link.prompt.call(this);
   if (link) {
-    let stag = '<a href="' + link.href + '"';
+    let stag = `<a href="${link.href}"`;
     if (link.hreflang) {
-      stag = stag + ' hreflang="' + link.hreflang + '"';
+      stag = `${stag} hreflang="${link.hreflang}"`;
     }
-    stag = stag + '>';
+    stag = `${stag}>`;
     const etag = '</a>';
 
     this.encloseSelection(stag, etag);
@@ -624,11 +597,11 @@ jsToolBar.prototype.elements.link.fn.wiki = function () {
   const link = this.elements.link.prompt.call(this);
   if (link) {
     const stag = '[';
-    let etag = '|' + link.href;
+    let etag = `|${link.href}`;
     if (link.hreflang) {
-      etag = etag + '|' + link.hreflang;
+      etag = `${etag}|${link.hreflang}`;
     }
-    etag = etag + ']';
+    etag = `${etag}]`;
 
     this.encloseSelection(stag, etag);
   }
@@ -640,32 +613,19 @@ jsToolBar.prototype.elements.img = {
   title: 'External image',
   src_prompt: 'Please give image URL:',
   fn: {},
-  prompt: function (src) {
-    src = src || '';
+  prompt(src = '') {
     return this.stripBaseURL(window.prompt(this.elements.img.src_prompt, src));
   },
 };
 jsToolBar.prototype.elements.img.fn.xhtml = function () {
   const src = this.elements.img.prompt.call(this);
   if (src) {
-    this.encloseSelection('', '', function (str) {
-      if (str) {
-        return `<img src="${src}" alt="${str}" />`;
-      } else {
-        return `<img src="${src}" alt="" />`;
-      }
-    });
+    this.encloseSelection('', '', (str) => (str ? `<img src="${src}" alt="${str}" />` : `<img src="${src}" alt="" />`));
   }
 };
 jsToolBar.prototype.elements.img.fn.wiki = function () {
   const src = this.elements.img.prompt.call(this);
   if (src) {
-    this.encloseSelection('', '', function (str) {
-      if (str) {
-        return `((${src}|${str}))`;
-      } else {
-        return `((${src}))`;
-      }
-    });
+    this.encloseSelection('', '', (str) => (str ? `((${src}|${str}))` : `((${src}))`));
   }
 };

@@ -3,10 +3,10 @@
 
 Object.assign(dotclear.msg, dotclear.getData('blog_pref'));
 
-$(function () {
+$(() => {
   const blog_url = $('#blog_url');
   if (blog_url.length > 0 && !blog_url.is(':hidden')) {
-    const checkQueryString = function () {
+    const checkQueryString = () => {
       const url = blog_url[0].value;
       const scan = $('#url_scan')[0].value;
       let msg = '';
@@ -29,15 +29,15 @@ $(function () {
     if ($(this).prop('value') == '') {
       return;
     }
-    $('#' + $(this).attr('id').replace('_select', '')).prop('value', $(this).prop('value'));
+    $(`#${$(this).attr('id').replace('_select', '')}`).prop('value', $(this).prop('value'));
     $(this).parent().next('.chosen').html($(this).find(':selected').prop('label'));
   });
 
-  $('#static_home_url_selector').on('click', function (e) {
+  $('#static_home_url_selector').on('click', (e) => {
     window.open(
       'popup_posts.php?plugin_id=admin.blog_pref&type=page',
       'dc_popup',
-      'alwaysRaised=yes,dependent=yes,toolbar=yes,height=500,width=760,' + 'menubar=no,resizable=yes,scrollbars=yes,status=no'
+      'alwaysRaised=yes,dependent=yes,toolbar=yes,height=500,width=760,menubar=no,resizable=yes,scrollbars=yes,status=no'
     );
     e.preventDefault();
     return false;

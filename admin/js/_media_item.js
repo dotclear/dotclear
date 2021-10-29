@@ -1,7 +1,7 @@
 /*global $, dotclear, datePicker */
 'use strict';
 
-$(function () {
+$(() => {
   // Add datePicker if possible
   const media_dt = document.getElementById('media_dt');
   if (media_dt != undefined) {
@@ -26,14 +26,14 @@ $(function () {
     This.before(a);
     $(a).wrap('<p></p>');
 
-    $(a).on('click', function () {
+    $(a).on('click', () => {
       $.get(
         'services.php',
         {
           f: 'getZipMediaContent',
           id: mediaId,
         },
-        function (data) {
+        (data) => {
           const rsp = $(data).children('rsp')[0];
 
           if (rsp.attributes[0].value == 'ok') {
@@ -50,12 +50,12 @@ $(function () {
             $(div).append(list);
             This.before(div);
             $(a).hide();
-            $(div).before('<h3>' + dotclear.msg.zip_file_content + '</h3>');
+            $(div).before(`<h3>${dotclear.msg.zip_file_content}</h3>`);
 
             $(rsp)
               .find('file')
               .each(function () {
-                $(list).append('<li>' + $(this).text() + '</li>');
+                $(list).append(`<li>${$(this).text()}</li>`);
                 if ($(div).height() > 200 && !expanded) {
                   $(div).css({
                     height: '200px',
@@ -81,13 +81,13 @@ $(function () {
   });
 
   // Confirm for deleting current medoa
-  $('#delete-form input[name="delete"]').on('click', function () {
+  $('#delete-form input[name="delete"]').on('click', () => {
     const m_name = $('#delete-form input[name="remove"]').val();
     return window.confirm(dotclear.msg.confirm_delete_media.replace('%s', m_name));
   });
 
   // Get current insertion settings
-  $('#save_settings').on('submit', function () {
+  $('#save_settings').on('submit', () => {
     $('input[name="pref_src"]').val($('input[name="src"][type=radio]:checked').attr('value'));
     $('input[name="pref_alignment"]').val($('input[name="alignment"][type=radio]:checked').attr('value'));
     $('input[name="pref_insertion"]').val($('input[name="insertion"][type=radio]:checked').attr('value'));

@@ -1,23 +1,23 @@
 /*global dotclear */
 'use strict';
 
-dotclear.passwordStrength = function (opts) {
+dotclear.passwordStrength = (opts) => {
   /**
    * Calculates the meter.
    *
    * @param      DOMElement  e       input password field
    * @return     integer   The strength (from 0 to 99).
    */
-  const computeMeter = function (e) {
+  const computeMeter = (e) => {
     let password = e.value;
     let score = 0;
     const symbols = '[!,@,#,$,%,^,&,*,?,_,~]';
 
     // Regexp
-    let check = new RegExp('(' + symbols + ')');
-    let doublecheck = new RegExp('(' + '.*' + symbols + '.*' + symbols + ')');
+    let check = new RegExp(`(${symbols})`);
+    let doublecheck = new RegExp(`(.*${symbols}.*${symbols})`);
 
-    let checkRepetition = function (rLen, str) {
+    let checkRepetition = (rLen, str) => {
       let res = '';
       let repeated = false;
       for (let i = 0; i < str.length; i++) {
@@ -76,7 +76,7 @@ dotclear.passwordStrength = function (opts) {
     return Math.max(Math.min(score, 99), 0);
   };
 
-  const updateMeter = function (e) {
+  const updateMeter = (e) => {
     e.preventDefault();
     const password = e.currentTarget;
 
@@ -113,7 +113,11 @@ dotclear.passwordStrength = function (opts) {
     'text/html'
   ).body.firstChild;
 
-  const options = opts;
+  const options = opts || {
+    min: '-',
+    avg: '~',
+    max: '+',
+  };
 
   const passwordFields = document.querySelectorAll('input[type=password].pw-strength');
 

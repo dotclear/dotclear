@@ -1,8 +1,55 @@
 /*global $, dotclear */
 'use strict';
 
-$(function () {
+$(() => {
   dotclear.mergeDeep(dotclear, dotclear.getData('blowup'));
+
+  const toggleDisable = (e) => {
+    if (e.attr('disabled')) {
+      e.removeAttr('disabled');
+    } else {
+      e.attr('disabled', 'disabled');
+    }
+  };
+
+  const getColorLum = (color) => {
+    const rgb = [
+      parseInt(`0x${color.substring(1, 3)}`) / 255,
+      parseInt(`0x${color.substring(3, 5)}`) / 255,
+      parseInt(`0x${color.substring(5, 7)}`) / 255,
+    ];
+
+    return (Math.min(rgb[0], Math.min(rgb[1], rgb[2])) + Math.max(rgb[0], Math.max(rgb[1], rgb[2]))) / 2;
+  };
+
+  const updateValueField = (e, v) => {
+    e.val(v);
+    if (v.match(/^#[0-9A-F]{6}$/)) {
+      e.css({
+        backgroundColor: v,
+        color: getColorLum(v) > 0.5 ? '#000' : '#fff',
+      });
+    }
+  };
+
+  const applyBlowupValues = (code) => {
+    code = code.replace('\n', '');
+    const re = /(^| )([a-zA-Z0-9_]+):"([^"]*?)"(;|$)/g;
+    const reg = /^(.+):"([^"]*)"(;?)\s*$/;
+    const s = code.match(re);
+
+    if (typeof s == 'object' && s.length > 0) {
+      let member;
+      let target;
+      let value;
+      for (let i = 0, s_length = s.length; i < s_length; i++) {
+        member = reg.exec(s[i]);
+        target = member[1].replace(' ', '');
+        value = member[2].replace(' ', '');
+        updateValueField($(`#${target}`), value);
+      }
+    }
+  };
 
   // Hide main title
   if ($('#blog_title_hide').prop('checked')) {
@@ -13,7 +60,7 @@ $(function () {
     toggleDisable($('#blog_title_p'));
   }
 
-  $('#blog_title_hide').on('click', function () {
+  $('#blog_title_hide').on('click', () => {
     toggleDisable($('#blog_title_f'));
     toggleDisable($('#blog_title_s'));
     toggleDisable($('#blog_title_c'));
@@ -31,11 +78,11 @@ $(function () {
   $('#top_image').on('change', function () {
     if (this.value == 'custom') {
       $('#uploader').show();
-      $('#image-preview').attr('src', dotclear.blowup_public_url + '/page-t.png');
+      $('#image-preview').attr('src', `${dotclear.blowup_public_url}/page-t.png`);
     } else {
       $('#uploader').hide();
       $('#uploader input').val('');
-      $('#image-preview').attr('src', 'index.php?pf=blowupConfig/alpha-img/page-t/' + this.value + '.png');
+      $('#image-preview').attr('src', `index.php?pf=blowupConfig/alpha-img/page-t/${this.value}.png`);
     }
   });
 
@@ -53,10 +100,7 @@ $(function () {
   }
 
   $('#theme_config').prepend(styles_combo);
-  $(styles_combo)
-    .wrap('<div class="fieldset"></div>')
-    .before('<h3>' + dotclear.msg.predefined_styles + '</h3>')
-    .wrap('<p></p>');
+  $(styles_combo).wrap('<div class="fieldset"></div>').before(`<h3>${dotclear.msg.predefined_styles}</h3>`).wrap('<p></p>');
 
   $(styles_combo).on('change', function () {
     $(this.form).find('input[type=text]').val('').css({
@@ -84,7 +128,7 @@ $(function () {
 
   e.append(a);
 
-  $(a).on('click', function () {
+  $(a).on('click', () => {
     const code = e.find('#export_code');
     if (code.size() == 0) {
       return false;
@@ -93,53 +137,6 @@ $(function () {
     applyBlowupValues(code.val());
     return false;
   });
-
-  function toggleDisable(e) {
-    if (e.attr('disabled')) {
-      e.removeAttr('disabled');
-    } else {
-      e.attr('disabled', 'disabled');
-    }
-  }
-
-  function applyBlowupValues(code) {
-    code = code.replace('\n', '');
-    const re = /(^| )([a-zA-Z0-9_]+):"([^"]*?)"(;|$)/g;
-    const reg = /^(.+):"([^"]*)"(;?)\s*$/;
-    const s = code.match(re);
-
-    if (typeof s == 'object' && s.length > 0) {
-      let member;
-      let target;
-      let value;
-      for (let i = 0, s_length = s.length; i < s_length; i++) {
-        member = reg.exec(s[i]);
-        target = member[1].replace(' ', '');
-        value = member[2].replace(' ', '');
-        updateValueField($('#' + target), value);
-      }
-    }
-  }
-
-  function updateValueField(e, v) {
-    e.val(v);
-    if (v.match(/^#[0-9A-F]{6}$/)) {
-      e.css({
-        backgroundColor: v,
-        color: getColorLum(v) > 0.5 ? '#000' : '#fff',
-      });
-    }
-  }
-
-  function getColorLum(color) {
-    const rgb = [
-      parseInt('0x' + color.substring(1, 3)) / 255,
-      parseInt('0x' + color.substring(3, 5)) / 255,
-      parseInt('0x' + color.substring(5, 7)) / 255,
-    ];
-
-    return (Math.min(rgb[0], Math.min(rgb[1], rgb[2])) + Math.max(rgb[0], Math.max(rgb[1], rgb[2]))) / 2;
-  }
 });
 
 dotclear.blowup_styles = {

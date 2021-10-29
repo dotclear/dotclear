@@ -32,9 +32,7 @@ jsToolBar.prototype.iframe_css = null;
 /* Editor methods
 -------------------------------------------------------- */
 jsToolBar.prototype.drawToolBar = jsToolBar.prototype.draw;
-jsToolBar.prototype.draw = function (mode) {
-  mode = mode || 'xhtml';
-
+jsToolBar.prototype.draw = function (mode = 'xhtml') {
   if (this.can_wwg) {
     this.mode = 'wysiwyg';
     this.drawToolBar('wysiwyg');
@@ -44,9 +42,7 @@ jsToolBar.prototype.draw = function (mode) {
   }
 };
 
-jsToolBar.prototype.switchMode = function (mode) {
-  mode = mode || 'xhtml';
-
+jsToolBar.prototype.switchMode = function (mode = 'xhtml') {
   if (mode == 'xhtml') {
     this.wwg_mode = true;
     this.draw(mode);
@@ -61,8 +57,7 @@ jsToolBar.prototype.switchMode = function (mode) {
   }
 };
 
-jsToolBar.prototype.syncContents = function (from) {
-  from = from || 'textarea';
+jsToolBar.prototype.syncContents = function (from = 'textarea') {
   const This = this;
   if (from == 'textarea') {
     initContent();
@@ -103,7 +98,7 @@ jsToolBar.prototype.syncContents = function (from) {
   }
 };
 jsToolBar.prototype.htmlFilters = {
-  tagsoup: function (str) {
+  tagsoup(str) {
     return this.tagsoup2xhtml(str);
   },
 };
@@ -184,7 +179,7 @@ jsToolBar.prototype.initWindow = function () {
       // warning : doc is now inaccessible for IE6 sp1
     }
 
-    if (dotclear && dotclear.data && dotclear.data.htmlFontSize) {
+    if (dotclear?.data?.htmlFontSize) {
       doc.documentElement.style.setProperty('--html-font-size', dotclear.data.htmlFontSize);
     }
 
@@ -209,7 +204,7 @@ jsToolBar.prototype.initWindow = function () {
 
     // update textarea on submit
     if (This.textarea.form) {
-      chainHandler(This.textarea.form, 'onsubmit', function () {
+      chainHandler(This.textarea.form, 'onsubmit', () => {
         if (This.wwg_mode) {
           This.syncContents('iframe');
         }
@@ -230,8 +225,8 @@ jsToolBar.prototype.initWindow = function () {
   }
   initIframe();
 };
-jsToolBar.prototype.addIwinEvent = function (target, type, fn, scope) {
-  const myFn = function (e) {
+jsToolBar.prototype.addIwinEvent = (target, type, fn, scope) => {
+  const myFn = (e) => {
     fn.call(scope, e);
   };
   addEvent(target, type, myFn, true);
@@ -239,7 +234,7 @@ jsToolBar.prototype.addIwinEvent = function (target, type, fn, scope) {
   addEvent(
     scope.iwin,
     'unload',
-    function () {
+    () => {
       removeEvent(target, type, myFn, true);
     },
     true
@@ -248,13 +243,13 @@ jsToolBar.prototype.addIwinEvent = function (target, type, fn, scope) {
 jsToolBar.prototype.iwinEvents = {
   block1: {
     type: 'mouseup',
-    fn: function () {
+    fn() {
       this.adjustBlockLevelCombo();
     },
   },
   block2: {
     type: 'keyup',
-    fn: function () {
+    fn() {
       this.adjustBlockLevelCombo();
     },
   },
@@ -317,7 +312,7 @@ jsToolBar.prototype.focusEditor = function () {
       this.iwin.document.designMode = 'on';
     } catch (e) {} // Firefox needs this
     const This = this;
-    setTimeout(function () {
+    setTimeout(() => {
       This.iframe.contentWindow.focus();
     }, 1);
   } else {
@@ -583,15 +578,13 @@ jsToolBar.prototype.tagsoup2xhtml = function (html) {
   }
 
   /* tous les tags en minuscule */
-  html = html.replace(/<(\/?)([A-Z0-9]+)/g, function (match0, match1, match2) {
-    return '<' + match1 + match2.toLowerCase();
-  });
+  html = html.replace(/<(\/?)([A-Z0-9]+)/g, (match0, match1, match2) => `<${match1}${match2.toLowerCase()}`);
 
   /* IE laisse souvent des attributs sans guillemets */
   const myRegexp = /<[^>]+((\s+\w+\s*=\s*)([^"'][\w~@+$,%\/:.#?=&;!*()-]*))[^>]*?>/;
-  const myQuoteFn = function (str, val1, val2, val3) {
+  const myQuoteFn = (str, val1, val2, val3) => {
     const tamponRegex = new RegExp(regexpEscape(val1));
-    return str.replace(tamponRegex, val2 + '"' + val3 + '"');
+    return str.replace(tamponRegex, `${val2}"${val3}"`);
   };
   while (myRegexp.test(html)) {
     html = html.replace(myRegexp, myQuoteFn);
@@ -600,7 +593,7 @@ jsToolBar.prototype.tagsoup2xhtml = function (html) {
   /* les navigateurs rajoutent une unite aux longueurs css nulles */
   /* note: a ameliorer ! */
   while (/(<[^>]+style=(["'])[^>]+[\s:]+)0(pt|px)(\2|\s|;)/.test(html)) {
-    html = html.replace(/(<[^>]+style=(["'])[^>]+[\s:]+)0(pt|px)(\2|\s|;)/gi, '$1' + '0$4');
+    html = html.replace(/(<[^>]+style=(["'])[^>]+[\s:]+)0(pt|px)(\2|\s|;)/gi, '$10$4');
   }
 
   /* correction des fins de lignes : le textarea edite contient des \n
@@ -698,15 +691,14 @@ jsToolBar.prototype.removeTextFormating = function (html) {
   }
 
   html = this.tagsoup2xhtml(html);
-  html = html.replace(/style="\s*?"/gim, '');
-  return html;
+  return html.replace(/style="\s*?"/gim, '');
 };
 
 /** Toolbar elements
 -------------------------------------------------------- */
 jsToolBar.prototype.elements.blocks.wysiwyg = {
   list: ['none', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
-  fn: function (opt) {
+  fn(opt) {
     if (opt == 'none') {
       const blockLevel = this.getBlockLevel();
       if (blockLevel !== null) {
@@ -715,7 +707,7 @@ jsToolBar.prototype.elements.blocks.wysiwyg = {
       this.iwin.focus();
     } else {
       try {
-        this.iwin.document.execCommand('formatblock', false, '<' + opt + '>');
+        this.iwin.document.execCommand('formatblock', false, `<${opt}>`);
       } catch (e) {}
       this.iwin.focus();
     }
@@ -891,7 +883,7 @@ function addEvent(obj, evType, fn, useCapture) {
     obj.addEventListener(evType, fn, useCapture);
     return true;
   } else if (obj.attachEvent) {
-    const r = obj.attachEvent('on' + evType, fn);
+    const r = obj.attachEvent(`on${evType}`, fn);
     return r;
   } else {
     return false;
@@ -903,7 +895,7 @@ function removeEvent(obj, evType, fn, useCapture) {
     obj.removeEventListener(evType, fn, useCapture);
     return true;
   } else if (obj.detachEvent) {
-    const r = obj.detachEvent('on' + evType, fn);
+    const r = obj.detachEvent(`on${evType}`, fn);
     return r;
   } else {
     return false;

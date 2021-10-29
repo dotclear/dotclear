@@ -11,7 +11,7 @@ Object.assign(dotclear, {
    * @param      {boolean}  [remove=false]  remove element
    * @return     {object}   data object
    */
-  getData: function(id, clear = true, remove = false) {
+  getData(id, clear = true, remove = false) {
     let data = {};
     // Read the JSON-formatted data from the DOM. (from https://mathiasbynens.be/notes/json-dom-csp)
     // To be use with: <script type="application/json" id="myid-data">{"key":value, …}</script>
@@ -23,7 +23,7 @@ Object.assign(dotclear, {
           // Remove element
           element.remove();
         } else if (clear) {
-          // Clear the element’s contents
+          // Clear the element's contents
           element.innerHTML = '';
         }
       } catch (e) {}
@@ -31,7 +31,7 @@ Object.assign(dotclear, {
     return data;
   },
 
-  isObject: function(item) {
+  isObject(item) {
     return item && typeof item === 'object' && !Array.isArray(item);
   },
 
@@ -40,7 +40,7 @@ Object.assign(dotclear, {
    * @param target
    * @param ...sources
    */
-  mergeDeep: function(target, ...sources) {
+  mergeDeep(target, ...sources) {
     if (!sources.length) return target;
     const source = sources.shift();
     if (this.isObject(target) && this.isObject(source)) {
@@ -62,16 +62,14 @@ Object.assign(dotclear, {
   },
 
   // Returns the cookie with the given name or false if not found
-  getCookie: function(name) {
-    let matches = document.cookie.match(
-      new RegExp('(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)')
-    );
+  getCookie(name) {
+    let matches = document.cookie.match(new RegExp(`(?:^|; )${name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1')}=([^;]*)`));
     return matches ? decodeURIComponent(matches[1]) : false; // may be undefined rather than false?
   },
 
   // Set a new cookie
   // usage: setCookie('user', 'John', {secure: true, 'expires': 60});
-  setCookie: function(name, value, options = {}) {
+  setCookie(name, value, options = {}) {
     if (typeof options.expires === 'number') {
       // Cope with expires option given in number of days from now
       options.expires = new Date(Date.now() + options.expires * 864e5);
@@ -81,26 +79,26 @@ Object.assign(dotclear, {
       options.expires = options.expires.toUTCString();
     }
 
-    let updatedCookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+    let updatedCookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}`;
 
     for (let optionKey in options) {
-      updatedCookie += '; ' + optionKey;
+      updatedCookie += `; ${optionKey}`;
       let optionValue = options[optionKey];
       if (optionValue !== true) {
-        updatedCookie += '=' + optionValue;
+        updatedCookie += `=${optionValue}`;
       }
     }
 
     // Add sameSite=Lax if not present in options
     if (options.sameSite === undefined) {
-      updatedCookie += '; ' + 'sameSite=Lax';
+      updatedCookie += '; sameSite=Lax';
     }
 
     document.cookie = updatedCookie;
   },
 
   // Delete a cookie
-  deleteCookie: function(name) {
+  deleteCookie(name) {
     this.setCookie(name, '', {
       expires: -1,
     });
@@ -115,7 +113,7 @@ Object.assign(dotclear, {
 var getData =
   getData ||
   function getData(id, clear = true, remove = false) {
-    console.warn('getData is deprecated. Use dotclear.getData');
+    console.warn('getData() is deprecated. Use dotclear.getData');
     return dotclear.getData(id, clear, remove);
   };
 

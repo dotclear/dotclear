@@ -3,8 +3,8 @@
 
 dotclear.mergeDeep(dotclear.msg, dotclear.getData('editor_tags_msg'));
 
-$(function () {
-  $('#edit-entry').on('onetabload', function () {
+$(() => {
+  $('#edit-entry').on('onetabload', () => {
     const tags_edit = $('#tags-edit');
     let post_id = $('#id');
     let meta_field = null;
@@ -34,7 +34,7 @@ $(function () {
       multipleSeparator: ', ',
       matchSubset: false,
       matchContains: true,
-      parse: function (xml) {
+      parse(xml) {
         let results = [];
         $(xml)
           .find('meta')
@@ -50,17 +50,17 @@ $(function () {
           });
         return results;
       },
-      formatItem: function (tag) {
+      formatItem(tag) {
         return (
           tag.id +
           ' <em>(' +
           dotclear.msg.tags_autocomplete
             .replace('%p', tag.percent)
-            .replace('%e', tag.count + ' ' + (tag.count > 1 ? dotclear.msg.entries : dotclear.msg.entry)) +
+            .replace('%e', `${tag.count} ${tag.count > 1 ? dotclear.msg.entries : dotclear.msg.entry}`) +
           ')</em>'
         );
       },
-      formatResult: function (tag) {
+      formatResult(tag) {
         return tag.result;
       },
     });

@@ -1,8 +1,7 @@
 /*global $, dotclear, datePicker */
 'use strict';
 
-dotclear.viewCommentContent = function (line, action, e) {
-  action = action || 'toggle';
+dotclear.viewCommentContent = (line, action = 'toggle', e = null) => {
   if ($(line).attr('id') == undefined) {
     return;
   }
@@ -18,7 +17,7 @@ dotclear.viewCommentContent = function (line, action, e) {
     // Get comment content
     dotclear.getCommentContent(
       commentId,
-      function (content) {
+      (content) => {
         if (content) {
           // Content found
           tr = document.createElement('tr');
@@ -37,7 +36,7 @@ dotclear.viewCommentContent = function (line, action, e) {
       },
       {
         ip: false,
-        clean: clean,
+        clean,
       }
     );
   } else {
@@ -46,7 +45,7 @@ dotclear.viewCommentContent = function (line, action, e) {
   }
 };
 
-$(function () {
+$(() => {
   // Post preview
   let preview_url = $('#post-preview').attr('href');
   if (preview_url) {
@@ -79,7 +78,7 @@ $(function () {
   }
   // Prevent history back if currently previewing Post (with magnificPopup
   history.pushState(null, null);
-  window.addEventListener('popstate', function () {
+  window.addEventListener('popstate', () => {
     if (document.querySelector('.mfp-ready')) {
       // Prevent history back
       history.go(1);
@@ -89,7 +88,7 @@ $(function () {
   });
 
   // Tabs events
-  $('#edit-entry').on('onetabload', function () {
+  $('#edit-entry').on('onetabload', () => {
     dotclear.hideLockable();
 
     // Add date picker
@@ -98,9 +97,7 @@ $(function () {
     post_dtPick.draw();
 
     // Confirm post deletion
-    $('input[name="delete"]').on('click', function () {
-      return window.confirm(dotclear.msg.confirm_delete_post);
-    });
+    $('input[name="delete"]').on('click', () => window.confirm(dotclear.msg.confirm_delete_post));
 
     // Hide some fields
     $('#notes-area label').toggleWithLegend($('#notes-area').children().not('label'), {
@@ -168,7 +165,7 @@ $(function () {
     });
   });
 
-  $('#comments').on('onetabload', function () {
+  $('#comments').on('onetabload', () => {
     $.expandContent({
       line: $('#form-comments .comments-list tr:not(.line)'),
       lines: $('#form-comments .comments-list tr.line'),
@@ -181,7 +178,7 @@ $(function () {
     dotclear.commentsActionsHelper();
   });
 
-  $('#trackbacks').on('onetabload', function () {
+  $('#trackbacks').on('onetabload', () => {
     $.expandContent({
       line: $('#form-trackbacks .comments-list tr:not(.line)'),
       lines: $('#form-trackbacks .comments-list tr.line'),
@@ -194,7 +191,7 @@ $(function () {
     dotclear.commentsActionsHelper();
   });
 
-  $('#add-comment').on('onetabload', function () {
+  $('#add-comment').on('onetabload', () => {
     dotclear.commentTb.draw('xhtml');
   });
 });

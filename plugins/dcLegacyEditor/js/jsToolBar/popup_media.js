@@ -1,13 +1,13 @@
 /*global $ */
 'use strict';
 
-$(function () {
-  $('#media-insert').on('onetabload', function () {
-    $('#media-insert-cancel').on('click', function () {
+$(() => {
+  $('#media-insert').on('onetabload', () => {
+    $('#media-insert-cancel').on('click', () => {
       window.close();
     });
 
-    $('#media-insert-ok').on('click', function () {
+    $('#media-insert-ok').on('click', () => {
       sendClose();
       window.close();
     });

@@ -1,7 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-$(function () {
+$(() => {
   // expend theme info
   $('.module-sshot')
     .not('.current-theme .module-sshot')
@@ -18,11 +18,7 @@ $(function () {
   // dirty short search blocker
   $('div.modules-search form input[type=submit]').on('click', function () {
     const mlen = $('input[name=m_search]', $(this).parent()).val();
-    if (mlen.length > 2) {
-      return true;
-    } else {
-      return false;
-    }
+    return mlen.length > 2 ? true : false;
   });
 
   // checkboxes selection

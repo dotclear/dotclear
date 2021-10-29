@@ -20,7 +20,7 @@ dotclear.dropLocalData = (id) => {
 dotclear.readLocalData = (id) => {
   let info = localStorage.getItem(id);
   if (info !== null) {
-    info = JSON.parse(info);
+    return JSON.parse(info);
   }
   return info;
 };
@@ -44,7 +44,7 @@ dotclear.getData = (id, clear = true, remove = false) => {
         // Remove element
         element.remove();
       } else if (clear) {
-        // Clear the element’s contents
+        // Clear the element's contents
         element.innerHTML = '';
       }
     } catch (e) {}
@@ -52,9 +52,7 @@ dotclear.getData = (id, clear = true, remove = false) => {
   return data;
 };
 
-dotclear.isObject = (item) => {
-  return item && typeof item === 'object' && !Array.isArray(item);
-};
+dotclear.isObject = (item) => item && typeof item === 'object' && !Array.isArray(item);
 
 /**
  * Deep merge two objects.
@@ -90,9 +88,7 @@ dotclear.mergeDeep = (target, ...sources) => {
  *
  * Source: Muhammad Tahir (https://stackoverflow.com/questions/830283/cutting-html-strings-without-breaking-html-tags)
  */
-dotclear.trimHtml = (html, options) => {
-  options = options || {};
-
+dotclear.trimHtml = (html, options = {}) => {
   let limit = options.limit || 100;
   let preserveTags = typeof options.preserveTags !== 'undefined' ? options.preserveTags : true;
   let wordBreak = typeof options.wordBreak !== 'undefined' ? options.wordBreak : false;
@@ -155,7 +151,7 @@ dotclear.trimHtml = (html, options) => {
         row = row.substring(0, cut) + suffix;
 
         if (moreLink) {
-          row += '<a href="' + moreLink + '" style="display:inline">»</a>';
+          row += `<a href="${moreLink}" style="display:inline">»</a>`;
         }
 
         sum = limit;
@@ -194,7 +190,7 @@ dotclear.trimHtml = (html, options) => {
 
   return {
     html: arr.join('\n').replace(/\n/g, ''),
-    more: more,
+    more,
   };
 };
 

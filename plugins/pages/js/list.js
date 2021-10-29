@@ -3,8 +3,7 @@
 
 Object.assign(dotclear.msg, dotclear.getData('pages_list'));
 
-dotclear.viewPostContent = function (line, action, e) {
-  action = action || 'toggle';
+dotclear.viewPostContent = (line, action = 'toggle', e = null) => {
   if ($(line).attr('id') == undefined) {
     return;
   }
@@ -17,7 +16,7 @@ dotclear.viewPostContent = function (line, action, e) {
     // Get post content if possible
     dotclear.getEntryContent(
       postId,
-      function (content) {
+      (content) => {
         if (content) {
           // Content found
           tr = document.createElement('tr');
@@ -44,7 +43,7 @@ dotclear.viewPostContent = function (line, action, e) {
   }
 };
 
-$(function () {
+$(() => {
   $('#pageslist tr.line').prepend('<td class="expander"></td>');
   $('#form-entries tr:not(.line) th:first').attr('colspan', 4);
   $.expandContent({
@@ -61,7 +60,7 @@ $(function () {
   dotclear.condSubmit('#pageslist td input[type=checkbox]', '#form-entries #do-action');
   dotclear.responsiveCellHeaders(document.querySelector('#form-entries table'), '#form-entries table', 3, true);
 
-  $('#pageslist tr.line td:not(.expander)').on('mousedown', function () {
+  $('#pageslist tr.line td:not(.expander)').on('mousedown', () => {
     $('#pageslist tr.line').each(function () {
       const td = this.firstChild;
       dotclear.viewPostContent(td.firstChild, td.firstChild.line, 'close');
@@ -71,7 +70,7 @@ $(function () {
 
   $('#pageslist').sortable({
     cursor: 'move',
-    stop: function () {
+    stop() {
       $('#pageslist tr td input.position').each(function (i) {
         $(this).val(i + 1);
       });

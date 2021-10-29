@@ -1,27 +1,20 @@
 /*global $ */
 'use strict';
 
-$(document).ready(function () {
+$(document).ready(() => {
   if ($(window).width() < 1024) {
-    const create_name = function (text) {
-      // Convert text to lower case.
-      let name = text.toLowerCase();
-
-      // Remove leading and trailing spaces, and any non-alphanumeric
-      // characters except for ampersands, spaces and dashes.
-      name = name.replace(/^\s+|\s+$|[^a-z0-9&\s-]/g, '');
-
-      // Replace '&' with 'and'.
-      name = name.replace(/&/g, 'and');
-
-      // Replaces spaces with dashes.
-      name = name.replace(/\s/g, '-');
-
-      // Squash any duplicate dashes.
-      name = name.replace(/(-)+\1/g, '$1');
-
-      return name;
-    };
+    const create_name = (text) =>
+      text
+        .toLowerCase()
+        // Remove leading and trailing spaces, and any non-alphanumeric
+        // characters except for ampersands, spaces and dashes.
+        .replace(/^\s+|\s+$|[^a-z0-9&\s-]/g, '')
+        // Replace '&' with 'and'.
+        .replace(/&/g, 'and')
+        // Replaces spaces with dashes.
+        .replace(/\s/g, '-')
+        // Squash any duplicate dashes.
+        .replace(/(-)+\1/g, '$1');
 
     // Set toggle class to each #sidebar h2
     $('#sidebar div div h2').addClass('toggle');
@@ -42,7 +35,7 @@ $(document).ready(function () {
       // Replace the h2.toggle element with a link to the
       // fragment anchor.  Use the h2 text to create the
       // link title attribute.
-      $(this).html('<a href="#' + name + '" title="Reveal ' + $(this).text() + ' content">' + $(this).html() + '</a>');
+      $(this).html(`<a href="#${name}" title="Reveal ${$(this).text()} content">${$(this).html()}</a>`);
     });
 
     // Add a click event handler to all h2.toggle elements.

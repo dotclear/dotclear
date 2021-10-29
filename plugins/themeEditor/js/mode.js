@@ -9,20 +9,20 @@ window.CodeMirror.defineMode('dotclear', function (config) {
     {
       open: '{{tpl:',
       close: '}}',
-      mode: CodeMirror.getMode(config, 'text/plain'),
-      delimStyle: 'delimit',
+      mode: CodeMirror.getMode(config, 'text/html'),
+      parseDelimiters: true,
     },
     {
       open: '<tpl:',
       close: '>',
-      mode: CodeMirror.getMode(config, 'text/plain'),
-      delimStyle: 'delimit',
+      mode: CodeMirror.getMode(config, 'text/html'),
+      parseDelimiters: true,
     },
     {
       open: '</tpl:',
       close: '>',
-      mode: CodeMirror.getMode(config, 'text/plain'),
-      delimStyle: 'delimit',
+      mode: CodeMirror.getMode(config, 'text/html'),
+      parseDelimiters: true,
     }
   );
 });

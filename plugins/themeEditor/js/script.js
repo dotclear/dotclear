@@ -5,7 +5,7 @@
 Object.assign(dotclear.msg, dotclear.getData('theme_editor_msg'));
 Object.assign(dotclear, dotclear.getData('dotclear_colorsyntax'));
 
-$(function () {
+$(() => {
   // Cope with saving
   let msg = false;
   $('#file-form input[name="write"]').on('click', function (e) {
@@ -24,10 +24,10 @@ $(function () {
 
     msg.text(dotclear.msg.saving_document);
 
-    $.post(document.location.href, data, function (res) {
+    $.post(document.location.href, data, (res) => {
       const err = $(res).find('div.error li:first');
       if (err.length > 0) {
-        msg.text(dotclear.msg.error_occurred + ' ' + err.text());
+        msg.text(`${dotclear.msg.error_occurred} ${err.text()}`);
         return;
       } else {
         msg.text(dotclear.msg.document_saved);
@@ -45,7 +45,5 @@ $(function () {
   });
 
   // Confirm for deleting current file
-  $('#file-form input[name="delete"]').on('click', function () {
-    return window.confirm(dotclear.msg.confirm_reset_file);
-  });
+  $('#file-form input[name="delete"]').on('click', () => window.confirm(dotclear.msg.confirm_reset_file));
 });

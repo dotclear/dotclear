@@ -1,7 +1,7 @@
 /*global $, dotclear */
 'use strict';
 
-$(window).on('load', function () {
+$(window).on('load', () => {
   const uid = $('input[name=user_id]');
   const upw = $('input[name=user_pwd]');
   uid.trigger('focus');
@@ -24,7 +24,7 @@ $(window).on('load', function () {
   }
 });
 
-$(function () {
+$(() => {
   // Password strength
   dotclear.passwordStrength(dotclear.getData('pwstrength'));
 });

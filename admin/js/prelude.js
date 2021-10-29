@@ -1,16 +1,16 @@
 /*global $ */
 'use strict';
 
-$(function () {
+$(() => {
   if ($('#prelude').length > 0) {
     $('#prelude a')
       .addClass('hidden')
-      .on('focus', function () {
+      .on('focus', () => {
         $('#prelude a').removeClass('hidden');
         $('#wrapper, #help-button, #collapser').addClass('with-prelude');
       });
 
-    $('body').on('click', '#prelude a[href="#help"]', function (e) {
+    $('body').on('click', '#prelude a[href="#help"]', (e) => {
       e.preventDefault();
       $('#help-button a').trigger('focus');
     });

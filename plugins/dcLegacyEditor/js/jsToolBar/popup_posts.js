@@ -1,8 +1,8 @@
 /*global $ */
 'use strict';
 
-$(function () {
-  $('#link-insert-cancel').on('click', function () {
+$(() => {
+  $('#link-insert-cancel').on('click', () => {
     window.close();
   });
 

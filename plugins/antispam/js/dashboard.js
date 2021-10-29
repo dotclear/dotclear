@@ -1,12 +1,12 @@
 /*global $, dotclear */
 'use strict';
 
-dotclear.dbSpamsCount = function () {
+dotclear.dbSpamsCount = () => {
   const params = {
     f: 'getSpamsCount',
     xd_check: dotclear.nonce,
   };
-  $.get('services.php', params, function (data) {
+  $.get('services.php', params, (data) => {
     if ($('rsp[status=failed]', data).length > 0) {
       // For debugging purpose only:
       // console.log($('rsp',data).attr('message'));
@@ -22,14 +22,12 @@ dotclear.dbSpamsCount = function () {
           if (nb_label.length) {
             nb_label.text(nb);
           }
-        } else {
-          if (nb != '') {
-            // Add full element (link + counter)
-            icon = $('#dashboard-main #icons p a[href="comments.php"]');
-            if (icon.length) {
-              const xml = ` <a href="comments.php?status=-2"><span class="db-icon-title-spam">${nb}</span></a>`;
-              icon.after(xml);
-            }
+        } else if (nb != '') {
+          // Add full element (link + counter)
+          icon = $('#dashboard-main #icons p a[href="comments.php"]');
+          if (icon.length) {
+            const xml = ` <a href="comments.php?status=-2"><span class="db-icon-title-spam">${nb}</span></a>`;
+            icon.after(xml);
           }
         }
         // Store current counter
@@ -39,7 +37,7 @@ dotclear.dbSpamsCount = function () {
   });
 };
 
-$(function () {
+$(() => {
   // run counters' update on some dashboard icons
   // Spam comments
   const icon_spam = $('#dashboard-main #icons p a[href="comments.php"]');

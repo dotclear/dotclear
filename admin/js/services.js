@@ -8,7 +8,7 @@
  * @param      function    callback  The callback
  * @param      object      options   The options
  */
-dotclear.getEntryContent = function (postId, callback, options) {
+dotclear.getEntryContent = (postId, callback, options) => {
   let res = '';
   const opt = $.extend(
     {
@@ -36,7 +36,7 @@ dotclear.getEntryContent = function (postId, callback, options) {
     post_type: opt.type,
     xd_check: dotclear.nonce,
   })
-    .done(function (data) {
+    .done((data) => {
       // Response received
       const rsp = $(data).children('rsp')[0];
       if (rsp.attributes[0].value == 'ok') {
@@ -68,22 +68,18 @@ dotclear.getEntryContent = function (postId, callback, options) {
           }
           res = content;
         }
-      } else {
-        if (opt.alert) {
-          window.alert($(rsp).find('message').text());
-        }
+      } else if (opt.alert) {
+        window.alert($(rsp).find('message').text());
       }
     })
-    .fail(function (jqXHR, textStatus, errorThrown) {
+    .fail((jqXHR, textStatus, errorThrown) => {
       // No response
-      window.console.log(
-        `AJAX ${textStatus} (status: ${jqXHR.status} ${errorThrown})`
-      );
+      window.console.log(`AJAX ${textStatus} (status: ${jqXHR.status} ${errorThrown})`);
       if (opt.alert) {
         window.alert('Server error');
       }
     })
-    .always(function () {
+    .always(() => {
       // Finally
       callback(res);
     });
@@ -96,7 +92,7 @@ dotclear.getEntryContent = function (postId, callback, options) {
  * @param      function    callback   The callback
  * @param      object      options    The options
  */
-dotclear.getCommentContent = function (commentId, callback, options) {
+dotclear.getCommentContent = (commentId, callback, options) => {
   let res = '';
   const opt = $.extend(
     {
@@ -125,7 +121,7 @@ dotclear.getCommentContent = function (commentId, callback, options) {
     id: commentId,
     xd_check: dotclear.nonce,
   })
-    .done(function (data) {
+    .done((data) => {
       // Response received
       const rsp = $(data).children('rsp')[0];
       if (rsp.attributes[0].value == 'ok') {
@@ -162,22 +158,18 @@ dotclear.getCommentContent = function (commentId, callback, options) {
           }
           res = content;
         }
-      } else {
-        if (opt.alert) {
-          window.alert($(rsp).find('message').text());
-        }
+      } else if (opt.alert) {
+        window.alert($(rsp).find('message').text());
       }
     })
-    .fail(function (jqXHR, textStatus, errorThrown) {
+    .fail((jqXHR, textStatus, errorThrown) => {
       // No response
-      window.console.log(
-        `AJAX ${textStatus} (status: ${jqXHR.status} ${errorThrown})`
-      );
+      window.console.log(`AJAX ${textStatus} (status: ${jqXHR.status} ${errorThrown})`);
       if (opt.alert) {
         window.alert('Server error');
       }
     })
-    .always(function () {
+    .always(() => {
       // Finally
       callback(res);
     });
