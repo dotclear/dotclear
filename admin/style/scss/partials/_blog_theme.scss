@@ -46,6 +46,10 @@
   }
 }
 
+.module-infos p {
+  margin-top: .5em;
+}
+
 .module-actions {
   margin-top: 1em;
 }
@@ -54,7 +58,7 @@
   display: flex;
   flex-wrap: wrap;
   input {
-    margin: 0 .25em .25em 0;
+    margin: 0 .25em .5em 0;
   }
 }
 
@@ -85,6 +89,14 @@ Les screenshots des thèmes ont deux tailles possibles :
 - dans Thèmes installés : 280px (+ 10 padding-image + 20 padding-boîte + 2 ombrage = 318)
 On adapte largeur et hauteur en fonction
 */
+
+.box.theme details {
+  margin-top: 0.25em;
+  .mod-more {
+    margin-top: .5em;
+    display: inline-block;
+  }
+}
 
 #theme-new .box.theme,
 #theme-update .box.theme {
@@ -153,6 +165,7 @@ On adapte largeur et hauteur en fonction
   .module-actions {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
   }
 }
 
