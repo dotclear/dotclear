@@ -150,13 +150,17 @@ class dcThemeConfig
      */
     public static function adjustFontSize($s)
     {
-        if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', $s, $m)) {
-            if (empty($m[2])) {
-                $m[2] = 'em';
-            }
+        if ($s) {
+            if (preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', $s, $m)) {
+                if (empty($m[2])) {
+                    $m[2] = 'em';
+                }
 
-            return $m[1] . $m[2];
+                return $m[1] . $m[2];
+            }
         }
+
+        return $s;
     }
 
     /**
@@ -168,8 +172,12 @@ class dcThemeConfig
      */
     public static function adjustPosition($p)
     {
+        if (!$p) {
+            return '';
+        }
+
         if (!preg_match('/^[0-9]+(:[0-9]+)?$/', $p)) {
-            return;
+            return '';
         }
         $p = explode(':', $p);
 
@@ -185,7 +193,7 @@ class dcThemeConfig
      */
     public static function adjustColor($c)
     {
-        if ($c === '') {
+        if (!$c) {
             return '';
         }
 

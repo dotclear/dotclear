@@ -119,7 +119,7 @@ if (!empty($_POST)) {
             $blowup_user['blog_title_f'] = $_POST['blog_title_f'];
             $blowup_user['blog_title_s'] = dcThemeConfig::adjustFontSize($_POST['blog_title_s']);
             $blowup_user['blog_title_c'] = dcThemeConfig::adjustColor($_POST['blog_title_c']);
-            $blowup_user['blog_title_a'] = preg_match('/^(left|center|right)$/', $_POST['blog_title_a']) ? $_POST['blog_title_a'] : null;
+            $blowup_user['blog_title_a'] = preg_match('/^(left|center|right)$/', ($_POST['blog_title_a'] ?? '')) ? $_POST['blog_title_a'] : null;
             $blowup_user['blog_title_p'] = dcThemeConfig::adjustPosition($_POST['blog_title_p']);
         }
 
@@ -127,13 +127,13 @@ if (!empty($_POST)) {
         $blowup_user['body_link_f_c'] = dcThemeConfig::adjustColor($_POST['body_link_f_c']);
         $blowup_user['body_link_v_c'] = dcThemeConfig::adjustColor($_POST['body_link_v_c']);
 
-        $blowup_user['sidebar_text_f']   = $_POST['sidebar_text_f'];
+        $blowup_user['sidebar_text_f']   = ($_POST['sidebar_text_f'] ?? null);
         $blowup_user['sidebar_text_s']   = dcThemeConfig::adjustFontSize($_POST['sidebar_text_s']);
         $blowup_user['sidebar_text_c']   = dcThemeConfig::adjustColor($_POST['sidebar_text_c']);
-        $blowup_user['sidebar_title_f']  = $_POST['sidebar_title_f'];
+        $blowup_user['sidebar_title_f']  = ($_POST['sidebar_title_f'] ?? null);
         $blowup_user['sidebar_title_s']  = dcThemeConfig::adjustFontSize($_POST['sidebar_title_s']);
         $blowup_user['sidebar_title_c']  = dcThemeConfig::adjustColor($_POST['sidebar_title_c']);
-        $blowup_user['sidebar_title2_f'] = $_POST['sidebar_title2_f'];
+        $blowup_user['sidebar_title2_f'] = ($_POST['sidebar_title2_f'] ?? null);
         $blowup_user['sidebar_title2_s'] = dcThemeConfig::adjustFontSize($_POST['sidebar_title2_s']);
         $blowup_user['sidebar_title2_c'] = dcThemeConfig::adjustColor($_POST['sidebar_title2_c']);
         $blowup_user['sidebar_line_c']   = dcThemeConfig::adjustColor($_POST['sidebar_line_c']);
@@ -141,19 +141,19 @@ if (!empty($_POST)) {
         $blowup_user['sidebar_link_f_c'] = dcThemeConfig::adjustColor($_POST['sidebar_link_f_c']);
         $blowup_user['sidebar_link_v_c'] = dcThemeConfig::adjustColor($_POST['sidebar_link_v_c']);
 
-        $blowup_user['sidebar_position'] = ($_POST['sidebar_position'] == 'left') ? 'left' : null;
+        $blowup_user['sidebar_position'] = ($_POST['sidebar_position'] ?? '') == 'left' ? 'left' : null;
 
-        $blowup_user['date_title_f'] = $_POST['date_title_f'];
+        $blowup_user['date_title_f'] = ($_POST['date_title_f'] ?? null);
         $blowup_user['date_title_s'] = dcThemeConfig::adjustFontSize($_POST['date_title_s']);
         $blowup_user['date_title_c'] = dcThemeConfig::adjustColor($_POST['date_title_c']);
 
-        $blowup_user['post_title_f']     = $_POST['post_title_f'];
+        $blowup_user['post_title_f']     = ($_POST['post_title_f'] ?? null);
         $blowup_user['post_title_s']     = dcThemeConfig::adjustFontSize($_POST['post_title_s']);
         $blowup_user['post_title_c']     = dcThemeConfig::adjustColor($_POST['post_title_c']);
         $blowup_user['post_comment_c']   = dcThemeConfig::adjustColor($_POST['post_comment_c']);
         $blowup_user['post_commentmy_c'] = dcThemeConfig::adjustColor($_POST['post_commentmy_c']);
 
-        $blowup_user['footer_f']    = $_POST['footer_f'];
+        $blowup_user['footer_f']    = ($_POST['footer_f'] ?? null);
         $blowup_user['footer_s']    = dcThemeConfig::adjustFontSize($_POST['footer_s']);
         $blowup_user['footer_c']    = dcThemeConfig::adjustColor($_POST['footer_c']);
         $blowup_user['footer_l_c']  = dcThemeConfig::adjustColor($_POST['footer_l_c']);
@@ -173,10 +173,10 @@ if (!empty($_POST)) {
                 $blowup_user['uploaded'] = basename($uploaded);
             }
 
-            $blowup_user['top_image'] = in_array($_POST['top_image'], $top_images) ? $_POST['top_image'] : 'default';
+            $blowup_user['top_image'] = in_array(($_POST['top_image'] ?? ''), $top_images) ? $_POST['top_image'] : 'default';
 
             $blowup_user['body_bg_c']           = dcThemeConfig::adjustColor($_POST['body_bg_c']);
-            $blowup_user['body_bg_g']           = in_array($_POST['body_bg_g'], $gradient_types) ? $_POST['body_bg_g'] : '';
+            $blowup_user['body_bg_g']           = in_array(($_POST['body_bg_g'] ?? ''), $gradient_types) ? $_POST['body_bg_g'] : '';
             $blowup_user['post_comment_bg_c']   = dcThemeConfig::adjustColor($_POST['post_comment_bg_c']);
             $blowup_user['post_commentmy_bg_c'] = dcThemeConfig::adjustColor($_POST['post_commentmy_bg_c']);
             $blowup_user['prelude_c']           = dcThemeConfig::adjustColor($_POST['prelude_c']);

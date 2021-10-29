@@ -283,7 +283,9 @@ class blowupConfig
         foreach ($css as $selector => $values) {
             $res .= $selector . " {\n";
             foreach ($values as $k => $v) {
-                $res .= $k . ':' . $v . ";\n";
+                if ($v) {
+                    $res .= $k . ':' . $v . ";\n";
+                }
             }
             $res .= "}\n";
         }
