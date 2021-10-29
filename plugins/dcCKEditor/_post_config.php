@@ -289,7 +289,10 @@ if (!empty($extraPlugins)) {
     });
 
     CKEDITOR.on('instanceReady',function(e) {
-        if (dotclear && dotclear.data && dotclear.data.htmlFontSize) {
+        if (ff = $('body').css("font-family")) {
+            e.editor.document.$.querySelector('body').style.setProperty('font-family',ff);
+        }
+        if (dotclear?.data?.htmlFontSize) {
             e.editor.document.$.documentElement.style.setProperty('--html-font-size',dotclear.data.htmlFontSize);
             e.editor.document.$.querySelector('body').style.setProperty('font-size','calc(var(--html-font-size) * 1.4)');
         }
