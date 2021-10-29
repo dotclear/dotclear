@@ -105,11 +105,11 @@ class dcStore
                         $dcs_raw_datas = $dcs_parser->getModules();
                         if (isset($dcs_raw_datas[$p_id]) && dcUtils::versionsCompare($dcs_raw_datas[$p_id]['version'], $p_infos['version'], '>')) {
                             if (!isset($updates[$p_id]) || dcUtils::versionsCompare($dcs_raw_datas[$p_id]['version'], $updates[$p_id]['version'], '>')) {
-                                $dcs_raw_datas[$p_id]['dcstore']   = true;
-                                $updates[$p_id]                    = $dcs_raw_datas[$p_id];
-                                $updates[$p_id]['root']            = $p_infos['root'];
-                                $updates[$p_id]['root_writable']   = $p_infos['root_writable'];
-                                $updates[$p_id]['current_version'] = $p_infos['version'];
+                                $dcs_raw_datas[$p_id]['repository'] = true;
+                                $updates[$p_id]                     = $dcs_raw_datas[$p_id];
+                                $updates[$p_id]['root']             = $p_infos['root'];
+                                $updates[$p_id]['root_writable']    = $p_infos['root_writable'];
+                                $updates[$p_id]['current_version']  = $p_infos['version'];
                             }
                         }
                     }
