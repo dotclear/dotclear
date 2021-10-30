@@ -362,7 +362,8 @@ class dcPage
         echo '<p id="gototop"><a href="#wrapper">' . __('Page top') . '</a></p>' . "\n";
 
         $figure = <<<EOT
-  ♥‿♥
+
+    ¯\_(ツ)_/¯
 
 EOT;
 

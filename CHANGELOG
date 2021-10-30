@@ -1,3 +1,52 @@
+Dotclear 2.20 - 2021-11-13
+===========================================================
+* 🐘 PHP 7.3+ is required, PHP 8 compliance
+* Js: switch to ESnext syntax, up to ES2021 (was ES2015 in 2.19), will require a "modern" browser
+* Template: Refine tpl:block for pagination and archive (dotty templateset)
+* Template: Add ".updated" class to republished posts (dotty templateset)
+* Template: The {{tpl:CommentIfMe}} template item take care of author's alternative emails and URLs
+* Admin UI: Enforce visibility of last action « button » on update
+* Admin UI: Remove box and text shadows from CKEditor dotclear CSS styles
+* Admin UI: Slightly review the look of theme's screenshots (blog appearance page)
+* Admin UX: Add screenshots for disabled themes
+* Admin UX: Add a badge with number of updates available on dashboard icon
+* Admin UX: Add password strength meter on auth page (if password change is required)
+* Admin UX: Generic filter controls refactored
+* Admin UX: Cope with local .mediadef file (JSON format wich superseeds insertion defaults)
+* Theme: Remove left border for (aside) sidebar of Berlin theme
+* Core: Add third-party repository option for modules (plugins and themes)
+* Core: Asynchronous check store update on dashboard
+* Core: Add constant (DC_ALLOW_REPOSITORIES) to disable third party repo
+* Core: Open admin search page to other type (WIP)
+* Core: Remove currywurst template set (never used)
+* Core: Add color, email, number types for widget settings
+* Core: Fix determination of « republished » state of post
+* Core: Cope with IPv6 addresses
+* Core: Create DC_TPL_CACHE directory if necessary
+* Core: Add IP v6 antispam filter (only enabled if GMP or BC Math library is available)
+* Core: Add standard nethttp timeout constant (DC_QUERY_TIMEOUT)
+* Core: Add alternatives Emails and URLs for users in My Preferences and User Profile (super-admin only)
+* Fix: Cope with DotAddict server not responding
+* Fix: Cope with isolated figcaption for remove_html and strip_tags tpl attributes
+* Fix: Allow modification of "official" themes if they are not in distributed folder (themes) of Dotclear
+* Fix: RSS style, fix css responsive + fix input
+* Fix: Ensure theme's settings namespace exists
+* Fix: Ensure DC_VAR constant exists before using it
+* Fix: Fix favicon path in auth page
+* Fix: Allow https protocol for trackbacks
+* Fix: Fix IPv4 antispam filter for subnet mask > 32
+* Fix: Fix plugins privileges on config file
+* Fix: Uses the same font in the CKEditor editor as the rest of the administration
+* Lib: Update CKEditor from 4.16.1 to 4.16.2 (with local additional fixes in CKEditor jQuery adapter)
+* Lib: Update Codemirror 5.62.0 from to 5.63.3
+* ClearBricks: Allow legitimate .. in media filenames
+* ClearBricks: (legacy forms, array of key => value) for select and optgroup components
+* Clearbricks: Add details block support in wiki syntax
+* Add SECURITY.md document
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+* 📣 Warning: Next major release (2.21) will require PHP 7.4+
+
 Dotclear 2.19 - 2021-08-13
 ===========================================================
 * 🐘 PHP 7.3+ is required, PHP 8 compliance
