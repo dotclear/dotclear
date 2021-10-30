@@ -8,6 +8,7 @@ Dotclear 2.20 - 2021-11-13
 * Admin UI: Enforce visibility of last action « button » on update
 * Admin UI: Remove box and text shadows from CKEditor dotclear CSS styles
 * Admin UI: Slightly review the look of theme's screenshots (blog appearance page)
+* Admin UI: Move drag'n'drop button to right side on dashboard
 * Admin UX: Add screenshots for disabled themes
 * Admin UX: Add a badge with number of updates available on dashboard icon
 * Admin UX: Add password strength meter on auth page (if password change is required)

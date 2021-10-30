@@ -3118,6 +3118,7 @@ span.ibw {
     display: none; }
   #dragndrop + label {
     position: absolute;
+    right: 1em;
     display: inline-block;
     line-height: 1; }
   #dragndrop + label .dragndrop-svg {
