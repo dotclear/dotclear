@@ -47,6 +47,11 @@ if (isset($_GET['v'])) {
     unset($_GET['v']);
 }
 
+// $_GET['t'] : parameter given by CKEditor, but don't care of value
+if (isset($_GET['t'])) {
+    unset($_GET['t']);
+}
+
 // Only $_GET['pf'] is allowed in URL
 if (count($_GET) > 1) {
     header('Content-Type: text/plain');

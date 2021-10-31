@@ -38,6 +38,7 @@ Dotclear 2.20 - 2021-11-13
 * Fix: Fix IPv4 antispam filter for subnet mask > 32
 * Fix: Fix plugins privileges on config file
 * Fix: Uses the same font in the CKEditor editor as the rest of the administration
+* Fix: CKEditor sometimes add a t parameter to a request URL (background sprite image), ignore it
 * Lib: Update CKEditor from 4.16.1 to 4.16.2 (with local additional fixes in CKEditor jQuery adapter)
 * Lib: Update Codemirror 5.62.0 from to 5.63.3
 * ClearBricks: Allow legitimate .. in media filenames
