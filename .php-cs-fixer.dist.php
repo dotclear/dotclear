@@ -26,10 +26,15 @@ $config = new PhpCsFixer\Config();
 
 return $config
     ->setRules([
-        '@PSR2'                                 => true,
-        'array_indentation'                     => true,
-        'array_syntax'                          => ['syntax' => 'short'],
-        'binary_operator_spaces'                => ['default' => 'align_single_space_minimal'],
+        '@PSR2'                  => true,
+        'array_indentation'      => true,
+        'array_syntax'           => ['syntax' => 'short'],
+        'binary_operator_spaces' => [
+            'default'   => 'align_single_space_minimal',
+            'operators' => [
+                '=>' => 'align_single_space_minimal',
+            ]
+        ],
         'blank_line_before_statement'           => true,
         'braces'                                => ['allow_single_line_closure' => true],
         'cast_spaces'                           => true,
