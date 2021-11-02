@@ -1,22 +1,7 @@
 <?php
 
-// Adapted from https://gist.github.com/codfish/c77d348820c1c6b4ebe4a66dc2291c74
+// See https://mlocati.github.io/php-cs-fixer-configurator/#version:3.2 for documentation
 
-/**
- * Rules we follow are from PSR-2 as well as the rectified PSR-2 guide.
- *
- * - https://github.com/FriendsOfPHP/PHP-CS-Fixer
- * - https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
- * - https://github.com/php-fig-rectified/fig-rectified-standards/blob/master/PSR-2-R-coding-style-guide-additions.md
- *
- * If something isn't addressed in either of those, some other common community rules are
- * used that might not be addressed explicitly in PSR-2 in order to improve code quality
- * (so that devs don't need to comment on them in Code Reviews).
- *
- * For instance: removing trailing white space, removing extra line breaks where
- * they're not needed (back to back, beginning or end of function/class, etc.),
- * adding trailing commas in the last line of an array, etc.
- */
 $finder = PhpCsFixer\Finder::create()
     ->exclude('node_modules')
     ->exclude('vendor')
@@ -26,7 +11,7 @@ $config = new PhpCsFixer\Config();
 
 return $config
     ->setRules([
-        '@PSR2'                  => true,
+        '@PSR12'                 => true,
         'array_indentation'      => true,
         'array_syntax'           => ['syntax' => 'short'],
         'binary_operator_spaces' => [
@@ -41,13 +26,11 @@ return $config
         'combine_consecutive_unsets'            => true,
         'concat_space'                          => ['spacing' => 'one'],
         'linebreak_after_opening_tag'           => true,
-        'no_blank_lines_after_class_opening'    => true,
         'no_blank_lines_after_phpdoc'           => true,
         'no_break_comment'                      => false,
         'no_extra_blank_lines'                  => true,
-        'no_trailing_comma_in_singleline_array' => true,
-        'no_whitespace_in_blank_line'           => true,
         'no_spaces_around_offset'               => true,
+        'no_trailing_comma_in_singleline_array' => true,
         'no_unused_imports'                     => true,
         'no_useless_else'                       => true,
         'no_useless_return'                     => true,
