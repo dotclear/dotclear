@@ -41,6 +41,7 @@ Dotclear 2.20 - 2021-11-13
 * Fix: CKEditor sometimes add a t parameter to a request URL (background sprite image), ignore it
 * Lib: Update CKEditor from 4.16.1 to 4.16.2 (with local additional fixes in CKEditor jQuery adapter)
 * Lib: Update Codemirror 5.62.0 from to 5.63.3
+* Lib: Update jQuery UI (custom) from 1.12.1 to 1.13.0
 * ClearBricks: Allow legitimate .. in media filenames
 * ClearBricks: Allow legacy forms (array of key => value) for select and optgroup components in form class
 * Clearbricks: Add details block support in wiki syntax
