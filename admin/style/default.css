@@ -1973,7 +1973,7 @@ span.form-note, span.form-stats {
   50% {
     background-color: var(--input-focus); } }
 .no-more-info {
-  display: none; }
+  display: none !important; }
 
 /* Removes inner padding and border in FF3+  - Knacss */
 button::-moz-focus-inner,

@@ -24,7 +24,8 @@ if (!defined('DC_BACKUP_PATH')) {
                 [
                     __('System')          => '',
                     __('Dotclear update') => ''
-                ])
+                ]
+            )
         );
         echo
         '<h3>' . __('Precheck update error') . '</h3>' .
@@ -42,7 +43,8 @@ if (!is_readable(DC_DIGESTS)) {
             [
                 __('System')          => '',
                 __('Dotclear update') => ''
-            ])
+            ]
+        )
     );
     echo
     '<h3>' . __('Precheck update error') . '</h3>' .
@@ -134,8 +136,10 @@ if ($new_v && $step) {
                 break;
             case 'backup':
                 $updater->backup(
-                    $zip_file, 'dotclear/inc/digests',
-                    DC_ROOT, DC_ROOT . '/inc/digests',
+                    $zip_file,
+                    'dotclear/inc/digests',
+                    DC_ROOT,
+                    DC_ROOT . '/inc/digests',
                     DC_BACKUP_PATH . '/backup-' . DC_VERSION . '.zip'
                 );
                 http::redirect($p_url . '?step=unzip');
@@ -143,8 +147,11 @@ if ($new_v && $step) {
                 break;
             case 'unzip':
                 $updater->performUpgrade(
-                    $zip_file, 'dotclear/inc/digests', 'dotclear',
-                    DC_ROOT, DC_ROOT . '/inc/digests'
+                    $zip_file,
+                    'dotclear/inc/digests',
+                    'dotclear',
+                    DC_ROOT,
+                    DC_ROOT . '/inc/digests'
                 );
 
                 break;
@@ -157,9 +164,11 @@ if ($new_v && $step) {
                 'have been modified so we won\'t try to update your installation. ' .
                 'Please try to <a href="https://dotclear.org/download">update manually</a>.');
         } elseif ($e->getCode() == dcUpdate::ERR_FILES_UNREADABLE) {
-            $msg = sprintf(__('The following files of your Dotclear installation are not readable. ' .
+            $msg = sprintf(
+                __('The following files of your Dotclear installation are not readable. ' .
                 'Please fix this or try to make a backup file named %s manually.'),
-                '<strong>backup-' . DC_VERSION . '.zip</strong>');
+                '<strong>backup-' . DC_VERSION . '.zip</strong>'
+            );
         } elseif ($e->getCode() == dcUpdate::ERR_FILES_UNWRITALBE) {
             $msg = __('The following files of your Dotclear installation cannot be written. ' .
                 'Please fix this or try to <a href="https://dotclear.org/download">update manually</a>.');
@@ -179,7 +188,8 @@ if ($new_v && $step) {
 
 /* DISPLAY Main page
 -------------------------------------------------------- */
-dcPage::open(__('Dotclear update'),
+dcPage::open(
+    __('Dotclear update'),
     (!$step ?
         dcPage::jsPageTabs($default_tab) .
         dcPage::jsLoad('js/_update.js')
@@ -188,7 +198,8 @@ dcPage::open(__('Dotclear update'),
         [
             __('System')          => '',
             __('Dotclear update') => ''
-        ])
+        ]
+    )
 );
 
 if (!$core->error->flag()) {
@@ -199,6 +210,17 @@ if (!$core->error->flag()) {
 
 if (!$step) {
     echo '<div class="multi-part" id="update" title="' . __('Dotclear update') . '">';
+
+    // Warning about PHP version if necessary
+    if (version_compare(phpversion(), DC_NEXT_REQUIRED_PHP, '<')) {
+        echo '<p class="info more-info">' .
+        sprintf(
+            __('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
+            DC_NEXT_REQUIRED_PHP,
+            phpversion()
+        ) .
+        '</p>';
+    }
     if (empty($new_v)) {
         echo '<p><strong>' . __('No newer Dotclear version available.') . '</strong></p>' .
         '<form action="' . $p_url . '" method="get">' .

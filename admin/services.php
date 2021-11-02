@@ -81,7 +81,7 @@ class dcRestMethods
                 if (empty($GLOBALS['__resources']['rss_news'])) {
                     throw new Exception();
                 }
-                $feed_reader = new feedReader;
+                $feed_reader = new feedReader();
                 $feed_reader->setCacheDir(DC_TPL_CACHE);
                 $feed_reader->setTimeout(2);
                 $feed_reader->setUserAgent('Dotclear - https://dotclear.org/');
@@ -138,18 +138,26 @@ class dcRestMethods
                         '</div>';
                 } else {
                     $ret = '<p class="info">' .
-                    sprintf(__('A new version of Dotclear is available but needs PHP version ≥ %s, your\'s is currently %s'),
-                        $updater->getPHPVersion(), phpversion()) .
+                    sprintf(
+                        __('A new version of Dotclear is available but needs PHP version ≥ %s, your\'s is currently %s'),
+                        $updater->getPHPVersion(),
+                        phpversion()
+                    ) .
                         '</p>';
                 }
                 $rsp->check = true;
             } else {
                 if (version_compare(phpversion(), DC_NEXT_REQUIRED_PHP, '<')) {
-                    $ret = '<p class="info">' .
-                    sprintf(__('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
-                        DC_NEXT_REQUIRED_PHP, phpversion()) .
+                    if (!$core->auth->user_prefs->interface->hidemoreinfo) {
+                        $ret = '<p class="info">' .
+                        sprintf(
+                            __('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
+                            DC_NEXT_REQUIRED_PHP,
+                            phpversion()
+                        ) .
                         '</p>';
-                    $rsp->check = true;
+                        $rsp->check = true;
+                    }
                 }
             }
         }
@@ -209,7 +217,7 @@ class dcRestMethods
             throw new Exception('No post ID');
         }
 
-        $params = ['post_id' => (integer) $get['id']];
+        $params = ['post_id' => (int) $get['id']];
 
         if (isset($get['post_type'])) {
             $params['post_type'] = $get['post_type'];
@@ -275,7 +283,7 @@ class dcRestMethods
             throw new Exception('No comment ID');
         }
 
-        $rs = $core->blog->getComments(['comment_id' => (integer) $get['id']]);
+        $rs = $core->blog->getComments(['comment_id' => (int) $get['id']]);
 
         if ($rs->isEmpty()) {
             throw new Exception('No comment for this ID');
@@ -321,7 +329,7 @@ class dcRestMethods
             # --BEHAVIOR-- adminBeforeCategoryCreate
             $core->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
-            $post['cat_id'] = $core->blog->addCategory($cur_cat, (integer) $parent_cat);
+            $post['cat_id'] = $core->blog->addCategory($cur_cat, (int) $parent_cat);
 
             # --BEHAVIOR-- adminAfterCategoryCreate
             $core->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
@@ -332,12 +340,12 @@ class dcRestMethods
         $cur->post_title        = !empty($post['post_title']) ? $post['post_title'] : '';
         $cur->user_id           = $core->auth->userID();
         $cur->post_content      = !empty($post['post_content']) ? $post['post_content'] : '';
-        $cur->cat_id            = !empty($post['cat_id']) ? (integer) $post['cat_id'] : null;
+        $cur->cat_id            = !empty($post['cat_id']) ? (int) $post['cat_id'] : null;
         $cur->post_format       = !empty($post['post_format']) ? $post['post_format'] : 'xhtml';
         $cur->post_lang         = !empty($post['post_lang']) ? $post['post_lang'] : '';
-        $cur->post_status       = !empty($post['post_status']) ? (integer) $post['post_status'] : 0;
-        $cur->post_open_comment = (integer) $core->blog->settings->system->allow_comments;
-        $cur->post_open_tb      = (integer) $core->blog->settings->system->allow_trackbacks;
+        $cur->post_status       = !empty($post['post_status']) ? (int) $post['post_status'] : 0;
+        $cur->post_open_comment = (int) $core->blog->settings->system->allow_comments;
+        $cur->post_open_tb      = (int) $core->blog->settings->system->allow_trackbacks;
 
         # --BEHAVIOR-- adminBeforePostCreate
         $core->callBehavior('adminBeforePostCreate', $cur);
@@ -401,7 +409,7 @@ class dcRestMethods
             throw new Exception('No media ID');
         }
 
-        $id = (integer) $get['id'];
+        $id = (int) $get['id'];
 
         if (!$core->auth->check('media,media_admin', $core->blog)) {
             throw new Exception('Permission denied');
@@ -658,16 +666,16 @@ class dcRestMethods
         $su = [];
         foreach ($sorts as $sort_type => $sort_data) {
             if (null !== $sort_data[1]) {
-                $k = 'sort';
+                $k                 = 'sort';
                 $su[$sort_type][0] = $sort_type == $post['id'] && isset($post[$k]) && in_array($post[$k], $sort_data[1]) ? $post[$k] : $sort_data[2];
             }
             if (null !== $sort_data[3]) {
-                $k = 'order';
+                $k                 = 'order';
                 $su[$sort_type][1] = $sort_type == $post['id'] && isset($post[$k]) && in_array($post[$k], ['asc', 'desc']) ? $post[$k] : $sort_data[3];
             }
             if (null !== $sort_data[4]) {
-                $k = 'nb';
-                $su[$sort_type][2] = $sort_type == $post['id'] && isset($post[$k]) ? abs((integer) $post[$k]) : $sort_data[4][1];
+                $k                 = 'nb';
+                $su[$sort_type][2] = $sort_type == $post['id'] && isset($post[$k]) ? abs((int) $post[$k]) : $sort_data[4][1];
             }
         }
         if ($core->auth->user_prefs->interface === null) {
