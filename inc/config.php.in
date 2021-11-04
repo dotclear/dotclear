@@ -80,6 +80,9 @@ define('DC_CRYPT_ALGO', 'sha512');
 // Show hidden media dirs
 //define('DC_SHOW_HIDDEN_DIRS', false);
 
+// DotAddict update checking
+//define('DC_DA_NOT_UPDATE', false);
+
 // If you have PATH_INFO issue, uncomment following lines
 //if (!isset($_SERVER['ORIG_PATH_INFO'])) {
 //    $_SERVER['ORIG_PATH_INFO'] = '';

@@ -63,7 +63,7 @@ class dcStore
         }
 
         try {
-            $parser = dcStoreReader::quickParse($this->xml_url, DC_TPL_CACHE, $force);
+            $parser = DC_DA_NOT_UPDATE ? false : dcStoreReader::quickParse($this->xml_url, DC_TPL_CACHE, $force);
         } catch (Exception $e) {
             return false;
         }

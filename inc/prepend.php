@@ -212,6 +212,10 @@ if (!defined('DC_ALLOW_MULTI_MODULES')) {
     define('DC_ALLOW_MULTI_MODULES', false);
 }
 
+if (!defined('DC_DA_NOT_UPDATE')) {
+    define('DC_DA_NOT_UPDATE', false);
+}
+
 if (!defined('DC_ALLOW_REPOSITORIES')) {
     define('DC_ALLOW_REPOSITORIES', true);
 }
@@ -277,13 +281,18 @@ try {
 } catch (Exception $e) {
     init_prepend_l10n();
     if (!defined('DC_CONTEXT_ADMIN')) {
-        __error(__('Site temporarily unavailable'),
+        __error(
+            __('Site temporarily unavailable'),
             __('<p>We apologize for this temporary unavailability.<br />' .
                 'Thank you for your understanding.</p>'),
-            20);
+            20
+        );
     } else {
-        __error(__('Unable to connect to database'), $e->getCode() == 0 ?
-            sprintf(__('<p>This either means that the username and password information in ' .
+        __error(
+            __('Unable to connect to database'),
+            $e->getCode() == 0 ?
+            sprintf(
+                __('<p>This either means that the username and password information in ' .
                 'your <strong>config.php</strong> file is incorrect or we can\'t contact ' .
                 'the database server at "<em>%s</em>". This could mean your ' .
                 'host\'s database server is down.</p> ' .
