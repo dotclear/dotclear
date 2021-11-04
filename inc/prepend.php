@@ -212,8 +212,8 @@ if (!defined('DC_ALLOW_MULTI_MODULES')) {
     define('DC_ALLOW_MULTI_MODULES', false);
 }
 
-if (!defined('DC_DA_NOT_UPDATE')) {
-    define('DC_DA_NOT_UPDATE', false);
+if (!defined('DC_STORE_NOT_UPDATE')) {
+    define('DC_STORE_NOT_UPDATE', false);
 }
 
 if (!defined('DC_ALLOW_REPOSITORIES')) {

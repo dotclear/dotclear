@@ -17,7 +17,7 @@ Dotclear 2.20 - 2021-11-13
 * Theme: Remove left border for (aside) sidebar of Berlin theme
 * Core: Add third-party repository option for modules (plugins and themes)
 * Core: Asynchronous check store update on dashboard
-* Core: Add constant (DC_DA_NOT_UPDATE) to disable DotAddict updates check
+* Core: Add constant (DC_STORE_NOT_UPDATE) to disable DotAddict updates check
 * Core: Add constant (DC_ALLOW_REPOSITORIES) to disable third party repo
 * Core: Open admin search page to other type (WIP)
 * Core: Remove currywurst template set (never used)
