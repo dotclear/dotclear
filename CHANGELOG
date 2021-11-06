@@ -46,6 +46,7 @@ Dotclear 2.20 - 2021-11-13
 * ClearBricks: Allow legitimate .. in media filenames
 * ClearBricks: Allow legacy forms (array of key => value) for select and optgroup components in form class
 * Clearbricks: Add details block support in wiki syntax
+* Clearbricks: Use mysqli_get_server_version() rather than mysqli_get_server_info() to get server version
 * 🛡 Security: Add SECURITY.md document
 * 🐛 → Various bugs, a11y concerns and typos fixed
 * 🌼 → Some locales and cosmetic adjustments
