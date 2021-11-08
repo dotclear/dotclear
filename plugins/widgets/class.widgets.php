@@ -95,7 +95,7 @@ class dcWidgets
 
         uasort($A, ['self', 'arraySort']);
 
-        $result = new self;
+        $result = new self();
         foreach ($A as $v) {
             if ($widgets->{$v['id']} != null) {
                 $w = clone $widgets->{$v['id']};
@@ -223,7 +223,7 @@ class dcWidget
                 // Use H2 for mustek based themes
                 $wtscheme = '<h2>%s</h2>';
             } else {
-                // Use H3 for currywurst based themes
+                // Use H3 for dotty based themes
                 $wtscheme = '<h3>%s</h3>';
             }
         }
@@ -247,7 +247,7 @@ class dcWidget
                 // Use H2 for mustek based themes
                 $wtscheme = '<h3>%s</h3>';
             } else {
-                // Use H3 for currywurst based themes
+                // Use H3 for dotty based themes
                 $wtscheme = '<h4>%s</h4>';
             }
         }
@@ -429,9 +429,9 @@ class dcWidget
 
 class dcWidgetExt extends dcWidget
 {
-    const ALL_PAGES   = 0; // Widget displayed on every page
-    const HOME_ONLY   = 1; // Widget displayed on home page only
-    const EXCEPT_HOME = 2; // Widget displayed on every page but home page
+    public const ALL_PAGES   = 0; // Widget displayed on every page
+    public const HOME_ONLY   = 1; // Widget displayed on home page only
+    public const EXCEPT_HOME = 2; // Widget displayed on every page but home page
 
     public function addTitle($title = '')
     {
@@ -440,8 +440,13 @@ class dcWidgetExt extends dcWidget
 
     public function addHomeOnly()
     {
-        return $this->setting('homeonly', __('Display on:'), self::ALL_PAGES, 'combo',
-            [__('All pages') => self::ALL_PAGES, __('Home page only') => self::HOME_ONLY, __('Except on home page') => self::EXCEPT_HOME]);
+        return $this->setting(
+            'homeonly',
+            __('Display on:'),
+            self::ALL_PAGES,
+            'combo',
+            [__('All pages') => self::ALL_PAGES, __('Home page only') => self::HOME_ONLY, __('Except on home page') => self::EXCEPT_HOME]
+        );
     }
 
     public function checkHomeOnly($type, $alt_not_home = 1, $alt_home = 0)
