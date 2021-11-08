@@ -27,7 +27,7 @@ class dcStoreReader extends netHttp
     /** @var    string    Cache file prefix */
     protected $cache_file_prefix = 'dcrepo';
     /** @var    string    Cache TTL */
-    protected $cache_ttl = '-30 minutes';
+    protected $cache_ttl = '-1440 minutes';
     /** @var    boolean    'Cache' TTL on server failed */
     protected $cache_touch_on_fail = true;
     /** @var    boolean    Force query server */
@@ -41,7 +41,7 @@ class dcStoreReader extends netHttp
     public function __construct()
     {
         parent::__construct('');
-        $this->setUserAgent(sprintf('Dotclear/%s)', DC_VERSION));
+        $this->setUserAgent(sprintf('Dotclear/%s', DC_VERSION));
         $this->setTimeout(DC_QUERY_TIMEOUT);
     }
 
@@ -160,7 +160,8 @@ class dcStoreReader extends netHttp
     protected function withCache($url)
     {
         $url_md5     = md5($url);
-        $cached_file = sprintf('%s/%s/%s/%s/%s.ser',
+        $cached_file = sprintf(
+            '%s/%s/%s/%s/%s.ser',
             $this->cache_dir,
             $this->cache_file_prefix,
             substr($url_md5, 0, 2),
