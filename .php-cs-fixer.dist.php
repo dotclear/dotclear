@@ -12,13 +12,13 @@ $config = new PhpCsFixer\Config();
 return $config
     ->setRules([
         '@PSR12'                 => true,
+        '@PHP74Migration'        => true,
         'array_indentation'      => true,
-        'array_syntax'           => ['syntax' => 'short'],
         'binary_operator_spaces' => [
             'default'   => 'align_single_space_minimal',
             'operators' => [
                 '=>' => 'align_single_space_minimal',
-            ]
+            ],
         ],
         'blank_line_before_statement'           => true,
         'braces'                                => ['allow_single_line_closure' => true],
@@ -34,15 +34,10 @@ return $config
         'no_unused_imports'                     => true,
         'no_useless_else'                       => true,
         'no_useless_return'                     => true,
-        'no_whitespace_before_comma_in_array'   => true,
-        'normalize_index_brace'                 => true,
         'phpdoc_indent'                         => true,
         'phpdoc_to_comment'                     => true,
         'phpdoc_trim'                           => true,
-        'return_type_declaration'               => ['space_before' => 'none'],
         'single_quote'                          => true,
-        'ternary_to_null_coalescing'            => true,
-        'trailing_comma_in_multiline'           => false,
         'trim_array_spaces'                     => true,
     ])
     ->setFinder($finder);
