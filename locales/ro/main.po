@@ -1051,7 +1051,7 @@ msgid "Save and publish"
 msgstr ""
 
 #, php-format
-msgid "PHP version is %s (7.3 or earlier needed)."
+msgid "PHP version is %s (7.4 or earlier needed)."
 msgstr ""
 
 msgid "Multibyte string module (mbstring) is not available."

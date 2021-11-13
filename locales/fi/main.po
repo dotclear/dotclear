@@ -1055,8 +1055,8 @@ msgid "Save and publish"
 msgstr "Tallenna ja julkaise"
 
 #, php-format
-msgid "PHP version is %s (7.3 or earlier needed)."
-msgstr "PHP-versio on %s (tarvitaan 7.3 tai uudempi)."
+msgid "PHP version is %s (7.4 or earlier needed)."
+msgstr "PHP-versio on %s (tarvitaan 7.4 tai uudempi)."
 
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "Monitavumerkkijonomoduulia (mbstring) ei löydy."

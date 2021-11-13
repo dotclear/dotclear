@@ -12,9 +12,9 @@ if (!defined('DC_RC_PATH')) {
 
 class dcUpdate
 {
-    const ERR_FILES_CHANGED    = 101;
-    const ERR_FILES_UNREADABLE = 102;
-    const ERR_FILES_UNWRITALBE = 103;
+    public const ERR_FILES_CHANGED    = 101;
+    public const ERR_FILES_UNREADABLE = 102;
+    public const ERR_FILES_UNWRITALBE = 103;
 
     protected $url;
     protected $subject;
@@ -26,8 +26,8 @@ class dcUpdate
         'href'     => null,
         'checksum' => null,
         'info'     => null,
-        'php'      => '7.3',
-        'notify'   => true
+        'php'      => '7.4',
+        'notify'   => true,
     ];
 
     protected $cache_ttl    = '-6 hours';
@@ -188,7 +188,7 @@ class dcUpdate
             return;
         }
 
-        $this->version_info['notify'] = (boolean) $n;
+        $this->version_info['notify'] = (bool) $n;
         file_put_contents($this->cache_file, serialize($this->version_info));
     }
 

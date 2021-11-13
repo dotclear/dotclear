@@ -1,34 +1,36 @@
 {
-	"name": "dotclear/dotclear",
-	"description": "Dotclear is an open-source web publishing software.",
-	"license": "GPL-2.0-only",
-	"authors": [
-		{
-			"name": "Dotclear Team",
-			"email": "dev@dotclear.org"
-		}
-	],
-	"minimum-stability": "dev",
-	"require": {
-		"php": ">=7.3.0"
-	},
-	"require-dev": {
+  "name": "dotclear/dotclear",
+  "description": "Dotclear is an open-source web publishing software.",
+  "license": "GPL-2.0-only",
+  "authors": [
+    {
+      "name": "Dotclear Team",
+      "email": "dev@dotclear.org"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=7.4.0"
+  },
+  "require-dev": {
     "atoum/atoum": "dev-master",
     "fzaninotto/faker": "dev-master",
     "atoum/reports-extension": "dev-master",
-		"behat/behat": "<3",
-		"behat/common-contexts": "1.2.*",
-		"behat/mink": ">=1.4,<1.5-dev",
-		"symfony/dom-crawler": ">=2.0,<2.4-dev",
-		"symfony/translation": "<2.3.0",
-		"behat/mink-extension": "1.3.*",
-		"behat/mink-goutte-driver": "1.*",
-		"phpstan/phpstan": "0.12.x-dev"
-	},
-	"config": {
-		"bin-dir": "bin/"
-	},
-	"autoload": {
-		"psr-0": { "": "" }
-	}
+    "behat/behat": "<3",
+    "behat/common-contexts": "1.2.*",
+    "behat/mink": ">=1.4,<1.5-dev",
+    "symfony/dom-crawler": ">=2.0,<2.4-dev",
+    "symfony/translation": "<2.3.0",
+    "behat/mink-extension": "1.3.*",
+    "behat/mink-goutte-driver": "1.*",
+    "phpstan/phpstan": "^1.1"
+  },
+  "config": {
+    "bin-dir": "bin/"
+  },
+  "autoload": {
+    "psr-0": {
+      "": ""
+    }
+  }
 }

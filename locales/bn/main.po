@@ -1107,8 +1107,8 @@ msgid "Save and publish"
 msgstr "সেভ ও প্রকাশ করুন"
 
 #, fuzzy, php-format
-msgid "PHP version is %s (7.3 or earlier needed)."
-msgstr "PHP সংস্করণ আছে %s (7.3 অথবা পূর্বের লাগবে)."
+msgid "PHP version is %s (7.4 or earlier needed)."
+msgstr "PHP সংস্করণ আছে %s (7.4 অথবা পূর্বের লাগবে)."
 
 msgid "Multibyte string module (mbstring) is not available."
 msgstr ""

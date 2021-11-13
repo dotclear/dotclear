@@ -14,8 +14,8 @@ function dcSystemCheck($con, &$err)
 {
     $err = [];
 
-    if (version_compare(phpversion(), '7.3', '<')) {
-        $err[] = sprintf(__('PHP version is %s (7.3 or earlier needed).'), phpversion());
+    if (version_compare(phpversion(), '7.4', '<')) {
+        $err[] = sprintf(__('PHP version is %s (7.4 or earlier needed).'), phpversion());
     }
 
     if (!function_exists('mb_detect_encoding')) {

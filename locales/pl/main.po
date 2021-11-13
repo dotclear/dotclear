@@ -1123,8 +1123,8 @@ msgid "Save and publish"
 msgstr "Zapisz i opublikuj"
 
 #, fuzzy, php-format
-msgid "PHP version is %s (7.3 or earlier needed)."
-msgstr "Wersja PHP to %s (7.3 lub nowsza wymagana)."
+msgid "PHP version is %s (7.4 or earlier needed)."
+msgstr "Wersja PHP to %s (7.4 lub nowsza wymagana)."
 
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "Moduł mbstring jest niedostępny."

@@ -1131,8 +1131,8 @@ msgid "Save and publish"
 msgstr "保存して掲載"
 
 #, fuzzy, php-format
-msgid "PHP version is %s (7.3 or earlier needed)."
-msgstr "PHP のバージョンが %s です。（7.3 以上が必須です）"
+msgid "PHP version is %s (7.4 or earlier needed)."
+msgstr "PHP のバージョンが %s です。（7.4 以上が必須です）"
 
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "マルチバイト文字列モジュール（mbstring）が利用可能ではありません。"

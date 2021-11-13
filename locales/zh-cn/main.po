@@ -1123,8 +1123,8 @@ msgid "Save and publish"
 msgstr "保存并发布"
 
 #, fuzzy, php-format
-msgid "PHP version is %s (7.3 or earlier needed)."
-msgstr "PHP 版本是 %s (需要 7.3 或更早)。"
+msgid "PHP version is %s (7.4 or earlier needed)."
+msgstr "PHP 版本是 %s (需要 7.4 或更早)。"
 
 msgid "Multibyte string module (mbstring) is not available."
 msgstr "多字节字符串模块(mbstring)不可用。"
