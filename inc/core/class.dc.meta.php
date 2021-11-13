@@ -128,7 +128,7 @@ class dcMeta
                     'meta_id_lower' => mb_strtolower($v),
                     'count'         => 0,
                     'percent'       => 0,
-                    'roundpercent'  => 0
+                    'roundpercent'  => 0,
                 ];
             }
         }
@@ -146,7 +146,7 @@ class dcMeta
      */
     private function checkPermissionsOnPost($post_id)
     {
-        $post_id = (integer) $post_id;
+        $post_id = (int) $post_id;
 
         if (!$this->core->auth->check('usage,contentadmin', $this->core->blog->id)) {
             throw new Exception(__('You are not allowed to change this entry status'));
@@ -174,7 +174,7 @@ class dcMeta
      */
     private function updatePostMeta($post_id)
     {
-        $post_id = (integer) $post_id;
+        $post_id = (int) $post_id;
 
         $strReq = 'SELECT meta_id, meta_type ' .
         'FROM ' . $this->table . ' ' .
@@ -354,13 +354,14 @@ class dcMeta
             }
         }
 
-        while ($rs_static->fetch()) {
+        $rs_static->moveStart();
+        while ($rs_static->fetch()) {   // @phpstan-ignore-line
             $rs_static->set('meta_id_lower', dcUtils::removeDiacritics(mb_strtolower($rs_static->meta_id)));
 
             $count   = $rs_static->count;
-            $percent = ((integer) $rs_static->count) * 100 / $max[$rs_static->meta_type];
+            $percent = ((int) $rs_static->count) * 100 / $max[$rs_static->meta_type];
 
-            $rs_static->set('percent', (integer) round($percent));
+            $rs_static->set('percent', (int) round($percent));
             $rs_static->set('roundpercent', round($percent / 10) * 10);
         }
 
@@ -385,12 +386,12 @@ class dcMeta
 
         $cur = $this->con->openCursor($this->table);
 
-        $cur->post_id   = (integer) $post_id;
+        $cur->post_id   = (int) $post_id;
         $cur->meta_id   = (string) $value;
         $cur->meta_type = (string) $type;
 
         $cur->insert();
-        $this->updatePostMeta((integer) $post_id);
+        $this->updatePostMeta((int) $post_id);
     }
 
     /**
@@ -402,7 +403,7 @@ class dcMeta
      */
     public function delPostMeta($post_id, $type = null, $meta_id = null)
     {
-        $post_id = (integer) $post_id;
+        $post_id = (int) $post_id;
 
         $this->checkPermissionsOnPost($post_id);
 
@@ -418,7 +419,7 @@ class dcMeta
         }
 
         $this->con->execute($strReq);
-        $this->updatePostMeta((integer) $post_id);
+        $this->updatePostMeta((int) $post_id);
     }
 
     /**
@@ -470,8 +471,11 @@ class dcMeta
 
         $to_update = $to_remove = [];
 
-        $rs = $this->con->select(sprintf($getReq, $this->con->escape($meta_id),
-            $this->con->escape($type)));
+        $rs = $this->con->select(sprintf(
+            $getReq,
+            $this->con->escape($meta_id),
+            $this->con->escape($type)
+        ));
 
         while ($rs->fetch()) {
             $to_update[] = $rs->post_id;
@@ -491,9 +495,12 @@ class dcMeta
 
         # Delete duplicate meta
         if (!empty($to_remove)) {
-            $this->con->execute(sprintf($delReq, implode(',', $to_remove),
+            $this->con->execute(sprintf(
+                $delReq,
+                implode(',', $to_remove),
                 $this->con->escape($meta_id),
-                $this->con->escape($type)));
+                $this->con->escape($type)
+            ));
 
             foreach ($to_remove as $post_id) {
                 $this->updatePostMeta($post_id);
@@ -502,10 +509,13 @@ class dcMeta
 
         # Update meta
         if (!empty($to_update)) {
-            $this->con->execute(sprintf($updReq, $this->con->escape($new_meta_id),
+            $this->con->execute(sprintf(
+                $updReq,
+                $this->con->escape($new_meta_id),
                 implode(',', $to_update),
                 $this->con->escape($meta_id),
-                $this->con->escape($type)));
+                $this->con->escape($type)
+            ));
 
             foreach ($to_update as $post_id) {
                 $this->updatePostMeta($post_id);

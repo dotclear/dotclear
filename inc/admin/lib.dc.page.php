@@ -212,11 +212,11 @@ class dcPage
         if ($core->auth->user_prefs->interface->htmlfontsize) {
             $js['htmlFontSize'] = $core->auth->user_prefs->interface->htmlfontsize;
         }
-        $js['hideMoreInfo']   = (boolean) $core->auth->user_prefs->interface->hidemoreinfo;
-        $js['showAjaxLoader'] = (boolean) $core->auth->user_prefs->interface->showajaxloader;
+        $js['hideMoreInfo']   = (bool) $core->auth->user_prefs->interface->hidemoreinfo;
+        $js['showAjaxLoader'] = (bool) $core->auth->user_prefs->interface->showajaxloader;
 
         $core->auth->user_prefs->addWorkspace('accessibility');
-        $js['noDragDrop'] = (boolean) $core->auth->user_prefs->accessibility->nodragdrop;
+        $js['noDragDrop'] = (bool) $core->auth->user_prefs->accessibility->nodragdrop;
 
         $js['debug'] = !!DC_DEBUG;  // @phpstan-ignore-line
 
@@ -363,9 +363,9 @@ class dcPage
 
         $figure = <<<EOT
 
-    ¯\_(ツ)_/¯
+                ¯\_(ツ)_/¯
 
-EOT;
+            EOT;
 
         echo
             '<footer id="footer" role="contentinfo">' .
@@ -428,11 +428,11 @@ EOT;
         if ($core->auth->user_prefs->interface->htmlfontsize) {
             $js['htmlFontSize'] = $core->auth->user_prefs->interface->htmlfontsize;
         }
-        $js['hideMoreInfo']   = (boolean) $core->auth->user_prefs->interface->hidemoreinfo;
-        $js['showAjaxLoader'] = (boolean) $core->auth->user_prefs->interface->showajaxloader;
+        $js['hideMoreInfo']   = (bool) $core->auth->user_prefs->interface->hidemoreinfo;
+        $js['showAjaxLoader'] = (bool) $core->auth->user_prefs->interface->showajaxloader;
 
         $core->auth->user_prefs->addWorkspace('accessibility');
-        $js['noDragDrop'] = (boolean) $core->auth->user_prefs->accessibility->nodragdrop;
+        $js['noDragDrop'] = (bool) $core->auth->user_prefs->accessibility->nodragdrop;
 
         $js['debug'] = !!DC_DEBUG;  // @phpstan-ignore-line
 
@@ -605,7 +605,7 @@ EOT;
         # --BEHAVIOR-- adminPageHelpBlock
         $core->callBehavior('adminPageHelpBlock', $args);
 
-        if (empty($args)) {
+        if (!count($args)) {
             return;
         };
 
@@ -825,7 +825,7 @@ EOT;
                 (
                     !defined('DC_ADBLOCKER_CHECK') || DC_ADBLOCKER_CHECK === true
                 ) && $core->auth->user_prefs !== null && $core->auth->user_prefs->interface->nocheckadblocker !== true
-            )
+            ),
         ];
 
         $js_msg = [
@@ -890,15 +890,16 @@ EOT;
             'show_password' => __('Show password'),
             'hide_password' => __('Hide password'),
 
-            'adblocker' => __('An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it.')
+            'adblocker' => __('An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it.'),
         ];
 
         return
         self::jsLoad('js/prepend.js') .
         self::jsLoad('js/jquery/jquery.js') .
-        (DC_DEBUG ? // @phpstan-ignore-line
+        (
+            DC_DEBUG ? // @phpstan-ignore-line
             self::jsJson('dotclear_jquery', [
-                'mute' => (empty($core->blog) || $core->blog->settings->system->jquery_migrate_mute)
+                'mute' => (empty($core->blog) || $core->blog->settings->system->jquery_migrate_mute),
             ]) .
             self::jsLoad('js/jquery-mute.js') .
             self::jsLoad('js/jquery/jquery-migrate.js') :
@@ -935,7 +936,7 @@ EOT;
     {
         $js = [
             'prompt' => __('You have unsaved changes.'),
-            'forms'  => $args
+            'forms'  => $args,
         ];
 
         return
@@ -953,7 +954,7 @@ EOT;
     public static function jsPageTabs($default = null)
     {
         $js = [
-            'default' => $default
+            'default' => $default,
         ];
 
         return
@@ -1003,7 +1004,7 @@ EOT;
                 __('September'),
                 __('October'),
                 __('November'),
-                __('December')
+                __('December'),
             ],
             'days' => [
                 __('Monday'),
@@ -1012,12 +1013,12 @@ EOT;
                 __('Thursday'),
                 __('Friday'),
                 __('Saturday'),
-                __('Sunday')
+                __('Sunday'),
             ],
             'img_src'   => 'images/date-picker.png',
             'img_alt'   => __('Choose date'),
             'close_msg' => __('close'),
-            'now_msg'   => __('now')
+            'now_msg'   => __('now'),
         ];
 
         return
@@ -1050,12 +1051,12 @@ EOT;
         $params = array_merge($params, [
             'sess_id=' . session_id(),
             'sess_uid=' . $_SESSION['sess_browser_uid'],
-            'xd_check=' . $core->getNonce()
+            'xd_check=' . $core->getNonce(),
         ]);
 
         $js_msg = [
             'enhanced_uploader_activate' => __('Temporarily activate enhanced uploader'),
-            'enhanced_uploader_disable'  => __('Temporarily disable enhanced uploader')
+            'enhanced_uploader_disable'  => __('Temporarily disable enhanced uploader'),
         ];
         $js = [
             'msg' => [
@@ -1074,9 +1075,9 @@ EOT;
                 'no_file_in_queue'           => __('No file in queue.'),
                 'file_in_queue'              => __('1 file in queue.'),
                 'files_in_queue'             => __('%d files in queue.'),
-                'queue_error'                => __('Queue error:')
+                'queue_error'                => __('Queue error:'),
             ],
-            'base_url' => $base_url
+            'base_url' => $base_url,
         ];
 
         return
@@ -1116,9 +1117,9 @@ EOT;
     {
         $core = self::getCore();
         $js   = [
-            'show_filters'      => (boolean) $show,
+            'show_filters'      => (bool) $show,
             'filter_posts_list' => __('Show filters and display options'),
-            'cancel_the_filter' => __('Cancel filters and display options')
+            'cancel_the_filter' => __('Cancel filters and display options'),
         ];
 
         return
@@ -1176,7 +1177,7 @@ EOT;
                 'name'  => $name,
                 'id'    => $id,
                 'mode'  => $mode,
-                'theme' => $theme ?: 'default'
+                'theme' => $theme ?: 'default',
             ]];
         }
 

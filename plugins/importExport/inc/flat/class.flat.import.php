@@ -49,7 +49,7 @@ class flatImport extends flatBackup
     public $old_ids = [
         'category' => [],
         'post'     => [],
-        'media'    => []
+        'media'    => [],
     ];
 
     public $stack = [
@@ -60,7 +60,7 @@ class flatImport extends flatBackup
         'media_id'   => 1,
         'comment_id' => 1,
         'link_id'    => 1,
-        'log_id'     => 1
+        'log_id'     => 1,
     ];
 
     public $has_categories = false;
@@ -142,31 +142,31 @@ class flatImport extends flatBackup
         );
 
         $rs                    = $this->con->select('SELECT MAX(cat_id) FROM ' . $this->prefix . 'category');
-        $this->stack['cat_id'] = ((integer) $rs->f(0)) + 1;
+        $this->stack['cat_id'] = ((int) $rs->f(0)) + 1;
 
         $rs                     = $this->con->select('SELECT MAX(link_id) FROM ' . $this->prefix . 'link');
-        $this->stack['link_id'] = ((integer) $rs->f(0)) + 1;
+        $this->stack['link_id'] = ((int) $rs->f(0)) + 1;
 
         $rs                     = $this->con->select('SELECT MAX(post_id) FROM ' . $this->prefix . 'post');
-        $this->stack['post_id'] = ((integer) $rs->f(0)) + 1;
+        $this->stack['post_id'] = ((int) $rs->f(0)) + 1;
 
         $rs                      = $this->con->select('SELECT MAX(media_id) FROM ' . $this->prefix . 'media');
-        $this->stack['media_id'] = ((integer) $rs->f(0)) + 1;
+        $this->stack['media_id'] = ((int) $rs->f(0)) + 1;
 
         $rs                        = $this->con->select('SELECT MAX(comment_id) FROM ' . $this->prefix . 'comment');
-        $this->stack['comment_id'] = ((integer) $rs->f(0)) + 1;
+        $this->stack['comment_id'] = ((int) $rs->f(0)) + 1;
 
         $rs                    = $this->con->select('SELECT MAX(log_id) FROM ' . $this->prefix . 'log');
-        $this->stack['log_id'] = ((integer) $rs->f(0)) + 1;
+        $this->stack['log_id'] = ((int) $rs->f(0)) + 1;
 
         $rs = $this->con->select(
             'SELECT MAX(cat_rgt) AS cat_rgt FROM ' . $this->prefix . 'category ' .
             "WHERE blog_id = '" . $this->con->escape($this->core->blog->id) . "'"
         );
 
-        if ((integer) $rs->cat_rgt > 0) {
+        if ((int) $rs->cat_rgt > 0) {
             $this->has_categories                          = true;
-            $this->stack['cat_lft'][$this->core->blog->id] = (integer) $rs->cat_rgt + 1;
+            $this->stack['cat_lft'][$this->core->blog->id] = (int) $rs->cat_rgt + 1;
         }
 
         $this->con->begin();
@@ -373,7 +373,7 @@ class flatImport extends flatBackup
         $this->cur_blog->blog_name   = (string) $blog->blog_name;
         $this->cur_blog->blog_desc   = (string) $blog->blog_desc;
 
-        $this->cur_blog->blog_status = $blog->exists('blog_status') ? (integer) $blog->blog_status : 1;
+        $this->cur_blog->blog_status = $blog->exists('blog_status') ? (int) $blog->blog_status : 1;
 
         $this->cur_blog->insert();
     }
@@ -389,8 +389,8 @@ class flatImport extends flatBackup
         $this->cur_category->cat_desc  = (string) $category->cat_desc;
 
         if (!$this->has_categories && $category->exists('cat_lft') && $category->exists('cat_rgt')) {
-            $this->cur_category->cat_lft = (integer) $category->cat_lft;
-            $this->cur_category->cat_rgt = (integer) $category->cat_rgt;
+            $this->cur_category->cat_lft = (int) $category->cat_lft;
+            $this->cur_category->cat_rgt = (int) $category->cat_rgt;
         } else {
             if (!isset($this->stack['cat_lft'][$category->blog_id])) {
                 $this->stack['cat_lft'][$category->blog_id] = 2;
@@ -406,14 +406,14 @@ class flatImport extends flatBackup
     {
         $this->cur_link->clean();
 
-        $this->cur_link->link_id       = (integer) $link->link_id;
+        $this->cur_link->link_id       = (int) $link->link_id;
         $this->cur_link->blog_id       = (string) $link->blog_id;
         $this->cur_link->link_href     = (string) $link->link_href;
         $this->cur_link->link_title    = (string) $link->link_title;
         $this->cur_link->link_desc     = (string) $link->link_desc;
         $this->cur_link->link_lang     = (string) $link->link_lang;
         $this->cur_link->link_xfn      = (string) $link->link_xfn;
-        $this->cur_link->link_position = (integer) $link->link_position;
+        $this->cur_link->link_position = (int) $link->link_position;
 
         $this->cur_link->insert();
     }
@@ -459,7 +459,7 @@ class flatImport extends flatBackup
         $this->cur_user->clean();
 
         $this->cur_user->user_id           = (string) $user->user_id;
-        $this->cur_user->user_super        = (integer) $user->user_super;
+        $this->cur_user->user_super        = (int) $user->user_super;
         $this->cur_user->user_pwd          = (string) $user->user_pwd;
         $this->cur_user->user_recover_key  = (string) $user->user_recover_key;
         $this->cur_user->user_name         = (string) $user->user_name;
@@ -470,13 +470,13 @@ class flatImport extends flatBackup
         $this->cur_user->user_default_blog = !$user->user_default_blog ? null : (string) $user->user_default_blog;
         $this->cur_user->user_lang         = (string) $user->user_lang;
         $this->cur_user->user_tz           = (string) $user->user_tz;
-        $this->cur_user->user_post_status  = (integer) $user->user_post_status;
+        $this->cur_user->user_post_status  = (int) $user->user_post_status;
         $this->cur_user->user_creadt       = (string) $user->user_creadt;
         $this->cur_user->user_upddt        = (string) $user->user_upddt;
 
         $this->cur_user->user_desc    = $user->exists('user_desc') ? (string) $user->user_desc : null;
         $this->cur_user->user_options = $user->exists('user_options') ? (string) $user->user_options : null;
-        $this->cur_user->user_status  = $user->exists('user_status') ? (integer) $user->user_status : 1;
+        $this->cur_user->user_status  = $user->exists('user_status') ? (int) $user->user_status : 1;
 
         $this->cur_user->insert();
 
@@ -498,14 +498,14 @@ class flatImport extends flatBackup
     {
         $this->cur_post->clean();
 
-        $cat_id = (integer) $post->cat_id;
+        $cat_id = (int) $post->cat_id;
         if (!$cat_id) {
             $cat_id = null;
         }
 
         $post_password = $post->post_password ? (string) $post->post_password : null;
 
-        $this->cur_post->post_id            = (integer) $post->post_id;
+        $this->cur_post->post_id            = (int) $post->post_id;
         $this->cur_post->blog_id            = (string) $post->blog_id;
         $this->cur_post->user_id            = (string) $this->getUserId($post->user_id);
         $this->cur_post->cat_id             = $cat_id;
@@ -525,14 +525,14 @@ class flatImport extends flatBackup
         $this->cur_post->post_notes         = (string) $post->post_notes;
         $this->cur_post->post_words         = (string) $post->post_words;
         $this->cur_post->post_meta          = (string) $post->post_meta;
-        $this->cur_post->post_status        = (integer) $post->post_status;
-        $this->cur_post->post_selected      = (integer) $post->post_selected;
-        $this->cur_post->post_open_comment  = (integer) $post->post_open_comment;
-        $this->cur_post->post_open_tb       = (integer) $post->post_open_tb;
-        $this->cur_post->nb_comment         = (integer) $post->nb_comment;
-        $this->cur_post->nb_trackback       = (integer) $post->nb_trackback;
-        $this->cur_post->post_position      = (integer) $post->post_position;
-        $this->cur_post->post_firstpub      = (integer) $post->post_firstpub;
+        $this->cur_post->post_status        = (int) $post->post_status;
+        $this->cur_post->post_selected      = (int) $post->post_selected;
+        $this->cur_post->post_open_comment  = (int) $post->post_open_comment;
+        $this->cur_post->post_open_tb       = (int) $post->post_open_tb;
+        $this->cur_post->nb_comment         = (int) $post->nb_comment;
+        $this->cur_post->nb_trackback       = (int) $post->nb_trackback;
+        $this->cur_post->post_position      = (int) $post->post_position;
+        $this->cur_post->post_firstpub      = (int) $post->post_firstpub;
 
         $this->cur_post->post_tz = $post->exists('post_tz') ? (string) $post->post_tz : 'UTC';
 
@@ -545,7 +545,7 @@ class flatImport extends flatBackup
 
         $this->cur_meta->meta_id   = (string) $meta->meta_id;
         $this->cur_meta->meta_type = (string) $meta->meta_type;
-        $this->cur_meta->post_id   = (integer) $meta->post_id;
+        $this->cur_meta->post_id   = (int) $meta->post_id;
 
         $this->cur_meta->insert();
     }
@@ -554,7 +554,7 @@ class flatImport extends flatBackup
     {
         $this->cur_media->clean();
 
-        $this->cur_media->media_id      = (integer) $media->media_id;
+        $this->cur_media->media_id      = (int) $media->media_id;
         $this->cur_media->user_id       = (string) $media->user_id;
         $this->cur_media->media_path    = (string) $media->media_path;
         $this->cur_media->media_title   = (string) $media->media_title;
@@ -563,7 +563,7 @@ class flatImport extends flatBackup
         $this->cur_media->media_dt      = (string) $media->media_dt;
         $this->cur_media->media_creadt  = (string) $media->media_creadt;
         $this->cur_media->media_upddt   = (string) $media->media_upddt;
-        $this->cur_media->media_private = (integer) $media->media_private;
+        $this->cur_media->media_private = (int) $media->media_private;
 
         $this->cur_media->media_dir = $media->exists('media_dir') ? (string) $media->media_dir : dirname($media->media_file);
 
@@ -576,8 +576,8 @@ class flatImport extends flatBackup
     {
         $this->cur_post_media->clean();
 
-        $this->cur_post_media->media_id = (integer) $post_media->media_id;
-        $this->cur_post_media->post_id  = (integer) $post_media->post_id;
+        $this->cur_post_media->media_id = (int) $post_media->media_id;
+        $this->cur_post_media->post_id  = (int) $post_media->post_id;
 
         $this->cur_post_media->insert();
     }
@@ -586,7 +586,7 @@ class flatImport extends flatBackup
     {
         $this->cur_log->clean();
 
-        $this->cur_log->log_id    = (integer) $log->log_id;
+        $this->cur_log->log_id    = (int) $log->log_id;
         $this->cur_log->user_id   = (string) $log->user_id;
         $this->cur_log->log_table = (string) $log->log_table;
         $this->cur_log->log_dt    = (string) $log->log_dt;
@@ -600,7 +600,7 @@ class flatImport extends flatBackup
     {
         $this->cur_ping->clean();
 
-        $this->cur_ping->post_id  = (integer) $ping->post_id;
+        $this->cur_ping->post_id  = (int) $ping->post_id;
         $this->cur_ping->ping_url = (string) $ping->ping_url;
         $this->cur_ping->ping_dt  = (string) $ping->ping_dt;
 
@@ -611,8 +611,8 @@ class flatImport extends flatBackup
     {
         $this->cur_comment->clean();
 
-        $this->cur_comment->comment_id          = (integer) $comment->comment_id;
-        $this->cur_comment->post_id             = (integer) $comment->post_id;
+        $this->cur_comment->comment_id          = (int) $comment->comment_id;
+        $this->cur_comment->post_id             = (int) $comment->post_id;
         $this->cur_comment->comment_dt          = (string) $comment->comment_dt;
         $this->cur_comment->comment_upddt       = (string) $comment->comment_upddt;
         $this->cur_comment->comment_author      = (string) $comment->comment_author;
@@ -621,9 +621,9 @@ class flatImport extends flatBackup
         $this->cur_comment->comment_content     = (string) $comment->comment_content;
         $this->cur_comment->comment_words       = (string) $comment->comment_words;
         $this->cur_comment->comment_ip          = (string) $comment->comment_ip;
-        $this->cur_comment->comment_status      = (integer) $comment->comment_status;
+        $this->cur_comment->comment_status      = (int) $comment->comment_status;
         $this->cur_comment->comment_spam_status = (string) $comment->comment_spam_status;
-        $this->cur_comment->comment_trackback   = (integer) $comment->comment_trackback;
+        $this->cur_comment->comment_trackback   = (int) $comment->comment_trackback;
 
         $this->cur_comment->comment_tz          = $comment->exists('comment_tz') ? (string) $comment->comment_tz : 'UTC';
         $this->cur_comment->comment_spam_filter = $comment->exists('comment_spam_filter') ? (string) $comment->comment_spam_filter : null;
@@ -635,7 +635,7 @@ class flatImport extends flatBackup
     {
         $this->cur_spamrule->clean();
 
-        $this->cur_spamrule->rule_id      = (integer) $spamrule->rule_id;
+        $this->cur_spamrule->rule_id      = (int) $spamrule->rule_id;
         $this->cur_spamrule->blog_id      = !$spamrule->blog_id ? null : (string) $spamrule->blog_id;
         $this->cur_spamrule->rule_type    = (string) $spamrule->rule_type;
         $this->cur_spamrule->rule_content = (string) $spamrule->rule_content;
@@ -661,7 +661,7 @@ class flatImport extends flatBackup
             $this->stack['cat_id']++;
         }
 
-        $this->old_ids['category'][(integer) $old_id] = $cat_id;
+        $this->old_ids['category'][(int) $old_id] = $cat_id;
     }
 
     private function insertLinkSingle($link)
@@ -675,18 +675,21 @@ class flatImport extends flatBackup
 
     private function insertPostSingle($post)
     {
-        if (!$post->cat_id || isset($this->old_ids['category'][(integer) $post->cat_id])) {
-            $post_id                                         = $this->stack['post_id'];
-            $this->old_ids['post'][(integer) $post->post_id] = $post_id;
+        if (!$post->cat_id || isset($this->old_ids['category'][(int) $post->cat_id])) {
+            $post_id                                     = $this->stack['post_id'];
+            $this->old_ids['post'][(int) $post->post_id] = $post_id;
 
-            $cat_id = $post->cat_id ? $this->old_ids['category'][(integer) $post->cat_id] : null;
+            $cat_id = $post->cat_id ? $this->old_ids['category'][(int) $post->cat_id] : null;
 
             $post->post_id = $post_id;
             $post->cat_id  = $cat_id;
             $post->blog_id = $this->blog_id;
 
             $post->post_url = $this->core->blog->getPostURL(
-                $post->post_url, $post->post_dt, $post->post_title, $post->post_id
+                $post->post_url,
+                $post->post_dt,
+                $post->post_title,
+                $post->post_id
             );
 
             $this->insertPost($post);
@@ -698,8 +701,8 @@ class flatImport extends flatBackup
 
     private function insertMetaSingle($meta)
     {
-        if (isset($this->old_ids['post'][(integer) $meta->post_id])) {
-            $meta->post_id = $this->old_ids['post'][(integer) $meta->post_id];
+        if (isset($this->old_ids['post'][(int) $meta->post_id])) {
+            $meta->post_id = $this->old_ids['post'][(int) $meta->post_id];
             $this->insertMeta($meta);
         } else {
             self::throwIdError($meta->__name, $meta->__line, 'post');
@@ -717,17 +720,17 @@ class flatImport extends flatBackup
 
         $this->insertMedia($media);
         $this->stack['media_id']++;
-        $this->old_ids['media'][(integer) $old_id] = $media_id;
+        $this->old_ids['media'][(int) $old_id] = $media_id;
     }
 
     private function insertPostMediaSingle($post_media)
     {
-        if (isset($this->old_ids['media'][(integer) $post_media->media_id]) && isset($this->old_ids['post'][(integer) $post_media->post_id])) {
-            $post_media->media_id = $this->old_ids['media'][(integer) $post_media->media_id];
-            $post_media->post_id  = $this->old_ids['post'][(integer) $post_media->post_id];
+        if (isset($this->old_ids['media'][(int) $post_media->media_id]) && isset($this->old_ids['post'][(int) $post_media->post_id])) {
+            $post_media->media_id = $this->old_ids['media'][(int) $post_media->media_id];
+            $post_media->post_id  = $this->old_ids['post'][(int) $post_media->post_id];
 
             $this->insertPostMedia($post_media);
-        } elseif (!isset($this->old_ids['media'][(integer) $post_media->media_id])) {
+        } elseif (!isset($this->old_ids['media'][(int) $post_media->media_id])) {
             self::throwIdError($post_media->__name, $post_media->__line, 'media');
         } else {
             self::throwIdError($post_media->__name, $post_media->__line, 'post');
@@ -736,8 +739,8 @@ class flatImport extends flatBackup
 
     private function insertPingSingle($ping)
     {
-        if (isset($this->old_ids['post'][(integer) $ping->post_id])) {
-            $ping->post_id = $this->old_ids['post'][(integer) $ping->post_id];
+        if (isset($this->old_ids['post'][(int) $ping->post_id])) {
+            $ping->post_id = $this->old_ids['post'][(int) $ping->post_id];
 
             $this->insertPing($ping);
         } else {
@@ -747,11 +750,11 @@ class flatImport extends flatBackup
 
     private function insertCommentSingle($comment)
     {
-        if (isset($this->old_ids['post'][(integer) $comment->post_id])) {
+        if (isset($this->old_ids['post'][(int) $comment->post_id])) {
             $comment_id = $this->stack['comment_id'];
 
             $comment->comment_id = $comment_id;
-            $comment->post_id    = $this->old_ids['post'][(integer) $comment->post_id];
+            $comment->post_id    = $this->old_ids['post'][(int) $comment->post_id];
 
             $this->insertComment($comment);
             $this->stack['comment_id']++;
@@ -859,7 +862,7 @@ class flatImport extends flatBackup
         $settings = ['dc_theme', 'dc_nb_post_per_page', 'dc_allow_comments',
             'dc_allow_trackbacks', 'dc_comment_pub', 'dc_comments_ttl',
             'dc_wiki_comments', 'dc_use_smilies', 'dc_date_format', 'dc_time_format',
-            'dc_url_scan'];
+            'dc_url_scan', ];
 
         switch ($line->__name) {
             case 'categorie':
@@ -896,7 +899,7 @@ class flatImport extends flatBackup
                     $line->post_excerpt = $line->post_chapo;
                 }
 
-                $line->post_status = (integer) $line->post_pub;
+                $line->post_status = (int) $line->post_pub;
                 $line->post_type   = 'post';
                 $line->blog_id     = 'default';
 
@@ -916,7 +919,7 @@ class flatImport extends flatBackup
                 if ($line->comment_site != '' && !preg_match('!^http(s)?://.*$!', $line->comment_site, $m)) {
                     $line->comment_site = 'http://' . $line->comment_site;
                 }
-                $line->comment_status = (integer) $line->comment_pub;
+                $line->comment_status = (int) $line->comment_pub;
                 $line->drop('comment_pub');
 
                 break;

@@ -28,7 +28,7 @@ class dcLegacyPosts
     {
         $stub_actions = new ArrayObject();
         $core->callBehavior('adminPostsActionsCombo', [$stub_actions]);
-        if (!empty($stub_actions)) {
+        if (count($stub_actions)) {
             $as->addAction($stub_actions->getArrayCopy(), ['dcLegacyPosts', 'onActionLegacy']);
         }
     }
@@ -36,10 +36,12 @@ class dcLegacyPosts
     public static function onActionLegacy($core, dcPostsActionsPage $as, $post)
     {
         $core->callBehavior('adminPostsActions', $core, $as->getRS(), $as->getAction(), $as->getRedirection());
-        $as->beginPage('',
+        $as->beginPage(
+            '',
             dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
             dcPage::jsMetaEditor() .
-            $core->callBehavior('adminPostsActionsHeaders'));
+            $core->callBehavior('adminPostsActionsHeaders')
+        );
         $core->callBehavior('adminPostsActionsContent', $core, $as->getAction(), $as->getHiddenFields(true));
         $as->endPage();
     }
@@ -56,7 +58,7 @@ class dcLegacyComments
     {
         $stub_actions = new ArrayObject();
         $core->callBehavior('adminCommentsActionsCombo', [$stub_actions]);
-        if (!empty($stub_actions)) {
+        if (count($stub_actions)) {
             $as->addAction($stub_actions->getArrayCopy(), ['dcLegacyComments', 'onActionLegacy']);
         }
     }
@@ -64,10 +66,12 @@ class dcLegacyComments
     public static function onActionLegacy($core, dcCommentsActionsPage $as, $Comment)
     {
         $core->callBehavior('adminCommentsActions', $core, $as->getRS(), $as->getAction(), $as->getRedirection());
-        $as->beginPage('',
+        $as->beginPage(
+            '',
             dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
             dcPage::jsMetaEditor() .
-            $core->callBehavior('adminCommentsActionsHeaders'));
+            $core->callBehavior('adminCommentsActionsHeaders')
+        );
         ob_start();
         $core->callBehavior('adminCommentsActionsContent', $core, $as->getAction(), $as->getHiddenFields(true));
         $res = ob_get_contents();
@@ -88,7 +92,7 @@ class dcLegacyPages
     {
         $stub_actions = new ArrayObject();
         $core->callBehavior('adminPagesActionsCombo', [$stub_actions]);
-        if (!empty($stub_actions)) {
+        if (count($stub_actions)) {
             $as->addAction($stub_actions->getArrayCopy(), ['dcLegacyPages', 'onActionLegacy']);
         }
     }
@@ -96,10 +100,12 @@ class dcLegacyPages
     public static function onActionLegacy($core, dcPagesActionsPage $as, $post)
     {
         $core->callBehavior('adminPostsActions', $core, $as->getRS(), $as->getAction(), $as->getRedirection());
-        $as->beginPage('',
+        $as->beginPage(
+            '',
             dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
             dcPage::jsMetaEditor() .
-            $core->callBehavior('adminPostsActionsHeaders'));
+            $core->callBehavior('adminPostsActionsHeaders')
+        );
         ob_start();
         $core->callBehavior('adminPostsActionsContent', $core, $as->getAction(), $as->getHiddenFields(true));
         $res = ob_get_contents();

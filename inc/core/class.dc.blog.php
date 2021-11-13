@@ -220,7 +220,7 @@ class dcBlog
      */
     public function withoutPassword($v)
     {
-        $this->without_password = (boolean) $v;
+        $this->without_password = (bool) $v;
     }
     //@}
 
@@ -277,7 +277,7 @@ class dcBlog
 
             $affected_posts = [];
             while ($rs->fetch()) {
-                $affected_posts[] = (integer) $rs->post_id;
+                $affected_posts[] = (int) $rs->post_id;
             }
         }
 
@@ -366,8 +366,8 @@ class dcBlog
             $without_empty = $this->core->auth->userID() == false; # Get all categories if in admin display
         }
 
-        $start = isset($params['start']) ? (integer) $params['start'] : 0;
-        $l     = isset($params['level']) ? (integer) $params['level'] : 0;
+        $start = isset($params['start']) ? (int) $params['start'] : 0;
+        $l     = isset($params['level']) ? (int) $params['level'] : 0;
 
         $rs = $this->categories()->getChildren($start, null, 'desc');
 
@@ -377,11 +377,11 @@ class dcBlog
         $level = 0;
         $cols  = $rs->columns();
         while ($rs->fetch()) {
-            $nb_post = isset($counter[$rs->cat_id]) ? (integer) $counter[$rs->cat_id] : 0;
+            $nb_post = isset($counter[$rs->cat_id]) ? (int) $counter[$rs->cat_id] : 0;
 
             if ($rs->level > $level) {
                 $nb_total          = $nb_post;
-                $stack[$rs->level] = (integer) $nb_post;
+                $stack[$rs->level] = (int) $nb_post;
             } elseif ($rs->level == $level) {
                 $nb_total = $nb_post;
                 $stack[$rs->level] += $nb_post;
@@ -643,8 +643,9 @@ class dcBlog
         $this->core->callBehavior('coreBeforeCategoryUpdate', $this, $cur);
 
         $cur->update(
-            'WHERE cat_id = ' . (integer) $id . ' ' .
-            "AND blog_id = '" . $this->con->escape($this->id) . "' ");
+            'WHERE cat_id = ' . (int) $id . ' ' .
+            "AND blog_id = '" . $this->con->escape($this->id) . "' "
+        );
 
         # --BEHAVIOR-- coreAfterCategoryUpdate
         $this->core->callBehavior('coreAfterCategoryUpdate', $this, $cur);
@@ -705,7 +706,7 @@ class dcBlog
 
         $strReq = 'SELECT COUNT(post_id) AS nb_post ' .
         'FROM ' . $this->prefix . 'post ' .
-        'WHERE cat_id = ' . (integer) $id . ' ' .
+        'WHERE cat_id = ' . (int) $id . ' ' .
         "AND blog_id = '" . $this->con->escape($this->id) . "' ";
 
         $rs = $this->con->select($strReq);
@@ -745,7 +746,7 @@ class dcBlog
         # Let's check if URL is taken...
         $strReq = 'SELECT cat_url FROM ' . $this->prefix . 'category ' .
         "WHERE cat_url = '" . $this->con->escape($url) . "' " .
-        ($id ? 'AND cat_id <> ' . (integer) $id . ' ' : '') .
+        ($id ? 'AND cat_id <> ' . (int) $id . ' ' : '') .
         "AND blog_id = '" . $this->con->escape($this->id) . "' " .
             'ORDER BY cat_url DESC';
 
@@ -761,7 +762,7 @@ class dcBlog
             }
             $strReq = 'SELECT cat_url FROM ' . $this->prefix . 'category ' .
             'WHERE cat_url ' . $clause . ' ' .
-            ($id ? 'AND cat_id <> ' . (integer) $id . ' ' : '') .
+            ($id ? 'AND cat_id <> ' . (int) $id . ' ' : '') .
             "AND blog_id = '" . $this->con->escape($this->id) . "' " .
                 'ORDER BY cat_url DESC ';
 
@@ -775,7 +776,7 @@ class dcBlog
             $t_url = end($a);
 
             if (preg_match('/(.*?)([0-9]+)$/', $t_url, $m)) {
-                $i   = (integer) $m[2];
+                $i   = (int) $m[2];
                 $url = $m[1];
             } else {
                 $i = 1;
@@ -933,18 +934,18 @@ class dcBlog
 
         if (isset($params['post_id']) && $params['post_id'] !== '') {
             if (is_array($params['post_id'])) {
-                array_walk($params['post_id'], function (&$v, $k) { if ($v !== null) {$v = (integer) $v;}});
+                array_walk($params['post_id'], function (&$v, $k) { if ($v !== null) {$v = (int) $v;}});
             } else {
-                $params['post_id'] = [(integer) $params['post_id']];
+                $params['post_id'] = [(int) $params['post_id']];
             }
             $strReq .= 'AND P.post_id ' . $this->con->in($params['post_id']);
         }
 
         if (isset($params['exclude_post_id']) && $params['exclude_post_id'] !== '') {
             if (is_array($params['exclude_post_id'])) {
-                array_walk($params['exclude_post_id'], function (&$v, $k) { if ($v !== null) {$v = (integer) $v;}});
+                array_walk($params['exclude_post_id'], function (&$v, $k) { if ($v !== null) {$v = (int) $v;}});
             } else {
-                $params['exclude_post_id'] = [(integer) $params['exclude_post_id']];
+                $params['exclude_post_id'] = [(int) $params['exclude_post_id']];
             }
             $strReq .= 'AND P.post_id NOT ' . $this->con->in($params['exclude_post_id']);
         }
@@ -977,15 +978,15 @@ class dcBlog
 
         /* Other filters */
         if (isset($params['post_status'])) {
-            $strReq .= 'AND post_status = ' . (integer) $params['post_status'] . ' ';
+            $strReq .= 'AND post_status = ' . (int) $params['post_status'] . ' ';
         }
 
         if (isset($params['post_firstpub'])) {
-            $strReq .= 'AND post_firstpub = ' . (integer) $params['post_firstpub'] . ' ';
+            $strReq .= 'AND post_firstpub = ' . (int) $params['post_firstpub'] . ' ';
         }
 
         if (isset($params['post_selected'])) {
-            $strReq .= 'AND post_selected = ' . (integer) $params['post_selected'] . ' ';
+            $strReq .= 'AND post_selected = ' . (int) $params['post_selected'] . ' ';
         }
 
         if (!empty($params['post_year'])) {
@@ -1094,7 +1095,7 @@ class dcBlog
     public function getNextPost($post, $dir, $restrict_to_category = false, $restrict_to_lang = false)
     {
         $dt      = $post->post_dt;
-        $post_id = (integer) $post->post_id;
+        $post_id = (int) $post->post_id;
 
         if ($dir > 0) {
             $sign  = '>';
@@ -1113,7 +1114,7 @@ class dcBlog
             ') ';
 
         if ($restrict_to_category) {
-            $params['sql'] .= $post->cat_id ? 'AND P.cat_id = ' . (integer) $post->cat_id . ' ' : 'AND P.cat_id IS NULL ';
+            $params['sql'] .= $post->cat_id ? 'AND P.cat_id = ' . (int) $post->cat_id . ' ' : 'AND P.cat_id IS NULL ';
         }
 
         if ($restrict_to_lang) {
@@ -1226,7 +1227,7 @@ class dcBlog
         $cat_field = $catReq = $limit = '';
 
         if (isset($params['cat_id']) && $params['cat_id'] !== '') {
-            $catReq    = 'AND P.cat_id = ' . (integer) $params['cat_id'] . ' ';
+            $catReq    = 'AND P.cat_id = ' . (int) $params['cat_id'] . ' ';
             $cat_field = ', C.cat_url ';
         } elseif (isset($params['cat_url']) && $params['cat_url'] !== '') {
             $catReq    = "AND C.cat_url = '" . $this->con->escape($params['cat_url']) . "' ";
@@ -1335,7 +1336,7 @@ class dcBlog
                 'FROM ' . $this->prefix . 'post '
             );
 
-            $cur->post_id     = (integer) $rs->f(0) + 1;
+            $cur->post_id     = (int) $rs->f(0) + 1;
             $cur->blog_id     = (string) $this->id;
             $cur->post_creadt = date('Y-m-d H:i:s');
             $cur->post_upddt  = date('Y-m-d H:i:s');
@@ -1387,7 +1388,7 @@ class dcBlog
             throw new Exception(__('You are not allowed to update entries'));
         }
 
-        $id = (integer) $id;
+        $id = (int) $id;
 
         if (empty($id)) {
             throw new Exception(__('No such entry ID'));
@@ -1461,7 +1462,7 @@ class dcBlog
         }
 
         $posts_ids = dcUtils::cleanIds($ids);
-        $status    = (integer) $status;
+        $status    = (int) $status;
 
         $strReq = "WHERE blog_id = '" . $this->con->escape($this->id) . "' " .
         'AND post_id ' . $this->con->in($posts_ids);
@@ -1508,7 +1509,7 @@ class dcBlog
         }
 
         $posts_ids = dcUtils::cleanIds($ids);
-        $selected  = (boolean) $selected;
+        $selected  = (bool) $selected;
 
         $strReq = "WHERE blog_id = '" . $this->con->escape($this->id) . "' " .
         'AND post_id ' . $this->con->in($posts_ids);
@@ -1520,7 +1521,7 @@ class dcBlog
 
         $cur = $this->con->openCursor($this->prefix . 'post');
 
-        $cur->post_selected = (integer) $selected;
+        $cur->post_selected = (int) $selected;
         $cur->post_upddt    = date('Y-m-d H:i:s');
 
         $cur->update($strReq);
@@ -1553,7 +1554,7 @@ class dcBlog
         }
 
         $posts_ids = dcUtils::cleanIds($ids);
-        $cat_id    = (integer) $cat_id;
+        $cat_id    = (int) $cat_id;
 
         $strReq = "WHERE blog_id = '" . $this->con->escape($this->id) . "' " .
         'AND post_id ' . $this->con->in($posts_ids);
@@ -1586,8 +1587,8 @@ class dcBlog
             throw new Exception(__('You are not allowed to change entries category'));
         }
 
-        $old_cat_id = (integer) $old_cat_id;
-        $new_cat_id = (integer) $new_cat_id;
+        $old_cat_id = (int) $old_cat_id;
+        $new_cat_id = (int) $new_cat_id;
 
         $cur = $this->con->openCursor($this->prefix . 'post');
 
@@ -1671,7 +1672,7 @@ class dcBlog
 
             # If now_tz >= post_ts, we publish the entry
             if ($now_tz >= $post_ts) {
-                $to_change[] = (integer) $rs->post_id;
+                $to_change[] = (int) $rs->post_id;
             }
         }
         if (count($to_change)) {
@@ -1702,7 +1703,7 @@ class dcBlog
         $posts = $this->getPosts([
             'post_id'       => dcUtils::cleanIds($ids),
             'post_status'   => 1,
-            'post_firstpub' => 0
+            'post_firstpub' => 0,
         ]);
 
         $to_change = [];
@@ -1770,7 +1771,7 @@ class dcBlog
                 if (preg_match('/^null$/i', $id)) {
                     $queries[$id] = 'P.cat_id IS NULL';
                 } else {
-                    $queries[$id] = 'P.cat_id = ' . (integer) $id;
+                    $queries[$id] = 'P.cat_id = ' . (int) $id;
                 }
             } else {
                 $queries[$id] = "C.cat_url = '" . $this->con->escape($id) . "' ";
@@ -1792,11 +1793,11 @@ class dcBlog
         # Create queries
         $sql = [
             0 => [], # wanted categories
-            1 => [] # excluded categories
+            1 => [], # excluded categories
         ];
 
         foreach ($queries as $id => $q) {
-            $sql[(integer) isset($not[$id])][] = $q;
+            $sql[(int) isset($not[$id])][] = $q;
         }
 
         $sql[0] = implode(' OR ', $sql[0]);
@@ -1814,7 +1815,7 @@ class dcBlog
             unset($sql[1]);
         }
 
-        return implode(' AND ', $sql);
+        return implode(' AND ', $sql);  // @phpstan-ignore-line
     }
 
     /**
@@ -1880,9 +1881,13 @@ class dcBlog
         $post_content_xhtml = $cur->post_content_xhtml;
 
         $this->setPostContent(
-            $post_id, $cur->post_format, $cur->post_lang,
-            $post_excerpt, $post_excerpt_xhtml,
-            $post_content, $post_content_xhtml
+            $post_id,
+            $cur->post_format,
+            $cur->post_lang,
+            $post_excerpt,
+            $post_excerpt_xhtml,
+            $post_content,
+            $post_content_xhtml
         );
 
         $cur->post_excerpt       = $post_excerpt;
@@ -1949,7 +1954,7 @@ class dcBlog
             'excerpt'       => &$excerpt,
             'content'       => &$content,
             'excerpt_xhtml' => &$excerpt_xhtml,
-            'content_xhtml' => &$content_xhtml
+            'content_xhtml' => &$content_xhtml,
         ]);
     }
 
@@ -1973,7 +1978,7 @@ class dcBlog
             '{m}'  => date('m', strtotime($post_dt)),
             '{d}'  => date('d', strtotime($post_dt)),
             '{t}'  => text::tidyURL($post_title),
-            '{id}' => (integer) $post_id
+            '{id}' => (int) $post_id,
         ];
 
         # If URL is empty, we create a new one
@@ -1991,7 +1996,7 @@ class dcBlog
         # Let's check if URL is taken...
         $strReq = 'SELECT post_url FROM ' . $this->prefix . 'post ' .
         "WHERE post_url = '" . $this->con->escape($url) . "' " .
-        'AND post_id <> ' . (integer) $post_id . ' ' .
+        'AND post_id <> ' . (int) $post_id . ' ' .
         "AND blog_id = '" . $this->con->escape($this->id) . "' " .
             'ORDER BY post_url DESC';
 
@@ -2008,7 +2013,7 @@ class dcBlog
             }
             $strReq = 'SELECT post_url FROM ' . $this->prefix . 'post ' .
             'WHERE post_url ' . $clause . ' ' .
-            'AND post_id <> ' . (integer) $post_id . ' ' .
+            'AND post_id <> ' . (int) $post_id . ' ' .
             "AND blog_id = '" . $this->con->escape($this->id) . "' " .
                 'ORDER BY post_url DESC ';
 
@@ -2022,7 +2027,7 @@ class dcBlog
             $t_url = end($a);
 
             if (preg_match('/(.*?)([0-9]+)$/', $t_url, $m)) {
-                $i   = (integer) $m[2];
+                $i   = (int) $m[2];
                 $url = $m[1];
             } else {
                 $i = 1;
@@ -2124,18 +2129,18 @@ class dcBlog
         }
 
         if (isset($params['post_id']) && $params['post_id'] !== '') {
-            $strReq .= 'AND P.post_id = ' . (integer) $params['post_id'] . ' ';
+            $strReq .= 'AND P.post_id = ' . (int) $params['post_id'] . ' ';
         }
 
         if (isset($params['cat_id']) && $params['cat_id'] !== '') {
-            $strReq .= 'AND P.cat_id = ' . (integer) $params['cat_id'] . ' ';
+            $strReq .= 'AND P.cat_id = ' . (int) $params['cat_id'] . ' ';
         }
 
         if (isset($params['comment_id']) && $params['comment_id'] !== '') {
             if (is_array($params['comment_id'])) {
-                array_walk($params['comment_id'], function (&$v, $k) { if ($v !== null) {$v = (integer) $v;}});
+                array_walk($params['comment_id'], function (&$v, $k) { if ($v !== null) {$v = (int) $v;}});
             } else {
-                $params['comment_id'] = [(integer) $params['comment_id']];
+                $params['comment_id'] = [(int) $params['comment_id']];
             }
             $strReq .= 'AND comment_id ' . $this->con->in($params['comment_id']);
         }
@@ -2151,15 +2156,15 @@ class dcBlog
         }
 
         if (isset($params['comment_status'])) {
-            $strReq .= 'AND comment_status = ' . (integer) $params['comment_status'] . ' ';
+            $strReq .= 'AND comment_status = ' . (int) $params['comment_status'] . ' ';
         }
 
         if (!empty($params['comment_status_not'])) {
-            $strReq .= 'AND comment_status <> ' . (integer) $params['comment_status_not'] . ' ';
+            $strReq .= 'AND comment_status <> ' . (int) $params['comment_status_not'] . ' ';
         }
 
         if (isset($params['comment_trackback'])) {
-            $strReq .= 'AND comment_trackback = ' . (integer) (boolean) $params['comment_trackback'] . ' ';
+            $strReq .= 'AND comment_trackback = ' . (int) (bool) $params['comment_trackback'] . ' ';
         }
 
         if (isset($params['comment_ip'])) {
@@ -2236,7 +2241,7 @@ class dcBlog
                 'FROM ' . $this->prefix . 'comment '
             );
 
-            $cur->comment_id    = (integer) $rs->f(0) + 1;
+            $cur->comment_id    = (int) $rs->f(0) + 1;
             $cur->comment_upddt = date('Y-m-d H:i:s');
 
             $offset          = dt::getTimeOffset($this->settings->system->blog_timezone);
@@ -2285,7 +2290,7 @@ class dcBlog
             throw new Exception(__('You are not allowed to update comments'));
         }
 
-        $id = (integer) $id;
+        $id = (int) $id;
 
         if (empty($id)) {
             throw new Exception(__('No such comment ID'));
@@ -2350,7 +2355,7 @@ class dcBlog
         }
 
         $co_ids = dcUtils::cleanIds($ids);
-        $status = (integer) $status;
+        $status = (int) $status;
 
         $strReq = 'UPDATE ' . $this->prefix . 'comment ' .
             'SET comment_status = ' . $status . ' ';
@@ -2406,7 +2411,7 @@ class dcBlog
         $rs = $this->con->select($strReq);
 
         while ($rs->fetch()) {
-            $affected_posts[] = (integer) $rs->post_id;
+            $affected_posts[] = (int) $rs->post_id;
         }
 
         $strReq = 'DELETE FROM ' . $this->prefix . 'comment ' .
@@ -2479,7 +2484,7 @@ class dcBlog
         }
 
         if ($cur->comment_status === null) {
-            $cur->comment_status = (integer) $this->settings->system->comments_pub;
+            $cur->comment_status = (int) $this->settings->system->comments_pub;
         }
 
         # Words list

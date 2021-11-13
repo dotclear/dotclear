@@ -75,11 +75,18 @@ class dcModules
                     } elseif ((count($dep) > 1) && version_compare(($dep[0] == 'core' ? $dc_version : $this->all_modules[$dep[0]]['version']), $dep[1]) == -1) {
                         // module present, but version missing
                         if ($dep[0] == 'core') {
-                            $missing[$dep[0]] = sprintf(__('Requires Dotclear version %s, but version %s is installed'),
-                                $dep[1], $dc_version);
+                            $missing[$dep[0]] = sprintf(
+                                __('Requires Dotclear version %s, but version %s is installed'),
+                                $dep[1],
+                                $dc_version
+                            );
                         } else {
-                            $missing[$dep[0]] = sprintf(__('Requires %s module version %s, but version %s is installed'),
-                                $dep[0], $dep[1], $this->all_modules[$dep[0]]['version']);
+                            $missing[$dep[0]] = sprintf(
+                                __('Requires %s module version %s, but version %s is installed'),
+                                $dep[0],
+                                $dep[1],
+                                $this->all_modules[$dep[0]]['version']
+                            );
                         }
                     } elseif (($dep[0] != 'core') && !$this->all_modules[$dep[0]]['enabled']) {
                         // module disabled
@@ -132,7 +139,8 @@ class dcModules
             }
         }
         if (count($reason)) {
-            $message = sprintf('<p>%s</p><ul>%s</ul>',
+            $message = sprintf(
+                '<p>%s</p><ul>%s</ul>',
                 __('The following extensions have been disabled :'),
                 join('', $reason)
             );
@@ -191,30 +199,26 @@ class dcModules
 
                 if ($entry != '.' && $entry != '..' && is_dir($full_entry)
                     && file_exists($full_entry . '/_define.php')) {
+                    $this->id    = $entry;
+                    $this->mroot = $full_entry;
                     if (!file_exists($full_entry . '/_disabled') && !$disabled) {
-                        $this->id    = $entry;
-                        $this->mroot = $full_entry;
+                        // Enabled module
                         ob_start();
                         require $full_entry . '/_define.php';
                         ob_end_clean();
                         $this->all_modules[$entry] = &$this->modules[$entry];
-                        $this->id                  = null;
-                        $this->mroot               = null;
                     } else {
-                        if (file_exists($full_entry . '/_define.php')) {
-                            $this->id            = $entry;
-                            $this->mroot         = $full_entry;
-                            $this->disabled_mode = true;
-                            ob_start();
-                            require $full_entry . '/_define.php';
-                            ob_end_clean();
-                            $this->disabled_mode       = false;
-                            $this->disabled[$entry]    = $this->disabled_meta;
-                            $this->all_modules[$entry] = &$this->disabled[$entry];
-                            $this->id                  = null;
-                            $this->mroot               = null;
-                        }
+                        // Disabled module
+                        $this->disabled_mode = true;
+                        ob_start();
+                        require $full_entry . '/_define.php';
+                        ob_end_clean();
+                        $this->disabled_mode       = false;
+                        $this->disabled[$entry]    = $this->disabled_meta;
+                        $this->all_modules[$entry] = &$this->disabled[$entry];
                     }
+                    $this->id    = null;
+                    $this->mroot = null;
                 }
             }
             $d->close();
@@ -297,7 +301,7 @@ class dcModules
                     'author'        => $author,
                     'version'       => $version,
                     'enabled'       => false,
-                    'root_writable' => is_writable($this->mroot)
+                    'root_writable' => is_writable($this->mroot),
                 ]
             );
 
@@ -311,7 +315,7 @@ class dcModules
                 $properties['permissions'] = $args[4];
             }
             if (isset($args[5])) {
-                $properties['priority'] = (integer) $args[5];
+                $properties['priority'] = (int) $args[5];
             }
         }
 
@@ -325,8 +329,9 @@ class dcModules
                 'enabled'           => true,
                 'requires'          => [],
                 'settings'          => [],
-                'repository'        => ''
-            ], $properties
+                'repository'        => '',
+            ],
+            $properties
         );
 
         # Check module type
@@ -365,7 +370,7 @@ class dcModules
                         'desc'          => $desc,
                         'author'        => $author,
                         'version'       => $version,
-                        'root_writable' => is_writable($this->mroot)
+                        'root_writable' => is_writable($this->mroot),
                     ]
                 );
             } else {

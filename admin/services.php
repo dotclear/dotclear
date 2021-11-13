@@ -193,7 +193,7 @@ class dcRestMethods
             # --BEHAVIOR-- restCheckStoreUpdate
             $core->callBehavior('restCheckStoreUpdate', $core, $post['store'], [& $mod], [& $url]);
 
-            if (empty($mod) || empty($url)) {
+            if (empty($mod) || empty($url)) {   // @phpstan-ignore-line
                 throw new Exception('Unknown store type');
             }
         }
@@ -450,7 +450,7 @@ class dcRestMethods
             'meta_type' => $metaType,
             'limit'     => $limit,
             'meta_id'   => $metaId,
-            'post_id'   => $postid]);
+            'post_id'   => $postid, ]);
         $rs = $core->meta->computeMetaStats($rs);
 
         $sortby = explode(',', $sortby);
@@ -510,7 +510,7 @@ class dcRestMethods
         # Get previous meta for post
         $post_meta = $core->meta->getMetadata([
             'meta_type' => $post['metaType'],
-            'post_id'   => $post['postId']]);
+            'post_id'   => $post['postId'], ]);
         $pm = [];
         while ($post_meta->fetch()) {
             $pm[] = $post_meta->meta_id;

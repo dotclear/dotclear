@@ -162,7 +162,7 @@ class publicWidgets
             }
 
             $setting = (string) $e['name'];
-            if (count($e->children()) > 0) {
+            if ($e->count() > 0) {
                 $text = preg_replace('#^<setting[^>]*>(.*)</setting>$#msu', '\1', (string) $e->asXML());
             } else {
                 $text = $e;

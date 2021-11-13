@@ -59,6 +59,10 @@ parameters:
     - message: '#Variable \$__default_widgets might not be defined#'
       path: plugins/*/*.php
 
+    # Property flatImport:: (plugins)
+    - message: '#Property flatImport::#'
+      path: plugins/importExport/*/*.php
+
     # $this variable may not be defined (plugins/themes)
     - message: '#Variable \$this might not be defined#'
       path: */*/_define.php
@@ -105,6 +109,14 @@ parameters:
 
     # static record extensions
     - message: '#Call to an undefined method record::#'
+      path: %currentWorkingDirectory%
+
+    # static property rsExtUser
+    - message: '#Static property rsExtUser::#'
+      path: %currentWorkingDirectory%
+
+    # static property rsExtBlog
+    - message: '#Static property rsExtBlog::#'
       path: %currentWorkingDirectory%
 
     # Intensive use of magic __set/__get/__call/__invoke causes theses wrong warnings

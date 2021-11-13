@@ -45,7 +45,7 @@ class dcMedia extends filemanager
         'm'  => [448, 'ratio', 'medium'],
         's'  => [240, 'ratio', 'small'],
         't'  => [100, 'ratio', 'thumbnail'],
-        'sq' => [48, 'crop', 'square']
+        'sq' => [48, 'crop', 'square'],
     ];
 
     public $icon_img = 'images/media/%s.png'; ///< <b>string</b> Icon file pattern
@@ -224,7 +224,7 @@ class dcMedia extends filemanager
             $f->media_title = $rs->media_title;
             $f->media_meta  = $meta instanceof SimpleXMLElement ? $meta : simplexml_load_string('<meta></meta>');
             $f->media_user  = $rs->user_id;
-            $f->media_priv  = (boolean) $rs->media_private;
+            $f->media_priv  = (bool) $rs->media_private;
             $f->media_dt    = strtotime($rs->media_dt);
             $f->media_dtstr = dt::str('%Y-%m-%d %H:%M', $f->media_dt);
 
@@ -324,11 +324,17 @@ class dcMedia extends filemanager
             $thumb = sprintf(
                 ($alpha ? $this->thumb_tp_alpha :
                     ($webp ? $this->thumb_tp_webp : $this->thumb_tp)),
-                $this->root . '/' . $p['dirname'], $p['base'], '%s');
+                $this->root . '/' . $p['dirname'],
+                $p['base'],
+                '%s'
+            );
             $thumb_url = sprintf(
                 ($alpha ? $this->thumb_tp_alpha :
                     ($webp ? $this->thumb_tp_webp : $this->thumb_tp)),
-                $this->root_url . $p['dirname'], $p['base'], '%s');
+                $this->root_url . $p['dirname'],
+                $p['base'],
+                '%s'
+            );
 
             # Cleaner URLs
             $thumb_url = preg_replace('#\./#', '/', $thumb_url);
@@ -538,7 +544,7 @@ class dcMedia extends filemanager
         'media_upddt, media_private, user_id ' .
         'FROM ' . $this->table . ' ' .
         "WHERE media_path = '" . $this->path . "' " .
-        'AND media_id = ' . (integer) $id . ' ';
+        'AND media_id = ' . (int) $id . ' ';
 
         if (!$this->core->auth->check('media_admin', $this->core->blog->id)) {
             $strReq .= 'AND (media_private <> 1 ';
@@ -618,10 +624,10 @@ class dcMedia extends filemanager
     {
         $params = [
             'post_id'    => $post_id,
-            'media_path' => $this->path
+            'media_path' => $this->path,
         ];
         if ($media_id) {
-            $params['media_id'] = (integer) $media_id;
+            $params['media_id'] = (int) $media_id;
         }
         if ($link_type) {
             $params['link_type'] = $link_type;
@@ -690,7 +696,7 @@ class dcMedia extends filemanager
 
         while ($rs->fetch()) {
             if (!is_file($this->root . '/' . $rs->media_file)) {
-                $del_ids[] = (integer) $rs->media_id;
+                $del_ids[] = (int) $rs->media_id;
             }
         }
 
@@ -752,7 +758,7 @@ class dcMedia extends filemanager
 
             try {
                 $rs       = $this->con->select('SELECT MAX(media_id) FROM ' . $this->table);
-                $media_id = (integer) $rs->f(0) + 1;
+                $media_id = (int) $rs->f(0) + 1;
 
                 $cur->media_id     = $media_id;
                 $cur->user_id      = (string) $this->core->auth->userID();
@@ -763,7 +769,7 @@ class dcMedia extends filemanager
                 $cur->media_upddt  = date('Y-m-d H:i:s');
 
                 $cur->media_title   = !$title ? (string) $name : (string) $title;
-                $cur->media_private = (integer) (boolean) $private;
+                $cur->media_private = (int) (bool) $private;
 
                 if ($dt) {
                     $cur->media_dt = (string) $dt;
@@ -785,7 +791,7 @@ class dcMedia extends filemanager
                 throw $e;
             }
         } else {
-            $media_id = (integer) $rs->media_id;
+            $media_id = (int) $rs->media_id;
 
             $cur->media_upddt = date('Y-m-d H:i:s');
 
@@ -811,7 +817,7 @@ class dcMedia extends filemanager
             throw new Exception(__('Permission denied.'));
         }
 
-        $id = (integer) $file->media_id;
+        $id = (int) $file->media_id;
 
         if (!$id) {
             throw new Exception('No file ID');
@@ -850,7 +856,7 @@ class dcMedia extends filemanager
         $cur->media_title   = (string) $newFile->media_title;
         $cur->media_dt      = (string) $newFile->media_dtstr;
         $cur->media_upddt   = date('Y-m-d H:i:s');
-        $cur->media_private = (integer) $newFile->media_priv;
+        $cur->media_private = (int) $newFile->media_priv;
 
         if ($newFile->media_meta instanceof SimpleXMLElement) {
             $cur->media_meta = $newFile->media_meta->asXML();
@@ -1078,10 +1084,14 @@ class dcMedia extends filemanager
         $p     = path::info($file);
         $alpha = strtolower($p['extension']) === 'png';
         $webp  = strtolower($p['extension']) === 'webp';
-        $thumb = sprintf(($alpha ? $this->thumb_tp_alpha :
+        $thumb = sprintf(
+            ($alpha ? $this->thumb_tp_alpha :
             ($webp ? $this->thumb_tp_webp :
                 $this->thumb_tp)),
-            $p['dirname'], $p['base'], '%s');
+            $p['dirname'],
+            $p['base'],
+            '%s'
+        );
 
         try {
             $img = new imageTools();
@@ -1124,18 +1134,26 @@ class dcMedia extends filemanager
             $p         = path::info($file->relname);
             $alpha     = strtolower($p['extension']) === 'png';
             $webp      = strtolower($p['extension']) === 'webp';
-            $thumb_old = sprintf(($alpha ? $this->thumb_tp_alpha :
+            $thumb_old = sprintf(
+                ($alpha ? $this->thumb_tp_alpha :
                 ($webp ? $this->thumb_tp_webp :
                     $this->thumb_tp)),
-                $p['dirname'], $p['base'], '%s');
+                $p['dirname'],
+                $p['base'],
+                '%s'
+            );
 
             $p         = path::info($newFile->relname);
             $alpha     = strtolower($p['extension']) === 'png';
             $webp      = strtolower($p['extension']) === 'webp';
-            $thumb_new = sprintf(($alpha ? $this->thumb_tp_alpha :
+            $thumb_new = sprintf(
+                ($alpha ? $this->thumb_tp_alpha :
                 ($webp ? $this->thumb_tp_webp :
                     $this->thumb_tp)),
-                $p['dirname'], $p['base'], '%s');
+                $p['dirname'],
+                $p['base'],
+                '%s'
+            );
 
             foreach ($this->thumb_sizes as $suffix => $s) {
                 try {
@@ -1156,10 +1174,14 @@ class dcMedia extends filemanager
         $p     = path::info($f);
         $alpha = strtolower($p['extension']) === 'png';
         $webp  = strtolower($p['extension']) === 'webp';
-        $thumb = sprintf(($alpha ? $this->thumb_tp_alpha :
+        $thumb = sprintf(
+            ($alpha ? $this->thumb_tp_alpha :
             ($webp ? $this->thumb_tp_webp :
                 $this->thumb_tp)),
-            '', $p['base'], '%s');
+            '',
+            $p['base'],
+            '%s'
+        );
 
         foreach ($this->thumb_sizes as $suffix => $s) {
             try {
@@ -1255,10 +1277,10 @@ class dcMedia extends filemanager
             $width  = 400;
             $height = 300;
             if (is_array($args)) {
-                if (!empty($args['width']) && $args['width']) {
+                if (!empty($args['width'])) {
                     $width = (int) $args['width'];
                 }
-                if (!empty($args['height']) && $args['height']) {
+                if (!empty($args['height'])) {
                     $height = (int) $args['height'];
                 }
             }

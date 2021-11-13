@@ -14,7 +14,7 @@ dcPage::check('media,media_admin');
 
 $tab = empty($_REQUEST['tab']) ? '' : $_REQUEST['tab'];
 
-$post_id = !empty($_REQUEST['post_id']) ? (integer) $_REQUEST['post_id'] : null;
+$post_id = !empty($_REQUEST['post_id']) ? (int) $_REQUEST['post_id'] : null;
 if ($post_id) {
     $post = $core->blog->getPosts(['post_id' => $post_id]);
     if ($post->isEmpty()) {
@@ -28,8 +28,8 @@ if ($post_id) {
 $link_type = !empty($_REQUEST['link_type']) ? $_REQUEST['link_type'] : null;
 
 $file                  = null;
-$popup                 = (integer) !empty($_REQUEST['popup']);
-$select                = !empty($_REQUEST['select']) ? (integer) $_REQUEST['select'] : 0; // 0 : none, 1 : single media, >1 : multiple medias
+$popup                 = (int) !empty($_REQUEST['popup']);
+$select                = !empty($_REQUEST['select']) ? (int) $_REQUEST['select'] : 0; // 0 : none, 1 : single media, >1 : multiple medias
 $plugin_id             = isset($_REQUEST['plugin_id']) ? html::sanitizeURL($_REQUEST['plugin_id']) : '';
 $page_url_params       = ['popup' => $popup, 'select' => $select, 'post_id' => $post_id];
 $media_page_url_params = ['popup' => $popup, 'select' => $select, 'post_id' => $post_id, 'link_type' => $link_type];
@@ -39,7 +39,7 @@ if ($plugin_id != '') {
     $media_page_url_params['plugin_id'] = $plugin_id;
 }
 
-$id = !empty($_REQUEST['id']) ? (integer) $_REQUEST['id'] : '';
+$id = !empty($_REQUEST['id']) ? (int) $_REQUEST['id'] : '';
 
 if ($id != '') {
     $page_url_params['id'] = $id;
@@ -132,7 +132,7 @@ if ($file && !empty($_POST['media_file']) && $file->editable && $core_media_writ
             foreach ($file->media_meta as $k => $v) {
                 if ($k == 'Description') {
                     // Update value
-                    $v[0] = $desc;
+                    $v[0] = $desc;  // @phpstan-ignore-line
 
                     break;
                 }
@@ -272,9 +272,9 @@ $get_img_def = function ($file) {
     $defaults = [
         'size'      => $core->blog->settings->system->media_img_default_size ?: 'm',
         'alignment' => $core->blog->settings->system->media_img_default_alignment ?: 'none',
-        'link'      => (boolean) $core->blog->settings->system->media_img_default_link,
+        'link'      => (bool) $core->blog->settings->system->media_img_default_link,
         'legend'    => $core->blog->settings->system->media_img_default_legend ?: 'legend',
-        'mediadef'  => false
+        'mediadef'  => false,
     ];
 
     try {
@@ -283,7 +283,7 @@ $get_img_def = function ($file) {
             $local .= '.json';
         }
         if (file_exists($local)) {
-            if ($specifics = json_decode(file_get_contents($local) ?? '', true)) {
+            if ($specifics = json_decode(file_get_contents($local) ?? '', true)) {  // @phpstan-ignore-line
                 foreach ($defaults as $key => $value) {
                     $defaults[$key]       = $specifics[$key] ?? $defaults[$key];
                     $defaults['mediadef'] = true;
@@ -309,7 +309,9 @@ $breadcrumb       = $core->media->breadCrumb($core->adminurl->get('admin.media',
     ($file === null ? '' : '<span class="page-title">' . $file->basename . '</span>');
 $temp_params['d'] = '';
 $home_url         = $core->adminurl->get('admin.media', $temp_params);
-call_user_func($open_f, __('Media manager'),
+call_user_func(
+    $open_f,
+    __('Media manager'),
     $starting_scripts .
     dcPage::jsDatePicker() .
     ($popup ? dcPage::jsPageTabs($tab) : ''),
@@ -317,11 +319,11 @@ call_user_func($open_f, __('Media manager'),
         [
             html::escapeHTML($core->blog->name) => '',
             __('Media manager')                 => $home_url,
-            $breadcrumb                         => ''
+            $breadcrumb                         => '',
         ],
         [
             'home_link' => !$popup,
-            'hl'        => false
+            'hl'        => false,
         ]
     )
 );
@@ -367,10 +369,12 @@ if ($select) {
 
     if ($file->media_type == 'image') {
         $media_type  = 'image';
-        $media_title = $get_img_title($file,
+        $media_title = $get_img_title(
+            $file,
             $core->blog->settings->system->media_img_title_pattern,
             $core->blog->settings->system->media_img_use_dto_first,
-            $core->blog->settings->system->media_img_no_date_alone);
+            $core->blog->settings->system->media_img_no_date_alone
+        );
         if ($media_title == $file->basename || files::tidyFileName($media_title) == $file->basename) {
             $media_title = '';
         }
@@ -429,10 +433,12 @@ if ($popup && !$select) {
 
     if ($file->media_type == 'image') {
         $media_type  = 'image';
-        $media_title = $get_img_title($file,
+        $media_title = $get_img_title(
+            $file,
             $core->blog->settings->system->media_img_title_pattern,
             $core->blog->settings->system->media_img_use_dto_first,
-            $core->blog->settings->system->media_img_no_date_alone);
+            $core->blog->settings->system->media_img_no_date_alone
+        );
         if ($media_title == $file->basename || files::tidyFileName($media_title) == $file->basename) {
             $media_title = '';
         }
@@ -458,14 +464,23 @@ if ($popup && !$select) {
         '<div class="two-boxes">' .
         '<h3>' . __('Image legend and title') . '</h3>' .
         '<p>' .
-        '<label for="legend1" class="classic">' . form::radio(['legend', 'legend1'], 'legend',
-            ($defaults['legend'] == 'legend')) .
+        '<label for="legend1" class="classic">' . form::radio(
+            ['legend', 'legend1'],
+            'legend',
+            ($defaults['legend'] == 'legend')
+        ) .
         __('Legend and title') . '</label><br />' .
-        '<label for="legend2" class="classic">' . form::radio(['legend', 'legend2'], 'title',
-            ($defaults['legend'] == 'title')) .
+        '<label for="legend2" class="classic">' . form::radio(
+            ['legend', 'legend2'],
+            'title',
+            ($defaults['legend'] == 'title')
+        ) .
         __('Title') . '</label><br />' .
-        '<label for="legend3" class="classic">' . form::radio(['legend', 'legend3'], 'none',
-            ($defaults['legend'] == 'none')) .
+        '<label for="legend3" class="classic">' . form::radio(
+            ['legend', 'legend3'],
+            'none',
+            ($defaults['legend'] == 'none')
+        ) .
         __('None') . '</label>' .
         '</p>' .
         '<p id="media-attribute">' .
@@ -482,7 +497,7 @@ if ($popup && !$select) {
             'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
             'left'   => [__('Left'), ($defaults['alignment'] == 'left' ? 1 : 0)],
             'right'  => [__('Right'), ($defaults['alignment'] == 'right' ? 1 : 0)],
-            'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)]
+            'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)],
         ];
 
         echo '<p>';
@@ -515,7 +530,7 @@ if ($popup && !$select) {
             'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
             'left'   => [__('Left'), ($defaults['alignment'] == 'left' ? 1 : 0)],
             'right'  => [__('Right'), ($defaults['alignment'] == 'right' ? 1 : 0)],
-            'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)]
+            'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)],
         ];
 
         echo '<p>';
@@ -550,7 +565,7 @@ if ($popup && !$select) {
             'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
             'left'   => [__('Left'), ($defaults['alignment'] == 'left' ? 1 : 0)],
             'right'  => [__('Right'), ($defaults['alignment'] == 'right' ? 1 : 0)],
-            'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)]
+            'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)],
         ];
 
         echo '<p>';
@@ -634,8 +649,10 @@ if ($file->media_image) {
     echo '<p>' . __('Available sizes:') . ' ';
     foreach (array_reverse($file->media_thumb) as $s => $v) {
         $strong_link = ($s == $thumb_size) ? '<strong>%s</strong>' : '%s';
-        printf($strong_link, '<a href="' . $core->adminurl->get('admin.media.item', array_merge($page_url_params,
-            ['size' => $s, 'tab' => 'media-details-tab'])) . '">' . $core->media->thumb_sizes[$s][2] . '</a> | ');
+        printf($strong_link, '<a href="' . $core->adminurl->get('admin.media.item', array_merge(
+            $page_url_params,
+            ['size' => $s, 'tab' => 'media-details-tab']
+        )) . '">' . $core->media->thumb_sizes[$s][2] . '</a> | ');
     }
     echo '<a href="' . $core->adminurl->get('admin.media.item', array_merge($page_url_params, ['size' => 'o', 'tab' => 'media-details-tab'])) . '">' . __('original') . '</a>';
     echo '</p>';
@@ -697,9 +714,9 @@ if (empty($_GET['find_posts'])) {
         'post_type' => '',
         'from'      => 'LEFT OUTER JOIN ' . $core->prefix . 'post_media PM ON P.post_id = PM.post_id ',
         'sql'       => 'AND (' .
-        'PM.media_id = ' . (integer) $id . ' ' .
+        'PM.media_id = ' . (int) $id . ' ' .
         "OR post_content_xhtml LIKE '%" . $core->con->escape($file->relname) . "%' " .
-        "OR post_excerpt_xhtml LIKE '%" . $core->con->escape($file->relname) . "%' "
+        "OR post_excerpt_xhtml LIKE '%" . $core->con->escape($file->relname) . "%' ",
     ];
 
     if ($file->media_image) {
@@ -791,7 +808,7 @@ if ($file->editable && $core_media_writable) {
     if ($file->type == 'application/zip') {
         $inflate_combo = [
             __('Extract in a new directory')   => 'new',
-            __('Extract in current directory') => 'current'
+            __('Extract in current directory') => 'current',
         ];
 
         echo
@@ -817,19 +834,27 @@ if ($file->editable && $core_media_writable) {
     '<p><label for="media_file">' . __('File name:') . '</label>' .
     form::field('media_file', 30, 255, html::escapeHTML($file->basename)) . '</p>' .
     '<p><label for="media_title">' . __('File title:') . '</label>' .
-    form::field('media_title', 30, 255,
+    form::field(
+        'media_title',
+        30,
+        255,
         [
             'default'    => html::escapeHTML($file->media_title),
-            'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
-        ]) . '</p>';
+            'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+        ]
+    ) . '</p>';
     if ($file->type == 'image/jpeg' || $file->type == 'image/webp') {
         echo
         '<p><label for="media_desc">' . __('File description:') . '</label>' .
-        form::field('media_desc', 60, 255,
+        form::field(
+            'media_desc',
+            60,
+            255,
             [
                 'default'    => html::escapeHTML($get_img_desc($file, '')),
-                'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
-            ]) . '</p>' .
+                'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+            ]
+        ) . '</p>' .
         '<p><label for="media_dt">' . __('File date:') . '</label>';
     }
     echo

@@ -16,7 +16,7 @@ $tag = $_REQUEST['tag'] ?? '';
 
 $this_url = $p_url . '&amp;m=tag_posts&amp;tag=' . rawurlencode($tag);
 
-$page        = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
+$page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
 $nb_per_page = 30;
 
 # Rename a tag
@@ -78,7 +78,7 @@ if ($posts_actions_page->process()) {
 echo dcPage::cssLoad(dcPage::getPF('tags/style.css')) .
 dcPage::jsLoad('js/_posts_list.js') .
 dcPage::jsJson('posts_tags_msg', [
-    'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), html::escapeHTML($tag))
+    'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), html::escapeHTML($tag)),
 ]) .
 dcPage::jsLoad(dcPage::getPF('tags/js/posts.js')) .
 dcPage::jsConfirmClose('tag_rename');
@@ -91,8 +91,9 @@ echo dcPage::breadcrumb(
     [
         html::escapeHTML($core->blog->name)                         => '',
         __('Tags')                                                  => $p_url . '&amp;m=tags',
-        __('Tag') . ' &ldquo;' . html::escapeHTML($tag) . '&rdquo;' => ''
-    ]) .
+        __('Tag') . ' &ldquo;' . html::escapeHTML($tag) . '&rdquo;' => '',
+    ]
+) .
 dcPage::notices();
 ?>
 
@@ -112,7 +113,7 @@ if (!$core->error->flag()) {
         $core->formNonce() .
             '</p></form>';
         # Remove tag
-        if (!$posts->isEmpty() && $core->auth->check('contentadmin', $core->blog->id)) {
+        if (!$posts->isEmpty() && $core->auth->check('contentadmin', $core->blog->id)) {    // @phpstan-ignore-line
             echo
             '<form id="tag_delete" action="' . $this_url . '" method="post">' .
             '<p><input type="submit" class="delete" name="delete" value="' . __('Delete this tag') . '" />' .
@@ -124,7 +125,9 @@ if (!$core->error->flag()) {
 
     # Show posts
     echo '<h4 class="vertical-separator pretty-title">' . sprintf(__('List of entries with the tag “%s”'), html::escapeHTML($tag)) . '</h4>';
-    $post_list->display($page, $nb_per_page,
+    $post_list->display(
+        $page,
+        $nb_per_page,
         '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" id="form-entries">' .
 
         '%s' .
@@ -141,7 +144,8 @@ if (!$core->error->flag()) {
         form::hidden('tag', $tag) .
         $core->formNonce() .
         '</div>' .
-        '</form>');
+        '</form>'
+    );
 }
 dcPage::helpBlock('tag_posts');
 ?>

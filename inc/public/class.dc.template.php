@@ -11,9 +11,6 @@ class dcTemplate extends template
     private $core;
     private $current_tag;
 
-    private $tag_block;
-    private $tag_value;
-
     protected $unknown_value_handler = null;
     protected $unknown_block_handler = null;
 
@@ -23,9 +20,6 @@ class dcTemplate extends template
 
         $this->remove_php = !$core->blog->settings->system->tpl_allow_php;
         $this->use_cache  = $core->blog->settings->system->tpl_use_cache;
-
-        $this->tag_block = '<tpl:(\w+)(?:(\s+.*?)>|>)((?:[^<]|<(?!/?tpl:\1)|(?R))*)</tpl:\1>';
-        $this->tag_value = '{{tpl:(\w+)(\s(.*?))?}}';
 
         $this->core = &$core;
 
@@ -295,7 +289,7 @@ class dcTemplate extends template
                 'encode_url'  => 0,
                 'remove_html' => 0,
                 'capitalize'  => 0,
-                'strip_tags'  => 0
+                'strip_tags'  => 0,
             ],
             $default
         );
@@ -339,13 +333,13 @@ class dcTemplate extends template
                 'date'      => 'post_dt',
                 'id'        => 'post_id',
                 'comment'   => 'nb_comment',
-                'trackback' => 'nb_trackback'
+                'trackback' => 'nb_trackback',
             ],
             'comment' => [
                 'author' => 'comment_author',
                 'date'   => 'comment_dt',
-                'id'     => 'comment_id'
-            ]
+                'id'     => 'comment_id',
+            ],
         ];
 
         $alias = new ArrayObject();
@@ -449,10 +443,10 @@ class dcTemplate extends template
 
     public function LoopPosition($attr, $content)
     {
-        $start  = isset($attr['start']) ? (integer) $attr['start'] : '0';
-        $length = isset($attr['length']) ? (integer) $attr['length'] : 'null';
-        $even   = isset($attr['even']) ? (integer) (boolean) $attr['even'] : 'null';
-        $modulo = isset($attr['modulo']) ? (integer) $attr['modulo'] : 'null';
+        $start  = isset($attr['start']) ? (int) $attr['start'] : '0';
+        $length = isset($attr['length']) ? (int) $attr['length'] : 'null';
+        $even   = isset($attr['even']) ? (int) (bool) $attr['even'] : 'null';
+        $modulo = isset($attr['modulo']) ? (int) $attr['modulo'] : 'null';
 
         if ($start > 0) {
             $start--;
@@ -516,9 +510,12 @@ class dcTemplate extends template
 
         $res = "<?php\n";
         $res .= $p;
-        $res .= $this->core->callBehavior('templatePrepareParams',
+        $res .= $this->core->callBehavior(
+            'templatePrepareParams',
             ['tag' => 'Archives', 'method' => 'blog::getDates'],
-            $attr, $content);
+            $attr,
+            $content
+        );
         $res .= '$_ctx->archives = $core->blog->getDates($params); unset($params);' . "\n";
         $res .= "?>\n";
 
@@ -601,7 +598,7 @@ class dcTemplate extends template
             [
                 'none' => 'no archive',
                 'one'  => 'one archive',
-                'more' => '%d archives'
+                'more' => '%d archives',
             ],
             $attr,
             true
@@ -636,9 +633,12 @@ class dcTemplate extends template
 
         $res = "<?php\n";
         $res .= $p;
-        $res .= $this->core->callBehavior('templatePrepareParams',
+        $res .= $this->core->callBehavior(
+            'templatePrepareParams',
             ['tag' => 'ArchiveNext', 'method' => 'blog::getDates'],
-            $attr, $content);
+            $attr,
+            $content
+        );
         $res .= '$_ctx->archives = $core->blog->getDates($params); unset($params);' . "\n";
         $res .= "?>\n";
 
@@ -674,9 +674,12 @@ class dcTemplate extends template
         $p .= "\$params['previous'] = \$_ctx->archives->dt;";
 
         $res = "<?php\n";
-        $res .= $this->core->callBehavior('templatePrepareParams',
+        $res .= $this->core->callBehavior(
+            'templatePrepareParams',
             ['tag' => 'ArchivePrevious', 'method' => 'blog::getDates'],
-            $attr, $content);
+            $attr,
+            $content
+        );
         $res .= $p;
         $res .= '$_ctx->archives = $core->blog->getDates($params); unset($params);' . "\n";
         $res .= "?>\n";
@@ -1005,18 +1008,21 @@ class dcTemplate extends template
         }
 
         if (!empty($attr['level'])) {
-            $p .= "\$params['level'] = " . (integer) $attr['level'] . ";\n";
+            $p .= "\$params['level'] = " . (int) $attr['level'] . ";\n";
         }
 
-        if (isset($attr['with_empty']) && ((boolean) $attr['with_empty'] == true)) {
+        if (isset($attr['with_empty']) && ((bool) $attr['with_empty'] == true)) {
             $p .= '$params[\'without_empty\'] = false;';
         }
 
         $res = "<?php\n";
         $res .= $p;
-        $res .= $this->core->callBehavior('templatePrepareParams',
+        $res .= $this->core->callBehavior(
+            'templatePrepareParams',
             ['tag' => 'Categories', 'method' => 'blog::getCategories'],
-            $attr, $content);
+            $attr,
+            $content
+        );
         $res .= '$_ctx->categories = $core->blog->getCategories($params);' . "\n";
         $res .= "?>\n";
         $res .= '<?php while ($_ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->categories = null; unset($params); ?>';
@@ -1107,12 +1113,12 @@ class dcTemplate extends template
         }
 
         if (isset($attr['has_entries'])) {
-            $sign = (boolean) $attr['has_entries'] ? '>' : '==';
+            $sign = (bool) $attr['has_entries'] ? '>' : '==';
             $if[] = '$_ctx->categories->nb_post ' . $sign . ' 0';
         }
 
         if (isset($attr['has_description'])) {
-            $sign = (boolean) $attr['has_description'] ? '!=' : '==';
+            $sign = (bool) $attr['has_description'] ? '!=' : '==';
             $if[] = '$_ctx->categories->cat_desc ' . $sign . ' ""';
         }
 
@@ -1230,7 +1236,7 @@ class dcTemplate extends template
             [
                 'none' => 'No post',
                 'one'  => 'One post',
-                'more' => '%d posts'
+                'more' => '%d posts',
             ],
             $attr,
             true
@@ -1261,7 +1267,7 @@ class dcTemplate extends template
     {
         $lastn = -1;
         if (isset($attr['lastn'])) {
-            $lastn = abs((integer) $attr['lastn']) + 0;
+            $lastn = abs((int) $attr['lastn']) + 0;
         }
 
         $p = 'if (!isset($_page_number)) { $_page_number = 1; }' . "\n";
@@ -1358,7 +1364,7 @@ class dcTemplate extends template
         }
 
         if (isset($attr['selected'])) {
-            $p .= "\$params['post_selected'] = " . (integer) (boolean) $attr['selected'] . ';';
+            $p .= "\$params['post_selected'] = " . (int) (bool) $attr['selected'] . ';';
         }
 
         if (isset($attr['age'])) {
@@ -1368,9 +1374,12 @@ class dcTemplate extends template
 
         $res = "<?php\n";
         $res .= $p;
-        $res .= $this->core->callBehavior('templatePrepareParams',
+        $res .= $this->core->callBehavior(
+            'templatePrepareParams',
             ['tag' => 'Entries', 'method' => 'blog::getPosts'],
-            $attr, $content);
+            $attr,
+            $content
+        );
         $res .= '$_ctx->post_params = $params;' . "\n";
         $res .= '$_ctx->posts = $core->blog->getPosts($params); unset($params);' . "\n";
         $res .= "?>\n";
@@ -1496,52 +1505,52 @@ class dcTemplate extends template
         }
 
         if (isset($attr['first'])) {
-            $sign = (boolean) $attr['first'] ? '=' : '!';
+            $sign = (bool) $attr['first'] ? '=' : '!';
             $if[] = '$_ctx->posts->index() ' . $sign . '= 0';
         }
 
         if (isset($attr['odd'])) {
-            $sign = (boolean) $attr['odd'] ? '=' : '!';
+            $sign = (bool) $attr['odd'] ? '=' : '!';
             $if[] = '($_ctx->posts->index()+1)%2 ' . $sign . '= 1';
         }
 
         if (isset($attr['extended'])) {
-            $sign = (boolean) $attr['extended'] ? '' : '!';
+            $sign = (bool) $attr['extended'] ? '' : '!';
             $if[] = $sign . '$_ctx->posts->isExtended()';
         }
 
         if (isset($attr['selected'])) {
-            $sign = (boolean) $attr['selected'] ? '' : '!';
+            $sign = (bool) $attr['selected'] ? '' : '!';
             $if[] = $sign . '(boolean)$_ctx->posts->post_selected';
         }
 
         if (isset($attr['has_category'])) {
-            $sign = (boolean) $attr['has_category'] ? '' : '!';
+            $sign = (bool) $attr['has_category'] ? '' : '!';
             $if[] = $sign . '$_ctx->posts->cat_id';
         }
 
         if (isset($attr['comments_active'])) {
-            $sign = (boolean) $attr['comments_active'] ? '' : '!';
+            $sign = (bool) $attr['comments_active'] ? '' : '!';
             $if[] = $sign . '$_ctx->posts->commentsActive()';
         }
 
         if (isset($attr['pings_active'])) {
-            $sign = (boolean) $attr['pings_active'] ? '' : '!';
+            $sign = (bool) $attr['pings_active'] ? '' : '!';
             $if[] = $sign . '$_ctx->posts->trackbacksActive()';
         }
 
         if (isset($attr['has_comment'])) {
-            $sign = (boolean) $attr['has_comment'] ? '' : '!';
+            $sign = (bool) $attr['has_comment'] ? '' : '!';
             $if[] = $sign . '$_ctx->posts->hasComments()';
         }
 
         if (isset($attr['has_ping'])) {
-            $sign = (boolean) $attr['has_ping'] ? '' : '!';
+            $sign = (bool) $attr['has_ping'] ? '' : '!';
             $if[] = $sign . '$_ctx->posts->hasTrackbacks()';
         }
 
         if (isset($attr['show_comments'])) {
-            if ((boolean) $attr['show_comments']) {
+            if ((bool) $attr['show_comments']) {
                 $if[] = '($_ctx->posts->hasComments() || $_ctx->posts->commentsActive())';
             } else {
                 $if[] = '(!$_ctx->posts->hasComments() && !$_ctx->posts->commentsActive())';
@@ -1549,7 +1558,7 @@ class dcTemplate extends template
         }
 
         if (isset($attr['show_pings'])) {
-            if ((boolean) $attr['show_pings']) {
+            if ((bool) $attr['show_pings']) {
                 $if[] = '($_ctx->posts->hasTrackbacks() || $_ctx->posts->trackbacksActive())';
             } else {
                 $if[] = '(!$_ctx->posts->hasTrackbacks() && !$_ctx->posts->trackbacksActive())';
@@ -1557,7 +1566,7 @@ class dcTemplate extends template
         }
 
         if (isset($attr['republished'])) {
-            $sign = (boolean) $attr['republished'] ? '' : '!';
+            $sign = (bool) $attr['republished'] ? '' : '!';
             $if[] = $sign . '(boolean)$_ctx->posts->isRepublished()';
         }
 
@@ -1649,14 +1658,18 @@ class dcTemplate extends template
         $f = $this->getFilters($attr);
 
         if (!empty($attr['full'])) {
-            return '<?php echo ' . sprintf($f,
+            return '<?php echo ' . sprintf(
+                $f,
                 '$_ctx->posts->getExcerpt(' . $urls . ').' .
                 '(strlen($_ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
-                '$_ctx->posts->getContent(' . $urls . ')') . '; ?>';
+                '$_ctx->posts->getContent(' . $urls . ')'
+            ) . '; ?>';
         }
 
-        return '<?php echo ' . sprintf($f,
-                '$_ctx->posts->getContent(' . $urls . ')') . '; ?>';
+        return '<?php echo ' . sprintf(
+            $f,
+            '$_ctx->posts->getContent(' . $urls . ')'
+        ) . '; ?>';
     }
 
     /*dtd
@@ -1684,22 +1697,30 @@ class dcTemplate extends template
         $attr['cut_string'] = $cut;
 
         if (!empty($attr['full'])) {
-            return '<?php if (strlen(' . sprintf($full,
+            return '<?php if (strlen(' . sprintf(
+                $full,
                 '$_ctx->posts->getExcerpt(' . $urls . ').' .
                 '(strlen($_ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
-                '$_ctx->posts->getContent(' . $urls . ')') . ') > ' .
-            'strlen(' . sprintf($short,
+                '$_ctx->posts->getContent(' . $urls . ')'
+            ) . ') > ' .
+            'strlen(' . sprintf(
+                $short,
                 '$_ctx->posts->getExcerpt(' . $urls . ').' .
                 '(strlen($_ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
-                '$_ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
+                '$_ctx->posts->getContent(' . $urls . ')'
+            ) . ')) : ?>' .
                 $content .
                 '<?php endif; ?>';
         }
 
-        return '<?php if (strlen(' . sprintf($full,
-                '$_ctx->posts->getContent(' . $urls . ')') . ') > ' .
-            'strlen(' . sprintf($short,
-                '$_ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
+        return '<?php if (strlen(' . sprintf(
+            $full,
+            '$_ctx->posts->getContent(' . $urls . ')'
+        ) . ') > ' .
+            'strlen(' . sprintf(
+                $short,
+                '$_ctx->posts->getContent(' . $urls . ')'
+            ) . ')) : ?>' .
                 $content .
                 '<?php endif; ?>';
     }
@@ -2097,7 +2118,7 @@ class dcTemplate extends template
             [
                 'none' => 'no comments',
                 'one'  => 'one comment',
-                'more' => '%d comments'
+                'more' => '%d comments',
             ],
             $attr,
             false
@@ -2119,7 +2140,7 @@ class dcTemplate extends template
             [
                 'none' => 'no trackbacks',
                 'one'  => 'one trackback',
-                'more' => '%d trackbacks'
+                'more' => '%d trackbacks',
             ],
             $attr,
             false
@@ -2167,9 +2188,12 @@ class dcTemplate extends template
 
         $res = "<?php\n";
         $res .= $p;
-        $res .= $this->core->callBehavior('templatePrepareParams',
+        $res .= $this->core->callBehavior(
+            'templatePrepareParams',
             ['tag' => 'Languages', 'method' => 'blog::getLangs'],
-            $attr, $content);
+            $attr,
+            $content
+        );
         $res .= '$_ctx->langs = $core->blog->getLangs($params); unset($params);' . "\n";
         $res .= "?>\n";
 
@@ -2261,9 +2285,12 @@ class dcTemplate extends template
     {
         $p = "<?php\n";
         $p .= '$params = $_ctx->post_params;' . "\n";
-        $p .= $this->core->callBehavior('templatePrepareParams',
+        $p .= $this->core->callBehavior(
+            'templatePrepareParams',
             ['tag' => 'Pagination', 'method' => 'blog::getPosts'],
-            $attr, $content);
+            $attr,
+            $content
+        );
         $p .= '$_ctx->pagination = $core->blog->getPosts($params,true); unset($params);' . "\n";
         $p .= "?>\n";
 
@@ -2295,7 +2322,7 @@ class dcTemplate extends template
     {
         $offset = 0;
         if (isset($attr['offset'])) {
-            $offset = (integer) $attr['offset'];
+            $offset = (int) $attr['offset'];
         }
 
         $f = $this->getFilters($attr);
@@ -2315,12 +2342,12 @@ class dcTemplate extends template
         $if = [];
 
         if (isset($attr['start'])) {
-            $sign = (boolean) $attr['start'] ? '' : '!';
+            $sign = (bool) $attr['start'] ? '' : '!';
             $if[] = $sign . 'context::PaginationStart()';
         }
 
         if (isset($attr['end'])) {
-            $sign = (boolean) $attr['end'] ? '' : '!';
+            $sign = (bool) $attr['end'] ? '' : '!';
             $if[] = $sign . 'context::PaginationEnd()';
         }
 
@@ -2343,7 +2370,7 @@ class dcTemplate extends template
     {
         $offset = 0;
         if (isset($attr['offset'])) {
-            $offset = (integer) $attr['offset'];
+            $offset = (int) $attr['offset'];
         }
 
         $f = $this->getFilters($attr);
@@ -2372,7 +2399,7 @@ class dcTemplate extends template
 
         $lastn = 0;
         if (isset($attr['lastn'])) {
-            $lastn = abs((integer) $attr['lastn']) + 0;
+            $lastn = abs((int) $attr['lastn']) + 0;
         }
 
         if ($lastn > 0) {
@@ -2411,9 +2438,12 @@ class dcTemplate extends template
         }
 
         $res = "<?php\n";
-        $res .= $this->core->callBehavior('templatePrepareParams',
+        $res .= $this->core->callBehavior(
+            'templatePrepareParams',
             ['tag' => 'Comments', 'method' => 'blog::getComments'],
-            $attr, $content);
+            $attr,
+            $content
+        );
         $res .= $p;
         $res .= '$_ctx->comments = $core->blog->getComments($params); unset($params);' . "\n";
         $res .= "if (\$_ctx->posts !== null) { \$core->blog->withoutPassword(true);}\n";
@@ -2602,7 +2632,7 @@ class dcTemplate extends template
         $is_ping = null;
 
         if (isset($attr['is_ping'])) {
-            $sign = (boolean) $attr['is_ping'] ? '' : '!';
+            $sign = (bool) $attr['is_ping'] ? '' : '!';
             $if[] = $sign . '$_ctx->comments->comment_trackback';
         }
 
@@ -3013,7 +3043,7 @@ class dcTemplate extends template
 
         $lastn = 0;
         if (isset($attr['lastn'])) {
-            $lastn = abs((integer) $attr['lastn']) + 0;
+            $lastn = abs((int) $attr['lastn']) + 0;
         }
 
         if ($lastn > 0) {
@@ -3045,9 +3075,12 @@ class dcTemplate extends template
 
         $res = "<?php\n";
         $res .= $p;
-        $res .= $this->core->callBehavior('templatePrepareParams',
+        $res .= $this->core->callBehavior(
+            'templatePrepareParams',
             ['tag' => 'Pings', 'method' => 'blog::getComments'],
-            $attr, $content);
+            $attr,
+            $content
+        );
         $res .= '$_ctx->pings = $core->blog->getComments($params); unset($params);' . "\n";
         $res .= "if (\$_ctx->posts !== null) { \$core->blog->withoutPassword(true);}\n";
         $res .= "?>\n";
@@ -3145,12 +3178,12 @@ class dcTemplate extends template
         $operator = isset($attr['operator']) ? $this->getOperator($attr['operator']) : '&&';
 
         if (isset($attr['categories'])) {
-            $sign = (boolean) $attr['categories'] ? '!' : '=';
+            $sign = (bool) $attr['categories'] ? '!' : '=';
             $if[] = '$_ctx->categories ' . $sign . '== null';
         }
 
         if (isset($attr['posts'])) {
-            $sign = (boolean) $attr['posts'] ? '!' : '=';
+            $sign = (bool) $attr['posts'] ? '!' : '=';
             $if[] = '$_ctx->posts ' . $sign . '== null';
         }
 
@@ -3209,17 +3242,17 @@ class dcTemplate extends template
         }
 
         if (isset($attr['comments_active'])) {
-            $sign = (boolean) $attr['comments_active'] ? '' : '!';
+            $sign = (bool) $attr['comments_active'] ? '' : '!';
             $if[] = $sign . '$core->blog->settings->system->allow_comments';
         }
 
         if (isset($attr['pings_active'])) {
-            $sign = (boolean) $attr['pings_active'] ? '' : '!';
+            $sign = (bool) $attr['pings_active'] ? '' : '!';
             $if[] = $sign . '$core->blog->settings->system->allow_trackbacks';
         }
 
         if (isset($attr['wiki_comments'])) {
-            $sign = (boolean) $attr['wiki_comments'] ? '' : '!';
+            $sign = (bool) $attr['wiki_comments'] ? '' : '!';
             $if[] = $sign . '$core->blog->settings->system->wiki_comments';
         }
 
@@ -3228,7 +3261,7 @@ class dcTemplate extends template
         }
 
         if (isset($attr['jquery_needed'])) {
-            $sign = (boolean) $attr['jquery_needed'] ? '' : '!';
+            $sign = (bool) $attr['jquery_needed'] ? '' : '!';
             $if[] = $sign . '$core->blog->settings->system->jquery_needed';
         }
 

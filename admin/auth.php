@@ -122,7 +122,7 @@ elseif ($change_pwd) {
         $data = [
             'user_id'       => base64_decode($tmp_data[0]),
             'cookie_admin'  => $tmp_data[1],
-            'user_remember' => $tmp_data[2] == '1'
+            'user_remember' => $tmp_data[2] == '1',
         ];
         if ($data['user_id'] === false) {   // @phpstan-ignore-line
             throw new Exception();
@@ -130,7 +130,7 @@ elseif ($change_pwd) {
 
         # Check login informations
         $check_user = false;
-        if (isset($data['cookie_admin']) && strlen($data['cookie_admin']) == 104) {
+        if (strlen($data['cookie_admin']) == 104) {
             $user_id = substr($data['cookie_admin'], 40);
             $user_id = @unpack('a32', @pack('H*', $user_id));
             if (is_array($user_id)) {
@@ -191,7 +191,7 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null)) {
         $login_data = join('/', [
             base64_encode($user_id),
             $cookie_admin,
-            empty($_POST['user_remember']) ? '0' : '1'
+            empty($_POST['user_remember']) ? '0' : '1',
         ]);
 
         if (!$core->auth->allowPassChange()) {
@@ -272,7 +272,7 @@ echo
     dcPage::jsJson('pwstrength', [
         'min' => sprintf(__('Password strength: %s'), __('weak')),
         'avg' => sprintf(__('Password strength: %s'), __('medium')),
-        'max' => sprintf(__('Password strength: %s'), __('strong'))
+        'max' => sprintf(__('Password strength: %s'), __('strong')),
     ]) .
     dcPage::jsLoad('js/pwstrength.js') .
     dcPage::jsLoad('js/_auth.js');
@@ -298,19 +298,23 @@ if ($akey) {
     echo
     '<div class="fieldset" role="main"><h2>' . __('Request a new password') . '</h2>' .
     '<p><label for="user_id">' . __('Username:') . '</label> ' .
-    form::field('user_id', 20, 32,
+    form::field(
+        'user_id',
+        20,
+        32,
         [
             'default'      => html::escapeHTML($user_id),
-            'autocomplete' => 'username'
+            'autocomplete' => 'username',
         ]
     ) .
     '</p>' .
 
     '<p><label for="user_email">' . __('Email:') . '</label> ' .
-    form::email('user_email',
+    form::email(
+        'user_email',
         [
             'default'      => html::escapeHTML($user_email),
-            'autocomplete' => 'email'
+            'autocomplete' => 'email',
         ]
     ) .
     '</p>' .
@@ -327,17 +331,23 @@ if ($akey) {
     echo
     '<div class="fieldset"><h2>' . __('Change your password') . '</h2>' .
     '<p><label for="new_pwd">' . __('New password:') . '</label> ' .
-    form::password('new_pwd', 20, 255,
+    form::password(
+        'new_pwd',
+        20,
+        255,
         [
             'autocomplete' => 'new-password',
-            'class'        => 'pw-strength'
+            'class'        => 'pw-strength',
         ]
     ) . '</p>' .
 
     '<p><label for="new_pwd_c">' . __('Confirm password:') . '</label> ' .
-    form::password('new_pwd_c', 20, 255,
+    form::password(
+        'new_pwd_c',
+        20,
+        255,
         [
-            'autocomplete' => 'new-password'
+            'autocomplete' => 'new-password',
         ]
     ) . '</p>' .
     '<p><input type="submit" value="' . __('change') . '" />' .
@@ -361,17 +371,23 @@ if ($akey) {
 
         echo
         '<p><label for="user_id">' . __('Username:') . '</label> ' .
-        form::field('user_id', 20, 32,
+        form::field(
+            'user_id',
+            20,
+            32,
             [
                 'default'      => html::escapeHTML($user_id),
-                'autocomplete' => 'username'
+                'autocomplete' => 'username',
             ]
         ) . '</p>' .
 
         '<p><label for="user_pwd">' . __('Password:') . '</label> ' .
-        form::password('user_pwd', 20, 255,
+        form::password(
+            'user_pwd',
+            20,
+            255,
             [
-                'autocomplete' => 'current-password'
+                'autocomplete' => 'current-password',
             ]
         ) . '</p>' .
 

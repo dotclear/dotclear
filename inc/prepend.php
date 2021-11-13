@@ -116,7 +116,7 @@ define('CLI_MODE', PHP_SAPI == 'cli');
 # Disallow every special wrapper
 if (function_exists('stream_wrapper_unregister')) {
     $special_wrappers = array_intersect(['http', 'https', 'ftp', 'ftps', 'ssh2.shell', 'ssh2.exec',
-        'ssh2.tunnel', 'ssh2.sftp', 'ssh2.scp', 'ogg', 'expect', 'phar'], stream_get_wrappers());
+        'ssh2.tunnel', 'ssh2.sftp', 'ssh2.scp', 'ogg', 'expect', 'phar', ], stream_get_wrappers());
     foreach ($special_wrappers as $p) {
         @stream_wrapper_unregister($p);
     }
@@ -368,7 +368,7 @@ files::registerMimeTypes([
     // Video
     'mp4'  => 'video/mp4',
     'm4p'  => 'video/mp4',
-    'webm' => 'video/webm'
+    'webm' => 'video/webm',
 ]);
 
 # Shutdown
@@ -389,7 +389,7 @@ function __shutdown()
         if (session_id()) {
             session_write_close();
         }
-    } catch (Exception $e) {
+    } catch (Exception $e) {    // @phpstan-ignore-line
     }
     $GLOBALS['core']->con->close();
 }
