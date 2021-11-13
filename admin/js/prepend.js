@@ -122,7 +122,7 @@ dotclear.trimHtml = (html, options = {}) => {
       continue;
     }
 
-    if (row[0] !== '<') {
+    if (!row.startsWith('<')) {
       if (sum >= limit) {
         row = '';
       } else if (sum + rowCut.length >= limit) {

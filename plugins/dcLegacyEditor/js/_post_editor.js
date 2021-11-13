@@ -22,8 +22,8 @@ $(() => {
   let contentTb;
 
   if (
-    dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#post_content') !== -1 &&
-    dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#post_excerpt') !== -1
+    dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#post_content') &&
+    dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#post_excerpt')
   ) {
     // Get document format and prepare toolbars
     formatField = $('#post_format').get(0);
@@ -58,7 +58,7 @@ $(() => {
   }
 
   if (
-    dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#comment_content') !== -1 &&
+    dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#comment_content') &&
     $('#comment_content').length > 0
   ) {
     dotclear.commentTb = new jsToolBar(document.getElementById('comment_content'));
@@ -67,7 +67,7 @@ $(() => {
 
   $('#comments').on('onetabload', () => {
     // Remove required attribut from #comment_content as textarea might be not more focusable
-    if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#comment_content') !== -1) {
+    if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#comment_content')) {
       $('#comment_content')[0].removeAttribute('required');
     }
   });
@@ -77,7 +77,7 @@ $(() => {
     if (
       formatField !== undefined &&
       formatField.value == 'xhtml' &&
-      dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].indexOf('#post_content') !== -1
+      dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#post_content')
     ) {
       $('#post_content')[0].removeAttribute('required');
     }

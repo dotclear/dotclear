@@ -28,7 +28,7 @@ jsToolBar.prototype.elements.tag.fn.wiki = function () {
       window.alert(dotclear.msg.no_selection);
       return '';
     }
-    if (str.indexOf(',') != -1) {
+    if (str.includes(',')) {
       return str;
     } else {
       window.dc_tag_editor.addMeta(str);
@@ -43,7 +43,7 @@ jsToolBar.prototype.elements.tag.fn.markdown = function () {
       window.alert(dotclear.msg.no_selection);
       return '';
     }
-    if (str.indexOf(',') != -1) {
+    if (str.includes(',')) {
       return str;
     } else {
       window.dc_tag_editor.addMeta(str);
@@ -58,7 +58,7 @@ jsToolBar.prototype.elements.tag.fn.xhtml = function () {
       window.alert(dotclear.msg.no_selection);
       return '';
     }
-    if (str.indexOf(',') != -1) {
+    if (str.includes(',')) {
       return str;
     } else {
       window.dc_tag_editor.addMeta(str);
@@ -73,7 +73,7 @@ jsToolBar.prototype.elements.tag.fn.wysiwyg = function () {
     window.alert(dotclear.msg.no_selection);
     return;
   }
-  if (t.indexOf(',') != -1) {
+  if (t.includes(',')) {
     return;
   }
 

@@ -237,7 +237,7 @@ jsToolBar.prototype.addIwinEvent = (target, type, fn, scope) => {
     () => {
       removeEvent(target, type, myFn, true);
     },
-    true
+    true,
   );
 };
 jsToolBar.prototype.iwinEvents = {
@@ -392,7 +392,7 @@ jsToolBar.prototype.getSelectedNode = function () {
     // Gecko
     sel = this.iwin.getSelection();
     const range = sel.getRangeAt(0);
-    content = range.cloneContents();
+    return range.cloneContents();
   } else {
     // IE
     sel = this.iwin.document.selection;
@@ -447,7 +447,7 @@ jsToolBar.prototype.getBlockLevel = function () {
   }
 
   let ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
-  while (arrayIndexOf(blockElts, ancestorTagName) == -1 && ancestorTagName != 'body') {
+  while (blockElts.indexOf(ancestorTagName) == -1 && ancestorTagName != 'body') {
     commonAncestorContainer = commonAncestorContainer.parentNode;
     ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
   }
@@ -561,7 +561,7 @@ jsToolBar.prototype.simpleCleanRegex = new Array(
   /* br intempestifs de fin de block */
   [/<br \/>\s*<\/(h1|h2|h3|h4|h5|h6|ul|ol|li|p|blockquote|div)/gi, '</$1'],
   [/<\/(h1|h2|h3|h4|h5|h6|ul|ol|li|p|blockquote)>([^\n\u000B\r\f])/gi, '</$1>\n$2'],
-  [/<hr style="width: 100%; height: 2px;" \/>/g, '<hr />']
+  [/<hr style="width: 100%; height: 2px;" \/>/g, '<hr />'],
 );
 
 /** Cleanup HTML code
@@ -603,8 +603,7 @@ jsToolBar.prototype.tagsoup2xhtml = function (html) {
   /* Trim only if there's no pre tag */
   const pattern_pre = /<pre>[\s\S]*<\/pre>/gi;
   if (!pattern_pre.test(html)) {
-    html = html.replace(/^\s+/g, '');
-    html = html.replace(/\s+$/g, '');
+    return html.replace(/^\s+/g, '').replace(/\s+$/g, '');
   }
 
   return html;
@@ -640,7 +639,7 @@ jsToolBar.prototype.validBlockquote = function () {
     for (let i = bqChilds.length - 1; i >= 0; i--) {
       if (
         bqChilds[i].nodeType == 1 && // Node.ELEMENT_NODE
-        arrayIndexOf(blockElts, bqChilds[i].tagName.toLowerCase()) >= 0
+        blockElts.includes(bqChilds[i].tagName.toLowerCase())
       ) {
         if (frag.childNodes.length > 0) {
           p = this.iwin.document.createElement('p');
@@ -682,7 +681,7 @@ jsToolBar.prototype.removeFormatRegexp = new Array(
   [/(<[a-z][^>]*)font-variant\s*:[^;]*;/gm, '$1'],
   [/(<[a-z][^>]*)font-weight\s*:[^;]*;/gm, '$1'],
 
-  [/(<[a-z][^>]*)color\s*:[^;]*;/gm, '$1']
+  [/(<[a-z][^>]*)color\s*:[^;]*;/gm, '$1'],
 );
 
 jsToolBar.prototype.removeTextFormating = function (html) {
@@ -862,22 +861,6 @@ jsToolBar.prototype.elements.removeFormat.fn.wysiwyg = function () {
 };
 /** Utilities
 -------------------------------------------------------- */
-function arrayIndexOf(aArray, aValue) {
-  if (typeof Array.indexOf == 'function') {
-    return aArray.indexOf(aValue);
-  } else {
-    let index = -1;
-    const l = aArray.length;
-    for (let i = 0; i < l; i++) {
-      if (aArray[i] === aValue) {
-        index = i;
-        break;
-      }
-    }
-    return index;
-  }
-}
-
 function addEvent(obj, evType, fn, useCapture) {
   if (obj.addEventListener) {
     obj.addEventListener(evType, fn, useCapture);

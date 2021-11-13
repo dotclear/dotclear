@@ -154,7 +154,7 @@ jQuery.fn.toggleWithLegend = function (target, s) {
             value: p.hide ^ p.reverse_user_pref ? 1 : 0,
             xd_check: dotclear.nonce,
           },
-          () => {}
+          () => {},
         );
       }
       toggle(b);
@@ -180,7 +180,7 @@ jQuery.fn.toggleWithLegend = function (target, s) {
   };
   const singleExpander = (line, callback) => {
     $(
-      `<button type="button" class="details-cmd" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`
+      `<button type="button" class="details-cmd" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`,
     )
       .on('click', function (e) {
         if (toggleArrow(this) !== '') {
@@ -192,7 +192,7 @@ jQuery.fn.toggleWithLegend = function (target, s) {
   };
   const multipleExpander = (line, lines, callback) => {
     $(
-      `<button type="button" class="details-cmd" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`
+      `<button type="button" class="details-cmd" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`,
     )
       .on('click', function (e) {
         const action = toggleArrow(this);
@@ -327,8 +327,8 @@ dotclear.enterKeyInForm = (frm_id, ok_id, cancel_id) => {
 };
 
 dotclear.condSubmit = (chkboxes, target) => {
-  const checkboxes = $(chkboxes),
-    submitButt = $(target);
+  const checkboxes = $(chkboxes);
+  const submitButt = $(target);
   if (checkboxes === undefined || submitButt === undefined) {
     return;
   }
@@ -521,7 +521,7 @@ dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) =>
     for (let i = offset; i < THarray.length; i++) {
       styleSheet.insertRule(
         `${selector} td:nth-child(${i + 1})::before {content:"${THarray[i]} ";}`,
-        styleSheet.cssRules.length
+        styleSheet.cssRules.length,
       );
     }
     table.className += `${table.className !== '' ? ' ' : ''}rch${thead ? ' rch-thead' : ''}`;
@@ -577,7 +577,7 @@ dotclear.badge = ($elt, options = null) => {
       /* classes: additionnal badge classes */
       classes: '',
     },
-    options
+    options,
   );
 
   // Set some constants
@@ -651,7 +651,7 @@ dotclear.passwordHelpers = () => {
   // Compose button
   const buttonTemplate = new DOMParser().parseFromString(
     `<button type="button" class="pw-show" title="${dotclear.msg.show_password}"><span class="sr-only">${dotclear.msg.show_password}</span></button>`,
-    'text/html'
+    'text/html',
   ).body.firstChild;
 
   const passwordFields = document.querySelectorAll('input[type=password]');
@@ -765,8 +765,8 @@ $(() => {
       {
         user_pref: 'dc_blog_menu',
       },
-      menu_settings
-    )
+      menu_settings,
+    ),
   );
   $('#system-menu h3:first').toggleWithLegend(
     $('#system-menu ul:first'),
@@ -774,8 +774,8 @@ $(() => {
       {
         user_pref: 'dc_system_menu',
       },
-      menu_settings
-    )
+      menu_settings,
+    ),
   );
   $('#plugins-menu h3:first').toggleWithLegend(
     $('#plugins-menu ul:first'),
@@ -783,8 +783,8 @@ $(() => {
       {
         user_pref: 'dc_plugins_menu',
       },
-      menu_settings
-    )
+      menu_settings,
+    ),
   );
   $('#favorites-menu h3:first').toggleWithLegend(
     $('#favorites-menu ul:first'),
@@ -794,8 +794,8 @@ $(() => {
         hide: false,
         reverse_user_pref: true,
       },
-      menu_settings
-    )
+      menu_settings,
+    ),
   );
 
   $('#help').helpViewer();
@@ -804,7 +804,7 @@ $(() => {
   $('p.success,p.warning,p.error,div.error').each(function () {
     $(this).addClass('close-notice-parent');
     $(this).append(
-      `<button class="close-notice" type="button"><img src="images/close.png" alt="${dotclear.msg.close_notice}" /></button>`
+      `<button class="close-notice" type="button"><img src="images/close.png" alt="${dotclear.msg.close_notice}" /></button>`,
     );
   });
   $('button.close-notice').on('click', function (e) {
@@ -894,12 +894,7 @@ $(() => {
     }
   });
   $('#gototop').on('click', (e) => {
-    $('body,html').animate(
-      {
-        scrollTop: 0,
-      },
-      800
-    );
+    $('body,html').animate({ scrollTop: 0 }, 800);
     e.preventDefault();
   });
 

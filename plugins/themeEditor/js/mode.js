@@ -1,7 +1,7 @@
 /*global CodeMirror, dotclear */
 'use strict';
 
-window.CodeMirror.defineMode('dotclear', function (config) {
+window.CodeMirror.defineMode('dotclear', (config) => {
   const mode = dotclear.getData('theme_editor_mode');
 
   return CodeMirror.multiplexingMode(
@@ -23,6 +23,6 @@ window.CodeMirror.defineMode('dotclear', function (config) {
       close: '>',
       mode: CodeMirror.getMode(config, 'text/html'),
       parseDelimiters: true,
-    }
+    },
   );
 });
