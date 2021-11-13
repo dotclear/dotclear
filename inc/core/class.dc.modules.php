@@ -197,22 +197,19 @@ class dcModules
             while (($entry = $d->read()) !== false) {
                 $full_entry = $root . $entry;
 
-                if ($entry != '.' && $entry != '..' && is_dir($full_entry)
-                    && file_exists($full_entry . '/_define.php')) {
-                    $this->id    = $entry;
-                    $this->mroot = $full_entry;
-                    if (!file_exists($full_entry . '/_disabled') && !$disabled) {
-                        // Enabled module
-                        ob_start();
-                        require $full_entry . '/_define.php';
-                        ob_end_clean();
+                if ($entry != '.' && $entry != '..' && is_dir($full_entry) && file_exists($full_entry . '/_define.php')) {
+                    $this->id       = $entry;
+                    $this->mroot    = $full_entry;
+                    $module_enabled = !file_exists($full_entry . '/_disabled') && !$disabled;
+                    if (!$module_enabled) {
+                        $this->disabled_mode = true;
+                    }
+                    ob_start();
+                    require $full_entry . '/_define.php';
+                    ob_end_clean();
+                    if ($module_enabled) {
                         $this->all_modules[$entry] = &$this->modules[$entry];
                     } else {
-                        // Disabled module
-                        $this->disabled_mode = true;
-                        ob_start();
-                        require $full_entry . '/_define.php';
-                        ob_end_clean();
                         $this->disabled_mode       = false;
                         $this->disabled[$entry]    = $this->disabled_meta;
                         $this->all_modules[$entry] = &$this->disabled[$entry];
