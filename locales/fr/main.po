@@ -2491,7 +2491,7 @@ msgstr "Une nouvelle version de Dotclear est disponible mais nécessite une vers
 
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
-msgstr "Les prochaines versions de Dotclear ne supporteront par les versions de PHP < %s, la votre est actuellement la %s"
+msgstr "Les prochaines versions de Dotclear ne supporteront pas les versions de PHP < %s, la votre est actuellement la %s"
 
 msgid "List options saved"
 msgstr "Options de liste sauvegardées"
