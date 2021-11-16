@@ -741,8 +741,11 @@ $fmt_form_media .= '</form>';
 echo '<div class="media-list">';
 echo $last_folders;
 
+// remove form filters from hidden fields
+$form_filters_hidden_fields = array_diff_key($page->values(), ['nb' => '', 'order' => '', 'sortby' => '', 'q' => '']);
+
 // display filter
-$page->display('admin.media');//, $core->adminurl->getHiddenFormFields('admin.media', array_merge($page->values(), ['q' => ''])));
+$page->display('admin.media', $core->adminurl->getHiddenFormFields('admin.media', $form_filters_hidden_fields));
 
 // display list
 $media_list->display($page, $fmt_form_media, $page->hasQuery());

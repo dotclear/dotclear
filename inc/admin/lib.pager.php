@@ -1035,7 +1035,7 @@ class adminMediaList extends adminGenericList
             echo '<p><strong>' . __('No file.') . '</strong></p>';
         }
 
-        if ($this->rs_count) {
+        if ($this->rs_count && !($filters->q && !$query)) {
             $pager = new dcPager($filters->page, $this->rs_count, $filters->nb, 10);
 
             $items = $this->rs->rows();
