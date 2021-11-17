@@ -2,6 +2,7 @@ Dotclear 2.20.1 - 2021-11-19
 ===========================================================
 * Fix: Lost of context in media popup (editor media insertion)
 * Fix: Active menuitem in favorites menu
+* Fix: Avoid notice on unknown namespace (dcSettings)
 
 Dotclear 2.20 - 2021-11-13
 ===========================================================
