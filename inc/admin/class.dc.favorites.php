@@ -158,9 +158,13 @@ class dcFavorites
         if (!count($this->user_prefs)) {
             $this->user_prefs = $this->getFavorites(['new_post']);
         }
-        $u = explode('?', $_SERVER['REQUEST_URI']);
+        $uri = explode('?', $_SERVER['REQUEST_URI']);
+        // take only last part of the URI, all plugins work like that
+        $uri[0] = preg_replace('#(.*?)([^/]+)$#', '$2', $uri[0]);
         // Loop over prefs to enable active favorites
         foreach ($this->user_prefs as $k => &$v) {
+            // duplicate request URI on each loop as it takes previous pref value ?!
+            $u = $uri;
             if (isset($v['active_cb']) && is_callable($v['active_cb'])) {
                 // Use callback if defined to match whether favorite is active or not
                 $v['active'] = call_user_func($v['active_cb'], $u[0], $_REQUEST);
@@ -425,7 +429,8 @@ class defaultFavorites
                 'url'         => $core->adminurl->get('admin.post'),
                 'small-icon'  => 'images/menu/edit.png',
                 'large-icon'  => 'images/menu/edit-b.png',
-                'permissions' => 'usage,contentadmin'],
+                'permissions' => 'usage,contentadmin',
+                'active_cb' => ['defaultFavorites', 'newpostActive']],
             'posts' => [
                 'title'        => __('Posts'),
                 'url'          => $core->adminurl->get('admin.posts'),
@@ -510,6 +515,20 @@ class defaultFavorites
         $post_count  = $core->blog->getPosts([], true)->f(0);
         $str_entries = __('%d post', '%d posts', $post_count);
         $v['title']  = sprintf($str_entries, $post_count);
+    }
+
+    /**
+     * Helper for new post active menu
+     *
+     * Take account of post edition (if id is set)
+     *
+     * @param  string   $request_uri    The URI
+     * @param  array    $request_params The params
+     * @return boolean                  Active
+     */
+    public static function newpostActive($request_uri, $request_params)
+    {
+        return 'post.php' == $request_uri && !isset($request_params['id']);
     }
 
     /**
