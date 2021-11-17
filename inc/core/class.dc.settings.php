@@ -163,7 +163,7 @@ class dcSettings
      */
     public function get($ns)
     {
-        return $this->namespaces[$ns];
+        return ($this->namespaces[$ns] ?? null);
     }
 
     /**
