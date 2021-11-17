@@ -1,3 +1,8 @@
+Dotclear 2.20.1 - 2021-11-19
+===========================================================
+* Fix: Lost of context in media popup (editor media insertion)
+* Fix: Active menuitem in favorites menu
+
 Dotclear 2.20 - 2021-11-13
 ===========================================================
 * 🐘 PHP 7.3+ is required, PHP 8 compliance
