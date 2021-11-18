@@ -19,11 +19,11 @@ $('#hamburger').on('click', function () {
 });
 // Show/Hide sidebar on small screens
 $('#main').prepend(
-  `<button id="offcanvas-on" type="button"><span class="visually-hidden">${dotclear_berlin.show_menu}</span></button>`
+  `<button id="offcanvas-on" type="button"><span class="visually-hidden">${dotclear_berlin.show_menu}</span></button>`,
 );
 $('#offcanvas-on').on('click', () => {
   const btn = $(
-    `<button id="offcanvas-off" type="button"><span class="visually-hidden">${dotclear_berlin.hide_menu}</span></button>`
+    `<button id="offcanvas-off" type="button"><span class="visually-hidden">${dotclear_berlin.hide_menu}</span></button>`,
   );
   $('#wrapper').addClass('off-canvas');
   $('#footer').addClass('off-canvas');
@@ -39,20 +39,32 @@ $('#offcanvas-on').on('click', () => {
   });
 });
 $(document).ready(() => {
+  // totop init
+  const $btn = $('#gotop');
+  const $link = $('#gotop a');
+  $link.attr('title', $link.text());
+  $link.html(
+    '<svg width="24px" height="24px" viewBox="1 -6 524 524" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M460 321L426 355 262 192 98 355 64 321 262 125 460 321Z"></path></svg>',
+  );
+  $btn.css({
+    width: '32px',
+    height: '32px',
+    padding: '3px 0',
+  });
   // totop scroll
   $(window).scroll(function () {
     if ($(this).scrollTop() != 0) {
-      $('#gotop').fadeIn();
+      $btn.fadeIn();
     } else {
-      $('#gotop').fadeOut();
+      $btn.fadeOut();
     }
   });
-  $('#gotop').on('click', (e) => {
+  $btn.on('click', (e) => {
     $('body,html').animate(
       {
         scrollTop: 0,
       },
-      800
+      800,
     );
     e.preventDefault();
   });
