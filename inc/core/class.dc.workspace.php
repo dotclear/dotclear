@@ -23,8 +23,8 @@ class dcWorkspace
     protected $prefs        = []; ///< <b>array</b> Associative prefs array
     protected $ws;                ///< <b>string</b> Current workspace
 
-    const WS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
-    const WS_ID_SCHEMA   = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
+    protected const WS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
+    protected const WS_ID_SCHEMA   = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
 
     /**
      * Object constructor. Retrieves user prefs and puts them in $prefs
@@ -102,7 +102,7 @@ class dcWorkspace
                 'value'  => $value,
                 'type'   => $type,
                 'label'  => (string) $rs->f('pref_label'),
-                'global' => $rs->user_id == ''
+                'global' => $rs->user_id == '',
             ];
         }
 
@@ -139,7 +139,7 @@ class dcWorkspace
      */
     public function get($n)
     {
-        if (isset($this->prefs[$n]['value'])) {
+        if (isset($this->prefs[$n]) && isset($this->prefs[$n]['value'])) {
             return $this->prefs[$n]['value'];
         }
     }
@@ -153,7 +153,7 @@ class dcWorkspace
      */
     public function getGlobal($n)
     {
-        if (isset($this->global_prefs[$n]['value'])) {
+        if (isset($this->global_prefs[$n]) && isset($this->global_prefs[$n]['value'])) {
             return $this->global_prefs[$n]['value'];
         }
     }
@@ -167,7 +167,7 @@ class dcWorkspace
      */
     public function getLocal($n)
     {
-        if (isset($this->local_prefs[$n]['value'])) {
+        if (isset($this->local_prefs[$n]) && isset($this->local_prefs[$n]['value'])) {
             return $this->local_prefs[$n]['value'];
         }
     }
@@ -283,7 +283,7 @@ class dcWorkspace
         }
 
         $cur             = $this->con->openCursor($this->table);
-        $cur->pref_value = ($type == 'boolean') ? (string) (integer) $value : (string) $value;
+        $cur->pref_value = ($type == 'boolean') ? (string) (int) $value : (string) $value;
         $cur->pref_type  = $type;
         $cur->pref_label = $label;
 

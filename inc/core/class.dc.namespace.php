@@ -23,8 +23,8 @@ class dcNamespace
     protected $settings        = []; ///< <b>array</b> Associative settings array
     protected $ns;                   ///< <b>string</b> Current namespace
 
-    const NS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
-    const NS_ID_SCHEMA   = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
+    protected const NS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
+    protected const NS_ID_SCHEMA   = '/^[a-zA-Z][a-zA-Z0-9_]+$/';
 
     /**
      * Object constructor. Retrieves blog settings and puts them in $settings
@@ -96,7 +96,7 @@ class dcNamespace
                 'value'  => $value,
                 'type'   => $type,
                 'label'  => (string) $rs->f('setting_label'),
-                'global' => $rs->blog_id == ''
+                'global' => $rs->blog_id == '',
             ];
         }
 
@@ -133,7 +133,7 @@ class dcNamespace
      */
     public function get($n)
     {
-        if (isset($this->settings[$n]['value'])) {
+        if (isset($this->settings[$n]) && isset($this->settings[$n]['value'])) {
             return $this->settings[$n]['value'];
         }
     }
@@ -147,7 +147,7 @@ class dcNamespace
      */
     public function getGlobal($n)
     {
-        if (isset($this->global_settings[$n]['value'])) {
+        if (isset($this->global_settings[$n]) && isset($this->global_settings[$n]['value'])) {
             return $this->global_settings[$n]['value'];
         }
     }
@@ -161,7 +161,7 @@ class dcNamespace
      */
     public function getLocal($n)
     {
-        if (isset($this->local_settings[$n]['value'])) {
+        if (isset($this->local_settings[$n]) && isset($this->local_settings[$n]['value'])) {
             return $this->local_settings[$n]['value'];
         }
     }
@@ -275,7 +275,7 @@ class dcNamespace
         }
 
         $cur                = $this->con->openCursor($this->table);
-        $cur->setting_value = ($type == 'boolean') ? (string) (integer) $value : (string) $value;
+        $cur->setting_value = ($type == 'boolean') ? (string) (int) $value : (string) $value;
         $cur->setting_type  = $type;
         $cur->setting_label = $label;
 

@@ -18,6 +18,7 @@ if (!defined('DC_RC_PATH')) {
 
 class dcPrefs
 {
+    protected $core;    ///< <b>core</b> Dotclear core object
     protected $con;     ///< <b>connection</b> Database connection object
     protected $table;   ///< <b>string</b> Prefs table name
     protected $user_id; ///< <b>string</b> User ID
@@ -26,7 +27,7 @@ class dcPrefs
 
     protected $ws; ///< <b>string</b> Current workspace
 
-    const WS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
+    protected const WS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
 
     /**
      * Object constructor. Retrieves user prefs and puts them in $workspaces
@@ -38,6 +39,7 @@ class dcPrefs
      */
     public function __construct(dcCore $core, $user_id, $workspace = null)
     {
+        $this->core    = &$core;
         $this->con     = &$core->con;
         $this->table   = $core->prefix . 'pref';
         $this->user_id = &$user_id;
@@ -83,7 +85,7 @@ class dcPrefs
                 // at very first time
                 $rs->movePrev();
             }
-            $this->workspaces[$ws] = new dcWorkspace($GLOBALS['core'], $this->user_id, $ws, $rs);
+            $this->workspaces[$ws] = new dcWorkspace($this->core, $this->user_id, $ws, $rs);
         } while (!$rs->isStart());
     }
 
@@ -96,8 +98,8 @@ class dcPrefs
      */
     public function addWorkspace($ws)
     {
-        if (!array_key_exists($ws, $this->workspaces)) {
-            $this->workspaces[$ws] = new dcWorkspace($GLOBALS['core'], $this->user_id, $ws);
+        if (!$this->exists($ws)) {
+            $this->workspaces[$ws] = new dcWorkspace($this->core, $this->user_id, $ws);
         }
 
         return $this->workspaces[$ws];
@@ -115,7 +117,7 @@ class dcPrefs
      */
     public function renWorkspace($oldWs, $newWs)
     {
-        if (!array_key_exists($oldWs, $this->workspaces) || array_key_exists($newWs, $this->workspaces)) {
+        if (!$this->exists($oldWs) || $this->exists($newWs)) {
             return false;
         }
 
@@ -145,7 +147,7 @@ class dcPrefs
      */
     public function delWorkspace($ws)
     {
-        if (!array_key_exists($ws, $this->workspaces)) {
+        if (!$this->exists($ws)) {
             return false;
         }
 
@@ -169,7 +171,7 @@ class dcPrefs
      */
     public function get($ws)
     {
-        if (array_key_exists($ws, $this->workspaces)) {
+        if ($this->exists($ws)) {
             return $this->workspaces[$ws];
         }
     }
@@ -186,6 +188,18 @@ class dcPrefs
     public function __get($n)
     {
         return $this->get($n);
+    }
+
+    /**
+     * Check if a workspace exists
+     *
+     * @param      string  $ws     Workspace name
+     *
+     * @return     boolean
+     */
+    public function exists($ws)
+    {
+        return array_key_exists($ws, $this->workspaces);
     }
 
     /**

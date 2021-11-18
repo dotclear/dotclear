@@ -18,7 +18,7 @@ if (!defined('DC_RC_PATH')) {
 
 class dcSettings
 {
-    protected $core;    ///< <b>connection</b> Database connection object
+    protected $core;    ///< <b>core</b> Dotclear core object
     protected $con;     ///< <b>connection</b> Database connection object
     protected $table;   ///< <b>string</b> Settings table name
     protected $blog_id; ///< <b>string</b> Blog ID
@@ -27,7 +27,7 @@ class dcSettings
 
     protected $ns; ///< <b>string</b> Current namespace
 
-    const NS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
+    protected const NS_NAME_SCHEMA = '/^[a-zA-Z][a-zA-Z0-9]+$/';
 
     /**
      * Object constructor. Retrieves blog settings and puts them in $namespaces
@@ -90,7 +90,7 @@ class dcSettings
      */
     public function addNamespace($ns)
     {
-        if (!array_key_exists($ns, $this->namespaces)) {
+        if (!$this->exists($ns)) {
             $this->namespaces[$ns] = new dcNamespace($this->core, $this->blog_id, $ns);
         }
 
@@ -109,7 +109,7 @@ class dcSettings
      */
     public function renNamespace($oldNs, $newNs)
     {
-        if (!array_key_exists($oldNs, $this->namespaces) || array_key_exists($newNs, $this->namespaces)) {
+        if (!$this->exists($oldNs) || $this->exists($newNs)) {
             return false;
         }
 
@@ -139,7 +139,7 @@ class dcSettings
      */
     public function delNamespace($ns)
     {
-        if (!array_key_exists($ns, $this->namespaces)) {
+        if (!$this->exists($ns)) {
             return false;
         }
 
@@ -178,6 +178,18 @@ class dcSettings
     public function __get($n)
     {
         return $this->get($n);
+    }
+
+    /**
+     * Check if a namespace exists
+     *
+     * @param      string  $ns     Namespace name
+     *
+     * @return     boolean
+     */
+    public function exists($ns)
+    {
+        return array_key_exists($ns, $this->namespaces);
     }
 
     /**
