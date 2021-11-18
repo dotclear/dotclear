@@ -68,4 +68,6 @@ $(document).ready(() => {
     );
     e.preventDefault();
   });
+  // scroll comment preview if present
+  document.getElementById('pr')?.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
 });
