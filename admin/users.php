@@ -87,10 +87,14 @@ if (!$core->error->flag()) {
         dcPage::message(__('The permissions have been successfully updated.'));
     }
 
+    echo '<p class="top-add"><strong><a class="button add" href="' . $core->adminurl->get('admin.user') . '">' . __('New user') . '</a></strong></p>';
+
     $user_filter->display('admin.users');
 
     # Show users
-    $user_list->display($user_filter->page, $user_filter->nb,
+    $user_list->display(
+        $user_filter->page,
+        $user_filter->nb,
         '<form action="' . $core->adminurl->get('admin.user.actions') . '" method="post" id="form-users">' .
 
         '%s' .
