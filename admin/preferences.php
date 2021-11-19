@@ -48,6 +48,7 @@ $user_acc_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
 $core->auth->user_prefs->addWorkspace('interface');
 $user_ui_theme            = $core->auth->user_prefs->interface->theme;
 $user_ui_enhanceduploader = $core->auth->user_prefs->interface->enhanceduploader;
+$user_ui_blank_preview    = $core->auth->user_prefs->interface->blank_preview;
 $user_ui_hidemoreinfo     = $core->auth->user_prefs->interface->hidemoreinfo;
 $user_ui_hidehelpbutton   = $core->auth->user_prefs->interface->hidehelpbutton;
 $user_ui_showajaxloader   = $core->auth->user_prefs->interface->showajaxloader;
@@ -109,7 +110,7 @@ if (is_dir($iconsets_root) && is_readable($iconsets_root)) {
 $theme_combo = [
     __('Light')     => 'light',
     __('Dark')      => 'dark',
-    __('Automatic') => ''
+    __('Automatic') => '',
 ];
 
 # Body base font size (37.5% = 6px, 50% = 8px, 62.5% = 10px, 75% = 12px, 87.5% = 14px)
@@ -118,7 +119,7 @@ $htmlfontsize_combo = [
     __('Smaller')  => '50%',
     __('Default')  => '62.5%',
     __('Larger')   => '75%',
-    __('Largest')  => '87.5%'
+    __('Largest')  => '87.5%',
 ];
 # Ensure Font size is set to default is empty
 if ($user_ui_htmlfontsize == '') {
@@ -131,7 +132,7 @@ $lang_combo = dcAdminCombos::getAdminLangsCombo();
 # Get 3rd parts xhtml editor flags
 $rte = [
     'blog_descr' => [true, __('Blog description (in blog parameters)')],
-    'cat_descr'  => [true, __('Category description')]
+    'cat_descr'  => [true, __('Category description')],
 ];
 $rte = new ArrayObject($rte);
 $core->callBehavior('adminRteFlags', $core, $rte);
@@ -153,7 +154,7 @@ $sorts = adminUserPref::getUserFilters();
 
 $order_combo = [
     __('Descending') => 'desc',
-    __('Ascending')  => 'asc'
+    __('Ascending')  => 'asc',
 ];
 // All filters
 $auto_filter = $core->auth->user_prefs->interface->auto_filter;
@@ -235,7 +236,7 @@ if (isset($_POST['user_editor'])) {
 
         $cur->user_post_status = $user_post_status = $_POST['user_post_status'];
 
-        $user_options['edit_size'] = (integer) $_POST['user_edit_size'];
+        $user_options['edit_size'] = (int) $_POST['user_edit_size'];
         if ($user_options['edit_size'] < 1) {
             $user_options['edit_size'] = 10;
         }
@@ -253,6 +254,7 @@ if (isset($_POST['user_editor'])) {
         $core->auth->user_prefs->accessibility->put('nodragdrop', !empty($_POST['user_acc_nodragdrop']), 'boolean');
         $core->auth->user_prefs->interface->put('theme', $_POST['user_ui_theme'], 'string');
         $core->auth->user_prefs->interface->put('enhanceduploader', !empty($_POST['user_ui_enhanceduploader']), 'boolean');
+        $core->auth->user_prefs->interface->put('blank_preview', !empty($_POST['user_ui_blank_preview']), 'boolean');
         $core->auth->user_prefs->interface->put('hidemoreinfo', !empty($_POST['user_ui_hidemoreinfo']), 'boolean');
         $core->auth->user_prefs->interface->put('hidehelpbutton', !empty($_POST['user_ui_hidehelpbutton']), 'boolean');
         $core->auth->user_prefs->interface->put('showajaxloader', !empty($_POST['user_ui_showajaxloader']), 'boolean');
@@ -261,7 +263,7 @@ if (isset($_POST['user_editor'])) {
             # Applied to all users
             $core->auth->user_prefs->interface->put('hide_std_favicon', !empty($_POST['user_ui_hide_std_favicon']), 'boolean', null, true, true);
         }
-        $core->auth->user_prefs->interface->put('media_nb_last_dirs', (integer) $_POST['user_ui_media_nb_last_dirs'], 'integer');
+        $core->auth->user_prefs->interface->put('media_nb_last_dirs', (int) $_POST['user_ui_media_nb_last_dirs'], 'integer');
         $core->auth->user_prefs->interface->put('media_last_dirs', [], 'array', null, false);
         $core->auth->user_prefs->interface->put('media_fav_dirs', [], 'array', null, false);
         $core->auth->user_prefs->interface->put('nocheckadblocker', !empty($_POST['user_ui_nocheckadblocker']), 'boolean');
@@ -295,7 +297,7 @@ if (isset($_POST['user_editor'])) {
             if (null !== $sort_data[4]) {
                 $k = 'sorts_' . $sort_type . '_nb';
 
-                $su[$sort_type][2] = isset($_POST[$k]) ? abs((integer) $_POST[$k]) : $sort_data[4][1];
+                $su[$sort_type][2] = isset($_POST[$k]) ? abs((int) $_POST[$k]) : $sort_data[4][1];
             }
         }
         $core->auth->user_prefs->interface->put('sorts', $su, 'array');
@@ -446,14 +448,15 @@ if (!empty($_POST['resetorder'])) {
 
 /* DISPLAY
 -------------------------------------------------------- */
-dcPage::open($page_title,
+dcPage::open(
+    $page_title,
     ($user_acc_nodragdrop ? '' : dcPage::jsLoad('js/_preferences-dragdrop.js')) .
     dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
     dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
     dcPage::jsJson('pwstrength', [
         'min' => sprintf(__('Password strength: %s'), __('weak')),
         'avg' => sprintf(__('Password strength: %s'), __('medium')),
-        'max' => sprintf(__('Password strength: %s'), __('strong'))
+        'max' => sprintf(__('Password strength: %s'), __('strong')),
     ]) .
     dcPage::jsLoad('js/pwstrength.js') .
     dcPage::jsLoad('js/_preferences.js') .
@@ -462,12 +465,12 @@ dcPage::open($page_title,
 
     # --BEHAVIOR-- adminPreferencesHeaders
     $core->callBehavior('adminPreferencesHeaders'),
-
     dcPage::breadcrumb(
         [
             html::escapeHTML($core->auth->userID()) => '',
-            $page_title                             => ''
-        ])
+            $page_title                             => '',
+        ]
+    )
 );
 
 # User profile
@@ -480,34 +483,34 @@ echo
 '<p><label for="user_name">' . __('Last Name:') . '</label>' .
 form::field('user_name', 20, 255, [
     'default'      => html::escapeHTML($user_name),
-    'autocomplete' => 'family-name'
+    'autocomplete' => 'family-name',
 ]) .
 '</p>' .
 
 '<p><label for="user_firstname">' . __('First Name:') . '</label>' .
 form::field('user_firstname', 20, 255, [
     'default'      => html::escapeHTML($user_firstname),
-    'autocomplete' => 'given-name'
+    'autocomplete' => 'given-name',
 ]) .
 '</p>' .
 
 '<p><label for="user_displayname">' . __('Display name:') . '</label>' .
 form::field('user_displayname', 20, 255, [
     'default'      => html::escapeHTML($user_displayname),
-    'autocomplete' => 'nickname'
+    'autocomplete' => 'nickname',
 ]) .
 '</p>' .
 
 '<p><label for="user_email">' . __('Email:') . '</label>' .
 form::email('user_email', [
     'default'      => html::escapeHTML($user_email),
-    'autocomplete' => 'email'
+    'autocomplete' => 'email',
 ]) .
 '</p>' .
 
 '<p><label for="user_profile_mails">' . __('Alternate emails (comma separated list):') . '</label>' .
 form::field('user_profile_mails', 50, 255, [
-    'default' => html::escapeHTML($user_profile_mails)
+    'default' => html::escapeHTML($user_profile_mails),
 ]) .
 '</p>' .
 '<p class="form-note info" id="sanitize_emails">' . __('Invalid emails will be automatically removed from list.') . '</p>' .
@@ -516,13 +519,13 @@ form::field('user_profile_mails', 50, 255, [
 form::url('user_url', [
     'size'         => 30,
     'default'      => html::escapeHTML($user_url),
-    'autocomplete' => 'url'
+    'autocomplete' => 'url',
 ]) .
 '</p>' .
 
 '<p><label for="user_profile_urls">' . __('Alternate URLs (comma separated list):') . '</label>' .
 form::field('user_profile_urls', 50, 255, [
-    'default' => html::escapeHTML($user_profile_urls)
+    'default' => html::escapeHTML($user_profile_urls),
 ]) .
 '</p>' .
 '<p class="form-note info" id="sanitize_urls">' . __('Invalid URLs will be automatically removed from list.') . '</p>' .
@@ -538,24 +541,33 @@ if ($core->auth->allowPassChange()) {
     '<h4 class="vertical-separator pretty-title">' . __('Change my password') . '</h4>' .
 
     '<p><label for="new_pwd">' . __('New password:') . '</label>' .
-    form::password('new_pwd', 20, 255,
+    form::password(
+        'new_pwd',
+        20,
+        255,
         [
             'class'        => 'pw-strength',
-            'autocomplete' => 'new-password']
+            'autocomplete' => 'new-password', ]
     ) .
     '</p>' .
 
     '<p><label for="new_pwd_c">' . __('Confirm new password:') . '</label>' .
-    form::password('new_pwd_c', 20, 255,
+    form::password(
+        'new_pwd_c',
+        20,
+        255,
         [
-            'autocomplete' => 'new-password']
+            'autocomplete' => 'new-password', ]
     ) . '</p>' .
 
     '<p><label for="cur_pwd">' . __('Your current password:') . '</label>' .
-    form::password('cur_pwd', 20, 255,
+    form::password(
+        'cur_pwd',
+        20,
+        255,
         [
             'autocomplete' => 'current-password',
-            'extra_html'   => 'aria-describedby="cur_pwd_help"'
+            'extra_html'   => 'aria-describedby="cur_pwd_help"',
         ]
     ) . '</p>' .
     '<p class="form-note warn" id="cur_pwd_help">' .
@@ -590,6 +602,10 @@ form::combo('user_ui_theme', $theme_combo, $user_ui_theme) . '</p>' .
 '<p><label for="user_ui_enhanceduploader" class="classic">' .
 form::checkbox('user_ui_enhanceduploader', 1, $user_ui_enhanceduploader) . ' ' .
 __('Activate enhanced uploader in media manager') . '</label></p>' .
+
+'<p><label for="user_ui_blank_preview" class="classic">' .
+form::checkbox('user_ui_blank_preview', 1, $user_ui_blank_preview) . ' ' .
+__('Preview the entry being edited in a blank window or tab (depending on your browser settings).') . '</label></p>' .
 
 '<p><label for="user_acc_nodragdrop" class="classic">' .
 form::checkbox('user_acc_nodragdrop', 1, $user_acc_nodragdrop, '', '', false, 'aria-describedby="user_acc_nodragdrop_help"') . ' ' .
@@ -776,7 +792,7 @@ foreach ($user_fav as $id) {
             'max'        => count($user_fav),
             'default'    => $count,
             'class'      => 'position',
-            'extra_html' => 'title="' . sprintf(__('position of %s'), $fav['title']) . '"'
+            'extra_html' => 'title="' . sprintf(__('position of %s'), $fav['title']) . '"',
         ]) .
         form::hidden(['dynorder[]', 'dynorder-' . $id . ''], $id) .
         form::checkbox(['remove[]', 'fuk-' . $id], $id) . __($fav['title']) . '</label>' .
@@ -797,7 +813,8 @@ if ($count > 0) {
     '<input type="submit" class="delete" name="removeaction" ' .
     'value="' . __('Delete selected favorites') . '" ' .
     'onclick="return window.confirm(\'' . html::escapeJS(
-        __('Are you sure you want to remove selected favorites?')) . '\');" /></p>' .
+        __('Are you sure you want to remove selected favorites?')
+    ) . '\');" /></p>' .
 
         ($core->auth->isSuperAdmin() ?
         '<div class="info">' .
@@ -827,7 +844,8 @@ $count = 0;
 uasort($avail_fav, function ($a, $b) {
     return strcoll(
         strtolower(dcUtils::removeDiacritics($a['title'])),
-        strtolower(dcUtils::removeDiacritics($b['title'])));
+        strtolower(dcUtils::removeDiacritics($b['title']))
+    );
 });
 
 foreach ($avail_fav as $k => $v) {

@@ -2253,6 +2253,9 @@ msgstr "Thème :"
 msgid "Activate enhanced uploader in media manager"
 msgstr "Activer l'interface avancée de la médiathèque"
 
+msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
+msgstr "Prévisualiser l'entrée en cours d'édition dans une fenêtre ou un onglet vierge (selon les paramètres de votre navigateur)."
+
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Désactiver le glisser-déposer pour ordonnancer les éléments"
 

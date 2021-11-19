@@ -106,9 +106,9 @@ if (!empty($_REQUEST['id'])) {
         $post_content_xhtml = $post->post_content_xhtml;
         $post_notes         = $post->post_notes;
         $post_status        = $post->post_status;
-        $post_selected      = (boolean) $post->post_selected;
-        $post_open_comment  = (boolean) $post->post_open_comment;
-        $post_open_tb       = (boolean) $post->post_open_tb;
+        $post_selected      = (bool) $post->post_selected;
+        $post_open_comment  = (bool) $post->post_open_comment;
+        $post_open_tb       = (bool) $post->post_open_tb;
 
         $can_edit_post = $post->isEditable();
         $can_delete    = $post->isDeletable();
@@ -117,17 +117,33 @@ if (!empty($_REQUEST['id'])) {
         $prev_rs = $core->blog->getNextPost($post, -1);
 
         if ($next_rs !== null) {
-            $next_link = sprintf($post_link, $next_rs->post_id,
-                html::escapeHTML(trim(html::clean($next_rs->post_title))), __('Next entry') . '&nbsp;&#187;');
-            $next_headlink = sprintf($post_headlink, 'next',
-                html::escapeHTML(trim(html::clean($next_rs->post_title))), $next_rs->post_id);
+            $next_link = sprintf(
+                $post_link,
+                $next_rs->post_id,
+                html::escapeHTML(trim(html::clean($next_rs->post_title))),
+                __('Next entry') . '&nbsp;&#187;'
+            );
+            $next_headlink = sprintf(
+                $post_headlink,
+                'next',
+                html::escapeHTML(trim(html::clean($next_rs->post_title))),
+                $next_rs->post_id
+            );
         }
 
         if ($prev_rs !== null) {
-            $prev_link = sprintf($post_link, $prev_rs->post_id,
-                html::escapeHTML(trim(html::clean($prev_rs->post_title))), '&#171;&nbsp;' . __('Previous entry'));
-            $prev_headlink = sprintf($post_headlink, 'previous',
-                html::escapeHTML(trim(html::clean($prev_rs->post_title))), $prev_rs->post_id);
+            $prev_link = sprintf(
+                $post_link,
+                $prev_rs->post_id,
+                html::escapeHTML(trim(html::clean($prev_rs->post_title))),
+                '&#171;&nbsp;' . __('Previous entry')
+            );
+            $prev_headlink = sprintf(
+                $post_headlink,
+                'previous',
+                html::escapeHTML(trim(html::clean($prev_rs->post_title))),
+                $prev_rs->post_id
+            );
         }
 
         try {
@@ -194,10 +210,10 @@ elseif (!empty($_POST) && $can_edit_post) {
 
     $post_title = $_POST['post_title'];
 
-    $cat_id = (integer) $_POST['cat_id'];
+    $cat_id = (int) $_POST['cat_id'];
 
     if (isset($_POST['post_status'])) {
-        $post_status = (integer) $_POST['post_status'];
+        $post_status = (int) $_POST['post_status'];
     }
 
     if (empty($_POST['post_dt'])) {
@@ -229,8 +245,13 @@ elseif (!empty($_POST) && $can_edit_post) {
     }
 
     $core->blog->setPostContent(
-        $post_id, $post_format, $post_lang,
-        $post_excerpt, $post_excerpt_xhtml, $post_content, $post_content_xhtml
+        $post_id,
+        $post_format,
+        $post_lang,
+        $post_excerpt,
+        $post_excerpt_xhtml,
+        $post_content,
+        $post_content_xhtml
     );
 }
 
@@ -259,7 +280,7 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt) {
         # --BEHAVIOR-- adminBeforeCategoryCreate
         $core->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
-        $cat_id = $core->blog->addCategory($cur_cat, (integer) $parent_cat);
+        $cat_id = $core->blog->addCategory($cur_cat, (int) $parent_cat);
 
         # --BEHAVIOR-- adminAfterCategoryCreate
         $core->callBehavior('adminAfterCategoryCreate', $cur_cat, $cat_id);
@@ -279,9 +300,9 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt) {
     $cur->post_content_xhtml = $post_content_xhtml;
     $cur->post_notes         = $post_notes;
     $cur->post_status        = $post_status;
-    $cur->post_selected      = (integer) $post_selected;
-    $cur->post_open_comment  = (integer) $post_open_comment;
-    $cur->post_open_tb       = (integer) $post_open_tb;
+    $cur->post_selected      = (int) $post_selected;
+    $cur->post_open_comment  = (int) $post_open_comment;
+    $cur->post_open_tb       = (int) $post_open_tb;
 
     if (isset($_POST['post_url'])) {
         $cur->post_url = $post_url;
@@ -382,17 +403,33 @@ if ($post_editor) {
         $c_edit = $post_editor['xhtml'];
     }
     if ($p_edit == $c_edit) {
-        $admin_post_behavior .= $core->callBehavior('adminPostEditor',
-            $p_edit, 'post', ['#post_excerpt', '#post_content', '#comment_content'], $post_format);
+        $admin_post_behavior .= $core->callBehavior(
+            'adminPostEditor',
+            $p_edit,
+            'post',
+            ['#post_excerpt', '#post_content', '#comment_content'],
+            $post_format
+        );
     } else {
-        $admin_post_behavior .= $core->callBehavior('adminPostEditor',
-            $p_edit, 'post', ['#post_excerpt', '#post_content'], $post_format);
-        $admin_post_behavior .= $core->callBehavior('adminPostEditor',
-            $c_edit, 'comment', ['#comment_content'], 'xhtml');
+        $admin_post_behavior .= $core->callBehavior(
+            'adminPostEditor',
+            $p_edit,
+            'post',
+            ['#post_excerpt', '#post_content'],
+            $post_format
+        );
+        $admin_post_behavior .= $core->callBehavior(
+            'adminPostEditor',
+            $c_edit,
+            'comment',
+            ['#comment_content'],
+            'xhtml'
+        );
     }
 }
 
-dcPage::open($page_title . ' - ' . __('Posts'),
+dcPage::open(
+    $page_title . ' - ' . __('Posts'),
     dcPage::jsDatePicker() .
     dcPage::jsModal() .
     dcPage::jsMetaEditor() .
@@ -407,10 +444,12 @@ dcPage::open($page_title . ' - ' . __('Posts'),
         [
             html::escapeHTML($core->blog->name)         => '',
             __('Posts')                                 => $core->adminurl->get('admin.posts'),
-            ($post_id ? $page_title_edit : $page_title) => ''
-        ]), [
-            'x-frame-allow' => $core->blog->url
+            ($post_id ? $page_title_edit : $page_title) => '',
         ]
+    ),
+    [
+        'x-frame-allow' => $core->blog->url,
+    ]
 );
 
 if (!empty($_GET['upd'])) {
@@ -502,7 +541,7 @@ $showComments = function ($rs, $has_action, $tb = false, $show_ip = true) {
     $comments = [];
     if (isset($_REQUEST['comments'])) {
         foreach ($_REQUEST['comments'] as $v) {
-            $comments[(integer) $v] = true;
+            $comments[(int) $v] = true;
         }
     }
 
@@ -540,10 +579,12 @@ $showComments = function ($rs, $has_action, $tb = false, $show_ip = true) {
         ' id="c' . $rs->comment_id . '">' .
 
         '<td class="nowrap">' .
-        ($has_action ? form::checkbox(['comments[]'], $rs->comment_id,
+        ($has_action ? form::checkbox(
+            ['comments[]'],
+            $rs->comment_id,
             [
                 'checked'    => isset($comments[$rs->comment_id]),
-                'extra_html' => 'title="' . ($tb ? __('select this trackback') : __('select this comment') . '"')
+                'extra_html' => 'title="' . ($tb ? __('select this trackback') : __('select this comment') . '"'),
             ]
         ) : '') . '</td>' .
         '<td class="maximal">' . html::escapeHTML($rs->comment_author) . '</td>' .
@@ -568,8 +609,11 @@ if ($can_edit_post) {
             'title' => __('Status'),
             'items' => [
                 'post_status' => '<p class="entry-status"><label for="post_status">' . __('Entry status') . ' ' . $img_status . '</label>' .
-                form::combo('post_status', $status_combo,
-                    ['default' => $post_status, 'class' => 'maximal', 'disabled' => !$can_publish]) .
+                form::combo(
+                    'post_status',
+                    $status_combo,
+                    ['default' => $post_status, 'class' => 'maximal', 'disabled' => !$can_publish]
+                ) .
                 '</p>',
                 'post_dt' => '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
                 form::field('post_dt', 16, 16, $post_dt, ($bad_dt ? 'invalid' : '')) .
@@ -593,7 +637,7 @@ if ($can_edit_post) {
                 '<a id="convert-xhtml" class="button' . ($post_id && $post_format != 'wiki' ? ' hide' : '') . '" href="' .
                 $core->adminurl->get('admin.post', ['id' => $post_id, 'xconv' => '1']) .
                 '">' .
-                __('Convert to XHTML') . '</a></p></div>']],
+                __('Convert to XHTML') . '</a></p></div>', ], ],
         'metas-box' => [
             'title' => __('Filing'),
             'items' => [
@@ -615,7 +659,7 @@ if ($can_edit_post) {
                     '</label></p>' .
                     '</div>'
                     : '') .
-                '</div>']],
+                '</div>', ], ],
         'options-box' => [
             'title' => __('Options'),
             'items' => [
@@ -650,46 +694,59 @@ if ($can_edit_post) {
                 '</p>' .
                 '<p class="form-note warn">' .
                 __('Warning: If you set the URL manually, it may conflict with another entry.') .
-                '</p></div>'
-            ]]]);
+                '</p></div>',
+            ], ], ]);
 
-    $main_items = new ArrayObject([
-        'post_title' => '<p class="col">' .
-        '<label class="required no-margin bold" for="post_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
-        form::field('post_title', 20, 255, [
-            'default'    => html::escapeHTML($post_title),
-            'class'      => 'maximal',
-            'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . $post_lang . '" spellcheck="true"'
-        ]) .
-        '</p>',
-
-        'post_excerpt' => '<p class="area" id="excerpt-area"><label for="post_excerpt" class="bold">' . __('Excerpt:') . ' <span class="form-note">' .
-        __('Introduction to the post.') . '</span></label> ' .
-        form::textarea('post_excerpt', 50, 5,
-            [
-                'default'    => html::escapeHTML($post_excerpt),
-                'extra_html' => 'lang="' . $post_lang . '" spellcheck="true"'
+    $main_items = new ArrayObject(
+        [
+            'post_title' => '<p class="col">' .
+            '<label class="required no-margin bold" for="post_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
+            form::field('post_title', 20, 255, [
+                'default'    => html::escapeHTML($post_title),
+                'class'      => 'maximal',
+                'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . $post_lang . '" spellcheck="true"',
             ]) .
-        '</p>',
+            '</p>',
 
-        'post_content' => '<p class="area" id="content-area"><label class="required bold" ' .
-        'for="post_content"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Content:') . '</label> ' .
-        form::textarea('post_content', 50, $core->auth->getOption('edit_size'),
-            [
-                'default'    => html::escapeHTML($post_content),
-                'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . $post_lang . '" spellcheck="true"'
-            ]) .
-        '</p>',
+            'post_excerpt' => '<p class="area" id="excerpt-area"><label for="post_excerpt" class="bold">' . __('Excerpt:') . ' <span class="form-note">' .
+            __('Introduction to the post.') . '</span></label> ' .
+            form::textarea(
+                'post_excerpt',
+                50,
+                5,
+                [
+                    'default'    => html::escapeHTML($post_excerpt),
+                    'extra_html' => 'lang="' . $post_lang . '" spellcheck="true"',
+                ]
+            ) .
+            '</p>',
 
-        'post_notes' => '<p class="area" id="notes-area"><label for="post_notes" class="bold">' . __('Personal notes:') . ' <span class="form-note">' .
-        __('Unpublished notes.') . '</span></label>' .
-        form::textarea('post_notes', 50, 5,
-            [
-                'default'    => html::escapeHTML($post_notes),
-                'extra_html' => 'lang="' . $post_lang . '" spellcheck="true"'
-            ]) .
-        '</p>'
-    ]
+            'post_content' => '<p class="area" id="content-area"><label class="required bold" ' .
+            'for="post_content"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Content:') . '</label> ' .
+            form::textarea(
+                'post_content',
+                50,
+                $core->auth->getOption('edit_size'),
+                [
+                    'default'    => html::escapeHTML($post_content),
+                    'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . $post_lang . '" spellcheck="true"',
+                ]
+            ) .
+            '</p>',
+
+            'post_notes' => '<p class="area" id="notes-area"><label for="post_notes" class="bold">' . __('Personal notes:') . ' <span class="form-note">' .
+            __('Unpublished notes.') . '</span></label>' .
+            form::textarea(
+                'post_notes',
+                50,
+                5,
+                [
+                    'default'    => html::escapeHTML($post_notes),
+                    'extra_html' => 'lang="' . $post_lang . '" spellcheck="true"',
+                ]
+            ) .
+            '</p>',
+        ]
     );
 
     # --BEHAVIOR-- adminPostFormItems
@@ -719,8 +776,15 @@ if ($can_edit_post) {
         $preview_url = $core->blog->url . $core->url->getURLFor('preview', $core->auth->userID() . '/' .
             http::browserUID(DC_MASTER_KEY . $core->auth->userID() . $core->auth->cryptLegacy($core->auth->userID())) .
             '/' . $post->post_url);
-        echo '<a id="post-preview" href="' . $preview_url . '" class="button modal" accesskey="p">' . __('Preview') . ' (p)' . '</a>' .
-        ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />';
+
+        $core->auth->user_prefs->addWorkspace('interface');
+        $blank_preview = $core->auth->user_prefs->interface->blank_preview;
+
+        $preview_class  = $blank_preview ? '' : ' modal';
+        $preview_target = $blank_preview ? '' : ' target="_blank"';
+
+        echo '<a id="post-preview" href="' . $preview_url . '" class="button' . $preview_class . '" accesskey="p"' . $preview_target . '>' . __('Preview') . ' (p)' . '</a>';
+        echo ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />';
     } else {
         echo
         '<a id="post-cancel" href="' . $core->adminurl->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
@@ -808,7 +872,7 @@ if ($post_id) {
     '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label>' .
     form::field('comment_author', 30, 255, [
         'default'    => html::escapeHTML($core->auth->getInfo('user_cn')),
-        'extra_html' => 'required placeholder="' . __('Author') . '"'
+        'extra_html' => 'required placeholder="' . __('Author') . '"',
     ]) .
     '</p>' .
 
@@ -822,11 +886,15 @@ if ($post_id) {
 
     '<p class="area"><label for="comment_content" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' .
     __('Comment:') . '</label> ' .
-    form::textarea('comment_content', 50, 8,
+    form::textarea(
+        'comment_content',
+        50,
+        8,
         [
             'extra_html' => 'required placeholder="' . __('Comment') . '" lang="' . $core->auth->getInfo('user_lang') .
-                '" spellcheck="true"'
-        ]) .
+                '" spellcheck="true"',
+        ]
+    ) .
     '</p>' .
 
     '<p>' .

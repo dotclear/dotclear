@@ -53,9 +53,10 @@ $(() => {
     let $a = document.createElement('a');
     $a.href = $('#post-preview').attr('href');
     preview_url = $a.href;
+    const has_modal = $('#post-preview').hasClass('modal');
 
     // Check if admin and blog have same protocol (ie not mixed-content)
-    if (window.location.protocol == preview_url.substring(0, window.location.protocol.length)) {
+    if (has_modal && window.location.protocol == preview_url.substring(0, window.location.protocol.length)) {
       // Open preview in a modal iframe
       $('#post-preview').magnificPopup({
         type: 'iframe',
@@ -69,11 +70,14 @@ $(() => {
         },
       });
     } else {
-      // Open preview on antother window
-      $('#post-preview').on('click', function (e) {
-        e.preventDefault();
-        window.open($(this).attr('href'));
-      });
+      // If has not modal class, the preview is cope by direct link with target="blank" in HTML
+      if (has_modal) {
+        // Open preview on antother window
+        $('#post-preview').on('click', function (e) {
+          e.preventDefault();
+          window.open($(this).attr('href'));
+        });
+      }
     }
   }
   // Prevent history back if currently previewing Post (with magnificPopup
