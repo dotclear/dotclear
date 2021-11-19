@@ -25,10 +25,10 @@ $(() => {
       if (insert_form.elements.hreflang.value != '') {
         link.setAttribute('hreflang', window.opener.CKEDITOR.tools.htmlEncodeAttr(insert_form.elements.hreflang.value));
       }
-      if (editor.getSelection().getSelectedElement() != null) {
-        selected_element.appendTo(link);
-      } else {
+      if (editor.getSelection().getSelectedElement() == null) {
         link.appendText(selected_element);
+      } else {
+        selected_element.appendTo(link);
       }
       editor.insertElement(link);
     }

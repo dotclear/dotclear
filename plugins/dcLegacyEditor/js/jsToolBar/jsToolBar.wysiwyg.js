@@ -123,15 +123,14 @@ jsToolBar.prototype.switchEdit = function () {
     this.syncContents('iframe');
     this.drawToolBar('xhtml');
     this.wwg_mode = false;
-    this.focusEditor();
   } else {
     this.iframe.style.display = '';
     this.textarea.style.display = 'none';
     this.syncContents('textarea');
     this.drawToolBar('wysiwyg');
     this.wwg_mode = true;
-    this.focusEditor();
   }
+  this.focusEditor();
   this.setSwitcher();
 };
 
@@ -166,7 +165,7 @@ jsToolBar.prototype.initWindow = function () {
   <head>
     <link rel="stylesheet" href="style/default.css" type="text/css" media="screen" />
     <style type="text/css">${This.iframe_css}</style>
-    ${This.base_url != '' ? `<base href="${This.base_url}" />` : ''}
+    ${This.base_url == '' ? '' : `<base href="${This.base_url}" />`}
   </head>
   <body id="${This.textarea.id}-jstEditorIframe"></body>
 </html>`;
@@ -393,15 +392,14 @@ jsToolBar.prototype.getSelectedNode = function () {
     sel = this.iwin.getSelection();
     const range = sel.getRangeAt(0);
     return range.cloneContents();
-  } else {
-    // IE
-    sel = this.iwin.document.selection;
-    const d = this.iwin.document.createElement('div');
-    d.innerHTML = sel.createRange().htmlText;
-    content = this.iwin.document.createDocumentFragment();
-    for (let i = 0; i < d.childNodes.length; i++) {
-      content.appendChild(d.childNodes[i].cloneNode(true));
-    }
+  }
+  // IE
+  sel = this.iwin.document.selection;
+  const d = this.iwin.document.createElement('div');
+  d.innerHTML = sel.createRange().htmlText;
+  content = this.iwin.document.createDocumentFragment();
+  for (let i = 0; i < d.childNodes.length; i++) {
+    content.appendChild(d.childNodes[i].cloneNode(true));
   }
   return content;
 };
@@ -412,11 +410,10 @@ jsToolBar.prototype.getSelectedText = function () {
   if (this.iwin.getSelection) {
     // Gecko
     return this.iwin.getSelection().toString();
-  } else {
-    // IE
-    const range = this.iwin.document.selection.createRange();
-    return range.text;
   }
+  // IE
+  const range = this.iwin.document.selection.createRange();
+  return range.text;
 };
 
 jsToolBar.prototype.replaceNodeByContent = function (node) {
@@ -456,11 +453,10 @@ jsToolBar.prototype.getBlockLevel = function () {
 };
 jsToolBar.prototype.adjustBlockLevelCombo = function () {
   const blockLevel = this.getBlockLevel();
-  if (blockLevel !== null) this.toolNodes.blocks.value = blockLevel.tagName.toLowerCase();
-  else {
+  if (blockLevel === null) {
     if (this.mode == 'wysiwyg') this.toolNodes.blocks.value = 'none';
     if (this.mode == 'xhtml') this.toolNodes.blocks.value = 'nonebis';
-  }
+  } else this.toolNodes.blocks.value = blockLevel.tagName.toLowerCase();
 };
 
 /** HTML code cleanup
@@ -703,13 +699,12 @@ jsToolBar.prototype.elements.blocks.wysiwyg = {
       if (blockLevel !== null) {
         this.replaceNodeByContent(blockLevel);
       }
-      this.iwin.focus();
     } else {
       try {
         this.iwin.document.execCommand('formatblock', false, `<${opt}>`);
       } catch (e) {}
-      this.iwin.focus();
     }
+    this.iwin.focus();
   },
 };
 
@@ -865,24 +860,24 @@ function addEvent(obj, evType, fn, useCapture) {
   if (obj.addEventListener) {
     obj.addEventListener(evType, fn, useCapture);
     return true;
-  } else if (obj.attachEvent) {
+  }
+  if (obj.attachEvent) {
     const r = obj.attachEvent(`on${evType}`, fn);
     return r;
-  } else {
-    return false;
   }
+  return false;
 }
 
 function removeEvent(obj, evType, fn, useCapture) {
   if (obj.removeEventListener) {
     obj.removeEventListener(evType, fn, useCapture);
     return true;
-  } else if (obj.detachEvent) {
+  }
+  if (obj.detachEvent) {
     const r = obj.detachEvent(`on${evType}`, fn);
     return r;
-  } else {
-    return false;
   }
+  return false;
 }
 
 function regexpEscape(s) {

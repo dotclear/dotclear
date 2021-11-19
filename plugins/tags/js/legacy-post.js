@@ -30,10 +30,9 @@ jsToolBar.prototype.elements.tag.fn.wiki = function () {
     }
     if (str.includes(',')) {
       return str;
-    } else {
-      window.dc_tag_editor.addMeta(str);
-      return `[${str}|tag:${str}]`;
     }
+    window.dc_tag_editor.addMeta(str);
+    return `[${str}|tag:${str}]`;
   });
 };
 jsToolBar.prototype.elements.tag.fn.markdown = function () {
@@ -45,10 +44,9 @@ jsToolBar.prototype.elements.tag.fn.markdown = function () {
     }
     if (str.includes(',')) {
       return str;
-    } else {
-      window.dc_tag_editor.addMeta(str);
-      return `[${str}](${this.stripBaseURL(`${url}/${str}`)})`;
     }
+    window.dc_tag_editor.addMeta(str);
+    return `[${str}](${this.stripBaseURL(`${url}/${str}`)})`;
   });
 };
 jsToolBar.prototype.elements.tag.fn.xhtml = function () {
@@ -60,10 +58,9 @@ jsToolBar.prototype.elements.tag.fn.xhtml = function () {
     }
     if (str.includes(',')) {
       return str;
-    } else {
-      window.dc_tag_editor.addMeta(str);
-      return `<a href="${this.stripBaseURL(`${url}/${str}`)}">${str}</a>`;
     }
+    window.dc_tag_editor.addMeta(str);
+    return `<a href="${this.stripBaseURL(`${url}/${str}`)}">${str}</a>`;
   });
 };
 jsToolBar.prototype.elements.tag.fn.wysiwyg = function () {

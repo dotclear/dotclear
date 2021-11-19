@@ -12,7 +12,10 @@ dotclear.viewPostContent = (line, action = 'toggle', e = null) => {
   const lineId = `pe${postId}`;
   let tr = document.getElementById(lineId);
 
-  if (!tr) {
+  if (tr) {
+    $(tr).toggle();
+    $(line).toggleClass('expand');
+  } else {
     // Get post content if possible
     dotclear.getEntryContent(
       postId,
@@ -35,11 +38,8 @@ dotclear.viewPostContent = (line, action = 'toggle', e = null) => {
       {
         type: 'page',
         clean: e.metaKey,
-      }
+      },
     );
-  } else {
-    $(tr).toggle();
-    $(line).toggleClass('expand');
   }
 };
 

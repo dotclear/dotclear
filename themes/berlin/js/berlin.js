@@ -53,10 +53,10 @@ $(document).ready(() => {
   });
   // totop scroll
   $(window).scroll(function () {
-    if ($(this).scrollTop() != 0) {
-      $btn.fadeIn();
-    } else {
+    if ($(this).scrollTop() == 0) {
       $btn.fadeOut();
+    } else {
+      $btn.fadeIn();
     }
   });
   $btn.on('click', (e) => {

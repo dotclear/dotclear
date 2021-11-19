@@ -186,14 +186,13 @@ jsToolBar.prototype = {
 
       if (typeof tool[this.mode].fn != 'function' || length == 0) {
         return null;
-      } else {
-        let options = {};
-        for (let i = 0; i < length; i++) {
-          const opt = tool[this.mode].list[i];
-          options[opt] = tool.options[opt];
-        }
-        return new jsCombo(tool.title, options, this, tool[this.mode].fn);
       }
+      let options = {};
+      for (let i = 0; i < length; i++) {
+        const opt = tool[this.mode].list[i];
+        options[opt] = tool.options[opt];
+      }
+      return new jsCombo(tool.title, options, this, tool[this.mode].fn);
     }
   },
   draw(mode) {

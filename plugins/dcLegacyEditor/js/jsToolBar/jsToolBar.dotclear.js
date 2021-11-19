@@ -16,7 +16,7 @@ jsToolBar.prototype.elements.link.popup = function (args = '') {
   window.open(
     url,
     'dc_popup',
-    'alwaysRaised=yes,dependent=yes,toolbar=yes,height=420,width=520,menubar=no,resizable=yes,scrollbars=yes,status=no'
+    'alwaysRaised=yes,dependent=yes,toolbar=yes,height=420,width=520,menubar=no,resizable=yes,scrollbars=yes,status=no',
   );
 };
 
@@ -104,7 +104,6 @@ jsToolBar.prototype.elements.link.fncall.wysiwyg = function () {
       // Remove link
       this.replaceNodeByContent(a.tag);
       this.iwin.focus();
-      return;
     } else {
       // Update link
       a.tag.href = data.href;
@@ -118,8 +117,8 @@ jsToolBar.prototype.elements.link.fncall.wysiwyg = function () {
       } else {
         a.tag.removeAttribute('title');
       }
-      return;
     }
+    return;
   }
 
   // Create link
@@ -180,7 +179,7 @@ jsToolBar.prototype.elements.img_select = {
     window.open(
       this.elements.img_select.open_url,
       'dc_popup',
-      'alwaysRaised=yes,dependent=yes,toolbar=yes,height=500,width=760,menubar=no,resizable=yes,scrollbars=yes,status=no'
+      'alwaysRaised=yes,dependent=yes,toolbar=yes,height=500,width=760,menubar=no,resizable=yes,scrollbars=yes,status=no',
     );
   },
 };
@@ -254,11 +253,9 @@ jsToolBar.prototype.elements.img_select.fncall.xhtml = function () {
     res += ' />';
 
     if (d.link) {
-      const ltitle = alt ? ` title="${alt
-            .replace("&", "&amp;")
-            .replace(">", "&gt;")
-            .replace("<", "&lt;")
-            .replace('"', "&quot;")}"` : "";
+      const ltitle = alt
+        ? ` title="${alt.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')}"`
+        : '';
       return `<a href="${d.url}"${ltitle}>${res}</a>`;
     }
 
@@ -294,20 +291,20 @@ jsToolBar.prototype.elements.img_select.fncall.wysiwyg = function () {
   const block = d.description ? fig : img;
 
   if (d.alignment == 'left') {
-    if (block.style.styleFloat != undefined) {
-      block.style.styleFloat = 'left';
-    } else {
+    if (block.style.styleFloat == undefined) {
       block.style.cssFloat = 'left';
+    } else {
+      block.style.styleFloat = 'left';
     }
     block.style.marginTop = 0;
     block.style.marginRight = '1em';
     block.style.marginBottom = '1em';
     block.style.marginLeft = 0;
   } else if (d.alignment == 'right') {
-    if (block.style.styleFloat != undefined) {
-      block.style.styleFloat = 'right';
-    } else {
+    if (block.style.styleFloat == undefined) {
       block.style.cssFloat = 'right';
+    } else {
+      block.style.styleFloat = 'right';
     }
     block.style.marginTop = 0;
     block.style.marginRight = 0;
@@ -415,7 +412,7 @@ jsToolBar.prototype.elements.post_link = {
     window.open(
       this.elements.post_link.open_url,
       'dc_popup',
-      'alwaysRaised=yes,dependent=yes,toolbar=yes,height=500,width=760,menubar=no,resizable=yes,scrollbars=yes,status=no'
+      'alwaysRaised=yes,dependent=yes,toolbar=yes,height=500,width=760,menubar=no,resizable=yes,scrollbars=yes,status=no',
     );
   },
 };
