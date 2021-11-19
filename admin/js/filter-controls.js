@@ -12,13 +12,13 @@ $(() => {
 
   const $filtersform = $('#filters-form');
   $filtersform.before(
-    `<p><a id="filter-control" class="form-control" href="${reset_url}" style="display:inline">${dotclear.msg.filter_posts_list}</a></p>`
+    `<p><a id="filter-control" class="form-control" href="${reset_url}" style="display:inline">${dotclear.msg.filter_posts_list}</a></p>`,
   );
 
-  if (!dotclear.msg.show_filters) {
-    $filtersform.hide();
-  } else {
+  if (dotclear.msg.show_filters) {
     $('#filter-control').addClass('open').text(dotclear.msg.cancel_the_filter);
+  } else {
+    $filtersform.hide();
   }
   if (dotclear.getData('filter_options').auto_filter) {
     $('#filters-form input[type="submit"]').parent().hide();
@@ -42,10 +42,9 @@ $(() => {
     if ($(this).hasClass('open')) {
       if (dotclear.msg.show_filters) {
         return true;
-      } else {
-        $filtersform.hide();
-        $(this).removeClass('open').text(dotclear.msg.filter_posts_list);
       }
+      $filtersform.hide();
+      $(this).removeClass('open').text(dotclear.msg.filter_posts_list);
     } else {
       $filtersform.show();
       $(this).addClass('open').text(dotclear.msg.cancel_the_filter);

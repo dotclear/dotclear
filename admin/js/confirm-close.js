@@ -55,7 +55,7 @@ confirmClose.prototype = {
 
     const formMatch = (current, source) =>
       Object.keys(current).every(
-        (key) => !source.hasOwnProperty(key) || (source.hasOwnProperty(key) && source[key] === current[key])
+        (key) => !source.hasOwnProperty(key) || (source.hasOwnProperty(key) && source[key] === current[key]),
       );
     const eltRef = (e) => (e.id != undefined && e.id != '' ? e.id : e.name);
     const formFirstDiff = (current, source) => {
@@ -120,11 +120,8 @@ confirmClose.prototype = {
         }
       }
       return res;
-    } else {
-      return document.getElementsByTagName('form');
     }
-
-    return [];
+    return document.getElementsByTagName('form');
   },
 
   getFormElementValue(e) {
@@ -151,16 +148,12 @@ confirmClose.prototype = {
     if (e.type !== undefined && (e.type === 'radio' || e.type === 'checkbox')) {
       // Return actual radio button value if selected, else null
       return e.checked ? e.value : null;
-    } else if (e.type !== undefined && e.type === 'password') {
+    }
+    if (e.type !== undefined && e.type === 'password') {
       // Ignore password element
       return null;
-    } else if (e.value !== undefined) {
-      // Return element value if not undefined
-      return e.value;
-    } else {
-      // Every other case, return null
-      return null;
     }
+    return e.value !== undefined ? e.value : null;
   },
 };
 

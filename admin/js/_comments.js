@@ -13,7 +13,10 @@ dotclear.viewCommentContent = (line, action = 'toggle', e = null) => {
   // If meta key down or it's a spam then display content HTML code
   const clean = e.metaKey || $(line).hasClass('sts-junk');
 
-  if (!tr) {
+  if (tr) {
+    $(tr).toggle();
+    $(line).toggleClass('expand');
+  } else {
     // Get comment content if possible
     dotclear.getCommentContent(
       commentId,
@@ -36,11 +39,8 @@ dotclear.viewCommentContent = (line, action = 'toggle', e = null) => {
       },
       {
         clean,
-      }
+      },
     );
-  } else {
-    $(tr).toggle();
-    $(line).toggleClass('expand');
   }
 };
 

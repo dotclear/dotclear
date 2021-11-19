@@ -43,7 +43,14 @@ $(() => {
       const mvalues = keyword.match(rxActionValue);
 
       // action on multiple modules
-      if (!mvalues) {
+      if (mvalues) {
+        const module = mvalues[1];
+
+        // confirm delete
+        if (action == 'delete') {
+          return window.confirm(dotclear.msg.confirm_delete_theme.replace('%s', module));
+        }
+      } else {
         let checked = false;
 
         // check if there is checkboxes in form
@@ -66,13 +73,6 @@ $(() => {
         }
 
         // action on one module
-      } else {
-        const module = mvalues[1];
-
-        // confirm delete
-        if (action == 'delete') {
-          return window.confirm(dotclear.msg.confirm_delete_theme.replace('%s', module));
-        }
       }
 
       return true;

@@ -24,7 +24,7 @@ $(() => {
 
     // Remove base scheme from beginning
     const next = title.indexOf('/');
-    const href = next !== -1 ? title.substring(next + 1) : title;
+    const href = next === -1 ? title : title.substring(next + 1);
 
     // Set new URL
     main.$('#static_home_url').prop('value', href);

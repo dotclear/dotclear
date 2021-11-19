@@ -237,7 +237,7 @@ datePicker.prototype = {
     'September',
     'October',
     'November',
-    'December'
+    'December',
   ),
 
   setDate() {
@@ -417,7 +417,8 @@ datePicker.prototype = {
   numberOfDays() {
     if (this.month == 4 || this.month == 6 || this.month == 9 || this.month == 11) {
       return 30;
-    } else if (this.month == 2) {
+    }
+    if (this.month == 2) {
       return this.year % 4 == 0 && (this.year % 100 != 0 || this.year % 400 == 0) ? 29 : 28;
     }
 

@@ -76,7 +76,7 @@ jQuery.fn.enableShiftClick = function () {
         let range;
         const trparent = $(this).parents('tr');
         const id = `#${dotclear.lastclicked}`;
-        range = trparent.nextAll(id).length != 0 ? trparent.nextUntil(id) : trparent.prevUntil(id);
+        range = trparent.nextAll(id).length == 0 ? trparent.prevUntil(id) : trparent.nextUntil(id);
         range.find('input[type=checkbox]').setChecked(dotclear.lastclickedstatus);
         this.checked = dotclear.lastclickedstatus;
       }
@@ -275,14 +275,14 @@ jQuery.fn.helpViewer = function () {
         });
       hide = !hide;
       const img = $(this).find('button.details-cmd');
-      if (!hide) {
-        img.html(p.img_off_txt);
-        img.attr('value', p.img_off_txt);
-        img.attr('aria-label', p.img_off_alt);
-      } else {
+      if (hide) {
         img.html(p.img_on_txt);
         img.attr('value', p.img_on_txt);
         img.attr('aria-label', p.img_on_alt);
+      } else {
+        img.html(p.img_off_txt);
+        img.attr('value', p.img_off_txt);
+        img.attr('aria-label', p.img_off_alt);
       }
     });
   };
@@ -334,18 +334,18 @@ dotclear.condSubmit = (chkboxes, target) => {
   }
   // Set initial state
   submitButt.attr('disabled', !checkboxes.is(':checked'));
-  if (!checkboxes.is(':checked')) {
-    submitButt.addClass('disabled');
-  } else {
+  if (checkboxes.is(':checked')) {
     submitButt.removeClass('disabled');
+  } else {
+    submitButt.addClass('disabled');
   }
   checkboxes.on('click', () => {
     // Update target state
     submitButt.attr('disabled', !checkboxes.is(':checked'));
-    if (!checkboxes.is(':checked')) {
-      submitButt.addClass('disabled');
-    } else {
+    if (checkboxes.is(':checked')) {
       submitButt.removeClass('disabled');
+    } else {
+      submitButt.addClass('disabled');
     }
   });
 };
@@ -387,10 +387,10 @@ dotclear.checkboxesHelpers = (e, target, c, s) => {
   $(e).append(document.createTextNode(' '));
   $(`<button type="button" class="checkbox-helper select-all">${dotclear.msg.select_all}</button>`)
     .on('click', () => {
-      if (target !== undefined) {
-        target.check();
-      } else {
+      if (target === undefined) {
         $(e).parents('form').find('input[type="checkbox"]').check();
+      } else {
+        target.check();
       }
       if (c !== undefined && s !== undefined) {
         dotclear.condSubmit(c, s);
@@ -401,10 +401,10 @@ dotclear.checkboxesHelpers = (e, target, c, s) => {
   $(e).append(document.createTextNode(' '));
   $(`<button type="button" class="checkbox-helper select-none">${dotclear.msg.no_selection}</button>`)
     .on('click', () => {
-      if (target !== undefined) {
-        target.unCheck();
-      } else {
+      if (target === undefined) {
         $(e).parents('form').find('input[type="checkbox"]').unCheck();
+      } else {
+        target.unCheck();
       }
       if (c !== undefined && s !== undefined) {
         dotclear.condSubmit(c, s);
@@ -415,10 +415,10 @@ dotclear.checkboxesHelpers = (e, target, c, s) => {
   $(e).append(document.createTextNode(' '));
   $(`<button type="button" class="checkbox-helper select-reverse">${dotclear.msg.invert_sel}</button>`)
     .on('click', () => {
-      if (target !== undefined) {
-        target.toggleCheck();
-      } else {
+      if (target === undefined) {
         $(e).parents('form').find('input[type="checkbox"]').toggleCheck();
+      } else {
+        target.toggleCheck();
       }
       if (c !== undefined && s !== undefined) {
         dotclear.condSubmit(c, s);
@@ -524,7 +524,7 @@ dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) =>
         styleSheet.cssRules.length,
       );
     }
-    table.className += `${table.className !== '' ? ' ' : ''}rch${thead ? ' rch-thead' : ''}`;
+    table.className += `${table.className === '' ? '' : ' '}rch${thead ? ' rch-thead' : ''}`;
   } catch (e) {
     console.log(`responsiveCellHeaders(): ${e}`);
   }
@@ -708,10 +708,10 @@ $(() => {
   const observer = new MutationObserver((mutations) => {
     for (let mutation of mutations) {
       let theme = 'light';
-      if (mutation.target.getAttribute('data-theme') !== '') {
-        theme = mutation.target.getAttribute('data-theme');
-      } else {
+      if (mutation.target.getAttribute('data-theme') === '') {
         theme = window.matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light';
+      } else {
+        theme = mutation.target.getAttribute('data-theme');
       }
       $('body').removeClass(`${dotclear.data.theme}-mode`);
       dotclear.data.theme = theme;
@@ -887,10 +887,10 @@ $(() => {
 
   // totop scroll
   $(window).on('scroll', function () {
-    if ($(this).scrollTop() != 0) {
-      $('#gototop').fadeIn();
-    } else {
+    if ($(this).scrollTop() == 0) {
       $('#gototop').fadeOut();
+    } else {
+      $('#gototop').fadeIn();
     }
   });
   $('#gototop').on('click', (e) => {

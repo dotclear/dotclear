@@ -90,8 +90,8 @@ dotclear.mergeDeep = (target, ...sources) => {
  */
 dotclear.trimHtml = (html, options = {}) => {
   let limit = options.limit || 100;
-  let preserveTags = typeof options.preserveTags !== 'undefined' ? options.preserveTags : true;
-  let wordBreak = typeof options.wordBreak !== 'undefined' ? options.wordBreak : false;
+  let preserveTags = typeof options.preserveTags === 'undefined' ? true : options.preserveTags;
+  let wordBreak = typeof options.wordBreak === 'undefined' ? false : options.wordBreak;
   let suffix = options.suffix || '...';
   let moreLink = options.moreLink || '';
 
@@ -140,10 +140,10 @@ dotclear.trimHtml = (html, options = {}) => {
 
           // break on halh of word
           if (!wordBreak) {
-            if (add !== -1) {
-              cut += add;
-            } else {
+            if (add === -1) {
               cut = row.length;
+            } else {
+              cut += add;
             }
           }
         }
@@ -166,10 +166,7 @@ dotclear.trimHtml = (html, options = {}) => {
       tagName = tagMatch ? tagMatch[0] : '';
 
       if (tagName) {
-        if (row.substring(0, 2) !== '</') {
-          tagStack.push(tagName);
-          row = '';
-        } else {
+        if (row.substring(0, 2) === '</') {
           while (tagStack[tagStack.length - 1] !== tagName && tagStack.length) {
             tagStack.pop();
           }
@@ -179,6 +176,9 @@ dotclear.trimHtml = (html, options = {}) => {
           }
 
           tagStack.pop();
+        } else {
+          tagStack.push(tagName);
+          row = '';
         }
       } else {
         row = '';
