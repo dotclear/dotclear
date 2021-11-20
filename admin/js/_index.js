@@ -79,7 +79,7 @@ dotclear.dbStoreUpdate = (store, icon, image) => {
             .children('a')
             .children('img')
             .attr('src')
-            .replace(/([^\/]+)$/g, `${image}-b-update.png`)
+            .replace(/([^\/]+)$/g, `${image}-b-update.png`),
         );
       // add icon text says there is an update
       icon.children('a').children('.db-icon-title').append('<br />').append(xml);
@@ -305,7 +305,6 @@ $(() => {
     });
   }
 
-  if (dotclear.adblocker_check && !document.getElementById('WJxYFNKPMRlS')) {
-    window.alert(dotclear.msg.adblocker);
-  }
+  // Check adblocker
+  dotclear.adblockCheck(dotclear.msg.adblocker);
 });

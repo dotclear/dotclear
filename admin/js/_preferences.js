@@ -23,9 +23,8 @@ $(() => {
     return true;
   });
 
-  if (dotclear.adblocker_check && !document.getElementById('WJxYFNKPMRlS')) {
-    window.alert(dotclear.msg.adblocker);
-  }
+  // Check adblocker
+  dotclear.adblockCheck(dotclear.msg.adblocker);
   // Password strength
   dotclear.passwordStrength(dotclear.getData('pwstrength'));
 });
