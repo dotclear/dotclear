@@ -1,15 +1,7 @@
-/*global $, dotclear, datePicker */
+/*global $, dotclear */
 'use strict';
 
 $(() => {
-  // Add datePicker if possible
-  const media_dt = document.getElementById('media_dt');
-  if (media_dt != undefined) {
-    const post_dtPick = new datePicker(media_dt);
-    post_dtPick.img_top = '1.5em';
-    post_dtPick.draw();
-  }
-
   // Preview media
   $('.modal-image').magnificPopup({
     type: 'image',
@@ -66,7 +58,7 @@ $(() => {
           } else {
             window.alert($(rsp).find('message').text());
           }
-        }
+        },
       );
       return false;
     });
@@ -96,7 +88,7 @@ $(() => {
 
   // Set focus if in popup mode
   $('#media-insert-form :input:visible:enabled:checked:first, #media-insert-form :input:visible:enabled:first').trigger(
-    'focus'
+    'focus',
   );
 
   // Deal with enter key on media insert popup form : every form element will be filtered but Cancel button

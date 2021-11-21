@@ -76,7 +76,7 @@ class dcUpgrade
             while ($rs_m->fetch()) {
                 $cur            = $core->con->openCursor($core->prefix . 'media');
                 $cur->media_dir = dirname($rs_m->media_file);
-                $cur->update('WHERE media_id = ' . (integer) $rs_m->media_id);
+                $cur->update('WHERE media_id = ' . (int) $rs_m->media_id);
             }
         }
 
@@ -110,7 +110,7 @@ class dcUpgrade
                 $core->con->execute(
                     'UPDATE ' . $core->prefix . 'category SET '
                     . 'cat_lft = ' . ($i++) . ', cat_rgt = ' . ($i++) . ' ' .
-                    'WHERE cat_id = ' . (integer) $rs->cat_id
+                    'WHERE cat_id = ' . (int) $rs->cat_id
                 );
                 $cat_blog = $rs->blog_id;
             }
@@ -138,7 +138,7 @@ class dcUpgrade
                 'ie7-quirks.js',
                 'ie7-server.css',
                 'ie7-standard-p.js',
-                'ie7-xml-extras.js'
+                'ie7-xml-extras.js',
             ];
             foreach ($ie7files as $f) {
                 @unlink(DC_ROOT . '/admin/js/ie7/' . $f);
@@ -176,24 +176,24 @@ class dcUpgrade
 
             $init_fav['new_post'] = ['new_post', 'New entry', 'post.php',
                 'images/menu/edit.png', 'images/menu/edit-b.png',
-                'usage,contentadmin', null, null];
+                'usage,contentadmin', null, null, ];
             $init_fav['newpage'] = ['newpage', 'New page', 'plugin.php?p=pages&amp;act=page',
                 'index.php?pf=pages/icon-np.png', 'index.php?pf=pages/icon-np-big.png',
-                'contentadmin,pages', null, null];
+                'contentadmin,pages', null, null, ];
             $init_fav['media'] = ['media', 'Media manager', 'media.php',
                 'images/menu/media.png', 'images/menu/media-b.png',
-                'media,media_admin', null, null];
+                'media,media_admin', null, null, ];
             $init_fav['widgets'] = ['widgets', 'Presentation widgets', 'plugin.php?p=widgets',
                 'index.php?pf=widgets/icon.png', 'index.php?pf=widgets/icon-big.png',
-                'admin', null, null];
+                'admin', null, null, ];
             $init_fav['blog_theme'] = ['blog_theme', 'Blog appearance', 'blog_theme.php',
                 'images/menu/themes.png', 'images/menu/blog-theme-b.png',
-                'admin', null, null];
+                'admin', null, null, ];
 
             $count = 0;
             foreach ($init_fav as $k => $f) {
                 $t = ['name'     => $f[0], 'title' => $f[1], 'url' => $f[2], 'small-icon' => $f[3],
-                    'large-icon' => $f[4], 'permissions' => $f[5], 'id' => $f[6], 'class' => $f[7]];
+                    'large-icon' => $f[4], 'permissions' => $f[5], 'id' => $f[6], 'class' => $f[7], ];
                 $sqlstr = 'INSERT INTO ' . $core->prefix . 'pref (pref_id, user_id, pref_ws, pref_value, pref_type, pref_label) VALUES (' .
                 '\'' . sprintf('g%03s', $count) . '\',NULL,\'favorites\',\'' . serialize($t) . '\',\'string\',NULL);';
                 $core->con->execute($sqlstr);
@@ -270,7 +270,7 @@ class dcUpgrade
                 'themes/default/tpl/_footer.html',
                 'themes/default/tpl/_head.html',
                 'themes/default/tpl/_mp3_player.html',
-                'themes/default/tpl/_top.html'
+                'themes/default/tpl/_top.html',
             ];
             $remfolders = [
                 'inc/clearbricks/common',
@@ -294,7 +294,7 @@ class dcUpgrade
                 'inc/clearbricks/url.handler',
                 'inc/clearbricks/zip',
                 'inc/clearbricks',
-                'themes/default/tpl'
+                'themes/default/tpl',
             ];
 
             foreach ($remfiles as $f) {
@@ -381,7 +381,7 @@ class dcUpgrade
             # Add date and time formats
             $date_formats = ['%Y-%m-%d', '%m/%d/%Y', '%d/%m/%Y', '%Y/%m/%d', '%d.%m.%Y', '%b %e %Y', '%e %b %Y', '%Y %b %e',
                 '%a, %Y-%m-%d', '%a, %m/%d/%Y', '%a, %d/%m/%Y', '%a, %Y/%m/%d', '%B %e, %Y', '%e %B, %Y', '%Y, %B %e', '%e. %B %Y',
-                '%A, %B %e, %Y', '%A, %e %B, %Y', '%A, %Y, %B %e', '%A, %Y, %B %e', '%A, %e. %B %Y'];
+                '%A, %B %e, %Y', '%A, %e %B, %Y', '%A, %Y, %B %e', '%A, %Y, %B %e', '%A, %e. %B %Y', ];
             $time_formats = ['%H:%M', '%I:%M', '%l:%M', '%Hh%M', '%Ih%M', '%lh%M'];
             if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
                 $date_formats = array_map(function ($f) {return str_replace('%e', '%#d', $f);}, $date_formats);
@@ -457,11 +457,14 @@ class dcUpgrade
                 ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
             $core->con->execute(
-                sprintf($strReq, 'media_video_width', '400', 'integer', 'Media video insertion width'));
+                sprintf($strReq, 'media_video_width', '400', 'integer', 'Media video insertion width')
+            );
             $core->con->execute(
-                sprintf($strReq, 'media_video_height', '300', 'integer', 'Media video insertion height'));
+                sprintf($strReq, 'media_video_height', '300', 'integer', 'Media video insertion height')
+            );
             $core->con->execute(
-                sprintf($strReq, 'media_flash_fallback', '1', 'boolean', 'Flash player fallback for audio and video media'));
+                sprintf($strReq, 'media_flash_fallback', '1', 'boolean', 'Flash player fallback for audio and video media')
+            );
 
             # Some settings and prefs should be moved from string to array
             self::settings2array('system', 'date_formats');
@@ -495,24 +498,33 @@ class dcUpgrade
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
             # Import feed control
             $core->con->execute(
-                sprintf($strReq, 'import_feed_url_control', true, 'boolean', 'Control feed URL before import'));
+                sprintf($strReq, 'import_feed_url_control', true, 'boolean', 'Control feed URL before import')
+            );
             $core->con->execute(
-                sprintf($strReq, 'import_feed_no_private_ip', true, 'boolean', 'Prevent import feed from private IP'));
+                sprintf($strReq, 'import_feed_no_private_ip', true, 'boolean', 'Prevent import feed from private IP')
+            );
             $core->con->execute(
-                sprintf($strReq, 'import_feed_ip_regexp', '', 'string', 'Authorize import feed only from this IP regexp'));
+                sprintf($strReq, 'import_feed_ip_regexp', '', 'string', 'Authorize import feed only from this IP regexp')
+            );
             $core->con->execute(
-                sprintf($strReq, 'import_feed_port_regexp', '/^(80|443)$/', 'string', 'Authorize import feed only from this port regexp'));
+                sprintf($strReq, 'import_feed_port_regexp', '/^(80|443)$/', 'string', 'Authorize import feed only from this port regexp')
+            );
             # CSP directive (admin part)
             $core->con->execute(
-                sprintf($strReq, 'csp_admin_on', true, 'boolean', 'Send CSP header (admin)'));
+                sprintf($strReq, 'csp_admin_on', true, 'boolean', 'Send CSP header (admin)')
+            );
             $core->con->execute(
-                sprintf($strReq, 'csp_admin_default', "''self''", 'string', 'CSP default-src directive'));
+                sprintf($strReq, 'csp_admin_default', "''self''", 'string', 'CSP default-src directive')
+            );
             $core->con->execute(
-                sprintf($strReq, 'csp_admin_script', "''self'' ''unsafe-inline'' ''unsafe-eval''", 'string', 'CSP script-src directive'));
+                sprintf($strReq, 'csp_admin_script', "''self'' ''unsafe-inline'' ''unsafe-eval''", 'string', 'CSP script-src directive')
+            );
             $core->con->execute(
-                sprintf($strReq, 'csp_admin_style', "''self'' ''unsafe-inline''", 'string', 'CSP style-src directive'));
+                sprintf($strReq, 'csp_admin_style', "''self'' ''unsafe-inline''", 'string', 'CSP style-src directive')
+            );
             $core->con->execute(
-                sprintf($strReq, 'csp_admin_img', "''self'' data: media.dotaddict.org", 'string', 'CSP img-src directive'));
+                sprintf($strReq, 'csp_admin_img', "''self'' data: media.dotaddict.org", 'string', 'CSP img-src directive')
+            );
         }
 
         if (version_compare($version, '2.11', '<')) {
@@ -524,7 +536,8 @@ class dcUpgrade
                 ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
             $core->con->execute(
-                sprintf($strReq, 'csp_admin_report_only', false, 'boolean', 'CSP Report only violations (admin)'));
+                sprintf($strReq, 'csp_admin_report_only', false, 'boolean', 'CSP Report only violations (admin)')
+            );
 
             // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
                                                                                 // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
@@ -594,12 +607,12 @@ class dcUpgrade
                 'admin/js/ie7/ie7-squish.js',
                 'admin/style/iesucks.css',
                 'plugins/tags/js/jquery.autocomplete.js',
-                'theme/ductile/ie.css'
+                'theme/ductile/ie.css',
             ];
             $remfolders = [
                 'admin/style/modal',
                 'admin/js/tool-man',
-                'admin/js/ie7'
+                'admin/js/ie7',
             ];
 
             foreach ($remfiles as $f) {
@@ -665,7 +678,7 @@ class dcUpgrade
             # A bit of housecleaning for no longer needed files
             $remfiles = [
                 'plugins/dcLegacyEditor/tpl/index.tpl',
-                'plugins/dcCKEditor/tpl/index.tpl'
+                'plugins/dcCKEditor/tpl/index.tpl',
             ];
             foreach ($remfiles as $f) {
                 @unlink(DC_ROOT . '/' . $f);
@@ -705,7 +718,8 @@ class dcUpgrade
                 ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
             $core->con->execute(
-                sprintf($strReq, 'jquery_needed', true, 'boolean', 'Load jQuery library'));
+                sprintf($strReq, 'jquery_needed', true, 'boolean', 'Load jQuery library')
+            );
 
             # A bit of housecleaning for no longer needed files
             $remfiles = [
@@ -715,11 +729,11 @@ class dcUpgrade
                 'admin/style/farbtastic/farbtastic.css',
                 'admin/style/farbtastic/marker.png',
                 'admin/style/farbtastic/mask.png',
-                'admin/style/farbtastic/wheel.png'
+                'admin/style/farbtastic/wheel.png',
             ];
             $remfolders = [
                 // jQuery farbtastic Color picker
-                'admin/style/farbtastic'
+                'admin/style/farbtastic',
             ];
             foreach ($remfiles as $f) {
                 @unlink(DC_ROOT . '/' . $f);
@@ -746,7 +760,7 @@ class dcUpgrade
                 'inc/js/jquery/2.2.4/jquery.js',
                 'inc/js/jquery/2.2.4/jquery.cookie.js',
                 'inc/js/jquery/3.3.1/jquery.js',
-                'inc/js/jquery/3.3.1/jquery.cookie.js'
+                'inc/js/jquery/3.3.1/jquery.cookie.js',
             ];
             $remfolders = [
                 // Oldest jQuery public lib
@@ -756,7 +770,7 @@ class dcUpgrade
                 'inc/js/jquery/1.12.4',
                 'inc/js/jquery/2.2.0',
                 'inc/js/jquery/2.2.4',
-                'inc/js/jquery/3.3.1'
+                'inc/js/jquery/3.3.1',
             ];
             foreach ($remfiles as $f) {
                 @unlink(DC_ROOT . '/' . $f);
@@ -778,11 +792,11 @@ class dcUpgrade
         if (version_compare($version, '2.17', '<')) {
             # A bit of housecleaning for no longer needed files
             $remfiles = [
-                'inc/admin/class.dc.notices.php'
+                'inc/admin/class.dc.notices.php',
             ];
             $remfolders = [
                 // Oldest jQuery public lib
-                'inc/js/jquery/3.4.1'
+                'inc/js/jquery/3.4.1',
             ];
             foreach ($remfiles as $f) {
                 @unlink(DC_ROOT . '/' . $f);
@@ -794,7 +808,7 @@ class dcUpgrade
             $remtree  = scandir(DC_ROOT . '/locales');
             $remfiles = [
                 'help/blowupConfig.html',
-                'help/themeEditor.html'
+                'help/themeEditor.html',
             ];
             foreach ($remtree as $dir) {
                 if (is_dir(DC_ROOT . '/' . 'locales' . '/' . $dir) && $dir !== '.' && $dir !== '.') {
@@ -816,13 +830,13 @@ class dcUpgrade
                 'admin/js/jquery/jquery.pwstrength.js',
                 'admin/js/jquery/jquery.biscuit.js',
                 // No more need of this fake common.js (was used by install)
-                'admin/js/mini-common.js'
+                'admin/js/mini-common.js',
             ];
             $remfolders = [
                 // Oldest jQuery public lib
                 'inc/js/jquery/3.5.1',
                 // No more used in Berlin theme
-                'themes/berlin/scripts'
+                'themes/berlin/scripts',
             ];
             foreach ($remfiles as $f) {
                 @unlink(DC_ROOT . '/' . $f);
@@ -836,9 +850,24 @@ class dcUpgrade
                 ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
                 ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
             $core->con->execute(
-                sprintf($strReq, 'prevents_clickjacking', true, 'boolean', 'Prevents Clickjacking'));
+                sprintf($strReq, 'prevents_clickjacking', true, 'boolean', 'Prevents Clickjacking')
+            );
             $core->con->execute(
-                sprintf($strReq, 'prevents_floc', true, 'boolean', 'Prevents FLoC tracking'));
+                sprintf($strReq, 'prevents_floc', true, 'boolean', 'Prevents FLoC tracking')
+            );
+        }
+
+        if (version_compare($version, '2.21', '<')) {
+            # A bit of housecleaning for no longer needed files
+            $remfiles = [
+                // The old js datepicker has gone
+                'admin/js/date-picker.js',
+                'admin/style/date-picker.css',
+                'admin/images/date-picker.png',
+            ];
+            foreach ($remfiles as $f) {
+                @unlink(DC_ROOT . '/' . $f);
+            }
         }
 
         $core->setVersion('core', DC_VERSION);

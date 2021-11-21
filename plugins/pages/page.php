@@ -99,10 +99,10 @@ if (!empty($_REQUEST['id'])) {
         $post_content_xhtml = $post->post_content_xhtml;
         $post_notes         = $post->post_notes;
         $post_status        = $post->post_status;
-        $post_position      = (integer) $post->post_position;
-        $post_open_comment  = (boolean) $post->post_open_comment;
-        $post_open_tb       = (boolean) $post->post_open_tb;
-        $post_selected      = (boolean) $post->post_selected;
+        $post_position      = (int) $post->post_position;
+        $post_open_comment  = (bool) $post->post_open_comment;
+        $post_open_tb       = (bool) $post->post_open_tb;
+        $post_selected      = (bool) $post->post_selected;
 
         $page_title = __('Edit page');
 
@@ -113,17 +113,33 @@ if (!empty($_REQUEST['id'])) {
         $prev_rs = $core->blog->getNextPost($post, -1);
 
         if ($next_rs !== null) {
-            $next_link = sprintf($post_link, $next_rs->post_id,
-                html::escapeHTML(trim(html::clean($next_rs->post_title))), __('Next page') . '&nbsp;&#187;');
-            $next_headlink = sprintf($post_headlink, 'next',
-                html::escapeHTML(trim(html::clean($next_rs->post_title))), $next_rs->post_id);
+            $next_link = sprintf(
+                $post_link,
+                $next_rs->post_id,
+                html::escapeHTML(trim(html::clean($next_rs->post_title))),
+                __('Next page') . '&nbsp;&#187;'
+            );
+            $next_headlink = sprintf(
+                $post_headlink,
+                'next',
+                html::escapeHTML(trim(html::clean($next_rs->post_title))),
+                $next_rs->post_id
+            );
         }
 
         if ($prev_rs !== null) {
-            $prev_link = sprintf($post_link, $prev_rs->post_id,
-                html::escapeHTML(trim(html::clean($prev_rs->post_title))), '&#171;&nbsp;' . __('Previous page'));
-            $prev_headlink = sprintf($post_headlink, 'previous',
-                html::escapeHTML(trim(html::clean($prev_rs->post_title))), $prev_rs->post_id);
+            $prev_link = sprintf(
+                $post_link,
+                $prev_rs->post_id,
+                html::escapeHTML(trim(html::clean($prev_rs->post_title))),
+                '&#171;&nbsp;' . __('Previous page')
+            );
+            $prev_headlink = sprintf(
+                $post_headlink,
+                'previous',
+                html::escapeHTML(trim(html::clean($prev_rs->post_title))),
+                $prev_rs->post_id
+            );
         }
 
         try {
@@ -144,7 +160,7 @@ if (!empty($_POST) && $can_edit_page) {
     $post_title = $_POST['post_title'];
 
     if (isset($_POST['post_status'])) {
-        $post_status = (integer) $_POST['post_status'];
+        $post_status = (int) $_POST['post_status'];
     }
 
     if (empty($_POST['post_dt'])) {
@@ -168,7 +184,7 @@ if (!empty($_POST) && $can_edit_page) {
     $post_selected     = !empty($_POST['post_selected']);
     $post_lang         = $_POST['post_lang'];
     $post_password     = !empty($_POST['post_password']) ? $_POST['post_password'] : null;
-    $post_position     = (integer) $_POST['post_position'];
+    $post_position     = (int) $_POST['post_position'];
 
     $post_notes = $_POST['post_notes'];
 
@@ -177,8 +193,13 @@ if (!empty($_POST) && $can_edit_page) {
     }
 
     $core->blog->setPostContent(
-        $post_id, $post_format, $post_lang,
-        $post_excerpt, $post_excerpt_xhtml, $post_content, $post_content_xhtml
+        $post_id,
+        $post_format,
+        $post_lang,
+        $post_excerpt,
+        $post_excerpt_xhtml,
+        $post_content,
+        $post_content_xhtml
     );
 }
 
@@ -214,9 +235,9 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_page && !$bad_dt) {
     $cur->post_notes         = $post_notes;
     $cur->post_status        = $post_status;
     $cur->post_position      = $post_position;
-    $cur->post_open_comment  = (integer) $post_open_comment;
-    $cur->post_open_tb       = (integer) $post_open_tb;
-    $cur->post_selected      = (integer) $post_selected;
+    $cur->post_open_comment  = (int) $post_open_comment;
+    $cur->post_open_tb       = (int) $post_open_tb;
+    $cur->post_selected      = (int) $post_selected;
 
     if (isset($_POST['post_url'])) {
         $cur->post_url = $post_url;
@@ -276,13 +297,28 @@ if ($post_editor) {
         $c_edit = $post_editor['xhtml'];
     }
     if ($p_edit == $c_edit) {
-        $admin_post_behavior .= $core->callBehavior('adminPostEditor',
-            $p_edit, 'page', ['#post_excerpt', '#post_content', '#comment_content'], $post_format);
+        $admin_post_behavior .= $core->callBehavior(
+            'adminPostEditor',
+            $p_edit,
+            'page',
+            ['#post_excerpt', '#post_content', '#comment_content'],
+            $post_format
+        );
     } else {
-        $admin_post_behavior .= $core->callBehavior('adminPostEditor',
-            $p_edit, 'page', ['#post_excerpt', '#post_content'], $post_format);
-        $admin_post_behavior .= $core->callBehavior('adminPostEditor',
-            $c_edit, 'comment', ['#comment_content'], 'xhtml');
+        $admin_post_behavior .= $core->callBehavior(
+            'adminPostEditor',
+            $p_edit,
+            'page',
+            ['#post_excerpt', '#post_content'],
+            $post_format
+        );
+        $admin_post_behavior .= $core->callBehavior(
+            'adminPostEditor',
+            $c_edit,
+            'comment',
+            ['#comment_content'],
+            'xhtml'
+        );
     }
 }
 
@@ -291,7 +327,6 @@ if ($post_editor) {
 <head>
   <title><?php echo $page_title . ' - ' . __('Pages'); ?></title>
   <?php echo
-dcPage::jsDatePicker() .
 dcPage::jsModal() .
 dcPage::jsJson('pages_page', ['confirm_delete_post' => __('Are you sure you want to delete this page?')]) .
 dcPage::jsLoad('js/_post.js') .
@@ -337,8 +372,9 @@ echo dcPage::breadcrumb(
     [
         html::escapeHTML($core->blog->name) => '',
         __('Pages')                         => $p_url,
-        $edit_entry_title                   => ''
-    ]);
+        $edit_entry_title                   => '',
+    ]
+);
 
 if (!empty($_GET['upd'])) {
     dcPage::success(__('Page has been successfully updated.'));
@@ -398,20 +434,17 @@ if ($can_edit_page) {
             'title' => __('Status'),
             'items' => [
                 'post_status' => '<p><label for="post_status">' . __('Page status') . '</label> ' .
-                form::combo('post_status', $status_combo,
-                    ['default' => $post_status, 'disabled' => !$can_publish]) .
+                form::combo(
+                    'post_status',
+                    $status_combo,
+                    ['default' => $post_status, 'disabled' => !$can_publish]
+                ) .
                 '</p>',
                 'post_dt' => '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
-                form::field('post_dt', 16, 16, $post_dt, ($bad_dt ? 'invalid' : '')) .
-                /*
-                Previous line will be replaced by this one as soon as every browser will support datetime-local input type
-                Dont forget to remove call to datepicker in post.js
-
                 form::datetime('post_dt', [
-                'default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', strtotime($post_dt))),
-                'class' => ($bad_dt ? 'invalid' : '')
+                    'default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', strtotime($post_dt))),
+                    'class'   => ($bad_dt ? 'invalid' : ''),
                 ]) .
-                 */
                 '</p>',
                 'post_lang' => '<p><label for="post_lang">' . __('Page language') . '</label>' .
                 form::combo('post_lang', $lang_combo, $post_lang) .
@@ -422,15 +455,15 @@ if ($can_edit_page) {
                 '<p class="format_control control_wiki">' .
                 '<a id="convert-xhtml" class="button' . ($post_id && $post_format != 'wiki' ? ' hide' : '') .
                 '" href="' . html::escapeURL($redir_url) . '&amp;id=' . $post_id . '&amp;xconv=1">' .
-                __('Convert to XHTML') . '</a></p></div>']],
+                __('Convert to XHTML') . '</a></p></div>', ], ],
         'metas-box' => [
             'title' => __('Filing'),
             'items' => [
                 'post_position' => '<p><label for="post_position" class="classic">' . __('Page position') . '</label> ' .
                 form::number('post_position', [
-                    'default' => $post_position
+                    'default' => $post_position,
                 ]) .
-                '</p>']],
+                '</p>', ], ],
         'options-box' => [
             'title' => __('Options'),
             'items' => [
@@ -468,45 +501,58 @@ if ($can_edit_page) {
                 '</p>' .
                 '<p class="form-note warn">' .
                 __('Warning: If you set the URL manually, it may conflict with another page.') .
-                '</p></div>'
-            ]]]);
-    $main_items = new ArrayObject([
-        'post_title' => '<p class="col">' .
-        '<label class="required no-margin bold" for="post_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
-        form::field('post_title', 20, 255, [
-            'default'    => html::escapeHTML($post_title),
-            'class'      => 'maximal',
-            'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . $post_lang . '" spellcheck="true"'
-        ]) .
-        '</p>',
-
-        'post_excerpt' => '<p class="area" id="excerpt-area"><label for="post_excerpt" class="bold">' . __('Excerpt:') . ' <span class="form-note">' .
-        __('Introduction to the page.') . '</span></label> ' .
-        form::textarea('post_excerpt', 50, 5,
-            [
-                'default'    => html::escapeHTML($post_excerpt),
-                'extra_html' => 'lang="' . $post_lang . '" spellcheck="true"'
+                '</p></div>',
+            ], ], ]);
+    $main_items = new ArrayObject(
+        [
+            'post_title' => '<p class="col">' .
+            '<label class="required no-margin bold" for="post_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
+            form::field('post_title', 20, 255, [
+                'default'    => html::escapeHTML($post_title),
+                'class'      => 'maximal',
+                'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . $post_lang . '" spellcheck="true"',
             ]) .
-        '</p>',
+            '</p>',
 
-        'post_content' => '<p class="area" id="content-area"><label class="required bold" ' .
-        'for="post_content"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Content:') . '</label> ' .
-        form::textarea('post_content', 50, $core->auth->getOption('edit_size'),
-            [
-                'default'    => html::escapeHTML($post_content),
-                'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . $post_lang . '" spellcheck="true"'
-            ]) .
-        '</p>',
+            'post_excerpt' => '<p class="area" id="excerpt-area"><label for="post_excerpt" class="bold">' . __('Excerpt:') . ' <span class="form-note">' .
+            __('Introduction to the page.') . '</span></label> ' .
+            form::textarea(
+                'post_excerpt',
+                50,
+                5,
+                [
+                    'default'    => html::escapeHTML($post_excerpt),
+                    'extra_html' => 'lang="' . $post_lang . '" spellcheck="true"',
+                ]
+            ) .
+            '</p>',
 
-        'post_notes' => '<p class="area" id="notes-area"><label for="post_notes" class="bold">' . __('Personal notes:') . ' <span class="form-note">' .
-        __('Unpublished notes.') . '</span></label>' .
-        form::textarea('post_notes', 50, 5,
-            [
-                'default'    => html::escapeHTML($post_notes),
-                'extra_html' => 'lang="' . $post_lang . '" spellcheck="true"'
-            ]) .
-        '</p>'
-    ]
+            'post_content' => '<p class="area" id="content-area"><label class="required bold" ' .
+            'for="post_content"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Content:') . '</label> ' .
+            form::textarea(
+                'post_content',
+                50,
+                $core->auth->getOption('edit_size'),
+                [
+                    'default'    => html::escapeHTML($post_content),
+                    'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . $post_lang . '" spellcheck="true"',
+                ]
+            ) .
+            '</p>',
+
+            'post_notes' => '<p class="area" id="notes-area"><label for="post_notes" class="bold">' . __('Personal notes:') . ' <span class="form-note">' .
+            __('Unpublished notes.') . '</span></label>' .
+            form::textarea(
+                'post_notes',
+                50,
+                5,
+                [
+                    'default'    => html::escapeHTML($post_notes),
+                    'extra_html' => 'lang="' . $post_lang . '" spellcheck="true"',
+                ]
+            ) .
+            '</p>',
+        ]
     );
 
     # --BEHAVIOR-- adminPostFormItems
@@ -535,10 +581,12 @@ if ($can_edit_page) {
 
     if ($post_id) {
         $preview_url = $core->blog->url .
-        $core->url->getURLFor('pagespreview',
+        $core->url->getURLFor(
+            'pagespreview',
             $core->auth->userID() . '/' .
             http::browserUID(DC_MASTER_KEY . $core->auth->userID() . $core->auth->cryptLegacy($core->auth->userID())) .
-            '/' . $post->post_url);
+            '/' . $post->post_url
+        );
         echo '<a id="post-preview" href="' . $preview_url . '" class="button" accesskey="p">' . __('Preview') . ' (p)' . '</a>' .
             ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />';
     } else {
@@ -659,7 +707,7 @@ if ($post_id) {
     '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label>' .
     form::field('comment_author', 30, 255, [
         'default'    => html::escapeHTML($core->auth->getInfo('user_cn')),
-        'extra_html' => 'required placeholder="' . __('Author') . '"'
+        'extra_html' => 'required placeholder="' . __('Author') . '"',
     ]) .
     '</p>' .
 
@@ -667,7 +715,7 @@ if ($post_id) {
     form::email('comment_email', [
         'size'         => 30,
         'default'      => html::escapeHTML($core->auth->getInfo('user_email')),
-        'autocomplete' => 'email'
+        'autocomplete' => 'email',
     ]) .
     '</p>' .
 
@@ -675,7 +723,7 @@ if ($post_id) {
     form::url('comment_site', [
         'size'         => 30,
         'default'      => html::escapeHTML($core->auth->getInfo('user_url')),
-        'autocomplete' => 'url'
+        'autocomplete' => 'url',
     ]) .
     '</p>' .
 
@@ -766,9 +814,11 @@ function showComments($rs, $has_action)
         ' id="c' . $rs->comment_id . '">' .
 
         '<td class="nowrap">' .
-        ($has_action ? form::checkbox(['comments[]'], $rs->comment_id,
+        ($has_action ? form::checkbox(
+            ['comments[]'],
+            $rs->comment_id,
             [
-                'extra_html' => 'title="' . __('Select this comment') . '"'
+                'extra_html' => 'title="' . __('Select this comment') . '"',
             ]
         ) : '') . '</td>' .
         '<td class="maximal">' . $rs->comment_author . '</td>' .

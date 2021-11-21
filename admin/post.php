@@ -430,7 +430,6 @@ if ($post_editor) {
 
 dcPage::open(
     $page_title . ' - ' . __('Posts'),
-    dcPage::jsDatePicker() .
     dcPage::jsModal() .
     dcPage::jsMetaEditor() .
     $admin_post_behavior .
@@ -616,16 +615,10 @@ if ($can_edit_post) {
                 ) .
                 '</p>',
                 'post_dt' => '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
-                form::field('post_dt', 16, 16, $post_dt, ($bad_dt ? 'invalid' : '')) .
-                /*
-                Previous line will be replaced by this one as soon as every browser will support datetime-local input type
-                Dont forget to remove call to datepicker in post.js
-
                 form::datetime('post_dt', [
-                'default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', strtotime($post_dt))),
-                'class' => ($bad_dt ? 'invalid' : '')
+                    'default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', strtotime($post_dt))),
+                    'class'   => ($bad_dt ? 'invalid' : ''),
                 ]) .
-                 */
                 '</p>',
                 'post_lang' => '<p><label for="post_lang">' . __('Entry language') . '</label>' .
                 form::combo('post_lang', $lang_combo, $post_lang) .

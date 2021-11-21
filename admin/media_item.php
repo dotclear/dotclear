@@ -313,7 +313,6 @@ call_user_func(
     $open_f,
     __('Media manager'),
     $starting_scripts .
-    dcPage::jsDatePicker() .
     ($popup ? dcPage::jsPageTabs($tab) : ''),
     dcPage::breadcrumb(
         [
@@ -858,13 +857,7 @@ if ($file->editable && $core_media_writable) {
         '<p><label for="media_dt">' . __('File date:') . '</label>';
     }
     echo
-    form::field('media_dt', 16, 16, html::escapeHTML($file->media_dtstr)) .
-    /*
-    Previous line will be replaced by this one as soon as every browser will support datetime-local input type
-    Dont forget to remove call to datepicker in media_item.js
-
     form::datetime('media_dt', ['default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', $file->media_dt))]) .
-     */
     '</p>' .
     '<p><label for="media_private" class="classic">' . form::checkbox('media_private', 1, $file->media_priv) . ' ' .
     __('Private') . '</label></p>' .

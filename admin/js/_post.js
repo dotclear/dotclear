@@ -1,4 +1,4 @@
-/*global $, dotclear, datePicker */
+/*global $, dotclear */
 'use strict';
 
 dotclear.viewCommentContent = (line, action = 'toggle', e = null) => {
@@ -94,11 +94,6 @@ $(() => {
   // Tabs events
   $('#edit-entry').on('onetabload', () => {
     dotclear.hideLockable();
-
-    // Add date picker
-    const post_dtPick = new datePicker($('#post_dt').get(0));
-    post_dtPick.img_top = '1.5em';
-    post_dtPick.draw();
 
     // Confirm post deletion
     $('input[name="delete"]').on('click', () => window.confirm(dotclear.msg.confirm_delete_post));

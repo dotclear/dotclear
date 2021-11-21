@@ -987,44 +987,13 @@ class dcPage
     /**
      * Get HTML code for date picker JS utility
      *
+     * @obsolete since 2.21
+     *
      * @return     string
      */
     public static function jsDatePicker()
     {
-        $js = [
-            'months' => [
-                __('January'),
-                __('February'),
-                __('March'),
-                __('April'),
-                __('May'),
-                __('June'),
-                __('July'),
-                __('August'),
-                __('September'),
-                __('October'),
-                __('November'),
-                __('December'),
-            ],
-            'days' => [
-                __('Monday'),
-                __('Tuesday'),
-                __('Wednesday'),
-                __('Thursday'),
-                __('Friday'),
-                __('Saturday'),
-                __('Sunday'),
-            ],
-            'img_src'   => 'images/date-picker.png',
-            'img_alt'   => __('Choose date'),
-            'close_msg' => __('close'),
-            'now_msg'   => __('now'),
-        ];
-
-        return
-        self::cssLoad('style/date-picker.css') .
-        self::jsJson('date_picker', $js) .
-        self::jsLoad('js/date-picker.js');
+        return '';
     }
 
     public static function jsToolBar()
