@@ -2888,10 +2888,10 @@ a.form-control {
   display: none;
   color: var(--form-control-color); }
   a.form-control::before {
-    content: "►";
+    content: '▶';
     margin-right: 5px; }
   a.form-control.open::before {
-    content: "▼"; }
+    content: '▼'; }
 
 span.ib {
   width: 7em; }
@@ -2902,14 +2902,14 @@ span.ibw {
 
 #filters-form {
   border: 1px solid var(--filter-border);
-  border-radius: .3em;
+  border-radius: 0.3em;
   margin-bottom: 2em;
-  padding: .5em 1em 0; }
+  padding: 0.5em 1em 0; }
   #filters-form .table {
     width: 100%;
     padding: 0;
     margin-bottom: 1em;
-    margin-top: .5em; }
+    margin-top: 0.5em; }
   #filters-form .cell {
     padding: 0 2em 0 0; }
   #filters-form .filters-sibling-cell {

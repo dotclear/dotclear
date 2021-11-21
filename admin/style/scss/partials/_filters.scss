@@ -3,13 +3,13 @@ a.form-control {
   color: var(--form-control-color);
 
   &::before {
-    content: "►";
+    content: '▶';
     margin-right: 5px;
   }
 
   &.open {
     &::before {
-      content: "▼";
+      content: '▼';
     }
   }
 }
@@ -25,15 +25,15 @@ span.ibw {
 
 #filters-form {
   border: 1px solid var(--filter-border);
-  border-radius: .3em;
+  border-radius: 0.3em;
   margin-bottom: 2em;
-  padding: .5em 1em 0;
+  padding: 0.5em 1em 0;
 
   .table {
     width: 100%;
     padding: 0;
     margin-bottom: 1em;
-    margin-top: .5em;
+    margin-top: 0.5em;
   }
 
   .cell {

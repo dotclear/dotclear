@@ -803,7 +803,7 @@ class dcPage
             'nonce' => $core->getNonce(),
 
             'img_plus_src' => 'images/expand.png',
-            'img_plus_txt' => '►',
+            'img_plus_txt' => '▶',
             'img_plus_alt' => __('uncover'),
 
             'img_minus_src' => 'images/hide.png',
@@ -814,7 +814,7 @@ class dcPage
             'img_menu_off' => 'images/menu_off.png',
 
             'img_plus_theme_src' => 'images/plus-theme.png',
-            'img_plus_theme_txt' => '►',
+            'img_plus_theme_txt' => '▶',
             'img_plus_theme_alt' => __('uncover'),
 
             'img_minus_theme_src' => 'images/minus-theme.png',

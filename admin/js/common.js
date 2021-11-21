@@ -511,7 +511,7 @@ dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) =>
     const ths = table.getElementsByTagName('th');
     for (let i = 0; i < ths.length; i++) {
       for (let colspan = ths[i].colSpan; colspan > 0; colspan--) {
-        THarray.push(ths[i].innerText.replace('►', ''));
+        THarray.push(ths[i].innerText.replace('▶', ''));
       }
     }
     let styleElm = document.createElement('style');
