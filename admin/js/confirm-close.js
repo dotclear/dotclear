@@ -1,19 +1,20 @@
 /*global dotclear */
 'use strict';
 
-const confirmClose = function () {
-  if (arguments.length > 0) {
-    for (let i = 0; i < arguments.length; i++) {
-      this.forms_id.push(arguments[i]);
+dotclear.confirmClose = class {
+  constructor() {
+    // Init properties
+    this.prompt = 'You have unsaved changes.';
+    this.forms_id = [];
+    this.forms = [];
+    this.form_submit = false;
+    // Add given forms
+    if (arguments.length > 0) {
+      for (let i = 0; i < arguments.length; i++) {
+        this.forms_id.push(arguments[i]);
+      }
     }
   }
-};
-
-confirmClose.prototype = {
-  prompt: 'You have unsaved changes.',
-  forms_id: [],
-  forms: [],
-  form_submit: false,
 
   getCurrentForms() {
     // Store current form's element's values
@@ -43,7 +44,7 @@ confirmClose.prototype = {
 
       f.addEventListener('submit', () => (this.form_submit = true));
     }
-  },
+  }
 
   compareForms() {
     // Compare current form's element's values to their original values
@@ -102,7 +103,7 @@ confirmClose.prototype = {
     }
 
     return true;
-  },
+  }
 
   getForms() {
     // Get current list of forms as HTMLCollection(s)
@@ -122,7 +123,7 @@ confirmClose.prototype = {
       return res;
     }
     return document.getElementsByTagName('form');
-  },
+  }
 
   getFormElementValue(e) {
     // Return current value of an form element
@@ -154,14 +155,14 @@ confirmClose.prototype = {
       return null;
     }
     return e.value !== undefined ? e.value : null;
-  },
+  }
 };
 
 window.addEventListener('load', () => {
   const confirm_close = dotclear.getData('confirm_close');
-  confirmClose.prototype.prompt = confirm_close.prompt;
 
-  dotclear.confirmClosePage = new confirmClose(...confirm_close.forms);
+  dotclear.confirmClosePage = new dotclear.confirmClose(...confirm_close.forms);
+  dotclear.confirmClosePage.prompt = confirm_close.prompt;
 
   dotclear.confirmClosePage.getCurrentForms();
 });
