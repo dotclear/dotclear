@@ -31,7 +31,7 @@ class dcLegacyEditorBehaviors
         $js = [
             'legacy_editor_context'      => $context,
             'legacy_editor_syntax'       => $syntax,
-            'legacy_editor_tags_context' => [$context => $tags]
+            'legacy_editor_tags_context' => [$context => $tags],
         ];
 
         return
@@ -71,22 +71,22 @@ class dcLegacyEditorBehaviors
     {
         $rtl = l10n::getTextDirection($GLOBALS['_lang']) == 'rtl' ? 'direction: rtl;' : '';
         $css = <<<EOT
-body {
-    color: #000;
-    background: #f9f9f9;
-    margin: 0;
-    padding: 2px;
-    border: none;
-    $rtl
-}
-code {
-    color: #666;
-    font-weight: bold;
-}
-body > p:first-child {
-    margin-top: 0;
-}
-EOT;
+            body {
+                color: #000;
+                background: #f9f9f9;
+                margin: 0;
+                padding: 2px;
+                border: none;
+                $rtl
+            }
+            code {
+                color: #666;
+                font-weight: bold;
+            }
+            body > p:first-child {
+                margin-top: 0;
+            }
+            EOT;
         $js = [
             'dialog_url'            => 'popup.php',
             'iframe_css'            => $css,
@@ -95,17 +95,19 @@ EOT;
             'switcher_source_title' => __('source'),
             'legend_msg'            => __('You can use the following shortcuts to format your text.'),
             'elements'              => [
-                'blocks' => ['options' => [
-                    'none'    => __('-- none --'),
-                    'nonebis' => __('-- block format --'),
-                    'p'       => __('Paragraph'),
-                    'h1'      => __('Level 1 header'),
-                    'h2'      => __('Level 2 header'),
-                    'h3'      => __('Level 3 header'),
-                    'h4'      => __('Level 4 header'),
-                    'h5'      => __('Level 5 header'),
-                    'h6'      => __('Level 6 header'),
-                ]],
+                'blocks' => [
+                    'title'   => __('Block format'),
+                    'options' => [
+                        'none'    => __('-- none --'),
+                        'nonebis' => __('-- block format --'),
+                        'p'       => __('Paragraph'),
+                        'h1'      => __('Level 1 header'),
+                        'h2'      => __('Level 2 header'),
+                        'h3'      => __('Level 3 header'),
+                        'h4'      => __('Level 4 header'),
+                        'h5'      => __('Level 5 header'),
+                        'h6'      => __('Level 6 header'),
+                    ], ],
 
                 'strong'     => ['title' => __('Strong emphasis')],
                 'em'         => ['title' => __('Emphasis')],
@@ -124,23 +126,23 @@ EOT;
                     'title'           => __('Link'),
                     'accesskey'       => __('l'),
                     'href_prompt'     => __('URL?'),
-                    'hreflang_prompt' => __('Language?')
+                    'hreflang_prompt' => __('Language?'),
                 ],
 
                 'img' => [
                     'title'      => __('External image'),
-                    'src_prompt' => __('URL?')
+                    'src_prompt' => __('URL?'),
                 ],
 
                 'img_select' => [
                     'title'     => __('Media chooser'),
-                    'accesskey' => __('m')
+                    'accesskey' => __('m'),
                 ],
 
                 'post_link'    => ['title' => __('Link to an entry')],
-                'removeFormat' => ['title' => __('Remove text formating')]
+                'removeFormat' => ['title' => __('Remove text formating')],
             ],
-            'toolbar_bottom' => (boolean) isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('toolbar_bottom')
+            'toolbar_bottom' => (bool) isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('toolbar_bottom'),
         ];
         if (!$GLOBALS['core']->auth->check('media,media_admin', $GLOBALS['core']->blog->id)) {
             $js['elements']['img_select']['disabled'] = true;

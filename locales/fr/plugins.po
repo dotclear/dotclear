@@ -937,6 +937,9 @@ msgstr "source"
 msgid "You can use the following shortcuts to format your text."
 msgstr "Vous pouvez utiliser les raccourcis suivants pour formater votre texte."
 
+msgid "Block format"
+msgstr "Format de bloc"
+
 msgid "-- none --"
 msgstr "-- aucun --"
 

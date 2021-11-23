@@ -23,143 +23,51 @@
  * ***** END LICENSE BLOCK *****
  */
 
-const jsToolBar = function (textarea) {
-  if (!document.createElement) {
-    return;
-  }
-
-  if (!textarea) {
-    return;
-  }
-
-  if (typeof document.selection == 'undefined' && typeof textarea.setSelectionRange == 'undefined') {
-    return;
-  }
-
-  this.textarea = textarea;
-
-  this.editor = document.createElement('div');
-  this.editor.className = 'jstEditor';
-
-  this.textarea.parentNode.insertBefore(this.editor, this.textarea);
-  this.editor.appendChild(this.textarea);
-
-  this.toolbar = document.createElement('div');
-  this.toolbar.className = 'jstElements';
-
-  if (this.toolbar_bottom) {
-    this.editor.parentNode.insertBefore(this.toolbar, this.editor.nextSibling);
-    this.editor.parentNode.classList.add('toolbar_bottom');
-  } else {
-    this.editor.parentNode.insertBefore(this.toolbar, this.editor);
-    this.editor.parentNode.classList.add('toolbar_top');
-  }
-
-  this.context = null;
-  this.toolNodes = {}; // lorsque la toolbar est dessinée , cet objet est garni
-  // de raccourcis vers les éléments DOM correspondants aux outils.
-};
-
-const jsButton = function (title, fn, scope, className, accesskey) {
-  this.title = title || null;
-  this.fn = fn || (() => {});
-  this.scope = scope || null;
-  this.className = className || null;
-  this.accesskey = accesskey || null;
-};
-jsButton.prototype.draw = function () {
-  if (!this.scope) return null;
-
-  const button = document.createElement('button');
-  button.setAttribute('type', 'button');
-  if (this.className) button.className = this.className;
-  button.title = this.title;
-  if (this.accesskey) button.accessKey = this.accesskey;
-  const span = document.createElement('span');
-  span.appendChild(document.createTextNode(this.title));
-  button.appendChild(span);
-
-  if (this.icon != undefined) {
-    button.style.backgroundImage = `url(${this.icon})`;
-  }
-  if (typeof this.fn == 'function') {
-    const This = this;
-    button.onclick = function () {
-      try {
-        This.fn.apply(This.scope, arguments);
-      } catch (e) {}
-      return false;
-    };
-  }
-  return button;
-};
-
-const jsSpace = function (id) {
-  this.id = id || null;
-  this.width = null;
-};
-jsSpace.prototype.draw = function () {
-  const span = document.createElement('span');
-  if (this.id) span.id = this.id;
-  span.appendChild(document.createTextNode(String.fromCharCode(160)));
-  span.className = 'jstSpacer';
-  if (this.width) span.style.marginRight = `${this.width}px`;
-
-  return span;
-};
-
-const jsCombo = function (title, options, scope, fn, className) {
-  this.title = title || null;
-  this.options = options || null;
-  this.scope = scope || null;
-  this.fn = fn || (() => {});
-  this.className = className || null;
-};
-jsCombo.prototype.draw = function () {
-  if (!this.scope || !this.options) return null;
-
-  const select = document.createElement('select');
-  if (this.className) select.className = this.className;
-  select.title = this.title;
-
-  for (let o in this.options) {
-    const option = document.createElement('option');
-    option.value = o;
-    option.appendChild(document.createTextNode(this.options[o]));
-    select.appendChild(option);
-  }
-
-  const This = this;
-  select.onchange = function () {
-    try {
-      This.fn.call(This.scope, this.value);
-    } catch (e) {
-      window.alert(e);
+class jsToolBar {
+  constructor(textarea) {
+    if (!textarea) {
+      return;
     }
 
-    return false;
-  };
+    if (typeof document.selection == 'undefined' && typeof textarea.setSelectionRange == 'undefined') {
+      return;
+    }
 
-  return select;
-};
+    this.textarea = textarea;
 
-jsToolBar.prototype = {
-  base_url: '',
-  mode: 'xhtml',
-  elements: {},
-  toolbar_bottom: false,
+    this.editor = document.createElement('div');
+    this.editor.className = 'jstEditor';
+
+    this.textarea.parentNode.insertBefore(this.editor, this.textarea);
+    this.editor.appendChild(this.textarea);
+
+    this.toolbar = document.createElement('div');
+    this.toolbar.className = 'jstElements';
+
+    if (this.toolbar_bottom) {
+      this.editor.parentNode.insertBefore(this.toolbar, this.editor.nextSibling);
+      this.editor.parentNode.classList.add('toolbar_bottom');
+    } else {
+      this.editor.parentNode.insertBefore(this.toolbar, this.editor);
+      this.editor.parentNode.classList.add('toolbar_top');
+    }
+
+    this.context = null;
+    this.toolNodes = {}; // lorsque la toolbar est dessinée , cet objet est garni
+    // de raccourcis vers les éléments DOM correspondants aux outils.
+  }
 
   getMode() {
     return this.mode;
-  },
+  }
 
   setMode(mode = 'xhtml') {
     this.mode = mode;
-  },
+  }
 
   switchMode(mode = 'xhtml') {
     this.draw(mode);
-  },
+  }
 
   button(toolName) {
     const tool = this.elements[toolName];
@@ -169,7 +77,8 @@ jsToolBar.prototype = {
       b.icon = tool.icon;
     }
     return b;
-  },
+  }
+
   space(toolName) {
     const tool = new jsSpace(toolName);
     if (this.elements[toolName].format != undefined && !this.elements[toolName].format[this.mode]) return null;
@@ -177,7 +86,8 @@ jsToolBar.prototype = {
       tool.width = this.elements[toolName].width;
     }
     return tool;
-  },
+  }
+
   combo(toolName) {
     const tool = this.elements[toolName];
 
@@ -194,7 +104,8 @@ jsToolBar.prototype = {
       }
       return new jsCombo(tool.title, options, this, tool[this.mode].fn);
     }
-  },
+  }
+
   draw(mode) {
     this.setMode(mode);
 
@@ -227,7 +138,7 @@ jsToolBar.prototype = {
         }
       }
     }
-  },
+  }
 
   singleTag(stag = null, etag = stag) {
     if (!stag || !etag) {
@@ -235,7 +146,7 @@ jsToolBar.prototype = {
     }
 
     this.encloseSelection(stag, etag);
-  },
+  }
 
   encloseSelection(prefix = '', suffix = '', fn = null) {
     this.textarea.focus();
@@ -282,7 +193,7 @@ jsToolBar.prototype = {
       }
       this.textarea.scrollTop = scrollPos;
     }
-  },
+  }
 
   stripBaseURL(url) {
     if (this.base_url != '') {
@@ -293,8 +204,109 @@ jsToolBar.prototype = {
     }
 
     return url;
-  },
-};
+  }
+}
+
+// Set default properties
+jsToolBar.prototype.base_url = '';
+jsToolBar.prototype.mode = 'xhtml';
+jsToolBar.prototype.elements = {};
+jsToolBar.prototype.toolbar_bottom = false;
+
+// jsButton
+class jsButton {
+  constructor(title, fn, scope, className, accesskey) {
+    this.title = title || null;
+    this.fn = fn || (() => {});
+    this.scope = scope || null;
+    this.className = className || null;
+    this.accesskey = accesskey || null;
+  }
+
+  draw() {
+    if (!this.scope) return null;
+
+    const button = document.createElement('button');
+    button.setAttribute('type', 'button');
+    if (this.className) button.className = this.className;
+    button.title = this.title;
+    if (this.accesskey) button.accessKey = this.accesskey;
+    const span = document.createElement('span');
+    span.appendChild(document.createTextNode(this.title));
+    button.appendChild(span);
+
+    if (this.icon != undefined) {
+      button.style.backgroundImage = `url(${this.icon})`;
+    }
+    if (typeof this.fn == 'function') {
+      const This = this;
+      button.onclick = function () {
+        try {
+          This.fn.apply(This.scope, arguments);
+        } catch (e) {}
+        return false;
+      };
+    }
+    return button;
+  }
+}
+
+// jsSpace
+class jsSpace {
+  constructor(id) {
+    this.id = id || null;
+    this.width = null;
+  }
+
+  draw() {
+    const span = document.createElement('span');
+    if (this.id) span.id = this.id;
+    span.appendChild(document.createTextNode(String.fromCharCode(160)));
+    span.className = 'jstSpacer';
+    if (this.width) span.style.marginRight = `${this.width}px`;
+
+    return span;
+  }
+}
+
+//jsCombo
+class jsCombo {
+  constructor(title, options, scope, fn, className) {
+    this.title = title || null;
+    this.options = options || null;
+    this.scope = scope || null;
+    this.fn = fn || (() => {});
+    this.className = className || null;
+  }
+
+  draw() {
+    if (!this.scope || !this.options) return null;
+
+    const select = document.createElement('select');
+    if (this.className) select.className = this.className;
+    select.title = this.title;
+
+    for (let o in this.options) {
+      const option = document.createElement('option');
+      option.value = o;
+      option.appendChild(document.createTextNode(this.options[o]));
+      select.appendChild(option);
+    }
+
+    const This = this;
+    select.onchange = function () {
+      try {
+        This.fn.call(This.scope, this.value);
+      } catch (e) {
+        window.alert(e);
+      }
+
+      return false;
+    };
+
+    return select;
+  }
+}
 
 // Elements definition ------------------------------------
 // block format (paragraph, headers)
