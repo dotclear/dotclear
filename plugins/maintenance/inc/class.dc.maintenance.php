@@ -239,7 +239,7 @@ class dcMaintenance
         // Retrieve logs from this task
         $rs = $this->core->log->getLogs([
             'log_table' => 'maintenance',
-            'blog_id'   => 'all'
+            'blog_id'   => '*',
         ]);
 
         $logs = [];
@@ -270,14 +270,14 @@ class dcMaintenance
         if ($this->logs === null) {
             $rs = $this->core->log->getLogs([
                 'log_table' => 'maintenance',
-                'blog_id'   => 'all'
+                'blog_id'   => '*',
             ]);
 
             $this->logs = [];
             while ($rs->fetch()) {
                 $this->logs[$rs->log_msg] = [
                     'ts'   => strtotime($rs->log_dt),
-                    'blog' => $rs->blog_id == $this->core->blog->id
+                    'blog' => $rs->blog_id == $this->core->blog->id,
                 ];
             }
         }

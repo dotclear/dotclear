@@ -340,7 +340,7 @@ class dcSqlStatement
                 '\s+' => ' ', // Multiple spaces/tabs -> one space
                 ' \)' => ')', // <space>) -> )
                 ' ,'  => ',', // <space>, -> ,
-                '\( ' => '(' // (<space> -> (
+                '\( ' => '(', // (<space> -> (
             ];
             foreach ($patterns as $pattern => $replace) {
                 $s = preg_replace('!' . $pattern . '!', $replace, $s);
@@ -607,6 +607,104 @@ class dcSelectStatement extends dcSqlStatement
 
         # --BEHAVIOR-- coreAfertSelectStatement
         $this->core->callBehavior('coreAfterSelectStatement', $this, $query);
+
+        return $query;
+    }
+}
+
+/**
+ * Join (sub)Statement : small utility to build join fragments
+ */
+class dcJoinStatement extends dcSqlStatement
+{
+    protected $type;
+
+    /**
+     * Class constructor
+     *
+     * @param dcCore    $core   dcCore instance
+     * @param mixed     $ctx    optional context
+     */
+    public function __construct(dcCore &$core, $ctx = null)
+    {
+        $this->type = null;
+
+        parent::__construct($core, $ctx);
+    }
+
+    /**
+     * Adds ON clause(s) condition (each will be AND combined in statement) - WHERE Alias
+     *
+     * @param mixed     $c      the clause(s)
+     * @param boolean   $reset  reset previous where(s) first
+     *
+     * @return self instance, enabling to chain calls
+     */
+    public function on($c, bool $reset = false): dcJoinStatement
+    {
+        return $this->where($c, $reset);
+    }
+
+    /**
+     * Defines the type for join
+     *
+     * @param string $type
+     * @return self instance, enabling to chain calls
+     */
+    public function type(string $type = ''): dcJoinStatement
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Returns the join fragment
+     *
+     * @return string the fragment
+     */
+    public function statement(): string
+    {
+        # --BEHAVIOR-- coreBeforeDeleteStatement
+        $this->core->callBehavior('coreBeforeJoinStatement', $this);
+
+        // Check if source given
+        if (!count($this->from)) {
+            trigger_error(__('SQL JOIN requires a source'), E_USER_ERROR);
+
+            return '';
+        }
+
+        // Query
+        $query = 'JOIN ';
+
+        if ($this->type) {
+            // LEFT, RIGHT, …
+            $query = $this->type . ' ' . $query;
+        }
+
+        // Table
+        $query .= ' ' . $this->from[0] . ' ';
+
+        // Where clause(s)
+        if (count($this->where)) {
+            $query .= 'ON ' . join(' AND ', $this->where) . ' ';
+        }
+
+        // Direct where clause(s)
+        if (count($this->cond)) {
+            $query .= join(' ', $this->cond) . ' ';
+        }
+
+        // Generic clause(s)
+        if (count($this->sql)) {
+            $query .= join(' ', $this->sql) . ' ';
+        }
+
+        $query = trim($query);
+
+        # --BEHAVIOR-- coreAfertSelectStatement
+        $this->core->callBehavior('coreAfterJoinStatement', $this, $query);
 
         return $query;
     }
@@ -960,6 +1058,54 @@ class dcInsertStatement extends dcSqlStatement
 
         # --BEHAVIOR-- coreAfertInsertStatement
         $this->core->callBehavior('coreAfterInsertStatement', $this, $query);
+
+        return $query;
+    }
+}
+
+/**
+ * Truncate Statement : small utility to build truncate queries
+ */
+class dcTruncateStatement extends dcSqlStatement
+{
+    /**
+     * Class constructor
+     *
+     * @param dcCore    $core   dcCore instance
+     * @param mixed     $ctx    optional context
+     */
+    public function __construct(dcCore &$core, $ctx = null)
+    {
+        parent::__construct($core, $ctx);
+    }
+
+    /**
+     * Returns the truncate statement
+     *
+     * @return string the statement
+     */
+    public function statement(): string
+    {
+        # --BEHAVIOR-- coreBeforeInsertStatement
+        $this->core->callBehavior('coreBeforeTruncateStatement', $this);
+
+        // Check if source given
+        if (!count($this->from)) {
+            trigger_error(__('SQL TRUNCATE TABLE requires a table source'), E_USER_ERROR);
+
+            return '';
+        }
+
+        // Query
+        $query = 'TRUNCATE ';
+
+        // Reference
+        $query .= 'TABLE ' . $this->from[0] . ' ';
+
+        $query = trim($query);
+
+        # --BEHAVIOR-- coreAfertInsertStatement
+        $this->core->callBehavior('coreAfterTruncateStatement', $this, $query);
 
         return $query;
     }

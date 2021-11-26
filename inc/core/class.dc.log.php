@@ -13,7 +13,9 @@ if (!defined('DC_RC_PATH')) {
 class dcLog
 {
     protected $core;
-    protected $prefix;
+    protected $con;
+    protected $log_table;
+    protected $user_table;
 
     /**
      * Constructs a new instance.
@@ -22,8 +24,10 @@ class dcLog
      */
     public function __construct(dcCore $core)
     {
-        $this->core   = &$core;
-        $this->prefix = $core->prefix;
+        $this->core       = &$core;
+        $this->con        = &$core->con;
+        $this->log_table  = $core->prefix . 'log';
+        $this->user_table = $core->prefix . 'user';
     }
 
     /**
@@ -44,54 +48,70 @@ class dcLog
      */
     public function getLogs($params = [], $count_only = false)
     {
+        $sql = new dcSelectStatement($this->core, 'dcLogGetLogs');
+
         if ($count_only) {
-            $f = 'COUNT(log_id)';
+            $sql->column('COUNT(log_id)');
         } else {
-            $f = 'L.log_id, L.user_id, L.log_table, L.log_dt, ' .
-                'L.log_ip, L.log_msg, L.blog_id, U.user_name, ' .
-                'U.user_firstname, U.user_displayname, U.user_url';
+            $sql->columns([
+                'L.log_id',
+                'L.user_id',
+                'L.log_table',
+                'L.log_dt',
+                'L.log_ip',
+                'L.log_msg',
+                'L.blog_id',
+                'U.user_name',
+                'U.user_firstname',
+                'U.user_displayname',
+                'U.user_url',
+            ]);
         }
 
-        $strReq = 'SELECT ' . $f . ' FROM ' . $this->prefix . 'log L ';
+        $sql->from($this->log_table . ' L');
 
         if (!$count_only) {
-            $strReq .= 'LEFT JOIN ' . $this->prefix . 'user U ' .
-                'ON U.user_id = L.user_id ';
+            $sql->join(
+                (new dcJoinStatement($this->core, 'dcLogGetLogs'))
+                ->type('LEFT')
+                ->from($this->user_table . ' U')
+                ->on('U.user_id = L.user_id')
+                ->statement()
+            );
         }
 
         if (!empty($params['blog_id'])) {
-            if ($params['blog_id'] === 'all') {
-                $strReq .= 'WHERE NULL IS NULL ';
+            if ($params['blog_id'] === '*') {
             } else {
-                $strReq .= "WHERE L.blog_id = '" . $this->core->con->escape($params['blog_id']) . "' ";
+                $sql->where('L.blog_id = ' . $sql->quote($params['blog_id']));
             }
         } else {
-            $strReq .= "WHERE L.blog_id = '" . $this->core->blog->id . "' ";
+            $sql->where('L.blog_id = ' . $sql->quote($this->core->blog->id));
         }
 
         if (!empty($params['user_id'])) {
-            $strReq .= 'AND L.user_id' . $this->core->con->in($params['user_id']);
+            $sql->and('L.user_id' . $sql->in($params['user_id']));
         }
         if (!empty($params['log_ip'])) {
-            $strReq .= 'AND log_ip' . $this->core->con->in($params['log_ip']);
+            $sql->and('log_ip' . $sql->in($params['log_ip']));
         }
         if (!empty($params['log_table'])) {
-            $strReq .= 'AND log_table' . $this->core->con->in($params['log_table']);
+            $sql->and('log_table' . $sql->in($params['log_table']));
         }
 
         if (!$count_only) {
             if (!empty($params['order'])) {
-                $strReq .= 'ORDER BY ' . $this->core->con->escape($params['order']) . ' ';
+                $sql->order($sql->escape($params['order']));
             } else {
-                $strReq .= 'ORDER BY log_dt DESC ';
+                $sql->order('log_dt DESC');
             }
         }
 
         if (!empty($params['limit'])) {
-            $strReq .= $this->core->con->limit($params['limit']);
+            $sql->limit($params['limit']);
         }
 
-        $rs = $this->core->con->select($strReq);
+        $rs = $this->con->select($sql->statement());
         $rs->extend('rsExtLog');
 
         return $rs;
@@ -106,16 +126,18 @@ class dcLog
      */
     public function addLog($cur)
     {
-        $this->core->con->writeLock($this->prefix . 'log');
+        $this->con->writeLock($this->log_table);
 
         try {
             # Get ID
-            $rs = $this->core->con->select(
-                'SELECT MAX(log_id) ' .
-                'FROM ' . $this->prefix . 'log '
-            );
+            $sql = new dcSelectStatement($this->core, 'dcLogAddLog');
+            $sql
+                ->column('MAX(log_id)')
+                ->from($this->log_table);
 
-            $cur->log_id  = (integer) $rs->f(0) + 1;
+            $rs = $this->con->select($sql->statement());
+
+            $cur->log_id  = (int) $rs->f(0) + 1;
             $cur->blog_id = (string) $this->core->blog->id;
             $cur->log_dt  = date('Y-m-d H:i:s');
 
@@ -125,9 +147,9 @@ class dcLog
             $this->core->callBehavior('coreBeforeLogCreate', $this, $cur);
 
             $cur->insert();
-            $this->core->con->unlock();
+            $this->con->unlock();
         } catch (Exception $e) {
-            $this->core->con->unlock();
+            $this->con->unlock();
 
             throw $e;
         }
@@ -141,16 +163,23 @@ class dcLog
     /**
      * Deletes a log.
      *
-     * @param      integer  $id     The identifier
+     * @param      mixed    $id     The identifier
      * @param      bool     $all    Remove all logs
      */
     public function delLogs($id, $all = false)
     {
-        $strReq = $all ?
-        'TRUNCATE TABLE ' . $this->prefix . 'log' :
-        'DELETE FROM ' . $this->prefix . 'log WHERE log_id' . $this->core->con->in($id);
+        if ($all) {
+            $sql = new dcTruncateStatement($this->core, 'dcLogDelLogs');
+            $sql
+                ->from($this->log_table);
+        } else {
+            $sql = new dcDeleteStatement($this->core, 'dcLogDelLogs');
+            $sql
+                ->from($this->log_table)
+                ->where('log_id ' . $sql->in($id));
+        }
 
-        $this->core->con->execute($strReq);
+        $this->con->execute($sql->statement());
     }
 
     /**
@@ -201,8 +230,12 @@ class rsExtLog
      */
     public static function getUserCN($rs)
     {
-        $user = dcUtils::getUserCN($rs->user_id, $rs->user_name,
-            $rs->user_firstname, $rs->user_displayname);
+        $user = dcUtils::getUserCN(
+            $rs->user_id,
+            $rs->user_name,
+            $rs->user_firstname,
+            $rs->user_displayname
+        );
 
         if ($user === 'unknown') {
             $user = __('unknown');
