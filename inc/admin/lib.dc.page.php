@@ -703,16 +703,11 @@ class dcPage
      *
      * @return     string
      */
-    private static function appendVersion($src, $v = '')
+    private static function appendVersion(string $src, string $v = ''): string
     {
-        $src .= (strpos($src, '?') === false ? '?' : '&amp;') . 'v=';
-        if (defined('DC_DEV') && DC_DEV === true) {
-            $src .= md5(uniqid());
-        } else {
-            $src .= ($v === '' ? DC_VERSION : $v);
-        }
-
-        return $src;
+        return $src .
+            (strpos($src, '?') === false ? '?' : '&amp;') .
+            'v=' . (defined('DC_DEV') && DC_DEV === true ? md5(uniqid()) : ($v === '' ? DC_VERSION : $v));
     }
 
     /**
@@ -987,7 +982,7 @@ class dcPage
     /**
      * Get HTML code for date picker JS utility
      *
-     * @obsolete since 2.21
+     * @deprecated since 2.21
      *
      * @return     string
      */
