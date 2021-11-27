@@ -703,11 +703,11 @@ class dcPage
      *
      * @return     string
      */
-    private static function appendVersion(string $src, string $v = ''): string
+    private static function appendVersion(string $src, ?string $v = ''): string
     {
         return $src .
             (strpos($src, '?') === false ? '?' : '&amp;') .
-            'v=' . (defined('DC_DEV') && DC_DEV === true ? md5(uniqid()) : ($v === '' ? DC_VERSION : $v));
+            'v=' . (defined('DC_DEV') && DC_DEV === true ? md5(uniqid()) : ($v ?: DC_VERSION));
     }
 
     /**
