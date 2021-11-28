@@ -77,6 +77,56 @@ class dcSqlStatement
     }
 
     /**
+     * Magic isset method
+     *
+     * @param      string  $property  The property
+     *
+     * @return     bool
+     */
+    public function __isset(string $property): bool
+    {
+        if (property_exists($this, $property)) {
+            return isset($this->$property);
+        }
+
+        return false;
+    }
+
+    /**
+     * Magic unset method
+     *
+     * @param      string  $property  The property
+     */
+    public function __unset(string $property)
+    {
+        if (property_exists($this, $property)) {
+            unset($this->$property);
+        }
+    }
+
+    /**
+     * Magic invoke method
+     *
+     * Alias of statement()
+     *
+     * @return     string
+     */
+    public function __invoke(): string
+    {
+        return $this->statement();
+    }
+
+    /**
+     * Returns a SQL dummy statement
+     *
+     * @return string the statement
+     */
+    public function statement(): string
+    {
+        return '';
+    }
+
+    /**
      * Adds context
      *
      * @param mixed     $c      the context(s)
@@ -173,6 +223,19 @@ class dcSqlStatement
         }
 
         return $this;
+    }
+
+    /**
+     * from() alias
+     *
+     * @param mixed     $c      the clause(s)
+     * @param boolean   $reset  reset previous where(s) first
+     *
+     * @return self instance, enabling to chain calls
+     */
+    public function on($c, bool $reset = false): dcSqlStatement
+    {
+        return $this->where($c, $reset);
     }
 
     /**
@@ -613,7 +676,7 @@ class dcSelectStatement extends dcSqlStatement
 }
 
 /**
- * Join (sub)Statement : small utility to build join fragments
+ * Join (sub)Statement : small utility to build join query fragments
  */
 class dcJoinStatement extends dcSqlStatement
 {
@@ -630,19 +693,6 @@ class dcJoinStatement extends dcSqlStatement
         $this->type = null;
 
         parent::__construct($core, $ctx);
-    }
-
-    /**
-     * Adds ON clause(s) condition (each will be AND combined in statement) - WHERE Alias
-     *
-     * @param mixed     $c      the clause(s)
-     * @param boolean   $reset  reset previous where(s) first
-     *
-     * @return self instance, enabling to chain calls
-     */
-    public function on($c, bool $reset = false): dcJoinStatement
-    {
-        return $this->where($c, $reset);
     }
 
     /**
@@ -1050,7 +1100,8 @@ class dcInsertStatement extends dcSqlStatement
             }
             $query .= join(', ', $raws);
         } else {
-            // Use SQL default values (useful only if SQL strict mode is off or if every columns has a defined default value)
+            // Use SQL default values
+            // (useful only if SQL strict mode is off or if every columns has a defined default value)
             $query .= '()';
         }
 
