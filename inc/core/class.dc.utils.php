@@ -112,7 +112,9 @@ class dcUtils
             $escaped_src = dcUtils::appendVersion($escaped_src, $v);
         }
 
-        return '<link rel="stylesheet" href="' . $escaped_src . '" type="text/css" media="' . $media . '" />' . "\n";
+        $preload = (defined('DC_HTTP2') ? '<link rel="preload" href="' . $escaped_src . '" as="style" />' . "\n" : '');
+
+        return $preload . '<link rel="stylesheet" href="' . $escaped_src . '" type="text/css" media="' . $media . '" />' . "\n";
     }
 
     public static function jsLoad($src, $v = null)
@@ -122,7 +124,9 @@ class dcUtils
             $escaped_src = dcUtils::appendVersion($escaped_src, $v);
         }
 
-        return '<script src="' . $escaped_src . '"></script>' . "\n";
+        $preload = (defined('DC_HTTP2') ? '<link rel="preload" href="' . $escaped_src . '" as="script" />' . "\n" : '');
+
+        return $preload . '<script src="' . $escaped_src . '"></script>' . "\n";
     }
 
     /**

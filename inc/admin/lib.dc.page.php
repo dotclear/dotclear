@@ -672,7 +672,9 @@ class dcPage
             self::$loaded_css[$escaped_src] = true;
             $escaped_src                    = self::appendVersion($escaped_src, $v);
 
-            return '<link rel="stylesheet" href="' . $escaped_src . '" type="text/css" media="' . $media . '" />' . "\n";
+            $preload = (defined('DC_HTTP2') ? '<link rel="preload" href="' . $escaped_src . '" as="style" />' . "\n" : '');
+
+            return $preload . '<link rel="stylesheet" href="' . $escaped_src . '" type="text/css" media="' . $media . '" />' . "\n";
         }
     }
 
@@ -691,7 +693,9 @@ class dcPage
             self::$loaded_js[$escaped_src] = true;
             $escaped_src                   = self::appendVersion($escaped_src, $v);
 
-            return '<script src="' . $escaped_src . '"></script>' . "\n";
+            $preload = (defined('DC_HTTP2') ? '<link rel="preload" href="' . $escaped_src . '" as="script" />' . "\n" : '');
+
+            return $preload . '<script src="' . $escaped_src . '"></script>' . "\n";
         }
     }
 

@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </tpl:Block>
   <tpl:Block name="_head-link-css-screen">
+    <link rel="preload" href="{{tpl:BlogThemeURL}}/style.css" as="style" />
     <link rel="stylesheet" type="text/css" href="{{tpl:BlogThemeURL}}/style.css" media="screen" />
   </tpl:Block>
   <tpl:Block name="_head-link-css-print">
+    <link rel="preload" href="{{tpl:BlogQmarkURL}}pf=print.css" as="style" />
     <link rel="stylesheet" type="text/css" href="{{tpl:BlogQmarkURL}}pf=print.css" media="print" />
   </tpl:Block>
   <tpl:Block name="_head-link-js-jquery">
     <tpl:SysIf jquery_needed="1">
+      <link rel="preload" href="{{tpl:BlogQmarkURL}}pf={{tpl:BlogJsJQuery}}/jquery.js" as="script" />
       <script src="{{tpl:BlogQmarkURL}}pf={{tpl:BlogJsJQuery}}/jquery.js"></script>
     </tpl:SysIf>
   </tpl:Block>
   <tpl:Block name="_head-link-js-util">
+    <link rel="preload" href="{{tpl:BlogQmarkURL}}pf=util.js" as="script" />
     <script src="{{tpl:BlogQmarkURL}}pf=util.js"></script>
   </tpl:Block>
   <tpl:Block name="_head-user-head">
