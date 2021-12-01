@@ -217,7 +217,7 @@ class dcMedia extends filemanager
                 return;
             }
 
-            $meta = @simplexml_load_string($rs->media_meta);
+            $meta = @simplexml_load_string((string) $rs->media_meta);
 
             $f->editable    = true;
             $f->media_id    = $rs->media_id;
