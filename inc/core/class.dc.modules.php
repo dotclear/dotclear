@@ -367,7 +367,7 @@ class dcModules
                         'desc'          => $desc,
                         'author'        => $author,
                         'version'       => $version,
-                        'root_writable' => is_writable($this->mroot),
+                        'root_writable' => is_writable($this->mroot ?? ''),
                     ]
                 );
             } else {
