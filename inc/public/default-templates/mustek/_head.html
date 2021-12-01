@@ -1,8 +1,11 @@
+<link rel="preload" href="{{tpl:BlogThemeURL}}/style.css" as="style" />
 <link rel="stylesheet" type="text/css" href="{{tpl:BlogThemeURL}}/style.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="{{tpl:BlogQmarkURL}}pf=print.css" media="print" />
 <tpl:SysIf jquery_needed="1">
+  <link rel="preload" href="{{tpl:BlogQmarkURL}}pf={{tpl:BlogJsJQuery}}/jquery.js" as="script" />
   <script src="{{tpl:BlogQmarkURL}}pf={{tpl:BlogJsJQuery}}/jquery.js"></script>
 </tpl:SysIf>
+<link rel="preload" href="{{tpl:BlogQmarkURL}}pf=util.js" as="script" />
 <script src="{{tpl:BlogQmarkURL}}pf=util.js"></script>
 {{tpl:include src="user_head.html"}}
 {{tpl:SysBehavior behavior="publicHeadContent"}}

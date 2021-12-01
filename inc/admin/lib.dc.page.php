@@ -16,6 +16,7 @@ class dcPage
 {
     private static $loaded_js     = [];
     private static $loaded_css    = [];
+    private static $preloaded     = [];
     private static $xframe_loaded = false;
 
     private static function getCore()
@@ -197,7 +198,7 @@ class dcPage
         '  <meta name="viewport" content="width=device-width, initial-scale=1.0" />' . "\n" .
         '  <title>' . $title . ' - ' . html::escapeHTML($core->blog->name) . ' - ' . html::escapeHTML(DC_VENDOR_NAME) . ' - ' . DC_VERSION . '</title>' . "\n";
 
-        echo self::cssLoad('style/default.css');
+        echo self::preload('style/default.css') . self::cssLoad('style/default.css');
 
         if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
             echo self::cssLoad('style/default-rtl.css');
@@ -418,7 +419,7 @@ class dcPage
             '  <meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW" />' . "\n" .
             '  <meta name="GOOGLEBOT" content="NOSNIPPET" />' . "\n";
 
-        echo self::cssLoad('style/default.css');
+        echo self::preload('style/default.css') . self::cssLoad('style/default.css');
 
         if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
             echo self::cssLoad('style/default-rtl.css');
@@ -657,6 +658,26 @@ class dcPage
     }
 
     /**
+     * Get HTML code to preload resource
+     *
+     * @param      string  $src    The source
+     * @param      string  $v      The version
+     * @param      string  $type   The type
+     *
+     * @return     mixed
+     */
+    public static function preload($src, $v = '', $type = 'style')
+    {
+        $escaped_src = html::escapeHTML($src);
+        if (!isset(self::$preloaded[$escaped_src])) {
+            self::$preloaded[$escaped_src] = true;
+            $escaped_src                   = self::appendVersion($escaped_src, $v);
+
+            return '<link rel="preload" href="' . $escaped_src . '" as="' . $type . '" />' . "\n";
+        }
+    }
+
+    /**
      * Get HTML code to load CSS stylesheet
      *
      * @param      string  $src    The source
@@ -672,9 +693,7 @@ class dcPage
             self::$loaded_css[$escaped_src] = true;
             $escaped_src                    = self::appendVersion($escaped_src, $v);
 
-            $preload = (defined('DC_HTTP2') ? '<link rel="preload" href="' . $escaped_src . '" as="style" />' . "\n" : '');
-
-            return $preload . '<link rel="stylesheet" href="' . $escaped_src . '" type="text/css" media="' . $media . '" />' . "\n";
+            return '<link rel="stylesheet" href="' . $escaped_src . '" type="text/css" media="' . $media . '" />' . "\n";
         }
     }
 
@@ -693,9 +712,7 @@ class dcPage
             self::$loaded_js[$escaped_src] = true;
             $escaped_src                   = self::appendVersion($escaped_src, $v);
 
-            $preload = (defined('DC_HTTP2') ? '<link rel="preload" href="' . $escaped_src . '" as="script" />' . "\n" : '');
-
-            return $preload . '<script src="' . $escaped_src . '"></script>' . "\n";
+            return '<script src="' . $escaped_src . '"></script>' . "\n";
         }
     }
 
