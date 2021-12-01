@@ -857,7 +857,7 @@ if ($file->editable && $core_media_writable) {
         '<p><label for="media_dt">' . __('File date:') . '</label>';
     }
     echo
-    form::datetime('media_dt', ['default' => html::escapeHTML(dt::str('%Y-%m-%dT%H:%M', $file->media_dt))]) .
+    form::datetime('media_dt', ['default' => html::escapeHTML(dt::str('%Y-%m-%d\T%H:%M', $file->media_dt))]) .
     '</p>' .
     '<p><label for="media_private" class="classic">' . form::checkbox('media_private', 1, $file->media_priv) . ' ' .
     __('Private') . '</label></p>' .
