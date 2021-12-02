@@ -440,22 +440,33 @@ class dcMedia extends filemanager
 
         $media_dir = $this->relpwd ?: '.';
 
-        $strReq = 'SELECT media_file, media_id, media_path, media_title, media_meta, media_dt, ' .
-        'media_creadt, media_upddt, media_private, user_id ' .
-        'FROM ' . $this->table . ' ' .
-        "WHERE media_path = '" . $this->path . "' " .
-        "AND media_dir = '" . $this->con->escape($media_dir) . "' ";
+        $sql = new dcSelectStatement($this->core, 'dcMediaGetDir');
+        $sql
+            ->columns([
+                'media_file',
+                'media_id',
+                'media_path',
+                'media_title',
+                'media_meta',
+                'media_dt',
+                'media_creadt',
+                'media_upddt',
+                'media_private',
+                'user_id',
+            ])
+            ->from($this->table)
+            ->where('media_path = ' . $sql->quote($this->path))
+            ->and('media_dir = ' . $sql->quote($media_dir, true));
 
         if (!$this->core->auth->check('media_admin', $this->core->blog->id)) {
-            $strReq .= 'AND (media_private <> 1 ';
-
-            if ($this->core->auth->userID()) {
-                $strReq .= "OR user_id = '" . $this->con->escape($this->core->auth->userID()) . "'";
+            $list = ['media_private <> 1'];
+            if ($user_id = $this->core->auth->userID()) {
+                $list[] = 'user_id = ' . $sql->quote($user_id, true);
             }
-            $strReq .= ') ';
+            $sql->and($sql->orGroup($list));
         }
 
-        $rs = $this->con->select($strReq);
+        $rs = $this->con->select($sql->statement());
 
         parent::getDir();
 
@@ -485,10 +496,12 @@ class dcMedia extends filemanager
                     if (isset($f_reg[$rs->media_file])) {
                         # That media is duplicated in the database,
                         # time to do a bit of house cleaning.
-                        $this->con->execute(
-                            'DELETE FROM ' . $this->table . ' ' .
-                            'WHERE media_id = ' . $this->fileRecord($rs)->media_id
-                        );
+                        $sql = new dcDeleteStatement($this->core, 'dcMediaGetDir');
+                        $sql
+                            ->from($this->table)
+                            ->where('media_id = ' . $this->fileRecord($rs)->media_id)
+                            ;
+                        $this->con->execute($sql->statement());
                     } else {
                         $f_res[]                = $this->fileRecord($rs);
                         $f_reg[$rs->media_file] = 1;
@@ -499,11 +512,13 @@ class dcMedia extends filemanager
                 # Because we don't want to erase everything on
                 # dotclear upgrade, do it only if there are files
                 # in directory and directory is root
-                $this->con->execute(
-                    'DELETE FROM ' . $this->table . ' ' .
-                    "WHERE media_path = '" . $this->con->escape($this->path) . "' " .
-                    "AND media_file = '" . $this->con->escape($rs->media_file) . "' "
-                );
+                $sql = new dcDeleteStatement($this->core, 'dcMediaGetDir');
+                $sql
+                    ->from($this->table)
+                    ->where('media_path = ' . $sql->quote($this->path, true))
+                    ->and('media_file = ' . $sql->quote($rs->media_file, true))
+                    ;
+                $this->con->execute($sql->statement());
                 $this->callFileHandler(files::getMimeType($rs->media_file), 'remove', $this->pwd . '/' . $rs->media_file);
             }
         }
@@ -539,23 +554,33 @@ class dcMedia extends filemanager
      */
     public function getFile($id)
     {
-        $strReq = 'SELECT media_id, media_path, media_title, ' .
-        'media_file, media_meta, media_dt, media_creadt, ' .
-        'media_upddt, media_private, user_id ' .
-        'FROM ' . $this->table . ' ' .
-        "WHERE media_path = '" . $this->path . "' " .
-        'AND media_id = ' . (int) $id . ' ';
+        $sql = new dcSelectStatement($this->core, 'dcMediaGetFile');
+        $sql
+            ->from($this->table)
+            ->columns([
+                'media_id',
+                'media_path',
+                'media_title',
+                'media_file',
+                'media_meta',
+                'media_dt',
+                'media_creadt',
+                'media_upddt',
+                'media_private',
+                'user_id',
+            ])
+            ->where('media_path = ' . $sql->quote($this->path))
+            ->and('media_id = ' . (int) $id);
 
         if (!$this->core->auth->check('media_admin', $this->core->blog->id)) {
-            $strReq .= 'AND (media_private <> 1 ';
-
-            if ($this->core->auth->userID()) {
-                $strReq .= "OR user_id = '" . $this->con->escape($this->core->auth->userID()) . "'";
+            $list = ['media_private <> 1'];
+            if ($user_id = $this->core->auth->userID()) {
+                $list[] = 'user_id = ' . $sql->quote($user_id, true);
             }
-            $strReq .= ') ';
+            $sql->and($sql->orGroup($list));
         }
 
-        $rs = $this->con->select($strReq);
+        $rs = $this->con->select($sql->statement());
 
         return $this->fileRecord($rs);
     }
@@ -573,24 +598,37 @@ class dcMedia extends filemanager
             return false;
         }
 
-        $strReq = 'SELECT media_file, media_id, media_path, media_title, media_meta, media_dt, ' .
-        'media_creadt, media_upddt, media_private, user_id ' .
-        'FROM ' . $this->table . ' ' .
-        "WHERE media_path = '" . $this->path . "' " .
-        "AND (media_title LIKE '%" . $this->con->escape($query) . "%' " .
-        "   OR media_file LIKE '%" . $this->con->escape($query) . "%' " .
-        "   OR media_meta LIKE '<Description>%" . $this->con->escape($query) . "%</Description>')";
+        $sql = new dcSelectStatement($this->core, 'dcMediaGetFile');
+        $sql
+            ->from($this->table)
+            ->columns([
+                'media_file',
+                'media_id',
+                'media_path',
+                'media_title',
+                'media_meta',
+                'media_dt',
+                'media_creadt',
+                'media_upddt',
+                'media_private',
+                'user_id',
+            ])
+            ->where('media_path = ' . $sql->quote($this->path))
+            ->and($sql->orGroup([
+                $sql->like('media_title', '%' . $sql->escape($query) . '%'),
+                $sql->like('media_file', '%' . $sql->escape($query) . '%'),
+                $sql->like('media_meta', '%<Description>%' . $sql->escape($query) . '%</Description>%'),
+            ]));
 
         if (!$this->core->auth->check('media_admin', $this->core->blog->id)) {
-            $strReq .= 'AND (media_private <> 1 ';
-
-            if ($this->core->auth->userID()) {
-                $strReq .= "OR user_id = '" . $this->con->escape($this->core->auth->userID()) . "'";
+            $list = ['media_private <> 1'];
+            if ($user_id = $this->core->auth->userID()) {
+                $list[] = 'user_id = ' . $sql->quote($user_id, true);
             }
-            $strReq .= ') ';
+            $sql->and($sql->orGroup($list));
         }
 
-        $rs = $this->con->select($strReq);
+        $rs = $this->con->select($sql->statement());
 
         $this->dir = ['dirs' => [], 'files' => []];
         $f_res     = [];
@@ -683,25 +721,31 @@ class dcMedia extends filemanager
     {
         $media_dir = $pwd ?: '.';
 
-        $strReq = 'SELECT media_file, media_id ' .
-        'FROM ' . $this->table . ' ' .
-        "WHERE media_path = '" . $this->path . "' " .
-        "AND media_dir = '" . $this->con->escape($media_dir) . "' ";
+        $sql = new dcSelectStatement($this->core, 'dcMediaRebuildDB');
+        $sql
+            ->from($this->table)
+            ->columns([
+                'media_file',
+                'media_id',
+            ])
+            ->where('media_path = ' . $sql->quote($this->path))
+            ->and('media_dir = ' . $sql->quote($media_dir, true));
 
-        $rs = $this->con->select($strReq);
+        $rs = $this->con->select($sql->statement());
 
-        $delReq = 'DELETE FROM ' . $this->table . ' ' .
-            'WHERE media_id IN (%s) ';
         $del_ids = [];
-
         while ($rs->fetch()) {
             if (!is_file($this->root . '/' . $rs->media_file)) {
                 $del_ids[] = (int) $rs->media_id;
             }
         }
-
         if (!empty($del_ids)) {
-            $this->con->execute(sprintf($delReq, implode(',', $del_ids)));
+            $sql = new dcDeleteStatement($this->core, 'dcMediaRebuildDB');
+            $sql
+                ->from($this->core)
+                ->where('media_id' . $sql->in($del_ids));
+
+            $this->con->execute($sql->statement());
         }
     }
 
@@ -746,18 +790,25 @@ class dcMedia extends filemanager
 
         $cur = $this->con->openCursor($this->table);
 
-        $strReq = 'SELECT media_id ' .
-        'FROM ' . $this->table . ' ' .
-        "WHERE media_path = '" . $this->con->escape($this->path) . "' " .
-        "AND media_file = '" . $this->con->escape($media_file) . "' ";
+        $sql = new dcSelectStatement($this->core, 'dcMediaCreateFile');
+        $sql
+            ->from($this->table)
+            ->column('media_id')
+            ->where('media_path = ' . $sql->quote($this->path, true))
+            ->and('media_file = ' . $sql->quote($media_file, true));
 
-        $rs = $this->con->select($strReq);
+        $rs = $this->con->select($sql->statement());
 
         if ($rs->isEmpty()) {
             $this->con->writeLock($this->table);
 
             try {
-                $rs       = $this->con->select('SELECT MAX(media_id) FROM ' . $this->table);
+                $sql = new dcSelectStatement($this->core, 'dcMediaCreateFile');
+                $sql
+                    ->from($this->table)
+                    ->column('MAX(media_id)');
+
+                $rs       = $this->con->select($sql->statement());
                 $media_id = (int) $rs->f(0) + 1;
 
                 $cur->media_id     = $media_id;
@@ -795,7 +846,10 @@ class dcMedia extends filemanager
 
             $cur->media_upddt = date('Y-m-d H:i:s');
 
-            $cur->update('WHERE media_id = ' . $media_id);
+            $sql = new dcUpdateStatement($this->core, 'dcMediaCreateFile');
+            $sql->where('media_id = ' . $media_id);
+
+            $cur->update($sql->whereStatement());
         }
 
         $this->callFileHandler($media_type, 'create', $cur, $name, $media_id, $force);
@@ -862,7 +916,10 @@ class dcMedia extends filemanager
             $cur->media_meta = $newFile->media_meta->asXML();
         }
 
-        $cur->update('WHERE media_id = ' . $id);
+        $sql = new dcUpdateStatement($this->core, 'dcMediaCreateFile');
+        $sql->where('media_id = ' . $id);
+
+        $cur->update($sql->whereStatement());
 
         $this->callFileHandler($file->type, 'update', $file, $newFile);
     }
@@ -931,15 +988,17 @@ class dcMedia extends filemanager
 
         $media_file = $this->relpwd ? path::clean($this->relpwd . '/' . $f) : path::clean($f);
 
-        $strReq = 'DELETE FROM ' . $this->table . ' ' .
-        "WHERE media_path = '" . $this->con->escape($this->path) . "' " .
-        "AND media_file = '" . $this->con->escape($media_file) . "' ";
+        $sql = new dcDeleteStatement($this->core, 'dcMediaRemoveFile');
+        $sql
+            ->from($this->table)
+            ->where('media_path = ' . $sql->quote($this->path, true))
+            ->and('media_file = ' . $sql->quote($media_file));
 
         if (!$this->core->auth->check('media_admin', $this->core->blog->id)) {
-            $strReq .= "AND user_id = '" . $this->con->escape($this->core->auth->userID()) . "'";
+            $sql->and('user_id = ' . $sql->quote($this->core->auth->userID(), true));
         }
 
-        $this->con->execute($strReq);
+        $this->con->execute($sql->statement());
 
         if ($this->con->changes() == 0) {
             throw new Exception(__('File does not exist in the database.'));
@@ -964,10 +1023,13 @@ class dcMedia extends filemanager
         $dir       = [];
         $media_dir = $this->relpwd ?: '.';
 
-        $strReq = 'SELECT distinct media_dir ' .
-        'FROM ' . $this->table . ' ' .
-        "WHERE media_path = '" . $this->path . "'";
-        $rs = $this->con->select($strReq);
+        $sql = new dcSelectStatement($this->core, 'dcMediaGetDBDirs');
+        $sql
+            ->from($this->table)
+            ->column('distinct media_dir')
+            ->where('media_path = ' . $sql->quote($this->path));
+
+        $rs = $this->con->select($sql->statement());
         while ($rs->fetch()) {
             if (is_dir($this->root . '/' . $rs->media_dir)) {
                 $dir[] = ($rs->media_dir == '.' ? '' : $rs->media_dir);
@@ -1233,7 +1295,10 @@ class dcMedia extends filemanager
         # --BEHAVIOR-- coreBeforeImageMetaCreate
         $this->core->callBehavior('coreBeforeImageMetaCreate', $c);
 
-        $c->update('WHERE media_id = ' . $id);
+        $sql = new dcUpdateStatement($this->core, 'dcMediaImageMetaCreate');
+        $sql->where('media_id = ' . $id);
+
+        $c->update($sql->whereStatement());
     }
 
     /**

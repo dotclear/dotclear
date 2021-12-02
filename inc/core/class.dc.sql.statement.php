@@ -274,6 +274,18 @@ class dcSqlStatement
     }
 
     /**
+     * Helper to group some AND parts
+     *
+     * @param      mixed  $c      the parts}
+     *
+     * @return     string
+     */
+    public function andGroup($c): string
+    {
+        return '(' . implode(' AND ', is_array($c) ? $c : [$c]) . ')';
+    }
+
+    /**
      * Adds additional WHERE OR clause condition(s)
      *
      * @param mixed     $c      the clause(s)
@@ -284,6 +296,18 @@ class dcSqlStatement
     public function or($c, bool $reset = false): dcSqlStatement
     {
         return $this->cond(array_map(function ($v) {return 'OR ' . $v;}, is_array($c) ? $c : [$c]), $reset);
+    }
+
+    /**
+     * Helper to group some OR parts
+     *
+     * @param      mixed  $c      the parts}
+     *
+     * @return     string
+     */
+    public function orGroup($c): string
+    {
+        return '(' . implode(' OR ', is_array($c) ? $c : [$c]) . ')';
     }
 
     /**
@@ -358,6 +382,19 @@ class dcSqlStatement
     public function dateFormat(string $field, string $pattern): string
     {
         return $this->con->dateFormat($field, $pattern);
+    }
+
+    /**
+     * Return an SQL formatted like
+     *
+     * @param      string  $field    The field
+     * @param      string  $pattern  The pattern
+     *
+     * @return     string
+     */
+    public function like(string $field, string $pattern): string
+    {
+        return $field . ' LIKE ' . $this->quote($pattern);
     }
 
     /**

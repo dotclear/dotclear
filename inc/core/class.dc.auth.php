@@ -75,7 +75,7 @@ class dcAuth
             'delete'       => __('delete entries and comments'),
             'categories'   => __('manage categories'),
             'media_admin'  => __('manage all media items'),
-            'media'        => __('manage their own media items')
+            'media'        => __('manage their own media items'),
         ];
     }
 
@@ -98,9 +98,24 @@ class dcAuth
         # Check user and password
         $sql = new dcSelectStatement($this->core, 'coreAuthCheckUser');
         $sql
-            ->columns(['user_id', 'user_super', 'user_pwd', 'user_change_pwd', 'user_name', 'user_firstname',
-                'user_displayname', 'user_email', 'user_url', 'user_default_blog', 'user_options', 'user_lang', 'user_tz',
-                'user_post_status', 'user_creadt', 'user_upddt'])
+            ->columns([
+                'user_id',
+                'user_super',
+                'user_pwd',
+                'user_change_pwd',
+                'user_name',
+                'user_firstname',
+                'user_displayname',
+                'user_email',
+                'user_url',
+                'user_default_blog',
+                'user_options',
+                'user_lang',
+                'user_tz',
+                'user_post_status',
+                'user_creadt',
+                'user_upddt',
+            ])
             ->from($this->user_table)
             ->where('user_id = ' . $sql->quote($user_id));
 
@@ -167,8 +182,8 @@ class dcAuth
         }
 
         $this->user_id         = $rs->user_id;
-        $this->user_change_pwd = (boolean) $rs->user_change_pwd;
-        $this->user_admin      = (boolean) $rs->user_super;
+        $this->user_change_pwd = (bool) $rs->user_change_pwd;
+        $this->user_admin      = (bool) $rs->user_super;
 
         $this->user_info['user_pwd']          = $rs->user_pwd;
         $this->user_info['user_name']         = $rs->user_name;
@@ -183,8 +198,12 @@ class dcAuth
         $this->user_info['user_creadt']       = $rs->user_creadt;
         $this->user_info['user_upddt']        = $rs->user_upddt;
 
-        $this->user_info['user_cn'] = dcUtils::getUserCN($rs->user_id, $rs->user_name,
-            $rs->user_firstname, $rs->user_displayname);
+        $this->user_info['user_cn'] = dcUtils::getUserCN(
+            $rs->user_id,
+            $rs->user_name,
+            $rs->user_firstname,
+            $rs->user_displayname
+        );
 
         $this->user_options = array_merge($this->core->userDefaults(), $rs->options());
 
@@ -418,7 +437,11 @@ class dcAuth
             ->from($this->perm_table)
             ->where('user_id = ' . $sql->quote($this->user_id))
             ->and('blog_id = ' . $sql->quote($blog_id))
-            ->and("(permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%')");
+            ->and($sql->orGroup([
+                $sql->like('permissions', '%|usage|%'),
+                $sql->like('permissions', '%|admin|%'),
+                $sql->like('permissions', '%|contentadmin|%'),
+            ]));
 
         $rs = $this->con->select($sql->statement());
 
@@ -469,11 +492,15 @@ class dcAuth
                 ->column('P.blog_id')
                 ->from([
                     $this->perm_table . ' P',
-                    $this->blog_table . ' B'
+                    $this->blog_table . ' B',
                 ])
                 ->where('user_id = ' . $sql->quote($this->user_id))
                 ->and('P.blog_id = B.blog_id')
-                ->and("(permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%')")
+                ->and($sql->orGroup([
+                    $sql->like('permissions', '%|usage|%'),
+                    $sql->like('permissions', '%|admin|%'),
+                    $sql->like('permissions', '%|contentadmin|%'),
+                ]))
                 ->and('blog_status >= 0')
                 ->order('P.blog_id ASC')
                 ->limit(1);
@@ -593,11 +620,6 @@ class dcAuth
      */
     public function setRecoverKey($user_id, $user_email)
     {
-        $strReq = 'SELECT user_id ' .
-        'FROM ' . $this->user_table . ' ' .
-        "WHERE user_id = '" . $this->con->escape($user_id) . "' " .
-        "AND user_email = '" . $this->con->escape($user_email) . "' ";
-
         $sql = new dcSelectStatement($this->core, 'coreAuthSetRecoverKey');
         $sql
             ->column('user_id')
@@ -618,6 +640,7 @@ class dcAuth
 
         $sql = new dcUpdateStatement($this->core, 'coreAuthSetRecoverKey');
         $sql->where('user_id = ' . $sql->quote($user_id));
+
         $cur->update($sql->whereStatement());
 
         return $key;
@@ -636,10 +659,6 @@ class dcAuth
      */
     public function recoverUserPassword($recover_key)
     {
-        $strReq = 'SELECT user_id, user_email ' .
-        'FROM ' . $this->user_table . ' ' .
-        "WHERE user_recover_key = '" . $this->con->escape($recover_key) . "' ";
-
         $sql = new dcSelectStatement($this->core, 'coreAuthRecoverUserPassword');
         $sql
             ->columns(['user_id', 'user_email'])
@@ -661,6 +680,7 @@ class dcAuth
 
         $sql = new dcUpdateStatement($this->core, 'coreAuthRecoverUserPassword');
         $sql->where('user_recover_key = ' . $sql->quote($recover_key));
+
         $cur->update($sql->whereStatement());
 
         return ['user_email' => $rs->user_email, 'user_id' => $rs->user_id, 'new_pass' => $new_pass];
