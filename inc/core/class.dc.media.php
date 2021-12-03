@@ -468,6 +468,38 @@ class dcMedia extends filemanager
 
         $rs = $this->con->select($sql->statement());
 
+        // Get list of private files in dir
+        $sql = new dcSelectStatement($this->core, 'dcMediaGetDir');
+        $sql
+            ->columns([
+                'media_file',
+                'media_id',
+                'media_path',
+                'media_title',
+                'media_meta',
+                'media_dt',
+                'media_creadt',
+                'media_upddt',
+                'media_private',
+                'user_id',
+            ])
+            ->from($this->table)
+            ->where('media_path = ' . $sql->quote($this->path))
+            ->and('media_dir = ' . $sql->quote($media_dir, true))
+            ->and('media_private = 1');
+
+        $rsp      = $this->con->select($sql->statement());
+        $privates = [];
+        while ($rsp->fetch()) {
+            # File in subdirectory, forget about it!
+            if (dirname($rsp->media_file) != '.' && dirname($rsp->media_file) != $this->relpwd) {
+                continue;
+            }
+            if ($f = $this->fileRecord($rsp)) {
+                $privates[] = $f->relname;
+            }
+        }
+
         parent::getDir();
 
         $f_res = [];
@@ -531,7 +563,8 @@ class dcMedia extends filemanager
         # Check files that don't exist in database and create them
         if ($this->core->auth->check('media,media_admin', $this->core->blog->id)) {
             foreach ($p_dir['files'] as $f) {
-                if (!isset($f_reg[$f->relname])) {
+                // Warning a file may exist in DB but in private mode for the user, so we don't have to recreate it
+                if (!isset($f_reg[$f->relname]) && !in_array($f->relname, $privates)) {
                     if (($id = $this->createFile($f->basename, null, false, null, false)) !== false) {
                         $this->dir['files'][] = $this->getFile($id);
                     }
