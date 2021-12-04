@@ -1,8 +1,8 @@
 <?php
 /**
- * @brief Select query statement builder
+ * @brief SQL query statement builder
  *
- * dcSelectStatement is a class used to build select queries
+ * dcSqlStatement is a class used to build SQL queries
  *
  * @package Dotclear
  * @subpackage Core
@@ -282,7 +282,9 @@ class dcSqlStatement
      */
     public function andGroup($c): string
     {
-        return '(' . implode(' AND ', is_array($c) ? $c : [$c]) . ')';
+        $group = '(' . implode(' AND ', is_array($c) ? $c : [$c]) . ')';
+
+        return $group === '()' ? '' : $group;
     }
 
     /**
@@ -307,7 +309,9 @@ class dcSqlStatement
      */
     public function orGroup($c): string
     {
-        return '(' . implode(' OR ', is_array($c) ? $c : [$c]) . ')';
+        $group = '(' . implode(' OR ', is_array($c) ? $c : [$c]) . ')';
+
+        return $group === '()' ? '' : $group;
     }
 
     /**
@@ -718,7 +722,7 @@ class dcSelectStatement extends dcSqlStatement
      */
     public function select()
     {
-        if ($sql = $this->statement()) {
+        if ($this->con && ($sql = $this->statement())) {
             return $this->con->select($sql);
         }
 
@@ -884,7 +888,7 @@ class dcDeleteStatement extends dcSqlStatement
      */
     public function delete(): bool
     {
-        if ($sql = $this->statement()) {
+        if ($this->con && ($sql = $this->statement())) {
             return $this->con->execute($sql);
         }
 
@@ -1092,7 +1096,7 @@ class dcUpdateStatement extends dcSqlStatement
             return $cur->update($this->whereStatement());
         }
 
-        if ($sql = $this->statement()) {
+        if ($this->con && ($sql = $this->statement())) {
             return $this->con->execute($sql);
         }
 
@@ -1239,7 +1243,7 @@ class dcInsertStatement extends dcSqlStatement
      */
     public function insert(): bool
     {
-        if ($sql = $this->statement()) {
+        if ($this->con && ($sql = $this->statement())) {
             return $this->con->execute($sql);
         }
 
@@ -1311,7 +1315,7 @@ class dcTruncateStatement extends dcSqlStatement
      */
     public function truncate(): bool
     {
-        if ($sql = $this->statement()) {
+        if ($this->con && ($sql = $this->statement())) {
             return $this->con->execute($sql);
         }
 
