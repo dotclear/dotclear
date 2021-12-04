@@ -710,6 +710,32 @@ class dcSelectStatement extends dcSqlStatement
 
         return $query;
     }
+
+    /**
+     * Run the SQL select query and return result
+     *
+     * @return     mixed  record or staticRecord (for sqlite)
+     */
+    public function select()
+    {
+        if ($sql = $this->statement()) {
+            return $this->con->select($sql);
+        }
+
+        return null;
+    }
+
+    /**
+     * select() alias
+     *
+     * @param      mixed  $cur    The cursor
+     *
+     * @return     bool
+     */
+    public function run(): bool
+    {
+        return $this->select();
+    }
 }
 
 /**
@@ -849,6 +875,30 @@ class dcDeleteStatement extends dcSqlStatement
         $this->core->callBehavior('coreAfterDeleteStatement', $this, $query);
 
         return $query;
+    }
+
+    /**
+     * Run the SQL select query and return result
+     *
+     * @return     bool
+     */
+    public function delete(): bool
+    {
+        if ($sql = $this->statement()) {
+            return $this->con->execute($sql);
+        }
+
+        return false;
+    }
+
+    /**
+     * delete() alias
+     *
+     * @return     bool
+     */
+    public function run(): bool
+    {
+        return $this->delete();
     }
 }
 
@@ -1028,6 +1078,38 @@ class dcUpdateStatement extends dcSqlStatement
 
         return $query;
     }
+
+    /**
+     * Run the SQL update query
+     *
+     * @param      mixed  $cur    The cursor
+     *
+     * @return     bool
+     */
+    public function update(?cursor $cur = null): bool
+    {
+        if ($cur) {
+            return $cur->update($this->whereStatement());
+        }
+
+        if ($sql = $this->statement()) {
+            return $this->con->execute($sql);
+        }
+
+        return false;
+    }
+
+    /**
+     * update() alias
+     *
+     * @param      mixed  $cur    The cursor
+     *
+     * @return     bool
+     */
+    public function run(?cursor $cur = null): bool
+    {
+        return $this->update($cur);
+    }
 }
 
 /**
@@ -1149,6 +1231,30 @@ class dcInsertStatement extends dcSqlStatement
 
         return $query;
     }
+
+    /**
+     * Run the SQL select query and return result
+     *
+     * @return     bool  true
+     */
+    public function insert(): bool
+    {
+        if ($sql = $this->statement()) {
+            return $this->con->execute($sql);
+        }
+
+        return false;
+    }
+
+    /**
+     * insert() alias
+     *
+     * @return     bool
+     */
+    public function run(): bool
+    {
+        return $this->insert();
+    }
 }
 
 /**
@@ -1196,5 +1302,29 @@ class dcTruncateStatement extends dcSqlStatement
         $this->core->callBehavior('coreAfterTruncateStatement', $this, $query);
 
         return $query;
+    }
+
+    /**
+     * Run the SQL select query and return result
+     *
+     * @return     bool
+     */
+    public function truncate(): bool
+    {
+        if ($sql = $this->statement()) {
+            return $this->con->execute($sql);
+        }
+
+        return false;
+    }
+
+    /**
+     * truncate() alias
+     *
+     * @return     bool
+     */
+    public function run(): bool
+    {
+        return $this->truncate();
     }
 }

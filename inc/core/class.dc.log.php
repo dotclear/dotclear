@@ -111,7 +111,7 @@ class dcLog
             $sql->limit($params['limit']);
         }
 
-        $rs = $this->con->select($sql->statement());
+        $rs = $sql->select();
         $rs->extend('rsExtLog');
 
         return $rs;
@@ -135,7 +135,7 @@ class dcLog
                 ->column('MAX(log_id)')
                 ->from($this->log_table);
 
-            $rs = $this->con->select($sql->statement());
+            $rs = $sql->select();
 
             $cur->log_id  = (int) $rs->f(0) + 1;
             $cur->blog_id = (string) $this->core->blog->id;
@@ -179,7 +179,7 @@ class dcLog
                 ->where('log_id ' . $sql->in($id));
         }
 
-        $this->con->execute($sql->statement());
+        $sql->run();
     }
 
     /**

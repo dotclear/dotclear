@@ -120,7 +120,7 @@ class dcAuth
             ->where('user_id = ' . $sql->quote($user_id));
 
         try {
-            $rs = $this->con->select($sql->statement());
+            $rs = $sql->select();
         } catch (Exception $e) {
             $err = $e->getMessage();
 
@@ -173,7 +173,7 @@ class dcAuth
                 $sql = new dcUpdateStatement($this->core, 'coreAuthCheckUser');
                 $sql->where('user_id = ' . $sql->quote($rs->user_id));
 
-                $cur->update($sql->whereStatement());
+                $sql->update($cur);
             }
         } elseif ($user_key != '') {
             if (http::browserUID(DC_MASTER_KEY . $rs->user_id . $this->cryptLegacy($rs->user_id)) != $user_key) {
@@ -424,7 +424,7 @@ class dcAuth
                 ->from($this->blog_table)
                 ->where('blog_id = ' . $sql->quote($blog_id));
 
-            $rs = $this->con->select($sql->statement());
+            $rs = $sql->select();
 
             $this->blogs[$blog_id] = $rs->isEmpty() ? false : ['admin' => true];
 
@@ -443,7 +443,7 @@ class dcAuth
                 $sql->like('permissions', '%|contentadmin|%'),
             ]));
 
-        $rs = $this->con->select($sql->statement());
+        $rs = $sql->select();
 
         $this->blogs[$blog_id] = $rs->isEmpty() ? false : $this->parsePermissions($rs->permissions);
 
@@ -506,7 +506,7 @@ class dcAuth
                 ->limit(1);
         }
 
-        $rs = $this->con->select($sql->statement());
+        $rs = $sql->select();
         if (!$rs->isEmpty()) {
             return $rs->blog_id;
         }
@@ -627,7 +627,7 @@ class dcAuth
             ->where('user_id = ' . $sql->quote($user_id))
             ->and('user_email = ' . $sql->quote($user_email));
 
-        $rs = $this->con->select($sql->statement());
+        $rs = $sql->select();
 
         if ($rs->isEmpty()) {
             throw new Exception(__('That user does not exist in the database.'));
@@ -641,7 +641,7 @@ class dcAuth
         $sql = new dcUpdateStatement($this->core, 'coreAuthSetRecoverKey');
         $sql->where('user_id = ' . $sql->quote($user_id));
 
-        $cur->update($sql->whereStatement());
+        $sql->update($cur);
 
         return $key;
     }
@@ -665,7 +665,7 @@ class dcAuth
             ->from($this->user_table)
             ->where('user_recover_key = ' . $sql->quote($recover_key));
 
-        $rs = $this->con->select($sql->statement());
+        $rs = $sql->select();
 
         if ($rs->isEmpty()) {
             throw new Exception(__('That key does not exist in the database.'));
@@ -681,7 +681,7 @@ class dcAuth
         $sql = new dcUpdateStatement($this->core, 'coreAuthRecoverUserPassword');
         $sql->where('user_recover_key = ' . $sql->quote($recover_key));
 
-        $cur->update($sql->whereStatement());
+        $sql->update($cur);
 
         return ['user_email' => $rs->user_email, 'user_id' => $rs->user_id, 'new_pass' => $new_pass];
     }

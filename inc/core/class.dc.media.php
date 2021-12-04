@@ -466,7 +466,7 @@ class dcMedia extends filemanager
             $sql->and($sql->orGroup($list));
         }
 
-        $rs = $this->con->select($sql->statement());
+        $rs = $sql->select();
 
         // Get list of private files in dir
         $sql = new dcSelectStatement($this->core, 'dcMediaGetDir');
@@ -488,7 +488,7 @@ class dcMedia extends filemanager
             ->and('media_dir = ' . $sql->quote($media_dir, true))
             ->and('media_private = 1');
 
-        $rsp      = $this->con->select($sql->statement());
+        $rsp      = $sql->select();
         $privates = [];
         while ($rsp->fetch()) {
             # File in subdirectory, forget about it!
@@ -531,9 +531,9 @@ class dcMedia extends filemanager
                         $sql = new dcDeleteStatement($this->core, 'dcMediaGetDir');
                         $sql
                             ->from($this->table)
-                            ->where('media_id = ' . $this->fileRecord($rs)->media_id)
-                            ;
-                        $this->con->execute($sql->statement());
+                            ->where('media_id = ' . $this->fileRecord($rs)->media_id);
+
+                        $sql->delete();
                     } else {
                         $f_res[]                = $this->fileRecord($rs);
                         $f_reg[$rs->media_file] = 1;
@@ -548,9 +548,9 @@ class dcMedia extends filemanager
                 $sql
                     ->from($this->table)
                     ->where('media_path = ' . $sql->quote($this->path, true))
-                    ->and('media_file = ' . $sql->quote($rs->media_file, true))
-                    ;
-                $this->con->execute($sql->statement());
+                    ->and('media_file = ' . $sql->quote($rs->media_file, true));
+
+                $sql->delete();
                 $this->callFileHandler(files::getMimeType($rs->media_file), 'remove', $this->pwd . '/' . $rs->media_file);
             }
         }
@@ -613,7 +613,7 @@ class dcMedia extends filemanager
             $sql->and($sql->orGroup($list));
         }
 
-        $rs = $this->con->select($sql->statement());
+        $rs = $sql->select();
 
         return $this->fileRecord($rs);
     }
@@ -661,7 +661,7 @@ class dcMedia extends filemanager
             $sql->and($sql->orGroup($list));
         }
 
-        $rs = $this->con->select($sql->statement());
+        $rs = $sql->select();
 
         $this->dir = ['dirs' => [], 'files' => []];
         $f_res     = [];
@@ -764,7 +764,7 @@ class dcMedia extends filemanager
             ->where('media_path = ' . $sql->quote($this->path))
             ->and('media_dir = ' . $sql->quote($media_dir, true));
 
-        $rs = $this->con->select($sql->statement());
+        $rs = $sql->select();
 
         $del_ids = [];
         while ($rs->fetch()) {
@@ -778,7 +778,7 @@ class dcMedia extends filemanager
                 ->from($this->core)
                 ->where('media_id' . $sql->in($del_ids));
 
-            $this->con->execute($sql->statement());
+            $sql->delete();
         }
     }
 
@@ -830,7 +830,7 @@ class dcMedia extends filemanager
             ->where('media_path = ' . $sql->quote($this->path, true))
             ->and('media_file = ' . $sql->quote($media_file, true));
 
-        $rs = $this->con->select($sql->statement());
+        $rs = $sql->select();
 
         if ($rs->isEmpty()) {
             $this->con->writeLock($this->table);
@@ -841,7 +841,7 @@ class dcMedia extends filemanager
                     ->from($this->table)
                     ->column('MAX(media_id)');
 
-                $rs       = $this->con->select($sql->statement());
+                $rs       = $sql->select();
                 $media_id = (int) $rs->f(0) + 1;
 
                 $cur->media_id     = $media_id;
@@ -882,7 +882,7 @@ class dcMedia extends filemanager
             $sql = new dcUpdateStatement($this->core, 'dcMediaCreateFile');
             $sql->where('media_id = ' . $media_id);
 
-            $cur->update($sql->whereStatement());
+            $sql->update($cur);
         }
 
         $this->callFileHandler($media_type, 'create', $cur, $name, $media_id, $force);
@@ -952,7 +952,7 @@ class dcMedia extends filemanager
         $sql = new dcUpdateStatement($this->core, 'dcMediaCreateFile');
         $sql->where('media_id = ' . $id);
 
-        $cur->update($sql->whereStatement());
+        $sql->update($cur);
 
         $this->callFileHandler($file->type, 'update', $file, $newFile);
     }
@@ -1031,7 +1031,7 @@ class dcMedia extends filemanager
             $sql->and('user_id = ' . $sql->quote($this->core->auth->userID(), true));
         }
 
-        $this->con->execute($sql->statement());
+        $sql->delete();
 
         if ($this->con->changes() == 0) {
             throw new Exception(__('File does not exist in the database.'));
@@ -1062,7 +1062,7 @@ class dcMedia extends filemanager
             ->column('distinct media_dir')
             ->where('media_path = ' . $sql->quote($this->path));
 
-        $rs = $this->con->select($sql->statement());
+        $rs = $sql->select();
         while ($rs->fetch()) {
             if (is_dir($this->root . '/' . $rs->media_dir)) {
                 $dir[] = ($rs->media_dir == '.' ? '' : $rs->media_dir);
@@ -1331,7 +1331,7 @@ class dcMedia extends filemanager
         $sql = new dcUpdateStatement($this->core, 'dcMediaImageMetaCreate');
         $sql->where('media_id = ' . $id);
 
-        $c->update($sql->whereStatement());
+        $sql->update($c);
     }
 
     /**
