@@ -24,7 +24,13 @@ class dcStore
     public $modules;
 
     /** @var    array    Modules fields to search on and their weighting */
-    public static $weighting = ['id' => 10, 'name' => 8, 'author' => 6, 'tags' => 4, 'desc' => 2];
+    public static $weighting = [
+        'id'     => 10,
+        'name'   => 8,
+        'tags'   => 6,
+        'desc'   => 4,
+        'author' => 2,
+    ];
 
     /** @var    string    User agent used to query repository */
     protected $user_agent = 'DotClear.org RepoBrowser/0.1';
@@ -121,7 +127,7 @@ class dcStore
 
         $this->data = [
             'new'    => $raw_datas,
-            'update' => $updates
+            'update' => $updates,
         ];
 
         return true;
@@ -284,7 +290,7 @@ class dcStore
 
         foreach (explode(' ', $str) as $_) {
             $_ = strtolower(preg_replace('/[^A-Za-z0-9]/', '', $_));
-            if (strlen($_) > 2) {
+            if (strlen($_) >= 2) {
                 $arr[] = $_;
             }
         }
