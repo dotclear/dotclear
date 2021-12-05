@@ -248,7 +248,7 @@ class adminModulesList
     {
         $query = !empty($_REQUEST['m_search']) ? trim($_REQUEST['m_search']) : null;
 
-        return strlen($query) > 2 ? $query : null;
+        return strlen($query) >= 2 ? $query : null;
     }
 
     /**
@@ -287,7 +287,8 @@ class adminModulesList
             echo
             '<p class="message">' . sprintf(
                 __('Found %d result for search "%s":', 'Found %d results for search "%s":', count($this->data)),
-                count($this->data), html::escapeHTML($query)
+                count($this->data),
+                html::escapeHTML($query)
             ) .
                 '</p>';
         }
@@ -382,7 +383,7 @@ class adminModulesList
     public function setSort($field, $asc = true)
     {
         $this->sort_field = $field;
-        $this->sort_asc   = (boolean) $asc;
+        $this->sort_asc   = (bool) $asc;
 
         return $this;
     }
@@ -477,7 +478,7 @@ class adminModulesList
                 'type'              => null,
                 'require'           => [],
                 'settings'          => [],
-                'repository'        => ''
+                'repository'        => '',
             ],
             # Module's values
             $module,
@@ -487,7 +488,7 @@ class adminModulesList
                 'sid'   => self::sanitizeString($id),
                 'label' => $label,
                 'name'  => $name,
-                'sname' => self::sanitizeString($name)
+                'sname' => self::sanitizeString($name),
             ]
         );
     }
@@ -698,8 +699,10 @@ class adminModulesList
                 if (isset($module['cannot_disable']) && $module['enabled']) {
                     echo
                     '<br/><span class="info">' .
-                    sprintf(__('This module cannot be disabled nor deleted, since the following modules are also enabled : %s'),
-                        join(',', $module['cannot_disable'])) .
+                    sprintf(
+                        __('This module cannot be disabled nor deleted, since the following modules are also enabled : %s'),
+                        join(',', $module['cannot_disable'])
+                    ) .
                         '</span>';
                 }
                 if (isset($module['cannot_enable']) && !$module['enabled']) {
@@ -1031,7 +1034,8 @@ class adminModulesList
                 # Deactivate
                 case 'activate':
                     if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                        $submits[] = '<input type="submit" name="activate" value="' . ($with_selection ?
+                        $submits[] = '<input type="submit" name="activate" value="' . (
+                            $with_selection ?
                             __('Activate selected plugins') :
                             __('Activate all plugins from this list')
                         ) . '" />';
@@ -1042,7 +1046,8 @@ class adminModulesList
                 # Activate
                 case 'deactivate':
                     if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                        $submits[] = '<input type="submit" name="deactivate" value="' . ($with_selection ?
+                        $submits[] = '<input type="submit" name="deactivate" value="' . (
+                            $with_selection ?
                             __('Deactivate selected plugins') :
                             __('Deactivate all plugins from this list')
                         ) . '" />';
@@ -1053,7 +1058,8 @@ class adminModulesList
                 # Update (from store)
                 case 'update':
                     if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                        $submits[] = '<input type="submit" name="update" value="' . ($with_selection ?
+                        $submits[] = '<input type="submit" name="update" value="' . (
+                            $with_selection ?
                             __('Update selected plugins') :
                             __('Update all plugins from this list')
                         ) . '" />';
@@ -1323,7 +1329,8 @@ class adminModulesList
             # --BEHAVIOR-- moduleAfterAdd
             $this->core->callBehavior('pluginAfterAdd', null);
 
-            dcPage::addSuccessNotice($ret_code == 2 ?
+            dcPage::addSuccessNotice(
+                $ret_code == 2 ?
                 __('The plugin has been successfully updated.') :
                 __('The plugin has been successfully installed.')
             );
@@ -1353,10 +1360,13 @@ class adminModulesList
         '<p class="field"><label for="pkg_file" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Zip file path:') . '</label> ' .
         '<input type="file" name="pkg_file" id="pkg_file" required /></p>' .
         '<p class="field"><label for="your_pwd1" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .
-        form::password(['your_pwd', 'your_pwd1'], 20, 255,
+        form::password(
+            ['your_pwd', 'your_pwd1'],
+            20,
+            255,
             [
                 'extra_html'   => 'required placeholder="' . __('Password') . '"',
-                'autocomplete' => 'current-password'
+                'autocomplete' => 'current-password',
             ]
         ) . '</p>' .
         '<p><input type="submit" name="upload_pkg" value="' . __('Upload') . '" />' .
@@ -1369,14 +1379,17 @@ class adminModulesList
         '<h4>' . __('Download a zip file') . '</h4>' .
         '<p class="field"><label for="pkg_url" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Zip file URL:') . '</label> ' .
         form::field('pkg_url', 40, 255, [
-            'extra_html' => 'required placeholder="' . __('URL') . '"'
+            'extra_html' => 'required placeholder="' . __('URL') . '"',
         ]) .
         '</p>' .
         '<p class="field"><label for="your_pwd2" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .
-        form::password(['your_pwd', 'your_pwd2'], 20, 255,
+        form::password(
+            ['your_pwd', 'your_pwd2'],
+            20,
+            255,
             [
                 'extra_html'   => 'required placeholder="' . __('Password') . '"',
-                'autocomplete' => 'current-password'
+                'autocomplete' => 'current-password',
             ]
         ) . '</p>' .
         '<p><input type="submit" name="fetch_pkg" value="' . __('Download') . '" />' .
@@ -1822,7 +1835,8 @@ class adminThemesList extends adminModulesList
                 case 'update':
 
                     if ($this->core->auth->isSuperAdmin() && $this->path_writable) {
-                        $submits[] = '<input type="submit" name="update" value="' . ($with_selection ?
+                        $submits[] = '<input type="submit" name="update" value="' . (
+                            $with_selection ?
                             __('Update selected themes') :
                             __('Update all themes from this list')
                         ) . '" />' . $this->core->formNonce();
@@ -2132,7 +2146,8 @@ class adminThemesList extends adminModulesList
                 # --BEHAVIOR-- themeAfterAdd
                 $this->core->callBehavior('themeAfterAdd', null);
 
-                dcPage::addSuccessNotice($ret_code == 2 ?
+                dcPage::addSuccessNotice(
+                    $ret_code == 2 ?
                     __('The theme has been successfully updated.') :
                     __('The theme has been successfully installed.')
                 );
