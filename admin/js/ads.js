@@ -18,6 +18,11 @@ $(() => {
       if (msg && adblocker_on) {
         window.alert(msg);
       }
+      // Remove pseudo advertising block in page
+      if (ads !== null) {
+        ads.remove();
+      }
+
       return adblocker_on;
     }
   };
