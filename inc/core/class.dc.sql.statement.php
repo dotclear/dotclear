@@ -165,6 +165,19 @@ class dcSqlStatement
     /**
      * columns() alias
      *
+     * @param mixed     $c      the column(s)
+     * @param boolean   $reset  reset previous column(s) first
+     *
+     * @return self instance, enabling to chain calls
+     */
+    public function fields($c, bool $reset = false): dcSqlStatement
+    {
+        return $this->columns($c, $reset);
+    }
+
+    /**
+     * columns() alias
+     *
      * @param      mixed    $c      the column(s)
      * @param      boolean  $reset  reset previous column(s) first
      *
@@ -173,6 +186,19 @@ class dcSqlStatement
     public function column($c, bool $reset = false): dcSqlStatement
     {
         return $this->columns($c, $reset);
+    }
+
+    /**
+     * column() alias
+     *
+     * @param      mixed    $c      the column(s)
+     * @param      boolean  $reset  reset previous column(s) first
+     *
+     * @return self instance, enabling to chain calls
+     */
+    public function field($c, bool $reset = false): dcSqlStatement
+    {
+        return $this->column($c, $reset);
     }
 
     /**
@@ -185,18 +211,18 @@ class dcSqlStatement
      */
     public function from($c, bool $reset = false): dcSqlStatement
     {
+        $filter = function ($v) {
+            return trim(ltrim($v, ','));
+        };
         if ($reset) {
             $this->from = [];
         }
         // Remove comma on beginning of clause(s) (legacy code)
         if (is_array($c)) {
-            $filter = function ($v) {
-                return trim(ltrim($v, ','));
-            };
-            $c          = array_map($filter, $c); // Cope with legacy code
+            $c          = array_map($filter, $c);   // Cope with legacy code
             $this->from = array_merge($this->from, $c);
         } else {
-            $c = trim(ltrim($c, ',')); // Cope with legacy code
+            $c = $filter($c);   // Cope with legacy code
             array_push($this->from, $c);
         }
 
@@ -213,12 +239,17 @@ class dcSqlStatement
      */
     public function where($c, bool $reset = false): dcSqlStatement
     {
+        $filter = function ($v) {
+            return preg_replace('/^\s*(AND|OR)\s*/i', '', $v);
+        };
         if ($reset) {
             $this->where = [];
         }
         if (is_array($c)) {
+            $c           = array_map($filter, $c);  // Cope with legacy code
             $this->where = array_merge($this->where, $c);
         } else {
+            $c = $filter($c);   // Cope with legacy code
             array_push($this->where, $c);
         }
 
@@ -732,8 +763,6 @@ class dcSelectStatement extends dcSqlStatement
     /**
      * select() alias
      *
-     * @param      mixed  $cur    The cursor
-     *
      * @return     bool
      */
     public function run(): bool
@@ -1086,7 +1115,7 @@ class dcUpdateStatement extends dcSqlStatement
     /**
      * Run the SQL update query
      *
-     * @param      mixed  $cur    The cursor
+     * @param      cursor|null  $cur    The cursor
      *
      * @return     bool
      */
@@ -1106,7 +1135,7 @@ class dcUpdateStatement extends dcSqlStatement
     /**
      * update() alias
      *
-     * @param      mixed  $cur    The cursor
+     * @param      cursor|null  $cur    The cursor
      *
      * @return     bool
      */
