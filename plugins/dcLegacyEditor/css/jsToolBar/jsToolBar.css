@@ -4,17 +4,19 @@
   border-color: var(--body-color);
   background: #f7f7f7;
 }
-.jstEditor textarea, .jstEditor iframe {
+.jstEditor textarea,
+.jstEditor iframe {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
   border: 1px solid #fbfbfb;
   width: 100%;
-  padding: .5em 0 0 0;
+  padding: 0.5em 0 0 0;
   min-height: 100px;
 }
-.jstEditor textarea:focus, .jstEditor iframe:focus {
+.jstEditor textarea:focus,
+.jstEditor iframe:focus {
   border-color: #bee74b;
 }
 .toolbar_bottom .jstEditor {
@@ -33,7 +35,8 @@
 .toolbar_bottom .jstElements {
   border-top-width: 0;
 }
-.jstElements select, .jstElements button {
+.jstElements select,
+.jstElements button {
   vertical-align: middle;
 }
 .jstElements select {
@@ -50,10 +53,11 @@
   background-color: #f7f7f7;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-size: inherit;
+  background-size: 16px;
   box-shadow: none;
 }
-.jstElements button:hover, .jstElements button:focus {
+.jstElements button:hover,
+.jstElements button:focus {
   border-color: #ddd;
   background-color: #fff;
 }
@@ -78,7 +82,7 @@ span.jstSpacer {
 .jstSwitcher li {
   display: inline;
   margin: 0;
-  padding: .125em 1em;
+  padding: 0.125em 1em;
 }
 .jstSwitcher li.jstSwitcherCurrent {
   color: #fff;
@@ -171,6 +175,6 @@ body.wysiwygDoc {
   color: #666;
   font-weight: bold;
 }
-body.wysiwygDoc>p:first-child {
+body.wysiwygDoc > p:first-child {
   margin-top: 0;
 }
