@@ -248,7 +248,7 @@ class adminModulesList
     {
         $query = !empty($_REQUEST['m_search']) ? trim($_REQUEST['m_search']) : null;
 
-        return strlen($query) >= 2 ? $query : null;
+        return strlen((string) $query) >= 2 ? $query : null;
     }
 
     /**
