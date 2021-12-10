@@ -1175,7 +1175,7 @@ class dcInsertStatement extends dcSqlStatement
      */
     public function into($c, bool $reset = false): dcInsertStatement
     {
-        $this->into($c, $reset);
+        $this->from($c, $reset);
 
         return $this;
     }
