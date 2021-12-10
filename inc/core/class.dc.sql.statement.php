@@ -454,6 +454,84 @@ class dcSqlStatement
     }
 
     /**
+     * Return an DISTINCT clause
+     *
+     * @param      string       $field     The field
+     *
+     * @return     string
+     */
+    public function unique(string $field): string
+    {
+        return 'DISTINCT ' . $field;
+    }
+
+    /**
+     * Return an COUNT(…) clause
+     *
+     * @param      string       $field     The field
+     * @param      null|string  $as        Optional alias
+     * @param      bool         $unique    Unique values only
+     *
+     * @return     string
+     */
+    public function count(string $field, ?string $as = null, bool $unique = false): string
+    {
+        return 'COUNT(' . ($unique ? $this->unique($field) : $field) . ')' . ($as ? ' as ' . $as : '');
+    }
+
+    /**
+     * Return an AVG(…) clause
+     *
+     * @param      string       $field     The field
+     * @param      null|string  $as        Optional alias
+     *
+     * @return     string
+     */
+    public function avg(string $field, ?string $as = null): string
+    {
+        return 'AVG(' . $field . ')' . ($as ? ' as ' . $as : '');
+    }
+
+    /**
+     * Return an MAX(…) clause
+     *
+     * @param      string       $field     The field
+     * @param      null|string  $as        Optional alias
+     *
+     * @return     string
+     */
+    public function max(string $field, ?string $as = null): string
+    {
+        return 'MAX(' . $field . ')' . ($as ? ' as ' . $as : '');
+    }
+
+    /**
+     * Return an MIN(…) clause
+     *
+     * @param      string       $field     The field
+     * @param      null|string  $as        Optional alias
+     *
+     * @return     string
+     */
+    public function min(string $field, ?string $as = null): string
+    {
+        return 'MIN(' . $field . ')' . ($as ? ' as ' . $as : '');
+    }
+
+    /**
+     * Return an SUM(…) clause
+     *
+     * @param      string       $field     The field
+     * @param      null|string  $as        Optional alias
+     *
+     * @return     string
+     */
+    public function sum(string $field, ?string $as = null): string
+    {
+        return 'SUM(' . $field . ')' . ($as ? ' as ' . $as : '');
+    }
+
+    /**
      * Compare two SQL queries
      *
      * May be used for debugging purpose as:
