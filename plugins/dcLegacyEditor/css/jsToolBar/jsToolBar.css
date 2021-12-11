@@ -98,58 +98,55 @@ span.jstSpacer {
 -------------------------------------------------------- */
 
 button.jstb_strong {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_strong.png);
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_strong.svg);
 }
 button.jstb_em {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_em.png);
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_em.svg);
 }
 button.jstb_ins {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_ins.png);
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_ins.svg);
 }
 button.jstb_del {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_del.png);
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_del.svg);
 }
 button.jstb_quote {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_quote.png);
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_quote.svg);
 }
 button.jstb_code {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_code.png);
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_code.svg);
 }
 button.jstb_mark {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_mark.png);
-}
-button.jstb_paragraph {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_paragraph.png);
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_mark.svg);
 }
 button.jstb_br {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_br.png);
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_br.svg);
 }
 button.jstb_blockquote {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_bquote.png);
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_bquote.svg);
 }
 button.jstb_pre {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_pre.png);
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_pre.svg);
 }
 button.jstb_ul {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_ul.png);
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_ul.svg);
 }
 button.jstb_ol {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_ol.png);
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_ol.svg);
 }
 button.jstb_link {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_link.png);
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_link.svg);
 }
 button.jstb_img {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_img.png);
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_img.svg);
 }
 button.jstb_img_select {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_img_select.png);
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_img_select.svg);
 }
 button.jstb_post_link {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_post.png);
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_post.svg);
 }
 button.jstb_removeFormat {
-  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_clean.png);
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_clean.svg);
   position: absolute;
   right: 5px;
   bottom: 3px;

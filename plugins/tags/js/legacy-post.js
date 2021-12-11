@@ -21,7 +21,7 @@ jsToolBar.prototype.elements.tag = {
 dotclear.mergeDeep(jsToolBar.prototype.elements, dotclear.getData('legacy_editor_tags'));
 
 jsToolBar.prototype.elements.tag.context = 'post';
-jsToolBar.prototype.elements.tag.icon = 'index.php?pf=tags/img/tag-add.png';
+jsToolBar.prototype.elements.tag.icon = 'index.php?pf=tags/img/tag-add.svg';
 jsToolBar.prototype.elements.tag.fn.wiki = function () {
   this.encloseSelection('', '', (str) => {
     if (str == '') {
