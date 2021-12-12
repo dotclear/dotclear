@@ -150,6 +150,9 @@ class adminUserPref
             $sorts_user = @self::$core->auth->user_prefs->interface->sorts;
             if (is_array($sorts_user)) {
                 foreach ($sorts_user as $stype => $sdata) {
+                    if (!isset($sorts[$stype])) {
+                        continue;
+                    }
                     if (null !== $sorts[$stype][1] && in_array($sdata[0], $sorts[$stype][1])) {
                         $sorts[$stype][2] = $sdata[0];
                     }
