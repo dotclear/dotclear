@@ -575,8 +575,8 @@ class dcAuth
      */
     public function parsePermissions($level)
     {
-        $level = preg_replace('/^\|/', '', $level);
-        $level = preg_replace('/\|$/', '', $level);
+        $level = preg_replace('/^\|/', '', (string) $level);
+        $level = preg_replace('/\|$/', '', (string) $level);
 
         $res = [];
         foreach (explode('|', $level) as $v) {
