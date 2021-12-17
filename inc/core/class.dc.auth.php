@@ -176,7 +176,8 @@ class dcAuth
                 $sql->update($cur);
             }
         } elseif ($user_key != '') {
-            if (http::browserUID(DC_MASTER_KEY . $rs->user_id . $this->cryptLegacy($rs->user_id)) != $user_key) {
+            // Avoid time attacks by measuring server response time during comparison
+            if (!hash_equals(http::browserUID(DC_MASTER_KEY . $rs->user_id . $this->cryptLegacy($rs->user_id)), $user_key)) {
                 return false;
             }
         }
