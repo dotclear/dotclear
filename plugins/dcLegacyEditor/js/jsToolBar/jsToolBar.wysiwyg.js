@@ -172,11 +172,6 @@ jsToolBar.prototype.initWindow = function () {
 
     doc.write(html);
     doc.close();
-    if (document.all) {
-      // for IE
-      doc.designMode = 'on';
-      // warning : doc is now inaccessible for IE6 sp1
-    }
 
     if (dotclear?.data?.htmlFontSize) {
       doc.documentElement.style.setProperty('--html-font-size', dotclear.data.htmlFontSize);

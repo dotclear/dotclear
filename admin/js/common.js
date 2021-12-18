@@ -240,12 +240,10 @@ jQuery.fn.helpViewer = function () {
   const This = this;
   const toggle = () => {
     $('#content').toggleClass('with-help');
-    if (document.all) {
-      if ($('#content').hasClass('with-help')) {
-        select = $('#content select:visible').hide();
-      } else {
-        select.show();
-      }
+    if ($('#content').hasClass('with-help')) {
+      select = $('#content select:visible').hide();
+    } else {
+      select.show();
     }
     $('p#help-button span a').text($('#content').hasClass('with-help') ? dotclear.msg.help_hide : dotclear.msg.help);
     sizeBox();
