@@ -200,7 +200,7 @@ class dcPage
 
         echo self::preload('style/default.css') . self::cssLoad('style/default.css');
 
-        if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
+        if ($rtl = (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl')) {
             echo self::cssLoad('style/default-rtl.css');
         }
 
@@ -237,6 +237,7 @@ class dcPage
         echo
         "</head>\n" .
         '<body id="dotclear-admin" class="no-js' .
+        ($rtl ? ' rtl ' : '') .
         ($safe_mode ? ' safe-mode' : '') .
         (DC_DEBUG ? // @phpstan-ignore-line
             ' debug-mode' :
@@ -421,7 +422,7 @@ class dcPage
 
         echo self::preload('style/default.css') . self::cssLoad('style/default.css');
 
-        if (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl') {
+        if ($rtl = (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl')) {
             echo self::cssLoad('style/default-rtl.css');
         }
 
@@ -451,6 +452,7 @@ class dcPage
         echo
             "</head>\n" .
             '<body id="dotclear-admin" class="popup' .
+            ($rtl ? 'rtl' : '') .
             ($safe_mode ? ' safe-mode' : '') .
             (DC_DEBUG ? // @phpstan-ignore-line
                 ' debug-mode' :
