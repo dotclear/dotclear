@@ -313,7 +313,6 @@ CKEDITOR.lang['fa'] = {
     fakeobjects : 
     {
     	anchor : 'لنگر',
-    	flash : 'انیمشن فلش',
     	hiddenfield : 'فیلد پنهان',
     	iframe : 'IFrame',
     	unknown : 'شیء ناشناخته'
@@ -425,7 +424,8 @@ CKEDITOR.lang['fa'] = {
     	paste : 'چسباندن',
     	pasteNotification : '1% را فشاردهید تا قرار داده شود. مرورگر شما از قراردهی با دکمه نوارابزار یا گزینه منوی زمینه پشتیبانی نمیکند',
     	pasteArea : 'محل چسباندن',
-    	pasteMsg : 'محتوای خود را در ناحیه زیر قرار دهید و OK را فشار دهید'
+    	pasteMsg : 'محتوای خود را در ناحیه زیر قرار دهید و OK را فشار دهید',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['fa'] = {
     	upload : 'بالاگذاری',
     	uploadSubmit : 'به سرور بفرست',
     	image : 'تصویر',
-    	flash : 'فلش',
     	form : 'فرم',
     	checkbox : 'چک‌باکس',
     	radio : 'دکمه‌ی رادیویی',

@@ -313,7 +313,6 @@ CKEDITOR.lang['ro'] = {
     fakeobjects : 
     {
     	anchor : 'Inserează/Editează ancoră',
-    	flash : 'Element Flash',
     	hiddenfield : 'Câmp ascuns (HiddenField)',
     	iframe : 'Fereastră în fereastră (iframe)',
     	unknown : 'Necunoscut'
@@ -425,7 +424,8 @@ CKEDITOR.lang['ro'] = {
     	paste : 'Adaugă',
     	pasteNotification : 'Apasă %1 pentru adăugare. Navigatorul (browser) tău nu suportă adăugarea din clipboard cu butonul din toolbar sau cu opțiunea din meniul contextual.',
     	pasteArea : 'Suprafața de adăugare',
-    	pasteMsg : 'Adaugă conținutul tău înăuntru zonei de mai jos și apasă OK.'
+    	pasteMsg : 'Adaugă conținutul tău înăuntru zonei de mai jos și apasă OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['ro'] = {
     	upload : 'Încarcă',
     	uploadSubmit : 'Trimite la server',
     	image : 'Imagine',
-    	flash : 'Flash',
     	form : 'Formular (Form)',
     	checkbox : 'Bifă (Checkbox)',
     	radio : 'Buton radio (RadioButton)',

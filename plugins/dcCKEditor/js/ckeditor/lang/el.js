@@ -313,7 +313,6 @@ CKEDITOR.lang['el'] = {
     fakeobjects : 
     {
     	anchor : 'Άγκυρα',
-    	flash : 'Ταινία Flash',
     	hiddenfield : 'Κρυφό Πεδίο',
     	iframe : 'IFrame',
     	unknown : 'Άγνωστο Αντικείμενο'
@@ -425,7 +424,8 @@ CKEDITOR.lang['el'] = {
     	paste : 'Επικόλληση',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Περιοχή Επικόλλησης',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['el'] = {
     	upload : 'Αποστολή',
     	uploadSubmit : 'Αποστολή στον Διακομιστή',
     	image : 'Εικόνα',
-    	flash : 'Flash',
     	form : 'Φόρμα',
     	checkbox : 'Κουτί Επιλογής',
     	radio : 'Κουμπί Επιλογής',

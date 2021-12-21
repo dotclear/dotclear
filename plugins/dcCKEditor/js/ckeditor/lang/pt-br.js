@@ -313,7 +313,6 @@ CKEDITOR.lang['pt-br'] = {
     fakeobjects : 
     {
     	anchor : 'Âncora',
-    	flash : 'Animação em Flash',
     	hiddenfield : 'Campo Oculto',
     	iframe : 'IFrame',
     	unknown : 'Objeto desconhecido'
@@ -425,7 +424,8 @@ CKEDITOR.lang['pt-br'] = {
     	paste : 'Colar',
     	pasteNotification : 'Pressione %1 para colar. Seu navegador não permite colar pelos botões da barra de tarefas ou pelo menu de contexto.',
     	pasteArea : 'Área para Colar',
-    	pasteMsg : 'Cole o conteúdo na área abaixo e pressione OK.'
+    	pasteMsg : 'Cole o conteúdo na área abaixo e pressione OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['pt-br'] = {
     	upload : 'Enviar ao Servidor',
     	uploadSubmit : 'Enviar para o Servidor',
     	image : 'Imagem',
-    	flash : 'Flash',
     	form : 'Formulário',
     	checkbox : 'Caixa de Seleção',
     	radio : 'Botão de Opção',

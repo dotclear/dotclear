@@ -313,7 +313,6 @@ CKEDITOR.lang['az'] = {
     fakeobjects : 
     {
     	anchor : 'Lövbər',
-    	flash : 'Flash animasiya',
     	hiddenfield : 'Gizli xana',
     	iframe : 'IFrame',
     	unknown : 'Tanımamış obyekt'
@@ -425,7 +424,8 @@ CKEDITOR.lang['az'] = {
     	paste : 'Əlavə et',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Paste Area',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['az'] = {
     	upload : 'Serverə yüklə',
     	uploadSubmit : 'Göndər',
     	image : 'Şəkil',
-    	flash : 'Flash',
     	form : 'Forma',
     	checkbox : 'Çekboks',
     	radio : 'Radio düyməsi',

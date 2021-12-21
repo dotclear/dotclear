@@ -313,7 +313,6 @@ CKEDITOR.lang['sq'] = {
     fakeobjects : 
     {
     	anchor : 'Spirancë',
-    	flash : 'Objekt flash',
     	hiddenfield : 'Fushë e fshehur',
     	iframe : 'IFrame',
     	unknown : 'Objekt i Panjohur'
@@ -425,7 +424,8 @@ CKEDITOR.lang['sq'] = {
     	paste : 'Hidhe',
     	pasteNotification : 'Shtyp %1 për të hedhur tekstin. Shfletuesi juaj nuk mbështetë hedhjen me pullë shiriti ose alternativën e menysë kontekstuale.',
     	pasteArea : 'Hapësira e Hedhjes',
-    	pasteMsg : 'Hidh përmbajtjen brenda hapësirës më poshtë dhe shtyp MIRË.'
+    	pasteMsg : 'Hidh përmbajtjen brenda hapësirës më poshtë dhe shtyp MIRË.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['sq'] = {
     	upload : 'Ngarko',
     	uploadSubmit : 'E dërgo në server',
     	image : 'Foto',
-    	flash : 'Objekt flash',
     	form : 'Formulari',
     	checkbox : 'Kuti përzgjedhjeje',
     	radio : 'Pullë përzgjedhjeje',

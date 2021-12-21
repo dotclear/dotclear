@@ -313,7 +313,6 @@ CKEDITOR.lang['si'] = {
     fakeobjects : 
     {
     	anchor : 'ආධාරය',
-    	flash : 'Flash Animation',
     	hiddenfield : 'සැඟවුණු ප්‍රදේශය',
     	iframe : 'IFrame',
     	unknown : 'Unknown Object'
@@ -425,7 +424,8 @@ CKEDITOR.lang['si'] = {
     	paste : 'අලවන්න',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'අලවන ප්‍රදේශ',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['si'] = {
     	upload : 'උඩුගතකිරීම',
     	uploadSubmit : 'සේවාදායකය වෙත යොමුකිරිම',
     	image : 'රුපය',
-    	flash : 'දීප්තිය',
     	form : 'පෝරමය',
     	checkbox : 'ලකුණුකිරීමේ කොටුව',
     	radio : 'තේරීම් ',

@@ -313,7 +313,6 @@ CKEDITOR.lang['fi'] = {
     fakeobjects : 
     {
     	anchor : 'Ankkuri',
-    	flash : 'Flash animaatio',
     	hiddenfield : 'Piilokenttä',
     	iframe : 'IFrame-kehys',
     	unknown : 'Tuntematon objekti'
@@ -425,7 +424,8 @@ CKEDITOR.lang['fi'] = {
     	paste : 'Liitä',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Leikealue',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['fi'] = {
     	upload : 'Lisää tiedosto',
     	uploadSubmit : 'Lähetä palvelimelle',
     	image : 'Kuva',
-    	flash : 'Flash-animaatio',
     	form : 'Lomake',
     	checkbox : 'Valintaruutu',
     	radio : 'Radiopainike',

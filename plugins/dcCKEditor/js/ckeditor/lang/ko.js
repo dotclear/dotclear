@@ -313,7 +313,6 @@ CKEDITOR.lang['ko'] = {
     fakeobjects : 
     {
     	anchor : '책갈피',
-    	flash : '플래시 애니메이션',
     	hiddenfield : '숨은 입력 칸',
     	iframe : '아이프레임',
     	unknown : '알 수 없는 객체'
@@ -425,7 +424,8 @@ CKEDITOR.lang['ko'] = {
     	paste : '붙여넣기',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : '붙여넣기 범위',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['ko'] = {
     	upload : '업로드',
     	uploadSubmit : '서버로 전송',
     	image : '이미지',
-    	flash : '플래시',
     	form : '폼',
     	checkbox : '체크 박스',
     	radio : '라디오 버튼',

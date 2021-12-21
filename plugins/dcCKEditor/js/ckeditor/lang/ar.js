@@ -313,7 +313,6 @@ CKEDITOR.lang['ar'] = {
     fakeobjects : 
     {
     	anchor : 'إرساء',
-    	flash : 'رسم متحرك بالفلاش',
     	hiddenfield : 'إدراج حقل خفي',
     	iframe : 'iframe',
     	unknown : 'عنصر غير معروف'
@@ -425,7 +424,8 @@ CKEDITOR.lang['ar'] = {
     	paste : 'لصق',
     	pasteNotification : 'اضغط %1 للصق. اللصق عن طريق شريط الادوات او القائمة غير مدعوم من المتصفح المستخدم من قبلك.',
     	pasteArea : 'منطقة اللصق',
-    	pasteMsg : 'الصق المحتوى بداخل المساحة المخصصة ادناه ثم اضغط على OK'
+    	pasteMsg : 'الصق المحتوى بداخل المساحة المخصصة ادناه ثم اضغط على OK',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['ar'] = {
     	upload : 'رفع',
     	uploadSubmit : 'أرسل',
     	image : 'صورة',
-    	flash : 'فلاش',
     	form : 'نموذج',
     	checkbox : 'خانة إختيار',
     	radio : 'زر اختيار',

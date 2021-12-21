@@ -313,7 +313,6 @@ CKEDITOR.lang['pl'] = {
     fakeobjects : 
     {
     	anchor : 'Kotwica',
-    	flash : 'Animacja Flash',
     	hiddenfield : 'Pole ukryte',
     	iframe : 'IFrame',
     	unknown : 'Nieznany obiekt'
@@ -425,7 +424,8 @@ CKEDITOR.lang['pl'] = {
     	paste : 'Wklej',
     	pasteNotification : 'Naciśnij %1 by wkleić tekst. Twoja przeglądarka nie pozwala na wklejanie za pomocą przycisku paska narzędzi lub opcji menu kontekstowego.',
     	pasteArea : 'Miejsce do wklejenia treści',
-    	pasteMsg : 'Wklej treść do obszaru poniżej i naciśnij OK.'
+    	pasteMsg : 'Wklej treść do obszaru poniżej i naciśnij OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['pl'] = {
     	upload : 'Wyślij',
     	uploadSubmit : 'Wyślij',
     	image : 'Obrazek',
-    	flash : 'Flash',
     	form : 'Formularz',
     	checkbox : 'Pole wyboru (checkbox)',
     	radio : 'Przycisk opcji (radio)',

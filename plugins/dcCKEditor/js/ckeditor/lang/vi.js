@@ -313,7 +313,6 @@ CKEDITOR.lang['vi'] = {
     fakeobjects : 
     {
     	anchor : 'Điểm neo',
-    	flash : 'Flash',
     	hiddenfield : 'Trường ẩn',
     	iframe : 'IFrame',
     	unknown : 'Đối tượng không rõ ràng'
@@ -425,7 +424,8 @@ CKEDITOR.lang['vi'] = {
     	paste : 'Dán',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Khu vực dán',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['vi'] = {
     	upload : 'Tải lên',
     	uploadSubmit : 'Tải lên máy chủ',
     	image : 'Hình ảnh',
-    	flash : 'Flash',
     	form : 'Biểu mẫu',
     	checkbox : 'Nút kiểm',
     	radio : 'Nút chọn',

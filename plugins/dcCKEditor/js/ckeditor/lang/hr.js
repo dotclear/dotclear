@@ -313,7 +313,6 @@ CKEDITOR.lang['hr'] = {
     fakeobjects : 
     {
     	anchor : 'Sidro',
-    	flash : 'Flash animacija',
     	hiddenfield : 'Sakriveno polje',
     	iframe : 'IFrame',
     	unknown : 'Nepoznati objekt'
@@ -425,7 +424,8 @@ CKEDITOR.lang['hr'] = {
     	paste : 'Zalijepi',
     	pasteNotification : 'Vaš preglednik Vam ne dozvoljava lijepljenje običnog teksta na ovaj način. Za lijepljenje, pritisnite %1.',
     	pasteArea : 'Okvir za lijepljenje',
-    	pasteMsg : 'Zalijepite vaš sadržaj u okvir ispod i pritisnite OK.'
+    	pasteMsg : 'Zalijepite vaš sadržaj u okvir ispod i pritisnite OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['hr'] = {
     	upload : 'Pošalji',
     	uploadSubmit : 'Pošalji na server',
     	image : 'Slika',
-    	flash : 'Flash',
     	form : 'Forma',
     	checkbox : 'Checkbox',
     	radio : 'Radio Button',

@@ -313,7 +313,6 @@ CKEDITOR.lang['es-mx'] = {
     fakeobjects : 
     {
     	anchor : 'Ancla',
-    	flash : 'Animación flash',
     	hiddenfield : 'Campo oculto',
     	iframe : 'IFrame',
     	unknown : 'Objeto desconocido'
@@ -425,7 +424,8 @@ CKEDITOR.lang['es-mx'] = {
     	paste : 'Pegar',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Paste Area',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['es-mx'] = {
     	upload : 'Subir',
     	uploadSubmit : 'Enviar al servidor',
     	image : 'Imagen',
-    	flash : 'Flash',
     	form : 'Formulario',
     	checkbox : 'Casilla de verificación',
     	radio : 'Botón de opción',

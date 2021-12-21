@@ -313,7 +313,6 @@ CKEDITOR.lang['he'] = {
     fakeobjects : 
     {
     	anchor : 'עוגן',
-    	flash : 'סרטון פלאש',
     	hiddenfield : 'שדה חבוי',
     	iframe : 'חלון פנימי (iframe)',
     	unknown : 'אובייקט לא ידוע'
@@ -425,7 +424,8 @@ CKEDITOR.lang['he'] = {
     	paste : 'הדבקה',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'איזור הדבקה',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['he'] = {
     	upload : 'העלאה',
     	uploadSubmit : 'שליחה לשרת',
     	image : 'תמונה',
-    	flash : 'פלאש',
     	form : 'טופס',
     	checkbox : 'תיבת סימון',
     	radio : 'לחצן אפשרויות',

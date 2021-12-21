@@ -313,7 +313,6 @@ CKEDITOR.lang['zh'] = {
     fakeobjects : 
     {
     	anchor : '錨點',
-    	flash : 'Flash 動畫',
     	hiddenfield : '隱藏欄位',
     	iframe : 'IFrame',
     	unknown : '無法辨識的物件'
@@ -425,7 +424,8 @@ CKEDITOR.lang['zh'] = {
     	paste : '貼上',
     	pasteNotification : '請按下「%1」貼上。您的瀏覽器不支援工具列按鈕或是內容功能表選項。',
     	pasteArea : '貼上區',
-    	pasteMsg : '請將您的內容貼於下方區域中並按下「OK」。'
+    	pasteMsg : '請將您的內容貼於下方區域中並按下「OK」。',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['zh'] = {
     	upload : '上傳',
     	uploadSubmit : '傳送至伺服器',
     	image : '圖像',
-    	flash : 'Flash',
     	form : '表格',
     	checkbox : '核取方塊',
     	radio : '選項按鈕',

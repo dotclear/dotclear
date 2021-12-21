@@ -266,6 +266,11 @@ div.cke_disabled .cke_dialog_ui_labeled_content div *
 	background-color: #ddd;
 	cursor: default;
 }
+.cke_dialog_ui_labeled_required
+{
+	font-weight: bold;
+	font-size: 1.2em;
+}
 .cke_dialog_ui_vbox table,
 .cke_dialog_ui_hbox table
 {
@@ -610,16 +615,6 @@ select.cke_dialog_ui_input_select
 	opacity: 0.9;
 	filter: alpha(opacity = 90);
 	background-color: #e4e4e4;
-}
-.cke_dialog .FlashPreviewBox
-{
-	white-space: normal;
-	border: 2px ridge black;
-	overflow: auto;
-	height: 160px;
-	width: 390px;
-	padding: 2px;
-	background-color: white;
 }
 .cke_dialog .cke_pastetext
 {

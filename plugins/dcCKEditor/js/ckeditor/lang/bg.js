@@ -313,7 +313,6 @@ CKEDITOR.lang['bg'] = {
     fakeobjects : 
     {
     	anchor : 'Кука',
-    	flash : 'Флаш анимация',
     	hiddenfield : 'Скрито поле',
     	iframe : 'IFrame',
     	unknown : 'Неизвестен обект'
@@ -425,7 +424,8 @@ CKEDITOR.lang['bg'] = {
     	paste : 'Вмъкни',
     	pasteNotification : 'Натиснете %1 за да вмъкнете. Вашият браузър не поддържа поставяне с бутон от лентата с инструменти или от контекстното меню.',
     	pasteArea : 'Зона за поставяне',
-    	pasteMsg : 'Поставете съдържанието в зоната отдолу и натиснете OK.'
+    	pasteMsg : 'Поставете съдържанието в зоната отдолу и натиснете OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['bg'] = {
     	upload : 'Качване',
     	uploadSubmit : 'Изпращане към сървъра',
     	image : 'Изображение',
-    	flash : 'Флаш',
     	form : 'Форма',
     	checkbox : 'Поле за избор',
     	radio : 'Радио бутон',

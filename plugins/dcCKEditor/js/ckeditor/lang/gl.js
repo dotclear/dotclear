@@ -313,7 +313,6 @@ CKEDITOR.lang['gl'] = {
     fakeobjects : 
     {
     	anchor : 'Ancoraxe',
-    	flash : 'Animación «Flash»',
     	hiddenfield : 'Campo agochado',
     	iframe : 'IFrame',
     	unknown : 'Obxecto descoñecido'
@@ -425,7 +424,8 @@ CKEDITOR.lang['gl'] = {
     	paste : 'Pegar',
     	pasteNotification : 'Prema %1 para pegar. O seu navegador non admite pegar co botón da barra de ferramentas ou coa opción do menú contextual.',
     	pasteArea : 'Zona de pegado',
-    	pasteMsg : 'Pegue o contido dentro da área de abaixo e prema Aceptar.'
+    	pasteMsg : 'Pegue o contido dentro da área de abaixo e prema Aceptar.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['gl'] = {
     	upload : 'Enviar',
     	uploadSubmit : 'Enviar ao servidor',
     	image : 'Imaxe',
-    	flash : 'Flash',
     	form : 'Formulario',
     	checkbox : 'Caixa de selección',
     	radio : 'Botón de opción',

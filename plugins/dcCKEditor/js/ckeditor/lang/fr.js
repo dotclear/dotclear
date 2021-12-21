@@ -313,7 +313,6 @@ CKEDITOR.lang['fr'] = {
     fakeobjects : 
     {
     	anchor : 'Ancre',
-    	flash : 'Animation Flash',
     	hiddenfield : 'Champ invisible',
     	iframe : 'Cadre de contenu incorporé',
     	unknown : 'Objet inconnu'
@@ -425,7 +424,8 @@ CKEDITOR.lang['fr'] = {
     	paste : 'Coller',
     	pasteNotification : 'Utilisez le raccourci %1 pour coller. Votre navigateur n\'accepte pas de coller à l\'aide du bouton ou du menu contextuel.',
     	pasteArea : 'Coller la zone',
-    	pasteMsg : 'Collez votre contenu dans la zone de saisie ci-dessous et cliquez OK.'
+    	pasteMsg : 'Collez votre contenu dans la zone de saisie ci-dessous et cliquez OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['fr'] = {
     	upload : 'Télécharger',
     	uploadSubmit : 'Envoyer sur le serveur',
     	image : 'Image',
-    	flash : 'Flash',
     	form : 'Formulaire',
     	checkbox : 'Case à cocher',
     	radio : 'Bouton radio',

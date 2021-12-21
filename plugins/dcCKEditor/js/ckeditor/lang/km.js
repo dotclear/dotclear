@@ -313,7 +313,6 @@ CKEDITOR.lang['km'] = {
     fakeobjects : 
     {
     	anchor : 'យុថ្កា',
-    	flash : 'Flash មាន\u200bចលនា',
     	hiddenfield : 'វាល\u200bកំបាំង',
     	iframe : 'IFrame',
     	unknown : 'វត្ថុ\u200bមិន\u200bស្គាល់'
@@ -425,7 +424,8 @@ CKEDITOR.lang['km'] = {
     	paste : 'បិទ\u200bភ្ជាប់',
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'តំបន់\u200bបិទ\u200bភ្ជាប់',
-    	pasteMsg : 'Paste your content inside the area below and press OK.'
+    	pasteMsg : 'Paste your content inside the area below and press OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['km'] = {
     	upload : 'ផ្ទុក\u200bឡើង',
     	uploadSubmit : 'បញ្ជូនទៅកាន់ម៉ាស៊ីន\u200bបម្រើ',
     	image : 'រូបភាព',
-    	flash : 'Flash',
     	form : 'បែបបទ',
     	checkbox : 'ប្រអប់\u200bធីក',
     	radio : 'ប៊ូតុង\u200bមូល',

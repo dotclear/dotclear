@@ -313,7 +313,6 @@ CKEDITOR.lang['cs'] = {
     fakeobjects : 
     {
     	anchor : 'Záložka',
-    	flash : 'Flash animace',
     	hiddenfield : 'Skryté pole',
     	iframe : 'IFrame',
     	unknown : 'Neznámý objekt'
@@ -425,7 +424,8 @@ CKEDITOR.lang['cs'] = {
     	paste : 'Vložit',
     	pasteNotification : 'Stiskněte %1 pro vložení. Váš prohlížeč nepodporuje vkládání pomocí tlačítka na panelu nástrojů nebo volby kontextového menu.',
     	pasteArea : 'Oblast vkládání',
-    	pasteMsg : 'Vložte svůj obsah do oblasti níže a stiskněte OK.'
+    	pasteMsg : 'Vložte svůj obsah do oblasti níže a stiskněte OK.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['cs'] = {
     	upload : 'Odeslat',
     	uploadSubmit : 'Odeslat na server',
     	image : 'Obrázek',
-    	flash : 'Flash',
     	form : 'Formulář',
     	checkbox : 'Zaškrtávací políčko',
     	radio : 'Přepínač',

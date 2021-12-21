@@ -313,7 +313,6 @@ CKEDITOR.lang['ru'] = {
     fakeobjects : 
     {
     	anchor : 'Якорь',
-    	flash : 'Flash анимация',
     	hiddenfield : 'Скрытое поле',
     	iframe : 'iFrame',
     	unknown : 'Неизвестный объект'
@@ -425,7 +424,8 @@ CKEDITOR.lang['ru'] = {
     	paste : 'Вставить',
     	pasteNotification : 'Для вставки нажмите %1. Ваш браузер не поддерживает возможность вставки через панель инструментов или контекстное меню',
     	pasteArea : 'Область вставки',
-    	pasteMsg : 'Вставьте контент в эту область и нажмите OK'
+    	pasteMsg : 'Вставьте контент в эту область и нажмите OK',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['ru'] = {
     	upload : 'Загрузка файла',
     	uploadSubmit : 'Загрузить на сервер',
     	image : 'Изображение',
-    	flash : 'Flash',
     	form : 'Форма',
     	checkbox : 'Чекбокс',
     	radio : 'Радиокнопка',

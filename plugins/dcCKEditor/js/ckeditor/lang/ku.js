@@ -313,7 +313,6 @@ CKEDITOR.lang['ku'] = {
     fakeobjects : 
     {
     	anchor : 'لەنگەر',
-    	flash : 'فلاش',
     	hiddenfield : 'شاردنەوەی خانه',
     	iframe : 'لەچوارچێوە',
     	unknown : 'بەرکارێکی نەناسراو'
@@ -425,7 +424,8 @@ CKEDITOR.lang['ku'] = {
     	paste : 'لکاندن',
     	pasteNotification : 'کلیک بکە لەسەر %1 بۆ لکاندنی. وێبگەڕەکەت پشتیوانی لکاندن ناکات بە دوگمەی تولامراز یان ئامرازی ناوەڕۆکی لیستە -  کلیکی دەستی ڕاست. ',
     	pasteArea : 'ناوچەی لکاندن',
-    	pasteMsg : 'ناوەڕۆکەکەت لەم پانتایی خوارەوە بلکێنە'
+    	pasteMsg : 'ناوەڕۆکەکەت لەم پانتایی خوارەوە بلکێنە',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['ku'] = {
     	upload : 'بارکردن',
     	uploadSubmit : 'ناردنی بۆ ڕاژە',
     	image : 'وێنە',
-    	flash : 'فلاش',
     	form : 'داڕشتە',
     	checkbox : 'خانەی نیشانکردن',
     	radio : 'جێگرەوەی دوگمە',

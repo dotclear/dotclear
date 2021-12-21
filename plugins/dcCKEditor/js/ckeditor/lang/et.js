@@ -313,7 +313,6 @@ CKEDITOR.lang['et'] = {
     fakeobjects : 
     {
     	anchor : 'Ankur',
-    	flash : 'Flashi animatsioon',
     	hiddenfield : 'Varjatud väli',
     	iframe : 'IFrame',
     	unknown : 'Tundmatu objekt'
@@ -425,7 +424,8 @@ CKEDITOR.lang['et'] = {
     	paste : 'Aseta',
     	pasteNotification : 'Asetamiseks vajuta %1. Sinu brauser ei toeta asetamist tööriistariba nupu või kontekstimenüü valikuga.',
     	pasteArea : 'Asetamise ala',
-    	pasteMsg : 'Aseta sisu alumisse kasti ja vajuta OK nupule.'
+    	pasteMsg : 'Aseta sisu alumisse kasti ja vajuta OK nupule.',
+    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
     },
     blockquote : 
     {
@@ -457,7 +457,6 @@ CKEDITOR.lang['et'] = {
     	upload : 'Laadi üles',
     	uploadSubmit : 'Saada serverisse',
     	image : 'Pilt',
-    	flash : 'Flash',
     	form : 'Vorm',
     	checkbox : 'Märkeruut',
     	radio : 'Raadionupp',
