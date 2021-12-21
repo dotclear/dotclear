@@ -17,8 +17,8 @@ class dcNotices
 {
     /** @var dcCore dotclear core instance */
     protected $core;
-    protected $prefix;
-    protected $table = 'notice';
+    protected $table_name = 'notice';
+    protected $table;
 
     /**
      * Class constructor
@@ -31,86 +31,93 @@ class dcNotices
      */
     public function __construct($core)
     {
-        $this->core   = &$core;
-        $this->prefix = $core->prefix;
+        $this->core  = &$core;
+        $this->table = $core->prefix . $this->table_name;
     }
 
     public function getTable()
     {
-        return $this->table;
+        return $this->table_name;
     }
 
     /* Get notices */
 
     public function getNotices($params = [], $count_only = false)
     {
+        $sql = new dcSelectStatement($this->core, 'dcNoticesGetNotices');
+        $sql
+            ->from($this->table);
+
         // Return a recordset of notices
         if ($count_only) {
-            $f = 'COUNT(notice_id)';
+            $sql->column($sql->count('notice_id'));
         } else {
-            $f = 'notice_id, ses_id, notice_type, notice_ts, notice_msg, notice_format, notice_options';
+            $sql->columns([
+                'notice_id',
+                'ses_id',
+                'notice_type',
+                'notice_ts',
+                'notice_msg',
+                'notice_format',
+                'notice_options',
+            ]);
         }
 
-        $strReq = 'SELECT ' . $f . ' FROM ' . $this->prefix . $this->table . ' ';
-
-        $strReq .= "WHERE ses_id = '";
-        if (isset($params['ses_id']) && $params['ses_id'] !== '') {
-            $strReq .= (string) $params['ses_id'];
-        } else {
-            $strReq .= (string) session_id();
-        }
-        $strReq .= "' ";
+        $session_id = isset($params['ses_id']) && $params['ses_id'] !== '' ? (string) $params['ses_id'] : (string) session_id();
+        $sql->where('ses_id = ' . $sql->quote($session_id));
 
         if (isset($params['notice_id']) && $params['notice_id'] !== '') {
             if (is_array($params['notice_id'])) {
-                array_walk($params['notice_id'], function (&$v, $k) { if ($v !== null) {$v = (integer) $v;}});
+                array_walk($params['notice_id'], function (&$v, $k) { if ($v !== null) {$v = (int) $v;}});
             } else {
-                $params['notice_id'] = [(integer) $params['notice_id']];
+                $params['notice_id'] = [(int) $params['notice_id']];
             }
-            $strReq .= 'AND notice_id' . $this->core->con->in($params['notice_id']);
+            $sql->and('notice_id' . $sql->in($params['notice_id']));
         }
 
         if (!empty($params['notice_type'])) {
-            $strReq .= 'AND notice_type' . $this->core->con->in($params['notice_type']);
+            $sql->and('notice_type' . $sql->in($params['notice_type']));
         }
 
         if (!empty($params['notice_format'])) {
-            $strReq .= 'AND notice_type' . $this->core->con->in($params['notice_format']);
+            $sql->and('notice_format' . $sql->in($params['notice_format']));
         }
 
         if (!empty($params['sql'])) {
-            $strReq .= ' ' . $params['sql'] . ' ';
+            $sql->sql($params['sql']);
         }
 
         if (!$count_only) {
             if (!empty($params['order'])) {
-                $strReq .= 'ORDER BY ' . $this->core->con->escape($params['order']) . ' ';
+                $sql->order($sql->escape($params['order']));
             } else {
-                $strReq .= 'ORDER BY notice_ts DESC ';
+                $sql->order('notice_ts DESC');
             }
         }
 
         if (!empty($params['limit'])) {
-            $strReq .= $this->core->con->limit($params['limit']);
+            $sql->limit($params['limit']);
         }
 
-        $rs = $this->core->con->select($strReq);
+        $rs = $sql->select();
 
         return $rs;
     }
 
     public function addNotice($cur)
     {
-        $this->core->con->writeLock($this->prefix . $this->table);
+        $this->core->con->writeLock($this->table);
 
         try {
             # Get ID
-            $rs = $this->core->con->select(
-                'SELECT MAX(notice_id) ' .
-                'FROM ' . $this->prefix . $this->table
-            );
+            $sql = new dcSelectStatement($this->core, 'dcNoticesAddNotice');
+            $sql
+                ->column($sql->max('notice_id'))
+                ->from($this->table);
 
-            $cur->notice_id = (integer) $rs->f(0) + 1;
+            $rs = $sql->select();
+
+            $cur->notice_id = (int) $rs->f(0) + 1;
             $cur->ses_id    = (string) session_id();
 
             $this->getNoticeCursor($cur, $cur->notice_id);
@@ -134,11 +141,17 @@ class dcNotices
 
     public function delNotices($id, $all = false)
     {
-        $strReq = $all ?
-        'DELETE FROM ' . $this->prefix . $this->table . " WHERE ses_id = '" . (string) session_id() . "'" :
-        'DELETE FROM ' . $this->prefix . $this->table . ' WHERE notice_id' . $this->core->con->in($id);
+        $sql = new dcDeleteStatement($this->core, 'dcNoticesDelNotices');
+        $sql
+            ->from($this->table);
 
-        $this->core->con->execute($strReq);
+        if ($all) {
+            $sql->where('ses_id = ' . $sql->quote((string) session_id()));
+        } else {
+            $sql->where('notice_id' . $sql->in($id));
+        }
+
+        $sql->delete();
     }
 
     private function getNoticeCursor($cur, $notice_id = null)

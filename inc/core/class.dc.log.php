@@ -51,7 +51,7 @@ class dcLog
         $sql = new dcSelectStatement($this->core, 'dcLogGetLogs');
 
         if ($count_only) {
-            $sql->column('COUNT(log_id)');
+            $sql->column($sql->count('log_id'));
         } else {
             $sql->columns([
                 'L.log_id',
@@ -132,7 +132,7 @@ class dcLog
             # Get ID
             $sql = new dcSelectStatement($this->core, 'dcLogAddLog');
             $sql
-                ->column('MAX(log_id)')
+                ->column($sql->max('log_id'))
                 ->from($this->log_table);
 
             $rs = $sql->select();

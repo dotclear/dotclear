@@ -839,7 +839,7 @@ class dcMedia extends filemanager
                 $sql = new dcSelectStatement($this->core, 'dcMediaCreateFile');
                 $sql
                     ->from($this->table)
-                    ->column('MAX(media_id)');
+                    ->column($sql->max('media_id'));
 
                 $rs       = $sql->select();
                 $media_id = (int) $rs->f(0) + 1;

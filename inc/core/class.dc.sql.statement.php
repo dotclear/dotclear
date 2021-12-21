@@ -206,24 +206,31 @@ class dcSqlStatement
      *
      * @param mixed     $c      the from clause(s)
      * @param boolean   $reset  reset previous from(s) first
+     * @param boolean   $first  put the from clause(s) at top of list
      *
      * @return self instance, enabling to chain calls
      */
-    public function from($c, bool $reset = false): dcSqlStatement
+    public function from($c, bool $reset = false, bool $first = false): dcSqlStatement
     {
-        $filter = function ($v) {
-            return trim(ltrim($v, ','));
-        };
+        $filter = fn ($v) => trim(ltrim($v, ','));
         if ($reset) {
             $this->from = [];
         }
         // Remove comma on beginning of clause(s) (legacy code)
         if (is_array($c)) {
-            $c          = array_map($filter, $c);   // Cope with legacy code
-            $this->from = array_merge($this->from, $c);
+            $c = array_map($filter, $c);   // Cope with legacy code
+            if ($first) {
+                $this->from = array_merge($c, $this->from);
+            } else {
+                $this->from = array_merge($this->from, $c);
+            }
         } else {
             $c = $filter($c);   // Cope with legacy code
-            array_push($this->from, $c);
+            if ($first) {
+                array_unshift($this->from, $c);
+            } else {
+                array_push($this->from, $c);
+            }
         }
 
         return $this;
@@ -239,9 +246,7 @@ class dcSqlStatement
      */
     public function where($c, bool $reset = false): dcSqlStatement
     {
-        $filter = function ($v) {
-            return preg_replace('/^\s*(AND|OR)\s*/i', '', $v);
-        };
+        $filter = fn ($v) => preg_replace('/^\s*(AND|OR)\s*/i', '', $v);
         if ($reset) {
             $this->where = [];
         }
@@ -301,7 +306,7 @@ class dcSqlStatement
      */
     public function and($c, bool $reset = false): dcSqlStatement
     {
-        return $this->cond(array_map(function ($v) {return 'AND ' . $v;}, is_array($c) ? $c : [$c]), $reset);
+        return $this->cond(array_map(fn ($v) => 'AND ' . $v, is_array($c) ? $c : [$c]), $reset);
     }
 
     /**
@@ -328,7 +333,7 @@ class dcSqlStatement
      */
     public function or($c, bool $reset = false): dcSqlStatement
     {
-        return $this->cond(array_map(function ($v) {return 'OR ' . $v;}, is_array($c) ? $c : [$c]), $reset);
+        return $this->cond(array_map(fn ($v) => 'OR ' . $v, is_array($c) ? $c : [$c]), $reset);
     }
 
     /**
@@ -397,12 +402,34 @@ class dcSqlStatement
     /**
      * Return an SQL IN (…) fragment
      *
-     * @param      mixed  $list   The list
+     * @param      mixed  $list         The list of values
+     * @param      string $cast         Cast given not null values to specified type
      *
      * @return     string
      */
-    public function in($list): string
+    public function in($list, string $cast = ''): string
     {
+        if ($cast !== '') {
+            switch ($cast) {
+                case 'int':
+                    if (is_array($list)) {
+                        $list = array_map(fn ($v) => is_null($v) ? $v : (int) $v, $list);
+                    } else {
+                        $list = is_null($list) ? null : (int) $list;
+                    }
+
+                    break;
+                case 'string':
+                    if (is_array($list)) {
+                        $list = array_map(fn ($v) => is_null($v) ? $v : (string) $v, $list);
+                    } else {
+                        $list = is_null($list) ? null : (string) $list;
+                    }
+
+                    break;
+            }
+        }
+
         return $this->con->in($list);
     }
 
@@ -563,6 +590,37 @@ class dcSqlStatement
         };
 
         return ($filter($local) === $filter($external));
+    }
+
+    /**
+     * Compare local statement and external one
+     *
+     * @param      string   $external       The external
+     * @param      bool     $trigger_error  True to trigger an error if compare failsl
+     * @param      bool     $dump           True to var_dump() all if compare fails
+     * @param      bool     $print          True to print_r() all if compare fails
+     *
+     * @return     bool
+     */
+    public function compare(string $external, bool $trigger_error = false, bool $dump = false, bool $print = false): bool
+    {
+        $str = $this->statement();
+        if (!$this->isSame($str, $external)) {
+            if ($print) {
+                print_r($str);
+                print_r($external);
+            } elseif ($dump) {
+                var_dump($str);
+                var_dump($external);
+            }
+            if ($trigger_error) {
+                trigger_error('SQL statement error (internal/external): ' . $str . ' / ' . $external, E_USER_ERROR);
+            }
+
+            return false;
+        }
+
+        return true;
     }
 }
 

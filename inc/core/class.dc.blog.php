@@ -236,7 +236,12 @@ class dcBlog
 
         $cur->blog_upddt = date('Y-m-d H:i:s');
 
-        $cur->update("WHERE blog_id = '" . $this->con->escape($this->id) . "' ");
+        $sql = new dcUpdateStatement($this->core, 'dcBlogTriggerBlog');
+        $sql->where('blog_id = ' . $sql->quote($this->id, true));
+
+        $sql->update($cur);
+
+//        $cur->update("WHERE blog_id = '" . $this->con->escape($this->id) . "' ");
 
         # --BEHAVIOR-- coreBlogAfterTriggerBlog
         $this->core->callBehavior('coreBlogAfterTriggerBlog', $cur);
@@ -860,76 +865,128 @@ class dcBlog
      * Please note that on every cat_id or cat_url, you can add ?not to exclude
      * the category and ?sub to get subcategories.
      *
-     * @param    array  $params        Parameters
-     * @param    bool   $count_only    Only counts results
+     * @param    array              $params        Parameters
+     * @param    bool               $count_only    Only counts results
+     * @param    dcSelectStatement  $sql           Optional dcSelectStatement instance
      *
      * @return   mixed    A record with some more capabilities or the SQL request
      */
-    public function getPosts($params = [], $count_only = false)
+    public function getPosts($params = [], $count_only = false, ?dcSelectStatement $sql = null)
     {
         # --BEHAVIOR-- coreBlogBeforeGetPosts
         $params = new ArrayObject($params);
         $this->core->callBehavior('coreBlogBeforeGetPosts', $params);
 
+        if (!$sql) {
+            $sql = new dcSelectStatement($this->core, 'dcBlogGetPosts');
+        }
+
         if ($count_only) {
-            $strReq = 'SELECT count(DISTINCT P.post_id) ';
+            $sql->column($sql->count($sql->unique('P.post_id')));
         } elseif (!empty($params['sql_only'])) {
-            $strReq = 'SELECT P.post_id ';
+            $sql->column('P.post_id');
         } else {
-            if (!empty($params['no_content'])) {
-                $content_req = '';
-            } else {
-                $content_req = 'post_excerpt, post_excerpt_xhtml, ' .
-                    'post_content, post_content_xhtml, post_notes, ';
+            if (empty($params['no_content'])) {
+                $sql->columns([
+                    'post_excerpt',
+                    'post_excerpt_xhtml',
+                    'post_content',
+                    'post_content_xhtml',
+                    'post_notes',
+                ]);
             }
 
             if (!empty($params['columns']) && is_array($params['columns'])) {
-                $content_req .= implode(', ', $params['columns']) . ', ';
+                $sql->columns($params['columns']);
             }
-
-            $strReq = 'SELECT P.post_id, P.blog_id, P.user_id, P.cat_id, post_dt, ' .
-                'post_tz, post_creadt, post_upddt, post_format, post_password, ' .
-                'post_url, post_lang, post_title, ' . $content_req .
-                'post_type, post_meta, ' .
-                'post_status, post_firstpub, post_selected, post_position, ' .
-                'post_open_comment, post_open_tb, nb_comment, nb_trackback, ' .
-                'U.user_name, U.user_firstname, U.user_displayname, U.user_email, ' .
-                'U.user_url, ' .
-                'C.cat_title, C.cat_url, C.cat_desc ';
+            $sql->columns([
+                'P.post_id',
+                'P.blog_id',
+                'P.user_id',
+                'P.cat_id',
+                'post_dt',
+                'post_tz',
+                'post_creadt',
+                'post_upddt',
+                'post_format',
+                'post_password',
+                'post_url',
+                'post_lang',
+                'post_title',
+                'post_type',
+                'post_meta',
+                'post_status',
+                'post_firstpub',
+                'post_selected',
+                'post_position',
+                'post_open_comment',
+                'post_open_tb',
+                'nb_comment',
+                'nb_trackback',
+                'U.user_name',
+                'U.user_firstname',
+                'U.user_displayname',
+                'U.user_email',
+                'U.user_url',
+                'C.cat_title',
+                'C.cat_url',
+                'C.cat_desc',
+            ]);
         }
 
-        $strReq .= 'FROM ' . $this->prefix . 'post P ' .
-        'INNER JOIN ' . $this->prefix . 'user U ON U.user_id = P.user_id ' .
-        'LEFT OUTER JOIN ' . $this->prefix . 'category C ON P.cat_id = C.cat_id ';
+//        print_r($sql->statement());
+
+        $sql    // @phpstan-ignore-line
+            ->from($this->prefix . 'post P', false, true)
+            ->join(
+                (new dcJoinStatement($this->core, 'dcBlogGetPosts'))
+                ->type('INNER')
+                ->from($this->prefix . 'user U')
+                ->on('U.user_id = P.user_id')
+                ->statement()
+            )
+            ->join(
+                (new dcJoinStatement($this->core, 'dcBlogGetPosts'))
+                ->type('LEFT OUTER')
+                ->from($this->prefix . 'category C')
+                ->on('P.cat_id = C.cat_id')
+                ->statement()
+            );
+
+//        print_r($sql->statement());
 
         if (!empty($params['from'])) {
-            $strReq .= $params['from'] . ' ';
+            $sql->from($params['from']);
         }
 
-        $strReq .= "WHERE P.blog_id = '" . $this->con->escape($this->id) . "' ";
+        if (!empty($params['where'])) {
+            // Cope with legacy code
+            $sql->where($params['where']);
+        } else {
+            $sql->where('P.blog_id = ' . $sql->quote($this->id, true));
+        }
 
         if (!$this->core->auth->check('contentadmin', $this->id)) {
-            $strReq .= 'AND ((post_status = 1 ';
+            $user_id = $this->core->auth->userID();
 
+            $and = ['post_status = 1'];
             if ($this->without_password) {
-                $strReq .= 'AND post_password IS NULL ';
+                $and[] = 'post_password IS NULL';
             }
-            $strReq .= ') ';
-
-            if ($this->core->auth->userID()) {
-                $strReq .= "OR P.user_id = '" . $this->con->escape($this->core->auth->userID()) . "')";
-            } else {
-                $strReq .= ') ';
+            $or = [$sql->andGroup($and)];
+            if ($user_id) {
+                $or[] = 'P.user_id = ' . $sql->quote($user_id, true);
             }
+            $sql->and($sql->orGroup($or));
         }
 
         #Adding parameters
         if (isset($params['post_type'])) {
             if (is_array($params['post_type']) || $params['post_type'] != '') {
-                $strReq .= 'AND post_type ' . $this->con->in($params['post_type']);
+                $sql->and('post_type' . $sql->in($params['post_type']));
             }
         } else {
-            $strReq .= "AND post_type = 'post' ";
+            $sql->and('post_type = ' . $sql->quote('post'));
         }
 
         if (isset($params['post_id']) && $params['post_id'] !== '') {
@@ -938,7 +995,7 @@ class dcBlog
             } else {
                 $params['post_id'] = [(int) $params['post_id']];
             }
-            $strReq .= 'AND P.post_id ' . $this->con->in($params['post_id']);
+            $sql->and('P.post_id' . $sql->in($params['post_id']));
         }
 
         if (isset($params['exclude_post_id']) && $params['exclude_post_id'] !== '') {
@@ -947,15 +1004,15 @@ class dcBlog
             } else {
                 $params['exclude_post_id'] = [(int) $params['exclude_post_id']];
             }
-            $strReq .= 'AND P.post_id NOT ' . $this->con->in($params['exclude_post_id']);
+            $sql->and('P.post_id NOT' . $sql->in($params['exclude_post_id']));
         }
 
         if (isset($params['post_url']) && $params['post_url'] !== '') {
-            $strReq .= "AND post_url = '" . $this->con->escape($params['post_url']) . "' ";
+            $sql->and('post_url = ' . $sql->quote($params['post_url'], true));
         }
 
         if (!empty($params['user_id'])) {
-            $strReq .= "AND U.user_id = '" . $this->con->escape($params['user_id']) . "' ";
+            $sql->and('U.user_id = ' . $sql->quote($params['user_id'], true));
         }
 
         if (isset($params['cat_id']) && $params['cat_id'] !== '') {
@@ -965,7 +1022,8 @@ class dcBlog
             if (!empty($params['cat_id_not'])) {
                 array_walk($params['cat_id'], function (&$v, $k) {$v = $v . ' ?not';});
             }
-            $strReq .= 'AND ' . $this->getPostsCategoryFilter($params['cat_id'], 'cat_id') . ' ';
+
+            $sql->and($this->getPostsCategoryFilter($params['cat_id'], 'cat_id'));
         } elseif (isset($params['cat_url']) && $params['cat_url'] !== '') {
             if (!is_array($params['cat_url'])) {
                 $params['cat_url'] = [$params['cat_url']];
@@ -973,39 +1031,37 @@ class dcBlog
             if (!empty($params['cat_url_not'])) {
                 array_walk($params['cat_url'], function (&$v, $k) {$v = $v . ' ?not';});
             }
-            $strReq .= 'AND ' . $this->getPostsCategoryFilter($params['cat_url'], 'cat_url') . ' ';
+
+            $sql->and($this->getPostsCategoryFilter($params['cat_url'], 'cat_url'));
         }
 
         /* Other filters */
         if (isset($params['post_status'])) {
-            $strReq .= 'AND post_status = ' . (int) $params['post_status'] . ' ';
+            $sql->and('post_status = ' . (int) $params['post_status']);
         }
 
         if (isset($params['post_firstpub'])) {
-            $strReq .= 'AND post_firstpub = ' . (int) $params['post_firstpub'] . ' ';
+            $sql->and('post_firstpub = ' . (int) $params['post_firstpub']);
         }
 
         if (isset($params['post_selected'])) {
-            $strReq .= 'AND post_selected = ' . (int) $params['post_selected'] . ' ';
+            $sql->and('post_selected = ' . (int) $params['post_selected']);
         }
 
         if (!empty($params['post_year'])) {
-            $strReq .= 'AND ' . $this->con->dateFormat('post_dt', '%Y') . ' = ' .
-            "'" . sprintf('%04d', $params['post_year']) . "' ";
+            $sql->and($sql->dateFormat('post_dt', '%Y') . ' = ' . $sql->quote(sprintf('%04d', $params['post_year'])));
         }
 
         if (!empty($params['post_month'])) {
-            $strReq .= 'AND ' . $this->con->dateFormat('post_dt', '%m') . ' = ' .
-            "'" . sprintf('%02d', $params['post_month']) . "' ";
+            $sql->and($sql->dateFormat('post_dt', '%m') . ' = ' . $sql->quote(sprintf('%02d', $params['post_month'])));
         }
 
         if (!empty($params['post_day'])) {
-            $strReq .= 'AND ' . $this->con->dateFormat('post_dt', '%d') . ' = ' .
-            "'" . sprintf('%02d', $params['post_day']) . "' ";
+            $sql->and($sql->dateFormat('post_dt', '%d') . ' = ' . $sql->quote(sprintf('%02d', $params['post_day'])));
         }
 
         if (!empty($params['post_lang'])) {
-            $strReq .= "AND P.post_lang = '" . $this->con->escape($params['post_lang']) . "' ";
+            $sql->and('P.post_lang = ' . $sql->quote($params['post_lang'], true));
         }
 
         if (!empty($params['search'])) {
@@ -1014,55 +1070,54 @@ class dcBlog
             if (!empty($words)) {
                 # --BEHAVIOR-- corePostSearch
                 if ($this->core->hasBehavior('corePostSearch')) {
-                    $this->core->callBehavior('corePostSearch', $this->core, [&$words, &$strReq, &$params]);
+                    $this->core->callBehavior('corePostSearch', $this->core, [&$words, &$params, $sql]);
                 }
 
                 foreach ($words as $i => $w) {
-                    $words[$i] = "post_words LIKE '%" . $this->con->escape($w) . "%'";
+                    $words[$i] = $sql->like('post_words', '%' . $sql->escape($w) . '%');
                 }
-                $strReq .= 'AND ' . implode(' AND ', $words) . ' ';
+                $sql->and($words);
             }
         }
 
         if (isset($params['media'])) {
-            if ($params['media'] == '0') {
-                $strReq .= 'AND NOT ';
-            } else {
-                $strReq .= 'AND ';
-            }
-            $strReq .= 'EXISTS (SELECT M.post_id FROM ' . $this->prefix . 'post_media M ' .
-                'WHERE M.post_id = P.post_id ';
-            if (isset($params['link_type'])) {
-                $strReq .= ' AND M.link_type ' . $this->con->in($params['link_type']) . ' ';
-            }
-            $strReq .= ')';
-        }
+            $sqlExists = new dcSelectStatement($this->core, 'dcBlogGetPosts');
+            $sqlExists
+                ->from($this->prefix . 'post_media M')
+                ->column('M.post_id')
+                ->where('M.post_id = P.post_id');
 
-        if (!empty($params['where'])) {
-            $strReq .= $params['where'] . ' ';
+            if (isset($params['link_type'])) {
+                $sqlExists->and('M.link_type' . $sqlExists->in($params['link_type']));
+            }
+
+            $sql->and(($params['media'] == '0' ? 'NOT ' : '') . 'EXISTS (' . $sqlExists->statement() . ')');
         }
 
         if (!empty($params['sql'])) {
-            $strReq .= $params['sql'] . ' ';
+            $sql->sql($params['sql']);
         }
 
         if (!$count_only) {
             if (!empty($params['order'])) {
-                $strReq .= 'ORDER BY ' . $this->con->escape($params['order']) . ' ';
+                $sql->order($sql->escape($params['order']));
             } else {
-                $strReq .= 'ORDER BY post_dt DESC ';
+                $sql->order('post_dt DESC');
             }
         }
 
         if (!$count_only && !empty($params['limit'])) {
-            $strReq .= $this->con->limit($params['limit']);
+            $sql->limit($params['limit']);
         }
 
         if (!empty($params['sql_only'])) {
-            return $strReq;
+            return $sql->statement();
         }
 
-        $rs            = $this->con->select($strReq);
+//        print_r($sql->statement());
+//        exit;
+
+        $rs            = $sql->select();
         $rs->core      = $this->core;
         $rs->_nb_media = [];
         $rs->extend('rsExtPost');
@@ -2069,27 +2124,64 @@ class dcBlog
      * - limit: Limit parameter
      * - sql_only : return the sql request instead of results. Only ids are selected
      *
-     * @param    array      $params        Parameters
-     * @param    bool       $count_only    Only counts results
+     * @param    array              $params        Parameters
+     * @param    bool               $count_only    Only counts results
+     * @param    dcSelectStatement  $sql           Optional dcSelectStatement instance
      *
      * @return   mixed      A record with some more capabilities
      */
-    public function getComments($params = [], $count_only = false)
+    public function getComments($params = [], $count_only = false, ?dcSelectStatement $sql = null)
     {
+        if (!$sql) {
+            $sql = new dcSelectStatement($this->core, 'dcBlogGetComments');
+        }
+
         if ($count_only) {
+            $sql->column($sql->count('comment_id'));
+
             $strReq = 'SELECT count(comment_id) ';
         } elseif (!empty($params['sql_only'])) {
+            $sql->column('P.post_id');
+
             $strReq = 'SELECT P.post_id ';
         } else {
             if (!empty($params['no_content'])) {
                 $content_req = '';
             } else {
+                $sql->column('comment_content');
+
                 $content_req = 'comment_content, ';
             }
 
             if (!empty($params['columns']) && is_array($params['columns'])) {
+                $sql->columns($params['columns']);
+
                 $content_req .= implode(', ', $params['columns']) . ', ';
             }
+
+            $sql->columns([
+                'C.comment_id',
+                'comment_dt',
+                'comment_tz',
+                'comment_upddt',
+                'comment_author',
+                'comment_email',
+                'comment_site',
+                'comment_trackback',
+                'comment_status',
+                'comment_spam_status',
+                'comment_spam_filter',
+                'comment_ip',
+                'P.post_title',
+                'P.post_url',
+                'P.post_id',
+                'P.post_password',
+                'P.post_type',
+                'P.post_dt',
+                'P.user_id',
+                'U.user_email',
+                'U.user_url',
+            ]);
 
             $strReq = 'SELECT C.comment_id, comment_dt, comment_tz, comment_upddt, ' .
                 'comment_author, comment_email, comment_site, ' .
@@ -2099,40 +2191,85 @@ class dcBlog
                 'P.post_dt, P.user_id, U.user_email, U.user_url ';
         }
 
+        $sql
+            ->from($this->prefix . 'comment C')
+            ->join(
+                (new dcJoinStatement($this->core, 'dcBlogGetComments'))
+                ->type('INNER')
+                ->from($this->prefix . 'post P')
+                ->on('C.post_id = P.post_id')
+                ->statement()
+            )
+            ->join(
+                (new dcJoinStatement($this->core, 'dcBlogGetComments'))
+                ->type('INNER')
+                ->from($this->prefix . 'user U')
+                ->on('P.user_id = U.user_id')
+                ->statement()
+            );
+
         $strReq .= 'FROM ' . $this->prefix . 'comment C ' .
         'INNER JOIN ' . $this->prefix . 'post P ON C.post_id = P.post_id ' .
         'INNER JOIN ' . $this->prefix . 'user U ON P.user_id = U.user_id ';
 
         if (!empty($params['from'])) {
+            $sql->from($params['from']);
+
             $strReq .= $params['from'] . ' ';
+        }
+
+        if (!empty($params['where'])) {
+            // Cope with legacy code
+            $sql->where($params['where']);
+        } else {
+            $sql->where('P.blog_id = ' . $sql->quote($this->id, true));
         }
 
         $strReq .= "WHERE P.blog_id = '" . $this->con->escape($this->id) . "' ";
 
         if (!$this->core->auth->check('contentadmin', $this->id)) {
+            $user_id = $this->core->auth->userID();
+
+            $and = [
+                'comment_status = 1',
+                'P.post_status = 1',
+            ];
+
             $strReq .= 'AND ((comment_status = 1 AND P.post_status = 1 ';
 
             if ($this->without_password) {
+                $and[] = 'post_password IS NULL';
+
                 $strReq .= 'AND post_password IS NULL ';
             }
             $strReq .= ') ';
 
-            if ($this->core->auth->userID()) {
-                $strReq .= "OR P.user_id = '" . $this->con->escape($this->core->auth->userID()) . "')";
+            $or = [$sql->andGroup($and)];
+            if ($user_id) {
+                $or[] = 'P.user_id = ' . $sql->quote($user_id, true);
+
+                $strReq .= "OR P.user_id = '" . $this->con->escape($user_id) . "')";
             } else {
                 $strReq .= ') ';
             }
+            $sql->and($sql->orGroup($or));
         }
 
         if (!empty($params['post_type'])) {
+            $sql->and('post_type' . $sql->in($params['post_type']));
+
             $strReq .= 'AND post_type ' . $this->con->in($params['post_type']);
         }
 
         if (isset($params['post_id']) && $params['post_id'] !== '') {
+            $sql->and('P.post_id = ' . (int) $params['post_id']);
+
             $strReq .= 'AND P.post_id = ' . (int) $params['post_id'] . ' ';
         }
 
         if (isset($params['cat_id']) && $params['cat_id'] !== '') {
+            $sql->and('P.cat_id = ' . (int) $params['cat_id']);
+
             $strReq .= 'AND P.cat_id = ' . (int) $params['cat_id'] . ' ';
         }
 
@@ -2142,38 +2279,54 @@ class dcBlog
             } else {
                 $params['comment_id'] = [(int) $params['comment_id']];
             }
+            $sql->and('comment_id' . $sql->in($params['comment_id']));
+
             $strReq .= 'AND comment_id ' . $this->con->in($params['comment_id']);
         }
 
         if (isset($params['comment_email'])) {
             $comment_email = $this->con->escape(str_replace('*', '%', $params['comment_email']));
+            $sql->and($sql->like('comment_email', $comment_email));
+
             $strReq .= "AND comment_email LIKE '" . $comment_email . "' ";
         }
 
         if (isset($params['comment_site'])) {
             $comment_site = $this->con->escape(str_replace('*', '%', $params['comment_site']));
+            $sql->and($sql->like('comment_site', $comment_site));
+
             $strReq .= "AND comment_site LIKE '" . $comment_site . "' ";
         }
 
         if (isset($params['comment_status'])) {
+            $sql->and('comment_status = ' . (int) $params['comment_status']);
+
             $strReq .= 'AND comment_status = ' . (int) $params['comment_status'] . ' ';
         }
 
         if (!empty($params['comment_status_not'])) {
+            $sql->and('comment_status <> ' . (int) $params['comment_status_not']);
+
             $strReq .= 'AND comment_status <> ' . (int) $params['comment_status_not'] . ' ';
         }
 
         if (isset($params['comment_trackback'])) {
+            $sql->and('comment_trackback = ' . (int) (bool) $params['comment_trackback']);
+
             $strReq .= 'AND comment_trackback = ' . (int) (bool) $params['comment_trackback'] . ' ';
         }
 
         if (isset($params['comment_ip'])) {
             $comment_ip = $this->con->escape(str_replace('*', '%', $params['comment_ip']));
+            $sql->and($sql->like('comment_ip', $comment_ip));
+
             $strReq .= "AND comment_ip LIKE '" . $comment_ip . "' ";
         }
 
         if (isset($params['q_author'])) {
             $q_author = $this->con->escape(str_replace('*', '%', strtolower($params['q_author'])));
+            $sql->and($sql->like('LOWER(comment_author)', $q_author));
+
             $strReq .= "AND LOWER(comment_author) LIKE '" . $q_author . "' ";
         }
 
@@ -2187,33 +2340,48 @@ class dcBlog
                 }
 
                 foreach ($words as $i => $w) {
-                    $words[$i] = "comment_words LIKE '%" . $this->con->escape($w) . "%'";
+                    $words[$i] = "comment_words LIKE '%" . $sql->escape($w) . "%'";
+
+//                    $words[$i] = "comment_words LIKE '%" . $this->con->escape($w) . "%'";
                 }
+                $sql->and($words);
+
                 $strReq .= 'AND ' . implode(' AND ', $words) . ' ';
             }
         }
 
         if (!empty($params['sql'])) {
+            $sql->sql($params['sql']);
+
             $strReq .= $params['sql'] . ' ';
         }
 
         if (!$count_only) {
             if (!empty($params['order'])) {
+                $sql->order($sql->escape($params['order']));
+
                 $strReq .= 'ORDER BY ' . $this->con->escape($params['order']) . ' ';
             } else {
+                $sql->order('comment_dt DESC');
+
                 $strReq .= 'ORDER BY comment_dt DESC ';
             }
         }
 
         if (!$count_only && !empty($params['limit'])) {
+            $sql->limit($params['limit']);
+
             $strReq .= $this->con->limit($params['limit']);
         }
 
         if (!empty($params['sql_only'])) {
-            return $strReq;
+            return $sql->statement();
+
+//            return $strReq;
         }
 
-        $rs       = $this->con->select($strReq);
+        $rs = $sql->select();
+//        $rs       = $this->con->select($strReq);
         $rs->core = $this->core;
         $rs->extend('rsExtComment');
 

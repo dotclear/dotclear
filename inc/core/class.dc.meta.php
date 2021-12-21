@@ -154,12 +154,14 @@ class dcMeta
 
         #�If user can only publish, we need to check the post's owner
         if (!$this->core->auth->check('contentadmin', $this->core->blog->id)) {
-            $strReq = 'SELECT post_id ' .
-            'FROM ' . $this->core->prefix . 'post ' .
-            'WHERE post_id = ' . $post_id . ' ' .
-            "AND user_id = '" . $this->con->escape($this->core->auth->userID()) . "' ";
+            $sql = new dcSelectStatement($this->core, 'dcMetaCheckPermissionsOnPost');
+            $sql
+                ->from($this->table)
+                ->column('post_id')
+                ->where('post_id = ' . $post_id)
+                ->and('user_id = ' . $sql->quote($this->core->auth->userID(), true));
 
-            $rs = $this->con->select($strReq);
+            $rs = $sql->select();
 
             if ($rs->isEmpty()) {
                 throw new Exception(__('You are not allowed to change this entry status'));
@@ -176,11 +178,16 @@ class dcMeta
     {
         $post_id = (int) $post_id;
 
-        $strReq = 'SELECT meta_id, meta_type ' .
-        'FROM ' . $this->table . ' ' .
-            'WHERE post_id = ' . $post_id . ' ';
+        $sql = new dcSelectStatement($this->core, 'dcMetaUpdatePostMeta');
+        $sql
+            ->from($this->table)
+            ->columns([
+                'meta_id',
+                'meta_type',
+            ])
+            ->where('post_id = ' . $post_id);
 
-        $rs = $this->con->select($strReq);
+        $rs = $sql->select();
 
         $meta = [];
         while ($rs->fetch()) {
@@ -192,7 +199,11 @@ class dcMeta
         $cur            = $this->con->openCursor($this->core->prefix . 'post');
         $cur->post_meta = $post_meta;
 
-        $cur->update('WHERE post_id = ' . $post_id);
+        $sql = new dcUpdateStatement($this->core, 'dcMetaUpdatePostMeta');
+        $sql->where('post_id = ' . $post_id);
+
+        $sql->update($cur);
+
         $this->core->blog->triggerBlog();
     }
 
@@ -202,30 +213,41 @@ class dcMeta
      * - meta_id : get posts having meta id
      * - meta_type : get posts having meta type
      *
-     * @param      array   $params      The parameters
-     * @param      bool    $count_only  Only count results
+     * @param      array                    $params      The parameters
+     * @param      bool                     $count_only  Only count results
+     * @param      dcSelectStatement|null   $sql         Optional dcSqlStatement instance
      *
      * @return     mixed   The resulting posts record.
      */
-    public function getPostsByMeta($params = [], $count_only = false)
+    public function getPostsByMeta($params = [], $count_only = false, ?dcSelectStatement $sql = null)
     {
         if (!isset($params['meta_id'])) {
             return;
         }
 
-        $params['from'] = ', ' . $this->table . ' META ';
-        $params['sql']  = 'AND META.post_id = P.post_id ';
+        if (!$sql) {
+            $sql = new dcSelectStatement($this->core, 'dcMetaGetPostsByMeta');
+        }
 
-        $params['sql'] .= "AND META.meta_id = '" . $this->con->escape($params['meta_id']) . "' ";
+        $sql
+            ->from($this->table . ' META')
+            ->and('META.post_id = P.post_id')
+            ->and('META.meta_id = ' . $sql->quote($params['meta_id'], true));
+
+//        $params['from'] = $this->table . ' META ';
+//        $params['sql']  = 'AND META.post_id = P.post_id ';
+//        $params['sql'] .= "AND META.meta_id = '" . $this->con->escape($params['meta_id']) . "' ";
 
         if (!empty($params['meta_type'])) {
-            $params['sql'] .= "AND META.meta_type = '" . $this->con->escape($params['meta_type']) . "' ";
+            $sql->and('META.meta_type = ' . $sql->quote($params['meta_type'], true));
+
+//            $params['sql'] .= "AND META.meta_type = '" . $this->con->escape($params['meta_type']) . "' ";
             unset($params['meta_type']);
         }
 
         unset($params['meta_id']);
 
-        return $this->core->blog->getPosts($params, $count_only);
+        return $this->core->blog->getPosts($params, $count_only, $sql);
     }
 
     /**
@@ -234,27 +256,39 @@ class dcMeta
      * - meta_id : get posts having meta id
      * - meta_type : get posts having meta type
      *
-     * @param      array   $params      The parameters
-     * @param      bool    $count_only  Only count results
+     * @param      array                    $params      The parameters
+     * @param      bool                     $count_only  Only count results
+     * @param      dcSelectStatement|null   $sql         Optional dcSqlStatement instance
      *
      * @return     mixed   The resulting comments record.
      */
-    public function getCommentsByMeta($params = [], $count_only = false)
+    public function getCommentsByMeta($params = [], $count_only = false, ?dcSelectStatement $sql = null)
     {
         if (!isset($params['meta_id'])) {
             return;
         }
 
-        $params['from'] = ', ' . $this->table . ' META ';
-        $params['sql']  = 'AND META.post_id = P.post_id ';
-        $params['sql'] .= "AND META.meta_id = '" . $this->con->escape($params['meta_id']) . "' ";
+        if (!$sql) {
+            $sql = new dcSelectStatement($this->core, 'dcMetaGetPostsByMeta');
+        }
+
+        $sql
+            ->from($this->table . ' META')
+            ->and('META.post_id = P.post_id')
+            ->and('META.meta_id = ' . $sql->quote($params['meta_id'], true));
+
+//        $params['from'] = ', ' . $this->table . ' META ';
+//        $params['sql']  = 'AND META.post_id = P.post_id ';
+//        $params['sql'] .= "AND META.meta_id = '" . $this->con->escape($params['meta_id']) . "' ";
 
         if (!empty($params['meta_type'])) {
-            $params['sql'] .= "AND META.meta_type = '" . $this->con->escape($params['meta_type']) . "' ";
+            $sql->and('META.meta_type = ' . $sql->quote($params['meta_type'], true));
+
+//            $params['sql'] .= "AND META.meta_type = '" . $this->con->escape($params['meta_type']) . "' ";
             unset($params['meta_type']);
         }
 
-        return $this->core->blog->getComments($params, $count_only);
+        return $this->core->blog->getComments($params, $count_only, $sql);
     }
 
     /**
@@ -268,48 +302,66 @@ class dcMeta
      * - limit: number of max fetched metas
      * - order: results order (default : posts count DESC)
      *
-     * @param      array   $params      The parameters
-     * @param      bool    $count_only  Only counts results
+     * @param      array                    $params      The parameters
+     * @param      bool                     $count_only  Only counts results
+     * @param      dcSelectStatement|null   $sql         Optional dcSqlStatement instance
      *
      * @return     record  The metadata.
      */
-    public function getMetadata($params = [], $count_only = false)
+    public function getMetadata($params = [], $count_only = false, ?dcSelectStatement $sql = null)
     {
-        if ($count_only) {
-            $strReq = 'SELECT count(distinct M.meta_id) ';
-        } else {
-            $strReq = 'SELECT M.meta_id, M.meta_type, COUNT(M.post_id) as count, MAX(P.post_dt) as latest, MIN(P.post_dt) as oldest ';
+        if (!$sql) {
+            $sql = new dcSelectStatement($this->core, 'dcMetaGetMetadata');
         }
 
-        $strReq .= 'FROM ' . $this->table . ' M LEFT JOIN ' . $this->core->prefix . 'post P ' .
-        'ON M.post_id = P.post_id ' .
-        "WHERE P.blog_id = '" . $this->con->escape($this->core->blog->id) . "' ";
+        if ($count_only) {
+            $sql->column($sql->count($sql->unique('M.meta_id')));
+        } else {
+            $sql->columns([
+                'M.meta_id',
+                'M.meta_type',
+                $sql->count('M.post_id', 'count'),
+                $sql->max('P.post_dt', 'latest'),
+                $sql->min('P.post_dt', 'oldest'),
+            ]);
+        }
+
+        $sql
+            ->from($this->table . ' M')
+            ->join(
+                (new dcJoinStatement($this->core, 'dcMetaGetMetadata'))
+                ->type('LEFT')
+                ->from($sql->core->prefix . 'post P')
+                ->on('M.post_id = P.post_id')
+                ->statement()
+            )
+            ->where('P.blog_id = ' . $sql->quote($this->core->blog->id, true));
 
         if (isset($params['meta_type'])) {
-            $strReq .= " AND meta_type = '" . $this->con->escape($params['meta_type']) . "' ";
+            $sql->and('meta_type = ' . $sql->quote($params['meta_type'], true));
         }
 
         if (isset($params['meta_id'])) {
-            $strReq .= " AND meta_id = '" . $this->con->escape($params['meta_id']) . "' ";
+            $sql->and('meta_id = ' . $sql->quote($params['meta_id'], true));
         }
 
         if (isset($params['post_id'])) {
-            $strReq .= ' AND P.post_id ' . $this->con->in($params['post_id']) . ' ';
+            $sql->and('P.post_id' . $sql->in($params['post_id']));
         }
 
         if (!$this->core->auth->check('contentadmin', $this->core->blog->id)) {
-            $strReq .= 'AND ((post_status = 1 ';
+            $user_id = $this->core->auth->userID();
 
+            $and = ['post_status = 1'];
             if ($this->core->blog->without_password) {
-                $strReq .= 'AND post_password IS NULL ';
+                $and[] = 'post_password IS NULL';
             }
-            $strReq .= ') ';
 
-            if ($this->core->auth->userID()) {
-                $strReq .= "OR P.user_id = '" . $this->con->escape($this->core->auth->userID()) . "')";
-            } else {
-                $strReq .= ') ';
+            $or = [$sql->andGroup($and)];
+            if ($user_id) {
+                $or[] = 'P.user_id = ' . $sql->quote($user_id, true);
             }
+            $sql->and($sql->orGroup($or));
         }
 
         if (!$count_only) {
@@ -317,15 +369,20 @@ class dcMeta
                 $params['order'] = 'count DESC';
             }
 
-            $strReq .= 'GROUP BY meta_id,meta_type,P.blog_id ' .
-                'ORDER BY ' . $params['order'];
+            $sql
+                ->group([
+                    'meta_id',
+                    'meta_type',
+                    'P.blog_id',
+                ])
+                ->order($params['order']);
 
             if (isset($params['limit'])) {
-                $strReq .= $this->con->limit($params['limit']);
+                $sql->limit($params['limit']);
             }
         }
 
-        $rs = $this->con->select($strReq);
+        $rs = $sql->select();
 
         return $rs;
     }
@@ -358,7 +415,6 @@ class dcMeta
         while ($rs_static->fetch()) {   // @phpstan-ignore-line
             $rs_static->set('meta_id_lower', dcUtils::removeDiacritics(mb_strtolower($rs_static->meta_id)));
 
-            $count   = $rs_static->count;
             $percent = ((int) $rs_static->count) * 100 / $max[$rs_static->meta_type];
 
             $rs_static->set('percent', (int) round($percent));
@@ -407,18 +463,21 @@ class dcMeta
 
         $this->checkPermissionsOnPost($post_id);
 
-        $strReq = 'DELETE FROM ' . $this->table . ' ' .
-            'WHERE post_id = ' . $post_id;
+        $sql = new dcDeleteStatement($this->core, 'dcMetaDelPostMeta');
+        $sql
+            ->from($this->table)
+            ->where('post_id = ' . $post_id);
 
         if ($type !== null) {
-            $strReq .= " AND meta_type = '" . $this->con->escape($type) . "' ";
+            $sql->and('meta_type = ' . $sql->quote($type, true));
         }
 
         if ($meta_id !== null) {
-            $strReq .= " AND meta_id = '" . $this->con->escape($meta_id) . "' ";
+            $sql->and('meta_id = ' . $sql->quote($meta_id, true));
         }
 
-        $this->con->execute($strReq);
+        $sql->delete();
+
         $this->updatePostMeta((int) $post_id);
     }
 
@@ -440,42 +499,35 @@ class dcMeta
             return true;
         }
 
-        $getReq = 'SELECT M.post_id ' .
-        'FROM ' . $this->table . ' M, ' . $this->core->prefix . 'post P ' .
-        'WHERE P.post_id = M.post_id ' .
-        "AND P.blog_id = '" . $this->con->escape($this->core->blog->id) . "' " .
-            "AND meta_id = '%s' ";
+        $sql = new dcSelectStatement($this->core, 'dcMetaUpdateMeta');
+        $sql
+            ->from([
+                $this->table . ' M',
+                $sql->core->prefix . 'post P',
+            ])
+            ->column('M.post_id')
+            ->where('P.post_id = M.post_id')
+            ->and('P.blog_id = ' . $sql->quote($this->core->blog->id, true));
 
         if (!$this->core->auth->check('contentadmin', $this->core->blog->id)) {
-            $getReq .= "AND P.user_id = '" . $this->con->escape($this->core->auth->userID()) . "' ";
+            $sql->and('P.user_id = ' . $sql->quote($this->core->auth->userID(), true));
         }
         if ($post_type !== null) {
-            $getReq .= "AND P.post_type = '" . $this->con->escape($post_type) . "' ";
+            $sql->and('P.post_type = ' . $sql->quote($post_type, true));
         }
 
-        $delReq = 'DELETE FROM ' . $this->table . ' ' .
-            'WHERE post_id IN (%s) ' .
-            "AND meta_id = '%s' ";
-
-        $updReq = 'UPDATE ' . $this->table . ' ' .
-            "SET meta_id = '%s' " .
-            'WHERE post_id IN (%s) ' .
-            "AND meta_id = '%s' ";
-
         if ($type !== null) {
-            $plus = " AND meta_type = '%s' ";
-            $getReq .= $plus;
-            $delReq .= $plus;
-            $updReq .= $plus;
+            $sql->and('meta_type = ' . $sql->quote($type, true));
         }
 
         $to_update = $to_remove = [];
 
-        $rs = $this->con->select(sprintf(
-            $getReq,
-            $this->con->escape($meta_id),
-            $this->con->escape($type)
-        ));
+        // Clone $sql object in order to do the same select query but with another meta_id
+        $sqlNew = clone $sql;
+
+        $sql->and('meta_id = ' . $sql->quote($meta_id, true));
+
+        $rs = $sql->select();
 
         while ($rs->fetch()) {
             $to_update[] = $rs->post_id;
@@ -485,7 +537,10 @@ class dcMeta
             return false;
         }
 
-        $rs = $this->con->select(sprintf($getReq, $new_meta_id, $type));
+        $sqlNew->and('meta_id = ' . $sqlNew->quote($new_meta_id, true));
+
+        $rs = $sqlNew->select();
+
         while ($rs->fetch()) {
             if (in_array($rs->post_id, $to_update)) {
                 $to_remove[] = $rs->post_id;
@@ -495,12 +550,17 @@ class dcMeta
 
         # Delete duplicate meta
         if (!empty($to_remove)) {
-            $this->con->execute(sprintf(
-                $delReq,
-                implode(',', $to_remove),
-                $this->con->escape($meta_id),
-                $this->con->escape($type)
-            ));
+            $sqlDel = new dcDeleteStatement($this->core, 'dcMetaUpdateMeta');
+            $sqlDel
+                ->from($this->table)
+                ->where('post_id' . $sqlDel->in($to_remove, 'int'))      // Note: will cast all values to integer
+                ->and('meta_id = ' . $sqlDel->quote($meta_id, true));
+
+            if ($type !== null) {
+                $sqlDel->and('meta_type = ' . $sqlDel->quote($type, true));
+            }
+
+            $sqlDel->delete();
 
             foreach ($to_remove as $post_id) {
                 $this->updatePostMeta($post_id);
@@ -509,13 +569,18 @@ class dcMeta
 
         # Update meta
         if (!empty($to_update)) {
-            $this->con->execute(sprintf(
-                $updReq,
-                $this->con->escape($new_meta_id),
-                implode(',', $to_update),
-                $this->con->escape($meta_id),
-                $this->con->escape($type)
-            ));
+            $sqlUpd = new dcUpdateStatement($this->core, 'dcMetaUpdateMeta');
+            $sqlUpd
+                ->from($this->table)
+                ->set('meta_id = ' . $sqlUpd->quote($new_meta_id, true))
+                ->where('post_id' . $sqlUpd->in($to_update, 'int'))     // Note: will cast all values to integer
+                ->and('meta_id = ' . $sqlUpd->quote($meta_id, true));
+
+            if ($type !== null) {
+                $sqlUpd->and('meta_type = ' . $sqlUpd->quote($type, true));
+            }
+
+            $sqlUpd->update();
 
             foreach ($to_update as $post_id) {
                 $this->updatePostMeta($post_id);
@@ -536,21 +601,26 @@ class dcMeta
      */
     public function delMeta($meta_id, $type = null, $post_type = null)
     {
-        $strReq = 'SELECT M.post_id ' .
-        'FROM ' . $this->table . ' M, ' . $this->core->prefix . 'post P ' .
-        'WHERE P.post_id = M.post_id ' .
-        "AND P.blog_id = '" . $this->con->escape($this->core->blog->id) . "' " .
-        "AND meta_id = '" . $this->con->escape($meta_id) . "' ";
+        $sql = new dcSelectStatement($this->core, 'dcMetaDelMeta');
+        $sql
+            ->column('M.post_id')
+            ->from([
+                $this->table . ' M',
+                $sql->core->prefix . 'post P',
+            ])
+            ->where('P.post_id = M.post_id')
+            ->and('P.blog_id = ' . $sql->quote($this->core->blog->id, true))
+            ->and('meta_id = ' . $sql->quote($meta_id, true));
 
         if ($type !== null) {
-            $strReq .= " AND meta_type = '" . $this->con->escape($type) . "' ";
+            $sql->and('meta_type = ' . $sql->quote($type, true));
         }
 
         if ($post_type !== null) {
-            $strReq .= " AND P.post_type = '" . $this->con->escape($post_type) . "' ";
+            $sql->and('P.post_type = ' . $sql->quote($post_type, true));
         }
 
-        $rs = $this->con->select($strReq);
+        $rs = $sql->select();
 
         if ($rs->isEmpty()) {
             return [];
@@ -561,15 +631,17 @@ class dcMeta
             $ids[] = $rs->post_id;
         }
 
-        $strReq = 'DELETE FROM ' . $this->table . ' ' .
-        'WHERE post_id IN (' . implode(',', $ids) . ') ' .
-        "AND meta_id = '" . $this->con->escape($meta_id) . "' ";
+        $sql = new dcDeleteStatement($this->core, 'dcMetaDelMeta');
+        $sql
+            ->from($this->table)
+            ->where('post_id' . $sql->in($ids, 'int'))
+            ->and('meta_id = ' . $sql->quote($meta_id, true));
 
         if ($type !== null) {
-            $strReq .= " AND meta_type = '" . $this->con->escape($type) . "' ";
+            $sql->and('meta_type = ' . $sql->quote($type, true));
         }
 
-        $rs = $this->con->execute($strReq);
+        $sql->delete();
 
         foreach ($ids as $post_id) {
             $this->updatePostMeta($post_id);
