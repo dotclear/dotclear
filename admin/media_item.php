@@ -351,7 +351,7 @@ if (!empty($_GET['blogprefupd'])) {
 $file_type = explode('/', $file->type);
 
 # Selection mode
-if ($select) {
+if ($select === 1) {
     // Let user choose thumbnail size if image
     $media_title = $file->media_title;
     if ($media_title == $file->basename || files::tidyFileName($media_title) == $file->basename) {
@@ -416,7 +416,7 @@ if ($select) {
 }
 
 # Insertion popup
-if ($popup && !$select) {
+if ($popup && ($select === 0)) {
     $media_title = $file->media_title;
     if ($media_title == $file->basename || files::tidyFileName($media_title) == $file->basename) {
         $media_title = '';
@@ -612,7 +612,7 @@ if ($popup && !$select) {
     echo '</div>';
 }
 
-if ($popup || $select) {
+if ($popup && ($select === 0) || ($select === 1)) {
     echo
     '<div class="multi-part" title="' . __('Media details') . '" id="media-details-tab">';
 } else {
@@ -898,7 +898,7 @@ if ($file->editable && $core_media_writable) {
 
 echo
     '</div>';
-if ($popup || $select) {
+if ($popup && ($select === 0) || ($select === 1)) {
     echo
         '</div>';
 } else {
