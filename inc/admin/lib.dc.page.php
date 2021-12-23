@@ -200,7 +200,7 @@ class dcPage
 
         echo self::preload('style/default.css') . self::cssLoad('style/default.css');
 
-        if ($rtl = (l10n::getTextDirection($GLOBALS['_lang']) == 'rtl')) {
+        if ($rtl = (l10n::getLanguageTextDirection($GLOBALS['_lang']) == 'rtl')) {
             echo self::cssLoad('style/default-rtl.css');
         }
 
