@@ -189,7 +189,7 @@ class adminMediaPage extends adminMediaFilter
      */
     public function showLast()
     {
-        return abs((integer) $this->core->auth->user_prefs->interface->media_nb_last_dirs);
+        return abs((int) $this->core->auth->user_prefs->interface->media_nb_last_dirs);
     }
 
     /**
@@ -359,7 +359,7 @@ class adminMediaPage extends adminMediaFilter
         if (empty($element) && isset($this->core->media)) {
             $param = [
                 'd' => '',
-                'q' => ''
+                'q' => '',
             ];
 
             if ($this->media_has_query || $this->q) {
@@ -379,10 +379,10 @@ class adminMediaPage extends adminMediaFilter
         $elements = [
             html::escapeHTML($this->core->blog->name) => '',
             __('Media manager')                       => empty($param) ? '' :
-                $this->core->adminurl->get('admin.media', array_merge($this->values(), array_merge($this->values(), $param)))
+                $this->core->adminurl->get('admin.media', array_merge($this->values(), array_merge($this->values(), $param))),
         ];
         $options = [
-            'home_link' => !$this->popup
+            'home_link' => !$this->popup,
         ];
 
         return dcPage::breadcrumb(array_merge($elements, $element), array_merge($options, $option));
@@ -433,8 +433,8 @@ if ($page->showLast()) {
 # New directory
 if ($page->getDirs() && !empty($_POST['newdir'])) {
     $nd = files::tidyFileName($_POST['newdir']);
-    if (array_filter($page->getDirs('files'), function ($i) use ($nd) {return ($i->basename === $nd);})
-        || array_filter($page->getDirs('dirs'), function ($i) use ($nd) {return ($i->basename === $nd);})
+    if (array_filter($page->getDirs('files'), fn ($i) => ($i->basename === $nd))
+        || array_filter($page->getDirs('dirs'), fn ($i) => ($i->basename === $nd))
     ) {
         dcPage::addWarningNotice(sprintf(
             __('Directory or file "%s" already exists.'),
@@ -463,7 +463,7 @@ if ($page->getDirs() && !empty($_FILES['upfile'])) {
         'tmp_name' => $_FILES['upfile']['tmp_name'][0],
         'error'    => $_FILES['upfile']['error'][0],
         'size'     => $_FILES['upfile']['size'][0],
-        'title'    => html::escapeHTML($_FILES['upfile']['name'][0])
+        'title'    => html::escapeHTML($_FILES['upfile']['name'][0]),
     ];
 
     if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
@@ -477,13 +477,13 @@ if ($page->getDirs() && !empty($_FILES['upfile'])) {
             $message['files'][] = [
                 'name' => $upfile['name'],
                 'size' => $upfile['size'],
-                'html' => $page->mediaLine($new_file_id)
+                'html' => $page->mediaLine($new_file_id),
             ];
         } catch (Exception $e) {
             $message['files'][] = [
                 'name'  => $upfile['name'],
                 'size'  => $upfile['size'],
-                'error' => $e->getMessage()
+                'error' => $e->getMessage(),
             ];
         }
         echo json_encode($message);
@@ -512,10 +512,12 @@ if ($page->getDirs() && !empty($_POST['medias']) && !empty($_POST['delete_medias
             $core->media->removeItem(rawurldecode($media));
         }
         dcPage::addSuccessNotice(
-            sprintf(__('Successfully delete one media.',
-                'Successfully delete %d medias.',
-                count($_POST['medias'])
-            ),
+            sprintf(
+                __(
+                    'Successfully delete one media.',
+                    'Successfully delete %d medias.',
+                    count($_POST['medias'])
+                ),
                 count($_POST['medias'])
             )
         );
@@ -555,9 +557,11 @@ if ($page->getDirs() && $core->auth->isSuperAdmin() && !empty($_POST['rebuild'])
     try {
         $core->media->rebuild($page->d);
 
-        dcPage::success(sprintf(
-            __('Directory "%s" has been successfully rebuilt.'),
-            html::escapeHTML($page->d))
+        dcPage::success(
+            sprintf(
+                __('Directory "%s" has been successfully rebuilt.'),
+                html::escapeHTML($page->d)
+            )
         );
         $core->adminurl->redirect('admin.media', $page->values());
     } catch (Exception $e) {
@@ -571,8 +575,10 @@ if ($page->getDirs() && !empty($_GET['remove']) && empty($_GET['noconfirm'])) {
 
     echo
     '<form action="' . html::escapeURL($core->adminurl->get('admin.media')) . '" method="post">' .
-    '<p>' . sprintf(__('Are you sure you want to remove %s?'),
-        html::escapeHTML($_GET['remove'])) . '</p>' .
+    '<p>' . sprintf(
+        __('Are you sure you want to remove %s?'),
+        html::escapeHTML($_GET['remove'])
+    ) . '</p>' .
     '<p><input type="submit" value="' . __('Cancel') . '" /> ' .
     ' &nbsp; <input type="submit" name="rmyes" value="' . __('Yes') . '" />' .
     $core->adminurl->getHiddenFormFields('admin.media', $page->values()) .
@@ -648,10 +654,17 @@ if ($page->showLast()) {
     }
 }
 
-$page->openPage($page->breadcrumb(),
+$starting_scripts = '';
+if ($page->popup && ($page->plugin_id !== '')) {
+    $starting_scripts .= $core->callBehavior('adminPopupMediaManager', $page->plugin_id);
+}
+
+$page->openPage(
+    $page->breadcrumb(),
     dcPage::jsModal() .
     $page->js($core->adminurl->get('admin.media', array_diff_key($page->values(), $page->values(false, true)), '&')) .
     dcPage::jsLoad('js/_media.js') .
+    $starting_scripts .
     ($page->mediaWritable() ? dcPage::jsUpload(['d=' . $page->d]) : '')
 );
 
@@ -682,17 +695,21 @@ if ($page->select) {
     echo '</p></div>';
 } else {
     if ($page->post_id) {
-        echo '<div class="form-note info"><p>' . sprintf(__('Choose a file to attach to entry %s by clicking on %s'),
+        echo '<div class="form-note info"><p>' . sprintf(
+            __('Choose a file to attach to entry %s by clicking on %s'),
             '<a href="' . $core->getPostAdminURL($page->getPostType(), $page->post_id) . '">' . html::escapeHTML($page->getPostTitle()) . '</a>',
-            '<img src="images/plus.png" alt="' . __('Attach this file to entry') . '" />');
+            '<img src="images/plus.png" alt="' . __('Attach this file to entry') . '" />'
+        );
         if ($page->mediaWritable()) {
             echo ' ' . __('or') . ' ' . sprintf('<a href="#fileupload">%s</a>', __('upload a new file'));
         }
         echo '</p></div>';
     }
     if ($page->popup) {
-        echo '<div class="info"><p>' . sprintf(__('Choose a file to insert into entry by clicking on %s'),
-            '<img src="images/plus.png" alt="' . __('Attach this file to entry') . '" />');
+        echo '<div class="info"><p>' . sprintf(
+            __('Choose a file to insert into entry by clicking on %s'),
+            '<img src="images/plus.png" alt="' . __('Attach this file to entry') . '" />'
+        );
         if ($page->mediaWritable()) {
             echo ' ' . __('or') . ' ' . sprintf('<a href="#fileupload">%s</a>', __('upload a new file'));
         }
@@ -712,7 +729,8 @@ $page->add((new dcAdminFilter('file_mode'))->value($page->file_mode)->html(
     '<a href="' . $core->adminurl->get('admin.media', array_merge($page->values(), ['file_mode' => 'list'])) . '" title="' . __('List display mode') . '">' .
     '<img src="images/list-' . ($page->file_mode == 'list' ? 'on' : 'off') . '.png" alt="' . __('List display mode') . '" />' .
     '</a>' .
-    '</span></p>', false
+    '</span></p>',
+    false
 ));
 
 $fmt_form_media = '<form action="' . $core->adminurl->get('admin.media') . '" method="post" id="form-medias">' .
@@ -783,8 +801,10 @@ if ((!$page->hasQuery()) && ($page->mediaWritable() || $page->mediaArchivable())
         echo
         '<div class="fieldset">' .
         '<h4 class="pretty-title">' . sprintf(__('Backup content of %s'), ($page->d == '' ? '“' . __('Media manager') . '”' : '“' . $page->d . '”')) . '</h4>' .
-        '<p><a class="button submit" href="' . $core->adminurl->get('admin.media',
-            array_merge($page->values(), ['zipdl' => 1])) . '">' . __('Download zip file') . '</a></p>' .
+        '<p><a class="button submit" href="' . $core->adminurl->get(
+            'admin.media',
+            array_merge($page->values(), ['zipdl' => 1])
+        ) . '">' . __('Download zip file') . '</a></p>' .
             '</div>';
     }
 
@@ -865,8 +885,10 @@ if ((!$page->hasQuery()) && ($page->mediaWritable() || $page->mediaArchivable())
 }
 
 if (!$page->popup) {
-    echo '<div class="info"><p>' . sprintf(__('Current settings for medias and images are defined in %s'),
-        '<a href="' . $core->adminurl->get('admin.blog.pref') . '#medias-settings">' . __('Blog parameters') . '</a>') . '</p></div>';
+    echo '<div class="info"><p>' . sprintf(
+        __('Current settings for medias and images are defined in %s'),
+        '<a href="' . $core->adminurl->get('admin.blog.pref') . '#medias-settings">' . __('Blog parameters') . '</a>'
+    ) . '</p></div>';
 
     # Go back button
     echo '<p><input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" /></p>';
