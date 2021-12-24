@@ -40,11 +40,11 @@ if (!empty($_POST['action']) && !empty($_POST['users'])) {
         $redir = $_POST['redir'];
     } else {
         $redir = $core->adminurl->get('admin.users', [
-            'q'      => $_POST['q'],
-            'sortby' => $_POST['sortby'],
-            'order'  => $_POST['order'],
-            'page'   => $_POST['page'],
-            'nb'     => $_POST['nb']
+            'q'      => $_POST['q'] ?? '',
+            'sortby' => $_POST['sortby'] ?? '',
+            'order'  => $_POST['order'] ?? '',
+            'page'   => $_POST['page'] ?? '',
+            'nb'     => $_POST['nb'] ?? '',
         ]);
     }
 
@@ -148,11 +148,12 @@ foreach ($users as $u) {
 if (isset($_POST['redir']) && strpos($_POST['redir'], '://') === false) {
     $hidden_fields .= form::hidden(['redir'], html::escapeURL($_POST['redir']));
 } else {
-    $hidden_fields .= form::hidden(['q'], html::escapeHTML($_POST['q'])) .
-    form::hidden(['sortby'], $_POST['sortby']) .
-    form::hidden(['order'], $_POST['order']) .
-    form::hidden(['page'], $_POST['page']) .
-    form::hidden(['nb'], $_POST['nb']);
+    $hidden_fields .= 
+    form::hidden(['q'], html::escapeHTML($_POST['q'] ?? '')) .
+    form::hidden(['sortby'], $_POST['sortby'] ?? '') .
+    form::hidden(['order'], $_POST['order'] ?? '') .
+    form::hidden(['page'], $_POST['page'] ?? '') .
+    form::hidden(['nb'], $_POST['nb'] ?? '');
 }
 
 echo '<p><a class="back" href="' . html::escapeURL($redir) . '">' . __('Back to user profile') . '</a></p>';    // @phpstan-ignore-line
