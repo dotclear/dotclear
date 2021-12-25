@@ -258,12 +258,12 @@ $get_img_desc = function ($file, $default = '') {
     if (count($file->media_meta) > 0) {
         foreach ($file->media_meta as $k => $v) {
             if ((string) $v && ($k == 'Description')) {
-                return $v;
+                return (string) $v;
             }
         }
     }
 
-    return $default;
+    return (string) $default;
 };
 
 $get_img_def = function ($file) {
