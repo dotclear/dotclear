@@ -139,6 +139,18 @@ parameters:
     - message: '#Access to an undefined property adminMediaPage::\$[a-zA-Z0-9\\_]+.#'
       path: %currentWorkingDirectory%
 
+    # dcSelectStatement (which extends dcSqlStatement) ->join()
+    - message: '#Call to an undefined method dcSqlStatement::join\(\).#'
+      path: %currentWorkingDirectory%
+
+    # dcUpdateStatement (which extends dcSqlStatement) ->set()
+    - message: '#Call to an undefined method dcSqlStatement::set\(\).#'
+      path: %currentWorkingDirectory%
+
+    # dcSqlStatement::$core
+    - message: '#Access to protected property dcSelectStatement::\$core.#'
+      path: %currentWorkingDirectory%
+
 # Notes:
 #
 # Use /* @phpstan-ignore-next-line */ or // @phpstan-ignore-line
