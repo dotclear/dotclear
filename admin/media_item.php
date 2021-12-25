@@ -777,7 +777,7 @@ if ($file->type == 'image/jpeg' || $file->type == 'image/webp') {
     if (count($file->media_meta) > 0) {
         foreach ($file->media_meta as $k => $v) {
             if ((string) $v) {
-                $details .= '<li><strong>' . $k . ':</strong> ' . html::escapeHTML($v) . '</li>';
+                $details .= '<li><strong>' . $k . ':</strong> ' . html::escapeHTML((string) $v) . '</li>';
             }
         }
     }
@@ -871,9 +871,9 @@ if ($file->editable && $core_media_writable) {
     echo
     '<form class="clear fieldset" action="' . $core->adminurl->get('admin.media.item') . '" method="post" enctype="multipart/form-data">' .
     '<h4>' . __('Change file') . '</h4>' .
-    '<div>' . form::hidden(['MAX_FILE_SIZE'], DC_MAX_UPLOAD_SIZE) . '</div>' .
+    '<div>' . form::hidden(['MAX_FILE_SIZE'], (string) DC_MAX_UPLOAD_SIZE) . '</div>' .
     '<p><label for="upfile">' . __('Choose a file:') .
-    ' (' . sprintf(__('Maximum size %s'), files::size(DC_MAX_UPLOAD_SIZE)) . ') ' .
+    ' (' . sprintf(__('Maximum size %s'), files::size((int) DC_MAX_UPLOAD_SIZE)) . ') ' .
     '<input type="file" id="upfile" name="upfile" size="35" />' .
     '</label></p>' .
     '<p><input type="submit" value="' . __('Send') . '" />' .
