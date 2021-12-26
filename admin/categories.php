@@ -170,7 +170,7 @@ if ($rs->isEmpty()) {
             echo
             '<label for="mov_cat_' . $rs->cat_id . '">' . __('Move entries to') . '</label> ' .
             form::combo(['mov_cat[' . $rs->cat_id . ']', 'mov_cat_' . $rs->cat_id], array_filter($categories_combo,
-                function ($cat) {return $cat->value != $GLOBALS['rs']->cat_id;}
+                function ($cat) {return $cat->value != ($GLOBALS['rs']->cat_id ?? '0');}
             ), '', '') .
             ' <input type="submit" class="reset" name="mov[' . $rs->cat_id . ']" value="' . __('OK') . '"/>';
 
