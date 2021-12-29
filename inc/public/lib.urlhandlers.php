@@ -80,7 +80,7 @@ class dcUrlHandlers extends urlHandler
     protected static function getPageNumber(&$args)
     {
         if (preg_match('#(^|/)page/([0-9]+)$#', $args, $m)) {
-            $n = (integer) $m[2];
+            $n = (int) $m[2];
             if ($n > 0) {
                 $args = preg_replace('#(^|/)page/([0-9]+)$#', '', $args);
 
@@ -109,7 +109,7 @@ class dcUrlHandlers extends urlHandler
             throw new Exception('Unable to find template ');
         }
 
-        $result = new ArrayObject;
+        $result = new ArrayObject();
 
         $_ctx->current_tpl  = $tpl;
         $_ctx->content_type = $content_type;
@@ -119,18 +119,23 @@ class dcUrlHandlers extends urlHandler
 
         if ($_ctx->http_cache) {
             $GLOBALS['mod_files'][] = $tpl_file;
+            if (http::$cache_max_age === 0) {
+                http::$cache_max_age = 24 * 60 * 60; // 1 day cache for everything by default
+            }
             http::cache($GLOBALS['mod_files'], $GLOBALS['mod_ts']);
         }
 
         header('Content-Type: ' . $_ctx->content_type . '; charset=UTF-8');
 
         // Additional headers
-        $headers = new ArrayObject;
+        $headers = new ArrayObject();
         if ($core->blog->settings->system->prevents_clickjacking) {
             if ($_ctx->exists('xframeoption')) {
                 $url    = parse_url($_ctx->xframeoption);
-                $header = sprintf('X-Frame-Options: %s',
-                    is_array($url) ? ('ALLOW-FROM ' . $url['scheme'] . '://' . $url['host']) : 'SAMEORIGIN');
+                $header = sprintf(
+                    'X-Frame-Options: %s',
+                    is_array($url) ? ('ALLOW-FROM ' . $url['scheme'] . '://' . $url['host']) : 'SAMEORIGIN'
+                );
             } else {
                 // Prevents Clickjacking as far as possible
                 $header = 'X-Frame-Options: SAMEORIGIN'; // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
@@ -291,7 +296,7 @@ class dcUrlHandlers extends urlHandler
 
         $n      = self::getPageNumber($args);
         $params = new ArrayObject([
-            'lang' => $args]);
+            'lang' => $args, ]);
 
         $core->callBehavior('publicLangBeforeGetLangs', $params, $args);
 
@@ -323,7 +328,7 @@ class dcUrlHandlers extends urlHandler
             $params = new ArrayObject([
                 'cat_url'       => $args,
                 'post_type'     => 'post',
-                'without_empty' => false]);
+                'without_empty' => false, ]);
 
             $core->callBehavior('publicCategoryBeforeGetCategories', $params, $args);
 
@@ -353,7 +358,7 @@ class dcUrlHandlers extends urlHandler
             $params = new ArrayObject([
                 'year'  => $m[1],
                 'month' => $m[2],
-                'type'  => 'month']);
+                'type'  => 'month', ]);
 
             $core->callBehavior('publicArchiveBeforeGetDates', $params, $args);
 
@@ -383,7 +388,7 @@ class dcUrlHandlers extends urlHandler
             $core->blog->withoutPassword(false);
 
             $params = new ArrayObject([
-                'post_url' => $args]);
+                'post_url' => $args, ]);
 
             $core->callBehavior('publicPostBeforeGetPosts', $params, $args);
 
@@ -592,6 +597,7 @@ class dcUrlHandlers extends urlHandler
 
         if (preg_match('#^rss2/xslt$#', $args, $m)) {
             # RSS XSLT stylesheet
+            http::$cache_max_age = 60 * 60; // 1 hour cache for feed
             self::serveDocument('rss2.xsl', 'text/xml');
 
             return;
@@ -599,7 +605,7 @@ class dcUrlHandlers extends urlHandler
             # Post comments feed
             $type     = $m[1];
             $comments = true;
-            $post_id  = (integer) $m[2];
+            $post_id  = (int) $m[2];
         } elseif (preg_match('#^(?:category/(.+)/)?(atom|rss2)(/comments)?$#', $args, $m)) {
             # All posts or comments feed
             $type     = $m[2];
@@ -617,7 +623,7 @@ class dcUrlHandlers extends urlHandler
         if ($cat_url) {
             $params = new ArrayObject([
                 'cat_url'   => $cat_url,
-                'post_type' => 'post']);
+                'post_type' => 'post', ]);
 
             $core->callBehavior('publicFeedBeforeGetCategories', $params, $args);
 
@@ -634,7 +640,7 @@ class dcUrlHandlers extends urlHandler
         } elseif ($post_id) {
             $params = new ArrayObject([
                 'post_id'   => $post_id,
-                'post_type' => '']);
+                'post_type' => '', ]);
 
             $core->callBehavior('publicFeedBeforeGetPosts', $params, $args);
 
@@ -667,6 +673,7 @@ class dcUrlHandlers extends urlHandler
         $_ctx->feed_subtitle = $subtitle;
 
         header('X-Robots-Tag: ' . context::robotsPolicy($core->blog->settings->system->robots_policy, ''));
+        http::$cache_max_age = 60 * 60; // 1 hour cache for feed
         self::serveDocument($tpl, $mime);
         if (!$comments && !$cat_url) {
             $core->blog->publishScheduledEntries();
@@ -682,7 +689,7 @@ class dcUrlHandlers extends urlHandler
             $core = &$GLOBALS['core'];
 
             // Save locally post_id from args
-            $post_id = (integer) $args;
+            $post_id = (int) $args;
 
             if (!is_array($args)) {
                 $args = [];
