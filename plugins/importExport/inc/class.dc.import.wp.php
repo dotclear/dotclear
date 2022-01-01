@@ -642,8 +642,8 @@ class dcImportWP extends dcIeModule
             $cur->post_content = $this->cleanStr(array_shift($_post_content));
         }
 
-        $cur->post_content_xhtml = $this->core->callFormater($this->vars['post_formater'], $cur->post_content);
-        $cur->post_excerpt_xhtml = $this->core->callFormater($this->vars['post_formater'], $cur->post_excerpt);
+        $cur->post_content_xhtml = $this->core->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_content);
+        $cur->post_excerpt_xhtml = $this->core->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_excerpt);
 
         switch ($rs->post_status) {
             case 'publish':
@@ -712,7 +712,7 @@ class dcImportWP extends dcIeModule
             $cur->comment_status    = (integer) $rs->comment_approved;
             $cur->comment_dt        = $rs->comment_date;
             $cur->comment_email     = $this->cleanStr($rs->comment_author_email);
-            $cur->comment_content   = $this->core->callFormater($this->vars['comment_formater'], $this->cleanStr($rs->comment_content));
+            $cur->comment_content   = $this->core->callEditorFormater('dcLegacyEditor', $this->vars['comment_formater'], $this->cleanStr($rs->comment_content));
             $cur->comment_ip        = $rs->comment_author_IP;
             $cur->comment_trackback = $rs->comment_type == 'trackback' ? 1 : 0;
             $cur->comment_site      = substr($this->cleanStr($rs->comment_author_url), 0, 255);
