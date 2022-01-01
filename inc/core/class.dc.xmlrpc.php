@@ -347,8 +347,8 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
             $title = text::cutString(html::clean($content), 25) . '...';
         }
 
-        $excerpt_xhtml = $this->core->callFormater('xhtml', $excerpt);
-        $content_xhtml = $this->core->callFormater('xhtml', $content);
+        $excerpt_xhtml = $this->core->callEditorFormater('dcLegacyEditor', 'xhtml', $excerpt);
+        $content_xhtml = $this->core->callEditorFormater('dcLegacyEditor', 'xhtml', $content);
 
         if (empty($content)) {
             throw new Exception('Cannot create an empty entry');
@@ -446,8 +446,8 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
             $title = text::cutString(html::clean($content), 25) . '...';
         }
 
-        $excerpt_xhtml = $this->core->callFormater('xhtml', $excerpt);
-        $content_xhtml = $this->core->callFormater('xhtml', $content);
+        $excerpt_xhtml = $this->core->callEditorFormater('dcLegacyEditor', 'xhtml', $excerpt);
+        $content_xhtml = $this->core->callEditorFormater('dcLegacyEditor', 'xhtml', $content);
 
         if (empty($content)) {
             throw new Exception('Cannot create an empty entry');
