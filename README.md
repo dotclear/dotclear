@@ -13,46 +13,46 @@ their technical skills.
 
 ### Features
 
--   Easy publication
--   Fully customizable theme
--   User-friendly administration
--   Flexible template system
--   Media management
--   Choose from several editing syntax (wiki, markdown or directly in wysiwyg)
--   Flexible comment system
--   Built-in antispam
--   Localization
--   Presentation widgets
--   Themes and plugins
--   Pages
--   Tags and categories
--   Automated installation
--   Support for several database types
--   Multiblog
--   Multi-user with permissions
--   Standards compliant
--   Accessible
--   Importing / exporting
--   Naturally optimized for search engines
--   Syndication feeds
--   Complete trackback/pingback/webmention support
--   Full Unicode support
--   XML/RPC client support
--   Extensible
--   Performance and scalability
--   Twice free
+- Easy publication
+- Fully customizable theme
+- User-friendly administration
+- Flexible template system
+- Media management
+- Choose from several editing syntax (wiki, markdown or directly in wysiwyg)
+- Flexible comment system
+- Built-in antispam
+- Localization
+- Presentation widgets
+- Themes and plugins
+- Pages
+- Tags and categories
+- Automated installation
+- Support for several database types
+- Multiblog
+- Multi-user with permissions
+- Standards compliant
+- Accessible
+- Importing / exporting
+- Naturally optimized for search engines
+- Syndication feeds
+- Complete trackback/pingback/webmention support
+- Full Unicode support
+- XML/RPC client support
+- Extensible
+- Performance and scalability
+- Twice free
 
 ## REQUIREMENTS
 
 In order to run Dotclear you need:
 
--   A web server (Apache, Cherokee, Nginx, lighttpd, etc.)
--   PHP 7.4/8 with the following modules:
-    -   mbstring
-    -   iconv
-    -   simplexml
-    -   mysqli, postgresql or sqlite
--   A database server (MySQL or PostgreSQL) or SQLite.
+- A web server (Apache, Cherokee, Nginx, lighttpd, etc.)
+- PHP 7.4/8.0 with the following modules:
+  - mbstring
+  - iconv
+  - simplexml
+  - mysqli, postgresql or sqlite
+- A database server (MySQL/MariaDB or PostgreSQL) or SQLite.
 
 ## INSTALLATION
 
@@ -72,9 +72,9 @@ Still unsure if you want to move? A "[guided tour][4]" is what you need.
 
 Dotclear is fully documented:
 
--   If you have moved in already, the [User Manual][5] is there for you.
--   The managers will turn to the [Administration Guide][6].
--   Decorators and craftsmen will surely enjoy reading the [Developer and designer resources][7].
+- If you have moved in already, the [User Manual][5] is there for you.
+- The managers will turn to the [Administration Guide][6].
+- Decorators and craftsmen will surely enjoy reading the [Developer and designer resources][7].
 
 Dotclear documentation uses a wiki. Feel free to contribute.
 
