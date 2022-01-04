@@ -367,7 +367,7 @@ class adminMediaPage extends adminMediaFilter
 
                 $element[__('Search:') . ' ' . $this->q . ' (' . sprintf(__('%s file found', '%s files found', $count), $count) . ')'] = '';
             } else {
-                $bc_url   = $this->core->adminurl->get('admin.media', array_merge($this->values(), ['d' => '%s']), true);
+                $bc_url   = $this->core->adminurl->get('admin.media', array_merge($this->values(), ['d' => '%s']), '&amp;', true);
                 $bc_media = $this->core->media->breadCrumb($bc_url, '<span class="page-title">%s</span>');
                 if ($bc_media != '') {
                     $element[$bc_media] = '';
