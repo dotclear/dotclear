@@ -222,7 +222,7 @@ if (isset($_POST['user_name'])) {
 }
 
 # Update user options
-if (isset($_POST['user_editor'])) {
+if (isset($_POST['user_options_submit'])) {
     try {
         $cur = $core->con->openCursor($core->prefix . 'user');
 
@@ -757,7 +757,7 @@ $core->callBehavior('adminPreferencesForm', $core);
 echo
 '<p class="clear vertical-separator">' .
 $core->formNonce() .
-'<input type="submit" accesskey="s" value="' . __('Save my options') . '" />' .
+'<input type="submit" name="user_options_submit" accesskey="s" value="' . __('Save my options') . '" />' .
 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
     '</p>' .
     '</form>';
