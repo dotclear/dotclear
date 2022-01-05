@@ -24,10 +24,10 @@ msgid "_Jan"
 msgstr "janv."
 
 msgid "_Feb"
-msgstr "fév."
+msgstr "févr."
 
 msgid "_Mar"
-msgstr "mar."
+msgstr "mars"
 
 msgid "_Apr"
 msgstr "avr."
