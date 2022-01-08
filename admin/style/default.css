@@ -2594,7 +2594,7 @@ h1 {
   text-indent: 20px; }
 
 .part-tabs ul {
-  padding: .5em 0 0 1em;
+  padding: 0.5em 0 0 1em;
   border-bottom: 1px solid var(--tabs-border);
   line-height: 1.8; }
 .part-tabs li {
@@ -2606,7 +2606,7 @@ h1 {
   .part-tabs li:last-child a {
     border-top-right-radius: 3px; }
   .part-tabs li a {
-    padding: .33em 1.5em;
+    padding: 0.33em 1.5em;
     margin-right: -1px;
     border: 1px solid var(--tabs-border);
     border-bottom: none;
@@ -2630,7 +2630,7 @@ h1 {
   padding-left: 1em; }
 
 .pseudo-tabs {
-  margin: -.75em 0 2em 0;
+  margin: -0.75em 0 2em 0;
   border-bottom: 1px solid var(--tabs-border);
   display: table;
   width: 100%;
@@ -2673,11 +2673,12 @@ h1 {
     border-left: 2px solid var(--help-border);
     border-top: 2px solid var(--help-border);
     margin-top: 0;
-    padding: .5em 0 0 0;
+    padding: 0.5em 0 0 0;
     overflow: auto; }
 
 #help-button {
-  background: url(help-mini.png) no-repeat 6px center;
+  background: url(help.svg) no-repeat 6px center;
+  background-size: 18px;
   background-color: transparent;
   position: absolute;
   top: 0;
@@ -2695,11 +2696,11 @@ h1 {
     background-color: var(--help-button-background);
     position: fixed;
     top: 10px;
-    -webkit-transform: translateZ(0); }
+    transform: translateZ(0); }
   .no-js #help-button {
     top: 1em; }
   #help-button span {
-    padding: .5em 0 .1em 0; }
+    padding: 0.5em 0 0.1em 0; }
   #content.with-help #help-button {
     right: 32rem;
     background-color: var(--help-background);
@@ -2729,7 +2730,7 @@ h1 {
 
 /* lien d'aide générale dans le help content */
 #helplink p {
-  padding: 0 0 0 .5em; }
+  padding: 0 0 0 0.5em; }
 
 span.tooltip {
   position: absolute;
@@ -3653,7 +3654,8 @@ div.template-upload {
   background-color: transparent;
   padding: 4px 4px 0 20px; }
 .modules a.module-support {
-  background: url(help12.png) no-repeat 2px center;
+  background: url(help.svg) no-repeat 2px center;
+  background-size: 14px;
   background-color: transparent;
   padding: 4px 4px 0 20px; }
 .modules a.module-config {
@@ -3668,10 +3670,10 @@ div.template-upload {
   padding-left: 20px; }
 
 .mod-more {
-  padding-top: .5em; }
+  padding-top: 0.5em; }
   .mod-more,
   .mod-more li {
-    margin: .25em 0 0 1em;
+    margin: 0.25em 0 0 1em;
     padding: 0;
     list-style-type: none; }
 
