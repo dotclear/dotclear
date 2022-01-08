@@ -30,7 +30,7 @@ if (isset($_SERVER['DC_RC_PATH'])) {
 
 if (!is_file(DC_RC_PATH)) {
     trigger_error('Unable to open config file', E_USER_ERROR);
-    exit;
+    exit;   // @phpstan-ignore-line
 }
 
 require DC_RC_PATH;

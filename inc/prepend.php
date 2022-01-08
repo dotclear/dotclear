@@ -407,7 +407,7 @@ function __error($summary, $message, $code = 0)
 
     if (CLI_MODE) {
         trigger_error($summary, E_USER_ERROR);
-        exit(1);
+        exit(1);    // @phpstan-ignore-line
     }
     if (defined('DC_ERRORFILE') && is_file(DC_ERRORFILE)) {
         include DC_ERRORFILE;

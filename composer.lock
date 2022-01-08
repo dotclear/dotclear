@@ -1108,16 +1108,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.1.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "bcea0ae85868a89d5789c75f012c93129f842934"
+                "reference": "585073e2a99c54482ed0853fe6782a6200a21f27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/bcea0ae85868a89d5789c75f012c93129f842934",
-                "reference": "bcea0ae85868a89d5789c75f012c93129f842934",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/585073e2a99c54482ed0853fe6782a6200a21f27",
+                "reference": "585073e2a99c54482ed0853fe6782a6200a21f27",
                 "shasum": ""
             },
             "require": {
@@ -1126,6 +1126,7 @@
             "conflict": {
                 "phpstan/phpstan-shim": "*"
             },
+            "default-branch": true,
             "bin": [
                 "phpstan",
                 "phpstan.phar"
@@ -1133,7 +1134,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0-dev"
+                    "dev-master": "1.4-dev"
                 }
             },
             "autoload": {
@@ -1148,7 +1149,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.1.2"
+                "source": "https://github.com/phpstan/phpstan/tree/master"
             },
             "funding": [
                 {
@@ -1168,7 +1169,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-09T12:41:09+00:00"
+            "time": "2022-01-08T08:39:41+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2524,6 +2525,7 @@
                 "symfony/polyfill-mbstring": "~1.8",
                 "symfony/polyfill-php80": "^1.16"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2550,7 +2552,7 @@
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/filesystem/tree/5.4"
+                "source": "https://github.com/symfony/filesystem/tree/v5.4.0"
             },
             "funding": [
                 {
@@ -2622,7 +2624,7 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "dev-main",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
@@ -2643,7 +2645,6 @@
             "suggest": {
                 "ext-ctype": "For best performance"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2685,7 +2686,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/main"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -2705,16 +2706,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "dev-main",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "11b9acb5e8619aef6455735debf77dde8825795c"
+                "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/11b9acb5e8619aef6455735debf77dde8825795c",
-                "reference": "11b9acb5e8619aef6455735debf77dde8825795c",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/0abb51d2f102e00a4eefcf46ba7fec406d245825",
+                "reference": "0abb51d2f102e00a4eefcf46ba7fec406d245825",
                 "shasum": ""
             },
             "require": {
@@ -2726,7 +2727,6 @@
             "suggest": {
                 "ext-mbstring": "For best performance"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2769,7 +2769,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/main"
+                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -2785,11 +2785,11 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-10-20T20:35:02+00:00"
+            "time": "2021-11-30T18:21:41+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "dev-main",
+            "version": "v1.24.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
@@ -2804,7 +2804,6 @@
             "require": {
                 "php": ">=7.1"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -2853,7 +2852,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/main"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.24.0"
             },
             "funding": [
                 {
@@ -3042,12 +3041,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "7cf279d3d64e12a7d6b2ab4fa8f4a3e7176fd41d"
+                "reference": "93d26f908cdf96ba4436a22baaa2ead7e11b8500"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/7cf279d3d64e12a7d6b2ab4fa8f4a3e7176fd41d",
-                "reference": "7cf279d3d64e12a7d6b2ab4fa8f4a3e7176fd41d",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/93d26f908cdf96ba4436a22baaa2ead7e11b8500",
+                "reference": "93d26f908cdf96ba4436a22baaa2ead7e11b8500",
                 "shasum": ""
             },
             "require": {
@@ -3111,7 +3110,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-05T16:53:41+00:00"
+            "time": "2022-01-04T14:35:09+00:00"
         }
     ],
     "aliases": [],
