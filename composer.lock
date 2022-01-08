@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ce911912a8184b8c383b327df4fb95e",
+    "content-hash": "c010ab3980f9958159c8f738136ac0c0",
     "packages": [],
     "packages-dev": [
         {
@@ -3120,12 +3120,13 @@
         "fzaninotto/faker": 20,
         "atoum/reports-extension": 20,
         "behat/mink": 20,
-        "symfony/dom-crawler": 20
+        "symfony/dom-crawler": 20,
+        "phpstan/phpstan": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.3.0"
+        "php": ">=7.4.0"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"

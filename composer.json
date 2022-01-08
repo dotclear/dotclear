@@ -23,7 +23,7 @@
     "symfony/translation": "<2.3.0",
     "behat/mink-extension": "1.3.*",
     "behat/mink-goutte-driver": "1.*",
-    "phpstan/phpstan": "^1.1"
+    "phpstan/phpstan": "1.4.x-dev"
   },
   "config": {
     "bin-dir": "bin/"
