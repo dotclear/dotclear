@@ -14,7 +14,7 @@ $(() => {
           details_element.attr('open', details_element.attr('open') ? null : 'true');
         });
     });
-  
+
   $('.modules-search').each(function () {
     const m_search = $(this).find('input[name=m_search]');
     const m_submit = $(this).find('input[type=submit]');
@@ -26,7 +26,7 @@ $(() => {
         m_submit.removeClass('disabled');
       }
 
-    m_search.keyup(function() {
+    m_search.keyup(() => {
       m_submit.attr('disabled', m_search.val().length < 2);
       if (m_search.val().length < 2) {
           m_submit.addClass('disabled');

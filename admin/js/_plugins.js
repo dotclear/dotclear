@@ -24,7 +24,7 @@ $(() => {
         m_submit.removeClass('disabled');
       }
 
-    m_search.keyup(function() {
+    m_search.keyup(() => {
       m_submit.attr('disabled', m_search.val().length < 2);
       if (m_search.val().length < 2) {
           m_submit.addClass('disabled');
