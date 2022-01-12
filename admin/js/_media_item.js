@@ -38,7 +38,7 @@ $(() => {
               margin: '1em 0',
               padding: '1px 0.5em',
             });
-            $(div).addClass('color-div');
+            $(div).addClass('fieldset');
             $(div).append(list);
             This.before(div);
             $(a).hide();

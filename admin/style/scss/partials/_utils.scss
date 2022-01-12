@@ -9,25 +9,11 @@
 
 div.ui-sortable-handle {
   border: 1px dashed currentColor !important;
-  border-radius: .75em !important;
+  border-radius: 0.75em !important;
 
-  & >.ui-sortable {
+  & > .ui-sortable {
     // border-color: var(--main-menu-border) !important;
   }
-}
-
-/* color-picker.js */
-
-.color-color-picker {
-  border: 1px solid var(--color-picker-border);
-  width: 195px;
-  background: var(--color-picker-background);
-}
-
-/* _media_item.js */
-
-.color-div {
-  border: 1px solid var(--color-div-border);
 }
 
 /* Badges (common.js) */
@@ -45,7 +31,7 @@ div.ui-sortable-handle {
   border: 1px solid var(--badge-border);
   vertical-align: top;
   border-radius: 1em;
-  padding: 0 .6em;
+  padding: 0 0.6em;
 }
 
 .badge-icon {
@@ -82,7 +68,7 @@ div.ui-sortable-handle {
 
 .badge-inline {
   /* Menu item */
-  margin-left: .5em;
+  margin-left: 0.5em;
 }
 
 .badge-left {
