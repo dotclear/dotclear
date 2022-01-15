@@ -6,7 +6,7 @@ if (typeof dotclear.post_remember_str === 'undefined' && typeof dotclear.getData
 }
 
 window.addEventListener('load', () => {
-  let bloc = new DOMParser().parseFromString(
+  const bloc = new DOMParser().parseFromString(
     `<p class="remember"><input type="checkbox" id="c_remember" name="c_remember" /> <label for="c_remember">${dotclear.post_remember_str}</label></p>`,
     'text/html'
   ).body.firstChild;
@@ -27,7 +27,7 @@ window.addEventListener('load', () => {
 
   const remember_me_name = 'comment_info';
 
-  let info = readRememberInfo();
+  const info = readRememberInfo();
 
   if (info !== false) {
     document.getElementById('c_name').setAttribute('value', info.name);
@@ -44,7 +44,7 @@ window.addEventListener('load', () => {
     }
   };
 
-  let copeWithModifiedInfo = () => {
+  const copeWithModifiedInfo = () => {
     if (document.getElementById('c_remember').checked) {
       setRememberInfo();
     }
@@ -70,13 +70,13 @@ window.addEventListener('load', () => {
   }
 
   function readRememberInfo() {
-    let info = localStorage.getItem(remember_me_name);
+    const info = localStorage.getItem(remember_me_name);
 
     if (info === null) {
       return false;
     }
 
-    let result = JSON.parse(info);
+    const result = JSON.parse(info);
 
     if (Object.keys(result).length != 3) {
       dropRememberInfo();

@@ -105,7 +105,7 @@ jQuery.fn.toggleWithLegend = function (target, s) {
   if (!target) {
     return this;
   }
-  let set_user_pref = p.hide ^ p.reverse_user_pref;
+  const set_user_pref = p.hide ^ p.reverse_user_pref;
   if (p.user_pref && p.unfolded_sections !== undefined && p.user_pref in p.unfolded_sections) {
     p.hide = p.reverse_user_pref;
   }
@@ -505,14 +505,14 @@ dotclear.outgoingLinks = (target) => {
  */
 dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) => {
   try {
-    let THarray = [];
+    const THarray = [];
     const ths = table.getElementsByTagName('th');
     for (let i = 0; i < ths.length; i++) {
       for (let colspan = ths[i].colSpan; colspan > 0; colspan--) {
         THarray.push(ths[i].innerText.replace('▶', ''));
       }
     }
-    let styleElm = document.createElement('style');
+    const styleElm = document.createElement('style');
     let styleSheet;
     document.head.appendChild(styleElm);
     styleSheet = styleElm.sheet;
@@ -596,7 +596,7 @@ dotclear.badge = ($elt, options = null) => {
   // Add the new badge if any
   if (!opt.remove && opt.value !== null) {
     // Compose badge classes
-    let classes = ['badge'];
+    const classes = ['badge'];
     classes.push(`badge-${opt.id}`);
     classes.push(opt.inline ? 'badge-inline' : 'badge-block');
     if (opt.icon) {
@@ -704,7 +704,7 @@ $(() => {
 
   // Watch data-theme attribute modification
   const observer = new MutationObserver((mutations) => {
-    for (let mutation of mutations) {
+    for (const mutation of mutations) {
       let theme = 'light';
       if (mutation.target.getAttribute('data-theme') === '') {
         theme = window.matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light';

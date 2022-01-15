@@ -50,7 +50,7 @@ $(() => {
   let preview_url = $('#post-preview').attr('href');
   if (preview_url) {
     // Make preview_url absolute
-    let $a = document.createElement('a');
+    const $a = document.createElement('a');
     $a.href = $('#post-preview').attr('href');
     preview_url = $a.href;
     const has_modal = $('#post-preview').hasClass('modal');

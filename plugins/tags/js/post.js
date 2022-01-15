@@ -35,7 +35,7 @@ $(() => {
       matchSubset: false,
       matchContains: true,
       parse(xml) {
-        let results = [];
+        const results = [];
         $(xml)
           .find('meta')
           .each(function () {

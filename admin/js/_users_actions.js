@@ -3,7 +3,7 @@
 
 jQuery.fn.updatePermissionsForm = function () {
   return this.each(function () {
-    let permissions = {};
+    const permissions = {};
     const perm_reg_expr = /^perm\[(.+?)\]\[(.+?)\]$/;
 
     const admin = (dom_element) => {
@@ -82,9 +82,9 @@ jQuery.fn.updatePermissionsForm = function () {
     }
 
     // Populate states
-    for (let blog in permissions) {
+    for (const blog in permissions) {
       // Loop on blog
-      for (let element in permissions[blog]) {
+      for (const element in permissions[blog]) {
         // Loop on permission
         const dom_element = permissions[blog][element];
         const matches = dom_element.name.match(perm_reg_expr);

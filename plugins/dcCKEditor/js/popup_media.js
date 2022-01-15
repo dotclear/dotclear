@@ -28,8 +28,8 @@ $(() => {
         const img_description = $('input[name="description"]', insert_form).val();
         let style = '';
         let template = '';
-        let template_figure = ['', ''];
-        let template_link = ['', ''];
+        const template_figure = ['', ''];
+        const template_link = ['', ''];
         let template_image = '';
 
         if (media_legend != '' && media_legend != 'title' && media_legend != 'none') {
@@ -58,17 +58,13 @@ $(() => {
         }
         template = template_figure[0] + template_link[0] + template_image + template_link[1] + template_figure[1];
 
-        let block = new window.opener.CKEDITOR.template(template);
-        let params = {};
+        const block = new window.opener.CKEDITOR.template(template);
+        const params = {};
 
         // Set parameters for template
-        if (media_legend != '' && media_legend != 'none') {
-          params.imgAlt = window.opener.CKEDITOR.tools.htmlEncodeAttr(
-            window.opener.$.stripBaseURL($('input[name="title"]', insert_form).val())
-          );
-        } else {
-          params.imgAlt = '';
-        }
+        params.imgAlt = media_legend != '' && media_legend != 'none' ? window.opener.CKEDITOR.tools.htmlEncodeAttr(
+          window.opener.$.stripBaseURL($('input[name="title"]', insert_form).val())
+        ) : '';
         params.imgSrc = window.opener.$.stripBaseURL($('input[name="src"]:checked', insert_form).val());
         if (align != '' && align != 'none') {
           params.figureStyle = media_align_grid[align];
@@ -85,7 +81,7 @@ $(() => {
     } else if (type == 'mp3') {
       // Audio media
       let player_audio = $('#public_player').val();
-      let title = insert_form.elements.title.value;
+      const title = insert_form.elements.title.value;
       if (title) {
         player_audio = `<figure><figcaption>${title}</figcaption>${player_audio}</figure>`;
       }

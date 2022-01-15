@@ -17,7 +17,7 @@ $(() => {
       });
     });
   $('#menuitems').on('submit', () => {
-    let order = [];
+    const order = [];
     $('#menuitemslist tr td input.position').each(function () {
       order.push(this.name.replace(/^order\[([^\]]+)\]$/, '$1'));
     });

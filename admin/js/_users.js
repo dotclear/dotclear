@@ -9,8 +9,8 @@ $(() => {
   dotclear.responsiveCellHeaders(document.querySelector('#form-users table'), '#form-users table', 1);
   $('#form-users').submit(function () {
     const action = $(this).find('select[name="action"]').val();
-    let user_ids = [];
-    let nb_posts = [];
+    const user_ids = [];
+    const nb_posts = [];
     let i;
     let msg_cannot_delete = false;
 

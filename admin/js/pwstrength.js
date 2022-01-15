@@ -9,15 +9,15 @@ dotclear.passwordStrength = (opts) => {
    * @return     integer   The strength (from 0 to 99).
    */
   const computeMeter = (e) => {
-    let password = e.value;
+    const password = e.value;
     let score = 0;
     const symbols = '[!,@,#,$,%,^,&,*,?,_,~]';
 
     // Regexp
-    let check = new RegExp(`(${symbols})`);
-    let doublecheck = new RegExp(`(.*${symbols}.*${symbols})`);
+    const check = new RegExp(`(${symbols})`);
+    const doublecheck = new RegExp(`(.*${symbols}.*${symbols})`);
 
-    let checkRepetition = (rLen, str) => {
+    const checkRepetition = (rLen, str) => {
       let res = '';
       let repeated = false;
       for (let i = 0; i < str.length; i++) {
@@ -91,7 +91,7 @@ dotclear.passwordStrength = (opts) => {
     }
 
     // Get current strength
-    let meterValue = computeMeter(password);
+    const meterValue = computeMeter(password);
     let meterContent = '';
     if (meterValue >= meter.getAttribute('high')) {
       meterContent = options.max;
@@ -124,7 +124,7 @@ dotclear.passwordStrength = (opts) => {
   // Add a meter to each password.pw-strength
   for (const passwordField of passwordFields) {
     const meter = meterTemplate.cloneNode(true);
-    let sibling = passwordField.nextElementSibling;
+    const sibling = passwordField.nextElementSibling;
     if (sibling && (sibling.classList.contains('pw-show') || sibling.classList.contains('pw-hide'))) {
       sibling.after(meter);
     } else {

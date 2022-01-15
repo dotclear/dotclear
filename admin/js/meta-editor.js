@@ -236,7 +236,7 @@ class metaEditor {
 
   removeMeta(meta_id) {
     if (this.post_id == false) {
-      let meta = this.splitMetaValues(this.meta_field.val());
+      const meta = this.splitMetaValues(this.meta_field.val());
       const i = meta.indexOf(meta_id);
       if (i >= 0) {
         meta.splice(i, 1);
@@ -268,7 +268,7 @@ class metaEditor {
   }
 
   splitMetaValues(str) {
-    let list = new Set(str.split(',').map((s) => s.trim()).filter((i) => i));
+    const list = new Set(str.split(',').map((s) => s.trim()).filter((i) => i));
     return [...list].sort((a, b) => a.localeCompare(b));
   }
 }

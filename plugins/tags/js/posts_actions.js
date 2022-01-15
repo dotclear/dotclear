@@ -10,7 +10,7 @@ $(() => {
   tag_field.hide();
 
   const target = $('#tags_list');
-  let mEdit = new metaEditor(target, tag_field, 'tag', dotclear.getData('editor_tags_options'));
+  const mEdit = new metaEditor(target, tag_field, 'tag', dotclear.getData('editor_tags_options'));
 
   mEdit.meta_url = 'plugin.php?p=tags&m=tag_posts&amp;tag=';
 
@@ -35,7 +35,7 @@ $(() => {
     matchSubset: false,
     matchContains: true,
     parse(xml) {
-      let results = [];
+      const results = [];
       $(xml)
         .find('meta')
         .each(function () {

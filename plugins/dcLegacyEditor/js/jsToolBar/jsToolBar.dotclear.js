@@ -132,7 +132,7 @@ jsToolBar.prototype.elements.link.fncall.wysiwyg = function () {
   this.insertNode(a);
 };
 jsToolBar.prototype.getAncestor = function () {
-  let res = {};
+  const res = {};
   let range;
   let commonAncestorContainer;
 

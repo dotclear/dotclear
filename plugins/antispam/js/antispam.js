@@ -19,7 +19,7 @@ $(() => {
       });
     });
   $('#filters-list-form').on('submit', () => {
-    let order = [];
+    const order = [];
     $('#filters-list tr td input.position').each(function () {
       order.push(this.name.replace(/^f_order\[([^\]]+)\]$/, '$1'));
     });

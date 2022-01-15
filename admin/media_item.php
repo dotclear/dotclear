@@ -242,13 +242,7 @@ if (!empty($_POST['remove_folder_prefs'])) {
     $local      = $core->media->root . '/' . dirname($file->relname) . '/' . '.mediadef';
     $local_json = $local . '.json';
     $result     = false;
-    if (file_exists($local) && unlink($local)) {
-        $result = true;
-    }
-    if (file_exists($local_json) && unlink($local_json)) {
-        $result = true;
-    }
-    if ($result) {
+    if ((file_exists($local) && unlink($local)) || (file_exists($local_json) && unlink($local_json))) {
         dcPage::addSuccessNotice(__('Media insertion settings have been successfully removed for this folder.'));
     }
     $core->adminurl->redirect('admin.media.item', $page_url_params);

@@ -24,7 +24,7 @@ dotclear.confirmClose = class {
     const formsInPage = this.getForms();
     this.forms = [];
     for (const f of formsInPage) {
-      let tmpForm = [];
+      const tmpForm = [];
       for (let j = 0; j < f.elements.length; j++) {
         const e = this.getFormElementValue(f[j]);
         if (e !== undefined) {
@@ -75,7 +75,7 @@ dotclear.confirmClose = class {
     for (let i = 0; i < formsInPage.length; i++) {
       const f = formsInPage[i];
       // Loop on form elements
-      let tmpForm = [];
+      const tmpForm = [];
       for (let j = 0; j < f.elements.length; j++) {
         const e = this.getFormElementValue(f[j]);
         if (e !== undefined) {
@@ -113,7 +113,7 @@ dotclear.confirmClose = class {
     }
 
     if (this.forms_id.length > 0) {
-      let res = [];
+      const res = [];
       for (let i = 0; i < this.forms_id.length; i++) {
         const f = document.getElementById(this.forms_id[i]);
         if (f != undefined) {

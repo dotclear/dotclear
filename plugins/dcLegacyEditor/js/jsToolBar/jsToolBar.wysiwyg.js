@@ -103,14 +103,14 @@ jsToolBar.prototype.htmlFilters = {
   },
 };
 jsToolBar.prototype.applyHtmlFilters = function (str) {
-  for (let fn in this.htmlFilters) {
+  for (const fn in this.htmlFilters) {
     str = this.htmlFilters[fn].call(this, str);
   }
   return str;
 };
 jsToolBar.prototype.wysiwygFilters = {};
 jsToolBar.prototype.applyWysiwygFilters = function (str) {
-  for (let fn in this.wysiwygFilters) {
+  for (const fn in this.wysiwygFilters) {
     str = this.wysiwygFilters[fn].call(this, str);
   }
   return str;
@@ -205,7 +205,7 @@ jsToolBar.prototype.initWindow = function () {
       });
     }
 
-    for (let evt in This.iwinEvents) {
+    for (const evt in This.iwinEvents) {
       const event = This.iwinEvents[evt];
       This.addIwinEvent(This.iframe.contentWindow.document, event.type, event.fn, This);
     }
@@ -558,7 +558,7 @@ jsToolBar.prototype.simpleCleanRegex = new Array(
 /** Cleanup HTML code
  */
 jsToolBar.prototype.tagsoup2xhtml = function (html) {
-  for (let reg in this.simpleCleanRegex) {
+  for (const reg in this.simpleCleanRegex) {
     html = html.replace(this.simpleCleanRegex[reg][0], this.simpleCleanRegex[reg][1]);
   }
   /* tags vides */
@@ -676,7 +676,7 @@ jsToolBar.prototype.removeFormatRegexp = new Array(
 );
 
 jsToolBar.prototype.removeTextFormating = function (html) {
-  for (let reg in this.removeFormatRegexp) {
+  for (const reg in this.removeFormatRegexp) {
     html = html.replace(this.removeFormatRegexp[reg][0], this.removeFormatRegexp[reg][1]);
   }
 

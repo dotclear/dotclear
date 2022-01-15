@@ -63,7 +63,7 @@ Object.assign(dotclear, {
 
   // Returns the cookie with the given name or false if not found
   getCookie(name) {
-    let matches = document.cookie.match(new RegExp(`(?:^|; )${name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1')}=([^;]*)`));
+    const matches = document.cookie.match(new RegExp(`(?:^|; )${name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1')}=([^;]*)`));
     return matches ? decodeURIComponent(matches[1]) : false; // may be undefined rather than false?
   },
 
@@ -81,9 +81,9 @@ Object.assign(dotclear, {
 
     let updatedCookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}`;
 
-    for (let optionKey in options) {
+    for (const optionKey in options) {
       updatedCookie += `; ${optionKey}`;
-      let optionValue = options[optionKey];
+      const optionValue = options[optionKey];
       if (optionValue !== true) {
         updatedCookie += `=${optionValue}`;
       }

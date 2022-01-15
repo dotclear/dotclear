@@ -6,8 +6,8 @@ $(() => {
   $('#link-insert-ok').prop('disabled', true);
   $('#link-insert-ok').addClass('disabled');
   $('#href').on('input', function () {
-    $('#link-insert-ok').prop('disabled', this.value == '' ? true : false);
-    $('#link-insert-ok').toggleClass('disabled', this.value == '' ? true : false);
+    $('#link-insert-ok').prop('disabled', this.value == '');
+    $('#link-insert-ok').toggleClass('disabled', this.value == '');
   });
 
   // Set focus on #href input

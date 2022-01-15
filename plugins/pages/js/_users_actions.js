@@ -3,7 +3,7 @@
 
 jQuery.fn.updatePagesPermissionsForm = function () {
   return this.each(function () {
-    let permissions = {};
+    const permissions = {};
     const perm_reg_expr = /^perm\[(.+?)\]\[(.+?)\]$/;
 
     const admin = (dom_element) => {

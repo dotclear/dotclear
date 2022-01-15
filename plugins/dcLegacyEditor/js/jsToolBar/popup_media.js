@@ -54,7 +54,7 @@ $(() => {
       player = $('#public_player').val();
       align = $('input[name="alignment"]:checked', insert_form).val();
 
-      let title = insert_form.elements.title.value;
+      const title = insert_form.elements.title.value;
       if (title) {
         player = `<figure><figcaption>${title}</figcaption>${player}</figure>`;
       }

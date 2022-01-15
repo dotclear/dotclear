@@ -12,7 +12,7 @@ $(() => {
     cursor: 'auto',
   });
   $('#favs-form').on('submit', () => {
-    let order = [];
+    const order = [];
     $('#my-favs ul li input.position').each(function () {
       order.push(this.name.replace(/^order\[([^\]]+)\]$/, '$1'));
     });

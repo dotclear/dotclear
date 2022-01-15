@@ -92,7 +92,7 @@ $(() => {
   $(styles_combo).append('<option value="none">none</option>');
   $(styles_combo).attr('title', dotclear.msg.predefined_style_title);
 
-  for (let style in dotclear.blowup_styles) {
+  for (const style in dotclear.blowup_styles) {
     const styles_option = document.createElement('option');
     styles_option.value = dotclear.blowup_styles[style];
     $(styles_option).append(style);

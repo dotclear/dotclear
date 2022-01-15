@@ -180,7 +180,7 @@ $(() => {
   $('#form-medias').on('click', '.media-item .attach-media', function (e) {
     const parts = $(this).prop('href').split('?');
     const str_params = parts[1].split('&');
-    let postData = {};
+    const postData = {};
 
     for (let n = 0; n < str_params.length; n++) {
       const kv = str_params[n].split('=');
@@ -205,9 +205,9 @@ $(() => {
       const m_name = $(this).parents('.media-item-bloc').find('a.media-link').text();
       let m_text = '';
       m_text =
-        $(this).parents('div.media-folder').length == 0 ?
-          dotclear.msg.confirm_delete_media.replace('%s', m_name) :
-          dotclear.msg.confirm_delete_directory.replace('%s', m_name);
+        $(this).parents('div.media-folder').length == 0
+          ? dotclear.msg.confirm_delete_media.replace('%s', m_name)
+          : dotclear.msg.confirm_delete_directory.replace('%s', m_name);
       if (window.confirm(m_text)) {
         const f = $('#media-remove-hide').get(0);
         f.elements.remove.value = this.href.replace(/^(.*)&remove=(.*?)(&|$)/, '$2');

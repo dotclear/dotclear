@@ -97,7 +97,7 @@ class jsToolBar {
       if (typeof tool[this.mode].fn != 'function' || length == 0) {
         return null;
       }
-      let options = {};
+      const options = {};
       for (let i = 0; i < length; i++) {
         const opt = tool[this.mode].list[i];
         options[opt] = tool.options[opt];
@@ -120,7 +120,7 @@ class jsToolBar {
     let tool;
     let newTool;
 
-    for (let i in this.elements) {
+    for (const i in this.elements) {
       b = this.elements[i];
 
       const disabled =
@@ -286,7 +286,7 @@ class jsCombo {
     if (this.className) select.className = this.className;
     select.title = this.title;
 
-    for (let o in this.options) {
+    for (const o in this.options) {
       const option = document.createElement('option');
       option.value = o;
       option.appendChild(document.createTextNode(this.options[o]));

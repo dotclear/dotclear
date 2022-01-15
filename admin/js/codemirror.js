@@ -2,10 +2,10 @@
 'use strict';
 
 // Store all instances
-let codemirror_instance = {};
+const codemirror_instance = {};
 
 // Launch all requested codemirror instance
-for (let i of dotclear.getData('codemirror')) {
+for (const i of dotclear.getData('codemirror')) {
   codemirror_instance[i.name] = CodeMirror.fromTextArea(document.getElementById(i.id), {
     mode: i.mode,
     tabMode: 'indent',

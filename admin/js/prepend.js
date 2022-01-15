@@ -18,7 +18,7 @@ dotclear.dropLocalData = (id) => {
 };
 
 dotclear.readLocalData = (id) => {
-  let info = localStorage.getItem(id);
+  const info = localStorage.getItem(id);
   if (info !== null) {
     return JSON.parse(info);
   }
@@ -89,13 +89,13 @@ dotclear.mergeDeep = (target, ...sources) => {
  * Source: Muhammad Tahir (https://stackoverflow.com/questions/830283/cutting-html-strings-without-breaking-html-tags)
  */
 dotclear.trimHtml = (html, options = {}) => {
-  let limit = options.limit || 100;
-  let preserveTags = typeof options.preserveTags === 'undefined' ? true : options.preserveTags;
-  let wordBreak = typeof options.wordBreak === 'undefined' ? false : options.wordBreak;
-  let suffix = options.suffix || '...';
-  let moreLink = options.moreLink || '';
+  const limit = options.limit || 100;
+  const preserveTags = typeof options.preserveTags === 'undefined' ? true : options.preserveTags;
+  const wordBreak = typeof options.wordBreak === 'undefined' ? false : options.wordBreak;
+  const suffix = options.suffix || '...';
+  const moreLink = options.moreLink || '';
 
-  let arr = html
+  const arr = html
     .replace(/</g, '\n<')
     .replace(/>/g, '>\n')
     .replace(/\n\n/g, '\n')
@@ -109,7 +109,7 @@ dotclear.trimHtml = (html, options = {}) => {
   let add;
   let tagMatch;
   let tagName;
-  let tagStack = [];
+  const tagStack = [];
   let more = false;
   let rowCut;
 
