@@ -211,6 +211,49 @@ if (!empty($_POST['save_blog_prefs'])) {
     $core->adminurl->redirect('admin.media.item', $page_url_params);
 }
 
+# Save media insertion settings for the folder
+if (!empty($_POST['save_folder_prefs'])) {
+    $prefs = [];
+    if (!empty($_POST['pref_src'])) {
+        if (!($s = array_search($_POST['pref_src'], $file->media_thumb))) {
+            $s = 'o';
+        }
+        $prefs['size'] = $s;
+    }
+    if (!empty($_POST['pref_alignment'])) {
+        $prefs['alignment'] = $_POST['pref_alignment'];
+    }
+    if (!empty($_POST['pref_insertion'])) {
+        $prefs['link'] = ($_POST['pref_insertion'] == 'link');
+    }
+    if (!empty($_POST['pref_legend'])) {
+        $prefs['legend'] = $_POST['pref_legend'];
+    }
+
+    $local = $core->media->root . '/' . dirname($file->relname) . '/' . '.mediadef.json';
+    if (file_put_contents($local, json_encode($prefs, JSON_PRETTY_PRINT))) {
+        dcPage::addSuccessNotice(__('Media insertion settings have been successfully registered for this folder.'));
+    }
+    $core->adminurl->redirect('admin.media.item', $page_url_params);
+}
+
+# Delete media insertion settings for the folder (.mediadef and .mediadef.json)
+if (!empty($_POST['remove_folder_prefs'])) {
+    $local      = $core->media->root . '/' . dirname($file->relname) . '/' . '.mediadef';
+    $local_json = $local . '.json';
+    $result     = false;
+    if (file_exists($local) && unlink($local)) {
+        $result = true;
+    }
+    if (file_exists($local_json) && unlink($local_json)) {
+        $result = true;
+    }
+    if ($result) {
+        dcPage::addSuccessNotice(__('Media insertion settings have been successfully removed for this folder.'));
+    }
+    $core->adminurl->redirect('admin.media.item', $page_url_params);
+}
+
 # Function to get image title based on meta
 $get_img_title = function ($file, $pattern, $dto_first = false, $no_date_alone = false) {
     $res     = [];
@@ -599,7 +642,21 @@ if ($popup && ($select === 0)) {
         '<div class="border-top">' .
         '<form id="save_settings" action="' . $core->adminurl->getBase('admin.media.item') . '" method="post">' .
         '<p>' . __('Make current settings as default') . ' ' .
-        '<input class="reset" type="submit" name="save_blog_prefs" value="' . __('OK') . '" />' .
+        '<input class="reset" type="submit" name="save_blog_prefs" value="' . __('For the blog') . '" /> ' . __('or') . ' ' .
+        '<input class="reset" type="submit" name="save_folder_prefs" value="' . __('For this folder only') . '" />';
+
+        $local = $core->media->root . '/' . dirname($file->relname) . '/' . '.mediadef';
+        if (!file_exists($local)) {
+            $local .= '.json';
+        }
+        if (file_exists($local)) {
+            echo
+            '</p>' .
+            '<p>' . __('Settings exist for this folder:') . ' ' .
+            '<input class="delete" type="submit" name="remove_folder_prefs" value="' . __('Remove them') . '" /> ';
+        }
+
+        echo
         form::hidden(['pref_src'], '') .
         form::hidden(['pref_alignment'], '') .
         form::hidden(['pref_insertion'], '') .

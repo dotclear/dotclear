@@ -1677,6 +1677,24 @@ msgstr "Insérer"
 msgid "Make current settings as default"
 msgstr "Mémoriser ces réglages d'insertion"
 
+msgid "For the blog"
+msgstr "Pour le blog"
+
+msgid "For this folder only"
+msgstr "Pour ce dossier seulement"
+
+msgid "Settings exist for this folder:"
+msgstr "Des réglages d'insertion existent pour ce dossier :"
+
+msgid "Media insertion settings have been successfully registered for this folder."
+msgstr "Les réglages d'insertion ont été enregistrés pour ce dossier."
+
+msgid "Media insertion settings have been successfully removed for this folder."
+msgstr "Les réglages d'insertion ont été supprimés pour ce dossier."
+
+msgid "Remove them"
+msgstr "Les supprimer"
+
 msgid "Media details"
 msgstr "Détails du média"
 
