@@ -752,8 +752,6 @@ $(() => {
 
   // Menu state
   const menu_settings = {
-    img_on_src: dotclear.img_menu_off,
-    img_off_src: dotclear.img_menu_on,
     legend_click: true,
     speed: 100,
   };
