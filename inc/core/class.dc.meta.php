@@ -77,7 +77,7 @@ class dcMeta
      */
     public function getMetaArray($str)
     {
-        $meta = @unserialize($str);
+        $meta = @unserialize((string) $str);
 
         if (!is_array($meta)) {
             return [];
