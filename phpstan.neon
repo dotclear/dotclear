@@ -34,6 +34,7 @@ parameters:
   excludePaths:
     - inc/libs/clearbricks/debian/*
     - inc/libs/clearbricks/tests/unit/*/*
+    - rector.php
 
   reportUnmatchedIgnoredErrors: false
 
