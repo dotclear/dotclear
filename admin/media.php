@@ -677,7 +677,7 @@ if (!$page->mediaWritable() && !$core->error->flag()) {
 }
 
 if (!$page->getDirs()) {
-    call_user_func($page->closePage());
+    $page->closePage();
     exit;
 }
 
