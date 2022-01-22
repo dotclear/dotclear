@@ -16,7 +16,7 @@ if (!defined('DC_RC_PATH')) {
 __("This tag's comments Atom feed");
 __("This tag's entries Atom feed");
 
-require dirname(__FILE__) . '/_widgets.php';
+require __DIR__ . '/_widgets.php';
 
 $core->tpl->addBlock('Tags', ['tplTags', 'Tags']);
 $core->tpl->addBlock('TagsHeader', ['tplTags', 'TagsHeader']);
@@ -77,10 +77,10 @@ class behaviorsTags
     public static function addTplPath($core)
     {
         $tplset = $core->themes->moduleInfo($core->blog->settings->system->theme, 'tplset');
-        if (!empty($tplset) && is_dir(dirname(__FILE__) . '/default-templates/' . $tplset)) {
-            $core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__) . '/default-templates/' . $tplset);
+        if (!empty($tplset) && is_dir(__DIR__ . '/default-templates/' . $tplset)) {
+            $core->tpl->setPath($core->tpl->getPath(), __DIR__ . '/default-templates/' . $tplset);
         } else {
-            $core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__) . '/default-templates/' . DC_DEFAULT_TPLSET);
+            $core->tpl->setPath($core->tpl->getPath(), __DIR__ . '/default-templates/' . DC_DEFAULT_TPLSET);
         }
     }
 }
@@ -91,7 +91,7 @@ class tplTags
     {
         $type = isset($attr['type']) ? addslashes($attr['type']) : 'tag';
 
-        $limit = isset($attr['limit']) ? (integer) $attr['limit'] : 'null';
+        $limit = isset($attr['limit']) ? (int) $attr['limit'] : 'null';
 
         $combo = ['meta_id_lower', 'count', 'latest', 'oldest'];
 
@@ -168,7 +168,7 @@ class tplTags
         $operateur = isset($attr['operator']) ? dcTemplate::getOperator($attr['operator']) : '&&';
 
         if (isset($attr['has_entries'])) {
-            $sign = (boolean) $attr['has_entries'] ? '' : '!';
+            $sign = (bool) $attr['has_entries'] ? '' : '!';
             $if[] = $sign . '$_ctx->meta->count';
         }
 
@@ -263,11 +263,12 @@ class tplTags
         }
 
         if ($w->limit !== '') {
-            $params['limit'] = abs((integer) $w->limit);
+            $params['limit'] = abs((int) $w->limit);
         }
 
         $rs = $core->meta->computeMetaStats(
-            $core->meta->getMetadata($params));
+            $core->meta->getMetadata($params)
+        );
 
         if ($rs->isEmpty()) {
             return;
@@ -327,7 +328,8 @@ class urlTags extends dcUrlHandlers
             $GLOBALS['_ctx']->meta = $GLOBALS['core']->meta->computeMetaStats(
                 $GLOBALS['core']->meta->getMetadata([
                     'meta_type' => 'tag',
-                    'meta_id'   => $m[1]]));
+                    'meta_id'   => $m[1], ])
+            );
 
             if ($GLOBALS['_ctx']->meta->isEmpty()) {
                 self::p404();
@@ -348,7 +350,8 @@ class urlTags extends dcUrlHandlers
             $GLOBALS['_ctx']->meta = $GLOBALS['core']->meta->computeMetaStats(
                 $GLOBALS['core']->meta->getMetadata([
                     'meta_type' => 'tag',
-                    'meta_id'   => $args]));
+                    'meta_id'   => $args, ])
+            );
 
             if ($GLOBALS['_ctx']->meta->isEmpty()) {
                 self::p404();
@@ -375,7 +378,8 @@ class urlTags extends dcUrlHandlers
             $GLOBALS['_ctx']->meta = $GLOBALS['core']->meta->computeMetaStats(
                 $GLOBALS['core']->meta->getMetadata([
                     'meta_type' => 'tag',
-                    'meta_id'   => $tag]));
+                    'meta_id'   => $tag, ])
+            );
 
             if ($GLOBALS['_ctx']->meta->isEmpty()) {
                 # The specified tag does not exist.

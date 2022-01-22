@@ -23,18 +23,28 @@ class tagsWidgets
             ->create('tags', __('Tags'), ['tplTags', 'tagsWidget'], null, 'Tags cloud')
             ->addTitle(__('Menu'))
             ->setting('limit', __('Limit (empty means no limit):'), '20')
-            ->setting('sortby', __('Order by:'), 'meta_id_lower', 'combo',
+            ->setting(
+                'sortby',
+                __('Order by:'),
+                'meta_id_lower',
+                'combo',
                 [
                     __('Tag name')      => 'meta_id_lower',
                     __('Entries count') => 'count',
                     __('Newest entry')  => 'latest',
-                    __('Oldest entry')  => 'oldest'
-                ])
-            ->setting('orderby', __('Sort:'), 'asc', 'combo',
+                    __('Oldest entry')  => 'oldest',
+                ]
+            )
+            ->setting(
+                'orderby',
+                __('Sort:'),
+                'asc',
+                'combo',
                 [
                     __('Ascending')  => 'asc',
-                    __('Descending') => 'desc'
-                ])
+                    __('Descending') => 'desc',
+                ]
+            )
             ->setting('alltagslinktitle', __('Link to all tags:'), __('All tags'))
             ->addHomeOnly()
             ->addContentOnly()

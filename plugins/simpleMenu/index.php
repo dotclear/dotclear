@@ -126,7 +126,7 @@ if (!is_array($menu)) {
 }
 
 # Récupération état d'activation du menu
-$menu_active = (boolean) $core->blog->settings->system->simpleMenu_active;
+$menu_active = (bool) $core->blog->settings->system->simpleMenu_active;
 
 // Saving new configuration
 $item_type         = '';
@@ -160,7 +160,7 @@ if (!empty($_POST['saveconfig'])) {
     $item_url         = $_POST['item_url']    ?? '';
     $item_targetBlank = isset($_POST['item_targetBlank']) ? (empty($_POST['item_targetBlank'])) ? false : true : false;
     # Traitement
-    $step = (!empty($_GET['add']) ? (integer) $_GET['add'] : 0);
+    $step = (!empty($_GET['add']) ? (int) $_GET['add'] : 0);
     if (($step > 4) || ($step < 0)) {
         $step = 0;
     }
@@ -254,8 +254,12 @@ if (!empty($_POST['saveconfig'])) {
                         # --BEHAVIOR-- adminSimpleMenuBeforeEdit
                         # Should modify if necessary $item_label, $item_descr and $item_url
                         # Should set if necessary $item_select_label (displayed on further admin step only)
-                        $core->callBehavior('adminSimpleMenuBeforeEdit', $item_type, $item_select,
-                            [& $item_label, &$item_descr, &$item_url, &$item_select_label]);
+                        $core->callBehavior(
+                            'adminSimpleMenuBeforeEdit',
+                            $item_type,
+                            $item_select,
+                            [& $item_label, &$item_descr, &$item_url, &$item_select_label]
+                        );
 
                         break;
                 }
@@ -270,7 +274,7 @@ if (!empty($_POST['saveconfig'])) {
                             'label'       => $item_label,
                             'descr'       => $item_descr,
                             'url'         => $item_url,
-                            'targetBlank' => $item_targetBlank
+                            'targetBlank' => $item_targetBlank,
                         ];
 
                         // Save menu in blog settings
@@ -307,7 +311,7 @@ if (!empty($_POST['saveconfig'])) {
                                 'label'       => $v['label'],
                                 'descr'       => $v['descr'],
                                 'url'         => $v['url'],
-                                'targetBlank' => $v['targetBlank']
+                                'targetBlank' => $v['targetBlank'],
                             ];
                         }
                     }
@@ -346,7 +350,7 @@ if (!empty($_POST['saveconfig'])) {
                         'label'       => $_POST['items_label'][$i],
                         'descr'       => $_POST['items_descr'][$i],
                         'url'         => $_POST['items_url'][$i],
-                        'targetBlank' => (empty($_POST['items_targetBlank' . $i])) ? false : true
+                        'targetBlank' => (empty($_POST['items_targetBlank' . $i])) ? false : true,
                     ];
                 }
                 $menu = $newmenu;
@@ -372,7 +376,7 @@ if (!empty($_POST['saveconfig'])) {
                             $newmenu[] = [
                                 'label' => $menu[$k]['label'],
                                 'descr' => $menu[$k]['descr'],
-                                'url'   => $menu[$k]['url']];
+                                'url'   => $menu[$k]['url'], ];
                         }
                         $menu = $newmenu;
                     }
@@ -440,18 +444,19 @@ if ($step) {
             html::escapeHTML($core->blog->name) => '',
             $page_title                         => $p_url,
             __('Add item')                      => '',
-            $step_label                         => ''
+            $step_label                         => '',
         ],
         [
-            'hl_pos' => -2]
+            'hl_pos' => -2, ]
     ) .
     dcPage::notices();
 } else {
     echo dcPage::breadcrumb(
         [
             html::escapeHTML($core->blog->name) => '',
-            $page_title                         => ''
-        ]) .
+            $page_title                         => '',
+        ]
+    ) .
     dcPage::notices();
 }
 
@@ -520,20 +525,24 @@ if ($step) {
             __('Label of item menu:') . '</label>' .
             form::field('item_label', 20, 255, [
                 'default'    => $item_label,
-                'extra_html' => 'required placeholder="' . __('Label') . '" lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
+                'extra_html' => 'required placeholder="' . __('Label') . '" lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
             ]) .
                 '</p>';
             echo '<p class="field"><label for="item_descr" class="classic">' .
-            __('Description of item menu:') . '</label>' . form::field('item_descr', 30, 255,
+            __('Description of item menu:') . '</label>' . form::field(
+                'item_descr',
+                30,
+                255,
                 [
                     'default'    => $item_descr,
-                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
-                ]) . '</p>';
+                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+                ]
+            ) . '</p>';
             echo '<p class="field"><label for="item_url" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' .
             __('URL of item menu:') . '</label>' .
             form::field('item_url', 40, 255, [
                 'default'    => $item_url,
-                'extra_html' => 'required placeholder="' . __('URL') . '"'
+                'extra_html' => 'required placeholder="' . __('URL') . '"',
             ]) .
                 '</p>';
             echo form::hidden('item_type', $item_type) . form::hidden('item_select', $item_select);
@@ -609,20 +618,28 @@ if (count($menu)) {
                 'max'        => count($menu),
                 'default'    => $count,
                 'class'      => 'position',
-                'extra_html' => 'title="' . sprintf(__('position of %s'), html::escapeHTML($m['label'])) . '"'
+                'extra_html' => 'title="' . sprintf(__('position of %s'), html::escapeHTML($m['label'])) . '"',
             ]) .
             form::hidden(['dynorder[]', 'dynorder-' . $i], $i) . '</td>';
             echo '<td class="minimal">' . form::checkbox(['items_selected[]', 'ims-' . $i], $i) . '</td>';
-            echo '<td class="nowrap" scope="row">' . form::field(['items_label[]', 'iml-' . $i], null, 255,
+            echo '<td class="nowrap" scope="row">' . form::field(
+                ['items_label[]', 'iml-' . $i],
+                null,
+                255,
                 [
                     'default'    => html::escapeHTML($m['label']),
-                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
-                ]) . '</td>';
-            echo '<td class="nowrap">' . form::field(['items_descr[]', 'imd-' . $i], 30, 255,
+                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+                ]
+            ) . '</td>';
+            echo '<td class="nowrap">' . form::field(
+                ['items_descr[]', 'imd-' . $i],
+                30,
+                255,
                 [
                     'default'    => html::escapeHTML($m['descr']),
-                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
-                ]) . '</td>';
+                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+                ]
+            ) . '</td>';
             echo '<td class="nowrap">' . form::field(['items_url[]', 'imu-' . $i], 30, 255, html::escapeHTML($m['url'])) . '</td>';
             echo '<td class="nowrap">' . form::checkbox('items_targetBlank' . $i, 'blank', $targetBlank) . '</td>';
         } else {

@@ -30,7 +30,7 @@ class dcUpgrade
 
                 # Database upgrade
                 $_s = new dbStruct($core->con, $core->prefix);
-                require dirname(__FILE__) . '/db-schema.php';
+                require __DIR__ . '/db-schema.php';
 
                 $si      = new dbStruct($core->con, $core->prefix);
                 $changes = $si->synchronize($_s);
@@ -313,7 +313,7 @@ class dcUpgrade
         if (version_compare($version, '2.5', '<=')) {
             # Try to disable daInstaller plugin if it has been installed outside the default plugins directory
             $path    = explode(PATH_SEPARATOR, DC_PLUGINS_ROOT);
-            $default = path::real(dirname(__FILE__) . '/../../plugins/');
+            $default = path::real(__DIR__ . '/../../plugins/');
             foreach ($path as $root) {
                 if (!is_dir($root) || !is_readable($root)) {
                     continue;
@@ -384,7 +384,7 @@ class dcUpgrade
                 '%A, %B %e, %Y', '%A, %e %B, %Y', '%A, %Y, %B %e', '%A, %Y, %B %e', '%A, %e. %B %Y', ];
             $time_formats = ['%H:%M', '%I:%M', '%l:%M', '%Hh%M', '%Ih%M', '%lh%M'];
             if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
-                $date_formats = array_map(function ($f) {return str_replace('%e', '%#d', $f);}, $date_formats);
+                $date_formats = array_map(fn ($f) => str_replace('%e', '%#d', $f), $date_formats);
             }
 
             $rs = $core->con->select(sprintf($strReqSelect, 'date_formats'));

@@ -33,7 +33,7 @@ class dcBlogroll
         "WHERE blog_id = '" . $this->con->escape($this->blog->id) . "' ";
 
         if (isset($params['link_id'])) {
-            $strReq .= 'AND link_id = ' . (integer) $params['link_id'] . ' ';
+            $strReq .= 'AND link_id = ' . (int) $params['link_id'] . ' ';
         }
 
         $strReq .= 'ORDER BY link_position ';
@@ -100,7 +100,7 @@ class dcBlogroll
 
         $strReq       = 'SELECT MAX(link_id) FROM ' . $this->table;
         $rs           = $this->con->select($strReq);
-        $cur->link_id = (integer) $rs->f(0) + 1;
+        $cur->link_id = (int) $rs->f(0) + 1;
 
         $cur->insert();
         $this->blog->triggerBlog();
@@ -124,7 +124,7 @@ class dcBlogroll
             throw new Exception(__('You must provide a link URL'));
         }
 
-        $cur->update('WHERE link_id = ' . (integer) $id .
+        $cur->update('WHERE link_id = ' . (int) $id .
             " AND blog_id = '" . $this->con->escape($this->blog->id) . "'");
         $this->blog->triggerBlog();
     }
@@ -139,7 +139,7 @@ class dcBlogroll
             throw new Exception(__('You must provide a category title'));
         }
 
-        $cur->update('WHERE link_id = ' . (integer) $id .
+        $cur->update('WHERE link_id = ' . (int) $id .
             " AND blog_id = '" . $this->con->escape($this->blog->id) . "'");
         $this->blog->triggerBlog();
     }
@@ -159,7 +159,7 @@ class dcBlogroll
 
         $strReq       = 'SELECT MAX(link_id) FROM ' . $this->table;
         $rs           = $this->con->select($strReq);
-        $cur->link_id = (integer) $rs->f(0) + 1;
+        $cur->link_id = (int) $rs->f(0) + 1;
 
         $cur->insert();
         $this->blog->triggerBlog();
@@ -169,7 +169,7 @@ class dcBlogroll
 
     public function delItem($id)
     {
-        $id = (integer) $id;
+        $id = (int) $id;
 
         $strReq = 'DELETE FROM ' . $this->table . ' ' .
         "WHERE blog_id = '" . $this->con->escape($this->blog->id) . "' " .
@@ -182,9 +182,9 @@ class dcBlogroll
     public function updateOrder($id, $position)
     {
         $cur                = $this->con->openCursor($this->table);
-        $cur->link_position = (integer) $position;
+        $cur->link_position = (int) $position;
 
-        $cur->update('WHERE link_id = ' . (integer) $id .
+        $cur->update('WHERE link_id = ' . (int) $id .
             " AND blog_id = '" . $this->con->escape($this->blog->id) . "'");
         $this->blog->triggerBlog();
     }

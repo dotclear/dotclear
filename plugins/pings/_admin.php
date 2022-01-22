@@ -12,13 +12,15 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$_menu['Blog']->addItem(__('Pings'),
+$_menu['Blog']->addItem(
+    __('Pings'),
     $core->adminurl->get('admin.plugin.pings'),
     dcPage::getPF('pings/icon.png'),
     preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.pings')) . '/', $_SERVER['REQUEST_URI']),
-    $core->auth->isSuperAdmin());
+    $core->auth->isSuperAdmin()
+);
 
-$__autoload['pingsAdminBehaviors'] = dirname(__FILE__) . '/lib.pings.php';
+$__autoload['pingsAdminBehaviors'] = __DIR__ . '/lib.pings.php';
 
 $core->addBehavior('adminPostHeaders', ['pingsAdminBehaviors', 'pingJS']);
 $core->addBehavior('adminPostFormItems', ['pingsAdminBehaviors', 'pingsFormItems']);
@@ -33,7 +35,7 @@ function pingDashboardFavorites($core, $favs)
         'title'      => __('Pings'),
         'url'        => $core->adminurl->get('admin.plugin.pings'),
         'small-icon' => dcPage::getPF('pings/icon.png'),
-        'large-icon' => dcPage::getPF('pings/icon-big.png')
+        'large-icon' => dcPage::getPF('pings/icon-big.png'),
     ]);
 }
 

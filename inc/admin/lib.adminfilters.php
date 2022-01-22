@@ -97,11 +97,11 @@ class adminGenericFilter
             $this->filters['nb']->title($options[4][0]);
 
             if (!empty($_GET['nb'])
-                && (integer) $_GET['nb'] > 0
-                && (integer) $_GET['nb'] != $this->userOptions('nb')
+                && (int) $_GET['nb'] > 0
+                && (int) $_GET['nb'] != $this->userOptions('nb')
             ) {
                 $this->show(true);
-                $this->filters['nb']->value((integer) $_GET['nb']);
+                $this->filters['nb']->value((int) $_GET['nb']);
             }
         }
     }
@@ -235,7 +235,7 @@ class adminGenericFilter
             'from'    => '',
             'where'   => '',
             'sql'     => '',
-            'columns' => []
+            'columns' => [],
         ];
 
         if (!empty($filters['sortby']) && !empty($filters['order'])) {
@@ -427,7 +427,7 @@ class adminPostFilter extends adminGenericFilter
             $this->getPostMonthFilter(),
             $this->getPostLangFilter(),
             $this->getPostCommentFilter(),
-            $this->getPostTrackbackFilter()
+            $this->getPostTrackbackFilter(),
         ]);
 
         # --BEHAVIOR-- adminPostFilter
@@ -489,7 +489,7 @@ class adminPostFilter extends adminGenericFilter
 
         $combo = [
             '-'            => '',
-            __('(No cat)') => 'NULL'
+            __('(No cat)') => 'NULL',
         ];
         while ($categories->fetch()) {
             $combo[
@@ -559,7 +559,7 @@ class adminPostFilter extends adminGenericFilter
             ->options([
                 '-'                    => '',
                 __('With password')    => '1',
-                __('Without password') => '0'
+                __('Without password') => '0',
             ])
             ->prime(true);
     }
@@ -580,7 +580,7 @@ class adminPostFilter extends adminGenericFilter
             ->options([
                 '-'                => '',
                 __('Selected')     => '1',
-                __('Not selected') => '0'
+                __('Not selected') => '0',
             ]);
     }
 
@@ -596,7 +596,7 @@ class adminPostFilter extends adminGenericFilter
             ->options([
                 '-'                       => '',
                 __('With attachments')    => '1',
-                __('Without attachments') => '0'
+                __('Without attachments') => '0',
             ]);
     }
 
@@ -610,7 +610,7 @@ class adminPostFilter extends adminGenericFilter
         try {
             $dates = $this->core->blog->getDates([
                 'type'      => 'month',
-                'post_type' => $this->post_type
+                'post_type' => $this->post_type,
             ]);
             if ($dates->isEmpty()) {
                 return null;
@@ -679,7 +679,7 @@ class adminPostFilter extends adminGenericFilter
             ->options([
                 '-'          => '',
                 __('Opened') => '1',
-                __('Closed') => '0'
+                __('Closed') => '0',
             ]);
     }
 
@@ -699,7 +699,7 @@ class adminPostFilter extends adminGenericFilter
             ->options([
                 '-'          => '',
                 __('Opened') => '1',
-                __('Closed') => '0'
+                __('Closed') => '0',
             ]);
     }
 
@@ -722,7 +722,7 @@ class adminCommentFilter extends adminGenericFilter
             $this->getCommentStatusFilter(),
             $this->getCommentIpFilter(),
             dcAdminFilters::getInputFilter('email', __('Email:'), 'comment_email'),
-            dcAdminFilters::getInputFilter('site', __('Web site:'), 'comment_site')
+            dcAdminFilters::getInputFilter('site', __('Web site:'), 'comment_site'),
         ]);
 
         # --BEHAVIOR-- adminCommentFilter
@@ -755,7 +755,7 @@ class adminCommentFilter extends adminGenericFilter
             ->options([
                 '-'             => '',
                 __('Comment')   => 'co',
-                __('Trackback') => 'tb'
+                __('Trackback') => 'tb',
             ])
             ->prime(true);
     }
@@ -804,7 +804,7 @@ class adminUserFilter extends adminGenericFilter
 
         $filters = new arrayObject([
             dcAdminFilters::getPageFilter(),
-            dcAdminFilters::getSearchFilter()
+            dcAdminFilters::getSearchFilter(),
         ]);
 
         # --BEHAVIOR-- adminUserFilter
@@ -825,7 +825,7 @@ class adminBlogFilter extends adminGenericFilter
         $filters = new arrayObject([
             dcAdminFilters::getPageFilter(),
             dcAdminFilters::getSearchFilter(),
-            $this->getBlogStatusFilter()
+            $this->getBlogStatusFilter(),
         ]);
 
         # --BEHAVIOR-- adminBlogFilter
@@ -871,7 +871,7 @@ class adminMediaFilter extends adminGenericFilter
             $this->getPluginIdFilter(),
             $this->getLinkTypeFilter(),
             $this->getPopupFilter(),
-            $this->getSelectFilter()
+            $this->getSelectFilter(),
         ]);
 
         # --BEHAVIOR-- adminBlogFilter
@@ -904,7 +904,7 @@ class adminMediaFilter extends adminGenericFilter
 
     protected function getPostIdFilter()
     {
-        $post_id = !empty($_REQUEST['post_id']) ? (integer) $_REQUEST['post_id'] : null;
+        $post_id = !empty($_REQUEST['post_id']) ? (int) $_REQUEST['post_id'] : null;
         if ($post_id) {
             $post = $this->core->blog->getPosts(['post_id' => $post_id, 'post_type' => '']);
             if ($post->isEmpty()) {
@@ -970,7 +970,7 @@ class adminMediaFilter extends adminGenericFilter
 
     protected function getPopupFilter()
     {
-        $get = (integer) !empty($_REQUEST['popup']);
+        $get = (int) !empty($_REQUEST['popup']);
 
         return new dcAdminFilter('popup', $get);
     }
@@ -978,7 +978,7 @@ class adminMediaFilter extends adminGenericFilter
     protected function getSelectFilter()
     {
         // 0 : none, 1 : single media, >1 : multiple media
-        $get = !empty($_REQUEST['select']) ? (integer) $_REQUEST['select'] : 0;
+        $get = !empty($_REQUEST['select']) ? (int) $_REQUEST['select'] : 0;
 
         return new dcAdminFilter('select', $get);
     }
@@ -1001,7 +1001,7 @@ class dcAdminFilter
         'title'   => '',
         'options' => [],
         'html'    => '',
-        'params'  => []
+        'params'  => [],
     ];
 
     /**
@@ -1197,7 +1197,7 @@ class dcAdminFilter
         }
         # filter value as param value
         if (null === $value) {
-            $value = function ($f) { return $f[0]; };
+            $value = fn ($f) => $f[0];
         }
         $this->properties['params'][] = [$name, $value];
 
@@ -1292,8 +1292,8 @@ class dcAdminFilters
     public static function getPageFilter(string $id = 'page'): dcAdminFilter
     {
         return (new dcAdminFilter($id))
-            ->value(!empty($_GET[$id]) ? max(1, (integer) $_GET[$id]) : 1)
-            ->param('limit', function ($f) { return [(($f[0] - 1) * $f['nb']), $f['nb']]; });
+            ->value(!empty($_GET[$id]) ? max(1, (int) $_GET[$id]) : 1)
+            ->param('limit', fn ($f) => [(($f[0] - 1) * $f['nb']), $f['nb']]);
     }
 
     /**
@@ -1302,7 +1302,7 @@ class dcAdminFilters
     public static function getSearchFilter(): dcAdminFilter
     {
         return (new dcAdminFilter('q'))
-            ->param('q', function ($f) { return $f['q']; })
+            ->param('q', fn ($f) => $f['q'])
             ->form('input')
             ->title(__('Search:'))
             ->prime(true);

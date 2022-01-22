@@ -15,7 +15,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 $core->addBehavior('adminCurrentThemeDetails', 'blowup_config_details');
 
 if (!isset($__resources['help']['blowupConfig'])) {
-    $__resources['help']['blowupConfig'] = dirname(__FILE__) . '/help.html';
+    $__resources['help']['blowupConfig'] = __DIR__ . '/help.html';
 }
 
 function blowup_config_details($core, $id)

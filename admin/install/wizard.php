@@ -11,14 +11,14 @@ if (isset($_SERVER['DC_RC_PATH'])) {
 } elseif (isset($_SERVER['REDIRECT_DC_RC_PATH'])) {
     define('DC_RC_PATH', $_SERVER['REDIRECT_DC_RC_PATH']);
 } else {
-    define('DC_RC_PATH', dirname(__FILE__) . '/../../inc/config.php');
+    define('DC_RC_PATH', __DIR__ . '/../../inc/config.php');
 }
 
 #  ClearBricks and DotClear classes auto-loader
 if (@is_dir('/usr/lib/clearbricks')) {
     define('CLEARBRICKS_PATH', '/usr/lib/clearbricks');
-} elseif (is_dir(dirname(__FILE__) . '/../../inc/libs/clearbricks')) {
-    define('CLEARBRICKS_PATH', dirname(__FILE__) . '/../../inc/libs/clearbricks');
+} elseif (is_dir(__DIR__ . '/../../inc/libs/clearbricks')) {
+    define('CLEARBRICKS_PATH', __DIR__ . '/../../inc/libs/clearbricks');
 } elseif (isset($_SERVER['CLEARBRICKS_PATH']) && is_dir($_SERVER['CLEARBRICKS_PATH'])) {
     define('CLEARBRICKS_PATH', $_SERVER['CLEARBRICKS_PATH']);
 }
@@ -33,7 +33,7 @@ require CLEARBRICKS_PATH . '/_common.php';
 $dlang = http::getAcceptLanguage();
 if ($dlang != 'en') {
     l10n::init($dlang);
-    l10n::set(dirname(__FILE__) . '/../../locales/' . $dlang . '/main');
+    l10n::set(__DIR__ . '/../../locales/' . $dlang . '/main');
 }
 
 if (is_file(DC_RC_PATH)) {
@@ -80,7 +80,7 @@ if (!empty($_POST)) {
         }
 
         # Checks system capabilites
-        require dirname(__FILE__) . '/check.php';
+        require __DIR__ . '/check.php';
         if (!dcSystemCheck($con, $_e)) {
             $can_install = false;
 
@@ -98,7 +98,7 @@ if (!empty($_POST)) {
         }
 
         # Does config.php.in exist?
-        $config_in = dirname(__FILE__) . '/../../inc/config.php.in';
+        $config_in = __DIR__ . '/../../inc/config.php.in';
         if (!is_file($config_in)) {
             throw new Exception(sprintf(__('File %s does not exist.'), $config_in));
         }
@@ -192,12 +192,15 @@ echo
 
 '<form action="wizard.php" method="post">' .
 '<p><label class="required" for="DBDRIVER"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Database type:') . '</label> ' .
-form::combo('DBDRIVER', [
-    __('MySQLi')              => 'mysqli',
-    __('MySQLi (full UTF-8)') => 'mysqlimb4',
-    __('PostgreSQL')          => 'pgsql',
-    __('SQLite')              => 'sqlite'],
-    ['default' => $DBDRIVER, 'extra_html' => 'required placeholder="' . __('Driver') . '"']) . '</p>' .
+form::combo(
+    'DBDRIVER',
+    [
+        __('MySQLi')              => 'mysqli',
+        __('MySQLi (full UTF-8)') => 'mysqlimb4',
+        __('PostgreSQL')          => 'pgsql',
+        __('SQLite')              => 'sqlite', ],
+    ['default' => $DBDRIVER, 'extra_html' => 'required placeholder="' . __('Driver') . '"']
+) . '</p>' .
 '<p><label for="DBHOST">' . __('Database Host Name:') . '</label> ' .
 form::field('DBHOST', 30, 255, html::escapeHTML($DBHOST)) . '</p>' .
 '<p><label for="DBNAME">' . __('Database Name:') . '</label> ' .
@@ -209,14 +212,14 @@ form::password('DBPASSWORD', 30, 255) . '</p>' .
 '<p><label for="DBPREFIX" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Database Tables Prefix:') . '</label> ' .
 form::field('DBPREFIX', 30, 255, [
     'default'    => html::escapeHTML($DBPREFIX),
-    'extra_html' => 'required placeholder="' . __('Prefix') . '"'
+    'extra_html' => 'required placeholder="' . __('Prefix') . '"',
 ]) .
 '</p>' .
 '<p><label for="ADMINMAILFROM">' . __('Master Email: (used as sender for password recovery)') . '</label> ' .
 form::email('ADMINMAILFROM', [
     'size'         => 30,
     'default'      => html::escapeHTML($ADMINMAILFROM),
-    'autocomplete' => 'email'
+    'autocomplete' => 'email',
 ]) .
 '</p>' .
 

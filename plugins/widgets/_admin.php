@@ -15,11 +15,13 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 $core->addBehavior('adminDashboardFavorites', ['widgetsBehaviors', 'widgets_dashboard_favorites']);
 $core->addBehavior('adminRteFlags', ['widgetsBehaviors', 'adminRteFlags']);
 
-$_menu['Blog']->addItem(__('Presentation widgets'),
+$_menu['Blog']->addItem(
+    __('Presentation widgets'),
     $core->adminurl->get('admin.plugin.widgets'),
     dcPage::getPF('widgets/icon.png'),
     preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.widgets')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-    $core->auth->check('admin', $core->blog->id));
+    $core->auth->check('admin', $core->blog->id)
+);
 
 class widgetsBehaviors
 {
@@ -29,7 +31,7 @@ class widgetsBehaviors
             'title'      => __('Presentation widgets'),
             'url'        => $core->adminurl->get('admin.plugin.widgets'),
             'small-icon' => dcPage::getPF('widgets/icon.png'),
-            'large-icon' => dcPage::getPF('widgets/icon-big.png')
+            'large-icon' => dcPage::getPF('widgets/icon-big.png'),
         ]);
     }
 

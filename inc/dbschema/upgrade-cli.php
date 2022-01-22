@@ -19,7 +19,7 @@ try {
     } elseif (isset($_SERVER['DC_RC_PATH'])) {
         $dc_conf = realpath($_SERVER['DC_RC_PATH']);
     } else {
-        $dc_conf = dirname(__FILE__) . '/../config.php';
+        $dc_conf = __DIR__ . '/../config.php';
     }
 
     if (!is_file($dc_conf)) {
@@ -29,7 +29,7 @@ try {
     $_SERVER['DC_RC_PATH'] = $dc_conf;
     unset($dc_conf);
 
-    require dirname(__FILE__) . '/../prepend.php';
+    require __DIR__ . '/../prepend.php';
 
     echo "Starting upgrade process\n";
     $core->con->begin();

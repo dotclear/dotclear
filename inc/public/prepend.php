@@ -7,12 +7,12 @@
  * @copyright GPL-2.0-only
  */
 if (!empty($_GET['pf'])) {
-    require dirname(__FILE__) . '/../load_plugin_file.php';
+    require __DIR__ . '/../load_plugin_file.php';
     exit;
 }
 
 if (!empty($_GET['vf'])) {
-    require dirname(__FILE__) . '/../load_var_file.php';
+    require __DIR__ . '/../load_var_file.php';
     exit;
 }
 
@@ -20,8 +20,8 @@ if (!isset($_SERVER['PATH_INFO'])) {
     $_SERVER['PATH_INFO'] = '';
 }
 
-require_once dirname(__FILE__) . '/../prepend.php';
-require_once dirname(__FILE__) . '/rs.extension.php';
+require_once __DIR__ . '/../prepend.php';
+require_once __DIR__ . '/rs.extension.php';
 
 # Loading blog
 if (defined('DC_BLOG_ID')) {
@@ -40,7 +40,7 @@ if ($core->blog->id == null) {
     __error(__('Blog is not defined.'), __('Did you change your Blog ID?'), 630);
 }
 
-if ((boolean) !$core->blog->status) {
+if ((bool) !$core->blog->status) {
     $core->unsetBlog();
     __error(__('Blog is offline.'), __('This blog is offline. Please try again later.'), 670);
 }
@@ -73,11 +73,11 @@ $_lang = $core->blog->settings->system->lang;
 $_lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $_lang) ? $_lang : 'en';
 
 l10n::lang($_lang);
-if (l10n::set(dirname(__FILE__) . '/../../locales/' . $_lang . '/date') === false && $_lang != 'en') {
-    l10n::set(dirname(__FILE__) . '/../../locales/en/date');
+if (l10n::set(__DIR__ . '/../../locales/' . $_lang . '/date') === false && $_lang != 'en') {
+    l10n::set(__DIR__ . '/../../locales/en/date');
 }
-l10n::set(dirname(__FILE__) . '/../../locales/' . $_lang . '/public');
-l10n::set(dirname(__FILE__) . '/../../locales/' . $_lang . '/plugins');
+l10n::set(__DIR__ . '/../../locales/' . $_lang . '/public');
+l10n::set(__DIR__ . '/../../locales/' . $_lang . '/plugins');
 
 // Set lexical lang
 dcUtils::setlexicalLang('public', $_lang);
@@ -137,21 +137,23 @@ $mod_ts    = [];
 $mod_ts[]  = $core->blog->upddt;
 
 $__theme_tpl_path = [
-    $core->blog->themes_path . '/' . $__theme . '/tpl'
+    $core->blog->themes_path . '/' . $__theme . '/tpl',
 ];
 if ($__parent_theme) {
     $__theme_tpl_path[] = $core->blog->themes_path . '/' . $__parent_theme . '/tpl';
 }
 $tplset = $core->themes->moduleInfo($core->blog->settings->system->theme, 'tplset');
-if (!empty($tplset) && is_dir(dirname(__FILE__) . '/default-templates/' . $tplset)) {
+if (!empty($tplset) && is_dir(__DIR__ . '/default-templates/' . $tplset)) {
     $core->tpl->setPath(
         $__theme_tpl_path,
-        dirname(__FILE__) . '/default-templates/' . $tplset,
-        $core->tpl->getPath());
+        __DIR__ . '/default-templates/' . $tplset,
+        $core->tpl->getPath()
+    );
 } else {
     $core->tpl->setPath(
         $__theme_tpl_path,
-        $core->tpl->getPath());
+        $core->tpl->getPath()
+    );
 }
 $core->url->mode = $core->blog->settings->system->url_scan;
 

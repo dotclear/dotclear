@@ -18,7 +18,7 @@ $core->addBehavior('coreBlogBeforeGetPosts', ['publicPages', 'coreBlogBeforeGetP
 __('Published on');
 __('This page\'s comments feed');
 
-require dirname(__FILE__) . '/_widgets.php';
+require __DIR__ . '/_widgets.php';
 
 class publicPages
 {
@@ -60,7 +60,7 @@ class urlPages extends dcUrlHandlers
 
             $params = new ArrayObject([
                 'post_type' => 'page',
-                'post_url'  => $args]);
+                'post_url'  => $args, ]);
 
             $core->callBehavior('publicPagesBeforeGetPosts', $params, $args);
 
@@ -205,10 +205,10 @@ class urlPages extends dcUrlHandlers
                 }
 
                 $tplset = $core->themes->moduleInfo($core->blog->settings->system->theme, 'tplset');
-                if (!empty($tplset) && is_dir(dirname(__FILE__) . '/default-templates/' . $tplset)) {
-                    $core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__) . '/default-templates/' . $tplset);
+                if (!empty($tplset) && is_dir(__DIR__ . '/default-templates/' . $tplset)) {
+                    $core->tpl->setPath($core->tpl->getPath(), __DIR__ . '/default-templates/' . $tplset);
                 } else {
-                    $core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__) . '/default-templates/' . DC_DEFAULT_TPLSET);
+                    $core->tpl->setPath($core->tpl->getPath(), __DIR__ . '/default-templates/' . DC_DEFAULT_TPLSET);
                 }
                 self::serveDocument('page.html');
             }
@@ -258,7 +258,7 @@ class tplPages
         }
 
         $params['post_type']     = 'page';
-        $params['limit']         = abs((integer) $w->limit);
+        $params['limit']         = abs((int) $w->limit);
         $params['no_content']    = true;
         $params['post_selected'] = false;
 

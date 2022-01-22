@@ -21,7 +21,7 @@ $this->registerModule(
         'permissions' => 'usage,contentadmin', // Permissions
         'type'        => 'plugin',             // Type
         'settings'    => [
-            'blog' => '#params.breadcrumb_params'
-        ]
+            'blog' => '#params.breadcrumb_params',
+        ],
     ]
 );

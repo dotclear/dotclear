@@ -118,8 +118,9 @@ if ($filter_gui !== false) {
         [
             __('Plugins') => '',
             $page_name    => $p_url,
-            sprintf(__('%s filter configuration'), $filter->name) => ''
-        ]) .
+            sprintf(__('%s filter configuration'), $filter->name) => '',
+        ]
+    ) .
     dcPage::notices();
 
     echo '<p><a href="' . $p_url . '" class="back">' . __('Back to filters list') . '</a></p>';
@@ -133,8 +134,9 @@ if ($filter_gui !== false) {
     echo dcPage::breadcrumb(
         [
             __('Plugins') => '',
-            $page_name    => ''
-        ]) .
+            $page_name    => '',
+        ]
+    ) .
     dcPage::notices();
 
     # Information
@@ -205,19 +207,23 @@ if ($filter_gui !== false) {
             'max'        => count($filters),
             'default'    => $i,
             'class'      => 'position',
-            'extra_html' => 'title="' . __('position') . '"'
+            'extra_html' => 'title="' . __('position') . '"',
         ]) .
         '</td>' .
-        '<td class="nowrap">' . form::checkbox(['filters_active[]'], $fid,
+        '<td class="nowrap">' . form::checkbox(
+            ['filters_active[]'],
+            $fid,
             [
                 'checked'    => $f->active,
-                'extra_html' => 'title="' . __('Active') . '"'
+                'extra_html' => 'title="' . __('Active') . '"',
             ]
         ) . '</td>' .
-        '<td class="nowrap">' . form::checkbox(['filters_auto_del[]'], $fid,
+        '<td class="nowrap">' . form::checkbox(
+            ['filters_auto_del[]'],
+            $fid,
             [
                 'checked'    => $f->auto_delete,
-                'extra_html' => 'title="' . __('Auto Del.') . '"'
+                'extra_html' => 'title="' . __('Auto Del.') . '"',
             ]
         ) . '</td>' .
         '<td class="nowrap" scope="row">' . $f->name . '</td>' .

@@ -12,4 +12,4 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$__autoload['dcCKEditorBehaviors'] = dirname(__FILE__) . '/inc/dc.ckeditor.behaviors.php';
+$__autoload['dcCKEditorBehaviors'] = __DIR__ . '/inc/dc.ckeditor.behaviors.php';

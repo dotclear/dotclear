@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
@@ -34,7 +34,7 @@ $sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request
     'post_title'          => 'post_title',
     'comment_author'      => 'comment_author',
-    'comment_spam_filter' => 'comment_spam_filter'];
+    'comment_spam_filter' => 'comment_spam_filter', ];
 
 # --BEHAVIOR-- adminCommentsSortbyLexCombo
 $core->callBehavior('adminCommentsSortbyLexCombo', [& $sortby_lex]);
@@ -78,13 +78,15 @@ try {
 /* DISPLAY
 -------------------------------------------------------- */
 
-dcPage::open(__('Comments and trackbacks'),
+dcPage::open(
+    __('Comments and trackbacks'),
     dcPage::jsLoad('js/_comments.js') . $comment_filter->js(),
     dcPage::breadcrumb(
         [
             html::escapeHTML($core->blog->name) => '',
-            __('Comments and trackbacks')       => ''
-        ])
+            __('Comments and trackbacks')       => '',
+        ]
+    )
 );
 if (!empty($_GET['upd'])) {
     dcPage::success(__('Selected comments have been successfully updated.'));
@@ -127,7 +129,9 @@ if (!$core->error->flag()) {
     $comment_filter->display('admin.comments');
 
     # Show comments
-    $comment_list->display($comment_filter->page, $comment_filter->nb,
+    $comment_list->display(
+        $comment_filter->page,
+        $comment_filter->nb,
         '<form action="' . $core->adminurl->get('admin.comments') . '" method="post" id="form-comments">' .
 
         '%s' .
@@ -136,8 +140,11 @@ if (!$core->error->flag()) {
         '<p class="col checkboxes-helpers"></p>' .
 
         '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
-        form::combo('action', $comments_actions_page->getCombo(),
-            ['default' => $default, 'extra_html' => 'title="' . __('Actions') . '"']) .
+        form::combo(
+            'action',
+            $comments_actions_page->getCombo(),
+            ['default' => $default, 'extra_html' => 'title="' . __('Actions') . '"']
+        ) .
         $core->formNonce() .
         '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
         $core->adminurl->getHiddenFormFields('admin.comments', $comment_filter->values(true)) .

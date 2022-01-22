@@ -12,11 +12,11 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-require dirname(__FILE__) . '/class.widgets.php';
+require __DIR__ . '/class.widgets.php';
 
 # Available widgets
 global $__widgets;
-$__widgets = new dcWidgets;
+$__widgets = new dcWidgets();
 
 $__widgets
     ->create('search', __('Search engine'), ['defaultWidgets', 'search'], null, 'Search engine form')

@@ -12,7 +12,8 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$_menu['Plugins']->addItem('dcCKEditor',
+$_menu['Plugins']->addItem(
+    'dcCKEditor',
     $core->adminurl->get('admin.plugin.dcCKEditor'),
     dcPage::getPF('dcCKEditor/imgs/icon.png'),
     preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.dcCKEditor')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
@@ -22,7 +23,7 @@ $_menu['Plugins']->addItem('dcCKEditor',
 $self_ns = $core->blog->settings->addNamespace('dcckeditor');
 
 if ($self_ns->active) {
-    $core->addEditorFormater('dcCKEditor', 'xhtml', function ($s) {return $s;});
+    $core->addEditorFormater('dcCKEditor', 'xhtml', fn ($s) => $s);
 
     $core->addBehavior('adminPostEditor', ['dcCKEditorBehaviors', 'adminPostEditor']);
     $core->addBehavior('adminPopupMedia', ['dcCKEditorBehaviors', 'adminPopupMedia']);

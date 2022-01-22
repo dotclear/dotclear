@@ -33,7 +33,7 @@ class adminUserPref
             'category'   => [true, __('Category')],
             'author'     => [true, __('Author')],
             'comments'   => [true, __('Comments')],
-            'trackbacks' => [true, __('Trackbacks')]
+            'trackbacks' => [true, __('Trackbacks')],
         ]]];
     }
 
@@ -81,7 +81,7 @@ class adminUserPref
                 dcAdminCombos::getUsersSortbyCombo(),
                 'user_id',
                 'asc',
-                [__('users per page'), 30]
+                [__('users per page'), 30],
             ] ;
         }
 
@@ -91,21 +91,21 @@ class adminUserPref
                 dcAdminCombos::getPostsSortbyCombo(),
                 'post_dt',
                 'desc',
-                [__('entries per page'), 30]
+                [__('entries per page'), 30],
             ],
             'comments' => [
                 __('Comments'),
                 dcAdminCombos::getCommentsSortbyCombo(),
                 'comment_dt',
                 'desc',
-                [__('comments per page'), 30]
+                [__('comments per page'), 30],
             ],
             'blogs' => [
                 __('Blogs'),
                 dcAdminCombos::getBlogsSortbyCombo(),
                 'blog_upddt',
                 'desc',
-                [__('blogs per page'), 30]
+                [__('blogs per page'), 30],
             ],
             'users' => $users,
             'media' => [
@@ -113,19 +113,19 @@ class adminUserPref
                 [
                     __('Name') => 'name',
                     __('Date') => 'date',
-                    __('Size') => 'size'
+                    __('Size') => 'size',
                 ],
                 'name',
                 'asc',
-                [__('media per page'), 30]
+                [__('media per page'), 30],
             ],
             'search' => [
                 __('Search'),
                 null,
                 null,
                 null,
-                [__('results per page'), 20]
-            ]
+                [__('results per page'), 20],
+            ],
         ];
     }
 
@@ -180,7 +180,7 @@ class adminUserPref
                 return self::$sorts[$type][3];
             }
             if ($option == 'nb' && is_array(self::$sorts[$type][4])) {
-                return abs((integer) self::$sorts[$type][4][1]);
+                return abs((int) self::$sorts[$type][4][1]);
             }
         }
 

@@ -12,19 +12,19 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$__autoload['dcIeModule'] = dirname(__FILE__) . '/inc/class.dc.ieModule.php';
+$__autoload['dcIeModule'] = __DIR__ . '/inc/class.dc.ieModule.php';
 
-$__autoload['dcImportFlat'] = dirname(__FILE__) . '/inc/class.dc.import.flat.php';
-$__autoload['dcImportFeed'] = dirname(__FILE__) . '/inc/class.dc.import.feed.php';
+$__autoload['dcImportFlat'] = __DIR__ . '/inc/class.dc.import.flat.php';
+$__autoload['dcImportFeed'] = __DIR__ . '/inc/class.dc.import.feed.php';
 
-$__autoload['dcExportFlat'] = dirname(__FILE__) . '/inc/class.dc.export.flat.php';
+$__autoload['dcExportFlat'] = __DIR__ . '/inc/class.dc.export.flat.php';
 
-$__autoload['dcImportDC1'] = dirname(__FILE__) . '/inc/class.dc.import.dc1.php';
-$__autoload['dcImportWP']  = dirname(__FILE__) . '/inc/class.dc.import.wp.php';
+$__autoload['dcImportDC1'] = __DIR__ . '/inc/class.dc.import.dc1.php';
+$__autoload['dcImportWP']  = __DIR__ . '/inc/class.dc.import.wp.php';
 
-$__autoload['flatBackup'] = dirname(__FILE__) . '/inc/flat/class.flat.backup.php';
-$__autoload['flatImport'] = dirname(__FILE__) . '/inc/flat/class.flat.import.php';
-$__autoload['flatExport'] = dirname(__FILE__) . '/inc/flat/class.flat.export.php';
+$__autoload['flatBackup'] = __DIR__ . '/inc/flat/class.flat.backup.php';
+$__autoload['flatImport'] = __DIR__ . '/inc/flat/class.flat.import.php';
+$__autoload['flatExport'] = __DIR__ . '/inc/flat/class.flat.export.php';
 
 $core->addBehavior('importExportModules', 'registerIeModules');
 
@@ -41,5 +41,5 @@ function registerIeModules($modules, $core)
     }
 }
 
-$__autoload['ieMaintenanceExportblog'] = dirname(__FILE__) . '/inc/lib.ie.maintenance.php';
-$__autoload['ieMaintenanceExportfull'] = dirname(__FILE__) . '/inc/lib.ie.maintenance.php';
+$__autoload['ieMaintenanceExportblog'] = __DIR__ . '/inc/lib.ie.maintenance.php';
+$__autoload['ieMaintenanceExportfull'] = __DIR__ . '/inc/lib.ie.maintenance.php';

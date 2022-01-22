@@ -16,7 +16,7 @@ class dcPostsActionsPage extends dcActionsPage
     {
         parent::__construct($core, $uri, $redirect_args);
         $this->redirect_fields = ['user_id', 'cat_id', 'status',
-            'selected', 'attachment', 'month', 'lang', 'sortby', 'order', 'page', 'nb'];
+            'selected', 'attachment', 'month', 'lang', 'sortby', 'order', 'page', 'nb', ];
         $this->loadDefaults();
     }
 
@@ -59,12 +59,14 @@ class dcPostsActionsPage extends dcActionsPage
     public function error(Exception $e)
     {
         $this->core->error->add($e->getMessage());
-        $this->beginPage(dcPage::breadcrumb(
+        $this->beginPage(
+            dcPage::breadcrumb(
             [
                 html::escapeHTML($this->core->blog->name) => '',
                 $this->getCallerTitle()                   => $this->getRedirection(true),
-                __('Posts actions')                       => ''
-            ])
+                __('Posts actions')                       => '',
+            ]
+        )
         );
         $this->endPage();
     }
@@ -76,7 +78,7 @@ class dcPostsActionsPage extends dcActionsPage
             $entries = $from['entries'];
 
             foreach ($entries as $k => $v) {
-                $entries[$k] = (integer) $v;
+                $entries[$k] = (int) $v;
             }
 
             $params['sql'] = 'AND P.post_id IN(' . implode(',', $entries) . ') ';
@@ -110,7 +112,7 @@ class dcDefaultPostActions
                     __('Publish')         => 'publish',
                     __('Unpublish')       => 'unpublish',
                     __('Schedule')        => 'schedule',
-                    __('Mark as pending') => 'pending'
+                    __('Mark as pending') => 'pending',
                 ]],
                 ['dcDefaultPostActions', 'doChangePostStatus']
             );
@@ -118,33 +120,33 @@ class dcDefaultPostActions
         $ap->addAction(
             [__('Mark') => [
                 __('Mark as selected')   => 'selected',
-                __('Mark as unselected') => 'unselected'
+                __('Mark as unselected') => 'unselected',
             ]],
             ['dcDefaultPostActions', 'doUpdateSelectedPost']
         );
         $ap->addAction(
             [__('Change') => [
-                __('Change category') => 'category'
+                __('Change category') => 'category',
             ]],
             ['dcDefaultPostActions', 'doChangePostCategory']
         );
         $ap->addAction(
             [__('Change') => [
-                __('Change language') => 'lang'
+                __('Change language') => 'lang',
             ]],
             ['dcDefaultPostActions', 'doChangePostLang']
         );
         if ($core->auth->check('admin', $core->blog->id)) {
             $ap->addAction(
                 [__('Change') => [
-                    __('Change author') => 'author']],
+                    __('Change author') => 'author', ]],
                 ['dcDefaultPostActions', 'doChangePostAuthor']
             );
         }
         if ($core->auth->check('delete,contentadmin', $core->blog->id)) {
             $ap->addAction(
                 [__('Delete') => [
-                    __('Delete') => 'delete']],
+                    __('Delete') => 'delete', ]],
                 ['dcDefaultPostActions', 'doDeletePost']
             );
         }
@@ -194,14 +196,16 @@ class dcDefaultPostActions
         }
         // Set status of remaining entries
         $core->blog->updPostsStatus($posts_ids, $status);
-        dcPage::addSuccessNotice(sprintf(
+        dcPage::addSuccessNotice(
+            sprintf(
             __(
                 '%d entry has been successfully updated to status : "%s"',
                 '%d entries have been successfully updated to status : "%s"',
                 count($posts_ids)
             ),
             count($posts_ids),
-            $core->blog->getPostStatus($status))
+            $core->blog->getPostStatus($status)
+        )
         );
         $ap->redirect(true);
     }
@@ -215,22 +219,26 @@ class dcDefaultPostActions
         $action = $ap->getAction();
         $core->blog->updPostsSelected($posts_ids, $action == 'selected');
         if ($action == 'selected') {
-            dcPage::addSuccessNotice(sprintf(
+            dcPage::addSuccessNotice(
+                sprintf(
                 __(
                     '%d entry has been successfully marked as selected',
                     '%d entries have been successfully marked as selected',
                     count($posts_ids)
                 ),
-                count($posts_ids))
+                count($posts_ids)
+            )
             );
         } else {
-            dcPage::addSuccessNotice(sprintf(
+            dcPage::addSuccessNotice(
+                sprintf(
                 __(
                     '%d entry has been successfully marked as unselected',
                     '%d entries have been successfully marked as unselected',
                     count($posts_ids)
                 ),
-                count($posts_ids))
+                count($posts_ids)
+            )
             );
         }
         $ap->redirect(true);
@@ -245,20 +253,22 @@ class dcDefaultPostActions
         // Backward compatibility
         foreach ($posts_ids as $post_id) {
             # --BEHAVIOR-- adminBeforePostDelete
-            $core->callBehavior('adminBeforePostDelete', (integer) $post_id);
+            $core->callBehavior('adminBeforePostDelete', (int) $post_id);
         }
 
         # --BEHAVIOR-- adminBeforePostsDelete
         $core->callBehavior('adminBeforePostsDelete', $posts_ids);
 
         $core->blog->delPosts($posts_ids);
-        dcPage::addSuccessNotice(sprintf(
+        dcPage::addSuccessNotice(
+            sprintf(
             __(
                 '%d entry has been successfully deleted',
                 '%d entries have been successfully deleted',
                 count($posts_ids)
             ),
-            count($posts_ids))
+            count($posts_ids)
+        )
         );
 
         $ap->redirect(false);
@@ -283,7 +293,7 @@ class dcDefaultPostActions
                 # --BEHAVIOR-- adminBeforeCategoryCreate
                 $core->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
-                $new_cat_id = $core->blog->addCategory($cur_cat, (integer) $parent_cat);
+                $new_cat_id = $core->blog->addCategory($cur_cat, (int) $parent_cat);
 
                 # --BEHAVIOR-- adminAfterCategoryCreate
                 $core->callBehavior('adminAfterCategoryCreate', $cur_cat, $new_cat_id);
@@ -291,14 +301,16 @@ class dcDefaultPostActions
 
             $core->blog->updPostsCategory($posts_ids, $new_cat_id);
             $title = $core->blog->getCategory($new_cat_id);
-            dcPage::addSuccessNotice(sprintf(
+            dcPage::addSuccessNotice(
+                sprintf(
                 __(
                     '%d entry has been successfully moved to category "%s"',
                     '%d entries have been successfully moved to category "%s"',
                     count($posts_ids)
                 ),
                 count($posts_ids),
-                html::escapeHTML($title->cat_title))
+                html::escapeHTML($title->cat_title)
+            )
             );
 
             $ap->redirect(true);
@@ -308,8 +320,10 @@ class dcDefaultPostActions
                     [
                         html::escapeHTML($core->blog->name)      => '',
                         $ap->getCallerTitle()                    => $ap->getRedirection(true),
-                        __('Change category for this selection') => ''
-                    ]));
+                        __('Change category for this selection') => '',
+                    ]
+                )
+            );
             # categories list
             # Getting categories
             $categories_combo = dcAdminCombos::getCategoriesCombo(
@@ -357,14 +371,16 @@ class dcDefaultPostActions
             $cur          = $core->con->openCursor($core->prefix . 'post');
             $cur->user_id = $new_user_id;
             $cur->update('WHERE post_id ' . $core->con->in($posts_ids));
-            dcPage::addSuccessNotice(sprintf(
+            dcPage::addSuccessNotice(
+                sprintf(
                 __(
                     '%d entry has been successfully set to user "%s"',
                     '%d entries have been successfully set to user "%s"',
                     count($posts_ids)
                 ),
                 count($posts_ids),
-                html::escapeHTML($new_user_id))
+                html::escapeHTML($new_user_id)
+            )
             );
 
             $ap->redirect(true);
@@ -373,7 +389,7 @@ class dcDefaultPostActions
             if ($core->auth->check('admin', $core->blog->id)) {
                 $params = [
                     'limit' => 100,
-                    'order' => 'nb_post DESC'
+                    'order' => 'nb_post DESC',
                 ];
                 $rs       = $core->getUsers($params);
                 $rsStatic = $rs->toStatic();
@@ -389,7 +405,8 @@ class dcDefaultPostActions
                     [
                         html::escapeHTML($core->blog->name)    => '',
                         $ap->getCallerTitle()                  => $ap->getRedirection(true),
-                        __('Change author for this selection') => '']),
+                        __('Change author for this selection') => '', ]
+                ),
                 dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
                 dcPage::jsJson('users_list', $usersList)
             );
@@ -419,14 +436,16 @@ class dcDefaultPostActions
             $cur            = $core->con->openCursor($core->prefix . 'post');
             $cur->post_lang = $new_lang;
             $cur->update('WHERE post_id ' . $core->con->in($posts_ids));
-            dcPage::addSuccessNotice(sprintf(
+            dcPage::addSuccessNotice(
+                sprintf(
                 __(
                     '%d entry has been successfully set to language "%s"',
                     '%d entries have been successfully set to language "%s"',
                     count($posts_ids)
                 ),
                 count($posts_ids),
-                html::escapeHTML(l10n::getLanguageName($new_lang)))
+                html::escapeHTML(l10n::getLanguageName($new_lang))
+            )
             );
             $ap->redirect(true);
         } else {
@@ -435,8 +454,10 @@ class dcDefaultPostActions
                     [
                         html::escapeHTML($core->blog->name)      => '',
                         $ap->getCallerTitle()                    => $ap->getRedirection(true),
-                        __('Change language for this selection') => ''
-                    ]));
+                        __('Change language for this selection') => '',
+                    ]
+                )
+            );
             # lang list
             # Languages combo
             $rs         = $core->blog->getLangs(['order' => 'asc']);

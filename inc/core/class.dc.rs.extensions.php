@@ -195,7 +195,8 @@ class rsExtPost
     public static function getURL($rs)
     {
         return $rs->core->blog->url . $rs->core->getPostPublicURL(
-            $rs->post_type, html::sanitizeURL($rs->post_url)
+            $rs->post_type,
+            html::sanitizeURL($rs->post_url)
         );
     }
 
@@ -336,8 +337,12 @@ class rsExtPost
      */
     public static function getAuthorCN($rs)
     {
-        return dcUtils::getUserCN($rs->user_id, $rs->user_name,
-            $rs->user_firstname, $rs->user_displayname);
+        return dcUtils::getUserCN(
+            $rs->user_id,
+            $rs->user_name,
+            $rs->user_firstname,
+            $rs->user_displayname
+        );
     }
 
     /**
@@ -477,12 +482,12 @@ class rsExtPost
         }
         $strReq = 'SELECT count(media_id) ' .
             'FROM ' . $rs->core->prefix . 'post_media ' .
-            'WHERE post_id = ' . (integer) $rs->post_id . ' ';
+            'WHERE post_id = ' . (int) $rs->post_id . ' ';
         if ($link_type != null) {
             $strReq .= "AND link_type = '" . $rs->core->con->escape($link_type) . "'";
         }
 
-        $res                         = (integer) $rs->core->con->select($strReq)->f(0);
+        $res                         = (int) $rs->core->con->select($strReq)->f(0);
         $rs->_nb_media[$rs->index()] = $res;
 
         return $res;
@@ -680,7 +685,8 @@ class rsExtComment
     public static function getPostURL($rs)
     {
         return $rs->core->blog->url . $rs->core->getPostPublicURL(
-            $rs->post_type, html::sanitizeURL($rs->post_url)
+            $rs->post_type,
+            html::sanitizeURL($rs->post_url)
         );
     }
 
@@ -730,8 +736,11 @@ class rsExtComment
      */
     public static function getTrackbackTitle($rs)
     {
-        if ($rs->comment_trackback == 1 && preg_match('|<p><strong>(.*?)</strong></p>|msU', $rs->comment_content,
-                $match)) {
+        if ($rs->comment_trackback == 1 && preg_match(
+            '|<p><strong>(.*?)</strong></p>|msU',
+            $rs->comment_content,
+            $match
+        )) {
             return html::decodeEntities($match[1]);
         }
     }
@@ -746,8 +755,11 @@ class rsExtComment
     public static function getTrackbackContent($rs)
     {
         if ($rs->comment_trackback == 1) {
-            return preg_replace('|<p><strong>.*?</strong></p>|msU', '',
-                $rs->comment_content);
+            return preg_replace(
+                '|<p><strong>.*?</strong></p>|msU',
+                '',
+                $rs->comment_content
+            );
         }
     }
 
@@ -1032,9 +1044,9 @@ class extStaticRecord extends staticRecord
         $b = $b[$this->sortfield];
 
         # Integer values
-        if ($a == (string) (integer) $a && $b == (string) (integer) $b) {
-            $a = (integer) $a;
-            $b = (integer) $b;
+        if ($a == (string) (int) $a && $b == (string) (int) $b) {
+            $a = (int) $a;
+            $b = (int) $b;
 
             return ($a - $b) * $this->sortsign;
         }

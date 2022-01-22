@@ -44,7 +44,7 @@ class dcTrackback
     {
         $strReq = 'SELECT ping_url, ping_dt ' .
         'FROM ' . $this->table . ' ' .
-        'WHERE post_id = ' . (integer) $post_id;
+        'WHERE post_id = ' . (int) $post_id;
 
         return $this->core->con->select($strReq);
     }
@@ -68,7 +68,7 @@ class dcTrackback
             return false;
         }
 
-        $post_id = (integer) $post_id;
+        $post_id = (int) $post_id;
 
         # Check for previously done trackback
         $strReq = 'SELECT post_id, ping_url FROM ' . $this->table . ' ' .
@@ -88,7 +88,7 @@ class dcTrackback
         if (count($ping_parts) == 3) {
             $payload = http_build_query([
                 'source' => $post_url,
-                'target' => $ping_parts[1]
+                'target' => $ping_parts[1],
             ]);
 
             try {
@@ -114,7 +114,7 @@ class dcTrackback
                 'title'     => $post_title,
                 'excerpt'   => $post_excerpt,
                 'url'       => $post_url,
-                'blog_name' => trim(html::escapeHTML(html::clean($this->core->blog->name)))
+                'blog_name' => trim(html::escapeHTML(html::clean($this->core->blog->name))),
                 //,'__debug' => false
             ];
 
@@ -187,7 +187,7 @@ class dcTrackback
             return;
         }
 
-        $post_id = (integer) $post_id;
+        $post_id = (int) $post_id;
 
         $title     = !empty($_POST['title']) ? $_POST['title'] : '';
         $excerpt   = !empty($_POST['excerpt']) ? $_POST['excerpt'] : '';
@@ -267,7 +267,7 @@ class dcTrackback
 
         $resp = '<?xml version="1.0" encoding="utf-8"?>' . "\n" .
         "<response>\n" .
-        '  <error>' . (integer) $err . "</error>\n";
+        '  <error>' . (int) $err . "</error>\n";
 
         if ($msg) {
             $resp .= '  <message>' . $msg . "</message>\n";
@@ -443,7 +443,7 @@ class dcTrackback
         $params = [
             'post_id'           => $post_id,
             'comment_site'      => $from_url,
-            'comment_trackback' => 1
+            'comment_trackback' => 1,
         ];
 
         $rs = $this->core->blog->getComments($params, true);
@@ -504,7 +504,7 @@ class dcTrackback
     {
         $this->core->con->execute(
             'DELETE FROM ' . $this->core->prefix . 'comment ' .
-            'WHERE post_id = ' . ((integer) $post_id) . ' ' .
+            'WHERE post_id = ' . ((int) $post_id) . ' ' .
             "AND comment_site = '" . $this->core->con->escape((string) $url) . "' " .
             'AND comment_trackback = 1 '
         );
@@ -539,10 +539,12 @@ class dcTrackback
      */
     private static function detectCharset($content)
     {
-        return mb_detect_encoding($content,
+        return mb_detect_encoding(
+            $content,
             'UTF-8,ISO-8859-1,ISO-8859-2,ISO-8859-3,' .
             'ISO-8859-4,ISO-8859-5,ISO-8859-6,ISO-8859-7,ISO-8859-8,' .
-            'ISO-8859-9,ISO-8859-10,ISO-8859-13,ISO-8859-14,ISO-8859-15');
+            'ISO-8859-9,ISO-8859-10,ISO-8859-13,ISO-8859-14,ISO-8859-15'
+        );
     }
 
     /**
@@ -586,7 +588,7 @@ class dcTrackback
         # Time to see if we've got a winner...
         $params = [
             'post_type' => $p_type,
-            'post_url'  => $post_url
+            'post_url'  => $post_url,
         ];
         $posts = $this->core->blog->getPosts($params);
 

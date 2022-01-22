@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
 
@@ -48,20 +48,25 @@ if (!$core->error->flag() && $blog_id && !empty($_POST['del'])) {
     }
 }
 
-dcPage::open(__('Delete a blog'), '',
+dcPage::open(
+    __('Delete a blog'),
+    '',
     dcPage::breadcrumb(
         [
             __('System')        => '',
             __('Blogs')         => $core->adminurl->get('admin.blogs'),
-            __('Delete a blog') => ''
-        ])
+            __('Delete a blog') => '',
+        ]
+    )
 );
 
 if (!$core->error->flag()) {
     echo
     '<div class="warning-msg"><p><strong>' . __('Warning') . '</strong></p>' .
-    '<p>' . sprintf(__('You are about to delete the blog %s. Every entry, comment and category will be deleted.'),
-        '<strong>' . $blog_id . ' (' . $blog_name . ')</strong>') . '</p></div>' .
+    '<p>' . sprintf(
+        __('You are about to delete the blog %s. Every entry, comment and category will be deleted.'),
+        '<strong>' . $blog_id . ' (' . $blog_name . ')</strong>'
+    ) . '</p></div>' .
     '<p>' . __('Please give your password to confirm the blog deletion.') . '</p>';
 
     echo

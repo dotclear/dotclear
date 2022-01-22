@@ -19,6 +19,6 @@ $this->registerModule(
     '1.0',                         // Version
     [
         'priority' => 500,
-        'type'     => 'plugin'
+        'type'     => 'plugin',
     ]
 );

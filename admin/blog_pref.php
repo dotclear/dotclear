@@ -13,7 +13,7 @@ $standalone = !isset($edit_blog_mode);
 $blog_id = false;
 
 if ($standalone) {
-    require dirname(__FILE__) . '/../inc/admin/prepend.php';
+    require __DIR__ . '/../inc/admin/prepend.php';
     dcPage::check('admin');
     $blog_id       = $core->blog->id;
     $blog_status   = $core->blog->status;
@@ -79,7 +79,7 @@ foreach ($time_formats as $format) {
 # URL scan modes
 $url_scan_combo = [
     'PATH_INFO'    => 'path_info',
-    'QUERY_STRING' => 'query_string'
+    'QUERY_STRING' => 'query_string',
 ];
 
 # Post URL combo
@@ -89,7 +89,7 @@ $post_url_combo = [
     __('year/title')           => '{y}/{t}',
     __('title')                => '{t}',
     __('post id/title')        => '{id}/{t}',
-    __('post id')              => '{id}'
+    __('post id')              => '{id}',
 ];
 if (!in_array($blog_settings->system->post_url_format, $post_url_combo)) {
     $post_url_combo[html::escapeHTML($blog_settings->system->post_url_format)] = html::escapeHTML($blog_settings->system->post_url_format);
@@ -99,7 +99,7 @@ if (!in_array($blog_settings->system->post_url_format, $post_url_combo)) {
 $note_title_tag_combo = [
     __('H4') => 0,
     __('H3') => 1,
-    __('P')  => 2
+    __('P')  => 2,
 ];
 
 # Image title combo
@@ -108,7 +108,7 @@ $img_title_combo = [
     __('Title')                      => 'Title ;; separator(, )',
     __('Title, Date')                => 'Title ;; Date(%b %Y) ;; separator(, )',
     __('Title, Country, Date')       => 'Title ;; Country ;; Date(%b %Y) ;; separator(, )',
-    __('Title, City, Country, Date') => 'Title ;; City ;; Country ;; Date(%b %Y) ;; separator(, )'
+    __('Title, City, Country, Date') => 'Title ;; City ;; Country ;; Date(%b %Y) ;; separator(, )',
 ];
 if (!in_array($blog_settings->system->media_img_title_pattern, $img_title_combo)) {
     $img_title_combo[html::escapeHTML($blog_settings->system->media_img_title_pattern)] = html::escapeHTML($blog_settings->system->media_img_title_pattern);
@@ -132,25 +132,25 @@ $img_default_alignment_combo = [
     __('None')   => 'none',
     __('Left')   => 'left',
     __('Right')  => 'right',
-    __('Center') => 'center'
+    __('Center') => 'center',
 ];
 
 # Image default legend and title combo
 $img_default_legend_combo = [
     __('Legend and title') => 'legend',
     __('Title')            => 'title',
-    __('None')             => 'none'
+    __('None')             => 'none',
 ];
 
 # Robots policy options
 $robots_policy_options = [
     'INDEX,FOLLOW'               => __("I would like search engines and archivers to index and archive my blog's content."),
     'INDEX,FOLLOW,NOARCHIVE'     => __("I would like search engines and archivers to index but not archive my blog's content."),
-    'NOINDEX,NOFOLLOW,NOARCHIVE' => __("I would like to prevent search engines and archivers from indexing or archiving my blog's content.")
+    'NOINDEX,NOFOLLOW,NOARCHIVE' => __("I would like to prevent search engines and archivers from indexing or archiving my blog's content."),
 ];
 
 # jQuery available versions
-$jquery_root           = dirname(__FILE__) . '/../inc/js/jquery';
+$jquery_root           = __DIR__ . '/../inc/js/jquery';
 $jquery_versions_combo = [__('Default') . ' (' . DC_DEFAULT_JQUERY . ')' => ''];
 if (is_dir($jquery_root) && is_readable($jquery_root)) {
     if (($d = @dir($jquery_root)) !== false) {
@@ -176,47 +176,47 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin', $blog_id)) {
         $cur->blog_status = (int) $_POST['blog_status'];
     }
 
-    $media_img_t_size = (integer) $_POST['media_img_t_size'];
+    $media_img_t_size = (int) $_POST['media_img_t_size'];
     if ($media_img_t_size < 0) {
         $media_img_t_size = 100;
     }
 
-    $media_img_s_size = (integer) $_POST['media_img_s_size'];
+    $media_img_s_size = (int) $_POST['media_img_s_size'];
     if ($media_img_s_size < 0) {
         $media_img_s_size = 240;
     }
 
-    $media_img_m_size = (integer) $_POST['media_img_m_size'];
+    $media_img_m_size = (int) $_POST['media_img_m_size'];
     if ($media_img_m_size < 0) {
         $media_img_m_size = 448;
     }
 
-    $media_video_width = (integer) $_POST['media_video_width'];
+    $media_video_width = (int) $_POST['media_video_width'];
     if ($media_video_width < 0) {
         $media_video_width = 400;
     }
 
-    $media_video_height = (integer) $_POST['media_video_height'];
+    $media_video_height = (int) $_POST['media_video_height'];
     if ($media_video_height < 0) {
         $media_video_height = 300;
     }
 
-    $nb_post_for_home = abs((integer) $_POST['nb_post_for_home']);
+    $nb_post_for_home = abs((int) $_POST['nb_post_for_home']);
     if ($nb_post_for_home < 1) {
         $nb_post_for_home = 1;
     }
 
-    $nb_post_per_page = abs((integer) $_POST['nb_post_per_page']);
+    $nb_post_per_page = abs((int) $_POST['nb_post_per_page']);
     if ($nb_post_per_page < 1) {
         $nb_post_per_page = 1;
     }
 
-    $nb_post_per_feed = abs((integer) $_POST['nb_post_per_feed']);
+    $nb_post_per_feed = abs((int) $_POST['nb_post_per_feed']);
     if ($nb_post_per_feed < 1) {
         $nb_post_per_feed = 1;
     }
 
-    $nb_comment_per_feed = abs((integer) $_POST['nb_comment_per_feed']);
+    $nb_comment_per_feed = abs((int) $_POST['nb_comment_per_feed']);
     if ($nb_comment_per_feed < 1) {
         $nb_comment_per_feed = 1;
     }
@@ -263,8 +263,8 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin', $blog_id)) {
         $blog_settings->system->put('blog_timezone', $_POST['blog_timezone']);
         $blog_settings->system->put('date_format', $_POST['date_format']);
         $blog_settings->system->put('time_format', $_POST['time_format']);
-        $blog_settings->system->put('comments_ttl', abs((integer) $_POST['comments_ttl']));
-        $blog_settings->system->put('trackbacks_ttl', abs((integer) $_POST['trackbacks_ttl']));
+        $blog_settings->system->put('comments_ttl', abs((int) $_POST['comments_ttl']));
+        $blog_settings->system->put('trackbacks_ttl', abs((int) $_POST['trackbacks_ttl']));
         $blog_settings->system->put('allow_comments', !empty($_POST['allow_comments']));
         $blog_settings->system->put('allow_trackbacks', !empty($_POST['allow_trackbacks']));
         $blog_settings->system->put('comments_pub', empty($_POST['comments_pub']));
@@ -324,7 +324,7 @@ if ($standalone) {
     $breadcrumb = dcPage::breadcrumb(
         [
             html::escapeHTML($blog_name) => '',
-            __('Blog settings')          => ''
+            __('Blog settings')          => '',
         ]
     );
 } else {
@@ -332,8 +332,9 @@ if ($standalone) {
         [
             __('System')                                               => '',
             __('Blogs')                                                => $core->adminurl->get('admin.blogs'),
-            __('Blog settings') . ' : ' . html::escapeHTML($blog_name) => ''
-        ]);
+            __('Blog settings') . ' : ' . html::escapeHTML($blog_name) => '',
+        ]
+    );
 }
 
 $desc_editor = $core->auth->getOption('editor');
@@ -343,10 +344,11 @@ if (is_array($rte_flags) && in_array('blog_descr', $rte_flags)) {
     $rte_flag = $rte_flags['blog_descr'];
 }
 
-dcPage::open(__('Blog settings'),
+dcPage::open(
+    __('Blog settings'),
     dcPage::jsJson('blog_pref', [
         'warning_path_info'    => __('Warning: except for special configurations, it is generally advised to have a trailing "/" in your blog URL in PATH_INFO mode.'),
-        'warning_query_string' => __('Warning: except for special configurations, it is generally advised to have a trailing "?" in your blog URL in QUERY_STRING mode.')
+        'warning_query_string' => __('Warning: except for special configurations, it is generally advised to have a trailing "?" in your blog URL in QUERY_STRING mode.'),
     ]) .
     dcPage::jsConfirmClose('blog-form') .
     ($rte_flag ? $core->callBehavior('adminPostEditor', $desc_editor['xhtml'], 'blog_desc', ['#blog_desc'], 'xhtml') : '') .
@@ -379,20 +381,27 @@ if ($blog_id) {
 
     echo
     '<p><label for="blog_name" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog name:') . '</label>' .
-    form::field('blog_name', 30, 255,
+    form::field(
+        'blog_name',
+        30,
+        255,
         [
             'default'    => html::escapeHTML($blog_name),
-            'extra_html' => 'required placeholder="' . __('Blog name') . '" lang="'. $blog_settings->system->lang .'" spellcheck="true"'
+            'extra_html' => 'required placeholder="' . __('Blog name') . '" lang="' . $blog_settings->system->lang . '" spellcheck="true"',
         ]
     ) . '</p>';
 
     echo
     '<p class="area"><label for="blog_desc">' . __('Blog description:') . '</label>' .
-    form::textarea('blog_desc', 60, 5,
+    form::textarea(
+        'blog_desc',
+        60,
+        5,
         [
             'default'    => html::escapeHTML($blog_desc),
-            'extra_html' => 'lang="' . $blog_settings->system->lang . '" spellcheck="true"'
-        ]) . '</p>';
+            'extra_html' => 'lang="' . $blog_settings->system->lang . '" spellcheck="true"',
+        ]
+    ) . '</p>';
 
     if ($core->auth->isSuperAdmin()) {
         echo
@@ -428,11 +437,15 @@ if ($blog_id) {
     '</p>' .
 
     '<p><label for="copyright_notice">' . __('Copyright notice:') . '</label>' .
-    form::field('copyright_notice', 30, 255,
+    form::field(
+        'copyright_notice',
+        30,
+        255,
         [
             'default'    => html::escapeHTML($blog_settings->system->copyright_notice),
-            'extra_html' => 'lang="'. $blog_settings->system->lang .'" spellcheck="true"'
-        ]) .
+            'extra_html' => 'lang="' . $blog_settings->system->lang . '" spellcheck="true"',
+        ]
+    ) .
         '</p>' .
 
         '</div>';
@@ -449,13 +462,17 @@ if ($blog_id) {
     '<p><label for="comments_pub" class="classic">' .
     form::checkbox('comments_pub', '1', !$blog_settings->system->comments_pub) .
     __('Moderate comments') . '</label></p>' .
-    '<p><label for="comments_ttl" class="classic">' . sprintf(__('Leave comments open for %s days') . '.',
-        form::number('comments_ttl', [
-            'min'     => 0,
-            'max'     => 999,
-            'default' => $blog_settings->system->comments_ttl,
-            'extra_html' => 'aria-describedby="comments_ttl_help"']
-        )) .
+    '<p><label for="comments_ttl" class="classic">' . sprintf(
+        __('Leave comments open for %s days') . '.',
+        form::number(
+            'comments_ttl',
+            [
+                'min'        => 0,
+                'max'        => 999,
+                'default'    => $blog_settings->system->comments_ttl,
+                'extra_html' => 'aria-describedby="comments_ttl_help"', ]
+        )
+    ) .
     '</label></p>' .
     '<p class="form-note" id="comments_ttl_help">' . __('No limit: leave blank.') . '</p>' .
     '<p><label for="wiki_comments" class="classic">' .
@@ -473,13 +490,17 @@ if ($blog_id) {
     '<p><label for="trackbacks_pub" class="classic">' .
     form::checkbox('trackbacks_pub', '1', !$blog_settings->system->trackbacks_pub) .
     __('Moderate trackbacks') . '</label></p>' .
-    '<p><label for="trackbacks_ttl" class="classic">' . sprintf(__('Leave trackbacks open for %s days') . '.',
-        form::number('trackbacks_ttl', [
-            'min'     => 0,
-            'max'     => 999,
-            'default' => $blog_settings->system->trackbacks_ttl,
-            'extra_html' => 'aria-describedby="trackbacks_ttl_help"']
-        )) .
+    '<p><label for="trackbacks_ttl" class="classic">' . sprintf(
+        __('Leave trackbacks open for %s days') . '.',
+        form::number(
+            'trackbacks_ttl',
+            [
+                'min'        => 0,
+                'max'        => 999,
+                'default'    => $blog_settings->system->trackbacks_ttl,
+                'extra_html' => 'aria-describedby="trackbacks_ttl_help"', ]
+        )
+    ) .
     '</label></p>' .
     '<p class="form-note" id="trackbacks_ttl_help">' . __('No limit: leave blank.') . '</p>' .
     '<p><label for="comments_nofollow" class="classic">' .
@@ -520,36 +541,52 @@ if ($blog_id) {
 
     '<div class="col">' .
 
-    '<p><label for="nb_post_for_home" class="classic">' . sprintf(__('Display %s entries on first page'),
-        form::number('nb_post_for_home', [
-            'min'     => 1,
-            'max'     => 999,
-            'default' => $blog_settings->system->nb_post_for_home]
-        )) .
+    '<p><label for="nb_post_for_home" class="classic">' . sprintf(
+        __('Display %s entries on first page'),
+        form::number(
+            'nb_post_for_home',
+            [
+                'min'     => 1,
+                'max'     => 999,
+                'default' => $blog_settings->system->nb_post_for_home, ]
+        )
+    ) .
     '</label></p>' .
 
-    '<p><label for="nb_post_per_page" class="classic">' . sprintf(__('Display %s entries per page'),
-        form::number('nb_post_per_page', [
-            'min'     => 1,
-            'max'     => 999,
-            'default' => $blog_settings->system->nb_post_per_page]
-        )) .
+    '<p><label for="nb_post_per_page" class="classic">' . sprintf(
+        __('Display %s entries per page'),
+        form::number(
+            'nb_post_per_page',
+            [
+                'min'     => 1,
+                'max'     => 999,
+                'default' => $blog_settings->system->nb_post_per_page, ]
+        )
+    ) .
     '</label></p>' .
 
-    '<p><label for="nb_post_per_feed" class="classic">' . sprintf(__('Display %s entries per feed'),
-        form::number('nb_post_per_feed', [
-            'min'     => 1,
-            'max'     => 999,
-            'default' => $blog_settings->system->nb_post_per_feed]
-        )) .
+    '<p><label for="nb_post_per_feed" class="classic">' . sprintf(
+        __('Display %s entries per feed'),
+        form::number(
+            'nb_post_per_feed',
+            [
+                'min'     => 1,
+                'max'     => 999,
+                'default' => $blog_settings->system->nb_post_per_feed, ]
+        )
+    ) .
     '</label></p>' .
 
-    '<p><label for="nb_comment_per_feed" class="classic">' . sprintf(__('Display %s comments per feed'),
-        form::number('nb_comment_per_feed', [
-            'min'     => 1,
-            'max'     => 999,
-            'default' => $blog_settings->system->nb_comment_per_feed]
-        )) .
+    '<p><label for="nb_comment_per_feed" class="classic">' . sprintf(
+        __('Display %s comments per feed'),
+        form::number(
+            'nb_comment_per_feed',
+            [
+                'min'     => 1,
+                'max'     => 999,
+                'default' => $blog_settings->system->nb_comment_per_feed, ]
+        )
+    ) .
     '</label></p>' .
 
     '<p><label for="short_feed_items" class="classic">' .
@@ -591,7 +628,7 @@ if ($blog_id) {
     form::number('media_img_t_size', [
         'min'     => -1,
         'max'     => 999,
-        'default' => $blog_settings->system->media_img_t_size
+        'default' => $blog_settings->system->media_img_t_size,
     ]) .
     '</p>' .
 
@@ -599,7 +636,7 @@ if ($blog_id) {
     form::number('media_img_s_size', [
         'min'     => -1,
         'max'     => 999,
-        'default' => $blog_settings->system->media_img_s_size
+        'default' => $blog_settings->system->media_img_s_size,
     ]) .
     '</p>' .
 
@@ -607,7 +644,7 @@ if ($blog_id) {
     form::number('media_img_m_size', [
         'min'     => -1,
         'max'     => 999,
-        'default' => $blog_settings->system->media_img_m_size
+        'default' => $blog_settings->system->media_img_m_size,
     ]) .
     '</p>' .
 
@@ -616,7 +653,7 @@ if ($blog_id) {
     form::number('media_video_width', [
         'min'     => -1,
         'max'     => 999,
-        'default' => $blog_settings->system->media_video_width
+        'default' => $blog_settings->system->media_video_width,
     ]) .
     '</p>' .
 
@@ -624,7 +661,7 @@ if ($blog_id) {
     form::number('media_video_height', [
         'min'     => -1,
         'max'     => 999,
-        'default' => $blog_settings->system->media_video_height
+        'default' => $blog_settings->system->media_video_height,
     ]) .
     '</p>' .
     '</div>' .
@@ -642,8 +679,11 @@ if ($blog_id) {
     '<p class="form-note info" id="media_img_no_date_alone_help">' . __('It is retrieved from the picture\'s metadata.') . '</p>' .
 
     '<p class="field vertical-separator"><label for="media_img_default_size">' . __('Size of inserted image:') . '</label>' .
-    form::combo('media_img_default_size', $img_default_size_combo,
-        (html::escapeHTML($blog_settings->system->media_img_default_size) != '' ? html::escapeHTML($blog_settings->system->media_img_default_size) : 'm')) .
+    form::combo(
+        'media_img_default_size',
+        $img_default_size_combo,
+        (html::escapeHTML($blog_settings->system->media_img_default_size) != '' ? html::escapeHTML($blog_settings->system->media_img_default_size) : 'm')
+    ) .
     '</p>' .
     '<p class="field"><label for="media_img_default_alignment">' . __('Image alignment:') . '</label>' .
     form::combo('media_img_default_alignment', $img_default_alignment_combo, html::escapeHTML($blog_settings->system->media_img_default_alignment)) .
@@ -677,7 +717,7 @@ if ($blog_id) {
             'size'       => 50,
             'max'        => 255,
             'default'    => html::escapeHTML($blog_url),
-            'extra_html' => 'required placeholder="' . __('Blog URL') . '"'
+            'extra_html' => 'required placeholder="' . __('Blog URL') . '"',
         ]) .
         '</p>' .
 
@@ -703,16 +743,21 @@ if ($blog_id) {
                 // Might be 404 (URL not found), 670 (blog not online), ...
                 echo
                 '<p class="form-note warn">' .
-                sprintf(__('The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status).'),
-                    html::escapeHTML($file), $status) .
+                sprintf(
+                    __('The URL of blog or the URL scan method might not be well set (<code>%s</code> return a <strong>%s</strong> status).'),
+                    html::escapeHTML($file),
+                    $status
+                ) .
                     '</p>';
             } else {
                 if (substr($content, 0, 6) != '<?xml ') {
                     // Not well formed XML feed
                     echo
                     '<p class="form-note warn">' .
-                    sprintf(__('The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed).'),
-                        html::escapeHTML($file)) .
+                    sprintf(
+                        __('The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed).'),
+                        html::escapeHTML($file)
+                    ) .
                         '</p>';
                 }
             }
@@ -862,7 +907,10 @@ if ($blog_id) {
                 '<div class="user-perm' . ($v['super'] ? ' user_super' : '') . '">' .
                 '<h4>' . sprintf($user_url_p, html::escapeHTML($k)) .
                 ' (' . html::escapeHTML(dcUtils::getUserCN(
-                    $k, $v['name'], $v['firstname'], $v['displayname']
+                    $k,
+                    $v['name'],
+                    $v['firstname'],
+                    $v['displayname']
                 )) . ')</h4>';
 
                 if ($core->auth->isSuperAdmin()) {
@@ -878,7 +926,7 @@ if ($blog_id) {
                 foreach ($post_type as $type => $pt_info) {
                     $params = [
                         'post_type' => $type,
-                        'user_id'   => $k
+                        'user_id'   => $k,
                     ];
                     echo '<li>' . sprintf(__('%1$s: %2$s'), __($pt_info['label']), $core->blog->getPosts($params, true)->f(0)) . '</li>';
                 }

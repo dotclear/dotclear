@@ -14,8 +14,8 @@ define('DC_START_TIME', microtime(true));
 #  ClearBricks, DotClear classes auto-loader
 if (@is_dir('/usr/lib/clearbricks')) {
     define('CLEARBRICKS_PATH', '/usr/lib/clearbricks');
-} elseif (is_dir(dirname(__FILE__) . '/libs/clearbricks')) {
-    define('CLEARBRICKS_PATH', dirname(__FILE__) . '/libs/clearbricks');
+} elseif (is_dir(__DIR__ . '/libs/clearbricks')) {
+    define('CLEARBRICKS_PATH', __DIR__ . '/libs/clearbricks');
 } elseif (isset($_SERVER['CLEARBRICKS_PATH']) && is_dir($_SERVER['CLEARBRICKS_PATH'])) {
     define('CLEARBRICKS_PATH', $_SERVER['CLEARBRICKS_PATH']);
 }
@@ -26,79 +26,79 @@ if (!defined('CLEARBRICKS_PATH') || !is_dir(CLEARBRICKS_PATH)) {
 
 require CLEARBRICKS_PATH . '/_common.php';
 
-$__autoload['dcCore']            = dirname(__FILE__) . '/core/class.dc.core.php';
-$__autoload['dcAuth']            = dirname(__FILE__) . '/core/class.dc.auth.php';
-$__autoload['dcBlog']            = dirname(__FILE__) . '/core/class.dc.blog.php';
-$__autoload['dcCategories']      = dirname(__FILE__) . '/core/class.dc.categories.php';
-$__autoload['dcError']           = dirname(__FILE__) . '/core/class.dc.error.php';
-$__autoload['dcMeta']            = dirname(__FILE__) . '/core/class.dc.meta.php';
-$__autoload['dcMedia']           = dirname(__FILE__) . '/core/class.dc.media.php';
-$__autoload['dcPostMedia']       = dirname(__FILE__) . '/core/class.dc.postmedia.php';
-$__autoload['dcModules']         = dirname(__FILE__) . '/core/class.dc.modules.php';
-$__autoload['dcPlugins']         = dirname(__FILE__) . '/core/class.dc.plugins.php';
-$__autoload['dcThemes']          = dirname(__FILE__) . '/core/class.dc.themes.php';
-$__autoload['dcRestServer']      = dirname(__FILE__) . '/core/class.dc.rest.php';
-$__autoload['dcNamespace']       = dirname(__FILE__) . '/core/class.dc.namespace.php';
-$__autoload['dcNotices']         = dirname(__FILE__) . '/core/class.dc.notices.php';
-$__autoload['dcSettings']        = dirname(__FILE__) . '/core/class.dc.settings.php';
-$__autoload['dcTrackback']       = dirname(__FILE__) . '/core/class.dc.trackback.php';
-$__autoload['dcUpdate']          = dirname(__FILE__) . '/core/class.dc.update.php';
-$__autoload['dcUtils']           = dirname(__FILE__) . '/core/class.dc.utils.php';
-$__autoload['dcXmlRpc']          = dirname(__FILE__) . '/core/class.dc.xmlrpc.php';
-$__autoload['dcLog']             = dirname(__FILE__) . '/core/class.dc.log.php';
-$__autoload['rsExtLog']          = dirname(__FILE__) . '/core/class.dc.log.php';
-$__autoload['dcWorkspace']       = dirname(__FILE__) . '/core/class.dc.workspace.php';
-$__autoload['dcPrefs']           = dirname(__FILE__) . '/core/class.dc.prefs.php';
-$__autoload['dcStore']           = dirname(__FILE__) . '/core/class.dc.store.php';
-$__autoload['dcStoreReader']     = dirname(__FILE__) . '/core/class.dc.store.reader.php';
-$__autoload['dcStoreParser']     = dirname(__FILE__) . '/core/class.dc.store.parser.php';
-$__autoload['dcSqlStatement']    = dirname(__FILE__) . '/core/class.dc.sql.statement.php';
-$__autoload['dcSelectStatement'] = dirname(__FILE__) . '/core/class.dc.sql.statement.php';
-$__autoload['dcUpdateStatement'] = dirname(__FILE__) . '/core/class.dc.sql.statement.php';
-$__autoload['dcDeleteStatement'] = dirname(__FILE__) . '/core/class.dc.sql.statement.php';
-$__autoload['dcInsertStatement'] = dirname(__FILE__) . '/core/class.dc.sql.statement.php';
-$__autoload['rsExtPost']         = dirname(__FILE__) . '/core/class.dc.rs.extensions.php';
-$__autoload['rsExtComment']      = dirname(__FILE__) . '/core/class.dc.rs.extensions.php';
-$__autoload['rsExtDates']        = dirname(__FILE__) . '/core/class.dc.rs.extensions.php';
-$__autoload['rsExtUser']         = dirname(__FILE__) . '/core/class.dc.rs.extensions.php';
+$__autoload['dcCore']            = __DIR__ . '/core/class.dc.core.php';
+$__autoload['dcAuth']            = __DIR__ . '/core/class.dc.auth.php';
+$__autoload['dcBlog']            = __DIR__ . '/core/class.dc.blog.php';
+$__autoload['dcCategories']      = __DIR__ . '/core/class.dc.categories.php';
+$__autoload['dcError']           = __DIR__ . '/core/class.dc.error.php';
+$__autoload['dcMeta']            = __DIR__ . '/core/class.dc.meta.php';
+$__autoload['dcMedia']           = __DIR__ . '/core/class.dc.media.php';
+$__autoload['dcPostMedia']       = __DIR__ . '/core/class.dc.postmedia.php';
+$__autoload['dcModules']         = __DIR__ . '/core/class.dc.modules.php';
+$__autoload['dcPlugins']         = __DIR__ . '/core/class.dc.plugins.php';
+$__autoload['dcThemes']          = __DIR__ . '/core/class.dc.themes.php';
+$__autoload['dcRestServer']      = __DIR__ . '/core/class.dc.rest.php';
+$__autoload['dcNamespace']       = __DIR__ . '/core/class.dc.namespace.php';
+$__autoload['dcNotices']         = __DIR__ . '/core/class.dc.notices.php';
+$__autoload['dcSettings']        = __DIR__ . '/core/class.dc.settings.php';
+$__autoload['dcTrackback']       = __DIR__ . '/core/class.dc.trackback.php';
+$__autoload['dcUpdate']          = __DIR__ . '/core/class.dc.update.php';
+$__autoload['dcUtils']           = __DIR__ . '/core/class.dc.utils.php';
+$__autoload['dcXmlRpc']          = __DIR__ . '/core/class.dc.xmlrpc.php';
+$__autoload['dcLog']             = __DIR__ . '/core/class.dc.log.php';
+$__autoload['rsExtLog']          = __DIR__ . '/core/class.dc.log.php';
+$__autoload['dcWorkspace']       = __DIR__ . '/core/class.dc.workspace.php';
+$__autoload['dcPrefs']           = __DIR__ . '/core/class.dc.prefs.php';
+$__autoload['dcStore']           = __DIR__ . '/core/class.dc.store.php';
+$__autoload['dcStoreReader']     = __DIR__ . '/core/class.dc.store.reader.php';
+$__autoload['dcStoreParser']     = __DIR__ . '/core/class.dc.store.parser.php';
+$__autoload['dcSqlStatement']    = __DIR__ . '/core/class.dc.sql.statement.php';
+$__autoload['dcSelectStatement'] = __DIR__ . '/core/class.dc.sql.statement.php';
+$__autoload['dcUpdateStatement'] = __DIR__ . '/core/class.dc.sql.statement.php';
+$__autoload['dcDeleteStatement'] = __DIR__ . '/core/class.dc.sql.statement.php';
+$__autoload['dcInsertStatement'] = __DIR__ . '/core/class.dc.sql.statement.php';
+$__autoload['rsExtPost']         = __DIR__ . '/core/class.dc.rs.extensions.php';
+$__autoload['rsExtComment']      = __DIR__ . '/core/class.dc.rs.extensions.php';
+$__autoload['rsExtDates']        = __DIR__ . '/core/class.dc.rs.extensions.php';
+$__autoload['rsExtUser']         = __DIR__ . '/core/class.dc.rs.extensions.php';
 
-$__autoload['dcUpgrade'] = dirname(__FILE__) . '/dbschema/upgrade.php';
+$__autoload['dcUpgrade'] = __DIR__ . '/dbschema/upgrade.php';
 
-$__autoload['dcMenu']                = dirname(__FILE__) . '/admin/class.dc.menu.php';
-$__autoload['dcFavorites']           = dirname(__FILE__) . '/admin/class.dc.favorites.php';
-$__autoload['dcPage']                = dirname(__FILE__) . '/admin/lib.dc.page.php';
-$__autoload['adminGenericList']      = dirname(__FILE__) . '/admin/lib.pager.php';
-$__autoload['adminPostList']         = dirname(__FILE__) . '/admin/lib.pager.php';
-$__autoload['adminPostMiniList']     = dirname(__FILE__) . '/admin/lib.pager.php';
-$__autoload['adminCommentList']      = dirname(__FILE__) . '/admin/lib.pager.php';
-$__autoload['adminBlogList']         = dirname(__FILE__) . '/admin/lib.pager.php';
-$__autoload['adminUserList']         = dirname(__FILE__) . '/admin/lib.pager.php';
-$__autoload['adminMediaList']        = dirname(__FILE__) . '/admin/lib.pager.php';
-$__autoload['dcPager']               = dirname(__FILE__) . '/admin/lib.pager.php';
-$__autoload['dcAdminCombos']         = dirname(__FILE__) . '/admin/lib.admincombos.php';
-$__autoload['dcAdminFilter']         = dirname(__FILE__) . '/admin/lib.adminfilters.php';
-$__autoload['dcAdminFilters']        = dirname(__FILE__) . '/admin/lib.adminfilters.php';
-$__autoload['adminGenericFilter']    = dirname(__FILE__) . '/admin/lib.adminfilters.php';
-$__autoload['adminPostFilter']       = dirname(__FILE__) . '/admin/lib.adminfilters.php';
-$__autoload['adminCommentFilter']    = dirname(__FILE__) . '/admin/lib.adminfilters.php';
-$__autoload['adminUserFilter']       = dirname(__FILE__) . '/admin/lib.adminfilters.php';
-$__autoload['adminBlogFilter']       = dirname(__FILE__) . '/admin/lib.adminfilters.php';
-$__autoload['adminMediaFilter']      = dirname(__FILE__) . '/admin/lib.adminfilters.php';
-$__autoload['adminModulesList']      = dirname(__FILE__) . '/admin/lib.moduleslist.php';
-$__autoload['adminThemesList']       = dirname(__FILE__) . '/admin/lib.moduleslist.php';
-$__autoload['dcThemeConfig']         = dirname(__FILE__) . '/admin/lib.themeconfig.php';
-$__autoload['dcAdminURL']            = dirname(__FILE__) . '/admin/lib.dc.adminurl.php';
-$__autoload['dcAdminNotices']        = dirname(__FILE__) . '/admin/lib.dc.notices.php';
-$__autoload['dcPostsActionsPage']    = dirname(__FILE__) . '/admin/actions/class.dcactionposts.php';
-$__autoload['dcCommentsActionsPage'] = dirname(__FILE__) . '/admin/actions/class.dcactioncomments.php';
-$__autoload['dcBlogsActionsPage']    = dirname(__FILE__) . '/admin/actions/class.dcactionblogs.php';
-$__autoload['dcActionsPage']         = dirname(__FILE__) . '/admin/actions/class.dcaction.php';
-$__autoload['dcAdminBlogPref']       = dirname(__FILE__) . '/admin/class.dc.blog_pref.php';
-$__autoload['adminUserPref']         = dirname(__FILE__) . '/admin/lib.adminuserpref.php';
+$__autoload['dcMenu']                = __DIR__ . '/admin/class.dc.menu.php';
+$__autoload['dcFavorites']           = __DIR__ . '/admin/class.dc.favorites.php';
+$__autoload['dcPage']                = __DIR__ . '/admin/lib.dc.page.php';
+$__autoload['adminGenericList']      = __DIR__ . '/admin/lib.pager.php';
+$__autoload['adminPostList']         = __DIR__ . '/admin/lib.pager.php';
+$__autoload['adminPostMiniList']     = __DIR__ . '/admin/lib.pager.php';
+$__autoload['adminCommentList']      = __DIR__ . '/admin/lib.pager.php';
+$__autoload['adminBlogList']         = __DIR__ . '/admin/lib.pager.php';
+$__autoload['adminUserList']         = __DIR__ . '/admin/lib.pager.php';
+$__autoload['adminMediaList']        = __DIR__ . '/admin/lib.pager.php';
+$__autoload['dcPager']               = __DIR__ . '/admin/lib.pager.php';
+$__autoload['dcAdminCombos']         = __DIR__ . '/admin/lib.admincombos.php';
+$__autoload['dcAdminFilter']         = __DIR__ . '/admin/lib.adminfilters.php';
+$__autoload['dcAdminFilters']        = __DIR__ . '/admin/lib.adminfilters.php';
+$__autoload['adminGenericFilter']    = __DIR__ . '/admin/lib.adminfilters.php';
+$__autoload['adminPostFilter']       = __DIR__ . '/admin/lib.adminfilters.php';
+$__autoload['adminCommentFilter']    = __DIR__ . '/admin/lib.adminfilters.php';
+$__autoload['adminUserFilter']       = __DIR__ . '/admin/lib.adminfilters.php';
+$__autoload['adminBlogFilter']       = __DIR__ . '/admin/lib.adminfilters.php';
+$__autoload['adminMediaFilter']      = __DIR__ . '/admin/lib.adminfilters.php';
+$__autoload['adminModulesList']      = __DIR__ . '/admin/lib.moduleslist.php';
+$__autoload['adminThemesList']       = __DIR__ . '/admin/lib.moduleslist.php';
+$__autoload['dcThemeConfig']         = __DIR__ . '/admin/lib.themeconfig.php';
+$__autoload['dcAdminURL']            = __DIR__ . '/admin/lib.dc.adminurl.php';
+$__autoload['dcAdminNotices']        = __DIR__ . '/admin/lib.dc.notices.php';
+$__autoload['dcPostsActionsPage']    = __DIR__ . '/admin/actions/class.dcactionposts.php';
+$__autoload['dcCommentsActionsPage'] = __DIR__ . '/admin/actions/class.dcactioncomments.php';
+$__autoload['dcBlogsActionsPage']    = __DIR__ . '/admin/actions/class.dcactionblogs.php';
+$__autoload['dcActionsPage']         = __DIR__ . '/admin/actions/class.dcaction.php';
+$__autoload['dcAdminBlogPref']       = __DIR__ . '/admin/class.dc.blog_pref.php';
+$__autoload['adminUserPref']         = __DIR__ . '/admin/lib.adminuserpref.php';
 
-$__autoload['dcTemplate']    = dirname(__FILE__) . '/public/class.dc.template.php';
-$__autoload['context']       = dirname(__FILE__) . '/public/lib.tpl.context.php';
-$__autoload['dcUrlHandlers'] = dirname(__FILE__) . '/public/lib.urlhandlers.php';
+$__autoload['dcTemplate']    = __DIR__ . '/public/class.dc.template.php';
+$__autoload['context']       = __DIR__ . '/public/lib.tpl.context.php';
+$__autoload['dcUrlHandlers'] = __DIR__ . '/public/lib.urlhandlers.php';
 
 # Clearbricks extensions
 html::$absolute_regs[] = '/(<param\s+name="movie"\s+value=")(.*?)(")/msu';
@@ -127,7 +127,7 @@ if (isset($_SERVER['DC_RC_PATH'])) {
 } elseif (isset($_SERVER['REDIRECT_DC_RC_PATH'])) {
     define('DC_RC_PATH', $_SERVER['REDIRECT_DC_RC_PATH']);
 } else {
-    define('DC_RC_PATH', dirname(__FILE__) . '/config.php');
+    define('DC_RC_PATH', __DIR__ . '/config.php');
 }
 
 if (!is_file(DC_RC_PATH)) {
@@ -156,10 +156,10 @@ if (!defined('DC_DEBUG')) {
 }
 
 # Constants
-define('DC_ROOT', path::real(dirname(__FILE__) . '/..'));
+define('DC_ROOT', path::real(__DIR__ . '/..'));
 define('DC_VERSION', '2.21-dev');
-define('DC_DIGESTS', dirname(__FILE__) . '/digests');
-define('DC_L10N_ROOT', dirname(__FILE__) . '/../locales');
+define('DC_DIGESTS', __DIR__ . '/digests');
+define('DC_L10N_ROOT', __DIR__ . '/../locales');
 define('DC_L10N_UPDATE_URL', 'https://services.dotclear.net/dc2.l10n/?version=%s');
 define('DC_DISTRIB_PLUGINS', 'aboutConfig,akismet,antispam,attachments,blogroll,blowupConfig,dclegacy,fairTrackbacks,importExport,maintenance,pages,pings,simpleMenu,tags,themeEditor,userPref,widgets,dcLegacyEditor,dcCKEditor,breadcrumb');
 define('DC_DISTRIB_THEMES', 'berlin,blueSilence,blowupConfig,customCSS,default,ductile');
@@ -239,7 +239,7 @@ if (!defined('DC_CRYPT_ALGO')) {
 }
 
 if (!defined('DC_TPL_CACHE')) {
-    define('DC_TPL_CACHE', path::real(dirname(__FILE__) . '/..') . '/cache');
+    define('DC_TPL_CACHE', path::real(__DIR__ . '/..') . '/cache');
 }
 // Check existence of cache directory
 if (!is_dir(DC_TPL_CACHE)) {
@@ -257,7 +257,7 @@ if (!is_dir(DC_TPL_CACHE)) {
 }
 
 if (!defined('DC_VAR')) {
-    define('DC_VAR', path::real(dirname(__FILE__) . '/..') . '/var');
+    define('DC_VAR', path::real(__DIR__ . '/..') . '/var');
 }
 // Check existence of var directory
 if (!is_dir(DC_VAR)) {
@@ -412,7 +412,7 @@ function __error($summary, $message, $code = 0)
     if (defined('DC_ERRORFILE') && is_file(DC_ERRORFILE)) {
         include DC_ERRORFILE;
     } else {
-        include dirname(__FILE__) . '/core_error.php';
+        include __DIR__ . '/core_error.php';
     }
     exit;
 }
@@ -422,7 +422,7 @@ function init_prepend_l10n()
     # Loading locales for detected language
     $dlang = http::getAcceptLanguages();
     foreach ($dlang as $l) {
-        if ($l == 'en' || l10n::set(dirname(__FILE__) . '/../locales/' . $l . '/main') !== false) {
+        if ($l == 'en' || l10n::set(__DIR__ . '/../locales/' . $l . '/main') !== false) {
             l10n::lang($l);
 
             break;

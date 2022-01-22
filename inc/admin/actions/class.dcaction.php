@@ -357,7 +357,7 @@ abstract class dcActionsPage
         foreach ($this->entries as $id => $title) {
             $ret .= '<tr><td class="minimal">' .
             form::checkbox([$this->field_entries . '[]'], $id, [
-                'checked' => true
+                'checked' => true,
             ]) .
                 '</td>' .
                 '<td>' . $title . '</td></tr>';

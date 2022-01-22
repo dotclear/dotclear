@@ -14,7 +14,7 @@
 /* ### THIS FILE IS DEPRECATED                     ### */
 /* ### IT IS ONLY USED FOR PLUGINS COMPATIBILITY ### */
 
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 

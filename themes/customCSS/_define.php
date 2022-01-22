@@ -18,6 +18,6 @@ $this->registerModule(
     'Olivier',                  // Author
     '1.2',                      // Version
     [
-        'type' => 'theme'
+        'type' => 'theme',
     ]
 );

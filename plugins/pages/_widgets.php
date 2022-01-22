@@ -22,17 +22,27 @@ class pagesWidgets
         $w
             ->create('pages', __('Pages'), ['tplPages', 'pagesWidget'], null, 'List of published pages')
             ->addTitle(__('Pages'))
-            ->setting('sortby', __('Order by:'), 'post_title', 'combo',
+            ->setting(
+                'sortby',
+                __('Order by:'),
+                'post_title',
+                'combo',
                 [
                     __('Page title')       => 'post_title',
                     __('Page position')    => 'post_position',
-                    __('Publication date') => 'post_dt'
-                ])
-            ->setting('orderby', __('Sort:'), 'asc', 'combo',
+                    __('Publication date') => 'post_dt',
+                ]
+            )
+            ->setting(
+                'orderby',
+                __('Sort:'),
+                'asc',
+                'combo',
                 [
                     __('Ascending')  => 'asc',
-                    __('Descending') => 'desc'
-                ])
+                    __('Descending') => 'desc',
+                ]
+            )
             ->addHomeOnly()
             ->addContentOnly()
             ->addClass()

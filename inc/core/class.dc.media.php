@@ -94,7 +94,7 @@ class dcMedia extends filemanager
         $this->path = $this->core->blog->settings->system->public_path;
 
         $this->addExclusion(DC_RC_PATH);
-        $this->addExclusion(dirname(__FILE__) . '/../');
+        $this->addExclusion(__DIR__ . '/../');
 
         $this->exclude_pattern = $core->blog->settings->system->media_exclusion;
 

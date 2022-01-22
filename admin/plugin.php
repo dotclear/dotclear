@@ -8,13 +8,13 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
 $p_file = '';
 $p      = !empty($_REQUEST['p']) ? $_REQUEST['p'] : null;
-$popup  = (integer) !empty($_REQUEST['popup']);
+$popup  = (int) !empty($_REQUEST['popup']);
 
 if ($popup) {
     $open_f  = ['dcPage', 'openPopup'];
@@ -83,12 +83,16 @@ if (file_exists($p_file)) {
     }
     call_user_func($close_f);
 } else {
-    call_user_func($open_f, __('Plugin not found'), '',
+    call_user_func(
+        $open_f,
+        __('Plugin not found'),
+        '',
         dcPage::breadcrumb(
             [
                 __('System')           => '',
-                __('Plugin not found') => ''
-            ])
+                __('Plugin not found') => '',
+            ]
+        )
     );
 
     echo '<p>' . __('The plugin you reached does not exist or does not have an admin page.') . '</p>';

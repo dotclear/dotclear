@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
 
@@ -116,15 +116,17 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
         [
             __('System')      => '',
             __('Users')       => $core->adminurl->get('admin.users'),
-            __('Permissions') => ''
-        ]);
+            __('Permissions') => '',
+        ]
+    );
 } else {
     $breadcrumb = dcPage::breadcrumb(
         [
             __('System')  => '',
             __('Users')   => $core->adminurl->get('admin.users'),
-            __('Actions') => ''
-        ]);
+            __('Actions') => '',
+        ]
+    );
 }
 
 dcPage::open(
@@ -148,8 +150,7 @@ foreach ($users as $u) {
 if (isset($_POST['redir']) && strpos($_POST['redir'], '://') === false) {
     $hidden_fields .= form::hidden(['redir'], html::escapeURL($_POST['redir']));
 } else {
-    $hidden_fields .= 
-    form::hidden(['q'], html::escapeHTML($_POST['q'] ?? '')) .
+    $hidden_fields .= form::hidden(['q'], html::escapeHTML($_POST['q'] ?? '')) .
     form::hidden(['sortby'], $_POST['sortby'] ?? '') .
     form::hidden(['order'], $_POST['order'] ?? '') .
     form::hidden(['page'], $_POST['page'] ?? '') .
@@ -204,10 +205,13 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
             echo
             '<tr class="line">' .
             '<td class="nowrap">' .
-            form::checkbox(['blogs[]'], $rs->blog_id,
+            form::checkbox(
+                ['blogs[]'],
+                $rs->blog_id,
                 [
-                    'extra_html' => 'title="' . __('select') . ' ' . $rs->blog_id . '"'
-                ]) .
+                    'extra_html' => 'title="' . __('select') . ' ' . $rs->blog_id . '"',
+                ]
+            ) .
             '</td>' .
             '<td class="nowrap">' . $rs->blog_id . '</td>' .
             '<td class="maximal">' . html::escapeHTML($rs->blog_name) . '</td>' .
@@ -262,8 +266,11 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms') {
 
             echo
             '<p><label for="perm' . html::escapeHTML($b) . html::escapeHTML($perm_id) . '" class="classic">' .
-            form::checkbox(['perm[' . html::escapeHTML($b) . '][' . html::escapeHTML($perm_id) . ']', 'perm' . html::escapeHTML($b) . html::escapeHTML($perm_id)],
-                1, $checked) . ' ' .
+            form::checkbox(
+                ['perm[' . html::escapeHTML($b) . '][' . html::escapeHTML($perm_id) . ']', 'perm' . html::escapeHTML($b) . html::escapeHTML($perm_id)],
+                1,
+                $checked
+            ) . ' ' .
             __($perm) . '</label></p>';
         }
         if (isset($unknown_perms[$b])) {
@@ -273,8 +280,10 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms') {
                 '<p><label for="perm' . html::escapeHTML($b) . html::escapeHTML($perm_id) . '" class="classic">' .
                 form::checkbox(
                     ['perm[' . html::escapeHTML($b) . '][' . html::escapeHTML($perm_id) . ']',
-                        'perm' . html::escapeHTML($b) . html::escapeHTML($perm_id)],
-                    1, $checked) . ' ' .
+                        'perm' . html::escapeHTML($b) . html::escapeHTML($perm_id), ],
+                    1,
+                    $checked
+                ) . ' ' .
                 sprintf(__('[%s] (unreferenced permission)'), $perm_id) . '</label></p>';
             }
         }
@@ -285,10 +294,13 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms') {
     '<div class="fieldset">' .
     '<h3>' . __('Validate permissions') . '</h3>' .
     '<p><label for="your_pwd" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label>' .
-    form::password('your_pwd', 20, 255,
+    form::password(
+        'your_pwd',
+        20,
+        255,
         [
             'extra_html'   => 'required placeholder="' . __('Password') . '"',
-            'autocomplete' => 'current-password'
+            'autocomplete' => 'current-password',
         ]
     ) . '</p>' .
     '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .

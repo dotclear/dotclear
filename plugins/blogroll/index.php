@@ -15,7 +15,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 $blogroll = new dcBlogroll($core->blog);
 
 if (!empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
-    include dirname(__FILE__) . '/edit.php';
+    include __DIR__ . '/edit.php';
 
     return;
 }
@@ -35,7 +35,7 @@ if (!empty($_POST['import_links']) && !empty($_FILES['links_file'])) {
             throw new Exception(__('Unable to move uploaded file.'));
         }
 
-        require_once dirname(__FILE__) . '/class.dc.importblogroll.php';
+        require_once __DIR__ . '/class.dc.importblogroll.php';
 
         try {
             $imported = dcImportBlogroll::loadFile($ifile);
@@ -141,7 +141,7 @@ if (empty($_POST['links_order']) && !empty($_POST['order'])) {
 
 if (!empty($_POST['saveorder']) && !empty($order)) {
     foreach ($order as $pos => $l) {
-        $pos = ((integer) $pos) + 1;
+        $pos = ((int) $pos) + 1;
 
         try {
             $blogroll->updateOrder($l, $pos);
@@ -187,8 +187,9 @@ if (!$core->auth->user_prefs->accessibility->nodragdrop) {
 echo dcPage::breadcrumb(
     [
         html::escapeHTML($core->blog->name) => '',
-        __('Blogroll')                      => ''
-    ]) .
+        __('Blogroll')                      => '',
+    ]
+) .
 dcPage::notices();
 ?>
 
@@ -220,12 +221,14 @@ while ($rs->fetch()) {
             'max'        => $rs->count(),
             'default'    => $position,
             'class'      => 'position',
-            'extra_html' => 'title="' . __('position') . '"'
+            'extra_html' => 'title="' . __('position') . '"',
         ]) .
         '</td>' .
-        '<td class="minimal">' . form::checkbox(['remove[]'], $rs->link_id,
+        '<td class="minimal">' . form::checkbox(
+            ['remove[]'],
+            $rs->link_id,
             [
-                'extra_html' => 'title="' . __('select this link') . '"'
+                'extra_html' => 'title="' . __('select this link') . '"',
             ]
         ) . '</td>';
 
@@ -279,14 +282,14 @@ echo
 '<p class="col"><label for="link_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
 form::field('link_title', 30, 255, [
     'default'    => $link_title,
-    'extra_html' => 'required placeholder="' . __('Title') . '"'
+    'extra_html' => 'required placeholder="' . __('Title') . '"',
 ]) .
 '</p>' .
 
 '<p class="col"><label for="link_href" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('URL:') . '</label> ' .
 form::field('link_href', 30, 255, [
     'default'    => $link_href,
-    'extra_html' => 'required placeholder="' . __('URL') . '"'
+    'extra_html' => 'required placeholder="' . __('URL') . '"',
 ]) .
 '</p>' .
 
@@ -312,7 +315,7 @@ echo
 '<p><label for="cat_title" class=" classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
 form::field('cat_title', 30, 255, [
     'default'    => $cat_title,
-    'extra_html' => 'required placeholder="' . __('Title') . '"'
+    'extra_html' => 'required placeholder="' . __('Title') . '"',
 ]) .
 '</p>' .
 '<p>' . form::hidden(['p'], 'blogroll') .

@@ -36,7 +36,7 @@ class dcImportDC1 extends dcIeModule
         'db_pwd'     => '',
         'db_prefix'  => 'dc_',
         'post_limit' => 20,
-        'cat_ids'    => []
+        'cat_ids'    => [],
     ];
 
     protected function setInfo()
@@ -84,7 +84,7 @@ class dcImportDC1 extends dcIeModule
                 $this->vars['db_name']    = $_POST['db_name'];
                 $this->vars['db_user']    = $_POST['db_user'];
                 $this->vars['db_pwd']     = $_POST['db_pwd'];
-                $this->vars['post_limit'] = abs((integer) $_POST['post_limit']) > 0 ? $_POST['post_limit'] : 0;
+                $this->vars['post_limit'] = abs((int) $_POST['post_limit']) > 0 ? $_POST['post_limit'] : 0;
                 $this->vars['db_prefix']  = $_POST['db_prefix'];
                 $db                       = $this->db();
                 $db->close();
@@ -120,7 +120,7 @@ class dcImportDC1 extends dcIeModule
                 break;
             case 'step5':
                 $this->step        = 5;
-                $this->post_offset = !empty($_REQUEST['offset']) ? abs((integer) $_REQUEST['offset']) : 0;
+                $this->post_offset = !empty($_REQUEST['offset']) ? abs((int) $_REQUEST['offset']) : 0;
                 if ($this->importPosts($percent) === -1) {
                     http::redirect($this->getURL() . '&do=ok');
                 } else {
@@ -148,18 +148,21 @@ class dcImportDC1 extends dcIeModule
 
         # db drivers
         $db_drivers = [
-            'mysqli' => 'mysqli'
+            'mysqli' => 'mysqli',
         ];
 
         switch ($this->step) {
             case 1:
                 echo
-                '<p>' . sprintf(__('Import the content of a Dotclear 1.2\'s blog in the current blog: %s.'),
-                    '<strong>' . html::escapeHTML($this->core->blog->name) . '</strong>') . '</p>' .
+                '<p>' . sprintf(
+                    __('Import the content of a Dotclear 1.2\'s blog in the current blog: %s.'),
+                    '<strong>' . html::escapeHTML($this->core->blog->name) . '</strong>'
+                ) . '</p>' .
                 '<p class="warning">' . __('Please note that this process ' .
                     'will empty your categories, blogroll, entries and comments on the current blog.') . '</p>';
 
-                printf($this->imForm(1, __('General information'), __('Import my blog now')),
+                printf(
+                    $this->imForm(1, __('General information'), __('Import my blog now')),
                     '<p>' . __('We first need some information about your old Dotclear 1.2 installation.') . '</p>' .
                     '<p><label for="db_driver">' . __('Database driver:') . '</label> ' .
                     form::combo('db_driver', $db_drivers, html::escapeHTML($this->vars['db_driver'])) . '</p>' .
@@ -180,27 +183,35 @@ class dcImportDC1 extends dcIeModule
 
                 break;
             case 2:
-                printf($this->imForm(2, __('Importing users')),
+                printf(
+                    $this->imForm(2, __('Importing users')),
                     $this->autoSubmit()
                 );
 
                 break;
             case 3:
-                printf($this->imForm(3, __('Importing categories')),
+                printf(
+                    $this->imForm(3, __('Importing categories')),
                     $this->autoSubmit()
                 );
 
                 break;
             case 4:
-                printf($this->imForm(4, __('Importing blogroll')),
+                printf(
+                    $this->imForm(4, __('Importing blogroll')),
                     $this->autoSubmit()
                 );
 
                 break;
             case 5:
-                $t = sprintf(__('Importing entries from %d to %d / %d'), $this->post_offset,
-                    min([$this->post_offset + $this->post_limit, $this->post_count]), $this->post_count);
-                printf($this->imForm(5, $t),
+                $t = sprintf(
+                    __('Importing entries from %d to %d / %d'),
+                    $this->post_offset,
+                    min([$this->post_offset + $this->post_limit, $this->post_count]),
+                    $this->post_count
+                );
+                printf(
+                    $this->imForm(5, $t),
                     form::hidden(['offset'], $this->post_offset) .
                     $this->autoSubmit()
                 );
@@ -214,9 +225,11 @@ class dcImportDC1 extends dcIeModule
                     'and will need to ask for a new one by following the "I forgot my password" link on the login page ' .
                     '(Their registered email address has to be valid.)') . '</li>' .
 
-                '<li>' . sprintf(__('Please note that Dotclear 2 has a new URL layout. You can avoid broken ' .
+                '<li>' . sprintf(
+                    __('Please note that Dotclear 2 has a new URL layout. You can avoid broken ' .
                     'links by installing <a href="%s">DC1 redirect</a> plugin and activate it in your blog configuration.'),
-                    'https://plugins.dotaddict.org/dc2/details/dc1redirect') . '</li>' .
+                    'https://plugins.dotaddict.org/dc2/details/dc1redirect'
+                ) . '</li>' .
                 '</ul>' .
 
                 $this->congratMessage();
@@ -311,8 +324,8 @@ class dcImportDC1 extends dcIeModule
                     $cur->user_tz          = $this->core->blog->settings->system->blog_timezone;
                     $cur->user_post_status = $rs->user_post_pub ? 1 : -2;
                     $cur->user_options     = new ArrayObject([
-                        'edit_size'   => (integer) $rs->user_edit_size,
-                        'post_format' => $rs->user_post_format
+                        'edit_size'   => (int) $rs->user_edit_size,
+                        'post_format' => $rs->user_post_format,
                     ]);
 
                     $permissions = [];
@@ -415,7 +428,7 @@ class dcImportDC1 extends dcIeModule
                 $cur->link_desc     = $this->cleanStr($rs->title);
                 $cur->link_lang     = $this->cleanStr($rs->lang);
                 $cur->link_xfn      = $this->cleanStr($rs->rel);
-                $cur->link_position = (integer) $rs->position;
+                $cur->link_position = (int) $rs->position;
 
                 $cur->link_id = $this->con->select(
                     'SELECT MAX(link_id) FROM ' . $this->prefix . 'link'
@@ -480,7 +493,7 @@ class dcImportDC1 extends dcIeModule
         $cur              = $this->con->openCursor($this->prefix . 'post');
         $cur->blog_id     = $this->blog_id;
         $cur->user_id     = $rs->user_id;
-        $cur->cat_id      = (integer) $this->vars['cat_ids'][$rs->cat_id];
+        $cur->cat_id      = (int) $this->vars['cat_ids'][$rs->cat_id];
         $cur->post_dt     = $rs->post_dt;
         $cur->post_creadt = $rs->post_creadt;
         $cur->post_upddt  = $rs->post_upddt;
@@ -502,10 +515,10 @@ class dcImportDC1 extends dcIeModule
         }
 
         $cur->post_notes        = $this->cleanStr($rs->post_notes);
-        $cur->post_status       = (integer) $rs->post_pub;
-        $cur->post_selected     = (integer) $rs->post_selected;
-        $cur->post_open_comment = (integer) $rs->post_open_comment;
-        $cur->post_open_tb      = (integer) $rs->post_open_tb;
+        $cur->post_status       = (int) $rs->post_pub;
+        $cur->post_selected     = (int) $rs->post_selected;
+        $cur->post_open_comment = (int) $rs->post_open_comment;
+        $cur->post_open_tb      = (int) $rs->post_open_tb;
         $cur->post_lang         = $rs->post_lang;
 
         $cur->post_words = implode(' ', text::splitWords(
@@ -535,20 +548,20 @@ class dcImportDC1 extends dcIeModule
 
         $rs = $db->select(
             'SELECT * FROM ' . $this->vars['db_prefix'] . 'comment ' .
-            'WHERE post_id = ' . (integer) $post_id . ' '
+            'WHERE post_id = ' . (int) $post_id . ' '
         );
 
         while ($rs->fetch()) {
             $cur                    = $this->con->openCursor($this->prefix . 'comment');
-            $cur->post_id           = (integer) $new_post_id;
+            $cur->post_id           = (int) $new_post_id;
             $cur->comment_author    = $this->cleanStr($rs->comment_auteur);
-            $cur->comment_status    = (integer) $rs->comment_pub;
+            $cur->comment_status    = (int) $rs->comment_pub;
             $cur->comment_dt        = $rs->comment_dt;
             $cur->comment_upddt     = $rs->comment_upddt;
             $cur->comment_email     = $this->cleanStr($rs->comment_email);
             $cur->comment_content   = $this->cleanStr($rs->comment_content);
             $cur->comment_ip        = $rs->comment_ip;
-            $cur->comment_trackback = (integer) $rs->comment_trackback;
+            $cur->comment_trackback = (int) $rs->comment_trackback;
 
             $cur->comment_site = $this->cleanStr($rs->comment_site);
             if ($cur->comment_site != '' && !preg_match('!^http(s)?://.*$!', $cur->comment_site)) {
@@ -579,7 +592,7 @@ class dcImportDC1 extends dcIeModule
                 'UPDATE ' . $this->prefix . 'post SET ' .
                 'nb_comment = ' . $count_c . ', ' .
                 'nb_trackback = ' . $count_t . ' ' .
-                'WHERE post_id = ' . (integer) $new_post_id . ' '
+                'WHERE post_id = ' . (int) $new_post_id . ' '
             );
         }
     }
@@ -591,7 +604,7 @@ class dcImportDC1 extends dcIeModule
 
         $rs = $db->select(
             'SELECT * FROM ' . $this->vars['db_prefix'] . 'ping ' .
-            'WHERE post_id = ' . (integer) $post_id
+            'WHERE post_id = ' . (int) $post_id
         );
 
         while ($rs->fetch()) {
@@ -601,7 +614,7 @@ class dcImportDC1 extends dcIeModule
             }
 
             $cur           = $this->con->openCursor($this->prefix . 'ping');
-            $cur->post_id  = (integer) $new_post_id;
+            $cur->post_id  = (int) $new_post_id;
             $cur->ping_url = $url;
             $cur->ping_dt  = $rs->ping_dt;
             $cur->insert();
@@ -615,7 +628,7 @@ class dcImportDC1 extends dcIeModule
     {
         $rs = $db->select(
             'SELECT * FROM ' . $this->vars['db_prefix'] . 'post_meta ' .
-            'WHERE post_id = ' . (integer) $post_id . ' '
+            'WHERE post_id = ' . (int) $post_id . ' '
         );
 
         if ($rs->isEmpty()) {

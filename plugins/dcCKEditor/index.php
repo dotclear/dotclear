@@ -32,7 +32,8 @@ $dcckeditor_disable_native_spellchecker = $core->blog->settings->dcckeditor->dis
 
 if (!empty($_GET['config'])) {
     // text/javascript response stop stream just after including file
-    include_once dirname(__FILE__) . '/_post_config.php';
+    include_once __DIR__ . '/_post_config.php';
     exit();
 }
-    include_once dirname(__FILE__) . '/inc/_config.php';
+
+include_once __DIR__ . '/inc/_config.php';

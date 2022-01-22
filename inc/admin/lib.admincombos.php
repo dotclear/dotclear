@@ -73,8 +73,12 @@ class dcAdminCombos
     {
         $users_combo = [];
         while ($users->fetch()) {
-            $user_cn = dcUtils::getUserCN($users->user_id, $users->user_name,
-                $users->user_firstname, $users->user_displayname);
+            $user_cn = dcUtils::getUserCN(
+                $users->user_id,
+                $users->user_name,
+                $users->user_firstname,
+                $users->user_displayname
+            );
 
             if ($user_cn != $users->user_id) {
                 $user_cn .= ' (' . $users->user_id . ')';
@@ -230,7 +234,7 @@ class dcAdminCombos
     {
         return [
             __('Descending') => 'desc',
-            __('Ascending')  => 'asc'
+            __('Ascending')  => 'asc',
         ];
     }
 
@@ -244,7 +248,7 @@ class dcAdminCombos
             __('Status')               => 'post_status',
             __('Selected')             => 'post_selected',
             __('Number of comments')   => 'nb_comment',
-            __('Number of trackbacks') => 'nb_trackback'
+            __('Number of trackbacks') => 'nb_trackback',
         ];
         # --BEHAVIOR-- adminPostsSortbyCombo
         self::$core->callBehavior('adminPostsSortbyCombo', [& $sortby_combo]);
@@ -261,7 +265,7 @@ class dcAdminCombos
             __('Author')      => 'comment_author',
             __('Status')      => 'comment_status',
             __('IP')          => 'comment_ip',
-            __('Spam filter') => 'comment_spam_filter'
+            __('Spam filter') => 'comment_spam_filter',
         ];
         # --BEHAVIOR-- adminCommentsSortbyCombo
         self::$core->callBehavior('adminCommentsSortbyCombo', [& $sortby_combo]);
@@ -275,7 +279,7 @@ class dcAdminCombos
             __('Last update') => 'blog_upddt',
             __('Blog name')   => 'UPPER(blog_name)',
             __('Blog ID')     => 'B.blog_id',
-            __('Status')      => 'blog_status'
+            __('Status')      => 'blog_status',
         ];
         # --BEHAVIOR-- adminBlogsSortbyCombo
         self::$core->callBehavior('adminBlogsSortbyCombo', [& $sortby_combo]);
@@ -292,11 +296,12 @@ class dcAdminCombos
                 __('Last Name')         => 'user_name',
                 __('First Name')        => 'user_firstname',
                 __('Display name')      => 'user_displayname',
-                __('Number of entries') => 'nb_post'
+                __('Number of entries') => 'nb_post',
             ];
             # --BEHAVIOR-- adminUsersSortbyCombo
             self::$core->callBehavior('adminUsersSortbyCombo', [& $sortby_combo]);
         }
+
         return $sortby_combo;
     }
 }

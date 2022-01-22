@@ -286,9 +286,7 @@ class adminPostList extends adminGenericList
 
             echo $blocks[1];
 
-            $fmt = function ($title, $image) {
-                return sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
-            };
+            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
             echo '<p class="info">' . __('Legend: ') .
                 $fmt(__('Published'), 'check-on.png') . ' - ' .
                 $fmt(__('Unpublished'), 'check-off.png') . ' - ' .
@@ -658,9 +656,7 @@ class adminCommentList extends adminGenericList
 
             echo $blocks[1];
 
-            $fmt = function ($title, $image) {
-                return sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
-            };
+            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
             echo '<p class="info">' . __('Legend: ') .
                 $fmt(__('Published'), 'check-on.png') . ' - ' .
                 $fmt(__('Unpublished'), 'check-off.png') . ' - ' .
@@ -851,9 +847,7 @@ class adminBlogList extends adminGenericList
 
             echo $blocks[1];
 
-            $fmt = function ($title, $image) {
-                return sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
-            };
+            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
             echo '<p class="info">' . __('Legend: ') .
                 $fmt(__('online'), 'check-on.png') . ' - ' .
                 $fmt(__('offline'), 'check-off.png') . ' - ' .
@@ -981,9 +975,7 @@ class adminUserList extends adminGenericList
 
             echo $blocks[1];
 
-            $fmt = function ($title, $image) {
-                return sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
-            };
+            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
             echo '<p class="info">' . __('Legend: ') .
                 $fmt(__('admin'), 'admin.png') . ' - ' .
                 $fmt(__('superadmin'), 'superadmin.png') .

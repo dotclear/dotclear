@@ -25,15 +25,15 @@ class tagsBehaviors
             dcPage::jsJson('legacy_editor_tags', [
                 'tag' => [
                     'title' => __('Tag'),
-                    'url'   => $tag_url
-                ]
+                    'url'   => $tag_url,
+                ],
             ]) .
             dcPage::jsLoad(dcPage::getPF('tags/js/legacy-post.js'));
         } elseif ($editor == 'dcCKEditor') {
             return
             dcPage::jsJson('ck_editor_tags', [
                 'tag_title' => __('Tag'),
-                'tag_url'   => $tag_url
+                'tag_url'   => $tag_url,
             ]);
         }
     }
@@ -48,7 +48,7 @@ class tagsBehaviors
         $extraPlugins[] = [
             'name'   => 'dctags',
             'button' => 'dcTags',
-            'url'    => DC_ADMIN_URL . 'index.php?pf=tags/js/ckeditor-tags-plugin.js'
+            'url'    => DC_ADMIN_URL . 'index.php?pf=tags/js/ckeditor-tags-plugin.js',
         ];
     }
 
@@ -75,7 +75,7 @@ class tagsBehaviors
             'url'         => $core->adminurl->get('admin.plugin.tags', ['m' => 'tags']),
             'small-icon'  => dcPage::getPF('tags/icon.png'),
             'large-icon'  => dcPage::getPF('tags/icon-big.png'),
-            'permissions' => 'usage,contentadmin'
+            'permissions' => 'usage,contentadmin',
         ]);
     }
 
@@ -113,7 +113,7 @@ class tagsBehaviors
 
     public static function setTags($cur, $post_id)
     {
-        $post_id = (integer) $post_id;
+        $post_id = (int) $post_id;
 
         if (isset($_POST['post_tags'])) {
             $tags = $_POST['post_tags'];
@@ -151,7 +151,7 @@ class tagsBehaviors
                 # Get tags for post
                 $post_meta = $meta->getMetadata([
                     'meta_type' => 'tag',
-                    'post_id'   => $posts->post_id]);
+                    'post_id'   => $posts->post_id, ]);
                 $pm = [];
                 while ($post_meta->fetch()) {
                     $pm[] = $post_meta->meta_id;
@@ -162,11 +162,13 @@ class tagsBehaviors
                     }
                 }
             }
-            dcPage::addSuccessNotice(sprintf(
+            dcPage::addSuccessNotice(
+                sprintf(
                 __(
                     'Tag has been successfully added to selected entries',
                     'Tags have been successfully added to selected entries',
-                    count($tags))
+                    count($tags)
+                )
             )
             );
             $ap->redirect(true);
@@ -183,13 +185,13 @@ class tagsBehaviors
                 'text_add_meta'       => __('Add a tag to this entry'),
                 'text_choose'         => __('Choose from list'),
                 'text_all'            => __('all'),
-                'text_separation'     => __('Enter tags separated by comma')
+                'text_separation'     => __('Enter tags separated by comma'),
             ];
 
             $msg = [
                 'tags_autocomplete' => __('used in %e - frequency %p%'),
                 'entry'             => __('entry'),
-                'entries'           => __('entries')
+                'entries'           => __('entries'),
             ];
 
             $ap->beginPage(
@@ -197,8 +199,9 @@ class tagsBehaviors
                     [
                         html::escapeHTML($core->blog->name) => '',
                         __('Entries')                       => $ap->getRedirection(true),
-                        __('Add tags to this selection')    => ''
-                    ]),
+                        __('Add tags to this selection')    => '',
+                    ]
+                ),
                 dcPage::jsMetaEditor() .
                 dcPage::jsJson('editor_tags_options', $editor_tags_options) .
                 dcPage::jsJson('editor_tags_msg', $msg) .
@@ -230,11 +233,13 @@ class tagsBehaviors
                     $meta->delPostMeta($posts->post_id, 'tag', $v);
                 }
             }
-            dcPage::addSuccessNotice(sprintf(
+            dcPage::addSuccessNotice(
+                sprintf(
                 __(
                     'Tag has been successfully removed from selected entries',
                     'Tags have been successfully removed from selected entries',
-                    count($_POST['meta_id']))
+                    count($_POST['meta_id'])
+                )
             )
             );
             $ap->redirect(true);
@@ -245,7 +250,7 @@ class tagsBehaviors
             foreach ($ap->getIDS() as $id) {
                 $post_tags = $meta->getMetadata([
                     'meta_type' => 'tag',
-                    'post_id'   => (integer) $id])->toStatic()->rows();
+                    'post_id'   => (int) $id, ])->toStatic()->rows();
                 foreach ($post_tags as $v) {
                     if (isset($tags[$v['meta_id']])) {
                         $tags[$v['meta_id']]++;
@@ -262,8 +267,10 @@ class tagsBehaviors
                     [
                         html::escapeHTML($core->blog->name)            => '',
                         __('Entries')                                  => 'posts.php',
-                        __('Remove selected tags from this selection') => ''
-                    ]));
+                        __('Remove selected tags from this selection') => '',
+                    ]
+                )
+            );
             $posts_count = count($_POST['entries']);
 
             echo
@@ -276,9 +283,11 @@ class tagsBehaviors
                 if ($posts_count == $n) {
                     $label = sprintf($label, '%s', '<strong>%s</strong>');
                 }
-                echo '<p>' . sprintf($label,
+                echo '<p>' . sprintf(
+                    $label,
                     form::checkbox(['meta_id[]'], html::escapeHTML($k)),
-                    html::escapeHTML($k)) .
+                    html::escapeHTML($k)
+                ) .
                     '</p>';
             }
 
@@ -306,13 +315,13 @@ class tagsBehaviors
             'text_add_meta'       => __('Add a tag to this entry'),
             'text_choose'         => __('Choose from list'),
             'text_all'            => __('all'),
-            'text_separation'     => __('Enter tags separated by comma')
+            'text_separation'     => __('Enter tags separated by comma'),
         ];
 
         $msg = [
             'tags_autocomplete' => __('used in %e - frequency %p%'),
             'entry'             => __('entry'),
-            'entries'           => __('entries')
+            'entries'           => __('entries'),
         ];
 
         return

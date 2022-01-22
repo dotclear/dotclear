@@ -184,7 +184,7 @@ class akismet extends netHttp
 
         $data = [
             'key'  => $this->ak_key,
-            'blog' => $this->blog_url
+            'blog' => $this->blog_url,
         ];
 
         if ($this->post($path, $data, 'UTF-8')) {
@@ -238,7 +238,7 @@ class akismet extends netHttp
             'comment_author'       => $author,
             'comment_author_email' => $email,
             'comment_author_url'   => $url,
-            'comment_content'      => $content
+            'comment_content'      => $content,
         ];
 
         $data = array_merge($data, $info);

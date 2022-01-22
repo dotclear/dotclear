@@ -12,7 +12,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-require dirname(__FILE__) . '/class.themeEditor.php';
+require __DIR__ . '/class.themeEditor.php';
 
 $file_default = $file = ['c' => null, 'w' => false, 'type' => null, 'f' => null, 'default_file' => false];
 
@@ -74,7 +74,7 @@ echo dcPage::jsJson('theme_editor_msg', [
     'saving_document'    => __('Saving document...'),
     'document_saved'     => __('Document saved'),
     'error_occurred'     => __('An error occurred:'),
-    'confirm_reset_file' => __('Are you sure you want to reset this file?')
+    'confirm_reset_file' => __('Are you sure you want to reset this file?'),
 ]) .
 dcPage::jsLoad(dcPage::getPF('themeEditor/js/script.js')) .
 dcPage::jsConfirmClose('file-form') ;
@@ -91,8 +91,9 @@ echo dcPage::breadcrumb(
     [
         html::escapeHTML($core->blog->name) => '',
         __('Blog appearance')               => $core->adminurl->get('admin.blog.theme'),
-        __('Edit theme files')              => ''
-    ]) .
+        __('Edit theme files')              => '',
+    ]
+) .
 dcPage::notices();
 ?>
 
@@ -116,7 +117,7 @@ if ($file['c'] === null) {
     '<p>' . form::textarea('file_content', 72, 25, [
         'default'  => html::escapeHTML($file['c']),
         'class'    => 'maximal',
-        'disabled' => !$file['w']
+        'disabled' => !$file['w'],
     ]) . '</p>';
 
     if ($file['w']) {

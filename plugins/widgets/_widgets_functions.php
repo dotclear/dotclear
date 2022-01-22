@@ -32,14 +32,18 @@ class defaultWidgets
 
         $value = isset($GLOBALS['_search']) ? html::escapeHTML($GLOBALS['_search']) : '';
 
-        return $w->renderDiv($w->content_only, $w->class, 'id="search"',
+        return $w->renderDiv(
+            $w->content_only,
+            $w->class,
+            'id="search"',
             ($w->title ? $w->renderTitle('<label for="q">' . html::escapeHTML($w->title) . '</label>') : '') .
             '<form action="' . $core->blog->url . '" method="get" role="search">' .
             '<p><input type="text" size="10" maxlength="255" id="q" name="q" value="' . $value . '" ' .
             ($w->placeholder ? 'placeholder="' . html::escapeHTML($w->placeholder) . '"' : '') .
             ' aria-label="' . __('Search') . '"/> ' .
             '<input type="submit" class="submit" value="ok" title="' . __('Search') . '" /></p>' .
-            '</form>');
+            '</form>'
+        );
     }
 
     public static function navigation($w)
@@ -149,7 +153,7 @@ class defaultWidgets
         $params = [
             'post_selected' => true,
             'no_content'    => true,
-            'order'         => 'post_dt ' . strtoupper($w->orderby)
+            'order'         => 'post_dt ' . strtoupper($w->orderby),
         ];
 
         $rs = $core->blog->getPosts($params);
@@ -202,10 +206,12 @@ class defaultWidgets
             $lang_name = $langs[$rs->post_lang] ?? $rs->post_lang;
 
             $res .= ' <li>' .
-            sprintf($l,
+            sprintf(
+                $l,
                 '<a href="' . $core->blog->url . $core->url->getURLFor('lang', $rs->post_lang) . '" ' .
                 'class="lang-' . $rs->post_lang . '">' .
-                $lang_name . '</a>') .
+                $lang_name . '</a>'
+            ) .
                 ' </li>';
         }
 
@@ -271,7 +277,7 @@ class defaultWidgets
             return;
         }
 
-        $limit = abs((integer) $w->limit);
+        $limit = abs((int) $w->limit);
 
         try {
             $feed = feedReader::quickParse($w->url, DC_TPL_CACHE);
@@ -340,7 +346,7 @@ class defaultWidgets
             return;
         }
 
-        $params['limit']      = abs((integer) $w->limit);
+        $params['limit']      = abs((int) $w->limit);
         $params['order']      = 'post_dt desc';
         $params['no_content'] = true;
 
@@ -348,7 +354,7 @@ class defaultWidgets
             if ($w->category == 'null') {
                 $params['sql'] = ' AND P.cat_id IS NULL ';
             } elseif (is_numeric($w->category)) {
-                $params['cat_id'] = (integer) $w->category;
+                $params['cat_id'] = (int) $w->category;
             } else {
                 $params['cat_url'] = $w->category;
             }
@@ -394,7 +400,7 @@ class defaultWidgets
             return;
         }
 
-        $params['limit'] = abs((integer) $w->limit);
+        $params['limit'] = abs((int) $w->limit);
         $params['order'] = 'comment_dt desc';
         $rs              = $core->blog->getComments($params);
 
@@ -406,7 +412,7 @@ class defaultWidgets
 
         while ($rs->fetch()) {
             $res .= '<li class="' .
-            ((boolean) $rs->comment_trackback ? 'last-tb' : 'last-comment') .
+            ((bool) $rs->comment_trackback ? 'last-tb' : 'last-comment') .
             '"><a href="' . $rs->getPostURL() . '#c' . $rs->comment_id . '">' .
             html::escapeHTML($rs->post_title) . ' - ' .
             html::escapeHTML($rs->comment_author) .

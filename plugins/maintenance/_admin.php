@@ -88,7 +88,7 @@ class dcMaintenanceAdmin
             'large-icon'   => dcPage::getPF('maintenance/icon-big.png'),
             'permissions'  => 'admin',
             'active_cb'    => ['dcMaintenanceAdmin', 'adminDashboardFavoritesActive'],
-            'dashboard_cb' => ['dcMaintenanceAdmin', 'adminDashboardFavoritesCallback']
+            'dashboard_cb' => ['dcMaintenanceAdmin', 'adminDashboardFavoritesCallback'],
         ]);
     }
 
@@ -161,10 +161,12 @@ class dcMaintenanceAdmin
                 continue;
             }
 
-            $lines[] = '<li title="' . ($ts === null ?
+            $lines[] = '<li title="' . (
+                $ts === null ?
                 __('This task has never been executed.')
                 :
-                sprintf(__('Last execution of this task was on %s.'),
+                sprintf(
+                    __('Last execution of this task was on %s.'),
                     dt::dt2str($core->blog->settings->system->date_format, $ts) . ' ' .
                     dt::dt2str($core->blog->settings->system->time_format, $ts)
                 )
@@ -181,7 +183,7 @@ class dcMaintenanceAdmin
             '<p class="warning no-margin">' . sprintf(__('There is a task to execute.', 'There are %s tasks to execute.', count($lines)), count($lines)) . '</p>' .
             '<ul>' . implode('', $lines) . '</ul>' .
             '<p><a href="' . $core->adminurl->get('admin.plugin.maintenance') . '">' . __('Manage tasks') . '</a></p>' .
-            '</div>'
+            '</div>',
         ]);
     }
 

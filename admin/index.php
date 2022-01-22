@@ -9,16 +9,16 @@
  * @var dcCore $core
  */
 if (!empty($_GET['pf'])) {
-    require dirname(__FILE__) . '/../inc/load_plugin_file.php';
+    require __DIR__ . '/../inc/load_plugin_file.php';
     exit;
 }
 
 if (!empty($_GET['vf'])) {
-    require dirname(__FILE__) . '/../inc/load_var_file.php';
+    require __DIR__ . '/../inc/load_var_file.php';
     exit;
 }
 
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 if (!empty($_GET['default_blog'])) {
     try {
@@ -112,7 +112,7 @@ if ($core->auth->user_prefs->dashboard->doclinks) {
 $core->callBehavior('adminDashboardItems', $core, $__dashboard_items);
 
 # Dashboard content
-$__dashboard_contents = new ArrayObject([new ArrayObject, new ArrayObject]);
+$__dashboard_contents = new ArrayObject([new ArrayObject(), new ArrayObject()]);
 $core->callBehavior('adminDashboardContents', $core, $__dashboard_contents);
 
 # Editor stuff
@@ -134,7 +134,7 @@ $dragndrop      = '';
 $dragndrop_head = '';
 $dragndrop_msg  = [
     'dragndrop_off' => __('Dashboard area\'s drag and drop is disabled'),
-    'dragndrop_on'  => __('Dashboard area\'s drag and drop is enabled')
+    'dragndrop_on'  => __('Dashboard area\'s drag and drop is enabled'),
 ];
 if (!$core->auth->user_prefs->accessibility->nodragdrop) {
     $dragndrop_head = dcPage::jsJson('dotclear_dragndrop', $dragndrop_msg);
@@ -149,7 +149,8 @@ if (!$core->auth->user_prefs->accessibility->nodragdrop) {
 
 /* DISPLAY
 -------------------------------------------------------- */
-dcPage::open(__('Dashboard'),
+dcPage::open(
+    __('Dashboard'),
     dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
     dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
     dcPage::jsLoad('js/_index.js') .
@@ -159,7 +160,7 @@ dcPage::open(__('Dashboard'),
     $core->callBehavior('adminDashboardHeaders'),
     dcPage::breadcrumb(
         [
-            __('Dashboard') . ' : ' . html::escapeHTML($core->blog->name) => ''
+            __('Dashboard') . ' : ' . html::escapeHTML($core->blog->name) => '',
         ],
         ['home_link' => false]
     )
@@ -358,7 +359,7 @@ if ($core->auth->user_prefs->dashboard->quickentry) {
         '<p class="col"><label for="post_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label>' .
         form::field('post_title', 20, 255, [
             'class'      => 'maximal',
-            'extra_html' => 'required placeholder="' . __('Title') . '"'
+            'extra_html' => 'required placeholder="' . __('Title') . '"',
         ]) .
         '</p>' .
         '<div class="area"><label class="required" ' .

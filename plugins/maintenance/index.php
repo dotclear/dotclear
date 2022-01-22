@@ -24,7 +24,7 @@ $p_url   = $core->adminurl->get('admin.plugin.maintenance');
 $task    = null;
 $expired = [];
 
-$code = empty($_POST['code']) ? null : (integer) $_POST['code'];
+$code = empty($_POST['code']) ? null : (int) $_POST['code'];
 $tab  = empty($_REQUEST['tab']) ? '' : $_REQUEST['tab'];
 
 // Get task object
@@ -83,7 +83,7 @@ if (!empty($_POST['save_settings'])) {
             }
             $core->blog->settings->maintenance->put(
                 'ts_' . $t->id(),
-                abs((integer) $ts),
+                abs((int) $ts),
                 'integer',
                 sprintf('Recall time for task %s', $t->id()),
                 true,
@@ -130,7 +130,7 @@ $combo_ts = [
     __('Every week')       => 604800,
     __('Every two weeks')  => 1209600,
     __('Every month')      => 2592000,
-    __('Every two months') => 5184000
+    __('Every two months') => 5184000,
 ];
 
 // Display page
@@ -156,7 +156,7 @@ if (empty($tasks)) {
     echo dcPage::breadcrumb(
         [
             __('Plugins')     => '',
-            __('Maintenance') => ''
+            __('Maintenance') => '',
         ]
     ) .
     '<p class="warn">' . __('You have not sufficient permissions to view this page.') . '</p>' .
@@ -173,7 +173,7 @@ if ($task && ($res = $task->step()) !== null) {
         [
             __('Plugins')                                            => '',
             '<a href="' . $p_url . '">' . __('Maintenance') . '</a>' => '',
-            html::escapeHTML($task->name())                          => ''
+            html::escapeHTML($task->name())                          => '',
         ]
     ) . dcPage::notices();
 
@@ -195,7 +195,7 @@ if ($task && ($res = $task->step()) !== null) {
     '<p class="step-submit">' .
     '<input type="submit" value="' . $task->task() . '" /> ' .
     form::hidden(['task'], $task->id()) .
-    form::hidden(['code'], (integer) $code) .
+    form::hidden(['code'], (int) $code) .
     $core->formNonce() .
         '</p>' .
         '</form>' .
@@ -207,7 +207,7 @@ if ($task && ($res = $task->step()) !== null) {
     echo dcPage::breadcrumb(
         [
             __('Plugins')     => '',
-            __('Maintenance') => ''
+            __('Maintenance') => '',
         ]
     ) . dcPage::notices();
 

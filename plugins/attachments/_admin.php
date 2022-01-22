@@ -71,7 +71,7 @@ class attachmentAdmin
                     'post_id'   => $post->post_id,
                     'media_id'  => $f->media_id,
                     'link_type' => 'attachment',
-                    'remove'    => '1'
+                    'remove'    => '1',
                 ]) . '">' .
                 '<img src="images/trash.png" alt="' . __('remove') . '" /></a>' .
                     '</li>' .

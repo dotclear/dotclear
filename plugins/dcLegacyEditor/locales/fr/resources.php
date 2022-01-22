@@ -6,5 +6,4 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-$__resources['help']['dcLegacyEditor'] = dirname(__FILE__) . '/help/legacy_editor.html';
+$__resources['help']['dcLegacyEditor'] = __DIR__ . '/help/legacy_editor.html';

@@ -19,7 +19,7 @@ if (version_compare($core->getVersion('pings'), $version, '>=')) {
 
 // Default pings services
 $default_pings_uris = [
-    'Ping-o-Matic!' => 'http://rpc.pingomatic.com/'
+    'Ping-o-Matic!' => 'http://rpc.pingomatic.com/',
 ];
 
 $core->blog->settings->addNamespace('pings');

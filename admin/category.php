@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('categories');
 
@@ -36,7 +36,7 @@ if (!empty($_REQUEST['id'])) {
     }
 
     if (!$core->error->flag() && !$rs->isEmpty()) {
-        $cat_id    = (integer) $rs->cat_id;
+        $cat_id    = (int) $rs->cat_id;
         $cat_title = $rs->cat_title;
         $cat_url   = $rs->cat_url;
         $cat_desc  = $rs->cat_desc;
@@ -46,7 +46,7 @@ if (!empty($_REQUEST['id'])) {
     # Getting hierarchy information
     $parents    = $core->blog->getCategoryParents($cat_id);
     $rs         = $core->blog->getCategoryParent($cat_id);
-    $cat_parent = $rs->isEmpty() ? 0 : (integer) $rs->cat_id;
+    $cat_parent = $rs->isEmpty() ? 0 : (int) $rs->cat_id;
     unset($rs);
 
     # Allowed parents list
@@ -81,7 +81,7 @@ if (!empty($_REQUEST['id'])) {
 
 # Changing parent
 if ($cat_id && isset($_POST['cat_parent'])) {
-    $new_parent = (integer) $_POST['cat_parent'];
+    $new_parent = (int) $_POST['cat_parent'];
     if ($cat_parent != $new_parent) {
         try {
             $core->blog->setCategoryParent($cat_id, $new_parent);
@@ -96,7 +96,7 @@ if ($cat_id && isset($_POST['cat_parent'])) {
 # Changing sibling
 if ($cat_id && isset($_POST['cat_sibling'])) {
     try {
-        $core->blog->setCategoryPosition($cat_id, (integer) $_POST['cat_sibling'], $_POST['cat_move']);
+        $core->blog->setCategoryPosition($cat_id, (int) $_POST['cat_sibling'], $_POST['cat_move']);
         dcPage::addSuccessNotice(__('The category has been successfully moved'));
         $core->adminurl->redirect('admin.categories');
     } catch (Exception $e) {
@@ -140,13 +140,15 @@ if (isset($_POST['cat_title'])) {
             # --BEHAVIOR-- adminBeforeCategoryCreate
             $core->callBehavior('adminBeforeCategoryCreate', $cur);
 
-            $id = $core->blog->addCategory($cur, (integer) $_POST['new_cat_parent']);
+            $id = $core->blog->addCategory($cur, (int) $_POST['new_cat_parent']);
 
             # --BEHAVIOR-- adminAfterCategoryCreate
             $core->callBehavior('adminAfterCategoryCreate', $cur, $id);
 
-            dcPage::addSuccessNotice(sprintf(__('The category "%s" has been successfully created.'),
-                html::escapeHTML($cur->cat_title)));
+            dcPage::addSuccessNotice(sprintf(
+                __('The category "%s" has been successfully created.'),
+                html::escapeHTML($cur->cat_title)
+            ));
             $core->adminurl->redirect('admin.categories');
         }
     } catch (Exception $e) {
@@ -158,7 +160,7 @@ $title = $cat_id ? html::escapeHTML($cat_title) : __('New category');
 
 $elements = [
     html::escapeHTML($core->blog->name) => '',
-    __('Categories')                    => $core->adminurl->get('admin.categories')
+    __('Categories')                    => $core->adminurl->get('admin.categories'),
 ];
 if ($cat_id) {
     while ($parents->fetch()) {
@@ -174,7 +176,8 @@ if (is_array($rte_flags) && in_array('cat_descr', $rte_flags)) {
     $rte_flag = $rte_flags['cat_descr'];
 }
 
-dcPage::open($title,
+dcPage::open(
+    $title,
     dcPage::jsConfirmClose('category-form') .
     dcPage::jsLoad('js/_category.js') .
     ($rte_flag ? $core->callBehavior('adminPostEditor', $category_editor['xhtml'], 'category', ['#cat_desc'], 'xhtml') : ''),
@@ -191,7 +194,7 @@ echo
 '<p><label class="required" for="cat_title"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label> ' .
 form::field('cat_title', 40, 255, [
     'default'    => html::escapeHTML($cat_title),
-    'extra_html' => 'required placeholder="' . __('Name') . '" lang="' . $blog_lang . '" spellcheck="true"'
+    'extra_html' => 'required placeholder="' . __('Name') . '" lang="' . $blog_lang . '" spellcheck="true"',
 ]) .
     '</p>';
 if (!$cat_id) {
@@ -218,11 +221,15 @@ __('Warning: If you set the URL manually, it may conflict with another category.
 '</div>' .
 
 '<p class="area"><label for="cat_desc">' . __('Description:') . '</label> ' .
-form::textarea('cat_desc', 50, 8,
+form::textarea(
+    'cat_desc',
+    50,
+    8,
     [
         'default'    => html::escapeHTML($cat_desc),
-        'extra_html' => 'lang="' . $blog_lang . '" spellcheck="true"'
-    ]) .
+        'extra_html' => 'lang="' . $blog_lang . '" spellcheck="true"',
+    ]
+) .
 '</p>' .
 
 '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
@@ -253,8 +260,11 @@ if ($cat_id) {
         '<form action="' . $core->adminurl->get('admin.category') . '" method="post" class="fieldset">' .
         '<h4>' . __('Category sibling') . '</h4>' .
         '<p><label class="classic" for="cat_sibling">' . __('Move current category') . '</label> ' .
-        form::combo('cat_move', [__('before') => 'before', __('after') => 'after'],
-            ['extra_html' => 'title="' . __('position: ') . '"']) . ' ' .
+        form::combo(
+            'cat_move',
+            [__('before') => 'before', __('after') => 'after'],
+            ['extra_html' => 'title="' . __('position: ') . '"']
+        ) . ' ' .
         form::combo('cat_sibling', $siblings) . '</p>' .
         '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
         form::hidden(['id'], $cat_id) . $core->formNonce() . '</p>' .

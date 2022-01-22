@@ -145,9 +145,11 @@ class dcFilterIPv6 extends dcSpamFilter
                 }
 
                 $item = '<p class="' . $p_style . '"><label class="classic" for="' . $type . '-ip-' . $rs->rule_id . '">' .
-                form::checkbox(['delip[]', $type . '-ip-' . $rs->rule_id], $rs->rule_id,
+                form::checkbox(
+                    ['delip[]', $type . '-ip-' . $rs->rule_id],
+                    $rs->rule_id,
                     [
-                        'disabled' => $disabled_ip
+                        'disabled' => $disabled_ip,
                     ]
                 ) . ' ' .
                 html::escapeHTML($pattern) .
@@ -206,7 +208,7 @@ class dcFilterIPv6 extends dcSpamFilter
         } else {
             $cur->rule_type    = (string) $type;
             $cur->rule_content = (string) $pattern;
-            $cur->update('WHERE rule_id = ' . (integer) $old->rule_id);
+            $cur->update('WHERE rule_id = ' . (int) $old->rule_id);
         }
     }
 
@@ -262,11 +264,11 @@ class dcFilterIPv6 extends dcSpamFilter
 
         if (is_array($ids)) {
             foreach ($ids as $i => $v) {
-                $ids[$i] = (integer) $v;
+                $ids[$i] = (int) $v;
             }
             $strReq .= 'WHERE rule_id IN (' . implode(',', $ids) . ') ';
         } else {
-            $ids = (integer) $ids;
+            $ids = (int) $ids;
             $strReq .= 'WHERE rule_id = ' . $ids . ' ';
         }
 
@@ -365,9 +367,9 @@ class dcFilterIPv6 extends dcSpamFilter
         } else {
             //$mask = ~((1 << (128 - min((integer) $bits[1], 128))) - 1);
             if (function_exists('gmp_init')) {
-                $mask = gmp_mul(gmp_init(1), gmp_pow(gmp_init(2), 128 - min((integer) $bits[1], 128)));
+                $mask = gmp_mul(gmp_init(1), gmp_pow(gmp_init(2), 128 - min((int) $bits[1], 128)));
             } elseif (function_exists('bcadd')) {
-                $mask = bcmul(1, bcpow(2, 128 - min((integer) $bits[1], 128))); // @phpstan-ignore-line
+                $mask = bcmul(1, bcpow(2, 128 - min((int) $bits[1], 128))); // @phpstan-ignore-line
             } else {
                 trigger_error('GMP or BCMATH extension not installed!', E_USER_ERROR);
             }

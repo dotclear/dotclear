@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
@@ -33,10 +33,10 @@ if (!empty($q) && !in_array($qtype, $qtype_combo)) {
 }
 
 $core->auth->user_prefs->addWorkspace('interface');
-$page = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
-$nb = adminUserPref::getUserFilters('search', 'nb');
-if (!empty($_GET['nb']) && (integer) $_GET['nb'] > 0) {
-    $nb = (integer) $_GET['nb'];
+$page = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
+$nb   = adminUserPref::getUserFilters('search', 'nb');
+if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
+    $nb = (int) $_GET['nb'];
 }
 
 $args = ['q' => $q, 'qtype' => $qtype, 'page' => $page, 'nb' => $nb];
@@ -50,12 +50,15 @@ if ($q) {
     $core->callBehavior('adminSearchPageProcess', $core, $args);
 }
 
-dcPage::open(__('Search'), $starting_scripts,
+dcPage::open(
+    __('Search'),
+    $starting_scripts,
     dcPage::breadcrumb(
         [
             html::escapeHTML($core->blog->name) => '',
-            __('Search')                        => ''
-        ])
+            __('Search')                        => '',
+        ]
+    )
 );
 
 echo
@@ -116,7 +119,7 @@ class adminSearchPageDefault
             'search'     => $args['q'],
             'limit'      => [(($args['page'] - 1) * $args['nb']), $args['nb']],
             'no_content' => true,
-            'order'      => 'post_dt DESC'
+            'order'      => 'post_dt DESC',
         ];
 
         try {
@@ -141,7 +144,9 @@ class adminSearchPageDefault
             printf('<h3>' . __('one result', __('%d results'), self::$count) . '</h3>', self::$count);
         }
 
-        self::$list->display($args['page'], $args['nb'],
+        self::$list->display(
+            $args['page'],
+            $args['nb'],
             '<form action="' . $core->adminurl->get('admin.search') . '" method="post" id="form-entries">' .
 
             '%s' .
@@ -153,7 +158,7 @@ class adminSearchPageDefault
             form::combo('action', self::$actions->getCombo()) .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
             $core->formNonce() .
-            preg_replace('/%/','%%', self::$actions->getHiddenFields()) .
+            preg_replace('/%/', '%%', self::$actions->getHiddenFields()) .
             '</div>' .
             '</form>'
         );
@@ -169,7 +174,7 @@ class adminSearchPageDefault
             'search'     => $args['q'],
             'limit'      => [(($args['page'] - 1) * $args['nb']), $args['nb']],
             'no_content' => true,
-            'order'      => 'comment_dt DESC'
+            'order'      => 'comment_dt DESC',
         ];
 
         try {
@@ -194,7 +199,9 @@ class adminSearchPageDefault
             printf('<h3>' . __('one comment found', __('%d comments found'), self::$count) . '</h3>', self::$count);
         }
 
-        self::$list->display($args['page'], $args['nb'],
+        self::$list->display(
+            $args['page'],
+            $args['nb'],
             '<form action="' . $core->adminurl->get('admin.search') . '" method="post" id="form-comments">' .
 
             '%s' .
@@ -206,7 +213,7 @@ class adminSearchPageDefault
             form::combo('action', self::$actions->getCombo()) .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
             $core->formNonce() .
-            preg_replace('/%/','%%', self::$actions->getHiddenFields()) .
+            preg_replace('/%/', '%%', self::$actions->getHiddenFields()) .
             '</div>' .
             '</form>'
         );

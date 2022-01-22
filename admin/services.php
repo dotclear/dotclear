@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 $core->rest->addFunction('getPostsCount', ['dcRestMethods', 'getPostsCount']);
 $core->rest->addFunction('getCommentsCount', ['dcRestMethods', 'getCommentsCount']);

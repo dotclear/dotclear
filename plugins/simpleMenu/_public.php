@@ -12,7 +12,7 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-require dirname(__FILE__) . '/_widgets.php';
+require __DIR__ . '/_widgets.php';
 
 # Simple menu template functions
 $core->tpl->addValue('SimpleMenu', ['tplSimpleMenu', 'simpleMenu']);
@@ -24,7 +24,7 @@ class tplSimpleMenu
     {
         global $core;
 
-        if (!(boolean) $core->blog->settings->system->simpleMenu_active) {
+        if (!(bool) $core->blog->settings->system->simpleMenu_active) {
             return '';
         }
 
@@ -50,7 +50,7 @@ class tplSimpleMenu
 
         $descr_type = [0 => 'span', 1 => 'title', 2 => 'both', 3 => 'none'];
 
-        if (!(boolean) $core->blog->settings->system->simpleMenu_active) {
+        if (!(bool) $core->blog->settings->system->simpleMenu_active) {
             return;
         }
 
@@ -71,8 +71,12 @@ class tplSimpleMenu
             return;
         }
 
-        return $w->renderDiv($w->content_only, 'simple-menu ' . $w->class, '',
-            ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') . $menu);
+        return $w->renderDiv(
+            $w->content_only,
+            'simple-menu ' . $w->class,
+            '',
+            ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') . $menu
+        );
     }
 
     public static function displayMenu($class = '', $id = '', $description = '')
@@ -81,7 +85,7 @@ class tplSimpleMenu
 
         $ret = '';
 
-        if (!(boolean) $core->blog->settings->system->simpleMenu_active) {
+        if (!(bool) $core->blog->settings->system->simpleMenu_active) {
             return $ret;
         }
 
@@ -146,7 +150,7 @@ class tplSimpleMenu
                     'title'  => $title,  // <a> link title (optional)
                     'span'   => $span,   // description (will be displayed after <a> link)
                     'active' => $active, // status (true/false)
-                    'class'  => ''      // additional <li> class (optional)
+                    'class'  => '',      // additional <li> class (optional)
                 ]);
 
                 # --BEHAVIOR-- publicSimpleMenuItem

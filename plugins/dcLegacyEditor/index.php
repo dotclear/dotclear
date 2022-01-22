@@ -29,4 +29,4 @@ if (!empty($_POST['saveconfig'])) {
     }
 }
 
-include dirname(__FILE__) . '/tpl/index.php';
+include __DIR__ . '/tpl/index.php';

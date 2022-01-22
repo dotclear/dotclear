@@ -14,4 +14,4 @@ if (isset($_SERVER['DC_BLOG_ID'])) {
     define('DC_BLOG_ID', 'default');
 }
 
-require dirname(__FILE__) . '/inc/public/prepend.php';
+require __DIR__ . '/inc/public/prepend.php';

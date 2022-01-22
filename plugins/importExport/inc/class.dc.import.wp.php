@@ -54,8 +54,8 @@ class dcImportWP extends dcIeModule
             '%postname%',
             '%post_id%',
             '%category%',
-            '%author%'
-        ]
+            '%author%',
+        ],
     ];
     protected $formaters;
 
@@ -110,7 +110,7 @@ class dcImportWP extends dcIeModule
                 $this->vars['cat_import']       = isset($_POST['cat_import']);
                 $this->vars['cat_as_tags']      = isset($_POST['cat_as_tags']);
                 $this->vars['cat_tags_prefix']  = $_POST['cat_tags_prefix'];
-                $this->vars['post_limit']       = abs((integer) $_POST['post_limit']) > 0 ? $_POST['post_limit'] : 0;
+                $this->vars['post_limit']       = abs((int) $_POST['post_limit']) > 0 ? $_POST['post_limit'] : 0;
                 $this->vars['post_formater']    = isset($this->formaters[$_POST['post_formater']]) ? $_POST['post_formater'] : 'xhtml';
                 $this->vars['comment_formater'] = isset($this->formaters[$_POST['comment_formater']]) ? $_POST['comment_formater'] : 'xhtml';
                 $db                             = $this->db();
@@ -147,7 +147,7 @@ class dcImportWP extends dcIeModule
                 break;
             case 'step5':
                 $this->step        = 5;
-                $this->post_offset = !empty($_REQUEST['offset']) ? abs((integer) $_REQUEST['offset']) : 0;
+                $this->post_offset = !empty($_REQUEST['offset']) ? abs((int) $_REQUEST['offset']) : 0;
                 if ($this->importPosts($percent) === -1) {
                     http::redirect($this->getURL() . '&do=ok');
                 } else {
@@ -176,12 +176,15 @@ class dcImportWP extends dcIeModule
         switch ($this->step) {
             case 1:
                 echo
-                '<p>' . sprintf(__('This will import your WordPress content as new content in the current blog: %s.'),
-                    '<strong>' . html::escapeHTML($this->core->blog->name) . '</strong>') . '</p>' .
+                '<p>' . sprintf(
+                    __('This will import your WordPress content as new content in the current blog: %s.'),
+                    '<strong>' . html::escapeHTML($this->core->blog->name) . '</strong>'
+                ) . '</p>' .
                 '<p class="warning">' . __('Please note that this process ' .
                     'will empty your categories, blogroll, entries and comments on the current blog.') . '</p>';
 
-                printf($this->imForm(1, __('General information'), __('Import my blog now')),
+                printf(
+                    $this->imForm(1, __('General information'), __('Import my blog now')),
                     '<p>' . __('We first need some information about your old WordPress installation.') . '</p>' .
                     '<p><label for="db_host">' . __('Database Host Name:') . '</label> ' .
                     form::field('db_host', 30, 255, html::escapeHTML($this->vars['db_host'])) . '</p>' .
@@ -235,27 +238,35 @@ class dcImportWP extends dcIeModule
 
                 break;
             case 2:
-                printf($this->imForm(2, __('Importing users')),
+                printf(
+                    $this->imForm(2, __('Importing users')),
                     $this->autoSubmit()
                 );
 
                 break;
             case 3:
-                printf($this->imForm(3, __('Importing categories')),
+                printf(
+                    $this->imForm(3, __('Importing categories')),
                     $this->autoSubmit()
                 );
 
                 break;
             case 4:
-                printf($this->imForm(4, __('Importing blogroll')),
+                printf(
+                    $this->imForm(4, __('Importing blogroll')),
                     $this->autoSubmit()
                 );
 
                 break;
             case 5:
-                $t = sprintf(__('Importing entries from %d to %d / %d'), $this->post_offset,
-                    min([$this->post_offset + $this->post_limit, $this->post_count]), $this->post_count);
-                printf($this->imForm(5, $t),
+                $t = sprintf(
+                    __('Importing entries from %d to %d / %d'),
+                    $this->post_offset,
+                    min([$this->post_offset + $this->post_limit, $this->post_count]),
+                    $this->post_count
+                );
+                printf(
+                    $this->imForm(5, $t),
                     form::hidden(['offset'], $this->post_offset) .
                     $this->autoSubmit()
                 );
@@ -378,7 +389,7 @@ class dcImportWP extends dcIeModule
                                 break;
                             case 'rich_editing':
                                 $cur->user_options = new ArrayObject([
-                                    'enable_wysiwyg' => $rs_meta->meta_value == 'true' ? true : false
+                                    'enable_wysiwyg' => $rs_meta->meta_value == 'true' ? true : false,
                                 ]);
 
                                 break;
@@ -605,7 +616,7 @@ class dcImportWP extends dcIeModule
                 ' ORDER BY t.term_id ASC '
             );
             if (!$old_cat_ids->isEmpty() && $this->vars['cat_import']) {
-                $cur->cat_id = $this->vars['cat_ids'][(integer) $old_cat_ids->term_id];
+                $cur->cat_id = $this->vars['cat_ids'][(int) $old_cat_ids->term_id];
             }
         }
 
@@ -619,7 +630,7 @@ class dcImportWP extends dcIeModule
             $rs->post_name,
             $rs->ID,
             $cur->cat_id,
-            $cur->user_id
+            $cur->user_id,
         ];
         $cur->post_url = str_replace(
             $this->vars['permalink_tags'],
@@ -702,14 +713,14 @@ class dcImportWP extends dcIeModule
 
         $rs = $db->select(
             'SELECT * FROM ' . $this->vars['db_prefix'] . 'comments ' .
-            'WHERE comment_post_ID = ' . (integer) $post_id . ' '
+            'WHERE comment_post_ID = ' . (int) $post_id . ' '
         );
 
         while ($rs->fetch()) {
             $cur                    = $this->con->openCursor($this->prefix . 'comment');
-            $cur->post_id           = (integer) $new_post_id;
+            $cur->post_id           = (int) $new_post_id;
             $cur->comment_author    = $this->cleanStr($rs->comment_author);
-            $cur->comment_status    = (integer) $rs->comment_approved;
+            $cur->comment_status    = (int) $rs->comment_approved;
             $cur->comment_dt        = $rs->comment_date;
             $cur->comment_email     = $this->cleanStr($rs->comment_author_email);
             $cur->comment_content   = $this->core->callFormater($this->vars['comment_formater'], $this->cleanStr($rs->comment_content));
@@ -744,7 +755,7 @@ class dcImportWP extends dcIeModule
                 'UPDATE ' . $this->prefix . 'post SET ' .
                 'nb_comment = ' . $count_c . ', ' .
                 'nb_trackback = ' . $count_t . ' ' .
-                'WHERE post_id = ' . (integer) $new_post_id . ' '
+                'WHERE post_id = ' . (int) $new_post_id . ' '
             );
         }
     }
@@ -757,7 +768,7 @@ class dcImportWP extends dcIeModule
 
         $rs = $db->select(
             'SELECT pinged FROM ' . $this->vars['db_prefix'] . 'posts ' .
-            'WHERE ID = ' . (integer) $post_id
+            'WHERE ID = ' . (int) $post_id
         );
         $pings = explode("\n", $rs->pinged);
         unset($pings[0]);
@@ -769,7 +780,7 @@ class dcImportWP extends dcIeModule
             }
 
             $cur           = $this->con->openCursor($this->prefix . 'ping');
-            $cur->post_id  = (integer) $new_post_id;
+            $cur->post_id  = (int) $new_post_id;
             $cur->ping_url = $url;
             $cur->insert();
 

@@ -16,11 +16,13 @@ if (!defined('DC_ANTISPAM_CONF_SUPER')) {
     define('DC_ANTISPAM_CONF_SUPER', false);
 }
 
-$_menu['Plugins']->addItem(__('Antispam'),
+$_menu['Plugins']->addItem(
+    __('Antispam'),
     $core->adminurl->get('admin.plugin.antispam'),
     dcPage::getPF('antispam/icon.png'),
     preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.antispam')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-    $core->auth->check('admin', $core->blog->id));
+    $core->auth->check('admin', $core->blog->id)
+);
 
 $core->addBehavior('coreAfterCommentUpdate', ['dcAntispam', 'trainFilters']);
 $core->addBehavior('adminAfterCommentDesc', ['dcAntispam', 'statusMessage']);
@@ -32,12 +34,14 @@ $core->addBehavior('adminDashboardFavsIcon', 'antispamDashboardFavsIcon');
 
 function antispamDashboardFavorites($core, $favs)
 {
-    $favs->register('antispam', [
-        'title'       => __('Antispam'),
-        'url'         => $core->adminurl->get('admin.plugin.antispam'),
-        'small-icon'  => dcPage::getPF('antispam/icon.png'),
-        'large-icon'  => dcPage::getPF('antispam/icon-big.png'),
-        'permissions' => 'admin']
+    $favs->register(
+        'antispam',
+        [
+            'title'       => __('Antispam'),
+            'url'         => $core->adminurl->get('admin.plugin.antispam'),
+            'small-icon'  => dcPage::getPF('antispam/icon.png'),
+            'large-icon'  => dcPage::getPF('antispam/icon-big.png'),
+            'permissions' => 'admin', ]
     );
 }
 
@@ -106,6 +110,6 @@ class antispamBehaviors
     public static function adminBeforeBlogSettingsUpdate($settings)
     {
         $settings->addNamespace('antispam');
-        $settings->antispam->put('antispam_moderation_ttl', (integer) $_POST['antispam_moderation_ttl']);
+        $settings->antispam->put('antispam_moderation_ttl', (int) $_POST['antispam_moderation_ttl']);
     }
 }

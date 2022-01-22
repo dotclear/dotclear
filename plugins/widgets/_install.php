@@ -17,7 +17,7 @@ if (version_compare($core->getVersion('widgets'), $version, '>=')) {
     return;
 }
 
-require dirname(__FILE__) . '/_default_widgets.php';
+require __DIR__ . '/_default_widgets.php';
 
 $settings = &$core->blog->settings;
 $settings->addNamespace('widgets');

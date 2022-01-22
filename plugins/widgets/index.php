@@ -12,7 +12,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-include dirname(__FILE__) . '/_default_widgets.php';
+include __DIR__ . '/_default_widgets.php';
 
 # Loading navigation, extra widgets and custom widgets
 $widgets_nav = null;
@@ -32,7 +32,7 @@ $append_combo = [
     '-'              => 0,
     __('navigation') => 'nav',
     __('extra')      => 'extra',
-    __('custom')     => 'custom'
+    __('custom')     => 'custom',
 ];
 
 function literalNullString($v)
@@ -64,7 +64,7 @@ if (!empty($_POST['append']) && is_array($_POST['addw'])) {
     # Append widgets
     if (!empty($addw)) {
         if (!($widgets_nav instanceof dcWidgets)) {
-            $widgets_nav = new dcWidgets;
+            $widgets_nav = new dcWidgets();
         }
         if (!($widgets_extra instanceof dcWidgets)) {
             $widgets_extra = new dcWidgets();
@@ -219,7 +219,7 @@ dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
 dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
 dcPage::jsJson('widgets', [
     'widget_noeditor' => ($rte_flag ? 0 : 1),
-    'msg'             => ['confirm_widgets_reset' => __('Are you sure you want to reset sidebars?')]
+    'msg'             => ['confirm_widgets_reset' => __('Are you sure you want to reset sidebars?')],
 ]) .
 dcPage::jsLoad(dcPage::getPF('widgets/js/widgets.js'));
 
@@ -229,8 +229,13 @@ if (!$user_dm_nodragdrop) {
     echo dcPage::jsLoad(dcPage::getPF('widgets/js/dragdrop.js'));
 }
 if ($rte_flag) {
-    echo $core->callBehavior('adminPostEditor', $widget_editor['xhtml'], 'widget',
-        ['#sidebarsWidgets textarea:not(.noeditor)'], 'xhtml');
+    echo $core->callBehavior(
+        'adminPostEditor',
+        $widget_editor['xhtml'],
+        'widget',
+        ['#sidebarsWidgets textarea:not(.noeditor)'],
+        'xhtml'
+    );
 }
 echo(dcPage::jsConfirmClose('sidebarsWidgets'));
 ?>
@@ -240,8 +245,9 @@ echo(dcPage::jsConfirmClose('sidebarsWidgets'));
 echo dcPage::breadcrumb(
     [
         html::escapeHTML($core->blog->name) => '',
-        __('Widgets')                       => ''
-    ]) .
+        __('Widgets')                       => '',
+    ]
+) .
 dcPage::notices();
 
 # All widgets
@@ -258,7 +264,7 @@ foreach ($__widgets->elements(true) as $w) {
     '<p class="widget-name">' . form::number(['w[void][0][order]'], [
         'default'    => 0,
         'class'      => 'hide',
-        'extra_html' => 'title="' . __('order') . '"'
+        'extra_html' => 'title="' . __('order') . '"',
     ]) .
     ' ' . $w->name() .
     ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') . '</p>' .
@@ -304,7 +310,7 @@ $core->formNonce() .
 '</p>' .
 '</form>';
 
-$widget_elements          = new stdClass;
+$widget_elements          = new stdClass();
 $widget_elements->content = '<dl>';
 foreach ($__widgets->elements() as $w) {
     $widget_elements->content .= '<dt><strong>' . html::escapeHTML($w->name()) . '</strong> (' .
@@ -374,7 +380,7 @@ function sidebarWidgets($id, $title, $widgets, $pr, $default_widgets, &$j)
         '<p class="widget-name">' . form::number([$iname . '[order]'], [
             'default'    => $i,
             'class'      => 'hidden',
-            'extra_html' => 'title="' . __('order') . '"'
+            'extra_html' => 'title="' . __('order') . '"',
         ]) .
         ' ' . $w->name() .
         ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') .

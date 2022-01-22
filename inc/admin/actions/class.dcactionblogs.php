@@ -56,12 +56,14 @@ class dcBlogsActionsPage extends dcActionsPage
     public function error(Exception $e)
     {
         $this->core->error->add($e->getMessage());
-        $this->beginPage(dcPage::breadcrumb(
+        $this->beginPage(
+            dcPage::breadcrumb(
             [
                 html::escapeHTML($this->core->blog->name) => '',
                 __('Blogs')                               => $this->core->adminurl->get('admin.blogs'),
-                __('Blogs actions')                       => ''
-            ])
+                __('Blogs actions')                       => '',
+            ]
+        )
         );
         $this->endPage();
     }
@@ -71,10 +73,13 @@ class dcBlogsActionsPage extends dcActionsPage
         $ret = '';
         foreach ($this->entries as $id => $res) {
             $ret .= '<tr>' .
-            '<td class="minimal">' . form::checkbox([$this->field_entries . '[]'], $id,
+            '<td class="minimal">' . form::checkbox(
+                [$this->field_entries . '[]'],
+                $id,
                 [
-                    'checked' => true
-                ]) .
+                    'checked' => true,
+                ]
+            ) .
                 '</td>' .
                 '<td>' . $res['blog'] . '</td>' .
                 '<td>' . $res['name'] . '</td>' .
@@ -98,7 +103,7 @@ class dcBlogsActionsPage extends dcActionsPage
         while ($bl->fetch()) {
             $this->entries[$bl->blog_id] = [
                 'blog' => $bl->blog_id,
-                'name' => $bl->blog_name
+                'name' => $bl->blog_name,
             ];
         }
         $this->rs = $bl;
@@ -117,13 +122,13 @@ class dcDefaultBlogActions
             [__('Status') => [
                 __('Set online')     => 'online',
                 __('Set offline')    => 'offline',
-                __('Set as removed') => 'remove'
+                __('Set as removed') => 'remove',
             ]],
             ['dcDefaultBlogActions', 'doChangeBlogStatus']
         );
         $ap->addAction(
             [__('Delete') => [
-                __('Delete') => 'delete']],
+                __('Delete') => 'delete', ]],
             ['dcDefaultBlogActions', 'doDeleteBlog']
         );
     }
@@ -199,13 +204,15 @@ class dcDefaultBlogActions
                 $core->delBlog($id);
             }
 
-            dcPage::addSuccessNotice(sprintf(
+            dcPage::addSuccessNotice(
+                sprintf(
                 __(
                     '%d blog has been successfully deleted',
                     '%d blogs have been successfully deleted',
                     count($ids)
                 ),
-                count($ids))
+                count($ids)
+            )
             );
         }
         $ap->redirect(false);

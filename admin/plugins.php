@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 # -- Page helper --
 $list = new adminModulesList(
@@ -18,7 +18,7 @@ $list = new adminModulesList(
     !empty($_GET['nocache'])
 );
 
-adminModulesList::$allow_multi_install = (boolean) DC_ALLOW_MULTI_MODULES;
+adminModulesList::$allow_multi_install = (bool) DC_ALLOW_MULTI_MODULES;
 adminModulesList::$distributed_modules = explode(',', DC_DISTRIB_PLUGINS);
 
 if ($core->plugins->disableDepModules($core->adminurl->get('admin.plugins', []))) {
@@ -35,17 +35,18 @@ if ($list->setConfiguration()) {
     $list->getConfiguration();
 
     # Display page
-    dcPage::open(__('Plugins management'),
+    dcPage::open(
+        __('Plugins management'),
 
         # --BEHAVIOR-- pluginsToolsHeaders
         $core->callBehavior('pluginsToolsHeaders', $core, true),
-
         dcPage::breadcrumb(
             [
                 html::escapeHTML($core->blog->name)                                  => '',
                 __('Plugins management')                                             => $list->getURL('', false),
-                '<span class="page-title">' . __('Plugin configuration') . '</span>' => ''
-            ])
+                '<span class="page-title">' . __('Plugin configuration') . '</span>' => '',
+            ]
+        )
     );
 
     # Display previously gathered content
@@ -74,18 +75,19 @@ if (!$core->error->flag()) {
 }
 
 # -- Page header --
-dcPage::open(__('Plugins management'),
+dcPage::open(
+    __('Plugins management'),
     dcPage::jsLoad('js/_plugins.js') .
     dcPage::jsPageTabs() .
 
     # --BEHAVIOR-- pluginsToolsHeaders
     $core->callBehavior('pluginsToolsHeaders', $core, false),
-
     dcPage::breadcrumb(
         [
             __('System')             => '',
-            __('Plugins management') => ''
-        ])
+            __('Plugins management') => '',
+        ]
+    )
 );
 
 # -- Plugins install messages --
@@ -139,8 +141,10 @@ if ($core->auth->isSuperAdmin()) {
             ->setTab('update')
             ->setModules($modules)
             ->displayModules(
-                /*cols */['checkbox', 'icon', 'name', 'version', 'repository', 'current_version', 'desc'],
-                /* actions */['update']
+                /*cols */
+                ['checkbox', 'icon', 'name', 'version', 'repository', 'current_version', 'desc'],
+                /* actions */
+                ['update']
             );
 
         echo
@@ -175,8 +179,10 @@ if (!empty($modules)) {
         ->setTab('plugins')
         ->setModules($modules)
         ->displayModules(
-            /* cols */['expander', 'icon', 'name', 'version', 'desc', 'distrib', 'deps'],
-            /* actions */['deactivate', 'delete', 'behavior']
+            /* cols */
+            ['expander', 'icon', 'name', 'version', 'desc', 'distrib', 'deps'],
+            /* actions */
+            ['deactivate', 'delete', 'behavior']
         );
 }
 
@@ -193,8 +199,10 @@ if ($core->auth->isSuperAdmin()) {
             ->setTab('plugins')
             ->setModules($modules)
             ->displayModules(
-                /* cols */['expander', 'icon', 'name', 'version', 'desc', 'distrib'],
-                /* actions */['activate', 'delete']
+                /* cols */
+                ['expander', 'icon', 'name', 'version', 'desc', 'distrib'],
+                /* actions */
+                ['activate', 'delete']
             );
     }
 }
@@ -220,9 +228,12 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
             ->displaySearch()
             ->displayIndex()
             ->displayModules(
-                /* cols */['expander', 'name', 'score', 'version', 'desc', 'deps'],
-                /* actions */['install'],
-                /* nav limit */true
+                /* cols */
+                ['expander', 'name', 'score', 'version', 'desc', 'deps'],
+                /* actions */
+                ['install'],
+                /* nav limit */
+                true
             );
 
         echo

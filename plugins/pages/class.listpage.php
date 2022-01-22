@@ -22,7 +22,7 @@ class adminPagesList extends adminGenericList
             $entries = [];
             if (isset($_REQUEST['entries'])) {
                 foreach ($_REQUEST['entries'] as $v) {
-                    $entries[(integer) $v] = true;
+                    $entries[(int) $v] = true;
                 }
             }
             $html_block = '<div class="table-outer">' .
@@ -36,7 +36,7 @@ class adminPagesList extends adminGenericList
                 '" /><span class="hidden">' . __('Comments') . '</span></th>',
                 'trackbacks' => '<th scope="col"><img src="images/trackbacks.png" alt="" title="' . __('Trackbacks') .
                 '" /><span class="hidden">' . __('Trackbacks') . '</span></th>',
-                'status' => '<th scope="col">' . __('Status') . '</th>'
+                'status' => '<th scope="col">' . __('Status') . '</th>',
             ];
 
             $cols = new ArrayObject($cols);
@@ -66,9 +66,7 @@ class adminPagesList extends adminGenericList
 
             echo $blocks[1];
 
-            $fmt = function ($title, $image) {
-                return sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
-            };
+            $fmt = fn ($title, $image) => sprintf('<img alt="%1$s" title="%1$s" src="images/%2$s" /> %1$s', $title, $image);
             echo '<p class="info">' . __('Legend: ') .
                 $fmt(__('Published'), 'check-on.png') . ' - ' .
                 $fmt(__('Unpublished'), 'check-off.png') . ' - ' .
@@ -139,15 +137,17 @@ class adminPagesList extends adminGenericList
                 'min'        => 1,
                 'default'    => $count + 1,
                 'class'      => 'position',
-                'extra_html' => 'title="' . sprintf(__('position of %s'), html::escapeHTML($this->rs->post_title)) . '"'
+                'extra_html' => 'title="' . sprintf(__('position of %s'), html::escapeHTML($this->rs->post_title)) . '"',
             ]) .
             '</td>',
             'check' => '<td class="nowrap">' .
-            form::checkbox(['entries[]'], $this->rs->post_id,
+            form::checkbox(
+                ['entries[]'],
+                $this->rs->post_id,
                 [
                     'checked'    => $checked,
                     'disabled'   => !$this->rs->isEditable(),
-                    'extra_html' => 'title="' . __('Select this page') . '"'
+                    'extra_html' => 'title="' . __('Select this page') . '"',
                 ]
             ) . '</td>',
             'title' => '<td class="maximal" scope="row"><a href="' .
@@ -157,7 +157,7 @@ class adminPagesList extends adminGenericList
             'author'     => '<td class="nowrap">' . $this->rs->user_id . '</td>',
             'comments'   => '<td class="nowrap count">' . $this->rs->nb_comment . '</td>',
             'trackbacks' => '<td class="nowrap count">' . $this->rs->nb_trackback . '</td>',
-            'status'     => '<td class="nowrap status">' . $img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach . '</td>'
+            'status'     => '<td class="nowrap status">' . $img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach . '</td>',
         ];
 
         $cols = new ArrayObject($cols);

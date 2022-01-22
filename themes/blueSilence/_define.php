@@ -18,6 +18,6 @@ $this->registerModule(
     'Marco / marcarea.com', // Author
     '1.0',                  // Version
     [
-        'type' => 'theme'
+        'type' => 'theme',
     ]
 );

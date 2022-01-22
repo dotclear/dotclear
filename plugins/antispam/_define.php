@@ -22,7 +22,7 @@ $this->registerModule(
         'priority'    => 10,
         'settings'    => [
             'self' => '',
-            'blog' => '#params.antispam_params'
-        ]
+            'blog' => '#params.antispam_params',
+        ],
     ]
 );

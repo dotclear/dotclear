@@ -20,7 +20,7 @@ $this->registerModule(
     [
         'type'     => 'plugin',
         'settings' => [
-            'pref' => '#user-options.themeEditor_prefs'
-        ]
+            'pref' => '#user-options.themeEditor_prefs',
+        ],
     ]
 );

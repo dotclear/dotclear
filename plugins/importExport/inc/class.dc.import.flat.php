@@ -155,11 +155,13 @@ class dcImportFlat extends dcIeModule
         }
 
         $public_files = array_merge(['-' => ''], $this->getPublicFiles());
-        $has_files    = (boolean) (count($public_files) - 1);
+        $has_files    = (bool) (count($public_files) - 1);
 
         echo
-        dcPage::jsJson('ie_import_flat_msg',
-            ['confirm_full_import' => __('Are you sure you want to import a full backup file?')]) .
+        dcPage::jsJson(
+            'ie_import_flat_msg',
+            ['confirm_full_import' => __('Are you sure you want to import a full backup file?')]
+        ) .
         dcPage::jsLoad(dcPage::getPF('importExport/js/import_flat.js'));
         echo
         '<form action="' . $this->getURL(true) . '" method="post" enctype="multipart/form-data" class="fieldset">' .
@@ -207,10 +209,13 @@ class dcImportFlat extends dcIeModule
 
             echo
             '<p><label for="your_pwd" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label>' .
-            form::password('your_pwd', 20, 255,
+            form::password(
+                'your_pwd',
+                20,
+                255,
                 [
                     'extra_html'   => 'required placeholder="' . __('Password') . '"',
-                    'autocomplete' => 'current-password'
+                    'autocomplete' => 'current-password',
                 ]
             ) . '</p>' .
 

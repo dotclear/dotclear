@@ -32,45 +32,54 @@ class dcExportFlat extends dcIeModule
                 $exp = new flatExport($this->core->con, $fullname, $this->core->prefix);
                 fwrite($exp->fp, '///DOTCLEAR|' . DC_VERSION . "|single\n");
 
-                $exp->export('category',
+                $exp->export(
+                    'category',
                     'SELECT * FROM ' . $this->core->prefix . 'category ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
-                $exp->export('link',
+                $exp->export(
+                    'link',
                     'SELECT * FROM ' . $this->core->prefix . 'link ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
-                $exp->export('setting',
+                $exp->export(
+                    'setting',
                     'SELECT * FROM ' . $this->core->prefix . 'setting ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
-                $exp->export('post',
+                $exp->export(
+                    'post',
                     'SELECT * FROM ' . $this->core->prefix . 'post ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
-                $exp->export('meta',
+                $exp->export(
+                    'meta',
                     'SELECT meta_id, meta_type, M.post_id ' .
                     'FROM ' . $this->core->prefix . 'meta M, ' . $this->core->prefix . 'post P ' .
                     'WHERE P.post_id = M.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
-                $exp->export('media',
+                $exp->export(
+                    'media',
                     'SELECT * FROM ' . $this->core->prefix . "media WHERE media_path = '" .
                     $this->core->con->escape($this->core->blog->settings->system->public_path) . "'"
                 );
-                $exp->export('post_media',
+                $exp->export(
+                    'post_media',
                     'SELECT media_id, M.post_id ' .
                     'FROM ' . $this->core->prefix . 'post_media M, ' . $this->core->prefix . 'post P ' .
                     'WHERE P.post_id = M.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
-                $exp->export('ping',
+                $exp->export(
+                    'ping',
                     'SELECT ping.post_id, ping_url, ping_dt ' .
                     'FROM ' . $this->core->prefix . 'ping ping, ' . $this->core->prefix . 'post P ' .
                     'WHERE P.post_id = ping.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
-                $exp->export('comment',
+                $exp->export(
+                    'comment',
                     'SELECT C.* ' .
                     'FROM ' . $this->core->prefix . 'comment C, ' . $this->core->prefix . 'post P ' .
                     'WHERE P.post_id = C.post_id ' .

@@ -22,7 +22,7 @@ $this->registerModule(
         'priority'    => 1001, // Must be higher than dcLegacyEditor/dcCKEditor priority (ie 1000)
         'type'        => 'plugin',
         'settings'    => [
-            'pref' => '#user-options.tags_prefs'
-        ]
+            'pref' => '#user-options.tags_prefs',
+        ],
     ]
 );

@@ -19,6 +19,6 @@ $this->registerModule(
     '1.4',                         // Version
     [                              // Properties
         'type'   => 'theme',
-        'tplset' => 'dotty'
+        'tplset' => 'dotty',
     ]
 );

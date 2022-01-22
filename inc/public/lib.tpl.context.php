@@ -99,8 +99,16 @@ class context
     /**
     @deprecated since version 2.11 , use tpl_context::global_filters instead
      */
-    public static function global_filter($str,
-        $encode_xml, $remove_html, $cut_string, $lower_case, $upper_case, $encode_url, $tag = '')
+    public static function global_filter(
+        $str,
+        $encode_xml,
+        $remove_html,
+        $cut_string,
+        $lower_case,
+        $upper_case,
+        $encode_url,
+        $tag = ''
+    )
     {
         return self::global_filters(
             $str,
@@ -111,8 +119,9 @@ class context
                 'lower_case'  => $lower_case,
                 'upper_case'  => ($upper_case == 1 ? 1 : 0),
                 'capitalize'  => ($upper_case == 2 ? 1 : 0),
-                'encode_url'  => $encode_url],
-            $tag);
+                'encode_url'  => $encode_url, ],
+            $tag
+        );
     }
 
     private static function default_filters($filter, $str, $arg)
@@ -129,7 +138,7 @@ class context
                 return self::encode_xml($str);
 
             case 'cut_string':
-                return self::cut_string($str, (integer) $arg);
+                return self::cut_string($str, (int) $arg);
 
             case 'lower_case':
                 return self::lower_case($str);
@@ -155,7 +164,7 @@ class context
             'encode_xml', 'encode_html',              // Encode HTML entities
             'cut_string',                             // Cut string (length in $args['cut_string'])
             'lower_case', 'capitalize', 'upper_case', // Case transformations
-            'encode_url'                             // URL encode (as for insert in query string)
+            'encode_url',                             // URL encode (as for insert in query string)
         ];
 
         $args[0] = &$str;
@@ -292,7 +301,7 @@ class context
     public static function PaginationPosition($offset = 0)
     {
         if (isset($GLOBALS['_page_number'])) {
-            $p = (integer) $GLOBALS['_page_number'];
+            $p = (int) $GLOBALS['_page_number'];
         } else {
             $p = 1;
         }

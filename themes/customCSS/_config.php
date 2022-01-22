@@ -12,13 +12,16 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-l10n::set(dirname(__FILE__) . '/locales/' . $_lang . '/main');
+l10n::set(__DIR__ . '/locales/' . $_lang . '/main');
 $css_file = path::real($core->blog->public_path) . '/custom_style.css';
 
 if (!is_file($css_file) && !is_writable(dirname($css_file))) {
     throw new Exception(
-        sprintf(__('File %s does not exist and directory %s is not writable.'),
-            $css_file, dirname($css_file))
+        sprintf(
+            __('File %s does not exist and directory %s is not writable.'),
+            $css_file,
+            dirname($css_file)
+        )
     );
 }
 

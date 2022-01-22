@@ -9,7 +9,7 @@
 define('DC_CONTEXT_ADMIN', true);
 define('DC_ADMIN_CONTEXT', true); // For dyslexic devs ;-)
 
-require_once dirname(__FILE__) . '/../prepend.php';
+require_once __DIR__ . '/../prepend.php';
 
 // HTTP/1.1
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
@@ -26,12 +26,12 @@ function dc_load_locales()
     $_lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $_lang) ? $_lang : 'en';
 
     l10n::lang($_lang);
-    if (l10n::set(dirname(__FILE__) . '/../../locales/' . $_lang . '/date') === false && $_lang != 'en') {
-        l10n::set(dirname(__FILE__) . '/../../locales/en/date');
+    if (l10n::set(__DIR__ . '/../../locales/' . $_lang . '/date') === false && $_lang != 'en') {
+        l10n::set(__DIR__ . '/../../locales/en/date');
     }
-    l10n::set(dirname(__FILE__) . '/../../locales/' . $_lang . '/main');
-    l10n::set(dirname(__FILE__) . '/../../locales/' . $_lang . '/public');
-    l10n::set(dirname(__FILE__) . '/../../locales/' . $_lang . '/plugins');
+    l10n::set(__DIR__ . '/../../locales/' . $_lang . '/main');
+    l10n::set(__DIR__ . '/../../locales/' . $_lang . '/public');
+    l10n::set(__DIR__ . '/../../locales/' . $_lang . '/plugins');
 
     // Set lexical lang
     dcUtils::setlexicalLang('admin', $_lang);
@@ -47,7 +47,7 @@ function dc_admin_icon_url($img)
         $icon = false;
         if ((preg_match('/^images\/menu\/(.+)$/', $img, $m)) || (preg_match('/^index\.php\?pf=(.+)$/', $img, $m))) {
             if ($m[1]) {
-                $icon = path::real(dirname(__FILE__) . '/../../admin/images/iconset/' . $user_ui_iconset . '/' . $m[1], false);
+                $icon = path::real(__DIR__ . '/../../admin/images/iconset/' . $user_ui_iconset . '/' . $m[1], false);
                 if ($icon !== false) {
                     $allow_types = ['svg', 'png', 'jpg', 'jpeg', 'gif'];
                     if (is_file($icon) && is_readable($icon) && in_array(files::getExtension($icon), $allow_types)) {
@@ -67,8 +67,16 @@ function addMenuItem($section, $desc, $adminurl, $icon, $perm, $pinned = false, 
 
     $url     = $core->adminurl->get($adminurl);
     $pattern = '@' . preg_quote($url) . ($strict ? '' : '(\?.*)?') . '$@';
-    $_menu[$section]->prependItem($desc, $url, $icon,
-        preg_match($pattern, $_SERVER['REQUEST_URI']), $perm, null, null, $pinned);
+    $_menu[$section]->prependItem(
+        $desc,
+        $url,
+        $icon,
+        preg_match($pattern, $_SERVER['REQUEST_URI']),
+        $perm,
+        null,
+        null,
+        $pinned
+    );
 }
 
 if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID')) {
@@ -204,7 +212,7 @@ $core->adminurl->registercopy('load.var.file', 'admin.home', ['vf' => 'dummy.jso
 
 if ($core->auth->userID() && $core->blog !== null) {
     # Loading resources and help files
-    $locales_root = dirname(__FILE__) . '/../../locales/';
+    $locales_root = __DIR__ . '/../../locales/';
     require $locales_root . '/en/resources.php';
     if (($f = l10n::getFilePath($locales_root, 'resources.php', $_lang))) {
         require $f;
@@ -253,33 +261,100 @@ if ($core->auth->userID() && $core->blog !== null) {
     $_menu['Blog']->title    = __('Blog');
     $_menu['Plugins']->title = __('Plugins');
 
-    addMenuItem('Blog', __('Blog appearance'), 'admin.blog.theme', 'images/menu/themes.png',
-        $core->auth->check('admin', $core->blog->id));
-    addMenuItem('Blog', __('Blog settings'), 'admin.blog.pref', 'images/menu/blog-pref.png',
-        $core->auth->check('admin', $core->blog->id));
-    addMenuItem('Blog', __('Media manager'), 'admin.media', 'images/menu/media.png',
-        $core->auth->check('media,media_admin', $core->blog->id));
-    addMenuItem('Blog', __('Categories'), 'admin.categories', 'images/menu/categories.png',
-        $core->auth->check('categories', $core->blog->id));
-    addMenuItem('Blog', __('Search'), 'admin.search', 'images/menu/search.png',
-        $core->auth->check('usage,contentadmin', $core->blog->id));
-    addMenuItem('Blog', __('Comments'), 'admin.comments', 'images/menu/comments.png',
-        $core->auth->check('usage,contentadmin', $core->blog->id));
-    addMenuItem('Blog', __('Posts'), 'admin.posts', 'images/menu/entries.png',
-        $core->auth->check('usage,contentadmin', $core->blog->id));
-    addMenuItem('Blog', __('New post'), 'admin.post', 'images/menu/edit.png',
-        $core->auth->check('usage,contentadmin', $core->blog->id), true, true);
+    addMenuItem(
+        'Blog',
+        __('Blog appearance'),
+        'admin.blog.theme',
+        'images/menu/themes.png',
+        $core->auth->check('admin', $core->blog->id)
+    );
+    addMenuItem(
+        'Blog',
+        __('Blog settings'),
+        'admin.blog.pref',
+        'images/menu/blog-pref.png',
+        $core->auth->check('admin', $core->blog->id)
+    );
+    addMenuItem(
+        'Blog',
+        __('Media manager'),
+        'admin.media',
+        'images/menu/media.png',
+        $core->auth->check('media,media_admin', $core->blog->id)
+    );
+    addMenuItem(
+        'Blog',
+        __('Categories'),
+        'admin.categories',
+        'images/menu/categories.png',
+        $core->auth->check('categories', $core->blog->id)
+    );
+    addMenuItem(
+        'Blog',
+        __('Search'),
+        'admin.search',
+        'images/menu/search.png',
+        $core->auth->check('usage,contentadmin', $core->blog->id)
+    );
+    addMenuItem(
+        'Blog',
+        __('Comments'),
+        'admin.comments',
+        'images/menu/comments.png',
+        $core->auth->check('usage,contentadmin', $core->blog->id)
+    );
+    addMenuItem(
+        'Blog',
+        __('Posts'),
+        'admin.posts',
+        'images/menu/entries.png',
+        $core->auth->check('usage,contentadmin', $core->blog->id)
+    );
+    addMenuItem(
+        'Blog',
+        __('New post'),
+        'admin.post',
+        'images/menu/edit.png',
+        $core->auth->check('usage,contentadmin', $core->blog->id),
+        true,
+        true
+    );
 
-    addMenuItem('System', __('Update'), 'admin.update', 'images/menu/update.png',
-        $core->auth->isSuperAdmin() && is_readable(DC_DIGESTS));
-    addMenuItem('System', __('Languages'), 'admin.langs', 'images/menu/langs.png',
-        $core->auth->isSuperAdmin());
-    addMenuItem('System', __('Plugins management'), 'admin.plugins', 'images/menu/plugins.png',
-        $core->auth->isSuperAdmin());
-    addMenuItem('System', __('Users'), 'admin.users', 'images/menu/users.png',
-        $core->auth->isSuperAdmin());
-    addMenuItem('System', __('Blogs'), 'admin.blogs', 'images/menu/blogs.png',
-        $core->auth->isSuperAdmin() || $core->auth->check('usage,contentadmin', $core->blog->id) && $core->auth->getBlogCount() > 1);
+    addMenuItem(
+        'System',
+        __('Update'),
+        'admin.update',
+        'images/menu/update.png',
+        $core->auth->isSuperAdmin() && is_readable(DC_DIGESTS)
+    );
+    addMenuItem(
+        'System',
+        __('Languages'),
+        'admin.langs',
+        'images/menu/langs.png',
+        $core->auth->isSuperAdmin()
+    );
+    addMenuItem(
+        'System',
+        __('Plugins management'),
+        'admin.plugins',
+        'images/menu/plugins.png',
+        $core->auth->isSuperAdmin()
+    );
+    addMenuItem(
+        'System',
+        __('Users'),
+        'admin.users',
+        'images/menu/users.png',
+        $core->auth->isSuperAdmin()
+    );
+    addMenuItem(
+        'System',
+        __('Blogs'),
+        'admin.blogs',
+        'images/menu/blogs.png',
+        $core->auth->isSuperAdmin() || $core->auth->check('usage,contentadmin', $core->blog->id) && $core->auth->getBlogCount() > 1
+    );
 
     if (empty($core->blog->settings->system->jquery_migrate_mute)) {
         $core->blog->settings->system->put('jquery_migrate_mute', true, 'boolean', 'Mute warnings for jquery migrate plugin ?', false);

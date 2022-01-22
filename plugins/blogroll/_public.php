@@ -12,7 +12,7 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-require dirname(__FILE__) . '/_widgets.php';
+require __DIR__ . '/_widgets.php';
 
 # Blogroll template functions
 $core->tpl->addValue('Blogroll', ['tplBlogroll', 'blogroll']);
@@ -151,9 +151,13 @@ class tplBlogroll
             return;
         }
 
-        return $w->renderDiv($w->content_only, 'links ' . $w->class, '',
+        return $w->renderDiv(
+            $w->content_only,
+            'links ' . $w->class,
+            '',
             ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
-            $links);
+            $links
+        );
     }
 }
 

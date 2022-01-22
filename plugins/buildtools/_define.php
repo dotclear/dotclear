@@ -18,6 +18,6 @@ $this->registerModule(
     'dcTeam',                                 // Author
     '1.0',                                    // Version
     [
-        'permissions' => 'admin'
+        'permissions' => 'admin',
     ]
 );

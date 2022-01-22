@@ -137,9 +137,11 @@ class dcFilterWords extends dcSpamFilter
                 }
 
                 $item = '<p class="' . $p_style . '"><label class="classic" for="word-' . $rs->rule_id . '">' .
-                form::checkbox(['swd[]', 'word-' . $rs->rule_id], $rs->rule_id,
+                form::checkbox(
+                    ['swd[]', 'word-' . $rs->rule_id],
+                    $rs->rule_id,
                     [
-                        'disabled' => $disabled_word
+                        'disabled' => $disabled_word,
                     ]
                 ) . ' ' .
                 html::escapeHTML($rs->rule_content) .
@@ -221,7 +223,7 @@ class dcFilterWords extends dcSpamFilter
             $cur->update('WHERE rule_id = ' . $rs->rule_id);
         } else {
             $rs_max       = $this->con->select('SELECT MAX(rule_id) FROM ' . $this->table);
-            $cur->rule_id = (integer) $rs_max->f(0) + 1;
+            $cur->rule_id = (int) $rs_max->f(0) + 1;
             $cur->insert();
         }
     }
@@ -232,11 +234,11 @@ class dcFilterWords extends dcSpamFilter
 
         if (is_array($ids)) {
             foreach ($ids as &$v) {
-                $v = (integer) $v;
+                $v = (int) $v;
             }
             $strReq .= 'WHERE rule_id IN (' . implode(',', $ids) . ') ';
         } else {
-            $ids = (integer) $ids;
+            $ids = (int) $ids;
             $strReq .= 'WHERE rule_id = ' . $ids . ' ';
         }
 
@@ -347,7 +349,7 @@ class dcFilterWords extends dcSpamFilter
             'vicodin',
             'vioxx',
             'xanax',
-            'zolus'
+            'zolus',
         ];
 
         foreach ($words as $w) {

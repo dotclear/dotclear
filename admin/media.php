@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('media,media_admin');
 
@@ -423,11 +423,11 @@ if (!empty($_GET['zipdl']) && $core->auth->check('media_admin', $core->blog->id)
 # User last and fav dirs
 if ($page->showLast()) {
     if (!empty($_GET['fav'])) {
-        if ($page->updateFav(rtrim($page->d, '/'), $_GET['fav'] == 'n')) {
+        if ($page->updateFav(rtrim((string) $page->d, '/'), $_GET['fav'] == 'n')) {
             $core->adminurl->redirect('admin.media', $page->values());
         }
     }
-    $page->updateLast(rtrim($page->d, '/'));
+    $page->updateLast(rtrim((string) $page->d, '/'));
 }
 
 # New directory
@@ -608,9 +608,9 @@ if ($page->showLast()) {
         $ld_params['d'] = $ld;
         $ld_params['q'] = ''; // Reset search
         $last_folders_item .= '<option value="' . urldecode($core->adminurl->get('admin.media', $ld_params)) . '"' .
-            ($ld == rtrim($page->d, '/') ? ' selected="selected"' : '') . '>' .
+            ($ld == rtrim((string) $page->d, '/') ? ' selected="selected"' : '') . '>' .
             '/' . $ld . '</option>' . "\n";
-        if ($ld == rtrim($page->d, '/')) {
+        if ($ld == rtrim((string) $page->d, '/')) {
             // Current directory is a favorite → button will un-fav
             $ld_params['fav'] = 'n';
             $fav_url          = urldecode($core->adminurl->get('admin.media', $ld_params));
@@ -631,7 +631,7 @@ if ($page->showLast()) {
             $ld_params['d'] = $ld;
             $ld_params['q'] = ''; // Reset search
             $last_folders_item .= '<option value="' . urldecode($core->adminurl->get('admin.media', $ld_params)) . '"' .
-                ($ld == rtrim($page->d, '/') ? ' selected="selected"' : '') . '>' .
+                ($ld == rtrim((string) $page->d, '/') ? ' selected="selected"' : '') . '>' .
                 '/' . $ld . '</option>' . "\n";
             if ($ld == rtrim($page->d, '/')) {
                 // Current directory is not a favorite → button will fav

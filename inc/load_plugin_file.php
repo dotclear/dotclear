@@ -8,8 +8,8 @@
  */
 if (@is_dir('/usr/lib/clearbricks')) {
     define('CLEARBRICKS_PATH', '/usr/lib/clearbricks');
-} elseif (is_dir(dirname(__FILE__) . '/libs/clearbricks')) {
-    define('CLEARBRICKS_PATH', dirname(__FILE__) . '/libs/clearbricks');
+} elseif (is_dir(__DIR__ . '/libs/clearbricks')) {
+    define('CLEARBRICKS_PATH', __DIR__ . '/libs/clearbricks');
 } elseif (isset($_SERVER['CLEARBRICKS_PATH']) && is_dir($_SERVER['CLEARBRICKS_PATH'])) {
     define('CLEARBRICKS_PATH', $_SERVER['CLEARBRICKS_PATH']);
 }
@@ -25,7 +25,7 @@ if (isset($_SERVER['DC_RC_PATH'])) {
 } elseif (isset($_SERVER['REDIRECT_DC_RC_PATH'])) {
     define('DC_RC_PATH', $_SERVER['REDIRECT_DC_RC_PATH']);
 } else {
-    define('DC_RC_PATH', dirname(__FILE__) . '/config.php');
+    define('DC_RC_PATH', __DIR__ . '/config.php');
 }
 
 if (!is_file(DC_RC_PATH)) {
@@ -66,8 +66,8 @@ $pf = path::clean($_GET['pf']);
 $paths = array_reverse(explode(PATH_SEPARATOR, DC_PLUGINS_ROOT));
 
 # Adding some folders here to load some stuff
-$paths[] = dirname(__FILE__) . '/js';
-$paths[] = dirname(__FILE__) . '/css';
+$paths[] = __DIR__ . '/js';
+$paths[] = __DIR__ . '/css';
 
 foreach ($paths as $m) {
     $PF = path::real($m . '/' . $pf);

@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('admin');
 
@@ -31,13 +31,14 @@ if ($core->themes->disableDepModules($core->adminurl->get('admin.blog.theme', []
 
 # -- Theme screenshot --
 if (!empty($_GET['shot'])) {
-    $f = path::real(empty($_GET['src']) ?
+    $f = path::real(
+        empty($_GET['src']) ?
         $core->blog->themes_path . '/' . $_GET['shot'] . '/screenshot.jpg' :
         $core->blog->themes_path . '/' . $_GET['shot'] . '/' . path::clean($_GET['src'])
     );
 
     if (!file_exists($f)) {
-        $f = dirname(__FILE__) . '/images/noscreenshot.png';
+        $f = __DIR__ . '/images/noscreenshot.png';
     }
 
     http::cache(array_merge([$f], get_included_files()));
@@ -59,18 +60,19 @@ if ($list->setConfiguration($core->blog->settings->system->theme)) {
     $list->getConfiguration();
 
     # Display page
-    dcPage::open(__('Blog appearance'),
+    dcPage::open(
+        __('Blog appearance'),
         dcPage::jsPageTabs() .
 
         # --BEHAVIOR-- themesToolsHeaders
         $core->callBehavior('themesToolsHeaders', $core, true),
-
         dcPage::breadcrumb(
             [
                 html::escapeHTML($core->blog->name)                                 => '',
                 __('Blog appearance')                                               => $list->getURL('', false),
-                '<span class="page-title">' . __('Theme configuration') . '</span>' => ''
-            ])
+                '<span class="page-title">' . __('Theme configuration') . '</span>' => '',
+            ]
+        )
     );
 
     # Display previously gathered content
@@ -91,18 +93,19 @@ try {
 }
 
 # -- Page header --
-dcPage::open(__('Themes management'),
+dcPage::open(
+    __('Themes management'),
     dcPage::jsLoad('js/_blog_theme.js') .
     dcPage::jsPageTabs() .
 
     # --BEHAVIOR-- themesToolsHeaders
     $core->callBehavior('themesToolsHeaders', $core, false),
-
     dcPage::breadcrumb(
         [
             html::escapeHTML($core->blog->name)                             => '',
-            '<span class="page-title">' . __('Blog appearance') . '</span>' => ''
-        ])
+            '<span class="page-title">' . __('Blog appearance') . '</span>' => '',
+        ]
+    )
 );
 
 # -- Display modules lists --
@@ -129,8 +132,10 @@ if ($core->auth->isSuperAdmin()) {
             ->setTab('themes')
             ->setModules($modules)
             ->displayModules(
-                /*cols */['checkbox', 'name', 'sshot', 'desc', 'author', 'version', 'current_version', 'repository', 'parent'],
-                /* actions */['update', 'delete']
+                /*cols */
+                ['checkbox', 'name', 'sshot', 'desc', 'author', 'version', 'current_version', 'repository', 'parent'],
+                /* actions */
+                ['update', 'delete']
             );
 
         echo
@@ -163,8 +168,10 @@ if (!empty($modules)) {
         ->setTab('themes')
         ->setModules($modules)
         ->displayModules(
-            /* cols */['sshot', 'distrib', 'name', 'config', 'desc', 'author', 'version', 'parent'],
-            /* actions */['select', 'behavior', 'deactivate', 'clone', 'delete']
+            /* cols */
+            ['sshot', 'distrib', 'name', 'config', 'desc', 'author', 'version', 'parent'],
+            /* actions */
+            ['select', 'behavior', 'deactivate', 'clone', 'delete']
         );
 
     echo
@@ -184,8 +191,10 @@ if (!empty($modules)) {
         ->setTab('themes')
         ->setModules($modules)
         ->displayModules(
-            /* cols */['sshot', 'name', 'distrib', 'desc', 'author', 'version'],
-            /* actions */['activate', 'delete']
+            /* cols */
+            ['sshot', 'name', 'distrib', 'desc', 'author', 'version'],
+            /* actions */
+            ['activate', 'delete']
         );
 
     echo
@@ -211,9 +220,12 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
             ->displaySearch()
             ->displayIndex()
             ->displayModules(
-                /* cols */['expander', 'sshot', 'name', 'score', 'config', 'desc', 'author', 'version', 'parent', 'details', 'support'],
-                /* actions */['install'],
-                /* nav limit */true
+                /* cols */
+                ['expander', 'sshot', 'name', 'score', 'config', 'desc', 'author', 'version', 'parent', 'details', 'support'],
+                /* actions */
+                ['install'],
+                /* nav limit */
+                true
             );
 
         echo

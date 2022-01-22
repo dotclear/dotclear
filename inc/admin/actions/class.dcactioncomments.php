@@ -16,7 +16,7 @@ class dcCommentsActionsPage extends dcActionsPage
     {
         parent::__construct($core, $uri, $redirect_args);
         $this->redirect_fields = ['type', 'author', 'status',
-            'sortby', 'ip', 'order', 'page', 'nb', 'section'];
+            'sortby', 'ip', 'order', 'page', 'nb', 'section', ];
         $this->field_entries = 'comments';
         $this->cb_title      = __('Comments');
         $this->loadDefaults();
@@ -57,12 +57,14 @@ class dcCommentsActionsPage extends dcActionsPage
     public function error(Exception $e)
     {
         $this->core->error->add($e->getMessage());
-        $this->beginPage(dcPage::breadcrumb(
+        $this->beginPage(
+            dcPage::breadcrumb(
             [
                 html::escapeHTML($this->core->blog->name) => '',
                 __('Comments')                            => $this->core->adminurl->get('admin.comments'),
-                __('Comments actions')                    => ''
-            ])
+                __('Comments actions')                    => '',
+            ]
+        )
         );
         $this->endPage();
     }
@@ -82,10 +84,13 @@ class dcCommentsActionsPage extends dcActionsPage
             '</tr>';
         foreach ($this->entries as $id => $title) {
             $ret .= '<tr><td class="minimal">' .
-            form::checkbox([$this->field_entries . '[]'], $id,
+            form::checkbox(
+                [$this->field_entries . '[]'],
+                $id,
                 [
-                    'checked' => true
-                ]) .
+                    'checked' => true,
+                ]
+            ) .
                 '</td>' .
                 '<td>' . $title['author'] . '</td><td>' . $title['title'] . '</td></tr>';
         }
@@ -101,7 +106,7 @@ class dcCommentsActionsPage extends dcActionsPage
             $comments = $from['comments'];
 
             foreach ($comments as $k => $v) {
-                $comments[$k] = (integer) $v;
+                $comments[$k] = (int) $v;
             }
 
             $params['sql'] = 'AND C.comment_id IN(' . implode(',', $comments) . ') ';
@@ -116,7 +121,7 @@ class dcCommentsActionsPage extends dcActionsPage
         while ($co->fetch()) {
             $this->entries[$co->comment_id] = [
                 'title'  => $co->post_title,
-                'author' => $co->comment_author
+                'author' => $co->comment_author,
             ];
         }
         $this->rs = $co;
@@ -133,7 +138,7 @@ class dcDefaultCommentActions
                     __('Publish')         => 'publish',
                     __('Unpublish')       => 'unpublish',
                     __('Mark as pending') => 'pending',
-                    __('Mark as junk')    => 'junk'
+                    __('Mark as junk')    => 'junk',
                 ]],
                 ['dcDefaultCommentActions', 'doChangeCommentStatus']
             );
@@ -142,7 +147,7 @@ class dcDefaultCommentActions
         if ($core->auth->check('delete,contentadmin', $core->blog->id)) {
             $ap->addAction(
                 [__('Delete') => [
-                    __('Delete') => 'delete']],
+                    __('Delete') => 'delete', ]],
                 ['dcDefaultCommentActions', 'doDeleteComment']
             );
         }

@@ -21,7 +21,7 @@ if (version_compare($core->getVersion('simpleMenu'), $version, '>=')) {
 $blog_url     = html::stripHostURL($core->blog->url);
 $menu_default = [
     ['label' => 'Home', 'descr' => 'Recent posts', 'url' => $blog_url, 'targetBlank' => false],
-    ['label' => 'Archives', 'descr' => '', 'url' => $blog_url . $core->url->getURLFor('archive'), 'targetBlank' => false]
+    ['label' => 'Archives', 'descr' => '', 'url' => $blog_url . $core->url->getURLFor('archive'), 'targetBlank' => false],
 ];
 $core->blog->settings->system->put('simpleMenu', $menu_default, 'array', 'simpleMenu default menu', false, true);
 $core->blog->settings->system->put('simpleMenu_active', true, 'boolean', 'Active', false, true);

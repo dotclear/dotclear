@@ -69,19 +69,32 @@ $part = !empty($_GET['part']) && $_GET['part'] == 'global' ? 'global' : 'local';
 function settingLine($id, $s, $ns, $field_name, $strong_label)
 {
     if ($s['type'] == 'boolean') {
-        $field = form::combo([$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
-            [__('yes') => 1, __('no') => 0], $s['value'] ? 1 : 0);
+        $field = form::combo(
+            [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
+            [__('yes') => 1, __('no') => 0],
+            $s['value'] ? 1 : 0
+        );
     } else {
         if ($s['type'] == 'array') {
-            $field = form::field([$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id], 40, null,
-                html::escapeHTML(json_encode($s['value'])));
+            $field = form::field(
+                [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
+                40,
+                null,
+                html::escapeHTML(json_encode($s['value']))
+            );
         } else {
-            $field = form::field([$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id], 40, null,
-                html::escapeHTML($s['value']));
+            $field = form::field(
+                [$field_name . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id],
+                40,
+                null,
+                html::escapeHTML($s['value'])
+            );
         }
     }
-    $type = form::hidden([$field_name . '_type' . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id . '_type'],
-        html::escapeHTML($s['type']));
+    $type = form::hidden(
+        [$field_name . '_type' . '[' . $ns . '][' . $id . ']', $field_name . '_' . $ns . '_' . $id . '_type'],
+        html::escapeHTML($s['type'])
+    );
 
     $slabel = $strong_label ? '<strong>%s</strong>' : '%s';
 
@@ -106,8 +119,9 @@ echo dcPage::breadcrumb(
     [
         __('System')                        => '',
         html::escapeHTML($core->blog->name) => '',
-        __('about:config')                  => ''
-    ]) .
+        __('about:config')                  => '',
+    ]
+) .
 dcPage::notices();
 ?>
 

@@ -8,12 +8,12 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
-$post_id   = !empty($_REQUEST['post_id']) ? (integer) $_REQUEST['post_id'] : null;
-$media_id  = !empty($_REQUEST['media_id']) ? (integer) $_REQUEST['media_id'] : null;
+$post_id   = !empty($_REQUEST['post_id']) ? (int) $_REQUEST['post_id'] : null;
+$media_id  = !empty($_REQUEST['media_id']) ? (int) $_REQUEST['media_id'] : null;
 $link_type = !empty($_REQUEST['link_type']) ? $_REQUEST['link_type'] : null;
 
 if (!$post_id) {

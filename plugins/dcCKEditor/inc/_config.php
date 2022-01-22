@@ -36,7 +36,7 @@ if (!empty($_POST['saveconfig'])) {
             $dcckeditor_custom_color_list = str_replace(['#', ' '], '', $_POST['dcckeditor_custom_color_list']);
             $core->blog->settings->dcckeditor->put('custom_color_list', $dcckeditor_custom_color_list, 'string');
 
-            $dcckeditor_colors_per_row = abs((integer) $_POST['dcckeditor_colors_per_row']);
+            $dcckeditor_colors_per_row = abs((int) $_POST['dcckeditor_colors_per_row']);
             $core->blog->settings->dcckeditor->put('colors_per_row', $dcckeditor_colors_per_row);
 
             $dcckeditor_cancollapse_button = (empty($_POST['dcckeditor_cancollapse_button'])) ? false : true;
@@ -84,4 +84,4 @@ if (!empty($_POST['saveconfig'])) {
     }
 }
 
-include dirname(__FILE__) . '/../tpl/index.php';
+include __DIR__ . '/../tpl/index.php';

@@ -16,7 +16,7 @@ if (!empty($_REQUEST['m'])) {
     switch ($_REQUEST['m']) {
         case 'tags':
         case 'tag_posts':
-            require dirname(__FILE__) . '/' . $_REQUEST['m'] . '.php';
+            require __DIR__ . '/' . $_REQUEST['m'] . '.php';
 
             break;
     }

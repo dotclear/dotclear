@@ -93,33 +93,33 @@ class attachmentTpl
         $operator = isset($attr['operator']) ? dcTemplate::getOperator($attr['operator']) : '&&';
 
         if (isset($attr['is_image'])) {
-            $sign = (boolean) $attr['is_image'] ? '' : '!';
+            $sign = (bool) $attr['is_image'] ? '' : '!';
             $if[] = $sign . '$attach_f->media_image';
         }
 
         if (isset($attr['has_thumb'])) {
-            $sign = (boolean) $attr['has_thumb'] ? '' : '!';
+            $sign = (bool) $attr['has_thumb'] ? '' : '!';
             $if[] = $sign . 'isset($attach_f->media_thumb[\'sq\'])';
         }
 
         if (isset($attr['is_mp3'])) {
-            $sign = (boolean) $attr['is_mp3'] ? '==' : '!=';
+            $sign = (bool) $attr['is_mp3'] ? '==' : '!=';
             $if[] = '$attach_f->type ' . $sign . ' "audio/mpeg3"';
         }
 
         if (isset($attr['is_flv'])) {
-            $sign = (boolean) $attr['is_flv'] ? '==' : '!=';
+            $sign = (bool) $attr['is_flv'] ? '==' : '!=';
             $if[] = '$attach_f->type ' . $sign . ' "video/x-flv"';
         }
 
         if (isset($attr['is_audio'])) {
-            $sign = (boolean) $attr['is_audio'] ? '==' : '!=';
+            $sign = (bool) $attr['is_audio'] ? '==' : '!=';
             $if[] = '$attach_f->type_prefix ' . $sign . ' "audio"';
         }
 
         if (isset($attr['is_video'])) {
             // Since 2.15 .flv media are no more considered as video (Flash is obsolete)
-            $sign = (boolean) $attr['is_video'] ? '==' : '!=';
+            $sign = (bool) $attr['is_video'] ? '==' : '!=';
             $test = '$attach_f->type_prefix ' . $sign . ' "video"';
             if ($sign == '==') {
                 $test .= ' && $attach_f->type != "video/x-flv"';
@@ -241,7 +241,7 @@ class attachmentTpl
             [
                 'none' => 'no attachments',
                 'one'  => 'one attachment',
-                'more' => '%d attachments'
+                'more' => '%d attachments',
             ],
             $attr,
             false
@@ -254,7 +254,7 @@ class attachmentBehavior
     public static function tplIfConditions($tag, $attr, $content, $if)
     {
         if ($tag == 'EntryIf' && isset($attr['has_attachment'])) {
-            $sign = (boolean) $attr['has_attachment'] ? '' : '!';
+            $sign = (bool) $attr['has_attachment'] ? '' : '!';
             $if[] = $sign . '$_ctx->posts->countMedia(\'attachment\')';
         }
     }

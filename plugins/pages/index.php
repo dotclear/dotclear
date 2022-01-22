@@ -15,7 +15,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 $act = !empty($_REQUEST['act']) ? $_REQUEST['act'] : 'list';
 
 if ($act == 'page') {
-    include dirname(__FILE__) . '/page.php';
+    include __DIR__ . '/page.php';
 } else {
-    include dirname(__FILE__) . '/list.php';
+    include __DIR__ . '/list.php';
 }

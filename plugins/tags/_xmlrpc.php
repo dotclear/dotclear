@@ -24,7 +24,7 @@ class tagsXMLRPCbehaviors
 
         $rs = $x->core->meta->getMetadata([
             'meta_type' => 'tag',
-            'post_id'   => $res['postid']]);
+            'post_id'   => $res['postid'], ]);
 
         $m = [];
         while ($rs->fetch()) {

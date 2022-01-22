@@ -23,19 +23,19 @@ class blowupConfig
             'ss2' => 'Verdana,Geneva, Arial, Helvetica, sans-serif',
             'ss3' => '"Lucida Grande", "Lucida Sans Unicode", sans-serif',
             'ss4' => '"Trebuchet MS", Helvetica, sans-serif',
-            'ss5' => 'Impact, Charcoal, sans-serif'
+            'ss5' => 'Impact, Charcoal, sans-serif',
         ],
 
         'serif' => [
             's1' => 'Times, "Times New Roman", serif',
             's2' => 'Georgia, serif',
-            's3' => 'Baskerville, "Palatino Linotype", serif'
+            's3' => 'Baskerville, "Palatino Linotype", serif',
         ],
 
         'monospace' => [
             'm1' => '"Andale Mono", "Courier New", monospace',
-            'm2' => '"Courier New", Courier, mono, monospace'
-        ]
+            'm2' => '"Courier New", Courier, mono, monospace',
+        ],
     ];
 
     protected static $fonts_combo = [];
@@ -57,7 +57,7 @@ class blowupConfig
         'rabbit'         => 'Rabbit',
         'roadrunner-1'   => 'Road Runner 1',
         'roadrunner-2'   => 'Road Runner 2',
-        'typo'           => 'Typo'
+        'typo'           => 'Typo',
     ];
 
     public static function fontsList()
@@ -202,7 +202,7 @@ class blowupConfig
             $css['#top h1 a'] = [
                 'display' => 'block',
                 'height'  => $s['top_height'] ? ($s['top_height'] - 10) . 'px' : '120px',
-                'width'   => '800px'
+                'width'   => '800px',
             ];
         }
         dcThemeConfig::prop($css, '#top', 'height', $s['top_height']);
@@ -328,9 +328,9 @@ class blowupConfig
         }
 
         $body_fill = [
-            'light'  => dirname(__FILE__) . '/../alpha-img/gradient-l.png',
-            'medium' => dirname(__FILE__) . '/../alpha-img/gradient-m.png',
-            'dark'   => dirname(__FILE__) . '/../alpha-img/gradient-d.png'
+            'light'  => __DIR__ . '/../alpha-img/gradient-l.png',
+            'medium' => __DIR__ . '/../alpha-img/gradient-m.png',
+            'dark'   => __DIR__ . '/../alpha-img/gradient-d.png',
         ];
 
         $body_g = $body_fill[$gradient] ?? false;
@@ -338,14 +338,14 @@ class blowupConfig
         if ($top_image == 'custom' && $uploaded) {
             $page_t = $uploaded;
         } else {
-            $page_t = dirname(__FILE__) . '/../alpha-img/page-t/' . $top_image . '.png';
+            $page_t = __DIR__ . '/../alpha-img/page-t/' . $top_image . '.png';
         }
 
-        $body_bg         = dirname(__FILE__) . '/../alpha-img/body-bg.png';
-        $page_t_mask     = dirname(__FILE__) . '/../alpha-img/page-t/image-mask.png';
-        $page_b          = dirname(__FILE__) . '/../alpha-img/page-b.png';
-        $comment_t       = dirname(__FILE__) . '/../alpha-img/comment-t.png';
-        $comment_b       = dirname(__FILE__) . '/../alpha-img/comment-b.png';
+        $body_bg         = __DIR__ . '/../alpha-img/body-bg.png';
+        $page_t_mask     = __DIR__ . '/../alpha-img/page-t/image-mask.png';
+        $page_b          = __DIR__ . '/../alpha-img/page-b.png';
+        $comment_t       = __DIR__ . '/../alpha-img/comment-t.png';
+        $comment_b       = __DIR__ . '/../alpha-img/comment-b.png';
         $default_bg      = '#e0e0e0';
         $default_prelude = '#ededed';
 

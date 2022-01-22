@@ -777,7 +777,7 @@ class dcBlog
                 return $url;
             }
 
-            $a  = [];
+            $a = [];
             while ($rs->fetch()) {
                 $a[] = $rs->cat_url;
             }

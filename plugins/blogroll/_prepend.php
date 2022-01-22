@@ -12,4 +12,4 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$__autoload['dcBlogroll'] = dirname(__FILE__) . '/class.dc.blogroll.php';
+$__autoload['dcBlogroll'] = __DIR__ . '/class.dc.blogroll.php';

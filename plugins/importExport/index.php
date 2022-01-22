@@ -70,8 +70,9 @@ if ($type && $module !== null) {
         [
             __('Plugins')                   => '',
             $title                          => $p_url,
-            html::escapeHTML($module->name) => ''
-        ]) .
+            html::escapeHTML($module->name) => '',
+        ]
+    ) .
     dcPage::notices();
 
     echo
@@ -84,8 +85,9 @@ if ($type && $module !== null) {
     echo dcPage::breadcrumb(
         [
             __('Plugins') => '',
-            $title        => ''
-        ]) .
+            $title        => '',
+        ]
+    ) .
     dcPage::notices();
 
     echo '<h3>' . __('Import') . '</h3>' . listImportExportModules($core, $modules['import']);

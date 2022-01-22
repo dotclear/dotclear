@@ -20,6 +20,6 @@ $this->registerModule(
     [
         'permissions' => 'usage,contentadmin,pages',
         'priority'    => 999,
-        'type'        => 'plugin'
+        'type'        => 'plugin',
     ]
 );

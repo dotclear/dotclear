@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
@@ -45,7 +45,7 @@ if (!empty($_POST['add']) && !empty($_POST['post_id'])) {
         $cur->comment_email   = html::clean($_POST['comment_email']);
         $cur->comment_site    = html::clean($_POST['comment_site']);
         $cur->comment_content = $core->HTMLfilter($_POST['comment_content']);
-        $cur->post_id         = (integer) $_POST['post_id'];
+        $cur->post_id         = (int) $_POST['post_id'];
 
         # --BEHAVIOR-- adminBeforeCommentCreate
         $core->callBehavior('adminBeforeCommentCreate', $cur);
@@ -84,7 +84,7 @@ if (!empty($_REQUEST['id'])) {
             $comment_content     = $rs->comment_content;
             $comment_ip          = $rs->comment_ip;
             $comment_status      = $rs->comment_status;
-            $comment_trackback   = (boolean) $rs->comment_trackback;
+            $comment_trackback   = (bool) $rs->comment_trackback;
             $comment_spam_status = $rs->comment_spam_status;
         }
     } catch (Exception $e) {
@@ -120,7 +120,7 @@ if (!$core->error->flag() && isset($rs)) {
         $cur->comment_content = $core->HTMLfilter($_POST['comment_content']);
 
         if (isset($_POST['comment_status'])) {
-            $cur->comment_status = (integer) $_POST['comment_status'];
+            $cur->comment_status = (int) $_POST['comment_status'];
         }
 
         try {
@@ -165,18 +165,21 @@ if ($comment_id) {
         [
             html::escapeHTML($core->blog->name) => '',
             html::escapeHTML($post_title)       => $core->getPostAdminURL($post_type, $post_id) . '&amp;co=1#c' . $comment_id,
-            __('Edit comment')                  => ''
-        ]);
+            __('Edit comment')                  => '',
+        ]
+    );
 } else {
     $breadcrumb = dcPage::breadcrumb(
         [
             html::escapeHTML($core->blog->name) => '',
             html::escapeHTML($post_title)       => $core->getPostAdminURL($post_type, $post_id),
-            __('Edit comment')                  => ''
-        ]);
+            __('Edit comment')                  => '',
+        ]
+    );
 }
 
-dcPage::open(__('Edit comment'),
+dcPage::open(
+    __('Edit comment'),
     dcPage::jsConfirmClose('comment-form') .
     dcPage::jsLoad('js/_comment.js') .
     $core->callBehavior('adminPostEditor', $comment_editor['xhtml'], 'comment', ['#comment_content'], 'xhtml') .
@@ -219,7 +222,7 @@ if ($comment_id) {
     '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr>' . __('Author:') . '</label>' .
     form::field('comment_author', 30, 255, [
         'default'    => html::escapeHTML($comment_author),
-        'extra_html' => 'required placeholder="' . __('Author') . '"'
+        'extra_html' => 'required placeholder="' . __('Author') . '"',
     ]) .
     '</p>' .
 
@@ -233,19 +236,26 @@ if ($comment_id) {
     '</p>' .
 
     '<p><label for="comment_status">' . __('Status:') . '</label>' .
-    form::combo('comment_status', $status_combo,
-        ['default' => $comment_status, 'disabled' => !$can_publish]) .
+    form::combo(
+        'comment_status',
+        $status_combo,
+        ['default' => $comment_status, 'disabled' => !$can_publish]
+    ) .
     '</p>' .
 
     # --BEHAVIOR-- adminAfterCommentDesc
     $core->callBehavior('adminAfterCommentDesc', $rs) .
 
     '<p class="area"><label for="comment_content">' . __('Comment:') . '</label> ' .
-    form::textarea('comment_content', 50, 10,
+    form::textarea(
+        'comment_content',
+        50,
+        10,
         [
             'default'    => html::escapeHTML($comment_content),
-            'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
-        ]) .
+            'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+        ]
+    ) .
     '</p>' .
 
     '<p>' . form::hidden('id', $comment_id) .

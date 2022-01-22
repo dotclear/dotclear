@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
@@ -95,7 +95,7 @@ foreach (array_keys($format_by_editors) as $format) {
 $status_combo = dcAdminCombos::getPostStatusescombo();
 
 $iconsets_combo = [__('Default') => ''];
-$iconsets_root  = dirname(__FILE__) . '/images/iconset/';
+$iconsets_root  = __DIR__ . '/images/iconset/';
 if (is_dir($iconsets_root) && is_readable($iconsets_root)) {
     if (($d = @dir($iconsets_root)) !== false) {
         while (($entry = $d->read()) !== false) {

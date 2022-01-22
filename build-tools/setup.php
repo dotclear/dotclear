@@ -1,19 +1,20 @@
 <?php
-$license_block = <<<EOF
-/**
- * @package Dotclear
- *
- * @copyright Olivier Meunier & Association Dotclear
- * @copyright GPL-2.0-only
- */
-EOF;
 
-$dc_base  = dirname(__FILE__) . '/..';
+$license_block = <<<EOF
+    /**
+     * @package Dotclear
+     *
+     * @copyright Olivier Meunier & Association Dotclear
+     * @copyright GPL-2.0-only
+     */
+    EOF;
+
+$dc_base  = __DIR__ . '/..';
 $php_exec = $_SERVER['_'];
 
-$opts = array(
-    'http' => array()
-);
+$opts = [
+    'http' => [],
+];
 if (getenv('http_proxy') !== false) {
     $opts['http']['proxy'] = 'tcp://' . getenv('http_proxy');
 }

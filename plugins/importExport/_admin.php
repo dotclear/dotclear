@@ -29,7 +29,7 @@ function importExportDashboardFavorites($core, $favs)
         'url'         => $core->adminurl->get('admin.plugin.importExport'),
         'small-icon'  => dcPage::getPF('importExport/icon.png'),
         'large-icon'  => dcPage::getPF('importExport/icon-big.png'),
-        'permissions' => 'admin'
+        'permissions' => 'admin',
     ]);
 }
 

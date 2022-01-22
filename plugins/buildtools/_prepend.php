@@ -8,4 +8,4 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-$__autoload['dcMaintenanceBuildtools'] = dirname(__FILE__) . '/class.dc.maintenance.buildtools.php';
+$__autoload['dcMaintenanceBuildtools'] = __DIR__ . '/class.dc.maintenance.buildtools.php';

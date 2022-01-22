@@ -12,4 +12,4 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$__autoload['dcLegacyEditorBehaviors'] = dirname(__FILE__) . '/inc/dc.legacy.editor.behaviors.php';
+$__autoload['dcLegacyEditorBehaviors'] = __DIR__ . '/inc/dc.legacy.editor.behaviors.php';

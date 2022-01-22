@@ -18,6 +18,6 @@ $this->registerModule(
     'Franck Paul',                            // Author
     '0.3',                                    // Version
     [
-        'type' => 'plugin'
+        'type' => 'plugin',
     ]
 );

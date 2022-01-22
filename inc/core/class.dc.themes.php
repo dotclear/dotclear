@@ -47,7 +47,7 @@ class dcThemes extends dcModules
                 $properties['parent'] = $args[4];
             }
             if (isset($args[5])) {
-                $properties['priority'] = (integer) $args[5];
+                $properties['priority'] = (int) $args[5];
             }
         }
         # Themes specifics properties

@@ -19,6 +19,6 @@ $this->registerModule(
     '3.2',                            // Version
     [
         'permissions' => 'admin',
-        'type'        => 'plugin'
+        'type'        => 'plugin',
     ]
 );

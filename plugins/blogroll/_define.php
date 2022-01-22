@@ -19,6 +19,6 @@ $this->registerModule(
     '1.5',                  // Version
     [
         'permissions' => 'blogroll',
-        'type'        => 'plugin'
+        'type'        => 'plugin',
     ]
 );

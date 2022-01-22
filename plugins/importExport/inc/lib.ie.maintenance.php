@@ -76,10 +76,13 @@ class ieMaintenanceExportblog extends dcMaintenanceTask
             '</p>' .
             '<p><label for="your_pwd" class="required">' .
             '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label>' .
-            form::password('your_pwd', 20, 255,
+            form::password(
+                'your_pwd',
+                20,
+                255,
                 [
                     'extra_html'   => 'required placeholder="' . __('Password') . '"',
-                    'autocomplete' => 'current-password'
+                    'autocomplete' => 'current-password',
                 ]
             ) . '</p>';
         }
@@ -148,10 +151,13 @@ class ieMaintenanceExportfull extends dcMaintenanceTask
             '</p>' .
             '<p><label for="your_pwd" class="required">' .
             '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label>' .
-            form::password('your_pwd', 20, 255,
+            form::password(
+                'your_pwd',
+                20,
+                255,
                 [
                     'extra_html'   => 'required placeholder="' . __('Password') . '"',
-                    'autocomplete' => 'current-password'
+                    'autocomplete' => 'current-password',
                 ]
             ) . '</p>';
         }

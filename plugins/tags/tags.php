@@ -24,8 +24,9 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 echo dcPage::breadcrumb(
     [
         html::escapeHTML($core->blog->name) => '',
-        __('Tags')                          => ''
-    ]) .
+        __('Tags')                          => '',
+    ]
+) .
 dcPage::notices();
 ?>
 

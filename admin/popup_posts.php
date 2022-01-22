@@ -8,14 +8,14 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
 $q         = !empty($_GET['q']) ? $_GET['q'] : null;
 $plugin_id = !empty($_GET['plugin_id']) ? html::sanitizeURL($_GET['plugin_id']) : '';
 
-$page        = !empty($_GET['page']) ? max(1, (integer) $_GET['page']) : 1;
+$page        = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
 $nb_per_page = 10;
 
 $type = !empty($_GET['type']) ? $_GET['type'] : null;
@@ -48,10 +48,12 @@ if ($core->themes === null) {
     $core->themes->loadModules($core->blog->themes_path, null);
 }
 
-dcPage::openPopup(__('Add a link to an entry'),
+dcPage::openPopup(
+    __('Add a link to an entry'),
     dcPage::jsLoad('js/_posts_list.js') .
     dcPage::jsLoad('js/_popup_posts.js') .
-    $core->callBehavior('adminPopupPosts', $plugin_id));
+    $core->callBehavior('adminPopupPosts', $plugin_id)
+);
 
 echo '<h2 class="page-title">' . __('Add a link to an entry') . '</h2>';
 

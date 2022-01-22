@@ -15,6 +15,7 @@
  * @package    JShrink
  * @author     Robert Hafner <tedivm@tedivm.com>
  */
+
 namespace JShrink;
 
 /**
@@ -190,7 +191,7 @@ class Minifier
         '-' => true,
         '+' => true,
         '[' => true,
-        '@' => true];
+        '@' => true, ];
 
     /**
      * The primary action occurs here. This function loops through the input string,

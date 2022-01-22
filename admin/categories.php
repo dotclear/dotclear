@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('categories');
 
@@ -18,7 +18,7 @@ if (!empty($_POST['delete'])) {
     $cat_id = (int) $keys[0];
 
     # Check if category to delete exists
-    $c = $core->blog->getCategory((integer) $cat_id);
+    $c = $core->blog->getCategory((int) $cat_id);
     if ($c->isEmpty()) {
         dcPage::addErrorNotice(__('This category does not exist.'));
         $core->adminurl->redirect('admin.categories');
@@ -58,8 +58,10 @@ if (!empty($_POST['mov']) && !empty($_POST['mov_cat'])) {
         if ($mov_cat != $cat_id) {
             $core->blog->changePostsCategory($cat_id, $mov_cat);
         }
-        dcPage::addSuccessNotice(sprintf(__('The entries have been successfully moved to category "%s"'),
-            html::escapeHTML($name)));
+        dcPage::addSuccessNotice(sprintf(
+            __('The entries have been successfully moved to category "%s"'),
+            html::escapeHTML($name)
+        ));
         $core->adminurl->redirect('admin.categories');
     } catch (Exception $e) {
         $core->error->add($e->getMessage());
@@ -108,12 +110,15 @@ if (!$core->auth->user_prefs->accessibility->nodragdrop
 $starting_script .= dcPage::jsConfirmClose('form-categories');
 $starting_script .= dcPage::jsLoad('js/_categories.js');
 
-dcPage::open(__('Categories'), $starting_script,
+dcPage::open(
+    __('Categories'),
+    $starting_script,
     dcPage::breadcrumb(
         [
             html::escapeHTML($core->blog->name) => '',
-            __('Categories')                    => ''
-        ])
+            __('Categories')                    => '',
+        ]
+    )
 );
 
 if (!empty($_GET['del'])) {
@@ -169,8 +174,9 @@ if ($rs->isEmpty()) {
             // remove current category
             echo
             '<label for="mov_cat_' . $rs->cat_id . '">' . __('Move entries to') . '</label> ' .
-            form::combo(['mov_cat[' . $rs->cat_id . ']', 'mov_cat_' . $rs->cat_id], array_filter($categories_combo,
-                function ($cat) {return $cat->value != ($GLOBALS['rs']->cat_id ?? '0');}
+            form::combo(['mov_cat[' . $rs->cat_id . ']', 'mov_cat_' . $rs->cat_id], array_filter(
+                $categories_combo,
+                fn ($cat) => $cat->value != ($GLOBALS['rs']->cat_id ?? '0')
             ), '', '') .
             ' <input type="submit" class="reset" name="mov[' . $rs->cat_id . ']" value="' . __('OK') . '"/>';
 

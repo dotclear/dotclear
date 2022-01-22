@@ -21,8 +21,7 @@ $this->registerModule(
         'permissions' => 'admin',
         'type'        => 'plugin',
         'settings'    => [
-            'self' => '#settings'
-        ]
+            'self' => '#settings',
+        ],
     ]
-
 );

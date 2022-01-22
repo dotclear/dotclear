@@ -26,7 +26,7 @@ class dcAdminBlogPref
         }
 
         $res = dcPage::jsJson('admin.blog_pref', [
-            'base_url' => $GLOBALS['core']->blog->url
+            'base_url' => $GLOBALS['core']->blog->url,
         ]) .
         dcPage::jsLoad('js/_blog_pref_popup_posts.js');
 

@@ -106,8 +106,9 @@ $lang_combo = dcAdminCombos::getLangsCombo($links, true);
 echo dcPage::breadcrumb(
     [
         html::escapeHTML($core->blog->name) => '',
-        __('Blogroll')                      => $p_url
-    ]) .
+        __('Blogroll')                      => $p_url,
+    ]
+) .
 dcPage::notices();
 ?>
 
@@ -122,7 +123,7 @@ if (isset($rs) && $rs->is_cat) {
     '<p><label for="link_desc" class="required classic"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
     form::field('link_desc', 30, 255, [
         'default'    => html::escapeHTML($link_desc),
-        'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
+        'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
     ]) .
 
     form::hidden('edit', 1) .
@@ -141,7 +142,7 @@ if (isset($rs) && !$rs->is_cat) {
     '<p><label for="link_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
     form::field('link_title', 30, 255, [
         'default'    => html::escapeHTML($link_title),
-        'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
+        'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
     ]) .
     '</p>' .
 
@@ -149,16 +150,20 @@ if (isset($rs) && !$rs->is_cat) {
     form::url('link_href', [
         'size'       => 30,
         'default'    => html::escapeHTML($link_href),
-        'extra_html' => 'required placeholder="' . __('URL') . '"'
+        'extra_html' => 'required placeholder="' . __('URL') . '"',
     ]) .
     '</p>' .
 
     '<p><label for="link_desc">' . __('Description:') . '</label> ' .
-    form::field('link_desc', 30, 255,
+    form::field(
+        'link_desc',
+        30,
+        255,
         [
             'default'    => html::escapeHTML($link_desc),
-            'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
-        ]) . '</p>' .
+            'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+        ]
+    ) . '</p>' .
 
     '<p><label for="link_lang">' . __('Language:') . '</label> ' .
     form::combo('link_lang', $lang_combo, $link_lang) .
@@ -184,12 +189,21 @@ if (isset($rs) && !$rs->is_cat) {
     '<tr class="line">' .
     '<th>' . __('_xfn_Friendship') . '</th>' .
     '<td><p>' .
-    '<label class="classic">' . form::radio(['friendship'], 'contact',
-        strpos($link_xfn, 'contact') !== false) . __('_xfn_Contact') . '</label> ' .
-    '<label class="classic">' . form::radio(['friendship'], 'acquaintance',
-        strpos($link_xfn, 'acquaintance') !== false) . __('_xfn_Acquaintance') . '</label> ' .
-    '<label class="classic">' . form::radio(['friendship'], 'friend',
-        strpos($link_xfn, 'friend') !== false) . __('_xfn_Friend') . '</label> ' .
+    '<label class="classic">' . form::radio(
+        ['friendship'],
+        'contact',
+        strpos($link_xfn, 'contact') !== false
+    ) . __('_xfn_Contact') . '</label> ' .
+    '<label class="classic">' . form::radio(
+        ['friendship'],
+        'acquaintance',
+        strpos($link_xfn, 'acquaintance') !== false
+    ) . __('_xfn_Acquaintance') . '</label> ' .
+    '<label class="classic">' . form::radio(
+        ['friendship'],
+        'friend',
+        strpos($link_xfn, 'friend') !== false
+    ) . __('_xfn_Friend') . '</label> ' .
     '<label class="classic">' . form::radio(['friendship'], '') . __('None') . '</label>' .
     '</p></td>' .
     '</tr>' .
@@ -197,28 +211,43 @@ if (isset($rs) && !$rs->is_cat) {
     '<tr class="line">' .
     '<th>' . __('_xfn_Physical') . '</th>' .
     '<td><p>' .
-    '<label class="classic">' . form::checkbox(['physical'], 'met',
-        strpos($link_xfn, 'met') !== false) . __('_xfn_Met') . '</label>' .
+    '<label class="classic">' . form::checkbox(
+        ['physical'],
+        'met',
+        strpos($link_xfn, 'met') !== false
+    ) . __('_xfn_Met') . '</label>' .
     '</p></td>' .
     '</tr>' .
 
     '<tr class="line">' .
     '<th>' . __('_xfn_Professional') . '</th>' .
     '<td><p>' .
-    '<label class="classic">' . form::checkbox(['professional[]'], 'co-worker',
-        strpos($link_xfn, 'co-worker') !== false) . __('_xfn_Co-worker') . '</label> ' .
-    '<label class="classic">' . form::checkbox(['professional[]'], 'colleague',
-        strpos($link_xfn, 'colleague') !== false) . __('_xfn_Colleague') . '</label>' .
+    '<label class="classic">' . form::checkbox(
+        ['professional[]'],
+        'co-worker',
+        strpos($link_xfn, 'co-worker') !== false
+    ) . __('_xfn_Co-worker') . '</label> ' .
+    '<label class="classic">' . form::checkbox(
+        ['professional[]'],
+        'colleague',
+        strpos($link_xfn, 'colleague') !== false
+    ) . __('_xfn_Colleague') . '</label>' .
     '</p></td>' .
     '</tr>' .
 
     '<tr class="line">' .
     '<th>' . __('_xfn_Geographical') . '</th>' .
     '<td><p>' .
-    '<label class="classic">' . form::radio(['geographical'], 'co-resident',
-        strpos($link_xfn, 'co-resident') !== false) . __('_xfn_Co-resident') . '</label> ' .
-    '<label class="classic">' . form::radio(['geographical'], 'neighbor',
-        strpos($link_xfn, 'neighbor') !== false) . __('_xfn_Neighbor') . '</label> ' .
+    '<label class="classic">' . form::radio(
+        ['geographical'],
+        'co-resident',
+        strpos($link_xfn, 'co-resident') !== false
+    ) . __('_xfn_Co-resident') . '</label> ' .
+    '<label class="classic">' . form::radio(
+        ['geographical'],
+        'neighbor',
+        strpos($link_xfn, 'neighbor') !== false
+    ) . __('_xfn_Neighbor') . '</label> ' .
     '<label class="classic">' . form::radio(['geographical'], '') . __('None') . '</label>' .
     '</p></td>' .
     '</tr>' .
@@ -226,16 +255,31 @@ if (isset($rs) && !$rs->is_cat) {
     '<tr class="line">' .
     '<th>' . __('_xfn_Family') . '</th>' .
     '<td><p>' .
-    '<label class="classic">' . form::radio(['family'], 'child',
-        strpos($link_xfn, 'child') !== false) . __('_xfn_Child') . '</label> ' .
-    '<label class="classic">' . form::radio(['family'], 'parent',
-        strpos($link_xfn, 'parent') !== false) . __('_xfn_Parent') . '</label> ' .
-    '<label class="classic">' . form::radio(['family'], 'sibling',
-        strpos($link_xfn, 'sibling') !== false) . __('_xfn_Sibling') . '</label> ' .
-    '<label class="classic">' . form::radio(['family'], 'spouse',
-        strpos($link_xfn, 'spouse') !== false) . __('_xfn_Spouse') . '</label> ' .
-    '<label class="classic">' . form::radio(['family'], 'kin',
-        strpos($link_xfn, 'kin') !== false) . __('_xfn_Kin') . '</label> ' .
+    '<label class="classic">' . form::radio(
+        ['family'],
+        'child',
+        strpos($link_xfn, 'child') !== false
+    ) . __('_xfn_Child') . '</label> ' .
+    '<label class="classic">' . form::radio(
+        ['family'],
+        'parent',
+        strpos($link_xfn, 'parent') !== false
+    ) . __('_xfn_Parent') . '</label> ' .
+    '<label class="classic">' . form::radio(
+        ['family'],
+        'sibling',
+        strpos($link_xfn, 'sibling') !== false
+    ) . __('_xfn_Sibling') . '</label> ' .
+    '<label class="classic">' . form::radio(
+        ['family'],
+        'spouse',
+        strpos($link_xfn, 'spouse') !== false
+    ) . __('_xfn_Spouse') . '</label> ' .
+    '<label class="classic">' . form::radio(
+        ['family'],
+        'kin',
+        strpos($link_xfn, 'kin') !== false
+    ) . __('_xfn_Kin') . '</label> ' .
     '<label class="classic">' . form::radio(['family'], '') . __('None') . '</label>' .
     '</p></td>' .
     '</tr>' .
@@ -243,14 +287,26 @@ if (isset($rs) && !$rs->is_cat) {
     '<tr class="line">' .
     '<th>' . __('_xfn_Romantic') . '</th>' .
     '<td><p>' .
-    '<label class="classic">' . form::checkbox(['romantic[]'], 'muse',
-        strpos($link_xfn, 'muse') !== false) . __('_xfn_Muse') . '</label> ' .
-    '<label class="classic">' . form::checkbox(['romantic[]'], 'crush',
-        strpos($link_xfn, 'crush') !== false) . __('_xfn_Crush') . '</label> ' .
-    '<label class="classic">' . form::checkbox(['romantic[]'], 'date',
-        strpos($link_xfn, 'date') !== false) . __('_xfn_Date') . '</label> ' .
-    '<label class="classic">' . form::checkbox(['romantic[]'], 'sweetheart',
-        strpos($link_xfn, 'sweetheart') !== false) . __('_xfn_Sweetheart') . '</label> ' .
+    '<label class="classic">' . form::checkbox(
+        ['romantic[]'],
+        'muse',
+        strpos($link_xfn, 'muse') !== false
+    ) . __('_xfn_Muse') . '</label> ' .
+    '<label class="classic">' . form::checkbox(
+        ['romantic[]'],
+        'crush',
+        strpos($link_xfn, 'crush') !== false
+    ) . __('_xfn_Crush') . '</label> ' .
+    '<label class="classic">' . form::checkbox(
+        ['romantic[]'],
+        'date',
+        strpos($link_xfn, 'date') !== false
+    ) . __('_xfn_Date') . '</label> ' .
+    '<label class="classic">' . form::checkbox(
+        ['romantic[]'],
+        'sweetheart',
+        strpos($link_xfn, 'sweetheart') !== false
+    ) . __('_xfn_Sweetheart') . '</label> ' .
     '</p></td>' .
     '</tr>' .
     '</table></div>' .

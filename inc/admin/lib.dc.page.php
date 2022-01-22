@@ -1171,7 +1171,7 @@ class dcPage
     public static function getCodeMirrorThemes()
     {
         $themes      = [];
-        $themes_root = dirname(__FILE__) . '/../../admin' . '/js/codemirror/theme/';
+        $themes_root = __DIR__ . '/../../admin' . '/js/codemirror/theme/';
         if (is_dir($themes_root) && is_readable($themes_root)) {
             if (($d = @dir($themes_root)) !== false) {
                 while (($entry = $d->read()) !== false) {

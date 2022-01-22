@@ -24,7 +24,7 @@ class dcAdminNotices
         'warning' => 'warning-msg',
         'error'   => 'error',
         'message' => 'message',
-        'static'  => 'static-msg'];
+        'static'  => 'static-msg', ];
 
     private static $error_displayed = false;
 
@@ -63,12 +63,12 @@ class dcAdminNotices
             if ($step == 2) {
                 // Static notifications
                 $params = [
-                    'notice_type' => 'static'
+                    'notice_type' => 'static',
                 ];
             } else {
                 // Normal notifications
                 $params = [
-                    'sql' => "AND notice_type != 'static'"
+                    'sql' => "AND notice_type != 'static'",
                 ];
             }
             $counter = self::$core->notices->getNotices($params, true);
@@ -85,7 +85,7 @@ class dcAdminNotices
                         'class'  => $class,
                         'ts'     => $lines->notice_ts,
                         'text'   => $lines->notice_msg,
-                        'format' => $lines->notice_format
+                        'format' => $lines->notice_format,
                     ];
                     if ($lines->notice_options !== null) {
                         $notifications = array_merge($notification, @json_decode($lines->notice_options, true));

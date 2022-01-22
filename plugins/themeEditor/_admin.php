@@ -13,7 +13,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 }
 
 if (!isset($__resources['help']['themeEditor'])) {
-    $__resources['help']['themeEditor'] = dirname(__FILE__) . '/help.html';
+    $__resources['help']['themeEditor'] = __DIR__ . '/help.html';
 }
 
 $core->addBehavior('adminCurrentThemeDetails', ['themeEditorBehaviors', 'theme_editor_details']);
@@ -42,8 +42,10 @@ class themeEditorBehaviors
 
         try {
             $core->auth->user_prefs->interface->put('colorsyntax', !empty($_POST['colorsyntax']), 'boolean');
-            $core->auth->user_prefs->interface->put('colorsyntax_theme',
-                (!empty($_POST['colorsyntax_theme']) ? $_POST['colorsyntax_theme'] : ''));
+            $core->auth->user_prefs->interface->put(
+                'colorsyntax_theme',
+                (!empty($_POST['colorsyntax_theme']) ? $_POST['colorsyntax_theme'] : '')
+            );
         } catch (Exception $e) {
             $core->error->add($e->getMessage());
         }
@@ -72,10 +74,13 @@ class themeEditorBehaviors
         if (count($themes_combo) > 1) {
             echo
             '<p><label for="colorsyntax_theme" class="classic">' . __('Theme:') . '</label> ' .
-            form::combo('colorsyntax_theme', $themes_combo,
+            form::combo(
+                'colorsyntax_theme',
+                $themes_combo,
                 [
-                    'default' => $core->auth->user_prefs->interface->colorsyntax_theme
-                ]) .
+                    'default' => $core->auth->user_prefs->interface->colorsyntax_theme,
+                ]
+            ) .
                 '</p>';
         } else {
             echo form::hidden('colorsyntax_theme', '');

@@ -8,8 +8,8 @@
  */
 if (@is_dir('/usr/lib/clearbricks')) {
     define('CLEARBRICKS_PATH', '/usr/lib/clearbricks');
-} elseif (is_dir(dirname(__FILE__) . '/libs/clearbricks')) {
-    define('CLEARBRICKS_PATH', dirname(__FILE__) . '/libs/clearbricks');
+} elseif (is_dir(__DIR__ . '/libs/clearbricks')) {
+    define('CLEARBRICKS_PATH', __DIR__ . '/libs/clearbricks');
 } elseif (isset($_SERVER['CLEARBRICKS_PATH']) && is_dir($_SERVER['CLEARBRICKS_PATH'])) {
     define('CLEARBRICKS_PATH', $_SERVER['CLEARBRICKS_PATH']);
 }
@@ -25,7 +25,7 @@ if (isset($_SERVER['DC_RC_PATH'])) {
 } elseif (isset($_SERVER['REDIRECT_DC_RC_PATH'])) {
     define('DC_RC_PATH', $_SERVER['REDIRECT_DC_RC_PATH']);
 } else {
-    define('DC_RC_PATH', dirname(__FILE__) . '/config.php');
+    define('DC_RC_PATH', __DIR__ . '/config.php');
 }
 
 if (!is_file(DC_RC_PATH)) {
@@ -57,7 +57,7 @@ if (count($_GET) > 1) {
 $allow_types = ['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp', 'css', 'js', 'swf', 'html', 'xml', 'json', 'txt'];
 
 if (!defined('DC_VAR')) {
-    define('DC_VAR', path::real(dirname(__FILE__) . '/..') . '/var');
+    define('DC_VAR', path::real(__DIR__ . '/..') . '/var');
 }
 
 $vf = path::clean($_GET['vf']);

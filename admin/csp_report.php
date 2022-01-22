@@ -17,7 +17,7 @@
 // Dareboost wants it? Not a problem.
 header('X-Content-Type-Options: "nosniff"');
 
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 // Specify admin CSP log file if necessary
 if (!defined('LOGFILE')) {

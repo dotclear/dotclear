@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/prepend.php';
+require __DIR__ . '/../inc/prepend.php';
 
 if (isset($_SERVER['PATH_INFO'])) {
     $blog_id = trim($_SERVER['PATH_INFO']);

@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
@@ -56,13 +56,15 @@ try {
 /* DISPLAY
 -------------------------------------------------------- */
 
-dcPage::open(__('List of blogs'),
+dcPage::open(
+    __('List of blogs'),
     dcPage::jsLoad('js/_blogs.js') . $blog_filter->js(),
     dcPage::breadcrumb(
         [
             __('System')        => '',
-            __('List of blogs') => ''
-        ])
+            __('List of blogs') => '',
+        ]
+    )
 );
 
 if (!$core->error->flag()) {
@@ -73,7 +75,9 @@ if (!$core->error->flag()) {
     $blog_filter->display('admin.blogs');
 
     # Show blogs
-    $blog_list->display($blog_filter->page, $blog_filter->nb,
+    $blog_list->display(
+        $blog_filter->page,
+        $blog_filter->nb,
         ($core->auth->isSuperAdmin() ?
             '<form action="' . $core->adminurl->get('admin.blogs') . '" method="post" id="form-blogs">' : '') .
 
@@ -84,8 +88,11 @@ if (!$core->error->flag()) {
             '<p class="col checkboxes-helpers"></p>' .
 
             '<p class="col right"><label for="action" class="classic">' . __('Selected blogs action:') . '</label> ' .
-            form::combo('action', $blogs_actions_page->getCombo(),
-                ['class' => 'online', 'extra_html' => 'title="' . __('Actions') . '"']) .
+            form::combo(
+                'action',
+                $blogs_actions_page->getCombo(),
+                ['class' => 'online', 'extra_html' => 'title="' . __('Actions') . '"']
+            ) .
             $core->formNonce() .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
             '</div>' .

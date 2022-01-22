@@ -11,11 +11,11 @@ if (isset($_SERVER['DC_RC_PATH'])) {
 } elseif (isset($_SERVER['REDIRECT_DC_RC_PATH'])) {
     $rc_path = $_SERVER['REDIRECT_DC_RC_PATH'];
 } else {
-    $rc_path = dirname(__FILE__) . '/../../inc/config.php';
+    $rc_path = __DIR__ . '/../../inc/config.php';
 }
 
-require dirname(__FILE__) . '/../../inc/prepend.php';
-require dirname(__FILE__) . '/check.php';
+require __DIR__ . '/../../inc/prepend.php';
+require __DIR__ . '/check.php';
 
 $can_install = true;
 $err         = '';
@@ -24,9 +24,9 @@ $err         = '';
 $dlang = http::getAcceptLanguage();
 if ($dlang != 'en') {
     l10n::init($dlang);
-    l10n::set(dirname(__FILE__) . '/../../locales/' . $dlang . '/date');
-    l10n::set(dirname(__FILE__) . '/../../locales/' . $dlang . '/main');
-    l10n::set(dirname(__FILE__) . '/../../locales/' . $dlang . '/plugins');
+    l10n::set(__DIR__ . '/../../locales/' . $dlang . '/date');
+    l10n::set(__DIR__ . '/../../locales/' . $dlang . '/main');
+    l10n::set(__DIR__ . '/../../locales/' . $dlang . '/plugins');
 }
 
 if (!defined('DC_MASTER_KEY') || DC_MASTER_KEY == '') {
@@ -106,7 +106,7 @@ if ($can_install && !empty($_POST)) {
 
         # Create schema
         $_s = new dbStruct($core->con, $core->prefix);
-        require dirname(__FILE__) . '/../../inc/dbschema/db-schema.php';
+        require __DIR__ . '/../../inc/dbschema/db-schema.php';
 
         $si      = new dbStruct($core->con, $core->prefix);
         $changes = $si->synchronize($_s);
@@ -152,15 +152,14 @@ if ($can_install && !empty($_POST)) {
         $formatDate   = __('%A, %B %e %Y');
         $date_formats = ['%Y-%m-%d', '%m/%d/%Y', '%d/%m/%Y', '%Y/%m/%d', '%d.%m.%Y', '%b %e %Y', '%e %b %Y', '%Y %b %e',
             '%a, %Y-%m-%d', '%a, %m/%d/%Y', '%a, %d/%m/%Y', '%a, %Y/%m/%d', '%B %e, %Y', '%e %B, %Y', '%Y, %B %e', '%e. %B %Y',
-            '%A, %B %e, %Y', '%A, %e %B, %Y', '%A, %Y, %B %e', '%A, %Y, %B %e', '%A, %e. %B %Y'];
+            '%A, %B %e, %Y', '%A, %e %B, %Y', '%A, %Y, %B %e', '%A, %Y, %B %e', '%A, %e. %B %Y', ];
         $time_formats = ['%H:%M', '%I:%M', '%l:%M', '%Hh%M', '%Ih%M', '%lh%M'];
         if (strtoupper(substr(PHP_OS, 0, 3)) == 'WIN') {
             $formatDate   = preg_replace('#(?<!%)((?:%%)*)%e#', '\1%#d', $formatDate);
             $date_formats = array_map(
-                function ($f) {
-                    return str_replace('%e', '%#d', $f);
-                },
-                $date_formats);
+                fn ($f) => str_replace('%e', '%#d', $f),
+                $date_formats
+            );
         }
         $blog_settings->system->put('date_format', $formatDate);
         $blog_settings->system->put('date_formats', $date_formats, 'array', 'Date formats examples', true, true);
@@ -180,14 +179,38 @@ if ($can_install && !empty($_POST)) {
 
         $blog_settings->system->put('csp_admin_on', true, 'boolean', 'Send CSP header (admin)', true, true);
         $blog_settings->system->put('csp_admin_report_only', false, 'boolean', 'CSP Report only violations (admin)', true, true);
-        $blog_settings->system->put('csp_admin_default',
-            $csp_prefix . "'self'" . $csp_suffix, 'string', 'CSP default-src directive', true, true);
-        $blog_settings->system->put('csp_admin_script',
-            $csp_prefix . "'self' 'unsafe-eval'" . $csp_suffix, 'string', 'CSP script-src directive', true, true);
-        $blog_settings->system->put('csp_admin_style',
-            $csp_prefix . "'self' 'unsafe-inline'" . $csp_suffix, 'string', 'CSP style-src directive', true, true);
-        $blog_settings->system->put('csp_admin_img',
-            $csp_prefix . "'self' data: https://media.dotaddict.org blob:", 'string', 'CSP img-src directive', true, true);
+        $blog_settings->system->put(
+            'csp_admin_default',
+            $csp_prefix . "'self'" . $csp_suffix,
+            'string',
+            'CSP default-src directive',
+            true,
+            true
+        );
+        $blog_settings->system->put(
+            'csp_admin_script',
+            $csp_prefix . "'self' 'unsafe-eval'" . $csp_suffix,
+            'string',
+            'CSP script-src directive',
+            true,
+            true
+        );
+        $blog_settings->system->put(
+            'csp_admin_style',
+            $csp_prefix . "'self' 'unsafe-inline'" . $csp_suffix,
+            'string',
+            'CSP style-src directive',
+            true,
+            true
+        );
+        $blog_settings->system->put(
+            'csp_admin_img',
+            $csp_prefix . "'self' data: https://media.dotaddict.org blob:",
+            'string',
+            'CSP img-src directive',
+            true,
+            true
+        );
 
         # Add Dotclear version
         $cur          = $core->con->openCursor($core->prefix . 'version');
@@ -281,7 +304,7 @@ header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ 
     dcPage::jsJson('pwstrength', [
         'min' => sprintf(__('Password strength: %s'), __('weak')),
         'avg' => sprintf(__('Password strength: %s'), __('medium')),
-        'max' => sprintf(__('Password strength: %s'), __('strong'))
+        'max' => sprintf(__('Password strength: %s'), __('strong')),
     ]) .
     dcPage::jsLoad('../js/pwstrength.js') .
     dcPage::jsLoad('../js/jquery/jquery.js') .
@@ -319,20 +342,20 @@ if ($can_install && $step == 0) {
     '<p><label for="u_firstname">' . __('First Name:') . '</label> ' .
     form::field('u_firstname', 30, 255, [
         'default'      => html::escapeHTML($u_firstname),
-        'autocomplete' => 'given-name'
+        'autocomplete' => 'given-name',
     ]) .
     '</p>' .
     '<p><label for="u_name">' . __('Last Name:') . '</label> ' .
     form::field('u_name', 30, 255, [
         'default'      => html::escapeHTML($u_name),
-        'autocomplete' => 'family-name'
+        'autocomplete' => 'family-name',
     ]) .
     '</p>' .
     '<p><label for="u_email">' . __('Email:') . '</label> ' .
     form::email('u_email', [
         'size'         => 30,
         'default'      => html::escapeHTML($u_email),
-        'autocomplete' => 'email'
+        'autocomplete' => 'email',
     ]) .
     '</p>' .
     '</fieldset>' .
@@ -342,7 +365,7 @@ if ($can_install && $step == 0) {
     form::field('u_login', 30, 32, [
         'default'      => html::escapeHTML($u_login),
         'extra_html'   => 'required placeholder="' . __('Username') . '"',
-        'autocomplete' => 'username'
+        'autocomplete' => 'username',
     ]) .
     '</label></p>' .
     '<p>' .
@@ -350,13 +373,13 @@ if ($can_install && $step == 0) {
     form::password('u_pwd', 30, 255, [
         'class'        => 'pw-strength',
         'extra_html'   => 'data-indicator="pwindicator" required placeholder="' . __('Password') . '"',
-        'autocomplete' => 'new-password'
+        'autocomplete' => 'new-password',
     ]) .
     '</p>' .
     '<p><label for="u_pwd2" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Confirm password:') . ' ' .
     form::password('u_pwd2', 30, 255, [
         'extra_html'   => 'required placeholder="' . __('Password') . '"',
-        'autocomplete' => 'new-password'
+        'autocomplete' => 'new-password',
     ]) .
     '</label></p>' .
     '</fieldset>' .

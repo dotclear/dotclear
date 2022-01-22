@@ -287,7 +287,7 @@ class dcWidget
             'combo'    => true,
             'color'    => false,
             'email'    => false,
-            'number'   => false
+            'number'   => false,
         ];
 
         if (!array_key_exists($type, $types)) {
@@ -312,7 +312,7 @@ class dcWidget
         $this->settings[$name] = [
             'title' => $title,
             'type'  => $type,
-            'value' => $value
+            'value' => $value,
         ];
 
         if (isset($options)) {
@@ -355,7 +355,7 @@ class dcWidget
                 form::field([$iname, $wfid], 20, 255, [
                     'default'    => html::escapeHTML($s['value']),
                     'class'      => 'maximal' . $class,
-                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
+                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
                 '</p>';
 
@@ -365,7 +365,7 @@ class dcWidget
                 form::textarea([$iname, $wfid], 30, 8, [
                     'default'    => html::escapeHTML($s['value']),
                     'class'      => 'maximal' . $class,
-                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
+                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
                 '</p>';
 
@@ -399,7 +399,7 @@ class dcWidget
             case 'color':
                 $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
                 form::color([$iname, $wfid], [
-                    'default' => $s['value']
+                    'default' => $s['value'],
                 ]) .
                 '</p>';
 
@@ -408,7 +408,7 @@ class dcWidget
                 $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
                 form::email([$iname, $wfid], [
                     'default'      => html::escapeHTML($s['value']),
-                    'autocomplete' => 'email'
+                    'autocomplete' => 'email',
                 ]) .
                 '</p>';
 
@@ -416,7 +416,7 @@ class dcWidget
             case 'number':
                 $res .= '<p><label for="' . $wfid . '">' . $s['title'] . '</label> ' .
                 form::number([$iname, $wfid], [
-                    'default' => $s['value']
+                    'default' => $s['value'],
                 ]) .
                 '</p>';
 

@@ -58,8 +58,9 @@ try {
 echo dcPage::breadcrumb(
     [
         __('Plugins')             => '',
-        __('Pings configuration') => ''
-    ]);
+        __('Pings configuration') => '',
+    ]
+);
 
 echo
 '<form action="' . $p_url . '" method="post">' .
@@ -74,7 +75,7 @@ foreach ($pings_uris as $n => $u) {
     '<label for="pings_srv_uri-' . $i . '" class="classic">' . __('Service URI:') . '</label> ' .
     form::url(['pings_srv_uri[]', 'pings_srv_uri-' . $i], [
         'size'    => 40,
-        'default' => html::escapeHTML($u)
+        'default' => html::escapeHTML($u),
     ]);
 
     if (!empty($_GET['test'])) {

@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
@@ -32,7 +32,7 @@ $sortby_lex = [
     // key in sorty_combo (see above) => field in SQL request
     'post_title' => 'post_title',
     'cat_title'  => 'cat_title',
-    'user_id'    => 'P.user_id'];
+    'user_id'    => 'P.user_id', ];
 
 # --BEHAVIOR-- adminPostsSortbyLexCombo
 $core->callBehavior('adminPostsSortbyLexCombo', [& $sortby_lex]);
@@ -58,13 +58,15 @@ try {
 /* DISPLAY
 -------------------------------------------------------- */
 
-dcPage::open(__('Posts'),
+dcPage::open(
+    __('Posts'),
     dcPage::jsLoad('js/_posts_list.js') . $post_filter->js(),
     dcPage::breadcrumb(
         [
             html::escapeHTML($core->blog->name) => '',
-            __('Posts')                         => ''
-        ])
+            __('Posts')                         => '',
+        ]
+    )
 );
 if (!empty($_GET['upd'])) {
     dcPage::success(__('Selected entries have been successfully updated.'));
@@ -78,7 +80,9 @@ if (!$core->error->flag()) {
     $post_filter->display('admin.posts');
 
     # Show posts
-    $post_list->display($post_filter->page, $post_filter->nb,
+    $post_list->display(
+        $post_filter->page,
+        $post_filter->nb,
         '<form action="' . $core->adminurl->get('admin.posts') . '" method="post" id="form-entries">' .
 
         '%s' .

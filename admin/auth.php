@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 # If we have a session cookie, go to index.php
 if (isset($_SESSION['sess_user_id'])) {
@@ -21,7 +21,7 @@ $dlang = http::getAcceptLanguage();
 $dlang = ($dlang == '' ? 'en' : $dlang);
 if ($dlang != 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $dlang)) {
     l10n::lang($dlang);
-    l10n::set(dirname(__FILE__) . '/../locales/' . $dlang . '/main');
+    l10n::set(__DIR__ . '/../locales/' . $dlang . '/main');
 }
 
 if (defined('DC_ADMIN_URL')) {
@@ -40,7 +40,7 @@ $err        = $msg        = null;
 
 # Auto upgrade
 if (empty($_GET) && empty($_POST)) {
-    require dirname(__FILE__) . '/../inc/dbschema/upgrade.php';
+    require __DIR__ . '/../inc/dbschema/upgrade.php';
 
     try {
         if (($changes = dcUpgrade::dotclearUpgrade($core)) !== false) {

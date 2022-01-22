@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
 
@@ -16,7 +16,7 @@ dcPage::checkSuper();
 -------------------------------------------------------- */
 $combo_action = [
     __('Set permissions') => 'blogs',
-    __('Delete')          => 'deleteuser'
+    __('Delete')          => 'deleteuser',
 ];
 
 # --BEHAVIOR-- adminUsersActionsCombo
@@ -35,7 +35,7 @@ $sortby_lex = [
     'user_id'          => 'U.user_id',
     'user_name'        => 'user_name',
     'user_firstname'   => 'user_firstname',
-    'user_displayname' => 'user_displayname'];
+    'user_displayname' => 'user_displayname', ];
 
 # --BEHAVIOR-- adminUsersSortbyLexCombo
 $core->callBehavior('adminUsersSortbyLexCombo', [& $sortby_lex]);
@@ -70,13 +70,15 @@ try {
 /* DISPLAY
 -------------------------------------------------------- */
 
-dcPage::open(__('Users'),
+dcPage::open(
+    __('Users'),
     dcPage::jsLoad('js/_users.js') . $user_filter->js(),
     dcPage::breadcrumb(
         [
             __('System') => '',
-            __('Users')  => ''
-        ])
+            __('Users')  => '',
+        ]
+    )
 );
 
 if (!$core->error->flag()) {

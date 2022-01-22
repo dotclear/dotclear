@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
 if (!isset($__resources['help']['simpleMenu'])) {
-    $__resources['help']['simpleMenu'] = dirname(__FILE__) . '/help/help.html';
+    $__resources['help']['simpleMenu'] = __DIR__ . '/help/help.html';
 }

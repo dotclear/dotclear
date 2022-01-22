@@ -18,7 +18,7 @@ function simpleMenu_dashboard($core, $icons)
 {
     $icons['simpleMenu'] = new ArrayObject([__('Simple menu'),
         $core->adminurl->get('admin.plugin.simpleMenu'),
-        dcPage::getPF('simpleMenu/icon.png')]);
+        dcPage::getPF('simpleMenu/icon.png'), ]);
 }
 function simpleMenu_dashboard_favs($core, $favs)
 {
@@ -27,14 +27,16 @@ function simpleMenu_dashboard_favs($core, $favs)
         'url'         => $core->adminurl->get('admin.plugin.simpleMenu'),
         'small-icon'  => dcPage::getPF('simpleMenu/icon-small.png'),
         'large-icon'  => dcPage::getPF('simpleMenu/icon.png'),
-        'permissions' => 'usage,contentadmin'
+        'permissions' => 'usage,contentadmin',
     ]);
 }
 
-$_menu['Blog']->addItem(__('Simple menu'),
+$_menu['Blog']->addItem(
+    __('Simple menu'),
     $core->adminurl->get('admin.plugin.simpleMenu'),
     dcPage::getPF('simpleMenu/icon-small.png'),
     preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.simpleMenu')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-    $core->auth->check('usage,contentadmin', $core->blog->id));
+    $core->auth->check('usage,contentadmin', $core->blog->id)
+);
 
-require dirname(__FILE__) . '/_widgets.php';
+require __DIR__ . '/_widgets.php';

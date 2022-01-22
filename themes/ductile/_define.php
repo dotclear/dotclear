@@ -19,6 +19,6 @@ $this->registerModule(
     '1.5',                                  // Version
     [                                  // Properties
         'standalone_config' => true,
-        'type'              => 'theme'
+        'type'              => 'theme',
     ]
 );

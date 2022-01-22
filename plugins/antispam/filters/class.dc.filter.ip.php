@@ -148,9 +148,11 @@ class dcFilterIP extends dcSpamFilter
                 }
 
                 $item = '<p class="' . $p_style . '"><label class="classic" for="' . $type . '-ip-' . $rs->rule_id . '">' .
-                form::checkbox(['delip[]', $type . '-ip-' . $rs->rule_id], $rs->rule_id,
+                form::checkbox(
+                    ['delip[]', $type . '-ip-' . $rs->rule_id],
+                    $rs->rule_id,
                     [
-                        'disabled' => $disabled_ip
+                        'disabled' => $disabled_ip,
                     ]
                 ) . ' ' .
                 html::escapeHTML($pattern) .
@@ -211,7 +213,7 @@ class dcFilterIP extends dcSpamFilter
                 $mask = -1;
             }
         } else {
-            $mask = ~((1 << (32 - min((integer) $bits[1], 32))) - 1);
+            $mask = ~((1 << (32 - min((int) $bits[1], 32))) - 1);
         }
     }
 
@@ -241,7 +243,7 @@ class dcFilterIP extends dcSpamFilter
         } else {
             $cur->rule_type    = (string) $type;
             $cur->rule_content = (string) $content;
-            $cur->update('WHERE rule_id = ' . (integer) $old->rule_id);
+            $cur->update('WHERE rule_id = ' . (int) $old->rule_id);
         }
     }
 
@@ -260,7 +262,7 @@ class dcFilterIP extends dcSpamFilter
     {
         $strReq = 'SELECT * FROM ' . $this->table . ' ' .
         "WHERE rule_type = '" . $this->con->escape($type) . "' " .
-        "AND rule_content LIKE '%:" . (integer) $ip . ':' . (integer) $mask . "' " .
+        "AND rule_content LIKE '%:" . (int) $ip . ':' . (int) $mask . "' " .
             'AND blog_id ' . ($global ? 'IS NULL ' : "= '" . $this->core->blog->id . "' ");
 
         return $this->con->select($strReq);
@@ -278,8 +280,8 @@ class dcFilterIP extends dcSpamFilter
 
         $rs = $this->con->select($strReq);
         while ($rs->fetch()) {
-            list($pattern, $ip, $mask) = explode(':', $rs->rule_content);
-            if ((ip2long($cip) & (integer) $mask) == ((integer) $ip & (integer) $mask)) {
+            [$pattern, $ip, $mask] = explode(':', $rs->rule_content);
+            if ((ip2long($cip) & (int) $mask) == ((int) $ip & (int) $mask)) {
                 return $pattern;
             }
         }
@@ -293,11 +295,11 @@ class dcFilterIP extends dcSpamFilter
 
         if (is_array($ids)) {
             foreach ($ids as $i => $v) {
-                $ids[$i] = (integer) $v;
+                $ids[$i] = (int) $v;
             }
             $strReq .= 'WHERE rule_id IN (' . implode(',', $ids) . ') ';
         } else {
-            $ids = (integer) $ids;
+            $ids = (int) $ids;
             $strReq .= 'WHERE rule_id = ' . $ids . ' ';
         }
 

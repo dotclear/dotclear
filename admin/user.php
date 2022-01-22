@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
 
@@ -107,7 +107,7 @@ if (isset($_POST['user_name'])) {
         }
 
         $user_options['post_format'] = html::escapeHTML($_POST['user_post_format']);
-        $user_options['edit_size']   = (integer) $_POST['user_edit_size'];
+        $user_options['edit_size']   = (int) $_POST['user_edit_size'];
 
         if ($user_options['edit_size'] < 1) {
             $user_options['edit_size'] = 10;
@@ -189,23 +189,24 @@ if (isset($_POST['user_name'])) {
 
 /* DISPLAY
 -------------------------------------------------------- */
-dcPage::open($page_title,
+dcPage::open(
+    $page_title,
     dcPage::jsConfirmClose('user-form') .
     dcPage::jsJson('pwstrength', [
         'min' => sprintf(__('Password strength: %s'), __('weak')),
         'avg' => sprintf(__('Password strength: %s'), __('medium')),
-        'max' => sprintf(__('Password strength: %s'), __('strong'))
+        'max' => sprintf(__('Password strength: %s'), __('strong')),
     ]) .
     dcPage::jsLoad('js/pwstrength.js') .
     dcPage::jsLoad('js/_user.js') .
     $core->callBehavior('adminUserHeaders'),
-
     dcPage::breadcrumb(
         [
             __('System') => '',
             __('Users')  => $core->adminurl->get('admin.users'),
-            $page_title  => ''
-        ])
+            $page_title  => '',
+        ]
+    )
 );
 
 if (!empty($_GET['upd'])) {
@@ -227,7 +228,7 @@ echo
 form::field('user_id', 20, 255, [
     'default'      => html::escapeHTML($user_id),
     'extra_html'   => 'required placeholder="' . __('Login') . '" aria-describedby="user_id_help user_id_warning"',
-    'autocomplete' => 'username'
+    'autocomplete' => 'username',
 ]) .
 '</p>' .
 '<p class="form-note info" id="user_id_help">' . __('At least 2 characters using letters, numbers or symbols.') . '</p>';
@@ -243,21 +244,28 @@ echo
 '<label for="new_pwd" ' . ($user_id != '' ? '' : 'class="required"') . '>' .
 ($user_id != '' ? '' : '<abbr title="' . __('Required field') . '">*</abbr> ') .
 ($user_id != '' ? __('New password:') : __('Password:')) . '</label>' .
-form::password('new_pwd', 20, 255,
+form::password(
+    'new_pwd',
+    20,
+    255,
     [
         'class'        => 'pw-strength',
         'extra_html'   => ($user_id != '' ? '' : 'aria-describedby="new_pwd_help" required placeholder="' . __('Password') . '"'),
-        'autocomplete' => 'new-password']
+        'autocomplete' => 'new-password', ]
 ) .
 '</p>' .
 '<p class="form-note info" id="new_pwd_help">' . __('Password must contain at least 6 characters.') . '</p>' .
 
 '<p><label for="new_pwd_c" ' . ($user_id != '' ? '' : 'class="required"') . '>' .
 ($user_id != '' ? '' : '<abbr title="' . __('Required field') . '">*</abbr> ') . __('Confirm password:') . '</label> ' .
-form::password('new_pwd_c', 20, 255,
+form::password(
+    'new_pwd_c',
+    20,
+    255,
     [
         'extra_html'   => ($user_id != '' ? '' : 'required placeholder="' . __('Password') . '"'),
-        'autocomplete' => 'new-password']) .
+        'autocomplete' => 'new-password', ]
+) .
     '</p>';
 
 if ($core->auth->allowPassChange()) {
@@ -271,32 +279,35 @@ $super_disabled = $user_super && $user_id == $core->auth->userID();
 
 echo
 '<p><label for="user_super" class="classic">' .
-form::checkbox(($super_disabled ? 'user_super_off' : 'user_super'), '1',
+form::checkbox(
+    ($super_disabled ? 'user_super_off' : 'user_super'),
+    '1',
     [
         'checked'  => $user_super,
-        'disabled' => $super_disabled
-    ]) .
+        'disabled' => $super_disabled,
+    ]
+) .
 ' ' . __('Super administrator') . '</label></p>' .
 ($super_disabled ? form::hidden(['user_super'], $user_super) : '') .
 
 '<p><label for="user_name">' . __('Last Name:') . '</label> ' .
 form::field('user_name', 20, 255, [
     'default'      => html::escapeHTML($user_name),
-    'autocomplete' => 'family-name'
+    'autocomplete' => 'family-name',
 ]) .
 '</p>' .
 
 '<p><label for="user_firstname">' . __('First Name:') . '</label> ' .
 form::field('user_firstname', 20, 255, [
     'default'      => html::escapeHTML($user_firstname),
-    'autocomplete' => 'given-name'
+    'autocomplete' => 'given-name',
 ]) .
 '</p>' .
 
 '<p><label for="user_displayname">' . __('Display name:') . '</label> ' .
 form::field('user_displayname', 20, 255, [
     'default'      => html::escapeHTML($user_displayname),
-    'autocomplete' => 'nickname'
+    'autocomplete' => 'nickname',
 ]) .
 '</p>' .
 
@@ -304,14 +315,14 @@ form::field('user_displayname', 20, 255, [
 form::email('user_email', [
     'default'      => html::escapeHTML($user_email),
     'extra_html'   => 'aria-describedby="user_email_help"',
-    'autocomplete' => 'email'
+    'autocomplete' => 'email',
 ]) .
 '</p>' .
 '<p class="form-note" id="user_email_help">' . __('Mandatory for password recovering procedure.') . '</p>' .
 
 '<p><label for="user_profile_mails">' . __('Alternate emails (comma separated list):') . '</label>' .
 form::field('user_profile_mails', 50, 255, [
-    'default' => html::escapeHTML($user_profile_mails)
+    'default' => html::escapeHTML($user_profile_mails),
 ]) .
 '</p>' .
 '<p class="form-note info" id="sanitize_emails">' . __('Invalid emails will be automatically removed from list.') . '</p>' .
@@ -320,13 +331,13 @@ form::field('user_profile_mails', 50, 255, [
 form::url('user_url', [
     'size'         => 30,
     'default'      => html::escapeHTML($user_url),
-    'autocomplete' => 'url'
+    'autocomplete' => 'url',
 ]) .
 '</p>' .
 
 '<p><label for="user_profile_urls">' . __('Alternate URLs (comma separated list):') . '</label>' .
 form::field('user_profile_urls', 50, 255, [
-    'default' => html::escapeHTML($user_profile_urls)
+    'default' => html::escapeHTML($user_profile_urls),
 ]) .
 '</p>' .
 '<p class="form-note info" id="sanitize_urls">' . __('Invalid URLs will be automatically removed from list.') . '</p>' .
@@ -367,10 +378,13 @@ echo
 echo
 '<p class="clear vertical-separator"><label for="your_pwd" class="required">' .
 '<abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label>' .
-form::password('your_pwd', 20, 255,
+form::password(
+    'your_pwd',
+    20,
+    255,
     [
         'extra_html'   => 'required placeholder="' . __('Password') . '"',
-        'autocomplete' => 'current-password'
+        'autocomplete' => 'current-password',
     ]
 ) . '</p>' .
 '<p class="clear"><input type="submit" name="save" accesskey="s" value="' . __('Save') . '" />' .
@@ -438,10 +452,12 @@ if ($user_id) {
     // Informations (direct links)
     echo '<div class="clear fieldset">' .
     '<h3>' . __('Direct links') . '</h3>';
-    echo '<p><a href="' . $core->adminurl->get('admin.posts',
+    echo '<p><a href="' . $core->adminurl->get(
+        'admin.posts',
         ['user_id' => $user_id]
     ) . '">' . __('List of posts') . '</a>';
-    echo '<p><a href="' . $core->adminurl->get('admin.comments',
+    echo '<p><a href="' . $core->adminurl->get(
+        'admin.comments',
         [
             'email' => $core->auth->getInfo('user_email', $user_id),
             'site'  => $core->auth->getInfo('user_url', $user_id),

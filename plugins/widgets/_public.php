@@ -12,8 +12,8 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-include dirname(__FILE__) . '/_default_widgets.php';
-require_once dirname(__FILE__) . '/_widgets_functions.php';
+include __DIR__ . '/_default_widgets.php';
+require_once __DIR__ . '/_widgets_functions.php';
 
 $core->tpl->addValue('Widgets', ['publicWidgets', 'tplWidgets']);
 $core->tpl->addBlock('Widget', ['publicWidgets', 'tplWidget']);

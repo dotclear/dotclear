@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
@@ -74,18 +74,21 @@ if ($content_array['title'] != '') {
     $breadcrumb = dcPage::breadcrumb(
         [
             __('Global help')       => $core->adminurl->get('admin.help'),
-            $content_array['title'] => ''
-        ]);
+            $content_array['title'] => '',
+        ]
+    );
 } else {
     $breadcrumb = dcPage::breadcrumb(
         [
-            __('Global help') => ''
-        ]);
+            __('Global help') => '',
+        ]
+    );
 }
 
 /* DISPLAY
 -------------------------------------------------------- */
-dcPage::open(__('Global help'),
+dcPage::open(
+    __('Global help'),
     dcPage::jsPageTabs('first-step'),
     $breadcrumb
 );

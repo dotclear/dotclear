@@ -16,6 +16,6 @@ $core->url->register('tag', 'tag', '^tag/(.+)$', ['urlTags', 'tag']);
 $core->url->register('tags', 'tags', '^tags$', ['urlTags', 'tags']);
 $core->url->register('tag_feed', 'feed/tag', '^feed/tag/(.+)$', ['urlTags', 'tagFeed']);
 
-$__autoload['tagsBehaviors'] = dirname(__FILE__) . '/inc/tags.behaviors.php';
+$__autoload['tagsBehaviors'] = __DIR__ . '/inc/tags.behaviors.php';
 
 $core->addBehavior('coreInitWikiPost', ['tagsBehaviors', 'coreInitWikiPost']);

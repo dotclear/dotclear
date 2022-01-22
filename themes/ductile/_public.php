@@ -8,13 +8,14 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+
 namespace themes\ductile;
 
 if (!defined('DC_RC_PATH')) {
     return;
 }
 
-\l10n::set(dirname(__FILE__) . '/locales/' . $_lang . '/main');
+\l10n::set(__DIR__ . '/locales/' . $_lang . '/main');
 
 # Behaviors
 $core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplDuctileTheme', 'publicHeadContent']);
@@ -50,17 +51,17 @@ class tplDuctileTheme
                     case 'default':
                     case 'default-page':
                         if (isset($s['default'])) {
-                            $nb_first = $nb_other = (integer) $s['default'];
+                            $nb_first = $nb_other = (int) $s['default'];
                         }
                         if (isset($s['default-page'])) {
-                            $nb_other = (integer) $s['default-page'];
+                            $nb_other = (int) $s['default-page'];
                         }
 
                         break;
                     default:
                         if (isset($s[$GLOBALS['core']->url->type])) {
                             // Nb de billets par page défini par la config du thème
-                            $nb_first = $nb_other = (integer) $s[$GLOBALS['core']->url->type];
+                            $nb_first = $nb_other = (int) $s[$GLOBALS['core']->url->type];
                         }
 
                         break;
@@ -112,7 +113,7 @@ class tplDuctileTheme
     {
         global $core;
 
-        $tpl_path   = dirname(__FILE__) . '/tpl/';
+        $tpl_path   = __DIR__ . '/tpl/';
         $list_types = ['title', 'short', 'full'];
 
         // Get all _entry-*.html in tpl folder of theme
@@ -563,7 +564,7 @@ class tplDuctileTheme
         'Impact' => 'Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif',
 
         // Monospace families
-        'Monospace' => 'Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace'
+        'Monospace' => 'Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace',
     ];
 
     protected static function fontDef($c)

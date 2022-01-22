@@ -22,7 +22,7 @@ $this->registerModule(
         'type'        => 'plugin',
         'settings'    => [
             'self' => '',
-            'pref' => '#user-options.user_options_edition'
-        ]
+            'pref' => '#user-options.user_options_edition',
+        ],
     ]
 );

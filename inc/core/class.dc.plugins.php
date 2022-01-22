@@ -48,7 +48,7 @@ class dcPlugins extends dcModules
                 $properties['permissions'] = $args[4];
             }
             if (isset($args[5])) {
-                $properties['priority'] = (integer) $args[5];
+                $properties['priority'] = (int) $args[5];
             }
         }
 

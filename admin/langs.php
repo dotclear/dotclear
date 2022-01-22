@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
 
@@ -17,7 +17,7 @@ $iso_codes   = l10n::getISOCodes();
 
 # Get languages list on Dotclear.net
 $dc_langs    = false;
-$feed_reader = new feedReader;
+$feed_reader = new feedReader();
 $feed_reader->setCacheDir(DC_TPL_CACHE);
 $feed_reader->setTimeout(5);
 $feed_reader->setUserAgent('Dotclear - https://dotclear.org/');
@@ -157,13 +157,15 @@ if ($is_writable && !empty($_POST['upload_pkg'])) {
 
 /* DISPLAY Main page
 -------------------------------------------------------- */
-dcPage::open(__('Languages management'),
+dcPage::open(
+    __('Languages management'),
     dcPage::jsLoad('js/_langs.js'),
     dcPage::breadcrumb(
         [
             __('System')               => '',
-            __('Languages management') => ''
-        ])
+            __('Languages management') => '',
+        ]
+    )
 );
 
 if (!empty($_GET['removed'])) {
@@ -177,9 +179,12 @@ if (!empty($_GET['added'])) {
 echo
 '<p>' . __('Here you can install, upgrade or remove languages for your Dotclear ' .
     'installation.') . '</p>' .
-'<p>' . sprintf(__('You can change your user language in your <a href="%1$s">preferences</a> or ' .
+'<p>' . sprintf(
+    __('You can change your user language in your <a href="%1$s">preferences</a> or ' .
     'change your blog\'s main language in your <a href="%2$s">blog settings</a>.'),
-    $core->adminurl->get('admin.user.preferences'), $core->adminurl->get('admin.blog.pref')) . '</p>';
+    $core->adminurl->get('admin.user.preferences'),
+    $core->adminurl->get('admin.blog.pref')
+) . '</p>';
 
 echo
 '<h3>' . __('Installed languages') . '</h3>';
@@ -253,10 +258,13 @@ if (!empty($dc_langs) && $is_writable) {
     '<p class="field"><label for="pkg_url" class="classic">' . __('Language:') . '</label> ' .
     form::combo(['pkg_url'], $dc_langs_combo) . '</p>' .
     '<p class="field"><label for="your_pwd1" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .
-    form::password(['your_pwd', 'your_pwd1'], 20, 255,
+    form::password(
+        ['your_pwd', 'your_pwd1'],
+        20,
+        255,
         [
             'extra_html'   => 'required placeholder="' . __('Password') . '"',
-            'autocomplete' => 'current-password']
+            'autocomplete' => 'current-password', ]
     ) . '</p>' .
     '<p><input type="submit" value="' . __('Install language') . '" />' .
     $core->formNonce() .
@@ -273,10 +281,13 @@ if ($is_writable) {
     '<p class="field"><label for="pkg_file" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Language zip file:') . '</label> ' .
     '<input type="file" id="pkg_file" name="pkg_file" required /></p>' .
     '<p class="field"><label for="your_pwd2" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Your password:') . '</label> ' .
-    form::password(['your_pwd', 'your_pwd2'], 20, 255,
+    form::password(
+        ['your_pwd', 'your_pwd2'],
+        20,
+        255,
         [
             'extra_html'   => 'required placeholder="' . __('Password') . '"',
-            'autocomplete' => 'current-password']
+            'autocomplete' => 'current-password', ]
     ) . '</p>' .
     '<p><input type="submit" name="upload_pkg" value="' . __('Upload language') . '" />' .
     $core->formNonce() .

@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
@@ -36,7 +36,7 @@ echo
 '<p><label class="required" for="href"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Link URL:') . '</label> ' .
 form::field('href', 35, 512, [
     'default'    => html::escapeHTML($href),
-    'extra_html' => 'required placeholder="' . __('URL') . '"'
+    'extra_html' => 'required placeholder="' . __('URL') . '"',
 ]) .
 '</p>' .
 '<p><label for="title">' . __('Link title:') . '</label> ' .

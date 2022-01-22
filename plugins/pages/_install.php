@@ -24,7 +24,7 @@ if ($core->getVersion('pages') == null) {
     // Create a first pending page, only on a new installation of this plugin
     $params = [
         'post_type'  => 'page',
-        'no_content' => true
+        'no_content' => true,
     ];
     $counter = $core->blog->getPosts($params, true);
 

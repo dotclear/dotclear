@@ -8,5 +8,5 @@
  */
 
 if (!isset($__resources['help']['attachments'])) {
-    $__resources['help']['attachments'] = dirname(__FILE__) . '/help/help.html';
+    $__resources['help']['attachments'] = __DIR__ . '/help/help.html';
 }

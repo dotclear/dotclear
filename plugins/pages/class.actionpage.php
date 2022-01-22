@@ -20,12 +20,14 @@ class dcPagesActionsPage extends dcPostsActionsPage
     public function error(Exception $e)
     {
         $this->core->error->add($e->getMessage());
-        $this->beginPage(dcPage::breadcrumb(
+        $this->beginPage(
+            dcPage::breadcrumb(
             [
                 html::escapeHTML($this->core->blog->name) => '',
                 __('Pages')                               => $this->getRedirection(true),
-                __('Pages actions')                       => ''
-            ])
+                __('Pages actions')                       => '',
+            ]
+        )
         );
         $this->endPage();
     }
@@ -79,7 +81,7 @@ class dcPagesActionsPage extends dcPostsActionsPage
 
             $cur = $core->con->openCursor($core->prefix . 'post');
 
-            $cur->post_position = (integer) $value - 1;
+            $cur->post_position = (int) $value - 1;
             $cur->post_upddt    = date('Y-m-d H:i:s');
 
             $cur->update($strReq);
@@ -101,7 +103,7 @@ class DefaultPagesActions
                     __('Publish')         => 'publish',
                     __('Unpublish')       => 'unpublish',
                     __('Schedule')        => 'schedule',
-                    __('Mark as pending') => 'pending'
+                    __('Mark as pending') => 'pending',
                 ]],
                 ['dcDefaultPostActions', 'doChangePostStatus']
             );
@@ -109,14 +111,14 @@ class DefaultPagesActions
         if ($core->auth->check('admin', $core->blog->id)) {
             $ap->addAction(
                 [__('Change') => [
-                    __('Change author') => 'author']],
+                    __('Change author') => 'author', ]],
                 ['dcDefaultPostActions', 'doChangePostAuthor']
             );
         }
         if ($core->auth->check('delete,contentadmin', $core->blog->id)) {
             $ap->addAction(
                 [__('Delete') => [
-                    __('Delete') => 'delete']],
+                    __('Delete') => 'delete', ]],
                 ['dcDefaultPostActions', 'doDeletePost']
             );
         }

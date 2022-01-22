@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
 
@@ -54,15 +54,18 @@ if (!isset($_POST['id']) && (isset($_POST['create']))) {
 
 if (!empty($_REQUEST['id'])) {
     $edit_blog_mode = true;
-    include dirname(__FILE__) . '/blog_pref.php';
+    include __DIR__ . '/blog_pref.php';
 } else {
-    dcPage::open(__('New blog'), dcPage::jsConfirmClose('blog-form'),
+    dcPage::open(
+        __('New blog'),
+        dcPage::jsConfirmClose('blog-form'),
         dcPage::breadcrumb(
             [
                 __('System')   => '',
                 __('Blogs')    => $core->adminurl->get('admin.blogs'),
-                __('New blog') => ''
-            ])
+                __('New blog') => '',
+            ]
+        )
     );
 
     echo
@@ -70,39 +73,50 @@ if (!empty($_REQUEST['id'])) {
 
     '<div>' . $core->formNonce() . '</div>' .
     '<p><label class="required" for="blog_id"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog ID:') . '</label> ' .
-    form::field('blog_id', 30, 32,
+    form::field(
+        'blog_id',
+        30,
+        32,
         [
             'default'    => html::escapeHTML($blog_id),
-            'extra_html' => 'required placeholder="' . __('Blog ID') . '"'
+            'extra_html' => 'required placeholder="' . __('Blog ID') . '"',
         ]
     ) . '</p>' .
     '<p class="form-note">' . __('At least 2 characters using letters, numbers or symbols.') . '</p> ';
 
     echo
     '<p><label class="required" for="blog_name"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog name:') . '</label> ' .
-    form::field('blog_name', 30, 255,
+    form::field(
+        'blog_name',
+        30,
+        255,
         [
             'default'    => html::escapeHTML($blog_name),
             'extra_html' => 'required placeholder="' . __('Blog name') . '" lang="' . $core->auth->getInfo('user_lang') . '" ' .
-                'spellcheck="true"'
+                'spellcheck="true"',
         ]
     ) . '</p>' .
 
     '<p><label class="required" for="blog_url"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog URL:') . '</label> ' .
-    form::url('blog_url',
+    form::url(
+        'blog_url',
         [
             'size'       => 30,
             'default'    => html::escapeHTML($blog_url),
-            'extra_html' => 'required placeholder="' . __('Blog URL') . '"'
+            'extra_html' => 'required placeholder="' . __('Blog URL') . '"',
         ]
     ) . '</p>' .
 
     '<p class="area"><label for="blog_desc">' . __('Blog description:') . '</label> ' .
-    form::textarea('blog_desc', 60, 5,
+    form::textarea(
+        'blog_desc',
+        60,
+        5,
         [
             'default'    => html::escapeHTML($blog_desc),
-            'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"'
-        ]) . '</p>' .
+            'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+        ]
+    ) . '</p>' .
 
     '<p><input type="submit" accesskey="s" name="create" value="' . __('Create') . '" />' .
     ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .

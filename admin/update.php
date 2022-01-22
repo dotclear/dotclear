@@ -8,7 +8,7 @@
  *
  * @var dcCore $core
  */
-require dirname(__FILE__) . '/../inc/admin/prepend.php';
+require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
 
@@ -23,7 +23,7 @@ if (!defined('DC_BACKUP_PATH')) {
             dcPage::breadcrumb(
                 [
                     __('System')          => '',
-                    __('Dotclear update') => ''
+                    __('Dotclear update') => '',
                 ]
             )
         );
@@ -42,7 +42,7 @@ if (!is_readable(DC_DIGESTS)) {
         dcPage::breadcrumb(
             [
                 __('System')          => '',
-                __('Dotclear update') => ''
+                __('Dotclear update') => '',
             ]
         )
     );
@@ -197,7 +197,7 @@ dcPage::open(
     dcPage::breadcrumb(
         [
             __('System')          => '',
-            __('Dotclear update') => ''
+            __('Dotclear update') => '',
         ]
     )
 );

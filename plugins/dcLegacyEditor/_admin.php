@@ -12,7 +12,8 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$_menu['Plugins']->addItem('dcLegacyEditor',
+$_menu['Plugins']->addItem(
+    'dcLegacyEditor',
     $core->adminurl->get('admin.plugin.dcLegacyEditor'),
     dcPage::getPF('dcLegacyEditor/icon.png'),
     preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.dcLegacyEditor')) . '/', $_SERVER['REQUEST_URI']),
@@ -26,7 +27,7 @@ if ($self_ns->active) {
         $core->initWikiPost();
     }
 
-    $core->addEditorFormater('dcLegacyEditor', 'xhtml', function ($s) {return $s;});
+    $core->addEditorFormater('dcLegacyEditor', 'xhtml', fn ($s) => $s);
     $core->addEditorFormater('dcLegacyEditor', 'wiki', [$core->wiki2xhtml, 'transform']);
 
     $core->addBehavior('adminPostEditor', ['dcLegacyEditorBehaviors', 'adminPostEditor']);

@@ -82,10 +82,16 @@ class dcThemeEditor
                 }
             }
             $list .= ($list_theme != '' ? sprintf('<li class="group-file">' . __('From theme:') . '<ul>%s</ul></li>', $list_theme) : '');
-            $list .= ($list_parent != '' ? sprintf('<li class="group-file">' . __('From parent:') . ' %s<ul>%s</ul></li>',
-                $this->parent_name, $list_parent) : '');
-            $list .= ($list_tpl != '' ? sprintf('<li class="group-file">' . __('From template set:') . ' %s<ul>%s</ul></li>',
-                $this->tplset_name, $list_tpl) : '');
+            $list .= ($list_parent != '' ? sprintf(
+                '<li class="group-file">' . __('From parent:') . ' %s<ul>%s</ul></li>',
+                $this->parent_name,
+                $list_parent
+            ) : '');
+            $list .= ($list_tpl != '' ? sprintf(
+                '<li class="group-file">' . __('From template set:') . ' %s<ul>%s</ul></li>',
+                $this->tplset_name,
+                $list_tpl
+            ) : '');
         } else {
             foreach ($files as $k => $v) {
                 if (strpos($v, $this->user_theme) === 0) {
@@ -119,7 +125,7 @@ class dcThemeEditor
             'c'    => file_get_contents($F),
             'w'    => $this->getDestinationFile($type, $f) !== false,
             'type' => $type,
-            'f'    => $f
+            'f'    => $f,
         ];
     }
 

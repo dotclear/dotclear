@@ -12,7 +12,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-require dirname(__FILE__) . '/lib/class.blowup.config.php';
+require __DIR__ . '/lib/class.blowup.config.php';
 
 $can_write_images = blowupConfig::canWriteImages();
 $can_write_css    = blowupConfig::canWriteCss();
@@ -81,7 +81,7 @@ $blowup_base = [
     'footer_l_c'  => null,
     'footer_bg_c' => null,
 
-    'extra_css' => null
+    'extra_css' => null,
 ];
 
 $blowup_user = $core->blog->settings->themes->blowup_style;
@@ -97,7 +97,7 @@ $gradient_types = [
     __('Light linear gradient')  => 'light',
     __('Medium linear gradient') => 'medium',
     __('Dark linear gradient')   => 'dark',
-    __('Solid color')            => 'solid'
+    __('Solid color')            => 'solid',
 ];
 
 $top_images = [__('Custom...') => 'custom'];
@@ -110,7 +110,7 @@ if (!empty($_POST)) {
         $blowup_user['body_txt_c']       = dcThemeConfig::adjustColor($_POST['body_txt_c']);
         $blowup_user['body_line_height'] = dcThemeConfig::adjustFontSize($_POST['body_line_height']);
 
-        $blowup_user['blog_title_hide'] = (integer) !empty($_POST['blog_title_hide']);
+        $blowup_user['blog_title_hide'] = (int) !empty($_POST['blog_title_hide']);
         $update_blog_title              = !$blowup_user['blog_title_hide'] && (
             !empty($_POST['blog_title_f']) || !empty($_POST['blog_title_s']) || !empty($_POST['blog_title_c']) || !empty($_POST['blog_title_a']) || !empty($_POST['blog_title_p'])
         );
@@ -207,8 +207,8 @@ $js = [
       'msg'               => [
           'predefined_styles'      => __('Predefined styles'),
           'apply_code'             => __('Apply code'),
-          'predefined_style_title' => __('Choose a predefined style')
-      ]
+          'predefined_style_title' => __('Choose a predefined style'),
+      ],
   ];
 echo dcPage::jsJson('blowup', $js);
 echo dcPage::jsLoad(dcPage::getPF('blowupConfig/js/config.js'));
@@ -221,8 +221,9 @@ echo dcPage::breadcrumb(
     [
         html::escapeHTML($core->blog->name) => '',
         __('Blog appearance')               => $core->adminurl->get('admin.blog.theme'),
-        __('Blowup configuration')          => ''
-    ]) . dcPage::notices();
+        __('Blowup configuration')          => '',
+    ]
+) . dcPage::notices();
 
 echo
 '<p><a class="back" href="' . $core->adminurl->get('admin.blog.theme') . '">' . __('Back to Blog appearance') . '</a></p>';
@@ -425,7 +426,7 @@ echo
 form::textarea('extra_css', 72, 5, [
     'default'    => html::escapeHTML($blowup_user['extra_css']),
     'class'      => 'maximal',
-    'extra_html' => 'title="' . __('Additional CSS') . '"'
+    'extra_html' => 'title="' . __('Additional CSS') . '"',
 ]) .
     '</p>' .
     '</div>';
@@ -449,7 +450,7 @@ echo
 '<p>' . form::textarea('export_code', 72, 5, [
     'default'    => implode('; ', $tmp_array),
     'class'      => 'maximal',
-    'extra_html' => 'title="' . __('Copy this code:') . '"'
+    'extra_html' => 'title="' . __('Copy this code:') . '"',
 ]) . '</p>' .
     '</div>' .
     '</div>';

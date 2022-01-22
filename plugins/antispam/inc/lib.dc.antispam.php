@@ -119,7 +119,7 @@ class dcAntispam
         $rs = $core->con->select($strReq);
         $r  = [];
         while ($rs->fetch()) {
-            $r[] = (integer) $rs->comment_id;
+            $r[] = (int) $rs->comment_id;
         }
 
         if (empty($r)) {

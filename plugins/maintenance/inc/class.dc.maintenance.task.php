@@ -76,7 +76,7 @@ class dcMaintenanceTask
         $this->core->blog->settings->addNamespace('maintenance');
         $ts = $this->core->blog->settings->maintenance->get('ts_' . $this->id);
 
-        $this->ts = abs((integer) $ts);
+        $this->ts = abs((int) $ts);
     }
 
     /**
@@ -121,7 +121,7 @@ class dcMaintenanceTask
      */
     public function code($code)
     {
-        $this->code = (integer) $code;
+        $this->code = (int) $code;
     }
 
     /**
@@ -131,7 +131,7 @@ class dcMaintenanceTask
      */
     public function ts()
     {
-        return $this->ts === false ? false : abs((integer) $this->ts);
+        return $this->ts === false ? false : abs((int) $this->ts);
     }
 
     /**
@@ -228,7 +228,7 @@ class dcMaintenanceTask
      */
     public function ajax()
     {
-        return (boolean) $this->ajax;
+        return (bool) $this->ajax;
     }
 
     /**

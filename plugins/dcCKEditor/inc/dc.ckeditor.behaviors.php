@@ -40,10 +40,10 @@ class dcCKEditorBehaviors
             'admin_base_url'        => DC_ADMIN_URL,
             'base_url'              => $GLOBALS['core']->blog->host,
             'dcckeditor_plugin_url' => DC_ADMIN_URL . self::$p_url,
-            'user_language'         => $GLOBALS['core']->auth->getInfo('user_lang')
+            'user_language'         => $GLOBALS['core']->auth->getInfo('user_lang'),
         ]) .
         dcPage::jsJson('ck_editor_var', [
-            'CKEDITOR_BASEPATH' => DC_ADMIN_URL . self::$p_url . '/js/ckeditor/'
+            'CKEDITOR_BASEPATH' => DC_ADMIN_URL . self::$p_url . '/js/ckeditor/',
         ]) .
         dcPage::jsJson('ck_editor_msg', [
             'img_select_title'     => __('Media chooser'),
@@ -52,7 +52,7 @@ class dcCKEditorBehaviors
             'link_title'           => __('Link'),
             'link_accesskey'       => __('l'),
             'img_title'            => __('External image'),
-            'url_cannot_be_empty'  => __('URL field cannot be empty.')
+            'url_cannot_be_empty'  => __('URL field cannot be empty.'),
         ]) .
         dcPage::jsLoad(self::$p_url . '/js/_post_editor.js') .
         dcPage::jsLoad(self::$p_url . '/js/ckeditor/ckeditor.js') .
