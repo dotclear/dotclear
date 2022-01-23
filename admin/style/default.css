@@ -298,7 +298,7 @@ h6 {
   --discrete-link-color: #323232;
   --link-outline: #bee74b;
   --outgoing-link-filter: 50%;
-  --fieldset-border: #caced2;
+  --fieldset-border: #3a539b;
   --fieldset-background: #fff;
   --fieldset-focus-background: #ededed;
   --legend-border: #676e78;
@@ -400,15 +400,15 @@ h6 {
   --index-link-color: #323232;
   --index-link-border: #868686;
   --index-icon-background: #f9f9f9;
-  --index-icon-border: #dbdbdb;
+  --index-icon-border: #3a539b;
   --index-icon-outline: #bee74b;
   --index-icon-contrast: 100%;
-  --quick-background: #f3f3f3;
-  --quick-border: #dbdbdb;
+  --quick-background: #f9f9f9;
+  --quick-border: #3a539b;
   --quick-info-background: #d9edf7;
   --quick-info-border: #bce8f1;
   --quick-info-color: #323232;
-  --index-box-border: #caced2;
+  --index-box-border: #3a539b;
   --drag-n-drop-off: #868686;
   --drag-n-drop-on: #137bbb;
   --blog-user-border: #caced2;
