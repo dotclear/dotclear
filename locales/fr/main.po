@@ -2325,6 +2325,9 @@ msgstr "Appliquer les filtres à la volée"
 msgid "users per page"
 msgstr "utilisateur·rice·s par page"
 
+msgid "media per page"
+msgstr "médias par page"
+
 msgid "results per page"
 msgstr "résultats par page"
 
