@@ -164,7 +164,7 @@
 
   // Forms
 
-  --fieldset-border: scale-color($gray-dark, $lightness: 66%);
+  --fieldset-border: $marine; // scale-color($gray-dark, $lightness: 66%);
   --fieldset-background: $white;
   --fieldset-focus-background: scale-color($white, $lightness: -7%);
 
@@ -314,17 +314,17 @@
   --index-link-color: $gray-very-dark;
   --index-link-border: $gray-semi-dark;
   --index-icon-background: scale-color($gray-very-light, $lightness: 50%);
-  --index-icon-border: scale-color($gray-very-light, $lightness: -10%);
+  --index-icon-border: $marine; // scale-color($gray-very-light, $lightness: -10%);
   --index-icon-outline: $link-outline;
   --index-icon-contrast: 100%;
 
-  --quick-background: $gray-very-light;
-  --quick-border: scale-color($gray-very-light, $lightness: -10%);
+  --quick-background: scale-color($gray-very-light, $lightness: 50%); // $gray-very-light;
+  --quick-border: $marine; // scale-color($gray-very-light, $lightness: -10%);
   --quick-info-background: $info;
   --quick-info-border: $info-alt;
   --quick-info-color: $gray-very-dark;
 
-  --index-box-border: scale-color($gray-dark, $lightness: 66%);
+  --index-box-border: $marine; // scale-color($gray-dark, $lightness: 66%);
 
   --drag-n-drop-off: $gray-semi-dark;
   --drag-n-drop-on: $blue;
