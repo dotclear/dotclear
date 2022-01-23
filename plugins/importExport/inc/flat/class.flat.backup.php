@@ -84,7 +84,7 @@ class flatBackup
         $this->line_num++;
 
         $line = fgets($this->fp);
-        $line = trim($line);
+        $line = trim((string) $line);
 
         return empty($line) ? $this->nextLine() : $line;
     }

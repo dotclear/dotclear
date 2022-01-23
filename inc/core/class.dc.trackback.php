@@ -135,7 +135,7 @@ class dcTrackback
                 throw new Exception(sprintf(__('%s is not a ping URL'), $url));
             }
 
-            $ping_error = trim($match[1]);
+            $ping_error = trim((string) $match[1]);
             $ping_msg   = (!empty($match[4])) ? $match[4] : '';
         }
         # Damnit ! Let's play pingback

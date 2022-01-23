@@ -293,8 +293,8 @@ class defaultWidgets
 
         $i = 0;
         foreach ($feed->items as $item) {
-            $title = isset($item->title) && strlen(trim($item->title)) ? $item->title : '';
-            $link  = isset($item->link)  && strlen(trim($item->link)) ? $item->link : '';
+            $title = isset($item->title) && strlen(trim((string) $item->title)) ? $item->title : '';
+            $link  = isset($item->link)  && strlen(trim((string) $item->link)) ? $item->link : '';
 
             if (!$link && !$title) {
                 continue;

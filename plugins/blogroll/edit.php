@@ -70,7 +70,7 @@ if (isset($rs) && !$rs->is_cat && !empty($_POST['edit_link'])) {
     }
 
     try {
-        $blogroll->updateLink($id, $link_title, $link_href, $link_desc, $link_lang, trim($link_xfn));   // @phpstan-ignore-line
+        $blogroll->updateLink($id, $link_title, $link_href, $link_desc, $link_lang, trim((string) $link_xfn));   // @phpstan-ignore-line
         dcPage::addSuccessNotice(__('Link has been successfully updated'));
         http::redirect($p_url . '&edit=1&id=' . $id);
     } catch (Exception $e) {

@@ -111,7 +111,7 @@ class dcStoreReader extends netHttp
      */
     public function setCacheTTL($str)
     {
-        $str = trim($str);
+        $str = trim((string) $str);
 
         if (!empty($str)) {
             $this->cache_ttl = substr($str, 0, 1) == '-' ? $str : '-' . $str;

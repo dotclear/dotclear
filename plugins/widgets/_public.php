@@ -26,7 +26,7 @@ class publicWidgets
         $type = $attr['type'] ?? '';
 
         # widgets to disable
-        $disable = isset($attr['disable']) ? trim($attr['disable']) : '';
+        $disable = isset($attr['disable']) ? trim((string) $attr['disable']) : '';
 
         if ($type == '') {
             $res = "publicWidgets::widgetsHandler('nav','" . addslashes($disable) . "');" . "\n" .
@@ -77,7 +77,7 @@ class publicWidgets
         $type = $attr['type'] ?? '';
 
         # widgets to disable
-        $disable = isset($attr['disable']) ? trim($attr['disable']) : '';
+        $disable = isset($attr['disable']) ? trim((string) $attr['disable']) : '';
 
         if ($type == '') {
             $res = "publicWidgets::ifWidgetsHandler('nav','" . addslashes($disable) . "') &&" . "\n" .

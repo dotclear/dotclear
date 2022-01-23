@@ -82,7 +82,7 @@ class flatImport extends flatBackup
             $this->dc_version = $l[1];
         }
 
-        $this->mode = isset($l[2]) ? strtolower(trim($l[2])) : 'single';
+        $this->mode = isset($l[2]) ? strtolower(trim((string) $l[2])) : 'single';
         if ($this->mode != 'full' && $this->mode != 'single') {
             $this->mode = 'single';
         }

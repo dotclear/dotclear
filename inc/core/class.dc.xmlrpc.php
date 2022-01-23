@@ -501,7 +501,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 
         $cur->user_id            = $this->core->auth->userID();
         $cur->post_lang          = $this->core->auth->getInfo('user_lang');
-        $cur->post_title         = trim($title);
+        $cur->post_title         = trim((string) $title);
         $cur->post_content       = $content;
         $cur->post_excerpt       = $excerpt;
         $cur->post_content_xhtml = $content_xhtml;
@@ -599,7 +599,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         $cur = $this->core->con->openCursor($this->core->prefix . 'post');
 
         $cur->post_type          = $post_type;
-        $cur->post_title         = trim($title);
+        $cur->post_title         = trim((string) $title);
         $cur->post_content       = $content;
         $cur->post_excerpt       = $excerpt;
         $cur->post_content_xhtml = $content_xhtml;

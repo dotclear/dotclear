@@ -131,7 +131,7 @@ class tplDuctileTheme
             }
         }
 
-        $default = isset($attr['default']) ? trim($attr['default']) : 'short';
+        $default = isset($attr['default']) ? trim((string) $attr['default']) : 'short';
         $ret     = '<?php ' . "\n" .
         'switch (' . __NAMESPACE__ . '\tplDuctileTheme::ductileEntriesListHelper(\'' . $default . '\')) {' . "\n";
 

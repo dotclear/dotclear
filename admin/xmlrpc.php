@@ -11,7 +11,7 @@
 require __DIR__ . '/../inc/prepend.php';
 
 if (isset($_SERVER['PATH_INFO'])) {
-    $blog_id = trim($_SERVER['PATH_INFO']);
+    $blog_id = trim((string) $_SERVER['PATH_INFO']);
     $blog_id = preg_replace('#^/#', '', $blog_id);
 } elseif (!empty($_GET['b'])) {
     $blog_id = $_GET['b'];

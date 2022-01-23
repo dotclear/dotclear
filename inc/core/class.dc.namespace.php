@@ -73,7 +73,7 @@ class dcNamespace
             if ($rs->f('setting_ns') != $this->ns) {
                 break;
             }
-            $id    = trim($rs->f('setting_id'));
+            $id    = trim((string) $rs->f('setting_id'));
             $value = $rs->f('setting_value');
             $type  = $rs->f('setting_type');
 

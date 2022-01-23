@@ -44,7 +44,7 @@ class dcMeta
     {
         $res = [];
         foreach (explode(',', $str) as $i => $tag) {
-            $tag = trim($tag);
+            $tag = trim((string) $tag);
             $tag = self::sanitizeMetaID($tag);
 
             if ($tag != false) {
@@ -435,7 +435,7 @@ class dcMeta
     {
         $this->checkPermissionsOnPost($post_id);
 
-        $value = trim($value);
+        $value = trim((string) $value);
         if ($value === '') {
             return;
         }

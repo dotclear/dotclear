@@ -79,7 +79,7 @@ class dcWorkspace
             if ($rs->f('pref_ws') != $this->ws) {
                 break;
             }
-            $id    = trim($rs->f('pref_id'));
+            $id    = trim((string) $rs->f('pref_id'));
             $value = $rs->f('pref_value');
             $type  = $rs->f('pref_type');
 

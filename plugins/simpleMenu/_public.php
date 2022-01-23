@@ -28,9 +28,9 @@ class tplSimpleMenu
             return '';
         }
 
-        $class       = isset($attr['class']) ? trim($attr['class']) : '';
-        $id          = isset($attr['id']) ? trim($attr['id']) : '';
-        $description = isset($attr['description']) ? trim($attr['description']) : '';
+        $class       = isset($attr['class']) ? trim((string) $attr['class']) : '';
+        $id          = isset($attr['id']) ? trim((string) $attr['id']) : '';
+        $description = isset($attr['description']) ? trim((string) $attr['description']) : '';
 
         if (!preg_match('#^(title|span|both|none)$#', $description)) {
             $description = '';

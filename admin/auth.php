@@ -62,7 +62,7 @@ elseif (isset($_COOKIE['dc_admin']) && strlen($_COOKIE['dc_admin']) == 104) {
     $user_id = substr($_COOKIE['dc_admin'], 40);
     $user_id = @unpack('a32', @pack('H*', $user_id));
     if (is_array($user_id)) {
-        $user_id  = trim($user_id[1]);
+        $user_id  = trim((string) $user_id[1]);
         $user_key = substr($_COOKIE['dc_admin'], 0, 40);
         $user_pwd = null;
     } else {
@@ -134,11 +134,11 @@ elseif ($change_pwd) {
             $user_id = substr($data['cookie_admin'], 40);
             $user_id = @unpack('a32', @pack('H*', $user_id));
             if (is_array($user_id)) {
-                $user_id    = trim($data['user_id']);
+                $user_id    = trim((string) $data['user_id']);
                 $user_key   = substr($data['cookie_admin'], 0, 40);
                 $check_user = $core->auth->checkUser($user_id, null, $user_key) === true;
             } else {
-                $user_id = trim($user_id);  // @phpstan-ignore-line
+                $user_id = trim((string) $user_id);  // @phpstan-ignore-line
             }
         }
 

@@ -246,7 +246,7 @@ class adminModulesList
      */
     public function getSearch()
     {
-        $query = !empty($_REQUEST['m_search']) ? trim($_REQUEST['m_search']) : null;
+        $query = !empty($_REQUEST['m_search']) ? trim((string) $_REQUEST['m_search']) : null;
 
         return strlen((string) $query) >= 2 ? $query : null;
     }

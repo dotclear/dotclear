@@ -607,7 +607,7 @@ class dcRestMethods
         $section = $post['section'];
         $status  = isset($post['value']) && ($post['value'] != 0);
         if ($core->auth->user_prefs->toggles->prefExists('unfolded_sections')) {
-            $toggles = explode(',', trim($core->auth->user_prefs->toggles->unfolded_sections));
+            $toggles = explode(',', trim((string) $core->auth->user_prefs->toggles->unfolded_sections));
         } else {
             $toggles = [];
         }

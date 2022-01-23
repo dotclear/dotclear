@@ -71,7 +71,7 @@ class dcSettings
         }
 
         do {
-            $ns = trim($rs->f('setting_ns'));
+            $ns = trim((string) $rs->f('setting_ns'));
             if (!$rs->isStart()) {
                 // we have to go up 1 step, since namespaces construction performs a fetch()
                 // at very first time

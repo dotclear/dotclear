@@ -212,7 +212,7 @@ class dcSqlStatement
      */
     public function from($c, bool $reset = false, bool $first = false): dcSqlStatement
     {
-        $filter = fn ($v) => trim(ltrim($v, ','));
+        $filter = fn ($v) => trim(ltrim((string) $v, ','));
         if ($reset) {
             $this->from = [];
         }
@@ -586,7 +586,7 @@ class dcSqlStatement
                 $s = preg_replace('!' . $pattern . '!', $replace, $s);
             }
 
-            return trim($s);
+            return trim((string) $s);
         };
 
         return ($filter($local) === $filter($external));

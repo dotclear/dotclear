@@ -29,8 +29,8 @@ try {
         $pings_uris     = [];
 
         foreach ($pings_srv_name as $k => $v) {
-            if (trim($v) && trim($pings_srv_uri[$k])) {
-                $pings_uris[trim($v)] = trim($pings_srv_uri[$k]);
+            if (trim((string) $v) && trim((string) $pings_srv_uri[$k])) {
+                $pings_uris[trim((string) $v)] = trim((string) $pings_srv_uri[$k]);
             }
         }
         $core->blog->settings->addNamespace('pings');

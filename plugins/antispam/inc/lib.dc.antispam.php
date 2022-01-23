@@ -144,7 +144,7 @@ class dcAntispam
     {
         $code = pack('H*', $code);
 
-        $user_id = trim(@pack('a32', substr($code, 0, 32)));
+        $user_id = trim((string) @pack('a32', substr($code, 0, 32)));
         $pwd     = substr($code, 32);
 
         if ($user_id === '' || $pwd === '') {

@@ -1067,7 +1067,7 @@ class dcTemplate extends template
         $operator = isset($attr['operator']) ? $this->getOperator($attr['operator']) : '&&';
 
         if (isset($attr['url'])) {
-            $url  = addslashes(trim($attr['url']));
+            $url  = addslashes(trim((string) $attr['url']));
             $args = preg_split('/\s*[?]\s*/', $url, -1, PREG_SPLIT_NO_EMPTY);
             $url  = array_shift($args);
             $args = array_flip($args);
@@ -1088,7 +1088,7 @@ class dcTemplate extends template
         }
 
         if (isset($attr['urls'])) {
-            $urls = explode(',', addslashes(trim($attr['urls'])));
+            $urls = explode(',', addslashes(trim((string) $attr['urls'])));
             if (is_array($urls)) {
                 foreach ($urls as $url) {
                     $args = preg_split('/\s*[?]\s*/', trim($url), -1, PREG_SPLIT_NO_EMPTY);
@@ -1443,13 +1443,13 @@ class dcTemplate extends template
         $operator = isset($attr['operator']) ? $this->getOperator($attr['operator']) : '&&';
 
         if (isset($attr['type'])) {
-            $type = trim($attr['type']);
+            $type = trim((string) $attr['type']);
             $type = !empty($type) ? $type : 'post';
             $if[] = '$_ctx->posts->post_type == "' . addslashes($type) . '"';
         }
 
         if (isset($attr['url'])) {
-            $url = trim($attr['url']);
+            $url = trim((string) $attr['url']);
             if (substr($url, 0, 1) == '!') {
                 $url  = substr($url, 1);
                 $if[] = '$_ctx->posts->post_url != "' . addslashes($url) . '"';
@@ -1459,7 +1459,7 @@ class dcTemplate extends template
         }
 
         if (isset($attr['category'])) {
-            $category = addslashes(trim($attr['category']));
+            $category = addslashes(trim((string) $attr['category']));
             $args     = preg_split('/\s*[?]\s*/', $category, -1, PREG_SPLIT_NO_EMPTY);
             $category = array_shift($args);
             $args     = array_flip($args);
@@ -1480,10 +1480,10 @@ class dcTemplate extends template
         }
 
         if (isset($attr['categories'])) {
-            $categories = explode(',', addslashes(trim($attr['categories'])));
+            $categories = explode(',', addslashes(trim((string) $attr['categories'])));
             if (is_array($categories)) {
                 foreach ($categories as $category) {
-                    $args     = preg_split('/\s*[?]\s*/', trim($category), -1, PREG_SPLIT_NO_EMPTY);
+                    $args     = preg_split('/\s*[?]\s*/', trim((string) $category), -1, PREG_SPLIT_NO_EMPTY);
                     $category = array_shift($args);
                     $args     = array_flip($args);
                     if (substr($category, 0, 1) == '!') {
@@ -1571,7 +1571,7 @@ class dcTemplate extends template
         }
 
         if (isset($attr['author'])) {
-            $author = trim($attr['author']);
+            $author = trim((string) $attr['author']);
             if (substr($author, 0, 1) == '!') {
                 $author = substr($author, 1);
                 $if[]   = '$_ctx->posts->user_id != "' . $author . '"';
@@ -3256,7 +3256,7 @@ class dcTemplate extends template
             $if[] = $sign . '$core->blog->settings->system->wiki_comments';
         }
 
-        if (isset($attr['search_count']) && preg_match('/^((=|!|&gt;|&lt;)=|(&gt;|&lt;))\s*[0-9]+$/', trim($attr['search_count']))) {
+        if (isset($attr['search_count']) && preg_match('/^((=|!|&gt;|&lt;)=|(&gt;|&lt;))\s*[0-9]+$/', trim((string) $attr['search_count']))) {
             $if[] = '(isset($_search_count) && $_search_count ' . html::decodeEntities($attr['search_count']) . ')';
         }
 

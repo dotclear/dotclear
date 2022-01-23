@@ -79,7 +79,7 @@ class dcAntispamURL extends dcUrlHandlers
 
             $content = '<p>IP: ' . $rs->comment_ip;
 
-            if (trim($rs->comment_site)) {
+            if (trim((string) $rs->comment_site)) {
                 $content .= '<br />URL: <a href="' . $rs->comment_site . '">' . $rs->comment_site . '</a>';
             }
             $content .= "</p><hr />\n";

@@ -1816,7 +1816,7 @@ class dcBlog
         $queries = [];
 
         foreach ($arr as $v) {
-            $v    = trim($v);
+            $v    = trim((string) $v);
             $args = preg_split('/\s*[?]\s*/', $v, -1, PREG_SPLIT_NO_EMPTY);
             $id   = array_shift($args);
             $args = array_flip($args);
@@ -2031,7 +2031,7 @@ class dcBlog
      */
     public function getPostURL($url, $post_dt, $post_title, $post_id)
     {
-        $url = trim($url);
+        $url = trim((string) $url);
 
         $url_patterns = [
             '{y}'  => date('Y', strtotime($post_dt)),

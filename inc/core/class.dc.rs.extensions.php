@@ -670,8 +670,8 @@ class rsExtComment
      */
     public static function getAuthorURL($rs)
     {
-        if (trim($rs->comment_site)) {
-            return trim($rs->comment_site);
+        if (trim((string) $rs->comment_site)) {
+            return trim((string) $rs->comment_site);
         }
     }
 

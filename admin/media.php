@@ -633,7 +633,7 @@ if ($page->showLast()) {
             $last_folders_item .= '<option value="' . urldecode($core->adminurl->get('admin.media', $ld_params)) . '"' .
                 ($ld == rtrim((string) $page->d, '/') ? ' selected="selected"' : '') . '>' .
                 '/' . $ld . '</option>' . "\n";
-            if ($ld == rtrim($page->d, '/')) {
+            if ($ld == rtrim((string) $page->d, '/')) {
                 // Current directory is not a favorite → button will fav
                 $ld_params['fav'] = 'y';
                 $fav_url          = urldecode($core->adminurl->get('admin.media', $ld_params));

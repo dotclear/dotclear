@@ -68,7 +68,7 @@ try {
             asort($order);
             $order = array_keys($order);
         } elseif (!empty($_POST['filters_order'])) {
-            $order = explode(',', trim($_POST['filters_order'], ','));
+            $order = explode(',', trim((string) $_POST['filters_order'], ','));
         }
 
         if (isset($order)) {

@@ -79,7 +79,7 @@ class dcPrefs
         }
 
         do {
-            $ws = trim($rs->f('pref_ws'));
+            $ws = trim((string) $rs->f('pref_ws'));
             if (!$rs->isStart()) {
                 // we have to go up 1 step, since workspaces construction performs a fetch()
                 // at very first time

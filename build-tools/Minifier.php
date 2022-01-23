@@ -122,7 +122,7 @@ class Minifier
             $jshrink->minifyDirectToOutput($js, $options);
 
             // Sometimes there's a leading new line, so we trim that out here.
-            $js = ltrim(ob_get_clean());
+            $js = ltrim((string) ob_get_clean());
             $js = $jshrink->unlock($js);
             unset($jshrink);
 
