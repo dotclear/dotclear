@@ -39,7 +39,7 @@ class dcMenu
      *
      * @param      string  $title   The title
      * @param      string  $url     The url
-     * @param      string  $img     The image
+     * @param      mixed   $img     The image(s)
      * @param      mixed   $active  The active flag
      * @param      bool    $show    The show flag
      * @param      mixed   $id      The identifier
@@ -63,7 +63,7 @@ class dcMenu
      *
      * @param      string  $title   The title
      * @param      string  $url     The url
-     * @param      string  $img     The image
+     * @param      mixed   $img     The image(s)
      * @param      mixed   $active  The active flag
      * @param      bool    $show    The show flag
      * @param      mixed   $id      The identifier
@@ -130,7 +130,7 @@ class dcMenu
      *
      * @param      string  $title   The title
      * @param      mixed   $url     The url
-     * @param      string  $img     The image
+     * @param      mixed   $img     The image(s)
      * @param      mixed   $active  The active flag
      * @param      mixed   $id      The identifier
      * @param      mixed   $class   The class
@@ -147,13 +147,9 @@ class dcMenu
             $ahtml = '';
         }
 
-        $img = dc_admin_icon_url($img);
-
-        return
-            '<li' . (($active || $class) ? ' class="' . (($active) ? 'active ' : '') . (($class) ? $class : '') . '"' : '') .
+        return '<li' . (($active || $class) ? ' class="' . (($active) ? 'active ' : '') . (($class) ? $class : '') . '"' : '') .
             (($id) ? ' id="' . $id . '"' : '') .
-            (($img) ? ' style="background-image: url(' . $img . ');"' : '') .
-            '>' .
+            '>' . dc_admin_icon_theme($img) .
 
             '<a href="' . $link . '"' . $ahtml . '>' . $title . '</a></li>' . "\n";
     }

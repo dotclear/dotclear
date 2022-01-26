@@ -2,16 +2,28 @@
 // =Themes
 // ========================================================================== //
 
-:root, :root[data-theme="light"] {
+:root,
+:root[data-theme='light'] {
   @include theme-light;
 }
 
-:root[data-theme="dark"] {
+:root[data-theme='dark'] {
   @include theme-dark;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
+  :root:not([data-theme='light']) {
     @include theme-dark;
+  }
+}
+
+body.dark-mode .light-only {
+  display: none !important;
+}
+
+body.light-mode,
+body:not(.dark-mode):not(.light-mode) {
+  .dark-only {
+    display: none !important;
   }
 }

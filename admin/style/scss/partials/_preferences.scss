@@ -40,19 +40,20 @@
     &:hover span.zoom {
       display: block;
       position: absolute;
-      bottom: 0;
+      top: 2em;
       left: 10em;
-      background-color: var(--fav-list-background-over);
-      border: 1px solid var(--fav-list-border-alt);
-      padding: .2em;
-      border-radius: .5em;
+      background-color: var(--index-icon-background);
+      border: 1px solid var(--index-icon-border);
+      padding: 1em;
+      border-radius: 0.5em;
+      z-index: 1;
     }
   }
 
   img {
     vertical-align: middle;
-    margin-top: -.235ex;  // margin-top: -.235ex see https://www.matthecat.com/aligner-icone-et-texte.html
-    margin-right: .2em;
+    margin-top: -0.235ex; // margin-top: -.235ex see https://www.matthecat.com/aligner-icone-et-texte.html
+    margin-right: 0.2em;
     width: 1em;
     height: 1em;
   }
@@ -62,7 +63,7 @@
   border-color: var(--my-favs-border);
 
   input.position {
-    margin: 0 0 .4em .2em;
+    margin: 0 0 0.4em 0.2em;
   }
 }
 
@@ -81,12 +82,13 @@
   li:hover label span.zoom {
     display: block;
     position: absolute;
-    bottom: 0;
+    top: 2em;
     left: 10em;
-    background-color: var(--fav-list-background);
-    border: 1px solid var(--fav-list-border-alt);
-    padding: .2em;
-    border-radius: .5em;
+    background-color: var(--index-icon-background);
+    border: 1px solid var(--index-icon-border);
+    padding: 1em;
+    border-radius: 0.5em;
+    z-index: 1;
   }
 }
 

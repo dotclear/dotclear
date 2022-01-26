@@ -234,7 +234,8 @@ h6 {
 /** --------------------------------------------------
   Colors
 --------------------------------------------------- */
-:root, :root[data-theme="light"] {
+:root,
+:root[data-theme='light'] {
   --body-color: #323232;
   --body-background: #fff;
   --title-color: #676e78;
@@ -449,8 +450,6 @@ h6 {
   --entry-sb-title-border: #676e78;
   --entry-sb-background: #f3f3f3;
   --entry-sb-focus-background: #ededed;
-  --fav-list-background: #f3f3f3;
-  --fav-list-background-over: #f3f3f3;
   --fav-list-border: #ececec;
   --fav-list-border-alt: #dbdbdb;
   --my-favs-border: #9ac123;
@@ -500,7 +499,7 @@ h6 {
   --debug-background: #ffd478;
   --debug-border: #ffd478; }
 
-:root[data-theme="dark"] {
+:root[data-theme='dark'] {
   --body-color: #dcdee0;
   --body-background: #272b30;
   --title-color: #b2b5ba;
@@ -715,8 +714,6 @@ h6 {
   --entry-sb-title-border: #fff;
   --entry-sb-background: #494c52;
   --entry-sb-focus-background: #565a60;
-  --fav-list-background: #303236;
-  --fav-list-background-over: #565a60;
   --fav-list-border: #ecedee;
   --fav-list-border-alt: #dadbde;
   --my-favs-border: #9ac123;
@@ -767,7 +764,7 @@ h6 {
   --debug-border: #ffd478; }
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
+  :root:not([data-theme='light']) {
     --body-color: #dcdee0;
     --body-background: #272b30;
     --title-color: #b2b5ba;
@@ -982,8 +979,6 @@ h6 {
     --entry-sb-title-border: #fff;
     --entry-sb-background: #494c52;
     --entry-sb-focus-background: #565a60;
-    --fav-list-background: #303236;
-    --fav-list-background-over: #565a60;
     --fav-list-border: #ecedee;
     --fav-list-border-alt: #dadbde;
     --my-favs-border: #9ac123;
@@ -1032,6 +1027,13 @@ h6 {
     --debug-color: #ae323b;
     --debug-background: #ffd478;
     --debug-border: #ffd478; } }
+body.dark-mode .light-only {
+  display: none !important; }
+
+body.light-mode .dark-only,
+body:not(.dark-mode):not(.light-mode) .dark-only {
+  display: none !important; }
+
 /** --------------------------------------------------
     Common rules
 --------------------------------------------------- */
@@ -2537,16 +2539,19 @@ h1 {
   padding: 0;
   list-style: none; }
   #main-menu ul li {
-    display: block;
+    display: flex;
     margin: 0.5em 0 0;
-    padding: 4px 0 1px 2.125em;
-    background-repeat: no-repeat;
-    background-position: 8px .625em;
-    background-size: 1em 1em;
+    padding: 4px 0.5em 1px 0.5em;
     position: relative; }
+    #main-menu ul li img {
+      width: 1em;
+      height: 1em;
+      margin-top: 0.25em; }
+    #main-menu ul li a {
+      margin-left: 0.5em; }
     #main-menu ul li a::after {
       position: absolute;
-      content: "";
+      content: '';
       top: 0;
       bottom: 0;
       left: 0;
@@ -2562,20 +2567,23 @@ h1 {
     border-bottom: none;
     color: var(--main-menu-active-color); }
 
-#favorites-menu, #blog-menu, #system-menu, #plugins-menu {
+#favorites-menu,
+#blog-menu,
+#system-menu,
+#plugins-menu {
   border-bottom: 1px dashed var(--main-menu-border); }
 
 #favorites-menu h3 {
   font-variant: small-caps;
-  padding-top: .2em; }
+  padding-top: 0.2em; }
 
 #search-menu {
   padding: 4px 0 0 4px;
-  font-size: .91em; }
+  font-size: 0.91em; }
   #search-menu p {
     width: 95%;
-    margin: 0 0 .5em 0; }
-  #search-menu input[type="submit"] {
+    margin: 0 0 0.5em 0; }
+  #search-menu input[type='submit'] {
     float: right; }
 
 #qx {
@@ -3755,23 +3763,24 @@ div.template-upload {
     .fav-list li:hover span.zoom {
       display: block;
       position: absolute;
-      bottom: 0;
+      top: 2em;
       left: 10em;
-      background-color: var(--fav-list-background-over);
-      border: 1px solid var(--fav-list-border-alt);
-      padding: .2em;
-      border-radius: .5em; }
+      background-color: var(--index-icon-background);
+      border: 1px solid var(--index-icon-border);
+      padding: 1em;
+      border-radius: 0.5em;
+      z-index: 1; }
   .fav-list img {
     vertical-align: middle;
-    margin-top: -.235ex;
-    margin-right: .2em;
+    margin-top: -0.235ex;
+    margin-right: 0.2em;
     width: 1em;
     height: 1em; }
 
 #my-favs {
   border-color: var(--my-favs-border); }
   #my-favs input.position {
-    margin: 0 0 .4em .2em; }
+    margin: 0 0 0.4em 0.2em; }
 
 #available-favs input,
 #available-favs label,
@@ -3783,12 +3792,13 @@ div.template-upload {
 #available-favs li:hover label span.zoom {
   display: block;
   position: absolute;
-  bottom: 0;
+  top: 2em;
   left: 10em;
-  background-color: var(--fav-list-background);
-  border: 1px solid var(--fav-list-border-alt);
-  padding: .2em;
-  border-radius: .5em; }
+  background-color: var(--index-icon-background);
+  border: 1px solid var(--index-icon-border);
+  padding: 1em;
+  border-radius: 0.5em;
+  z-index: 1; }
 
 #user-options label.ib {
   display: inline-block;

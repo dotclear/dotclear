@@ -785,8 +785,13 @@ foreach ($user_fav as $id) {
         }
 
         $count++;
-        echo '<li id="fu-' . $id . '">' . '<label for="fuk-' . $id . '">' .
-        '<img src="' . dc_admin_icon_url($fav['small-icon']) . '" alt="" /> ' . '<span class="zoom"><img src="' . dc_admin_icon_url($fav['large-icon']) . '" alt="" /></span>' .
+
+        $icon = dc_admin_icon_theme($fav['small-icon']);
+        $zoom = dc_admin_icon_theme($fav['large-icon'], false);
+        if ($zoom !== '') {
+            $icon .= ' <span class="zoom">' . $zoom . '</span>';
+        }
+        echo '<li id="fu-' . $id . '">' . '<label for="fuk-' . $id . '">' . $icon .
         form::number(['order[' . $id . ']'], [
             'min'        => 1,
             'max'        => count($user_fav),
@@ -859,9 +864,12 @@ foreach ($avail_fav as $k => $fav) {
     }
 
     $count++;
-    echo '<li id="fa-' . $k . '">' . '<label for="fak-' . $k . '">' .
-    '<img src="' . dc_admin_icon_url($fav['small-icon']) . '" alt="" /> ' .
-    '<span class="zoom"><img src="' . dc_admin_icon_url($fav['large-icon']) . '" alt="" /></span>' .
+    $icon = dc_admin_icon_theme($fav['small-icon']);
+    $zoom = dc_admin_icon_theme($fav['large-icon'], false);
+    if ($zoom !== '') {
+        $icon .= ' <span class="zoom">' . $zoom . '</span>';
+    }
+    echo '<li id="fa-' . $k . '">' . '<label for="fak-' . $k . '">' . $icon .
     form::checkbox(['append[]', 'fak-' . $k], $k) .
         $fav['title'] . '</label>' .
         (isset($default_fav_ids[$k]) ? ' <span class="default-fav"><img src="images/selected.png" alt="' . __('(default favorite)') . '" /></span>' : '') .
