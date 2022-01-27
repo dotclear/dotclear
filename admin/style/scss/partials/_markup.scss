@@ -1,10 +1,9 @@
 /* ------------------------------------------------------------------ titres */
 
-
 /* fil d'ariane */
 
 #content > h2 {
-  padding: 0 1em .5em 1em;
+  padding: 0 1em 0.5em 1em;
   margin: 0 -1em 1em -1em;
   background: var(--breadcrumb-background);
   border-bottom: 1px solid var(--breadcrumb-border);
@@ -16,11 +15,10 @@
   color: var(--breadcrumb-current);
 
   img {
-    padding-left: .5em;
+    padding-left: 0.5em;
     vertical-align: middle;
   }
 }
-
 
 /* autres titres */
 
@@ -75,9 +73,7 @@ p {
   }
 }
 
-
 /* ---------------------------------------------------------------- tableaux */
-
 
 /*  Pour autoriser le scroll sur les petites largeurs
   envelopper les tableaux dans une div.table-outer */
@@ -98,7 +94,7 @@ caption {
   color: var(--table-caption-color);
   font-weight: bold;
   text-align: left;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 
 th:not(.module-name) {
@@ -106,20 +102,20 @@ th:not(.module-name) {
   border-style: solid;
   border-color: var(--head-border);
   background: var(--head-background);
-  padding: .4em 1em .4em .5em;
+  padding: 0.4em 1em 0.4em 0.5em;
   vertical-align: top;
   text-align: left;
 }
 
-td, th.module-name {
+td,
+th.module-name {
   font-weight: normal;
   border-width: 0 0 1px 0;
   border-style: solid;
   border-color: var(--cell-border);
-  padding: .4em 1em .4em .5em;
+  padding: 0.4em 1em 0.4em 0.5em;
   vertical-align: top;
 }
-
 
 /* ---------------------------------------------------------- autres balises */
 
@@ -172,7 +168,6 @@ label {
   font-size: 1em;
 }
 
-
 /* ------------------------------------------------------------------ liens */
 
 a,
@@ -205,7 +200,7 @@ h1 a:visited {
 }
 
 a:link {
-  transition: .5s;
+  transition: 0.5s;
 }
 
 a:focus,
@@ -215,13 +210,14 @@ a:focus img {
   text-decoration: none;
 }
 
-a.outgoing img, .outgoing-js {
-  width: .75em;
+a.outgoing img,
+.outgoing-js {
+  width: 0.75em;
   filter: contrast(var(--outgoing-link-filter));
 
   #header & {
     width: 1.25em;
-    padding: 0 0 0 .5em;
+    padding: 0 0 0 0.5em;
     vertical-align: initial;
     filter: contrast(100%);
   }

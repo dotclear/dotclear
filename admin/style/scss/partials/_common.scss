@@ -27,7 +27,13 @@ body {
 
 // titres //
 
-h2, h3, .as_h3, h4, .as_h4, h5, h6 {
+h2,
+h3,
+.as_h3,
+h4,
+.as_h4,
+h5,
+h6 {
   margin-top: 0;
   margin-bottom: 1em;
 }
@@ -40,7 +46,8 @@ h2 {
   padding: 0 0 1.5em;
 }
 
-h3, .as_h3 {
+h3,
+.as_h3 {
   color: var(--title-alt-color);
   font-size: 1.34em;
   font-weight: normal;
@@ -48,7 +55,8 @@ h3, .as_h3 {
   margin-top: 1em;
 }
 
-h4, .as_h4 {
+h4,
+.as_h4 {
   color: var(--title-color);
   font-size: 1.16em;
   line-height: 1.5;

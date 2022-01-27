@@ -50,7 +50,7 @@ h1,
 #content {
   background: var(--content-background);
   margin: 0 0 0 14em;
-  padding: .5em 1.5em .75em 2.5em;
+  padding: 0.5em 1.5em 0.75em 2.5em;
 }
 
 #main-menu {
@@ -58,7 +58,7 @@ h1,
   width: 14em;
   float: left;
   margin: 0;
-  padding-top: .5em;
+  padding-top: 0.5em;
   padding-bottom: 1em;
   overflow: hidden;
 }
@@ -68,10 +68,9 @@ h1,
   border-top: 1px solid var(--footer-border);
   clear: both;
   position: relative;
-  padding: .5em 0 .5em 1em;
+  padding: 0.5em 0 0.5em 1em;
   text-align: left;
 }
-
 
 /* to hide main-menu */
 
@@ -89,14 +88,16 @@ h1,
   z-index: 1;
   transition: none;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background: var(--collapser-focus);
   }
 
   .hide-mm & {
     background: var(--collapser-focus);
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background: var(--collapser-background);
     }
   }
@@ -105,7 +106,6 @@ h1,
 .expand-mm {
   display: none;
 }
-
 
 /* if main-menu is hidden */
 
@@ -142,7 +142,6 @@ h1,
 #wrapper.hide-mm {
   background: var(--content-background);
 }
-
 
 /* -------------------------------------------------------------- layout: two-cols */
 
@@ -192,7 +191,6 @@ h1,
   }
 }
 
-
 /* -------------------------------------------------------------- layout: three-cols */
 
 .three-cols {
@@ -208,7 +206,6 @@ h1,
     }
   }
 }
-
 
 /* ------------------------------------------------- layout: optionnal one/two/three-boxes */
 
@@ -233,7 +230,7 @@ h1,
 }
 
 .two-boxes:nth-of-type(odd),
-.three-boxes:nth-of-type(3n+1) {
+.three-boxes:nth-of-type(3n + 1) {
   margin-left: 0;
 }
 
@@ -241,7 +238,6 @@ h1,
 .three-boxes:nth-of-type(3n) {
   margin-right: 0;
 }
-
 
 /* ---------------------------------------------------------------- layout: popups */
 
@@ -287,7 +283,6 @@ h1,
   }
 }
 
-
 /* -------------------------------------------------------- layout: classes de complément */
 
 .constrained {
@@ -318,7 +313,6 @@ h1,
   height: 1px;
   font-size: 1px;
 }
-
 
 /* Micro clearfix thx to Nicolas Gallagher, replaced by display: flow-root (see https://css-tricks.com/display-flow-root/) */
 
@@ -355,7 +349,6 @@ h1,
 .even {
   margin-right: 0;
 }
-
 
 /* ------------------------------------------------------------------------------------
                               UN POIL DE MEDIA QUERIES
@@ -497,7 +490,7 @@ h1,
   }
 
   #main #content > h2 {
-    margin: 0 -.25em 1em;
+    margin: 0 -0.25em 1em;
   }
 
   #dashboard-boxes .box.medium,
@@ -530,11 +523,11 @@ h1,
   }
 
   #top-info-blog {
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
     max-width: 75%;
 
     select {
-      margin-bottom: .5em;
+      margin-bottom: 0.5em;
     }
   }
 
@@ -550,7 +543,7 @@ h1,
   }
 
   p.top-add {
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
   }
 
   .part-tabs ul {

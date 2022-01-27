@@ -7,7 +7,7 @@
 
     &:first-child {
       margin-top: 0;
-      padding-top: .5em;
+      padding-top: 0.5em;
     }
   }
 
@@ -21,7 +21,7 @@
 
   .one-box .box {
     border: 1px solid var(--charte-one-box-border);
-    padding: 2px .5em;
+    padding: 2px 0.5em;
   }
 
   #main-menu ul {

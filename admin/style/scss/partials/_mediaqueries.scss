@@ -25,7 +25,7 @@
   .modules {
     th.module-desc,
     td.module-desc {
-      display: none;  // Module description is also in title of the raw
+      display: none; // Module description is also in title of the raw
     }
   }
 }
@@ -34,7 +34,7 @@
   #help-button {
     background-color: var(--header-border);
     padding: 0;
-    font-size: .83em;
+    font-size: 0.83em;
     line-height: 68px;
   }
 }
@@ -57,11 +57,11 @@
 
   #content,
   .hide-mm #content {
-    padding: 0 .5em !important;
+    padding: 0 0.5em !important;
   }
 
   #main #content > h2 {
-    padding: 6px 30px 4px .5em;
+    padding: 6px 30px 4px 0.5em;
   }
 
   .cell,
@@ -72,7 +72,7 @@
 
   .pseudo-tabs li {
     border-top: 1px solid var(--tabs-border);
-    padding: .25em;
+    padding: 0.25em;
 
     &:first-child,
     &:nth-of-type(2) {
@@ -88,7 +88,7 @@
   }
 
   #content.with-help #help {
-    font-size: 1.2rem // 12px;
+    font-size: 1.2rem; // 12px;
   }
 
   p.top-add {
@@ -100,11 +100,11 @@
   }
 
   .part-tabs ul {
-    padding: 0 .5em;
+    padding: 0 0.5em;
   }
 
   #icons p {
-    padding: 1em .25em;
+    padding: 1em 0.25em;
   }
 
   .box.current-theme {

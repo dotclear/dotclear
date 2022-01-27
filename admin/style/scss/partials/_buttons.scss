@@ -1,21 +1,20 @@
 /* Removes inner padding and border in FF3+  - Knacss */
 
 button::-moz-focus-inner,
-input[type=button]::-moz-focus-inner,
-input[type=reset]::-moz-focus-inner,
-input[type=submit]::-moz-focus-inner {
+input[type='button']::-moz-focus-inner,
+input[type='reset']::-moz-focus-inner,
+input[type='submit']::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
-
 
 /* tous les boutons */
 
 button,
 a.button,
-input[type=button],
-input[type=reset],
-input[type=submit] {
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
   border: 1px solid var(--button-border);
   font-family: $sans-serif-input;
   padding: 3px 10px;
@@ -37,8 +36,8 @@ a.button {
 
 /* validation */
 
-input[type=submit],
-button[type=submit],
+input[type='submit'],
+button[type='submit'],
 a.button.submit,
 button.submit,
 input.button.start {
@@ -47,7 +46,8 @@ input.button.start {
   background-image: #{'linear-gradient(to bottom, var(--submit-background), var(--submit-background-alt))'};
   border-color: var(--submit-background);
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: var(--submit-background-alt);
     background-image: #{'linear-gradient(to bottom, var(--submit-background-alt), var(--submit-background))'};
     border-color: var(--submit-background-alt);
@@ -57,12 +57,12 @@ input.button.start {
 /* suppression, reset, "neutres" fond gris */
 
 button,
-input[type=button],
+input[type='button'],
 input.button,
-input[type=reset],
-input[type=submit].reset,
+input[type='reset'],
+input[type='submit'].reset,
 input.reset,
-input[type=submit].delete,
+input[type='submit'].delete,
 input.delete,
 a.button,
 a.button.delete,
@@ -73,7 +73,8 @@ a.button.reset {
   background-repeat: repeat-x;
   border-color: var(--reset-border);
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: var(--reset-background-ter);
     background-image: #{'linear-gradient(to bottom, var(--reset-background), var(--reset-background-ter))'};
     background-repeat: repeat-x;
@@ -83,14 +84,15 @@ a.button.reset {
 
 /* suppression */
 
-input[type=submit].delete,
+input[type='submit'].delete,
 input.delete,
-button[type=submit].delete,
+button[type='submit'].delete,
 button.delete,
 a.button.delete {
   color: var(--delete-color);
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: var(--delete-hover-color);
     background-color: var(--delete-hover-background);
     background-image: #{'linear-gradient(to bottom, var(--delete-hover-background-alt), var(--delete-hover-background))'};
@@ -101,7 +103,7 @@ a.button.delete {
 
 #info-box a.button,
 #info-box button {
-  padding: 0 .5em;
+  padding: 0 0.5em;
   margin-left: 2em;
 }
 
@@ -111,9 +113,11 @@ button.add {
   background-color: var(--add-background);
   background-image: #{'linear-gradient(to bottom, var(--add-background), var(--add-background-alt))'};
   border-color: var(--add-border);
-  padding: .33em 1.33em .5em;
+  padding: 0.33em 1.33em 0.5em;
 
-  &:hover, &:active, &:focus {
+  &:hover,
+  &:active,
+  &:focus {
     background-color: var(--add-background-alt);
     background-image: #{'linear-gradient(to bottom, var(--add-background-alt), var(--add-background))'};
     border-color: var(--add-border-alt);
@@ -124,17 +128,19 @@ button.add {
   outline: dotted 1px;
 }
 
-input[type=submit].clone,
+input[type='submit'].clone,
 input.clone,
 button.clone,
-button[type=submit].clone,
+button[type='submit'].clone,
 a.button.clone {
   color: var(--clone-color);
   background-color: var(--clone-background);
   background-image: #{'linear-gradient(to bottom, var(--clone-background-alt), var(--clone-background))'};
   border-color: var(--clone-border);
 
-  &:hover, &:active, &:focus {
+  &:hover,
+  &:active,
+  &:focus {
     color: var(--clone-hover-color);
     background-color: var(--clone-hover-background);
     background-image: #{'linear-gradient(to bottom, var(--clone-hover-background-alt), var(--clone-hover-background))'};
@@ -151,9 +157,9 @@ p.top-add {
 /* disabled */
 
 input.disabled,
-input[type=submit].disabled,
+input[type='submit'].disabled,
 button.disabled,
-button[type=submit].disabled {
+button[type='submit'].disabled {
   color: var(--button-disabled-color);
   background: var(--button-disabled-background);
   border: 1px solid var(--button-disabled-border);
@@ -183,7 +189,8 @@ button.details-cmd {
   background: transparent;
   box-shadow: none;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background: transparent;
     color: var(--input-focus);
   }
@@ -205,7 +212,7 @@ a.metaGetMore {
   background: var(--ajax-background);
   box-shadow: none;
   border: 1px solid var(--ajax-border);
-  margin-bottom: .25em;
+  margin-bottom: 0.25em;
   text-align: center;
 
   &:hover {
@@ -220,13 +227,16 @@ a.metaGetMore {
   z-index: 1000;
   position: fixed;
   bottom: 0;
-  right: .5em;
+  right: 0.5em;
   width: 10em;
-  padding: .25em;
-  border-radius: .25em;
+  padding: 0.25em;
+  border-radius: 0.25em;
 
   a {
-    &, &:link, &:hover, &:active {
+    &,
+    &:link,
+    &:hover,
+    &:active {
       color: var(--gotop-color);
       background: var(--gotop-background);
       border: var(--gotop-border);
@@ -249,7 +259,8 @@ a.metaGetMore {
   box-shadow: initial;
   margin-bottom: 2px;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     color: var(--addmeta-focus-color);
     background: var(--addmeta-focus-background);
   }

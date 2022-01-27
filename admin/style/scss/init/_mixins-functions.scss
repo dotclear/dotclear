@@ -1,21 +1,12 @@
 // mixin svg fallback
-@mixin svg(
-  $file-name,
-  $css-img-path: $css-img-path)
-{
-  background-image: inline-image($file-name+'.png');
-  background-image: inline-image($file-name+'.svg'), none;
+@mixin svg($file-name, $css-img-path: $css-img-path) {
+  background-image: inline-image($file-name + '.png');
+  background-image: inline-image($file-name + '.svg'), none;
 }
 
-@mixin bg-with-svg(
-  $file-name,
-  $css-img-path: $css-img-path,
-  $repeat: no-repeat,
-  $position: 50% 50%,
-  $bg-color: transparent)
-{
-  background: inline-image($file-name+'.png') $repeat, $position, $bg-color;
-  background-image: inline-image($file-name+'.svg'), none;
+@mixin bg-with-svg($file-name, $css-img-path: $css-img-path, $repeat: no-repeat, $position: 50% 50%, $bg-color: transparent) {
+  background: inline-image($file-name + '.png') $repeat, $position, $bg-color;
+  background-image: inline-image($file-name + '.svg'), none;
 }
 
 // Mix from Nico3333 (https://github.com/nico3333fr/ROCSSTI/blob/master/src/css/rocssti-fr.css#L637)
@@ -43,16 +34,17 @@
 }
 
 // Remove any unit from a value
-@function strip-unit(
-  $value)
-{
+@function strip-unit($value) {
   @return $value / ($value * 0 + 1);
 }
 
 // Compute absolute value (in em or rem) depending on font-size of the html element (given in %)
 @function relative-to-screen(
-  $value,             // em or rem value
-  $html-font-size)    // in %
-{
+    $value,
+    // em or rem value
+    $html-font-size
+  )
+  // in %
+ {
   @return $value / (strip-unit($html-font-size) / 100);
 }

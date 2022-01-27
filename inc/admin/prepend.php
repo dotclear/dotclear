@@ -71,7 +71,7 @@ function dc_admin_icon_url($img)
  *
  * @return string
  */
-function dc_admin_icon_theme($img, $fallback = true, $alt = '', $title = '')
+function dc_admin_icon_theme($img, $fallback = true, $alt = '', $title = '', $class = '')
 {
     $unknown_img = 'images/menu/no-icon.svg';
     $dark_img    = '';
@@ -86,10 +86,13 @@ function dc_admin_icon_theme($img, $fallback = true, $alt = '', $title = '')
 
     $title = $title !== '' ? ' title="' . $title . '"' : '';
     if ($light_img !== '' && $dark_img !== '') {
-        $icon = '<img src="' . dc_admin_icon_url($light_img) . '" class="light-only" alt="' . $alt . '"' . $title . ' />' .
-        '<img src="' . dc_admin_icon_url($dark_img) . '" class="dark-only" alt="' . $alt . '"' . $title . ' />';
+        $icon = '<img src="' . dc_admin_icon_url($light_img) .
+            '" class="light-only' . ($class !== '' ? ' ' . $class : '') . '" alt="' . $alt . '"' . $title . ' />' .
+                '<img src="' . dc_admin_icon_url($dark_img) .
+            '" class="dark-only' . ($class !== '' ? ' ' . $class : '') . '" alt="' . $alt . '"' . $title . ' />';
     } elseif ($light_img !== '') {
-        $icon = '<img src="' . dc_admin_icon_url($light_img) . '" class="" alt="' . $alt . '"' . $title . ' />';
+        $icon = '<img src="' . dc_admin_icon_url($light_img) .
+            '" class="' . ($class !== '' ? $class : '') . '" alt="' . $alt . '"' . $title . ' />';
     } else {
         $icon = '';
     }
@@ -315,7 +318,7 @@ if ($core->auth->userID() && $core->blog !== null) {
         'Blog',
         __('Media manager'),
         'admin.media',
-        'images/menu/media.png',
+        ['images/menu/media.svg', 'images/menu/media-dark.svg'],
         $core->auth->check('media,media_admin', $core->blog->id)
     );
     addMenuItem(
@@ -329,7 +332,7 @@ if ($core->auth->userID() && $core->blog !== null) {
         'Blog',
         __('Search'),
         'admin.search',
-        'images/menu/search.png',
+        ['images/menu/search.svg','images/menu/search-dark.svg'],
         $core->auth->check('usage,contentadmin', $core->blog->id)
     );
     addMenuItem(
@@ -350,7 +353,7 @@ if ($core->auth->userID() && $core->blog !== null) {
         'Blog',
         __('New post'),
         'admin.post',
-        'images/menu/edit.png',
+        ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
         $core->auth->check('usage,contentadmin', $core->blog->id),
         true,
         true

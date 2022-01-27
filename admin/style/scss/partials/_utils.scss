@@ -10,10 +10,6 @@
 div.ui-sortable-handle {
   border: 1px dashed currentColor !important;
   border-radius: 0.75em !important;
-
-  & > .ui-sortable {
-    // border-color: var(--main-menu-border) !important;
-  }
 }
 
 /* Badges (common.js) */

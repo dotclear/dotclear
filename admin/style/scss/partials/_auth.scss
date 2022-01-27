@@ -9,7 +9,7 @@
     background-color: transparent;
     height: 66px;
     width: 20em;
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
     margin-left: 0;
   }
   h2 {
@@ -22,25 +22,27 @@
     margin-bottom: 0;
     margin-top: 1em;
   }
-  input[type=text],
-  input[type=color],
-  input[type=email],
-  input[type=url],
-  input[type=datetime-local],
-  input[type=date],
-  input[type=time],
-  input[type=file],
-  input[type=number],
-  input[type=password],
-  input[type=submit] {
-    &, &:focus {
+  input[type='text'],
+  input[type='color'],
+  input[type='email'],
+  input[type='url'],
+  input[type='datetime-local'],
+  input[type='date'],
+  input[type='time'],
+  input[type='file'],
+  input[type='number'],
+  input[type='password'],
+  input[type='submit'] {
+    &,
+    &:focus {
       width: 100%;
       margin: 0;
       padding: 5px 3px;
     }
   }
   input.login {
-    &, &:focus {
+    &,
+    &:focus {
       padding-top: 6px;
       padding-bottom: 6px;
       font-size: 1em;
@@ -49,7 +51,7 @@
   #issue {
     margin-top: 1em;
     margin-left: 1.33em;
-    font-size: .91em;
+    font-size: 0.91em;
     summary {
       margin-bottom: 1em;
     }

@@ -426,8 +426,8 @@ class defaultFavorites
             'new_post' => [
                 'title'       => __('New post'),
                 'url'         => $core->adminurl->get('admin.post'),
-                'small-icon'  => 'images/menu/edit.png',
-                'large-icon'  => 'images/menu/edit-b.png',
+                'small-icon'  => ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
+                'large-icon'  => ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
                 'permissions' => 'usage,contentadmin',
                 'active_cb'   => ['defaultFavorites', 'newpostActive'], ],
             'posts' => [
@@ -447,8 +447,8 @@ class defaultFavorites
             'search' => [
                 'title'       => __('Search'),
                 'url'         => $core->adminurl->get('admin.search'),
-                'small-icon'  => 'images/menu/search.png',
-                'large-icon'  => 'images/menu/search-b.png',
+                'small-icon'  => ['images/menu/search.svg','images/menu/search-dark.svg'],
+                'large-icon'  => ['images/menu/search.svg','images/menu/search-dark.svg'],
                 'permissions' => 'usage,contentadmin', ],
             'categories' => [
                 'title'       => __('Categories'),
@@ -459,8 +459,8 @@ class defaultFavorites
             'media' => [
                 'title'       => __('Media manager'),
                 'url'         => $core->adminurl->get('admin.media'),
-                'small-icon'  => 'images/menu/media.png',
-                'large-icon'  => 'images/menu/media-b.png',
+                'small-icon'  => ['images/menu/media.svg', 'images/menu/media-dark.svg'],
+                'large-icon'  => ['images/menu/media.svg', 'images/menu/media-dark.svg'],
                 'permissions' => 'media,media_admin', ],
             'blog_pref' => [
                 'title'       => __('Blog settings'),

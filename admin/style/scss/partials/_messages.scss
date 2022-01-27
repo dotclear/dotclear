@@ -2,7 +2,7 @@
 .warning,
 .info {
   font-style: normal;
-  padding: .2em .66em .2em;
+  padding: 0.2em 0.66em 0.2em;
   text-indent: 24px;
   display: inline-block;
   line-height: 1.5em;
@@ -11,7 +11,7 @@
 
 .info {
   color: var(--msg-info-color);
-  background: url(msg-info.png) no-repeat .3em .3em;
+  background: url(msg-info.png) no-repeat 0.3em 0.3em;
   background-color: var(--msg-info-background);
   border: 1px solid var(--msg-info-border);
 }
@@ -19,7 +19,7 @@
 .warn,
 .warning {
   color: var(--msg-warn-color);
-  background: url(msg-warning.png) no-repeat .3em .3em;
+  background: url(msg-warning.png) no-repeat 0.3em 0.3em;
   background-color: var(--msg-warn-background);
   border: 1px solid var(--msg-warn-border);
 }
@@ -28,7 +28,7 @@ div.warn,
 div.warning,
 div.info {
   display: block;
-  padding: 1em 1em .33em 1em;
+  padding: 1em 1em 0.33em 1em;
   margin-bottom: 1em;
 }
 
@@ -37,7 +37,7 @@ span.warning,
 span.info {
   padding-top: 1px;
   padding-bottom: 1px;
-  background-position: .3em .2em;
+  background-position: 0.3em 0.2em;
 }
 
 .error,
@@ -58,15 +58,15 @@ p.success,
 p.warning-msg {
   padding-top: 1em;
   padding-bottom: 1em;
-  margin-top: .5em;
+  margin-top: 0.5em;
 }
 
 .error {
-  background: url(msg-error.png) no-repeat .7em .7em;
+  background: url(msg-error.png) no-repeat 0.7em 0.7em;
   background-color: var(--msg-error-background);
   color: var(--msg-error-color);
   animation-name: kf-error;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
 }
 
 @keyframes kf-error {
@@ -82,13 +82,13 @@ p.warning-msg {
 .message,
 .static-msg {
   color: var(--msg-color);
-  background: url(msg-std.png) no-repeat .7em .7em;
+  background: url(msg-std.png) no-repeat 0.7em 0.7em;
   background-color: var(--msg-background);
 }
 
 .message {
   animation-name: kf-message;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
 }
 
 @keyframes kf-message {
@@ -113,10 +113,10 @@ p.warning-msg {
 }
 
 .success {
-  background: url(msg-success.png) no-repeat .7em .7em;
+  background: url(msg-success.png) no-repeat 0.7em 0.7em;
   background-color: var(--msg-success-background);
   animation-name: kf-success;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
 }
 
 @keyframes kf-success {
@@ -131,11 +131,11 @@ p.warning-msg {
 
 .warning-msg {
   color: var(--msg-warn-color);
-  background: url(msg-warning.png) no-repeat .7em .7em;
+  background: url(msg-warning.png) no-repeat 0.7em 0.7em;
   background-color: var(--msg-warn-background-alt);
   border: 1px solid var(--msg-warn-border);
   animation-name: kf-warning;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
 }
 
 @keyframes kf-warning {
@@ -155,10 +155,10 @@ p.warning-msg {
 }
 
 .notice-ts {
-  font-size: .875em;
-  padding: 2px .5em;
+  font-size: 0.875em;
+  padding: 2px 0.5em;
   margin-right: 0.5em;
-  border-radius: .25em;
+  border-radius: 0.25em;
   color: var(--body-color);
   background: var(--body-background);
   filter: opacity(0.85);
@@ -176,9 +176,10 @@ p.warning-msg {
   box-shadow: none;
   position: absolute;
   top: 1em;
-  right: .5em;
+  right: 0.5em;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background: none;
   }
 }
@@ -188,7 +189,7 @@ p.warning-msg {
   margin-bottom: 1em;
   border-radius: 8px;
   color: var(--dc-update-color);
-  background: url(msg-success.png) no-repeat .7em .7em;
+  background: url(msg-success.png) no-repeat 0.7em 0.7em;
   background-color: var(--dc-update-background);
   box-shadow: 1px 1px 2px var(--msg-shadow);
 
@@ -207,7 +208,7 @@ p.warning-msg {
     margin-right: 1em;
 
     &.button {
-      padding: .5em 1em;
+      padding: 0.5em 1em;
     }
   }
 }
@@ -221,11 +222,11 @@ p.warning-msg {
 body.ajax-loader {
   #header {
     border-bottom-color: var(--ajax-loader);
-    transition: border-bottom-color .3s ease;
+    transition: border-bottom-color 0.3s ease;
   }
 
   #collapser {
     background-color: var(--ajax-loader);
-    transition: background-color .3s ease;
+    transition: background-color 0.3s ease;
   }
 }

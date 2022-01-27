@@ -33,7 +33,8 @@
   padding: 3px 0.5em 2px;
 }
 
-input[type=submit].delete.debug, a.delete.debug {
+input[type='submit'].delete.debug,
+a.delete.debug {
   border-color: var(--debug-border);
 
   &:hover {

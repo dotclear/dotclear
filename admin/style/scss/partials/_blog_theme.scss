@@ -16,14 +16,11 @@
   &:hover {
     background: var(--theme-box-over);
   }
-  input {
-//    margin-bottom: 1em;
-  }
 }
 
 .module-name,
 .module-name label {
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   color: var(--theme-name-color);
 }
 
@@ -33,21 +30,15 @@
     // padding: 5px;
     background: var(--theme-img-background);
     // box-shadow: 1px 1px 2px var(--theme-img-shadow);
-    box-shadow:
-      0.9px 0.9px 2.2px rgba(0, 0, 0, 0.07),
-      2.1px 2.1px 5.3px rgba(0, 0, 0, 0.05),
-      4px 4px 10px rgba(0, 0, 0, 0.042),
-      7.1px 7.1px 17.9px rgba(0, 0, 0, 0.035),
-      13.4px 13.4px 33.4px rgba(0, 0, 0, 0.028),
-      32px 32px 80px rgba(0, 0, 0, 0.02)
-    ;
+    box-shadow: 0.9px 0.9px 2.2px rgba(0, 0, 0, 0.07), 2.1px 2.1px 5.3px rgba(0, 0, 0, 0.05), 4px 4px 10px rgba(0, 0, 0, 0.042),
+      7.1px 7.1px 17.9px rgba(0, 0, 0, 0.035), 13.4px 13.4px 33.4px rgba(0, 0, 0, 0.028), 32px 32px 80px rgba(0, 0, 0, 0.02);
     border: 1px solid var(--theme-img-border);
     max-width: 100%;
   }
 }
 
 .module-infos p {
-  margin-top: .5em;
+  margin-top: 0.5em;
 }
 
 .module-actions {
@@ -58,14 +49,14 @@
   display: flex;
   flex-wrap: wrap;
   input {
-    margin: 0 .25em .5em 0;
+    margin: 0 0.25em 0.5em 0;
   }
 }
 
 .bloc-toggler {
   text-align: right;
   img {
-    opacity: .4;
+    opacity: 0.4;
     &:hover {
       opacity: 1;
     }
@@ -76,10 +67,10 @@
 }
 
 span.module-version::before {
-  content: "- ";
+  content: '- ';
 }
 
-.module-name input[type="checkbox"] {
+.module-name input[type='checkbox'] {
   margin-bottom: 0;
 }
 
@@ -93,7 +84,7 @@ On adapte largeur et hauteur en fonction
 .box.theme details {
   margin-top: 0.25em;
   .mod-more {
-    margin-top: .5em;
+    margin-top: 0.5em;
     display: inline-block;
   }
 }
@@ -132,7 +123,6 @@ On adapte largeur et hauteur en fonction
   cursor: pointer;
 }
 
-
 /* mise en forme pour la boîte du thème courant */
 
 .box.current-theme {
@@ -142,7 +132,7 @@ On adapte largeur et hauteur en fonction
   padding: 20px 18px 6px;
   background: var(--theme-current-background);
   border: 1px solid var(--theme-current-border);
-  border-radius: .5em;
+  border-radius: 0.5em;
   min-height: 326px;
   box-shadow: 1px 1px 2px var(--theme-current-shadow);
   position: relative;

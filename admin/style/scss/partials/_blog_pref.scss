@@ -10,18 +10,18 @@
 
 .user-perm {
   margin: 0 1em 1em 0;
-  background: url(user.png) no-repeat .5em .5em;
+  background: url(user.png) no-repeat 0.5em 0.5em;
   background-color: transparent;
   width: 20em;
   border: 1px solid var(--blog-user-border);
-  border-radius: .5em;
-  padding: 0 1em .5em;
+  border-radius: 0.5em;
+  padding: 0 1em 0.5em;
   h4,
   h5,
   p,
   ul,
   li {
-    margin: .5em 0 .33em;
+    margin: 0.5em 0 0.33em;
     padding: 0;
   }
   h4 {
@@ -45,7 +45,7 @@ li.user_admin {
   margin-left: 0;
   padding-left: 20px;
   list-style: none;
-  background: url(../images/superadmin.png) no-repeat 0 .3em;
+  background: url(../images/superadmin.png) no-repeat 0 0.3em;
   background-color: transparent;
 }
 

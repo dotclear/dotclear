@@ -84,8 +84,8 @@ class dcMaintenanceAdmin
         $favs->register('maintenance', [
             'title'        => __('Maintenance'),
             'url'          => $core->adminurl->get('admin.plugin.maintenance'),
-            'small-icon'   => dcPage::getPF('maintenance/icon.png'),
-            'large-icon'   => dcPage::getPF('maintenance/icon-big.png'),
+            'small-icon'   => [dcPage::getPF('maintenance/icon.svg'),dcPage::getPF('maintenance/icon-dark.svg')],
+            'large-icon'   => [dcPage::getPF('maintenance/icon.svg'),dcPage::getPF('maintenance/icon-dark.svg')],
             'permissions'  => 'admin',
             'active_cb'    => ['dcMaintenanceAdmin', 'adminDashboardFavoritesActive'],
             'dashboard_cb' => ['dcMaintenanceAdmin', 'adminDashboardFavoritesCallback'],
@@ -136,7 +136,7 @@ class dcMaintenanceAdmin
         }
 
         $fav['title'] .= '<br />' . sprintf(__('One task to execute', '%s tasks to execute', $count), $count);
-        $fav['large-icon'] = dcPage::getPF('maintenance/icon-big-update.png');
+        $fav['large-icon'] = [dcPage::getPF('maintenance/icon-update.svg'), dcPage::getPF('maintenance/icon-update-dark.svg')];
     }
 
     /**
@@ -178,8 +178,9 @@ class dcMaintenanceAdmin
         }
 
         $items[] = new ArrayObject([
-            '<div id="maintenance-expired" class="box small">' .
-            '<h3><img src="' . dcPage::getPF('maintenance/icon-small.png') . '" alt="" /> ' . __('Maintenance') . '</h3>' .
+            '<div id="maintenance-expired" class="box small"><h3>' .
+            dc_admin_icon_theme([dcPage::getPF('maintenance/icon.svg'),dcPage::getPF('maintenance/icon-dark.svg')], true, '', '', 'icon-small') . ' ' .
+            __('Maintenance') . '</h3>' .
             '<p class="warning no-margin">' . sprintf(__('There is a task to execute.', 'There are %s tasks to execute.', count($lines)), count($lines)) . '</p>' .
             '<ul>' . implode('', $lines) . '</ul>' .
             '<p><a href="' . $core->adminurl->get('admin.plugin.maintenance') . '">' . __('Manage tasks') . '</a></p>' .

@@ -2,27 +2,28 @@
 
 // ----------------- Compass config --------------- //
 // Do not support IE
-$supported-browsers: reject(browsers(), "ie");
+$supported-browsers: reject(browsers(), 'ie');
 $graceful-usage-threshold: 100;
 $critical-usage-threshold: 100;
 
-@import "compass";                    // gem
+@import 'compass'; // gem
 
 // ========================================================================== //
 // =Typographie
 // ========================================================================== //
 
-$sans-serif:    system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+$sans-serif: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue',
+  sans-serif;
 
-$sans-serif-input:  inherit;  // Use OS default font for input fields
+$sans-serif-input: inherit; // Use OS default font for input fields
 
-$monospace:     "Andale Mono",AndaleMono,Consolas,Monaco,"Courier New",monospace;
+$monospace: 'Andale Mono', AndaleMono, Consolas, Monaco, 'Courier New', monospace;
 
-$html-font-size:      62.5%;    // Basically 10px (16px ⁄x 0.625) — Must be in %
+$html-font-size: 62.5%; // Basically 10px (16px ⁄x 0.625) — Must be in %
 
-$body-font-size-small: 1.2rem;    // For screen smaller than $small-screen (see below)
-$body-font-size:       1.4rem;
-$body-font-size-large: 1.6rem;    // For screen larger or equal than $large-screen (see below)
+$body-font-size-small: 1.2rem; // For screen smaller than $small-screen (see below)
+$body-font-size: 1.4rem;
+$body-font-size-large: 1.6rem; // For screen larger or equal than $large-screen (see below)
 
 // Divers
 
@@ -32,13 +33,13 @@ $css-img-path: 'img'; // utile pour le mixin de fallback svg
 // =Breakpoints
 // ========================================================================== //
 
-$xxs-screen: 26.5em;  // 424 px
-$xs-screen:  38em;    // 608 px
-$s-screen:   44em;    // 704 px
-$m-screen:   48em;    // 768 px
-$l-screen:   61em;    // 976 px
-$xl-screen:  80em;    // 1280 px
-$xxl-screen: 120em;   // 1920 px
+$xxs-screen: 26.5em; // 424 px
+$xs-screen: 38em; // 608 px
+$s-screen: 44em; // 704 px
+$m-screen: 48em; // 768 px
+$l-screen: 61em; // 976 px
+$xl-screen: 80em; // 1280 px
+$xxl-screen: 120em; // 1920 px
 
 // =========================================================================== //
 // =Various dimensions

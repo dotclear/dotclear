@@ -5,7 +5,8 @@ table {
     max-width: 1px;
   }
 
-  .maximal, &.maximal {
+  .maximal,
+  &.maximal {
     width: 100%;
   }
 
@@ -28,7 +29,8 @@ th.first input {
   padding-right: 34px;
 }
 
-th, tr.line {
+th,
+tr.line {
   img {
     vertical-align: middle;
 
@@ -44,17 +46,14 @@ tr.line {
     margin: 0;
   }
 
-  input, select {
+  input,
+  select {
     vertical-align: middle;
     box-shadow: none;
   }
 
   select {
     width: 6em;
-  }
-
-  input[type=text] {
-    //    background: var(--line-input-background);
   }
 
   &:hover {
@@ -74,7 +73,10 @@ td.status {
   }
 }
 
-.noborder td, td.noborder, .noborder th, th.noborder {
+.noborder td,
+td.noborder,
+.noborder th,
+th.noborder {
   border-width: 0 0 1px 0;
   border-color: var(--cell-noborder-color);
   line-height: 2em;
@@ -89,7 +91,8 @@ table.posts-list {
   min-width: 50%;
 }
 
-table.settings, table.prefs {
+table.settings,
+table.prefs {
   margin-bottom: 3em;
 
   th:first-child {
@@ -140,11 +143,15 @@ td.expand {
   table.rch {
     display: block;
 
-    caption, tbody, tr, td {
+    caption,
+    tbody,
+    tr,
+    td {
       display: block;
     }
 
-    th, tr:first-of-type {
+    th,
+    tr:first-of-type {
       display: none;
     }
 
@@ -182,7 +189,8 @@ td.expand {
       border-top: 1px dashed var(--rch-table-expand-border);
     }
 
-    input, select {
+    input,
+    select {
       align-self: center;
     }
   }

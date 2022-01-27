@@ -1,16 +1,16 @@
-input[type=text],
-input[type=color],
-input[type=email],
-input[type=url],
-input[type=datetime-local],
-input[type=date],
-input[type=time],
-input[type=file],
-input[type=number],
-input[type=password],
-input[type=submit],
-input[type=button],
-input[type=reset],
+input[type='text'],
+input[type='color'],
+input[type='email'],
+input[type='url'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='time'],
+input[type='file'],
+input[type='number'],
+input[type='password'],
+input[type='submit'],
+input[type='button'],
+input[type='reset'],
 a.button,
 button,
 textarea,
@@ -45,15 +45,15 @@ fieldset {
   }
 }
 
-input[type=text],
-input[type=color],
-input[type=email],
-input[type=url],
-input[type=datetime-local],
-input[type=date],
-input[type=time],
-input[type=file],
-input[type=number],
+input[type='text'],
+input[type='color'],
+input[type='email'],
+input[type='url'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='time'],
+input[type='file'],
+input[type='number'],
 textarea {
   font-family: $sans-serif-input;
   font-size: 100%;
@@ -68,24 +68,26 @@ legend {
   margin-bottom: 0.5em;
 }
 
-label .maximal, textarea.maximal, input.maximal, select.maximal {
+label .maximal,
+textarea.maximal,
+input.maximal,
+select.maximal {
   width: 100%;
 }
 
-input[type=text],
-input[type=password],
-input[type=color],
-input[type=email],
-input[type=url],
-input[type=datetime-local],
-input[type=date],
-input[type=time],
-input[type=file],
-input[type=number],
+input[type='text'],
+input[type='password'],
+input[type='color'],
+input[type='email'],
+input[type='url'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='time'],
+input[type='file'],
+input[type='number'],
 textarea,
-input:not([type=file]):invalid,
-input:not([type=file]):invalid:placeholder-shown {
-
+input:not([type='file']):invalid,
+input:not([type='file']):invalid:placeholder-shown {
   // color: $input-color;
   // background: $input-background;
   box-shadow: 1px 1px 2px var(--input-shadow) inset;
@@ -103,23 +105,18 @@ select {
   vertical-align: top;
 }
 
-input[type=file] {
-  // color: $input-file-color;
-  // background: $input-file-background;
-}
-
 // Special for invalid but not required fields
 input:invalid:not(:required),
 textarea:invalid:not(:required),
 select:invalid:not(:required),
-input:not([type=file]):invalid:not(:focus):not(:required) {
+input:not([type='file']):invalid:not(:focus):not(:required) {
   color: var(--invalid-input-color);
   box-shadow: 0 0 0 3px var(--invalid-input-shadow);
 }
 
 input:invalid:not(:required),
 textarea:invalid:not(:required),
-input:not([type=file]):invalid:not(:focus):not(:required) {
+input:not([type='file']):invalid:not(:focus):not(:required) {
   border: 1px solid var(--invalid-input-border);
   background: var(--invalid-input-background);
 }
@@ -148,7 +145,7 @@ select {
   vertical-align: middle;
 }
 
-@media not all and (min-resolution: .001dpcm) {
+@media not all and (min-resolution: 0.001dpcm) {
   @supports (-webkit-appearance: none) {
     /* Safari 10.1+ only (https://browserstrangeness.bitbucket.io/css_hacks.html#webkit) */
     select {
@@ -166,42 +163,44 @@ option.avail10n {
   background-color: transparent;
 }
 
-input[type=text],
-input[type=color],
-input[type=email],
-input[type=url],
-input[type=datetime-local],
-input[type=date],
-input[type=time],
-input[type=number],
-input[type=password],
+input[type='text'],
+input[type='color'],
+input[type='email'],
+input[type='url'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='time'],
+input[type='number'],
+input[type='password'],
 textarea {
-  margin-right: .3em;
+  margin-right: 0.3em;
 }
 
-input[type=checkbox], input[type=radio], input[type=file] {
+input[type='checkbox'],
+input[type='radio'],
+input[type='file'] {
   border: none;
-  margin: -.235ex .33em 0 0; // margin-top: -.235ex see https://www.matthecat.com/aligner-icone-et-texte.html
+  margin: -0.235ex 0.33em 0 0; // margin-top: -.235ex see https://www.matthecat.com/aligner-icone-et-texte.html
   padding: 0;
   // background: transparent;
 }
 
-input + input[type=checkbox] {
+input + input[type='checkbox'] {
   // Used for js expand/hide (lists, options, ...)
-  margin-left: .33em;
+  margin-left: 0.33em;
 }
 
 a input {
   // Used for js expand/hide (lists, options, ...)
-  margin-right: .33em;
+  margin-right: 0.33em;
 }
 
-input[type=file] {
-  margin-top: .3em;
-  margin-bottom: .3em;
+input[type='file'] {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
 }
 
-input[type=color] {
+input[type='color'] {
   width: 4em;
   height: 3em;
 }
@@ -220,7 +219,8 @@ label span {
   display: block;
 }
 
-label.ib, input.ib {
+label.ib,
+input.ib {
   display: inline-block;
 }
 
@@ -279,17 +279,20 @@ p.field {
   }
 }
 
-.form-note, .form-stats {
+.form-note,
+.form-stats {
   font-style: italic;
   font-weight: normal;
   color: var(--form-note-color);
 }
 
-p.form-note, p.form-stats {
-  margin-top: -.7em;
+p.form-note,
+p.form-stats {
+  margin-top: -0.7em;
 }
 
-span.form-note, span.form-stats {
+span.form-note,
+span.form-stats {
   text-transform: none;
 }
 
@@ -318,8 +321,6 @@ span.form-note, span.form-stats {
 }
 
 // .more-info Additional information on fieldset, field, … (may be hide from user-prefs)
-.more-info {}
-
 .no-more-info {
   display: none !important;
 }

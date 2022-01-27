@@ -20,7 +20,8 @@
       background: var(--prelude-background);
       text-decoration: underline;
 
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         background: var(--prelude-background-alt);
       }
     }
@@ -47,10 +48,9 @@
 
   img {
     vertical-align: middle;
-    padding-left: .5em;
+    padding-left: 0.5em;
   }
 }
-
 
 /* h1 */
 
@@ -69,7 +69,8 @@ h1 {
     background-color: transparent;
     transition: none;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-position: 0 -94px;
       background-color: transparent;
       transition: none;
@@ -80,7 +81,6 @@ h1 {
     }
   }
 }
-
 
 /* top-info-blog */
 
@@ -93,13 +93,13 @@ h1 {
     margin-left: 1.5em;
   }
 
-  input[type=submit] {
+  input[type='submit'] {
     background: var(--submit-background);
     border-color: var(--submit-border);
-    margin-left: .33em;
+    margin-left: 0.33em;
   }
 
-  input[type=submit]:hover {
+  input[type='submit']:hover {
     color: var(--submit-color);
     background: var(--submit-background-alt);
   }
@@ -110,18 +110,17 @@ h1 {
   }
 }
 
-
 /* top-info-user */
 
 #top-info-user {
-  padding-right: .5em;
+  padding-right: 0.5em;
   list-style-type: none;
   text-align: right;
 
   li {
     display: inline-block;
-    margin-left: .5em;
-    padding-left: .5em;
+    margin-left: 0.5em;
+    padding-left: 0.5em;
     border-left: 1px solid var(--header-link-border);
 
     &:first-child {
@@ -139,7 +138,6 @@ h1 {
     font-weight: bold;
   }
 }
-
 
 /* ------------------------------------------------------------------------------------
                               UN POIL DE MEDIA QUERIES
@@ -159,7 +157,8 @@ h1 {
       background-color: transparent;
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background: url(dc_logos/b-dotclear120.png) no-repeat -270px -94px;
     }
   }
