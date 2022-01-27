@@ -71,7 +71,7 @@ class dcFavorites
      */
     public function setup()
     {
-        defaultFavorites::initDefaultFavorites($this);
+        defaultFavorites::initDefaultFavorites($this->core, $this);
         $this->legacyFavorites();
         $this->core->callBehavior('adminDashboardFavorites', $this->core, $this);
         $this->setUserPrefs();
@@ -355,8 +355,8 @@ class dcFavorites
      * @param array  $data favorite information. Array keys are :
      *    'title' => favorite title (localized)
      *    'url' => favorite URL,
-     *    'small-icon' => favorite small icon (for menu)
-     *    'large-icon' => favorite large icon (for dashboard)
+     *    'small-icon' => favorite small icon(s) (for menu)
+     *    'large-icon' => favorite large icon(s) (for dashboard)
      *    'permissions' => (optional) comma-separated list of permissions for thie fav, if not set : no restriction
      *    'dashboard_cb' => (optional) callback to modify title if dynamic, if not set : title is taken as is
      *    'active_cb' => (optional) callback to tell whether current page matches favorite or not, for complex pages
@@ -415,9 +415,8 @@ class defaultFavorites
      *
      * @param      dcFavorites  $favs   The favs
      */
-    public static function initDefaultFavorites($favs)
+    public static function initDefaultFavorites($core, $favs)
     {
-        $core = &$GLOBALS['core'];
         $favs->registerMultiple([
             'prefs' => [
                 'title'      => __('My preferences'),
@@ -466,8 +465,8 @@ class defaultFavorites
             'blog_pref' => [
                 'title'       => __('Blog settings'),
                 'url'         => $core->adminurl->get('admin.blog.pref'),
-                'small-icon'  => 'images/menu/blog-pref.png',
-                'large-icon'  => 'images/menu/blog-pref-b.png',
+                'small-icon'  => ['images/menu/blog-pref.svg','images/menu/blog-pref-dark.svg'],
+                'large-icon'  => ['images/menu/blog-pref.svg','images/menu/blog-pref-dark.svg'],
                 'permissions' => 'admin', ],
             'blog_theme' => [
                 'title'       => __('Blog appearance'),

@@ -645,9 +645,15 @@ class adminModulesList
                 } else {
                     $icon = 'images/module.png';
                 }
+                if (file_exists($module['root'] . '/icon-dark.svg')) {
+                    $icon = [$icon, dcPage::getPF($id . '/icon-dark.svg')];
+                } elseif (file_exists($module['root'] . '/icon-dark.png')) {
+                    $icon = [$icon, dcPage::getPF($id . '/icon-dark.png')];
+                }
+
                 echo
                 '<td class="module-icon nowrap">' .
-                sprintf('<img alt="%1$s" title="%1$s" src="%2$s" />', html::escapeHTML($id), $icon) .
+                dc_admin_icon_theme($icon, false, html::escapeHTML($id), html::escapeHTML($id)) .
                 '</td>';
             }
 

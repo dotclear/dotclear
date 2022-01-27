@@ -61,6 +61,42 @@ function dc_admin_icon_url($img)
     return $img;
 }
 
+/**
+ * Compose HTML icon markup for favorites, menu, … depending on theme (light, dark)
+ *
+ * @param mixed     $img        string (default) or array (0 : light, 1 : dark)
+ * @param bool      $fallback   use fallback image if none given
+ * @param string    $alt        alt attribute
+ * @param string    $title      title attribute
+ *
+ * @return string
+ */
+function dc_admin_icon_theme($img, $fallback = true, $alt = '', $title = '')
+{
+    $unknown_img = 'images/menu/no-icon.svg';
+    $dark_img    = '';
+    if (is_array($img)) {
+        $light_img = $img[0] ?: ($fallback ? $unknown_img : '');   // Fallback to no icon if necessary
+        if (isset($img[1]) && $img[1] !== '') {
+            $dark_img = $img[1];
+        }
+    } else {
+        $light_img = $img ?: ($fallback ? $unknown_img : '');  // Fallback to no icon if necessary
+    }
+
+    $title = $title !== '' ? ' title="' . $title . '"' : '';
+    if ($light_img !== '' && $dark_img !== '') {
+        $icon = '<img src="' . dc_admin_icon_url($light_img) . '" class="light-only" alt="' . $alt . '"' . $title . ' />' .
+        '<img src="' . dc_admin_icon_url($dark_img) . '" class="dark-only" alt="' . $alt . '"' . $title . ' />';
+    } elseif ($light_img !== '') {
+        $icon = '<img src="' . dc_admin_icon_url($light_img) . '" class="" alt="' . $alt . '"' . $title . ' />';
+    } else {
+        $icon = '';
+    }
+
+    return $icon;
+}
+
 function addMenuItem($section, $desc, $adminurl, $icon, $perm, $pinned = false, $strict = false)
 {
     global $core, $_menu;
@@ -272,7 +308,7 @@ if ($core->auth->userID() && $core->blog !== null) {
         'Blog',
         __('Blog settings'),
         'admin.blog.pref',
-        'images/menu/blog-pref.png',
+        ['images/menu/blog-pref.svg', 'images/menu/blog-pref-dark.svg'],
         $core->auth->check('admin', $core->blog->id)
     );
     addMenuItem(

@@ -21,17 +21,24 @@
     list-style: none;
 
     li {
-      display: block;
+      display: flex;
       margin: 0.5em 0 0;
-      padding: 4px 0 1px 2.125em;
-      background-repeat: no-repeat;
-      background-position: 8px .625em;
-      background-size: 1em 1em;       // useful for SVG
+      padding: 4px 0.5em 1px 0.5em;
       position: relative;
+
+      img {
+        width: 1em;
+        height: 1em;
+        margin-top: 0.25em;
+      }
+
+      a {
+        margin-left: 0.5em;
+      }
 
       a::after {
         position: absolute;
-        content: "";
+        content: '';
         top: 0;
         bottom: 0;
         left: 0;
@@ -59,27 +66,30 @@
   }
 }
 
-#favorites-menu, #blog-menu, #system-menu, #plugins-menu {
+#favorites-menu,
+#blog-menu,
+#system-menu,
+#plugins-menu {
   border-bottom: 1px dashed var(--main-menu-border);
 }
 
 #favorites-menu {
   h3 {
     font-variant: small-caps;
-    padding-top: .2em;
+    padding-top: 0.2em;
   }
 }
 
 #search-menu {
   padding: 4px 0 0 4px;
-  font-size: .91em;
+  font-size: 0.91em;
 
   p {
     width: 95%;
-    margin: 0 0 .5em 0;
+    margin: 0 0 0.5em 0;
   }
 
-  input[type="submit"] {
+  input[type='submit'] {
     float: right;
   }
 }
