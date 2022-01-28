@@ -18,106 +18,6 @@ header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-ch
 // HTTP/1.0
 header('Pragma: no-cache');
 
-function dc_load_locales()
-{
-    global $_lang, $core;
-
-    $_lang = $core->auth->getInfo('user_lang');
-    $_lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $_lang) ? $_lang : 'en';
-
-    l10n::lang($_lang);
-    if (l10n::set(__DIR__ . '/../../locales/' . $_lang . '/date') === false && $_lang != 'en') {
-        l10n::set(__DIR__ . '/../../locales/en/date');
-    }
-    l10n::set(__DIR__ . '/../../locales/' . $_lang . '/main');
-    l10n::set(__DIR__ . '/../../locales/' . $_lang . '/public');
-    l10n::set(__DIR__ . '/../../locales/' . $_lang . '/plugins');
-
-    // Set lexical lang
-    dcUtils::setlexicalLang('admin', $_lang);
-}
-
-function dc_admin_icon_url($img)
-{
-    global $core;
-
-    $core->auth->user_prefs->addWorkspace('interface');
-    $user_ui_iconset = @$core->auth->user_prefs->interface->iconset;
-    if (($user_ui_iconset) && ($img)) {
-        $icon = false;
-        if ((preg_match('/^images\/menu\/(.+)$/', $img, $m)) || (preg_match('/^index\.php\?pf=(.+)$/', $img, $m))) {
-            if ($m[1]) {
-                $icon = path::real(__DIR__ . '/../../admin/images/iconset/' . $user_ui_iconset . '/' . $m[1], false);
-                if ($icon !== false) {
-                    $allow_types = ['svg', 'png', 'jpg', 'jpeg', 'gif'];
-                    if (is_file($icon) && is_readable($icon) && in_array(files::getExtension($icon), $allow_types)) {
-                        return DC_ADMIN_URL . 'images/iconset/' . $user_ui_iconset . '/' . $m[1];
-                    }
-                }
-            }
-        }
-    }
-
-    return $img;
-}
-
-/**
- * Compose HTML icon markup for favorites, menu, … depending on theme (light, dark)
- *
- * @param mixed     $img        string (default) or array (0 : light, 1 : dark)
- * @param bool      $fallback   use fallback image if none given
- * @param string    $alt        alt attribute
- * @param string    $title      title attribute
- *
- * @return string
- */
-function dc_admin_icon_theme($img, $fallback = true, $alt = '', $title = '', $class = '')
-{
-    $unknown_img = 'images/menu/no-icon.svg';
-    $dark_img    = '';
-    if (is_array($img)) {
-        $light_img = $img[0] ?: ($fallback ? $unknown_img : '');   // Fallback to no icon if necessary
-        if (isset($img[1]) && $img[1] !== '') {
-            $dark_img = $img[1];
-        }
-    } else {
-        $light_img = $img ?: ($fallback ? $unknown_img : '');  // Fallback to no icon if necessary
-    }
-
-    $title = $title !== '' ? ' title="' . $title . '"' : '';
-    if ($light_img !== '' && $dark_img !== '') {
-        $icon = '<img src="' . dc_admin_icon_url($light_img) .
-            '" class="light-only' . ($class !== '' ? ' ' . $class : '') . '" alt="' . $alt . '"' . $title . ' />' .
-                '<img src="' . dc_admin_icon_url($dark_img) .
-            '" class="dark-only' . ($class !== '' ? ' ' . $class : '') . '" alt="' . $alt . '"' . $title . ' />';
-    } elseif ($light_img !== '') {
-        $icon = '<img src="' . dc_admin_icon_url($light_img) .
-            '" class="' . ($class !== '' ? $class : '') . '" alt="' . $alt . '"' . $title . ' />';
-    } else {
-        $icon = '';
-    }
-
-    return $icon;
-}
-
-function addMenuItem($section, $desc, $adminurl, $icon, $perm, $pinned = false, $strict = false)
-{
-    global $core, $_menu;
-
-    $url     = $core->adminurl->get($adminurl);
-    $pattern = '@' . preg_quote($url) . ($strict ? '' : '(\?.*)?') . '$@';
-    $_menu[$section]->prependItem(
-        $desc,
-        $url,
-        $icon,
-        preg_match($pattern, $_SERVER['REQUEST_URI']),
-        $perm,
-        null,
-        null,
-        $pinned
-    );
-}
-
 if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID')) {
     # We have session information in constants
     $_COOKIE[DC_SESSION_NAME] = DC_AUTH_SESS_ID;
@@ -138,7 +38,7 @@ if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID')) {
     }
 
     # Loading locales
-    dc_load_locales();
+    dcAdminHelper::loadLocales($_lang);
 
     $core->setBlog($_SESSION['sess_blog_id']);
     if (!$core->blog->id) {
@@ -205,7 +105,7 @@ if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID')) {
     }
 
     # Loading locales
-    dc_load_locales();
+    dcAdminHelper::loadLocales($_lang);
 
     if (isset($_SESSION['sess_blog_id'])) {
         $core->setBlog($_SESSION['sess_blog_id']);
@@ -300,56 +200,56 @@ if ($core->auth->userID() && $core->blog !== null) {
     $_menu['Blog']->title    = __('Blog');
     $_menu['Plugins']->title = __('Plugins');
 
-    addMenuItem(
+    dcAdminHelper::addMenuItem(
         'Blog',
         __('Blog appearance'),
         'admin.blog.theme',
         'images/menu/themes.png',
         $core->auth->check('admin', $core->blog->id)
     );
-    addMenuItem(
+    dcAdminHelper::addMenuItem(
         'Blog',
         __('Blog settings'),
         'admin.blog.pref',
         ['images/menu/blog-pref.svg', 'images/menu/blog-pref-dark.svg'],
         $core->auth->check('admin', $core->blog->id)
     );
-    addMenuItem(
+    dcAdminHelper::addMenuItem(
         'Blog',
         __('Media manager'),
         'admin.media',
         ['images/menu/media.svg', 'images/menu/media-dark.svg'],
         $core->auth->check('media,media_admin', $core->blog->id)
     );
-    addMenuItem(
+    dcAdminHelper::addMenuItem(
         'Blog',
         __('Categories'),
         'admin.categories',
         'images/menu/categories.png',
         $core->auth->check('categories', $core->blog->id)
     );
-    addMenuItem(
+    dcAdminHelper::addMenuItem(
         'Blog',
         __('Search'),
         'admin.search',
         ['images/menu/search.svg','images/menu/search-dark.svg'],
         $core->auth->check('usage,contentadmin', $core->blog->id)
     );
-    addMenuItem(
+    dcAdminHelper::addMenuItem(
         'Blog',
         __('Comments'),
         'admin.comments',
         'images/menu/comments.png',
         $core->auth->check('usage,contentadmin', $core->blog->id)
     );
-    addMenuItem(
+    dcAdminHelper::addMenuItem(
         'Blog',
         __('Posts'),
         'admin.posts',
         'images/menu/entries.png',
         $core->auth->check('usage,contentadmin', $core->blog->id)
     );
-    addMenuItem(
+    dcAdminHelper::addMenuItem(
         'Blog',
         __('New post'),
         'admin.post',
@@ -359,35 +259,35 @@ if ($core->auth->userID() && $core->blog !== null) {
         true
     );
 
-    addMenuItem(
+    dcAdminHelper::addMenuItem(
         'System',
         __('Update'),
         'admin.update',
         'images/menu/update.png',
         $core->auth->isSuperAdmin() && is_readable(DC_DIGESTS)
     );
-    addMenuItem(
+    dcAdminHelper::addMenuItem(
         'System',
         __('Languages'),
         'admin.langs',
         'images/menu/langs.png',
         $core->auth->isSuperAdmin()
     );
-    addMenuItem(
+    dcAdminHelper::addMenuItem(
         'System',
         __('Plugins management'),
         'admin.plugins',
         'images/menu/plugins.png',
         $core->auth->isSuperAdmin()
     );
-    addMenuItem(
+    dcAdminHelper::addMenuItem(
         'System',
         __('Users'),
         'admin.users',
         'images/menu/users.png',
         $core->auth->isSuperAdmin()
     );
-    addMenuItem(
+    dcAdminHelper::addMenuItem(
         'System',
         __('Blogs'),
         'admin.blogs',
