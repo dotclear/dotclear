@@ -57,7 +57,7 @@ dotclear.dbPostsCount = () => {
     }
   });
 };
-dotclear.dbStoreUpdate = (store, icon, image) => {
+dotclear.dbStoreUpdate = (store, icon) => {
   const params = {
     f: 'checkStoreUpdate',
     xd_check: dotclear.nonce,
@@ -69,7 +69,7 @@ dotclear.dbStoreUpdate = (store, icon, image) => {
       const xml = $('rsp>update', data).attr('ret');
       // update link to details
       icon.children('a').attr('href', `${icon.children('a').attr('href')}#update`);
-      // update icon, cope with dc_admin_icon_url() and iconset
+      // update icon
       icon
         .children('a')
         .children('img')
@@ -79,7 +79,7 @@ dotclear.dbStoreUpdate = (store, icon, image) => {
             .children('a')
             .children('img')
             .attr('src')
-            .replace(/([^\/]+)$/g, `${image}-b-update.png`),
+            .replace(/([^\/]+)(\..*)$/g, '$1-update$2'),
         );
       // add icon text says there is an update
       icon.children('a').children('.db-icon-title').append('<br />').append(xml);
@@ -199,11 +199,11 @@ $(() => {
   // check if store update available, if db has icon
   if ($('#dashboard-main #icons p a[href="plugins.php"]').length) {
     const plugins_db_icon = $('#dashboard-main #icons p a[href="plugins.php"]').parent();
-    dotclear.dbStoreUpdate('plugins', plugins_db_icon, 'plugins');
+    dotclear.dbStoreUpdate('plugins', plugins_db_icon);
   }
   if ($('#dashboard-main #icons p a[href="blog_theme.php"]').length) {
     const themes_db_icon = $('#dashboard-main #icons p a[href="blog_theme.php"]').parent();
-    dotclear.dbStoreUpdate('themes', themes_db_icon, 'blog-theme');
+    dotclear.dbStoreUpdate('themes', themes_db_icon);
   }
 
   // check if some news are available
