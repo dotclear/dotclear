@@ -24,18 +24,29 @@ class dcAdminHelper
      */
     public static function iconURL($img)
     {
+        $allow_types = ['svg', 'png', 'webp', 'jpg', 'jpeg', 'gif'];
+
         self::$core->auth->user_prefs->addWorkspace('interface');
         $user_ui_iconset = @self::$core->auth->user_prefs->interface->iconset;
         if (($user_ui_iconset) && ($img)) {
-            $icon = false;
-            // Look only for same extension as original
-            if ((preg_match('/^images\/menu\/(.+)$/', $img, $m)) || (preg_match('/^index\.php\?pf=(.+)$/', $img, $m))) {
-                if ($m[1]) {
-                    $icon = path::real(__DIR__ . '/../../admin/images/iconset/' . $user_ui_iconset . '/' . $m[1], false);
+            if ((preg_match('/^images\/menu\/(.+)(\..*)$/', $img, $m)) || (preg_match('/^index\.php\?pf=(.+)(\..*)$/', $img, $m))) {
+                $name = $m[1] ?? '';
+                $ext  = $m[2] ?? '';
+                if ($name !== '' && $ext !== '') {
+                    $icon = path::real(__DIR__ . '/../../admin/images/iconset/' . $user_ui_iconset . '/' . $name . $ext, true);
                     if ($icon !== false) {
-                        $allow_types = ['svg', 'png', 'jpg', 'jpeg', 'gif'];
+                        // Find same (name and extension)
                         if (is_file($icon) && is_readable($icon) && in_array(files::getExtension($icon), $allow_types)) {
-                            return DC_ADMIN_URL . 'images/iconset/' . $user_ui_iconset . '/' . $m[1];
+                            return DC_ADMIN_URL . 'images/iconset/' . $user_ui_iconset . '/' . $name . $ext;
+                        }
+                    }
+                    // Look for other extensions
+                    foreach ($allow_types as $ext) {
+                        $icon = path::real(__DIR__ . '/../../admin/images/iconset/' . $user_ui_iconset . '/' . $name . '.' . $ext, true);
+                        if ($icon !== false) {
+                            if (is_file($icon) && is_readable($icon)) {
+                                return DC_ADMIN_URL . 'images/iconset/' . $user_ui_iconset . '/' . $name . '.' . $ext;
+                            }
                         }
                     }
                 }
