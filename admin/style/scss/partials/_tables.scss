@@ -25,6 +25,10 @@ table {
   }
 }
 
+tbody {
+  font-variant-numeric: tabular-nums;
+}
+
 th.first input {
   padding-right: 34px;
 }

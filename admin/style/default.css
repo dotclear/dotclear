@@ -2800,6 +2800,9 @@ table .count {
   text-align: right;
   padding-right: 1.5em; }
 
+tbody {
+  font-variant-numeric: tabular-nums; }
+
 th.first input {
   padding-right: 34px; }
 
