@@ -16,7 +16,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 $_menu['Plugins']->addItem(
     __('Maintenance'),
     $core->adminurl->get('admin.plugin.maintenance'),
-    dcPage::getPF('maintenance/icon.png'),
+    dcPage::getPF('maintenance/icon.svg'),
     preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.maintenance')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
     $core->auth->check('admin', $core->blog->id)
 );
