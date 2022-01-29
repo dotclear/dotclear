@@ -721,6 +721,19 @@ $(() => {
     attributeFilter: ['data-theme'],
   });
 
+  if (dotclear.debug) {
+    // debug mode: double click on header switch current theme
+    document.querySelector('#header').addEventListener('dblclick', (e) => {
+      const elt = document.documentElement;
+      let theme = elt.dataset.theme;
+      if (theme == null || theme === '') {
+        theme = window.matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light';
+      }
+      // Set new theme, the application will be cope by the mutation observer (see above)
+      elt.dataset.theme = theme === 'dark' ? 'light' : 'dark';
+    });
+  }
+
   // remove class no-js from html tag; cf style/default.css for examples
   $('body').removeClass('no-js').addClass('with-js');
   $('body')
