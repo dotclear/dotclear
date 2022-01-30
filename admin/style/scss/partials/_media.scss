@@ -18,8 +18,7 @@ span.media-file-mode {
   margin: 9px;
   padding: 10px 12px 6px;
   width: 320px;
-  display: inline-block;
-  vertical-align: top;
+  min-width: 320px;
   min-height: 140px;
   word-wrap: break-word;
 
@@ -115,6 +114,10 @@ li.media-action {
   }
 }
 
+td.media-action {
+  padding: 0.4em 0 0.4em 0.5em;
+}
+
 #entry-sidebar .media-item {
   width: 100%;
   min-height: 0;
@@ -122,12 +125,23 @@ li.media-action {
   margin: 0.33em 0;
 }
 
-.folders-group .media-item {
-  min-height: 70px;
+.folders-group {
+  display: flex;
+  flex-wrap: wrap;
 
-  p {
-    margin-bottom: 0;
+  .media-item {
+    min-height: 70px;
+
+    p {
+      margin-bottom: 0;
+    }
   }
+}
+
+div.media-items-bloc {
+  // div to avoid styling table
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .media-folder {
@@ -137,7 +151,6 @@ li.media-action {
 
   .media-link {
     font-size: 1.125em;
-    margin-left: 0.5em;
     color: var(--media-folder-link);
     border-bottom: none;
   }
