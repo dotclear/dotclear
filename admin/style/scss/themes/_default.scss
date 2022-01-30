@@ -368,12 +368,13 @@
   // - Media
 
   --media-folder-background: transparent;
-  --media-folder-border: $gray-lighter;
+  --media-folder-border: $gray-light;
   --media-folderup-border: transparent;
   --media-folder-link: $gray-dark;
-  --media-item-border: scale-color($gray-very-light, $lightness: -10%);
+  --media-item-border: $marine;
   --media-item-border-private: $red;
   --media-files-border: scale-color($gray-very-light, $lightness: -10%);
+  --media-item-active-background: $gray-very-light;
 
   --upload-color: scale-color($success-alt, $lightness: -45%);
   --upload-filemsg-color: $white;

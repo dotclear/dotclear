@@ -374,6 +374,7 @@
   --media-item-border: scale-color($gray-very-light, $lightness: -10%);
   --media-item-border-private: $red;
   --media-files-border: scale-color($gray-very-light, $lightness: -10%);
+  --media-item-active-background: scale-color($gray, $lightness: -66%);
 
   --upload-color: scale-color($success-alt, $lightness: -45%);
   --upload-filemsg-color: $white;

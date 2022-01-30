@@ -433,12 +433,13 @@ h6 {
   --subcat-line-border: #dbdbdb;
   --cat-post-counter: #323232;
   --media-folder-background: transparent;
-  --media-folder-border: #ececec;
+  --media-folder-border: #c9c9c9;
   --media-folderup-border: transparent;
   --media-folder-link: #676e78;
-  --media-item-border: #dbdbdb;
+  --media-item-border: #3a539b;
   --media-item-border-private: #c44d58;
   --media-files-border: #dbdbdb;
+  --media-item-active-background: #f3f3f3;
   --upload-color: #556f0f;
   --upload-filemsg-color: #fff;
   --upload-progress-color: #fff;
@@ -703,6 +704,7 @@ h6 {
   --media-item-border: #dadbde;
   --media-item-border-private: #c44d58;
   --media-files-border: #dadbde;
+  --media-item-active-background: #3a3d41;
   --upload-color: #556f0f;
   --upload-filemsg-color: #fff;
   --upload-progress-color: #fff;
@@ -968,6 +970,7 @@ h6 {
     --media-item-border: #dadbde;
     --media-item-border-private: #c44d58;
     --media-files-border: #dadbde;
+    --media-item-active-background: #3a3d41;
     --upload-color: #556f0f;
     --upload-filemsg-color: #fff;
     --upload-progress-color: #fff;
@@ -3420,6 +3423,8 @@ span.media-file-mode {
   vertical-align: top;
   min-height: 140px;
   word-wrap: break-word; }
+  .media-item:hover, .media-item:active {
+    background: var(--media-item-active-background); }
   .media-item p {
     margin: 0 0 0.5em; }
   .media-item object {
@@ -3496,7 +3501,7 @@ li.media-action {
   border-left-width: 8px; }
   .media-folder .media-link {
     font-size: 1.125em;
-    margin-left: 2em;
+    margin-left: 0.5em;
     color: var(--media-folder-link);
     border-bottom: none; }
 

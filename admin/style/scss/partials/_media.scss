@@ -23,6 +23,11 @@ span.media-file-mode {
   min-height: 140px;
   word-wrap: break-word;
 
+  &:hover,
+  &:active {
+    background: var(--media-item-active-background);
+  }
+
   p {
     margin: 0 0 0.5em;
   }
@@ -132,7 +137,7 @@ li.media-action {
 
   .media-link {
     font-size: 1.125em;
-    margin-left: 2em;
+    margin-left: 0.5em;
     color: var(--media-folder-link);
     border-bottom: none;
   }
