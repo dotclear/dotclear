@@ -49,8 +49,8 @@ class pagesDashboard
         $favs->register('pages', [
             'title'        => __('Pages'),
             'url'          => $core->adminurl->get('admin.plugin.pages'),
-            'small-icon'   => dcPage::getPF('pages/icon.png'),
-            'large-icon'   => dcPage::getPF('pages/icon-big.png'),
+            'small-icon'   => [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
+            'large-icon'   => [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
             'permissions'  => 'contentadmin,pages',
             'dashboard_cb' => ['pagesDashboard', 'pagesDashboardCB'],
             'active_cb'    => ['pagesDashboard', 'pagesActiveCB'],
@@ -58,8 +58,8 @@ class pagesDashboard
         $favs->register('newpage', [
             'title'       => __('New page'),
             'url'         => $core->adminurl->get('admin.plugin.pages', ['act' => 'page']),
-            'small-icon'  => dcPage::getPF('pages/icon-np.png'),
-            'large-icon'  => dcPage::getPF('pages/icon-np-big.png'),
+            'small-icon'  => [dcPage::getPF('pages/icon-np.svg'), dcPage::getPF('pages/icon-np-dark.svg')],
+            'large-icon'  => [dcPage::getPF('pages/icon-np.svg'), dcPage::getPF('pages/icon-np-dark.svg')],
             'permissions' => 'contentadmin,pages',
             'active_cb'   => ['pagesDashboard', 'newPageActiveCB'],
         ]);
@@ -84,7 +84,7 @@ class pagesDashboard
 
     public static function newPageActiveCB($request, $params)
     {
-        return ($request == 'plugin.php') && isset($params['p']) && $params['p']                                       == 'pages'
+        return ($request == 'plugin.php') && isset($params['p']) && $params['p']     == 'pages'
                                           && isset($params['act']) && $params['act'] == 'page';
     }
 }
@@ -97,7 +97,7 @@ function pages_users_actions_headers()
 $_menu['Blog']->addItem(
     __('Pages'),
     $core->adminurl->get('admin.plugin.pages'),
-    dcPage::getPF('pages/icon.png'),
+    [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],
     preg_match('/plugin.php(.*)$/', $_SERVER['REQUEST_URI']) && !empty($_REQUEST['p']) && $_REQUEST['p'] == 'pages',
     $core->auth->check('contentadmin,pages', $core->blog->id)
 );

@@ -433,8 +433,8 @@ class defaultFavorites
             'posts' => [
                 'title'        => __('Posts'),
                 'url'          => $core->adminurl->get('admin.posts'),
-                'small-icon'   => 'images/menu/entries.png',
-                'large-icon'   => 'images/menu/entries-b.png',
+                'small-icon'   => ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
+                'large-icon'   => ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
                 'permissions'  => 'usage,contentadmin',
                 'dashboard_cb' => ['defaultFavorites', 'postsDashboard'], ],
             'comments' => [

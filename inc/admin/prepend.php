@@ -246,7 +246,7 @@ if ($core->auth->userID() && $core->blog !== null) {
         'Blog',
         __('Posts'),
         'admin.posts',
-        'images/menu/entries.png',
+        ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
         $core->auth->check('usage,contentadmin', $core->blog->id)
     );
     dcAdminHelper::addMenuItem(
