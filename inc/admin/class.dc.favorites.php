@@ -440,8 +440,8 @@ class defaultFavorites
             'comments' => [
                 'title'        => __('Comments'),
                 'url'          => $core->adminurl->get('admin.comments'),
-                'small-icon'   => 'images/menu/comments.png',
-                'large-icon'   => 'images/menu/comments-b.png',
+                'small-icon'   => ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
+                'large-icon'   => ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
                 'permissions'  => 'usage,contentadmin',
                 'dashboard_cb' => ['defaultFavorites', 'commentsDashboard'], ],
             'search' => [
@@ -453,8 +453,8 @@ class defaultFavorites
             'categories' => [
                 'title'       => __('Categories'),
                 'url'         => $core->adminurl->get('admin.categories'),
-                'small-icon'  => 'images/menu/categories.png',
-                'large-icon'  => 'images/menu/categories-b.png',
+                'small-icon'  => ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
+                'large-icon'  => ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
                 'permissions' => 'categories', ],
             'media' => [
                 'title'       => __('Media manager'),
@@ -477,8 +477,8 @@ class defaultFavorites
             'blogs' => [
                 'title'       => __('Blogs'),
                 'url'         => $core->adminurl->get('admin.blogs'),
-                'small-icon'  => 'images/menu/blogs.png',
-                'large-icon'  => 'images/menu/blogs-b.png',
+                'small-icon'  => ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
+                'large-icon'  => ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
                 'permissions' => 'usage,contentadmin', ],
             'users' => [
                 'title'      => __('Users'),
@@ -493,8 +493,8 @@ class defaultFavorites
             'langs' => [
                 'title'      => __('Languages'),
                 'url'        => $core->adminurl->get('admin.langs'),
-                'small-icon' => 'images/menu/langs.png',
-                'large-icon' => 'images/menu/langs-b.png', ],
+                'small-icon' => ['images/menu/langs.svg', 'images/menu/langs-dark.svg'],
+                'large-icon' => ['images/menu/langs.svg', 'images/menu/langs-dark.svg'], ],
             'help' => [
                 'title'      => __('Global help'),
                 'url'        => $core->adminurl->get('admin.help'),

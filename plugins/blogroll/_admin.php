@@ -29,22 +29,20 @@ function blogroll_dashboard_favorites($core, $favs)
     $favs->register('blogroll', [
         'title'       => __('Blogroll'),
         'url'         => $core->adminurl->get('admin.plugin.blogroll'),
-        'small-icon'  => dcPage::getPF('blogroll/icon-small.png'),
-        'large-icon'  => dcPage::getPF('blogroll/icon.png'),
+        'small-icon'  => [dcPage::getPF('blogroll/icon.svg'), dcPage::getPF('blogroll/icon-dark.svg')],
+        'large-icon'  => [dcPage::getPF('blogroll/icon.svg'), dcPage::getPF('blogroll/icon-dark.svg')],
         'permissions' => 'usage,contentadmin',
     ]);
 }
 function blogroll_users_actions_headers()
 {
-    global $core;
-
     return dcPage::jsLoad(dcPage::getPF('blogroll/js/_users_actions.js'));
 }
 
 $_menu['Blog']->addItem(
     __('Blogroll'),
     $core->adminurl->get('admin.plugin.blogroll'),
-    dcPage::getPF('blogroll/icon-small.png'),
+    [dcPage::getPF('blogroll/icon.svg'), dcPage::getPF('blogroll/icon-dark.svg')],
     preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.blogroll')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
     $core->auth->check('usage,contentadmin', $core->blog->id)
 );

@@ -15,7 +15,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 $_menu['Plugins']->addItem(
     __('Import/Export'),
     $core->adminurl->get('admin.plugin.importExport'),
-    dcPage::getPF('importExport/icon.png'),
+    [dcPage::getPF('importExport/icon.svg'), dcPage::getPF('importExport/icon-dark.svg')],
     preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.importExport')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
     $core->auth->check('admin', $core->blog->id)
 );
@@ -27,8 +27,8 @@ function importExportDashboardFavorites($core, $favs)
     $favs->register('importExport', [
         'title'       => __('Import/Export'),
         'url'         => $core->adminurl->get('admin.plugin.importExport'),
-        'small-icon'  => dcPage::getPF('importExport/icon.png'),
-        'large-icon'  => dcPage::getPF('importExport/icon-big.png'),
+        'small-icon'  => [dcPage::getPF('importExport/icon.svg'), dcPage::getPF('importExport/icon-dark.svg')],
+        'large-icon'  => [dcPage::getPF('importExport/icon.svg'), dcPage::getPF('importExport/icon-dark.svg')],
         'permissions' => 'admin',
     ]);
 }

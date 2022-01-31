@@ -225,7 +225,7 @@ if ($core->auth->userID() && $core->blog !== null) {
         'Blog',
         __('Categories'),
         'admin.categories',
-        'images/menu/categories.png',
+        ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
         $core->auth->check('categories', $core->blog->id)
     );
     dcAdminHelper::addMenuItem(
@@ -239,7 +239,7 @@ if ($core->auth->userID() && $core->blog !== null) {
         'Blog',
         __('Comments'),
         'admin.comments',
-        'images/menu/comments.png',
+        ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
         $core->auth->check('usage,contentadmin', $core->blog->id)
     );
     dcAdminHelper::addMenuItem(
@@ -270,7 +270,7 @@ if ($core->auth->userID() && $core->blog !== null) {
         'System',
         __('Languages'),
         'admin.langs',
-        'images/menu/langs.png',
+        ['images/menu/langs.svg', 'images/menu/langs-dark.svg'],
         $core->auth->isSuperAdmin()
     );
     dcAdminHelper::addMenuItem(
@@ -291,7 +291,7 @@ if ($core->auth->userID() && $core->blog !== null) {
         'System',
         __('Blogs'),
         'admin.blogs',
-        'images/menu/blogs.png',
+        ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
         $core->auth->isSuperAdmin() || $core->auth->check('usage,contentadmin', $core->blog->id) && $core->auth->getBlogCount() > 1
     );
 

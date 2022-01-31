@@ -73,8 +73,8 @@ class tagsBehaviors
         $favs->register('tags', [
             'title'       => __('Tags'),
             'url'         => $core->adminurl->get('admin.plugin.tags', ['m' => 'tags']),
-            'small-icon'  => dcPage::getPF('tags/icon.png'),
-            'large-icon'  => dcPage::getPF('tags/icon-big.png'),
+            'small-icon'  => [dcPage::getPF('tags/icon.svg'), dcPage::getPF('tags/icon-dark.svg')],
+            'large-icon'  => [dcPage::getPF('tags/icon.svg'), dcPage::getPF('tags/icon-dark.svg')],
             'permissions' => 'usage,contentadmin',
         ]);
     }
@@ -164,12 +164,12 @@ class tagsBehaviors
             }
             dcPage::addSuccessNotice(
                 sprintf(
-                __(
-                    'Tag has been successfully added to selected entries',
-                    'Tags have been successfully added to selected entries',
-                    count($tags)
+                    __(
+                        'Tag has been successfully added to selected entries',
+                        'Tags have been successfully added to selected entries',
+                        count($tags)
+                    )
                 )
-            )
             );
             $ap->redirect(true);
         } else {
@@ -235,12 +235,12 @@ class tagsBehaviors
             }
             dcPage::addSuccessNotice(
                 sprintf(
-                __(
-                    'Tag has been successfully removed from selected entries',
-                    'Tags have been successfully removed from selected entries',
-                    count($_POST['meta_id'])
+                    __(
+                        'Tag has been successfully removed from selected entries',
+                        'Tags have been successfully removed from selected entries',
+                        count($_POST['meta_id'])
+                    )
                 )
-            )
             );
             $ap->redirect(true);
         } else {
