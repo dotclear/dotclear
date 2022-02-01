@@ -204,7 +204,7 @@ if ($core->auth->userID() && $core->blog !== null) {
         'Blog',
         __('Blog appearance'),
         'admin.blog.theme',
-        'images/menu/themes.png',
+        ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
         $core->auth->check('admin', $core->blog->id)
     );
     dcAdminHelper::addMenuItem(
@@ -263,7 +263,7 @@ if ($core->auth->userID() && $core->blog !== null) {
         'System',
         __('Update'),
         'admin.update',
-        'images/menu/update.png',
+        ['images/menu/update.svg', 'images/menu/update-dark.svg'],
         $core->auth->isSuperAdmin() && is_readable(DC_DIGESTS)
     );
     dcAdminHelper::addMenuItem(
@@ -277,14 +277,14 @@ if ($core->auth->userID() && $core->blog !== null) {
         'System',
         __('Plugins management'),
         'admin.plugins',
-        'images/menu/plugins.png',
+        ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'],
         $core->auth->isSuperAdmin()
     );
     dcAdminHelper::addMenuItem(
         'System',
         __('Users'),
         'admin.users',
-        'images/menu/users.png',
+        'images/menu/users.svg',
         $core->auth->isSuperAdmin()
     );
     dcAdminHelper::addMenuItem(

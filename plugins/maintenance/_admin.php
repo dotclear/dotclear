@@ -136,7 +136,7 @@ class dcMaintenanceAdmin
         }
 
         $fav['title'] .= '<br />' . sprintf(__('One task to execute', '%s tasks to execute', $count), $count);
-        $fav['large-icon'] = [dcPage::getPF('maintenance/icon-update.svg'), dcPage::getPF('maintenance/icon-update-dark.svg')];
+        $fav['large-icon'] = [dcPage::getPF('maintenance/icon-update.svg'), dcPage::getPF('maintenance/icon-dark-update.svg')];
     }
 
     /**

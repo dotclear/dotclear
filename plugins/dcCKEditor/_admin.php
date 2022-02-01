@@ -15,7 +15,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 $_menu['Plugins']->addItem(
     'dcCKEditor',
     $core->adminurl->get('admin.plugin.dcCKEditor'),
-    dcPage::getPF('dcCKEditor/imgs/icon.png'),
+    [dcPage::getPF('dcCKEditor/icon.svg'), dcPage::getPF('dcCKEditor/icon-dark.svg')],
     preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.dcCKEditor')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
     $core->auth->check('admin,contentadmin', $core->blog->id)
 );

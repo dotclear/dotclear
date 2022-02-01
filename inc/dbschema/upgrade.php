@@ -873,6 +873,8 @@ class dcUpgrade
                 'admin/images/plus-theme.png',
                 'admin/images/menu/blog-pref.png',
                 'admin/images/menu/blog-pref-b.png',
+                'admin/images/menu/blog-theme-b.png',
+                'admin/images/menu/blog-theme-b-update.png',
                 'admin/images/menu/blogs.png',
                 'admin/images/menu/blogs-b.png',
                 'admin/images/menu/categories.png',
@@ -889,14 +891,27 @@ class dcUpgrade
                 'admin/images/menu/langs-b.png',
                 'admin/images/menu/media.png',
                 'admin/images/menu/media-b.png',
+                'admin/images/menu/plugins.png',
+                'admin/images/menu/plugins-b.png',
+                'admin/images/menu/plugins-b-update.png',
                 'admin/images/menu/search.png',
                 'admin/images/menu/search-b.png',
+                'admin/images/menu/themes.png',
+                'admin/images/menu/update.png',
+                'admin/images/menu/user-pref.png',
+                'admin/images/menu/user-pref-b.png',
+                'admin/images/menu/users.png',
+                'admin/images/menu/users-b.png',
                 'admin/style/help-mini.png',
                 'admin/style/help12.png',
+                'plugins/aboutConfig/icon-big.png',
+                'plugins/aboutConfig/icon.png',
                 'plugins/antispam/icon-big.png',
                 'plugins/antispam/icon.png',
                 'plugins/blogroll/icon-small.png',
                 'plugins/blogroll/icon.png',
+                'plugins/dcCKEditor/imgs/icon.png',
+                'plugins/dcLegacyEditor/icon.png',
                 'plugins/dcLegacyEditor/css/jsToolBar/bt_bquote.png',
                 'plugins/dcLegacyEditor/css/jsToolBar/bt_br.png',
                 'plugins/dcLegacyEditor/css/jsToolBar/bt_clean.png',
@@ -927,14 +942,25 @@ class dcUpgrade
                 'plugins/pages/icon.png',
                 'plugins/pings/icon-big.png',
                 'plugins/pings/icon.png',
+                'plugins/simpleMenu/icon-small.png',
+                'plugins/simpleMenu/icon.png',
                 'plugins/tags/icon-big.png',
                 'plugins/tags/icon.png',
                 'plugins/tags/img/tag-add.png',
-                // No more used
                 'plugins/tags/img/loader.gif',
+                'plugins/userPref/icon-big.png',
+                'plugins/userPref/icon.png',
+                'plugins/widgets/icon-big.png',
+                'plugins/widgets/icon.png',
+            ];
+            $remfolders = [
+                'plugins/dcCKEditor/imgs/',
             ];
             foreach ($remfiles as $f) {
                 @unlink(DC_ROOT . '/' . $f);
+            }
+            foreach ($remfolders as $f) {
+                @rmdir(DC_ROOT . '/' . $f);
             }
         }
 
