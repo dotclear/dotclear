@@ -68,7 +68,7 @@ msgid "Widgets for your blog sidebars"
 msgstr "Widgets pour les volets de votre blog"
 
 msgid "dotclear legacy editor"
-msgstr "éditeur historique de Dotclear"
+msgstr "éditeur standard de Dotclear"
 
 msgid "dotclear CKEditor integration"
 msgstr "éditeur CKEditor pour Dotclear"
@@ -1010,7 +1010,7 @@ msgid "Remove text formating"
 msgstr "Retirer le formatage du texte"
 
 msgid "dcLegacyEditor"
-msgstr "éditeur historique de Dotclear"
+msgstr "éditeur standard de Dotclear"
 
 msgid "Enable dcLegacyEditor plugin"
 msgstr "Activer le plugin dcLegacyEditor"
