@@ -179,7 +179,7 @@ class dcMaintenanceAdmin
 
         $items[] = new ArrayObject([
             '<div id="maintenance-expired" class="box small"><h3>' .
-            dc_admin_icon_theme([dcPage::getPF('maintenance/icon.svg'),dcPage::getPF('maintenance/icon-dark.svg')], true, '', '', 'icon-small') . ' ' .
+            dcAdminHelper::adminIcon([dcPage::getPF('maintenance/icon.svg'),dcPage::getPF('maintenance/icon-dark.svg')], true, '', '', 'icon-small') . ' ' .
             __('Maintenance') . '</h3>' .
             '<p class="warning no-margin">' . sprintf(__('There is a task to execute.', 'There are %s tasks to execute.', count($lines)), count($lines)) . '</p>' .
             '<ul>' . implode('', $lines) . '</ul>' .

@@ -786,8 +786,8 @@ foreach ($user_fav as $id) {
 
         $count++;
 
-        $icon = dc_admin_icon_theme($fav['small-icon']);
-        $zoom = dc_admin_icon_theme($fav['large-icon'], false);
+        $icon = dcAdminHelper::adminIcon($fav['small-icon']);
+        $zoom = dcAdminHelper::adminIcon($fav['large-icon'], false);
         if ($zoom !== '') {
             $icon .= ' <span class="zoom">' . $zoom . '</span>';
         }
@@ -864,8 +864,8 @@ foreach ($avail_fav as $k => $fav) {
     }
 
     $count++;
-    $icon = dc_admin_icon_theme($fav['small-icon']);
-    $zoom = dc_admin_icon_theme($fav['large-icon'], false);
+    $icon = dcAdminHelper::adminIcon($fav['small-icon']);
+    $zoom = dcAdminHelper::adminIcon($fav['large-icon'], false);
     if ($zoom !== '') {
         $icon .= ' <span class="zoom">' . $zoom . '</span>';
     }

@@ -339,7 +339,7 @@ if (!$core->auth->user_prefs->dashboard->nofavicons) {
     # Dashboard icons
     $dashboardIcons = '<div id="icons">';
     foreach ($__dashboard_icons as $i) {
-        $dashboardIcons .= '<p><a href="' . $i[1] . '">' . dc_admin_icon_theme($i[2]) .
+        $dashboardIcons .= '<p><a href="' . $i[1] . '">' . dcAdminHelper::adminIcon($i[2]) .
             '<br /><span class="db-icon-title">' . $i[0] . '</span></a></p>';
     }
     $dashboardIcons .= '</div>';

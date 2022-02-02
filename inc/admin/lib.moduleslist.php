@@ -653,7 +653,7 @@ class adminModulesList
 
                 echo
                 '<td class="module-icon nowrap">' .
-                dc_admin_icon_theme($icon, false, html::escapeHTML($id), html::escapeHTML($id)) .
+                dcAdminHelper::adminIcon($icon, false, html::escapeHTML($id), html::escapeHTML($id)) .
                 '</td>';
             }
 
