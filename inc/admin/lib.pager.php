@@ -93,32 +93,32 @@ class dcPager extends pager
         $htmlFirst = $this->getLink(
             'first',
             sprintf($this->page_url, 1),
-            'images/pagination/first.png',
-            'images/pagination/no-first.png',
+            'images/pagination/first.svg',
+            'images/pagination/no-first.svg',
             __('First page'),
             ($this->env > 1)
         );
         $htmlPrev = $this->getLink(
             'prev',
             sprintf($this->page_url, $this->env - 1),
-            'images/pagination/previous.png',
-            'images/pagination/no-previous.png',
+            'images/pagination/previous.svg',
+            'images/pagination/no-previous.svg',
             __('Previous page'),
             ($this->env > 1)
         );
         $htmlNext = $this->getLink(
             'next',
             sprintf($this->page_url, $this->env + 1),
-            'images/pagination/next.png',
-            'images/pagination/no-next.png',
+            'images/pagination/next.svg',
+            'images/pagination/no-next.svg',
             __('Next page'),
             ($this->env < $this->nb_pages)
         );
         $htmlLast = $this->getLink(
             'last',
             sprintf($this->page_url, $this->nb_pages),
-            'images/pagination/last.png',
-            'images/pagination/no-last.png',
+            'images/pagination/last.svg',
+            'images/pagination/no-last.svg',
             __('Last page'),
             ($this->env < $this->nb_pages)
         );

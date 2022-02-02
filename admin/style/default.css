@@ -4032,6 +4032,9 @@ a.onblog_link {
     color: var(--pager-link);
     border-radius: 3px;
     overflow: hidden; }
+    .pager .btn img {
+      width: 1em;
+      height: auto; }
     .pager .btn.no-link {
       border-color: var(--pager-border);
       background-color: var(--pager-off-background);
@@ -4050,7 +4053,7 @@ a.onblog_link {
       padding: 3px 6px; }
   .pager a {
     display: block;
-    padding: 1px 3px 0;
+    padding: 0 3px;
     border: none; }
     .pager a:hover, .pager a:focus {
       background-color: var(--pager-background-over); }
