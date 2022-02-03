@@ -506,8 +506,12 @@ class dcPage
         $hl_pos         = $options['hl_pos']    ?? -1;
         // First item of array elements should be blog's name, System or Plugins
         $res = '<h2>' . ($with_home_link ?
-            '<a class="go_home" href="' . $core->adminurl->get('admin.home') . '"><img src="style/dashboard.png" alt="' . __('Go to dashboard') . '" /></a>' :
-            '<img src="style/dashboard-alt.png" alt="" />');
+            '<a class="go_home" href="' . $core->adminurl->get('admin.home') . '">' .
+            '<img class="go_home light-only" src="style/dashboard.svg" alt="' . __('Go to dashboard') . '" />' .
+            '<img class="go_home dark-only" src="style/dashboard-dark.svg" alt="' . __('Go to dashboard') . '" />' .
+            '</a>' :
+            '<img class="go_home light-only" src="style/dashboard-alt.svg" alt="" />' .
+            '<img class="go_home dark-only" src="style/dashboard-alt-dark.svg" alt="" />');
         $index = 0;
         if ($hl_pos < 0) {
             $hl_pos = count($elements) + $hl_pos;

@@ -4011,6 +4011,10 @@ a.onblog_link {
   background-color: var(--onblog-link-background);
   box-shadow: 0 1px 1px var(--onblog-link-shadow); }
 
+img.go_home {
+  width: 1em;
+  height: auto; }
+
 /* Pagination */
 .pager {
   margin: 2em 0 1em 0;
