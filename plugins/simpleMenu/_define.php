@@ -18,7 +18,7 @@ $this->registerModule(
     'Franck Paul',              // Author
     '1.6',                      // Version
     [
-        'permissions' => 'admin',
+        'permissions' => 'usage,contentadmin',
         'type'        => 'plugin',
         'settings'    => [
             'self' => '',

@@ -46,7 +46,7 @@ class tplSimpleMenu
     # Widget function
     public static function simpleMenuWidget($w)
     {
-        global $core, $_ctx;
+        global $core;
 
         $descr_type = [0 => 'span', 1 => 'title', 2 => 'both', 3 => 'none'];
 
