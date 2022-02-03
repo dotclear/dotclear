@@ -704,20 +704,6 @@ class dcPage
     }
 
     /**
-     * Wrapper for cssLoad to be used by module
-     *
-     * @param      <type>  $src    The source
-     * @param      string  $media  The media
-     * @param      string  $v      The version
-     *
-     * @return     mixed
-     */
-    public static function cssModuleLoad($src, $media = 'screen', $v = '')
-    {
-        return self::jsLoad(urldecode(self::getPF($src)), $v);
-    }
-
-    /**
      * Get HTML code to load JS script
      *
      * @param      string  $src    The source
@@ -734,19 +720,6 @@ class dcPage
 
             return '<script src="' . $escaped_src . '"></script>' . "\n";
         }
-    }
-
-    /**
-     * Wrapper for jsLoad to be used by module
-     *
-     * @param      <type>  $src    The source
-     * @param      string  $v      The version
-     *
-     * @return     mixed
-     */
-    public static function jsModuleLoad($src, $v = '')
-    {
-        return self::jsLoad(urldecode(self::getPF($src)), $v);
     }
 
     /**

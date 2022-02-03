@@ -309,7 +309,7 @@ class dcMaintenanceAdmin
     public static function pluginsToolsHeaders(dcCore $core, $module)
     {
         if ($module == 'maintenance') {
-            return dcPage::jsModuleLoad('maintenance/js/settings.js');
+            return dcPage::jsLoad(dcPage::getPF('maintenance/js/settings.js'));
         }
     }
 }

@@ -107,7 +107,7 @@ function findSequence(goal) {
 }</textarea>';
         echo
         dcPage::jsJson('theme_editor_current', ['theme' => $core->auth->user_prefs->interface->colorsyntax_theme != '' ? $core->auth->user_prefs->interface->colorsyntax_theme : 'default']) .
-        dcPage::jsModuleLoad('themeEditor/js/theme.js');
+        dcPage::jsLoad(dcPage::getPF('themeEditor/js/theme.js'));
         echo '</div>';
         echo '</div>';
     }

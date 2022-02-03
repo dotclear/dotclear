@@ -126,7 +126,7 @@ function prefLine($id, $s, $ws, $field_name, $strong_label)
 <html>
 <head>
   <title>user:preferences</title>
-  <?php echo dcPage::jsPageTabs($part) . dcPage::jsModuleLoad('userPref/js/index.js'); ?>
+  <?php echo dcPage::jsPageTabs($part) . dcPage::jsLoad(dcPage::getPF('userPref/js/index.js')); ?>
 </head>
 
 <body>

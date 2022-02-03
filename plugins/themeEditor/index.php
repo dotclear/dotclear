@@ -76,12 +76,12 @@ echo dcPage::jsJson('theme_editor_msg', [
     'error_occurred'     => __('An error occurred:'),
     'confirm_reset_file' => __('Are you sure you want to reset this file?'),
 ]) .
-dcPage::jsModuleLoad('themeEditor/js/script.js') .
+dcPage::jsLoad(dcPage::getPF('themeEditor/js/script.js')) .
 dcPage::jsConfirmClose('file-form') ;
 if ($user_ui_colorsyntax) {
     echo dcPage::jsLoadCodeMirror($user_ui_colorsyntax_theme);
 }
-echo dcPage::cssModuleLoad('themeEditor/style.css');
+echo dcPage::cssLoad(dcPage::getPF('themeEditor/style.css'));
 ?>
 </head>
 
@@ -141,7 +141,7 @@ if ($file['c'] === null) {
             (!empty($_REQUEST['php']) ? 'php' :
             'text/html'))));
         echo dcPage::jsJson('theme_editor_mode', ['mode' => $editorMode]);
-        echo dcPage::jsModuleLoad('themeEditor/js/mode.js');
+        echo dcPage::jsLoad(dcPage::getPF('themeEditor/js/mode.js'));
         echo dcPage::jsRunCodeMirror('editor', 'file_content', 'dotclear', $user_ui_colorsyntax_theme);
     }
 }

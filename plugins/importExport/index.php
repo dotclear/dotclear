@@ -59,9 +59,9 @@ echo '
 <html>
 <head>
     <title>' . $title . '</title>' .
-dcPage::cssModuleLoad('importExport/style.css') .
+dcPage::cssLoad(dcPage::getPF('importExport/style.css')) .
 dcPage::jsJson('ie_msg', ['please_wait' => __('Please wait...')]) .
-dcPage::jsModuleLoad('importExport/js/script.js') .
+dcPage::jsLoad(dcPage::getPF('importExport/js/script.js')) .
 '</head>
 <body>';
 

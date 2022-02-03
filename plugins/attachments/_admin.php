@@ -41,7 +41,7 @@ class attachmentAdmin
     {
         $core = &$GLOBALS['core'];
 
-        return dcPage::jsModuleLoad('attachments/js/post.js');
+        return dcPage::jsLoad(dcPage::getPF('attachments/js/post.js'));
     }
     public static function adminPostFormItems($main, $sidebar, $post)
     {

@@ -128,7 +128,7 @@ function settingLine($id, $s, $ns, $field_name, $strong_label)
 <html>
 <head>
   <title>about:config</title>
-  <?php echo dcPage::jsPageTabs($part) . dcPage::jsModuleLoad('aboutConfig/js/index.js'); ?>
+  <?php echo dcPage::jsPageTabs($part) . dcPage::jsLoad(dcPage::getPF('aboutConfig/js/index.js')); ?>
 </head>
 
 <body>

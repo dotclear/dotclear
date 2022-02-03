@@ -59,7 +59,7 @@ echo
     dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
     dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
     dcPage::jsJson('pages_list', ['confirm_delete_posts' => __('Are you sure you want to delete selected pages?')]) .
-    dcPage::jsModuleLoad('pages/js/list.js')
+    dcPage::jsLoad(dcPage::getPF('pages/js/list.js'))
   ?>
 </head>
 

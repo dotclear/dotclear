@@ -211,7 +211,7 @@ $js = [
       ],
   ];
 echo dcPage::jsJson('blowup', $js);
-echo dcPage::jsModuleLoad('blowupConfig/js/config.js');
+echo dcPage::jsLoad(dcPage::getPF('blowupConfig/js/config.js'));
 ?>
 </head>
 
