@@ -263,7 +263,7 @@ class dcPage
         '<li><a class="smallscreen' . (preg_match('/' . preg_quote($core->adminurl->get('admin.user.preferences')) . '(\?.*)?$/', $_SERVER['REQUEST_URI']) ? ' active' : '') .
         '" href="' . $core->adminurl->get('admin.user.preferences') . '">' . __('My preferences') . '</a></li>' .
         '<li><a href="' . $core->adminurl->get('admin.home', ['logout' => 1]) . '" class="logout"><span class="nomobile">' . sprintf(__('Logout %s'), $core->auth->userID()) .
-            '</span><img src="images/logout.png" alt="" /></a></li>' .
+            '</span><img src="images/logout.svg" alt="" /></a></li>' .
             '</ul>' .
             '</header>'; // end header
 

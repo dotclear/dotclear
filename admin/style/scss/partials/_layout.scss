@@ -531,6 +531,11 @@ h1,
     }
   }
 
+  #header a.logout img {
+    // The preceding logout label is not displayed on small screen, so padding is not more needed
+    padding-left: 0;
+  }
+
   #content.with-help {
     #help-button {
       top: 10em; // 120px;

@@ -867,6 +867,7 @@ class dcUpgrade
                 // Some PNG icon have been converted to SVG
                 'admin/images/expand.png',
                 'admin/images/hide.png',
+                'admin/images/logout.png',
                 'admin/images/menu_off.png',
                 'admin/images/menu_on.png',
                 'admin/images/minus-theme.png',
@@ -910,6 +911,8 @@ class dcUpgrade
                 'admin/pagination/no-next.png',
                 'admin/pagination/no-previous.png',
                 'admin/pagination/previous.png',
+                'admin/style/dashboard.png',
+                'admin/style/dashboard-alt.png',
                 'admin/style/help-mini.png',
                 'admin/style/help12.png',
                 'plugins/aboutConfig/icon-big.png',

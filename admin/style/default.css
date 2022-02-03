@@ -1507,6 +1507,9 @@ h1,
     #top-info-blog select {
       margin-bottom: 0.5em; }
 
+  #header a.logout img {
+    padding-left: 0; }
+
   #content.with-help #help-button {
     top: 10em;
     right: 28rem; }
@@ -2474,7 +2477,9 @@ body.ajax-loader #collapser {
   color: var(--header-color); }
 #header img {
   vertical-align: middle;
-  padding-left: 0.5em; }
+  padding-left: 0.5em;
+  height: 1.125em;
+  width: auto; }
 
 /* h1 */
 h1 {
