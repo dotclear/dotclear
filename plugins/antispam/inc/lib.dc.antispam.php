@@ -69,15 +69,6 @@ class dcAntispam
         }
     }
 
-    public static function dashboardIcon($core, $icons)
-    {
-        if (($count = self::countSpam($core)) > 0) {
-            $str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
-            $icons['comments'][0] .= '</span></a> <a href="' . $core->adminurl->get('admin.comments', ['status' => '-2']) . '"><span class="db-icon-title-spam">' .
-            sprintf($str, $count);
-        }
-    }
-
     public static function dashboardIconTitle($core)
     {
         if (($count = self::countSpam($core)) > 0) {

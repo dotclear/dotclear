@@ -27,22 +27,19 @@ $core->addBehavior('adminPostFormItems', ['pingsAdminBehaviors', 'pingsFormItems
 $core->addBehavior('adminAfterPostCreate', ['pingsAdminBehaviors', 'doPings']);
 $core->addBehavior('adminAfterPostUpdate', ['pingsAdminBehaviors', 'doPings']);
 
-$core->addBehavior('adminDashboardFavorites', 'pingDashboardFavorites');
+$core->addBehavior(
+    'adminDashboardFavorites',
+    function ($core, $favs) {
+        $favs->register('pings', [
+            'title'      => __('Pings'),
+            'url'        => $core->adminurl->get('admin.plugin.pings'),
+            'small-icon' => [dcPage::getPF('pings/icon.svg'), dcPage::getPF('pings/icon-dark.svg')],
+            'large-icon' => [dcPage::getPF('pings/icon.svg'), dcPage::getPF('pings/icon-dark.svg')],
+        ]);
+    }
+);
 
-function pingDashboardFavorites($core, $favs)
-{
-    $favs->register('pings', [
-        'title'      => __('Pings'),
-        'url'        => $core->adminurl->get('admin.plugin.pings'),
-        'small-icon' => [dcPage::getPF('pings/icon.svg'), dcPage::getPF('pings/icon-dark.svg')],
-        'large-icon' => [dcPage::getPF('pings/icon.svg'), dcPage::getPF('pings/icon-dark.svg')],
-    ]);
-}
-
-$core->addBehavior('adminPageHelpBlock', 'pingsPageHelpBlock');
-
-function pingsPageHelpBlock($blocks)
-{
+$core->addBehavior('adminPageHelpBlock', function ($blocks) {
     $found = false;
     foreach ($blocks as $block) {
         if ($block == 'core_post') {
@@ -55,4 +52,4 @@ function pingsPageHelpBlock($blocks)
         return;
     }
     $blocks[] = 'pings_post';
-}
+});

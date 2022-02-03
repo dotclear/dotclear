@@ -26,36 +26,35 @@ $_menu['Plugins']->addItem(
 
 $core->addBehavior('coreAfterCommentUpdate', ['dcAntispam', 'trainFilters']);
 $core->addBehavior('adminAfterCommentDesc', ['dcAntispam', 'statusMessage']);
-$core->addBehavior('adminDashboardIcons', ['dcAntispam', 'dashboardIcon']);
 $core->addBehavior('adminDashboardHeaders', ['dcAntispam', 'dashboardHeaders']);
 
-$core->addBehavior('adminDashboardFavorites', 'antispamDashboardFavorites');
-$core->addBehavior('adminDashboardFavsIcon', 'antispamDashboardFavsIcon');
-
-function antispamDashboardFavorites($core, $favs)
-{
-    $favs->register(
-        'antispam',
-        [
-            'title'       => __('Antispam'),
-            'url'         => $core->adminurl->get('admin.plugin.antispam'),
-            'small-icon'  => [dcPage::getPF('antispam/icon.svg'), dcPage::getPF('antispam/icon-dark.svg')],
-            'large-icon'  => [dcPage::getPF('antispam/icon.svg'), dcPage::getPF('antispam/icon-dark.svg')],
-            'permissions' => 'admin', ]
-    );
-}
-
-function antispamDashboardFavsIcon($core, $name, $icon)
-{
-    // Check if it is comments favs
-    if ($name == 'comments') {
-        // Hack comments title if there is at least one spam
-        $str = dcAntispam::dashboardIconTitle($core);
-        if ($str != '') {
-            $icon[0] .= $str;
+$core->addBehavior(
+    'adminDashboardFavorites',
+    function ($core, $favs) {
+        $favs->register(
+            'antispam',
+            [
+                'title'       => __('Antispam'),
+                'url'         => $core->adminurl->get('admin.plugin.antispam'),
+                'small-icon'  => [dcPage::getPF('antispam/icon.svg'), dcPage::getPF('antispam/icon-dark.svg')],
+                'large-icon'  => [dcPage::getPF('antispam/icon.svg'), dcPage::getPF('antispam/icon-dark.svg')],
+                'permissions' => 'admin', ]
+        );
+    }
+);
+$core->addBehavior(
+    'adminDashboardFavsIcon',
+    function ($core, $name, $icon) {
+        // Check if it is comments favs
+        if ($name == 'comments') {
+            // Hack comments title if there is at least one spam
+            $str = dcAntispam::dashboardIconTitle($core);
+            if ($str != '') {
+                $icon[0] .= $str;
+            }
         }
     }
-}
+);
 
 if (!DC_ANTISPAM_CONF_SUPER || $core->auth->isSuperAdmin()) {
     $core->addBehavior('adminBlogPreferencesForm', ['antispamBehaviors', 'adminBlogPreferencesForm']);
