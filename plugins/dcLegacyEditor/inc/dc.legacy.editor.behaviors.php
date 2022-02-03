@@ -37,7 +37,7 @@ class dcLegacyEditorBehaviors
         return
         self::jsToolBar() .
         dcPage::jsJson('legacy_editor_ctx', $js) .
-        dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/_post_editor.js'));
+        dcPage::jsModuleLoad('dcLegacyEditor/js/_post_editor.js');
     }
 
     public static function adminPopupMedia($editor = '')
@@ -46,7 +46,7 @@ class dcLegacyEditorBehaviors
             return;
         }
 
-        return dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/popup_media.js'));
+        return dcPage::jsModuleLoad('dcLegacyEditor/js/jsToolBar/popup_media.js');
     }
 
     public static function adminPopupLink($editor = '')
@@ -55,7 +55,7 @@ class dcLegacyEditorBehaviors
             return;
         }
 
-        return dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/popup_link.js'));
+        return dcPage::jsModuleLoad('dcLegacyEditor/js/jsToolBar/popup_link.js');
     }
 
     public static function adminPopupPosts($editor = '')
@@ -64,7 +64,7 @@ class dcLegacyEditorBehaviors
             return;
         }
 
-        return dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/popup_posts.js'));
+        return dcPage::jsModuleLoad('dcLegacyEditor/js/jsToolBar/popup_posts.js');
     }
 
     protected static function jsToolBar()
@@ -149,15 +149,15 @@ class dcLegacyEditorBehaviors
         }
 
         $res = dcPage::jsJson('legacy_editor', $js) .
-        dcPage::cssLoad(dcPage::getPF('dcLegacyEditor/css/jsToolBar/jsToolBar.css')) .
-        dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/jsToolBar.js'));
+        dcPage::cssModuleLoad('dcLegacyEditor/css/jsToolBar/jsToolBar.css') .
+        dcPage::jsModuleLoad('dcLegacyEditor/js/jsToolBar/jsToolBar.js');
 
         if (isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('enable_wysiwyg')) {
-            $res .= dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/jsToolBar.wysiwyg.js'));
+            $res .= dcPage::jsModuleLoad('dcLegacyEditor/js/jsToolBar/jsToolBar.wysiwyg.js');
         }
 
-        $res .= dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/jsToolBar.dotclear.js')) .
-        dcPage::jsLoad(dcPage::getPF('dcLegacyEditor/js/jsToolBar/jsToolBar.config.js'));
+        $res .= dcPage::jsModuleLoad('dcLegacyEditor/js/jsToolBar/jsToolBar.dotclear.js') .
+        dcPage::jsModuleLoad('dcLegacyEditor/js/jsToolBar/jsToolBar.config.js');
 
         return $res;
     }

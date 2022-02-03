@@ -106,8 +106,8 @@ if (!$core->auth->user_prefs->accessibility->nodragdrop) {
 }
 echo
     dcPage::jsJson('antispam', ['confirm_spam_delete' => __('Are you sure you want to delete all spams?')]) .
-    dcPage::jsLoad(dcPage::getPF('antispam/js/antispam.js')) .
-    dcPage::cssLoad(dcPage::getPF('antispam/style.css'));
+    dcPage::jsModuleLoad('antispam/js/antispam.js') .
+    dcPage::cssModuleLoad('antispam/style.css');
 ?>
 </head>
 <body>

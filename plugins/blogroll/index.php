@@ -176,7 +176,7 @@ if (!$core->auth->user_prefs->accessibility->nodragdrop) {
     echo
     dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
     dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-    dcPage::jsLoad(dcPage::getPF('blogroll/js/blogroll.js'));
+    dcPage::jsModuleLoad('blogroll/js/blogroll.js');
 }
 ?>
   <?php echo dcPage::jsPageTabs($default_tab); ?>

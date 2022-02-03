@@ -83,7 +83,7 @@ class dcAntispam
 
     public static function dashboardHeaders()
     {
-        return dcPage::jsLoad(urldecode(dcPage::getPF('antispam/js/dashboard.js')));
+        return dcPage::jsModuleLoad('antispam/js/dashboard.js');
     }
 
     public static function countSpam($core)

@@ -33,7 +33,7 @@ class pingsAdminBehaviors
 {
     public static function pingJS()
     {
-        return dcPage::jsLoad(dcPage::getPF('pings/js/post.js'));
+        return dcPage::jsModuleLoad('pings/js/post.js');
     }
 
     public static function pingsFormItems($main, $sidebar, $post)
