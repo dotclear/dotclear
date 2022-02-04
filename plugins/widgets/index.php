@@ -214,19 +214,19 @@ $rte_flags     = @$core->auth->user_prefs->interface->rte_flags;
 if (is_array($rte_flags) && in_array('widgets_text', $rte_flags)) {
     $rte_flag = $rte_flags['widgets_text'];
 }
-echo dcPage::cssLoad(dcPage::getPF('widgets/style.css')) .
+echo dcPage::cssModuleLoad('widgets/style.css') .
 dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
 dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
 dcPage::jsJson('widgets', [
     'widget_noeditor' => ($rte_flag ? 0 : 1),
     'msg'             => ['confirm_widgets_reset' => __('Are you sure you want to reset sidebars?')],
 ]) .
-dcPage::jsLoad(dcPage::getPF('widgets/js/widgets.js'));
+dcPage::jsModuleLoad('widgets/js/widgets.js');
 
 $core->auth->user_prefs->addWorkspace('accessibility');
 $user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
 if (!$user_dm_nodragdrop) {
-    echo dcPage::jsLoad(dcPage::getPF('widgets/js/dragdrop.js'));
+    echo dcPage::jsModuleLoad('widgets/js/dragdrop.js');
 }
 if ($rte_flag) {
     echo $core->callBehavior(

@@ -408,7 +408,7 @@ if (!$core->auth->user_prefs->accessibility->nodragdrop) {
     echo
     dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
     dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
-    dcPage::jsLoad(dcPage::getPF('simpleMenu/js/simplemenu.js'));
+    dcPage::jsModuleLoad('simpleMenu/js/simplemenu.js');
 }
 echo dcPage::jsConfirmClose('settings', 'menuitemsappend', 'additem', 'menuitems');
 ?>

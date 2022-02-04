@@ -28,7 +28,7 @@ class tagsBehaviors
                     'url'   => $tag_url,
                 ],
             ]) .
-            dcPage::jsLoad(dcPage::getPF('tags/js/legacy-post.js'));
+            dcPage::jsModuleLoad('tags/js/legacy-post.js');
         } elseif ($editor == 'dcCKEditor') {
             return
             dcPage::jsJson('ck_editor_tags', [
@@ -206,8 +206,8 @@ class tagsBehaviors
                 dcPage::jsJson('editor_tags_options', $editor_tags_options) .
                 dcPage::jsJson('editor_tags_msg', $msg) .
                 dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
-                dcPage::jsLoad(dcPage::getPF('tags/js/posts_actions.js')) .
-                dcPage::cssLoad(dcPage::getPF('tags/style.css'))
+                dcPage::jsModuleLoad('tags/js/posts_actions.js') .
+                dcPage::cssModuleLoad('tags/style.css')
             );
             echo
             '<form action="' . $ap->getURI() . '" method="post">' .
@@ -328,8 +328,8 @@ class tagsBehaviors
         dcPage::jsJson('editor_tags_options', $editor_tags_options) .
         dcPage::jsJson('editor_tags_msg', $msg) .
         dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
-        dcPage::jsLoad(dcPage::getPF('tags/js/post.js')) .
-        dcPage::cssLoad(dcPage::getPF('tags/style.css'));
+        dcPage::jsModuleLoad('tags/js/post.js') .
+        dcPage::cssModuleLoad('tags/style.css');
     }
 
     public static function adminUserForm($args)

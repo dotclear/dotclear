@@ -138,12 +138,12 @@ $combo_ts = [
 echo '<html><head>
 <title>' . __('Maintenance') . '</title>' .
 dcPage::jsPageTabs($tab) .
-dcPage::jsLoad(dcPage::getPF('maintenance/js/settings.js'));
+dcPage::jsModuleLoad('maintenance/js/settings.js');
 
 if ($task && $task->ajax()) {
     echo
     dcPage::jsJson('maintenance', ['wait' => __('Please wait...')]) .
-    dcPage::jsLoad(dcPage::getPF('maintenance/js/dc.maintenance.js'));
+    dcPage::jsModuleLoad('maintenance/js/dc.maintenance.js');
 }
 
 echo

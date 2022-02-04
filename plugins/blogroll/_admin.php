@@ -26,7 +26,7 @@ $core->addBehavior(
 );
 $core->addBehavior(
     'adminUsersActionsHeaders',
-    fn () => dcPage::jsLoad(dcPage::getPF('blogroll/js/_users_actions.js'))
+    fn () => dcPage::jsModuleLoad('blogroll/js/_users_actions.js')
 );
 
 $_menu['Blog']->addItem(
