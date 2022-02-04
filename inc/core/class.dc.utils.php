@@ -115,6 +115,13 @@ class dcUtils
         return '<link rel="stylesheet" href="' . $escaped_src . '" type="text/css" media="' . $media . '" />' . "\n";
     }
 
+    public static function cssModuleLoad($src, $media = 'screen', $v = null)
+    {
+        global $core;
+
+        return self::cssLoad($core->blog->getPF($src), $media, $v);
+    }
+
     public static function jsLoad($src, $v = null)
     {
         $escaped_src = html::escapeHTML($src);
@@ -123,6 +130,13 @@ class dcUtils
         }
 
         return '<script src="' . $escaped_src . '"></script>' . "\n";
+    }
+
+    public static function jsModuleLoad($src, $v = null)
+    {
+        global $core;
+
+        return self::jsLoad($core->blog->getPF($src), $v);
     }
 
     /**
