@@ -10,6 +10,21 @@
 div.ui-sortable-handle {
   border: 1px dashed currentColor !important;
   border-radius: 0.75em !important;
+
+  #dashboard-main & {
+    padding: 1em !important;
+    margin-bottom: 1em !important;
+    background: var(--ui-sortable-background) !important;
+    .ui-sortable-handle {
+      background: var(--ui-sortable-background-bis) !important;
+      .ui-sortable-handle {
+        background: var(--ui-sortable-background-ter) !important;
+      }
+    }
+    &:hover {
+      cursor: move;
+    }
+  }
 }
 
 /* Badges (common.js) */

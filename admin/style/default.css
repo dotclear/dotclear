@@ -396,6 +396,9 @@ h6 {
   --help-title-color: #676e78;
   --tooltip-color: #910ed3;
   --tooltip-background: rgba(255, 255, 255, 0.9);
+  --ui-sortable-background: #f0f8ff;
+  --ui-sortable-background-bis: #faebd7;
+  --ui-sortable-background-ter: #f6fffb;
   --login-fieldset-background: #fff;
   --login-fieldset-border: #9bca1c;
   --index-link-color: #323232;
@@ -661,6 +664,9 @@ h6 {
   --help-title-color: #a2cbe9;
   --tooltip-color: #910ed3;
   --tooltip-background: #f3f4f5;
+  --ui-sortable-background: #3d314e;
+  --ui-sortable-background-bis: #6d396e;
+  --ui-sortable-background-ter: #2f4143;
   --login-fieldset-background: #303236;
   --login-fieldset-border: #9bca1c;
   --index-link-color: #ecedee;
@@ -927,6 +933,9 @@ h6 {
     --help-title-color: #a2cbe9;
     --tooltip-color: #910ed3;
     --tooltip-background: #f3f4f5;
+    --ui-sortable-background: #3d314e;
+    --ui-sortable-background-bis: #6d396e;
+    --ui-sortable-background-ter: #2f4143;
     --login-fieldset-background: #303236;
     --login-fieldset-border: #9bca1c;
     --index-link-color: #ecedee;
@@ -4224,6 +4233,16 @@ ul.from-left {
 div.ui-sortable-handle {
   border: 1px dashed currentColor !important;
   border-radius: 0.75em !important; }
+  #dashboard-main div.ui-sortable-handle {
+    padding: 1em !important;
+    margin-bottom: 1em !important;
+    background: var(--ui-sortable-background) !important; }
+    #dashboard-main div.ui-sortable-handle .ui-sortable-handle {
+      background: var(--ui-sortable-background-bis) !important; }
+      #dashboard-main div.ui-sortable-handle .ui-sortable-handle .ui-sortable-handle {
+        background: var(--ui-sortable-background-ter) !important; }
+    #dashboard-main div.ui-sortable-handle:hover {
+      cursor: move; }
 
 /* Badges (common.js) */
 .badgeable {
