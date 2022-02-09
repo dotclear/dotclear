@@ -70,6 +70,12 @@ a.media-icon {
   display: block;
 }
 
+.media-icon-square {
+  width: 48px;
+  height: auto;
+  max-height: 48px;
+}
+
 a.media-flag {
   border-bottom: none;
 }

@@ -3466,6 +3466,11 @@ a.media-icon {
 .media-icon img {
   display: block; }
 
+.media-icon-square {
+  width: 48px;
+  height: auto;
+  max-height: 48px; }
+
 a.media-flag {
   border-bottom: none; }
 
@@ -3674,7 +3679,7 @@ div.template-upload {
 #media-original-image {
   overflow: auto; }
   #media-original-image.overheight {
-    height: 500px; }
+    max-height: 500px; }
 
 #media-attribute {
   margin-left: 0.5em;

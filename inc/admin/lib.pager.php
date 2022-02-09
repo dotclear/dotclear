@@ -1190,7 +1190,7 @@ class adminMediaList extends adminGenericList
         // Render markup
         if ($filters->file_mode != 'list') {
             $res = '<div class="' . $class . '"><p><a class="media-icon media-link" href="' . rawurldecode($link) . '">' .
-            '<img src="' . $f->media_icon . '" alt="" />' . ($query ? $file : $fname) . '</a></p>';
+            '<img class="media-icon-square" src="' . $f->media_icon . '" alt="" />' . ($query ? $file : $fname) . '</a></p>';
 
             $lst = '';
             if (!$f->d) {
@@ -1214,7 +1214,7 @@ class adminMediaList extends adminGenericList
             $res = '<tr class="' . $class . '">';
             $res .= '<td class="media-action">' . $act . '</td>';
             $res .= '<td class="maximal" scope="row"><a class="media-flag media-link" href="' . rawurldecode($link) . '">' .
-            '<img src="' . $f->media_icon . '" alt="" />' . ($query ? $file : $fname) . '</a>' .
+            '<img class="media-icon-square" src="' . $f->media_icon . '" alt="" />' . ($query ? $file : $fname) . '</a>' .
                 '<br />' . ($f->d ? '' : ($f->media_priv ? '<img class="media-private" src="images/locker.png" alt="' . __('private media') . '">' : '') . $f->media_title) . '</td>';
             $res .= '<td class="nowrap count">' . ($f->d ? '' : $f->media_dtstr) . '</td>';
             $res .= '<td class="nowrap count">' . ($f->d ? '' : files::size($f->size) . ' - ' .

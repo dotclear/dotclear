@@ -670,7 +670,7 @@ if ($popup && ($select === 0) || ($select === 1)) {
     echo '<h3 class="out-of-screen-if-js">' . __('Media details') . '</h3>';
 }
 echo
-'<p id="media-icon"><img src="' . $file->media_icon . '?' . time() * rand() . '" alt="" /></p>';
+'<p id="media-icon"><img class="media-icon-square" src="' . $file->media_icon . '?' . time() * rand() . '" alt="" /></p>';
 
 echo
     '<div id="media-details">' .
