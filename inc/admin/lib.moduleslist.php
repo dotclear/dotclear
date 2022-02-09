@@ -1809,6 +1809,16 @@ class adminThemesList extends adminModulesList
             if (in_array('select', $actions)) {
                 $submits[] = '<input type="submit" name="select[' . html::escapeHTML($id) . ']" value="' . __('Use this one') . '" />';
             }
+        } else {
+            // Currently selected theme
+            if ($pos = array_search('delete', $actions, true)) {
+                // Remove 'delete' action
+                unset($actions[$pos]);
+            }
+            if ($pos = array_search('deactivate', $actions, true)) {
+                // Remove 'deactivate' action
+                unset($actions[$pos]);
+            }
         }
 
         if (self::isDistributedModule($id) && ($pos = array_search('delete', $actions, true))) {
