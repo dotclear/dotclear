@@ -1,3 +1,17 @@
+Dotclear 2.21 - 2022-02-13
+===========================================================
+* 🐘 PHP 7.4+ is required, PHP 8.0 compliance (should work with PHP 8.1 too but not guaranteed)
+* Add an user option to preview edited entry in another tab (or window) rather than in a popup
+* The detection of ad-blockers which may perturb backend has been improved
+* The old JS/CSS datepicker has been removed
+* A lot of old PNG icons have been replaced by SVG ones (dashboard, standard editor, …)
+* The contrast of the light mode in backend has been enforced
+* Lib: Update CKEditor from 4.16.2 to 4.17.1
+* Lib: Update Codemirror 5.63.3 from to 5.65.0
+* 🛡 Security: Avoid time measuring attack on login
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.20.1 - 2021-11-19
 ===========================================================
 * Fix: Lost of context in media popup (editor media insertion)
