@@ -689,7 +689,7 @@ if ($file->media_image) {
             '</a></p>';
     } elseif ($thumb_size == 'o') {
         $S     = getimagesize($file->file);
-        $class = ($S[1] > 500) ? ' class="overheight"' : '';
+        $class = !$S || ($S[1] > 500) ? ' class="overheight"' : '';
         unset($S);
         echo '<p id="media-original-image"' . $class . '><a class="modal-image" href="' . $file->file_url . '">' .
         '<img src="' . $file->file_url . '?' . time() * rand() . '" alt="" />' .
@@ -719,9 +719,13 @@ if ($file->media_image) {
         $stats      = stat($thumb_file);
         echo
         '<h3>' . __('Thumbnail details') . '</h3>' .
-        '<ul>' .
-        '<li><strong>' . __('Image width:') . '</strong> ' . $T[0] . ' px</li>' .
-        '<li><strong>' . __('Image height:') . '</strong> ' . $T[1] . ' px</li>' .
+        '<ul>';
+        if (is_array($T)) {
+            echo
+            '<li><strong>' . __('Image width:') . '</strong> ' . $T[0] . ' px</li>' .
+            '<li><strong>' . __('Image height:') . '</strong> ' . $T[1] . ' px</li>';
+        }
+        echo
         '<li><strong>' . __('File size:') . '</strong> ' . files::size($stats[7]) . '</li>' .
         '<li><strong>' . __('File URL:') . '</strong> <a href="' . $file->media_thumb[$thumb_size] . '">' .
         $file->media_thumb[$thumb_size] . '</a></li>' .
@@ -744,10 +748,12 @@ echo
 '<li><strong>' . __('File type:') . '</strong> ' . $file->type . '</li>';
 if ($file->media_image) {
     $S = getimagesize($file->file);
-    echo
-    '<li><strong>' . __('Image width:') . '</strong> ' . $S[0] . ' px</li>' .
-    '<li><strong>' . __('Image height:') . '</strong> ' . $S[1] . ' px</li>';
-    unset($S);
+    if (is_array($S)) {
+        echo
+        '<li><strong>' . __('Image width:') . '</strong> ' . $S[0] . ' px</li>' .
+        '<li><strong>' . __('Image height:') . '</strong> ' . $S[1] . ' px</li>';
+        unset($S);
+    }
 }
 echo
 '<li><strong>' . __('File size:') . '</strong> ' . files::size($file->size) . '</li>' .
