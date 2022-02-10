@@ -839,7 +839,7 @@ class dcSelectStatement extends dcSqlStatement
         // Direct where clause(s)
         if (count($this->cond)) {
             if (!count($this->where)) {
-                $query .= 'WHERE 1 '; // Hack to cope with the operator included in top of each condition
+                $query .= 'WHERE TRUE '; // Hack to cope with the operator included in top of each condition
             }
             $query .= join(' ', $this->cond) . ' ';
         }
@@ -1028,7 +1028,7 @@ class dcDeleteStatement extends dcSqlStatement
         // Direct where clause(s)
         if (count($this->cond)) {
             if (!count($this->where)) {
-                $query .= 'WHERE 1 '; // Hack to cope with the operator included in top of each condition
+                $query .= 'WHERE TRUE '; // Hack to cope with the operator included in top of each condition
             }
             $query .= join(' ', $this->cond) . ' ';
         }
@@ -1176,7 +1176,7 @@ class dcUpdateStatement extends dcSqlStatement
         // Direct where clause(s)
         if (count($this->cond)) {
             if (!count($this->where)) {
-                $query .= 'WHERE 1 '; // Hack to cope with the operator included in top of each condition
+                $query .= 'WHERE TRUE '; // Hack to cope with the operator included in top of each condition
             }
             $query .= join(' ', $this->cond) . ' ';
         }
@@ -1230,7 +1230,7 @@ class dcUpdateStatement extends dcSqlStatement
         // Direct where clause(s)
         if (count($this->cond)) {
             if (!count($this->where)) {
-                $query .= 'WHERE 1 '; // Hack to cope with the operator included in top of each condition
+                $query .= 'WHERE TRUE '; // Hack to cope with the operator included in top of each condition
             }
             $query .= join(' ', $this->cond) . ' ';
         }
