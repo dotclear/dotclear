@@ -318,7 +318,7 @@ class dcFilterIPv6 extends dcSpamFilter
             if (function_exists('gmp_init')) {
                 $ipmax = gmp_add(gmp_init($ipmin, 10), gmp_sub(gmp_init($mask, 10), gmp_init(1)));
             } elseif (function_exists('bcadd')) {
-                $ipmax = bcadd($ipmin, bcsub($mask, 1));    // @phpstan-ignore-line
+                $ipmax = bcadd($ipmin, bcsub($mask, '1'));    // @phpstan-ignore-line
             } else {
                 trigger_error('GMP or BCMATH extension not installed!', E_USER_ERROR);
             }
