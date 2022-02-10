@@ -157,7 +157,7 @@ class dcUrlHandlers extends urlHandler
         $result['content_type'] = $_ctx->content_type;
         $result['tpl']          = $_ctx->current_tpl;
         $result['blogupddt']    = $core->blog->upddt;
-        $result['headers']      = $headers;
+        $result['headers']      = headers_list();
 
         # --BEHAVIOR-- urlHandlerServeDocument
         $core->callBehavior('urlHandlerServeDocument', $result);
