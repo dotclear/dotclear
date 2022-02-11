@@ -30,7 +30,7 @@ class dcFilterLinksLookup extends dcSpamFilter
 
     public function isSpam($type, $author, $email, $site, $ip, $content, $post_id, &$status)
     {
-        if (!$ip || long2ip(ip2long($ip)) != $ip) {
+        if (!$ip || long2ip((int) ip2long($ip)) != $ip) {
             return;
         }
 
