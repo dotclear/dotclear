@@ -59,12 +59,12 @@ class dcCommentsActionsPage extends dcActionsPage
         $this->core->error->add($e->getMessage());
         $this->beginPage(
             dcPage::breadcrumb(
-            [
-                html::escapeHTML($this->core->blog->name) => '',
-                __('Comments')                            => $this->core->adminurl->get('admin.comments'),
-                __('Comments actions')                    => '',
-            ]
-        )
+                [
+                    html::escapeHTML($this->core->blog->name) => '',
+                    __('Comments')                            => $this->core->adminurl->get('admin.comments'),
+                    __('Comments actions')                    => '',
+                ]
+            )
         );
         $this->endPage();
     }
@@ -235,10 +235,19 @@ class dcDefaultCommentActions
 
         $global = !empty($action) && $action == 'blocklist_global' && $core->auth->isSuperAdmin();
 
-        $ip_filter = new dcFilterIP($core);
-        $rs        = $ap->getRS();
+        $rs = $ap->getRS();
+
+        $ip_filter_v4 = new dcFilterIP($core);
+        $ip_filter_v6 = new dcFilterIPv6($core);
+
         while ($rs->fetch()) {
-            $ip_filter->addIP('black', $rs->comment_ip, $global);
+            if (filter_var($rs->comment_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false) {
+                // IP is an IPv6
+                $ip_filter_v6->addIP('black', $rs->comment_ip, $global);
+            } else {
+                // Assume that IP is IPv4
+                $ip_filter_v4->addIP('black', $rs->comment_ip, $global);
+            }
         }
 
         dcPage::addSuccessNotice(__('IP addresses for selected comments have been blocklisted.'));
