@@ -243,7 +243,7 @@ class dcDefaultCommentActions
         while ($rs->fetch()) {
             if (filter_var($rs->comment_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false) {
                 // IP is an IPv6
-                $ip_filter_v6->addIP('black', $rs->comment_ip, $global);
+                $ip_filter_v6->addIP('blackv6', $rs->comment_ip, $global);
             } else {
                 // Assume that IP is IPv4
                 $ip_filter_v4->addIP('black', $rs->comment_ip, $global);
