@@ -13,6 +13,8 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 }
 dcPage::check('pages,contentadmin');
 
+dt::setTZ($core->auth->getInfo('user_tz'));
+
 $redir_url = $p_url . '&act=page';
 
 $post_id            = '';

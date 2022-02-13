@@ -12,6 +12,8 @@ require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
+dt::setTZ($core->auth->getInfo('user_tz'));
+
 $show_ip = $core->auth->check('contentadmin', $core->blog->id);
 
 $post_id            = '';
@@ -616,7 +618,7 @@ if ($can_edit_post) {
                 '</p>',
                 'post_dt' => '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
                 form::datetime('post_dt', [
-                    'default' => html::escapeHTML(dt::str('%Y-%m-%d\T%H:%M', strtotime($post_dt))),
+                    'default' => html::escapeHTML(dt::str('%Y-%m-%d\T%H:%M', strtotime($post_dt), $core->auth->getInfo('user_tz'))),
                     'class'   => ($bad_dt ? 'invalid' : ''),
                 ]) .
                 '</p>',
