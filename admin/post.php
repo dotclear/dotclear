@@ -310,6 +310,9 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt) {
         $cur->post_url = $post_url;
     }
 
+    // Back to UTC in order to keep UTC datetime for creadt/upddt
+    dt::setTZ('UTC');
+
     # Update post
     if ($post_id) {
         try {
