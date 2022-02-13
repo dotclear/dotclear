@@ -860,8 +860,9 @@ class dcBlog
      * - post_lang: Get entries with given language code
      * - search: Get entries corresponding of the following search string
      * - columns: (array) More columns to retrieve
+     * - join: Append a JOIN clause for the FROM statement in query
      * - sql: Append SQL string at the end of the query
-     * - from: Append SQL string after "FROM" statement in query
+     * - from: Append another FROM source in query
      * - order: Order of results (default "ORDER BY post_dt DES")
      * - limit: Limit parameter
      * - sql_only : return the sql request instead of results. Only ids are selected
@@ -939,8 +940,6 @@ class dcBlog
             ]);
         }
 
-//        print_r($sql->statement());
-
         $sql    // @phpstan-ignore-line
             ->from($this->prefix . 'post P', false, true)
             ->join(
@@ -958,7 +957,9 @@ class dcBlog
                 ->statement()
             );
 
-//        print_r($sql->statement());
+        if (!empty($params['join'])) {
+            $sql->join($params['join']);
+        }
 
         if (!empty($params['from'])) {
             $sql->from($params['from']);
