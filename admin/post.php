@@ -772,6 +772,9 @@ if ($can_edit_post) {
             http::browserUID(DC_MASTER_KEY . $core->auth->userID() . $core->auth->cryptLegacy($core->auth->userID())) .
             '/' . $post->post_url);
 
+        // Prevent browser caching on preview
+        $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) rand());
+
         $core->auth->user_prefs->addWorkspace('interface');
         $blank_preview = $core->auth->user_prefs->interface->blank_preview;
 
