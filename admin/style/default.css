@@ -3060,10 +3060,10 @@ span.ibw {
   margin: 1em auto 2em;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; }
+  justify-content: center;
+  gap: 1em; }
   #icons p {
     width: 13em;
-    margin: 1em 0 2em;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -3132,21 +3132,23 @@ span.ibw {
   margin: 1em auto 2em;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; }
+  justify-content: center;
+  gap: 1em; }
   #dashboard-boxes .box {
     padding: 10px;
     border: 1px solid var(--index-box-border);
     border-radius: 3px;
     min-height: 200px;
-    margin: 10px;
-    text-align: left; }
+    text-align: left;
+    margin: 0; }
 
 .db-items,
 .db-contents {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  flex: 1 1 auto; }
+  flex: 1 1 auto;
+  gap: 1em; }
   .db-items ul,
   .db-contents ul {
     display: block;
