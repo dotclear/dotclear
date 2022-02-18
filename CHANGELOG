@@ -1,3 +1,9 @@
+Dotclear 2.21.1 - 2022-02-19
+===========================================================
+* Fix: Cope with author TZ for posts and pages edition
+* Fix: Avoid browser caching on page/post preview
+* Fix: List of entries using a media
+
 Dotclear 2.21 - 2022-02-13
 ===========================================================
 * 🐘 PHP 7.4+ is required, PHP 8.0 compliance (should work with PHP 8.1 too but not guaranteed)
