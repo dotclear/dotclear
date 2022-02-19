@@ -48,7 +48,7 @@ rsync --exclude-from="$DIRECTORY/build-module-rsync-exclude.txt" --exclude="$MOD
 
 # Pack Javascript files
 if [ -f "$MIN_JS" ]; then
-  find ./"$MOD_NAME" -name '*.js' -exec "$MIN_JS" \{\} \;
+  find ./"$MOD_NAME" -name '*.js' ! -name '*.min.js' -exec "$MIN_JS" \{\} \;
 fi
 
 # Find last version (if any)
