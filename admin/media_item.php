@@ -768,7 +768,7 @@ if (empty($_GET['find_posts'])) {
     echo '<h3>' . __('Entries containing this media') . '</h3>';
     $params = [
         'post_type' => '',
-        'from'      => 'LEFT OUTER JOIN ' . $core->prefix . 'post_media PM ON P.post_id = PM.post_id ',
+        'join'      => 'LEFT OUTER JOIN ' . $core->prefix . 'post_media PM ON P.post_id = PM.post_id ',
         'sql'       => 'AND (' .
         'PM.media_id = ' . (int) $id . ' ' .
         "OR post_content_xhtml LIKE '%" . $core->con->escape($file->relname) . "%' " .

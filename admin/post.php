@@ -12,6 +12,8 @@ require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
+dt::setTZ($core->auth->getInfo('user_tz'));
+
 $show_ip = $core->auth->check('contentadmin', $core->blog->id);
 
 $post_id            = '';
@@ -307,6 +309,9 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt) {
     if (isset($_POST['post_url'])) {
         $cur->post_url = $post_url;
     }
+
+    // Back to UTC in order to keep UTC datetime for creadt/upddt
+    dt::setTZ('UTC');
 
     # Update post
     if ($post_id) {
@@ -616,7 +621,7 @@ if ($can_edit_post) {
                 '</p>',
                 'post_dt' => '<p><label for="post_dt">' . __('Publication date and hour') . '</label>' .
                 form::datetime('post_dt', [
-                    'default' => html::escapeHTML(dt::str('%Y-%m-%d\T%H:%M', strtotime($post_dt))),
+                    'default' => html::escapeHTML(dt::str('%Y-%m-%d\T%H:%M', strtotime($post_dt), $core->auth->getInfo('user_tz'))),
                     'class'   => ($bad_dt ? 'invalid' : ''),
                 ]) .
                 '</p>',
@@ -769,6 +774,9 @@ if ($can_edit_post) {
         $preview_url = $core->blog->url . $core->url->getURLFor('preview', $core->auth->userID() . '/' .
             http::browserUID(DC_MASTER_KEY . $core->auth->userID() . $core->auth->cryptLegacy($core->auth->userID())) .
             '/' . $post->post_url);
+
+        // Prevent browser caching on preview
+        $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) rand());
 
         $core->auth->user_prefs->addWorkspace('interface');
         $blank_preview = $core->auth->user_prefs->interface->blank_preview;
