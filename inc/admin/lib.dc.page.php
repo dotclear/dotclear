@@ -125,9 +125,6 @@ class dcPage
             self::setXFrameOptions($headers);
         }
 
-        # Prevents FLoC
-        $headers['floc'] = 'Permissions-Policy: interest-cohort=()';
-
         # Content-Security-Policy (only if safe mode if not active, it may help)
         if (!$safe_mode && $core->blog->settings->system->csp_admin_on) {
             // Get directives from settings if exist, else set defaults

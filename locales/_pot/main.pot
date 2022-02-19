@@ -768,10 +768,6 @@ msgstr ""
 msgid "Protect the blog from Clickjacking (see <a href=\"https://en.wikipedia.org/wiki/Clickjacking\">Wikipedia</a>)"
 msgstr ""
 
-#: admin/blog_pref.php:791
-msgid "Protect the blog from FLoC tracking (see <a href=\"https://github.com/WICG/floc\" hreflang=\"en\">FLoC</a>)"
-msgstr ""
-
 #: admin/blog_pref.php:798
 msgid "Plugins parameters"
 msgstr ""

@@ -142,9 +142,7 @@ class dcUrlHandlers extends urlHandler
             }
             $headers->append($header);
         }
-        if ($core->blog->settings->system->prevents_floc) {
-            $headers->append('Permissions-Policy: interest-cohort=()');
-        }
+
         # --BEHAVIOR-- urlHandlerServeDocumentHeaders
         $core->callBehavior('urlHandlerServeDocumentHeaders', $headers);
 
