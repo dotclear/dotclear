@@ -142,7 +142,7 @@ class dcWidget
     private $desc;
     private $public_callback = null;
     public $append_callback  = null;
-    private $settings        = [];
+    protected $settings      = [];
 
     public function serialize($order)
     {
@@ -474,5 +474,10 @@ class dcWidgetExt extends dcWidget
     public function addOffline($offline = 0)
     {
         return $this->setting('offline', __('Offline'), $offline, 'check');
+    }
+
+    public function isOffline()
+    {
+        return $this->settings['offline']['value'] ?? false;
     }
 }

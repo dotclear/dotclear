@@ -374,10 +374,11 @@ function sidebarWidgets($id, $title, $widgets, $pr, $default_widgets, &$j)
         $altUp        = $i == 0 ? ' alt=""' : ' alt="' . __('Up the widget') . '"';
         $altDown      = $i == count($widgets->elements()) - 1 ? ' alt=""' : ' alt="' . __('Down the widget') . '"';
 
-        $iname = 'w[' . $pr . '][' . $i . ']';
+        $iname   = 'w[' . $pr . '][' . $i . ']';
+        $offline = $w->isOffline() ? ' offline' : '';
 
         $res .= '<li>' . form::hidden([$iname . '[id]'], html::escapeHTML($w->id())) .
-        '<p class="widget-name">' . form::number([$iname . '[order]'], [
+        '<p class="widget-name' . $offline . '">' . form::number([$iname . '[order]'], [
             'default'    => $i,
             'class'      => 'hidden',
             'extra_html' => 'title="' . __('order') . '"',

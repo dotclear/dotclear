@@ -11,27 +11,36 @@
 }
 .widgets.fieldset.if-drag {
   padding-bottom: 0;
-  border-radius: .5em;
+  border-radius: 0.5em;
 }
-#dndnav, #dndextra, #dndcustom {
+#dndnav,
+#dndextra,
+#dndcustom {
   padding: 1em 0;
   margin: 1em 0 0;
 }
-#dndnav>li, #dndextra>li, #dndcustom>li {
+#dndnav > li,
+#dndextra > li,
+#dndcustom > li {
   padding: 0;
   border: 1px solid #999;
   margin-bottom: 1em;
   list-style: none;
 }
-#dndnav>li.empty-widgets, #dndextra>li.empty-widgets, #dndcustom>li.empty-widgets {
+#dndnav > li.empty-widgets,
+#dndextra > li.empty-widgets,
+#dndcustom > li.empty-widgets {
   border: 0;
 }
-#dndnav>li.ui-sortable-placeholder, #dndextra>li.ui-sortable-placeholder, #dndcustom>li.ui-sortable-placeholder, .sortable-delete>li.ui-sortable-placeholder {
+#dndnav > li.ui-sortable-placeholder,
+#dndextra > li.ui-sortable-placeholder,
+#dndcustom > li.ui-sortable-placeholder,
+.sortable-delete > li.ui-sortable-placeholder {
   border: 1px dashed #999;
   height: 2em;
-  padding: .3em;
+  padding: 0.3em;
 }
-.sortable-delete>li.ui-sortable-placeholder {
+.sortable-delete > li.ui-sortable-placeholder {
   border-width: 2px;
   border-color: red;
 }
@@ -40,41 +49,48 @@
 }
 .sortable-delete.if-drag {
   border: 1px dotted #999;
-/*  color: #000; */
+  /*  color: #000; */
   font-weight: bold;
   list-style-type: none;
   margin: 0 0 1em;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   display: block;
-/*  background: #fafafa; */
+  /*  background: #fafafa; */
 }
-.sortable-delete>li {
+.sortable-delete > li {
   margin-bottom: 3px;
 }
-.sortable-delete>li.sortable-delete-placeholder {
+.sortable-delete > li.sortable-delete-placeholder {
   border: 0 none;
-/*  color: #aaa; */
+  /*  color: #aaa; */
   font-size: 1em;
   font-weight: bold;
   text-align: center;
 }
 .widget-name {
-/*  background: #eef;
+  /*  background: #eef;
   color: #000; */
   padding: 4px 6px;
   margin: 0;
   font-weight: bold;
 }
+.offline a.aexpand {
+  color: var(--discrete-link-color);
+}
 .widget-name img {
   cursor: pointer;
   margin-bottom: -1px;
 }
-.widget-name a.aexpand, .widget-name a.aexpand:link, .widget-name a.aexpand:visited {
+.widget-name a.aexpand,
+.widget-name a.aexpand:link,
+.widget-name a.aexpand:visited {
   border: 0 none;
-/*  color: #000; */
+  /*  color: #000; */
   text-decoration: none;
 }
-#dndnav .form-note, #dndextra .form-note, #dndcustom .form-note {
+#dndnav .form-note,
+#dndextra .form-note,
+#dndcustom .form-note {
   display: none;
 }
 .toolsWidget {
@@ -83,7 +99,7 @@
 .widgetSettings {
   border-top: 1px solid #ddd;
   padding: 8px 6px;
-/*  background: #f5f5f5; */
+  /*  background: #f5f5f5; */
 }
 #sidebarsControl {
   clear: left;
@@ -93,27 +109,25 @@
 #listWidgets {
   float: left;
   width: 49%;
-/*  background: #eee; */
+  /*  background: #eee; */
   padding: 1.5em 1% 0;
   margin: 0 1% 0 0;
-}
-#listWidgets h3 {
-/*  color: #333; */
 }
 #widgets-ref {
   padding: 1em 0;
   margin: 1em 0 0;
 }
-#widgets-ref>li {
+#widgets-ref > li {
   border: 1px solid #ccc;
-  margin-bottom: .5em;
-/*  background: #fff; */
+  margin-bottom: 0.5em;
+  /*  background: #fff; */
   min-height: 3em;
   padding: 0 0 4px 0;
   list-style: none;
 }
-#widgets-ref .widget-name, #widgets-ref .manual-move {
-/*  background: #fff; */
+#widgets-ref .widget-name,
+#widgets-ref .manual-move {
+  /*  background: #fff; */
   margin-bottom: 0;
   padding: 4px 8px 0;
 }
