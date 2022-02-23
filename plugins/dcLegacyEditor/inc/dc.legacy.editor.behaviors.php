@@ -141,6 +141,7 @@ class dcLegacyEditorBehaviors
 
                 'post_link'    => ['title' => __('Link to an entry')],
                 'removeFormat' => ['title' => __('Remove text formating')],
+                'preview'      => ['title' => __('Preview')],
             ],
             'toolbar_bottom' => (bool) isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('toolbar_bottom'),
         ];
