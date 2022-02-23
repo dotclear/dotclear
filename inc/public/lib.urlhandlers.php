@@ -119,9 +119,6 @@ class dcUrlHandlers extends urlHandler
 
         if ($_ctx->http_cache) {
             $GLOBALS['mod_files'][] = $tpl_file;
-            if (http::$cache_max_age === 0) {
-                http::$cache_max_age = 24 * 60 * 60; // 1 day cache for everything by default
-            }
             http::cache($GLOBALS['mod_files'], $GLOBALS['mod_ts']);
         }
 
