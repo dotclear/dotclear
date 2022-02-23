@@ -150,6 +150,9 @@ button.jstb_img_select {
 button.jstb_post_link {
   background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_post.svg);
 }
+button.jstb_preview {
+  background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_preview.svg);
+}
 button.jstb_removeFormat {
   background-image: url(?pf=dcLegacyEditor/css/jsToolBar/bt_clean.svg);
   position: absolute;
@@ -179,4 +182,21 @@ body.wysiwygDoc {
 }
 body.wysiwygDoc > p:first-child {
   margin-top: 0;
+}
+
+/* Preview */
+.wiki_preview {
+  background: var(--wrapper-background);
+  color: var(--body-color);
+  padding: 2em;
+}
+
+.wiki_preview .wiki_markup {
+  background: var(--content-background);
+  max-width: 60em;
+  margin: 0 auto;
+}
+
+.mfp-inline-holder .mfp-content {
+  width: auto; /* Avoid default 100% */
 }

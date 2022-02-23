@@ -34,4 +34,7 @@ if ($self_ns->active) {
     $core->addBehavior('adminPopupMedia', ['dcLegacyEditorBehaviors', 'adminPopupMedia']);
     $core->addBehavior('adminPopupLink', ['dcLegacyEditorBehaviors', 'adminPopupLink']);
     $core->addBehavior('adminPopupPosts', ['dcLegacyEditorBehaviors', 'adminPopupPosts']);
+
+    // Register REST methods
+    $core->rest->addFunction('wikiConvert', ['dcLegacyEditorRest', 'convert']);
 }

@@ -13,3 +13,4 @@ if (!defined('DC_RC_PATH')) {
 }
 
 $__autoload['dcLegacyEditorBehaviors'] = __DIR__ . '/inc/dc.legacy.editor.behaviors.php';
+$__autoload['dcLegacyEditorRest']      = __DIR__ . '/_services.php';
