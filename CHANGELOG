@@ -1,3 +1,8 @@
+Dotclear 2.21.2 - 2022-02-26
+===========================================================
+* Revert some modifications done for PHP 8.1 compliance (strftime)
+* Cleanup remaining currywurst folders (currywurst template removed since 2.20)
+
 Dotclear 2.21.1 - 2022-02-19
 ===========================================================
 * Fix: Cope with author TZ for posts and pages edition
