@@ -1,144 +1,156 @@
 .header a:link,
 .header a:visited {
-    color: $primary-color;
-    border-bottom-color: $gray-very-light;
+  color: $primary-color;
+  border-bottom-color: $gray-very-light;
 }
 .header a:hover,
 .header a:focus {
-    color: $link;
-    border-bottom-color: transparent;
+  color: $link;
+  border-bottom-color: transparent;
 }
 .skip-links {
-    @include inline-block-list-container;
-    text-align: right;
-    li {
-        @include inline-block-list-item(.5em);
-        font-size: scut-em(12);
-        line-height: 1;
-        padding-bottom: .5em;
-        a:link, a:visited {
-            color: $gray-dark;
-            }
-        a:hover, a:focus {
-            background-color: $gray-light;
-            color: $link;
-            }
+  @include inline-block-list-container;
+  text-align: right;
+  li {
+    @include inline-block-list-item(0.5em);
+    font-size: scut-em(12);
+    line-height: 1;
+    padding-bottom: 0.5em;
+    a:link,
+    a:visited {
+      color: $gray-dark;
     }
+    a:hover,
+    a:focus {
+      background-color: $gray-light;
+      color: $link;
+    }
+  }
 }
 .banner {
-    padding-bottom: .5em;
-    margin-right: 3em;
-    }
+  padding-bottom: 0.5em;
+  margin-right: 3em;
+}
 a.site-title__link,
 a.site-title__link:link,
 a.site-title__link:visited {
-    background-color: transparent;
-    border-color: transparent;
+  background-color: transparent;
+  border-color: transparent;
 }
 .site-title__text {
-    color: $gray-dark;
-    color: rgba(120, 120, 120, 0.8);
-    font-weight: bold;
-    font-weight: 500;
-    letter-spacing: -1px;
-    text-shadow: 1px 4px 6px $white, 0 0 0 $black, 1px 4px 6px $white;
+  color: $gray-dark;
+  color: rgba(120, 120, 120, 0.8);
+  font-weight: bold;
+  font-weight: 500;
+  letter-spacing: -1px;
+  text-shadow: 1px 4px 6px $white, 0 0 0 $black, 1px 4px 6px $white;
 }
 .site-title__link:hover .site-title__text,
 .site-title__link:focus .site-title__text,
 .site-title__link:active .site-title__text {
-    color: rgba(223, 48, 52, 0.8);
+  color: rgba(223, 48, 52, 0.8);
 }
 .site-baseline {
-    font-family: $serif;
-    font-style: italic;
-    margin-top: 0;
-    margin-bottom: rhythm(.5, 24px);
-    color: $gray-dark;
-    }
+  font-family: $serif;
+  font-style: italic;
+  margin-top: 0;
+  margin-bottom: rhythm(0.5, 24px);
+  color: $gray-dark;
+}
 .header__nav {
-    @include inline-block-list-container;
-    clear: left;
-    text-align: right;
-    background: $gray-very-dark;
-    background: $link;
-    li {
-        @include inline-block-list-item(1em);
-        margin-right: .5em;
-        padding-top: .25em;
-        padding-bottom: .25em;
-        text-align: center;
-        span:not(.simple-menu-label) {
-            @include adjust-font-size-to(14px);
-            font-family: $serif;
-            font-style: italic;
-            display: block;
-            }
-        }
-        li a:link,
-        li a:visited {
-            color: $white;
-        }
-        li a:hover,
-        li a:focus {
-            background-color: $gray-dark;
-        }
+  @include inline-block-list-container;
+  clear: left;
+  text-align: right;
+  background: $gray-very-dark;
+  background: $link;
+  li {
+    @include inline-block-list-item(1em);
+    margin-right: 0.5em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    text-align: center;
+    span:not(.simple-menu-label) {
+      @include adjust-font-size-to(14px);
+      font-family: $serif;
+      font-style: italic;
+      display: block;
     }
+  }
+  li a:link,
+  li a:visited {
+    color: $white;
+  }
+  li a:hover,
+  li a:focus {
+    background-color: $gray-dark;
+  }
+  &.show {
+    opacity: 1;
+    height: auto;
+    transition: all 1s ease;
+  }
+  &.hide {
+    overflow: hidden;
+    opacity: 0;
+    height: 0;
+  }
+}
 /* Si js est actif, un bouton pour afficher/masquer le menu est créé */
 #hamburger {
-    position: absolute;
-    top: 3em;
-    right: .5em;
-    padding: 0;
+  position: absolute;
+  top: 3em;
+  right: 0.5em;
+  padding: 0;
+  background-color: $link;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  @include svg(icon_hamburger);
+  height: 2.5em;
+  width: 2.5em;
+  border: 2px solid $link;
+  &:visited {
     background-color: $link;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    @include svg(icon_hamburger);
-    height: 2.5em;
-    width: 2.5em;
-    border: 2px solid $link;
-    &:visited {
-        background-color: $link;
-    }
-    &:focus,
-    &:hover {
-        background-color: shade($link, 20%);
-        border-color: $link;
-    }
-    &.open {
+  }
+  &:focus,
+  &:hover {
+    background-color: shade($link, 20%);
+    border-color: $link;
+  }
+  &.open {
     background-image: inline-image('icon_close.svg'), none;
-    }
+  }
 }
 @media screen and(max-width: $large-screen) {
-    .header {
-        padding-left: .5em;
-        padding-right: .5em;
-        padding-bottom: 0;
+  .header {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-bottom: 0;
+  }
+  .header__nav {
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+    li {
+      display: block;
+      margin-right: 0;
+      border-bottom: 1px solid $white;
     }
-    .header__nav {
-        margin-left: -.5em;
-        margin-right: -.5em;
-        li {
-            display: block;
-            margin-right: 0;
-            border-bottom: 1px solid $white;
-        }
-    }
+  }
 }
 @media screen and(max-width: $small-screen) {
-    .skip-links {
-        text-align: center;
-        @include adjust-font-size-to(10px);
-    }
-    .site-baseline {
-        display: none;
-    }
-    #hamburger {
-        top: 1.5em;
-        right: .5em;
-    }
+  .skip-links {
+    text-align: center;
+    @include adjust-font-size-to(10px);
+  }
+  .site-baseline {
+    display: none;
+  }
+  #hamburger {
+    top: 1.5em;
+    right: 0.5em;
+  }
 }
 @media screen and (max-width: $medium-screen) {
-    .site-title {
-        font-size: 1.8em
-    }
+  .site-title {
+    font-size: 1.8em;
+  }
 }

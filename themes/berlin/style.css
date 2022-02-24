@@ -557,15 +557,17 @@ body {
     padding-right: 0.5em;
     font-size: 0.75em;
     line-height: 1;
-    padding-bottom: .5em; }
-    .skip-links li a:link, .skip-links li a:visited {
+    padding-bottom: 0.5em; }
+    .skip-links li a:link,
+    .skip-links li a:visited {
       color: #636363; }
-    .skip-links li a:hover, .skip-links li a:focus {
+    .skip-links li a:hover,
+    .skip-links li a:focus {
       background-color: #f3f3f3;
       color: #d52125; }
 
 .banner {
-  padding-bottom: .5em;
+  padding-bottom: 0.5em;
   margin-right: 3em; }
 
 a.site-title__link,
@@ -612,9 +614,9 @@ a.site-title__link:visited {
     white-space: nowrap;
     padding-left: 1em;
     padding-right: 1em;
-    margin-right: .5em;
-    padding-top: .25em;
-    padding-bottom: .25em;
+    margin-right: 0.5em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
     text-align: center; }
     .header__nav li span:not(.simple-menu-label) {
       font-size: 0.875em;
@@ -628,12 +630,20 @@ a.site-title__link:visited {
   .header__nav li a:hover,
   .header__nav li a:focus {
     background-color: #636363; }
+  .header__nav.show {
+    opacity: 1;
+    height: auto;
+    transition: all 1s ease; }
+  .header__nav.hide {
+    overflow: hidden;
+    opacity: 0;
+    height: 0; }
 
 /* Si js est actif, un bouton pour afficher/masquer le menu est créé */
 #hamburger {
   position: absolute;
   top: 3em;
-  right: .5em;
+  right: 0.5em;
   padding: 0;
   background-color: #d52125;
   background-repeat: no-repeat;
@@ -652,13 +662,13 @@ a.site-title__link:visited {
 
 @media screen and (max-width: 60em) {
   .header {
-    padding-left: .5em;
-    padding-right: .5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
     padding-bottom: 0; }
 
   .header__nav {
-    margin-left: -.5em;
-    margin-right: -.5em; }
+    margin-left: -0.5em;
+    margin-right: -0.5em; }
     .header__nav li {
       display: block;
       margin-right: 0;
@@ -674,7 +684,7 @@ a.site-title__link:visited {
 
   #hamburger {
     top: 1.5em;
-    right: .5em; } }
+    right: 0.5em; } }
 @media screen and (max-width: 40em) {
   .site-title {
     font-size: 1.8em; } }
@@ -843,7 +853,8 @@ a.site-title__link:visited {
   background-repeat: no-repeat;
   background-position: 50% 50%; }
 
-.prev, .next {
+.prev,
+.next {
   vertical-align: middle;
   width: 2.5em;
   height: 2.5em;
@@ -851,7 +862,9 @@ a.site-title__link:visited {
   border-radius: 50%;
   border: 1px solid #dcdcdc;
   background-color: #f3f3f3; }
-  .prev:hover, .prev:focus, .next:hover, .next:focus {
+  .prev:hover, .prev:focus,
+  .next:hover,
+  .next:focus {
     border-width: 3px; }
 
 /* *** content info *** */
@@ -863,8 +876,8 @@ a.site-title__link:visited {
   #content-info h2 {
     display: inline-block;
     vertical-align: top;
-    padding: .5em .75em;
-    border-radius: .5em;
+    padding: 0.5em 0.75em;
+    border-radius: 0.5em;
     background-color: #267daf;
     color: #fff;
     font-size: 1.1428571em;
@@ -895,20 +908,30 @@ a.site-title__link:visited {
   z-index: 1000;
   position: fixed;
   bottom: 0;
-  right: .5em;
+  right: 0.5em;
   width: 10em;
-  padding: .25em;
+  padding: 0.25em;
   border: 1px solid #636363;
-  border-radius: .25em;
+  border-radius: 0.25em;
   background-color: #fff;
   color: #333;
-  font-size: .875em;
+  font-size: 0.875em;
   text-align: center; }
-  #gotop a, #gotop a:link, #gotop a:hover, #gotop a:active {
+  #gotop a,
+  #gotop a:link,
+  #gotop a:hover,
+  #gotop a:active {
     background: transparent;
     border: none;
     font-weight: bold;
     color: #636363; }
+  #gotop.show {
+    display: block;
+    opacity: 1;
+    transition: opacity 400ms; }
+  #gotop.hide {
+    opacity: 0;
+    transition: opacity 400ms; }
 
 /**
     POST
