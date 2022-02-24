@@ -1,8 +1,8 @@
-/*global $ */
 'use strict';
 
-$(document).ready(() => {
-  if ($(window).width() < 1024) {
+document.addEventListener('DOMContentLoaded', () => {
+  // Show/Hide main menu
+  if (document.body.clientWidth < 1024) {
     const create_name = (text) =>
       text
         .toLowerCase()
@@ -17,40 +17,26 @@ $(document).ready(() => {
         .replace(/(-)+\1/g, '$1');
 
     // Set toggle class to each #sidebar h2
-    $('#sidebar div div h2').addClass('toggle');
-
-    // Hide all h2.toggle siblings
-    $('#sidebar div div h2').nextAll().hide();
-
-    // Add a link to each h2.toggle element.
-    $('h2.toggle').each(function () {
-      // Convert the h2 element text into a value that
-      // is safe to use in a name attribute.
-      const name = create_name($(this).text());
-
-      // Create a name attribute in the following sibling
-      // to act as a fragment anchor.
-      $(this).next().attr('name', name);
-
-      // Replace the h2.toggle element with a link to the
-      // fragment anchor.  Use the h2 text to create the
-      // link title attribute.
-      $(this).html(`<a href="#${name}" title="Reveal ${$(this).text()} content">${$(this).html()}</a>`);
-    });
-
-    // Add a click event handler to all h2.toggle elements.
-    $('h2.toggle').on('click', function (event) {
-      event.preventDefault();
-      // Toggle the 'expanded' class of the h2.toggle
-      // element, then apply the slideToggle effect
-      // to all siblings.
-      $(this).toggleClass('expanded').nextAll().slideToggle('fast');
+    const h2 = document.querySelectorAll('#sidebar div div h2');
+    h2.forEach((element) => {
+      element.classList.add('toggle');
+      element.parentNode.classList.add('hide');
+      const name = create_name(element.textContent);
+      element.nextElementSibling.setAttribute('name', name);
+      element.innerHTML = `<a href="#${name}" title="Reveal ${element.textContent} content">${element.innerHTML}</a>`;
+      element.addEventListener('click', (e) => {
+        e.preventDefault();
+        element.parentNode.classList.toggle('hide');
+      });
     });
 
     // Remove the focus from the link tag when accessed with a mouse.
-    $('h2.toggle a').on('mouseup', function () {
-      // Use the blur() method to remove focus.
-      $(this).trigger('blur');
+    const h2_link = document.querySelectorAll('h2.toggle a');
+    h2_link.forEach((element) => {
+      element.addEventListener('mouseup', () => {
+        const event = new Event('blur', { bubbles: true, cancelable: false });
+        element.dispatchEvent(event);
+      });
     });
   }
 });
