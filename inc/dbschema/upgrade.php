@@ -979,6 +979,20 @@ class dcUpgrade
             }
         }
 
+        if (version_compare($version, '2.21.2', '<')) {
+            // A bit of housecleaning for no longer needed folders
+            $remfolders = [
+                'inc/public/default-templates/currywurst',
+                'plugins/pages/default-templates/currywurst',
+                'plugins/tags/default-templates/currywurst',
+            ];
+
+            foreach ($remfolders as $f) {
+                // Use recursive self::rrmdir() which delete folder and all of its content (see below)
+                self::rrmdir(DC_ROOT . '/' . $f);
+            }
+        }
+
         $core->setVersion('core', DC_VERSION);
         $core->blogDefaults();
 
@@ -1052,6 +1066,29 @@ class dcUpgrade
                 $rs2 .= "AND user_id = '" . $core->con->escape($rs->user_id) . "'";
             }
             $core->con->execute($rs2);
+        }
+    }
+
+    /**
+     * Recursively delete a folder
+     *
+     * @param      string  $src    The folder
+     */
+    private static function rrmdir($src)
+    {
+        if (($dir = @opendir($src)) !== false) {
+            while (($file = @readdir($dir)) !== false) {
+                if (($file !== false) && ($file !== '.') && ($file !== '..')) {
+                    $full = $src . '/' . $file;
+                    if (is_dir($full)) {
+                        self::rrmdir($full);
+                    } else {
+                        @unlink($full);
+                    }
+                }
+            }
+            closedir($dir);
+            @rmdir($src);
         }
     }
 }
