@@ -317,6 +317,8 @@ class dcTrackback
             $title = html::escapeHTML($title);
             $title = text::cutString($title, 60);
 
+            $blog_name = $this->getSourceName($remote_content);
+
             preg_match('!<body[^>]*?>(.*)?</body>!msi', $remote_content, $m);
             $source = $m[1];
             $source = preg_replace('![\r\n\s]+!ms', ' ', $source);
@@ -340,7 +342,7 @@ class dcTrackback
                 $excerpt = '(&#8230;)';
             }
 
-            $this->addBacklink($posts->post_id, $from_url, '', $title, $excerpt, $comment);
+            $this->addBacklink($posts->post_id, $from_url, $blog_name, $title, $excerpt, $comment);
         } catch (Exception $e) {
             throw new Exception(__('Sorry, an internal problem has occured.'), 0);
         }
@@ -392,6 +394,8 @@ class dcTrackback
             $title = html::escapeHTML($title);
             $title = text::cutString($title, 60);
 
+            $blog_name = $this->getSourceName($remote_content);
+
             preg_match('!<body[^>]*?>(.*)?</body>!msi', $remote_content, $m);
             $source = $m[1];
             $source = preg_replace('![\r\n\s]+!ms', ' ', $source);
@@ -415,7 +419,7 @@ class dcTrackback
                 $excerpt = '(&#8230;)';
             }
 
-            $this->addBacklink($post_id, $from_url, '', $title, $excerpt, $comment);
+            $this->addBacklink($post_id, $from_url, $blog_name, $title, $excerpt, $comment);
 
             # All done, thanks
             $code = $this->core->blog->settings->system->trackbacks_pub ? 200 : 202;
@@ -666,6 +670,43 @@ class dcTrackback
         }
 
         return $res;
+    }
+
+    /**
+     * Try to find source blog name or author from remote HTML page content
+     * Used when receive a webmention or a pingback
+     *
+     * @param      string  $content  The content
+     */
+    private function getSourceName($content)
+    {
+        // Clean text utility function
+        $clean = fn ($text, $size = 255) => text::cutString(html::escapeHTML(html::decodeEntities(html::clean(trim($text)))), $size);
+
+        // First step: look for site name
+        // ------------------------------
+
+        // Try to find social media metadata
+        // Facebook
+        if (preg_match('!<meta\sproperty="og:site_name"\scontent="([^<].*?)"\s?\/?>!msi', $content, $m)) {
+            return $clean($m[1]);
+        }
+
+        // Second step: look for author
+        // ----------------------------
+
+        // Try to find social media metadata
+        // Twitter
+        if (preg_match('!<meta\sname="twitter:site"\scontent="([^<].*?)"\s?\/?>!msi', $content, $m)) {
+            return $clean($m[1]);
+        }
+
+        // Try to find a <meta name="author" content="???" />
+        if (preg_match('!<meta\sname="author"\scontent="([^<].*?)"\s?\/?>!msi', $content, $m)) {
+            return $clean($m[1]);
+        }
+
+        return '';
     }
 
     /**
