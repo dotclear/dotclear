@@ -71,7 +71,7 @@
           <?php echo form::number('dcckeditor_colors_per_row', ['min' => 4, 'max' => 16, 'default' => $dcckeditor_colors_per_row]);  /* @phpstan-ignore-line */ ?>
         </p>
         <p class="clear form-note">
-          <?php echo __('Leave empty to use default (6)'); ?>
+          <?php echo __('Valid range: 4 to 16'); ?>
         </p>
         <p>
           <?php echo form::checkbox('dcckeditor_cancollapse_button', 1, $dcckeditor_cancollapse_button); /* @phpstan-ignore-line */ ?>

@@ -895,8 +895,8 @@ msgstr "Exemple de liste de couleurs personnalisée :"
 msgid "Colors per row in palette:"
 msgstr "Nombre de couleurs par ligne dans la palette :"
 
-msgid "Leave empty to use default (6)"
-msgstr "Laissez vide pour utiliser le nombre par défaut (6)"
+msgid "Valid range: 4 to 16"
+msgstr "Valeurs autorisées : 4 à 16"
 
 msgid "Add collapse button"
 msgstr "Ajouter le bouton pour masquer les boutons"
