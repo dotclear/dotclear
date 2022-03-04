@@ -149,8 +149,7 @@ class dcMenu
 
         return '<li' . (($active || $class) ? ' class="' . (($active) ? 'active ' : '') . (($class) ? $class : '') . '"' : '') .
             (($id) ? ' id="' . $id . '"' : '') .
-            '>' . dcAdminHelper::adminIcon($img) .
-
-            '<a href="' . $link . '"' . $ahtml . '>' . $title . '</a></li>' . "\n";
+            '>' .
+            '<a href="' . $link . '"' . $ahtml . '>' . dcAdminHelper::adminIcon($img) . $title . '</a></li>' . "\n";
     }
 }

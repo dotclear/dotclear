@@ -2576,23 +2576,20 @@ h1 {
   padding: 0;
   list-style: none; }
   #main-menu ul li {
-    display: flex;
     margin: 0.5em 0 0;
-    padding: 4px 0.5em 1px 0.5em;
+    padding: 2px 0.5em 2px 0.5em;
     position: relative; }
     #main-menu ul li img {
       width: 1em;
       height: 1em;
-      margin-top: 0.25em; }
+      margin-top: 0.25em;
+      outline: 0; }
     #main-menu ul li a {
-      margin-left: 0.5em; }
-    #main-menu ul li a::after {
-      position: absolute;
-      content: '';
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0; }
+      display: flex;
+      min-height: calc(1.5em + 2px); }
+      #main-menu ul li a img {
+        margin-left: 0.25em;
+        margin-right: 0.5em; }
     #main-menu ul li:hover {
       background-color: var(--main-menu-active-background); }
     #main-menu ul li:first-child {

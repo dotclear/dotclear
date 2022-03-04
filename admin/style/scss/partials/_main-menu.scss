@@ -21,28 +21,24 @@
     list-style: none;
 
     li {
-      display: flex;
       margin: 0.5em 0 0;
-      padding: 4px 0.5em 1px 0.5em;
+      padding: 2px 0.5em 2px 0.5em;
       position: relative;
 
       img {
         width: 1em;
         height: 1em;
         margin-top: 0.25em;
+        outline: 0;
       }
 
       a {
-        margin-left: 0.5em;
-      }
-
-      a::after {
-        position: absolute;
-        content: '';
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        display: flex;
+        min-height: calc(1.5em + 2px);
+        img {
+          margin-left: 0.25em;
+          margin-right: 0.5em;
+        }
       }
 
       &:hover {
