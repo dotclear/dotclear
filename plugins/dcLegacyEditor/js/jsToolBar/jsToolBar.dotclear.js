@@ -122,8 +122,7 @@ jsToolBar.prototype.elements.link.fncall.wysiwyg = function () {
   }
 
   // Create link
-  let n;
-  n = data.content ? document.createTextNode(data.content) : this.getSelectedNode();
+  const n = data.content ? document.createTextNode(data.content) : this.getSelectedNode();
   a = this.iwin.document.createElement('a');
   a.href = data.href;
   if (data.hreflang) a.setAttribute('hreflang', data.hreflang);

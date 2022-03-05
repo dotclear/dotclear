@@ -46,15 +46,15 @@ jsToolBar.prototype.switchMode = function (mode = 'xhtml') {
   if (mode == 'xhtml') {
     this.wwg_mode = true;
     this.draw(mode);
-  } else {
-    if (this.wwg_mode) {
-      this.syncContents('iframe');
-    }
-    this.wwg_mode = false;
-    this.removeEditor();
-    this.textarea.style.display = '';
-    this.drawToolBar(mode);
+    return;
   }
+  if (this.wwg_mode) {
+    this.syncContents('iframe');
+  }
+  this.wwg_mode = false;
+  this.removeEditor();
+  this.textarea.style.display = '';
+  this.drawToolBar(mode);
 };
 
 jsToolBar.prototype.syncContents = function (from = 'textarea') {
@@ -86,15 +86,15 @@ jsToolBar.prototype.syncContents = function (from = 'textarea') {
         IErange.collapse();
         IErange.select();
       }
-    } else {
-      const idoc = This.iwin.document;
-      const para = idoc.createElement('p');
-      para.appendChild(idoc.createElement('br'));
-      while (idoc.body.hasChildNodes()) {
-        idoc.body.removeChild(idoc.body.lastChild);
-      }
-      idoc.body.appendChild(para);
+      return;
     }
+    const idoc = This.iwin.document;
+    const para = idoc.createElement('p');
+    para.appendChild(idoc.createElement('br'));
+    while (idoc.body.hasChildNodes()) {
+      idoc.body.removeChild(idoc.body.lastChild);
+    }
+    idoc.body.appendChild(para);
   }
 };
 jsToolBar.prototype.htmlFilters = {

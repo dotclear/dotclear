@@ -296,12 +296,12 @@ $(() => {
         areas.forEach((element) => init_positions(element[0], element[1]));
         $(this).prop('title', dotclear.dragndrop_on);
         $('#dragndrop-label').text(dotclear.dragndrop_on);
-      } else {
-        // Deactivate sorting feature
-        areas.forEach((element) => reset_positions(element[0]));
-        $(this).prop('title', dotclear.dragndrop_off);
-        $('#dragndrop-label').text(dotclear.dragndrop_off);
+        return;
       }
+      // Deactivate sorting feature
+      areas.forEach((element) => reset_positions(element[0]));
+      $(this).prop('title', dotclear.dragndrop_off);
+      $('#dragndrop-label').text(dotclear.dragndrop_off);
     });
   }
 

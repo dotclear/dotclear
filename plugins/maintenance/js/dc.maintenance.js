@@ -25,17 +25,17 @@ $(() => {
           $('.step-msg', box).text($('rsp', data).text());
           $('.step-wait', box).remove();
           $('.step-back', box).show();
-        } else {
-          $('.step-msg', box).text($('rsp>step', data).attr('title'));
-          const code = $('rsp>step', data).attr('code');
-          if (code > 0) {
-            dcMaintenanceStep(box, code);
-          } else {
-            $('#content h2').after($('<div/>').addClass('success').append($('.step-msg', box)));
-            $('.step-wait', box).remove();
-            $('.step-back', box).show();
-          }
+          return;
         }
+        $('.step-msg', box).text($('rsp>step', data).attr('title'));
+        const code = $('rsp>step', data).attr('code');
+        if (code > 0) {
+          dcMaintenanceStep(box, code);
+          return;
+        }
+        $('#content h2').after($('<div/>').addClass('success').append($('.step-msg', box)));
+        $('.step-wait', box).remove();
+        $('.step-back', box).show();
       });
     }
   });

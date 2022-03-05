@@ -84,40 +84,40 @@ class metaEditor {
         li.prepend('&nbsp;').prepend(a_remove);
         this.meta_list.append(li);
       }
-    } else {
-      const This = this;
-      const params = {
-        f: 'getMeta',
-        metaType: this.meta_type,
-        sortby: 'metaId,asc',
-        postId: this.post_id,
-      };
-
-      $.get(this.service_uri, params, (data) => {
-        data = $(data);
-
-        if (data.find('rsp').attr('status') != 'ok') {
-          return;
-        }
-
-        This.meta_list.empty();
-        data.find('meta').each(function () {
-          const meta_id = $(this).text();
-          li = $(`<li><a href="${This.meta_url}${$(this).attr('uri')}">${meta_id}</a></li>`);
-          const a_remove = $(
-            '<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>'
-          );
-          a_remove.get(0).caller = This;
-          a_remove.get(0).meta_id = meta_id;
-          a_remove.on('click', function () {
-            this.caller.removeMeta(this.meta_id);
-            return false;
-          });
-          li.prepend('&nbsp;').prepend(a_remove);
-          This.meta_list.append(li);
-        });
-      });
+      return;
     }
+    const This = this;
+    const params = {
+      f: 'getMeta',
+      metaType: this.meta_type,
+      sortby: 'metaId,asc',
+      postId: this.post_id,
+    };
+
+    $.get(this.service_uri, params, (data) => {
+      data = $(data);
+
+      if (data.find('rsp').attr('status') != 'ok') {
+        return;
+      }
+
+      This.meta_list.empty();
+      data.find('meta').each(function () {
+        const meta_id = $(this).text();
+        li = $(`<li><a href="${This.meta_url}${$(this).attr('uri')}">${meta_id}</a></li>`);
+        const a_remove = $(
+          '<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>'
+        );
+        a_remove.get(0).caller = This;
+        a_remove.get(0).meta_id = meta_id;
+        a_remove.on('click', function () {
+          this.caller.removeMeta(this.meta_id);
+          return false;
+        });
+        li.prepend('&nbsp;').prepend(a_remove);
+        This.meta_list.append(li);
+      });
+    });
   }
 
   addMetaDialog() {
@@ -213,25 +213,25 @@ class metaEditor {
 
       this.meta_dialog.val('');
       this.displayMetaList();
-    } else {
-      const params = {
-        xd_check: dotclear.nonce,
-        f: 'setPostMeta',
-        postId: this.post_id,
-        metaType: this.meta_type,
-        meta: str,
-      };
-
-      const This = this;
-      $.post(this.service_uri, params, (data) => {
-        if ($(data).find('rsp').attr('status') == 'ok') {
-          This.meta_dialog.val('');
-          This.displayMetaList();
-        } else {
-          window.alert($(data).find('message').text());
-        }
-      });
+      return;
     }
+    const params = {
+      xd_check: dotclear.nonce,
+      f: 'setPostMeta',
+      postId: this.post_id,
+      metaType: this.meta_type,
+      meta: str,
+    };
+
+    const This = this;
+    $.post(this.service_uri, params, (data) => {
+      if ($(data).find('rsp').attr('status') == 'ok') {
+        This.meta_dialog.val('');
+        This.displayMetaList();
+      } else {
+        window.alert($(data).find('message').text());
+      }
+    });
   }
 
   removeMeta(meta_id) {

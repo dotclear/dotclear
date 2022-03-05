@@ -79,11 +79,11 @@ $(() => {
     if (this.value == 'custom') {
       $('#uploader').show();
       $('#image-preview').attr('src', `${dotclear.blowup_public_url}/page-t.png`);
-    } else {
-      $('#uploader').hide();
-      $('#uploader input').val('');
-      $('#image-preview').attr('src', `index.php?pf=blowupConfig/alpha-img/page-t/${this.value}.png`);
+      return;
     }
+    $('#uploader').hide();
+    $('#uploader input').val('');
+    $('#image-preview').attr('src', `index.php?pf=blowupConfig/alpha-img/page-t/${this.value}.png`);
   });
 
   // Predefined styles

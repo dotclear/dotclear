@@ -680,23 +680,23 @@ jsToolBar.prototype.elements.preview = {
           // For debugging purpose only:
           // console.log($('rsp',data).attr('message'));
           window.console.log('Dotclear REST server error');
-        } else {
-          // ret -> status (true/false)
+          return;
+        }
+        // ret -> status (true/false)
           // msg -> REST method return value
-          const ret = Number($('rsp>wiki', data).attr('ret'));
-          msg = $('rsp>wiki', data).attr('msg');
-          if (!ret && msg !== '') {
-            window.alert(msg);
-            msg = '';
-          } else if (ret && msg !== '') {
-            const src = `<div class="wiki_preview"><div class="wiki_markup">${msg}</div></div>`;
-            $.magnificPopup.open({
-              items: {
-                src,
-                type: 'inline',
-              },
-            });
-          }
+        const ret = Number($('rsp>wiki', data).attr('ret'));
+        msg = $('rsp>wiki', data).attr('msg');
+        if (!ret && msg !== '') {
+          window.alert(msg);
+          msg = '';
+        } else if (ret && msg !== '') {
+          const src = `<div class="wiki_preview"><div class="wiki_markup">${msg}</div></div>`;
+          $.magnificPopup.open({
+            items: {
+              src,
+              type: 'inline',
+            },
+          });
         }
       });
     },

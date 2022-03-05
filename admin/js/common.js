@@ -28,11 +28,14 @@ document.documentElement.style.setProperty('--dark-mode', dotclear.data.theme ==
 /* ChainHandler, py Peter van der Beken
 -------------------------------------------------------- */
 function chainHandler(obj, handlerName, handler) {
-  obj[handlerName] = ((existingFunction) =>
-    function () {
-      handler.apply(this, arguments);
-      if (existingFunction) existingFunction.apply(this, arguments);
-    })(handlerName in obj ? obj[handlerName] : null);
+  obj[handlerName] = (() =>
+    {
+      const existingFunction = handlerName in obj ? obj[handlerName] : null;
+      return function () {
+        handler.apply(this, arguments);
+        if (existingFunction) existingFunction.apply(this, arguments);
+      };
+    })();
 }
 
 /* jQuery extensions
@@ -277,11 +280,11 @@ jQuery.fn.helpViewer = function () {
         img.html(p.img_on_txt);
         img.attr('value', p.img_on_txt);
         img.attr('aria-label', p.img_on_alt);
-      } else {
-        img.html(p.img_off_txt);
-        img.attr('value', p.img_off_txt);
-        img.attr('aria-label', p.img_off_alt);
+        return;
       }
+      img.html(p.img_off_txt);
+      img.attr('value', p.img_off_txt);
+      img.attr('aria-label', p.img_off_alt);
     });
   };
   this.addClass('help-box');
@@ -880,12 +883,12 @@ $(() => {
       objMain.removeClass('hide-mm');
       dotclear.dropLocalData(hideMainMenu);
       $('#main-menu input#qx').trigger('focus');
-    } else {
-      // Hide sidebar
-      objMain.addClass('hide-mm');
-      dotclear.storeLocalData(hideMainMenu, true);
-      $('#content a.go_home').trigger('focus');
+      return;
     }
+    // Hide sidebar
+    objMain.addClass('hide-mm');
+    dotclear.storeLocalData(hideMainMenu, true);
+    $('#content a.go_home').trigger('focus');
   });
   // Cope with current stored state of collapser
   if (dotclear.readLocalData(hideMainMenu) === true) {
