@@ -2586,6 +2586,7 @@ h1 {
       outline: 0; }
     #main-menu ul li a {
       display: flex;
+      border-bottom: none;
       min-height: calc(1.5em + 2px); }
       #main-menu ul li a img {
         margin-left: 0.25em;
