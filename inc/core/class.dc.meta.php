@@ -152,11 +152,11 @@ class dcMeta
             throw new Exception(__('You are not allowed to change this entry status'));
         }
 
-        #�If user can only publish, we need to check the post's owner
+        # If user can only publish, we need to check the post's owner
         if (!$this->core->auth->check('contentadmin', $this->core->blog->id)) {
             $sql = new dcSelectStatement($this->core, 'dcMetaCheckPermissionsOnPost');
             $sql
-                ->from($this->table)
+                ->from($sql->core->prefix . 'post')
                 ->column('post_id')
                 ->where('post_id = ' . $post_id)
                 ->and('user_id = ' . $sql->quote($this->core->auth->userID(), true));
@@ -234,14 +234,9 @@ class dcMeta
             ->and('META.post_id = P.post_id')
             ->and('META.meta_id = ' . $sql->quote($params['meta_id'], true));
 
-//        $params['from'] = $this->table . ' META ';
-//        $params['sql']  = 'AND META.post_id = P.post_id ';
-//        $params['sql'] .= "AND META.meta_id = '" . $this->con->escape($params['meta_id']) . "' ";
-
         if (!empty($params['meta_type'])) {
             $sql->and('META.meta_type = ' . $sql->quote($params['meta_type'], true));
 
-//            $params['sql'] .= "AND META.meta_type = '" . $this->con->escape($params['meta_type']) . "' ";
             unset($params['meta_type']);
         }
 
@@ -277,14 +272,9 @@ class dcMeta
             ->and('META.post_id = P.post_id')
             ->and('META.meta_id = ' . $sql->quote($params['meta_id'], true));
 
-//        $params['from'] = ', ' . $this->table . ' META ';
-//        $params['sql']  = 'AND META.post_id = P.post_id ';
-//        $params['sql'] .= "AND META.meta_id = '" . $this->con->escape($params['meta_id']) . "' ";
-
         if (!empty($params['meta_type'])) {
             $sql->and('META.meta_type = ' . $sql->quote($params['meta_type'], true));
 
-//            $params['sql'] .= "AND META.meta_type = '" . $this->con->escape($params['meta_type']) . "' ";
             unset($params['meta_type']);
         }
 
