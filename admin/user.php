@@ -25,7 +25,7 @@ $user_email       = '';
 $user_url         = '';
 $user_lang        = $core->auth->getInfo('user_lang');
 $user_tz          = $core->auth->getInfo('user_tz');
-$user_post_status = '';
+$user_post_status = -2; // Pending
 
 $user_options = $core->userDefaults();
 
@@ -89,7 +89,7 @@ if (isset($_POST['user_name'])) {
         $cur->user_url         = $user_url         = html::escapeHTML($_POST['user_url']);
         $cur->user_lang        = $user_lang        = html::escapeHTML($_POST['user_lang']);
         $cur->user_tz          = $user_tz          = html::escapeHTML($_POST['user_tz']);
-        $cur->user_post_status = $user_post_status = html::escapeHTML($_POST['user_post_status']);
+        $cur->user_post_status = $user_post_status = (int) $_POST['user_post_status'];
 
         if ($user_id && $cur->user_id == $core->auth->userID() && $core->auth->isSuperAdmin()) {
             // force super_user to true if current user

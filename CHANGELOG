@@ -1,3 +1,8 @@
+Dotclear 2.21.3 - 2022-03-07
+===========================================================
+* Fix: Non admin users cannot create a new entry
+* Fix: User settings error (via users list)
+
 Dotclear 2.21.2 - 2022-02-26
 ===========================================================
 * Revert some modifications done for PHP 8.1 compliance (strftime)
