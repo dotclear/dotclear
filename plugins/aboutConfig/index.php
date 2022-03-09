@@ -172,7 +172,7 @@ if (count($settings) > 0) {
         $ns_combo[$ns] = '#l_' . $ns;
     }
     echo
-    '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post">' .
+    '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
     '<p class="anchor-nav">' .
     '<label for="ls_nav" class="classic">' . __('Goto:') . '</label> ' . form::combo('ls_nav', $ns_combo) .
     ' <input type="submit" value="' . __('Ok') . '" id="ls_submit" />' .

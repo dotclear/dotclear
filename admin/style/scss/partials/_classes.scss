@@ -126,9 +126,16 @@ body.auth {
 
 /* selects accès rapide */
 
+.anchor-nav-sticky {
+  background: var(--nav-background);
+  position: sticky;
+  top: 0;
+  padding: 0.5em 0;
+}
+
 .anchor-nav {
   background: var(--nav-background);
-  padding: 4px 1em;
+  margin: 0;
 
   label {
     vertical-align: bottom;

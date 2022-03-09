@@ -171,7 +171,7 @@ if (count($prefs) > 0) {
         $ws_combo[$ws] = '#l_' . $ws;
     }
     echo
-    '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post">' .
+    '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
     '<p class="anchor-nav">' .
     '<label for="lp_nav" class="classic">' . __('Goto:') . '</label> ' .
     form::combo('lp_nav', $ws_combo, ['class' => 'navigation']) .
