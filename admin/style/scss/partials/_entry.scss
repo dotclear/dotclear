@@ -7,7 +7,7 @@
   flex-grow: 1;
   width: calc(100% - 19em);
 
-  @media screen and (max-width: $xl-screen) {
+  @media screen and (max-width: $laptop-screen) {
     width: 100%;
   }
 }
@@ -15,17 +15,17 @@
 #entry-content {
   margin-left: 0;
 
-  @media screen and (min-width: calc(#{$xl-screen} + 0.01em)) {
+  @media screen and (min-width: calc(#{$laptop-screen} + 0.01em)) {
     // Large padding on big screens
     padding-right: 3em;
   }
 
-  @media screen and (max-width: $xs-screen) {
+  @media screen and (max-width: $mobile-screen) {
     // Small padding on medium screens
     padding-right: 1em;
   }
 
-  @media screen and (max-width: $xxs-screen) {
+  @media screen and (max-width: $mobile-screen) {
     // No padding on small screens
     padding-right: 0;
   }
@@ -36,11 +36,11 @@
   flex-wrap: wrap;
   flex-direction: column;
 
-  @media screen and (max-width: $xl-screen) {
+  @media screen and (max-width: $laptop-screen) {
     flex-direction: row;
   }
 
-  @media screen and (max-width: $xs-screen) {
+  @media screen and (max-width: $mobile-screen) {
     padding-right: 1em;
   }
 

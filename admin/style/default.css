@@ -1064,7 +1064,7 @@ body {
   line-height: 1.5;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
 
-@media screen and (max-width: 26.5em) {
+@media screen and (max-width: 43em) {
   #wrapper {
     font-size: 1.2em; } }
 
@@ -1383,7 +1383,7 @@ h1,
 /* ------------------------------------------------------------------------------------
                               UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
-@media screen and (max-width: 80em) {
+@media screen and (max-width: 82em) {
   #header {
     display: block;
     width: 100%;
@@ -1431,7 +1431,7 @@ h1,
     width: 100%;
     margin-left: 0;
     margin-right: 0; } }
-@media screen and (max-width: 48em) {
+@media screen and (max-width: 62em) {
   #dashboard-boxes .box.medium,
   .box.medium,
   #dashboard-boxes .box.small,
@@ -1440,7 +1440,7 @@ h1,
   .box.large {
     width: 95%;
     margin: 10px auto; } }
-@media screen and (max-width: 44em) {
+@media screen and (max-width: 62em) {
   #help-button {
     height: 26px;
     width: 26px;
@@ -1457,7 +1457,7 @@ h1,
     width: 96%;
     margin-left: 0;
     margin-right: 0; } }
-@media screen and (max-width: 38em) {
+@media screen and (max-width: 43em) {
   #header h1,
   #header h1 a {
     width: 42px !important;
@@ -1505,7 +1505,7 @@ h1,
     display: block;
     float: left;
     width: 50%; } }
-@media screen and (max-width: 26.5em) {
+@media screen and (max-width: 43em) {
   #top-info-blog label,
   .nomobile {
     display: none; }
@@ -2551,11 +2551,11 @@ h1 {
 /* ------------------------------------------------------------------------------------
                               UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
-@media screen and (max-width: 26.5em) {
+@media screen and (max-width: 43em) {
   h1,
   h1 a {
     padding: 0; } }
-@media screen and (max-width: 38em) {
+@media screen and (max-width: 43em) {
   h1 a:link {
     background: url(dc_logos/b-dotclear120.png) no-repeat -270px 6px;
     background-color: transparent; }
@@ -2897,7 +2897,7 @@ td.expand {
 .rch td::before {
   display: none; }
 
-@media screen and (max-width: 44em), print and (max-width: 5in) {
+@media screen and (max-width: 62em), print and (max-width: 5in) {
   table.rch {
     display: block; }
     table.rch caption,
@@ -3757,19 +3757,19 @@ div.template-upload {
 #entry-wrapper {
   flex-grow: 1;
   width: calc(100% - 19em); }
-  @media screen and (max-width: 80em) {
+  @media screen and (max-width: 82em) {
     #entry-wrapper {
       width: 100%; } }
 
 #entry-content {
   margin-left: 0; }
-  @media screen and (min-width: calc(80em + 0.01em)) {
+  @media screen and (min-width: calc(82em + 0.01em)) {
     #entry-content {
       padding-right: 3em; } }
-  @media screen and (max-width: 38em) {
+  @media screen and (max-width: 43em) {
     #entry-content {
       padding-right: 1em; } }
-  @media screen and (max-width: 26.5em) {
+  @media screen and (max-width: 43em) {
     #entry-content {
       padding-right: 0; } }
 
@@ -3777,10 +3777,10 @@ div.template-upload {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column; }
-  @media screen and (max-width: 80em) {
+  @media screen and (max-width: 82em) {
     #entry-sidebar {
       flex-direction: row; } }
-  @media screen and (max-width: 38em) {
+  @media screen and (max-width: 43em) {
     #entry-sidebar {
       padding-right: 1em; } }
   #entry-sidebar h4 {
@@ -4325,7 +4325,7 @@ div.ui-sortable-handle {
 /* ------------------------------------------------------------------------------------
                               UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
-@media screen and (max-width: 80em) {
+@media screen and (max-width: 82em) {
   #header,
   h1 {
     background: var(--header-background-alt); }
@@ -4343,13 +4343,13 @@ div.ui-sortable-handle {
   .modules th.module-desc,
   .modules td.module-desc {
     display: none; } }
-@media screen and (max-width: 44em) {
+@media screen and (max-width: 62em) {
   #help-button {
     background-color: var(--header-border);
     padding: 0;
     font-size: 0.83em;
     line-height: 68px; } }
-@media screen and (max-width: 38em) {
+@media screen and (max-width: 43em) {
   h1 a:link {
     border-right: 1px solid var(--tabs-border); }
   h1 a:hover, h1 a:focus {
@@ -4375,7 +4375,7 @@ div.ui-sortable-handle {
     padding: 0.25em; }
     .pseudo-tabs li:first-child, .pseudo-tabs li:nth-of-type(2) {
       border-top: none; } }
-@media screen and (max-width: 26.5em) {
+@media screen and (max-width: 43em) {
   h1,
   h1 a {
     border-right: var(--header-border-alt) !important; }

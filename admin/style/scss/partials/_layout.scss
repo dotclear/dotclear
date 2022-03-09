@@ -354,7 +354,7 @@ h1,
                               UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
 
-@media screen and (max-width: $xl-screen) {
+@media screen and (max-width: $laptop-screen) {
   #header {
     display: block;
     width: 100%;
@@ -419,7 +419,7 @@ h1,
   }
 }
 
-@media screen and (max-width: $m-screen) {
+@media screen and (max-width: $tablet-screen) {
   #dashboard-boxes .box.medium,
   .box.medium,
   #dashboard-boxes .box.small,
@@ -431,7 +431,7 @@ h1,
   }
 }
 
-@media screen and (max-width: $s-screen) {
+@media screen and (max-width: $tablet-screen) {
   #help-button {
     height: 26px;
     width: 26px;
@@ -453,7 +453,7 @@ h1,
   }
 }
 
-@media screen and (max-width: $xs-screen) {
+@media screen and (max-width: $mobile-screen) {
   #header h1,
   #header h1 a {
     width: 42px !important;
@@ -516,7 +516,7 @@ h1,
   }
 }
 
-@media screen and (max-width: $xxs-screen) {
+@media screen and (max-width: $mobile-screen) {
   #top-info-blog label,
   .nomobile {
     display: none;

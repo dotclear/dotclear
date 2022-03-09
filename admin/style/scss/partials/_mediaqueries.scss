@@ -2,7 +2,7 @@
                               UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
 
-@media screen and (max-width: $xl-screen) {
+@media screen and (max-width: $laptop-screen) {
   #header,
   h1 {
     background: var(--header-background-alt);
@@ -30,7 +30,7 @@
   }
 }
 
-@media screen and (max-width: $s-screen) {
+@media screen and (max-width: $tablet-screen) {
   #help-button {
     background-color: var(--header-border);
     padding: 0;
@@ -39,7 +39,7 @@
   }
 }
 
-@media screen and (max-width: $xs-screen) {
+@media screen and (max-width: $mobile-screen) {
   h1 a {
     &:link {
       border-right: 1px solid var(--tabs-border);
@@ -81,7 +81,7 @@
   }
 }
 
-@media screen and (max-width: $xxs-screen) {
+@media screen and (max-width: $mobile-screen) {
   h1,
   h1 a {
     border-right: var(--header-border-alt) !important;

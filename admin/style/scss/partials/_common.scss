@@ -20,7 +20,7 @@ body {
 }
 
 #wrapper {
-  @media screen and (max-width: $small-screen) {
+  @media screen and (max-width: $mobile-screen) {
     font-size: 1.2em;
   }
 }

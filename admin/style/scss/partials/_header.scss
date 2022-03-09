@@ -145,14 +145,14 @@ h1 {
                               UN POIL DE MEDIA QUERIES
 ------------------------------------------------------------------------------------ */
 
-@media screen and (max-width: $xxs-screen) {
+@media screen and (max-width: $mobile-screen) {
   h1,
   h1 a {
     padding: 0;
   }
 }
 
-@media screen and (max-width: $xs-screen) {
+@media screen and (max-width: $mobile-screen) {
   h1 a {
     &:link {
       background: url(dc_logos/b-dotclear120.png) no-repeat -270px 6px;
