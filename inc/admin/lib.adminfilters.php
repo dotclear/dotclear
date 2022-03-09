@@ -694,7 +694,7 @@ class adminPostFilter extends adminGenericFilter
     public function getPostTrackbackFilter(): dcAdminFilter
     {
         return (new dcAdminFilter('trackback'))
-            ->param('where', ['adminPostFilter', 'getPostYearParam'])
+            ->param('where', ['adminPostFilter', 'getPostTrackbackParam'])
             ->title(__('Trackbacks:'))
             ->options([
                 '-'          => '',
