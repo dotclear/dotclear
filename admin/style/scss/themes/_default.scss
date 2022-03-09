@@ -77,231 +77,231 @@
 
   // Common
 
-  --body-color: $gray-very-dark;
-  --body-background: $white;
+  --body-color: #{$gray-very-dark};
+  --body-background: #{$white};
 
-  --title-color: $gray-dark;
-  --title-alt-color: $orange;
+  --title-color: #{$gray-dark};
+  --title-alt-color: #{$orange};
 
   // Layout
 
-  --header-color: $white;
-  --header-background: $marine;
-  --header-background-alt: $marine;
-  --header-border: $light-blue;
-  --header-border-alt: $gray-very-dark;
-  --header-link-border: $gray-semi-dark;
-  --header-active-color: $orange;
-  --header-active-background: $gray-very-light;
-  --header-active-color-alt: $white;
-  --header-active-background-alt: $gray-semi-dark;
+  --header-color: #{$white};
+  --header-background: #{$marine};
+  --header-background-alt: #{$marine};
+  --header-border: #{$light-blue};
+  --header-border-alt: #{$gray-very-dark};
+  --header-link-border: #{$gray-semi-dark};
+  --header-active-color: #{$orange};
+  --header-active-background: #{$gray-very-light};
+  --header-active-color-alt: #{$white};
+  --header-active-background-alt: #{$gray-semi-dark};
 
-  --wrapper-background: $white;
+  --wrapper-background: #{$white};
 
-  --content-background: $white;
+  --content-background: #{$white};
 
-  --tabs-color: $gray-very-dark;
-  --tabs-border: $gray-light;
-  --tabs-background: $gray-very-light;
-  --tabs-active-color: $orange;
-  --tabs-active-background: $white;
+  --tabs-color: #{$gray-very-dark};
+  --tabs-border: #{$gray-light};
+  --tabs-background: #{$gray-very-light};
+  --tabs-active-color: #{$orange};
+  --tabs-active-background: #{$white};
 
-  --main-menu-background: $gray-very-light;
-  --main-menu-title-color: $gray-dark;
-  --main-menu-item-color: $gray-very-dark;
-  --main-menu-item-border: scale-color($gray-dark, $lightness: 66%);
-  --main-menu-active-color: $current-page;
-  --main-menu-active-background: $white;
-  --main-menu-border: $light-blue;
+  --main-menu-background: #{$gray-very-light};
+  --main-menu-title-color: #{$gray-dark};
+  --main-menu-item-color: #{$gray-very-dark};
+  --main-menu-item-border: #{scale-color($gray-dark, $lightness: 66%)};
+  --main-menu-active-color: #{$current-page};
+  --main-menu-active-background: #{$white};
+  --main-menu-border: #{$light-blue};
 
-  --search-color: $gray-very-dark;
-  --search-border: $gray-semi-dark;
-  --search-background: $gray-light;
-  --search-submit-color: $white;
-  --search-submit-background: $gray-semi-dark;
-  --search-outline: $link-outline;
+  --search-color: #{$gray-very-dark};
+  --search-border: #{$gray-semi-dark};
+  --search-background: #{$gray-light};
+  --search-submit-color: #{$white};
+  --search-submit-background: #{$gray-semi-dark};
+  --search-outline: #{$link-outline};
 
-  --footer-background: $white;
-  --footer-border: scale-color($gray-dark, $lightness: 66%);
+  --footer-background: #{$white};
+  --footer-border: #{scale-color($gray-dark, $lightness: 66%)};
 
-  --collapser-focus: $light-blue;
-  --collapser-background: $gray-light;
+  --collapser-focus: #{$light-blue};
+  --collapser-background: #{$gray-light};
 
-  --popup-title-color: $white;
-  --popup-title-background: $marine;
+  --popup-title-color: #{$white};
+  --popup-title-background: #{$marine};
 
   // Markup
 
-  --breadcrumb-background: $white;
-  --breadcrumb-border: $gray-semi-dark;
-  --breadcrumb-current: $current-page;
+  --breadcrumb-background: #{$white};
+  --breadcrumb-border: #{$gray-semi-dark};
+  --breadcrumb-current: #{$current-page};
 
-  --fieldset-pretty-title-color: $orange;
-  --fieldset-smart-title-color: $gray-very-dark;
-  --entry-sidebar-title-color: $gray-very-dark;
-  --title-label-color: $gray-very-dark;
+  --fieldset-pretty-title-color: #{$orange};
+  --fieldset-smart-title-color: #{$gray-very-dark};
+  --entry-sidebar-title-color: #{$gray-very-dark};
+  --title-label-color: #{$gray-very-dark};
 
-  --table-caption-color: $gray-very-dark;
-  --head-border: scale-color($gray-very-light, $lightness: -10%);
-  --head-background: $gray-very-light;
-  --line-input-background: $white;
-  --line-background-over: $gray-very-light;
-  --line-focus-background: scale-color($white, $lightness: -7%);
-  --cell-border: $gray-lighter;
-  --cell-noborder-color: scale-color($gray-very-light, $lightness: -10%);
+  --table-caption-color: #{$gray-very-dark};
+  --head-border: #{scale-color($gray-very-light, $lightness: -10%)};
+  --head-background: #{$gray-very-light};
+  --line-input-background: #{$white};
+  --line-background-over: #{$gray-very-light};
+  --line-focus-background: #{scale-color($white, $lightness: -7%)};
+  --cell-border: #{$gray-lighter};
+  --cell-noborder-color: #{scale-color($gray-very-light, $lightness: -10%)};
 
-  --hr-color: scale-color($gray-very-light, $lightness: -10%);
+  --hr-color: #{scale-color($gray-very-light, $lightness: -10%)};
 
   --code-color: var(--body-color);
-  --code-background: $code;
+  --code-background: #{$code};
 
-  --link-color: $link;
-  --link-border: $gray-semi-dark;
-  --discrete-link-color: $gray-very-dark;
-  --link-outline: $link-outline;
+  --link-color: #{$link};
+  --link-border: #{$gray-semi-dark};
+  --discrete-link-color: #{$gray-very-dark};
+  --link-outline: #{$link-outline};
 
   --outgoing-link-filter: 50%;
 
   // Forms
 
-  --fieldset-border: $marine; // scale-color($gray-dark, $lightness: 66%);
-  --fieldset-background: $white;
-  --fieldset-focus-background: scale-color($white, $lightness: -7%);
+  --fieldset-border: #{$marine}; // #{scale-color($gray-dark, $lightness: 66%)};
+  --fieldset-background: #{$white};
+  --fieldset-focus-background: #{scale-color($white, $lightness: -7%)};
 
-  --legend-border: $gray-dark;
-  --legend-background: $white;
+  --legend-border: #{$gray-dark};
+  --legend-background: #{$white};
 
-  --invalid-input-color: $black;
-  --invalid-input-border: $error-alt;
-  --invalid-input-background: $error;
-  --invalid-input-shadow: rgba($error-alt, 0.3);
+  --invalid-input-color: #{$black};
+  --invalid-input-border: #{$error-alt};
+  --invalid-input-background: #{$error};
+  --invalid-input-shadow: #{rgba($error-alt, 0.3)};
 
-  --input-color: $black;
-  --input-background: scale-color($gray-very-light, $lightness: 50%);
-  --input-border: $gray-darker;
-  --input-shadow: $gray-very-light;
-  --input-focus: $link-outline;
+  --input-color: #{$black};
+  --input-background: #{scale-color($gray-very-light, $lightness: 50%)};
+  --input-border: #{$gray-darker};
+  --input-shadow: #{$gray-very-light};
+  --input-focus: #{$link-outline};
 
   --input-file-color: var(--body-color);
   --input-file-background: var(--body-background);
 
-  --form-note-color: $gray-dark;
+  --form-note-color: #{$gray-dark};
 
-  --error-background: $error;
+  --error-background: #{$error};
 
-  --required: $required;
+  --required: #{$required};
 
   // Buttons
 
-  --button-color: $black;
-  --button-border: scale-color($gray-dark, $lightness: 66%);
-  --button-shadow: rgba($black, 0.05);
+  --button-color: #{$black};
+  --button-border: #{scale-color($gray-dark, $lightness: 66%)};
+  --button-shadow: #{rgba($black, 0.05)};
 
-  --submit-color: $white;
-  --submit-background: $submit;
-  --submit-background-alt: $submit-alt;
-  --submit-border: scale-color($gray-dark, $lightness: 66%);
+  --submit-color: #{$white};
+  --submit-background: #{$submit};
+  --submit-background-alt: #{$submit-alt};
+  --submit-border: #{scale-color($gray-dark, $lightness: 66%)};
 
-  --reset-color: $black;
-  --reset-background: $reset;
-  --reset-background-alt: $reset-alt;
-  --reset-background-ter: $reset-ter;
-  --reset-border: scale-color($gray-dark, $lightness: 66%);
+  --reset-color: #{$black};
+  --reset-background: #{$reset};
+  --reset-background-alt: #{$reset-alt};
+  --reset-background-ter: #{$reset-ter};
+  --reset-border: #{scale-color($gray-dark, $lightness: 66%)};
 
-  --delete-color: $delete;
-  --delete-hover-color: $white;
-  --delete-hover-background: $delete-alt;
-  --delete-hover-background-alt: $delete-ter;
-  --delete-hover-border: $delete-ter;
+  --delete-color: #{$delete};
+  --delete-hover-color: #{$white};
+  --delete-hover-background: #{$delete-alt};
+  --delete-hover-background-alt: #{$delete-ter};
+  --delete-hover-border: #{$delete-ter};
 
-  --add-color: $black;
-  --add-background: $add;
-  --add-background-alt: $add-alt;
-  --add-border: $add;
-  --add-border-alt: $add-alt;
+  --add-color: #{$black};
+  --add-background: #{$add};
+  --add-background-alt: #{$add-alt};
+  --add-border: #{$add};
+  --add-border-alt: #{$add-alt};
 
-  --clone-color: $clone;
-  --clone-background: $reset;
-  --clone-background-alt: $reset-alt;
-  --clone-hover-color: $white;
-  --clone-hover-background: $clone-ter;
-  --clone-hover-background-alt: $clone-alt;
-  --clone-border: scale-color($gray-dark, $lightness: 66%);
+  --clone-color: #{$clone};
+  --clone-background: #{$reset};
+  --clone-background-alt: #{$reset-alt};
+  --clone-hover-color: #{$white};
+  --clone-hover-background: #{$clone-ter};
+  --clone-hover-background-alt: #{$clone-alt};
+  --clone-border: #{scale-color($gray-dark, $lightness: 66%)};
 
-  --button-disabled-color: $gray-dark;
-  --button-disabled-background: $gray-very-light;
-  --button-disabled-background-alt: $gray-lighter;
-  --button-disabled-border: scale-color($gray-dark, $lightness: 66%);
+  --button-disabled-color: #{$gray-dark};
+  --button-disabled-background: #{$gray-very-light};
+  --button-disabled-background-alt: #{$gray-lighter};
+  --button-disabled-border: #{scale-color($gray-dark, $lightness: 66%)};
 
-  --ajax-color: $gray-very-dark;
-  --ajax-background: $white;
-  --ajax-background-alt: $light-blue;
-  --ajax-border: $gray-dark;
+  --ajax-color: #{$gray-very-dark};
+  --ajax-background: #{$white};
+  --ajax-background-alt: #{$light-blue};
+  --ajax-border: #{$gray-dark};
 
-  --gotop-color: $gray-very-dark;
+  --gotop-color: #{$gray-very-dark};
   --gotop-background: transparent;
   --gotop-border: none;
 
-  --addmeta-color: $black;
+  --addmeta-color: #{$black};
   --addmeta-background: transparent;
-  --addmeta-focus-color: $black;
-  --addmeta-focus-background: scale-color($light-blue, $lightness: 10%);
+  --addmeta-focus-color: #{$black};
+  --addmeta-focus-background: #{scale-color($light-blue, $lightness: 10%)};
 
   // Messages
 
-  --msg-color: $white;
-  --msg-background: $gray-dark;
-  --msg-background-alt: scale-color($gray-dark, $lightness: 66%);
-  --msg-shadow: rgba($gray-very-dark, 0.1);
+  --msg-color: #{$white};
+  --msg-background: #{$gray-dark};
+  --msg-background-alt: #{scale-color($gray-dark, $lightness: 66%)};
+  --msg-shadow: #{rgba($gray-very-dark, 0.1)};
 
-  --msg-info-color: $gray-very-dark;
-  --msg-info-background: $info;
-  --msg-info-border: $info-alt;
+  --msg-info-color: #{$gray-very-dark};
+  --msg-info-background: #{$info};
+  --msg-info-border: #{$info-alt};
 
-  --msg-warn-color: $gray-very-dark;
-  --msg-warn-background: $warning;
-  --msg-warn-background-alt: $warning-alt;
-  --msg-warn-border: $warning-alt;
+  --msg-warn-color: #{$gray-very-dark};
+  --msg-warn-background: #{$warning};
+  --msg-warn-background-alt: #{$warning-alt};
+  --msg-warn-border: #{$warning-alt};
 
-  --msg-error-color: $black;
-  --msg-error-background: $error;
-  --msg-error-background-alt: $warning;
+  --msg-error-color: #{$black};
+  --msg-error-background: #{$error};
+  --msg-error-background-alt: #{$warning};
 
-  --msg-success-color: $black;
-  --msg-success-background: $success;
-  --msg-success-background-alt: $success-alt;
+  --msg-success-color: #{$black};
+  --msg-success-background: #{$success};
+  --msg-success-background-alt: #{$success-alt};
 
-  --dc-update-color: $black;
-  --dc-update-background: $light-blue;
+  --dc-update-color: #{$black};
+  --dc-update-background: #{$light-blue};
 
-  --ajax-loader: scale-color($light-blue, $lightness: -10%);
+  --ajax-loader: #{scale-color($light-blue, $lightness: -10%)};
 
   // Filters
 
-  --form-control-color: $black;
+  --form-control-color: #{$black};
 
-  --filter-border: $light-blue;
-  --filter-options-border: $gray-light;
-  --filter-focus-background: scale-color($white, $lightness: -7%);
+  --filter-border: #{$light-blue};
+  --filter-options-border: #{$gray-light};
+  --filter-focus-background: #{scale-color($white, $lightness: -7%)};
 
   // Prelude
 
-  --prelude-color: $gray-very-dark;
-  --prelude-background: $light-blue;
-  --prelude-background-alt: $white;
+  --prelude-color: #{$gray-very-dark};
+  --prelude-background: #{$light-blue};
+  --prelude-background-alt: #{$white};
 
   // Help
 
-  --help-background: $gray-very-light;
-  --help-border: $warning-alt;
-  --help-button-border: $gray-light;
-  --help-button-background: $gray-very-light;
-  --help-title-color: $gray-dark;
+  --help-background: #{$gray-very-light};
+  --help-border: #{$warning-alt};
+  --help-button-border: #{$gray-light};
+  --help-button-background: #{$gray-very-light};
+  --help-title-color: #{$gray-dark};
 
   // Tooltip (in footer)
 
-  --tooltip-color: $tooltip;
-  --tooltip-background: rgba($white, 0.9);
+  --tooltip-color: #{$tooltip};
+  --tooltip-background: #{rgba($white, 0.9)};
 
   // UI sortable
 
@@ -312,163 +312,163 @@
   // Application pages:
   // - Auth (white background page)
 
-  --login-fieldset-background: $white;
-  --login-fieldset-border: $success-alt;
+  --login-fieldset-background: #{$white};
+  --login-fieldset-border: #{$success-alt};
 
   // - Index
 
-  --index-link-color: $gray-very-dark;
-  --index-link-border: $gray-semi-dark;
-  --index-icon-background: scale-color($gray-very-light, $lightness: 50%);
-  --index-icon-border: $marine; // scale-color($gray-very-light, $lightness: -10%);
-  --index-icon-outline: $link-outline;
+  --index-link-color: #{$gray-very-dark};
+  --index-link-border: #{$gray-semi-dark};
+  --index-icon-background: #{scale-color($gray-very-light, $lightness: 50%)};
+  --index-icon-border: #{$marine}; // #{scale-color($gray-very-light, $lightness: -10%)};
+  --index-icon-outline: #{$link-outline};
   --index-icon-contrast: 100%;
 
-  --quick-background: scale-color($gray-very-light, $lightness: 50%); // $gray-very-light;
-  --quick-border: $marine; // scale-color($gray-very-light, $lightness: -10%);
-  --quick-info-background: $info;
-  --quick-info-border: $info-alt;
-  --quick-info-color: $gray-very-dark;
+  --quick-background: #{scale-color($gray-very-light, $lightness: 50%)}; // $gray-very-light;
+  --quick-border: #{$marine}; // #{scale-color($gray-very-light, $lightness: -10%)};
+  --quick-info-background: #{$info};
+  --quick-info-border: #{$info-alt};
+  --quick-info-color: #{$gray-very-dark};
 
-  --index-box-border: $marine; // scale-color($gray-dark, $lightness: 66%);
+  --index-box-border: #{$marine}; // #{scale-color($gray-dark, $lightness: 66%)};
 
-  --drag-n-drop-off: $gray-semi-dark;
-  --drag-n-drop-on: $blue;
+  --drag-n-drop-off: #{$gray-semi-dark};
+  --drag-n-drop-on: #{$blue};
 
   // - Blog params
 
-  --blog-user-border: scale-color($gray-dark, $lightness: 66%);
-  --blog-super-background: rgba($info, 0.5);
-  --blog-super-border: $link-outline;
+  --blog-user-border: #{scale-color($gray-dark, $lightness: 66%)};
+  --blog-super-background: #{rgba($info, 0.5)};
+  --blog-super-border: #{$link-outline};
 
   // - Blog theme
 
-  --theme-box-border: scale-color($gray-very-light, $lightness: -10%);
-  --theme-box-over: $gray-very-light;
+  --theme-box-border: #{scale-color($gray-very-light, $lightness: -10%)};
+  --theme-box-over: #{$gray-very-light};
 
-  --theme-name-color: $gray-dark;
+  --theme-name-color: #{$gray-dark};
 
-  --theme-img-background: $gray-very-light;
-  --theme-img-border: $gray-light;
-  --theme-img-shadow: rgba($gray-very-dark, 0.1);
+  --theme-img-background: #{$gray-very-light};
+  --theme-img-border: #{$gray-light};
+  --theme-img-shadow: #{rgba($gray-very-dark, 0.1)};
 
-  --theme-action-background: $gray-very-light;
-  --theme-action-border: $gray-lighter;
+  --theme-action-background: #{$gray-very-light};
+  --theme-action-border: #{$gray-lighter};
 
-  --theme-current-background: $gray-very-light;
-  --theme-current-border: $gray-lighter;
-  --theme-current-shadow: rgba($gray-very-dark, 0.1);
+  --theme-current-background: #{$gray-very-light};
+  --theme-current-border: #{$gray-lighter};
+  --theme-current-shadow: #{rgba($gray-very-dark, 0.1)};
 
-  --theme-current-img-border: $white;
-  --theme-current-name-color: $orange;
+  --theme-current-img-border: #{$white};
+  --theme-current-name-color: #{$orange};
 
   // - Categories
 
-  --cat-placeholder-outline: $link;
+  --cat-placeholder-outline: #{$link};
 
-  --cat-line-border: scale-color($gray-dark, $lightness: 66%);
-  --subcat-line-border: scale-color($gray-very-light, $lightness: -10%);
+  --cat-line-border: #{scale-color($gray-dark, $lightness: 66%)};
+  --subcat-line-border: #{scale-color($gray-very-light, $lightness: -10%)};
 
-  --cat-post-counter: $gray-very-dark;
+  --cat-post-counter: #{$gray-very-dark};
 
   // - Media
 
   --media-folder-background: transparent;
-  --media-folder-border: $gray-light;
+  --media-folder-border: #{$gray-light};
   --media-folderup-border: transparent;
-  --media-folder-link: $gray-dark;
-  --media-item-border: $marine;
-  --media-item-border-private: $red;
-  --media-files-border: scale-color($gray-very-light, $lightness: -10%);
-  --media-item-active-background: $gray-very-light;
+  --media-folder-link: #{$gray-dark};
+  --media-item-border: #{$marine};
+  --media-item-border-private: #{$red};
+  --media-files-border: #{scale-color($gray-very-light, $lightness: -10%)};
+  --media-item-active-background: #{$gray-very-light};
 
-  --upload-color: scale-color($success-alt, $lightness: -45%);
-  --upload-filemsg-color: $white;
-  --upload-progress-color: $white;
-  --upload-progress-background: scale-color($success-alt, $lightness: -45%);
-  --upload-file-border: scale-color($gray-very-light, $lightness: -10%);
-  --upload-error-color: $error-alt;
+  --upload-color: #{scale-color($success-alt, $lightness: -45%)};
+  --upload-filemsg-color: #{$white};
+  --upload-progress-color: #{$white};
+  --upload-progress-background: #{scale-color($success-alt, $lightness: -45%)};
+  --upload-file-border: #{scale-color($gray-very-light, $lightness: -10%)};
+  --upload-error-color: #{$error-alt};
 
   // - Plugins
 
-  --modules-background: $gray-very-light;
-  --modules-border: $light-blue;
+  --modules-background: #{$gray-very-light};
+  --modules-border: #{$light-blue};
 
   // - Entry
 
-  --entry-sb-title-border: $gray-dark;
-  --entry-sb-background: $gray-very-light;
-  --entry-sb-focus-background: scale-color($white, $lightness: -7%);
+  --entry-sb-title-border: #{$gray-dark};
+  --entry-sb-background: #{$gray-very-light};
+  --entry-sb-focus-background: #{scale-color($white, $lightness: -7%)};
 
   // - Preferences
 
-  --fav-list-border: $gray-lighter;
-  --fav-list-border-alt: scale-color($gray-very-light, $lightness: -10%);
+  --fav-list-border: #{$gray-lighter};
+  --fav-list-border-alt: #{scale-color($gray-very-light, $lightness: -10%)};
 
-  --my-favs-border: $green;
+  --my-favs-border: #{$green};
 
   // - Charte
 
-  --charte-title: $orange;
-  --charte-one-box-border: scale-color($gray-very-light, $lightness: -10%);
+  --charte-title: #{$orange};
+  --charte-one-box-border: #{scale-color($gray-very-light, $lightness: -10%)};
 
   // Classes
 
-  --ac-results-background: $white;
-  --ac-results-border: $warning-alt;
-  --ac-results-over: $white;
-  --ac-results-over-background: $link;
+  --ac-results-background: #{$white};
+  --ac-results-border: #{$warning-alt};
+  --ac-results-over: #{$white};
+  --ac-results-over-background: #{$link};
 
-  --nav-background: $white;
-  --nav-prevnext: $link;
-  --nav-prevnext-background: $gray-very-light;
-  --nav-prevnext-border: scale-color($gray-very-light, $lightness: -10%);
+  --nav-background: #{$white};
+  --nav-prevnext: #{$link};
+  --nav-prevnext-background: #{$gray-very-light};
+  --nav-prevnext-border: #{scale-color($gray-very-light, $lightness: -10%)};
 
-  --onblog-link: $gray-very-dark;
-  --onblog-link-background: $gray-lighter;
-  --onblog-link-border: $gray-lighter;
-  --onblog-link-shadow: rgba($gray-very-dark, 0.3);
+  --onblog-link: #{$gray-very-dark};
+  --onblog-link-background: #{$gray-lighter};
+  --onblog-link-border: #{$gray-lighter};
+  --onblog-link-shadow: #{rgba($gray-very-dark, 0.3)};
 
-  --pager-link: $link;
-  --pager-active: $gray-dark;
-  --pager-background: $gray-very-light;
-  --pager-background-over: scale-color($gray-very-light, $lightness: -10%);
-  --pager-off-background: $white;
-  --pager-input-background: $white;
-  --pager-border: scale-color($gray-very-light, $lightness: -10%);
+  --pager-link: #{$link};
+  --pager-active: #{$gray-dark};
+  --pager-background: #{$gray-very-light};
+  --pager-background-over: #{scale-color($gray-very-light, $lightness: -10%)};
+  --pager-off-background: #{$white};
+  --pager-input-background: #{$white};
+  --pager-border: #{scale-color($gray-very-light, $lightness: -10%)};
 
-  --index-no-link: $gray-light;
-  --index-active: $white;
-  --index-active-background: $gray-dark;
+  --index-no-link: #{$gray-light};
+  --index-active: #{$white};
+  --index-active-background: #{$gray-dark};
 
-  --step: $gray-dark;
-  --step-background: $gray-very-light;
-  --step-border: scale-color($gray-dark, $lightness: 66%);
+  --step: #{$gray-dark};
+  --step-background: #{$gray-very-light};
+  --step-border: #{scale-color($gray-dark, $lightness: 66%)};
 
-  --offline: $gray-dark;
-  --offline-background: $gray-very-light;
+  --offline: #{$gray-dark};
+  --offline-background: #{$gray-very-light};
 
   --mark-attach-img: url('../images/attach.svg');
-  --mark-attach-filter: hue-rotate(300deg) saturate(0.64);
+  --mark-attach-filter: #{hue-rotate(300deg) saturate(0.64)};
 
-  --rch-table-1st-color: $gray-light;
-  --rch-table-1st-background: $gray-darker;
-  --rch-table-1st-border: $gray-lighter;
+  --rch-table-1st-color: #{$gray-light};
+  --rch-table-1st-background: #{$gray-darker};
+  --rch-table-1st-border: #{$gray-lighter};
   --rch-table-expand-color: var(--body-color);
   --rch-table-expand-background: var(--body-background);
-  --rch-table-expand-border: $gray-lighter;
+  --rch-table-expand-border: #{$gray-lighter};
 
   // Utils
 
-  --badge-color: $white;
+  --badge-color: #{$white};
   --badge-border: transparent;
-  --badge-std-background: $badge;
-  --badge-soft-background: $badge-soft;
-  --badge-info-background: $badge-info;
+  --badge-std-background: #{$badge};
+  --badge-soft-background: #{$badge-soft};
+  --badge-info-background: #{$badge-info};
 
   // Debug
 
-  --debug-color: $error-alt;
-  --debug-background: $warning-alt;
-  --debug-border: $warning-alt;
+  --debug-color: #{$error-alt};
+  --debug-background: #{$warning-alt};
+  --debug-border: #{$warning-alt};
 }
