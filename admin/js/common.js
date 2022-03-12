@@ -662,36 +662,36 @@ dotclear.passwordHelpers = () => {
     passwordField.classList.add('pwd_helper');
     button.addEventListener('click', togglePasswordHelper);
   }
+};
 
-  // REST services helper
-  dotclear.services = (
-    fn, // REST method
-    onSuccess = (data) => {}, // Used when fetch is successful
-    onError = (error) => {}, // Used when fetch failed
-    get = true, // Use GET method if true, POST if false
-    params = {}, // Optional parameters
-  ) => {
-    const service = new URL('services.php', window.location.origin + window.location.pathname);
-    dotclear.mergeDeep(params, { f: fn, xd_check: dotclear.nonce });
-    const init = { method: get ? 'GET' : 'POST' };
-    if (get) {
-      service.search = new URLSearchParams(params).toString();
-    } else {
-      const data = new FormData();
-      // Warning: cope only with single level object (key → value)
-      Object.keys(params).forEach((key) => data.append(key, params[key]));
-      init.body = data;
-    }
-    fetch(service, init)
-      .then((p) => {
-        if (!p.ok) {
-          throw Error(p.statusText);
-        }
-        return p.text();
-      })
-      .then((data) => onSuccess(data))
-      .catch((error) => onError(error));
-  };
+// REST services helper
+dotclear.services = (
+  fn, // REST method
+  onSuccess = (data) => {}, // Used when fetch is successful
+  onError = (error) => {}, // Used when fetch failed
+  get = true, // Use GET method if true, POST if false
+  params = {}, // Optional parameters
+) => {
+  const service = new URL('services.php', window.location.origin + window.location.pathname);
+  dotclear.mergeDeep(params, { f: fn, xd_check: dotclear.nonce });
+  const init = { method: get ? 'GET' : 'POST' };
+  if (get) {
+    service.search = new URLSearchParams(params).toString();
+  } else {
+    const data = new FormData();
+    // Warning: cope only with single level object (key → value)
+    Object.keys(params).forEach((key) => data.append(key, params[key]));
+    init.body = data;
+  }
+  fetch(service, init)
+    .then((p) => {
+      if (!p.ok) {
+        throw Error(p.statusText);
+      }
+      return p.text();
+    })
+    .then((data) => onSuccess(data))
+    .catch((error) => onError(error));
 };
 
 /* On document ready
