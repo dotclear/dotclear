@@ -1,7 +1,7 @@
-/*global $, jQuery, dotclear */
+/*global $, dotclear */
 'use strict';
 
-(($) => {
+(() => {
   $.fn.enhancedUploader = function () {
     return this.each(function () {
       const me = $(this);
@@ -152,7 +152,7 @@
         .appendTo(me);
     });
   };
-})(jQuery);
+})();
 
 $(() => {
   $('#fileupload').enhancedUploader();

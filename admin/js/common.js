@@ -1,4 +1,4 @@
-/*global $, jQuery, dotclear */
+/*global $, dotclear */
 /*exported chainHandler */
 'use strict';
 
@@ -39,7 +39,7 @@ function chainHandler(obj, handlerName, handler) {
 
 /* jQuery extensions
 -------------------------------------------------------- */
-jQuery.fn.check = function () {
+$.fn.check = function () {
   return this.each(function () {
     if (this.checked != undefined) {
       this.checked = true;
@@ -47,7 +47,7 @@ jQuery.fn.check = function () {
   });
 };
 
-jQuery.fn.unCheck = function () {
+$.fn.unCheck = function () {
   return this.each(function () {
     if (this.checked != undefined) {
       this.checked = false;
@@ -55,7 +55,7 @@ jQuery.fn.unCheck = function () {
   });
 };
 
-jQuery.fn.setChecked = function (status) {
+$.fn.setChecked = function (status) {
   return this.each(function () {
     if (this.checked != undefined) {
       this.checked = status;
@@ -63,7 +63,7 @@ jQuery.fn.setChecked = function (status) {
   });
 };
 
-jQuery.fn.toggleCheck = function () {
+$.fn.toggleCheck = function () {
   return this.each(function () {
     if (this.checked != undefined) {
       this.checked = !this.checked;
@@ -71,7 +71,7 @@ jQuery.fn.toggleCheck = function () {
   });
 };
 
-jQuery.fn.enableShiftClick = function () {
+$.fn.enableShiftClick = function () {
   this.on('click', function (event) {
     if (event.shiftKey) {
       if (dotclear.lastclicked != '') {
@@ -90,7 +90,7 @@ jQuery.fn.enableShiftClick = function () {
   });
 };
 
-jQuery.fn.toggleWithLegend = function (target, s) {
+$.fn.toggleWithLegend = function (target, s) {
   const defaults = {
     img_on_txt: dotclear.img_plus_txt,
     img_on_alt: dotclear.img_plus_alt,
@@ -103,7 +103,7 @@ jQuery.fn.toggleWithLegend = function (target, s) {
     user_pref: false,
     reverse_user_pref: false, // Reverse user pref behavior
   };
-  const p = jQuery.extend(defaults, s);
+  const p = $.extend(defaults, s);
   if (!target) {
     return this;
   }
@@ -148,7 +148,7 @@ jQuery.fn.toggleWithLegend = function (target, s) {
     }
     $(ctarget).on('click', (e) => {
       if (p.user_pref && set_user_pref) {
-        jQuery.post(
+        $.post(
           'services.php',
           {
             f: 'setSectionFold',
@@ -168,7 +168,7 @@ jQuery.fn.toggleWithLegend = function (target, s) {
   });
 };
 
-(($) => {
+(() => {
   $.expandContent = (opts) => {
     if (opts == undefined || opts.callback == undefined || typeof opts.callback !== 'function') {
       return;
@@ -226,9 +226,9 @@ jQuery.fn.toggleWithLegend = function (target, s) {
     }
     return action;
   };
-})(jQuery);
+})();
 
-jQuery.fn.helpViewer = function () {
+$.fn.helpViewer = function () {
   if (this.length < 1) {
     return this;
   }

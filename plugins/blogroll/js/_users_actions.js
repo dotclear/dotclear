@@ -1,7 +1,7 @@
-/*global $, jQuery */
+/*global $ */
 'use strict';
 
-jQuery.fn.updateBlogrollPermissionsForm = function () {
+$.fn.updateBlogrollPermissionsForm = function () {
   return this.each(function () {
     const permissions = {};
     const perm_reg_expr = /^perm\[(.+?)\]\[(.+?)\]$/;

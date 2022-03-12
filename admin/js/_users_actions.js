@@ -1,7 +1,7 @@
-/*global $, jQuery, dotclear */
+/*global $, dotclear */
 'use strict';
 
-jQuery.fn.updatePermissionsForm = function () {
+$.fn.updatePermissionsForm = function () {
   return this.each(function () {
     const permissions = {};
     const perm_reg_expr = /^perm\[(.+?)\]\[(.+?)\]$/;
@@ -105,7 +105,7 @@ jQuery.fn.updatePermissionsForm = function () {
           if (dom_element.checked) {
             mediaadmin(dom_element);
           }
-          $(dom_element).on('click',  { dom_element }, doEventMediaAdmin);
+          $(dom_element).on('click', { dom_element }, doEventMediaAdmin);
         }
       }
     }
