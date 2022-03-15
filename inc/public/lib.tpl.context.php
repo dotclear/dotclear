@@ -108,8 +108,7 @@ class context
         $upper_case,
         $encode_url,
         $tag = ''
-    )
-    {
+    ) {
         return self::global_filters(
             $str,
             [0                => null,
@@ -217,7 +216,7 @@ class context
         // This function will remove those cases from string
 
         // <figure><img …><figcaption>isolated text</figcaption></figure>
-        $str = preg_replace('/<figure[^>]*>([\t\n\r\s]*)(a[^>]*>)*<img[^>]*>([\t\n\r\s]*)(\/a[^>]*>)*([\t\n\r\s]*)<figcaption[^>]*>(.*?)<\/figcaption>([\t\n\r\s]*)<\/figure>/', '', $str);
+        $str = preg_replace('/<figure[^>]*>([\t\n\r\s]*)(<a[^>]*>)*<img[^>]*>([\t\n\r\s]*)(<\/a[^>]*>)*([\t\n\r\s]*)<figcaption[^>]*>(.*?)<\/figcaption>([\t\n\r\s]*)<\/figure>/', '', $str);
 
         // <figure><figcaption>isolated text</figcaption><audio…>…</audio></figure>
         $str = preg_replace('/<figure[^>]*>([\t\n\r\s]*)<figcaption[^>]*>(.*)<\/figcaption>([\t\n\r\s]*)<audio[^>]*>(([\t\n\r\s]|.)*)<\/audio>([\t\n\r\s]*)<\/figure>/', '', $str);
