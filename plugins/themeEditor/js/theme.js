@@ -17,9 +17,24 @@ $(() => {
     editor.refresh();
   });
 
+  let themes_loaded = ['default'];
+  if (current.theme !== 'default') {
+    themes_loaded.push(current.theme);
+  }
   $('#colorsyntax_theme').on('change', () => {
     const input = document.getElementById('colorsyntax_theme');
-    editor.setOption('theme', input.options[input.selectedIndex].value || 'default');
+    const theme = input.options[input.selectedIndex].value || 'default';
+    // Dynamically load theme if not default and not already loaded
+    if (!themes_loaded.includes(theme)) {
+      const href = `js/codemirror/theme/${theme}.css`;
+      const style = document.createElement('link');
+      style.setAttribute('rel', 'stylesheet');
+      style.setAttribute('type', 'text/css');
+      style.setAttribute('href', href);
+      document.getElementsByTagName('head')[0].append(style);
+      themes_loaded.push(theme);
+    }
+    editor.setOption('theme', theme);
     editor.refresh();
   });
 });

@@ -55,6 +55,7 @@ class themeEditorBehaviors
     {
         // Add fieldset for plugin options
         $core->auth->user_prefs->addWorkspace('interface');
+        $current_theme = $core->auth->user_prefs->interface->colorsyntax_theme ?? 'default';
 
         $themes_list  = dcPage::getCodeMirrorThemes();
         $themes_combo = [__('Default') => ''];
@@ -78,7 +79,7 @@ class themeEditorBehaviors
                 'colorsyntax_theme',
                 $themes_combo,
                 [
-                    'default' => $core->auth->user_prefs->interface->colorsyntax_theme,
+                    'default' => $current_theme,
                 ]
             ) .
                 '</p>';
@@ -88,8 +89,8 @@ class themeEditorBehaviors
         echo '</div>';
         echo '<div class="col">';
         echo dcPage::jsLoadCodeMirror('', false, ['javascript']);
-        foreach ($themes_list as $theme) {
-            echo dcPage::cssLoad('js/codemirror/theme/' . $theme . '.css');
+        if ($current_theme !== 'default') {
+            echo dcPage::cssLoad('js/codemirror/theme/' . $current_theme . '.css');
         }
         echo '
 <textarea id="codemirror" name="codemirror" readonly="true">
@@ -106,7 +107,7 @@ function findSequence(goal) {
   return find(1, "1");
 }</textarea>';
         echo
-        dcPage::jsJson('theme_editor_current', ['theme' => $core->auth->user_prefs->interface->colorsyntax_theme != '' ? $core->auth->user_prefs->interface->colorsyntax_theme : 'default']) .
+        dcPage::jsJson('theme_editor_current', ['theme' => $current_theme]) .
         dcPage::jsModuleLoad('themeEditor/js/theme.js');
         echo '</div>';
         echo '</div>';
