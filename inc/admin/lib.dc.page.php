@@ -820,7 +820,7 @@ class dcPage
 
         $js = [];
         if ($core->auth->user_prefs->toggles) {
-            $unfolded_sections = explode(',', $core->auth->user_prefs->toggles->unfolded_sections);
+            $unfolded_sections = explode(',', (string) $core->auth->user_prefs->toggles->unfolded_sections);
             foreach ($unfolded_sections as $k => &$v) {
                 if ($v !== '') {
                     $js[$unfolded_sections[$k]] = true;
