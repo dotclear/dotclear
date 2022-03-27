@@ -141,7 +141,7 @@ class adminSearchPageDefault
         }
 
         if (self::$count > 0) {
-            printf('<h3>' . __('one result', __('%d results'), self::$count) . '</h3>', self::$count);
+            printf('<h3>' . __('%d entry found', '%d entries found', self::$count) . '</h3>', self::$count);
         }
 
         self::$list->display(

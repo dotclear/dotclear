@@ -2454,20 +2454,16 @@ msgid "Search in comments"
 msgstr "Rechercher dans les commentaires"
 
 #, php-format
-msgid "%d entries found"
-msgstr "%d billets trouvés"
-
-#, php-format
 msgid "%d entry found"
-msgstr "%d billet trouvé"
+msgid_plural "%d entries found"
+msgstr[0] "%d billet trouvé"
+msgstr[1] "%d billets trouvés"
 
 #, php-format
 msgid "%d comment found"
-msgstr "%d commentaire trouvé"
-
-#, php-format
-msgid "%d comments found"
-msgstr "%d commentaires trouvés"
+msgid_plural "%d comments found"
+msgstr[0] "%d commentaire trouvé"
+msgstr[1] "%d commentaires trouvés"
 
 #, php-format
 msgid "%d post"
