@@ -32,7 +32,7 @@ class dcUrlHandlers extends urlHandler
         $url  = $core->callBehavior('publicGetURLFor', $type, $value);
         if (!$url) {
             $url = $this->getBase($type);
-            if ($value) {
+            if ($value !== '') {
                 if ($url) {
                     $url .= '/';
                 }
