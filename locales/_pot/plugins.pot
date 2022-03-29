@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:24+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -158,44 +158,44 @@ msgstr ""
 msgid "Configuration successfully updated"
 msgstr ""
 
-#: plugins/aboutConfig/index.php:73 plugins/userPref/index.php:72
+#: plugins/aboutConfig/index.php:75 plugins/userPref/index.php:73
 msgid "no"
 msgstr ""
 
-#: plugins/aboutConfig/index.php:73 plugins/userPref/index.php:72
+#: plugins/aboutConfig/index.php:75 plugins/userPref/index.php:73
 msgid "yes"
 msgstr ""
 
-#: plugins/aboutConfig/index.php:109
+#: plugins/aboutConfig/index.php:140
 msgid "about:config"
 msgstr ""
 
-#: plugins/aboutConfig/index.php:114 plugins/aboutConfig/index.php:115
+#: plugins/aboutConfig/index.php:146 plugins/aboutConfig/index.php:147
 #, php-format
 msgid "Settings for %s"
 msgstr ""
 
-#: plugins/aboutConfig/index.php:121 plugins/userPref/index.php:122
+#: plugins/aboutConfig/index.php:153 plugins/userPref/index.php:152
 msgid "Setting ID"
 msgstr ""
 
-#: plugins/aboutConfig/index.php:122 plugins/userPref/index.php:123
+#: plugins/aboutConfig/index.php:154 plugins/userPref/index.php:153
 msgid "Value"
 msgstr ""
 
-#: plugins/aboutConfig/index.php:124 plugins/antispam/index.php:188
-#: plugins/blogroll/index.php:206 plugins/blogroll/index.php:350
-#: plugins/simpleMenu/index.php:190 plugins/simpleMenu/index.php:585
-#: plugins/userPref/index.php:125
+#: plugins/aboutConfig/index.php:156 plugins/antispam/index.php:190
+#: plugins/blogroll/index.php:207 plugins/blogroll/index.php:353
+#: plugins/simpleMenu/index.php:190 plugins/simpleMenu/index.php:594
+#: plugins/userPref/index.php:155
 msgid "Description"
 msgstr ""
 
-#: plugins/aboutConfig/index.php:145 plugins/aboutConfig/index.php:194
-#: plugins/userPref/index.php:146 plugins/userPref/index.php:196
+#: plugins/aboutConfig/index.php:177 plugins/aboutConfig/index.php:226
+#: plugins/userPref/index.php:176 plugins/userPref/index.php:226
 msgid "Goto:"
 msgstr ""
 
-#: plugins/aboutConfig/index.php:172 plugins/aboutConfig/index.php:173
+#: plugins/aboutConfig/index.php:204 plugins/aboutConfig/index.php:205
 msgid "Global settings"
 msgstr ""
 
@@ -228,47 +228,45 @@ msgstr ""
 msgid "Get your own API key"
 msgstr ""
 
-#: plugins/antispam/_admin.php:19 plugins/antispam/_admin.php:36
+#: plugins/antispam/_admin.php:20 plugins/antispam/_admin.php:37
 #: plugins/antispam/index.php:19
 msgid "Antispam"
 msgstr ""
 
-#: plugins/antispam/_admin.php:85 plugins/antispam/index.php:164
+#: plugins/antispam/_admin.php:88 plugins/antispam/index.php:166
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr ""
 
-#: plugins/antispam/_admin.php:86 plugins/antispam/index.php:165
+#: plugins/antispam/_admin.php:89 plugins/antispam/index.php:167
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr ""
 
-#: plugins/antispam/_admin.php:97
+#: plugins/antispam/_admin.php:100
 msgid "Delete junk comments older than"
 msgstr ""
 
-#: plugins/antispam/_admin.php:99
+#: plugins/antispam/_admin.php:102
 msgid "days"
 msgstr ""
 
-#: plugins/antispam/_admin.php:101
+#: plugins/antispam/_admin.php:104
 msgid "Set -1 to disabled this feature ; Leave empty to use default 7 days delay."
 msgstr ""
 
-#: plugins/antispam/_admin.php:102
+#: plugins/antispam/_admin.php:105
 msgid "Set spam filters."
 msgstr ""
 
 #: plugins/antispam/_services.php:29
 #: plugins/antispam/inc/lib.dc.antispam.php:75
-#: plugins/antispam/inc/lib.dc.antispam.php:84
 #, php-format
 msgid "(including %d spam comment)"
 msgstr ""
 
 #: plugins/antispam/_services.php:29
 #: plugins/antispam/inc/lib.dc.antispam.php:75
-#: plugins/antispam/inc/lib.dc.antispam.php:84
 #, php-format
 msgid "(including %d spam comments)"
 msgstr ""
@@ -278,53 +276,65 @@ msgid "IP Blocklist / Allowlist Filter"
 msgstr ""
 
 #: plugins/antispam/filters/class.dc.filter.ip.php:38
+#: plugins/antispam/filters/class.dc.filter.ipv6.php:38
 #, php-format
 msgid "Filtered by %1$s with rule %2$s."
 msgstr ""
 
 #: plugins/antispam/filters/class.dc.filter.ip.php:78
+#: plugins/antispam/filters/class.dc.filter.ipv6.php:78
 msgid "IP address has been successfully added."
 msgstr ""
 
 #: plugins/antispam/filters/class.dc.filter.ip.php:89
+#: plugins/antispam/filters/class.dc.filter.ipv6.php:89
 msgid "IP addresses have been successfully removed."
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.ip.php:100
+#: plugins/antispam/filters/class.dc.filter.ip.php:98
+#: plugins/antispam/filters/class.dc.filter.ipv6.php:98
 msgid "Blocklist"
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.ip.php:101
+#: plugins/antispam/filters/class.dc.filter.ip.php:99
+#: plugins/antispam/filters/class.dc.filter.ipv6.php:99
 msgid "Allowlist"
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.ip.php:116
+#: plugins/antispam/filters/class.dc.filter.ip.php:114
+#: plugins/antispam/filters/class.dc.filter.ipv6.php:114
 msgid "Add an IP address: "
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.ip.php:120
+#: plugins/antispam/filters/class.dc.filter.ip.php:118
+#: plugins/antispam/filters/class.dc.filter.ipv6.php:118
 msgid "Global IP (used for all blogs)"
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.ip.php:125
-#: plugins/antispam/filters/class.dc.filter.words.php:118
-#: plugins/widgets/index.php:267
+#: plugins/antispam/filters/class.dc.filter.ip.php:123
+#: plugins/antispam/filters/class.dc.filter.ipv6.php:123
+#: plugins/antispam/filters/class.dc.filter.words.php:116
+#: plugins/widgets/index.php:273
 msgid "Add"
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.ip.php:131
+#: plugins/antispam/filters/class.dc.filter.ip.php:129
+#: plugins/antispam/filters/class.dc.filter.ipv6.php:129
 msgid "No IP address in list."
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.ip.php:134
+#: plugins/antispam/filters/class.dc.filter.ip.php:132
+#: plugins/antispam/filters/class.dc.filter.ipv6.php:132
 msgid "IP list"
 msgstr ""
 
 #: plugins/antispam/filters/class.dc.filter.ip.php:164
+#: plugins/antispam/filters/class.dc.filter.ipv6.php:161
 msgid "Local IPs (used only for this blog)"
 msgstr ""
 
 #: plugins/antispam/filters/class.dc.filter.ip.php:170
+#: plugins/antispam/filters/class.dc.filter.ipv6.php:167
 msgid "Global IPs (used for all blogs)"
 msgstr ""
 
@@ -338,16 +348,20 @@ msgstr ""
 msgid "Filtered by %1$s with server %2$s."
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.iplookup.php:71
+#: plugins/antispam/filters/class.dc.filter.iplookup.php:77
 msgid "The list of DNSBL servers has been succesfully updated."
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.iplookup.php:83
+#: plugins/antispam/filters/class.dc.filter.iplookup.php:87
 msgid "IP Lookup servers"
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.iplookup.php:84
+#: plugins/antispam/filters/class.dc.filter.iplookup.php:88
 msgid "Add here a coma separated list of servers."
+msgstr ""
+
+#: plugins/antispam/filters/class.dc.filter.ipv6.php:33
+msgid "IP v6 Blocklist / Allowlist Filter"
 msgstr ""
 
 #: plugins/antispam/filters/class.dc.filter.linkslookup.php:23
@@ -375,19 +389,19 @@ msgstr ""
 msgid "Words have been successfully removed."
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.words.php:109
+#: plugins/antispam/filters/class.dc.filter.words.php:107
 msgid "Add a word "
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.words.php:113
+#: plugins/antispam/filters/class.dc.filter.words.php:111
 msgid "Global word (used for all blogs)"
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.words.php:123
+#: plugins/antispam/filters/class.dc.filter.words.php:121
 msgid "No word in list."
 msgstr ""
 
-#: plugins/antispam/filters/class.dc.filter.words.php:126
+#: plugins/antispam/filters/class.dc.filter.words.php:124
 msgid "List of bad words"
 msgstr ""
 
@@ -448,7 +462,7 @@ msgstr ""
 msgid "Filter has no user interface."
 msgstr ""
 
-#: plugins/antispam/index.php:89 plugins/antispam/index.php:176
+#: plugins/antispam/index.php:89 plugins/antispam/index.php:178
 msgid "Filters configuration has been successfully saved."
 msgstr ""
 
@@ -462,59 +476,59 @@ msgstr ""
 msgid "%s filter configuration"
 msgstr ""
 
-#: plugins/antispam/index.php:125
+#: plugins/antispam/index.php:126
 msgid "Back to filters list"
 msgstr ""
 
-#: plugins/antispam/index.php:147
+#: plugins/antispam/index.php:149
 msgid "Information"
 msgstr ""
 
-#: plugins/antispam/index.php:151
+#: plugins/antispam/index.php:153
 msgid "Junk comments:"
 msgstr ""
 
-#: plugins/antispam/index.php:153
+#: plugins/antispam/index.php:155
 msgid "Published comments:"
 msgstr ""
 
-#: plugins/antispam/index.php:182
+#: plugins/antispam/index.php:184
 msgid "Available spam filters"
 msgstr ""
 
-#: plugins/antispam/index.php:184
+#: plugins/antispam/index.php:186
 msgid "Order"
 msgstr ""
 
-#: plugins/antispam/index.php:185 plugins/antispam/index.php:214
+#: plugins/antispam/index.php:187 plugins/antispam/index.php:218
 msgid "Active"
 msgstr ""
 
-#: plugins/antispam/index.php:186 plugins/antispam/index.php:220
+#: plugins/antispam/index.php:188 plugins/antispam/index.php:226
 msgid "Auto Del."
 msgstr ""
 
-#: plugins/antispam/index.php:187
+#: plugins/antispam/index.php:189
 msgid "Filter name"
 msgstr ""
 
-#: plugins/antispam/index.php:197 plugins/antispam/index.php:198
+#: plugins/antispam/index.php:199 plugins/antispam/index.php:200
 msgid "Filter configuration"
 msgstr ""
 
-#: plugins/antispam/index.php:208 plugins/blogroll/index.php:223
+#: plugins/antispam/index.php:210 plugins/blogroll/index.php:224
 msgid "position"
 msgstr ""
 
-#: plugins/antispam/index.php:250
+#: plugins/antispam/index.php:256
 msgid "Syndication"
 msgstr ""
 
-#: plugins/antispam/index.php:252
+#: plugins/antispam/index.php:258
 msgid "Junk comments RSS feed"
 msgstr ""
 
-#: plugins/antispam/index.php:253
+#: plugins/antispam/index.php:259
 msgid "Published comments RSS feed"
 msgstr ""
 
@@ -535,14 +549,14 @@ msgstr ""
 msgid "Add files to this entry"
 msgstr ""
 
-#: plugins/blogroll/_admin.php:22 plugins/blogroll/_admin.php:30
-#: plugins/blogroll/_admin.php:44 plugins/blogroll/_widgets.php:34
-#: plugins/blogroll/edit.php:109 plugins/blogroll/index.php:171
-#: plugins/blogroll/index.php:190 plugins/blogroll/index.php:195
+#: plugins/blogroll/_admin.php:19 plugins/blogroll/_admin.php:33
+#: plugins/blogroll/_widgets.php:34 plugins/blogroll/edit.php:109
+#: plugins/blogroll/index.php:171 plugins/blogroll/index.php:190
+#: plugins/blogroll/index.php:196
 msgid "Blogroll"
 msgstr ""
 
-#: plugins/blogroll/_admin.php:50
+#: plugins/blogroll/_admin.php:40
 msgid "manage blogroll"
 msgstr ""
 
@@ -550,7 +564,7 @@ msgstr ""
 msgid "All categories"
 msgstr ""
 
-#: plugins/blogroll/_widgets.php:35 plugins/blowupConfig/index.php:262
+#: plugins/blogroll/_widgets.php:35 plugins/blowupConfig/index.php:263
 msgid "Links"
 msgstr ""
 
@@ -585,127 +599,127 @@ msgstr ""
 msgid "Category has been successfully updated"
 msgstr ""
 
-#: plugins/blogroll/edit.php:114
+#: plugins/blogroll/edit.php:115
 msgid "Return to blogroll"
 msgstr ""
 
-#: plugins/blogroll/edit.php:120
+#: plugins/blogroll/edit.php:121
 msgid "Edit category"
 msgstr ""
 
-#: plugins/blogroll/edit.php:139
+#: plugins/blogroll/edit.php:140
 msgid "Edit link"
 msgstr ""
 
-#: plugins/blogroll/edit.php:171
+#: plugins/blogroll/edit.php:176
 msgid "XFN information"
 msgstr ""
 
-#: plugins/blogroll/edit.php:172
+#: plugins/blogroll/edit.php:177
 msgid "More information on <a href=\"https://en.wikipedia.org/wiki/XHTML_Friends_Network\">Wikipedia</a> website"
 msgstr ""
 
-#: plugins/blogroll/edit.php:178
+#: plugins/blogroll/edit.php:183
 msgid "_xfn_Me"
 msgstr ""
 
-#: plugins/blogroll/edit.php:181
+#: plugins/blogroll/edit.php:186
 msgid "_xfn_Another link for myself"
 msgstr ""
 
-#: plugins/blogroll/edit.php:185
+#: plugins/blogroll/edit.php:190
 msgid "_xfn_Friendship"
 msgstr ""
 
-#: plugins/blogroll/edit.php:188
+#: plugins/blogroll/edit.php:196
 msgid "_xfn_Contact"
 msgstr ""
 
-#: plugins/blogroll/edit.php:190
+#: plugins/blogroll/edit.php:201
 msgid "_xfn_Acquaintance"
 msgstr ""
 
-#: plugins/blogroll/edit.php:192
+#: plugins/blogroll/edit.php:206
 msgid "_xfn_Friend"
 msgstr ""
 
-#: plugins/blogroll/edit.php:198
+#: plugins/blogroll/edit.php:212
 msgid "_xfn_Physical"
 msgstr ""
 
-#: plugins/blogroll/edit.php:201
+#: plugins/blogroll/edit.php:218
 msgid "_xfn_Met"
 msgstr ""
 
-#: plugins/blogroll/edit.php:206
+#: plugins/blogroll/edit.php:223
 msgid "_xfn_Professional"
 msgstr ""
 
-#: plugins/blogroll/edit.php:209
+#: plugins/blogroll/edit.php:229
 msgid "_xfn_Co-worker"
 msgstr ""
 
-#: plugins/blogroll/edit.php:211
+#: plugins/blogroll/edit.php:234
 msgid "_xfn_Colleague"
 msgstr ""
 
-#: plugins/blogroll/edit.php:216
+#: plugins/blogroll/edit.php:239
 msgid "_xfn_Geographical"
 msgstr ""
 
-#: plugins/blogroll/edit.php:219
+#: plugins/blogroll/edit.php:245
 msgid "_xfn_Co-resident"
 msgstr ""
 
-#: plugins/blogroll/edit.php:221
+#: plugins/blogroll/edit.php:250
 msgid "_xfn_Neighbor"
 msgstr ""
 
-#: plugins/blogroll/edit.php:227
+#: plugins/blogroll/edit.php:256
 msgid "_xfn_Family"
 msgstr ""
 
-#: plugins/blogroll/edit.php:230
+#: plugins/blogroll/edit.php:262
 msgid "_xfn_Child"
 msgstr ""
 
-#: plugins/blogroll/edit.php:232
+#: plugins/blogroll/edit.php:267
 msgid "_xfn_Parent"
 msgstr ""
 
-#: plugins/blogroll/edit.php:234
+#: plugins/blogroll/edit.php:272
 msgid "_xfn_Sibling"
 msgstr ""
 
-#: plugins/blogroll/edit.php:236
+#: plugins/blogroll/edit.php:277
 msgid "_xfn_Spouse"
 msgstr ""
 
-#: plugins/blogroll/edit.php:238
+#: plugins/blogroll/edit.php:282
 msgid "_xfn_Kin"
 msgstr ""
 
-#: plugins/blogroll/edit.php:244
+#: plugins/blogroll/edit.php:288
 msgid "_xfn_Romantic"
 msgstr ""
 
-#: plugins/blogroll/edit.php:247
+#: plugins/blogroll/edit.php:294
 msgid "_xfn_Muse"
 msgstr ""
 
-#: plugins/blogroll/edit.php:249
+#: plugins/blogroll/edit.php:299
 msgid "_xfn_Crush"
 msgstr ""
 
-#: plugins/blogroll/edit.php:251
+#: plugins/blogroll/edit.php:304
 msgid "_xfn_Date"
 msgstr ""
 
-#: plugins/blogroll/edit.php:253
+#: plugins/blogroll/edit.php:309
 msgid "_xfn_Sweetheart"
 msgstr ""
 
-#: plugins/blogroll/index.php:52 plugins/blogroll/index.php:345
+#: plugins/blogroll/index.php:52 plugins/blogroll/index.php:348
 msgid "Nothing to import"
 msgstr ""
 
@@ -733,48 +747,48 @@ msgstr ""
 msgid "Items order has been successfully updated"
 msgstr ""
 
-#: plugins/blogroll/index.php:208
+#: plugins/blogroll/index.php:209
 msgid "Lang"
 msgstr ""
 
-#: plugins/blogroll/index.php:228
+#: plugins/blogroll/index.php:231
 msgid "select this link"
 msgstr ""
 
-#: plugins/blogroll/index.php:261
+#: plugins/blogroll/index.php:264
 msgid "Delete selected links"
 msgstr ""
 
-#: plugins/blogroll/index.php:262
+#: plugins/blogroll/index.php:265
 msgid "Are you sure you want to delete selected links?"
 msgstr ""
 
-#: plugins/blogroll/index.php:268
+#: plugins/blogroll/index.php:271
 msgid "The link list is empty."
 msgstr ""
 
-#: plugins/blogroll/index.php:278
+#: plugins/blogroll/index.php:281
 msgid "Add a new link"
 msgstr ""
 
-#: plugins/blogroll/index.php:309
+#: plugins/blogroll/index.php:312
 msgid "Add a category"
 msgstr ""
 
-#: plugins/blogroll/index.php:327 plugins/blogroll/index.php:331
-#: plugins/blogroll/index.php:343
+#: plugins/blogroll/index.php:330 plugins/blogroll/index.php:334
+#: plugins/blogroll/index.php:346
 msgid "Import links"
 msgstr ""
 
-#: plugins/blogroll/index.php:332
+#: plugins/blogroll/index.php:335
 msgid "OPML or XBEL File:"
 msgstr ""
 
-#: plugins/blogroll/index.php:336 plugins/blogroll/index.php:379
+#: plugins/blogroll/index.php:339 plugins/blogroll/index.php:382
 #: plugins/importExport/inc/class.dc.import.feed.php:183
-#: plugins/importExport/inc/class.dc.import.flat.php:186
-#: plugins/importExport/inc/class.dc.import.flat.php:221
-#: plugins/importExport/index.php:91
+#: plugins/importExport/inc/class.dc.import.flat.php:188
+#: plugins/importExport/inc/class.dc.import.flat.php:226
+#: plugins/importExport/index.php:93
 msgid "Import"
 msgstr ""
 
@@ -818,256 +832,256 @@ msgstr ""
 msgid "Choose a predefined style"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:228
+#: plugins/blowupConfig/index.php:229
 msgid "Back to Blog appearance"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:231
+#: plugins/blowupConfig/index.php:232
 msgid "For the following reasons, images cannot be created. You won't be able to change some background properties."
 msgstr ""
 
-#: plugins/blowupConfig/index.php:237
+#: plugins/blowupConfig/index.php:238
 msgid "Customization"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:238
+#: plugins/blowupConfig/index.php:239
 msgid "General"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:242
+#: plugins/blowupConfig/index.php:243
 msgid "Background color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:245
+#: plugins/blowupConfig/index.php:246
 msgid "Background color fill:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:250
+#: plugins/blowupConfig/index.php:251
 msgid "Main text font:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:253
+#: plugins/blowupConfig/index.php:254
 msgid "Main text font size:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:256
+#: plugins/blowupConfig/index.php:257
 msgid "Main text color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:259
+#: plugins/blowupConfig/index.php:260
 msgid "Text line height:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:263
+#: plugins/blowupConfig/index.php:264
 msgid "Links color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:266
+#: plugins/blowupConfig/index.php:267
 msgid "Visited links color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:269
+#: plugins/blowupConfig/index.php:270
 msgid "Focus links color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:276
+#: plugins/blowupConfig/index.php:277
 msgid "Prelude color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:281
+#: plugins/blowupConfig/index.php:282
 msgid "Hide main title"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:284
+#: plugins/blowupConfig/index.php:285
 msgid "Main title font:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:287
+#: plugins/blowupConfig/index.php:288
 msgid "Main title font size:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:290
+#: plugins/blowupConfig/index.php:291
 msgid "Main title color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:293
+#: plugins/blowupConfig/index.php:294
 msgid "Main title alignment:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:294
+#: plugins/blowupConfig/index.php:295
 msgid "center"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:294 plugins/blowupConfig/index.php:326
+#: plugins/blowupConfig/index.php:295 plugins/blowupConfig/index.php:327
 msgid "left"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:294 plugins/blowupConfig/index.php:326
+#: plugins/blowupConfig/index.php:295 plugins/blowupConfig/index.php:327
 msgid "right"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:296
+#: plugins/blowupConfig/index.php:297
 msgid "Main title position (x:y)"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:307 plugins/blowupConfig/index.php:308
+#: plugins/blowupConfig/index.php:308 plugins/blowupConfig/index.php:309
 msgid "Top image"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:310
+#: plugins/blowupConfig/index.php:311
 msgid "Choose \"Custom...\" to upload your own image."
 msgstr ""
 
-#: plugins/blowupConfig/index.php:312
+#: plugins/blowupConfig/index.php:313
 msgid "Add your image:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:313
+#: plugins/blowupConfig/index.php:314
 #, php-format
 msgid "JPEG or PNG file, 800 pixels wide, maximum size %s"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:324
+#: plugins/blowupConfig/index.php:325
 msgid "Sidebar"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:325
+#: plugins/blowupConfig/index.php:326
 msgid "Sidebar position:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:328
+#: plugins/blowupConfig/index.php:329
 msgid "Sidebar text font:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:331
+#: plugins/blowupConfig/index.php:332
 msgid "Sidebar text font size:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:334
+#: plugins/blowupConfig/index.php:335
 msgid "Sidebar text color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:337
+#: plugins/blowupConfig/index.php:338
 msgid "Sidebar titles font:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:340
+#: plugins/blowupConfig/index.php:341
 msgid "Sidebar titles font size:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:343
+#: plugins/blowupConfig/index.php:344
 msgid "Sidebar titles color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:346
+#: plugins/blowupConfig/index.php:347
 msgid "Sidebar 2nd level titles font:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:349
+#: plugins/blowupConfig/index.php:350
 msgid "Sidebar 2nd level titles font size:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:352
+#: plugins/blowupConfig/index.php:353
 msgid "Sidebar 2nd level titles color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:355
+#: plugins/blowupConfig/index.php:356
 msgid "Sidebar lines color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:358
+#: plugins/blowupConfig/index.php:359
 msgid "Sidebar links color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:361
+#: plugins/blowupConfig/index.php:362
 msgid "Sidebar visited links color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:364
+#: plugins/blowupConfig/index.php:365
 msgid "Sidebar focus links color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:368
+#: plugins/blowupConfig/index.php:369
 msgid "Date title font:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:371
+#: plugins/blowupConfig/index.php:372
 msgid "Date title font size:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:374
+#: plugins/blowupConfig/index.php:375
 msgid "Date title color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:377
+#: plugins/blowupConfig/index.php:378
 msgid "Entry title font:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:380
+#: plugins/blowupConfig/index.php:381
 msgid "Entry title font size:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:383
+#: plugins/blowupConfig/index.php:384
 msgid "Entry title color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:388
+#: plugins/blowupConfig/index.php:389
 msgid "Comment background color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:393
+#: plugins/blowupConfig/index.php:394
 msgid "Comment text color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:398
+#: plugins/blowupConfig/index.php:399
 msgid "My comment background color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:403
+#: plugins/blowupConfig/index.php:404
 msgid "My comment text color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:406
+#: plugins/blowupConfig/index.php:407
 msgid "Footer"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:407
+#: plugins/blowupConfig/index.php:408
 msgid "Footer font:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:410
+#: plugins/blowupConfig/index.php:411
 msgid "Footer font size:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:413
+#: plugins/blowupConfig/index.php:414
 msgid "Footer color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:416
+#: plugins/blowupConfig/index.php:417
 msgid "Footer links color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:419
+#: plugins/blowupConfig/index.php:420
 msgid "Footer background color:"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:423 plugins/blowupConfig/index.php:428
+#: plugins/blowupConfig/index.php:424 plugins/blowupConfig/index.php:429
 msgid "Additional CSS"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:424
+#: plugins/blowupConfig/index.php:425
 msgid "Any additional CSS styles (must be written using the CSS syntax):"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:446
+#: plugins/blowupConfig/index.php:447
 msgid "Configuration import / export"
 msgstr ""
 
-#: plugins/blowupConfig/index.php:448
+#: plugins/blowupConfig/index.php:449
 msgid "You can share your configuration using the following code. To apply a configuration, paste the code, click on \"Apply code\" and save."
 msgstr ""
 
-#: plugins/blowupConfig/index.php:452
+#: plugins/blowupConfig/index.php:453
 msgid "Copy this code:"
 msgstr ""
 
@@ -1075,11 +1089,11 @@ msgstr ""
 msgid "default"
 msgstr ""
 
-#: plugins/blowupConfig/lib/class.blowup.config.php:294
+#: plugins/blowupConfig/lib/class.blowup.config.php:296
 msgid "Unable to create css file."
 msgstr ""
 
-#: plugins/blowupConfig/lib/class.blowup.config.php:409
+#: plugins/blowupConfig/lib/class.blowup.config.php:411
 msgid "Unable to open image."
 msgstr ""
 
@@ -1107,7 +1121,7 @@ msgstr ""
 #: plugins/breadcrumb/_public.php:159 plugins/breadcrumb/_public.php:172
 #: plugins/breadcrumb/_public.php:184 plugins/breadcrumb/_public.php:190
 #: plugins/simpleMenu/index.php:85 plugins/simpleMenu/index.php:194
-#: plugins/widgets/_widgets_functions.php:63
+#: plugins/widgets/_widgets_functions.php:67
 msgid "Home"
 msgstr ""
 
@@ -1118,13 +1132,13 @@ msgid "page %d"
 msgstr ""
 
 #: plugins/breadcrumb/_public.php:134 plugins/breadcrumb/_public.php:137
-#: plugins/simpleMenu/index.php:221 plugins/widgets/_widgets_functions.php:80
+#: plugins/simpleMenu/index.php:221 plugins/widgets/_widgets_functions.php:84
 msgid "Archives"
 msgstr ""
 
 #: plugins/breadcrumb/_public.php:153 plugins/breadcrumb/_public.php:160
 #: plugins/simpleMenu/index.php:75 plugins/simpleMenu/index.php:241
-#: plugins/tags/_widgets.php:38
+#: plugins/tags/_widgets.php:48
 msgid "All tags"
 msgstr ""
 
@@ -1132,7 +1146,7 @@ msgstr ""
 msgid "404"
 msgstr ""
 
-#: plugins/dcCKEditor/_post_config.php:313
+#: plugins/dcCKEditor/_post_config.php:269
 msgid "Note(s)"
 msgstr ""
 
@@ -1141,32 +1155,32 @@ msgid "The configuration has been updated."
 msgstr ""
 
 #: plugins/dcCKEditor/inc/dc.ckeditor.behaviors.php:49
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:136
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:119
 msgid "Media chooser"
 msgstr ""
 
 #: plugins/dcCKEditor/inc/dc.ckeditor.behaviors.php:50
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:137
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:120
 msgid "m"
 msgstr ""
 
 #: plugins/dcCKEditor/inc/dc.ckeditor.behaviors.php:51
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:140
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:123
 msgid "Link to an entry"
 msgstr ""
 
 #: plugins/dcCKEditor/inc/dc.ckeditor.behaviors.php:52
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:124
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:107
 msgid "Link"
 msgstr ""
 
 #: plugins/dcCKEditor/inc/dc.ckeditor.behaviors.php:53
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:125
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:108
 msgid "l"
 msgstr ""
 
 #: plugins/dcCKEditor/inc/dc.ckeditor.behaviors.php:54
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:131
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:114
 msgid "External image"
 msgstr ""
 
@@ -1227,7 +1241,7 @@ msgid "Colors per row in palette:"
 msgstr ""
 
 #: plugins/dcCKEditor/tpl/index.php:74
-msgid "Leave empty to use default (6)"
+msgid "Valid range: 4 to 16"
 msgstr ""
 
 #: plugins/dcCKEditor/tpl/index.php:79
@@ -1267,112 +1281,116 @@ msgid "Disables the built-in spell checker if the browser provides one"
 msgstr ""
 
 #: plugins/dcCKEditor/tpl/index.php:130 plugins/dcLegacyEditor/tpl/index.php:24
-#: plugins/simpleMenu/index.php:555
+#: plugins/simpleMenu/index.php:564
 msgid "Save configuration"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:94
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:75
 msgid "visual"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:95
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:76
 msgid "source"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:96
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:77
 msgid "You can use the following shortcuts to format your text."
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:99
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:80
+msgid "Block format"
+msgstr ""
+
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:82
 msgid "-- none --"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:100
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:83
 msgid "-- block format --"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:101
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:84
 msgid "Paragraph"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:102
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:85
 msgid "Level 1 header"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:103
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:86
 msgid "Level 2 header"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:104
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:87
 msgid "Level 3 header"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:105
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:88
 msgid "Level 4 header"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:106
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:89
 msgid "Level 5 header"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:107
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:90
 msgid "Level 6 header"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:110
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:93
 msgid "Strong emphasis"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:111
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:94
 msgid "Emphasis"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:112
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:95
 msgid "Inserted"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:113
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:96
 msgid "Deleted"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:114
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:97
 msgid "Inline quote"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:115
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:98
 msgid "Code"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:117
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:100
 msgid "Line break"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:118
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:101
 msgid "Blockquote"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:119
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:102
 msgid "Preformated text"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:120
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:103
 msgid "Unordered list"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:121
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:104
 msgid "Ordered list"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:126
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:132
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:109
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:115
 msgid "URL?"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:127
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:110
 msgid "Language?"
 msgstr ""
 
-#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:141
+#: plugins/dcLegacyEditor/inc/dc.legacy.editor.behaviors.php:124
 msgid "Remove text formating"
 msgstr ""
 
@@ -1388,7 +1406,7 @@ msgstr ""
 msgid "Checks trackback source for a link to the post"
 msgstr ""
 
-#: plugins/importExport/_admin.php:16 plugins/importExport/_admin.php:28
+#: plugins/importExport/_admin.php:16 plugins/importExport/_admin.php:27
 #: plugins/importExport/index.php:56
 msgid "Import/Export"
 msgstr ""
@@ -1401,47 +1419,47 @@ msgstr ""
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.export.flat.php:135
+#: plugins/importExport/inc/class.dc.export.flat.php:144
 msgid "Export file not found."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.export.flat.php:175
+#: plugins/importExport/inc/class.dc.export.flat.php:184
 msgid "Failed to compress export file."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.export.flat.php:184
-#: plugins/importExport/inc/class.dc.import.flat.php:166
+#: plugins/importExport/inc/class.dc.export.flat.php:193
+#: plugins/importExport/inc/class.dc.import.flat.php:168
 msgid "Single blog"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.export.flat.php:185
+#: plugins/importExport/inc/class.dc.export.flat.php:194
 #, php-format
 msgid "This will create an export of your current blog: %s"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.export.flat.php:193
-#: plugins/importExport/inc/class.dc.export.flat.php:217
+#: plugins/importExport/inc/class.dc.export.flat.php:202
+#: plugins/importExport/inc/class.dc.export.flat.php:226
 #: plugins/importExport/inc/lib.ie.maintenance.php:75
-#: plugins/importExport/inc/lib.ie.maintenance.php:147
+#: plugins/importExport/inc/lib.ie.maintenance.php:150
 msgid "Compress file"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.export.flat.php:197
+#: plugins/importExport/inc/class.dc.export.flat.php:206
 msgid "You may also want to download your media directory as a zip file"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.export.flat.php:199
-#: plugins/importExport/inc/class.dc.export.flat.php:220
-#: plugins/importExport/index.php:94
+#: plugins/importExport/inc/class.dc.export.flat.php:208
+#: plugins/importExport/inc/class.dc.export.flat.php:229
+#: plugins/importExport/index.php:96
 msgid "Export"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.export.flat.php:208
-#: plugins/importExport/inc/class.dc.import.flat.php:193
+#: plugins/importExport/inc/class.dc.export.flat.php:217
+#: plugins/importExport/inc/class.dc.import.flat.php:195
 msgid "Multiple blogs"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.export.flat.php:209
+#: plugins/importExport/inc/class.dc.export.flat.php:218
 msgid "This will create an export of all the content of your database."
 msgstr ""
 
@@ -1469,90 +1487,90 @@ msgstr ""
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:157
+#: plugins/importExport/inc/class.dc.import.dc1.php:158
 #, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:159
-#: plugins/importExport/inc/class.dc.import.wp.php:181
+#: plugins/importExport/inc/class.dc.import.dc1.php:161
+#: plugins/importExport/inc/class.dc.import.wp.php:183
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:162
-#: plugins/importExport/inc/class.dc.import.wp.php:184
+#: plugins/importExport/inc/class.dc.import.dc1.php:165
+#: plugins/importExport/inc/class.dc.import.wp.php:187
 msgid "General information"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:162
-#: plugins/importExport/inc/class.dc.import.wp.php:184
+#: plugins/importExport/inc/class.dc.import.dc1.php:165
+#: plugins/importExport/inc/class.dc.import.wp.php:187
 msgid "Import my blog now"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:163
+#: plugins/importExport/inc/class.dc.import.dc1.php:166
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:164
+#: plugins/importExport/inc/class.dc.import.dc1.php:167
 msgid "Database driver:"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:176
-#: plugins/importExport/inc/class.dc.import.wp.php:197
+#: plugins/importExport/inc/class.dc.import.dc1.php:179
+#: plugins/importExport/inc/class.dc.import.wp.php:200
 msgid "Entries import options"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:177
-#: plugins/importExport/inc/class.dc.import.wp.php:222
+#: plugins/importExport/inc/class.dc.import.dc1.php:180
+#: plugins/importExport/inc/class.dc.import.wp.php:225
 msgid "Number of entries to import at once:"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:183
-#: plugins/importExport/inc/class.dc.import.wp.php:238
+#: plugins/importExport/inc/class.dc.import.dc1.php:187
+#: plugins/importExport/inc/class.dc.import.wp.php:242
 msgid "Importing users"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:189
-#: plugins/importExport/inc/class.dc.import.wp.php:244
+#: plugins/importExport/inc/class.dc.import.dc1.php:194
+#: plugins/importExport/inc/class.dc.import.wp.php:249
 msgid "Importing categories"
-msgstr ""
-
-#: plugins/importExport/inc/class.dc.import.dc1.php:195
-#: plugins/importExport/inc/class.dc.import.wp.php:250
-msgid "Importing blogroll"
 msgstr ""
 
 #: plugins/importExport/inc/class.dc.import.dc1.php:201
 #: plugins/importExport/inc/class.dc.import.wp.php:256
+msgid "Importing blogroll"
+msgstr ""
+
+#: plugins/importExport/inc/class.dc.import.dc1.php:208
+#: plugins/importExport/inc/class.dc.import.wp.php:263
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:211
+#: plugins/importExport/inc/class.dc.import.dc1.php:222
 msgid "Please read carefully"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:213
-#: plugins/importExport/inc/class.dc.import.wp.php:266
+#: plugins/importExport/inc/class.dc.import.dc1.php:224
+#: plugins/importExport/inc/class.dc.import.wp.php:277
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:217
+#: plugins/importExport/inc/class.dc.import.dc1.php:229
 #, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:232
-#: plugins/importExport/inc/class.dc.import.wp.php:279
+#: plugins/importExport/inc/class.dc.import.dc1.php:245
+#: plugins/importExport/inc/class.dc.import.wp.php:290
 msgid "next step"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:242
-#: plugins/importExport/inc/class.dc.import.wp.php:289
+#: plugins/importExport/inc/class.dc.import.dc1.php:255
+#: plugins/importExport/inc/class.dc.import.wp.php:300
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.dc1.php:260
+#: plugins/importExport/inc/class.dc.import.dc1.php:273
 msgid "Dotclear tables not found"
 msgstr ""
 
@@ -1604,44 +1622,44 @@ msgstr ""
 msgid "Single blog successfully imported."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.flat.php:162
+#: plugins/importExport/inc/class.dc.import.flat.php:163
 msgid "Are you sure you want to import a full backup file?"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.flat.php:167
+#: plugins/importExport/inc/class.dc.import.flat.php:169
 #, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.flat.php:169
-#: plugins/importExport/inc/class.dc.import.flat.php:196
+#: plugins/importExport/inc/class.dc.import.flat.php:171
+#: plugins/importExport/inc/class.dc.import.flat.php:198
 msgid "Upload a backup file"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.flat.php:170
-#: plugins/importExport/inc/class.dc.import.flat.php:197
+#: plugins/importExport/inc/class.dc.import.flat.php:172
+#: plugins/importExport/inc/class.dc.import.flat.php:199
 #, php-format
 msgid "maximum size %s"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.flat.php:176
-#: plugins/importExport/inc/class.dc.import.flat.php:203
+#: plugins/importExport/inc/class.dc.import.flat.php:178
+#: plugins/importExport/inc/class.dc.import.flat.php:205
 msgid "or pick up a local file in your public directory"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.flat.php:194
+#: plugins/importExport/inc/class.dc.import.flat.php:196
 msgid "This will reset all the content of your database, except users."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.flat.php:291
+#: plugins/importExport/inc/class.dc.import.flat.php:296
 msgid "Another file with same name exists."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.flat.php:299
+#: plugins/importExport/inc/class.dc.import.flat.php:304
 msgid "Failed to extract backup file."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.flat.php:311
+#: plugins/importExport/inc/class.dc.import.flat.php:316
 msgid "No backup in compressed file."
 msgstr ""
 
@@ -1653,56 +1671,56 @@ msgstr ""
 msgid "Import a WordPress installation into your current blog."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.wp.php:179
+#: plugins/importExport/inc/class.dc.import.wp.php:180
 #, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.wp.php:185
+#: plugins/importExport/inc/class.dc.import.wp.php:188
 msgid "We first need some information about your old WordPress installation."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.wp.php:201
+#: plugins/importExport/inc/class.dc.import.wp.php:204
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.wp.php:206
+#: plugins/importExport/inc/class.dc.import.wp.php:209
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>.If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.wp.php:215
+#: plugins/importExport/inc/class.dc.import.wp.php:218
 msgid "Ignore the first category:"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.wp.php:217
+#: plugins/importExport/inc/class.dc.import.wp.php:220
 msgid "Import lowest numbered category on posts:"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.wp.php:219
+#: plugins/importExport/inc/class.dc.import.wp.php:222
 msgid "Import all categories as tags:"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.wp.php:220
+#: plugins/importExport/inc/class.dc.import.wp.php:223
 msgid "Prefix such tags with:"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.wp.php:228
+#: plugins/importExport/inc/class.dc.import.wp.php:231
 msgid "Content filters"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.wp.php:229
+#: plugins/importExport/inc/class.dc.import.wp.php:232
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.wp.php:230
+#: plugins/importExport/inc/class.dc.import.wp.php:233
 msgid "Post content formatter:"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.wp.php:232
+#: plugins/importExport/inc/class.dc.import.wp.php:235
 msgid "Comment content formatter:"
 msgstr ""
 
-#: plugins/importExport/inc/class.dc.import.wp.php:307
+#: plugins/importExport/inc/class.dc.import.wp.php:318
 msgid "WordPress tables not found"
 msgstr ""
 
@@ -1732,13 +1750,13 @@ msgstr ""
 msgid "File is not a full export."
 msgstr ""
 
-#: plugins/importExport/inc/flat/class.flat.import.php:766
+#: plugins/importExport/inc/flat/class.flat.import.php:769
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr ""
 
 #: plugins/importExport/inc/lib.ie.maintenance.php:26
-#: plugins/importExport/inc/lib.ie.maintenance.php:99
+#: plugins/importExport/inc/lib.ie.maintenance.php:102
 msgid "Database export"
 msgstr ""
 
@@ -1746,7 +1764,7 @@ msgstr ""
 msgid "Download database of current blog"
 msgstr ""
 
-#: plugins/importExport/inc/lib.ie.maintenance.php:100
+#: plugins/importExport/inc/lib.ie.maintenance.php:103
 msgid "Download database of all blogs"
 msgstr ""
 
@@ -1754,14 +1772,14 @@ msgstr ""
 msgid "Please wait..."
 msgstr ""
 
-#: plugins/importExport/index.php:96
+#: plugins/importExport/index.php:98
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr ""
 
-#: plugins/importExport/index.php:97 plugins/maintenance/_admin.php:17
-#: plugins/maintenance/_admin.php:85 plugins/maintenance/_admin.php:180
-#: plugins/maintenance/_admin.php:202 plugins/maintenance/index.php:139
+#: plugins/importExport/index.php:99 plugins/maintenance/_admin.php:17
+#: plugins/maintenance/_admin.php:85 plugins/maintenance/_admin.php:183
+#: plugins/maintenance/_admin.php:205 plugins/maintenance/index.php:139
 #: plugins/maintenance/index.php:159 plugins/maintenance/index.php:175
 #: plugins/maintenance/index.php:210
 msgid "Maintenance"
@@ -1830,31 +1848,31 @@ msgid_plural "%s tasks to execute"
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/maintenance/_admin.php:165 plugins/maintenance/index.php:236
+#: plugins/maintenance/_admin.php:166 plugins/maintenance/index.php:236
 msgid "This task has never been executed."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:167 plugins/maintenance/index.php:240
+#: plugins/maintenance/_admin.php:169 plugins/maintenance/index.php:240
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr ""
 
-#: plugins/maintenance/_admin.php:181
+#: plugins/maintenance/_admin.php:184
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/maintenance/_admin.php:183
+#: plugins/maintenance/_admin.php:186
 msgid "Manage tasks"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:206
+#: plugins/maintenance/_admin.php:209
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr ""
 
-#: plugins/maintenance/_admin.php:210
+#: plugins/maintenance/_admin.php:213
 msgid "Display overdue tasks list on dashboard items"
 msgstr ""
 
@@ -2149,22 +2167,22 @@ msgstr ""
 msgid "Also apply these settings to all blogs"
 msgstr ""
 
-#: plugins/pages/_admin.php:47 plugins/pages/list.php:82
-#: plugins/pages/page.php:39 plugins/pages/page.php:515
+#: plugins/pages/_admin.php:46 plugins/pages/list.php:83
+#: plugins/pages/page.php:41 plugins/pages/page.php:566
 msgid "New page"
 msgstr ""
 
-#: plugins/pages/_admin.php:62
+#: plugins/pages/_admin.php:68
 #, php-format
 msgid "%d page"
 msgstr ""
 
-#: plugins/pages/_admin.php:62
+#: plugins/pages/_admin.php:68
 #, php-format
 msgid "%d pages"
 msgstr ""
 
-#: plugins/pages/_admin.php:91
+#: plugins/pages/_admin.php:94
 msgid "manage pages"
 msgstr ""
 
@@ -2188,27 +2206,27 @@ msgstr ""
 msgid "You must provide a valid email address."
 msgstr ""
 
-#: plugins/pages/_widgets.php:27
+#: plugins/pages/_widgets.php:31
 msgid "Page title"
 msgstr ""
 
-#: plugins/pages/_widgets.php:28 plugins/pages/page.php:429
+#: plugins/pages/_widgets.php:32 plugins/pages/page.php:467
 msgid "Page position"
 msgstr ""
 
-#: plugins/pages/_widgets.php:29
+#: plugins/pages/_widgets.php:33
 msgid "Publication date"
 msgstr ""
 
-#: plugins/pages/class.actionpage.php:27
+#: plugins/pages/class.actionpage.php:28
 msgid "Pages actions"
 msgstr ""
 
-#: plugins/pages/class.actionpage.php:40
+#: plugins/pages/class.actionpage.php:42
 msgid "Back to pages list"
 msgstr ""
 
-#: plugins/pages/class.actionpage.php:89 plugins/pages/list.php:79
+#: plugins/pages/class.actionpage.php:91 plugins/pages/list.php:80
 msgid "Selected pages have been successfully reordered."
 msgstr ""
 
@@ -2216,7 +2234,7 @@ msgstr ""
 msgid "No page"
 msgstr ""
 
-#: plugins/pages/class.listpage.php:78 plugins/pages/class.listpage.php:123
+#: plugins/pages/class.listpage.php:76 plugins/pages/class.listpage.php:121
 msgid "Hidden"
 msgstr ""
 
@@ -2228,80 +2246,80 @@ msgstr ""
 msgid "Are you sure you want to delete selected pages?"
 msgstr ""
 
-#: plugins/pages/list.php:75
+#: plugins/pages/list.php:76
 msgid "Selected pages have been successfully updated."
 msgstr ""
 
-#: plugins/pages/list.php:77
+#: plugins/pages/list.php:78
 msgid "Selected pages have been successfully deleted."
 msgstr ""
 
-#: plugins/pages/list.php:94
+#: plugins/pages/list.php:97
 msgid "Selected pages action:"
 msgstr ""
 
-#: plugins/pages/list.php:103
+#: plugins/pages/list.php:106
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr ""
 
-#: plugins/pages/list.php:105
+#: plugins/pages/list.php:108
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr ""
 
-#: plugins/pages/list.php:106
+#: plugins/pages/list.php:109
 msgid "Save pages order"
 msgstr ""
 
-#: plugins/pages/page.php:86
+#: plugins/pages/page.php:88
 msgid "This page does not exist."
 msgstr ""
 
-#: plugins/pages/page.php:107 plugins/pages/page.php:515
-#: plugins/pages/page.php:521
+#: plugins/pages/page.php:109 plugins/pages/page.php:566
+#: plugins/pages/page.php:572
 msgid "Edit page"
 msgstr ""
 
-#: plugins/pages/page.php:296
+#: plugins/pages/page.php:336
 msgid "Are you sure you want to delete this page?"
 msgstr ""
 
-#: plugins/pages/page.php:344
+#: plugins/pages/page.php:385
 msgid "Page has been successfully updated."
 msgstr ""
 
-#: plugins/pages/page.php:346
+#: plugins/pages/page.php:387
 msgid "Page has been successfully created."
 msgstr ""
 
-#: plugins/pages/page.php:363
+#: plugins/pages/page.php:404
 msgid "Go to this page on the site"
 msgstr ""
 
-#: plugins/pages/page.php:400
+#: plugins/pages/page.php:441
 msgid "Page status"
 msgstr ""
 
-#: plugins/pages/page.php:416
+#: plugins/pages/page.php:454
 msgid "Page language"
 msgstr ""
 
-#: plugins/pages/page.php:460
+#: plugins/pages/page.php:498
 msgid "Hide in widget Pages"
 msgstr ""
 
-#: plugins/pages/page.php:470
+#: plugins/pages/page.php:508
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr ""
 
-#: plugins/pages/page.php:484
+#: plugins/pages/page.php:523
 msgid "Introduction to the page."
 msgstr ""
 
-#: plugins/pages/page.php:771
+#: plugins/pages/page.php:836
 msgid "Select this comment"
 msgstr ""
 
-#: plugins/pings/_admin.php:15 plugins/pings/_admin.php:33
+#: plugins/pings/_admin.php:16 plugins/pings/_admin.php:34
 #: plugins/pings/index.php:52 plugins/pings/lib.pings.php:57
 msgid "Pings"
 msgstr ""
@@ -2314,61 +2332,60 @@ msgstr ""
 msgid "Pings configuration"
 msgstr ""
 
-#: plugins/pings/index.php:67
+#: plugins/pings/index.php:68
 msgid "Activate pings extension"
 msgstr ""
 
-#: plugins/pings/index.php:72 plugins/pings/index.php:94
+#: plugins/pings/index.php:73 plugins/pings/index.php:95
 msgid "Service name:"
 msgstr ""
 
-#: plugins/pings/index.php:74 plugins/pings/index.php:96
+#: plugins/pings/index.php:75 plugins/pings/index.php:97
 msgid "Service URI:"
 msgstr ""
 
-#: plugins/pings/index.php:85
+#: plugins/pings/index.php:86
 msgid "Error"
 msgstr ""
 
-#: plugins/pings/index.php:101
+#: plugins/pings/index.php:102
 msgid "Auto pings all services on first publication of entry (current blog only)"
 msgstr ""
 
-#: plugins/pings/index.php:108
+#: plugins/pings/index.php:109
 msgid "Test ping services"
 msgstr ""
 
-#: plugins/simpleMenu/_admin.php:19 plugins/simpleMenu/_admin.php:26
-#: plugins/simpleMenu/_admin.php:34 plugins/simpleMenu/_widgets.php:22
-#: plugins/simpleMenu/index.php:17
+#: plugins/simpleMenu/_admin.php:19 plugins/simpleMenu/_admin.php:29
+#: plugins/simpleMenu/_widgets.php:22 plugins/simpleMenu/index.php:17
 msgid "Simple menu"
 msgstr ""
 
-#: plugins/simpleMenu/_public.php:138
+#: plugins/simpleMenu/_public.php:142
 msgid "Active page"
 msgstr ""
 
-#: plugins/simpleMenu/_public.php:138
+#: plugins/simpleMenu/_public.php:142
 msgid "active page"
 msgstr ""
 
-#: plugins/simpleMenu/_widgets.php:24
+#: plugins/simpleMenu/_widgets.php:26
 msgid "Item description"
 msgstr ""
 
-#: plugins/simpleMenu/_widgets.php:26
+#: plugins/simpleMenu/_widgets.php:30
 msgid "Displayed in link"
 msgstr ""
 
-#: plugins/simpleMenu/_widgets.php:27
+#: plugins/simpleMenu/_widgets.php:31
 msgid "Used as link title"
 msgstr ""
 
-#: plugins/simpleMenu/_widgets.php:28
+#: plugins/simpleMenu/_widgets.php:32
 msgid "Displayed in link and used as title"
 msgstr ""
 
-#: plugins/simpleMenu/_widgets.php:29
+#: plugins/simpleMenu/_widgets.php:33
 msgid "Not displayed nor used"
 msgstr ""
 
@@ -2384,12 +2401,12 @@ msgstr ""
 msgid "Page"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:107 plugins/tags/_admin.php:15
+#: plugins/simpleMenu/index.php:107 plugins/tags/_admin.php:16
 #: plugins/tags/_widgets.php:23 plugins/tags/inc/tags.behaviors.php:74
 #: plugins/tags/inc/tags.behaviors.php:110
 #: plugins/tags/inc/tags.behaviors.php:132
 #: plugins/tags/inc/tags.behaviors.php:138
-#: plugins/tags/inc/tags.behaviors.php:343 plugins/tags/tag_posts.php:76
+#: plugins/tags/inc/tags.behaviors.php:352 plugins/tags/tag_posts.php:76
 #: plugins/tags/tag_posts.php:93 plugins/tags/tags.php:18
 #: plugins/tags/tags.php:27
 msgid "Tags"
@@ -2403,8 +2420,8 @@ msgstr ""
 msgid "Configuration successfully updated."
 msgstr ""
 
-#: plugins/simpleMenu/index.php:189 plugins/simpleMenu/index.php:523
-#: plugins/simpleMenu/index.php:584
+#: plugins/simpleMenu/index.php:189 plugins/simpleMenu/index.php:528
+#: plugins/simpleMenu/index.php:593
 msgid "Label"
 msgstr ""
 
@@ -2413,8 +2430,8 @@ msgid "Home page"
 msgstr ""
 
 #: plugins/simpleMenu/index.php:195 plugins/simpleMenu/index.php:200
-#: plugins/widgets/_widgets_functions.php:67
-#: plugins/widgets/_widgets_functions.php:74
+#: plugins/widgets/_widgets_functions.php:71
+#: plugins/widgets/_widgets_functions.php:78
 msgid "Recent posts"
 msgstr ""
 
@@ -2437,127 +2454,127 @@ msgstr ""
 msgid "Recent posts for %s tag"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:281
+#: plugins/simpleMenu/index.php:285
 msgid "Menu item has been successfully added."
 msgstr ""
 
-#: plugins/simpleMenu/index.php:286
+#: plugins/simpleMenu/index.php:290
 msgid "Label and URL of menu item are mandatory."
 msgstr ""
 
-#: plugins/simpleMenu/index.php:320
+#: plugins/simpleMenu/index.php:324
 msgid "Menu items have been successfully removed."
 msgstr ""
 
-#: plugins/simpleMenu/index.php:323
+#: plugins/simpleMenu/index.php:327
 msgid "No menu items selected."
 msgstr ""
 
-#: plugins/simpleMenu/index.php:335
+#: plugins/simpleMenu/index.php:339
 msgid "Label is mandatory."
 msgstr ""
 
-#: plugins/simpleMenu/index.php:340
+#: plugins/simpleMenu/index.php:344
 msgid "URL is mandatory."
 msgstr ""
 
-#: plugins/simpleMenu/index.php:386
+#: plugins/simpleMenu/index.php:390
 msgid "Menu items have been successfully updated."
 msgstr ""
 
-#: plugins/simpleMenu/index.php:420
+#: plugins/simpleMenu/index.php:424
 msgid "Step #1"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:425 plugins/simpleMenu/index.php:433
+#: plugins/simpleMenu/index.php:429 plugins/simpleMenu/index.php:437
 msgid "Step #2"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:431
+#: plugins/simpleMenu/index.php:435
 msgid "Step #3"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:442
+#: plugins/simpleMenu/index.php:446
 msgid "Add item"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:464
+#: plugins/simpleMenu/index.php:469
 msgid "Select type"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:465
+#: plugins/simpleMenu/index.php:470
 msgid "Type of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:466 plugins/simpleMenu/index.php:509
+#: plugins/simpleMenu/index.php:471 plugins/simpleMenu/index.php:514
 msgid "Continue..."
 msgstr ""
 
-#: plugins/simpleMenu/index.php:478
+#: plugins/simpleMenu/index.php:483
 msgid "Select language:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:483
+#: plugins/simpleMenu/index.php:488
 msgid "Select category:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:488
+#: plugins/simpleMenu/index.php:493
 msgid "Select month (if necessary):"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:493
+#: plugins/simpleMenu/index.php:498
 msgid "Select page:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:498
+#: plugins/simpleMenu/index.php:503
 msgid "Select tag (if necessary):"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:520
+#: plugins/simpleMenu/index.php:525
 msgid "Label of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:527
+#: plugins/simpleMenu/index.php:532
 msgid "Description of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:533
+#: plugins/simpleMenu/index.php:542
 msgid "URL of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:541 plugins/simpleMenu/index.php:587
+#: plugins/simpleMenu/index.php:550 plugins/simpleMenu/index.php:596
 msgid "Open URL on a new tab"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:542
+#: plugins/simpleMenu/index.php:551
 msgid "Add this item"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:554
+#: plugins/simpleMenu/index.php:563
 msgid "Enable simple menu for this blog"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:564
+#: plugins/simpleMenu/index.php:573
 msgid "Add an item"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:576
+#: plugins/simpleMenu/index.php:585
 msgid "Menu items list"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:641
+#: plugins/simpleMenu/index.php:658
 msgid "Update menu"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:643
+#: plugins/simpleMenu/index.php:660
 msgid "Delete selected menu items"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:644
+#: plugins/simpleMenu/index.php:661
 msgid "Are you sure you want to remove selected menu items?"
 msgstr ""
 
-#: plugins/simpleMenu/index.php:651
+#: plugins/simpleMenu/index.php:668
 msgid "No menu items so far."
 msgstr ""
 
@@ -2569,7 +2586,7 @@ msgstr ""
 msgid "This tag's entries Atom feed"
 msgstr ""
 
-#: plugins/tags/_public.php:384 plugins/tags/inc/tags.behaviors.php:27
+#: plugins/tags/_public.php:388 plugins/tags/inc/tags.behaviors.php:27
 #: plugins/tags/inc/tags.behaviors.php:35 plugins/tags/tag_posts.php:94
 msgid "Tag"
 msgstr ""
@@ -2578,23 +2595,23 @@ msgstr ""
 msgid "Limit (empty means no limit):"
 msgstr ""
 
-#: plugins/tags/_widgets.php:28
+#: plugins/tags/_widgets.php:32
 msgid "Tag name"
 msgstr ""
 
-#: plugins/tags/_widgets.php:29
+#: plugins/tags/_widgets.php:33
 msgid "Entries count"
 msgstr ""
 
-#: plugins/tags/_widgets.php:30
+#: plugins/tags/_widgets.php:34
 msgid "Newest entry"
 msgstr ""
 
-#: plugins/tags/_widgets.php:31
+#: plugins/tags/_widgets.php:35
 msgid "Oldest entry"
 msgstr ""
 
-#: plugins/tags/_widgets.php:38
+#: plugins/tags/_widgets.php:48
 msgid "Link to all tags:"
 msgstr ""
 
@@ -2606,87 +2623,87 @@ msgstr ""
 msgid "Remove tags"
 msgstr ""
 
-#: plugins/tags/inc/tags.behaviors.php:167
+#: plugins/tags/inc/tags.behaviors.php:168
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/tags/inc/tags.behaviors.php:182
-#: plugins/tags/inc/tags.behaviors.php:305
+#: plugins/tags/inc/tags.behaviors.php:184
+#: plugins/tags/inc/tags.behaviors.php:314
 msgid "Are you sure you want to remove this tag?"
 msgstr ""
 
-#: plugins/tags/inc/tags.behaviors.php:183
-#: plugins/tags/inc/tags.behaviors.php:306
+#: plugins/tags/inc/tags.behaviors.php:185
+#: plugins/tags/inc/tags.behaviors.php:315
 msgid "Add a tag to this entry"
 msgstr ""
 
-#: plugins/tags/inc/tags.behaviors.php:184
-#: plugins/tags/inc/tags.behaviors.php:307
+#: plugins/tags/inc/tags.behaviors.php:186
+#: plugins/tags/inc/tags.behaviors.php:316
 msgid "Choose from list"
 msgstr ""
 
-#: plugins/tags/inc/tags.behaviors.php:185
-#: plugins/tags/inc/tags.behaviors.php:308
+#: plugins/tags/inc/tags.behaviors.php:187
+#: plugins/tags/inc/tags.behaviors.php:317
 msgid "all"
 msgstr ""
 
-#: plugins/tags/inc/tags.behaviors.php:186
-#: plugins/tags/inc/tags.behaviors.php:309
+#: plugins/tags/inc/tags.behaviors.php:188
+#: plugins/tags/inc/tags.behaviors.php:318
 msgid "Enter tags separated by comma"
 msgstr ""
 
-#: plugins/tags/inc/tags.behaviors.php:190
-#: plugins/tags/inc/tags.behaviors.php:313
+#: plugins/tags/inc/tags.behaviors.php:192
+#: plugins/tags/inc/tags.behaviors.php:322
 msgid "used in %e - frequency %p%"
 msgstr ""
 
-#: plugins/tags/inc/tags.behaviors.php:191
-#: plugins/tags/inc/tags.behaviors.php:314 plugins/tags/tags.php:55
+#: plugins/tags/inc/tags.behaviors.php:193
+#: plugins/tags/inc/tags.behaviors.php:323 plugins/tags/tags.php:56
 msgid "entry"
 msgstr ""
 
-#: plugins/tags/inc/tags.behaviors.php:192
-#: plugins/tags/inc/tags.behaviors.php:315 plugins/tags/tags.php:55
+#: plugins/tags/inc/tags.behaviors.php:194
+#: plugins/tags/inc/tags.behaviors.php:324 plugins/tags/tags.php:56
 msgid "entries"
 msgstr ""
 
-#: plugins/tags/inc/tags.behaviors.php:200
+#: plugins/tags/inc/tags.behaviors.php:202
 msgid "Add tags to this selection"
 msgstr ""
 
-#: plugins/tags/inc/tags.behaviors.php:212
+#: plugins/tags/inc/tags.behaviors.php:215
 msgid "Tags to add:"
 msgstr ""
 
-#: plugins/tags/inc/tags.behaviors.php:235
+#: plugins/tags/inc/tags.behaviors.php:239
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/tags/inc/tags.behaviors.php:258
+#: plugins/tags/inc/tags.behaviors.php:263
 msgid "No tags for selected entries"
 msgstr ""
 
-#: plugins/tags/inc/tags.behaviors.php:265
+#: plugins/tags/inc/tags.behaviors.php:270
 msgid "Remove selected tags from this selection"
 msgstr ""
 
-#: plugins/tags/inc/tags.behaviors.php:272
+#: plugins/tags/inc/tags.behaviors.php:279
 msgid "Following tags have been found in selected entries:"
 msgstr ""
 
-#: plugins/tags/inc/tags.behaviors.php:337
+#: plugins/tags/inc/tags.behaviors.php:346
 msgid "Short"
 msgstr ""
 
-#: plugins/tags/inc/tags.behaviors.php:338
+#: plugins/tags/inc/tags.behaviors.php:347
 msgid "Extended"
 msgstr ""
 
-#: plugins/tags/inc/tags.behaviors.php:344
+#: plugins/tags/inc/tags.behaviors.php:353
 msgid "Tags list format:"
 msgstr ""
 
@@ -2703,24 +2720,24 @@ msgstr ""
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr ""
 
-#: plugins/tags/tag_posts.php:100
+#: plugins/tags/tag_posts.php:101
 msgid "Back to tags list"
 msgstr ""
 
-#: plugins/tags/tag_posts.php:108
+#: plugins/tags/tag_posts.php:109
 msgid "Rename"
 msgstr ""
 
-#: plugins/tags/tag_posts.php:118
+#: plugins/tags/tag_posts.php:119
 msgid "Delete this tag"
 msgstr ""
 
-#: plugins/tags/tag_posts.php:126
+#: plugins/tags/tag_posts.php:127
 #, php-format
 msgid "List of entries with the tag “%s”"
 msgstr ""
 
-#: plugins/tags/tags.php:71
+#: plugins/tags/tags.php:72
 msgid "No tags on this blog."
 msgstr ""
 
@@ -2729,11 +2746,11 @@ msgstr ""
 msgid "Edit theme files"
 msgstr ""
 
-#: plugins/themeEditor/_admin.php:65
+#: plugins/themeEditor/_admin.php:68
 msgid "Syntax highlighting"
 msgstr ""
 
-#: plugins/themeEditor/_admin.php:70
+#: plugins/themeEditor/_admin.php:73
 msgid "Syntax highlighting in theme editor"
 msgstr ""
 
@@ -2745,31 +2762,31 @@ msgstr ""
 msgid "From theme:"
 msgstr ""
 
-#: plugins/themeEditor/class.themeEditor.php:85
+#: plugins/themeEditor/class.themeEditor.php:86
 msgid "From parent:"
 msgstr ""
 
-#: plugins/themeEditor/class.themeEditor.php:87
+#: plugins/themeEditor/class.themeEditor.php:91
 msgid "From template set:"
 msgstr ""
 
-#: plugins/themeEditor/class.themeEditor.php:110
-#: plugins/themeEditor/class.themeEditor.php:131
-#: plugins/themeEditor/class.themeEditor.php:199
+#: plugins/themeEditor/class.themeEditor.php:116
+#: plugins/themeEditor/class.themeEditor.php:137
+#: plugins/themeEditor/class.themeEditor.php:205
 msgid "File does not exist."
 msgstr ""
 
-#: plugins/themeEditor/class.themeEditor.php:115
+#: plugins/themeEditor/class.themeEditor.php:121
 #, php-format
 msgid "File %s is not readable"
 msgstr ""
 
-#: plugins/themeEditor/class.themeEditor.php:163
+#: plugins/themeEditor/class.themeEditor.php:169
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr ""
 
-#: plugins/themeEditor/class.themeEditor.php:212
+#: plugins/themeEditor/class.themeEditor.php:218
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr ""
@@ -2794,53 +2811,53 @@ msgstr ""
 msgid "Are you sure you want to reset this file?"
 msgstr ""
 
-#: plugins/themeEditor/index.php:99
+#: plugins/themeEditor/index.php:100
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr ""
 
-#: plugins/themeEditor/index.php:102
+#: plugins/themeEditor/index.php:103
 msgid "You can't edit default theme."
 msgstr ""
 
-#: plugins/themeEditor/index.php:110
+#: plugins/themeEditor/index.php:111
 msgid "Please select a file to edit."
 msgstr ""
 
-#: plugins/themeEditor/index.php:114
+#: plugins/themeEditor/index.php:115
 msgid "File editor"
 msgstr ""
 
-#: plugins/themeEditor/index.php:115
+#: plugins/themeEditor/index.php:116
 #, php-format
 msgid "Editing file %s"
 msgstr ""
 
-#: plugins/themeEditor/index.php:125
+#: plugins/themeEditor/index.php:126
 msgid "Reset"
 msgstr ""
 
-#: plugins/themeEditor/index.php:130
+#: plugins/themeEditor/index.php:131
 msgid "This file is not writable. Please check your theme files permissions."
 msgstr ""
 
-#: plugins/themeEditor/index.php:152
+#: plugins/themeEditor/index.php:153
 msgid "Templates files"
 msgstr ""
 
-#: plugins/themeEditor/index.php:155
+#: plugins/themeEditor/index.php:156
 msgid "CSS files"
 msgstr ""
 
-#: plugins/themeEditor/index.php:158
+#: plugins/themeEditor/index.php:159
 msgid "JavaScript files"
 msgstr ""
 
-#: plugins/themeEditor/index.php:161
+#: plugins/themeEditor/index.php:162
 msgid "Locales files"
 msgstr ""
 
-#: plugins/themeEditor/index.php:164
+#: plugins/themeEditor/index.php:165
 msgid "PHP files"
 msgstr ""
 
@@ -2848,23 +2865,23 @@ msgstr ""
 msgid "Preferences successfully updated"
 msgstr ""
 
-#: plugins/userPref/index.php:109
+#: plugins/userPref/index.php:138
 msgid "user:preferences"
 msgstr ""
 
-#: plugins/userPref/index.php:115 plugins/userPref/index.php:116
+#: plugins/userPref/index.php:145 plugins/userPref/index.php:146
 msgid "User preferences"
 msgstr ""
 
-#: plugins/userPref/index.php:174 plugins/userPref/index.php:175
+#: plugins/userPref/index.php:204 plugins/userPref/index.php:205
 msgid "Global preferences"
 msgstr ""
 
-#: plugins/widgets/_admin.php:18 plugins/widgets/_admin.php:29
+#: plugins/widgets/_admin.php:19 plugins/widgets/_admin.php:31
 msgid "Presentation widgets"
 msgstr ""
 
-#: plugins/widgets/_admin.php:38
+#: plugins/widgets/_admin.php:27
 msgid "Widget's textareas"
 msgstr ""
 
@@ -2959,53 +2976,53 @@ msgstr ""
 msgid "Comments limit:"
 msgstr ""
 
-#: plugins/widgets/_widgets_functions.php:235
+#: plugins/widgets/_widgets_functions.php:241
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr ""
 
-#: plugins/widgets/_widgets_functions.php:236
+#: plugins/widgets/_widgets_functions.php:242
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr ""
 
-#: plugins/widgets/_widgets_functions.php:244
+#: plugins/widgets/_widgets_functions.php:250
 msgid "Entries feed"
 msgstr ""
 
-#: plugins/widgets/_widgets_functions.php:250
+#: plugins/widgets/_widgets_functions.php:256
 msgid "Comments feed"
 msgstr ""
 
-#: plugins/widgets/class.widgets.php:402
+#: plugins/widgets/class.widgets.php:438
 msgid "Title (optional)"
 msgstr ""
 
-#: plugins/widgets/class.widgets.php:407
+#: plugins/widgets/class.widgets.php:445
 msgid "Display on:"
 msgstr ""
 
-#: plugins/widgets/class.widgets.php:408
+#: plugins/widgets/class.widgets.php:448
 msgid "All pages"
 msgstr ""
 
-#: plugins/widgets/class.widgets.php:408
+#: plugins/widgets/class.widgets.php:448
 msgid "Except on home page"
 msgstr ""
 
-#: plugins/widgets/class.widgets.php:408
+#: plugins/widgets/class.widgets.php:448
 msgid "Home page only"
 msgstr ""
 
-#: plugins/widgets/class.widgets.php:425
+#: plugins/widgets/class.widgets.php:466
 msgid "Content only"
 msgstr ""
 
-#: plugins/widgets/class.widgets.php:430
+#: plugins/widgets/class.widgets.php:471
 msgid "CSS class:"
 msgstr ""
 
-#: plugins/widgets/class.widgets.php:435
+#: plugins/widgets/class.widgets.php:476
 msgid "Offline"
 msgstr ""
 
@@ -3033,7 +3050,7 @@ msgstr ""
 msgid "Sidebars have been resetting."
 msgstr ""
 
-#: plugins/widgets/index.php:209 plugins/widgets/index.php:243
+#: plugins/widgets/index.php:209 plugins/widgets/index.php:248
 msgid "Widgets"
 msgstr ""
 
@@ -3041,94 +3058,94 @@ msgstr ""
 msgid "Are you sure you want to reset sidebars?"
 msgstr ""
 
-#: plugins/widgets/index.php:250
+#: plugins/widgets/index.php:256
 msgid "Available widgets"
 msgstr ""
 
-#: plugins/widgets/index.php:251
+#: plugins/widgets/index.php:257
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr ""
 
-#: plugins/widgets/index.php:261 plugins/widgets/index.php:377
+#: plugins/widgets/index.php:267 plugins/widgets/index.php:384
 msgid "order"
 msgstr ""
 
-#: plugins/widgets/index.php:265
+#: plugins/widgets/index.php:271
 msgid "Append to:"
 msgstr ""
 
-#: plugins/widgets/index.php:276
+#: plugins/widgets/index.php:282
 msgid "Add widgets to sidebars"
 msgstr ""
 
-#: plugins/widgets/index.php:283
+#: plugins/widgets/index.php:289
 msgid "Navigation sidebar"
 msgstr ""
 
-#: plugins/widgets/index.php:289
+#: plugins/widgets/index.php:295
 msgid "Extra sidebar"
 msgstr ""
 
-#: plugins/widgets/index.php:295
+#: plugins/widgets/index.php:301
 msgid "Custom sidebar"
 msgstr ""
 
-#: plugins/widgets/index.php:301
+#: plugins/widgets/index.php:307
 msgid "Update sidebars"
 msgstr ""
 
-#: plugins/widgets/index.php:303
+#: plugins/widgets/index.php:309
 msgid "Reset sidebars"
 msgstr ""
 
-#: plugins/widgets/index.php:311
+#: plugins/widgets/index.php:317
 msgid "Widget ID:"
 msgstr ""
 
-#: plugins/widgets/index.php:317
+#: plugins/widgets/index.php:323
 msgid "No setting for this widget"
 msgstr ""
 
-#: plugins/widgets/index.php:323
+#: plugins/widgets/index.php:329
 msgid "boolean"
 msgstr ""
 
-#: plugins/widgets/index.php:323 plugins/widgets/index.php:328
+#: plugins/widgets/index.php:329 plugins/widgets/index.php:334
 msgid "possible values:"
 msgstr ""
 
-#: plugins/widgets/index.php:328
+#: plugins/widgets/index.php:334
 msgid "listitem"
 msgstr ""
 
-#: plugins/widgets/index.php:334
+#: plugins/widgets/index.php:340
 msgid "string"
 msgstr ""
 
-#: plugins/widgets/index.php:340
+#: plugins/widgets/index.php:346
 msgid "Setting name:"
 msgstr ""
 
-#: plugins/widgets/index.php:362
+#: plugins/widgets/index.php:368
 msgid "No widget as far."
 msgstr ""
 
-#: plugins/widgets/index.php:368 plugins/widgets/index.php:382
+#: plugins/widgets/index.php:374 plugins/widgets/index.php:389
 msgid "Up the widget"
 msgstr ""
 
-#: plugins/widgets/index.php:369 plugins/widgets/index.php:383
+#: plugins/widgets/index.php:375 plugins/widgets/index.php:390
 msgid "Down the widget"
 msgstr ""
 
-#: plugins/widgets/index.php:384
+#: plugins/widgets/index.php:391
 msgid "Remove the widget"
 msgstr ""
 
-#: plugins/widgets/index.php:384
+#: plugins/widgets/index.php:391
 msgid "Remove widget"
 msgstr ""
 
-#: plugins/widgets/index.php:397
+#: plugins/widgets/index.php:404
 msgid "Drag widgets here to remove."
 msgstr ""

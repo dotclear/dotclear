@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:23+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -276,6 +276,10 @@ msgstr "IP kiszolgáló lookup"
 
 msgid "Add here a coma separated list of servers."
 msgstr "Pontosvesszővel elválasztott kiszolgálólistát itt tudod hozzáadni."
+
+#, fuzzy
+msgid "IP v6 Blocklist / Allowlist Filter"
+msgstr "IP Feketelista / Fehérlista szűrő"
 
 msgid "Checks links in comments against surbl.org"
 msgstr "Hozzászólás linkjeinek ellenőrzése surbl.org ellen"
@@ -932,7 +936,7 @@ msgstr ""
 msgid "Colors per row in palette:"
 msgstr ""
 
-msgid "Leave empty to use default (6)"
+msgid "Valid range: 4 to 16"
 msgstr ""
 
 msgid "Add collapse button"
@@ -974,6 +978,9 @@ msgid "source"
 msgstr ""
 
 msgid "You can use the following shortcuts to format your text."
+msgstr ""
+
+msgid "Block format"
 msgstr ""
 
 msgid "-- none --"
@@ -2434,16 +2441,16 @@ msgid "Drag widgets here to remove."
 msgstr ""
 
 #, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "Biztosan törölni szeretnéd ezt az oldalt?"
+
+#, fuzzy
 #~ msgid "Liste des auteurs"
 #~ msgstr "Összes kategória"
 
 #, fuzzy
 #~ msgid "Liste des séries"
 #~ msgstr "Legutolsó bejegyzések"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "Biztosan törölni szeretnéd ezt az oldalt?"
 
 #~ msgid "Page top"
 #~ msgstr "Lap teteje"

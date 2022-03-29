@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:23+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -276,6 +276,10 @@ msgstr "IP Lookup 서버"
 
 msgid "Add here a coma separated list of servers."
 msgstr "여기에 서버 목록을 쉼표로 분리하여 추가하세요."
+
+#, fuzzy
+msgid "IP v6 Blocklist / Allowlist Filter"
+msgstr "접속 거부/허용 IP 리스트 필터"
 
 msgid "Checks links in comments against surbl.org"
 msgstr "surbl.org 에서 댓글 링크 체크"
@@ -933,7 +937,7 @@ msgstr ""
 msgid "Colors per row in palette:"
 msgstr ""
 
-msgid "Leave empty to use default (6)"
+msgid "Valid range: 4 to 16"
 msgstr ""
 
 msgid "Add collapse button"
@@ -975,6 +979,9 @@ msgid "source"
 msgstr ""
 
 msgid "You can use the following shortcuts to format your text."
+msgstr ""
+
+msgid "Block format"
 msgstr ""
 
 msgid "-- none --"
@@ -2435,16 +2442,16 @@ msgid "Drag widgets here to remove."
 msgstr ""
 
 #, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "페이지를 삭제하시려는 게 확실합니까 ?"
+
+#, fuzzy
 #~ msgid "Liste des auteurs"
 #~ msgstr "모든 링크분류 포함"
 
 #, fuzzy
 #~ msgid "Liste des séries"
 #~ msgstr "최근 글꼭지"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "페이지를 삭제하시려는 게 확실합니까 ?"
 
 #~ msgid "Page top"
 #~ msgstr "페이지 높이 :"

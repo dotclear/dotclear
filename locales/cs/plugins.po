@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:23+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:44+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Jan Skrasek <hrach.cz@gmail.com>\n"
@@ -275,6 +275,10 @@ msgstr "IP lookup servery"
 
 msgid "Add here a coma separated list of servers."
 msgstr "Zde vložte seznam serverů oddělených čárkou."
+
+#, fuzzy
+msgid "IP v6 Blocklist / Allowlist Filter"
+msgstr "IP blocklist / allowlist filtr"
 
 msgid "Checks links in comments against surbl.org"
 msgstr "Zkontrolovat odkazy v komentářích pomocí surbl.org"
@@ -932,7 +936,7 @@ msgstr ""
 msgid "Colors per row in palette:"
 msgstr ""
 
-msgid "Leave empty to use default (6)"
+msgid "Valid range: 4 to 16"
 msgstr ""
 
 msgid "Add collapse button"
@@ -974,6 +978,9 @@ msgid "source"
 msgstr ""
 
 msgid "You can use the following shortcuts to format your text."
+msgstr ""
+
+msgid "Block format"
 msgstr ""
 
 msgid "-- none --"
@@ -2431,16 +2438,16 @@ msgid "Drag widgets here to remove."
 msgstr ""
 
 #, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "Jste si jisti, že chcete smazat tuto stránku?"
+
+#, fuzzy
 #~ msgid "Liste des auteurs"
 #~ msgstr "Všechny kategorie"
 
 #, fuzzy
 #~ msgid "Liste des séries"
 #~ msgstr "Poslední články"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "Jste si jisti, že chcete smazat tuto stránku?"
 
 #~ msgid "Check all"
 #~ msgstr "Zkontroluj vše"

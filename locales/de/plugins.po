@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:23+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: 2017-12-22 19:26+0100\n"
 "Last-Translator: Tin2 <sort300-blog@yahoo.com>\n"
 "Language-Team: \n"
@@ -258,6 +258,10 @@ msgstr "IP-Lookup-Server"
 
 msgid "Add here a coma separated list of servers."
 msgstr "Gib hier eine mit Komma getrennte Liste von Servern ein."
+
+#, fuzzy
+msgid "IP v6 Blocklist / Allowlist Filter"
+msgstr "IP-Blocklist-/Allowlist-Filter"
 
 msgid "Checks links in comments against surbl.org"
 msgstr "Überprüft Links in Kommentare mit surbl.org"
@@ -902,7 +906,7 @@ msgstr ""
 msgid "Colors per row in palette:"
 msgstr ""
 
-msgid "Leave empty to use default (6)"
+msgid "Valid range: 4 to 16"
 msgstr ""
 
 msgid "Add collapse button"
@@ -944,6 +948,10 @@ msgstr "Quelle"
 
 msgid "You can use the following shortcuts to format your text."
 msgstr "Du kannst die folgenden Shortcuts für die Formatierung verwenden."
+
+#, fuzzy
+msgid "Block format"
+msgstr "-- Block Format --"
 
 msgid "-- none --"
 msgstr "-- nichts --"
@@ -2301,6 +2309,10 @@ msgid "Drag widgets here to remove."
 msgstr "Widgets hierhin ziehen zum Löschen."
 
 #, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "Diese Seite wirklich löschen?"
+
+#, fuzzy
 #~ msgid "Liste des auteurs"
 #~ msgstr "Liste der Kategorien"
 
@@ -2313,10 +2325,6 @@ msgstr "Widgets hierhin ziehen zum Löschen."
 
 #~ msgid "Theme:"
 #~ msgstr "Theme:"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "Diese Seite wirklich löschen?"
 
 #~ msgid "Attachments"
 #~ msgstr "Anlagen"

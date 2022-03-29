@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:23+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -275,6 +275,10 @@ msgstr "Серверы просмотра IP"
 
 msgid "Add here a coma separated list of servers."
 msgstr "Добавьте сюда список серверов через запятую."
+
+#, fuzzy
+msgid "IP v6 Blocklist / Allowlist Filter"
+msgstr "Черный/белый список IP"
 
 msgid "Checks links in comments against surbl.org"
 msgstr "Проверить ссылки в комментариях на surbl.org"
@@ -932,7 +936,7 @@ msgstr ""
 msgid "Colors per row in palette:"
 msgstr ""
 
-msgid "Leave empty to use default (6)"
+msgid "Valid range: 4 to 16"
 msgstr ""
 
 msgid "Add collapse button"
@@ -974,6 +978,9 @@ msgid "source"
 msgstr ""
 
 msgid "You can use the following shortcuts to format your text."
+msgstr ""
+
+msgid "Block format"
 msgstr ""
 
 msgid "-- none --"
@@ -2433,16 +2440,16 @@ msgid "Drag widgets here to remove."
 msgstr ""
 
 #, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "Вы уверены, что хотите удалить эту страницу?"
+
+#, fuzzy
 #~ msgid "Liste des auteurs"
 #~ msgstr "Все категории"
 
 #, fuzzy
 #~ msgid "Liste des séries"
 #~ msgstr "Последние записи"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "Вы уверены, что хотите удалить эту страницу?"
 
 #~ msgid "Check all"
 #~ msgstr "Проверить все"

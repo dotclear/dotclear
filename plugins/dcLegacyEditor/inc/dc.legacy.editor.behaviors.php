@@ -69,27 +69,8 @@ class dcLegacyEditorBehaviors
 
     protected static function jsToolBar()
     {
-        $rtl = l10n::getTextDirection($GLOBALS['_lang']) == 'rtl' ? 'direction: rtl;' : '';
-        $css = <<<EOT
-            body {
-                color: #000;
-                background: #f9f9f9;
-                margin: 0;
-                padding: 2px;
-                border: none;
-                $rtl
-            }
-            code {
-                color: #666;
-                font-weight: bold;
-            }
-            body > p:first-child {
-                margin-top: 0;
-            }
-            EOT;
         $js = [
             'dialog_url'            => 'popup.php',
-            'iframe_css'            => $css,
             'base_url'              => $GLOBALS['core']->blog->host,
             'switcher_visual_title' => __('visual'),
             'switcher_source_title' => __('source'),
@@ -145,6 +126,29 @@ class dcLegacyEditorBehaviors
             ],
             'toolbar_bottom' => (bool) isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('toolbar_bottom'),
         ];
+
+        // Tricky code to avoid xgettext bug on indented end heredoc identifier (see https://savannah.gnu.org/bugs/?62158)
+        $rtl = l10n::getTextDirection($GLOBALS['_lang']) == 'rtl' ? 'direction: rtl;' : '';
+        $css = <<<EOT
+            body {
+                color: #000;
+                background: #f9f9f9;
+                margin: 0;
+                padding: 2px;
+                border: none;
+                $rtl
+            }
+            code {
+                color: #666;
+                font-weight: bold;
+            }
+            body > p:first-child {
+                margin-top: 0;
+            }
+            EOT;
+        $js['iframe_css'] = $css;
+        // End of tricky code
+
         if (!$GLOBALS['core']->auth->check('media,media_admin', $GLOBALS['core']->blog->id)) {
             $js['elements']['img_select']['disabled'] = true;
         }

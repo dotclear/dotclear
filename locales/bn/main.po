@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:23+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:43+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -71,6 +71,20 @@ msgstr ""
 
 msgid "Wrong username or password"
 msgstr "ভুল ইউজারনেম বা পাসওয়ার্ড"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "পাসওয়ার্ড রিসেট"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "মাঝারি:"
+
+msgid "strong"
+msgstr ""
 
 msgid "Back to login screen"
 msgstr "লগইন পাতায় ফিরে যাও"
@@ -681,60 +695,11 @@ msgstr ""
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr ""
 
-msgid "Last update"
-msgstr "সর্বশেষ আপডেট"
-
-msgid "Status"
-msgstr "অবস্থা"
-
-msgid "Descending"
-msgstr "বড় থেকে ছোট"
-
-msgid "Ascending"
-msgstr "ছোট থেকে বড়"
-
 msgid "List of blogs"
 msgstr "ব্লগের লিস্ট"
 
 msgid "Create a new blog"
 msgstr "একটি নতুন ব্লগ তৈরি করুন"
-
-msgid "Show filters and display options"
-msgstr ""
-
-msgid "Filters"
-msgstr ""
-
-msgid "Search:"
-msgstr ""
-
-msgid "Status:"
-msgstr "অবস্থা:"
-
-#, fuzzy
-msgid "Display options"
-msgstr "সার্চ অপশন"
-
-msgid "Order by:"
-msgstr ""
-
-msgid "Sort:"
-msgstr ""
-
-#, fuzzy
-msgid "Show"
-msgstr "সেটি দেখাও।"
-
-#, fuzzy
-msgid "blogs per page"
-msgstr "প্রতি পেজে ইউজারের সংখ্যা"
-
-#, fuzzy
-msgid "Save current options"
-msgstr "সার্চ অপশন"
-
-msgid "Apply filters and display options"
-msgstr ""
 
 #, fuzzy
 msgid "Selected blogs action:"
@@ -943,36 +908,14 @@ msgstr "লেখক"
 msgid "Web site:"
 msgstr "ওয়েব সাইট:"
 
+msgid "Status:"
+msgstr "অবস্থা:"
+
 msgid "Comment:"
 msgstr "মন্তব্য"
 
 msgid "Delete"
 msgstr "মুছে ফেলুন"
-
-#, fuzzy
-msgid "Comment"
-msgstr "মন্তব্য"
-
-#, fuzzy
-msgid "Trackback"
-msgstr "ট্র্যাকব্যাক"
-
-msgid "Date"
-msgstr "তারিখ"
-
-msgid "Entry title"
-msgstr "এন্ট্রির টাইটেল"
-
-#, fuzzy
-msgid "Entry date"
-msgstr "এন্ট্রির টাইটেল"
-
-msgid "IP"
-msgstr ""
-
-#, fuzzy
-msgid "Spam filter"
-msgstr "ফিল্টার"
 
 #, fuzzy
 msgid "Selected comments have been successfully updated."
@@ -1003,24 +946,11 @@ msgstr "সেগুলো দেখাও।"
 msgid "Delete all spams"
 msgstr "ব্লগ মুছে ফেলো"
 
-msgid "Type:"
-msgstr "ধরণ:"
-
-#, fuzzy
-msgid "comments per page"
-msgstr "প্রতি পেজে মন্তব্য"
-
 msgid "Selected comments action:"
 msgstr ""
 
 msgid "Global help"
 msgstr ""
-
-#, fuzzy, php-format
-msgid "An update is available"
-msgid_plural "%s updates are available."
-msgstr[0] "Dotclear %s এসে গেছে!"
-msgstr[1] "Dotclear %s এসে গেছে!"
 
 msgid "Documentation and support"
 msgstr ""
@@ -1188,20 +1118,6 @@ msgstr ""
 #, fuzzy
 msgid "Dotclear Install"
 msgstr "Dotclear ইন্সটলেশন"
-
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "পাসওয়ার্ড রিসেট"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "মাঝারি:"
-
-msgid "strong"
-msgstr ""
 
 msgid "show"
 msgstr "দেখাও"
@@ -1447,37 +1363,16 @@ msgstr "ভাষার zip ফাইল:"
 msgid "Upload language"
 msgstr "ভাষা আপলোড"
 
-msgid "By names, in ascending order"
-msgstr ""
+msgid "Media manager"
+msgstr "মিডিয়া ম্যানেজার"
 
-msgid "By names, in descending order"
-msgstr ""
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%d টি এন্ট্রি পাওয়া গেছে"
+msgstr[1] "%d টি এন্ট্রি পাওয়া গেছে"
 
-msgid "By dates, in ascending order"
-msgstr ""
-
-msgid "By dates, in descending order"
-msgstr ""
-
-#, fuzzy
-msgid "Select this file"
-msgstr "এই ব্লগ মুছে ফেলো"
-
-msgid "Attach this file to entry"
-msgstr "এন্ট্রির সাথে এই ফাইলটি সংযুক্ত করুন"
-
-msgid "Insert this file into entry"
-msgstr "এন্ট্রিতে এই ফাইলটি লাগাও"
-
-#, fuzzy
-msgid "delete"
-msgstr "মুছে ফেলুন"
-
-#, fuzzy
-msgid "private media"
-msgstr "প্রাইভেট"
-
-msgid "open"
+msgid "Search:"
 msgstr ""
 
 #, fuzzy
@@ -1511,9 +1406,6 @@ msgstr "ফাইলগুলো সফলভাবে মুছে ফেলা
 msgid "Directory \"%s\" has been successfully rebuilt."
 msgstr "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
 
-msgid "Media manager"
-msgstr "মিডিয়া ম্যানেজার"
-
 msgid "confirm removal"
 msgstr ""
 
@@ -1523,12 +1415,6 @@ msgstr "আপনি কি আসলেই %s মুছে ফেলতে চ�
 
 msgid "Yes"
 msgstr "হ্যাঁ"
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%d টি এন্ট্রি পাওয়া গেছে"
-msgstr[1] "%d টি এন্ট্রি পাওয়া গেছে"
 
 msgid "Remove this folder from your favorites"
 msgstr ""
@@ -1542,18 +1428,13 @@ msgstr ""
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr ""
 
-msgid "Directory has been successfully created."
-msgstr "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
-
-msgid "Directory has been successfully rebuilt."
-msgstr ""
-
-msgid "Zip file has been successfully extracted."
-msgstr "Zip ফাইল সফলভাবে এক্সট্রাক্ট করা হয়েছে।"
-
 #, fuzzy, php-format
 msgid "Select a file by clicking on %s"
 msgstr "এন্ট্রিতে ফাইল লাগানোর জন্য %s তে ক্লিক করুন।"
+
+#, fuzzy
+msgid "Select this file"
+msgstr "এই ব্লগ মুছে ফেলো"
 
 #, fuzzy
 msgid "Choose selected medias"
@@ -1574,19 +1455,12 @@ msgstr "Zip ফাইল আপলোড করুন"
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "%s এন্ট্রির সাথে যে ফাইল সংযুক্ত করতে চান তা %s তে ক্লিক করুন।"
 
+msgid "Attach this file to entry"
+msgstr "এন্ট্রির সাথে এই ফাইলটি সংযুক্ত করুন"
+
 #, fuzzy, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "এন্ট্রিতে ফাইল লাগানোর জন্য %s তে ক্লিক করুন।"
-
-#, fuzzy
-msgid "Remove selected medias"
-msgstr "থিম আপলোড করুন"
-
-msgid "Will search into media filename (including path), title and description"
-msgstr ""
-
-msgid "No file."
-msgstr "কোনো ফাইল নেই।"
 
 msgid "Grid display mode"
 msgstr ""
@@ -1594,26 +1468,9 @@ msgstr ""
 msgid "List display mode"
 msgstr ""
 
-msgid "Sort files:"
-msgstr ""
-
-msgid "Number of elements displayed per page:"
-msgstr ""
-
 #, fuzzy
-msgid "Media list"
-msgstr "মিডিয়ার বিবরণ"
-
-msgid "Size"
-msgstr ""
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr ""
-
-#, php-format
-msgid "Nb of items: %d"
-msgstr ""
+msgid "Remove selected medias"
+msgstr "থিম আপলোড করুন"
 
 #, php-format
 msgid "In %s:"
@@ -1682,8 +1539,19 @@ msgstr "ফাইলটি সফলভাবে আপডেট করা হ�
 msgid "Thumbnails have been successfully updated."
 msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
 
+msgid "Zip file has been successfully extracted."
+msgstr "Zip ফাইল সফলভাবে এক্সট্রাক্ট করা হয়েছে।"
+
 #, fuzzy
 msgid "Default media insertion settings have been successfully updated."
+msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
+
+#, fuzzy
+msgid "Media insertion settings have been successfully registered for this folder."
+msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
+
+#, fuzzy
+msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
 
 #, fuzzy
@@ -1751,6 +1619,20 @@ msgstr "লাগান"
 
 msgid "Make current settings as default"
 msgstr ""
+
+#, fuzzy
+msgid "For the blog"
+msgstr "আপনার ব্লগ"
+
+msgid "For this folder only"
+msgstr ""
+
+msgid "Settings exist for this folder:"
+msgstr ""
+
+#, fuzzy
+msgid "Remove them"
+msgstr "সংযুক্ত ফাইলটি মুছে ফেলো"
 
 msgid "Media details"
 msgstr "মিডিয়ার বিবরণ"
@@ -2043,8 +1925,14 @@ msgstr ""
 msgid "Go to this entry on the site"
 msgstr ""
 
+msgid "Date"
+msgstr "তারিখ"
+
 msgid "IP address"
 msgstr "IP এড্রেস"
+
+msgid "Status"
+msgstr "অবস্থা"
 
 msgid "Edit"
 msgstr ""
@@ -2140,6 +2028,10 @@ msgstr "মন্তব্য"
 msgid "Add a comment"
 msgstr "মন্তব্য যোগ করুন"
 
+#, fuzzy
+msgid "Comment"
+msgstr "মন্তব্য"
+
 msgid "Trackbacks"
 msgstr "ট্র্যাকব্যাক"
 
@@ -2181,46 +2073,6 @@ msgstr "সংযুক্ত ফাইল"
 msgid "Are you sure you want to remove this attachment?"
 msgstr "আপনি কি আসলেই এই সংযুক্ত ফাইলটি মুছে ফেলতে চান?"
 
-msgid "(No cat)"
-msgstr ""
-
-msgid "Selected"
-msgstr ""
-
-#, fuzzy
-msgid "Not selected"
-msgstr "অপেক্ষমান হিসেবে চিহ্নিত করুন"
-
-msgid "Opened"
-msgstr ""
-
-msgid "Closed"
-msgstr ""
-
-#, fuzzy
-msgid "With attachments"
-msgstr "সংযুক্ত ফাইলসমূহ"
-
-#, fuzzy
-msgid "Without attachments"
-msgstr "সংযুক্ত ফাইল নেই।"
-
-#, fuzzy
-msgid "With password"
-msgstr "নতুন পাসওয়ার্ড:"
-
-#, fuzzy
-msgid "Without password"
-msgstr "আপনার পাসওয়ার্ড"
-
-#, fuzzy
-msgid "Number of comments"
-msgstr "এন্ট্রির সংখ্যা"
-
-#, fuzzy
-msgid "Number of trackbacks"
-msgstr "শূণ্য ট্র্যাকব্যাক"
-
 #, fuzzy
 msgid "Selected entries have been successfully updated."
 msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
@@ -2228,35 +2080,6 @@ msgstr "থাম্বনেইলসমূহ সফলভাবে আপড�
 #, fuzzy
 msgid "Selected entries have been successfully deleted."
 msgstr "থাম্বনেইলসমূহ সফলভাবে আপডেট করা হয়েছে।"
-
-#, fuzzy
-msgid "Format:"
-msgstr "তারিখের ফরম্যাট:"
-
-msgid "Selected:"
-msgstr ""
-
-#, fuzzy
-msgid "Attachments:"
-msgstr "সংযুক্ত ফাইলসমূহ"
-
-msgid "Month:"
-msgstr "মাস:"
-
-msgid "Lang:"
-msgstr "ভাষা:"
-
-#, fuzzy
-msgid "Comments:"
-msgstr "মন্তব্য"
-
-#, fuzzy
-msgid "Trackbacks:"
-msgstr "ট্র্যাকব্যাক"
-
-#, fuzzy
-msgid "entries per page"
-msgstr "প্রতি পেজে এন্ট্রি"
 
 msgid "Selected entries action:"
 msgstr ""
@@ -2292,19 +2115,11 @@ msgstr ""
 msgid "Category description"
 msgstr "ব্লগের বিবরণ:"
 
-#, fuzzy
-msgid "Last Name"
-msgstr "সর্বশেষ আপডেট"
+msgid "Descending"
+msgstr "বড় থেকে ছোট"
 
-#, fuzzy
-msgid "First Name"
-msgstr "প্রথম নাম"
-
-msgid "Display name"
-msgstr ""
-
-msgid "Number of entries"
-msgstr "এন্ট্রির সংখ্যা"
+msgid "Ascending"
+msgstr "ছোট থেকে বড়"
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr ""
@@ -2350,6 +2165,18 @@ msgstr ""
 msgid "Display name:"
 msgstr ""
 
+msgid "Alternate emails (comma separated list):"
+msgstr ""
+
+msgid "Invalid emails will be automatically removed from list."
+msgstr ""
+
+msgid "Alternate URLs (comma separated list):"
+msgstr ""
+
+msgid "Invalid URLs will be automatically removed from list."
+msgstr ""
+
 msgid "Language for my interface:"
 msgstr ""
 
@@ -2391,6 +2218,9 @@ msgstr "থিমসমূহ"
 msgid "Activate enhanced uploader in media manager"
 msgstr ""
 
+msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
+msgstr ""
+
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr ""
 
@@ -2409,9 +2239,6 @@ msgstr ""
 #, fuzzy
 msgid "Font size:"
 msgstr "ফাইল সাইজ:"
-
-msgid "Number of elements displayed per page in media manager:"
-msgstr ""
 
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
@@ -2440,9 +2267,15 @@ msgstr ""
 msgid "Apply filters on the fly"
 msgstr ""
 
+msgid "Order by:"
+msgstr ""
+
+msgid "Sort:"
+msgstr ""
+
 #, fuzzy
-msgid "users per page"
-msgstr "প্রতি পেজে ইউজারের সংখ্যা"
+msgid "Show"
+msgstr "সেটি দেখাও।"
 
 #, fuzzy
 msgid "Edition"
@@ -2573,6 +2406,13 @@ msgstr "সার্চ অপশন"
 msgid "Query:"
 msgstr ""
 
+msgid "In:"
+msgstr ""
+
+#, fuzzy
+msgid "No results found"
+msgstr "%d টি এন্ট্রি পাওয়া গেছে"
+
 #, fuzzy
 msgid "Search in entries"
 msgstr "এন্ট্রিতে সার্চ"
@@ -2581,21 +2421,17 @@ msgstr "এন্ট্রিতে সার্চ"
 msgid "Search in comments"
 msgstr "মন্তব্যতে সার্চ"
 
-#, php-format
-msgid "%d entries found"
-msgstr "%d টি এন্ট্রি পাওয়া গেছে"
+#, fuzzy, php-format
+msgid "one entry found"
+msgid_plural "%d entries found"
+msgstr[0] "%d টি এন্ট্রি পাওয়া গেছে"
+msgstr[1] "%d টি এন্ট্রি পাওয়া গেছে"
 
-#, php-format
-msgid "%d entry found"
-msgstr "%d টি এন্ট্রি পাওয়া গেছে"
-
-#, php-format
-msgid "%d comment found"
-msgstr "%d টি মন্তব্য পাওয়া গেছে"
-
-#, php-format
-msgid "%d comments found"
-msgstr "%d টি মন্তব্য পাওয়া গেছে"
+#, fuzzy, php-format
+msgid "one comment found"
+msgid_plural "%d comments found"
+msgstr[0] "%d টি মন্তব্য পাওয়া গেছে"
+msgstr[1] "%d টি মন্তব্য পাওয়া গেছে"
 
 #, fuzzy, php-format
 msgid "%d post"
@@ -2644,6 +2480,16 @@ msgstr ""
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr ""
+
+#, fuzzy
+msgid "No updates are available"
+msgstr "Dotclear %s এসে গেছে!"
+
+#, fuzzy, php-format
+msgid "An update is available"
+msgid_plural "%s updates are available."
+msgstr[0] "Dotclear %s এসে গেছে!"
+msgstr[1] "Dotclear %s এসে গেছে!"
 
 #, fuzzy
 msgid "List options saved"
@@ -3047,6 +2893,153 @@ msgstr "এন্ট্রির ভাষা:"
 msgid "Languages"
 msgstr "ভাষাসমূহ"
 
+msgid "(No cat)"
+msgstr ""
+
+msgid "Selected"
+msgstr ""
+
+#, fuzzy
+msgid "Number of comments"
+msgstr "এন্ট্রির সংখ্যা"
+
+#, fuzzy
+msgid "Number of trackbacks"
+msgstr "শূণ্য ট্র্যাকব্যাক"
+
+msgid "Entry title"
+msgstr "এন্ট্রির টাইটেল"
+
+#, fuzzy
+msgid "Entry date"
+msgstr "এন্ট্রির টাইটেল"
+
+msgid "IP"
+msgstr ""
+
+#, fuzzy
+msgid "Spam filter"
+msgstr "ফিল্টার"
+
+msgid "Last update"
+msgstr "সর্বশেষ আপডেট"
+
+#, fuzzy
+msgid "Last Name"
+msgstr "সর্বশেষ আপডেট"
+
+#, fuzzy
+msgid "First Name"
+msgstr "প্রথম নাম"
+
+msgid "Display name"
+msgstr ""
+
+msgid "Number of entries"
+msgstr "এন্ট্রির সংখ্যা"
+
+msgid "Show filters and display options"
+msgstr ""
+
+msgid "Filters"
+msgstr ""
+
+#, fuzzy
+msgid "Display options"
+msgstr "সার্চ অপশন"
+
+#, fuzzy
+msgid "Save current options"
+msgstr "সার্চ অপশন"
+
+msgid "Apply filters and display options"
+msgstr ""
+
+#, fuzzy
+msgid "Format:"
+msgstr "তারিখের ফরম্যাট:"
+
+#, fuzzy
+msgid "With password"
+msgstr "নতুন পাসওয়ার্ড:"
+
+#, fuzzy
+msgid "Without password"
+msgstr "আপনার পাসওয়ার্ড"
+
+msgid "Selected:"
+msgstr ""
+
+#, fuzzy
+msgid "Not selected"
+msgstr "অপেক্ষমান হিসেবে চিহ্নিত করুন"
+
+#, fuzzy
+msgid "Attachments:"
+msgstr "সংযুক্ত ফাইলসমূহ"
+
+#, fuzzy
+msgid "With attachments"
+msgstr "সংযুক্ত ফাইলসমূহ"
+
+#, fuzzy
+msgid "Without attachments"
+msgstr "সংযুক্ত ফাইল নেই।"
+
+msgid "Month:"
+msgstr "মাস:"
+
+msgid "Lang:"
+msgstr "ভাষা:"
+
+#, fuzzy
+msgid "Comments:"
+msgstr "মন্তব্য"
+
+msgid "Opened"
+msgstr ""
+
+msgid "Closed"
+msgstr ""
+
+#, fuzzy
+msgid "Trackbacks:"
+msgstr "ট্র্যাকব্যাক"
+
+msgid "Type:"
+msgstr "ধরণ:"
+
+#, fuzzy
+msgid "Trackback"
+msgstr "ট্র্যাকব্যাক"
+
+#, fuzzy
+msgid "users per page"
+msgstr "প্রতি পেজে ইউজারের সংখ্যা"
+
+#, fuzzy
+msgid "entries per page"
+msgstr "প্রতি পেজে এন্ট্রি"
+
+#, fuzzy
+msgid "comments per page"
+msgstr "প্রতি পেজে মন্তব্য"
+
+#, fuzzy
+msgid "blogs per page"
+msgstr "প্রতি পেজে ইউজারের সংখ্যা"
+
+msgid "Size"
+msgstr ""
+
+#, fuzzy
+msgid "media per page"
+msgstr "প্রতি পেজে এন্ট্রি"
+
+#, fuzzy
+msgid "results per page"
+msgstr "প্রতি পেজে এন্ট্রি"
+
 msgid "%H:%M:%S"
 msgstr ""
 
@@ -3133,8 +3126,9 @@ msgstr "অপেক্ষমান হিসেবে চিহ্নিত ক
 msgid "select all"
 msgstr "সব সিলেক্ট করুন"
 
+#, fuzzy
 msgid "Invert selection"
-msgstr ""
+msgstr "অপেক্ষমান হিসেবে চিহ্নিত করুন"
 
 #, fuzzy
 msgid "Edit entry"
@@ -3299,21 +3293,15 @@ msgstr "নতুন পাসওয়ার্ড:"
 msgid "Hide password"
 msgstr "নতুন পাসওয়ার্ড:"
 
-msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it."
+msgid "Reset to now"
+msgstr ""
+
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr ""
 
 #, fuzzy
 msgid "You have unsaved changes."
 msgstr "আপনার একটি স্প্যাম মন্তব্য আছে।"
-
-msgid "Choose date"
-msgstr ""
-
-msgid "close"
-msgstr ""
-
-msgid "now"
-msgstr "এখন"
 
 msgid "Temporarily activate enhanced uploader"
 msgstr ""
@@ -3345,12 +3333,13 @@ msgstr "ফাইলগুলো সফলভাবে আপলোড করা
 msgid "No file in queue."
 msgstr "কোনো ফাইল নেই।"
 
+#, fuzzy
 msgid "1 file in queue."
-msgstr ""
+msgstr "কোনো ফাইল নেই।"
 
-#, php-format
+#, fuzzy, php-format
 msgid "%d files in queue."
-msgstr ""
+msgstr "কোনো ফাইল নেই।"
 
 msgid "Queue error:"
 msgstr ""
@@ -3405,6 +3394,10 @@ msgstr "ভার্সন"
 msgid "Current version"
 msgstr ""
 
+#, fuzzy
+msgid "Repository"
+msgstr "বিবরণ:"
+
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -3415,6 +3408,14 @@ msgstr ""
 
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr ""
+
+#, fuzzy
+msgid "Official repository"
+msgstr "সার্চ এন্ট্রি:"
+
+#, fuzzy
+msgid "Third-party repository"
+msgstr "সার্চ এন্ট্রি:"
 
 msgid "Plugin from official distribution"
 msgstr ""
@@ -3849,6 +3850,41 @@ msgstr ""
 msgid "superadmin"
 msgstr ""
 
+#, fuzzy
+msgid "No file matches the filter"
+msgstr "এন্ট্রির কোনো টাইটেল নেই"
+
+msgid "No file."
+msgstr "কোনো ফাইল নেই।"
+
+#, fuzzy, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] "এন্ট্রির কোনো টাইটেল নেই"
+msgstr[1] "এন্ট্রির কোনো টাইটেল নেই"
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr ""
+
+msgid "Insert this file into entry"
+msgstr "এন্ট্রিতে এই ফাইলটি লাগাও"
+
+#, fuzzy
+msgid "delete"
+msgstr "মুছে ফেলুন"
+
+#, fuzzy
+msgid "private media"
+msgstr "প্রাইভেট"
+
+msgid "open"
+msgstr ""
+
 #, php-format
 msgid "ratio %.1f"
 msgstr ""
@@ -3918,6 +3954,9 @@ msgstr "পেজ(সমূহ)"
 msgid "administrator"
 msgstr ""
 
+msgid "manage all entries and comments"
+msgstr ""
+
 msgid "manage their own entries and comments"
 msgstr ""
 
@@ -3927,16 +3966,13 @@ msgstr ""
 msgid "delete entries and comments"
 msgstr ""
 
-msgid "manage all entries and comments"
-msgstr ""
-
 msgid "manage categories"
 msgstr ""
 
-msgid "manage their own media items"
+msgid "manage all media items"
 msgstr ""
 
-msgid "manage all media items"
+msgid "manage their own media items"
 msgstr ""
 
 msgid "That user does not exist in the database."
@@ -4170,6 +4206,9 @@ msgstr ""
 msgid "SQL SELECT requires a FROM source"
 msgstr ""
 
+msgid "SQL JOIN requires a source"
+msgstr ""
+
 msgid "SQL DELETE requires a FROM source"
 msgstr ""
 
@@ -4177,6 +4216,9 @@ msgid "SQL UPDATE requires an INTO source"
 msgstr ""
 
 msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a table source"
 msgstr ""
 
 msgid "Failed to read data feed"
@@ -4321,6 +4363,20 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Directory has been successfully created."
+#~ msgstr "ডিরেক্টরি সফলভাবে তৈরি করা হয়েছে।"
+
+#, fuzzy
+#~ msgid "Media list"
+#~ msgstr "মিডিয়ার বিবরণ"
+
+#, php-format
+#~ msgid "%d comments found"
+#~ msgstr "%d টি মন্তব্য পাওয়া গেছে"
+
+#~ msgid "now"
+#~ msgstr "এখন"
 
 #, fuzzy
 #~ msgid "Activate dark mode"

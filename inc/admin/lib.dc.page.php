@@ -360,11 +360,10 @@ class dcPage
 
         echo '<p id="gototop"><a href="#wrapper">' . __('Page top') . '</a></p>' . "\n";
 
-        $figure = <<<EOT
-
-                (╯°□°)╯︵ ┻━┻
-
-            EOT;
+        $figure = "\n" .
+        "\n" .
+        '          (╯°□°)╯︵ ┻━┻' . "\n" .
+        "\n";
 
         echo
             '<footer id="footer" role="contentinfo">' .

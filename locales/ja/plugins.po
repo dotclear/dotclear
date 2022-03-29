@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:23+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -279,6 +279,10 @@ msgstr "IP Lookup サーバ"
 
 msgid "Add here a coma separated list of servers."
 msgstr "サーバのリストをコンマで区切って追加してください。"
+
+#, fuzzy
+msgid "IP v6 Blocklist / Allowlist Filter"
+msgstr "IPアドレスのブラックリスト／ホワイトリスト"
 
 msgid "Checks links in comments against surbl.org"
 msgstr "コメント内のリンクを surbl.org に照会します"
@@ -935,7 +939,7 @@ msgstr ""
 msgid "Colors per row in palette:"
 msgstr ""
 
-msgid "Leave empty to use default (6)"
+msgid "Valid range: 4 to 16"
 msgstr ""
 
 msgid "Add collapse button"
@@ -977,6 +981,9 @@ msgid "source"
 msgstr ""
 
 msgid "You can use the following shortcuts to format your text."
+msgstr ""
+
+msgid "Block format"
 msgstr ""
 
 msgid "-- none --"
@@ -2431,16 +2438,16 @@ msgid "Drag widgets here to remove."
 msgstr ""
 
 #, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "本当に、このページを削除してもよろしいですか？"
+
+#, fuzzy
 #~ msgid "Liste des auteurs"
 #~ msgstr "すべてのカテゴリ"
 
 #, fuzzy
 #~ msgid "Liste des séries"
 #~ msgstr "最終エントリ"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "本当に、このページを削除してもよろしいですか？"
 
 #~ msgid "Page top"
 #~ msgstr "ページトップ"

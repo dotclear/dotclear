@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:23+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -71,6 +71,20 @@ msgstr "Interfejs administratora"
 
 msgid "Wrong username or password"
 msgstr "Zła nazwa użytkownika lub hasło"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Reset hasła"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "Średnie:"
+
+msgid "strong"
+msgstr ""
 
 msgid "Back to login screen"
 msgstr "Cofnij się do ekranu logowania"
@@ -687,60 +701,11 @@ msgstr "Możesz instalować motywy poprzez wysłanie lub pobieranie plików zip.
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "Aby aktywować tę funkcję, nadaj odpowiednie uprawnienia dostępu do katalogu wtyczek."
 
-msgid "Last update"
-msgstr "Ostatnia aktualizacja"
-
-msgid "Status"
-msgstr "Stan"
-
-msgid "Descending"
-msgstr "Malejąco"
-
-msgid "Ascending"
-msgstr "Rosnąco"
-
 msgid "List of blogs"
 msgstr "Lista blogów"
 
 msgid "Create a new blog"
 msgstr "Utwórz nowy blog"
-
-msgid "Show filters and display options"
-msgstr ""
-
-msgid "Filters"
-msgstr "Filtry"
-
-msgid "Search:"
-msgstr "Szukaj:"
-
-msgid "Status:"
-msgstr "Status:"
-
-#, fuzzy
-msgid "Display options"
-msgstr "Moje opcje"
-
-msgid "Order by:"
-msgstr "Sortuj wg:"
-
-msgid "Sort:"
-msgstr "Sortuj:"
-
-#, fuzzy
-msgid "Show"
-msgstr "Pokaż to."
-
-#, fuzzy
-msgid "blogs per page"
-msgstr "Blogów na stronę"
-
-#, fuzzy
-msgid "Save current options"
-msgstr "Moje opcje"
-
-msgid "Apply filters and display options"
-msgstr ""
 
 #, fuzzy
 msgid "Selected blogs action:"
@@ -957,36 +922,14 @@ msgstr "Autor"
 msgid "Web site:"
 msgstr "Strona WWW:"
 
+msgid "Status:"
+msgstr "Status:"
+
 msgid "Comment:"
 msgstr "Komentarz:"
 
 msgid "Delete"
 msgstr "Usuń"
-
-#, fuzzy
-msgid "Comment"
-msgstr "Komentarz:"
-
-#, fuzzy
-msgid "Trackback"
-msgstr "Trackbacki"
-
-msgid "Date"
-msgstr "Data"
-
-msgid "Entry title"
-msgstr "Tytuł wpisu"
-
-#, fuzzy
-msgid "Entry date"
-msgstr "Tytuł wpisu"
-
-msgid "IP"
-msgstr ""
-
-#, fuzzy
-msgid "Spam filter"
-msgstr "filtruj"
 
 #, fuzzy
 msgid "Selected comments have been successfully updated."
@@ -1017,25 +960,11 @@ msgstr "Pokaż je."
 msgid "Delete all spams"
 msgstr "Usuń blog"
 
-msgid "Type:"
-msgstr "Rodzaj:"
-
-#, fuzzy
-msgid "comments per page"
-msgstr "Komentarzy na stronę"
-
 msgid "Selected comments action:"
 msgstr "Akcja dla wybranych komentarzy:"
 
 msgid "Global help"
 msgstr ""
-
-#, fuzzy, php-format
-msgid "An update is available"
-msgid_plural "%s updates are available."
-msgstr[0] "Moduł iconv jest niedostępny."
-msgstr[1] "Moduł iconv jest niedostępny."
-msgstr[2] ""
 
 msgid "Documentation and support"
 msgstr "Dokumentacja i wsparcie"
@@ -1203,20 +1132,6 @@ msgstr ""
 
 msgid "Dotclear Install"
 msgstr "Instalacja Dotclear"
-
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Reset hasła"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Średnie:"
-
-msgid "strong"
-msgstr ""
 
 msgid "show"
 msgstr "pokaż"
@@ -1458,38 +1373,18 @@ msgstr "Plik językowy (zip):"
 msgid "Upload language"
 msgstr "Wyślij język"
 
-msgid "By names, in ascending order"
-msgstr "Wg nazw, rosnąco"
+msgid "Media manager"
+msgstr "Menedżer plików"
 
-msgid "By names, in descending order"
-msgstr "Wg nazw, malejąco"
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "znaleziono %d wpisy(-ów)"
+msgstr[1] "znaleziono %d wpisy(-ów)"
+msgstr[2] ""
 
-msgid "By dates, in ascending order"
-msgstr "Wg dat, rosnąco"
-
-msgid "By dates, in descending order"
-msgstr "Wg dat, malejąco"
-
-#, fuzzy
-msgid "Select this file"
-msgstr "Usuń ten blog"
-
-msgid "Attach this file to entry"
-msgstr "Załącz ten plik do wpisu"
-
-msgid "Insert this file into entry"
-msgstr "Wstaw ten plik do wpisu"
-
-#, fuzzy
-msgid "delete"
-msgstr "Usuń"
-
-#, fuzzy
-msgid "private media"
-msgstr "Prywatne"
-
-msgid "open"
-msgstr "otwórz"
+msgid "Search:"
+msgstr "Szukaj:"
 
 #, fuzzy
 msgid "Not a valid directory"
@@ -1523,9 +1418,6 @@ msgstr "Plik został pomyślnie usunięty."
 msgid "Directory \"%s\" has been successfully rebuilt."
 msgstr "Katalog został pomyślnie przebudowany."
 
-msgid "Media manager"
-msgstr "Menedżer plików"
-
 msgid "confirm removal"
 msgstr "potwierdź usunięcie"
 
@@ -1535,13 +1427,6 @@ msgstr "Jesteś pewien, że chcesz usunąć %s?"
 
 msgid "Yes"
 msgstr "tak"
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "znaleziono %d wpisy(-ów)"
-msgstr[1] "znaleziono %d wpisy(-ów)"
-msgstr[2] ""
 
 msgid "Remove this folder from your favorites"
 msgstr ""
@@ -1557,18 +1442,13 @@ msgstr ""
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "Nie masz uprawnień do usunięcia tej wtyczki."
 
-msgid "Directory has been successfully created."
-msgstr "Katalog został pomyślnie utworzony."
-
-msgid "Directory has been successfully rebuilt."
-msgstr "Katalog został pomyślnie przebudowany."
-
-msgid "Zip file has been successfully extracted."
-msgstr "Plik zip został pomyślnie rozpakowany."
-
 #, fuzzy, php-format
 msgid "Select a file by clicking on %s"
 msgstr "Wybierz plik, który ma być wstawiony do wpisu, klikając na %s."
+
+#, fuzzy
+msgid "Select this file"
+msgstr "Usuń ten blog"
 
 #, fuzzy
 msgid "Choose selected medias"
@@ -1590,19 +1470,12 @@ msgstr "Wyślij plik zip"
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Wybierz plik, który ma być dołączony do wpisu %s, klikając na %s."
 
+msgid "Attach this file to entry"
+msgstr "Załącz ten plik do wpisu"
+
 #, fuzzy, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "Wybierz plik, który ma być wstawiony do wpisu, klikając na %s."
-
-#, fuzzy
-msgid "Remove selected medias"
-msgstr "Przywróć za pomocą wybranego pliku"
-
-msgid "Will search into media filename (including path), title and description"
-msgstr ""
-
-msgid "No file."
-msgstr "Brak pliku."
 
 #, fuzzy
 msgid "Grid display mode"
@@ -1612,26 +1485,9 @@ msgstr "Nazwa wyświetlana"
 msgid "List display mode"
 msgstr "Nazwa wyświetlana"
 
-msgid "Sort files:"
-msgstr "Sortuj pliki:"
-
-msgid "Number of elements displayed per page:"
-msgstr ""
-
 #, fuzzy
-msgid "Media list"
-msgstr "Szczegóły pliku"
-
-msgid "Size"
-msgstr ""
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr ""
-
-#, php-format
-msgid "Nb of items: %d"
-msgstr ""
+msgid "Remove selected medias"
+msgstr "Przywróć za pomocą wybranego pliku"
 
 #, php-format
 msgid "In %s:"
@@ -1699,8 +1555,19 @@ msgstr "Plik został pomyślnie zaktualizowany"
 msgid "Thumbnails have been successfully updated."
 msgstr "Miniaturki zostały pomyślnie zaktualizowane"
 
+msgid "Zip file has been successfully extracted."
+msgstr "Plik zip został pomyślnie rozpakowany."
+
 #, fuzzy
 msgid "Default media insertion settings have been successfully updated."
+msgstr "Domyślne ulubione zostały pomyślnie zaktualizowane."
+
+#, fuzzy
+msgid "Media insertion settings have been successfully registered for this folder."
+msgstr "Domyślne ulubione zostały pomyślnie zaktualizowane."
+
+#, fuzzy
+msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "Domyślne ulubione zostały pomyślnie zaktualizowane."
 
 #, fuzzy
@@ -1769,6 +1636,20 @@ msgstr "Wstaw"
 
 msgid "Make current settings as default"
 msgstr ""
+
+#, fuzzy
+msgid "For the blog"
+msgstr "Twój blog"
+
+msgid "For this folder only"
+msgstr ""
+
+msgid "Settings exist for this folder:"
+msgstr ""
+
+#, fuzzy
+msgid "Remove them"
+msgstr "Usuń ten motyw"
 
 msgid "Media details"
 msgstr "Szczegóły pliku"
@@ -2064,8 +1945,14 @@ msgstr "Nie zapomnij aby sprawdzić konwersję XHTML przez zapisanie wpisu."
 msgid "Go to this entry on the site"
 msgstr ""
 
+msgid "Date"
+msgstr "Data"
+
 msgid "IP address"
 msgstr "Adres IP"
+
+msgid "Status"
+msgstr "Stan"
 
 msgid "Edit"
 msgstr ""
@@ -2159,6 +2046,10 @@ msgstr "Komentarze"
 msgid "Add a comment"
 msgstr "Dodaj komentarz"
 
+#, fuzzy
+msgid "Comment"
+msgstr "Komentarz:"
+
 msgid "Trackbacks"
 msgstr "Trackbacki"
 
@@ -2201,47 +2092,6 @@ msgstr "Załącznik"
 msgid "Are you sure you want to remove this attachment?"
 msgstr "Jesteś pewien, że chcesz usunąć ten załącznik?"
 
-msgid "(No cat)"
-msgstr ""
-
-msgid "Selected"
-msgstr "Oznaczone gwiazdką"
-
-#, fuzzy
-msgid "Not selected"
-msgstr "nieoznaczone"
-
-msgid "Opened"
-msgstr ""
-
-#, fuzzy
-msgid "Closed"
-msgstr "zamknij"
-
-#, fuzzy
-msgid "With attachments"
-msgstr "%d załączników"
-
-#, fuzzy
-msgid "Without attachments"
-msgstr "%d załączników"
-
-#, fuzzy
-msgid "With password"
-msgstr "Hasło wpisu:"
-
-#, fuzzy
-msgid "Without password"
-msgstr "Twoje hasło"
-
-#, fuzzy
-msgid "Number of comments"
-msgstr "Liczba wpisów"
-
-#, fuzzy
-msgid "Number of trackbacks"
-msgstr "Brak trackbacków"
-
 #, fuzzy
 msgid "Selected entries have been successfully updated."
 msgstr "Domyślne ulubione zostały pomyślnie zaktualizowane."
@@ -2249,35 +2099,6 @@ msgstr "Domyślne ulubione zostały pomyślnie zaktualizowane."
 #, fuzzy
 msgid "Selected entries have been successfully deleted."
 msgstr "Domyślne ulubione zostały pomyślnie zaktualizowane."
-
-#, fuzzy
-msgid "Format:"
-msgstr "Format daty:"
-
-msgid "Selected:"
-msgstr "Zaznaczenie:"
-
-#, fuzzy
-msgid "Attachments:"
-msgstr "Załączniki"
-
-msgid "Month:"
-msgstr "Miesiąc:"
-
-msgid "Lang:"
-msgstr "Język:"
-
-#, fuzzy
-msgid "Comments:"
-msgstr "Komentarze"
-
-#, fuzzy
-msgid "Trackbacks:"
-msgstr "Trackbacki"
-
-#, fuzzy
-msgid "entries per page"
-msgstr "wpisy(-ów) na stronę"
 
 msgid "Selected entries action:"
 msgstr "Akcja dla wybranych wpisów:"
@@ -2313,17 +2134,11 @@ msgstr ""
 msgid "Category description"
 msgstr "Kategorie równorzędne"
 
-msgid "Last Name"
-msgstr "Nazwisko"
+msgid "Descending"
+msgstr "Malejąco"
 
-msgid "First Name"
-msgstr "Imię"
-
-msgid "Display name"
-msgstr "Nazwa wyświetlana"
-
-msgid "Number of entries"
-msgstr "Liczba wpisów"
+msgid "Ascending"
+msgstr "Rosnąco"
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Jeżeli chcesz zmienić swój e-mail lub hasło, musisz podać swoje aktualne hasło."
@@ -2363,6 +2178,18 @@ msgstr "Mój profil"
 
 msgid "Display name:"
 msgstr "Nazwa wyświetlana:"
+
+msgid "Alternate emails (comma separated list):"
+msgstr ""
+
+msgid "Invalid emails will be automatically removed from list."
+msgstr ""
+
+msgid "Alternate URLs (comma separated list):"
+msgstr ""
+
+msgid "Invalid URLs will be automatically removed from list."
+msgstr ""
 
 msgid "Language for my interface:"
 msgstr ""
@@ -2405,6 +2232,9 @@ msgstr "Motywy"
 msgid "Activate enhanced uploader in media manager"
 msgstr "Włącz ulepszony uploader w menedżerze plików"
 
+msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
+msgstr ""
+
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Wyłącz dynamiczne ustawianie kolejności elementów (\"przeciągnij i upuść\")"
 
@@ -2424,9 +2254,6 @@ msgstr ""
 #, fuzzy
 msgid "Font size:"
 msgstr "Rozmiar pliku:"
-
-msgid "Number of elements displayed per page in media manager:"
-msgstr ""
 
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
@@ -2456,9 +2283,15 @@ msgstr ""
 msgid "Apply filters on the fly"
 msgstr "Zastosuj filtry"
 
+msgid "Order by:"
+msgstr "Sortuj wg:"
+
+msgid "Sort:"
+msgstr "Sortuj:"
+
 #, fuzzy
-msgid "users per page"
-msgstr "Użytkowników na stronę"
+msgid "Show"
+msgstr "Pokaż to."
 
 #, fuzzy
 msgid "Edition"
@@ -2589,6 +2422,13 @@ msgstr "Opcje wyszukiwania"
 msgid "Query:"
 msgstr "Zapytanie:"
 
+msgid "In:"
+msgstr ""
+
+#, fuzzy
+msgid "No results found"
+msgstr "znaleziono %d wpisy(-ów)"
+
 #, fuzzy
 msgid "Search in entries"
 msgstr "szukaj we wpisach"
@@ -2597,21 +2437,19 @@ msgstr "szukaj we wpisach"
 msgid "Search in comments"
 msgstr "szukaj w komentarzach"
 
-#, php-format
-msgid "%d entries found"
-msgstr "znaleziono %d wpisy(-ów)"
+#, fuzzy, php-format
+msgid "one entry found"
+msgid_plural "%d entries found"
+msgstr[0] "znaleziono %d wpis"
+msgstr[1] "znaleziono %d wpis"
+msgstr[2] "znaleziono %d wpis"
 
-#, php-format
-msgid "%d entry found"
-msgstr "znaleziono %d wpis"
-
-#, php-format
-msgid "%d comment found"
-msgstr "znaleziono %d komentarz"
-
-#, php-format
-msgid "%d comments found"
-msgstr "znaleziono %d komentarzy"
+#, fuzzy, php-format
+msgid "one comment found"
+msgid_plural "%d comments found"
+msgstr[0] "znaleziono %d komentarz"
+msgstr[1] "znaleziono %d komentarz"
+msgstr[2] "znaleziono %d komentarz"
 
 #, fuzzy, php-format
 msgid "%d post"
@@ -2664,6 +2502,17 @@ msgstr ""
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr ""
+
+#, fuzzy
+msgid "No updates are available"
+msgstr "Moduł iconv jest niedostępny."
+
+#, fuzzy, php-format
+msgid "An update is available"
+msgid_plural "%s updates are available."
+msgstr[0] "Moduł iconv jest niedostępny."
+msgstr[1] "Moduł iconv jest niedostępny."
+msgstr[2] ""
 
 #, fuzzy
 msgid "List options saved"
@@ -3077,6 +2926,152 @@ msgstr "Język wpisu:"
 msgid "Languages"
 msgstr "Języki"
 
+msgid "(No cat)"
+msgstr ""
+
+msgid "Selected"
+msgstr "Oznaczone gwiazdką"
+
+#, fuzzy
+msgid "Number of comments"
+msgstr "Liczba wpisów"
+
+#, fuzzy
+msgid "Number of trackbacks"
+msgstr "Brak trackbacków"
+
+msgid "Entry title"
+msgstr "Tytuł wpisu"
+
+#, fuzzy
+msgid "Entry date"
+msgstr "Tytuł wpisu"
+
+msgid "IP"
+msgstr ""
+
+#, fuzzy
+msgid "Spam filter"
+msgstr "filtruj"
+
+msgid "Last update"
+msgstr "Ostatnia aktualizacja"
+
+msgid "Last Name"
+msgstr "Nazwisko"
+
+msgid "First Name"
+msgstr "Imię"
+
+msgid "Display name"
+msgstr "Nazwa wyświetlana"
+
+msgid "Number of entries"
+msgstr "Liczba wpisów"
+
+msgid "Show filters and display options"
+msgstr ""
+
+msgid "Filters"
+msgstr "Filtry"
+
+#, fuzzy
+msgid "Display options"
+msgstr "Moje opcje"
+
+#, fuzzy
+msgid "Save current options"
+msgstr "Moje opcje"
+
+msgid "Apply filters and display options"
+msgstr ""
+
+#, fuzzy
+msgid "Format:"
+msgstr "Format daty:"
+
+#, fuzzy
+msgid "With password"
+msgstr "Hasło wpisu:"
+
+#, fuzzy
+msgid "Without password"
+msgstr "Twoje hasło"
+
+msgid "Selected:"
+msgstr "Zaznaczenie:"
+
+#, fuzzy
+msgid "Not selected"
+msgstr "nieoznaczone"
+
+#, fuzzy
+msgid "Attachments:"
+msgstr "Załączniki"
+
+#, fuzzy
+msgid "With attachments"
+msgstr "%d załączników"
+
+#, fuzzy
+msgid "Without attachments"
+msgstr "%d załączników"
+
+msgid "Month:"
+msgstr "Miesiąc:"
+
+msgid "Lang:"
+msgstr "Język:"
+
+#, fuzzy
+msgid "Comments:"
+msgstr "Komentarze"
+
+msgid "Opened"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "zamknij"
+
+#, fuzzy
+msgid "Trackbacks:"
+msgstr "Trackbacki"
+
+msgid "Type:"
+msgstr "Rodzaj:"
+
+#, fuzzy
+msgid "Trackback"
+msgstr "Trackbacki"
+
+#, fuzzy
+msgid "users per page"
+msgstr "Użytkowników na stronę"
+
+#, fuzzy
+msgid "entries per page"
+msgstr "wpisy(-ów) na stronę"
+
+#, fuzzy
+msgid "comments per page"
+msgstr "Komentarzy na stronę"
+
+#, fuzzy
+msgid "blogs per page"
+msgstr "Blogów na stronę"
+
+msgid "Size"
+msgstr ""
+
+#, fuzzy
+msgid "media per page"
+msgstr "wpisy(-ów) na stronę"
+
+#, fuzzy
+msgid "results per page"
+msgstr "wpisy(-ów) na stronę"
+
 msgid "%H:%M:%S"
 msgstr ""
 
@@ -3251,6 +3246,7 @@ msgstr "Czy na pewno chcesz usunąć wtyczkę \"%s\"?"
 msgid "Use this theme"
 msgstr "Uzyj tego motywu"
 
+#, fuzzy
 msgid "Remove this theme"
 msgstr "Usuń ten motyw"
 
@@ -3323,21 +3319,14 @@ msgstr "Nowe hasło:"
 msgid "Hide password"
 msgstr "Nowe hasło:"
 
-msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it."
+msgid "Reset to now"
+msgstr ""
+
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr ""
 
 msgid "You have unsaved changes."
 msgstr "Masz niezapisane zmiany."
-
-#, fuzzy
-msgid "Choose date"
-msgstr "Wybierz plik"
-
-msgid "close"
-msgstr "zamknij"
-
-msgid "now"
-msgstr "teraz"
 
 msgid "Temporarily activate enhanced uploader"
 msgstr "Włącz ulepszony uploader"
@@ -3430,6 +3419,10 @@ msgstr "Wersja"
 msgid "Current version"
 msgstr "ustaw uprawnienia"
 
+#, fuzzy
+msgid "Repository"
+msgstr "pozycja:"
+
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -3440,6 +3433,14 @@ msgstr ""
 
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr ""
+
+#, fuzzy
+msgid "Official repository"
+msgstr "Przeszukaj wpis:"
+
+#, fuzzy
+msgid "Third-party repository"
+msgstr "Przeszukaj wpis:"
 
 msgid "Plugin from official distribution"
 msgstr ""
@@ -3901,6 +3902,42 @@ msgstr "administrator"
 msgid "superadmin"
 msgstr "Super-administrator"
 
+#, fuzzy
+msgid "No file matches the filter"
+msgstr "Brak tytułu wpisu"
+
+msgid "No file."
+msgstr "Brak pliku."
+
+#, fuzzy, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] "Brak tytułu wpisu"
+msgstr[1] "Brak tytułu wpisu"
+msgstr[2] "Brak tytułu wpisu"
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr ""
+
+msgid "Insert this file into entry"
+msgstr "Wstaw ten plik do wpisu"
+
+#, fuzzy
+msgid "delete"
+msgstr "Usuń"
+
+#, fuzzy
+msgid "private media"
+msgstr "Prywatne"
+
+msgid "open"
+msgstr "otwórz"
+
 #, php-format
 msgid "ratio %.1f"
 msgstr ""
@@ -3968,6 +4005,9 @@ msgstr "Strony"
 msgid "administrator"
 msgstr "administrator"
 
+msgid "manage all entries and comments"
+msgstr "zarządzaj wszystkimi wpisami i komentarzami"
+
 msgid "manage their own entries and comments"
 msgstr "zarządzaj ich własnymi wpisami i komentarzami"
 
@@ -3977,17 +4017,14 @@ msgstr "publikuj wpisy i komentarze"
 msgid "delete entries and comments"
 msgstr "usuń wpisy i komentarze"
 
-msgid "manage all entries and comments"
-msgstr "zarządzaj wszystkimi wpisami i komentarzami"
-
 msgid "manage categories"
 msgstr "zarządzaj kategoriami"
 
-msgid "manage their own media items"
-msgstr "zarządzaj ich własnymi elementami media"
-
 msgid "manage all media items"
 msgstr "zarządzaj wszystkimi elementami media"
+
+msgid "manage their own media items"
+msgstr "zarządzaj ich własnymi elementami media"
 
 msgid "That user does not exist in the database."
 msgstr "Ten użytkownik nie istnieje w bazie danych."
@@ -4224,6 +4261,9 @@ msgstr "Nieprawidłowe ustawienie przestrzeni nazw: %s"
 msgid "SQL SELECT requires a FROM source"
 msgstr ""
 
+msgid "SQL JOIN requires a source"
+msgstr ""
+
 msgid "SQL DELETE requires a FROM source"
 msgstr ""
 
@@ -4231,6 +4271,9 @@ msgid "SQL UPDATE requires an INTO source"
 msgstr ""
 
 msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a table source"
 msgstr ""
 
 #, fuzzy
@@ -4377,6 +4420,45 @@ msgstr "<p>To oznacza że nazwa użytkownika i hasło w Twoim pliku <strong>conf
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Podczas odczytu z bazy danych wystąpił następujący błąd:"
+
+#~ msgid "By names, in ascending order"
+#~ msgstr "Wg nazw, rosnąco"
+
+#~ msgid "By names, in descending order"
+#~ msgstr "Wg nazw, malejąco"
+
+#~ msgid "By dates, in ascending order"
+#~ msgstr "Wg dat, rosnąco"
+
+#~ msgid "By dates, in descending order"
+#~ msgstr "Wg dat, malejąco"
+
+#~ msgid "Directory has been successfully created."
+#~ msgstr "Katalog został pomyślnie utworzony."
+
+#~ msgid "Directory has been successfully rebuilt."
+#~ msgstr "Katalog został pomyślnie przebudowany."
+
+#~ msgid "Sort files:"
+#~ msgstr "Sortuj pliki:"
+
+#, fuzzy
+#~ msgid "Media list"
+#~ msgstr "Szczegóły pliku"
+
+#, php-format
+#~ msgid "%d comments found"
+#~ msgstr "znaleziono %d komentarzy"
+
+#, fuzzy
+#~ msgid "Choose date"
+#~ msgstr "Wybierz plik"
+
+#~ msgid "close"
+#~ msgstr "zamknij"
+
+#~ msgid "now"
+#~ msgstr "teraz"
 
 #, fuzzy
 #~ msgid "Activate dark mode"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:23+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: 2020-12-16 19:29\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
@@ -68,6 +68,19 @@ msgstr "Käyttöliittymä:"
 
 msgid "Wrong username or password"
 msgstr "Väärä käyttäjänimi tai salasana"
+
+#, php-format
+msgid "Password strength: %s"
+msgstr "Salasanan vahvuus: %s"
+
+msgid "weak"
+msgstr "heikko"
+
+msgid "medium"
+msgstr "keskikoko"
+
+msgid "strong"
+msgstr "vahva"
 
 msgid "Back to login screen"
 msgstr "Takaisin kirjautumisruutuun"
@@ -651,56 +664,11 @@ msgstr "Voit asentaa teemoja zip-tiedostoina lataamalla ne omalta koneeltasi tai
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "Jotkin toiminnot ovat pois käytöstä, anna teemoillesi kirjoitusoikeus liitännäishakemistoosi, jotta voisit hyödyntää niitä."
 
-msgid "Last update"
-msgstr "Viimeisin päivitys"
-
-msgid "Status"
-msgstr "Tila"
-
-msgid "Descending"
-msgstr "Laskeva"
-
-msgid "Ascending"
-msgstr "Nouseva"
-
 msgid "List of blogs"
 msgstr "Blogien luettelo"
 
 msgid "Create a new blog"
 msgstr "Luo uusi blogi"
-
-msgid "Show filters and display options"
-msgstr "Näytä suodattimet ja näyttövaihtoehdot"
-
-msgid "Filters"
-msgstr "Suodattimet"
-
-msgid "Search:"
-msgstr "Haku:"
-
-msgid "Status:"
-msgstr "Tila:"
-
-msgid "Display options"
-msgstr "Näyttövaihtoehdot"
-
-msgid "Order by:"
-msgstr "Millä perusteella järjestetään:"
-
-msgid "Sort:"
-msgstr "Lajittelu:"
-
-msgid "Show"
-msgstr "Näytä"
-
-msgid "blogs per page"
-msgstr "blogia sivua kohti"
-
-msgid "Save current options"
-msgstr "Tallenna asetukseni"
-
-msgid "Apply filters and display options"
-msgstr "Käytä näitä suodattimia ja näyttövaihtoehtoja"
 
 msgid "Selected blogs action:"
 msgstr "Valittuihin käyttäjiin kohdistuva toimi:"
@@ -901,32 +869,14 @@ msgstr "Tekijä"
 msgid "Web site:"
 msgstr "Sivusto:"
 
+msgid "Status:"
+msgstr "Tila:"
+
 msgid "Comment:"
 msgstr "Kommentti:"
 
 msgid "Delete"
 msgstr "Poista"
-
-msgid "Comment"
-msgstr "Kommentti"
-
-msgid "Trackback"
-msgstr "Takaisinviittaus"
-
-msgid "Date"
-msgstr "Päiväys"
-
-msgid "Entry title"
-msgstr "Blogimerkinnän otsikko"
-
-msgid "Entry date"
-msgstr "Blogimerkinnän otsikko"
-
-msgid "IP"
-msgstr "P"
-
-msgid "Spam filter"
-msgstr "Spämmisuodatin"
 
 msgid "Selected comments have been successfully updated."
 msgstr "Valitut kommentit on päivitetty."
@@ -953,23 +903,11 @@ msgstr "Näytä ne!"
 msgid "Delete all spams"
 msgstr "Poista kaikki spämmit"
 
-msgid "Type:"
-msgstr "Tyyppi:"
-
-msgid "comments per page"
-msgstr "kommenttia sivua kohti"
-
 msgid "Selected comments action:"
 msgstr "Tee valituille kommenteille:"
 
 msgid "Global help"
 msgstr "Yleisohje"
-
-#, php-format
-msgid "An update is available"
-msgid_plural "%s updates are available."
-msgstr[0] "Päivitys on saatavana."
-msgstr[1] "%s päivitystä on saatavana."
 
 msgid "Documentation and support"
 msgstr "Dokumentaatio ja tuki"
@@ -1134,19 +1072,6 @@ msgstr ""
 
 msgid "Dotclear Install"
 msgstr "Dotclearin asennus"
-
-#, php-format
-msgid "Password strength: %s"
-msgstr "Salasanan vahvuus: %s"
-
-msgid "weak"
-msgstr "heikko"
-
-msgid "medium"
-msgstr "keskikoko"
-
-msgid "strong"
-msgstr "vahva"
 
 msgid "show"
 msgstr "näytä"
@@ -1384,35 +1309,17 @@ msgstr "Kielen zip-tiedosto:"
 msgid "Upload language"
 msgstr "Lataa kieli palvelimelle"
 
-msgid "By names, in ascending order"
-msgstr "Nimien mukaan nousevassa järjestyksessä"
+msgid "Media manager"
+msgstr "Medianhallinta"
 
-msgid "By names, in descending order"
-msgstr "Nimien mukaan laskevassa järjestyksessä"
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%s löydetty tiedosto"
+msgstr[1] "%s löydettya tiedostoa"
 
-msgid "By dates, in ascending order"
-msgstr "Päiväysten mukaan nousevassa järjestyksessä"
-
-msgid "By dates, in descending order"
-msgstr "Päiväysten mukaan laskevassa järjestyksessä"
-
-msgid "Select this file"
-msgstr "Poista tämä blogi"
-
-msgid "Attach this file to entry"
-msgstr "Liitä tämä tiedosto merkintään"
-
-msgid "Insert this file into entry"
-msgstr "Liitä tämä tiedosto merkintään"
-
-msgid "delete"
-msgstr "poista"
-
-msgid "private media"
-msgstr "Yksityinen"
-
-msgid "open"
-msgstr "avaa"
+msgid "Search:"
+msgstr "Haku:"
 
 msgid "Not a valid directory"
 msgstr "Kelpaamaton tiedosto"
@@ -1444,9 +1351,6 @@ msgstr "Tiedosto on poistettu."
 msgid "Directory \"%s\" has been successfully rebuilt."
 msgstr "Hakemisto \"%s\" on rakennettu uudelleen."
 
-msgid "Media manager"
-msgstr "Medianhallinta"
-
 msgid "confirm removal"
 msgstr "vahvista poisto"
 
@@ -1456,12 +1360,6 @@ msgstr "Oletko varma, että haluat poistaa tämän: %s?"
 
 msgid "Yes"
 msgstr "Kyllä"
-
-#, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%s löydetty tiedosto"
-msgstr[1] "%s löydettya tiedostoa"
 
 msgid "Remove this folder from your favorites"
 msgstr "Poista tämä kansio suosikeista"
@@ -1475,18 +1373,12 @@ msgstr "Siirry aiempaan kansioon:"
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "Sinulla ei ole riittäviä oikeuksia tähän kansioon kirjoittamiseksi."
 
-msgid "Directory has been successfully created."
-msgstr "Hakemisto on luotu."
-
-msgid "Directory has been successfully rebuilt."
-msgstr "Hakemisto on rakennettu uudelleen."
-
-msgid "Zip file has been successfully extracted."
-msgstr "Zip-tiedosto on purettu."
-
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "Valitse merkintään liitettävä tiedosto painamalla %s."
+
+msgid "Select this file"
+msgstr "Poista tämä blogi"
 
 msgid "Choose selected medias"
 msgstr "Poista valitut media-aineistot"
@@ -1505,18 +1397,12 @@ msgstr "Lataa zip-tiedosto palvelimelle"
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "Valitse tiedosto, joka liitetään blogimerkintään %s painamalla %s"
 
+msgid "Attach this file to entry"
+msgstr "Liitä tämä tiedosto merkintään"
+
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "Valitse merkintään liitettävä tiedosto painamalla %s"
-
-msgid "Remove selected medias"
-msgstr "Poista valitut media-aineistot"
-
-msgid "Will search into media filename (including path), title and description"
-msgstr "Haku media-aineistojen tiedostonnimistä (polkuineen), otsikoista ja kuvauksista"
-
-msgid "No file."
-msgstr "Ei tiedostoa."
 
 msgid "Grid display mode"
 msgstr "Näyttöruudukko"
@@ -1524,25 +1410,8 @@ msgstr "Näyttöruudukko"
 msgid "List display mode"
 msgstr "Näyttöluettelo"
 
-msgid "Sort files:"
-msgstr "Lajittele tiedostot:"
-
-msgid "Number of elements displayed per page:"
-msgstr "Sivua kohti näytettävien kohteiden lukumäärä:"
-
-msgid "Media list"
-msgstr "Media-aineistoluettelo"
-
-msgid "Size"
-msgstr "Koko"
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr "Kohteiden määrä: %d → %d kansio(ta) + %d tiedosto(a)"
-
-#, php-format
-msgid "Nb of items: %d"
-msgstr "Kohteiden määrä: %d"
+msgid "Remove selected medias"
+msgstr "Poista valitut media-aineistot"
 
 #, php-format
 msgid "In %s:"
@@ -1607,7 +1476,18 @@ msgstr "Tiedosto on päivitetty."
 msgid "Thumbnails have been successfully updated."
 msgstr "Pikkukuvat on päivitetty."
 
+msgid "Zip file has been successfully extracted."
+msgstr "Zip-tiedosto on purettu."
+
 msgid "Default media insertion settings have been successfully updated."
+msgstr "Media-aineistojen liittämisen oletusarvot on päivitetty."
+
+#, fuzzy
+msgid "Media insertion settings have been successfully registered for this folder."
+msgstr "Media-aineistojen liittämisen oletusarvot on päivitetty."
+
+#, fuzzy
+msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "Media-aineistojen liittämisen oletusarvot on päivitetty."
 
 msgid "Select media item"
@@ -1672,6 +1552,20 @@ msgstr "Liitä"
 
 msgid "Make current settings as default"
 msgstr "Tallenna nykyasetukset oletuksiksi"
+
+#, fuzzy
+msgid "For the blog"
+msgstr "Blogisi"
+
+msgid "For this folder only"
+msgstr ""
+
+msgid "Settings exist for this folder:"
+msgstr ""
+
+#, fuzzy
+msgid "Remove them"
+msgstr "Poista tämä teema"
 
 msgid "Media details"
 msgstr "Mediatiedoston tiedot"
@@ -1943,8 +1837,14 @@ msgstr "Talleta merkintä XHTML-muunnoksen oikeellisuuden tarkistamiseksi."
 msgid "Go to this entry on the site"
 msgstr "Hyppää tähän merkintää verkkosivustossa"
 
+msgid "Date"
+msgstr "Päiväys"
+
 msgid "IP address"
 msgstr "IP-osoite"
+
+msgid "Status"
+msgstr "Tila"
 
 msgid "Edit"
 msgstr "Muokkaa"
@@ -2030,6 +1930,9 @@ msgstr "Kommentit"
 msgid "Add a comment"
 msgstr "Lisää kommentti"
 
+msgid "Comment"
+msgstr "Kommentti"
+
 msgid "Trackbacks"
 msgstr "Takaisinviittaukset"
 
@@ -2069,68 +1972,11 @@ msgstr "Liite"
 msgid "Are you sure you want to remove this attachment?"
 msgstr "Oletko varma, että haluat poistaa tämän liitetiedoston?"
 
-msgid "(No cat)"
-msgstr "(ei mitään)"
-
-msgid "Selected"
-msgstr "Valittu"
-
-msgid "Not selected"
-msgstr "Ei valittu"
-
-msgid "Opened"
-msgstr "Auki"
-
-msgid "Closed"
-msgstr "Kiinni"
-
-msgid "With attachments"
-msgstr "Liitteiden kera"
-
-msgid "Without attachments"
-msgstr "Ilman liitteitä"
-
-msgid "With password"
-msgstr "Salasanan kera"
-
-msgid "Without password"
-msgstr "Ilman salasanaa"
-
-msgid "Number of comments"
-msgstr "Kommenttien lukumäärä"
-
-msgid "Number of trackbacks"
-msgstr "Takaisinviittausten lukumäärä"
-
 msgid "Selected entries have been successfully updated."
 msgstr "Valitut merkinnät on päivitetty."
 
 msgid "Selected entries have been successfully deleted."
 msgstr "Valitut merkinnät on poistettu."
-
-msgid "Format:"
-msgstr "Muoto:"
-
-msgid "Selected:"
-msgstr "Valittu:"
-
-msgid "Attachments:"
-msgstr "Liitteet:"
-
-msgid "Month:"
-msgstr "Kuukausi:"
-
-msgid "Lang:"
-msgstr "Kieli:"
-
-msgid "Comments:"
-msgstr "Kommentit"
-
-msgid "Trackbacks:"
-msgstr "Takaisinviittaukset"
-
-msgid "entries per page"
-msgstr "merkintää sivua kohti"
 
 msgid "Selected entries action:"
 msgstr "Tee valituille merkinnöille:"
@@ -2162,17 +2008,11 @@ msgstr "Blogin kuvaus (blogin parametrit)"
 msgid "Category description"
 msgstr "Luokkien kuvaus"
 
-msgid "Last Name"
-msgstr "Sukunimi"
+msgid "Descending"
+msgstr "Laskeva"
 
-msgid "First Name"
-msgstr "Etunimi"
-
-msgid "Display name"
-msgstr "Näytettävä nimi"
-
-msgid "Number of entries"
-msgstr "Blogimerkintöjen määrä"
+msgid "Ascending"
+msgstr "Nouseva"
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Sähköpostiosoitteesi tai salasanasi vaihtamiseen vaaditaan nykyinen salasana."
@@ -2210,6 +2050,18 @@ msgstr "Oma käyttäjäprofiili"
 msgid "Display name:"
 msgstr "Näytettävä nimi:"
 
+msgid "Alternate emails (comma separated list):"
+msgstr ""
+
+msgid "Invalid emails will be automatically removed from list."
+msgstr ""
+
+msgid "Alternate URLs (comma separated list):"
+msgstr ""
+
+msgid "Invalid URLs will be automatically removed from list."
+msgstr ""
+
 msgid "Language for my interface:"
 msgstr "Käyttöliittymäni kieli:"
 
@@ -2243,6 +2095,9 @@ msgstr "Teema:"
 msgid "Activate enhanced uploader in media manager"
 msgstr "Ota käyttöön parannettu tiedostonlataus medianhallinnassa"
 
+msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
+msgstr ""
+
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Poista javascriptilla toteutettu vedä-ja-pudota -toiminto käytöstä hallintaliittymässä"
 
@@ -2260,9 +2115,6 @@ msgstr "Näytä asynkronipyyntöjen osoitin"
 
 msgid "Font size:"
 msgstr "Tiedoston koko:"
-
-msgid "Number of elements displayed per page in media manager:"
-msgstr "Näytettävien kohteiden määrä sivua kohti medianhallinnassa:"
 
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Ehdotettavien aiempien kansioiden määrä medianhallinnassa:"
@@ -2291,8 +2143,14 @@ msgstr "Luetteloiden asetukset"
 msgid "Apply filters on the fly"
 msgstr "Ryhdy käyttämään suodattimia saman tien"
 
-msgid "users per page"
-msgstr "käyttäjää sivua kohti"
+msgid "Order by:"
+msgstr "Millä perusteella järjestetään:"
+
+msgid "Sort:"
+msgstr "Lajittelu:"
+
+msgid "Show"
+msgstr "Näytä"
 
 msgid "Edition"
 msgstr "Sisällönmuokkaus"
@@ -2410,27 +2268,31 @@ msgstr "Hakuasetukset"
 msgid "Query:"
 msgstr "Kysely:"
 
+#, fuzzy
+msgid "In:"
+msgstr "%s:n sisällä:"
+
+#, fuzzy
+msgid "No results found"
+msgstr "ei tuloksia"
+
 msgid "Search in entries"
 msgstr "Haku merkinnöistä"
 
 msgid "Search in comments"
 msgstr "Haku kommenteista"
 
-#, php-format
-msgid "%d entries found"
-msgstr "%d löydettyä merkintää"
+#, fuzzy, php-format
+msgid "one entry found"
+msgid_plural "%d entries found"
+msgstr[0] "%d löydetty merkintä"
+msgstr[1] "%d löydetty merkintä"
 
-#, php-format
-msgid "%d entry found"
-msgstr "%d löydetty merkintä"
-
-#, php-format
-msgid "%d comment found"
-msgstr "%d löydetty kommentti"
-
-#, php-format
-msgid "%d comments found"
-msgstr "%d löydettyä kommenttia"
+#, fuzzy, php-format
+msgid "one comment found"
+msgid_plural "%d comments found"
+msgstr[0] "%d löydetty kommentti"
+msgstr[1] "%d löydetty kommentti"
 
 #, php-format
 msgid "%d post"
@@ -2476,6 +2338,16 @@ msgstr "Uusi versio Dotclearista on tarjolla, mutta se vaatii PHP-versiota, joka
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr "Seuraavat versiot Dotclearista eivät tue PHP-versiota, joka on < %s, käyttämäsi PHP-versio on nyt %s"
+
+#, fuzzy
+msgid "No updates are available"
+msgstr "Päivitys on saatavana."
+
+#, php-format
+msgid "An update is available"
+msgid_plural "%s updates are available."
+msgstr[0] "Päivitys on saatavana."
+msgstr[1] "%s päivitystä on saatavana."
 
 msgid "List options saved"
 msgstr "Luetteloasetukset tallennettu"
@@ -2844,6 +2716,131 @@ msgstr "Merkinnän kieli:"
 msgid "Languages"
 msgstr "Kielet"
 
+msgid "(No cat)"
+msgstr "(ei mitään)"
+
+msgid "Selected"
+msgstr "Valittu"
+
+msgid "Number of comments"
+msgstr "Kommenttien lukumäärä"
+
+msgid "Number of trackbacks"
+msgstr "Takaisinviittausten lukumäärä"
+
+msgid "Entry title"
+msgstr "Blogimerkinnän otsikko"
+
+msgid "Entry date"
+msgstr "Blogimerkinnän otsikko"
+
+msgid "IP"
+msgstr "P"
+
+msgid "Spam filter"
+msgstr "Spämmisuodatin"
+
+msgid "Last update"
+msgstr "Viimeisin päivitys"
+
+msgid "Last Name"
+msgstr "Sukunimi"
+
+msgid "First Name"
+msgstr "Etunimi"
+
+msgid "Display name"
+msgstr "Näytettävä nimi"
+
+msgid "Number of entries"
+msgstr "Blogimerkintöjen määrä"
+
+msgid "Show filters and display options"
+msgstr "Näytä suodattimet ja näyttövaihtoehdot"
+
+msgid "Filters"
+msgstr "Suodattimet"
+
+msgid "Display options"
+msgstr "Näyttövaihtoehdot"
+
+msgid "Save current options"
+msgstr "Tallenna asetukseni"
+
+msgid "Apply filters and display options"
+msgstr "Käytä näitä suodattimia ja näyttövaihtoehtoja"
+
+msgid "Format:"
+msgstr "Muoto:"
+
+msgid "With password"
+msgstr "Salasanan kera"
+
+msgid "Without password"
+msgstr "Ilman salasanaa"
+
+msgid "Selected:"
+msgstr "Valittu:"
+
+msgid "Not selected"
+msgstr "Ei valittu"
+
+msgid "Attachments:"
+msgstr "Liitteet:"
+
+msgid "With attachments"
+msgstr "Liitteiden kera"
+
+msgid "Without attachments"
+msgstr "Ilman liitteitä"
+
+msgid "Month:"
+msgstr "Kuukausi:"
+
+msgid "Lang:"
+msgstr "Kieli:"
+
+msgid "Comments:"
+msgstr "Kommentit"
+
+msgid "Opened"
+msgstr "Auki"
+
+msgid "Closed"
+msgstr "Kiinni"
+
+msgid "Trackbacks:"
+msgstr "Takaisinviittaukset"
+
+msgid "Type:"
+msgstr "Tyyppi:"
+
+msgid "Trackback"
+msgstr "Takaisinviittaus"
+
+msgid "users per page"
+msgstr "käyttäjää sivua kohti"
+
+msgid "entries per page"
+msgstr "merkintää sivua kohti"
+
+msgid "comments per page"
+msgstr "kommenttia sivua kohti"
+
+msgid "blogs per page"
+msgstr "blogia sivua kohti"
+
+msgid "Size"
+msgstr "Koko"
+
+#, fuzzy
+msgid "media per page"
+msgstr "merkintää sivua kohti"
+
+#, fuzzy
+msgid "results per page"
+msgstr "merkintää sivua kohti"
+
 msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
@@ -3009,6 +3006,7 @@ msgstr "Oletko varma, että haluat poistaa valitut liitännäiset?"
 msgid "Use this theme"
 msgstr "Käytä tätä teemaa"
 
+#, fuzzy
 msgid "Remove this theme"
 msgstr "Poista tämä teema"
 
@@ -3073,20 +3071,14 @@ msgstr "Näytä salasana"
 msgid "Hide password"
 msgstr "Piilota salasana"
 
-msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it."
+msgid "Reset to now"
+msgstr ""
+
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr ""
 
 msgid "You have unsaved changes."
 msgstr "Et ole tallentanut muutoksia."
-
-msgid "Choose date"
-msgstr "Valitse päiväys"
-
-msgid "close"
-msgstr "sulje"
-
-msgid "now"
-msgstr "nyt"
 
 msgid "Temporarily activate enhanced uploader"
 msgstr "Ota käyttöön parannettu tiedostonlataus väliaikaisesti"
@@ -3173,6 +3165,10 @@ msgstr "Versio"
 msgid "Current version"
 msgstr "Nykyversio"
 
+#, fuzzy
+msgid "Repository"
+msgstr "paikka:"
+
 #, php-format
 msgid " (%s)"
 msgstr "(%s)"
@@ -3183,6 +3179,14 @@ msgstr "Tätä moduulia ei voi poistaa käytöstä, koska seuraavat moduulit ova
 
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Tätä moduulia ei voi ottaa käyttöön seuraavista syistä:"
+
+#, fuzzy
+msgid "Official repository"
+msgstr "Etsi säilöstä:"
+
+#, fuzzy
+msgid "Third-party repository"
+msgstr "Etsi säilöstä:"
 
 msgid "Plugin from official distribution"
 msgstr "Viralliseen jakeluun kuuluva liitännäinen"
@@ -3582,6 +3586,39 @@ msgstr "järjestelmänvalvoja"
 msgid "superadmin"
 msgstr "superjärjestelmänvalvoja"
 
+#, fuzzy
+msgid "No file matches the filter"
+msgstr "Mikään blogi ei vastaa suodatinta"
+
+msgid "No file."
+msgstr "Ei tiedostoa."
+
+#, fuzzy, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] "%d blogi vastaa suodatinta."
+msgstr[1] "%d blogia vastaa suodatinta."
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr "Kohteiden määrä: %d → %d kansio(ta) + %d tiedosto(a)"
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr "Kohteiden määrä: %d"
+
+msgid "Insert this file into entry"
+msgstr "Liitä tämä tiedosto merkintään"
+
+msgid "delete"
+msgstr "poista"
+
+msgid "private media"
+msgstr "Yksityinen"
+
+msgid "open"
+msgstr "avaa"
+
 #, php-format
 msgid "ratio %.1f"
 msgstr "suhde %.1f"
@@ -3643,6 +3680,9 @@ msgstr "Sivut"
 msgid "administrator"
 msgstr "järjestelmänvalvoja"
 
+msgid "manage all entries and comments"
+msgstr "hallita kaikkia merkintöjä ja kommentteja"
+
 msgid "manage their own entries and comments"
 msgstr "hallita omia blogimerkintöjään ja kommenttejaan"
 
@@ -3652,17 +3692,14 @@ msgstr "julkaista merkintöjä ja kommentteja"
 msgid "delete entries and comments"
 msgstr "poistaa merkintöjä ja kommentteja"
 
-msgid "manage all entries and comments"
-msgstr "hallita kaikkia merkintöjä ja kommentteja"
-
 msgid "manage categories"
 msgstr "hallita luokkia"
 
-msgid "manage their own media items"
-msgstr "hallita omia media-aineistojaan"
-
 msgid "manage all media items"
 msgstr "hallita kaikkia media-aineistoja"
+
+msgid "manage their own media items"
+msgstr "hallita omia media-aineistojaan"
 
 msgid "That user does not exist in the database."
 msgstr "Käyttäjää ei ole tietokannassa."
@@ -3892,6 +3929,10 @@ msgstr "Nimiavaruus, asetus ei kelpaa: %s"
 msgid "SQL SELECT requires a FROM source"
 msgstr "SQL SELECT vaatii FROM-lähteen"
 
+#, fuzzy
+msgid "SQL JOIN requires a source"
+msgstr "SQL INSERT vaatii INTO-lähteen"
+
 msgid "SQL DELETE requires a FROM source"
 msgstr "SQL DELETE vaatii FROM-lähteen"
 
@@ -3900,6 +3941,10 @@ msgstr "SQL UPDATE vaatii INTO-lähteen"
 
 msgid "SQL INSERT requires an INTO source"
 msgstr "SQL INSERT vaatii INTO-lähteen"
+
+#, fuzzy
+msgid "SQL TRUNCATE TABLE requires a table source"
+msgstr "SQL UPDATE vaatii INTO-lähteen"
 
 msgid "Failed to read data feed"
 msgstr "Syötetietoja ei saatu luettua"
@@ -4041,6 +4086,56 @@ msgstr "<p>Tämä tarkoittaa joko sitä, että käyttäjänimi- ja salasanatieto
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr "Seuraava virhe sattui yritettäessä lukea tietokantaa:"
+
+#~ msgid "By names, in ascending order"
+#~ msgstr "Nimien mukaan nousevassa järjestyksessä"
+
+#~ msgid "By names, in descending order"
+#~ msgstr "Nimien mukaan laskevassa järjestyksessä"
+
+#~ msgid "By dates, in ascending order"
+#~ msgstr "Päiväysten mukaan nousevassa järjestyksessä"
+
+#~ msgid "By dates, in descending order"
+#~ msgstr "Päiväysten mukaan laskevassa järjestyksessä"
+
+#~ msgid "Directory has been successfully created."
+#~ msgstr "Hakemisto on luotu."
+
+#~ msgid "Directory has been successfully rebuilt."
+#~ msgstr "Hakemisto on rakennettu uudelleen."
+
+#~ msgid "Will search into media filename (including path), title and description"
+#~ msgstr "Haku media-aineistojen tiedostonnimistä (polkuineen), otsikoista ja kuvauksista"
+
+#~ msgid "Sort files:"
+#~ msgstr "Lajittele tiedostot:"
+
+#~ msgid "Number of elements displayed per page:"
+#~ msgstr "Sivua kohti näytettävien kohteiden lukumäärä:"
+
+#~ msgid "Media list"
+#~ msgstr "Media-aineistoluettelo"
+
+#~ msgid "Number of elements displayed per page in media manager:"
+#~ msgstr "Näytettävien kohteiden määrä sivua kohti medianhallinnassa:"
+
+#, php-format
+#~ msgid "%d entries found"
+#~ msgstr "%d löydettyä merkintää"
+
+#, php-format
+#~ msgid "%d comments found"
+#~ msgstr "%d löydettyä kommenttia"
+
+#~ msgid "Choose date"
+#~ msgstr "Valitse päiväys"
+
+#~ msgid "close"
+#~ msgstr "sulje"
+
+#~ msgid "now"
+#~ msgstr "nyt"
 
 #, fuzzy
 #~ msgid "large"

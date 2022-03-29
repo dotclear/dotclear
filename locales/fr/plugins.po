@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:23+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: 2020-04-29 10:29\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: French\n"
@@ -257,6 +257,9 @@ msgstr "Serveurs de contrôle d'IP"
 
 msgid "Add here a coma separated list of servers."
 msgstr "Ajouter ici la liste des serveurs séparés par des virgules."
+
+msgid "IP v6 Blocklist / Allowlist Filter"
+msgstr "Filtre de liste de blocage et d'autorisation d'IP v6"
 
 msgid "Checks links in comments against surbl.org"
 msgstr "Contrôle les liens des commentaires via surbl.org"
@@ -2284,3 +2287,7 @@ msgstr "Retirer le widget"
 
 msgid "Drag widgets here to remove."
 msgstr "Glisser les widgets ici pour les retirer du volet."
+
+#, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "Êtes-vous sûr·e de vouloir supprimer tous les indésirables ?"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:24+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: crm <admin@craftmerkezi.com>\n"
@@ -72,6 +72,20 @@ msgstr "Admin arayüzü:"
 
 msgid "Wrong username or password"
 msgstr "Hatalı kullanıcı adı ya da parola"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "Parola sıfırla"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "Orta:"
+
+msgid "strong"
+msgstr ""
 
 msgid "Back to login screen"
 msgstr "Giriş ekranına dön"
@@ -687,59 +701,11 @@ msgstr ""
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr ""
 
-msgid "Last update"
-msgstr "Son güncelleme"
-
-msgid "Status"
-msgstr "Durum"
-
-msgid "Descending"
-msgstr ""
-
-msgid "Ascending"
-msgstr ""
-
 msgid "List of blogs"
 msgstr "Blog listesi"
 
 msgid "Create a new blog"
 msgstr "Yeni bir blog oluştur"
-
-msgid "Show filters and display options"
-msgstr ""
-
-msgid "Filters"
-msgstr "Süzgeçler"
-
-msgid "Search:"
-msgstr "Ara:"
-
-msgid "Status:"
-msgstr "Durum:"
-
-#, fuzzy
-msgid "Display options"
-msgstr "Arama seçenekleri"
-
-msgid "Order by:"
-msgstr "Sıralama ölçütü"
-
-msgid "Sort:"
-msgstr "Sırala:"
-
-msgid "Show"
-msgstr ""
-
-#, fuzzy
-msgid "blogs per page"
-msgstr "Sayfa başına blog"
-
-#, fuzzy
-msgid "Save current options"
-msgstr "Arama seçenekleri"
-
-msgid "Apply filters and display options"
-msgstr ""
 
 #, fuzzy
 msgid "Selected blogs action:"
@@ -950,36 +916,14 @@ msgstr "Yazar"
 msgid "Web site:"
 msgstr "Web sayfası"
 
+msgid "Status:"
+msgstr "Durum:"
+
 msgid "Comment:"
 msgstr "Ahkam:"
 
 msgid "Delete"
 msgstr "Sil"
-
-#, fuzzy
-msgid "Comment"
-msgstr "Ahkam:"
-
-#, fuzzy
-msgid "Trackback"
-msgstr "Gerizlemeler"
-
-msgid "Date"
-msgstr "Tarih"
-
-msgid "Entry title"
-msgstr "Yazı başlığı"
-
-#, fuzzy
-msgid "Entry date"
-msgstr "Yazı başlığı"
-
-msgid "IP"
-msgstr ""
-
-#, fuzzy
-msgid "Spam filter"
-msgstr "süzgeç"
 
 #, fuzzy
 msgid "Selected comments have been successfully updated."
@@ -1010,24 +954,11 @@ msgstr ""
 msgid "Delete all spams"
 msgstr "Blog sil"
 
-msgid "Type:"
-msgstr "Tip:"
-
-#, fuzzy
-msgid "comments per page"
-msgstr "Sayfa başına ahkam"
-
 msgid "Selected comments action:"
 msgstr "Seçili ahkamlara yap:"
 
 msgid "Global help"
 msgstr ""
-
-#, fuzzy, php-format
-msgid "An update is available"
-msgid_plural "%s updates are available."
-msgstr[0] "Dotclear %s mevcut!"
-msgstr[1] "Dotclear %s mevcut!"
 
 #, fuzzy
 msgid "Documentation and support"
@@ -1194,20 +1125,6 @@ msgstr ""
 #, fuzzy
 msgid "Dotclear Install"
 msgstr "Dotclear kurulumu"
-
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "Parola sıfırla"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "Orta:"
-
-msgid "strong"
-msgstr ""
 
 msgid "show"
 msgstr ""
@@ -1449,37 +1366,17 @@ msgstr "Dil zip dosyası:"
 msgid "Upload language"
 msgstr "Dil yükle"
 
-msgid "By names, in ascending order"
-msgstr ""
+msgid "Media manager"
+msgstr "Medya yönetimi"
 
-msgid "By names, in descending order"
-msgstr ""
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%d yazı bulundu"
+msgstr[1] "%d yazı bulundu"
 
-msgid "By dates, in ascending order"
-msgstr ""
-
-msgid "By dates, in descending order"
-msgstr ""
-
-#, fuzzy
-msgid "Select this file"
-msgstr "Bu bloğu sil"
-
-msgid "Attach this file to entry"
-msgstr "Bu dosyayı yazıya ekle"
-
-msgid "Insert this file into entry"
-msgstr "Bu dosyayı yazıya kat"
-
-#, fuzzy
-msgid "delete"
-msgstr "Sil"
-
-msgid "private media"
-msgstr ""
-
-msgid "open"
-msgstr "aç"
+msgid "Search:"
+msgstr "Ara:"
 
 #, fuzzy
 msgid "Not a valid directory"
@@ -1512,9 +1409,6 @@ msgstr "Dosya silinimi başarılı."
 msgid "Directory \"%s\" has been successfully rebuilt."
 msgstr "Dizin yine inşaası başarılı."
 
-msgid "Media manager"
-msgstr "Medya yönetimi"
-
 msgid "confirm removal"
 msgstr "kaldırmayı onayla"
 
@@ -1524,12 +1418,6 @@ msgstr ""
 
 msgid "Yes"
 msgstr "evet"
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%d yazı bulundu"
-msgstr[1] "%d yazı bulundu"
 
 msgid "Remove this folder from your favorites"
 msgstr ""
@@ -1543,18 +1431,13 @@ msgstr ""
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr ""
 
-msgid "Directory has been successfully created."
-msgstr "Dizin oluşturumu başarılı."
-
-msgid "Directory has been successfully rebuilt."
-msgstr "Dizin yine inşaası başarılı."
-
-msgid "Zip file has been successfully extracted."
-msgstr ""
-
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr ""
+
+#, fuzzy
+msgid "Select this file"
+msgstr "Bu bloğu sil"
 
 #, fuzzy
 msgid "Choose selected medias"
@@ -1576,19 +1459,12 @@ msgstr "Zip dosyası"
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr ""
 
+msgid "Attach this file to entry"
+msgstr "Bu dosyayı yazıya ekle"
+
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr ""
-
-#, fuzzy
-msgid "Remove selected medias"
-msgstr "Seçili dosyaya geri dön"
-
-msgid "Will search into media filename (including path), title and description"
-msgstr ""
-
-msgid "No file."
-msgstr "Dosya yok."
 
 #, fuzzy
 msgid "Grid display mode"
@@ -1598,26 +1474,9 @@ msgstr "Gösterim ismi"
 msgid "List display mode"
 msgstr "Gösterim ismi"
 
-msgid "Sort files:"
-msgstr "Dosyaları sırala:"
-
-msgid "Number of elements displayed per page:"
-msgstr ""
-
 #, fuzzy
-msgid "Media list"
-msgstr "Medya ayrıntıları"
-
-msgid "Size"
-msgstr ""
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr ""
-
-#, php-format
-msgid "Nb of items: %d"
-msgstr ""
+msgid "Remove selected medias"
+msgstr "Seçili dosyaya geri dön"
 
 #, php-format
 msgid "In %s:"
@@ -1686,8 +1545,19 @@ msgstr "Dosya güncellenimi  başarılı."
 msgid "Thumbnails have been successfully updated."
 msgstr "Pulların güncellenimi başarılı."
 
+msgid "Zip file has been successfully extracted."
+msgstr ""
+
 #, fuzzy
 msgid "Default media insertion settings have been successfully updated."
+msgstr "Pulların güncellenimi başarılı."
+
+#, fuzzy
+msgid "Media insertion settings have been successfully registered for this folder."
+msgstr "Pulların güncellenimi başarılı."
+
+#, fuzzy
+msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "Pulların güncellenimi başarılı."
 
 #, fuzzy
@@ -1756,6 +1626,20 @@ msgstr "Kat"
 
 msgid "Make current settings as default"
 msgstr ""
+
+#, fuzzy
+msgid "For the blog"
+msgstr "Blogunuz"
+
+msgid "For this folder only"
+msgstr ""
+
+msgid "Settings exist for this folder:"
+msgstr ""
+
+#, fuzzy
+msgid "Remove them"
+msgstr "Bu temayı sil"
 
 msgid "Media details"
 msgstr "Medya ayrıntıları"
@@ -2050,8 +1934,14 @@ msgstr ""
 msgid "Go to this entry on the site"
 msgstr ""
 
+msgid "Date"
+msgstr "Tarih"
+
 msgid "IP address"
 msgstr "IP adresi"
+
+msgid "Status"
+msgstr "Durum"
 
 msgid "Edit"
 msgstr ""
@@ -2147,6 +2037,10 @@ msgstr "Ahkamlar"
 msgid "Add a comment"
 msgstr "Ahkam ekle"
 
+#, fuzzy
+msgid "Comment"
+msgstr "Ahkam:"
+
 msgid "Trackbacks"
 msgstr "Gerizlemeler"
 
@@ -2189,47 +2083,6 @@ msgstr "Ek"
 msgid "Are you sure you want to remove this attachment?"
 msgstr ""
 
-msgid "(No cat)"
-msgstr ""
-
-msgid "Selected"
-msgstr "Seçili"
-
-#, fuzzy
-msgid "Not selected"
-msgstr "seçilmedi"
-
-msgid "Opened"
-msgstr ""
-
-#, fuzzy
-msgid "Closed"
-msgstr "kapat"
-
-#, fuzzy
-msgid "With attachments"
-msgstr "%d ek"
-
-#, fuzzy
-msgid "Without attachments"
-msgstr "%d ek"
-
-#, fuzzy
-msgid "With password"
-msgstr "Yazı parolası:"
-
-#, fuzzy
-msgid "Without password"
-msgstr "parolanız"
-
-#, fuzzy
-msgid "Number of comments"
-msgstr "Yazı sayısı"
-
-#, fuzzy
-msgid "Number of trackbacks"
-msgstr "Gerizleme yok"
-
 #, fuzzy
 msgid "Selected entries have been successfully updated."
 msgstr "Pulların güncellenimi başarılı."
@@ -2237,35 +2090,6 @@ msgstr "Pulların güncellenimi başarılı."
 #, fuzzy
 msgid "Selected entries have been successfully deleted."
 msgstr "Pulların güncellenimi başarılı."
-
-#, fuzzy
-msgid "Format:"
-msgstr "Tarih biçimi:"
-
-msgid "Selected:"
-msgstr "Seçili:"
-
-#, fuzzy
-msgid "Attachments:"
-msgstr "Ekler"
-
-msgid "Month:"
-msgstr "Ay:"
-
-msgid "Lang:"
-msgstr "Dil:"
-
-#, fuzzy
-msgid "Comments:"
-msgstr "Ahkamlar"
-
-#, fuzzy
-msgid "Trackbacks:"
-msgstr "Gerizlemeler"
-
-#, fuzzy
-msgid "entries per page"
-msgstr "Sayfa başına yazı"
 
 msgid "Selected entries action:"
 msgstr "Seçilmiş yazılara yap:"
@@ -2301,17 +2125,11 @@ msgstr ""
 msgid "Category description"
 msgstr "Yavru kategori"
 
-msgid "Last Name"
-msgstr "Soy İsim"
+msgid "Descending"
+msgstr ""
 
-msgid "First Name"
-msgstr "İlk İsim"
-
-msgid "Display name"
-msgstr "Gösterim ismi"
-
-msgid "Number of entries"
-msgstr "Yazı sayısı"
+msgid "Ascending"
+msgstr ""
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr ""
@@ -2357,6 +2175,18 @@ msgstr ""
 msgid "Display name:"
 msgstr "Gösterim ismi:"
 
+msgid "Alternate emails (comma separated list):"
+msgstr ""
+
+msgid "Invalid emails will be automatically removed from list."
+msgstr ""
+
+msgid "Alternate URLs (comma separated list):"
+msgstr ""
+
+msgid "Invalid URLs will be automatically removed from list."
+msgstr ""
+
 msgid "Language for my interface:"
 msgstr ""
 
@@ -2398,6 +2228,9 @@ msgstr "Temalar"
 msgid "Activate enhanced uploader in media manager"
 msgstr "Gelişmiş yükleyiciyi etkinleştir"
 
+msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
+msgstr ""
+
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr ""
 
@@ -2416,9 +2249,6 @@ msgstr ""
 #, fuzzy
 msgid "Font size:"
 msgstr "Dosya boyutu:"
-
-msgid "Number of elements displayed per page in media manager:"
-msgstr ""
 
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
@@ -2448,9 +2278,14 @@ msgstr ""
 msgid "Apply filters on the fly"
 msgstr "Dosya ekle"
 
-#, fuzzy
-msgid "users per page"
-msgstr "Sayfa başına kullanıcı"
+msgid "Order by:"
+msgstr "Sıralama ölçütü"
+
+msgid "Sort:"
+msgstr "Sırala:"
+
+msgid "Show"
+msgstr ""
 
 #, fuzzy
 msgid "Edition"
@@ -2584,6 +2419,13 @@ msgstr "Arama seçenekleri"
 msgid "Query:"
 msgstr "Sorgulama:"
 
+msgid "In:"
+msgstr ""
+
+#, fuzzy
+msgid "No results found"
+msgstr "%d yazı bulundu"
+
 #, fuzzy
 msgid "Search in entries"
 msgstr "yazıları ara"
@@ -2592,21 +2434,17 @@ msgstr "yazıları ara"
 msgid "Search in comments"
 msgstr "ahkamları ara"
 
-#, php-format
-msgid "%d entries found"
-msgstr "%d yazı bulundu"
+#, fuzzy, php-format
+msgid "one entry found"
+msgid_plural "%d entries found"
+msgstr[0] "%d yazı bulundu"
+msgstr[1] "%d yazı bulundu"
 
-#, php-format
-msgid "%d entry found"
-msgstr "%d yazı bulundu"
-
-#, php-format
-msgid "%d comment found"
-msgstr "%d ahkam bulundu"
-
-#, php-format
-msgid "%d comments found"
-msgstr "%d ahkam bulundu"
+#, fuzzy, php-format
+msgid "one comment found"
+msgid_plural "%d comments found"
+msgstr[0] "%d ahkam bulundu"
+msgstr[1] "%d ahkam bulundu"
 
 #, fuzzy, php-format
 msgid "%d post"
@@ -2655,6 +2493,16 @@ msgstr ""
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr ""
+
+#, fuzzy
+msgid "No updates are available"
+msgstr "Dotclear %s mevcut!"
+
+#, fuzzy, php-format
+msgid "An update is available"
+msgid_plural "%s updates are available."
+msgstr[0] "Dotclear %s mevcut!"
+msgstr[1] "Dotclear %s mevcut!"
 
 #, fuzzy
 msgid "List options saved"
@@ -3068,6 +2916,152 @@ msgstr "Yazı dili:"
 msgid "Languages"
 msgstr "Diller"
 
+msgid "(No cat)"
+msgstr ""
+
+msgid "Selected"
+msgstr "Seçili"
+
+#, fuzzy
+msgid "Number of comments"
+msgstr "Yazı sayısı"
+
+#, fuzzy
+msgid "Number of trackbacks"
+msgstr "Gerizleme yok"
+
+msgid "Entry title"
+msgstr "Yazı başlığı"
+
+#, fuzzy
+msgid "Entry date"
+msgstr "Yazı başlığı"
+
+msgid "IP"
+msgstr ""
+
+#, fuzzy
+msgid "Spam filter"
+msgstr "süzgeç"
+
+msgid "Last update"
+msgstr "Son güncelleme"
+
+msgid "Last Name"
+msgstr "Soy İsim"
+
+msgid "First Name"
+msgstr "İlk İsim"
+
+msgid "Display name"
+msgstr "Gösterim ismi"
+
+msgid "Number of entries"
+msgstr "Yazı sayısı"
+
+msgid "Show filters and display options"
+msgstr ""
+
+msgid "Filters"
+msgstr "Süzgeçler"
+
+#, fuzzy
+msgid "Display options"
+msgstr "Arama seçenekleri"
+
+#, fuzzy
+msgid "Save current options"
+msgstr "Arama seçenekleri"
+
+msgid "Apply filters and display options"
+msgstr ""
+
+#, fuzzy
+msgid "Format:"
+msgstr "Tarih biçimi:"
+
+#, fuzzy
+msgid "With password"
+msgstr "Yazı parolası:"
+
+#, fuzzy
+msgid "Without password"
+msgstr "parolanız"
+
+msgid "Selected:"
+msgstr "Seçili:"
+
+#, fuzzy
+msgid "Not selected"
+msgstr "seçilmedi"
+
+#, fuzzy
+msgid "Attachments:"
+msgstr "Ekler"
+
+#, fuzzy
+msgid "With attachments"
+msgstr "%d ek"
+
+#, fuzzy
+msgid "Without attachments"
+msgstr "%d ek"
+
+msgid "Month:"
+msgstr "Ay:"
+
+msgid "Lang:"
+msgstr "Dil:"
+
+#, fuzzy
+msgid "Comments:"
+msgstr "Ahkamlar"
+
+msgid "Opened"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "kapat"
+
+#, fuzzy
+msgid "Trackbacks:"
+msgstr "Gerizlemeler"
+
+msgid "Type:"
+msgstr "Tip:"
+
+#, fuzzy
+msgid "Trackback"
+msgstr "Gerizlemeler"
+
+#, fuzzy
+msgid "users per page"
+msgstr "Sayfa başına kullanıcı"
+
+#, fuzzy
+msgid "entries per page"
+msgstr "Sayfa başına yazı"
+
+#, fuzzy
+msgid "comments per page"
+msgstr "Sayfa başına ahkam"
+
+#, fuzzy
+msgid "blogs per page"
+msgstr "Sayfa başına blog"
+
+msgid "Size"
+msgstr ""
+
+#, fuzzy
+msgid "media per page"
+msgstr "Sayfa başına yazı"
+
+#, fuzzy
+msgid "results per page"
+msgstr "Sayfa başına yazı"
+
 msgid "%H:%M:%S"
 msgstr ""
 
@@ -3165,30 +3159,32 @@ msgstr "%d yazı"
 msgid "view entry"
 msgstr "yazıyı gör"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
+#, fuzzy
 msgid "Are you sure you want to delete this entry?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
 msgid "Click here to unlock the field"
 msgstr ""
 
+#, fuzzy
 msgid "Are you sure you want to delete all spams?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
 #, fuzzy
 msgid "Are you sure you want to delete this comment?"
@@ -3198,66 +3194,72 @@ msgstr "Bu ahkamı düzenleyemezsiniz."
 msgid "Users with posts cannot be deleted."
 msgstr "Dizin silinemedi."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
+#, fuzzy
 msgid "Are you sure you want to reorder all categories?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
-msgstr ""
+msgstr "Bulunduğu dizine aç"
 
 #, fuzzy
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Bulunduğu dizine aç"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
+#, fuzzy
 msgid "Are you sure you want to delete selected plugins?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
 msgid "Use this theme"
 msgstr "Bu temayı kullan"
 
+#, fuzzy
 msgid "Remove this theme"
 msgstr "Bu temayı sil"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
+#, fuzzy
 msgid "Are you sure you want to delete selected themes?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
+#, fuzzy
 msgid "Are you sure you want to delete this backup?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
+#, fuzzy
 msgid "Are you sure you want to revert to this backup?"
-msgstr ""
+msgstr "Bu ahkamı düzenleyemezsiniz."
 
 msgid "Zip file content"
 msgstr "ZIP dosyası içeriği"
@@ -3312,21 +3314,14 @@ msgstr "Yeni parola:"
 msgid "Hide password"
 msgstr "Yeni parola:"
 
-msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it."
+msgid "Reset to now"
+msgstr ""
+
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr ""
 
 msgid "You have unsaved changes."
 msgstr "Kaydedilmemiş değişiklikler var."
-
-#, fuzzy
-msgid "Choose date"
-msgstr "Dosya seçimi"
-
-msgid "close"
-msgstr "kapat"
-
-msgid "now"
-msgstr "şimdi"
 
 msgid "Temporarily activate enhanced uploader"
 msgstr "Gelişmiş yükleyiciyi etkinleştir"
@@ -3417,6 +3412,10 @@ msgstr "Sürüm"
 msgid "Current version"
 msgstr "izinleri ayarla"
 
+#, fuzzy
+msgid "Repository"
+msgstr "Açıklama:"
+
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -3427,6 +3426,14 @@ msgstr ""
 
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr ""
+
+#, fuzzy
+msgid "Official repository"
+msgstr "Yazı ara:"
+
+#, fuzzy
+msgid "Third-party repository"
+msgstr "Yazı ara:"
 
 msgid "Plugin from official distribution"
 msgstr ""
@@ -3868,6 +3875,40 @@ msgstr ""
 msgid "superadmin"
 msgstr "Süper admin"
 
+#, fuzzy
+msgid "No file matches the filter"
+msgstr "Yazı başlığı yok"
+
+msgid "No file."
+msgstr "Dosya yok."
+
+#, fuzzy, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] "Yazı başlığı yok"
+msgstr[1] "Yazı başlığı yok"
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr ""
+
+msgid "Insert this file into entry"
+msgstr "Bu dosyayı yazıya kat"
+
+#, fuzzy
+msgid "delete"
+msgstr "Sil"
+
+msgid "private media"
+msgstr ""
+
+msgid "open"
+msgstr "aç"
+
 #, php-format
 msgid "ratio %.1f"
 msgstr ""
@@ -3937,6 +3978,9 @@ msgstr "Sayfa(lar)"
 msgid "administrator"
 msgstr "administrator"
 
+msgid "manage all entries and comments"
+msgstr ""
+
 msgid "manage their own entries and comments"
 msgstr ""
 
@@ -3946,16 +3990,13 @@ msgstr "yazıları ve ahkamları yayınla"
 msgid "delete entries and comments"
 msgstr ""
 
-msgid "manage all entries and comments"
-msgstr ""
-
 msgid "manage categories"
 msgstr "kategorileri yönet"
 
-msgid "manage their own media items"
+msgid "manage all media items"
 msgstr ""
 
-msgid "manage all media items"
+msgid "manage their own media items"
 msgstr ""
 
 msgid "That user does not exist in the database."
@@ -4198,6 +4239,9 @@ msgstr "Geçersiz namespace ayarlama: %s"
 msgid "SQL SELECT requires a FROM source"
 msgstr ""
 
+msgid "SQL JOIN requires a source"
+msgstr ""
+
 msgid "SQL DELETE requires a FROM source"
 msgstr ""
 
@@ -4205,6 +4249,9 @@ msgid "SQL UPDATE requires an INTO source"
 msgstr ""
 
 msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a table source"
 msgstr ""
 
 #, fuzzy
@@ -4352,6 +4399,33 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Directory has been successfully created."
+#~ msgstr "Dizin oluşturumu başarılı."
+
+#~ msgid "Directory has been successfully rebuilt."
+#~ msgstr "Dizin yine inşaası başarılı."
+
+#~ msgid "Sort files:"
+#~ msgstr "Dosyaları sırala:"
+
+#, fuzzy
+#~ msgid "Media list"
+#~ msgstr "Medya ayrıntıları"
+
+#, php-format
+#~ msgid "%d comments found"
+#~ msgstr "%d ahkam bulundu"
+
+#, fuzzy
+#~ msgid "Choose date"
+#~ msgstr "Dosya seçimi"
+
+#~ msgid "close"
+#~ msgstr "kapat"
+
+#~ msgid "now"
+#~ msgstr "şimdi"
 
 #, fuzzy
 #~ msgid "Activate dark mode"

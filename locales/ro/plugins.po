@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dotclear\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:23+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:51+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Romanian <ro@li.org>\n"
@@ -270,6 +270,10 @@ msgstr "Servere de căutare IP"
 
 msgid "Add here a coma separated list of servers."
 msgstr "Adaugă aici o listă de servere separate prin virgulă"
+
+#, fuzzy
+msgid "IP v6 Blocklist / Allowlist Filter"
+msgstr "IP Blocklist / Filtru Allowlist"
 
 msgid "Checks links in comments against surbl.org"
 msgstr "Verifică legăturile în comentarii cu surbl.org"
@@ -920,7 +924,7 @@ msgstr ""
 msgid "Colors per row in palette:"
 msgstr ""
 
-msgid "Leave empty to use default (6)"
+msgid "Valid range: 4 to 16"
 msgstr ""
 
 msgid "Add collapse button"
@@ -961,6 +965,9 @@ msgid "source"
 msgstr ""
 
 msgid "You can use the following shortcuts to format your text."
+msgstr ""
+
+msgid "Block format"
 msgstr ""
 
 msgid "-- none --"
@@ -2355,12 +2362,12 @@ msgid "Drag widgets here to remove."
 msgstr ""
 
 #, fuzzy
-#~ msgid "Liste des auteurs"
-#~ msgstr "Toate categoriile"
-
-#, fuzzy
 #~ msgid "Are you sure you want to delete all spams?"
 #~ msgstr "Sigur dorești a șterge legăturile selectate?"
+
+#, fuzzy
+#~ msgid "Liste des auteurs"
+#~ msgstr "Toate categoriile"
 
 #~ msgid "Page top"
 #~ msgstr "Începutul paginii"

@@ -141,7 +141,7 @@ class adminSearchPageDefault
         }
 
         if (self::$count > 0) {
-            printf('<h3>' . __('%d entry found', '%d entries found', self::$count) . '</h3>', self::$count);
+            printf('<h3>' . __('one entry found', '%d entries found', self::$count) . '</h3>', self::$count);
         }
 
         self::$list->display(
@@ -196,7 +196,7 @@ class adminSearchPageDefault
         }
 
         if (self::$count > 0) {
-            printf('<h3>' . __('%d comment found', '%d comments found', self::$count) . '</h3>', self::$count);
+            printf('<h3>' . __('one comment found', '%d comments found', self::$count) . '</h3>', self::$count);
         }
 
         self::$list->display(

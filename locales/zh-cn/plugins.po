@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:24+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:55+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -276,6 +276,10 @@ msgstr "IP 查询服务器"
 
 msgid "Add here a coma separated list of servers."
 msgstr "添加一个由逗号分隔的服务器列表。"
+
+#, fuzzy
+msgid "IP v6 Blocklist / Allowlist Filter"
+msgstr "IP 黑名单／白名单过滤"
 
 msgid "Checks links in comments against surbl.org"
 msgstr "从 surbl.org 查询评论中的链接"
@@ -934,7 +938,7 @@ msgstr ""
 msgid "Colors per row in palette:"
 msgstr ""
 
-msgid "Leave empty to use default (6)"
+msgid "Valid range: 4 to 16"
 msgstr ""
 
 msgid "Add collapse button"
@@ -976,6 +980,9 @@ msgid "source"
 msgstr ""
 
 msgid "You can use the following shortcuts to format your text."
+msgstr ""
+
+msgid "Block format"
 msgstr ""
 
 msgid "-- none --"
@@ -2426,16 +2433,16 @@ msgid "Drag widgets here to remove."
 msgstr ""
 
 #, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "您确定要删除此页面吗？"
+
+#, fuzzy
 #~ msgid "Liste des auteurs"
 #~ msgstr "所有分类目录"
 
 #, fuzzy
 #~ msgid "Liste des séries"
 #~ msgstr "最新文章"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "您确定要删除此页面吗？"
 
 #~ msgid "Page top"
 #~ msgstr "页面顶部"

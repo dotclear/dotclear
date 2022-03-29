@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:23+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:48+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Dotclear Japan\n"
@@ -78,6 +78,20 @@ msgstr "管理インターフェイス："
 
 msgid "Wrong username or password"
 msgstr "ユーザ名またはパスワードが間違っています"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "パスワードのリセット"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "ミディアム："
+
+msgid "strong"
+msgstr ""
 
 msgid "Back to login screen"
 msgstr "ログイン画面に戻る"
@@ -696,60 +710,11 @@ msgstr "zipファイルをアップロードかダウンロードすることで
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "この機能を有効にするには、plugins ディレクトリに書き込み権限を与えてください。"
 
-msgid "Last update"
-msgstr "最終更新"
-
-msgid "Status"
-msgstr "状態"
-
-msgid "Descending"
-msgstr "降順"
-
-msgid "Ascending"
-msgstr "昇順"
-
 msgid "List of blogs"
 msgstr "ブログ一覧"
 
 msgid "Create a new blog"
 msgstr "新しいブログを作成"
-
-msgid "Show filters and display options"
-msgstr ""
-
-msgid "Filters"
-msgstr "絞り込み"
-
-msgid "Search:"
-msgstr "検索："
-
-msgid "Status:"
-msgstr "状態："
-
-#, fuzzy
-msgid "Display options"
-msgstr "検索オプション"
-
-msgid "Order by:"
-msgstr "並び順："
-
-msgid "Sort:"
-msgstr "並び替え："
-
-#, fuzzy
-msgid "Show"
-msgstr "それを表示する。"
-
-#, fuzzy
-msgid "blogs per page"
-msgstr "ブログ / ページ"
-
-#, fuzzy
-msgid "Save current options"
-msgstr "検索オプション"
-
-msgid "Apply filters and display options"
-msgstr ""
 
 #, fuzzy
 msgid "Selected blogs action:"
@@ -967,36 +932,14 @@ msgstr "投稿者"
 msgid "Web site:"
 msgstr "ウェブサイト："
 
+msgid "Status:"
+msgstr "状態："
+
 msgid "Comment:"
 msgstr "コメント："
 
 msgid "Delete"
 msgstr "削除"
-
-#, fuzzy
-msgid "Comment"
-msgstr "コメント："
-
-#, fuzzy
-msgid "Trackback"
-msgstr "トラックバック"
-
-msgid "Date"
-msgstr "日付"
-
-msgid "Entry title"
-msgstr "エントリのタイトル"
-
-#, fuzzy
-msgid "Entry date"
-msgstr "エントリのタイトル"
-
-msgid "IP"
-msgstr ""
-
-#, fuzzy
-msgid "Spam filter"
-msgstr "絞り込み"
 
 #, fuzzy
 msgid "Selected comments have been successfully updated."
@@ -1027,23 +970,11 @@ msgstr "それらを表示する。"
 msgid "Delete all spams"
 msgstr "ブログを削除"
 
-msgid "Type:"
-msgstr "タイプ："
-
-#, fuzzy
-msgid "comments per page"
-msgstr "コメント / ページ"
-
 msgid "Selected comments action:"
 msgstr "選択されたコメントに実行："
 
 msgid "Global help"
 msgstr ""
-
-#, fuzzy, php-format
-msgid "An update is available"
-msgid_plural "%s updates are available."
-msgstr[0] "Iconv モジュールが利用可能ではありません。"
 
 #, fuzzy
 msgid "Documentation and support"
@@ -1212,20 +1143,6 @@ msgstr ""
 #, fuzzy
 msgid "Dotclear Install"
 msgstr "Dotclear のインストール"
-
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "パスワードのリセット"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "ミディアム："
-
-msgid "strong"
-msgstr ""
 
 msgid "show"
 msgstr ""
@@ -1471,38 +1388,16 @@ msgstr "言語のzipファイル："
 msgid "Upload language"
 msgstr "言語をアップロード"
 
-msgid "By names, in ascending order"
-msgstr "名前 - 昇順"
+msgid "Media manager"
+msgstr "メディアマネージャ"
 
-msgid "By names, in descending order"
-msgstr "名前 - 降順"
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%d エントリが見つかりました"
 
-msgid "By dates, in ascending order"
-msgstr "日付 - 昇順"
-
-msgid "By dates, in descending order"
-msgstr "日付 - 降順"
-
-#, fuzzy
-msgid "Select this file"
-msgstr "このブログを削除"
-
-msgid "Attach this file to entry"
-msgstr "このファイルをエントリに添付"
-
-msgid "Insert this file into entry"
-msgstr "このファイルをエントリへ挿入"
-
-#, fuzzy
-msgid "delete"
-msgstr "削除"
-
-#, fuzzy
-msgid "private media"
-msgstr "プライベート"
-
-msgid "open"
-msgstr "開く"
+msgid "Search:"
+msgstr "検索："
 
 #, fuzzy
 msgid "Not a valid directory"
@@ -1534,9 +1429,6 @@ msgstr "ファイルは正常に削除されました。"
 msgid "Directory \"%s\" has been successfully rebuilt."
 msgstr "ディレクトは正常に再構築されました。"
 
-msgid "Media manager"
-msgstr "メディアマネージャ"
-
 msgid "confirm removal"
 msgstr "削除の確認"
 
@@ -1546,11 +1438,6 @@ msgstr "本当に、%s を削除してもよろしいですか？"
 
 msgid "Yes"
 msgstr "はい"
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%d エントリが見つかりました"
 
 msgid "Remove this folder from your favorites"
 msgstr ""
@@ -1565,18 +1452,13 @@ msgstr ""
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "このプラグインを削除するパーミッションがありません。"
 
-msgid "Directory has been successfully created."
-msgstr "ディレクトリは正常に作成されました。"
-
-msgid "Directory has been successfully rebuilt."
-msgstr "ディレクトは正常に再構築されました。"
-
-msgid "Zip file has been successfully extracted."
-msgstr "zipファイルは正常に展開されました。"
-
 #, fuzzy, php-format
 msgid "Select a file by clicking on %s"
 msgstr "エントリへ挿入するファイルを %s をクリックして選択してください。"
+
+#, fuzzy
+msgid "Select this file"
+msgstr "このブログを削除"
 
 #, fuzzy
 msgid "Choose selected medias"
@@ -1598,19 +1480,12 @@ msgstr "zipファイルのアップロード"
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr "エントリ %s に添付するファイルを %s をクリックして選択してください。"
 
+msgid "Attach this file to entry"
+msgstr "このファイルをエントリに添付"
+
 #, fuzzy, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "エントリへ挿入するファイルを %s をクリックして選択してください。"
-
-#, fuzzy
-msgid "Remove selected medias"
-msgstr "選択したファイルへ戻す"
-
-msgid "Will search into media filename (including path), title and description"
-msgstr ""
-
-msgid "No file."
-msgstr "ファイルはありません。"
 
 #, fuzzy
 msgid "Grid display mode"
@@ -1620,26 +1495,9 @@ msgstr "表示名"
 msgid "List display mode"
 msgstr "表示名"
 
-msgid "Sort files:"
-msgstr "ファイルの並び替え："
-
-msgid "Number of elements displayed per page:"
-msgstr ""
-
 #, fuzzy
-msgid "Media list"
-msgstr "メディアの詳細"
-
-msgid "Size"
-msgstr ""
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr ""
-
-#, php-format
-msgid "Nb of items: %d"
-msgstr ""
+msgid "Remove selected medias"
+msgstr "選択したファイルへ戻す"
 
 #, php-format
 msgid "In %s:"
@@ -1709,8 +1567,19 @@ msgstr "ファイルは正常に更新されました。"
 msgid "Thumbnails have been successfully updated."
 msgstr "サムネイルは正常に更新されました。"
 
+msgid "Zip file has been successfully extracted."
+msgstr "zipファイルは正常に展開されました。"
+
 #, fuzzy
 msgid "Default media insertion settings have been successfully updated."
+msgstr "サムネイルは正常に更新されました。"
+
+#, fuzzy
+msgid "Media insertion settings have been successfully registered for this folder."
+msgstr "サムネイルは正常に更新されました。"
+
+#, fuzzy
+msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "サムネイルは正常に更新されました。"
 
 #, fuzzy
@@ -1779,6 +1648,20 @@ msgstr "挿入"
 
 msgid "Make current settings as default"
 msgstr ""
+
+#, fuzzy
+msgid "For the blog"
+msgstr "あなたのブログ"
+
+msgid "For this folder only"
+msgstr ""
+
+msgid "Settings exist for this folder:"
+msgstr ""
+
+#, fuzzy
+msgid "Remove them"
+msgstr "このテーマを削除"
 
 msgid "Media details"
 msgstr "メディアの詳細"
@@ -2074,8 +1957,14 @@ msgstr "投稿を保存することによって、XHTML 変換を有効にする
 msgid "Go to this entry on the site"
 msgstr ""
 
+msgid "Date"
+msgstr "日付"
+
 msgid "IP address"
 msgstr "IPアドレス"
+
+msgid "Status"
+msgstr "状態"
 
 msgid "Edit"
 msgstr ""
@@ -2171,6 +2060,10 @@ msgstr "コメント"
 msgid "Add a comment"
 msgstr "コメントを追加"
 
+#, fuzzy
+msgid "Comment"
+msgstr "コメント："
+
 msgid "Trackbacks"
 msgstr "トラックバック"
 
@@ -2213,47 +2106,6 @@ msgstr "添付ファイル"
 msgid "Are you sure you want to remove this attachment?"
 msgstr "本当に、この添付ファイルを除去してもよろしいですか？"
 
-msgid "(No cat)"
-msgstr ""
-
-msgid "Selected"
-msgstr "イチ押し"
-
-#, fuzzy
-msgid "Not selected"
-msgstr "非イチ押し"
-
-msgid "Opened"
-msgstr ""
-
-#, fuzzy
-msgid "Closed"
-msgstr "閉じる"
-
-#, fuzzy
-msgid "With attachments"
-msgstr "添付(%d)"
-
-#, fuzzy
-msgid "Without attachments"
-msgstr "添付(%d)"
-
-#, fuzzy
-msgid "With password"
-msgstr "エントリのパスワード："
-
-#, fuzzy
-msgid "Without password"
-msgstr "あなたのパスワード"
-
-#, fuzzy
-msgid "Number of comments"
-msgstr "エントリ数"
-
-#, fuzzy
-msgid "Number of trackbacks"
-msgstr "トラックバックはありません"
-
 #, fuzzy
 msgid "Selected entries have been successfully updated."
 msgstr "サムネイルは正常に更新されました。"
@@ -2261,35 +2113,6 @@ msgstr "サムネイルは正常に更新されました。"
 #, fuzzy
 msgid "Selected entries have been successfully deleted."
 msgstr "サムネイルは正常に更新されました。"
-
-#, fuzzy
-msgid "Format:"
-msgstr "日付の書式："
-
-msgid "Selected:"
-msgstr "イチ押し："
-
-#, fuzzy
-msgid "Attachments:"
-msgstr "添付ファイル"
-
-msgid "Month:"
-msgstr "月："
-
-msgid "Lang:"
-msgstr "言語："
-
-#, fuzzy
-msgid "Comments:"
-msgstr "コメント"
-
-#, fuzzy
-msgid "Trackbacks:"
-msgstr "トラックバック"
-
-#, fuzzy
-msgid "entries per page"
-msgstr "エントリ / ページ"
 
 msgid "Selected entries action:"
 msgstr "選択されたエントリに実行："
@@ -2325,19 +2148,11 @@ msgstr ""
 msgid "Category description"
 msgstr "カテゴリの兄弟"
 
-#, fuzzy
-msgid "Last Name"
-msgstr "最終更新"
+msgid "Descending"
+msgstr "降順"
 
-#, fuzzy
-msgid "First Name"
-msgstr "ファーストネーム"
-
-msgid "Display name"
-msgstr "表示名"
-
-msgid "Number of entries"
-msgstr "エントリ数"
+msgid "Ascending"
+msgstr "昇順"
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "メールアドレスやパスワードを変更したい場合は、現在のパスワードを入力する必要があります。"
@@ -2383,6 +2198,18 @@ msgstr ""
 msgid "Display name:"
 msgstr "表示名："
 
+msgid "Alternate emails (comma separated list):"
+msgstr ""
+
+msgid "Invalid emails will be automatically removed from list."
+msgstr ""
+
+msgid "Alternate URLs (comma separated list):"
+msgstr ""
+
+msgid "Invalid URLs will be automatically removed from list."
+msgstr ""
+
 msgid "Language for my interface:"
 msgstr ""
 
@@ -2426,6 +2253,9 @@ msgstr "テーマ"
 msgid "Activate enhanced uploader in media manager"
 msgstr "拡張アップローダを有効化"
 
+msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
+msgstr ""
+
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr ""
 
@@ -2444,9 +2274,6 @@ msgstr ""
 #, fuzzy
 msgid "Font size:"
 msgstr "ファイルサイズ："
-
-msgid "Number of elements displayed per page in media manager:"
-msgstr ""
 
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
@@ -2476,9 +2303,15 @@ msgstr ""
 msgid "Apply filters on the fly"
 msgstr "ファイルの追加"
 
+msgid "Order by:"
+msgstr "並び順："
+
+msgid "Sort:"
+msgstr "並び替え："
+
 #, fuzzy
-msgid "users per page"
-msgstr "ユーザ / ページ"
+msgid "Show"
+msgstr "それを表示する。"
 
 #, fuzzy
 msgid "Edition"
@@ -2613,6 +2446,13 @@ msgstr "検索オプション"
 msgid "Query:"
 msgstr "クエリー："
 
+msgid "In:"
+msgstr ""
+
+#, fuzzy
+msgid "No results found"
+msgstr "%d エントリが見つかりました"
+
 #, fuzzy
 msgid "Search in entries"
 msgstr "エントリを検索"
@@ -2621,21 +2461,15 @@ msgstr "エントリを検索"
 msgid "Search in comments"
 msgstr "コメントを検索"
 
-#, php-format
-msgid "%d entries found"
-msgstr "%d エントリが見つかりました"
+#, fuzzy, php-format
+msgid "one entry found"
+msgid_plural "%d entries found"
+msgstr[0] "%d エントリが見つかりました"
 
-#, php-format
-msgid "%d entry found"
-msgstr "%d エントリが見つかりました"
-
-#, php-format
-msgid "%d comment found"
-msgstr "%d コメントが見つかりました"
-
-#, php-format
-msgid "%d comments found"
-msgstr "%d コメントが見つかりました"
+#, fuzzy, php-format
+msgid "one comment found"
+msgid_plural "%d comments found"
+msgstr[0] "%d コメントが見つかりました"
 
 #, fuzzy, php-format
 msgid "%d post"
@@ -2682,6 +2516,15 @@ msgstr ""
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr ""
+
+#, fuzzy
+msgid "No updates are available"
+msgstr "Iconv モジュールが利用可能ではありません。"
+
+#, fuzzy, php-format
+msgid "An update is available"
+msgid_plural "%s updates are available."
+msgstr[0] "Iconv モジュールが利用可能ではありません。"
 
 #, fuzzy
 msgid "List options saved"
@@ -3090,6 +2933,154 @@ msgstr "エントリの言語："
 msgid "Languages"
 msgstr "言語"
 
+msgid "(No cat)"
+msgstr ""
+
+msgid "Selected"
+msgstr "イチ押し"
+
+#, fuzzy
+msgid "Number of comments"
+msgstr "エントリ数"
+
+#, fuzzy
+msgid "Number of trackbacks"
+msgstr "トラックバックはありません"
+
+msgid "Entry title"
+msgstr "エントリのタイトル"
+
+#, fuzzy
+msgid "Entry date"
+msgstr "エントリのタイトル"
+
+msgid "IP"
+msgstr ""
+
+#, fuzzy
+msgid "Spam filter"
+msgstr "絞り込み"
+
+msgid "Last update"
+msgstr "最終更新"
+
+#, fuzzy
+msgid "Last Name"
+msgstr "最終更新"
+
+#, fuzzy
+msgid "First Name"
+msgstr "ファーストネーム"
+
+msgid "Display name"
+msgstr "表示名"
+
+msgid "Number of entries"
+msgstr "エントリ数"
+
+msgid "Show filters and display options"
+msgstr ""
+
+msgid "Filters"
+msgstr "絞り込み"
+
+#, fuzzy
+msgid "Display options"
+msgstr "検索オプション"
+
+#, fuzzy
+msgid "Save current options"
+msgstr "検索オプション"
+
+msgid "Apply filters and display options"
+msgstr ""
+
+#, fuzzy
+msgid "Format:"
+msgstr "日付の書式："
+
+#, fuzzy
+msgid "With password"
+msgstr "エントリのパスワード："
+
+#, fuzzy
+msgid "Without password"
+msgstr "あなたのパスワード"
+
+msgid "Selected:"
+msgstr "イチ押し："
+
+#, fuzzy
+msgid "Not selected"
+msgstr "非イチ押し"
+
+#, fuzzy
+msgid "Attachments:"
+msgstr "添付ファイル"
+
+#, fuzzy
+msgid "With attachments"
+msgstr "添付(%d)"
+
+#, fuzzy
+msgid "Without attachments"
+msgstr "添付(%d)"
+
+msgid "Month:"
+msgstr "月："
+
+msgid "Lang:"
+msgstr "言語："
+
+#, fuzzy
+msgid "Comments:"
+msgstr "コメント"
+
+msgid "Opened"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "閉じる"
+
+#, fuzzy
+msgid "Trackbacks:"
+msgstr "トラックバック"
+
+msgid "Type:"
+msgstr "タイプ："
+
+#, fuzzy
+msgid "Trackback"
+msgstr "トラックバック"
+
+#, fuzzy
+msgid "users per page"
+msgstr "ユーザ / ページ"
+
+#, fuzzy
+msgid "entries per page"
+msgstr "エントリ / ページ"
+
+#, fuzzy
+msgid "comments per page"
+msgstr "コメント / ページ"
+
+#, fuzzy
+msgid "blogs per page"
+msgstr "ブログ / ページ"
+
+msgid "Size"
+msgstr ""
+
+#, fuzzy
+msgid "media per page"
+msgstr "エントリ / ページ"
+
+#, fuzzy
+msgid "results per page"
+msgstr "エントリ / ページ"
+
 msgid "%H:%M:%S"
 msgstr ""
 
@@ -3265,6 +3256,7 @@ msgstr "本当に、プラグイン \"%s\" を削除してもよろしいです�
 msgid "Use this theme"
 msgstr "このテーマを使用"
 
+#, fuzzy
 msgid "Remove this theme"
 msgstr "このテーマを削除"
 
@@ -3337,21 +3329,14 @@ msgstr "新しいパスワード："
 msgid "Hide password"
 msgstr "新しいパスワード："
 
-msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it."
+msgid "Reset to now"
+msgstr ""
+
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr ""
 
 msgid "You have unsaved changes."
 msgstr "保存されていない変更があります。"
-
-#, fuzzy
-msgid "Choose date"
-msgstr "ファイルの選択"
-
-msgid "close"
-msgstr "閉じる"
-
-msgid "now"
-msgstr "現在"
 
 msgid "Temporarily activate enhanced uploader"
 msgstr "拡張アップローダを有効化"
@@ -3440,6 +3425,10 @@ msgstr "バージョン"
 msgid "Current version"
 msgstr "パーミッションを設定"
 
+#, fuzzy
+msgid "Repository"
+msgstr "MP3 の配置"
+
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -3450,6 +3439,14 @@ msgstr ""
 
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr ""
+
+#, fuzzy
+msgid "Official repository"
+msgstr "エントリの検索："
+
+#, fuzzy
+msgid "Third-party repository"
+msgstr "エントリの検索："
 
 msgid "Plugin from official distribution"
 msgstr ""
@@ -3875,6 +3872,40 @@ msgstr ""
 msgid "superadmin"
 msgstr "最高管理者"
 
+#, fuzzy
+msgid "No file matches the filter"
+msgstr "エントリのタイトルがありません"
+
+msgid "No file."
+msgstr "ファイルはありません。"
+
+#, fuzzy, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] "エントリのタイトルがありません"
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr ""
+
+msgid "Insert this file into entry"
+msgstr "このファイルをエントリへ挿入"
+
+#, fuzzy
+msgid "delete"
+msgstr "削除"
+
+#, fuzzy
+msgid "private media"
+msgstr "プライベート"
+
+msgid "open"
+msgstr "開く"
+
 #, php-format
 msgid "ratio %.1f"
 msgstr ""
@@ -3944,6 +3975,9 @@ msgstr "ページ"
 msgid "administrator"
 msgstr "管理者"
 
+msgid "manage all entries and comments"
+msgstr "すべてのエントリとコメントの管理"
+
 msgid "manage their own entries and comments"
 msgstr "自分のエントリとコメントの管理"
 
@@ -3953,17 +3987,14 @@ msgstr "エントリとコメントの掲載"
 msgid "delete entries and comments"
 msgstr "エントリとコメントの削除"
 
-msgid "manage all entries and comments"
-msgstr "すべてのエントリとコメントの管理"
-
 msgid "manage categories"
 msgstr "カテゴリの管理"
 
-msgid "manage their own media items"
-msgstr "自分のメディアアイテムの管理"
-
 msgid "manage all media items"
 msgstr "すべてのメディアアイテムの管理"
+
+msgid "manage their own media items"
+msgstr "自分のメディアアイテムの管理"
 
 msgid "That user does not exist in the database."
 msgstr "そのユーザはデータベースに存在しません。"
@@ -4205,6 +4236,9 @@ msgstr "無効なネームスペースの設定です： %s"
 msgid "SQL SELECT requires a FROM source"
 msgstr ""
 
+msgid "SQL JOIN requires a source"
+msgstr ""
+
 msgid "SQL DELETE requires a FROM source"
 msgstr ""
 
@@ -4212,6 +4246,9 @@ msgid "SQL UPDATE requires an INTO source"
 msgstr ""
 
 msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a table source"
 msgstr ""
 
 #, fuzzy
@@ -4361,6 +4398,45 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "By names, in ascending order"
+#~ msgstr "名前 - 昇順"
+
+#~ msgid "By names, in descending order"
+#~ msgstr "名前 - 降順"
+
+#~ msgid "By dates, in ascending order"
+#~ msgstr "日付 - 昇順"
+
+#~ msgid "By dates, in descending order"
+#~ msgstr "日付 - 降順"
+
+#~ msgid "Directory has been successfully created."
+#~ msgstr "ディレクトリは正常に作成されました。"
+
+#~ msgid "Directory has been successfully rebuilt."
+#~ msgstr "ディレクトは正常に再構築されました。"
+
+#~ msgid "Sort files:"
+#~ msgstr "ファイルの並び替え："
+
+#, fuzzy
+#~ msgid "Media list"
+#~ msgstr "メディアの詳細"
+
+#, php-format
+#~ msgid "%d comments found"
+#~ msgstr "%d コメントが見つかりました"
+
+#, fuzzy
+#~ msgid "Choose date"
+#~ msgstr "ファイルの選択"
+
+#~ msgid "close"
+#~ msgstr "閉じる"
+
+#~ msgid "now"
+#~ msgstr "現在"
 
 #, fuzzy
 #~ msgid "Activate dark mode"

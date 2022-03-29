@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2.0-RC2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:23+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: 2020-08-15 16:09+0200\n"
 "Last-Translator: Quentin PAGÈS\n"
 "Language-Team: Occitan\n"
@@ -68,6 +68,20 @@ msgstr "Session administracion expirada"
 
 msgid "Wrong username or password"
 msgstr "Marrit senhal o nom d’utilizaire"
+
+#, php-format
+msgid "Password strength: %s"
+msgstr "Fòrça del senhal : %s"
+
+msgid "weak"
+msgstr "febla"
+
+#, fuzzy
+msgid "medium"
+msgstr "Mejana"
+
+msgid "strong"
+msgstr "fòrta"
 
 msgid "Back to login screen"
 msgstr "Tornar a l’ecran de connexion"
@@ -653,56 +667,11 @@ msgstr ""
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr ""
 
-msgid "Last update"
-msgstr "Darrièra mesa a jorn"
-
-msgid "Status"
-msgstr "Estatut"
-
-msgid "Descending"
-msgstr "Descreissent"
-
-msgid "Ascending"
-msgstr "Creissent"
-
 msgid "List of blogs"
 msgstr "Lista dels blògs"
 
 msgid "Create a new blog"
 msgstr "Crear un nòu blòg"
-
-msgid "Show filters and display options"
-msgstr ""
-
-msgid "Filters"
-msgstr "Filtres"
-
-msgid "Search:"
-msgstr "Recercar :"
-
-msgid "Status:"
-msgstr "Estatut :"
-
-msgid "Display options"
-msgstr "Opcions d'afichatge"
-
-msgid "Order by:"
-msgstr "Ordonar per :"
-
-msgid "Sort:"
-msgstr "Triar :"
-
-msgid "Show"
-msgstr "Mostrar"
-
-msgid "blogs per page"
-msgstr "blògs per pagina"
-
-msgid "Save current options"
-msgstr "Enregistrar las opcions actualas"
-
-msgid "Apply filters and display options"
-msgstr ""
 
 msgid "Selected blogs action:"
 msgstr ""
@@ -898,32 +867,14 @@ msgstr "Autor"
 msgid "Web site:"
 msgstr "Site web :"
 
+msgid "Status:"
+msgstr "Estatut :"
+
 msgid "Comment:"
 msgstr "Comentari :"
 
 msgid "Delete"
 msgstr "Supremir"
-
-msgid "Comment"
-msgstr "Comentari"
-
-msgid "Trackback"
-msgstr ""
-
-msgid "Date"
-msgstr "Data"
-
-msgid "Entry title"
-msgstr "Nom de l’entrada"
-
-msgid "Entry date"
-msgstr "Data de l’entrada"
-
-msgid "IP"
-msgstr "IP"
-
-msgid "Spam filter"
-msgstr ""
 
 msgid "Selected comments have been successfully updated."
 msgstr ""
@@ -950,23 +901,11 @@ msgstr "Los mostrar."
 msgid "Delete all spams"
 msgstr ""
 
-msgid "Type:"
-msgstr "Tipe :"
-
-msgid "comments per page"
-msgstr "comentaris per pagina"
-
 msgid "Selected comments action:"
 msgstr ""
 
 msgid "Global help"
 msgstr "Ajuda globala"
-
-#, php-format
-msgid "An update is available"
-msgid_plural "%s updates are available."
-msgstr[0] "Una mesa a jorn es disponibla"
-msgstr[1] "%s mesas a jorn son disponiblas."
 
 #, fuzzy
 msgid "Documentation and support"
@@ -1130,20 +1069,6 @@ msgstr ""
 
 msgid "Dotclear Install"
 msgstr "Installacion de Dotclear"
-
-#, php-format
-msgid "Password strength: %s"
-msgstr "Fòrça del senhal : %s"
-
-msgid "weak"
-msgstr "febla"
-
-#, fuzzy
-msgid "medium"
-msgstr "Mejana"
-
-msgid "strong"
-msgstr "fòrta"
 
 msgid "show"
 msgstr "mostrar"
@@ -1381,35 +1306,17 @@ msgstr ""
 msgid "Upload language"
 msgstr "Enviar la lenga"
 
-msgid "By names, in ascending order"
+msgid "Media manager"
 msgstr ""
 
-msgid "By names, in descending order"
-msgstr ""
+#, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] ""
+msgstr[1] ""
 
-msgid "By dates, in ascending order"
-msgstr ""
-
-msgid "By dates, in descending order"
-msgstr ""
-
-msgid "Select this file"
-msgstr ""
-
-msgid "Attach this file to entry"
-msgstr ""
-
-msgid "Insert this file into entry"
-msgstr ""
-
-msgid "delete"
-msgstr "suprimir"
-
-msgid "private media"
-msgstr "mèdia privat"
-
-msgid "open"
-msgstr "dobrir"
+msgid "Search:"
+msgstr "Recercar :"
 
 msgid "Not a valid directory"
 msgstr ""
@@ -1441,9 +1348,6 @@ msgstr ""
 msgid "Directory \"%s\" has been successfully rebuilt."
 msgstr ""
 
-msgid "Media manager"
-msgstr ""
-
 msgid "confirm removal"
 msgstr ""
 
@@ -1453,12 +1357,6 @@ msgstr "Sètz segur que volètz suprimir %s ?"
 
 msgid "Yes"
 msgstr "Òc"
-
-#, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] ""
-msgstr[1] ""
 
 msgid "Remove this folder from your favorites"
 msgstr ""
@@ -1472,17 +1370,11 @@ msgstr ""
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr ""
 
-msgid "Directory has been successfully created."
-msgstr ""
-
-msgid "Directory has been successfully rebuilt."
-msgstr ""
-
-msgid "Zip file has been successfully extracted."
-msgstr ""
-
 #, php-format
 msgid "Select a file by clicking on %s"
+msgstr ""
+
+msgid "Select this file"
 msgstr ""
 
 msgid "Choose selected medias"
@@ -1502,18 +1394,12 @@ msgstr ""
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr ""
 
+msgid "Attach this file to entry"
+msgstr ""
+
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr ""
-
-msgid "Remove selected medias"
-msgstr ""
-
-msgid "Will search into media filename (including path), title and description"
-msgstr ""
-
-msgid "No file."
-msgstr "Cap de fichièr."
 
 msgid "Grid display mode"
 msgstr ""
@@ -1521,24 +1407,7 @@ msgstr ""
 msgid "List display mode"
 msgstr ""
 
-msgid "Sort files:"
-msgstr ""
-
-msgid "Number of elements displayed per page:"
-msgstr ""
-
-msgid "Media list"
-msgstr "Lista dels mèdias"
-
-msgid "Size"
-msgstr "Talha"
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr ""
-
-#, php-format
-msgid "Nb of items: %d"
+msgid "Remove selected medias"
 msgstr ""
 
 #, php-format
@@ -1604,7 +1473,16 @@ msgstr ""
 msgid "Thumbnails have been successfully updated."
 msgstr ""
 
+msgid "Zip file has been successfully extracted."
+msgstr ""
+
 msgid "Default media insertion settings have been successfully updated."
+msgstr ""
+
+msgid "Media insertion settings have been successfully registered for this folder."
+msgstr ""
+
+msgid "Media insertion settings have been successfully removed for this folder."
 msgstr ""
 
 msgid "Select media item"
@@ -1669,6 +1547,20 @@ msgstr "Inserir"
 
 msgid "Make current settings as default"
 msgstr ""
+
+#, fuzzy
+msgid "For the blog"
+msgstr "Vòstre blòg"
+
+msgid "For this folder only"
+msgstr ""
+
+msgid "Settings exist for this folder:"
+msgstr ""
+
+#, fuzzy
+msgid "Remove them"
+msgstr "Suprimir aqueste tèma"
 
 msgid "Media details"
 msgstr ""
@@ -1940,8 +1832,14 @@ msgstr ""
 msgid "Go to this entry on the site"
 msgstr ""
 
+msgid "Date"
+msgstr "Data"
+
 msgid "IP address"
 msgstr "Adreça IP"
+
+msgid "Status"
+msgstr "Estatut"
 
 msgid "Edit"
 msgstr "Modificar"
@@ -2027,6 +1925,9 @@ msgstr "Comentaris"
 msgid "Add a comment"
 msgstr ""
 
+msgid "Comment"
+msgstr "Comentari"
+
 msgid "Trackbacks"
 msgstr ""
 
@@ -2067,67 +1968,10 @@ msgstr "Pèça junta"
 msgid "Are you sure you want to remove this attachment?"
 msgstr ""
 
-msgid "(No cat)"
-msgstr ""
-
-msgid "Selected"
-msgstr "Seleccionat"
-
-msgid "Not selected"
-msgstr ""
-
-msgid "Opened"
-msgstr ""
-
-msgid "Closed"
-msgstr "Tampat"
-
-msgid "With attachments"
-msgstr ""
-
-msgid "Without attachments"
-msgstr ""
-
-msgid "With password"
-msgstr "Amb senhal"
-
-msgid "Without password"
-msgstr ""
-
-msgid "Number of comments"
-msgstr "Nombre de comentaris"
-
-msgid "Number of trackbacks"
-msgstr ""
-
 msgid "Selected entries have been successfully updated."
 msgstr ""
 
 msgid "Selected entries have been successfully deleted."
-msgstr ""
-
-msgid "Format:"
-msgstr "Format :"
-
-msgid "Selected:"
-msgstr "Seleccionat :"
-
-msgid "Attachments:"
-msgstr ""
-
-msgid "Month:"
-msgstr "Mes :"
-
-msgid "Lang:"
-msgstr "Lenga :"
-
-msgid "Comments:"
-msgstr "Comentaris :"
-
-msgid "Trackbacks:"
-msgstr ""
-
-msgid "entries per page"
 msgstr ""
 
 msgid "Selected entries action:"
@@ -2161,17 +2005,11 @@ msgstr ""
 msgid "Category description"
 msgstr "Descripcion de la categoria"
 
-msgid "Last Name"
-msgstr "Nom"
+msgid "Descending"
+msgstr "Descreissent"
 
-msgid "First Name"
-msgstr "Pichon nom"
-
-msgid "Display name"
-msgstr "Escais-nom"
-
-msgid "Number of entries"
-msgstr ""
+msgid "Ascending"
+msgstr "Creissent"
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr ""
@@ -2210,6 +2048,18 @@ msgstr "Mon perfil"
 msgid "Display name:"
 msgstr ""
 
+msgid "Alternate emails (comma separated list):"
+msgstr ""
+
+msgid "Invalid emails will be automatically removed from list."
+msgstr ""
+
+msgid "Alternate URLs (comma separated list):"
+msgstr ""
+
+msgid "Invalid URLs will be automatically removed from list."
+msgstr ""
+
 msgid "Language for my interface:"
 msgstr "Lenga de mon interfàcia :"
 
@@ -2243,6 +2093,9 @@ msgstr ""
 msgid "Activate enhanced uploader in media manager"
 msgstr ""
 
+msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
+msgstr ""
+
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr ""
 
@@ -2260,9 +2113,6 @@ msgstr ""
 
 msgid "Font size:"
 msgstr "Talha de la poliça :"
-
-msgid "Number of elements displayed per page in media manager:"
-msgstr ""
 
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
@@ -2291,8 +2141,14 @@ msgstr ""
 msgid "Apply filters on the fly"
 msgstr ""
 
-msgid "users per page"
-msgstr ""
+msgid "Order by:"
+msgstr "Ordonar per :"
+
+msgid "Sort:"
+msgstr "Triar :"
+
+msgid "Show"
+msgstr "Mostrar"
 
 msgid "Edition"
 msgstr ""
@@ -2412,6 +2268,12 @@ msgstr ""
 msgid "Query:"
 msgstr ""
 
+msgid "In:"
+msgstr ""
+
+msgid "No results found"
+msgstr ""
+
 msgid "Search in entries"
 msgstr "Cercar dins las entradas"
 
@@ -2419,21 +2281,17 @@ msgstr "Cercar dins las entradas"
 msgid "Search in comments"
 msgstr "Acceptar los comentaris"
 
-#, php-format
-msgid "%d entries found"
-msgstr ""
+#, fuzzy, php-format
+msgid "one entry found"
+msgid_plural "%d entries found"
+msgstr[0] "Desplaçar las entradas cap a"
+msgstr[1] "Desplaçar las entradas cap a"
 
-#, php-format
-msgid "%d entry found"
-msgstr ""
-
-#, php-format
-msgid "%d comment found"
-msgstr ""
-
-#, php-format
-msgid "%d comments found"
-msgstr ""
+#, fuzzy, php-format
+msgid "one comment found"
+msgid_plural "%d comments found"
+msgstr[0] "Desplaçar las entradas cap a"
+msgstr[1] "Desplaçar las entradas cap a"
 
 #, php-format
 msgid "%d post"
@@ -2479,6 +2337,16 @@ msgstr ""
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr ""
+
+#, fuzzy
+msgid "No updates are available"
+msgstr "Una mesa a jorn es disponibla"
+
+#, php-format
+msgid "An update is available"
+msgid_plural "%s updates are available."
+msgstr[0] "Una mesa a jorn es disponibla"
+msgstr[1] "%s mesas a jorn son disponiblas."
 
 #, fuzzy
 msgid "List options saved"
@@ -2856,6 +2724,131 @@ msgstr "Lenga de l’entrada :"
 msgid "Languages"
 msgstr "Lengas"
 
+msgid "(No cat)"
+msgstr ""
+
+msgid "Selected"
+msgstr "Seleccionat"
+
+msgid "Number of comments"
+msgstr "Nombre de comentaris"
+
+msgid "Number of trackbacks"
+msgstr ""
+
+msgid "Entry title"
+msgstr "Nom de l’entrada"
+
+msgid "Entry date"
+msgstr "Data de l’entrada"
+
+msgid "IP"
+msgstr "IP"
+
+msgid "Spam filter"
+msgstr ""
+
+msgid "Last update"
+msgstr "Darrièra mesa a jorn"
+
+msgid "Last Name"
+msgstr "Nom"
+
+msgid "First Name"
+msgstr "Pichon nom"
+
+msgid "Display name"
+msgstr "Escais-nom"
+
+msgid "Number of entries"
+msgstr ""
+
+msgid "Show filters and display options"
+msgstr ""
+
+msgid "Filters"
+msgstr "Filtres"
+
+msgid "Display options"
+msgstr "Opcions d'afichatge"
+
+msgid "Save current options"
+msgstr "Enregistrar las opcions actualas"
+
+msgid "Apply filters and display options"
+msgstr ""
+
+msgid "Format:"
+msgstr "Format :"
+
+msgid "With password"
+msgstr "Amb senhal"
+
+msgid "Without password"
+msgstr ""
+
+msgid "Selected:"
+msgstr "Seleccionat :"
+
+msgid "Not selected"
+msgstr ""
+
+msgid "Attachments:"
+msgstr ""
+
+msgid "With attachments"
+msgstr ""
+
+msgid "Without attachments"
+msgstr ""
+
+msgid "Month:"
+msgstr "Mes :"
+
+msgid "Lang:"
+msgstr "Lenga :"
+
+msgid "Comments:"
+msgstr "Comentaris :"
+
+msgid "Opened"
+msgstr ""
+
+msgid "Closed"
+msgstr "Tampat"
+
+msgid "Trackbacks:"
+msgstr ""
+
+msgid "Type:"
+msgstr "Tipe :"
+
+msgid "Trackback"
+msgstr ""
+
+msgid "users per page"
+msgstr ""
+
+msgid "entries per page"
+msgstr ""
+
+msgid "comments per page"
+msgstr "comentaris per pagina"
+
+msgid "blogs per page"
+msgstr "blògs per pagina"
+
+msgid "Size"
+msgstr "Talha"
+
+#, fuzzy
+msgid "media per page"
+msgstr "comentaris per pagina"
+
+#, fuzzy
+msgid "results per page"
+msgstr "blògs per pagina"
+
 msgid "%H:%M:%S"
 msgstr ""
 
@@ -2949,96 +2942,106 @@ msgstr "%d entrada"
 msgid "view entry"
 msgstr "%d entrada"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
+#, fuzzy
 msgid "Are you sure you want to delete this entry?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
 msgid "Click here to unlock the field"
 msgstr ""
 
+#, fuzzy
 msgid "Are you sure you want to delete all spams?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
+#, fuzzy
 msgid "Are you sure you want to delete this comment?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
 msgid "Users with posts cannot be deleted."
 msgstr ""
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
+#, fuzzy
 msgid "Are you sure you want to reorder all categories?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
+#, fuzzy
 msgid "Are you sure you want to extract archive in current directory?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
+#, fuzzy
 msgid "Are you sure you want to delete selected plugins?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
 msgid "Use this theme"
 msgstr ""
 
+#, fuzzy
 msgid "Remove this theme"
 msgstr "Suprimir aqueste tèma"
 
-#, php-format
+#, fuzzy, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
+#, fuzzy
 msgid "Are you sure you want to delete selected themes?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
+#, fuzzy
 msgid "Are you sure you want to delete this backup?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
+#, fuzzy
 msgid "Are you sure you want to revert to this backup?"
-msgstr ""
+msgstr "Sètz segur que volètz suprimir %s ?"
 
 msgid "Zip file content"
 msgstr ""
@@ -3090,20 +3093,14 @@ msgstr "Nòu senhal :"
 msgid "Hide password"
 msgstr "Nòu senhal :"
 
-msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it."
+msgid "Reset to now"
+msgstr ""
+
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr ""
 
 msgid "You have unsaved changes."
 msgstr ""
-
-msgid "Choose date"
-msgstr "Causir una data"
-
-msgid "close"
-msgstr "barrar"
-
-msgid "now"
-msgstr "ara"
 
 msgid "Temporarily activate enhanced uploader"
 msgstr ""
@@ -3134,12 +3131,13 @@ msgstr "Blog \"%s\" corrèctament creat"
 msgid "No file in queue."
 msgstr "Cap de fichièr"
 
+#, fuzzy
 msgid "1 file in queue."
-msgstr ""
+msgstr "Cap de fichièr"
 
-#, php-format
+#, fuzzy, php-format
 msgid "%d files in queue."
-msgstr ""
+msgstr "Cap de fichièr"
 
 msgid "Queue error:"
 msgstr ""
@@ -3193,6 +3191,10 @@ msgstr "Revirada"
 msgid "Current version"
 msgstr ""
 
+#, fuzzy
+msgid "Repository"
+msgstr "posicion : "
+
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -3203,6 +3205,14 @@ msgstr ""
 
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr ""
+
+#, fuzzy
+msgid "Official repository"
+msgstr "Recercar"
+
+#, fuzzy
+msgid "Third-party repository"
+msgstr "Recercar"
 
 msgid "Plugin from official distribution"
 msgstr ""
@@ -3600,6 +3610,38 @@ msgstr "admin"
 msgid "superadmin"
 msgstr ""
 
+msgid "No file matches the filter"
+msgstr ""
+
+msgid "No file."
+msgstr "Cap de fichièr."
+
+#, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] ""
+msgstr[1] ""
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr ""
+
+msgid "Insert this file into entry"
+msgstr ""
+
+msgid "delete"
+msgstr "suprimir"
+
+msgid "private media"
+msgstr "mèdia privat"
+
+msgid "open"
+msgstr "dobrir"
+
 #, php-format
 msgid "ratio %.1f"
 msgstr ""
@@ -3663,6 +3705,9 @@ msgstr "Paginas"
 msgid "administrator"
 msgstr "administrador"
 
+msgid "manage all entries and comments"
+msgstr ""
+
 msgid "manage their own entries and comments"
 msgstr ""
 
@@ -3672,16 +3717,13 @@ msgstr ""
 msgid "delete entries and comments"
 msgstr ""
 
-msgid "manage all entries and comments"
-msgstr ""
-
 msgid "manage categories"
 msgstr ""
 
-msgid "manage their own media items"
+msgid "manage all media items"
 msgstr ""
 
-msgid "manage all media items"
+msgid "manage their own media items"
 msgstr ""
 
 msgid "That user does not exist in the database."
@@ -3912,6 +3954,9 @@ msgstr ""
 msgid "SQL SELECT requires a FROM source"
 msgstr ""
 
+msgid "SQL JOIN requires a source"
+msgstr ""
+
 msgid "SQL DELETE requires a FROM source"
 msgstr ""
 
@@ -3919,6 +3964,9 @@ msgid "SQL UPDATE requires an INTO source"
 msgstr ""
 
 msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a table source"
 msgstr ""
 
 msgid "Failed to read data feed"
@@ -4062,6 +4110,18 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#~ msgid "Media list"
+#~ msgstr "Lista dels mèdias"
+
+#~ msgid "Choose date"
+#~ msgstr "Causir una data"
+
+#~ msgid "close"
+#~ msgstr "barrar"
+
+#~ msgid "now"
+#~ msgstr "ara"
 
 #, fuzzy
 #~ msgid "large"

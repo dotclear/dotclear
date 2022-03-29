@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:23+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:47+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
@@ -278,6 +278,10 @@ msgstr "Servidores de búsqueda de IP"
 
 msgid "Add here a coma separated list of servers."
 msgstr "Añada aquí una lista de servidores, separados por comas."
+
+#, fuzzy
+msgid "IP v6 Blocklist / Allowlist Filter"
+msgstr "Lista negra / Lista blanca de IP"
 
 msgid "Checks links in comments against surbl.org"
 msgstr "Verificar los enlaces de los comentarios en surbl.org"
@@ -934,7 +938,7 @@ msgstr ""
 msgid "Colors per row in palette:"
 msgstr ""
 
-msgid "Leave empty to use default (6)"
+msgid "Valid range: 4 to 16"
 msgstr ""
 
 msgid "Add collapse button"
@@ -976,6 +980,9 @@ msgid "source"
 msgstr ""
 
 msgid "You can use the following shortcuts to format your text."
+msgstr ""
+
+msgid "Block format"
 msgstr ""
 
 msgid "-- none --"
@@ -2431,16 +2438,16 @@ msgid "Drag widgets here to remove."
 msgstr ""
 
 #, fuzzy
+#~ msgid "Are you sure you want to delete all spams?"
+#~ msgstr "¿Seguro que desea borrar esta página?"
+
+#, fuzzy
 #~ msgid "Liste des auteurs"
 #~ msgstr "Todas las categorías"
 
 #, fuzzy
 #~ msgid "Liste des séries"
 #~ msgstr "Últimas entradas"
-
-#, fuzzy
-#~ msgid "Are you sure you want to delete all spams?"
-#~ msgstr "¿Seguro que desea borrar esta página?"
 
 #~ msgid "Page top"
 #~ msgstr "Arriba"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:24+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:54+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: \n"
@@ -71,6 +71,20 @@ msgstr "నిర్వహణ అంతరవర్తి:"
 
 msgid "Wrong username or password"
 msgstr "తప్పుడు వాడుకరిపేరు లేదా సంకేతపదం"
+
+#, fuzzy, php-format
+msgid "Password strength: %s"
+msgstr "సంకేతపదం:"
+
+msgid "weak"
+msgstr ""
+
+#, fuzzy
+msgid "medium"
+msgstr "మధ్యమ:"
+
+msgid "strong"
+msgstr ""
 
 msgid "Back to login screen"
 msgstr "తిరిగి ప్రవేశపు తెరకి"
@@ -680,60 +694,11 @@ msgstr ""
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr ""
 
-msgid "Last update"
-msgstr "చివరి తాజాకరణ"
-
-msgid "Status"
-msgstr "స్థితి"
-
-msgid "Descending"
-msgstr "అవరోహణ"
-
-msgid "Ascending"
-msgstr "ఆరోహణ"
-
 msgid "List of blogs"
 msgstr "బ్లాగుల జాబితా"
 
 msgid "Create a new blog"
 msgstr "కొత్త బ్లాగుని సృష్టించండి"
-
-msgid "Show filters and display options"
-msgstr ""
-
-msgid "Filters"
-msgstr "వడపోతలు"
-
-msgid "Search:"
-msgstr "అన్వేషణ:"
-
-msgid "Status:"
-msgstr "స్థితి:"
-
-#, fuzzy
-msgid "Display options"
-msgstr "అన్వేషణ ఎంపికలు"
-
-msgid "Order by:"
-msgstr "ఈ క్రమం లో:"
-
-msgid "Sort:"
-msgstr "అమరిక:"
-
-#, fuzzy
-msgid "Show"
-msgstr "దాన్ని చూపించు."
-
-#, fuzzy
-msgid "blogs per page"
-msgstr "బ్లాగులు (ఒక పేజీకి)"
-
-#, fuzzy
-msgid "Save current options"
-msgstr "అన్వేషణ ఎంపికలు"
-
-msgid "Apply filters and display options"
-msgstr ""
 
 #, fuzzy
 msgid "Selected blogs action:"
@@ -953,36 +918,14 @@ msgstr "రచయిత"
 msgid "Web site:"
 msgstr "వెబ్ సైటు:"
 
+msgid "Status:"
+msgstr "స్థితి:"
+
 msgid "Comment:"
 msgstr "వ్యాఖ్య:"
 
 msgid "Delete"
 msgstr "తొలగించు"
-
-#, fuzzy
-msgid "Comment"
-msgstr "వ్యాఖ్య:"
-
-#, fuzzy
-msgid "Trackback"
-msgstr "ట్రాకుబ్యాకులు"
-
-msgid "Date"
-msgstr "తేదీ"
-
-msgid "Entry title"
-msgstr "టపా శీర్షిక"
-
-#, fuzzy
-msgid "Entry date"
-msgstr "టపా శీర్షిక"
-
-msgid "IP"
-msgstr ""
-
-#, fuzzy
-msgid "Spam filter"
-msgstr "వడపోత"
 
 #, fuzzy
 msgid "Selected comments have been successfully updated."
@@ -1013,24 +956,11 @@ msgstr "వాటిని చూపించు."
 msgid "Delete all spams"
 msgstr "ఓ బ్లాగుని తొలగించండి"
 
-msgid "Type:"
-msgstr "రకం:"
-
-#, fuzzy
-msgid "comments per page"
-msgstr "వ్యాఖ్యలు (ఒక పేజీకి)"
-
 msgid "Selected comments action:"
 msgstr "ఎంచుకున్న వ్యాఖ్యలపై చర్య:"
 
 msgid "Global help"
 msgstr ""
-
-#, fuzzy, php-format
-msgid "An update is available"
-msgid_plural "%s updates are available."
-msgstr[0] "డాట్‌క్లియర్ ఇప్పటికే స్థాపితమైవుంది."
-msgstr[1] "డాట్‌క్లియర్ ఇప్పటికే స్థాపితమైవుంది."
 
 #, fuzzy
 msgid "Documentation and support"
@@ -1200,20 +1130,6 @@ msgstr ""
 #, fuzzy
 msgid "Dotclear Install"
 msgstr "డాట్‌క్లియర్ స్థాపన"
-
-#, fuzzy, php-format
-msgid "Password strength: %s"
-msgstr "సంకేతపదం:"
-
-msgid "weak"
-msgstr ""
-
-#, fuzzy
-msgid "medium"
-msgstr "మధ్యమ:"
-
-msgid "strong"
-msgstr ""
 
 msgid "show"
 msgstr ""
@@ -1459,38 +1375,17 @@ msgstr ""
 msgid "Upload language"
 msgstr ""
 
-msgid "By names, in ascending order"
-msgstr ""
+msgid "Media manager"
+msgstr "మాధ్యమాల నిర్వహణ"
 
-msgid "By names, in descending order"
-msgstr ""
+#, fuzzy, php-format
+msgid "%s file found"
+msgid_plural "%s files found"
+msgstr[0] "%d టపాలు దొరికాయి"
+msgstr[1] "%d టపాలు దొరికాయి"
 
-msgid "By dates, in ascending order"
-msgstr ""
-
-msgid "By dates, in descending order"
-msgstr ""
-
-#, fuzzy
-msgid "Select this file"
-msgstr "ఈ బ్లాగుని తొలగించండి"
-
-msgid "Attach this file to entry"
-msgstr ""
-
-msgid "Insert this file into entry"
-msgstr ""
-
-#, fuzzy
-msgid "delete"
-msgstr "తొలగించు"
-
-#, fuzzy
-msgid "private media"
-msgstr "అంతరంగికం"
-
-msgid "open"
-msgstr ""
+msgid "Search:"
+msgstr "అన్వేషణ:"
 
 #, fuzzy
 msgid "Not a valid directory"
@@ -1523,9 +1418,6 @@ msgstr ""
 msgid "Directory \"%s\" has been successfully rebuilt."
 msgstr "విజయవంతంగా వర్గాన్ని సృష్టించాం."
 
-msgid "Media manager"
-msgstr "మాధ్యమాల నిర్వహణ"
-
 msgid "confirm removal"
 msgstr "తొలగింపుని నిర్ధారించండి"
 
@@ -1535,12 +1427,6 @@ msgstr "%sని మీరు నిజంగానే తొలగించా�
 
 msgid "Yes"
 msgstr "అవును"
-
-#, fuzzy, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%d టపాలు దొరికాయి"
-msgstr[1] "%d టపాలు దొరికాయి"
 
 msgid "Remove this folder from your favorites"
 msgstr ""
@@ -1554,18 +1440,13 @@ msgstr ""
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr ""
 
-msgid "Directory has been successfully created."
-msgstr ""
-
-msgid "Directory has been successfully rebuilt."
-msgstr ""
-
-msgid "Zip file has been successfully extracted."
-msgstr ""
-
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr ""
+
+#, fuzzy
+msgid "Select this file"
+msgstr "ఈ బ్లాగుని తొలగించండి"
 
 #, fuzzy
 msgid "Choose selected medias"
@@ -1587,19 +1468,12 @@ msgstr "మరిన్ని ఫైళ్ళని చేర్చండి"
 msgid "Choose a file to attach to entry %s by clicking on %s"
 msgstr ""
 
+msgid "Attach this file to entry"
+msgstr ""
+
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr ""
-
-#, fuzzy
-msgid "Remove selected medias"
-msgstr "ఎంచుకున్న అలంకారాన్ని తొలగించు"
-
-msgid "Will search into media filename (including path), title and description"
-msgstr ""
-
-msgid "No file."
-msgstr "పైళ్ళు లేవు."
 
 #, fuzzy
 msgid "Grid display mode"
@@ -1609,26 +1483,9 @@ msgstr "చూపించే పేరు"
 msgid "List display mode"
 msgstr "చూపించే పేరు"
 
-msgid "Sort files:"
-msgstr ""
-
-msgid "Number of elements displayed per page:"
-msgstr ""
-
 #, fuzzy
-msgid "Media list"
-msgstr "మాధ్యమ వివరాలు"
-
-msgid "Size"
-msgstr ""
-
-#, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr ""
-
-#, php-format
-msgid "Nb of items: %d"
-msgstr ""
+msgid "Remove selected medias"
+msgstr "ఎంచుకున్న అలంకారాన్ని తొలగించు"
 
 #, php-format
 msgid "In %s:"
@@ -1697,8 +1554,19 @@ msgstr ""
 msgid "Thumbnails have been successfully updated."
 msgstr ""
 
+msgid "Zip file has been successfully extracted."
+msgstr ""
+
 #, fuzzy
 msgid "Default media insertion settings have been successfully updated."
+msgstr "వర్గాన్ని విజయవంతంగా తాజాకరించాం."
+
+#, fuzzy
+msgid "Media insertion settings have been successfully registered for this folder."
+msgstr "వర్గాన్ని విజయవంతంగా తాజాకరించాం."
+
+#, fuzzy
+msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "వర్గాన్ని విజయవంతంగా తాజాకరించాం."
 
 msgid "Select media item"
@@ -1767,6 +1635,20 @@ msgstr ""
 
 msgid "Make current settings as default"
 msgstr ""
+
+#, fuzzy
+msgid "For the blog"
+msgstr "మీ బ్లాగు"
+
+msgid "For this folder only"
+msgstr ""
+
+msgid "Settings exist for this folder:"
+msgstr ""
+
+#, fuzzy
+msgid "Remove them"
+msgstr "ఈ అలంకారాన్ని తొలగించు"
 
 msgid "Media details"
 msgstr "మాధ్యమ వివరాలు"
@@ -2058,8 +1940,14 @@ msgstr ""
 msgid "Go to this entry on the site"
 msgstr ""
 
+msgid "Date"
+msgstr "తేదీ"
+
 msgid "IP address"
 msgstr "IP చిరునామా"
+
+msgid "Status"
+msgstr "స్థితి"
 
 msgid "Edit"
 msgstr ""
@@ -2155,6 +2043,10 @@ msgstr "వ్యాఖ్యలు"
 msgid "Add a comment"
 msgstr "ఓ వ్యాఖ్యని చేర్చండి"
 
+#, fuzzy
+msgid "Comment"
+msgstr "వ్యాఖ్య:"
+
 msgid "Trackbacks"
 msgstr "ట్రాకుబ్యాకులు"
 
@@ -2197,47 +2089,6 @@ msgstr "జోడింపు"
 msgid "Are you sure you want to remove this attachment?"
 msgstr "నిజంగానే ఈ జోడింపుని తొలగించాలనుకుంటున్నారా?"
 
-msgid "(No cat)"
-msgstr ""
-
-msgid "Selected"
-msgstr ""
-
-#, fuzzy
-msgid "Not selected"
-msgstr "ఎంపికలు లేవు"
-
-msgid "Opened"
-msgstr ""
-
-#, fuzzy
-msgid "Closed"
-msgstr "మూయి"
-
-#, fuzzy
-msgid "With attachments"
-msgstr "%d జోడింపులు"
-
-#, fuzzy
-msgid "Without attachments"
-msgstr "%d జోడింపులు"
-
-#, fuzzy
-msgid "With password"
-msgstr "టపా సంకేతపదం:"
-
-#, fuzzy
-msgid "Without password"
-msgstr "మీ సంకేతపదం"
-
-#, fuzzy
-msgid "Number of comments"
-msgstr "టపాల సంఖ్య"
-
-#, fuzzy
-msgid "Number of trackbacks"
-msgstr "ట్రాకుబ్యాకులు లేవు"
-
 #, fuzzy
 msgid "Selected entries have been successfully updated."
 msgstr "వర్గాన్ని విజయవంతంగా తాజాకరించాం."
@@ -2245,35 +2096,6 @@ msgstr "వర్గాన్ని విజయవంతంగా తాజా�
 #, fuzzy
 msgid "Selected entries have been successfully deleted."
 msgstr "వర్గాన్ని విజయవంతంగా తాజాకరించాం."
-
-#, fuzzy
-msgid "Format:"
-msgstr "తేదీ ఆకృతి:"
-
-msgid "Selected:"
-msgstr ""
-
-#, fuzzy
-msgid "Attachments:"
-msgstr "జోడింపులు"
-
-msgid "Month:"
-msgstr "నెల:"
-
-msgid "Lang:"
-msgstr "భాష:"
-
-#, fuzzy
-msgid "Comments:"
-msgstr "వ్యాఖ్యలు"
-
-#, fuzzy
-msgid "Trackbacks:"
-msgstr "ట్రాకుబ్యాకులు"
-
-#, fuzzy
-msgid "entries per page"
-msgstr "టపాలు (ఒక పేజీకి)"
 
 msgid "Selected entries action:"
 msgstr "ఎంచుకున్న వాటిపై చర్య:"
@@ -2309,19 +2131,11 @@ msgstr ""
 msgid "Category description"
 msgstr "వర్గం"
 
-#, fuzzy
-msgid "Last Name"
-msgstr "చివరి తాజాకరణ"
+msgid "Descending"
+msgstr "అవరోహణ"
 
-#, fuzzy
-msgid "First Name"
-msgstr "మొదటిపేరు"
-
-msgid "Display name"
-msgstr "చూపించే పేరు"
-
-msgid "Number of entries"
-msgstr "టపాల సంఖ్య"
+msgid "Ascending"
+msgstr "ఆరోహణ"
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr ""
@@ -2366,6 +2180,18 @@ msgstr ""
 msgid "Display name:"
 msgstr "చూపించే పేరు:"
 
+msgid "Alternate emails (comma separated list):"
+msgstr ""
+
+msgid "Invalid emails will be automatically removed from list."
+msgstr ""
+
+msgid "Alternate URLs (comma separated list):"
+msgstr ""
+
+msgid "Invalid URLs will be automatically removed from list."
+msgstr ""
+
 msgid "Language for my interface:"
 msgstr ""
 
@@ -2405,6 +2231,9 @@ msgstr "అలంకారాలు"
 msgid "Activate enhanced uploader in media manager"
 msgstr ""
 
+msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
+msgstr ""
+
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr ""
 
@@ -2423,9 +2252,6 @@ msgstr ""
 #, fuzzy
 msgid "Font size:"
 msgstr "ఫైలు పరిమాణం:"
-
-msgid "Number of elements displayed per page in media manager:"
-msgstr ""
 
 msgid "Number of recent folders proposed in media manager:"
 msgstr ""
@@ -2455,9 +2281,15 @@ msgstr ""
 msgid "Apply filters on the fly"
 msgstr "ఫైళ్ళను చేర్చండి"
 
+msgid "Order by:"
+msgstr "ఈ క్రమం లో:"
+
+msgid "Sort:"
+msgstr "అమరిక:"
+
 #, fuzzy
-msgid "users per page"
-msgstr " వాడుకరులు (ఒక పేజీకి)"
+msgid "Show"
+msgstr "దాన్ని చూపించు."
 
 #, fuzzy
 msgid "Edition"
@@ -2588,6 +2420,13 @@ msgstr "అన్వేషణ ఎంపికలు"
 msgid "Query:"
 msgstr "అన్వేషణ:"
 
+msgid "In:"
+msgstr ""
+
+#, fuzzy
+msgid "No results found"
+msgstr "%d టపాలు దొరికాయి"
+
 #, fuzzy
 msgid "Search in entries"
 msgstr "టపాలని వెతకు"
@@ -2596,21 +2435,17 @@ msgstr "టపాలని వెతకు"
 msgid "Search in comments"
 msgstr "వ్యాఖ్యలని వెతుకు"
 
-#, php-format
-msgid "%d entries found"
-msgstr "%d టపాలు దొరికాయి"
+#, fuzzy, php-format
+msgid "one entry found"
+msgid_plural "%d entries found"
+msgstr[0] "%d టపాలు దొరికాయి"
+msgstr[1] "%d టపాలు దొరికాయి"
 
-#, php-format
-msgid "%d entry found"
-msgstr "%d టపాలు దొరికాయి"
-
-#, php-format
-msgid "%d comment found"
-msgstr "%d వ్యాఖ్య దొరికింది"
-
-#, php-format
-msgid "%d comments found"
-msgstr "%d వ్యాఖ్యలు దొరికాయి"
+#, fuzzy, php-format
+msgid "one comment found"
+msgid_plural "%d comments found"
+msgstr[0] "%d వ్యాఖ్య దొరికింది"
+msgstr[1] "%d వ్యాఖ్య దొరికింది"
 
 #, fuzzy, php-format
 msgid "%d post"
@@ -2659,6 +2494,16 @@ msgstr ""
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %s, your's is currently %s"
 msgstr ""
+
+#, fuzzy
+msgid "No updates are available"
+msgstr "డాట్‌క్లియర్ ఇప్పటికే స్థాపితమైవుంది."
+
+#, fuzzy, php-format
+msgid "An update is available"
+msgid_plural "%s updates are available."
+msgstr[0] "డాట్‌క్లియర్ ఇప్పటికే స్థాపితమైవుంది."
+msgstr[1] "డాట్‌క్లియర్ ఇప్పటికే స్థాపితమైవుంది."
 
 #, fuzzy
 msgid "List options saved"
@@ -3071,6 +2916,154 @@ msgstr "టపా భాష:"
 msgid "Languages"
 msgstr "భాషలు"
 
+msgid "(No cat)"
+msgstr ""
+
+msgid "Selected"
+msgstr ""
+
+#, fuzzy
+msgid "Number of comments"
+msgstr "టపాల సంఖ్య"
+
+#, fuzzy
+msgid "Number of trackbacks"
+msgstr "ట్రాకుబ్యాకులు లేవు"
+
+msgid "Entry title"
+msgstr "టపా శీర్షిక"
+
+#, fuzzy
+msgid "Entry date"
+msgstr "టపా శీర్షిక"
+
+msgid "IP"
+msgstr ""
+
+#, fuzzy
+msgid "Spam filter"
+msgstr "వడపోత"
+
+msgid "Last update"
+msgstr "చివరి తాజాకరణ"
+
+#, fuzzy
+msgid "Last Name"
+msgstr "చివరి తాజాకరణ"
+
+#, fuzzy
+msgid "First Name"
+msgstr "మొదటిపేరు"
+
+msgid "Display name"
+msgstr "చూపించే పేరు"
+
+msgid "Number of entries"
+msgstr "టపాల సంఖ్య"
+
+msgid "Show filters and display options"
+msgstr ""
+
+msgid "Filters"
+msgstr "వడపోతలు"
+
+#, fuzzy
+msgid "Display options"
+msgstr "అన్వేషణ ఎంపికలు"
+
+#, fuzzy
+msgid "Save current options"
+msgstr "అన్వేషణ ఎంపికలు"
+
+msgid "Apply filters and display options"
+msgstr ""
+
+#, fuzzy
+msgid "Format:"
+msgstr "తేదీ ఆకృతి:"
+
+#, fuzzy
+msgid "With password"
+msgstr "టపా సంకేతపదం:"
+
+#, fuzzy
+msgid "Without password"
+msgstr "మీ సంకేతపదం"
+
+msgid "Selected:"
+msgstr ""
+
+#, fuzzy
+msgid "Not selected"
+msgstr "ఎంపికలు లేవు"
+
+#, fuzzy
+msgid "Attachments:"
+msgstr "జోడింపులు"
+
+#, fuzzy
+msgid "With attachments"
+msgstr "%d జోడింపులు"
+
+#, fuzzy
+msgid "Without attachments"
+msgstr "%d జోడింపులు"
+
+msgid "Month:"
+msgstr "నెల:"
+
+msgid "Lang:"
+msgstr "భాష:"
+
+#, fuzzy
+msgid "Comments:"
+msgstr "వ్యాఖ్యలు"
+
+msgid "Opened"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "మూయి"
+
+#, fuzzy
+msgid "Trackbacks:"
+msgstr "ట్రాకుబ్యాకులు"
+
+msgid "Type:"
+msgstr "రకం:"
+
+#, fuzzy
+msgid "Trackback"
+msgstr "ట్రాకుబ్యాకులు"
+
+#, fuzzy
+msgid "users per page"
+msgstr " వాడుకరులు (ఒక పేజీకి)"
+
+#, fuzzy
+msgid "entries per page"
+msgstr "టపాలు (ఒక పేజీకి)"
+
+#, fuzzy
+msgid "comments per page"
+msgstr "వ్యాఖ్యలు (ఒక పేజీకి)"
+
+#, fuzzy
+msgid "blogs per page"
+msgstr "బ్లాగులు (ఒక పేజీకి)"
+
+msgid "Size"
+msgstr ""
+
+#, fuzzy
+msgid "media per page"
+msgstr "టపాలు (ఒక పేజీకి)"
+
+#, fuzzy
+msgid "results per page"
+msgstr "టపాలు (ఒక పేజీకి)"
+
 msgid "%H:%M:%S"
 msgstr ""
 
@@ -3246,6 +3239,7 @@ msgstr "ఈ ప్లగిన్ని నిజంగానే తొలగి
 msgid "Use this theme"
 msgstr "ఈ అలంకారాన్ని వాడు"
 
+#, fuzzy
 msgid "Remove this theme"
 msgstr "ఈ అలంకారాన్ని తొలగించు"
 
@@ -3319,21 +3313,14 @@ msgstr "కొత్త సంకేతపదం:"
 msgid "Hide password"
 msgstr "కొత్త సంకేతపదం:"
 
-msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it."
+msgid "Reset to now"
+msgstr ""
+
+msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr ""
 
 msgid "You have unsaved changes."
 msgstr "భద్రపరచని మార్పులున్నాయి."
-
-#, fuzzy
-msgid "Choose date"
-msgstr "ఓ ఫైలుని ఎంచుకోండి:"
-
-msgid "close"
-msgstr "మూయి"
-
-msgid "now"
-msgstr "ఇప్పుడే"
 
 msgid "Temporarily activate enhanced uploader"
 msgstr ""
@@ -3363,12 +3350,13 @@ msgstr "ఫైలు విజయవంతంగా ఎగుమతయ్యి�
 msgid "No file in queue."
 msgstr "పైళ్ళు లేవు."
 
+#, fuzzy
 msgid "1 file in queue."
-msgstr ""
+msgstr "పైళ్ళు లేవు."
 
-#, php-format
+#, fuzzy, php-format
 msgid "%d files in queue."
-msgstr ""
+msgstr "పైళ్ళు లేవు."
 
 msgid "Queue error:"
 msgstr ""
@@ -3425,6 +3413,10 @@ msgstr ""
 msgid "Current version"
 msgstr "అనుమతులు ఇవ్వండి"
 
+#, fuzzy
+msgid "Repository"
+msgstr "వివరణ:"
+
 #, php-format
 msgid " (%s)"
 msgstr ""
@@ -3435,6 +3427,14 @@ msgstr ""
 
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr ""
+
+#, fuzzy
+msgid "Official repository"
+msgstr "టపాలని వెతకు"
+
+#, fuzzy
+msgid "Third-party repository"
+msgstr "టపాలని వెతకు"
 
 msgid "Plugin from official distribution"
 msgstr ""
@@ -3871,6 +3871,41 @@ msgstr ""
 msgid "superadmin"
 msgstr ""
 
+#, fuzzy
+msgid "No file matches the filter"
+msgstr "టపాకి శీర్షిక లేదు"
+
+msgid "No file."
+msgstr "పైళ్ళు లేవు."
+
+#, fuzzy, php-format
+msgid "%d file matches the filter."
+msgid_plural "%d files match the filter."
+msgstr[0] "టపాకి శీర్షిక లేదు"
+msgstr[1] "టపాకి శీర్షిక లేదు"
+
+#, php-format
+msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgstr ""
+
+#, php-format
+msgid "Nb of items: %d"
+msgstr ""
+
+msgid "Insert this file into entry"
+msgstr ""
+
+#, fuzzy
+msgid "delete"
+msgstr "తొలగించు"
+
+#, fuzzy
+msgid "private media"
+msgstr "అంతరంగికం"
+
+msgid "open"
+msgstr ""
+
 #, php-format
 msgid "ratio %.1f"
 msgstr ""
@@ -3940,6 +3975,9 @@ msgstr "పేజీ(లు)"
 msgid "administrator"
 msgstr "నిర్వాహకుడు"
 
+msgid "manage all entries and comments"
+msgstr ""
+
 msgid "manage their own entries and comments"
 msgstr ""
 
@@ -3949,16 +3987,13 @@ msgstr "టపాలని మరియు వ్యాఖ్యలని ప్
 msgid "delete entries and comments"
 msgstr "టపాలని మరియు వ్యాఖ్యలని తొలగించండి"
 
-msgid "manage all entries and comments"
-msgstr ""
-
 msgid "manage categories"
 msgstr "వర్గాలను సంభాళించండి"
 
-msgid "manage their own media items"
+msgid "manage all media items"
 msgstr ""
 
-msgid "manage all media items"
+msgid "manage their own media items"
 msgstr ""
 
 msgid "That user does not exist in the database."
@@ -4201,6 +4236,9 @@ msgstr "తప్పుడు ఈమెయిల్ చిరునామా"
 msgid "SQL SELECT requires a FROM source"
 msgstr ""
 
+msgid "SQL JOIN requires a source"
+msgstr ""
+
 msgid "SQL DELETE requires a FROM source"
 msgstr ""
 
@@ -4208,6 +4246,9 @@ msgid "SQL UPDATE requires an INTO source"
 msgstr ""
 
 msgid "SQL INSERT requires an INTO source"
+msgstr ""
+
+msgid "SQL TRUNCATE TABLE requires a table source"
 msgstr ""
 
 msgid "Failed to read data feed"
@@ -4356,6 +4397,24 @@ msgstr ""
 
 msgid "The following error was encountered while trying to read the database:"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Media list"
+#~ msgstr "మాధ్యమ వివరాలు"
+
+#, php-format
+#~ msgid "%d comments found"
+#~ msgstr "%d వ్యాఖ్యలు దొరికాయి"
+
+#, fuzzy
+#~ msgid "Choose date"
+#~ msgstr "ఓ ఫైలుని ఎంచుకోండి:"
+
+#~ msgid "close"
+#~ msgstr "మూయి"
+
+#~ msgid "now"
+#~ msgstr "ఇప్పుడే"
 
 #, fuzzy
 #~ msgid "Activate dark mode"

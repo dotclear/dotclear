@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DotClear 2.0b7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-07-04 16:23+0200\n"
+"POT-Creation-Date: 2022-03-29 13:24+0200\n"
 "PO-Revision-Date: 2016-07-18 15:50+0200\n"
 "Last-Translator: Franck Paul <carnet.franck.paul@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -345,3 +345,11 @@ msgstr "wyślij"
 
 msgid "toDay"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Hide password"
+#~ msgstr "Hasło:"
+
+#, fuzzy
+#~ msgid "Show password"
+#~ msgstr "Hasło:"
