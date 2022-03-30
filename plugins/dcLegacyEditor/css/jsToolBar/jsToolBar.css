@@ -58,7 +58,7 @@ body.rtl .jstEditor iframe {
   background-color: #f7f7f7;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-size: 16px;
+  background-size: 20px;
   box-shadow: none;
 }
 .jstElements button:hover,
