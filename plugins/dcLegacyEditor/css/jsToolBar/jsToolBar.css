@@ -44,18 +44,15 @@ body.rtl .jstEditor iframe {
 .jstElements button {
   vertical-align: middle;
 }
-.jstElements select {
-  width: 12em;
-}
 .jstElements button {
-  width: 30px;
+  width: 28px;
   height: 28px;
   border-style: solid;
   border-width: 1px;
   margin-left: 2px;
   margin-bottom: 2px;
-  border-color: #323232;
-  background-color: #f7f7f7;
+  border-color: #fff;
+  background-color: #fff;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: 20px;
@@ -63,7 +60,7 @@ body.rtl .jstEditor iframe {
 }
 .jstElements button:hover,
 .jstElements button:focus {
-  border-color: #ddd;
+  border-color: #3a539b;
   background-color: #fff;
 }
 .jstElements button span {
@@ -74,7 +71,7 @@ body.rtl .jstEditor iframe {
   vertical-align: top;
 }
 span.jstSpacer {
-  width: 8px;
+  width: 5px;
 }
 .jstSwitcher {
   display: flex;
