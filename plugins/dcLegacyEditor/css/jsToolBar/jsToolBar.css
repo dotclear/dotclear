@@ -45,8 +45,8 @@ body.rtl .jstEditor iframe {
   vertical-align: middle;
 }
 .jstElements button {
-  width: 28px;
-  height: 28px;
+  width: 2.8rem;
+  height: 2.8rem;
   border-style: solid;
   border-width: 1px;
   margin-left: 2px;
@@ -55,7 +55,7 @@ body.rtl .jstEditor iframe {
   background-color: #fff;
   background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-size: 20px;
+  background-size: 2rem;
   box-shadow: none;
 }
 .jstElements button:hover,
@@ -71,7 +71,7 @@ body.rtl .jstEditor iframe {
   vertical-align: top;
 }
 span.jstSpacer {
-  width: 5px;
+  width: 0.5rem;
 }
 .jstSwitcher {
   display: flex;
