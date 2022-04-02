@@ -56,10 +56,11 @@ config: clean config-stamp
 	## Pack javascript files
 	find $(DC)/admin/js/*.js ! -name '*.min.js' -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/admin/js/codemirror ! -name '*.min.js' -name '*.js' -exec ./build-tools/min-js.php \{\} \;
-	find $(DC)/admin/js/jquery/*.js ! -name '*.min.js' -exec ./build-tools/min-js.php \{\} \;
+	find $(DC)/admin/js/jquery/*.js ! -name '*.min.js' ! -name 'jquery.js' -exec ./build-tools/min-js.php \{\} \;
 	find $(DC)/admin/js/jsUpload/*.js ! -name '*.min.js' -exec ./build-tools/min-js.php \{\} \;
-	find $(DC)/plugins -name '*.js' ! -name '*.min.js' -exec ./build-tools/min-js.php \{\} \;
-	find $(DC)/inc/js -name '*.js' ! -name '*.min.js' -exec ./build-tools/min-js.php \{\} \;
+	find $(DC)/plugins -name '*.js' ! -name '*.min.js' ! -name 'jquery.js' -exec ./build-tools/min-js.php \{\} \;
+	find $(DC)/themes -name '*.js' ! -name '*.min.js' ! -name 'jquery.js' -exec ./build-tools/min-js.php \{\} \;
+	find $(DC)/inc/js -name '*.js' ! -name '*.min.js' ! -name 'jquery.js' -exec ./build-tools/min-js.php \{\} \;
 
 	## Debug off
 	perl -pi -e "s|^//\*== DC_DEBUG|/*== DC_DEBUG|sgi;" $(DC)/inc/prepend.php $(DC)/inc/prepend.php
