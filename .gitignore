@@ -2,12 +2,10 @@
 /inc/config.php
 \.htaccess
 /public
-/behat.yml
 /build-tools/ckeditor/ckbuilder.jar
 /var
 
 # composer stuff
 /vendor
 /composer.phar
-/coverage
 /doxygen
