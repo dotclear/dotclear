@@ -13,16 +13,6 @@
     "php": ">=7.4.0"
   },
   "require-dev": {
-    "atoum/atoum": "dev-master",
-    "fzaninotto/faker": "dev-master",
-    "atoum/reports-extension": "dev-master",
-    "behat/behat": "<3",
-    "behat/common-contexts": "1.2.*",
-    "behat/mink": ">=1.4,<1.5-dev",
-    "symfony/dom-crawler": ">=2.0,<2.4-dev",
-    "symfony/translation": "<2.3.0",
-    "behat/mink-extension": "1.3.*",
-    "behat/mink-goutte-driver": "1.*",
     "phpstan/phpstan": "1.4.x-dev"
   },
   "config": {
