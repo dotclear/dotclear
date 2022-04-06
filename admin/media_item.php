@@ -575,7 +575,12 @@ if ($popup && ($select === 0)) {
             form::radio(['alignment'], $k, $v[1]) . ' ' . $v[0] . '</label><br /> ';
         }
 
-        echo form::hidden('public_player', html::escapeHTML(dcMedia::audioPlayer($file->type, $file->file_url)));
+        $url = $file->file_url;
+        if (substr($url, 0, strlen($core->blog->host)) === $core->blog->host) {
+            $url = substr($url, strlen($core->blog->host));
+        }
+        echo form::hidden('blog_host', html::escapeHTML($core->blog->host));
+        echo form::hidden('public_player', html::escapeHTML(dcMedia::audioPlayer($file->type, $url)));
         echo '</p>';
         echo '</div>';
     } elseif ($file_type[0] == 'video') {
@@ -610,7 +615,12 @@ if ($popup && ($select === 0)) {
             form::radio(['alignment'], $k, $v[1]) . ' ' . $v[0] . '</label><br /> ';
         }
 
-        echo form::hidden('public_player', html::escapeHTML(dcMedia::videoPlayer($file->type, $file->file_url)));
+        $url = $file->file_url;
+        if (substr($url, 0, strlen($core->blog->host)) === $core->blog->host) {
+            $url = substr($url, strlen($core->blog->host));
+        }
+        echo form::hidden('blog_host', html::escapeHTML($core->blog->host));
+        echo form::hidden('public_player', html::escapeHTML(dcMedia::videoPlayer($file->type, $url)));
         echo '</p>';
         echo '</div>';
     } else {
