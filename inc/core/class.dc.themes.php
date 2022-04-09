@@ -74,9 +74,9 @@ class dcThemes extends dcModules
         }
 
         $counter = 0;
-        $new_dir = sprintf('%s-copy', $this->modules[$id]['root']);
+        $new_dir = sprintf('%s_copy', $this->modules[$id]['root']);
         while (is_dir($new_dir)) {
-            $new_dir = sprintf('%s-copy-%s', $this->modules[$id]['root'], ++$counter);
+            $new_dir = sprintf('%s_copy_%s', $this->modules[$id]['root'], ++$counter);
         }
         $new_name = $this->modules[$id]['name'] . ($counter ? sprintf(__(' (copy #%s)'), $counter) : __(' (copy)'));
 
