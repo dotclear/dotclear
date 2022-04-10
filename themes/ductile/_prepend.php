@@ -29,7 +29,7 @@ class tplDuctileThemeAdmin
     public static function adminPageHTMLHead()
     {
         global $core;
-        if ($core->blog->settings->system->theme != 'ductile') {
+        if ($core->blog->settings->system->theme !== basename(dirname(__FILE__))) {
             return;
         }
 
