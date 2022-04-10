@@ -10,8 +10,8 @@ dotclear.confirmClose = class {
     this.form_submit = false;
     // Add given forms
     if (arguments.length > 0) {
-      for (let i = 0; i < arguments.length; i++) {
-        this.forms_id.push(arguments[i]);
+      for (const argument of arguments) {
+        this.forms_id.push(argument);
       }
     }
   }
@@ -34,9 +34,9 @@ dotclear.confirmClose = class {
       // Loop on form iframes
       const j = f.getElementsByTagName('iframe');
       if (j !== undefined) {
-        for (let k = 0; k < j.length; k++) {
-          if (j[k].contentDocument.body.id !== undefined && j[k].contentDocument.body.id !== '') {
-            tmpForm[j[k].contentDocument.body.id] = j[k].contentDocument.body.innerHTML;
+        for (const k of j) {
+          if (k.contentDocument.body.id !== undefined && k.contentDocument.body.id !== '') {
+            tmpForm[k.contentDocument.body.id] = k.contentDocument.body.innerHTML;
           }
         }
       }
@@ -85,9 +85,9 @@ dotclear.confirmClose = class {
       // Loop on form iframes
       const j = f.getElementsByTagName('iframe');
       if (j !== undefined) {
-        for (let k = 0; k < j.length; k++) {
-          if (j[k].contentDocument.body.id !== undefined && j[k].contentDocument.body.id !== '') {
-            tmpForm[j[k].contentDocument.body.id] = j[k].contentDocument.body.innerHTML;
+        for (const k of j) {
+          if (k.contentDocument.body.id !== undefined && k.contentDocument.body.id !== '') {
+            tmpForm[k.contentDocument.body.id] = k.contentDocument.body.innerHTML;
           }
         }
       }

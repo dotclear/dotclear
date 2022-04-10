@@ -509,9 +509,9 @@ dotclear.responsiveCellHeaders = (table, selector, offset = 0, thead = false) =>
   try {
     const THarray = [];
     const ths = table.getElementsByTagName('th');
-    for (let i = 0; i < ths.length; i++) {
-      for (let colspan = ths[i].colSpan; colspan > 0; colspan--) {
-        THarray.push(ths[i].innerText.replace('▶', ''));
+    for (const th of ths) {
+      for (let colspan = th.colSpan; colspan > 0; colspan--) {
+        THarray.push(th.innerText.replace('▶', ''));
       }
     }
     const styleElm = document.createElement('style');

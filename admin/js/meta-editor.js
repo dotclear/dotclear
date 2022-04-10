@@ -70,13 +70,13 @@ class metaEditor {
       const meta = this.splitMetaValues(this.meta_field.val());
 
       this.meta_list.empty();
-      for (let i = 0; i < meta.length; i++) {
-        li = $(`<li>${meta[i]}</li>`);
+      for (const m of meta) {
+        li = $(`<li>${m}</li>`);
         const a_remove = $(
           '<button type="button" class="metaRemove meta-helper"><img src="images/trash.png" alt="remove" /></button>'
         );
         a_remove.get(0).caller = this;
-        a_remove.get(0).meta_id = meta[i];
+        a_remove.get(0).meta_id = m;
         a_remove.on('click', function () {
           this.caller.removeMeta(this.meta_id);
           return false;

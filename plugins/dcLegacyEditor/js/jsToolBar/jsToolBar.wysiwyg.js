@@ -443,8 +443,7 @@ jsToolBar.prototype.getBlockLevel = function () {
     commonAncestorContainer = commonAncestorContainer.parentNode;
     ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
   }
-  if (ancestorTagName == 'body') return null;
-  else return commonAncestorContainer;
+  return ancestorTagName == 'body' ? null : commonAncestorContainer;
 };
 jsToolBar.prototype.adjustBlockLevelCombo = function () {
   const blockLevel = this.getBlockLevel();
@@ -624,8 +623,8 @@ jsToolBar.prototype.validBlockquote = function () {
   let bqChilds;
   let p;
 
-  for (let bq = 0; bq < BQs.length; bq++) {
-    bqChilds = BQs[bq].childNodes;
+  for (const bq of BQs) {
+    bqChilds = bq.childNodes;
     let frag = this.iwin.document.createDocumentFragment();
     for (let i = bqChilds.length - 1; i >= 0; i--) {
       if (
@@ -635,18 +634,18 @@ jsToolBar.prototype.validBlockquote = function () {
         if (frag.childNodes.length > 0) {
           p = this.iwin.document.createElement('p');
           p.appendChild(frag);
-          BQs[bq].replaceChild(p, bqChilds[i + 1]);
+          bq.replaceChild(p, bqChilds[i + 1]);
           frag = this.iwin.document.createDocumentFragment();
         }
       } else {
-        if (frag.childNodes.length > 0) BQs[bq].removeChild(bqChilds[i + 1]);
+        if (frag.childNodes.length > 0) bq.removeChild(bqChilds[i + 1]);
         frag.insertBefore(bqChilds[i].cloneNode(true), frag.firstChild);
       }
     }
     if (frag.childNodes.length > 0) {
       p = this.iwin.document.createElement('p');
       p.appendChild(frag);
-      BQs[bq].replaceChild(p, bqChilds[0]);
+      bq.replaceChild(p, bqChilds[0]);
     }
   }
 };

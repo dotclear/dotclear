@@ -3,7 +3,7 @@
 
 Object.assign(dotclear.msg, dotclear.getData('ck_editor_tags'));
 
-(function () {
+{
   CKEDITOR.plugins.add('dctags', {
     init(editor) {
       editor.addCommand('dcTagsCommand', {
@@ -27,4 +27,4 @@ Object.assign(dotclear.msg, dotclear.getData('ck_editor_tags'));
       });
     },
   });
-})();
+}

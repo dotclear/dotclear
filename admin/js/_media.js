@@ -182,8 +182,8 @@ $(() => {
     const str_params = parts[1].split('&');
     const postData = {};
 
-    for (let n = 0; n < str_params.length; n++) {
-      const kv = str_params[n].split('=');
+    for (const str_param of str_params) {
+      const kv = str_param.split('=');
       postData[kv[0]] = kv[1];
     }
     postData.xd_check = dotclear.nonce;

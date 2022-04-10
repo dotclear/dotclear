@@ -50,7 +50,7 @@ $(() => {
   const dtTodayHelper = (e) => {
     e.preventDefault();
     const dtField = e.currentTarget.previousElementSibling;
-    var now = new Date();
+    const now = new Date();
     now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
     dtField.value = now.toISOString().slice(0, 16);
   };
