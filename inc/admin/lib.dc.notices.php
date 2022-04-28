@@ -115,8 +115,16 @@ class dcAdminNotices
     {
         $cur = self::$core->con->openCursor(self::$core->prefix . self::$core->notices->getTable());
 
+        $now = function ($core) {
+            dt::setTZ($core->auth->getInfo('user_tz')); // Set user TZ
+            $dt = date('Y-m-d H:i:s');
+            dt::setTZ('UTC');                           // Back to default TZ
+
+            return $dt;
+        };
+
         $cur->notice_type    = $type;
-        $cur->notice_ts      = isset($options['ts']) && $options['ts'] ? $options['ts'] : date('Y-m-d H:i:s');
+        $cur->notice_ts      = isset($options['ts']) && $options['ts'] ? $options['ts'] : $now(self::$core);
         $cur->notice_msg     = $message;
         $cur->notice_options = json_encode($options);
 
