@@ -68,7 +68,7 @@ if ($data = json_decode($data, true)) {
             $contents = '';
             if (file_exists(LOGFILE)) {
                 $contents = file_get_contents(LOGFILE);
-                if ($contents && $contents != '') {
+                if ($contents) {
                     if (substr($contents, -1) == ',') {
                         // Remove final comma if present
                         $contents = substr($contents, 0, -1);

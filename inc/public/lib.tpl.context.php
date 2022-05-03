@@ -377,7 +377,7 @@ class context
             }
         }
 
-        if ($pol['ARCHIVE'] == 'ARCHIVE') {
+        if ($pol['ARCHIVE'] === 'ARCHIVE') {
             unset($pol['ARCHIVE']);
         }
 

@@ -29,7 +29,7 @@ if ($dlang != 'en') {
     l10n::set(__DIR__ . '/../../locales/' . $dlang . '/plugins');
 }
 
-if (!defined('DC_MASTER_KEY') || DC_MASTER_KEY == '') {
+if (!defined('DC_MASTER_KEY') || DC_MASTER_KEY === '') { // @phpstan-ignore-line
     $can_install = false;
     $err         = '<p>' . __('Please set a master key (DC_MASTER_KEY) in configuration file.') . '</p>';
 }
@@ -55,7 +55,7 @@ $admin_url = '';
 
 $mail_sent = false;
 
-if ($can_install && !empty($_POST)) {
+if ($can_install && !empty($_POST)) {    // @phpstan-ignore-line
     $u_email     = !empty($_POST['u_email']) ? $_POST['u_email'] : null;
     $u_firstname = !empty($_POST['u_firstname']) ? $_POST['u_firstname'] : null;
     $u_name      = !empty($_POST['u_name']) ? $_POST['u_name'] : null;
@@ -323,7 +323,7 @@ if (!is_writable(DC_TPL_CACHE)) {
     echo '<div class="error" role="alert"><p>' . sprintf(__('Cache directory %s is not writable.'), DC_TPL_CACHE) . '</p></div>';
 }
 
-if ($can_install && !empty($err)) {
+if ($can_install && !empty($err)) {  // @phpstan-ignore-line
     echo '<div class="error" role="alert"><p><strong>' . __('Errors:') . '</strong></p>' . $err . '</div>';
 }
 
@@ -331,7 +331,7 @@ if (!empty($_GET['wiz'])) {
     echo '<p class="success" role="alert">' . __('Configuration file has been successfully created.') . '</p>';
 }
 
-if ($can_install && $step == 0) {
+if ($can_install && $step == 0) {    // @phpstan-ignore-line
     echo
     '<h2>' . __('User information') . '</h2>' .
 
@@ -386,7 +386,7 @@ if ($can_install && $step == 0) {
 
     '<p><input type="submit" value="' . __('Save') . '" /></p>' .
         '</form>';
-} elseif ($can_install && $step == 1) {
+} elseif ($can_install && $step == 1) {  // @phpstan-ignore-line
     # Plugins install messages
     $plugins_install_result = '';
     if (!empty($plugins_install['success'])) {
@@ -429,7 +429,7 @@ if ($can_install && $step == 0) {
     form::hidden(['user_pwd'], html::escapeHTML($u_pwd)) .
         '</p>' .
         '</form>';
-} elseif (!$can_install) {
+} elseif (!$can_install) {   // @phpstan-ignore-line
     echo '<h2>' . __('Installation can not be completed') . '</h2>' .
     '<div class="error" role="alert"><p><strong>' . __('Errors:') . '</strong></p>' . $err . '</div>' .
     '<p>' . __('For the said reasons, Dotclear can not be installed. ' .

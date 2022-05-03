@@ -32,6 +32,7 @@ parameters:
     - themes/ductile
 
   excludePaths:
+    - inc/config.php
     - inc/libs/clearbricks/debian/*
     - inc/libs/clearbricks/tests/unit/*/*
     - rector.php
@@ -150,6 +151,10 @@ parameters:
 
     # dcSqlStatement::$core
     - message: '#Access to protected property dcSelectStatement::\$core.#'
+      path: %currentWorkingDirectory%
+
+    # arrayObject/string
+    - message: '#ArrayObject\<\*NEVER\*, \*NEVER\*\> does not accept string.#'
       path: %currentWorkingDirectory%
 
 # Notes:

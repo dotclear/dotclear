@@ -306,7 +306,7 @@ try {
                 (DC_DEBUG ? // @phpstan-ignore-line
                     '<p>' . __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' :
                     ''),
-                (DC_DBHOST != '' ? DC_DBHOST : 'localhost')
+                (DC_DBHOST !== '' ? DC_DBHOST : 'localhost')   // @phpstan-ignore-line
             ) :
             '',
             20
