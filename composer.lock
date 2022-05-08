@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "fc122157206763d39a43bec41534c50ffe12e2be"
+                "reference": "eb2da38820abf052db5e3543e09e8b66ace958db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/fc122157206763d39a43bec41534c50ffe12e2be",
-                "reference": "fc122157206763d39a43bec41534c50ffe12e2be",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/eb2da38820abf052db5e3543e09e8b66ace958db",
+                "reference": "eb2da38820abf052db5e3543e09e8b66ace958db",
                 "shasum": ""
             },
             "require": {
@@ -65,7 +65,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-03T07:46:55+00:00"
+            "time": "2022-05-07T00:32:11+00:00"
         }
     ],
     "aliases": [],

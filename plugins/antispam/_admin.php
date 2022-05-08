@@ -56,7 +56,7 @@ $core->addBehavior(
     }
 );
 
-if (!DC_ANTISPAM_CONF_SUPER || $core->auth->isSuperAdmin()) {
+if (!DC_ANTISPAM_CONF_SUPER || $core->auth->isSuperAdmin()) {   // @phpstan-ignore-line
     $core->addBehavior('adminBlogPreferencesForm', ['antispamBehaviors', 'adminBlogPreferencesForm']);
     $core->addBehavior('adminBeforeBlogSettingsUpdate', ['antispamBehaviors', 'adminBeforeBlogSettingsUpdate']);
     $core->addBehavior('adminCommentsSpamForm', ['antispamBehaviors', 'adminCommentsSpamForm']);
