@@ -1,3 +1,18 @@
+Dotclear 2.22 - 2022-05-13
+===========================================================
+* 🐘 PHP 7.4+ is required, PHP 8.0/8.1 compliance
+* Remove anti-FLoC system
+* Add a live preview button to standard Dotclear editor (wiki syntax)
+* Use native Javascript in scripts shiped with Berlin and Ductile theme (no more need jQuery)
+* Improve retrieval of origin metadata on Webmention or Pingback
+* Add a "Reset to now" button near the publish datetime input field (post/page)
+* Reduce number of CSS mediaqueries' breakpoints to 3 (mobile, tablet, laptop) for backend
+* Add a sticky position to "quick access to section" menu for about:Config and user:Prefs
+* Toolbar icons reviewed for standard Dotclear editor
+* Lib: Update Codemirror to 5.65.2
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.21.3 - 2022-03-07
 ===========================================================
 * Fix: Non admin users cannot create a new entry
