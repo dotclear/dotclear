@@ -494,6 +494,7 @@ h6 {
   --rch-table-expand-color: var(--body-color);
   --rch-table-expand-background: var(--body-background);
   --rch-table-expand-border: #ececec;
+  --rch-table-td-link: #bee74b;
   --badge-color: #fff;
   --badge-border: transparent;
   --badge-std-background: #d54e21;
@@ -762,6 +763,7 @@ h6 {
   --rch-table-expand-color: var(--body-color);
   --rch-table-expand-background: var(--body-background);
   --rch-table-expand-border-top: #ecedee;
+  --rch-table-td-link: #bee74b;
   --badge-color: #fff;
   --badge-border: var(--body-color);
   --badge-std-background: #d54e21;
@@ -1031,6 +1033,7 @@ h6 {
     --rch-table-expand-color: var(--body-color);
     --rch-table-expand-background: var(--body-background);
     --rch-table-expand-border-top: #ecedee;
+    --rch-table-td-link: #bee74b;
     --badge-color: #fff;
     --badge-border: var(--body-color);
     --badge-std-background: #d54e21;
@@ -1451,7 +1454,7 @@ h1,
     top: 10em; }
 
   .one-box,
-  .two-boxes,
+  body:not(.popup) .two-boxes,
   .box,
   .two-cols .col {
     width: 96%;
@@ -1544,6 +1547,11 @@ h1,
   #theme-new,
   #theme-activate,
   #theme-deactivate {
+    margin-left: 0;
+    margin-right: 0; }
+
+  body.popup .two-boxes {
+    width: 96%;
     margin-left: 0;
     margin-right: 0; }
 
@@ -2897,7 +2905,7 @@ td.expand {
 .rch td::before {
   display: none; }
 
-@media screen and (max-width: 62em), print and (max-width: 5in) {
+@media screen and (max-width: 43em), print and (max-width: 5in) {
   table.rch {
     display: block; }
     table.rch caption,

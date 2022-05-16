@@ -143,7 +143,7 @@ td.expand {
   display: none;
 }
 
-@media screen and (max-width: $tablet-screen), print and (max-width: 5in) {
+@media screen and (max-width: $mobile-screen), print and (max-width: 5in) {
   table.rch {
     display: block;
 
