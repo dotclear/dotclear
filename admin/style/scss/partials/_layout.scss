@@ -444,7 +444,7 @@ h1,
   }
 
   .one-box,
-  .two-boxes,
+  body:not(.popup) .two-boxes,
   .box,
   .two-cols .col {
     width: 96%;
@@ -571,6 +571,12 @@ h1,
   #theme-new,
   #theme-activate,
   #theme-deactivate {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  body.popup .two-boxes {
+    width: 96%;
     margin-left: 0;
     margin-right: 0;
   }
