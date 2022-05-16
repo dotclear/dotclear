@@ -16,47 +16,6 @@ class dcAdminHelper
     public static $core;
 
     /**
-     * Get icon URL (taking into account iconset if necessary)
-     *
-     * @param      string  $img    The image
-     *
-     * @return     string
-     */
-    public static function iconURL($img)
-    {
-        $allow_types = ['svg', 'png', 'webp', 'jpg', 'jpeg', 'gif'];
-
-        self::$core->auth->user_prefs->addWorkspace('interface');
-        $user_ui_iconset = @self::$core->auth->user_prefs->interface->iconset;
-        if (($user_ui_iconset) && ($img)) {
-            if ((preg_match('/^images\/menu\/(.+)(\..*)$/', $img, $m)) || (preg_match('/^index\.php\?pf=(.+)(\..*)$/', $img, $m))) {
-                $name = $m[1] ?? '';
-                $ext  = $m[2] ?? '';
-                if ($name !== '' && $ext !== '') {
-                    $icon = path::real(__DIR__ . '/../../admin/images/iconset/' . $user_ui_iconset . '/' . $name . $ext, true);
-                    if ($icon !== false) {
-                        // Find same (name and extension)
-                        if (is_file($icon) && is_readable($icon) && in_array(files::getExtension($icon), $allow_types)) {
-                            return DC_ADMIN_URL . 'images/iconset/' . $user_ui_iconset . '/' . $name . $ext;
-                        }
-                    }
-                    // Look for other extensions
-                    foreach ($allow_types as $ext) {
-                        $icon = path::real(__DIR__ . '/../../admin/images/iconset/' . $user_ui_iconset . '/' . $name . '.' . $ext, true);
-                        if ($icon !== false) {
-                            if (is_file($icon) && is_readable($icon)) {
-                                return DC_ADMIN_URL . 'images/iconset/' . $user_ui_iconset . '/' . $name . '.' . $ext;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        return $img;
-    }
-
-    /**
      * Compose HTML icon markup for favorites, menu, … depending on theme (light, dark)
      *
      * @param mixed     $img        string (default) or array (0 : light, 1 : dark)
@@ -81,12 +40,12 @@ class dcAdminHelper
 
         $title = $title !== '' ? ' title="' . $title . '"' : '';
         if ($light_img !== '' && $dark_img !== '') {
-            $icon = '<img src="' . self::iconURL($light_img) .
+            $icon = '<img src="' . $light_img .
             '" class="light-only' . ($class !== '' ? ' ' . $class : '') . '" alt="' . $alt . '"' . $title . ' />' .
-                '<img src="' . self::iconURL($dark_img) .
+                '<img src="' . $dark_img .
             '" class="dark-only' . ($class !== '' ? ' ' . $class : '') . '" alt="' . $alt . '"' . $title . ' />';
         } elseif ($light_img !== '') {
-            $icon = '<img src="' . self::iconURL($light_img) .
+            $icon = '<img src="' . $light_img .
             '" class="' . ($class !== '' ? $class : '') . '" alt="' . $alt . '"' . $title . ' />';
         } else {
             $icon = '';
@@ -165,17 +124,17 @@ function dc_load_locales()
 }
 
 /**
- * Get icon URL (taking into account iconset if necessary)
+ * Get icon URL
  *
  * @param      string  $img    The image
  *
- * @deprecated  since 2.21  use dcAdminHelper::iconURL()
+ * @deprecated  since 2.21
  *
  * @return     string
  */
 function dc_admin_icon_url($img)
 {
-    return dcAdminHelper::iconURL($img);
+    return $img;
 }
 
 /**

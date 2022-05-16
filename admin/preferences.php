@@ -57,7 +57,6 @@ $user_ui_hide_std_favicon = false;
 if ($core->auth->isSuperAdmin()) {
     $user_ui_hide_std_favicon = $core->auth->user_prefs->interface->hide_std_favicon;
 }
-$user_ui_iconset            = @$core->auth->user_prefs->interface->iconset;
 $user_ui_nofavmenu          = $core->auth->user_prefs->interface->nofavmenu;
 $user_ui_media_nb_last_dirs = $core->auth->user_prefs->interface->media_nb_last_dirs;
 $user_ui_nocheckadblocker   = $core->auth->user_prefs->interface->nocheckadblocker;
@@ -93,18 +92,6 @@ foreach (array_keys($format_by_editors) as $format) {
     }
 }
 $status_combo = dcAdminCombos::getPostStatusescombo();
-
-$iconsets_combo = [__('Default') => ''];
-$iconsets_root  = __DIR__ . '/images/iconset/';
-if (is_dir($iconsets_root) && is_readable($iconsets_root)) {
-    if (($d = @dir($iconsets_root)) !== false) {
-        while (($entry = $d->read()) !== false) {
-            if ($entry != '.' && $entry != '..' && substr($entry, 0, 1) != '.' && is_dir($iconsets_root . '/' . $entry)) {
-                $iconsets_combo[$entry] = $entry;
-            }
-        }
-    }
-}
 
 # Themes
 $theme_combo = [
@@ -338,7 +325,6 @@ if (isset($_POST['db-options'])) {
         if ($core->auth->isSuperAdmin()) {
             $core->auth->user_prefs->dashboard->put('nodcupdate', !empty($_POST['user_dm_nodcupdate']), 'boolean');
         }
-        $core->auth->user_prefs->interface->put('iconset', (!empty($_POST['user_ui_iconset']) ? $_POST['user_ui_iconset'] : ''));
         $core->auth->user_prefs->interface->put('nofavmenu', empty($_POST['user_ui_nofavmenu']), 'boolean');
 
         # --BEHAVIOR-- adminAfterUserOptionsUpdate
@@ -904,13 +890,6 @@ echo
 form::checkbox('user_dm_nofavicons', 1, !$user_dm_nofavicons) . ' ' .
 __('Display dashboard icons') . '</label></p>';
 
-if (count($iconsets_combo) > 1) {
-    echo
-    '<p><label for="user_ui_iconset" class="classic">' . __('Iconset:') . '</label> ' .
-    form::combo('user_ui_iconset', $iconsets_combo, $user_ui_iconset) . '</p>';
-} else {
-    echo '<p class="hidden">' . form::hidden('user_ui_iconset', '') . '</p>';
-}
 echo
     '</div>';
 
