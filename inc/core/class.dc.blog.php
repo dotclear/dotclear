@@ -873,19 +873,17 @@ class dcBlog
      *
      * @param    array              $params        Parameters
      * @param    bool               $count_only    Only counts results
-     * @param    dcSelectStatement  $sql           Optional dcSelectStatement instance
+     * @param    dcSelectStatement  $ext_sql       Optional dcSelectStatement instance
      *
      * @return   mixed    A record with some more capabilities or the SQL request
      */
-    public function getPosts($params = [], $count_only = false, ?dcSelectStatement $sql = null)
+    public function getPosts($params = [], $count_only = false, ?dcSelectStatement $ext_sql = null)
     {
         # --BEHAVIOR-- coreBlogBeforeGetPosts
         $params = new ArrayObject($params);
         $this->core->callBehavior('coreBlogBeforeGetPosts', $params);
 
-        if (!$sql) {
-            $sql = new dcSelectStatement($this->core, 'dcBlogGetPosts');
-        }
+        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement($this->core, 'dcBlogGetPosts');
 
         if ($count_only) {
             $sql->column($sql->count($sql->unique('P.post_id')));
@@ -2132,15 +2130,13 @@ class dcBlog
      *
      * @param    array              $params        Parameters
      * @param    bool               $count_only    Only counts results
-     * @param    dcSelectStatement  $sql           Optional dcSelectStatement instance
+     * @param    dcSelectStatement  $ext_sql       Optional dcSelectStatement instance
      *
      * @return   mixed      A record with some more capabilities
      */
-    public function getComments($params = [], $count_only = false, ?dcSelectStatement $sql = null)
+    public function getComments($params = [], $count_only = false, ?dcSelectStatement $ext_sql = null)
     {
-        if (!$sql) {
-            $sql = new dcSelectStatement($this->core, 'dcBlogGetComments');
-        }
+        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement($this->core, 'dcBlogGetComments');
 
         if ($count_only) {
             $sql->column($sql->count('comment_id'));

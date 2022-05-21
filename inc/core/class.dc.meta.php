@@ -215,19 +215,17 @@ class dcMeta
      *
      * @param      array                    $params      The parameters
      * @param      bool                     $count_only  Only count results
-     * @param      dcSelectStatement|null   $sql         Optional dcSqlStatement instance
+     * @param      dcSelectStatement|null   $ext_sql     Optional dcSqlStatement instance
      *
      * @return     mixed   The resulting posts record.
      */
-    public function getPostsByMeta($params = [], $count_only = false, ?dcSelectStatement $sql = null)
+    public function getPostsByMeta($params = [], $count_only = false, ?dcSelectStatement $ext_sql = null)
     {
         if (!isset($params['meta_id'])) {
             return;
         }
 
-        if (!$sql) {
-            $sql = new dcSelectStatement($this->core, 'dcMetaGetPostsByMeta');
-        }
+        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement($this->core, 'dcMetaGetPostsByMeta');
 
         $sql
             ->from($this->table . ' META')
@@ -253,19 +251,17 @@ class dcMeta
      *
      * @param      array                    $params      The parameters
      * @param      bool                     $count_only  Only count results
-     * @param      dcSelectStatement|null   $sql         Optional dcSqlStatement instance
+     * @param      dcSelectStatement|null   $ext_sql     Optional dcSqlStatement instance
      *
      * @return     mixed   The resulting comments record.
      */
-    public function getCommentsByMeta($params = [], $count_only = false, ?dcSelectStatement $sql = null)
+    public function getCommentsByMeta($params = [], $count_only = false, ?dcSelectStatement $ext_sql = null)
     {
         if (!isset($params['meta_id'])) {
             return;
         }
 
-        if (!$sql) {
-            $sql = new dcSelectStatement($this->core, 'dcMetaGetPostsByMeta');
-        }
+        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement($this->core, 'dcMetaGetCommentsByMeta');
 
         $sql
             ->from($this->table . ' META')
@@ -294,15 +290,13 @@ class dcMeta
      *
      * @param      array                    $params      The parameters
      * @param      bool                     $count_only  Only counts results
-     * @param      dcSelectStatement|null   $sql         Optional dcSqlStatement instance
+     * @param      dcSelectStatement|null   $ext_sql     Optional dcSqlStatement instance
      *
      * @return     record  The metadata.
      */
-    public function getMetadata($params = [], $count_only = false, ?dcSelectStatement $sql = null)
+    public function getMetadata($params = [], $count_only = false, ?dcSelectStatement $ext_sql = null)
     {
-        if (!$sql) {
-            $sql = new dcSelectStatement($this->core, 'dcMetaGetMetadata');
-        }
+        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement($this->core, 'dcMetaGetMetadata');
 
         if ($count_only) {
             $sql->column($sql->count($sql->unique('M.meta_id')));
