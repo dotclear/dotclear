@@ -200,11 +200,15 @@ class attachmentTpl
         $f = $GLOBALS['core']->tpl->getFilters($attr);
 
         return
-        '<?php ' .
-        'if (isset($attach_f->media_thumb[\'sq\'])) {' .
-        'echo ' . sprintf($f, '$attach_f->media_thumb[\'sq\']') . ';' .
-            '}' .
-            '?>';
+        '<?php ' . "\n" .
+        'if (isset($attach_f->media_thumb[\'sq\'])) {' . "\n" .
+        '   $url = $attach_f->media_thumb[\'sq\']);' . "\n" .
+        '   if (substr($url, 0, strlen($core->blog->host)) === $core->blog->host) {' . "\n" .
+        '       $url = substr($url, strlen($core->blog->host));' . "\n" .
+        '   }' . "\n" .
+        '   echo ' . sprintf($f, '$url') . ';' . "\n" .
+        '}' .
+        '?>';
     }
 
     /*dtd
@@ -214,14 +218,28 @@ class attachmentTpl
     {
         $f = $GLOBALS['core']->tpl->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$attach_f->file_url') . '; ?>';
+        return
+        '<?php ' . "\n" .
+        '$url = $attach_f->file_url;' . "\n" .
+        'if (substr($url, 0, strlen($core->blog->host)) === $core->blog->host) {' . "\n" .
+        '   $url = substr($url, strlen($core->blog->host));' . "\n" .
+        '}' . "\n" .
+        'echo ' . sprintf($f, '$url') . ';' . "\n" .
+        '?>';
     }
 
     public static function MediaURL($attr)
     {
         $f = $GLOBALS['core']->tpl->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->file_url') . '; ?>';
+        return
+        '<?php ' . "\n" .
+        '$url = $_ctx->file_url;' . "\n" .
+        'if (substr($url, 0, strlen($core->blog->host)) === $core->blog->host) {' . "\n" .
+        '   $url = substr($url, strlen($core->blog->host));' . "\n" .
+        '}' . "\n" .
+        'echo ' . sprintf($f, '$url') . ';' . "\n" .
+        '?>';
     }
 
     /*dtd
