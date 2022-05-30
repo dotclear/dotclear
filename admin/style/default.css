@@ -2929,6 +2929,8 @@ td.expand {
       grid-gap: 1em 0.5em;
       text-align: left;
       border: none; }
+      table.rch td a {
+        color: var(--rch-table-td-link); }
     table.rch .maximal {
       max-width: inherit; }
     table.rch .nowrap {

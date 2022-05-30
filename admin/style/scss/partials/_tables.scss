@@ -176,6 +176,10 @@ td.expand {
       grid-gap: 1em 0.5em;
       text-align: left;
       border: none;
+
+      a {
+        color: var(--rch-table-td-link);
+      }
     }
 
     .maximal {
