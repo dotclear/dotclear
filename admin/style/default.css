@@ -1067,10 +1067,6 @@ body {
   line-height: 1.5;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; }
 
-@media screen and (max-width: 43em) {
-  #wrapper {
-    font-size: 1.2em; } }
-
 h2,
 h3,
 .as_h3,

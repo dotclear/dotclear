@@ -19,12 +19,6 @@ body {
   font-family: $sans-serif;
 }
 
-#wrapper {
-  @media screen and (max-width: $mobile-screen) {
-    font-size: 1.2em;
-  }
-}
-
 // titres //
 
 h2,
