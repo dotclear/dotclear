@@ -76,7 +76,7 @@ class tplBlogroll
             if (!isset($hierarchy[$category])) {
                 return '';
             }
-            $hierarchy = [$hierarchy[$category]];
+            $hierarchy = [$category => $hierarchy[$category]];
         }
 
         foreach ($hierarchy as $k => $v) {
