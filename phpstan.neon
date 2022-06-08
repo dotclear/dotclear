@@ -153,8 +153,8 @@ parameters:
     - message: '#Access to protected property dcSelectStatement::\$core.#'
       path: %currentWorkingDirectory%
 
-    # arrayObject/string
-    - message: '#ArrayObject\<\*NEVER\*, \*NEVER\*\> does not accept string.#'
+    # arrayObject/type
+    - message: '#ArrayObject\<\*NEVER\*, \*NEVER\*\> does not accept#'
       path: %currentWorkingDirectory%
 
 # Notes:

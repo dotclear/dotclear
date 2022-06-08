@@ -104,7 +104,7 @@ if ($core->auth->user_prefs->dashboard->doclinks) {
         }
 
         $doc_links .= '</ul></div>';
-        $__dashboard_items[$dashboardItem][] = $doc_links;
+        $__dashboard_items[$dashboardItem][] = $doc_links;  // @phpstan-ignore-line
         $dashboardItem++;
     }
 }
