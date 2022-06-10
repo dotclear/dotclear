@@ -21,19 +21,16 @@ body {
 
 a {
   background: transparent;
-
-  &:focus {
-    outline: thin dotted;
-  }
-
-  &:active,
-  &:hover {
-    outline: none;
-  }
-
-  img {
-    border: none;
-  }
+}
+a:focus {
+  outline: thin dotted;
+}
+a:active,
+a:hover {
+  outline: none;
+}
+a img {
+  border: none;
 }
 
 q,
@@ -43,12 +40,12 @@ cite {
 
 q::before,
 q::after {
-  content: "";
+  content: '';
 }
 
 sup,
 sub {
-  font-size: .75em;
+  font-size: 0.75em;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
@@ -130,9 +127,9 @@ input {
 }
 
 button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+html input[type='button'],
+input[type='reset'],
+input[type='submit'] {
   -webkit-appearance: button;
   cursor: pointer;
 }
@@ -142,18 +139,18 @@ html input[disabled] {
   cursor: default;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
+input[type='checkbox'],
+input[type='radio'] {
   padding: 0;
   border: none;
 }
 
-input[type="search"] {
+input[type='search'] {
   -webkit-appearance: textfield;
 }
 
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -355,17 +352,17 @@ a#obfus {
   border-radius: 2px;
 }
 
-input[type=submit] {
+input[type='submit'] {
   font-size: 1.05em;
   display: inline-block;
   outline: none;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  padding: .1em .5em;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
-  border-radius: .2em;
-  margin-bottom: .1em;
+  padding: 0.1em 0.5em;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 0.2em;
+  margin-bottom: 0.1em;
   color: #fff;
   border: 1px solid #2373a8;
   background: #2373a8;
@@ -373,8 +370,8 @@ input[type=submit] {
   width: 100%;
 }
 
-input[type=submit]:hover,
-input[type=submit]:focus {
+input[type='submit']:hover,
+input[type='submit']:focus {
   background: #2373a8;
   background: linear-gradient(to bottom, #2373a8, #2c8fd1);
   border: 1px solid #2c8fd1;
