@@ -393,8 +393,8 @@ jsToolBar.prototype.getSelectedNode = function () {
   const d = this.iwin.document.createElement('div');
   d.innerHTML = sel.createRange().htmlText;
   content = this.iwin.document.createDocumentFragment();
-  for (let i = 0; i < d.childNodes.length; i++) {
-    content.appendChild(d.childNodes[i].cloneNode(true));
+  for (const child of d.childNodes) {
+    content.appendChild(child.cloneNode(true));
   }
   return content;
 };
@@ -413,8 +413,8 @@ jsToolBar.prototype.getSelectedText = function () {
 
 jsToolBar.prototype.replaceNodeByContent = function (node) {
   const content = this.iwin.document.createDocumentFragment();
-  for (let i = 0; i < node.childNodes.length; i++) {
-    content.appendChild(node.childNodes[i].cloneNode(true));
+  for (const child of node.childNodes) {
+    content.appendChild(child.cloneNode(true));
   }
   node.parentNode.replaceChild(content, node);
 };
@@ -439,7 +439,7 @@ jsToolBar.prototype.getBlockLevel = function () {
   }
 
   let ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
-  while (blockElts.indexOf(ancestorTagName) == -1 && ancestorTagName != 'body') {
+  while (!blockElts.includes(ancestorTagName) && ancestorTagName != 'body') {
     commonAncestorContainer = commonAncestorContainer.parentNode;
     ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
   }

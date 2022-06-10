@@ -1,7 +1,7 @@
 /*global $, dotclear, jsToolBar */
 'use strict';
 
-$(function () {
+$(() => {
   // clean
   $('.remove-if-drag').remove();
   $('.hidden-if-drag').hide();

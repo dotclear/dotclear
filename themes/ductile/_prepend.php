@@ -41,15 +41,18 @@ class tplDuctileThemeAdmin
             \dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
             echo <<<EOT
                 <script>
-                $(function() {
+                /*global $ */
+                'use strict';
+
+                $(() => {
                     $('#stickerslist').sortable({'cursor':'move'});
                     $('#stickerslist tr').hover(function () {
                         $(this).css({'cursor':'move'});
                     }, function () {
                         $(this).css({'cursor':'auto'});
                     });
-                    $('#theme_config').submit(function() {
-                        var order=[];
+                    $('#theme_config').submit(() => {
+                        const order=[];
                         $('#stickerslist tr td input.position').each(function() {
                             order.push(this.name.replace(/^order\[([^\]]+)\]$/,'$1'));
                         });

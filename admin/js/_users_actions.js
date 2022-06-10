@@ -59,8 +59,7 @@ $.fn.updatePermissionsForm = function () {
     };
 
     // Building a nice object of form elements
-    for (let i = 0; i < this.elements.length; i++) {
-      const form_element = this.elements[i];
+    for (const form_element of this.elements) {
       if (form_element.name == undefined) {
         continue;
       }

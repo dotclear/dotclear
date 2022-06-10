@@ -114,8 +114,8 @@ dotclear.confirmClose = class {
 
     if (this.forms_id.length > 0) {
       const res = [];
-      for (let i = 0; i < this.forms_id.length; i++) {
-        const f = document.getElementById(this.forms_id[i]);
+      for (const form_id of this.forms_id) {
+        const f = document.getElementById(form_id);
         if (f != undefined) {
           res.push(f);
         }
