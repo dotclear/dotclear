@@ -350,7 +350,7 @@ class dcTemplate extends template
         $alias = $alias->getArrayCopy();
 
         if (is_array($alias)) {
-            foreach ($alias as $k => $v) {
+            foreach ($alias as $k => $v) {  // @phpstan-ignore-line
                 if (!is_array($v)) {
                     $alias[$k] = [];
                 }

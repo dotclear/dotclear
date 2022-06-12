@@ -196,9 +196,9 @@ if ($core->auth->userID() && $core->blog !== null) {
 
     # Set menu titles
 
-    $_menu['System']->title  = __('System settings');
-    $_menu['Blog']->title    = __('Blog');
-    $_menu['Plugins']->title = __('Plugins');
+    $_menu['System']->title  = __('System settings');   // @phpstan-ignore-line
+    $_menu['Blog']->title    = __('Blog');              // @phpstan-ignore-line
+    $_menu['Plugins']->title = __('Plugins');           // @phpstan-ignore-line
 
     dcAdminHelper::addMenuItem(
         'Blog',

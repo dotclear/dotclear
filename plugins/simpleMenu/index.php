@@ -177,7 +177,7 @@ if (!empty($_POST['saveconfig'])) {
 
                 break;
             case 2:
-                if ($items[$item_type][1]) {
+                if ($items[$item_type][1]) {    // @phpstan-ignore-line
                     // Second step (optional), menu item sub-type to be selected
                     $item_select = '';
 
@@ -425,13 +425,13 @@ if ($step) {
 
             break;
         case 2:
-            if ($items[$item_type][1]) {
+            if ($items[$item_type][1]) {    // @phpstan-ignore-line
                 $step_label = __('Step #2');
 
                 break;
             }
         case 3:
-            if ($items[$item_type][1]) {
+            if ($items[$item_type][1]) {    // @phpstan-ignore-line
                 $step_label = __('Step #3');
             } else {
                 $step_label = __('Step #2');
@@ -474,7 +474,7 @@ if ($step) {
 
             break;
         case 2:
-            if ($items[$item_type][1]) {
+            if ($items[$item_type][1]) {    // @phpstan-ignore-line
                 // Choix à faire
                 echo '<form id="additem" action="' . $p_url . '&amp;add=3" method="post">';
                 echo '<fieldset><legend>' . $item_type_label . '</legend>';
