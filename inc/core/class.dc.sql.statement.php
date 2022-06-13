@@ -19,8 +19,6 @@ class dcSqlStatement
     protected $core;
     protected $con;
 
-    protected $ctx; // Context (may be useful for behaviour's callback)
-
     protected $columns;
     protected $from;
     protected $where;
@@ -31,13 +29,11 @@ class dcSqlStatement
      * Class constructor
      *
      * @param dcCore    $core   dcCore instance
-     * @param mixed     $ctx    optional context
      */
-    public function __construct(dcCore &$core, $ctx = null)
+    public function __construct(dcCore &$core)
     {
         $this->core = &$core;
         $this->con  = &$core->con;
-        $this->ctx  = $ctx;
 
         $this->columns = $this->from = $this->where = $this->cond = $this->sql = [];
     }
@@ -124,20 +120,6 @@ class dcSqlStatement
     public function statement(): string
     {
         return '';
-    }
-
-    /**
-     * Adds context
-     *
-     * @param mixed     $c      the context(s)
-     *
-     * @return self instance, enabling to chain calls
-     */
-    public function ctx($c): dcSqlStatement
-    {
-        $this->ctx = $c;
-
-        return $this;
     }
 
     /**
@@ -641,9 +623,8 @@ class dcSelectStatement extends dcSqlStatement
      * Class constructor
      *
      * @param dcCore    $core   dcCore instance
-     * @param mixed     $ctx    optional context
      */
-    public function __construct(dcCore &$core, $ctx = null)
+    public function __construct(dcCore &$core)
     {
         $this->join = $this->having = $this->order = $this->group = [];
 
@@ -651,7 +632,7 @@ class dcSelectStatement extends dcSqlStatement
         $this->offset   = null;
         $this->distinct = false;
 
-        parent::__construct($core, $ctx);
+        parent::__construct($core);
     }
 
     /**
@@ -918,13 +899,12 @@ class dcJoinStatement extends dcSqlStatement
      * Class constructor
      *
      * @param dcCore    $core   dcCore instance
-     * @param mixed     $ctx    optional context
      */
-    public function __construct(dcCore &$core, $ctx = null)
+    public function __construct(dcCore &$core)
     {
         $this->type = null;
 
-        parent::__construct($core, $ctx);
+        parent::__construct($core);
     }
 
     /**
@@ -1082,13 +1062,12 @@ class dcUpdateStatement extends dcSqlStatement
      * Class constructor
      *
      * @param dcCore    $core   dcCore instance
-     * @param mixed     $ctx    optional context
      */
-    public function __construct(dcCore &$core, $ctx = null)
+    public function __construct(dcCore &$core)
     {
         $this->set = [];
 
-        parent::__construct($core, $ctx);
+        parent::__construct($core);
     }
 
     /**
@@ -1292,13 +1271,12 @@ class dcInsertStatement extends dcSqlStatement
      * Class constructor
      *
      * @param dcCore    $core   dcCore instance
-     * @param mixed     $ctx    optional context
      */
-    public function __construct(dcCore &$core, $ctx = null)
+    public function __construct(dcCore &$core)
     {
         $this->lines = [];
 
-        parent::__construct($core, $ctx);
+        parent::__construct($core);
     }
 
     /**
@@ -1435,11 +1413,10 @@ class dcTruncateStatement extends dcSqlStatement
      * Class constructor
      *
      * @param dcCore    $core   dcCore instance
-     * @param mixed     $ctx    optional context
      */
-    public function __construct(dcCore &$core, $ctx = null)
+    public function __construct(dcCore &$core)
     {
-        parent::__construct($core, $ctx);
+        parent::__construct($core);
     }
 
     /**

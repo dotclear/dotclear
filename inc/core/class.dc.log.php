@@ -48,7 +48,7 @@ class dcLog
      */
     public function getLogs($params = [], $count_only = false)
     {
-        $sql = new dcSelectStatement($this->core, 'dcLogGetLogs');
+        $sql = new dcSelectStatement($this->core);
 
         if ($count_only) {
             $sql->column($sql->count('log_id'));
@@ -72,7 +72,7 @@ class dcLog
 
         if (!$count_only) {
             $sql->join(
-                (new dcJoinStatement($this->core, 'dcLogGetLogs'))
+                (new dcJoinStatement($this->core))
                 ->type('LEFT')
                 ->from($this->user_table . ' U')
                 ->on('U.user_id = L.user_id')
@@ -130,7 +130,7 @@ class dcLog
 
         try {
             # Get ID
-            $sql = new dcSelectStatement($this->core, 'dcLogAddLog');
+            $sql = new dcSelectStatement($this->core);
             $sql
                 ->column($sql->max('log_id'))
                 ->from($this->log_table);
@@ -169,11 +169,11 @@ class dcLog
     public function delLogs($id, $all = false)
     {
         if ($all) {
-            $sql = new dcTruncateStatement($this->core, 'dcLogDelLogs');
+            $sql = new dcTruncateStatement($this->core);
             $sql
                 ->from($this->log_table);
         } else {
-            $sql = new dcDeleteStatement($this->core, 'dcLogDelLogs');
+            $sql = new dcDeleteStatement($this->core);
             $sql
                 ->from($this->log_table)
                 ->where('log_id ' . $sql->in($id));

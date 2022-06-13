@@ -236,7 +236,7 @@ class dcBlog
 
         $cur->blog_upddt = date('Y-m-d H:i:s');
 
-        $sql = new dcUpdateStatement($this->core, 'dcBlogTriggerBlog');
+        $sql = new dcUpdateStatement($this->core);
         $sql->where('blog_id = ' . $sql->quote($this->id, true));
 
         $sql->update($cur);
@@ -883,7 +883,7 @@ class dcBlog
         $params = new ArrayObject($params);
         $this->core->callBehavior('coreBlogBeforeGetPosts', $params);
 
-        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement($this->core, 'dcBlogGetPosts');
+        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement($this->core);
 
         if ($count_only) {
             $sql->column($sql->count($sql->unique('P.post_id')));
@@ -941,14 +941,14 @@ class dcBlog
         $sql    // @phpstan-ignore-line
             ->from($this->prefix . 'post P', false, true)
             ->join(
-                (new dcJoinStatement($this->core, 'dcBlogGetPosts'))
+                (new dcJoinStatement($this->core))
                 ->type('INNER')
                 ->from($this->prefix . 'user U')
                 ->on('U.user_id = P.user_id')
                 ->statement()
             )
             ->join(
-                (new dcJoinStatement($this->core, 'dcBlogGetPosts'))
+                (new dcJoinStatement($this->core))
                 ->type('LEFT OUTER')
                 ->from($this->prefix . 'category C')
                 ->on('P.cat_id = C.cat_id')
@@ -1085,7 +1085,7 @@ class dcBlog
         }
 
         if (isset($params['media'])) {
-            $sqlExists = new dcSelectStatement($this->core, 'dcBlogGetPosts');
+            $sqlExists = new dcSelectStatement($this->core);
             $sqlExists
                 ->from($this->prefix . 'post_media M')
                 ->column('M.post_id')
@@ -2136,7 +2136,7 @@ class dcBlog
      */
     public function getComments($params = [], $count_only = false, ?dcSelectStatement $ext_sql = null)
     {
-        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement($this->core, 'dcBlogGetComments');
+        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement($this->core);
 
         if ($count_only) {
             $sql->column($sql->count('comment_id'));
@@ -2196,14 +2196,14 @@ class dcBlog
         $sql
             ->from($this->prefix . 'comment C')
             ->join(
-                (new dcJoinStatement($this->core, 'dcBlogGetComments'))
+                (new dcJoinStatement($this->core))
                 ->type('INNER')
                 ->from($this->prefix . 'post P')
                 ->on('C.post_id = P.post_id')
                 ->statement()
             )
             ->join(
-                (new dcJoinStatement($this->core, 'dcBlogGetComments'))
+                (new dcJoinStatement($this->core))
                 ->type('INNER')
                 ->from($this->prefix . 'user U')
                 ->on('P.user_id = U.user_id')

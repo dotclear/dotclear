@@ -154,7 +154,7 @@ class dcMeta
 
         # If user can only publish, we need to check the post's owner
         if (!$this->core->auth->check('contentadmin', $this->core->blog->id)) {
-            $sql = new dcSelectStatement($this->core, 'dcMetaCheckPermissionsOnPost');
+            $sql = new dcSelectStatement($this->core);
             $sql
                 ->from($sql->core->prefix . 'post')
                 ->column('post_id')
@@ -178,7 +178,7 @@ class dcMeta
     {
         $post_id = (int) $post_id;
 
-        $sql = new dcSelectStatement($this->core, 'dcMetaUpdatePostMeta');
+        $sql = new dcSelectStatement($this->core);
         $sql
             ->from($this->table)
             ->columns([
@@ -199,7 +199,7 @@ class dcMeta
         $cur            = $this->con->openCursor($this->core->prefix . 'post');
         $cur->post_meta = $post_meta;
 
-        $sql = new dcUpdateStatement($this->core, 'dcMetaUpdatePostMeta');
+        $sql = new dcUpdateStatement($this->core);
         $sql->where('post_id = ' . $post_id);
 
         $sql->update($cur);
@@ -225,7 +225,7 @@ class dcMeta
             return;
         }
 
-        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement($this->core, 'dcMetaGetPostsByMeta');
+        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement($this->core);
 
         $sql
             ->from($this->table . ' META')
@@ -261,7 +261,7 @@ class dcMeta
             return;
         }
 
-        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement($this->core, 'dcMetaGetCommentsByMeta');
+        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement($this->core);
 
         $sql
             ->from($this->table . ' META')
@@ -296,7 +296,7 @@ class dcMeta
      */
     public function getMetadata($params = [], $count_only = false, ?dcSelectStatement $ext_sql = null)
     {
-        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement($this->core, 'dcMetaGetMetadata');
+        $sql = $ext_sql ? clone $ext_sql : new dcSelectStatement($this->core);
 
         if ($count_only) {
             $sql->column($sql->count($sql->unique('M.meta_id')));
@@ -313,7 +313,7 @@ class dcMeta
         $sql
             ->from($this->table . ' M')
             ->join(
-                (new dcJoinStatement($this->core, 'dcMetaGetMetadata'))
+                (new dcJoinStatement($this->core))
                 ->type('LEFT')
                 ->from($sql->core->prefix . 'post P')
                 ->on('M.post_id = P.post_id')
@@ -447,7 +447,7 @@ class dcMeta
 
         $this->checkPermissionsOnPost($post_id);
 
-        $sql = new dcDeleteStatement($this->core, 'dcMetaDelPostMeta');
+        $sql = new dcDeleteStatement($this->core);
         $sql
             ->from($this->table)
             ->where('post_id = ' . $post_id);
@@ -483,7 +483,7 @@ class dcMeta
             return true;
         }
 
-        $sql = new dcSelectStatement($this->core, 'dcMetaUpdateMeta');
+        $sql = new dcSelectStatement($this->core);
         $sql
             ->from([
                 $this->table . ' M',
@@ -534,7 +534,7 @@ class dcMeta
 
         # Delete duplicate meta
         if (!empty($to_remove)) {
-            $sqlDel = new dcDeleteStatement($this->core, 'dcMetaUpdateMeta');
+            $sqlDel = new dcDeleteStatement($this->core);
             $sqlDel
                 ->from($this->table)
                 ->where('post_id' . $sqlDel->in($to_remove, 'int'))      // Note: will cast all values to integer
@@ -553,7 +553,7 @@ class dcMeta
 
         # Update meta
         if (!empty($to_update)) {
-            $sqlUpd = new dcUpdateStatement($this->core, 'dcMetaUpdateMeta');
+            $sqlUpd = new dcUpdateStatement($this->core);
             $sqlUpd
                 ->from($this->table)
                 ->set('meta_id = ' . $sqlUpd->quote($new_meta_id, true))
@@ -585,7 +585,7 @@ class dcMeta
      */
     public function delMeta($meta_id, $type = null, $post_type = null)
     {
-        $sql = new dcSelectStatement($this->core, 'dcMetaDelMeta');
+        $sql = new dcSelectStatement($this->core);
         $sql
             ->column('M.post_id')
             ->from([
@@ -615,7 +615,7 @@ class dcMeta
             $ids[] = $rs->post_id;
         }
 
-        $sql = new dcDeleteStatement($this->core, 'dcMetaDelMeta');
+        $sql = new dcDeleteStatement($this->core);
         $sql
             ->from($this->table)
             ->where('post_id' . $sql->in($ids, 'int'))
