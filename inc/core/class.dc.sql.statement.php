@@ -485,7 +485,7 @@ class dcSqlStatement
      */
     public function count(string $field, ?string $as = null, bool $unique = false): string
     {
-        return 'COUNT(' . ($unique ? $this->unique($field) : $field) . ')' . ($as ? ' as ' . $as : '');
+        return 'COUNT(' . ($unique ? $this->unique($field) : $field) . ')' . ($as ? ' AS ' . $as : '');
     }
 
     /**
@@ -498,7 +498,7 @@ class dcSqlStatement
      */
     public function avg(string $field, ?string $as = null): string
     {
-        return 'AVG(' . $field . ')' . ($as ? ' as ' . $as : '');
+        return 'AVG(' . $field . ')' . ($as ? ' AS ' . $as : '');
     }
 
     /**
@@ -511,7 +511,7 @@ class dcSqlStatement
      */
     public function max(string $field, ?string $as = null): string
     {
-        return 'MAX(' . $field . ')' . ($as ? ' as ' . $as : '');
+        return 'MAX(' . $field . ')' . ($as ? ' AS ' . $as : '');
     }
 
     /**
@@ -524,7 +524,7 @@ class dcSqlStatement
      */
     public function min(string $field, ?string $as = null): string
     {
-        return 'MIN(' . $field . ')' . ($as ? ' as ' . $as : '');
+        return 'MIN(' . $field . ')' . ($as ? ' AS ' . $as : '');
     }
 
     /**
@@ -537,7 +537,7 @@ class dcSqlStatement
      */
     public function sum(string $field, ?string $as = null): string
     {
-        return 'SUM(' . $field . ')' . ($as ? ' as ' . $as : '');
+        return 'SUM(' . $field . ')' . ($as ? ' AS ' . $as : '');
     }
 
     /**
