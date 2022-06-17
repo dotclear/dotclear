@@ -724,6 +724,19 @@ class dcSelectStatement extends dcSqlStatement
     }
 
     /**
+     * group() alias
+     *
+     * @param mixed     $c      the clause(s)
+     * @param boolean   $reset  reset previous group(s) first
+     *
+     * @return self instance, enabling to chain calls
+     */
+    public function groupBy($c, bool $reset = false): dcSelectStatement
+    {
+        return $this->group($c, $reset);
+    }
+
+    /**
      * Defines the LIMIT for select
      *
      * @param mixed $limit
@@ -807,7 +820,9 @@ class dcSelectStatement extends dcSqlStatement
 
         // Table(s) and Join(s)
         $query .= 'FROM ' . $this->from[0] . ' ';
-        $query .= join(' ', $this->join) . ' ';
+        if (count($this->join)) {
+            $query .= join(' ', $this->join) . ' ';
+        }
         if (count($this->from) > 1) {
             $query .= ', ' . join(', ', array_slice($this->from, 1)) . ' '; // All other from(s)
         }
