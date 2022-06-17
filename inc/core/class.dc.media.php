@@ -460,12 +460,12 @@ class dcMedia extends filemanager
             ])
             ->from($this->table)
             ->where('media_path = ' . $sql->quote($this->path))
-            ->and('media_dir = ' . $sql->quote($media_dir, true));
+            ->and('media_dir = ' . $sql->quote($media_dir));
 
         if (!$this->core->auth->check('media_admin', $this->core->blog->id)) {
             $list = ['media_private <> 1'];
             if ($user_id = $this->core->auth->userID()) {
-                $list[] = 'user_id = ' . $sql->quote($user_id, true);
+                $list[] = 'user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($list));
         }
@@ -489,7 +489,7 @@ class dcMedia extends filemanager
             ])
             ->from($this->table)
             ->where('media_path = ' . $sql->quote($this->path))
-            ->and('media_dir = ' . $sql->quote($media_dir, true))
+            ->and('media_dir = ' . $sql->quote($media_dir))
             ->and('media_private = 1');
 
         $rsp      = $sql->select();
@@ -551,8 +551,8 @@ class dcMedia extends filemanager
                 $sql = new dcDeleteStatement($this->core);
                 $sql
                     ->from($this->table)
-                    ->where('media_path = ' . $sql->quote($this->path, true))
-                    ->and('media_file = ' . $sql->quote($rs->media_file, true));
+                    ->where('media_path = ' . $sql->quote($this->path))
+                    ->and('media_file = ' . $sql->quote($rs->media_file));
 
                 $sql->delete();
                 $this->callFileHandler(files::getMimeType($rs->media_file), 'remove', $this->pwd . '/' . $rs->media_file);
@@ -612,7 +612,7 @@ class dcMedia extends filemanager
         if (!$this->core->auth->check('media_admin', $this->core->blog->id)) {
             $list = ['media_private <> 1'];
             if ($user_id = $this->core->auth->userID()) {
-                $list[] = 'user_id = ' . $sql->quote($user_id, true);
+                $list[] = 'user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($list));
         }
@@ -660,7 +660,7 @@ class dcMedia extends filemanager
         if (!$this->core->auth->check('media_admin', $this->core->blog->id)) {
             $list = ['media_private <> 1'];
             if ($user_id = $this->core->auth->userID()) {
-                $list[] = 'user_id = ' . $sql->quote($user_id, true);
+                $list[] = 'user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($list));
         }
@@ -766,7 +766,7 @@ class dcMedia extends filemanager
                 'media_id',
             ])
             ->where('media_path = ' . $sql->quote($this->path))
-            ->and('media_dir = ' . $sql->quote($media_dir, true));
+            ->and('media_dir = ' . $sql->quote($media_dir));
 
         $rs = $sql->select();
 
@@ -831,8 +831,8 @@ class dcMedia extends filemanager
         $sql
             ->from($this->table)
             ->column('media_id')
-            ->where('media_path = ' . $sql->quote($this->path, true))
-            ->and('media_file = ' . $sql->quote($media_file, true));
+            ->where('media_path = ' . $sql->quote($this->path))
+            ->and('media_file = ' . $sql->quote($media_file));
 
         $rs = $sql->select();
 
@@ -1028,11 +1028,11 @@ class dcMedia extends filemanager
         $sql = new dcDeleteStatement($this->core);
         $sql
             ->from($this->table)
-            ->where('media_path = ' . $sql->quote($this->path, true))
+            ->where('media_path = ' . $sql->quote($this->path))
             ->and('media_file = ' . $sql->quote($media_file));
 
         if (!$this->core->auth->check('media_admin', $this->core->blog->id)) {
-            $sql->and('user_id = ' . $sql->quote($this->core->auth->userID(), true));
+            $sql->and('user_id = ' . $sql->quote($this->core->auth->userID()));
         }
 
         $sql->delete();

@@ -142,7 +142,7 @@ class dcPostMedia
             ->and('media_id = ' . $media_id);
 
         if ($link_type != null) {
-            $sql->and('link_type = ' . $sql->quote($link_type, true));
+            $sql->and('link_type = ' . $sql->quote($link_type));
         }
         $sql->delete();
 

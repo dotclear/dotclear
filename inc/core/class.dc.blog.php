@@ -237,7 +237,7 @@ class dcBlog
         $cur->blog_upddt = date('Y-m-d H:i:s');
 
         $sql = new dcUpdateStatement($this->core);
-        $sql->where('blog_id = ' . $sql->quote($this->id, true));
+        $sql->where('blog_id = ' . $sql->quote($this->id));
 
         $sql->update($cur);
 
@@ -967,7 +967,7 @@ class dcBlog
             // Cope with legacy code
             $sql->where($params['where']);
         } else {
-            $sql->where('P.blog_id = ' . $sql->quote($this->id, true));
+            $sql->where('P.blog_id = ' . $sql->quote($this->id));
         }
 
         if (!$this->core->auth->check('contentadmin', $this->id)) {
@@ -979,7 +979,7 @@ class dcBlog
             }
             $or = [$sql->andGroup($and)];
             if ($user_id) {
-                $or[] = 'P.user_id = ' . $sql->quote($user_id, true);
+                $or[] = 'P.user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($or));
         }
@@ -1012,11 +1012,11 @@ class dcBlog
         }
 
         if (isset($params['post_url']) && $params['post_url'] !== '') {
-            $sql->and('post_url = ' . $sql->quote($params['post_url'], true));
+            $sql->and('post_url = ' . $sql->quote($params['post_url']));
         }
 
         if (!empty($params['user_id'])) {
-            $sql->and('U.user_id = ' . $sql->quote($params['user_id'], true));
+            $sql->and('U.user_id = ' . $sql->quote($params['user_id']));
         }
 
         if (isset($params['cat_id']) && $params['cat_id'] !== '') {
@@ -1065,7 +1065,7 @@ class dcBlog
         }
 
         if (!empty($params['post_lang'])) {
-            $sql->and('P.post_lang = ' . $sql->quote($params['post_lang'], true));
+            $sql->and('P.post_lang = ' . $sql->quote($params['post_lang']));
         }
 
         if (!empty($params['search'])) {
@@ -1117,9 +1117,6 @@ class dcBlog
         if (!empty($params['sql_only'])) {
             return $sql->statement();
         }
-
-//        print_r($sql->statement());
-//        exit;
 
         $rs            = $sql->select();
         $rs->core      = $this->core;
@@ -2224,7 +2221,7 @@ class dcBlog
             // Cope with legacy code
             $sql->where($params['where']);
         } else {
-            $sql->where('P.blog_id = ' . $sql->quote($this->id, true));
+            $sql->where('P.blog_id = ' . $sql->quote($this->id));
         }
 
         $strReq .= "WHERE P.blog_id = '" . $this->con->escape($this->id) . "' ";
@@ -2248,7 +2245,7 @@ class dcBlog
 
             $or = [$sql->andGroup($and)];
             if ($user_id) {
-                $or[] = 'P.user_id = ' . $sql->quote($user_id, true);
+                $or[] = 'P.user_id = ' . $sql->quote($user_id);
 
                 $strReq .= "OR P.user_id = '" . $this->con->escape($user_id) . "')";
             } else {
@@ -2378,12 +2375,9 @@ class dcBlog
 
         if (!empty($params['sql_only'])) {
             return $sql->statement();
-
-//            return $strReq;
         }
 
-        $rs = $sql->select();
-//        $rs       = $this->con->select($strReq);
+        $rs       = $sql->select();
         $rs->core = $this->core;
         $rs->extend('rsExtComment');
 

@@ -159,7 +159,7 @@ class dcMeta
                 ->from($sql->core->prefix . 'post')
                 ->column('post_id')
                 ->where('post_id = ' . $post_id)
-                ->and('user_id = ' . $sql->quote($this->core->auth->userID(), true));
+                ->and('user_id = ' . $sql->quote($this->core->auth->userID()));
 
             $rs = $sql->select();
 
@@ -230,10 +230,10 @@ class dcMeta
         $sql
             ->from($this->table . ' META')
             ->and('META.post_id = P.post_id')
-            ->and('META.meta_id = ' . $sql->quote($params['meta_id'], true));
+            ->and('META.meta_id = ' . $sql->quote($params['meta_id']));
 
         if (!empty($params['meta_type'])) {
-            $sql->and('META.meta_type = ' . $sql->quote($params['meta_type'], true));
+            $sql->and('META.meta_type = ' . $sql->quote($params['meta_type']));
 
             unset($params['meta_type']);
         }
@@ -266,10 +266,10 @@ class dcMeta
         $sql
             ->from($this->table . ' META')
             ->and('META.post_id = P.post_id')
-            ->and('META.meta_id = ' . $sql->quote($params['meta_id'], true));
+            ->and('META.meta_id = ' . $sql->quote($params['meta_id']));
 
         if (!empty($params['meta_type'])) {
-            $sql->and('META.meta_type = ' . $sql->quote($params['meta_type'], true));
+            $sql->and('META.meta_type = ' . $sql->quote($params['meta_type']));
 
             unset($params['meta_type']);
         }
@@ -319,14 +319,14 @@ class dcMeta
                 ->on('M.post_id = P.post_id')
                 ->statement()
             )
-            ->where('P.blog_id = ' . $sql->quote($this->core->blog->id, true));
+            ->where('P.blog_id = ' . $sql->quote($this->core->blog->id));
 
         if (isset($params['meta_type'])) {
-            $sql->and('meta_type = ' . $sql->quote($params['meta_type'], true));
+            $sql->and('meta_type = ' . $sql->quote($params['meta_type']));
         }
 
         if (isset($params['meta_id'])) {
-            $sql->and('meta_id = ' . $sql->quote($params['meta_id'], true));
+            $sql->and('meta_id = ' . $sql->quote($params['meta_id']));
         }
 
         if (isset($params['post_id'])) {
@@ -343,7 +343,7 @@ class dcMeta
 
             $or = [$sql->andGroup($and)];
             if ($user_id) {
-                $or[] = 'P.user_id = ' . $sql->quote($user_id, true);
+                $or[] = 'P.user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($or));
         }
@@ -453,11 +453,11 @@ class dcMeta
             ->where('post_id = ' . $post_id);
 
         if ($type !== null) {
-            $sql->and('meta_type = ' . $sql->quote($type, true));
+            $sql->and('meta_type = ' . $sql->quote($type));
         }
 
         if ($meta_id !== null) {
-            $sql->and('meta_id = ' . $sql->quote($meta_id, true));
+            $sql->and('meta_id = ' . $sql->quote($meta_id));
         }
 
         $sql->delete();
@@ -491,17 +491,17 @@ class dcMeta
             ])
             ->column('M.post_id')
             ->where('P.post_id = M.post_id')
-            ->and('P.blog_id = ' . $sql->quote($this->core->blog->id, true));
+            ->and('P.blog_id = ' . $sql->quote($this->core->blog->id));
 
         if (!$this->core->auth->check('contentadmin', $this->core->blog->id)) {
-            $sql->and('P.user_id = ' . $sql->quote($this->core->auth->userID(), true));
+            $sql->and('P.user_id = ' . $sql->quote($this->core->auth->userID()));
         }
         if ($post_type !== null) {
-            $sql->and('P.post_type = ' . $sql->quote($post_type, true));
+            $sql->and('P.post_type = ' . $sql->quote($post_type));
         }
 
         if ($type !== null) {
-            $sql->and('meta_type = ' . $sql->quote($type, true));
+            $sql->and('meta_type = ' . $sql->quote($type));
         }
 
         $to_update = $to_remove = [];
@@ -509,7 +509,7 @@ class dcMeta
         // Clone $sql object in order to do the same select query but with another meta_id
         $sqlNew = clone $sql;
 
-        $sql->and('meta_id = ' . $sql->quote($meta_id, true));
+        $sql->and('meta_id = ' . $sql->quote($meta_id));
 
         $rs = $sql->select();
 
@@ -521,7 +521,7 @@ class dcMeta
             return false;
         }
 
-        $sqlNew->and('meta_id = ' . $sqlNew->quote($new_meta_id, true));
+        $sqlNew->and('meta_id = ' . $sqlNew->quote($new_meta_id));
 
         $rs = $sqlNew->select();
 
@@ -538,10 +538,10 @@ class dcMeta
             $sqlDel
                 ->from($this->table)
                 ->where('post_id' . $sqlDel->in($to_remove, 'int'))      // Note: will cast all values to integer
-                ->and('meta_id = ' . $sqlDel->quote($meta_id, true));
+                ->and('meta_id = ' . $sqlDel->quote($meta_id));
 
             if ($type !== null) {
-                $sqlDel->and('meta_type = ' . $sqlDel->quote($type, true));
+                $sqlDel->and('meta_type = ' . $sqlDel->quote($type));
             }
 
             $sqlDel->delete();
@@ -556,12 +556,12 @@ class dcMeta
             $sqlUpd = new dcUpdateStatement($this->core);
             $sqlUpd
                 ->from($this->table)
-                ->set('meta_id = ' . $sqlUpd->quote($new_meta_id, true))
+                ->set('meta_id = ' . $sqlUpd->quote($new_meta_id))
                 ->where('post_id' . $sqlUpd->in($to_update, 'int'))     // Note: will cast all values to integer
-                ->and('meta_id = ' . $sqlUpd->quote($meta_id, true));
+                ->and('meta_id = ' . $sqlUpd->quote($meta_id));
 
             if ($type !== null) {
-                $sqlUpd->and('meta_type = ' . $sqlUpd->quote($type, true));
+                $sqlUpd->and('meta_type = ' . $sqlUpd->quote($type));
             }
 
             $sqlUpd->update();
@@ -593,15 +593,15 @@ class dcMeta
                 $sql->core->prefix . 'post P',
             ])
             ->where('P.post_id = M.post_id')
-            ->and('P.blog_id = ' . $sql->quote($this->core->blog->id, true))
-            ->and('meta_id = ' . $sql->quote($meta_id, true));
+            ->and('P.blog_id = ' . $sql->quote($this->core->blog->id))
+            ->and('meta_id = ' . $sql->quote($meta_id));
 
         if ($type !== null) {
-            $sql->and('meta_type = ' . $sql->quote($type, true));
+            $sql->and('meta_type = ' . $sql->quote($type));
         }
 
         if ($post_type !== null) {
-            $sql->and('P.post_type = ' . $sql->quote($post_type, true));
+            $sql->and('P.post_type = ' . $sql->quote($post_type));
         }
 
         $rs = $sql->select();
@@ -619,10 +619,10 @@ class dcMeta
         $sql
             ->from($this->table)
             ->where('post_id' . $sql->in($ids, 'int'))
-            ->and('meta_id = ' . $sql->quote($meta_id, true));
+            ->and('meta_id = ' . $sql->quote($meta_id));
 
         if ($type !== null) {
-            $sql->and('meta_type = ' . $sql->quote($type, true));
+            $sql->and('meta_type = ' . $sql->quote($type));
         }
 
         $sql->delete();
