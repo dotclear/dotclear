@@ -239,7 +239,6 @@ $.fn.helpViewer = function () {
     img_off_txt: dotclear.img_minus_txt,
     img_off_alt: dotclear.img_minus_alt,
   };
-  const This = this;
   const toggle = () => {
     $('#content').toggleClass('with-help');
     if ($('#content').hasClass('with-help')) {
@@ -252,9 +251,9 @@ $.fn.helpViewer = function () {
     return false;
   };
   const sizeBox = () => {
-    This.css('height', 'auto');
-    if ($('#wrapper').height() > This.height()) {
-      This.css('height', `${$('#wrapper').height()}px`);
+    this.css('height', 'auto');
+    if ($('#wrapper').height() > this.height()) {
+      this.css('height', `${$('#wrapper').height()}px`);
     }
   };
   const textToggler = (o) => {

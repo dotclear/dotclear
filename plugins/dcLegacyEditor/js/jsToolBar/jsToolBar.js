@@ -98,8 +98,7 @@ class jsToolBar {
         return null;
       }
       const options = {};
-      for (let i = 0; i < length; i++) {
-        const opt = tool[this.mode].list[i];
+      for (const opt of tool[this.mode].list) {
         options[opt] = tool.options[opt];
       }
       return new jsCombo(tool.title, options, this, tool[this.mode].fn);

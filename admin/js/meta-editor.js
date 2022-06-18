@@ -223,11 +223,10 @@ class metaEditor {
       meta: str,
     };
 
-    const This = this;
     $.post(this.service_uri, params, (data) => {
       if ($(data).find('rsp').attr('status') == 'ok') {
-        This.meta_dialog.val('');
-        This.displayMetaList();
+        this.meta_dialog.val('');
+        this.displayMetaList();
       } else {
         window.alert($(data).find('message').text());
       }
@@ -247,7 +246,6 @@ class metaEditor {
       const text_confirm_msg = this.text_confirm_remove.replace(/%s/, this.meta_type);
 
       if (window.confirm(text_confirm_msg)) {
-        const This = this;
         const params = {
           xd_check: dotclear.nonce,
           f: 'delMeta',
@@ -258,7 +256,7 @@ class metaEditor {
 
         $.post(this.service_uri, params, (data) => {
           if ($(data).find('rsp').attr('status') == 'ok') {
-            This.displayMetaList();
+            this.displayMetaList();
           } else {
             window.alert($(data).find('message').text());
           }

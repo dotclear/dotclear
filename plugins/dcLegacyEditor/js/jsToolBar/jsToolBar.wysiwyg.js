@@ -305,9 +305,8 @@ jsToolBar.prototype.focusEditor = function () {
     try {
       this.iwin.document.designMode = 'on';
     } catch (e) {} // Firefox needs this
-    const This = this;
     setTimeout(() => {
-      This.iframe.contentWindow.focus();
+      this.iframe.contentWindow.focus();
     }, 1);
   } else {
     this.textarea.focus();
@@ -856,8 +855,7 @@ function addEvent(obj, evType, fn, useCapture) {
     return true;
   }
   if (obj.attachEvent) {
-    const r = obj.attachEvent(`on${evType}`, fn);
-    return r;
+    return obj.attachEvent(`on${evType}`, fn);
   }
   return false;
 }
@@ -868,8 +866,7 @@ function removeEvent(obj, evType, fn, useCapture) {
     return true;
   }
   if (obj.detachEvent) {
-    const r = obj.detachEvent(`on${evType}`, fn);
-    return r;
+    return obj.detachEvent(`on${evType}`, fn);
   }
   return false;
 }
