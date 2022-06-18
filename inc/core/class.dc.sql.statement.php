@@ -45,6 +45,7 @@ class dcSqlStatement
      *
      * @return     mixed   property value if property exists
      */
+    #[\ReturnTypeWillChange]
     public function __get(string $property)
     {
         if (property_exists($this, $property)) {
@@ -61,6 +62,7 @@ class dcSqlStatement
      *
      * @return     self
      */
+    #[\ReturnTypeWillChange]
     public function __set(string $property, $value)
     {
         if (property_exists($this, $property)) {
@@ -130,7 +132,8 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function columns($c, bool $reset = false): dcSqlStatement
+    #[\ReturnTypeWillChange]
+    public function columns($c, bool $reset = false)
     {
         if ($reset) {
             $this->columns = [];
@@ -152,7 +155,8 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function fields($c, bool $reset = false): dcSqlStatement
+    #[\ReturnTypeWillChange]
+    public function fields($c, bool $reset = false)
     {
         return $this->columns($c, $reset);
     }
@@ -165,7 +169,8 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function column($c, bool $reset = false): dcSqlStatement
+    #[\ReturnTypeWillChange]
+    public function column($c, bool $reset = false)
     {
         return $this->columns($c, $reset);
     }
@@ -178,7 +183,8 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function field($c, bool $reset = false): dcSqlStatement
+    #[\ReturnTypeWillChange]
+    public function field($c, bool $reset = false)
     {
         return $this->column($c, $reset);
     }
@@ -192,7 +198,8 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function from($c, bool $reset = false, bool $first = false): dcSqlStatement
+    #[\ReturnTypeWillChange]
+    public function from($c, bool $reset = false, bool $first = false)
     {
         $filter = fn ($v) => trim(ltrim((string) $v, ','));
         if ($reset) {
@@ -226,7 +233,8 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function where($c, bool $reset = false): dcSqlStatement
+    #[\ReturnTypeWillChange]
+    public function where($c, bool $reset = false)
     {
         $filter = fn ($v) => preg_replace('/^\s*(AND|OR)\s*/i', '', $v);
         if ($reset) {
@@ -251,7 +259,8 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function on($c, bool $reset = false): dcSqlStatement
+    #[\ReturnTypeWillChange]
+    public function on($c, bool $reset = false)
     {
         return $this->where($c, $reset);
     }
@@ -264,7 +273,8 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function cond($c, bool $reset = false): dcSqlStatement
+    #[\ReturnTypeWillChange]
+    public function cond($c, bool $reset = false)
     {
         if ($reset) {
             $this->cond = [];
@@ -286,7 +296,8 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function and($c, bool $reset = false): dcSqlStatement
+    #[\ReturnTypeWillChange]
+    public function and($c, bool $reset = false)
     {
         return $this->cond(array_map(fn ($v) => 'AND ' . $v, is_array($c) ? $c : [$c]), $reset);
     }
@@ -313,7 +324,8 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function or($c, bool $reset = false): dcSqlStatement
+    #[\ReturnTypeWillChange]
+    public function or($c, bool $reset = false)
     {
         return $this->cond(array_map(fn ($v) => 'OR ' . $v, is_array($c) ? $c : [$c]), $reset);
     }
@@ -340,7 +352,8 @@ class dcSqlStatement
      *
      * @return self instance, enabling to chain calls
      */
-    public function sql($c, bool $reset = false): dcSqlStatement
+    #[\ReturnTypeWillChange]
+    public function sql($c, bool $reset = false)
     {
         if ($reset) {
             $this->sql = [];
