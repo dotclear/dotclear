@@ -1166,7 +1166,7 @@ class dcUpdateStatement extends dcSqlStatement
      */
     public function ref($c, bool $reset = false): dcUpdateStatement
     {
-        return $this->reference($c, $reset);
+        return $this->from($c, $reset);
     }
 
     /**
@@ -1272,23 +1272,8 @@ class dcUpdateStatement extends dcSqlStatement
             $query .= 'SET ' . join(', ', $this->set) . ' ';
         }
 
-        // Where clause(s)
-        if (count($this->where)) {
-            $query .= 'WHERE ' . join(' AND ', $this->where) . ' ';
-        }
-
-        // Direct where clause(s)
-        if (count($this->cond)) {
-            if (!count($this->where)) {
-                $query .= 'WHERE TRUE '; // Hack to cope with the operator included in top of each condition
-            }
-            $query .= join(' ', $this->cond) . ' ';
-        }
-
-        // Generic clause(s)
-        if (count($this->sql)) {
-            $query .= join(' ', $this->sql) . ' ';
-        }
+        // Where
+        $query .= $this->whereStatement();
 
         $query = trim($query);
 
