@@ -978,14 +978,14 @@ class dcBlog
             ->from($this->prefix . 'post P', false, true)
             ->join(
                 (new dcJoinStatement($this->core))
-                    ->type('INNER')
+                    ->inner()
                     ->from($this->prefix . 'user U')
                     ->on('U.user_id = P.user_id')
                     ->statement()
             )
             ->join(
                 (new dcJoinStatement($this->core))
-                    ->type('LEFT OUTER')
+                    ->left()
                     ->from($this->prefix . 'category C')
                     ->on('P.cat_id = C.cat_id')
                     ->statement()
@@ -1340,7 +1340,7 @@ class dcBlog
             ->from($this->prefix . 'post P')
             ->join(
                 (new dcJoinStatement($this->core))
-                    ->type('LEFT')
+                    ->left()
                     ->from($this->prefix . 'category C')
                     ->on('P.cat_id = C.cat_id')
                     ->statement()
@@ -2276,14 +2276,14 @@ class dcBlog
             ->from($this->prefix . 'comment C')
             ->join(
                 (new dcJoinStatement($this->core))
-                    ->type('INNER')
+                    ->inner()
                     ->from($this->prefix . 'post P')
                     ->on('C.post_id = P.post_id')
                     ->statement()
             )
             ->join(
                 (new dcJoinStatement($this->core))
-                    ->type('INNER')
+                    ->inner()
                     ->from($this->prefix . 'user U')
                     ->on('P.user_id = U.user_id')
                     ->statement()

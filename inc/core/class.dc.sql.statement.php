@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @brief SQL query statement builder
  *
@@ -766,7 +765,7 @@ class dcSelectStatement extends dcSqlStatement
     /**
      * Defines the LIMIT for select
      *
-     * @param mixed $limit
+     * @param mixed $limit (limit or [offset,limit])
      * @return self instance, enabling to chain calls
      */
     public function limit($limit): dcSelectStatement
@@ -922,9 +921,9 @@ class dcSelectStatement extends dcSqlStatement
     /**
      * select() alias
      *
-     * @return     bool
+     * @return     mixed  record or staticRecord (for sqlite)
      */
-    public function run(): bool
+    public function run()
     {
         return $this->select();
     }
@@ -957,9 +956,39 @@ class dcJoinStatement extends dcSqlStatement
      */
     public function type(string $type = ''): dcJoinStatement
     {
-        $this->type = $type;
+        $this->type = strtoupper($type);
 
         return $this;
+    }
+
+    /**
+     * Defines LEFT join type
+     *
+     * @return     dcJoinStatement
+     */
+    public function left(): dcJoinStatement
+    {
+        return $this->type('LEFT');
+    }
+
+    /**
+     * Defines RIGHT join type
+     *
+     * @return     dcJoinStatement
+     */
+    public function right(): dcJoinStatement
+    {
+        return $this->type('RIGHT');
+    }
+
+    /**
+     * Defines INNER join type
+     *
+     * @return     dcJoinStatement
+     */
+    public function inner(): dcJoinStatement
+    {
+        return $this->type('INNER');
     }
 
     /**

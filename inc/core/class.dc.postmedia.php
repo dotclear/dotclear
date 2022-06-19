@@ -61,7 +61,7 @@ class dcPostMedia
             ->from($sql->core->prefix . 'media M')
             ->join(
                 (new dcJoinStatement($this->core))
-                ->type('INNER')
+                ->inner()
                 ->from($this->table . ' PM')
                 ->on('M.media_id = PM.media_id')
                 ->statement()

@@ -314,7 +314,7 @@ class dcMeta
             ->from($this->table . ' M')
             ->join(
                 (new dcJoinStatement($this->core))
-                ->type('LEFT')
+                ->left()
                 ->from($sql->core->prefix . 'post P')
                 ->on('M.post_id = P.post_id')
                 ->statement()

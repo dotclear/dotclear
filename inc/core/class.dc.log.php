@@ -73,7 +73,7 @@ class dcLog
         if (!$count_only) {
             $sql->join(
                 (new dcJoinStatement($this->core))
-                ->type('LEFT')
+                ->left()
                 ->from($this->user_table . ' U')
                 ->on('U.user_id = L.user_id')
                 ->statement()
