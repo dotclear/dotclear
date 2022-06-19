@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @brief SQL query statement builder
  *
@@ -425,7 +426,20 @@ class dcSqlStatement
             }
         }
 
-        return $this->con->in($list);
+        return ' ' . trim($this->con->in($list));
+    }
+
+    /**
+     * Return an SQL IN (SELECT …) fragment
+     *
+     * @param      string             $field  The field
+     * @param      dcSelectStatement  $sql    The sql
+     *
+     * @return     string
+     */
+    public function inSelect(string $field, dcSelectStatement $sql): string
+    {
+        return $field . ' IN (' . $sql->statement() . ')';
     }
 
     /**
@@ -469,10 +483,10 @@ class dcSqlStatement
             $clause = "~ '^" . $this->escape(preg_quote($value)) . "[0-9]+$'";
         } else {
             $clause = "LIKE '" .
-            $this->escape(preg_replace(['%', '_', '!'], ['!%', '!_', '!!'], $value)) . "%' ESCAPE '!'"; // @phpstan-ignore-line
+                $this->escape(preg_replace(['%', '_', '!'], ['!%', '!_', '!!'], $value)) . "%' ESCAPE '!'"; // @phpstan-ignore-line
         }
 
-        return $clause;
+        return ' ' . $clause;
     }
 
     /**
