@@ -283,7 +283,7 @@ class dcSettings
      *
      * @param      record  $rs     The setting to drop
      *
-     * @return     int  Number of deleted records (0 if setting does not exist)
+     * @return     bool
      */
     public function dropSetting($rs)
     {
