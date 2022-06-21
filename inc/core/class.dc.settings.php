@@ -50,17 +50,26 @@ class dcSettings
      */
     private function loadSettings()
     {
-        $strReq = 'SELECT blog_id, setting_id, setting_value, ' .
-        'setting_type, setting_label, setting_ns ' .
-        'FROM ' . $this->table . ' ' .
-        "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' " .
-            'OR blog_id IS NULL ' .
-            'ORDER BY setting_ns ASC, setting_id DESC';
-
-        $rs = null;
+        $sql = new dcSelectStatement($this->core);
+        $sql
+            ->columns([
+                'blog_id',
+                'setting_id',
+                'setting_value',
+                'setting_type',
+                'setting_label',
+                'setting_ns',
+            ])
+            ->from($this->table)
+            ->where('blog_id = ' . $sql->quote($this->blog_id))
+            ->or('blog_id IS NULL')
+            ->order([
+                'setting_ns ASC',
+                'setting_id DESC',
+            ]);
 
         try {
-            $rs = $this->con->select($strReq);
+            $rs = $sql->select();
         } catch (Exception $e) {
             trigger_error(__('Unable to retrieve namespaces:') . ' ' . $this->con->error(), E_USER_ERROR);
         }
@@ -122,10 +131,12 @@ class dcSettings
         unset($this->namespaces[$oldNs]);
 
         // Rename the namespace in the database
-        $strReq = 'UPDATE ' . $this->table .
-        " SET setting_ns = '" . $this->con->escape($newNs) . "' " .
-        " WHERE setting_ns = '" . $this->con->escape($oldNs) . "' ";
-        $this->con->execute($strReq);
+        $sql = new dcUpdateStatement($this->core);
+        $sql
+            ->ref($this->table)
+            ->set('setting_ns = ' . $sql->quote($newNs))
+            ->where('setting_ns = ' . $sql->quote($oldNs));
+        $sql->update();
 
         return true;
     }
@@ -147,9 +158,12 @@ class dcSettings
         unset($this->namespaces[$ns]);
 
         // Delete all settings from the namespace in the database
-        $strReq = 'DELETE FROM ' . $this->table .
-        " WHERE setting_ns = '" . $this->con->escape($ns) . "' ";
-        $this->con->execute($strReq);
+        $sql = new dcDeleteStatement($this->core);
+        $sql
+            ->from($this->table)
+            ->where('setting_ns = ' . $sql->quote($ns));
+
+        $sql->delete();
 
         return true;
     }
@@ -216,27 +230,24 @@ class dcSettings
      */
     public function getGlobalSettings($params = [])
     {
-        $strReq = 'SELECT * from ' . $this->table . ' ';
-        $where  = [];
+        $sql = new dcSelectStatement($this->core);
+        $sql->from($this->table);
         if (!empty($params['ns'])) {
-            $where[] = "setting_ns = '" . $this->con->escape($params['ns']) . "'";
+            $sql->and('setting_ns = ' . $sql->quote($params['ns']));
         }
         if (!empty($params['id'])) {
-            $where[] = "setting_id = '" . $this->con->escape($params['id']) . "'";
+            $sql->and('setting_id = ' . $sql->quote($params['id']));
         }
         if (isset($params['blog_id'])) {
             if (!empty($params['blog_id'])) {
-                $where[] = "blog_id = '" . $this->con->escape($params['blog_id']) . "'";
+                $sql->and('blog_id = ' . $sql->quote($params['blog_id']));
             } else {
-                $where[] = 'blog_id IS NULL';
+                $sql->and('blog_id IS NULL');
             }
         }
-        if (count($where) != 0) {
-            $strReq .= ' WHERE ' . join(' AND ', $where);
-        }
-        $strReq .= ' ORDER by blog_id';
+        $sql->order('blog_id');
 
-        return $this->con->select($strReq);
+        return $sql->select();
     }
 
     /**
@@ -253,12 +264,18 @@ class dcSettings
         $cur->setting_label = $rs->setting_label;
         $cur->blog_id       = $rs->blog_id;
         $cur->setting_ns    = $rs->setting_ns;
+
+        $sql = new dcUpdateStatement($this->core);
         if ($cur->blog_id == null) {
-            $where = 'WHERE blog_id IS NULL ';
+            $sql->where('blog_id IS NULL');
         } else {
-            $where = "WHERE blog_id = '" . $this->con->escape($cur->blog_id) . "' ";
+            $sql->where('blog_id = ' . $sql->quote($cur->blog_id));
         }
-        $cur->update($where . "AND setting_id = '" . $this->con->escape($cur->setting_id) . "' AND setting_ns = '" . $this->con->escape($cur->setting_ns) . "' ");
+        $sql
+            ->and('setting_id = ' . $sql->quote($cur->setting_id))
+            ->and('setting_ns = ' . $sql->quote($cur->setting_ns));
+
+        $sql->update($cur);
     }
 
     /**
@@ -270,14 +287,17 @@ class dcSettings
      */
     public function dropSetting($rs)
     {
-        $strReq = 'DELETE FROM ' . $this->table . ' ';
+        $sql = new dcDeleteStatement($this->core);
+        $sql->from($this->table);
         if ($rs->blog_id == null) {
-            $strReq .= 'WHERE blog_id IS NULL ';
+            $sql->where('blog_id IS NULL');
         } else {
-            $strReq .= "WHERE blog_id = '" . $this->con->escape($rs->blog_id) . "' ";
+            $sql->where('blog_id = ' . $sql->quote($rs->blog_id));
         }
-        $strReq .= "AND setting_id = '" . $this->con->escape($rs->setting_id) . "' AND setting_ns = '" . $this->con->escape($rs->setting_ns) . "' ";
+        $sql
+            ->and('setting_id = ' . $sql->quote($rs->setting_id))
+            ->and('setting_ns = ' . $sql->quote($rs->setting_ns));
 
-        return $this->con->execute($strReq);
+        return $sql->delete();
     }
 }

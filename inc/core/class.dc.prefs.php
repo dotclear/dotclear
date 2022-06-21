@@ -58,17 +58,31 @@ class dcPrefs
      */
     private function loadPrefs($workspace = null)
     {
-        $strReq = 'SELECT user_id, pref_id, pref_value, ' .
-        'pref_type, pref_label, pref_ws ' .
-        'FROM ' . $this->table . ' ' .
-        "WHERE (user_id = '" . $this->con->escape($this->user_id) . "' " . 'OR user_id IS NULL ) ';
+        $sql = new dcSelectStatement($this->core);
+        $sql
+            ->columns([
+                'user_id',
+                'pref_id',
+                'pref_value',
+                'pref_type',
+                'pref_label',
+                'pref_ws',
+            ])
+            ->from($this->table)
+            ->where($sql->orGroup([
+                'user_id = ' . $sql->quote($this->user_id),
+                'user_id IS NULL',
+            ]))
+            ->order([
+                'pref_ws ASC',
+                'pref_id ASC',
+            ]);
         if ($workspace !== null) {
-            $strReq .= "AND pref_ws = '" . $this->con->escape($workspace) . "' ";
+            $sql->and('pref_ws = ' . $sql->quote($workspace));
         }
-        $strReq .= 'ORDER BY pref_ws ASC, pref_id ASC';
 
         try {
-            $rs = $this->con->select($strReq);
+            $rs = $sql->select();
         } catch (Exception $e) {
             throw $e;
         }
@@ -130,10 +144,12 @@ class dcPrefs
         unset($this->workspaces[$oldWs]);
 
         // Rename the workspace in the database
-        $strReq = 'UPDATE ' . $this->table .
-        " SET pref_ws = '" . $this->con->escape($newWs) . "' " .
-        " WHERE pref_ws = '" . $this->con->escape($oldWs) . "' ";
-        $this->con->execute($strReq);
+        $sql = new dcUpdateStatement($this->core);
+        $sql
+            ->ref($this->table)
+            ->set('pref_ws = ' . $sql->quote($newWs))
+            ->where('pref_ws = ' . $sql->quote($oldWs));
+        $sql->update();
 
         return true;
     }
@@ -155,9 +171,12 @@ class dcPrefs
         unset($this->workspaces[$ws]);
 
         // Delete all preferences from the workspace in the database
-        $strReq = 'DELETE FROM ' . $this->table .
-        " WHERE pref_ws = '" . $this->con->escape($ws) . "' ";
-        $this->con->execute($strReq);
+        $sql = new dcDeleteStatement($this->core);
+        $sql
+            ->from($this->table)
+            ->where('pref_ws = ' . $sql->quote($ws));
+
+        $sql->delete();
 
         return true;
     }

@@ -14,6 +14,7 @@ if (!defined('DC_RC_PATH')) {
 
 class dcWorkspace
 {
+    protected $core;    ///< <b>core</b> Dotclear core object
     protected $con;     ///< <b>connection</b> Database connection object
     protected $table;   ///< <b>string</b> Preferences table name
     protected $user_id; ///< <b>string</b> User ID
@@ -45,6 +46,7 @@ class dcWorkspace
             throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $name));
         }
 
+        $this->core    = &$core;
         $this->con     = &$core->con;
         $this->table   = $core->prefix . 'pref';
         $this->user_id = &$user_id;
@@ -61,16 +63,26 @@ class dcWorkspace
     private function getPrefs($rs = null)
     {
         if ($rs == null) {
-            $strReq = 'SELECT user_id, pref_id, pref_value, ' .
-            'pref_type, pref_label, pref_ws ' .
-            'FROM ' . $this->table . ' ' .
-            "WHERE (user_id = '" . $this->con->escape($this->user_id) . "' " .
-            'OR user_id IS NULL) ' .
-            "AND pref_ws = '" . $this->con->escape($this->ws) . "' " .
-                'ORDER BY pref_id ASC ';
+            $sql = new dcSelectStatement($this->core);
+            $sql
+                ->columns([
+                    'user_id',
+                    'pref_id',
+                    'pref_value',
+                    'pref_type',
+                    'pref_label',
+                    'pref_ws',
+                ])
+                ->from($this->table)
+                ->where($sql->orGroup([
+                    'user_id = ' . $sql->quote($this->user_id),
+                    'user_id IS NULL',
+                ]))
+                ->and('pref_ws = ' . $sql->quote($this->ws))
+                ->order('pref_id ASC');
 
             try {
-                $rs = $this->con->select($strReq);
+                $rs = $sql->select();
             } catch (Exception $e) {
                 throw $e;
             }
@@ -301,13 +313,18 @@ class dcWorkspace
         }
 
         if ($this->prefExists($id, $global) && $this->ws == $this->prefs[$id]['ws']) {
-            if ($global) {
-                $where = 'WHERE user_id IS NULL ';
-            } else {
-                $where = "WHERE user_id = '" . $this->con->escape($this->user_id) . "' ";
-            }
+            $sql = new dcUpdateStatement($this->core);
 
-            $cur->update($where . "AND pref_id = '" . $this->con->escape($id) . "' AND pref_ws = '" . $this->con->escape($this->ws) . "' ");
+            if ($global) {
+                $sql->where('user_id IS NULL');
+            } else {
+                $sql->where('user_id = ' . $sql->quote($this->user_id));
+            }
+            $sql
+                ->and('pref_id = ' . $sql->quote($id))
+                ->and('pref_ns = ' . $sql->quote($this->ws));
+
+            $sql->update($cur);
         } else {
             $cur->pref_id = $id;
             $cur->user_id = $global ? null : $this->user_id;
@@ -346,11 +363,14 @@ class dcWorkspace
         unset($this->prefs[$oldId]);
 
         // Rename the pref in the database
-        $strReq = 'UPDATE ' . $this->table .
-        " SET pref_id = '" . $this->con->escape($newId) . "' " .
-        " WHERE pref_ws = '" . $this->con->escape($this->ws) . "' " .
-        " AND pref_id = '" . $this->con->escape($oldId) . "' ";
-        $this->con->execute($strReq);
+        $sql = new dcUpdateStatement($this->core);
+        $sql
+            ->ref($this->table)
+            ->set('pref_id = ' . $sql->quote($newId))
+            ->where('pref_ws = ' . $sql->quote($this->ws))
+            ->and('pref_id = ' . $sql->quote($oldId));
+
+        $sql->update();
 
         return true;
     }
@@ -369,20 +389,23 @@ class dcWorkspace
             throw new Exception(__('No workspace specified'));
         }
 
-        $strReq = 'DELETE FROM ' . $this->table . ' ';
+        $sql = new dcDeleteStatement($this->core);
+        $sql
+            ->from($this->table);
 
         if (($force_global) || ($this->user_id === null)) {
-            $strReq .= 'WHERE user_id IS NULL ';
+            $sql->where('user_id IS NULL');
             $global = true;
         } else {
-            $strReq .= "WHERE user_id = '" . $this->con->escape($this->user_id) . "' ";
+            $sql->where('user_id = ' . $sql->quote($this->user_id));
             $global = false;
         }
 
-        $strReq .= "AND pref_id = '" . $this->con->escape($id) . "' ";
-        $strReq .= "AND pref_ws = '" . $this->con->escape($this->ws) . "' ";
+        $sql
+            ->and('pref_id = ' . $sql->quote($id))
+            ->and('pref_ws = ' . $sql->quote($this->ws));
 
-        $this->con->execute($strReq);
+        $sql->delete();
 
         if ($this->prefExists($id, $global)) {
             $array = $global ? 'global' : 'local';
@@ -407,13 +430,18 @@ class dcWorkspace
             throw new Exception(__('No workspace specified'));
         }
 
-        $strReq = 'DELETE FROM ' . $this->table . ' WHERE ';
-        if (!$global) {
-            $strReq .= 'user_id IS NOT NULL AND ';
-        }
-        $strReq .= "pref_id = '" . $this->con->escape($id) . "' AND pref_ws = '" . $this->con->escape($this->ws) . "' ";
+        $sql = new dcDeleteStatement($this->core);
+        $sql
+            ->from($this->table);
 
-        $this->con->execute($strReq);
+        if (!$global) {
+            $sql->where('user_id IS NOT NULL');
+        }
+        $sql
+            ->and('pref_id = ' . $sql->quote($id))
+            ->and('pref_ws = ' . $sql->quote($this->ws));
+
+        $sql->delete();
     }
 
     /**
@@ -429,19 +457,21 @@ class dcWorkspace
             throw new Exception(__('No workspace specified'));
         }
 
-        $strReq = 'DELETE FROM ' . $this->table . ' ';
+        $sql = new dcDeleteStatement($this->core);
+        $sql
+            ->from($this->table);
 
         if (($force_global) || ($this->user_id === null)) {
-            $strReq .= 'WHERE user_id IS NULL ';
+            $sql->where('user_id IS NULL');
             $global = true;
         } else {
-            $strReq .= "WHERE user_id = '" . $this->con->escape($this->user_id) . "' ";
+            $sql->where('user_id = ' . $sql->quote($this->user_id));
             $global = false;
         }
 
-        $strReq .= "AND pref_ws = '" . $this->con->escape($this->ws) . "' ";
+        $sql->and('pref_ws = ' . $sql->quote($this->ws));
 
-        $this->con->execute($strReq);
+        $sql->delete();
 
         $array = $global ? 'global' : 'local';
         unset($this->{$array . '_prefs'});

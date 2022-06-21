@@ -14,6 +14,7 @@ if (!defined('DC_RC_PATH')) {
 
 class dcNamespace
 {
+    protected $core;    ///< <b>core</b> Dotclear core object
     protected $con;     ///< <b>connection</b> Database connection object
     protected $table;   ///< <b>string</b> Settings table name
     protected $blog_id; ///< <b>string</b> Blog ID
@@ -45,6 +46,7 @@ class dcNamespace
             throw new Exception(sprintf(__('Invalid setting dcNamespace: %s'), $name));
         }
 
+        $this->core    = &$core;
         $this->con     = &$core->con;
         $this->table   = $core->prefix . 'setting';
         $this->blog_id = &$blog_id;
@@ -55,16 +57,26 @@ class dcNamespace
     private function getSettings($rs = null)
     {
         if ($rs == null) {
-            $strReq = 'SELECT blog_id, setting_id, setting_value, ' .
-            'setting_type, setting_label, setting_ns ' .
-            'FROM ' . $this->table . ' ' .
-            "WHERE (blog_id = '" . $this->con->escape($this->blog_id) . "' " .
-            'OR blog_id IS NULL) ' .
-            "AND setting_ns = '" . $this->con->escape($this->ns) . "' " .
-                'ORDER BY setting_id DESC ';
+            $sql = new dcSelectStatement($this->core);
+            $sql
+                ->columns([
+                    'blog_id',
+                    'setting_id',
+                    'setting_value',
+                    'setting_type',
+                    'setting_label',
+                    'setting_ns',
+                ])
+                ->from($this->table)
+                ->where($sql->orGroup([
+                    'blog_id = ' . $sql->quote($this->blog_id),
+                    'blog_id IS NULL',
+                ]))
+                ->and('setting_ns = ' . $sql->quote($this->ns))
+                ->order('setting_id DESC');
 
             try {
-                $rs = $this->con->select($strReq);
+                $rs = $sql->select();
             } catch (Exception $e) {
                 trigger_error(__('Unable to retrieve settings:') . ' ' . $this->con->error(), E_USER_ERROR);
             }
@@ -293,13 +305,18 @@ class dcNamespace
         }
 
         if ($this->settingExists($id, $global) && $this->ns == $this->settings[$id]['ns']) {
-            if ($global) {
-                $where = 'WHERE blog_id IS NULL ';
-            } else {
-                $where = "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' ";
-            }
+            $sql = new dcUpdateStatement($this->core);
 
-            $cur->update($where . "AND setting_id = '" . $this->con->escape($id) . "' AND setting_ns = '" . $this->con->escape($this->ns) . "' ");
+            if ($global) {
+                $sql->where('blog_id IS NULL');
+            } else {
+                $sql->where('blog_id = ' . $sql->quote($this->blog_id));
+            }
+            $sql
+                ->and('setting_id = ' . $sql->quote($id))
+                ->and('setting_ns = ' . $sql->quote($this->ns));
+
+            $sql->update($cur);
         } else {
             $cur->setting_id = $id;
             $cur->blog_id    = $global ? null : $this->blog_id;
@@ -338,11 +355,14 @@ class dcNamespace
         unset($this->settings[$oldId]);
 
         // Rename the setting in the database
-        $strReq = 'UPDATE ' . $this->table .
-        " SET setting_id = '" . $this->con->escape($newId) . "' " .
-        " WHERE setting_ns = '" . $this->con->escape($this->ns) . "' " .
-        " AND setting_id = '" . $this->con->escape($oldId) . "' ";
-        $this->con->execute($strReq);
+        $sql = new dcUpdateStatement($this->core);
+        $sql
+            ->ref($this->table)
+            ->set('setting_id = ' . $sql->quote($newId))
+            ->where('setting_ns = ' . $sql->quote($this->ns))
+            ->and('setting_id = ' . $sql->quote($oldId));
+
+        $sql->update();
 
         return true;
     }
@@ -360,18 +380,21 @@ class dcNamespace
             throw new Exception(__('No namespace specified'));
         }
 
-        $strReq = 'DELETE FROM ' . $this->table . ' ';
+        $sql = new dcDeleteStatement($this->core);
+        $sql
+            ->from($this->table);
 
         if ($this->blog_id === null) {
-            $strReq .= 'WHERE blog_id IS NULL ';
+            $sql->where('blog_id IS NULL');
         } else {
-            $strReq .= "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' ";
+            $sql->where('blog_id = ' . $sql->quote($this->blog_id));
         }
 
-        $strReq .= "AND setting_id = '" . $this->con->escape($id) . "' ";
-        $strReq .= "AND setting_ns = '" . $this->con->escape($this->ns) . "' ";
+        $sql
+            ->and('setting_id = ' . $sql->quote($id))
+            ->and('setting_ns = ' . $sql->quote($this->ns));
 
-        $this->con->execute($strReq);
+        $sql->delete();
     }
 
     /**
@@ -388,13 +411,18 @@ class dcNamespace
             throw new Exception(__('No namespace specified'));
         }
 
-        $strReq = 'DELETE FROM ' . $this->table . ' WHERE ';
-        if (!$global) {
-            $strReq .= 'blog_id IS NOT NULL AND ';
-        }
-        $strReq .= "setting_id = '" . $this->con->escape($id) . "' AND setting_ns = '" . $this->con->escape($this->ns) . "' ";
+        $sql = new dcDeleteStatement($this->core);
+        $sql
+            ->from($this->table);
 
-        $this->con->execute($strReq);
+        if (!$global) {
+            $sql->where('blog_id IS NOT NULL');
+        }
+        $sql
+            ->and('setting_id = ' . $sql->quote($id))
+            ->and('setting_ns = ' . $sql->quote($this->ns));
+
+        $sql->delete();
     }
 
     /**
@@ -410,19 +438,21 @@ class dcNamespace
             throw new Exception(__('No namespace specified'));
         }
 
-        $strReq = 'DELETE FROM ' . $this->table . ' ';
+        $sql = new dcDeleteStatement($this->core);
+        $sql
+            ->from($this->table);
 
         if (($force_global) || ($this->blog_id === null)) {
-            $strReq .= 'WHERE blog_id IS NULL ';
+            $sql->where('blog_id IS NULL');
             $global = true;
         } else {
-            $strReq .= "WHERE blog_id = '" . $this->con->escape($this->blog_id) . "' ";
+            $sql->where('blog_id = ' . $sql->quote($this->blog_id));
             $global = false;
         }
 
-        $strReq .= "AND setting_ns = '" . $this->con->escape($this->ns) . "' ";
+        $sql->and('setting_ns = ' . $sql->quote($this->ns));
 
-        $this->con->execute($strReq);
+        $sql->delete();
 
         $array = $global ? 'global' : 'local';
         unset($this->{$array . '_settings'});
