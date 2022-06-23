@@ -232,7 +232,6 @@ $.fn.helpViewer = function () {
   if (this.length < 1) {
     return this;
   }
-  let select = $();
   const p = {
     img_on_txt: dotclear.img_plus_txt,
     img_on_alt: dotclear.img_plus_alt,
@@ -241,11 +240,6 @@ $.fn.helpViewer = function () {
   };
   const toggle = () => {
     $('#content').toggleClass('with-help');
-    if ($('#content').hasClass('with-help')) {
-      select = $('#content select:visible').hide();
-    } else {
-      select.show();
-    }
     $('p#help-button span a').text($('#content').hasClass('with-help') ? dotclear.msg.help_hide : dotclear.msg.help);
     sizeBox();
     return false;
