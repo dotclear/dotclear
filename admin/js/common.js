@@ -1,5 +1,4 @@
 /*global $, dotclear */
-/*exported chainHandler */
 'use strict';
 
 /* Get PreInit JSON data */
@@ -24,18 +23,6 @@ if (window.matchMedia && window.matchMedia('(prefers-reduced-data: reduce)').mat
   dotclear.data.lowdata = true;
 }
 document.documentElement.style.setProperty('--dark-mode', dotclear.data.theme === 'dark' ? 1 : 0);
-
-/* ChainHandler, py Peter van der Beken
--------------------------------------------------------- */
-function chainHandler(obj, handlerName, handler) {
-  obj[handlerName] = (() => {
-    const existingFunction = handlerName in obj ? obj[handlerName] : null;
-    return function () {
-      handler.apply(this, arguments);
-      if (existingFunction) existingFunction.apply(this, arguments);
-    };
-  })();
-}
 
 /* jQuery extensions
 -------------------------------------------------------- */

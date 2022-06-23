@@ -1,4 +1,4 @@
-/*global jsToolBar, dotclear, chainHandler */
+/*global jsToolBar, dotclear */
 'use strict';
 
 /* ***** BEGIN LICENSE BLOCK *****
@@ -198,7 +198,7 @@ jsToolBar.prototype.initWindow = function () {
 
     // update textarea on submit
     if (This.textarea.form) {
-      chainHandler(This.textarea.form, 'onsubmit', () => {
+      This.textarea.form.addEventListener('submit', () => {
         if (This.wwg_mode) {
           This.syncContents('iframe');
         }
