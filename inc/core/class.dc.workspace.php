@@ -322,7 +322,7 @@ class dcWorkspace
             }
             $sql
                 ->and('pref_id = ' . $sql->quote($id))
-                ->and('pref_ns = ' . $sql->quote($this->ws));
+                ->and('pref_ws = ' . $sql->quote($this->ws));
 
             $sql->update($cur);
         } else {
