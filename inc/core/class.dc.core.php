@@ -15,6 +15,7 @@ class dcCore
 {
     public $con;        ///< <b>connection</b>          Database connection object
     public $prefix;     ///< <b>string</b>              Database tables prefix
+
     public $blog;       ///< <b>dcBlog</b>              dcBlog object
     public $error;      ///< <b>dcError</b>             dcError object
     public $auth;       ///< <b>dcAuth</b>              dcAuth object
@@ -106,11 +107,7 @@ class dcCore
     {
         # You can set DC_AUTH_CLASS to whatever you want.
         # Your new class *should* inherits dcAuth.
-        if (!defined('DC_AUTH_CLASS')) {
-            $c = 'dcAuth';
-        } else {
-            $c = DC_AUTH_CLASS;
-        }
+        $c = defined('DC_AUTH_CLASS') ? DC_AUTH_CLASS : 'dcAuth';
 
         if (!class_exists($c)) {
             throw new Exception('Authentication class ' . $c . ' does not exist.');
@@ -221,7 +218,7 @@ class dcCore
             return;
         }
 
-        return form::hidden(['xd_check'], $this->getNonce());
+        return (new formHidden('xd_check', $this->getNonce()))->render();
     }
     //@}
 
@@ -524,8 +521,13 @@ class dcCore
     {
         # Fetch versions if needed
         if (!is_array($this->versions)) {
-            $strReq = 'SELECT module, version FROM ' . $this->prefix . 'version';
-            $rs     = $this->con->select($strReq);
+            $rs = (new dcSelectStatement($this))
+                ->columns([
+                    'module',
+                    'version',
+                ])
+                ->from($this->prefix . 'version')
+                ->select();
 
             while ($rs->fetch()) {
                 $this->versions[$rs->module] = $rs->version;
@@ -554,7 +556,10 @@ class dcCore
         if ($cur_version === null) {
             $cur->insert();
         } else {
-            $cur->update("WHERE module='" . $this->con->escape($module) . "'");
+            $sql = new dcUpdateStatement($this);
+            $sql->where('module = ' . $sql->quote($module));
+
+            $sql->update($cur);
         }
 
         $this->versions[$module] = $version;
@@ -567,10 +572,12 @@ class dcCore
      */
     public function delVersion($module)
     {
-        $strReq = 'DELETE FROM ' . $this->prefix . 'version ' .
-        "WHERE module = '" . $this->con->escape($module) . "' ";
+        $sql = new dcDeleteStatement($this);
+        $sql
+            ->from($this->prefix . 'version')
+            ->where('module = ' . $sql->quote($module));
 
-        $this->con->execute($strReq);
+        $sql->delete();
 
         if (is_array($this->versions)) {
             unset($this->versions[$module]);
@@ -611,46 +618,80 @@ class dcCore
      */
     public function getUsers($params = [], $count_only = false)
     {
+        $sql = new dcSelectStatement($this);
+
         if ($count_only) {
-            $strReq = 'SELECT count(U.user_id) ' .
-            'FROM ' . $this->prefix . 'user U ' .
-                'WHERE NULL IS NULL ';
+            $sql
+                ->column($sql->count('U.user_id'))
+                ->from($this->prefix . 'user U')
+                ->where('NULL IS NULL');
         } else {
-            $strReq = 'SELECT U.user_id,user_super,user_status,user_pwd,user_change_pwd,' .
-                'user_name,user_firstname,user_displayname,user_email,user_url,' .
-                'user_desc, user_lang,user_tz, user_post_status,user_options, ' .
-                'count(P.post_id) AS nb_post ';
+            $sql
+                ->columns([
+                    'U.user_id',
+                    'user_super',
+                    'user_status',
+                    'user_pwd',
+                    'user_change_pwd',
+                    'user_name',
+                    'user_firstname',
+                    'user_displayname',
+                    'user_email',
+                    'user_url',
+                    'user_desc',
+                    'user_lang',
+                    'user_tz',
+                    'user_post_status',
+                    'user_options',
+                    $sql->count('P.post_id', 'nb_post'),
+                ])
+                ->from($this->prefix . 'user U');
+
             if (!empty($params['columns'])) {
-                $strReq .= ',';
-                if (is_array($params['columns'])) {
-                    $strReq .= implode(',', $params['columns']);
-                } else {
-                    $strReq .= $params['columns'];
-                }
-                $strReq .= ' ';
+                $sql->columns($params['columns']);
             }
-            $strReq .= 'FROM ' . $this->prefix . 'user U ' .
-            'LEFT JOIN ' . $this->prefix . 'post P ON U.user_id = P.user_id ' .
-                'WHERE NULL IS NULL ';
+            $sql
+                ->join(
+                    (new dcJoinStatement($this))
+                        ->left()
+                        ->from($this->prefix . 'post P')
+                        ->on('U.user_id = P.user_id')
+                        ->statement()
+                )
+                ->where('NULL IS NULL');
         }
 
         if (!empty($params['q'])) {
-            $q = $this->con->escape(str_replace('*', '%', strtolower($params['q'])));
-            $strReq .= 'AND (' .
-                "LOWER(U.user_id) LIKE '" . $q . "' " .
-                "OR LOWER(user_name) LIKE '" . $q . "' " .
-                "OR LOWER(user_firstname) LIKE '" . $q . "' " .
-                ') ';
+            $q = $sql->escape(str_replace('*', '%', strtolower($params['q'])));
+            $sql->andGroup([
+                $sql->or($sql->like('LOWER(U.user_id)', $q)),
+                $sql->or($sql->like('LOWER(user_name)', $q)),
+                $sql->or($sql->like('LOWER(user_firstname)', $q)),
+            ]);
         }
 
         if (!empty($params['user_id'])) {
-            $strReq .= "AND U.user_id = '" . $this->con->escape($params['user_id']) . "' ";
+            $sql->and('U.user_id = ' . $sql->quote($params['user_id']));
         }
 
         if (!$count_only) {
-            $strReq .= 'GROUP BY U.user_id,user_super,user_status,user_pwd,user_change_pwd,' .
-                'user_name,user_firstname,user_displayname,user_email,user_url,' .
-                'user_desc, user_lang,user_tz,user_post_status,user_options ';
+            $sql->group([
+                'U.user_id',
+                'user_super',
+                'user_status',
+                'user_pwd',
+                'user_change_pwd',
+                'user_name',
+                'user_firstname',
+                'user_displayname',
+                'user_email',
+                'user_url',
+                'user_desc',
+                'user_lang',
+                'user_tz',
+                'user_post_status',
+                'user_options',
+            ]);
 
             if (!empty($params['order'])) {
                 if (preg_match('`^([^. ]+) (?:asc|desc)`i', $params['order'], $matches)) {
@@ -659,19 +700,20 @@ class dcCore
                     } else {
                         $table_prefix = ''; // order = nb_post (asc|desc)
                     }
-                    $strReq .= 'ORDER BY ' . $table_prefix . $this->con->escape($params['order']) . ' ';
+                    $sql->order($table_prefix . $sql->escape($params['order']));
                 } else {
-                    $strReq .= 'ORDER BY ' . $this->con->escape($params['order']) . ' ';
+                    $sql->order($sql->escape($params['order']));
                 }
             } else {
-                $strReq .= 'ORDER BY U.user_id ASC ';
+                $sql->order('U.user_id ASC');
             }
         }
 
         if (!$count_only && !empty($params['limit'])) {
-            $strReq .= $this->con->limit($params['limit']);
+            $sql->limit($params['limit']);
         }
-        $rs = $this->con->select($strReq);
+
+        $rs = $sql->select();
         $rs->extend('rsExtUser');
 
         return $rs;
