@@ -3697,11 +3697,11 @@ div.template-upload {
   #media-attribute .media-desc {
     font-style: italic; }
 
-.modules td.module-icon img:last-child {
-  width: 16px;
-  height: 16px; }
-.modules td.module-icon img.expand {
-  margin-bottom: 3px; }
+.modules td.module-icon img {
+  width: 1.25em;
+  height: 1.25em; }
+  .modules td.module-icon img.expand {
+    margin-bottom: 3px; }
 .modules td.module-distrib img {
   display: block;
   float: right; }
