@@ -993,6 +993,16 @@ class dcUpgrade
             }
         }
 
+        if (version_compare($version, '2.23', '<')) {
+            # A bit of housecleaning for no longer needed files
+            $remfiles = [
+                'admin/images/module.png',
+            ];
+            foreach ($remfiles as $f) {
+                @unlink(DC_ROOT . '/' . $f);
+            }
+        }
+
         $core->setVersion('core', DC_VERSION);
         $core->blogDefaults();
 

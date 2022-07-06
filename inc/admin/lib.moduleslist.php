@@ -638,17 +638,22 @@ class adminModulesList
 
             if (in_array('icon', $cols)) {
                 $tds++;
+                $default_icon = false;
+
                 if (file_exists($module['root'] . '/icon.svg')) {
                     $icon = dcPage::getPF($id . '/icon.svg');
                 } elseif (file_exists($module['root'] . '/icon.png')) {
                     $icon = dcPage::getPF($id . '/icon.png');
                 } else {
-                    $icon = 'images/module.png';
+                    $icon         = 'images/module.svg';
+                    $default_icon = true;
                 }
                 if (file_exists($module['root'] . '/icon-dark.svg')) {
                     $icon = [$icon, dcPage::getPF($id . '/icon-dark.svg')];
                 } elseif (file_exists($module['root'] . '/icon-dark.png')) {
                     $icon = [$icon, dcPage::getPF($id . '/icon-dark.png')];
+                } elseif ($default_icon) {
+                    $icon = [$icon, 'images/module-dark.svg'];
                 }
 
                 echo
