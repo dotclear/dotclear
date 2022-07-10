@@ -381,12 +381,12 @@ class dcAuth
         }
 
         if ($this->user_admin) {
-            $res = call_user_func_array($f, $args);
+            $res = $f(...$args);
         } else {
             $this->user_admin = true;
 
             try {
-                $res              = call_user_func_array($f, $args);
+                $res              = $f(...$args);
                 $this->user_admin = false;
             } catch (Exception $e) {
                 $this->user_admin = false;

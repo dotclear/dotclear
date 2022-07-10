@@ -51,7 +51,7 @@ if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID')) {
             # Avoid loop caused by old cookie
             $p    = $core->session->getCookieParameters(false, -600);
             $p[3] = '/';
-            call_user_func_array('setcookie', $p);
+            setcookie(...$p);
 
             http::redirect('auth.php');
         }

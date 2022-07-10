@@ -171,7 +171,7 @@ class dcMedia extends filemanager
     {
         if (!empty($this->file_handler[$type][$event])) {
             foreach ($this->file_handler[$type][$event] as $f) {
-                call_user_func_array($f, $args);
+                $f(...$args);
             }
         }
     }

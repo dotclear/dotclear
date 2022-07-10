@@ -429,7 +429,7 @@ class dcCore
             $res = '';
 
             foreach ($this->behaviors[$behavior] as $f) {
-                $res .= call_user_func_array($f, $args);
+                $res .= $f(...$args);
             }
 
             return $res;
