@@ -1,7 +1,7 @@
-/*global jQuery */
+/*global $ */
 'use strict';
 
-(($) => {
+(() => {
   $.pageTabs = function (start_tab, opts) {
     const defaults = {
       containerClass: 'part-tabs',
@@ -79,7 +79,7 @@
   };
 
   const createTabs = function createTabs() {
-    let lis = [];
+    const lis = [];
 
     $(`.${$.pageTabs.options.contentClass}`).each(function () {
       $(this).hide();
@@ -89,7 +89,7 @@
           $(this).attr('id') +
           '">' +
           $(this).attr('title') +
-          '</a></li>'
+          '</a></li>',
       );
       $(this)
         .attr('id', $.pageTabs.options.partPrefix + $(this).attr('id'))
@@ -97,7 +97,7 @@
     });
 
     $(`<div class="${$.pageTabs.options.containerClass}"><ul>${lis.join('')}</ul></div>`).insertBefore(
-      $(`.${$.pageTabs.options.contentClass}`).get(0)
+      $(`.${$.pageTabs.options.contentClass}`).get(0),
     );
   };
 
@@ -139,4 +139,4 @@
     const sh = getHash(document.location.hash).split('.');
     return sh[1];
   };
-})(jQuery);
+})();

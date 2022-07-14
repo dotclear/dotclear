@@ -1,4 +1,4 @@
-/*global jQuery */
+/*global $ */
 'use strict';
 
 /*!
@@ -11,8 +11,7 @@
  *  jquery.ui.widget.js
  *  jquery.ui.mouse.js
  */
-(function($) {
-
+(() => {
   // Detect touch support
   $.support.touch = 'ontouchend' in document;
 
@@ -21,10 +20,9 @@
     return;
   }
 
-  var mouseProto = $.ui.mouse.prototype,
-    _mouseInit = mouseProto._mouseInit,
-    _mouseDestroy = mouseProto._mouseDestroy,
-    touchHandled;
+  const mouseProto = $.ui.mouse.prototype;
+  const { _mouseInit, _mouseDestroy } = mouseProto;
+  let touchHandled;
 
   /**
    * Simulate a mouse event based on a corresponding touch event
@@ -32,19 +30,18 @@
    * @param {String} simulatedType The corresponding mouse event
    */
   function simulateMouseEvent(event, simulatedType) {
-
     // Ignore multi-touch events
     if (event.originalEvent.touches.length > 1) {
       return;
     }
 
-//    event.preventDefault();
+    //    event.preventDefault();
 
-    var touch = event.originalEvent.changedTouches[0],
-      simulatedEvent = document.createEvent('MouseEvents');
+    const touch = event.originalEvent.changedTouches[0];
+    const simulatedEvent = document.createEvent('MouseEvents');
 
     // Check if element is an input or a textarea
-    if ($(touch.target).is("input") || $(touch.target).is("textarea")) {
+    if ($(touch.target).is('input') || $(touch.target).is('textarea')) {
       event.stopPropagation();
     } else {
       event.preventDefault();
@@ -66,7 +63,7 @@
       false, // shiftKey
       false, // metaKey
       0, // button
-      null // relatedTarget
+      null, // relatedTarget
     );
 
     // Dispatch the simulated event to the target element
@@ -77,12 +74,9 @@
    * Handle the jQuery UI widget's touchstart events
    * @param {Object} event The widget element's touchstart event
    */
-  mouseProto._touchStart = function(event) {
-
-    var self = this;
-
+  mouseProto._touchStart = function (event) {
     // Ignore the event if another widget is already being handled
-    if (touchHandled || !self._mouseCapture(event.originalEvent.changedTouches[0])) {
+    if (touchHandled || !this._mouseCapture(event.originalEvent.changedTouches[0])) {
       return;
     }
 
@@ -90,7 +84,7 @@
     touchHandled = true;
 
     // Track movement to determine if interaction was a click
-    self._touchMoved = false;
+    this._touchMoved = false;
 
     // Simulate the mouseover event
     simulateMouseEvent(event, 'mouseover');
@@ -106,8 +100,7 @@
    * Handle the jQuery UI widget's touchmove events
    * @param {Object} event The document's touchmove event
    */
-  mouseProto._touchMove = function(event) {
-
+  mouseProto._touchMove = function (event) {
     // Ignore event if not handled
     if (!touchHandled) {
       return;
@@ -124,8 +117,7 @@
    * Handle the jQuery UI widget's touchend events
    * @param {Object} event The document's touchend event
    */
-  mouseProto._touchEnd = function(event) {
-
+  mouseProto._touchEnd = function (event) {
     // Ignore event if not handled
     if (!touchHandled) {
       return;
@@ -139,7 +131,6 @@
 
     // If the touch interaction did not move, it should trigger a click
     if (!this._touchMoved) {
-
       // Simulate the click event
       simulateMouseEvent(event, 'click');
     }
@@ -154,39 +145,30 @@
    * translate touch events to mouse events and pass them to the widget's
    * original mouse event handling methods.
    */
-  mouseProto._mouseInit = function() {
-
-    var self = this;
-
+  mouseProto._mouseInit = function () {
     // Delegate the touch handlers to the widget's element
-//    self.element.bind({
-    self.element.on({
-      touchstart: $.proxy(self, '_touchStart'),
-      touchmove: $.proxy(self, '_touchMove'),
-      touchend: $.proxy(self, '_touchEnd')
+    this.element.on({
+      touchstart: $.proxy(this, '_touchStart'),
+      touchmove: $.proxy(this, '_touchMove'),
+      touchend: $.proxy(this, '_touchEnd'),
     });
 
     // Call the original $.ui.mouse init method
-    _mouseInit.call(self);
+    _mouseInit.call(this);
   };
 
   /**
    * Remove the touch event handlers
    */
-  mouseProto._mouseDestroy = function() {
-
-    var self = this;
-
+  mouseProto._mouseDestroy = function () {
     // Delegate the touch handlers to the widget's element
-//    self.element.unbind({
-    self.element.off({
-      touchstart: $.proxy(self, '_touchStart'),
-      touchmove: $.proxy(self, '_touchMove'),
-      touchend: $.proxy(self, '_touchEnd')
+    this.element.off({
+      touchstart: $.proxy(this, '_touchStart'),
+      touchmove: $.proxy(this, '_touchMove'),
+      touchend: $.proxy(this, '_touchEnd'),
     });
 
     // Call the original $.ui.mouse destroy method
-    _mouseDestroy.call(self);
+    _mouseDestroy.call(this);
   };
-
-})(jQuery);
+})();
