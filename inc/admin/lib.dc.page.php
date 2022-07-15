@@ -361,9 +361,11 @@ class dcPage
         echo '<p id="gototop"><a href="#wrapper">' . __('Page top') . '</a></p>' . "\n";
 
         $figure = "\n" .
-        "\n" .
-        '          (╯°□°)╯︵ ┻━┻' . "\n" .
-        "\n";
+
+        '           |            ' . "\n" .
+        '           |.===.       ' . "\n" .
+        '           {}o o{}      ' . "\n" .
+        '     ---ooO--(_)--Ooo---' . "\n";
 
         echo
             '<footer id="footer" role="contentinfo">' .
@@ -756,7 +758,7 @@ class dcPage
     private static function appendVersion(string $src, ?string $v = ''): string
     {
         return $src .
-            (strpos($src, '?') === false ? '?' : '&amp;') .
+            (strpos($src, '?')                  === false ? '?' : '&amp;') .
             'v=' . (defined('DC_DEV') && DC_DEV === true ? md5(uniqid()) : ($v ?: DC_VERSION));
     }
 
