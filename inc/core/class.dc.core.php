@@ -773,7 +773,10 @@ class dcCore
             throw new Exception(__('You are not an administrator'));
         }
 
-        $cur->update("WHERE user_id = '" . $this->con->escape($id) . "' ");
+        $sql = new dcUpdateStatement($this);
+        $sql->where('user_id = ' . $sql->quote($id));
+
+        $sql->update($cur);
 
         $this->auth->afterUpdUser($id, $cur);
 
@@ -782,10 +785,14 @@ class dcCore
         }
 
         # Updating all user's blogs
-        $rs = $this->con->select(
-            'SELECT DISTINCT(blog_id) FROM ' . $this->prefix . 'post ' .
-            "WHERE user_id = '" . $this->con->escape($id) . "' "
-        );
+        $sql = new dcSelectStatement($this);
+        $sql
+            ->distinct()
+            ->column('blog_id')
+            ->from($this->prefix . 'post')
+            ->where('user_id = ' . $sql->quote($id));
+
+        $rs = $sql->select();
 
         while ($rs->fetch()) {
             $b = new dcBlog($this, $rs->blog_id);
@@ -819,10 +826,12 @@ class dcCore
             return;
         }
 
-        $strReq = 'DELETE FROM ' . $this->prefix . 'user ' .
-        "WHERE user_id = '" . $this->con->escape($id) . "' ";
+        $sql = new dcDeleteStatement($this);
+        $sql
+            ->from($this->prefix . 'user')
+            ->where('user_id = ' . $sql->quote($id));
 
-        $this->con->execute($strReq);
+        $sql->delete();
 
         $this->auth->afterDelUser($id);
     }
@@ -836,11 +845,13 @@ class dcCore
      */
     public function userExists($id)
     {
-        $strReq = 'SELECT user_id ' .
-        'FROM ' . $this->prefix . 'user ' .
-        "WHERE user_id = '" . $this->con->escape($id) . "' ";
+        $sql = new dcSelectStatement($this);
+        $sql
+            ->column('user_id')
+            ->from($this->prefix . 'user')
+            ->where('user_id = ' . $sql->quote($id));
 
-        $rs = $this->con->select($strReq);
+        $rs = $sql->select();
 
         return !$rs->isEmpty();
     }
@@ -861,12 +872,25 @@ class dcCore
      */
     public function getUserPermissions($id)
     {
-        $strReq = 'SELECT B.blog_id, blog_name, blog_url, permissions ' .
-        'FROM ' . $this->prefix . 'permissions P ' .
-        'INNER JOIN ' . $this->prefix . 'blog B ON P.blog_id = B.blog_id ' .
-        "WHERE user_id = '" . $this->con->escape($id) . "' ";
+        $sql = new dcSelectStatement($this);
+        $sql
+            ->columns([
+                'B.blog_id',
+                'blog_name',
+                'blog_url',
+                'permissions',
+            ])
+            ->from($this->prefix . 'permissions P')
+            ->join(
+                (new dcJoinStatement($this))
+                ->inner()
+                ->from($this->prefix . 'blog B')
+                ->on('P.blog_id = B.blog_id')
+                ->statement()
+            )
+            ->where('user_id = ' . $sql->quote($id));
 
-        $rs = $this->con->select($strReq);
+        $rs = $sql->select();
 
         $res = [];
 
@@ -898,10 +922,12 @@ class dcCore
             throw new Exception(__('You are not an administrator'));
         }
 
-        $strReq = 'DELETE FROM ' . $this->prefix . 'permissions ' .
-        "WHERE user_id = '" . $this->con->escape($id) . "' ";
+        $sql = new dcDeleteStatement($this);
+        $sql
+            ->from($this->prefix . 'permissions')
+            ->where('user_id = ' . $sql->quote($id));
 
-        $this->con->execute($strReq);
+        $sql->delete();
 
         foreach ($perms as $blog_id => $p) {
             $this->setUserBlogPermissions($id, $blog_id, $p, false);
@@ -935,11 +961,13 @@ class dcCore
         $cur->permissions = $perms;
 
         if ($delete_first || $no_perm) {
-            $strReq = 'DELETE FROM ' . $this->prefix . 'permissions ' .
-            "WHERE blog_id = '" . $this->con->escape($blog_id) . "' " .
-            "AND user_id = '" . $this->con->escape($id) . "' ";
+            $sql = new dcDeleteStatement($this);
+            $sql
+                ->from($this->prefix . 'permissions')
+                ->where('blog_id = ' . $sql->quote($blog_id))
+                ->and('user_id = ' . $sql->quote($id));
 
-            $this->con->execute($strReq);
+            $sql->delete();
         }
 
         if (!$no_perm) {
@@ -959,7 +987,10 @@ class dcCore
 
         $cur->user_default_blog = (string) $blog_id;
 
-        $cur->update("WHERE user_id = '" . $this->con->escape($id) . "'");
+        $sql = new dcUpdateStatement($this->core);
+        $sql->where('user_id = ' . $sql->quote($id));
+
+        $sql->update($cur);
     }
 
     /**
@@ -1040,21 +1071,43 @@ class dcCore
      */
     public function getBlogPermissions($id, $with_super = true)
     {
-        $strReq = 'SELECT U.user_id AS user_id, user_super, user_name, user_firstname, ' .
-        'user_displayname, user_email, permissions ' .
-        'FROM ' . $this->prefix . 'user U ' .
-        'JOIN ' . $this->prefix . 'permissions P ON U.user_id = P.user_id ' .
-        "WHERE blog_id = '" . $this->con->escape($id) . "' ";
+        $sql = new dcSelectStatement($this);
+        $sql
+            ->columns([
+                'U.user_id as user_id',
+                'user_super',
+                'user_name',
+                'user_firstname',
+                'user_displayname',
+                'user_email',
+                'permissions',
+            ])
+            ->from($this->prefix . 'user U')
+            ->join((new dcJoinStatement($this))
+                ->from($this->prefix . 'permissions P')
+                ->on('U.user_id = P.user_id')
+                ->statement())
+            ->where('blog_id = ' . $sql->quote($id));
 
         if ($with_super) {
-            $strReq .= 'UNION ' .
-            'SELECT U.user_id AS user_id, user_super, user_name, user_firstname, ' .
-            'user_displayname, user_email, NULL AS permissions ' .
-            'FROM ' . $this->prefix . 'user U ' .
-                'WHERE user_super = 1 ';
+            $sql->union(
+                (new dcSelectStatement($this))
+                ->columns([
+                    'U.user_id as user_id',
+                    'user_super',
+                    'user_name',
+                    'user_firstname',
+                    'user_displayname',
+                    'user_email',
+                    'NULL AS permissions',
+                ])
+                ->from($this->prefix . 'user U')
+                ->where('user_super = 1')
+                ->statement()
+            );
         }
 
-        $rs = $this->con->select($strReq);
+        $rs = $sql->select();
 
         $res = [];
 
