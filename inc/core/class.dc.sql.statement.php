@@ -638,6 +638,7 @@ class dcSqlStatement
 class dcSelectStatement extends dcSqlStatement
 {
     protected $join;
+    protected $union;
     protected $having;
     protected $order;
     protected $group;
@@ -652,7 +653,7 @@ class dcSelectStatement extends dcSqlStatement
      */
     public function __construct(dcCore &$core)
     {
-        $this->join = $this->having = $this->order = $this->group = [];
+        $this->join = $this->union = $this->having = $this->order = $this->group = [];
 
         $this->limit    = null;
         $this->offset   = null;
@@ -678,6 +679,28 @@ class dcSelectStatement extends dcSqlStatement
             $this->join = array_merge($this->join, $c);
         } else {
             array_push($this->join, $c);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Adds UNION clause(s)
+     *
+     * @param mixed     $c      the union clause(s)
+     * @param boolean   $reset  reset previous union(s) first
+     *
+     * @return self instance, enabling to chain calls
+     */
+    public function union($c, bool $reset = false): dcSelectStatement
+    {
+        if ($reset) {
+            $this->union = [];
+        }
+        if (is_array($c)) {
+            $this->union = array_merge($this->union, $c);
+        } else {
+            array_push($this->union, $c);
         }
 
         return $this;
@@ -894,6 +917,11 @@ class dcSelectStatement extends dcSqlStatement
         // Offset clause
         if ($this->offset !== null) {
             $query .= 'OFFSET ' . $this->offset . ' ';
+        }
+
+        // Union clause(s)
+        if (count($this->union)) {
+            $query .= 'UNION ' . join(' UNION ', $this->union) . ' ';
         }
 
         $query = trim($query);
