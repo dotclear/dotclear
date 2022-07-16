@@ -904,6 +904,14 @@ class dcSelectStatement extends dcSqlStatement
             $query .= 'HAVING ' . join(' AND ', $this->having) . ' ';
         }
 
+        // Union clause(s)
+        if (count($this->union)) {
+            $query .= 'UNION ' . join(' UNION ', $this->union) . ' ';
+        }
+
+        // Clauses applied on result
+        // -------------------------
+
         // Order by clause (columns or aliases and optionnaly order ASC/DESC)
         if (count($this->order)) {
             $query .= 'ORDER BY ' . join(', ', $this->order) . ' ';
@@ -917,11 +925,6 @@ class dcSelectStatement extends dcSqlStatement
         // Offset clause
         if ($this->offset !== null) {
             $query .= 'OFFSET ' . $this->offset . ' ';
-        }
-
-        // Union clause(s)
-        if (count($this->union)) {
-            $query .= 'UNION ' . join(' UNION ', $this->union) . ' ';
         }
 
         $query = trim($query);
