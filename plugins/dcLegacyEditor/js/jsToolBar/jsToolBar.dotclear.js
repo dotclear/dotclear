@@ -24,7 +24,7 @@ jsToolBar.prototype.elements.link.fn.wiki = function () {
   this.elements.link.popup.call(this, `&hreflang=${this.elements.link.default_hreflang}`);
 };
 jsToolBar.prototype.elements.link.fncall.wiki = function () {
-  const data = this.elements.link.data;
+  const { data } = this.elements.link;
 
   if (data.href == '') {
     return;
@@ -53,7 +53,7 @@ jsToolBar.prototype.elements.link.fn.xhtml = function () {
   this.elements.link.popup.call(this, `&hreflang=${this.elements.link.default_hreflang}`);
 };
 jsToolBar.prototype.elements.link.fncall.xhtml = function () {
-  const data = this.elements.link.data;
+  const { data } = this.elements.link;
 
   if (data.href == '') {
     return;
@@ -95,7 +95,7 @@ jsToolBar.prototype.elements.link.fn.wysiwyg = function () {
   this.elements.link.popup.call(this, `&href=${href}&hreflang=${hreflang}&title=${title}`);
 };
 jsToolBar.prototype.elements.link.fncall.wysiwyg = function () {
-  const data = this.elements.link.data;
+  const { data } = this.elements.link;
 
   let a = this.getAncestor();
 

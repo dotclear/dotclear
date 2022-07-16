@@ -18,7 +18,7 @@ $(() => {
     }
 
     const tb = window.opener.the_toolbar;
-    const data = tb.elements.link.data;
+    const { data } = tb.elements.link;
 
     data.href = tb.stripBaseURL(insert_form.elements.href.value);
     data.title = insert_form.elements.title.value;

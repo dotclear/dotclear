@@ -738,7 +738,7 @@ $(() => {
     const header = document.querySelector('#header') ? document.querySelector('#header') : document.querySelector('h1');
     header.addEventListener('dblclick', (e) => {
       const elt = document.documentElement;
-      let theme = elt.dataset.theme;
+      let { theme } = elt.dataset;
       if (theme == null || theme === '') {
         theme = window.matchMedia('(prefers-color-scheme: dark)') ? 'dark' : 'light';
       }
@@ -753,7 +753,7 @@ $(() => {
     .contents()
     .each(function () {
       if (this.nodeType == 8) {
-        let data = this.data;
+        let { data } = this;
         data = data.replace(/ /g, '&nbsp;').replace(/\n/g, '<br/>');
         $(`<span class="tooltip" aria-hidden="true">${$('#footer a').prop('title')}${data}</span>`).appendTo('#footer a');
       }

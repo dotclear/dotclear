@@ -9,7 +9,7 @@ $(() => {
   $('#form-entries tr>td.maximal>a').on('click', function () {
     // Get post_id
     const tb = window.opener.the_toolbar;
-    const data = tb.elements.link.data;
+    const { data } = tb.elements.link;
 
     data.href = tb.stripBaseURL($(this).attr('title'));
 

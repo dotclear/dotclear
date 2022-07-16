@@ -92,7 +92,7 @@ class jsToolBar {
     const tool = this.elements[toolName];
 
     if (tool[this.mode] != undefined) {
-      const length = tool[this.mode].list.length;
+      const { length } = tool[this.mode].list;
 
       if (typeof tool[this.mode].fn != 'function' || length == 0) {
         return null;
