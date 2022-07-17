@@ -987,7 +987,7 @@ class dcCore
 
         $cur->user_default_blog = (string) $blog_id;
 
-        $sql = new dcUpdateStatement($this->core);
+        $sql = new dcUpdateStatement($this);
         $sql->where('user_id = ' . $sql->quote($id));
 
         $sql->update($cur);
