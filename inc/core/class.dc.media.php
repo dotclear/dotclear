@@ -779,7 +779,7 @@ class dcMedia extends filemanager
         if (!empty($del_ids)) {
             $sql = new dcDeleteStatement($this->core);
             $sql
-                ->from($this->core)
+                ->from($this->table)
                 ->where('media_id' . $sql->in($del_ids));
 
             $sql->delete();
