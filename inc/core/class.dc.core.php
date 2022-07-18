@@ -11,8 +11,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-class dcCore
+final class dcCore
 {
+    private static $instance = null;
+
     public $con;        ///< <b>connection</b>          Database connection object
     public $prefix;     ///< <b>string</b>              Database tables prefix
 
@@ -54,6 +56,12 @@ class dcCore
      */
     public function __construct($driver, $host, $db, $user, $password, $prefix, $persist)
     {
+        // Singleton mode
+        if (self::$instance) {
+            throw new Exception('Application can not be started twice.', 500);
+        }
+        self::$instance = $this;
+
         if (defined('DC_START_TIME')) {
             $this->stime = DC_START_TIME;
         } else {
@@ -101,6 +109,16 @@ class dcCore
         $this->meta = new dcMeta($this);
 
         $this->log = new dcLog($this);
+    }
+
+    /**
+     * Get dcCore singleton instance
+     *
+     * @return     dcCore
+     */
+    public static function app(): dcCore
+    {
+        return self::$instance;
     }
 
     private function authInstance()
