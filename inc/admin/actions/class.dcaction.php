@@ -17,8 +17,13 @@ abstract class dcActionsPage
 {
     /** @var string form submit uri */
     protected $uri;
+
     /** @var dcCore dotclear core instance */
+    /**
+     * @deprecated since 2.23
+     */
     protected $core;
+
     /** @var array action combo box */
     protected $combo;
     /** @var ArrayObject list of defined actions (callbacks) */
@@ -65,7 +70,7 @@ abstract class dcActionsPage
      */
     public function __construct($core, $uri, $redirect_args = [])
     {
-        $this->core            = $core;
+        $this->core            = dcCore::app();
         $this->actions         = new ArrayObject();
         $this->combo           = [];
         $this->uri             = $uri;
@@ -328,7 +333,7 @@ abstract class dcActionsPage
                 foreach ($this->actions as $k => $v) {
                     if ($this->from['action'] == $k) {
                         $performed = true;
-                        call_user_func($v, $this->core, $this, $this->from);
+                        call_user_func($v, dcCore::app(), $this, $this->from);
                     }
                 }
                 if ($performed) {

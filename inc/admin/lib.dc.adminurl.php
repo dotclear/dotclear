@@ -16,7 +16,11 @@ if (!defined('DC_RC_PATH')) {
 class dcAdminURL
 {
     /** @var dcCore dcCore instance */
+    /**
+     * @deprecated since 2.23
+     */
     protected $core;
+
     protected $urls;
 
     /**
@@ -24,9 +28,9 @@ class dcAdminURL
      *
      * @param      dcCore  $core   The core
      */
-    public function __construct(dcCore $core)
+    public function __construct(dcCore $core = null)
     {
-        $this->core = $core;
+        $this->core = dcCore::app();
         $this->urls = new ArrayObject();
     }
 

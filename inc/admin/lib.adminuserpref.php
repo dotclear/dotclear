@@ -18,6 +18,9 @@ if (!defined('DC_RC_PATH')) {
 class adminUserPref
 {
     /** @var dcCore core instance */
+    /**
+     * @deprecated since 2.23
+     */
     public static $core;
 
     /** @var arrayObject columns preferences */
@@ -44,10 +47,10 @@ class adminUserPref
         $cols = new arrayObject($cols);
 
         # --BEHAVIOR-- adminColumnsLists
-        self::$core->callBehavior('adminColumnsLists', self::$core, $cols);
+        dcCore::app()->callBehavior('adminColumnsLists', dcCore::app(), $cols);
 
         # Load user settings
-        $cols_user = @self::$core->auth->user_prefs->interface->cols;
+        $cols_user = @dcCore::app()->auth->user_prefs->interface->cols;
         if (is_array($cols_user) || $cols_user instanceof ArrayObject) {
             foreach ($cols_user as $ct => $cv) {
                 foreach ($cv as $cn => $cd) {
@@ -75,7 +78,7 @@ class adminUserPref
     public static function getDefaultFilters()
     {
         $users = [null, null, null, null, null];
-        if (self::$core->auth->isSuperAdmin()) {
+        if (dcCore::app()->auth->isSuperAdmin()) {
             $users = [
                 __('Users'),
                 dcAdminCombos::getUsersSortbyCombo(),
@@ -142,12 +145,12 @@ class adminUserPref
             $sorts = new arrayObject($sorts);
 
             # --BEHAVIOR-- adminFiltersLists
-            self::$core->callBehavior('adminFiltersLists', self::$core, $sorts);
+            dcCore::app()->callBehavior('adminFiltersLists', dcCore::app(), $sorts);
 
-            if (self::$core->auth->user_prefs->interface === null) {
-                self::$core->auth->user_prefs->addWorkspace('interface');
+            if (dcCore::app()->auth->user_prefs->interface === null) {
+                dcCore::app()->auth->user_prefs->addWorkspace('interface');
             }
-            $sorts_user = @self::$core->auth->user_prefs->interface->sorts;
+            $sorts_user = @dcCore::app()->auth->user_prefs->interface->sorts;
             if (is_array($sorts_user)) {
                 foreach ($sorts_user as $stype => $sdata) {
                     if (!isset($sorts[$stype])) {
@@ -190,4 +193,4 @@ class adminUserPref
 /*
  * Store current dcCore instance
  */
-adminUserPref::$core = $GLOBALS['core'];
+adminUserPref::$core = dcCore::app();

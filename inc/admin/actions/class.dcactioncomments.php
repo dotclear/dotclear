@@ -12,22 +12,22 @@ if (!defined('DC_RC_PATH')) {
 
 class dcCommentsActionsPage extends dcActionsPage
 {
-    public function __construct($core, $uri, $redirect_args = [])
+    public function __construct(dcCore $core, $uri, $redirect_args = [])
     {
-        parent::__construct($core, $uri, $redirect_args);
+        parent::__construct(dcCore::app(), $uri, $redirect_args);
         $this->redirect_fields = ['type', 'author', 'status',
             'sortby', 'ip', 'order', 'page', 'nb', 'section', ];
         $this->field_entries = 'comments';
         $this->cb_title      = __('Comments');
         $this->loadDefaults();
-        $core->callBehavior('adminCommentsActionsPage', $core, $this);
+        dcCore::app()->callBehavior('adminCommentsActionsPage', dcCore::app(), $this);
     }
 
     protected function loadDefaults()
     {
         // We could have added a behavior here, but we want default action
         // to be setup first
-        dcDefaultCommentActions::adminCommentsActionsPage($this->core, $this);
+        dcDefaultCommentActions::adminCommentsActionsPage(dcCore::app(), $this);
     }
 
     public function beginPage($breadcrumb = '', $head = '')
@@ -56,13 +56,13 @@ class dcCommentsActionsPage extends dcActionsPage
 
     public function error(Exception $e)
     {
-        $this->core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
         $this->beginPage(
             dcPage::breadcrumb(
                 [
-                    html::escapeHTML($this->core->blog->name) => '',
-                    __('Comments')                            => $this->core->adminurl->get('admin.comments'),
-                    __('Comments actions')                    => '',
+                    html::escapeHTML(dcCore::app()->blog->name) => '',
+                    __('Comments')                              => dcCore::app()->adminurl->get('admin.comments'),
+                    __('Comments actions')                      => '',
                 ]
             )
         );
@@ -117,7 +117,7 @@ class dcCommentsActionsPage extends dcActionsPage
         if (!isset($from['full_content']) || empty($from['full_content'])) {
             $params['no_content'] = true;
         }
-        $co = $this->core->blog->getComments($params);
+        $co = dcCore::app()->blog->getComments($params);
         while ($co->fetch()) {
             $this->entries[$co->comment_id] = [
                 'title'  => $co->post_title,
@@ -130,9 +130,9 @@ class dcCommentsActionsPage extends dcActionsPage
 
 class dcDefaultCommentActions
 {
-    public static function adminCommentsActionsPage($core, dcCommentsActionsPage $ap)
+    public static function adminCommentsActionsPage(dcCore $core, dcCommentsActionsPage $ap)
     {
-        if ($core->auth->check('publish,contentadmin', $core->blog->id)) {
+        if (dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Status') => [
                     __('Publish')         => 'publish',
@@ -144,7 +144,7 @@ class dcDefaultCommentActions
             );
         }
 
-        if ($core->auth->check('delete,contentadmin', $core->blog->id)) {
+        if (dcCore::app()->auth->check('delete,contentadmin', dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Delete') => [
                     __('Delete') => 'delete', ]],
@@ -153,8 +153,8 @@ class dcDefaultCommentActions
         }
 
         $ip_filter_active = true;
-        if ($core->blog->settings->antispam->antispam_filters !== null) {
-            $filters_opt = $core->blog->settings->antispam->antispam_filters;
+        if (dcCore::app()->blog->settings->antispam->antispam_filters !== null) {
+            $filters_opt = dcCore::app()->blog->settings->antispam->antispam_filters;
             if (is_array($filters_opt)) {
                 $ip_filter_active = isset($filters_opt['dcFilterIP']) && is_array($filters_opt['dcFilterIP']) && $filters_opt['dcFilterIP'][0] == 1;
             }
@@ -162,7 +162,7 @@ class dcDefaultCommentActions
 
         if ($ip_filter_active) {
             $blocklist_actions = [__('Blocklist IP') => 'blocklist'];
-            if ($core->auth->isSuperAdmin()) {
+            if (dcCore::app()->auth->isSuperAdmin()) {
                 $blocklist_actions[__('Blocklist IP (global)')] = 'blocklist_global';
             }
 
@@ -173,7 +173,7 @@ class dcDefaultCommentActions
         }
     }
 
-    public static function doChangeCommentStatus($core, dcCommentsActionsPage $ap, $post)
+    public static function doChangeCommentStatus(dcCore $core, dcCommentsActionsPage $ap, $post)
     {
         $action = $ap->getAction();
         $co_ids = $ap->getIDs();
@@ -199,13 +199,13 @@ class dcDefaultCommentActions
                 break;
         }
 
-        $core->blog->updCommentsStatus($co_ids, $status);
+        dcCore::app()->blog->updCommentsStatus($co_ids, $status);
 
         dcPage::addSuccessNotice(__('Selected comments have been successfully updated.'));
         $ap->redirect(true);
     }
 
-    public static function doDeleteComment($core, dcCommentsActionsPage $ap, $post)
+    public static function doDeleteComment(dcCore $core, dcCommentsActionsPage $ap, $post)
     {
         $co_ids = $ap->getIDs();
         if (empty($co_ids)) {
@@ -214,18 +214,18 @@ class dcDefaultCommentActions
         // Backward compatibility
         foreach ($co_ids as $comment_id) {
             # --BEHAVIOR-- adminBeforeCommentDelete
-            $core->callBehavior('adminBeforeCommentDelete', $comment_id);
+            dcCore::app()->callBehavior('adminBeforeCommentDelete', $comment_id);
         }
 
         # --BEHAVIOR-- adminBeforeCommentsDelete
-        $core->callBehavior('adminBeforeCommentsDelete', $co_ids);
+        dcCore::app()->callBehavior('adminBeforeCommentsDelete', $co_ids);
 
-        $core->blog->delComments($co_ids);
+        dcCore::app()->blog->delComments($co_ids);
         dcPage::addSuccessNotice(__('Selected comments have been successfully deleted.'));
         $ap->redirect(false);
     }
 
-    public static function doBlocklistIP($core, dcCommentsActionsPage $ap, $post)
+    public static function doBlocklistIP(dcCore $core, dcCommentsActionsPage $ap, $post)
     {
         $action = $ap->getAction();
         $co_ids = $ap->getIDs();
@@ -233,12 +233,12 @@ class dcDefaultCommentActions
             throw new Exception(__('No comment selected'));
         }
 
-        $global = !empty($action) && $action == 'blocklist_global' && $core->auth->isSuperAdmin();
+        $global = !empty($action) && $action == 'blocklist_global' && dcCore::app()->auth->isSuperAdmin();
 
         $rs = $ap->getRS();
 
-        $ip_filter_v4 = new dcFilterIP($core);
-        $ip_filter_v6 = new dcFilterIPv6($core);
+        $ip_filter_v4 = new dcFilterIP(dcCore::app());
+        $ip_filter_v6 = new dcFilterIPv6(dcCore::app());
 
         while ($rs->fetch()) {
             if (filter_var($rs->comment_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false) {

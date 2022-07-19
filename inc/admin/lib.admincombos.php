@@ -18,6 +18,9 @@ if (!defined('DC_RC_PATH')) {
 class dcAdminCombos
 {
     /** @var dcCore dcCore instance */
+    /**
+     * @deprecated since 2.23
+     */
     public static $core;
 
     /**
@@ -55,7 +58,7 @@ class dcAdminCombos
     public static function getPostStatusesCombo()
     {
         $status_combo = [];
-        foreach (self::$core->blog->getAllPostStatus() as $k => $v) {
+        foreach (dcCore::app()->blog->getAllPostStatus() as $k => $v) {
             $status_combo[$v] = (string) $k;
         }
 
@@ -167,7 +170,7 @@ class dcAdminCombos
     {
         $editors_combo = [];
 
-        foreach (self::$core->getEditors() as $v) {
+        foreach (dcCore::app()->getEditors() as $v) {
             $editors_combo[$v] = $v;
         }
 
@@ -186,11 +189,11 @@ class dcAdminCombos
         $formaters_combo = [];
 
         if (!empty($editor_id)) {
-            foreach (self::$core->getFormaters($editor_id) as $formater) {
+            foreach (dcCore::app()->getFormaters($editor_id) as $formater) {
                 $formaters_combo[$formater] = $formater;
             }
         } else {
-            foreach (self::$core->getFormaters() as $editor => $formaters) {
+            foreach (dcCore::app()->getFormaters() as $editor => $formaters) {
                 foreach ($formaters as $formater) {
                     $formaters_combo[$editor][$formater] = $formater;
                 }
@@ -208,7 +211,7 @@ class dcAdminCombos
     public static function getBlogStatusesCombo()
     {
         $status_combo = [];
-        foreach (self::$core->getAllBlogStatus() as $k => $v) {
+        foreach (dcCore::app()->getAllBlogStatus() as $k => $v) {
             $status_combo[$v] = (string) $k;
         }
 
@@ -223,7 +226,7 @@ class dcAdminCombos
     public static function getCommentStatusesCombo()
     {
         $status_combo = [];
-        foreach (self::$core->blog->getAllCommentStatus() as $k => $v) {
+        foreach (dcCore::app()->blog->getAllCommentStatus() as $k => $v) {
             $status_combo[$v] = (string) $k;
         }
 
@@ -251,7 +254,7 @@ class dcAdminCombos
             __('Number of trackbacks') => 'nb_trackback',
         ];
         # --BEHAVIOR-- adminPostsSortbyCombo
-        self::$core->callBehavior('adminPostsSortbyCombo', [& $sortby_combo]);
+        dcCore::app()->callBehavior('adminPostsSortbyCombo', [& $sortby_combo]);
 
         return $sortby_combo;
     }
@@ -268,7 +271,7 @@ class dcAdminCombos
             __('Spam filter') => 'comment_spam_filter',
         ];
         # --BEHAVIOR-- adminCommentsSortbyCombo
-        self::$core->callBehavior('adminCommentsSortbyCombo', [& $sortby_combo]);
+        dcCore::app()->callBehavior('adminCommentsSortbyCombo', [& $sortby_combo]);
 
         return $sortby_combo;
     }
@@ -282,7 +285,7 @@ class dcAdminCombos
             __('Status')      => 'blog_status',
         ];
         # --BEHAVIOR-- adminBlogsSortbyCombo
-        self::$core->callBehavior('adminBlogsSortbyCombo', [& $sortby_combo]);
+        dcCore::app()->callBehavior('adminBlogsSortbyCombo', [& $sortby_combo]);
 
         return $sortby_combo;
     }
@@ -290,7 +293,7 @@ class dcAdminCombos
     public static function getUsersSortbyCombo()
     {
         $sortby_combo = [];
-        if (self::$core->auth->isSuperAdmin()) {
+        if (dcCore::app()->auth->isSuperAdmin()) {
             $sortby_combo = [
                 __('Username')          => 'user_id',
                 __('Last Name')         => 'user_name',
@@ -299,7 +302,7 @@ class dcAdminCombos
                 __('Number of entries') => 'nb_post',
             ];
             # --BEHAVIOR-- adminUsersSortbyCombo
-            self::$core->callBehavior('adminUsersSortbyCombo', [& $sortby_combo]);
+            dcCore::app()->callBehavior('adminUsersSortbyCombo', [& $sortby_combo]);
         }
 
         return $sortby_combo;
@@ -308,4 +311,4 @@ class dcAdminCombos
 /*
  * Store current dcCore instance
  */
-dcAdminCombos::$core = $GLOBALS['core'];
+dcAdminCombos::$core = dcCore::app();

@@ -12,21 +12,21 @@ if (!defined('DC_RC_PATH')) {
 
 class dcBlogsActionsPage extends dcActionsPage
 {
-    public function __construct($core, $uri, $redirect_args = [])
+    public function __construct(dcCore $core, $uri, $redirect_args = [])
     {
-        parent::__construct($core, $uri, $redirect_args);
+        parent::__construct(dcCore::app(), $uri, $redirect_args);
         $this->redirect_fields = ['status', 'sortby', 'order', 'page', 'nb'];
         $this->field_entries   = 'blogs';
         $this->cb_title        = __('Blogs');
         $this->loadDefaults();
-        $core->callBehavior('adminBlogsActionsPage', $core, $this);
+        dcCore::app()->callBehavior('adminBlogsActionsPage', dcCore::app(), $this);
     }
 
     protected function loadDefaults()
     {
         // We could have added a behavior here, but we want default action
         // to be setup first
-        dcDefaultBlogActions::adminBlogsActionsPage($this->core, $this);
+        dcDefaultBlogActions::adminBlogsActionsPage(dcCore::app(), $this);
     }
 
     public function beginPage($breadcrumb = '', $head = '')
@@ -55,15 +55,15 @@ class dcBlogsActionsPage extends dcActionsPage
 
     public function error(Exception $e)
     {
-        $this->core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
         $this->beginPage(
             dcPage::breadcrumb(
-            [
-                html::escapeHTML($this->core->blog->name) => '',
-                __('Blogs')                               => $this->core->adminurl->get('admin.blogs'),
-                __('Blogs actions')                       => '',
-            ]
-        )
+                [
+                    html::escapeHTML(dcCore::app()->blog->name) => '',
+                    __('Blogs')                                 => dcCore::app()->adminurl->get('admin.blogs'),
+                    __('Blogs actions')                         => '',
+                ]
+            )
         );
         $this->endPage();
     }
@@ -99,7 +99,7 @@ class dcBlogsActionsPage extends dcActionsPage
             $params['blog_id'] = $from['blogs'];
         }
 
-        $bl = $this->core->getBlogs($params);
+        $bl = dcCore::app()->getBlogs($params);
         while ($bl->fetch()) {
             $this->entries[$bl->blog_id] = [
                 'blog' => $bl->blog_id,
@@ -112,9 +112,9 @@ class dcBlogsActionsPage extends dcActionsPage
 
 class dcDefaultBlogActions
 {
-    public static function adminBlogsActionsPage($core, dcBlogsActionsPage $ap)
+    public static function adminBlogsActionsPage(dcCore $core, dcBlogsActionsPage $ap)
     {
-        if (!$core->auth->isSuperAdmin()) {
+        if (!dcCore::app()->auth->isSuperAdmin()) {
             return;
         }
 
@@ -133,9 +133,9 @@ class dcDefaultBlogActions
         );
     }
 
-    public static function doChangeBlogStatus($core, dcBlogsActionsPage $ap, $post)
+    public static function doChangeBlogStatus(dcCore $core, dcBlogsActionsPage $ap, $post)
     {
-        if (!$core->auth->isSuperAdmin()) {
+        if (!dcCore::app()->auth->isSuperAdmin()) {
             return;
         }
 
@@ -163,18 +163,18 @@ class dcDefaultBlogActions
                 break;
         }
 
-        $cur              = $core->con->openCursor($core->prefix . 'blog');
+        $cur              = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'blog');
         $cur->blog_status = $status;
         //$cur->blog_upddt = date('Y-m-d H:i:s');
-        $cur->update('WHERE blog_id ' . $core->con->in($ids));
+        $cur->update('WHERE blog_id ' . dcCore::app()->con->in($ids));
 
         dcPage::addSuccessNotice(__('Selected blogs have been successfully updated.'));
         $ap->redirect(true);
     }
 
-    public static function doDeleteBlog($core, dcBlogsActionsPage $ap, $post)
+    public static function doDeleteBlog(dcCore $core, dcBlogsActionsPage $ap, $post)
     {
-        if (!$core->auth->isSuperAdmin()) {
+        if (!dcCore::app()->auth->isSuperAdmin()) {
             return;
         }
 
@@ -183,13 +183,13 @@ class dcDefaultBlogActions
             throw new Exception(__('No blog selected'));
         }
 
-        if (!$core->auth->checkPassword($_POST['pwd'])) {
+        if (!dcCore::app()->auth->checkPassword($_POST['pwd'])) {
             throw new Exception(__('Password verification failed'));
         }
 
         $ids = [];
         foreach ($ap_ids as $id) {
-            if ($id == $core->blog->id) {
+            if ($id == dcCore::app()->blog->id) {
                 dcPage::addWarningNotice(__('The current blog cannot be deleted.'));
             } else {
                 $ids[] = $id;
@@ -198,21 +198,21 @@ class dcDefaultBlogActions
 
         if (!empty($ids)) {
             # --BEHAVIOR-- adminBeforeBlogsDelete
-            $core->callBehavior('adminBeforeBlogsDelete', $ids);
+            dcCore::app()->callBehavior('adminBeforeBlogsDelete', $ids);
 
             foreach ($ids as $id) {
-                $core->delBlog($id);
+                dcCore::app()->delBlog($id);
             }
 
             dcPage::addSuccessNotice(
                 sprintf(
-                __(
-                    '%d blog has been successfully deleted',
-                    '%d blogs have been successfully deleted',
+                    __(
+                        '%d blog has been successfully deleted',
+                        '%d blogs have been successfully deleted',
+                        count($ids)
+                    ),
                     count($ids)
-                ),
-                count($ids)
-            )
+                )
             );
         }
         $ap->redirect(false);

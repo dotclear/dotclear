@@ -18,6 +18,9 @@ if (!defined('DC_RC_PATH')) {
 class adminGenericFilter
 {
     /** @var dcCore core instance */
+    /**
+     * @deprecated since 2.23
+     */
     protected $core;
 
     /** @var string Filter form type (main id) */
@@ -40,7 +43,7 @@ class adminGenericFilter
      */
     public function __construct(dcCore $core, string $type)
     {
-        $this->core = &$core;
+        $this->core = dcCore::app();
         $this->type = $type;
 
         $this->parseOptions();
@@ -310,7 +313,7 @@ class adminGenericFilter
         }
 
         echo
-        '<form action="' . $this->core->adminurl->get($adminurl) . $tab . '" method="get" id="filters-form">' .
+        '<form action="' . dcCore::app()->adminurl->get($adminurl) . $tab . '" method="get" id="filters-form">' .
         '<h3 class="out-of-screen-if-js">' . __('Show filters and display options') . '</h3>' .
 
         '<div class="table">';
@@ -408,9 +411,9 @@ class adminPostFilter extends adminGenericFilter
 
     public function __construct(dcCore $core, string $type = 'posts', string $post_type = '')
     {
-        parent::__construct($core, $type);
+        parent::__construct(dcCore::app(), $type);
 
-        if (!empty($post_type) && array_key_exists($post_type, $core->getPostTypes())) {
+        if (!empty($post_type) && array_key_exists($post_type, dcCore::app()->getPostTypes())) {
             $this->post_type = $post_type;
             $this->add((new dcAdminFilter('post_type', $post_type))->param('post_type'));
         }
@@ -431,7 +434,7 @@ class adminPostFilter extends adminGenericFilter
         ]);
 
         # --BEHAVIOR-- adminPostFilter
-        $core->callBehavior('adminPostFilter', $core, $filters);
+        dcCore::app()->callBehavior('adminPostFilter', dcCore::app(), $filters);
 
         $filters = $filters->getArrayCopy();
 
@@ -446,12 +449,12 @@ class adminPostFilter extends adminGenericFilter
         $users = null;
 
         try {
-            $users = $this->core->blog->getPostsUsers($this->post_type);
+            $users = dcCore::app()->blog->getPostsUsers($this->post_type);
             if ($users->isEmpty()) {
                 return null;
             }
         } catch (Exception $e) {
-            $this->core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
 
             return null;
         }
@@ -477,12 +480,12 @@ class adminPostFilter extends adminGenericFilter
         $categories = null;
 
         try {
-            $categories = $this->core->blog->getCategories(['post_type' => $this->post_type]);
+            $categories = dcCore::app()->blog->getCategories(['post_type' => $this->post_type]);
             if ($categories->isEmpty()) {
                 return null;
             }
         } catch (Exception $e) {
-            $this->core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
 
             return null;
         }
@@ -525,7 +528,7 @@ class adminPostFilter extends adminGenericFilter
      */
     public function getPostFormatFilter(): dcAdminFilter
     {
-        $core_formaters    = $this->core->getFormaters();
+        $core_formaters    = dcCore::app()->getFormaters();
         $available_formats = [];
         foreach ($core_formaters as $editor => $formats) {
             foreach ($formats as $format) {
@@ -608,7 +611,7 @@ class adminPostFilter extends adminGenericFilter
         $dates = null;
 
         try {
-            $dates = $this->core->blog->getDates([
+            $dates = dcCore::app()->blog->getDates([
                 'type'      => 'month',
                 'post_type' => $this->post_type,
             ]);
@@ -616,7 +619,7 @@ class adminPostFilter extends adminGenericFilter
                 return null;
             }
         } catch (Exception $e) {
-            $this->core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
 
             return null;
         }
@@ -649,12 +652,12 @@ class adminPostFilter extends adminGenericFilter
         $langs = null;
 
         try {
-            $langs = $this->core->blog->getLangs(['post_type' => $this->post_type]);
+            $langs = dcCore::app()->blog->getLangs(['post_type' => $this->post_type]);
             if ($langs->isEmpty()) {
                 return null;
             }
         } catch (Exception $e) {
-            $this->core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
 
             return null;
         }
@@ -711,9 +714,9 @@ class adminPostFilter extends adminGenericFilter
 
 class adminCommentFilter extends adminGenericFilter
 {
-    public function __construct(dcCore $core)
+    public function __construct(dcCore $core = null)
     {
-        parent::__construct($core, 'comments');
+        parent::__construct(dcCore::app(), 'comments');
 
         $filters = new arrayObject([
             dcAdminFilters::getPageFilter(),
@@ -726,7 +729,7 @@ class adminCommentFilter extends adminGenericFilter
         ]);
 
         # --BEHAVIOR-- adminCommentFilter
-        $core->callBehavior('adminCommentFilter', $core, $filters);
+        dcCore::app()->callBehavior('adminCommentFilter', dcCore::app(), $filters);
 
         $filters = $filters->getArrayCopy();
 
@@ -785,7 +788,7 @@ class adminCommentFilter extends adminGenericFilter
      */
     public function getCommentIpFilter(): ?dcAdminFilter
     {
-        if (!$this->core->auth->check('contentadmin', $this->core->blog->id)) {
+        if (!dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)) {
             return null;
         }
 
@@ -798,9 +801,9 @@ class adminCommentFilter extends adminGenericFilter
 
 class adminUserFilter extends adminGenericFilter
 {
-    public function __construct(dcCore $core)
+    public function __construct(dcCore $core = null)
     {
-        parent::__construct($core, 'users');
+        parent::__construct(dcCore::app(), 'users');
 
         $filters = new arrayObject([
             dcAdminFilters::getPageFilter(),
@@ -808,7 +811,7 @@ class adminUserFilter extends adminGenericFilter
         ]);
 
         # --BEHAVIOR-- adminUserFilter
-        $core->callBehavior('adminUserFilter', $core, $filters);
+        dcCore::app()->callBehavior('adminUserFilter', dcCore::app(), $filters);
 
         $filters = $filters->getArrayCopy();
 
@@ -818,9 +821,9 @@ class adminUserFilter extends adminGenericFilter
 
 class adminBlogFilter extends adminGenericFilter
 {
-    public function __construct(dcCore $core)
+    public function __construct(dcCore $core = null)
     {
-        parent::__construct($core, 'blogs');
+        parent::__construct(dcCore::app(), 'blogs');
 
         $filters = new arrayObject([
             dcAdminFilters::getPageFilter(),
@@ -829,7 +832,7 @@ class adminBlogFilter extends adminGenericFilter
         ]);
 
         # --BEHAVIOR-- adminBlogFilter
-        $core->callBehavior('adminBlogFilter', $core, $filters);
+        dcCore::app()->callBehavior('adminBlogFilter', dcCore::app(), $filters);
 
         $filters = $filters->getArrayCopy();
 
@@ -859,7 +862,7 @@ class adminMediaFilter extends adminGenericFilter
 
     public function __construct(dcCore $core, string $type = 'media')
     {
-        parent::__construct($core, $type);
+        parent::__construct(dcCore::app(), $type);
 
         $filters = new arrayObject([
             dcAdminFilters::getPageFilter(),
@@ -875,7 +878,7 @@ class adminMediaFilter extends adminGenericFilter
         ]);
 
         # --BEHAVIOR-- adminBlogFilter
-        $core->callBehavior('adminMediaFilter', $core, $filters);
+        dcCore::app()->callBehavior('adminMediaFilter', dcCore::app(), $filters);
 
         $filters = $filters->getArrayCopy();
 
@@ -891,7 +894,7 @@ class adminMediaFilter extends adminGenericFilter
     {
         $values = new ArrayObject($this->values());
 
-        $this->core->callBehavior('adminMediaURLParams', $values);
+        dcCore::app()->callBehavior('adminMediaURLParams', $values);
 
         foreach ($values->getArrayCopy() as $filter => $new_value) {
             if (isset($this->filters[$filter])) {
@@ -906,7 +909,7 @@ class adminMediaFilter extends adminGenericFilter
     {
         $post_id = !empty($_REQUEST['post_id']) ? (int) $_REQUEST['post_id'] : null;
         if ($post_id) {
-            $post = $this->core->blog->getPosts(['post_id' => $post_id, 'post_type' => '']);
+            $post = dcCore::app()->blog->getPosts(['post_id' => $post_id, 'post_type' => '']);
             if ($post->isEmpty()) {
                 $post_id = null;
             }

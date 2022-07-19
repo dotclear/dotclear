@@ -153,7 +153,11 @@ class dcPager extends pager
 
 class adminGenericList
 {
+    /**
+     * @deprecated  since 2.23, use dcCore::app() instead
+     */
     protected $core;
+
     protected $rs;
     protected $rs_count;
     protected $html_prev;
@@ -168,7 +172,7 @@ class adminGenericList
      */
     public function __construct(dcCore $core, $rs, $rs_count)
     {
-        $this->core      = &$core;
+        $this->core      = dcCore::app();
         $this->rs        = &$rs;
         $this->rs_count  = $rs_count;
         $this->html_prev = __('&#171; prev.');
@@ -219,34 +223,34 @@ class adminPostList extends adminGenericList
             if ($filter) {
                 $html_block .= '<caption>' . sprintf(__('List of %s entries matching the filter.'), $this->rs_count) . '</caption>';
             } else {
-                $nb_published   = $this->core->blog->getPosts(['post_status' => 1], true)->f(0);
-                $nb_pending     = $this->core->blog->getPosts(['post_status' => -2], true)->f(0);
-                $nb_programmed  = $this->core->blog->getPosts(['post_status' => -1], true)->f(0);
-                $nb_unpublished = $this->core->blog->getPosts(['post_status' => 0], true)->f(0);
+                $nb_published   = dcCore::app()->blog->getPosts(['post_status' => 1], true)->f(0);
+                $nb_pending     = dcCore::app()->blog->getPosts(['post_status' => -2], true)->f(0);
+                $nb_programmed  = dcCore::app()->blog->getPosts(['post_status' => -1], true)->f(0);
+                $nb_unpublished = dcCore::app()->blog->getPosts(['post_status' => 0], true)->f(0);
                 $html_block .= '<caption>' .
                 sprintf(__('List of entries (%s)'), $this->rs_count) .
                     ($nb_published ?
                     sprintf(
                         __(', <a href="%s">published</a> (1)', ', <a href="%s">published</a> (%s)', $nb_published),
-                        $this->core->adminurl->get('admin.posts', ['status' => 1]),
+                        dcCore::app()->adminurl->get('admin.posts', ['status' => 1]),
                         $nb_published
                     ) : '') .
                     ($nb_pending ?
                     sprintf(
                         __(', <a href="%s">pending</a> (1)', ', <a href="%s">pending</a> (%s)', $nb_pending),
-                        $this->core->adminurl->get('admin.posts', ['status' => -2]),
+                        dcCore::app()->adminurl->get('admin.posts', ['status' => -2]),
                         $nb_pending
                     ) : '') .
                     ($nb_programmed ?
                     sprintf(
                         __(', <a href="%s">programmed</a> (1)', ', <a href="%s">programmed</a> (%s)', $nb_programmed),
-                        $this->core->adminurl->get('admin.posts', ['status' => -1]),
+                        dcCore::app()->adminurl->get('admin.posts', ['status' => -1]),
                         $nb_programmed
                     ) : '') .
                     ($nb_unpublished ?
                     sprintf(
                         __(', <a href="%s">unpublished</a> (1)', ', <a href="%s">unpublished</a> (%s)', $nb_unpublished),
-                        $this->core->adminurl->get('admin.posts', ['status' => 0]),
+                        dcCore::app()->adminurl->get('admin.posts', ['status' => 0]),
                         $nb_unpublished
                     ) : '') .
                     '</caption>';
@@ -264,7 +268,7 @@ class adminPostList extends adminGenericList
                 'status' => '<th scope="col">' . __('Status') . '</th>',
             ];
             $cols = new ArrayObject($cols);
-            $this->core->callBehavior('adminPostListHeader', $this->core, $this->rs, $cols);
+            dcCore::app()->callBehavior('adminPostListHeader', dcCore::app(), $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('posts', $cols);
@@ -312,8 +316,8 @@ class adminPostList extends adminGenericList
      */
     private function postLine($checked)
     {
-        if ($this->core->auth->check('categories', $this->core->blog->id)) {
-            $cat_link = '<a href="' . $this->core->adminurl->get('admin.category', ['id' => '%s'], '&amp;', true) . '">%s</a>';
+        if (dcCore::app()->auth->check('categories', dcCore::app()->blog->id)) {
+            $cat_link = '<a href="' . dcCore::app()->adminurl->get('admin.category', ['id' => '%s'], '&amp;', true) . '">%s</a>';
         } else {
             $cat_link = '%2$s';
         }
@@ -386,7 +390,7 @@ class adminPostList extends adminGenericList
             ) .
             '</td>',
             'title' => '<td class="maximal" scope="row"><a href="' .
-            $this->core->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '">' .
+            dcCore::app()->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '">' .
             html::escapeHTML(trim(html::clean($this->rs->post_title))) . '</a></td>',
             'date'       => '<td class="nowrap count">' . dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) . '</td>',
             'category'   => '<td class="nowrap">' . $cat_title . '</td>',
@@ -396,7 +400,7 @@ class adminPostList extends adminGenericList
             'status'     => '<td class="nowrap status">' . $img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach . '</td>',
         ];
         $cols = new ArrayObject($cols);
-        $this->core->callBehavior('adminPostListValue', $this->core, $this->rs, $cols);
+        dcCore::app()->callBehavior('adminPostListValue', dcCore::app(), $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('posts', $cols);
@@ -435,7 +439,7 @@ class adminPostMiniList extends adminGenericList
             ];
 
             $cols = new ArrayObject($cols);
-            $this->core->callBehavior('adminPostMiniListHeader', $this->core, $this->rs, $cols);
+            dcCore::app()->callBehavior('adminPostMiniListHeader', dcCore::app(), $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('posts', $cols);
@@ -516,7 +520,7 @@ class adminPostMiniList extends adminGenericList
 
         $cols = [
             'title' => '<td scope="row" class="maximal"><a href="' .
-            $this->core->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '" ' .
+            dcCore::app()->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '" ' .
             'title="' . html::escapeHTML($this->rs->getURL()) . '">' .
             html::escapeHTML(trim(html::clean($this->rs->post_title))) . '</a></td>',
             'date'   => '<td class="nowrap count">' . dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) . '</td>',
@@ -525,7 +529,7 @@ class adminPostMiniList extends adminGenericList
         ];
 
         $cols = new ArrayObject($cols);
-        $this->core->callBehavior('adminPostMiniListValue', $this->core, $this->rs, $cols);
+        dcCore::app()->callBehavior('adminPostMiniListValue', dcCore::app(), $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('posts', $cols);
@@ -590,34 +594,34 @@ class adminCommentList extends adminGenericList
                 ), $this->rs_count) .
                     '</caption>';
             } else {
-                $nb_published   = $this->core->blog->getComments(['comment_status' => 1], true)->f(0);
-                $nb_spam        = $this->core->blog->getComments(['comment_status' => -2], true)->f(0);
-                $nb_pending     = $this->core->blog->getComments(['comment_status' => -1], true)->f(0);
-                $nb_unpublished = $this->core->blog->getComments(['comment_status' => 0], true)->f(0);
+                $nb_published   = dcCore::app()->blog->getComments(['comment_status' => 1], true)->f(0);
+                $nb_spam        = dcCore::app()->blog->getComments(['comment_status' => -2], true)->f(0);
+                $nb_pending     = dcCore::app()->blog->getComments(['comment_status' => -1], true)->f(0);
+                $nb_unpublished = dcCore::app()->blog->getComments(['comment_status' => 0], true)->f(0);
                 $html_block .= '<caption>' .
                 sprintf(__('List of comments and trackbacks (%s)'), $this->rs_count) .
                     ($nb_published ?
                     sprintf(
                         __(', <a href="%s">published</a> (1)', ', <a href="%s">published</a> (%s)', $nb_published),
-                        $this->core->adminurl->get('admin.comments', ['status' => 1]),
+                        dcCore::app()->adminurl->get('admin.comments', ['status' => 1]),
                         $nb_published
                     ) : '') .
                     ($nb_spam ?
                     sprintf(
                         __(', <a href="%s">spam</a> (1)', ', <a href="%s">spam</a> (%s)', $nb_spam),
-                        $this->core->adminurl->get('admin.comments', ['status' => -2]),
+                        dcCore::app()->adminurl->get('admin.comments', ['status' => -2]),
                         $nb_spam
                     ) : '') .
                     ($nb_pending ?
                     sprintf(
                         __(', <a href="%s">pending</a> (1)', ', <a href="%s">pending</a> (%s)', $nb_pending),
-                        $this->core->adminurl->get('admin.comments', ['status' => -1]),
+                        dcCore::app()->adminurl->get('admin.comments', ['status' => -1]),
                         $nb_pending
                     ) : '') .
                     ($nb_unpublished ?
                     sprintf(
                         __(', <a href="%s">unpublished</a> (1)', ', <a href="%s">unpublished</a> (%s)', $nb_unpublished),
-                        $this->core->adminurl->get('admin.comments', ['status' => 0]),
+                        dcCore::app()->adminurl->get('admin.comments', ['status' => 0]),
                         $nb_unpublished
                     ) : '') .
                     '</caption>';
@@ -636,7 +640,7 @@ class adminCommentList extends adminGenericList
             $cols['entry'] = '<th scope="col" abbr="entry">' . __('Entry') . '</th>';
 
             $cols = new ArrayObject($cols);
-            $this->core->callBehavior('adminCommentListHeader', $this->core, $this->rs, $cols);
+            dcCore::app()->callBehavior('adminCommentListHeader', dcCore::app(), $this->rs, $cols);
 
             $html_block .= '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table>%s</div>';
 
@@ -683,7 +687,7 @@ class adminCommentList extends adminGenericList
     {
         global $author, $status, $sortby, $order, $nb;
 
-        $author_url = $this->core->adminurl->get('admin.comments', [
+        $author_url = dcCore::app()->adminurl->get('admin.comments', [
             'nb'     => $nb,
             'status' => $status,
             'sortby' => $sortby,
@@ -691,12 +695,12 @@ class adminCommentList extends adminGenericList
             'author' => $this->rs->comment_author,
         ]);
 
-        $post_url = $this->core->getPostAdminURL($this->rs->post_type, $this->rs->post_id);
+        $post_url = dcCore::app()->getPostAdminURL($this->rs->post_type, $this->rs->post_id);
 
-        $comment_url = $this->core->adminurl->get('admin.comment', ['id' => $this->rs->comment_id]);
+        $comment_url = dcCore::app()->adminurl->get('admin.comment', ['id' => $this->rs->comment_id]);
 
-        $comment_dt = dt::dt2str($this->core->blog->settings->system->date_format . ' - ' .
-            $this->core->blog->settings->system->time_format, $this->rs->comment_dt);
+        $comment_dt = dt::dt2str(dcCore::app()->blog->settings->system->date_format . ' - ' .
+            dcCore::app()->blog->settings->system->time_format, $this->rs->comment_dt);
 
         $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
         $img_status = '';
@@ -761,7 +765,7 @@ class adminCommentList extends adminGenericList
                 }
             }
             $cols['ip'] = '<td class="nowrap"><a href="' .
-            $this->core->adminurl->get('admin.comments', ['ip' => $this->rs->comment_ip]) . '">' .
+            dcCore::app()->adminurl->get('admin.comments', ['ip' => $this->rs->comment_ip]) . '">' .
             $this->rs->comment_ip . '</a></td>';
             $cols['spam_filter'] = '<td class="nowrap">' . $filter_name . '</td>';
         }
@@ -769,7 +773,7 @@ class adminCommentList extends adminGenericList
             ($this->rs->post_type != 'post' ? ' (' . html::escapeHTML($this->rs->post_type) . ')' : '') . '</td>';
 
         $cols = new ArrayObject($cols);
-        $this->core->callBehavior('adminCommentListValue', $this->core, $this->rs, $cols);
+        dcCore::app()->callBehavior('adminCommentListValue', dcCore::app(), $this->rs, $cols);
 
         $res .= implode(iterator_to_array($cols));
         $res .= '</tr>';
@@ -808,7 +812,7 @@ class adminBlogList extends adminGenericList
 
             $cols = [
                 'blog' => '<th' .
-                ($this->core->auth->isSuperAdmin() ? ' colspan="2"' : '') .
+                (dcCore::app()->auth->isSuperAdmin() ? ' colspan="2"' : '') .
                 ' scope="col" abbr="comm" class="first nowrap">' . __('Blog id') . '</th>',
                 'name'   => '<th scope="col" abbr="name">' . __('Blog name') . '</th>',
                 'url'    => '<th scope="col" class="nowrap">' . __('URL') . '</th>',
@@ -818,7 +822,7 @@ class adminBlogList extends adminGenericList
             ];
 
             $cols = new ArrayObject($cols);
-            $this->core->callBehavior('adminBlogListHeader', $this->core, $this->rs, $cols);
+            dcCore::app()->callBehavior('adminBlogListHeader', dcCore::app(), $this->rs, $cols);
 
             $html_block = '<div class="table-outer"><table>' .
             (
@@ -872,19 +876,19 @@ class adminBlogList extends adminGenericList
         $blog_id = html::escapeHTML($this->rs->blog_id);
 
         $cols = [
-            'check' => ($this->core->auth->isSuperAdmin() ?
+            'check' => (dcCore::app()->auth->isSuperAdmin() ?
                 '<td class="nowrap">' .
                 form::checkbox(['blogs[]'], $this->rs->blog_id, $checked) .
                 '</td>' : ''),
             'blog' => '<td class="nowrap">' .
-            ($this->core->auth->isSuperAdmin() ?
-                '<a href="' . $this->core->adminurl->get('admin.blog', ['id' => $blog_id]) . '"  ' .
+            (dcCore::app()->auth->isSuperAdmin() ?
+                '<a href="' . dcCore::app()->adminurl->get('admin.blog', ['id' => $blog_id]) . '"  ' .
                 'title="' . sprintf(__('Edit blog settings for %s'), $blog_id) . '">' .
                 '<img src="images/edit-mini.png" alt="' . __('Edit blog settings') . '" /> ' . $blog_id . '</a> ' :
                 $blog_id . ' ') .
             '</td>',
             'name' => '<td class="maximal">' .
-            '<a href="' . $this->core->adminurl->get('admin.home', ['switchblog' => $this->rs->blog_id]) . '" ' .
+            '<a href="' . dcCore::app()->adminurl->get('admin.home', ['switchblog' => $this->rs->blog_id]) . '" ' .
             'title="' . sprintf(__('Switch to blog %s'), $this->rs->blog_id) . '">' .
             html::escapeHTML($this->rs->blog_name) . '</a>' .
             '</td>',
@@ -893,22 +897,22 @@ class adminBlogList extends adminGenericList
             html::escapeHTML($this->rs->blog_url) . '">' . html::escapeHTML($this->rs->blog_url) .
             ' <img src="images/outgoing-link.svg" alt="" /></a></td>',
             'posts' => '<td class="nowrap count">' .
-            $this->core->countBlogPosts($this->rs->blog_id) .
+            dcCore::app()->countBlogPosts($this->rs->blog_id) .
             '</td>',
             'upddt' => '<td class="nowrap count">' .
-            dt::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->blog_upddt) + dt::getTimeOffset($this->core->auth->getInfo('user_tz'))) .
+            dt::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->blog_upddt) + dt::getTimeOffset(dcCore::app()->auth->getInfo('user_tz'))) .
             '</td>',
             'status' => '<td class="nowrap status txt-center">' .
             sprintf(
                 '<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',
                 ($this->rs->blog_status == 1 ? 'check-on' : ($this->rs->blog_status == 0 ? 'check-off' : 'check-wrn')),
-                $this->core->getBlogStatus($this->rs->blog_status)
+                dcCore::app()->getBlogStatus($this->rs->blog_status)
             ) .
             '</td>',
         ];
 
         $cols = new ArrayObject($cols);
-        $this->core->callBehavior('adminBlogListValue', $this->core, $this->rs, $cols);
+        dcCore::app()->callBehavior('adminBlogListValue', dcCore::app(), $this->rs, $cols);
 
         return
         '<tr class="line" id="b' . $blog_id . '">' .
@@ -956,7 +960,7 @@ class adminUserList extends adminGenericList
             ];
 
             $cols = new ArrayObject($cols);
-            $this->core->callBehavior('adminUserListHeader', $this->core, $this->rs, $cols);
+            dcCore::app()->callBehavior('adminUserListHeader', dcCore::app(), $this->rs, $cols);
 
             $html_block .= '<tr>' . implode(iterator_to_array($cols)) . '</tr>%s</table>%s</div>';
             if ($enclose_block) {
@@ -997,9 +1001,9 @@ class adminUserList extends adminGenericList
         $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
         $img_status = '';
 
-        $p = $this->core->getUserPermissions($this->rs->user_id);
+        $p = dcCore::app()->getUserPermissions($this->rs->user_id);
 
-        if (isset($p[$this->core->blog->id]['p']['admin'])) {
+        if (isset($p[dcCore::app()->blog->id]['p']['admin'])) {
             $img_status = sprintf($img, __('admin'), 'admin.png');
         }
         if ($this->rs->user_super) {
@@ -1012,18 +1016,18 @@ class adminUserList extends adminGenericList
             'check' => '<td class="nowrap">' . form::hidden(['nb_post[]'], (int) $this->rs->nb_post) .
             form::checkbox(['users[]'], $this->rs->user_id) . '</td>',
             'username' => '<td class="maximal" scope="row"><a href="' .
-            $this->core->adminurl->get('admin.user', ['id' => $this->rs->user_id]) . '">' .
+            dcCore::app()->adminurl->get('admin.user', ['id' => $this->rs->user_id]) . '">' .
             $this->rs->user_id . '</a>&nbsp;' . $img_status . '</td>',
             'first_name'   => '<td class="nowrap">' . html::escapeHTML($this->rs->user_firstname) . '</td>',
             'last_name'    => '<td class="nowrap">' . html::escapeHTML($this->rs->user_name) . '</td>',
             'display_name' => '<td class="nowrap">' . html::escapeHTML($this->rs->user_displayname) . '</td>',
             'entries'      => '<td class="nowrap count"><a href="' .
-            $this->core->adminurl->get('admin.posts', ['user_id' => $this->rs->user_id]) . '">' .
+            dcCore::app()->adminurl->get('admin.posts', ['user_id' => $this->rs->user_id]) . '">' .
             $this->rs->nb_post . '</a></td>',
         ];
 
         $cols = new ArrayObject($cols);
-        $this->core->callBehavior('adminUserListValue', $this->core, $this->rs, $cols);
+        dcCore::app()->callBehavior('adminUserListValue', dcCore::app(), $this->rs, $cols);
 
         $res .= implode(iterator_to_array($cols));
         $res .= '</tr>';
@@ -1072,7 +1076,7 @@ class adminMediaList extends adminGenericList
 
             $group = ['dirs' => [], 'files' => []];
             for ($i = $pager->index_start, $j = 0; $i <= $pager->index_end; $i++, $j++) {
-                $group[$items[$i]->d ? 'dirs' : 'files'][] = $this->mediaLine($this->core, $filters, $items[$i], $j, $query, $page_adminurl);
+                $group[$items[$i]->d ? 'dirs' : 'files'][] = $this->mediaLine(dcCore::app(), $filters, $items[$i], $j, $query, $page_adminurl);
             }
 
             if ($filters->file_mode == 'list') {
@@ -1105,7 +1109,7 @@ class adminMediaList extends adminGenericList
         }
     }
 
-    public static function mediaLine($core, $filters, $f, $i, $query = false, $page_adminurl = 'admin.media')
+    public static function mediaLine(dcCore $core, $filters, $f, $i, $query = false, $page_adminurl = 'admin.media')
     {
         $fname = $f->basename;
         $file  = $query ? $f->relname : $f->basename;
@@ -1115,7 +1119,7 @@ class adminMediaList extends adminGenericList
 
         if ($f->d) {
             // Folder
-            $link = $core->adminurl->get('admin.media', array_merge($filters->values(), ['d' => html::sanitizeURL($f->relname)]));
+            $link = dcCore::app()->adminurl->get('admin.media', array_merge($filters->values(), ['d' => html::sanitizeURL($f->relname)]));
             if ($f->parent) {
                 $fname = '..';
                 $class .= ' media-folder-up';
@@ -1126,9 +1130,9 @@ class adminMediaList extends adminGenericList
             // Item
             $params = new ArrayObject(array_merge($filters->values(), ['id' => $f->media_id]));
 
-            $core->callBehavior('adminMediaURLParams', $params);
+            dcCore::app()->callBehavior('adminMediaURLParams', $params);
 
-            $link = $core->adminurl->get('admin.media.item', (array) $params);
+            $link = dcCore::app()->adminurl->get('admin.media.item', (array) $params);
             if ($f->media_priv) {
                 $class .= ' media-private';
             }
@@ -1155,7 +1159,7 @@ class adminMediaList extends adminGenericList
                 if ($filters->post_id) {
                     // Media attachment button
                     $act .= '<a class="attach-media" title="' . __('Attach this file to entry') . '" href="' .
-                    $core->adminurl->get(
+                    dcCore::app()->adminurl->get(
                         'admin.post.media',
                         ['media_id' => $f->media_id, 'post_id' => $filters->post_id, 'attach' => 1, 'link_type' => $filters->link_type]
                     ) .
@@ -1179,7 +1183,7 @@ class adminMediaList extends adminGenericList
                 }
             } else {
                 $act .= '<a class="media-remove" ' .
-                'href="' . $core->adminurl->get($page_adminurl, array_merge($filters->values(), ['remove' => rawurlencode($file)])) . '">' .
+                'href="' . dcCore::app()->adminurl->get($page_adminurl, array_merge($filters->values(), ['remove' => rawurlencode($file)])) . '">' .
                 '<img src="images/trash.png" alt="' . __('Delete') . '" title="' . __('delete') . '" /></a>';
             }
         }

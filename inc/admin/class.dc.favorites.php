@@ -16,6 +16,9 @@ if (!defined('DC_RC_PATH')) {
 class dcFavorites
 {
     /** @var dcCore dotclear core instance */
+    /**
+     * @deprecated since 2.23
+     */
     protected $core;
 
     /** @var ArrayObject list of favorite definitions  */
@@ -40,11 +43,11 @@ class dcFavorites
      *
      * @access public
      */
-    public function __construct($core)
+    public function __construct(dcCore $core = null)
     {
-        $this->core       = $core;
+        $this->core       = dcCore::app();
         $this->fav_defs   = new ArrayObject();
-        $this->ws         = $core->auth->user_prefs->addWorkspace('dashboard');
+        $this->ws         = dcCore::app()->auth->user_prefs->addWorkspace('dashboard');
         $this->user_prefs = [];
 
         if ($this->ws->prefExists('favorites')) {
@@ -71,9 +74,9 @@ class dcFavorites
      */
     public function setup()
     {
-        defaultFavorites::initDefaultFavorites($this->core, $this);
+        defaultFavorites::initDefaultFavorites(dcCore::app(), $this);
         $this->legacyFavorites();
-        $this->core->callBehavior('adminDashboardFavorites', $this->core, $this);
+        dcCore::app()->callBehavior('adminDashboardFavorites', dcCore::app(), $this);
         $this->setUserPrefs();
     }
 
@@ -107,10 +110,10 @@ class dcFavorites
             if (is_bool($fattr['permissions']) && !$fattr['permissions']) {
                 return false;
             }
-            if (!$this->core->auth->check($fattr['permissions'], $this->core->blog->id)) {
+            if (!dcCore::app()->auth->check($fattr['permissions'], dcCore::app()->blog->id)) {
                 return false;
             }
-        } elseif (!$this->core->auth->isSuperAdmin()) {
+        } elseif (!dcCore::app()->auth->isSuperAdmin()) {
             return false;
         }
 
@@ -195,7 +198,7 @@ class dcFavorites
      */
     protected function migrateFavorites()
     {
-        $fav_ws             = $this->core->auth->user_prefs->addWorkspace('favorites');
+        $fav_ws             = dcCore::app()->auth->user_prefs->addWorkspace('favorites');
         $this->local_prefs  = [];
         $this->global_prefs = [];
         foreach ($fav_ws->dumpPrefs() as $k => $v) {
@@ -221,7 +224,7 @@ class dcFavorites
     protected function legacyFavorites()
     {
         $f = new ArrayObject();
-        $this->core->callBehavior('adminDashboardFavs', $this->core, $f);
+        dcCore::app()->callBehavior('adminDashboardFavs', dcCore::app(), $f);
         foreach ($f as $k => $v) {
             $fav = [
                 'title'       => __($v[1]),
@@ -341,10 +344,10 @@ class dcFavorites
         foreach ($this->user_prefs as $k => $v) {
             if (isset($v['dashboard_cb']) && is_callable($v['dashboard_cb'])) {
                 $v = new ArrayObject($v);
-                call_user_func($v['dashboard_cb'], $this->core, $v);
+                call_user_func($v['dashboard_cb'], dcCore::app(), $v);
             }
             $icons[$k] = new ArrayObject([$v['title'], $v['url'], $v['large-icon']]);
-            $this->core->callBehavior('adminDashboardFavsIcon', $this->core, $k, $icons[$k]);
+            dcCore::app()->callBehavior('adminDashboardFavsIcon', dcCore::app(), $k, $icons[$k]);
         }
     }
 
@@ -415,89 +418,89 @@ class defaultFavorites
      *
      * @param      dcFavorites  $favs   The favs
      */
-    public static function initDefaultFavorites($core, $favs)
+    public static function initDefaultFavorites(dcCore $core, $favs)
     {
         $favs->registerMultiple([
             'prefs' => [
                 'title'      => __('My preferences'),
-                'url'        => $core->adminurl->get('admin.user.preferences'),
+                'url'        => dcCore::app()->adminurl->get('admin.user.preferences'),
                 'small-icon' => 'images/menu/user-pref.svg',
                 'large-icon' => 'images/menu/user-pref.svg', ],
             'new_post' => [
                 'title'       => __('New post'),
-                'url'         => $core->adminurl->get('admin.post'),
+                'url'         => dcCore::app()->adminurl->get('admin.post'),
                 'small-icon'  => ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
                 'large-icon'  => ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
                 'permissions' => 'usage,contentadmin',
                 'active_cb'   => ['defaultFavorites', 'newpostActive'], ],
             'posts' => [
                 'title'        => __('Posts'),
-                'url'          => $core->adminurl->get('admin.posts'),
+                'url'          => dcCore::app()->adminurl->get('admin.posts'),
                 'small-icon'   => ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
                 'large-icon'   => ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
                 'permissions'  => 'usage,contentadmin',
                 'dashboard_cb' => ['defaultFavorites', 'postsDashboard'], ],
             'comments' => [
                 'title'        => __('Comments'),
-                'url'          => $core->adminurl->get('admin.comments'),
+                'url'          => dcCore::app()->adminurl->get('admin.comments'),
                 'small-icon'   => ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
                 'large-icon'   => ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
                 'permissions'  => 'usage,contentadmin',
                 'dashboard_cb' => ['defaultFavorites', 'commentsDashboard'], ],
             'search' => [
                 'title'       => __('Search'),
-                'url'         => $core->adminurl->get('admin.search'),
+                'url'         => dcCore::app()->adminurl->get('admin.search'),
                 'small-icon'  => ['images/menu/search.svg','images/menu/search-dark.svg'],
                 'large-icon'  => ['images/menu/search.svg','images/menu/search-dark.svg'],
                 'permissions' => 'usage,contentadmin', ],
             'categories' => [
                 'title'       => __('Categories'),
-                'url'         => $core->adminurl->get('admin.categories'),
+                'url'         => dcCore::app()->adminurl->get('admin.categories'),
                 'small-icon'  => ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
                 'large-icon'  => ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
                 'permissions' => 'categories', ],
             'media' => [
                 'title'       => __('Media manager'),
-                'url'         => $core->adminurl->get('admin.media'),
+                'url'         => dcCore::app()->adminurl->get('admin.media'),
                 'small-icon'  => ['images/menu/media.svg', 'images/menu/media-dark.svg'],
                 'large-icon'  => ['images/menu/media.svg', 'images/menu/media-dark.svg'],
                 'permissions' => 'media,media_admin', ],
             'blog_pref' => [
                 'title'       => __('Blog settings'),
-                'url'         => $core->adminurl->get('admin.blog.pref'),
+                'url'         => dcCore::app()->adminurl->get('admin.blog.pref'),
                 'small-icon'  => ['images/menu/blog-pref.svg','images/menu/blog-pref-dark.svg'],
                 'large-icon'  => ['images/menu/blog-pref.svg','images/menu/blog-pref-dark.svg'],
                 'permissions' => 'admin', ],
             'blog_theme' => [
                 'title'       => __('Blog appearance'),
-                'url'         => $core->adminurl->get('admin.blog.theme'),
+                'url'         => dcCore::app()->adminurl->get('admin.blog.theme'),
                 'small-icon'  => ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
                 'large-icon'  => ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
                 'permissions' => 'admin', ],
             'blogs' => [
                 'title'       => __('Blogs'),
-                'url'         => $core->adminurl->get('admin.blogs'),
+                'url'         => dcCore::app()->adminurl->get('admin.blogs'),
                 'small-icon'  => ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
                 'large-icon'  => ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
                 'permissions' => 'usage,contentadmin', ],
             'users' => [
                 'title'      => __('Users'),
-                'url'        => $core->adminurl->get('admin.users'),
+                'url'        => dcCore::app()->adminurl->get('admin.users'),
                 'small-icon' => 'images/menu/users.svg',
                 'large-icon' => 'images/menu/users.svg', ],
             'plugins' => [
                 'title'      => __('Plugins management'),
-                'url'        => $core->adminurl->get('admin.plugins'),
+                'url'        => dcCore::app()->adminurl->get('admin.plugins'),
                 'small-icon' => ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'],
                 'large-icon' => ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'], ],
             'langs' => [
                 'title'      => __('Languages'),
-                'url'        => $core->adminurl->get('admin.langs'),
+                'url'        => dcCore::app()->adminurl->get('admin.langs'),
                 'small-icon' => ['images/menu/langs.svg', 'images/menu/langs-dark.svg'],
                 'large-icon' => ['images/menu/langs.svg', 'images/menu/langs-dark.svg'], ],
             'help' => [
                 'title'      => __('Global help'),
-                'url'        => $core->adminurl->get('admin.help'),
+                'url'        => dcCore::app()->adminurl->get('admin.help'),
                 'small-icon' => 'images/menu/help.svg',
                 'large-icon' => 'images/menu/help.svg', ],
         ]);
@@ -511,7 +514,7 @@ class defaultFavorites
      */
     public static function postsDashboard($core, $v)
     {
-        $post_count  = $core->blog->getPosts([], true)->f(0);
+        $post_count  = dcCore::app()->blog->getPosts([], true)->f(0);
         $str_entries = __('%d post', '%d posts', $post_count);
         $v['title']  = sprintf($str_entries, $post_count);
     }
@@ -538,7 +541,7 @@ class defaultFavorites
      */
     public static function commentsDashboard($core, $v)
     {
-        $comment_count = $core->blog->getComments([], true)->f(0);
+        $comment_count = dcCore::app()->blog->getComments([], true)->f(0);
         $str_comments  = __('%d comment', '%d comments', $comment_count);
         $v['title']    = sprintf($str_comments, $comment_count);
     }

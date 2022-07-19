@@ -13,6 +13,9 @@ if (!defined('DC_RC_PATH')) {
 class dcAdminHelper
 {
     /** @var dcCore dcCore instance */
+    /**
+     * @deprecated since 2.23
+     */
     public static $core;
 
     /**
@@ -61,7 +64,7 @@ class dcAdminHelper
      */
     public static function loadLocales(&$_lang)
     {
-        $_lang = self::$core->auth->getInfo('user_lang');
+        $_lang = dcCore::app()->auth->getInfo('user_lang');
         $_lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $_lang) ? $_lang : 'en';
 
         l10n::lang($_lang);
@@ -91,7 +94,7 @@ class dcAdminHelper
     {
         global $_menu;
 
-        $url     = self::$core->adminurl->get($adminurl);
+        $url     = dcCore::app()->adminurl->get($adminurl);
         $pattern = '@' . preg_quote($url) . ($strict ? '' : '(\?.*)?') . '$@';
         $_menu[$section]->prependItem(
             $desc,
@@ -109,7 +112,7 @@ class dcAdminHelper
 /*
  * Store current dcCore instance
  */
-dcAdminHelper::$core = $GLOBALS['core'];
+dcAdminHelper::$core = dcCore::app();
 
 /**
  * Load locales
