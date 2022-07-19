@@ -14,6 +14,9 @@ if (!defined('DC_RC_PATH')) {
 
 class dcThemeEditor
 {
+    /**
+     * @deprecated Since 2.23+, use dcCore::app() instead
+     */
     protected $core;
 
     protected $user_theme;
@@ -31,19 +34,19 @@ class dcThemeEditor
     public $po  = [];
     public $php = [];
 
-    public function __construct($core)
+    public function __construct(dcCore $core = null)
     {
-        $this->core         = &$core;
-        $this->user_theme   = path::real($this->core->blog->themes_path . '/' . $this->core->blog->settings->system->theme);
+        $this->core         = dcCore::app();
+        $this->user_theme   = path::real(dcCore::app()->blog->themes_path . '/' . dcCore::app()->blog->settings->system->theme);
         $this->tplset_theme = DC_ROOT . '/inc/public/default-templates/' . DC_DEFAULT_TPLSET;
         $this->tplset_name  = DC_DEFAULT_TPLSET;
-        if (null !== $this->core->themes) {
-            $parent_theme = $this->core->themes->moduleInfo($this->core->blog->settings->system->theme, 'parent');
+        if (null !== dcCore::app()->themes) {
+            $parent_theme = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'parent');
             if ($parent_theme) {
-                $this->parent_theme = path::real($this->core->blog->themes_path . '/' . $parent_theme);
+                $this->parent_theme = path::real(dcCore::app()->blog->themes_path . '/' . $parent_theme);
                 $this->parent_name  = $parent_theme;
             }
-            $tplset = $this->core->themes->moduleInfo($this->core->blog->settings->system->theme, 'tplset');
+            $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
             if ($tplset) {
                 $this->tplset_theme = DC_ROOT . '/inc/public/default-templates/' . $tplset;
                 $this->tplset_name  = $tplset;
@@ -81,7 +84,7 @@ class dcThemeEditor
                     $list_tpl .= sprintf($li, $k, html::escapeHTML($k));
                 }
             }
-            $list .= ($list_theme != '' ? sprintf('<li class="group-file">' . __('From theme:') . '<ul>%s</ul></li>', $list_theme) : '');
+            $list .= ($list_theme  != '' ? sprintf('<li class="group-file">' . __('From theme:') . '<ul>%s</ul></li>', $list_theme) : '');
             $list .= ($list_parent != '' ? sprintf(
                 '<li class="group-file">' . __('From parent:') . ' %s<ul>%s</ul></li>',
                 $this->parent_name,
@@ -311,7 +314,7 @@ class dcThemeEditor
         $this->tpl = array_merge($this->tpl, $this->getFilesInDir($this->user_theme . '/tpl'));
 
         # Then we look in 'default-templates' plugins directory
-        $plugins = $this->core->plugins->getModules();
+        $plugins = dcCore::app()->plugins->getModules();
         foreach ($plugins as $p) {
             // Looking in default-templates directory
             $this->tpl       = array_merge($this->getFilesInDir($p['root'] . '/default-templates'), $this->tpl);

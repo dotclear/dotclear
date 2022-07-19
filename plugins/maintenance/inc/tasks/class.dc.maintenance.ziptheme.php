@@ -29,8 +29,8 @@ class dcMaintenanceZiptheme extends dcMaintenanceTask
     public function execute()
     {
         // Get theme path
-        $path  = $this->core->blog->themes_path;
-        $theme = $this->core->blog->settings->system->theme;
+        $path  = dcCore::app()->blog->themes_path;
+        $theme = dcCore::app()->blog->settings->system->theme;
         $dir   = path::real($path . '/' . $theme);
         if (empty($path) || empty($theme) || !is_dir($dir)) {
             return false;

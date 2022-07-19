@@ -24,7 +24,7 @@ class dcAntispamRest
      */
     public static function getSpamsCount(dcCore $core, $get)
     {
-        $count = dcAntispam::countSpam($core);
+        $count = dcAntispam::countSpam(dcCore::app());
         if ($count > 0) {
             $str = sprintf(($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)'), $count);
         } else {

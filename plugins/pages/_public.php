@@ -12,7 +12,7 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$core->addBehavior('coreBlogBeforeGetPosts', ['publicPages', 'coreBlogBeforeGetPosts']);
+dcCore::app()->addBehavior('coreBlogBeforeGetPosts', ['publicPages', 'coreBlogBeforeGetPosts']);
 
 # Localized string we find in template
 __('Published on');
@@ -24,9 +24,7 @@ class publicPages
 {
     public static function coreBlogBeforeGetPosts($params)
     {
-        global $core;
-
-        if ($core->url->type == 'search') {
+        if (dcCore::app()->url->type == 'search') {
             // Add page post type for searching
             if (isset($params['post_type'])) {
                 if (!is_array($params['post_type'])) {
@@ -54,17 +52,16 @@ class urlPages extends dcUrlHandlers
             self::p404();
         } else {
             $_ctx = &$GLOBALS['_ctx'];
-            $core = &$GLOBALS['core'];
 
-            $core->blog->withoutPassword(false);
+            dcCore::app()->blog->withoutPassword(false);
 
             $params = new ArrayObject([
                 'post_type' => 'page',
                 'post_url'  => $args, ]);
 
-            $core->callBehavior('publicPagesBeforeGetPosts', $params, $args);
+            dcCore::app()->callBehavior('publicPagesBeforeGetPosts', $params, $args);
 
-            $_ctx->posts = $core->blog->getPosts($params);
+            $_ctx->posts = dcCore::app()->blog->getPosts($params);
 
             $_ctx->comment_preview               = new ArrayObject();
             $_ctx->comment_preview['content']    = '';
@@ -75,7 +72,7 @@ class urlPages extends dcUrlHandlers
             $_ctx->comment_preview['preview']    = false;
             $_ctx->comment_preview['remember']   = false;
 
-            $core->blog->withoutPassword(true);
+            dcCore::app()->blog->withoutPassword(true);
 
             if ($_ctx->posts->isEmpty()) {
                 # The specified page does not exist.
@@ -133,18 +130,18 @@ class urlPages extends dcUrlHandlers
 
                     if ($content != '') {
                         # --BEHAVIOR-- publicBeforeCommentTransform
-                        $buffer = $core->callBehavior('publicBeforeCommentTransform', $content);
+                        $buffer = dcCore::app()->callBehavior('publicBeforeCommentTransform', $content);
                         if ($buffer != '') {
                             $content = $buffer;
                         } else {
-                            if ($core->blog->settings->system->wiki_comments) {
-                                $core->initWikiComment();
+                            if (dcCore::app()->blog->settings->system->wiki_comments) {
+                                dcCore::app()->initWikiComment();
                             } else {
-                                $core->initWikiSimpleComment();
+                                dcCore::app()->initWikiSimpleComment();
                             }
-                            $content = $core->wikiTransform($content);
+                            $content = dcCore::app()->wikiTransform($content);
                         }
-                        $content = $core->HTMLfilter($content);
+                        $content = dcCore::app()->HTMLfilter($content);
                     }
 
                     $_ctx->comment_preview['content']    = $content;
@@ -155,22 +152,22 @@ class urlPages extends dcUrlHandlers
 
                     if ($preview) {
                         # --BEHAVIOR-- publicBeforeCommentPreview
-                        $core->callBehavior('publicBeforeCommentPreview', $_ctx->comment_preview);
+                        dcCore::app()->callBehavior('publicBeforeCommentPreview', $_ctx->comment_preview);
 
                         $_ctx->comment_preview['preview'] = true;
                     } else {
                         # Post the comment
-                        $cur                  = $core->con->openCursor($core->prefix . 'comment');
+                        $cur                  = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'comment');
                         $cur->comment_author  = $name;
                         $cur->comment_site    = html::clean($site);
                         $cur->comment_email   = html::clean($mail);
                         $cur->comment_content = $content;
                         $cur->post_id         = $_ctx->posts->post_id;
-                        $cur->comment_status  = $core->blog->settings->system->comments_pub ? 1 : -1;
+                        $cur->comment_status  = dcCore::app()->blog->settings->system->comments_pub ? 1 : -1;
                         $cur->comment_ip      = http::realIP();
 
                         $redir = $_ctx->posts->getURL();
-                        $redir .= $core->blog->settings->system->url_scan == 'query_string' ? '&' : '?';
+                        $redir .= dcCore::app()->blog->settings->system->url_scan == 'query_string' ? '&' : '?';
 
                         try {
                             if (!text::isEmail($cur->comment_email)) {
@@ -178,12 +175,12 @@ class urlPages extends dcUrlHandlers
                             }
 
                             # --BEHAVIOR-- publicBeforeCommentCreate
-                            $core->callBehavior('publicBeforeCommentCreate', $cur);
+                            dcCore::app()->callBehavior('publicBeforeCommentCreate', $cur);
                             if ($cur->post_id) {
-                                $comment_id = $core->blog->addComment($cur);
+                                $comment_id = dcCore::app()->blog->addComment($cur);
 
                                 # --BEHAVIOR-- publicAfterCommentCreate
-                                $core->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
+                                dcCore::app()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
                             }
 
                             if ($cur->comment_status == 1) {
@@ -201,14 +198,14 @@ class urlPages extends dcUrlHandlers
 
                 # The entry
                 if ($_ctx->posts->trackbacksActive()) {
-                    header('X-Pingback: ' . $core->blog->url . $core->url->getURLFor('xmlrpc', $core->blog->id));
+                    header('X-Pingback: ' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('xmlrpc', dcCore::app()->blog->id));
                 }
 
-                $tplset = $core->themes->moduleInfo($core->blog->settings->system->theme, 'tplset');
+                $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
                 if (!empty($tplset) && is_dir(__DIR__ . '/default-templates/' . $tplset)) {
-                    $core->tpl->setPath($core->tpl->getPath(), __DIR__ . '/default-templates/' . $tplset);
+                    dcCore::app()->tpl->setPath(dcCore::app()->tpl->getPath(), __DIR__ . '/default-templates/' . $tplset);
                 } else {
-                    $core->tpl->setPath($core->tpl->getPath(), __DIR__ . '/default-templates/' . DC_DEFAULT_TPLSET);
+                    dcCore::app()->tpl->setPath(dcCore::app()->tpl->getPath(), __DIR__ . '/default-templates/' . DC_DEFAULT_TPLSET);
                 }
                 self::serveDocument('page.html');
             }
@@ -217,7 +214,6 @@ class urlPages extends dcUrlHandlers
 
     public static function pagespreview($args)
     {
-        $core = $GLOBALS['core'];
         $_ctx = $GLOBALS['_ctx'];
 
         if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#', $args, $m)) {
@@ -227,7 +223,7 @@ class urlPages extends dcUrlHandlers
             $user_id  = $m[1];
             $user_key = $m[2];
             $post_url = $m[3];
-            if (!$core->auth->checkUser($user_id, null, $user_key)) {
+            if (!dcCore::app()->auth->checkUser($user_id, null, $user_key)) {
                 # The user has no access to the entry.
                 self::p404();
             } else {
@@ -247,13 +243,13 @@ class tplPages
     # Widget function
     public static function pagesWidget($w)
     {
-        global $core, $_ctx;
+        global $_ctx;
 
         if ($w->offline) {
             return;
         }
 
-        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) || ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
+        if (($w->homeonly == 1 && !dcCore::app()->url->isHome(dcCore::app()->url->type)) || ($w->homeonly == 2 && dcCore::app()->url->isHome(dcCore::app()->url->type))) {
             return;
         }
 
@@ -273,7 +269,7 @@ class tplPages
         }
         $params['order'] = $sort . ' ' . $order;
 
-        $rs = $core->blog->getPosts($params);
+        $rs = dcCore::app()->blog->getPosts($params);
 
         if ($rs->isEmpty()) {
             return;
@@ -283,7 +279,7 @@ class tplPages
 
         while ($rs->fetch()) {
             $class = '';
-            if (($core->url->type == 'pages' && $_ctx->posts instanceof record && $_ctx->posts->post_id == $rs->post_id)) {
+            if ((dcCore::app()->url->type == 'pages' && $_ctx->posts instanceof record && $_ctx->posts->post_id == $rs->post_id)) {
                 $class = ' class="page-current"';
             }
             $res .= '<li' . $class . '><a href="' . $rs->getURL() . '">' .

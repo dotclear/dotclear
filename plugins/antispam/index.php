@@ -38,9 +38,9 @@ try {
 
     # Remove all spam
     if (!empty($_POST['delete_all'])) {
-        $ts = dt::str('%Y-%m-%d %H:%M:%S', $_POST['ts'], $core->blog->settings->system->blog_timezone);
+        $ts = dt::str('%Y-%m-%d %H:%M:%S', $_POST['ts'], dcCore::app()->blog->settings->system->blog_timezone);
 
-        dcAntispam::delAllSpam($core, $ts);
+        dcAntispam::delAllSpam(dcCore::app(), $ts);
 
         dcPage::addSuccessNotice(__('Spam comments have been successfully deleted.'));
         http::redirect($p_url);
@@ -90,7 +90,7 @@ try {
         http::redirect($p_url);
     }
 } catch (Exception $e) {
-    $core->error->add($e->getMessage());
+    dcCore::app()->error->add($e->getMessage());
 }
 ?>
 <html>
@@ -98,8 +98,8 @@ try {
   <title><?php echo($filter_gui !== false ? sprintf(__('%s configuration'), $filter->name) . ' - ' : '') . $page_name; ?></title>
   <?php
 echo dcPage::jsPageTabs($default_tab);
-$core->auth->user_prefs->addWorkspace('accessibility');
-if (!$core->auth->user_prefs->accessibility->nodragdrop) {
+dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
+if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
     echo
     dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
     dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
@@ -140,9 +140,9 @@ if ($filter_gui !== false) {
     dcPage::notices();
 
     # Information
-    $spam_count      = dcAntispam::countSpam($core);
-    $published_count = dcAntispam::countPublishedComments($core);
-    $moderationTTL   = $core->blog->settings->antispam->antispam_moderation_ttl;
+    $spam_count      = dcAntispam::countSpam(dcCore::app());
+    $published_count = dcAntispam::countPublishedComments(dcCore::app());
+    $moderationTTL   = dcCore::app()->blog->settings->antispam->antispam_moderation_ttl;
 
     echo
     '<form action="' . $p_url . '" method="post" class="fieldset">' .
@@ -150,21 +150,21 @@ if ($filter_gui !== false) {
 
     echo
     '<ul class="spaminfo">' .
-    '<li class="spamcount"><a href="' . $core->adminurl->get('admin.comments', ['status' => '-2']) . '">' . __('Junk comments:') . '</a> ' .
+    '<li class="spamcount"><a href="' . dcCore::app()->adminurl->get('admin.comments', ['status' => '-2']) . '">' . __('Junk comments:') . '</a> ' .
     '<strong>' . $spam_count . '</strong></li>' .
-    '<li class="hamcount"><a href="' . $core->adminurl->get('admin.comments', ['status' => '1']) . '">' . __('Published comments:') . '</a> ' .
+    '<li class="hamcount"><a href="' . dcCore::app()->adminurl->get('admin.comments', ['status' => '1']) . '">' . __('Published comments:') . '</a> ' .
         $published_count . '</li>' .
         '</ul>';
 
     if ($spam_count > 0) {
         echo
-        '<p>' . $core->formNonce() .
+        '<p>' . dcCore::app()->formNonce() .
         form::hidden('ts', time()) .
         '<input name="delete_all" class="delete" type="submit" value="' . __('Delete all spams') . '" /></p>';
     }
     if ($moderationTTL != null && $moderationTTL >= 0) {
         echo '<p>' . sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL) . ' ' .
-        sprintf(__('You can modify this duration in the %s'), '<a href="' . $core->adminurl->get('admin.blog.pref') .
+        sprintf(__('You can modify this duration in the %s'), '<a href="' . dcCore::app()->adminurl->get('admin.blog.pref') .
             '#antispam_moderation_ttl"> ' . __('Blog settings') . '</a>') .
             '.</p>';
     }
@@ -235,7 +235,7 @@ if ($filter_gui !== false) {
     echo
     '</tbody></table></div>' .
     '<p>' . form::hidden('filters_order', '') .
-    $core->formNonce() .
+    dcCore::app()->formNonce() .
     '<input type="submit" name="filters_upd" value="' . __('Save') . '" />' .
     ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
     '</p>' .
@@ -243,13 +243,13 @@ if ($filter_gui !== false) {
 
     # Syndication
     if (DC_ADMIN_URL) { // @phpstan-ignore-line
-        $ham_feed = $core->blog->url . $core->url->getURLFor(
+        $ham_feed = dcCore::app()->blog->url . dcCore::app()->url->getURLFor(
             'hamfeed',
-            $code = dcAntispam::getUserCode($core)
+            $code = dcAntispam::getUserCode(dcCore::app())
         );
-        $spam_feed = $core->blog->url . $core->url->getURLFor(
+        $spam_feed = dcCore::app()->blog->url . dcCore::app()->url->getURLFor(
             'spamfeed',
-            $code = dcAntispam::getUserCode($core)
+            $code = dcAntispam::getUserCode(dcCore::app())
         );
 
         echo

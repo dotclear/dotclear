@@ -12,15 +12,15 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$version = $core->plugins->moduleInfo('dcLegacyEditor', 'version');
-if (version_compare($core->getVersion('dcLegacyEditor'), $version, '>=')) {
+$version = dcCore::app()->plugins->moduleInfo('dcLegacyEditor', 'version');
+if (version_compare(dcCore::app()->getVersion('dcLegacyEditor'), $version, '>=')) {
     return;
 }
 
-$settings = $core->blog->settings;
+$settings = dcCore::app()->blog->settings;
 $settings->addNamespace('dclegacyeditor');
 $settings->dclegacyeditor->put('active', true, 'boolean', 'dcLegacyEditor plugin activated ?', false, true);
 
-$core->setVersion('dcLegacyEditor', $version);
+dcCore::app()->setVersion('dcLegacyEditor', $version);
 
 return true;

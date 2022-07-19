@@ -16,16 +16,16 @@ include __DIR__ . '/_default_widgets.php';
 
 # Loading navigation, extra widgets and custom widgets
 $widgets_nav = null;
-if ($core->blog->settings->widgets->widgets_nav) {
-    $widgets_nav = dcWidgets::load($core->blog->settings->widgets->widgets_nav);
+if (dcCore::app()->blog->settings->widgets->widgets_nav) {
+    $widgets_nav = dcWidgets::load(dcCore::app()->blog->settings->widgets->widgets_nav);
 }
 $widgets_extra = null;
-if ($core->blog->settings->widgets->widgets_extra) {
-    $widgets_extra = dcWidgets::load($core->blog->settings->widgets->widgets_extra);
+if (dcCore::app()->blog->settings->widgets->widgets_extra) {
+    $widgets_extra = dcWidgets::load(dcCore::app()->blog->settings->widgets->widgets_extra);
 }
 $widgets_custom = null;
-if ($core->blog->settings->widgets->widgets_custom) {
-    $widgets_custom = dcWidgets::load($core->blog->settings->widgets->widgets_custom);
+if (dcCore::app()->blog->settings->widgets->widgets_custom) {
+    $widgets_custom = dcWidgets::load(dcCore::app()->blog->settings->widgets->widgets_custom);
 }
 
 $append_combo = [
@@ -93,14 +93,14 @@ if (!empty($_POST['append']) && is_array($_POST['addw'])) {
         }
 
         try {
-            $core->blog->settings->addNamespace('widgets');
-            $core->blog->settings->widgets->put('widgets_nav', $widgets_nav->store());
-            $core->blog->settings->widgets->put('widgets_extra', $widgets_extra->store());
-            $core->blog->settings->widgets->put('widgets_custom', $widgets_custom->store());
-            $core->blog->triggerBlog();
+            dcCore::app()->blog->settings->addNamespace('widgets');
+            dcCore::app()->blog->settings->widgets->put('widgets_nav', $widgets_nav->store());
+            dcCore::app()->blog->settings->widgets->put('widgets_extra', $widgets_extra->store());
+            dcCore::app()->blog->settings->widgets->put('widgets_custom', $widgets_custom->store());
+            dcCore::app()->blog->triggerBlog();
             http::redirect($p_url);
         } catch (Exception $e) {
-            $core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
         }
     }
 }
@@ -178,29 +178,29 @@ if (!empty($_POST['wup']) || $removing || $move) {
         $widgets_extra  = dcWidgets::loadArray($_POST['w']['extra'], $__widgets);
         $widgets_custom = dcWidgets::loadArray($_POST['w']['custom'], $__widgets);
 
-        $core->blog->settings->addNamespace('widgets');
-        $core->blog->settings->widgets->put('widgets_nav', $widgets_nav->store());
-        $core->blog->settings->widgets->put('widgets_extra', $widgets_extra->store());
-        $core->blog->settings->widgets->put('widgets_custom', $widgets_custom->store());
-        $core->blog->triggerBlog();
+        dcCore::app()->blog->settings->addNamespace('widgets');
+        dcCore::app()->blog->settings->widgets->put('widgets_nav', $widgets_nav->store());
+        dcCore::app()->blog->settings->widgets->put('widgets_extra', $widgets_extra->store());
+        dcCore::app()->blog->settings->widgets->put('widgets_custom', $widgets_custom->store());
+        dcCore::app()->blog->triggerBlog();
 
         dcPage::addSuccessNotice(__('Sidebars and their widgets have been saved.'));
         http::redirect($p_url);
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 } elseif (!empty($_POST['wreset'])) {
     try {
-        $core->blog->settings->addNamespace('widgets');
-        $core->blog->settings->widgets->put('widgets_nav', '');
-        $core->blog->settings->widgets->put('widgets_extra', '');
-        $core->blog->settings->widgets->put('widgets_custom', '');
-        $core->blog->triggerBlog();
+        dcCore::app()->blog->settings->addNamespace('widgets');
+        dcCore::app()->blog->settings->widgets->put('widgets_nav', '');
+        dcCore::app()->blog->settings->widgets->put('widgets_extra', '');
+        dcCore::app()->blog->settings->widgets->put('widgets_custom', '');
+        dcCore::app()->blog->triggerBlog();
 
         dcPage::addSuccessNotice(__('Sidebars have been resetting.'));
         http::redirect($p_url);
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 ?>
@@ -208,9 +208,9 @@ if (!empty($_POST['wup']) || $removing || $move) {
 <head>
   <title><?php echo __('Widgets'); ?></title>
 <?php
-$widget_editor = $core->auth->getOption('editor');
+$widget_editor = dcCore::app()->auth->getOption('editor');
 $rte_flag      = true;
-$rte_flags     = @$core->auth->user_prefs->interface->rte_flags;
+$rte_flags     = @dcCore::app()->auth->user_prefs->interface->rte_flags;
 if (is_array($rte_flags) && in_array('widgets_text', $rte_flags)) {
     $rte_flag = $rte_flags['widgets_text'];
 }
@@ -223,13 +223,13 @@ dcPage::jsJson('widgets', [
 ]) .
 dcPage::jsModuleLoad('widgets/js/widgets.js');
 
-$core->auth->user_prefs->addWorkspace('accessibility');
-$user_dm_nodragdrop = $core->auth->user_prefs->accessibility->nodragdrop;
+dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
+$user_dm_nodragdrop = dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
 if (!$user_dm_nodragdrop) {
     echo dcPage::jsModuleLoad('widgets/js/dragdrop.js');
 }
 if ($rte_flag) {
-    echo $core->callBehavior(
+    echo dcCore::app()->callBehavior(
         'adminPostEditor',
         $widget_editor['xhtml'],
         'widget',
@@ -244,8 +244,8 @@ echo(dcPage::jsConfirmClose('sidebarsWidgets'));
 <?php
 echo dcPage::breadcrumb(
     [
-        html::escapeHTML($core->blog->name) => '',
-        __('Widgets')                       => '',
+        html::escapeHTML(dcCore::app()->blog->name) => '',
+        __('Widgets')                               => '',
     ]
 ) .
 dcPage::notices();
@@ -278,7 +278,7 @@ foreach ($__widgets->elements(true) as $w) {
 
 echo
 '</ul>' .
-'<p>' . $core->formNonce() . '</p>' .
+'<p>' . dcCore::app()->formNonce() . '</p>' .
 '<p class="remove-if-drag"><input type="submit" name="append" value="' . __('Add widgets to sidebars') . '" /></p>' .
     '</form>';
 
@@ -303,7 +303,7 @@ echo '</div>';
 
 echo
 '<p id="sidebarsControl">' .
-$core->formNonce() .
+dcCore::app()->formNonce() .
 '<input type="submit" name="wup" value="' . __('Update sidebars') . '" /> ' .
 '<input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" /> ' .
 '<input type="submit" class="reset" name="wreset" value="' . __('Reset sidebars') . '" />' .

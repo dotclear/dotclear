@@ -14,32 +14,32 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 $_menu['Blog']->addItem(
     __('Pings'),
-    $core->adminurl->get('admin.plugin.pings'),
+    dcCore::app()->adminurl->get('admin.plugin.pings'),
     [dcPage::getPF('pings/icon.svg'), dcPage::getPF('pings/icon-dark.svg')],
-    preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.pings')) . '/', $_SERVER['REQUEST_URI']),
-    $core->auth->isSuperAdmin()
+    preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.pings')) . '/', $_SERVER['REQUEST_URI']),
+    dcCore::app()->auth->isSuperAdmin()
 );
 
 $__autoload['pingsAdminBehaviors'] = __DIR__ . '/lib.pings.php';
 
-$core->addBehavior('adminPostHeaders', ['pingsAdminBehaviors', 'pingJS']);
-$core->addBehavior('adminPostFormItems', ['pingsAdminBehaviors', 'pingsFormItems']);
-$core->addBehavior('adminAfterPostCreate', ['pingsAdminBehaviors', 'doPings']);
-$core->addBehavior('adminAfterPostUpdate', ['pingsAdminBehaviors', 'doPings']);
+dcCore::app()->addBehavior('adminPostHeaders', ['pingsAdminBehaviors', 'pingJS']);
+dcCore::app()->addBehavior('adminPostFormItems', ['pingsAdminBehaviors', 'pingsFormItems']);
+dcCore::app()->addBehavior('adminAfterPostCreate', ['pingsAdminBehaviors', 'doPings']);
+dcCore::app()->addBehavior('adminAfterPostUpdate', ['pingsAdminBehaviors', 'doPings']);
 
-$core->addBehavior(
+dcCore::app()->addBehavior(
     'adminDashboardFavorites',
-    function ($core, $favs) {
+    function (dcCore $core, $favs) {
         $favs->register('pings', [
             'title'      => __('Pings'),
-            'url'        => $core->adminurl->get('admin.plugin.pings'),
+            'url'        => dcCore::app()->adminurl->get('admin.plugin.pings'),
             'small-icon' => [dcPage::getPF('pings/icon.svg'), dcPage::getPF('pings/icon-dark.svg')],
             'large-icon' => [dcPage::getPF('pings/icon.svg'), dcPage::getPF('pings/icon-dark.svg')],
         ]);
     }
 );
 
-$core->addBehavior('adminPageHelpBlock', function ($blocks) {
+dcCore::app()->addBehavior('adminPageHelpBlock', function ($blocks) {
     $found = false;
     foreach ($blocks as $block) {
         if ($block == 'core_post') {

@@ -60,11 +60,11 @@ class dcImportFlat extends dcIeModule
                 # Try to unzip file
                 $unzip_file = $this->unzip($file);
                 if (false !== $unzip_file) {
-                    $bk = new flatImport($this->core, $unzip_file);
+                    $bk = new flatImport(dcCore::app(), $unzip_file);
                 }
                 # Else this is a normal file
                 else {
-                    $bk = new flatImport($this->core, $file);
+                    $bk = new flatImport(dcCore::app(), $file);
                 }
 
                 $bk->importSingle();
@@ -91,8 +91,8 @@ class dcImportFlat extends dcIeModule
             $full_upl = true;
         }
 
-        if ($full_upl !== null && $this->core->auth->isSuperAdmin()) {
-            if (empty($_POST['your_pwd']) || !$this->core->auth->checkPassword($_POST['your_pwd'])) {
+        if ($full_upl !== null && dcCore::app()->auth->isSuperAdmin()) {
+            if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
                 throw new Exception(__('Password verification failed'));
             }
 
@@ -113,11 +113,11 @@ class dcImportFlat extends dcIeModule
                 # Try to unzip file
                 $unzip_file = $this->unzip($file);
                 if (false !== $unzip_file) {
-                    $bk = new flatImport($this->core, $unzip_file);
+                    $bk = new flatImport(dcCore::app(), $unzip_file);
                 }
                 # Else this is a normal file
                 else {
-                    $bk = new flatImport($this->core, $file);
+                    $bk = new flatImport(dcCore::app(), $file);
                 }
 
                 $bk->importFull();
@@ -166,7 +166,7 @@ class dcImportFlat extends dcIeModule
         echo
         '<form action="' . $this->getURL(true) . '" method="post" enctype="multipart/form-data" class="fieldset">' .
         '<h3>' . __('Single blog') . '</h3>' .
-        '<p>' . sprintf(__('This will import a single blog backup as new content in the current blog: <strong>%s</strong>.'), html::escapeHTML($this->core->blog->name)) . '</p>' .
+        '<p>' . sprintf(__('This will import a single blog backup as new content in the current blog: <strong>%s</strong>.'), html::escapeHTML(dcCore::app()->blog->name)) . '</p>' .
 
         '<p><label for="up_single_file">' . __('Upload a backup file') .
         ' (' . sprintf(__('maximum size %s'), files::size((int) DC_MAX_UPLOAD_SIZE)) . ')' . ' </label>' .
@@ -182,14 +182,14 @@ class dcImportFlat extends dcIeModule
 
         echo
         '<p>' .
-        $this->core->formNonce() .
+        dcCore::app()->formNonce() .
         form::hidden(['do'], 1) .
         form::hidden(['MAX_FILE_SIZE'], (int) DC_MAX_UPLOAD_SIZE) .
         '<input type="submit" value="' . __('Import') . '" /></p>' .
 
             '</form>';
 
-        if ($this->core->auth->isSuperAdmin()) {
+        if (dcCore::app()->auth->isSuperAdmin()) {
             echo
             '<form action="' . $this->getURL(true) . '" method="post" enctype="multipart/form-data" id="formfull" class="fieldset">' .
             '<h3>' . __('Multiple blogs') . '</h3>' .
@@ -220,7 +220,7 @@ class dcImportFlat extends dcIeModule
             ) . '</p>' .
 
             '<p>' .
-            $this->core->formNonce() .
+            dcCore::app()->formNonce() .
             form::hidden(['do'], 1) .
             form::hidden(['MAX_FILE_SIZE'], DC_MAX_UPLOAD_SIZE) .
             '<input type="submit" value="' . __('Import') . '" /></p>' .
@@ -232,7 +232,7 @@ class dcImportFlat extends dcIeModule
     protected function getPublicFiles()
     {
         $public_files = [];
-        $dir          = @dir($this->core->blog->public_path);
+        $dir          = @dir(dcCore::app()->blog->public_path);
         if ($dir) {
             while (($entry = $dir->read()) !== false) {
                 $entry_path = $dir->path . '/' . $entry;

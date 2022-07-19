@@ -12,14 +12,14 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$version = $core->plugins->moduleInfo('antispam', 'version');
-if (version_compare($core->getVersion('antispam'), $version, '>=')) {
+$version = dcCore::app()->plugins->moduleInfo('antispam', 'version');
+if (version_compare(dcCore::app()->getVersion('antispam'), $version, '>=')) {
     return;
 }
 
 /* Database schema
 -------------------------------------------------------- */
-$s = new dbStruct($core->con, $core->prefix);
+$s = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
 
 $s->spamrule
     ->rule_id('bigint', 0, false)
@@ -38,19 +38,19 @@ if ($s->driver() == 'pgsql') {
 }
 
 # Schema installation
-$si      = new dbStruct($core->con, $core->prefix);
+$si      = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
 $changes = $si->synchronize($s);
 
 # Creating default wordslist
-if ($core->getVersion('antispam') === null) {
-    $_o = new dcFilterWords($core);
+if (dcCore::app()->getVersion('antispam') === null) {
+    $_o = new dcFilterWords(dcCore::app());
     $_o->defaultWordsList();
     unset($_o);
 }
 
-$core->blog->settings->addNamespace('antispam');
-$core->blog->settings->antispam->put('antispam_moderation_ttl', 0, 'integer', 'Antispam Moderation TTL (days)', false);
+dcCore::app()->blog->settings->addNamespace('antispam');
+dcCore::app()->blog->settings->antispam->put('antispam_moderation_ttl', 0, 'integer', 'Antispam Moderation TTL (days)', false);
 
-$core->setVersion('antispam', $version);
+dcCore::app()->setVersion('antispam', $version);
 
 return true;

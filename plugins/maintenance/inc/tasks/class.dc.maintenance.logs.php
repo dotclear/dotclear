@@ -30,12 +30,12 @@ class dcMaintenanceLogs extends dcMaintenanceTask
     public function execute()
     {
         if (dcMaintenanceLogs::$keep_maintenance_logs) {
-            $this->core->con->execute(
-                'DELETE FROM ' . $this->core->prefix . 'log ' .
+            dcCore::app()->con->execute(
+                'DELETE FROM ' . dcCore::app()->prefix . 'log ' .
                 "WHERE log_table <> 'maintenance' "
             );
         } else {
-            $this->core->log->delLogs(null, true);
+            dcCore::app()->log->delLogs(null, true);
         }
 
         return true;

@@ -17,14 +17,14 @@ dcPage::check('admin');
 $page_title = __('Simple menu');
 
 # Url de base
-$p_url = $core->adminurl->get('admin.plugin.simpleMenu');
+$p_url = dcCore::app()->adminurl->get('admin.plugin.simpleMenu');
 
 # Url du blog
-$blog_url = html::stripHostURL($core->blog->url);
+$blog_url = html::stripHostURL(dcCore::app()->blog->url);
 
 # Liste des catégories
 $categories_label = [];
-$rs               = $core->blog->getCategories(['post_type' => 'post']);
+$rs               = dcCore::app()->blog->getCategories(['post_type' => 'post']);
 $categories_combo = dcAdminCombos::getCategoriesCombo($rs, false, true);
 $rs->moveStart();
 while ($rs->fetch()) {
@@ -33,11 +33,11 @@ while ($rs->fetch()) {
 
 # Liste des langues utilisées
 $langs_combo = dcAdminCombos::getLangscombo(
-    $core->blog->getLangs(['order' => 'asc'])
+    dcCore::app()->blog->getLangs(['order' => 'asc'])
 );
 
 # Liste des mois d'archive
-$rs           = $core->blog->getDates(['type' => 'month']);
+$rs           = dcCore::app()->blog->getDates(['type' => 'month']);
 $months_combo = array_merge(
     [__('All months') => '-'],
     dcAdminCombos::getDatesCombo($rs)
@@ -59,7 +59,7 @@ unset($rs);
 $pages_combo = [];
 
 try {
-    $rs = $core->blog->getPosts(['post_type' => 'page']);
+    $rs = dcCore::app()->blog->getPosts(['post_type' => 'page']);
     while ($rs->fetch()) {
         $pages_combo[$rs->post_title] = $rs->getURL();
     }
@@ -71,7 +71,7 @@ try {
 $tags_combo = [];
 
 try {
-    $rs                         = $core->meta->getMetadata(['meta_type' => 'tag']);
+    $rs                         = dcCore::app()->meta->getMetadata(['meta_type' => 'tag']);
     $tags_combo[__('All tags')] = '-';
     while ($rs->fetch()) {
         $tags_combo[$rs->meta_id] = $rs->meta_id;
@@ -84,7 +84,7 @@ try {
 $items         = new ArrayObject();
 $items['home'] = new ArrayObject([__('Home'), false]);
 
-if ($core->blog->settings->system->static_home) {
+if (dcCore::app()->blog->settings->system->static_home) {
     $items['posts'] = new ArrayObject([__('Posts'), false]);
 }
 
@@ -97,12 +97,12 @@ if (count($categories_combo)) {
 if (count($months_combo) > 1) {
     $items['archive'] = new ArrayObject([__('Archive'), true]);
 }
-if ($core->plugins->moduleExists('pages')) {
+if (dcCore::app()->plugins->moduleExists('pages')) {
     if (count($pages_combo)) {
         $items['pages'] = new ArrayObject([__('Page'), true]);
     }
 }
-if ($core->plugins->moduleExists('tags')) {
+if (dcCore::app()->plugins->moduleExists('tags')) {
     if (count($tags_combo) > 1) {
         $items['tags'] = new ArrayObject([__('Tags'), true]);
     }
@@ -110,7 +110,7 @@ if ($core->plugins->moduleExists('tags')) {
 
 # --BEHAVIOR-- adminSimpleMenuAddType
 # Should add an item to $items[<id>] as an [<label>,<optional step (true or false)>]
-$core->callBehavior('adminSimpleMenuAddType', $items);
+dcCore::app()->callBehavior('adminSimpleMenuAddType', $items);
 
 $items['special'] = new ArrayObject([__('User defined'), false]);
 
@@ -120,13 +120,13 @@ foreach ($items as $k => $v) {
 }
 
 # Lecture menu existant
-$menu = $core->blog->settings->system->get('simpleMenu');
+$menu = dcCore::app()->blog->settings->system->get('simpleMenu');
 if (!is_array($menu)) {
     $menu = [];
 }
 
 # Récupération état d'activation du menu
-$menu_active = (bool) $core->blog->settings->system->simpleMenu_active;
+$menu_active = (bool) dcCore::app()->blog->settings->system->simpleMenu_active;
 
 // Saving new configuration
 $item_type         = '';
@@ -142,14 +142,14 @@ $step_label        = '';
 if (!empty($_POST['saveconfig'])) {
     try {
         $menu_active = (empty($_POST['active'])) ? false : true;
-        $core->blog->settings->system->put('simpleMenu_active', $menu_active, 'boolean');
-        $core->blog->triggerBlog();
+        dcCore::app()->blog->settings->system->put('simpleMenu_active', $menu_active, 'boolean');
+        dcCore::app()->blog->triggerBlog();
 
         // All done successfully, return to menu items list
         dcPage::addSuccessNotice(__('Configuration successfully updated.'));
         http::redirect($p_url);
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 } else {
     # Récupération paramètres postés
@@ -192,27 +192,27 @@ if (!empty($_POST['saveconfig'])) {
                 switch ($item_type) {
                     case 'home':
                         $item_label = __('Home');
-                        $item_descr = $core->blog->settings->system->static_home ? __('Home page') : __('Recent posts');
+                        $item_descr = dcCore::app()->blog->settings->system->static_home ? __('Home page') : __('Recent posts');
 
                         break;
                     case 'posts':
                         $item_label = __('Posts');
                         $item_descr = __('Recent posts');
-                        $item_url .= $core->url->getURLFor('posts');
+                        $item_url .= dcCore::app()->url->getURLFor('posts');
 
                         break;
                     case 'lang':
                         $item_select_label = array_search($item_select, $langs_combo);
                         $item_label        = $item_select_label;
                         $item_descr        = sprintf(__('Switch to %s language'), $item_select_label);
-                        $item_url .= $core->url->getURLFor('lang', $item_select);
+                        $item_url .= dcCore::app()->url->getURLFor('lang', $item_select);
 
                         break;
                     case 'category':
                         $item_select_label = $categories_label[$item_select];
                         $item_label        = $item_select_label;
                         $item_descr        = __('Recent Posts from this category');
-                        $item_url .= $core->url->getURLFor('category', $item_select);
+                        $item_url .= dcCore::app()->url->getURLFor('category', $item_select);
 
                         break;
                     case 'archive':
@@ -220,11 +220,11 @@ if (!empty($_POST['saveconfig'])) {
                         if ($item_select == '-') {
                             $item_label = __('Archives');
                             $item_descr = $first_year . ($first_year != $last_year ? ' - ' . $last_year : '');
-                            $item_url .= $core->url->getURLFor('archive');
+                            $item_url .= dcCore::app()->url->getURLFor('archive');
                         } else {
                             $item_label = $item_select_label;
                             $item_descr = sprintf(__('Posts from %s'), $item_select_label);
-                            $item_url .= $core->url->getURLFor('archive', substr($item_select, 0, 4) . '/' . substr($item_select, -2));
+                            $item_url .= dcCore::app()->url->getURLFor('archive', substr($item_select, 0, 4) . '/' . substr($item_select, -2));
                         }
 
                         break;
@@ -240,11 +240,11 @@ if (!empty($_POST['saveconfig'])) {
                         if ($item_select == '-') {
                             $item_label = __('All tags');
                             $item_descr = '';
-                            $item_url .= $core->url->getURLFor('tags');
+                            $item_url .= dcCore::app()->url->getURLFor('tags');
                         } else {
                             $item_label = $item_select_label;
                             $item_descr = sprintf(__('Recent posts for %s tag'), $item_select_label);
-                            $item_url .= $core->url->getURLFor('tag', $item_select);
+                            $item_url .= dcCore::app()->url->getURLFor('tag', $item_select);
                         }
 
                         break;
@@ -254,7 +254,7 @@ if (!empty($_POST['saveconfig'])) {
                         # --BEHAVIOR-- adminSimpleMenuBeforeEdit
                         # Should modify if necessary $item_label, $item_descr and $item_url
                         # Should set if necessary $item_select_label (displayed on further admin step only)
-                        $core->callBehavior(
+                        dcCore::app()->callBehavior(
                             'adminSimpleMenuBeforeEdit',
                             $item_type,
                             $item_select,
@@ -278,8 +278,8 @@ if (!empty($_POST['saveconfig'])) {
                         ];
 
                         // Save menu in blog settings
-                        $core->blog->settings->system->put('simpleMenu', $menu);
-                        $core->blog->triggerBlog();
+                        dcCore::app()->blog->settings->system->put('simpleMenu', $menu);
+                        dcCore::app()->blog->triggerBlog();
 
                         // All done successfully, return to menu items list
                         dcPage::addSuccessNotice(__('Menu item has been successfully added.'));
@@ -290,7 +290,7 @@ if (!empty($_POST['saveconfig'])) {
                         dcPage::addErrorNotice(__('Label and URL of menu item are mandatory.'));
                     }
                 } catch (Exception $e) {
-                    $core->error->add($e->getMessage());
+                    dcCore::app()->error->add($e->getMessage());
                 }
 
                 break;
@@ -317,8 +317,8 @@ if (!empty($_POST['saveconfig'])) {
                     }
                     $menu = $newmenu;
                     // Save menu in blog settings
-                    $core->blog->settings->system->put('simpleMenu', $menu);
-                    $core->blog->triggerBlog();
+                    dcCore::app()->blog->settings->system->put('simpleMenu', $menu);
+                    dcCore::app()->blog->triggerBlog();
 
                     // All done successfully, return to menu items list
                     dcPage::addSuccessNotice(__('Menu items have been successfully removed.'));
@@ -327,7 +327,7 @@ if (!empty($_POST['saveconfig'])) {
                     throw new Exception(__('No menu items selected.'));
                 }
             } catch (Exception $e) {
-                $core->error->add($e->getMessage());
+                dcCore::app()->error->add($e->getMessage());
             }
         }
 
@@ -355,8 +355,8 @@ if (!empty($_POST['saveconfig'])) {
                 }
                 $menu = $newmenu;
 
-                $core->auth->user_prefs->addWorkspace('accessibility');
-                if ($core->auth->user_prefs->accessibility->nodragdrop) {
+                dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
+                if (dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
                     # Order menu items
                     $order = [];
                     if (empty($_POST['im_order']) && !empty($_POST['order'])) {
@@ -383,14 +383,14 @@ if (!empty($_POST['saveconfig'])) {
                 }
 
                 // Save menu in blog settings
-                $core->blog->settings->system->put('simpleMenu', $menu);
-                $core->blog->triggerBlog();
+                dcCore::app()->blog->settings->system->put('simpleMenu', $menu);
+                dcCore::app()->blog->triggerBlog();
 
                 // All done successfully, return to menu items list
                 dcPage::addSuccessNotice(__('Menu items have been successfully updated.'));
                 http::redirect($p_url);
             } catch (Exception $e) {
-                $core->error->add($e->getMessage());
+                dcCore::app()->error->add($e->getMessage());
             }
         }
     }
@@ -403,8 +403,8 @@ if (!empty($_POST['saveconfig'])) {
 <head>
     <title><?php echo $page_title; ?></title>
     <?php
-$core->auth->user_prefs->addWorkspace('accessibility');
-if (!$core->auth->user_prefs->accessibility->nodragdrop) {
+dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
+if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
     echo
     dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
     dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
@@ -441,10 +441,10 @@ if ($step) {
     }
     echo dcPage::breadcrumb(
         [
-            html::escapeHTML($core->blog->name) => '',
-            $page_title                         => $p_url,
-            __('Add item')                      => '',
-            $step_label                         => '',
+            html::escapeHTML(dcCore::app()->blog->name) => '',
+            $page_title                                 => $p_url,
+            __('Add item')                              => '',
+            $step_label                                 => '',
         ],
         [
             'hl_pos' => -2, ]
@@ -453,8 +453,8 @@ if ($step) {
 } else {
     echo dcPage::breadcrumb(
         [
-            html::escapeHTML($core->blog->name) => '',
-            $page_title                         => '',
+            html::escapeHTML(dcCore::app()->blog->name) => '',
+            $page_title                                 => '',
         ]
     ) .
     dcPage::notices();
@@ -468,7 +468,7 @@ if ($step) {
             echo '<form id="additem" action="' . $p_url . '&amp;add=2" method="post">';
             echo '<fieldset><legend>' . __('Select type') . '</legend>';
             echo '<p class="field"><label for="item_type" class="classic">' . __('Type of item menu:') . '</label>' . form::combo('item_type', $items_combo) . '</p>';
-            echo '<p>' . $core->formNonce() . '<input type="submit" name="appendaction" value="' . __('Continue...') . '" />' . '</p>';
+            echo '<p>' . dcCore::app()->formNonce() . '<input type="submit" name="appendaction" value="' . __('Continue...') . '" />' . '</p>';
             echo '</fieldset>';
             echo '</form>';
 
@@ -508,10 +508,10 @@ if ($step) {
                         echo
                         # --BEHAVIOR-- adminSimpleMenuSelect
                         # Optional step once $item_type known : should provide a field using 'item_select' as id
-                        $core->callBehavior('adminSimpleMenuSelect', $item_type, 'item_select');
+                        dcCore::app()->callBehavior('adminSimpleMenuSelect', $item_type, 'item_select');
                 }
                 echo form::hidden('item_type', $item_type);
-                echo '<p>' . $core->formNonce() . '<input type="submit" name="appendaction" value="' . __('Continue...') . '" /></p>';
+                echo '<p>' . dcCore::app()->formNonce() . '<input type="submit" name="appendaction" value="' . __('Continue...') . '" /></p>';
                 echo '</fieldset>';
                 echo '</form>';
 
@@ -525,7 +525,7 @@ if ($step) {
             __('Label of item menu:') . '</label>' .
             form::field('item_label', 20, 255, [
                 'default'    => $item_label,
-                'extra_html' => 'required placeholder="' . __('Label') . '" lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+                'extra_html' => 'required placeholder="' . __('Label') . '" lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
             ]) .
                 '</p>';
             echo '<p class="field"><label for="item_descr" class="classic">' .
@@ -535,7 +535,7 @@ if ($step) {
                 255,
                 [
                     'default'    => $item_descr,
-                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+                    'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
                 ]
             ) . '</p>';
             echo '<p class="field"><label for="item_url" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' .
@@ -548,7 +548,7 @@ if ($step) {
             echo form::hidden('item_type', $item_type) . form::hidden('item_select', $item_select);
             echo '<p class="field"><label for="item_descr" class="classic">' .
             __('Open URL on a new tab') . ':</label>' . form::checkbox('item_targetBlank', 'blank') . '</p>';
-            echo '<p>' . $core->formNonce() . '<input type="submit" name="appendaction" value="' . __('Add this item') . '" /></p>';
+            echo '<p>' . dcCore::app()->formNonce() . '<input type="submit" name="appendaction" value="' . __('Add this item') . '" /></p>';
             echo '</fieldset>';
             echo '</form>';
 
@@ -561,7 +561,7 @@ if (!$step) {
     echo '<form id="settings" action="' . $p_url . '" method="post">' .
     '<p>' . form::checkbox('active', 1, $menu_active) .
     '<label class="classic" for="active">' . __('Enable simple menu for this blog') . '</label>' . '</p>' .
-    '<p>' . $core->formNonce() . '<input type="submit" name="saveconfig" value="' . __('Save configuration') . '" />' .
+    '<p>' . dcCore::app()->formNonce() . '<input type="submit" name="saveconfig" value="' . __('Save configuration') . '" />' .
     ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
     '</p>' .
     '</form>';
@@ -570,7 +570,7 @@ if (!$step) {
 // Liste des items
 if (!$step) {
     echo '<form id="menuitemsappend" action="' . $p_url . '&amp;add=1" method="post">';
-    echo '<p class="top-add">' . $core->formNonce() . '<input class="button add" type="submit" name="appendaction" value="' . __('Add an item') . '" /></p>';
+    echo '<p class="top-add">' . dcCore::app()->formNonce() . '<input class="button add" type="submit" name="appendaction" value="' . __('Add an item') . '" /></p>';
     echo '</form>';
 }
 
@@ -628,7 +628,7 @@ if (count($menu)) {
                 255,
                 [
                     'default'    => html::escapeHTML($m['label']),
-                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+                    'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
                 ]
             ) . '</td>';
             echo '<td class="nowrap">' . form::field(
@@ -637,7 +637,7 @@ if (count($menu)) {
                 255,
                 [
                     'default'    => html::escapeHTML($m['descr']),
-                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+                    'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
                 ]
             ) . '</td>';
             echo '<td class="nowrap">' . form::field(['items_url[]', 'imu-' . $i], 30, 255, html::escapeHTML($m['url'])) . '</td>';
@@ -654,7 +654,7 @@ if (count($menu)) {
         '</table></div>';
     if (!$step) {
         echo '<div class="two-cols">';
-        echo '<p class="col">' . form::hidden('im_order', '') . $core->formNonce();
+        echo '<p class="col">' . form::hidden('im_order', '') . dcCore::app()->formNonce();
         echo '<input type="submit" name="updateaction" value="' . __('Update menu') . '" />' . '</p>';
         echo '<p class="col right">' . '<input id="remove-action" type="submit" class="delete" name="removeaction" ' .
         'value="' . __('Delete selected menu items') . '" ' .

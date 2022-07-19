@@ -12,23 +12,23 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$is_admin = $core->auth->check('admin,contentadmin', $core->blog->id) || $core->auth->isSuperAdmin();
+$is_admin = dcCore::app()->auth->check('admin,contentadmin', dcCore::app()->blog->id) || dcCore::app()->auth->isSuperAdmin();
 
-$core->blog->settings->addNameSpace('dcckeditor');
-$dcckeditor_active                      = $core->blog->settings->dcckeditor->active;
-$dcckeditor_alignment_buttons           = $core->blog->settings->dcckeditor->alignment_buttons;
-$dcckeditor_list_buttons                = $core->blog->settings->dcckeditor->list_buttons;
-$dcckeditor_textcolor_button            = $core->blog->settings->dcckeditor->textcolor_button;
-$dcckeditor_background_textcolor_button = $core->blog->settings->dcckeditor->background_textcolor_button;
-$dcckeditor_custom_color_list           = $core->blog->settings->dcckeditor->custom_color_list;
-$dcckeditor_colors_per_row              = $core->blog->settings->dcckeditor->colors_per_row;
-$dcckeditor_cancollapse_button          = $core->blog->settings->dcckeditor->cancollapse_button;
-$dcckeditor_format_select               = $core->blog->settings->dcckeditor->format_select;
-$dcckeditor_format_tags                 = $core->blog->settings->dcckeditor->format_tags;
-$dcckeditor_table_button                = $core->blog->settings->dcckeditor->table_button;
-$dcckeditor_clipboard_buttons           = $core->blog->settings->dcckeditor->clipboard_buttons;
-$dcckeditor_action_buttons              = $core->blog->settings->dcckeditor->action_buttons;
-$dcckeditor_disable_native_spellchecker = $core->blog->settings->dcckeditor->disable_native_spellchecker;
+dcCore::app()->blog->settings->addNameSpace('dcckeditor');
+$dcckeditor_active                      = dcCore::app()->blog->settings->dcckeditor->active;
+$dcckeditor_alignment_buttons           = dcCore::app()->blog->settings->dcckeditor->alignment_buttons;
+$dcckeditor_list_buttons                = dcCore::app()->blog->settings->dcckeditor->list_buttons;
+$dcckeditor_textcolor_button            = dcCore::app()->blog->settings->dcckeditor->textcolor_button;
+$dcckeditor_background_textcolor_button = dcCore::app()->blog->settings->dcckeditor->background_textcolor_button;
+$dcckeditor_custom_color_list           = dcCore::app()->blog->settings->dcckeditor->custom_color_list;
+$dcckeditor_colors_per_row              = dcCore::app()->blog->settings->dcckeditor->colors_per_row;
+$dcckeditor_cancollapse_button          = dcCore::app()->blog->settings->dcckeditor->cancollapse_button;
+$dcckeditor_format_select               = dcCore::app()->blog->settings->dcckeditor->format_select;
+$dcckeditor_format_tags                 = dcCore::app()->blog->settings->dcckeditor->format_tags;
+$dcckeditor_table_button                = dcCore::app()->blog->settings->dcckeditor->table_button;
+$dcckeditor_clipboard_buttons           = dcCore::app()->blog->settings->dcckeditor->clipboard_buttons;
+$dcckeditor_action_buttons              = dcCore::app()->blog->settings->dcckeditor->action_buttons;
+$dcckeditor_disable_native_spellchecker = dcCore::app()->blog->settings->dcckeditor->disable_native_spellchecker;
 
 if (!empty($_GET['config'])) {
     // text/javascript response stop stream just after including file

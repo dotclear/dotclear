@@ -12,14 +12,14 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$version = $core->plugins->moduleInfo('widgets', 'version');
-if (version_compare($core->getVersion('widgets'), $version, '>=')) {
+$version = dcCore::app()->plugins->moduleInfo('widgets', 'version');
+if (version_compare(dcCore::app()->getVersion('widgets'), $version, '>=')) {
     return;
 }
 
 require __DIR__ . '/_default_widgets.php';
 
-$settings = &$core->blog->settings;
+$settings = dcCore::app()->blog->settings;
 $settings->addNamespace('widgets');
 if ($settings->widgets->widgets_nav != null) {
     $settings->widgets->put('widgets_nav', dcWidgets::load($settings->widgets->widgets_nav)->store());
@@ -36,6 +36,6 @@ if ($settings->widgets->widgets_custom != null) {
 } else {
     $settings->widgets->put('widgets_custom', '', 'string', 'Custom widgets', false);
 }
-$core->setVersion('widgets', $version);
+dcCore::app()->setVersion('widgets', $version);
 
 return true;

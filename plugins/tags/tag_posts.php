@@ -24,23 +24,23 @@ if (isset($_POST['new_tag_id'])) {
     $new_id = dcMeta::sanitizeMetaID($_POST['new_tag_id']);
 
     try {
-        if ($core->meta->updateMeta($tag, $new_id, 'tag')) {
+        if (dcCore::app()->meta->updateMeta($tag, $new_id, 'tag')) {
             dcPage::addSuccessNotice(__('Tag has been successfully renamed'));
             http::redirect($p_url . '&m=tag_posts&tag=' . $new_id);
         }
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
 # Delete a tag
-if (!empty($_POST['delete']) && $core->auth->check('publish,contentadmin', $core->blog->id)) {
+if (!empty($_POST['delete']) && dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {
     try {
-        $core->meta->delMeta($tag, 'tag');
+        dcCore::app()->meta->delMeta($tag, 'tag');
         dcPage::addSuccessNotice(__('Tag has been successfully removed'));
         http::redirect($p_url . '&m=tags');
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -57,14 +57,14 @@ $posts     = null;
 $post_list = null;
 
 try {
-    $posts     = $core->meta->getPostsByMeta($params);
-    $counter   = $core->meta->getPostsByMeta($params, true);
-    $post_list = new adminPostList($core, $posts, $counter->f(0));
+    $posts     = dcCore::app()->meta->getPostsByMeta($params);
+    $counter   = dcCore::app()->meta->getPostsByMeta($params, true);
+    $post_list = new adminPostList(dcCore::app(), $posts, $counter->f(0));
 } catch (Exception $e) {
-    $core->error->add($e->getMessage());
+    dcCore::app()->error->add($e->getMessage());
 }
 
-$posts_actions_page = new dcPostsActionsPage($core, 'plugin.php', ['p' => 'tags', 'm' => 'tag_posts', 'tag' => $tag]);
+$posts_actions_page = new dcPostsActionsPage(dcCore::app(), 'plugin.php', ['p' => 'tags', 'm' => 'tag_posts', 'tag' => $tag]);
 
 if ($posts_actions_page->process()) {
     return;
@@ -89,7 +89,7 @@ dcPage::jsConfirmClose('tag_rename');
 <?php
 echo dcPage::breadcrumb(
     [
-        html::escapeHTML($core->blog->name)                         => '',
+        html::escapeHTML(dcCore::app()->blog->name)                 => '',
         __('Tags')                                                  => $p_url . '&amp;m=tags',
         __('Tag') . ' &ldquo;' . html::escapeHTML($tag) . '&rdquo;' => '',
     ]
@@ -100,7 +100,7 @@ dcPage::notices();
 <?php
 echo '<p><a class="back" href="' . $p_url . '&amp;m=tags">' . __('Back to tags list') . '</a></p>';
 
-if (!$core->error->flag()) {
+if (!dcCore::app()->error->flag()) {
     if (!$posts->isEmpty()) {
         echo
         '<div class="tag-actions vertical-separator">' .
@@ -110,14 +110,14 @@ if (!$core->error->flag()) {
         form::field('new_tag_id', 20, 255, html::escapeHTML($tag)) .
         '<input type="submit" value="' . __('OK') . '" />' .
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-        $core->formNonce() .
+        dcCore::app()->formNonce() .
             '</p></form>';
         # Remove tag
-        if (!$posts->isEmpty() && $core->auth->check('contentadmin', $core->blog->id)) {    // @phpstan-ignore-line
+        if (!$posts->isEmpty() && dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)) {    // @phpstan-ignore-line
             echo
             '<form id="tag_delete" action="' . $this_url . '" method="post">' .
             '<p><input type="submit" class="delete" name="delete" value="' . __('Delete this tag') . '" />' .
-            $core->formNonce() .
+            dcCore::app()->formNonce() .
                 '</p></form>';
         }
         echo '</div>';
@@ -128,7 +128,7 @@ if (!$core->error->flag()) {
     $post_list->display(
         $page,
         $nb_per_page,
-        '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" id="form-entries">' .
+        '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" id="form-entries">' .
 
         '%s' .
 
@@ -142,7 +142,7 @@ if (!$core->error->flag()) {
         form::hidden('p', 'tags') .
         form::hidden('m', 'tag_posts') .
         form::hidden('tag', $tag) .
-        $core->formNonce() .
+        dcCore::app()->formNonce() .
         '</div>' .
         '</form>'
     );

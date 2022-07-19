@@ -23,15 +23,15 @@ $__autoload['dcFilterIpLookup']    = __DIR__ . '/filters/class.dc.filter.iplooku
 $__autoload['dcFilterLinksLookup'] = __DIR__ . '/filters/class.dc.filter.linkslookup.php';
 $__autoload['dcFilterWords']       = __DIR__ . '/filters/class.dc.filter.words.php';
 
-$core->spamfilters = ['dcFilterIP', 'dcFilterIpLookup', 'dcFilterWords', 'dcFilterLinksLookup'];
+dcCore::app()->spamfilters = ['dcFilterIP', 'dcFilterIpLookup', 'dcFilterWords', 'dcFilterLinksLookup'];
 
 // IP v6 filter depends on some math libraries, so enable it only if one of them is available
 if (function_exists('gmp_init') || function_exists('bcadd')) {
-    $core->spamfilters[] = 'dcFilterIPv6';
+    dcCore::app()->spamfilters[] = 'dcFilterIPv6';
 }
 
-$core->url->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', ['dcAntispamURL', 'spamFeed']);
-$core->url->register('hamfeed', 'hamfeed', '^hamfeed/(.+)$', ['dcAntispamURL', 'hamFeed']);
+dcCore::app()->url->register('spamfeed', 'spamfeed', '^spamfeed/(.+)$', ['dcAntispamURL', 'spamFeed']);
+dcCore::app()->url->register('hamfeed', 'hamfeed', '^hamfeed/(.+)$', ['dcAntispamURL', 'hamFeed']);
 
 if (!defined('DC_CONTEXT_ADMIN')) {
     return false;
@@ -42,4 +42,4 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 $__autoload['dcAntispamRest'] = __DIR__ . '/_services.php';
 
 // Register REST methods
-$core->rest->addFunction('getSpamsCount', ['dcAntispamRest', 'getSpamsCount']);
+dcCore::app()->rest->addFunction('getSpamsCount', ['dcAntispamRest', 'getSpamsCount']);

@@ -14,13 +14,13 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 // Set env
 
-$core->blog->settings->addNamespace('maintenance');
+dcCore::app()->blog->settings->addNamespace('maintenance');
 
-$maintenance = new dcMaintenance($core);
+$maintenance = new dcMaintenance(dcCore::app());
 $tasks       = $maintenance->getTasks();
 
 $headers = '';
-$p_url   = $core->adminurl->get('admin.plugin.maintenance');
+$p_url   = dcCore::app()->adminurl->get('admin.plugin.maintenance');
 $task    = null;
 $expired = [];
 
@@ -33,7 +33,7 @@ if (!empty($_REQUEST['task'])) {
     $task = $maintenance->getTask($_REQUEST['task']);
 
     if ($task === null) {
-        $core->error->add('Unknown task ID');
+        dcCore::app()->error->add('Unknown task ID');
     }
 
     $task->code($code);
@@ -54,7 +54,7 @@ if ($task && !empty($_POST['task']) && $task->id() == $_POST['task']) {
             http::redirect($p_url . '&task=' . $task->id() . '&tab=' . $tab . '#' . $tab);
         }
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -62,7 +62,7 @@ if ($task && !empty($_POST['task']) && $task->id() == $_POST['task']) {
 
 if (!empty($_POST['save_settings'])) {
     try {
-        $core->blog->settings->maintenance->put(
+        dcCore::app()->blog->settings->maintenance->put(
             'plugin_message',
             !empty($_POST['settings_plugin_message']),
             'boolean',
@@ -81,7 +81,7 @@ if (!empty($_POST['save_settings'])) {
             } else {
                 $ts = empty($_POST['settings_ts_' . $t->id()]) ? 0 : $_POST['settings_ts_' . $t->id()];
             }
-            $core->blog->settings->maintenance->put(
+            dcCore::app()->blog->settings->maintenance->put(
                 'ts_' . $t->id(),
                 abs((int) $ts),
                 'integer',
@@ -94,7 +94,7 @@ if (!empty($_POST['save_settings'])) {
         dcPage::addSuccessNotice(__('Maintenance plugin has been successfully configured.'));
         http::redirect($p_url . '&tab=' . $tab . '#' . $tab);
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -103,23 +103,23 @@ if (!empty($_POST['save_settings'])) {
 if (!empty($_POST['save_system'])) {
     try {
         // Default (global) settings
-        $core->blog->settings->system->put('csp_admin_on', !empty($_POST['system_csp_global']), null, null, true, true);
-        $core->blog->settings->system->put('csp_admin_report_only', !empty($_POST['system_csp_global_report_only']), null, null, true, true);
+        dcCore::app()->blog->settings->system->put('csp_admin_on', !empty($_POST['system_csp_global']), null, null, true, true);
+        dcCore::app()->blog->settings->system->put('csp_admin_report_only', !empty($_POST['system_csp_global_report_only']), null, null, true, true);
         // Current blog settings
-        $core->blog->settings->system->put('csp_admin_on', !empty($_POST['system_csp']));
-        $core->blog->settings->system->put('csp_admin_report_only', !empty($_POST['system_csp_report_only']));
+        dcCore::app()->blog->settings->system->put('csp_admin_on', !empty($_POST['system_csp']));
+        dcCore::app()->blog->settings->system->put('csp_admin_report_only', !empty($_POST['system_csp_report_only']));
 
         dcPage::addSuccessNotice(__('System settings have been saved.'));
 
         if (!empty($_POST['system_csp_reset'])) {
-            $core->blog->settings->system->dropEvery('csp_admin_on');
-            $core->blog->settings->system->dropEvery('csp_admin_report_only');
+            dcCore::app()->blog->settings->system->dropEvery('csp_admin_on');
+            dcCore::app()->blog->settings->system->dropEvery('csp_admin_report_only');
             dcPage::addSuccessNotice(__('All blog\'s Content-Security-Policy settings have been reset to default.'));
         }
 
         http::redirect($p_url . '&tab=' . $tab . '#' . $tab);
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -196,7 +196,7 @@ if ($task && ($res = $task->step()) !== null) {
     '<input type="submit" value="' . $task->task() . '" /> ' .
     form::hidden(['task'], $task->id()) .
     form::hidden(['code'], (int) $code) .
-    $core->formNonce() .
+    dcCore::app()->formNonce() .
         '</p>' .
         '</form>' .
         '</div>';
@@ -230,7 +230,7 @@ if ($task && ($res = $task->step()) !== null) {
 
                 // Expired task alert message
                 $ts = $t->expired();
-                if ($core->blog->settings->maintenance->plugin_message && $ts !== false) {
+                if (dcCore::app()->blog->settings->maintenance->plugin_message && $ts !== false) {
                     if ($ts === null) {
                         $res_task .= '<br /> <span class="warn">' .
                         __('This task has never been executed.') . ' ' .
@@ -238,8 +238,8 @@ if ($task && ($res = $task->step()) !== null) {
                     } else {
                         $res_task .= '<br /> <span class="warn">' . sprintf(
                             __('Last execution of this task was on %s.'),
-                            dt::str($core->blog->settings->system->date_format, $ts) . ' ' .
-                            dt::str($core->blog->settings->system->time_format, $ts)
+                            dt::str(dcCore::app()->blog->settings->system->date_format, $ts) . ' ' .
+                            dt::str(dcCore::app()->blog->settings->system->time_format, $ts)
                         ) . ' ' .
                         __('You should execute it now.') . '</span>';
                     }
@@ -266,7 +266,7 @@ if ($task && ($res = $task->step()) !== null) {
             '<p><input type="submit" value="' . __('Execute task') . '" /> ' .
             ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
             form::hidden(['tab'], $tab_obj->id()) .
-            $core->formNonce() . '</p>' .
+            dcCore::app()->formNonce() . '</p>' .
             '<p class="form-note info">' . __('This may take a very long time.') . '</p>' .
                 '</form>' .
                 '</div>';
@@ -289,7 +289,7 @@ if ($task && ($res = $task->step()) !== null) {
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         form::hidden(['task'], $t->id()) .
         form::hidden(['tab'], $t->id()) .
-        $core->formNonce() . '</p>' .
+        dcCore::app()->formNonce() . '</p>' .
             '</form>' .
             '</div>';
     }
@@ -303,12 +303,12 @@ if ($task && ($res = $task->step()) !== null) {
 
     '<h4 class="pretty-title">' . __('Activation') . '</h4>' .
     '<p><label for="settings_plugin_message" class="classic">' .
-    form::checkbox('settings_plugin_message', 1, $core->blog->settings->maintenance->plugin_message) .
+    form::checkbox('settings_plugin_message', 1, dcCore::app()->blog->settings->maintenance->plugin_message) .
     __('Display alert messages on late tasks') . '</label></p>' .
 
     '<p class="info">' . sprintf(
         __('You can place list of late tasks on your %s.'),
-        '<a href="' . $core->adminurl->get('admin.user.preferences') . '#user-favorites">' . __('Dashboard') . '</a>'
+        '<a href="' . dcCore::app()->adminurl->get('admin.user.preferences') . '#user-favorites">' . __('Dashboard') . '</a>'
     ) . '</p>' .
 
     '<h4 class="pretty-title vertical-separator">' . __('Frequency') . '</h4>' .
@@ -344,12 +344,12 @@ if ($task && ($res = $task->step()) !== null) {
     ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
     form::hidden(['tab'], 'settings') .
     form::hidden(['save_settings'], 1) .
-    $core->formNonce() . '</p>' .
+    dcCore::app()->formNonce() . '</p>' .
         '</form>' .
         '</div>';
 
     // System tab
-    if ($core->auth->isSuperAdmin()) {
+    if (dcCore::app()->auth->isSuperAdmin()) {
         echo
         '<div id="system" class="multi-part" title="' . __('System') . '">' .
         '<h3>' . __('System settings') . '</h3>' .
@@ -361,19 +361,19 @@ if ($task && ($res = $task->step()) !== null) {
 
         '<div class="col">' .
         '<p><label for="system_csp" class="classic">' .
-        form::checkbox('system_csp', '1', $core->blog->settings->system->csp_admin_on) .
+        form::checkbox('system_csp', '1', dcCore::app()->blog->settings->system->csp_admin_on) .
         __('Enable Content-Security-Policy system') . '</label></p>' .
         '<p><label for="system_csp_report_only" class="classic">' .
-        form::checkbox('system_csp_report_only', '1', $core->blog->settings->system->csp_admin_report_only) .
+        form::checkbox('system_csp_report_only', '1', dcCore::app()->blog->settings->system->csp_admin_report_only) .
         __('Enable Content-Security-Policy report only') . '</label></p>' .
         '</div>' .
 
         '<div class="col">' .
         '<p><label for="system_csp_global" class="classic">' .
-        form::checkbox('system_csp_global', '1', $core->blog->settings->system->getGlobal('csp_admin_on')) .
+        form::checkbox('system_csp_global', '1', dcCore::app()->blog->settings->system->getGlobal('csp_admin_on')) .
         __('Enable Content-Security-Policy system by default') . '</label></p>' .
         '<p><label for="system_csp_global_report_only" class="classic">' .
-        form::checkbox('system_csp_global_report_only', '1', $core->blog->settings->system->getGlobal('csp_admin_report_only')) .
+        form::checkbox('system_csp_global_report_only', '1', dcCore::app()->blog->settings->system->getGlobal('csp_admin_report_only')) .
         __('Enable Content-Security-Policy report only by default') . '</label></p>' .
         '<p><label for="system_csp_reset" class="classic">' .
         form::checkbox('system_csp_reset', '1', 0) .
@@ -386,7 +386,7 @@ if ($task && ($res = $task->step()) !== null) {
         ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
         form::hidden(['tab'], 'system') .
         form::hidden(['save_system'], 1) .
-        $core->formNonce() . '</p>' .
+        dcCore::app()->formNonce() . '</p>' .
             '</form>' .
             '</div>';
     }

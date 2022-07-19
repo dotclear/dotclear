@@ -12,7 +12,7 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$core->addBehavior('initWidgets', ['simpleMenuWidgets', 'initWidgets']);
+dcCore::app()->addBehavior('initWidgets', ['simpleMenuWidgets', 'initWidgets']);
 
 class simpleMenuWidgets
 {

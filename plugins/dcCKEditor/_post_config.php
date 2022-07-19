@@ -21,7 +21,7 @@ if (!empty($_GET['context'])) {
 }
 
 $__extraPlugins = new ArrayObject();
-$core->callBehavior('ckeditorExtraPlugins', $__extraPlugins, $context);
+dcCore::app()->callBehavior('ckeditorExtraPlugins', $__extraPlugins, $context);
 $extraPlugins = $__extraPlugins->getArrayCopy();
 
 ?>
@@ -92,7 +92,7 @@ $(function() {
 
     CKEDITOR.config.skin = 'dotclear,'+dotclear.dcckeditor_plugin_url+'/js/ckeditor-skins/dotclear/';
     CKEDITOR.config.baseHref = dotclear.base_url;
-    CKEDITOR.config.height = '<?php echo $core->auth->getOption('edit_size') * 14; ?>px';
+    CKEDITOR.config.height = '<?php echo dcCore::app()->auth->getOption('edit_size') * 14; ?>px';
 
 <?php if (!empty($dcckeditor_cancollapse_button)): ?>
     CKEDITOR.config.toolbarCanCollapse = true;
@@ -251,7 +251,7 @@ if (!empty($extraPlugins)) {    // @phpstan-ignore-line
         ],
 
 <?php // footnotes related
-    switch ($core->blog->settings->system->note_title_tag) {
+    switch (dcCore::app()->blog->settings->system->note_title_tag) {
         case 1:
             $tag = 'h3';
 

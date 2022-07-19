@@ -24,6 +24,9 @@ class dcSpamFilter
     protected $has_gui = false;
     protected $gui_url = null;
 
+    /**
+     * @deprecated Since 2.23+, use dcCore::app() instead
+     */
     protected $core;
 
     /**
@@ -31,17 +34,17 @@ class dcSpamFilter
      *
      * @param      dcCore  $core   The core
      */
-    public function __construct(dcCore $core)
+    public function __construct(dcCore $core = null)
     {
-        $this->core = &$core;
+        $this->core = dcCore::app();
         $this->setInfo();
 
         if (!$this->name) {
             $this->name = get_class($this);
         }
 
-        if (isset($core->adminurl)) {
-            $this->gui_url = $core->adminurl->get('admin.plugin.antispam', ['f' => get_class($this)], '&');
+        if (isset(dcCore::app()->adminurl)) {
+            $this->gui_url = dcCore::app()->adminurl->get('admin.plugin.antispam', ['f' => get_class($this)], '&');
         }
     }
 
@@ -119,7 +122,7 @@ class dcSpamFilter
 
     public function hasGUI()
     {
-        if (!$this->core->auth->check('admin', $this->core->blog->id)) {
+        if (!dcCore::app()->auth->check('admin', dcCore::app()->blog->id)) {
             return false;
         }
 

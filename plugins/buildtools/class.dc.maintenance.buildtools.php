@@ -23,11 +23,10 @@ class dcMaintenanceBuildtools extends dcMaintenanceTask
 
     public function execute()
     {
-        global $core;
-        $widget = $this->core->plugins->getModules('widgets');
+        $widget = dcCore::app()->plugins->getModules('widgets');
         include $widget['root'] . '/_default_widgets.php';
 
-        $faker = new l10nFaker($GLOBALS['core']);
+        $faker = new l10nFaker(dcCore::app());
         $faker->generate_file();
 
         return true;
@@ -36,14 +35,12 @@ class dcMaintenanceBuildtools extends dcMaintenanceTask
 
 class l10nFaker
 {
-    protected $core;
     protected $bundled_plugins;
 
-    public function __construct($core)
+    public function __construct(dcCore $core = null)
     {
-        $this->core            = $core;
         $this->bundled_plugins = explode(',', DC_DISTRIB_PLUGINS);
-        $this->core->media     = new dcMedia($this->core);
+        dcCore::app()->media   = new dcMedia(dcCore::app());
     }
 
     protected function fake_l10n($str)
@@ -58,15 +55,15 @@ class l10nFaker
         $main   = "<?php\n";
         $plugin = "<?php\n";
         $main .= "# Media sizes\n\n";
-        foreach ($this->core->media->thumb_sizes as $k => $v) {
+        foreach (dcCore::app()->media->thumb_sizes as $k => $v) {
             $main .= $this->fake_l10n($v[2]);
         }
-        $post_types = $this->core->getPostTypes();
+        $post_types = dcCore::app()->getPostTypes();
         $main .= "\n# Post types\n\n";
         foreach ($post_types as $k => $v) {
             $main .= $this->fake_l10n($v['label']);
         }
-        $ws = $this->core->auth->user_prefs->favorites; // Favs old school !
+        $ws = dcCore::app()->auth->user_prefs->favorites; // Favs old school !
         if ($ws) {
             $main .= "\n# Favorites\n\n";
             foreach ($ws->dumpPrefs() as $k => $v) {
@@ -77,7 +74,7 @@ class l10nFaker
         file_put_contents(dirname($__autoload['dcCore']) . '/_fake_l10n.php', $main);
         $plugin .= "\n# Plugin names\n\n";
         foreach ($this->bundled_plugins as $id) {
-            $p = $this->core->plugins->getModules($id);
+            $p = dcCore::app()->plugins->getModules($id);
             $plugin .= $this->fake_l10n($p['desc']);
         }
         $plugin .= "\n# Widget settings names\n\n";

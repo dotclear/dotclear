@@ -29,22 +29,22 @@ class dcMaintenanceZipmedia extends dcMaintenanceTask
     public function execute()
     {
         // Instance media
-        $this->core->media = new dcMedia($this->core);
-        $this->core->media->chdir('');
-        $this->core->media->getDir();
+        dcCore::app()->media = new dcMedia(dcCore::app());
+        dcCore::app()->media->chdir('');
+        dcCore::app()->media->getDir();
 
         // Create zip
         @set_time_limit(300);
         $fp  = fopen('php://output', 'wb');
         $zip = new fileZip($fp);
         $zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).jpg$#');
-        $zip->addDirectory($this->core->media->root . '/', '', true);
+        $zip->addDirectory(dcCore::app()->media->root . '/', '', true);
 
         // Log task execution here as we sent file and stop script
         $this->log();
 
         // Send zip
-        header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . $this->core->blog->id . '-' . 'media.zip');
+        header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . dcCore::app()->blog->id . '-' . 'media.zip');
         header('Content-Type: application/x-zip');
         $zip->write();
         unset($zip);

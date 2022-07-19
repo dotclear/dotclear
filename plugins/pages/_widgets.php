@@ -12,8 +12,8 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$core->addBehavior('initWidgets', ['pagesWidgets', 'initWidgets']);
-$core->addBehavior('initDefaultWidgets', ['pagesWidgets', 'initDefaultWidgets']);
+dcCore::app()->addBehavior('initWidgets', ['pagesWidgets', 'initWidgets']);
+dcCore::app()->addBehavior('initDefaultWidgets', ['pagesWidgets', 'initDefaultWidgets']);
 
 class pagesWidgets
 {

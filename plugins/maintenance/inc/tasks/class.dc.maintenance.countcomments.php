@@ -27,7 +27,7 @@ class dcMaintenanceCountcomments extends dcMaintenanceTask
 
     public function execute()
     {
-        $this->core->countAllComments();
+        dcCore::app()->countAllComments();
 
         return true;
     }

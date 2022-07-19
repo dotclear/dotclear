@@ -12,15 +12,15 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$version = $core->plugins->moduleInfo('blogroll', 'version');
+$version = dcCore::app()->plugins->moduleInfo('blogroll', 'version');
 
-if (version_compare($core->getVersion('blogroll'), $version, '>=')) {
+if (version_compare(dcCore::app()->getVersion('blogroll'), $version, '>=')) {
     return;
 }
 
 /* Database schema
 -------------------------------------------------------- */
-$s = new dbStruct($core->con, $core->prefix);
+$s = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
 
 $s->link
     ->link_id('bigint', 0, false)
@@ -39,9 +39,9 @@ $s->link->index('idx_link_blog_id', 'btree', 'blog_id');
 $s->link->reference('fk_link_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'cascade');
 
 # Schema installation
-$si      = new dbStruct($core->con, $core->prefix);
+$si      = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
 $changes = $si->synchronize($s);
 
-$core->setVersion('blogroll', $version);
+dcCore::app()->setVersion('blogroll', $version);
 
 return true;

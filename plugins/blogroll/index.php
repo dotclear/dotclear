@@ -12,7 +12,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$blogroll = new dcBlogroll($core->blog);
+$blogroll = new dcBlogroll(dcCore::app()->blog);
 
 if (!empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
     include __DIR__ . '/edit.php';
@@ -52,7 +52,7 @@ if (!empty($_POST['import_links']) && !empty($_FILES['links_file'])) {
             throw new Exception(__('Nothing to import'));
         }
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -65,7 +65,7 @@ if (!empty($_POST['import_links_do'])) {
         try {
             $blogroll->addLink($link_title, $link_href, $link_desc, '');
         } catch (Exception $e) {
-            $core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
             $default_tab = 'import-links';
         }
     }
@@ -75,7 +75,7 @@ if (!empty($_POST['import_links_do'])) {
 }
 
 if (!empty($_POST['cancel_import'])) {
-    $core->error->add(__('Import operation cancelled.'));
+    dcCore::app()->error->add(__('Import operation cancelled.'));
     $default_tab = 'import-links';
 }
 
@@ -92,7 +92,7 @@ if (!empty($_POST['add_link'])) {
         dcPage::addSuccessNotice(__('Link has been successfully created.'));
         http::redirect($p_url);
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
         $default_tab = 'add-link';
     }
 }
@@ -106,7 +106,7 @@ if (!empty($_POST['add_cat'])) {
         dcPage::addSuccessNotice(__('category has been successfully created.'));
         http::redirect($p_url);
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
         $default_tab = 'add-cat';
     }
 }
@@ -117,13 +117,13 @@ if (!empty($_POST['removeaction']) && !empty($_POST['remove'])) {
         try {
             $blogroll->delItem($v);
         } catch (Exception $e) {
-            $core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
 
             break;
         }
     }
 
-    if (!$core->error->flag()) {
+    if (!dcCore::app()->error->flag()) {
         dcPage::addSuccessNotice(__('Items have been successfully removed.'));
         http::redirect($p_url);
     }
@@ -146,11 +146,11 @@ if (!empty($_POST['saveorder']) && !empty($order)) {
         try {
             $blogroll->updateOrder($l, $pos);
         } catch (Exception $e) {
-            $core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
         }
     }
 
-    if (!$core->error->flag()) {
+    if (!dcCore::app()->error->flag()) {
         dcPage::addSuccessNotice(__('Items order has been successfully updated'));
         http::redirect($p_url);
     }
@@ -162,7 +162,7 @@ $rs = null;
 try {
     $rs = $blogroll->getLinks();
 } catch (Exception $e) {
-    $core->error->add($e->getMessage());
+    dcCore::app()->error->add($e->getMessage());
 }
 
 ?>
@@ -171,8 +171,8 @@ try {
   <title><?php echo __('Blogroll'); ?></title>
   <?php echo dcPage::jsConfirmClose('links-form', 'add-link-form', 'add-category-form'); ?>
   <?php
-$core->auth->user_prefs->addWorkspace('accessibility');
-if (!$core->auth->user_prefs->accessibility->nodragdrop) {
+dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
+if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
     echo
     dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
     dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
@@ -186,8 +186,8 @@ if (!$core->auth->user_prefs->accessibility->nodragdrop) {
 <?php
 echo dcPage::breadcrumb(
     [
-        html::escapeHTML($core->blog->name) => '',
-        __('Blogroll')                      => '',
+        html::escapeHTML(dcCore::app()->blog->name) => '',
+        __('Blogroll')                              => '',
     ]
 ) .
 dcPage::notices();
@@ -198,7 +198,7 @@ dcPage::notices();
 <?php if (!$rs->isEmpty()) {
     ?>
 
-<form action="<?php echo $core->adminurl->get('admin.plugin'); ?>" method="post" id="links-form">
+<form action="<?php echo dcCore::app()->adminurl->get('admin.plugin'); ?>" method="post" id="links-form">
 <div class="table-outer">
 <table class="dragable">
 <thead>
@@ -256,7 +256,7 @@ while ($rs->fetch()) {
 echo
     form::hidden('links_order', '') .
     form::hidden(['p'], 'blogroll') .
-    $core->formNonce(); ?>
+    dcCore::app()->formNonce(); ?>
 <input type="submit" name="saveorder" value="<?php echo __('Save order'); ?>" />
 <input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
 </p>
@@ -277,7 +277,7 @@ echo
 <?php
 echo
 '<div class="multi-part clear" id="add-link" title="' . __('Add a link') . '">' .
-'<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" id="add-link-form">' .
+'<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" id="add-link-form">' .
 '<h3>' . __('Add a new link') . '</h3>' .
 '<p class="col"><label for="link_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
 form::field('link_title', 30, 255, [
@@ -301,7 +301,7 @@ form::field('link_desc', 30, 255, $link_desc) .
 form::field('link_lang', 5, 5, $link_lang) .
 '</p>' .
 '<p>' . form::hidden(['p'], 'blogroll') .
-$core->formNonce() .
+dcCore::app()->formNonce() .
 '<input type="submit" name="add_link" value="' . __('Save') . '" />' .
 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
 '</p>' .
@@ -310,7 +310,7 @@ $core->formNonce() .
 
 echo
 '<div class="multi-part" id="add-cat" title="' . __('Add a category') . '">' .
-'<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" id="add-category-form">' .
+'<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" id="add-category-form">' .
 '<h3>' . __('Add a new category') . '</h3>' .
 '<p><label for="cat_title" class=" classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
 form::field('cat_title', 30, 255, [
@@ -319,7 +319,7 @@ form::field('cat_title', 30, 255, [
 ]) .
 '</p>' .
 '<p>' . form::hidden(['p'], 'blogroll') .
-$core->formNonce() .
+dcCore::app()->formNonce() .
 '<input type="submit" name="add_cat" value="' . __('Save') . '" />' .
 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
 '</p>' .
@@ -330,19 +330,19 @@ echo
 '<div class="multi-part" id="import-links" title="' . __('Import links') . '">';
 if (!isset($imported)) {
     echo
-    '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" id="import-links-form" enctype="multipart/form-data">' .
+    '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" id="import-links-form" enctype="multipart/form-data">' .
     '<h3>' . __('Import links') . '</h3>' .
     '<p><label for="links_file" class=" classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('OPML or XBEL File:') . '</label> ' .
     '<input type="file" id="links_file" name="links_file" required /></p>' .
     '<p>' . form::hidden(['p'], 'blogroll') .
-    $core->formNonce() .
+    dcCore::app()->formNonce() .
     '<input type="submit" name="import_links" value="' . __('Import') . '" />' .
     ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
     '</p>' .
     '</form>';
 } else {
     echo
-    '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" id="import-links-form">' .
+    '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" id="import-links-form">' .
     '<h3>' . __('Import links') . '</h3>';
     if (empty($imported)) {
         echo '<p>' . __('Nothing to import') . '</p>';
@@ -377,7 +377,7 @@ if (!isset($imported)) {
 
         '<p class="col right">' .
         form::hidden(['p'], 'blogroll') .
-        $core->formNonce() .
+        dcCore::app()->formNonce() .
         '<input type="submit" name="cancel_import" value="' . __('Cancel') . '" />&nbsp;' .
         '<input type="submit" name="import_links_do" value="' . __('Import') . '" /></p>' .
             '</div>';

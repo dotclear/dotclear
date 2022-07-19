@@ -40,7 +40,7 @@ class adminPagesList extends adminGenericList
             ];
 
             $cols = new ArrayObject($cols);
-            $this->core->callBehavior('adminPagesListHeader', $this->core, $this->rs, $cols);
+            dcCore::app()->callBehavior('adminPagesListHeader', dcCore::app(), $this->rs, $cols);
 
             // Cope with optional columns
             $this->userColumns('pages', $cols);
@@ -151,7 +151,7 @@ class adminPagesList extends adminGenericList
                 ]
             ) . '</td>',
             'title' => '<td class="maximal" scope="row"><a href="' .
-            $this->core->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '">' .
+            dcCore::app()->getPostAdminURL($this->rs->post_type, $this->rs->post_id) . '">' .
             html::escapeHTML($this->rs->post_title) . '</a></td>',
             'date'       => '<td class="nowrap">' . dt::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt) . '</td>',
             'author'     => '<td class="nowrap">' . $this->rs->user_id . '</td>',
@@ -161,7 +161,7 @@ class adminPagesList extends adminGenericList
         ];
 
         $cols = new ArrayObject($cols);
-        $this->core->callBehavior('adminPagesListValue', $this->core, $this->rs, $cols);
+        dcCore::app()->callBehavior('adminPagesListValue', dcCore::app(), $this->rs, $cols);
 
         // Cope with optional columns
         $this->userColumns('pages', $cols);

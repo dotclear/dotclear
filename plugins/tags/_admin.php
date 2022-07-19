@@ -14,33 +14,33 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 $_menu['Blog']->addItem(
     __('Tags'),
-    $core->adminurl->get('admin.plugin.tags', ['m' => 'tags']),
+    dcCore::app()->adminurl->get('admin.plugin.tags', ['m' => 'tags']),
     [dcPage::getPF('tags/icon.svg'), dcPage::getPF('tags/icon-dark.svg')],
-    preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.tags')) . '&m=tag(s|_posts)?(&.*)?$/', $_SERVER['REQUEST_URI']),
-    $core->auth->check('usage,contentadmin', $core->blog->id)
+    preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.tags')) . '&m=tag(s|_posts)?(&.*)?$/', $_SERVER['REQUEST_URI']),
+    dcCore::app()->auth->check('usage,contentadmin', dcCore::app()->blog->id)
 );
 
 require __DIR__ . '/_widgets.php';
 
-$core->addBehavior('adminPostFormItems', ['tagsBehaviors', 'tagsField']);
+dcCore::app()->addBehavior('adminPostFormItems', ['tagsBehaviors', 'tagsField']);
 
-$core->addBehavior('adminAfterPostCreate', ['tagsBehaviors', 'setTags']);
-$core->addBehavior('adminAfterPostUpdate', ['tagsBehaviors', 'setTags']);
+dcCore::app()->addBehavior('adminAfterPostCreate', ['tagsBehaviors', 'setTags']);
+dcCore::app()->addBehavior('adminAfterPostUpdate', ['tagsBehaviors', 'setTags']);
 
-$core->addBehavior('adminPostHeaders', ['tagsBehaviors', 'postHeaders']);
+dcCore::app()->addBehavior('adminPostHeaders', ['tagsBehaviors', 'postHeaders']);
 
-$core->addBehavior('adminPostsActionsPage', ['tagsBehaviors', 'adminPostsActionsPage']);
+dcCore::app()->addBehavior('adminPostsActionsPage', ['tagsBehaviors', 'adminPostsActionsPage']);
 
-$core->addBehavior('adminPreferencesForm', ['tagsBehaviors', 'adminUserForm']);
-$core->addBehavior('adminBeforeUserOptionsUpdate', ['tagsBehaviors', 'setTagListFormat']);
+dcCore::app()->addBehavior('adminPreferencesForm', ['tagsBehaviors', 'adminUserForm']);
+dcCore::app()->addBehavior('adminBeforeUserOptionsUpdate', ['tagsBehaviors', 'setTagListFormat']);
 
-$core->addBehavior('adminUserForm', ['tagsBehaviors', 'adminUserForm']);
-$core->addBehavior('adminBeforeUserCreate', ['tagsBehaviors', 'setTagListFormat']);
-$core->addBehavior('adminBeforeUserUpdate', ['tagsBehaviors', 'setTagListFormat']);
+dcCore::app()->addBehavior('adminUserForm', ['tagsBehaviors', 'adminUserForm']);
+dcCore::app()->addBehavior('adminBeforeUserCreate', ['tagsBehaviors', 'setTagListFormat']);
+dcCore::app()->addBehavior('adminBeforeUserUpdate', ['tagsBehaviors', 'setTagListFormat']);
 
-$core->addBehavior('adminDashboardFavorites', ['tagsBehaviors', 'dashboardFavorites']);
+dcCore::app()->addBehavior('adminDashboardFavorites', ['tagsBehaviors', 'dashboardFavorites']);
 
-$core->addBehavior('adminPageHelpBlock', ['tagsBehaviors', 'adminPageHelpBlock']);
+dcCore::app()->addBehavior('adminPageHelpBlock', ['tagsBehaviors', 'adminPageHelpBlock']);
 
-$core->addBehavior('adminPostEditor', ['tagsBehaviors', 'adminPostEditor']);
-$core->addBehavior('ckeditorExtraPlugins', ['tagsBehaviors', 'ckeditorExtraPlugins']);
+dcCore::app()->addBehavior('adminPostEditor', ['tagsBehaviors', 'adminPostEditor']);
+dcCore::app()->addBehavior('ckeditorExtraPlugins', ['tagsBehaviors', 'ckeditorExtraPlugins']);

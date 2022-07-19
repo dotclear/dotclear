@@ -14,7 +14,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 class dcLegacyEditorRest
 {
-    public static function convert($core, $get, $post)
+    public static function convert(dcCore $core, $get, $post)
     {
         $wiki = $post['wiki'] ?? '';
         $rsp  = new xmlTag('wiki');
@@ -22,14 +22,14 @@ class dcLegacyEditorRest
         $ret  = false;
         $html = '';
         if ($wiki !== '') {
-            if (!($core->wiki2xhtml instanceof wiki2xhtml)) {
-                $core->initWikiPost();
+            if (!(dcCore::app()->wiki2xhtml instanceof wiki2xhtml)) {
+                dcCore::app()->initWikiPost();
             }
-            $html = $core->callFormater('wiki', $wiki);
+            $html = dcCore::app()->callFormater('wiki', $wiki);
             $ret  = strlen($html) > 0;
 
             if ($ret) {
-                $media_root = $core->blog->host;
+                $media_root = dcCore::app()->blog->host;
                 $html       = preg_replace_callback('/src="([^\"]*)"/', function ($matches) use ($media_root) {
                     if (!preg_match('/^http(s)?:\/\//', $matches[1])) {
                         // Relative URL, convert to absolute

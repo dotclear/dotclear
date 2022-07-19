@@ -17,7 +17,11 @@ Main class to call everything related to maintenance.
  */
 class dcMaintenance
 {
+    /**
+     * @deprecated Since 2.23+, use dcCore::app() instead
+     */
     public $core;
+
     public $p_url;
 
     private $tasks  = [];
@@ -30,10 +34,10 @@ class dcMaintenance
      *
      * @param    dcCore    $core    dcCore instance
      */
-    public function __construct(dcCore $core)
+    public function __construct(dcCore $core = null)
     {
-        $this->core  = $core;
-        $this->p_url = $core->adminurl->get('admin.plugin.maintenance');
+        $this->core  = dcCore::app();
+        $this->p_url = dcCore::app()->adminurl->get('admin.plugin.maintenance');
         $logs        = $this->getLogs();
         $this->init();
     }
@@ -48,7 +52,7 @@ class dcMaintenance
     protected function init()
     {
         # --BEHAVIOR-- dcMaintenanceInit
-        $this->core->callBehavior('dcMaintenanceInit', $this);
+        dcCore::app()->callBehavior('dcMaintenanceInit', $this);
     }
 
     /// @name Tab methods
@@ -204,10 +208,10 @@ class dcMaintenance
         }
 
         // Get logs from this task
-        $rs = $this->core->con->select(
+        $rs = dcCore::app()->con->select(
             'SELECT log_id ' .
-            'FROM ' . $this->core->prefix . 'log ' .
-            "WHERE log_msg = '" . $this->core->con->escape($id) . "' " .
+            'FROM ' . dcCore::app()->prefix . 'log ' .
+            "WHERE log_msg = '" . dcCore::app()->con->escape($id) . "' " .
             "AND log_table = 'maintenance' "
         );
 
@@ -218,17 +222,17 @@ class dcMaintenance
 
         // Delete old logs
         if (!empty($logs)) {
-            $this->core->log->delLogs($logs);
+            dcCore::app()->log->delLogs($logs);
         }
 
         // Add new log
-        $cur = $this->core->con->openCursor($this->core->prefix . 'log');
+        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'log');
 
         $cur->log_msg   = $id;
         $cur->log_table = 'maintenance';
-        $cur->user_id   = $this->core->auth->userID();
+        $cur->user_id   = dcCore::app()->auth->userID();
 
-        $this->core->log->addLog($cur);
+        dcCore::app()->log->addLog($cur);
     }
 
     /**
@@ -237,7 +241,7 @@ class dcMaintenance
     public function delLogs()
     {
         // Retrieve logs from this task
-        $rs = $this->core->log->getLogs([
+        $rs = dcCore::app()->log->getLogs([
             'log_table' => 'maintenance',
             'blog_id'   => '*',
         ]);
@@ -249,7 +253,7 @@ class dcMaintenance
 
         // Delete old logs
         if (!empty($logs)) {
-            $this->core->log->delLogs($logs);
+            dcCore::app()->log->delLogs($logs);
         }
     }
 
@@ -268,7 +272,7 @@ class dcMaintenance
     public function getLogs()
     {
         if ($this->logs === null) {
-            $rs = $this->core->log->getLogs([
+            $rs = dcCore::app()->log->getLogs([
                 'log_table' => 'maintenance',
                 'blog_id'   => '*',
             ]);
@@ -277,7 +281,7 @@ class dcMaintenance
             while ($rs->fetch()) {
                 $this->logs[$rs->log_msg] = [
                     'ts'   => strtotime($rs->log_dt),
-                    'blog' => $rs->blog_id == $this->core->blog->id,
+                    'blog' => $rs->blog_id == dcCore::app()->blog->id,
                 ];
             }
         }

@@ -151,8 +151,6 @@ class blowupConfig
 
     public static function createCss($s)
     {
-        global $core;
-
         if ($s === null) {
             return;
         }
@@ -297,10 +295,10 @@ class blowupConfig
         }
 
         # erase old css file
-        self::dropCss($core->blog->settings->system->theme);
+        self::dropCss(dcCore::app()->blog->settings->system->theme);
 
         # create new css file into public blowup-css subdirectory
-        self::writeCss($core->blog->settings->system->theme, $res);
+        self::writeCss(dcCore::app()->blog->settings->system->theme, $res);
 
         return $res;
     }
@@ -434,9 +432,9 @@ class blowupConfig
                 imagedestroy($mask);
 
                 $fill = imagecolorallocate($d_page_t, 255, 255, 255);
-                imagefilledrectangle($d_page_t, 0, 11, 3, $size - 1, $fill);
+                imagefilledrectangle($d_page_t, 0, 11, 3, $size     - 1, $fill);
                 imagefilledrectangle($d_page_t, 796, 11, 799, $size - 1, $fill);
-                imagefilledrectangle($d_page_t, 0, $size - 9, 799, $size - 1, $fill);
+                imagefilledrectangle($d_page_t, 0, $size            - 9, 799, $size            - 1, $fill);
             }
 
             $config['top_height'] = ($size) . 'px';

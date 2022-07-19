@@ -12,20 +12,20 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$is_admin = $core->auth->check('admin,contentadmin', $core->blog->id) || $core->auth->isSuperAdmin();
+$is_admin = dcCore::app()->auth->check('admin,contentadmin', dcCore::app()->blog->id) || dcCore::app()->auth->isSuperAdmin();
 
-$core->blog->settings->addNameSpace('dclegacyeditor');
-$dclegacyeditor_active = $core->blog->settings->dclegacyeditor->active;
+dcCore::app()->blog->settings->addNameSpace('dclegacyeditor');
+$dclegacyeditor_active = dcCore::app()->blog->settings->dclegacyeditor->active;
 
 if (!empty($_POST['saveconfig'])) {
     try {
         $dclegacyeditor_active = (empty($_POST['dclegacyeditor_active'])) ? false : true;
-        $core->blog->settings->dclegacyeditor->put('active', $dclegacyeditor_active, 'boolean');
+        dcCore::app()->blog->settings->dclegacyeditor->put('active', $dclegacyeditor_active, 'boolean');
 
         dcPage::addSuccessNotice(__('The configuration has been updated.'));
         http::redirect($p_url);
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 

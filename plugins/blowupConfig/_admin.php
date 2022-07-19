@@ -12,11 +12,11 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$core->addBehavior(
+dcCore::app()->addBehavior(
     'adminCurrentThemeDetails',
-    function ($core, $id) {
-        if ($id == 'default' && $core->auth->check('admin', $core->blog->id)) {
-            return '<p><a href="' . $core->adminurl->get('admin.plugin.blowupConfig') . '" class="button submit">' . __('Configure theme') . '</a></p>';
+    function (dcCore $core, $id) {
+        if ($id == 'default' && dcCore::app()->auth->check('admin', dcCore::app()->blog->id)) {
+            return '<p><a href="' . dcCore::app()->adminurl->get('admin.plugin.blowupConfig') . '" class="button submit">' . __('Configure theme') . '</a></p>';
         }
     }
 );

@@ -12,10 +12,10 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$core->url->register('tag', 'tag', '^tag/(.+)$', ['urlTags', 'tag']);
-$core->url->register('tags', 'tags', '^tags$', ['urlTags', 'tags']);
-$core->url->register('tag_feed', 'feed/tag', '^feed/tag/(.+)$', ['urlTags', 'tagFeed']);
+dcCore::app()->url->register('tag', 'tag', '^tag/(.+)$', ['urlTags', 'tag']);
+dcCore::app()->url->register('tags', 'tags', '^tags$', ['urlTags', 'tags']);
+dcCore::app()->url->register('tag_feed', 'feed/tag', '^feed/tag/(.+)$', ['urlTags', 'tagFeed']);
 
 $__autoload['tagsBehaviors'] = __DIR__ . '/inc/tags.behaviors.php';
 
-$core->addBehavior('coreInitWikiPost', ['tagsBehaviors', 'coreInitWikiPost']);
+dcCore::app()->addBehavior('coreInitWikiPost', ['tagsBehaviors', 'coreInitWikiPost']);

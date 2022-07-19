@@ -12,9 +12,9 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$core->addBehavior('xmlrpcGetPostInfo', ['tagsXMLRPCbehaviors', 'getPostInfo']);
-$core->addBehavior('xmlrpcAfterNewPost', ['tagsXMLRPCbehaviors', 'editPost']);
-$core->addBehavior('xmlrpcAfterEditPost', ['tagsXMLRPCbehaviors', 'editPost']);
+dcCore::app()->addBehavior('xmlrpcGetPostInfo', ['tagsXMLRPCbehaviors', 'getPostInfo']);
+dcCore::app()->addBehavior('xmlrpcAfterNewPost', ['tagsXMLRPCbehaviors', 'editPost']);
+dcCore::app()->addBehavior('xmlrpcAfterEditPost', ['tagsXMLRPCbehaviors', 'editPost']);
 
 class tagsXMLRPCbehaviors
 {
@@ -22,7 +22,7 @@ class tagsXMLRPCbehaviors
     {
         $res = &$res[0];
 
-        $rs = $x->core->meta->getMetadata([
+        $rs = dcCore::app()->meta->getMetadata([
             'meta_type' => 'tag',
             'post_id'   => $res['postid'], ]);
 
@@ -39,10 +39,10 @@ class tagsXMLRPCbehaviors
     {
         # Check if we have mt_keywords in struct
         if (isset($struct['mt_keywords'])) {
-            $x->core->meta->delPostMeta($post_id, 'tag');
+            dcCore::app()->meta->delPostMeta($post_id, 'tag');
 
-            foreach ($x->core->meta->splitMetaValues($struct['mt_keywords']) as $m) {
-                $x->core->meta->setPostMeta($post_id, 'tag', $m);
+            foreach (dcCore::app()->meta->splitMetaValues($struct['mt_keywords']) as $m) {
+                dcCore::app()->meta->setPostMeta($post_id, 'tag', $m);
             }
         }
     }

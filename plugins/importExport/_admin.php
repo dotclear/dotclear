@@ -14,18 +14,18 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 $_menu['Plugins']->addItem(
     __('Import/Export'),
-    $core->adminurl->get('admin.plugin.importExport'),
+    dcCore::app()->adminurl->get('admin.plugin.importExport'),
     [dcPage::getPF('importExport/icon.svg'), dcPage::getPF('importExport/icon-dark.svg')],
-    preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.importExport')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-    $core->auth->check('admin', $core->blog->id)
+    preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.importExport')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
+    dcCore::app()->auth->check('admin', dcCore::app()->blog->id)
 );
 
-$core->addBehavior(
+dcCore::app()->addBehavior(
     'adminDashboardFavorites',
-    function ($core, $favs) {
+    function (dcCore $core, $favs) {
         $favs->register('importExport', [
             'title'       => __('Import/Export'),
-            'url'         => $core->adminurl->get('admin.plugin.importExport'),
+            'url'         => dcCore::app()->adminurl->get('admin.plugin.importExport'),
             'small-icon'  => [dcPage::getPF('importExport/icon.svg'), dcPage::getPF('importExport/icon-dark.svg')],
             'large-icon'  => [dcPage::getPF('importExport/icon.svg'), dcPage::getPF('importExport/icon-dark.svg')],
             'permissions' => 'admin',
@@ -33,7 +33,7 @@ $core->addBehavior(
     }
 );
 
-$core->addBehavior(
+dcCore::app()->addBehavior(
     'dcMaintenanceInit',
     function ($maintenance) {
         $maintenance

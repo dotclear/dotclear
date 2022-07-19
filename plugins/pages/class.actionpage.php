@@ -10,24 +10,24 @@
  */
 class dcPagesActionsPage extends dcPostsActionsPage
 {
-    public function __construct($core, $uri, $redirect_args = [])
+    public function __construct(dcCore $core, $uri, $redirect_args = [])
     {
-        parent::__construct($core, $uri, $redirect_args);
+        parent::__construct(dcCore::app(), $uri, $redirect_args);
         $this->redirect_fields = [];
         $this->caller_title    = __('Pages');
     }
 
     public function error(Exception $e)
     {
-        $this->core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
         $this->beginPage(
             dcPage::breadcrumb(
-            [
-                html::escapeHTML($this->core->blog->name) => '',
-                __('Pages')                               => $this->getRedirection(true),
-                __('Pages actions')                       => '',
-            ]
-        )
+                [
+                    html::escapeHTML(dcCore::app()->blog->name) => '',
+                    __('Pages')                                 => $this->getRedirection(true),
+                    __('Pages actions')                         => '',
+                ]
+            )
         );
         $this->endPage();
     }
@@ -49,9 +49,9 @@ class dcPagesActionsPage extends dcPostsActionsPage
 
     public function loadDefaults()
     {
-        DefaultPagesActions::adminPagesActionsPage($this->core, $this);
+        DefaultPagesActions::adminPagesActionsPage(dcCore::app(), $this);
         $this->actions['reorder'] = ['dcPagesActionsPage', 'doReorderPages'];
-        $this->core->callBehavior('adminPagesActionsPage', $this->core, $this);
+        dcCore::app()->callBehavior('adminPagesActionsPage', dcCore::app(), $this);
     }
     public function process()
     {
@@ -64,28 +64,28 @@ class dcPagesActionsPage extends dcPostsActionsPage
         return parent::process();
     }
 
-    public static function doReorderPages($core, dcPostsActionsPage $ap, $post)
+    public static function doReorderPages(dcCore $core, dcPostsActionsPage $ap, $post)
     {
         foreach ($post['order'] as $post_id => $value) {
-            if (!$core->auth->check('publish,contentadmin', $core->blog->id)) {
+            if (!dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {
                 throw new Exception(__('You are not allowed to change this entry status'));
             }
 
-            $strReq = "WHERE blog_id = '" . $core->con->escape($core->blog->id) . "' " .
-            'AND post_id ' . $core->con->in($post_id);
+            $strReq = "WHERE blog_id = '" . dcCore::app()->con->escape(dcCore::app()->blog->id) . "' " .
+            'AND post_id ' . dcCore::app()->con->in($post_id);
 
             #If user can only publish, we need to check the post's owner
-            if (!$core->auth->check('contentadmin', $core->blog->id)) {
-                $strReq .= "AND user_id = '" . $core->con->escape($core->auth->userID()) . "' ";
+            if (!dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)) {
+                $strReq .= "AND user_id = '" . dcCore::app()->con->escape(dcCore::app()->auth->userID()) . "' ";
             }
 
-            $cur = $core->con->openCursor($core->prefix . 'post');
+            $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
 
             $cur->post_position = (int) $value - 1;
             $cur->post_upddt    = date('Y-m-d H:i:s');
 
             $cur->update($strReq);
-            $core->blog->triggerBlog();
+            dcCore::app()->blog->triggerBlog();
         }
 
         dcPage::addSuccessNotice(__('Selected pages have been successfully reordered.'));
@@ -95,9 +95,9 @@ class dcPagesActionsPage extends dcPostsActionsPage
 
 class DefaultPagesActions
 {
-    public static function adminPagesActionsPage($core, $ap)
+    public static function adminPagesActionsPage(dcCore $core, $ap)
     {
-        if ($core->auth->check('publish,contentadmin', $core->blog->id)) {
+        if (dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Status') => [
                     __('Publish')         => 'publish',
@@ -108,14 +108,14 @@ class DefaultPagesActions
                 ['dcDefaultPostActions', 'doChangePostStatus']
             );
         }
-        if ($core->auth->check('admin', $core->blog->id)) {
+        if (dcCore::app()->auth->check('admin', dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Change') => [
                     __('Change author') => 'author', ]],
                 ['dcDefaultPostActions', 'doChangePostAuthor']
             );
         }
-        if ($core->auth->check('delete,contentadmin', $core->blog->id)) {
+        if (dcCore::app()->auth->check('delete,contentadmin', dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Delete') => [
                     __('Delete') => 'delete', ]],

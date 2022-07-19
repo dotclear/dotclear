@@ -13,4 +13,4 @@ if (!defined('DC_RC_PATH')) {
 }
 
 $__autoload['dcFilterAkismet'] = __DIR__ . '/class.dc.filter.akismet.php';
-$core->spamfilters[]           = 'dcFilterAkismet';
+dcCore::app()->spamfilters[]   = 'dcFilterAkismet';

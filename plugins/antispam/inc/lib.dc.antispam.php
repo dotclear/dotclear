@@ -18,14 +18,12 @@ class dcAntispam
 
     public static function initFilters()
     {
-        global $core;
-
-        if (!isset($core->spamfilters)) {
+        if (!isset(dcCore::app()->spamfilters)) {
             return;
         }
 
-        self::$filters = new dcSpamFilters($core);
-        self::$filters->init($core->spamfilters);
+        self::$filters = new dcSpamFilters(dcCore::app());
+        self::$filters->init(dcCore::app()->spamfilters);
     }
 
     public static function isSpam($cur)
@@ -69,12 +67,12 @@ class dcAntispam
         }
     }
 
-    public static function dashboardIconTitle($core)
+    public static function dashboardIconTitle(dcCore $core = null)
     {
-        if (($count = self::countSpam($core)) > 0) {
+        if (($count = self::countSpam(dcCore::app())) > 0) {
             $str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
 
-            return '</span></a> <a href="' . $core->adminurl->get('admin.comments', ['status' => '-2']) . '"><span class="db-icon-title-spam">' .
+            return '</span></a> <a href="' . dcCore::app()->adminurl->get('admin.comments', ['status' => '-2']) . '"><span class="db-icon-title-spam">' .
             sprintf($str, $count);
         }
 
@@ -86,28 +84,28 @@ class dcAntispam
         return dcPage::jsModuleLoad('antispam/js/dashboard.js');
     }
 
-    public static function countSpam($core)
+    public static function countSpam(dcCore $core = null)
     {
-        return $core->blog->getComments(['comment_status' => -2], true)->f(0);
+        return dcCore::app()->blog->getComments(['comment_status' => -2], true)->f(0);
     }
 
-    public static function countPublishedComments($core)
+    public static function countPublishedComments(dcCore $core = null)
     {
-        return $core->blog->getComments(['comment_status' => 1], true)->f(0);
+        return dcCore::app()->blog->getComments(['comment_status' => 1], true)->f(0);
     }
 
-    public static function delAllSpam($core, $beforeDate = null)
+    public static function delAllSpam(dcCore $core, $beforeDate = null)
     {
         $strReq = 'SELECT comment_id ' .
-        'FROM ' . $core->prefix . 'comment C ' .
-        'JOIN ' . $core->prefix . 'post P ON P.post_id = C.post_id ' .
-        "WHERE blog_id = '" . $core->con->escape($core->blog->id) . "' " .
+        'FROM ' . dcCore::app()->prefix . 'comment C ' .
+        'JOIN ' . dcCore::app()->prefix . 'post P ON P.post_id = C.post_id ' .
+        "WHERE blog_id = '" . dcCore::app()->con->escape(dcCore::app()->blog->id) . "' " .
             'AND comment_status = -2 ';
         if ($beforeDate) {
             $strReq .= 'AND comment_dt < \'' . $beforeDate . '\' ';
         }
 
-        $rs = $core->con->select($strReq);
+        $rs = dcCore::app()->con->select($strReq);
         $r  = [];
         while ($rs->fetch()) {
             $r[] = (int) $rs->comment_id;
@@ -117,21 +115,21 @@ class dcAntispam
             return;
         }
 
-        $strReq = 'DELETE FROM ' . $core->prefix . 'comment ' .
-        'WHERE comment_id ' . $core->con->in($r) . ' ';
+        $strReq = 'DELETE FROM ' . dcCore::app()->prefix . 'comment ' .
+        'WHERE comment_id ' . dcCore::app()->con->in($r) . ' ';
 
-        $core->con->execute($strReq);
+        dcCore::app()->con->execute($strReq);
     }
 
-    public static function getUserCode($core)
+    public static function getUserCode(dcCore $core = null)
     {
-        $code = pack('a32', $core->auth->userID()) .
-        hash(DC_CRYPT_ALGO, $core->auth->cryptLegacy($core->auth->getInfo('user_pwd')));
+        $code = pack('a32', dcCore::app()->auth->userID()) .
+        hash(DC_CRYPT_ALGO, dcCore::app()->auth->cryptLegacy(dcCore::app()->auth->getInfo('user_pwd')));
 
         return bin2hex($code);
     }
 
-    public static function checkUserCode($core, $code)
+    public static function checkUserCode(dcCore $core, $code)
     {
         $code = pack('H*', $code);
 
@@ -143,20 +141,20 @@ class dcAntispam
         }
 
         $strReq = 'SELECT user_id, user_pwd ' .
-        'FROM ' . $core->prefix . 'user ' .
-        "WHERE user_id = '" . $core->con->escape($user_id) . "' ";
+        'FROM ' . dcCore::app()->prefix . 'user ' .
+        "WHERE user_id = '" . dcCore::app()->con->escape($user_id) . "' ";
 
-        $rs = $core->con->select($strReq);
+        $rs = dcCore::app()->con->select($strReq);
 
         if ($rs->isEmpty()) {
             return false;
         }
 
-        if (hash(DC_CRYPT_ALGO, $core->auth->cryptLegacy($rs->user_pwd)) != $pwd) {
+        if (hash(DC_CRYPT_ALGO, dcCore::app()->auth->cryptLegacy($rs->user_pwd)) != $pwd) {
             return false;
         }
 
-        $permissions = $core->getBlogPermissions($core->blog->id);
+        $permissions = dcCore::app()->getBlogPermissions(dcCore::app()->blog->id);
 
         if (empty($permissions[$rs->user_id])) {
             return false;
@@ -165,24 +163,24 @@ class dcAntispam
         return $rs->user_id;
     }
 
-    public static function purgeOldSpam($core)
+    public static function purgeOldSpam(dcCore $core = null)
     {
         $defaultDateLastPurge = time();
         $defaultModerationTTL = '7';
         $init                 = false;
 
         // settings
-        $core->blog->settings->addNamespace('antispam');
+        dcCore::app()->blog->settings->addNamespace('antispam');
 
-        $dateLastPurge = $core->blog->settings->antispam->antispam_date_last_purge;
+        $dateLastPurge = dcCore::app()->blog->settings->antispam->antispam_date_last_purge;
         if ($dateLastPurge === null) {
             $init = true;
-            $core->blog->settings->antispam->put('antispam_date_last_purge', $defaultDateLastPurge, 'integer', 'Antispam Date Last Purge (unix timestamp)', true, false);
+            dcCore::app()->blog->settings->antispam->put('antispam_date_last_purge', $defaultDateLastPurge, 'integer', 'Antispam Date Last Purge (unix timestamp)', true, false);
             $dateLastPurge = $defaultDateLastPurge;
         }
-        $moderationTTL = $core->blog->settings->antispam->antispam_moderation_ttl;
+        $moderationTTL = dcCore::app()->blog->settings->antispam->antispam_moderation_ttl;
         if ($moderationTTL === null) {
-            $core->blog->settings->antispam->put('antispam_moderation_ttl', $defaultModerationTTL, 'integer', 'Antispam Moderation TTL (days)', true, false);
+            dcCore::app()->blog->settings->antispam->put('antispam_moderation_ttl', $defaultModerationTTL, 'integer', 'Antispam Moderation TTL (days)', true, false);
             $moderationTTL = $defaultModerationTTL;
         }
 
@@ -195,10 +193,10 @@ class dcAntispam
         if ((time() - $dateLastPurge) > (86400)) {
             // update dateLastPurge
             if (!$init) {
-                $core->blog->settings->antispam->put('antispam_date_last_purge', time(), null, null, true, false);
+                dcCore::app()->blog->settings->antispam->put('antispam_date_last_purge', time(), null, null, true, false);
             }
             $date = date('Y-m-d H:i:s', time() - $moderationTTL * 86400);
-            dcAntispam::delAllSpam($core, $date);
+            dcAntispam::delAllSpam(dcCore::app(), $date);
         }
     }
 }

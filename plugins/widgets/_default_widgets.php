@@ -91,7 +91,7 @@ $__widgets
     ->addClass()
     ->addOffline();
 
-$rs         = $core->blog->getCategories(['post_type' => 'post']);
+$rs         = dcCore::app()->blog->getCategories(['post_type' => 'post']);
 $categories = ['' => '', __('Uncategorized') => 'null'];
 while ($rs->fetch()) {
     $categories[str_repeat('&nbsp;&nbsp;', $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . html::escapeHTML($rs->cat_title)] = $rs->cat_id;
@@ -100,7 +100,7 @@ $w = $__widgets->create('lastposts', __('Last entries'), ['defaultWidgets', 'las
 $w
     ->addTitle(__('Last entries'))
     ->setting('category', __('Category:'), '', 'combo', $categories);
-if ($core->plugins->moduleExists('tags')) {
+if (dcCore::app()->plugins->moduleExists('tags')) {
     $w->setting('tag', __('Tag:'), '');
 }
 $w
@@ -121,7 +121,7 @@ $__widgets
     ->addOffline();
 
 # --BEHAVIOR-- initWidgets
-$core->callBehavior('initWidgets', $__widgets);
+dcCore::app()->callBehavior('initWidgets', $__widgets);
 
 # Default widgets
 global $__default_widgets;
@@ -133,4 +133,4 @@ $__default_widgets['nav']->append($__widgets->categories);
 $__default_widgets['custom']->append($__widgets->subscribe);
 
 # --BEHAVIOR-- initDefaultWidgets
-$core->callBehavior('initDefaultWidgets', $__widgets, $__default_widgets);
+dcCore::app()->callBehavior('initDefaultWidgets', $__widgets, $__default_widgets);

@@ -27,7 +27,7 @@ class dcMaintenanceCache extends dcMaintenanceTask
 
     public function execute()
     {
-        $this->core->emptyTemplatesCache();
+        dcCore::app()->emptyTemplatesCache();
 
         return true;
     }

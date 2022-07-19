@@ -18,7 +18,7 @@ $pings_uris = [];
 
 try {
     // Pings URIs are managed globally (for all blogs)
-    $pings_uris = $core->blog->settings->pings->getGlobal('pings_uris');
+    $pings_uris = dcCore::app()->blog->settings->pings->getGlobal('pings_uris');
     if (!$pings_uris) {
         $pings_uris = [];
     }
@@ -33,18 +33,18 @@ try {
                 $pings_uris[trim((string) $v)] = trim((string) $pings_srv_uri[$k]);
             }
         }
-        $core->blog->settings->addNamespace('pings');
+        dcCore::app()->blog->settings->addNamespace('pings');
         // Settings for all blogs
-        $core->blog->settings->pings->put('pings_active', !empty($_POST['pings_active']), null, null, true, true);
-        $core->blog->settings->pings->put('pings_uris', $pings_uris, null, null, true, true);
+        dcCore::app()->blog->settings->pings->put('pings_active', !empty($_POST['pings_active']), null, null, true, true);
+        dcCore::app()->blog->settings->pings->put('pings_uris', $pings_uris, null, null, true, true);
         // Settings for current blog only
-        $core->blog->settings->pings->put('pings_auto', !empty($_POST['pings_auto']), null, null, true, false);
+        dcCore::app()->blog->settings->pings->put('pings_auto', !empty($_POST['pings_auto']), null, null, true, false);
 
         dcPage::addSuccessNotice(__('Settings have been successfully updated.'));
         http::redirect($p_url);
     }
 } catch (Exception $e) {
-    $core->error->add($e->getMessage());
+    dcCore::app()->error->add($e->getMessage());
 }
 ?>
 <html>
@@ -64,7 +64,7 @@ echo dcPage::breadcrumb(
 
 echo
 '<form action="' . $p_url . '" method="post">' .
-'<p><label for="pings_active" class="classic">' . form::checkbox('pings_active', 1, $core->blog->settings->pings->pings_active) .
+'<p><label for="pings_active" class="classic">' . form::checkbox('pings_active', 1, dcCore::app()->blog->settings->pings->pings_active) .
 __('Activate pings extension') . '</label></p>';
 
 $i = 0;
@@ -98,7 +98,7 @@ form::field(['pings_srv_name[]', 'pings_srv_name2'], 20, 128) . ' ' .
 form::url(['pings_srv_uri[]', 'pings_srv_uri2'], 40) .
 '</p>' .
 
-'<p><label for="pings_auto" class="classic">' . form::checkbox('pings_auto', 1, $core->blog->settings->pings->pings_auto) .
+'<p><label for="pings_auto" class="classic">' . form::checkbox('pings_auto', 1, dcCore::app()->blog->settings->pings->pings_auto) .
 __('Auto pings all services on first publication of entry (current blog only)') . '</label></p>' .
 
 '<p><input type="submit" value="' . __('Save') . '" />' .

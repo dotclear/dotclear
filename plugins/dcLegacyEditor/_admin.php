@@ -14,27 +14,27 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 $_menu['Plugins']->addItem(
     'dcLegacyEditor',
-    $core->adminurl->get('admin.plugin.dcLegacyEditor'),
+    dcCore::app()->adminurl->get('admin.plugin.dcLegacyEditor'),
     [dcPage::getPF('dcLegacyEditor/icon.svg'), dcPage::getPF('dcLegacyEditor/icon-dark.svg')],
-    preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.dcLegacyEditor')) . '/', $_SERVER['REQUEST_URI']),
-    $core->auth->check('admin,contentadmin', $core->blog->id)
+    preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.dcLegacyEditor')) . '/', $_SERVER['REQUEST_URI']),
+    dcCore::app()->auth->check('admin,contentadmin', dcCore::app()->blog->id)
 );
 
-$self_ns = $core->blog->settings->addNamespace('dclegacyeditor');
+$self_ns = dcCore::app()->blog->settings->addNamespace('dclegacyeditor');
 
 if ($self_ns->active) {
-    if (!($core->wiki2xhtml instanceof wiki2xhtml)) {
-        $core->initWikiPost();
+    if (!(dcCore::app()->wiki2xhtml instanceof wiki2xhtml)) {
+        dcCore::app()->initWikiPost();
     }
 
-    $core->addEditorFormater('dcLegacyEditor', 'xhtml', fn ($s) => $s);
-    $core->addEditorFormater('dcLegacyEditor', 'wiki', [$core->wiki2xhtml, 'transform']);
+    dcCore::app()->addEditorFormater('dcLegacyEditor', 'xhtml', fn ($s) => $s);
+    dcCore::app()->addEditorFormater('dcLegacyEditor', 'wiki', [dcCore::app()->wiki2xhtml, 'transform']);
 
-    $core->addBehavior('adminPostEditor', ['dcLegacyEditorBehaviors', 'adminPostEditor']);
-    $core->addBehavior('adminPopupMedia', ['dcLegacyEditorBehaviors', 'adminPopupMedia']);
-    $core->addBehavior('adminPopupLink', ['dcLegacyEditorBehaviors', 'adminPopupLink']);
-    $core->addBehavior('adminPopupPosts', ['dcLegacyEditorBehaviors', 'adminPopupPosts']);
+    dcCore::app()->addBehavior('adminPostEditor', ['dcLegacyEditorBehaviors', 'adminPostEditor']);
+    dcCore::app()->addBehavior('adminPopupMedia', ['dcLegacyEditorBehaviors', 'adminPopupMedia']);
+    dcCore::app()->addBehavior('adminPopupLink', ['dcLegacyEditorBehaviors', 'adminPopupLink']);
+    dcCore::app()->addBehavior('adminPopupPosts', ['dcLegacyEditorBehaviors', 'adminPopupPosts']);
 
     // Register REST methods
-    $core->rest->addFunction('wikiConvert', ['dcLegacyEditorRest', 'convert']);
+    dcCore::app()->rest->addFunction('wikiConvert', ['dcLegacyEditorRest', 'convert']);
 }

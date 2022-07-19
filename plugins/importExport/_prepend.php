@@ -26,16 +26,16 @@ $__autoload['flatBackup'] = __DIR__ . '/inc/flat/class.flat.backup.php';
 $__autoload['flatImport'] = __DIR__ . '/inc/flat/class.flat.import.php';
 $__autoload['flatExport'] = __DIR__ . '/inc/flat/class.flat.export.php';
 
-$core->addBehavior('importExportModules', 'registerIeModules');
+dcCore::app()->addBehavior('importExportModules', 'registerIeModules');
 
-function registerIeModules($modules, $core)
+function registerIeModules($modules, dcCore $core = null)
 {
     $modules['import'] = array_merge($modules['import'], ['dcImportFlat']);
     $modules['import'] = array_merge($modules['import'], ['dcImportFeed']);
 
     $modules['export'] = array_merge($modules['export'], ['dcExportFlat']);
 
-    if ($core->auth->isSuperAdmin()) {
+    if (dcCore::app()->auth->isSuperAdmin()) {
         $modules['import'] = array_merge($modules['import'], ['dcImportDC1']);
         $modules['import'] = array_merge($modules['import'], ['dcImportWP']);
     }

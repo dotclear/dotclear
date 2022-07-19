@@ -33,7 +33,7 @@ class dcMaintenanceIndexposts extends dcMaintenanceTask
 
     public function execute()
     {
-        $this->code = $this->core->indexAllPosts($this->code, $this->limit);
+        $this->code = dcCore::app()->indexAllPosts($this->code, $this->limit);
 
         return $this->code ?: true;
     }

@@ -24,70 +24,70 @@ class dcExportFlat extends dcIeModule
     public function process($do)
     {
         # Export a blog
-        if ($do == 'export_blog' && $this->core->auth->check('admin', $this->core->blog->id)) {
-            $fullname = $this->core->blog->public_path . '/.backup_' . sha1(uniqid());
-            $blog_id  = $this->core->con->escape($this->core->blog->id);
+        if ($do == 'export_blog' && dcCore::app()->auth->check('admin', dcCore::app()->blog->id)) {
+            $fullname = dcCore::app()->blog->public_path . '/.backup_' . sha1(uniqid());
+            $blog_id  = dcCore::app()->con->escape(dcCore::app()->blog->id);
 
             try {
-                $exp = new flatExport($this->core->con, $fullname, $this->core->prefix);
+                $exp = new flatExport(dcCore::app()->con, $fullname, dcCore::app()->prefix);
                 fwrite($exp->fp, '///DOTCLEAR|' . DC_VERSION . "|single\n");
 
                 $exp->export(
                     'category',
-                    'SELECT * FROM ' . $this->core->prefix . 'category ' .
+                    'SELECT * FROM ' . dcCore::app()->prefix . 'category ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'link',
-                    'SELECT * FROM ' . $this->core->prefix . 'link ' .
+                    'SELECT * FROM ' . dcCore::app()->prefix . 'link ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'setting',
-                    'SELECT * FROM ' . $this->core->prefix . 'setting ' .
+                    'SELECT * FROM ' . dcCore::app()->prefix . 'setting ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'post',
-                    'SELECT * FROM ' . $this->core->prefix . 'post ' .
+                    'SELECT * FROM ' . dcCore::app()->prefix . 'post ' .
                     "WHERE blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'meta',
                     'SELECT meta_id, meta_type, M.post_id ' .
-                    'FROM ' . $this->core->prefix . 'meta M, ' . $this->core->prefix . 'post P ' .
+                    'FROM ' . dcCore::app()->prefix . 'meta M, ' . dcCore::app()->prefix . 'post P ' .
                     'WHERE P.post_id = M.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'media',
-                    'SELECT * FROM ' . $this->core->prefix . "media WHERE media_path = '" .
-                    $this->core->con->escape($this->core->blog->settings->system->public_path) . "'"
+                    'SELECT * FROM ' . dcCore::app()->prefix . "media WHERE media_path = '" .
+                    dcCore::app()->con->escape(dcCore::app()->blog->settings->system->public_path) . "'"
                 );
                 $exp->export(
                     'post_media',
                     'SELECT media_id, M.post_id ' .
-                    'FROM ' . $this->core->prefix . 'post_media M, ' . $this->core->prefix . 'post P ' .
+                    'FROM ' . dcCore::app()->prefix . 'post_media M, ' . dcCore::app()->prefix . 'post P ' .
                     'WHERE P.post_id = M.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'ping',
                     'SELECT ping.post_id, ping_url, ping_dt ' .
-                    'FROM ' . $this->core->prefix . 'ping ping, ' . $this->core->prefix . 'post P ' .
+                    'FROM ' . dcCore::app()->prefix . 'ping ping, ' . dcCore::app()->prefix . 'post P ' .
                     'WHERE P.post_id = ping.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
                 $exp->export(
                     'comment',
                     'SELECT C.* ' .
-                    'FROM ' . $this->core->prefix . 'comment C, ' . $this->core->prefix . 'post P ' .
+                    'FROM ' . dcCore::app()->prefix . 'comment C, ' . dcCore::app()->prefix . 'post P ' .
                     'WHERE P.post_id = C.post_id ' .
                     "AND P.blog_id = '" . $blog_id . "'"
                 );
 
                 # --BEHAVIOR-- exportSingle
-                $this->core->callBehavior('exportSingle', $this->core, $exp, $blog_id);
+                dcCore::app()->callBehavior('exportSingle', dcCore::app(), $exp, $blog_id);
 
                 $_SESSION['export_file']     = $fullname;
                 $_SESSION['export_filename'] = $_POST['file_name'];
@@ -101,11 +101,11 @@ class dcExportFlat extends dcIeModule
         }
 
         # Export all content
-        if ($do == 'export_all' && $this->core->auth->isSuperAdmin()) {
-            $fullname = $this->core->blog->public_path . '/.backup_' . sha1(uniqid());
+        if ($do == 'export_all' && dcCore::app()->auth->isSuperAdmin()) {
+            $fullname = dcCore::app()->blog->public_path . '/.backup_' . sha1(uniqid());
 
             try {
-                $exp = new flatExport($this->core->con, $fullname, $this->core->prefix);
+                $exp = new flatExport(dcCore::app()->con, $fullname, dcCore::app()->prefix);
                 fwrite($exp->fp, '///DOTCLEAR|' . DC_VERSION . "|full\n");
                 $exp->exportTable('blog');
                 $exp->exportTable('category');
@@ -125,7 +125,7 @@ class dcExportFlat extends dcIeModule
                 $exp->exportTable('version');
 
                 # --BEHAVIOR-- exportFull
-                $this->core->callBehavior('exportFull', $this->core, $exp);
+                dcCore::app()->callBehavior('exportFull', dcCore::app(), $exp);
 
                 $_SESSION['export_file']     = $fullname;
                 $_SESSION['export_filename'] = $_POST['file_name'];
@@ -191,10 +191,10 @@ class dcExportFlat extends dcIeModule
         echo
         '<form action="' . $this->getURL(true) . '" method="post" class="fieldset">' .
         '<h3>' . __('Single blog') . '</h3>' .
-        '<p>' . sprintf(__('This will create an export of your current blog: %s'), '<strong>' . html::escapeHTML($this->core->blog->name)) . '</strong>.</p>' .
+        '<p>' . sprintf(__('This will create an export of your current blog: %s'), '<strong>' . html::escapeHTML(dcCore::app()->blog->name)) . '</strong>.</p>' .
 
         '<p><label for="file_name">' . __('File name:') . '</label>' .
-        form::field('file_name', 50, 255, date('Y-m-d-H-i-') . html::escapeHTML($this->core->blog->id . '-backup.txt')) .
+        form::field('file_name', 50, 255, date('Y-m-d-H-i-') . html::escapeHTML(dcCore::app()->blog->id . '-backup.txt')) .
         '</p>' .
 
         '<p><label for="file_zip" class="classic">' .
@@ -202,16 +202,16 @@ class dcExportFlat extends dcIeModule
         __('Compress file') . '</label>' .
         '</p>' .
 
-        '<p class="zip-dl"><a href="' . $this->core->decode('admin.media', ['d' => '', 'zipdl' => '1']) . '">' .
+        '<p class="zip-dl"><a href="' . dcCore::app()->adminurl->decode('admin.media', ['d' => '', 'zipdl' => '1']) . '">' .
         __('You may also want to download your media directory as a zip file') . '</a></p>' .
 
         '<p><input type="submit" value="' . __('Export') . '" />' .
         form::hidden(['do'], 'export_blog') .
-        $this->core->formNonce() . '</p>' .
+        dcCore::app()->formNonce() . '</p>' .
 
             '</form>';
 
-        if ($this->core->auth->isSuperAdmin()) {
+        if (dcCore::app()->auth->isSuperAdmin()) {
             echo
             '<form action="' . $this->getURL(true) . '" method="post" class="fieldset">' .
             '<h3>' . __('Multiple blogs') . '</h3>' .
@@ -228,7 +228,7 @@ class dcExportFlat extends dcIeModule
 
             '<p><input type="submit" value="' . __('Export') . '" />' .
             form::hidden(['do'], 'export_all') .
-            $this->core->formNonce() . '</p>' .
+            dcCore::app()->formNonce() . '</p>' .
 
                 '</form>';
         }

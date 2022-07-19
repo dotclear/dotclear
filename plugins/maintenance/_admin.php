@@ -15,20 +15,20 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 // Sidebar menu
 $_menu['Plugins']->addItem(
     __('Maintenance'),
-    $core->adminurl->get('admin.plugin.maintenance'),
+    dcCore::app()->adminurl->get('admin.plugin.maintenance'),
     dcPage::getPF('maintenance/icon.svg'),
-    preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.maintenance')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-    $core->auth->check('admin', $core->blog->id)
+    preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.maintenance')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
+    dcCore::app()->auth->check('admin', dcCore::app()->blog->id)
 );
 
 // Admin behaviors
-$core->addBehavior('dcMaintenanceInit', ['dcMaintenanceAdmin', 'dcMaintenanceInit']);
-$core->addBehavior('adminDashboardFavorites', ['dcMaintenanceAdmin', 'adminDashboardFavorites']);
-$core->addBehavior('adminDashboardContents', ['dcMaintenanceAdmin', 'adminDashboardItems']);
-$core->addBehavior('adminDashboardOptionsForm', ['dcMaintenanceAdmin', 'adminDashboardOptionsForm']);
-$core->addBehavior('adminAfterDashboardOptionsUpdate', ['dcMaintenanceAdmin', 'adminAfterDashboardOptionsUpdate']);
-$core->addBehavior('adminPageHelpBlock', ['dcMaintenanceAdmin', 'adminPageHelpBlock']);
-$core->addBehavior('pluginsToolsHeaders', ['dcMaintenanceAdmin', 'pluginsToolsHeaders']);
+dcCore::app()->addBehavior('dcMaintenanceInit', ['dcMaintenanceAdmin', 'dcMaintenanceInit']);
+dcCore::app()->addBehavior('adminDashboardFavorites', ['dcMaintenanceAdmin', 'adminDashboardFavorites']);
+dcCore::app()->addBehavior('adminDashboardContents', ['dcMaintenanceAdmin', 'adminDashboardItems']);
+dcCore::app()->addBehavior('adminDashboardOptionsForm', ['dcMaintenanceAdmin', 'adminDashboardOptionsForm']);
+dcCore::app()->addBehavior('adminAfterDashboardOptionsUpdate', ['dcMaintenanceAdmin', 'adminAfterDashboardOptionsUpdate']);
+dcCore::app()->addBehavior('adminPageHelpBlock', ['dcMaintenanceAdmin', 'adminPageHelpBlock']);
+dcCore::app()->addBehavior('pluginsToolsHeaders', ['dcMaintenanceAdmin', 'pluginsToolsHeaders']);
 
 /**
 @ingroup PLUGIN_MAINTENANCE
@@ -83,7 +83,7 @@ class dcMaintenanceAdmin
     {
         $favs->register('maintenance', [
             'title'        => __('Maintenance'),
-            'url'          => $core->adminurl->get('admin.plugin.maintenance'),
+            'url'          => dcCore::app()->adminurl->get('admin.plugin.maintenance'),
             'small-icon'   => [dcPage::getPF('maintenance/icon.svg'),dcPage::getPF('maintenance/icon-dark.svg')],
             'large-icon'   => [dcPage::getPF('maintenance/icon.svg'),dcPage::getPF('maintenance/icon-dark.svg')],
             'permissions'  => 'admin',
@@ -117,13 +117,13 @@ class dcMaintenanceAdmin
     public static function adminDashboardFavoritesCallback(dcCore $core, $fav)
     {
         // Check user option
-        $core->auth->user_prefs->addWorkspace('maintenance');
-        if (!$core->auth->user_prefs->maintenance->dashboard_icon) {
+        dcCore::app()->auth->user_prefs->addWorkspace('maintenance');
+        if (!dcCore::app()->auth->user_prefs->maintenance->dashboard_icon) {
             return;
         }
 
         // Check expired tasks
-        $maintenance = new dcMaintenance($core);
+        $maintenance = new dcMaintenance(dcCore::app());
         $count       = 0;
         foreach ($maintenance->getTasks() as $t) {
             if ($t->expired() !== false) {
@@ -147,12 +147,12 @@ class dcMaintenanceAdmin
      */
     public static function adminDashboardItems(dcCore $core, $items)
     {
-        $core->auth->user_prefs->addWorkspace('maintenance');
-        if (!$core->auth->user_prefs->maintenance->dashboard_item) {
+        dcCore::app()->auth->user_prefs->addWorkspace('maintenance');
+        if (!dcCore::app()->auth->user_prefs->maintenance->dashboard_item) {
             return;
         }
 
-        $maintenance = new dcMaintenance($core);
+        $maintenance = new dcMaintenance(dcCore::app());
 
         $lines = [];
         foreach ($maintenance->getTasks() as $t) {
@@ -167,8 +167,8 @@ class dcMaintenanceAdmin
                 :
                 sprintf(
                     __('Last execution of this task was on %s.'),
-                    dt::dt2str($core->blog->settings->system->date_format, $ts) . ' ' .
-                    dt::dt2str($core->blog->settings->system->time_format, $ts)
+                    dt::dt2str(dcCore::app()->blog->settings->system->date_format, $ts) . ' ' .
+                    dt::dt2str(dcCore::app()->blog->settings->system->time_format, $ts)
                 )
             ) . '">' . $t->task() . '</li>';
         }
@@ -183,7 +183,7 @@ class dcMaintenanceAdmin
             __('Maintenance') . '</h3>' .
             '<p class="warning no-margin">' . sprintf(__('There is a task to execute.', 'There are %s tasks to execute.', count($lines)), count($lines)) . '</p>' .
             '<ul>' . implode('', $lines) . '</ul>' .
-            '<p><a href="' . $core->adminurl->get('admin.plugin.maintenance') . '">' . __('Manage tasks') . '</a></p>' .
+            '<p><a href="' . dcCore::app()->adminurl->get('admin.plugin.maintenance') . '">' . __('Manage tasks') . '</a></p>' .
             '</div>',
         ]);
     }
@@ -196,20 +196,20 @@ class dcMaintenanceAdmin
      *
      * @param      dcCore  $core   The core
      */
-    public static function adminDashboardOptionsForm(dcCore $core)
+    public static function adminDashboardOptionsForm(dcCore $core = null)
     {
-        $core->auth->user_prefs->addWorkspace('maintenance');
+        dcCore::app()->auth->user_prefs->addWorkspace('maintenance');
 
         echo
         '<div class="fieldset">' .
         '<h4>' . __('Maintenance') . '</h4>' .
 
         '<p><label for="maintenance_dashboard_icon" class="classic">' .
-        form::checkbox('maintenance_dashboard_icon', 1, $core->auth->user_prefs->maintenance->dashboard_icon) .
+        form::checkbox('maintenance_dashboard_icon', 1, dcCore::app()->auth->user_prefs->maintenance->dashboard_icon) .
         __('Display overdue tasks counter on maintenance dashboard icon') . '</label></p>' .
 
         '<p><label for="maintenance_dashboard_item" class="classic">' .
-        form::checkbox('maintenance_dashboard_item', 1, $core->auth->user_prefs->maintenance->dashboard_item) .
+        form::checkbox('maintenance_dashboard_item', 1, dcCore::app()->auth->user_prefs->maintenance->dashboard_item) .
         __('Display overdue tasks list on dashboard items') . '</label></p>' .
 
             '</div>';
@@ -222,15 +222,13 @@ class dcMaintenanceAdmin
      */
     public static function adminAfterDashboardOptionsUpdate($user_id = null)
     {
-        global $core;
-
         if (is_null($user_id)) {
             return;
         }
 
-        $core->auth->user_prefs->addWorkspace('maintenance');
-        $core->auth->user_prefs->maintenance->put('dashboard_icon', !empty($_POST['maintenance_dashboard_icon']), 'boolean');
-        $core->auth->user_prefs->maintenance->put('dashboard_item', !empty($_POST['maintenance_dashboard_item']), 'boolean');
+        dcCore::app()->auth->user_prefs->addWorkspace('maintenance');
+        dcCore::app()->auth->user_prefs->maintenance->put('dashboard_icon', !empty($_POST['maintenance_dashboard_icon']), 'boolean');
+        dcCore::app()->auth->user_prefs->maintenance->put('dashboard_item', !empty($_POST['maintenance_dashboard_item']), 'boolean');
     }
 
     /**
@@ -258,7 +256,7 @@ class dcMaintenanceAdmin
             return;
         }
 
-        $maintenance = new dcMaintenance($GLOBALS['core']);
+        $maintenance = new dcMaintenance(dcCore::app());
 
         $res_tab = '';
         foreach ($maintenance->getTabs() as $tab_obj) {

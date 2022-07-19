@@ -21,11 +21,11 @@ class dcFilterIP extends dcSpamFilter
     private $con;
     private $table;
 
-    public function __construct($core)
+    public function __construct(dcCore $core = null)
     {
-        parent::__construct($core);
-        $this->con   = &$core->con;
-        $this->table = $core->prefix . 'spamrule';
+        parent::__construct(dcCore::app());
+        $this->con   = dcCore::app()->con;
+        $this->table = dcCore::app()->prefix . 'spamrule';
     }
 
     protected function setInfo()
@@ -60,7 +60,6 @@ class dcFilterIP extends dcSpamFilter
     public function gui($url)
     {
         global $default_tab;
-        $core = &$this->core;
 
         # Set current type and tab
         $ip_type = 'black';
@@ -72,13 +71,13 @@ class dcFilterIP extends dcSpamFilter
         # Add IP to list
         if (!empty($_POST['addip'])) {
             try {
-                $global = !empty($_POST['globalip']) && $core->auth->isSuperAdmin();
+                $global = !empty($_POST['globalip']) && dcCore::app()->auth->isSuperAdmin();
 
                 $this->addIP($ip_type, $_POST['addip'], $global);
                 dcPage::addSuccessNotice(__('IP address has been successfully added.'));
                 http::redirect($url . '&ip_type=' . $ip_type);
             } catch (Exception $e) {
-                $core->error->add($e->getMessage());
+                dcCore::app()->error->add($e->getMessage());
             }
         }
 
@@ -89,7 +88,7 @@ class dcFilterIP extends dcSpamFilter
                 dcPage::addSuccessNotice(__('IP addresses have been successfully removed.'));
                 http::redirect($url . '&ip_type=' . $ip_type);
             } catch (Exception $e) {
-                $core->error->add($e->getMessage());
+                dcCore::app()->error->add($e->getMessage());
             }
         }
 
@@ -103,8 +102,6 @@ class dcFilterIP extends dcSpamFilter
 
     private function displayForms($url, $type, $title)
     {
-        $core = &$this->core;
-
         $res = '<div class="multi-part" id="tab_' . $type . '" title="' . $title . '">' .
 
         '<form action="' . html::escapeURL($url) . '" method="post" class="fieldset">' .
@@ -113,12 +110,12 @@ class dcFilterIP extends dcSpamFilter
         form::hidden(['ip_type'], $type) .
         '<label class="classic" for="addip_' . $type . '">' . __('Add an IP address: ') . '</label> ' .
         form::field(['addip', 'addip_' . $type], 18, 255);
-        if ($core->auth->isSuperAdmin()) {
+        if (dcCore::app()->auth->isSuperAdmin()) {
             $res .= '<label class="classic" for="globalip_' . $type . '">' . form::checkbox(['globalip', 'globalip_' . $type], 1) . ' ' .
             __('Global IP (used for all blogs)') . '</label> ';
         }
 
-        $res .= $core->formNonce() .
+        $res .= dcCore::app()->formNonce() .
         '</p>' .
         '<p><input type="submit" value="' . __('Add') . '"/></p>' .
             '</form>';
@@ -143,7 +140,7 @@ class dcFilterIP extends dcSpamFilter
                 $disabled_ip = false;
                 $p_style     = '';
                 if (!$rs->blog_id) {
-                    $disabled_ip = !$core->auth->isSuperAdmin();
+                    $disabled_ip = !dcCore::app()->auth->isSuperAdmin();
                     $p_style .= ' global';
                 }
 
@@ -176,7 +173,7 @@ class dcFilterIP extends dcSpamFilter
 
             $res .= '</div>' .
             '<p><input class="submit delete" type="submit" value="' . __('Delete') . '"/>' .
-            $core->formNonce() .
+            dcCore::app()->formNonce() .
             form::hidden(['ip_type'], $type) .
                 '</p>' .
                 '</form>';
@@ -233,10 +230,10 @@ class dcFilterIP extends dcSpamFilter
             $cur->rule_type    = (string) $type;
             $cur->rule_content = (string) $content;
 
-            if ($global && $this->core->auth->isSuperAdmin()) {
+            if ($global && dcCore::app()->auth->isSuperAdmin()) {
                 $cur->blog_id = null;
             } else {
-                $cur->blog_id = $this->core->blog->id;
+                $cur->blog_id = dcCore::app()->blog->id;
             }
 
             $cur->insert();
@@ -252,7 +249,7 @@ class dcFilterIP extends dcSpamFilter
         $strReq = 'SELECT rule_id, rule_type, blog_id, rule_content ' .
         'FROM ' . $this->table . ' ' .
         "WHERE rule_type = '" . $this->con->escape($type) . "' " .
-        "AND (blog_id = '" . $this->core->blog->id . "' OR blog_id IS NULL) " .
+        "AND (blog_id = '" . dcCore::app()->blog->id . "' OR blog_id IS NULL) " .
             'ORDER BY blog_id ASC, rule_content ASC ';
 
         return $this->con->select($strReq);
@@ -263,19 +260,17 @@ class dcFilterIP extends dcSpamFilter
         $strReq = 'SELECT * FROM ' . $this->table . ' ' .
         "WHERE rule_type = '" . $this->con->escape($type) . "' " .
         "AND rule_content LIKE '%:" . (int) $ip . ':' . (int) $mask . "' " .
-            'AND blog_id ' . ($global ? 'IS NULL ' : "= '" . $this->core->blog->id . "' ");
+            'AND blog_id ' . ($global ? 'IS NULL ' : "= '" . dcCore::app()->blog->id . "' ");
 
         return $this->con->select($strReq);
     }
 
     private function checkIP($cip, $type)
     {
-        $core = &$this->core;
-
         $strReq = 'SELECT DISTINCT(rule_content) ' .
         'FROM ' . $this->table . ' ' .
         "WHERE rule_type = '" . $this->con->escape($type) . "' " .
-        "AND (blog_id = '" . $this->core->blog->id . "' OR blog_id IS NULL) " .
+        "AND (blog_id = '" . dcCore::app()->blog->id . "' OR blog_id IS NULL) " .
             'ORDER BY rule_content ASC ';
 
         $rs = $this->con->select($strReq);
@@ -303,8 +298,8 @@ class dcFilterIP extends dcSpamFilter
             $strReq .= 'WHERE rule_id = ' . $ids . ' ';
         }
 
-        if (!$this->core->auth->isSuperAdmin()) {
-            $strReq .= "AND blog_id = '" . $this->core->blog->id . "' ";
+        if (!dcCore::app()->auth->isSuperAdmin()) {
+            $strReq .= "AND blog_id = '" . dcCore::app()->blog->id . "' ";
         }
 
         $this->con->execute($strReq);

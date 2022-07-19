@@ -39,6 +39,8 @@ final class dcCore
 
     public $tpl;        //:< <b>dcTemplate</b>          dcTemplate object
 
+    public $spamfilters = [];
+
     private $versions   = null;
     private $formaters  = [];
     private $behaviors  = [];

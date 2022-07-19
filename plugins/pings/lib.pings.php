@@ -38,12 +38,11 @@ class pingsAdminBehaviors
 
     public static function pingsFormItems($main, $sidebar, $post)
     {
-        $core = &$GLOBALS['core'];
-        if (!$core->blog->settings->pings->pings_active) {
+        if (!dcCore::app()->blog->settings->pings->pings_active) {
             return;
         }
 
-        $pings_uris = $core->blog->settings->pings->pings_uris;
+        $pings_uris = dcCore::app()->blog->settings->pings->pings_uris;
         if (empty($pings_uris) || !is_array($pings_uris)) {
             return;
         }
@@ -71,12 +70,11 @@ class pingsAdminBehaviors
             return;
         }
 
-        $core = &$GLOBALS['core'];
-        if (!$core->blog->settings->pings->pings_active) {
+        if (!dcCore::app()->blog->settings->pings->pings_active) {
             return;
         }
 
-        $pings_uris = $core->blog->settings->pings->pings_uris;
+        $pings_uris = dcCore::app()->blog->settings->pings->pings_uris;
         if (empty($pings_uris) || !is_array($pings_uris)) {
             return;
         }
@@ -84,7 +82,7 @@ class pingsAdminBehaviors
         foreach ($_POST['pings_do'] as $uri) {
             if (in_array($uri, $pings_uris)) {
                 try {
-                    pingsAPI::doPings($uri, $core->blog->name, $core->blog->url);
+                    pingsAPI::doPings($uri, dcCore::app()->blog->name, dcCore::app()->blog->url);
                 } catch (Exception $e) {
                 }
             }

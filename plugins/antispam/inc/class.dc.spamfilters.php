@@ -16,11 +16,15 @@ class dcSpamFilters
 {
     private $filters     = [];
     private $filters_opt = [];
+
+    /**
+     * @deprecated Since 2.23+, use dcCore::app() instead
+     */
     private $core;
 
-    public function __construct($core)
+    public function __construct(dcCore $core = null)
     {
-        $this->core = &$core;
+        $this->core = dcCore::app();
     }
 
     public function init($filters)
@@ -37,7 +41,7 @@ class dcSpamFilters
                 continue;
             }
 
-            $this->filters[$f] = new $f($this->core);
+            $this->filters[$f] = new $f(dcCore::app());
         }
 
         $this->setFilterOpts();
@@ -119,17 +123,17 @@ class dcSpamFilters
 
     public function saveFilterOpts($opts, $global = false)
     {
-        $this->core->blog->settings->addNamespace('antispam');
+        dcCore::app()->blog->settings->addNamespace('antispam');
         if ($global) {
-            $this->core->blog->settings->antispam->drop('antispam_filters');
+            dcCore::app()->blog->settings->antispam->drop('antispam_filters');
         }
-        $this->core->blog->settings->antispam->put('antispam_filters', $opts, 'array', 'Antispam Filters', true, $global);
+        dcCore::app()->blog->settings->antispam->put('antispam_filters', $opts, 'array', 'Antispam Filters', true, $global);
     }
 
     private function setFilterOpts()
     {
-        if ($this->core->blog->settings->antispam->antispam_filters !== null) {
-            $this->filters_opt = $this->core->blog->settings->antispam->antispam_filters;
+        if (dcCore::app()->blog->settings->antispam->antispam_filters !== null) {
+            $this->filters_opt = dcCore::app()->blog->settings->antispam->antispam_filters;
         }
 
         # Create default options if needed

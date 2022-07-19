@@ -20,11 +20,11 @@ class dcFilterIpLookup extends dcSpamFilter
 
     private $default_bls = 'sbl-xbl.spamhaus.org , bsb.spamlookup.net';
 
-    public function __construct($core)
+    public function __construct(dcCore $core = null)
     {
-        parent::__construct($core);
+        parent::__construct(dcCore::app());
 
-        if (defined('DC_DNSBL_SUPER') && DC_DNSBL_SUPER && !$core->auth->isSuperAdmin()) {
+        if (defined('DC_DNSBL_SUPER') && DC_DNSBL_SUPER && !dcCore::app()->auth->isSuperAdmin()) {
             $this->has_gui = false;
         }
     }
@@ -66,18 +66,16 @@ class dcFilterIpLookup extends dcSpamFilter
 
     public function gui($url)
     {
-        global $core;
-
         $bls = $this->getServers();
 
         if (isset($_POST['bls'])) {
             try {
-                $this->core->blog->settings->addNamespace('antispam');
-                $this->core->blog->settings->antispam->put('antispam_dnsbls', $_POST['bls'], 'string', 'Antispam DNSBL servers', true, false);
+                dcCore::app()->blog->settings->addNamespace('antispam');
+                dcCore::app()->blog->settings->antispam->put('antispam_dnsbls', $_POST['bls'], 'string', 'Antispam DNSBL servers', true, false);
                 dcPage::addSuccessNotice(__('The list of DNSBL servers has been succesfully updated.'));
                 http::redirect($url);
             } catch (Exception $e) {
-                $core->error->add($e->getMessage());
+                dcCore::app()->error->add($e->getMessage());
             }
         }
 
@@ -89,7 +87,7 @@ class dcFilterIpLookup extends dcSpamFilter
         form::textarea('bls', 40, 3, html::escapeHTML($bls), 'maximal') .
         '</p>' .
         '<p><input type="submit" value="' . __('Save') . '" />' .
-        $this->core->formNonce() . '</p>' .
+        dcCore::app()->formNonce() . '</p>' .
             '</form>';
 
         return $res;
@@ -97,10 +95,10 @@ class dcFilterIpLookup extends dcSpamFilter
 
     private function getServers()
     {
-        $bls = $this->core->blog->settings->antispam->antispam_dnsbls;
+        $bls = dcCore::app()->blog->settings->antispam->antispam_dnsbls;
         if ($bls === null) {
-            $this->core->blog->settings->addNamespace('antispam');
-            $this->core->blog->settings->antispam->put('antispam_dnsbls', $this->default_bls, 'string', 'Antispam DNSBL servers', true, false);
+            dcCore::app()->blog->settings->addNamespace('antispam');
+            dcCore::app()->blog->settings->antispam->put('antispam_dnsbls', $this->default_bls, 'string', 'Antispam DNSBL servers', true, false);
 
             return $this->default_bls;
         }

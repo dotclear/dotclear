@@ -11,7 +11,7 @@
 if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
-$core->addBehavior('dcMaintenanceInit', ['dcBuildTools', 'maintenanceAdmin']);
+dcCore::app()->addBehavior('dcMaintenanceInit', ['dcBuildTools', 'maintenanceAdmin']);
 
 class dcBuildTools
 {

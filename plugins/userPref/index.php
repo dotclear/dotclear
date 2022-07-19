@@ -26,19 +26,19 @@ if (!empty($_POST['lp_nav'])) {
 if (!empty($_POST['s']) && is_array($_POST['s'])) {
     try {
         foreach ($_POST['s'] as $ws => $s) {
-            $core->auth->user_prefs->addWorkspace($ws);
+            dcCore::app()->auth->user_prefs->addWorkspace($ws);
             foreach ($s as $k => $v) {
                 if ($_POST['s_type'][$ws][$k] == 'array') {
                     $v = json_decode($v, true);
                 }
-                $core->auth->user_prefs->$ws->put($k, $v);
+                dcCore::app()->auth->user_prefs->$ws->put($k, $v);
             }
         }
 
         dcPage::addSuccessNotice(__('Preferences successfully updated'));
         http::redirect($p_url);
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -46,19 +46,19 @@ if (!empty($_POST['s']) && is_array($_POST['s'])) {
 if (!empty($_POST['gs']) && is_array($_POST['gs'])) {
     try {
         foreach ($_POST['gs'] as $ws => $s) {
-            $core->auth->user_prefs->addWorkspace($ws);
+            dcCore::app()->auth->user_prefs->addWorkspace($ws);
             foreach ($s as $k => $v) {
                 if ($_POST['gs_type'][$ws][$k] == 'array') {
                     $v = json_decode($v, true);
                 }
-                $core->auth->user_prefs->$ws->put($k, $v, null, null, true, true);
+                dcCore::app()->auth->user_prefs->$ws->put($k, $v, null, null, true, true);
             }
         }
 
         dcPage::addSuccessNotice(__('Preferences successfully updated'));
         http::redirect($p_url . '&part=global');
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -133,9 +133,9 @@ function prefLine($id, $s, $ws, $field_name, $strong_label)
 <?php
 echo dcPage::breadcrumb(
     [
-        __('System')                            => '',
-        html::escapeHTML($core->auth->userID()) => '',
-        __('user:preferences')                  => '',
+        __('System')                                    => '',
+        html::escapeHTML(dcCore::app()->auth->userID()) => '',
+        __('user:preferences')                          => '',
     ]
 ) .
 dcPage::notices();
@@ -159,7 +159,7 @@ $table_header = '<div class="table-outer"><table class="prefs" id="%s"><caption 
 $table_footer = '</tbody></table></div>';
 
 $prefs = [];
-foreach ($core->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
+foreach (dcCore::app()->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
     foreach ($workspace->dumpPrefs() as $k => $v) {
         $prefs[$ws][$k] = $v;
     }
@@ -171,17 +171,17 @@ if (count($prefs) > 0) {
         $ws_combo[$ws] = '#l_' . $ws;
     }
     echo
-    '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
+    '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
     '<p class="anchor-nav">' .
     '<label for="lp_nav" class="classic">' . __('Goto:') . '</label> ' .
     form::combo('lp_nav', $ws_combo, ['class' => 'navigation']) .
     ' <input type="submit" value="' . __('Ok') . '" id="lp_submit" />' .
     '<input type="hidden" name="p" value="userPref" />' .
-    $core->formNonce() . '</p></form>';
+    dcCore::app()->formNonce() . '</p></form>';
 }
 ?>
 
-<form action="<?php echo $core->adminurl->get('admin.plugin'); ?>" method="post">
+<form action="<?php echo dcCore::app()->adminurl->get('admin.plugin'); ?>" method="post">
 
 <?php
 foreach ($prefs as $ws => $s) {
@@ -197,7 +197,7 @@ foreach ($prefs as $ws => $s) {
 <p><input type="submit" value="<?php echo __('Save'); ?>" />
 <input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
 <input type="hidden" name="p" value="userPref" />
-<?php echo $core->formNonce(); ?></p>
+<?php echo dcCore::app()->formNonce(); ?></p>
 </form>
 </div>
 
@@ -207,7 +207,7 @@ foreach ($prefs as $ws => $s) {
 <?php
 $prefs = [];
 
-foreach ($core->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
+foreach (dcCore::app()->auth->user_prefs->dumpWorkspaces() as $ws => $workspace) {
     foreach ($workspace->dumpGlobalPrefs() as $k => $v) {
         $prefs[$ws][$k] = $v;
     }
@@ -221,17 +221,17 @@ if (count($prefs) > 0) {
         $ws_combo[$ws] = '#g_' . $ws;
     }
     echo
-    '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post">' .
+    '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post">' .
     '<p class="anchor-nav">' .
     '<label for="gp_nav" class="classic">' . __('Goto:') . '</label> ' .
     form::combo('gp_nav', $ws_combo, ['class' => 'navigation']) .
     ' <input type="submit" value="' . __('Ok') . '" id="gp_submit" />' .
     '<input type="hidden" name="p" value="userPref" />' .
-    $core->formNonce() . '</p></form>';
+    dcCore::app()->formNonce() . '</p></form>';
 }
 ?>
 
-<form action="<?php echo $core->adminurl->get('admin.plugin'); ?>" method="post">
+<form action="<?php echo dcCore::app()->adminurl->get('admin.plugin'); ?>" method="post">
 
 <?php
 foreach ($prefs as $ws => $s) {
@@ -247,7 +247,7 @@ foreach ($prefs as $ws => $s) {
 <p><input type="submit" value="<?php echo __('Save'); ?>" />
 <input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
 <input type="hidden" name="p" value="userPref" />
-<?php echo $core->formNonce(); ?></p>
+<?php echo dcCore::app()->formNonce(); ?></p>
 </form>
 </div>
 

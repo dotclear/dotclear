@@ -21,12 +21,17 @@ abstract class dcIeModule
 
     protected $import_url;
     protected $export_url;
+
+    /**
+     * @deprecated Since 2.23+, use dcCore::app() instead
+     */
     protected $core;
+
     protected $url;
 
-    public function __construct($core)
+    public function __construct(dcCore $core = null)
     {
-        $this->core = &$core;
+        $this->core = dcCore::app();
         $this->setInfo();
 
         if (!in_array($this->type, ['import', 'export'])) {
@@ -76,7 +81,7 @@ abstract class dcIeModule
         return
         '<h3>' . __('Congratulation!') . '</h3>' .
         '<p class="success">' . __('Your blog has been successfully imported. Welcome on Dotclear 2!') . '</p>' .
-        '<ul><li><strong><a href="' . $this->core->adminurl->decode('admin.post') . '">' . __('Why don\'t you blog this now?') . '</a></strong></li>' .
-        '<li>' . __('or') . ' <a href="' . $this->core->adminurl->decode('admin.home') . '">' . __('visit your dashboard') . '</a></li></ul>';
+        '<ul><li><strong><a href="' . dcCore::app()->adminurl->decode('admin.post') . '">' . __('Why don\'t you blog this now?') . '</a></strong></li>' .
+        '<li>' . __('or') . ' <a href="' . dcCore::app()->adminurl->decode('admin.home') . '">' . __('visit your dashboard') . '</a></li></ul>';
     }
 }

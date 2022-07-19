@@ -56,27 +56,27 @@ class dcMaintenanceSynchpostsmeta extends dcMaintenanceTask
     protected function synchronizeAllPostsmeta($start = null, $limit = null)
     {
         // Get number of posts
-        $rs    = $this->core->con->select('SELECT COUNT(post_id) FROM ' . $this->core->prefix . 'post');
+        $rs    = dcCore::app()->con->select('SELECT COUNT(post_id) FROM ' . dcCore::app()->prefix . 'post');
         $count = $rs->f(0);
 
         // Get posts ids to update
-        $req_limit = $start !== null && $limit !== null ? $this->core->con->limit($start, $limit) : '';
-        $rs        = $this->core->con->select('SELECT post_id FROM ' . $this->core->prefix . 'post ' . $req_limit, true);
+        $req_limit = $start !== null && $limit !== null ? dcCore::app()->con->limit($start, $limit) : '';
+        $rs        = dcCore::app()->con->select('SELECT post_id FROM ' . dcCore::app()->prefix . 'post ' . $req_limit, true);
 
         // Update posts meta
         while ($rs->fetch()) {
-            $rs_meta = $this->core->con->select('SELECT meta_id, meta_type FROM ' . $this->core->prefix . 'meta WHERE post_id = ' . $rs->post_id . ' ');
+            $rs_meta = dcCore::app()->con->select('SELECT meta_id, meta_type FROM ' . dcCore::app()->prefix . 'meta WHERE post_id = ' . $rs->post_id . ' ');
 
             $meta = [];
             while ($rs_meta->fetch()) {
                 $meta[$rs_meta->meta_type][] = $rs_meta->meta_id;
             }
 
-            $cur            = $this->core->con->openCursor($this->core->prefix . 'post');
+            $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
             $cur->post_meta = serialize($meta);
             $cur->update('WHERE post_id = ' . $rs->post_id);
         }
-        $this->core->blog->triggerBlog();
+        dcCore::app()->blog->triggerBlog();
 
         // Return next step
         return $start + $limit > $count ? null : $start + $limit;

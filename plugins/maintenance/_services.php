@@ -32,7 +32,7 @@ class dcMaintenanceRest
      *
      * @return     xmlTag     XML representation of response.
      */
-    public static function step($core, $get, $post)
+    public static function step(dcCore $core, $get, $post)
     {
         if (!isset($post['task'])) {
             throw new Exception('No task ID');
@@ -41,7 +41,7 @@ class dcMaintenanceRest
             throw new Exception('No code ID');
         }
 
-        $maintenance = new dcMaintenance($core);
+        $maintenance = new dcMaintenance(dcCore::app());
         if (($task = $maintenance->getTask($post['task'])) === null) {
             throw new Exception('Unknown task ID');
         }

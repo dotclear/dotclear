@@ -15,10 +15,10 @@ if (!defined('DC_RC_PATH')) {
 require __DIR__ . '/_widgets.php';
 
 # Blogroll template functions
-$core->tpl->addValue('Blogroll', ['tplBlogroll', 'blogroll']);
-$core->tpl->addValue('BlogrollXbelLink', ['tplBlogroll', 'blogrollXbelLink']);
+dcCore::app()->tpl->addValue('Blogroll', ['tplBlogroll', 'blogroll']);
+dcCore::app()->tpl->addValue('BlogrollXbelLink', ['tplBlogroll', 'blogrollXbelLink']);
 
-$core->url->register('xbel', 'xbel', '^xbel(?:/?)$', ['urlBlogroll', 'xbel']);
+dcCore::app()->url->register('xbel', 'xbel', '^xbel(?:/?)$', ['urlBlogroll', 'xbel']);
 
 class tplBlogroll
 {
@@ -53,14 +53,14 @@ class tplBlogroll
 
     public static function blogrollXbelLink($attr)
     {
-        $f = $GLOBALS['core']->tpl->getFilters($attr);
+        $f = dcCore::app()->tpl->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->url.$core->url->getURLFor("xbel")') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("xbel")') . '; ?>';
     }
 
     public static function getList($cat_title = '<h3>%s</h3>', $block = '<ul>%s</ul>', $item = '<li>%s</li>', $category = null)
     {
-        $blogroll = new dcBlogroll($GLOBALS['core']->blog);
+        $blogroll = new dcBlogroll(dcCore::app()->blog);
 
         try {
             $links = $blogroll->getLinks();
@@ -135,13 +135,11 @@ class tplBlogroll
     # Widget function
     public static function linksWidget($w)
     {
-        global $core;
-
         if ($w->offline) {
             return;
         }
 
-        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) || ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
+        if (($w->homeonly == 1 && !dcCore::app()->url->isHome(dcCore::app()->url->type)) || ($w->homeonly == 2 && dcCore::app()->url->isHome(dcCore::app()->url->type))) {
             return;
         }
 
@@ -165,7 +163,7 @@ class urlBlogroll extends dcUrlHandlers
 {
     public static function xbel($args)
     {
-        $blogroll = new dcBlogroll($GLOBALS['core']->blog);
+        $blogroll = new dcBlogroll(dcCore::app()->blog);
 
         try {
             $links = $blogroll->getLinks();
@@ -191,7 +189,7 @@ class urlBlogroll extends dcUrlHandlers
         'Language 1.0//EN//XML"' . "\n" .
         '"http://www.python.org/topics/xml/dtds/xbel-1.0.dtd">' . "\n" .
         '<xbel version="1.0">' . "\n" .
-        '<title>' . html::escapeHTML($GLOBALS['core']->blog->name) . " blogroll</title>\n";
+        '<title>' . html::escapeHTML(dcCore::app()->blog->name) . " blogroll</title>\n";
 
         $i = 1;
         foreach ($blogroll->getLinksHierarchy($links) as $cat_title => $links) {

@@ -26,8 +26,7 @@ class dcAntispamURL extends dcUrlHandlers
 
     private static function genFeed($type, $args)
     {
-        global $core;
-        $user_id = dcAntispam::checkUserCode($core, $args);
+        $user_id = dcAntispam::checkUserCode(dcCore::app(), $args);
 
         if ($user_id === false) {
             self::p404();
@@ -35,11 +34,11 @@ class dcAntispamURL extends dcUrlHandlers
             return;
         }
 
-        $core->auth->checkUser($user_id, null, null);
+        dcCore::app()->auth->checkUser($user_id, null, null);
 
         header('Content-Type: application/xml; charset=UTF-8');
 
-        $title   = $core->blog->name . ' - ' . __('Spam moderation') . ' - ';
+        $title   = dcCore::app()->blog->name . ' - ' . __('Spam moderation') . ' - ';
         $params  = [];
         $end_url = '';
         if ($type == 'spam') {
@@ -62,7 +61,7 @@ class dcAntispamURL extends dcUrlHandlers
         '<link>' . (DC_ADMIN_URL ? DC_ADMIN_URL . 'comments.php' . $end_url : 'about:blank') . '</link>' . "\n" .
         '<description></description>' . "\n";
 
-        $rs       = $core->blog->getComments($params);
+        $rs       = dcCore::app()->blog->getComments($params);
         $maxitems = 20;
         $nbitems  = 0;
 

@@ -125,8 +125,7 @@
       <?php endif;?>
       <p>
         <input name="p" type="hidden" value="dcCKEditor"/>
-        <?php echo $core->
-    formNonce(); ?>
+        <?php echo dcCore::app()->formNonce(); ?>
         <input name="saveconfig" type="submit" value="<?php echo __('Save configuration'); ?>"/>
         <input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
       </p>

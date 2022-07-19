@@ -19,11 +19,11 @@ class dcFilterAkismet extends dcSpamFilter
     public $active  = false;
     public $help    = 'akismet-filter';
 
-    public function __construct($core)
+    public function __construct(dcCore $core = null)
     {
-        parent::__construct($core);
+        parent::__construct(dcCore::app());
 
-        if (defined('DC_AKISMET_SUPER') && DC_AKISMET_SUPER && !$core->auth->isSuperAdmin()) {
+        if (defined('DC_AKISMET_SUPER') && DC_AKISMET_SUPER && !dcCore::app()->auth->isSuperAdmin()) {
             $this->has_gui = false;
         }
     }
@@ -40,13 +40,11 @@ class dcFilterAkismet extends dcSpamFilter
 
     private function akInit()
     {
-        $blog = &$this->core->blog;
-
-        if (!$blog->settings->akismet->ak_key) {
+        if (!dcCore::app()->blog->settings->akismet->ak_key) {
             return false;
         }
 
-        return new akismet($blog->url, $blog->settings->akismet->ak_key);
+        return new akismet(dcCore::app()->blog->url, dcCore::app()->blog->settings->akismet->ak_key);
     }
 
     public function isSpam($type, $author, $email, $site, $ip, $content, $post_id, &$status)
@@ -55,11 +53,9 @@ class dcFilterAkismet extends dcSpamFilter
             return;
         }
 
-        $blog = &$this->core->blog;
-
         try {
             if ($ak->verify()) {
-                $post = $blog->getPosts(['post_id' => $post_id]);
+                $post = dcCore::app()->blog->getPosts(['post_id' => $post_id]);
 
                 $c = $ak->comment_check(
                     $post->getURL(),
@@ -103,31 +99,29 @@ class dcFilterAkismet extends dcSpamFilter
 
     public function gui($url)
     {
-        $blog = &$this->core->blog;
-
-        $blog->settings->addNamespace('akismet');
-        $ak_key      = $blog->settings->akismet->ak_key;
+        dcCore::app()->blog->settings->addNamespace('akismet');
+        $ak_key      = dcCore::app()->blog->settings->akismet->ak_key;
         $ak_verified = null;
 
         if (isset($_POST['ak_key'])) {
             try {
                 $ak_key = $_POST['ak_key'];
 
-                $blog->settings->akismet->put('ak_key', $ak_key, 'string');
+                dcCore::app()->blog->settings->akismet->put('ak_key', $ak_key, 'string');
 
                 dcPage::addSuccessNotice(__('Filter configuration have been successfully saved.'));
                 http::redirect($url);
             } catch (Exception $e) {
-                $this->core->error->add($e->getMessage());
+                dcCore::app()->error->add($e->getMessage());
             }
         }
 
-        if ($blog->settings->akismet->ak_key) {
+        if (dcCore::app()->blog->settings->akismet->ak_key) {
             try {
-                $ak          = new akismet($blog->url, $blog->settings->akismet->ak_key);
+                $ak          = new akismet(dcCore::app()->blog->url, dcCore::app()->blog->settings->akismet->ak_key);
                 $ak_verified = $ak->verify();
             } catch (Exception $e) {
-                $this->core->error->add($e->getMessage());
+                dcCore::app()->error->add($e->getMessage());
             }
         }
 
@@ -149,7 +143,7 @@ class dcFilterAkismet extends dcSpamFilter
 
         $res .= '<p><a href="https://akismet.com/">' . __('Get your own API key') . '</a></p>' .
         '<p><input type="submit" value="' . __('Save') . '" />' .
-        $this->core->formNonce() . '</p>' .
+        dcCore::app()->formNonce() . '</p>' .
             '</form>';
 
         return $res;

@@ -93,7 +93,7 @@ class dcImportFeed extends dcIeModule
         $this->feed_url = $_POST['feed_url'];
 
         // Check feed URL
-        if ($this->core->blog->settings->system->import_feed_url_control) {
+        if (dcCore::app()->blog->settings->system->import_feed_url_control) {
             // Get IP from URL
             $bits = parse_url($this->feed_url);
             if (!$bits || !isset($bits['host'])) {
@@ -108,21 +108,21 @@ class dcImportFeed extends dcIeModule
             }
             // Check feed IP
             $flag = FILTER_FLAG_IPV4 | FILTER_FLAG_IPV6;
-            if ($this->core->blog->settings->system->import_feed_no_private_ip) {
+            if (dcCore::app()->blog->settings->system->import_feed_no_private_ip) {
                 $flag |= FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE;
             }
             if (!filter_var($ip, $flag)) {
                 throw new Exception(__('Cannot retrieve feed URL.'));
             }
             // IP control (white list regexp)
-            if ($this->core->blog->settings->system->import_feed_ip_regexp != '') {
-                if (!preg_match($this->core->blog->settings->system->import_feed_ip_regexp, $ip)) {
+            if (dcCore::app()->blog->settings->system->import_feed_ip_regexp != '') {
+                if (!preg_match(dcCore::app()->blog->settings->system->import_feed_ip_regexp, $ip)) {
                     throw new Exception(__('Cannot retrieve feed URL.'));
                 }
             }
             // Port control (white list regexp)
-            if ($this->core->blog->settings->system->import_feed_port_regexp != '' && isset($bits['port'])) {
-                if (!preg_match($this->core->blog->settings->system->import_feed_port_regexp, $bits['port'])) { // @phpstan-ignore-line
+            if (dcCore::app()->blog->settings->system->import_feed_port_regexp != '' && isset($bits['port'])) {
+                if (!preg_match(dcCore::app()->blog->settings->system->import_feed_port_regexp, $bits['port'])) { // @phpstan-ignore-line
                     throw new Exception(__('Cannot retrieve feed URL.'));
                 }
             }
@@ -136,11 +136,11 @@ class dcImportFeed extends dcIeModule
             throw new Exception(__('No items in feed.'));
         }
 
-        $cur = $this->core->con->openCursor($this->core->prefix . 'post');
-        $this->core->con->begin();
+        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
+        dcCore::app()->con->begin();
         foreach ($feed->items as $item) {
             $cur->clean();
-            $cur->user_id      = $this->core->auth->userID();
+            $cur->user_id      = dcCore::app()->auth->userID();
             $cur->post_content = $item->content ?: $item->description;
             $cur->post_title   = $item->title ?: text::cutString(html::clean($cur->post_content), 60);
             $cur->post_format  = 'xhtml';
@@ -148,19 +148,19 @@ class dcImportFeed extends dcIeModule
             $cur->post_dt      = @strftime('%Y-%m-%d %H:%M:%S', $item->TS);
 
             try {
-                $post_id = $this->core->blog->addPost($cur);
+                $post_id = dcCore::app()->blog->addPost($cur);
             } catch (Exception $e) {
-                $this->core->con->rollback();
+                dcCore::app()->con->rollback();
 
                 throw $e;
             }
 
             foreach ($item->subject as $subject) {
-                $this->core->meta->setPostMeta($post_id, 'tag', dcMeta::sanitizeMetaID($subject));
+                dcCore::app()->meta->setPostMeta($post_id, 'tag', dcMeta::sanitizeMetaID($subject));
             }
         }
 
-        $this->core->con->commit();
+        dcCore::app()->con->commit();
         http::redirect($this->getURL() . '&do=ok');
     }
 
@@ -172,13 +172,13 @@ class dcImportFeed extends dcIeModule
 
         echo
         '<form action="' . $this->getURL(true) . '" method="post">' .
-        '<p>' . sprintf(__('Add a feed content to the current blog: <strong>%s</strong>.'), html::escapeHTML($this->core->blog->name)) . '</p>' .
+        '<p>' . sprintf(__('Add a feed content to the current blog: <strong>%s</strong>.'), html::escapeHTML(dcCore::app()->blog->name)) . '</p>' .
 
         '<p><label for="feed_url">' . __('Feed URL:') . '</label>' .
         form::url('feed_url', 50, 300, html::escapeHTML($this->feed_url)) . '</p>' .
 
         '<p>' .
-        $this->core->formNonce() .
+        dcCore::app()->formNonce() .
         form::hidden(['do'], 1) .
         '<input type="submit" value="' . __('Import') . '" /></p>' .
 

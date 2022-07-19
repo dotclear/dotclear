@@ -28,4 +28,4 @@ $__autoload['dcMaintenanceVacuum']         = __DIR__ . '/inc/tasks/class.dc.main
 $__autoload['dcMaintenanceZipmedia']       = __DIR__ . '/inc/tasks/class.dc.maintenance.zipmedia.php';
 $__autoload['dcMaintenanceZiptheme']       = __DIR__ . '/inc/tasks/class.dc.maintenance.ziptheme.php';
 
-$core->rest->addFunction('dcMaintenanceStep', ['dcMaintenanceRest', 'step']);
+dcCore::app()->rest->addFunction('dcMaintenanceStep', ['dcMaintenanceRest', 'step']);

@@ -18,7 +18,7 @@ class tagsBehaviors
             return;
         }
 
-        $tag_url = $GLOBALS['core']->blog->url . $GLOBALS['core']->url->getURLFor('tag');
+        $tag_url = dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tag');
 
         if ($editor == 'dcLegacyEditor') {
             return
@@ -40,8 +40,6 @@ class tagsBehaviors
 
     public static function ckeditorExtraPlugins(ArrayObject $extraPlugins, $context)
     {
-        global $core;
-
         if ($context != 'post') {
             return;
         }
@@ -68,11 +66,11 @@ class tagsBehaviors
         $blocks[] = 'tag_post';
     }
 
-    public static function dashboardFavorites($core, $favs)
+    public static function dashboardFavorites(dcCore $core, $favs)
     {
         $favs->register('tags', [
             'title'       => __('Tags'),
-            'url'         => $core->adminurl->get('admin.plugin.tags', ['m' => 'tags']),
+            'url'         => dcCore::app()->adminurl->get('admin.plugin.tags', ['m' => 'tags']),
             'small-icon'  => [dcPage::getPF('tags/icon.svg'), dcPage::getPF('tags/icon-dark.svg')],
             'large-icon'  => [dcPage::getPF('tags/icon.svg'), dcPage::getPF('tags/icon-dark.svg')],
             'permissions' => 'usage,contentadmin',
@@ -91,7 +89,7 @@ class tagsBehaviors
             $content = substr($content, 4);
         }
 
-        $tag_url        = html::stripHostURL($GLOBALS['core']->blog->url . $GLOBALS['core']->url->getURLFor('tag'));
+        $tag_url        = html::stripHostURL(dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tag'));
         $res['url']     = $tag_url . '/' . rawurlencode(dcMeta::sanitizeMetaID($url));
         $res['content'] = $content;
 
@@ -100,7 +98,7 @@ class tagsBehaviors
 
     public static function tagsField($main, $sidebar, $post)
     {
-        $meta = &$GLOBALS['core']->meta;
+        $meta = dcCore::app()->meta;
 
         if (!empty($_POST['post_tags'])) {
             $value = $_POST['post_tags'];
@@ -117,7 +115,7 @@ class tagsBehaviors
 
         if (isset($_POST['post_tags'])) {
             $tags = $_POST['post_tags'];
-            $meta = &$GLOBALS['core']->meta;
+            $meta = dcCore::app()->meta;
             $meta->delPostMeta($post_id, 'tag');
 
             foreach ($meta->splitMetaValues($tags) as $tag) {
@@ -126,14 +124,14 @@ class tagsBehaviors
         }
     }
 
-    public static function adminPostsActionsPage($core, $ap)
+    public static function adminPostsActionsPage(dcCore $core, $ap)
     {
         $ap->addAction(
             [__('Tags') => [__('Add tags') => 'tags']],
             ['tagsBehaviors', 'adminAddTags']
         );
 
-        if ($core->auth->check('delete,contentadmin', $core->blog->id)) {
+        if (dcCore::app()->auth->check('delete,contentadmin', dcCore::app()->blog->id)) {
             $ap->addAction(
                 [__('Tags') => [__('Remove tags') => 'tags_remove']],
                 ['tagsBehaviors', 'adminRemoveTags']
@@ -141,10 +139,10 @@ class tagsBehaviors
         }
     }
 
-    public static function adminAddTags($core, dcPostsActionsPage $ap, $post)
+    public static function adminAddTags(dcCore $core, dcPostsActionsPage $ap, $post)
     {
         if (!empty($post['new_tags'])) {
-            $meta  = &$core->meta;
+            $meta  = dcCore::app()->meta;
             $tags  = $meta->splitMetaValues($post['new_tags']);
             $posts = $ap->getRS();
             while ($posts->fetch()) {
@@ -173,9 +171,9 @@ class tagsBehaviors
             );
             $ap->redirect(true);
         } else {
-            $tag_url = $core->blog->url . $core->url->getURLFor('tag');
+            $tag_url = dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tag');
 
-            $opts = $core->auth->getOptions();
+            $opts = dcCore::app()->auth->getOptions();
             $type = $opts['tag_list_format'] ?? 'more';
 
             $editor_tags_options = [
@@ -197,9 +195,9 @@ class tagsBehaviors
             $ap->beginPage(
                 dcPage::breadcrumb(
                     [
-                        html::escapeHTML($core->blog->name) => '',
-                        __('Entries')                       => $ap->getRedirection(true),
-                        __('Add tags to this selection')    => '',
+                        html::escapeHTML(dcCore::app()->blog->name) => '',
+                        __('Entries')                               => $ap->getRedirection(true),
+                        __('Add tags to this selection')            => '',
                     ]
                 ),
                 dcPage::jsMetaEditor() .
@@ -215,7 +213,7 @@ class tagsBehaviors
             '<div><label for="new_tags" class="area">' . __('Tags to add:') . '</label> ' .
             form::textarea('new_tags', 60, 3) .
             '</div>' .
-            $core->formNonce() . $ap->getHiddenFields() .
+            dcCore::app()->formNonce() . $ap->getHiddenFields() .
             form::hidden(['action'], 'tags') .
             '<p><input type="submit" value="' . __('Save') . '" ' .
                 'name="save_tags" /></p>' .
@@ -223,10 +221,10 @@ class tagsBehaviors
             $ap->endPage();
         }
     }
-    public static function adminRemoveTags($core, dcPostsActionsPage $ap, $post)
+    public static function adminRemoveTags(dcCore $core, dcPostsActionsPage $ap, $post)
     {
-        if (!empty($post['meta_id']) && $core->auth->check('delete,contentadmin', $core->blog->id)) {
-            $meta  = &$core->meta;
+        if (!empty($post['meta_id']) && dcCore::app()->auth->check('delete,contentadmin', dcCore::app()->blog->id)) {
+            $meta  = dcCore::app()->meta;
             $posts = $ap->getRS();
             while ($posts->fetch()) {
                 foreach ($_POST['meta_id'] as $v) {
@@ -244,7 +242,7 @@ class tagsBehaviors
             );
             $ap->redirect(true);
         } else {
-            $meta = &$core->meta;
+            $meta = dcCore::app()->meta;
             $tags = [];
 
             foreach ($ap->getIDS() as $id) {
@@ -265,7 +263,7 @@ class tagsBehaviors
             $ap->beginPage(
                 dcPage::breadcrumb(
                     [
-                        html::escapeHTML($core->blog->name)            => '',
+                        html::escapeHTML(dcCore::app()->blog->name)    => '',
                         __('Entries')                                  => 'posts.php',
                         __('Remove selected tags from this selection') => '',
                     ]
@@ -294,7 +292,7 @@ class tagsBehaviors
             echo
             '<p><input type="submit" value="' . __('ok') . '" />' .
 
-            $core->formNonce() . $ap->getHiddenFields() .
+            dcCore::app()->formNonce() . $ap->getHiddenFields() .
             form::hidden(['action'], 'tags_remove') .
                 '</p></div></form>';
             $ap->endPage();
@@ -303,9 +301,9 @@ class tagsBehaviors
 
     public static function postHeaders()
     {
-        $tag_url = $GLOBALS['core']->blog->url . $GLOBALS['core']->url->getURLFor('tag');
+        $tag_url = dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tag');
 
-        $opts = $GLOBALS['core']->auth->getOptions();
+        $opts = dcCore::app()->auth->getOptions();
         $type = $opts['tag_list_format'] ?? 'more';
 
         $editor_tags_options = [

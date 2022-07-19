@@ -33,21 +33,21 @@ $params['order']      = 'post_position ASC, post_title ASC';
 $post_list = null;
 
 try {
-    $pages     = $core->blog->getPosts($params);
-    $counter   = $core->blog->getPosts($params, true);
-    $post_list = new adminPagesList($core, $pages, $counter->f(0));
+    $pages     = dcCore::app()->blog->getPosts($params);
+    $counter   = dcCore::app()->blog->getPosts($params, true);
+    $post_list = new adminPagesList(dcCore::app(), $pages, $counter->f(0));
 } catch (Exception $e) {
-    $core->error->add($e->getMessage());
+    dcCore::app()->error->add($e->getMessage());
 }
 
 # Actions combo box
 
-$pages_actions_page = new dcPagesActionsPage($core, 'plugin.php', ['p' => 'pages']);
+$pages_actions_page = new dcPagesActionsPage(dcCore::app(), 'plugin.php', ['p' => 'pages']);
 
 if (!$pages_actions_page->process()) {
 
     # --BEHAVIOR-- adminPagesActionsCombo
-    $core->callBehavior('adminPagesActionsCombo', [&$combo_action]);    // @phpstan-ignore-line
+    dcCore::app()->callBehavior('adminPagesActionsCombo', [&$combo_action]);    // @phpstan-ignore-line
 
     /* Display
     -------------------------------------------------------- */ ?>
@@ -67,8 +67,8 @@ echo
 <?php
 echo dcPage::breadcrumb(
       [
-          html::escapeHTML($core->blog->name) => '',
-          __('Pages')                         => '',
+          html::escapeHTML(dcCore::app()->blog->name) => '',
+          __('Pages')                                 => '',
       ]
   ) . dcPage::notices();
 
@@ -82,12 +82,12 @@ echo dcPage::breadcrumb(
     echo
     '<p class="top-add"><a class="button add" href="' . $p_url . '&amp;act=page">' . __('New page') . '</a></p>';
 
-    if (!$core->error->flag()) {
+    if (!dcCore::app()->error->flag()) {
         # Show pages
         $post_list->display(
             $page,
             $nb_per_page,
-            '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" id="form-entries">' .
+            '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" id="form-entries">' .
 
             '%s' .
 
@@ -100,7 +100,7 @@ echo dcPage::breadcrumb(
             form::hidden(['post_type'], 'page') .
             form::hidden(['p'], 'pages') .
             form::hidden(['act'], 'list') .
-            $core->formNonce() .
+            dcCore::app()->formNonce() .
             '</p></div>' .
             '<p class="clear form-note hidden-if-js">' .
             __('To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button.') . '</p>' .

@@ -210,15 +210,13 @@ class dcWidget
 
     public function renderTitle($title)
     {
-        global $core;
-
         if (!$title) {
             return '';
         }
 
-        $wtscheme = $core->themes->moduleInfo($core->blog->settings->system->theme, 'widgettitleformat');
+        $wtscheme = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'widgettitleformat');
         if (empty($wtscheme)) {
-            $tplset = $core->themes->moduleInfo($core->blog->settings->system->theme, 'tplset');
+            $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
             if (empty($tplset) || $tplset == DC_DEFAULT_TPLSET) {
                 // Use H2 for mustek based themes
                 $wtscheme = '<h2>%s</h2>';
@@ -234,15 +232,13 @@ class dcWidget
 
     public function renderSubtitle($title, $render = true)
     {
-        global $core;
-
         if (!$title && $render) {
             return '';
         }
 
-        $wtscheme = $core->themes->moduleInfo($core->blog->settings->system->theme, 'widgetsubtitleformat');
+        $wtscheme = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'widgetsubtitleformat');
         if (empty($wtscheme)) {
-            $tplset = $core->themes->moduleInfo($core->blog->settings->system->theme, 'tplset');
+            $tplset = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'tplset');
             if (empty($tplset) || $tplset == DC_DEFAULT_TPLSET) {
                 // Use H2 for mustek based themes
                 $wtscheme = '<h3>%s</h3>';
@@ -343,8 +339,6 @@ class dcWidget
 
     public function formSetting($id, $s, $pr = '', &$i = 0)
     {
-        global $core;
-
         $res   = '';
         $wfid  = 'wf-' . $i;
         $iname = $pr ? $pr . '[' . $id . ']' : $id;
@@ -355,7 +349,7 @@ class dcWidget
                 form::field([$iname, $wfid], 20, 255, [
                     'default'    => html::escapeHTML($s['value']),
                     'class'      => 'maximal' . $class,
-                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+                    'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
                 '</p>';
 
@@ -365,7 +359,7 @@ class dcWidget
                 form::textarea([$iname, $wfid], 30, 8, [
                     'default'    => html::escapeHTML($s['value']),
                     'class'      => 'maximal' . $class,
-                    'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+                    'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
                 ]) .
                 '</p>';
 
@@ -429,6 +423,8 @@ class dcWidget
 
 class dcWidgetExt extends dcWidget
 {
+    public $homeonly;
+
     public const ALL_PAGES   = 0; // Widget displayed on every page
     public const HOME_ONLY   = 1; // Widget displayed on home page only
     public const EXCEPT_HOME = 2; // Widget displayed on every page but home page
@@ -451,10 +447,7 @@ class dcWidgetExt extends dcWidget
 
     public function checkHomeOnly($type, $alt_not_home = 1, $alt_home = 0)
     {
-        global $core;
-
-        /* @phpstan-ignore-next-line */
-        if (($this->homeonly == self::HOME_ONLY && !$core->url->isHome($type) && $alt_not_home) || ($this->homeonly == self::EXCEPT_HOME && ($core->url->isHome($type) || $alt_home))) {
+        if (($this->homeonly == self::HOME_ONLY && !dcCore::app()->url->isHome($type) && $alt_not_home) || ($this->homeonly == self::EXCEPT_HOME && (dcCore::app()->url->isHome($type) || $alt_home))) {
             return false;
         }
 

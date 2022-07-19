@@ -14,8 +14,8 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 $_menu['System']->addItem(
     'about:config',
-    $core->adminurl->get('admin.plugin.aboutConfig'),
+    dcCore::app()->adminurl->get('admin.plugin.aboutConfig'),
     dcPage::getPF('aboutConfig/icon.svg'),
-    preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.aboutConfig')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-    $core->auth->isSuperAdmin()
+    preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.aboutConfig')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
+    dcCore::app()->auth->isSuperAdmin()
 );

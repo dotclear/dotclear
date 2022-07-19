@@ -12,14 +12,14 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$core->addBehavior('initWidgets', ['blogrollWidgets', 'initWidgets']);
-$core->addBehavior('initDefaultWidgets', ['blogrollWidgets', 'initDefaultWidgets']);
+dcCore::app()->addBehavior('initWidgets', ['blogrollWidgets', 'initWidgets']);
+dcCore::app()->addBehavior('initDefaultWidgets', ['blogrollWidgets', 'initDefaultWidgets']);
 
 class blogrollWidgets
 {
     public static function initWidgets($w)
     {
-        $br         = new dcBlogroll($GLOBALS['core']->blog);
+        $br         = new dcBlogroll(dcCore::app()->blog);
         $h          = $br->getLinksHierarchy($br->getLinks());
         $h          = array_keys($h);
         $categories = [__('All categories') => ''];

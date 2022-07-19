@@ -17,15 +17,15 @@ require __DIR__ . '/class.themeEditor.php';
 $file_default = $file = ['c' => null, 'w' => false, 'type' => null, 'f' => null, 'default_file' => false];
 
 # Get interface setting
-$core->auth->user_prefs->addWorkspace('interface');
-$user_ui_colorsyntax       = $core->auth->user_prefs->interface->colorsyntax;
-$user_ui_colorsyntax_theme = $core->auth->user_prefs->interface->colorsyntax_theme;
+dcCore::app()->auth->user_prefs->addWorkspace('interface');
+$user_ui_colorsyntax       = dcCore::app()->auth->user_prefs->interface->colorsyntax;
+$user_ui_colorsyntax_theme = dcCore::app()->auth->user_prefs->interface->colorsyntax_theme;
 
 # Loading themes
-$core->themes = new dcThemes($core);
-$core->themes->loadModules($core->blog->themes_path, null);
-$T = $core->themes->getModules($core->blog->settings->system->theme);
-$o = new dcThemeEditor($core);
+dcCore::app()->themes = new dcThemes(dcCore::app());
+dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
+$T = dcCore::app()->themes->getModules(dcCore::app()->blog->settings->system->theme);
+$o = new dcThemeEditor(dcCore::app());
 
 try {
     try {
@@ -59,7 +59,7 @@ try {
         http::redirect($p_url . '&' . $file['type'] . '=' . $file['f']);
     }
 } catch (Exception $e) {
-    $core->error->add($e->getMessage());
+    dcCore::app()->error->add($e->getMessage());
 }
 ?>
 
@@ -89,9 +89,9 @@ echo dcPage::cssModuleLoad('themeEditor/style.css');
 <?php
 echo dcPage::breadcrumb(
     [
-        html::escapeHTML($core->blog->name) => '',
-        __('Blog appearance')               => $core->adminurl->get('admin.blog.theme'),
-        __('Edit theme files')              => '',
+        html::escapeHTML(dcCore::app()->blog->name) => '',
+        __('Blog appearance')                       => dcCore::app()->adminurl->get('admin.blog.theme'),
+        __('Edit theme files')                      => '',
     ]
 ) .
 dcPage::notices();
@@ -99,7 +99,7 @@ dcPage::notices();
 
 <p><strong><?php echo sprintf(__('Your current theme on this blog is "%s".'), html::escapeHTML($T['name'])); ?></strong></p>
 
-<?php if ($core->blog->settings->system->theme == 'default') {?>
+<?php if (dcCore::app()->blog->settings->system->theme == 'default') {?>
     <div class="error"><p><?php echo __("You can't edit default theme."); ?></p></div>
     </body></html>
 <?php }?>
@@ -124,7 +124,7 @@ if ($file['c'] === null) {
         echo
         '<p><input type="submit" name="write" value="' . __('Save') . ' (s)" accesskey="s" /> ' .
         ($o->deletableFile($file['type'], $file['f']) ? '<input type="submit" name="delete" class="delete" value="' . __('Reset') . '" />' : '') .
-        $core->formNonce() .
+        dcCore::app()->formNonce() .
             ($file['type'] ? form::hidden([$file['type']], $file['f']) : '') .
             '</p>';
     } else {

@@ -18,24 +18,24 @@ if (!defined('DC_ANTISPAM_CONF_SUPER')) {
 
 $_menu['Plugins']->addItem(
     __('Antispam'),
-    $core->adminurl->get('admin.plugin.antispam'),
+    dcCore::app()->adminurl->get('admin.plugin.antispam'),
     [dcPage::getPF('antispam/icon.svg'), dcPage::getPF('antispam/icon-dark.svg')],
-    preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.antispam')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-    $core->auth->check('admin', $core->blog->id)
+    preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.antispam')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
+    dcCore::app()->auth->check('admin', dcCore::app()->blog->id)
 );
 
-$core->addBehavior('coreAfterCommentUpdate', ['dcAntispam', 'trainFilters']);
-$core->addBehavior('adminAfterCommentDesc', ['dcAntispam', 'statusMessage']);
-$core->addBehavior('adminDashboardHeaders', ['dcAntispam', 'dashboardHeaders']);
+dcCore::app()->addBehavior('coreAfterCommentUpdate', ['dcAntispam', 'trainFilters']);
+dcCore::app()->addBehavior('adminAfterCommentDesc', ['dcAntispam', 'statusMessage']);
+dcCore::app()->addBehavior('adminDashboardHeaders', ['dcAntispam', 'dashboardHeaders']);
 
-$core->addBehavior(
+dcCore::app()->addBehavior(
     'adminDashboardFavorites',
-    function ($core, $favs) {
+    function (dcCore $core, $favs) {
         $favs->register(
             'antispam',
             [
                 'title'       => __('Antispam'),
-                'url'         => $core->adminurl->get('admin.plugin.antispam'),
+                'url'         => dcCore::app()->adminurl->get('admin.plugin.antispam'),
                 'small-icon'  => [dcPage::getPF('antispam/icon.svg'), dcPage::getPF('antispam/icon-dark.svg')],
                 'large-icon'  => [dcPage::getPF('antispam/icon.svg'), dcPage::getPF('antispam/icon-dark.svg')],
                 'permissions' => 'admin', ]
@@ -44,11 +44,11 @@ $core->addBehavior(
 );
 $core->addBehavior(
     'adminDashboardFavsIcon',
-    function ($core, $name, $icon) {
+    function (dcCore $core, $name, $icon) {
         // Check if it is comments favs
         if ($name == 'comments') {
             // Hack comments title if there is at least one spam
-            $str = dcAntispam::dashboardIconTitle($core);
+            $str = dcAntispam::dashboardIconTitle(dcCore::app());
             if ($str != '') {
                 $icon[0] .= $str;
             }
@@ -56,11 +56,11 @@ $core->addBehavior(
     }
 );
 
-if (!DC_ANTISPAM_CONF_SUPER || $core->auth->isSuperAdmin()) {   // @phpstan-ignore-line
-    $core->addBehavior('adminBlogPreferencesForm', ['antispamBehaviors', 'adminBlogPreferencesForm']);
-    $core->addBehavior('adminBeforeBlogSettingsUpdate', ['antispamBehaviors', 'adminBeforeBlogSettingsUpdate']);
-    $core->addBehavior('adminCommentsSpamForm', ['antispamBehaviors', 'adminCommentsSpamForm']);
-    $core->addBehavior('adminPageHelpBlock', ['antispamBehaviors', 'adminPageHelpBlock']);
+if (!DC_ANTISPAM_CONF_SUPER || dcCore::app()->auth->isSuperAdmin()) {   // @phpstan-ignore-line
+    dcCore::app()->addBehavior('adminBlogPreferencesForm', ['antispamBehaviors', 'adminBlogPreferencesForm']);
+    dcCore::app()->addBehavior('adminBeforeBlogSettingsUpdate', ['antispamBehaviors', 'adminBeforeBlogSettingsUpdate']);
+    dcCore::app()->addBehavior('adminCommentsSpamForm', ['antispamBehaviors', 'adminCommentsSpamForm']);
+    dcCore::app()->addBehavior('adminPageHelpBlock', ['antispamBehaviors', 'adminPageHelpBlock']);
 }
 
 class antispamBehaviors
@@ -81,18 +81,18 @@ class antispamBehaviors
         $blocks[] = 'antispam_comments';
     }
 
-    public static function adminCommentsSpamForm($core)
+    public static function adminCommentsSpamForm(dcCore $core = null)
     {
-        $ttl = $core->blog->settings->antispam->antispam_moderation_ttl;
+        $ttl = dcCore::app()->blog->settings->antispam->antispam_moderation_ttl;
         if ($ttl != null && $ttl >= 0) {
             echo '<p>' . sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $ttl) . ' ' .
-            sprintf(__('You can modify this duration in the %s'), '<a href="' . $core->adminurl->get('admin.blog.pref') .
+            sprintf(__('You can modify this duration in the %s'), '<a href="' . dcCore::app()->adminurl->get('admin.blog.pref') .
                 '#antispam_moderation_ttl"> ' . __('Blog settings') . '</a>') .
                 '.</p>';
         }
     }
 
-    public static function adminBlogPreferencesForm($core, $settings)
+    public static function adminBlogPreferencesForm(dcCore $core, $settings)
     {
         $ttl = $settings->antispam->antispam_moderation_ttl;
         echo
@@ -102,7 +102,7 @@ class antispamBehaviors
         ' ' . __('days') .
         '</label></p>' .
         '<p class="form-note">' . __('Set -1 to disabled this feature ; Leave empty to use default 7 days delay.') . '</p>' .
-        '<p><a href="' . $core->adminurl->get('admin.plugin.antispam') . '">' . __('Set spam filters.') . '</a></p>' .
+        '<p><a href="' . dcCore::app()->adminurl->get('admin.plugin.antispam') . '">' . __('Set spam filters.') . '</a></p>' .
             '</div>';
     }
 

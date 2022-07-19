@@ -15,9 +15,9 @@ if (!defined('DC_RC_PATH')) {
 include __DIR__ . '/_default_widgets.php';
 require_once __DIR__ . '/_widgets_functions.php';
 
-$core->tpl->addValue('Widgets', ['publicWidgets', 'tplWidgets']);
-$core->tpl->addBlock('Widget', ['publicWidgets', 'tplWidget']);
-$core->tpl->addBlock('IfWidgets', ['publicWidgets', 'tplIfWidgets']);
+dcCore::app()->tpl->addValue('Widgets', ['publicWidgets', 'tplWidgets']);
+dcCore::app()->tpl->addBlock('Widget', ['publicWidgets', 'tplWidget']);
+dcCore::app()->tpl->addBlock('IfWidgets', ['publicWidgets', 'tplIfWidgets']);
 
 class publicWidgets
 {
@@ -45,8 +45,8 @@ class publicWidgets
     public static function widgetsHandler($type, $disable = '')
     {
         $wtype = 'widgets_' . $type;
-        $GLOBALS['core']->blog->settings->addNameSpace('widgets');
-        $widgets = $GLOBALS['core']->blog->settings->widgets->{$wtype};
+        dcCore::app()->blog->settings->addNameSpace('widgets');
+        $widgets = dcCore::app()->blog->settings->widgets->{$wtype};
 
         if (!$widgets) {
             // If widgets value is empty, get defaults
@@ -96,8 +96,8 @@ class publicWidgets
     public static function ifWidgetsHandler($type, $disable = '')
     {
         $wtype = 'widgets_' . $type;
-        $GLOBALS['core']->blog->settings->addNameSpace('widgets');
-        $widgets = $GLOBALS['core']->blog->settings->widgets->{$wtype};
+        dcCore::app()->blog->settings->addNameSpace('widgets');
+        $widgets = dcCore::app()->blog->settings->widgets->{$wtype};
 
         if (!$widgets) {
             // If widgets value is empty, get defaults

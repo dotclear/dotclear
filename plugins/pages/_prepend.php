@@ -15,10 +15,10 @@ if (!defined('DC_RC_PATH')) {
 $__autoload['dcPagesActionsPage'] = __DIR__ . '/class.actionpage.php';
 $__autoload['adminPagesList']     = __DIR__ . '/class.listpage.php';
 
-$core->url->register('pages', 'pages', '^pages/(.+)$', ['urlPages', 'pages']);
-$core->url->register('pagespreview', 'pagespreview', '^pagespreview/(.+)$', ['urlPages', 'pagespreview']);
+dcCore::app()->url->register('pages', 'pages', '^pages/(.+)$', ['urlPages', 'pages']);
+dcCore::app()->url->register('pagespreview', 'pagespreview', '^pagespreview/(.+)$', ['urlPages', 'pagespreview']);
 
-$core->setPostType('page', 'plugin.php?p=pages&act=page&id=%d', $core->url->getURLFor('pages', '%s'), 'Pages');
+dcCore::app()->setPostType('page', 'plugin.php?p=pages&act=page&id=%d', dcCore::app()->url->getURLFor('pages', '%s'), 'Pages');
 
 # We should put this as settings later
 $GLOBALS['page_url_format'] = '{t}';

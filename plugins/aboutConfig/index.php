@@ -26,20 +26,20 @@ if (!empty($_POST['ls_nav'])) {
 if (!empty($_POST['s']) && is_array($_POST['s'])) {
     try {
         foreach ($_POST['s'] as $ns => $s) {
-            $core->blog->settings->addNamespace($ns);
+            dcCore::app()->blog->settings->addNamespace($ns);
             foreach ($s as $k => $v) {
                 if ($_POST['s_type'][$ns][$k] == 'array') {
                     $v = json_decode($v, true);
                 }
-                $core->blog->settings->$ns->put($k, $v);
+                dcCore::app()->blog->settings->$ns->put($k, $v);
             }
-            $core->blog->triggerBlog();
+            dcCore::app()->blog->triggerBlog();
         }
 
         dcPage::addSuccessNotice(__('Configuration successfully updated'));
         http::redirect($p_url);
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -47,20 +47,20 @@ if (!empty($_POST['s']) && is_array($_POST['s'])) {
 if (!empty($_POST['gs']) && is_array($_POST['gs'])) {
     try {
         foreach ($_POST['gs'] as $ns => $s) {
-            $core->blog->settings->addNamespace($ns);
+            dcCore::app()->blog->settings->addNamespace($ns);
             foreach ($s as $k => $v) {
                 if ($_POST['gs_type'][$ns][$k] == 'array') {
                     $v = json_decode($v, true);
                 }
-                $core->blog->settings->$ns->put($k, $v, null, null, true, true);
+                dcCore::app()->blog->settings->$ns->put($k, $v, null, null, true, true);
             }
-            $core->blog->triggerBlog();
+            dcCore::app()->blog->triggerBlog();
         }
 
         dcPage::addSuccessNotice(__('Configuration successfully updated'));
         http::redirect($p_url . '&part=global');
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -135,16 +135,16 @@ function settingLine($id, $s, $ns, $field_name, $strong_label)
 <?php
 echo dcPage::breadcrumb(
     [
-        __('System')                        => '',
-        html::escapeHTML($core->blog->name) => '',
-        __('about:config')                  => '',
+        __('System')                                => '',
+        html::escapeHTML(dcCore::app()->blog->name) => '',
+        __('about:config')                          => '',
     ]
 ) .
 dcPage::notices();
 ?>
 
-<div id="local" class="multi-part" title="<?php echo sprintf(__('Settings for %s'), html::escapeHTML($core->blog->name)); ?>">
-<h3 class="out-of-screen-if-js"><?php echo sprintf(__('Settings for %s'), html::escapeHTML($core->blog->name)); ?></h3>
+<div id="local" class="multi-part" title="<?php echo sprintf(__('Settings for %s'), html::escapeHTML(dcCore::app()->blog->name)); ?>">
+<h3 class="out-of-screen-if-js"><?php echo sprintf(__('Settings for %s'), html::escapeHTML(dcCore::app()->blog->name)); ?></h3>
 
 <?php
 $table_header = '<div class="table-outer"><table class="settings" id="%s"><caption class="as_h3">%s</caption>' .
@@ -160,7 +160,7 @@ $table_header = '<div class="table-outer"><table class="settings" id="%s"><capti
 $table_footer = '</tbody></table></div>';
 
 $settings = [];
-foreach ($core->blog->settings->dumpNamespaces() as $ns => $namespace) {
+foreach (dcCore::app()->blog->settings->dumpNamespaces() as $ns => $namespace) {
     foreach ($namespace->dumpSettings() as $k => $v) {
         $settings[$ns][$k] = $v;
     }
@@ -172,16 +172,16 @@ if (count($settings) > 0) {
         $ns_combo[$ns] = '#l_' . $ns;
     }
     echo
-    '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
+    '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" class="anchor-nav-sticky">' .
     '<p class="anchor-nav">' .
     '<label for="ls_nav" class="classic">' . __('Goto:') . '</label> ' . form::combo('ls_nav', $ns_combo) .
     ' <input type="submit" value="' . __('Ok') . '" id="ls_submit" />' .
     '<input type="hidden" name="p" value="aboutConfig" />' .
-    $core->formNonce() . '</p></form>';
+    dcCore::app()->formNonce() . '</p></form>';
 }
 ?>
 
-<form action="<?php echo $core->adminurl->get('admin.plugin'); ?>" method="post">
+<form action="<?php echo dcCore::app()->adminurl->get('admin.plugin'); ?>" method="post">
 
 <?php
 foreach ($settings as $ns => $s) {
@@ -197,7 +197,7 @@ foreach ($settings as $ns => $s) {
 <p><input type="submit" value="<?php echo __('Save'); ?>" />
  <input type="button" value="<?php echo __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
 <input type="hidden" name="p" value="aboutConfig" />
-<?php echo $core->formNonce(); ?></p>
+<?php echo dcCore::app()->formNonce(); ?></p>
 </form>
 </div>
 
@@ -207,7 +207,7 @@ foreach ($settings as $ns => $s) {
 <?php
 $settings = [];
 
-foreach ($core->blog->settings->dumpNamespaces() as $ns => $namespace) {
+foreach (dcCore::app()->blog->settings->dumpNamespaces() as $ns => $namespace) {
     foreach ($namespace->dumpGlobalSettings() as $k => $v) {
         $settings[$ns][$k] = $v;
     }
@@ -221,16 +221,16 @@ if (count($settings) > 0) {
         $ns_combo[$ns] = '#g_' . $ns;
     }
     echo
-    '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post">' .
+    '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post">' .
     '<p class="anchor-nav">' .
     '<label for="gs_nav" class="classic">' . __('Goto:') . '</label> ' . form::combo('gs_nav', $ns_combo) . ' ' .
     '<input type="submit" value="' . __('Ok') . '" id="gs_submit" />' .
     '<input type="hidden" name="p" value="aboutConfig" />' .
-    $core->formNonce() . '</p></form>';
+    dcCore::app()->formNonce() . '</p></form>';
 }
 ?>
 
-<form action="<?php echo $core->adminurl->get('admin.plugin'); ?>" method="post">
+<form action="<?php echo dcCore::app()->adminurl->get('admin.plugin'); ?>" method="post">
 
 <?php
 foreach ($settings as $ns => $s) {
@@ -246,7 +246,7 @@ foreach ($settings as $ns => $s) {
 <p><input type="submit" value="<?php echo __('Save'); ?>" />
  <input type="button" value="<?php echo __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
 <input type="hidden" name="p" value="aboutConfig" />
-<?php echo $core->formNonce(); ?></p>
+<?php echo dcCore::app()->formNonce(); ?></p>
 </form>
 </div>
 

@@ -38,9 +38,9 @@ class dcCKEditorBehaviors
             'ckeditor_context'      => $context,
             'ckeditor_tags_context' => [$context => $tags],
             'admin_base_url'        => DC_ADMIN_URL,
-            'base_url'              => $GLOBALS['core']->blog->host,
+            'base_url'              => dcCore::app()->blog->host,
             'dcckeditor_plugin_url' => DC_ADMIN_URL . self::$p_url,
-            'user_language'         => $GLOBALS['core']->auth->getInfo('user_lang'),
+            'user_language'         => dcCore::app()->auth->getInfo('user_lang'),
         ]) .
         dcPage::jsJson('ck_editor_var', [
             'CKEDITOR_BASEPATH' => DC_ADMIN_URL . self::$p_url . '/js/ckeditor/',

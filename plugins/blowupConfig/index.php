@@ -18,9 +18,9 @@ $can_write_images = blowupConfig::canWriteImages();
 $can_write_css    = blowupConfig::canWriteCss();
 
 $notices = '';
-if ($core->error->flag()) {
-    $notices = $core->error->toHTML();
-    $core->error->reset();
+if (dcCore::app()->error->flag()) {
+    $notices = dcCore::app()->error->toHTML();
+    dcCore::app()->error->reset();
 }
 
 $blowup_base = [
@@ -84,7 +84,7 @@ $blowup_base = [
     'extra_css' => null,
 ];
 
-$blowup_user = $core->blog->settings->themes->blowup_style;
+$blowup_user = dcCore::app()->blog->settings->themes->blowup_style;
 
 $blowup_user = @unserialize($blowup_user);
 if (!is_array($blowup_user)) {
@@ -187,14 +187,14 @@ if (!empty($_POST)) {
             blowupConfig::createCss($blowup_user);
         }
 
-        $core->blog->settings->addNamespace('themes');
-        $core->blog->settings->themes->put('blowup_style', serialize($blowup_user));
-        $core->blog->triggerBlog();
+        dcCore::app()->blog->settings->addNamespace('themes');
+        dcCore::app()->blog->settings->themes->put('blowup_style', serialize($blowup_user));
+        dcCore::app()->blog->triggerBlog();
 
         dcPage::addSuccessNotice(__('Theme configuration has been successfully updated.'));
         http::redirect($p_url);
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 ?>
@@ -219,14 +219,14 @@ echo dcPage::jsModuleLoad('blowupConfig/js/config.js');
 <?php
 echo dcPage::breadcrumb(
     [
-        html::escapeHTML($core->blog->name) => '',
-        __('Blog appearance')               => $core->adminurl->get('admin.blog.theme'),
-        __('Blowup configuration')          => '',
+        html::escapeHTML(dcCore::app()->blog->name) => '',
+        __('Blog appearance')                       => dcCore::app()->adminurl->get('admin.blog.theme'),
+        __('Blowup configuration')                  => '',
     ]
 ) . dcPage::notices();
 
 echo
-'<p><a class="back" href="' . $core->adminurl->get('admin.blog.theme') . '">' . __('Back to Blog appearance') . '</a></p>';
+'<p><a class="back" href="' . dcCore::app()->adminurl->get('admin.blog.theme') . '">' . __('Back to Blog appearance') . '</a></p>';
 
 if (!$can_write_images) {
     dcPage::message(__('For the following reasons, images cannot be created. You won\'t be able to change some background properties.') .
@@ -299,7 +299,7 @@ form::field('blog_title_p', 7, 7, $blowup_user['blog_title_p']) . '</p>';
 
 if ($can_write_images) {
     if ($blowup_user['top_image'] == 'custom' && $blowup_user['uploaded']) {
-        $preview_image = http::concatURL($core->blog->url, blowupConfig::imagesURL() . '/page-t.png');
+        $preview_image = http::concatURL(dcCore::app()->blog->url, blowupConfig::imagesURL() . '/page-t.png');
     } else {
         $preview_image = dcPage::getPF('blowupConfig/alpha-img/page-t/' . $blowup_user['top_image'] . '.png');
     }
@@ -457,7 +457,7 @@ echo
 
 echo
 '<p class="clear"><input type="submit" value="' . __('Save') . '" />' .
-$core->formNonce() . '</p>' .
+dcCore::app()->formNonce() . '</p>' .
     '</form>';
 
 dcPage::helpBlock('blowupConfig');

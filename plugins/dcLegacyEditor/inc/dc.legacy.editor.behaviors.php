@@ -71,7 +71,7 @@ class dcLegacyEditorBehaviors
     {
         $js = [
             'dialog_url'            => 'popup.php',
-            'base_url'              => $GLOBALS['core']->blog->host,
+            'base_url'              => dcCore::app()->blog->host,
             'switcher_visual_title' => __('visual'),
             'switcher_source_title' => __('source'),
             'legend_msg'            => __('You can use the following shortcuts to format your text.'),
@@ -124,7 +124,7 @@ class dcLegacyEditorBehaviors
                 'removeFormat' => ['title' => __('Remove text formating')],
                 'preview'      => ['title' => __('Preview')],
             ],
-            'toolbar_bottom' => (bool) isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('toolbar_bottom'),
+            'toolbar_bottom' => (bool) isset(dcCore::app()->auth) && dcCore::app()->auth->getOption('toolbar_bottom'),
         ];
 
         // Tricky code to avoid xgettext bug on indented end heredoc identifier (see https://savannah.gnu.org/bugs/?62158)
@@ -149,7 +149,7 @@ class dcLegacyEditorBehaviors
         $js['iframe_css'] = $css;
         // End of tricky code
 
-        if (!$GLOBALS['core']->auth->check('media,media_admin', $GLOBALS['core']->blog->id)) {
+        if (!dcCore::app()->auth->check('media,media_admin', dcCore::app()->blog->id)) {
             $js['elements']['img_select']['disabled'] = true;
         }
 
@@ -157,7 +157,7 @@ class dcLegacyEditorBehaviors
         dcPage::cssModuleLoad('dcLegacyEditor/css/jsToolBar/jsToolBar.css') .
         dcPage::jsModuleLoad('dcLegacyEditor/js/jsToolBar/jsToolBar.js');
 
-        if (isset($GLOBALS['core']->auth) && $GLOBALS['core']->auth->getOption('enable_wysiwyg')) {
+        if (isset(dcCore::app()->auth) && dcCore::app()->auth->getOption('enable_wysiwyg')) {
             $res .= dcPage::jsModuleLoad('dcLegacyEditor/js/jsToolBar/jsToolBar.wysiwyg.js');
         }
 

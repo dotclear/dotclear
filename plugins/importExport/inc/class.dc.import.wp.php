@@ -68,9 +68,9 @@ class dcImportWP extends dcIeModule
 
     public function init()
     {
-        $this->con     = &$this->core->con;
-        $this->prefix  = $this->core->prefix;
-        $this->blog_id = $this->core->blog->id;
+        $this->con     = dcCore::app()->con;
+        $this->prefix  = dcCore::app()->prefix;
+        $this->blog_id = dcCore::app()->blog->id;
 
         if (!isset($_SESSION['wp_import_vars'])) {
             $_SESSION['wp_import_vars'] = $this->base_vars;
@@ -129,7 +129,7 @@ class dcImportWP extends dcIeModule
             case 'step3':
                 $this->step = 3;
                 $this->importCategories();
-                if ($this->core->plugins->moduleExists('blogroll')) {
+                if (dcCore::app()->plugins->moduleExists('blogroll')) {
                     $this->step = 4;
                     echo $this->progressBar(5);
                 } else {
@@ -157,7 +157,7 @@ class dcImportWP extends dcIeModule
                 break;
             case 'ok':
                 $this->resetVars();
-                $this->core->blog->triggerBlog();
+                dcCore::app()->blog->triggerBlog();
                 $this->step = 6;
                 echo $this->progressBar(100);
 
@@ -178,7 +178,7 @@ class dcImportWP extends dcIeModule
                 echo
                 '<p>' . sprintf(
                     __('This will import your WordPress content as new content in the current blog: %s.'),
-                    '<strong>' . html::escapeHTML($this->core->blog->name) . '</strong>'
+                    '<strong>' . html::escapeHTML(dcCore::app()->blog->name) . '</strong>'
                 ) . '</p>' .
                 '<p class="warning">' . __('Please note that this process ' .
                     'will empty your categories, blogroll, entries and comments on the current blog.') . '</p>';
@@ -293,7 +293,7 @@ class dcImportWP extends dcIeModule
         return
         '<form action="' . $this->getURL(true) . '" method="post">' .
         '<h3 class="vertical-separator">' . $legend . '</h3>' .
-        '<div>' . $this->core->formNonce() .
+        '<div>' . dcCore::app()->formNonce() .
         form::hidden(['do'], 'step' . $step) .
         '%s' . '</div>' .
         '<p><input type="submit" value="' . $submit_value . '" /></p>' .
@@ -360,7 +360,7 @@ class dcImportWP extends dcIeModule
             while ($rs->fetch()) {
                 $user_login                      = preg_replace('/[^A-Za-z0-9@._-]/', '-', $rs->user_login);
                 $this->vars['user_ids'][$rs->ID] = $user_login;
-                if (!$this->core->userExists($user_login)) {
+                if (!dcCore::app()->userExists($user_login)) {
                     $cur                   = $this->con->openCursor($this->prefix . 'user');
                     $cur->user_id          = $user_login;
                     $cur->user_pwd         = crypt::createPassword();
@@ -368,8 +368,8 @@ class dcImportWP extends dcIeModule
                     $cur->user_email       = $rs->user_email;
                     $cur->user_url         = $rs->user_url;
                     $cur->user_creadt      = $rs->user_registered;
-                    $cur->user_lang        = $this->core->blog->settings->system->lang;
-                    $cur->user_tz          = $this->core->blog->settings->system->blog_timezone;
+                    $cur->user_lang        = dcCore::app()->blog->settings->system->lang;
+                    $cur->user_tz          = dcCore::app()->blog->settings->system->blog_timezone;
                     $permissions           = [];
 
                     $rs_meta = $db->select('SELECT * FROM ' . $prefix . 'usermeta WHERE user_id = ' . $rs->ID);
@@ -433,8 +433,8 @@ class dcImportWP extends dcIeModule
                                 break;
                         }
                     }
-                    $this->core->addUser($cur);
-                    $this->core->setUserBlogPermissions(
+                    dcCore::app()->addUser($cur);
+                    dcCore::app()->setUserBlogPermissions(
                         $cur->user_id,
                         $this->blog_id,
                         $permissions
@@ -586,7 +586,7 @@ class dcImportWP extends dcIeModule
     {
         $post_date = !@strtotime($rs->post_date) ? '1970-01-01 00:00' : $rs->post_date;
         if (!isset($this->vars['user_ids'][$rs->post_author])) {
-            $user_id = $this->core->auth->userID();
+            $user_id = dcCore::app()->auth->userID();
         } else {
             $user_id = $this->vars['user_ids'][$rs->post_author];
         }
@@ -653,8 +653,8 @@ class dcImportWP extends dcIeModule
             $cur->post_content = $this->cleanStr(array_shift($_post_content));
         }
 
-        $cur->post_content_xhtml = $this->core->callFormater($this->vars['post_formater'], $cur->post_content);
-        $cur->post_excerpt_xhtml = $this->core->callFormater($this->vars['post_formater'], $cur->post_excerpt);
+        $cur->post_content_xhtml = dcCore::app()->callFormater($this->vars['post_formater'], $cur->post_content);
+        $cur->post_excerpt_xhtml = dcCore::app()->callFormater($this->vars['post_formater'], $cur->post_excerpt);
 
         switch ($rs->post_status) {
             case 'publish':
@@ -687,7 +687,7 @@ class dcImportWP extends dcIeModule
             'SELECT MAX(post_id) FROM ' . $this->prefix . 'post'
         )->f(0) + 1;
 
-        $cur->post_url = $this->core->blog->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $cur->post_id);
+        $cur->post_url = dcCore::app()->blog->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $cur->post_id);
 
         $cur->insert();
         $this->importComments($rs->ID, $cur->post_id, $db);
@@ -700,7 +700,7 @@ class dcImportWP extends dcIeModule
             if (!$old_cat_ids->isEmpty() && $this->vars['cat_as_tags']) {
                 $old_cat_ids->moveStart();
                 while ($old_cat_ids->fetch()) {
-                    $this->core->meta->setPostMeta($cur->post_id, 'tag', $this->cleanStr($this->vars['cat_tags_prefix'] . $old_cat_ids->name));
+                    dcCore::app()->meta->setPostMeta($cur->post_id, 'tag', $this->cleanStr($this->vars['cat_tags_prefix'] . $old_cat_ids->name));
                 }
             }
         }
@@ -723,7 +723,7 @@ class dcImportWP extends dcIeModule
             $cur->comment_status    = (int) $rs->comment_approved;
             $cur->comment_dt        = $rs->comment_date;
             $cur->comment_email     = $this->cleanStr($rs->comment_author_email);
-            $cur->comment_content   = $this->core->callFormater($this->vars['comment_formater'], $this->cleanStr($rs->comment_content));
+            $cur->comment_content   = dcCore::app()->callFormater($this->vars['comment_formater'], $this->cleanStr($rs->comment_content));
             $cur->comment_ip        = $rs->comment_author_IP;
             $cur->comment_trackback = $rs->comment_type == 'trackback' ? 1 : 0;
             $cur->comment_site      = substr($this->cleanStr($rs->comment_author_url), 0, 255);
@@ -807,7 +807,7 @@ class dcImportWP extends dcIeModule
         }
 
         while ($rs->fetch()) {
-            $this->core->meta->setPostMeta($new_post_id, 'tag', $this->cleanStr($rs->name));
+            dcCore::app()->meta->setPostMeta($new_post_id, 'tag', $this->cleanStr($rs->name));
         }
     }
 }

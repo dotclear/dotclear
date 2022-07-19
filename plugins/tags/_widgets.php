@@ -12,8 +12,8 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$core->addBehavior('initWidgets', ['tagsWidgets', 'initWidgets']);
-$core->addBehavior('initDefaultWidgets', ['tagsWidgets', 'initDefaultWidgets']);
+dcCore::app()->addBehavior('initWidgets', ['tagsWidgets', 'initWidgets']);
+dcCore::app()->addBehavior('initDefaultWidgets', ['tagsWidgets', 'initDefaultWidgets']);
 
 class tagsWidgets
 {

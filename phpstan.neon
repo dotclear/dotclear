@@ -167,6 +167,10 @@ parameters:
     - message: '#Property dcTemplate::\$core is never read, only written.#'
       path: %currentWorkingDirectory%
 
+    # dcSpamFilters $core property never read
+    - message: '#Property dcSpamFilters::\$core is never read, only written.#'
+      path: %currentWorkingDirectory%
+
 # Notes:
 #
 # Use /* @phpstan-ignore-next-line */ or // @phpstan-ignore-line

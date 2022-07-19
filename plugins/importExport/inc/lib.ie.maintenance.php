@@ -26,24 +26,22 @@ class ieMaintenanceExportblog extends dcMaintenanceTask
         $this->name = __('Database export');
         $this->task = __('Download database of current blog');
 
-        $this->export_name = html::escapeHTML($this->core->blog->id . '-backup.txt');
+        $this->export_name = html::escapeHTML(dcCore::app()->blog->id . '-backup.txt');
         $this->export_type = 'export_blog';
     }
 
     public function execute()
     {
-        global $core;
-
         // Create zip file
         if (!empty($_POST['file_name'])) {
-            if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
+            if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
                 $this->error = __('Password verification failed');
 
                 return false;
             }
 
             // This process make an http redirect
-            $ie = new maintenanceDcExportFlat($this->core);
+            $ie = new maintenanceDcExportFlat(dcCore::app());
             $ie->setURL($this->id);
             $ie->process($this->export_type);
         }
@@ -62,7 +60,7 @@ class ieMaintenanceExportblog extends dcMaintenanceTask
             $this->log();
 
             // This process send file by http and stop script
-            $ie = new maintenanceDcExportFlat($this->core);
+            $ie = new maintenanceDcExportFlat(dcCore::app());
             $ie->setURL($this->id);
             $ie->process('ok');
         } else {
@@ -108,18 +106,16 @@ class ieMaintenanceExportfull extends dcMaintenanceTask
 
     public function execute()
     {
-        global $core;
-
         // Create zip file
         if (!empty($_POST['file_name'])) {
-            if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
+            if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
                 $this->error = __('Password verification failed');
 
                 return false;
             }
 
             // This process make an http redirect
-            $ie = new maintenanceDcExportFlat($this->core);
+            $ie = new maintenanceDcExportFlat(dcCore::app());
             $ie->setURL($this->id);
             $ie->process($this->export_type);
         }
@@ -137,7 +133,7 @@ class ieMaintenanceExportfull extends dcMaintenanceTask
             $this->log();
 
             // This process send file by http and stop script
-            $ie = new maintenanceDcExportFlat($this->core);
+            $ie = new maintenanceDcExportFlat(dcCore::app());
             $ie->setURL($this->id);
             $ie->process('ok');
         } else {

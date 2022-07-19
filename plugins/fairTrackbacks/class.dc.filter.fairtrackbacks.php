@@ -19,9 +19,9 @@ class dcFilterFairTrackbacks extends dcSpamFilter
     public $active  = true;
     public $order   = -10;
 
-    public function __construct($core)
+    public function __construct(dcCore $core = null)
     {
-        parent::__construct($core);
+        parent::__construct(dcCore::app());
     }
 
     protected function setInfo()
@@ -44,7 +44,7 @@ class dcFilterFairTrackbacks extends dcSpamFilter
             }
 
             # Check incomink link page
-            $post     = $this->core->blog->getPosts(['post_id' => $post_id]);
+            $post     = dcCore::app()->blog->getPosts(['post_id' => $post_id]);
             $post_url = $post->getURL();
             $P        = array_merge($default_parse, parse_url($post_url));
 

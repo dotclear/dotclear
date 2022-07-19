@@ -19,16 +19,16 @@ $rs = null;
 try {
     $rs = $blogroll->getLink($id);  // @phpstan-ignore-line
 } catch (Exception $e) {
-    $core->error->add($e->getMessage());
+    dcCore::app()->error->add($e->getMessage());
 }
 
-if (!$core->error->flag() && $rs->isEmpty()) {
+if (!dcCore::app()->error->flag() && $rs->isEmpty()) {
     $link_title = '';
     $link_href  = '';
     $link_desc  = '';
     $link_lang  = '';
     $link_xfn   = '';
-    $core->error->add(__('No such link or title'));
+    dcCore::app()->error->add(__('No such link or title'));
 } else {
     $link_title = $rs->link_title;
     $link_href  = $rs->link_href;
@@ -74,7 +74,7 @@ if (isset($rs) && !$rs->is_cat && !empty($_POST['edit_link'])) {
         dcPage::addSuccessNotice(__('Link has been successfully updated'));
         http::redirect($p_url . '&edit=1&id=' . $id);
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -87,7 +87,7 @@ if (isset($rs) && $rs->is_cat && !empty($_POST['edit_cat'])) {
         dcPage::addSuccessNotice(__('Category has been successfully updated'));
         http::redirect($p_url . '&edit=1&id=' . $id);
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -105,8 +105,8 @@ $lang_combo = dcAdminCombos::getLangsCombo($links, true);
 <?php
 echo dcPage::breadcrumb(
     [
-        html::escapeHTML($core->blog->name) => '',
-        __('Blogroll')                      => $p_url,
+        html::escapeHTML(dcCore::app()->blog->name) => '',
+        __('Blogroll')                              => $p_url,
     ]
 ) .
 dcPage::notices();
@@ -123,18 +123,18 @@ if (isset($rs) && $rs->is_cat) {
     '<p><label for="link_desc" class="required classic"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
     form::field('link_desc', 30, 255, [
         'default'    => html::escapeHTML($link_desc),
-        'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+        'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
     ]) .
 
     form::hidden('edit', 1) .
     form::hidden('id', $id) .
-    $core->formNonce() .
+    dcCore::app()->formNonce() .
     '<input type="submit" name="edit_cat" value="' . __('Save') . '"/></p>' .
         '</form>';
 }
 if (isset($rs) && !$rs->is_cat) {
     echo
-    '<form action="' . $core->adminurl->get('admin.plugin') . '" method="post" class="two-cols fieldset">' .
+    '<form action="' . dcCore::app()->adminurl->get('admin.plugin') . '" method="post" class="two-cols fieldset">' .
 
     '<div class="col30 first-col">' .
     '<h3>' . __('Edit link') . '</h3>' .
@@ -142,7 +142,7 @@ if (isset($rs) && !$rs->is_cat) {
     '<p><label for="link_title" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Title:') . '</label> ' .
     form::field('link_title', 30, 255, [
         'default'    => html::escapeHTML($link_title),
-        'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+        'extra_html' => 'required placeholder="' . __('Title') . '" lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
     ]) .
     '</p>' .
 
@@ -161,7 +161,7 @@ if (isset($rs) && !$rs->is_cat) {
         255,
         [
             'default'    => html::escapeHTML($link_desc),
-            'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+            'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
         ]
     ) . '</p>' .
 
@@ -315,7 +315,7 @@ if (isset($rs) && !$rs->is_cat) {
     '<p class="clear">' . form::hidden('p', 'blogroll') .
     form::hidden('edit', 1) .
     form::hidden('id', $id) .
-    $core->formNonce() .
+    dcCore::app()->formNonce() .
     '<input type="submit" name="edit_link" value="' . __('Save') . '"/></p>' .
 
         '</form>';

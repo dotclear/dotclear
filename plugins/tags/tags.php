@@ -23,8 +23,8 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 <?php
 echo dcPage::breadcrumb(
     [
-        html::escapeHTML($core->blog->name) => '',
-        __('Tags')                          => '',
+        html::escapeHTML(dcCore::app()->blog->name) => '',
+        __('Tags')                                  => '',
     ]
 ) .
 dcPage::notices();
@@ -32,8 +32,8 @@ dcPage::notices();
 
 <?php
 
-$tags = $core->meta->getMetadata(['meta_type' => 'tag']);
-$tags = $core->meta->computeMetaStats($tags);
+$tags = dcCore::app()->meta->getMetadata(['meta_type' => 'tag']);
+$tags = dcCore::app()->meta->computeMetaStats($tags);
 $tags->sort('meta_id_lower', 'asc');
 
 $last_letter = null;

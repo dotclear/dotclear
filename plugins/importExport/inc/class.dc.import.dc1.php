@@ -48,9 +48,9 @@ class dcImportDC1 extends dcIeModule
 
     public function init()
     {
-        $this->con     = &$this->core->con;
-        $this->prefix  = $this->core->prefix;
-        $this->blog_id = $this->core->blog->id;
+        $this->con     = dcCore::app()->con;
+        $this->prefix  = dcCore::app()->prefix;
+        $this->blog_id = dcCore::app()->blog->id;
 
         if (!isset($_SESSION['dc1_import_vars'])) {
             $_SESSION['dc1_import_vars'] = $this->base_vars;
@@ -102,7 +102,7 @@ class dcImportDC1 extends dcIeModule
             case 'step3':
                 $this->step = 3;
                 $this->importCategories();
-                if ($this->core->plugins->moduleExists('blogroll')) {
+                if (dcCore::app()->plugins->moduleExists('blogroll')) {
                     $this->step = 4;
                     echo $this->progressBar(5);
                 } else {
@@ -130,7 +130,7 @@ class dcImportDC1 extends dcIeModule
                 break;
             case 'ok':
                 $this->resetVars();
-                $this->core->blog->triggerBlog();
+                dcCore::app()->blog->triggerBlog();
                 $this->step = 6;
                 echo $this->progressBar(100);
 
@@ -156,7 +156,7 @@ class dcImportDC1 extends dcIeModule
                 echo
                 '<p>' . sprintf(
                     __('Import the content of a Dotclear 1.2\'s blog in the current blog: %s.'),
-                    '<strong>' . html::escapeHTML($this->core->blog->name) . '</strong>'
+                    '<strong>' . html::escapeHTML(dcCore::app()->blog->name) . '</strong>'
                 ) . '</p>' .
                 '<p class="warning">' . __('Please note that this process ' .
                     'will empty your categories, blogroll, entries and comments on the current blog.') . '</p>';
@@ -248,7 +248,7 @@ class dcImportDC1 extends dcIeModule
         return
         '<form action="' . $this->getURL(true) . '" method="post">' .
         '<h3 class="vertical-separator">' . $legend . '</h3>' .
-        '<div>' . $this->core->formNonce() .
+        '<div>' . dcCore::app()->formNonce() .
         form::hidden(['do'], 'step' . $step) .
         '%s' . '</div>' .
         '<p class="vertical-separator"><input type="submit" value="' . $submit_value . '" /></p>' .
@@ -312,7 +312,7 @@ class dcImportDC1 extends dcIeModule
             $this->con->begin();
 
             while ($rs->fetch()) {
-                if (!$this->core->userExists($rs->user_id)) {
+                if (!dcCore::app()->userExists($rs->user_id)) {
                     $cur                   = $this->con->openCursor($this->prefix . 'user');
                     $cur->user_id          = $rs->user_id;
                     $cur->user_name        = $rs->user_nom;
@@ -321,7 +321,7 @@ class dcImportDC1 extends dcIeModule
                     $cur->user_pwd         = crypt::createPassword();
                     $cur->user_email       = $rs->user_email;
                     $cur->user_lang        = $rs->user_lang;
-                    $cur->user_tz          = $this->core->blog->settings->system->blog_timezone;
+                    $cur->user_tz          = dcCore::app()->blog->settings->system->blog_timezone;
                     $cur->user_post_status = $rs->user_post_pub ? 1 : -2;
                     $cur->user_options     = new ArrayObject([
                         'edit_size'   => (int) $rs->user_edit_size,
@@ -350,8 +350,8 @@ class dcImportDC1 extends dcIeModule
                             break;
                     }
 
-                    $this->core->addUser($cur);
-                    $this->core->setUserBlogPermissions(
+                    dcCore::app()->addUser($cur);
+                    dcCore::app()->setUserBlogPermissions(
                         $rs->user_id,
                         $this->blog_id,
                         $permissions
@@ -636,7 +636,7 @@ class dcImportDC1 extends dcIeModule
         }
 
         while ($rs->fetch()) {
-            $this->core->meta->setPostMeta($new_post_id, $this->cleanStr($rs->meta_key), $this->cleanStr($rs->meta_value));
+            dcCore::app()->meta->setPostMeta($new_post_id, $this->cleanStr($rs->meta_key), $this->cleanStr($rs->meta_value));
         }
     }
 }

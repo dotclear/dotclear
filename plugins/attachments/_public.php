@@ -13,22 +13,22 @@ if (!defined('DC_RC_PATH')) {
 }
 
 # Attachments
-$core->tpl->addBlock('Attachments', ['attachmentTpl', 'Attachments']);
-$core->tpl->addBlock('AttachmentsHeader', ['attachmentTpl', 'AttachmentsHeader']);
-$core->tpl->addBlock('AttachmentsFooter', ['attachmentTpl', 'AttachmentsFooter']);
-$core->tpl->addValue('AttachmentMimeType', ['attachmentTpl', 'AttachmentMimeType']);
-$core->tpl->addValue('AttachmentType', ['attachmentTpl', 'AttachmentType']);
-$core->tpl->addValue('AttachmentFileName', ['attachmentTpl', 'AttachmentFileName']);
-$core->tpl->addValue('AttachmentSize', ['attachmentTpl', 'AttachmentSize']);
-$core->tpl->addValue('AttachmentTitle', ['attachmentTpl', 'AttachmentTitle']);
-$core->tpl->addValue('AttachmentThumbnailURL', ['attachmentTpl', 'AttachmentThumbnailURL']);
-$core->tpl->addValue('AttachmentURL', ['attachmentTpl', 'AttachmentURL']);
-$core->tpl->addValue('MediaURL', ['attachmentTpl', 'MediaURL']);
-$core->tpl->addBlock('AttachmentIf', ['attachmentTpl', 'AttachmentIf']);
+dcCore::app()->tpl->addBlock('Attachments', ['attachmentTpl', 'Attachments']);
+dcCore::app()->tpl->addBlock('AttachmentsHeader', ['attachmentTpl', 'AttachmentsHeader']);
+dcCore::app()->tpl->addBlock('AttachmentsFooter', ['attachmentTpl', 'AttachmentsFooter']);
+dcCore::app()->tpl->addValue('AttachmentMimeType', ['attachmentTpl', 'AttachmentMimeType']);
+dcCore::app()->tpl->addValue('AttachmentType', ['attachmentTpl', 'AttachmentType']);
+dcCore::app()->tpl->addValue('AttachmentFileName', ['attachmentTpl', 'AttachmentFileName']);
+dcCore::app()->tpl->addValue('AttachmentSize', ['attachmentTpl', 'AttachmentSize']);
+dcCore::app()->tpl->addValue('AttachmentTitle', ['attachmentTpl', 'AttachmentTitle']);
+dcCore::app()->tpl->addValue('AttachmentThumbnailURL', ['attachmentTpl', 'AttachmentThumbnailURL']);
+dcCore::app()->tpl->addValue('AttachmentURL', ['attachmentTpl', 'AttachmentURL']);
+dcCore::app()->tpl->addValue('MediaURL', ['attachmentTpl', 'MediaURL']);
+dcCore::app()->tpl->addBlock('AttachmentIf', ['attachmentTpl', 'AttachmentIf']);
 
-$core->tpl->addValue('EntryAttachmentCount', ['attachmentTpl', 'EntryAttachmentCount']);
+dcCore::app()->tpl->addValue('EntryAttachmentCount', ['attachmentTpl', 'EntryAttachmentCount']);
 
-$core->addBehavior('tplIfConditions', ['attachmentBehavior', 'tplIfConditions']);
+dcCore::app()->addBehavior('tplIfConditions', ['attachmentBehavior', 'tplIfConditions']);
 
 class attachmentTpl
 {
@@ -38,8 +38,8 @@ class attachmentTpl
     public static function Attachments($attr, $content)
     {
         $res = "<?php\n" .
-            'if ($_ctx->posts !== null && $core->media) {' . "\n" .
-            '$_ctx->attachments = new ArrayObject($core->media->getPostMedia($_ctx->posts->post_id,null,"attachment"));' . "\n" .
+            'if ($_ctx->posts !== null && dcCore::app()->media) {' . "\n" .
+            '$_ctx->attachments = new ArrayObject(dcCore::app()->media->getPostMedia($_ctx->posts->post_id,null,"attachment"));' . "\n" .
             "?>\n" .
 
             '<?php foreach ($_ctx->attachments as $attach_i => $attach_f) : ' .
@@ -141,7 +141,7 @@ class attachmentTpl
      */
     public static function AttachmentMimeType($attr)
     {
-        $f = $GLOBALS['core']->tpl->getFilters($attr);
+        $f = dcCore::app()->tpl->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, '$attach_f->type') . '; ?>';
     }
@@ -151,7 +151,7 @@ class attachmentTpl
      */
     public static function AttachmentType($attr)
     {
-        $f = $GLOBALS['core']->tpl->getFilters($attr);
+        $f = dcCore::app()->tpl->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, '$attach_f->media_type') . '; ?>';
     }
@@ -161,7 +161,7 @@ class attachmentTpl
      */
     public static function AttachmentFileName($attr)
     {
-        $f = $GLOBALS['core']->tpl->getFilters($attr);
+        $f = dcCore::app()->tpl->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, '$attach_f->basename') . '; ?>';
     }
@@ -174,7 +174,7 @@ class attachmentTpl
      */
     public static function AttachmentSize($attr)
     {
-        $f = $GLOBALS['core']->tpl->getFilters($attr);
+        $f = dcCore::app()->tpl->getFilters($attr);
         if (!empty($attr['full'])) {
             return '<?php echo ' . sprintf($f, '$attach_f->size') . '; ?>';
         }
@@ -187,7 +187,7 @@ class attachmentTpl
      */
     public static function AttachmentTitle($attr)
     {
-        $f = $GLOBALS['core']->tpl->getFilters($attr);
+        $f = dcCore::app()->tpl->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, '$attach_f->media_title') . '; ?>';
     }
@@ -197,14 +197,14 @@ class attachmentTpl
      */
     public static function AttachmentThumbnailURL($attr)
     {
-        $f = $GLOBALS['core']->tpl->getFilters($attr);
+        $f = dcCore::app()->tpl->getFilters($attr);
 
         return
         '<?php ' . "\n" .
         'if (isset($attach_f->media_thumb[\'sq\'])) {' . "\n" .
         '   $url = $attach_f->media_thumb[\'sq\']);' . "\n" .
-        '   if (substr($url, 0, strlen($core->blog->host)) === $core->blog->host) {' . "\n" .
-        '       $url = substr($url, strlen($core->blog->host));' . "\n" .
+        '   if (substr($url, 0, strlen(dcCore::app()->blog->host)) === dcCore::app()->blog->host) {' . "\n" .
+        '       $url = substr($url, strlen(dcCore::app()->blog->host));' . "\n" .
         '   }' . "\n" .
         '   echo ' . sprintf($f, '$url') . ';' . "\n" .
         '}' .
@@ -216,13 +216,13 @@ class attachmentTpl
      */
     public static function AttachmentURL($attr)
     {
-        $f = $GLOBALS['core']->tpl->getFilters($attr);
+        $f = dcCore::app()->tpl->getFilters($attr);
 
         return
         '<?php ' . "\n" .
         '$url = $attach_f->file_url;' . "\n" .
-        'if (substr($url, 0, strlen($core->blog->host)) === $core->blog->host) {' . "\n" .
-        '   $url = substr($url, strlen($core->blog->host));' . "\n" .
+        'if (substr($url, 0, strlen(dcCore::app()->blog->host)) === dcCore::app()->blog->host) {' . "\n" .
+        '   $url = substr($url, strlen(dcCore::app()->blog->host));' . "\n" .
         '}' . "\n" .
         'echo ' . sprintf($f, '$url') . ';' . "\n" .
         '?>';
@@ -230,13 +230,13 @@ class attachmentTpl
 
     public static function MediaURL($attr)
     {
-        $f = $GLOBALS['core']->tpl->getFilters($attr);
+        $f = dcCore::app()->tpl->getFilters($attr);
 
         return
         '<?php ' . "\n" .
         '$url = $_ctx->file_url;' . "\n" .
-        'if (substr($url, 0, strlen($core->blog->host)) === $core->blog->host) {' . "\n" .
-        '   $url = substr($url, strlen($core->blog->host));' . "\n" .
+        'if (substr($url, 0, strlen(dcCore::app()->blog->host)) === dcCore::app()->blog->host) {' . "\n" .
+        '   $url = substr($url, strlen(dcCore::app()->blog->host));' . "\n" .
         '}' . "\n" .
         'echo ' . sprintf($f, '$url') . ';' . "\n" .
         '?>';
@@ -252,9 +252,7 @@ class attachmentTpl
      */
     public static function EntryAttachmentCount($attr)
     {
-        global $core;
-
-        return $core->tpl->displayCounter(
+        return dcCore::app()->tpl->displayCounter(
             '$_ctx->posts->countMedia(\'attachment\')',
             [
                 'none' => 'no attachments',

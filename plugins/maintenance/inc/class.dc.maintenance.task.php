@@ -20,7 +20,12 @@ Every task of maintenance must extend this class.
 class dcMaintenanceTask
 {
     protected $maintenance;
+
+    /**
+     * @deprecated Since 2.23+, use dcCore::app() instead
+     */
     protected $core;
+
     protected $p_url;
     protected $code;
     protected $ts      = 0;
@@ -51,12 +56,12 @@ class dcMaintenanceTask
     public function __construct(dcMaintenance $maintenance)
     {
         $this->maintenance = $maintenance;
-        $this->core        = $maintenance->core;
+        $this->core        = dcCore::app();
         $this->init();
         $this->id = null;
 
-        if ($this->perm() === null && !$this->core->auth->isSuperAdmin()
-            || !$this->core->auth->check($this->perm(), $this->core->blog->id)) {
+        if ($this->perm() === null && !dcCore::app()->auth->isSuperAdmin()
+            || !dcCore::app()->auth->check($this->perm(), dcCore::app()->blog->id)) {
             return;
         }
 
@@ -73,8 +78,8 @@ class dcMaintenanceTask
             $this->success = __('Task successfully executed.');
         }
 
-        $this->core->blog->settings->addNamespace('maintenance');
-        $ts = $this->core->blog->settings->maintenance->get('ts_' . $this->id);
+        dcCore::app()->blog->settings->addNamespace('maintenance');
+        $ts = dcCore::app()->blog->settings->maintenance->get('ts_' . $this->id);
 
         $this->ts = abs((int) $ts);
     }

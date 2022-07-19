@@ -28,11 +28,11 @@ class dcMaintenanceVacuum extends dcMaintenanceTask
 
     public function execute()
     {
-        $schema = dbSchema::init($this->core->con);
+        $schema = dbSchema::init(dcCore::app()->con);
 
         foreach ($schema->getTables() as $table) {
-            if (strpos($table, $this->core->prefix) === 0) {
-                $this->core->con->vacuum($table);
+            if (strpos($table, dcCore::app()->prefix) === 0) {
+                dcCore::app()->con->vacuum($table);
             }
         }
 

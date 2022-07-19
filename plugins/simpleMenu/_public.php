@@ -15,16 +15,14 @@ if (!defined('DC_RC_PATH')) {
 require __DIR__ . '/_widgets.php';
 
 # Simple menu template functions
-$core->tpl->addValue('SimpleMenu', ['tplSimpleMenu', 'simpleMenu']);
+dcCore::app()->tpl->addValue('SimpleMenu', ['tplSimpleMenu', 'simpleMenu']);
 
 class tplSimpleMenu
 {
     # Template function
     public static function simpleMenu($attr)
     {
-        global $core;
-
-        if (!(bool) $core->blog->settings->system->simpleMenu_active) {
+        if (!(bool) dcCore::app()->blog->settings->system->simpleMenu_active) {
             return '';
         }
 
@@ -46,11 +44,9 @@ class tplSimpleMenu
     # Widget function
     public static function simpleMenuWidget($w)
     {
-        global $core;
-
         $descr_type = [0 => 'span', 1 => 'title', 2 => 'both', 3 => 'none'];
 
-        if (!(bool) $core->blog->settings->system->simpleMenu_active) {
+        if (!(bool) dcCore::app()->blog->settings->system->simpleMenu_active) {
             return;
         }
 
@@ -58,7 +54,7 @@ class tplSimpleMenu
             return;
         }
 
-        if (($w->homeonly == 1 && !$core->url->isHome($core->url->type)) || ($w->homeonly == 2 && $core->url->isHome($core->url->type))) {
+        if (($w->homeonly == 1 && !dcCore::app()->url->isHome(dcCore::app()->url->type)) || ($w->homeonly == 2 && dcCore::app()->url->isHome(dcCore::app()->url->type))) {
             return;
         }
 
@@ -81,22 +77,20 @@ class tplSimpleMenu
 
     public static function displayMenu($class = '', $id = '', $description = '')
     {
-        global $core;
-
         $ret = '';
 
-        if (!(bool) $core->blog->settings->system->simpleMenu_active) {
+        if (!(bool) dcCore::app()->blog->settings->system->simpleMenu_active) {
             return $ret;
         }
 
-        $menu = $core->blog->settings->system->simpleMenu;
+        $menu = dcCore::app()->blog->settings->system->simpleMenu;
         if (is_array($menu)) {
             // Current relative URL
             $url     = $_SERVER['REQUEST_URI'];
             $abs_url = http::getHost() . $url;
 
             // Home recognition var
-            $home_url       = html::stripHostURL($core->blog->url);
+            $home_url       = html::stripHostURL(dcCore::app()->blog->url);
             $home_directory = dirname($home_url);
             if ($home_directory != '/') {
                 $home_directory = $home_directory . '/';
@@ -154,7 +148,7 @@ class tplSimpleMenu
                 ]);
 
                 # --BEHAVIOR-- publicSimpleMenuItem
-                $core->callBehavior('publicSimpleMenuItem', $i, $item);
+                dcCore::app()->callBehavior('publicSimpleMenuItem', $i, $item);
 
                 $ret .= '<li class="li' . ($i + 1) .
                     ($item['active'] ? ' active' : '') .

@@ -12,14 +12,14 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$version = $core->plugins->moduleInfo('blowupConfig', 'version');
-if (version_compare($core->getVersion('blowupConfig'), $version, '>=')) {
+$version = dcCore::app()->plugins->moduleInfo('blowupConfig', 'version');
+if (version_compare(dcCore::app()->getVersion('blowupConfig'), $version, '>=')) {
     return;
 }
 
-$core->blog->settings->addNamespace('themes');
-$core->blog->settings->themes->put('blowup_style', '', 'string', 'Blow Up  custom style', false);
+dcCore::app()->blog->settings->addNamespace('themes');
+dcCore::app()->blog->settings->themes->put('blowup_style', '', 'string', 'Blow Up  custom style', false);
 
-$core->setVersion('blowupConfig', $version);
+dcCore::app()->setVersion('blowupConfig', $version);
 
 return true;

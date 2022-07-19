@@ -14,23 +14,23 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 $_menu['Plugins']->addItem(
     'dcCKEditor',
-    $core->adminurl->get('admin.plugin.dcCKEditor'),
+    dcCore::app()->adminurl->get('admin.plugin.dcCKEditor'),
     [dcPage::getPF('dcCKEditor/icon.svg'), dcPage::getPF('dcCKEditor/icon-dark.svg')],
-    preg_match('/' . preg_quote($core->adminurl->get('admin.plugin.dcCKEditor')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
-    $core->auth->check('admin,contentadmin', $core->blog->id)
+    preg_match('/' . preg_quote(dcCore::app()->adminurl->get('admin.plugin.dcCKEditor')) . '(&.*)?$/', $_SERVER['REQUEST_URI']),
+    dcCore::app()->auth->check('admin,contentadmin', dcCore::app()->blog->id)
 );
 
-$self_ns = $core->blog->settings->addNamespace('dcckeditor');
+$self_ns = dcCore::app()->blog->settings->addNamespace('dcckeditor');
 
 if ($self_ns->active) {
-    $core->addEditorFormater('dcCKEditor', 'xhtml', fn ($s) => $s);
+    dcCore::app()->addEditorFormater('dcCKEditor', 'xhtml', fn ($s) => $s);
 
-    $core->addBehavior('adminPostEditor', ['dcCKEditorBehaviors', 'adminPostEditor']);
-    $core->addBehavior('adminPopupMedia', ['dcCKEditorBehaviors', 'adminPopupMedia']);
-    $core->addBehavior('adminPopupLink', ['dcCKEditorBehaviors', 'adminPopupLink']);
-    $core->addBehavior('adminPopupPosts', ['dcCKEditorBehaviors', 'adminPopupPosts']);
+    dcCore::app()->addBehavior('adminPostEditor', ['dcCKEditorBehaviors', 'adminPostEditor']);
+    dcCore::app()->addBehavior('adminPopupMedia', ['dcCKEditorBehaviors', 'adminPopupMedia']);
+    dcCore::app()->addBehavior('adminPopupLink', ['dcCKEditorBehaviors', 'adminPopupLink']);
+    dcCore::app()->addBehavior('adminPopupPosts', ['dcCKEditorBehaviors', 'adminPopupPosts']);
 
-    $core->addBehavior('adminMediaURL', ['dcCKEditorBehaviors', 'adminMediaURL']);
+    dcCore::app()->addBehavior('adminMediaURL', ['dcCKEditorBehaviors', 'adminMediaURL']);
 
-    $core->addBehavior('adminPageHTTPHeaderCSP', ['dcCKEditorBehaviors', 'adminPageHTTPHeaderCSP']);
+    dcCore::app()->addBehavior('adminPageHTTPHeaderCSP', ['dcCKEditorBehaviors', 'adminPageHTTPHeaderCSP']);
 }

@@ -12,12 +12,12 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$version = $core->plugins->moduleInfo('dcCKEditor', 'version');
-if (version_compare($core->getVersion('dcCKEditor'), $version, '>=')) {
+$version = dcCore::app()->plugins->moduleInfo('dcCKEditor', 'version');
+if (version_compare(dcCore::app()->getVersion('dcCKEditor'), $version, '>=')) {
     return;
 }
 
-$settings = $core->blog->settings;
+$settings = dcCore::app()->blog->settings;
 $settings->addNamespace('dcckeditor');
 
 $settings->dcckeditor->put('active', true, 'boolean', 'dcCKEditor plugin activated?', false, true);
@@ -33,6 +33,6 @@ $settings->dcckeditor->put('clipboard_buttons', false, 'boolean', 'Add clipboard
 $settings->dcckeditor->put('action_buttons', true, 'boolean', 'Add undo/redo buttons?', false, true);
 $settings->dcckeditor->put('disable_native_spellchecker', true, 'boolean', 'Disables the built-in spell checker if the browser provides one?', false, true);
 
-$core->setVersion('dcCKEditor', $version);
+dcCore::app()->setVersion('dcCKEditor', $version);
 
 return true;

@@ -12,8 +12,8 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$version = $core->plugins->moduleInfo('pings', 'version');
-if (version_compare($core->getVersion('pings'), $version, '>=')) {
+$version = dcCore::app()->plugins->moduleInfo('pings', 'version');
+if (version_compare(dcCore::app()->getVersion('pings'), $version, '>=')) {
     return;
 }
 
@@ -22,11 +22,11 @@ $default_pings_uris = [
     'Ping-o-Matic!' => 'http://rpc.pingomatic.com/',
 ];
 
-$core->blog->settings->addNamespace('pings');
-$core->blog->settings->pings->put('pings_active', 1, 'boolean', 'Activate pings plugin', false, true);
-$core->blog->settings->pings->put('pings_auto', 0, 'boolean', 'Auto pings on 1st publication', false, true);
-$core->blog->settings->pings->put('pings_uris', $default_pings_uris, 'array', 'Pings services URIs', false, true);
+dcCore::app()->blog->settings->addNamespace('pings');
+dcCore::app()->blog->settings->pings->put('pings_active', 1, 'boolean', 'Activate pings plugin', false, true);
+dcCore::app()->blog->settings->pings->put('pings_auto', 0, 'boolean', 'Auto pings on 1st publication', false, true);
+dcCore::app()->blog->settings->pings->put('pings_uris', $default_pings_uris, 'array', 'Pings services URIs', false, true);
 
-$core->setVersion('pings', $version);
+dcCore::app()->setVersion('pings', $version);
 
 return true;

@@ -12,10 +12,10 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$GLOBALS['core']->addBehavior('adminPostsActionsPage', ['dcLegacyPosts', 'adminPostsActionsPage']);
-$GLOBALS['core']->addBehavior('adminPagesActionsPage', ['dcLegacyPages', 'adminPagesActionsPage']);
-$GLOBALS['core']->addBehavior('adminCommentsActionsPage', ['dcLegacyComments', 'adminCommentsActionsPage']);
-$GLOBALS['core']->addBehavior('adminFiltersLists', ['dcLegacyPreferences', 'adminFiltersLists']);
+dcCore::app()->addBehavior('adminPostsActionsPage', ['dcLegacyPosts', 'adminPostsActionsPage']);
+dcCore::app()->addBehavior('adminPagesActionsPage', ['dcLegacyPages', 'adminPagesActionsPage']);
+dcCore::app()->addBehavior('adminCommentsActionsPage', ['dcLegacyComments', 'adminCommentsActionsPage']);
+dcCore::app()->addBehavior('adminFiltersLists', ['dcLegacyPreferences', 'adminFiltersLists']);
 
 /* Handle deprecated behaviors :
  * adminPostsActionsCombo
@@ -24,25 +24,25 @@ $GLOBALS['core']->addBehavior('adminFiltersLists', ['dcLegacyPreferences', 'admi
  */
 class dcLegacyPosts
 {
-    public static function adminPostsActionsPage($core, dcPostsActionsPage $as)
+    public static function adminPostsActionsPage(dcCore $core, dcPostsActionsPage $as)
     {
         $stub_actions = new ArrayObject();
-        $core->callBehavior('adminPostsActionsCombo', [$stub_actions]);
+        dcCore::app()->callBehavior('adminPostsActionsCombo', [$stub_actions]);
         if (count($stub_actions)) {
             $as->addAction($stub_actions->getArrayCopy(), ['dcLegacyPosts', 'onActionLegacy']);
         }
     }
 
-    public static function onActionLegacy($core, dcPostsActionsPage $as, $post)
+    public static function onActionLegacy(dcCore $core, dcPostsActionsPage $as, $post)
     {
-        $core->callBehavior('adminPostsActions', $core, $as->getRS(), $as->getAction(), $as->getRedirection());
+        dcCore::app()->callBehavior('adminPostsActions', dcCore::app(), $as->getRS(), $as->getAction(), $as->getRedirection());
         $as->beginPage(
             '',
             dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
             dcPage::jsMetaEditor() .
-            $core->callBehavior('adminPostsActionsHeaders')
+            dcCore::app()->callBehavior('adminPostsActionsHeaders')
         );
-        $core->callBehavior('adminPostsActionsContent', $core, $as->getAction(), $as->getHiddenFields(true));
+        dcCore::app()->callBehavior('adminPostsActionsContent', dcCore::app(), $as->getAction(), $as->getHiddenFields(true));
         $as->endPage();
     }
 }
@@ -54,26 +54,26 @@ class dcLegacyPosts
  */
 class dcLegacyComments
 {
-    public static function adminCommentsActionsPage($core, dcCommentsActionsPage $as)
+    public static function adminCommentsActionsPage(dcCore $core, dcCommentsActionsPage $as)
     {
         $stub_actions = new ArrayObject();
-        $core->callBehavior('adminCommentsActionsCombo', [$stub_actions]);
+        dcCore::app()->callBehavior('adminCommentsActionsCombo', [$stub_actions]);
         if (count($stub_actions)) {
             $as->addAction($stub_actions->getArrayCopy(), ['dcLegacyComments', 'onActionLegacy']);
         }
     }
 
-    public static function onActionLegacy($core, dcCommentsActionsPage $as, $Comment)
+    public static function onActionLegacy(dcCore $core, dcCommentsActionsPage $as, $Comment)
     {
-        $core->callBehavior('adminCommentsActions', $core, $as->getRS(), $as->getAction(), $as->getRedirection());
+        dcCore::app()->callBehavior('adminCommentsActions', dcCore::app(), $as->getRS(), $as->getAction(), $as->getRedirection());
         $as->beginPage(
             '',
             dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
             dcPage::jsMetaEditor() .
-            $core->callBehavior('adminCommentsActionsHeaders')
+            dcCore::app()->callBehavior('adminCommentsActionsHeaders')
         );
         ob_start();
-        $core->callBehavior('adminCommentsActionsContent', $core, $as->getAction(), $as->getHiddenFields(true));
+        dcCore::app()->callBehavior('adminCommentsActionsContent', dcCore::app(), $as->getAction(), $as->getHiddenFields(true));
         $res = ob_get_contents();
         ob_end_clean();
         $res = str_replace('comments_actions.php', $as->getURI(), $res);
@@ -88,26 +88,26 @@ class dcLegacyComments
  */
 class dcLegacyPages
 {
-    public static function adminPagesActionsPage($core, dcPagesActionsPage $as)
+    public static function adminPagesActionsPage(dcCore $core, dcPagesActionsPage $as)
     {
         $stub_actions = new ArrayObject();
-        $core->callBehavior('adminPagesActionsCombo', [$stub_actions]);
+        dcCore::app()->callBehavior('adminPagesActionsCombo', [$stub_actions]);
         if (count($stub_actions)) {
             $as->addAction($stub_actions->getArrayCopy(), ['dcLegacyPages', 'onActionLegacy']);
         }
     }
 
-    public static function onActionLegacy($core, dcPagesActionsPage $as, $post)
+    public static function onActionLegacy(dcCore $core, dcPagesActionsPage $as, $post)
     {
-        $core->callBehavior('adminPostsActions', $core, $as->getRS(), $as->getAction(), $as->getRedirection());
+        dcCore::app()->callBehavior('adminPostsActions', dcCore::app(), $as->getRS(), $as->getAction(), $as->getRedirection());
         $as->beginPage(
             '',
             dcPage::jsLoad('js/jquery/jquery.autocomplete.js') .
             dcPage::jsMetaEditor() .
-            $core->callBehavior('adminPostsActionsHeaders')
+            dcCore::app()->callBehavior('adminPostsActionsHeaders')
         );
         ob_start();
-        $core->callBehavior('adminPostsActionsContent', $core, $as->getAction(), $as->getHiddenFields(true));
+        dcCore::app()->callBehavior('adminPostsActionsContent', dcCore::app(), $as->getAction(), $as->getHiddenFields(true));
         $res = ob_get_contents();
         ob_end_clean();
         $res = str_replace('posts_actions.php', 'plugin.php', $res);
@@ -117,45 +117,45 @@ class dcLegacyPages
 }
 
 /* Handle deprecated 2.20 filter-controls user preferences :
- * Now all in $core->auth->user_prefs->interface->sorts
+ * Now all in dcCore::app()->auth->user_prefs->interface->sorts
  */
 class dcLegacyPreferences
 {
-    public static function adminFiltersLists($core, $sorts)
+    public static function adminFiltersLists(dcCore $core, $sorts)
     {
-        $core->auth->user_prefs->addWorkspace('interface');
+        dcCore::app()->auth->user_prefs->addWorkspace('interface');
 
-        $sorts['posts'][2] = $core->auth->user_prefs->interface->posts_sortby ?: 'post_dt';
-        $sorts['posts'][3] = $core->auth->user_prefs->interface->posts_order ?: 'desc';
-        if (0 < ($nb = $core->auth->user_prefs->interface->nb_posts_per_page)) {
+        $sorts['posts'][2] = dcCore::app()->auth->user_prefs->interface->posts_sortby ?: 'post_dt';
+        $sorts['posts'][3] = dcCore::app()->auth->user_prefs->interface->posts_order ?: 'desc';
+        if (0 < ($nb = dcCore::app()->auth->user_prefs->interface->nb_posts_per_page)) {
             $sorts['posts'][4][1] = $nb;
         }
 
-        $sorts['comments'][2] = $core->auth->user_prefs->interface->comments_sortby ?: 'comment_dt';
-        $sorts['comments'][3] = $core->auth->user_prefs->interface->comments_order ?: 'desc';
-        if (0 < ($nb = $core->auth->user_prefs->interface->nb_comments_per_page)) {
+        $sorts['comments'][2] = dcCore::app()->auth->user_prefs->interface->comments_sortby ?: 'comment_dt';
+        $sorts['comments'][3] = dcCore::app()->auth->user_prefs->interface->comments_order ?: 'desc';
+        if (0 < ($nb = dcCore::app()->auth->user_prefs->interface->nb_comments_per_page)) {
             $sorts['comments'][4][1] = $nb;
         }
 
-        $sorts['blogs'][2] = $core->auth->user_prefs->interface->blogs_sortby ?: 'blog_upddt';
-        $sorts['blogs'][3] = $core->auth->user_prefs->interface->blogs_order ?: 'desc';
-        if (0 < ($nb = $core->auth->user_prefs->interface->nb_blogs_per_page)) {
+        $sorts['blogs'][2] = dcCore::app()->auth->user_prefs->interface->blogs_sortby ?: 'blog_upddt';
+        $sorts['blogs'][3] = dcCore::app()->auth->user_prefs->interface->blogs_order ?: 'desc';
+        if (0 < ($nb = dcCore::app()->auth->user_prefs->interface->nb_blogs_per_page)) {
             $sorts['blogs'][4][1] = $nb;
         }
 
-        if ($core->auth->isSuperAdmin()) {
-            $sorts['users'][2] = $core->auth->user_prefs->interface->users_sortby ?: 'user_id';
-            $sorts['users'][3] = $core->auth->user_prefs->interface->users_order ?: 'asc';
-            if (0 < ($nb = $core->auth->user_prefs->interface->nb_users_per_page)) {
+        if (dcCore::app()->auth->isSuperAdmin()) {
+            $sorts['users'][2] = dcCore::app()->auth->user_prefs->interface->users_sortby ?: 'user_id';
+            $sorts['users'][3] = dcCore::app()->auth->user_prefs->interface->users_order ?: 'asc';
+            if (0 < ($nb = dcCore::app()->auth->user_prefs->interface->nb_users_per_page)) {
                 $sorts['users'][4][1] = $nb;
             }
         }
 
-        if (0 < ($nb = $core->auth->user_prefs->interface->media_by_page)) {
+        if (0 < ($nb = dcCore::app()->auth->user_prefs->interface->media_by_page)) {
             $sorts['media'][4][1] = $nb;
         }
 
-        if (0 < ($nb = $core->auth->user_prefs->interface->nb_searchresults_per_page)) {
+        if (0 < ($nb = dcCore::app()->auth->user_prefs->interface->nb_searchresults_per_page)) {
             $sorts['search'][4][1] = $nb;
         }
     }

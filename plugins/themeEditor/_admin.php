@@ -16,46 +16,44 @@ if (!isset($__resources['help']['themeEditor'])) {
     $__resources['help']['themeEditor'] = __DIR__ . '/help.html';
 }
 
-$core->addBehavior('adminCurrentThemeDetails', ['themeEditorBehaviors', 'theme_editor_details']);
+dcCore::app()->addBehavior('adminCurrentThemeDetails', ['themeEditorBehaviors', 'theme_editor_details']);
 
-$core->addBehavior('adminBeforeUserOptionsUpdate', ['themeEditorBehaviors', 'adminBeforeUserUpdate']);
-$core->addBehavior('adminPreferencesForm', ['themeEditorBehaviors', 'adminPreferencesForm']);
+dcCore::app()->addBehavior('adminBeforeUserOptionsUpdate', ['themeEditorBehaviors', 'adminBeforeUserUpdate']);
+dcCore::app()->addBehavior('adminPreferencesForm', ['themeEditorBehaviors', 'adminPreferencesForm']);
 
 class themeEditorBehaviors
 {
-    public static function theme_editor_details($core, $id)
+    public static function theme_editor_details(dcCore $core, $id)
     {
-        if ($id != 'default' && $core->auth->isSuperAdmin()) {
+        if ($id != 'default' && dcCore::app()->auth->isSuperAdmin()) {
             // Check if it's not an officially distributed theme
-            if ($core->blog->settings->system->themes_path !== $core->blog->settings->system->getGlobal('themes_path') || !adminThemesList::isDistributedModule($id)) {
-                return '<p><a href="' . $core->adminurl->get('admin.plugin.themeEditor') . '" class="button">' . __('Edit theme files') . '</a></p>';
+            if (dcCore::app()->blog->settings->system->themes_path !== dcCore::app()->blog->settings->system->getGlobal('themes_path') || !adminThemesList::isDistributedModule($id)) {
+                return '<p><a href="' . dcCore::app()->adminurl->get('admin.plugin.themeEditor') . '" class="button">' . __('Edit theme files') . '</a></p>';
             }
         }
     }
 
     public static function adminBeforeUserUpdate($cur, $userID)
     {
-        global $core;
-
         // Get and store user's prefs for plugin options
-        $core->auth->user_prefs->addWorkspace('interface');
+        dcCore::app()->auth->user_prefs->addWorkspace('interface');
 
         try {
-            $core->auth->user_prefs->interface->put('colorsyntax', !empty($_POST['colorsyntax']), 'boolean');
-            $core->auth->user_prefs->interface->put(
+            dcCore::app()->auth->user_prefs->interface->put('colorsyntax', !empty($_POST['colorsyntax']), 'boolean');
+            dcCore::app()->auth->user_prefs->interface->put(
                 'colorsyntax_theme',
                 (!empty($_POST['colorsyntax_theme']) ? $_POST['colorsyntax_theme'] : '')
             );
         } catch (Exception $e) {
-            $core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
         }
     }
 
-    public static function adminPreferencesForm($core)
+    public static function adminPreferencesForm(dcCore $core = null)
     {
         // Add fieldset for plugin options
-        $core->auth->user_prefs->addWorkspace('interface');
-        $current_theme = $core->auth->user_prefs->interface->colorsyntax_theme ?? 'default';
+        dcCore::app()->auth->user_prefs->addWorkspace('interface');
+        $current_theme = dcCore::app()->auth->user_prefs->interface->colorsyntax_theme ?? 'default';
 
         $themes_list  = dcPage::getCodeMirrorThemes();
         $themes_combo = [__('Default') => ''];
@@ -69,7 +67,7 @@ class themeEditorBehaviors
         echo
         '<div class="col">' .
         '<p><label for="colorsyntax" class="classic">' .
-        form::checkbox('colorsyntax', 1, $core->auth->user_prefs->interface->colorsyntax) . '</label>' .
+        form::checkbox('colorsyntax', 1, dcCore::app()->auth->user_prefs->interface->colorsyntax) . '</label>' .
         __('Syntax highlighting in theme editor') .
             '</p>';
         if (count($themes_combo) > 1) {
