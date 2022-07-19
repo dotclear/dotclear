@@ -324,7 +324,7 @@ try {
 # If we have some __top_behaviors, we load them
 if (isset($__top_behaviors) && is_array($__top_behaviors)) {
     foreach ($__top_behaviors as $b) {
-        $core->addBehavior($b[0], $b[1]);
+        dcCore::app()->addBehavior($b[0], $b[1]);
     }
     unset($b);
 }
@@ -339,23 +339,23 @@ try {
     exit;
 }
 
-$core->url->registerDefault(['dcUrlHandlers', 'home']);
-$core->url->registerError(['dcUrlHandlers', 'default404']);
-$core->url->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', ['dcUrlHandlers', 'lang']);
-$core->url->register('posts', 'posts', '^posts(/.+)?$', ['dcUrlHandlers', 'home']);
-$core->url->register('post', 'post', '^post/(.+)$', ['dcUrlHandlers', 'post']);
-$core->url->register('preview', 'preview', '^preview/(.+)$', ['dcUrlHandlers', 'preview']);
-$core->url->register('category', 'category', '^category/(.+)$', ['dcUrlHandlers', 'category']);
-$core->url->register('archive', 'archive', '^archive(/.+)?$', ['dcUrlHandlers', 'archive']);
+dcCore::app()->url->registerDefault(['dcUrlHandlers', 'home']);
+dcCore::app()->url->registerError(['dcUrlHandlers', 'default404']);
+dcCore::app()->url->register('lang', '', '^([a-zA-Z]{2}(?:-[a-z]{2})?(?:/page/[0-9]+)?)$', ['dcUrlHandlers', 'lang']);
+dcCore::app()->url->register('posts', 'posts', '^posts(/.+)?$', ['dcUrlHandlers', 'home']);
+dcCore::app()->url->register('post', 'post', '^post/(.+)$', ['dcUrlHandlers', 'post']);
+dcCore::app()->url->register('preview', 'preview', '^preview/(.+)$', ['dcUrlHandlers', 'preview']);
+dcCore::app()->url->register('category', 'category', '^category/(.+)$', ['dcUrlHandlers', 'category']);
+dcCore::app()->url->register('archive', 'archive', '^archive(/.+)?$', ['dcUrlHandlers', 'archive']);
 
-$core->url->register('feed', 'feed', '^feed/(.+)$', ['dcUrlHandlers', 'feed']);
-$core->url->register('trackback', 'trackback', '^trackback/(.+)$', ['dcUrlHandlers', 'trackback']);
-$core->url->register('webmention', 'webmention', '^webmention(/.+)?$', ['dcUrlHandlers', 'webmention']);
-$core->url->register('rsd', 'rsd', '^rsd$', ['dcUrlHandlers', 'rsd']);
-$core->url->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', ['dcUrlHandlers', 'xmlrpc']);
+dcCore::app()->url->register('feed', 'feed', '^feed/(.+)$', ['dcUrlHandlers', 'feed']);
+dcCore::app()->url->register('trackback', 'trackback', '^trackback/(.+)$', ['dcUrlHandlers', 'trackback']);
+dcCore::app()->url->register('webmention', 'webmention', '^webmention(/.+)?$', ['dcUrlHandlers', 'webmention']);
+dcCore::app()->url->register('rsd', 'rsd', '^rsd$', ['dcUrlHandlers', 'rsd']);
+dcCore::app()->url->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', ['dcUrlHandlers', 'xmlrpc']);
 
 // Should use dcAdminURL class, but only in admin -> to be moved to public/prepend.php and admin/prepend.php ?
-$core->setPostType('post', 'post.php?id=%d', $core->url->getURLFor('post', '%s'), 'Posts');
+dcCore::app()->setPostType('post', 'post.php?id=%d', dcCore::app()->url->getURLFor('post', '%s'), 'Posts');
 
 # Store upload_max_filesize in bytes
 $u_max_size = files::str2bytes(ini_get('upload_max_filesize'));
@@ -399,7 +399,7 @@ function __shutdown()
         }
     } catch (Exception $e) {    // @phpstan-ignore-line
     }
-    $GLOBALS['core']->con->close();
+    dcCore::app()->con->close();
 }
 
 function __error($summary, $message, $code = 0)
