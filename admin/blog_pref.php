@@ -5,8 +5,6 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 $standalone = !isset($edit_blog_mode);
 
@@ -15,15 +13,15 @@ $blog_id = false;
 if ($standalone) {
     require __DIR__ . '/../inc/admin/prepend.php';
     dcPage::check('admin');
-    $blog_id       = $core->blog->id;
-    $blog_status   = $core->blog->status;
-    $blog_name     = $core->blog->name;
-    $blog_desc     = $core->blog->desc;
-    $blog_settings = $core->blog->settings;
-    $blog_url      = $core->blog->url;
+    $blog_id       = dcCore::app()->blog->id;
+    $blog_status   = dcCore::app()->blog->status;
+    $blog_name     = dcCore::app()->blog->name;
+    $blog_desc     = dcCore::app()->blog->desc;
+    $blog_settings = dcCore::app()->blog->settings;
+    $blog_url      = dcCore::app()->blog->url;
 
-    $action = $core->adminurl->get('admin.blog.pref');
-    $redir  = $core->adminurl->get('admin.blog.pref');
+    $action = dcCore::app()->adminurl->get('admin.blog.pref');
+    $redir  = dcCore::app()->adminurl->get('admin.blog.pref');
 } else {
     dcPage::checkSuper();
 
@@ -37,7 +35,7 @@ if ($standalone) {
         if (empty($_REQUEST['id'])) {
             throw new Exception(__('No given blog id.'));
         }
-        $rs = $core->getBlog($_REQUEST['id']);
+        $rs = dcCore::app()->getBlog($_REQUEST['id']);
 
         if (!$rs) {
             throw new Exception(__('No such blog.'));
@@ -47,14 +45,14 @@ if ($standalone) {
         $blog_status   = $rs->blog_status;
         $blog_name     = $rs->blog_name;
         $blog_desc     = $rs->blog_desc;
-        $blog_settings = new dcSettings($core, $blog_id);
+        $blog_settings = new dcSettings(dcCore::app(), $blog_id);
         $blog_url      = $rs->blog_url;
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 
-    $action = $core->adminurl->get('admin.blog');
-    $redir  = $core->adminurl->get('admin.blog', ['id' => '%s'], '&', true);
+    $action = dcCore::app()->adminurl->get('admin.blog');
+    $redir  = dcCore::app()->adminurl->get('admin.blog', ['id' => '%s'], '&', true);
 }
 
 # Language codes
@@ -118,13 +116,13 @@ if (!in_array($blog_settings->system->media_img_title_pattern, $img_title_combo)
 $img_default_size_combo = [];
 
 try {
-    $media                                  = new dcMedia($core);
+    $media                                  = new dcMedia(dcCore::app());
     $img_default_size_combo[__('original')] = 'o';
     foreach ($media->thumb_sizes as $code => $size) {
         $img_default_size_combo[__($size[2])] = $code;
     }
 } catch (Exception $e) {
-    $core->error->add($e->getMessage());
+    dcCore::app()->error->add($e->getMessage());
 }
 
 # Image default alignment combo
@@ -165,14 +163,14 @@ if (is_dir($jquery_root) && is_readable($jquery_root)) {
 }
 
 # Update a blog
-if ($blog_id && !empty($_POST) && $core->auth->check('admin', $blog_id)) {
-    $cur            = $core->con->openCursor($core->prefix . 'blog');
+if ($blog_id && !empty($_POST) && dcCore::app()->auth->check('admin', $blog_id)) {
+    $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'blog');
     $cur->blog_id   = $_POST['blog_id'];
     $cur->blog_url  = preg_replace('/\?+$/', '?', $_POST['blog_url']);
     $cur->blog_name = $_POST['blog_name'];
     $cur->blog_desc = $_POST['blog_desc'];
 
-    if ($core->auth->isSuperAdmin() && in_array($_POST['blog_status'], $status_combo)) {
+    if (dcCore::app()->auth->isSuperAdmin() && in_array($_POST['blog_status'], $status_combo)) {
         $cur->blog_status = (int) $_POST['blog_status'];
     }
 
@@ -223,7 +221,7 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin', $blog_id)) {
 
     try {
         if ($cur->blog_id != null && $cur->blog_id != $blog_id) {
-            $rs = $core->getBlog($cur->blog_id);
+            $rs = dcCore::app()->getBlog($cur->blog_id);
 
             if ($rs) {
                 throw new Exception(__('This blog ID is already used.'));
@@ -231,24 +229,24 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin', $blog_id)) {
         }
 
         # --BEHAVIOR-- adminBeforeBlogUpdate
-        $core->callBehavior('adminBeforeBlogUpdate', $cur, $blog_id);
+        dcCore::app()->callBehavior('adminBeforeBlogUpdate', $cur, $blog_id);
 
         if (!preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $_POST['lang'])) {
             throw new Exception(__('Invalid language code'));
         }
 
-        $core->updBlog($blog_id, $cur);
+        dcCore::app()->updBlog($blog_id, $cur);
 
         # --BEHAVIOR-- adminAfterBlogUpdate
-        $core->callBehavior('adminAfterBlogUpdate', $cur, $blog_id);
+        dcCore::app()->callBehavior('adminAfterBlogUpdate', $cur, $blog_id);
 
         if ($cur->blog_id != null && $cur->blog_id != $blog_id) {
-            if ($blog_id == $core->blog->id) {
-                $core->setBlog($cur->blog_id);
+            if ($blog_id == dcCore::app()->blog->id) {
+                dcCore::app()->setBlog($cur->blog_id);
                 $_SESSION['sess_blog_id'] = $cur->blog_id;
-                $blog_settings            = $core->blog->settings;
+                $blog_settings            = dcCore::app()->blog->settings;
             } else {
-                $blog_settings = new dcSettings($core, $cur->blog_id);
+                $blog_settings = new dcSettings(dcCore::app(), $cur->blog_id);
             }
 
             $blog_id = $cur->blog_id;
@@ -304,16 +302,16 @@ if ($blog_id && !empty($_POST) && $core->auth->check('admin', $blog_id)) {
         $blog_settings->system->put('static_home_url', $_POST['static_home_url']);
 
         # --BEHAVIOR-- adminBeforeBlogSettingsUpdate
-        $core->callBehavior('adminBeforeBlogSettingsUpdate', $blog_settings);
+        dcCore::app()->callBehavior('adminBeforeBlogSettingsUpdate', $blog_settings);
 
-        if ($core->auth->isSuperAdmin() && in_array($_POST['url_scan'], $url_scan_combo)) {
+        if (dcCore::app()->auth->isSuperAdmin() && in_array($_POST['url_scan'], $url_scan_combo)) {
             $blog_settings->system->put('url_scan', $_POST['url_scan']);
         }
         dcPage::addSuccessNotice(__('Blog has been successfully updated.'));
 
         http::redirect(sprintf($redir, $blog_id));
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -330,15 +328,15 @@ if ($standalone) {
     $breadcrumb = dcPage::breadcrumb(
         [
             __('System')                                               => '',
-            __('Blogs')                                                => $core->adminurl->get('admin.blogs'),
+            __('Blogs')                                                => dcCore::app()->adminurl->get('admin.blogs'),
             __('Blog settings') . ' : ' . html::escapeHTML($blog_name) => '',
         ]
     );
 }
 
-$desc_editor = $core->auth->getOption('editor');
+$desc_editor = dcCore::app()->auth->getOption('editor');
 $rte_flag    = true;
-$rte_flags   = @$core->auth->user_prefs->interface->rte_flags;
+$rte_flags   = @dcCore::app()->auth->user_prefs->interface->rte_flags;
 if (is_array($rte_flags) && in_array('blog_descr', $rte_flags)) {
     $rte_flag = $rte_flags['blog_descr'];
 }
@@ -350,11 +348,11 @@ dcPage::open(
         'warning_query_string' => __('Warning: except for special configurations, it is generally advised to have a trailing "?" in your blog URL in QUERY_STRING mode.'),
     ]) .
     dcPage::jsConfirmClose('blog-form') .
-    ($rte_flag ? $core->callBehavior('adminPostEditor', $desc_editor['xhtml'], 'blog_desc', ['#blog_desc'], 'xhtml') : '') .
+    ($rte_flag ? dcCore::app()->callBehavior('adminPostEditor', $desc_editor['xhtml'], 'blog_desc', ['#blog_desc'], 'xhtml') : '') .
     dcPage::jsLoad('js/_blog_pref.js') .
 
     # --BEHAVIOR-- adminBlogPreferencesHeaders
-    $core->callBehavior('adminBlogPreferencesHeaders') .
+    dcCore::app()->callBehavior('adminBlogPreferencesHeaders') .
 
     dcPage::jsPageTabs(),
     $breadcrumb
@@ -376,7 +374,7 @@ if ($blog_id) {
 
     echo
     '<div class="fieldset"><h4>' . __('Blog details') . '</h4>' .
-    $core->formNonce();
+    dcCore::app()->formNonce();
 
     echo
     '<p><label for="blog_name" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog name:') . '</label>' .
@@ -402,7 +400,7 @@ if ($blog_id) {
         ]
     ) . '</p>';
 
-    if ($core->auth->isSuperAdmin()) {
+    if (dcCore::app()->auth->isSuperAdmin()) {
         echo
         '<p><label for="blog_status">' . __('Blog status:') . '</label>' .
         form::combo('blog_status', $status_combo, $blog_status) . '</p>';
@@ -702,7 +700,7 @@ if ($blog_id) {
 
     echo '<div id="advanced-pref"><h3>' . __('Advanced parameters') . '</h3>';
 
-    if ($core->auth->isSuperAdmin()) {
+    if (dcCore::app()->auth->isSuperAdmin()) {
         echo '<div class="fieldset"><h4>' . __('Blog details') . '</h4>';
         echo
         '<p><label for="blog_id" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog ID:') . '</label>' .
@@ -725,7 +723,7 @@ if ($blog_id) {
 
         try {
             # Test URL of blog by testing it's ATOM feed
-            $file    = $blog_url . $core->url->getURLFor('feed', 'atom');
+            $file    = $blog_url . dcCore::app()->url->getURLFor('feed', 'atom');
             $path    = '';
             $status  = '404';
             $content = '';
@@ -761,7 +759,7 @@ if ($blog_id) {
                 }
             }
         } catch (Exception $e) {
-            $core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
         }
         echo '</div>';
     }
@@ -772,7 +770,7 @@ if ($blog_id) {
     '<p><label for="post_url_format">' . __('New post URL format:') . '</label>' .
     form::combo('post_url_format', $post_url_combo, html::escapeHTML($blog_settings->system->post_url_format), '', '', false, 'aria-describedby="post_url_format_help"') .
     '</p>' .
-    '<p class="chosen form-note" id="post_url_format_help">' . __('Sample:') . ' ' . $core->blog->getPostURL('', date('Y-m-d H:i:00', $now), __('Dotclear'), 42) . '</p>' .
+    '<p class="chosen form-note" id="post_url_format_help">' . __('Sample:') . ' ' . dcCore::app()->blog->getPostURL('', date('Y-m-d H:i:00', $now), __('Dotclear'), 42) . '</p>' .
     '</p>' .
 
     '<p><label for="note_title_tag">' . __('HTML tag for the title of the notes on the blog:') . '</label>' .
@@ -789,10 +787,10 @@ if ($blog_id) {
         '<p>' . __('XML/RPC interface is active. You should set the following parameters on your XML/RPC client:') . '</p>' .
         '<ul>' .
         '<li>' . __('Server URL:') . ' <strong><code>' .
-        sprintf(DC_XMLRPC_URL, $core->blog->url, $core->blog->id) . // @phpstan-ignore-line
+        sprintf(DC_XMLRPC_URL, dcCore::app()->blog->url, dcCore::app()->blog->id) . // @phpstan-ignore-line
         '</code></strong></li>' .
         '<li>' . __('Blogging system:') . ' <strong><code>Movable Type</code></strong></li>' .
-        '<li>' . __('User name:') . ' <strong><code>' . $core->auth->userID() . '</code></strong></li>' .
+        '<li>' . __('User name:') . ' <strong><code>' . dcCore::app()->auth->userID() . '</code></strong></li>' .
         '<li>' . __('Password:') . ' <strong><code>&lt;' . __('your password') . '&gt;</code></strong></li>' .
         '<li>' . __('Blog ID:') . ' <strong><code>1</code></strong></li>' .
             '</ul>';
@@ -840,7 +838,7 @@ if ($blog_id) {
     echo '<div id="plugins-pref"><h3>' . __('Plugins parameters') . '</h3>';
 
     # --BEHAVIOR-- adminBlogPreferencesForm
-    $core->callBehavior('adminBlogPreferencesForm', $core, $blog_settings);
+    dcCore::app()->callBehavior('adminBlogPreferencesForm', dcCore::app(), $blog_settings);
 
     echo '</div>'; // End 3rd party, aka plugins
 
@@ -851,15 +849,15 @@ if ($blog_id) {
         '</p>' .
         '</form>';
 
-    if ($core->auth->isSuperAdmin() && $blog_id != $core->blog->id) {
+    if (dcCore::app()->auth->isSuperAdmin() && $blog_id != dcCore::app()->blog->id) {
         echo
-        '<form action="' . $core->adminurl->get('admin.blog.del') . '" method="post">' .
+        '<form action="' . dcCore::app()->adminurl->get('admin.blog.del') . '" method="post">' .
         '<p><input type="submit" class="delete" value="' . __('Delete this blog') . '" />' .
         form::hidden(['blog_id'], $blog_id) .
-        $core->formNonce() . '</p>' .
+        dcCore::app()->formNonce() . '</p>' .
             '</form>';
     } else {
-        if ($blog_id == $core->blog->id) {
+        if ($blog_id == dcCore::app()->blog->id) {
             echo '<p class="message">' . __('The current blog cannot be deleted.') . '</p>';
         } else {
             echo '<p class="message">' . __('Only superadmin can delete a blog.') . '</p>';
@@ -871,8 +869,8 @@ if ($blog_id) {
     #
     # Users on the blog (with permissions)
 
-    $blog_users = $core->getBlogPermissions($blog_id, $core->auth->isSuperAdmin());
-    $perm_types = $core->auth->getPermissionsTypes();
+    $blog_users = dcCore::app()->getBlogPermissions($blog_id, dcCore::app()->auth->isSuperAdmin());
+    $perm_types = dcCore::app()->auth->getPermissionsTypes();
 
     echo
     '<div class="multi-part" id="users" title="' . __('Users') . '">' .
@@ -881,8 +879,8 @@ if ($blog_id) {
     if (empty($blog_users)) {
         echo '<p>' . __('No users') . '</p>';
     } else {
-        if ($core->auth->isSuperAdmin()) {
-            $user_url_p = '<a href="' . $core->adminurl->get('admin.user', ['id' => '%1$s'], '&amp;', true) . '">%1$s</a>';
+        if (dcCore::app()->auth->isSuperAdmin()) {
+            $user_url_p = '<a href="' . dcCore::app()->adminurl->get('admin.user', ['id' => '%1$s'], '&amp;', true) . '">%1$s</a>';
         } else {
             $user_url_p = '%1$s';
         }
@@ -890,10 +888,10 @@ if ($blog_id) {
         # Sort users list on user_id key
         dcUtils::lexicalKeySort($blog_users);
 
-        $post_type       = $core->getPostTypes();
-        $current_blog_id = $core->blog->id;
-        if ($blog_id != $core->blog->id) {
-            $core->setBlog($blog_id);
+        $post_type       = dcCore::app()->getPostTypes();
+        $current_blog_id = dcCore::app()->blog->id;
+        if ($blog_id != dcCore::app()->blog->id) {
+            dcCore::app()->setBlog($blog_id);
         }
 
         echo '<div>';
@@ -909,7 +907,7 @@ if ($blog_id) {
                     $v['displayname']
                 )) . ')</h4>';
 
-                if ($core->auth->isSuperAdmin()) {
+                if (dcCore::app()->auth->isSuperAdmin()) {
                     echo
                     '<p>' . __('Email:') . ' ' .
                         ($v['email'] != '' ? '<a href="mailto:' . $v['email'] . '">' . $v['email'] . '</a>' : __('(none)')) .
@@ -924,7 +922,7 @@ if ($blog_id) {
                         'post_type' => $type,
                         'user_id'   => $k,
                     ];
-                    echo '<li>' . sprintf(__('%1$s: %2$s'), __($pt_info['label']), $core->blog->getPosts($params, true)->f(0)) . '</li>';
+                    echo '<li>' . sprintf(__('%1$s: %2$s'), __($pt_info['label']), dcCore::app()->blog->getPosts($params, true)->f(0)) . '</li>';
                 }
                 echo
                     '</ul>';
@@ -952,15 +950,15 @@ if ($blog_id) {
                 echo
                     '</ul>';
 
-                if (!$v['super'] && $core->auth->isSuperAdmin()) {
+                if (!$v['super'] && dcCore::app()->auth->isSuperAdmin()) {
                     echo
-                    '<form action="' . $core->adminurl->get('admin.user.actions') . '" method="post">' .
+                    '<form action="' . dcCore::app()->adminurl->get('admin.user.actions') . '" method="post">' .
                     '<p class="change-user-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '" />' .
-                    form::hidden(['redir'], $core->adminurl->get('admin.blog.pref', ['id' => $k], '&')) .
+                    form::hidden(['redir'], dcCore::app()->adminurl->get('admin.blog.pref', ['id' => $k], '&')) .
                     form::hidden(['action'], 'perms') .
                     form::hidden(['users[]'], $k) .
                     form::hidden(['blogs[]'], $blog_id) .
-                    $core->formNonce() .
+                    dcCore::app()->formNonce() .
                         '</p>' .
                         '</form>';
                 }
@@ -968,8 +966,8 @@ if ($blog_id) {
             }
         }
         echo '</div>';
-        if ($current_blog_id != $core->blog->id) {
-            $core->setBlog($current_blog_id);
+        if ($current_blog_id != dcCore::app()->blog->id) {
+            dcCore::app()->setBlog($current_blog_id);
         }
     }
 

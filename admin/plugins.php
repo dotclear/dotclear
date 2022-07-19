@@ -5,23 +5,21 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
 # -- Page helper --
 $list = new adminModulesList(
-    $core->plugins,
+    dcCore::app()->plugins,
     DC_PLUGINS_ROOT,
-    $core->blog->settings->system->store_plugin_url,
+    dcCore::app()->blog->settings->system->store_plugin_url,
     !empty($_GET['nocache'])
 );
 
 adminModulesList::$allow_multi_install = (bool) DC_ALLOW_MULTI_MODULES;
 adminModulesList::$distributed_modules = explode(',', DC_DISTRIB_PLUGINS);
 
-if ($core->plugins->disableDepModules($core->adminurl->get('admin.plugins', []))) {
+if (dcCore::app()->plugins->disableDepModules(dcCore::app()->adminurl->get('admin.plugins', []))) {
     exit;
 }
 
@@ -39,10 +37,10 @@ if ($list->setConfiguration()) {
         __('Plugins management'),
 
         # --BEHAVIOR-- pluginsToolsHeaders
-        $core->callBehavior('pluginsToolsHeaders', $core, true),
+        dcCore::app()->callBehavior('pluginsToolsHeaders', dcCore::app(), true),
         dcPage::breadcrumb(
             [
-                html::escapeHTML($core->blog->name)                                  => '',
+                html::escapeHTML(dcCore::app()->blog->name)                          => '',
                 __('Plugins management')                                             => $list->getURL('', false),
                 '<span class="page-title">' . __('Plugin configuration') . '</span>' => '',
             ]
@@ -65,13 +63,13 @@ dcPage::checkSuper();
 try {
     $list->doActions();
 } catch (Exception $e) {
-    $core->error->add($e->getMessage());
+    dcCore::app()->error->add($e->getMessage());
 }
 
 # -- Plugin install --
 $plugins_install = null;
-if (!$core->error->flag()) {
-    $plugins_install = $core->plugins->installModules();
+if (!dcCore::app()->error->flag()) {
+    $plugins_install = dcCore::app()->plugins->installModules();
 }
 
 # -- Page header --
@@ -81,7 +79,7 @@ dcPage::open(
     dcPage::jsPageTabs() .
 
     # --BEHAVIOR-- pluginsToolsHeaders
-    $core->callBehavior('pluginsToolsHeaders', $core, false),
+    dcCore::app()->callBehavior('pluginsToolsHeaders', dcCore::app(), false),
     dcPage::breadcrumb(
         [
             __('System')             => '',
@@ -96,7 +94,7 @@ if (!empty($plugins_install['success'])) {
     '<div class="static-msg">' . __('Following plugins have been installed:') . '<ul>';
 
     foreach ($plugins_install['success'] as $k => $v) {
-        $info = implode(' - ', $list->getSettingsUrls($core, $k, true));
+        $info = implode(' - ', $list->getSettingsUrls(dcCore::app(), $k, true));
         echo
             '<li>' . $k . ($info !== '' ? ' → ' . $info : '') . '</li>';
     }
@@ -118,8 +116,8 @@ if (!empty($plugins_install['failure'])) {
 }
 
 # -- Display modules lists --
-if ($core->auth->isSuperAdmin()) {
-    if (!$core->error->flag()) {
+if (dcCore::app()->auth->isSuperAdmin()) {
+    if (!dcCore::app()->error->flag()) {
         if (!empty($_GET['nocache'])) {
             dcPage::success(__('Manual checking of plugins update done successfully.'));
         }
@@ -171,7 +169,7 @@ echo
 $modules = $list->modules->getModules();
 if (!empty($modules)) {
     echo
-    '<h3>' . ($core->auth->isSuperAdmin() ? __('Activated plugins') : __('Installed plugins')) . '</h3>' .
+    '<h3>' . (dcCore::app()->auth->isSuperAdmin() ? __('Activated plugins') : __('Installed plugins')) . '</h3>' .
     '<p class="more-info">' . __('You can configure and manage installed plugins from this list.') . '</p>';
 
     $list
@@ -187,7 +185,7 @@ if (!empty($modules)) {
 }
 
 # Deactivated modules
-if ($core->auth->isSuperAdmin()) {
+if (dcCore::app()->auth->isSuperAdmin()) {
     $modules = $list->modules->getDisabledModules();
     if (!empty($modules)) {
         echo
@@ -210,7 +208,7 @@ if ($core->auth->isSuperAdmin()) {
 echo
     '</div>';
 
-if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
+if (dcCore::app()->auth->isSuperAdmin() && $list->isWritablePath()) {
 
     # New modules from repo
     $search  = $list->getSearch();
@@ -259,10 +257,10 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 }
 
 # --BEHAVIOR-- pluginsToolsTabs
-$core->callBehavior('pluginsToolsTabs', $core);
+dcCore::app()->callBehavior('pluginsToolsTabs', dcCore::app());
 
 # -- Notice for super admin --
-if ($core->auth->isSuperAdmin() && !$list->isWritablePath()) {
+if (dcCore::app()->auth->isSuperAdmin() && !$list->isWritablePath()) {
     echo
     '<p class="warning">' . __('Some functions are disabled, please give write access to your plugins directory to enable them.') . '</p>';
 }

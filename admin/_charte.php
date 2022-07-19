@@ -5,16 +5,14 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
-$core->auth->user_prefs->addWorkspace('interface');
+dcCore::app()->auth->user_prefs->addWorkspace('interface');
 
 $js         = [];
-$data_theme = $core->auth->user_prefs->interface->theme;
+$data_theme = dcCore::app()->auth->user_prefs->interface->theme;
 ?>
 <!DOCTYPE html>
 <html lang="fr" data-theme="<?php echo $data_theme; ?>">
@@ -29,8 +27,8 @@ $data_theme = $core->auth->user_prefs->interface->theme;
 
 echo dcPage::cssLoad('style/default.css');
 
-if ($core->auth->user_prefs->interface->htmlfontsize) {
-    $js['htmlFontSize'] = $core->auth->user_prefs->interface->htmlfontsize;
+if (dcCore::app()->auth->user_prefs->interface->htmlfontsize) {
+    $js['htmlFontSize'] = dcCore::app()->auth->user_prefs->interface->htmlfontsize;
 }
 // Set some JSON data
 echo dcUtils::jsJson('dotclear_init', $js);

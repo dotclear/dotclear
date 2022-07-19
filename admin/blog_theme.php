@@ -5,27 +5,25 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('admin');
 
 # -- Loading themes --
-$core->themes = new dcThemes($core);
-$core->themes->loadModules($core->blog->themes_path, null);
+dcCore::app()->themes = new dcThemes(dcCore::app());
+dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
 
 # -- Page helper --
 $list = new adminThemesList(
-    $core->themes,
-    $core->blog->themes_path,
-    $core->blog->settings->system->store_theme_url,
+    dcCore::app()->themes,
+    dcCore::app()->blog->themes_path,
+    dcCore::app()->blog->settings->system->store_theme_url,
     !empty($_GET['nocache'])
 );
 adminThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
 
-if ($core->themes->disableDepModules($core->adminurl->get('admin.blog.theme', []))) {
+if (dcCore::app()->themes->disableDepModules(dcCore::app()->adminurl->get('admin.blog.theme', []))) {
     exit;
 }
 
@@ -33,8 +31,8 @@ if ($core->themes->disableDepModules($core->adminurl->get('admin.blog.theme', []
 if (!empty($_GET['shot'])) {
     $f = path::real(
         empty($_GET['src']) ?
-        $core->blog->themes_path . '/' . $_GET['shot'] . '/screenshot.jpg' :
-        $core->blog->themes_path . '/' . $_GET['shot'] . '/' . path::clean($_GET['src'])
+        dcCore::app()->blog->themes_path . '/' . $_GET['shot'] . '/screenshot.jpg' :
+        dcCore::app()->blog->themes_path . '/' . $_GET['shot'] . '/' . path::clean($_GET['src'])
     );
 
     if (!file_exists($f)) {
@@ -51,7 +49,7 @@ if (!empty($_GET['shot'])) {
 }
 
 # -- Display module configuration page --
-if ($list->setConfiguration($core->blog->settings->system->theme)) {
+if ($list->setConfiguration(dcCore::app()->blog->settings->system->theme)) {
 
     # Get content before page headers
     include $list->includeConfiguration();
@@ -65,10 +63,10 @@ if ($list->setConfiguration($core->blog->settings->system->theme)) {
         dcPage::jsPageTabs() .
 
         # --BEHAVIOR-- themesToolsHeaders
-        $core->callBehavior('themesToolsHeaders', $core, true),
+        dcCore::app()->callBehavior('themesToolsHeaders', dcCore::app(), true),
         dcPage::breadcrumb(
             [
-                html::escapeHTML($core->blog->name)                                 => '',
+                html::escapeHTML(dcCore::app()->blog->name)                         => '',
                 __('Blog appearance')                                               => $list->getURL('', false),
                 '<span class="page-title">' . __('Theme configuration') . '</span>' => '',
             ]
@@ -89,7 +87,7 @@ if ($list->setConfiguration($core->blog->settings->system->theme)) {
 try {
     $list->doActions();
 } catch (Exception $e) {
-    $core->error->add($e->getMessage());
+    dcCore::app()->error->add($e->getMessage());
 }
 
 # -- Page header --
@@ -99,18 +97,18 @@ dcPage::open(
     dcPage::jsPageTabs() .
 
     # --BEHAVIOR-- themesToolsHeaders
-    $core->callBehavior('themesToolsHeaders', $core, false),
+    dcCore::app()->callBehavior('themesToolsHeaders', dcCore::app(), false),
     dcPage::breadcrumb(
         [
-            html::escapeHTML($core->blog->name)                             => '',
+            html::escapeHTML(dcCore::app()->blog->name)                     => '',
             '<span class="page-title">' . __('Blog appearance') . '</span>' => '',
         ]
     )
 );
 
 # -- Display modules lists --
-if ($core->auth->isSuperAdmin()) {
-    if (!$core->error->flag()) {
+if (dcCore::app()->auth->isSuperAdmin()) {
+    if (!dcCore::app()->error->flag()) {
         if (!empty($_GET['nocache'])) {
             dcPage::success(__('Manual checking of themes update done successfully.'));
         }
@@ -201,7 +199,7 @@ if (!empty($modules)) {
         '</div>';
 }
 
-if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
+if (dcCore::app()->auth->isSuperAdmin() && $list->isWritablePath()) {
 
     # New modules from repo
     $search  = $list->getSearch();
@@ -251,10 +249,10 @@ if ($core->auth->isSuperAdmin() && $list->isWritablePath()) {
 }
 
 # --BEHAVIOR-- themesToolsTabs
-$core->callBehavior('themesToolsTabs', $core);
+dcCore::app()->callBehavior('themesToolsTabs', dcCore::app());
 
 # -- Notice for super admin --
-if ($core->auth->isSuperAdmin() && !$list->isWritablePath()) {
+if (dcCore::app()->auth->isSuperAdmin() && !$list->isWritablePath()) {
     echo
     '<p class="warning">' . __('Some functions are disabled, please give write access to your themes directory to enable them.') . '</p>';
 }

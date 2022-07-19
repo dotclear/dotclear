@@ -5,8 +5,6 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -24,13 +22,13 @@ if ($popup) {
     $close_f = ['dcPage', 'close'];
 }
 
-if ($core->plugins->moduleExists($p)) {
-    $p_file = $core->plugins->moduleRoot($p) . '/index.php';
+if (dcCore::app()->plugins->moduleExists($p)) {
+    $p_file = dcCore::app()->plugins->moduleRoot($p) . '/index.php';
 }
 
 if (file_exists($p_file)) {
     # Loading plugin
-    $p_info = $core->plugins->getModules($p);
+    $p_info = dcCore::app()->plugins->getModules($p);
 
     $p_name = $p;
     $p_url  = 'plugin.php?p=' . $p;
@@ -76,7 +74,7 @@ if (file_exists($p_file)) {
     echo $p_content;
     if (!$popup) {
         // Add direct links to plugin settings if any
-        $settings = adminModulesList::getSettingsUrls($core, $p, true, false);
+        $settings = adminModulesList::getSettingsUrls(dcCore::app(), $p, true, false);
         if (!empty($settings)) {
             echo '<hr class="clear"/><p class="right modules">' . implode(' - ', $settings) . '</p>';
         }

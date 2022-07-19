@@ -5,8 +5,6 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -73,7 +71,7 @@ if (($content_array['content'] == '') || ($help_page == 'index')) {
 if ($content_array['title'] != '') {
     $breadcrumb = dcPage::breadcrumb(
         [
-            __('Global help')       => $core->adminurl->get('admin.help'),
+            __('Global help')       => dcCore::app()->adminurl->get('admin.help'),
             $content_array['title'] => '',
         ]
     );

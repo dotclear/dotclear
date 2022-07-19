@@ -5,31 +5,29 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
-$core->rest->addFunction('getPostsCount', ['dcRestMethods', 'getPostsCount']);
-$core->rest->addFunction('getCommentsCount', ['dcRestMethods', 'getCommentsCount']);
-$core->rest->addFunction('checkNewsUpdate', ['dcRestMethods', 'checkNewsUpdate']);
-$core->rest->addFunction('checkCoreUpdate', ['dcRestMethods', 'checkCoreUpdate']);
-$core->rest->addFunction('checkStoreUpdate', ['dcRestMethods', 'checkStoreUpdate']);
-$core->rest->addFunction('getPostById', ['dcRestMethods', 'getPostById']);
-$core->rest->addFunction('getCommentById', ['dcRestMethods', 'getCommentById']);
-$core->rest->addFunction('quickPost', ['dcRestMethods', 'quickPost']);
-$core->rest->addFunction('validatePostMarkup', ['dcRestMethods', 'validatePostMarkup']);
-$core->rest->addFunction('getZipMediaContent', ['dcRestMethods', 'getZipMediaContent']);
-$core->rest->addFunction('getMeta', ['dcRestMethods', 'getMeta']);
-$core->rest->addFunction('delMeta', ['dcRestMethods', 'delMeta']);
-$core->rest->addFunction('setPostMeta', ['dcRestMethods', 'setPostMeta']);
-$core->rest->addFunction('searchMeta', ['dcRestMethods', 'searchMeta']);
-$core->rest->addFunction('setSectionFold', ['dcRestMethods', 'setSectionFold']);
-$core->rest->addFunction('getModuleById', ['dcRestMethods', 'getModuleById']);
-$core->rest->addFunction('setDashboardPositions', ['dcRestMethods', 'setDashboardPositions']);
-$core->rest->addFunction('setListsOptions', ['dcRestMethods', 'setListsOptions']);
+dcCore::app()->rest->addFunction('getPostsCount', ['dcRestMethods', 'getPostsCount']);
+dcCore::app()->rest->addFunction('getCommentsCount', ['dcRestMethods', 'getCommentsCount']);
+dcCore::app()->rest->addFunction('checkNewsUpdate', ['dcRestMethods', 'checkNewsUpdate']);
+dcCore::app()->rest->addFunction('checkCoreUpdate', ['dcRestMethods', 'checkCoreUpdate']);
+dcCore::app()->rest->addFunction('checkStoreUpdate', ['dcRestMethods', 'checkStoreUpdate']);
+dcCore::app()->rest->addFunction('getPostById', ['dcRestMethods', 'getPostById']);
+dcCore::app()->rest->addFunction('getCommentById', ['dcRestMethods', 'getCommentById']);
+dcCore::app()->rest->addFunction('quickPost', ['dcRestMethods', 'quickPost']);
+dcCore::app()->rest->addFunction('validatePostMarkup', ['dcRestMethods', 'validatePostMarkup']);
+dcCore::app()->rest->addFunction('getZipMediaContent', ['dcRestMethods', 'getZipMediaContent']);
+dcCore::app()->rest->addFunction('getMeta', ['dcRestMethods', 'getMeta']);
+dcCore::app()->rest->addFunction('delMeta', ['dcRestMethods', 'delMeta']);
+dcCore::app()->rest->addFunction('setPostMeta', ['dcRestMethods', 'setPostMeta']);
+dcCore::app()->rest->addFunction('searchMeta', ['dcRestMethods', 'searchMeta']);
+dcCore::app()->rest->addFunction('setSectionFold', ['dcRestMethods', 'setSectionFold']);
+dcCore::app()->rest->addFunction('getModuleById', ['dcRestMethods', 'getModuleById']);
+dcCore::app()->rest->addFunction('setDashboardPositions', ['dcRestMethods', 'setDashboardPositions']);
+dcCore::app()->rest->addFunction('setListsOptions', ['dcRestMethods', 'setListsOptions']);
 
-$core->rest->serve();
+dcCore::app()->rest->serve();
 
 /* Common REST methods */
 class dcRestMethods
@@ -40,9 +38,9 @@ class dcRestMethods
      * @param     dcCore  $core     dcCore instance
      * @param     array   $get     cleaned $_GET
      */
-    public static function getPostsCount($core, $get)
+    public static function getPostsCount(dcCore $core, $get)
     {
-        $count = $core->blog->getPosts([], true)->f(0);
+        $count = dcCore::app()->blog->getPosts([], true)->f(0);
         $str   = sprintf(__('%d post', '%d posts', $count), $count);
 
         $rsp      = new xmlTag('count');
@@ -57,9 +55,9 @@ class dcRestMethods
      * @param     dcCore  $core     dcCore instance
      * @param     array   $get     cleaned $_GET
      */
-    public static function getCommentsCount($core, $get)
+    public static function getCommentsCount(dcCore $core, $get)
     {
-        $count = $core->blog->getComments([], true)->f(0);
+        $count = dcCore::app()->blog->getComments([], true)->f(0);
         $str   = sprintf(__('%d comment', '%d comments', $count), $count);
 
         $rsp      = new xmlTag('count');
@@ -68,7 +66,7 @@ class dcRestMethods
         return $rsp;
     }
 
-    public static function checkNewsUpdate($core, $get)
+    public static function checkNewsUpdate(dcCore $core, $get)
     {
         # Dotclear news
 
@@ -76,7 +74,7 @@ class dcRestMethods
         $rsp->check = false;
         $ret        = __('Dotclear news not available');
 
-        if ($core->auth->user_prefs->dashboard->dcnews) {
+        if (dcCore::app()->auth->user_prefs->dashboard->dcnews) {
             try {
                 if (empty($GLOBALS['__resources']['rss_news'])) {
                     throw new Exception();
@@ -113,7 +111,7 @@ class dcRestMethods
         return $rsp;
     }
 
-    public static function checkCoreUpdate($core, $get)
+    public static function checkCoreUpdate(dcCore $core, $get)
     {
         # Dotclear updates notifications
 
@@ -122,7 +120,7 @@ class dcRestMethods
         $ret        = __('Dotclear update not available');
 
         /* @phpstan-ignore-next-line */
-        if ($core->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) && !$core->auth->user_prefs->dashboard->nodcupdate) {
+        if (dcCore::app()->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) && !dcCore::app()->auth->user_prefs->dashboard->nodcupdate) {
             $updater      = new dcUpdate(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
             $new_v        = $updater->check(DC_VERSION);
             $version_info = $new_v ? $updater->getInfoURL() : '';
@@ -131,8 +129,8 @@ class dcRestMethods
                 // Check PHP version required
                 if (version_compare(phpversion(), $updater->getPHPVersion()) >= 0) {
                     $ret = '<div class="dc-update" id="ajax-update"><h3>' . sprintf(__('Dotclear %s is available!'), $new_v) . '</h3> ' .
-                    '<p><a class="button submit" href="' . $core->adminurl->get('admin.update') . '">' . sprintf(__('Upgrade now'), $new_v) . '</a> ' .
-                    '<a class="button" href="' . $core->adminurl->get('admin.update', ['hide_msg' => 1]) . '">' . __('Remind me later') . '</a>' .
+                    '<p><a class="button submit" href="' . dcCore::app()->adminurl->get('admin.update') . '">' . sprintf(__('Upgrade now'), $new_v) . '</a> ' .
+                    '<a class="button" href="' . dcCore::app()->adminurl->get('admin.update', ['hide_msg' => 1]) . '">' . __('Remind me later') . '</a>' .
                         ($version_info ? ' </p>' .
                         '<p class="updt-info"><a href="' . $version_info . '">' . __('Information about this version') . '</a>' : '') . '</p>' .
                         '</div>';
@@ -148,7 +146,7 @@ class dcRestMethods
                 $rsp->check = true;
             } else {
                 if (version_compare(phpversion(), DC_NEXT_REQUIRED_PHP, '<')) {
-                    if (!$core->auth->user_prefs->interface->hidemoreinfo) {
+                    if (!dcCore::app()->auth->user_prefs->interface->hidemoreinfo) {
                         $ret = '<p class="info">' .
                         sprintf(
                             __('The next versions of Dotclear will not support PHP version < %s, your\'s is currently %s'),
@@ -166,7 +164,7 @@ class dcRestMethods
         return $rsp;
     }
 
-    public static function checkStoreUpdate($core, $get, $post)
+    public static function checkStoreUpdate(dcCore $core, $get, $post)
     {
         # Dotclear store updates notifications
 
@@ -182,16 +180,16 @@ class dcRestMethods
         }
 
         if ($post['store'] == 'themes') {
-            $mod = new dcThemes($core);
-            $mod->loadModules($core->blog->themes_path, null);
-            $url = $core->blog->settings->system->store_theme_url;
+            $mod = new dcThemes(dcCore::app());
+            $mod->loadModules(dcCore::app()->blog->themes_path, null);
+            $url = dcCore::app()->blog->settings->system->store_theme_url;
         } elseif ($post['store'] == 'plugins') {
-            $mod = $core->plugins;
-            $url = $core->blog->settings->system->store_plugin_url;
+            $mod = dcCore::app()->plugins;
+            $url = dcCore::app()->blog->settings->system->store_plugin_url;
         } else {
 
             # --BEHAVIOR-- restCheckStoreUpdate
-            $core->callBehavior('restCheckStoreUpdate', $core, $post['store'], [& $mod], [& $url]);
+            dcCore::app()->callBehavior('restCheckStoreUpdate', dcCore::app(), $post['store'], [& $mod], [& $url]);
 
             if (empty($mod) || empty($url)) {   // @phpstan-ignore-line
                 throw new Exception('Unknown store type');
@@ -211,7 +209,7 @@ class dcRestMethods
         return $rsp;
     }
 
-    public static function getPostById($core, $get)
+    public static function getPostById(dcCore $core, $get)
     {
         if (empty($get['id'])) {
             throw new Exception('No post ID');
@@ -223,7 +221,7 @@ class dcRestMethods
             $params['post_type'] = $get['post_type'];
         }
 
-        $rs = $core->blog->getPosts($params);
+        $rs = dcCore::app()->blog->getPosts($params);
 
         if ($rs->isEmpty()) {
             throw new Exception('No post for this ID');
@@ -277,13 +275,13 @@ class dcRestMethods
         return $rsp;
     }
 
-    public static function getCommentById($core, $get)
+    public static function getCommentById(dcCore $core, $get)
     {
         if (empty($get['id'])) {
             throw new Exception('No comment ID');
         }
 
-        $rs = $core->blog->getComments(['comment_id' => (int) $get['id']]);
+        $rs = dcCore::app()->blog->getComments(['comment_id' => (int) $get['id']]);
 
         if ($rs->isEmpty()) {
             throw new Exception('No comment for this ID');
@@ -307,7 +305,7 @@ class dcRestMethods
 
         $rsp->comment_display_content($rs->getContent(true));
 
-        if ($core->auth->userID()) {
+        if (dcCore::app()->auth->userID()) {
             $rsp->comment_ip($rs->comment_ip);
             $rsp->comment_email($rs->comment_email);
             $rsp->comment_spam_disp(dcAntispam::statusMessage($rs));
@@ -316,49 +314,49 @@ class dcRestMethods
         return $rsp;
     }
 
-    public static function quickPost($core, $get, $post)
+    public static function quickPost(dcCore $core, $get, $post)
     {
         # Create category
-        if (!empty($post['new_cat_title']) && $core->auth->check('categories', $core->blog->id)) {
-            $cur_cat            = $core->con->openCursor($core->prefix . 'category');
+        if (!empty($post['new_cat_title']) && dcCore::app()->auth->check('categories', dcCore::app()->blog->id)) {
+            $cur_cat            = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'category');
             $cur_cat->cat_title = $post['new_cat_title'];
             $cur_cat->cat_url   = '';
 
             $parent_cat = !empty($post['new_cat_parent']) ? $post['new_cat_parent'] : '';
 
             # --BEHAVIOR-- adminBeforeCategoryCreate
-            $core->callBehavior('adminBeforeCategoryCreate', $cur_cat);
+            dcCore::app()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
-            $post['cat_id'] = $core->blog->addCategory($cur_cat, (int) $parent_cat);
+            $post['cat_id'] = dcCore::app()->blog->addCategory($cur_cat, (int) $parent_cat);
 
             # --BEHAVIOR-- adminAfterCategoryCreate
-            $core->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
+            dcCore::app()->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
         }
 
-        $cur = $core->con->openCursor($core->prefix . 'post');
+        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
 
         $cur->post_title        = !empty($post['post_title']) ? $post['post_title'] : '';
-        $cur->user_id           = $core->auth->userID();
+        $cur->user_id           = dcCore::app()->auth->userID();
         $cur->post_content      = !empty($post['post_content']) ? $post['post_content'] : '';
         $cur->cat_id            = !empty($post['cat_id']) ? (int) $post['cat_id'] : null;
         $cur->post_format       = !empty($post['post_format']) ? $post['post_format'] : 'xhtml';
         $cur->post_lang         = !empty($post['post_lang']) ? $post['post_lang'] : '';
         $cur->post_status       = !empty($post['post_status']) ? (int) $post['post_status'] : 0;
-        $cur->post_open_comment = (int) $core->blog->settings->system->allow_comments;
-        $cur->post_open_tb      = (int) $core->blog->settings->system->allow_trackbacks;
+        $cur->post_open_comment = (int) dcCore::app()->blog->settings->system->allow_comments;
+        $cur->post_open_tb      = (int) dcCore::app()->blog->settings->system->allow_trackbacks;
 
         # --BEHAVIOR-- adminBeforePostCreate
-        $core->callBehavior('adminBeforePostCreate', $cur);
+        dcCore::app()->callBehavior('adminBeforePostCreate', $cur);
 
-        $return_id = $core->blog->addPost($cur);
+        $return_id = dcCore::app()->blog->addPost($cur);
 
         # --BEHAVIOR-- adminAfterPostCreate
-        $core->callBehavior('adminAfterPostCreate', $cur, $return_id);
+        dcCore::app()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
         $rsp     = new xmlTag('post');
         $rsp->id = $return_id;
 
-        $post = $core->blog->getPosts(['post_id' => $return_id]);
+        $post = dcCore::app()->blog->getPosts(['post_id' => $return_id]);
 
         $rsp->post_status = $post->post_status;
         $rsp->post_url    = $post->getURL();
@@ -366,7 +364,7 @@ class dcRestMethods
         return $rsp;
     }
 
-    public static function validatePostMarkup($core, $get, $post)
+    public static function validatePostMarkup(dcCore $core, $get, $post)
     {
         if (!isset($post['excerpt'])) {
             throw new Exception('No entry excerpt');
@@ -391,7 +389,7 @@ class dcRestMethods
         $format        = $post['format'];
         $lang          = $post['lang'];
 
-        $core->blog->setPostContent(0, $format, $lang, $excerpt, $excerpt_xhtml, $content, $content_xhtml);
+        dcCore::app()->blog->setPostContent(0, $format, $lang, $excerpt, $excerpt_xhtml, $content, $content_xhtml);
 
         $rsp = new xmlTag('result');
 
@@ -403,7 +401,7 @@ class dcRestMethods
         return $rsp;
     }
 
-    public static function getZipMediaContent($core, $get, $post)
+    public static function getZipMediaContent(dcCore $core, $get, $post)
     {
         if (empty($get['id'])) {
             throw new Exception('No media ID');
@@ -411,15 +409,15 @@ class dcRestMethods
 
         $id = (int) $get['id'];
 
-        if (!$core->auth->check('media,media_admin', $core->blog)) {
+        if (!dcCore::app()->auth->check('media,media_admin', dcCore::app()->blog)) {
             throw new Exception('Permission denied');
         }
 
         $file = null;
 
         try {
-            $core->media = new dcMedia($core);
-            $file        = $core->media->getFile($id);
+            dcCore::app()->media = new dcMedia(dcCore::app());
+            $file                = dcCore::app()->media->getFile($id);
         } catch (Exception $e) {
         }
 
@@ -428,7 +426,7 @@ class dcRestMethods
         }
 
         $rsp     = new xmlTag('result');
-        $content = $core->media->getZipContent($file);
+        $content = dcCore::app()->media->getZipContent($file);
 
         foreach ($content as $k => $v) {
             $rsp->file($k);
@@ -437,7 +435,7 @@ class dcRestMethods
         return $rsp;
     }
 
-    public static function getMeta($core, $get)
+    public static function getMeta(dcCore $core, $get)
     {
         $postid   = !empty($get['postId']) ? $get['postId'] : null;
         $limit    = !empty($get['limit']) ? $get['limit'] : null;
@@ -446,12 +444,12 @@ class dcRestMethods
 
         $sortby = !empty($get['sortby']) ? $get['sortby'] : 'meta_type,asc';
 
-        $rs = $core->meta->getMetadata([
+        $rs = dcCore::app()->meta->getMetadata([
             'meta_type' => $metaType,
             'limit'     => $limit,
             'meta_id'   => $metaId,
             'post_id'   => $postid, ]);
-        $rs = $core->meta->computeMetaStats($rs);
+        $rs = dcCore::app()->meta->computeMetaStats($rs);
 
         $sortby = explode(',', $sortby);
         $sort   = $sortby[0];
@@ -493,7 +491,7 @@ class dcRestMethods
         return $rsp;
     }
 
-    public static function setPostMeta($core, $get, $post)
+    public static function setPostMeta(dcCore $core, $get, $post)
     {
         if (empty($post['postId'])) {
             throw new Exception('No post ID');
@@ -508,7 +506,7 @@ class dcRestMethods
         }
 
         # Get previous meta for post
-        $post_meta = $core->meta->getMetadata([
+        $post_meta = dcCore::app()->meta->getMetadata([
             'meta_type' => $post['metaType'],
             'post_id'   => $post['postId'], ]);
         $pm = [];
@@ -516,16 +514,16 @@ class dcRestMethods
             $pm[] = $post_meta->meta_id;
         }
 
-        foreach ($core->meta->splitMetaValues($post['meta']) as $m) {
+        foreach (dcCore::app()->meta->splitMetaValues($post['meta']) as $m) {
             if (!in_array($m, $pm)) {
-                $core->meta->setPostMeta($post['postId'], $post['metaType'], $m);
+                dcCore::app()->meta->setPostMeta($post['postId'], $post['metaType'], $m);
             }
         }
 
         return true;
     }
 
-    public static function delMeta($core, $get, $post)
+    public static function delMeta(dcCore $core, $get, $post)
     {
         if (empty($post['postId'])) {
             throw new Exception('No post ID');
@@ -539,20 +537,20 @@ class dcRestMethods
             throw new Exception('No meta type');
         }
 
-        $core->meta->delPostMeta($post['postId'], $post['metaType'], $post['metaId']);
+        dcCore::app()->meta->delPostMeta($post['postId'], $post['metaType'], $post['metaId']);
 
         return true;
     }
 
-    public static function searchMeta($core, $get)
+    public static function searchMeta(dcCore $core, $get)
     {
         $q        = !empty($get['q']) ? $get['q'] : null;
         $metaType = !empty($get['metaType']) ? $get['metaType'] : null;
 
         $sortby = !empty($get['sortby']) ? $get['sortby'] : 'meta_type,asc';
 
-        $rs = $core->meta->getMetadata(['meta_type' => $metaType]);
-        $rs = $core->meta->computeMetaStats($rs);
+        $rs = dcCore::app()->meta->getMetadata(['meta_type' => $metaType]);
+        $rs = dcCore::app()->meta->computeMetaStats($rs);
 
         $sortby = explode(',', $sortby);
         $sort   = $sortby[0];
@@ -596,18 +594,18 @@ class dcRestMethods
         return $rsp;
     }
 
-    public static function setSectionFold($core, $get, $post)
+    public static function setSectionFold(dcCore $core, $get, $post)
     {
         if (empty($post['section'])) {
             throw new Exception('No section name');
         }
-        if ($core->auth->user_prefs->toggles === null) {
-            $core->auth->user_prefs->addWorkspace('toggles');
+        if (dcCore::app()->auth->user_prefs->toggles === null) {
+            dcCore::app()->auth->user_prefs->addWorkspace('toggles');
         }
         $section = $post['section'];
         $status  = isset($post['value']) && ($post['value'] != 0);
-        if ($core->auth->user_prefs->toggles->prefExists('unfolded_sections')) {
-            $toggles = explode(',', trim((string) $core->auth->user_prefs->toggles->unfolded_sections));
+        if (dcCore::app()->auth->user_prefs->toggles->prefExists('unfolded_sections')) {
+            $toggles = explode(',', trim((string) dcCore::app()->auth->user_prefs->toggles->unfolded_sections));
         } else {
             $toggles = [];
         }
@@ -623,12 +621,12 @@ class dcRestMethods
                 $toggles[] = $section;
             };
         }
-        $core->auth->user_prefs->toggles->put('unfolded_sections', join(',', $toggles));
+        dcCore::app()->auth->user_prefs->toggles->put('unfolded_sections', join(',', $toggles));
 
         return true;
     }
 
-    public static function setDashboardPositions($core, $get, $post)
+    public static function setDashboardPositions(dcCore $core, $get, $post)
     {
         if (empty($post['id'])) {
             throw new Exception('No zone name');
@@ -637,19 +635,19 @@ class dcRestMethods
             throw new Exception('No sorted list of id');
         }
 
-        if ($core->auth->user_prefs->dashboard === null) {
-            $core->auth->user_prefs->addWorkspace('dashboard');
+        if (dcCore::app()->auth->user_prefs->dashboard === null) {
+            dcCore::app()->auth->user_prefs->addWorkspace('dashboard');
         }
 
         $zone  = $post['id'];
         $order = $post['list'];
 
-        $core->auth->user_prefs->dashboard->put($zone, $order);
+        dcCore::app()->auth->user_prefs->dashboard->put($zone, $order);
 
         return true;
     }
 
-    public static function setListsOptions($core, $get, $post)
+    public static function setListsOptions(dcCore $core, $get, $post)
     {
         if (empty($post['id'])) {
             throw new Exception('No list name');
@@ -678,17 +676,17 @@ class dcRestMethods
                 $su[$sort_type][2] = $sort_type == $post['id'] && isset($post[$k]) ? abs((int) $post[$k]) : $sort_data[4][1];
             }
         }
-        if ($core->auth->user_prefs->interface === null) {
-            $core->auth->user_prefs->addWorkspace('interface');
+        if (dcCore::app()->auth->user_prefs->interface === null) {
+            dcCore::app()->auth->user_prefs->addWorkspace('interface');
         }
-        $core->auth->user_prefs->interface->put('sorts', $su, 'array');
+        dcCore::app()->auth->user_prefs->interface->put('sorts', $su, 'array');
 
         $res->msg = __('List options saved');
 
         return $res;
     }
 
-    public static function getModuleById($core, $get, $post)
+    public static function getModuleById(dcCore $core, $get, $post)
     {
         if (empty($get['id'])) {
             throw new Exception('No module ID');
@@ -702,15 +700,15 @@ class dcRestMethods
         $module = [];
 
         if ($list == 'plugin-activate') {
-            $modules = $core->plugins->getModules();
+            $modules = dcCore::app()->plugins->getModules();
             if (empty($modules) || !isset($modules[$id])) {
                 throw new Exception('Unknown module ID');
             }
             $module = $modules[$id];
         } elseif ($list == 'plugin-new') {
             $store = new dcStore(
-                $core->plugins,
-                $core->blog->settings->system->store_plugin_url
+                dcCore::app()->plugins,
+                dcCore::app()->blog->settings->system->store_plugin_url
             );
             $store->check();
 

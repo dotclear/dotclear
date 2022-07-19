@@ -41,7 +41,7 @@ class adminMediaPage extends adminMediaFilter
      *
      * @param dcCore $core  core instance
      */
-    public function __construct(dcCore $core)
+    public function __construct(dcCore $core = null)
     {
         parent::__construct(dcCore::app(), 'media');
 

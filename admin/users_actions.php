@@ -5,8 +5,6 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -15,7 +13,7 @@ dcPage::checkSuper();
 $users = [];
 if (!empty($_POST['users']) && is_array($_POST['users'])) {
     foreach ($_POST['users'] as $u) {
-        if ($core->userExists($u)) {
+        if (dcCore::app()->userExists($u)) {
             $users[] = $u;
         }
     }
@@ -24,7 +22,7 @@ if (!empty($_POST['users']) && is_array($_POST['users'])) {
 $blogs = [];
 if (!empty($_POST['blogs']) && is_array($_POST['blogs'])) {
     foreach ($_POST['blogs'] as $b) {
-        if ($core->blogExists($b)) {
+        if (dcCore::app()->blogExists($b)) {
             $blogs[] = $b;
         }
     }
@@ -39,7 +37,7 @@ if (!empty($_POST['action']) && !empty($_POST['users'])) {
     if (isset($_POST['redir']) && strpos($_POST['redir'], '://') === false) {
         $redir = $_POST['redir'];
     } else {
-        $redir = $core->adminurl->get('admin.users', [
+        $redir = dcCore::app()->adminurl->get('admin.users', [
             'q'      => $_POST['q'] ?? '',
             'sortby' => $_POST['sortby'] ?? '',
             'order'  => $_POST['order'] ?? '',
@@ -49,29 +47,29 @@ if (!empty($_POST['action']) && !empty($_POST['users'])) {
     }
 
     if (empty($users)) {
-        $core->error->add(__('No blog or user given.'));
+        dcCore::app()->error->add(__('No blog or user given.'));
     }
 
     # --BEHAVIOR-- adminUsersActions
-    $core->callBehavior('adminUsersActions', $core, $users, $blogs, $action, $redir);
+    dcCore::app()->callBehavior('adminUsersActions', dcCore::app(), $users, $blogs, $action, $redir);
 
     # Delete users
     if ($action == 'deleteuser' && !empty($users)) {
         foreach ($users as $u) {
             try {
-                if ($u == $core->auth->userID()) {
+                if ($u == dcCore::app()->auth->userID()) {
                     throw new Exception(__('You cannot delete yourself.'));
                 }
 
                 # --BEHAVIOR-- adminBeforeUserDelete
-                $core->callBehavior('adminBeforeUserDelete', $u);
+                dcCore::app()->callBehavior('adminBeforeUserDelete', $u);
 
-                $core->delUser($u);
+                dcCore::app()->delUser($u);
             } catch (Exception $e) {
-                $core->error->add($e->getMessage());
+                dcCore::app()->error->add($e->getMessage());
             }
         }
-        if (!$core->error->flag()) {
+        if (!dcCore::app()->error->flag()) {
             dcPage::addSuccessNotice(__('User has been successfully deleted.'));
             http::redirect($redir);
         }
@@ -80,7 +78,7 @@ if (!empty($_POST['action']) && !empty($_POST['users'])) {
     # Update users perms
     if ($action == 'updateperm' && !empty($users) && !empty($blogs)) {
         try {
-            if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
+            if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
                 throw new Exception(__('Password verification failed'));
             }
 
@@ -96,13 +94,13 @@ if (!empty($_POST['action']) && !empty($_POST['users'])) {
                         }
                     }
 
-                    $core->setUserBlogPermissions($u, $b, $set_perms, true);
+                    dcCore::app()->setUserBlogPermissions($u, $b, $set_perms, true);
                 }
             }
         } catch (Exception $e) {
-            $core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
         }
-        if (!$core->error->flag()) {
+        if (!dcCore::app()->error->flag()) {
             dcPage::addSuccessNotice(__('User has been successfully updated.'));
             http::redirect($redir);
         }
@@ -115,7 +113,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
     $breadcrumb = dcPage::breadcrumb(
         [
             __('System')      => '',
-            __('Users')       => $core->adminurl->get('admin.users'),
+            __('Users')       => dcCore::app()->adminurl->get('admin.users'),
             __('Permissions') => '',
         ]
     );
@@ -123,7 +121,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
     $breadcrumb = dcPage::breadcrumb(
         [
             __('System')  => '',
-            __('Users')   => $core->adminurl->get('admin.users'),
+            __('Users')   => dcCore::app()->adminurl->get('admin.users'),
             __('Actions') => '',
         ]
     );
@@ -133,7 +131,7 @@ dcPage::open(
     __('Users'),
     dcPage::jsLoad('js/_users_actions.js') .
     # --BEHAVIOR-- adminUsersActionsHeaders
-    $core->callBehavior('adminUsersActionsHeaders'),
+    dcCore::app()->callBehavior('adminUsersActionsHeaders'),
     $breadcrumb
 );
 
@@ -151,16 +149,16 @@ if (isset($_POST['redir']) && strpos($_POST['redir'], '://') === false) {
     $hidden_fields .= form::hidden(['redir'], html::escapeURL($_POST['redir']));
 } else {
     $hidden_fields .= form::hidden(['q'], html::escapeHTML($_POST['q'] ?? '')) .
-    form::hidden(['sortby'], $_POST['sortby'] ?? '') .
-    form::hidden(['order'], $_POST['order'] ?? '') .
-    form::hidden(['page'], $_POST['page'] ?? '') .
-    form::hidden(['nb'], $_POST['nb'] ?? '');
+    form::hidden(['sortby'], $_POST['sortby']                          ?? '') .
+    form::hidden(['order'], $_POST['order']                            ?? '') .
+    form::hidden(['page'], $_POST['page']                              ?? '') .
+    form::hidden(['nb'], $_POST['nb']                                  ?? '');
 }
 
 echo '<p><a class="back" href="' . html::escapeURL($redir) . '">' . __('Back to user profile') . '</a></p>';    // @phpstan-ignore-line
 
 # --BEHAVIOR-- adminUsersActionsContent
-$core->callBehavior('adminUsersActionsContent', $core, $action, $hidden_fields);
+dcCore::app()->callBehavior('adminUsersActionsContent', dcCore::app(), $action, $hidden_fields);
 
 # Blog list where to set permissions
 if (!empty($users) && empty($blogs) && $action == 'blogs') {
@@ -168,13 +166,13 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
     $nb_blog = 0;
 
     try {
-        $rs      = $core->getBlogs();
+        $rs      = dcCore::app()->getBlogs();
         $nb_blog = $rs->count();
     } catch (Exception $e) {
     }
 
     foreach ($users as $u) {
-        $user_list[] = '<a href="' . $core->adminurl->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
+        $user_list[] = '<a href="' . dcCore::app()->adminurl->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
     }
 
     echo
@@ -187,7 +185,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
         echo '<p><strong>' . __('No blog') . '</strong></p>';
     } else {
         echo
-        '<form action="' . $core->adminurl->get('admin.user.actions') . '" method="post" id="form-blogs">' .
+        '<form action="' . dcCore::app()->adminurl->get('admin.user.actions') . '" method="post" id="form-blogs">' .
         '<div class="table-outer clear">' .
         '<table><tr>' .
         '<th class="nowrap" colspan="2">' . __('Blog ID') . '</th>' .
@@ -199,7 +197,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
 
         while ($rs->fetch()) {
             $img_status = $rs->blog_status == 1 ? 'check-on' : ($rs->blog_status == 0 ? 'check-off' : 'check-wrn');
-            $txt_status = $core->getBlogStatus($rs->blog_status);
+            $txt_status = dcCore::app()->getBlogStatus($rs->blog_status);
             $img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s" />', $img_status, $txt_status);
 
             echo
@@ -217,7 +215,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
             '<td class="maximal">' . html::escapeHTML($rs->blog_name) . '</td>' .
             '<td class="nowrap"><a class="outgoing" href="' . html::escapeHTML($rs->blog_url) . '">' . html::escapeHTML($rs->blog_url) .
             ' <img src="images/outgoing-link.svg" alt="" /></a></td>' .
-            '<td class="nowrap">' . $core->countBlogPosts($rs->blog_id) . '</td>' .
+            '<td class="nowrap">' . dcCore::app()->countBlogPosts($rs->blog_id) . '</td>' .
                 '<td class="status">' . $img_status . '</td>' .
                 '</tr>';
         }
@@ -228,7 +226,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
         '<p><input id="do-action" type="submit" value="' . __('Set permissions') . '" />' .
         $hidden_fields .
         form::hidden(['action'], 'perms') .
-        $core->formNonce() . '</p>' .
+        dcCore::app()->formNonce() . '</p>' .
             '</form>';
     }
 }
@@ -236,11 +234,11 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
 elseif (!empty($blogs) && !empty($users) && $action == 'perms') {
     $user_perm = [];
     if (count($users) == 1) {
-        $user_perm = $core->getUserPermissions($users[0]);
+        $user_perm = dcCore::app()->getUserPermissions($users[0]);
     }
 
     foreach ($users as $u) {
-        $user_list[] = '<a href="' . $core->adminurl->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
+        $user_list[] = '<a href="' . dcCore::app()->adminurl->get('admin.user', ['id' => $u]) . '">' . $u . '</a>';
     }
 
     echo
@@ -248,13 +246,13 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms') {
         __('You are about to change permissions on the following blogs for users %s.'),
         implode(', ', $user_list)
     ) . '</p>' .
-    '<form id="permissions-form" action="' . $core->adminurl->get('admin.user.actions') . '" method="post">';
+    '<form id="permissions-form" action="' . dcCore::app()->adminurl->get('admin.user.actions') . '" method="post">';
 
     foreach ($blogs as $b) {
-        echo '<h3>' . ('Blog:') . ' <a href="' . $core->adminurl->get('admin.blog', ['id' => html::escapeHTML($b)]) . '">' . html::escapeHTML($b) . '</a>' .
+        echo '<h3>' . ('Blog:') . ' <a href="' . dcCore::app()->adminurl->get('admin.blog', ['id' => html::escapeHTML($b)]) . '">' . html::escapeHTML($b) . '</a>' .
         form::hidden(['blogs[]'], $b) . '</h3>';
         $unknown_perms = $user_perm;
-        foreach ($core->auth->getPermissionsTypes() as $perm_id => $perm) {
+        foreach (dcCore::app()->auth->getPermissionsTypes() as $perm_id => $perm) {
             $checked = false;
 
             if (count($users) == 1) {
@@ -306,7 +304,7 @@ elseif (!empty($blogs) && !empty($users) && $action == 'perms') {
     '<p><input type="submit" accesskey="s" value="' . __('Save') . '" />' .
     $hidden_fields .
     form::hidden(['action'], 'updateperm') .
-    $core->formNonce() . '</p>' .
+    dcCore::app()->formNonce() . '</p>' .
         '</div>' .
         '</form>';
 }

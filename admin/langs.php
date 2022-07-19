@@ -5,8 +5,6 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -76,16 +74,16 @@ if ($is_writable && !empty($_POST['delete']) && !empty($_POST['locale_id'])) {
         }
 
         dcPage::addSuccessNotice(__('Language has been successfully deleted.'));
-        $core->adminurl->redirect('admin.langs');
+        dcCore::app()->adminurl->redirect('admin.langs');
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
 # Download a language pack
 if ($is_writable && !empty($_POST['pkg_url'])) {
     try {
-        if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
+        if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
             throw new Exception(__('Password verification failed'));
         }
 
@@ -116,16 +114,16 @@ if ($is_writable && !empty($_POST['pkg_url'])) {
         } else {
             dcPage::addSuccessNotice(__('Language has been successfully installed.'));
         }
-        $core->adminurl->redirect('admin.langs');
+        dcCore::app()->adminurl->redirect('admin.langs');
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
 # Upload a language pack
 if ($is_writable && !empty($_POST['upload_pkg'])) {
     try {
-        if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
+        if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
             throw new Exception(__('Password verification failed'));
         }
 
@@ -149,9 +147,9 @@ if ($is_writable && !empty($_POST['upload_pkg'])) {
         } else {
             dcPage::addSuccessNotice(__('Language has been successfully installed.'));
         }
-        $core->adminurl->redirect('admin.langs');
+        dcCore::app()->adminurl->redirect('admin.langs');
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -182,8 +180,8 @@ echo
 '<p>' . sprintf(
     __('You can change your user language in your <a href="%1$s">preferences</a> or ' .
     'change your blog\'s main language in your <a href="%2$s">blog settings</a>.'),
-    $core->adminurl->get('admin.user.preferences'),
-    $core->adminurl->get('admin.blog.pref')
+    dcCore::app()->adminurl->get('admin.user.preferences'),
+    dcCore::app()->adminurl->get('admin.blog.pref')
 ) . '</p>';
 
 echo
@@ -221,9 +219,9 @@ if (empty($locales_content)) {
 
         if ($is_deletable) {
             echo
-            '<form action="' . $core->adminurl->get('admin.langs') . '" method="post">' .
+            '<form action="' . dcCore::app()->adminurl->get('admin.langs') . '" method="post">' .
             '<div>' .
-            $core->formNonce() .
+            dcCore::app()->formNonce() .
             form::hidden(['locale_id'], html::escapeHTML($k)) .
             '<input type="submit" class="delete" name="delete" value="' . __('Delete') . '" /> ' .
                 '</div>' .
@@ -251,7 +249,7 @@ if (!empty($dc_langs) && $is_writable) {
     }
 
     echo
-    '<form method="post" action="' . $core->adminurl->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
+    '<form method="post" action="' . dcCore::app()->adminurl->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
     '<h4>' . __('Available languages') . '</h4>' .
     '<p>' . sprintf(__('You can download and install a additional language directly from Dotclear.net. ' .
         'Proposed languages are based on your version: %s.'), '<strong>' . DC_VERSION . '</strong>') . '</p>' .
@@ -267,7 +265,7 @@ if (!empty($dc_langs) && $is_writable) {
             'autocomplete' => 'current-password', ]
     ) . '</p>' .
     '<p><input type="submit" value="' . __('Install language') . '" />' .
-    $core->formNonce() .
+    dcCore::app()->formNonce() .
         '</p>' .
         '</form>';
 }
@@ -275,7 +273,7 @@ if (!empty($dc_langs) && $is_writable) {
 if ($is_writable) {
     # 'Upload language pack' form
     echo
-    '<form method="post" action="' . $core->adminurl->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
+    '<form method="post" action="' . dcCore::app()->adminurl->get('admin.langs') . '" enctype="multipart/form-data" class="fieldset">' .
     '<h4>' . __('Upload a zip file') . '</h4>' .
     '<p>' . __('You can install languages by uploading zip files.') . '</p>' .
     '<p class="field"><label for="pkg_file" class="classic required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Language zip file:') . '</label> ' .
@@ -290,7 +288,7 @@ if ($is_writable) {
             'autocomplete' => 'current-password', ]
     ) . '</p>' .
     '<p><input type="submit" name="upload_pkg" value="' . __('Upload language') . '" />' .
-    $core->formNonce() .
+    dcCore::app()->formNonce() .
         '</p>' .
         '</form>';
 }

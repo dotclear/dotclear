@@ -5,45 +5,43 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
 
-dt::setTZ($core->auth->getInfo('user_tz'));
+dt::setTZ(dcCore::app()->auth->getInfo('user_tz'));
 
-$show_ip = $core->auth->check('contentadmin', $core->blog->id);
+$show_ip = dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id);
 
 $post_id            = '';
 $cat_id             = '';
 $post_dt            = '';
-$post_format        = $core->auth->getOption('post_format');
-$post_editor        = $core->auth->getOption('editor');
+$post_format        = dcCore::app()->auth->getOption('post_format');
+$post_editor        = dcCore::app()->auth->getOption('editor');
 $post_password      = '';
 $post_url           = '';
-$post_lang          = $core->auth->getInfo('user_lang');
+$post_lang          = dcCore::app()->auth->getInfo('user_lang');
 $post_title         = '';
 $post_excerpt       = '';
 $post_excerpt_xhtml = '';
 $post_content       = '';
 $post_content_xhtml = '';
 $post_notes         = '';
-$post_status        = $core->auth->getInfo('user_post_status');
+$post_status        = dcCore::app()->auth->getInfo('user_post_status');
 $post_selected      = false;
-$post_open_comment  = $core->blog->settings->system->allow_comments;
-$post_open_tb       = $core->blog->settings->system->allow_trackbacks;
+$post_open_comment  = dcCore::app()->blog->settings->system->allow_comments;
+$post_open_tb       = dcCore::app()->blog->settings->system->allow_trackbacks;
 
 $page_title = __('New post');
 
 $can_view_page = true;
-$can_edit_post = $core->auth->check('usage,contentadmin', $core->blog->id);
-$can_publish   = $core->auth->check('publish,contentadmin', $core->blog->id);
+$can_edit_post = dcCore::app()->auth->check('usage,contentadmin', dcCore::app()->blog->id);
+$can_publish   = dcCore::app()->auth->check('publish,contentadmin', dcCore::app()->blog->id);
 $can_delete    = false;
 
-$post_headlink = '<link rel="%s" title="%s" href="' . $core->adminurl->get('admin.post', ['id' => '%s'], '&amp;', true) . '" />';
-$post_link     = '<a href="' . $core->adminurl->get('admin.post', ['id' => '%s'], '&amp;', true) . '" title="%s">%s</a>';
+$post_headlink = '<link rel="%s" title="%s" href="' . dcCore::app()->adminurl->get('admin.post', ['id' => '%s'], '&amp;', true) . '" />';
+$post_link     = '<a href="' . dcCore::app()->adminurl->get('admin.post', ['id' => '%s'], '&amp;', true) . '" title="%s">%s</a>';
 $next_link     = $prev_link     = $next_headlink     = $prev_headlink     = null;
 
 # If user can't publish
@@ -53,7 +51,7 @@ if (!$can_publish) {
 
 # Getting categories
 $categories_combo = dcAdminCombos::getCategoriesCombo(
-    $core->blog->getCategories()
+    dcCore::app()->blog->getCategories()
 );
 
 $status_combo = dcAdminCombos::getPostStatusesCombo();
@@ -61,7 +59,7 @@ $status_combo = dcAdminCombos::getPostStatusesCombo();
 $img_status_pattern = '<img class="img_select_option" alt="%1$s" title="%1$s" src="images/%2$s" />';
 
 # Formats combo
-$core_formaters    = $core->getFormaters();
+$core_formaters    = dcCore::app()->getFormaters();
 $available_formats = ['' => ''];
 foreach ($core_formaters as $editor => $formats) {
     foreach ($formats as $format) {
@@ -70,14 +68,14 @@ foreach ($core_formaters as $editor => $formats) {
 }
 
 # Languages combo
-$rs         = $core->blog->getLangs(['order' => 'asc']);
+$rs         = dcCore::app()->blog->getLangs(['order' => 'asc']);
 $lang_combo = dcAdminCombos::getLangsCombo($rs, true);
 
 # Validation flag
 $bad_dt = false;
 
 # Trackbacks
-$TB      = new dcTrackback($core);
+$TB      = new dcTrackback(dcCore::app());
 $tb_urls = $tb_excerpt = '';
 
 # Get entry informations
@@ -88,10 +86,10 @@ if (!empty($_REQUEST['id'])) {
 
     $params['post_id'] = $_REQUEST['id'];
 
-    $post = $core->blog->getPosts($params);
+    $post = dcCore::app()->blog->getPosts($params);
 
     if ($post->isEmpty()) {
-        $core->error->add(__('This entry does not exist.'));
+        dcCore::app()->error->add(__('This entry does not exist.'));
         $can_view_page = false;
     } else {
         $post_id            = $post->post_id;
@@ -115,8 +113,8 @@ if (!empty($_REQUEST['id'])) {
         $can_edit_post = $post->isEditable();
         $can_delete    = $post->isDeletable();
 
-        $next_rs = $core->blog->getNextPost($post, 1);
-        $prev_rs = $core->blog->getNextPost($post, -1);
+        $next_rs = dcCore::app()->blog->getNextPost($post, 1);
+        $prev_rs = dcCore::app()->blog->getNextPost($post, -1);
 
         if ($next_rs !== null) {
             $next_link = sprintf(
@@ -149,9 +147,9 @@ if (!empty($_REQUEST['id'])) {
         }
 
         try {
-            $core->media = new dcMedia($core);
+            dcCore::app()->media = new dcMedia(dcCore::app());
         } catch (Exception $e) {
-            $core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
         }
 
         # Sanitize trackbacks excerpt
@@ -169,7 +167,7 @@ if (isset($_REQUEST['section']) && $_REQUEST['section'] == 'trackbacks') {
     $anchor = 'comments';
 }
 
-$comments_actions_page = new dcCommentsActionsPage($core, $core->adminurl->get('admin.post'), ['id' => $post_id, '_ANCHOR' => $anchor, 'section' => $anchor]);
+$comments_actions_page = new dcCommentsActionsPage(dcCore::app(), dcCore::app()->adminurl->get('admin.post'), ['id' => $post_id, '_ANCHOR' => $anchor, 'section' => $anchor]);
 
 if ($comments_actions_page->process()) {
     return;
@@ -186,17 +184,17 @@ if (!empty($_POST['ping'])) {
         foreach (explode("\n", $tb_urls) as $tb_url) {
             try {
                 # --BEHAVIOR-- adminBeforePingTrackback
-                $core->callBehavior('adminBeforePingTrackback', $tb_url, $post_id, $tb_post_title, $tb_excerpt, $tb_post_url);
+                dcCore::app()->callBehavior('adminBeforePingTrackback', $tb_url, $post_id, $tb_post_title, $tb_excerpt, $tb_post_url);
 
                 $TB->ping($tb_url, $post_id, $tb_post_title, $tb_excerpt, $tb_post_url);
             } catch (Exception $e) {
-                $core->error->add($e->getMessage());
+                dcCore::app()->error->add($e->getMessage());
             }
         }
 
-        if (!$core->error->flag()) {
+        if (!dcCore::app()->error->flag()) {
             dcPage::addSuccessNotice(__('All pings sent.'));
-            $core->adminurl->redirect(
+            dcCore::app()->adminurl->redirect(
                 'admin.post',
                 ['id' => $post_id, 'tb' => '1']
             );
@@ -230,7 +228,7 @@ elseif (!empty($_POST) && $can_edit_post) {
             }
             $post_dt = date('Y-m-d H:i', $post_dt);
         } catch (Exception $e) {
-            $core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
         }
     }
 
@@ -246,7 +244,7 @@ elseif (!empty($_POST) && $can_edit_post) {
         $post_url = $_POST['post_url'];
     }
 
-    $core->blog->setPostContent(
+    dcCore::app()->blog->setPostContent(
         $post_id,
         $post_format,
         $post_lang,
@@ -261,34 +259,34 @@ elseif (!empty($_POST) && $can_edit_post) {
 if (!empty($_POST['delete']) && $can_delete) {
     try {
         # --BEHAVIOR-- adminBeforePostDelete
-        $core->callBehavior('adminBeforePostDelete', $post_id);
-        $core->blog->delPost($post_id);
-        $core->adminurl->redirect('admin.posts');
+        dcCore::app()->callBehavior('adminBeforePostDelete', $post_id);
+        dcCore::app()->blog->delPost($post_id);
+        dcCore::app()->adminurl->redirect('admin.posts');
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
 # Create or update post
 if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt) {
     # Create category
-    if (!empty($_POST['new_cat_title']) && $core->auth->check('categories', $core->blog->id)) {
-        $cur_cat            = $core->con->openCursor($core->prefix . 'category');
+    if (!empty($_POST['new_cat_title']) && dcCore::app()->auth->check('categories', dcCore::app()->blog->id)) {
+        $cur_cat            = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'category');
         $cur_cat->cat_title = $_POST['new_cat_title'];
         $cur_cat->cat_url   = '';
 
         $parent_cat = !empty($_POST['new_cat_parent']) ? $_POST['new_cat_parent'] : '';
 
         # --BEHAVIOR-- adminBeforeCategoryCreate
-        $core->callBehavior('adminBeforeCategoryCreate', $cur_cat);
+        dcCore::app()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
-        $cat_id = $core->blog->addCategory($cur_cat, (int) $parent_cat);
+        $cat_id = dcCore::app()->blog->addCategory($cur_cat, (int) $parent_cat);
 
         # --BEHAVIOR-- adminAfterCategoryCreate
-        $core->callBehavior('adminAfterCategoryCreate', $cur_cat, $cat_id);
+        dcCore::app()->callBehavior('adminAfterCategoryCreate', $cur_cat, $cat_id);
     }
 
-    $cur = $core->con->openCursor($core->prefix . 'post');
+    $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
 
     $cur->cat_id             = ($cat_id ?: null);
     $cur->post_dt            = $post_dt ? date('Y-m-d H:i:00', strtotime($post_dt)) : '';
@@ -317,46 +315,46 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_post && !$bad_dt) {
     if ($post_id) {
         try {
             # --BEHAVIOR-- adminBeforePostUpdate
-            $core->callBehavior('adminBeforePostUpdate', $cur, $post_id);
+            dcCore::app()->callBehavior('adminBeforePostUpdate', $cur, $post_id);
 
-            $core->blog->updPost($post_id, $cur);
+            dcCore::app()->blog->updPost($post_id, $cur);
 
             # --BEHAVIOR-- adminAfterPostUpdate
-            $core->callBehavior('adminAfterPostUpdate', $cur, $post_id);
+            dcCore::app()->callBehavior('adminAfterPostUpdate', $cur, $post_id);
             dcPage::addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), html::escapeHTML(trim(html::clean($cur->post_title)))));
-            $core->adminurl->redirect(
+            dcCore::app()->adminurl->redirect(
                 'admin.post',
                 ['id' => $post_id]
             );
         } catch (Exception $e) {
-            $core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
         }
     } else {
-        $cur->user_id = $core->auth->userID();
+        $cur->user_id = dcCore::app()->auth->userID();
 
         try {
             # --BEHAVIOR-- adminBeforePostCreate
-            $core->callBehavior('adminBeforePostCreate', $cur);
+            dcCore::app()->callBehavior('adminBeforePostCreate', $cur);
 
-            $return_id = $core->blog->addPost($cur);
+            $return_id = dcCore::app()->blog->addPost($cur);
 
             # --BEHAVIOR-- adminAfterPostCreate
-            $core->callBehavior('adminAfterPostCreate', $cur, $return_id);
+            dcCore::app()->callBehavior('adminAfterPostCreate', $cur, $return_id);
 
             dcPage::addSuccessNotice(__('Entry has been successfully created.'));
-            $core->adminurl->redirect(
+            dcCore::app()->adminurl->redirect(
                 'admin.post',
                 ['id' => $return_id]
             );
         } catch (Exception $e) {
-            $core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
         }
     }
 }
 
 # Getting categories
 $categories_combo = dcAdminCombos::getCategoriesCombo(
-    $core->blog->getCategories()
+    dcCore::app()->blog->getCategories()
 );
 /* DISPLAY
 -------------------------------------------------------- */
@@ -408,7 +406,7 @@ if ($post_editor) {
         $c_edit = $post_editor['xhtml'];
     }
     if ($p_edit == $c_edit) {
-        $admin_post_behavior .= $core->callBehavior(
+        $admin_post_behavior .= dcCore::app()->callBehavior(
             'adminPostEditor',
             $p_edit,
             'post',
@@ -416,14 +414,14 @@ if ($post_editor) {
             $post_format
         );
     } else {
-        $admin_post_behavior .= $core->callBehavior(
+        $admin_post_behavior .= dcCore::app()->callBehavior(
             'adminPostEditor',
             $p_edit,
             'post',
             ['#post_excerpt', '#post_content'],
             $post_format
         );
-        $admin_post_behavior .= $core->callBehavior(
+        $admin_post_behavior .= dcCore::app()->callBehavior(
             'adminPostEditor',
             $c_edit,
             'comment',
@@ -441,18 +439,18 @@ dcPage::open(
     dcPage::jsLoad('js/_post.js') .
     dcPage::jsConfirmClose('entry-form', 'comment-form') .
     # --BEHAVIOR-- adminPostHeaders
-    $core->callBehavior('adminPostHeaders') .
+    dcCore::app()->callBehavior('adminPostHeaders') .
     dcPage::jsPageTabs($default_tab) .
     $next_headlink . "\n" . $prev_headlink,
     dcPage::breadcrumb(
         [
-            html::escapeHTML($core->blog->name)         => '',
-            __('Posts')                                 => $core->adminurl->get('admin.posts'),
+            html::escapeHTML(dcCore::app()->blog->name) => '',
+            __('Posts')                                 => dcCore::app()->adminurl->get('admin.posts'),
             ($post_id ? $page_title_edit : $page_title) => '',
         ]
     ),
     [
-        'x-frame-allow' => $core->blog->url,
+        'x-frame-allow' => dcCore::app()->blog->url,
     ]
 );
 
@@ -498,7 +496,7 @@ if ($post_id) {
     }
 
     # --BEHAVIOR-- adminPostNavLinks
-    $core->callBehavior('adminPostNavLinks', $post ?? null, 'post');
+    dcCore::app()->callBehavior('adminPostNavLinks', $post ?? null, 'post');
 
     echo '</p>';
 }
@@ -512,17 +510,15 @@ if (!$can_view_page) {
 
 # Controls comments or trakbacks capabilities
 $isContributionAllowed = function ($id, $dt, $com = true) {
-    global $core;
-
     if (!$id) {
         return true;
     }
     if ($com) {
-        if (($core->blog->settings->system->comments_ttl == 0) || (time() - $core->blog->settings->system->comments_ttl * 86400 < $dt)) {
+        if ((dcCore::app()->blog->settings->system->comments_ttl == 0) || (time() - dcCore::app()->blog->settings->system->comments_ttl * 86400 < $dt)) {
             return true;
         }
     } else {
-        if (($core->blog->settings->system->trackbacks_ttl == 0) || (time() - $core->blog->settings->system->trackbacks_ttl * 86400 < $dt)) {
+        if ((dcCore::app()->blog->settings->system->trackbacks_ttl == 0) || (time() - dcCore::app()->blog->settings->system->trackbacks_ttl * 86400 < $dt)) {
             return true;
         }
     }
@@ -532,7 +528,6 @@ $isContributionAllowed = function ($id, $dt, $com = true) {
 
 # Show comments or trackbacks
 $showComments = function ($rs, $has_action, $tb = false, $show_ip = true) {
-    global $core;
     echo
     '<div class="table-outer">' .
     '<table class="comments-list"><tr>' .
@@ -550,7 +545,7 @@ $showComments = function ($rs, $has_action, $tb = false, $show_ip = true) {
     }
 
     while ($rs->fetch()) {
-        $comment_url = $core->adminurl->get('admin.comment', ['id' => $rs->comment_id]);
+        $comment_url = dcCore::app()->adminurl->get('admin.comment', ['id' => $rs->comment_id]);
 
         $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
         $img_status = '';
@@ -594,7 +589,7 @@ $showComments = function ($rs, $has_action, $tb = false, $show_ip = true) {
         '<td class="maximal">' . html::escapeHTML($rs->comment_author) . '</td>' .
         '<td class="nowrap">' . dt::dt2str(__('%Y-%m-%d %H:%M'), $rs->comment_dt) . '</td>' .
         ($show_ip ?
-            '<td class="nowrap"><a href="' . $core->adminurl->get('admin.comments', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>' : '') .
+            '<td class="nowrap"><a href="' . dcCore::app()->adminurl->get('admin.comments', ['ip' => $rs->comment_ip]) . '">' . $rs->comment_ip . '</a></td>' : '') .
         '<td class="nowrap status">' . $img_status . '</td>' .
         '<td class="nowrap status"><a href="' . $comment_url . '">' .
         '<img src="images/edit-mini.png" alt="" title="' . __('Edit this comment') . '" /> ' . __('Edit') . '</a></td>' .
@@ -633,7 +628,7 @@ if ($can_edit_post) {
                 '<p>' . form::combo('post_format', $available_formats, $post_format, 'maximal') . '</p>' .
                 '<p class="format_control control_no_xhtml">' .
                 '<a id="convert-xhtml" class="button' . ($post_id && $post_format != 'wiki' ? ' hide' : '') . '" href="' .
-                $core->adminurl->get('admin.post', ['id' => $post_id, 'xconv' => '1']) .
+                dcCore::app()->adminurl->get('admin.post', ['id' => $post_id, 'xconv' => '1']) .
                 '">' .
                 __('Convert to XHTML') . '</a></p></div>', ], ],
         'metas-box' => [
@@ -647,7 +642,7 @@ if ($can_edit_post) {
                 '<p><label for="cat_id">' . __('Category:') . '</label>' .
                 form::combo('cat_id', $categories_combo, $cat_id, 'maximal') .
                 '</p>' .
-                ($core->auth->check('categories', $core->blog->id) ?
+                (dcCore::app()->auth->check('categories', dcCore::app()->blog->id) ?
                     '<div>' .
                     '<h5 id="create_cat">' . __('Add a new category') . '</h5>' .
                     '<p><label for="new_cat_title">' . __('Title:') . ' ' .
@@ -666,7 +661,7 @@ if ($can_edit_post) {
                 '<p><label for="post_open_comment" class="classic">' .
                 form::checkbox('post_open_comment', 1, $post_open_comment) . ' ' .
                 __('Accept comments') . '</label></p>' .
-                ($core->blog->settings->system->allow_comments ?
+                (dcCore::app()->blog->settings->system->allow_comments ?
                     ($isContributionAllowed($post_id, strtotime($post_dt), true) ?
                         '' :
                         '<p class="form-note warn">' .
@@ -676,7 +671,7 @@ if ($can_edit_post) {
                 '<p><label for="post_open_tb" class="classic">' .
                 form::checkbox('post_open_tb', 1, $post_open_tb) . ' ' .
                 __('Accept trackbacks') . '</label></p>' .
-                ($core->blog->settings->system->allow_trackbacks ?
+                (dcCore::app()->blog->settings->system->allow_trackbacks ?
                     ($isContributionAllowed($post_id, strtotime($post_dt), false) ?
                         '' :
                         '<p class="form-note warn">' .
@@ -724,7 +719,7 @@ if ($can_edit_post) {
             form::textarea(
                 'post_content',
                 50,
-                $core->auth->getOption('edit_size'),
+                dcCore::app()->auth->getOption('edit_size'),
                 [
                     'default'    => html::escapeHTML($post_content),
                     'extra_html' => 'required placeholder="' . __('Content') . '" lang="' . $post_lang . '" spellcheck="true"',
@@ -748,11 +743,11 @@ if ($can_edit_post) {
     );
 
     # --BEHAVIOR-- adminPostFormItems
-    $core->callBehavior('adminPostFormItems', $main_items, $sidebar_items, $post ?? null, 'post');
+    dcCore::app()->callBehavior('adminPostFormItems', $main_items, $sidebar_items, $post ?? null, 'post');
 
     echo '<div class="multi-part" title="' . ($post_id ? __('Edit post') : __('New post')) .
     sprintf(' &rsaquo; %s', $post_format) . '" id="edit-entry">';
-    echo '<form action="' . $core->adminurl->get('admin.post') . '" method="post" id="entry-form">';
+    echo '<form action="' . dcCore::app()->adminurl->get('admin.post') . '" method="post" id="entry-form">';
     echo '<div id="entry-wrapper">';
     echo '<div id="entry-content"><div class="constrained">';
 
@@ -763,7 +758,7 @@ if ($can_edit_post) {
     }
 
     # --BEHAVIOR-- adminPostForm (may be deprecated)
-    $core->callBehavior('adminPostForm', $post ?? null, 'post');
+    dcCore::app()->callBehavior('adminPostForm', $post ?? null, 'post');
 
     echo
     '<p class="border-top">' .
@@ -771,15 +766,15 @@ if ($can_edit_post) {
     '<input type="submit" value="' . __('Save') . ' (s)" ' .
         'accesskey="s" name="save" /> ';
     if ($post_id) {
-        $preview_url = $core->blog->url . $core->url->getURLFor('preview', $core->auth->userID() . '/' .
-            http::browserUID(DC_MASTER_KEY . $core->auth->userID() . $core->auth->cryptLegacy($core->auth->userID())) .
+        $preview_url = dcCore::app()->blog->url . dcCore::app()->url->getURLFor('preview', dcCore::app()->auth->userID() . '/' .
+            http::browserUID(DC_MASTER_KEY . dcCore::app()->auth->userID() . dcCore::app()->auth->cryptLegacy(dcCore::app()->auth->userID())) .
             '/' . $post->post_url);
 
         // Prevent browser caching on preview
         $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) rand());
 
-        $core->auth->user_prefs->addWorkspace('interface');
-        $blank_preview = $core->auth->user_prefs->interface->blank_preview;
+        dcCore::app()->auth->user_prefs->addWorkspace('interface');
+        $blank_preview = dcCore::app()->auth->user_prefs->interface->blank_preview;
 
         $preview_class  = $blank_preview ? '' : ' modal';
         $preview_target = $blank_preview ? '' : ' target="_blank"';
@@ -788,11 +783,11 @@ if ($can_edit_post) {
         echo ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />';
     } else {
         echo
-        '<a id="post-cancel" href="' . $core->adminurl->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
+        '<a id="post-cancel" href="' . dcCore::app()->adminurl->get('admin.home') . '" class="button" accesskey="c">' . __('Cancel') . ' (c)</a>';
     }
 
     echo($can_delete ? ' <input type="submit" class="delete" value="' . __('Delete') . '" name="delete" />' : '') .
-    $core->formNonce() .
+    dcCore::app()->formNonce() .
         '</p>';
 
     echo '</div></div>'; // End #entry-content
@@ -810,13 +805,13 @@ if ($can_edit_post) {
     }
 
     # --BEHAVIOR-- adminPostFormSidebar (may be deprecated)
-    $core->callBehavior('adminPostFormSidebar', $post ?? null, 'post');
+    dcCore::app()->callBehavior('adminPostFormSidebar', $post ?? null, 'post');
     echo '</div>'; // End #entry-sidebar
 
     echo '</form>';
 
     # --BEHAVIOR-- adminPostForm
-    $core->callBehavior('adminPostAfterForm', $post ?? null, 'post');
+    dcCore::app()->callBehavior('adminPostAfterForm', $post ?? null, 'post');
 
     echo '</div>';
 }
@@ -827,7 +822,7 @@ if ($post_id) {
 
     $params = ['post_id' => $post_id, 'order' => 'comment_dt ASC'];
 
-    $comments = $core->blog->getComments(array_merge($params, ['comment_trackback' => 0]));
+    $comments = dcCore::app()->blog->getComments(array_merge($params, ['comment_trackback' => 0]));
 
     echo
     '<div id="comments" class="clear multi-part" title="' . __('Comments') . '">';
@@ -837,7 +832,7 @@ if ($post_id) {
     '<p class="top-add"><a class="button add" href="#comment-form">' . __('Add a comment') . '</a></p>';
 
     if ($has_action) {
-        echo '<form action="' . $core->adminurl->get('admin.post') . '" id="form-comments" method="post">';
+        echo '<form action="' . dcCore::app()->adminurl->get('admin.post') . '" id="form-comments" method="post">';
     }
 
     echo '<h3>' . __('Comments') . '</h3>';
@@ -856,7 +851,7 @@ if ($post_id) {
         form::combo('action', $combo_action) .
         form::hidden(['section'], 'comments') .
         form::hidden(['id'], $post_id) .
-        $core->formNonce() .
+        dcCore::app()->formNonce() .
         '<input type="submit" value="' . __('ok') . '" /></p>' .
             '</div>' .
             '</form>';
@@ -868,21 +863,21 @@ if ($post_id) {
     '<div class="fieldset clear">' .
     '<h3>' . __('Add a comment') . '</h3>' .
 
-    '<form action="' . $core->adminurl->get('admin.comment') . '" method="post" id="comment-form">' .
+    '<form action="' . dcCore::app()->adminurl->get('admin.comment') . '" method="post" id="comment-form">' .
     '<div class="constrained">' .
     '<p><label for="comment_author" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Name:') . '</label>' .
     form::field('comment_author', 30, 255, [
-        'default'    => html::escapeHTML($core->auth->getInfo('user_cn')),
+        'default'    => html::escapeHTML(dcCore::app()->auth->getInfo('user_cn')),
         'extra_html' => 'required placeholder="' . __('Author') . '"',
     ]) .
     '</p>' .
 
     '<p><label for="comment_email">' . __('Email:') . '</label>' .
-    form::email('comment_email', 30, 255, html::escapeHTML($core->auth->getInfo('user_email'))) .
+    form::email('comment_email', 30, 255, html::escapeHTML(dcCore::app()->auth->getInfo('user_email'))) .
     '</p>' .
 
     '<p><label for="comment_site">' . __('Web site:') . '</label>' .
-    form::url('comment_site', 30, 255, html::escapeHTML($core->auth->getInfo('user_url'))) .
+    form::url('comment_site', 30, 255, html::escapeHTML(dcCore::app()->auth->getInfo('user_url'))) .
     '</p>' .
 
     '<p class="area"><label for="comment_content" class="required"><abbr title="' . __('Required field') . '">*</abbr> ' .
@@ -892,7 +887,7 @@ if ($post_id) {
         50,
         8,
         [
-            'extra_html' => 'required placeholder="' . __('Comment') . '" lang="' . $core->auth->getInfo('user_lang') .
+            'extra_html' => 'required placeholder="' . __('Comment') . '" lang="' . dcCore::app()->auth->getInfo('user_lang') .
                 '" spellcheck="true"',
         ]
     ) .
@@ -900,7 +895,7 @@ if ($post_id) {
 
     '<p>' .
     form::hidden('post_id', $post_id) .
-    $core->formNonce() .
+    dcCore::app()->formNonce() .
     '<input type="submit" name="add" value="' . __('Save') . '" /></p>' .
     '</div>' . #constrained
 
@@ -914,7 +909,7 @@ if ($post_id && $post_status == 1) {
     -------------------------------------------------------- */
 
     $params     = ['post_id' => $post_id, 'order' => 'comment_dt ASC'];
-    $trackbacks = $core->blog->getComments(array_merge($params, ['comment_trackback' => 1]));
+    $trackbacks = dcCore::app()->blog->getComments(array_merge($params, ['comment_trackback' => 1]));
 
     # Actions combo box
     $combo_action = $comments_actions_page->getCombo();
@@ -930,7 +925,7 @@ if ($post_id && $post_status == 1) {
 
     # tracbacks actions
     if ($has_action) {
-        echo '<form action="' . $core->adminurl->get('admin.post') . '" id="form-trackbacks" method="post">';
+        echo '<form action="' . dcCore::app()->adminurl->get('admin.post') . '" id="form-trackbacks" method="post">';
     }
 
     echo '<h3>' . __('Trackbacks received') . '</h3>';
@@ -950,7 +945,7 @@ if ($post_id && $post_status == 1) {
         form::combo('action', $combo_action) .
         form::hidden('id', $post_id) .
         form::hidden(['section'], 'trackbacks') .
-        $core->formNonce() .
+        dcCore::app()->formNonce() .
         '<input type="submit" value="' . __('ok') . '" /></p>' .
             '</div>' .
             '</form>';
@@ -964,7 +959,7 @@ if ($post_id && $post_status == 1) {
 
         echo
         '<h3>' . __('Ping blogs') . '</h3>' .
-        '<form action="' . $core->adminurl->get('admin.post', ['id' => $post_id]) . '" id="trackback-form" method="post">' .
+        '<form action="' . dcCore::app()->adminurl->get('admin.post', ['id' => $post_id]) . '" id="trackback-form" method="post">' .
         '<p><label for="tb_urls" class="area">' . __('URLs to ping:') . '</label>' .
         form::textarea('tb_urls', 60, 5, $tb_urls) .
         '</p>' .
@@ -973,11 +968,11 @@ if ($post_id && $post_status == 1) {
         form::textarea('tb_excerpt', 60, 5, $tb_excerpt) . '</p>' .
 
         '<p>' .
-        $core->formNonce() .
+        dcCore::app()->formNonce() .
         '<input type="submit" name="ping" value="' . __('Ping blogs') . '" />' .
             (empty($_GET['tb_auto']) ?
             '&nbsp;&nbsp;<a class="button" href="' .
-            $core->adminurl->get('admin.post', ['id' => $post_id, 'tb_auto' => 1, 'tb' => 1]) .
+            dcCore::app()->adminurl->get('admin.post', ['id' => $post_id, 'tb_auto' => 1, 'tb' => 1]) .
             '">' . __('Auto discover ping URLs') . '</a>'
             : '') .
             '</p>' .

@@ -7,8 +7,6 @@
  * @copyright GPL-2.0-only
  *
  * @deprecated It is only used for plugins compatibility
- *
- * @var dcCore $core
  */
 
 /* ### THIS FILE IS DEPRECATED                     ### */
@@ -26,10 +24,10 @@ if (isset($_REQUEST['redir'])) {
     }
     $args['redir'] = $_REQUEST['redir'];
 } else {
-    $uri  = $core->adminurl->get('admin.posts');
+    $uri  = dcCore::app()->adminurl->get('admin.posts');
     $args = [];
 }
 
-$posts_actions_page = new dcPostsActionsPage($core, $uri, $args);
+$posts_actions_page = new dcPostsActionsPage(dcCore::app(), $uri, $args);
 $posts_actions_page->setEnableRedirSelection(false);
 $posts_actions_page->process();

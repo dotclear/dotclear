@@ -5,26 +5,23 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::check('usage,contentadmin');
-
-$core->addBehavior('adminSearchPageCombo', ['adminSearchPageDefault','typeCombo']);
-$core->addBehavior('adminSearchPageHead', ['adminSearchPageDefault','pageHead']);
+dcCore::app()->addBehavior('adminSearchPageCombo', ['adminSearchPageDefault','typeCombo']);
+dcCore::app()->addBehavior('adminSearchPageHead', ['adminSearchPageDefault','pageHead']);
 // posts search
-$core->addBehavior('adminSearchPageProcess', ['adminSearchPageDefault','processPosts']);
-$core->addBehavior('adminSearchPageDisplay', ['adminSearchPageDefault','displayPosts']);
+dcCore::app()->addBehavior('adminSearchPageProcess', ['adminSearchPageDefault','processPosts']);
+dcCore::app()->addBehavior('adminSearchPageDisplay', ['adminSearchPageDefault','displayPosts']);
 // comments search
-$core->addBehavior('adminSearchPageProcess', ['adminSearchPageDefault','processComments']);
-$core->addBehavior('adminSearchPageDisplay', ['adminSearchPageDefault','displayComments']);
+dcCore::app()->addBehavior('adminSearchPageProcess', ['adminSearchPageDefault','processComments']);
+dcCore::app()->addBehavior('adminSearchPageDisplay', ['adminSearchPageDefault','displayComments']);
 
 $qtype_combo = [];
 
 # --BEHAVIOR-- adminSearchPageCombo
-$core->callBehavior('adminSearchPageCombo', $core, [& $qtype_combo]);
+dcCore::app()->callBehavior('adminSearchPageCombo', dcCore::app(), [& $qtype_combo]);
 
 $q     = !empty($_REQUEST['q']) ? $_REQUEST['q'] : (!empty($_REQUEST['qx']) ? $_REQUEST['qx'] : null);
 $qtype = !empty($_REQUEST['qtype']) ? $_REQUEST['qtype'] : 'p';
@@ -32,7 +29,7 @@ if (!empty($q) && !in_array($qtype, $qtype_combo)) {
     $qtype = 'p';
 }
 
-$core->auth->user_prefs->addWorkspace('interface');
+dcCore::app()->auth->user_prefs->addWorkspace('interface');
 $page = !empty($_GET['page']) ? max(1, (int) $_GET['page']) : 1;
 $nb   = adminUserPref::getUserFilters('search', 'nb');
 if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
@@ -42,12 +39,12 @@ if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
 $args = ['q' => $q, 'qtype' => $qtype, 'page' => $page, 'nb' => $nb];
 
 # --BEHAVIOR-- adminSearchPageHead
-$starting_scripts = $q ? $core->callBehavior('adminSearchPageHead', $core, $args) : '';
+$starting_scripts = $q ? dcCore::app()->callBehavior('adminSearchPageHead', dcCore::app(), $args) : '';
 
 if ($q) {
 
     # --BEHAVIOR-- adminSearchPageProcess
-    $core->callBehavior('adminSearchPageProcess', $core, $args);
+    dcCore::app()->callBehavior('adminSearchPageProcess', dcCore::app(), $args);
 }
 
 dcPage::open(
@@ -55,14 +52,14 @@ dcPage::open(
     $starting_scripts,
     dcPage::breadcrumb(
         [
-            html::escapeHTML($core->blog->name) => '',
-            __('Search')                        => '',
+            html::escapeHTML(dcCore::app()->blog->name) => '',
+            __('Search')                                => '',
         ]
     )
 );
 
 echo
-'<form action="' . $core->adminurl->get('admin.search') . '" method="get" role="search">' .
+'<form action="' . dcCore::app()->adminurl->get('admin.search') . '" method="get" role="search">' .
 '<div class="fieldset"><h3>' . __('Search options') . '</h3>' .
 '<p><label for="q">' . __('Query:') . ' </label>' .
 form::field('q', 30, 255, html::escapeHTML($q)) . '</p>' .
@@ -74,11 +71,11 @@ form::combo('qtype', $qtype_combo, $qtype) . '</p>' .
 '</div>' .
 '</form>';
 
-if ($q && !$core->error->flag()) {
+if ($q && !dcCore::app()->error->flag()) {
     ob_start();
 
     # --BEHAVIOR-- adminSearchPageDisplay
-    $core->callBehavior('adminSearchPageDisplay', $core, $args);
+    dcCore::app()->callBehavior('adminSearchPageDisplay', dcCore::app(), $args);
 
     $res = ob_get_contents();
     ob_end_clean();
@@ -123,14 +120,14 @@ class adminSearchPageDefault
         ];
 
         try {
-            self::$count   = $core->blog->getPosts($params, true)->f(0);
-            self::$list    = new adminPostList($core, $core->blog->getPosts($params), self::$count);
-            self::$actions = new dcPostsActionsPage($core, $core->adminurl->get('admin.search'), $args);
+            self::$count   = dcCore::app()->blog->getPosts($params, true)->f(0);
+            self::$list    = new adminPostList(dcCore::app(), dcCore::app()->blog->getPosts($params), self::$count);
+            self::$actions = new dcPostsActionsPage(dcCore::app(), dcCore::app()->adminurl->get('admin.search'), $args);
             if (self::$actions->process()) {
                 return;
             }
         } catch (Exception $e) {
-            $core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
         }
     }
 
@@ -147,7 +144,7 @@ class adminSearchPageDefault
         self::$list->display(
             $args['page'],
             $args['nb'],
-            '<form action="' . $core->adminurl->get('admin.search') . '" method="post" id="form-entries">' .
+            '<form action="' . dcCore::app()->adminurl->get('admin.search') . '" method="post" id="form-entries">' .
 
             '%s' .
 
@@ -157,7 +154,7 @@ class adminSearchPageDefault
             '<p class="col right"><label for="action" class="classic">' . __('Selected entries action:') . '</label> ' .
             form::combo('action', self::$actions->getCombo()) .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
-            $core->formNonce() .
+            dcCore::app()->formNonce() .
             preg_replace('/%/', '%%', self::$actions->getHiddenFields()) .
             '</div>' .
             '</form>'
@@ -178,14 +175,14 @@ class adminSearchPageDefault
         ];
 
         try {
-            self::$count   = $core->blog->getComments($params, true)->f(0);
-            self::$list    = new adminCommentList($core, $core->blog->getComments($params), self::$count);
-            self::$actions = new dcCommentsActionsPage($core, $core->adminurl->get('admin.search'), $args);
+            self::$count   = dcCore::app()->blog->getComments($params, true)->f(0);
+            self::$list    = new adminCommentList(dcCore::app(), dcCore::app()->blog->getComments($params), self::$count);
+            self::$actions = new dcCommentsActionsPage(dcCore::app(), dcCore::app()->adminurl->get('admin.search'), $args);
             if (self::$actions->process()) {
                 return;
             }
         } catch (Exception $e) {
-            $core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
         }
     }
 
@@ -202,7 +199,7 @@ class adminSearchPageDefault
         self::$list->display(
             $args['page'],
             $args['nb'],
-            '<form action="' . $core->adminurl->get('admin.search') . '" method="post" id="form-comments">' .
+            '<form action="' . dcCore::app()->adminurl->get('admin.search') . '" method="post" id="form-comments">' .
 
             '%s' .
 
@@ -212,7 +209,7 @@ class adminSearchPageDefault
             '<p class="col right"><label for="action" class="classic">' . __('Selected comments action:') . '</label> ' .
             form::combo('action', self::$actions->getCombo()) .
             '<input id="do-action" type="submit" value="' . __('ok') . '" /></p>' .
-            $core->formNonce() .
+            dcCore::app()->formNonce() .
             preg_replace('/%/', '%%', self::$actions->getHiddenFields()) .
             '</div>' .
             '</form>'

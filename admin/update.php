@@ -5,8 +5,6 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -105,7 +103,7 @@ if (!empty($_POST['backup_file']) && in_array($_POST['backup_file'], $archives))
             http::redirect($p_url . '?tab=files');
         }
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -180,9 +178,9 @@ if ($new_v && $step) {
                 '</strong></li></ul>';
         }
 
-        $core->error->add($msg);
+        dcCore::app()->error->add($msg);
 
-        $core->callBehavior('adminDCUpdateException', $e);
+        dcCore::app()->callBehavior('adminDCUpdateException', $e);
     }
 }
 
@@ -202,7 +200,7 @@ dcPage::open(
     )
 );
 
-if (!$core->error->flag()) {
+if (!dcCore::app()->error->flag()) {
     if (!empty($_GET['nocache'])) {
         dcPage::success(__('Manual checking of update done successfully.'));
     }
@@ -270,12 +268,12 @@ if (!$step) {
         '</p>' .
         '<p><input type="submit" class="delete" name="b_del" value="' . __('Delete selected file') . '" /> ' .
         '<input type="submit" name="b_revert" value="' . __('Revert to selected file') . '" />' .
-        $core->formNonce() . '</p>' .
+        dcCore::app()->formNonce() . '</p>' .
             '</form>';
 
         echo '</div>';
     }
-} elseif ($step == 'unzip' && !$core->error->flag()) {
+} elseif ($step == 'unzip' && !dcCore::app()->error->flag()) {
     echo
     '<p class="message">' .
     __("Congratulations, you're one click away from the end of the update.") .

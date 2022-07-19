@@ -5,8 +5,6 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/prepend.php';
 
@@ -25,11 +23,11 @@ if (empty($blog_id)) {
 }
 
 # Avoid plugins warnings, set a default blog
-$core->setBlog($blog_id);
+dcCore::app()->setBlog($blog_id);
 
 # Loading plugins
-$core->plugins->loadModules(DC_PLUGINS_ROOT);
+dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT);
 
 # Start XML-RPC server
-$server = new dcXmlRpc($core, $blog_id);
+$server = new dcXmlRpc(dcCore::app(), $blog_id);
 $server->serve();

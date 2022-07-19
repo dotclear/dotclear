@@ -5,8 +5,6 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -19,7 +17,7 @@ $blog_desc = '';
 
 # Create a blog
 if (!isset($_POST['id']) && (isset($_POST['create']))) {
-    $cur       = $core->con->openCursor($core->prefix . 'blog');
+    $cur       = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'blog');
     $blog_id   = $cur->blog_id   = $_POST['blog_id'];
     $blog_url  = $cur->blog_url  = $_POST['blog_url'];
     $blog_name = $cur->blog_name = $_POST['blog_name'];
@@ -27,15 +25,15 @@ if (!isset($_POST['id']) && (isset($_POST['create']))) {
 
     try {
         # --BEHAVIOR-- adminBeforeBlogCreate
-        $core->callBehavior('adminBeforeBlogCreate', $cur, $blog_id);
+        dcCore::app()->callBehavior('adminBeforeBlogCreate', $cur, $blog_id);
 
-        $core->addBlog($cur);
+        dcCore::app()->addBlog($cur);
 
         # Default settings and override some
-        $blog_settings = new dcSettings($core, $cur->blog_id);
+        $blog_settings = new dcSettings(dcCore::app(), $cur->blog_id);
         $blog_settings->addNamespace('system');
-        $blog_settings->system->put('lang', $core->auth->getInfo('user_lang'));
-        $blog_settings->system->put('blog_timezone', $core->auth->getInfo('user_tz'));
+        $blog_settings->system->put('lang', dcCore::app()->auth->getInfo('user_lang'));
+        $blog_settings->system->put('blog_timezone', dcCore::app()->auth->getInfo('user_tz'));
 
         if (substr($blog_url, -1) == '?') {
             $blog_settings->system->put('url_scan', 'query_string');
@@ -44,11 +42,11 @@ if (!isset($_POST['id']) && (isset($_POST['create']))) {
         }
 
         # --BEHAVIOR-- adminAfterBlogCreate
-        $core->callBehavior('adminAfterBlogCreate', $cur, $blog_id, $blog_settings);
+        dcCore::app()->callBehavior('adminAfterBlogCreate', $cur, $blog_id, $blog_settings);
         dcPage::addSuccessNotice(sprintf(__('Blog "%s" successfully created'), html::escapeHTML($cur->blog_name)));
-        $core->adminurl->redirect('admin.blog', ['id' => $cur->blog_id]);
+        dcCore::app()->adminurl->redirect('admin.blog', ['id' => $cur->blog_id]);
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -62,16 +60,16 @@ if (!empty($_REQUEST['id'])) {
         dcPage::breadcrumb(
             [
                 __('System')   => '',
-                __('Blogs')    => $core->adminurl->get('admin.blogs'),
+                __('Blogs')    => dcCore::app()->adminurl->get('admin.blogs'),
                 __('New blog') => '',
             ]
         )
     );
 
     echo
-    '<form action="' . $core->adminurl->get('admin.blog') . '" method="post" id="blog-form">' .
+    '<form action="' . dcCore::app()->adminurl->get('admin.blog') . '" method="post" id="blog-form">' .
 
-    '<div>' . $core->formNonce() . '</div>' .
+    '<div>' . dcCore::app()->formNonce() . '</div>' .
     '<p><label class="required" for="blog_id"><abbr title="' . __('Required field') . '">*</abbr> ' . __('Blog ID:') . '</label> ' .
     form::field(
         'blog_id',
@@ -92,7 +90,7 @@ if (!empty($_REQUEST['id'])) {
         255,
         [
             'default'    => html::escapeHTML($blog_name),
-            'extra_html' => 'required placeholder="' . __('Blog name') . '" lang="' . $core->auth->getInfo('user_lang') . '" ' .
+            'extra_html' => 'required placeholder="' . __('Blog name') . '" lang="' . dcCore::app()->auth->getInfo('user_lang') . '" ' .
                 'spellcheck="true"',
         ]
     ) . '</p>' .
@@ -114,7 +112,7 @@ if (!empty($_REQUEST['id'])) {
         5,
         [
             'default'    => html::escapeHTML($blog_desc),
-            'extra_html' => 'lang="' . $core->auth->getInfo('user_lang') . '" spellcheck="true"',
+            'extra_html' => 'lang="' . dcCore::app()->auth->getInfo('user_lang') . '" spellcheck="true"',
         ]
     ) . '</p>' .
 

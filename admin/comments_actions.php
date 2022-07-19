@@ -7,8 +7,6 @@
  * @copyright GPL-2.0-only
  *
  * @deprecated It is only used for plugins compatibility
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -22,10 +20,10 @@ if (isset($_REQUEST['redir'])) {
     }
     $args['redir'] = $_REQUEST['redir'];
 } else {
-    $uri  = $core->adminurl->get('admin.comments');
+    $uri  = dcCore::app()->adminurl->get('admin.comments');
     $args = [];
 }
 
-$comments_actions_page = new dcCommentsActionsPage($core, $uri, $args);
+$comments_actions_page = new dcCommentsActionsPage(dcCore::app(), $uri, $args);
 $comments_actions_page->setEnableRedirSelection(false);
 $comments_actions_page->process();

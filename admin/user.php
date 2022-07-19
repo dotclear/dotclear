@@ -5,8 +5,6 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -23,11 +21,11 @@ $user_firstname   = '';
 $user_displayname = '';
 $user_email       = '';
 $user_url         = '';
-$user_lang        = $core->auth->getInfo('user_lang');
-$user_tz          = $core->auth->getInfo('user_tz');
+$user_lang        = dcCore::app()->auth->getInfo('user_lang');
+$user_tz          = dcCore::app()->auth->getInfo('user_tz');
 $user_post_status = -2; // Pending
 
-$user_options = $core->userDefaults();
+$user_options = dcCore::app()->userDefaults();
 
 $user_profile_mails = '';
 $user_profile_urls  = '';
@@ -43,7 +41,7 @@ $lang_combo = dcAdminCombos::getAdminLangsCombo();
 # Get user if we have an ID
 if (!empty($_REQUEST['id'])) {
     try {
-        $rs = $core->getUser($_REQUEST['id']);
+        $rs = dcCore::app()->getUser($_REQUEST['id']);
 
         $user_id          = $rs->user_id;
         $user_super       = $rs->user_super;
@@ -60,25 +58,25 @@ if (!empty($_REQUEST['id'])) {
 
         $user_options = array_merge($user_options, $rs->options());
 
-        $user_prefs = new dcPrefs($core, $user_id, 'profile');
+        $user_prefs = new dcPrefs(dcCore::app(), $user_id, 'profile');
         $user_prefs->addWorkspace('profile');
         $user_profile_mails = $user_prefs->profile->mails;
         $user_profile_urls  = $user_prefs->profile->urls;
 
         $page_title = $user_id;
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
 # Add or update user
 if (isset($_POST['user_name'])) {
     try {
-        if (empty($_POST['your_pwd']) || !$core->auth->checkPassword($_POST['your_pwd'])) {
+        if (empty($_POST['your_pwd']) || !dcCore::app()->auth->checkPassword($_POST['your_pwd'])) {
             throw new Exception(__('Password verification failed'));
         }
 
-        $cur = $core->con->openCursor($core->prefix . 'user');
+        $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'user');
 
         $cur->user_id          = $_POST['user_id'];
         $cur->user_super       = $user_super       = !empty($_POST['user_super']) ? 1 : 0;
@@ -91,11 +89,11 @@ if (isset($_POST['user_name'])) {
         $cur->user_tz          = $user_tz          = html::escapeHTML($_POST['user_tz']);
         $cur->user_post_status = $user_post_status = (int) $_POST['user_post_status'];
 
-        if ($user_id && $cur->user_id == $core->auth->userID() && $core->auth->isSuperAdmin()) {
+        if ($user_id && $cur->user_id == dcCore::app()->auth->userID() && dcCore::app()->auth->isSuperAdmin()) {
             // force super_user to true if current user
             $cur->user_super = $user_super = true;
         }
-        if ($core->auth->allowPassChange()) {
+        if (dcCore::app()->auth->allowPassChange()) {
             $cur->user_change_pwd = !empty($_POST['user_change_pwd']) ? 1 : 0;
         }
 
@@ -118,9 +116,9 @@ if (isset($_POST['user_name'])) {
         # Udate user
         if ($user_id) {
             # --BEHAVIOR-- adminBeforeUserUpdate
-            $core->callBehavior('adminBeforeUserUpdate', $cur, $user_id);
+            dcCore::app()->callBehavior('adminBeforeUserUpdate', $cur, $user_id);
 
-            $new_id = $core->updUser($user_id, $cur);
+            $new_id = dcCore::app()->updUser($user_id, $cur);
 
             # Update profile
             # Sanitize list of secondary mails and urls if any
@@ -131,31 +129,31 @@ if (isset($_POST['user_name'])) {
             if (!empty($_POST['user_profile_urls'])) {
                 $urls = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
             }
-            $user_prefs = new dcPrefs($core, $user_id, 'profile');
+            $user_prefs = new dcPrefs(dcCore::app(), $user_id, 'profile');
             $user_prefs->addWorkspace('profile');
             $user_prefs->profile->put('mails', $mails, 'string');
             $user_prefs->profile->put('urls', $urls, 'string');
 
             # --BEHAVIOR-- adminAfterUserUpdate
-            $core->callBehavior('adminAfterUserUpdate', $cur, $new_id);
+            dcCore::app()->callBehavior('adminAfterUserUpdate', $cur, $new_id);
 
-            if ($user_id == $core->auth->userID() && $user_id != $new_id) {
-                $core->session->destroy();
+            if ($user_id == dcCore::app()->auth->userID() && $user_id != $new_id) {
+                dcCore::app()->session->destroy();
             }
 
             dcPage::addSuccessNotice(__('User has been successfully updated.'));
-            $core->adminurl->redirect('admin.user', ['id' => $new_id]);
+            dcCore::app()->adminurl->redirect('admin.user', ['id' => $new_id]);
         }
         # Add user
         else {
-            if ($core->getUsers(['user_id' => $cur->user_id], true)->f(0) > 0) {
+            if (dcCore::app()->getUsers(['user_id' => $cur->user_id], true)->f(0) > 0) {
                 throw new Exception(sprintf(__('User "%s" already exists.'), html::escapeHTML($cur->user_id)));
             }
 
             # --BEHAVIOR-- adminBeforeUserCreate
-            $core->callBehavior('adminBeforeUserCreate', $cur);
+            dcCore::app()->callBehavior('adminBeforeUserCreate', $cur);
 
-            $new_id = $core->addUser($cur);
+            $new_id = dcCore::app()->addUser($cur);
 
             # Update profile
             # Sanitize list of secondary mails and urls if any
@@ -166,24 +164,24 @@ if (isset($_POST['user_name'])) {
             if (!empty($_POST['user_profile_urls'])) {
                 $urls = implode(',', array_filter(filter_var_array(array_map('trim', explode(',', $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
             }
-            $user_prefs = new dcPrefs($core, $new_id, 'profile');
+            $user_prefs = new dcPrefs(dcCore::app(), $new_id, 'profile');
             $user_prefs->addWorkspace('profile');
             $user_prefs->profile->put('mails', $mails, 'string');
             $user_prefs->profile->put('urls', $urls, 'string');
 
             # --BEHAVIOR-- adminAfterUserCreate
-            $core->callBehavior('adminAfterUserCreate', $cur, $new_id);
+            dcCore::app()->callBehavior('adminAfterUserCreate', $cur, $new_id);
 
             dcPage::addSuccessNotice(__('User has been successfully created.'));
             dcPage::addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
             if (!empty($_POST['saveplus'])) {
-                $core->adminurl->redirect('admin.user');
+                dcCore::app()->adminurl->redirect('admin.user');
             } else {
-                $core->adminurl->redirect('admin.user', ['id' => $new_id]);
+                dcCore::app()->adminurl->redirect('admin.user', ['id' => $new_id]);
             }
         }
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -199,11 +197,11 @@ dcPage::open(
     ]) .
     dcPage::jsLoad('js/pwstrength.js') .
     dcPage::jsLoad('js/_user.js') .
-    $core->callBehavior('adminUserHeaders'),
+    dcCore::app()->callBehavior('adminUserHeaders'),
     dcPage::breadcrumb(
         [
             __('System') => '',
-            __('Users')  => $core->adminurl->get('admin.users'),
+            __('Users')  => dcCore::app()->adminurl->get('admin.users'),
             $page_title  => '',
         ]
     )
@@ -218,7 +216,7 @@ if (!empty($_GET['add'])) {
 }
 
 echo
-'<form action="' . $core->adminurl->get('admin.user') . '" method="post" id="user-form">' .
+'<form action="' . dcCore::app()->adminurl->get('admin.user') . '" method="post" id="user-form">' .
 '<div class="two-cols">' .
 
 '<div class="col">' .
@@ -233,7 +231,7 @@ form::field('user_id', 20, 255, [
 '</p>' .
 '<p class="form-note info" id="user_id_help">' . __('At least 2 characters using letters, numbers or symbols.') . '</p>';
 
-if ($user_id == $core->auth->userID()) {
+if ($user_id == dcCore::app()->auth->userID()) {
     echo
     '<p class="warning" id="user_id_warning">' . __('Warning:') . ' ' .
     __('If you change your username, you will have to log in again.') . '</p>';
@@ -242,8 +240,8 @@ if ($user_id == $core->auth->userID()) {
 echo
 '<p>' .
 '<label for="new_pwd" ' . ($user_id != '' ? '' : 'class="required"') . '>' .
-($user_id != '' ? '' : '<abbr title="' . __('Required field') . '">*</abbr> ') .
-($user_id != '' ? __('New password:') : __('Password:')) . '</label>' .
+($user_id                           != '' ? '' : '<abbr title="' . __('Required field') . '">*</abbr> ') .
+($user_id                           != '' ? __('New password:') : __('Password:')) . '</label>' .
 form::password(
     'new_pwd',
     20,
@@ -257,7 +255,7 @@ form::password(
 '<p class="form-note info" id="new_pwd_help">' . __('Password must contain at least 6 characters.') . '</p>' .
 
 '<p><label for="new_pwd_c" ' . ($user_id != '' ? '' : 'class="required"') . '>' .
-($user_id != '' ? '' : '<abbr title="' . __('Required field') . '">*</abbr> ') . __('Confirm password:') . '</label> ' .
+($user_id                                != '' ? '' : '<abbr title="' . __('Required field') . '">*</abbr> ') . __('Confirm password:') . '</label> ' .
 form::password(
     'new_pwd_c',
     20,
@@ -268,14 +266,14 @@ form::password(
 ) .
     '</p>';
 
-if ($core->auth->allowPassChange()) {
+if (dcCore::app()->auth->allowPassChange()) {
     echo
     '<p><label for="user_change_pwd" class="classic">' .
     form::checkbox('user_change_pwd', '1', $user_change_pwd) . ' ' .
     __('Password change required to connect') . '</label></p>';
 }
 
-$super_disabled = $user_super && $user_id == $core->auth->userID();
+$super_disabled = $user_super && $user_id == dcCore::app()->auth->userID();
 
 echo
 '<p><label for="user_super" class="classic">' .
@@ -369,7 +367,7 @@ form::number('user_edit_size', 10, 999, $user_options['edit_size']) .
     '</p>';
 
 # --BEHAVIOR-- adminUserForm
-$core->callBehavior('adminUserForm', $rs ?? null);
+dcCore::app()->callBehavior('adminUserForm', $rs ?? null);
 
 echo
     '</div>' .
@@ -391,7 +389,7 @@ form::password(
 ($user_id != '' ? '' : ' <input type="submit" name="saveplus" value="' . __('Save and create another') . '" />') .
 ($user_id != '' ? form::hidden('id', $user_id) : '') .
 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-$core->formNonce() .
+dcCore::app()->formNonce() .
     '</p>' .
 
     '</form>';
@@ -402,17 +400,17 @@ if ($user_id) {
 
     if (!$user_super) {
         echo
-        '<form action="' . $core->adminurl->get('admin.user.actions') . '" method="post">' .
+        '<form action="' . dcCore::app()->adminurl->get('admin.user.actions') . '" method="post">' .
         '<p><input type="submit" value="' . __('Add new permissions') . '" />' .
-        form::hidden(['redir'], $core->adminurl->get('admin.user', ['id' => $user_id])) .
+        form::hidden(['redir'], dcCore::app()->adminurl->get('admin.user', ['id' => $user_id])) .
         form::hidden(['action'], 'blogs') .
         form::hidden(['users[]'], $user_id) .
-        $core->formNonce() .
+        dcCore::app()->formNonce() .
             '</p>' .
             '</form>';
 
-        $permissions = $core->getUserPermissions($user_id);
-        $perm_types  = $core->auth->getPermissionsTypes();
+        $permissions = dcCore::app()->getUserPermissions($user_id);
+        $perm_types  = dcCore::app()->auth->getPermissionsTypes();
 
         if (count($permissions) == 0) {
             echo '<p>' . __('No permissions so far.') . '</p>';
@@ -420,9 +418,9 @@ if ($user_id) {
             foreach ($permissions as $k => $v) {
                 if (count($v['p']) > 0) {
                     echo
-                    '<form action="' . $core->adminurl->get('admin.user.actions') . '" method="post" class="perm-block">' .
+                    '<form action="' . dcCore::app()->adminurl->get('admin.user.actions') . '" method="post" class="perm-block">' .
                     '<p class="blog-perm">' . __('Blog:') . ' <a href="' .
-                    $core->adminurl->get('admin.blog', ['id' => html::escapeHTML($k)]) . '">' .
+                    dcCore::app()->adminurl->get('admin.blog', ['id' => html::escapeHTML($k)]) . '">' .
                     html::escapeHTML($v['name']) . '</a> (' . html::escapeHTML($k) . ')</p>';
 
                     echo '<ul class="ul-perm">';
@@ -434,11 +432,11 @@ if ($user_id) {
                     echo
                     '</ul>' .
                     '<p class="add-perm"><input type="submit" class="reset" value="' . __('Change permissions') . '" />' .
-                    form::hidden(['redir'], $core->adminurl->get('admin.user', ['id' => $user_id])) .
+                    form::hidden(['redir'], dcCore::app()->adminurl->get('admin.user', ['id' => $user_id])) .
                     form::hidden(['action'], 'perms') .
                     form::hidden(['users[]'], $user_id) .
                     form::hidden(['blogs[]'], $k) .
-                    $core->formNonce() .
+                    dcCore::app()->formNonce() .
                         '</p>' .
                         '</form>';
                 }
@@ -452,15 +450,15 @@ if ($user_id) {
     // Informations (direct links)
     echo '<div class="clear fieldset">' .
     '<h3>' . __('Direct links') . '</h3>';
-    echo '<p><a href="' . $core->adminurl->get(
+    echo '<p><a href="' . dcCore::app()->adminurl->get(
         'admin.posts',
         ['user_id' => $user_id]
     ) . '">' . __('List of posts') . '</a>';
-    echo '<p><a href="' . $core->adminurl->get(
+    echo '<p><a href="' . dcCore::app()->adminurl->get(
         'admin.comments',
         [
-            'email' => $core->auth->getInfo('user_email', $user_id),
-            'site'  => $core->auth->getInfo('user_url', $user_id),
+            'email' => dcCore::app()->auth->getInfo('user_email', $user_id),
+            'site'  => dcCore::app()->auth->getInfo('user_url', $user_id),
         ]
     ) . '">' . __('List of comments') . '</a>';
     echo '</div>';

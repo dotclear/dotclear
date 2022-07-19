@@ -5,8 +5,6 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -20,11 +18,11 @@ $combo_action = [
 ];
 
 # --BEHAVIOR-- adminUsersActionsCombo
-$core->callBehavior('adminUsersActionsCombo', [& $combo_action]);
+dcCore::app()->callBehavior('adminUsersActionsCombo', [& $combo_action]);
 
 /* Filters
 -------------------------------------------------------- */
-$user_filter = new adminUserFilter($core);
+$user_filter = new adminUserFilter(dcCore::app());
 
 # get list params
 $params = $user_filter->params();
@@ -38,10 +36,10 @@ $sortby_lex = [
     'user_displayname' => 'user_displayname', ];
 
 # --BEHAVIOR-- adminUsersSortbyLexCombo
-$core->callBehavior('adminUsersSortbyLexCombo', [& $sortby_lex]);
+dcCore::app()->callBehavior('adminUsersSortbyLexCombo', [& $sortby_lex]);
 
 $params['order'] = (array_key_exists($user_filter->sortby, $sortby_lex) ?
-    $core->con->lexFields($sortby_lex[$user_filter->sortby]) :
+    dcCore::app()->con->lexFields($sortby_lex[$user_filter->sortby]) :
     $user_filter->sortby) . ' ' . $user_filter->order;
 
 /* List
@@ -51,10 +49,10 @@ $user_list = null;
 try {
     # --BEHAVIOR-- adminGetUsers
     $params = new ArrayObject($params);
-    $core->callBehavior('adminGetUsers', $params);
+    dcCore::app()->callBehavior('adminGetUsers', $params);
 
-    $rs       = $core->getUsers($params);
-    $counter  = $core->getUsers($params, true);
+    $rs       = dcCore::app()->getUsers($params);
+    $counter  = dcCore::app()->getUsers($params, true);
     $rsStatic = $rs->toStatic();
     if ($user_filter->sortby != 'nb_post') {
         // Sort user list using lexical order if necessary
@@ -62,9 +60,9 @@ try {
         $rsStatic = $rsStatic->toExtStatic();
         $rsStatic->lexicalSort($user_filter->sortby, $user_filter->order);
     }
-    $user_list = new adminUserList($core, $rsStatic, $counter->f(0));
+    $user_list = new adminUserList(dcCore::app(), $rsStatic, $counter->f(0));
 } catch (Exception $e) {
-    $core->error->add($e->getMessage());
+    dcCore::app()->error->add($e->getMessage());
 }
 
 /* DISPLAY
@@ -81,7 +79,7 @@ dcPage::open(
     )
 );
 
-if (!$core->error->flag()) {
+if (!dcCore::app()->error->flag()) {
     if (!empty($_GET['del'])) {
         dcPage::message(__('User has been successfully removed.'));
     }
@@ -89,7 +87,7 @@ if (!$core->error->flag()) {
         dcPage::message(__('The permissions have been successfully updated.'));
     }
 
-    echo '<p class="top-add"><strong><a class="button add" href="' . $core->adminurl->get('admin.user') . '">' . __('New user') . '</a></strong></p>';
+    echo '<p class="top-add"><strong><a class="button add" href="' . dcCore::app()->adminurl->get('admin.user') . '">' . __('New user') . '</a></strong></p>';
 
     $user_filter->display('admin.users');
 
@@ -97,7 +95,7 @@ if (!$core->error->flag()) {
     $user_list->display(
         $user_filter->page,
         $user_filter->nb,
-        '<form action="' . $core->adminurl->get('admin.user.actions') . '" method="post" id="form-users">' .
+        '<form action="' . dcCore::app()->adminurl->get('admin.user.actions') . '" method="post" id="form-users">' .
 
         '%s' .
 
@@ -109,8 +107,8 @@ if (!$core->error->flag()) {
         form::combo('action', $combo_action) .
         '</label> ' .
         '<input id="do-action" type="submit" value="' . __('ok') . '" />' .
-        $core->adminurl->getHiddenFormFields('admin.users', $user_filter->values(true)) .
-        $core->formNonce() .
+        dcCore::app()->adminurl->getHiddenFormFields('admin.users', $user_filter->values(true)) .
+        dcCore::app()->formNonce() .
         '</p>' .
         '</div>' .
         '</form>',

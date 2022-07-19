@@ -5,14 +5,12 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
 # If we have a session cookie, go to index.php
 if (isset($_SESSION['sess_user_id'])) {
-    $core->adminurl->redirect('admin.home');
+    dcCore::app()->adminurl->redirect('admin.home');
 }
 
 # Loading locales for detected language
@@ -25,16 +23,16 @@ if ($dlang != 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $dlang)) {
 }
 
 if (defined('DC_ADMIN_URL')) {
-    $page_url = DC_ADMIN_URL . $core->adminurl->get('admin.auth');
+    $page_url = DC_ADMIN_URL . dcCore::app()->adminurl->get('admin.auth');
 } else {
     $page_url = http::getHost() . $_SERVER['REQUEST_URI'];
 }
 
-$change_pwd = $core->auth->allowPassChange() && isset($_POST['new_pwd']) && isset($_POST['new_pwd_c']) && isset($_POST['login_data']);
+$change_pwd = dcCore::app()->auth->allowPassChange() && isset($_POST['new_pwd']) && isset($_POST['new_pwd_c']) && isset($_POST['login_data']);
 $login_data = !empty($_POST['login_data']) ? html::escapeHTML($_POST['login_data']) : null;
-$recover    = $core->auth->allowPassChange() && !empty($_REQUEST['recover']);
+$recover    = dcCore::app()->auth->allowPassChange() && !empty($_REQUEST['recover']);
 $safe_mode  = !empty($_REQUEST['safe_mode']);
-$akey       = $core->auth->allowPassChange() && !empty($_GET['akey']) ? $_GET['akey'] : null;
+$akey       = dcCore::app()->auth->allowPassChange() && !empty($_GET['akey']) ? $_GET['akey'] : null;
 $user_id    = $user_pwd    = $user_key    = $user_email    = null;
 $err        = $msg        = null;
 
@@ -43,7 +41,7 @@ if (empty($_GET) && empty($_POST)) {
     require __DIR__ . '/../inc/dbschema/upgrade.php';
 
     try {
-        if (($changes = dcUpgrade::dotclearUpgrade($core)) !== false) {
+        if (($changes = dcUpgrade::dotclearUpgrade(dcCore::app())) !== false) {
             $msg = __('Dotclear has been upgraded.') . '<!-- ' . $changes . ' -->';
         }
     } catch (Exception $e) {
@@ -76,7 +74,7 @@ if ($recover && !empty($_POST['user_id']) && !empty($_POST['user_email'])) {
     $user_email = !empty($_POST['user_email']) ? html::escapeHTML($_POST['user_email']) : '';
 
     try {
-        $recover_key = $core->auth->setRecoverKey($user_id, $user_email);
+        $recover_key = dcCore::app()->auth->setRecoverKey($user_id, $user_email);
 
         $subject = mail::B64Header('Dotclear ' . __('Password reset'));
         $message = __('Someone has requested to reset the password for the following site and username.') . "\n\n" .
@@ -96,7 +94,7 @@ if ($recover && !empty($_POST['user_id']) && !empty($_POST['user_email'])) {
 # Send new password
 elseif ($akey) {
     try {
-        $recover_res = $core->auth->recoverUserPassword($akey);
+        $recover_res = dcCore::app()->auth->recoverUserPassword($akey);
 
         $subject = mb_encode_mimeheader('Dotclear ' . __('Your new password'), 'UTF-8', 'B');
         $message = __('Username:') . ' ' . $recover_res['user_id'] . "\n" .
@@ -136,13 +134,13 @@ elseif ($change_pwd) {
             if (is_array($user_id)) {
                 $user_id    = trim((string) $data['user_id']);
                 $user_key   = substr($data['cookie_admin'], 0, 40);
-                $check_user = $core->auth->checkUser($user_id, null, $user_key) === true;
+                $check_user = dcCore::app()->auth->checkUser($user_id, null, $user_key) === true;
             } else {
                 $user_id = trim((string) $user_id);  // @phpstan-ignore-line
             }
         }
 
-        if (!$core->auth->allowPassChange() || !$check_user) {
+        if (!dcCore::app()->auth->allowPassChange() || !$check_user) {
             $change_pwd = false;
 
             throw new Exception();
@@ -152,16 +150,16 @@ elseif ($change_pwd) {
             throw new Exception(__("Passwords don't match"));
         }
 
-        if ($core->auth->checkUser($user_id, $_POST['new_pwd']) === true) {
+        if (dcCore::app()->auth->checkUser($user_id, $_POST['new_pwd']) === true) {
             throw new Exception(__("You didn't change your password."));
         }
 
-        $cur                  = $core->con->openCursor($core->prefix . 'user');
+        $cur                  = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'user');
         $cur->user_change_pwd = 0;
         $cur->user_pwd        = $_POST['new_pwd'];
-        $core->updUser($core->auth->userID(), $cur);
+        dcCore::app()->updUser(dcCore::app()->auth->userID(), $cur);
 
-        $core->session->start();
+        dcCore::app()->session->start();
         $_SESSION['sess_user_id']     = $user_id;
         $_SESSION['sess_browser_uid'] = http::browserUID(DC_MASTER_KEY);
 
@@ -169,7 +167,7 @@ elseif ($change_pwd) {
             setcookie('dc_admin', $data['cookie_admin'], strtotime('+15 days'), '', '', DC_ADMIN_SSL);
         }
 
-        $core->adminurl->redirect('admin.home');
+        dcCore::app()->adminurl->redirect('admin.home');
     } catch (Exception $e) {
         $err = $e->getMessage();
     }
@@ -177,33 +175,33 @@ elseif ($change_pwd) {
 # Try to log
 elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null)) {
     # We check the user
-    $check_user = $core->auth->checkUser($user_id, $user_pwd, $user_key, false) === true;
+    $check_user = dcCore::app()->auth->checkUser($user_id, $user_pwd, $user_key, false) === true;
     if ($check_user) {
-        $check_perms = $core->auth->findUserBlog() !== false;
+        $check_perms = dcCore::app()->auth->findUserBlog() !== false;
     } else {
         $check_perms = false;
     }
 
     $cookie_admin = http::browserUID(DC_MASTER_KEY . $user_id .
-        $core->auth->cryptLegacy($user_id)) . bin2hex(pack('a32', $user_id));
+        dcCore::app()->auth->cryptLegacy($user_id)) . bin2hex(pack('a32', $user_id));
 
-    if ($check_perms && $core->auth->mustChangePassword()) {
+    if ($check_perms && dcCore::app()->auth->mustChangePassword()) {
         $login_data = join('/', [
             base64_encode($user_id),
             $cookie_admin,
             empty($_POST['user_remember']) ? '0' : '1',
         ]);
 
-        if (!$core->auth->allowPassChange()) {
+        if (!dcCore::app()->auth->allowPassChange()) {
             $err = __('You have to change your password before you can login.');
         } else {
             $err        = __('In order to login, you have to change your password now.');
             $change_pwd = true;
         }
-    } elseif ($check_perms && !empty($_POST['safe_mode']) && !$core->auth->isSuperAdmin()) {
+    } elseif ($check_perms && !empty($_POST['safe_mode']) && !dcCore::app()->auth->isSuperAdmin()) {
         $err = __('Safe Mode can only be used for super administrators.');
     } elseif ($check_perms) {
-        $core->session->start();
+        dcCore::app()->session->start();
         $_SESSION['sess_user_id']     = $user_id;
         $_SESSION['sess_browser_uid'] = http::browserUID(DC_MASTER_KEY);
 
@@ -211,7 +209,7 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null)) {
             $_SESSION['sess_blog_id'] = $_POST['blog'];
         }
 
-        if (!empty($_POST['safe_mode']) && $core->auth->isSuperAdmin()) {
+        if (!empty($_POST['safe_mode']) && dcCore::app()->auth->isSuperAdmin()) {
             $_SESSION['sess_safe_mode'] = true;
         }
 
@@ -219,7 +217,7 @@ elseif ($user_id !== null && ($user_pwd !== null || $user_key !== null)) {
             setcookie('dc_admin', $cookie_admin, strtotime('+15 days'), '', '', DC_ADMIN_SSL);
         }
 
-        $core->adminurl->redirect('admin.home');
+        dcCore::app()->adminurl->redirect('admin.home');
     } else {
         if ($check_user) {
             $err = __('Insufficient permissions');
@@ -266,7 +264,7 @@ echo dcPage::jsCommon();
 
 <?php
 # --BEHAVIOR-- loginPageHTMLHead
-$core->callBehavior('loginPageHTMLHead');
+dcCore::app()->callBehavior('loginPageHTMLHead');
 
 echo
     dcPage::jsJson('pwstrength', [
@@ -281,7 +279,7 @@ echo
 
 <body id="dotclear-admin" class="auth">
 
-<form action="<?php echo $core->adminurl->get('admin.auth'); ?>" method="post" id="login-screen">
+<form action="<?php echo dcCore::app()->adminurl->get('admin.auth'); ?>" method="post" id="login-screen">
 <h1 role="banner"><?php echo html::escapeHTML(DC_VENDOR_NAME); ?></h1>
 
 <?php
@@ -293,7 +291,7 @@ if ($msg) {
 }
 
 if ($akey) {
-    echo '<p><a href="' . $core->adminurl->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>';
+    echo '<p><a href="' . dcCore::app()->adminurl->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>';
 } elseif ($recover) {
     echo
     '<div class="fieldset" role="main"><h2>' . __('Request a new password') . '</h2>' .
@@ -325,7 +323,7 @@ if ($akey) {
 
     '<details open id="issue">' . "\n" .
     '<summary>' . __('Other option') . '</summary>' . "\n" .
-    '<p><a href="' . $core->adminurl->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>' .
+    '<p><a href="' . dcCore::app()->adminurl->get('admin.auth') . '">' . __('Back to login screen') . '</a></p>' .
     '</details>';
 } elseif ($change_pwd) {
     echo
@@ -354,8 +352,8 @@ if ($akey) {
     form::hidden('login_data', $login_data) . '</p>' .
     '</div>';
 } else {
-    if (is_callable([$core->auth, 'authForm'])) {
-        echo $core->auth->authForm($user_id);
+    if (is_callable([dcCore::app()->auth, 'authForm'])) {
+        echo dcCore::app()->auth->authForm($user_id);
     } else {
         if ($safe_mode) {
             echo '<div class="fieldset" role="main">';
@@ -415,13 +413,13 @@ if ($akey) {
         if ($safe_mode) {
             echo '<summary>' . __('Other option') . '</summary>' . "\n";
             echo
-            '<p><a href="' . $core->adminurl->get('admin.auth') . '" id="normal_mode_link">' . __('Get back to normal authentication') . '</a></p>';
+            '<p><a href="' . dcCore::app()->adminurl->get('admin.auth') . '" id="normal_mode_link">' . __('Get back to normal authentication') . '</a></p>';
         } else {
             echo '<summary>' . __('Connection issue?') . '</summary>' . "\n";
-            if ($core->auth->allowPassChange()) {
-                echo '<p><a href="' . $core->adminurl->get('admin.auth', ['recover' => 1]) . '">' . __('I forgot my password') . '</a></p>';
+            if (dcCore::app()->auth->allowPassChange()) {
+                echo '<p><a href="' . dcCore::app()->adminurl->get('admin.auth', ['recover' => 1]) . '">' . __('I forgot my password') . '</a></p>';
             }
-            echo '<p><a href="' . $core->adminurl->get('admin.auth', ['safe_mode' => 1]) . '" id="safe_mode_link">' . __('I want to log in in safe mode') . '</a></p>';
+            echo '<p><a href="' . dcCore::app()->adminurl->get('admin.auth', ['safe_mode' => 1]) . '" id="safe_mode_link">' . __('I want to log in in safe mode') . '</a></p>';
         }
         echo '</details>';
     }

@@ -5,8 +5,6 @@
  *
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
- *
- * @var dcCore $core
  */
 require __DIR__ . '/../inc/admin/prepend.php';
 
@@ -18,21 +16,21 @@ if (!empty($_POST['delete'])) {
     $cat_id = (int) $keys[0];
 
     # Check if category to delete exists
-    $c = $core->blog->getCategory((int) $cat_id);
+    $c = dcCore::app()->blog->getCategory((int) $cat_id);
     if ($c->isEmpty()) {
         dcPage::addErrorNotice(__('This category does not exist.'));
-        $core->adminurl->redirect('admin.categories');
+        dcCore::app()->adminurl->redirect('admin.categories');
     }
     $name = $c->cat_title;
     unset($c);
 
     try {
         # Delete category
-        $core->blog->delCategory($cat_id);
+        dcCore::app()->blog->delCategory($cat_id);
         dcPage::addSuccessNotice(sprintf(__('The category "%s" has been successfully deleted.'), html::escapeHTML($name)));
-        $core->adminurl->redirect('admin.categories');
+        dcCore::app()->adminurl->redirect('admin.categories');
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -47,7 +45,7 @@ if (!empty($_POST['mov']) && !empty($_POST['mov_cat'])) {
         $mov_cat = $mov_cat ?: null;
         $name    = '';
         if ($mov_cat !== null) {
-            $c = $core->blog->getCategory($mov_cat);
+            $c = dcCore::app()->blog->getCategory($mov_cat);
             if ($c->isEmpty()) {
                 throw new Exception(__('Category where to move entries does not exist'));
             }
@@ -56,15 +54,15 @@ if (!empty($_POST['mov']) && !empty($_POST['mov_cat'])) {
         }
         # Move posts
         if ($mov_cat != $cat_id) {
-            $core->blog->changePostsCategory($cat_id, $mov_cat);
+            dcCore::app()->blog->changePostsCategory($cat_id, $mov_cat);
         }
         dcPage::addSuccessNotice(sprintf(
             __('The entries have been successfully moved to category "%s"'),
             html::escapeHTML($name)
         ));
-        $core->adminurl->redirect('admin.categories');
+        dcCore::app()->adminurl->redirect('admin.categories');
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -74,34 +72,34 @@ if (!empty($_POST['save_order']) && !empty($_POST['categories_order'])) {
 
     foreach ($categories as $category) {
         if (!empty($category->item_id) && !empty($category->left) && !empty($category->right)) {
-            $core->blog->updCategoryPosition($category->item_id, $category->left, $category->right);
+            dcCore::app()->blog->updCategoryPosition($category->item_id, $category->left, $category->right);
         }
     }
 
     dcPage::addSuccessNotice(__('Categories have been successfully reordered.'));
-    $core->adminurl->redirect('admin.categories');
+    dcCore::app()->adminurl->redirect('admin.categories');
 }
 
 # Reset order
 if (!empty($_POST['reset'])) {
     try {
-        $core->blog->resetCategoriesOrder();
+        dcCore::app()->blog->resetCategoriesOrder();
         dcPage::addSuccessNotice(__('Categories order has been successfully reset.'));
-        $core->adminurl->redirect('admin.categories');
+        dcCore::app()->adminurl->redirect('admin.categories');
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
 /* Display
 -------------------------------------------------------- */
-$rs = $core->blog->getCategories();
+$rs = dcCore::app()->blog->getCategories();
 
 $starting_script = '';
 
-$core->auth->user_prefs->addWorkspace('accessibility');
-if (!$core->auth->user_prefs->accessibility->nodragdrop
-    && $core->auth->check('categories', $core->blog->id)
+dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
+if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop
+    && dcCore::app()->auth->check('categories', dcCore::app()->blog->id)
     && $rs->count() > 1) {
     $starting_script .= dcPage::jsLoad('js/jquery/jquery-ui.custom.js');
     $starting_script .= dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');
@@ -115,8 +113,8 @@ dcPage::open(
     $starting_script,
     dcPage::breadcrumb(
         [
-            html::escapeHTML($core->blog->name) => '',
-            __('Categories')                    => '',
+            html::escapeHTML(dcCore::app()->blog->name) => '',
+            __('Categories')                            => '',
         ]
     )
 );
@@ -134,7 +132,7 @@ if (!empty($_GET['move'])) {
 $categories_combo = dcAdminCombos::getCategoriesCombo($rs);
 
 echo
-'<p class="top-add"><a class="button add" href="' . $core->adminurl->get('admin.category') . '">' . __('New category') . '</a></p>';
+'<p class="top-add"><a class="button add" href="' . dcCore::app()->adminurl->get('admin.category') . '">' . __('New category') . '</a></p>';
 
 echo
     '<div class="col">';
@@ -142,7 +140,7 @@ if ($rs->isEmpty()) {
     echo '<p>' . __('No category so far.') . '</p>';
 } else {
     echo
-    '<form action="' . $core->adminurl->get('admin.categories') . '" method="post" id="form-categories">' .
+    '<form action="' . dcCore::app()->adminurl->get('admin.categories') . '" method="post" id="form-categories">' .
         '<div id="categories">';
 
     $ref_level = $level = $rs->level - 1;
@@ -161,9 +159,9 @@ if ($rs->isEmpty()) {
 
         echo
         '<p class="cat-title"><label class="classic" for="cat_' . $rs->cat_id . '"><a href="' .
-        $core->adminurl->get('admin.category', ['id' => $rs->cat_id]) . '">' . html::escapeHTML($rs->cat_title) .
+        dcCore::app()->adminurl->get('admin.category', ['id' => $rs->cat_id]) . '">' . html::escapeHTML($rs->cat_title) .
         '</a></label> </p>' .
-        '<p class="cat-nb-posts">(<a href="' . $core->adminurl->get('admin.posts', ['cat_id' => $rs->cat_id]) . '">' .
+        '<p class="cat-nb-posts">(<a href="' . dcCore::app()->adminurl->get('admin.posts', ['cat_id' => $rs->cat_id]) . '">' .
         sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry')), $rs->nb_post) . '</a>' .
         ', ' . __('total:') . ' ' . $rs->nb_total . ')</p>' .
         '<p class="cat-url">' . __('URL:') . ' <code>' . html::escapeHTML($rs->cat_url) . '</code></p>';
@@ -201,8 +199,8 @@ if ($rs->isEmpty()) {
 
     echo '<div class="clear">';
 
-    if ($core->auth->check('categories', $core->blog->id) && $rs->count() > 1) {
-        if (!$core->auth->user_prefs->accessibility->nodragdrop) {
+    if (dcCore::app()->auth->check('categories', dcCore::app()->blog->id) && $rs->count() > 1) {
+        if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
             echo '<p class="form-note hidden-if-no-js">' . __('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.') . '</p>';
         }
         echo
@@ -216,7 +214,7 @@ if ($rs->isEmpty()) {
 
     echo
     '<input type="submit" class="reset" name="reset" value="' . __('Reorder all categories on the top level') . '" />' .
-    $core->formNonce() . '</p>' .
+    dcCore::app()->formNonce() . '</p>' .
         '</div></form>';
 }
 
