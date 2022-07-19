@@ -62,14 +62,14 @@ class behaviorsTags
                 "?>\n";
         } elseif (empty($attr['no_context']) && ($b == 'Entries' || $b == 'Comments')) {
             return
-                '<?php if ($_ctx->exists("meta") && $_ctx->meta->rows() && ($_ctx->meta->meta_type == "tag")) { ' .
+                '<?php if (dcCore::app()->ctx->exists("meta") && dcCore::app()->ctx->meta->rows() && (dcCore::app()->ctx->meta->meta_type == "tag")) { ' .
                 "if (!isset(\$params)) { \$params = []; }\n" .
                 "if (!isset(\$params['from'])) { \$params['from'] = ''; }\n" .
                 "if (!isset(\$params['sql'])) { \$params['sql'] = ''; }\n" .
                 "\$params['from'] .= ', '.dcCore::app()->prefix.'meta META ';\n" .
                 "\$params['sql'] .= 'AND META.post_id = P.post_id ';\n" .
                 "\$params['sql'] .= \"AND META.meta_type = 'tag' \";\n" .
-                "\$params['sql'] .= \"AND META.meta_id = '\".dcCore::app()->con->escape(\$_ctx->meta->meta_id).\"' \";\n" .
+                "\$params['sql'] .= \"AND META.meta_id = '\".dcCore::app()->con->escape(dcCore::app()->ctx->meta->meta_id).\"' \";\n" .
                 "} ?>\n";
         }
     }
@@ -106,15 +106,15 @@ class tplTags
         }
 
         $res = "<?php\n" .
-            "\$_ctx->meta = dcCore::app()->meta->computeMetaStats(dcCore::app()->meta->getMetadata(['meta_type'=>'"
+            "dcCore::app()->ctx->meta = dcCore::app()->meta->computeMetaStats(dcCore::app()->meta->getMetadata(['meta_type'=>'"
             . $type . "','limit'=>" . $limit .
             ($sortby != 'meta_id_lower' ? ",'order'=>'" . $sortby . ' ' . ($order == 'asc' ? 'ASC' : 'DESC') . "'" : '') .
             '])); ' .
-            "\$_ctx->meta->sort('" . $sortby . "','" . $order . "'); " .
+            "dcCore::app()->ctx->meta->sort('" . $sortby . "','" . $order . "'); " .
             '?>';
 
-        $res .= '<?php while ($_ctx->meta->fetch()) : ?>' . $content . '<?php endwhile; ' .
-            '$_ctx->meta = null; ?>';
+        $res .= '<?php while (dcCore::app()->ctx->meta->fetch()) : ?>' . $content . '<?php endwhile; ' .
+            'dcCore::app()->ctx->meta = null; ?>';
 
         return $res;
     }
@@ -122,7 +122,7 @@ class tplTags
     public static function TagsHeader($attr, $content)
     {
         return
-            '<?php if ($_ctx->meta->isStart()) : ?>' .
+            '<?php if (dcCore::app()->ctx->meta->isStart()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -130,7 +130,7 @@ class tplTags
     public static function TagsFooter($attr, $content)
     {
         return
-            '<?php if ($_ctx->meta->isEnd()) : ?>' .
+            '<?php if (dcCore::app()->ctx->meta->isEnd()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -152,12 +152,12 @@ class tplTags
         }
 
         $res = "<?php\n" .
-            "\$_ctx->meta = dcCore::app()->meta->getMetaRecordset(\$_ctx->posts->post_meta,'" . $type . "'); " .
-            "\$_ctx->meta->sort('" . $sortby . "','" . $order . "'); " .
+            "dcCore::app()->ctx->meta = dcCore::app()->meta->getMetaRecordset(dcCore::app()->ctx->posts->post_meta,'" . $type . "'); " .
+            "dcCore::app()->ctx->meta->sort('" . $sortby . "','" . $order . "'); " .
             '?>';
 
-        $res .= '<?php while ($_ctx->meta->fetch()) : ?>' . $content . '<?php endwhile; ' .
-            '$_ctx->meta = null; ?>';
+        $res .= '<?php while (dcCore::app()->ctx->meta->fetch()) : ?>' . $content . '<?php endwhile; ' .
+            'dcCore::app()->ctx->meta = null; ?>';
 
         return $res;
     }
@@ -169,7 +169,7 @@ class tplTags
 
         if (isset($attr['has_entries'])) {
             $sign = (bool) $attr['has_entries'] ? '' : '!';
-            $if[] = $sign . '$_ctx->meta->count';
+            $if[] = $sign . 'dcCore::app()->ctx->meta->count';
         }
 
         if (!empty($if)) {
@@ -183,22 +183,22 @@ class tplTags
     {
         $f = dcCore::app()->tpl->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->meta->meta_id') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->meta->meta_id') . '; ?>';
     }
 
     public static function TagCount($attr)
     {
-        return '<?php echo $_ctx->meta->count; ?>';
+        return '<?php echo dcCore::app()->ctx->meta->count; ?>';
     }
 
     public static function TagPercent($attr)
     {
-        return '<?php echo $_ctx->meta->percent; ?>';
+        return '<?php echo dcCore::app()->ctx->meta->percent; ?>';
     }
 
     public static function TagRoundPercent($attr)
     {
-        return '<?php echo $_ctx->meta->roundpercent; ?>';
+        return '<?php echo dcCore::app()->ctx->meta->roundpercent; ?>';
     }
 
     public static function TagURL($attr)
@@ -206,7 +206,7 @@ class tplTags
         $f = dcCore::app()->tpl->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("tag",' .
-            'rawurlencode($_ctx->meta->meta_id))') . '; ?>';
+            'rawurlencode(dcCore::app()->ctx->meta->meta_id))') . '; ?>';
     }
 
     public static function TagCloudURL($attr)
@@ -227,14 +227,12 @@ class tplTags
         $f = dcCore::app()->tpl->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("tag_feed",' .
-            'rawurlencode($_ctx->meta->meta_id)."/' . $type . '")') . '; ?>';
+            'rawurlencode(dcCore::app()->ctx->meta->meta_id)."/' . $type . '")') . '; ?>';
     }
 
     # Widget function
     public static function tagsWidget($w)
     {
-        global $_ctx;
-
         if ($w->offline) {
             return;
         }
@@ -282,14 +280,14 @@ class tplTags
         $res = ($w->title ? $w->renderTitle(html::escapeHTML($w->title)) : '') .
             '<ul>';
 
-        if (dcCore::app()->url->type == 'post' && $_ctx->posts instanceof record) {
-            $_ctx->meta = dcCore::app()->meta->getMetaRecordset($_ctx->posts->post_meta, 'tag');
+        if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof record) {
+            dcCore::app()->ctx->meta = dcCore::app()->meta->getMetaRecordset(dcCore::app()->ctx->posts->post_meta, 'tag');
         }
         while ($rs->fetch()) {
             $class = '';
-            if (dcCore::app()->url->type == 'post' && $_ctx->posts instanceof record) {
-                while ($_ctx->meta->fetch()) {
-                    if ($_ctx->meta->meta_id == $rs->meta_id) {
+            if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof record) {
+                while (dcCore::app()->ctx->meta->fetch()) {
+                    if (dcCore::app()->ctx->meta->meta_id == $rs->meta_id) {
                         $class = ' class="tag-current"';
 
                         break;
@@ -325,13 +323,13 @@ class urlTags extends dcUrlHandlers
             $mime     = 'application/xml';
             $comments = !empty($m[3]);
 
-            $GLOBALS['_ctx']->meta = dcCore::app()->meta->computeMetaStats(
+            dcCore::app()->ctx->meta = dcCore::app()->meta->computeMetaStats(
                 dcCore::app()->meta->getMetadata([
                     'meta_type' => 'tag',
                     'meta_id'   => $m[1], ])
             );
 
-            if ($GLOBALS['_ctx']->meta->isEmpty()) {
+            if (dcCore::app()->ctx->meta->isEmpty()) {
                 self::p404();
             } else {
                 $tpl = $type;
@@ -347,13 +345,13 @@ class urlTags extends dcUrlHandlers
                 $GLOBALS['_page_number'] = $n;
             }
 
-            $GLOBALS['_ctx']->meta = dcCore::app()->meta->computeMetaStats(
+            dcCore::app()->ctx->meta = dcCore::app()->meta->computeMetaStats(
                 dcCore::app()->meta->getMetadata([
                     'meta_type' => 'tag',
                     'meta_id'   => $args, ])
             );
 
-            if ($GLOBALS['_ctx']->meta->isEmpty()) {
+            if (dcCore::app()->ctx->meta->isEmpty()) {
                 self::p404();
             } else {
                 self::serveDocument('tag.html');
@@ -375,17 +373,17 @@ class urlTags extends dcUrlHandlers
             $type     = $m[2];
             $comments = !empty($m[3]);
 
-            $GLOBALS['_ctx']->meta = dcCore::app()->meta->computeMetaStats(
+            dcCore::app()->ctx->meta = dcCore::app()->meta->computeMetaStats(
                 dcCore::app()->meta->getMetadata([
                     'meta_type' => 'tag',
                     'meta_id'   => $tag, ])
             );
 
-            if ($GLOBALS['_ctx']->meta->isEmpty()) {
+            if (dcCore::app()->ctx->meta->isEmpty()) {
                 # The specified tag does not exist.
                 self::p404();
             } else {
-                $GLOBALS['_ctx']->feed_subtitle = ' - ' . __('Tag') . ' - ' . $GLOBALS['_ctx']->meta->meta_id;
+                dcCore::app()->ctx->feed_subtitle = ' - ' . __('Tag') . ' - ' . dcCore::app()->ctx->meta->meta_id;
 
                 if ($type == 'atom') {
                     $mime = 'application/atom+xml';
@@ -396,10 +394,10 @@ class urlTags extends dcUrlHandlers
                 $tpl = $type;
                 if ($comments) {
                     $tpl .= '-comments';
-                    $GLOBALS['_ctx']->nb_comment_per_page = dcCore::app()->blog->settings->system->nb_comment_per_feed;
+                    dcCore::app()->ctx->nb_comment_per_page = dcCore::app()->blog->settings->system->nb_comment_per_feed;
                 } else {
-                    $GLOBALS['_ctx']->nb_entry_per_page = dcCore::app()->blog->settings->system->nb_post_per_feed;
-                    $GLOBALS['_ctx']->short_feed_items  = dcCore::app()->blog->settings->system->short_feed_items;
+                    dcCore::app()->ctx->nb_entry_per_page = dcCore::app()->blog->settings->system->nb_post_per_feed;
+                    dcCore::app()->ctx->short_feed_items  = dcCore::app()->blog->settings->system->short_feed_items;
                 }
                 $tpl .= '.xml';
 

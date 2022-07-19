@@ -457,7 +457,7 @@ class dcTemplate extends template
         }
 
         return
-            '<?php if ($_ctx->loopPosition(' . $start . ',' . $length . ',' . $even . ',' . $modulo . ')) : ?>' .
+            '<?php if (dcCore::app()->ctx->loopPosition(' . $start . ',' . $length . ',' . $even . ',' . $modulo . ')) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -466,7 +466,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '(!$_ctx->cur_loop ? 0 : $_ctx->cur_loop->index() + 1)') . '; ?>';
+        return '<?php echo ' . sprintf($f, '(!dcCore::app()->ctx->cur_loop ? 0 : dcCore::app()->ctx->cur_loop->index() + 1)') . '; ?>';
     }
 
     /* Archives ------------------------------------------- */
@@ -502,8 +502,8 @@ class dcTemplate extends template
         }
 
         if (empty($attr['no_context']) && !isset($attr['category'])) {
-            $p .= 'if ($_ctx->exists("categories")) { ' .
-                "\$params['cat_id'] = \$_ctx->categories->cat_id; " .
+            $p .= 'if (dcCore::app()->ctx->exists("categories")) { ' .
+                "\$params['cat_id'] = dcCore::app()->ctx->categories->cat_id; " .
                 "}\n";
         }
 
@@ -520,10 +520,10 @@ class dcTemplate extends template
             $attr,
             $content
         );
-        $res .= '$_ctx->archives = dcCore::app()->blog->getDates($params); unset($params);' . "\n";
+        $res .= 'dcCore::app()->ctx->archives = dcCore::app()->blog->getDates($params); unset($params);' . "\n";
         $res .= "?>\n";
 
-        $res .= '<?php while ($_ctx->archives->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->archives = null; ?>';
+        $res .= '<?php while (dcCore::app()->ctx->archives->fetch()) : ?>' . $content . '<?php endwhile; dcCore::app()->ctx->archives = null; ?>';
 
         return $res;
     }
@@ -534,7 +534,7 @@ class dcTemplate extends template
     public function ArchivesHeader($attr, $content)
     {
         return
-            '<?php if ($_ctx->archives->isStart()) : ?>' .
+            '<?php if (dcCore::app()->ctx->archives->isStart()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -545,7 +545,7 @@ class dcTemplate extends template
     public function ArchivesFooter($attr, $content)
     {
         return
-            '<?php if ($_ctx->archives->isEnd()) : ?>' .
+            '<?php if (dcCore::app()->ctx->archives->isEnd()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -556,7 +556,7 @@ class dcTemplate extends template
     public function ArchivesYearHeader($attr, $content)
     {
         return
-            '<?php if ($_ctx->archives->yearHeader()) : ?>' .
+            '<?php if (dcCore::app()->ctx->archives->yearHeader()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -567,7 +567,7 @@ class dcTemplate extends template
     public function ArchivesYearFooter($attr, $content)
     {
         return
-            '<?php if ($_ctx->archives->yearFooter()) : ?>' .
+            '<?php if (dcCore::app()->ctx->archives->yearFooter()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -587,7 +587,7 @@ class dcTemplate extends template
 
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, "dt::dt2str('" . $format . "',\$_ctx->archives->dt)") . '; ?>';
+        return '<?php echo ' . sprintf($f, "dt::dt2str('" . $format . "',dcCore::app()->ctx->archives->dt)") . '; ?>';
     }
 
     /*dtd
@@ -598,7 +598,7 @@ class dcTemplate extends template
         $f = $this->getFilters($attr);
 
         return $this->displayCounter(
-            sprintf($f, '$_ctx->archives->nb_post'),
+            sprintf($f, 'dcCore::app()->ctx->archives->nb_post'),
             [
                 'none' => 'no archive',
                 'one'  => 'one archive',
@@ -633,7 +633,7 @@ class dcTemplate extends template
             $p .= "\$params['post_lang'] = '" . addslashes($attr['post_lang']) . "';\n";
         }
 
-        $p .= "\$params['next'] = \$_ctx->archives->dt;";
+        $p .= "\$params['next'] = dcCore::app()->ctx->archives->dt;";
 
         $res = "<?php\n";
         $res .= $p;
@@ -643,10 +643,10 @@ class dcTemplate extends template
             $attr,
             $content
         );
-        $res .= '$_ctx->archives = dcCore::app()->blog->getDates($params); unset($params);' . "\n";
+        $res .= 'dcCore::app()->ctx->archives = dcCore::app()->blog->getDates($params); unset($params);' . "\n";
         $res .= "?>\n";
 
-        $res .= '<?php while ($_ctx->archives->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->archives = null; ?>';
+        $res .= '<?php while (dcCore::app()->ctx->archives->fetch()) : ?>' . $content . '<?php endwhile; dcCore::app()->ctx->archives = null; ?>';
 
         return $res;
     }
@@ -675,7 +675,7 @@ class dcTemplate extends template
             $p .= "\$params['post_lang'] = '" . addslashes($attr['post_lang']) . "';\n";
         }
 
-        $p .= "\$params['previous'] = \$_ctx->archives->dt;";
+        $p .= "\$params['previous'] = dcCore::app()->ctx->archives->dt;";
 
         $res = "<?php\n";
         $res .= dcCore::app()->callBehavior(
@@ -685,10 +685,10 @@ class dcTemplate extends template
             $content
         );
         $res .= $p;
-        $res .= '$_ctx->archives = dcCore::app()->blog->getDates($params); unset($params);' . "\n";
+        $res .= 'dcCore::app()->ctx->archives = dcCore::app()->blog->getDates($params); unset($params);' . "\n";
         $res .= "?>\n";
 
-        $res .= '<?php while ($_ctx->archives->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->archives = null; ?>';
+        $res .= '<?php while (dcCore::app()->ctx->archives->fetch()) : ?>' . $content . '<?php endwhile; dcCore::app()->ctx->archives = null; ?>';
 
         return $res;
     }
@@ -700,7 +700,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->archives->url(dcCore::app())') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->archives->url(dcCore::app())') . '; ?>';
     }
 
     /* Blog ----------------------------------------------- */
@@ -800,8 +800,8 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php if ($_ctx->exists("cur_lang")) echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("lang",' .
-            '$_ctx->cur_lang)') . ';
+        return '<?php if (dcCore::app()->ctx->exists("cur_lang")) echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("lang",' .
+            'dcCore::app()->ctx->cur_lang)') . ';
             else echo ' . sprintf($f, 'dcCore::app()->blog->url') . '; ?>';
     }
 
@@ -1027,9 +1027,9 @@ class dcTemplate extends template
             $attr,
             $content
         );
-        $res .= '$_ctx->categories = dcCore::app()->blog->getCategories($params);' . "\n";
+        $res .= 'dcCore::app()->ctx->categories = dcCore::app()->blog->getCategories($params);' . "\n";
         $res .= "?>\n";
-        $res .= '<?php while ($_ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->categories = null; unset($params); ?>';
+        $res .= '<?php while (dcCore::app()->ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; dcCore::app()->ctx->categories = null; unset($params); ?>';
 
         return $res;
     }
@@ -1040,7 +1040,7 @@ class dcTemplate extends template
     public function CategoriesHeader($attr, $content)
     {
         return
-            '<?php if ($_ctx->categories->isStart()) : ?>' .
+            '<?php if (dcCore::app()->ctx->categories->isStart()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -1051,7 +1051,7 @@ class dcTemplate extends template
     public function CategoriesFooter($attr, $content)
     {
         return
-            '<?php if ($_ctx->categories->isEnd()) : ?>' .
+            '<?php if (dcCore::app()->ctx->categories->isEnd()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -1078,15 +1078,15 @@ class dcTemplate extends template
             if (substr($url, 0, 1) == '!') {
                 $url = substr($url, 1);
                 if (isset($args['sub'])) {
-                    $if[] = '(!dcCore::app()->blog->IsInCatSubtree($_ctx->categories->cat_url, "' . $url . '"))';
+                    $if[] = '(!dcCore::app()->blog->IsInCatSubtree(dcCore::app()->ctx->categories->cat_url, "' . $url . '"))';
                 } else {
-                    $if[] = '($_ctx->categories->cat_url != "' . $url . '")';
+                    $if[] = '(dcCore::app()->ctx->categories->cat_url != "' . $url . '")';
                 }
             } else {
                 if (isset($args['sub'])) {
-                    $if[] = '(dcCore::app()->blog->IsInCatSubtree($_ctx->categories->cat_url, "' . $url . '"))';
+                    $if[] = '(dcCore::app()->blog->IsInCatSubtree(dcCore::app()->ctx->categories->cat_url, "' . $url . '"))';
                 } else {
-                    $if[] = '($_ctx->categories->cat_url == "' . $url . '")';
+                    $if[] = '(dcCore::app()->ctx->categories->cat_url == "' . $url . '")';
                 }
             }
         }
@@ -1101,15 +1101,15 @@ class dcTemplate extends template
                     if (substr($url, 0, 1) == '!') {
                         $url = substr($url, 1);
                         if (isset($args['sub'])) {
-                            $if[] = '(!dcCore::app()->blog->IsInCatSubtree($_ctx->categories->cat_url, "' . $url . '"))';
+                            $if[] = '(!dcCore::app()->blog->IsInCatSubtree(dcCore::app()->ctx->categories->cat_url, "' . $url . '"))';
                         } else {
-                            $if[] = '($_ctx->categories->cat_url != "' . $url . '")';
+                            $if[] = '(dcCore::app()->ctx->categories->cat_url != "' . $url . '")';
                         }
                     } else {
                         if (isset($args['sub'])) {
-                            $if[] = '(dcCore::app()->blog->IsInCatSubtree($_ctx->categories->cat_url, "' . $url . '"))';
+                            $if[] = '(dcCore::app()->blog->IsInCatSubtree(dcCore::app()->ctx->categories->cat_url, "' . $url . '"))';
                         } else {
-                            $if[] = '($_ctx->categories->cat_url == "' . $url . '")';
+                            $if[] = '(dcCore::app()->ctx->categories->cat_url == "' . $url . '")';
                         }
                     }
                 }
@@ -1118,12 +1118,12 @@ class dcTemplate extends template
 
         if (isset($attr['has_entries'])) {
             $sign = (bool) $attr['has_entries'] ? '>' : '==';
-            $if[] = '$_ctx->categories->nb_post ' . $sign . ' 0';
+            $if[] = 'dcCore::app()->ctx->categories->nb_post ' . $sign . ' 0';
         }
 
         if (isset($attr['has_description'])) {
             $sign = (bool) $attr['has_description'] ? '!=' : '==';
-            $if[] = '$_ctx->categories->cat_desc ' . $sign . ' ""';
+            $if[] = 'dcCore::app()->ctx->categories->cat_desc ' . $sign . ' ""';
         }
 
         dcCore::app()->callBehavior('tplIfConditions', 'CategoryIf', $attr, $content, $if);
@@ -1142,8 +1142,8 @@ class dcTemplate extends template
     {
         return
             "<?php\n" .
-            '$_ctx->categories = dcCore::app()->blog->getCategoryFirstChildren($_ctx->categories->cat_id);' . "\n" .
-            'while ($_ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->categories = null; ?>';
+            'dcCore::app()->ctx->categories = dcCore::app()->blog->getCategoryFirstChildren(dcCore::app()->ctx->categories->cat_id);' . "\n" .
+            'while (dcCore::app()->ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; dcCore::app()->ctx->categories = null; ?>';
     }
 
     /*dtd
@@ -1153,8 +1153,8 @@ class dcTemplate extends template
     {
         return
             "<?php\n" .
-            '$_ctx->categories = dcCore::app()->blog->getCategoryParents($_ctx->categories->cat_id);' . "\n" .
-            'while ($_ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->categories = null; ?>';
+            'dcCore::app()->ctx->categories = dcCore::app()->blog->getCategoryParents(dcCore::app()->ctx->categories->cat_id);' . "\n" .
+            'while (dcCore::app()->ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; dcCore::app()->ctx->categories = null; ?>';
     }
 
     /*dtd
@@ -1174,7 +1174,7 @@ class dcTemplate extends template
         $f = $this->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("feed","category/".' .
-            '$_ctx->categories->cat_url."/' . $type . '")') . '; ?>';
+            'dcCore::app()->ctx->categories->cat_url."/' . $type . '")') . '; ?>';
     }
 
     /*dtd
@@ -1184,7 +1184,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->categories->cat_id') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->categories->cat_id') . '; ?>';
     }
 
     /*dtd
@@ -1195,7 +1195,7 @@ class dcTemplate extends template
         $f = $this->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("category",' .
-            '$_ctx->categories->cat_url)') . '; ?>';
+            'dcCore::app()->ctx->categories->cat_url)') . '; ?>';
     }
 
     /*dtd
@@ -1205,7 +1205,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->categories->cat_url') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->categories->cat_url') . '; ?>';
     }
 
     /*dtd
@@ -1215,7 +1215,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->categories->cat_desc') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->categories->cat_desc') . '; ?>';
     }
 
     /*dtd
@@ -1225,7 +1225,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->categories->cat_title') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->categories->cat_title') . '; ?>';
     }
 
     /*dtd
@@ -1236,7 +1236,7 @@ class dcTemplate extends template
         $f = $this->getFilters($attr);
 
         return $this->displayCounter(
-            sprintf($f, '$_ctx->categories->nb_post'),
+            sprintf($f, 'dcCore::app()->ctx->categories->nb_post'),
             [
                 'none' => 'No post',
                 'one'  => 'One post',
@@ -1284,7 +1284,7 @@ class dcTemplate extends template
                 $p .= '$nb_entry_first_page = $nb_entry_per_page = ' . $lastn . ";\n";
             } else {
                 // nb of entries per page not specified -> use ctx settings
-                $p .= "\$nb_entry_first_page=\$_ctx->nb_entry_first_page; \$nb_entry_per_page = \$_ctx->nb_entry_per_page;\n";
+                $p .= "\$nb_entry_first_page=dcCore::app()->ctx->nb_entry_first_page; \$nb_entry_per_page = dcCore::app()->ctx->nb_entry_per_page;\n";
                 $p .= "if ((dcCore::app()->url->type == 'default') || (dcCore::app()->url->type == 'default-page')) {\n";
                 $p .= "    \$params['limit'] = (\$_page_number == 1 ? \$nb_entry_first_page : \$nb_entry_per_page);\n";
                 $p .= "} else {\n";
@@ -1333,27 +1333,27 @@ class dcTemplate extends template
 
         if (empty($attr['no_context'])) {
             if (!isset($attr['author'])) {
-                $p .= 'if ($_ctx->exists("users")) { ' .
-                    "\$params['user_id'] = \$_ctx->users->user_id; " .
+                $p .= 'if (dcCore::app()->ctx->exists("users")) { ' .
+                    "\$params['user_id'] = dcCore::app()->ctx->users->user_id; " .
                     "}\n";
             }
 
             if (!isset($attr['category']) && (!isset($attr['no_category']) || !$attr['no_category'])) {
-                $p .= 'if ($_ctx->exists("categories")) { ' .
-                    "\$params['cat_id'] = \$_ctx->categories->cat_id.(dcCore::app()->blog->settings->system->inc_subcats?' ?sub':'');" .
+                $p .= 'if (dcCore::app()->ctx->exists("categories")) { ' .
+                    "\$params['cat_id'] = dcCore::app()->ctx->categories->cat_id.(dcCore::app()->blog->settings->system->inc_subcats?' ?sub':'');" .
                     "}\n";
             }
 
-            $p .= 'if ($_ctx->exists("archives")) { ' .
-                "\$params['post_year'] = \$_ctx->archives->year(); " .
-                "\$params['post_month'] = \$_ctx->archives->month(); ";
+            $p .= 'if (dcCore::app()->ctx->exists("archives")) { ' .
+                "\$params['post_year'] = dcCore::app()->ctx->archives->year(); " .
+                "\$params['post_month'] = dcCore::app()->ctx->archives->month(); ";
             if (!isset($attr['lastn'])) {
                 $p .= "unset(\$params['limit']); ";
             }
             $p .= "}\n";
 
-            $p .= 'if ($_ctx->exists("langs")) { ' .
-                "\$params['post_lang'] = \$_ctx->langs->post_lang; " .
+            $p .= 'if (dcCore::app()->ctx->exists("langs")) { ' .
+                "\$params['post_lang'] = dcCore::app()->ctx->langs->post_lang; " .
                 "}\n";
 
             $p .= 'if (isset($_search)) { ' .
@@ -1384,11 +1384,11 @@ class dcTemplate extends template
             $attr,
             $content
         );
-        $res .= '$_ctx->post_params = $params;' . "\n";
-        $res .= '$_ctx->posts = dcCore::app()->blog->getPosts($params); unset($params);' . "\n";
+        $res .= 'dcCore::app()->ctx->post_params = $params;' . "\n";
+        $res .= 'dcCore::app()->ctx->posts = dcCore::app()->blog->getPosts($params); unset($params);' . "\n";
         $res .= "?>\n";
-        $res .= '<?php while ($_ctx->posts->fetch()) : ?>' . $content . '<?php endwhile; ' .
-            '$_ctx->posts = null; $_ctx->post_params = null; ?>';
+        $res .= '<?php while (dcCore::app()->ctx->posts->fetch()) : ?>' . $content . '<?php endwhile; ' .
+            'dcCore::app()->ctx->posts = null; dcCore::app()->ctx->post_params = null; ?>';
 
         return $res;
     }
@@ -1399,7 +1399,7 @@ class dcTemplate extends template
     public function DateHeader($attr, $content)
     {
         return
-            '<?php if ($_ctx->posts->firstPostOfDay()) : ?>' .
+            '<?php if (dcCore::app()->ctx->posts->firstPostOfDay()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -1410,7 +1410,7 @@ class dcTemplate extends template
     public function DateFooter($attr, $content)
     {
         return
-            '<?php if ($_ctx->posts->lastPostOfDay()) : ?>' .
+            '<?php if (dcCore::app()->ctx->posts->lastPostOfDay()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -1449,16 +1449,16 @@ class dcTemplate extends template
         if (isset($attr['type'])) {
             $type = trim((string) $attr['type']);
             $type = !empty($type) ? $type : 'post';
-            $if[] = '$_ctx->posts->post_type == "' . addslashes($type) . '"';
+            $if[] = 'dcCore::app()->ctx->posts->post_type == "' . addslashes($type) . '"';
         }
 
         if (isset($attr['url'])) {
             $url = trim((string) $attr['url']);
             if (substr($url, 0, 1) == '!') {
                 $url  = substr($url, 1);
-                $if[] = '$_ctx->posts->post_url != "' . addslashes($url) . '"';
+                $if[] = 'dcCore::app()->ctx->posts->post_url != "' . addslashes($url) . '"';
             } else {
-                $if[] = '$_ctx->posts->post_url == "' . addslashes($url) . '"';
+                $if[] = 'dcCore::app()->ctx->posts->post_url == "' . addslashes($url) . '"';
             }
         }
 
@@ -1470,15 +1470,15 @@ class dcTemplate extends template
             if (substr($category, 0, 1) == '!') {
                 $category = substr($category, 1);
                 if (isset($args['sub'])) {
-                    $if[] = '(!$_ctx->posts->underCat("' . $category . '"))';
+                    $if[] = '(!dcCore::app()->ctx->posts->underCat("' . $category . '"))';
                 } else {
-                    $if[] = '($_ctx->posts->cat_url != "' . $category . '")';
+                    $if[] = '(dcCore::app()->ctx->posts->cat_url != "' . $category . '")';
                 }
             } else {
                 if (isset($args['sub'])) {
-                    $if[] = '($_ctx->posts->underCat("' . $category . '"))';
+                    $if[] = '(dcCore::app()->ctx->posts->underCat("' . $category . '"))';
                 } else {
-                    $if[] = '($_ctx->posts->cat_url == "' . $category . '")';
+                    $if[] = '(dcCore::app()->ctx->posts->cat_url == "' . $category . '")';
                 }
             }
         }
@@ -1493,15 +1493,15 @@ class dcTemplate extends template
                     if (substr($category, 0, 1) == '!') {
                         $category = substr($category, 1);
                         if (isset($args['sub'])) {
-                            $if[] = '(!$_ctx->posts->underCat("' . $category . '"))';
+                            $if[] = '(!dcCore::app()->ctx->posts->underCat("' . $category . '"))';
                         } else {
-                            $if[] = '($_ctx->posts->cat_url != "' . $category . '")';
+                            $if[] = '(dcCore::app()->ctx->posts->cat_url != "' . $category . '")';
                         }
                     } else {
                         if (isset($args['sub'])) {
-                            $if[] = '($_ctx->posts->underCat("' . $category . '"))';
+                            $if[] = '(dcCore::app()->ctx->posts->underCat("' . $category . '"))';
                         } else {
-                            $if[] = '($_ctx->posts->cat_url == "' . $category . '")';
+                            $if[] = '(dcCore::app()->ctx->posts->cat_url == "' . $category . '")';
                         }
                     }
                 }
@@ -1510,77 +1510,77 @@ class dcTemplate extends template
 
         if (isset($attr['first'])) {
             $sign = (bool) $attr['first'] ? '=' : '!';
-            $if[] = '$_ctx->posts->index() ' . $sign . '= 0';
+            $if[] = 'dcCore::app()->ctx->posts->index() ' . $sign . '= 0';
         }
 
         if (isset($attr['odd'])) {
             $sign = (bool) $attr['odd'] ? '=' : '!';
-            $if[] = '($_ctx->posts->index()+1)%2 ' . $sign . '= 1';
+            $if[] = '(dcCore::app()->ctx->posts->index()+1)%2 ' . $sign . '= 1';
         }
 
         if (isset($attr['extended'])) {
             $sign = (bool) $attr['extended'] ? '' : '!';
-            $if[] = $sign . '$_ctx->posts->isExtended()';
+            $if[] = $sign . 'dcCore::app()->ctx->posts->isExtended()';
         }
 
         if (isset($attr['selected'])) {
             $sign = (bool) $attr['selected'] ? '' : '!';
-            $if[] = $sign . '(boolean)$_ctx->posts->post_selected';
+            $if[] = $sign . '(boolean)dcCore::app()->ctx->posts->post_selected';
         }
 
         if (isset($attr['has_category'])) {
             $sign = (bool) $attr['has_category'] ? '' : '!';
-            $if[] = $sign . '$_ctx->posts->cat_id';
+            $if[] = $sign . 'dcCore::app()->ctx->posts->cat_id';
         }
 
         if (isset($attr['comments_active'])) {
             $sign = (bool) $attr['comments_active'] ? '' : '!';
-            $if[] = $sign . '$_ctx->posts->commentsActive()';
+            $if[] = $sign . 'dcCore::app()->ctx->posts->commentsActive()';
         }
 
         if (isset($attr['pings_active'])) {
             $sign = (bool) $attr['pings_active'] ? '' : '!';
-            $if[] = $sign . '$_ctx->posts->trackbacksActive()';
+            $if[] = $sign . 'dcCore::app()->ctx->posts->trackbacksActive()';
         }
 
         if (isset($attr['has_comment'])) {
             $sign = (bool) $attr['has_comment'] ? '' : '!';
-            $if[] = $sign . '$_ctx->posts->hasComments()';
+            $if[] = $sign . 'dcCore::app()->ctx->posts->hasComments()';
         }
 
         if (isset($attr['has_ping'])) {
             $sign = (bool) $attr['has_ping'] ? '' : '!';
-            $if[] = $sign . '$_ctx->posts->hasTrackbacks()';
+            $if[] = $sign . 'dcCore::app()->ctx->posts->hasTrackbacks()';
         }
 
         if (isset($attr['show_comments'])) {
             if ((bool) $attr['show_comments']) {
-                $if[] = '($_ctx->posts->hasComments() || $_ctx->posts->commentsActive())';
+                $if[] = '(dcCore::app()->ctx->posts->hasComments() || dcCore::app()->ctx->posts->commentsActive())';
             } else {
-                $if[] = '(!$_ctx->posts->hasComments() && !$_ctx->posts->commentsActive())';
+                $if[] = '(!dcCore::app()->ctx->posts->hasComments() && !dcCore::app()->ctx->posts->commentsActive())';
             }
         }
 
         if (isset($attr['show_pings'])) {
             if ((bool) $attr['show_pings']) {
-                $if[] = '($_ctx->posts->hasTrackbacks() || $_ctx->posts->trackbacksActive())';
+                $if[] = '(dcCore::app()->ctx->posts->hasTrackbacks() || dcCore::app()->ctx->posts->trackbacksActive())';
             } else {
-                $if[] = '(!$_ctx->posts->hasTrackbacks() && !$_ctx->posts->trackbacksActive())';
+                $if[] = '(!dcCore::app()->ctx->posts->hasTrackbacks() && !dcCore::app()->ctx->posts->trackbacksActive())';
             }
         }
 
         if (isset($attr['republished'])) {
             $sign = (bool) $attr['republished'] ? '' : '!';
-            $if[] = $sign . '(boolean)$_ctx->posts->isRepublished()';
+            $if[] = $sign . '(boolean)dcCore::app()->ctx->posts->isRepublished()';
         }
 
         if (isset($attr['author'])) {
             $author = trim((string) $attr['author']);
             if (substr($author, 0, 1) == '!') {
                 $author = substr($author, 1);
-                $if[]   = '$_ctx->posts->user_id != "' . $author . '"';
+                $if[]   = 'dcCore::app()->ctx->posts->user_id != "' . $author . '"';
             } else {
-                $if[] = '$_ctx->posts->user_id == "' . $author . '"';
+                $if[] = 'dcCore::app()->ctx->posts->user_id == "' . $author . '"';
             }
         }
 
@@ -1605,7 +1605,7 @@ class dcTemplate extends template
         $ret = html::escapeHTML($ret);
 
         return
-        '<?php if ($_ctx->posts->index() == 0) { ' .
+        '<?php if (dcCore::app()->ctx->posts->index() == 0) { ' .
         "echo '" . addslashes($ret) . "'; } ?>";
     }
 
@@ -1624,7 +1624,7 @@ class dcTemplate extends template
         $even = $attr['even'] ?? '';
         $even = html::escapeHTML($even);
 
-        return '<?php echo (($_ctx->posts->index()+1)%2 ? ' .
+        return '<?php echo ((dcCore::app()->ctx->posts->index()+1)%2 ? ' .
         '"' . addslashes($odd) . '" : ' .
         '"' . addslashes($even) . '"); ?>';
     }
@@ -1641,7 +1641,7 @@ class dcTemplate extends template
         $ret = html::escapeHTML($ret);
 
         return
-        '<?php if ($_ctx->posts->post_selected) { ' .
+        '<?php if (dcCore::app()->ctx->posts->post_selected) { ' .
         "echo '" . addslashes($ret) . "'; } ?>";
     }
 
@@ -1664,15 +1664,15 @@ class dcTemplate extends template
         if (!empty($attr['full'])) {
             return '<?php echo ' . sprintf(
                 $f,
-                '$_ctx->posts->getExcerpt(' . $urls . ').' .
-                '(strlen($_ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
-                '$_ctx->posts->getContent(' . $urls . ')'
+                'dcCore::app()->ctx->posts->getExcerpt(' . $urls . ').' .
+                '(strlen(dcCore::app()->ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
+                'dcCore::app()->ctx->posts->getContent(' . $urls . ')'
             ) . '; ?>';
         }
 
         return '<?php echo ' . sprintf(
             $f,
-            '$_ctx->posts->getContent(' . $urls . ')'
+            'dcCore::app()->ctx->posts->getContent(' . $urls . ')'
         ) . '; ?>';
     }
 
@@ -1703,15 +1703,15 @@ class dcTemplate extends template
         if (!empty($attr['full'])) {
             return '<?php if (strlen(' . sprintf(
                 $full,
-                '$_ctx->posts->getExcerpt(' . $urls . ').' .
-                '(strlen($_ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
-                '$_ctx->posts->getContent(' . $urls . ')'
+                'dcCore::app()->ctx->posts->getExcerpt(' . $urls . ').' .
+                '(strlen(dcCore::app()->ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
+                'dcCore::app()->ctx->posts->getContent(' . $urls . ')'
             ) . ') > ' .
             'strlen(' . sprintf(
                 $short,
-                '$_ctx->posts->getExcerpt(' . $urls . ').' .
-                '(strlen($_ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
-                '$_ctx->posts->getContent(' . $urls . ')'
+                'dcCore::app()->ctx->posts->getExcerpt(' . $urls . ').' .
+                '(strlen(dcCore::app()->ctx->posts->getExcerpt(' . $urls . ')) ? " " : "").' .
+                'dcCore::app()->ctx->posts->getContent(' . $urls . ')'
             ) . ')) : ?>' .
                 $content .
                 '<?php endif; ?>';
@@ -1719,11 +1719,11 @@ class dcTemplate extends template
 
         return '<?php if (strlen(' . sprintf(
             $full,
-            '$_ctx->posts->getContent(' . $urls . ')'
+            'dcCore::app()->ctx->posts->getContent(' . $urls . ')'
         ) . ') > ' .
             'strlen(' . sprintf(
                 $short,
-                '$_ctx->posts->getContent(' . $urls . ')'
+                'dcCore::app()->ctx->posts->getContent(' . $urls . ')'
             ) . ')) : ?>' .
                 $content .
                 '<?php endif; ?>';
@@ -1744,7 +1744,7 @@ class dcTemplate extends template
 
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->posts->getExcerpt(' . $urls . ')') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->getExcerpt(' . $urls . ')') . '; ?>';
     }
 
     /*dtd
@@ -1754,7 +1754,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->posts->getAuthorCN()') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->getAuthorCN()') . '; ?>';
     }
 
     /*dtd
@@ -1764,7 +1764,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->posts->user_displayname') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->user_displayname') . '; ?>';
     }
 
     /*dtd
@@ -1774,7 +1774,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->posts->user_id') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->user_id') . '; ?>';
     }
 
     /*dtd
@@ -1792,7 +1792,7 @@ class dcTemplate extends template
 
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->posts->getAuthorEmail(' . $p . ')') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->getAuthorEmail(' . $p . ')') . '; ?>';
     }
 
     /*dtd
@@ -1803,7 +1803,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, 'md5($_ctx->posts->getAuthorEmail(false))') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'md5(dcCore::app()->ctx->posts->getAuthorEmail(false))') . '; ?>';
     }
 
     /*dtd
@@ -1813,7 +1813,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->posts->getAuthorLink()') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->getAuthorLink()') . '; ?>';
     }
 
     /*dtd
@@ -1823,7 +1823,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->posts->user_url') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->user_url') . '; ?>';
     }
 
     /*dtd
@@ -1833,7 +1833,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->posts->post_url') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->post_url') . '; ?>';
     }
 
     /*dtd
@@ -1843,7 +1843,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->posts->cat_title') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->cat_title') . '; ?>';
     }
 
     /*dtd
@@ -1853,7 +1853,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->posts->cat_desc') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->cat_desc') . '; ?>';
     }
 
     /*dtd
@@ -1863,8 +1863,8 @@ class dcTemplate extends template
     {
         return
             "<?php\n" .
-            '$_ctx->categories = dcCore::app()->blog->getCategoryParents($_ctx->posts->cat_id);' . "\n" .
-            'while ($_ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->categories = null; ?>';
+            'dcCore::app()->ctx->categories = dcCore::app()->blog->getCategoryParents(dcCore::app()->ctx->posts->cat_id);' . "\n" .
+            'while (dcCore::app()->ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; dcCore::app()->ctx->categories = null; ?>';
     }
 
     /*dtd
@@ -1874,7 +1874,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->posts->cat_id') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->cat_id') . '; ?>';
     }
 
     /*dtd
@@ -1884,7 +1884,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->posts->getCategoryURL()') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->getCategoryURL()') . '; ?>';
     }
 
     /*dtd
@@ -1894,7 +1894,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->posts->cat_url') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->cat_url') . '; ?>';
     }
 
     /*dtd
@@ -1904,7 +1904,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->posts->getFeedID()') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->getFeedID()') . '; ?>';
     }
 
     /*dtd
@@ -1938,7 +1938,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->posts->post_id') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->post_id') . '; ?>';
     }
 
     /*dtd
@@ -1949,8 +1949,8 @@ class dcTemplate extends template
         $f = $this->getFilters($attr);
 
         return
-        '<?php if ($_ctx->posts->post_lang) { ' .
-        'echo ' . sprintf($f, '$_ctx->posts->post_lang') . '; ' .
+        '<?php if (dcCore::app()->ctx->posts->post_lang) { ' .
+        'echo ' . sprintf($f, 'dcCore::app()->ctx->posts->post_lang') . '; ' .
         '} else {' .
         'echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->lang') . '; ' .
             '} ?>';
@@ -1969,13 +1969,13 @@ class dcTemplate extends template
         $restrict_to_lang     = !empty($attr['restrict_to_lang']) ? '1' : '0';
 
         return
-            '<?php $next_post = dcCore::app()->blog->getNextPost($_ctx->posts,1,' . $restrict_to_category . ',' . $restrict_to_lang . '); ?>' . "\n" .
+            '<?php $next_post = dcCore::app()->blog->getNextPost(dcCore::app()->ctx->posts,1,' . $restrict_to_category . ',' . $restrict_to_lang . '); ?>' . "\n" .
             '<?php if ($next_post !== null) : ?>' .
 
-            '<?php $_ctx->posts = $next_post; unset($next_post);' . "\n" .
-            'while ($_ctx->posts->fetch()) : ?>' .
+            '<?php dcCore::app()->ctx->posts = $next_post; unset($next_post);' . "\n" .
+            'while (dcCore::app()->ctx->posts->fetch()) : ?>' .
             $content .
-            '<?php endwhile; $_ctx->posts = null; ?>' .
+            '<?php endwhile; dcCore::app()->ctx->posts = null; ?>' .
             "<?php endif; ?>\n";
     }
 
@@ -1992,13 +1992,13 @@ class dcTemplate extends template
         $restrict_to_lang     = !empty($attr['restrict_to_lang']) ? '1' : '0';
 
         return
-            '<?php $prev_post = dcCore::app()->blog->getNextPost($_ctx->posts,-1,' . $restrict_to_category . ',' . $restrict_to_lang . '); ?>' . "\n" .
+            '<?php $prev_post = dcCore::app()->blog->getNextPost(dcCore::app()->ctx->posts,-1,' . $restrict_to_category . ',' . $restrict_to_lang . '); ?>' . "\n" .
             '<?php if ($prev_post !== null) : ?>' .
 
-            '<?php $_ctx->posts = $prev_post; unset($prev_post);' . "\n" .
-            'while ($_ctx->posts->fetch()) : ?>' .
+            '<?php dcCore::app()->ctx->posts = $prev_post; unset($prev_post);' . "\n" .
+            'while (dcCore::app()->ctx->posts->fetch()) : ?>' .
             $content .
-            '<?php endwhile; $_ctx->posts = null; ?>' .
+            '<?php endwhile; dcCore::app()->ctx->posts = null; ?>' .
             "<?php endif; ?>\n";
     }
 
@@ -2009,7 +2009,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->posts->post_title') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->post_title') . '; ?>';
     }
 
     /*dtd
@@ -2019,7 +2019,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->posts->getURL()') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->posts->getURL()') . '; ?>';
     }
 
     /*dtd
@@ -2047,12 +2047,12 @@ class dcTemplate extends template
         $f = $this->getFilters($attr);
 
         if ($rfc822) {
-            return '<?php echo ' . sprintf($f, "\$_ctx->posts->getRFC822Date('" . $type . "')") . '; ?>';
+            return '<?php echo ' . sprintf($f, "\dcCore::app()->ctx->posts->getRFC822Date('" . $type . "')") . '; ?>';
         } elseif ($iso8601) {
-            return '<?php echo ' . sprintf($f, "\$_ctx->posts->getISO8601Date('" . $type . "')") . '; ?>';
+            return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->posts->getISO8601Date('" . $type . "')") . '; ?>';
         }
 
-        return '<?php echo ' . sprintf($f, "\$_ctx->posts->getDate('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->posts->getDate('" . $format . "','" . $type . "')") . '; ?>';
     }
 
     /*dtd
@@ -2075,7 +2075,7 @@ class dcTemplate extends template
 
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, "\$_ctx->posts->getTime('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->posts->getTime('" . $format . "','" . $type . "')") . '; ?>';
     }
 
     /*dtd
@@ -2084,7 +2084,7 @@ class dcTemplate extends template
     public function EntriesHeader($attr, $content)
     {
         return
-            '<?php if ($_ctx->posts->isStart()) : ?>' .
+            '<?php if (dcCore::app()->ctx->posts->isStart()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -2095,7 +2095,7 @@ class dcTemplate extends template
     public function EntriesFooter($attr, $content)
     {
         return
-            '<?php if ($_ctx->posts->isEnd()) : ?>' .
+            '<?php if (dcCore::app()->ctx->posts->isEnd()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -2112,9 +2112,9 @@ class dcTemplate extends template
     public function EntryCommentCount($attr)
     {
         if (empty($attr['count_all'])) {
-            $operation = '$_ctx->posts->nb_comment';
+            $operation = 'dcCore::app()->ctx->posts->nb_comment';
         } else {
-            $operation = '($_ctx->posts->nb_comment + $_ctx->posts->nb_trackback)';
+            $operation = '(dcCore::app()->ctx->posts->nb_comment + dcCore::app()->ctx->posts->nb_trackback)';
         }
 
         return $this->displayCounter(
@@ -2140,7 +2140,7 @@ class dcTemplate extends template
     public function EntryPingCount($attr)
     {
         return $this->displayCounter(
-            '$_ctx->posts->nb_trackback',
+            'dcCore::app()->ctx->posts->nb_trackback',
             [
                 'none' => 'no trackbacks',
                 'one'  => 'one trackback',
@@ -2158,7 +2158,7 @@ class dcTemplate extends template
     {
         $format = !empty($attr['format']) && $attr['format'] == 'xml' ? 'xml' : 'html';
 
-        return "<?php if (\$_ctx->posts->trackbacksActive()) { echo \$_ctx->posts->getTrackbackData('" . $format . "'); } ?>\n";
+        return "<?php if (dcCore::app()->ctx->posts->trackbacksActive()) { echo dcCore::app()->ctx->posts->getTrackbackData('" . $format . "'); } ?>\n";
     }
 
     /*dtd
@@ -2166,7 +2166,7 @@ class dcTemplate extends template
      */
     public function EntryPingLink($attr)
     {
-        return "<?php if (\$_ctx->posts->trackbacksActive()) { echo \$_ctx->posts->getTrackbackLink(); } ?>\n";
+        return "<?php if (dcCore::app()->ctx->posts->trackbacksActive()) { echo dcCore::app()->ctx->posts->getTrackbackLink(); } ?>\n";
     }
 
     /* Languages -------------------------------------- */
@@ -2198,12 +2198,12 @@ class dcTemplate extends template
             $attr,
             $content
         );
-        $res .= '$_ctx->langs = dcCore::app()->blog->getLangs($params); unset($params);' . "\n";
+        $res .= 'dcCore::app()->ctx->langs = dcCore::app()->blog->getLangs($params); unset($params);' . "\n";
         $res .= "?>\n";
 
-        $res .= '<?php if ($_ctx->langs->count() > 1) : ' .
-            'while ($_ctx->langs->fetch()) : ?>' . $content .
-            '<?php endwhile; $_ctx->langs = null; endif; ?>';
+        $res .= '<?php if (dcCore::app()->ctx->langs->count() > 1) : ' .
+            'while (dcCore::app()->ctx->langs->fetch()) : ?>' . $content .
+            '<?php endwhile; dcCore::app()->ctx->langs = null; endif; ?>';
 
         return $res;
     }
@@ -2214,7 +2214,7 @@ class dcTemplate extends template
     public function LanguagesHeader($attr, $content)
     {
         return
-            '<?php if ($_ctx->langs->isStart()) : ?>' .
+            '<?php if (dcCore::app()->ctx->langs->isStart()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -2225,7 +2225,7 @@ class dcTemplate extends template
     public function LanguagesFooter($attr, $content)
     {
         return
-            '<?php if ($_ctx->langs->isEnd()) : ?>' .
+            '<?php if (dcCore::app()->ctx->langs->isEnd()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -2237,7 +2237,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->langs->post_lang') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->langs->post_lang') . '; ?>';
     }
 
     /*dtd
@@ -2246,7 +2246,7 @@ class dcTemplate extends template
     public function LanguageIfCurrent($attr, $content)
     {
         return
-            '<?php if ($_ctx->cur_lang == $_ctx->langs->post_lang) : ?>' .
+            '<?php if (dcCore::app()->ctx->cur_lang == dcCore::app()->ctx->langs->post_lang) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -2259,7 +2259,7 @@ class dcTemplate extends template
         $f = $this->getFilters($attr);
 
         return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("lang",' .
-            '$_ctx->langs->post_lang)') . '; ?>';
+            'dcCore::app()->ctx->langs->post_lang)') . '; ?>';
     }
 
     /*dtd
@@ -2270,10 +2270,10 @@ class dcTemplate extends template
         $f = $this->getFilters($attr);
 
         return
-        '<?php if ($_ctx->exists("cur_lang")) ' . "\n" .
-        '   { echo ' . sprintf($f, '$_ctx->cur_lang') . '; }' . "\n" .
-        'elseif ($_ctx->exists("posts") && $_ctx->posts->exists("post_lang")) ' . "\n" .
-        '   { echo ' . sprintf($f, '$_ctx->posts->post_lang') . '; }' . "\n" .
+        '<?php if (dcCore::app()->ctx->exists("cur_lang")) ' . "\n" .
+        '   { echo ' . sprintf($f, 'dcCore::app()->ctx->cur_lang') . '; }' . "\n" .
+        'elseif (dcCore::app()->ctx->exists("posts") && dcCore::app()->ctx->posts->exists("post_lang")) ' . "\n" .
+        '   { echo ' . sprintf($f, 'dcCore::app()->ctx->posts->post_lang') . '; }' . "\n" .
         'else ' . "\n" .
         '   { echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->lang') . '; } ?>';
     }
@@ -2288,14 +2288,14 @@ class dcTemplate extends template
     public function Pagination($attr, $content)
     {
         $p = "<?php\n";
-        $p .= '$params = $_ctx->post_params;' . "\n";
+        $p .= '$params = dcCore::app()->ctx->post_params;' . "\n";
         $p .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'Pagination', 'method' => 'blog::getPosts'],
             $attr,
             $content
         );
-        $p .= '$_ctx->pagination = dcCore::app()->blog->getPosts($params,true); unset($params);' . "\n";
+        $p .= 'dcCore::app()->ctx->pagination = dcCore::app()->blog->getPosts($params,true); unset($params);' . "\n";
         $p .= "?>\n";
 
         if (isset($attr['no_context']) && $attr['no_context']) {
@@ -2304,7 +2304,7 @@ class dcTemplate extends template
 
         return
             $p .
-            '<?php if ($_ctx->pagination->f(0) > $_ctx->posts->count()) : ?>' .
+            '<?php if (dcCore::app()->ctx->pagination->f(0) > dcCore::app()->ctx->posts->count()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -2409,20 +2409,20 @@ class dcTemplate extends template
         if ($lastn > 0) {
             $p .= "\$params['limit'] = " . $lastn . ";\n";
         } else {
-            $p .= "if (\$_ctx->nb_comment_per_page !== null) { \$params['limit'] = \$_ctx->nb_comment_per_page; }\n";
+            $p .= "if (dcCore::app()->ctx->nb_comment_per_page !== null) { \$params['limit'] = dcCore::app()->ctx->nb_comment_per_page; }\n";
         }
 
         if (empty($attr['no_context'])) {
-            $p .= 'if ($_ctx->posts !== null) { ' .
-                "\$params['post_id'] = \$_ctx->posts->post_id; " .
+            $p .= 'if (dcCore::app()->ctx->posts !== null) { ' .
+                "\$params['post_id'] = dcCore::app()->ctx->posts->post_id; " .
                 "dcCore::app()->blog->withoutPassword(false);\n" .
                 "}\n";
-            $p .= 'if ($_ctx->exists("categories")) { ' .
-                "\$params['cat_id'] = \$_ctx->categories->cat_id; " .
+            $p .= 'if (dcCore::app()->ctx->exists("categories")) { ' .
+                "\$params['cat_id'] = dcCore::app()->ctx->categories->cat_id; " .
                 "}\n";
 
-            $p .= 'if ($_ctx->exists("langs")) { ' .
-                "\$params['sql'] = \"AND P.post_lang = '\".dcCore::app()->blog->con->escape(\$_ctx->langs->post_lang).\"' \"; " .
+            $p .= 'if (dcCore::app()->ctx->exists("langs")) { ' .
+                "\$params['sql'] = \"AND P.post_lang = '\".dcCore::app()->blog->con->escape(dcCore::app()->ctx->langs->post_lang).\"' \"; " .
                 "}\n";
         }
 
@@ -2449,16 +2449,16 @@ class dcTemplate extends template
             $content
         );
         $res .= $p;
-        $res .= '$_ctx->comments = dcCore::app()->blog->getComments($params); unset($params);' . "\n";
-        $res .= "if (\$_ctx->posts !== null) { dcCore::app()->blog->withoutPassword(true);}\n";
+        $res .= 'dcCore::app()->ctx->comments = dcCore::app()->blog->getComments($params); unset($params);' . "\n";
+        $res .= "if (dcCore::app()->ctx->posts !== null) { dcCore::app()->blog->withoutPassword(true);}\n";
 
         if (!empty($attr['with_pings'])) {
-            $res .= '$_ctx->pings = $_ctx->comments;' . "\n";
+            $res .= 'dcCore::app()->ctx->pings = dcCore::app()->ctx->comments;' . "\n";
         }
 
         $res .= "?>\n";
 
-        $res .= '<?php while ($_ctx->comments->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->comments = null; ?>';
+        $res .= '<?php while (dcCore::app()->ctx->comments->fetch()) : ?>' . $content . '<?php endwhile; dcCore::app()->ctx->comments = null; ?>';
 
         return $res;
     }
@@ -2470,7 +2470,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->comments->comment_author') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comments->comment_author') . '; ?>';
     }
 
     /*dtd
@@ -2478,7 +2478,7 @@ class dcTemplate extends template
      */
     public function CommentAuthorDomain($attr)
     {
-        return '<?php echo preg_replace("#^http(?:s?)://(.+?)/.*$#msu",\'$1\',$_ctx->comments->comment_site); ?>';
+        return '<?php echo preg_replace("#^http(?:s?)://(.+?)/.*$#msu",\'$1\',dcCore::app()->ctx->comments->comment_site); ?>';
     }
 
     /*dtd
@@ -2488,7 +2488,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->comments->getAuthorLink()') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comments->getAuthorLink()') . '; ?>';
     }
 
     /*dtd
@@ -2496,7 +2496,7 @@ class dcTemplate extends template
      */
     public function CommentAuthorMailMD5($attr)
     {
-        return '<?php echo md5($_ctx->comments->comment_email) ; ?>';
+        return '<?php echo md5(dcCore::app()->ctx->comments->comment_email) ; ?>';
     }
 
     /*dtd
@@ -2506,7 +2506,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->comments->getAuthorURL()') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comments->getAuthorURL()') . '; ?>';
     }
 
     /*dtd
@@ -2524,7 +2524,7 @@ class dcTemplate extends template
 
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->comments->getContent(' . $urls . ')') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comments->getContent(' . $urls . ')') . '; ?>';
     }
 
     /*dtd
@@ -2550,12 +2550,12 @@ class dcTemplate extends template
         $f = $this->getFilters($attr);
 
         if ($rfc822) {
-            return '<?php echo ' . sprintf($f, "\$_ctx->comments->getRFC822Date('" . $type . "')") . '; ?>';
+            return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->comments->getRFC822Date('" . $type . "')") . '; ?>';
         } elseif ($iso8601) {
-            return '<?php echo ' . sprintf($f, "\$_ctx->comments->getISO8601Date('" . $type . "')") . '; ?>';
+            return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->comments->getISO8601Date('" . $type . "')") . '; ?>';
         }
 
-        return '<?php echo ' . sprintf($f, "\$_ctx->comments->getDate('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->comments->getDate('" . $format . "','" . $type . "')") . '; ?>';
     }
 
     /*dtd
@@ -2575,7 +2575,7 @@ class dcTemplate extends template
 
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, "\$_ctx->comments->getTime('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->comments->getTime('" . $format . "','" . $type . "')") . '; ?>';
     }
 
     /*dtd
@@ -2593,7 +2593,7 @@ class dcTemplate extends template
 
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->comments->getEmail(' . $p . ')') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comments->getEmail(' . $p . ')') . '; ?>';
     }
 
     /*dtd
@@ -2603,7 +2603,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->comments->post_title') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comments->post_title') . '; ?>';
     }
 
     /*dtd
@@ -2613,7 +2613,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->comments->getFeedID()') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comments->getFeedID()') . '; ?>';
     }
 
     /*dtd
@@ -2621,7 +2621,7 @@ class dcTemplate extends template
      */
     public function CommentID($attr)
     {
-        return '<?php echo $_ctx->comments->comment_id; ?>';
+        return '<?php echo dcCore::app()->ctx->comments->comment_id; ?>';
     }
 
     /*dtd
@@ -2637,7 +2637,7 @@ class dcTemplate extends template
 
         if (isset($attr['is_ping'])) {
             $sign = (bool) $attr['is_ping'] ? '' : '!';
-            $if[] = $sign . '$_ctx->comments->comment_trackback';
+            $if[] = $sign . 'dcCore::app()->ctx->comments->comment_trackback';
         }
 
         dcCore::app()->callBehavior('tplIfConditions', 'CommentIf', $attr, $content, $if);
@@ -2661,7 +2661,7 @@ class dcTemplate extends template
         $ret = html::escapeHTML($ret);
 
         return
-        '<?php if ($_ctx->comments->index() == 0) { ' .
+        '<?php if (dcCore::app()->ctx->comments->index() == 0) { ' .
         "echo '" . addslashes($ret) . "'; } ?>";
     }
 
@@ -2677,7 +2677,7 @@ class dcTemplate extends template
         $ret = html::escapeHTML($ret);
 
         return
-        '<?php if ($_ctx->comments->isMe()) { ' .
+        '<?php if (dcCore::app()->ctx->comments->isMe()) { ' .
         "echo '" . addslashes($ret) . "'; } ?>";
     }
 
@@ -2696,7 +2696,7 @@ class dcTemplate extends template
         $even = $attr['even'] ?? '';
         $even = html::escapeHTML($even);
 
-        return '<?php echo (($_ctx->comments->index()+1)%2 ? ' .
+        return '<?php echo ((dcCore::app()->ctx->comments->index()+1)%2 ? ' .
         '"' . addslashes($odd) . '" : ' .
         '"' . addslashes($even) . '"); ?>';
     }
@@ -2706,7 +2706,7 @@ class dcTemplate extends template
      */
     public function CommentIP($attr)
     {
-        return '<?php echo $_ctx->comments->comment_ip; ?>';
+        return '<?php echo dcCore::app()->ctx->comments->comment_ip; ?>';
     }
 
     /*dtd
@@ -2714,7 +2714,7 @@ class dcTemplate extends template
      */
     public function CommentOrderNumber($attr)
     {
-        return '<?php echo $_ctx->comments->index()+1; ?>';
+        return '<?php echo dcCore::app()->ctx->comments->index()+1; ?>';
     }
 
     /*dtd
@@ -2723,7 +2723,7 @@ class dcTemplate extends template
     public function CommentsFooter($attr, $content)
     {
         return
-            '<?php if ($_ctx->comments->isEnd()) : ?>' .
+            '<?php if (dcCore::app()->ctx->comments->isEnd()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -2734,7 +2734,7 @@ class dcTemplate extends template
     public function CommentsHeader($attr, $content)
     {
         return
-            '<?php if ($_ctx->comments->isStart()) : ?>' .
+            '<?php if (dcCore::app()->ctx->comments->isStart()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -2746,7 +2746,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->comments->getPostURL()') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comments->getPostURL()') . '; ?>';
     }
 
     /*dtd
@@ -2755,7 +2755,7 @@ class dcTemplate extends template
     public function IfCommentAuthorEmail($attr, $content)
     {
         return
-            '<?php if ($_ctx->comments->comment_email) : ?>' .
+            '<?php if (dcCore::app()->ctx->comments->comment_email) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -2780,7 +2780,7 @@ class dcTemplate extends template
     public function IfCommentPreviewOptional($attr, $content)
     {
         return
-            '<?php if (dcCore::app()->blog->settings->system->comment_preview_optional || ($_ctx->comment_preview !== null && $_ctx->comment_preview["preview"])) : ?>' .
+            '<?php if (dcCore::app()->blog->settings->system->comment_preview_optional || (dcCore::app()->ctx->comment_preview !== null && dcCore::app()->ctx->comment_preview["preview"])) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -2791,7 +2791,7 @@ class dcTemplate extends template
     public function IfCommentPreview($attr, $content)
     {
         return
-            '<?php if ($_ctx->comment_preview !== null && $_ctx->comment_preview["preview"]) : ?>' .
+            '<?php if (dcCore::app()->ctx->comment_preview !== null && dcCore::app()->ctx->comment_preview["preview"]) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -2803,7 +2803,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->comment_preview["name"]') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comment_preview["name"]') . '; ?>';
     }
 
     /*dtd
@@ -2813,7 +2813,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->comment_preview["mail"]') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comment_preview["mail"]') . '; ?>';
     }
 
     /*dtd
@@ -2823,7 +2823,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->comment_preview["site"]') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->comment_preview["site"]') . '; ?>';
     }
 
     /*dtd
@@ -2837,9 +2837,9 @@ class dcTemplate extends template
         $f = $this->getFilters($attr);
 
         if (!empty($attr['raw'])) {
-            $co = '$_ctx->comment_preview["rawcontent"]';
+            $co = 'dcCore::app()->ctx->comment_preview["rawcontent"]';
         } else {
-            $co = '$_ctx->comment_preview["content"]';
+            $co = 'dcCore::app()->ctx->comment_preview["content"]';
         }
 
         return '<?php echo ' . sprintf($f, $co) . '; ?>';
@@ -2851,7 +2851,7 @@ class dcTemplate extends template
     public function CommentPreviewCheckRemember($attr)
     {
         return
-            "<?php if (\$_ctx->comment_preview['remember']) { echo ' checked=\"checked\"'; } ?>";
+            "<?php if (dcCore::app()->ctx->comment_preview['remember']) { echo ' checked=\"checked\"'; } ?>";
     }
 
     /* Trackbacks ------------------------------------- */
@@ -2862,7 +2862,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->pings->comment_author') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->pings->comment_author') . '; ?>';
     }
 
     /*dtd
@@ -2872,7 +2872,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->pings->getTrackbackContent()') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->pings->getTrackbackContent()') . '; ?>';
     }
 
     /*dtd
@@ -2898,12 +2898,12 @@ class dcTemplate extends template
         $f = $this->getFilters($attr);
 
         if ($rfc822) {
-            return '<?php echo ' . sprintf($f, "\$_ctx->pings->getRFC822Date('" . $type . "')") . '; ?>';
+            return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->pings->getRFC822Date('" . $type . "')") . '; ?>';
         } elseif ($iso8601) {
-            return '<?php echo ' . sprintf($f, "\$_ctx->pings->getISO8601Date('" . $type . "')") . '; ?>';
+            return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->pings->getISO8601Date('" . $type . "')") . '; ?>';
         }
 
-        return '<?php echo ' . sprintf($f, "\$_ctx->pings->getDate('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->pings->getDate('" . $format . "','" . $type . "')") . '; ?>';
     }
 
     /*dtd
@@ -2923,7 +2923,7 @@ class dcTemplate extends template
 
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, "\$_ctx->pings->getTime('" . $format . "','" . $type . "')") . '; ?>';
+        return '<?php echo ' . sprintf($f, "dcCore::app()->ctx->pings->getTime('" . $format . "','" . $type . "')") . '; ?>';
     }
 
     /*dtd
@@ -2933,7 +2933,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->pings->post_title') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->pings->post_title') . '; ?>';
     }
 
     /*dtd
@@ -2943,7 +2943,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->pings->getFeedID()') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->pings->getFeedID()') . '; ?>';
     }
 
     /*dtd
@@ -2951,7 +2951,7 @@ class dcTemplate extends template
      */
     public function PingID($attr)
     {
-        return '<?php echo $_ctx->pings->comment_id; ?>';
+        return '<?php echo dcCore::app()->ctx->pings->comment_id; ?>';
     }
 
     /*dtd
@@ -2966,7 +2966,7 @@ class dcTemplate extends template
         $ret = html::escapeHTML($ret);
 
         return
-        '<?php if ($_ctx->pings->index() == 0) { ' .
+        '<?php if (dcCore::app()->ctx->pings->index() == 0) { ' .
         "echo '" . addslashes($ret) . "'; } ?>";
     }
 
@@ -2985,7 +2985,7 @@ class dcTemplate extends template
         $even = $attr['even'] ?? '';
         $even = html::escapeHTML($even);
 
-        return '<?php echo (($_ctx->pings->index()+1)%2 ? ' .
+        return '<?php echo ((dcCore::app()->ctx->pings->index()+1)%2 ? ' .
         '"' . addslashes($odd) . '" : ' .
         '"' . addslashes($even) . '"); ?>';
     }
@@ -2995,7 +2995,7 @@ class dcTemplate extends template
      */
     public function PingIP($attr)
     {
-        return '<?php echo $_ctx->pings->comment_ip; ?>';
+        return '<?php echo dcCore::app()->ctx->pings->comment_ip; ?>';
     }
 
     /*dtd
@@ -3014,7 +3014,7 @@ class dcTemplate extends template
      */
     public function PingOrderNumber($attr)
     {
-        return '<?php echo $_ctx->pings->index()+1; ?>';
+        return '<?php echo dcCore::app()->ctx->pings->index()+1; ?>';
     }
 
     /*dtd
@@ -3024,7 +3024,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->pings->getPostURL()') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->pings->getPostURL()') . '; ?>';
     }
 
     /*dtd
@@ -3038,8 +3038,8 @@ class dcTemplate extends template
      */
     public function Pings($attr, $content)
     {
-        $p = 'if ($_ctx->posts !== null) { ' .
-            "\$params['post_id'] = \$_ctx->posts->post_id; " .
+        $p = 'if (dcCore::app()->ctx->posts !== null) { ' .
+            "\$params['post_id'] = dcCore::app()->ctx->posts->post_id; " .
             "dcCore::app()->blog->withoutPassword(false);\n" .
             "}\n";
 
@@ -3053,16 +3053,16 @@ class dcTemplate extends template
         if ($lastn > 0) {
             $p .= "\$params['limit'] = " . $lastn . ";\n";
         } else {
-            $p .= "if (\$_ctx->nb_comment_per_page !== null) { \$params['limit'] = \$_ctx->nb_comment_per_page; }\n";
+            $p .= "if (dcCore::app()->ctx->nb_comment_per_page !== null) { \$params['limit'] = dcCore::app()->ctx->nb_comment_per_page; }\n";
         }
 
         if (empty($attr['no_context'])) {
-            $p .= 'if ($_ctx->exists("categories")) { ' .
-                "\$params['cat_id'] = \$_ctx->categories->cat_id; " .
+            $p .= 'if (dcCore::app()->ctx->exists("categories")) { ' .
+                "\$params['cat_id'] = dcCore::app()->ctx->categories->cat_id; " .
                 "}\n";
 
-            $p .= 'if ($_ctx->exists("langs")) { ' .
-                "\$params['sql'] = \"AND P.post_lang = '\".dcCore::app()->blog->con->escape(\$_ctx->langs->post_lang).\"' \"; " .
+            $p .= 'if (dcCore::app()->ctx->exists("langs")) { ' .
+                "\$params['sql'] = \"AND P.post_lang = '\".dcCore::app()->blog->con->escape(dcCore::app()->ctx->langs->post_lang).\"' \"; " .
                 "}\n";
         }
 
@@ -3085,11 +3085,11 @@ class dcTemplate extends template
             $attr,
             $content
         );
-        $res .= '$_ctx->pings = dcCore::app()->blog->getComments($params); unset($params);' . "\n";
-        $res .= "if (\$_ctx->posts !== null) { dcCore::app()->blog->withoutPassword(true);}\n";
+        $res .= 'dcCore::app()->ctx->pings = dcCore::app()->blog->getComments($params); unset($params);' . "\n";
+        $res .= "if (dcCore::app()->ctx->posts !== null) { dcCore::app()->blog->withoutPassword(true);}\n";
         $res .= "?>\n";
 
-        $res .= '<?php while ($_ctx->pings->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->pings = null; ?>';
+        $res .= '<?php while (dcCore::app()->ctx->pings->fetch()) : ?>' . $content . '<?php endwhile; dcCore::app()->ctx->pings = null; ?>';
 
         return $res;
     }
@@ -3100,7 +3100,7 @@ class dcTemplate extends template
     public function PingsFooter($attr, $content)
     {
         return
-            '<?php if ($_ctx->pings->isEnd()) : ?>' .
+            '<?php if (dcCore::app()->ctx->pings->isEnd()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -3111,7 +3111,7 @@ class dcTemplate extends template
     public function PingsHeader($attr, $content)
     {
         return
-            '<?php if ($_ctx->pings->isStart()) : ?>' .
+            '<?php if (dcCore::app()->ctx->pings->isStart()) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -3123,7 +3123,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->pings->getTrackbackTitle()') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->pings->getTrackbackTitle()') . '; ?>';
     }
 
     /*dtd
@@ -3133,7 +3133,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->pings->getAuthorURL()') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->ctx->pings->getAuthorURL()') . '; ?>';
     }
 
     # System
@@ -3153,7 +3153,7 @@ class dcTemplate extends template
 
         return
             '<?php if (dcCore::app()->hasBehavior(\'' . $b . '\')) { ' .
-            'dcCore::app()->callBehavior(\'' . $b . '\',dcCore::app(),$_ctx);' .
+            'dcCore::app()->callBehavior(\'' . $b . '\',dcCore::app(),dcCore::app()->ctx);' .
             '} ?>';
     }
 
@@ -3183,12 +3183,12 @@ class dcTemplate extends template
 
         if (isset($attr['categories'])) {
             $sign = (bool) $attr['categories'] ? '!' : '=';
-            $if[] = '$_ctx->categories ' . $sign . '== null';
+            $if[] = 'dcCore::app()->ctx->categories ' . $sign . '== null';
         }
 
         if (isset($attr['posts'])) {
             $sign = (bool) $attr['posts'] ? '!' : '=';
-            $if[] = '$_ctx->posts ' . $sign . '== null';
+            $if[] = 'dcCore::app()->ctx->posts ' . $sign . '== null';
         }
 
         if (isset($attr['blog_lang'])) {
@@ -3206,7 +3206,7 @@ class dcTemplate extends template
                 $sign                = '!';
                 $attr['current_tpl'] = substr($attr['current_tpl'], 1);
             }
-            $if[] = '$_ctx->current_tpl ' . $sign . "= '" . addslashes($attr['current_tpl']) . "'";
+            $if[] = 'dcCore::app()->ctx->current_tpl ' . $sign . "= '" . addslashes($attr['current_tpl']) . "'";
         }
 
         if (isset($attr['current_mode'])) {
@@ -3307,7 +3307,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php if ($_ctx->feed_subtitle !== null) { echo ' . sprintf($f, '$_ctx->feed_subtitle') . ';} ?>';
+        return '<?php if (dcCore::app()->ctx->feed_subtitle !== null) { echo ' . sprintf($f, 'dcCore::app()->ctx->feed_subtitle') . ';} ?>';
     }
 
     /*dtd
@@ -3316,7 +3316,7 @@ class dcTemplate extends template
     public function SysIfFormError($attr, $content)
     {
         return
-            '<?php if ($_ctx->form_error !== null) : ?>' .
+            '<?php if (dcCore::app()->ctx->form_error !== null) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -3327,7 +3327,7 @@ class dcTemplate extends template
     public function SysFormError($attr)
     {
         return
-            '<?php if ($_ctx->form_error !== null) { echo $_ctx->form_error; } ?>';
+            '<?php if (dcCore::app()->ctx->form_error !== null) { echo dcCore::app()->ctx->form_error; } ?>';
     }
 
     public function SysPoweredBy($attr)

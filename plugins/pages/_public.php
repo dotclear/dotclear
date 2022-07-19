@@ -51,8 +51,6 @@ class urlPages extends dcUrlHandlers
             # No page was specified.
             self::p404();
         } else {
-            $_ctx = &$GLOBALS['_ctx'];
-
             dcCore::app()->blog->withoutPassword(false);
 
             $params = new ArrayObject([
@@ -61,28 +59,28 @@ class urlPages extends dcUrlHandlers
 
             dcCore::app()->callBehavior('publicPagesBeforeGetPosts', $params, $args);
 
-            $_ctx->posts = dcCore::app()->blog->getPosts($params);
+            dcCore::app()->ctx->posts = dcCore::app()->blog->getPosts($params);
 
-            $_ctx->comment_preview               = new ArrayObject();
-            $_ctx->comment_preview['content']    = '';
-            $_ctx->comment_preview['rawcontent'] = '';
-            $_ctx->comment_preview['name']       = '';
-            $_ctx->comment_preview['mail']       = '';
-            $_ctx->comment_preview['site']       = '';
-            $_ctx->comment_preview['preview']    = false;
-            $_ctx->comment_preview['remember']   = false;
+            dcCore::app()->ctx->comment_preview               = new ArrayObject();
+            dcCore::app()->ctx->comment_preview['content']    = '';
+            dcCore::app()->ctx->comment_preview['rawcontent'] = '';
+            dcCore::app()->ctx->comment_preview['name']       = '';
+            dcCore::app()->ctx->comment_preview['mail']       = '';
+            dcCore::app()->ctx->comment_preview['site']       = '';
+            dcCore::app()->ctx->comment_preview['preview']    = false;
+            dcCore::app()->ctx->comment_preview['remember']   = false;
 
             dcCore::app()->blog->withoutPassword(true);
 
-            if ($_ctx->posts->isEmpty()) {
+            if (dcCore::app()->ctx->posts->isEmpty()) {
                 # The specified page does not exist.
                 self::p404();
             } else {
-                $post_id       = $_ctx->posts->post_id;
-                $post_password = $_ctx->posts->post_password;
+                $post_id       = dcCore::app()->ctx->posts->post_id;
+                $post_password = dcCore::app()->ctx->posts->post_password;
 
                 # Password protected entry
-                if ($post_password != '' && !$_ctx->preview) {
+                if ($post_password != '' && !dcCore::app()->ctx->preview) {
                     # Get passwords cookie
                     if (isset($_COOKIE['dc_passwd'])) {
                         $pwd_cookie = json_decode($_COOKIE['dc_passwd']);
@@ -109,7 +107,7 @@ class urlPages extends dcUrlHandlers
                     }
                 }
 
-                $post_comment = isset($_POST['c_name']) && isset($_POST['c_mail']) && isset($_POST['c_site']) && isset($_POST['c_content']) && $_ctx->posts->commentsActive();
+                $post_comment = isset($_POST['c_name']) && isset($_POST['c_mail']) && isset($_POST['c_site']) && isset($_POST['c_content']) && dcCore::app()->ctx->posts->commentsActive();
 
                 # Posting a comment
                 if ($post_comment) {
@@ -144,17 +142,17 @@ class urlPages extends dcUrlHandlers
                         $content = dcCore::app()->HTMLfilter($content);
                     }
 
-                    $_ctx->comment_preview['content']    = $content;
-                    $_ctx->comment_preview['rawcontent'] = $_POST['c_content'];
-                    $_ctx->comment_preview['name']       = $name;
-                    $_ctx->comment_preview['mail']       = $mail;
-                    $_ctx->comment_preview['site']       = $site;
+                    dcCore::app()->ctx->comment_preview['content']    = $content;
+                    dcCore::app()->ctx->comment_preview['rawcontent'] = $_POST['c_content'];
+                    dcCore::app()->ctx->comment_preview['name']       = $name;
+                    dcCore::app()->ctx->comment_preview['mail']       = $mail;
+                    dcCore::app()->ctx->comment_preview['site']       = $site;
 
                     if ($preview) {
                         # --BEHAVIOR-- publicBeforeCommentPreview
-                        dcCore::app()->callBehavior('publicBeforeCommentPreview', $_ctx->comment_preview);
+                        dcCore::app()->callBehavior('publicBeforeCommentPreview', dcCore::app()->ctx->comment_preview);
 
-                        $_ctx->comment_preview['preview'] = true;
+                        dcCore::app()->ctx->comment_preview['preview'] = true;
                     } else {
                         # Post the comment
                         $cur                  = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'comment');
@@ -162,11 +160,11 @@ class urlPages extends dcUrlHandlers
                         $cur->comment_site    = html::clean($site);
                         $cur->comment_email   = html::clean($mail);
                         $cur->comment_content = $content;
-                        $cur->post_id         = $_ctx->posts->post_id;
+                        $cur->post_id         = dcCore::app()->ctx->posts->post_id;
                         $cur->comment_status  = dcCore::app()->blog->settings->system->comments_pub ? 1 : -1;
                         $cur->comment_ip      = http::realIP();
 
-                        $redir = $_ctx->posts->getURL();
+                        $redir = dcCore::app()->ctx->posts->getURL();
                         $redir .= dcCore::app()->blog->settings->system->url_scan == 'query_string' ? '&' : '?';
 
                         try {
@@ -191,13 +189,13 @@ class urlPages extends dcUrlHandlers
 
                             header('Location: ' . $redir . $redir_arg);
                         } catch (Exception $e) {
-                            $_ctx->form_error = $e->getMessage();
+                            dcCore::app()->ctx->form_error = $e->getMessage();
                         }
                     }
                 }
 
                 # The entry
-                if ($_ctx->posts->trackbacksActive()) {
+                if (dcCore::app()->ctx->posts->trackbacksActive()) {
                     header('X-Pingback: ' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('xmlrpc', dcCore::app()->blog->id));
                 }
 
@@ -214,8 +212,6 @@ class urlPages extends dcUrlHandlers
 
     public static function pagespreview($args)
     {
-        $_ctx = $GLOBALS['_ctx'];
-
         if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#', $args, $m)) {
             # The specified Preview URL is malformed.
             self::p404();
@@ -227,9 +223,9 @@ class urlPages extends dcUrlHandlers
                 # The user has no access to the entry.
                 self::p404();
             } else {
-                $_ctx->preview = true;
+                dcCore::app()->ctx->preview = true;
                 if (defined('DC_ADMIN_URL')) {
-                    $_ctx->xframeoption = DC_ADMIN_URL;
+                    dcCore::app()->ctx->xframeoption = DC_ADMIN_URL;
                 }
 
                 self::pages($post_url);
@@ -243,8 +239,6 @@ class tplPages
     # Widget function
     public static function pagesWidget($w)
     {
-        global $_ctx;
-
         if ($w->offline) {
             return;
         }
@@ -279,7 +273,7 @@ class tplPages
 
         while ($rs->fetch()) {
             $class = '';
-            if ((dcCore::app()->url->type == 'pages' && $_ctx->posts instanceof record && $_ctx->posts->post_id == $rs->post_id)) {
+            if ((dcCore::app()->url->type == 'pages' && dcCore::app()->ctx->posts instanceof record && dcCore::app()->ctx->posts->post_id == $rs->post_id)) {
                 $class = ' class="page-current"';
             }
             $res .= '<li' . $class . '><a href="' . $rs->getURL() . '">' .

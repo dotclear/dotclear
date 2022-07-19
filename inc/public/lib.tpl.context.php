@@ -270,10 +270,10 @@ class context
             if ($not) {
                 $v .= ' ?not';
             }
-            if ($GLOBALS['_ctx']->exists('categories') && preg_match('/#self/', $v)) {
-                $v = preg_replace('/#self/', $GLOBALS['_ctx']->categories->cat_url, $v);
-            } elseif ($GLOBALS['_ctx']->exists('posts') && preg_match('/#self/', $v)) {
-                $v = preg_replace('/#self/', $GLOBALS['_ctx']->posts->cat_url, $v);
+            if (dcCore::app()->ctx->exists('categories') && preg_match('/#self/', $v)) {
+                $v = preg_replace('/#self/', dcCore::app()->ctx->categories->cat_url, $v);
+            } elseif (dcCore::app()->ctx->exists('posts') && preg_match('/#self/', $v)) {
+                $v = preg_replace('/#self/', dcCore::app()->ctx->posts->cat_url, $v);
             }
         }
     }
@@ -281,17 +281,15 @@ class context
     # Static methods for pagination
     public static function PaginationNbPages()
     {
-        global $_ctx;
-
-        if ($_ctx->pagination === null) {
+        if (dcCore::app()->ctx->pagination === null) {
             return false;
         }
 
-        $nb_posts = $_ctx->pagination->f(0);
+        $nb_posts = dcCore::app()->ctx->pagination->f(0);
         if ((dcCore::app()->url->type == 'default') || (dcCore::app()->url->type == 'default-page')) {
-            $nb_pages = ceil(($nb_posts - $_ctx->nb_entry_first_page) / $_ctx->nb_entry_per_page + 1);
+            $nb_pages = ceil(($nb_posts - dcCore::app()->ctx->nb_entry_first_page) / dcCore::app()->ctx->nb_entry_per_page + 1);
         } else {
-            $nb_pages = ceil($nb_posts / $_ctx->nb_entry_per_page);
+            $nb_pages = ceil($nb_posts / dcCore::app()->ctx->nb_entry_per_page);
         }
 
         return $nb_pages;
@@ -501,8 +499,6 @@ class context
     # First post image helpers
     public static function EntryFirstImageHelper($size, $with_category, $class = '', $no_tag = false, $content_only = false, $cat_only = false)
     {
-        global $_ctx;
-
         try {
             $media = new dcMedia(dcCore::app());
             $sizes = implode('|', array_keys($media->thumb_sizes)) . '|o';
@@ -520,8 +516,8 @@ class context
             $alt = '';
 
             # We first look in post content
-            if (!$cat_only && $_ctx->posts) {
-                $subject = ($content_only ? '' : $_ctx->posts->post_excerpt_xhtml) . $_ctx->posts->post_content_xhtml;
+            if (!$cat_only && dcCore::app()->ctx->posts) {
+                $subject = ($content_only ? '' : dcCore::app()->ctx->posts->post_excerpt_xhtml) . dcCore::app()->ctx->posts->post_content_xhtml;
                 if (preg_match_all($pattern, $subject, $m) > 0) {
                     foreach ($m[1] as $i => $img) {
                         if (($src = self::ContentFirstImageLookup($p_root, $img, $size)) !== false) {
@@ -538,8 +534,8 @@ class context
             }
 
             # No src, look in category description if available
-            if (!$src && $with_category && $_ctx->posts->cat_desc) {
-                if (preg_match_all($pattern, $_ctx->posts->cat_desc, $m) > 0) {
+            if (!$src && $with_category && dcCore::app()->ctx->posts->cat_desc) {
+                if (preg_match_all($pattern, dcCore::app()->ctx->posts->cat_desc, $m) > 0) {
                     foreach ($m[1] as $i => $img) {
                         if (($src = self::ContentFirstImageLookup($p_root, $img, $size)) !== false) {
                             $dirname = str_replace('\\', '/', dirname($img));

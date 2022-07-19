@@ -37,7 +37,8 @@ final class dcCore
     public $notices;    ///< <b>dcAdminNotices</b>      dcNotices object
     public $favs;       ///< <b>dcFavorites</b>         dcFavorites object
 
-    public $tpl;        //:< <b>dcTemplate</b>          dcTemplate object
+    public $tpl;        ///< <b>dcTemplate</b>          dcTemplate object
+    public $ctx;        ///< <b>context</b>             context object
 
     public $spamfilters = [];
 

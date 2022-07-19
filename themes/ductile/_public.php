@@ -41,8 +41,6 @@ class tplDuctileTheme
 
     public static function ductileNbEntryPerPageHelper(int $nb)
     {
-        global $_ctx;
-
         $nb_other = $nb_first = 0;
 
         $s = \dcCore::app()->blog->settings->themes->get(\dcCore::app()->blog->settings->system->theme . '_entries_counts');
@@ -79,10 +77,10 @@ class tplDuctileTheme
         }
 
         if ($nb_other > 0) {
-            $_ctx->nb_entry_per_page = $nb_other;
+            dcCore::app()->ctx->nb_entry_per_page = $nb_other;
         }
         if ($nb_first > 0) {
-            $_ctx->nb_entry_first_page = $nb_first;
+            dcCore::app()->ctx->nb_entry_first_page = $nb_first;
         }
     }
 
@@ -103,8 +101,8 @@ class tplDuctileTheme
         $full               = \dcCore::app()->tpl->getFilters($attr);
         $attr['cut_string'] = $cut;
 
-        return '<?php if (strlen(' . sprintf($full, '$_ctx->posts->getContent(' . $urls . ')') . ') > ' .
-        'strlen(' . sprintf($short, '$_ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
+        return '<?php if (strlen(' . sprintf($full, 'dcCore::app()->ctx->posts->getContent(' . $urls . ')') . ') > ' .
+        'strlen(' . sprintf($short, 'dcCore::app()->ctx->posts->getContent(' . $urls . ')') . ')) : ?>' .
             $content .
             '<?php endif; ?>';
     }

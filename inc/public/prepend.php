@@ -60,7 +60,16 @@ try {
 }
 
 # Creating template context
-$_ctx = new context();
+dcCore::app()->ctx = new context();
+
+/**
+ * Template context
+ *
+ * @var        context
+ *
+ * @deprecated Since 2.23+, use dcCore::app()->ctx instead
+ */
+$_ctx = dcCore::app()->ctx;
 
 try {
     dcCore::app()->tpl = new dcTemplate(DC_TPL_CACHE, 'dcCore::app()->tpl', dcCore::app());

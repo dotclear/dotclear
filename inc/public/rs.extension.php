@@ -31,11 +31,10 @@ class rsExtPostPublic extends rsExtPost
     public static function getContent($rs, $absolute_urls = false)
     {
         # Not very nice hack but it does the job :)
-        if (isset($GLOBALS['_ctx']) && $GLOBALS['_ctx']->short_feed_items === true) {
-            $_ctx = &$GLOBALS['_ctx'];
-            $c    = parent::getContent($rs, $absolute_urls);
-            $c    = context::remove_html($c);
-            $c    = context::cut_string($c, 350);
+        if (isset(dcCore::app()->ctx) && dcCore::app()->ctx->short_feed_items === true) {
+            $c = parent::getContent($rs, $absolute_urls);
+            $c = context::remove_html($c);
+            $c = context::cut_string($c, 350);
 
             $c = '<p>' . $c . '... ' .
             '<a href="' . $rs->getURL() . '"><em>' . __('Read') . '</em> ' .

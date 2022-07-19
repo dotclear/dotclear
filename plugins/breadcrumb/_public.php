@@ -29,8 +29,6 @@ class tplBreadcrumb
 
     public static function displayBreadcrumb($separator)
     {
-        global $_ctx;
-
         $ret = '';
 
         # Check if breadcrumb enabled for the current blog
@@ -62,9 +60,9 @@ class tplBreadcrumb
                 } else {
                     // Home (first page only)
                     $ret = '<span id="bc-home">' . __('Home') . '</span>';
-                    if ($_ctx->cur_lang) {
+                    if (dcCore::app()->ctx->cur_lang) {
                         $langs = l10n::getISOCodes();
-                        $ret .= $separator . ($langs[$_ctx->cur_lang] ?? $_ctx->cur_lang);
+                        $ret .= $separator . ($langs[dcCore::app()->ctx->cur_lang] ?? dcCore::app()->ctx->cur_lang);
                     }
                 }
 
@@ -76,9 +74,9 @@ class tplBreadcrumb
                 if (dcCore::app()->blog->settings->system->static_home) {
                     $ret .= $separator . '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('posts') . '">' . __('Blog') . '</a>';
                 } else {
-                    if ($_ctx->cur_lang) {
+                    if (dcCore::app()->ctx->cur_lang) {
                         $langs = l10n::getISOCodes();
-                        $ret .= $separator . ($langs[$_ctx->cur_lang] ?? $_ctx->cur_lang);
+                        $ret .= $separator . ($langs[dcCore::app()->ctx->cur_lang] ?? dcCore::app()->ctx->cur_lang);
                     }
                 }
                 $ret .= $separator . sprintf(__('page %d'), $page);
@@ -88,14 +86,14 @@ class tplBreadcrumb
             case 'category':
                 // Category
                 $ret        = '<a id="bc-home" href="' . dcCore::app()->blog->url . '">' . __('Home') . '</a>';
-                $categories = dcCore::app()->blog->getCategoryParents($_ctx->categories->cat_id);
+                $categories = dcCore::app()->blog->getCategoryParents(dcCore::app()->ctx->categories->cat_id);
                 while ($categories->fetch()) {
                     $ret .= $separator . '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
                 }
                 if ($page == 0) {
-                    $ret .= $separator . $_ctx->categories->cat_title;
+                    $ret .= $separator . dcCore::app()->ctx->categories->cat_title;
                 } else {
-                    $ret .= $separator . '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('category', $_ctx->categories->cat_url) . '">' . $_ctx->categories->cat_title . '</a>';
+                    $ret .= $separator . '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('category', dcCore::app()->ctx->categories->cat_url) . '">' . dcCore::app()->ctx->categories->cat_title . '</a>';
                     $ret .= $separator . sprintf(__('page %d'), $page);
                 }
 
@@ -104,17 +102,17 @@ class tplBreadcrumb
             case 'post':
                 // Post
                 $ret = '<a id="bc-home" href="' . dcCore::app()->blog->url . '">' . __('Home') . '</a>';
-                if ($_ctx->posts->cat_id) {
+                if (dcCore::app()->ctx->posts->cat_id) {
                     // Parents cats of post's cat
-                    $categories = dcCore::app()->blog->getCategoryParents($_ctx->posts->cat_id);
+                    $categories = dcCore::app()->blog->getCategoryParents(dcCore::app()->ctx->posts->cat_id);
                     while ($categories->fetch()) {
                         $ret .= $separator . '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
                     }
                     // Post's cat
-                    $categories = dcCore::app()->blog->getCategory($_ctx->posts->cat_id);
+                    $categories = dcCore::app()->blog->getCategory(dcCore::app()->ctx->posts->cat_id);
                     $ret .= $separator . '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('category', $categories->cat_url) . '">' . $categories->cat_title . '</a>';
                 }
-                $ret .= $separator . $_ctx->posts->post_title;
+                $ret .= $separator . dcCore::app()->ctx->posts->post_title;
 
                 break;
 
@@ -122,20 +120,20 @@ class tplBreadcrumb
                 // Lang
                 $ret   = '<a id="bc-home" href="' . dcCore::app()->blog->url . '">' . __('Home') . '</a>';
                 $langs = l10n::getISOCodes();
-                $ret .= $separator . ($langs[$_ctx->cur_lang] ?? $_ctx->cur_lang);
+                $ret .= $separator . ($langs[dcCore::app()->ctx->cur_lang] ?? dcCore::app()->ctx->cur_lang);
 
                 break;
 
             case 'archive':
                 // Archives
                 $ret = '<a id="bc-home" href="' . dcCore::app()->blog->url . '">' . __('Home') . '</a>';
-                if (!$_ctx->archives) {
+                if (!dcCore::app()->ctx->archives) {
                     // Global archives
                     $ret .= $separator . __('Archives');
                 } else {
                     // Month archive
                     $ret .= $separator . '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('archive') . '">' . __('Archives') . '</a>';
-                    $ret .= $separator . dt::dt2str('%B %Y', $_ctx->archives->dt);
+                    $ret .= $separator . dt::dt2str('%B %Y', dcCore::app()->ctx->archives->dt);
                 }
 
                 break;
@@ -143,7 +141,7 @@ class tplBreadcrumb
             case 'pages':
                 // Page
                 $ret = '<a id="bc-home" href="' . dcCore::app()->blog->url . '">' . __('Home') . '</a>';
-                $ret .= $separator . $_ctx->posts->post_title;
+                $ret .= $separator . dcCore::app()->ctx->posts->post_title;
 
                 break;
 
@@ -159,9 +157,9 @@ class tplBreadcrumb
                 $ret = '<a id="bc-home" href="' . dcCore::app()->blog->url . '">' . __('Home') . '</a>';
                 $ret .= $separator . '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tags') . '">' . __('All tags') . '</a>';
                 if ($page == 0) {
-                    $ret .= $separator . $_ctx->meta->meta_id;
+                    $ret .= $separator . dcCore::app()->ctx->meta->meta_id;
                 } else {
-                    $ret .= $separator . '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tag', rawurlencode($_ctx->meta->meta_id)) . '">' . $_ctx->meta->meta_id . '</a>';
+                    $ret .= $separator . '<a href="' . dcCore::app()->blog->url . dcCore::app()->url->getURLFor('tag', rawurlencode(dcCore::app()->ctx->meta->meta_id)) . '">' . dcCore::app()->ctx->meta->meta_id . '</a>';
                     $ret .= $separator . sprintf(__('page %d'), $page);
                 }
 

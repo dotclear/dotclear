@@ -85,8 +85,6 @@ class defaultWidgets
 
     public static function categories($w)
     {
-        global $_ctx;
-
         if ($w->offline) {
             return;
         }
@@ -105,8 +103,8 @@ class defaultWidgets
         $ref_level = $level = $rs->level - 1;
         while ($rs->fetch()) {
             $class = '';
-            if ((dcCore::app()->url->type == 'category' && $_ctx->categories instanceof record && $_ctx->categories->cat_id == $rs->cat_id)
-                || (dcCore::app()->url->type == 'post' && $_ctx->posts instanceof record && $_ctx->posts->cat_id == $rs->cat_id)) {
+            if ((dcCore::app()->url->type == 'category' && dcCore::app()->ctx->categories instanceof record && dcCore::app()->ctx->categories->cat_id == $rs->cat_id)
+                || (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof record && dcCore::app()->ctx->posts->cat_id == $rs->cat_id)) {
                 $class = ' class="category-current"';
             }
 
@@ -136,8 +134,6 @@ class defaultWidgets
 
     public static function bestof($w)
     {
-        global $_ctx;
-
         if ($w->offline) {
             return;
         }
@@ -163,7 +159,7 @@ class defaultWidgets
 
         while ($rs->fetch()) {
             $class = '';
-            if (dcCore::app()->url->type == 'post' && $_ctx->posts instanceof record && $_ctx->posts->post_id == $rs->post_id) {
+            if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof record && dcCore::app()->ctx->posts->post_id == $rs->post_id) {
                 $class = ' class="post-current"';
             }
             $res .= ' <li' . $class . '><a href="' . $rs->getURL() . '">' . html::escapeHTML($rs->post_title) . '</a></li> ';
@@ -176,8 +172,6 @@ class defaultWidgets
 
     public static function langs($w)
     {
-        global $_ctx;
-
         if ($w->offline) {
             return;
         }
@@ -197,7 +191,7 @@ class defaultWidgets
             '<ul>';
 
         while ($rs->fetch()) {
-            $l = ($_ctx->cur_lang == $rs->post_lang) ? '<strong>%s</strong>' : '%s';
+            $l = (dcCore::app()->ctx->cur_lang == $rs->post_lang) ? '<strong>%s</strong>' : '%s';
 
             $lang_name = $langs[$rs->post_lang] ?? $rs->post_lang;
 
@@ -218,8 +212,6 @@ class defaultWidgets
 
     public static function subscribe($w)
     {
-        global  $_ctx;
-
         if ($w->offline) {
             return;
         }
@@ -230,8 +222,8 @@ class defaultWidgets
 
         $type = ($w->type == 'atom' || $w->type == 'rss2') ? $w->type : 'rss2';
         $mime = $type     == 'rss2' ? 'application/rss+xml' : 'application/atom+xml';
-        if ($_ctx->exists('cur_lang')) {
-            $type = $_ctx->cur_lang . '/' . $type;
+        if (dcCore::app()->ctx->exists('cur_lang')) {
+            $type = dcCore::app()->ctx->cur_lang . '/' . $type;
         }
 
         $p_title = __('This blog\'s entries %s feed');
@@ -328,8 +320,6 @@ class defaultWidgets
 
     public static function lastposts($w)
     {
-        global $_ctx;
-
         if ($w->offline) {
             return;
         }
@@ -368,7 +358,7 @@ class defaultWidgets
 
         while ($rs->fetch()) {
             $class = '';
-            if (dcCore::app()->url->type == 'post' && $_ctx->posts instanceof record && $_ctx->posts->post_id == $rs->post_id) {
+            if (dcCore::app()->url->type == 'post' && dcCore::app()->ctx->posts instanceof record && dcCore::app()->ctx->posts->post_id == $rs->post_id) {
                 $class = ' class="post-current"';
             }
             $res .= '<li' . $class . '><a href="' . $rs->getURL() . '">' .

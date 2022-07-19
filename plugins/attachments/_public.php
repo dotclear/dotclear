@@ -38,15 +38,15 @@ class attachmentTpl
     public static function Attachments($attr, $content)
     {
         $res = "<?php\n" .
-            'if ($_ctx->posts !== null && dcCore::app()->media) {' . "\n" .
-            '$_ctx->attachments = new ArrayObject(dcCore::app()->media->getPostMedia($_ctx->posts->post_id,null,"attachment"));' . "\n" .
+            'if (dcCore::app()->ctx->posts !== null && dcCore::app()->media) {' . "\n" .
+            'dcCore::app()->ctx->attachments = new ArrayObject(dcCore::app()->media->getPostMedia(dcCore::app()->ctx->posts->post_id,null,"attachment"));' . "\n" .
             "?>\n" .
 
-            '<?php foreach ($_ctx->attachments as $attach_i => $attach_f) : ' .
+            '<?php foreach (dcCore::app()->ctx->attachments as $attach_i => $attach_f) : ' .
             '$GLOBALS[\'attach_i\'] = $attach_i; $GLOBALS[\'attach_f\'] = $attach_f;' .
-            '$_ctx->file_url = $attach_f->file_url; ?>' .
+            'dcCore::app()->ctx->file_url = $attach_f->file_url; ?>' .
             $content .
-            '<?php endforeach; $_ctx->attachments = null; unset($attach_i,$attach_f,$_ctx->file_url); ?>' .
+            '<?php endforeach; dcCore::app()->ctx->attachments = null; unset($attach_i,$attach_f,dcCore::app()->ctx->file_url); ?>' .
 
             "<?php } ?>\n";
 
@@ -70,7 +70,7 @@ class attachmentTpl
     public static function AttachmentsFooter($attr, $content)
     {
         return
-            '<?php if ($attach_i+1 == count($_ctx->attachments)) : ?>' .
+            '<?php if ($attach_i+1 == count(dcCore::app()->ctx->attachments)) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -234,7 +234,7 @@ class attachmentTpl
 
         return
         '<?php ' . "\n" .
-        '$url = $_ctx->file_url;' . "\n" .
+        '$url = dcCore::app()->ctx->file_url;' . "\n" .
         'if (substr($url, 0, strlen(dcCore::app()->blog->host)) === dcCore::app()->blog->host) {' . "\n" .
         '   $url = substr($url, strlen(dcCore::app()->blog->host));' . "\n" .
         '}' . "\n" .
@@ -253,7 +253,7 @@ class attachmentTpl
     public static function EntryAttachmentCount($attr)
     {
         return dcCore::app()->tpl->displayCounter(
-            '$_ctx->posts->countMedia(\'attachment\')',
+            'dcCore::app()->ctx->posts->countMedia(\'attachment\')',
             [
                 'none' => 'no attachments',
                 'one'  => 'one attachment',
@@ -271,7 +271,7 @@ class attachmentBehavior
     {
         if ($tag == 'EntryIf' && isset($attr['has_attachment'])) {
             $sign = (bool) $attr['has_attachment'] ? '' : '!';
-            $if[] = $sign . '$_ctx->posts->countMedia(\'attachment\')';
+            $if[] = $sign . 'dcCore::app()->ctx->posts->countMedia(\'attachment\')';
         }
     }
 }
