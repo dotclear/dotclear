@@ -57,7 +57,7 @@ class dcNamespace
     private function getSettings($rs = null)
     {
         if ($rs == null) {
-            $sql = new dcSelectStatement($this->core);
+            $sql = new dcSelectStatement();
             $sql
                 ->columns([
                     'blog_id',
@@ -305,7 +305,7 @@ class dcNamespace
         }
 
         if ($this->settingExists($id, $global) && $this->ns == $this->settings[$id]['ns']) {
-            $sql = new dcUpdateStatement($this->core);
+            $sql = new dcUpdateStatement();
 
             if ($global) {
                 $sql->where('blog_id IS NULL');
@@ -355,7 +355,7 @@ class dcNamespace
         unset($this->settings[$oldId]);
 
         // Rename the setting in the database
-        $sql = new dcUpdateStatement($this->core);
+        $sql = new dcUpdateStatement();
         $sql
             ->ref($this->table)
             ->set('setting_id = ' . $sql->quote($newId))
@@ -380,7 +380,7 @@ class dcNamespace
             throw new Exception(__('No namespace specified'));
         }
 
-        $sql = new dcDeleteStatement($this->core);
+        $sql = new dcDeleteStatement();
         $sql
             ->from($this->table);
 
@@ -411,7 +411,7 @@ class dcNamespace
             throw new Exception(__('No namespace specified'));
         }
 
-        $sql = new dcDeleteStatement($this->core);
+        $sql = new dcDeleteStatement();
         $sql
             ->from($this->table);
 
@@ -438,7 +438,7 @@ class dcNamespace
             throw new Exception(__('No namespace specified'));
         }
 
-        $sql = new dcDeleteStatement($this->core);
+        $sql = new dcDeleteStatement();
         $sql
             ->from($this->table);
 

@@ -63,7 +63,7 @@ class dcWorkspace
     private function getPrefs($rs = null)
     {
         if ($rs == null) {
-            $sql = new dcSelectStatement($this->core);
+            $sql = new dcSelectStatement();
             $sql
                 ->columns([
                     'user_id',
@@ -313,7 +313,7 @@ class dcWorkspace
         }
 
         if ($this->prefExists($id, $global) && $this->ws == $this->prefs[$id]['ws']) {
-            $sql = new dcUpdateStatement($this->core);
+            $sql = new dcUpdateStatement();
 
             if ($global) {
                 $sql->where('user_id IS NULL');
@@ -363,7 +363,7 @@ class dcWorkspace
         unset($this->prefs[$oldId]);
 
         // Rename the pref in the database
-        $sql = new dcUpdateStatement($this->core);
+        $sql = new dcUpdateStatement();
         $sql
             ->ref($this->table)
             ->set('pref_id = ' . $sql->quote($newId))
@@ -389,7 +389,7 @@ class dcWorkspace
             throw new Exception(__('No workspace specified'));
         }
 
-        $sql = new dcDeleteStatement($this->core);
+        $sql = new dcDeleteStatement();
         $sql
             ->from($this->table);
 
@@ -430,7 +430,7 @@ class dcWorkspace
             throw new Exception(__('No workspace specified'));
         }
 
-        $sql = new dcDeleteStatement($this->core);
+        $sql = new dcDeleteStatement();
         $sql
             ->from($this->table);
 
@@ -457,7 +457,7 @@ class dcWorkspace
             throw new Exception(__('No workspace specified'));
         }
 
-        $sql = new dcDeleteStatement($this->core);
+        $sql = new dcDeleteStatement();
         $sql
             ->from($this->table);
 

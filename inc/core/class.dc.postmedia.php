@@ -37,7 +37,7 @@ class dcPostMedia
      */
     public function getPostMedia($params = [])
     {
-        $sql = new dcSelectStatement($this->core);
+        $sql = new dcSelectStatement();
         $sql
             ->columns([
                 'M.media_file',
@@ -58,9 +58,9 @@ class dcPostMedia
         }
 
         $sql
-            ->from($sql->core->prefix . 'media M')
+            ->from(dcCore::app()->prefix . 'media M')
             ->join(
-                (new dcJoinStatement($this->core))
+                (new dcJoinStatement())
                 ->inner()
                 ->from($this->table . ' PM')
                 ->on('M.media_id = PM.media_id')
@@ -135,7 +135,7 @@ class dcPostMedia
         $post_id  = (int) $post_id;
         $media_id = (int) $media_id;
 
-        $sql = new dcDeleteStatement($this->core);
+        $sql = new dcDeleteStatement();
         $sql
             ->from($this->table)
             ->where('post_id = ' . $post_id)

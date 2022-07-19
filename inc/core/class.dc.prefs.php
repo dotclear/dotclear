@@ -58,7 +58,7 @@ class dcPrefs
      */
     private function loadPrefs($workspace = null)
     {
-        $sql = new dcSelectStatement($this->core);
+        $sql = new dcSelectStatement();
         $sql
             ->columns([
                 'user_id',
@@ -144,7 +144,7 @@ class dcPrefs
         unset($this->workspaces[$oldWs]);
 
         // Rename the workspace in the database
-        $sql = new dcUpdateStatement($this->core);
+        $sql = new dcUpdateStatement();
         $sql
             ->ref($this->table)
             ->set('pref_ws = ' . $sql->quote($newWs))
@@ -171,7 +171,7 @@ class dcPrefs
         unset($this->workspaces[$ws]);
 
         // Delete all preferences from the workspace in the database
-        $sql = new dcDeleteStatement($this->core);
+        $sql = new dcDeleteStatement();
         $sql
             ->from($this->table)
             ->where('pref_ws = ' . $sql->quote($ws));

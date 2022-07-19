@@ -149,10 +149,6 @@ parameters:
     - message: '#Call to an undefined method dcSqlStatement::set\(\).#'
       path: %currentWorkingDirectory%
 
-    # dcSqlStatement::$core
-    - message: '#Access to protected property dcSelectStatement::\$core.#'
-      path: %currentWorkingDirectory%
-
     # arrayObject/type
     - message: '#ArrayObject\<\*NEVER\*, \*NEVER\*\> does not accept#'
       path: %currentWorkingDirectory%

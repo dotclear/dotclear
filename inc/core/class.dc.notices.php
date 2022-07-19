@@ -44,7 +44,7 @@ class dcNotices
 
     public function getNotices($params = [], $count_only = false)
     {
-        $sql = new dcSelectStatement($this->core);
+        $sql = new dcSelectStatement();
         $sql
             ->from($this->table);
 
@@ -110,7 +110,7 @@ class dcNotices
 
         try {
             # Get ID
-            $sql = new dcSelectStatement($this->core);
+            $sql = new dcSelectStatement();
             $sql
                 ->column($sql->max('notice_id'))
                 ->from($this->table);
@@ -141,7 +141,7 @@ class dcNotices
 
     public function delNotices($id, $all = false)
     {
-        $sql = new dcDeleteStatement($this->core);
+        $sql = new dcDeleteStatement();
         $sql
             ->from($this->table);
 

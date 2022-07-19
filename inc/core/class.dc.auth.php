@@ -96,7 +96,7 @@ class dcAuth
     public function checkUser($user_id, $pwd = null, $user_key = null, $check_blog = true)
     {
         # Check user and password
-        $sql = new dcSelectStatement($this->core);
+        $sql = new dcSelectStatement();
         $sql
             ->columns([
                 'user_id',
@@ -170,7 +170,7 @@ class dcAuth
                 $cur           = $this->con->openCursor($this->user_table);
                 $cur->user_pwd = (string) $rs->user_pwd;
 
-                $sql = new dcUpdateStatement($this->core);
+                $sql = new dcUpdateStatement();
                 $sql->where('user_id = ' . $sql->quote($rs->user_id));
 
                 $sql->update($cur);
@@ -419,7 +419,7 @@ class dcAuth
         }
 
         if ($this->user_admin) {
-            $sql = new dcSelectStatement($this->core);
+            $sql = new dcSelectStatement();
             $sql
                 ->column('blog_id')
                 ->from($this->blog_table)
@@ -432,7 +432,7 @@ class dcAuth
             return $this->blogs[$blog_id];
         }
 
-        $sql = new dcSelectStatement($this->core);
+        $sql = new dcSelectStatement();
         $sql
             ->column('permissions')
             ->from($this->perm_table)
@@ -478,7 +478,7 @@ class dcAuth
             return $blog_id;
         }
 
-        $sql = new dcSelectStatement($this->core);
+        $sql = new dcSelectStatement();
 
         if ($this->user_admin) {
             /* @phpstan-ignore-next-line */
@@ -621,7 +621,7 @@ class dcAuth
      */
     public function setRecoverKey($user_id, $user_email)
     {
-        $sql = new dcSelectStatement($this->core);
+        $sql = new dcSelectStatement();
         $sql
             ->column('user_id')
             ->from($this->user_table)
@@ -639,7 +639,7 @@ class dcAuth
         $cur                   = $this->con->openCursor($this->user_table);
         $cur->user_recover_key = $key;
 
-        $sql = new dcUpdateStatement($this->core);
+        $sql = new dcUpdateStatement();
         $sql->where('user_id = ' . $sql->quote($user_id));
 
         $sql->update($cur);
@@ -660,7 +660,7 @@ class dcAuth
      */
     public function recoverUserPassword($recover_key)
     {
-        $sql = new dcSelectStatement($this->core);
+        $sql = new dcSelectStatement();
         $sql
             ->columns(['user_id', 'user_email'])
             ->from($this->user_table)
@@ -679,7 +679,7 @@ class dcAuth
         $cur->user_recover_key = null;
         $cur->user_change_pwd  = 1; // User will have to change this temporary password at next login
 
-        $sql = new dcUpdateStatement($this->core);
+        $sql = new dcUpdateStatement();
         $sql->where('user_recover_key = ' . $sql->quote($recover_key));
 
         $sql->update($cur);

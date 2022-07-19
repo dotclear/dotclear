@@ -16,7 +16,6 @@
  */
 class dcSqlStatement
 {
-    protected $core;
     protected $con;
 
     protected $columns;
@@ -27,13 +26,10 @@ class dcSqlStatement
 
     /**
      * Class constructor
-     *
-     * @param dcCore    $core   dcCore instance
      */
-    public function __construct(dcCore &$core)
+    public function __construct()
     {
-        $this->core = &$core;
-        $this->con  = &$core->con;
+        $this->con = dcCore::app()->con;
 
         $this->columns = $this->from = $this->where = $this->cond = $this->sql = [];
     }
@@ -648,10 +644,8 @@ class dcSelectStatement extends dcSqlStatement
 
     /**
      * Class constructor
-     *
-     * @param dcCore    $core   dcCore instance
      */
-    public function __construct(dcCore &$core)
+    public function __construct()
     {
         $this->join = $this->union = $this->having = $this->order = $this->group = [];
 
@@ -659,7 +653,7 @@ class dcSelectStatement extends dcSqlStatement
         $this->offset   = null;
         $this->distinct = false;
 
-        parent::__construct($core);
+        parent::__construct();
     }
 
     /**
@@ -848,7 +842,7 @@ class dcSelectStatement extends dcSqlStatement
     public function statement(): string
     {
         # --BEHAVIOR-- coreBeforeSelectStatement
-        $this->core->callBehavior('coreBeforeSelectStatement', $this);
+        dcCore::app()->callBehavior('coreBeforeSelectStatement', $this);
 
         // Check if source given
         if (!count($this->from)) {
@@ -930,7 +924,7 @@ class dcSelectStatement extends dcSqlStatement
         $query = trim($query);
 
         # --BEHAVIOR-- coreAfertSelectStatement
-        $this->core->callBehavior('coreAfterSelectStatement', $this, $query);
+        dcCore::app()->callBehavior('coreAfterSelectStatement', $this, $query);
 
         return $query;
     }
@@ -969,14 +963,12 @@ class dcJoinStatement extends dcSqlStatement
 
     /**
      * Class constructor
-     *
-     * @param dcCore    $core   dcCore instance
      */
-    public function __construct(dcCore &$core)
+    public function __construct()
     {
         $this->type = null;
 
-        parent::__construct($core);
+        parent::__construct();
     }
 
     /**
@@ -1030,7 +1022,7 @@ class dcJoinStatement extends dcSqlStatement
     public function statement(): string
     {
         # --BEHAVIOR-- coreBeforeDeleteStatement
-        $this->core->callBehavior('coreBeforeJoinStatement', $this);
+        dcCore::app()->callBehavior('coreBeforeJoinStatement', $this);
 
         // Check if source given
         if (!count($this->from)) {
@@ -1068,7 +1060,7 @@ class dcJoinStatement extends dcSqlStatement
         $query = trim($query);
 
         # --BEHAVIOR-- coreAfertSelectStatement
-        $this->core->callBehavior('coreAfterJoinStatement', $this, $query);
+        dcCore::app()->callBehavior('coreAfterJoinStatement', $this, $query);
 
         return $query;
     }
@@ -1087,7 +1079,7 @@ class dcDeleteStatement extends dcSqlStatement
     public function statement(): string
     {
         # --BEHAVIOR-- coreBeforeDeleteStatement
-        $this->core->callBehavior('coreBeforeDeleteStatement', $this);
+        dcCore::app()->callBehavior('coreBeforeDeleteStatement', $this);
 
         // Check if source given
         if (!count($this->from)) {
@@ -1123,7 +1115,7 @@ class dcDeleteStatement extends dcSqlStatement
         $query = trim($query);
 
         # --BEHAVIOR-- coreAfertDeleteStatement
-        $this->core->callBehavior('coreAfterDeleteStatement', $this, $query);
+        dcCore::app()->callBehavior('coreAfterDeleteStatement', $this, $query);
 
         return $query;
     }
@@ -1162,14 +1154,12 @@ class dcUpdateStatement extends dcSqlStatement
 
     /**
      * Class constructor
-     *
-     * @param dcCore    $core   dcCore instance
      */
-    public function __construct(dcCore &$core)
+    public function __construct()
     {
         $this->set = [];
 
-        parent::__construct($core);
+        parent::__construct();
     }
 
     /**
@@ -1245,7 +1235,7 @@ class dcUpdateStatement extends dcSqlStatement
     public function whereStatement(): string
     {
         # --BEHAVIOR-- coreBeforeUpdateWhereStatement
-        $this->core->callBehavior('coreBeforeUpdateWhereStatement', $this);
+        dcCore::app()->callBehavior('coreBeforeUpdateWhereStatement', $this);
 
         $query = '';
 
@@ -1270,7 +1260,7 @@ class dcUpdateStatement extends dcSqlStatement
         $query = trim($query);
 
         # --BEHAVIOR-- coreAfertUpdateWhereStatement
-        $this->core->callBehavior('coreAfterUpdateWhereStatement', $this, $query);
+        dcCore::app()->callBehavior('coreAfterUpdateWhereStatement', $this, $query);
 
         return $query;
     }
@@ -1283,7 +1273,7 @@ class dcUpdateStatement extends dcSqlStatement
     public function statement(): string
     {
         # --BEHAVIOR-- coreBeforeUpdateStatement
-        $this->core->callBehavior('coreBeforeUpdateStatement', $this);
+        dcCore::app()->callBehavior('coreBeforeUpdateStatement', $this);
 
         // Check if source given
         if (!count($this->from)) {
@@ -1309,7 +1299,7 @@ class dcUpdateStatement extends dcSqlStatement
         $query = trim($query);
 
         # --BEHAVIOR-- coreAfertUpdateStatement
-        $this->core->callBehavior('coreAfterUpdateStatement', $this, $query);
+        dcCore::app()->callBehavior('coreAfterUpdateStatement', $this, $query);
 
         return $query;
     }
@@ -1356,14 +1346,12 @@ class dcInsertStatement extends dcSqlStatement
 
     /**
      * Class constructor
-     *
-     * @param dcCore    $core   dcCore instance
      */
-    public function __construct(dcCore &$core)
+    public function __construct()
     {
         $this->lines = [];
 
-        parent::__construct($core);
+        parent::__construct();
     }
 
     /**
@@ -1424,7 +1412,7 @@ class dcInsertStatement extends dcSqlStatement
     public function statement(): string
     {
         # --BEHAVIOR-- coreBeforeInsertStatement
-        $this->core->callBehavior('coreBeforeInsertStatement', $this);
+        dcCore::app()->callBehavior('coreBeforeInsertStatement', $this);
 
         // Check if source given
         if (!count($this->from)) {
@@ -1461,7 +1449,7 @@ class dcInsertStatement extends dcSqlStatement
         $query = trim($query);
 
         # --BEHAVIOR-- coreAfertInsertStatement
-        $this->core->callBehavior('coreAfterInsertStatement', $this, $query);
+        dcCore::app()->callBehavior('coreAfterInsertStatement', $this, $query);
 
         return $query;
     }
@@ -1498,12 +1486,10 @@ class dcTruncateStatement extends dcSqlStatement
 {
     /**
      * Class constructor
-     *
-     * @param dcCore    $core   dcCore instance
      */
-    public function __construct(dcCore &$core)
+    public function __construct()
     {
-        parent::__construct($core);
+        parent::__construct();
     }
 
     /**
@@ -1514,7 +1500,7 @@ class dcTruncateStatement extends dcSqlStatement
     public function statement(): string
     {
         # --BEHAVIOR-- coreBeforeInsertStatement
-        $this->core->callBehavior('coreBeforeTruncateStatement', $this);
+        dcCore::app()->callBehavior('coreBeforeTruncateStatement', $this);
 
         // Check if source given
         if (!count($this->from)) {
@@ -1532,7 +1518,7 @@ class dcTruncateStatement extends dcSqlStatement
         $query = trim($query);
 
         # --BEHAVIOR-- coreAfertInsertStatement
-        $this->core->callBehavior('coreAfterTruncateStatement', $this, $query);
+        dcCore::app()->callBehavior('coreAfterTruncateStatement', $this, $query);
 
         return $query;
     }

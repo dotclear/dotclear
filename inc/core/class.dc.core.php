@@ -539,7 +539,7 @@ final class dcCore
     {
         # Fetch versions if needed
         if (!is_array($this->versions)) {
-            $rs = (new dcSelectStatement($this))
+            $rs = (new dcSelectStatement())
                 ->columns([
                     'module',
                     'version',
@@ -574,7 +574,7 @@ final class dcCore
         if ($cur_version === null) {
             $cur->insert();
         } else {
-            $sql = new dcUpdateStatement($this);
+            $sql = new dcUpdateStatement();
             $sql->where('module = ' . $sql->quote($module));
 
             $sql->update($cur);
@@ -590,7 +590,7 @@ final class dcCore
      */
     public function delVersion($module)
     {
-        $sql = new dcDeleteStatement($this);
+        $sql = new dcDeleteStatement();
         $sql
             ->from($this->prefix . 'version')
             ->where('module = ' . $sql->quote($module));
@@ -636,7 +636,7 @@ final class dcCore
      */
     public function getUsers($params = [], $count_only = false)
     {
-        $sql = new dcSelectStatement($this);
+        $sql = new dcSelectStatement();
 
         if ($count_only) {
             $sql
@@ -670,7 +670,7 @@ final class dcCore
             }
             $sql
                 ->join(
-                    (new dcJoinStatement($this))
+                    (new dcJoinStatement())
                         ->left()
                         ->from($this->prefix . 'post P')
                         ->on('U.user_id = P.user_id')
@@ -791,7 +791,7 @@ final class dcCore
             throw new Exception(__('You are not an administrator'));
         }
 
-        $sql = new dcUpdateStatement($this);
+        $sql = new dcUpdateStatement();
         $sql->where('user_id = ' . $sql->quote($id));
 
         $sql->update($cur);
@@ -803,7 +803,7 @@ final class dcCore
         }
 
         # Updating all user's blogs
-        $sql = new dcSelectStatement($this);
+        $sql = new dcSelectStatement();
         $sql
             ->distinct()
             ->column('blog_id')
@@ -844,7 +844,7 @@ final class dcCore
             return;
         }
 
-        $sql = new dcDeleteStatement($this);
+        $sql = new dcDeleteStatement();
         $sql
             ->from($this->prefix . 'user')
             ->where('user_id = ' . $sql->quote($id));
@@ -863,7 +863,7 @@ final class dcCore
      */
     public function userExists($id)
     {
-        $sql = new dcSelectStatement($this);
+        $sql = new dcSelectStatement();
         $sql
             ->column('user_id')
             ->from($this->prefix . 'user')
@@ -890,7 +890,7 @@ final class dcCore
      */
     public function getUserPermissions($id)
     {
-        $sql = new dcSelectStatement($this);
+        $sql = new dcSelectStatement();
         $sql
             ->columns([
                 'B.blog_id',
@@ -900,7 +900,7 @@ final class dcCore
             ])
             ->from($this->prefix . 'permissions P')
             ->join(
-                (new dcJoinStatement($this))
+                (new dcJoinStatement())
                 ->inner()
                 ->from($this->prefix . 'blog B')
                 ->on('P.blog_id = B.blog_id')
@@ -940,7 +940,7 @@ final class dcCore
             throw new Exception(__('You are not an administrator'));
         }
 
-        $sql = new dcDeleteStatement($this);
+        $sql = new dcDeleteStatement();
         $sql
             ->from($this->prefix . 'permissions')
             ->where('user_id = ' . $sql->quote($id));
@@ -979,7 +979,7 @@ final class dcCore
         $cur->permissions = $perms;
 
         if ($delete_first || $no_perm) {
-            $sql = new dcDeleteStatement($this);
+            $sql = new dcDeleteStatement();
             $sql
                 ->from($this->prefix . 'permissions')
                 ->where('blog_id = ' . $sql->quote($blog_id))
@@ -1005,7 +1005,7 @@ final class dcCore
 
         $cur->user_default_blog = (string) $blog_id;
 
-        $sql = new dcUpdateStatement($this);
+        $sql = new dcUpdateStatement();
         $sql->where('user_id = ' . $sql->quote($id));
 
         $sql->update($cur);
@@ -1089,7 +1089,7 @@ final class dcCore
      */
     public function getBlogPermissions($id, $with_super = true)
     {
-        $sql = new dcSelectStatement($this);
+        $sql = new dcSelectStatement();
         $sql
             ->columns([
                 'U.user_id as user_id',
@@ -1101,7 +1101,7 @@ final class dcCore
                 'permissions',
             ])
             ->from($this->prefix . 'user U')
-            ->join((new dcJoinStatement($this))
+            ->join((new dcJoinStatement())
                 ->from($this->prefix . 'permissions P')
                 ->on('U.user_id = P.user_id')
                 ->statement())
@@ -1109,7 +1109,7 @@ final class dcCore
 
         if ($with_super) {
             $sql->union(
-                (new dcSelectStatement($this))
+                (new dcSelectStatement())
                 ->columns([
                     'U.user_id as user_id',
                     'user_super',

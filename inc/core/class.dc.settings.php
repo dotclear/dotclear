@@ -50,7 +50,7 @@ class dcSettings
      */
     private function loadSettings()
     {
-        $sql = new dcSelectStatement($this->core);
+        $sql = new dcSelectStatement();
         $sql
             ->columns([
                 'blog_id',
@@ -131,7 +131,7 @@ class dcSettings
         unset($this->namespaces[$oldNs]);
 
         // Rename the namespace in the database
-        $sql = new dcUpdateStatement($this->core);
+        $sql = new dcUpdateStatement();
         $sql
             ->ref($this->table)
             ->set('setting_ns = ' . $sql->quote($newNs))
@@ -158,7 +158,7 @@ class dcSettings
         unset($this->namespaces[$ns]);
 
         // Delete all settings from the namespace in the database
-        $sql = new dcDeleteStatement($this->core);
+        $sql = new dcDeleteStatement();
         $sql
             ->from($this->table)
             ->where('setting_ns = ' . $sql->quote($ns));
@@ -230,7 +230,7 @@ class dcSettings
      */
     public function getGlobalSettings($params = [])
     {
-        $sql = new dcSelectStatement($this->core);
+        $sql = new dcSelectStatement();
         $sql->from($this->table);
         if (!empty($params['ns'])) {
             $sql->and('setting_ns = ' . $sql->quote($params['ns']));
@@ -265,7 +265,7 @@ class dcSettings
         $cur->blog_id       = $rs->blog_id;
         $cur->setting_ns    = $rs->setting_ns;
 
-        $sql = new dcUpdateStatement($this->core);
+        $sql = new dcUpdateStatement();
         if ($cur->blog_id == null) {
             $sql->where('blog_id IS NULL');
         } else {
@@ -287,7 +287,7 @@ class dcSettings
      */
     public function dropSetting($rs)
     {
-        $sql = new dcDeleteStatement($this->core);
+        $sql = new dcDeleteStatement();
         $sql->from($this->table);
         if ($rs->blog_id == null) {
             $sql->where('blog_id IS NULL');
