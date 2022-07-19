@@ -19,7 +19,11 @@ if (!defined('DC_RC_PATH')) {
 class dcStore
 {
     /** @var    object    dcCore instance */
+    /**
+     * @deprecated since 2.23
+     */
     public $core;
+
     /** @var    object    dcModules instance */
     public $modules;
 
@@ -48,7 +52,7 @@ class dcStore
      */
     public function __construct(dcModules $modules, $xml_url, $force = false)
     {
-        $this->core       = $modules->core;
+        $this->core       = dcCore::app();
         $this->modules    = $modules;
         $this->xml_url    = $xml_url;
         $this->user_agent = sprintf('Dotclear/%s)', DC_VERSION);

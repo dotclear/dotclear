@@ -14,7 +14,11 @@ if (!defined('DC_RC_PATH')) {
 
 class dcWorkspace
 {
+    /**
+     * @deprecated since 2.23
+     */
     protected $core;    ///< <b>core</b> Dotclear core object
+
     protected $con;     ///< <b>connection</b> Database connection object
     protected $table;   ///< <b>string</b> Preferences table name
     protected $user_id; ///< <b>string</b> User ID
@@ -38,7 +42,7 @@ class dcWorkspace
      *
      * @throws     Exception
      */
-    public function __construct(&$core, $user_id, $name, $rs = null)
+    public function __construct($core, $user_id, $name, $rs = null)
     {
         if (preg_match(self::WS_NAME_SCHEMA, $name)) {
             $this->ws = $name;
@@ -46,15 +50,15 @@ class dcWorkspace
             throw new Exception(sprintf(__('Invalid dcWorkspace: %s'), $name));
         }
 
-        $this->core    = &$core;
-        $this->con     = &$core->con;
-        $this->table   = $core->prefix . 'pref';
-        $this->user_id = &$user_id;
+        $this->core    = dcCore::app();
+        $this->con     = dcCore::app()->con;
+        $this->table   = dcCore::app()->prefix . 'pref';
+        $this->user_id = $user_id;
 
         try {
             $this->getPrefs($rs);
         } catch (Exception $e) {
-            if (version_compare($core->getVersion('core'), '2.3', '>')) {
+            if (version_compare(dcCore::app()->getVersion('core'), '2.3', '>')) {
                 trigger_error(__('Unable to retrieve prefs:') . ' ' . $this->con->error(), E_USER_ERROR);
             }
         }

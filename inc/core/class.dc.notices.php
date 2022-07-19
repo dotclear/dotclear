@@ -16,23 +16,27 @@ if (!defined('DC_RC_PATH')) {
 class dcNotices
 {
     /** @var dcCore dotclear core instance */
+    /**
+     * @deprecated since 2.23
+     */
     protected $core;
+
     protected $table_name = 'notice';
     protected $table;
 
     /**
      * Class constructor
      *
-     * @param mixed  $core   dotclear core
+     * @param dcCore  $core   dotclear core
      *
      * @access public
      *
      * @return mixed Value.
      */
-    public function __construct($core)
+    public function __construct(dcCore $core = null)
     {
-        $this->core  = &$core;
-        $this->table = $core->prefix . $this->table_name;
+        $this->core  = dcCore::app();
+        $this->table = dcCore::app()->prefix . $this->table_name;
     }
 
     public function getTable()
@@ -106,7 +110,7 @@ class dcNotices
 
     public function addNotice($cur)
     {
-        $this->core->con->writeLock($this->table);
+        dcCore::app()->con->writeLock($this->table);
 
         try {
             # Get ID
@@ -123,18 +127,18 @@ class dcNotices
             $this->getNoticeCursor($cur, $cur->notice_id);
 
             # --BEHAVIOR-- coreBeforeNoticeCreate
-            $this->core->callBehavior('coreBeforeNoticeCreate', $this, $cur);
+            dcCore::app()->callBehavior('coreBeforeNoticeCreate', $this, $cur);
 
             $cur->insert();
-            $this->core->con->unlock();
+            dcCore::app()->con->unlock();
         } catch (Exception $e) {
-            $this->core->con->unlock();
+            dcCore::app()->con->unlock();
 
             throw $e;
         }
 
         # --BEHAVIOR-- coreAfterNoticeCreate
-        $this->core->callBehavior('coreAfterNoticeCreate', $this, $cur);
+        dcCore::app()->callBehavior('coreAfterNoticeCreate', $this, $cur);
 
         return $cur->notice_id;
     }

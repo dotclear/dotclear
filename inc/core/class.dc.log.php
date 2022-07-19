@@ -12,7 +12,11 @@ if (!defined('DC_RC_PATH')) {
 
 class dcLog
 {
+    /**
+     * @deprecated since 2.23
+     */
     protected $core;
+
     protected $con;
     protected $log_table;
     protected $user_table;
@@ -22,12 +26,12 @@ class dcLog
      *
      * @param      dcCore  $core   The core
      */
-    public function __construct(dcCore $core)
+    public function __construct(dcCore $core = null)
     {
-        $this->core       = &$core;
-        $this->con        = &$core->con;
-        $this->log_table  = $core->prefix . 'log';
-        $this->user_table = $core->prefix . 'user';
+        $this->core       = dcCore::app();
+        $this->con        = dcCore::app()->con;
+        $this->log_table  = dcCore::app()->prefix . 'log';
+        $this->user_table = dcCore::app()->prefix . 'user';
     }
 
     /**
@@ -86,7 +90,7 @@ class dcLog
                 $sql->where('L.blog_id = ' . $sql->quote($params['blog_id']));
             }
         } else {
-            $sql->where('L.blog_id = ' . $sql->quote($this->core->blog->id));
+            $sql->where('L.blog_id = ' . $sql->quote(dcCore::app()->blog->id));
         }
 
         if (!empty($params['user_id'])) {
@@ -138,13 +142,13 @@ class dcLog
             $rs = $sql->select();
 
             $cur->log_id  = (int) $rs->f(0) + 1;
-            $cur->blog_id = (string) $this->core->blog->id;
+            $cur->blog_id = (string) dcCore::app()->blog->id;
             $cur->log_dt  = date('Y-m-d H:i:s');
 
             $this->getLogCursor($cur, $cur->log_id);
 
             # --BEHAVIOR-- coreBeforeLogCreate
-            $this->core->callBehavior('coreBeforeLogCreate', $this, $cur);
+            dcCore::app()->callBehavior('coreBeforeLogCreate', $this, $cur);
 
             $cur->insert();
             $this->con->unlock();
@@ -155,7 +159,7 @@ class dcLog
         }
 
         # --BEHAVIOR-- coreAfterLogCreate
-        $this->core->callBehavior('coreAfterLogCreate', $this, $cur);
+        dcCore::app()->callBehavior('coreAfterLogCreate', $this, $cur);
 
         return $cur->log_id;
     }

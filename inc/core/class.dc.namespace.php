@@ -14,7 +14,11 @@ if (!defined('DC_RC_PATH')) {
 
 class dcNamespace
 {
+    /**
+     * @deprecated since 2.23
+     */
     protected $core;    ///< <b>core</b> Dotclear core object
+
     protected $con;     ///< <b>connection</b> Database connection object
     protected $table;   ///< <b>string</b> Settings table name
     protected $blog_id; ///< <b>string</b> Blog ID
@@ -38,7 +42,7 @@ class dcNamespace
      *
      * @throws     Exception  (description)
      */
-    public function __construct(dcCore &$core, $blog_id, $name, $rs = null)
+    public function __construct(dcCore $core, $blog_id, $name, $rs = null)
     {
         if (preg_match(self::NS_NAME_SCHEMA, $name)) {
             $this->ns = $name;
@@ -46,10 +50,10 @@ class dcNamespace
             throw new Exception(sprintf(__('Invalid setting dcNamespace: %s'), $name));
         }
 
-        $this->core    = &$core;
-        $this->con     = &$core->con;
-        $this->table   = $core->prefix . 'setting';
-        $this->blog_id = &$blog_id;
+        $this->core    = dcCore::app();
+        $this->con     = dcCore::app()->con;
+        $this->table   = dcCore::app()->prefix . 'setting';
+        $this->blog_id = $blog_id;
 
         $this->getSettings($rs);
     }

@@ -12,7 +12,11 @@ if (!defined('DC_RC_PATH')) {
 
 class dcPostMedia
 {
+    /**
+     * @deprecated since 2.23
+     */
     protected $core;  ///< <b>dcCore</b> dcCore instance
+
     protected $con;   ///< <b>connection</b> Database connection
     protected $table; ///< <b>string</b> Post-Media table name
 
@@ -21,11 +25,11 @@ class dcPostMedia
      *
      * @param      dcCore  $core   The core
      */
-    public function __construct(dcCore $core)
+    public function __construct(dcCore $core = null)
     {
-        $this->core  = &$core;
-        $this->con   = &$core->con;
-        $this->table = $this->core->prefix . 'post_media';
+        $this->core  = dcCore::app();
+        $this->con   = dcCore::app()->con;
+        $this->table = dcCore::app()->prefix . 'post_media';
     }
 
     /**
@@ -120,7 +124,7 @@ class dcPostMedia
         $cur->link_type = $link_type;
 
         $cur->insert();
-        $this->core->blog->triggerBlog();
+        dcCore::app()->blog->triggerBlog();
     }
 
     /**
@@ -146,6 +150,6 @@ class dcPostMedia
         }
         $sql->delete();
 
-        $this->core->blog->triggerBlog();
+        dcCore::app()->blog->triggerBlog();
     }
 }

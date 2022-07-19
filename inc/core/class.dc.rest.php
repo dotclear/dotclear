@@ -17,6 +17,9 @@ if (!defined('DC_RC_PATH')) {
 
 class dcRestServer extends restServer
 {
+    /**
+     * @deprecated since 2.23
+     */
     public $core; ///< dcCore instance
 
     /**
@@ -24,11 +27,11 @@ class dcRestServer extends restServer
      *
      * @param      dcCore  $core   The core
      */
-    public function __construct(dcCore $core)
+    public function __construct(dcCore $core = null)
     {
         parent::__construct();
 
-        $this->core = &$core;
+        $this->core = dcCore::app();
     }
 
     /**
@@ -43,7 +46,7 @@ class dcRestServer extends restServer
     protected function callFunction($name, $get, $post)
     {
         if (isset($this->functions[$name])) {
-            return call_user_func($this->functions[$name], $this->core, $get, $post);
+            return call_user_func($this->functions[$name], dcCore::app(), $get, $post);
         }
     }
 }

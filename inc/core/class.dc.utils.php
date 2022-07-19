@@ -101,7 +101,7 @@ class dcUtils
     private static function appendVersion(string $src, ?string $v = ''): string
     {
         return $src .
-            (strpos($src, '?') === false ? '?' : '&amp;') .
+            (strpos($src, '?')                  === false ? '?' : '&amp;') .
             'v=' . (defined('DC_DEV') && DC_DEV === true ? md5(uniqid()) : ($v ?: DC_VERSION));
     }
 
@@ -117,9 +117,7 @@ class dcUtils
 
     public static function cssModuleLoad($src, $media = 'screen', $v = null)
     {
-        global $core;
-
-        return self::cssLoad($core->blog->getPF($src), $media, $v);
+        return self::cssLoad(dcCore::app()->blog->getPF($src), $media, $v);
     }
 
     public static function jsLoad($src, $v = null)
@@ -134,9 +132,7 @@ class dcUtils
 
     public static function jsModuleLoad($src, $v = null)
     {
-        global $core;
-
-        return self::jsLoad($core->blog->getPF($src), $v);
+        return self::jsLoad(dcCore::app()->blog->getPF($src), $v);
     }
 
     /**
@@ -176,7 +172,8 @@ class dcUtils
 
     public static function jsJson($id, $vars)
     {
-        // Use echo dcUtils::jsLoad($core->blog->getPF('util.js')); to use the JS dotclear.getData() decoder in public mode
+        // Use echo dcUtils::jsLoad(dcCore::app()->blog->getPF('util.js'));
+        // to use the JS dotclear.getData() decoder in public mode
         $ret = '<script type="application/json" id="' . html::escapeHTML($id) . '-data">' . "\n" .
             json_encode($vars, JSON_HEX_TAG | JSON_UNESCAPED_SLASHES) . "\n" . '</script>';
 
@@ -233,19 +230,17 @@ class dcUtils
 
     public static function setLexicalLang($ns = '', $lang = 'en_US')
     {
-        global $core;
-
         // Switch to appropriate locale depending on $ns
         switch ($ns) {
             case 'admin':
                 // Set locale with user prefs
-                $user_language = $core->auth->getInfo('user_lang');
+                $user_language = dcCore::app()->auth->getInfo('user_lang');
                 setlocale(LC_COLLATE, $user_language);
 
                 break;
             case 'public':
                 // Set locale with blog params
-                $blog_language = $core->blog->settings->system->lang;
+                $blog_language = dcCore::app()->blog->settings->system->lang;
                 setlocale(LC_COLLATE, $blog_language);
 
                 break;

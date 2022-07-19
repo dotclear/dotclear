@@ -16,7 +16,11 @@ if (!defined('DC_RC_PATH')) {
 
 class dcMedia extends filemanager
 {
+    /**
+     * @deprecated since 2.23
+     */
     protected $core;  ///< <b>dcCore</b> dcCore instance
+
     protected $con;   ///< <b>connection</b> Database connection
     protected $table; ///< <b>string</b> Media table name
     protected $type;  ///< <b>string</b> Media type filter
@@ -58,28 +62,28 @@ class dcMedia extends filemanager
      *
      * @throws     Exception  (description)
      */
-    public function __construct(dcCore $core, $type = '')
+    public function __construct(dcCore $core = null, $type = '')
     {
-        $this->core      = &$core;
-        $this->con       = &$core->con;
-        $this->postmedia = new dcPostMedia($core);
+        $this->core      = dcCore::app();
+        $this->con       = dcCore::app()->con;
+        $this->postmedia = new dcPostMedia(dcCore::app());
 
-        if ($this->core->blog == null) {
+        if (dcCore::app()->blog == null) {
             throw new Exception(__('No blog defined.'));
         }
 
-        $this->table = $this->core->prefix . 'media';
-        $root        = $this->core->blog->public_path;
+        $this->table = dcCore::app()->prefix . 'media';
+        $root        = dcCore::app()->blog->public_path;
 
-        if (preg_match('#^http(s)?://#', $this->core->blog->settings->system->public_url)) {
-            $root_url = rawurldecode($this->core->blog->settings->system->public_url);
+        if (preg_match('#^http(s)?://#', dcCore::app()->blog->settings->system->public_url)) {
+            $root_url = rawurldecode(dcCore::app()->blog->settings->system->public_url);
         } else {
-            $root_url = rawurldecode($this->core->blog->host . path::clean($this->core->blog->settings->system->public_url));
+            $root_url = rawurldecode(dcCore::app()->blog->host . path::clean(dcCore::app()->blog->settings->system->public_url));
         }
 
         if (!is_dir($root)) {
             # Check public directory
-            if ($core->auth->isSuperAdmin()) {
+            if (dcCore::app()->auth->isSuperAdmin()) {
                 throw new Exception(__('There is no writable directory /public/ at the location set in about:config "public_path". You must create this directory with sufficient rights (or change this setting).'));
             }
 
@@ -91,12 +95,12 @@ class dcMedia extends filemanager
         parent::__construct($root, $root_url);
         $this->chdir('');
 
-        $this->path = $this->core->blog->settings->system->public_path;
+        $this->path = dcCore::app()->blog->settings->system->public_path;
 
         $this->addExclusion(DC_RC_PATH);
         $this->addExclusion(__DIR__ . '/../');
 
-        $this->exclude_pattern = $core->blog->settings->system->media_exclusion;
+        $this->exclude_pattern = dcCore::app()->blog->settings->system->media_exclusion;
 
         # Event handlers
         $this->addFileHandler('image/jpeg', 'create', [$this, 'imageThumbCreate']);
@@ -123,9 +127,9 @@ class dcMedia extends filemanager
         $this->addFileHandler('image/webp', 'recreate', [$this, 'imageThumbCreate']);
 
         # Thumbnails sizes
-        $this->thumb_sizes['m'][0] = abs($core->blog->settings->system->media_img_m_size);
-        $this->thumb_sizes['s'][0] = abs($core->blog->settings->system->media_img_s_size);
-        $this->thumb_sizes['t'][0] = abs($core->blog->settings->system->media_img_t_size);
+        $this->thumb_sizes['m'][0] = abs(dcCore::app()->blog->settings->system->media_img_m_size);
+        $this->thumb_sizes['s'][0] = abs(dcCore::app()->blog->settings->system->media_img_s_size);
+        $this->thumb_sizes['t'][0] = abs(dcCore::app()->blog->settings->system->media_img_t_size);
 
         # Thumbnails sizes names
         $this->thumb_sizes['m'][2]  = __($this->thumb_sizes['m'][2]);
@@ -134,7 +138,7 @@ class dcMedia extends filemanager
         $this->thumb_sizes['sq'][2] = __($this->thumb_sizes['sq'][2]);
 
         # --BEHAVIOR-- coreMediaConstruct
-        $this->core->callBehavior('coreMediaConstruct', $this);
+        dcCore::app()->callBehavior('coreMediaConstruct', $this);
     }
 
     /**
@@ -230,8 +234,8 @@ class dcMedia extends filemanager
 
             $f->media_image = false;
 
-            if (!$this->core->auth->check('media_admin', $this->core->blog->id)
-                && $this->core->auth->userID() != $f->media_user) {
+            if (!dcCore::app()->auth->check('media_admin', dcCore::app()->blog->id)
+                && dcCore::app()->auth->userID() != $f->media_user) {
                 $f->del      = false;
                 $f->editable = false;
             }
@@ -462,9 +466,9 @@ class dcMedia extends filemanager
             ->where('media_path = ' . $sql->quote($this->path))
             ->and('media_dir = ' . $sql->quote($media_dir));
 
-        if (!$this->core->auth->check('media_admin', $this->core->blog->id)) {
+        if (!dcCore::app()->auth->check('media_admin', dcCore::app()->blog->id)) {
             $list = ['media_private <> 1'];
-            if ($user_id = $this->core->auth->userID()) {
+            if ($user_id = dcCore::app()->auth->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($list));
@@ -565,7 +569,7 @@ class dcMedia extends filemanager
         }
 
         # Check files that don't exist in database and create them
-        if ($this->core->auth->check('media,media_admin', $this->core->blog->id)) {
+        if (dcCore::app()->auth->check('media,media_admin', dcCore::app()->blog->id)) {
             foreach ($p_dir['files'] as $f) {
                 // Warning a file may exist in DB but in private mode for the user, so we don't have to recreate it
                 if (!isset($f_reg[$f->relname]) && !in_array($f->relname, $privates)) {
@@ -609,9 +613,9 @@ class dcMedia extends filemanager
             ->where('media_path = ' . $sql->quote($this->path))
             ->and('media_id = ' . (int) $id);
 
-        if (!$this->core->auth->check('media_admin', $this->core->blog->id)) {
+        if (!dcCore::app()->auth->check('media_admin', dcCore::app()->blog->id)) {
             $list = ['media_private <> 1'];
-            if ($user_id = $this->core->auth->userID()) {
+            if ($user_id = dcCore::app()->auth->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($list));
@@ -657,9 +661,9 @@ class dcMedia extends filemanager
                 $sql->like('media_meta', '%<Description>%' . $sql->escape($query) . '%</Description>%'),
             ]));
 
-        if (!$this->core->auth->check('media_admin', $this->core->blog->id)) {
+        if (!dcCore::app()->auth->check('media_admin', dcCore::app()->blog->id)) {
             $list = ['media_private <> 1'];
-            if ($user_id = $this->core->auth->userID()) {
+            if ($user_id = dcCore::app()->auth->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
             $sql->and($sql->orGroup($list));
@@ -731,7 +735,7 @@ class dcMedia extends filemanager
      */
     public function rebuild($pwd = '')
     {
-        if (!$this->core->auth->isSuperAdmin()) {
+        if (!dcCore::app()->auth->isSuperAdmin()) {
             throw new Exception(__('You are not a super administrator.'));
         }
 
@@ -813,7 +817,7 @@ class dcMedia extends filemanager
      */
     public function createFile($name, $title = null, $private = false, $dt = null, $force = true)
     {
-        if (!$this->core->auth->check('media,media_admin', $this->core->blog->id)) {
+        if (!dcCore::app()->auth->check('media,media_admin', dcCore::app()->blog->id)) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -849,7 +853,7 @@ class dcMedia extends filemanager
                 $media_id = (int) $rs->f(0) + 1;
 
                 $cur->media_id     = $media_id;
-                $cur->user_id      = (string) $this->core->auth->userID();
+                $cur->user_id      = (string) dcCore::app()->auth->userID();
                 $cur->media_path   = (string) $this->path;
                 $cur->media_file   = (string) $media_file;
                 $cur->media_dir    = (string) dirname($media_file);
@@ -904,7 +908,7 @@ class dcMedia extends filemanager
      */
     public function updateFile($file, $newFile)
     {
-        if (!$this->core->auth->check('media,media_admin', $this->core->blog->id)) {
+        if (!dcCore::app()->auth->check('media,media_admin', dcCore::app()->blog->id)) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -914,8 +918,8 @@ class dcMedia extends filemanager
             throw new Exception('No file ID');
         }
 
-        if (!$this->core->auth->check('media_admin', $this->core->blog->id)
-            && $this->core->auth->userID() != $file->media_user) {
+        if (!dcCore::app()->auth->check('media_admin', dcCore::app()->blog->id)
+            && dcCore::app()->auth->userID() != $file->media_user) {
             throw new Exception(__('You are not the file owner.'));
         }
 
@@ -976,7 +980,7 @@ class dcMedia extends filemanager
      */
     public function uploadFile($tmp, $name, $title = null, $private = false, $overwrite = false)
     {
-        if (!$this->core->auth->check('media,media_admin', $this->core->blog->id)) {
+        if (!dcCore::app()->auth->check('media,media_admin', dcCore::app()->blog->id)) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -999,7 +1003,7 @@ class dcMedia extends filemanager
      */
     public function uploadBits($name, $bits)
     {
-        if (!$this->core->auth->check('media,media_admin', $this->core->blog->id)) {
+        if (!dcCore::app()->auth->check('media,media_admin', dcCore::app()->blog->id)) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -1019,7 +1023,7 @@ class dcMedia extends filemanager
      */
     public function removeFile($f)
     {
-        if (!$this->core->auth->check('media,media_admin', $this->core->blog->id)) {
+        if (!dcCore::app()->auth->check('media,media_admin', dcCore::app()->blog->id)) {
             throw new Exception(__('Permission denied.'));
         }
 
@@ -1031,8 +1035,8 @@ class dcMedia extends filemanager
             ->where('media_path = ' . $sql->quote($this->path))
             ->and('media_file = ' . $sql->quote($media_file));
 
-        if (!$this->core->auth->check('media_admin', $this->core->blog->id)) {
-            $sql->and('user_id = ' . $sql->quote($this->core->auth->userID()));
+        if (!dcCore::app()->auth->check('media_admin', dcCore::app()->blog->id)) {
+            $sql->and('user_id = ' . $sql->quote(dcCore::app()->auth->userID()));
         }
 
         $sql->delete();
@@ -1311,7 +1315,7 @@ class dcMedia extends filemanager
         $meta = imageMeta::readMeta($file);
         $xml->insertNode($meta);
 
-        $c             = $this->core->con->openCursor($this->table);
+        $c             = dcCore::app()->con->openCursor($this->table);
         $c->media_meta = $xml->toXML();
 
         if ($cur->media_title !== null && $cur->media_title == basename($cur->media_file)) {
@@ -1324,7 +1328,7 @@ class dcMedia extends filemanager
             # We set picture time to user timezone
             $media_ts = strtotime($meta['DateTimeOriginal']);
             if ($media_ts !== false) {
-                $o           = dt::getTimeOffset($this->core->auth->getInfo('user_tz'), $media_ts);
+                $o           = dt::getTimeOffset(dcCore::app()->auth->getInfo('user_tz'), $media_ts);
                 $c->media_dt = dt::str('%Y-%m-%d %H:%M:%S', $media_ts + $o);
             }
         }

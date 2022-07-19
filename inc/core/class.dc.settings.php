@@ -18,7 +18,11 @@ if (!defined('DC_RC_PATH')) {
 
 class dcSettings
 {
+    /**
+     * @deprecated since 2.23
+     */
     protected $core;    ///< <b>core</b> Dotclear core object
+
     protected $con;     ///< <b>connection</b> Database connection object
     protected $table;   ///< <b>string</b> Settings table name
     protected $blog_id; ///< <b>string</b> Blog ID
@@ -38,10 +42,10 @@ class dcSettings
      */
     public function __construct(dcCore $core, $blog_id)
     {
-        $this->core    = &$core;
-        $this->con     = &$core->con;
-        $this->table   = $core->prefix . 'setting';
-        $this->blog_id = &$blog_id;
+        $this->core    = dcCore::app();
+        $this->con     = dcCore::app()->con;
+        $this->table   = dcCore::app()->prefix . 'setting';
+        $this->blog_id = $blog_id;
         $this->loadSettings();
     }
 
@@ -86,7 +90,7 @@ class dcSettings
                 // at very first time
                 $rs->movePrev();
             }
-            $this->namespaces[$ns] = new dcNamespace($this->core, $this->blog_id, $ns, $rs);
+            $this->namespaces[$ns] = new dcNamespace(dcCore::app(), $this->blog_id, $ns, $rs);
         } while (!$rs->isStart());
     }
 
@@ -100,7 +104,7 @@ class dcSettings
     public function addNamespace($ns)
     {
         if (!$this->exists($ns)) {
-            $this->namespaces[$ns] = new dcNamespace($this->core, $this->blog_id, $ns);
+            $this->namespaces[$ns] = new dcNamespace(dcCore::app(), $this->blog_id, $ns);
         }
 
         return $this->namespaces[$ns];

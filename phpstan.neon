@@ -41,10 +41,6 @@ parameters:
 
   ignoreErrors:
 
-    # $core variable may not be defined (globally)
-    - message: '#Variable \$core might not be defined#'
-      path: %currentWorkingDirectory%
-
     # $_lang variable may not be defined (globally)
     - message: '#Variable \$_lang might not be defined#'
       path: %currentWorkingDirectory%
@@ -151,6 +147,20 @@ parameters:
 
     # arrayObject/type
     - message: '#ArrayObject\<\*NEVER\*, \*NEVER\*\> does not accept#'
+      path: %currentWorkingDirectory%
+
+    # Temporary until 2.24+, $core global (or parameter) will be then removed
+
+    # $core variable may not be defined (globally)
+    - message: '#Variable \$core might not be defined#'
+      path: %currentWorkingDirectory%
+
+    # $core as class constructor parameter
+    - message: '#Constructor of class [a-zA-Z0-9\\_]+ has an unused parameter \$core.#'
+      path: %currentWorkingDirectory%
+
+    # dcMeta $core property never read
+    - message: '#Property dcMeta::\$core is never read, only written.#'
       path: %currentWorkingDirectory%
 
 # Notes:

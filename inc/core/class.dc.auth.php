@@ -18,7 +18,11 @@ if (!defined('DC_RC_PATH')) {
 class dcAuth
 {
     /** @var dcCore dcCore instance */
+    /**
+     * @deprecated since 2.23
+     */
     protected $core;
+
     /** @var object Database connection object */
     protected $con;
 
@@ -59,13 +63,13 @@ class dcAuth
      *
      * @param dcCore    $core        dcCore object
      */
-    public function __construct(dcCore $core)
+    public function __construct(dcCore $core = null)
     {
-        $this->core       = &$core;
-        $this->con        = &$core->con;
-        $this->blog_table = $core->prefix . 'blog';
-        $this->user_table = $core->prefix . 'user';
-        $this->perm_table = $core->prefix . 'permissions';
+        $this->core       = dcCore::app();
+        $this->con        = dcCore::app()->con;
+        $this->blog_table = dcCore::app()->prefix . 'blog';
+        $this->user_table = dcCore::app()->prefix . 'user';
+        $this->perm_table = dcCore::app()->prefix . 'permissions';
 
         $this->perm_types = [
             'admin'        => __('administrator'),
@@ -122,8 +126,6 @@ class dcAuth
         try {
             $rs = $sql->select();
         } catch (Exception $e) {
-            $err = $e->getMessage();
-
             return false;
         }
 
@@ -206,9 +208,9 @@ class dcAuth
             $rs->user_displayname
         );
 
-        $this->user_options = array_merge($this->core->userDefaults(), $rs->options());
+        $this->user_options = array_merge(dcCore::app()->userDefaults(), $rs->options());
 
-        $this->user_prefs = new dcPrefs($this->core, $this->user_id);
+        $this->user_prefs = new dcPrefs(dcCore::app(), $this->user_id);
 
         # Get permissions on blogs
         if ($check_blog && ($this->findUserBlog() === false)) {
@@ -275,11 +277,11 @@ class dcAuth
      */
     public function checkSession($uid = null)
     {
-        $this->core->session->start();
+        dcCore::app()->session->start();
 
         # If session does not exist, logout.
         if (!isset($_SESSION['sess_user_id'])) {
-            $this->core->session->destroy();
+            dcCore::app()->session->destroy();
 
             return false;
         }
@@ -291,7 +293,7 @@ class dcAuth
         $user_can_log = $this->userID() !== null && $uid == $_SESSION['sess_browser_uid'];
 
         if (!$user_can_log) {
-            $this->core->session->destroy();
+            dcCore::app()->session->destroy();
 
             return false;
         }
@@ -459,7 +461,7 @@ class dcAuth
     public function getBlogCount()
     {
         if ($this->blog_count === null) {
-            $this->blog_count = $this->core->getBlogs([], true)->f(0);  // @phpstan-ignore-line
+            $this->blog_count = dcCore::app()->getBlogs([], true)->f(0);  // @phpstan-ignore-line
         }
 
         return $this->blog_count;

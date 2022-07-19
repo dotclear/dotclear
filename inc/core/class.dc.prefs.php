@@ -18,7 +18,11 @@ if (!defined('DC_RC_PATH')) {
 
 class dcPrefs
 {
+    /**
+     * @deprecated since 2.23
+     */
     protected $core;    ///< <b>core</b> Dotclear core object
+
     protected $con;     ///< <b>connection</b> Database connection object
     protected $table;   ///< <b>string</b> Prefs table name
     protected $user_id; ///< <b>string</b> User ID
@@ -39,15 +43,15 @@ class dcPrefs
      */
     public function __construct(dcCore $core, $user_id, $workspace = null)
     {
-        $this->core    = &$core;
-        $this->con     = &$core->con;
-        $this->table   = $core->prefix . 'pref';
-        $this->user_id = &$user_id;
+        $this->core    = dcCore::app();
+        $this->con     = dcCore::app()->con;
+        $this->table   = dcCore::app()->prefix . 'pref';
+        $this->user_id = $user_id;
 
         try {
             $this->loadPrefs($workspace);
         } catch (Exception $e) {
-            if (version_compare($core->getVersion('core'), '2.3', '>')) {
+            if (version_compare(dcCore::app()->getVersion('core'), '2.3', '>')) {
                 trigger_error(__('Unable to retrieve workspaces:') . ' ' . $this->con->error(), E_USER_ERROR);
             }
         }
@@ -99,7 +103,7 @@ class dcPrefs
                 // at very first time
                 $rs->movePrev();
             }
-            $this->workspaces[$ws] = new dcWorkspace($this->core, $this->user_id, $ws, $rs);
+            $this->workspaces[$ws] = new dcWorkspace(dcCore::app(), $this->user_id, $ws, $rs);
         } while (!$rs->isStart());
     }
 
@@ -113,7 +117,7 @@ class dcPrefs
     public function addWorkspace($ws)
     {
         if (!$this->exists($ws)) {
-            $this->workspaces[$ws] = new dcWorkspace($this->core, $this->user_id, $ws);
+            $this->workspaces[$ws] = new dcWorkspace(dcCore::app(), $this->user_id, $ws);
         }
 
         return $this->workspaces[$ws];

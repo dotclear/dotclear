@@ -30,7 +30,7 @@ class rsExtPost
     public static function isEditable($rs)
     {
         # If user is admin or contentadmin, true
-        if ($rs->core->auth->check('contentadmin', $rs->core->blog->id)) {
+        if (dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)) {
             return true;
         }
 
@@ -40,8 +40,8 @@ class rsExtPost
         }
 
         # If user is usage and owner of the entrie
-        if ($rs->core->auth->check('usage', $rs->core->blog->id)
-            && $rs->user_id == $rs->core->auth->userID()) {
+        if (dcCore::app()->auth->check('usage', dcCore::app()->blog->id)
+            && $rs->user_id == dcCore::app()->auth->userID()) {
             return true;
         }
 
@@ -58,7 +58,7 @@ class rsExtPost
     public static function isDeletable($rs)
     {
         # If user is admin, or contentadmin, true
-        if ($rs->core->auth->check('contentadmin', $rs->core->blog->id)) {
+        if (dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)) {
             return true;
         }
 
@@ -68,8 +68,8 @@ class rsExtPost
         }
 
         # If user has delete rights and is owner of the entrie
-        if ($rs->core->auth->check('delete', $rs->core->blog->id)
-            && $rs->user_id == $rs->core->auth->userID()) {
+        if (dcCore::app()->auth->check('delete', dcCore::app()->blog->id)
+            && $rs->user_id == dcCore::app()->auth->userID()) {
             return true;
         }
 
@@ -128,9 +128,9 @@ class rsExtPost
     public static function commentsActive($rs)
     {
         return
-        $rs->core->blog->settings->system->allow_comments
+        dcCore::app()->blog->settings->system->allow_comments
             && $rs->post_open_comment
-            && ($rs->core->blog->settings->system->comments_ttl == 0 || time() - ($rs->core->blog->settings->system->comments_ttl * 86400) < $rs->getTS());
+            && (dcCore::app()->blog->settings->system->comments_ttl == 0 || time() - (dcCore::app()->blog->settings->system->comments_ttl * 86400) < $rs->getTS());
     }
 
     /**
@@ -143,9 +143,9 @@ class rsExtPost
     public static function trackbacksActive($rs)
     {
         return
-        $rs->core->blog->settings->system->allow_trackbacks
+        dcCore::app()->blog->settings->system->allow_trackbacks
             && $rs->post_open_tb
-            && ($rs->core->blog->settings->system->trackbacks_ttl == 0 || time() - ($rs->core->blog->settings->system->trackbacks_ttl * 86400) < $rs->getTS());
+            && (dcCore::app()->blog->settings->system->trackbacks_ttl == 0 || time() - (dcCore::app()->blog->settings->system->trackbacks_ttl * 86400) < $rs->getTS());
     }
 
     /**
@@ -194,7 +194,7 @@ class rsExtPost
      */
     public static function getURL($rs)
     {
-        return $rs->core->blog->url . $rs->core->getPostPublicURL(
+        return dcCore::app()->blog->url . dcCore::app()->getPostPublicURL(
             $rs->post_type,
             html::sanitizeURL($rs->post_url)
         );
@@ -209,7 +209,7 @@ class rsExtPost
      */
     public static function getCategoryURL($rs)
     {
-        return $rs->core->blog->url . $rs->core->url->getURLFor('category', html::sanitizeURL($rs->cat_url));
+        return dcCore::app()->blog->url . dcCore::app()->url->getURLFor('category', html::sanitizeURL($rs->cat_url));
     }
 
     /**
@@ -290,7 +290,7 @@ class rsExtPost
     public static function getDate($rs, $format, $type = '')
     {
         if (!$format) {
-            $format = $rs->core->blog->settings->system->date_format;
+            $format = dcCore::app()->blog->settings->system->date_format;
         }
 
         if ($type == 'upddt') {
@@ -315,7 +315,7 @@ class rsExtPost
     public static function getTime($rs, $format, $type = '')
     {
         if (!$format) {
-            $format = $rs->core->blog->settings->system->time_format;
+            $format = dcCore::app()->blog->settings->system->time_format;
         }
 
         if ($type == 'upddt') {
@@ -390,7 +390,7 @@ class rsExtPost
      */
     public static function getFeedID($rs)
     {
-        return 'urn:md5:' . md5($rs->core->blog->uid . $rs->post_id);
+        return 'urn:md5:' . md5(dcCore::app()->blog->uid . $rs->post_id);
     }
 
     /**
@@ -428,7 +428,7 @@ class rsExtPost
      */
     public static function getTrackbackLink($rs)
     {
-        return $rs->core->blog->url . $rs->core->url->getURLFor('trackback', $rs->post_id);
+        return dcCore::app()->blog->url . dcCore::app()->url->getURLFor('trackback', $rs->post_id);
     }
 
     /**
@@ -481,13 +481,13 @@ class rsExtPost
             return $rs->_nb_media[$rs->index()];
         }
         $strReq = 'SELECT count(media_id) ' .
-            'FROM ' . $rs->core->prefix . 'post_media ' .
+            'FROM ' . dcCore::app()->prefix . 'post_media ' .
             'WHERE post_id = ' . (int) $rs->post_id . ' ';
         if ($link_type != null) {
-            $strReq .= "AND link_type = '" . $rs->core->con->escape($link_type) . "'";
+            $strReq .= "AND link_type = '" . dcCore::app()->con->escape($link_type) . "'";
         }
 
-        $res                         = (int) $rs->core->con->select($strReq)->f(0);
+        $res                         = (int) dcCore::app()->con->select($strReq)->f(0);
         $rs->_nb_media[$rs->index()] = $res;
 
         return $res;
@@ -503,7 +503,7 @@ class rsExtPost
      */
     public static function underCat($rs, $cat_url)
     {
-        return $rs->core->blog->IsInCatSubtree($rs->cat_url, $cat_url);
+        return dcCore::app()->blog->IsInCatSubtree($rs->cat_url, $cat_url);
     }
 }
 
@@ -533,7 +533,7 @@ class rsExtComment
     public static function getDate($rs, $format, $type = '')
     {
         if (!$format) {
-            $format = $rs->core->blog->settings->system->date_format;
+            $format = dcCore::app()->blog->settings->system->date_format;
         }
 
         if ($type == 'upddt') {
@@ -556,7 +556,7 @@ class rsExtComment
     public static function getTime($rs, $format, $type = '')
     {
         if (!$format) {
-            $format = $rs->core->blog->settings->system->time_format;
+            $format = dcCore::app()->blog->settings->system->time_format;
         }
 
         if ($type == 'upddt') {
@@ -630,7 +630,7 @@ class rsExtComment
     {
         $res = $rs->comment_content;
 
-        if ($rs->core->blog->settings->system->comments_nofollow) {
+        if (dcCore::app()->blog->settings->system->comments_nofollow) {
             $res = preg_replace_callback('#<a(.*?href=".*?".*?)>#ms', ['self', 'noFollowURL'], $res);
         } else {
             $res = preg_replace_callback('#<a(.*?href=".*?".*?)>#ms', ['self', 'UgcURL'], $res);
@@ -684,7 +684,7 @@ class rsExtComment
      */
     public static function getPostURL($rs)
     {
-        return $rs->core->blog->url . $rs->core->getPostPublicURL(
+        return dcCore::app()->blog->url . dcCore::app()->getPostPublicURL(
             $rs->post_type,
             html::sanitizeURL($rs->post_url)
         );
@@ -706,7 +706,7 @@ class rsExtComment
         }
 
         $rel = 'ugc';
-        if ($rs->core->blog->settings->system->comments_nofollow) {
+        if (dcCore::app()->blog->settings->system->comments_nofollow) {
             $rel .= ' nofollow';
         }
 
@@ -772,7 +772,7 @@ class rsExtComment
      */
     public static function getFeedID($rs)
     {
-        return 'urn:md5:' . md5($rs->core->blog->uid . $rs->comment_id);
+        return 'urn:md5:' . md5(dcCore::app()->blog->uid . $rs->comment_id);
     }
 
     /**
@@ -784,7 +784,7 @@ class rsExtComment
      */
     public static function isMe($rs)
     {
-        $user_prefs = new dcPrefs($rs->core, $rs->user_id, 'profile');
+        $user_prefs = new dcPrefs(dcCore::app(), $rs->user_id, 'profile');
         $user_prefs->addWorkspace('profile');
         $user_profile_mails = $user_prefs->profile->mails ?
             array_map('trim', explode(',', $user_prefs->profile->mails)) :
@@ -866,11 +866,11 @@ class rsExtDates
      *
      * @return     string
      */
-    public static function url($rs, dcCore $core)
+    public static function url($rs, dcCore $core = null)
     {
         $url = date('Y/m', strtotime($rs->dt));
 
-        return $core->blog->url . $core->url->getURLFor('archive', $url);
+        return dcCore::app()->blog->url . dcCore::app()->url->getURLFor('archive', $url);
     }
 
     /**

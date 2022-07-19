@@ -37,6 +37,9 @@ class dcModules
 
     protected static $type = null;
 
+    /**
+     * @deprecated since 2.23
+     */
     public $core; ///< <b>dcCore</b>    dcCore instance
 
     /**
@@ -44,9 +47,9 @@ class dcModules
      *
      * @param      dcCore  $core   The core
      */
-    public function __construct(dcCore $core)
+    public function __construct(dcCore $core = null)
     {
-        $this->core = &$core;
+        $this->core = dcCore::app();
     }
 
     /**
@@ -241,12 +244,12 @@ class dcModules
             $this->loadModuleL10N($id, $lang, 'main');
             if ($ns == 'admin') {
                 $this->loadModuleL10Nresources($id, $lang);
-                $this->core->adminurl->register('admin.plugin.' . $id, 'plugin.php', ['p' => $id]);
+                dcCore::app()->adminurl->register('admin.plugin.' . $id, 'plugin.php', ['p' => $id]);
             }
         }
 
         // Give opportunity to do something before loading context (admin,public,xmlrpc) files
-        $this->core->callBehavior('coreBeforeLoadingNsFiles', $this->core, $this, $lang);
+        dcCore::app()->callBehavior('coreBeforeLoadingNsFiles', dcCore::app(), $this, $lang);
 
         foreach ($this->modules as $id => $m) {
             # If _prepend.php file returns null (ie. it has a void return statement)
@@ -346,9 +349,9 @@ class dcModules
         # Check module perms on admin side
         $permissions = $properties['permissions'];
         if ($this->ns == 'admin') {
-            if ($permissions == '' && !$this->core->auth->isSuperAdmin()) {
+            if ($permissions == '' && !dcCore::app()->auth->isSuperAdmin()) {
                 return;
-            } elseif (!$this->core->auth->check($permissions, $this->core->blog->id)) {
+            } elseif (!dcCore::app()->auth->check($permissions, dcCore::app()->blog->id)) {
                 return;
             }
         }
@@ -372,7 +375,7 @@ class dcModules
                 );
             } else {
                 $path1          = path::real($this->moduleInfo($name, 'root') ?? '');
-                $path2          = path::real($this->mroot ?? '');
+                $path2          = path::real($this->mroot                     ?? '');
                 $this->errors[] = sprintf(
                     __('Module "%s" is installed twice in "%s" and "%s".'),
                     '<strong>' . $name . '</strong>',
