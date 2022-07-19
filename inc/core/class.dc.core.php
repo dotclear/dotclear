@@ -37,6 +37,8 @@ final class dcCore
     public $notices;    ///< <b>dcAdminNotices</b>      dcNotices object
     public $favs;       ///< <b>dcFavorites</b>         dcFavorites object
 
+    public $tpl;        //:< <b>dcTemplate</b>          dcTemplate object
+
     private $versions   = null;
     private $formaters  = [];
     private $behaviors  = [];

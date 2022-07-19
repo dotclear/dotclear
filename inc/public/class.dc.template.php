@@ -8,20 +8,24 @@
  */
 class dcTemplate extends template
 {
+    /**
+     * @deprecated since 2.23
+     */
     private $core;
+
     private $current_tag;
 
     protected $unknown_value_handler = null;
     protected $unknown_block_handler = null;
 
-    public function __construct($cache_dir, $self_name, $core)
+    public function __construct($cache_dir, $self_name, $core = null)
     {
         parent::__construct($cache_dir, $self_name);
 
-        $this->remove_php = !$core->blog->settings->system->tpl_allow_php;
-        $this->use_cache  = $core->blog->settings->system->tpl_use_cache;
+        $this->remove_php = !dcCore::app()->blog->settings->system->tpl_allow_php;
+        $this->use_cache  = dcCore::app()->blog->settings->system->tpl_use_cache;
 
-        $this->core = &$core;
+        $this->core = dcCore::app();
 
         # Transitional tags
         $this->addValue('EntryTrackbackCount', [$this, 'EntryPingCount']);
@@ -221,8 +225,8 @@ class dcTemplate extends template
     public function getData(string $________): string
     {
         # --BEHAVIOR-- tplBeforeData
-        if ($this->core->hasBehavior('tplBeforeData')) {
-            self::$_r = $this->core->callBehavior('tplBeforeData', $this->core);
+        if (dcCore::app()->hasBehavior('tplBeforeData')) {
+            self::$_r = dcCore::app()->callBehavior('tplBeforeData', dcCore::app());
             if (self::$_r) {
                 return self::$_r;
             }
@@ -231,8 +235,8 @@ class dcTemplate extends template
         parent::getData($________);
 
         # --BEHAVIOR-- tplAfterData
-        if ($this->core->hasBehavior('tplAfterData')) {
-            $this->core->callBehavior('tplAfterData', $this->core, self::$_r);
+        if (dcCore::app()->hasBehavior('tplAfterData')) {
+            dcCore::app()->callBehavior('tplAfterData', dcCore::app(), self::$_r);
         }
 
         return self::$_r;
@@ -243,15 +247,15 @@ class dcTemplate extends template
         $this->current_tag = $tag;
         $attr              = new ArrayObject($attr);
         # --BEHAVIOR-- templateBeforeBlock
-        $res = $this->core->callBehavior('templateBeforeBlock', $this->core, $this->current_tag, $attr);
+        $res = dcCore::app()->callBehavior('templateBeforeBlock', dcCore::app(), $this->current_tag, $attr);
 
         # --BEHAVIOR-- templateInsideBlock
-        $this->core->callBehavior('templateInsideBlock', $this->core, $this->current_tag, $attr, [& $content]);
+        dcCore::app()->callBehavior('templateInsideBlock', dcCore::app(), $this->current_tag, $attr, [& $content]);
 
         $res .= parent::compileBlockNode($this->current_tag, $attr, $content);
 
         # --BEHAVIOR-- templateAfterBlock
-        $res .= $this->core->callBehavior('templateAfterBlock', $this->core, $this->current_tag, $attr);
+        $res .= dcCore::app()->callBehavior('templateAfterBlock', dcCore::app(), $this->current_tag, $attr);
 
         return $res;
     }
@@ -262,12 +266,12 @@ class dcTemplate extends template
 
         $attr = new ArrayObject($attr);
         # --BEHAVIOR-- templateBeforeValue
-        $res = $this->core->callBehavior('templateBeforeValue', $this->core, $this->current_tag, $attr);
+        $res = dcCore::app()->callBehavior('templateBeforeValue', dcCore::app(), $this->current_tag, $attr);
 
         $res .= parent::compileValueNode($this->current_tag, $attr, $str_attr);
 
         # --BEHAVIOR-- templateAfterValue
-        $res .= $this->core->callBehavior('templateAfterValue', $this->core, $this->current_tag, $attr);
+        $res .= dcCore::app()->callBehavior('templateAfterValue', dcCore::app(), $this->current_tag, $attr);
 
         return $res;
     }
@@ -345,7 +349,7 @@ class dcTemplate extends template
         $alias = new ArrayObject();
 
         # --BEHAVIOR-- templateCustomSortByAlias
-        $this->core->callBehavior('templateCustomSortByAlias', $alias);
+        dcCore::app()->callBehavior('templateCustomSortByAlias', $alias);
 
         $alias = $alias->getArrayCopy();
 
@@ -510,13 +514,13 @@ class dcTemplate extends template
 
         $res = "<?php\n";
         $res .= $p;
-        $res .= $this->core->callBehavior(
+        $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'Archives', 'method' => 'blog::getDates'],
             $attr,
             $content
         );
-        $res .= '$_ctx->archives = $core->blog->getDates($params); unset($params);' . "\n";
+        $res .= '$_ctx->archives = dcCore::app()->blog->getDates($params); unset($params);' . "\n";
         $res .= "?>\n";
 
         $res .= '<?php while ($_ctx->archives->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->archives = null; ?>';
@@ -633,13 +637,13 @@ class dcTemplate extends template
 
         $res = "<?php\n";
         $res .= $p;
-        $res .= $this->core->callBehavior(
+        $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'ArchiveNext', 'method' => 'blog::getDates'],
             $attr,
             $content
         );
-        $res .= '$_ctx->archives = $core->blog->getDates($params); unset($params);' . "\n";
+        $res .= '$_ctx->archives = dcCore::app()->blog->getDates($params); unset($params);' . "\n";
         $res .= "?>\n";
 
         $res .= '<?php while ($_ctx->archives->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->archives = null; ?>';
@@ -674,14 +678,14 @@ class dcTemplate extends template
         $p .= "\$params['previous'] = \$_ctx->archives->dt;";
 
         $res = "<?php\n";
-        $res .= $this->core->callBehavior(
+        $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'ArchivePrevious', 'method' => 'blog::getDates'],
             $attr,
             $content
         );
         $res .= $p;
-        $res .= '$_ctx->archives = $core->blog->getDates($params); unset($params);' . "\n";
+        $res .= '$_ctx->archives = dcCore::app()->blog->getDates($params); unset($params);' . "\n";
         $res .= "?>\n";
 
         $res .= '<?php while ($_ctx->archives->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->archives = null; ?>';
@@ -696,7 +700,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$_ctx->archives->url($core)') . '; ?>';
+        return '<?php echo ' . sprintf($f, '$_ctx->archives->url(dcCore::app())') . '; ?>';
     }
 
     /* Blog ----------------------------------------------- */
@@ -707,7 +711,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->url.$core->url->getURLFor("archive")') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("archive")') . '; ?>';
     }
 
     /*dtd
@@ -717,7 +721,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->settings->system->copyright_notice') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->copyright_notice') . '; ?>';
     }
 
     /*dtd
@@ -727,7 +731,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->desc') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->desc') . '; ?>';
     }
 
     /*dtd
@@ -737,7 +741,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->settings->system->editor') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->editor') . '; ?>';
     }
 
     /*dtd
@@ -747,7 +751,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '"urn:md5:".$core->blog->uid') . '; ?>';
+        return '<?php echo ' . sprintf($f, '"urn:md5:".dcCore::app()->blog->uid') . '; ?>';
     }
 
     /*dtd
@@ -766,7 +770,7 @@ class dcTemplate extends template
 
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->url.$core->url->getURLFor("feed","' . $type . '")') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("feed","' . $type . '")') . '; ?>';
     }
 
     /*dtd
@@ -776,7 +780,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->name') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->name') . '; ?>';
     }
 
     /*dtd
@@ -786,7 +790,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->settings->system->lang') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->lang') . '; ?>';
     }
 
     /*dtd
@@ -796,9 +800,9 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php if ($_ctx->exists("cur_lang")) echo ' . sprintf($f, '$core->blog->url.$core->url->getURLFor("lang",' .
+        return '<?php if ($_ctx->exists("cur_lang")) echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("lang",' .
             '$_ctx->cur_lang)') . ';
-            else echo ' . sprintf($f, '$core->blog->url') . '; ?>';
+            else echo ' . sprintf($f, 'dcCore::app()->blog->url') . '; ?>';
     }
 
     /*dtd
@@ -808,7 +812,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->settings->system->themes_url."/".$core->blog->settings->system->theme') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->themes_url."/".dcCore::app()->blog->settings->system->theme') . '; ?>';
     }
 
     /*dtd
@@ -817,9 +821,9 @@ class dcTemplate extends template
     public function BlogParentThemeURL($attr)
     {
         $f      = $this->getFilters($attr);
-        $parent = '$core->themes->moduleInfo($core->blog->settings->system->theme,\'parent\')';
+        $parent = 'dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme,\'parent\')';
 
-        return '<?php echo ' . sprintf($f, '$core->blog->settings->system->themes_url."/".(' . "$parent" . ' ? ' . "$parent" . ' : $core->blog->settings->system->theme)') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->themes_url."/".(' . "$parent" . ' ? ' . "$parent" . ' : dcCore::app()->blog->settings->system->theme)') . '; ?>';
     }
 
     /*dtd
@@ -829,7 +833,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->settings->system->public_url') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->public_url') . '; ?>';
     }
 
     /*dtd
@@ -855,12 +859,12 @@ class dcTemplate extends template
         $f = $this->getFilters($attr);
 
         if ($rfc822) {
-            return '<?php echo ' . sprintf($f, 'dt::rfc822($core->blog->upddt,$core->blog->settings->system->blog_timezone)') . '; ?>';
+            return '<?php echo ' . sprintf($f, 'dt::rfc822(dcCore::app()->blog->upddt,dcCore::app()->blog->settings->system->blog_timezone)') . '; ?>';
         } elseif ($iso8601) {
-            return '<?php echo ' . sprintf($f, 'dt::iso8601($core->blog->upddt,$core->blog->settings->system->blog_timezone)') . '; ?>';
+            return '<?php echo ' . sprintf($f, 'dt::iso8601(dcCore::app()->blog->upddt,dcCore::app()->blog->settings->system->blog_timezone)') . '; ?>';
         }
 
-        return '<?php echo ' . sprintf($f, "dt::str('" . $format . "',\$core->blog->upddt)") . '; ?>';
+        return '<?php echo ' . sprintf($f, "dt::str('" . $format . "',dcCore::app()->blog->upddt)") . '; ?>';
     }
 
     /*dtd
@@ -870,7 +874,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->id') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->id') . '; ?>';
     }
 
     /*dtd
@@ -880,7 +884,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->url.$core->url->getURLFor(\'rsd\')') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor(\'rsd\')') . '; ?>';
     }
 
     /*dtd
@@ -890,7 +894,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->url.$core->url->getURLFor(\'xmlrpc\',$core->blog->id)') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor(\'xmlrpc\',dcCore::app()->blog->id)') . '; ?>';
     }
 
     /*dtd
@@ -900,7 +904,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->url') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url') . '; ?>';
     }
 
     /*dtd
@@ -910,7 +914,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->getQmarkURL()') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->getQmarkURL()') . '; ?>';
     }
 
     /*dtd
@@ -923,7 +927,7 @@ class dcTemplate extends template
     {
         $robots = isset($attr['robots']) ? addslashes($attr['robots']) : '';
 
-        return "<?php echo context::robotsPolicy(\$core->blog->settings->system->robots_policy,'" . $robots . "'); ?>";
+        return "<?php echo context::robotsPolicy(dcCore::app()->blog->settings->system->robots_policy,'" . $robots . "'); ?>";
     }
 
     /*dtd
@@ -933,7 +937,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->getJsJQuery()') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->getJsJQuery()') . '; ?>';
     }
 
     /*dtd
@@ -943,7 +947,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, ('$core->blog->settings->system->static_home ? $core->blog->url.$core->url->getURLFor("posts") : $core->blog->url')) . '; ?>';
+        return '<?php echo ' . sprintf($f, ('dcCore::app()->blog->settings->system->static_home ? dcCore::app()->blog->url.dcCore::app()->url->getURLFor("posts") : dcCore::app()->blog->url')) . '; ?>';
     }
 
     /*dtd
@@ -952,7 +956,7 @@ class dcTemplate extends template
     public function IfBlogStaticEntryURL($attr, $content)
     {
         return
-            "<?php if (\$core->blog->settings->system->static_home_url != '') : ?>" .
+            "<?php if (dcCore::app()->blog->settings->system->static_home_url != '') : ?>" .
             $content .
             '<?php endif; ?>';
     }
@@ -964,8 +968,8 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        $p = "\$params['post_type'] = array_keys(\$core->getPostTypes());\n";
-        $p .= "\$params['post_url'] = " . sprintf($f, 'urldecode($core->blog->settings->system->static_home_url)') . ";\n";
+        $p = "\$params['post_type'] = array_keys(dcCore::app()->getPostTypes());\n";
+        $p .= "\$params['post_url'] = " . sprintf($f, 'urldecode(dcCore::app()->blog->settings->system->static_home_url)') . ";\n";
 
         return "<?php\n" . $p . ' ?>';
     }
@@ -977,7 +981,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->settings->system->nb_post_for_home') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->nb_post_for_home') . '; ?>';
     }
 
     /*dtd
@@ -987,7 +991,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->settings->system->nb_post_per_page') . '; ?>';
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->nb_post_per_page') . '; ?>';
     }
 
     /* Categories ----------------------------------------- */
@@ -1017,13 +1021,13 @@ class dcTemplate extends template
 
         $res = "<?php\n";
         $res .= $p;
-        $res .= $this->core->callBehavior(
+        $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'Categories', 'method' => 'blog::getCategories'],
             $attr,
             $content
         );
-        $res .= '$_ctx->categories = $core->blog->getCategories($params);' . "\n";
+        $res .= '$_ctx->categories = dcCore::app()->blog->getCategories($params);' . "\n";
         $res .= "?>\n";
         $res .= '<?php while ($_ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->categories = null; unset($params); ?>';
 
@@ -1074,13 +1078,13 @@ class dcTemplate extends template
             if (substr($url, 0, 1) == '!') {
                 $url = substr($url, 1);
                 if (isset($args['sub'])) {
-                    $if[] = '(!$core->blog->IsInCatSubtree($_ctx->categories->cat_url, "' . $url . '"))';
+                    $if[] = '(!dcCore::app()->blog->IsInCatSubtree($_ctx->categories->cat_url, "' . $url . '"))';
                 } else {
                     $if[] = '($_ctx->categories->cat_url != "' . $url . '")';
                 }
             } else {
                 if (isset($args['sub'])) {
-                    $if[] = '($core->blog->IsInCatSubtree($_ctx->categories->cat_url, "' . $url . '"))';
+                    $if[] = '(dcCore::app()->blog->IsInCatSubtree($_ctx->categories->cat_url, "' . $url . '"))';
                 } else {
                     $if[] = '($_ctx->categories->cat_url == "' . $url . '")';
                 }
@@ -1097,13 +1101,13 @@ class dcTemplate extends template
                     if (substr($url, 0, 1) == '!') {
                         $url = substr($url, 1);
                         if (isset($args['sub'])) {
-                            $if[] = '(!$core->blog->IsInCatSubtree($_ctx->categories->cat_url, "' . $url . '"))';
+                            $if[] = '(!dcCore::app()->blog->IsInCatSubtree($_ctx->categories->cat_url, "' . $url . '"))';
                         } else {
                             $if[] = '($_ctx->categories->cat_url != "' . $url . '")';
                         }
                     } else {
                         if (isset($args['sub'])) {
-                            $if[] = '($core->blog->IsInCatSubtree($_ctx->categories->cat_url, "' . $url . '"))';
+                            $if[] = '(dcCore::app()->blog->IsInCatSubtree($_ctx->categories->cat_url, "' . $url . '"))';
                         } else {
                             $if[] = '($_ctx->categories->cat_url == "' . $url . '")';
                         }
@@ -1122,7 +1126,7 @@ class dcTemplate extends template
             $if[] = '$_ctx->categories->cat_desc ' . $sign . ' ""';
         }
 
-        $this->core->callBehavior('tplIfConditions', 'CategoryIf', $attr, $content, $if);
+        dcCore::app()->callBehavior('tplIfConditions', 'CategoryIf', $attr, $content, $if);
 
         if (count($if) != 0) {
             return '<?php if(' . implode(' ' . $operator . ' ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
@@ -1138,7 +1142,7 @@ class dcTemplate extends template
     {
         return
             "<?php\n" .
-            '$_ctx->categories = $core->blog->getCategoryFirstChildren($_ctx->categories->cat_id);' . "\n" .
+            '$_ctx->categories = dcCore::app()->blog->getCategoryFirstChildren($_ctx->categories->cat_id);' . "\n" .
             'while ($_ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->categories = null; ?>';
     }
 
@@ -1149,7 +1153,7 @@ class dcTemplate extends template
     {
         return
             "<?php\n" .
-            '$_ctx->categories = $core->blog->getCategoryParents($_ctx->categories->cat_id);' . "\n" .
+            '$_ctx->categories = dcCore::app()->blog->getCategoryParents($_ctx->categories->cat_id);' . "\n" .
             'while ($_ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->categories = null; ?>';
     }
 
@@ -1169,7 +1173,7 @@ class dcTemplate extends template
 
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->url.$core->url->getURLFor("feed","category/".' .
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("feed","category/".' .
             '$_ctx->categories->cat_url."/' . $type . '")') . '; ?>';
     }
 
@@ -1190,7 +1194,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->url.$core->url->getURLFor("category",' .
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("category",' .
             '$_ctx->categories->cat_url)') . '; ?>';
     }
 
@@ -1281,7 +1285,7 @@ class dcTemplate extends template
             } else {
                 // nb of entries per page not specified -> use ctx settings
                 $p .= "\$nb_entry_first_page=\$_ctx->nb_entry_first_page; \$nb_entry_per_page = \$_ctx->nb_entry_per_page;\n";
-                $p .= "if ((\$core->url->type == 'default') || (\$core->url->type == 'default-page')) {\n";
+                $p .= "if ((dcCore::app()->url->type == 'default') || (dcCore::app()->url->type == 'default-page')) {\n";
                 $p .= "    \$params['limit'] = (\$_page_number == 1 ? \$nb_entry_first_page : \$nb_entry_per_page);\n";
                 $p .= "} else {\n";
                 $p .= "    \$params['limit'] = \$nb_entry_per_page;\n";
@@ -1290,7 +1294,7 @@ class dcTemplate extends template
             // Set offset (aka index of first entry)
             if (!isset($attr['ignore_pagination']) || $attr['ignore_pagination'] == '0') {
                 // standard pagination, set offset
-                $p .= "if ((\$core->url->type == 'default') || (\$core->url->type == 'default-page')) {\n";
+                $p .= "if ((dcCore::app()->url->type == 'default') || (dcCore::app()->url->type == 'default-page')) {\n";
                 $p .= "    \$params['limit'] = [(\$_page_number == 1 ? 0 : (\$_page_number - 2) * \$nb_entry_per_page + \$nb_entry_first_page),\$params['limit']];\n";
                 $p .= "} else {\n";
                 $p .= "    \$params['limit'] = [(\$_page_number - 1) * \$nb_entry_per_page,\$params['limit']];\n";
@@ -1336,7 +1340,7 @@ class dcTemplate extends template
 
             if (!isset($attr['category']) && (!isset($attr['no_category']) || !$attr['no_category'])) {
                 $p .= 'if ($_ctx->exists("categories")) { ' .
-                    "\$params['cat_id'] = \$_ctx->categories->cat_id.(\$core->blog->settings->system->inc_subcats?' ?sub':'');" .
+                    "\$params['cat_id'] = \$_ctx->categories->cat_id.(dcCore::app()->blog->settings->system->inc_subcats?' ?sub':'');" .
                     "}\n";
             }
 
@@ -1374,14 +1378,14 @@ class dcTemplate extends template
 
         $res = "<?php\n";
         $res .= $p;
-        $res .= $this->core->callBehavior(
+        $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'Entries', 'method' => 'blog::getPosts'],
             $attr,
             $content
         );
         $res .= '$_ctx->post_params = $params;' . "\n";
-        $res .= '$_ctx->posts = $core->blog->getPosts($params); unset($params);' . "\n";
+        $res .= '$_ctx->posts = dcCore::app()->blog->getPosts($params); unset($params);' . "\n";
         $res .= "?>\n";
         $res .= '<?php while ($_ctx->posts->fetch()) : ?>' . $content . '<?php endwhile; ' .
             '$_ctx->posts = null; $_ctx->post_params = null; ?>';
@@ -1580,7 +1584,7 @@ class dcTemplate extends template
             }
         }
 
-        $this->core->callBehavior('tplIfConditions', 'EntryIf', $attr, $content, $if);
+        dcCore::app()->callBehavior('tplIfConditions', 'EntryIf', $attr, $content, $if);
 
         if (count($if) != 0) {
             return '<?php if(' . implode(' ' . $operator . ' ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
@@ -1859,7 +1863,7 @@ class dcTemplate extends template
     {
         return
             "<?php\n" .
-            '$_ctx->categories = $core->blog->getCategoryParents($_ctx->posts->cat_id);' . "\n" .
+            '$_ctx->categories = dcCore::app()->blog->getCategoryParents($_ctx->posts->cat_id);' . "\n" .
             'while ($_ctx->categories->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->categories = null; ?>';
     }
 
@@ -1948,7 +1952,7 @@ class dcTemplate extends template
         '<?php if ($_ctx->posts->post_lang) { ' .
         'echo ' . sprintf($f, '$_ctx->posts->post_lang') . '; ' .
         '} else {' .
-        'echo ' . sprintf($f, '$core->blog->settings->system->lang') . '; ' .
+        'echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->lang') . '; ' .
             '} ?>';
     }
 
@@ -1965,7 +1969,7 @@ class dcTemplate extends template
         $restrict_to_lang     = !empty($attr['restrict_to_lang']) ? '1' : '0';
 
         return
-            '<?php $next_post = $core->blog->getNextPost($_ctx->posts,1,' . $restrict_to_category . ',' . $restrict_to_lang . '); ?>' . "\n" .
+            '<?php $next_post = dcCore::app()->blog->getNextPost($_ctx->posts,1,' . $restrict_to_category . ',' . $restrict_to_lang . '); ?>' . "\n" .
             '<?php if ($next_post !== null) : ?>' .
 
             '<?php $_ctx->posts = $next_post; unset($next_post);' . "\n" .
@@ -1988,7 +1992,7 @@ class dcTemplate extends template
         $restrict_to_lang     = !empty($attr['restrict_to_lang']) ? '1' : '0';
 
         return
-            '<?php $prev_post = $core->blog->getNextPost($_ctx->posts,-1,' . $restrict_to_category . ',' . $restrict_to_lang . '); ?>' . "\n" .
+            '<?php $prev_post = dcCore::app()->blog->getNextPost($_ctx->posts,-1,' . $restrict_to_category . ',' . $restrict_to_lang . '); ?>' . "\n" .
             '<?php if ($prev_post !== null) : ?>' .
 
             '<?php $_ctx->posts = $prev_post; unset($prev_post);' . "\n" .
@@ -2188,13 +2192,13 @@ class dcTemplate extends template
 
         $res = "<?php\n";
         $res .= $p;
-        $res .= $this->core->callBehavior(
+        $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'Languages', 'method' => 'blog::getLangs'],
             $attr,
             $content
         );
-        $res .= '$_ctx->langs = $core->blog->getLangs($params); unset($params);' . "\n";
+        $res .= '$_ctx->langs = dcCore::app()->blog->getLangs($params); unset($params);' . "\n";
         $res .= "?>\n";
 
         $res .= '<?php if ($_ctx->langs->count() > 1) : ' .
@@ -2254,7 +2258,7 @@ class dcTemplate extends template
     {
         $f = $this->getFilters($attr);
 
-        return '<?php echo ' . sprintf($f, '$core->blog->url.$core->url->getURLFor("lang",' .
+        return '<?php echo ' . sprintf($f, 'dcCore::app()->blog->url.dcCore::app()->url->getURLFor("lang",' .
             '$_ctx->langs->post_lang)') . '; ?>';
     }
 
@@ -2271,7 +2275,7 @@ class dcTemplate extends template
         'elseif ($_ctx->exists("posts") && $_ctx->posts->exists("post_lang")) ' . "\n" .
         '   { echo ' . sprintf($f, '$_ctx->posts->post_lang') . '; }' . "\n" .
         'else ' . "\n" .
-        '   { echo ' . sprintf($f, '$core->blog->settings->system->lang') . '; } ?>';
+        '   { echo ' . sprintf($f, 'dcCore::app()->blog->settings->system->lang') . '; } ?>';
     }
 
     /* Pagination ------------------------------------- */
@@ -2285,13 +2289,13 @@ class dcTemplate extends template
     {
         $p = "<?php\n";
         $p .= '$params = $_ctx->post_params;' . "\n";
-        $p .= $this->core->callBehavior(
+        $p .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'Pagination', 'method' => 'blog::getPosts'],
             $attr,
             $content
         );
-        $p .= '$_ctx->pagination = $core->blog->getPosts($params,true); unset($params);' . "\n";
+        $p .= '$_ctx->pagination = dcCore::app()->blog->getPosts($params,true); unset($params);' . "\n";
         $p .= "?>\n";
 
         if (isset($attr['no_context']) && $attr['no_context']) {
@@ -2351,7 +2355,7 @@ class dcTemplate extends template
             $if[] = $sign . 'context::PaginationEnd()';
         }
 
-        $this->core->callBehavior('tplIfConditions', 'PaginationIf', $attr, $content, $if);
+        dcCore::app()->callBehavior('tplIfConditions', 'PaginationIf', $attr, $content, $if);
 
         if (count($if) != 0) {
             return '<?php if(' . implode(' && ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
@@ -2411,14 +2415,14 @@ class dcTemplate extends template
         if (empty($attr['no_context'])) {
             $p .= 'if ($_ctx->posts !== null) { ' .
                 "\$params['post_id'] = \$_ctx->posts->post_id; " .
-                "\$core->blog->withoutPassword(false);\n" .
+                "dcCore::app()->blog->withoutPassword(false);\n" .
                 "}\n";
             $p .= 'if ($_ctx->exists("categories")) { ' .
                 "\$params['cat_id'] = \$_ctx->categories->cat_id; " .
                 "}\n";
 
             $p .= 'if ($_ctx->exists("langs")) { ' .
-                "\$params['sql'] = \"AND P.post_lang = '\".\$core->blog->con->escape(\$_ctx->langs->post_lang).\"' \"; " .
+                "\$params['sql'] = \"AND P.post_lang = '\".dcCore::app()->blog->con->escape(\$_ctx->langs->post_lang).\"' \"; " .
                 "}\n";
         }
 
@@ -2438,15 +2442,15 @@ class dcTemplate extends template
         }
 
         $res = "<?php\n";
-        $res .= $this->core->callBehavior(
+        $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'Comments', 'method' => 'blog::getComments'],
             $attr,
             $content
         );
         $res .= $p;
-        $res .= '$_ctx->comments = $core->blog->getComments($params); unset($params);' . "\n";
-        $res .= "if (\$_ctx->posts !== null) { \$core->blog->withoutPassword(true);}\n";
+        $res .= '$_ctx->comments = dcCore::app()->blog->getComments($params); unset($params);' . "\n";
+        $res .= "if (\$_ctx->posts !== null) { dcCore::app()->blog->withoutPassword(true);}\n";
 
         if (!empty($attr['with_pings'])) {
             $res .= '$_ctx->pings = $_ctx->comments;' . "\n";
@@ -2636,7 +2640,7 @@ class dcTemplate extends template
             $if[] = $sign . '$_ctx->comments->comment_trackback';
         }
 
-        $this->core->callBehavior('tplIfConditions', 'CommentIf', $attr, $content, $if);
+        dcCore::app()->callBehavior('tplIfConditions', 'CommentIf', $attr, $content, $if);
 
         if (count($if) != 0) {
             return '<?php if(' . implode(' && ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
@@ -2762,7 +2766,7 @@ class dcTemplate extends template
     public function CommentHelp($attr, $content)
     {
         return
-            "<?php if (\$core->blog->settings->system->wiki_comments) {\n" .
+            "<?php if (dcCore::app()->blog->settings->system->wiki_comments) {\n" .
             "  echo __('Comments can be formatted using a simple wiki syntax.');\n" .
             "} else {\n" .
             "  echo __('HTML code is displayed as text and web addresses are automatically converted.');\n" .
@@ -2776,7 +2780,7 @@ class dcTemplate extends template
     public function IfCommentPreviewOptional($attr, $content)
     {
         return
-            '<?php if ($core->blog->settings->system->comment_preview_optional || ($_ctx->comment_preview !== null && $_ctx->comment_preview["preview"])) : ?>' .
+            '<?php if (dcCore::app()->blog->settings->system->comment_preview_optional || ($_ctx->comment_preview !== null && $_ctx->comment_preview["preview"])) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -3000,7 +3004,7 @@ class dcTemplate extends template
     public function PingNoFollow($attr)
     {
         return
-            '<?php if($core->blog->settings->system->comments_nofollow) { ' .
+            '<?php if(dcCore::app()->blog->settings->system->comments_nofollow) { ' .
             'echo \' rel="nofollow"\';' .
             '} ?>';
     }
@@ -3036,7 +3040,7 @@ class dcTemplate extends template
     {
         $p = 'if ($_ctx->posts !== null) { ' .
             "\$params['post_id'] = \$_ctx->posts->post_id; " .
-            "\$core->blog->withoutPassword(false);\n" .
+            "dcCore::app()->blog->withoutPassword(false);\n" .
             "}\n";
 
         $p .= "\$params['comment_trackback'] = true;\n";
@@ -3058,7 +3062,7 @@ class dcTemplate extends template
                 "}\n";
 
             $p .= 'if ($_ctx->exists("langs")) { ' .
-                "\$params['sql'] = \"AND P.post_lang = '\".\$core->blog->con->escape(\$_ctx->langs->post_lang).\"' \"; " .
+                "\$params['sql'] = \"AND P.post_lang = '\".dcCore::app()->blog->con->escape(\$_ctx->langs->post_lang).\"' \"; " .
                 "}\n";
         }
 
@@ -3075,14 +3079,14 @@ class dcTemplate extends template
 
         $res = "<?php\n";
         $res .= $p;
-        $res .= $this->core->callBehavior(
+        $res .= dcCore::app()->callBehavior(
             'templatePrepareParams',
             ['tag' => 'Pings', 'method' => 'blog::getComments'],
             $attr,
             $content
         );
-        $res .= '$_ctx->pings = $core->blog->getComments($params); unset($params);' . "\n";
-        $res .= "if (\$_ctx->posts !== null) { \$core->blog->withoutPassword(true);}\n";
+        $res .= '$_ctx->pings = dcCore::app()->blog->getComments($params); unset($params);' . "\n";
+        $res .= "if (\$_ctx->posts !== null) { dcCore::app()->blog->withoutPassword(true);}\n";
         $res .= "?>\n";
 
         $res .= '<?php while ($_ctx->pings->fetch()) : ?>' . $content . '<?php endwhile; $_ctx->pings = null; ?>';
@@ -3148,8 +3152,8 @@ class dcTemplate extends template
         $b = addslashes($attr['behavior']);
 
         return
-            '<?php if ($core->hasBehavior(\'' . $b . '\')) { ' .
-            '$core->callBehavior(\'' . $b . '\',$core,$_ctx);' .
+            '<?php if (dcCore::app()->hasBehavior(\'' . $b . '\')) { ' .
+            'dcCore::app()->callBehavior(\'' . $b . '\',dcCore::app(),$_ctx);' .
             '} ?>';
     }
 
@@ -3193,7 +3197,7 @@ class dcTemplate extends template
                 $sign              = '!';
                 $attr['blog_lang'] = substr($attr['blog_lang'], 1);
             }
-            $if[] = '$core->blog->settings->system->lang ' . $sign . "= '" . addslashes($attr['blog_lang']) . "'";
+            $if[] = 'dcCore::app()->blog->settings->system->lang ' . $sign . "= '" . addslashes($attr['blog_lang']) . "'";
         }
 
         if (isset($attr['current_tpl'])) {
@@ -3211,7 +3215,7 @@ class dcTemplate extends template
                 $sign                 = '!';
                 $attr['current_mode'] = substr($attr['current_mode'], 1);
             }
-            $if[] = '$core->url->type ' . $sign . "= '" . addslashes($attr['current_mode']) . "'";
+            $if[] = 'dcCore::app()->url->type ' . $sign . "= '" . addslashes($attr['current_mode']) . "'";
         }
 
         if (isset($attr['has_tpl'])) {
@@ -3220,7 +3224,7 @@ class dcTemplate extends template
                 $sign            = '!';
                 $attr['has_tpl'] = substr($attr['has_tpl'], 1);
             }
-            $if[] = $sign . "\$core->tpl->getFilePath('" . addslashes($attr['has_tpl']) . "') !== false";
+            $if[] = $sign . "dcCore::app()->tpl->getFilePath('" . addslashes($attr['has_tpl']) . "') !== false";
         }
 
         if (isset($attr['has_tag'])) {
@@ -3229,7 +3233,7 @@ class dcTemplate extends template
                 $sign            = 'false';
                 $attr['has_tag'] = substr($attr['has_tag'], 1);
             }
-            $if[] = "\$core->tpl->tagExists('" . addslashes($attr['has_tag']) . "') === " . $sign;
+            $if[] = "dcCore::app()->tpl->tagExists('" . addslashes($attr['has_tag']) . "') === " . $sign;
         }
 
         if (isset($attr['blog_id'])) {
@@ -3238,22 +3242,22 @@ class dcTemplate extends template
                 $sign            = '!';
                 $attr['blog_id'] = substr($attr['blog_id'], 1);
             }
-            $if[] = $sign . "(\$core->blog->id == '" . addslashes($attr['blog_id']) . "')";
+            $if[] = $sign . "(dcCore::app()->blog->id == '" . addslashes($attr['blog_id']) . "')";
         }
 
         if (isset($attr['comments_active'])) {
             $sign = (bool) $attr['comments_active'] ? '' : '!';
-            $if[] = $sign . '$core->blog->settings->system->allow_comments';
+            $if[] = $sign . 'dcCore::app()->blog->settings->system->allow_comments';
         }
 
         if (isset($attr['pings_active'])) {
             $sign = (bool) $attr['pings_active'] ? '' : '!';
-            $if[] = $sign . '$core->blog->settings->system->allow_trackbacks';
+            $if[] = $sign . 'dcCore::app()->blog->settings->system->allow_trackbacks';
         }
 
         if (isset($attr['wiki_comments'])) {
             $sign = (bool) $attr['wiki_comments'] ? '' : '!';
-            $if[] = $sign . '$core->blog->settings->system->wiki_comments';
+            $if[] = $sign . 'dcCore::app()->blog->settings->system->wiki_comments';
         }
 
         if (isset($attr['search_count']) && preg_match('/^((=|!|&gt;|&lt;)=|(&gt;|&lt;))\s*[0-9]+$/', trim((string) $attr['search_count']))) {
@@ -3262,10 +3266,10 @@ class dcTemplate extends template
 
         if (isset($attr['jquery_needed'])) {
             $sign = (bool) $attr['jquery_needed'] ? '' : '!';
-            $if[] = $sign . '$core->blog->settings->system->jquery_needed';
+            $if[] = $sign . 'dcCore::app()->blog->settings->system->jquery_needed';
         }
 
-        $this->core->callBehavior('tplIfConditions', 'SysIf', $attr, $content, $if);
+        dcCore::app()->callBehavior('tplIfConditions', 'SysIf', $attr, $content, $if);
 
         if (count($if) != 0) {
             return '<?php if(' . implode(' ' . $operator . ' ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';

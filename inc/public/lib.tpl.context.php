@@ -169,12 +169,12 @@ class context
         $args[0] = &$str;
 
         # --BEHAVIOR-- publicBeforeContentFilter
-        $res = $GLOBALS['core']->callBehavior('publicBeforeContentFilter', $GLOBALS['core'], $tag, $args);
+        $res = dcCore::app()->callBehavior('publicBeforeContentFilter', dcCore::app(), $tag, $args);
         $str = $args[0];
 
         foreach ($filters as $filter) {
             # --BEHAVIOR-- publicContentFilter
-            switch ($GLOBALS['core']->callBehavior('publicContentFilter', $GLOBALS['core'], $tag, $args, $filter)) {
+            switch (dcCore::app()->callBehavior('publicContentFilter', dcCore::app(), $tag, $args, $filter)) {
                 case '1':
                     // 3rd party filter applied and must stop
                     break;
@@ -189,7 +189,7 @@ class context
         }
 
         # --BEHAVIOR-- publicAfterContentFilter
-        $res = $GLOBALS['core']->callBehavior('publicAfterContentFilter', $GLOBALS['core'], $tag, $args);
+        $res = dcCore::app()->callBehavior('publicAfterContentFilter', dcCore::app(), $tag, $args);
         $str = $args[0];
 
         return $str;
@@ -288,7 +288,7 @@ class context
         }
 
         $nb_posts = $_ctx->pagination->f(0);
-        if (($GLOBALS['core']->url->type == 'default') || ($GLOBALS['core']->url->type == 'default-page')) {
+        if ((dcCore::app()->url->type == 'default') || (dcCore::app()->url->type == 'default-page')) {
             $nb_pages = ceil(($nb_posts - $_ctx->nb_entry_first_page) / $_ctx->nb_entry_per_page + 1);
         } else {
             $nb_pages = ceil($nb_posts / $_ctx->nb_entry_per_page);
@@ -345,7 +345,7 @@ class context
 
         $args = preg_replace('#(^|/)page/([0-9]+)$#', '', $args);
 
-        $url = $GLOBALS['core']->blog->url . $args;
+        $url = dcCore::app()->blog->url . $args;
 
         if ($n > 1) {
             $url = preg_replace('#/$#', '', $url);
@@ -501,17 +501,17 @@ class context
     # First post image helpers
     public static function EntryFirstImageHelper($size, $with_category, $class = '', $no_tag = false, $content_only = false, $cat_only = false)
     {
-        global $core, $_ctx;
+        global $_ctx;
 
         try {
-            $media = new dcMedia($core);
+            $media = new dcMedia(dcCore::app());
             $sizes = implode('|', array_keys($media->thumb_sizes)) . '|o';
             if (!preg_match('/^' . $sizes . '$/', $size)) {
                 $size = 's';
             }
-            $p_url  = $core->blog->settings->system->public_url;
-            $p_site = preg_replace('#^(.+?//.+?)/(.*)$#', '$1', $core->blog->url);
-            $p_root = $core->blog->public_path;
+            $p_url  = dcCore::app()->blog->settings->system->public_url;
+            $p_site = preg_replace('#^(.+?//.+?)/(.*)$#', '$1', dcCore::app()->blog->url);
+            $p_root = dcCore::app()->blog->public_path;
 
             $pattern = '(?:' . preg_quote($p_site, '/') . ')?' . preg_quote($p_url, '/');
             $pattern = sprintf('/<img.+?src="%s(.*?\.(?:jpg|jpeg|gif|png|svg|webp))"[^>]+/msui', $pattern);
@@ -562,14 +562,12 @@ class context
                 return '<img alt="' . $alt . '" src="' . $src . '" class="' . $class . '" />';
             }
         } catch (Exception $e) {
-            $core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
         }
     }
 
     private static function ContentFirstImageLookup($root, $img, $size)
     {
-        global $core;
-
         # Image extensions
         $formats = ['jpg', 'jpeg', 'png', 'gif', 'svg', 'wepb'];
 
@@ -580,7 +578,7 @@ class context
         $res = false;
 
         try {
-            $media = new dcMedia($core);
+            $media = new dcMedia(dcCore::app());
             $sizes = implode('|', array_keys($media->thumb_sizes));
             if (preg_match('/^\.(.+)_(' . $sizes . ')$/', $base, $m)) {
                 $base = $m[1];
@@ -612,7 +610,7 @@ class context
                 }
             }
         } catch (Exception $e) {
-            $core->error->add($e->getMessage());
+            dcCore::app()->error->add($e->getMessage());
         }
 
         if ($res) {

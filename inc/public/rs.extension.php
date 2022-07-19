@@ -10,8 +10,8 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$core->addBehavior('coreBlogGetPosts', ['rsExtendPublic', 'coreBlogGetPosts']);
-$core->addBehavior('coreBlogGetComments', ['rsExtendPublic', 'coreBlogGetComments']);
+dcCore::app()->addBehavior('coreBlogGetPosts', ['rsExtendPublic', 'coreBlogGetPosts']);
+dcCore::app()->addBehavior('coreBlogGetComments', ['rsExtendPublic', 'coreBlogGetComments']);
 
 class rsExtendPublic
 {
@@ -44,8 +44,8 @@ class rsExtPostPublic extends rsExtPost
             return $c;
         }
 
-        if ($rs->core->blog->settings->system->use_smilies) {
-            return self::smilies(parent::getContent($rs, $absolute_urls), $rs->core->blog);
+        if (dcCore::app()->blog->settings->system->use_smilies) {
+            return self::smilies(parent::getContent($rs, $absolute_urls), dcCore::app()->blog);
         }
 
         return parent::getContent($rs, $absolute_urls);
@@ -53,8 +53,8 @@ class rsExtPostPublic extends rsExtPost
 
     public static function getExcerpt($rs, $absolute_urls = false)
     {
-        if ($rs->core->blog->settings->system->use_smilies) {
-            return self::smilies(parent::getExcerpt($rs, $absolute_urls), $rs->core->blog);
+        if (dcCore::app()->blog->settings->system->use_smilies) {
+            return self::smilies(parent::getExcerpt($rs, $absolute_urls), dcCore::app()->blog);
         }
 
         return parent::getExcerpt($rs, $absolute_urls);
@@ -74,11 +74,11 @@ class rsExtCommentPublic extends rsExtComment
 {
     public static function getContent($rs, $absolute_urls = false)
     {
-        if ($rs->core->blog->settings->system->use_smilies) {
+        if (dcCore::app()->blog->settings->system->use_smilies) {
             $c = parent::getContent($rs, $absolute_urls);
 
             if (!isset($GLOBALS['__smilies'])) {
-                $GLOBALS['__smilies'] = context::getSmilies($rs->core->blog);
+                $GLOBALS['__smilies'] = context::getSmilies(dcCore::app()->blog);
             }
 
             return context::addSmilies($c);

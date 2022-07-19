@@ -163,6 +163,10 @@ parameters:
     - message: '#Property dcMeta::\$core is never read, only written.#'
       path: %currentWorkingDirectory%
 
+    # dcTemplate $core property never read
+    - message: '#Property dcTemplate::\$core is never read, only written.#'
+      path: %currentWorkingDirectory%
+
 # Notes:
 #
 # Use /* @phpstan-ignore-next-line */ or // @phpstan-ignore-line
