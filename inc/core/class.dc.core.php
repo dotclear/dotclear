@@ -1605,8 +1605,7 @@ final class dcCore
             return [];
         }
 
-        $res        = ['url' => $post->getURL()];
-        $post_title = $post->post_title;
+        $res = ['url' => $post->getURL()];
 
         if ($content != $url) {
             $res['title'] = html::escapeHTML($post->post_title);
