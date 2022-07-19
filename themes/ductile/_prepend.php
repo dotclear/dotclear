@@ -22,20 +22,19 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 // admin part below
 
 # Behaviors
-$GLOBALS['core']->addBehavior('adminPageHTMLHead', [__NAMESPACE__ . '\tplDuctileThemeAdmin', 'adminPageHTMLHead']);
+\dcCore::app()->addBehavior('adminPageHTMLHead', [__NAMESPACE__ . '\tplDuctileThemeAdmin', 'adminPageHTMLHead']);
 
 class tplDuctileThemeAdmin
 {
     public static function adminPageHTMLHead()
     {
-        global $core;
-        if ($core->blog->settings->system->theme !== basename(dirname(__FILE__))) {
+        if (\dcCore::app()->blog->settings->system->theme !== basename(dirname(__FILE__))) {
             return;
         }
 
         echo "\n" . '<!-- Header directives for Ductile configuration -->' . "\n";
-        $core->auth->user_prefs->addWorkspace('accessibility');
-        if (!$core->auth->user_prefs->accessibility->nodragdrop) {
+        \dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
+        if (!\dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
             echo
             \dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
             \dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js');

@@ -11,16 +11,18 @@
 
 namespace themes\customcss;
 
+use dcCore;
+
 if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplCustomTheme', 'publicHeadContent']);
+\dcCore::app()->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplCustomTheme', 'publicHeadContent']);
 
 class tplCustomTheme
 {
-    public static function publicHeadContent($core)
+    public static function publicHeadContent(dcCore $core = null)
     {
-        echo '<link rel="stylesheet" type="text/css" href="' . $core->blog->settings->system->public_url . '/custom_style.css" media="screen">' . "\n";
+        echo '<link rel="stylesheet" type="text/css" href="' . \dcCore::app()->blog->settings->system->public_url . '/custom_style.css" media="screen">' . "\n";
     }
 }

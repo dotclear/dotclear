@@ -11,6 +11,8 @@
 
 namespace themes\ductile;
 
+use dcCore;
+
 if (!defined('DC_RC_PATH')) {
     return;
 }
@@ -18,15 +20,15 @@ if (!defined('DC_RC_PATH')) {
 \l10n::set(__DIR__ . '/locales/' . $_lang . '/main');
 
 # Behaviors
-$core->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplDuctileTheme', 'publicHeadContent']);
-$core->addBehavior('publicInsideFooter', [__NAMESPACE__ . '\tplDuctileTheme', 'publicInsideFooter']);
+\dcCore::app()->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplDuctileTheme', 'publicHeadContent']);
+\dcCore::app()->addBehavior('publicInsideFooter', [__NAMESPACE__ . '\tplDuctileTheme', 'publicInsideFooter']);
 
 # Templates
-$core->tpl->addValue('ductileEntriesList', [__NAMESPACE__ . '\tplDuctileTheme', 'ductileEntriesList']);
-$core->tpl->addBlock('EntryIfContentIsCut', [__NAMESPACE__ . '\tplDuctileTheme', 'EntryIfContentIsCut']);
-$core->tpl->addValue('ductileNbEntryPerPage', [__NAMESPACE__ . '\tplDuctileTheme', 'ductileNbEntryPerPage']);
-$core->tpl->addValue('ductileLogoSrc', [__NAMESPACE__ . '\tplDuctileTheme', 'ductileLogoSrc']);
-$core->tpl->addBlock('IfPreviewIsNotMandatory', [__NAMESPACE__ . '\tplDuctileTheme', 'IfPreviewIsNotMandatory']);
+\dcCore::app()->tpl->addValue('ductileEntriesList', [__NAMESPACE__ . '\tplDuctileTheme', 'ductileEntriesList']);
+\dcCore::app()->tpl->addBlock('EntryIfContentIsCut', [__NAMESPACE__ . '\tplDuctileTheme', 'EntryIfContentIsCut']);
+\dcCore::app()->tpl->addValue('ductileNbEntryPerPage', [__NAMESPACE__ . '\tplDuctileTheme', 'ductileNbEntryPerPage']);
+\dcCore::app()->tpl->addValue('ductileLogoSrc', [__NAMESPACE__ . '\tplDuctileTheme', 'ductileLogoSrc']);
+\dcCore::app()->tpl->addBlock('IfPreviewIsNotMandatory', [__NAMESPACE__ . '\tplDuctileTheme', 'IfPreviewIsNotMandatory']);
 
 class tplDuctileTheme
 {
@@ -43,11 +45,11 @@ class tplDuctileTheme
 
         $nb_other = $nb_first = 0;
 
-        $s = $GLOBALS['core']->blog->settings->themes->get($GLOBALS['core']->blog->settings->system->theme . '_entries_counts');
+        $s = \dcCore::app()->blog->settings->themes->get(\dcCore::app()->blog->settings->system->theme . '_entries_counts');
         if ($s !== null) {
             $s = @unserialize($s);
             if (is_array($s)) {
-                switch ($GLOBALS['core']->url->type) {
+                switch (\dcCore::app()->url->type) {
                     case 'default':
                     case 'default-page':
                         if (isset($s['default'])) {
@@ -59,9 +61,9 @@ class tplDuctileTheme
 
                         break;
                     default:
-                        if (isset($s[$GLOBALS['core']->url->type])) {
+                        if (isset($s[\dcCore::app()->url->type])) {
                             // Nb de billets par page défini par la config du thème
-                            $nb_first = $nb_other = (int) $s[$GLOBALS['core']->url->type];
+                            $nb_first = $nb_other = (int) $s[\dcCore::app()->url->type];
                         }
 
                         break;
@@ -86,8 +88,6 @@ class tplDuctileTheme
 
     public static function EntryIfContentIsCut($attr, $content)
     {
-        global $core;
-
         if (empty($attr['cut_string']) || !empty($attr['full'])) {
             return '';
         }
@@ -97,10 +97,10 @@ class tplDuctileTheme
             $urls = '1';
         }
 
-        $short              = $core->tpl->getFilters($attr);
+        $short              = \dcCore::app()->tpl->getFilters($attr);
         $cut                = $attr['cut_string'];
         $attr['cut_string'] = 0;
-        $full               = $core->tpl->getFilters($attr);
+        $full               = \dcCore::app()->tpl->getFilters($attr);
         $attr['cut_string'] = $cut;
 
         return '<?php if (strlen(' . sprintf($full, '$_ctx->posts->getContent(' . $urls . ')') . ') > ' .
@@ -111,8 +111,6 @@ class tplDuctileTheme
 
     public static function ductileEntriesList($attr)
     {
-        global $core;
-
         $tpl_path   = __DIR__ . '/tpl/';
         $list_types = ['title', 'short', 'full'];
 
@@ -138,7 +136,7 @@ class tplDuctileTheme
         foreach ($list_types as $v) {
             $ret .= '   case \'' . $v . '\':' . "\n" .
             '?>' . "\n" .
-            $core->tpl->includeFile(['src' => '_entry-' . $v . '.html']) . "\n" .
+            \dcCore::app()->tpl->includeFile(['src' => '_entry-' . $v . '.html']) . "\n" .
                 '<?php ' . "\n" .
                 '       break;' . "\n";
         }
@@ -151,12 +149,12 @@ class tplDuctileTheme
 
     public static function ductileEntriesListHelper($default)
     {
-        $s = $GLOBALS['core']->blog->settings->themes->get($GLOBALS['core']->blog->settings->system->theme . '_entries_lists');
+        $s = \dcCore::app()->blog->settings->themes->get(\dcCore::app()->blog->settings->system->theme . '_entries_lists');
         if ($s !== null) {
             $s = @unserialize($s);
             if (is_array($s)) {
-                if (isset($s[$GLOBALS['core']->url->type])) {
-                    $model = $s[$GLOBALS['core']->url->type];
+                if (isset($s[\dcCore::app()->url->type])) {
+                    $model = $s[\dcCore::app()->url->type];
 
                     return $model;
                 }
@@ -173,9 +171,9 @@ class tplDuctileTheme
 
     public static function ductileLogoSrcHelper()
     {
-        $img_url = $GLOBALS['core']->blog->settings->system->themes_url . '/' . $GLOBALS['core']->blog->settings->system->theme . '/img/logo.png';
+        $img_url = \dcCore::app()->blog->settings->system->themes_url . '/' . \dcCore::app()->blog->settings->system->theme . '/img/logo.png';
 
-        $s = $GLOBALS['core']->blog->settings->themes->get($GLOBALS['core']->blog->settings->system->theme . '_style');
+        $s = \dcCore::app()->blog->settings->themes->get(\dcCore::app()->blog->settings->system->theme . '_style');
         if ($s === null) {
             // no settings yet, return default logo
             return $img_url;
@@ -194,7 +192,7 @@ class tplDuctileTheme
                         $img_url = $s['logo_src'];
                     } else {
                         // relative URL (base = img folder of ductile theme)
-                        $img_url = $GLOBALS['core']->blog->settings->system->themes_url . '/' . $GLOBALS['core']->blog->settings->system->theme . '/img/' . $s['logo_src'];
+                        $img_url = \dcCore::app()->blog->settings->system->themes_url . '/' . \dcCore::app()->blog->settings->system->theme . '/img/' . $s['logo_src'];
                     }
                 }
             }
@@ -205,7 +203,7 @@ class tplDuctileTheme
 
     public static function IfPreviewIsNotMandatory($attr, $content)
     {
-        $s = $GLOBALS['core']->blog->settings->themes->get($GLOBALS['core']->blog->settings->system->theme . '_style');
+        $s = \dcCore::app()->blog->settings->themes->get(\dcCore::app()->blog->settings->system->theme . '_style');
         if ($s !== null) {
             $s = @unserialize($s);
             if (is_array($s)) {
@@ -220,13 +218,13 @@ class tplDuctileTheme
         return '';
     }
 
-    public static function publicInsideFooter($core)
+    public static function publicInsideFooter(dcCore $core = null)
     {
         $res     = '';
         $default = false;
-        $img_url = $core->blog->settings->system->themes_url . '/' . $core->blog->settings->system->theme . '/img/';
+        $img_url = \dcCore::app()->blog->settings->system->themes_url . '/' . \dcCore::app()->blog->settings->system->theme . '/img/';
 
-        $s = $core->blog->settings->themes->get($core->blog->settings->system->theme . '_stickers');
+        $s = \dcCore::app()->blog->settings->themes->get(\dcCore::app()->blog->settings->system->theme . '_stickers');
 
         if ($s === null) {
             $default = true;
@@ -249,8 +247,8 @@ class tplDuctileTheme
         }
 
         if ($default || $res == '') {
-            $res = self::setSticker(1, true, __('Subscribe'), $core->blog->url .
-                $core->url->getURLFor('feed', 'atom'), $img_url . 'sticker-feed.png');
+            $res = self::setSticker(1, true, __('Subscribe'), \dcCore::app()->blog->url .
+                \dcCore::app()->url->getURLFor('feed', 'atom'), $img_url . 'sticker-feed.png');
         }
 
         if ($res != '') {
@@ -282,7 +280,7 @@ class tplDuctileTheme
             '</li>' . "\n";
     }
 
-    public static function publicHeadContent($core)
+    public static function publicHeadContent(dcCore $core = null)
     {
         echo
         '<style type="text/css">' . "\n" .
@@ -292,7 +290,7 @@ class tplDuctileTheme
 
         echo
         '<script src="' .
-        $core->blog->settings->system->themes_url . '/' . $core->blog->settings->system->theme .
+        \dcCore::app()->blog->settings->system->themes_url . '/' . \dcCore::app()->blog->settings->system->theme .
             '/ductile.js"></script>' . "\n";
 
         echo self::ductileWebfontHelper();
@@ -300,7 +298,7 @@ class tplDuctileTheme
 
     public static function ductileWebfontHelper()
     {
-        $s = $GLOBALS['core']->blog->settings->themes->get($GLOBALS['core']->blog->settings->system->theme . '_style');
+        $s = \dcCore::app()->blog->settings->themes->get(\dcCore::app()->blog->settings->system->theme . '_style');
 
         if ($s === null) {
             return;
@@ -371,7 +369,7 @@ class tplDuctileTheme
 
     public static function ductileStyleHelper()
     {
-        $s = $GLOBALS['core']->blog->settings->themes->get($GLOBALS['core']->blog->settings->system->theme . '_style');
+        $s = \dcCore::app()->blog->settings->themes->get(\dcCore::app()->blog->settings->system->theme . '_style');
 
         if ($s === null) {
             return;

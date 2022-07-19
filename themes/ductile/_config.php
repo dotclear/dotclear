@@ -14,16 +14,16 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 
 l10n::set(__DIR__ . '/locales/' . $_lang . '/admin');
 
-if (preg_match('#^http(s)?://#', $core->blog->settings->system->themes_url)) {
-    $img_url = http::concatURL($core->blog->settings->system->themes_url, '/' . $core->blog->settings->system->theme . '/img/');
+if (preg_match('#^http(s)?://#', dcCore::app()->blog->settings->system->themes_url)) {
+    $img_url = http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . dcCore::app()->blog->settings->system->theme . '/img/');
 } else {
-    $img_url = http::concatURL($core->blog->url, $core->blog->settings->system->themes_url . '/' . $core->blog->settings->system->theme . '/img/');
+    $img_url = http::concatURL(dcCore::app()->blog->url, dcCore::app()->blog->settings->system->themes_url . '/' . dcCore::app()->blog->settings->system->theme . '/img/');
 }
 $img_path = __DIR__ . '/img/';
 
 $tpl_path = __DIR__ . '/tpl/';
 
-$standalone_config = (bool) $core->themes->moduleInfo($core->blog->settings->system->theme, 'standalone_config');
+$standalone_config = (bool) dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'standalone_config');
 
 // Load contextual help
 if (file_exists(__DIR__ . '/locales/' . $_lang . '/resources.php')) {
@@ -157,36 +157,36 @@ $ductile_counts_base = [
     'search'       => null,
 ];
 
-$ductile_user = $core->blog->settings->themes->get($core->blog->settings->system->theme . '_style');
+$ductile_user = dcCore::app()->blog->settings->themes->get(dcCore::app()->blog->settings->system->theme . '_style');
 $ductile_user = @unserialize($ductile_user);
 if (!is_array($ductile_user)) {
     $ductile_user = [];
 }
 $ductile_user = array_merge($ductile_base, $ductile_user);
 
-$ductile_lists = $core->blog->settings->themes->get($core->blog->settings->system->theme . '_entries_lists');
+$ductile_lists = dcCore::app()->blog->settings->themes->get(dcCore::app()->blog->settings->system->theme . '_entries_lists');
 $ductile_lists = @unserialize($ductile_lists);
 if (!is_array($ductile_lists)) {
     $ductile_lists = $ductile_lists_base;
 }
 $ductile_lists = array_merge($ductile_lists_base, $ductile_lists);
 
-$ductile_counts = $core->blog->settings->themes->get($core->blog->settings->system->theme . '_entries_counts');
+$ductile_counts = dcCore::app()->blog->settings->themes->get(dcCore::app()->blog->settings->system->theme . '_entries_counts');
 $ductile_counts = @unserialize($ductile_counts);
 if (!is_array($ductile_counts)) {
     $ductile_counts = $ductile_counts_base;
 }
 $ductile_counts = array_merge($ductile_counts_base, $ductile_counts);
 
-$ductile_stickers = $core->blog->settings->themes->get($core->blog->settings->system->theme . '_stickers');
+$ductile_stickers = dcCore::app()->blog->settings->themes->get(dcCore::app()->blog->settings->system->theme . '_stickers');
 $ductile_stickers = @unserialize($ductile_stickers);
 
 // If no stickers defined, add feed Atom one
 if (!is_array($ductile_stickers)) {
     $ductile_stickers = [[
         'label' => __('Subscribe'),
-        'url'   => $core->blog->url .
-        $core->url->getURLFor('feed', 'atom'),
+        'url'   => dcCore::app()->blog->url .
+        dcCore::app()->url->getURLFor('feed', 'atom'),
         'image' => 'sticker-feed.png',
     ]];
 }
@@ -295,21 +295,21 @@ if (!empty($_POST)) {
             $ductile_user['post_title_c_m'] = dcThemeConfig::adjustColor($_POST['post_title_c_m']);
         }
 
-        $core->blog->settings->addNamespace('themes');
-        $core->blog->settings->themes->put($core->blog->settings->system->theme . '_style', serialize($ductile_user));
-        $core->blog->settings->themes->put($core->blog->settings->system->theme . '_stickers', serialize($ductile_stickers));
-        $core->blog->settings->themes->put($core->blog->settings->system->theme . '_entries_lists', serialize($ductile_lists));
-        $core->blog->settings->themes->put($core->blog->settings->system->theme . '_entries_counts', serialize($ductile_counts));
+        dcCore::app()->blog->settings->addNamespace('themes');
+        dcCore::app()->blog->settings->themes->put(dcCore::app()->blog->settings->system->theme . '_style', serialize($ductile_user));
+        dcCore::app()->blog->settings->themes->put(dcCore::app()->blog->settings->system->theme . '_stickers', serialize($ductile_stickers));
+        dcCore::app()->blog->settings->themes->put(dcCore::app()->blog->settings->system->theme . '_entries_lists', serialize($ductile_lists));
+        dcCore::app()->blog->settings->themes->put(dcCore::app()->blog->settings->system->theme . '_entries_counts', serialize($ductile_counts));
 
         // Blog refresh
-        $core->blog->triggerBlog();
+        dcCore::app()->blog->triggerBlog();
 
         // Template cache reset
-        $core->emptyTemplatesCache();
+        dcCore::app()->emptyTemplatesCache();
 
         dcPage::message(__('Theme configuration upgraded.'), true, true);
     } catch (Exception $e) {
-        $core->error->add($e->getMessage());
+        dcCore::app()->error->add($e->getMessage());
     }
 }
 
@@ -323,7 +323,7 @@ if (!$standalone_config) {
 echo '<div class="multi-part" id="themes-list' . ($conf_tab == 'html' ? '' : '-html') . '" title="' . __('Content') . '">' .
 '<h3>' . __('Content') . '</h3>';
 
-echo '<form id="theme_config" action="' . $core->adminurl->get('admin.blog.theme', ['conf' => '1']) .
+echo '<form id="theme_config" action="' . dcCore::app()->adminurl->get('admin.blog.theme', ['conf' => '1']) .
     '" method="post" enctype="multipart/form-data">';
 
 echo '<h4>' . __('Header') . '</h4>' .
@@ -331,10 +331,10 @@ echo '<h4>' . __('Header') . '</h4>' .
 form::checkbox('subtitle_hidden', 1, $ductile_user['subtitle_hidden']) . '</p>';
 echo '<p class="field"><label for="logo_src">' . __('Logo URL:') . '</label> ' .
 form::field('logo_src', 40, 255, $ductile_user['logo_src']) . '</p>';
-if ($core->plugins->moduleExists('simpleMenu')) {
+if (dcCore::app()->plugins->moduleExists('simpleMenu')) {
     echo '<p>' . sprintf(
         __('To configure the top menu go to the <a href="%s">Simple Menu administration page</a>.'),
-        $core->adminurl->get('admin.plugin.simpleMenu')
+        dcCore::app()->adminurl->get('admin.plugin.simpleMenu')
     ) . '</p>';
 }
 
@@ -410,7 +410,7 @@ echo '<p><label for="preview_not_mandatory" class="classic">' . __('Comment prev
 form::checkbox('preview_not_mandatory', 1, $ductile_user['preview_not_mandatory']) . '</p>';
 
 echo '<p><input type="hidden" name="conf_tab" value="html" /></p>';
-echo '<p class="clear">' . form::hidden('ds_order', '') . '<input type="submit" value="' . __('Save') . '" />' . $core->formNonce() . '</p>';
+echo '<p class="clear">' . form::hidden('ds_order', '') . '<input type="submit" value="' . __('Save') . '" />' . dcCore::app()->formNonce() . '</p>';
 echo '</form>';
 
 echo '</div>'; // Close tab
@@ -419,7 +419,7 @@ echo '</div>'; // Close tab
 
 echo '<div class="multi-part" id="themes-list' . ($conf_tab == 'css' ? '' : '-css') . '" title="' . __('Presentation') . '">';
 
-echo '<form id="theme_config" action="' . $core->adminurl->get('admin.blog.theme', ['conf' => '1']) .
+echo '<form id="theme_config" action="' . dcCore::app()->adminurl->get('admin.blog.theme', ['conf' => '1']) .
     '" method="post" enctype="multipart/form-data">';
 
 echo '<h3>' . __('General settings') . '</h3>';
@@ -584,7 +584,7 @@ echo '</div>';
 echo '</div>';
 
 echo '<p><input type="hidden" name="conf_tab" value="css" /></p>';
-echo '<p class="clear border-top"><input type="submit" value="' . __('Save') . '" />' . $core->formNonce() . '</p>';
+echo '<p class="clear border-top"><input type="submit" value="' . __('Save') . '" />' . dcCore::app()->formNonce() . '</p>';
 echo '</form>';
 
 echo '</div>'; // Close tab

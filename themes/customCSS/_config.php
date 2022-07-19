@@ -13,7 +13,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 }
 
 l10n::set(__DIR__ . '/locales/' . $_lang . '/main');
-$css_file = path::real($core->blog->public_path) . '/custom_style.css';
+$css_file = path::real(dcCore::app()->blog->public_path) . '/custom_style.css';
 
 if (!is_file($css_file) && !is_writable(dirname($css_file))) {
     throw new Exception(
