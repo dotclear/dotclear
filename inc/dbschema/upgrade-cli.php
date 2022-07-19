@@ -32,20 +32,19 @@ try {
     require __DIR__ . '/../prepend.php';
 
     echo "Starting upgrade process\n";
-    $core->con->begin();
+    dcCore::app()->con->begin();
 
     try {
-        $changes = dcUpgrade::dotclearUpgrade($core);
+        $changes = dcUpgrade::dotclearUpgrade(dcCore::app());
     } catch (Exception $e) {
-        $core->con->rollback();
+        dcCore::app()->con->rollback();
 
         throw $e;
     }
-    $core->con->commit();
+    dcCore::app()->con->commit();
     echo 'Upgrade process successfully completed (' . $changes . "). \n";
     exit(0);
 } catch (Exception $e) {
     echo $e->getMessage() . "\n";
     exit(1);
 }
-?>
