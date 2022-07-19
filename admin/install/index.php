@@ -35,14 +35,14 @@ if (!defined('DC_MASTER_KEY') || DC_MASTER_KEY === '') { // @phpstan-ignore-line
 }
 
 # Check if dotclear is already installed
-$schema = dbSchema::init($core->con);
-if (in_array($core->prefix . 'post', $schema->getTables())) {
+$schema = dbSchema::init(dcCore::app()->con);
+if (in_array(dcCore::app()->prefix . 'post', $schema->getTables())) {
     $can_install = false;
     $err         = '<p>' . __('Dotclear is already installed.') . '</p>';
 }
 
 # Check system capabilites
-if (!dcSystemCheck($core->con, $_e)) {
+if (!dcSystemCheck(dcCore::app()->con, $_e)) {
     $can_install = false;
     $err         = '<p>' . __('Dotclear cannot be installed.') . '</p><ul><li>' . implode('</li><li>', $_e) . '</li></ul>';
 }
@@ -105,17 +105,17 @@ if ($can_install && !empty($_POST)) {    // @phpstan-ignore-line
         }
 
         # Create schema
-        $_s = new dbStruct($core->con, $core->prefix);
+        $_s = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
         require __DIR__ . '/../../inc/dbschema/db-schema.php';
 
-        $si      = new dbStruct($core->con, $core->prefix);
+        $si      = new dbStruct(dcCore::app()->con, dcCore::app()->prefix);
         $changes = $si->synchronize($_s);
 
         # Create user
-        $cur                 = $core->con->openCursor($core->prefix . 'user');
+        $cur                 = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'user');
         $cur->user_id        = $u_login;
         $cur->user_super     = 1;
-        $cur->user_pwd       = $core->auth->crypt($u_pwd);
+        $cur->user_pwd       = dcCore::app()->auth->crypt($u_pwd);
         $cur->user_name      = (string) $u_name;
         $cur->user_firstname = (string) $u_firstname;
         $cur->user_email     = (string) $u_email;
@@ -123,25 +123,25 @@ if ($can_install && !empty($_POST)) {    // @phpstan-ignore-line
         $cur->user_tz        = $default_tz;
         $cur->user_creadt    = date('Y-m-d H:i:s');
         $cur->user_upddt     = date('Y-m-d H:i:s');
-        $cur->user_options   = serialize($core->userDefaults());
+        $cur->user_options   = serialize(dcCore::app()->userDefaults());
         $cur->insert();
 
-        $core->auth->checkUser($u_login);
+        dcCore::app()->auth->checkUser($u_login);
 
         $admin_url = preg_replace('%install/index.php$%', '', $_SERVER['REQUEST_URI']);
         $root_url  = preg_replace('%/admin/install/index.php$%', '', $_SERVER['REQUEST_URI']);
 
         # Create blog
-        $cur            = $core->con->openCursor($core->prefix . 'blog');
+        $cur            = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'blog');
         $cur->blog_id   = 'default';
         $cur->blog_url  = http::getHost() . $root_url . '/index.php?';
         $cur->blog_name = __('My first blog');
-        $core->addBlog($cur);
+        dcCore::app()->addBlog($cur);
 
         # Create global blog settings
-        $core->blogDefaults();
+        dcCore::app()->blogDefaults();
 
-        $blog_settings = new dcSettings($core, 'default');
+        $blog_settings = new dcSettings(dcCore::app(), 'default');
         $blog_settings->addNamespace('system');
         $blog_settings->system->put('blog_timezone', $default_tz);
         $blog_settings->system->put('lang', $dlang);
@@ -174,8 +174,8 @@ if ($can_install && !empty($_POST)) {    // @phpstan-ignore-line
         /* SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
         so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
          */
-        $csp_prefix = $core->con->driver() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
-        $csp_suffix = $core->con->driver() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
+        $csp_prefix = dcCore::app()->con->driver() == 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
+        $csp_suffix = dcCore::app()->con->driver() == 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks driver
 
         $blog_settings->system->put('csp_admin_on', true, 'boolean', 'Send CSP header (admin)', true, true);
         $blog_settings->system->put('csp_admin_report_only', false, 'boolean', 'CSP Report only violations (admin)', true, true);
@@ -213,15 +213,15 @@ if ($can_install && !empty($_POST)) {    // @phpstan-ignore-line
         );
 
         # Add Dotclear version
-        $cur          = $core->con->openCursor($core->prefix . 'version');
+        $cur          = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'version');
         $cur->module  = 'core';
         $cur->version = (string) DC_VERSION;
         $cur->insert();
 
         # Create first post
-        $core->setBlog('default');
+        dcCore::app()->setBlog('default');
 
-        $cur               = $core->con->openCursor($core->prefix . 'post');
+        $cur               = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
         $cur->user_id      = $u_login;
         $cur->post_format  = 'xhtml';
         $cur->post_lang    = $dlang;
@@ -232,10 +232,10 @@ if ($can_install && !empty($_POST)) {    // @phpstan-ignore-line
         $cur->post_status        = 1;
         $cur->post_open_comment  = 1;
         $cur->post_open_tb       = 0;
-        $post_id                 = $core->blog->addPost($cur);
+        $post_id                 = dcCore::app()->blog->addPost($cur);
 
         # Add a comment to it
-        $cur                  = $core->con->openCursor($core->prefix . 'comment');
+        $cur                  = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'comment');
         $cur->post_id         = $post_id;
         $cur->comment_tz      = $default_tz;
         $cur->comment_author  = __('Dotclear Team');
@@ -243,32 +243,32 @@ if ($can_install && !empty($_POST)) {    // @phpstan-ignore-line
         $cur->comment_site    = 'https://dotclear.org/';
         $cur->comment_content = __("<p>This is a comment.</p>\n<p>To delete it, log in and " .
             "view your blog's comments. Then you might remove or edit it.</p>");
-        $core->blog->addComment($cur);
+        dcCore::app()->blog->addComment($cur);
 
         #  Plugins initialization
         define('DC_CONTEXT_ADMIN', true);
-        $core->plugins->loadModules(DC_PLUGINS_ROOT);
-        $plugins_install = $core->plugins->installModules();
+        dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT);
+        $plugins_install = dcCore::app()->plugins->installModules();
 
         # Add dashboard module options
-        $core->auth->user_prefs->addWorkspace('dashboard');
-        $core->auth->user_prefs->dashboard->put('doclinks', true, 'boolean', '', null, true);
-        $core->auth->user_prefs->dashboard->put('dcnews', true, 'boolean', '', null, true);
-        $core->auth->user_prefs->dashboard->put('quickentry', true, 'boolean', '', null, true);
-        $core->auth->user_prefs->dashboard->put('nodcupdate', false, 'boolean', '', null, true);
+        dcCore::app()->auth->user_prefs->addWorkspace('dashboard');
+        dcCore::app()->auth->user_prefs->dashboard->put('doclinks', true, 'boolean', '', null, true);
+        dcCore::app()->auth->user_prefs->dashboard->put('dcnews', true, 'boolean', '', null, true);
+        dcCore::app()->auth->user_prefs->dashboard->put('quickentry', true, 'boolean', '', null, true);
+        dcCore::app()->auth->user_prefs->dashboard->put('nodcupdate', false, 'boolean', '', null, true);
 
         # Add accessibility options
-        $core->auth->user_prefs->addWorkspace('accessibility');
-        $core->auth->user_prefs->accessibility->put('nodragdrop', false, 'boolean', '', null, true);
+        dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
+        dcCore::app()->auth->user_prefs->accessibility->put('nodragdrop', false, 'boolean', '', null, true);
 
         # Add user interface options
-        $core->auth->user_prefs->addWorkspace('interface');
-        $core->auth->user_prefs->interface->put('enhanceduploader', true, 'boolean', '', null, true);
+        dcCore::app()->auth->user_prefs->addWorkspace('interface');
+        dcCore::app()->auth->user_prefs->interface->put('enhanceduploader', true, 'boolean', '', null, true);
 
         # Add default favorites
-        $core->favs = new dcFavorites($core);
-        $init_favs  = ['posts', 'new_post', 'newpage', 'comments', 'categories', 'media', 'blog_theme', 'widgets', 'simpleMenu', 'prefs', 'help'];
-        $core->favs->setFavoriteIDs($init_favs, true);
+        dcCore::app()->favs = new dcFavorites(dcCore::app());
+        $init_favs          = ['posts', 'new_post', 'newpage', 'comments', 'categories', 'media', 'blog_theme', 'widgets', 'simpleMenu', 'prefs', 'help'];
+        dcCore::app()->favs->setFavoriteIDs($init_favs, true);
 
         $step = 1;
     } catch (Exception $e) {
