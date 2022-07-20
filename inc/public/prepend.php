@@ -78,22 +78,29 @@ try {
 }
 
 # Loading locales
-$_lang = dcCore::app()->blog->settings->system->lang;
-$_lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $_lang) ? $_lang : 'en';
+dcCore::app()->lang = dcCore::app()->blog->settings->system->lang;
+dcCore::app()->lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', dcCore::app()->lang) ? dcCore::app()->lang : 'en';
 
-l10n::lang($_lang);
-if (l10n::set(__DIR__ . '/../../locales/' . $_lang . '/date') === false && $_lang != 'en') {
+/**
+ * @var        string
+ *
+ * @deprecated Since 2.23+, use dcCore::app()->lang instead
+ */
+$_lang = &dcCore::app()->lang;
+
+l10n::lang(dcCore::app()->lang);
+if (l10n::set(__DIR__ . '/../../locales/' . dcCore::app()->lang . '/date') === false && dcCore::app()->lang != 'en') {
     l10n::set(__DIR__ . '/../../locales/en/date');
 }
-l10n::set(__DIR__ . '/../../locales/' . $_lang . '/public');
-l10n::set(__DIR__ . '/../../locales/' . $_lang . '/plugins');
+l10n::set(__DIR__ . '/../../locales/' . dcCore::app()->lang . '/public');
+l10n::set(__DIR__ . '/../../locales/' . dcCore::app()->lang . '/plugins');
 
 // Set lexical lang
-dcUtils::setlexicalLang('public', $_lang);
+dcUtils::setlexicalLang('public', dcCore::app()->lang);
 
 # Loading plugins
 try {
-    dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT, 'public', $_lang);
+    dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT, 'public', dcCore::app()->lang);
 } catch (Exception $e) {
 }
 
@@ -133,9 +140,9 @@ dcCore::app()->themes->loadNsFile($__theme, 'public');
 
 # Loading translations for selected theme
 if ($__parent_theme) {
-    dcCore::app()->themes->loadModuleL10N($__parent_theme, $_lang, 'main');
+    dcCore::app()->themes->loadModuleL10N($__parent_theme, dcCore::app()->lang, 'main');
 }
-dcCore::app()->themes->loadModuleL10N($__theme, $_lang, 'main');
+dcCore::app()->themes->loadModuleL10N($__theme, dcCore::app()->lang, 'main');
 
 # --BEHAVIOR-- publicPrepend
 dcCore::app()->callBehavior('publicPrepend', dcCore::app());

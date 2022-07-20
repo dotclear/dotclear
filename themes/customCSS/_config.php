@@ -12,7 +12,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-l10n::set(__DIR__ . '/locales/' . $_lang . '/main');
+l10n::set(__DIR__ . '/locales/' . dcCore::app()->lang . '/main');
 $css_file = path::real(dcCore::app()->blog->public_path) . '/custom_style.css';
 
 if (!is_file($css_file) && !is_writable(dirname($css_file))) {

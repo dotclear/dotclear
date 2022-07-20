@@ -128,7 +128,7 @@ class dcLegacyEditorBehaviors
         ];
 
         // Tricky code to avoid xgettext bug on indented end heredoc identifier (see https://savannah.gnu.org/bugs/?62158)
-        $rtl = l10n::getTextDirection($GLOBALS['_lang']) == 'rtl' ? 'direction: rtl;' : '';
+        $rtl = l10n::getTextDirection(dcCore::app()->lang) == 'rtl' ? 'direction: rtl;' : '';
         $css = <<<EOT
             body {
                 color: #000;

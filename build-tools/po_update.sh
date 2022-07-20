@@ -186,7 +186,7 @@ else
   fi
 
   # _config.php goes to admin.pot, should be loaded explicitely in _config.php:
-  # l10n::set(__DIR__ . '/locales/' . $_lang . '/admin');
+  # l10n::set(__DIR__ . '/locales/' . dcCore::app()->lang . '/admin');
 
   if [ -f $PO_MODULE/_config.php ]; then
     echo "- Building admin PO template..."

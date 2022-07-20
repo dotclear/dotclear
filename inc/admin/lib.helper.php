@@ -62,21 +62,21 @@ class dcAdminHelper
      *
      * @param      string  $_lang  The language
      */
-    public static function loadLocales(&$_lang)
+    public static function loadLocales($_lang = null)
     {
-        $_lang = dcCore::app()->auth->getInfo('user_lang');
-        $_lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $_lang) ? $_lang : 'en';
+        dcCore::app()->lang = dcCore::app()->auth->getInfo('user_lang');
+        dcCore::app()->lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', dcCore::app()->lang) ? dcCore::app()->lang : 'en';
 
-        l10n::lang($_lang);
-        if (l10n::set(__DIR__ . '/../../locales/' . $_lang . '/date') === false && $_lang != 'en') {
+        l10n::lang(dcCore::app()->lang);
+        if (l10n::set(__DIR__ . '/../../locales/' . dcCore::app()->lang . '/date') === false && dcCore::app()->lang != 'en') {
             l10n::set(__DIR__ . '/../../locales/en/date');
         }
-        l10n::set(__DIR__ . '/../../locales/' . $_lang . '/main');
-        l10n::set(__DIR__ . '/../../locales/' . $_lang . '/public');
-        l10n::set(__DIR__ . '/../../locales/' . $_lang . '/plugins');
+        l10n::set(__DIR__ . '/../../locales/' . dcCore::app()->lang . '/main');
+        l10n::set(__DIR__ . '/../../locales/' . dcCore::app()->lang . '/public');
+        l10n::set(__DIR__ . '/../../locales/' . dcCore::app()->lang . '/plugins');
 
         // Set lexical lang
-        dcUtils::setlexicalLang('admin', $_lang);
+        dcUtils::setlexicalLang('admin', dcCore::app()->lang);
     }
 
     /**
@@ -121,9 +121,7 @@ dcAdminHelper::$core = dcCore::app();
  */
 function dc_load_locales()
 {
-    global $_lang;
-
-    dcAdminHelper::loadLocales($_lang);
+    dcAdminHelper::loadLocales(dcCore::app()->lang);
 }
 
 /**

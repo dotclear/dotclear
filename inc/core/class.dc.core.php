@@ -39,8 +39,9 @@ final class dcCore
 
     public $tpl;        ///< <b>dcTemplate</b>          dcTemplate object
     public $ctx;        ///< <b>context</b>             context object
+    public $lang;       ///< <b>string</b>
 
-    public $spamfilters = [];
+    public $spamfilters = [];   // Array of filters (names)
 
     private $versions   = null;
     private $formaters  = [];

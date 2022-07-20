@@ -12,7 +12,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-l10n::set(__DIR__ . '/locales/' . $_lang . '/admin');
+l10n::set(__DIR__ . '/locales/' . dcCore::app()->lang . '/admin');
 
 if (preg_match('#^http(s)?://#', dcCore::app()->blog->settings->system->themes_url)) {
     $img_url = http::concatURL(dcCore::app()->blog->settings->system->themes_url, '/' . dcCore::app()->blog->settings->system->theme . '/img/');
@@ -26,8 +26,8 @@ $tpl_path = __DIR__ . '/tpl/';
 $standalone_config = (bool) dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'standalone_config');
 
 // Load contextual help
-if (file_exists(__DIR__ . '/locales/' . $_lang . '/resources.php')) {
-    require __DIR__ . '/locales/' . $_lang . '/resources.php';
+if (file_exists(__DIR__ . '/locales/' . dcCore::app()->lang . '/resources.php')) {
+    require __DIR__ . '/locales/' . dcCore::app()->lang . '/resources.php';
 }
 
 $list_types = [

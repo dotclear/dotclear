@@ -17,7 +17,7 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-\l10n::set(__DIR__ . '/locales/' . $_lang . '/main');
+\l10n::set(__DIR__ . '/locales/' . \dcCore::app()->lang . '/main');
 
 # Behaviors
 \dcCore::app()->addBehavior('publicHeadContent', [__NAMESPACE__ . '\tplDuctileTheme', 'publicHeadContent']);

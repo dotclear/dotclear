@@ -41,10 +41,6 @@ parameters:
 
   ignoreErrors:
 
-    # $_lang variable may not be defined (globally)
-    - message: '#Variable \$_lang might not be defined#'
-      path: %currentWorkingDirectory%
-
     # $p_url variable may not be defined (plugins)
     - message: '#Variable \$p_url might not be defined#'
       path: plugins/*/*.php

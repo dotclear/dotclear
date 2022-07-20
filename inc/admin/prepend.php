@@ -38,7 +38,13 @@ if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID')) {
     }
 
     # Loading locales
-    dcAdminHelper::loadLocales($_lang);
+    dcAdminHelper::loadLocales(dcCore::app()->lang);
+    /**
+     * @var        string
+     *
+     * @deprecated Since 2.23+, use dcCore::app()->lang instead
+     */
+    $_lang = &dcCore::app()->lang;
 
     dcCore::app()->setBlog($_SESSION['sess_blog_id']);
     if (!dcCore::app()->blog->id) {
@@ -105,7 +111,14 @@ if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID')) {
     }
 
     # Loading locales
-    dcAdminHelper::loadLocales($_lang);
+    dcAdminHelper::loadLocales(dcCore::app()->lang);
+
+    /**
+     * @var        string
+     *
+     * @deprecated Since 2.23+, use dcCore::app()->lang instead
+     */
+    $_lang = &dcCore::app()->lang;
 
     if (isset($_SESSION['sess_blog_id'])) {
         dcCore::app()->setBlog($_SESSION['sess_blog_id']);
@@ -153,15 +166,15 @@ if (dcCore::app()->auth->userID() && dcCore::app()->blog !== null) {
     # Loading resources and help files
     $locales_root = __DIR__ . '/../../locales/';
     require $locales_root . '/en/resources.php';
-    if (($f = l10n::getFilePath($locales_root, 'resources.php', $_lang))) {
+    if (($f = l10n::getFilePath($locales_root, 'resources.php', dcCore::app()->lang))) {
         require $f;
     }
     unset($f);
 
-    if (($hfiles = @scandir($locales_root . $_lang . '/help')) !== false) {
+    if (($hfiles = @scandir($locales_root . dcCore::app()->lang . '/help')) !== false) {
         foreach ($hfiles as $hfile) {
             if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
-                $GLOBALS['__resources']['help'][$m[1]] = $locales_root . $_lang . '/help/' . $hfile;
+                $GLOBALS['__resources']['help'][$m[1]] = $locales_root . dcCore::app()->lang . '/help/' . $hfile;
             }
         }
     }
@@ -187,7 +200,7 @@ if (dcCore::app()->auth->userID() && dcCore::app()->blog !== null) {
     $_menu['System']  = new dcMenu('system-menu', 'System');
     $_menu['Plugins'] = new dcMenu('plugins-menu', 'Plugins');
     # Loading plugins
-    dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT, 'admin', $_lang);
+    dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT, 'admin', dcCore::app()->lang);
     dcCore::app()->favs->setup();
 
     if (!$user_ui_nofavmenu) {
