@@ -6,7 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-
-if (!isset($__resources['help']['attachments'])) {
-    $__resources['help']['attachments'] = __DIR__ . '/help/help.html';
+if (!isset(dcCore::app()->resources['help']['attachments'])) {
+    dcCore::app()->resources['help']['attachments'] = __DIR__ . '/help/help.html';
 }

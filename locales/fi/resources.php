@@ -10,9 +10,9 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-$__resources['rss_news'] = 'https://dotclear.org/blog/feed/category/News/atom';
+dcCore::app()->resources['rss_news'] = 'https://dotclear.org/blog/feed/category/News/atom';
 
-$__resources['doc'] = [
+dcCore::app()->resources['doc'] = [
     'Dotclear-dokumentaatio'     => 'https://dotclear.org/documentation/2.0',
     'Dotclearin esittely'        => 'https://dotclear.org/documentation/2.0/overview/tour',
     'Käyttäjän opas'             => 'https://dotclear.org/documentation/2.0/usage',

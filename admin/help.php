@@ -18,8 +18,7 @@ $helpPage = function (...$args) {
     }
     ;
 
-    global $__resources;
-    if (empty($__resources['help'])) {
+    if (empty(dcCore::app()->resources['help'])) {
         return $ret;
     }
 
@@ -32,10 +31,10 @@ $helpPage = function (...$args) {
             continue;
         }
 
-        if (!isset($__resources['help'][$v])) {
+        if (!isset(dcCore::app()->resources['help'][$v])) {
             continue;
         }
-        $f = $__resources['help'][$v];
+        $f = dcCore::app()->resources['help'][$v];
         if (!file_exists($f) || !is_readable($f)) {
             continue;
         }
@@ -94,6 +93,6 @@ dcPage::open(
 echo $content_array['content'];
 
 // Prevents global help link display
-$GLOBALS['__resources']['ctxhelp'] = true;
+dcCore::app()->resources['ctxhelp'] = true;
 
 dcPage::close();

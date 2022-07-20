@@ -12,8 +12,8 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-if (!isset($__resources['help']['themeEditor'])) {
-    $__resources['help']['themeEditor'] = __DIR__ . '/help.html';
+if (!isset(dcCore::app()->resources['help']['themeEditor'])) {
+    dcCore::app()->resources['help']['themeEditor'] = __DIR__ . '/help.html';
 }
 
 dcCore::app()->addBehavior('adminCurrentThemeDetails', ['themeEditorBehaviors', 'theme_editor_details']);

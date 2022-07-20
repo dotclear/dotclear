@@ -6,4 +6,4 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-$__resources['help']['dcLegacyEditor'] = __DIR__ . '/help/legacy_editor.html';
+dcCore::app()->resources['help']['dcLegacyEditor'] = __DIR__ . '/help/legacy_editor.html';

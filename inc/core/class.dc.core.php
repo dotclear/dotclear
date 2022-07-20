@@ -41,6 +41,8 @@ final class dcCore
     public $favs;       ///< <b>dcFavorites</b>         dcFavorites object
     public $menu;       // ArrayObject of several dcMenu
 
+    public $resources = [];  // Array of resources
+
     // Public context
     public $tpl;        ///< <b>dcTemplate</b>          dcTemplate object
     public $ctx;        ///< <b>context</b>             context object
@@ -124,6 +126,13 @@ final class dcCore
         $this->meta = new dcMeta($this);
 
         $this->log = new dcLog($this);
+
+        if (defined('DC_CONTEXT_ADMIN')) {
+            /*
+             * @deprecated Since 2.23+, use dcCore::app()->resources instead
+             */
+            $GLOBALS['__resources'] = &$this->resources;
+        }
     }
 
     /**

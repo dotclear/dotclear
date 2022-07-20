@@ -21,6 +21,6 @@ dcCore::app()->addBehavior(
     }
 );
 
-if (!isset($__resources['help']['blowupConfig'])) {
-    $__resources['help']['blowupConfig'] = __DIR__ . '/help.html';
+if (!isset(dcCore::app()->resources['help']['blowupConfig'])) {
+    dcCore::app()->resources['help']['blowupConfig'] = __DIR__ . '/help.html';
 }

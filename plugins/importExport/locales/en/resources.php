@@ -6,6 +6,6 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
-if (!isset($__resources['help']['import'])) {
-    $__resources['help']['import'] = __DIR__ . '/help/import.html';
+if (!isset(dcCore::app()->resources['help']['import'])) {
+    dcCore::app()->resources['help']['import'] = __DIR__ . '/help/import.html';
 }

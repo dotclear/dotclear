@@ -174,13 +174,13 @@ if (dcCore::app()->auth->userID() && dcCore::app()->blog !== null) {
     if (($hfiles = @scandir($locales_root . dcCore::app()->lang . '/help')) !== false) {
         foreach ($hfiles as $hfile) {
             if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
-                $GLOBALS['__resources']['help'][$m[1]] = $locales_root . dcCore::app()->lang . '/help/' . $hfile;
+                dcCore::app()->resources['help'][$m[1]] = $locales_root . dcCore::app()->lang . '/help/' . $hfile;
             }
         }
     }
     unset($hfiles, $locales_root);
     // Contextual help flag
-    $GLOBALS['__resources']['ctxhelp'] = false;
+    dcCore::app()->resources['ctxhelp'] = false;
 
     dcCore::app()->auth->user_prefs->addWorkspace('interface');
     $user_ui_nofavmenu = dcCore::app()->auth->user_prefs->interface->nofavmenu;

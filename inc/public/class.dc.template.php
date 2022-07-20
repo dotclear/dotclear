@@ -1275,6 +1275,7 @@ class dcTemplate extends template
         }
 
         $p = 'if (!isset($_page_number)) { $_page_number = 1; }' . "\n";
+        $p = 'if (!isset(dcCore::app()->ctx->_page_number)) { dcCore::app()->ctx->_page_number = 1; }' . "\n";
 
         if ($lastn != 0) {
             // Set limit (aka nb of entries needed)
@@ -1286,7 +1287,7 @@ class dcTemplate extends template
                 // nb of entries per page not specified -> use ctx settings
                 $p .= "\$nb_entry_first_page=dcCore::app()->ctx->nb_entry_first_page; \$nb_entry_per_page = dcCore::app()->ctx->nb_entry_per_page;\n";
                 $p .= "if ((dcCore::app()->url->type == 'default') || (dcCore::app()->url->type == 'default-page')) {\n";
-                $p .= "    \$params['limit'] = (\$_page_number == 1 ? \$nb_entry_first_page : \$nb_entry_per_page);\n";
+                $p .= "    \$params['limit'] = (dcCore::app()->ctx->_page_number == 1 ? \$nb_entry_first_page : \$nb_entry_per_page);\n";
                 $p .= "} else {\n";
                 $p .= "    \$params['limit'] = \$nb_entry_per_page;\n";
                 $p .= "}\n";
@@ -1295,9 +1296,9 @@ class dcTemplate extends template
             if (!isset($attr['ignore_pagination']) || $attr['ignore_pagination'] == '0') {
                 // standard pagination, set offset
                 $p .= "if ((dcCore::app()->url->type == 'default') || (dcCore::app()->url->type == 'default-page')) {\n";
-                $p .= "    \$params['limit'] = [(\$_page_number == 1 ? 0 : (\$_page_number - 2) * \$nb_entry_per_page + \$nb_entry_first_page),\$params['limit']];\n";
+                $p .= "    \$params['limit'] = [(dcCore::app()->ctx->_page_number == 1 ? 0 : (dcCore::app()->ctx->_page_number - 2) * \$nb_entry_per_page + \$nb_entry_first_page),\$params['limit']];\n";
                 $p .= "} else {\n";
-                $p .= "    \$params['limit'] = [(\$_page_number - 1) * \$nb_entry_per_page,\$params['limit']];\n";
+                $p .= "    \$params['limit'] = [(dcCore::app()->ctx->_page_number - 1) * \$nb_entry_per_page,\$params['limit']];\n";
                 $p .= "}\n";
             } else {
                 // no pagination, get all posts from 0 to limit
