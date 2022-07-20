@@ -148,9 +148,22 @@ dcCore::app()->themes->loadModuleL10N($__theme, dcCore::app()->lang, 'main');
 dcCore::app()->callBehavior('publicPrepend', dcCore::app());
 
 # Prepare the HTTP cache thing
-$mod_files = get_included_files();
-$mod_ts    = [];
-$mod_ts[]  = dcCore::app()->blog->upddt;
+dcCore::app()->cache['mod_files'] = get_included_files();
+/**
+ * @var        array
+ *
+ * @deprecated Since 2.23+, use dcCore::app()->cache['mod_files'] instead
+ */
+$mod_files = dcCore::app()->cache['mod_files'];
+
+dcCore::app()->cache['mod_ts']   = [];
+dcCore::app()->cache['mod_ts'][] = dcCore::app()->blog->upddt;
+/**
+ * @var        array
+ *
+ * @deprecated Since 2.23+, use dcCore::app()->cache['mod_ts'] instead
+ */
+$mod_ts = dcCore::app()->cache['mod_ts'];
 
 $__theme_tpl_path = [
     dcCore::app()->blog->themes_path . '/' . $__theme . '/tpl',

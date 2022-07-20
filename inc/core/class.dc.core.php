@@ -39,7 +39,13 @@ final class dcCore
 
     public $tpl;        ///< <b>dcTemplate</b>          dcTemplate object
     public $ctx;        ///< <b>context</b>             context object
+
     public $lang;       ///< <b>string</b>
+
+    public $cache = [   // HTTP Cache stack
+        'mod_files' => [],
+        'mod_ts'    => [],
+    ];
 
     public $spamfilters = [];   // Array of filters (names)
 

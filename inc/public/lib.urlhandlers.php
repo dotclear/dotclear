@@ -109,8 +109,8 @@ class dcUrlHandlers extends urlHandler
         dcCore::app()->callBehavior('urlHandlerBeforeGetData', dcCore::app()->ctx);
 
         if (dcCore::app()->ctx->http_cache) {
-            $GLOBALS['mod_files'][] = $tpl_file;
-            http::cache($GLOBALS['mod_files'], $GLOBALS['mod_ts']);
+            dcCore::app()->cache['mod_files'][] = $tpl_file;
+            http::cache(dcCore::app()->cache['mod_files'], dcCore::app()->cache['mod_ts']);
         }
 
         header('Content-Type: ' . dcCore::app()->ctx->content_type . '; charset=UTF-8');
@@ -678,7 +678,7 @@ class dcUrlHandlers extends urlHandler
 
     public static function rsd($args)
     {
-        http::cache($GLOBALS['mod_files'], $GLOBALS['mod_ts']);
+        http::cache(dcCore::app()->cache['mod_files'], dcCore::app()->cache['mod_ts']);
 
         header('Content-Type: text/xml; charset=UTF-8');
         echo

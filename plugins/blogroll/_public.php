@@ -179,7 +179,7 @@ class urlBlogroll extends dcUrlHandlers
             return;
         }
 
-        http::cache($GLOBALS['mod_files'], $GLOBALS['mod_ts']);
+        http::cache(dcCore::app()->cache['mod_files'], dcCore::app()->cache['mod_ts']);
 
         header('Content-Type: text/xml; charset=UTF-8');
 
