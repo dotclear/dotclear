@@ -67,7 +67,7 @@ dcCore::app()->ctx = new context();
  *
  * @var        context
  *
- * @deprecated Since 2.23+, use dcCore::app()->ctx instead
+ * @deprecated Since 2.23, use dcCore::app()->ctx instead
  */
 $_ctx = dcCore::app()->ctx;
 
@@ -84,7 +84,7 @@ dcCore::app()->lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', dcCore::app()->lang
 /**
  * @var        string
  *
- * @deprecated Since 2.23+, use dcCore::app()->lang instead
+ * @deprecated Since 2.23, use dcCore::app()->lang instead
  */
 $_lang = &dcCore::app()->lang;
 
@@ -152,7 +152,7 @@ dcCore::app()->cache['mod_files'] = get_included_files();
 /**
  * @var        array
  *
- * @deprecated Since 2.23+, use dcCore::app()->cache['mod_files'] instead
+ * @deprecated Since 2.23, use dcCore::app()->cache['mod_files'] instead
  */
 $mod_files = dcCore::app()->cache['mod_files'];
 
@@ -161,7 +161,7 @@ dcCore::app()->cache['mod_ts'][] = dcCore::app()->blog->upddt;
 /**
  * @var        array
  *
- * @deprecated Since 2.23+, use dcCore::app()->cache['mod_ts'] instead
+ * @deprecated Since 2.23, use dcCore::app()->cache['mod_ts'] instead
  */
 $mod_ts = dcCore::app()->cache['mod_ts'];
 

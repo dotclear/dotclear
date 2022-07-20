@@ -22,7 +22,7 @@ class dcMaintenanceTask
     protected $maintenance;
 
     /**
-     * @deprecated Since 2.23+, use dcCore::app() instead
+     * @deprecated Since 2.23, use dcCore::app() instead
      */
     protected $core;
 

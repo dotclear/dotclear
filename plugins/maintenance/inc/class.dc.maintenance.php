@@ -18,7 +18,7 @@ Main class to call everything related to maintenance.
 class dcMaintenance
 {
     /**
-     * @deprecated Since 2.23+, use dcCore::app() instead
+     * @deprecated Since 2.23, use dcCore::app() instead
      */
     public $core;
 

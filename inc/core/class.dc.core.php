@@ -129,7 +129,7 @@ final class dcCore
 
         if (defined('DC_CONTEXT_ADMIN')) {
             /*
-             * @deprecated Since 2.23+, use dcCore::app()->resources instead
+             * @deprecated Since 2.23, use dcCore::app()->resources instead
              */
             $GLOBALS['__resources'] = &$this->resources;
         }

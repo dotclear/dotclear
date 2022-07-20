@@ -42,7 +42,7 @@ if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID')) {
     /**
      * @var        string
      *
-     * @deprecated Since 2.23+, use dcCore::app()->lang instead
+     * @deprecated Since 2.23, use dcCore::app()->lang instead
      */
     $_lang = &dcCore::app()->lang;
 
@@ -116,7 +116,7 @@ if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID')) {
     /**
      * @var        string
      *
-     * @deprecated Since 2.23+, use dcCore::app()->lang instead
+     * @deprecated Since 2.23, use dcCore::app()->lang instead
      */
     $_lang = &dcCore::app()->lang;
 
@@ -196,7 +196,7 @@ if (dcCore::app()->auth->userID() && dcCore::app()->blog !== null) {
     /**
      * @var        ArrayObject
      *
-     * @deprecated Since 2.23+, use dcCore::app()->menu instead
+     * @deprecated Since 2.23, use dcCore::app()->menu instead
      */
     $_menu = dcCore::app()->menu;
 

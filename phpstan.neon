@@ -141,7 +141,8 @@ parameters:
     - message: '#ArrayObject\<\*NEVER\*, \*NEVER\*\> does not accept#'
       path: %currentWorkingDirectory%
 
-    # Temporary until 2.24+, $core global (or parameter) will be then removed
+    # Temporary until 2.24, $core global (or parameter) will be then removed
+    # ----------------------------------------------------------------------
 
     # $core variable may not be defined (globally)
     - message: '#Variable \$core might not be defined#'

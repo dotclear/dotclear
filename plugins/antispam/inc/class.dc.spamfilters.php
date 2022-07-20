@@ -18,7 +18,7 @@ class dcSpamFilters
     private $filters_opt = [];
 
     /**
-     * @deprecated Since 2.23+, use dcCore::app() instead
+     * @deprecated Since 2.23, use dcCore::app() instead
      */
     private $core;
 

@@ -25,7 +25,7 @@ class dcSpamFilter
     protected $gui_url = null;
 
     /**
-     * @deprecated Since 2.23+, use dcCore::app() instead
+     * @deprecated Since 2.23, use dcCore::app() instead
      */
     protected $core;
 

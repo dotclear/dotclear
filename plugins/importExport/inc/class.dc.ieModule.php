@@ -23,7 +23,7 @@ abstract class dcIeModule
     protected $export_url;
 
     /**
-     * @deprecated Since 2.23+, use dcCore::app() instead
+     * @deprecated Since 2.23, use dcCore::app() instead
      */
     protected $core;
 
