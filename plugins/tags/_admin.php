@@ -12,7 +12,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$_menu['Blog']->addItem(
+dcCore::app()->menu['Blog']->addItem(
     __('Tags'),
     dcCore::app()->adminurl->get('admin.plugin.tags', ['m' => 'tags']),
     [dcPage::getPF('tags/icon.svg'), dcPage::getPF('tags/icon-dark.svg')],

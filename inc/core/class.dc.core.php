@@ -33,14 +33,17 @@ final class dcCore
     public $stime;      ///< <b>float</b>               starting time
     public $meta;       ///< <b>dcMeta</b>              dcMeta object
 
+    public $lang;       ///< <b>string</b>
+
+    // Admin context
     public $adminurl;   ///< <b>dcAdminURL</b>          dcAdminURL object
     public $notices;    ///< <b>dcAdminNotices</b>      dcNotices object
     public $favs;       ///< <b>dcFavorites</b>         dcFavorites object
+    public $menu;       // ArrayObject of several dcMenu
 
+    // Public context
     public $tpl;        ///< <b>dcTemplate</b>          dcTemplate object
     public $ctx;        ///< <b>context</b>             context object
-
-    public $lang;       ///< <b>string</b>
 
     public $cache = [   // HTTP Cache stack
         'mod_files' => [],

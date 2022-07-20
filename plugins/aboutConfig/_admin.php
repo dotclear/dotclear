@@ -12,7 +12,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$_menu['System']->addItem(
+dcCore::app()->menu['System']->addItem(
     'about:config',
     dcCore::app()->adminurl->get('admin.plugin.aboutConfig'),
     dcPage::getPF('aboutConfig/icon.svg'),

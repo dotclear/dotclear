@@ -12,7 +12,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$_menu['System']->addItem(
+dcCore::app()->menu['System']->addItem(
     'user:preferences',
     dcCore::app()->adminurl->get('admin.plugin.userPref'),
     dcPage::getPF('userPref/icon.svg'),

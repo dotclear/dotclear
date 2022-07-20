@@ -13,7 +13,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
 }
 
 // Sidebar menu
-$_menu['Plugins']->addItem(
+dcCore::app()->menu['Plugins']->addItem(
     __('Maintenance'),
     dcCore::app()->adminurl->get('admin.plugin.maintenance'),
     dcPage::getPF('maintenance/icon.svg'),

@@ -29,7 +29,7 @@ dcCore::app()->addBehavior(
     fn () => dcPage::jsModuleLoad('blogroll/js/_users_actions.js')
 );
 
-$_menu['Blog']->addItem(
+dcCore::app()->menu['Blog']->addItem(
     __('Blogroll'),
     dcCore::app()->adminurl->get('admin.plugin.blogroll'),
     [dcPage::getPF('blogroll/icon.svg'), dcPage::getPF('blogroll/icon-dark.svg')],

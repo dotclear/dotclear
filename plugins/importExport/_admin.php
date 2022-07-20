@@ -12,7 +12,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$_menu['Plugins']->addItem(
+dcCore::app()->menu['Plugins']->addItem(
     __('Import/Export'),
     dcCore::app()->adminurl->get('admin.plugin.importExport'),
     [dcPage::getPF('importExport/icon.svg'), dcPage::getPF('importExport/icon-dark.svg')],

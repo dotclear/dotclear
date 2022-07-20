@@ -16,7 +16,7 @@ if (!defined('DC_ANTISPAM_CONF_SUPER')) {
     define('DC_ANTISPAM_CONF_SUPER', false);
 }
 
-$_menu['Plugins']->addItem(
+dcCore::app()->menu['Plugins']->addItem(
     __('Antispam'),
     dcCore::app()->adminurl->get('admin.plugin.antispam'),
     [dcPage::getPF('antispam/icon.svg'), dcPage::getPF('antispam/icon-dark.svg')],

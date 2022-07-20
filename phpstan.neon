@@ -61,10 +61,6 @@ parameters:
     - message: '#Variable \$this might not be defined#'
       path: */*/_define.php
 
-    # $_menu variable may not be defined (plugins/themes)
-    - message: '#Variable \$_menu might not be defined#'
-      path: */*/_admin.php
-
     # record object and auto properties
     - message: '#Access to an undefined property record::#'
       path: %currentWorkingDirectory%

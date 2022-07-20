@@ -191,27 +191,35 @@ if (dcCore::app()->auth->userID() && dcCore::app()->blog !== null) {
     # NB : '*' in permissions means any, null means super admin only
 
     # Menus creation
-    $_menu              = new ArrayObject();
-    $_menu['Dashboard'] = new dcMenu('dashboard-menu', '');
+    dcCore::app()->menu = new ArrayObject();
+
+    /**
+     * @var        ArrayObject
+     *
+     * @deprecated Since 2.23+, use dcCore::app()->menu instead
+     */
+    $_menu = dcCore::app()->menu;
+
+    dcCore::app()->menu['Dashboard'] = new dcMenu('dashboard-menu', '');
     if (!$user_ui_nofavmenu) {
-        dcCore::app()->favs->appendMenuTitle($_menu);
+        dcCore::app()->favs->appendMenuTitle(dcCore::app()->menu);
     }
-    $_menu['Blog']    = new dcMenu('blog-menu', 'Blog');
-    $_menu['System']  = new dcMenu('system-menu', 'System');
-    $_menu['Plugins'] = new dcMenu('plugins-menu', 'Plugins');
+    dcCore::app()->menu['Blog']    = new dcMenu('blog-menu', 'Blog');
+    dcCore::app()->menu['System']  = new dcMenu('system-menu', 'System');
+    dcCore::app()->menu['Plugins'] = new dcMenu('plugins-menu', 'Plugins');
     # Loading plugins
     dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT, 'admin', dcCore::app()->lang);
     dcCore::app()->favs->setup();
 
     if (!$user_ui_nofavmenu) {
-        dcCore::app()->favs->appendMenu($_menu);
+        dcCore::app()->favs->appendMenu(dcCore::app()->menu);
     }
 
     # Set menu titles
 
-    $_menu['System']->title  = __('System settings');   // @phpstan-ignore-line
-    $_menu['Blog']->title    = __('Blog');              // @phpstan-ignore-line
-    $_menu['Plugins']->title = __('Plugins');           // @phpstan-ignore-line
+    dcCore::app()->menu['System']->title  = __('System settings');   // @phpstan-ignore-line
+    dcCore::app()->menu['Blog']->title    = __('Blog');              // @phpstan-ignore-line
+    dcCore::app()->menu['Plugins']->title = __('Plugins');           // @phpstan-ignore-line
 
     dcAdminHelper::addMenuItem(
         'Blog',

@@ -316,8 +316,6 @@ class dcPage
             }
         }
 
-        $menu = &$GLOBALS['_menu'];
-
         echo
         "</div>\n" .  // End of #content
         "</main>\n" . // End of #main
@@ -329,8 +327,8 @@ class dcPage
         '<input type="submit" value="' . __('OK') . '" /></p>' .
             '</form>';
 
-        foreach ($menu as $k => $v) {
-            echo $menu[$k]->draw();
+        foreach (dcCore::app()->menu as $k => $v) {
+            echo dcCore::app()->menu[$k]->draw();
         }
 
         $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . DC_VERSION);

@@ -72,18 +72,16 @@ class pagesDashboard
 
     public static function pagesActiveCB($request, $params)
     {
-        return ($request                                                               == 'plugin.php') && isset($params['p']) && $params['p']                                                               == 'pages'
-                                                                                                        && !(isset($params['act'])                                                               && $params['act'] == 'page');
+        return ($request == 'plugin.php') && isset($params['p']) && $params['p'] == 'pages' && !(isset($params['act']) && $params['act'] == 'page');
     }
 
     public static function newPageActiveCB($request, $params)
     {
-        return ($request                                                             == 'plugin.php') && isset($params['p']) && $params['p']                                                             == 'pages'
-                                                                                                      && isset($params['act'])                                                             && $params['act'] == 'page';
+        return ($request == 'plugin.php') && isset($params['p']) && $params['p'] == 'pages' && isset($params['act']) && $params['act'] == 'page';
     }
 }
 
-$_menu['Blog']->addItem(
+dcCore::app()->menu['Blog']->addItem(
     __('Pages'),
     dcCore::app()->adminurl->get('admin.plugin.pages'),
     [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],

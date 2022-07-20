@@ -12,7 +12,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$_menu['Plugins']->addItem(
+dcCore::app()->menu['Plugins']->addItem(
     'dcLegacyEditor',
     dcCore::app()->adminurl->get('admin.plugin.dcLegacyEditor'),
     [dcPage::getPF('dcLegacyEditor/icon.svg'), dcPage::getPF('dcLegacyEditor/icon-dark.svg')],
