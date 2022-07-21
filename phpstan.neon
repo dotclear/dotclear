@@ -37,6 +37,47 @@ parameters:
     - inc/libs/clearbricks/tests/unit/*/*
     - rector.php
 
+  dynamicConstantNames:
+    - DC_ADMIN_SSL
+    - DC_ADMIN_URL
+    - DC_ALLOW_MULTI_MODULES
+    - DC_ALLOW_REPOSITORIES
+    - DC_ANTISPAM_CONF_SUPER
+    - DC_CRYPT_ALGO
+    - DC_DBDRIVER
+    - DC_DBHOST
+    - DC_DBNAME
+    - DC_DBPASSWORD
+    - DC_DBPREFIX
+    - DC_DBUSER
+    - DC_DEBUG
+    - DC_DEFAULT_JQUERY
+    - DC_DEFAULT_TPLSET
+    - DC_DIGESTS
+    - DC_DISTRIB_PLUGINS
+    - DC_DISTRIB_THEMES
+    - DC_FAIRTRACKBACKS_FORCE
+    - DC_L10N_ROOT
+    - DC_L10N_UPDATE_URL
+    - DC_MASTER_KEY
+    - DC_MAX_UPLOAD_SIZE
+    - DC_NEXT_REQUIRED_PHP
+    - DC_NOT_UPDATE
+    - DC_PLUGINS_ROOT
+    - DC_QUERY_TIMEOUT
+    - DC_RC_PATH
+    - DC_ROOT
+    - DC_SESSION_NAME
+    - DC_SESSION_TTL
+    - DC_STORE_NOT_UPDATE
+    - DC_TPL_CACHE
+    - DC_UPDATE_URL
+    - DC_UPDATE_VERSION
+    - DC_VAR
+    - DC_VENDOR_NAME
+    - DC_VERSION
+    - DC_XMLRPC_URL
+
   reportUnmatchedIgnoredErrors: false
 
   ignoreErrors:
@@ -60,6 +101,10 @@ parameters:
     # $this variable may not be defined (plugins/themes)
     - message: '#Variable \$this might not be defined#'
       path: */*/_define.php
+
+    # context object and auto properties
+    - message: '#Access to an undefined property context::#'
+      path: %currentWorkingDirectory%
 
     # record object and auto properties
     - message: '#Access to an undefined property record::#'

@@ -5,8 +5,25 @@
     </title>
   </head>
   <body>
+    <?php
+        global $is_admin;
+        global $dcckeditor_active;
+        global $dcckeditor_alignment_buttons;
+        global $dcckeditor_list_buttons;
+        global $dcckeditor_textcolor_button;
+        global $dcckeditor_background_textcolor_button;
+        global $dcckeditor_custom_color_list;
+        global $dcckeditor_format_select;
+        global $dcckeditor_format_tags;
+        global $dcckeditor_table_button;
+        global $dcckeditor_clipboard_buttons;
+        global $dcckeditor_action_buttons;
+        global $dcckeditor_disable_native_spellchecker;
+        global $dcckeditor_cancollapse_button;
+        global $dcckeditor_colors_per_row;
+    ?>
     <?php echo dcPage::breadcrumb([__('Plugins') => '', __('dcCKEditor') => '']) . dcPage::notices(); ?>
-    <?php if ($is_admin): /* @phpstan-ignore-line */ ?>
+    <?php if ($is_admin): ?>
     <h3 class="hidden-if-js">
       <?php echo __('Settings'); ?>
     </h3>
@@ -17,36 +34,36 @@
         </h3>
         <p>
           <label class="classic" for="dcckeditor_active">
-            <?php echo form::checkbox('dcckeditor_active', 1, $dcckeditor_active); /* @phpstan-ignore-line */ ?>
+            <?php echo form::checkbox('dcckeditor_active', 1, $dcckeditor_active); ?>
             <?php echo __('Enable dcCKEditor plugin'); ?>
           </label>
         </p>
       </div>
-      <?php if ($dcckeditor_active): /* @phpstan-ignore-line */ ?>
+      <?php if ($dcckeditor_active): ?>
       <div class="fieldset">
         <h3>
           <?php echo __('Options'); ?>
         </h3>
         <p>
-          <?php echo form::checkbox('dcckeditor_alignment_buttons', 1, $dcckeditor_alignment_buttons); /* @phpstan-ignore-line */ ?>
+          <?php echo form::checkbox('dcckeditor_alignment_buttons', 1, $dcckeditor_alignment_buttons); ?>
           <label class="classic" for="dcckeditor_alignment_buttons">
             <?php echo __('Add alignment buttons'); ?>
           </label>
         </p>
         <p>
-          <?php echo form::checkbox('dcckeditor_list_buttons', 1, $dcckeditor_list_buttons); /* @phpstan-ignore-line */ ?>
+          <?php echo form::checkbox('dcckeditor_list_buttons', 1, $dcckeditor_list_buttons); ?>
           <label class="classic" for="dcckeditor_list_buttons">
             <?php echo __('Add lists buttons'); ?>
           </label>
         </p>
         <p>
-          <?php echo form::checkbox('dcckeditor_textcolor_button', 1, $dcckeditor_textcolor_button); /* @phpstan-ignore-line */ ?>
+          <?php echo form::checkbox('dcckeditor_textcolor_button', 1, $dcckeditor_textcolor_button); ?>
           <label class="classic" for="dcckeditor_textcolor_button">
             <?php echo __('Add text color button'); ?>
           </label>
         </p>
         <p>
-          <?php echo form::checkbox('dcckeditor_background_textcolor_button', 1, $dcckeditor_background_textcolor_button); /* @phpstan-ignore-line */ ?>
+          <?php echo form::checkbox('dcckeditor_background_textcolor_button', 1, $dcckeditor_background_textcolor_button); ?>
           <label class="classic" for="dcckeditor_background_textcolor_button">
             <?php echo __('Add background text color button'); ?>
           </label>
@@ -55,7 +72,7 @@
           <label for="dcckeditor_custom_color_list">
             <?php echo __('Custom colors list:'); ?>
           </label>
-          <?php echo form::textarea('dcckeditor_custom_color_list', 60, 5, ['default' => html::escapeHTML($dcckeditor_custom_color_list)]); /* @phpstan-ignore-line */ ?>
+          <?php echo form::textarea('dcckeditor_custom_color_list', 60, 5, ['default' => html::escapeHTML($dcckeditor_custom_color_list)]); ?>
         </p>
         <p class="clear form-note">
           <?php echo __('Add colors without # separated by a comma.'); ?><br />
@@ -68,19 +85,19 @@
           <label for="dcckeditor_colors_per_row">
             <?php echo __('Colors per row in palette:') . ' '; ?>
           </label>
-          <?php echo form::number('dcckeditor_colors_per_row', ['min' => 4, 'max' => 16, 'default' => $dcckeditor_colors_per_row]);  /* @phpstan-ignore-line */ ?>
+          <?php echo form::number('dcckeditor_colors_per_row', ['min' => 4, 'max' => 16, 'default' => $dcckeditor_colors_per_row]); ?>
         </p>
         <p class="clear form-note">
           <?php echo __('Valid range: 4 to 16'); ?>
         </p>
         <p>
-          <?php echo form::checkbox('dcckeditor_cancollapse_button', 1, $dcckeditor_cancollapse_button); /* @phpstan-ignore-line */ ?>
+          <?php echo form::checkbox('dcckeditor_cancollapse_button', 1, $dcckeditor_cancollapse_button); ?>
           <label class="classic" for="dcckeditor_cancollapse_button">
             <?php echo __('Add collapse button'); ?>
           </label>
         </p>
         <p>
-          <?php echo form::checkbox('dcckeditor_format_select', 1, $dcckeditor_format_select); /* @phpstan-ignore-line */ ?>
+          <?php echo form::checkbox('dcckeditor_format_select', 1, $dcckeditor_format_select); ?>
           <label class="classic" for="dcckeditor_format_select">
             <?php echo __('Add format selection'); ?>
           </label>
@@ -89,19 +106,19 @@
           <label class="classic" for="dcckeditor_format_tags">
             <?php echo __('Custom formats'); ?>
           </label>
-          <?php echo form::field('dcckeditor_format_tags', 100, 255, $dcckeditor_format_tags); /* @phpstan-ignore-line */ ?>
+          <?php echo form::field('dcckeditor_format_tags', 100, 255, $dcckeditor_format_tags); ?>
         </p>
         <p class="clear form-note">
           <?php echo __('Default formats are p;h1;h2;h3;h4;h5;h6;pre;address'); ?>
         </p>
         <p>
-          <?php echo form::checkbox('dcckeditor_table_button', 1, $dcckeditor_table_button); /* @phpstan-ignore-line */ ?>
+          <?php echo form::checkbox('dcckeditor_table_button', 1, $dcckeditor_table_button); ?>
           <label class="classic" for="dcckeditor_table_button">
             <?php echo __('Add table button'); ?>
           </label>
         </p>
         <p>
-          <?php echo form::checkbox('dcckeditor_clipboard_buttons', 1, $dcckeditor_clipboard_buttons); /* @phpstan-ignore-line */ ?>
+          <?php echo form::checkbox('dcckeditor_clipboard_buttons', 1, $dcckeditor_clipboard_buttons); ?>
           <label class="classic" for="dcckeditor_clipboard_buttons">
             <?php echo __('Add clipboard buttons'); ?>
           </label>
@@ -110,13 +127,13 @@
           <?php echo __('Copy, Paste, Paste Text, Paste from Word'); ?>
         </p>
         <p>
-          <?php echo form::checkbox('dcckeditor_action_buttons', 1, $dcckeditor_action_buttons); /* @phpstan-ignore-line */ ?>
+          <?php echo form::checkbox('dcckeditor_action_buttons', 1, $dcckeditor_action_buttons); ?>
           <label class="classic" for="dcckeditor_action_buttons">
             <?php echo __('Add undo/redo buttons'); ?>
           </label>
         </p>
         <p>
-          <?php echo form::checkbox('dcckeditor_disable_native_spellchecker', 1, $dcckeditor_disable_native_spellchecker); /* @phpstan-ignore-line */ ?>
+          <?php echo form::checkbox('dcckeditor_disable_native_spellchecker', 1, $dcckeditor_disable_native_spellchecker); ?>
           <label class="classic" for="dcckeditor_disable_native_spellchecker">
             <?php echo __('Disables the built-in spell checker if the browser provides one'); ?>
           </label>

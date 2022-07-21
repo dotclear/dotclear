@@ -6,8 +6,10 @@
  * @copyright Olivier Meunier & Association Dotclear
  * @copyright GPL-2.0-only
  */
+global $code, $summary, $message;
+
 header('Content-Type: text/html; charset=utf-8');
-header('HTTP/1.0 ' . $code . ' ' . $summary);   // @phpstan-ignore-line
+header('HTTP/1.0 ' . $code . ' ' . $summary);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,7 +54,7 @@ header('HTTP/1.0 ' . $code . ' ' . $summary);   // @phpstan-ignore-line
 <body>
 <div id="content">
 <h1>Dotclear</h1>
-<h2><?php echo $summary; /* @phpstan-ignore-line */ ?></h2>
-<?php echo $message; /* @phpstan-ignore-line */ ?></div>
+<h2><?php echo $summary; ?></h2>
+<?php echo $message; ?></div>
 </body>
 </html>

@@ -206,7 +206,7 @@ class dcPage
         dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
         $js['noDragDrop'] = (bool) dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
 
-        $js['debug'] = !!DC_DEBUG;  // @phpstan-ignore-line
+        $js['debug'] = !!DC_DEBUG;
 
         $js['showIp'] = dcCore::app()->blog && dcCore::app()->blog->id ? dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id) : false;
 
@@ -226,9 +226,7 @@ class dcPage
         '<body id="dotclear-admin" class="no-js' .
         ($rtl ? ' rtl ' : '') .
         ($safe_mode ? ' safe-mode' : '') .
-        (DC_DEBUG ? // @phpstan-ignore-line
-            ' debug-mode' :
-            '') .
+        (DC_DEBUG ? ' debug-mode' : '') .
         '">' . "\n" .
 
         '<ul id="prelude">' .
@@ -419,7 +417,7 @@ class dcPage
         dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
         $js['noDragDrop'] = (bool) dcCore::app()->auth->user_prefs->accessibility->nodragdrop;
 
-        $js['debug'] = !!DC_DEBUG;  // @phpstan-ignore-line
+        $js['debug'] = !!DC_DEBUG;
 
         // Set JSON data
         echo dcUtils::jsJson('dotclear_init', $js);
@@ -437,9 +435,7 @@ class dcPage
             '<body id="dotclear-admin" class="popup' .
             ($rtl ? 'rtl' : '') .
             ($safe_mode ? ' safe-mode' : '') .
-            (DC_DEBUG ? // @phpstan-ignore-line
-                ' debug-mode' :
-                '') .
+            (DC_DEBUG ? ' debug-mode' : '') .
             '">' . "\n" .
 
             '<h1>' . DC_VENDOR_NAME . '</h1>' . "\n";
@@ -912,7 +908,7 @@ class dcPage
         self::jsLoad('js/prepend.js') .
         self::jsLoad('js/jquery/jquery.js') .
         (
-            DC_DEBUG ? // @phpstan-ignore-line
+            DC_DEBUG ?
             self::jsJson('dotclear_jquery', [
                 'mute' => (empty(dcCore::app()->blog) || dcCore::app()->blog->settings->system->jquery_migrate_mute),
             ]) .

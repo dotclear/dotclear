@@ -978,7 +978,7 @@ class dcBlog
             ]);
         }
 
-        $sql    // @phpstan-ignore-line
+        $sql
             ->from($this->prefix . 'post P', false, true)
             ->join(
                 (new dcJoinStatement())
@@ -1974,7 +1974,7 @@ class dcBlog
             unset($sql[1]);
         }
 
-        return implode(' AND ', $sql);  // @phpstan-ignore-line
+        return implode(' AND ', $sql);
     }
 
     /**

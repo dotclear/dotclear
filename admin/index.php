@@ -175,7 +175,7 @@ if (dcCore::app()->blog->status == 0) {
     echo '<p class="static-msg">' . __('This blog is removed') . '.</p>';
 }
 
-if (!defined('DC_ADMIN_URL') || !DC_ADMIN_URL) {    // @phpstan-ignore-line
+if (!defined('DC_ADMIN_URL') || !DC_ADMIN_URL) {
     echo
     '<p class="static-msg">' .
     sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_URL') .

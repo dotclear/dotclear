@@ -690,7 +690,7 @@ class dcUrlHandlers extends urlHandler
         '  <homePageLink>' . html::escapeHTML(dcCore::app()->blog->url) . "</homePageLink>\n";
 
         if (dcCore::app()->blog->settings->system->enable_xmlrpc) {
-            $u = sprintf(DC_XMLRPC_URL, dcCore::app()->blog->url, dcCore::app()->blog->id); // @phpstan-ignore-line
+            $u = sprintf(DC_XMLRPC_URL, dcCore::app()->blog->url, dcCore::app()->blog->id);
 
             echo
                 "  <apis>\n" .

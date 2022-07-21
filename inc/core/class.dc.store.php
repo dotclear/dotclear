@@ -41,7 +41,7 @@ class dcStore
     /** @var    string    XML feed URL */
     protected $xml_url;
     /** @var    array    Array of new/update modules from repository */
-    protected $data;
+    protected $data = [];
 
     /**
      * Constructor.
@@ -73,15 +73,14 @@ class dcStore
         }
 
         try {
-            /* @phpstan-ignore-next-line */
             $parser = DC_STORE_NOT_UPDATE ? false : dcStoreReader::quickParse($this->xml_url, DC_TPL_CACHE, $force);
         } catch (Exception $e) {
             return false;
         }
 
-        $raw_datas = !$parser ? [] : $parser->getModules(); // @phpstan-ignore-line
+        $raw_datas = !$parser ? [] : $parser->getModules();
 
-        uasort($raw_datas, ['self', 'sort']);
+        uasort($raw_datas, fn ($a, $b) => strtolower($a['id']) <=> strtolower($b['id']));
 
         $skipped = array_keys($this->modules->getDisabledModules());
         foreach ($skipped as $p_id) {
@@ -108,7 +107,7 @@ class dcStore
                 unset($raw_datas[$p_id]);
             }
             # per module third-party repository
-            if (!empty($p_infos['repository']) && DC_ALLOW_REPOSITORIES) {  // @phpstan-ignore-line
+            if (!empty($p_infos['repository']) && DC_ALLOW_REPOSITORIES) {
                 try {
                     $dcs_url    = substr($p_infos['repository'], -12, 12) == '/dcstore.xml' ? $p_infos['repository'] : http::concatURL($p_infos['repository'], 'dcstore.xml');
                     $dcs_parser = dcStoreReader::quickParse($dcs_url, DC_TPL_CACHE, $force);
@@ -146,8 +145,7 @@ class dcStore
      */
     public function get($update = false)
     {
-        /* @phpstan-ignore-next-line */
-        return is_array($this->data) ? $this->data[$update ? 'update' : 'new'] : [];
+        return $this->data[$update ? 'update' : 'new'];
     }
 
     /**
@@ -300,40 +298,5 @@ class dcStore
         }
 
         return empty($arr) ? false : $arr;
-    }
-
-    /**
-     * Compare version.
-     *
-     * @param    string    $v1        Version
-     * @param    string    $v2        Version
-     * @param    string    $op        Comparison operator
-     * @return    boolean    True is comparison is true, dude!
-     */
-    private static function compare($v1, $v2, $op)
-    {
-        return version_compare(
-            preg_replace('!-r(\d+)$!', '-p$1', $v1),
-            preg_replace('!-r(\d+)$!', '-p$1', $v2),
-            $op
-        );
-    }
-
-    /**
-     * Sort modules list.
-     *
-     * @param    array    $a        A module
-     * @param    array    $b        A module
-     * @return    integer
-     */
-    private static function sort($a, $b)
-    {
-        $c = strtolower($a['id']);
-        $d = strtolower($b['id']);
-        if ($c == $d) {
-            return 0;
-        }
-
-        return ($c < $d) ? -1 : 1;
     }
 }

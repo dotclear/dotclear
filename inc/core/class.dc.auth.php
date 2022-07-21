@@ -461,7 +461,7 @@ class dcAuth
     public function getBlogCount()
     {
         if ($this->blog_count === null) {
-            $this->blog_count = dcCore::app()->getBlogs([], true)->f(0);  // @phpstan-ignore-line
+            $this->blog_count = (int) dcCore::app()->getBlogs([], true)->f(0);
         }
 
         return $this->blog_count;
@@ -483,14 +483,12 @@ class dcAuth
         $sql = new dcSelectStatement();
 
         if ($this->user_admin) {
-            /* @phpstan-ignore-next-line */
             $sql
                 ->column('blog_id')
                 ->from($this->blog_table)
                 ->order('blog_id ASC')
                 ->limit(1);
         } else {
-            /* @phpstan-ignore-next-line */
             $sql
                 ->column('P.blog_id')
                 ->from([

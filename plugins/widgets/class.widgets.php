@@ -63,7 +63,15 @@ class dcWidgets
     public function elements($sorted = false)
     {
         if ($sorted) {
-            uasort($this->__widgets, ['self', 'sort']);
+            uasort($this->__widgets, function ($a, $b) {
+                $c = dcUtils::removeDiacritics(mb_strtolower($a->name()));
+                $d = dcUtils::removeDiacritics(mb_strtolower($b->name()));
+                if ($c == $d) {
+                    return 0;
+                }
+
+                return ($c < $d) ? -1 : 1;
+            });
         }
 
         return $this->__widgets;
@@ -93,7 +101,7 @@ class dcWidgets
             return false;
         }
 
-        uasort($A, ['self', 'arraySort']);
+        uasort($A, fn ($a, $b) => $a['order'] <=> $b['order']);
 
         $result = new self();
         foreach ($A as $v) {
@@ -112,26 +120,6 @@ class dcWidgets
         }
 
         return $result;
-    }
-
-    private static function arraySort($a, $b)
-    {
-        if ($a['order'] == $b['order']) {
-            return 0;
-        }
-
-        return $a['order'] > $b['order'] ? 1 : -1;
-    }
-
-    private static function sort($a, $b)
-    {
-        $c = dcUtils::removeDiacritics(mb_strtolower($a->name()));
-        $d = dcUtils::removeDiacritics(mb_strtolower($b->name()));
-        if ($c == $d) {
-            return 0;
-        }
-
-        return ($c < $d) ? -1 : 1;
     }
 }
 

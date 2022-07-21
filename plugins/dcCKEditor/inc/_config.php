@@ -12,7 +12,9 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$dcckeditor_was_actived = $dcckeditor_active;   // @phpstan-ignore-line
+global $dcckeditor_active;
+
+$dcckeditor_was_actived = $dcckeditor_active;
 
 if (!empty($_POST['saveconfig'])) {
     try {

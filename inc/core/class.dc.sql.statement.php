@@ -478,7 +478,7 @@ class dcSqlStatement
             $clause = "~ '^" . $this->escape(preg_quote($value)) . "[0-9]+$'";
         } else {
             $clause = "LIKE '" .
-                $this->escape(preg_replace(['%', '_', '!'], ['!%', '!_', '!!'], $value)) . "%' ESCAPE '!'"; // @phpstan-ignore-line
+                $this->escape(preg_replace(['/\%/', '/\_/', '/\!/'], ['!%', '!_', '!!'], $value)) . "%' ESCAPE '!'";
         }
 
         return ' ' . $clause;
@@ -847,8 +847,6 @@ class dcSelectStatement extends dcSqlStatement
         // Check if source given
         if (!count($this->from)) {
             trigger_error(__('SQL SELECT requires a FROM source'), E_USER_ERROR);
-
-            return '';  // @phpstan-ignore-line
         }
 
         // Query
@@ -1027,8 +1025,6 @@ class dcJoinStatement extends dcSqlStatement
         // Check if source given
         if (!count($this->from)) {
             trigger_error(__('SQL JOIN requires a source'), E_USER_ERROR);
-
-            return '';  // @phpstan-ignore-line
         }
 
         // Query
@@ -1084,8 +1080,6 @@ class dcDeleteStatement extends dcSqlStatement
         // Check if source given
         if (!count($this->from)) {
             trigger_error(__('SQL DELETE requires a FROM source'), E_USER_ERROR);
-
-            return '';  // @phpstan-ignore-line
         }
 
         // Query
@@ -1278,8 +1272,6 @@ class dcUpdateStatement extends dcSqlStatement
         // Check if source given
         if (!count($this->from)) {
             trigger_error(__('SQL UPDATE requires an INTO source'), E_USER_ERROR);
-
-            return '';  // @phpstan-ignore-line
         }
 
         // Query
@@ -1417,8 +1409,6 @@ class dcInsertStatement extends dcSqlStatement
         // Check if source given
         if (!count($this->from)) {
             trigger_error(__('SQL INSERT requires an INTO source'), E_USER_ERROR);
-
-            return '';  // @phpstan-ignore-line
         }
 
         // Query
@@ -1505,8 +1495,6 @@ class dcTruncateStatement extends dcSqlStatement
         // Check if source given
         if (!count($this->from)) {
             trigger_error(__('SQL TRUNCATE TABLE requires a table source'), E_USER_ERROR);
-
-            return '';  // @phpstan-ignore-line
         }
 
         // Query

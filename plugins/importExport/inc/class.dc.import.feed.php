@@ -122,7 +122,7 @@ class dcImportFeed extends dcIeModule
             }
             // Port control (white list regexp)
             if (dcCore::app()->blog->settings->system->import_feed_port_regexp != '' && isset($bits['port'])) {
-                if (!preg_match(dcCore::app()->blog->settings->system->import_feed_port_regexp, $bits['port'])) { // @phpstan-ignore-line
+                if (!preg_match(dcCore::app()->blog->settings->system->import_feed_port_regexp, (string) $bits['port'])) {
                     throw new Exception(__('Cannot retrieve feed URL.'));
                 }
             }

@@ -47,7 +47,8 @@ $pages_actions_page = new dcPagesActionsPage(dcCore::app(), 'plugin.php', ['p' =
 if (!$pages_actions_page->process()) {
 
     # --BEHAVIOR-- adminPagesActionsCombo
-    dcCore::app()->callBehavior('adminPagesActionsCombo', [&$combo_action]);    // @phpstan-ignore-line
+    $combo_action ??= new ArrayObject();
+    dcCore::app()->callBehavior('adminPagesActionsCombo', [&$combo_action]);
 
     /* Display
     -------------------------------------------------------- */ ?>

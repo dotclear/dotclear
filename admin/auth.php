@@ -118,11 +118,11 @@ elseif ($change_pwd) {
             throw new Exception();
         }
         $data = [
-            'user_id'       => base64_decode($tmp_data[0]),
+            'user_id'       => base64_decode($tmp_data[0], true),
             'cookie_admin'  => $tmp_data[1],
             'user_remember' => $tmp_data[2] == '1',
         ];
-        if ($data['user_id'] === false) {   // @phpstan-ignore-line
+        if ($data['user_id'] === false) {
             throw new Exception();
         }
 
@@ -136,7 +136,7 @@ elseif ($change_pwd) {
                 $user_key   = substr($data['cookie_admin'], 0, 40);
                 $check_user = dcCore::app()->auth->checkUser($user_id, null, $user_key) === true;
             } else {
-                $user_id = trim((string) $user_id);  // @phpstan-ignore-line
+                $user_id = trim((string) $user_id);
             }
         }
 

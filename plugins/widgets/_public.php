@@ -167,14 +167,9 @@ class publicWidgets
             } else {
                 $text = $e;
             }
-            $w->{$setting} = preg_replace_callback('/\{tpl:lang (.*?)\}/msu', ['self', 'widgetL10nHandler'], $text);
+            $w->{$setting} = preg_replace_callback('/\{tpl:lang (.*?)\}/msu', fn ($m) => __($m[1]), $text);
         }
 
         echo $w->call(0);
-    }
-
-    private static function widgetL10nHandler($m)
-    {
-        return __($m[1]);
     }
 }

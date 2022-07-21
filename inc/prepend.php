@@ -146,7 +146,7 @@ require DC_RC_PATH;
 if (!defined('DC_DEBUG')) {
     define('DC_DEBUG', true);
 }
-if (DC_DEBUG) { // @phpstan-ignore-line
+if (DC_DEBUG) {
     ini_set('display_errors', '1');
     error_reporting(E_ALL | E_STRICT);
 }
@@ -310,10 +310,10 @@ try {
                 '<p>If you\'re unsure what these terms mean you should probably contact ' .
                 'your host. If you still need help you can always visit the ' .
                 '<a href="https://forum.dotclear.net/">Dotclear Support Forums</a>.</p>') .
-                (DC_DEBUG ? // @phpstan-ignore-line
+                (DC_DEBUG ?
                     '<p>' . __('The following error was encountered while trying to read the database:') . '</p><ul><li>' . $e->getMessage() . '</li></ul>' :
                     ''),
-                (DC_DBHOST !== '' ? DC_DBHOST : 'localhost')   // @phpstan-ignore-line
+                (DC_DBHOST !== '' ? DC_DBHOST : 'localhost')
             ) :
             '',
             20
@@ -415,7 +415,6 @@ function __error($summary, $message, $code = 0)
 
     if (CLI_MODE) {
         trigger_error($summary, E_USER_ERROR);
-        exit(1);    // @phpstan-ignore-line
     }
     if (defined('DC_ERRORFILE') && is_file(DC_ERRORFILE)) {
         include DC_ERRORFILE;

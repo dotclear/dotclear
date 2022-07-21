@@ -57,7 +57,7 @@ class context
     # Loop position tests
     public function loopPosition($start, $length = null, $even = null, $modulo = null)
     {
-        if (!$this->cur_loop) { // @phpstan-ignore-line
+        if (!$this->cur_loop) {
             return false;
         }
 
@@ -169,7 +169,7 @@ class context
         $args[0] = &$str;
 
         # --BEHAVIOR-- publicBeforeContentFilter
-        $res = dcCore::app()->callBehavior('publicBeforeContentFilter', dcCore::app(), $tag, $args);
+        dcCore::app()->callBehavior('publicBeforeContentFilter', dcCore::app(), $tag, $args);
         $str = $args[0];
 
         foreach ($filters as $filter) {
@@ -189,7 +189,7 @@ class context
         }
 
         # --BEHAVIOR-- publicAfterContentFilter
-        $res = dcCore::app()->callBehavior('publicAfterContentFilter', dcCore::app(), $tag, $args);
+        dcCore::app()->callBehavior('publicAfterContentFilter', dcCore::app(), $tag, $args);
         $str = $args[0];
 
         return $str;
@@ -395,8 +395,6 @@ class context
         $path[]     = 'default';
         $definition = $blog->themes_path . '/%s/smilies/smilies.txt';
         $base_url   = $blog->settings->system->themes_url . '/%s/smilies/';
-
-        $res = [];
 
         foreach ($path as $t) {
             if (file_exists(sprintf($definition, $t))) {

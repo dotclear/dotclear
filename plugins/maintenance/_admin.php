@@ -290,8 +290,8 @@ class dcMaintenanceAdmin
             }
         }
         if (!empty($res_tab)) {
-            $res          = new ArrayObject();
-            $res->content = $res_tab;   // @phpstan-ignore-line
+            $res          = new dcMaintenanceAdminHelp();
+            $res->content = $res_tab;
             $blocks[]     = $res;
         }
     }
@@ -310,4 +310,9 @@ class dcMaintenanceAdmin
             return dcPage::jsModuleLoad('maintenance/js/settings.js');
         }
     }
+}
+
+class dcMaintenanceAdminHelp
+{
+    public $content;
 }

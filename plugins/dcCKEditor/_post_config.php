@@ -24,6 +24,7 @@ $__extraPlugins = new ArrayObject();
 dcCore::app()->callBehavior('ckeditorExtraPlugins', $__extraPlugins, $context);
 $extraPlugins = $__extraPlugins->getArrayCopy();
 
+global $dcckeditor_colors_per_row;
 ?>
 
 (function($) {
@@ -109,7 +110,7 @@ $(function() {
     <?php if (!empty($dcckeditor_custom_color_list)) : ?>
         CKEDITOR.config.colorButton_colors = '<?php echo $dcckeditor_custom_color_list; ?>';
     <?php endif;?>
-    CKEDITOR.config.colorButton_colorsPerRow = <?php echo($dcckeditor_colors_per_row ?: 6); /* @phpstan-ignore-line */ ?>;
+    CKEDITOR.config.colorButton_colorsPerRow = <?php echo($dcckeditor_colors_per_row ?: 6); /* @php-stan-ignore-line */ ?>;
 <?php endif;?>
 
     CKEDITOR.config.defaultLanguage = dotclear.user_language;

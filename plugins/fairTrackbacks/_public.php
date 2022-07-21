@@ -12,7 +12,7 @@ if (!defined('DC_RC_PATH')) {
     return;
 }
 
-if (DC_FAIRTRACKBACKS_FORCE) {  // @phpstan-ignore-line
+if (DC_FAIRTRACKBACKS_FORCE) {
     $__autoload['dcFilterFairTrackbacks'] = __DIR__ . '/class.dc.filter.fairtrackbacks.php';
     dcCore::app()->spamfilters[]          = 'dcFilterFairTrackbacks';
 }

@@ -290,7 +290,7 @@ class dcFavorites
      */
     public function getAvailableFavoritesIDs()
     {
-        return array_keys($this->fav_defs->getArrayCopy()); // @phpstan-ignore-line
+        return array_keys($this->fav_defs->getArrayCopy());
     }
 
     /**

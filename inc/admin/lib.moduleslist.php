@@ -567,7 +567,7 @@ class adminModulesList
             '<th class="first nowrap"' . ($colspan > 1 ? ' colspan="' . $colspan . '"' : '') . '>' . __('Name') . '</th>';
         }
 
-        if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {   // @phpstan-ignore-line
+        if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {
             echo
             '<th class="nowrap">' . __('Score') . '</th>';
         }
@@ -587,7 +587,7 @@ class adminModulesList
             '<th class="nowrap module-desc" scope="col">' . __('Details') . '</th>';
         }
 
-        if (in_array('repository', $cols) && DC_ALLOW_REPOSITORIES) {   // @phpstan-ignore-line
+        if (in_array('repository', $cols) && DC_ALLOW_REPOSITORIES) {
             echo
             '<th class="nowrap count" scope="col">' . __('Repository') . '</th>';
         }
@@ -689,7 +689,7 @@ class adminModulesList
                 '</td>';
 
             # Display score only for debug purpose
-            if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {   // @phpstan-ignore-line
+            if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {
                 $tds++;
                 echo
                     '<td class="module-version nowrap count"><span class="debug">' . $module['score'] . '</span></td>';
@@ -734,7 +734,7 @@ class adminModulesList
                 echo '</td>';
             }
 
-            if (in_array('repository', $cols) && DC_ALLOW_REPOSITORIES) {   // @phpstan-ignore-line
+            if (in_array('repository', $cols) && DC_ALLOW_REPOSITORIES) {
                 $tds++;
                 echo
                 '<td class="module-repository nowrap count">' . (!empty($module['repository']) ? __('Third-party repository') : __('Official repository')) . '</td>';
@@ -800,7 +800,6 @@ class adminModulesList
                 $config = !empty($module['root']) && file_exists(path::real($module['root'] . '/_config.php'));
                 $index  = !empty($module['root']) && file_exists(path::real($module['root'] . '/index.php'));
 
-                /* @phpstan-ignore-next-line */
                 if ($config || $index || !empty($module['section']) || !empty($module['tags']) || !empty($module['settings']) || !empty($module['repository']) && DC_DEBUG && DC_ALLOW_REPOSITORIES) {
                     echo
                         '<div><ul class="mod-more">';
@@ -810,7 +809,7 @@ class adminModulesList
                         echo '<li>' . implode(' - ', $settings) . '</li>';
                     }
 
-                    if (!empty($module['repository']) && DC_DEBUG && DC_ALLOW_REPOSITORIES) {   // @phpstan-ignore-line
+                    if (!empty($module['repository']) && DC_DEBUG && DC_ALLOW_REPOSITORIES) {
                         echo '<li class="modules-repository"><a href="' . $module['repository'] . '">' . __('Third-party repository') . '</a></li>';
                     }
 
@@ -1644,7 +1643,7 @@ class adminThemesList extends adminModulesList
             }
 
             # Display score only for debug purpose
-            if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {   // @phpstan-ignore-line
+            if (in_array('score', $cols) && $this->getSearch() !== null && defined('DC_DEBUG') && DC_DEBUG) {
                 $line .= '<p class="module-score debug">' . sprintf(__('Score: %s'), $module['score']) . '</p>';
             }
 
@@ -1711,7 +1710,7 @@ class adminThemesList extends adminModulesList
                 }
             }
 
-            if (in_array('repository', $cols) && DC_ALLOW_REPOSITORIES) {   // @phpstan-ignore-line
+            if (in_array('repository', $cols) && DC_ALLOW_REPOSITORIES) {
                 $line .= '<span class="module-repository">' . (!empty($module['repository']) ? __('Third-party repository') : __('Official repository')) . '</span> ';
             }
 

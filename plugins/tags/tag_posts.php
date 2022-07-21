@@ -113,7 +113,7 @@ if (!dcCore::app()->error->flag()) {
         dcCore::app()->formNonce() .
             '</p></form>';
         # Remove tag
-        if (!$posts->isEmpty() && dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)) {    // @phpstan-ignore-line
+        if (dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)) {
             echo
             '<form id="tag_delete" action="' . $this_url . '" method="post">' .
             '<p><input type="submit" class="delete" name="delete" value="' . __('Delete this tag') . '" />' .

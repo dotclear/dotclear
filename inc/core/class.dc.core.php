@@ -107,7 +107,7 @@ final class dcCore
         $this->prefix = $prefix;
 
         $ttl = DC_SESSION_TTL;
-        if (!is_null($ttl)) {   // @phpstan-ignore-line
+        if (!is_null($ttl)) {
             if (substr(trim((string) $ttl), 0, 1) != '-') {
                 // Clearbricks requires negative session TTL
                 $ttl = '-' . trim((string) $ttl);

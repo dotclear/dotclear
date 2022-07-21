@@ -631,9 +631,29 @@ class rsExtComment
         $res = $rs->comment_content;
 
         if (dcCore::app()->blog->settings->system->comments_nofollow) {
-            $res = preg_replace_callback('#<a(.*?href=".*?".*?)>#ms', ['self', 'noFollowURL'], $res);
+            $res = preg_replace_callback(
+                '#<a(.*?href=".*?".*?)>#ms',
+                function ($m) {
+                    if (preg_match('/rel="ugc nofollow"/', $m[1])) {
+                        return $m[0];
+                    }
+
+                    return '<a' . $m[1] . ' rel="ugc nofollow">';
+                },
+                $res
+            );
         } else {
-            $res = preg_replace_callback('#<a(.*?href=".*?".*?)>#ms', ['self', 'UgcURL'], $res);
+            $res = preg_replace_callback(
+                '#<a(.*?href=".*?".*?)>#ms',
+                function ($m) {
+                    if (preg_match('/rel="ugc"/', $m[1])) {
+                        return $m[0];
+                    }
+
+                    return '<a' . $m[1] . ' rel="ugc">';
+                },
+                $res
+            );
         }
 
         if ($absolute_urls) {
@@ -641,24 +661,6 @@ class rsExtComment
         }
 
         return $res;
-    }
-
-    private static function noFollowURL($m)
-    {
-        if (preg_match('/rel="ugc nofollow"/', $m[1])) {
-            return $m[0];
-        }
-
-        return '<a' . $m[1] . ' rel="ugc nofollow">';
-    }
-
-    private static function UgcURL($m)
-    {
-        if (preg_match('/rel="ugc"/', $m[1])) {
-            return $m[0];
-        }
-
-        return '<a' . $m[1] . ' rel="ugc">';
     }
 
     /**

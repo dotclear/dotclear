@@ -787,7 +787,7 @@ if ($blog_id) {
         '<p>' . __('XML/RPC interface is active. You should set the following parameters on your XML/RPC client:') . '</p>' .
         '<ul>' .
         '<li>' . __('Server URL:') . ' <strong><code>' .
-        sprintf(DC_XMLRPC_URL, dcCore::app()->blog->url, dcCore::app()->blog->id) . // @phpstan-ignore-line
+        sprintf(DC_XMLRPC_URL, dcCore::app()->blog->url, dcCore::app()->blog->id) .
         '</code></strong></li>' .
         '<li>' . __('Blogging system:') . ' <strong><code>Movable Type</code></strong></li>' .
         '<li>' . __('User name:') . ' <strong><code>' . dcCore::app()->auth->userID() . '</code></strong></li>' .

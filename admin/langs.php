@@ -21,7 +21,7 @@ $feed_reader->setTimeout(5);
 $feed_reader->setUserAgent('Dotclear - https://dotclear.org/');
 
 try {
-    $dc_langs = $feed_reader->parse(sprintf(DC_L10N_UPDATE_URL, DC_VERSION));   // @phpstan-ignore-line
+    $dc_langs = $feed_reader->parse(sprintf(DC_L10N_UPDATE_URL, DC_VERSION));
     if ($dc_langs !== false) {
         $dc_langs = $dc_langs->items;
     }

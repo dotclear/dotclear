@@ -83,7 +83,7 @@ class dcUpdate
         }
 
         $cache_dir = dirname($this->cache_file);
-        $can_write = (!is_dir($cache_dir) && is_writable(dirname($cache_dir)))
+        $can_write = (!is_dir($cache_dir)   && is_writable(dirname($cache_dir)))
         || (!file_exists($this->cache_file) && is_writable($cache_dir))
         || is_writable($this->cache_file);
 

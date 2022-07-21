@@ -119,7 +119,6 @@ class dcRestMethods
         $rsp->check = false;
         $ret        = __('Dotclear update not available');
 
-        /* @phpstan-ignore-next-line */
         if (dcCore::app()->auth->isSuperAdmin() && !DC_NOT_UPDATE && is_readable(DC_DIGESTS) && !dcCore::app()->auth->user_prefs->dashboard->nodcupdate) {
             $updater      = new dcUpdate(DC_UPDATE_URL, 'dotclear', DC_UPDATE_VERSION, DC_TPL_CACHE . '/versions');
             $new_v        = $updater->check(DC_VERSION);

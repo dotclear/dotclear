@@ -242,7 +242,7 @@ if ($filter_gui !== false) {
     '</form>';
 
     # Syndication
-    if (DC_ADMIN_URL) { // @phpstan-ignore-line
+    if (DC_ADMIN_URL) {
         $ham_feed = dcCore::app()->blog->url . dcCore::app()->url->getURLFor(
             'hamfeed',
             $code = dcAntispam::getUserCode(dcCore::app())

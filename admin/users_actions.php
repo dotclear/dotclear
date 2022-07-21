@@ -10,6 +10,8 @@ require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
 
+global $redir;
+
 $users = [];
 if (!empty($_POST['users']) && is_array($_POST['users'])) {
     foreach ($_POST['users'] as $u) {
@@ -155,7 +157,7 @@ if (isset($_POST['redir']) && strpos($_POST['redir'], '://') === false) {
     form::hidden(['nb'], $_POST['nb']                                  ?? '');
 }
 
-echo '<p><a class="back" href="' . html::escapeURL($redir) . '">' . __('Back to user profile') . '</a></p>';    // @phpstan-ignore-line
+echo '<p><a class="back" href="' . html::escapeURL($redir) . '">' . __('Back to user profile') . '</a></p>';
 
 # --BEHAVIOR-- adminUsersActionsContent
 dcCore::app()->callBehavior('adminUsersActionsContent', dcCore::app(), $action, $hidden_fields);
