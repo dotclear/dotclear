@@ -25,6 +25,19 @@ class dcPlugins extends dcModules
     protected static $type = 'plugin';
 
     /**
+     * Should run in safe mode?
+     *
+     * @param      bool  $disabled  The disabled
+     *
+     * @return     bool
+     */
+    public function safeMode($disabled = false)
+    {
+        // We load all plugins only in standard mode
+        return $disabled;
+    }
+
+    /**
      *  This method registers a plugin in modules list. You should use this to
      *  register a new plugin.
      *

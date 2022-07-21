@@ -20,6 +20,19 @@ class dcThemes extends dcModules
     protected static $type = 'theme';
 
     /**
+     * Should run in safe mode?
+     *
+     * @param      bool  $disabled  The disabled
+     *
+     * @return     bool
+     */
+    public function safeMode($disabled = false)
+    {
+        // We load all themes, as in standard mode, in safe mode
+        return false;
+    }
+
+    /**
      * This method registers a theme in modules list. You should use this to
      * register a new theme.
      *

@@ -158,6 +158,18 @@ class dcModules
     }
 
     /**
+     * Should run in safe mode?
+     *
+     * @param      bool  $disabled  The disabled
+     *
+     * @return     bool
+     */
+    public function safeMode($disabled = false)
+    {
+        return $disabled;
+    }
+
+    /**
      * Loads modules. <var>$path</var> could be a separated list of paths
      * (path separator depends on your OS).
      *
@@ -179,8 +191,7 @@ class dcModules
         $this->path = explode(PATH_SEPARATOR, $path);
         $this->ns   = $ns;
 
-        $disabled = isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode'];
-        $disabled = $disabled                          && !get_parent_class($this) ? true : false;  // @phpstan-ignore-line
+        $disabled = $this->safeMode(isset($_SESSION['sess_safe_mode']) && $_SESSION['sess_safe_mode']);
 
         $ignored = [];
 
