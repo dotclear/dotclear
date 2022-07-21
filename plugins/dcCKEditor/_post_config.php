@@ -63,7 +63,7 @@ $extraPlugins = $__extraPlugins->getArrayCopy();
     $.getEditorName = function getEditorName() {
         return $.active_editor;
     }
-    chainHandler(window,'onbeforeunload',function(e) {
+    window.addEventListener('beforeunload',function(e) {
         if (e == undefined && window.event) {
             e = window.event;
         }
