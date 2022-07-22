@@ -1,5 +1,5 @@
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
-// Distributed under an MIT license: https://codemirror.net/LICENSE
+// Distributed under an MIT license: https://codemirror.net/5/LICENSE
 
 (function(mod) {
   if (typeof exports == "object" && typeof module == "object") // CommonJS
@@ -500,7 +500,7 @@ CodeMirror.defineMode("clike", function(config, parserConfig) {
         return "meta";
       },
       '"': function(stream, state) {
-        if (!stream.match('""\n')) return false;
+        if (!stream.match(/""$/)) return false;
         state.tokenize = tokenTripleString;
         return state.tokenize(stream, state);
       }
