@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ro'] = {
@@ -425,7 +425,8 @@ CKEDITOR.lang['ro'] = {
     	pasteNotification : 'Apasă %1 pentru adăugare. Navigatorul (browser) tău nu suportă adăugarea din clipboard cu butonul din toolbar sau cu opțiunea din meniul contextual.',
     	pasteArea : 'Suprafața de adăugare',
     	pasteMsg : 'Adaugă conținutul tău înăuntru zonei de mai jos și apasă OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -446,6 +447,7 @@ CKEDITOR.lang['ro'] = {
     	dlgTitle : 'Despre CKEeditor 4',
     	moreInfo : 'Pentru informații despre licențiere, vă rugăm vizitați web site-ul nostru:'
     },
+    application : 'Rich Text Editor',
     editor : 'Editor de text îmbogățit',
     editorPanel : 'Panoul editorului de text îmbogățit',
     common : 

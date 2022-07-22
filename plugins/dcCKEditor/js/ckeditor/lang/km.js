@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['km'] = {
@@ -425,7 +425,8 @@ CKEDITOR.lang['km'] = {
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'តំបន់\u200bបិទ\u200bភ្ជាប់',
     	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -446,6 +447,7 @@ CKEDITOR.lang['km'] = {
     	dlgTitle : 'អំពី CKEditor',
     	moreInfo : 'សម្រាប់\u200bព័ត៌មាន\u200bអំពី\u200bអាជ្ញាបណញណ សូម\u200bមើល\u200bក្នុង\u200bគេហទំព័រ\u200bរបស់\u200bយើង៖'
     },
+    application : 'Rich Text Editor',
     editor : 'ឧបករណ៍\u200bសរសេរ\u200bអត្ថបទ\u200bសម្បូរ\u200bបែប',
     editorPanel : 'ផ្ទាំង\u200bឧបករណ៍\u200bសរសេរ\u200bអត្ថបទ\u200bសម្បូរ\u200bបែប',
     common : 

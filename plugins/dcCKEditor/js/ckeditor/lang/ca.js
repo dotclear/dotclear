@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ca'] = {
@@ -425,7 +425,8 @@ CKEDITOR.lang['ca'] = {
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Àrea d\'enganxat',
     	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -446,6 +447,7 @@ CKEDITOR.lang['ca'] = {
     	dlgTitle : 'Quant al CKEditor 4',
     	moreInfo : 'Per informació sobre llicències visiteu el nostre lloc web:'
     },
+    application : 'Rich Text Editor',
     editor : 'Editor de text enriquit',
     editorPanel : 'Panell de l\'editor de text enriquit',
     common : 

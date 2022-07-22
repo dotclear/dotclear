@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['lt'] = {
@@ -425,7 +425,8 @@ CKEDITOR.lang['lt'] = {
     	pasteNotification : 'Spauskite %1 kad įkliuotumėte. Jūsų naršyklė nepalaiko įklijavimo paspaudus mygtuką arba kontekstinio menių galimybės.',
     	pasteArea : 'Įkelti dalį',
     	pasteMsg : 'Įklijuokite savo turinį į žemiau esantį lauką ir paspauskite OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -446,6 +447,7 @@ CKEDITOR.lang['lt'] = {
     	dlgTitle : 'Apie CKEditor 4',
     	moreInfo : 'Dėl licencijavimo apsilankykite mūsų svetainėje:'
     },
+    application : 'Rich Text Editor',
     editor : 'Pilnas redaktorius',
     editorPanel : 'Pilno redagtoriaus skydelis',
     common : 

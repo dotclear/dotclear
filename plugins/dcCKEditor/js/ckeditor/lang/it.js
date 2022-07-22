@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['it'] = {
@@ -425,7 +425,8 @@ CKEDITOR.lang['it'] = {
     	pasteNotification : 'Premere %1 per incollare. Il tuo browser non permette di incollare tramite il pulsante della barra degli strumenti o tramite la voce del menu contestuale.',
     	pasteArea : 'Area dove incollare',
     	pasteMsg : 'Incollare il proprio contenuto all\'interno dell\'area sottostante e premere OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'I file in formato ${formats} non sono supportati.',
+    	fileWithoutFormatNotSupportedNotification : 'Il formato di file non è supportato.'
     },
     blockquote : 
     {
@@ -446,6 +447,7 @@ CKEDITOR.lang['it'] = {
     	dlgTitle : 'Informazioni su CKEditor 4',
     	moreInfo : 'Per le informazioni sulla licenza si prega di visitare il nostro sito:'
     },
+    application : 'Rich Text Editor',
     editor : 'Rich Text Editor',
     editorPanel : 'Pannello Rich Text Editor',
     common : 

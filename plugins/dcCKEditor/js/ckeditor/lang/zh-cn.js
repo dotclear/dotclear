@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['zh-cn'] = {
@@ -425,7 +425,8 @@ CKEDITOR.lang['zh-cn'] = {
     	pasteNotification : '您的浏览器不支持通过工具栏或右键菜单进行粘贴，请按 %1 进行粘贴。',
     	pasteArea : '粘贴区域',
     	pasteMsg : '将您的内容粘贴到下方区域，然后按确定。',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -446,7 +447,8 @@ CKEDITOR.lang['zh-cn'] = {
     	dlgTitle : '关于 CKEditor 4',
     	moreInfo : '相关授权许可信息请访问我们的网站：'
     },
-    editor : '所见即所得编辑器',
+    application : '富文本编辑器',
+    editor : '编辑器',
     editorPanel : '所见即所得编辑器面板',
     common : 
     {

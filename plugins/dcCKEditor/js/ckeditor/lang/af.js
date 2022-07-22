@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['af'] = {
@@ -425,7 +425,8 @@ CKEDITOR.lang['af'] = {
     	pasteNotification : 'Druk %1 om by te voeg. You leser ondersteun nie die toolbar knoppie of inoud kieslysie opsie nie. ',
     	pasteArea : 'Area byvoeg',
     	pasteMsg : 'Voeg jou inhoud in die gebied onder by en druk OK',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -446,6 +447,7 @@ CKEDITOR.lang['af'] = {
     	dlgTitle : 'Meer oor CKEditor 4',
     	moreInfo : 'Vir lisensie-informasie, besoek asb. ons webwerf:'
     },
+    application : 'Rich Text Editor',
     editor : 'Woordverwerker',
     editorPanel : 'Woordverwerkerpaneel',
     common : 

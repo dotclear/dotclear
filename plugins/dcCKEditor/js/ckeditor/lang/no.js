@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['no'] = {
@@ -425,7 +425,8 @@ CKEDITOR.lang['no'] = {
     	pasteNotification : 'Trykk %1 for å lime inn. På grunn av manglende støtte i nettleseren din, kan du ikke lime inn via knapperaden eller kontekstmenyen.',
     	pasteArea : 'Innlimingsområde',
     	pasteMsg : 'Lim inn innholdet i området nedenfor og trykk OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -446,6 +447,7 @@ CKEDITOR.lang['no'] = {
     	dlgTitle : 'Om CKEditor 4',
     	moreInfo : 'For lisensieringsinformasjon, vennligst besøk vårt nettsted:'
     },
+    application : 'Rich Text Editor',
     editor : 'Rikteksteditor',
     editorPanel : 'Panel for rikteksteditor',
     common : 

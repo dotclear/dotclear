@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['ar'] = {
@@ -425,7 +425,8 @@ CKEDITOR.lang['ar'] = {
     	pasteNotification : 'اضغط %1 للصق. اللصق عن طريق شريط الادوات او القائمة غير مدعوم من المتصفح المستخدم من قبلك.',
     	pasteArea : 'منطقة اللصق',
     	pasteMsg : 'الصق المحتوى بداخل المساحة المخصصة ادناه ثم اضغط على OK',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -446,6 +447,7 @@ CKEDITOR.lang['ar'] = {
     	dlgTitle : 'عن CKEditor',
     	moreInfo : 'للحصول على معلومات الترخيص ، يرجى زيارة موقعنا:'
     },
+    application : 'Rich Text Editor',
     editor : 'محرر النص الغني',
     editorPanel : 'لائحة محرر النص المنسق',
     common : 

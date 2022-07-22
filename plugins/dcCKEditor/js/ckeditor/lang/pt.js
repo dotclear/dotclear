@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['pt'] = {
@@ -425,7 +425,8 @@ CKEDITOR.lang['pt'] = {
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Área de colagem',
     	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -446,6 +447,7 @@ CKEDITOR.lang['pt'] = {
     	dlgTitle : 'Sobre o CKEditor 4',
     	moreInfo : 'Para informação sobre licenciamento visite o nosso sítio web:'
     },
+    application : 'Rich Text Editor',
     editor : 'Editor de texto enriquecido',
     editorPanel : 'Painel do editor de texto enriquecido',
     common : 
@@ -557,6 +559,6 @@ CKEDITOR.lang['pt'] = {
     		'135' : 'F24',
     		'224' : 'Comando'
     	},
-    	keyboardShortcut : 'Keyboard shortcut',
+    	keyboardShortcut : 'Atalho de teclado',
     	optionDefault : 'Padrão'
     } }; 

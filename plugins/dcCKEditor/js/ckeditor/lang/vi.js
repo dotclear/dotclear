@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['vi'] = {
@@ -425,7 +425,8 @@ CKEDITOR.lang['vi'] = {
     	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
     	pasteArea : 'Khu vực dán',
     	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -446,6 +447,7 @@ CKEDITOR.lang['vi'] = {
     	dlgTitle : 'Thông tin về CKEditor 4',
     	moreInfo : 'Vui lòng ghé thăm trang web của chúng tôi để có thông tin về giấy phép:'
     },
+    application : 'Rich Text Editor',
     editor : 'Bộ soạn thảo văn bản có định dạng',
     editorPanel : 'Bảng điều khiển Rich Text Editor',
     common : 

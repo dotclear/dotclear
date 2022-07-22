@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['cs'] = {
@@ -371,7 +371,7 @@ CKEDITOR.lang['cs'] = {
     		'0FF' : 'Azurová',
     		'00F' : 'Modrá',
     		EE82EE : 'Fialová',
-    		A9A9A9 : 'Kalně šedá',
+    		A9A9A9 : 'Tmavě šedá',
     		FFA07A : 'Světle lososová',
     		FFA500 : 'Oranžová',
     		FFFF00 : 'Žlutá',
@@ -425,7 +425,8 @@ CKEDITOR.lang['cs'] = {
     	pasteNotification : 'Stiskněte %1 pro vložení. Váš prohlížeč nepodporuje vkládání pomocí tlačítka na panelu nástrojů nebo volby kontextového menu.',
     	pasteArea : 'Oblast vkládání',
     	pasteMsg : 'Vložte svůj obsah do oblasti níže a stiskněte OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -446,6 +447,7 @@ CKEDITOR.lang['cs'] = {
     	dlgTitle : 'O aplikaci CKEditor 4',
     	moreInfo : 'Pro informace o lincenci navštivte naši webovou stránku:'
     },
+    application : 'Rich Text Editor',
     editor : 'Textový editor',
     editorPanel : 'Panel textového editoru',
     common : 

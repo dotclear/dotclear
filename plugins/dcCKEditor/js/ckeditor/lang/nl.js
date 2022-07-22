@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['nl'] = {
@@ -425,7 +425,8 @@ CKEDITOR.lang['nl'] = {
     	pasteNotification : 'Plakken met de knop in de werkbalk wordt niet ondersteund door de browser. Gebruik de sneltoets %1 van het toetsenbord.',
     	pasteArea : 'Plakgebied',
     	pasteMsg : 'Plak de inhoud in het vak hieronder en druk op OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -446,6 +447,7 @@ CKEDITOR.lang['nl'] = {
     	dlgTitle : 'Over CKEditor 4',
     	moreInfo : 'Bezoek onze website voor licentieinformatie:'
     },
+    application : 'Rich Text Editor',
     editor : 'Tekstverwerker',
     editorPanel : 'Tekstverwerker beheerpaneel',
     common : 

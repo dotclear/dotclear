@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['hr'] = {
@@ -425,7 +425,8 @@ CKEDITOR.lang['hr'] = {
     	pasteNotification : 'Vaš preglednik Vam ne dozvoljava lijepljenje običnog teksta na ovaj način. Za lijepljenje, pritisnite %1.',
     	pasteArea : 'Okvir za lijepljenje',
     	pasteMsg : 'Zalijepite vaš sadržaj u okvir ispod i pritisnite OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -446,6 +447,7 @@ CKEDITOR.lang['hr'] = {
     	dlgTitle : 'O CKEditoru 4',
     	moreInfo : 'Za informacije o licencama posjetite našu web stranicu:'
     },
+    application : 'Rich Text Editor',
     editor : 'Bogati uređivač teksta, %1',
     editorPanel : 'Ploča Bogatog Uređivača Teksta',
     common : 

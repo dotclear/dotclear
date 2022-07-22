@@ -1,5 +1,5 @@
 ﻿/*
-Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2022, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 */
 CKEDITOR.lang['el'] = {
@@ -93,7 +93,7 @@ CKEDITOR.lang['el'] = {
     	headersColumn : 'Πρώτη στήλη',
     	headersNone : 'Κανένα',
     	headersRow : 'Πρώτη Γραμμή',
-    	heightUnit : 'height unit',
+    	heightUnit : 'μονάδα ύψους',
     	invalidBorder : 'Το πάχος του περιγράμματος πρέπει να είναι ένας αριθμός.',
     	invalidCellPadding : 'Η αναπλήρωση των κελιών πρέπει να είναι θετικός αριθμός.',
     	invalidCellSpacing : 'Η απόσταση μεταξύ των κελιών πρέπει να είναι ένας θετικός αριθμός.',
@@ -150,7 +150,7 @@ CKEDITOR.lang['el'] = {
     pastetext : 
     {
     	button : 'Επικόλληση ως απλό κείμενο',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Πατήστε %1 για επικόλληση. Ο φυλλομετρητής σας δεν υποστηρίζει επικόλληση με το κουμπί της γραμμής εργαλείων ή την επιλογή από το μενού δεξιού κλικ.',
     	title : 'Επικόλληση ως απλό κείμενο'
     },
     pastefromword : 
@@ -162,7 +162,7 @@ CKEDITOR.lang['el'] = {
     },
     notification : 
     {
-    	closed : 'Notification closed.'
+    	closed : 'Η ειδοποίηση έκλεισε.'
     },
     maximize : 
     {
@@ -215,8 +215,8 @@ CKEDITOR.lang['el'] = {
     	anchorName : 'Βάσει του Ονόματος Άγκυρας',
     	charset : 'Κωδικοποίηση Χαρακτήρων Προσαρτημένης Πηγής',
     	cssClasses : 'Κλάσεις Φύλλων Στυλ',
-    	download : 'Force Download',
-    	displayText : 'Display Text',
+    	download : 'Εξαγκασμένη Λήψη',
+    	displayText : 'Κείμενο Εμφάνισης',
     	emailAddress : 'Διεύθυνση E-mail',
     	emailBody : 'Κείμενο Μηνύματος',
     	emailSubject : 'Θέμα Μηνύματος',
@@ -231,9 +231,9 @@ CKEDITOR.lang['el'] = {
     	noAnchors : '(Δεν υπάρχουν άγκυρες στο κείμενο)',
     	noEmail : 'Εισάγετε τη διεύθυνση ηλεκτρονικού ταχυδρομείου',
     	noUrl : 'Εισάγετε την τοποθεσία (URL) του συνδέσμου',
-    	noTel : 'Please type the phone number',
+    	noTel : 'Γράψτε τον αριθμό τηλεφώνου',
     	other : '<άλλο>',
-    	phoneNumber : 'Phone number',
+    	phoneNumber : 'Αριθμός τηλεφώνου',
     	popupDependent : 'Εξαρτημένο (Netscape)',
     	popupFeatures : 'Επιλογές Αναδυόμενου Παραθύρου',
     	popupFullScreen : 'Πλήρης Οθόνη (IE)',
@@ -258,7 +258,7 @@ CKEDITOR.lang['el'] = {
     	toAnchor : 'Άγκυρα σε αυτήν τη σελίδα',
     	toEmail : 'E-Mail',
     	toUrl : 'URL',
-    	toPhone : 'Phone',
+    	toPhone : 'Τηλέφωνο',
     	toolbar : 'Σύνδεσμος',
     	type : 'Τύπος Συνδέσμου',
     	unlink : 'Αφαίρεση Συνδέσμου',
@@ -388,28 +388,28 @@ CKEDITOR.lang['el'] = {
     		F0F8FF : 'Alice Blue',
     		E6E6FA : 'Ελαφρός Ιώδες',
     		FFF : 'Λευκό',
-    		'1ABC9C' : 'Strong Cyan',
-    		'2ECC71' : 'Emerald',
-    		'3498DB' : 'Bright Blue',
-    		'9B59B6' : 'Amethyst',
-    		'4E5F70' : 'Grayish Blue',
-    		F1C40F : 'Vivid Yellow',
-    		'16A085' : 'Dark Cyan',
-    		'27AE60' : 'Dark Emerald',
-    		'2980B9' : 'Strong Blue',
-    		'8E44AD' : 'Dark Violet',
-    		'2C3E50' : 'Desaturated Blue',
+    		'1ABC9C' : 'Έντονο Κυανό',
+    		'2ECC71' : 'Σμαραγδί',
+    		'3498DB' : 'Φωτεινό Μπλε',
+    		'9B59B6' : 'Αμέθυστος',
+    		'4E5F70' : 'Γκριζωπό Μπλε',
+    		F1C40F : 'Ζωντανό Κίτρινο',
+    		'16A085' : 'Σκοτεινό Κυανό',
+    		'27AE60' : 'Σκοτεινό Σμαραγδί',
+    		'2980B9' : 'Έντονο Μπλε',
+    		'8E44AD' : 'Σκοτεινό Βιολετί',
+    		'2C3E50' : 'Αποκορρεσμένο Μπλε',
     		F39C12 : 'Πορτοκαλί',
     		E67E22 : 'Καροτί',
-    		E74C3C : 'Pale Red',
-    		ECF0F1 : 'Bright Silver',
-    		'95A5A6' : 'Light Grayish Cyan',
-    		DDD : 'Light Gray',
-    		D35400 : 'Pumpkin',
-    		C0392B : 'Strong Red',
+    		E74C3C : 'Απαλό Κόκκινο',
+    		ECF0F1 : 'Φωτεινό Ασημί',
+    		'95A5A6' : 'Φωτεινό Γκριζωπό Κυανό',
+    		DDD : 'Φωτεινό Γκρι',
+    		D35400 : 'Κολοκυθί',
+    		C0392B : 'Έντονο Κόκκινο',
     		BDC3C7 : 'Αργυρό',
-    		'7F8C8D' : 'Grayish Cyan',
-    		'999' : 'Dark Gray'
+    		'7F8C8D' : 'Γκριζωπό Κυανό',
+    		'999' : 'Σκοτεινό Γκρι'
     	},
     	more : 'Περισσότερα Χρώματα…',
     	panelTitle : 'Χρώματα',
@@ -422,10 +422,11 @@ CKEDITOR.lang['el'] = {
     	cut : 'Αποκοπή',
     	cutError : 'Οι ρυθμίσεις ασφαλείας του περιηγητή σας δεν επιτρέπουν την επιλεγμένη εργασία αποκοπής. Παρακαλώ χρησιμοποιείστε το πληκτρολόγιο (Ctrl/Cmd+X).',
     	paste : 'Επικόλληση',
-    	pasteNotification : 'Press %1 to paste. Your browser doesn‘t support pasting with the toolbar button or context menu option.',
+    	pasteNotification : 'Πατήστε %1 για επικόλληση. Ο φυλλομετρητής σας δεν υποστηρίζει επικόλληση με το κουμπί της γραμμής εργαλείων ή την επιλογή από το μενού δεξιού κλικ.',
     	pasteArea : 'Περιοχή Επικόλλησης',
-    	pasteMsg : 'Paste your content inside the area below and press OK.',
-    	fileFormatNotSupportedNotification : 'This file format is not supported. You can try with one of the supported formats: ${formats}.'
+    	pasteMsg : 'Επικολλήστε το περιεχόμενό σας μέσα στην περιοχή παρακάτω και πατήστε Εντάξει.',
+    	fileFormatNotSupportedNotification : 'The ${formats} file format(s) are not supported.',
+    	fileWithoutFormatNotSupportedNotification : 'The file format is not supported.'
     },
     blockquote : 
     {
@@ -446,6 +447,7 @@ CKEDITOR.lang['el'] = {
     	dlgTitle : 'Περί του CKEditor 4',
     	moreInfo : 'Για πληροφορίες σχετικές με την άδεια χρήσης, παρακαλούμε επισκεφθείτε την ιστοσελίδα μας:'
     },
+    application : 'Rich Text Editor',
     editor : 'Επεξεργαστής Πλούσιου Κειμένου',
     editorPanel : 'Πίνακας Επεξεργαστή Πλούσιου Κειμένου',
     common : 
@@ -506,7 +508,7 @@ CKEDITOR.lang['el'] = {
     	justify : 'Πλήρης Στοίχιση',
     	alignLeft : 'Στοίχιση Αριστερά',
     	alignRight : 'Στοίχιση Δεξιά',
-    	alignCenter : 'Align Center',
+    	alignCenter : 'Στοίχιση στο κέντρο',
     	alignTop : 'Πάνω',
     	alignMiddle : 'Μέση',
     	alignBottom : 'Κάτω',
@@ -514,7 +516,7 @@ CKEDITOR.lang['el'] = {
     	invalidValue : 'Μη έγκυρη τιμή.',
     	invalidHeight : 'Το ύψος πρέπει να είναι ένας αριθμός.',
     	invalidWidth : 'Το πλάτος πρέπει να είναι ένας αριθμός.',
-    	invalidLength : 'Value specified for the "%1" field must be a positive number with or without a valid measurement unit (%2).',
+    	invalidLength : 'Η τιμή που ορίζεται στο πεδίο «%1» πρέπει να είναι θετικός αριθμός με ή χωρίς μονάδα μέτρησης (%2).',
     	invalidCssLength : 'Η τιμή που ορίζεται για το πεδίο "%1" πρέπει να είναι ένας θετικός αριθμός με ή χωρίς μια έγκυρη μονάδα μέτρησης CSS (px, %, in, cm, mm, em, ex, pt, ή pc).',
     	invalidHtmlLength : 'Η τιμή που ορίζεται για το πεδίο "%1" πρέπει να είναι ένας θετικός αριθμός με ή χωρίς μια έγκυρη μονάδα μέτρησης HTML (px ή %).',
     	invalidInlineStyle : 'Η τιμή για το εν σειρά στυλ πρέπει να περιέχει ένα ή περισσότερα ζεύγη με την μορφή "όνομα: τιμή" διαχωρισμένα με Ελληνικό ερωτηματικό.',
@@ -558,5 +560,5 @@ CKEDITOR.lang['el'] = {
     		'224' : 'Εντολή'
     	},
     	keyboardShortcut : 'Συντόμευση πληκτρολογίου',
-    	optionDefault : 'Default'
+    	optionDefault : 'Προεπιλογή'
     } }; 
