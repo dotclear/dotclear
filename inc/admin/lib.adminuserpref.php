@@ -17,12 +17,6 @@ if (!defined('DC_RC_PATH')) {
  */
 class adminUserPref
 {
-    /** @var dcCore core instance */
-    /**
-     * @deprecated since 2.23
-     */
-    public static $core;
-
     /** @var arrayObject columns preferences */
     protected static $cols = null;
 
@@ -190,7 +184,3 @@ class adminUserPref
         return null;
     }
 }
-/*
- * Store current dcCore instance
- */
-adminUserPref::$core = dcCore::app();

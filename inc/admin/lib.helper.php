@@ -12,12 +12,6 @@ if (!defined('DC_RC_PATH')) {
 
 class dcAdminHelper
 {
-    /** @var dcCore dcCore instance */
-    /**
-     * @deprecated since 2.23
-     */
-    public static $core;
-
     /**
      * Compose HTML icon markup for favorites, menu, … depending on theme (light, dark)
      *
@@ -106,11 +100,6 @@ class dcAdminHelper
         );
     }
 }
-
-/*
- * Store current dcCore instance
- */
-dcAdminHelper::$core = dcCore::app();
 
 /**
  * Load locales

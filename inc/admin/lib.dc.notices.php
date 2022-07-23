@@ -15,12 +15,6 @@ if (!defined('DC_RC_PATH')) {
  */
 class dcAdminNotices
 {
-    /** @var dcCore dcCore instance */
-    /**
-     * @deprecated since 2.23
-     */
-    public static $core;
-
     private static $N_TYPES = [
         // id → CSS class
         'success' => 'success',
@@ -263,7 +257,3 @@ class dcAdminNotices
         return self::message($msg, $timestamp, $div, $echo, 'warning-msg');
     }
 }
-/*
- * Store current dcCore instance
- */
-dcAdminNotices::$core = dcCore::app();

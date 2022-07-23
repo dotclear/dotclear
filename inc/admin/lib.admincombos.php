@@ -17,12 +17,6 @@ if (!defined('DC_RC_PATH')) {
  */
 class dcAdminCombos
 {
-    /** @var dcCore dcCore instance */
-    /**
-     * @deprecated since 2.23
-     */
-    public static $core;
-
     /**
      * Returns an hierarchical categories combo from a category record
      *
@@ -308,7 +302,3 @@ class dcAdminCombos
         return $sortby_combo;
     }
 }
-/*
- * Store current dcCore instance
- */
-dcAdminCombos::$core = dcCore::app();
