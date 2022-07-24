@@ -22,7 +22,7 @@ class dcAntispam
             return;
         }
 
-        self::$filters = new dcSpamFilters(dcCore::app());
+        self::$filters = new dcSpamFilters();
         self::$filters->init(dcCore::app()->spamfilters);
     }
 

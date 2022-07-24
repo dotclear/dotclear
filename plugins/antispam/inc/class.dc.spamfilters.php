@@ -17,16 +17,6 @@ class dcSpamFilters
     private $filters     = [];
     private $filters_opt = [];
 
-    /**
-     * @deprecated Since 2.23, use dcCore::app() instead
-     */
-    private $core;
-
-    public function __construct(dcCore $core = null)
-    {
-        $this->core = dcCore::app();
-    }
-
     public function init($filters)
     {
         foreach ($filters as $f) {

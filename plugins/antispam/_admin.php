@@ -42,7 +42,7 @@ dcCore::app()->addBehavior(
         );
     }
 );
-$core->addBehavior(
+dcCore::app()->addBehavior(
     'adminDashboardFavsIcon',
     function (dcCore $core, $name, $icon) {
         // Check if it is comments favs

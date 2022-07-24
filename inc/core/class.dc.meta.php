@@ -16,11 +16,6 @@ if (!defined('DC_RC_PATH')) {
 
 class dcMeta
 {
-    /**
-     * @deprecated since 2.23
-     */
-    private $core;  ///< <b>dcCore</b> dcCore instance
-
     private $con;   ///< <b>connection</b>    Database connection object
     private $table; ///< <b>string</b> Media table name
 
@@ -31,7 +26,6 @@ class dcMeta
      */
     public function __construct(dcCore $core)
     {
-        $this->core  = dcCore::app();
         $this->con   = dcCore::app()->con;
         $this->table = dcCore::app()->prefix . 'meta';
     }

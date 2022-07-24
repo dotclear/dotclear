@@ -35,7 +35,6 @@ parameters:
     - inc/config.php
     - inc/libs/clearbricks/debian/*
     - inc/libs/clearbricks/tests/unit/*/*
-    - rector.php
 
   dynamicConstantNames:
     - DC_ADMIN_SSL
@@ -52,6 +51,7 @@ parameters:
     - DC_DBUSER
     - DC_DEBUG
     - DC_DEFAULT_JQUERY
+    - DC_DEFAULT_THEME
     - DC_DEFAULT_TPLSET
     - DC_DIGESTS
     - DC_DISTRIB_PLUGINS
@@ -174,14 +174,6 @@ parameters:
     - message: '#Access to an undefined property adminMediaPage::\$[a-zA-Z0-9\\_]+.#'
       path: %currentWorkingDirectory%
 
-    # dcSelectStatement (which extends dcSqlStatement) ->join()
-    - message: '#Call to an undefined method dcSqlStatement::join\(\).#'
-      path: %currentWorkingDirectory%
-
-    # dcUpdateStatement (which extends dcSqlStatement) ->set()
-    - message: '#Call to an undefined method dcSqlStatement::set\(\).#'
-      path: %currentWorkingDirectory%
-
     # arrayObject/type
     - message: '#ArrayObject\<\*NEVER\*, \*NEVER\*\> does not accept#'
       path: %currentWorkingDirectory%
@@ -189,24 +181,8 @@ parameters:
     # Temporary until 2.24, $core global (or parameter) will be then removed
     # ----------------------------------------------------------------------
 
-    # $core variable may not be defined (globally)
-    - message: '#Variable \$core might not be defined#'
-      path: %currentWorkingDirectory%
-
     # $core as class constructor parameter
     - message: '#Constructor of class [a-zA-Z0-9\\_]+ has an unused parameter \$core.#'
-      path: %currentWorkingDirectory%
-
-    # dcMeta $core property never read
-    - message: '#Property dcMeta::\$core is never read, only written.#'
-      path: %currentWorkingDirectory%
-
-    # dcTemplate $core property never read
-    - message: '#Property dcTemplate::\$core is never read, only written.#'
-      path: %currentWorkingDirectory%
-
-    # dcSpamFilters $core property never read
-    - message: '#Property dcSpamFilters::\$core is never read, only written.#'
       path: %currentWorkingDirectory%
 
 # Notes:

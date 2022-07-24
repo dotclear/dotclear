@@ -8,11 +8,6 @@
  */
 class dcTemplate extends template
 {
-    /**
-     * @deprecated since 2.23
-     */
-    private $core;
-
     private $current_tag;
 
     protected $unknown_value_handler = null;
@@ -24,8 +19,6 @@ class dcTemplate extends template
 
         $this->remove_php = !dcCore::app()->blog->settings->system->tpl_allow_php;
         $this->use_cache  = dcCore::app()->blog->settings->system->tpl_use_cache;
-
-        $this->core = dcCore::app();
 
         # Transitional tags
         $this->addValue('EntryTrackbackCount', [$this, 'EntryPingCount']);

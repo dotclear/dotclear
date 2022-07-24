@@ -103,7 +103,7 @@ __('Auto pings all services on first publication of entry (current blog only)') 
 
 '<p><input type="submit" value="' . __('Save') . '" />' .
 ' <input type="button" value="' . __('Cancel') . '" class="go-back reset hidden-if-no-js" />' .
-$core->formNonce() . '</p>' .
+dcCore::app()->formNonce() . '</p>' .
     '</form>';
 
 echo '<p><a class="button" href="' . $p_url . '&amp;test=1">' . __('Test ping services') . '</a></p>';
