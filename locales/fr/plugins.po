@@ -2042,6 +2042,9 @@ msgstr "Actuellement votre thème sur ce blog est « %s »."
 msgid "You can't edit default theme."
 msgstr "Vous ne pouvez pas modifier le thème par défaut."
 
+msgid "You can't edit a distributed theme."
+msgstr "Vous ne pouvez pas modifier un thème distribué."
+
 msgid "Please select a file to edit."
 msgstr "Sélectionnez un fichier à modifier."
 

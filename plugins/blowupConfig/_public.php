@@ -13,6 +13,7 @@ if (!defined('DC_RC_PATH')) {
 }
 
 if (dcCore::app()->blog->settings->system->theme != 'default') {
+    // It's not Blowup
     return;
 }
 

@@ -37,8 +37,6 @@ class dcThemes extends dcModules
      * register a new theme.
      *
      * <var>$parent</var> is a optional value to indicate them inheritance.
-     * If <var>$parent</var> is null / not set, we simply fall back to
-     * the standard behavior, by using 'default'.
      *
      * <var>$priority</var> is an integer. Modules are sorted by priority and name.
      * Lowest priority comes first. This property is currently ignored when dealing

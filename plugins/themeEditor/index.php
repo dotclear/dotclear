@@ -22,6 +22,8 @@ $user_ui_colorsyntax       = dcCore::app()->auth->user_prefs->interface->colorsy
 $user_ui_colorsyntax_theme = dcCore::app()->auth->user_prefs->interface->colorsyntax_theme;
 
 # Loading themes
+adminThemesList::$distributed_modules = explode(',', DC_DISTRIB_THEMES);
+
 dcCore::app()->themes = new dcThemes(dcCore::app());
 dcCore::app()->themes->loadModules(dcCore::app()->blog->themes_path, null);
 $T = dcCore::app()->themes->getModules(dcCore::app()->blog->settings->system->theme);
@@ -99,73 +101,77 @@ dcPage::notices();
 
 <p><strong><?php echo sprintf(__('Your current theme on this blog is "%s".'), html::escapeHTML($T['name'])); ?></strong></p>
 
-<?php if (dcCore::app()->blog->settings->system->theme == 'default') {?>
-    <div class="error"><p><?php echo __("You can't edit default theme."); ?></p></div>
-    </body></html>
-<?php }?>
-
-<div id="file-box">
-<div id="file-editor">
 <?php
-if ($file['c'] === null) {
-    echo '<p>' . __('Please select a file to edit.') . '</p>';
-} else {
-    echo
-    '<form id="file-form" action="' . $p_url . '" method="post">' .
-    '<div class="fieldset"><h3>' . __('File editor') . '</h3>' .
-    '<p><label for="file_content">' . sprintf(__('Editing file %s'), '<strong>' . $file['f']) . '</strong></label></p>' .
-    '<p>' . form::textarea('file_content', 72, 25, [
-        'default'  => html::escapeHTML($file['c']),
-        'class'    => 'maximal',
-        'disabled' => !$file['w'],
-    ]) . '</p>';
 
-    if ($file['w']) {
-        echo
-        '<p><input type="submit" name="write" value="' . __('Save') . ' (s)" accesskey="s" /> ' .
-        ($o->deletableFile($file['type'], $file['f']) ? '<input type="submit" name="delete" class="delete" value="' . __('Reset') . '" />' : '') .
-        dcCore::app()->formNonce() .
-            ($file['type'] ? form::hidden([$file['type']], $file['f']) : '') .
-            '</p>';
+if (dcCore::app()->blog->settings->system->themes_path !== dcCore::app()->blog->settings->system->getGlobal('themes_path') || !adminThemesList::isDistributedModule(dcCore::app()->blog->settings->system->theme)) {
+    echo
+        '<div id="file-box">' .
+        '<div id="file-editor">';
+
+    if ($file['c'] === null) {
+        echo '<p>' . __('Please select a file to edit.') . '</p>';
     } else {
-        echo '<p>' . __('This file is not writable. Please check your theme files permissions.') . '</p>';
+        echo
+        '<form id="file-form" action="' . $p_url . '" method="post">' .
+        '<div class="fieldset"><h3>' . __('File editor') . '</h3>' .
+        '<p><label for="file_content">' . sprintf(__('Editing file %s'), '<strong>' . $file['f']) . '</strong></label></p>' .
+        '<p>' . form::textarea('file_content', 72, 25, [
+            'default'  => html::escapeHTML($file['c']),
+            'class'    => 'maximal',
+            'disabled' => !$file['w'],
+        ]) . '</p>';
+
+        if ($file['w']) {
+            echo
+            '<p><input type="submit" name="write" value="' . __('Save') . ' (s)" accesskey="s" /> ' .
+            ($o->deletableFile($file['type'], $file['f']) ? '<input type="submit" name="delete" class="delete" value="' . __('Reset') . '" />' : '') .
+            dcCore::app()->formNonce() .
+                ($file['type'] ? form::hidden([$file['type']], $file['f']) : '') .
+                '</p>';
+        } else {
+            echo '<p>' . __('This file is not writable. Please check your theme files permissions.') . '</p>';
+        }
+
+        echo
+            '</div></form>';
+
+        if ($user_ui_colorsyntax) {
+            $editorMode = (!empty($_REQUEST['css']) ? 'css' :
+                (!empty($_REQUEST['js']) ? 'javascript' :
+                (!empty($_REQUEST['po']) ? 'text/plain' :
+                (!empty($_REQUEST['php']) ? 'php' :
+                'text/html'))));
+            echo dcPage::jsJson('theme_editor_mode', ['mode' => $editorMode]);
+            echo dcPage::jsModuleLoad('themeEditor/js/mode.js');
+            echo dcPage::jsRunCodeMirror('editor', 'file_content', 'dotclear', $user_ui_colorsyntax_theme);
+        }
     }
 
     echo
-        '</div></form>';
+    '</div>' .
+    '</div>' .
 
-    if ($user_ui_colorsyntax) {
-        $editorMode = (!empty($_REQUEST['css']) ? 'css' :
-            (!empty($_REQUEST['js']) ? 'javascript' :
-            (!empty($_REQUEST['po']) ? 'text/plain' :
-            (!empty($_REQUEST['php']) ? 'php' :
-            'text/html'))));
-        echo dcPage::jsJson('theme_editor_mode', ['mode' => $editorMode]);
-        echo dcPage::jsModuleLoad('themeEditor/js/mode.js');
-        echo dcPage::jsRunCodeMirror('editor', 'file_content', 'dotclear', $user_ui_colorsyntax_theme);
-    }
+    '<div id="file-chooser">' .
+    '<h3>' . __('Templates files') . '</h3>' .
+    $o->filesList('tpl', '<a href="' . $p_url . '&amp;tpl=%2$s" class="tpl-link">%1$s</a>') .
+
+    '<h3>' . __('CSS files') . '</h3>' .
+    $o->filesList('css', '<a href="' . $p_url . '&amp;css=%2$s" class="css-link">%1$s</a>') .
+
+    '<h3>' . __('JavaScript files') . '</h3>' .
+    $o->filesList('js', '<a href="' . $p_url . '&amp;js=%2$s" class="js-link">%1$s</a>') .
+
+    '<h3>' . __('Locales files') . '</h3>' .
+    $o->filesList('po', '<a href="' . $p_url . '&amp;po=%2$s" class="po-link">%1$s</a>') .
+
+    '<h3>' . __('PHP files') . '</h3>' .
+    $o->filesList('php', '<a href="' . $p_url . '&amp;php=%2$s" class="php-link">%1$s</a>') .
+    '</div>';
+
+    dcPage::helpBlock('themeEditor');
+} else {
+    echo '<div class="error"><p>' . __("You can't edit a distributed theme.") . '</p></div>';
 }
 ?>
-</div>
-</div>
-
-<div id="file-chooser">
-<h3><?php echo __('Templates files'); ?></h3>
-<?php echo $o->filesList('tpl', '<a href="' . $p_url . '&amp;tpl=%2$s" class="tpl-link">%1$s</a>'); ?>
-
-<h3><?php echo __('CSS files'); ?></h3>
-<?php echo $o->filesList('css', '<a href="' . $p_url . '&amp;css=%2$s" class="css-link">%1$s</a>'); ?>
-
-<h3><?php echo __('JavaScript files'); ?></h3>
-<?php echo $o->filesList('js', '<a href="' . $p_url . '&amp;js=%2$s" class="js-link">%1$s</a>'); ?>
-
-<h3><?php echo __('Locales files'); ?></h3>
-<?php echo $o->filesList('po', '<a href="' . $p_url . '&amp;po=%2$s" class="po-link">%1$s</a>'); ?>
-
-<h3><?php echo __('PHP files'); ?></h3>
-<?php echo $o->filesList('php', '<a href="' . $p_url . '&amp;php=%2$s" class="php-link">%1$s</a>'); ?>
-</div>
-
-<?php dcPage::helpBlock('themeEditor');?>
 </body>
 </html>

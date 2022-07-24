@@ -392,7 +392,7 @@ class context
                 $path[] = $GLOBALS['__parent_theme'];
             }
         }
-        $path[]     = 'default';
+        $path[]     = 'default';    // Also use smilies from this old default theme (Blowup). May be deleted in a near future
         $definition = $blog->themes_path . '/%s/smilies/smilies.txt';
         $base_url   = $blog->settings->system->themes_url . '/%s/smilies/';
 

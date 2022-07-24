@@ -164,6 +164,7 @@ define('DC_L10N_ROOT', __DIR__ . '/../locales');
 define('DC_L10N_UPDATE_URL', 'https://services.dotclear.net/dc2.l10n/?version=%s');
 define('DC_DISTRIB_PLUGINS', 'aboutConfig,akismet,antispam,attachments,blogroll,blowupConfig,dclegacy,fairTrackbacks,importExport,maintenance,pages,pings,simpleMenu,tags,themeEditor,userPref,widgets,dcLegacyEditor,dcCKEditor,breadcrumb');
 define('DC_DISTRIB_THEMES', 'berlin,blueSilence,blowupConfig,customCSS,default,ductile');
+define('DC_DEFAULT_THEME', 'berlin');
 define('DC_DEFAULT_TPLSET', 'mustek');
 define('DC_DEFAULT_JQUERY', '3.6.0');
 

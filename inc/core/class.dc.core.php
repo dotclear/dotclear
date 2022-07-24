@@ -1714,7 +1714,7 @@ final class dcCore
                     'Search engines robots policy', ],
                 ['short_feed_items', 'boolean', false,
                     'Display short feed items', ],
-                ['theme', 'string', 'berlin',
+                ['theme', 'string', DC_DEFAULT_THEME,
                     'Blog theme', ],
                 ['themes_path', 'string', 'themes',
                     'Themes root path', ],

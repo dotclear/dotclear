@@ -113,13 +113,13 @@ if (!isset($__theme)) {
 }
 
 if (!dcCore::app()->themes->moduleExists($__theme)) {
-    $__theme = dcCore::app()->blog->settings->system->theme = 'default';
+    $__theme = dcCore::app()->blog->settings->system->theme = DC_DEFAULT_THEME;
 }
 
 $__parent_theme = dcCore::app()->themes->moduleInfo($__theme, 'parent');
 if ($__parent_theme) {
     if (!dcCore::app()->themes->moduleExists($__parent_theme)) {
-        $__theme        = dcCore::app()->blog->settings->system->theme        = 'default';
+        $__theme        = dcCore::app()->blog->settings->system->theme        = DC_DEFAULT_THEME;
         $__parent_theme = null;
     }
 }
