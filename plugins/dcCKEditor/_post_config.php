@@ -186,6 +186,13 @@ if (!empty($extraPlugins)) {    // @phpstan-ignore-line
 <?php endif;?>
 
                     'RemoveFormat'
+<?php if (!empty($dcckeditor_textcolor_button)): ?>
+                    ,'TextColor'
+<?php endif;?>
+
+<?php if (!empty($dcckeditor_background_textcolor_button)): ?>
+                    ,'BGColor'
+<?php endif;?>
                 ]
             },
 
@@ -220,22 +227,13 @@ if (!empty($extraPlugins)) {    // @phpstan-ignore-line
             {
                 name: 'custom',
                 items: [
-                    'EntryLink','dcLink','Media','img','Footnotes','-',
-                    'Source'
-
-<?php if (!empty($dcckeditor_textcolor_button)): ?>
-                    ,'TextColor'
-<?php endif;?>
-
-<?php if (!empty($dcckeditor_background_textcolor_button)): ?>
-                    ,'BGColor'
-<?php endif;?>
+                    'EntryLink','dcLink','Media','img','Footnotes',
                 ]
             },
             {
                 name: 'special',
                 items: [
-                    'Maximize'
+                    'Source','-','Maximize'
                 ]
             },
 
