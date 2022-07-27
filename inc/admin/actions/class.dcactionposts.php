@@ -182,7 +182,7 @@ class dcDefaultPostActions
             $excluded_ids = [];
             if ($rs->rows()) {
                 while ($rs->fetch()) {
-                    if ((int) $rs->post_status === 1) {
+                    if ((int) $rs->post_status === dcBlog::POST_PUBLISHED) {
                         $excluded_ids[] = (int) $rs->post_id;
                     }
                 }
@@ -199,10 +199,10 @@ class dcDefaultPostActions
         dcPage::addSuccessNotice(
             sprintf(
                 __(
-                '%d entry has been successfully updated to status : "%s"',
-                '%d entries have been successfully updated to status : "%s"',
-                count($posts_ids)
-            ),
+                    '%d entry has been successfully updated to status : "%s"',
+                    '%d entries have been successfully updated to status : "%s"',
+                    count($posts_ids)
+                ),
                 count($posts_ids),
                 dcCore::app()->blog->getPostStatus($status)
             )
@@ -222,10 +222,10 @@ class dcDefaultPostActions
             dcPage::addSuccessNotice(
                 sprintf(
                     __(
-                    '%d entry has been successfully marked as selected',
-                    '%d entries have been successfully marked as selected',
-                    count($posts_ids)
-                ),
+                        '%d entry has been successfully marked as selected',
+                        '%d entries have been successfully marked as selected',
+                        count($posts_ids)
+                    ),
                     count($posts_ids)
                 )
             );
@@ -233,10 +233,10 @@ class dcDefaultPostActions
             dcPage::addSuccessNotice(
                 sprintf(
                     __(
-                    '%d entry has been successfully marked as unselected',
-                    '%d entries have been successfully marked as unselected',
-                    count($posts_ids)
-                ),
+                        '%d entry has been successfully marked as unselected',
+                        '%d entries have been successfully marked as unselected',
+                        count($posts_ids)
+                    ),
                     count($posts_ids)
                 )
             );
@@ -263,10 +263,10 @@ class dcDefaultPostActions
         dcPage::addSuccessNotice(
             sprintf(
                 __(
-                '%d entry has been successfully deleted',
-                '%d entries have been successfully deleted',
-                count($posts_ids)
-            ),
+                    '%d entry has been successfully deleted',
+                    '%d entries have been successfully deleted',
+                    count($posts_ids)
+                ),
                 count($posts_ids)
             )
         );
@@ -304,10 +304,10 @@ class dcDefaultPostActions
             dcPage::addSuccessNotice(
                 sprintf(
                     __(
-                    '%d entry has been successfully moved to category "%s"',
-                    '%d entries have been successfully moved to category "%s"',
-                    count($posts_ids)
-                ),
+                        '%d entry has been successfully moved to category "%s"',
+                        '%d entries have been successfully moved to category "%s"',
+                        count($posts_ids)
+                    ),
                     count($posts_ids),
                     html::escapeHTML($title->cat_title)
                 )
@@ -374,10 +374,10 @@ class dcDefaultPostActions
             dcPage::addSuccessNotice(
                 sprintf(
                     __(
-                    '%d entry has been successfully set to user "%s"',
-                    '%d entries have been successfully set to user "%s"',
-                    count($posts_ids)
-                ),
+                        '%d entry has been successfully set to user "%s"',
+                        '%d entries have been successfully set to user "%s"',
+                        count($posts_ids)
+                    ),
                     count($posts_ids),
                     html::escapeHTML($new_user_id)
                 )
@@ -439,10 +439,10 @@ class dcDefaultPostActions
             dcPage::addSuccessNotice(
                 sprintf(
                     __(
-                    '%d entry has been successfully set to language "%s"',
-                    '%d entries have been successfully set to language "%s"',
-                    count($posts_ids)
-                ),
+                        '%d entry has been successfully set to language "%s"',
+                        '%d entries have been successfully set to language "%s"',
+                        count($posts_ids)
+                    ),
                     count($posts_ids),
                     html::escapeHTML(l10n::getLanguageName($new_lang))
                 )

@@ -62,6 +62,13 @@ class dcBlog
     /** @var boolean Disallow entries password protection */
     public $without_password = true;
 
+    /* Constants */
+
+    public const POST_PENDING     = -2;
+    public const POST_SCHEDULED   = -1;
+    public const POST_UNPUBLISHED = 0;
+    public const POST_PUBLISHED   = 1;
+
     /**
      * Constructs a new instance.
      *
@@ -90,10 +97,10 @@ class dcBlog
             $this->themes_path = path::fullFromRoot($this->settings->system->themes_path, DC_ROOT);
             $this->public_path = path::fullFromRoot($this->settings->system->public_path, DC_ROOT);
 
-            $this->post_status['-2'] = __('Pending');
-            $this->post_status['-1'] = __('Scheduled');
-            $this->post_status['0']  = __('Unpublished');
-            $this->post_status['1']  = __('Published');
+            $this->post_status[(string) self::POST_PENDING]     = __('Pending');
+            $this->post_status[(string) self::POST_SCHEDULED]   = __('Scheduled');
+            $this->post_status[(string) self::POST_UNPUBLISHED] = __('Unpublished');
+            $this->post_status[(string) self::POST_PUBLISHED]   = __('Published');
 
             $this->comment_status['-2'] = __('Junk');
             $this->comment_status['-1'] = __('Pending');
@@ -194,7 +201,7 @@ class dcBlog
             return $this->post_status[$s];
         }
 
-        return $this->post_status['0'];
+        return $this->post_status[(string) self::POST_UNPUBLISHED];
     }
 
     /**
@@ -574,7 +581,7 @@ class dcBlog
             ->where('C.blog_id = ' . $sql->quote($this->id));
 
         if (!dcCore::app()->auth->userID()) {
-            $sql->and('P.post_status = 1');
+            $sql->and('P.post_status = ' . (string) self::POST_PUBLISHED);
         }
 
         if (!empty($params['post_type'])) {
@@ -1013,7 +1020,7 @@ class dcBlog
         if (!dcCore::app()->auth->check('contentadmin', $this->id)) {
             $user_id = dcCore::app()->auth->userID();
 
-            $and = ['post_status = 1'];
+            $and = ['post_status = ' . (string) self::POST_PUBLISHED];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
@@ -1265,7 +1272,7 @@ class dcBlog
             ->and('post_lang IS NOT NULL');
 
         if (!dcCore::app()->auth->check('contentadmin', $this->id)) {
-            $and = ['post_status = 1'];
+            $and = ['post_status = ' . (string) self::POST_PUBLISHED];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
@@ -1366,7 +1373,7 @@ class dcBlog
         }
 
         if (!dcCore::app()->auth->check('contentadmin', $this->id)) {
-            $and = ['post_status = 1'];
+            $and = ['post_status = ' . (string) self::POST_PUBLISHED];
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
@@ -1464,7 +1471,7 @@ class dcBlog
             $cur->post_url = $this->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $cur->post_id);
 
             if (!dcCore::app()->auth->check('publish,contentadmin', $this->id)) {
-                $cur->post_status = -2;
+                $cur->post_status = self::POST_PENDING;
             }
 
             # --BEHAVIOR-- coreBeforePostCreate
@@ -1781,7 +1788,7 @@ class dcBlog
                 'post_tz',
             ])
             ->from($this->prefix . 'post')
-            ->where('post_status = -1')
+            ->where('post_status = ' . (string) self::POST_SCHEDULED)
             ->and('blog_id = ' . $sql->quote($this->id));
 
         $rs = $sql->select();
@@ -1812,7 +1819,7 @@ class dcBlog
             $sql = new dcUpdateStatement();
             $sql
                 ->ref($this->prefix . 'post')
-                ->set('post_status = 1')
+                ->set('post_status = ' . (string) self::POST_PUBLISHED)
                 ->where('blog_id = ' . $sql->quote($this->id))
                 ->and('post_id' . $sql->in([...$to_change]));
 
@@ -1835,7 +1842,7 @@ class dcBlog
     {
         $posts = $this->getPosts([
             'post_id'       => dcUtils::cleanIds($ids),
-            'post_status'   => 1,
+            'post_status'   => self::POST_PUBLISHED,
             'post_firstpub' => 0,
         ]);
 
@@ -2309,7 +2316,7 @@ class dcBlog
 
             $and = [
                 'comment_status = 1',
-                'P.post_status = 1',
+                'P.post_status = ' . (string) self::POST_PUBLISHED,
             ];
 
             if ($this->without_password) {

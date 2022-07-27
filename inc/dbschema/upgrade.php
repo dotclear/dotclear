@@ -581,7 +581,7 @@ class dcUpgrade
             # Update first publication on published posts
             $strReq = 'UPDATE ' . dcCore::app()->prefix . 'post ' .
                 'SET post_firstpub = 1 ' .
-                'WHERE post_status = 1 ';
+                'WHERE post_status = ' . (string) dcBlog::POST_PUBLISHED;
             dcCore::app()->con->execute($strReq);
 
             # A bit of housecleaning for no longer needed files

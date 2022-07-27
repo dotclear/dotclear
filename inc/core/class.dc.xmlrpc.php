@@ -512,7 +512,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         $cur->post_excerpt_xhtml = $excerpt_xhtml;
         $cur->post_open_comment  = (int) ($open_comment == 1);
         $cur->post_open_tb       = (int) ($open_tb      == 1);
-        $cur->post_status        = (int) $publish;
+        $cur->post_status        = $publish ? dcBlog::POST_PUBLISHED : dcBlog::POST_UNPUBLISHED;
         $cur->post_format        = 'xhtml';
 
         if ($dateCreated) {
@@ -610,7 +610,7 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
         $cur->post_excerpt_xhtml = $excerpt_xhtml;
         $cur->post_open_comment  = (int) ($open_comment == 1);
         $cur->post_open_tb       = (int) ($open_tb      == 1);
-        $cur->post_status        = (int) $publish;
+        $cur->post_status        = $publish ? dcBlog::POST_PUBLISHED : dcBlog::POST_UNPUBLISHED;
         $cur->post_format        = 'xhtml';
         $cur->post_url           = $post->post_url;
 
@@ -950,17 +950,17 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
     private function translateWpStatus($s)
     {
         $status = [
-            'draft'     => -2,
-            'pending'   => -2,
-            'private'   => 0,
-            'publish'   => 1,
-            'scheduled' => -1,
+            'draft'     => dcBlog::POST_PENDING,
+            'pending'   => dcBlog::POST_PENDING,
+            'private'   => dcBlog::POST_UNPUBLISHED,
+            'publish'   => dcBlog::POST_PUBLISHED,
+            'scheduled' => dcBlog::POST_SCHEDULED,
         ];
 
         if (is_int($s)) {
             $status = array_flip($status);
 
-            return $status[$s] ?? $status[-2];
+            return $status[$s] ?? $status[dcBlog::POST_PENDING];
         }
 
         return $status[$s] ?? $status['pending'];

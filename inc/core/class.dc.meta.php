@@ -334,7 +334,7 @@ class dcMeta
         if (!dcCore::app()->auth->check('contentadmin', dcCore::app()->blog->id)) {
             $user_id = dcCore::app()->auth->userID();
 
-            $and = ['post_status = 1'];
+            $and = ['post_status = ' . (string) dcBlog::POST_PUBLISHED];
             if (dcCore::app()->blog->without_password) {
                 $and[] = 'post_password IS NULL';
             }

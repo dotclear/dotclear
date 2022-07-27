@@ -83,7 +83,7 @@ $_s->user
     ->user_options('text', 0, true)
     ->user_lang('varchar', 5, true, null)
     ->user_tz('varchar', 128, false, "'UTC'")
-    ->user_post_status('smallint', 0, false, -2)
+    ->user_post_status('smallint', 0, false, dcBlog::POST_PENDING)
     ->user_creadt('timestamp', 0, false, 'now()')
     ->user_upddt('timestamp', 0, false, 'now()')
 
@@ -120,7 +120,7 @@ $_s->post
     ->post_notes('text', 0, true, null)
     ->post_meta('text', 0, true, null)
     ->post_words('text', 0, true, null)
-    ->post_status('smallint', 0, false, 0)
+    ->post_status('smallint', 0, false, dcBlog::POST_UNPUBLISHED)
     ->post_firstpub('smallint', 0, false, 0)
     ->post_selected('smallint', 0, false, 0)
     ->post_position('integer', 0, false, 0)

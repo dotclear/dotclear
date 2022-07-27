@@ -41,7 +41,7 @@ if (dcCore::app()->getVersion('pages') == null) {
         $cur->post_content_xhtml = $cur->post_content;
         $cur->post_excerpt       = '';
         $cur->post_excerpt_xhtml = $cur->post_excerpt;
-        $cur->post_status        = -2; // Pending status
+        $cur->post_status        = dcBlog::POST_PENDING; // Pending status
         $cur->post_open_comment  = 0;
         $cur->post_open_tb       = 0;
         $post_id                 = dcCore::app()->blog->addPost($cur);

@@ -807,19 +807,19 @@ if (empty($_GET['find_posts'])) {
             $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
             $img_status = '';
             switch ($rs->post_status) {
-                case 1:
+                case dcBlog::POST_PUBLISHED:
                     $img_status = sprintf($img, __('published'), 'check-on.png');
 
                     break;
-                case 0:
+                case dcBlog::POST_UNPUBLISHED:
                     $img_status = sprintf($img, __('unpublished'), 'check-off.png');
 
                     break;
-                case -1:
+                case dcBlog::POST_SCHEDULED:
                     $img_status = sprintf($img, __('scheduled'), 'scheduled.png');
 
                     break;
-                case -2:
+                case dcBlog::POST_PENDING:
                     $img_status = sprintf($img, __('pending'), 'check-wrn.png');
 
                     break;

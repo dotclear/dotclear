@@ -46,7 +46,7 @@ $next_link     = $prev_link     = $next_headlink     = $prev_headlink     = null
 
 # If user can't publish
 if (!$can_publish) {
-    $post_status = -2;
+    $post_status = dcBlog::POST_PENDING;
 }
 
 # Getting categories
@@ -175,7 +175,7 @@ if ($comments_actions_page->process()) {
 
 # Ping blogs
 if (!empty($_POST['ping'])) {
-    if (!empty($_POST['tb_urls']) && $post_id && $post_status == 1 && $can_edit_post) {
+    if (!empty($_POST['tb_urls']) && $post_id && $post_status == dcBlog::POST_PUBLISHED && $can_edit_post) {
         $tb_urls       = $_POST['tb_urls'];
         $tb_urls       = str_replace("\r", '', $tb_urls);
         $tb_post_title = html::escapeHTML(trim(html::clean($post_title)));
@@ -370,19 +370,19 @@ if (!empty($_GET['co'])) {
 
 if ($post_id) {
     switch ($post_status) {
-        case 1:
+        case dcBlog::POST_PUBLISHED:
             $img_status = sprintf($img_status_pattern, __('Published'), 'check-on.png');
 
             break;
-        case 0:
+        case dcBlog::POST_UNPUBLISHED:
             $img_status = sprintf($img_status_pattern, __('Unpublished'), 'check-off.png');
 
             break;
-        case -1:
+        case dcBlog::POST_SCHEDULED:
             $img_status = sprintf($img_status_pattern, __('Scheduled'), 'scheduled.png');
 
             break;
-        case -2:
+        case dcBlog::POST_PENDING:
             $img_status = sprintf($img_status_pattern, __('Pending'), 'check-wrn.png');
 
             break;
@@ -480,7 +480,7 @@ if (!empty($_GET['xconv'])) {
     dcPage::message(__('Don\'t forget to validate your XHTML conversion by saving your post.'));
 }
 
-if ($post_id && $post->post_status == 1) {
+if ($post_id && $post->post_status == dcBlog::POST_PUBLISHED) {
     echo '<p><a class="onblog_link outgoing" href="' . $post->getURL() . '" title="' . html::escapeHTML(trim(html::clean($post_title))) . '">' . __('Go to this entry on the site') . ' <img src="images/outgoing-link.svg" alt="" /></a></p>';
 }
 if ($post_id) {
@@ -904,7 +904,7 @@ if ($post_id) {
     '</div>'; #comments
 }
 
-if ($post_id && $post_status == 1) {
+if ($post_id && $post_status == dcBlog::POST_PUBLISHED) {
     /* Trackbacks
     -------------------------------------------------------- */
 
@@ -953,7 +953,7 @@ if ($post_id && $post_status == 1) {
 
     /* Add trackbacks
     -------------------------------------------------------- */
-    if ($can_edit_post && $post->post_status) {
+    if ($can_edit_post) {
         echo
             '<div class="fieldset clear">';
 

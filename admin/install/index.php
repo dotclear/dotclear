@@ -229,7 +229,7 @@ if ($can_install && !empty($_POST)) {
         $cur->post_content = '<p>' . __('This is your first entry. When you\'re ready ' .
             'to blog, log in to edit or delete it.') . '</p>';
         $cur->post_content_xhtml = $cur->post_content;
-        $cur->post_status        = 1;
+        $cur->post_status        = dcBlog::POST_PUBLISHED;
         $cur->post_open_comment  = 1;
         $cur->post_open_tb       = 0;
         $post_id                 = dcCore::app()->blog->addPost($cur);

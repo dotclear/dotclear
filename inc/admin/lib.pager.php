@@ -223,34 +223,34 @@ class adminPostList extends adminGenericList
             if ($filter) {
                 $html_block .= '<caption>' . sprintf(__('List of %s entries matching the filter.'), $this->rs_count) . '</caption>';
             } else {
-                $nb_published   = dcCore::app()->blog->getPosts(['post_status' => 1], true)->f(0);
-                $nb_pending     = dcCore::app()->blog->getPosts(['post_status' => -2], true)->f(0);
-                $nb_programmed  = dcCore::app()->blog->getPosts(['post_status' => -1], true)->f(0);
-                $nb_unpublished = dcCore::app()->blog->getPosts(['post_status' => 0], true)->f(0);
+                $nb_published   = dcCore::app()->blog->getPosts(['post_status' => dcBlog::POST_PUBLISHED], true)->f(0);
+                $nb_pending     = dcCore::app()->blog->getPosts(['post_status' => dcBlog::POST_PENDING], true)->f(0);
+                $nb_programmed  = dcCore::app()->blog->getPosts(['post_status' => dcBlog::POST_SCHEDULED], true)->f(0);
+                $nb_unpublished = dcCore::app()->blog->getPosts(['post_status' => dcBlog::POST_UNPUBLISHED], true)->f(0);
                 $html_block .= '<caption>' .
                 sprintf(__('List of entries (%s)'), $this->rs_count) .
                     ($nb_published ?
                     sprintf(
                         __(', <a href="%s">published</a> (1)', ', <a href="%s">published</a> (%s)', $nb_published),
-                        dcCore::app()->adminurl->get('admin.posts', ['status' => 1]),
+                        dcCore::app()->adminurl->get('admin.posts', ['status' => dcBlog::POST_PUBLISHED]),
                         $nb_published
                     ) : '') .
                     ($nb_pending ?
                     sprintf(
                         __(', <a href="%s">pending</a> (1)', ', <a href="%s">pending</a> (%s)', $nb_pending),
-                        dcCore::app()->adminurl->get('admin.posts', ['status' => -2]),
+                        dcCore::app()->adminurl->get('admin.posts', ['status' => dcBlog::POST_PENDING]),
                         $nb_pending
                     ) : '') .
                     ($nb_programmed ?
                     sprintf(
                         __(', <a href="%s">programmed</a> (1)', ', <a href="%s">programmed</a> (%s)', $nb_programmed),
-                        dcCore::app()->adminurl->get('admin.posts', ['status' => -1]),
+                        dcCore::app()->adminurl->get('admin.posts', ['status' => dcBlog::POST_SCHEDULED]),
                         $nb_programmed
                     ) : '') .
                     ($nb_unpublished ?
                     sprintf(
                         __(', <a href="%s">unpublished</a> (1)', ', <a href="%s">unpublished</a> (%s)', $nb_unpublished),
-                        dcCore::app()->adminurl->get('admin.posts', ['status' => 0]),
+                        dcCore::app()->adminurl->get('admin.posts', ['status' => dcBlog::POST_UNPUBLISHED]),
                         $nb_unpublished
                     ) : '') .
                     '</caption>';
@@ -336,22 +336,22 @@ class adminPostList extends adminGenericList
         $img_status = '';
         $sts_class  = '';
         switch ($this->rs->post_status) {
-            case 1:
+            case dcBlog::POST_PUBLISHED:
                 $img_status = sprintf($img, __('Published'), 'check-on.png', 'published');
                 $sts_class  = 'sts-online';
 
                 break;
-            case 0:
+            case dcBlog::POST_UNPUBLISHED:
                 $img_status = sprintf($img, __('Unpublished'), 'check-off.png', 'unpublished');
                 $sts_class  = 'sts-offline';
 
                 break;
-            case -1:
+            case dcBlog::POST_SCHEDULED:
                 $img_status = sprintf($img, __('Scheduled'), 'scheduled.png', 'scheduled');
                 $sts_class  = 'sts-scheduled';
 
                 break;
-            case -2:
+            case dcBlog::POST_PENDING:
                 $img_status = sprintf($img, __('Pending'), 'check-wrn.png', 'pending');
                 $sts_class  = 'sts-pending';
 
@@ -375,7 +375,7 @@ class adminPostList extends adminGenericList
             $attach     = sprintf($img, sprintf($attach_str, $nb_media), 'attach.png', 'attach');
         }
 
-        $res = '<tr class="line ' . ($this->rs->post_status != 1 ? 'offline ' : '') . $sts_class . '"' .
+        $res = '<tr class="line ' . ($this->rs->post_status != dcBlog::POST_PUBLISHED ? 'offline ' : '') . $sts_class . '"' .
         ' id="p' . $this->rs->post_id . '">';
 
         $cols = [
@@ -476,22 +476,22 @@ class adminPostMiniList extends adminGenericList
         $img_status = '';
         $sts_class  = '';
         switch ($this->rs->post_status) {
-            case 1:
+            case dcBlog::POST_PUBLISHED:
                 $img_status = sprintf($img, __('Published'), 'check-on.png');
                 $sts_class  = 'sts-online';
 
                 break;
-            case 0:
+            case dcBlog::POST_UNPUBLISHED:
                 $img_status = sprintf($img, __('Unpublished'), 'check-off.png');
                 $sts_class  = 'sts-offline';
 
                 break;
-            case -1:
+            case dcBlog::POST_SCHEDULED:
                 $img_status = sprintf($img, __('Scheduled'), 'scheduled.png');
                 $sts_class  = 'sts-scheduled';
 
                 break;
-            case -2:
+            case dcBlog::POST_PENDING:
                 $img_status = sprintf($img, __('Pending'), 'check-wrn.png');
                 $sts_class  = 'sts-pending';
 
@@ -515,7 +515,7 @@ class adminPostMiniList extends adminGenericList
             $attach     = sprintf($img, sprintf($attach_str, $nb_media), 'attach.png');
         }
 
-        $res = '<tr class="line ' . ($this->rs->post_status != 1 ? 'offline ' : '') . $sts_class . '"' .
+        $res = '<tr class="line ' . ($this->rs->post_status != dcBlog::POST_PUBLISHED ? 'offline ' : '') . $sts_class . '"' .
         ' id="p' . $this->rs->post_id . '">';
 
         $cols = [

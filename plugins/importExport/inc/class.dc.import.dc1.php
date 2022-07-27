@@ -322,7 +322,7 @@ class dcImportDC1 extends dcIeModule
                     $cur->user_email       = $rs->user_email;
                     $cur->user_lang        = $rs->user_lang;
                     $cur->user_tz          = dcCore::app()->blog->settings->system->blog_timezone;
-                    $cur->user_post_status = $rs->user_post_pub ? 1 : -2;
+                    $cur->user_post_status = $rs->user_post_pub ? dcBlog::POST_PUBLISHED : dcBlog::POST_PENDING;
                     $cur->user_options     = new ArrayObject([
                         'edit_size'   => (int) $rs->user_edit_size,
                         'post_format' => $rs->user_post_format,

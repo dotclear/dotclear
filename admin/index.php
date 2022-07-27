@@ -114,6 +114,7 @@ $__dashboard_contents = new ArrayObject([new ArrayObject(), new ArrayObject()]);
 dcCore::app()->callBehavior('adminDashboardContents', dcCore::app(), $__dashboard_contents);
 
 # Editor stuff
+$quickentry          = '';
 $admin_post_behavior = '';
 if (dcCore::app()->auth->user_prefs->dashboard->quickentry) {
     if (dcCore::app()->auth->check('usage,contentadmin', dcCore::app()->blog->id)) {
@@ -124,6 +125,10 @@ if (dcCore::app()->auth->user_prefs->dashboard->quickentry) {
             $admin_post_behavior = dcCore::app()->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', ['#post_content'], $post_format);
         }
     }
+    $quickentry = dcPage::jsJson('dotclear_quickentry', [
+        'post_published' => dcBlog::POST_PUBLISHED,
+        'post_pending'   => dcBlog::POST_PENDING,
+    ]);
 }
 
 # Dashboard drag'n'drop switch for its elements
@@ -151,6 +156,7 @@ dcPage::open(
     __('Dashboard'),
     dcPage::jsLoad('js/jquery/jquery-ui.custom.js') .
     dcPage::jsLoad('js/jquery/jquery.ui.touch-punch.js') .
+    $quickentry .
     dcPage::jsLoad('js/_index.js') .
     $dragndrop_head .
     $admin_post_behavior .
@@ -382,7 +388,7 @@ if (dcCore::app()->auth->user_prefs->dashboard->quickentry) {
             ? '<input type="hidden" value="' . __('Save and publish') . '" name="save-publish" />'
             : '') .
         dcCore::app()->formNonce() .
-        form::hidden('post_status', -2) .
+        form::hidden('post_status', dcBlog::POST_PENDING) .
         form::hidden('post_format', dcCore::app()->auth->getOption('post_format')) .
         form::hidden('post_excerpt', '') .
         form::hidden('post_lang', dcCore::app()->auth->getInfo('user_lang')) .

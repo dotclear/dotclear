@@ -340,7 +340,7 @@ class dcRestMethods
         $cur->cat_id            = !empty($post['cat_id']) ? (int) $post['cat_id'] : null;
         $cur->post_format       = !empty($post['post_format']) ? $post['post_format'] : 'xhtml';
         $cur->post_lang         = !empty($post['post_lang']) ? $post['post_lang'] : '';
-        $cur->post_status       = !empty($post['post_status']) ? (int) $post['post_status'] : 0;
+        $cur->post_status       = !empty($post['post_status']) ? (int) $post['post_status'] : dcBlog::POST_UNPUBLISHED;
         $cur->post_open_comment = (int) dcCore::app()->blog->settings->system->allow_comments;
         $cur->post_open_tb      = (int) dcCore::app()->blog->settings->system->allow_trackbacks;
 

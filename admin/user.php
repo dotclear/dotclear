@@ -23,7 +23,7 @@ $user_email       = '';
 $user_url         = '';
 $user_lang        = dcCore::app()->auth->getInfo('user_lang');
 $user_tz          = dcCore::app()->auth->getInfo('user_tz');
-$user_post_status = -2; // Pending
+$user_post_status = dcBlog::POST_PENDING; // Pending
 
 $user_options = dcCore::app()->userDefaults();
 

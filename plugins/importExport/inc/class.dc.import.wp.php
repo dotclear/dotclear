@@ -658,19 +658,19 @@ class dcImportWP extends dcIeModule
 
         switch ($rs->post_status) {
             case 'publish':
-                $cur->post_status = 1;
+                $cur->post_status = dcBlog::POST_PUBLISHED;
 
                 break;
             case 'draft':
-                $cur->post_status = 0;
+                $cur->post_status = dcBlog::POST_UNPUBLISHED;
 
                 break;
             case 'pending':
-                $cur->post_status = -2;
+                $cur->post_status = dcBlog::POST_PENDING;
 
                 break;
             default:
-                $cur->post_status = -2;
+                $cur->post_status = dcBlog::POST_PENDING;
         }
         $cur->post_type         = $rs->post_type;
         $cur->post_password     = $rs->post_password ?: null;

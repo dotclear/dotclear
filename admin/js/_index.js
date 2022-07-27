@@ -128,7 +128,7 @@ $(() => {
           '">' +
           dotclear.msg.edit_entry +
           '</a>';
-        if ($('rsp>post', data).attr('post_status') == 1) {
+        if ($('rsp>post', data).attr('post_status') == dotclear.post_published) {
           msg += ` - <a href="${$('rsp>post', data).attr('post_url')}">${dotclear.msg.view_entry}</a>`;
         }
         msg += '</p>';
@@ -149,13 +149,15 @@ $(() => {
 
   const f = $('#quick-entry');
   if (f.length > 0) {
+    Object.assign(dotclear, dotclear.getData('dotclear_quickentry'));
+
     if (typeof jsToolBar === 'function') {
       dotclear.contentTb = new jsToolBar($('#post_content', f)[0]);
       dotclear.contentTb.switchMode($('#post_format', f).val());
     }
 
     $('input[name=save]', f).on('click', () => {
-      quickPost(f, -2);
+      quickPost(f, dotclear.post_pending);
       return false;
     });
 
@@ -164,7 +166,7 @@ $(() => {
       $('input[name=save-publish]', f).remove();
       $('input[name=save]', f).after(btn).after(' ');
       btn.on('click', () => {
-        quickPost(f, 1);
+        quickPost(f, dotclear.post_published);
         return false;
       });
     }
