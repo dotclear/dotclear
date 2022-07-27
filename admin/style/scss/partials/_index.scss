@@ -91,11 +91,10 @@
   }
 
   p.qinfo {
-    margin: -0.7em -1em 1em;
     background: url(msg-info.png) no-repeat 0.2em 0.2em;
     background-color: var(--quick-info-background);
     border: 1px solid var(--quick-info-border);
-    padding: 0.2em 1em 0.1em 24px;
+    padding: 0.2em 1em 0.1em 32px;
     color: var(--quick-info-color);
   }
 

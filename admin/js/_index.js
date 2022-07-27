@@ -143,7 +143,7 @@ $(() => {
         $('#new_cat_parent', f).val('0');
       }
 
-      $('fieldset', f).prepend(msg);
+      f.append(msg);
     });
   }
 
