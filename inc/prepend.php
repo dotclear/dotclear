@@ -355,6 +355,9 @@ dcCore::app()->url->register('webmention', 'webmention', '^webmention(/.+)?$', [
 dcCore::app()->url->register('rsd', 'rsd', '^rsd$', ['dcUrlHandlers', 'rsd']);
 dcCore::app()->url->register('xmlrpc', 'xmlrpc', '^xmlrpc/(.+)$', ['dcUrlHandlers', 'xmlrpc']);
 
+dcCore::app()->url->register('wp-admin', 'wp-admin', '^wp-admin(?:/(.+))?$', ['dcUrlHandlers', 'wpfaker']);
+dcCore::app()->url->register('wp-login', 'wp-login', '^wp-login.php(?:/(.+))?$', ['dcUrlHandlers', 'wpfaker']);
+
 // Should use dcAdminURL class, but only in admin -> to be moved to public/prepend.php and admin/prepend.php ?
 dcCore::app()->setPostType('post', 'post.php?id=%d', dcCore::app()->url->getURLFor('post', '%s'), 'Posts');
 

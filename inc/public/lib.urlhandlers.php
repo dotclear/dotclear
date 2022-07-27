@@ -712,4 +712,11 @@ class dcUrlHandlers extends urlHandler
         $server  = new dcXmlRpc(dcCore::app(), $blog_id);
         $server->serve();
     }
+
+    public static function wpfaker($args)
+    {
+        // Rick Roll script kiddies
+        http::redirect('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
+        exit;
+    }
 }
