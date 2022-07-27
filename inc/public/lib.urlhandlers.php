@@ -457,7 +457,7 @@ class dcUrlHandlers extends urlHandler
                         $cur->comment_email   = html::clean($mail);
                         $cur->comment_content = $content;
                         $cur->post_id         = dcCore::app()->ctx->posts->post_id;
-                        $cur->comment_status  = dcCore::app()->blog->settings->system->comments_pub ? 1 : -1;
+                        $cur->comment_status  = dcCore::app()->blog->settings->system->comments_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
                         $cur->comment_ip      = http::realIP();
 
                         $redir = dcCore::app()->ctx->posts->getURL();
@@ -477,7 +477,7 @@ class dcUrlHandlers extends urlHandler
                                 dcCore::app()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
                             }
 
-                            if ($cur->comment_status == 1) {
+                            if ($cur->comment_status == dcBlog::COMMENT_PUBLISHED) {
                                 $redir_arg = 'pub=1';
                             } else {
                                 $redir_arg = 'pub=0';

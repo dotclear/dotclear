@@ -69,6 +69,11 @@ class dcBlog
     public const POST_UNPUBLISHED = 0;
     public const POST_PUBLISHED   = 1;
 
+    public const COMMENT_JUNK        = -2;
+    public const COMMENT_PENDING     = -1;
+    public const COMMENT_UNPUBLISHED = 0;
+    public const COMMENT_PUBLISHED   = 1;
+
     /**
      * Constructs a new instance.
      *
@@ -102,10 +107,10 @@ class dcBlog
             $this->post_status[(string) self::POST_UNPUBLISHED] = __('Unpublished');
             $this->post_status[(string) self::POST_PUBLISHED]   = __('Published');
 
-            $this->comment_status['-2'] = __('Junk');
-            $this->comment_status['-1'] = __('Pending');
-            $this->comment_status['0']  = __('Unpublished');
-            $this->comment_status['1']  = __('Published');
+            $this->comment_status[(string) self::COMMENT_JUNK]        = __('Junk');
+            $this->comment_status[(string) self::COMMENT_PENDING]     = __('Pending');
+            $this->comment_status[(string) self::COMMENT_UNPUBLISHED] = __('Unpublished');
+            $this->comment_status[(string) self::COMMENT_PUBLISHED]   = __('Published');
 
             # --BEHAVIOR-- coreBlogConstruct
             dcCore::app()->callBehavior('coreBlogConstruct', $this);
@@ -313,7 +318,7 @@ class dcBlog
                 'comment_trackback',
             ])
             ->from($this->prefix . 'comment')
-            ->where('comment_status = 1')
+            ->where('comment_status = ' . (string) self::COMMENT_PUBLISHED)
             ->and('post_id' . $sql->in($affected_posts))
             ->group([
                 'post_id',
@@ -2315,7 +2320,7 @@ class dcBlog
             $user_id = dcCore::app()->auth->userID();
 
             $and = [
-                'comment_status = 1',
+                'comment_status = ' . (string) self::COMMENT_PUBLISHED,
                 'P.post_status = ' . (string) self::POST_PUBLISHED,
             ];
 
@@ -2481,7 +2486,7 @@ class dcBlog
         dcCore::app()->callBehavior('coreAfterCommentCreate', $this, $cur);
 
         $this->triggerComment($cur->comment_id);
-        if ($cur->comment_status != -2) {
+        if ($cur->comment_status != self::COMMENT_JUNK) {
             $this->triggerBlog();
         }
 
@@ -2672,7 +2677,7 @@ class dcBlog
         $sql = new dcDeleteStatement();
         $sql
             ->from($this->prefix . 'comment')
-            ->where('comment_status = -2');
+            ->where('comment_status = ' . (string) self::COMMENT_JUNK);
 
         $sqlIn = new dcSelectStatement();
         $sqlIn
@@ -2719,7 +2724,7 @@ class dcBlog
         }
 
         if ($cur->comment_status === null) {
-            $cur->comment_status = (int) $this->settings->system->comments_pub;
+            $cur->comment_status = $this->settings->system->comments_pub ? self::COMMENT_PUBLISHED : self::COMMENT_UNPUBLISHED;
         }
 
         # Words list

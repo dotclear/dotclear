@@ -1851,13 +1851,13 @@ final class dcCore
         'SET nb_comment = (' .
         'SELECT COUNT(C.comment_id) from ' . $this->prefix . 'comment C ' .
             'WHERE C.post_id = P.post_id AND C.comment_trackback <> 1 ' .
-            'AND C.comment_status = 1 ' .
+            'AND C.comment_status = ' . (string) dcBlog::COMMENT_PUBLISHED .
             ')';
         $updTrackbackReq = 'UPDATE ' . $this->prefix . 'post P ' .
         'SET nb_trackback = (' .
         'SELECT COUNT(C.comment_id) from ' . $this->prefix . 'comment C ' .
             'WHERE C.post_id = P.post_id AND C.comment_trackback = 1 ' .
-            'AND C.comment_status = 1 ' .
+            'AND C.comment_status = ' . (string) dcBlog::COMMENT_PUBLISHED .
             ')';
         $this->con->execute($updCommentReq);
         $this->con->execute($updTrackbackReq);

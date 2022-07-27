@@ -821,7 +821,7 @@ function showComments($rs, $has_action)
         }
 
         echo
-        '<tr class="line ' . ($rs->comment_status != 1 ? ' offline ' : '') . $sts_class . '"' .
+        '<tr class="line ' . ($rs->comment_status != dcBlog::COMMENT_PUBLISHED ? ' offline ' : '') . $sts_class . '"' .
         ' id="c' . $rs->comment_id . '">' .
 
         '<td class="nowrap">' .

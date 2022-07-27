@@ -43,11 +43,11 @@ class dcAntispamURL extends dcUrlHandlers
         $end_url = '';
         if ($type == 'spam') {
             $title .= __('Spam');
-            $params['comment_status'] = -2;
-            $end_url                  = '?status=-2';
+            $params['comment_status'] = dcBlog::COMMENT_JUNK;
+            $end_url                  = '?status=' . (string) dcBlog::COMMENT_PUBLISHED;
         } else {
             $title .= __('Ham');
-            $params['sql'] = ' AND comment_status IN (1,-1) ';
+            $params['sql'] = ' AND comment_status IN (' . (string) dcBlog::COMMENT_PUBLISHED . ',' . (string) dcBlog::COMMENT_PENDING . ') ';
         }
 
         echo

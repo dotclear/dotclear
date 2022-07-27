@@ -969,9 +969,9 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
     private function translateWpCommentstatus($s)
     {
         $status = [
-            'hold'    => -1,
-            'approve' => 0,
-            'spam'    => -2,
+            'hold'    => dcBlog::COMMENT_PENDING,
+            'approve' => dcBlog::COMMENT_UNPUBLISHED,
+            'spam'    => dcBlog::COMMENT_JUNK,
         ];
 
         if (is_int($s)) {
@@ -1313,9 +1313,9 @@ class dcXmlRpc extends xmlrpcIntrospectionServer
 
         while ($rs->fetch()) {
             $res['total']++;
-            if ($rs->comment_status == 1) {
+            if ($rs->comment_status == dcBlog::COMMENT_PUBLISHED) {
                 $res['approved']++;
-            } elseif ($rs->comment_status == -2) {
+            } elseif ($rs->comment_status == dcBlog::COMMENT_JUNK) {
                 $res['spam']++;
             } else {
                 $res['awaiting_moderation']++;

@@ -489,7 +489,7 @@ class dcTrackback
         $cur->comment_content   = (string) $comment;
         $cur->post_id           = $post_id;
         $cur->comment_trackback = 1;
-        $cur->comment_status    = dcCore::app()->blog->settings->system->trackbacks_pub ? 1 : -1;
+        $cur->comment_status    = dcCore::app()->blog->settings->system->trackbacks_pub ? dcBlog::COMMENT_PUBLISHED : dcBlog::COMMENT_PENDING;
         $cur->comment_ip        = http::realIP();
 
         # --BEHAVIOR-- publicBeforeTrackbackCreate

@@ -568,8 +568,8 @@ class dcImportDC1 extends dcIeModule
                 $cur->comment_site = substr('http://' . $cur->comment_site, 0, 255);
             }
 
-            if ($rs->exists('spam') && $rs->spam && $rs->comment_status == 0) {
-                $cur->comment_status = -2;
+            if ($rs->exists('spam') && $rs->spam && $rs->comment_status == dcBlog::COMMENT_UNPUBLISHED) {
+                $cur->comment_status = dcBlog::COMMENT_JUNK;
             }
 
             $cur->comment_words = implode(' ', text::splitWords($cur->comment_content));
@@ -580,10 +580,12 @@ class dcImportDC1 extends dcIeModule
 
             $cur->insert();
 
-            if ($cur->comment_trackback && $cur->comment_status == 1) {
-                $count_t++;
-            } elseif ($cur->comment_status == 1) {
-                $count_c++;
+            if ($cur->comment_status == dcBlog::COMMENT_PUBLISHED) {
+                if ($cur->comment_trackback) {
+                    $count_t++;
+                } else {
+                    $count_c++;
+                }
             }
         }
 

@@ -594,34 +594,34 @@ class adminCommentList extends adminGenericList
                 ), $this->rs_count) .
                     '</caption>';
             } else {
-                $nb_published   = dcCore::app()->blog->getComments(['comment_status' => 1], true)->f(0);
-                $nb_spam        = dcCore::app()->blog->getComments(['comment_status' => -2], true)->f(0);
-                $nb_pending     = dcCore::app()->blog->getComments(['comment_status' => -1], true)->f(0);
-                $nb_unpublished = dcCore::app()->blog->getComments(['comment_status' => 0], true)->f(0);
+                $nb_published   = dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_PUBLISHED], true)->f(0);
+                $nb_spam        = dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_JUNK], true)->f(0);
+                $nb_pending     = dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_PENDING], true)->f(0);
+                $nb_unpublished = dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_UNPUBLISHED], true)->f(0);
                 $html_block .= '<caption>' .
                 sprintf(__('List of comments and trackbacks (%s)'), $this->rs_count) .
                     ($nb_published ?
                     sprintf(
                         __(', <a href="%s">published</a> (1)', ', <a href="%s">published</a> (%s)', $nb_published),
-                        dcCore::app()->adminurl->get('admin.comments', ['status' => 1]),
+                        dcCore::app()->adminurl->get('admin.comments', ['status' => dcBlog::COMMENT_PUBLISHED]),
                         $nb_published
                     ) : '') .
                     ($nb_spam ?
                     sprintf(
                         __(', <a href="%s">spam</a> (1)', ', <a href="%s">spam</a> (%s)', $nb_spam),
-                        dcCore::app()->adminurl->get('admin.comments', ['status' => -2]),
+                        dcCore::app()->adminurl->get('admin.comments', ['status' => dcBlog::COMMENT_JUNK]),
                         $nb_spam
                     ) : '') .
                     ($nb_pending ?
                     sprintf(
                         __(', <a href="%s">pending</a> (1)', ', <a href="%s">pending</a> (%s)', $nb_pending),
-                        dcCore::app()->adminurl->get('admin.comments', ['status' => -1]),
+                        dcCore::app()->adminurl->get('admin.comments', ['status' => dcBlog::COMMENT_PENDING]),
                         $nb_pending
                     ) : '') .
                     ($nb_unpublished ?
                     sprintf(
                         __(', <a href="%s">unpublished</a> (1)', ', <a href="%s">unpublished</a> (%s)', $nb_unpublished),
-                        dcCore::app()->adminurl->get('admin.comments', ['status' => 0]),
+                        dcCore::app()->adminurl->get('admin.comments', ['status' => dcBlog::COMMENT_UNPUBLISHED]),
                         $nb_unpublished
                     ) : '') .
                     '</caption>';
@@ -706,22 +706,22 @@ class adminCommentList extends adminGenericList
         $img_status = '';
         $sts_class  = '';
         switch ($this->rs->comment_status) {
-            case 1:
+            case dcBlog::COMMENT_PUBLISHED:
                 $img_status = sprintf($img, __('Published'), 'check-on.png');
                 $sts_class  = 'sts-online';
 
                 break;
-            case 0:
+            case dcBlog::COMMENT_UNPUBLISHED:
                 $img_status = sprintf($img, __('Unpublished'), 'check-off.png');
                 $sts_class  = 'sts-offline';
 
                 break;
-            case -1:
+            case dcBlog::COMMENT_PENDING:
                 $img_status = sprintf($img, __('Pending'), 'check-wrn.png');
                 $sts_class  = 'sts-pending';
 
                 break;
-            case -2:
+            case dcBlog::COMMENT_JUNK:
                 $img_status = sprintf($img, __('Junk'), 'junk.png');
                 $sts_class  = 'sts-junk';
 
@@ -738,7 +738,7 @@ class adminCommentList extends adminGenericList
             html::escapeHTML($this->rs->comment_author)
         );
 
-        $res = '<tr class="line ' . ($this->rs->comment_status != 1 ? 'offline ' : '') . $sts_class . '"' .
+        $res = '<tr class="line ' . ($this->rs->comment_status != dcBlog::COMMENT_PUBLISHED ? 'offline ' : '') . $sts_class . '"' .
         ' id="c' . $this->rs->comment_id . '">';
 
         $cols = [

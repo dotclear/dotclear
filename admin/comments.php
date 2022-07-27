@@ -98,7 +98,7 @@ if (!dcCore::app()->error->flag()) {
         unset($_SESSION['comments_del_spam']);
     }
 
-    $spam_count = dcCore::app()->blog->getComments(['comment_status' => -2], true)->f(0);
+    $spam_count = dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_JUNK], true)->f(0);
     if ($spam_count > 0) {
         echo
         '<form action="' . dcCore::app()->adminurl->get('admin.comments') . '" method="post" class="fieldset">';

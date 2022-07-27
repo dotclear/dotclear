@@ -732,7 +732,7 @@ class dcImportWP extends dcIeModule
             }
 
             if ($rs->comment_approved == 'spam') {
-                $cur->comment_status = -2;
+                $cur->comment_status = dcBlog::COMMENT_JUNK;
             }
 
             $cur->comment_words = implode(' ', text::splitWords($cur->comment_content));
@@ -743,10 +743,12 @@ class dcImportWP extends dcIeModule
 
             $cur->insert();
 
-            if ($cur->comment_trackback && $cur->comment_status == 1) {
-                $count_t++;
-            } elseif ($cur->comment_status == 1) {
-                $count_c++;
+            if ($cur->comment_status == dcBlog::COMMENT_PUBLISHED) {
+                if ($cur->comment_trackback) {
+                    $count_t++;
+                } else {
+                    $count_c++;
+                }
             }
         }
 

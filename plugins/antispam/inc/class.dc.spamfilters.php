@@ -67,7 +67,7 @@ class dcSpamFilters
                 if ($f->auto_delete) {
                     $cur->clean();
                 } else {
-                    $cur->comment_status      = -2;
+                    $cur->comment_status      = dcBlog::COMMENT_JUNK;
                     $cur->comment_spam_status = $status;
                     $cur->comment_spam_filter = $fid;
                 }

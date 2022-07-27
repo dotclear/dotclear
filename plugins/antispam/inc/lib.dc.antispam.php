@@ -36,12 +36,12 @@ class dcAntispam
     {
         $status = null;
         # From ham to spam
-        if ($rs->comment_status != -2 && $cur->comment_status == -2) {
+        if ($rs->comment_status != dcBlog::COMMENT_JUNK && $cur->comment_status == dcBlog::COMMENT_JUNK) {
             $status = 'spam';
         }
 
         # From spam to ham
-        if ($rs->comment_status == -2 && $cur->comment_status == 1) {
+        if ($rs->comment_status == dcBlog::COMMENT_JUNK && $cur->comment_status == dcBlog::COMMENT_PUBLISHED) {
             $status = 'ham';
         }
 
@@ -56,7 +56,7 @@ class dcAntispam
 
     public static function statusMessage($rs)
     {
-        if ($rs->exists('comment_status') && $rs->comment_status == -2) {
+        if ($rs->exists('comment_status') && $rs->comment_status == dcBlog::COMMENT_JUNK) {
             $filter_name = $rs->exists('comment_spam_filter') ? $rs->comment_spam_filter : null;
 
             self::initFilters();
@@ -86,12 +86,12 @@ class dcAntispam
 
     public static function countSpam(dcCore $core = null)
     {
-        return dcCore::app()->blog->getComments(['comment_status' => -2], true)->f(0);
+        return dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_JUNK], true)->f(0);
     }
 
     public static function countPublishedComments(dcCore $core = null)
     {
-        return dcCore::app()->blog->getComments(['comment_status' => 1], true)->f(0);
+        return dcCore::app()->blog->getComments(['comment_status' => dcBlog::COMMENT_PUBLISHED], true)->f(0);
     }
 
     public static function delAllSpam(dcCore $core, $beforeDate = null)
@@ -100,7 +100,7 @@ class dcAntispam
         'FROM ' . dcCore::app()->prefix . 'comment C ' .
         'JOIN ' . dcCore::app()->prefix . 'post P ON P.post_id = C.post_id ' .
         "WHERE blog_id = '" . dcCore::app()->con->escape(dcCore::app()->blog->id) . "' " .
-            'AND comment_status = -2 ';
+            'AND comment_status = ' . (string) dcBlog::COMMENT_JUNK . ' ';
         if ($beforeDate) {
             $strReq .= 'AND comment_dt < \'' . $beforeDate . '\' ';
         }
