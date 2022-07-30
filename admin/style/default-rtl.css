@@ -1,11 +1,11 @@
 body {
-	direction: rtl;
+  direction: rtl;
 }
 
 .right {
-	text-align: left;
+  text-align: left;
 }
 
 th {
-	text-align: left;
+  text-align: left;
 }

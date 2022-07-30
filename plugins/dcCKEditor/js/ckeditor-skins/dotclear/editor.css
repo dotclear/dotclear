@@ -64,14 +64,14 @@ other files.
 }
 
 .cke_reset_all textarea,
-.cke_reset_all input[type="text"],
-.cke_reset_all input[type="password"] {
+.cke_reset_all input[type='text'],
+.cke_reset_all input[type='password'] {
   cursor: text;
 }
 
 .cke_reset_all textarea[disabled],
-.cke_reset_all input[type="text"][disabled],
-.cke_reset_all input[type="password"][disabled] {
+.cke_reset_all input[type='text'][disabled],
+.cke_reset_all input[type='password'][disabled] {
   cursor: default;
 }
 
@@ -399,7 +399,6 @@ a:active.cke_colormore {
 }
 
 a.cke_button {
-  display: inline-block;
   height: 18px;
   padding: 4px 6px;
   outline: none;
@@ -469,7 +468,6 @@ a.cke_button_disabled:active {
   width: 16px;
   height: 16px;
   float: left;
-  display: inline-block;
 }
 
 .cke_rtl .cke_button_icon {
@@ -530,7 +528,7 @@ a.cke_button_disabled:active {
 .cke_toolbar_separator {
   float: left;
   background-color: #c0c0c0;
-  background-color: rgba(0, 0, 0, .2);
+  background-color: rgba(0, 0, 0, 0.2);
   margin: 5px 2px 0;
   height: 18px;
   width: 1px;
@@ -649,7 +647,6 @@ a.cke_toolbox_collapser {
 .cke_menubutton_icon {
   background-color: #d7d8d7;
   opacity: 0.7;
-  filter: alpha(opacity=70);
   padding: 4px;
 }
 
@@ -669,7 +666,6 @@ a.cke_toolbox_collapser {
 .cke_menubutton_disabled:focus .cke_menubutton_icon,
 .cke_menubutton_disabled:active .cke_menubutton_icon {
   opacity: 0.3;
-  filter: alpha(opacity=30);
 }
 
 .cke_menubutton_label {
@@ -685,7 +681,6 @@ a.cke_toolbox_collapser {
 
 .cke_menubutton_disabled .cke_menubutton_label {
   opacity: 0.3;
-  filter: alpha(opacity=30);
 }
 
 .cke_menubutton_on {
@@ -710,7 +705,6 @@ a.cke_toolbox_collapser {
 .cke_menuseparator {
   background-color: #d3d3d3;
   height: 1px;
-  filter: alpha(opacity=70);
   opacity: 0.7;
 }
 
@@ -737,7 +731,6 @@ a.cke_toolbox_collapser {
 
 /* Styles toolbar combos. */
 .cke_combo {
-  display: inline-block;
   float: left;
 }
 
@@ -765,7 +758,6 @@ a.cke_toolbox_collapser {
 
 a.cke_combo_button {
   cursor: default;
-  display: inline-block;
   float: left;
   margin: 0 6px 5px 0;
   border: 1px solid #a6a6a6;
@@ -876,7 +868,6 @@ a.cke_combo_button {
 
 a.cke_path_item,
 span.cke_path_empty {
-  display: inline-block;
   float: left;
   padding: 3px 4px;
   margin-right: 2px;
@@ -955,23 +946,11 @@ textarea.cke_source {
   border-radius: 3px;
   text-align: center;
   opacity: 0.95;
-  filter: alpha(opacity=95);
-  -webkit-animation: fadein 0.7s;
   animation: fadeIn 0.7s;
 }
 
 .cke_notification_message a {
   color: #12306f;
-}
-
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0.4;
-  }
-
-  to {
-    opacity: 0.95;
-  }
 }
 
 @keyframes fadeIn {
@@ -1036,12 +1015,10 @@ textarea.cke_source {
   margin: 0;
   z-index: 5;
   opacity: 0.6;
-  filter: alpha(opacity=60);
 }
 
 .cke_notification_close:hover {
   opacity: 1;
-  filter: alpha(opacity=100);
 }
 
 .cke_notification_close span {
@@ -1050,12 +1027,10 @@ textarea.cke_source {
 
 .cke_notification_warning a.cke_notification_close {
   opacity: 0.8;
-  filter: alpha(opacity=80);
 }
 
 .cke_notification_warning a.cke_notification_close:hover {
   opacity: 1;
-  filter: alpha(opacity=100);
 }
 
 /* Important!

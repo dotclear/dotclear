@@ -6,8 +6,6 @@
 }
 .jstEditor textarea,
 .jstEditor iframe {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
   border: 1px solid #fbfbfb;
@@ -28,8 +26,6 @@ body.rtl .jstEditor iframe {
   border-top-width: 1px;
 }
 .jstElements {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 3px 5px 3px 10px;
   overflow: hidden;

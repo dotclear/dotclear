@@ -9,9 +9,7 @@
   color: var(--header-color);
   background: var(--header-background);
   border-bottom: 4px solid var(--header-border);
-  width: 99.99%;
-
-  /* Bugfix Chrome >= 49.0.2623.108 */
+  width: 100%;
   display: table;
   position: relative;
 }

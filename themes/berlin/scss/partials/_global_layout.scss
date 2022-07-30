@@ -1,66 +1,67 @@
 body {
-    background: $gray-light inline-image('bg_light.png');
-    color: $primary-color;
+  background: $gray-light inline-image('bg_light.png');
+  color: $primary-color;
 }
 #main {
-    background-color: $white;
-    padding: 1em .5em 2em;
+  background-color: $white;
+  padding: 1em 0.5em 2em;
 }
 #page {
-    @include zen-grid-container();
-    max-width: $large-screen;
-    margin: 0 auto;
-    padding: 0;
+  @include zen-grid-container();
+  max-width: $large-screen;
+  margin: 0 auto;
+  padding: 0;
 }
 #wrapper {
-    @include zen-grid-container();
+  @include zen-grid-container();
 }
 .header {
-    position: relative;
-    padding: .25em 0;
-    }
+  position: relative;
+  padding: 0.25em 0;
+}
 @media all and(max-width: $small-screen) {
-    #main {
-        padding: .5em;
-    }
+  #main {
+    padding: 0.5em;
+  }
 }
 @media screen and(min-width: ($xlarge-screen + .1em)) and(max-width: 110em) {
-    #page {
-        max-width: $xlarge-screen;
+  #page {
+    max-width: $xlarge-screen;
+  }
+  #main {
+    @include zen-grid-item(9, 1);
+    pre {
+      word-wrap: normal;
     }
-    #main {
-        @include zen-grid-item(9,1);
-        pre {
-          word-wrap: normal;
-        }
+  }
+  #sidebar {
+    @include zen-grid-item(3, 10);
+    pre {
+      word-wrap: normal;
     }
-    #sidebar {
-        @include zen-grid-item(3,10);
-        pre {
-          word-wrap: normal;
-        }
-    }
+  }
 }
 @media screen and(min-width: 110.1em) {
-    body {
-        font-size: 1.125em;
-    }
-    #page {
-        max-width: 103em;
-    }
-    .header {
-        max-width: zen-grid-item-width(8);
-        padding-bottom: 0;
-    }
-    #main {
-        @include zen-grid-item(8,1)
-    }
-    #sidebar {
-        @include zen-grid-item(4,9);
-    }
-    #blognav, #blogextra {
-        width: 49%;
-        display: inline-block;
-        vertical-align: top;
-    }
+  body {
+    font-size: 1.125em;
+  }
+  #page {
+    max-width: 103em;
+  }
+  .header {
+    max-width: zen-grid-item-width(8);
+    padding-bottom: 0;
+  }
+  #main {
+    @include zen-grid-item(8, 1);
+  }
+  #sidebar {
+    @include zen-grid-item(4, 9);
+  }
+  #blognav,
+  #blogextra {
+    width: 49%;
+    display: inline-block;
+    vertical-align: top;
+  }
 }

@@ -24,14 +24,14 @@
 }
 
 .post-info {
-  margin: .5em 0;
+  margin: 0.5em 0;
 }
 
 .full .post-info,
 .short .post-info,
 .post-cat,
 .post-tags-list {
-  margin: .5em 0;
+  margin: 0.5em 0;
   display: inline;
   vertical-align: top;
 }
@@ -45,16 +45,16 @@
   vertical-align: top;
 
   a:after {
-    content: ","
+    content: ',';
   }
 
   &:last-child a:after {
-    content: ""
+    content: '';
   }
 }
 
 .post-info-co {
-  margin: .5em 0;
+  margin: 0.5em 0;
 }
 
 .post-title {
@@ -102,7 +102,7 @@
 
 .post-attachments {
   position: relative;
-  padding: 0 2.5em .25em;
+  padding: 0 2.5em 0.25em;
   border: 1px solid $gray-medium;
   box-shadow: 0 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.2);
 }
@@ -111,12 +111,12 @@
   content: inline-image('icon_attachments.svg');
   display: block;
   position: absolute;
-  margin-top: -.33em;
+  margin-top: -0.33em;
   margin-left: -2em;
 }
 
 .post-attachments-title {
-  padding-top: .75em;
+  padding-top: 0.75em;
   font-size: 1em;
   text-transform: uppercase;
   font-weight: bold;
@@ -125,7 +125,7 @@
 
 .post-attachments-list {
   padding-left: 1em;
-  margin-top: .5em;
+  margin-top: 0.5em;
 }
 
 .post-feedback {
@@ -149,14 +149,14 @@
 .comment,
 .ping {
   overflow: hidden;
-  padding: .1em 1.5em .1em 4em;
+  padding: 0.1em 1.5em 0.1em 4em;
   margin-bottom: 2em;
-  border-radius: .25em;
+  border-radius: 0.25em;
   box-shadow: 0 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.2);
 }
 
 .comment {
-  background-color: #EDF3F2;
+  background-color: #edf3f2;
 }
 
 .ping {
@@ -170,7 +170,7 @@
   height: 2.5em;
   margin-left: -3.5em;
   margin-right: 1em;
-  margin-top: -.5em;
+  margin-top: -0.5em;
   border-radius: 50%;
   background-color: $white;
   z-index: 1000;
@@ -181,11 +181,11 @@
 .comment-form,
 .send-trackback {
   overflow: hidden;
-  padding: .75em 3em .1em;
+  padding: 0.75em 3em 0.1em;
   margin-bottom: 2em;
-  border-radius: .25em;
+  border-radius: 0.25em;
   box-shadow: 0 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.2);
-  background-color: #EDF3F2;
+  background-color: #edf3f2;
 }
 
 .send-trackback {
@@ -196,7 +196,7 @@
   display: inline-block;
   width: 10em;
 
-  &:not([for="c_content"]) {
+  &:not([for='c_content']) {
     text-align: right;
   }
 }
@@ -217,7 +217,7 @@
 
 #pr {
   background-color: $gray-light;
-  padding: .5em;
+  padding: 0.5em;
   border: 2px solid #6c7c7c;
   margin-bottom: 2em;
 }
@@ -225,7 +225,7 @@
 .error {
   background-color: $link;
   color: $white;
-  padding: .25em .5em;
+  padding: 0.25em 0.5em;
 }
 
 /* Button Style */
@@ -238,12 +238,12 @@ button.preview {
   @include background-image(linear-gradient(top, $button-light, $button-dark));
   box-shadow: inset 0 1px 3px 0 $button-light;
   background-color: $button-light;
-  border-radius: .25em;
+  border-radius: 0.25em;
   border: 1px solid $button-dark;
   display: inline-block;
   cursor: pointer;
   color: $white;
-  padding: .25em .5em;
+  padding: 0.25em 0.5em;
   text-decoration: none;
   text-shadow: 0 -1px 0 $gray-dark;
 }
@@ -276,21 +276,20 @@ button.preview:active {
 
   .comment-form,
   .send-trackback {
-    padding: .75em .5em .1em;
+    padding: 0.75em 0.5em 0.1em;
   }
 }
 
 @media all and(min-width: $small-screen+.1em) {
-
   .post-day-date:after,
   .post-day-date:before {
     display: inline-block;
     height: 1px;
-    content: " ";
+    content: ' ';
     background-color: $gray-medium;
     text-shadow: none;
     width: 20%;
-    margin-bottom: .33em;
+    margin-bottom: 0.33em;
   }
 
   .post-day-date:after {
@@ -305,11 +304,11 @@ button.preview:active {
   .post-feedback h3:before {
     display: inline-block;
     height: 1px;
-    content: " ";
+    content: ' ';
     background-color: $gray-medium;
     text-shadow: none;
     width: 20%;
-    margin-bottom: .33em;
+    margin-bottom: 0.33em;
   }
 
   .post-feedback h3:after {

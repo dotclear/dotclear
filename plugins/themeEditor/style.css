@@ -31,10 +31,10 @@
   margin-bottom: 1em;
 }
 #file-chooser li.group-file ul {
-  margin-top: .5em;
+  margin-top: 0.5em;
 }
 textarea {
-  font: 1em Monaco, "Courier New", Courier, monospace;
+  font: 1em Monaco, 'Courier New', Courier, monospace;
 }
 .CodeMirror {
   height: 30em;

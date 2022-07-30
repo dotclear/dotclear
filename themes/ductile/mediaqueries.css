@@ -9,367 +9,380 @@
 > 1600px: marges plus grandes */
 
 /* --------------------------------------------------------------------
-	Moins de 480px (téléphones)
+  Moins de 480px (téléphones)
 -------------------------------------------------------------------- */
-@media only screen and (max-width:480px) {
-	.nosmall {
-		display: none !important;
-		}
-	h1 {
-		font-size: 1.8em;
-		}
-	h1 a {
-		display: block;
-		padding: 6px 8px;
-		background: #f4f4f5;
-		background-image: -webkit-gradient(linear, left top, left bottom, from( #f4f4f5), to(#d7d7dC));
-		background: -webkit-linear-gradient(top,  #f4f4f5,  #d7d7dC);
-		background: -moz-linear-gradient(top,  #f4f4f5,  #d7d7dC);
-		background: -o-linear-gradient(top,  #f4f4f5,  #d7d7dC);
-		background: -ms-linear-gradient(top,  #f4f4f5,  #d7d7dC);
-		background: linear-gradient(top,  #f4f4f5,  #d7d7dC);
-		border-right: 1px solid #aaa;
-		border-bottom: 1px solid #ccc;
-		}
-	.supranav, #prelude {
-		border: none;
-		margin: 8px 0 0;
-		background: #fff;
-		padding-left: 0;
-		}
-	.supranav li a, #prelude li a {
-		border-right: 0;
-		display: block;
-		padding: 4px 8px;
-		border-bottom: 1px solid #ccc;
-		text-decoration: none;
-		white-space: nowrap;
-		margin-bottom: 4px;
-		}
-	#gotop li {
-		border-top: 1px solid #ccc;
-		text-transform: none;
-		padding-top: 6px;
-		}
-	#prelude {
-		margin: .5em 0 !important;
-		}
-	#prelude li a {
-		background: transparent url(img/menumobile.png) no-repeat right center;
-		 }
-	#sn-bottom li a {
-		background: transparent url(img/menumobile.png) no-repeat right top;
-		}
-	#gotop li a {
-		background: transparent url(img/menumobile.png) no-repeat right -150px;
-		}
-	.post-title {
-		font-size: 1.5em;
-		font-weight: bold;
-		font-family: "Franklin gothic medium","arial narrow","DejaVu Sans Condensed","helvetica neue",helvetica,sans-serif;
-		}
-	.post-title a {
-		font-style: normal;
-		font-weight: bold;
-		}
-	#other-criteria .arch-block, #more-criteria .arch-block {
-		margin-left: 0 !important;
-		}
-	#stickers {
-		margin: 0;
-		padding: 0;
-		border-bottom: 1px solid #fff;
-		}
-	#stickers li {
-		position: relative;
-		padding: .5em 0;
-		margin-left: 0;
-		border-style: solid;
-		border-width: 1px 0 0 0;
-		overflow: hidden;
-		}
-	#stickers img {
-		position: absolute;
-		top: -2px;
-		clip: rect(0 32px 36px 0);
-		clip: rect(0, 32px, 36px, 0);
-		}
-	#stickers span {
-		margin-left: 40px;
-		}
-	#stickers a {
-		text-decoration: none;
-		}
-	ul, ol, dd {
-		padding: 0;
-		}
-	.post ul, .post ol, .post dd {
-		margin-left: 1em !important;
-		}
+@media only screen and (max-width: 480px) {
+  .nosmall {
+    display: none !important;
+  }
+  h1 {
+    font-size: 1.8em;
+  }
+  h1 a {
+    display: block;
+    padding: 6px 8px;
+    background: #f4f4f5;
+    background: linear-gradient(top, #f4f4f5, #d7d7dc);
+    border-right: 1px solid #aaa;
+    border-bottom: 1px solid #ccc;
+  }
+  .supranav,
+  #prelude {
+    border: none;
+    margin: 8px 0 0;
+    background: #fff;
+    padding-left: 0;
+  }
+  .supranav li a,
+  #prelude li a {
+    border-right: 0;
+    display: block;
+    padding: 4px 8px;
+    border-bottom: 1px solid #ccc;
+    text-decoration: none;
+    white-space: nowrap;
+    margin-bottom: 4px;
+  }
+  #gotop li {
+    border-top: 1px solid #ccc;
+    text-transform: none;
+    padding-top: 6px;
+  }
+  #prelude {
+    margin: 0.5em 0 !important;
+  }
+  #prelude li a {
+    background: transparent url(img/menumobile.png) no-repeat right center;
+  }
+  #sn-bottom li a {
+    background: transparent url(img/menumobile.png) no-repeat right top;
+  }
+  #gotop li a {
+    background: transparent url(img/menumobile.png) no-repeat right -150px;
+  }
+  .post-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: 'Franklin gothic medium', 'arial narrow', 'DejaVu Sans Condensed', 'helvetica neue', helvetica, sans-serif;
+  }
+  .post-title a {
+    font-style: normal;
+    font-weight: bold;
+  }
+  #other-criteria .arch-block,
+  #more-criteria .arch-block {
+    margin-left: 0 !important;
+  }
+  #stickers {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #fff;
+  }
+  #stickers li {
+    position: relative;
+    padding: 0.5em 0;
+    margin-left: 0;
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    overflow: hidden;
+  }
+  #stickers img {
+    position: absolute;
+    top: -2px;
+    clip: rect(0 32px 36px 0);
+    clip: rect(0, 32px, 36px, 0);
+  }
+  #stickers span {
+    margin-left: 40px;
+  }
+  #stickers a {
+    text-decoration: none;
+  }
+  ul,
+  ol,
+  dd {
+    padding: 0;
+  }
+  .post ul,
+  .post ol,
+  .post dd {
+    margin-left: 1em !important;
+  }
 }
 
 /* --------------------------------------------------------------------
-	Autres (plus de 480px)
+  Autres (plus de 480px)
 -------------------------------------------------------------------- */
 @media only screen and (min-width: 481px) {
-	.nobig {
-		display: none;
-		}
-	#prelude {
-		position: absolute;
-		margin: 0;
-		padding: 0 0 0 4px;
-		top: 0;
-		left: 3px;
-		color: #fff;
-		list-style-type: none;
-		}
-	#prelude li {
-		display: inline;
-		text-transform: none !important;
-		}
-	#prelude a, #prelude a:hover, #prelude a:visited {
-		position:absolute;
-		left:0;
-		top:-500px;
-		width:1px;
-		height:1px;
-		overflow:hidden;
-		background-image: none !important;
-		}
-	#prelude a:active, #prelude a:focus {
-		position:static;
-		width:auto;
-		height:auto;
-		}
-	#top {
-		padding-top: 24px;
-		}
- 	#logo {
-		float:left;
-		margin: 0 32px 0 24px;
-		}
-	#logo a {
-		border: none;
-		background: transparent;
-		text-decoration: none;
-		}
-	h1 {
-		font-size: 2em;
-		padding-right: 240px;
-		padding-bottom: 4px;
-		margin-left: 32px;
-		}
-	#sn-bottom {
-		display: none;
-		}
-	.supranav {
-		margin: 36px 0 0;
-		border-bottom: 1px solid #ccc;
-		padding: 0 0 0 4px;
-		}
-	.supranav li {
-		display: inline;
-		padding: 8px 0;
-		padding-left: 4px;
-		}
-	.supranav li a {
-		display: inline-block;
-		vertical-align: top;
-		padding: 8px 32px 8px 28px;
-		border-right: 1px solid #ccc;
-		min-height: 2.5em;
-		border-radius: 0 0 0 4px;
-	 	}
-	.supranav li a span {
-		display: block;
-		}
-	.post-title {
-		font-size: 2.5em;
-		font-weight: normal;
-		}
-	.post-title a {
-		font-style: italic;
-		font-weight: normal;
-		}
-	#blogcustom {
-		padding: 0 1em;
-		}
-	#stickers {
-		position: absolute;
-		top: 0;
-		right: 0;
-		padding-right: 3%;
-		font-size: .75em;
-		}
-	#stickers li {
-		display: block;
-		float: left;
-		text-align: center;
-		width: 60px;
-		padding: 0;
-		}
-	#stickers span {
-		display: block;
-		text-align: center;
-		position: absolute;
-		top: -500px;
-		}
-	#stickers a:hover, #stickers a:focus {
-		background: #fff !important;
-		}
-	#stickers a:hover span, #stickers a:focus span {
-		color: #686867;
-		position: static;
-		top: 0;
-		}
-	.comment-info {
-		clear: left;
-		float: left;
-		width: 10em;
-		}
-	.comment-content {
-		margin-left: 11.5em;
-		}
+  .nobig {
+    display: none;
+  }
+  #prelude {
+    position: absolute;
+    margin: 0;
+    padding: 0 0 0 4px;
+    top: 0;
+    left: 3px;
+    color: #fff;
+    list-style-type: none;
+  }
+  #prelude li {
+    display: inline;
+    text-transform: none !important;
+  }
+  #prelude a,
+  #prelude a:hover,
+  #prelude a:visited {
+    position: absolute;
+    left: 0;
+    top: -500px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    background-image: none !important;
+  }
+  #prelude a:active,
+  #prelude a:focus {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+  #top {
+    padding-top: 24px;
+  }
+  #logo {
+    float: left;
+    margin: 0 32px 0 24px;
+  }
+  #logo a {
+    border: none;
+    background: transparent;
+    text-decoration: none;
+  }
+  h1 {
+    font-size: 2em;
+    padding-right: 240px;
+    padding-bottom: 4px;
+    margin-left: 32px;
+  }
+  #sn-bottom {
+    display: none;
+  }
+  .supranav {
+    margin: 36px 0 0;
+    border-bottom: 1px solid #ccc;
+    padding: 0 0 0 4px;
+  }
+  .supranav li {
+    display: inline;
+    padding: 8px 0;
+    padding-left: 4px;
+  }
+  .supranav li a {
+    display: inline-block;
+    vertical-align: top;
+    padding: 8px 32px 8px 28px;
+    border-right: 1px solid #ccc;
+    min-height: 2.5em;
+    border-radius: 0 0 0 4px;
+  }
+  .supranav li a span {
+    display: block;
+  }
+  .post-title {
+    font-size: 2.5em;
+    font-weight: normal;
+  }
+  .post-title a {
+    font-style: italic;
+    font-weight: normal;
+  }
+  #blogcustom {
+    padding: 0 1em;
+  }
+  #stickers {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 3%;
+    font-size: 0.75em;
+  }
+  #stickers li {
+    display: block;
+    float: left;
+    text-align: center;
+    width: 60px;
+    padding: 0;
+  }
+  #stickers span {
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: -500px;
+  }
+  #stickers a:hover,
+  #stickers a:focus {
+    background: #fff !important;
+  }
+  #stickers a:hover span,
+  #stickers a:focus span {
+    color: #686867;
+    position: static;
+    top: 0;
+  }
+  .comment-info {
+    clear: left;
+    float: left;
+    width: 10em;
+  }
+  .comment-content {
+    margin-left: 11.5em;
+  }
 }
 
 /* ------------------------------------------------------ special redimensionnement paysage */
-@media screen and (max-width:640px) and (orientation: landscape) {
+@media screen and (max-width: 640px) and (orientation: landscape) {
   body {
-   -webkit-text-size-adjust: 70%;
+    -webkit-text-size-adjust: 70%;
   }
 }
 
 /* ------------------------------------------------------ règles communes < 640px */
-@media only screen and (max-width:639px) {
-	body {
-		-webkit-text-size-adjust: none;
-		}
-	#wrapper {
-		padding: 0 2%;
-		}
-	img {
-		max-width: 97%;
-		height: auto;
-		width: auto\9; /* pour ie8 */
-		}
+@media only screen and (max-width: 639px) {
+  body {
+    -webkit-text-size-adjust: none;
+  }
+  #wrapper {
+    padding: 0 2%;
+  }
+  img {
+    max-width: 97%;
+    height: auto;
+  }
 }
 
 /* ------------------------------------------------------ spécifique 640px à 1024px */
 @media only screen and (min-width: 640px) and (max-width: 1023px) {
-	#wrapper {
-		padding: 0 10%;
-		}
-	#blognav, #blogextra {
-		width: 48%; float:left;
-		}
-	#blognav {
-		margin-right: 4%;
-		}
-	#stickers {
-		padding-right: 10%;
-		}
+  #wrapper {
+    padding: 0 10%;
+  }
+  #blognav,
+  #blogextra {
+    width: 48%;
+    float: left;
+  }
+  #blognav {
+    margin-right: 4%;
+  }
+  #stickers {
+    padding-right: 10%;
+  }
 }
 
 /* ------------------------------------------------------ spécifique 840px à 1024px */
 @media only screen and (min-width: 840px) and (max-width: 1023px) {
-	#wrapper {
-		padding: 0 13%;
-		}
-	#stickers {
-		padding-right: 13%;
-		}
+  #wrapper {
+    padding: 0 13%;
+  }
+  #stickers {
+    padding-right: 13%;
+  }
 }
 
 /* ------------------------------------------------------
-	au-delà de 1024px on passe à deux colonnes
+  au-delà de 1024px on passe à deux colonnes
 ------------------------------------------------------ */
 @media only screen and (min-width: 1024px) {
-	#wrapper {
-		padding: 0 7%;
-		}
-	#main {
-		width : 100%;
-		margin : 0 -17em 0 0;
-		float : left;
-		display: inline;
-		}
-	#content {
-		margin : 0 20em 0 0;
-		padding : 0 0 2em 0;
-		}
-	#sidebar {
-		width : 17em;
-		float : right;
-		}
-	#blognav, #blogextra {
-		margin : 0;
-		}
-	#stickers {
-		padding-right: 7%;
-		}
-	#sidebar #blognav div:first-child {
-		margin-top: 4.66em;
-		}
-	#sidebar div#search:first-child {
-		background: none;
-		margin-top: 0;
-		margin-bottom: 2em;
-		padding-bottom: 2px;
-		font-size: 1em;
-		border: 1px solid #ddd;
-		border-top: none 0;
-		}
-	#sidebar div#search:first-child h2 {
-		font-size: 1em;
-		text-transform: uppercase;
-		text-shadow: 0 1px 1px rgba(0,0,0,.2);
-		vertical-align: top;
-		color: #666;
-		}
-	#sidebar div#search:first-child p {
-		margin: .33em 0;
-		}
-	.dc-archive #content {
-		margin: 0 17em 0 0;
-		}
+  #wrapper {
+    padding: 0 7%;
+  }
+  #main {
+    width: 100%;
+    margin: 0 -17em 0 0;
+    float: left;
+    display: inline;
+  }
+  #content {
+    margin: 0 20em 0 0;
+    padding: 0 0 2em 0;
+  }
+  #sidebar {
+    width: 17em;
+    float: right;
+  }
+  #blognav,
+  #blogextra {
+    margin: 0;
+  }
+  #stickers {
+    padding-right: 7%;
+  }
+  #sidebar #blognav div:first-child {
+    margin-top: 4.66em;
+  }
+  #sidebar div#search:first-child {
+    background: none;
+    margin-top: 0;
+    margin-bottom: 2em;
+    padding-bottom: 2px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-top: none 0;
+  }
+  #sidebar div#search:first-child h2 {
+    font-size: 1em;
+    text-transform: uppercase;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    vertical-align: top;
+    color: #666;
+  }
+  #sidebar div#search:first-child p {
+    margin: 0.33em 0;
+  }
+  .dc-archive #content {
+    margin: 0 17em 0 0;
+  }
 }
 
 /* ------------------------------------------------------
-	au-delà de 1280px on décale le post-info à gauche
+  au-delà de 1280px on décale le post-info à gauche
 ------------------------------------------------------- */
 @media only screen and (min-width: 1280px) {
-	#content {
-		margin : 0 20em 0 220px;
-		}
-	.full .post-attr,
-	.simple .post-attr {
-		margin-left: -220px;
-		margin-top: 0;
-		float: left;
-		width: 180px;
-		text-align: right;
-		}
-	.post-attr a, .post-info, .post-tags {
-		padding-right: 0 !important;
-		}
-	#content-info, .navlinks, .pagination {
-		margin-left: -220px !important;
-		}
-	.dc-archive #content-info {
-		margin-left: 0 !important;
-		}
-	#content-info a.feed {
-		white-space: nowrap;
-		}
+  #content {
+    margin: 0 20em 0 220px;
+  }
+  .full .post-attr,
+  .simple .post-attr {
+    margin-left: -220px;
+    margin-top: 0;
+    float: left;
+    width: 180px;
+    text-align: right;
+  }
+  .post-attr a,
+  .post-info,
+  .post-tags {
+    padding-right: 0 !important;
+  }
+  #content-info,
+  .navlinks,
+  .pagination {
+    margin-left: -220px !important;
+  }
+  .dc-archive #content-info {
+    margin-left: 0 !important;
+  }
+  #content-info a.feed {
+    white-space: nowrap;
+  }
 }
 
 /* ------------------------------------------------------ au-delà de 1600px */
 @media only screen and (min-width: 1600px) {
-	#wrapper {
-		padding: 0 10%;
-		}
-	#stickers {
-		padding-right: 10%;
-		}
+  #wrapper {
+    padding: 0 10%;
+  }
+  #stickers {
+    padding-right: 10%;
+  }
 }

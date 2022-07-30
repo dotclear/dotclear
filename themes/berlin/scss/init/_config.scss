@@ -2,19 +2,19 @@
 
 // ----------------- Compass config --------------- //
 // Do not support IE
-$supported-browsers: reject(browsers(), "ie");
+$supported-browsers: reject(browsers(), 'ie');
 $graceful-usage-threshold: 100;
 $critical-usage-threshold: 100;
-@import "compass";                    // gem
+@import 'compass'; // gem
 
-@import "libs/scut";
+@import 'libs/scut';
 
 // ----------------- Zengrids config -------------- //
 $legacy-support-for-ie7: false;
 $legacy-support-for-ie6: false;
 //@import "libs/zen-grids/background";
 //@import "libs/zen-grids/flow";
-@import "libs/zen-grids/grids";
+@import 'libs/zen-grids/grids';
 //@import "libs/sass-mq-master/_mq";
 
 // ------------------ VARIABLES ------------------- //
@@ -39,15 +39,15 @@ $zen-gutters: 2em;
 // =Box model pour IE (zen-grids)
 // ========================================================================== //
 
-$box-sizing-polyfill-path: "scripts";
+$box-sizing-polyfill-path: 'scripts';
 
 // ========================================================================== //
 // =Typographie
 // ========================================================================== //
 
-$sans-serif: Lato, "Open Sans", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
-$serif: "New Century Schoolbook","Century Schoolbook","Century Schoolbook L", Georgia, serif;
-$monospace: "Andale Mono", AndaleMono, monospace;
+$sans-serif: Lato, 'Open Sans', 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+$serif: 'New Century Schoolbook', 'Century Schoolbook', 'Century Schoolbook L', Georgia, serif;
+$monospace: 'Andale Mono', AndaleMono, monospace;
 
 // ========================================================================== //
 // =Couleurs
@@ -69,10 +69,10 @@ $gray-very-light: tint($gray, 85%);
 
 // Application
 
-$primary-color: $gray-very-dark;            // Texte courant
-$secondary-color: $blue;                    // Titres
-$link: $red;                                // Liens
-$button-base: $dark-blue-green;             // Boutons
+$primary-color: $gray-very-dark; // Texte courant
+$secondary-color: $blue; // Titres
+$link: $red; // Liens
+$button-base: $dark-blue-green; // Boutons
 $button-dark: shade($button-base, 10%);
 $button-light: tint($button-base, 10%);
 
@@ -94,7 +94,7 @@ $css-img-path: 'img'; // utile pour le mixin de fallback svg
 // ========================================================================== //
 
 $x-small-screen: 20em; // 320
-$small-screen:   30em; // 480
-$medium-screen:  40em; // 640
-$large-screen:   60em; // 960
-$xlarge-screen:  80em; // 1280
+$small-screen: 30em; // 480
+$medium-screen: 40em; // 640
+$large-screen: 60em; // 960
+$xlarge-screen: 80em; // 1280
