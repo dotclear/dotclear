@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "a97966e4e3bcc2562fc245001d99285461be90db"
+                "reference": "3da30d98acc8b8deb19e66fb9560306e97c46dce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/a97966e4e3bcc2562fc245001d99285461be90db",
-                "reference": "a97966e4e3bcc2562fc245001d99285461be90db",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/3da30d98acc8b8deb19e66fb9560306e97c46dce",
+                "reference": "3da30d98acc8b8deb19e66fb9560306e97c46dce",
                 "shasum": ""
             },
             "require": {
@@ -43,6 +43,10 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
+            "keywords": [
+                "dev",
+                "static analysis"
+            ],
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
                 "source": "https://github.com/phpstan/phpstan/tree/1.8.x"
@@ -65,7 +69,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-07-20T13:17:28+00:00"
+            "time": "2022-07-29T06:43:11+00:00"
         }
     ],
     "aliases": [],

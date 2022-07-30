@@ -1,6 +1,6 @@
 <?php
 
-// See https://mlocati.github.io/php-cs-fixer-configurator/#version:3.2 for documentation
+// See https://mlocati.github.io/php-cs-fixer-configurator/ for documentation
 
 $finder = PhpCsFixer\Finder::create()
     ->exclude('node_modules')
