@@ -145,12 +145,10 @@ select {
   vertical-align: middle;
 }
 
-@media not all and (min-resolution: 0.001dpcm) {
-  @supports (-webkit-appearance: none) {
-    /* Safari 10.1+ only (https://browserstrangeness.bitbucket.io/css_hacks.html#webkit) */
-    select {
-      font-size: initial;
-    }
+@supports (-webkit-hyphens: none) {
+  /* Safari 9+ only (https://browserstrangeness.bitbucket.io/css_hacks.html#webkit) */
+  select {
+    font-size: initial;
   }
 }
 
