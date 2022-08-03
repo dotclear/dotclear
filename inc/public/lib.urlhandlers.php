@@ -156,7 +156,7 @@ class dcUrlHandlers extends urlHandler
 
     public function getDocument()
     {
-        $type = $args = '';
+        $type = '';
 
         if ($this->mode == 'path_info') {
             $part = substr($_SERVER['PATH_INFO'], 1);
