@@ -1,3 +1,30 @@
+Dotclear 2.23 - 2022-08-13
+===========================================================
+* 🐘 PHP 7.4+ is required, PHP 8.0/8.1 compliance
+* 🗑 Remove Iconset management
+* Admin UI: Harmonize font size on different support (laptop, tablet, mobile)
+* Admin UX: Group more logically buttons on CKEditor toolbar
+* Core: New constant DC_DEFAULT_THEME, set to 'berlin'
+* Core: Use predefined constants for post statuses
+* Core: Use predefined constants for comment statuses
+* Core: Deprecated global $core (or $GLOBALS['core']), use dcCore::app() instead
+* Core: Deprecated global $_ctx, use dcCore::app()->ctx instead
+* Core: Deprecated global $_lang, use dcCore::app()->lang instead
+* Core: Deprecated global $mod_files, use dcCore::app()->cache['mod_files'] instead
+* Core: Deprecated global $mod_ts, use dcCore::app()->cache['mod_ts'] instead
+* Core: Deprecated global $_menu, use dcCore::app()->menu instead
+* Core: Deprecated global $__resources, use dcCore::app()->resources instead
+* Fix: Use relative URL for attachments as far as possible
+* Fix: Remove select hiding mechanism when help is displayed
+* Fix: Loading of modules (plugins/themes) in safe mode
+* Fix: Message position on Quick entry submit (dashboard)
+* Fix: Select appearance on Safari (webkit engine)
+* Lib: Update CKEditor to 4.19.1
+* Lib: Update Codemirror to 5.65.7
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+* 📣 Warning: Internet Explorer is not more officially supported (may still work weirdly)
+
 Dotclear 2.22 - 2022-05-13
 ===========================================================
 * 🐘 PHP 7.4+ is required, PHP 8.0/8.1 compliance
