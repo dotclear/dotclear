@@ -32,20 +32,27 @@ class dcAdminNotices
      */
     public static function getNotices()
     {
+        // Update transition from 2.22 to 2.23
+        if (version_compare(DC_VERSION, '2.23', '<')) {
+            global $core;
+        } else {
+            $core = dcCore::app();
+        }
+
         $res = '';
 
         // return error messages if any
-        if (dcCore::app()->error->flag() && !self::$error_displayed) {
+        if ($core->error->flag() && !self::$error_displayed) {
 
             # --BEHAVIOR-- adminPageNotificationError
-            $notice_error = dcCore::app()->callBehavior('adminPageNotificationError', dcCore::app(), dcCore::app()->error);
+            $notice_error = $core->callBehavior('adminPageNotificationError', $core, $core->error);
 
             if (isset($notice_error) && !empty($notice_error)) {
                 $res .= $notice_error;
             } else {
                 $res .= '<div class="error" role="alert"><p>' .
-                '<strong>' . (count(dcCore::app()->error->getErrors()) > 1 ? __('Errors:') : __('Error:')) . '</strong>' .
-                '</p>' . dcCore::app()->error->toHTML() . '</div>';
+                '<strong>' . (count($core->error->getErrors()) > 1 ? __('Errors:') : __('Error:')) . '</strong>' .
+                '</p>' . $core->error->toHTML() . '</div>';
             }
             self::$error_displayed = true;
         } else {
@@ -68,9 +75,9 @@ class dcAdminNotices
                     'sql' => "AND notice_type != 'static'",
                 ];
             }
-            $counter = dcCore::app()->notices->getNotices($params, true);
+            $counter = $core->notices->getNotices($params, true);
             if ($counter) {
-                $lines = dcCore::app()->notices->getNotices($params);
+                $lines = $core->notices->getNotices($params);
                 while ($lines->fetch()) {
                     if (isset(self::$N_TYPES[$lines->notice_type])) {
                         $class = self::$N_TYPES[$lines->notice_type];
@@ -85,10 +92,10 @@ class dcAdminNotices
                         'format' => $lines->notice_format,
                     ];
                     if ($lines->notice_options !== null) {
-                        $notifications = array_merge($notification, @json_decode($lines->notice_options, true));
+                        $notification = array_merge($notification, @json_decode($lines->notice_options, true));
                     }
                     # --BEHAVIOR-- adminPageNotification
-                    $notice = dcCore::app()->callBehavior('adminPageNotification', dcCore::app(), $notification);
+                    $notice = $core->callBehavior('adminPageNotification', $core, $notification);
 
                     $res .= (isset($notice) && !empty($notice) ? $notice : self::getNotification($notification));
                 }
@@ -96,7 +103,7 @@ class dcAdminNotices
         } while (--$step);
 
         // Delete returned notices
-        dcCore::app()->notices->delNotices(null, true);
+        $core->notices->delNotices(null, true);
 
         return $res;
     }
@@ -177,12 +184,19 @@ class dcAdminNotices
      */
     private static function getNotification($n)
     {
+        // Update transition from 2.22 to 2.23
+        if (version_compare(DC_VERSION, '2.23', '<')) {
+            global $core;
+        } else {
+            $core = dcCore::app();
+        }
+
         $tag = (isset($n['format']) && $n['format'] === 'html') ? 'div' : 'p';
         $ts  = '';
         if (!isset($n['with_ts']) || ($n['with_ts'] == true)) {
             $ts = '<span class="notice-ts">' .
-                '<time datetime="' . dt::iso8601(strtotime($n['ts']), dcCore::app()->auth->getInfo('user_tz')) . '">' .
-                dt::dt2str(__('%H:%M:%S'), $n['ts'], dcCore::app()->auth->getInfo('user_tz')) .
+                '<time datetime="' . dt::iso8601(strtotime($n['ts']), $core->auth->getInfo('user_tz')) . '">' .
+                dt::dt2str(__('%H:%M:%S'), $n['ts'], $core->auth->getInfo('user_tz')) .
                 '</time>' .
                 '</span> ';
         }
