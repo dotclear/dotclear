@@ -57,6 +57,22 @@ class dcRestServer extends restServer
     }
 
     /**
+     * Rest method call.
+     *
+     * @param      string  $name   The method name
+     * @param      array   $get    The GET parameters copy
+     * @param      array   $post   The POST parameters copy
+     *
+     * @return     mixed    Rest method result
+     */
+    protected function callMethod($name, $get, $post)
+    {
+        if (isset($this->functions[$name])) {
+            return ($this->functions[$name])($get, $post);
+        }
+    }
+
+    /**
      * Main server
      *
      * This method creates the main server.
@@ -90,7 +106,7 @@ class dcRestServer extends restServer
                 $get  = $_GET ?: [];
                 $post = $_POST ?: [];
 
-                $res = $this->callFunction($_REQUEST['f'], $get, $post);
+                $res = $this->callMethod($_REQUEST['f'], $get, $post);
             } catch (Exception $e) {
                 $this->json = [
                     'success' => false,
