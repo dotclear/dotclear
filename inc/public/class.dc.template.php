@@ -1268,7 +1268,6 @@ class dcTemplate extends template
         }
 
         $p = 'if (!isset($_page_number)) { $_page_number = 1; }' . "\n";
-        $p = 'if (!isset(dcCore::app()->ctx->_page_number)) { dcCore::app()->ctx->_page_number = 1; }' . "\n";
 
         if ($lastn != 0) {
             // Set limit (aka nb of entries needed)
