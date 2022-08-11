@@ -81,9 +81,6 @@ if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID')) {
         if (isset($_SESSION['media_manager_dir'])) {
             unset($_SESSION['media_manager_dir']);
         }
-        if (isset($_SESSION['media_manager_page'])) {
-            unset($_SESSION['media_manager_page']);
-        }
 
         if (!empty($_REQUEST['redir'])) {
             # Keep context as far as possible
