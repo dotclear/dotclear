@@ -5,8 +5,8 @@ Dotclear 2.23 - 2022-08-13
 * Admin UI: Harmonize font size on different support (laptop, tablet, mobile)
 * Admin UX: Group more logically buttons on CKEditor toolbar
 * Core: New constant DC_DEFAULT_THEME, set to 'berlin'
-* Core: Use predefined constants for post statuses
-* Core: Use predefined constants for comment statuses
+* Core: Use predefined constants for post statuses (dcBlog::POST_*)
+* Core: Use predefined constants for comment statuses (dcBlog::COMMENT_*)
 * Core: Deprecated global $core (or $GLOBALS['core']), use dcCore::app() instead
 * Core: Deprecated global $_ctx, use dcCore::app()->ctx instead
 * Core: Deprecated global $_lang, use dcCore::app()->lang instead
