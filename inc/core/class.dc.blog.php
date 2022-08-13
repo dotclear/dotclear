@@ -2454,7 +2454,7 @@ class dcBlog
             $sql = new dcSelectStatement();
             $sql
                 ->column($sql->max('comment_id'))
-                ->from($this->prefix, 'comment');
+                ->from($this->prefix . 'comment');
 
             $rs = $sql->select();
 
