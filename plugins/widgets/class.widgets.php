@@ -189,9 +189,21 @@ class dcWidget
         if ($content_only) {
             return $content;
         }
-        $ret = '<div class="widget' . ($class ? ' ' . html::escapeHTML($class) : '') . '"' . ($attr ? ' ' . $attr : '') . '>' . "\n";
-        $ret .= $content . "\n";
-        $ret .= '</div>' . "\n";
+
+        /*
+         * widgetcontainerformat, if defined for the theme in his _define.php,
+         * is a sprintf string format in which:
+         * - %1$s is the class(es) affected to the container
+         * - %2$s is the additional attributes affected to the container
+         * - %3$s is the content of the widget
+         *
+         * Don't forget to set widgettitleformat and widgetsubtitleformat if necessary (see default rendering below)
+        */
+        $wtscheme = dcCore::app()->themes->moduleInfo(dcCore::app()->blog->settings->system->theme, 'widgetcontainerformat');
+        if (empty($wtscheme)) {
+            $wtscheme = '<div class="widget %1$s" %2$s>%3$s</div>';
+        }
+        $ret = sprintf($wtscheme . "\n", 'widget ' . html::escapeHTML($class), $attr, $content);
 
         return $ret;
     }
