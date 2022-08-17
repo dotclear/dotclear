@@ -676,7 +676,7 @@ dotclear.services = (
 // REST services helpers, JSON only aliases
 dotclear.jsonServices = (
   fn, // REST method
-  onSuccess = (response) => {}, // Used when fetch is successful, response is a js object (parsed from data)
+  onSuccess = (payload) => {}, // Used when fetch is successful
   onError = (error) => {}, // Used when fetch failed
   get = true, // Use GET method if true, POST if false
   params = {}, // Optional parameters
@@ -688,7 +688,7 @@ dotclear.jsonServices = (
       try {
         const response = JSON.parse(data);
         if (response?.success) {
-          onSuccess(response);
+          onSuccess(response.payload);
         } else {
           console.log(dotclear.debug && response?.message ? response.message : 'Dotclear REST server error');
           return;
@@ -704,14 +704,14 @@ dotclear.jsonServices = (
 };
 dotclear.jsonServicesGet = (
   fn, // REST method
-  onSuccess = (response) => {}, // Used when fetch is successful, response is a js object
+  onSuccess = (payload) => {}, // Used when fetch is successful
   params = {}, // Optional parameters
 ) => {
   dotclear.jsonServices(fn, onSuccess, (error) => console.log(error), true, params);
 };
 dotclear.jsonServicesPost = (
   fn, // REST method
-  onSuccess = (response) => {}, // Used when fetch is successful, response is a js object
+  onSuccess = (payload) => {}, // Used when fetch is successful
   params = {}, // Optional parameters
 ) => {
   dotclear.jsonServices(fn, onSuccess, (error) => console.log(error), false, params);
