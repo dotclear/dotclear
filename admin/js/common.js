@@ -673,6 +673,49 @@ dotclear.services = (
     .then((data) => onSuccess(data))
     .catch((error) => onError(error));
 };
+// REST services helpers, JSON only aliases
+dotclear.jsonServices = (
+  fn, // REST method
+  onSuccess = (response) => {}, // Used when fetch is successful, response is a js object (parsed from data)
+  onError = (error) => {}, // Used when fetch failed
+  get = true, // Use GET method if true, POST if false
+  params = {}, // Optional parameters
+) => {
+  params.json = 1;
+  dotclear.services(
+    fn,
+    (data) => {
+      try {
+        const response = JSON.parse(data);
+        if (response?.success) {
+          onSuccess(response);
+        } else {
+          console.log(dotclear.debug && response?.message ? response.message : 'Dotclear REST server error');
+          return;
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    },
+    (error) => onError(error),
+    get,
+    params,
+  );
+};
+dotclear.jsonServicesGet = (
+  fn, // REST method
+  onSuccess = (response) => {}, // Used when fetch is successful, response is a js object
+  params = {}, // Optional parameters
+) => {
+  dotclear.jsonServices(fn, onSuccess, (error) => console.log(error), true, params);
+};
+dotclear.jsonServicesPost = (
+  fn, // REST method
+  onSuccess = (response) => {}, // Used when fetch is successful, response is a js object
+  params = {}, // Optional parameters
+) => {
+  dotclear.jsonServices(fn, onSuccess, (error) => console.log(error), false, params);
+};
 
 /* On document ready
 -------------------------------------------------------- */
