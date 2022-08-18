@@ -197,7 +197,6 @@ if (dcCore::app()->auth->userID() && dcCore::app()->blog !== null) {
      */
     $_menu = dcCore::app()->menu;
 
-    dcCore::app()->menu['Dashboard'] = new dcMenu('dashboard-menu', '');
     if (!$user_ui_nofavmenu) {
         dcCore::app()->favs->appendMenuTitle(dcCore::app()->menu);
     }
