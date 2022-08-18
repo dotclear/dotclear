@@ -25,7 +25,7 @@ dcCore::app()->addBehavior(
     }
 );
 
-dcCore::app()->menu['Blog']->addItem(
+dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
     __('Simple menu'),
     dcCore::app()->adminurl->get('admin.plugin.simpleMenu'),
     dcPage::getPF('simpleMenu/icon.svg'),

@@ -125,6 +125,8 @@ if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID')) {
     }
 }
 
+dcCore::app()->admin = new dcAdmin();
+
 dcCore::app()->adminurl = new dcAdminURL(dcCore::app());
 
 dcCore::app()->adminurl->register('admin.posts', 'posts.php');
@@ -200,9 +202,10 @@ if (dcCore::app()->auth->userID() && dcCore::app()->blog !== null) {
     if (!$user_ui_nofavmenu) {
         dcCore::app()->favs->appendMenuTitle(dcCore::app()->menu);
     }
-    dcCore::app()->menu['Blog']    = new dcMenu('blog-menu', 'Blog');
-    dcCore::app()->menu['System']  = new dcMenu('system-menu', 'System');
-    dcCore::app()->menu['Plugins'] = new dcMenu('plugins-menu', 'Plugins');
+    dcCore::app()->menu[dcAdmin::MENU_BLOG]    = new dcMenu('blog-menu', 'Blog');
+    dcCore::app()->menu[dcAdmin::MENU_SYSTEM]  = new dcMenu('system-menu', 'System');
+    dcCore::app()->menu[dcAdmin::MENU_PLUGINS] = new dcMenu('plugins-menu', 'Plugins');
+
     # Loading plugins
     dcCore::app()->plugins->loadModules(DC_PLUGINS_ROOT, 'admin', dcCore::app()->lang);
     dcCore::app()->favs->setup();
@@ -213,61 +216,61 @@ if (dcCore::app()->auth->userID() && dcCore::app()->blog !== null) {
 
     # Set menu titles
 
-    dcCore::app()->menu['System']->title  = __('System settings');   // @phpstan-ignore-line
-    dcCore::app()->menu['Blog']->title    = __('Blog');              // @phpstan-ignore-line
-    dcCore::app()->menu['Plugins']->title = __('Plugins');           // @phpstan-ignore-line
+    dcCore::app()->menu[dcAdmin::MENU_SYSTEM]->title  = __('System settings');   // @phpstan-ignore-line
+    dcCore::app()->menu[dcAdmin::MENU_BLOG]->title    = __('Blog');              // @phpstan-ignore-line
+    dcCore::app()->menu[dcAdmin::MENU_PLUGINS]->title = __('Plugins');           // @phpstan-ignore-line
 
     dcAdminHelper::addMenuItem(
-        'Blog',
+        dcAdmin::MENU_BLOG,
         __('Blog appearance'),
         'admin.blog.theme',
         ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
         dcCore::app()->auth->check('admin', dcCore::app()->blog->id)
     );
     dcAdminHelper::addMenuItem(
-        'Blog',
+        dcAdmin::MENU_BLOG,
         __('Blog settings'),
         'admin.blog.pref',
         ['images/menu/blog-pref.svg', 'images/menu/blog-pref-dark.svg'],
         dcCore::app()->auth->check('admin', dcCore::app()->blog->id)
     );
     dcAdminHelper::addMenuItem(
-        'Blog',
+        dcAdmin::MENU_BLOG,
         __('Media manager'),
         'admin.media',
         ['images/menu/media.svg', 'images/menu/media-dark.svg'],
         dcCore::app()->auth->check('media,media_admin', dcCore::app()->blog->id)
     );
     dcAdminHelper::addMenuItem(
-        'Blog',
+        dcAdmin::MENU_BLOG,
         __('Categories'),
         'admin.categories',
         ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
         dcCore::app()->auth->check('categories', dcCore::app()->blog->id)
     );
     dcAdminHelper::addMenuItem(
-        'Blog',
+        dcAdmin::MENU_BLOG,
         __('Search'),
         'admin.search',
         ['images/menu/search.svg','images/menu/search-dark.svg'],
         dcCore::app()->auth->check('usage,contentadmin', dcCore::app()->blog->id)
     );
     dcAdminHelper::addMenuItem(
-        'Blog',
+        dcAdmin::MENU_BLOG,
         __('Comments'),
         'admin.comments',
         ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
         dcCore::app()->auth->check('usage,contentadmin', dcCore::app()->blog->id)
     );
     dcAdminHelper::addMenuItem(
-        'Blog',
+        dcAdmin::MENU_BLOG,
         __('Posts'),
         'admin.posts',
         ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
         dcCore::app()->auth->check('usage,contentadmin', dcCore::app()->blog->id)
     );
     dcAdminHelper::addMenuItem(
-        'Blog',
+        dcAdmin::MENU_BLOG,
         __('New post'),
         'admin.post',
         ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
@@ -277,35 +280,35 @@ if (dcCore::app()->auth->userID() && dcCore::app()->blog !== null) {
     );
 
     dcAdminHelper::addMenuItem(
-        'System',
+        dcAdmin::MENU_SYSTEM,
         __('Update'),
         'admin.update',
         ['images/menu/update.svg', 'images/menu/update-dark.svg'],
         dcCore::app()->auth->isSuperAdmin() && is_readable(DC_DIGESTS)
     );
     dcAdminHelper::addMenuItem(
-        'System',
+        dcAdmin::MENU_SYSTEM,
         __('Languages'),
         'admin.langs',
         ['images/menu/langs.svg', 'images/menu/langs-dark.svg'],
         dcCore::app()->auth->isSuperAdmin()
     );
     dcAdminHelper::addMenuItem(
-        'System',
+        dcAdmin::MENU_SYSTEM,
         __('Plugins management'),
         'admin.plugins',
         ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'],
         dcCore::app()->auth->isSuperAdmin()
     );
     dcAdminHelper::addMenuItem(
-        'System',
+        dcAdmin::MENU_SYSTEM,
         __('Users'),
         'admin.users',
         'images/menu/users.svg',
         dcCore::app()->auth->isSuperAdmin()
     );
     dcAdminHelper::addMenuItem(
-        'System',
+        dcAdmin::MENU_SYSTEM,
         __('Blogs'),
         'admin.blogs',
         ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],

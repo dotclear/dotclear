@@ -12,7 +12,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-dcCore::app()->menu['Blog']->addItem(
+dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
     __('Pings'),
     dcCore::app()->adminurl->get('admin.plugin.pings'),
     [dcPage::getPF('pings/icon.svg'), dcPage::getPF('pings/icon-dark.svg')],

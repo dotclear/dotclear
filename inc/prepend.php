@@ -64,6 +64,7 @@ $__autoload['rsExtUser']         = __DIR__ . '/core/class.dc.rs.extensions.php';
 
 $__autoload['dcUpgrade'] = __DIR__ . '/dbschema/upgrade.php';
 
+$__autoload['dcAdmin']               = __DIR__ . '/admin/class.dc.admin.php';
 $__autoload['dcMenu']                = __DIR__ . '/admin/class.dc.menu.php';
 $__autoload['dcFavorites']           = __DIR__ . '/admin/class.dc.favorites.php';
 $__autoload['dcPage']                = __DIR__ . '/admin/lib.dc.page.php';

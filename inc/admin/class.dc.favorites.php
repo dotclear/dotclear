@@ -303,8 +303,8 @@ class dcFavorites
      */
     public function appendMenuTitle($menu)
     {
-        $menu['Favorites']        = new dcMenu('favorites-menu', 'My favorites');
-        $menu['Favorites']->title = __('My favorites');
+        $menu[dcAdmin::MENU_FAVORITES]        = new dcMenu('favorites-menu', 'My favorites');
+        $menu[dcAdmin::MENU_FAVORITES]->title = __('My favorites');
     }
 
     /**
@@ -318,7 +318,7 @@ class dcFavorites
     public function appendMenu($menu)
     {
         foreach ($this->user_prefs as $k => $v) {
-            $menu['Favorites']->addItem(
+            $menu[dcAdmin::MENU_FAVORITES]->addItem(
                 $v['title'],
                 $v['url'],
                 $v['small-icon'],

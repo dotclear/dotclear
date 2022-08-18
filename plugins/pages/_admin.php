@@ -81,7 +81,7 @@ class pagesDashboard
     }
 }
 
-dcCore::app()->menu['Blog']->addItem(
+dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
     __('Pages'),
     dcCore::app()->adminurl->get('admin.plugin.pages'),
     [dcPage::getPF('pages/icon.svg'), dcPage::getPF('pages/icon-dark.svg')],

@@ -27,7 +27,7 @@ dcCore::app()->addBehavior('adminRteFlags', function (dcCore $core, $rte) {
     $rte['widgets_text'] = [true, __('Widget\'s textareas')];
 });
 
-dcCore::app()->menu['Blog']->addItem(
+dcCore::app()->menu[dcAdmin::MENU_BLOG]->addItem(
     __('Presentation widgets'),
     dcCore::app()->adminurl->get('admin.plugin.widgets'),
     [dcPage::getPF('widgets/icon.svg'), dcPage::getPF('widgets/icon-dark.svg')],
