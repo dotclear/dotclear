@@ -502,7 +502,7 @@ class dcAuth
                     $sql->like('permissions', '%|admin|%'),
                     $sql->like('permissions', '%|contentadmin|%'),
                 ]))
-                ->and('blog_status >= 0')
+                ->and('blog_status >= ' . (string) dcBlog::BLOG_OFFLINE)
                 ->order('P.blog_id ASC')
                 ->limit(1);
         }

@@ -244,9 +244,9 @@ final class dcCore
     public function getAllBlogStatus()
     {
         return [
-            1  => __('online'),
-            0  => __('offline'),
-            -1 => __('removed'),
+            dcBlog::BLOG_ONLINE  => __('online'),
+            dcBlog::BLOG_OFFLINE => __('offline'),
+            dcBlog::BLOG_REMOVED => __('removed'),
         ];
     }
 
@@ -1292,9 +1292,9 @@ final class dcCore
             $join  = 'INNER JOIN ' . $this->prefix . 'permissions PE ON B.blog_id = PE.blog_id ';
             $where = "AND PE.user_id = '" . $this->con->escape($this->auth->userID()) . "' " .
                 "AND (permissions LIKE '%|usage|%' OR permissions LIKE '%|admin|%' OR permissions LIKE '%|contentadmin|%') " .
-                'AND blog_status IN (1,0) ';
+                'AND blog_status IN (' . (string) dcBlog::BLOG_ONLINE . ',' . (string) dcBlog::BLOG_OFFLINE . ') ';
         } elseif (!$this->auth->userID()) {
-            $where = 'AND blog_status IN (1,0) ';
+            $where = 'AND blog_status IN (' . (string) dcBlog::BLOG_ONLINE . ',' . (string) dcBlog::BLOG_OFFLINE . ') ';
         }
 
         if (isset($params['blog_status']) && $params['blog_status'] !== '' && $this->auth->isSuperAdmin()) {

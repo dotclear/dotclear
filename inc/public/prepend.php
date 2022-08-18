@@ -39,7 +39,7 @@ if (dcCore::app()->blog->id == null) {
     __error(__('Blog is not defined.'), __('Did you change your Blog ID?'), 630);
 }
 
-if ((bool) !dcCore::app()->blog->status) {
+if ((int) dcCore::app()->blog->status !== dcBlog::BLOG_ONLINE) {
     dcCore::app()->unsetBlog();
     __error(__('Blog is offline.'), __('This blog is offline. Please try again later.'), 670);
 }

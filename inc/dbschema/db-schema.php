@@ -26,7 +26,7 @@ $_s->blog
     ->blog_url('varchar', 255, false)
     ->blog_name('varchar', 255, false)
     ->blog_desc('text', 0, true)
-    ->blog_status('smallint', 0, false, 1)
+    ->blog_status('smallint', 0, false, dcBlog::BLOG_ONLINE)
 
     ->primary('pk_blog', 'blog_id')
 ;

@@ -905,7 +905,7 @@ class adminBlogList extends adminGenericList
             'status' => '<td class="nowrap status txt-center">' .
             sprintf(
                 '<img src="images/%1$s.png" alt="%2$s" title="%2$s" />',
-                ($this->rs->blog_status == 1 ? 'check-on' : ($this->rs->blog_status == 0 ? 'check-off' : 'check-wrn')),
+                ($this->rs->blog_status == dcBlog::BLOG_ONLINE ? 'check-on' : ($this->rs->blog_status == dcBlog::BLOG_OFFLINE ? 'check-off' : 'check-wrn')),
                 dcCore::app()->getBlogStatus($this->rs->blog_status)
             ) .
             '</td>',

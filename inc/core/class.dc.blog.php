@@ -64,6 +64,10 @@ class dcBlog
 
     /* Constants */
 
+    public const BLOG_ONLINE  = 1;
+    public const BLOG_OFFLINE = 0;
+    public const BLOG_REMOVED = -1;
+
     public const POST_PENDING     = -2;
     public const POST_SCHEDULED   = -1;
     public const POST_UNPUBLISHED = 0;

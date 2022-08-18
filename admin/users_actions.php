@@ -40,11 +40,11 @@ if (!empty($_POST['action']) && !empty($_POST['users'])) {
         $redir = $_POST['redir'];
     } else {
         $redir = dcCore::app()->adminurl->get('admin.users', [
-            'q'      => $_POST['q'] ?? '',
+            'q'      => $_POST['q']      ?? '',
             'sortby' => $_POST['sortby'] ?? '',
-            'order'  => $_POST['order'] ?? '',
-            'page'   => $_POST['page'] ?? '',
-            'nb'     => $_POST['nb'] ?? '',
+            'order'  => $_POST['order']  ?? '',
+            'page'   => $_POST['page']   ?? '',
+            'nb'     => $_POST['nb']     ?? '',
         ]);
     }
 
@@ -198,7 +198,7 @@ if (!empty($users) && empty($blogs) && $action == 'blogs') {
             '</tr>';
 
         while ($rs->fetch()) {
-            $img_status = $rs->blog_status == 1 ? 'check-on' : ($rs->blog_status == 0 ? 'check-off' : 'check-wrn');
+            $img_status = $rs->blog_status == dcBlog::BLOG_ONLINE ? 'check-on' : ($rs->blog_status == dcBlog::BLOG_OFFLINE ? 'check-off' : 'check-wrn');
             $txt_status = dcCore::app()->getBlogStatus($rs->blog_status);
             $img_status = sprintf('<img src="images/%1$s.png" alt="%2$s" title="%2$s" />', $img_status, $txt_status);
 

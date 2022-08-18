@@ -25,7 +25,7 @@ if ($standalone) {
 } else {
     dcPage::checkSuper();
 
-    $blog_status   = 0;
+    $blog_status   = dcBlog::BLOG_OFFLINE;
     $blog_name     = '';
     $blog_desc     = '';
     $blog_settings = null;

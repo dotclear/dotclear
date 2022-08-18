@@ -175,9 +175,9 @@ if (dcCore::app()->auth->getInfo('user_default_blog') != dcCore::app()->blog->id
     '<p><a href="' . dcCore::app()->adminurl->get('admin.home', ['default_blog' => 1]) . '" class="button">' . __('Make this blog my default blog') . '</a></p>';
 }
 
-if (dcCore::app()->blog->status == 0) {
+if (dcCore::app()->blog->status == dcBlog::BLOG_OFFLINE) {
     echo '<p class="static-msg">' . __('This blog is offline') . '.</p>';
-} elseif (dcCore::app()->blog->status == -1) {
+} elseif (dcCore::app()->blog->status == dcBlog::BLOG_REMOVED) {
     echo '<p class="static-msg">' . __('This blog is removed') . '.</p>';
 }
 
@@ -271,8 +271,8 @@ $boxes_contents_order = dcCore::app()->auth->user_prefs->dashboard->boxes_conten
 $boxes_contents_order = ($boxes_contents_order != '' ? explode(',', $boxes_contents_order) : []);
 
 $composeItems = function ($list, $blocks, $flat = false) {
-    $ret   = [];
-    $items = [];
+    $ret      = [];
+    $items    = [];
 
     if ($flat) {
         $items = $blocks;
