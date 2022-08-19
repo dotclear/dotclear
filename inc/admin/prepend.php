@@ -43,12 +43,8 @@ if (dcCore::app()->auth->sessionExists()) {
         }
     }
 
-    if (!empty($_REQUEST['switchblog'])
-        && dcCore::app()->auth->getPermissions($_REQUEST['switchblog']) !== false) {
+    if (!empty($_REQUEST['switchblog']) && dcCore::app()->auth->getPermissions($_REQUEST['switchblog']) !== false) {
         $_SESSION['sess_blog_id'] = $_REQUEST['switchblog'];
-        if (isset($_SESSION['media_manager_dir'])) {
-            unset($_SESSION['media_manager_dir']);
-        }
 
         if (!empty($_REQUEST['redir'])) {
             # Keep context as far as possible
@@ -59,6 +55,15 @@ if (dcCore::app()->auth->sessionExists()) {
             $redir = preg_replace('/switchblog=(.*?)(&|$)/', '', $redir);
             $redir = preg_replace('/\?$/', '', $redir);
         }
+
+        dcCore::app()->auth->user_prefs->addWorkspace('interface');
+        dcCore::app()->auth->user_prefs->interface->drop('media_manager_dir');
+
+        if (strstr($redir, 'media.php') !== false) {
+            // Remove current media dir from media manager URL
+            $redir = preg_replace('/d=(.*?)(&|$)/', '', $redir);
+        }
+
         http::redirect($redir);
         exit;
     }

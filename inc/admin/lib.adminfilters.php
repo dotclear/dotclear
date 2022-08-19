@@ -933,15 +933,15 @@ class adminMediaFilter extends adminGenericFilter
 
     protected function getDirFilter()
     {
-        $get = $_REQUEST['d'] ?? null;
-        if ($get === null && isset($_SESSION['media_manager_dir'])) {
-            // We get session information
-            $get = $_SESSION['media_manager_dir'];
-        }
+        dcCore::app()->auth->user_prefs->addWorkspace('interface');
+
+        $get = $_REQUEST['d'] ?? dcCore::app()->auth->user_prefs->interface->media_manager_dir ?? null;
         if ($get) {
-            $_SESSION['media_manager_dir'] = $get;
+            // Store current dir in user pref
+            dcCore::app()->auth->user_prefs->interface->put('media_manager_dir', $get, 'string');
         } else {
-            unset($_SESSION['media_manager_dir']);
+            // Remove current dir from user pref
+            dcCore::app()->auth->user_prefs->interface->drop('media_manager_dir');
         }
 
         return new dcAdminFilter('d', $get);
@@ -949,10 +949,17 @@ class adminMediaFilter extends adminGenericFilter
 
     protected function getFileModeFilter()
     {
-        if (!empty($_GET['file_mode'])) {
-            $_SESSION['media_file_mode'] = $_GET['file_mode'] == 'grid' ? 'grid' : 'list';
+        dcCore::app()->auth->user_prefs->addWorkspace('interface');
+
+        $get = $_REQUEST['file_mode'] ?? $get = dcCore::app()->auth->user_prefs->interface->media_file_mode ?? null;
+        if ($get) {
+            // Store current view in user pref
+            dcCore::app()->auth->user_prefs->interface->put('media_file_mode', $get, 'string');
+        } else {
+            // Remove current view from user pref
+            dcCore::app()->auth->user_prefs->interface->drop('media_file_mode');
+            $get = 'grid';
         }
-        $get = !empty($_SESSION['media_file_mode']) ? $_SESSION['media_file_mode'] : 'grid';
 
         return new dcAdminFilter('file_mode', $get);
     }
