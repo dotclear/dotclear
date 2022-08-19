@@ -12,14 +12,12 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-global $blogroll;
-
 $id = html::escapeHTML($_REQUEST['id']);
 
 $rs = null;
 
 try {
-    $rs = $blogroll->getLink($id);
+    $rs = dcCore::app()->admin->blogroll->getLink($id);
 } catch (Exception $e) {
     dcCore::app()->error->add($e->getMessage());
 }
@@ -72,7 +70,7 @@ if (isset($rs) && !$rs->is_cat && !empty($_POST['edit_link'])) {
     }
 
     try {
-        $blogroll->updateLink($id, $link_title, $link_href, $link_desc, $link_lang, trim((string) $link_xfn));
+        dcCore::app()->admin->blogroll->updateLink($id, $link_title, $link_href, $link_desc, $link_lang, trim((string) $link_xfn));
         dcPage::addSuccessNotice(__('Link has been successfully updated'));
         http::redirect($p_url . '&edit=1&id=' . $id);
     } catch (Exception $e) {
@@ -85,7 +83,7 @@ if (isset($rs) && $rs->is_cat && !empty($_POST['edit_cat'])) {
     $link_desc = html::escapeHTML($_POST['link_desc']);
 
     try {
-        $blogroll->updateCategory($id, $link_desc);
+        dcCore::app()->admin->blogroll->updateCategory($id, $link_desc);
         dcPage::addSuccessNotice(__('Category has been successfully updated'));
         http::redirect($p_url . '&edit=1&id=' . $id);
     } catch (Exception $e) {
@@ -94,7 +92,7 @@ if (isset($rs) && $rs->is_cat && !empty($_POST['edit_cat'])) {
 }
 
 # Languages combo
-$links      = $blogroll->getLangs(['order' => 'asc']);
+$links      = dcCore::app()->admin->blogroll->getLangs(['order' => 'asc']);
 $lang_combo = dcAdminCombos::getLangsCombo($links, true);
 
 ?>

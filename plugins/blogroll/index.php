@@ -12,7 +12,7 @@ if (!defined('DC_CONTEXT_ADMIN')) {
     return;
 }
 
-$blogroll = new dcBlogroll(dcCore::app()->blog);
+dcCore::app()->admin->blogroll = new dcBlogroll(dcCore::app()->blog);
 
 if (!empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
     include __DIR__ . '/edit.php';
@@ -20,13 +20,13 @@ if (!empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
     return;
 }
 
-$default_tab = '';
-$link_title  = $link_href  = $link_desc  = $link_lang  = '';
-$cat_title   = '';
+dcCore::app()->admin->default_tab = '';
+$link_title                       = $link_href                       = $link_desc                       = $link_lang                       = '';
+$cat_title                        = '';
 
 # Import links
 if (!empty($_POST['import_links']) && !empty($_FILES['links_file'])) {
-    $default_tab = 'import-links';
+    dcCore::app()->admin->default_tab = 'import-links';
 
     try {
         files::uploadStatus($_FILES['links_file']);
@@ -63,10 +63,10 @@ if (!empty($_POST['import_links_do'])) {
         $link_desc  = html::escapeHTML($_POST['desc'][$idx]);
 
         try {
-            $blogroll->addLink($link_title, $link_href, $link_desc, '');
+            dcCore::app()->admin->blogroll->addLink($link_title, $link_href, $link_desc, '');
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
-            $default_tab = 'import-links';
+            dcCore::app()->admin->default_tab = 'import-links';
         }
     }
 
@@ -76,7 +76,7 @@ if (!empty($_POST['import_links_do'])) {
 
 if (!empty($_POST['cancel_import'])) {
     dcCore::app()->error->add(__('Import operation cancelled.'));
-    $default_tab = 'import-links';
+    dcCore::app()->admin->default_tab = 'import-links';
 }
 
 # Add link
@@ -87,13 +87,13 @@ if (!empty($_POST['add_link'])) {
     $link_lang  = html::escapeHTML($_POST['link_lang']);
 
     try {
-        $blogroll->addLink($link_title, $link_href, $link_desc, $link_lang);
+        dcCore::app()->admin->blogroll->addLink($link_title, $link_href, $link_desc, $link_lang);
 
         dcPage::addSuccessNotice(__('Link has been successfully created.'));
         http::redirect($p_url);
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
-        $default_tab = 'add-link';
+        dcCore::app()->admin->default_tab = 'add-link';
     }
 }
 
@@ -102,12 +102,12 @@ if (!empty($_POST['add_cat'])) {
     $cat_title = html::escapeHTML($_POST['cat_title']);
 
     try {
-        $blogroll->addCategory($cat_title);
+        dcCore::app()->admin->blogroll->addCategory($cat_title);
         dcPage::addSuccessNotice(__('category has been successfully created.'));
         http::redirect($p_url);
     } catch (Exception $e) {
         dcCore::app()->error->add($e->getMessage());
-        $default_tab = 'add-cat';
+        dcCore::app()->admin->default_tab = 'add-cat';
     }
 }
 
@@ -115,7 +115,7 @@ if (!empty($_POST['add_cat'])) {
 if (!empty($_POST['removeaction']) && !empty($_POST['remove'])) {
     foreach ($_POST['remove'] as $k => $v) {
         try {
-            $blogroll->delItem($v);
+            dcCore::app()->admin->blogroll->delItem($v);
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
 
@@ -144,7 +144,7 @@ if (!empty($_POST['saveorder']) && !empty($order)) {
         $pos = ((int) $pos) + 1;
 
         try {
-            $blogroll->updateOrder($l, $pos);
+            dcCore::app()->admin->blogroll->updateOrder($l, $pos);
         } catch (Exception $e) {
             dcCore::app()->error->add($e->getMessage());
         }
@@ -160,7 +160,7 @@ if (!empty($_POST['saveorder']) && !empty($order)) {
 $rs = null;
 
 try {
-    $rs = $blogroll->getLinks();
+    $rs = dcCore::app()->admin->blogroll->getLinks();
 } catch (Exception $e) {
     dcCore::app()->error->add($e->getMessage());
 }
@@ -179,7 +179,7 @@ if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
     dcPage::jsModuleLoad('blogroll/js/blogroll.js');
 }
 ?>
-  <?php echo dcPage::jsPageTabs($default_tab); ?>
+  <?php echo dcPage::jsPageTabs(dcCore::app()->admin->default_tab); ?>
 </head>
 
 <body>
@@ -212,41 +212,41 @@ dcPage::notices();
 <tbody id="links-list">
 <?php
 while ($rs->fetch()) {
-        $position = (string) ($rs->index() + 1);
+    $position = (string) ($rs->index() + 1);
 
+    echo
+    '<tr class="line" id="l_' . $rs->link_id . '">' .
+    '<td class="handle minimal">' . form::number(['order[' . $rs->link_id . ']'], [
+        'min'        => 1,
+        'max'        => $rs->count(),
+        'default'    => $position,
+        'class'      => 'position',
+        'extra_html' => 'title="' . __('position') . '"',
+    ]) .
+    '</td>' .
+    '<td class="minimal">' . form::checkbox(
+        ['remove[]'],
+        $rs->link_id,
+        [
+            'extra_html' => 'title="' . __('select this link') . '"',
+        ]
+    ) . '</td>';
+
+    if ($rs->is_cat) {
         echo
-        '<tr class="line" id="l_' . $rs->link_id . '">' .
-        '<td class="handle minimal">' . form::number(['order[' . $rs->link_id . ']'], [
-            'min'        => 1,
-            'max'        => $rs->count(),
-            'default'    => $position,
-            'class'      => 'position',
-            'extra_html' => 'title="' . __('position') . '"',
-        ]) .
-        '</td>' .
-        '<td class="minimal">' . form::checkbox(
-            ['remove[]'],
-            $rs->link_id,
-            [
-                'extra_html' => 'title="' . __('select this link') . '"',
-            ]
-        ) . '</td>';
+        '<td colspan="5"><strong><a href="' . $p_url . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
+        html::escapeHTML($rs->link_desc) . '</a></strong></td>';
+    } else {
+        echo
+        '<td><a href="' . $p_url . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
+        html::escapeHTML($rs->link_title) . '</a></td>' .
+        '<td>' . html::escapeHTML($rs->link_desc) . '</td>' .
+        '<td>' . html::escapeHTML($rs->link_href) . '</td>' .
+        '<td>' . html::escapeHTML($rs->link_lang) . '</td>';
+    }
 
-        if ($rs->is_cat) {
-            echo
-            '<td colspan="5"><strong><a href="' . $p_url . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
-            html::escapeHTML($rs->link_desc) . '</a></strong></td>';
-        } else {
-            echo
-            '<td><a href="' . $p_url . '&amp;edit=1&amp;id=' . $rs->link_id . '">' .
-            html::escapeHTML($rs->link_title) . '</a></td>' .
-            '<td>' . html::escapeHTML($rs->link_desc) . '</td>' .
-            '<td>' . html::escapeHTML($rs->link_href) . '</td>' .
-            '<td>' . html::escapeHTML($rs->link_lang) . '</td>';
-        }
-
-        echo '</tr>';
-    } ?>
+    echo '</tr>';
+} ?>
 </tbody>
 </table></div>
 
@@ -254,9 +254,9 @@ while ($rs->fetch()) {
 <p class="col">
 <?php
 echo
-    form::hidden('links_order', '') .
-    form::hidden(['p'], 'blogroll') .
-    dcCore::app()->formNonce(); ?>
+form::hidden('links_order', '') .
+form::hidden(['p'], 'blogroll') .
+dcCore::app()->formNonce(); ?>
 <input type="submit" name="saveorder" value="<?php echo __('Save order'); ?>" />
 <input type="button" value="<?php echo  __('Cancel'); ?>" class="go-back reset hidden-if-no-js" />
 </p>
@@ -268,8 +268,8 @@ echo
 
 <?php
 } else {
-        echo '<div><p>' . __('The link list is empty.') . '</p></div>';
-    }
+    echo '<div><p>' . __('The link list is empty.') . '</p></div>';
+}
 ?>
 
 </div>

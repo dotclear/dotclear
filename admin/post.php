@@ -358,14 +358,14 @@ $categories_combo = dcAdminCombos::getCategoriesCombo(
 );
 /* DISPLAY
 -------------------------------------------------------- */
-$default_tab = 'edit-entry';
+dcCore::app()->admin->default_tab = 'edit-entry';
 if (!$can_edit_post) {
-    $default_tab = '';
+    dcCore::app()->admin->default_tab = '';
 }
 if (!empty($_GET['co'])) {
-    $default_tab = 'comments';
+    dcCore::app()->admin->default_tab = 'comments';
 } elseif (!empty($_GET['tb'])) {
-    $default_tab = 'trackbacks';
+    dcCore::app()->admin->default_tab = 'trackbacks';
 }
 
 if ($post_id) {
@@ -440,7 +440,7 @@ dcPage::open(
     dcPage::jsConfirmClose('entry-form', 'comment-form') .
     # --BEHAVIOR-- adminPostHeaders
     dcCore::app()->callBehavior('adminPostHeaders') .
-    dcPage::jsPageTabs($default_tab) .
+    dcPage::jsPageTabs(dcCore::app()->admin->default_tab) .
     $next_headlink . "\n" . $prev_headlink,
     dcPage::breadcrumb(
         [

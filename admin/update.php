@@ -67,9 +67,9 @@ $p_url = 'update.php';
 $step = $_GET['step'] ?? '';
 $step = in_array($step, ['check', 'download', 'backup', 'unzip']) ? $step : '';
 
-$default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'update';
+dcCore::app()->admin->default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'update';
 if (!empty($_POST['backup_file'])) {
-    $default_tab = 'files';
+    dcCore::app()->admin->default_tab = 'files';
 }
 
 $archives = [];
@@ -81,7 +81,7 @@ foreach (files::scanDir(DC_BACKUP_PATH) as $v) {
 if (!empty($archives)) {
     usort($archives, 'version_compare');
 } else {
-    $default_tab = 'update';
+    dcCore::app()->admin->default_tab = 'update';
 }
 
 # Revert or delete backup file
@@ -189,7 +189,7 @@ if ($new_v && $step) {
 dcPage::open(
     __('Dotclear update'),
     (!$step ?
-        dcPage::jsPageTabs($default_tab) .
+        dcPage::jsPageTabs(dcCore::app()->admin->default_tab) .
         dcPage::jsLoad('js/_update.js')
         : ''),
     dcPage::breadcrumb(

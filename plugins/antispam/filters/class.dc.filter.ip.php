@@ -59,14 +59,12 @@ class dcFilterIP extends dcSpamFilter
 
     public function gui($url)
     {
-        global $default_tab;
-
         # Set current type and tab
         $ip_type = 'black';
         if (!empty($_REQUEST['ip_type']) && $_REQUEST['ip_type'] == 'white') {
             $ip_type = 'white';
         }
-        $default_tab = 'tab_' . $ip_type;
+        dcCore::app()->admin->default_tab = 'tab_' . $ip_type;
 
         # Add IP to list
         if (!empty($_POST['addip'])) {

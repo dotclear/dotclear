@@ -16,10 +16,10 @@ dcPage::check('admin');
 dcAntispam::initFilters();
 $filters = dcAntispam::$filters->getFilters();
 
-$page_name   = __('Antispam');
-$filter_gui  = false;
-$default_tab = null;
-$filter      = null;
+$page_name                        = __('Antispam');
+$filter_gui                       = false;
+dcCore::app()->admin->default_tab = null;
+$filter                           = null;
 
 try {
     # Show filter configuration GUI
@@ -97,7 +97,7 @@ try {
 <head>
   <title><?php echo($filter_gui !== false ? sprintf(__('%s configuration'), $filter->name) . ' - ' : '') . $page_name; ?></title>
   <?php
-echo dcPage::jsPageTabs($default_tab);
+echo dcPage::jsPageTabs(dcCore::app()->admin->default_tab);
 dcCore::app()->auth->user_prefs->addWorkspace('accessibility');
 if (!dcCore::app()->auth->user_prefs->accessibility->nodragdrop) {
     echo

@@ -59,14 +59,12 @@ class dcFilterIPv6 extends dcSpamFilter
 
     public function gui($url)
     {
-        global $default_tab;
-
         # Set current type and tab
         $ip_type = 'blackv6';
         if (!empty($_REQUEST['ip_type']) && $_REQUEST['ip_type'] == 'whitev6') {
             $ip_type = 'whitev6';
         }
-        $default_tab = 'tab_' . $ip_type;
+        dcCore::app()->admin->default_tab = 'tab_' . $ip_type;
 
         # Add IP to list
         if (!empty($_POST['addip'])) {

@@ -284,12 +284,12 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_page && !$bad_dt) {
 
 /* DISPLAY
 -------------------------------------------------------- */
-$default_tab = 'edit-entry';
+dcCore::app()->admin->default_tab = 'edit-entry';
 if (!$can_edit_page) {
-    $default_tab = '';
+    dcCore::app()->admin->default_tab = '';
 }
 if (!empty($_GET['co'])) {
-    $default_tab = 'comments';
+    dcCore::app()->admin->default_tab = 'comments';
 }
 
 $admin_post_behavior = '';
@@ -340,7 +340,7 @@ $admin_post_behavior .
 dcPage::jsConfirmClose('entry-form', 'comment-form') .
 # --BEHAVIOR-- adminPageHeaders
 dcCore::app()->callBehavior('adminPageHeaders') .
-dcPage::jsPageTabs($default_tab) .
+dcPage::jsPageTabs(dcCore::app()->admin->default_tab) .
     $next_headlink . "\n" . $prev_headlink;
 ?>
 </head>

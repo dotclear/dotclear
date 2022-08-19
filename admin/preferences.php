@@ -59,15 +59,15 @@ $user_ui_nofavmenu          = dcCore::app()->auth->user_prefs->interface->nofavm
 $user_ui_media_nb_last_dirs = dcCore::app()->auth->user_prefs->interface->media_nb_last_dirs;
 $user_ui_nocheckadblocker   = dcCore::app()->auth->user_prefs->interface->nocheckadblocker;
 
-$default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'user-profile';
+dcCore::app()->admin->default_tab = !empty($_GET['tab']) ? html::escapeHTML($_GET['tab']) : 'user-profile';
 
 if (!empty($_GET['append']) || !empty($_GET['removed']) || !empty($_GET['neworder']) || !empty($_GET['replaced']) || !empty($_POST['appendaction']) || !empty($_POST['removeaction']) || !empty($_GET['db-updated']) || !empty($_POST['resetorder'])) {
-    $default_tab = 'user-favorites';
+    dcCore::app()->admin->default_tab = 'user-favorites';
 } elseif (!empty($_GET['updated'])) {
-    $default_tab = 'user-options';
+    dcCore::app()->admin->default_tab = 'user-options';
 }
-if (($default_tab != 'user-profile') && ($default_tab != 'user-options') && ($default_tab != 'user-favorites')) {
-    $default_tab = 'user-profile';
+if ((dcCore::app()->admin->default_tab != 'user-profile') && (dcCore::app()->admin->default_tab != 'user-options') && (dcCore::app()->admin->default_tab != 'user-favorites')) {
+    dcCore::app()->admin->default_tab = 'user-profile';
 }
 
 # Editors combo
@@ -444,7 +444,7 @@ dcPage::open(
     ]) .
     dcPage::jsLoad('js/pwstrength.js') .
     dcPage::jsLoad('js/_preferences.js') .
-    dcPage::jsPageTabs($default_tab) .
+    dcPage::jsPageTabs(dcCore::app()->admin->default_tab) .
     dcPage::jsConfirmClose('user-form', 'opts-forms', 'favs-form', 'db-forms') .
 
     # --BEHAVIOR-- adminPreferencesHeaders
