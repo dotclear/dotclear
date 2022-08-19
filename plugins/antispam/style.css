@@ -23,8 +23,6 @@ ul.spaminfo .feed {
 /* ---------------------------------------------------------- listing of IPs / bad words */
 
 .antispam {
-  height: 200px;
-  overflow: auto;
   margin-bottom: 1em;
 }
 .antispam p {
