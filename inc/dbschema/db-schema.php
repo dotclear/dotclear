@@ -26,7 +26,7 @@ $_s->blog
     ->blog_url('varchar', 255, false)
     ->blog_name('varchar', 255, false)
     ->blog_desc('text', 0, true)
-    ->blog_status('smallint', 0, false, defined(dcBlog::BLOG_ONLINE) ? dcBlog::BLOG_ONLINE : 1) // 2.24+ transition (update)
+    ->blog_status('smallint', 0, false, defined('dcBlog::BLOG_ONLINE') ? dcBlog::BLOG_ONLINE : 1) // 2.24+ transition (update)
 
     ->primary('pk_blog', 'blog_id')
 ;
