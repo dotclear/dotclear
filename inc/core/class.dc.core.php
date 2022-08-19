@@ -36,6 +36,8 @@ final class dcCore
     public $lang;       ///< <b>string</b>
 
     // Admin context
+    public $admin;      // dcAdmin object
+
     public $adminurl;   ///< <b>dcAdminURL</b>          dcAdminURL object
     public $notices;    ///< <b>dcAdminNotices</b>      dcNotices object
     public $favs;       ///< <b>dcFavorites</b>         dcFavorites object
