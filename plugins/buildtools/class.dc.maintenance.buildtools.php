@@ -49,7 +49,6 @@ class l10nFaker
     }
     public function generate_file()
     {
-        global $__widgets;
         global $__autoload;
 
         $main   = "<?php\n";
@@ -78,7 +77,7 @@ class l10nFaker
             $plugin .= $this->fake_l10n($p['desc']);
         }
         $plugin .= "\n# Widget settings names\n\n";
-        $widgets = $__widgets->elements();
+        $widgets = dcCore::app()->widgets->elements();
         foreach ($widgets as $w) {
             $plugin .= $this->fake_l10n($w->desc());
         }

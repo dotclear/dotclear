@@ -14,7 +14,7 @@ if (!defined('DC_RC_PATH')) {
 
 class dcWidgets
 {
-    private $__widgets = [];
+    private $widgets = [];
 
     public static function load($s)
     {
@@ -24,13 +24,13 @@ class dcWidgets
             return $o;
         }
 
-        return self::loadArray($o, $GLOBALS['__widgets']);
+        return self::loadArray($o, dcCore::app()->widgets);
     }
 
     public function store()
     {
         $serialized = [];
-        foreach ($this->__widgets as $pos => $w) {
+        foreach ($this->widgets as $pos => $w) {
             $serialized[] = ($w->serialize($pos));
         }
 
@@ -39,10 +39,10 @@ class dcWidgets
 
     public function create($id, $name, $callback, $append_callback = null, $desc = '')
     {
-        $this->__widgets[$id]                  = new dcWidgetExt($id, $name, $callback, $desc);
-        $this->__widgets[$id]->append_callback = $append_callback;
+        $this->widgets[$id]                  = new dcWidgetExt($id, $name, $callback, $desc);
+        $this->widgets[$id]->append_callback = $append_callback;
 
-        return $this->__widgets[$id];
+        return $this->widgets[$id];
     }
 
     public function append($widget)
@@ -51,19 +51,19 @@ class dcWidgets
             if (is_callable($widget->append_callback)) {
                 call_user_func($widget->append_callback, $widget);
             }
-            $this->__widgets[] = $widget;
+            $this->widgets[] = $widget;
         }
     }
 
     public function isEmpty()
     {
-        return count($this->__widgets) == 0;
+        return count($this->widgets) == 0;
     }
 
     public function elements($sorted = false)
     {
         if ($sorted) {
-            uasort($this->__widgets, function ($a, $b) {
+            uasort($this->widgets, function ($a, $b) {
                 $c = dcUtils::removeDiacritics(mb_strtolower($a->name()));
                 $d = dcUtils::removeDiacritics(mb_strtolower($b->name()));
                 if ($c == $d) {
@@ -74,23 +74,23 @@ class dcWidgets
             });
         }
 
-        return $this->__widgets;
+        return $this->widgets;
     }
 
     public function __get($id)
     {
-        if (!isset($this->__widgets[$id])) {
+        if (!isset($this->widgets[$id])) {
             return;
         }
 
-        return $this->__widgets[$id];
+        return $this->widgets[$id];
     }
 
     public function __wakeup()
     {
-        foreach ($this->__widgets as $i => $w) {
+        foreach ($this->widgets as $i => $w) {
             if (!($w instanceof dcWidget)) {
-                unset($this->__widgets[$i]);
+                unset($this->widgets[$i]);
             }
         }
     }

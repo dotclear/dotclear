@@ -124,7 +124,7 @@ class publicWidgets
 
     public static function tplWidget($attr, $content)
     {
-        if (!isset($attr['id']) || !($GLOBALS['__widgets']->{$attr['id']} instanceof dcWidget)) {
+        if (!isset($attr['id']) || !(dcCore::app()->widgets->{$attr['id']} instanceof dcWidget)) {
             return;
         }
 
@@ -140,9 +140,7 @@ class publicWidgets
 
     public static function widgetHandler($id, $xml)
     {
-        $widgets = &$GLOBALS['__widgets'];
-
-        if (!($widgets->{$id} instanceof dcWidget)) {
+        if (!(dcCore::app()->widgets->{$id} instanceof dcWidget)) {
             return;
         }
 
@@ -154,7 +152,7 @@ class publicWidgets
             return;
         }
 
-        $w = clone $widgets->{$id};
+        $w = clone dcCore::app()->widgets->{$id};
 
         foreach ($xml->setting as $e) {
             if (empty($e['name'])) {

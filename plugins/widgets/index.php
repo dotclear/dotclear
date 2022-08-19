@@ -49,7 +49,7 @@ if (!empty($_POST['append']) && is_array($_POST['addw'])) {
     # Filter selection
     $addw = [];
     foreach ($_POST['addw'] as $k => $v) {
-        if (($v == 'extra' || $v == 'nav' || $v == 'custom') && $__widgets->{$k} !== null) {
+        if (($v == 'extra' || $v == 'nav' || $v == 'custom') && dcCore::app()->widgets->{$k} !== null) {
             $addw[$k] = $v;
         }
     }
@@ -77,15 +77,15 @@ if (!empty($_POST['append']) && is_array($_POST['addw'])) {
             if (!$wid || $wid == $k) {
                 switch ($v) {
                     case 'nav':
-                        $widgets_nav->append($__widgets->{$k});
+                        $widgets_nav->append(dcCore::app()->widgets->{$k});
 
                         break;
                     case 'extra':
-                        $widgets_extra->append($__widgets->{$k});
+                        $widgets_extra->append(dcCore::app()->widgets->{$k});
 
                         break;
                     case 'custom':
-                        $widgets_custom->append($__widgets->{$k});
+                        $widgets_custom->append(dcCore::app()->widgets->{$k});
 
                         break;
                 }
@@ -174,9 +174,9 @@ if (!empty($_POST['wup']) || $removing || $move) {
             $_POST['w']['custom'] = [];
         }
 
-        $widgets_nav    = dcWidgets::loadArray($_POST['w']['nav'], $__widgets);
-        $widgets_extra  = dcWidgets::loadArray($_POST['w']['extra'], $__widgets);
-        $widgets_custom = dcWidgets::loadArray($_POST['w']['custom'], $__widgets);
+        $widgets_nav    = dcWidgets::loadArray($_POST['w']['nav'], dcCore::app()->widgets);
+        $widgets_extra  = dcWidgets::loadArray($_POST['w']['extra'], dcCore::app()->widgets);
+        $widgets_custom = dcWidgets::loadArray($_POST['w']['custom'], dcCore::app()->widgets);
 
         dcCore::app()->blog->settings->addNamespace('widgets');
         dcCore::app()->blog->settings->widgets->put('widgets_nav', $widgets_nav->store());
@@ -258,7 +258,7 @@ echo
     '<ul id="widgets-ref">';
 
 $j = 0;
-foreach ($__widgets->elements(true) as $w) {
+foreach (dcCore::app()->widgets->elements(true) as $w) {
     echo
     '<li>' . form::hidden(['w[void][0][id]'], html::escapeHTML($w->id())) .
     '<p class="widget-name">' . form::number(['w[void][0][order]'], [
@@ -286,19 +286,19 @@ echo '<form id="sidebarsWidgets" action="' . $p_url . '" method="post">';
 # Nav sidebar
 echo
 '<div id="sidebarNav" class="widgets fieldset">' .
-sidebarWidgets('dndnav', __('Navigation sidebar'), $widgets_nav, 'nav', $__default_widgets['nav'], $j);
+sidebarWidgets('dndnav', __('Navigation sidebar'), $widgets_nav, 'nav', dcCore::app()->default_widgets['nav'], $j);
 echo '</div>';
 
 # Extra sidebar
 echo
 '<div id="sidebarExtra" class="widgets fieldset">' .
-sidebarWidgets('dndextra', __('Extra sidebar'), $widgets_extra, 'extra', $__default_widgets['extra'], $j);
+sidebarWidgets('dndextra', __('Extra sidebar'), $widgets_extra, 'extra', dcCore::app()->default_widgets['extra'], $j);
 echo '</div>';
 
 # Custom sidebar
 echo
 '<div id="sidebarCustom" class="widgets fieldset">' .
-sidebarWidgets('dndcustom', __('Custom sidebar'), $widgets_custom, 'custom', $__default_widgets['custom'], $j);
+sidebarWidgets('dndcustom', __('Custom sidebar'), $widgets_custom, 'custom', dcCore::app()->default_widgets['custom'], $j);
 echo '</div>';
 
 echo
@@ -312,7 +312,7 @@ dcCore::app()->formNonce() .
 
 $widget_elements          = new stdClass();
 $widget_elements->content = '<dl>';
-foreach ($__widgets->elements() as $w) {
+foreach (dcCore::app()->widgets->elements() as $w) {
     $widget_elements->content .= '<dt><strong>' . html::escapeHTML($w->name()) . '</strong> (' .
     __('Widget ID:') . ' <strong>' . html::escapeHTML($w->id()) . '</strong>)' .
         ($w->desc() != '' ? ' <span class="form-note">' . __($w->desc()) . '</span>' : '') . '</dt>' .
