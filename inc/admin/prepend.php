@@ -18,39 +18,7 @@ header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-ch
 // HTTP/1.0
 header('Pragma: no-cache');
 
-if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID')) {
-    # We have session information in constants
-    $_COOKIE[DC_SESSION_NAME] = DC_AUTH_SESS_ID;
-
-    if (!dcCore::app()->auth->checkSession(DC_AUTH_SESS_UID)) {
-        throw new Exception('Invalid session data.');
-    }
-
-    # Check nonce from POST requests
-    if (!empty($_POST)) {
-        if (empty($_POST['xd_check']) || !dcCore::app()->checkNonce($_POST['xd_check'])) {
-            throw new Exception('Precondition Failed.');
-        }
-    }
-
-    if (empty($_SESSION['sess_blog_id'])) {
-        throw new Exception('Permission denied.');
-    }
-
-    # Loading locales
-    dcAdminHelper::loadLocales(dcCore::app()->lang);
-    /**
-     * @var        string
-     *
-     * @deprecated Since 2.23, use dcCore::app()->lang instead
-     */
-    $_lang = &dcCore::app()->lang;
-
-    dcCore::app()->setBlog($_SESSION['sess_blog_id']);
-    if (!dcCore::app()->blog->id) {
-        throw new Exception('Permission denied.');
-    }
-} elseif (dcCore::app()->auth->sessionExists()) {
+if (dcCore::app()->auth->sessionExists()) {
     # If we have a session we launch it now
     try {
         if (!dcCore::app()->auth->checkSession()) {
@@ -109,7 +77,6 @@ if (defined('DC_AUTH_SESS_ID') && defined('DC_AUTH_SESS_UID')) {
 
     # Loading locales
     dcAdminHelper::loadLocales(dcCore::app()->lang);
-
     /**
      * @var        string
      *
