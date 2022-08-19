@@ -10,8 +10,6 @@ require __DIR__ . '/../inc/admin/prepend.php';
 
 dcPage::checkSuper();
 
-global $redir;
-
 $users = [];
 if (!empty($_POST['users']) && is_array($_POST['users'])) {
     foreach ($_POST['users'] as $u) {
