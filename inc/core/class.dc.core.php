@@ -274,7 +274,6 @@ final class dcCore
 
     /// @name Admin nonce secret methods
     //@{
-
     /**
      * Gets the nonce.
      *
@@ -335,17 +334,6 @@ final class dcCore
         }
     }
 
-    /// @name Text Formatters methods
-    //@{
-    /**
-    Adds a new text formater which will call the function <var>$func</var> to
-    transform text. The function must be a valid callback and takes one
-    argument: the string to transform. It returns the transformed string.
-
-    @param    name        <b>string</b>        Formater name
-    @param    func        <b>callback</b>    Function to use, must be a valid and callable callback
-     */
-
     /**
      * Adds a new dcLegacyEditor text formater which will call the function
      * <var>$func</var> to transform text. The function must be a valid callback
@@ -375,14 +363,6 @@ final class dcCore
         return $editors;
     }
 
-    /**
-    Returns formaters list by editor
-
-    @param    editor_id    <b>string</b>    Editor id
-    @return    <b>array</b> An array of formaters names in values.
-
-    /**
-     */
     /**
      * Gets the formaters.
      *
@@ -439,7 +419,6 @@ final class dcCore
 
         return $str;
     }
-    //@}
 
     /**
      * If <var>$name</var> is a valid dcLegacyEditor formater, it returns
@@ -678,7 +657,6 @@ final class dcCore
             unset($this->versions[$module]);
         }
     }
-
     //@}
 
     /// @name Users management methods
@@ -1482,7 +1460,6 @@ final class dcCore
 
     /// @name wiki2xhtml methods
     //@{
-
     /**
      * Initializes the wiki2xhtml methods.
      */
