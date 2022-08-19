@@ -86,14 +86,6 @@ parameters:
     - message: '#Variable \$p_url might not be defined#'
       path: plugins/*/*.php
 
-    # $__widgets variable not may be defined (plugins)
-    - message: '#Variable \$__widgets might not be defined#'
-      path: plugins/*/*.php
-
-    # $__default_widgets variable may not be defined (plugins)
-    - message: '#Variable \$__default_widgets might not be defined#'
-      path: plugins/*/*.php
-
     # Property flatImport:: (plugins)
     - message: '#Property flatImport::#'
       path: plugins/importExport/*/*.php
@@ -178,8 +170,16 @@ parameters:
     - message: '#ArrayObject\<\*NEVER\*, \*NEVER\*\> does not accept#'
       path: %currentWorkingDirectory%
 
-    # Temporary until 2.24, $core global (or parameter) will be then removed
-    # ----------------------------------------------------------------------
+    # dcAdmin::$widgets user-defined properties
+    - message: '#Access to an undefined property dcCore::\$widgets.#'
+      path: %currentWorkingDirectory%
+
+    # dcAdmin::$default_widgets user-defined properties
+    - message: '#Access to an undefined property dcCore::\$default_widgets.#'
+      path: %currentWorkingDirectory%
+
+    # Temporary until 2.24 (or later)
+    # -------------------------------
 
     # $core as class constructor parameter
     - message: '#Constructor of class [a-zA-Z0-9\\_]+ has an unused parameter \$core.#'

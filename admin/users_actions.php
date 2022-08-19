@@ -31,6 +31,7 @@ if (!empty($_POST['blogs']) && is_array($_POST['blogs'])) {
 /* Actions
 -------------------------------------------------------- */
 $action = null;
+$redir  = null;
 if (!empty($_POST['action']) && !empty($_POST['users'])) {
     $action = $_POST['action'];
 
