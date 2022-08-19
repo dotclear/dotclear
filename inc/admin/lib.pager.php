@@ -685,22 +685,13 @@ class adminCommentList extends adminGenericList
      */
     private function commentLine($checked = false, $spam = false, $filters = [])
     {
-        global $author, $status, $sortby, $order, $nb;
-
         $author_url = dcCore::app()->adminurl->get('admin.comments', [
-            'nb'     => $nb,
-            'status' => $status,
-            'sortby' => $sortby,
-            'order'  => $order,
             'author' => $this->rs->comment_author,
         ]);
 
         $post_url = dcCore::app()->getPostAdminURL($this->rs->post_type, $this->rs->post_id);
 
         $comment_url = dcCore::app()->adminurl->get('admin.comment', ['id' => $this->rs->comment_id]);
-
-        $comment_dt = dt::dt2str(dcCore::app()->blog->settings->system->date_format . ' - ' .
-            dcCore::app()->blog->settings->system->time_format, $this->rs->comment_dt);
 
         $img        = '<img alt="%1$s" title="%1$s" src="images/%2$s" />';
         $img_status = '';
