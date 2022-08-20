@@ -52,7 +52,7 @@ class dcMedia extends filemanager
         'sq' => [48, 'crop', 'square'],
     ];
 
-    public $icon_img = 'images/media/%s.png'; ///< <b>string</b> Icon file pattern
+    public $icon_img = 'images/media/%s.svg'; ///< <b>string</b> Icon file pattern
 
     /**
      * Constructs a new instance.
