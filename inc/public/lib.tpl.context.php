@@ -297,8 +297,8 @@ class context
 
     public static function PaginationPosition($offset = 0)
     {
-        if (isset($GLOBALS['_page_number'])) {
-            $p = (int) $GLOBALS['_page_number'];
+        if (dcCore::app()->public->getPageNumber() !== 0) {
+            $p = dcCore::app()->public->getPageNumber();
         } else {
             $p = 1;
         }
@@ -319,7 +319,7 @@ class context
 
     public static function PaginationStart()
     {
-        if (isset($GLOBALS['_page_number'])) {
+        if (dcCore::app()->public->getPageNumber() !== 0) {
             return self::PaginationPosition() == 1;
         }
 
@@ -328,7 +328,7 @@ class context
 
     public static function PaginationEnd()
     {
-        if (isset($GLOBALS['_page_number'])) {
+        if (dcCore::app()->public->getPageNumber() !== 0) {
             return self::PaginationPosition() == self::PaginationNbPages();
         }
 

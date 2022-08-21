@@ -42,7 +42,7 @@ class tplBreadcrumb
         }
 
         // Get current page if set
-        $page = isset($GLOBALS['_page_number']) ? (int) $GLOBALS['_page_number'] : 0;
+        $page = dcCore::app()->public->getPageNumber();
 
         switch (dcCore::app()->url->type) {
 

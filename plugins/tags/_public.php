@@ -342,7 +342,7 @@ class urlTags extends dcUrlHandlers
             }
         } else {
             if ($n) {
-                $GLOBALS['_page_number'] = $n;
+                dcCore::app()->public->setPageNumber($n);
             }
 
             dcCore::app()->ctx->meta = dcCore::app()->meta->computeMetaStats(

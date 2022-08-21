@@ -46,6 +46,8 @@ final class dcCore
     public $resources = [];  // Array of resources
 
     // Public context
+    public $public;     // dcPublic object
+
     public $tpl;        ///< <b>dcTemplate</b>          dcTemplate object
     public $ctx;        ///< <b>context</b>             context object
 

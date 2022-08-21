@@ -98,6 +98,7 @@ $__autoload['dcAdminBlogPref']       = __DIR__ . '/admin/class.dc.blog_pref.php'
 $__autoload['adminUserPref']         = __DIR__ . '/admin/lib.adminuserpref.php';
 $__autoload['dcAdminHelper']         = __DIR__ . '/admin/lib.helper.php';
 
+$__autoload['dcPublic']      = __DIR__ . '/public/class.dc.public.php';
 $__autoload['dcTemplate']    = __DIR__ . '/public/class.dc.template.php';
 $__autoload['context']       = __DIR__ . '/public/lib.tpl.context.php';
 $__autoload['dcUrlHandlers'] = __DIR__ . '/public/lib.urlhandlers.php';

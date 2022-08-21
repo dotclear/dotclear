@@ -205,7 +205,7 @@ class dcUrlHandlers extends urlHandler
     public static function home($args)
     {
         // Page number may have been set by self::lang() which ends with a call to self::home(null)
-        $n = $args ? self::getPageNumber($args) : ($GLOBALS['_page_number'] ?? 0);
+        $n = $args ? self::getPageNumber($args) : dcCore::app()->public->getPageNumber();
 
         if ($args && !$n) {
             # Then specified URL went unrecognized by all URL handlers and
@@ -214,7 +214,7 @@ class dcUrlHandlers extends urlHandler
         } else {
             dcCore::app()->url->type = 'default';
             if ($n) {
-                $GLOBALS['_page_number'] = $n;
+                dcCore::app()->public->setPageNumber($n);
                 if ($n > 1) {
                     dcCore::app()->url->type = 'default-page';
                 }
@@ -279,7 +279,7 @@ class dcUrlHandlers extends urlHandler
             self::p404();
         } else {
             if ($n) {
-                $GLOBALS['_page_number'] = $n;
+                dcCore::app()->public->setPageNumber($n);
             }
             dcCore::app()->ctx->cur_lang = $args;
             self::home(null);
@@ -308,7 +308,7 @@ class dcUrlHandlers extends urlHandler
                 self::p404();
             } else {
                 if ($n) {
-                    $GLOBALS['_page_number'] = $n;
+                    dcCore::app()->public->setPageNumber($n);
                 }
                 self::serveDocument('category.html');
             }
