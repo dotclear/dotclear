@@ -232,7 +232,8 @@ class dcMedia extends filemanager
             $f->media_dt    = strtotime($rs->media_dt);
             $f->media_dtstr = dt::str('%Y-%m-%d %H:%M', $f->media_dt);
 
-            $f->media_image = false;
+            $f->media_image   = false;
+            $f->media_preview = false;
 
             if (!dcCore::app()->auth->check('media_admin', dcCore::app()->blog->id)
                 && dcCore::app()->auth->userID() != $f->media_user) {
@@ -368,6 +369,7 @@ class dcMedia extends filemanager
             }
 
             if ($f->media_type === 'image') {
+                $f->media_preview = true;
                 if (isset($f->media_thumb['sq'])) {
                     $f->media_icon = $f->media_thumb['sq'];
                 } elseif (strtolower($p['extension']) === 'svg') {

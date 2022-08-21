@@ -248,11 +248,11 @@ if (!empty($_POST['remove_folder_prefs'])) {
 
 # Function to get image title based on meta
 $get_img_title = function ($file, $pattern, $dto_first = false, $no_date_alone = false) {
-    $res     = [];
-    $pattern = preg_split('/\s*;;\s*/', $pattern);
-    $sep     = ', ';
-    $dates   = 0;
-    $items   = 0;
+    $res       = [];
+    $pattern   = preg_split('/\s*;;\s*/', $pattern);
+    $sep       = ', ';
+    $dates     = 0;
+    $items     = 0;
 
     foreach ($pattern as $v) {
         if ($v == 'Title') {
@@ -301,7 +301,7 @@ $get_img_desc = function ($file, $default = '') {
     return (string) $default;
 };
 
-$get_img_def = function ($file) {
+$get_img_def  = function ($file) {
     $defaults = [
         'size'      => dcCore::app()->blog->settings->system->media_img_default_size ?: 'm',
         'alignment' => dcCore::app()->blog->settings->system->media_img_default_alignment ?: 'none',
@@ -526,9 +526,9 @@ if ($popup && ($select === 0)) {
         '<div class="two-boxes">' .
         '<h3>' . __('Image alignment') . '</h3>';
         $i_align = [
-            'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
-            'left'   => [__('Left'), ($defaults['alignment'] == 'left' ? 1 : 0)],
-            'right'  => [__('Right'), ($defaults['alignment'] == 'right' ? 1 : 0)],
+            'none'   => [__('None'), ($defaults['alignment']   == 'none' ? 1 : 0)],
+            'left'   => [__('Left'), ($defaults['alignment']   == 'left' ? 1 : 0)],
+            'right'  => [__('Right'), ($defaults['alignment']  == 'right' ? 1 : 0)],
             'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)],
         ];
 
@@ -559,9 +559,9 @@ if ($popup && ($select === 0)) {
         dcPage::message(__('Please note that you cannot insert mp3 files with visual editor.'), false);
 
         $i_align = [
-            'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
-            'left'   => [__('Left'), ($defaults['alignment'] == 'left' ? 1 : 0)],
-            'right'  => [__('Right'), ($defaults['alignment'] == 'right' ? 1 : 0)],
+            'none'   => [__('None'), ($defaults['alignment']   == 'none' ? 1 : 0)],
+            'left'   => [__('Left'), ($defaults['alignment']   == 'left' ? 1 : 0)],
+            'right'  => [__('Right'), ($defaults['alignment']  == 'right' ? 1 : 0)],
             'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)],
         ];
 
@@ -599,9 +599,9 @@ if ($popup && ($select === 0)) {
         '<h3>' . __('Video disposition') . '</h3>';
 
         $i_align = [
-            'none'   => [__('None'), ($defaults['alignment'] == 'none' ? 1 : 0)],
-            'left'   => [__('Left'), ($defaults['alignment'] == 'left' ? 1 : 0)],
-            'right'  => [__('Right'), ($defaults['alignment'] == 'right' ? 1 : 0)],
+            'none'   => [__('None'), ($defaults['alignment']   == 'none' ? 1 : 0)],
+            'left'   => [__('Left'), ($defaults['alignment']   == 'left' ? 1 : 0)],
+            'right'  => [__('Right'), ($defaults['alignment']  == 'right' ? 1 : 0)],
             'center' => [__('Center'), ($defaults['alignment'] == 'center' ? 1 : 0)],
         ];
 
@@ -676,7 +676,7 @@ if ($popup && ($select === 0) || ($select === 1)) {
     echo '<h3 class="out-of-screen-if-js">' . __('Media details') . '</h3>';
 }
 echo
-'<p id="media-icon"><img class="media-icon-square" src="' . $file->media_icon . '?' . time() * rand() . '" alt="" /></p>';
+'<p id="media-icon"><img class="media-icon-square' . ($file->media_preview ? ' media-icon-preview' : '') . '" src="' . $file->media_icon . '?' . time() * rand() . '" alt="" /></p>';
 
 echo
     '<div id="media-details">' .
