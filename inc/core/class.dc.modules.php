@@ -123,11 +123,11 @@ class dcModules
     /**
      * Disables the dep modules.
      *
-     * @param  string $redir_url URL to redirect if modules are to disable
+     * @param  string $redirect_url URL to redirect if modules are to disable
      *
      * @return bool  true if a redirection has been performed
      */
-    public function disableDepModules($redir_url)
+    public function disableDepModules($redirect_url)
     {
         if (isset($_GET['dep'])) {
             // Avoid infinite redirects
@@ -148,7 +148,7 @@ class dcModules
                 join('', $reason)
             );
             dcPage::addWarningNotice($message, ['divtag' => true, 'with_ts' => false]);
-            $url = $redir_url . (strpos($redir_url, '?') ? '&' : '?') . 'dep=1';
+            $url = $redirect_url . (strpos($redirect_url, '?') ? '&' : '?') . 'dep=1';
             http::redirect($url);
 
             return true;
