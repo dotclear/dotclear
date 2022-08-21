@@ -18,6 +18,9 @@ class dcPublic
     public $search;         // Searched term
     public $search_count;   // Search count
 
+    public $theme;          // Current theme
+    public $parent_theme;   // Current theme's parent
+
     protected $page_number; // Current page number
 
     // User-defined - experimental (may be changed in near future)

@@ -386,10 +386,10 @@ class context
     public static function getSmilies($blog)
     {
         $path = [];
-        if (isset($GLOBALS['__theme'])) {
-            $path[] = $GLOBALS['__theme'];
-            if (isset($GLOBALS['__parent_theme'])) {
-                $path[] = $GLOBALS['__parent_theme'];
+        if (isset(dcCore::app()->public->theme)) {
+            $path[] = dcCore::app()->public->theme;
+            if (isset(dcCore::app()->public->parent_theme)) {
+                $path[] = dcCore::app()->public->parent_theme;
             }
         }
         $path[]     = 'default';    // Also use smilies from this old default theme (Blowup). May be deleted in a near future
