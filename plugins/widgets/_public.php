@@ -112,11 +112,10 @@ class publicWidgets
 
     private static function defaultWidgets($type)
     {
-        $widgets = new dcWidgets();
-        $w       = new dcWidgets();
+        $w = new dcWidgets();
 
-        if (isset($GLOBALS['__default_widgets'][$type])) {
-            $w = $GLOBALS['__default_widgets'][$type];
+        if (isset(dcCore::app()->default_widgets[$type])) {
+            $w = dcCore::app()->default_widgets[$type];
         }
 
         return $w;
