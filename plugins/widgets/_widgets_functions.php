@@ -28,7 +28,7 @@ class defaultWidgets
             return;
         }
 
-        $value = isset($GLOBALS['_search']) ? html::escapeHTML($GLOBALS['_search']) : '';
+        $value = isset(dcCore::app()->public->search) ? html::escapeHTML(dcCore::app()->public->search) : '';
 
         return $w->renderDiv(
             $w->content_only,

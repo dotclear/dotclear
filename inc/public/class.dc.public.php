@@ -15,10 +15,10 @@ if (!defined('DC_RC_PATH')) {
  */
 class dcPublic
 {
-    /**
-     * int Page number
-     */
-    protected $page_number;
+    public $search;         // Searched term
+    public $search_count;   // Search count
+
+    protected $page_number; // Current page number
 
     // User-defined - experimental (may be changed in near future)
     protected $properties = [];

@@ -253,11 +253,11 @@ class dcUrlHandlers extends urlHandler
         } else {
             dcCore::app()->url->type = 'search';
 
-            $GLOBALS['_search'] = !empty($_GET['q']) ? html::escapeHTML(rawurldecode($_GET['q'])) : '';
-            if ($GLOBALS['_search']) {
-                $params = new ArrayObject(['search' => $GLOBALS['_search']]);
+            dcCore::app()->public->search = !empty($_GET['q']) ? html::escapeHTML(rawurldecode($_GET['q'])) : '';
+            if (dcCore::app()->public->search) {
+                $params = new ArrayObject(['search' => dcCore::app()->public->search]);
                 dcCore::app()->callBehavior('publicBeforeSearchCount', $params);
-                $GLOBALS['_search_count'] = dcCore::app()->blog->getPosts($params, true)->f(0);
+                dcCore::app()->public->search_count = dcCore::app()->blog->getPosts($params, true)->f(0);
             }
 
             self::serveDocument('search.html');

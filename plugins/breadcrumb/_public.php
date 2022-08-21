@@ -169,9 +169,9 @@ class tplBreadcrumb
                 // Search
                 $ret = '<a id="bc-home" href="' . dcCore::app()->blog->url . '">' . __('Home') . '</a>';
                 if ($page == 0) {
-                    $ret .= $separator . __('Search:') . ' ' . $GLOBALS['_search'];
+                    $ret .= $separator . __('Search:') . ' ' . dcCore::app()->public->search;
                 } else {
-                    $ret .= $separator . '<a href="' . dcCore::app()->blog->url . '?q=' . rawurlencode($GLOBALS['_search']) . '">' . __('Search:') . ' ' . $GLOBALS['_search'] . '</a>';
+                    $ret .= $separator . '<a href="' . dcCore::app()->blog->url . '?q=' . rawurlencode(dcCore::app()->public->search) . '">' . __('Search:') . ' ' . dcCore::app()->public->search . '</a>';
                     $ret .= $separator . sprintf(__('page %d'), $page);
                 }
 

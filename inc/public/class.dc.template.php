@@ -1349,8 +1349,8 @@ class dcTemplate extends template
                 "\$params['post_lang'] = dcCore::app()->ctx->langs->post_lang; " .
                 "}\n";
 
-            $p .= 'if (isset($_search)) { ' .
-                "\$params['search'] = \$_search; " .
+            $p .= 'if (isset(dcCore::app()->public->search)) { ' .
+                "\$params['search'] = dcCore::app()->public->search; " .
                 "}\n";
         }
 
@@ -3254,7 +3254,7 @@ class dcTemplate extends template
         }
 
         if (isset($attr['search_count']) && preg_match('/^((=|!|&gt;|&lt;)=|(&gt;|&lt;))\s*[0-9]+$/', trim((string) $attr['search_count']))) {
-            $if[] = '(isset($_search_count) && $_search_count ' . html::decodeEntities($attr['search_count']) . ')';
+            $if[] = '(isset(dcCore::app()->public->search_count) && dcCore::app()->public->search_count ' . html::decodeEntities($attr['search_count']) . ')';
         }
 
         if (isset($attr['jquery_needed'])) {
@@ -3335,7 +3335,7 @@ class dcTemplate extends template
 
         $f = $this->getFilters($attr);
 
-        return '<?php if (isset($_search)) { echo sprintf(__(\'' . $s . '\'),' . sprintf($f, '$_search') . ',$_search_count);} ?>';
+        return '<?php if (isset(dcCore::app()->public->search)) { echo sprintf(__(\'' . $s . '\'),' . sprintf($f, 'dcCore::app()->public->search') . ',dcCore::app()->public->search_count);} ?>';
     }
 
     public function SysSelfURI($attr)
