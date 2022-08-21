@@ -222,7 +222,7 @@ if (!empty($_POST) && !empty($_POST['save']) && $can_edit_page && !$bad_dt) {
     $cur = dcCore::app()->con->openCursor(dcCore::app()->prefix . 'post');
 
     # Magic tweak :)
-    dcCore::app()->blog->settings->system->post_url_format = $GLOBALS['page_url_format'];
+    dcCore::app()->blog->settings->system->post_url_format = '{t}';
 
     $cur->post_type          = 'page';
     $cur->post_dt            = $post_dt ? date('Y-m-d H:i:00', strtotime($post_dt)) : '';
