@@ -15,7 +15,10 @@ if (!defined('DC_RC_PATH')) {
  */
 class dcPublic
 {
-    public $page_number;
+    /**
+     * int Page number
+     */
+    protected $page_number;
 
     // User-defined - experimental (may be changed in near future)
     protected $properties = [];
@@ -89,7 +92,7 @@ class dcPublic
         $this->page_number = $value;
 
         // Obsolete since 2.24, may be removed in near future
-        $GLOBALS[$_page_number] = $value;
+        $GLOBALS['_page_number'] = $value;
     }
 
     /**
