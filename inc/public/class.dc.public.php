@@ -21,6 +21,8 @@ class dcPublic
     public $theme;          // Current theme
     public $parent_theme;   // Current theme's parent
 
+    public $smilies;        // Smilies array
+
     protected $page_number; // Current page number
 
     // User-defined - experimental (may be changed in near future)

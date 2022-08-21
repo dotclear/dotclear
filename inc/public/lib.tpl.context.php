@@ -427,7 +427,7 @@ class context
 
     public static function addSmilies($str)
     {
-        if (!isset($GLOBALS['__smilies']) || !is_array($GLOBALS['__smilies'])) {
+        if (!isset(dcCore::app()->public->smilies) || !is_array(dcCore::app()->public->smilies)) {
             return $str;
         }
 
@@ -447,7 +447,7 @@ class context
             } else {
                 $t = $cur_token[1];
                 if (!$in_pre) {
-                    $t = preg_replace(array_keys($GLOBALS['__smilies']), array_values($GLOBALS['__smilies']), $t);
+                    $t = preg_replace(array_keys(dcCore::app()->public->smilies), array_values(dcCore::app()->public->smilies), $t);
                 }
                 $result .= $t;
             }

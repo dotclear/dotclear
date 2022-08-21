@@ -61,8 +61,8 @@ class rsExtPostPublic extends rsExtPost
 
     protected static function smilies($c, $blog)
     {
-        if (!isset($GLOBALS['__smilies'])) {
-            $GLOBALS['__smilies'] = context::getSmilies($blog);
+        if (!isset(dcCore::app()->public->smilies)) {
+            dcCore::app()->public->smilies = context::getSmilies($blog);
         }
 
         return context::addSmilies($c);
@@ -76,8 +76,8 @@ class rsExtCommentPublic extends rsExtComment
         if (dcCore::app()->blog->settings->system->use_smilies) {
             $c = parent::getContent($rs, $absolute_urls);
 
-            if (!isset($GLOBALS['__smilies'])) {
-                $GLOBALS['__smilies'] = context::getSmilies(dcCore::app()->blog);
+            if (!isset(dcCore::app()->public->smilies)) {
+                dcCore::app()->public->smilies = context::getSmilies(dcCore::app()->blog);
             }
 
             return context::addSmilies($c);
