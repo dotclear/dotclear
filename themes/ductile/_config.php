@@ -101,12 +101,7 @@ $font_families = [
     'Monospace' => 'Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace',
 ];
 
-function fontDef($c)
-{
-    global $font_families;
-
-    return isset($font_families[$c]) ? '<span style="position:absolute;top:0;left:32em;">' . $font_families[$c] . '</span>' : '';
-}
+$fontDef = fn ($c) => isset($font_families[$c]) ? '<span style="position:absolute;top:0;left:32em;">' . $font_families[$c] . '</span>' : '';
 
 $ductile_base = [
     // HTML
@@ -432,7 +427,7 @@ echo
 '<h5>' . __('Main text') . '</h5>' .
 '<p class="field"><label for="body_font">' . __('Main font:') . '</label> ' .
 form::combo('body_font', $fonts, $ductile_user['body_font']) .
-(!empty($ductile_user['body_font']) ? ' ' . fontDef($ductile_user['body_font']) : '') .
+(!empty($ductile_user['body_font']) ? ' ' . $fontDef($ductile_user['body_font']) : '') .
 ' <span class="form-note">' . __('Set to Default to use a webfont.') . '</span>' .
 '</p>' .
 '<p class="field"><label for="body_webfont_family">' . __('Webfont family:') . '</label> ' .
@@ -447,7 +442,7 @@ echo
 '<h5>' . __('Secondary text') . '</h5>' .
 '<p class="field"><label for="alternate_font">' . __('Secondary font:') . '</label> ' .
 form::combo('alternate_font', $fonts, $ductile_user['alternate_font']) .
-(!empty($ductile_user['alternate_font']) ? ' ' . fontDef($ductile_user['alternate_font']) : '') .
+(!empty($ductile_user['alternate_font']) ? ' ' . $fontDef($ductile_user['alternate_font']) : '') .
 ' <span class="form-note">' . __('Set to Default to use a webfont.') . '</span>' .
 '</p>' .
 '<p class="field"><label for="alternate_webfont_family">' . __('Webfont family:') . '</label> ' .
