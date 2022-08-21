@@ -266,6 +266,7 @@ class dcMedia extends filemanager
             }
             switch ($f->type) {
                 case 'application/msword':
+                case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
                 case 'application/vnd.oasis.opendocument.text':
                 case 'application/vnd.sun.xml.writer':
                 case 'application/pdf':
@@ -274,12 +275,14 @@ class dcMedia extends filemanager
 
                     break;
                 case 'application/msexcel':
+                case 'vnd.openxmlformats-officedocument.spreadsheetml.sheet':
                 case 'application/vnd.oasis.opendocument.spreadsheet':
                 case 'application/vnd.sun.xml.calc':
                     $f->media_icon = 'spreadsheet';
 
                     break;
                 case 'application/mspowerpoint':
+                case 'application/vnd.openxmlformats-officedocument.presentationml.presentation':
                 case 'application/vnd.oasis.opendocument.presentation':
                 case 'application/vnd.sun.xml.impress':
                     $f->media_icon = 'presentation';
@@ -287,6 +290,7 @@ class dcMedia extends filemanager
                     break;
                 case 'application/x-debian-package':
                 case 'application/x-bzip':
+                case 'application/x-bzip2':
                 case 'application/x-gzip':
                 case 'application/x-java-archive':
                 case 'application/rar':
